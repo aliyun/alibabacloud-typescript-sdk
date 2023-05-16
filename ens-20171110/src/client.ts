@@ -1673,6 +1673,100 @@ export class CreateEnsRouteEntryResponse extends $tea.Model {
   }
 }
 
+export class CreateEnsSaleControlRequest extends $tea.Model {
+  aliUidAccount?: string;
+  commodityCode?: string;
+  saleControls?: CreateEnsSaleControlRequestSaleControls[];
+  static names(): { [key: string]: string } {
+    return {
+      aliUidAccount: 'AliUidAccount',
+      commodityCode: 'CommodityCode',
+      saleControls: 'SaleControls',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      aliUidAccount: 'string',
+      commodityCode: 'string',
+      saleControls: { 'type': 'array', 'itemType': CreateEnsSaleControlRequestSaleControls },
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class CreateEnsSaleControlShrinkRequest extends $tea.Model {
+  aliUidAccount?: string;
+  commodityCode?: string;
+  saleControlsShrink?: string;
+  static names(): { [key: string]: string } {
+    return {
+      aliUidAccount: 'AliUidAccount',
+      commodityCode: 'CommodityCode',
+      saleControlsShrink: 'SaleControls',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      aliUidAccount: 'string',
+      commodityCode: 'string',
+      saleControlsShrink: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class CreateEnsSaleControlResponseBody extends $tea.Model {
+  requestId?: string;
+  static names(): { [key: string]: string } {
+    return {
+      requestId: 'RequestId',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      requestId: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class CreateEnsSaleControlResponse extends $tea.Model {
+  headers: { [key: string]: string };
+  statusCode: number;
+  body: CreateEnsSaleControlResponseBody;
+  static names(): { [key: string]: string } {
+    return {
+      headers: 'headers',
+      statusCode: 'statusCode',
+      body: 'body',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
+      body: CreateEnsSaleControlResponseBody,
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
 export class CreateEnsServiceRequest extends $tea.Model {
   ensServiceId?: string;
   orderType?: string;
@@ -3805,6 +3899,194 @@ export class DeleteEnsRouteEntryResponse extends $tea.Model {
   }
 }
 
+export class DeleteEnsSaleConditionControlRequest extends $tea.Model {
+  aliUidAccount?: string;
+  commodityCode?: string;
+  saleControls?: DeleteEnsSaleConditionControlRequestSaleControls[];
+  static names(): { [key: string]: string } {
+    return {
+      aliUidAccount: 'AliUidAccount',
+      commodityCode: 'CommodityCode',
+      saleControls: 'SaleControls',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      aliUidAccount: 'string',
+      commodityCode: 'string',
+      saleControls: { 'type': 'array', 'itemType': DeleteEnsSaleConditionControlRequestSaleControls },
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class DeleteEnsSaleConditionControlShrinkRequest extends $tea.Model {
+  aliUidAccount?: string;
+  commodityCode?: string;
+  saleControlsShrink?: string;
+  static names(): { [key: string]: string } {
+    return {
+      aliUidAccount: 'AliUidAccount',
+      commodityCode: 'CommodityCode',
+      saleControlsShrink: 'SaleControls',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      aliUidAccount: 'string',
+      commodityCode: 'string',
+      saleControlsShrink: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class DeleteEnsSaleConditionControlResponseBody extends $tea.Model {
+  requestId?: string;
+  static names(): { [key: string]: string } {
+    return {
+      requestId: 'RequestId',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      requestId: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class DeleteEnsSaleConditionControlResponse extends $tea.Model {
+  headers: { [key: string]: string };
+  statusCode: number;
+  body: DeleteEnsSaleConditionControlResponseBody;
+  static names(): { [key: string]: string } {
+    return {
+      headers: 'headers',
+      statusCode: 'statusCode',
+      body: 'body',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
+      body: DeleteEnsSaleConditionControlResponseBody,
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class DeleteEnsSaleControlRequest extends $tea.Model {
+  aliUidAccount?: string;
+  commodityCode?: string;
+  saleControls?: DeleteEnsSaleControlRequestSaleControls[];
+  static names(): { [key: string]: string } {
+    return {
+      aliUidAccount: 'AliUidAccount',
+      commodityCode: 'CommodityCode',
+      saleControls: 'SaleControls',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      aliUidAccount: 'string',
+      commodityCode: 'string',
+      saleControls: { 'type': 'array', 'itemType': DeleteEnsSaleControlRequestSaleControls },
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class DeleteEnsSaleControlShrinkRequest extends $tea.Model {
+  aliUidAccount?: string;
+  commodityCode?: string;
+  saleControlsShrink?: string;
+  static names(): { [key: string]: string } {
+    return {
+      aliUidAccount: 'AliUidAccount',
+      commodityCode: 'CommodityCode',
+      saleControlsShrink: 'SaleControls',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      aliUidAccount: 'string',
+      commodityCode: 'string',
+      saleControlsShrink: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class DeleteEnsSaleControlResponseBody extends $tea.Model {
+  requestId?: string;
+  static names(): { [key: string]: string } {
+    return {
+      requestId: 'RequestId',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      requestId: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class DeleteEnsSaleControlResponse extends $tea.Model {
+  headers: { [key: string]: string };
+  statusCode: number;
+  body: DeleteEnsSaleControlResponseBody;
+  static names(): { [key: string]: string } {
+    return {
+      headers: 'headers',
+      statusCode: 'statusCode',
+      body: 'body',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
+      body: DeleteEnsSaleControlResponseBody,
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
 export class DeleteEpnInstanceRequest extends $tea.Model {
   EPNInstanceId?: string;
   static names(): { [key: string]: string } {
@@ -4715,25 +4997,40 @@ export class DeleteVSwitchResponse extends $tea.Model {
 }
 
 export class DescribeAICImagesRequest extends $tea.Model {
+  description?: string;
   imageId?: string;
+  imageType?: string;
   imageUrl?: string;
+  maxDate?: string;
+  minDate?: string;
   pageNumber?: string;
   pageSize?: string;
+  status?: string;
   static names(): { [key: string]: string } {
     return {
+      description: 'Description',
       imageId: 'ImageId',
+      imageType: 'ImageType',
       imageUrl: 'ImageUrl',
+      maxDate: 'MaxDate',
+      minDate: 'MinDate',
       pageNumber: 'PageNumber',
       pageSize: 'PageSize',
+      status: 'Status',
     };
   }
 
   static types(): { [key: string]: any } {
     return {
+      description: 'string',
       imageId: 'string',
+      imageType: 'string',
       imageUrl: 'string',
+      maxDate: 'string',
+      minDate: 'string',
       pageNumber: 'string',
       pageSize: 'string',
+      status: 'string',
     };
   }
 
@@ -4744,18 +5041,27 @@ export class DescribeAICImagesRequest extends $tea.Model {
 
 export class DescribeAICImagesResponseBody extends $tea.Model {
   images?: DescribeAICImagesResponseBodyImages[];
+  pageNumber?: number;
+  pageSize?: number;
   requestId?: string;
+  totalCount?: number;
   static names(): { [key: string]: string } {
     return {
       images: 'Images',
+      pageNumber: 'PageNumber',
+      pageSize: 'PageSize',
       requestId: 'RequestId',
+      totalCount: 'TotalCount',
     };
   }
 
   static types(): { [key: string]: any } {
     return {
       images: { 'type': 'array', 'itemType': DescribeAICImagesResponseBodyImages },
+      pageNumber: 'number',
+      pageSize: 'number',
       requestId: 'string',
+      totalCount: 'number',
     };
   }
 
@@ -4790,25 +5096,55 @@ export class DescribeAICImagesResponse extends $tea.Model {
 }
 
 export class DescribeARMServerInstancesRequest extends $tea.Model {
+  AICSpecs?: string[];
+  describeAICInstances?: boolean;
   ensRegionIds?: string[];
+  latestAction?: string;
+  maxDate?: string;
+  minDate?: string;
+  name?: string;
+  namespace?: string;
+  orderByParams?: string;
   pageNumber?: number;
   pageSize?: number;
   serverIds?: string[];
+  serverSpecs?: string[];
+  states?: string[];
   static names(): { [key: string]: string } {
     return {
+      AICSpecs: 'AICSpecs',
+      describeAICInstances: 'DescribeAICInstances',
       ensRegionIds: 'EnsRegionIds',
+      latestAction: 'LatestAction',
+      maxDate: 'MaxDate',
+      minDate: 'MinDate',
+      name: 'Name',
+      namespace: 'Namespace',
+      orderByParams: 'OrderByParams',
       pageNumber: 'PageNumber',
       pageSize: 'PageSize',
       serverIds: 'ServerIds',
+      serverSpecs: 'ServerSpecs',
+      states: 'States',
     };
   }
 
   static types(): { [key: string]: any } {
     return {
+      AICSpecs: { 'type': 'array', 'itemType': 'string' },
+      describeAICInstances: 'boolean',
       ensRegionIds: { 'type': 'array', 'itemType': 'string' },
+      latestAction: 'string',
+      maxDate: 'string',
+      minDate: 'string',
+      name: 'string',
+      namespace: 'string',
+      orderByParams: 'string',
       pageNumber: 'number',
       pageSize: 'number',
       serverIds: { 'type': 'array', 'itemType': 'string' },
+      serverSpecs: { 'type': 'array', 'itemType': 'string' },
+      states: { 'type': 'array', 'itemType': 'string' },
     };
   }
 
@@ -4818,25 +5154,55 @@ export class DescribeARMServerInstancesRequest extends $tea.Model {
 }
 
 export class DescribeARMServerInstancesShrinkRequest extends $tea.Model {
+  AICSpecsShrink?: string;
+  describeAICInstances?: boolean;
   ensRegionIdsShrink?: string;
+  latestAction?: string;
+  maxDate?: string;
+  minDate?: string;
+  name?: string;
+  namespace?: string;
+  orderByParams?: string;
   pageNumber?: number;
   pageSize?: number;
   serverIdsShrink?: string;
+  serverSpecsShrink?: string;
+  statesShrink?: string;
   static names(): { [key: string]: string } {
     return {
+      AICSpecsShrink: 'AICSpecs',
+      describeAICInstances: 'DescribeAICInstances',
       ensRegionIdsShrink: 'EnsRegionIds',
+      latestAction: 'LatestAction',
+      maxDate: 'MaxDate',
+      minDate: 'MinDate',
+      name: 'Name',
+      namespace: 'Namespace',
+      orderByParams: 'OrderByParams',
       pageNumber: 'PageNumber',
       pageSize: 'PageSize',
       serverIdsShrink: 'ServerIds',
+      serverSpecsShrink: 'ServerSpecs',
+      statesShrink: 'States',
     };
   }
 
   static types(): { [key: string]: any } {
     return {
+      AICSpecsShrink: 'string',
+      describeAICInstances: 'boolean',
       ensRegionIdsShrink: 'string',
+      latestAction: 'string',
+      maxDate: 'string',
+      minDate: 'string',
+      name: 'string',
+      namespace: 'string',
+      orderByParams: 'string',
       pageNumber: 'number',
       pageSize: 'number',
       serverIdsShrink: 'string',
+      serverSpecsShrink: 'string',
+      statesShrink: 'string',
     };
   }
 
@@ -6159,6 +6525,141 @@ export class DescribeElbAvailableResourceInfoResponse extends $tea.Model {
   }
 }
 
+export class DescribeEnsCommodityCodeRequest extends $tea.Model {
+  commodityCode?: string;
+  static names(): { [key: string]: string } {
+    return {
+      commodityCode: 'CommodityCode',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      commodityCode: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class DescribeEnsCommodityCodeResponseBody extends $tea.Model {
+  commodityCodeInfo?: DescribeEnsCommodityCodeResponseBodyCommodityCodeInfo[];
+  requestId?: string;
+  static names(): { [key: string]: string } {
+    return {
+      commodityCodeInfo: 'CommodityCodeInfo',
+      requestId: 'RequestId',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      commodityCodeInfo: { 'type': 'array', 'itemType': DescribeEnsCommodityCodeResponseBodyCommodityCodeInfo },
+      requestId: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class DescribeEnsCommodityCodeResponse extends $tea.Model {
+  headers: { [key: string]: string };
+  statusCode: number;
+  body: DescribeEnsCommodityCodeResponseBody;
+  static names(): { [key: string]: string } {
+    return {
+      headers: 'headers',
+      statusCode: 'statusCode',
+      body: 'body',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
+      body: DescribeEnsCommodityCodeResponseBody,
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class DescribeEnsCommodityModuleCodeRequest extends $tea.Model {
+  commodityCode?: string;
+  moduleCode?: string;
+  static names(): { [key: string]: string } {
+    return {
+      commodityCode: 'CommodityCode',
+      moduleCode: 'ModuleCode',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      commodityCode: 'string',
+      moduleCode: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class DescribeEnsCommodityModuleCodeResponseBody extends $tea.Model {
+  commodityCodesInfo?: DescribeEnsCommodityModuleCodeResponseBodyCommodityCodesInfo[];
+  requestId?: string;
+  static names(): { [key: string]: string } {
+    return {
+      commodityCodesInfo: 'CommodityCodesInfo',
+      requestId: 'RequestId',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      commodityCodesInfo: { 'type': 'array', 'itemType': DescribeEnsCommodityModuleCodeResponseBodyCommodityCodesInfo },
+      requestId: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class DescribeEnsCommodityModuleCodeResponse extends $tea.Model {
+  headers: { [key: string]: string };
+  statusCode: number;
+  body: DescribeEnsCommodityModuleCodeResponseBody;
+  static names(): { [key: string]: string } {
+    return {
+      headers: 'headers',
+      statusCode: 'statusCode',
+      body: 'body',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
+      body: DescribeEnsCommodityModuleCodeResponseBody,
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
 export class DescribeEnsEipAddressesRequest extends $tea.Model {
   allocationId?: string;
   associatedInstanceId?: string;
@@ -6862,6 +7363,225 @@ export class DescribeEnsRouteEntryListResponse extends $tea.Model {
       headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
       statusCode: 'number',
       body: DescribeEnsRouteEntryListResponseBody,
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class DescribeEnsSaleControlRequest extends $tea.Model {
+  aliUidAccount?: string;
+  commodityCode?: string;
+  moduleCode?: string;
+  orderType?: string;
+  static names(): { [key: string]: string } {
+    return {
+      aliUidAccount: 'AliUidAccount',
+      commodityCode: 'CommodityCode',
+      moduleCode: 'ModuleCode',
+      orderType: 'OrderType',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      aliUidAccount: 'string',
+      commodityCode: 'string',
+      moduleCode: 'string',
+      orderType: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class DescribeEnsSaleControlResponseBody extends $tea.Model {
+  requestId?: string;
+  saleControl?: DescribeEnsSaleControlResponseBodySaleControl[];
+  static names(): { [key: string]: string } {
+    return {
+      requestId: 'RequestId',
+      saleControl: 'SaleControl',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      requestId: 'string',
+      saleControl: { 'type': 'array', 'itemType': DescribeEnsSaleControlResponseBodySaleControl },
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class DescribeEnsSaleControlResponse extends $tea.Model {
+  headers: { [key: string]: string };
+  statusCode: number;
+  body: DescribeEnsSaleControlResponseBody;
+  static names(): { [key: string]: string } {
+    return {
+      headers: 'headers',
+      statusCode: 'statusCode',
+      body: 'body',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
+      body: DescribeEnsSaleControlResponseBody,
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class DescribeEnsSaleControlAvailableResourceRequest extends $tea.Model {
+  commodityCode?: string;
+  orderType?: string;
+  static names(): { [key: string]: string } {
+    return {
+      commodityCode: 'CommodityCode',
+      orderType: 'OrderType',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      commodityCode: 'string',
+      orderType: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class DescribeEnsSaleControlAvailableResourceResponseBody extends $tea.Model {
+  requestId?: string;
+  saleControlAvailableResource?: DescribeEnsSaleControlAvailableResourceResponseBodySaleControlAvailableResource[];
+  static names(): { [key: string]: string } {
+    return {
+      requestId: 'RequestId',
+      saleControlAvailableResource: 'SaleControlAvailableResource',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      requestId: 'string',
+      saleControlAvailableResource: { 'type': 'array', 'itemType': DescribeEnsSaleControlAvailableResourceResponseBodySaleControlAvailableResource },
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class DescribeEnsSaleControlAvailableResourceResponse extends $tea.Model {
+  headers: { [key: string]: string };
+  statusCode: number;
+  body: DescribeEnsSaleControlAvailableResourceResponseBody;
+  static names(): { [key: string]: string } {
+    return {
+      headers: 'headers',
+      statusCode: 'statusCode',
+      body: 'body',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
+      body: DescribeEnsSaleControlAvailableResourceResponseBody,
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class DescribeEnsSaleControlStockRequest extends $tea.Model {
+  aliUidAccount?: string;
+  commodityCode?: string;
+  moduleCode?: string;
+  orderType?: string;
+  static names(): { [key: string]: string } {
+    return {
+      aliUidAccount: 'AliUidAccount',
+      commodityCode: 'CommodityCode',
+      moduleCode: 'ModuleCode',
+      orderType: 'OrderType',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      aliUidAccount: 'string',
+      commodityCode: 'string',
+      moduleCode: 'string',
+      orderType: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class DescribeEnsSaleControlStockResponseBody extends $tea.Model {
+  requestId?: string;
+  saleControl?: DescribeEnsSaleControlStockResponseBodySaleControl[];
+  static names(): { [key: string]: string } {
+    return {
+      requestId: 'RequestId',
+      saleControl: 'SaleControl',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      requestId: 'string',
+      saleControl: { 'type': 'array', 'itemType': DescribeEnsSaleControlStockResponseBodySaleControl },
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class DescribeEnsSaleControlStockResponse extends $tea.Model {
+  headers: { [key: string]: string };
+  statusCode: number;
+  body: DescribeEnsSaleControlStockResponseBody;
+  static names(): { [key: string]: string } {
+    return {
+      headers: 'headers',
+      statusCode: 'statusCode',
+      body: 'body',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
+      body: DescribeEnsSaleControlStockResponseBody,
     };
   }
 
@@ -10153,6 +10873,72 @@ export class DescribePriceResponse extends $tea.Model {
   }
 }
 
+export class DescribeRegionBandwidthQuotaRequest extends $tea.Model {
+  regionId?: string;
+  static names(): { [key: string]: string } {
+    return {
+      regionId: 'RegionId',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      regionId: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class DescribeRegionBandwidthQuotaResponseBody extends $tea.Model {
+  bandwidthQuota?: DescribeRegionBandwidthQuotaResponseBodyBandwidthQuota[];
+  requestId?: string;
+  static names(): { [key: string]: string } {
+    return {
+      bandwidthQuota: 'BandwidthQuota',
+      requestId: 'RequestId',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      bandwidthQuota: { 'type': 'array', 'itemType': DescribeRegionBandwidthQuotaResponseBodyBandwidthQuota },
+      requestId: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class DescribeRegionBandwidthQuotaResponse extends $tea.Model {
+  headers: { [key: string]: string };
+  statusCode: number;
+  body: DescribeRegionBandwidthQuotaResponseBody;
+  static names(): { [key: string]: string } {
+    return {
+      headers: 'headers',
+      statusCode: 'statusCode',
+      body: 'body',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
+      body: DescribeRegionBandwidthQuotaResponseBody,
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
 export class DescribeRegionIspsRequest extends $tea.Model {
   ensRegionId?: string;
   static names(): { [key: string]: string } {
@@ -13149,10 +13935,12 @@ export class ReInitDiskResponse extends $tea.Model {
 
 export class RebootAICInstanceRequest extends $tea.Model {
   instanceId?: string;
+  instanceIds?: string[];
   serverId?: string;
   static names(): { [key: string]: string } {
     return {
       instanceId: 'InstanceId',
+      instanceIds: 'InstanceIds',
       serverId: 'ServerId',
     };
   }
@@ -13160,6 +13948,32 @@ export class RebootAICInstanceRequest extends $tea.Model {
   static types(): { [key: string]: any } {
     return {
       instanceId: 'string',
+      instanceIds: { 'type': 'array', 'itemType': 'string' },
+      serverId: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class RebootAICInstanceShrinkRequest extends $tea.Model {
+  instanceId?: string;
+  instanceIdsShrink?: string;
+  serverId?: string;
+  static names(): { [key: string]: string } {
+    return {
+      instanceId: 'InstanceId',
+      instanceIdsShrink: 'InstanceIds',
+      serverId: 'ServerId',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      instanceId: 'string',
+      instanceIdsShrink: 'string',
       serverId: 'string',
     };
   }
@@ -13215,15 +14029,40 @@ export class RebootAICInstanceResponse extends $tea.Model {
 
 export class RebootARMServerInstanceRequest extends $tea.Model {
   serverId?: string;
+  serverIds?: string[];
   static names(): { [key: string]: string } {
     return {
       serverId: 'ServerId',
+      serverIds: 'ServerIds',
     };
   }
 
   static types(): { [key: string]: any } {
     return {
       serverId: 'string',
+      serverIds: { 'type': 'array', 'itemType': 'string' },
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class RebootARMServerInstanceShrinkRequest extends $tea.Model {
+  serverId?: string;
+  serverIdsShrink?: string;
+  static names(): { [key: string]: string } {
+    return {
+      serverId: 'ServerId',
+      serverIdsShrink: 'ServerIds',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      serverId: 'string',
+      serverIdsShrink: 'string',
     };
   }
 
@@ -14511,10 +15350,12 @@ export class RescaleDeviceServiceResponse extends $tea.Model {
 
 export class ResetAICInstanceRequest extends $tea.Model {
   instanceId?: string;
+  instanceIds?: string[];
   serverId?: string;
   static names(): { [key: string]: string } {
     return {
       instanceId: 'InstanceId',
+      instanceIds: 'InstanceIds',
       serverId: 'ServerId',
     };
   }
@@ -14522,6 +15363,32 @@ export class ResetAICInstanceRequest extends $tea.Model {
   static types(): { [key: string]: any } {
     return {
       instanceId: 'string',
+      instanceIds: { 'type': 'array', 'itemType': 'string' },
+      serverId: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class ResetAICInstanceShrinkRequest extends $tea.Model {
+  instanceId?: string;
+  instanceIdsShrink?: string;
+  serverId?: string;
+  static names(): { [key: string]: string } {
+    return {
+      instanceId: 'InstanceId',
+      instanceIdsShrink: 'InstanceIds',
+      serverId: 'ServerId',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      instanceId: 'string',
+      instanceIdsShrink: 'string',
       serverId: 'string',
     };
   }
@@ -15093,6 +15960,7 @@ export class RunInstancesRequest extends $tea.Model {
   ensRegionId?: string;
   hostName?: string;
   imageId?: string;
+  instanceChargeStrategy?: string;
   instanceChargeType?: string;
   instanceName?: string;
   instanceType?: string;
@@ -15124,6 +15992,7 @@ export class RunInstancesRequest extends $tea.Model {
       ensRegionId: 'EnsRegionId',
       hostName: 'HostName',
       imageId: 'ImageId',
+      instanceChargeStrategy: 'InstanceChargeStrategy',
       instanceChargeType: 'InstanceChargeType',
       instanceName: 'InstanceName',
       instanceType: 'InstanceType',
@@ -15158,6 +16027,7 @@ export class RunInstancesRequest extends $tea.Model {
       ensRegionId: 'string',
       hostName: 'string',
       imageId: 'string',
+      instanceChargeStrategy: 'string',
       instanceChargeType: 'string',
       instanceName: 'string',
       instanceType: 'string',
@@ -15196,6 +16066,7 @@ export class RunInstancesShrinkRequest extends $tea.Model {
   ensRegionId?: string;
   hostName?: string;
   imageId?: string;
+  instanceChargeStrategy?: string;
   instanceChargeType?: string;
   instanceName?: string;
   instanceType?: string;
@@ -15227,6 +16098,7 @@ export class RunInstancesShrinkRequest extends $tea.Model {
       ensRegionId: 'EnsRegionId',
       hostName: 'HostName',
       imageId: 'ImageId',
+      instanceChargeStrategy: 'InstanceChargeStrategy',
       instanceChargeType: 'InstanceChargeType',
       instanceName: 'InstanceName',
       instanceType: 'InstanceType',
@@ -15261,6 +16133,7 @@ export class RunInstancesShrinkRequest extends $tea.Model {
       ensRegionId: 'string',
       hostName: 'string',
       imageId: 'string',
+      instanceChargeStrategy: 'string',
       instanceChargeType: 'string',
       instanceName: 'string',
       instanceType: 'string',
@@ -16796,6 +17669,100 @@ export class UnassociateNetworkAclResponse extends $tea.Model {
   }
 }
 
+export class UpdateEnsSaleControlRequest extends $tea.Model {
+  aliUidAccount?: string;
+  commodityCode?: string;
+  saleControls?: UpdateEnsSaleControlRequestSaleControls[];
+  static names(): { [key: string]: string } {
+    return {
+      aliUidAccount: 'AliUidAccount',
+      commodityCode: 'CommodityCode',
+      saleControls: 'SaleControls',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      aliUidAccount: 'string',
+      commodityCode: 'string',
+      saleControls: { 'type': 'array', 'itemType': UpdateEnsSaleControlRequestSaleControls },
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class UpdateEnsSaleControlShrinkRequest extends $tea.Model {
+  aliUidAccount?: string;
+  commodityCode?: string;
+  saleControlsShrink?: string;
+  static names(): { [key: string]: string } {
+    return {
+      aliUidAccount: 'AliUidAccount',
+      commodityCode: 'CommodityCode',
+      saleControlsShrink: 'SaleControls',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      aliUidAccount: 'string',
+      commodityCode: 'string',
+      saleControlsShrink: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class UpdateEnsSaleControlResponseBody extends $tea.Model {
+  requestId?: string;
+  static names(): { [key: string]: string } {
+    return {
+      requestId: 'RequestId',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      requestId: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class UpdateEnsSaleControlResponse extends $tea.Model {
+  headers: { [key: string]: string };
+  statusCode: number;
+  body: UpdateEnsSaleControlResponseBody;
+  static names(): { [key: string]: string } {
+    return {
+      headers: 'headers',
+      statusCode: 'statusCode',
+      body: 'body',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
+      body: UpdateEnsSaleControlResponseBody,
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
 export class UpgradeAICInstanceImageRequest extends $tea.Model {
   imageId?: string;
   serverIds?: string[];
@@ -17084,6 +18051,87 @@ export class AssignPrivateIpAddressesResponseBodyAssignedPrivateIpAddressesSet e
   }
 }
 
+export class CreateEnsSaleControlRequestSaleControlsConditionControls extends $tea.Model {
+  conditionControlModuleCode?: string;
+  conditionControlModuleValue?: string;
+  static names(): { [key: string]: string } {
+    return {
+      conditionControlModuleCode: 'ConditionControlModuleCode',
+      conditionControlModuleValue: 'ConditionControlModuleValue',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      conditionControlModuleCode: 'string',
+      conditionControlModuleValue: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class CreateEnsSaleControlRequestSaleControlsModuleValue extends $tea.Model {
+  moduleMaxValue?: string;
+  moduleMinValue?: string;
+  moduleValue?: string[];
+  static names(): { [key: string]: string } {
+    return {
+      moduleMaxValue: 'ModuleMaxValue',
+      moduleMinValue: 'ModuleMinValue',
+      moduleValue: 'ModuleValue',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      moduleMaxValue: 'string',
+      moduleMinValue: 'string',
+      moduleValue: { 'type': 'array', 'itemType': 'string' },
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class CreateEnsSaleControlRequestSaleControls extends $tea.Model {
+  conditionControls?: CreateEnsSaleControlRequestSaleControlsConditionControls[];
+  description?: string;
+  moduleCode?: string;
+  moduleValue?: CreateEnsSaleControlRequestSaleControlsModuleValue;
+  operator?: string;
+  orderType?: string;
+  static names(): { [key: string]: string } {
+    return {
+      conditionControls: 'ConditionControls',
+      description: 'Description',
+      moduleCode: 'ModuleCode',
+      moduleValue: 'ModuleValue',
+      operator: 'Operator',
+      orderType: 'OrderType',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      conditionControls: { 'type': 'array', 'itemType': CreateEnsSaleControlRequestSaleControlsConditionControls },
+      description: 'string',
+      moduleCode: 'string',
+      moduleValue: CreateEnsSaleControlRequestSaleControlsModuleValue,
+      operator: 'string',
+      orderType: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
 export class CreateFileSystemRequestOrderDetails extends $tea.Model {
   chargeType?: string;
   ensRegionId?: string;
@@ -17181,8 +18229,78 @@ export class CreateInstanceResponseBodyInstanceIds extends $tea.Model {
   }
 }
 
+export class DeleteEnsSaleConditionControlRequestSaleControlsConditionControls extends $tea.Model {
+  conditionControlModuleCode?: string;
+  conditionControlModuleValue?: string;
+  static names(): { [key: string]: string } {
+    return {
+      conditionControlModuleCode: 'ConditionControlModuleCode',
+      conditionControlModuleValue: 'ConditionControlModuleValue',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      conditionControlModuleCode: 'string',
+      conditionControlModuleValue: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class DeleteEnsSaleConditionControlRequestSaleControls extends $tea.Model {
+  conditionControls?: DeleteEnsSaleConditionControlRequestSaleControlsConditionControls[];
+  moduleCode?: string;
+  orderType?: string;
+  static names(): { [key: string]: string } {
+    return {
+      conditionControls: 'ConditionControls',
+      moduleCode: 'ModuleCode',
+      orderType: 'OrderType',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      conditionControls: { 'type': 'array', 'itemType': DeleteEnsSaleConditionControlRequestSaleControlsConditionControls },
+      moduleCode: 'string',
+      orderType: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class DeleteEnsSaleControlRequestSaleControls extends $tea.Model {
+  moduleCode?: string;
+  orderType?: string;
+  static names(): { [key: string]: string } {
+    return {
+      moduleCode: 'ModuleCode',
+      orderType: 'OrderType',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      moduleCode: 'string',
+      orderType: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
 export class DescribeAICImagesResponseBodyImages extends $tea.Model {
   creationTime?: string;
+  description?: string;
   imageId?: string;
   imageUrl?: string;
   status?: string;
@@ -17190,6 +18308,7 @@ export class DescribeAICImagesResponseBodyImages extends $tea.Model {
   static names(): { [key: string]: string } {
     return {
       creationTime: 'CreationTime',
+      description: 'Description',
       imageId: 'ImageId',
       imageUrl: 'ImageUrl',
       status: 'Status',
@@ -17200,6 +18319,7 @@ export class DescribeAICImagesResponseBodyImages extends $tea.Model {
   static types(): { [key: string]: any } {
     return {
       creationTime: 'string',
+      description: 'string',
       imageId: 'string',
       imageUrl: 'string',
       status: 'string',
@@ -17241,6 +18361,8 @@ export class DescribeARMServerInstancesResponseBodyServersAICInstances extends $
   frequency?: number;
   imageId?: string;
   instanceId?: string;
+  latestAction?: string;
+  name?: string;
   networkAttributes?: DescribeARMServerInstancesResponseBodyServersAICInstancesNetworkAttributes;
   resolution?: string;
   spec?: string;
@@ -17251,6 +18373,8 @@ export class DescribeARMServerInstancesResponseBodyServersAICInstances extends $
       frequency: 'Frequency',
       imageId: 'ImageId',
       instanceId: 'InstanceId',
+      latestAction: 'LatestAction',
+      name: 'Name',
       networkAttributes: 'NetworkAttributes',
       resolution: 'Resolution',
       spec: 'Spec',
@@ -17264,6 +18388,8 @@ export class DescribeARMServerInstancesResponseBodyServersAICInstances extends $
       frequency: 'number',
       imageId: 'string',
       instanceId: 'string',
+      latestAction: 'string',
+      name: 'string',
       networkAttributes: DescribeARMServerInstancesResponseBodyServersAICInstancesNetworkAttributes,
       resolution: 'string',
       spec: 'string',
@@ -17282,7 +18408,10 @@ export class DescribeARMServerInstancesResponseBodyServers extends $tea.Model {
   creationTime?: string;
   ensRegionId?: string;
   expiredTime?: string;
+  latestAction?: string;
+  name?: string;
   namespace?: string;
+  payType?: string;
   serverId?: string;
   specName?: string;
   state?: string;
@@ -17293,7 +18422,10 @@ export class DescribeARMServerInstancesResponseBodyServers extends $tea.Model {
       creationTime: 'CreationTime',
       ensRegionId: 'EnsRegionId',
       expiredTime: 'ExpiredTime',
+      latestAction: 'LatestAction',
+      name: 'Name',
       namespace: 'Namespace',
+      payType: 'PayType',
       serverId: 'ServerId',
       specName: 'SpecName',
       state: 'State',
@@ -17307,7 +18439,10 @@ export class DescribeARMServerInstancesResponseBodyServers extends $tea.Model {
       creationTime: 'string',
       ensRegionId: 'string',
       expiredTime: 'string',
+      latestAction: 'string',
+      name: 'string',
       namespace: 'string',
+      payType: 'string',
       serverId: 'string',
       specName: 'string',
       state: 'string',
@@ -18460,6 +19595,72 @@ export class DescribeElbAvailableResourceInfoResponseBodyElbAvailableResourceInf
   }
 }
 
+export class DescribeEnsCommodityCodeResponseBodyCommodityCodeInfo extends $tea.Model {
+  commodityCode?: string;
+  commodityName?: string;
+  static names(): { [key: string]: string } {
+    return {
+      commodityCode: 'CommodityCode',
+      commodityName: 'CommodityName',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      commodityCode: 'string',
+      commodityName: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class DescribeEnsCommodityModuleCodeResponseBodyCommodityCodesInfoModuleCodesInfo extends $tea.Model {
+  moduleCode?: string;
+  moduleName?: string;
+  static names(): { [key: string]: string } {
+    return {
+      moduleCode: 'ModuleCode',
+      moduleName: 'ModuleName',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      moduleCode: 'string',
+      moduleName: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class DescribeEnsCommodityModuleCodeResponseBodyCommodityCodesInfo extends $tea.Model {
+  commodityCode?: string;
+  moduleCodesInfo?: DescribeEnsCommodityModuleCodeResponseBodyCommodityCodesInfoModuleCodesInfo[];
+  static names(): { [key: string]: string } {
+    return {
+      commodityCode: 'CommodityCode',
+      moduleCodesInfo: 'ModuleCodesInfo',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      commodityCode: 'string',
+      moduleCodesInfo: { 'type': 'array', 'itemType': DescribeEnsCommodityModuleCodeResponseBodyCommodityCodesInfoModuleCodesInfo },
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
 export class DescribeEnsEipAddressesResponseBodyEipAddressesEipAddress extends $tea.Model {
   allocationId?: string;
   allocationTime?: string;
@@ -18918,6 +20119,563 @@ export class DescribeEnsRouteEntryListResponseBodyRouteEntrys extends $tea.Model
       routeTableId: 'string',
       status: 'string',
       type: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class DescribeEnsSaleControlResponseBodySaleControlSaleControlItemsSaleControlItemBasicSaleControlModuleValue extends $tea.Model {
+  moduleMaxValue?: string;
+  moduleMinValue?: string;
+  moduleValue?: string[];
+  static names(): { [key: string]: string } {
+    return {
+      moduleMaxValue: 'ModuleMaxValue',
+      moduleMinValue: 'ModuleMinValue',
+      moduleValue: 'ModuleValue',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      moduleMaxValue: 'string',
+      moduleMinValue: 'string',
+      moduleValue: { 'type': 'array', 'itemType': 'string' },
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class DescribeEnsSaleControlResponseBodySaleControlSaleControlItemsSaleControlItemBasicSaleControl extends $tea.Model {
+  description?: string;
+  moduleValue?: DescribeEnsSaleControlResponseBodySaleControlSaleControlItemsSaleControlItemBasicSaleControlModuleValue;
+  operator?: string;
+  static names(): { [key: string]: string } {
+    return {
+      description: 'Description',
+      moduleValue: 'ModuleValue',
+      operator: 'Operator',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      description: 'string',
+      moduleValue: DescribeEnsSaleControlResponseBodySaleControlSaleControlItemsSaleControlItemBasicSaleControlModuleValue,
+      operator: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class DescribeEnsSaleControlResponseBodySaleControlSaleControlItemsSaleControlItemConditionSaleControlConditionControl extends $tea.Model {
+  conditionControlModuleCode?: string;
+  conditionControlModuleValue?: string;
+  static names(): { [key: string]: string } {
+    return {
+      conditionControlModuleCode: 'ConditionControlModuleCode',
+      conditionControlModuleValue: 'ConditionControlModuleValue',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      conditionControlModuleCode: 'string',
+      conditionControlModuleValue: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class DescribeEnsSaleControlResponseBodySaleControlSaleControlItemsSaleControlItemConditionSaleControlModuleValue extends $tea.Model {
+  moduleMaxValue?: string;
+  moduleMinValue?: string;
+  moduleValue?: string[];
+  static names(): { [key: string]: string } {
+    return {
+      moduleMaxValue: 'ModuleMaxValue',
+      moduleMinValue: 'ModuleMinValue',
+      moduleValue: 'ModuleValue',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      moduleMaxValue: 'string',
+      moduleMinValue: 'string',
+      moduleValue: { 'type': 'array', 'itemType': 'string' },
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class DescribeEnsSaleControlResponseBodySaleControlSaleControlItemsSaleControlItemConditionSaleControl extends $tea.Model {
+  conditionControl?: DescribeEnsSaleControlResponseBodySaleControlSaleControlItemsSaleControlItemConditionSaleControlConditionControl;
+  description?: string;
+  moduleValue?: DescribeEnsSaleControlResponseBodySaleControlSaleControlItemsSaleControlItemConditionSaleControlModuleValue;
+  operator?: string;
+  static names(): { [key: string]: string } {
+    return {
+      conditionControl: 'ConditionControl',
+      description: 'Description',
+      moduleValue: 'ModuleValue',
+      operator: 'Operator',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      conditionControl: DescribeEnsSaleControlResponseBodySaleControlSaleControlItemsSaleControlItemConditionSaleControlConditionControl,
+      description: 'string',
+      moduleValue: DescribeEnsSaleControlResponseBodySaleControlSaleControlItemsSaleControlItemConditionSaleControlModuleValue,
+      operator: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class DescribeEnsSaleControlResponseBodySaleControlSaleControlItemsSaleControlItem extends $tea.Model {
+  basicSaleControl?: DescribeEnsSaleControlResponseBodySaleControlSaleControlItemsSaleControlItemBasicSaleControl;
+  conditionSaleControl?: DescribeEnsSaleControlResponseBodySaleControlSaleControlItemsSaleControlItemConditionSaleControl[];
+  static names(): { [key: string]: string } {
+    return {
+      basicSaleControl: 'BasicSaleControl',
+      conditionSaleControl: 'ConditionSaleControl',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      basicSaleControl: DescribeEnsSaleControlResponseBodySaleControlSaleControlItemsSaleControlItemBasicSaleControl,
+      conditionSaleControl: { 'type': 'array', 'itemType': DescribeEnsSaleControlResponseBodySaleControlSaleControlItemsSaleControlItemConditionSaleControl },
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class DescribeEnsSaleControlResponseBodySaleControlSaleControlItems extends $tea.Model {
+  moduleCode?: string;
+  saleControlItem?: DescribeEnsSaleControlResponseBodySaleControlSaleControlItemsSaleControlItem;
+  static names(): { [key: string]: string } {
+    return {
+      moduleCode: 'ModuleCode',
+      saleControlItem: 'SaleControlItem',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      moduleCode: 'string',
+      saleControlItem: DescribeEnsSaleControlResponseBodySaleControlSaleControlItemsSaleControlItem,
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class DescribeEnsSaleControlResponseBodySaleControl extends $tea.Model {
+  commodityCode?: string;
+  orderType?: string;
+  saleControlItems?: DescribeEnsSaleControlResponseBodySaleControlSaleControlItems[];
+  static names(): { [key: string]: string } {
+    return {
+      commodityCode: 'CommodityCode',
+      orderType: 'OrderType',
+      saleControlItems: 'SaleControlItems',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      commodityCode: 'string',
+      orderType: 'string',
+      saleControlItems: { 'type': 'array', 'itemType': DescribeEnsSaleControlResponseBodySaleControlSaleControlItems },
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class DescribeEnsSaleControlAvailableResourceResponseBodySaleControlAvailableResourceAvailableDiskType extends $tea.Model {
+  diskName?: string;
+  diskType?: string;
+  static names(): { [key: string]: string } {
+    return {
+      diskName: 'DiskName',
+      diskType: 'DiskType',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      diskName: 'string',
+      diskType: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class DescribeEnsSaleControlAvailableResourceResponseBodySaleControlAvailableResourceAvailableRegion extends $tea.Model {
+  area?: string;
+  ensRegionId?: string;
+  ensRegionName?: string;
+  province?: string;
+  static names(): { [key: string]: string } {
+    return {
+      area: 'Area',
+      ensRegionId: 'EnsRegionId',
+      ensRegionName: 'EnsRegionName',
+      province: 'Province',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      area: 'string',
+      ensRegionId: 'string',
+      ensRegionName: 'string',
+      province: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class DescribeEnsSaleControlAvailableResourceResponseBodySaleControlAvailableResourceAvailableSpec extends $tea.Model {
+  cores?: string;
+  memory?: string;
+  specName?: string;
+  specValue?: string;
+  static names(): { [key: string]: string } {
+    return {
+      cores: 'Cores',
+      memory: 'Memory',
+      specName: 'SpecName',
+      specValue: 'SpecValue',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      cores: 'string',
+      memory: 'string',
+      specName: 'string',
+      specValue: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class DescribeEnsSaleControlAvailableResourceResponseBodySaleControlAvailableResourceAvailableStorageTypeAvailableDefaultStorageType extends $tea.Model {
+  storageName?: string;
+  storageType?: string;
+  static names(): { [key: string]: string } {
+    return {
+      storageName: 'StorageName',
+      storageType: 'StorageType',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      storageName: 'string',
+      storageType: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class DescribeEnsSaleControlAvailableResourceResponseBodySaleControlAvailableResourceAvailableStorageTypeAvailableSpecialStorageType extends $tea.Model {
+  storageType?: string;
+  storageName?: string;
+  ensRegionId?: string;
+  static names(): { [key: string]: string } {
+    return {
+      storageType: 'StorageType',
+      storageName: 'StorageName',
+      ensRegionId: 'EnsRegionId',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      storageType: 'string',
+      storageName: 'string',
+      ensRegionId: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class DescribeEnsSaleControlAvailableResourceResponseBodySaleControlAvailableResourceAvailableStorageType extends $tea.Model {
+  availableDefaultStorageType?: DescribeEnsSaleControlAvailableResourceResponseBodySaleControlAvailableResourceAvailableStorageTypeAvailableDefaultStorageType[];
+  availableSpecialStorageType?: DescribeEnsSaleControlAvailableResourceResponseBodySaleControlAvailableResourceAvailableStorageTypeAvailableSpecialStorageType[][];
+  static names(): { [key: string]: string } {
+    return {
+      availableDefaultStorageType: 'AvailableDefaultStorageType',
+      availableSpecialStorageType: 'AvailableSpecialStorageType',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      availableDefaultStorageType: { 'type': 'array', 'itemType': DescribeEnsSaleControlAvailableResourceResponseBodySaleControlAvailableResourceAvailableStorageTypeAvailableDefaultStorageType },
+      availableSpecialStorageType: { 'type': 'array', 'itemType': { 'type': 'array', 'itemType': DescribeEnsSaleControlAvailableResourceResponseBodySaleControlAvailableResourceAvailableStorageTypeAvailableSpecialStorageType } },
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class DescribeEnsSaleControlAvailableResourceResponseBodySaleControlAvailableResource extends $tea.Model {
+  availableDiskType?: DescribeEnsSaleControlAvailableResourceResponseBodySaleControlAvailableResourceAvailableDiskType[];
+  availableRegion?: DescribeEnsSaleControlAvailableResourceResponseBodySaleControlAvailableResourceAvailableRegion[];
+  availableSpec?: DescribeEnsSaleControlAvailableResourceResponseBodySaleControlAvailableResourceAvailableSpec[];
+  availableStorageType?: DescribeEnsSaleControlAvailableResourceResponseBodySaleControlAvailableResourceAvailableStorageType;
+  commodityCode?: string;
+  orderType?: string;
+  static names(): { [key: string]: string } {
+    return {
+      availableDiskType: 'AvailableDiskType',
+      availableRegion: 'AvailableRegion',
+      availableSpec: 'AvailableSpec',
+      availableStorageType: 'AvailableStorageType',
+      commodityCode: 'CommodityCode',
+      orderType: 'OrderType',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      availableDiskType: { 'type': 'array', 'itemType': DescribeEnsSaleControlAvailableResourceResponseBodySaleControlAvailableResourceAvailableDiskType },
+      availableRegion: { 'type': 'array', 'itemType': DescribeEnsSaleControlAvailableResourceResponseBodySaleControlAvailableResourceAvailableRegion },
+      availableSpec: { 'type': 'array', 'itemType': DescribeEnsSaleControlAvailableResourceResponseBodySaleControlAvailableResourceAvailableSpec },
+      availableStorageType: DescribeEnsSaleControlAvailableResourceResponseBodySaleControlAvailableResourceAvailableStorageType,
+      commodityCode: 'string',
+      orderType: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class DescribeEnsSaleControlStockResponseBodySaleControlSaleControlItemsSaleControlItemBasicSaleControlModuleValue extends $tea.Model {
+  moduleMaxValue?: string;
+  moduleMinValue?: string;
+  static names(): { [key: string]: string } {
+    return {
+      moduleMaxValue: 'ModuleMaxValue',
+      moduleMinValue: 'ModuleMinValue',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      moduleMaxValue: 'string',
+      moduleMinValue: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class DescribeEnsSaleControlStockResponseBodySaleControlSaleControlItemsSaleControlItemBasicSaleControl extends $tea.Model {
+  moduleValue?: DescribeEnsSaleControlStockResponseBodySaleControlSaleControlItemsSaleControlItemBasicSaleControlModuleValue;
+  stockValue?: string;
+  static names(): { [key: string]: string } {
+    return {
+      moduleValue: 'ModuleValue',
+      stockValue: 'StockValue',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      moduleValue: DescribeEnsSaleControlStockResponseBodySaleControlSaleControlItemsSaleControlItemBasicSaleControlModuleValue,
+      stockValue: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class DescribeEnsSaleControlStockResponseBodySaleControlSaleControlItemsSaleControlItemConditionSaleControlConditionControl extends $tea.Model {
+  conditionControlModuleCode?: string;
+  conditionControlModuleValue?: string;
+  static names(): { [key: string]: string } {
+    return {
+      conditionControlModuleCode: 'ConditionControlModuleCode',
+      conditionControlModuleValue: 'ConditionControlModuleValue',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      conditionControlModuleCode: 'string',
+      conditionControlModuleValue: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class DescribeEnsSaleControlStockResponseBodySaleControlSaleControlItemsSaleControlItemConditionSaleControlModuleValue extends $tea.Model {
+  moduleMaxValue?: string;
+  moduleMinValue?: string;
+  static names(): { [key: string]: string } {
+    return {
+      moduleMaxValue: 'ModuleMaxValue',
+      moduleMinValue: 'ModuleMinValue',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      moduleMaxValue: 'string',
+      moduleMinValue: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class DescribeEnsSaleControlStockResponseBodySaleControlSaleControlItemsSaleControlItemConditionSaleControl extends $tea.Model {
+  conditionControl?: DescribeEnsSaleControlStockResponseBodySaleControlSaleControlItemsSaleControlItemConditionSaleControlConditionControl;
+  moduleValue?: DescribeEnsSaleControlStockResponseBodySaleControlSaleControlItemsSaleControlItemConditionSaleControlModuleValue;
+  stockValue?: string;
+  static names(): { [key: string]: string } {
+    return {
+      conditionControl: 'ConditionControl',
+      moduleValue: 'ModuleValue',
+      stockValue: 'StockValue',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      conditionControl: DescribeEnsSaleControlStockResponseBodySaleControlSaleControlItemsSaleControlItemConditionSaleControlConditionControl,
+      moduleValue: DescribeEnsSaleControlStockResponseBodySaleControlSaleControlItemsSaleControlItemConditionSaleControlModuleValue,
+      stockValue: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class DescribeEnsSaleControlStockResponseBodySaleControlSaleControlItemsSaleControlItem extends $tea.Model {
+  basicSaleControl?: DescribeEnsSaleControlStockResponseBodySaleControlSaleControlItemsSaleControlItemBasicSaleControl;
+  conditionSaleControl?: DescribeEnsSaleControlStockResponseBodySaleControlSaleControlItemsSaleControlItemConditionSaleControl[];
+  static names(): { [key: string]: string } {
+    return {
+      basicSaleControl: 'BasicSaleControl',
+      conditionSaleControl: 'ConditionSaleControl',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      basicSaleControl: DescribeEnsSaleControlStockResponseBodySaleControlSaleControlItemsSaleControlItemBasicSaleControl,
+      conditionSaleControl: { 'type': 'array', 'itemType': DescribeEnsSaleControlStockResponseBodySaleControlSaleControlItemsSaleControlItemConditionSaleControl },
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class DescribeEnsSaleControlStockResponseBodySaleControlSaleControlItems extends $tea.Model {
+  moduleCode?: string;
+  saleControlItem?: DescribeEnsSaleControlStockResponseBodySaleControlSaleControlItemsSaleControlItem;
+  static names(): { [key: string]: string } {
+    return {
+      moduleCode: 'ModuleCode',
+      saleControlItem: 'SaleControlItem',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      moduleCode: 'string',
+      saleControlItem: DescribeEnsSaleControlStockResponseBodySaleControlSaleControlItemsSaleControlItem,
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class DescribeEnsSaleControlStockResponseBodySaleControl extends $tea.Model {
+  commodityCode?: string;
+  orderType?: string;
+  saleControlItems?: DescribeEnsSaleControlStockResponseBodySaleControlSaleControlItems[];
+  static names(): { [key: string]: string } {
+    return {
+      commodityCode: 'CommodityCode',
+      orderType: 'OrderType',
+      saleControlItems: 'SaleControlItems',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      commodityCode: 'string',
+      orderType: 'string',
+      saleControlItems: { 'type': 'array', 'itemType': DescribeEnsSaleControlStockResponseBodySaleControlSaleControlItems },
     };
   }
 
@@ -21532,6 +23290,84 @@ export class DescribePriceResponseBodyPriceInfo extends $tea.Model {
   }
 }
 
+export class DescribeRegionBandwidthQuotaResponseBodyBandwidthQuotaBandwidthInfo extends $tea.Model {
+  monthAverageQuota?: number;
+  monthMax?: number;
+  weekAverageQuota?: number;
+  weekMax?: number;
+  static names(): { [key: string]: string } {
+    return {
+      monthAverageQuota: 'MonthAverageQuota',
+      monthMax: 'MonthMax',
+      weekAverageQuota: 'WeekAverageQuota',
+      weekMax: 'WeekMax',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      monthAverageQuota: 'number',
+      monthMax: 'number',
+      weekAverageQuota: 'number',
+      weekMax: 'number',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class DescribeRegionBandwidthQuotaResponseBodyBandwidthQuotaInstanceInfo extends $tea.Model {
+  instanceNumber?: number;
+  instanceSpec?: string;
+  static names(): { [key: string]: string } {
+    return {
+      instanceNumber: 'InstanceNumber',
+      instanceSpec: 'InstanceSpec',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      instanceNumber: 'number',
+      instanceSpec: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class DescribeRegionBandwidthQuotaResponseBodyBandwidthQuota extends $tea.Model {
+  bandwidthInfo?: DescribeRegionBandwidthQuotaResponseBodyBandwidthQuotaBandwidthInfo;
+  date?: string;
+  instanceInfo?: DescribeRegionBandwidthQuotaResponseBodyBandwidthQuotaInstanceInfo[];
+  regionId?: string;
+  static names(): { [key: string]: string } {
+    return {
+      bandwidthInfo: 'BandwidthInfo',
+      date: 'Date',
+      instanceInfo: 'InstanceInfo',
+      regionId: 'RegionId',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      bandwidthInfo: DescribeRegionBandwidthQuotaResponseBodyBandwidthQuotaBandwidthInfo,
+      date: 'string',
+      instanceInfo: { 'type': 'array', 'itemType': DescribeRegionBandwidthQuotaResponseBodyBandwidthQuotaInstanceInfo },
+      regionId: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
 export class DescribeRegionIspsResponseBodyIsps extends $tea.Model {
   code?: string;
   name?: string;
@@ -23673,6 +25509,87 @@ export class UnassociateNetworkAclRequestResource extends $tea.Model {
   }
 }
 
+export class UpdateEnsSaleControlRequestSaleControlsConditionControls extends $tea.Model {
+  conditionControlModuleCode?: string;
+  conditionControlModuleValue?: string;
+  static names(): { [key: string]: string } {
+    return {
+      conditionControlModuleCode: 'ConditionControlModuleCode',
+      conditionControlModuleValue: 'ConditionControlModuleValue',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      conditionControlModuleCode: 'string',
+      conditionControlModuleValue: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class UpdateEnsSaleControlRequestSaleControlsModuleValue extends $tea.Model {
+  moduleMaxValue?: string;
+  moduleMinValue?: string;
+  moduleValue?: string[];
+  static names(): { [key: string]: string } {
+    return {
+      moduleMaxValue: 'ModuleMaxValue',
+      moduleMinValue: 'ModuleMinValue',
+      moduleValue: 'ModuleValue',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      moduleMaxValue: 'string',
+      moduleMinValue: 'string',
+      moduleValue: { 'type': 'array', 'itemType': 'string' },
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class UpdateEnsSaleControlRequestSaleControls extends $tea.Model {
+  conditionControls?: UpdateEnsSaleControlRequestSaleControlsConditionControls[];
+  description?: string;
+  moduleCode?: string;
+  moduleValue?: UpdateEnsSaleControlRequestSaleControlsModuleValue;
+  operator?: string;
+  orderType?: string;
+  static names(): { [key: string]: string } {
+    return {
+      conditionControls: 'ConditionControls',
+      description: 'Description',
+      moduleCode: 'ModuleCode',
+      moduleValue: 'ModuleValue',
+      operator: 'Operator',
+      orderType: 'OrderType',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      conditionControls: { 'type': 'array', 'itemType': UpdateEnsSaleControlRequestSaleControlsConditionControls },
+      description: 'string',
+      moduleCode: 'string',
+      moduleValue: UpdateEnsSaleControlRequestSaleControlsModuleValue,
+      operator: 'string',
+      orderType: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
 
 export default class Client extends OpenApi {
 
@@ -24417,6 +26334,49 @@ export default class Client extends OpenApi {
   async createEnsRouteEntry(request: CreateEnsRouteEntryRequest): Promise<CreateEnsRouteEntryResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.createEnsRouteEntryWithOptions(request, runtime);
+  }
+
+  async createEnsSaleControlWithOptions(tmpReq: CreateEnsSaleControlRequest, runtime: $Util.RuntimeOptions): Promise<CreateEnsSaleControlResponse> {
+    Util.validateModel(tmpReq);
+    let request = new CreateEnsSaleControlShrinkRequest({ });
+    OpenApiUtil.convert(tmpReq, request);
+    if (!Util.isUnset(tmpReq.saleControls)) {
+      request.saleControlsShrink = OpenApiUtil.arrayToStringWithSpecifiedStyle(tmpReq.saleControls, "SaleControls", "json");
+    }
+
+    let query = { };
+    if (!Util.isUnset(request.aliUidAccount)) {
+      query["AliUidAccount"] = request.aliUidAccount;
+    }
+
+    if (!Util.isUnset(request.commodityCode)) {
+      query["CommodityCode"] = request.commodityCode;
+    }
+
+    if (!Util.isUnset(request.saleControlsShrink)) {
+      query["SaleControls"] = request.saleControlsShrink;
+    }
+
+    let req = new $OpenApi.OpenApiRequest({
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApi.Params({
+      action: "CreateEnsSaleControl",
+      version: "2017-11-10",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $tea.cast<CreateEnsSaleControlResponse>(await this.callApi(params, req, runtime), new CreateEnsSaleControlResponse({}));
+  }
+
+  async createEnsSaleControl(request: CreateEnsSaleControlRequest): Promise<CreateEnsSaleControlResponse> {
+    let runtime = new $Util.RuntimeOptions({ });
+    return await this.createEnsSaleControlWithOptions(request, runtime);
   }
 
   async createEnsServiceWithOptions(request: CreateEnsServiceRequest, runtime: $Util.RuntimeOptions): Promise<CreateEnsServiceResponse> {
@@ -25716,6 +27676,92 @@ export default class Client extends OpenApi {
     return await this.deleteEnsRouteEntryWithOptions(request, runtime);
   }
 
+  async deleteEnsSaleConditionControlWithOptions(tmpReq: DeleteEnsSaleConditionControlRequest, runtime: $Util.RuntimeOptions): Promise<DeleteEnsSaleConditionControlResponse> {
+    Util.validateModel(tmpReq);
+    let request = new DeleteEnsSaleConditionControlShrinkRequest({ });
+    OpenApiUtil.convert(tmpReq, request);
+    if (!Util.isUnset(tmpReq.saleControls)) {
+      request.saleControlsShrink = OpenApiUtil.arrayToStringWithSpecifiedStyle(tmpReq.saleControls, "SaleControls", "json");
+    }
+
+    let query = { };
+    if (!Util.isUnset(request.aliUidAccount)) {
+      query["AliUidAccount"] = request.aliUidAccount;
+    }
+
+    if (!Util.isUnset(request.commodityCode)) {
+      query["CommodityCode"] = request.commodityCode;
+    }
+
+    if (!Util.isUnset(request.saleControlsShrink)) {
+      query["SaleControls"] = request.saleControlsShrink;
+    }
+
+    let req = new $OpenApi.OpenApiRequest({
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApi.Params({
+      action: "DeleteEnsSaleConditionControl",
+      version: "2017-11-10",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $tea.cast<DeleteEnsSaleConditionControlResponse>(await this.callApi(params, req, runtime), new DeleteEnsSaleConditionControlResponse({}));
+  }
+
+  async deleteEnsSaleConditionControl(request: DeleteEnsSaleConditionControlRequest): Promise<DeleteEnsSaleConditionControlResponse> {
+    let runtime = new $Util.RuntimeOptions({ });
+    return await this.deleteEnsSaleConditionControlWithOptions(request, runtime);
+  }
+
+  async deleteEnsSaleControlWithOptions(tmpReq: DeleteEnsSaleControlRequest, runtime: $Util.RuntimeOptions): Promise<DeleteEnsSaleControlResponse> {
+    Util.validateModel(tmpReq);
+    let request = new DeleteEnsSaleControlShrinkRequest({ });
+    OpenApiUtil.convert(tmpReq, request);
+    if (!Util.isUnset(tmpReq.saleControls)) {
+      request.saleControlsShrink = OpenApiUtil.arrayToStringWithSpecifiedStyle(tmpReq.saleControls, "SaleControls", "json");
+    }
+
+    let query = { };
+    if (!Util.isUnset(request.aliUidAccount)) {
+      query["AliUidAccount"] = request.aliUidAccount;
+    }
+
+    if (!Util.isUnset(request.commodityCode)) {
+      query["CommodityCode"] = request.commodityCode;
+    }
+
+    if (!Util.isUnset(request.saleControlsShrink)) {
+      query["SaleControls"] = request.saleControlsShrink;
+    }
+
+    let req = new $OpenApi.OpenApiRequest({
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApi.Params({
+      action: "DeleteEnsSaleControl",
+      version: "2017-11-10",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $tea.cast<DeleteEnsSaleControlResponse>(await this.callApi(params, req, runtime), new DeleteEnsSaleControlResponse({}));
+  }
+
+  async deleteEnsSaleControl(request: DeleteEnsSaleControlRequest): Promise<DeleteEnsSaleControlResponse> {
+    let runtime = new $Util.RuntimeOptions({ });
+    return await this.deleteEnsSaleControlWithOptions(request, runtime);
+  }
+
   async deleteEpnInstanceWithOptions(request: DeleteEpnInstanceRequest, runtime: $Util.RuntimeOptions): Promise<DeleteEpnInstanceResponse> {
     Util.validateModel(request);
     let query = { };
@@ -26149,12 +28195,28 @@ export default class Client extends OpenApi {
   async describeAICImagesWithOptions(request: DescribeAICImagesRequest, runtime: $Util.RuntimeOptions): Promise<DescribeAICImagesResponse> {
     Util.validateModel(request);
     let query = { };
+    if (!Util.isUnset(request.description)) {
+      query["Description"] = request.description;
+    }
+
     if (!Util.isUnset(request.imageId)) {
       query["ImageId"] = request.imageId;
     }
 
+    if (!Util.isUnset(request.imageType)) {
+      query["ImageType"] = request.imageType;
+    }
+
     if (!Util.isUnset(request.imageUrl)) {
       query["ImageUrl"] = request.imageUrl;
+    }
+
+    if (!Util.isUnset(request.maxDate)) {
+      query["MaxDate"] = request.maxDate;
+    }
+
+    if (!Util.isUnset(request.minDate)) {
+      query["MinDate"] = request.minDate;
     }
 
     if (!Util.isUnset(request.pageNumber)) {
@@ -26163,6 +28225,10 @@ export default class Client extends OpenApi {
 
     if (!Util.isUnset(request.pageSize)) {
       query["PageSize"] = request.pageSize;
+    }
+
+    if (!Util.isUnset(request.status)) {
+      query["Status"] = request.status;
     }
 
     let req = new $OpenApi.OpenApiRequest({
@@ -26191,12 +28257,24 @@ export default class Client extends OpenApi {
     Util.validateModel(tmpReq);
     let request = new DescribeARMServerInstancesShrinkRequest({ });
     OpenApiUtil.convert(tmpReq, request);
+    if (!Util.isUnset(tmpReq.AICSpecs)) {
+      request.AICSpecsShrink = OpenApiUtil.arrayToStringWithSpecifiedStyle(tmpReq.AICSpecs, "AICSpecs", "json");
+    }
+
     if (!Util.isUnset(tmpReq.ensRegionIds)) {
       request.ensRegionIdsShrink = OpenApiUtil.arrayToStringWithSpecifiedStyle(tmpReq.ensRegionIds, "EnsRegionIds", "json");
     }
 
     if (!Util.isUnset(tmpReq.serverIds)) {
       request.serverIdsShrink = OpenApiUtil.arrayToStringWithSpecifiedStyle(tmpReq.serverIds, "ServerIds", "json");
+    }
+
+    if (!Util.isUnset(tmpReq.serverSpecs)) {
+      request.serverSpecsShrink = OpenApiUtil.arrayToStringWithSpecifiedStyle(tmpReq.serverSpecs, "ServerSpecs", "json");
+    }
+
+    if (!Util.isUnset(tmpReq.states)) {
+      request.statesShrink = OpenApiUtil.arrayToStringWithSpecifiedStyle(tmpReq.states, "States", "json");
     }
 
     let query = OpenApiUtil.query(Util.toMap(request));
@@ -26816,6 +28894,68 @@ export default class Client extends OpenApi {
     return await this.describeElbAvailableResourceInfoWithOptions(runtime);
   }
 
+  async describeEnsCommodityCodeWithOptions(request: DescribeEnsCommodityCodeRequest, runtime: $Util.RuntimeOptions): Promise<DescribeEnsCommodityCodeResponse> {
+    Util.validateModel(request);
+    let query = { };
+    if (!Util.isUnset(request.commodityCode)) {
+      query["CommodityCode"] = request.commodityCode;
+    }
+
+    let req = new $OpenApi.OpenApiRequest({
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApi.Params({
+      action: "DescribeEnsCommodityCode",
+      version: "2017-11-10",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $tea.cast<DescribeEnsCommodityCodeResponse>(await this.callApi(params, req, runtime), new DescribeEnsCommodityCodeResponse({}));
+  }
+
+  async describeEnsCommodityCode(request: DescribeEnsCommodityCodeRequest): Promise<DescribeEnsCommodityCodeResponse> {
+    let runtime = new $Util.RuntimeOptions({ });
+    return await this.describeEnsCommodityCodeWithOptions(request, runtime);
+  }
+
+  async describeEnsCommodityModuleCodeWithOptions(request: DescribeEnsCommodityModuleCodeRequest, runtime: $Util.RuntimeOptions): Promise<DescribeEnsCommodityModuleCodeResponse> {
+    Util.validateModel(request);
+    let query = { };
+    if (!Util.isUnset(request.commodityCode)) {
+      query["CommodityCode"] = request.commodityCode;
+    }
+
+    if (!Util.isUnset(request.moduleCode)) {
+      query["ModuleCode"] = request.moduleCode;
+    }
+
+    let req = new $OpenApi.OpenApiRequest({
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApi.Params({
+      action: "DescribeEnsCommodityModuleCode",
+      version: "2017-11-10",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $tea.cast<DescribeEnsCommodityModuleCodeResponse>(await this.callApi(params, req, runtime), new DescribeEnsCommodityModuleCodeResponse({}));
+  }
+
+  async describeEnsCommodityModuleCode(request: DescribeEnsCommodityModuleCodeRequest): Promise<DescribeEnsCommodityModuleCodeResponse> {
+    let runtime = new $Util.RuntimeOptions({ });
+    return await this.describeEnsCommodityModuleCodeWithOptions(request, runtime);
+  }
+
   async describeEnsEipAddressesWithOptions(request: DescribeEnsEipAddressesRequest, runtime: $Util.RuntimeOptions): Promise<DescribeEnsEipAddressesResponse> {
     Util.validateModel(request);
     let query = { };
@@ -27184,6 +29324,121 @@ export default class Client extends OpenApi {
   async describeEnsRouteEntryList(request: DescribeEnsRouteEntryListRequest): Promise<DescribeEnsRouteEntryListResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.describeEnsRouteEntryListWithOptions(request, runtime);
+  }
+
+  async describeEnsSaleControlWithOptions(request: DescribeEnsSaleControlRequest, runtime: $Util.RuntimeOptions): Promise<DescribeEnsSaleControlResponse> {
+    Util.validateModel(request);
+    let query = { };
+    if (!Util.isUnset(request.aliUidAccount)) {
+      query["AliUidAccount"] = request.aliUidAccount;
+    }
+
+    if (!Util.isUnset(request.commodityCode)) {
+      query["CommodityCode"] = request.commodityCode;
+    }
+
+    if (!Util.isUnset(request.moduleCode)) {
+      query["ModuleCode"] = request.moduleCode;
+    }
+
+    if (!Util.isUnset(request.orderType)) {
+      query["OrderType"] = request.orderType;
+    }
+
+    let req = new $OpenApi.OpenApiRequest({
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApi.Params({
+      action: "DescribeEnsSaleControl",
+      version: "2017-11-10",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $tea.cast<DescribeEnsSaleControlResponse>(await this.callApi(params, req, runtime), new DescribeEnsSaleControlResponse({}));
+  }
+
+  async describeEnsSaleControl(request: DescribeEnsSaleControlRequest): Promise<DescribeEnsSaleControlResponse> {
+    let runtime = new $Util.RuntimeOptions({ });
+    return await this.describeEnsSaleControlWithOptions(request, runtime);
+  }
+
+  async describeEnsSaleControlAvailableResourceWithOptions(request: DescribeEnsSaleControlAvailableResourceRequest, runtime: $Util.RuntimeOptions): Promise<DescribeEnsSaleControlAvailableResourceResponse> {
+    Util.validateModel(request);
+    let query = { };
+    if (!Util.isUnset(request.commodityCode)) {
+      query["CommodityCode"] = request.commodityCode;
+    }
+
+    if (!Util.isUnset(request.orderType)) {
+      query["OrderType"] = request.orderType;
+    }
+
+    let req = new $OpenApi.OpenApiRequest({
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApi.Params({
+      action: "DescribeEnsSaleControlAvailableResource",
+      version: "2017-11-10",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $tea.cast<DescribeEnsSaleControlAvailableResourceResponse>(await this.callApi(params, req, runtime), new DescribeEnsSaleControlAvailableResourceResponse({}));
+  }
+
+  async describeEnsSaleControlAvailableResource(request: DescribeEnsSaleControlAvailableResourceRequest): Promise<DescribeEnsSaleControlAvailableResourceResponse> {
+    let runtime = new $Util.RuntimeOptions({ });
+    return await this.describeEnsSaleControlAvailableResourceWithOptions(request, runtime);
+  }
+
+  async describeEnsSaleControlStockWithOptions(request: DescribeEnsSaleControlStockRequest, runtime: $Util.RuntimeOptions): Promise<DescribeEnsSaleControlStockResponse> {
+    Util.validateModel(request);
+    let query = { };
+    if (!Util.isUnset(request.aliUidAccount)) {
+      query["AliUidAccount"] = request.aliUidAccount;
+    }
+
+    if (!Util.isUnset(request.commodityCode)) {
+      query["CommodityCode"] = request.commodityCode;
+    }
+
+    if (!Util.isUnset(request.moduleCode)) {
+      query["ModuleCode"] = request.moduleCode;
+    }
+
+    if (!Util.isUnset(request.orderType)) {
+      query["OrderType"] = request.orderType;
+    }
+
+    let req = new $OpenApi.OpenApiRequest({
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApi.Params({
+      action: "DescribeEnsSaleControlStock",
+      version: "2017-11-10",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $tea.cast<DescribeEnsSaleControlStockResponse>(await this.callApi(params, req, runtime), new DescribeEnsSaleControlStockResponse({}));
+  }
+
+  async describeEnsSaleControlStock(request: DescribeEnsSaleControlStockRequest): Promise<DescribeEnsSaleControlStockResponse> {
+    let runtime = new $Util.RuntimeOptions({ });
+    return await this.describeEnsSaleControlStockWithOptions(request, runtime);
   }
 
   async describeEpnBandWidthDataWithOptions(request: DescribeEpnBandWidthDataRequest, runtime: $Util.RuntimeOptions): Promise<DescribeEpnBandWidthDataResponse> {
@@ -28582,6 +30837,31 @@ export default class Client extends OpenApi {
   async describePrice(request: DescribePriceRequest): Promise<DescribePriceResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.describePriceWithOptions(request, runtime);
+  }
+
+  async describeRegionBandwidthQuotaWithOptions(request: DescribeRegionBandwidthQuotaRequest, runtime: $Util.RuntimeOptions): Promise<DescribeRegionBandwidthQuotaResponse> {
+    Util.validateModel(request);
+    let query = OpenApiUtil.query(Util.toMap(request));
+    let req = new $OpenApi.OpenApiRequest({
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApi.Params({
+      action: "DescribeRegionBandwidthQuota",
+      version: "2017-11-10",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "GET",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $tea.cast<DescribeRegionBandwidthQuotaResponse>(await this.callApi(params, req, runtime), new DescribeRegionBandwidthQuotaResponse({}));
+  }
+
+  async describeRegionBandwidthQuota(request: DescribeRegionBandwidthQuotaRequest): Promise<DescribeRegionBandwidthQuotaResponse> {
+    let runtime = new $Util.RuntimeOptions({ });
+    return await this.describeRegionBandwidthQuotaWithOptions(request, runtime);
   }
 
   async describeRegionIspsWithOptions(request: DescribeRegionIspsRequest, runtime: $Util.RuntimeOptions): Promise<DescribeRegionIspsResponse> {
@@ -30040,8 +32320,14 @@ export default class Client extends OpenApi {
     return await this.reInitDiskWithOptions(request, runtime);
   }
 
-  async rebootAICInstanceWithOptions(request: RebootAICInstanceRequest, runtime: $Util.RuntimeOptions): Promise<RebootAICInstanceResponse> {
-    Util.validateModel(request);
+  async rebootAICInstanceWithOptions(tmpReq: RebootAICInstanceRequest, runtime: $Util.RuntimeOptions): Promise<RebootAICInstanceResponse> {
+    Util.validateModel(tmpReq);
+    let request = new RebootAICInstanceShrinkRequest({ });
+    OpenApiUtil.convert(tmpReq, request);
+    if (!Util.isUnset(tmpReq.instanceIds)) {
+      request.instanceIdsShrink = OpenApiUtil.arrayToStringWithSpecifiedStyle(tmpReq.instanceIds, "InstanceIds", "json");
+    }
+
     let query = OpenApiUtil.query(Util.toMap(request));
     let req = new $OpenApi.OpenApiRequest({
       query: OpenApiUtil.query(query),
@@ -30065,8 +32351,14 @@ export default class Client extends OpenApi {
     return await this.rebootAICInstanceWithOptions(request, runtime);
   }
 
-  async rebootARMServerInstanceWithOptions(request: RebootARMServerInstanceRequest, runtime: $Util.RuntimeOptions): Promise<RebootARMServerInstanceResponse> {
-    Util.validateModel(request);
+  async rebootARMServerInstanceWithOptions(tmpReq: RebootARMServerInstanceRequest, runtime: $Util.RuntimeOptions): Promise<RebootARMServerInstanceResponse> {
+    Util.validateModel(tmpReq);
+    let request = new RebootARMServerInstanceShrinkRequest({ });
+    OpenApiUtil.convert(tmpReq, request);
+    if (!Util.isUnset(tmpReq.serverIds)) {
+      request.serverIdsShrink = OpenApiUtil.arrayToStringWithSpecifiedStyle(tmpReq.serverIds, "ServerIds", "json");
+    }
+
     let query = OpenApiUtil.query(Util.toMap(request));
     let req = new $OpenApi.OpenApiRequest({
       query: OpenApiUtil.query(query),
@@ -30691,8 +32983,14 @@ export default class Client extends OpenApi {
     return await this.rescaleDeviceServiceWithOptions(request, runtime);
   }
 
-  async resetAICInstanceWithOptions(request: ResetAICInstanceRequest, runtime: $Util.RuntimeOptions): Promise<ResetAICInstanceResponse> {
-    Util.validateModel(request);
+  async resetAICInstanceWithOptions(tmpReq: ResetAICInstanceRequest, runtime: $Util.RuntimeOptions): Promise<ResetAICInstanceResponse> {
+    Util.validateModel(tmpReq);
+    let request = new ResetAICInstanceShrinkRequest({ });
+    OpenApiUtil.convert(tmpReq, request);
+    if (!Util.isUnset(tmpReq.instanceIds)) {
+      request.instanceIdsShrink = OpenApiUtil.arrayToStringWithSpecifiedStyle(tmpReq.instanceIds, "InstanceIds", "json");
+    }
+
     let query = OpenApiUtil.query(Util.toMap(request));
     let req = new $OpenApi.OpenApiRequest({
       query: OpenApiUtil.query(query),
@@ -31026,6 +33324,10 @@ export default class Client extends OpenApi {
 
     if (!Util.isUnset(request.imageId)) {
       query["ImageId"] = request.imageId;
+    }
+
+    if (!Util.isUnset(request.instanceChargeStrategy)) {
+      query["InstanceChargeStrategy"] = request.instanceChargeStrategy;
     }
 
     if (!Util.isUnset(request.instanceChargeType)) {
@@ -31991,6 +34293,49 @@ export default class Client extends OpenApi {
   async unassociateNetworkAcl(request: UnassociateNetworkAclRequest): Promise<UnassociateNetworkAclResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.unassociateNetworkAclWithOptions(request, runtime);
+  }
+
+  async updateEnsSaleControlWithOptions(tmpReq: UpdateEnsSaleControlRequest, runtime: $Util.RuntimeOptions): Promise<UpdateEnsSaleControlResponse> {
+    Util.validateModel(tmpReq);
+    let request = new UpdateEnsSaleControlShrinkRequest({ });
+    OpenApiUtil.convert(tmpReq, request);
+    if (!Util.isUnset(tmpReq.saleControls)) {
+      request.saleControlsShrink = OpenApiUtil.arrayToStringWithSpecifiedStyle(tmpReq.saleControls, "SaleControls", "json");
+    }
+
+    let query = { };
+    if (!Util.isUnset(request.aliUidAccount)) {
+      query["AliUidAccount"] = request.aliUidAccount;
+    }
+
+    if (!Util.isUnset(request.commodityCode)) {
+      query["CommodityCode"] = request.commodityCode;
+    }
+
+    if (!Util.isUnset(request.saleControlsShrink)) {
+      query["SaleControls"] = request.saleControlsShrink;
+    }
+
+    let req = new $OpenApi.OpenApiRequest({
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApi.Params({
+      action: "UpdateEnsSaleControl",
+      version: "2017-11-10",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $tea.cast<UpdateEnsSaleControlResponse>(await this.callApi(params, req, runtime), new UpdateEnsSaleControlResponse({}));
+  }
+
+  async updateEnsSaleControl(request: UpdateEnsSaleControlRequest): Promise<UpdateEnsSaleControlResponse> {
+    let runtime = new $Util.RuntimeOptions({ });
+    return await this.updateEnsSaleControlWithOptions(request, runtime);
   }
 
   async upgradeAICInstanceImageWithOptions(tmpReq: UpgradeAICInstanceImageRequest, runtime: $Util.RuntimeOptions): Promise<UpgradeAICInstanceImageResponse> {
