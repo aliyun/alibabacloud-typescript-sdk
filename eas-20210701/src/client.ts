@@ -8,6 +8,55 @@ import OpenApiUtil from '@alicloud/openapi-util';
 import EndpointUtil from '@alicloud/endpoint-util';
 import * as $tea from '@alicloud/tea-typescript';
 
+export class ContainerInfo extends $tea.Model {
+  currentReaon?: string;
+  currentStatus?: string;
+  currentTimestamp?: string;
+  image?: string;
+  lastReason?: string;
+  lastStatus?: string;
+  lastTimestamp?: string;
+  name?: string;
+  port?: number;
+  ready?: boolean;
+  restartCount?: number;
+  static names(): { [key: string]: string } {
+    return {
+      currentReaon: 'CurrentReaon',
+      currentStatus: 'CurrentStatus',
+      currentTimestamp: 'CurrentTimestamp',
+      image: 'Image',
+      lastReason: 'LastReason',
+      lastStatus: 'LastStatus',
+      lastTimestamp: 'LastTimestamp',
+      name: 'Name',
+      port: 'Port',
+      ready: 'Ready',
+      restartCount: 'RestartCount',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      currentReaon: 'string',
+      currentStatus: 'string',
+      currentTimestamp: 'string',
+      image: 'string',
+      lastReason: 'string',
+      lastStatus: 'string',
+      lastTimestamp: 'string',
+      name: 'string',
+      port: 'number',
+      ready: 'boolean',
+      restartCount: 'number',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
 export class Group extends $tea.Model {
   accessToken?: string;
   clusterId?: string;
@@ -49,13 +98,16 @@ export class Group extends $tea.Model {
 }
 
 export class Instance extends $tea.Model {
+  currentAmount?: number;
   hostIP?: string;
   hostName?: string;
   innerIP?: string;
   instanceName?: string;
   instancePort?: number;
+  isSpot?: boolean;
   lastState?: { [key: string]: any }[];
   namespace?: string;
+  originalAmount?: number;
   readyProcesses?: number;
   reason?: string;
   resourceType?: string;
@@ -68,13 +120,16 @@ export class Instance extends $tea.Model {
   totalProcesses?: number;
   static names(): { [key: string]: string } {
     return {
+      currentAmount: 'CurrentAmount',
       hostIP: 'HostIP',
       hostName: 'HostName',
       innerIP: 'InnerIP',
       instanceName: 'InstanceName',
       instancePort: 'InstancePort',
+      isSpot: 'IsSpot',
       lastState: 'LastState',
       namespace: 'Namespace',
+      originalAmount: 'OriginalAmount',
       readyProcesses: 'ReadyProcesses',
       reason: 'Reason',
       resourceType: 'ResourceType',
@@ -90,13 +145,16 @@ export class Instance extends $tea.Model {
 
   static types(): { [key: string]: any } {
     return {
+      currentAmount: 'number',
       hostIP: 'string',
       hostName: 'string',
       innerIP: 'string',
       instanceName: 'string',
       instancePort: 'number',
+      isSpot: 'boolean',
       lastState: { 'type': 'array', 'itemType': { 'type': 'map', 'keyType': 'string', 'valueType': 'any' } },
       namespace: 'string',
+      originalAmount: 'number',
       readyProcesses: 'number',
       reason: 'string',
       resourceType: 'string',
@@ -184,6 +242,7 @@ export class ResourceInstance extends $tea.Model {
   instanceMemory?: string;
   instanceName?: string;
   instanceStatus?: string;
+  instanceSystemDiskSize?: number;
   instanceTenantIp?: string;
   instanceType?: string;
   instanceUsedCpu?: number;
@@ -191,6 +250,7 @@ export class ResourceInstance extends $tea.Model {
   instanceUsedGpuMemory?: string;
   instanceUsedMemory?: string;
   region?: string;
+  resourceId?: string;
   zone?: string;
   static names(): { [key: string]: string } {
     return {
@@ -207,6 +267,7 @@ export class ResourceInstance extends $tea.Model {
       instanceMemory: 'InstanceMemory',
       instanceName: 'InstanceName',
       instanceStatus: 'InstanceStatus',
+      instanceSystemDiskSize: 'InstanceSystemDiskSize',
       instanceTenantIp: 'InstanceTenantIp',
       instanceType: 'InstanceType',
       instanceUsedCpu: 'InstanceUsedCpu',
@@ -214,6 +275,7 @@ export class ResourceInstance extends $tea.Model {
       instanceUsedGpuMemory: 'InstanceUsedGpuMemory',
       instanceUsedMemory: 'InstanceUsedMemory',
       region: 'Region',
+      resourceId: 'ResourceId',
       zone: 'Zone',
     };
   }
@@ -233,6 +295,7 @@ export class ResourceInstance extends $tea.Model {
       instanceMemory: 'string',
       instanceName: 'string',
       instanceStatus: 'string',
+      instanceSystemDiskSize: 'number',
       instanceTenantIp: 'string',
       instanceType: 'string',
       instanceUsedCpu: 'number',
@@ -240,6 +303,7 @@ export class ResourceInstance extends $tea.Model {
       instanceUsedGpuMemory: 'string',
       instanceUsedMemory: 'string',
       region: 'string',
+      resourceId: 'string',
       zone: 'string',
     };
   }
@@ -549,12 +613,16 @@ export class CreateResourceRequest extends $tea.Model {
   chargeType?: string;
   ecsInstanceCount?: number;
   ecsInstanceType?: string;
+  systemDiskSize?: number;
+  zone?: string;
   static names(): { [key: string]: string } {
     return {
       autoRenewal: 'AutoRenewal',
       chargeType: 'ChargeType',
       ecsInstanceCount: 'EcsInstanceCount',
       ecsInstanceType: 'EcsInstanceType',
+      systemDiskSize: 'SystemDiskSize',
+      zone: 'Zone',
     };
   }
 
@@ -564,6 +632,8 @@ export class CreateResourceRequest extends $tea.Model {
       chargeType: 'string',
       ecsInstanceCount: 'number',
       ecsInstanceType: 'string',
+      systemDiskSize: 'number',
+      zone: 'string',
     };
   }
 
@@ -574,6 +644,7 @@ export class CreateResourceRequest extends $tea.Model {
 
 export class CreateResourceResponseBody extends $tea.Model {
   clusterId?: string;
+  instanceIds?: string[];
   ownerUid?: string;
   requestId?: string;
   resourceId?: string;
@@ -581,6 +652,7 @@ export class CreateResourceResponseBody extends $tea.Model {
   static names(): { [key: string]: string } {
     return {
       clusterId: 'ClusterId',
+      instanceIds: 'InstanceIds',
       ownerUid: 'OwnerUid',
       requestId: 'RequestId',
       resourceId: 'ResourceId',
@@ -591,6 +663,7 @@ export class CreateResourceResponseBody extends $tea.Model {
   static types(): { [key: string]: any } {
     return {
       clusterId: 'string',
+      instanceIds: { 'type': 'array', 'itemType': 'string' },
       ownerUid: 'string',
       requestId: 'string',
       resourceId: 'string',
@@ -633,14 +706,18 @@ export class CreateResourceInstancesRequest extends $tea.Model {
   chargeType?: string;
   ecsInstanceCount?: number;
   ecsInstanceType?: string;
+  systemDiskSize?: number;
   userData?: string;
+  zone?: string;
   static names(): { [key: string]: string } {
     return {
       autoRenewal: 'AutoRenewal',
       chargeType: 'ChargeType',
       ecsInstanceCount: 'EcsInstanceCount',
       ecsInstanceType: 'EcsInstanceType',
+      systemDiskSize: 'SystemDiskSize',
       userData: 'UserData',
+      zone: 'Zone',
     };
   }
 
@@ -650,7 +727,9 @@ export class CreateResourceInstancesRequest extends $tea.Model {
       chargeType: 'string',
       ecsInstanceCount: 'number',
       ecsInstanceType: 'string',
+      systemDiskSize: 'number',
       userData: 'string',
+      zone: 'string',
     };
   }
 
@@ -660,10 +739,12 @@ export class CreateResourceInstancesRequest extends $tea.Model {
 }
 
 export class CreateResourceInstancesResponseBody extends $tea.Model {
+  instanceIds?: string[];
   message?: string;
   requestId?: string;
   static names(): { [key: string]: string } {
     return {
+      instanceIds: 'InstanceIds',
       message: 'Message',
       requestId: 'RequestId',
     };
@@ -671,6 +752,7 @@ export class CreateResourceInstancesResponseBody extends $tea.Model {
 
   static types(): { [key: string]: any } {
     return {
+      instanceIds: { 'type': 'array', 'itemType': 'string' },
       message: 'string',
       requestId: 'string',
     };
@@ -888,11 +970,13 @@ export class CreateServiceResponse extends $tea.Model {
 }
 
 export class CreateServiceAutoScalerRequest extends $tea.Model {
+  behavior?: CreateServiceAutoScalerRequestBehavior;
   max?: number;
   min?: number;
   scaleStrategies?: CreateServiceAutoScalerRequestScaleStrategies[];
   static names(): { [key: string]: string } {
     return {
+      behavior: 'behavior',
       max: 'max',
       min: 'min',
       scaleStrategies: 'scaleStrategies',
@@ -901,6 +985,7 @@ export class CreateServiceAutoScalerRequest extends $tea.Model {
 
   static types(): { [key: string]: any } {
     return {
+      behavior: CreateServiceAutoScalerRequestBehavior,
       max: 'number',
       min: 'number',
       scaleStrategies: { 'type': 'array', 'itemType': CreateServiceAutoScalerRequestScaleStrategies },
@@ -2210,12 +2295,16 @@ export class DescribeServiceCronScalerResponse extends $tea.Model {
 
 export class DescribeServiceEventRequest extends $tea.Model {
   endTime?: string;
+  eventType?: string;
+  instanceName?: string;
   pageNum?: string;
   pageSize?: string;
   startTime?: string;
   static names(): { [key: string]: string } {
     return {
       endTime: 'EndTime',
+      eventType: 'EventType',
+      instanceName: 'InstanceName',
       pageNum: 'PageNum',
       pageSize: 'PageSize',
       startTime: 'StartTime',
@@ -2225,6 +2314,8 @@ export class DescribeServiceEventRequest extends $tea.Model {
   static types(): { [key: string]: any } {
     return {
       endTime: 'string',
+      eventType: 'string',
+      instanceName: 'string',
       pageNum: 'string',
       pageSize: 'string',
       startTime: 'string',
@@ -2293,30 +2384,39 @@ export class DescribeServiceEventResponse extends $tea.Model {
 }
 
 export class DescribeServiceLogRequest extends $tea.Model {
+  containerName?: string;
   endTime?: string;
+  instanceName?: string;
   ip?: string;
   keyword?: string;
   pageNum?: number;
   pageSize?: number;
+  previous?: boolean;
   startTime?: string;
   static names(): { [key: string]: string } {
     return {
+      containerName: 'ContainerName',
       endTime: 'EndTime',
+      instanceName: 'InstanceName',
       ip: 'Ip',
       keyword: 'Keyword',
       pageNum: 'PageNum',
       pageSize: 'PageSize',
+      previous: 'Previous',
       startTime: 'StartTime',
     };
   }
 
   static types(): { [key: string]: any } {
     return {
+      containerName: 'string',
       endTime: 'string',
+      instanceName: 'string',
       ip: 'string',
       keyword: 'string',
       pageNum: 'number',
       pageSize: 'number',
+      previous: 'boolean',
       startTime: 'string',
     };
   }
@@ -2746,27 +2846,42 @@ export class ListResourceInstanceWorkerResponse extends $tea.Model {
 
 export class ListResourceInstancesRequest extends $tea.Model {
   chargeType?: string;
+  filter?: string;
+  instanceIP?: string;
   instanceId?: string;
   instanceName?: string;
+  instanceStatus?: string;
+  order?: string;
   pageNumber?: number;
   pageSize?: number;
+  sort?: string;
   static names(): { [key: string]: string } {
     return {
       chargeType: 'ChargeType',
+      filter: 'Filter',
+      instanceIP: 'InstanceIP',
       instanceId: 'InstanceId',
       instanceName: 'InstanceName',
+      instanceStatus: 'InstanceStatus',
+      order: 'Order',
       pageNumber: 'PageNumber',
       pageSize: 'PageSize',
+      sort: 'Sort',
     };
   }
 
   static types(): { [key: string]: any } {
     return {
       chargeType: 'string',
+      filter: 'string',
+      instanceIP: 'string',
       instanceId: 'string',
       instanceName: 'string',
+      instanceStatus: 'string',
+      order: 'string',
       pageNumber: 'number',
       pageSize: 'number',
+      sort: 'string',
     };
   }
 
@@ -2994,19 +3109,52 @@ export class ListResourcesResponse extends $tea.Model {
 }
 
 export class ListServiceInstancesRequest extends $tea.Model {
+  filter?: string;
+  hostIP?: string;
+  instanceIP?: string;
+  instanceName?: string;
+  instanceStatus?: string;
+  instanceType?: string;
+  isSpot?: boolean;
+  order?: string;
   pageNumber?: number;
   pageSize?: number;
+  resourceType?: string;
+  role?: string;
+  sort?: string;
   static names(): { [key: string]: string } {
     return {
+      filter: 'Filter',
+      hostIP: 'HostIP',
+      instanceIP: 'InstanceIP',
+      instanceName: 'InstanceName',
+      instanceStatus: 'InstanceStatus',
+      instanceType: 'InstanceType',
+      isSpot: 'IsSpot',
+      order: 'Order',
       pageNumber: 'PageNumber',
       pageSize: 'PageSize',
+      resourceType: 'ResourceType',
+      role: 'Role',
+      sort: 'Sort',
     };
   }
 
   static types(): { [key: string]: any } {
     return {
+      filter: 'string',
+      hostIP: 'string',
+      instanceIP: 'string',
+      instanceName: 'string',
+      instanceStatus: 'string',
+      instanceType: 'string',
+      isSpot: 'boolean',
+      order: 'string',
       pageNumber: 'number',
       pageSize: 'number',
+      resourceType: 'string',
+      role: 'string',
+      sort: 'string',
     };
   }
 
@@ -3157,7 +3305,11 @@ export class ListServicesRequest extends $tea.Model {
   pageNumber?: number;
   pageSize?: number;
   parentServiceUid?: string;
+  resourceName?: string;
+  serviceName?: string;
+  serviceStatus?: string;
   serviceType?: string;
+  serviceUid?: string;
   sort?: string;
   static names(): { [key: string]: string } {
     return {
@@ -3168,7 +3320,11 @@ export class ListServicesRequest extends $tea.Model {
       pageNumber: 'PageNumber',
       pageSize: 'PageSize',
       parentServiceUid: 'ParentServiceUid',
+      resourceName: 'ResourceName',
+      serviceName: 'ServiceName',
+      serviceStatus: 'ServiceStatus',
       serviceType: 'ServiceType',
+      serviceUid: 'ServiceUid',
       sort: 'Sort',
     };
   }
@@ -3182,7 +3338,11 @@ export class ListServicesRequest extends $tea.Model {
       pageNumber: 'number',
       pageSize: 'number',
       parentServiceUid: 'string',
+      resourceName: 'string',
+      serviceName: 'string',
+      serviceStatus: 'string',
       serviceType: 'string',
+      serviceUid: 'string',
       sort: 'string',
     };
   }
@@ -3200,7 +3360,11 @@ export class ListServicesShrinkRequest extends $tea.Model {
   pageNumber?: number;
   pageSize?: number;
   parentServiceUid?: string;
+  resourceName?: string;
+  serviceName?: string;
+  serviceStatus?: string;
   serviceType?: string;
+  serviceUid?: string;
   sort?: string;
   static names(): { [key: string]: string } {
     return {
@@ -3211,7 +3375,11 @@ export class ListServicesShrinkRequest extends $tea.Model {
       pageNumber: 'PageNumber',
       pageSize: 'PageSize',
       parentServiceUid: 'ParentServiceUid',
+      resourceName: 'ResourceName',
+      serviceName: 'ServiceName',
+      serviceStatus: 'ServiceStatus',
       serviceType: 'ServiceType',
+      serviceUid: 'ServiceUid',
       sort: 'Sort',
     };
   }
@@ -3225,7 +3393,11 @@ export class ListServicesShrinkRequest extends $tea.Model {
       pageNumber: 'number',
       pageSize: 'number',
       parentServiceUid: 'string',
+      resourceName: 'string',
+      serviceName: 'string',
+      serviceStatus: 'string',
       serviceType: 'string',
+      serviceUid: 'string',
       sort: 'string',
     };
   }
@@ -3894,11 +4066,13 @@ export class UpdateServiceResponse extends $tea.Model {
 }
 
 export class UpdateServiceAutoScalerRequest extends $tea.Model {
+  behavior?: UpdateServiceAutoScalerRequestBehavior;
   max?: number;
   min?: number;
   scaleStrategies?: UpdateServiceAutoScalerRequestScaleStrategies[];
   static names(): { [key: string]: string } {
     return {
+      behavior: 'behavior',
       max: 'max',
       min: 'min',
       scaleStrategies: 'scaleStrategies',
@@ -3907,6 +4081,7 @@ export class UpdateServiceAutoScalerRequest extends $tea.Model {
 
   static types(): { [key: string]: any } {
     return {
+      behavior: UpdateServiceAutoScalerRequestBehavior,
       max: 'number',
       min: 'number',
       scaleStrategies: { 'type': 'array', 'itemType': UpdateServiceAutoScalerRequestScaleStrategies },
@@ -4323,6 +4498,91 @@ export class ServiceLabels extends $tea.Model {
   }
 }
 
+export class CreateServiceAutoScalerRequestBehaviorOnZero extends $tea.Model {
+  scaleDownGracePeriodSeconds?: number;
+  scaleUpActivationReplicas?: number;
+  static names(): { [key: string]: string } {
+    return {
+      scaleDownGracePeriodSeconds: 'scaleDownGracePeriodSeconds',
+      scaleUpActivationReplicas: 'scaleUpActivationReplicas',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      scaleDownGracePeriodSeconds: 'number',
+      scaleUpActivationReplicas: 'number',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class CreateServiceAutoScalerRequestBehaviorScaleDown extends $tea.Model {
+  stabilizationWindowSeconds?: number;
+  static names(): { [key: string]: string } {
+    return {
+      stabilizationWindowSeconds: 'stabilizationWindowSeconds',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      stabilizationWindowSeconds: 'number',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class CreateServiceAutoScalerRequestBehaviorScaleUp extends $tea.Model {
+  stabilizationWindowSeconds?: number;
+  static names(): { [key: string]: string } {
+    return {
+      stabilizationWindowSeconds: 'stabilizationWindowSeconds',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      stabilizationWindowSeconds: 'number',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class CreateServiceAutoScalerRequestBehavior extends $tea.Model {
+  onZero?: CreateServiceAutoScalerRequestBehaviorOnZero;
+  scaleDown?: CreateServiceAutoScalerRequestBehaviorScaleDown;
+  scaleUp?: CreateServiceAutoScalerRequestBehaviorScaleUp;
+  static names(): { [key: string]: string } {
+    return {
+      onZero: 'onZero',
+      scaleDown: 'scaleDown',
+      scaleUp: 'scaleUp',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      onZero: CreateServiceAutoScalerRequestBehaviorOnZero,
+      scaleDown: CreateServiceAutoScalerRequestBehaviorScaleDown,
+      scaleUp: CreateServiceAutoScalerRequestBehaviorScaleUp,
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
 export class CreateServiceAutoScalerRequestScaleStrategies extends $tea.Model {
   metricName?: string;
   service?: string;
@@ -4562,6 +4822,91 @@ export class ListServiceVersionsResponseBodyVersions extends $tea.Model {
   }
 }
 
+export class UpdateServiceAutoScalerRequestBehaviorOnZero extends $tea.Model {
+  scaleDownGracePeriodSeconds?: number;
+  scaleUpActivationReplicas?: number;
+  static names(): { [key: string]: string } {
+    return {
+      scaleDownGracePeriodSeconds: 'scaleDownGracePeriodSeconds',
+      scaleUpActivationReplicas: 'scaleUpActivationReplicas',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      scaleDownGracePeriodSeconds: 'number',
+      scaleUpActivationReplicas: 'number',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class UpdateServiceAutoScalerRequestBehaviorScaleDown extends $tea.Model {
+  stabilizationWindowSeconds?: number;
+  static names(): { [key: string]: string } {
+    return {
+      stabilizationWindowSeconds: 'stabilizationWindowSeconds',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      stabilizationWindowSeconds: 'number',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class UpdateServiceAutoScalerRequestBehaviorScaleUp extends $tea.Model {
+  stabilizationWindowSeconds?: number;
+  static names(): { [key: string]: string } {
+    return {
+      stabilizationWindowSeconds: 'stabilizationWindowSeconds',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      stabilizationWindowSeconds: 'number',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class UpdateServiceAutoScalerRequestBehavior extends $tea.Model {
+  onZero?: UpdateServiceAutoScalerRequestBehaviorOnZero;
+  scaleDown?: UpdateServiceAutoScalerRequestBehaviorScaleDown;
+  scaleUp?: UpdateServiceAutoScalerRequestBehaviorScaleUp;
+  static names(): { [key: string]: string } {
+    return {
+      onZero: 'onZero',
+      scaleDown: 'scaleDown',
+      scaleUp: 'scaleUp',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      onZero: UpdateServiceAutoScalerRequestBehaviorOnZero,
+      scaleDown: UpdateServiceAutoScalerRequestBehaviorScaleDown,
+      scaleUp: UpdateServiceAutoScalerRequestBehaviorScaleUp,
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
 export class UpdateServiceAutoScalerRequestScaleStrategies extends $tea.Model {
   metricName?: string;
   service?: string;
@@ -4721,6 +5066,14 @@ export default class Client extends OpenApi {
       body["EcsInstanceType"] = request.ecsInstanceType;
     }
 
+    if (!Util.isUnset(request.systemDiskSize)) {
+      body["SystemDiskSize"] = request.systemDiskSize;
+    }
+
+    if (!Util.isUnset(request.zone)) {
+      body["Zone"] = request.zone;
+    }
+
     let req = new $OpenApi.OpenApiRequest({
       headers: headers,
       body: OpenApiUtil.parseToMap(body),
@@ -4764,8 +5117,16 @@ export default class Client extends OpenApi {
       body["EcsInstanceType"] = request.ecsInstanceType;
     }
 
+    if (!Util.isUnset(request.systemDiskSize)) {
+      body["SystemDiskSize"] = request.systemDiskSize;
+    }
+
     if (!Util.isUnset(request.userData)) {
       body["UserData"] = request.userData;
+    }
+
+    if (!Util.isUnset(request.zone)) {
+      body["Zone"] = request.zone;
     }
 
     let req = new $OpenApi.OpenApiRequest({
@@ -4872,6 +5233,10 @@ export default class Client extends OpenApi {
   async createServiceAutoScalerWithOptions(ClusterId: string, ServiceName: string, request: CreateServiceAutoScalerRequest, headers: {[key: string ]: string}, runtime: $Util.RuntimeOptions): Promise<CreateServiceAutoScalerResponse> {
     Util.validateModel(request);
     let body : {[key: string ]: any} = { };
+    if (!Util.isUnset(request.behavior)) {
+      body["behavior"] = request.behavior;
+    }
+
     if (!Util.isUnset(request.max)) {
       body["max"] = request.max;
     }
@@ -5503,6 +5868,14 @@ export default class Client extends OpenApi {
       query["EndTime"] = request.endTime;
     }
 
+    if (!Util.isUnset(request.eventType)) {
+      query["EventType"] = request.eventType;
+    }
+
+    if (!Util.isUnset(request.instanceName)) {
+      query["InstanceName"] = request.instanceName;
+    }
+
     if (!Util.isUnset(request.pageNum)) {
       query["PageNum"] = request.pageNum;
     }
@@ -5542,8 +5915,16 @@ export default class Client extends OpenApi {
   async describeServiceLogWithOptions(ClusterId: string, ServiceName: string, request: DescribeServiceLogRequest, headers: {[key: string ]: string}, runtime: $Util.RuntimeOptions): Promise<DescribeServiceLogResponse> {
     Util.validateModel(request);
     let query : {[key: string ]: any} = { };
+    if (!Util.isUnset(request.containerName)) {
+      query["ContainerName"] = request.containerName;
+    }
+
     if (!Util.isUnset(request.endTime)) {
       query["EndTime"] = request.endTime;
+    }
+
+    if (!Util.isUnset(request.instanceName)) {
+      query["InstanceName"] = request.instanceName;
     }
 
     if (!Util.isUnset(request.ip)) {
@@ -5560,6 +5941,10 @@ export default class Client extends OpenApi {
 
     if (!Util.isUnset(request.pageSize)) {
       query["PageSize"] = request.pageSize;
+    }
+
+    if (!Util.isUnset(request.previous)) {
+      query["Previous"] = request.previous;
     }
 
     if (!Util.isUnset(request.startTime)) {
@@ -5769,6 +6154,14 @@ export default class Client extends OpenApi {
       query["ChargeType"] = request.chargeType;
     }
 
+    if (!Util.isUnset(request.filter)) {
+      query["Filter"] = request.filter;
+    }
+
+    if (!Util.isUnset(request.instanceIP)) {
+      query["InstanceIP"] = request.instanceIP;
+    }
+
     if (!Util.isUnset(request.instanceId)) {
       query["InstanceId"] = request.instanceId;
     }
@@ -5777,12 +6170,24 @@ export default class Client extends OpenApi {
       query["InstanceName"] = request.instanceName;
     }
 
+    if (!Util.isUnset(request.instanceStatus)) {
+      query["InstanceStatus"] = request.instanceStatus;
+    }
+
+    if (!Util.isUnset(request.order)) {
+      query["Order"] = request.order;
+    }
+
     if (!Util.isUnset(request.pageNumber)) {
       query["PageNumber"] = request.pageNumber;
     }
 
     if (!Util.isUnset(request.pageSize)) {
       query["PageSize"] = request.pageSize;
+    }
+
+    if (!Util.isUnset(request.sort)) {
+      query["Sort"] = request.sort;
     }
 
     let req = new $OpenApi.OpenApiRequest({
@@ -5890,12 +6295,56 @@ export default class Client extends OpenApi {
   async listServiceInstancesWithOptions(ClusterId: string, ServiceName: string, request: ListServiceInstancesRequest, headers: {[key: string ]: string}, runtime: $Util.RuntimeOptions): Promise<ListServiceInstancesResponse> {
     Util.validateModel(request);
     let query : {[key: string ]: any} = { };
+    if (!Util.isUnset(request.filter)) {
+      query["Filter"] = request.filter;
+    }
+
+    if (!Util.isUnset(request.hostIP)) {
+      query["HostIP"] = request.hostIP;
+    }
+
+    if (!Util.isUnset(request.instanceIP)) {
+      query["InstanceIP"] = request.instanceIP;
+    }
+
+    if (!Util.isUnset(request.instanceName)) {
+      query["InstanceName"] = request.instanceName;
+    }
+
+    if (!Util.isUnset(request.instanceStatus)) {
+      query["InstanceStatus"] = request.instanceStatus;
+    }
+
+    if (!Util.isUnset(request.instanceType)) {
+      query["InstanceType"] = request.instanceType;
+    }
+
+    if (!Util.isUnset(request.isSpot)) {
+      query["IsSpot"] = request.isSpot;
+    }
+
+    if (!Util.isUnset(request.order)) {
+      query["Order"] = request.order;
+    }
+
     if (!Util.isUnset(request.pageNumber)) {
       query["PageNumber"] = request.pageNumber;
     }
 
     if (!Util.isUnset(request.pageSize)) {
       query["PageSize"] = request.pageSize;
+    }
+
+    if (!Util.isUnset(request.resourceType)) {
+      query["ResourceType"] = request.resourceType;
+    }
+
+    if (!Util.isUnset(request.role)) {
+      query["Role"] = request.role;
+    }
+
+    if (!Util.isUnset(request.sort)) {
+      query["Sort"] = request.sort;
     }
 
     let req = new $OpenApi.OpenApiRequest({
@@ -5994,8 +6443,24 @@ export default class Client extends OpenApi {
       query["ParentServiceUid"] = request.parentServiceUid;
     }
 
+    if (!Util.isUnset(request.resourceName)) {
+      query["ResourceName"] = request.resourceName;
+    }
+
+    if (!Util.isUnset(request.serviceName)) {
+      query["ServiceName"] = request.serviceName;
+    }
+
+    if (!Util.isUnset(request.serviceStatus)) {
+      query["ServiceStatus"] = request.serviceStatus;
+    }
+
     if (!Util.isUnset(request.serviceType)) {
       query["ServiceType"] = request.serviceType;
+    }
+
+    if (!Util.isUnset(request.serviceUid)) {
+      query["ServiceUid"] = request.serviceUid;
     }
 
     if (!Util.isUnset(request.sort)) {
@@ -6317,6 +6782,10 @@ export default class Client extends OpenApi {
   async updateServiceAutoScalerWithOptions(ClusterId: string, ServiceName: string, request: UpdateServiceAutoScalerRequest, headers: {[key: string ]: string}, runtime: $Util.RuntimeOptions): Promise<UpdateServiceAutoScalerResponse> {
     Util.validateModel(request);
     let body : {[key: string ]: any} = { };
+    if (!Util.isUnset(request.behavior)) {
+      body["behavior"] = request.behavior;
+    }
+
     if (!Util.isUnset(request.max)) {
       body["max"] = request.max;
     }
