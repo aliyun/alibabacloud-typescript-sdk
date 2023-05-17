@@ -10,7 +10,6 @@ import * as $tea from '@alicloud/tea-typescript';
 
 export class DescribeEmptyNumberRequest extends $tea.Model {
   authCode?: string;
-  extendFunction?: string;
   inputNumber?: string;
   mask?: string;
   ownerId?: number;
@@ -19,7 +18,6 @@ export class DescribeEmptyNumberRequest extends $tea.Model {
   static names(): { [key: string]: string } {
     return {
       authCode: 'AuthCode',
-      extendFunction: 'ExtendFunction',
       inputNumber: 'InputNumber',
       mask: 'Mask',
       ownerId: 'OwnerId',
@@ -31,7 +29,6 @@ export class DescribeEmptyNumberRequest extends $tea.Model {
   static types(): { [key: string]: any } {
     return {
       authCode: 'string',
-      extendFunction: 'string',
       inputNumber: 'string',
       mask: 'string',
       ownerId: 'number',
@@ -194,7 +191,6 @@ export class DescribePhoneNumberAnalysisResponse extends $tea.Model {
 export class DescribePhoneNumberOnlineTimeRequest extends $tea.Model {
   authCode?: string;
   carrier?: string;
-  extendFunction?: string;
   inputNumber?: string;
   mask?: string;
   ownerId?: number;
@@ -204,7 +200,6 @@ export class DescribePhoneNumberOnlineTimeRequest extends $tea.Model {
     return {
       authCode: 'AuthCode',
       carrier: 'Carrier',
-      extendFunction: 'ExtendFunction',
       inputNumber: 'InputNumber',
       mask: 'Mask',
       ownerId: 'OwnerId',
@@ -217,7 +212,6 @@ export class DescribePhoneNumberOnlineTimeRequest extends $tea.Model {
     return {
       authCode: 'string',
       carrier: 'string',
-      extendFunction: 'string',
       inputNumber: 'string',
       mask: 'string',
       ownerId: 'number',
@@ -286,7 +280,6 @@ export class DescribePhoneNumberOnlineTimeResponse extends $tea.Model {
 
 export class DescribePhoneNumberOperatorAttributeRequest extends $tea.Model {
   authCode?: string;
-  extendFunction?: string;
   inputNumber?: string;
   mask?: string;
   ownerId?: number;
@@ -295,7 +288,6 @@ export class DescribePhoneNumberOperatorAttributeRequest extends $tea.Model {
   static names(): { [key: string]: string } {
     return {
       authCode: 'AuthCode',
-      extendFunction: 'ExtendFunction',
       inputNumber: 'InputNumber',
       mask: 'Mask',
       ownerId: 'OwnerId',
@@ -307,7 +299,6 @@ export class DescribePhoneNumberOperatorAttributeRequest extends $tea.Model {
   static types(): { [key: string]: any } {
     return {
       authCode: 'string',
-      extendFunction: 'string',
       inputNumber: 'string',
       mask: 'string',
       ownerId: 'number',
@@ -376,7 +367,6 @@ export class DescribePhoneNumberOperatorAttributeResponse extends $tea.Model {
 
 export class DescribePhoneTwiceTelVerifyRequest extends $tea.Model {
   authCode?: string;
-  extendFunction?: string;
   inputNumber?: string;
   mask?: string;
   ownerId?: number;
@@ -386,7 +376,6 @@ export class DescribePhoneTwiceTelVerifyRequest extends $tea.Model {
   static names(): { [key: string]: string } {
     return {
       authCode: 'AuthCode',
-      extendFunction: 'ExtendFunction',
       inputNumber: 'InputNumber',
       mask: 'Mask',
       ownerId: 'OwnerId',
@@ -399,7 +388,6 @@ export class DescribePhoneTwiceTelVerifyRequest extends $tea.Model {
   static types(): { [key: string]: any } {
     return {
       authCode: 'string',
-      extendFunction: 'string',
       inputNumber: 'string',
       mask: 'string',
       ownerId: 'number',
@@ -643,7 +631,6 @@ export class PhoneNumberEncryptResponse extends $tea.Model {
 
 export class PhoneNumberStatusForAccountRequest extends $tea.Model {
   authCode?: string;
-  extendFunction?: string;
   inputNumber?: string;
   mask?: string;
   ownerId?: number;
@@ -652,7 +639,6 @@ export class PhoneNumberStatusForAccountRequest extends $tea.Model {
   static names(): { [key: string]: string } {
     return {
       authCode: 'AuthCode',
-      extendFunction: 'ExtendFunction',
       inputNumber: 'InputNumber',
       mask: 'Mask',
       ownerId: 'OwnerId',
@@ -664,7 +650,6 @@ export class PhoneNumberStatusForAccountRequest extends $tea.Model {
   static types(): { [key: string]: any } {
     return {
       authCode: 'string',
-      extendFunction: 'string',
       inputNumber: 'string',
       mask: 'string',
       ownerId: 'number',
@@ -820,7 +805,6 @@ export class PhoneNumberStatusForPublicResponse extends $tea.Model {
 
 export class PhoneNumberStatusForRealRequest extends $tea.Model {
   authCode?: string;
-  extendFunction?: string;
   inputNumber?: string;
   mask?: string;
   ownerId?: number;
@@ -829,7 +813,6 @@ export class PhoneNumberStatusForRealRequest extends $tea.Model {
   static names(): { [key: string]: string } {
     return {
       authCode: 'AuthCode',
-      extendFunction: 'ExtendFunction',
       inputNumber: 'InputNumber',
       mask: 'Mask',
       ownerId: 'OwnerId',
@@ -841,7 +824,6 @@ export class PhoneNumberStatusForRealRequest extends $tea.Model {
   static types(): { [key: string]: any } {
     return {
       authCode: 'string',
-      extendFunction: 'string',
       inputNumber: 'string',
       mask: 'string',
       ownerId: 'number',
@@ -910,7 +892,6 @@ export class PhoneNumberStatusForRealResponse extends $tea.Model {
 
 export class PhoneNumberStatusForSmsRequest extends $tea.Model {
   authCode?: string;
-  extendFunction?: string;
   inputNumber?: string;
   mask?: string;
   ownerId?: number;
@@ -919,7 +900,6 @@ export class PhoneNumberStatusForSmsRequest extends $tea.Model {
   static names(): { [key: string]: string } {
     return {
       authCode: 'AuthCode',
-      extendFunction: 'ExtendFunction',
       inputNumber: 'InputNumber',
       mask: 'Mask',
       ownerId: 'OwnerId',
@@ -931,7 +911,6 @@ export class PhoneNumberStatusForSmsRequest extends $tea.Model {
   static types(): { [key: string]: any } {
     return {
       authCode: 'string',
-      extendFunction: 'string',
       inputNumber: 'string',
       mask: 'string',
       ownerId: 'number',
@@ -1000,7 +979,6 @@ export class PhoneNumberStatusForSmsResponse extends $tea.Model {
 
 export class PhoneNumberStatusForVirtualRequest extends $tea.Model {
   authCode?: string;
-  extendFunction?: string;
   inputNumber?: string;
   mask?: string;
   ownerId?: number;
@@ -1009,7 +987,6 @@ export class PhoneNumberStatusForVirtualRequest extends $tea.Model {
   static names(): { [key: string]: string } {
     return {
       authCode: 'AuthCode',
-      extendFunction: 'ExtendFunction',
       inputNumber: 'InputNumber',
       mask: 'Mask',
       ownerId: 'OwnerId',
@@ -1021,7 +998,6 @@ export class PhoneNumberStatusForVirtualRequest extends $tea.Model {
   static types(): { [key: string]: any } {
     return {
       authCode: 'string',
-      extendFunction: 'string',
       inputNumber: 'string',
       mask: 'string',
       ownerId: 'number',
@@ -1090,7 +1066,6 @@ export class PhoneNumberStatusForVirtualResponse extends $tea.Model {
 
 export class PhoneNumberStatusForVoiceRequest extends $tea.Model {
   authCode?: string;
-  extendFunction?: string;
   inputNumber?: string;
   mask?: string;
   ownerId?: number;
@@ -1099,7 +1074,6 @@ export class PhoneNumberStatusForVoiceRequest extends $tea.Model {
   static names(): { [key: string]: string } {
     return {
       authCode: 'AuthCode',
-      extendFunction: 'ExtendFunction',
       inputNumber: 'InputNumber',
       mask: 'Mask',
       ownerId: 'OwnerId',
@@ -1111,7 +1085,6 @@ export class PhoneNumberStatusForVoiceRequest extends $tea.Model {
   static types(): { [key: string]: any } {
     return {
       authCode: 'string',
-      extendFunction: 'string',
       inputNumber: 'string',
       mask: 'string',
       ownerId: 'number',
@@ -1181,7 +1154,6 @@ export class PhoneNumberStatusForVoiceResponse extends $tea.Model {
 export class ThreeElementsVerificationRequest extends $tea.Model {
   authCode?: string;
   certCode?: string;
-  extendFunction?: string;
   inputNumber?: string;
   mask?: string;
   name?: string;
@@ -1192,7 +1164,6 @@ export class ThreeElementsVerificationRequest extends $tea.Model {
     return {
       authCode: 'AuthCode',
       certCode: 'CertCode',
-      extendFunction: 'ExtendFunction',
       inputNumber: 'InputNumber',
       mask: 'Mask',
       name: 'Name',
@@ -1206,7 +1177,6 @@ export class ThreeElementsVerificationRequest extends $tea.Model {
     return {
       authCode: 'string',
       certCode: 'string',
-      extendFunction: 'string',
       inputNumber: 'string',
       mask: 'string',
       name: 'string',
@@ -1276,7 +1246,6 @@ export class ThreeElementsVerificationResponse extends $tea.Model {
 
 export class TwoElementsVerificationRequest extends $tea.Model {
   authCode?: string;
-  extendFunction?: string;
   inputNumber?: string;
   mask?: string;
   name?: string;
@@ -1286,7 +1255,6 @@ export class TwoElementsVerificationRequest extends $tea.Model {
   static names(): { [key: string]: string } {
     return {
       authCode: 'AuthCode',
-      extendFunction: 'ExtendFunction',
       inputNumber: 'InputNumber',
       mask: 'Mask',
       name: 'Name',
@@ -1299,7 +1267,6 @@ export class TwoElementsVerificationRequest extends $tea.Model {
   static types(): { [key: string]: any } {
     return {
       authCode: 'string',
-      extendFunction: 'string',
       inputNumber: 'string',
       mask: 'string',
       name: 'string',
@@ -1745,10 +1712,6 @@ export default class Client extends OpenApi {
       query["AuthCode"] = request.authCode;
     }
 
-    if (!Util.isUnset(request.extendFunction)) {
-      query["ExtendFunction"] = request.extendFunction;
-    }
-
     if (!Util.isUnset(request.inputNumber)) {
       query["InputNumber"] = request.inputNumber;
     }
@@ -1859,10 +1822,6 @@ export default class Client extends OpenApi {
       query["Carrier"] = request.carrier;
     }
 
-    if (!Util.isUnset(request.extendFunction)) {
-      query["ExtendFunction"] = request.extendFunction;
-    }
-
     if (!Util.isUnset(request.inputNumber)) {
       query["InputNumber"] = request.inputNumber;
     }
@@ -1912,10 +1871,6 @@ export default class Client extends OpenApi {
       query["AuthCode"] = request.authCode;
     }
 
-    if (!Util.isUnset(request.extendFunction)) {
-      query["ExtendFunction"] = request.extendFunction;
-    }
-
     if (!Util.isUnset(request.inputNumber)) {
       query["InputNumber"] = request.inputNumber;
     }
@@ -1963,10 +1918,6 @@ export default class Client extends OpenApi {
     let query = { };
     if (!Util.isUnset(request.authCode)) {
       query["AuthCode"] = request.authCode;
-    }
-
-    if (!Util.isUnset(request.extendFunction)) {
-      query["ExtendFunction"] = request.extendFunction;
     }
 
     if (!Util.isUnset(request.inputNumber)) {
@@ -2120,10 +2071,6 @@ export default class Client extends OpenApi {
       query["AuthCode"] = request.authCode;
     }
 
-    if (!Util.isUnset(request.extendFunction)) {
-      query["ExtendFunction"] = request.extendFunction;
-    }
-
     if (!Util.isUnset(request.inputNumber)) {
       query["InputNumber"] = request.inputNumber;
     }
@@ -2222,10 +2169,6 @@ export default class Client extends OpenApi {
       query["AuthCode"] = request.authCode;
     }
 
-    if (!Util.isUnset(request.extendFunction)) {
-      query["ExtendFunction"] = request.extendFunction;
-    }
-
     if (!Util.isUnset(request.inputNumber)) {
       query["InputNumber"] = request.inputNumber;
     }
@@ -2273,10 +2216,6 @@ export default class Client extends OpenApi {
     let query = { };
     if (!Util.isUnset(request.authCode)) {
       query["AuthCode"] = request.authCode;
-    }
-
-    if (!Util.isUnset(request.extendFunction)) {
-      query["ExtendFunction"] = request.extendFunction;
     }
 
     if (!Util.isUnset(request.inputNumber)) {
@@ -2328,10 +2267,6 @@ export default class Client extends OpenApi {
       query["AuthCode"] = request.authCode;
     }
 
-    if (!Util.isUnset(request.extendFunction)) {
-      query["ExtendFunction"] = request.extendFunction;
-    }
-
     if (!Util.isUnset(request.inputNumber)) {
       query["InputNumber"] = request.inputNumber;
     }
@@ -2379,10 +2314,6 @@ export default class Client extends OpenApi {
     let query = { };
     if (!Util.isUnset(request.authCode)) {
       query["AuthCode"] = request.authCode;
-    }
-
-    if (!Util.isUnset(request.extendFunction)) {
-      query["ExtendFunction"] = request.extendFunction;
     }
 
     if (!Util.isUnset(request.inputNumber)) {
@@ -2438,10 +2369,6 @@ export default class Client extends OpenApi {
       query["CertCode"] = request.certCode;
     }
 
-    if (!Util.isUnset(request.extendFunction)) {
-      query["ExtendFunction"] = request.extendFunction;
-    }
-
     if (!Util.isUnset(request.inputNumber)) {
       query["InputNumber"] = request.inputNumber;
     }
@@ -2493,10 +2420,6 @@ export default class Client extends OpenApi {
     let query = { };
     if (!Util.isUnset(request.authCode)) {
       query["AuthCode"] = request.authCode;
-    }
-
-    if (!Util.isUnset(request.extendFunction)) {
-      query["ExtendFunction"] = request.extendFunction;
     }
 
     if (!Util.isUnset(request.inputNumber)) {

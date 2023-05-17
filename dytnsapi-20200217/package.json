@@ -1,6 +1,6 @@
 {
   "name": "@alicloud/dytnsapi20200217",
-  "version": "1.0.22",
+  "version": "1.0.23",
   "description": "",
   "main": "dist/client.js",
   "scripts": {
