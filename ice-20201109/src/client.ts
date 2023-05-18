@@ -19150,6 +19150,46 @@ export class GetTranscodeJobResponseBodyTranscodeParentJobOutputGroupProcessConf
   }
 }
 
+export class GetTranscodeJobResponseBodyTranscodeParentJobOutputGroupProcessConfigTranscodeOverwriteParamsTransConfig extends $tea.Model {
+  adjDarMethod?: string;
+  isCheckAudioBitrate?: string;
+  isCheckAudioBitrateFail?: string;
+  isCheckReso?: string;
+  isCheckResoFail?: string;
+  isCheckVideoBitrate?: string;
+  isCheckVideoBitrateFail?: string;
+  transMode?: string;
+  static names(): { [key: string]: string } {
+    return {
+      adjDarMethod: 'AdjDarMethod',
+      isCheckAudioBitrate: 'IsCheckAudioBitrate',
+      isCheckAudioBitrateFail: 'IsCheckAudioBitrateFail',
+      isCheckReso: 'IsCheckReso',
+      isCheckResoFail: 'IsCheckResoFail',
+      isCheckVideoBitrate: 'IsCheckVideoBitrate',
+      isCheckVideoBitrateFail: 'IsCheckVideoBitrateFail',
+      transMode: 'TransMode',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      adjDarMethod: 'string',
+      isCheckAudioBitrate: 'string',
+      isCheckAudioBitrateFail: 'string',
+      isCheckReso: 'string',
+      isCheckResoFail: 'string',
+      isCheckVideoBitrate: 'string',
+      isCheckVideoBitrateFail: 'string',
+      transMode: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
 export class GetTranscodeJobResponseBodyTranscodeParentJobOutputGroupProcessConfigTranscodeOverwriteParamsVideo extends $tea.Model {
   abrMax?: string;
   bitrate?: string;
@@ -19224,12 +19264,14 @@ export class GetTranscodeJobResponseBodyTranscodeParentJobOutputGroupProcessConf
   audio?: GetTranscodeJobResponseBodyTranscodeParentJobOutputGroupProcessConfigTranscodeOverwriteParamsAudio;
   container?: GetTranscodeJobResponseBodyTranscodeParentJobOutputGroupProcessConfigTranscodeOverwriteParamsContainer;
   muxConfig?: GetTranscodeJobResponseBodyTranscodeParentJobOutputGroupProcessConfigTranscodeOverwriteParamsMuxConfig;
+  transConfig?: GetTranscodeJobResponseBodyTranscodeParentJobOutputGroupProcessConfigTranscodeOverwriteParamsTransConfig;
   video?: GetTranscodeJobResponseBodyTranscodeParentJobOutputGroupProcessConfigTranscodeOverwriteParamsVideo;
   static names(): { [key: string]: string } {
     return {
       audio: 'Audio',
       container: 'Container',
       muxConfig: 'MuxConfig',
+      transConfig: 'TransConfig',
       video: 'Video',
     };
   }
@@ -19239,6 +19281,7 @@ export class GetTranscodeJobResponseBodyTranscodeParentJobOutputGroupProcessConf
       audio: GetTranscodeJobResponseBodyTranscodeParentJobOutputGroupProcessConfigTranscodeOverwriteParamsAudio,
       container: GetTranscodeJobResponseBodyTranscodeParentJobOutputGroupProcessConfigTranscodeOverwriteParamsContainer,
       muxConfig: GetTranscodeJobResponseBodyTranscodeParentJobOutputGroupProcessConfigTranscodeOverwriteParamsMuxConfig,
+      transConfig: GetTranscodeJobResponseBodyTranscodeParentJobOutputGroupProcessConfigTranscodeOverwriteParamsTransConfig,
       video: GetTranscodeJobResponseBodyTranscodeParentJobOutputGroupProcessConfigTranscodeOverwriteParamsVideo,
     };
   }
@@ -20039,6 +20082,46 @@ export class GetTranscodeJobResponseBodyTranscodeParentJobTranscodeJobListProces
   }
 }
 
+export class GetTranscodeJobResponseBodyTranscodeParentJobTranscodeJobListProcessConfigTranscodeOverwriteParamsTransConfig extends $tea.Model {
+  adjDarMethod?: string;
+  isCheckAudioBitrate?: string;
+  isCheckAudioBitrateFail?: string;
+  isCheckReso?: string;
+  isCheckResoFail?: string;
+  isCheckVideoBitrate?: string;
+  isCheckVideoBitrateFail?: string;
+  transMode?: string;
+  static names(): { [key: string]: string } {
+    return {
+      adjDarMethod: 'AdjDarMethod',
+      isCheckAudioBitrate: 'IsCheckAudioBitrate',
+      isCheckAudioBitrateFail: 'IsCheckAudioBitrateFail',
+      isCheckReso: 'IsCheckReso',
+      isCheckResoFail: 'IsCheckResoFail',
+      isCheckVideoBitrate: 'IsCheckVideoBitrate',
+      isCheckVideoBitrateFail: 'IsCheckVideoBitrateFail',
+      transMode: 'TransMode',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      adjDarMethod: 'string',
+      isCheckAudioBitrate: 'string',
+      isCheckAudioBitrateFail: 'string',
+      isCheckReso: 'string',
+      isCheckResoFail: 'string',
+      isCheckVideoBitrate: 'string',
+      isCheckVideoBitrateFail: 'string',
+      transMode: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
 export class GetTranscodeJobResponseBodyTranscodeParentJobTranscodeJobListProcessConfigTranscodeOverwriteParamsVideo extends $tea.Model {
   abrMax?: string;
   bitrate?: string;
@@ -20114,6 +20197,7 @@ export class GetTranscodeJobResponseBodyTranscodeParentJobTranscodeJobListProces
   container?: GetTranscodeJobResponseBodyTranscodeParentJobTranscodeJobListProcessConfigTranscodeOverwriteParamsContainer;
   muxConfig?: GetTranscodeJobResponseBodyTranscodeParentJobTranscodeJobListProcessConfigTranscodeOverwriteParamsMuxConfig;
   tags?: { [key: string]: string };
+  transConfig?: GetTranscodeJobResponseBodyTranscodeParentJobTranscodeJobListProcessConfigTranscodeOverwriteParamsTransConfig;
   video?: GetTranscodeJobResponseBodyTranscodeParentJobTranscodeJobListProcessConfigTranscodeOverwriteParamsVideo;
   static names(): { [key: string]: string } {
     return {
@@ -20121,6 +20205,7 @@ export class GetTranscodeJobResponseBodyTranscodeParentJobTranscodeJobListProces
       container: 'Container',
       muxConfig: 'MuxConfig',
       tags: 'Tags',
+      transConfig: 'TransConfig',
       video: 'Video',
     };
   }
@@ -20131,6 +20216,7 @@ export class GetTranscodeJobResponseBodyTranscodeParentJobTranscodeJobListProces
       container: GetTranscodeJobResponseBodyTranscodeParentJobTranscodeJobListProcessConfigTranscodeOverwriteParamsContainer,
       muxConfig: GetTranscodeJobResponseBodyTranscodeParentJobTranscodeJobListProcessConfigTranscodeOverwriteParamsMuxConfig,
       tags: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      transConfig: GetTranscodeJobResponseBodyTranscodeParentJobTranscodeJobListProcessConfigTranscodeOverwriteParamsTransConfig,
       video: GetTranscodeJobResponseBodyTranscodeParentJobTranscodeJobListProcessConfigTranscodeOverwriteParamsVideo,
     };
   }
@@ -27080,6 +27166,46 @@ export class SubmitTranscodeJobRequestOutputGroupProcessConfigTranscodeOverwrite
   }
 }
 
+export class SubmitTranscodeJobRequestOutputGroupProcessConfigTranscodeOverwriteParamsTransConfig extends $tea.Model {
+  adjDarMethod?: string;
+  isCheckAudioBitrate?: string;
+  isCheckAudioBitrateFail?: string;
+  isCheckReso?: string;
+  isCheckResoFail?: string;
+  isCheckVideoBitrate?: string;
+  isCheckVideoBitrateFail?: string;
+  transMode?: string;
+  static names(): { [key: string]: string } {
+    return {
+      adjDarMethod: 'AdjDarMethod',
+      isCheckAudioBitrate: 'IsCheckAudioBitrate',
+      isCheckAudioBitrateFail: 'IsCheckAudioBitrateFail',
+      isCheckReso: 'IsCheckReso',
+      isCheckResoFail: 'IsCheckResoFail',
+      isCheckVideoBitrate: 'IsCheckVideoBitrate',
+      isCheckVideoBitrateFail: 'IsCheckVideoBitrateFail',
+      transMode: 'TransMode',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      adjDarMethod: 'string',
+      isCheckAudioBitrate: 'string',
+      isCheckAudioBitrateFail: 'string',
+      isCheckReso: 'string',
+      isCheckResoFail: 'string',
+      isCheckVideoBitrate: 'string',
+      isCheckVideoBitrateFail: 'string',
+      transMode: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
 export class SubmitTranscodeJobRequestOutputGroupProcessConfigTranscodeOverwriteParamsVideo extends $tea.Model {
   abrMax?: string;
   bitrate?: string;
@@ -27155,6 +27281,7 @@ export class SubmitTranscodeJobRequestOutputGroupProcessConfigTranscodeOverwrite
   container?: SubmitTranscodeJobRequestOutputGroupProcessConfigTranscodeOverwriteParamsContainer;
   muxConfig?: SubmitTranscodeJobRequestOutputGroupProcessConfigTranscodeOverwriteParamsMuxConfig;
   tags?: { [key: string]: string };
+  transConfig?: SubmitTranscodeJobRequestOutputGroupProcessConfigTranscodeOverwriteParamsTransConfig;
   video?: SubmitTranscodeJobRequestOutputGroupProcessConfigTranscodeOverwriteParamsVideo;
   static names(): { [key: string]: string } {
     return {
@@ -27162,6 +27289,7 @@ export class SubmitTranscodeJobRequestOutputGroupProcessConfigTranscodeOverwrite
       container: 'Container',
       muxConfig: 'MuxConfig',
       tags: 'Tags',
+      transConfig: 'TransConfig',
       video: 'Video',
     };
   }
@@ -27172,6 +27300,7 @@ export class SubmitTranscodeJobRequestOutputGroupProcessConfigTranscodeOverwrite
       container: SubmitTranscodeJobRequestOutputGroupProcessConfigTranscodeOverwriteParamsContainer,
       muxConfig: SubmitTranscodeJobRequestOutputGroupProcessConfigTranscodeOverwriteParamsMuxConfig,
       tags: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      transConfig: SubmitTranscodeJobRequestOutputGroupProcessConfigTranscodeOverwriteParamsTransConfig,
       video: SubmitTranscodeJobRequestOutputGroupProcessConfigTranscodeOverwriteParamsVideo,
     };
   }
@@ -27746,6 +27875,46 @@ export class SubmitTranscodeJobResponseBodyTranscodeParentJobOutputGroupProcessC
   }
 }
 
+export class SubmitTranscodeJobResponseBodyTranscodeParentJobOutputGroupProcessConfigTranscodeOverwriteParamsTransConfig extends $tea.Model {
+  adjDarMethod?: string;
+  isCheckAudioBitrate?: string;
+  isCheckAudioBitrateFail?: string;
+  isCheckReso?: string;
+  isCheckResoFail?: string;
+  isCheckVideoBitrate?: string;
+  isCheckVideoBitrateFail?: string;
+  transMode?: string;
+  static names(): { [key: string]: string } {
+    return {
+      adjDarMethod: 'AdjDarMethod',
+      isCheckAudioBitrate: 'IsCheckAudioBitrate',
+      isCheckAudioBitrateFail: 'IsCheckAudioBitrateFail',
+      isCheckReso: 'IsCheckReso',
+      isCheckResoFail: 'IsCheckResoFail',
+      isCheckVideoBitrate: 'IsCheckVideoBitrate',
+      isCheckVideoBitrateFail: 'IsCheckVideoBitrateFail',
+      transMode: 'TransMode',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      adjDarMethod: 'string',
+      isCheckAudioBitrate: 'string',
+      isCheckAudioBitrateFail: 'string',
+      isCheckReso: 'string',
+      isCheckResoFail: 'string',
+      isCheckVideoBitrate: 'string',
+      isCheckVideoBitrateFail: 'string',
+      transMode: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
 export class SubmitTranscodeJobResponseBodyTranscodeParentJobOutputGroupProcessConfigTranscodeOverwriteParamsVideo extends $tea.Model {
   abrMax?: string;
   bitrate?: string;
@@ -27820,12 +27989,14 @@ export class SubmitTranscodeJobResponseBodyTranscodeParentJobOutputGroupProcessC
   audio?: SubmitTranscodeJobResponseBodyTranscodeParentJobOutputGroupProcessConfigTranscodeOverwriteParamsAudio;
   container?: SubmitTranscodeJobResponseBodyTranscodeParentJobOutputGroupProcessConfigTranscodeOverwriteParamsContainer;
   muxConfig?: SubmitTranscodeJobResponseBodyTranscodeParentJobOutputGroupProcessConfigTranscodeOverwriteParamsMuxConfig;
+  transConfig?: SubmitTranscodeJobResponseBodyTranscodeParentJobOutputGroupProcessConfigTranscodeOverwriteParamsTransConfig;
   video?: SubmitTranscodeJobResponseBodyTranscodeParentJobOutputGroupProcessConfigTranscodeOverwriteParamsVideo;
   static names(): { [key: string]: string } {
     return {
       audio: 'Audio',
       container: 'Container',
       muxConfig: 'MuxConfig',
+      transConfig: 'TransConfig',
       video: 'Video',
     };
   }
@@ -27835,6 +28006,7 @@ export class SubmitTranscodeJobResponseBodyTranscodeParentJobOutputGroupProcessC
       audio: SubmitTranscodeJobResponseBodyTranscodeParentJobOutputGroupProcessConfigTranscodeOverwriteParamsAudio,
       container: SubmitTranscodeJobResponseBodyTranscodeParentJobOutputGroupProcessConfigTranscodeOverwriteParamsContainer,
       muxConfig: SubmitTranscodeJobResponseBodyTranscodeParentJobOutputGroupProcessConfigTranscodeOverwriteParamsMuxConfig,
+      transConfig: SubmitTranscodeJobResponseBodyTranscodeParentJobOutputGroupProcessConfigTranscodeOverwriteParamsTransConfig,
       video: SubmitTranscodeJobResponseBodyTranscodeParentJobOutputGroupProcessConfigTranscodeOverwriteParamsVideo,
     };
   }
@@ -28635,6 +28807,46 @@ export class SubmitTranscodeJobResponseBodyTranscodeParentJobTranscodeJobListPro
   }
 }
 
+export class SubmitTranscodeJobResponseBodyTranscodeParentJobTranscodeJobListProcessConfigTranscodeOverwriteParamsTransConfig extends $tea.Model {
+  adjDarMethod?: string;
+  isCheckAudioBitrate?: string;
+  isCheckAudioBitrateFail?: string;
+  isCheckReso?: string;
+  isCheckResoFail?: string;
+  isCheckVideoBitrate?: string;
+  isCheckVideoBitrateFail?: string;
+  transMode?: string;
+  static names(): { [key: string]: string } {
+    return {
+      adjDarMethod: 'AdjDarMethod',
+      isCheckAudioBitrate: 'IsCheckAudioBitrate',
+      isCheckAudioBitrateFail: 'IsCheckAudioBitrateFail',
+      isCheckReso: 'IsCheckReso',
+      isCheckResoFail: 'IsCheckResoFail',
+      isCheckVideoBitrate: 'IsCheckVideoBitrate',
+      isCheckVideoBitrateFail: 'IsCheckVideoBitrateFail',
+      transMode: 'TransMode',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      adjDarMethod: 'string',
+      isCheckAudioBitrate: 'string',
+      isCheckAudioBitrateFail: 'string',
+      isCheckReso: 'string',
+      isCheckResoFail: 'string',
+      isCheckVideoBitrate: 'string',
+      isCheckVideoBitrateFail: 'string',
+      transMode: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
 export class SubmitTranscodeJobResponseBodyTranscodeParentJobTranscodeJobListProcessConfigTranscodeOverwriteParamsVideo extends $tea.Model {
   abrMax?: string;
   bitrate?: string;
@@ -28710,6 +28922,7 @@ export class SubmitTranscodeJobResponseBodyTranscodeParentJobTranscodeJobListPro
   container?: SubmitTranscodeJobResponseBodyTranscodeParentJobTranscodeJobListProcessConfigTranscodeOverwriteParamsContainer;
   muxConfig?: SubmitTranscodeJobResponseBodyTranscodeParentJobTranscodeJobListProcessConfigTranscodeOverwriteParamsMuxConfig;
   tags?: { [key: string]: any };
+  transConfig?: SubmitTranscodeJobResponseBodyTranscodeParentJobTranscodeJobListProcessConfigTranscodeOverwriteParamsTransConfig;
   video?: SubmitTranscodeJobResponseBodyTranscodeParentJobTranscodeJobListProcessConfigTranscodeOverwriteParamsVideo;
   static names(): { [key: string]: string } {
     return {
@@ -28717,6 +28930,7 @@ export class SubmitTranscodeJobResponseBodyTranscodeParentJobTranscodeJobListPro
       container: 'Container',
       muxConfig: 'MuxConfig',
       tags: 'Tags',
+      transConfig: 'TransConfig',
       video: 'Video',
     };
   }
@@ -28727,6 +28941,7 @@ export class SubmitTranscodeJobResponseBodyTranscodeParentJobTranscodeJobListPro
       container: SubmitTranscodeJobResponseBodyTranscodeParentJobTranscodeJobListProcessConfigTranscodeOverwriteParamsContainer,
       muxConfig: SubmitTranscodeJobResponseBodyTranscodeParentJobTranscodeJobListProcessConfigTranscodeOverwriteParamsMuxConfig,
       tags: { 'type': 'map', 'keyType': 'string', 'valueType': 'any' },
+      transConfig: SubmitTranscodeJobResponseBodyTranscodeParentJobTranscodeJobListProcessConfigTranscodeOverwriteParamsTransConfig,
       video: SubmitTranscodeJobResponseBodyTranscodeParentJobTranscodeJobListProcessConfigTranscodeOverwriteParamsVideo,
     };
   }
