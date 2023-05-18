@@ -2688,6 +2688,7 @@ export class GetStackResponseBody extends $tea.Model {
   log?: GetStackResponseBodyLog;
   notificationURLs?: string[];
   operationInfo?: GetStackResponseBodyOperationInfo;
+  orderIds?: string[];
   outputs?: { [key: string]: any }[];
   parameters?: GetStackResponseBodyParameters[];
   parentStackId?: string;
@@ -2724,6 +2725,7 @@ export class GetStackResponseBody extends $tea.Model {
       log: 'Log',
       notificationURLs: 'NotificationURLs',
       operationInfo: 'OperationInfo',
+      orderIds: 'OrderIds',
       outputs: 'Outputs',
       parameters: 'Parameters',
       parentStackId: 'ParentStackId',
@@ -2763,6 +2765,7 @@ export class GetStackResponseBody extends $tea.Model {
       log: GetStackResponseBodyLog,
       notificationURLs: { 'type': 'array', 'itemType': 'string' },
       operationInfo: GetStackResponseBodyOperationInfo,
+      orderIds: { 'type': 'array', 'itemType': 'string' },
       outputs: { 'type': 'array', 'itemType': { 'type': 'map', 'keyType': 'string', 'valueType': 'any' } },
       parameters: { 'type': 'array', 'itemType': GetStackResponseBodyParameters },
       parentStackId: 'string',
@@ -3461,6 +3464,7 @@ export class GetTemplateEstimateCostRequest extends $tea.Model {
   clientToken?: string;
   parameters?: GetTemplateEstimateCostRequestParameters[];
   regionId?: string;
+  stackId?: string;
   templateBody?: string;
   templateId?: string;
   templateScratchId?: string;
@@ -3472,6 +3476,7 @@ export class GetTemplateEstimateCostRequest extends $tea.Model {
       clientToken: 'ClientToken',
       parameters: 'Parameters',
       regionId: 'RegionId',
+      stackId: 'StackId',
       templateBody: 'TemplateBody',
       templateId: 'TemplateId',
       templateScratchId: 'TemplateScratchId',
@@ -3486,6 +3491,7 @@ export class GetTemplateEstimateCostRequest extends $tea.Model {
       clientToken: 'string',
       parameters: { 'type': 'array', 'itemType': GetTemplateEstimateCostRequestParameters },
       regionId: 'string',
+      stackId: 'string',
       templateBody: 'string',
       templateId: 'string',
       templateScratchId: 'string',
@@ -11843,7 +11849,20 @@ export default class Client extends OpenApi {
   }
 
   /**
-    * The operation that you want to perform. Set the value to CreateStackGroup.
+    * | Error code | Error message | HTTP status code | Description |
+    * | ---------- | ------------- | ---------------- | ----------- |
+    * | CircularDependency | Circular Dependency Found: {reason}. | 400 | The error message returned because the template contains circular dependencies. reason indicates the cause of the error. |
+    * | InvalidSchema | {reason}. | 400 | The error message returned because the template format is invalid. reason indicates the cause of the error. |
+    * | InvalidTemplateAttribute | The Referenced Attribute ({resource} {name}) is incorrect. | 400 | The error message returned because the resource property that is referenced in the Outputs section of the template is invalid. resource indicates the resource name. name indicates the property name. |
+    * | InvalidTemplatePropertyType | The specified value type of ({resource} {section}) is incorrect. | 400 | The error message returned because the type of the resource property that is defined in a template section is invalid. resource indicates the resource name. section indicates the section name. |
+    * | InvalidTemplateReference | The specified reference "{name}" (in {referencer}) is incorrect. | 400 | The error message returned because the template contains an invalid reference. name indicates the reference name. referencer indicates the referencer name. |
+    * | InvalidTemplateSection | The template section is invalid: {section}. | 400 | The error message returned because the template contains an invalid section. section indicates the section name. |
+    * | InvalidTemplateVersion | The template version is invalid: {reason}. | 400 | The error message returned because the template version is invalid. reason indicates the cause of the error. |
+    * | UnknownUserParameter | The Parameter ({name}) was not defined in template. | 400 | The error message returned because the specified parameter is not defined in the template. name indicates the parameter name. |
+    * | UserParameterMissing | The Parameter {name} was not provided. | 400 | The error message returned because no value is specified for a parameter in the template. name indicates the parameter name. |
+    * | StackGroupExists | The StackGroup ({name}) already exists. | 409 | The error message returned because a stack group that has the same name already exists. name indicates the name of the stack group. |
+    * | TemplateNotFound | The Tempalte ({ ID }) could not be found. | 404 | The error message returned because the template does not exist. ID indicates the ID of the template. |
+    * | TemplateNotFound | The Template { ID } with version { version } could not be found. | 404 | The error message returned because the specified template or template version does not exist. ID indicates the ID of the template. version indicates the version of the template. |
     *
     * @param tmpReq CreateStackGroupRequest
     * @param runtime runtime options for this request RuntimeOptions
@@ -11940,7 +11959,20 @@ export default class Client extends OpenApi {
   }
 
   /**
-    * The operation that you want to perform. Set the value to CreateStackGroup.
+    * | Error code | Error message | HTTP status code | Description |
+    * | ---------- | ------------- | ---------------- | ----------- |
+    * | CircularDependency | Circular Dependency Found: {reason}. | 400 | The error message returned because the template contains circular dependencies. reason indicates the cause of the error. |
+    * | InvalidSchema | {reason}. | 400 | The error message returned because the template format is invalid. reason indicates the cause of the error. |
+    * | InvalidTemplateAttribute | The Referenced Attribute ({resource} {name}) is incorrect. | 400 | The error message returned because the resource property that is referenced in the Outputs section of the template is invalid. resource indicates the resource name. name indicates the property name. |
+    * | InvalidTemplatePropertyType | The specified value type of ({resource} {section}) is incorrect. | 400 | The error message returned because the type of the resource property that is defined in a template section is invalid. resource indicates the resource name. section indicates the section name. |
+    * | InvalidTemplateReference | The specified reference "{name}" (in {referencer}) is incorrect. | 400 | The error message returned because the template contains an invalid reference. name indicates the reference name. referencer indicates the referencer name. |
+    * | InvalidTemplateSection | The template section is invalid: {section}. | 400 | The error message returned because the template contains an invalid section. section indicates the section name. |
+    * | InvalidTemplateVersion | The template version is invalid: {reason}. | 400 | The error message returned because the template version is invalid. reason indicates the cause of the error. |
+    * | UnknownUserParameter | The Parameter ({name}) was not defined in template. | 400 | The error message returned because the specified parameter is not defined in the template. name indicates the parameter name. |
+    * | UserParameterMissing | The Parameter {name} was not provided. | 400 | The error message returned because no value is specified for a parameter in the template. name indicates the parameter name. |
+    * | StackGroupExists | The StackGroup ({name}) already exists. | 409 | The error message returned because a stack group that has the same name already exists. name indicates the name of the stack group. |
+    * | TemplateNotFound | The Tempalte ({ ID }) could not be found. | 404 | The error message returned because the template does not exist. ID indicates the ID of the template. |
+    * | TemplateNotFound | The Template { ID } with version { version } could not be found. | 404 | The error message returned because the specified template or template version does not exist. ID indicates the ID of the template. version indicates the version of the template. |
     *
     * @param request CreateStackGroupRequest
     * @return CreateStackGroupResponse
@@ -13001,9 +13033,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-    * | HttpCode | Error codes | Error message | Description |
-    * | -------- | ----------- | ------------- | ----------- |
-    * | 404 | ResourceTypeNotFound | The Resource Type ({name}) could not be found. | The error message returned because the specified resource type does not exist. name indicates the name of the resource type. |
+    * For more information about common request parameters, see [Common parameters](~~131957~~).
     *
     * @param request GetResourceTypeRequest
     * @param runtime runtime options for this request RuntimeOptions
@@ -13038,9 +13068,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-    * | HttpCode | Error codes | Error message | Description |
-    * | -------- | ----------- | ------------- | ----------- |
-    * | 404 | ResourceTypeNotFound | The Resource Type ({name}) could not be found. | The error message returned because the specified resource type does not exist. name indicates the name of the resource type. |
+    * For more information about common request parameters, see [Common parameters](~~131957~~).
     *
     * @param request GetResourceTypeRequest
     * @return GetResourceTypeResponse
@@ -13260,9 +13288,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-    * | Error code | Error message | HTTP status code | Description |
-    * | ---------- | ------------- | ---------------- | ----------- |
-    * | StackGroupNotFound | The StackGroup ({name}) could not be found. | 404 | The error message returned because the specified stack group does not exist. name indicates the name of the stack group. |
+    * For more information about common request parameters, see [Common parameters](~~131957~~).
     *
     * @param request GetStackGroupRequest
     * @param runtime runtime options for this request RuntimeOptions
@@ -13301,9 +13327,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-    * | Error code | Error message | HTTP status code | Description |
-    * | ---------- | ------------- | ---------------- | ----------- |
-    * | StackGroupNotFound | The StackGroup ({name}) could not be found. | 404 | The error message returned because the specified stack group does not exist. name indicates the name of the stack group. |
+    * For more information about common request parameters, see [Common parameters](~~131957~~).
     *
     * @param request GetStackGroupRequest
     * @return GetStackGroupResponse
@@ -13460,7 +13484,10 @@ export default class Client extends OpenApi {
   }
 
   /**
-    * The operation that you want to perform. Set the value to GetStackResource.
+    * | Http status code | Error code | Error message | Description |
+    * | ---------------- | ---------- | ------------- | ----------- |
+    * | 404 | ResourceNotFound | The Resource ({name}) could not be found in Stack {stack}. | The error message returned because the specified resource does not exist in the stack. name indicates the resource name. stack indicates the stack name or ID. |
+    * | 404 | StackNotFound | The Stack ({name}) could not be found. | The error message returned because the stack does not exist. name indicates the name or ID of the stack. |
     *
     * @param request GetStackResourceRequest
     * @param runtime runtime options for this request RuntimeOptions
@@ -13511,7 +13538,10 @@ export default class Client extends OpenApi {
   }
 
   /**
-    * The operation that you want to perform. Set the value to GetStackResource.
+    * | Http status code | Error code | Error message | Description |
+    * | ---------------- | ---------- | ------------- | ----------- |
+    * | 404 | ResourceNotFound | The Resource ({name}) could not be found in Stack {stack}. | The error message returned because the specified resource does not exist in the stack. name indicates the resource name. stack indicates the stack name or ID. |
+    * | 404 | StackNotFound | The Stack ({name}) could not be found. | The error message returned because the stack does not exist. name indicates the name or ID of the stack. |
     *
     * @param request GetStackResourceRequest
     * @return GetStackResourceResponse
@@ -13615,6 +13645,10 @@ export default class Client extends OpenApi {
 
     if (!Util.isUnset(request.regionId)) {
       query["RegionId"] = request.regionId;
+    }
+
+    if (!Util.isUnset(request.stackId)) {
+      query["StackId"] = request.stackId;
     }
 
     if (!Util.isUnset(request.templateBody)) {
@@ -14512,9 +14546,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-    * | Error code | Error message | HTTP status code | Description |
-    * | ---------- | ------------- | ---------------- | ----------- |
-    * | StackNotFound | The Stack ({name}) could not be found. | 404 | The error message returned because the specified stack does not exist. name indicates the name or ID of the stack. |
+    * For more information about common request parameters, see [Common parameters](~~131957~~).
     *
     * @param request ListStackResourcesRequest
     * @param runtime runtime options for this request RuntimeOptions
@@ -14549,9 +14581,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-    * | Error code | Error message | HTTP status code | Description |
-    * | ---------- | ------------- | ---------------- | ----------- |
-    * | StackNotFound | The Stack ({name}) could not be found. | 404 | The error message returned because the specified stack does not exist. name indicates the name or ID of the stack. |
+    * For more information about common request parameters, see [Common parameters](~~131957~~).
     *
     * @param request ListStackResourcesRequest
     * @return ListStackResourcesResponse
@@ -15718,8 +15748,8 @@ export default class Client extends OpenApi {
   }
 
   /**
-    * The description of the stack group.
-    * The description must be 1 to 256 characters in length.
+    * The name of the stack group. The name must be unique within a region.
+    * The name can be up to 255 characters in length and can contain digits, letters, hyphens (-), and underscores (\\_). The name must start with a digit or a letter.
     *
     * @param tmpReq UpdateStackGroupRequest
     * @param runtime runtime options for this request RuntimeOptions
@@ -15844,8 +15874,8 @@ export default class Client extends OpenApi {
   }
 
   /**
-    * The description of the stack group.
-    * The description must be 1 to 256 characters in length.
+    * The name of the stack group. The name must be unique within a region.
+    * The name can be up to 255 characters in length and can contain digits, letters, hyphens (-), and underscores (\\_). The name must start with a digit or a letter.
     *
     * @param request UpdateStackGroupRequest
     * @return UpdateStackGroupResponse
