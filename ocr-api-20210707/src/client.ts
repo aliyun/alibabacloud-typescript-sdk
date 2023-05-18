@@ -3962,10 +3962,12 @@ export class RecognizePaymentRecordResponse extends $tea.Model {
 }
 
 export class RecognizePurchaseRecordRequest extends $tea.Model {
+  outputMultiOrders?: boolean;
   url?: string;
   body?: Readable;
   static names(): { [key: string]: string } {
     return {
+      outputMultiOrders: 'OutputMultiOrders',
       url: 'Url',
       body: 'body',
     };
@@ -3973,6 +3975,7 @@ export class RecognizePurchaseRecordRequest extends $tea.Model {
 
   static types(): { [key: string]: any } {
     return {
+      outputMultiOrders: 'boolean',
       url: 'string',
       body: 'Readable',
     };
@@ -7443,6 +7446,10 @@ export default class Client extends OpenApi {
   async recognizePurchaseRecordWithOptions(request: RecognizePurchaseRecordRequest, runtime: $Util.RuntimeOptions): Promise<RecognizePurchaseRecordResponse> {
     Util.validateModel(request);
     let query = { };
+    if (!Util.isUnset(request.outputMultiOrders)) {
+      query["OutputMultiOrders"] = request.outputMultiOrders;
+    }
+
     if (!Util.isUnset(request.url)) {
       query["Url"] = request.url;
     }
