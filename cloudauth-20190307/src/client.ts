@@ -1149,9 +1149,11 @@ export class InitFaceVerifyRequest extends $tea.Model {
   ossBucketName?: string;
   ossObjectName?: string;
   outerOrderNo?: string;
+  procedurePriority?: string;
   productCode?: string;
   returnUrl?: string;
   sceneId?: number;
+  suitableType?: string;
   userId?: string;
   voluntaryCustomizedContent?: string;
   static names(): { [key: string]: string } {
@@ -1175,9 +1177,11 @@ export class InitFaceVerifyRequest extends $tea.Model {
       ossBucketName: 'OssBucketName',
       ossObjectName: 'OssObjectName',
       outerOrderNo: 'OuterOrderNo',
+      procedurePriority: 'ProcedurePriority',
       productCode: 'ProductCode',
       returnUrl: 'ReturnUrl',
       sceneId: 'SceneId',
+      suitableType: 'SuitableType',
       userId: 'UserId',
       voluntaryCustomizedContent: 'VoluntaryCustomizedContent',
     };
@@ -1204,9 +1208,11 @@ export class InitFaceVerifyRequest extends $tea.Model {
       ossBucketName: 'string',
       ossObjectName: 'string',
       outerOrderNo: 'string',
+      procedurePriority: 'string',
       productCode: 'string',
       returnUrl: 'string',
       sceneId: 'number',
+      suitableType: 'string',
       userId: 'string',
       voluntaryCustomizedContent: 'string',
     };
@@ -2969,6 +2975,10 @@ export default class Client extends OpenApi {
       query["OuterOrderNo"] = request.outerOrderNo;
     }
 
+    if (!Util.isUnset(request.procedurePriority)) {
+      query["ProcedurePriority"] = request.procedurePriority;
+    }
+
     if (!Util.isUnset(request.productCode)) {
       query["ProductCode"] = request.productCode;
     }
@@ -2979,6 +2989,10 @@ export default class Client extends OpenApi {
 
     if (!Util.isUnset(request.sceneId)) {
       query["SceneId"] = request.sceneId;
+    }
+
+    if (!Util.isUnset(request.suitableType)) {
+      query["SuitableType"] = request.suitableType;
     }
 
     if (!Util.isUnset(request.userId)) {
