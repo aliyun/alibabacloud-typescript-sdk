@@ -2158,6 +2158,14 @@ export default class Client extends OpenApi {
     return EndpointUtil.getEndpointRules(productId, regionId, endpointRule, network, suffix);
   }
 
+  /**
+    * The ID of the resource sharing invitation.
+    * You can call the [ListResourceShareInvitations](~~450564~~) operation to obtain the ID of a resource sharing invitation.
+    *
+    * @param request AcceptResourceShareInvitationRequest
+    * @param runtime runtime options for this request RuntimeOptions
+    * @return AcceptResourceShareInvitationResponse
+   */
   async acceptResourceShareInvitationWithOptions(request: AcceptResourceShareInvitationRequest, runtime: $Util.RuntimeOptions): Promise<AcceptResourceShareInvitationResponse> {
     Util.validateModel(request);
     let query = { };
@@ -2182,11 +2190,25 @@ export default class Client extends OpenApi {
     return $tea.cast<AcceptResourceShareInvitationResponse>(await this.callApi(params, req, runtime), new AcceptResourceShareInvitationResponse({}));
   }
 
+  /**
+    * The ID of the resource sharing invitation.
+    * You can call the [ListResourceShareInvitations](~~450564~~) operation to obtain the ID of a resource sharing invitation.
+    *
+    * @param request AcceptResourceShareInvitationRequest
+    * @return AcceptResourceShareInvitationResponse
+   */
   async acceptResourceShareInvitation(request: AcceptResourceShareInvitationRequest): Promise<AcceptResourceShareInvitationResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.acceptResourceShareInvitationWithOptions(request, runtime);
   }
 
+  /**
+    * The operation that you want to perform. Set the value to AssociateResourceShare.
+    *
+    * @param request AssociateResourceShareRequest
+    * @param runtime runtime options for this request RuntimeOptions
+    * @return AssociateResourceShareResponse
+   */
   async associateResourceShareWithOptions(request: AssociateResourceShareRequest, runtime: $Util.RuntimeOptions): Promise<AssociateResourceShareResponse> {
     Util.validateModel(request);
     let query = { };
@@ -2223,11 +2245,24 @@ export default class Client extends OpenApi {
     return $tea.cast<AssociateResourceShareResponse>(await this.callApi(params, req, runtime), new AssociateResourceShareResponse({}));
   }
 
+  /**
+    * The operation that you want to perform. Set the value to AssociateResourceShare.
+    *
+    * @param request AssociateResourceShareRequest
+    * @return AssociateResourceShareResponse
+   */
   async associateResourceShare(request: AssociateResourceShareRequest): Promise<AssociateResourceShareResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.associateResourceShareWithOptions(request, runtime);
   }
 
+  /**
+    * The name of the permission.
+    *
+    * @param request AssociateResourceSharePermissionRequest
+    * @param runtime runtime options for this request RuntimeOptions
+    * @return AssociateResourceSharePermissionResponse
+   */
   async associateResourceSharePermissionWithOptions(request: AssociateResourceSharePermissionRequest, runtime: $Util.RuntimeOptions): Promise<AssociateResourceSharePermissionResponse> {
     Util.validateModel(request);
     let query = { };
@@ -2260,11 +2295,24 @@ export default class Client extends OpenApi {
     return $tea.cast<AssociateResourceSharePermissionResponse>(await this.callApi(params, req, runtime), new AssociateResourceSharePermissionResponse({}));
   }
 
+  /**
+    * The name of the permission.
+    *
+    * @param request AssociateResourceSharePermissionRequest
+    * @return AssociateResourceSharePermissionResponse
+   */
   async associateResourceSharePermission(request: AssociateResourceSharePermissionRequest): Promise<AssociateResourceSharePermissionResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.associateResourceSharePermissionWithOptions(request, runtime);
   }
 
+  /**
+    * The operation that you want to perform. Set the value to CreateResourceShare.
+    *
+    * @param request CreateResourceShareRequest
+    * @param runtime runtime options for this request RuntimeOptions
+    * @return CreateResourceShareResponse
+   */
   async createResourceShareWithOptions(request: CreateResourceShareRequest, runtime: $Util.RuntimeOptions): Promise<CreateResourceShareResponse> {
     Util.validateModel(request);
     let query = { };
@@ -2305,11 +2353,24 @@ export default class Client extends OpenApi {
     return $tea.cast<CreateResourceShareResponse>(await this.callApi(params, req, runtime), new CreateResourceShareResponse({}));
   }
 
+  /**
+    * The operation that you want to perform. Set the value to CreateResourceShare.
+    *
+    * @param request CreateResourceShareRequest
+    * @return CreateResourceShareResponse
+   */
   async createResourceShare(request: CreateResourceShareRequest): Promise<CreateResourceShareResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.createResourceShareWithOptions(request, runtime);
   }
 
+  /**
+    * The operation that you want to perform. Set the value to DeleteResourceShare.
+    *
+    * @param request DeleteResourceShareRequest
+    * @param runtime runtime options for this request RuntimeOptions
+    * @return DeleteResourceShareResponse
+   */
   async deleteResourceShareWithOptions(request: DeleteResourceShareRequest, runtime: $Util.RuntimeOptions): Promise<DeleteResourceShareResponse> {
     Util.validateModel(request);
     let query = { };
@@ -2334,6 +2395,12 @@ export default class Client extends OpenApi {
     return $tea.cast<DeleteResourceShareResponse>(await this.callApi(params, req, runtime), new DeleteResourceShareResponse({}));
   }
 
+  /**
+    * The operation that you want to perform. Set the value to DeleteResourceShare.
+    *
+    * @param request DeleteResourceShareRequest
+    * @return DeleteResourceShareResponse
+   */
   async deleteResourceShare(request: DeleteResourceShareRequest): Promise<DeleteResourceShareResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.deleteResourceShareWithOptions(request, runtime);
@@ -2368,6 +2435,13 @@ export default class Client extends OpenApi {
     return await this.describeRegionsWithOptions(request, runtime);
   }
 
+  /**
+    * The operation that you want to perform. Set the value to DisassociateResourceShare.
+    *
+    * @param request DisassociateResourceShareRequest
+    * @param runtime runtime options for this request RuntimeOptions
+    * @return DisassociateResourceShareResponse
+   */
   async disassociateResourceShareWithOptions(request: DisassociateResourceShareRequest, runtime: $Util.RuntimeOptions): Promise<DisassociateResourceShareResponse> {
     Util.validateModel(request);
     let query = { };
@@ -2404,11 +2478,26 @@ export default class Client extends OpenApi {
     return $tea.cast<DisassociateResourceShareResponse>(await this.callApi(params, req, runtime), new DisassociateResourceShareResponse({}));
   }
 
+  /**
+    * The operation that you want to perform. Set the value to DisassociateResourceShare.
+    *
+    * @param request DisassociateResourceShareRequest
+    * @return DisassociateResourceShareResponse
+   */
   async disassociateResourceShare(request: DisassociateResourceShareRequest): Promise<DisassociateResourceShareResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.disassociateResourceShareWithOptions(request, runtime);
   }
 
+  /**
+    * This topic provides an example on how to call the API operation to disassociate the `AliyunRSDefaultPermissionVSwitch` permission from the `rs-6GRmdD3X****` resource share in the `cn-hangzhou` region.
+    * ## Limits
+    * You can call this operation up to 20 times per second per account. This operation is globally limited to 500 times per second across all accounts. If the number of the calls per second exceeds a limit, throttling is triggered. As a result, your business may be affected. We recommend that you take note of the limits when you call this operation.
+    *
+    * @param request DisassociateResourceSharePermissionRequest
+    * @param runtime runtime options for this request RuntimeOptions
+    * @return DisassociateResourceSharePermissionResponse
+   */
   async disassociateResourceSharePermissionWithOptions(request: DisassociateResourceSharePermissionRequest, runtime: $Util.RuntimeOptions): Promise<DisassociateResourceSharePermissionResponse> {
     Util.validateModel(request);
     let query = { };
@@ -2437,11 +2526,26 @@ export default class Client extends OpenApi {
     return $tea.cast<DisassociateResourceSharePermissionResponse>(await this.callApi(params, req, runtime), new DisassociateResourceSharePermissionResponse({}));
   }
 
+  /**
+    * This topic provides an example on how to call the API operation to disassociate the `AliyunRSDefaultPermissionVSwitch` permission from the `rs-6GRmdD3X****` resource share in the `cn-hangzhou` region.
+    * ## Limits
+    * You can call this operation up to 20 times per second per account. This operation is globally limited to 500 times per second across all accounts. If the number of the calls per second exceeds a limit, throttling is triggered. As a result, your business may be affected. We recommend that you take note of the limits when you call this operation.
+    *
+    * @param request DisassociateResourceSharePermissionRequest
+    * @return DisassociateResourceSharePermissionResponse
+   */
   async disassociateResourceSharePermission(request: DisassociateResourceSharePermissionRequest): Promise<DisassociateResourceSharePermissionResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.disassociateResourceSharePermissionWithOptions(request, runtime);
   }
 
+  /**
+    * The operation that you want to perform. Set the value to EnableSharingWithResourceDirectory.
+    *
+    * @param request EnableSharingWithResourceDirectoryRequest
+    * @param runtime runtime options for this request RuntimeOptions
+    * @return EnableSharingWithResourceDirectoryResponse
+   */
   async enableSharingWithResourceDirectoryWithOptions(runtime: $Util.RuntimeOptions): Promise<EnableSharingWithResourceDirectoryResponse> {
     let req = new $OpenApi.OpenApiRequest({ });
     let params = new $OpenApi.Params({
@@ -2458,11 +2562,23 @@ export default class Client extends OpenApi {
     return $tea.cast<EnableSharingWithResourceDirectoryResponse>(await this.callApi(params, req, runtime), new EnableSharingWithResourceDirectoryResponse({}));
   }
 
+  /**
+    * The operation that you want to perform. Set the value to EnableSharingWithResourceDirectory.
+    *
+    * @return EnableSharingWithResourceDirectoryResponse
+   */
   async enableSharingWithResourceDirectory(): Promise<EnableSharingWithResourceDirectoryResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.enableSharingWithResourceDirectoryWithOptions(runtime);
   }
 
+  /**
+    * The version of the permission.
+    *
+    * @param request GetPermissionRequest
+    * @param runtime runtime options for this request RuntimeOptions
+    * @return GetPermissionResponse
+   */
   async getPermissionWithOptions(request: GetPermissionRequest, runtime: $Util.RuntimeOptions): Promise<GetPermissionResponse> {
     Util.validateModel(request);
     let query = { };
@@ -2491,11 +2607,25 @@ export default class Client extends OpenApi {
     return $tea.cast<GetPermissionResponse>(await this.callApi(params, req, runtime), new GetPermissionResponse({}));
   }
 
+  /**
+    * The version of the permission.
+    *
+    * @param request GetPermissionRequest
+    * @return GetPermissionResponse
+   */
   async getPermission(request: GetPermissionRequest): Promise<GetPermissionResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.getPermissionWithOptions(request, runtime);
   }
 
+  /**
+    * The maximum number of entries to return for a single request.
+    * Valid values: 1 to 100. Default value: 20.
+    *
+    * @param request ListPermissionVersionsRequest
+    * @param runtime runtime options for this request RuntimeOptions
+    * @return ListPermissionVersionsResponse
+   */
   async listPermissionVersionsWithOptions(request: ListPermissionVersionsRequest, runtime: $Util.RuntimeOptions): Promise<ListPermissionVersionsResponse> {
     Util.validateModel(request);
     let query = { };
@@ -2528,11 +2658,26 @@ export default class Client extends OpenApi {
     return $tea.cast<ListPermissionVersionsResponse>(await this.callApi(params, req, runtime), new ListPermissionVersionsResponse({}));
   }
 
+  /**
+    * The maximum number of entries to return for a single request.
+    * Valid values: 1 to 100. Default value: 20.
+    *
+    * @param request ListPermissionVersionsRequest
+    * @return ListPermissionVersionsResponse
+   */
   async listPermissionVersions(request: ListPermissionVersionsRequest): Promise<ListPermissionVersionsResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.listPermissionVersionsWithOptions(request, runtime);
   }
 
+  /**
+    * The maximum number of entries to return for a single request.
+    * Valid values: 1 to 100. Default value: 20.
+    *
+    * @param request ListPermissionsRequest
+    * @param runtime runtime options for this request RuntimeOptions
+    * @return ListPermissionsResponse
+   */
   async listPermissionsWithOptions(request: ListPermissionsRequest, runtime: $Util.RuntimeOptions): Promise<ListPermissionsResponse> {
     Util.validateModel(request);
     let query = { };
@@ -2565,11 +2710,29 @@ export default class Client extends OpenApi {
     return $tea.cast<ListPermissionsResponse>(await this.callApi(params, req, runtime), new ListPermissionsResponse({}));
   }
 
+  /**
+    * The maximum number of entries to return for a single request.
+    * Valid values: 1 to 100. Default value: 20.
+    *
+    * @param request ListPermissionsRequest
+    * @return ListPermissionsResponse
+   */
   async listPermissions(request: ListPermissionsRequest): Promise<ListPermissionsResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.listPermissionsWithOptions(request, runtime);
   }
 
+  /**
+    * This topic provides an example on how to call the API operation to query the association records of the resource shares that are created by using the current Alibaba Cloud account in the `cn-hangzhou` region. The response shows the following records:
+    * *   The resource `vsw-bp1upw03qyz8n7us9****` of the `VSwitch` type has been associated with the resource share `rs-6GRmdD3X****`. The resource is in the `Associated` state. This indicates that the resource is being shared.
+    * *   The resource `vsw-bp183p93qs667muql****` of the `VSwitch` type has been disassociated from the resource share `rs-6GRmdD3X****`. The resource is in the `Disassociated` state. This indicates that the sharing of the resource is stopped.
+    * ## Limits
+    * You can call this operation up to 20 times per second per account. This operation is globally limited to 500 times per second across all accounts. If the number of the calls per second exceeds a limit, throttling is triggered. As a result, your business may be affected. We recommend that you take note of the limits when you call this operation.
+    *
+    * @param request ListResourceShareAssociationsRequest
+    * @param runtime runtime options for this request RuntimeOptions
+    * @return ListResourceShareAssociationsResponse
+   */
   async listResourceShareAssociationsWithOptions(request: ListResourceShareAssociationsRequest, runtime: $Util.RuntimeOptions): Promise<ListResourceShareAssociationsResponse> {
     Util.validateModel(request);
     let query = { };
@@ -2618,11 +2781,29 @@ export default class Client extends OpenApi {
     return $tea.cast<ListResourceShareAssociationsResponse>(await this.callApi(params, req, runtime), new ListResourceShareAssociationsResponse({}));
   }
 
+  /**
+    * This topic provides an example on how to call the API operation to query the association records of the resource shares that are created by using the current Alibaba Cloud account in the `cn-hangzhou` region. The response shows the following records:
+    * *   The resource `vsw-bp1upw03qyz8n7us9****` of the `VSwitch` type has been associated with the resource share `rs-6GRmdD3X****`. The resource is in the `Associated` state. This indicates that the resource is being shared.
+    * *   The resource `vsw-bp183p93qs667muql****` of the `VSwitch` type has been disassociated from the resource share `rs-6GRmdD3X****`. The resource is in the `Disassociated` state. This indicates that the sharing of the resource is stopped.
+    * ## Limits
+    * You can call this operation up to 20 times per second per account. This operation is globally limited to 500 times per second across all accounts. If the number of the calls per second exceeds a limit, throttling is triggered. As a result, your business may be affected. We recommend that you take note of the limits when you call this operation.
+    *
+    * @param request ListResourceShareAssociationsRequest
+    * @return ListResourceShareAssociationsResponse
+   */
   async listResourceShareAssociations(request: ListResourceShareAssociationsRequest): Promise<ListResourceShareAssociationsResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.listResourceShareAssociationsWithOptions(request, runtime);
   }
 
+  /**
+    * The maximum number of entries to return for a single request.
+    * Valid values: 1 to 100. Default value: 20.
+    *
+    * @param request ListResourceShareInvitationsRequest
+    * @param runtime runtime options for this request RuntimeOptions
+    * @return ListResourceShareInvitationsResponse
+   */
   async listResourceShareInvitationsWithOptions(request: ListResourceShareInvitationsRequest, runtime: $Util.RuntimeOptions): Promise<ListResourceShareInvitationsResponse> {
     Util.validateModel(request);
     let query = { };
@@ -2659,11 +2840,26 @@ export default class Client extends OpenApi {
     return $tea.cast<ListResourceShareInvitationsResponse>(await this.callApi(params, req, runtime), new ListResourceShareInvitationsResponse({}));
   }
 
+  /**
+    * The maximum number of entries to return for a single request.
+    * Valid values: 1 to 100. Default value: 20.
+    *
+    * @param request ListResourceShareInvitationsRequest
+    * @return ListResourceShareInvitationsResponse
+   */
   async listResourceShareInvitations(request: ListResourceShareInvitationsRequest): Promise<ListResourceShareInvitationsResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.listResourceShareInvitationsWithOptions(request, runtime);
   }
 
+  /**
+    * The maximum number of entries to return for a single request.
+    * Valid values: 1 to 100. Default value: 20.
+    *
+    * @param request ListResourceSharePermissionsRequest
+    * @param runtime runtime options for this request RuntimeOptions
+    * @return ListResourceSharePermissionsResponse
+   */
   async listResourceSharePermissionsWithOptions(request: ListResourceSharePermissionsRequest, runtime: $Util.RuntimeOptions): Promise<ListResourceSharePermissionsResponse> {
     Util.validateModel(request);
     let query = { };
@@ -2700,11 +2896,25 @@ export default class Client extends OpenApi {
     return $tea.cast<ListResourceSharePermissionsResponse>(await this.callApi(params, req, runtime), new ListResourceSharePermissionsResponse({}));
   }
 
+  /**
+    * The maximum number of entries to return for a single request.
+    * Valid values: 1 to 100. Default value: 20.
+    *
+    * @param request ListResourceSharePermissionsRequest
+    * @return ListResourceSharePermissionsResponse
+   */
   async listResourceSharePermissions(request: ListResourceSharePermissionsRequest): Promise<ListResourceSharePermissionsResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.listResourceSharePermissionsWithOptions(request, runtime);
   }
 
+  /**
+    * The operation that you want to perform. Set the value to ListResourceShares.
+    *
+    * @param request ListResourceSharesRequest
+    * @param runtime runtime options for this request RuntimeOptions
+    * @return ListResourceSharesResponse
+   */
   async listResourceSharesWithOptions(request: ListResourceSharesRequest, runtime: $Util.RuntimeOptions): Promise<ListResourceSharesResponse> {
     Util.validateModel(request);
     let query = { };
@@ -2753,11 +2963,26 @@ export default class Client extends OpenApi {
     return $tea.cast<ListResourceSharesResponse>(await this.callApi(params, req, runtime), new ListResourceSharesResponse({}));
   }
 
+  /**
+    * The operation that you want to perform. Set the value to ListResourceShares.
+    *
+    * @param request ListResourceSharesRequest
+    * @return ListResourceSharesResponse
+   */
   async listResourceShares(request: ListResourceSharesRequest): Promise<ListResourceSharesResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.listResourceSharesWithOptions(request, runtime);
   }
 
+  /**
+    * This topic provides an example on how to call the API operation to query the resources that you share with other accounts in the `cn-hangzhou` region. The response shows that in the resource share `rs-6GRmdD3X****`, you share the `vsw-bp1upw03qyz8n7us9****` resource of the `VSwitch` type with other accounts.
+    * ## Limits
+    * You can call this operation up to 20 times per second per account. This operation is globally limited to 500 times per second across all accounts. If the number of the calls per second exceeds a limit, throttling is triggered. As a result, your business may be affected. We recommend that you take note of the limits when you call this operation.
+    *
+    * @param request ListSharedResourcesRequest
+    * @param runtime runtime options for this request RuntimeOptions
+    * @return ListSharedResourcesResponse
+   */
   async listSharedResourcesWithOptions(request: ListSharedResourcesRequest, runtime: $Util.RuntimeOptions): Promise<ListSharedResourcesResponse> {
     Util.validateModel(request);
     let query = { };
@@ -2806,11 +3031,30 @@ export default class Client extends OpenApi {
     return $tea.cast<ListSharedResourcesResponse>(await this.callApi(params, req, runtime), new ListSharedResourcesResponse({}));
   }
 
+  /**
+    * This topic provides an example on how to call the API operation to query the resources that you share with other accounts in the `cn-hangzhou` region. The response shows that in the resource share `rs-6GRmdD3X****`, you share the `vsw-bp1upw03qyz8n7us9****` resource of the `VSwitch` type with other accounts.
+    * ## Limits
+    * You can call this operation up to 20 times per second per account. This operation is globally limited to 500 times per second across all accounts. If the number of the calls per second exceeds a limit, throttling is triggered. As a result, your business may be affected. We recommend that you take note of the limits when you call this operation.
+    *
+    * @param request ListSharedResourcesRequest
+    * @return ListSharedResourcesResponse
+   */
   async listSharedResources(request: ListSharedResourcesRequest): Promise<ListSharedResourcesResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.listSharedResourcesWithOptions(request, runtime);
   }
 
+  /**
+    * If you are a resource owner, you can query the principals with which you share your resources.
+    * If you are a principal, you can query the resources that are shared with you.
+    * This topic provides an example on how to call the API operation to query the principals with which you share your resources in the `cn-hangzhou` region. The response shows that you share your resources with the principals `114240524784****` and `172050525300****`.
+    * ## Limits
+    * You can call this operation up to 20 times per second per account. This operation is globally limited to 500 times per second across all accounts. If the number of the calls per second exceeds a limit, throttling is triggered. As a result, your business may be affected. We recommend that you take note of the limits when you call this operation.
+    *
+    * @param request ListSharedTargetsRequest
+    * @param runtime runtime options for this request RuntimeOptions
+    * @return ListSharedTargetsResponse
+   */
   async listSharedTargetsWithOptions(request: ListSharedTargetsRequest, runtime: $Util.RuntimeOptions): Promise<ListSharedTargetsResponse> {
     Util.validateModel(request);
     let query = { };
@@ -2859,11 +3103,29 @@ export default class Client extends OpenApi {
     return $tea.cast<ListSharedTargetsResponse>(await this.callApi(params, req, runtime), new ListSharedTargetsResponse({}));
   }
 
+  /**
+    * If you are a resource owner, you can query the principals with which you share your resources.
+    * If you are a principal, you can query the resources that are shared with you.
+    * This topic provides an example on how to call the API operation to query the principals with which you share your resources in the `cn-hangzhou` region. The response shows that you share your resources with the principals `114240524784****` and `172050525300****`.
+    * ## Limits
+    * You can call this operation up to 20 times per second per account. This operation is globally limited to 500 times per second across all accounts. If the number of the calls per second exceeds a limit, throttling is triggered. As a result, your business may be affected. We recommend that you take note of the limits when you call this operation.
+    *
+    * @param request ListSharedTargetsRequest
+    * @return ListSharedTargetsResponse
+   */
   async listSharedTargets(request: ListSharedTargetsRequest): Promise<ListSharedTargetsResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.listSharedTargetsWithOptions(request, runtime);
   }
 
+  /**
+    * The ID of the resource sharing invitation.
+    * You can call the [ListResourceShareInvitations](~~450564~~) operation to obtain the ID of a resource sharing invitation.
+    *
+    * @param request RejectResourceShareInvitationRequest
+    * @param runtime runtime options for this request RuntimeOptions
+    * @return RejectResourceShareInvitationResponse
+   */
   async rejectResourceShareInvitationWithOptions(request: RejectResourceShareInvitationRequest, runtime: $Util.RuntimeOptions): Promise<RejectResourceShareInvitationResponse> {
     Util.validateModel(request);
     let query = { };
@@ -2888,11 +3150,25 @@ export default class Client extends OpenApi {
     return $tea.cast<RejectResourceShareInvitationResponse>(await this.callApi(params, req, runtime), new RejectResourceShareInvitationResponse({}));
   }
 
+  /**
+    * The ID of the resource sharing invitation.
+    * You can call the [ListResourceShareInvitations](~~450564~~) operation to obtain the ID of a resource sharing invitation.
+    *
+    * @param request RejectResourceShareInvitationRequest
+    * @return RejectResourceShareInvitationResponse
+   */
   async rejectResourceShareInvitation(request: RejectResourceShareInvitationRequest): Promise<RejectResourceShareInvitationResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.rejectResourceShareInvitationWithOptions(request, runtime);
   }
 
+  /**
+    * The operation that you want to perform. Set the value to UpdateResourceShare.
+    *
+    * @param request UpdateResourceShareRequest
+    * @param runtime runtime options for this request RuntimeOptions
+    * @return UpdateResourceShareResponse
+   */
   async updateResourceShareWithOptions(request: UpdateResourceShareRequest, runtime: $Util.RuntimeOptions): Promise<UpdateResourceShareResponse> {
     Util.validateModel(request);
     let query = { };
@@ -2925,6 +3201,12 @@ export default class Client extends OpenApi {
     return $tea.cast<UpdateResourceShareResponse>(await this.callApi(params, req, runtime), new UpdateResourceShareResponse({}));
   }
 
+  /**
+    * The operation that you want to perform. Set the value to UpdateResourceShare.
+    *
+    * @param request UpdateResourceShareRequest
+    * @return UpdateResourceShareResponse
+   */
   async updateResourceShare(request: UpdateResourceShareRequest): Promise<UpdateResourceShareResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.updateResourceShareWithOptions(request, runtime);
