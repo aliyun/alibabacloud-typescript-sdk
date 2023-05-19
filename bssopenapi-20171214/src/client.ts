@@ -1107,6 +1107,7 @@ export class CreateSavingsPlansInstanceRequest extends $tea.Model {
   commodityCode?: string;
   duration?: string;
   effectiveDate?: string;
+  extendMap?: { [key: string]: string };
   payMode?: string;
   poolValue?: string;
   pricingCycle?: string;
@@ -1119,6 +1120,7 @@ export class CreateSavingsPlansInstanceRequest extends $tea.Model {
       commodityCode: 'CommodityCode',
       duration: 'Duration',
       effectiveDate: 'EffectiveDate',
+      extendMap: 'ExtendMap',
       payMode: 'PayMode',
       poolValue: 'PoolValue',
       pricingCycle: 'PricingCycle',
@@ -1134,6 +1136,56 @@ export class CreateSavingsPlansInstanceRequest extends $tea.Model {
       commodityCode: 'string',
       duration: 'string',
       effectiveDate: 'string',
+      extendMap: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      payMode: 'string',
+      poolValue: 'string',
+      pricingCycle: 'string',
+      region: 'string',
+      specType: 'string',
+      specification: 'string',
+      type: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class CreateSavingsPlansInstanceShrinkRequest extends $tea.Model {
+  commodityCode?: string;
+  duration?: string;
+  effectiveDate?: string;
+  extendMapShrink?: string;
+  payMode?: string;
+  poolValue?: string;
+  pricingCycle?: string;
+  region?: string;
+  specType?: string;
+  specification?: string;
+  type?: string;
+  static names(): { [key: string]: string } {
+    return {
+      commodityCode: 'CommodityCode',
+      duration: 'Duration',
+      effectiveDate: 'EffectiveDate',
+      extendMapShrink: 'ExtendMap',
+      payMode: 'PayMode',
+      poolValue: 'PoolValue',
+      pricingCycle: 'PricingCycle',
+      region: 'Region',
+      specType: 'SpecType',
+      specification: 'Specification',
+      type: 'Type',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      commodityCode: 'string',
+      duration: 'string',
+      effectiveDate: 'string',
+      extendMapShrink: 'string',
       payMode: 'string',
       poolValue: 'string',
       pricingCycle: 'string',
@@ -1467,6 +1519,114 @@ export class DescribeInstanceAmortizedCostByAmortizationPeriodResponse extends $
       headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
       statusCode: 'number',
       body: DescribeInstanceAmortizedCostByAmortizationPeriodResponseBody,
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class DescribeInstanceAmortizedCostByAmortizationPeriodDateRequest extends $tea.Model {
+  amortizationDateEnd?: string;
+  amortizationDateStart?: string;
+  billOwnerIdList?: string[];
+  billUserIdList?: string[];
+  billingCycle?: string;
+  costUnitCode?: string;
+  instanceIdList?: string[];
+  maxResults?: number;
+  nextToken?: string;
+  productCode?: string;
+  productDetail?: string;
+  subscriptionType?: string;
+  static names(): { [key: string]: string } {
+    return {
+      amortizationDateEnd: 'AmortizationDateEnd',
+      amortizationDateStart: 'AmortizationDateStart',
+      billOwnerIdList: 'BillOwnerIdList',
+      billUserIdList: 'BillUserIdList',
+      billingCycle: 'BillingCycle',
+      costUnitCode: 'CostUnitCode',
+      instanceIdList: 'InstanceIdList',
+      maxResults: 'MaxResults',
+      nextToken: 'NextToken',
+      productCode: 'ProductCode',
+      productDetail: 'ProductDetail',
+      subscriptionType: 'SubscriptionType',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      amortizationDateEnd: 'string',
+      amortizationDateStart: 'string',
+      billOwnerIdList: { 'type': 'array', 'itemType': 'string' },
+      billUserIdList: { 'type': 'array', 'itemType': 'string' },
+      billingCycle: 'string',
+      costUnitCode: 'string',
+      instanceIdList: { 'type': 'array', 'itemType': 'string' },
+      maxResults: 'number',
+      nextToken: 'string',
+      productCode: 'string',
+      productDetail: 'string',
+      subscriptionType: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class DescribeInstanceAmortizedCostByAmortizationPeriodDateResponseBody extends $tea.Model {
+  code?: string;
+  data?: DescribeInstanceAmortizedCostByAmortizationPeriodDateResponseBodyData;
+  message?: string;
+  requestId?: string;
+  success?: boolean;
+  static names(): { [key: string]: string } {
+    return {
+      code: 'Code',
+      data: 'Data',
+      message: 'Message',
+      requestId: 'RequestId',
+      success: 'Success',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      code: 'string',
+      data: DescribeInstanceAmortizedCostByAmortizationPeriodDateResponseBodyData,
+      message: 'string',
+      requestId: 'string',
+      success: 'boolean',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class DescribeInstanceAmortizedCostByAmortizationPeriodDateResponse extends $tea.Model {
+  headers: { [key: string]: string };
+  statusCode: number;
+  body: DescribeInstanceAmortizedCostByAmortizationPeriodDateResponseBody;
+  static names(): { [key: string]: string } {
+    return {
+      headers: 'headers',
+      statusCode: 'statusCode',
+      body: 'body',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
+      body: DescribeInstanceAmortizedCostByAmortizationPeriodDateResponseBody,
     };
   }
 
@@ -9446,6 +9606,239 @@ export class DescribeInstanceAmortizedCostByAmortizationPeriodResponseBodyData e
   }
 }
 
+export class DescribeInstanceAmortizedCostByAmortizationPeriodDateResponseBodyDataItems extends $tea.Model {
+  amortizationPeriod?: string;
+  amortizationPeriodDay?: string;
+  amortizationStatus?: string;
+  billAccountID?: number;
+  billAccountName?: string;
+  billOwnerID?: number;
+  billOwnerName?: string;
+  bizType?: string;
+  consumePeriod?: string;
+  consumePeriodDay?: string;
+  costUnit?: string;
+  costUnitCode?: string;
+  currentAmortizationDeductedByCashCoupons?: number;
+  currentAmortizationDeductedByCoupons?: number;
+  currentAmortizationDeductedByPrepaidCard?: number;
+  currentAmortizationExpenditureAmount?: number;
+  currentAmortizationInvoiceDiscount?: number;
+  currentAmortizationPretaxAmount?: number;
+  currentAmortizationPretaxGrossAmount?: number;
+  currentAmortizationRoundDownDiscount?: number;
+  deductedByCashCoupons?: number;
+  deductedByCoupons?: number;
+  deductedByPrepaidCard?: number;
+  expenditureAmount?: number;
+  instanceID?: string;
+  internetIP?: string;
+  intranetIP?: string;
+  invoiceDiscount?: number;
+  pretaxAmount?: number;
+  pretaxGrossAmount?: number;
+  previouslyAmortizedDeductedByCashCoupons?: number;
+  previouslyAmortizedDeductedByCoupons?: number;
+  previouslyAmortizedDeductedByPrepaidCard?: number;
+  previouslyAmortizedExpenditureAmount?: number;
+  previouslyAmortizedInvoiceDiscount?: number;
+  previouslyAmortizedPretaxAmount?: number;
+  previouslyAmortizedPretaxGrossAmount?: number;
+  previouslyAmortizedRoundDownDiscount?: number;
+  productCode?: string;
+  productDetail?: string;
+  productDetailCode?: string;
+  productName?: string;
+  region?: string;
+  remainingAmortizationDeductedByCashCoupons?: number;
+  remainingAmortizationDeductedByCoupons?: number;
+  remainingAmortizationDeductedByPrepaidCard?: number;
+  remainingAmortizationExpenditureAmount?: number;
+  remainingAmortizationInvoiceDiscount?: number;
+  remainingAmortizationPretaxAmount?: number;
+  remainingAmortizationPretaxGrossAmount?: number;
+  remainingAmortizationRoundDownDiscount?: number;
+  resourceGroup?: string;
+  roundDownDiscount?: number;
+  splitAccountName?: string;
+  splitItemID?: string;
+  splitItemName?: string;
+  splitProductDetail?: string;
+  subscriptionType?: string;
+  tag?: string;
+  zone?: string;
+  static names(): { [key: string]: string } {
+    return {
+      amortizationPeriod: 'AmortizationPeriod',
+      amortizationPeriodDay: 'AmortizationPeriodDay',
+      amortizationStatus: 'AmortizationStatus',
+      billAccountID: 'BillAccountID',
+      billAccountName: 'BillAccountName',
+      billOwnerID: 'BillOwnerID',
+      billOwnerName: 'BillOwnerName',
+      bizType: 'BizType',
+      consumePeriod: 'ConsumePeriod',
+      consumePeriodDay: 'ConsumePeriodDay',
+      costUnit: 'CostUnit',
+      costUnitCode: 'CostUnitCode',
+      currentAmortizationDeductedByCashCoupons: 'CurrentAmortizationDeductedByCashCoupons',
+      currentAmortizationDeductedByCoupons: 'CurrentAmortizationDeductedByCoupons',
+      currentAmortizationDeductedByPrepaidCard: 'CurrentAmortizationDeductedByPrepaidCard',
+      currentAmortizationExpenditureAmount: 'CurrentAmortizationExpenditureAmount',
+      currentAmortizationInvoiceDiscount: 'CurrentAmortizationInvoiceDiscount',
+      currentAmortizationPretaxAmount: 'CurrentAmortizationPretaxAmount',
+      currentAmortizationPretaxGrossAmount: 'CurrentAmortizationPretaxGrossAmount',
+      currentAmortizationRoundDownDiscount: 'CurrentAmortizationRoundDownDiscount',
+      deductedByCashCoupons: 'DeductedByCashCoupons',
+      deductedByCoupons: 'DeductedByCoupons',
+      deductedByPrepaidCard: 'DeductedByPrepaidCard',
+      expenditureAmount: 'ExpenditureAmount',
+      instanceID: 'InstanceID',
+      internetIP: 'InternetIP',
+      intranetIP: 'IntranetIP',
+      invoiceDiscount: 'InvoiceDiscount',
+      pretaxAmount: 'PretaxAmount',
+      pretaxGrossAmount: 'PretaxGrossAmount',
+      previouslyAmortizedDeductedByCashCoupons: 'PreviouslyAmortizedDeductedByCashCoupons',
+      previouslyAmortizedDeductedByCoupons: 'PreviouslyAmortizedDeductedByCoupons',
+      previouslyAmortizedDeductedByPrepaidCard: 'PreviouslyAmortizedDeductedByPrepaidCard',
+      previouslyAmortizedExpenditureAmount: 'PreviouslyAmortizedExpenditureAmount',
+      previouslyAmortizedInvoiceDiscount: 'PreviouslyAmortizedInvoiceDiscount',
+      previouslyAmortizedPretaxAmount: 'PreviouslyAmortizedPretaxAmount',
+      previouslyAmortizedPretaxGrossAmount: 'PreviouslyAmortizedPretaxGrossAmount',
+      previouslyAmortizedRoundDownDiscount: 'PreviouslyAmortizedRoundDownDiscount',
+      productCode: 'ProductCode',
+      productDetail: 'ProductDetail',
+      productDetailCode: 'ProductDetailCode',
+      productName: 'ProductName',
+      region: 'Region',
+      remainingAmortizationDeductedByCashCoupons: 'RemainingAmortizationDeductedByCashCoupons',
+      remainingAmortizationDeductedByCoupons: 'RemainingAmortizationDeductedByCoupons',
+      remainingAmortizationDeductedByPrepaidCard: 'RemainingAmortizationDeductedByPrepaidCard',
+      remainingAmortizationExpenditureAmount: 'RemainingAmortizationExpenditureAmount',
+      remainingAmortizationInvoiceDiscount: 'RemainingAmortizationInvoiceDiscount',
+      remainingAmortizationPretaxAmount: 'RemainingAmortizationPretaxAmount',
+      remainingAmortizationPretaxGrossAmount: 'RemainingAmortizationPretaxGrossAmount',
+      remainingAmortizationRoundDownDiscount: 'RemainingAmortizationRoundDownDiscount',
+      resourceGroup: 'ResourceGroup',
+      roundDownDiscount: 'RoundDownDiscount',
+      splitAccountName: 'SplitAccountName',
+      splitItemID: 'SplitItemID',
+      splitItemName: 'SplitItemName',
+      splitProductDetail: 'SplitProductDetail',
+      subscriptionType: 'SubscriptionType',
+      tag: 'Tag',
+      zone: 'Zone',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      amortizationPeriod: 'string',
+      amortizationPeriodDay: 'string',
+      amortizationStatus: 'string',
+      billAccountID: 'number',
+      billAccountName: 'string',
+      billOwnerID: 'number',
+      billOwnerName: 'string',
+      bizType: 'string',
+      consumePeriod: 'string',
+      consumePeriodDay: 'string',
+      costUnit: 'string',
+      costUnitCode: 'string',
+      currentAmortizationDeductedByCashCoupons: 'number',
+      currentAmortizationDeductedByCoupons: 'number',
+      currentAmortizationDeductedByPrepaidCard: 'number',
+      currentAmortizationExpenditureAmount: 'number',
+      currentAmortizationInvoiceDiscount: 'number',
+      currentAmortizationPretaxAmount: 'number',
+      currentAmortizationPretaxGrossAmount: 'number',
+      currentAmortizationRoundDownDiscount: 'number',
+      deductedByCashCoupons: 'number',
+      deductedByCoupons: 'number',
+      deductedByPrepaidCard: 'number',
+      expenditureAmount: 'number',
+      instanceID: 'string',
+      internetIP: 'string',
+      intranetIP: 'string',
+      invoiceDiscount: 'number',
+      pretaxAmount: 'number',
+      pretaxGrossAmount: 'number',
+      previouslyAmortizedDeductedByCashCoupons: 'number',
+      previouslyAmortizedDeductedByCoupons: 'number',
+      previouslyAmortizedDeductedByPrepaidCard: 'number',
+      previouslyAmortizedExpenditureAmount: 'number',
+      previouslyAmortizedInvoiceDiscount: 'number',
+      previouslyAmortizedPretaxAmount: 'number',
+      previouslyAmortizedPretaxGrossAmount: 'number',
+      previouslyAmortizedRoundDownDiscount: 'number',
+      productCode: 'string',
+      productDetail: 'string',
+      productDetailCode: 'string',
+      productName: 'string',
+      region: 'string',
+      remainingAmortizationDeductedByCashCoupons: 'number',
+      remainingAmortizationDeductedByCoupons: 'number',
+      remainingAmortizationDeductedByPrepaidCard: 'number',
+      remainingAmortizationExpenditureAmount: 'number',
+      remainingAmortizationInvoiceDiscount: 'number',
+      remainingAmortizationPretaxAmount: 'number',
+      remainingAmortizationPretaxGrossAmount: 'number',
+      remainingAmortizationRoundDownDiscount: 'number',
+      resourceGroup: 'string',
+      roundDownDiscount: 'number',
+      splitAccountName: 'string',
+      splitItemID: 'string',
+      splitItemName: 'string',
+      splitProductDetail: 'string',
+      subscriptionType: 'string',
+      tag: 'string',
+      zone: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class DescribeInstanceAmortizedCostByAmortizationPeriodDateResponseBodyData extends $tea.Model {
+  accountID?: string;
+  accountName?: string;
+  hostId?: string;
+  items?: DescribeInstanceAmortizedCostByAmortizationPeriodDateResponseBodyDataItems[];
+  maxResults?: number;
+  nextToken?: string;
+  totalCount?: number;
+  static names(): { [key: string]: string } {
+    return {
+      accountID: 'AccountID',
+      accountName: 'AccountName',
+      hostId: 'HostId',
+      items: 'Items',
+      maxResults: 'MaxResults',
+      nextToken: 'NextToken',
+      totalCount: 'TotalCount',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      accountID: 'string',
+      accountName: 'string',
+      hostId: 'string',
+      items: { 'type': 'array', 'itemType': DescribeInstanceAmortizedCostByAmortizationPeriodDateResponseBodyDataItems },
+      maxResults: 'number',
+      nextToken: 'string',
+      totalCount: 'number',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
 export class DescribeInstanceAmortizedCostByConsumePeriodResponseBodyDataItems extends $tea.Model {
   amortizationPeriod?: string;
   amortizationStatus?: string;
@@ -15492,6 +15885,7 @@ export class QuerySavingsPlansInstanceResponseBodyDataItems extends $tea.Model {
   poolValue?: string;
   prepayFee?: string;
   region?: string;
+  restPoolValue?: string;
   savingsType?: string;
   startTime?: string;
   startTimestamp?: number;
@@ -15515,6 +15909,7 @@ export class QuerySavingsPlansInstanceResponseBodyDataItems extends $tea.Model {
       poolValue: 'PoolValue',
       prepayFee: 'PrepayFee',
       region: 'Region',
+      restPoolValue: 'RestPoolValue',
       savingsType: 'SavingsType',
       startTime: 'StartTime',
       startTimestamp: 'StartTimestamp',
@@ -15541,6 +15936,7 @@ export class QuerySavingsPlansInstanceResponseBodyDataItems extends $tea.Model {
       poolValue: 'string',
       prepayFee: 'string',
       region: 'string',
+      restPoolValue: 'string',
       savingsType: 'string',
       startTime: 'string',
       startTimestamp: 'number',
@@ -17013,8 +17409,14 @@ export default class Client extends OpenApi {
     return await this.createResourcePackageWithOptions(request, runtime);
   }
 
-  async createSavingsPlansInstanceWithOptions(request: CreateSavingsPlansInstanceRequest, runtime: $Util.RuntimeOptions): Promise<CreateSavingsPlansInstanceResponse> {
-    Util.validateModel(request);
+  async createSavingsPlansInstanceWithOptions(tmpReq: CreateSavingsPlansInstanceRequest, runtime: $Util.RuntimeOptions): Promise<CreateSavingsPlansInstanceResponse> {
+    Util.validateModel(tmpReq);
+    let request = new CreateSavingsPlansInstanceShrinkRequest({ });
+    OpenApiUtil.convert(tmpReq, request);
+    if (!Util.isUnset(tmpReq.extendMap)) {
+      request.extendMapShrink = OpenApiUtil.arrayToStringWithSpecifiedStyle(tmpReq.extendMap, "ExtendMap", "json");
+    }
+
     let query = { };
     if (!Util.isUnset(request.commodityCode)) {
       query["CommodityCode"] = request.commodityCode;
@@ -17026,6 +17428,10 @@ export default class Client extends OpenApi {
 
     if (!Util.isUnset(request.effectiveDate)) {
       query["EffectiveDate"] = request.effectiveDate;
+    }
+
+    if (!Util.isUnset(request.extendMapShrink)) {
+      query["ExtendMap"] = request.extendMapShrink;
     }
 
     if (!Util.isUnset(request.payMode)) {
@@ -17111,6 +17517,13 @@ export default class Client extends OpenApi {
     return await this.deleteCostUnitWithOptions(request, runtime);
   }
 
+  /**
+    * This operation is in beta testing and is only available for specific users in the whitelist. Excessive calls may result in performance issues. For example, the response times out.
+    *
+    * @param request DescribeCostBudgetsSummaryRequest
+    * @param runtime runtime options for this request RuntimeOptions
+    * @return DescribeCostBudgetsSummaryResponse
+   */
   async describeCostBudgetsSummaryWithOptions(request: DescribeCostBudgetsSummaryRequest, runtime: $Util.RuntimeOptions): Promise<DescribeCostBudgetsSummaryResponse> {
     Util.validateModel(request);
     let query = { };
@@ -17151,6 +17564,12 @@ export default class Client extends OpenApi {
     return $tea.cast<DescribeCostBudgetsSummaryResponse>(await this.callApi(params, req, runtime), new DescribeCostBudgetsSummaryResponse({}));
   }
 
+  /**
+    * This operation is in beta testing and is only available for specific users in the whitelist. Excessive calls may result in performance issues. For example, the response times out.
+    *
+    * @param request DescribeCostBudgetsSummaryRequest
+    * @return DescribeCostBudgetsSummaryResponse
+   */
   async describeCostBudgetsSummary(request: DescribeCostBudgetsSummaryRequest): Promise<DescribeCostBudgetsSummaryResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.describeCostBudgetsSummaryWithOptions(request, runtime);
@@ -17236,6 +17655,79 @@ export default class Client extends OpenApi {
   async describeInstanceAmortizedCostByAmortizationPeriod(request: DescribeInstanceAmortizedCostByAmortizationPeriodRequest): Promise<DescribeInstanceAmortizedCostByAmortizationPeriodResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.describeInstanceAmortizedCostByAmortizationPeriodWithOptions(request, runtime);
+  }
+
+  async describeInstanceAmortizedCostByAmortizationPeriodDateWithOptions(request: DescribeInstanceAmortizedCostByAmortizationPeriodDateRequest, runtime: $Util.RuntimeOptions): Promise<DescribeInstanceAmortizedCostByAmortizationPeriodDateResponse> {
+    Util.validateModel(request);
+    let body : {[key: string ]: any} = { };
+    if (!Util.isUnset(request.amortizationDateEnd)) {
+      body["AmortizationDateEnd"] = request.amortizationDateEnd;
+    }
+
+    if (!Util.isUnset(request.amortizationDateStart)) {
+      body["AmortizationDateStart"] = request.amortizationDateStart;
+    }
+
+    if (!Util.isUnset(request.billOwnerIdList)) {
+      body["BillOwnerIdList"] = request.billOwnerIdList;
+    }
+
+    if (!Util.isUnset(request.billUserIdList)) {
+      body["BillUserIdList"] = request.billUserIdList;
+    }
+
+    if (!Util.isUnset(request.billingCycle)) {
+      body["BillingCycle"] = request.billingCycle;
+    }
+
+    if (!Util.isUnset(request.costUnitCode)) {
+      body["CostUnitCode"] = request.costUnitCode;
+    }
+
+    if (!Util.isUnset(request.instanceIdList)) {
+      body["InstanceIdList"] = request.instanceIdList;
+    }
+
+    if (!Util.isUnset(request.maxResults)) {
+      body["MaxResults"] = request.maxResults;
+    }
+
+    if (!Util.isUnset(request.nextToken)) {
+      body["NextToken"] = request.nextToken;
+    }
+
+    if (!Util.isUnset(request.productCode)) {
+      body["ProductCode"] = request.productCode;
+    }
+
+    if (!Util.isUnset(request.productDetail)) {
+      body["ProductDetail"] = request.productDetail;
+    }
+
+    if (!Util.isUnset(request.subscriptionType)) {
+      body["SubscriptionType"] = request.subscriptionType;
+    }
+
+    let req = new $OpenApi.OpenApiRequest({
+      body: OpenApiUtil.parseToMap(body),
+    });
+    let params = new $OpenApi.Params({
+      action: "DescribeInstanceAmortizedCostByAmortizationPeriodDate",
+      version: "2017-12-14",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $tea.cast<DescribeInstanceAmortizedCostByAmortizationPeriodDateResponse>(await this.callApi(params, req, runtime), new DescribeInstanceAmortizedCostByAmortizationPeriodDateResponse({}));
+  }
+
+  async describeInstanceAmortizedCostByAmortizationPeriodDate(request: DescribeInstanceAmortizedCostByAmortizationPeriodDateRequest): Promise<DescribeInstanceAmortizedCostByAmortizationPeriodDateResponse> {
+    let runtime = new $Util.RuntimeOptions({ });
+    return await this.describeInstanceAmortizedCostByAmortizationPeriodDateWithOptions(request, runtime);
   }
 
   async describeInstanceAmortizedCostByConsumePeriodWithOptions(request: DescribeInstanceAmortizedCostByConsumePeriodRequest, runtime: $Util.RuntimeOptions): Promise<DescribeInstanceAmortizedCostByConsumePeriodResponse> {
@@ -17586,9 +18078,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-    * 1\\. The queried coverage details are the same as those displayed in the table on the Coverage tab of the Manage Reserved Instances page in the Billing Management console.
-    * 2\\. You can call this operation to query the coverage details of RIs or SCUs.
-    * 3\\. You can call this operation to query coverage details at an hourly, daily, or monthly granularity.
+    * The amount of the resources deducted from a deduction plan.
     *
     * @param request DescribeResourceCoverageDetailRequest
     * @param runtime runtime options for this request RuntimeOptions
@@ -17643,9 +18133,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-    * 1\\. The queried coverage details are the same as those displayed in the table on the Coverage tab of the Manage Reserved Instances page in the Billing Management console.
-    * 2\\. You can call this operation to query the coverage details of RIs or SCUs.
-    * 3\\. You can call this operation to query coverage details at an hourly, daily, or monthly granularity.
+    * The amount of the resources deducted from a deduction plan.
     *
     * @param request DescribeResourceCoverageDetailRequest
     * @return DescribeResourceCoverageDetailResponse
@@ -17656,8 +18144,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-    * The queried total coverage data is the same as the aggregated data displayed on the Coverage tab of the Manage Reserved Instances page in the Billing Management console.
-    * You can call this operation to query the total coverage data of RIs or SCUs.
+    * Indicates whether the operation was successful.
     *
     * @param request DescribeResourceCoverageTotalRequest
     * @param runtime runtime options for this request RuntimeOptions
@@ -17704,8 +18191,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-    * The queried total coverage data is the same as the aggregated data displayed on the Coverage tab of the Manage Reserved Instances page in the Billing Management console.
-    * You can call this operation to query the total coverage data of RIs or SCUs.
+    * Indicates whether the operation was successful.
     *
     * @param request DescribeResourceCoverageTotalRequest
     * @return DescribeResourceCoverageTotalResponse
@@ -18022,6 +18508,13 @@ export default class Client extends OpenApi {
     return await this.describeSavingsPlansUsageTotalWithOptions(request, runtime);
   }
 
+  /**
+    * The code of the service.
+    *
+    * @param request DescribeSplitItemBillRequest
+    * @param runtime runtime options for this request RuntimeOptions
+    * @return DescribeSplitItemBillResponse
+   */
   async describeSplitItemBillWithOptions(request: DescribeSplitItemBillRequest, runtime: $Util.RuntimeOptions): Promise<DescribeSplitItemBillResponse> {
     Util.validateModel(request);
     let query = { };
@@ -18094,6 +18587,12 @@ export default class Client extends OpenApi {
     return $tea.cast<DescribeSplitItemBillResponse>(await this.callApi(params, req, runtime), new DescribeSplitItemBillResponse({}));
   }
 
+  /**
+    * The code of the service.
+    *
+    * @param request DescribeSplitItemBillRequest
+    * @return DescribeSplitItemBillResponse
+   */
   async describeSplitItemBill(request: DescribeSplitItemBillRequest): Promise<DescribeSplitItemBillResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.describeSplitItemBillWithOptions(request, runtime);
@@ -18187,7 +18686,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-    * The system queries the IDs of customers of a VNO based on the AccessKey pair used in the request.
+    * The ID of the customer.
     *
     * @param request GetCustomerListRequest
     * @param runtime runtime options for this request RuntimeOptions
@@ -18210,7 +18709,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-    * The system queries the IDs of customers of a VNO based on the AccessKey pair used in the request.
+    * The ID of the customer.
     *
     * @return GetCustomerListResponse
    */
@@ -18467,6 +18966,15 @@ export default class Client extends OpenApi {
     return await this.getSubscriptionPriceWithOptions(request, runtime);
   }
 
+  /**
+    * 1.  **Check the information about unsubscription and confirm the unsubscription terms and refundable amount. The resource that is unsubscribed cannot be restored.**
+    * 2.  Refunds are applicable only for the actual paid amount. Vouchers used for the purchase are non-refundable.
+    * 3.  For more information, see [Rules for unsubscribing from resources](https://help.aliyun.com/knowledge_detail/116043.html?spm=a2c81.e1d666e.app.2.62ae11271Kd6iM).
+    *
+    * @param request InquiryPriceRefundInstanceRequest
+    * @param runtime runtime options for this request RuntimeOptions
+    * @return InquiryPriceRefundInstanceResponse
+   */
   async inquiryPriceRefundInstanceWithOptions(request: InquiryPriceRefundInstanceRequest, runtime: $Util.RuntimeOptions): Promise<InquiryPriceRefundInstanceResponse> {
     Util.validateModel(request);
     let query = { };
@@ -18503,6 +19011,14 @@ export default class Client extends OpenApi {
     return $tea.cast<InquiryPriceRefundInstanceResponse>(await this.callApi(params, req, runtime), new InquiryPriceRefundInstanceResponse({}));
   }
 
+  /**
+    * 1.  **Check the information about unsubscription and confirm the unsubscription terms and refundable amount. The resource that is unsubscribed cannot be restored.**
+    * 2.  Refunds are applicable only for the actual paid amount. Vouchers used for the purchase are non-refundable.
+    * 3.  For more information, see [Rules for unsubscribing from resources](https://help.aliyun.com/knowledge_detail/116043.html?spm=a2c81.e1d666e.app.2.62ae11271Kd6iM).
+    *
+    * @param request InquiryPriceRefundInstanceRequest
+    * @return InquiryPriceRefundInstanceResponse
+   */
   async inquiryPriceRefundInstance(request: InquiryPriceRefundInstanceRequest): Promise<InquiryPriceRefundInstanceResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.inquiryPriceRefundInstanceWithOptions(request, runtime);
@@ -19131,6 +19647,13 @@ export default class Client extends OpenApi {
     return await this.queryCashCouponsWithOptions(request, runtime);
   }
 
+  /**
+    * You can call this operation to query the information about a service based on the service code.
+    *
+    * @param request QueryCommodityListRequest
+    * @param runtime runtime options for this request RuntimeOptions
+    * @return QueryCommodityListResponse
+   */
   async queryCommodityListWithOptions(request: QueryCommodityListRequest, runtime: $Util.RuntimeOptions): Promise<QueryCommodityListResponse> {
     Util.validateModel(request);
     let query = OpenApiUtil.query(Util.toMap(request));
@@ -19151,6 +19674,12 @@ export default class Client extends OpenApi {
     return $tea.cast<QueryCommodityListResponse>(await this.callApi(params, req, runtime), new QueryCommodityListResponse({}));
   }
 
+  /**
+    * You can call this operation to query the information about a service based on the service code.
+    *
+    * @param request QueryCommodityListRequest
+    * @return QueryCommodityListResponse
+   */
   async queryCommodityList(request: QueryCommodityListRequest): Promise<QueryCommodityListResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.queryCommodityListWithOptions(request, runtime);
@@ -19267,6 +19796,13 @@ export default class Client extends OpenApi {
     return await this.queryCustomerAddressListWithOptions(request, runtime);
   }
 
+  /**
+    * The UID of the deducted instance.
+    *
+    * @param request QueryDPUtilizationDetailRequest
+    * @param runtime runtime options for this request RuntimeOptions
+    * @return QueryDPUtilizationDetailResponse
+   */
   async queryDPUtilizationDetailWithOptions(request: QueryDPUtilizationDetailRequest, runtime: $Util.RuntimeOptions): Promise<QueryDPUtilizationDetailResponse> {
     Util.validateModel(request);
     let query = { };
@@ -19327,6 +19863,12 @@ export default class Client extends OpenApi {
     return $tea.cast<QueryDPUtilizationDetailResponse>(await this.callApi(params, req, runtime), new QueryDPUtilizationDetailResponse({}));
   }
 
+  /**
+    * The UID of the deducted instance.
+    *
+    * @param request QueryDPUtilizationDetailRequest
+    * @return QueryDPUtilizationDetailResponse
+   */
   async queryDPUtilizationDetail(request: QueryDPUtilizationDetailRequest): Promise<QueryDPUtilizationDetailResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.queryDPUtilizationDetailWithOptions(request, runtime);
@@ -19782,6 +20324,13 @@ export default class Client extends OpenApi {
     return await this.queryPrepaidCardsWithOptions(request, runtime);
   }
 
+  /**
+    * You can call this operation to query the billable items of a service. A billable item is the minimum unit used to calculate costs.
+    *
+    * @param request QueryPriceEntityListRequest
+    * @param runtime runtime options for this request RuntimeOptions
+    * @return QueryPriceEntityListResponse
+   */
   async queryPriceEntityListWithOptions(request: QueryPriceEntityListRequest, runtime: $Util.RuntimeOptions): Promise<QueryPriceEntityListResponse> {
     Util.validateModel(request);
     let query = OpenApiUtil.query(Util.toMap(request));
@@ -19802,6 +20351,12 @@ export default class Client extends OpenApi {
     return $tea.cast<QueryPriceEntityListResponse>(await this.callApi(params, req, runtime), new QueryPriceEntityListResponse({}));
   }
 
+  /**
+    * You can call this operation to query the billable items of a service. A billable item is the minimum unit used to calculate costs.
+    *
+    * @param request QueryPriceEntityListRequest
+    * @return QueryPriceEntityListResponse
+   */
   async queryPriceEntityList(request: QueryPriceEntityListRequest): Promise<QueryPriceEntityListResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.queryPriceEntityListWithOptions(request, runtime);
@@ -20475,6 +21030,15 @@ export default class Client extends OpenApi {
     return await this.queryUserOmsDataWithOptions(request, runtime);
   }
 
+  /**
+    * 1.  Refunds are applicable only for the actual paid amount. Vouchers used for the purchase are non-refundable.
+    * 2.  Check the information about unsubscription and confirm the unsubscription terms and refundable amount. The resource that is unsubscribed cannot be restored.
+    * 3.  For more information, see [Rules for unsubscribing from resources](https://help.aliyun.com/knowledge_detail/116043.html?spm=a2c81.e1d666e.app.2.62ae11271Kd6iM).
+    *
+    * @param request RefundInstanceRequest
+    * @param runtime runtime options for this request RuntimeOptions
+    * @return RefundInstanceResponse
+   */
   async refundInstanceWithOptions(request: RefundInstanceRequest, runtime: $Util.RuntimeOptions): Promise<RefundInstanceResponse> {
     Util.validateModel(request);
     let query = { };
@@ -20515,11 +21079,27 @@ export default class Client extends OpenApi {
     return $tea.cast<RefundInstanceResponse>(await this.callApi(params, req, runtime), new RefundInstanceResponse({}));
   }
 
+  /**
+    * 1.  Refunds are applicable only for the actual paid amount. Vouchers used for the purchase are non-refundable.
+    * 2.  Check the information about unsubscription and confirm the unsubscription terms and refundable amount. The resource that is unsubscribed cannot be restored.
+    * 3.  For more information, see [Rules for unsubscribing from resources](https://help.aliyun.com/knowledge_detail/116043.html?spm=a2c81.e1d666e.app.2.62ae11271Kd6iM).
+    *
+    * @param request RefundInstanceRequest
+    * @return RefundInstanceResponse
+   */
   async refundInstance(request: RefundInstanceRequest): Promise<RefundInstanceResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.refundInstanceWithOptions(request, runtime);
   }
 
+  /**
+    * A value of true indicates that the execution is complete.
+    * A value of false indicates that an error occurs during the execution.
+    *
+    * @param request ReleaseInstanceRequest
+    * @param runtime runtime options for this request RuntimeOptions
+    * @return ReleaseInstanceResponse
+   */
   async releaseInstanceWithOptions(request: ReleaseInstanceRequest, runtime: $Util.RuntimeOptions): Promise<ReleaseInstanceResponse> {
     Util.validateModel(request);
     let query = { };
@@ -20568,6 +21148,13 @@ export default class Client extends OpenApi {
     return $tea.cast<ReleaseInstanceResponse>(await this.callApi(params, req, runtime), new ReleaseInstanceResponse({}));
   }
 
+  /**
+    * A value of true indicates that the execution is complete.
+    * A value of false indicates that an error occurs during the execution.
+    *
+    * @param request ReleaseInstanceRequest
+    * @return ReleaseInstanceResponse
+   */
   async releaseInstance(request: ReleaseInstanceRequest): Promise<ReleaseInstanceResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.releaseInstanceWithOptions(request, runtime);
@@ -21071,39 +21658,6 @@ export default class Client extends OpenApi {
     return await this.setResellerUserStatusWithOptions(request, runtime);
   }
 
-  /**
-    * Before you call this operation, take note of the following items:
-    * *   You can subscribe to only one type of bill at a time.
-    * *   The bills generated on the previous day are pushed on a daily basis the next day after you subscribe to the bills. The full-data bills for the previous month are pushed on the fourth day of each month. The monthly bills in the PDF format for the previous month are pushed on the fourth day of each month.
-    * *   The daily bills may be delayed. The delayed bills are pushed the next day after they are generated. The delayed bills may include the bills that should have been pushed on the previous day. We recommend that you query the full-data bills for the previous month at the beginning of each month.
-    * *   The bill subscriber must have the [AliyunConsumeDump2OSSRole](https://ram.console.aliyun.com/#/role/authorize?request=%7B%22Requests%22:%20%7B%22request1%22:%20%7B%22RoleName%22:%20%22AliyunConsumeDump2OSSRole%22,%20%22TemplateId%22:%20%22Dump2OSSRole%22%7D%7D,%20%22ReturnUrl%22:%20%22https:%2F%2Fusercenter2.aliyun.com%22,%20%22Service%22:%20%22Consume%22%7D) permission.
-    * *   The SubscribeBillToOSS operation has the same functionality as the Save Expense Details to OSS Bucket feature in User Center.
-    * *   To subscribe to the bills stored in an OSS bucket, make sure that the directory name specified for the OSS bucket conforms to the following naming rules:
-    * 1.  1.  The directory name can contain only UTF-8 characters and cannot contain emoticons.
-    * 2.  2.  Forward slashes (/) are used to separate paths and can be used to create subdirectories with ease. The directory name cannot start with a forward slash (/), a backslash (\\\\), or consecutive forward slashes (/).
-    * 3.  3.  The name of a subdirectory cannot be set to two consecutive periods (..).
-    * 4.  4.  The directory name must be 1 to 254 characters in length.
-    * *   File names:
-    *     *   **BillingItemDetailForBillingPeriod** (Detailed bills of billable items)
-    *         *   File name format for a daily push: `UID_BillingItemDetail_YYYYMMDD`. Example: `169**_BillingItemDetail_20190310`.
-    *         *   File name format for a full-data push at the beginning of the next month: `UID_BillingItemDetail_YYYYMM`. Example: `169**_BillingItemDetail_201903`.
-    *     *   **InstanceDetailForBillingPeriod** (Detailed bills of instances)
-    *         *   File name format for a daily push: `UID_InstanceDetail_YYYYMMDD`. Example: `169**_InstanceDetail_20190310`.
-    *         *   File name format for a full-data push at the beginning of the next month: `UID_InstanceDetail_YYYYMM`. Example: `169**_InstanceDetail_201903`.
-    *     *   **InstanceDetailMonthly** (Instance-based bills summarized by billing cycle)
-    *         *   File name format for a daily push: `UID_InstanceDetailMonthly_YYYYMM`. Example: `169**_InstanceDetailMonthly_201903`. A bill of this type contains the full data generated from the beginning of the month to the current day, and is updated every day until the fourth day of the next month.
-    *     *   **BillingItemDetailMonthly** (Billable item-based bills summarized by billing cycle)
-    *         *   File name format for a daily push: `UID_BillingItemDetailMonthly_YYYYMM`. Example: `169**_BillingItemDetailMonthly_201903`. A bill of this type contains the full data generated from the beginning of the month to the current day, and is updated every day until the fourth day of the next month.
-    *     *   **SplitItemDetailDaily** (Split bills summarized by day)
-    *         *   File name format for a daily push: `UID_SplitItemDetailDaily_YYYYMM`. Example: `169**_SplitItemDetailDaily_201903`. A bill of this type contains the full data generated from the beginning of the month to the current day, and is updated every day until the fourth day of the next month.
-    *     *   **MonthBill** (Monthly bill in the PDF format)
-    *         *   File name format for a monthly push: `UID_MonthBill_YYYYMM`. Example: `169**_MonthBill_201903`. The bill for the previous month is pushed on the fourth day of each month.
-    * *   The bills of the MonthBill type are PDF files, whereas the bills of other types are CSV files. If the number of data rows in a bill exceeds a threshold, the bill is automatically split into multiple CSV files. Then, the multiple CSV files are automatically merged and compressed into a ZIP file that has the same name format as the original file.
-    *
-    * @param request SubscribeBillToOSSRequest
-    * @param runtime runtime options for this request RuntimeOptions
-    * @return SubscribeBillToOSSResponse
-   */
   async subscribeBillToOSSWithOptions(request: SubscribeBillToOSSRequest, runtime: $Util.RuntimeOptions): Promise<SubscribeBillToOSSResponse> {
     Util.validateModel(request);
     let query = { };
@@ -21152,38 +21706,6 @@ export default class Client extends OpenApi {
     return $tea.cast<SubscribeBillToOSSResponse>(await this.callApi(params, req, runtime), new SubscribeBillToOSSResponse({}));
   }
 
-  /**
-    * Before you call this operation, take note of the following items:
-    * *   You can subscribe to only one type of bill at a time.
-    * *   The bills generated on the previous day are pushed on a daily basis the next day after you subscribe to the bills. The full-data bills for the previous month are pushed on the fourth day of each month. The monthly bills in the PDF format for the previous month are pushed on the fourth day of each month.
-    * *   The daily bills may be delayed. The delayed bills are pushed the next day after they are generated. The delayed bills may include the bills that should have been pushed on the previous day. We recommend that you query the full-data bills for the previous month at the beginning of each month.
-    * *   The bill subscriber must have the [AliyunConsumeDump2OSSRole](https://ram.console.aliyun.com/#/role/authorize?request=%7B%22Requests%22:%20%7B%22request1%22:%20%7B%22RoleName%22:%20%22AliyunConsumeDump2OSSRole%22,%20%22TemplateId%22:%20%22Dump2OSSRole%22%7D%7D,%20%22ReturnUrl%22:%20%22https:%2F%2Fusercenter2.aliyun.com%22,%20%22Service%22:%20%22Consume%22%7D) permission.
-    * *   The SubscribeBillToOSS operation has the same functionality as the Save Expense Details to OSS Bucket feature in User Center.
-    * *   To subscribe to the bills stored in an OSS bucket, make sure that the directory name specified for the OSS bucket conforms to the following naming rules:
-    * 1.  1.  The directory name can contain only UTF-8 characters and cannot contain emoticons.
-    * 2.  2.  Forward slashes (/) are used to separate paths and can be used to create subdirectories with ease. The directory name cannot start with a forward slash (/), a backslash (\\\\), or consecutive forward slashes (/).
-    * 3.  3.  The name of a subdirectory cannot be set to two consecutive periods (..).
-    * 4.  4.  The directory name must be 1 to 254 characters in length.
-    * *   File names:
-    *     *   **BillingItemDetailForBillingPeriod** (Detailed bills of billable items)
-    *         *   File name format for a daily push: `UID_BillingItemDetail_YYYYMMDD`. Example: `169**_BillingItemDetail_20190310`.
-    *         *   File name format for a full-data push at the beginning of the next month: `UID_BillingItemDetail_YYYYMM`. Example: `169**_BillingItemDetail_201903`.
-    *     *   **InstanceDetailForBillingPeriod** (Detailed bills of instances)
-    *         *   File name format for a daily push: `UID_InstanceDetail_YYYYMMDD`. Example: `169**_InstanceDetail_20190310`.
-    *         *   File name format for a full-data push at the beginning of the next month: `UID_InstanceDetail_YYYYMM`. Example: `169**_InstanceDetail_201903`.
-    *     *   **InstanceDetailMonthly** (Instance-based bills summarized by billing cycle)
-    *         *   File name format for a daily push: `UID_InstanceDetailMonthly_YYYYMM`. Example: `169**_InstanceDetailMonthly_201903`. A bill of this type contains the full data generated from the beginning of the month to the current day, and is updated every day until the fourth day of the next month.
-    *     *   **BillingItemDetailMonthly** (Billable item-based bills summarized by billing cycle)
-    *         *   File name format for a daily push: `UID_BillingItemDetailMonthly_YYYYMM`. Example: `169**_BillingItemDetailMonthly_201903`. A bill of this type contains the full data generated from the beginning of the month to the current day, and is updated every day until the fourth day of the next month.
-    *     *   **SplitItemDetailDaily** (Split bills summarized by day)
-    *         *   File name format for a daily push: `UID_SplitItemDetailDaily_YYYYMM`. Example: `169**_SplitItemDetailDaily_201903`. A bill of this type contains the full data generated from the beginning of the month to the current day, and is updated every day until the fourth day of the next month.
-    *     *   **MonthBill** (Monthly bill in the PDF format)
-    *         *   File name format for a monthly push: `UID_MonthBill_YYYYMM`. Example: `169**_MonthBill_201903`. The bill for the previous month is pushed on the fourth day of each month.
-    * *   The bills of the MonthBill type are PDF files, whereas the bills of other types are CSV files. If the number of data rows in a bill exceeds a threshold, the bill is automatically split into multiple CSV files. Then, the multiple CSV files are automatically merged and compressed into a ZIP file that has the same name format as the original file.
-    *
-    * @param request SubscribeBillToOSSRequest
-    * @return SubscribeBillToOSSResponse
-   */
   async subscribeBillToOSS(request: SubscribeBillToOSSRequest): Promise<SubscribeBillToOSSResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.subscribeBillToOSSWithOptions(request, runtime);
