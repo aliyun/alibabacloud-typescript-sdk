@@ -1410,6 +1410,7 @@ export class DetachClusterFromHubResponse extends $tea.Model {
 
 export class GrantUserPermissionRequest extends $tea.Model {
   clusterId?: string;
+  isRamRole?: boolean;
   namespace?: string;
   roleName?: string;
   roleType?: string;
@@ -1417,6 +1418,7 @@ export class GrantUserPermissionRequest extends $tea.Model {
   static names(): { [key: string]: string } {
     return {
       clusterId: 'ClusterId',
+      isRamRole: 'IsRamRole',
       namespace: 'Namespace',
       roleName: 'RoleName',
       roleType: 'RoleType',
@@ -1427,6 +1429,7 @@ export class GrantUserPermissionRequest extends $tea.Model {
   static types(): { [key: string]: any } {
     return {
       clusterId: 'string',
+      isRamRole: 'boolean',
       namespace: 'string',
       roleName: 'string',
       roleType: 'string',
@@ -3062,12 +3065,14 @@ export class DescribeUserPermissionsResponseBodyPermissions extends $tea.Model {
 
 export class GrantUserPermissionsRequestPermissions extends $tea.Model {
   clusterId?: string;
+  isRamRole?: boolean;
   namespace?: string;
   roleName?: string;
   roleType?: string;
   static names(): { [key: string]: string } {
     return {
       clusterId: 'ClusterId',
+      isRamRole: 'IsRamRole',
       namespace: 'Namespace',
       roleName: 'RoleName',
       roleType: 'RoleType',
@@ -3077,6 +3082,7 @@ export class GrantUserPermissionsRequestPermissions extends $tea.Model {
   static types(): { [key: string]: any } {
     return {
       clusterId: 'string',
+      isRamRole: 'boolean',
       namespace: 'string',
       roleName: 'string',
       roleType: 'string',
@@ -3807,6 +3813,10 @@ export default class Client extends OpenApi {
     let query = { };
     if (!Util.isUnset(request.clusterId)) {
       query["ClusterId"] = request.clusterId;
+    }
+
+    if (!Util.isUnset(request.isRamRole)) {
+      query["IsRamRole"] = request.isRamRole;
     }
 
     if (!Util.isUnset(request.namespace)) {
