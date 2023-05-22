@@ -19954,7 +19954,7 @@ export default class Client extends OpenApi {
     * *   Make sure that the IPA service is activated before you add a domain name to accelerate.
     * *   Make sure that the Internet content provider (ICP) filling is complete for the domain name to accelerate.
     * *   If the content on the origin server is not stored on Alibaba Cloud, the content must be reviewed. The review is complete by the end of the next business day after you submit the request.
-    * *   You can call this operation up to 10 times per second per account.
+    * *   You can call this operation up to 10 times per second per user.
     *
     * @param request AddDcdnIpaDomainRequest
     * @param runtime runtime options for this request RuntimeOptions
@@ -20025,7 +20025,7 @@ export default class Client extends OpenApi {
     * *   Make sure that the IPA service is activated before you add a domain name to accelerate.
     * *   Make sure that the Internet content provider (ICP) filling is complete for the domain name to accelerate.
     * *   If the content on the origin server is not stored on Alibaba Cloud, the content must be reviewed. The review is complete by the end of the next business day after you submit the request.
-    * *   You can call this operation up to 10 times per second per account.
+    * *   You can call this operation up to 10 times per second per user.
     *
     * @param request AddDcdnIpaDomainRequest
     * @return AddDcdnIpaDomainResponse
@@ -20036,13 +20036,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-    * **Prerequisites**:
-    * *   The [DCDN service is activated](~~64926~~).
-    * *   Internet Content Provider (ICP) filing is complete for the accelerated domain names.
-    * > 
-    * *   If the content of the origin server is not stored on Alibaba Cloud, the content must be reviewed. After you submit the request, the review is complete by the end of the following business day.
-    * *   The maximum number of domain names configured at a time is 50.
-    * *   The maximum number of times that each user can call this operation per second is 30.
+    * The URL that is used to check whether the origin server can be accessed.
     *
     * @param request BatchAddDcdnDomainRequest
     * @param runtime runtime options for this request RuntimeOptions
@@ -20105,13 +20099,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-    * **Prerequisites**:
-    * *   The [DCDN service is activated](~~64926~~).
-    * *   Internet Content Provider (ICP) filing is complete for the accelerated domain names.
-    * > 
-    * *   If the content of the origin server is not stored on Alibaba Cloud, the content must be reviewed. After you submit the request, the review is complete by the end of the following business day.
-    * *   The maximum number of domain names configured at a time is 50.
-    * *   The maximum number of times that each user can call this operation per second is 30.
+    * The URL that is used to check whether the origin server can be accessed.
     *
     * @param request BatchAddDcdnDomainRequest
     * @return BatchAddDcdnDomainResponse
@@ -20122,7 +20110,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-    * >  You can call this operation up to 20 times per second per account.
+    * The ID of the request.
     *
     * @param request BatchCreateDcdnWafRulesRequest
     * @param runtime runtime options for this request RuntimeOptions
@@ -20157,7 +20145,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-    * >  You can call this operation up to 20 times per second per account.
+    * The ID of the request.
     *
     * @param request BatchCreateDcdnWafRulesRequest
     * @return BatchCreateDcdnWafRulesResponse
@@ -20232,8 +20220,9 @@ export default class Client extends OpenApi {
   }
 
   /**
-    * >*   You can call this operation up to 20 times per second per account.
-    * *   Alibaba Cloud Dynamic Route for CDN (DCDN) supports POST requests.
+    * # Usage notes
+    * *   You can call this operation up to 20 times per second per account.
+    * *   Alibaba Cloud Dynamic Content Delivery Network (DCDN) supports POST requests.
     *
     * @param request BatchDeleteDcdnWafRulesRequest
     * @param runtime runtime options for this request RuntimeOptions
@@ -20264,8 +20253,9 @@ export default class Client extends OpenApi {
   }
 
   /**
-    * >*   You can call this operation up to 20 times per second per account.
-    * *   Alibaba Cloud Dynamic Route for CDN (DCDN) supports POST requests.
+    * # Usage notes
+    * *   You can call this operation up to 20 times per second per account.
+    * *   Alibaba Cloud Dynamic Content Delivery Network (DCDN) supports POST requests.
     *
     * @param request BatchDeleteDcdnWafRulesRequest
     * @return BatchDeleteDcdnWafRulesResponse
@@ -20322,7 +20312,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-    * >  You can call this operation up to 10 times per second per account.
+    * > You can call this operation up to 10 times per second per account.
     *
     * @param request BatchSetDcdnDomainCertificateRequest
     * @param runtime runtime options for this request RuntimeOptions
@@ -20385,7 +20375,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-    * >  You can call this operation up to 10 times per second per account.
+    * > You can call this operation up to 10 times per second per account.
     *
     * @param request BatchSetDcdnDomainCertificateRequest
     * @return BatchSetDcdnDomainCertificateResponse
@@ -20454,7 +20444,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-    * >  The maximum number of times that users can call this operation per second is 20.
+    * > You can call this operation up to 20 times per second per account.
     *
     * @param request BatchSetDcdnIpaDomainConfigsRequest
     * @param runtime runtime options for this request RuntimeOptions
@@ -20501,7 +20491,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-    * >  The maximum number of times that users can call this operation per second is 20.
+    * > You can call this operation up to 20 times per second per account.
     *
     * @param request BatchSetDcdnIpaDomainConfigsRequest
     * @return BatchSetDcdnIpaDomainConfigsResponse
@@ -20512,8 +20502,9 @@ export default class Client extends OpenApi {
   }
 
   /**
-    * >*   You can call this operation up to 20 times per second per account.
-    * *   Alibaba Cloud Dynamic Route for CDN (DCDN) supports POST requests.
+    * #
+    * *   You can call this operation up to 20 times per second.
+    * *   Alibaba Cloud Dynamic Content Delivery Network (DCDN) supports POST requests.
     *
     * @param request BatchSetDcdnWafDomainConfigsRequest
     * @param runtime runtime options for this request RuntimeOptions
@@ -20552,8 +20543,9 @@ export default class Client extends OpenApi {
   }
 
   /**
-    * >*   You can call this operation up to 20 times per second per account.
-    * *   Alibaba Cloud Dynamic Route for CDN (DCDN) supports POST requests.
+    * #
+    * *   You can call this operation up to 20 times per second.
+    * *   Alibaba Cloud Dynamic Content Delivery Network (DCDN) supports POST requests.
     *
     * @param request BatchSetDcdnWafDomainConfigsRequest
     * @return BatchSetDcdnWafDomainConfigsResponse
@@ -20650,7 +20642,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-    * > You can call this operation up to three times per second per account.
+    * The ID of the tracking task.
     *
     * @param request CreateDcdnDeliverTaskRequest
     * @param runtime runtime options for this request RuntimeOptions
@@ -20697,7 +20689,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-    * > You can call this operation up to three times per second per account.
+    * The ID of the tracking task.
     *
     * @param request CreateDcdnDeliverTaskRequest
     * @return CreateDcdnDeliverTaskResponse
@@ -20708,7 +20700,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-    * >  You can call this operation up to 100 times per second per account.
+    * > You can call this operation up to 100 times per second per account.
     *
     * @param request CreateDcdnSLSRealTimeLogDeliveryRequest
     * @param runtime runtime options for this request RuntimeOptions
@@ -20767,7 +20759,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-    * >  You can call this operation up to 100 times per second per account.
+    * > You can call this operation up to 100 times per second per account.
     *
     * @param request CreateDcdnSLSRealTimeLogDeliveryRequest
     * @return CreateDcdnSLSRealTimeLogDeliveryResponse
@@ -20894,10 +20886,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-    * > 
-    * *   The parameters must comply with the rules of EnvConf. The description of a routine cannot exceed 50 characters in length.
-    * *   This operation creates a routine that contains only production and staging environments.
-    * *   You can call this operation up to 100 times per second.
+    * The message returned, such as ""Status": "OK"".
     *
     * @param tmpReq CreateRoutineRequest
     * @param runtime runtime options for this request RuntimeOptions
@@ -20942,10 +20931,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-    * > 
-    * *   The parameters must comply with the rules of EnvConf. The description of a routine cannot exceed 50 characters in length.
-    * *   This operation creates a routine that contains only production and staging environments.
-    * *   You can call this operation up to 100 times per second.
+    * The message returned, such as ""Status": "OK"".
     *
     * @param request CreateRoutineRequest
     * @return CreateRoutineResponse
@@ -20956,7 +20942,8 @@ export default class Client extends OpenApi {
   }
 
   /**
-    * >  You can call this operation up to 100 times per second per account.
+    * **
+    * ****
     *
     * @param request CreateSlrAndSlsProjectRequest
     * @param runtime runtime options for this request RuntimeOptions
@@ -20991,7 +20978,8 @@ export default class Client extends OpenApi {
   }
 
   /**
-    * >  You can call this operation up to 100 times per second per account.
+    * **
+    * ****
     *
     * @param request CreateSlrAndSlsProjectRequest
     * @return CreateSlrAndSlsProjectResponse
@@ -21046,10 +21034,11 @@ export default class Client extends OpenApi {
   }
 
   /**
-    * > 
-    * *   Before you delete your domain name, you must request the Domain Name System (DNS) provider to restore the A record of the domain name. Otherwise, the domain name may become inaccessible after you delete it.
-    * *   If you call the **DeleteDcdnDomain** operation, all the information about the accelerated domain name is deleted. If you want to disable an accelerated domain name, call the [StopDcdnDomain](~~130622~~) operation.
-    * *   The maximum number of times that each user can call this operation per second is 10.
+    * **
+    * ****
+    * *
+    * *   ****[](~~130622~~)
+    * *
     *
     * @param request DeleteDcdnDomainRequest
     * @param runtime runtime options for this request RuntimeOptions
@@ -21092,10 +21081,11 @@ export default class Client extends OpenApi {
   }
 
   /**
-    * > 
-    * *   Before you delete your domain name, you must request the Domain Name System (DNS) provider to restore the A record of the domain name. Otherwise, the domain name may become inaccessible after you delete it.
-    * *   If you call the **DeleteDcdnDomain** operation, all the information about the accelerated domain name is deleted. If you want to disable an accelerated domain name, call the [StopDcdnDomain](~~130622~~) operation.
-    * *   The maximum number of times that each user can call this operation per second is 10.
+    * **
+    * ****
+    * *
+    * *   ****[](~~130622~~)
+    * *
     *
     * @param request DeleteDcdnDomainRequest
     * @return DeleteDcdnDomainResponse
@@ -21166,7 +21156,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-    * >  The maximum number of times that users can call this operation per second is 10.
+    * > You can call this operation up to 10 times per second per account.
     *
     * @param request DeleteDcdnIpaSpecificConfigRequest
     * @param runtime runtime options for this request RuntimeOptions
@@ -21209,7 +21199,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-    * >  The maximum number of times that users can call this operation per second is 10.
+    * > You can call this operation up to 10 times per second per account.
     *
     * @param request DeleteDcdnIpaSpecificConfigRequest
     * @return DeleteDcdnIpaSpecificConfigResponse
@@ -21219,13 +21209,6 @@ export default class Client extends OpenApi {
     return await this.deleteDcdnIpaSpecificConfigWithOptions(request, runtime);
   }
 
-  /**
-    * >  You can call this operation up to 50 times per second per account.
-    *
-    * @param request DeleteDcdnKvRequest
-    * @param runtime runtime options for this request RuntimeOptions
-    * @return DeleteDcdnKvResponse
-   */
   async deleteDcdnKvWithOptions(request: DeleteDcdnKvRequest, runtime: $Util.RuntimeOptions): Promise<DeleteDcdnKvResponse> {
     Util.validateModel(request);
     let query = { };
@@ -21254,12 +21237,6 @@ export default class Client extends OpenApi {
     return $tea.cast<DeleteDcdnKvResponse>(await this.callApi(params, req, runtime), new DeleteDcdnKvResponse({}));
   }
 
-  /**
-    * >  You can call this operation up to 50 times per second per account.
-    *
-    * @param request DeleteDcdnKvRequest
-    * @return DeleteDcdnKvResponse
-   */
   async deleteDcdnKv(request: DeleteDcdnKvRequest): Promise<DeleteDcdnKvResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.deleteDcdnKvWithOptions(request, runtime);
@@ -21416,7 +21393,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-    * >  You can call this operation up to three times per second per account.
+    * > You can call this operation up to 3 times per second per account.
     *
     * @param request DeleteDcdnSubTaskRequest
     * @param runtime runtime options for this request RuntimeOptions
@@ -21439,7 +21416,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-    * >  You can call this operation up to three times per second per account.
+    * > You can call this operation up to 3 times per second per account.
     *
     * @return DeleteDcdnSubTaskResponse
    */
@@ -21449,8 +21426,9 @@ export default class Client extends OpenApi {
   }
 
   /**
-    * >*   You can call this operation up to 20 times per second per account.
-    * *   Alibaba Cloud Dynamic Route for CDN (DCDN) supports POST requests.
+    * #
+    * *   You can call this operation up to 20 times per second.
+    * *   Alibaba Cloud Dynamic Content Delivery Network (DCDN) supports POST requests.
     *
     * @param request DeleteDcdnWafPolicyRequest
     * @param runtime runtime options for this request RuntimeOptions
@@ -21481,8 +21459,9 @@ export default class Client extends OpenApi {
   }
 
   /**
-    * >*   You can call this operation up to 20 times per second per account.
-    * *   Alibaba Cloud Dynamic Route for CDN (DCDN) supports POST requests.
+    * #
+    * *   You can call this operation up to 20 times per second.
+    * *   Alibaba Cloud Dynamic Content Delivery Network (DCDN) supports POST requests.
     *
     * @param request DeleteDcdnWafPolicyRequest
     * @return DeleteDcdnWafPolicyResponse
@@ -21493,7 +21472,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-    * >  The call frequency of the API is no more than 100 queries per second.
+    * > You can call this operation up to 100 times per second per account.
     *
     * @param request DeleteRoutineRequest
     * @param runtime runtime options for this request RuntimeOptions
@@ -21524,7 +21503,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-    * >  The call frequency of the API is no more than 100 queries per second.
+    * > You can call this operation up to 100 times per second per account.
     *
     * @param request DeleteRoutineRequest
     * @return DeleteRoutineResponse
@@ -21581,9 +21560,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-    * > 
-    * *   This operation deletes only custom preset canary release environments. You cannot delete production or staging environments.
-    * *   You can call this operation up to 100 times per second per account.
+    * The ID of the region.
     *
     * @param tmpReq DeleteRoutineConfEnvsRequest
     * @param runtime runtime options for this request RuntimeOptions
@@ -21624,9 +21601,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-    * > 
-    * *   This operation deletes only custom preset canary release environments. You cannot delete production or staging environments.
-    * *   You can call this operation up to 100 times per second per account.
+    * The ID of the region.
     *
     * @param request DeleteRoutineConfEnvsRequest
     * @return DeleteRoutineConfEnvsResponse
@@ -21637,7 +21612,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-    * >  You can call this operation up to three times per second.
+    * > You can call this operation up to three times per second per account.
     *
     * @param request DescribeDcdnAclFieldsRequest
     * @param runtime runtime options for this request RuntimeOptions
@@ -21668,7 +21643,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-    * >  You can call this operation up to three times per second.
+    * > You can call this operation up to three times per second per account.
     *
     * @param request DescribeDcdnAclFieldsRequest
     * @return DescribeDcdnAclFieldsResponse
@@ -21843,7 +21818,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-    * >  The maximum number of times that each user can call this operation per second is 30.
+    * > You can call this operation up to 30 times per second per account.
     *
     * @param request DescribeDcdnCertificateDetailRequest
     * @param runtime runtime options for this request RuntimeOptions
@@ -21882,7 +21857,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-    * >  The maximum number of times that each user can call this operation per second is 30.
+    * > You can call this operation up to 30 times per second per account.
     *
     * @param request DescribeDcdnCertificateDetailRequest
     * @return DescribeDcdnCertificateDetailResponse
@@ -22111,14 +22086,10 @@ export default class Client extends OpenApi {
   }
 
   /**
-    * - You can call this operation up to 20 times per second.
-    * - If you do not set the **StartTime** or **EndTime** parameters, the request returns the data collected in the last 24 hours. If you set both the **StartTime** and **EndTime** parameters, the request returns the data collected within the specified time range.
-    * **Time granularity**The time granularity supported by the Interval parameter varies with the maximum time range per query. The following table describes the time period within which historical data is available and the data delay. 
-    * | Time granularity | Maximum time range per query | Historical data is available | Data delay |
-    * | ---------------- | ---------------------------- | ---------------------------- | ---------- |
-    * | 5 minutes | 3 days | 93 days | 15 minutes |
-    * | 1 hour | 31 days | 186 days | 4 hours |
-    * | 1 day | 366 days | 366 days | 04:00 on the next day |
+    * #
+    * *
+    * *   ****************
+    * ****| -------------- | -------------- | ------
     *
     * @param request DescribeDcdnDomainBpsDataByLayerRequest
     * @param runtime runtime options for this request RuntimeOptions
@@ -22173,14 +22144,10 @@ export default class Client extends OpenApi {
   }
 
   /**
-    * - You can call this operation up to 20 times per second.
-    * - If you do not set the **StartTime** or **EndTime** parameters, the request returns the data collected in the last 24 hours. If you set both the **StartTime** and **EndTime** parameters, the request returns the data collected within the specified time range.
-    * **Time granularity**The time granularity supported by the Interval parameter varies with the maximum time range per query. The following table describes the time period within which historical data is available and the data delay. 
-    * | Time granularity | Maximum time range per query | Historical data is available | Data delay |
-    * | ---------------- | ---------------------------- | ---------------------------- | ---------- |
-    * | 5 minutes | 3 days | 93 days | 15 minutes |
-    * | 1 hour | 31 days | 186 days | 4 hours |
-    * | 1 day | 366 days | 366 days | 04:00 on the next day |
+    * #
+    * *
+    * *   ****************
+    * ****| -------------- | -------------- | ------
     *
     * @param request DescribeDcdnDomainBpsDataByLayerRequest
     * @return DescribeDcdnDomainBpsDataByLayerResponse
@@ -22240,7 +22207,7 @@ export default class Client extends OpenApi {
     * > 
     * *   If you do not configure the StartTime or EndTime parameter, data collected over the last 24 hours is queried. If you configure both the StartTime and EndTime parameters, data collected within the specified time range is queried.
     * *   You can query data collected over the last 30 days.
-    * *   You can call this operation up to 50 times per second.
+    * *   You can call this operation up to 50 times per second per user.
     *
     * @param request DescribeDcdnDomainCcActivityLogRequest
     * @param runtime runtime options for this request RuntimeOptions
@@ -22302,7 +22269,7 @@ export default class Client extends OpenApi {
     * > 
     * *   If you do not configure the StartTime or EndTime parameter, data collected over the last 24 hours is queried. If you configure both the StartTime and EndTime parameters, data collected within the specified time range is queried.
     * *   You can query data collected over the last 30 days.
-    * *   You can call this operation up to 50 times per second.
+    * *   You can call this operation up to 50 times per second per user.
     *
     * @param request DescribeDcdnDomainCcActivityLogRequest
     * @return DescribeDcdnDomainCcActivityLogResponse
@@ -22313,7 +22280,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-    * >  The maximum number of times that each user can call this operation per second is 100.
+    * The ID of the request.
     *
     * @param request DescribeDcdnDomainCertificateInfoRequest
     * @param runtime runtime options for this request RuntimeOptions
@@ -22344,7 +22311,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-    * >  The maximum number of times that each user can call this operation per second is 100.
+    * The ID of the request.
     *
     * @param request DescribeDcdnDomainCertificateInfoRequest
     * @return DescribeDcdnDomainCertificateInfoResponse
@@ -22507,14 +22474,10 @@ export default class Client extends OpenApi {
   }
 
   /**
-    * - You can call this operation up to 100 times per second per account.
-    * - If you do not set the **StartTime** or **EndTime** parameter, the request returns the data collected in the last 24 hours. If you set both the **StartTime** and **EndTime** parameters, the request returns the data collected within the specified time range.
-    * **Time granularity**The time granularity supported by the Interval parameter varies with the maximum time range per query. The following table describes the time period within which historical data is available and the data delay. 
-    * | Time granularity | Maximum time range per query | Historical data available | Data delay |
-    * | ---------------- | ---------------------------- | ------------------------- | ---------- |
-    * | 5 minutes | 3 days | 93 days | 15 minutes |
-    * | 1 hour | 31 days | 186 days | 4 hours |
-    * | 1 day | 366 days | 366 days | 04:00 on the next day |
+    * #
+    * *   You can call this operation up to 100 times per second per account.
+    * *   If you do not set the **StartTime** or **EndTime** parameter, the request returns the data collected in the last 24 hours. If you set both the **StartTime** and **EndTime** parameters, the request returns the data collected within the specified time range.
+    * **Time granularity** The time granularity supported by the Interval parameter, the maximum time period within which historical data is available, and the data delay vary with the maximum time range per query, as described in the following table. |Time granularity |Maximum time range per query |Historical data available |Data delay | -------------- | -------------- | ------ |5 minutes |3 days |93 days |15 minutes |1 hour |31 days |186 days |4 hours |1 day |366 days |366 days |04:00 on the next day
     *
     * @param request DescribeDcdnDomainHitRateDataRequest
     * @param runtime runtime options for this request RuntimeOptions
@@ -22557,14 +22520,10 @@ export default class Client extends OpenApi {
   }
 
   /**
-    * - You can call this operation up to 100 times per second per account.
-    * - If you do not set the **StartTime** or **EndTime** parameter, the request returns the data collected in the last 24 hours. If you set both the **StartTime** and **EndTime** parameters, the request returns the data collected within the specified time range.
-    * **Time granularity**The time granularity supported by the Interval parameter varies with the maximum time range per query. The following table describes the time period within which historical data is available and the data delay. 
-    * | Time granularity | Maximum time range per query | Historical data available | Data delay |
-    * | ---------------- | ---------------------------- | ------------------------- | ---------- |
-    * | 5 minutes | 3 days | 93 days | 15 minutes |
-    * | 1 hour | 31 days | 186 days | 4 hours |
-    * | 1 day | 366 days | 366 days | 04:00 on the next day |
+    * #
+    * *   You can call this operation up to 100 times per second per account.
+    * *   If you do not set the **StartTime** or **EndTime** parameter, the request returns the data collected in the last 24 hours. If you set both the **StartTime** and **EndTime** parameters, the request returns the data collected within the specified time range.
+    * **Time granularity** The time granularity supported by the Interval parameter, the maximum time period within which historical data is available, and the data delay vary with the maximum time range per query, as described in the following table. |Time granularity |Maximum time range per query |Historical data available |Data delay | -------------- | -------------- | ------ |5 minutes |3 days |93 days |15 minutes |1 hour |31 days |186 days |4 hours |1 day |366 days |366 days |04:00 on the next day
     *
     * @param request DescribeDcdnDomainHitRateDataRequest
     * @return DescribeDcdnDomainHitRateDataResponse
@@ -22575,15 +22534,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-    * * If you do not set the **StartTime** or **EndTime** parameter, the request returns the data collected in the last 24 hours. If you set both the **StartTime** and **EndTime** parameters, the request returns the data collected within the specified time range.
-    * * You can call this operation up to 100 times per second per account.
-    * **Time granularity**
-    * The time granularity supported by the Interval parameter, the maximum time period within which historical data is available, and the data delay vary with the maximum time range per query, as described in the following table.
-    * |Time granularity|Maximum time range per query|Historical data available|Data delay|
-    * |---|---|---|---|
-    * |5 minutes|3 days|93 days|15 minutes|
-    * |1 hour|31 days|186 days|4 hours|
-    * |1 day|366 days|366 days|04:00 on the next day|
+    * Queries the total number and proportions of HTTP status codes returned from one or more accelerated domain names. Data is collected every 5 minutes. You can query data in the last 90 days.
     *
     * @param request DescribeDcdnDomainHttpCodeDataRequest
     * @param runtime runtime options for this request RuntimeOptions
@@ -22634,15 +22585,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-    * * If you do not set the **StartTime** or **EndTime** parameter, the request returns the data collected in the last 24 hours. If you set both the **StartTime** and **EndTime** parameters, the request returns the data collected within the specified time range.
-    * * You can call this operation up to 100 times per second per account.
-    * **Time granularity**
-    * The time granularity supported by the Interval parameter, the maximum time period within which historical data is available, and the data delay vary with the maximum time range per query, as described in the following table.
-    * |Time granularity|Maximum time range per query|Historical data available|Data delay|
-    * |---|---|---|---|
-    * |5 minutes|3 days|93 days|15 minutes|
-    * |1 hour|31 days|186 days|4 hours|
-    * |1 day|366 days|366 days|04:00 on the next day|
+    * Queries the total number and proportions of HTTP status codes returned from one or more accelerated domain names. Data is collected every 5 minutes. You can query data in the last 90 days.
     *
     * @param request DescribeDcdnDomainHttpCodeDataRequest
     * @return DescribeDcdnDomainHttpCodeDataResponse
@@ -22728,7 +22671,7 @@ export default class Client extends OpenApi {
 
   /**
     * > 
-    * *   Unit: bit/s.
+    * *   The bandwidth is measured in bit/s.
     * *   If you do not set the **StartTime** or **EndTime** parameter, the request returns the data collected in the last 24 hours. If you set both the **StartTime** and **EndTime** parameters, the request returns the data collected within the specified time range.
     * *   You can call this operation up to 100 times per second per account.
     *
@@ -22790,7 +22733,7 @@ export default class Client extends OpenApi {
 
   /**
     * > 
-    * *   Unit: bit/s.
+    * *   The bandwidth is measured in bit/s.
     * *   If you do not set the **StartTime** or **EndTime** parameter, the request returns the data collected in the last 24 hours. If you set both the **StartTime** and **EndTime** parameters, the request returns the data collected within the specified time range.
     * *   You can call this operation up to 100 times per second per account.
     *
@@ -22864,9 +22807,9 @@ export default class Client extends OpenApi {
 
   /**
     * > 
-    * *   If you do not set **StartTime** or **EndTime**, data collected within the last 24 hours is queried. If you set both **StartTime** and **EndTime**, data collected within the specified time range is queried.
-    * *   The monitoring data is measured in bytes.
-    * *   The maximum number of times that users can call this operation per second is 100.
+    * *   If you do not set the **StartTime** or **EndTime** parameter, the request returns the data collected in the last 24 hours. If you set both the **StartTime** and **EndTime** parameters, the request returns the data collected within the specified time range.
+    * *   Unit: bytes.
+    * *   You can call this operation up to 100 times per second per account.
     *
     * @param request DescribeDcdnDomainIpaTrafficDataRequest
     * @param runtime runtime options for this request RuntimeOptions
@@ -22926,9 +22869,9 @@ export default class Client extends OpenApi {
 
   /**
     * > 
-    * *   If you do not set **StartTime** or **EndTime**, data collected within the last 24 hours is queried. If you set both **StartTime** and **EndTime**, data collected within the specified time range is queried.
-    * *   The monitoring data is measured in bytes.
-    * *   The maximum number of times that users can call this operation per second is 100.
+    * *   If you do not set the **StartTime** or **EndTime** parameter, the request returns the data collected in the last 24 hours. If you set both the **StartTime** and **EndTime** parameters, the request returns the data collected within the specified time range.
+    * *   Unit: bytes.
+    * *   You can call this operation up to 100 times per second per account.
     *
     * @param request DescribeDcdnDomainIpaTrafficDataRequest
     * @return DescribeDcdnDomainIpaTrafficDataResponse
@@ -22939,15 +22882,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-    * > 
-    * *   You can call this operation up to 100 times per second.
-    * *   If **StartTime** is set but **EndTime** is not set, the data within the hour that starts from **StartTime** is queried.
-    * *   If **EndTime** is set but **StartTime** is not set, the data within the last hour that precedes **EndTime** is queried.
-    * *   You can query data of a domain name or all domain names that belong to your account.
-    * *   You can view data that is collected over the last seven days. The interval at which data is queried is based on the time range specified by **StartTime** and **EndTime**.
-    *     *   **If the time range is shorter than or equal to one hour**, data is queried every minute.
-    *     *   **If the time range is longer than 1 hour but shorter than or equal to three days**, data is queried every five minutes.
-    *     *   **If the time range is longer than three days but shorter than or equal to seven days**, data is queried every hour.
+    * The end of the time range during which data was queried.
     *
     * @param request DescribeDcdnDomainIspDataRequest
     * @param runtime runtime options for this request RuntimeOptions
@@ -22986,15 +22921,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-    * > 
-    * *   You can call this operation up to 100 times per second.
-    * *   If **StartTime** is set but **EndTime** is not set, the data within the hour that starts from **StartTime** is queried.
-    * *   If **EndTime** is set but **StartTime** is not set, the data within the last hour that precedes **EndTime** is queried.
-    * *   You can query data of a domain name or all domain names that belong to your account.
-    * *   You can view data that is collected over the last seven days. The interval at which data is queried is based on the time range specified by **StartTime** and **EndTime**.
-    *     *   **If the time range is shorter than or equal to one hour**, data is queried every minute.
-    *     *   **If the time range is longer than 1 hour but shorter than or equal to three days**, data is queried every five minutes.
-    *     *   **If the time range is longer than three days but shorter than or equal to seven days**, data is queried every hour.
+    * The end of the time range during which data was queried.
     *
     * @param request DescribeDcdnDomainIspDataRequest
     * @return DescribeDcdnDomainIspDataResponse
@@ -23005,9 +22932,8 @@ export default class Client extends OpenApi {
   }
 
   /**
-    * > 
-    * *   If you specify neither the **StartTime** parameter nor the **EndTime** parameter, the data in the last 24 hours is returned. If you specify the **StartTime** and **EndTime** parameters, the data within the specified time range is returned.
-    * *   You can call this operation up to 100 times per second per account.
+    * The beginning of the time range to query.
+    * Specify the time in the ISO 8601 standard in the yyyy-MM-ddTHH:mm:ssZ format. The time must be in UTC.
     *
     * @param request DescribeDcdnDomainLogRequest
     * @param runtime runtime options for this request RuntimeOptions
@@ -23054,9 +22980,8 @@ export default class Client extends OpenApi {
   }
 
   /**
-    * > 
-    * *   If you specify neither the **StartTime** parameter nor the **EndTime** parameter, the data in the last 24 hours is returned. If you specify the **StartTime** and **EndTime** parameters, the data within the specified time range is returned.
-    * *   You can call this operation up to 100 times per second per account.
+    * The beginning of the time range to query.
+    * Specify the time in the ISO 8601 standard in the yyyy-MM-ddTHH:mm:ssZ format. The time must be in UTC.
     *
     * @param request DescribeDcdnDomainLogRequest
     * @return DescribeDcdnDomainLogResponse
@@ -23070,7 +22995,7 @@ export default class Client extends OpenApi {
     * When you call this operation, take note of the following rules:
     * *   If you do not set the StartTime or EndTime parameter, data within the last 10 minutes is queried. You can set both the StartTime and EndTime parameters to specify a time range.
     * *   You can specify one or more accelerated domain names. Separate domain names with commas (,).
-    * *   You can query data up to the last 90 days.
+    * *   You can query data within the last 90 days.
     * *   The time range cannot exceed 1 hour.
     *
     * @param request DescribeDcdnDomainMultiUsageDataRequest
@@ -23113,7 +23038,7 @@ export default class Client extends OpenApi {
     * When you call this operation, take note of the following rules:
     * *   If you do not set the StartTime or EndTime parameter, data within the last 10 minutes is queried. You can set both the StartTime and EndTime parameters to specify a time range.
     * *   You can specify one or more accelerated domain names. Separate domain names with commas (,).
-    * *   You can query data up to the last 90 days.
+    * *   You can query data within the last 90 days.
     * *   The time range cannot exceed 1 hour.
     *
     * @param request DescribeDcdnDomainMultiUsageDataRequest
@@ -23263,7 +23188,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-    * >  The maximum number of times that users can call this operation per second is 10.
+    * The accelerated domain name that you want to query. You can specify only one domain name in each call.
     *
     * @param request DescribeDcdnDomainPropertyRequest
     * @param runtime runtime options for this request RuntimeOptions
@@ -23294,7 +23219,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-    * >  The maximum number of times that users can call this operation per second is 10.
+    * The accelerated domain name that you want to query. You can specify only one domain name in each call.
     *
     * @param request DescribeDcdnDomainPropertyRequest
     * @return DescribeDcdnDomainPropertyResponse
@@ -23586,15 +23511,8 @@ export default class Client extends OpenApi {
   }
 
   /**
-    * > You can call this operation up to 10 times per second per account.
-    * **Time granularity of general data returned by the operation**
-    * The time granularity varies with the time range specified by the StartTime and EndTime parameters. The following table describes the time period within which historical data is available and the data delay.
-    * |Time granularity|Maximum time range per query|Historical data available|Data delay|
-    * |---|---|---|---|
-    * |1 minute|1 hour|7 days|5 minutes|
-    * |5 minutes|3 days|93 days|15 minutes|
-    * |1 hour|31 days|186 days|4 hours|
-    * Unless otherwise specified, statistics in the preceding table prevail.
+    * The name of the ISP. You can call the [DescribeDcdnRegionAndIsp](~~207199~~) operation to query the ISP name.
+    * If you do not specify a value for this parameter, all ISPs are queried.
     *
     * @param request DescribeDcdnDomainRealTimeDetailDataRequest
     * @param runtime runtime options for this request RuntimeOptions
@@ -23621,15 +23539,8 @@ export default class Client extends OpenApi {
   }
 
   /**
-    * > You can call this operation up to 10 times per second per account.
-    * **Time granularity of general data returned by the operation**
-    * The time granularity varies with the time range specified by the StartTime and EndTime parameters. The following table describes the time period within which historical data is available and the data delay.
-    * |Time granularity|Maximum time range per query|Historical data available|Data delay|
-    * |---|---|---|---|
-    * |1 minute|1 hour|7 days|5 minutes|
-    * |5 minutes|3 days|93 days|15 minutes|
-    * |1 hour|31 days|186 days|4 hours|
-    * Unless otherwise specified, statistics in the preceding table prevail.
+    * The name of the ISP. You can call the [DescribeDcdnRegionAndIsp](~~207199~~) operation to query the ISP name.
+    * If you do not specify a value for this parameter, all ISPs are queried.
     *
     * @param request DescribeDcdnDomainRealTimeDetailDataRequest
     * @return DescribeDcdnDomainRealTimeDetailDataResponse
@@ -23754,15 +23665,11 @@ export default class Client extends OpenApi {
   }
 
   /**
-    * - You can call this operation up to 10 times per second per account.
-    * - The network traffic destined for different domain names may be redirected to the same origin server. Therefore, the byte hit ratios may be inaccurate. The accuracy of query results is based on the actual configurations.
-    * - If you do not set the **StartTime** or **EndTime** parameter, the request returns the data collected in the last hour. If you set both the **StartTime** and **EndTime** parameters, the request returns the data collected within the specified time range.
-    * **Time granularity**The time granularity varies with the time range specified by the StartTime and EndTime parameters. The following table describes the time period within which historical data is available and the data delay. 
-    * | Time granularity | Maximum time range per query | Historical data available | Data delay |
-    * | ---------------- | ---------------------------- | ------------------------- | ---------- |
-    * | 1 minute | 1 hour | 7 days | 5 minutes |
-    * | 5 minutes | 3 days | 93 days | 15 minutes |
-    * | 1 hour | 31 days | 186 days | 4 hours |
+    * #
+    * *   You can call this operation up to 10 times per second per account.
+    * *   The network traffic destined for different domain names may be redirected to the same origin server. Therefore, the byte hit ratios may be inaccurate. The accuracy of query results is based on the actual configurations.
+    * *   If you do not set the **StartTime** or **EndTime** parameter, the request returns the data collected in the last hour. If you set both the **StartTime** and **EndTime** parameters, the request returns the data collected within the specified time range.
+    * **Time granularity** The time granularity varies with the time range specified by the StartTime and EndTime parameters. The following table describes the time period within which historical data is available and the data delay. |Time granularity |Maximum time range per query |Historical data available|Data delay| |---------------|--------| |1 minute|1 hour|7 days|5 minutes| |5 minutes|3 days|93 days|15 minutes| |1 hour|31 days|186 days|4 hours|
     *
     * @param request DescribeDcdnDomainRealTimeReqHitRateDataRequest
     * @param runtime runtime options for this request RuntimeOptions
@@ -23789,15 +23696,11 @@ export default class Client extends OpenApi {
   }
 
   /**
-    * - You can call this operation up to 10 times per second per account.
-    * - The network traffic destined for different domain names may be redirected to the same origin server. Therefore, the byte hit ratios may be inaccurate. The accuracy of query results is based on the actual configurations.
-    * - If you do not set the **StartTime** or **EndTime** parameter, the request returns the data collected in the last hour. If you set both the **StartTime** and **EndTime** parameters, the request returns the data collected within the specified time range.
-    * **Time granularity**The time granularity varies with the time range specified by the StartTime and EndTime parameters. The following table describes the time period within which historical data is available and the data delay. 
-    * | Time granularity | Maximum time range per query | Historical data available | Data delay |
-    * | ---------------- | ---------------------------- | ------------------------- | ---------- |
-    * | 1 minute | 1 hour | 7 days | 5 minutes |
-    * | 5 minutes | 3 days | 93 days | 15 minutes |
-    * | 1 hour | 31 days | 186 days | 4 hours |
+    * #
+    * *   You can call this operation up to 10 times per second per account.
+    * *   The network traffic destined for different domain names may be redirected to the same origin server. Therefore, the byte hit ratios may be inaccurate. The accuracy of query results is based on the actual configurations.
+    * *   If you do not set the **StartTime** or **EndTime** parameter, the request returns the data collected in the last hour. If you set both the **StartTime** and **EndTime** parameters, the request returns the data collected within the specified time range.
+    * **Time granularity** The time granularity varies with the time range specified by the StartTime and EndTime parameters. The following table describes the time period within which historical data is available and the data delay. |Time granularity |Maximum time range per query |Historical data available|Data delay| |---------------|--------| |1 minute|1 hour|7 days|5 minutes| |5 minutes|3 days|93 days|15 minutes| |1 hour|31 days|186 days|4 hours|
     *
     * @param request DescribeDcdnDomainRealTimeReqHitRateDataRequest
     * @return DescribeDcdnDomainRealTimeReqHitRateDataResponse
@@ -23924,14 +23827,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-    * If you do not set the StartTime or EndTime parameter, the request returns the data collected in the last hour. If you set both the StartTime and EndTime parameters, the request returns the data collected within the specified time range.
-    * **Time granularity**
-    * The time granularity varies with the time range specified by the StartTime and EndTime parameters. The following table describes the time period within which historical data is available and the data delay.
-    * |Time granularity|Maximum time range per query|Historical data available|Data delay|
-    * |---|---|---|---|
-    * |1 minute|1 hour|7 days|5 minutes|
-    * |5 minutes|3 days|93 days|15 minutes|
-    * |1 hour|31 days|186 days|4 hours|
+    * The timestamp of the returned data.
     *
     * @param request DescribeDcdnDomainRealTimeSrcTrafficDataRequest
     * @param runtime runtime options for this request RuntimeOptions
@@ -23970,14 +23866,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-    * If you do not set the StartTime or EndTime parameter, the request returns the data collected in the last hour. If you set both the StartTime and EndTime parameters, the request returns the data collected within the specified time range.
-    * **Time granularity**
-    * The time granularity varies with the time range specified by the StartTime and EndTime parameters. The following table describes the time period within which historical data is available and the data delay.
-    * |Time granularity|Maximum time range per query|Historical data available|Data delay|
-    * |---|---|---|---|
-    * |1 minute|1 hour|7 days|5 minutes|
-    * |5 minutes|3 days|93 days|15 minutes|
-    * |1 hour|31 days|186 days|4 hours|
+    * The timestamp of the returned data.
     *
     * @param request DescribeDcdnDomainRealTimeSrcTrafficDataRequest
     * @return DescribeDcdnDomainRealTimeSrcTrafficDataResponse
@@ -23988,13 +23877,9 @@ export default class Client extends OpenApi {
   }
 
   /**
-    * You can call this operation up to 50 times per second per account.  
-    * **Time granularity**The time granularity varies with the time range specified by the StartTime and EndTime parameters. The following table describes the time period within which historical data is available and the data delay. 
-    * | Time granularity | Maximum time range per query | Historical data available | Data delay |
-    * | ---------------- | ---------------------------- | ------------------------- | ---------- |
-    * | 1 minute | 1 hour | 7 days | 5 minutes |
-    * | 5 minutes | 3 days | 93 days | 15 minutes |
-    * | 1 hour | 31 days | 186 days | 4 hours |
+    * #
+    * You can call this operation up to 50 times per second per user.
+    * **Time granularity** The time granularity varies with the time range specified by the StartTime and EndTime parameters. The following table describes the time period within which historical data is available and the data delay. |Time granularity |Maximum time range per query |Historical data available|Data delay| |---------------|--------| |1 minute|1 hour|7 days|5 minutes| |5 minutes|3 days|93 days|15 minutes| |1 hour|31 days|186 days|4 hours|
     *
     * @param request DescribeDcdnDomainRealTimeTrafficDataRequest
     * @param runtime runtime options for this request RuntimeOptions
@@ -24033,13 +23918,9 @@ export default class Client extends OpenApi {
   }
 
   /**
-    * You can call this operation up to 50 times per second per account.  
-    * **Time granularity**The time granularity varies with the time range specified by the StartTime and EndTime parameters. The following table describes the time period within which historical data is available and the data delay. 
-    * | Time granularity | Maximum time range per query | Historical data available | Data delay |
-    * | ---------------- | ---------------------------- | ------------------------- | ---------- |
-    * | 1 minute | 1 hour | 7 days | 5 minutes |
-    * | 5 minutes | 3 days | 93 days | 15 minutes |
-    * | 1 hour | 31 days | 186 days | 4 hours |
+    * #
+    * You can call this operation up to 50 times per second per user.
+    * **Time granularity** The time granularity varies with the time range specified by the StartTime and EndTime parameters. The following table describes the time period within which historical data is available and the data delay. |Time granularity |Maximum time range per query |Historical data available|Data delay| |---------------|--------| |1 minute|1 hour|7 days|5 minutes| |5 minutes|3 days|93 days|15 minutes| |1 hour|31 days|186 days|4 hours|
     *
     * @param request DescribeDcdnDomainRealTimeTrafficDataRequest
     * @return DescribeDcdnDomainRealTimeTrafficDataResponse
@@ -24148,7 +24029,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-    * **Before you call this operation, take note of the following considerations:**
+    * **Before you call this operation, take note of the following rules:**
     * *   If you do not set the StartTime parameter, the data on the previous day is queried.
     * *   You can specify only one domain name.
     *
@@ -24189,7 +24070,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-    * **Before you call this operation, take note of the following considerations:**
+    * **Before you call this operation, take note of the following rules:**
     * *   If you do not set the StartTime parameter, the data on the previous day is queried.
     * *   You can specify only one domain name.
     *
@@ -24202,7 +24083,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-    * >  You can only query the data within the last seven days.
+    * > You can query data in the last seven days.
     *
     * @param request DescribeDcdnDomainTopUrlVisitRequest
     * @param runtime runtime options for this request RuntimeOptions
@@ -24241,7 +24122,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-    * >  You can only query the data within the last seven days.
+    * > You can query data in the last seven days.
     *
     * @param request DescribeDcdnDomainTopUrlVisitRequest
     * @return DescribeDcdnDomainTopUrlVisitResponse
@@ -24252,15 +24133,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-    * * If you do not set the **StartTime** or **EndTime** parameter, the request returns the data collected in the last 24 hours. If you set both the **StartTime** and **EndTime** parameters, the request returns the data collected within the specified time range.
-    * * You can call this operation up to 100 times per second per account.
-    * **Time granularity**
-    * The time granularity supported by the Interval parameter varies with the maximum time range per query. The following table describes the time period within which historical data is available and the data delay.
-    * |Time granularity|Maximum time range per query|Historical data available|Data delay|
-    * |---|---|---|---|
-    * |5 minutes|3 days|93 days|15 minutes|
-    * |1 hour|31 days|186 days|4 hours|
-    * |1 day|366 days|366 days|04:00 on the next day|
+    * Queries the monitoring data of network traffic for one or more accelerated domain names. You can query data in the last 90 days.
     *
     * @param request DescribeDcdnDomainTrafficDataRequest
     * @param runtime runtime options for this request RuntimeOptions
@@ -24311,15 +24184,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-    * * If you do not set the **StartTime** or **EndTime** parameter, the request returns the data collected in the last 24 hours. If you set both the **StartTime** and **EndTime** parameters, the request returns the data collected within the specified time range.
-    * * You can call this operation up to 100 times per second per account.
-    * **Time granularity**
-    * The time granularity supported by the Interval parameter varies with the maximum time range per query. The following table describes the time period within which historical data is available and the data delay.
-    * |Time granularity|Maximum time range per query|Historical data available|Data delay|
-    * |---|---|---|---|
-    * |5 minutes|3 days|93 days|15 minutes|
-    * |1 hour|31 days|186 days|4 hours|
-    * |1 day|366 days|366 days|04:00 on the next day|
+    * Queries the monitoring data of network traffic for one or more accelerated domain names. You can query data in the last 90 days.
     *
     * @param request DescribeDcdnDomainTrafficDataRequest
     * @return DescribeDcdnDomainTrafficDataResponse
@@ -24400,9 +24265,9 @@ export default class Client extends OpenApi {
   }
 
   /**
-    * **Before you call this operation, pay attention to the following considerations:**
-    * *   If you do not specify the StartTime or EndTime parameter, the data collected within the last 24 hours is queried by default. If you specify the StartTime and EndTime parameters, the data collected within the specified time range is queried.
-    * *   You can specify only one accelerated domain or all the accelerated domains under your account.
+    * ****
+    * *   If you do not set the StartTime or EndTime parameter, the request returns the data collected in the last 24 hours. If you set both these parameters, the request returns the data collected within the specified time range.
+    * *   You can specify only one accelerated domain name or all the accelerated domain names that belong to your Alibaba Cloud account.
     *
     * @param request DescribeDcdnDomainUvDataRequest
     * @param runtime runtime options for this request RuntimeOptions
@@ -24441,9 +24306,9 @@ export default class Client extends OpenApi {
   }
 
   /**
-    * **Before you call this operation, pay attention to the following considerations:**
-    * *   If you do not specify the StartTime or EndTime parameter, the data collected within the last 24 hours is queried by default. If you specify the StartTime and EndTime parameters, the data collected within the specified time range is queried.
-    * *   You can specify only one accelerated domain or all the accelerated domains under your account.
+    * ****
+    * *   If you do not set the StartTime or EndTime parameter, the request returns the data collected in the last 24 hours. If you set both these parameters, the request returns the data collected within the specified time range.
+    * *   You can specify only one accelerated domain name or all the accelerated domain names that belong to your Alibaba Cloud account.
     *
     * @param request DescribeDcdnDomainUvDataRequest
     * @return DescribeDcdnDomainUvDataResponse
@@ -24522,13 +24387,9 @@ export default class Client extends OpenApi {
   }
 
   /**
-    * You can call this operation up to 100 times per second per account.  
-    * **Time granularity**The time granularity supported by the Interval parameter varies with the maximum time range per query. The following table describes the time period within which historical data is available and the data delay. 
-    * | Time granularity | Maximum time range per query | Historical data available | Data delay |
-    * | ---------------- | ---------------------------- | ------------------------- | ---------- |
-    * | 5 minutes | 3 days | 93 days | 15 minutes |
-    * | 1 hour | 31 days | 186 days | 4 hours |
-    * | 1 day | 366 days | 366 days | 04:00 on the next day |
+    * #
+    * You can call this operation up to 100 times per second per account.
+    * **Time granularity** The time granularity supported by the Interval parameter, the maximum time period within which historical data is available, and the data delay vary with the maximum time range per query, as described in the following table. |Time granularity |Maximum time range per query |Historical data available |Data delay | -------------- | -------------- | ------ |5 minutes |3 days |93 days |15 minutes |1 hour |31 days |186 days |4 hours |1 day |366 days |366 days |04:00 on the next day
     *
     * @param request DescribeDcdnDomainWebsocketHttpCodeDataRequest
     * @param runtime runtime options for this request RuntimeOptions
@@ -24579,13 +24440,9 @@ export default class Client extends OpenApi {
   }
 
   /**
-    * You can call this operation up to 100 times per second per account.  
-    * **Time granularity**The time granularity supported by the Interval parameter varies with the maximum time range per query. The following table describes the time period within which historical data is available and the data delay. 
-    * | Time granularity | Maximum time range per query | Historical data available | Data delay |
-    * | ---------------- | ---------------------------- | ------------------------- | ---------- |
-    * | 5 minutes | 3 days | 93 days | 15 minutes |
-    * | 1 hour | 31 days | 186 days | 4 hours |
-    * | 1 day | 366 days | 366 days | 04:00 on the next day |
+    * #
+    * You can call this operation up to 100 times per second per account.
+    * **Time granularity** The time granularity supported by the Interval parameter, the maximum time period within which historical data is available, and the data delay vary with the maximum time range per query, as described in the following table. |Time granularity |Maximum time range per query |Historical data available |Data delay | -------------- | -------------- | ------ |5 minutes |3 days |93 days |15 minutes |1 hour |31 days |186 days |4 hours |1 day |366 days |366 days |04:00 on the next day
     *
     * @param request DescribeDcdnDomainWebsocketHttpCodeDataRequest
     * @return DescribeDcdnDomainWebsocketHttpCodeDataResponse
@@ -24674,8 +24531,9 @@ export default class Client extends OpenApi {
   }
 
   /**
-    * >*   You can call this operation up to 10 times per second per account.
-    * *   The minimum time granularity for a query is one hour. The maximum time span for a query is 24 hours. The time period within which historical data is available for a query is 366 days.
+    * # Usage notes
+    * *   You can call this operation up to 10 times per second per account.
+    * *   The minimum time granularity for a query is 1 hour. The maximum time span for a query is 24 hours. The time period within which historical data is available for a query is 366 days.
     *
     * @param request DescribeDcdnErUsageDataRequest
     * @param runtime runtime options for this request RuntimeOptions
@@ -24722,8 +24580,9 @@ export default class Client extends OpenApi {
   }
 
   /**
-    * >*   You can call this operation up to 10 times per second per account.
-    * *   The minimum time granularity for a query is one hour. The maximum time span for a query is 24 hours. The time period within which historical data is available for a query is 366 days.
+    * # Usage notes
+    * *   You can call this operation up to 10 times per second per account.
+    * *   The minimum time granularity for a query is 1 hour. The maximum time span for a query is 24 hours. The time period within which historical data is available for a query is 366 days.
     *
     * @param request DescribeDcdnErUsageDataRequest
     * @return DescribeDcdnErUsageDataResponse
@@ -24846,7 +24705,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-    * >  The maximum number of times that users can call this operation per second is 50.
+    * > You can call this operation up to 50 times per second per account.
     *
     * @param request DescribeDcdnIpInfoRequest
     * @param runtime runtime options for this request RuntimeOptions
@@ -24877,7 +24736,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-    * >  The maximum number of times that users can call this operation per second is 50.
+    * > You can call this operation up to 50 times per second per account.
     *
     * @param request DescribeDcdnIpInfoRequest
     * @return DescribeDcdnIpInfoResponse
@@ -24992,7 +24851,8 @@ export default class Client extends OpenApi {
   }
 
   /**
-    * >  The maximum number of times that users can call this operation per second is 20.
+    * **
+    * **The maximum number of times that each user can call this operation per second is 20.
     *
     * @param request DescribeDcdnIpaServiceRequest
     * @param runtime runtime options for this request RuntimeOptions
@@ -25027,7 +24887,8 @@ export default class Client extends OpenApi {
   }
 
   /**
-    * >  The maximum number of times that users can call this operation per second is 20.
+    * **
+    * **The maximum number of times that each user can call this operation per second is 20.
     *
     * @param request DescribeDcdnIpaServiceRequest
     * @return DescribeDcdnIpaServiceResponse
@@ -25038,7 +24899,13 @@ export default class Client extends OpenApi {
   }
 
   /**
-    * >  You can call this operation up to 30 times per second per account.
+    * The status of the domain name. Valid values:
+    * *   **online**: enabled
+    * *   **offline**: disabled
+    * *   **configuring**: configuring
+    * *   **configure_failed**: configuration failed
+    * *   **checking**: reviewing
+    * *   **check_failed**: review failed
     *
     * @param request DescribeDcdnIpaUserDomainsRequest
     * @param runtime runtime options for this request RuntimeOptions
@@ -25109,7 +24976,13 @@ export default class Client extends OpenApi {
   }
 
   /**
-    * >  You can call this operation up to 30 times per second per account.
+    * The status of the domain name. Valid values:
+    * *   **online**: enabled
+    * *   **offline**: disabled
+    * *   **configuring**: configuring
+    * *   **configure_failed**: configuration failed
+    * *   **checking**: reviewing
+    * *   **check_failed**: review failed
     *
     * @param request DescribeDcdnIpaUserDomainsRequest
     * @return DescribeDcdnIpaUserDomainsResponse
@@ -25191,9 +25064,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-    * > 
-    * *   You can call the **RefreshDcdnObjectCaches** operation to refresh content and call the **PreloadDcdnObjectCaches** operation to prefetch content.
-    * *   You can call this operation up to 20 times per second.
+    * The remaining number of URLs that can be prefetched each day.
     *
     * @param request DescribeDcdnRefreshQuotaRequest
     * @param runtime runtime options for this request RuntimeOptions
@@ -25228,9 +25099,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-    * > 
-    * *   You can call the **RefreshDcdnObjectCaches** operation to refresh content and call the **PreloadDcdnObjectCaches** operation to prefetch content.
-    * *   You can call this operation up to 20 times per second.
+    * The remaining number of URLs that can be prefetched each day.
     *
     * @param request DescribeDcdnRefreshQuotaRequest
     * @return DescribeDcdnRefreshQuotaResponse
@@ -25243,7 +25112,7 @@ export default class Client extends OpenApi {
   /**
     * > 
     * *   You can query data within the last three days.
-    * *   The maximum number of times that each user can call this operation per second is 30.
+    * *   You can call this operation up to 30 times per second per account.
     *
     * @param request DescribeDcdnRefreshTaskByIdRequest
     * @param runtime runtime options for this request RuntimeOptions
@@ -25276,7 +25145,7 @@ export default class Client extends OpenApi {
   /**
     * > 
     * *   You can query data within the last three days.
-    * *   The maximum number of times that each user can call this operation per second is 30.
+    * *   You can call this operation up to 30 times per second per account.
     *
     * @param request DescribeDcdnRefreshTaskByIdRequest
     * @return DescribeDcdnRefreshTaskByIdResponse
@@ -25287,11 +25156,11 @@ export default class Client extends OpenApi {
   }
 
   /**
-    * > 
-    * *   You can query the refresh or prefetch tasks by ID or URL.
-    * *   You can set both **TaskId** and **ObjectPath** in a request. If you do not set **TaskId** or **ObjectPath**, the data in the last 3 days on the first page is returned. By default, a maximum of 20 entries can be displayed on each page.
-    * *   If you specify **DomainName** or **Status**, you must also specify **ObjectType**.
-    * *   You can call this operation up to 10 times per second per account.
+    * The type of the task.
+    * *   **file**: URL-based refresh
+    * *   **directory**: directory-based refresh
+    * *   **preload**: URL-based prefetch
+    * If you set the **DomainName** or **Status** parameter, you must also set this parameter.
     *
     * @param request DescribeDcdnRefreshTasksRequest
     * @param runtime runtime options for this request RuntimeOptions
@@ -25362,11 +25231,11 @@ export default class Client extends OpenApi {
   }
 
   /**
-    * > 
-    * *   You can query the refresh or prefetch tasks by ID or URL.
-    * *   You can set both **TaskId** and **ObjectPath** in a request. If you do not set **TaskId** or **ObjectPath**, the data in the last 3 days on the first page is returned. By default, a maximum of 20 entries can be displayed on each page.
-    * *   If you specify **DomainName** or **Status**, you must also specify **ObjectType**.
-    * *   You can call this operation up to 10 times per second per account.
+    * The type of the task.
+    * *   **file**: URL-based refresh
+    * *   **directory**: directory-based refresh
+    * *   **preload**: URL-based prefetch
+    * If you set the **DomainName** or **Status** parameter, you must also set this parameter.
     *
     * @param request DescribeDcdnRefreshTasksRequest
     * @return DescribeDcdnRefreshTasksResponse
@@ -25377,7 +25246,8 @@ export default class Client extends OpenApi {
   }
 
   /**
-    * > You can call this operation up to 30 times per second per account.
+    * **
+    * ****
     *
     * @param request DescribeDcdnRegionAndIspRequest
     * @param runtime runtime options for this request RuntimeOptions
@@ -25412,7 +25282,8 @@ export default class Client extends OpenApi {
   }
 
   /**
-    * > You can call this operation up to 30 times per second per account.
+    * **
+    * ****
     *
     * @param request DescribeDcdnRegionAndIspRequest
     * @return DescribeDcdnRegionAndIspResponse
@@ -25535,7 +25406,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-    * >  You can call this operation up to 100 times per second per account.
+    * > You can call this operation up to 100 times per second per account.
     *
     * @param request DescribeDcdnSLSRealtimeLogDeliveryRequest
     * @param runtime runtime options for this request RuntimeOptions
@@ -25566,7 +25437,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-    * >  You can call this operation up to 100 times per second per account.
+    * > You can call this operation up to 100 times per second per account.
     *
     * @param request DescribeDcdnSLSRealtimeLogDeliveryRequest
     * @return DescribeDcdnSLSRealtimeLogDeliveryResponse
@@ -25679,7 +25550,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-    * >  The maximum number of times that users can call this operation per second is 50.
+    * > You can call this operation up to 50 times per second per account.
     *
     * @param request DescribeDcdnSecFuncInfoRequest
     * @param runtime runtime options for this request RuntimeOptions
@@ -25714,7 +25585,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-    * >  The maximum number of times that users can call this operation per second is 50.
+    * > You can call this operation up to 50 times per second per account.
     *
     * @param request DescribeDcdnSecFuncInfoRequest
     * @return DescribeDcdnSecFuncInfoResponse
@@ -25725,7 +25596,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-    * >  You can call this operation up to 50 times per second.
+    * > You can call this operation up to 50 times per second per account.
     *
     * @param request DescribeDcdnSecSpecInfoRequest
     * @param runtime runtime options for this request RuntimeOptions
@@ -25748,7 +25619,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-    * >  You can call this operation up to 50 times per second.
+    * > You can call this operation up to 50 times per second per account.
     *
     * @return DescribeDcdnSecSpecInfoResponse
    */
@@ -25758,7 +25629,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-    * >  The maximum number of times that each user can call this operation per second is 30.
+    * > You can call this operation up to 30 times per second per account.
     *
     * @param request DescribeDcdnServiceRequest
     * @param runtime runtime options for this request RuntimeOptions
@@ -25793,7 +25664,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-    * >  The maximum number of times that each user can call this operation per second is 30.
+    * > You can call this operation up to 30 times per second per account.
     *
     * @param request DescribeDcdnServiceRequest
     * @return DescribeDcdnServiceResponse
@@ -25924,7 +25795,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-    * **Before you call this operation, pay attention to the following considerations:**If you do not specify the StartTime and EndTime parameters, the data within the current month is queried by default. If you specify the StartTime and EndTime parameters, the data within the specified time range is queried.
+    * \\*\\*Before you call this operation, pay attention to the following considerations:\\*\\* If you do not specify the StartTime and EndTime parameters, the data within the current month is queried by default. If you specify the StartTime and EndTime parameters, the data within the specified time range is queried.
     *
     * @param request DescribeDcdnTopDomainsByFlowRequest
     * @param runtime runtime options for this request RuntimeOptions
@@ -25963,7 +25834,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-    * **Before you call this operation, pay attention to the following considerations:**If you do not specify the StartTime and EndTime parameters, the data within the current month is queried by default. If you specify the StartTime and EndTime parameters, the data within the specified time range is queried.
+    * \\*\\*Before you call this operation, pay attention to the following considerations:\\*\\* If you do not specify the StartTime and EndTime parameters, the data within the current month is queried by default. If you specify the StartTime and EndTime parameters, the data within the specified time range is queried.
     *
     * @param request DescribeDcdnTopDomainsByFlowRequest
     * @return DescribeDcdnTopDomainsByFlowResponse
@@ -26382,7 +26253,8 @@ export default class Client extends OpenApi {
   }
 
   /**
-    * > You can call this operation up to 30 times per second per account.
+    * **
+    * **The maximum number of times that each user can call this operation per second is 30.
     *
     * @param request DescribeDcdnUserResourcePackageRequest
     * @param runtime runtime options for this request RuntimeOptions
@@ -26421,7 +26293,8 @@ export default class Client extends OpenApi {
   }
 
   /**
-    * > You can call this operation up to 30 times per second per account.
+    * **
+    * **The maximum number of times that each user can call this operation per second is 30.
     *
     * @param request DescribeDcdnUserResourcePackageRequest
     * @return DescribeDcdnUserResourcePackageResponse
@@ -26482,7 +26355,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-    * >  The maximum number of times that users can call this operation per second is 50.
+    * The domain name.
     *
     * @param request DescribeDcdnUserSecDropByMinuteRequest
     * @param runtime runtime options for this request RuntimeOptions
@@ -26545,7 +26418,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-    * >  The maximum number of times that users can call this operation per second is 50.
+    * The domain name.
     *
     * @param request DescribeDcdnUserSecDropByMinuteRequest
     * @return DescribeDcdnUserSecDropByMinuteResponse
@@ -26556,7 +26429,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-    * >  The maximum number of times that users can call this operation per second is 100.
+    * The ID of the request.
     *
     * @param request DescribeDcdnUserTagsRequest
     * @param runtime runtime options for this request RuntimeOptions
@@ -26579,7 +26452,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-    * >  The maximum number of times that users can call this operation per second is 100.
+    * The ID of the request.
     *
     * @return DescribeDcdnUserTagsResponse
    */
@@ -26681,8 +26554,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-    * # Usage notes
-    * You can call this operation up to 20 times per second per account.
+    * The ID of the request.
     *
     * @param request DescribeDcdnWafDomainDetailRequest
     * @param runtime runtime options for this request RuntimeOptions
@@ -26713,8 +26585,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-    * # Usage notes
-    * You can call this operation up to 20 times per second per account.
+    * The ID of the request.
     *
     * @param request DescribeDcdnWafDomainDetailRequest
     * @return DescribeDcdnWafDomainDetailResponse
@@ -26823,7 +26694,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-    * >  You can call this operation up to 20 times per second per account.
+    * > You can call this operation up to 20 times per second per account.
     *
     * @param request DescribeDcdnWafGeoInfoRequest
     * @param runtime runtime options for this request RuntimeOptions
@@ -26854,7 +26725,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-    * >  You can call this operation up to 20 times per second per account.
+    * > You can call this operation up to 20 times per second per account.
     *
     * @param request DescribeDcdnWafGeoInfoRequest
     * @return DescribeDcdnWafGeoInfoResponse
@@ -26866,7 +26737,7 @@ export default class Client extends OpenApi {
 
   /**
     * > 
-    * *   If you do not set StartTime or EndTime, data collected in the last 24 hours is queried. If you set both StartTime and EndTime, data collected within the specified time range is queried.
+    * *   If you do not set the StartTime or EndTime parameter, the request returns the data collected in the last 24 hours. If you set both these parameters, the request returns the data collected within the specified time range.
     * *   The log data is collected every hour.
     * *   You can call this operation up to 100 times per second per account.
     *
@@ -26916,7 +26787,7 @@ export default class Client extends OpenApi {
 
   /**
     * > 
-    * *   If you do not set StartTime or EndTime, data collected in the last 24 hours is queried. If you set both StartTime and EndTime, data collected within the specified time range is queried.
+    * *   If you do not set the StartTime or EndTime parameter, the request returns the data collected in the last 24 hours. If you set both these parameters, the request returns the data collected within the specified time range.
     * *   The log data is collected every hour.
     * *   You can call this operation up to 100 times per second per account.
     *
@@ -26979,7 +26850,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-    * >  You can call this operation up to 20 times per second per account.
+    * > You can call this operation up to 20 times per second per account.
     *
     * @param request DescribeDcdnWafPolicyRequest
     * @param runtime runtime options for this request RuntimeOptions
@@ -27010,7 +26881,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-    * >  You can call this operation up to 20 times per second per account.
+    * > You can call this operation up to 20 times per second per account.
     *
     * @param request DescribeDcdnWafPolicyRequest
     * @return DescribeDcdnWafPolicyResponse
@@ -27021,7 +26892,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-    * >You can call this operation up to 20 times per second per account.
+    * The number of domain names returned per page, which is the same as the PageSize parameter in request parameters.
     *
     * @param request DescribeDcdnWafPolicyDomainsRequest
     * @param runtime runtime options for this request RuntimeOptions
@@ -27060,7 +26931,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-    * >You can call this operation up to 20 times per second per account.
+    * The number of domain names returned per page, which is the same as the PageSize parameter in request parameters.
     *
     * @param request DescribeDcdnWafPolicyDomainsRequest
     * @return DescribeDcdnWafPolicyDomainsResponse
@@ -27558,7 +27429,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-    * >  You can call this operation up to 100 times per second per account.
+    * The canary release environments that are supported by the edge routine.
     *
     * @param request DescribeRoutineCanaryEnvsRequest
     * @param runtime runtime options for this request RuntimeOptions
@@ -27581,7 +27452,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-    * >  You can call this operation up to 100 times per second per account.
+    * The canary release environments that are supported by the edge routine.
     *
     * @return DescribeRoutineCanaryEnvsResponse
    */
@@ -27591,7 +27462,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-    * >  The call frequency of the API is no more than 100 queries per second.
+    * > You can call this operation up to 100 times per second per account.
     *
     * @param request DescribeRoutineCodeRevisionRequest
     * @param runtime runtime options for this request RuntimeOptions
@@ -27626,7 +27497,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-    * >  The call frequency of the API is no more than 100 queries per second.
+    * > You can call this operation up to 100 times per second per account.
     *
     * @param request DescribeRoutineCodeRevisionRequest
     * @return DescribeRoutineCodeRevisionResponse
@@ -27703,7 +27574,8 @@ export default class Client extends OpenApi {
   }
 
   /**
-    * >  The maximum number of times that users can call this operation per second is 20.
+    * **
+    * **The maximum number of times that each user can call this operation per second is 20.
     *
     * @param request DescribeUserDcdnIpaStatusRequest
     * @param runtime runtime options for this request RuntimeOptions
@@ -27738,7 +27610,8 @@ export default class Client extends OpenApi {
   }
 
   /**
-    * >  The maximum number of times that users can call this operation per second is 20.
+    * **
+    * **The maximum number of times that each user can call this operation per second is 20.
     *
     * @param request DescribeUserDcdnIpaStatusRequest
     * @return DescribeUserDcdnIpaStatusResponse
@@ -27749,7 +27622,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-    * >  The maximum number of times that each user can call this operation per second is 30.
+    * > You can call this operation up to 30 times per second per account.
     *
     * @param request DescribeUserDcdnStatusRequest
     * @param runtime runtime options for this request RuntimeOptions
@@ -27780,7 +27653,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-    * >  The maximum number of times that each user can call this operation per second is 30.
+    * > You can call this operation up to 30 times per second per account.
     *
     * @param request DescribeUserDcdnStatusRequest
     * @return DescribeUserDcdnStatusResponse
@@ -27791,7 +27664,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-    * >  The maximum number of times that each user can call this operation per second is 30.
+    * > You can call this operation up to 30 times per second per account.
     *
     * @param request DescribeUserErStatusRequest
     * @param runtime runtime options for this request RuntimeOptions
@@ -27822,7 +27695,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-    * >  The maximum number of times that each user can call this operation per second is 30.
+    * > You can call this operation up to 30 times per second per account.
     *
     * @param request DescribeUserErStatusRequest
     * @return DescribeUserErStatusResponse
@@ -27833,7 +27706,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-    * >  The maximum number of times that each user can call this operation per second is 20.
+    * > You can call this operation up to 20 times per second per account.
     *
     * @param request DescribeUserLogserviceStatusRequest
     * @param runtime runtime options for this request RuntimeOptions
@@ -27868,7 +27741,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-    * >  The maximum number of times that each user can call this operation per second is 20.
+    * > You can call this operation up to 20 times per second per account.
     *
     * @param request DescribeUserLogserviceStatusRequest
     * @return DescribeUserLogserviceStatusResponse
@@ -28060,8 +27933,9 @@ export default class Client extends OpenApi {
   }
 
   /**
-    * >*   You can call this operation up to 20 times per second per account.
-    * *   Alibaba Cloud Dynamic Route for CDN (DCDN) supports POST requests.
+    * #
+    * *   You can call this operation up to 20 times per second per account.
+    * *   Alibaba Cloud Dynamic Content Delivery Network (DCDN) supports POST requests.
     *
     * @param request ModifyDcdnWafPolicyRequest
     * @param runtime runtime options for this request RuntimeOptions
@@ -28100,8 +27974,9 @@ export default class Client extends OpenApi {
   }
 
   /**
-    * >*   You can call this operation up to 20 times per second per account.
-    * *   Alibaba Cloud Dynamic Route for CDN (DCDN) supports POST requests.
+    * #
+    * *   You can call this operation up to 20 times per second per account.
+    * *   Alibaba Cloud Dynamic Content Delivery Network (DCDN) supports POST requests.
     *
     * @param request ModifyDcdnWafPolicyRequest
     * @return ModifyDcdnWafPolicyResponse
@@ -28111,14 +27986,6 @@ export default class Client extends OpenApi {
     return await this.modifyDcdnWafPolicyWithOptions(request, runtime);
   }
 
-  /**
-    * >*   You can call this operation up to 20 times per second.
-    * *   Alibaba Cloud Dynamic Route for CDN (DCDN) supports POST requests.
-    *
-    * @param request ModifyDcdnWafPolicyDomainsRequest
-    * @param runtime runtime options for this request RuntimeOptions
-    * @return ModifyDcdnWafPolicyDomainsResponse
-   */
   async modifyDcdnWafPolicyDomainsWithOptions(request: ModifyDcdnWafPolicyDomainsRequest, runtime: $Util.RuntimeOptions): Promise<ModifyDcdnWafPolicyDomainsResponse> {
     Util.validateModel(request);
     let body : {[key: string ]: any} = { };
@@ -28155,20 +28022,14 @@ export default class Client extends OpenApi {
     return $tea.cast<ModifyDcdnWafPolicyDomainsResponse>(await this.callApi(params, req, runtime), new ModifyDcdnWafPolicyDomainsResponse({}));
   }
 
-  /**
-    * >*   You can call this operation up to 20 times per second.
-    * *   Alibaba Cloud Dynamic Route for CDN (DCDN) supports POST requests.
-    *
-    * @param request ModifyDcdnWafPolicyDomainsRequest
-    * @return ModifyDcdnWafPolicyDomainsResponse
-   */
   async modifyDcdnWafPolicyDomains(request: ModifyDcdnWafPolicyDomainsRequest): Promise<ModifyDcdnWafPolicyDomainsResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.modifyDcdnWafPolicyDomainsWithOptions(request, runtime);
   }
 
   /**
-    * >*   You can call this operation up to 20 times per second per account.
+    * #
+    * *   You can call this operation up to 20 times per second.
     * *   Alibaba Cloud Dynamic Route for CDN (DCDN) supports POST requests.
     * *   You must configure at least one of the **RuleStatus**, **RuleName** and **RuleConfig** parameters.
     *
@@ -28213,7 +28074,8 @@ export default class Client extends OpenApi {
   }
 
   /**
-    * >*   You can call this operation up to 20 times per second per account.
+    * #
+    * *   You can call this operation up to 20 times per second.
     * *   Alibaba Cloud Dynamic Route for CDN (DCDN) supports POST requests.
     * *   You must configure at least one of the **RuleStatus**, **RuleName** and **RuleConfig** parameters.
     *
@@ -28280,17 +28142,17 @@ export default class Client extends OpenApi {
   }
 
   /**
-    * # Usage notes
+    * #
     * *   You can call the [RefreshDcdnObjectCaches](~~130620~~) operation to refresh content and call the [PreloadDcdnObjectCaches](~~130636~~) operation to prefetch content.
-    * *   Dynamic Route for CDN (DCDN) supports POST requests in which parameters are sent as a form.
+    * *   Dynamic Content Delivery Network (DCDN) supports POST requests in which parameters are sent as a form.
     * *   By default, each Alibaba Cloud account can submit up to 1,000 URLs per day. If the daily peak bandwidth value of your workloads exceeds 200 Mbit/s, you can [submit a ticket](https://account.alibabacloud.com/login/login.htm?oauth_callback=https%3A//ticket-intl.console.aliyun.com/%23/ticket/createIndex) to increase your daily quota. Alibaba Cloud reviews your application and then increases the quota accordingly.
-    * *   Each Alibaba Cloud account can submit up to 100 URLs in a request.
+    * *   You can specify at most 100 URLs in each prefetch request.
     * *   The prefetch queue of each Alibaba Cloud account can contain up to 50,000 URLs. DCDN executes prefetch tasks based on the time at which you submit the URLs.
     * *   You can call this operation up to 15 times per second per account.
-    * # Precautions
-    * *   After a refresh task is submitted and executed, the POPs immediately start to retrieve resources from the origin server. Therefore, a large number of refresh tasks cause a large number of concurrent download tasks. This increases the number of requests that are redirected to the origin server. The back-to-origin routing process consumes more bandwidth resources and the origin server may be overwhelmed.
-    * *   The time required for a prefetch task to complete is proportional to the size of the prefetched file. In actual practice, most prefetch tasks take 5 to 30 minutes to complete. A task with a smaller average file size takes less time.
-    * *   To allow Resource Access Management (RAM) users to perform this operation, you must first grant them the required permissions. For more information, see [Authorize a RAM user to prefetch and refresh resources](~~445051~~).
+    * # Usage notes
+    * *   After a refresh task is submitted and completed, the POPs immediately start to retrieve resources from the origin server. Therefore, a large number of refresh tasks cause a large number of concurrent download tasks. This increases the number of requests that are redirected to the origin server. The back-to-origin routing process consumes more bandwidth resources and the origin server may be overwhelmed.
+    * *   The time required for a prefetch task to complete is proportional to the size of the prefetched file. In actual practice, most prefetch tasks require 5 to 30 minutes to complete. A task with a smaller average file size requires less time.
+    * *   To allow RAM users to perform this operation, you need to first grant them the required permissions. For more information, see [Authorize a RAM user to prefetch and refresh resources](~~445051~~).
     *
     * @param request PreloadDcdnObjectCachesRequest
     * @param runtime runtime options for this request RuntimeOptions
@@ -28341,17 +28203,17 @@ export default class Client extends OpenApi {
   }
 
   /**
-    * # Usage notes
+    * #
     * *   You can call the [RefreshDcdnObjectCaches](~~130620~~) operation to refresh content and call the [PreloadDcdnObjectCaches](~~130636~~) operation to prefetch content.
-    * *   Dynamic Route for CDN (DCDN) supports POST requests in which parameters are sent as a form.
+    * *   Dynamic Content Delivery Network (DCDN) supports POST requests in which parameters are sent as a form.
     * *   By default, each Alibaba Cloud account can submit up to 1,000 URLs per day. If the daily peak bandwidth value of your workloads exceeds 200 Mbit/s, you can [submit a ticket](https://account.alibabacloud.com/login/login.htm?oauth_callback=https%3A//ticket-intl.console.aliyun.com/%23/ticket/createIndex) to increase your daily quota. Alibaba Cloud reviews your application and then increases the quota accordingly.
-    * *   Each Alibaba Cloud account can submit up to 100 URLs in a request.
+    * *   You can specify at most 100 URLs in each prefetch request.
     * *   The prefetch queue of each Alibaba Cloud account can contain up to 50,000 URLs. DCDN executes prefetch tasks based on the time at which you submit the URLs.
     * *   You can call this operation up to 15 times per second per account.
-    * # Precautions
-    * *   After a refresh task is submitted and executed, the POPs immediately start to retrieve resources from the origin server. Therefore, a large number of refresh tasks cause a large number of concurrent download tasks. This increases the number of requests that are redirected to the origin server. The back-to-origin routing process consumes more bandwidth resources and the origin server may be overwhelmed.
-    * *   The time required for a prefetch task to complete is proportional to the size of the prefetched file. In actual practice, most prefetch tasks take 5 to 30 minutes to complete. A task with a smaller average file size takes less time.
-    * *   To allow Resource Access Management (RAM) users to perform this operation, you must first grant them the required permissions. For more information, see [Authorize a RAM user to prefetch and refresh resources](~~445051~~).
+    * # Usage notes
+    * *   After a refresh task is submitted and completed, the POPs immediately start to retrieve resources from the origin server. Therefore, a large number of refresh tasks cause a large number of concurrent download tasks. This increases the number of requests that are redirected to the origin server. The back-to-origin routing process consumes more bandwidth resources and the origin server may be overwhelmed.
+    * *   The time required for a prefetch task to complete is proportional to the size of the prefetched file. In actual practice, most prefetch tasks require 5 to 30 minutes to complete. A task with a smaller average file size requires less time.
+    * *   To allow RAM users to perform this operation, you need to first grant them the required permissions. For more information, see [Authorize a RAM user to prefetch and refresh resources](~~445051~~).
     *
     * @param request PreloadDcdnObjectCachesRequest
     * @return PreloadDcdnObjectCachesResponse
@@ -28362,7 +28224,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-    * >  The maximum number of times that users can call this operation per second is 30.
+    * > You can call this operation up to 30 times per second per account.
     *
     * @param request PublishDcdnStagingConfigToProductionRequest
     * @param runtime runtime options for this request RuntimeOptions
@@ -28397,7 +28259,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-    * >  The maximum number of times that users can call this operation per second is 30.
+    * > You can call this operation up to 30 times per second per account.
     *
     * @param request PublishDcdnStagingConfigToProductionRequest
     * @return PublishDcdnStagingConfigToProductionResponse
@@ -28408,7 +28270,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-    * >  You can call this operation up to 100 times per second per account.
+    * > You can call this operation up to 100 times per second per account.
     *
     * @param tmpReq PublishRoutineCodeRevisionRequest
     * @param runtime runtime options for this request RuntimeOptions
@@ -28453,7 +28315,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-    * >  You can call this operation up to 100 times per second per account.
+    * > You can call this operation up to 100 times per second per account.
     *
     * @param request PublishRoutineCodeRevisionRequest
     * @return PublishRoutineCodeRevisionResponse
@@ -28503,15 +28365,17 @@ export default class Client extends OpenApi {
   }
 
   /**
-    * *   Alibaba Cloud Dynamic Route for CDN (DCDN) supports POST requests in which parameters are sent as a form.
+    * #
+    * *   DCDN supports POST requests in which parameters are sent as a form.
     * *   You can call the [RefreshDcdnObjectCaches](~~130620~~) operation to refresh content and call the [PreloadDcdnObjectCaches](~~130636~~) operation to prefetch content.
-    * *   By default, each Alibaba Cloud account can refresh content from a maximum of 10,000 URLs and 100 directories per day, including subdirectories. If the daily peak bandwidth value of your workloads exceeds 200 Mbit/s, you can [submit a ticket](https://account.alibabacloud.com/login/login.htm?oauth_callback=https%3A//ticket-intl.console.aliyun.com/%23/ticket/createIndex) to apply for an increased upper limit. Alibaba Cloud will review your application and then increase the quota accordingly.
+    * *   By default, each Alibaba Cloud account can refresh content from a maximum of 10,000 URLs and 100 directories per day, including subdirectories. If the daily peak bandwidth value exceeds 200 Mbit/s, you can [submit a ticket](https://account.alibabacloud.com/login/login.htm?oauth_callback=https%3A//ticket-intl.console.aliyun.com/%23/ticket/createIndex) to request a quota increase. DCDN evaluates your application based on your workloads.
     * *   You can specify up to 1,000 URLs or 100 directories that you want to refresh in each request.
-    * *   You can refresh a maximum of 1,000 URLs per minute for each domain name.
+    * *   You can refresh up to 1,000 URLs per minute for each domain name.
     * *   You can call this operation up to 30 times per second per account.
-    * - After a refresh task is submitted and completed, your resources that are stored on CDN POPs are removed. When a POP receives a request your resources, the request is redirected to the origin server to retrieve the resources. Then, the resources are returned to the client and cached on the POP. If you frequently run refresh tasks, more requests will be redirected back to the origin server for resources, which result in high bandwidth costs and undue pressure on the origin server.
-    * - A refresh task takes effect five to six minutes after being submitted. This means that if the resource you want to refresh has a TTL of less than five minutes, you wait for it to expire instead of manually running a refresh task.
-    * - If you want to use Resource Access Management (RAM) users to refresh or prefetch resources, you must acquire the required permissions. For more information, see [Authorize a RAM user to prefetch and refresh resources](https://www.alibabacloud.com/help/en/dynamic-route-for-cdn/latest/to-grant-the-ram-users-refresh-and-preheating-permissions).
+    * # Precautions
+    * *   After a refresh task is submitted and completed, your resources that are stored on DCDN POPs are removed. When a POP receives a request to your resources, the request is redirected to the origin server to retrieve the resources. Then, the resources are returned to the client and cached on the POP. If you frequently run refresh tasks, more requests will be redirected back to the origin server for resources, which result in high bandwidth costs and undue pressure on the origin server.
+    * *   A refresh task takes effect 5 to 6 minutes after being submitted. This means that if the resource you want to refresh has a TTL of less than five minutes, you wait for it to expire instead of manually running a refresh task.
+    * *   If you want to use RAM users to refresh or prefetch resources, you need to obtain the required permissions. For more information, see [Authorize a RAM user to prefetch and refresh resources](~~445051~~).
     *
     * @param request RefreshDcdnObjectCachesRequest
     * @param runtime runtime options for this request RuntimeOptions
@@ -28554,15 +28418,17 @@ export default class Client extends OpenApi {
   }
 
   /**
-    * *   Alibaba Cloud Dynamic Route for CDN (DCDN) supports POST requests in which parameters are sent as a form.
+    * #
+    * *   DCDN supports POST requests in which parameters are sent as a form.
     * *   You can call the [RefreshDcdnObjectCaches](~~130620~~) operation to refresh content and call the [PreloadDcdnObjectCaches](~~130636~~) operation to prefetch content.
-    * *   By default, each Alibaba Cloud account can refresh content from a maximum of 10,000 URLs and 100 directories per day, including subdirectories. If the daily peak bandwidth value of your workloads exceeds 200 Mbit/s, you can [submit a ticket](https://account.alibabacloud.com/login/login.htm?oauth_callback=https%3A//ticket-intl.console.aliyun.com/%23/ticket/createIndex) to apply for an increased upper limit. Alibaba Cloud will review your application and then increase the quota accordingly.
+    * *   By default, each Alibaba Cloud account can refresh content from a maximum of 10,000 URLs and 100 directories per day, including subdirectories. If the daily peak bandwidth value exceeds 200 Mbit/s, you can [submit a ticket](https://account.alibabacloud.com/login/login.htm?oauth_callback=https%3A//ticket-intl.console.aliyun.com/%23/ticket/createIndex) to request a quota increase. DCDN evaluates your application based on your workloads.
     * *   You can specify up to 1,000 URLs or 100 directories that you want to refresh in each request.
-    * *   You can refresh a maximum of 1,000 URLs per minute for each domain name.
+    * *   You can refresh up to 1,000 URLs per minute for each domain name.
     * *   You can call this operation up to 30 times per second per account.
-    * - After a refresh task is submitted and completed, your resources that are stored on CDN POPs are removed. When a POP receives a request your resources, the request is redirected to the origin server to retrieve the resources. Then, the resources are returned to the client and cached on the POP. If you frequently run refresh tasks, more requests will be redirected back to the origin server for resources, which result in high bandwidth costs and undue pressure on the origin server.
-    * - A refresh task takes effect five to six minutes after being submitted. This means that if the resource you want to refresh has a TTL of less than five minutes, you wait for it to expire instead of manually running a refresh task.
-    * - If you want to use Resource Access Management (RAM) users to refresh or prefetch resources, you must acquire the required permissions. For more information, see [Authorize a RAM user to prefetch and refresh resources](https://www.alibabacloud.com/help/en/dynamic-route-for-cdn/latest/to-grant-the-ram-users-refresh-and-preheating-permissions).
+    * # Precautions
+    * *   After a refresh task is submitted and completed, your resources that are stored on DCDN POPs are removed. When a POP receives a request to your resources, the request is redirected to the origin server to retrieve the resources. Then, the resources are returned to the client and cached on the POP. If you frequently run refresh tasks, more requests will be redirected back to the origin server for resources, which result in high bandwidth costs and undue pressure on the origin server.
+    * *   A refresh task takes effect 5 to 6 minutes after being submitted. This means that if the resource you want to refresh has a TTL of less than five minutes, you wait for it to expire instead of manually running a refresh task.
+    * *   If you want to use RAM users to refresh or prefetch resources, you need to obtain the required permissions. For more information, see [Authorize a RAM user to prefetch and refresh resources](~~445051~~).
     *
     * @param request RefreshDcdnObjectCachesRequest
     * @return RefreshDcdnObjectCachesResponse
@@ -28573,7 +28439,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-    * >  You can call this operation up to 30 times per second per account.
+    * The ID of the request.
     *
     * @param request RollbackDcdnStagingConfigRequest
     * @param runtime runtime options for this request RuntimeOptions
@@ -28604,7 +28470,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-    * >  You can call this operation up to 30 times per second per account.
+    * The ID of the request.
     *
     * @param request RollbackDcdnStagingConfigRequest
     * @return RollbackDcdnStagingConfigResponse
@@ -28615,7 +28481,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-    * >  You can call this operation up to 30 times per second per account.
+    * The name of the certificate.
     *
     * @param request SetDcdnDomainCertificateRequest
     * @param runtime runtime options for this request RuntimeOptions
@@ -28682,7 +28548,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-    * >  You can call this operation up to 30 times per second per account.
+    * The name of the certificate.
     *
     * @param request SetDcdnDomainCertificateRequest
     * @return SetDcdnDomainCertificateResponse
@@ -28797,7 +28663,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-    * >  You can call this operation up to 30 times per second.
+    * > You can call this operation up to 30 times per second per account.
     *
     * @param request SetDcdnUserConfigRequest
     * @param runtime runtime options for this request RuntimeOptions
@@ -28844,7 +28710,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-    * >  You can call this operation up to 30 times per second.
+    * > You can call this operation up to 30 times per second per account.
     *
     * @param request SetDcdnUserConfigRequest
     * @return SetDcdnUserConfigResponse
@@ -28907,9 +28773,10 @@ export default class Client extends OpenApi {
   }
 
   /**
-    * > 
-    * *   If an accelerated domain is in an invalid state or your account has an overdue payment, the accelerated domain cannot be enabled.
-    * *   The maximum number of times that each user can call this operation per second is 30.
+    * **
+    * ****
+    * *
+    * *
     *
     * @param request StartDcdnDomainRequest
     * @param runtime runtime options for this request RuntimeOptions
@@ -28948,9 +28815,10 @@ export default class Client extends OpenApi {
   }
 
   /**
-    * > 
-    * *   If an accelerated domain is in an invalid state or your account has an overdue payment, the accelerated domain cannot be enabled.
-    * *   The maximum number of times that each user can call this operation per second is 30.
+    * **
+    * ****
+    * *
+    * *
     *
     * @param request StartDcdnDomainRequest
     * @return StartDcdnDomainResponse
@@ -28960,15 +28828,6 @@ export default class Client extends OpenApi {
     return await this.startDcdnDomainWithOptions(request, runtime);
   }
 
-  /**
-    * > 
-    * *   The maximum number of times that users can call this operation per second is 20.
-    * *   If an accelerated domain is in an invalid state or your account has an overdue payment, the accelerated domain cannot be enabled.
-    *
-    * @param request StartDcdnIpaDomainRequest
-    * @param runtime runtime options for this request RuntimeOptions
-    * @return StartDcdnIpaDomainResponse
-   */
   async startDcdnIpaDomainWithOptions(request: StartDcdnIpaDomainRequest, runtime: $Util.RuntimeOptions): Promise<StartDcdnIpaDomainResponse> {
     Util.validateModel(request);
     let query = { };
@@ -29001,14 +28860,6 @@ export default class Client extends OpenApi {
     return $tea.cast<StartDcdnIpaDomainResponse>(await this.callApi(params, req, runtime), new StartDcdnIpaDomainResponse({}));
   }
 
-  /**
-    * > 
-    * *   The maximum number of times that users can call this operation per second is 20.
-    * *   If an accelerated domain is in an invalid state or your account has an overdue payment, the accelerated domain cannot be enabled.
-    *
-    * @param request StartDcdnIpaDomainRequest
-    * @return StartDcdnIpaDomainResponse
-   */
   async startDcdnIpaDomain(request: StartDcdnIpaDomainRequest): Promise<StartDcdnIpaDomainResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.startDcdnIpaDomainWithOptions(request, runtime);
@@ -29417,7 +29268,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-    * >  The maximum number of times that each user can call this operation per second is 100.
+    * > You can call this operation up to 100 times per second per account.
     *
     * @param request UpdateDcdnSLSRealtimeLogDeliveryRequest
     * @param runtime runtime options for this request RuntimeOptions
@@ -29472,7 +29323,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-    * >  The maximum number of times that each user can call this operation per second is 100.
+    * > You can call this operation up to 100 times per second per account.
     *
     * @param request UpdateDcdnSLSRealtimeLogDeliveryRequest
     * @return UpdateDcdnSLSRealtimeLogDeliveryResponse
@@ -29483,7 +29334,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-    * >  You can call this operation up to three times per second per account.
+    * The ID of the request.
     *
     * @param request UpdateDcdnSubTaskRequest
     * @param runtime runtime options for this request RuntimeOptions
@@ -29526,7 +29377,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-    * >  You can call this operation up to three times per second per account.
+    * The ID of the request.
     *
     * @param request UpdateDcdnSubTaskRequest
     * @return UpdateDcdnSubTaskResponse
@@ -29537,7 +29388,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-    * >  You can call this operation up to 100 times per second per account.
+    * > You can call this operation up to 100 times per second per account.
     *
     * @param request UpdateDcdnUserRealTimeDeliveryFieldRequest
     * @param runtime runtime options for this request RuntimeOptions
@@ -29564,7 +29415,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-    * >  You can call this operation up to 100 times per second per account.
+    * > You can call this operation up to 100 times per second per account.
     *
     * @param request UpdateDcdnUserRealTimeDeliveryFieldRequest
     * @return UpdateDcdnUserRealTimeDeliveryFieldResponse
