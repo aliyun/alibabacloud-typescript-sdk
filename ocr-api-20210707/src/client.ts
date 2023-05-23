@@ -2505,6 +2505,81 @@ export class RecognizeGeneralResponse extends $tea.Model {
   }
 }
 
+export class RecognizeHKIdcardRequest extends $tea.Model {
+  url?: string;
+  body?: Readable;
+  static names(): { [key: string]: string } {
+    return {
+      url: 'Url',
+      body: 'body',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      url: 'string',
+      body: 'Readable',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class RecognizeHKIdcardResponseBody extends $tea.Model {
+  code?: string;
+  data?: string;
+  message?: string;
+  requestId?: string;
+  static names(): { [key: string]: string } {
+    return {
+      code: 'Code',
+      data: 'Data',
+      message: 'Message',
+      requestId: 'RequestId',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      code: 'string',
+      data: 'string',
+      message: 'string',
+      requestId: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class RecognizeHKIdcardResponse extends $tea.Model {
+  headers: { [key: string]: string };
+  statusCode: number;
+  body: RecognizeHKIdcardResponseBody;
+  static names(): { [key: string]: string } {
+    return {
+      headers: 'headers',
+      statusCode: 'statusCode',
+      body: 'body',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
+      body: RecognizeHKIdcardResponseBody,
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
 export class RecognizeHandwritingRequest extends $tea.Model {
   needRotate?: boolean;
   needSortPage?: boolean;
@@ -6785,6 +6860,37 @@ export default class Client extends OpenApi {
   async recognizeGeneral(request: RecognizeGeneralRequest): Promise<RecognizeGeneralResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.recognizeGeneralWithOptions(request, runtime);
+  }
+
+  async recognizeHKIdcardWithOptions(request: RecognizeHKIdcardRequest, runtime: $Util.RuntimeOptions): Promise<RecognizeHKIdcardResponse> {
+    Util.validateModel(request);
+    let query = { };
+    if (!Util.isUnset(request.url)) {
+      query["Url"] = request.url;
+    }
+
+    let req = new $OpenApi.OpenApiRequest({
+      query: OpenApiUtil.query(query),
+      body: request.body,
+      stream: request.body,
+    });
+    let params = new $OpenApi.Params({
+      action: "RecognizeHKIdcard",
+      version: "2021-07-07",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $tea.cast<RecognizeHKIdcardResponse>(await this.callApi(params, req, runtime), new RecognizeHKIdcardResponse({}));
+  }
+
+  async recognizeHKIdcard(request: RecognizeHKIdcardRequest): Promise<RecognizeHKIdcardResponse> {
+    let runtime = new $Util.RuntimeOptions({ });
+    return await this.recognizeHKIdcardWithOptions(request, runtime);
   }
 
   async recognizeHandwritingWithOptions(request: RecognizeHandwritingRequest, runtime: $Util.RuntimeOptions): Promise<RecognizeHandwritingResponse> {
