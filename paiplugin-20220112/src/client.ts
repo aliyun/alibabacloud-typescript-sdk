@@ -282,10 +282,13 @@ export class CreateInferenceJobResponse extends $tea.Model {
 }
 
 export class CreateScheduleRequest extends $tea.Model {
+  AISendEndDate?: string;
+  AISendStartDate?: string;
   endTime?: number;
   executeTime?: string;
   groupId?: string;
   name?: string;
+  paymentType?: string;
   repeatCycle?: number;
   repeatCycleUnit?: number;
   repeatTimes?: number;
@@ -295,10 +298,13 @@ export class CreateScheduleRequest extends $tea.Model {
   templateId?: string;
   static names(): { [key: string]: string } {
     return {
+      AISendEndDate: 'AISendEndDate',
+      AISendStartDate: 'AISendStartDate',
       endTime: 'EndTime',
       executeTime: 'ExecuteTime',
       groupId: 'GroupId',
       name: 'Name',
+      paymentType: 'PaymentType',
       repeatCycle: 'RepeatCycle',
       repeatCycleUnit: 'RepeatCycleUnit',
       repeatTimes: 'RepeatTimes',
@@ -311,10 +317,13 @@ export class CreateScheduleRequest extends $tea.Model {
 
   static types(): { [key: string]: any } {
     return {
+      AISendEndDate: 'string',
+      AISendStartDate: 'string',
       endTime: 'number',
       executeTime: 'string',
       groupId: 'string',
       name: 'string',
+      paymentType: 'string',
       repeatCycle: 'number',
       repeatCycleUnit: 'number',
       repeatTimes: 'number',
@@ -2439,6 +2448,7 @@ export class ListTrainingJobsResponse extends $tea.Model {
 export class SendMessageRequest extends $tea.Model {
   groupId?: string;
   outIds?: string[];
+  paymentType?: string;
   phoneNumbers?: string[];
   scheduleId?: string;
   signName?: string;
@@ -2451,6 +2461,7 @@ export class SendMessageRequest extends $tea.Model {
     return {
       groupId: 'GroupId',
       outIds: 'OutIds',
+      paymentType: 'PaymentType',
       phoneNumbers: 'PhoneNumbers',
       scheduleId: 'ScheduleId',
       signName: 'SignName',
@@ -2466,6 +2477,7 @@ export class SendMessageRequest extends $tea.Model {
     return {
       groupId: 'string',
       outIds: { 'type': 'array', 'itemType': 'string' },
+      paymentType: 'string',
       phoneNumbers: { 'type': 'array', 'itemType': 'string' },
       scheduleId: 'string',
       signName: 'string',
@@ -3141,6 +3153,7 @@ export class CreateTemplateResponseBodyData extends $tea.Model {
   id?: string;
   name?: string;
   reason?: string;
+  signature?: string;
   signatureId?: string;
   status?: number;
   templateCode?: string;
@@ -3154,6 +3167,7 @@ export class CreateTemplateResponseBodyData extends $tea.Model {
       id: 'Id',
       name: 'Name',
       reason: 'Reason',
+      signature: 'Signature',
       signatureId: 'SignatureId',
       status: 'Status',
       templateCode: 'TemplateCode',
@@ -3170,6 +3184,7 @@ export class CreateTemplateResponseBodyData extends $tea.Model {
       id: 'string',
       name: 'string',
       reason: 'string',
+      signature: 'string',
       signatureId: 'string',
       status: 'number',
       templateCode: 'string',
@@ -3188,11 +3203,13 @@ export class CreateTrainingJobResponseBodyData extends $tea.Model {
   campaignId?: string;
   createdTime?: string;
   dataPath?: string;
+  hasModelInfo?: boolean;
   history?: string;
   id?: string;
   name?: string;
   remark?: string;
   status?: number;
+  trainingScheduleId?: string;
   updatedTime?: string;
   userConfig?: string;
   static names(): { [key: string]: string } {
@@ -3201,11 +3218,13 @@ export class CreateTrainingJobResponseBodyData extends $tea.Model {
       campaignId: 'CampaignId',
       createdTime: 'CreatedTime',
       dataPath: 'DataPath',
+      hasModelInfo: 'HasModelInfo',
       history: 'History',
       id: 'Id',
       name: 'Name',
       remark: 'Remark',
       status: 'Status',
+      trainingScheduleId: 'TrainingScheduleId',
       updatedTime: 'UpdatedTime',
       userConfig: 'UserConfig',
     };
@@ -3217,11 +3236,13 @@ export class CreateTrainingJobResponseBodyData extends $tea.Model {
       campaignId: 'string',
       createdTime: 'string',
       dataPath: 'string',
+      hasModelInfo: 'boolean',
       history: 'string',
       id: 'string',
       name: 'string',
       remark: 'string',
       status: 'number',
+      trainingScheduleId: 'string',
       updatedTime: 'string',
       userConfig: 'string',
     };
@@ -3455,6 +3476,7 @@ export class GetScheduleResponseBodyData extends $tea.Model {
   history?: string;
   id?: string;
   name?: string;
+  paymentType?: string;
   repeatCycle?: number;
   repeatCycleUnit?: number;
   repeatTimes?: number;
@@ -3473,6 +3495,7 @@ export class GetScheduleResponseBodyData extends $tea.Model {
       history: 'History',
       id: 'Id',
       name: 'Name',
+      paymentType: 'PaymentType',
       repeatCycle: 'RepeatCycle',
       repeatCycleUnit: 'RepeatCycleUnit',
       repeatTimes: 'RepeatTimes',
@@ -3494,6 +3517,7 @@ export class GetScheduleResponseBodyData extends $tea.Model {
       history: 'string',
       id: 'string',
       name: 'string',
+      paymentType: 'string',
       repeatCycle: 'number',
       repeatCycleUnit: 'number',
       repeatTimes: 'number',
@@ -3602,11 +3626,13 @@ export class GetTrainingJobResponseBodyData extends $tea.Model {
   campaignId?: string;
   createdTime?: string;
   dataPath?: string;
+  hasModelInfo?: boolean;
   history?: string;
   id?: string;
   name?: string;
   remark?: string;
   status?: number;
+  trainingScheduleId?: string;
   updatedTime?: string;
   userConfig?: string;
   static names(): { [key: string]: string } {
@@ -3615,11 +3641,13 @@ export class GetTrainingJobResponseBodyData extends $tea.Model {
       campaignId: 'CampaignId',
       createdTime: 'CreatedTime',
       dataPath: 'DataPath',
+      hasModelInfo: 'HasModelInfo',
       history: 'History',
       id: 'Id',
       name: 'Name',
       remark: 'Remark',
       status: 'Status',
+      trainingScheduleId: 'TrainingScheduleId',
       updatedTime: 'UpdatedTime',
       userConfig: 'UserConfig',
     };
@@ -3631,11 +3659,13 @@ export class GetTrainingJobResponseBodyData extends $tea.Model {
       campaignId: 'string',
       createdTime: 'string',
       dataPath: 'string',
+      hasModelInfo: 'boolean',
       history: 'string',
       id: 'string',
       name: 'string',
       remark: 'string',
       status: 'number',
+      trainingScheduleId: 'string',
       updatedTime: 'string',
       userConfig: 'string',
     };
@@ -4327,6 +4357,7 @@ export class ListTrainingJobsResponseBodyDataTrainingJobs extends $tea.Model {
   campaignId?: string;
   createdTime?: string;
   dataPath?: string;
+  hasModelInfo?: boolean;
   history?: string;
   id?: string;
   name?: string;
@@ -4341,6 +4372,7 @@ export class ListTrainingJobsResponseBodyDataTrainingJobs extends $tea.Model {
       campaignId: 'CampaignId',
       createdTime: 'CreatedTime',
       dataPath: 'DataPath',
+      hasModelInfo: 'HasModelInfo',
       history: 'History',
       id: 'Id',
       name: 'Name',
@@ -4358,6 +4390,7 @@ export class ListTrainingJobsResponseBodyDataTrainingJobs extends $tea.Model {
       campaignId: 'string',
       createdTime: 'string',
       dataPath: 'string',
+      hasModelInfo: 'boolean',
       history: 'string',
       id: 'string',
       name: 'string',
@@ -4590,14 +4623,13 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 注册运营活动。
+    * 注册运营活动。
+    *
+    * @param request CreateCampaignRequest
+    * @param headers map
+    * @param runtime runtime options for this request RuntimeOptions
+    * @return CreateCampaignResponse
    */
-  async createCampaign(request: CreateCampaignRequest): Promise<CreateCampaignResponse> {
-    let runtime = new $Util.RuntimeOptions({ });
-    let headers : {[key: string ]: string} = { };
-    return await this.createCampaignWithOptions(request, headers, runtime);
-  }
-
   async createCampaignWithOptions(request: CreateCampaignRequest, headers: {[key: string ]: string}, runtime: $Util.RuntimeOptions): Promise<CreateCampaignResponse> {
     Util.validateModel(request);
     let body : {[key: string ]: any} = { };
@@ -4628,14 +4660,25 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 注册人群。
+    * 注册运营活动。
+    *
+    * @param request CreateCampaignRequest
+    * @return CreateCampaignResponse
    */
-  async createGroup(request: CreateGroupRequest): Promise<CreateGroupResponse> {
+  async createCampaign(request: CreateCampaignRequest): Promise<CreateCampaignResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     let headers : {[key: string ]: string} = { };
-    return await this.createGroupWithOptions(request, headers, runtime);
+    return await this.createCampaignWithOptions(request, headers, runtime);
   }
 
+  /**
+    * 注册人群。
+    *
+    * @param request CreateGroupRequest
+    * @param headers map
+    * @param runtime runtime options for this request RuntimeOptions
+    * @return CreateGroupResponse
+   */
   async createGroupWithOptions(request: CreateGroupRequest, headers: {[key: string ]: string}, runtime: $Util.RuntimeOptions): Promise<CreateGroupResponse> {
     Util.validateModel(request);
     let body : {[key: string ]: any} = { };
@@ -4706,14 +4749,25 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 注册预测任务。
+    * 注册人群。
+    *
+    * @param request CreateGroupRequest
+    * @return CreateGroupResponse
    */
-  async createInferenceJob(request: CreateInferenceJobRequest): Promise<CreateInferenceJobResponse> {
+  async createGroup(request: CreateGroupRequest): Promise<CreateGroupResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     let headers : {[key: string ]: string} = { };
-    return await this.createInferenceJobWithOptions(request, headers, runtime);
+    return await this.createGroupWithOptions(request, headers, runtime);
   }
 
+  /**
+    * 注册预测任务。
+    *
+    * @param request CreateInferenceJobRequest
+    * @param headers map
+    * @param runtime runtime options for this request RuntimeOptions
+    * @return CreateInferenceJobResponse
+   */
   async createInferenceJobWithOptions(request: CreateInferenceJobRequest, headers: {[key: string ]: string}, runtime: $Util.RuntimeOptions): Promise<CreateInferenceJobResponse> {
     Util.validateModel(request);
     let body : {[key: string ]: any} = { };
@@ -4768,17 +4822,28 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 注册触达计划。
+    * 注册预测任务。
+    *
+    * @param request CreateInferenceJobRequest
+    * @return CreateInferenceJobResponse
    */
-  async createSchedule(request: CreateScheduleRequest): Promise<CreateScheduleResponse> {
+  async createInferenceJob(request: CreateInferenceJobRequest): Promise<CreateInferenceJobResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     let headers : {[key: string ]: string} = { };
-    return await this.createScheduleWithOptions(request, headers, runtime);
+    return await this.createInferenceJobWithOptions(request, headers, runtime);
   }
 
   async createScheduleWithOptions(request: CreateScheduleRequest, headers: {[key: string ]: string}, runtime: $Util.RuntimeOptions): Promise<CreateScheduleResponse> {
     Util.validateModel(request);
     let body : {[key: string ]: any} = { };
+    if (!Util.isUnset(request.AISendEndDate)) {
+      body["AISendEndDate"] = request.AISendEndDate;
+    }
+
+    if (!Util.isUnset(request.AISendStartDate)) {
+      body["AISendStartDate"] = request.AISendStartDate;
+    }
+
     if (!Util.isUnset(request.endTime)) {
       body["EndTime"] = request.endTime;
     }
@@ -4793,6 +4858,10 @@ export default class Client extends OpenApi {
 
     if (!Util.isUnset(request.name)) {
       body["Name"] = request.name;
+    }
+
+    if (!Util.isUnset(request.paymentType)) {
+      body["PaymentType"] = request.paymentType;
     }
 
     if (!Util.isUnset(request.repeatCycle)) {
@@ -4841,14 +4910,10 @@ export default class Client extends OpenApi {
     return $tea.cast<CreateScheduleResponse>(await this.callApi(params, req, runtime), new CreateScheduleResponse({}));
   }
 
-  /**
-   * 注册签名。
-  
-   */
-  async createSignature(request: CreateSignatureRequest): Promise<CreateSignatureResponse> {
+  async createSchedule(request: CreateScheduleRequest): Promise<CreateScheduleResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     let headers : {[key: string ]: string} = { };
-    return await this.createSignatureWithOptions(request, headers, runtime);
+    return await this.createScheduleWithOptions(request, headers, runtime);
   }
 
   async createSignatureWithOptions(request: CreateSignatureRequest, headers: {[key: string ]: string}, runtime: $Util.RuntimeOptions): Promise<CreateSignatureResponse> {
@@ -4880,14 +4945,10 @@ export default class Client extends OpenApi {
     return $tea.cast<CreateSignatureResponse>(await this.callApi(params, req, runtime), new CreateSignatureResponse({}));
   }
 
-  /**
-   * 注册模板。
-  
-   */
-  async createTemplate(request: CreateTemplateRequest): Promise<CreateTemplateResponse> {
+  async createSignature(request: CreateSignatureRequest): Promise<CreateSignatureResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     let headers : {[key: string ]: string} = { };
-    return await this.createTemplateWithOptions(request, headers, runtime);
+    return await this.createSignatureWithOptions(request, headers, runtime);
   }
 
   async createTemplateWithOptions(request: CreateTemplateRequest, headers: {[key: string ]: string}, runtime: $Util.RuntimeOptions): Promise<CreateTemplateResponse> {
@@ -4935,14 +4996,10 @@ export default class Client extends OpenApi {
     return $tea.cast<CreateTemplateResponse>(await this.callApi(params, req, runtime), new CreateTemplateResponse({}));
   }
 
-  /**
-   * 注册训练任务。
-  
-   */
-  async createTrainingJob(request: CreateTrainingJobRequest): Promise<CreateTrainingJobResponse> {
+  async createTemplate(request: CreateTemplateRequest): Promise<CreateTemplateResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     let headers : {[key: string ]: string} = { };
-    return await this.createTrainingJobWithOptions(request, headers, runtime);
+    return await this.createTemplateWithOptions(request, headers, runtime);
   }
 
   async createTrainingJobWithOptions(request: CreateTrainingJobRequest, headers: {[key: string ]: string}, runtime: $Util.RuntimeOptions): Promise<CreateTrainingJobResponse> {
@@ -4990,16 +5047,19 @@ export default class Client extends OpenApi {
     return $tea.cast<CreateTrainingJobResponse>(await this.callApi(params, req, runtime), new CreateTrainingJobResponse({}));
   }
 
-  /**
-   * 删除运营活动
-  
-   */
-  async deleteCampaign(Id: string): Promise<DeleteCampaignResponse> {
+  async createTrainingJob(request: CreateTrainingJobRequest): Promise<CreateTrainingJobResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     let headers : {[key: string ]: string} = { };
-    return await this.deleteCampaignWithOptions(Id, headers, runtime);
+    return await this.createTrainingJobWithOptions(request, headers, runtime);
   }
 
+  /**
+    * 删除运营活动
+    *
+    * @param headers map
+    * @param runtime runtime options for this request RuntimeOptions
+    * @return DeleteCampaignResponse
+   */
   async deleteCampaignWithOptions(Id: string, headers: {[key: string ]: string}, runtime: $Util.RuntimeOptions): Promise<DeleteCampaignResponse> {
     let req = new $OpenApi.OpenApiRequest({
       headers: headers,
@@ -5019,15 +5079,23 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 删除人群
-  
+    * 删除运营活动
+    *
+    * @return DeleteCampaignResponse
    */
-  async deleteGroup(Id: string): Promise<DeleteGroupResponse> {
+  async deleteCampaign(Id: string): Promise<DeleteCampaignResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     let headers : {[key: string ]: string} = { };
-    return await this.deleteGroupWithOptions(Id, headers, runtime);
+    return await this.deleteCampaignWithOptions(Id, headers, runtime);
   }
 
+  /**
+    * 删除人群
+    *
+    * @param headers map
+    * @param runtime runtime options for this request RuntimeOptions
+    * @return DeleteGroupResponse
+   */
   async deleteGroupWithOptions(Id: string, headers: {[key: string ]: string}, runtime: $Util.RuntimeOptions): Promise<DeleteGroupResponse> {
     let req = new $OpenApi.OpenApiRequest({
       headers: headers,
@@ -5047,14 +5115,23 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 删除预测任务。
+    * 删除人群
+    *
+    * @return DeleteGroupResponse
    */
-  async deleteInferenceJob(Id: string): Promise<DeleteInferenceJobResponse> {
+  async deleteGroup(Id: string): Promise<DeleteGroupResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     let headers : {[key: string ]: string} = { };
-    return await this.deleteInferenceJobWithOptions(Id, headers, runtime);
+    return await this.deleteGroupWithOptions(Id, headers, runtime);
   }
 
+  /**
+    * 删除预测任务。
+    *
+    * @param headers map
+    * @param runtime runtime options for this request RuntimeOptions
+    * @return DeleteInferenceJobResponse
+   */
   async deleteInferenceJobWithOptions(Id: string, headers: {[key: string ]: string}, runtime: $Util.RuntimeOptions): Promise<DeleteInferenceJobResponse> {
     let req = new $OpenApi.OpenApiRequest({
       headers: headers,
@@ -5074,15 +5151,23 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 删除触达计划。
-  
+    * 删除预测任务。
+    *
+    * @return DeleteInferenceJobResponse
    */
-  async deleteSchedule(Id: string): Promise<DeleteScheduleResponse> {
+  async deleteInferenceJob(Id: string): Promise<DeleteInferenceJobResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     let headers : {[key: string ]: string} = { };
-    return await this.deleteScheduleWithOptions(Id, headers, runtime);
+    return await this.deleteInferenceJobWithOptions(Id, headers, runtime);
   }
 
+  /**
+    * 删除触达计划。
+    *
+    * @param headers map
+    * @param runtime runtime options for this request RuntimeOptions
+    * @return DeleteScheduleResponse
+   */
   async deleteScheduleWithOptions(Id: string, headers: {[key: string ]: string}, runtime: $Util.RuntimeOptions): Promise<DeleteScheduleResponse> {
     let req = new $OpenApi.OpenApiRequest({
       headers: headers,
@@ -5102,13 +5187,14 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 删除签名。
-  
+    * 删除触达计划。
+    *
+    * @return DeleteScheduleResponse
    */
-  async deleteSignature(Id: string): Promise<DeleteSignatureResponse> {
+  async deleteSchedule(Id: string): Promise<DeleteScheduleResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     let headers : {[key: string ]: string} = { };
-    return await this.deleteSignatureWithOptions(Id, headers, runtime);
+    return await this.deleteScheduleWithOptions(Id, headers, runtime);
   }
 
   async deleteSignatureWithOptions(Id: string, headers: {[key: string ]: string}, runtime: $Util.RuntimeOptions): Promise<DeleteSignatureResponse> {
@@ -5129,16 +5215,19 @@ export default class Client extends OpenApi {
     return $tea.cast<DeleteSignatureResponse>(await this.callApi(params, req, runtime), new DeleteSignatureResponse({}));
   }
 
-  /**
-   * 删除模板
-  
-   */
-  async deleteTemplate(Id: string): Promise<DeleteTemplateResponse> {
+  async deleteSignature(Id: string): Promise<DeleteSignatureResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     let headers : {[key: string ]: string} = { };
-    return await this.deleteTemplateWithOptions(Id, headers, runtime);
+    return await this.deleteSignatureWithOptions(Id, headers, runtime);
   }
 
+  /**
+    * 删除模板
+    *
+    * @param headers map
+    * @param runtime runtime options for this request RuntimeOptions
+    * @return DeleteTemplateResponse
+   */
   async deleteTemplateWithOptions(Id: string, headers: {[key: string ]: string}, runtime: $Util.RuntimeOptions): Promise<DeleteTemplateResponse> {
     let req = new $OpenApi.OpenApiRequest({
       headers: headers,
@@ -5158,14 +5247,23 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 删除训练任务。
+    * 删除模板
+    *
+    * @return DeleteTemplateResponse
    */
-  async deleteTrainingJob(Id: string): Promise<DeleteTrainingJobResponse> {
+  async deleteTemplate(Id: string): Promise<DeleteTemplateResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     let headers : {[key: string ]: string} = { };
-    return await this.deleteTrainingJobWithOptions(Id, headers, runtime);
+    return await this.deleteTemplateWithOptions(Id, headers, runtime);
   }
 
+  /**
+    * 删除训练任务。
+    *
+    * @param headers map
+    * @param runtime runtime options for this request RuntimeOptions
+    * @return DeleteTrainingJobResponse
+   */
   async deleteTrainingJobWithOptions(Id: string, headers: {[key: string ]: string}, runtime: $Util.RuntimeOptions): Promise<DeleteTrainingJobResponse> {
     let req = new $OpenApi.OpenApiRequest({
       headers: headers,
@@ -5185,14 +5283,23 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 获取算法详情。
+    * 删除训练任务。
+    *
+    * @return DeleteTrainingJobResponse
    */
-  async getAlgorithm(Id: string): Promise<GetAlgorithmResponse> {
+  async deleteTrainingJob(Id: string): Promise<DeleteTrainingJobResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     let headers : {[key: string ]: string} = { };
-    return await this.getAlgorithmWithOptions(Id, headers, runtime);
+    return await this.deleteTrainingJobWithOptions(Id, headers, runtime);
   }
 
+  /**
+    * 获取算法详情。
+    *
+    * @param headers map
+    * @param runtime runtime options for this request RuntimeOptions
+    * @return GetAlgorithmResponse
+   */
   async getAlgorithmWithOptions(Id: string, headers: {[key: string ]: string}, runtime: $Util.RuntimeOptions): Promise<GetAlgorithmResponse> {
     let req = new $OpenApi.OpenApiRequest({
       headers: headers,
@@ -5212,14 +5319,23 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 获取运营活动详情。
+    * 获取算法详情。
+    *
+    * @return GetAlgorithmResponse
    */
-  async getCampaign(Id: string): Promise<GetCampaignResponse> {
+  async getAlgorithm(Id: string): Promise<GetAlgorithmResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     let headers : {[key: string ]: string} = { };
-    return await this.getCampaignWithOptions(Id, headers, runtime);
+    return await this.getAlgorithmWithOptions(Id, headers, runtime);
   }
 
+  /**
+    * 获取运营活动详情。
+    *
+    * @param headers map
+    * @param runtime runtime options for this request RuntimeOptions
+    * @return GetCampaignResponse
+   */
   async getCampaignWithOptions(Id: string, headers: {[key: string ]: string}, runtime: $Util.RuntimeOptions): Promise<GetCampaignResponse> {
     let req = new $OpenApi.OpenApiRequest({
       headers: headers,
@@ -5239,14 +5355,23 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 获取人群详情。
+    * 获取运营活动详情。
+    *
+    * @return GetCampaignResponse
    */
-  async getGroup(Id: string): Promise<GetGroupResponse> {
+  async getCampaign(Id: string): Promise<GetCampaignResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     let headers : {[key: string ]: string} = { };
-    return await this.getGroupWithOptions(Id, headers, runtime);
+    return await this.getCampaignWithOptions(Id, headers, runtime);
   }
 
+  /**
+    * 获取人群详情。
+    *
+    * @param headers map
+    * @param runtime runtime options for this request RuntimeOptions
+    * @return GetGroupResponse
+   */
   async getGroupWithOptions(Id: string, headers: {[key: string ]: string}, runtime: $Util.RuntimeOptions): Promise<GetGroupResponse> {
     let req = new $OpenApi.OpenApiRequest({
       headers: headers,
@@ -5266,14 +5391,23 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 获取预测任务详情。
+    * 获取人群详情。
+    *
+    * @return GetGroupResponse
    */
-  async getInferenceJob(Id: string): Promise<GetInferenceJobResponse> {
+  async getGroup(Id: string): Promise<GetGroupResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     let headers : {[key: string ]: string} = { };
-    return await this.getInferenceJobWithOptions(Id, headers, runtime);
+    return await this.getGroupWithOptions(Id, headers, runtime);
   }
 
+  /**
+    * 获取预测任务详情。
+    *
+    * @param headers map
+    * @param runtime runtime options for this request RuntimeOptions
+    * @return GetInferenceJobResponse
+   */
   async getInferenceJobWithOptions(Id: string, headers: {[key: string ]: string}, runtime: $Util.RuntimeOptions): Promise<GetInferenceJobResponse> {
     let req = new $OpenApi.OpenApiRequest({
       headers: headers,
@@ -5293,14 +5427,23 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 获取短信配置。
+    * 获取预测任务详情。
+    *
+    * @return GetInferenceJobResponse
    */
-  async getMessageConfig(): Promise<GetMessageConfigResponse> {
+  async getInferenceJob(Id: string): Promise<GetInferenceJobResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     let headers : {[key: string ]: string} = { };
-    return await this.getMessageConfigWithOptions(headers, runtime);
+    return await this.getInferenceJobWithOptions(Id, headers, runtime);
   }
 
+  /**
+    * 获取短信配置。
+    *
+    * @param headers map
+    * @param runtime runtime options for this request RuntimeOptions
+    * @return GetMessageConfigResponse
+   */
   async getMessageConfigWithOptions(headers: {[key: string ]: string}, runtime: $Util.RuntimeOptions): Promise<GetMessageConfigResponse> {
     let req = new $OpenApi.OpenApiRequest({
       headers: headers,
@@ -5320,12 +5463,14 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 获取触达计划详情。
+    * 获取短信配置。
+    *
+    * @return GetMessageConfigResponse
    */
-  async getSchedule(Id: string): Promise<GetScheduleResponse> {
+  async getMessageConfig(): Promise<GetMessageConfigResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     let headers : {[key: string ]: string} = { };
-    return await this.getScheduleWithOptions(Id, headers, runtime);
+    return await this.getMessageConfigWithOptions(headers, runtime);
   }
 
   async getScheduleWithOptions(Id: string, headers: {[key: string ]: string}, runtime: $Util.RuntimeOptions): Promise<GetScheduleResponse> {
@@ -5346,15 +5491,19 @@ export default class Client extends OpenApi {
     return $tea.cast<GetScheduleResponse>(await this.callApi(params, req, runtime), new GetScheduleResponse({}));
   }
 
-  /**
-   * 获取签名详情。
-   */
-  async getSignature(Id: string): Promise<GetSignatureResponse> {
+  async getSchedule(Id: string): Promise<GetScheduleResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     let headers : {[key: string ]: string} = { };
-    return await this.getSignatureWithOptions(Id, headers, runtime);
+    return await this.getScheduleWithOptions(Id, headers, runtime);
   }
 
+  /**
+    * 获取签名详情。
+    *
+    * @param headers map
+    * @param runtime runtime options for this request RuntimeOptions
+    * @return GetSignatureResponse
+   */
   async getSignatureWithOptions(Id: string, headers: {[key: string ]: string}, runtime: $Util.RuntimeOptions): Promise<GetSignatureResponse> {
     let req = new $OpenApi.OpenApiRequest({
       headers: headers,
@@ -5374,14 +5523,23 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 获取模板详情。
+    * 获取签名详情。
+    *
+    * @return GetSignatureResponse
    */
-  async getTemplate(Id: string): Promise<GetTemplateResponse> {
+  async getSignature(Id: string): Promise<GetSignatureResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     let headers : {[key: string ]: string} = { };
-    return await this.getTemplateWithOptions(Id, headers, runtime);
+    return await this.getSignatureWithOptions(Id, headers, runtime);
   }
 
+  /**
+    * 获取模板详情。
+    *
+    * @param headers map
+    * @param runtime runtime options for this request RuntimeOptions
+    * @return GetTemplateResponse
+   */
   async getTemplateWithOptions(Id: string, headers: {[key: string ]: string}, runtime: $Util.RuntimeOptions): Promise<GetTemplateResponse> {
     let req = new $OpenApi.OpenApiRequest({
       headers: headers,
@@ -5401,12 +5559,14 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 获取训练任务详情。
+    * 获取模板详情。
+    *
+    * @return GetTemplateResponse
    */
-  async getTrainingJob(Id: string): Promise<GetTrainingJobResponse> {
+  async getTemplate(Id: string): Promise<GetTemplateResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     let headers : {[key: string ]: string} = { };
-    return await this.getTrainingJobWithOptions(Id, headers, runtime);
+    return await this.getTemplateWithOptions(Id, headers, runtime);
   }
 
   async getTrainingJobWithOptions(Id: string, headers: {[key: string ]: string}, runtime: $Util.RuntimeOptions): Promise<GetTrainingJobResponse> {
@@ -5427,15 +5587,19 @@ export default class Client extends OpenApi {
     return $tea.cast<GetTrainingJobResponse>(await this.callApi(params, req, runtime), new GetTrainingJobResponse({}));
   }
 
-  /**
-   * 获取账号状态。
-   */
-  async getUser(): Promise<GetUserResponse> {
+  async getTrainingJob(Id: string): Promise<GetTrainingJobResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     let headers : {[key: string ]: string} = { };
-    return await this.getUserWithOptions(headers, runtime);
+    return await this.getTrainingJobWithOptions(Id, headers, runtime);
   }
 
+  /**
+    * 获取账号状态。
+    *
+    * @param headers map
+    * @param runtime runtime options for this request RuntimeOptions
+    * @return GetUserResponse
+   */
   async getUserWithOptions(headers: {[key: string ]: string}, runtime: $Util.RuntimeOptions): Promise<GetUserResponse> {
     let req = new $OpenApi.OpenApiRequest({
       headers: headers,
@@ -5455,14 +5619,24 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 获取算法列表。
+    * 获取账号状态。
+    *
+    * @return GetUserResponse
    */
-  async listAlgorithms(request: ListAlgorithmsRequest): Promise<ListAlgorithmsResponse> {
+  async getUser(): Promise<GetUserResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     let headers : {[key: string ]: string} = { };
-    return await this.listAlgorithmsWithOptions(request, headers, runtime);
+    return await this.getUserWithOptions(headers, runtime);
   }
 
+  /**
+    * 获取算法列表。
+    *
+    * @param request ListAlgorithmsRequest
+    * @param headers map
+    * @param runtime runtime options for this request RuntimeOptions
+    * @return ListAlgorithmsResponse
+   */
   async listAlgorithmsWithOptions(request: ListAlgorithmsRequest, headers: {[key: string ]: string}, runtime: $Util.RuntimeOptions): Promise<ListAlgorithmsResponse> {
     Util.validateModel(request);
     let query : {[key: string ]: any} = { };
@@ -5501,14 +5675,25 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 获取运营活动列表。
+    * 获取算法列表。
+    *
+    * @param request ListAlgorithmsRequest
+    * @return ListAlgorithmsResponse
    */
-  async listCampaigns(request: ListCampaignsRequest): Promise<ListCampaignsResponse> {
+  async listAlgorithms(request: ListAlgorithmsRequest): Promise<ListAlgorithmsResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     let headers : {[key: string ]: string} = { };
-    return await this.listCampaignsWithOptions(request, headers, runtime);
+    return await this.listAlgorithmsWithOptions(request, headers, runtime);
   }
 
+  /**
+    * 获取运营活动列表。
+    *
+    * @param request ListCampaignsRequest
+    * @param headers map
+    * @param runtime runtime options for this request RuntimeOptions
+    * @return ListCampaignsResponse
+   */
   async listCampaignsWithOptions(request: ListCampaignsRequest, headers: {[key: string ]: string}, runtime: $Util.RuntimeOptions): Promise<ListCampaignsResponse> {
     Util.validateModel(request);
     let query : {[key: string ]: any} = { };
@@ -5547,14 +5732,25 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 获取人群列表。
+    * 获取运营活动列表。
+    *
+    * @param request ListCampaignsRequest
+    * @return ListCampaignsResponse
    */
-  async listGroups(request: ListGroupsRequest): Promise<ListGroupsResponse> {
+  async listCampaigns(request: ListCampaignsRequest): Promise<ListCampaignsResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     let headers : {[key: string ]: string} = { };
-    return await this.listGroupsWithOptions(request, headers, runtime);
+    return await this.listCampaignsWithOptions(request, headers, runtime);
   }
 
+  /**
+    * 获取人群列表。
+    *
+    * @param request ListGroupsRequest
+    * @param headers map
+    * @param runtime runtime options for this request RuntimeOptions
+    * @return ListGroupsResponse
+   */
   async listGroupsWithOptions(request: ListGroupsRequest, headers: {[key: string ]: string}, runtime: $Util.RuntimeOptions): Promise<ListGroupsResponse> {
     Util.validateModel(request);
     let query : {[key: string ]: any} = { };
@@ -5604,10 +5800,16 @@ export default class Client extends OpenApi {
     return $tea.cast<ListGroupsResponse>(await this.callApi(params, req, runtime), new ListGroupsResponse({}));
   }
 
-  async listInferenceJobs(request: ListInferenceJobsRequest): Promise<ListInferenceJobsResponse> {
+  /**
+    * 获取人群列表。
+    *
+    * @param request ListGroupsRequest
+    * @return ListGroupsResponse
+   */
+  async listGroups(request: ListGroupsRequest): Promise<ListGroupsResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     let headers : {[key: string ]: string} = { };
-    return await this.listInferenceJobsWithOptions(request, headers, runtime);
+    return await this.listGroupsWithOptions(request, headers, runtime);
   }
 
   async listInferenceJobsWithOptions(request: ListInferenceJobsRequest, headers: {[key: string ]: string}, runtime: $Util.RuntimeOptions): Promise<ListInferenceJobsResponse> {
@@ -5663,17 +5865,22 @@ export default class Client extends OpenApi {
     return $tea.cast<ListInferenceJobsResponse>(await this.callApi(params, req, runtime), new ListInferenceJobsResponse({}));
   }
 
-  /**
-   * 获取短信发送统计列表。
-  获取短信发送统计数据，可按指定条件获取分类别详细数据，返回数据按日期顺序排列，发送统计为空的日期默认不返回。
-  发送数据在48小时内会随实际短信发送状态不断更新，最终数据以48小时后数据为准。
-   */
-  async listMessageMetrics(request: ListMessageMetricsRequest): Promise<ListMessageMetricsResponse> {
+  async listInferenceJobs(request: ListInferenceJobsRequest): Promise<ListInferenceJobsResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     let headers : {[key: string ]: string} = { };
-    return await this.listMessageMetricsWithOptions(request, headers, runtime);
+    return await this.listInferenceJobsWithOptions(request, headers, runtime);
   }
 
+  /**
+    * 获取短信发送统计列表。
+    * 获取短信发送统计数据，可按指定条件获取分类别详细数据，返回数据按日期顺序排列，发送统计为空的日期默认不返回。
+    * 发送数据在48小时内会随实际短信发送状态不断更新，最终数据以48小时后数据为准。
+    *
+    * @param request ListMessageMetricsRequest
+    * @param headers map
+    * @param runtime runtime options for this request RuntimeOptions
+    * @return ListMessageMetricsResponse
+   */
   async listMessageMetricsWithOptions(request: ListMessageMetricsRequest, headers: {[key: string ]: string}, runtime: $Util.RuntimeOptions): Promise<ListMessageMetricsResponse> {
     Util.validateModel(request);
     let query : {[key: string ]: any} = { };
@@ -5740,14 +5947,27 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 查询短信发送详情列表。
+    * 获取短信发送统计列表。
+    * 获取短信发送统计数据，可按指定条件获取分类别详细数据，返回数据按日期顺序排列，发送统计为空的日期默认不返回。
+    * 发送数据在48小时内会随实际短信发送状态不断更新，最终数据以48小时后数据为准。
+    *
+    * @param request ListMessageMetricsRequest
+    * @return ListMessageMetricsResponse
    */
-  async listMessages(request: ListMessagesRequest): Promise<ListMessagesResponse> {
+  async listMessageMetrics(request: ListMessageMetricsRequest): Promise<ListMessageMetricsResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     let headers : {[key: string ]: string} = { };
-    return await this.listMessagesWithOptions(request, headers, runtime);
+    return await this.listMessageMetricsWithOptions(request, headers, runtime);
   }
 
+  /**
+    * 查询短信发送详情列表。
+    *
+    * @param request ListMessagesRequest
+    * @param headers map
+    * @param runtime runtime options for this request RuntimeOptions
+    * @return ListMessagesResponse
+   */
   async listMessagesWithOptions(request: ListMessagesRequest, headers: {[key: string ]: string}, runtime: $Util.RuntimeOptions): Promise<ListMessagesResponse> {
     Util.validateModel(request);
     let query : {[key: string ]: any} = { };
@@ -5830,12 +6050,15 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 获取触达计划列表。
+    * 查询短信发送详情列表。
+    *
+    * @param request ListMessagesRequest
+    * @return ListMessagesResponse
    */
-  async listSchedules(request: ListSchedulesRequest): Promise<ListSchedulesResponse> {
+  async listMessages(request: ListMessagesRequest): Promise<ListMessagesResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     let headers : {[key: string ]: string} = { };
-    return await this.listSchedulesWithOptions(request, headers, runtime);
+    return await this.listMessagesWithOptions(request, headers, runtime);
   }
 
   async listSchedulesWithOptions(request: ListSchedulesRequest, headers: {[key: string ]: string}, runtime: $Util.RuntimeOptions): Promise<ListSchedulesResponse> {
@@ -5875,15 +6098,20 @@ export default class Client extends OpenApi {
     return $tea.cast<ListSchedulesResponse>(await this.callApi(params, req, runtime), new ListSchedulesResponse({}));
   }
 
-  /**
-   * 获取签名列表。
-   */
-  async listSignatures(request: ListSignaturesRequest): Promise<ListSignaturesResponse> {
+  async listSchedules(request: ListSchedulesRequest): Promise<ListSchedulesResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     let headers : {[key: string ]: string} = { };
-    return await this.listSignaturesWithOptions(request, headers, runtime);
+    return await this.listSchedulesWithOptions(request, headers, runtime);
   }
 
+  /**
+    * 获取签名列表。
+    *
+    * @param request ListSignaturesRequest
+    * @param headers map
+    * @param runtime runtime options for this request RuntimeOptions
+    * @return ListSignaturesResponse
+   */
   async listSignaturesWithOptions(request: ListSignaturesRequest, headers: {[key: string ]: string}, runtime: $Util.RuntimeOptions): Promise<ListSignaturesResponse> {
     Util.validateModel(request);
     let query : {[key: string ]: any} = { };
@@ -5922,14 +6150,25 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 获取模板列表。
+    * 获取签名列表。
+    *
+    * @param request ListSignaturesRequest
+    * @return ListSignaturesResponse
    */
-  async listTemplates(request: ListTemplatesRequest): Promise<ListTemplatesResponse> {
+  async listSignatures(request: ListSignaturesRequest): Promise<ListSignaturesResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     let headers : {[key: string ]: string} = { };
-    return await this.listTemplatesWithOptions(request, headers, runtime);
+    return await this.listSignaturesWithOptions(request, headers, runtime);
   }
 
+  /**
+    * 获取模板列表。
+    *
+    * @param request ListTemplatesRequest
+    * @param headers map
+    * @param runtime runtime options for this request RuntimeOptions
+    * @return ListTemplatesResponse
+   */
   async listTemplatesWithOptions(request: ListTemplatesRequest, headers: {[key: string ]: string}, runtime: $Util.RuntimeOptions): Promise<ListTemplatesResponse> {
     Util.validateModel(request);
     let query : {[key: string ]: any} = { };
@@ -5975,10 +6214,16 @@ export default class Client extends OpenApi {
     return $tea.cast<ListTemplatesResponse>(await this.callApi(params, req, runtime), new ListTemplatesResponse({}));
   }
 
-  async listTrainingJobs(request: ListTrainingJobsRequest): Promise<ListTrainingJobsResponse> {
+  /**
+    * 获取模板列表。
+    *
+    * @param request ListTemplatesRequest
+    * @return ListTemplatesResponse
+   */
+  async listTemplates(request: ListTemplatesRequest): Promise<ListTemplatesResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     let headers : {[key: string ]: string} = { };
-    return await this.listTrainingJobsWithOptions(request, headers, runtime);
+    return await this.listTemplatesWithOptions(request, headers, runtime);
   }
 
   async listTrainingJobsWithOptions(request: ListTrainingJobsRequest, headers: {[key: string ]: string}, runtime: $Util.RuntimeOptions): Promise<ListTrainingJobsResponse> {
@@ -6034,10 +6279,10 @@ export default class Client extends OpenApi {
     return $tea.cast<ListTrainingJobsResponse>(await this.callApi(params, req, runtime), new ListTrainingJobsResponse({}));
   }
 
-  async sendMessage(request: SendMessageRequest): Promise<SendMessageResponse> {
+  async listTrainingJobs(request: ListTrainingJobsRequest): Promise<ListTrainingJobsResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     let headers : {[key: string ]: string} = { };
-    return await this.sendMessageWithOptions(request, headers, runtime);
+    return await this.listTrainingJobsWithOptions(request, headers, runtime);
   }
 
   async sendMessageWithOptions(request: SendMessageRequest, headers: {[key: string ]: string}, runtime: $Util.RuntimeOptions): Promise<SendMessageResponse> {
@@ -6049,6 +6294,10 @@ export default class Client extends OpenApi {
 
     if (!Util.isUnset(request.outIds)) {
       body["OutIds"] = request.outIds;
+    }
+
+    if (!Util.isUnset(request.paymentType)) {
+      body["PaymentType"] = request.paymentType;
     }
 
     if (!Util.isUnset(request.phoneNumbers)) {
@@ -6101,15 +6350,20 @@ export default class Client extends OpenApi {
     return $tea.cast<SendMessageResponse>(await this.callApi(params, req, runtime), new SendMessageResponse({}));
   }
 
-  /**
-   * 短信回执。
-   */
-  async smsReport(request: SmsReportRequest): Promise<SmsReportResponse> {
+  async sendMessage(request: SendMessageRequest): Promise<SendMessageResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     let headers : {[key: string ]: string} = { };
-    return await this.smsReportWithOptions(request, headers, runtime);
+    return await this.sendMessageWithOptions(request, headers, runtime);
   }
 
+  /**
+    * 短信回执。
+    *
+    * @param request SmsReportRequest
+    * @param headers map
+    * @param runtime runtime options for this request RuntimeOptions
+    * @return SmsReportResponse
+   */
   async smsReportWithOptions(request: SmsReportRequest, headers: {[key: string ]: string}, runtime: $Util.RuntimeOptions): Promise<SmsReportResponse> {
     Util.validateModel(request);
     let req = new $OpenApi.OpenApiRequest({
@@ -6131,14 +6385,25 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 短信上行。
+    * 短信回执。
+    *
+    * @param request SmsReportRequest
+    * @return SmsReportResponse
    */
-  async smsUp(request: SmsUpRequest): Promise<SmsUpResponse> {
+  async smsReport(request: SmsReportRequest): Promise<SmsReportResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     let headers : {[key: string ]: string} = { };
-    return await this.smsUpWithOptions(request, headers, runtime);
+    return await this.smsReportWithOptions(request, headers, runtime);
   }
 
+  /**
+    * 短信上行。
+    *
+    * @param request SmsUpRequest
+    * @param headers map
+    * @param runtime runtime options for this request RuntimeOptions
+    * @return SmsUpResponse
+   */
   async smsUpWithOptions(request: SmsUpRequest, headers: {[key: string ]: string}, runtime: $Util.RuntimeOptions): Promise<SmsUpResponse> {
     Util.validateModel(request);
     let req = new $OpenApi.OpenApiRequest({
@@ -6160,14 +6425,25 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 更新运营活动
+    * 短信上行。
+    *
+    * @param request SmsUpRequest
+    * @return SmsUpResponse
    */
-  async updateCampaign(Id: string, request: UpdateCampaignRequest): Promise<UpdateCampaignResponse> {
+  async smsUp(request: SmsUpRequest): Promise<SmsUpResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     let headers : {[key: string ]: string} = { };
-    return await this.updateCampaignWithOptions(Id, request, headers, runtime);
+    return await this.smsUpWithOptions(request, headers, runtime);
   }
 
+  /**
+    * 更新运营活动
+    *
+    * @param request UpdateCampaignRequest
+    * @param headers map
+    * @param runtime runtime options for this request RuntimeOptions
+    * @return UpdateCampaignResponse
+   */
   async updateCampaignWithOptions(Id: string, request: UpdateCampaignRequest, headers: {[key: string ]: string}, runtime: $Util.RuntimeOptions): Promise<UpdateCampaignResponse> {
     Util.validateModel(request);
     let body : {[key: string ]: any} = { };
@@ -6198,15 +6474,25 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 更新回执Url。
-  
+    * 更新运营活动
+    *
+    * @param request UpdateCampaignRequest
+    * @return UpdateCampaignResponse
    */
-  async updateReportUrl(request: UpdateReportUrlRequest): Promise<UpdateReportUrlResponse> {
+  async updateCampaign(Id: string, request: UpdateCampaignRequest): Promise<UpdateCampaignResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     let headers : {[key: string ]: string} = { };
-    return await this.updateReportUrlWithOptions(request, headers, runtime);
+    return await this.updateCampaignWithOptions(Id, request, headers, runtime);
   }
 
+  /**
+    * 更新回执Url。
+    *
+    * @param request UpdateReportUrlRequest
+    * @param headers map
+    * @param runtime runtime options for this request RuntimeOptions
+    * @return UpdateReportUrlResponse
+   */
   async updateReportUrlWithOptions(request: UpdateReportUrlRequest, headers: {[key: string ]: string}, runtime: $Util.RuntimeOptions): Promise<UpdateReportUrlResponse> {
     Util.validateModel(request);
     let body : {[key: string ]: any} = { };
@@ -6233,14 +6519,25 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 更新上行Url。
+    * 更新回执Url。
+    *
+    * @param request UpdateReportUrlRequest
+    * @return UpdateReportUrlResponse
    */
-  async updateUploadUrl(request: UpdateUploadUrlRequest): Promise<UpdateUploadUrlResponse> {
+  async updateReportUrl(request: UpdateReportUrlRequest): Promise<UpdateReportUrlResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     let headers : {[key: string ]: string} = { };
-    return await this.updateUploadUrlWithOptions(request, headers, runtime);
+    return await this.updateReportUrlWithOptions(request, headers, runtime);
   }
 
+  /**
+    * 更新上行Url。
+    *
+    * @param request UpdateUploadUrlRequest
+    * @param headers map
+    * @param runtime runtime options for this request RuntimeOptions
+    * @return UpdateUploadUrlResponse
+   */
   async updateUploadUrlWithOptions(request: UpdateUploadUrlRequest, headers: {[key: string ]: string}, runtime: $Util.RuntimeOptions): Promise<UpdateUploadUrlResponse> {
     Util.validateModel(request);
     let body : {[key: string ]: any} = { };
@@ -6264,6 +6561,18 @@ export default class Client extends OpenApi {
       bodyType: "json",
     });
     return $tea.cast<UpdateUploadUrlResponse>(await this.callApi(params, req, runtime), new UpdateUploadUrlResponse({}));
+  }
+
+  /**
+    * 更新上行Url。
+    *
+    * @param request UpdateUploadUrlRequest
+    * @return UpdateUploadUrlResponse
+   */
+  async updateUploadUrl(request: UpdateUploadUrlRequest): Promise<UpdateUploadUrlResponse> {
+    let runtime = new $Util.RuntimeOptions({ });
+    let headers : {[key: string ]: string} = { };
+    return await this.updateUploadUrlWithOptions(request, headers, runtime);
   }
 
 }
