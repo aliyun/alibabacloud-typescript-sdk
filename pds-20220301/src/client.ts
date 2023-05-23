@@ -4429,6 +4429,81 @@ export class ListAddressGroupsResponse extends $tea.Model {
   }
 }
 
+export class ListAssignmentRequest extends $tea.Model {
+  limit?: number;
+  manageResourceId?: string;
+  manageResourceType?: string;
+  marker?: string;
+  static names(): { [key: string]: string } {
+    return {
+      limit: 'limit',
+      manageResourceId: 'manage_resource_id',
+      manageResourceType: 'manage_resource_type',
+      marker: 'marker',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      limit: 'number',
+      manageResourceId: 'string',
+      manageResourceType: 'string',
+      marker: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class ListAssignmentResponseBody extends $tea.Model {
+  assignmentList?: ListAssignmentResponseBodyAssignmentList[];
+  nextMarker?: string;
+  static names(): { [key: string]: string } {
+    return {
+      assignmentList: 'assignment_list',
+      nextMarker: 'next_marker',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      assignmentList: { 'type': 'array', 'itemType': ListAssignmentResponseBodyAssignmentList },
+      nextMarker: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class ListAssignmentResponse extends $tea.Model {
+  headers: { [key: string]: string };
+  statusCode: number;
+  body: ListAssignmentResponseBody;
+  static names(): { [key: string]: string } {
+    return {
+      headers: 'headers',
+      statusCode: 'statusCode',
+      body: 'body',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
+      body: ListAssignmentResponseBody,
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
 export class ListDeltaRequest extends $tea.Model {
   cursor?: string;
   driveId?: string;
@@ -7801,6 +7876,43 @@ export class InvestigateFileRequestDriveFileIds extends $tea.Model {
   }
 }
 
+export class ListAssignmentResponseBodyAssignmentList extends $tea.Model {
+  createdAt?: number;
+  creator?: string;
+  domainId?: string;
+  identity?: Identity;
+  manageResourceId?: string;
+  manageResourceType?: string;
+  roleId?: string;
+  static names(): { [key: string]: string } {
+    return {
+      createdAt: 'created_at',
+      creator: 'creator',
+      domainId: 'domain_id',
+      identity: 'identity',
+      manageResourceId: 'manage_resource_id',
+      manageResourceType: 'manage_resource_type',
+      roleId: 'role_id',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      createdAt: 'number',
+      creator: 'string',
+      domainId: 'string',
+      identity: Identity,
+      manageResourceId: 'string',
+      manageResourceType: 'string',
+      roleId: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
 export class ListDeltaResponseBodyItems extends $tea.Model {
   file?: File;
   fileId?: string;
@@ -10017,6 +10129,52 @@ export default class Client extends OpenApi {
     let runtime = new $Util.RuntimeOptions({ });
     let headers : {[key: string ]: string} = { };
     return await this.listAddressGroupsWithOptions(request, headers, runtime);
+  }
+
+  async listAssignmentWithOptions(domainId: string, request: ListAssignmentRequest, headers: {[key: string ]: string}, runtime: $Util.RuntimeOptions): Promise<ListAssignmentResponse> {
+    Util.validateModel(request);
+    let hostMap : {[key: string ]: string} = { };
+    hostMap["domain_id"] = domainId;
+    let body : {[key: string ]: any} = { };
+    if (!Util.isUnset(request.limit)) {
+      body["limit"] = request.limit;
+    }
+
+    if (!Util.isUnset(request.manageResourceId)) {
+      body["manage_resource_id"] = request.manageResourceId;
+    }
+
+    if (!Util.isUnset(request.manageResourceType)) {
+      body["manage_resource_type"] = request.manageResourceType;
+    }
+
+    if (!Util.isUnset(request.marker)) {
+      body["marker"] = request.marker;
+    }
+
+    let req = new $OpenApi.OpenApiRequest({
+      hostMap: hostMap,
+      headers: headers,
+      body: OpenApiUtil.parseToMap(body),
+    });
+    let params = new $OpenApi.Params({
+      action: "ListAssignment",
+      version: "2022-03-01",
+      protocol: "HTTPS",
+      pathname: `/v2/role/list_assignment`,
+      method: "POST",
+      authType: "AK",
+      style: "ROA",
+      reqBodyType: "json",
+      bodyType: "json",
+    });
+    return $tea.cast<ListAssignmentResponse>(await this.execute(params, req, runtime), new ListAssignmentResponse({}));
+  }
+
+  async listAssignment(domainId: string, request: ListAssignmentRequest): Promise<ListAssignmentResponse> {
+    let runtime = new $Util.RuntimeOptions({ });
+    let headers : {[key: string ]: string} = { };
+    return await this.listAssignmentWithOptions(domainId, request, headers, runtime);
   }
 
   async listDeltaWithOptions(request: ListDeltaRequest, headers: {[key: string ]: string}, runtime: $Util.RuntimeOptions): Promise<ListDeltaResponse> {
