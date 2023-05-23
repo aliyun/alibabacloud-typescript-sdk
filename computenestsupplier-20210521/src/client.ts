@@ -431,10 +431,12 @@ export class DeleteServiceResponse extends $tea.Model {
 
 export class GetArtifactRequest extends $tea.Model {
   artifactId?: string;
+  artifactName?: string;
   artifactVersion?: string;
   static names(): { [key: string]: string } {
     return {
       artifactId: 'ArtifactId',
+      artifactName: 'ArtifactName',
       artifactVersion: 'ArtifactVersion',
     };
   }
@@ -442,6 +444,7 @@ export class GetArtifactRequest extends $tea.Model {
   static types(): { [key: string]: any } {
     return {
       artifactId: 'string',
+      artifactName: 'string',
       artifactVersion: 'string',
     };
   }
@@ -1058,6 +1061,84 @@ export class GetServiceInstanceResponse extends $tea.Model {
       headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
       statusCode: 'number',
       body: GetServiceInstanceResponseBody,
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class GetUploadCredentialsRequest extends $tea.Model {
+  fileName?: string;
+  static names(): { [key: string]: string } {
+    return {
+      fileName: 'FileName',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      fileName: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class GetUploadCredentialsResponseBody extends $tea.Model {
+  code?: string;
+  data?: GetUploadCredentialsResponseBodyData;
+  httpStatusCode?: number;
+  message?: string;
+  requestId?: string;
+  success?: boolean;
+  static names(): { [key: string]: string } {
+    return {
+      code: 'Code',
+      data: 'Data',
+      httpStatusCode: 'HttpStatusCode',
+      message: 'Message',
+      requestId: 'RequestId',
+      success: 'Success',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      code: 'string',
+      data: GetUploadCredentialsResponseBodyData,
+      httpStatusCode: 'number',
+      message: 'string',
+      requestId: 'string',
+      success: 'boolean',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class GetUploadCredentialsResponse extends $tea.Model {
+  headers: { [key: string]: string };
+  statusCode: number;
+  body: GetUploadCredentialsResponseBody;
+  static names(): { [key: string]: string } {
+    return {
+      headers: 'headers',
+      statusCode: 'statusCode',
+      body: 'body',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
+      body: GetUploadCredentialsResponseBody,
     };
   }
 
@@ -2295,6 +2376,43 @@ export class GetServiceInstanceResponseBodyTags extends $tea.Model {
   }
 }
 
+export class GetUploadCredentialsResponseBodyData extends $tea.Model {
+  accessKeyId?: string;
+  accessKeySecret?: string;
+  bucketName?: string;
+  expireDate?: string;
+  key?: string;
+  regionId?: string;
+  securityToken?: string;
+  static names(): { [key: string]: string } {
+    return {
+      accessKeyId: 'AccessKeyId',
+      accessKeySecret: 'AccessKeySecret',
+      bucketName: 'BucketName',
+      expireDate: 'ExpireDate',
+      key: 'Key',
+      regionId: 'RegionId',
+      securityToken: 'SecurityToken',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      accessKeyId: 'string',
+      accessKeySecret: 'string',
+      bucketName: 'string',
+      expireDate: 'string',
+      key: 'string',
+      regionId: 'string',
+      securityToken: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
 export class ListArtifactVersionsResponseBodyArtifacts extends $tea.Model {
   artifactId?: string;
   artifactProperty?: string;
@@ -3258,6 +3376,10 @@ export default class Client extends OpenApi {
       query["ArtifactId"] = request.artifactId;
     }
 
+    if (!Util.isUnset(request.artifactName)) {
+      query["ArtifactName"] = request.artifactName;
+    }
+
     if (!Util.isUnset(request.artifactVersion)) {
       query["ArtifactVersion"] = request.artifactVersion;
     }
@@ -3444,6 +3566,35 @@ export default class Client extends OpenApi {
   async getServiceInstance(request: GetServiceInstanceRequest): Promise<GetServiceInstanceResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.getServiceInstanceWithOptions(request, runtime);
+  }
+
+  async getUploadCredentialsWithOptions(request: GetUploadCredentialsRequest, runtime: $Util.RuntimeOptions): Promise<GetUploadCredentialsResponse> {
+    Util.validateModel(request);
+    let query = { };
+    if (!Util.isUnset(request.fileName)) {
+      query["FileName"] = request.fileName;
+    }
+
+    let req = new $OpenApi.OpenApiRequest({
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApi.Params({
+      action: "GetUploadCredentials",
+      version: "2021-05-21",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $tea.cast<GetUploadCredentialsResponse>(await this.callApi(params, req, runtime), new GetUploadCredentialsResponse({}));
+  }
+
+  async getUploadCredentials(request: GetUploadCredentialsRequest): Promise<GetUploadCredentialsResponse> {
+    let runtime = new $Util.RuntimeOptions({ });
+    return await this.getUploadCredentialsWithOptions(request, runtime);
   }
 
   async listArtifactVersionsWithOptions(request: ListArtifactVersionsRequest, runtime: $Util.RuntimeOptions): Promise<ListArtifactVersionsResponse> {
