@@ -7171,12 +7171,14 @@ export class QueryHotelRoomDetailRequest extends $tea.Model {
   hotelId?: string;
   mac?: string;
   roomNo?: string;
+  sn?: string;
   uuid?: string;
   static names(): { [key: string]: string } {
     return {
       hotelId: 'HotelId',
       mac: 'Mac',
       roomNo: 'RoomNo',
+      sn: 'Sn',
       uuid: 'Uuid',
     };
   }
@@ -7186,6 +7188,7 @@ export class QueryHotelRoomDetailRequest extends $tea.Model {
       hotelId: 'string',
       mac: 'string',
       roomNo: 'string',
+      sn: 'string',
       uuid: 'string',
     };
   }
@@ -16093,6 +16096,10 @@ export default class Client extends OpenApi {
 
     if (!Util.isUnset(request.roomNo)) {
       body["RoomNo"] = request.roomNo;
+    }
+
+    if (!Util.isUnset(request.sn)) {
+      body["Sn"] = request.sn;
     }
 
     if (!Util.isUnset(request.uuid)) {
