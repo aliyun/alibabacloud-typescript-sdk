@@ -6741,6 +6741,191 @@ export class GroupUserSaveResponse extends $tea.Model {
   }
 }
 
+export class HotelAskingPriceHeaders extends $tea.Model {
+  commonHeaders?: { [key: string]: string };
+  xAcsBtripCorpToken?: string;
+  static names(): { [key: string]: string } {
+    return {
+      commonHeaders: 'commonHeaders',
+      xAcsBtripCorpToken: 'x-acs-btrip-corp-token',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      commonHeaders: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      xAcsBtripCorpToken: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class HotelAskingPriceRequest extends $tea.Model {
+  adultNum?: string;
+  btripUserId?: string;
+  checkInDate?: string;
+  checkOutDate?: string;
+  cityCode?: string;
+  cityName?: string;
+  dir?: number;
+  hotelStar?: string;
+  isProtocol?: boolean;
+  paymentType?: number;
+  shids?: number[];
+  sortCode?: number;
+  static names(): { [key: string]: string } {
+    return {
+      adultNum: 'adult_num',
+      btripUserId: 'btrip_user_id',
+      checkInDate: 'check_in_date',
+      checkOutDate: 'check_out_date',
+      cityCode: 'city_code',
+      cityName: 'city_name',
+      dir: 'dir',
+      hotelStar: 'hotel_star',
+      isProtocol: 'is_protocol',
+      paymentType: 'payment_type',
+      shids: 'shids',
+      sortCode: 'sort_code',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      adultNum: 'string',
+      btripUserId: 'string',
+      checkInDate: 'string',
+      checkOutDate: 'string',
+      cityCode: 'string',
+      cityName: 'string',
+      dir: 'number',
+      hotelStar: 'string',
+      isProtocol: 'boolean',
+      paymentType: 'number',
+      shids: { 'type': 'array', 'itemType': 'number' },
+      sortCode: 'number',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class HotelAskingPriceShrinkRequest extends $tea.Model {
+  adultNum?: string;
+  btripUserId?: string;
+  checkInDate?: string;
+  checkOutDate?: string;
+  cityCode?: string;
+  cityName?: string;
+  dir?: number;
+  hotelStar?: string;
+  isProtocol?: boolean;
+  paymentType?: number;
+  shidsShrink?: string;
+  sortCode?: number;
+  static names(): { [key: string]: string } {
+    return {
+      adultNum: 'adult_num',
+      btripUserId: 'btrip_user_id',
+      checkInDate: 'check_in_date',
+      checkOutDate: 'check_out_date',
+      cityCode: 'city_code',
+      cityName: 'city_name',
+      dir: 'dir',
+      hotelStar: 'hotel_star',
+      isProtocol: 'is_protocol',
+      paymentType: 'payment_type',
+      shidsShrink: 'shids',
+      sortCode: 'sort_code',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      adultNum: 'string',
+      btripUserId: 'string',
+      checkInDate: 'string',
+      checkOutDate: 'string',
+      cityCode: 'string',
+      cityName: 'string',
+      dir: 'number',
+      hotelStar: 'string',
+      isProtocol: 'boolean',
+      paymentType: 'number',
+      shidsShrink: 'string',
+      sortCode: 'number',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class HotelAskingPriceResponseBody extends $tea.Model {
+  code?: string;
+  message?: string;
+  module?: HotelAskingPriceResponseBodyModule;
+  requestId?: string;
+  success?: boolean;
+  traceId?: string;
+  static names(): { [key: string]: string } {
+    return {
+      code: 'code',
+      message: 'message',
+      module: 'module',
+      requestId: 'requestId',
+      success: 'success',
+      traceId: 'traceId',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      code: 'string',
+      message: 'string',
+      module: HotelAskingPriceResponseBodyModule,
+      requestId: 'string',
+      success: 'boolean',
+      traceId: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class HotelAskingPriceResponse extends $tea.Model {
+  headers: { [key: string]: string };
+  statusCode: number;
+  body: HotelAskingPriceResponseBody;
+  static names(): { [key: string]: string } {
+    return {
+      headers: 'headers',
+      statusCode: 'statusCode',
+      body: 'body',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
+      body: HotelAskingPriceResponseBody,
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
 export class HotelBillSettlementQueryHeaders extends $tea.Model {
   commonHeaders?: { [key: string]: string };
   xAcsBtripSoCorpToken?: string;
@@ -23450,6 +23635,62 @@ export class GroupUserSaveRequestSubCorpIdList extends $tea.Model {
   }
 }
 
+export class HotelAskingPriceResponseBodyModuleHotelAskingPriceDetails extends $tea.Model {
+  cityCode?: string;
+  hotelAddress?: string;
+  hotelCode?: string;
+  hotelName?: string;
+  isProtocol?: boolean;
+  minPrice?: number;
+  originalMinPrice?: number;
+  static names(): { [key: string]: string } {
+    return {
+      cityCode: 'city_code',
+      hotelAddress: 'hotel_address',
+      hotelCode: 'hotel_code',
+      hotelName: 'hotel_name',
+      isProtocol: 'is_protocol',
+      minPrice: 'min_price',
+      originalMinPrice: 'original_min_price',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      cityCode: 'string',
+      hotelAddress: 'string',
+      hotelCode: 'string',
+      hotelName: 'string',
+      isProtocol: 'boolean',
+      minPrice: 'number',
+      originalMinPrice: 'number',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class HotelAskingPriceResponseBodyModule extends $tea.Model {
+  hotelAskingPriceDetails?: HotelAskingPriceResponseBodyModuleHotelAskingPriceDetails[];
+  static names(): { [key: string]: string } {
+    return {
+      hotelAskingPriceDetails: 'hotel_asking_price_details',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      hotelAskingPriceDetails: { 'type': 'array', 'itemType': HotelAskingPriceResponseBodyModuleHotelAskingPriceDetails },
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
 export class HotelBillSettlementQueryResponseBodyModuleDataList extends $tea.Model {
   alipayTradeNo?: string;
   applyExtendField?: string;
@@ -34081,6 +34322,96 @@ export default class Client extends OpenApi {
     let runtime = new $Util.RuntimeOptions({ });
     let headers = new GroupUserSaveHeaders({ });
     return await this.groupUserSaveWithOptions(request, headers, runtime);
+  }
+
+  async hotelAskingPriceWithOptions(tmpReq: HotelAskingPriceRequest, headers: HotelAskingPriceHeaders, runtime: $Util.RuntimeOptions): Promise<HotelAskingPriceResponse> {
+    Util.validateModel(tmpReq);
+    let request = new HotelAskingPriceShrinkRequest({ });
+    OpenApiUtil.convert(tmpReq, request);
+    if (!Util.isUnset(tmpReq.shids)) {
+      request.shidsShrink = OpenApiUtil.arrayToStringWithSpecifiedStyle(tmpReq.shids, "shids", "json");
+    }
+
+    let query : {[key: string ]: any} = { };
+    if (!Util.isUnset(request.adultNum)) {
+      query["adult_num"] = request.adultNum;
+    }
+
+    if (!Util.isUnset(request.btripUserId)) {
+      query["btrip_user_id"] = request.btripUserId;
+    }
+
+    if (!Util.isUnset(request.checkInDate)) {
+      query["check_in_date"] = request.checkInDate;
+    }
+
+    if (!Util.isUnset(request.checkOutDate)) {
+      query["check_out_date"] = request.checkOutDate;
+    }
+
+    if (!Util.isUnset(request.cityCode)) {
+      query["city_code"] = request.cityCode;
+    }
+
+    if (!Util.isUnset(request.cityName)) {
+      query["city_name"] = request.cityName;
+    }
+
+    if (!Util.isUnset(request.dir)) {
+      query["dir"] = request.dir;
+    }
+
+    if (!Util.isUnset(request.hotelStar)) {
+      query["hotel_star"] = request.hotelStar;
+    }
+
+    if (!Util.isUnset(request.isProtocol)) {
+      query["is_protocol"] = request.isProtocol;
+    }
+
+    if (!Util.isUnset(request.paymentType)) {
+      query["payment_type"] = request.paymentType;
+    }
+
+    if (!Util.isUnset(request.shidsShrink)) {
+      query["shids"] = request.shidsShrink;
+    }
+
+    if (!Util.isUnset(request.sortCode)) {
+      query["sort_code"] = request.sortCode;
+    }
+
+    let realHeaders : {[key: string ]: string} = { };
+    if (!Util.isUnset(headers.commonHeaders)) {
+      realHeaders = headers.commonHeaders;
+    }
+
+    if (!Util.isUnset(headers.xAcsBtripCorpToken)) {
+      realHeaders["x-acs-btrip-corp-token"] = Util.toJSONString(headers.xAcsBtripCorpToken);
+    }
+
+    let req = new $OpenApi.OpenApiRequest({
+      headers: realHeaders,
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApi.Params({
+      action: "HotelAskingPrice",
+      version: "2022-05-20",
+      protocol: "HTTPS",
+      pathname: `/dtb-hotel/v1/hotels/action/asking-price`,
+      method: "GET",
+      authType: "AK",
+      style: "ROA",
+      reqBodyType: "json",
+      bodyType: "json",
+    });
+    return $tea.cast<HotelAskingPriceResponse>(await this.callApi(params, req, runtime), new HotelAskingPriceResponse({}));
+  }
+
+  async hotelAskingPrice(request: HotelAskingPriceRequest): Promise<HotelAskingPriceResponse> {
+    let runtime = new $Util.RuntimeOptions({ });
+    let headers = new HotelAskingPriceHeaders({ });
+    return await this.hotelAskingPriceWithOptions(request, headers, runtime);
   }
 
   async hotelBillSettlementQueryWithOptions(request: HotelBillSettlementQueryRequest, headers: HotelBillSettlementQueryHeaders, runtime: $Util.RuntimeOptions): Promise<HotelBillSettlementQueryResponse> {
