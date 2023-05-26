@@ -653,20 +653,36 @@ export class JobDebuggerConfig extends $tea.Model {
 export class JobElasticSpec extends $tea.Model {
   AIMasterDockerImage?: string;
   AIMasterType?: string;
+  EDPMaxParallelism?: number;
+  EDPMinParallelism?: number;
+  elasticStrategy?: string;
   enableAIMaster?: boolean;
+  enableEDP?: boolean;
   enableElasticTraining?: boolean;
+  enablePsJobElasticPS?: boolean;
   enablePsJobElasticWorker?: boolean;
+  enablePsResourceEstimate?: boolean;
   maxParallelism?: number;
   minParallelism?: number;
+  PSMaxParallelism?: number;
+  PSMinParallelism?: number;
   static names(): { [key: string]: string } {
     return {
       AIMasterDockerImage: 'AIMasterDockerImage',
       AIMasterType: 'AIMasterType',
+      EDPMaxParallelism: 'EDPMaxParallelism',
+      EDPMinParallelism: 'EDPMinParallelism',
+      elasticStrategy: 'ElasticStrategy',
       enableAIMaster: 'EnableAIMaster',
+      enableEDP: 'EnableEDP',
       enableElasticTraining: 'EnableElasticTraining',
+      enablePsJobElasticPS: 'EnablePsJobElasticPS',
       enablePsJobElasticWorker: 'EnablePsJobElasticWorker',
+      enablePsResourceEstimate: 'EnablePsResourceEstimate',
       maxParallelism: 'MaxParallelism',
       minParallelism: 'MinParallelism',
+      PSMaxParallelism: 'PSMaxParallelism',
+      PSMinParallelism: 'PSMinParallelism',
     };
   }
 
@@ -674,11 +690,19 @@ export class JobElasticSpec extends $tea.Model {
     return {
       AIMasterDockerImage: 'string',
       AIMasterType: 'string',
+      EDPMaxParallelism: 'number',
+      EDPMinParallelism: 'number',
+      elasticStrategy: 'string',
       enableAIMaster: 'boolean',
+      enableEDP: 'boolean',
       enableElasticTraining: 'boolean',
+      enablePsJobElasticPS: 'boolean',
       enablePsJobElasticWorker: 'boolean',
+      enablePsResourceEstimate: 'boolean',
       maxParallelism: 'number',
       minParallelism: 'number',
+      PSMaxParallelism: 'number',
+      PSMinParallelism: 'number',
     };
   }
 
@@ -943,6 +967,49 @@ export class NodeMetric extends $tea.Model {
     return {
       metrics: { 'type': 'array', 'itemType': Metric },
       nodeName: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class PodItem extends $tea.Model {
+  gmtCreateTime?: string;
+  gmtFinishTime?: string;
+  gmtStartTime?: string;
+  historyPods?: PodItem[];
+  ip?: string;
+  podId?: string;
+  podUid?: string;
+  status?: string;
+  type?: string;
+  static names(): { [key: string]: string } {
+    return {
+      gmtCreateTime: 'GmtCreateTime',
+      gmtFinishTime: 'GmtFinishTime',
+      gmtStartTime: 'GmtStartTime',
+      historyPods: 'HistoryPods',
+      ip: 'Ip',
+      podId: 'PodId',
+      podUid: 'PodUid',
+      status: 'Status',
+      type: 'Type',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      gmtCreateTime: 'string',
+      gmtFinishTime: 'string',
+      gmtStartTime: 'string',
+      historyPods: { 'type': 'array', 'itemType': PodItem },
+      ip: 'string',
+      podId: 'string',
+      podUid: 'string',
+      status: 'string',
+      type: 'string',
     };
   }
 
@@ -1666,6 +1733,25 @@ export class DeleteTensorboardResponse extends $tea.Model {
       headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
       statusCode: 'number',
       body: DeleteTensorboardResponseBody,
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class GetJobRequest extends $tea.Model {
+  needDetail?: boolean;
+  static names(): { [key: string]: string } {
+    return {
+      needDetail: 'NeedDetail',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      needDetail: 'boolean',
     };
   }
 
@@ -3480,9 +3566,16 @@ export default class Client extends OpenApi {
     return await this.deleteTensorboardWithOptions(TensorboardId, request, headers, runtime);
   }
 
-  async getJobWithOptions(JobId: string, headers: {[key: string ]: string}, runtime: $Util.RuntimeOptions): Promise<GetJobResponse> {
+  async getJobWithOptions(JobId: string, request: GetJobRequest, headers: {[key: string ]: string}, runtime: $Util.RuntimeOptions): Promise<GetJobResponse> {
+    Util.validateModel(request);
+    let query : {[key: string ]: any} = { };
+    if (!Util.isUnset(request.needDetail)) {
+      query["NeedDetail"] = request.needDetail;
+    }
+
     let req = new $OpenApi.OpenApiRequest({
       headers: headers,
+      query: OpenApiUtil.query(query),
     });
     let params = new $OpenApi.Params({
       action: "GetJob",
@@ -3498,10 +3591,10 @@ export default class Client extends OpenApi {
     return $tea.cast<GetJobResponse>(await this.callApi(params, req, runtime), new GetJobResponse({}));
   }
 
-  async getJob(JobId: string): Promise<GetJobResponse> {
+  async getJob(JobId: string, request: GetJobRequest): Promise<GetJobResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     let headers : {[key: string ]: string} = { };
-    return await this.getJobWithOptions(JobId, headers, runtime);
+    return await this.getJobWithOptions(JobId, request, headers, runtime);
   }
 
   async getJobEventsWithOptions(JobId: string, request: GetJobEventsRequest, headers: {[key: string ]: string}, runtime: $Util.RuntimeOptions): Promise<GetJobEventsResponse> {
