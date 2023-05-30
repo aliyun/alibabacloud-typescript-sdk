@@ -10012,11 +10012,13 @@ export class IsvRuleSaveHeaders extends $tea.Model {
 
 export class IsvRuleSaveRequest extends $tea.Model {
   bookType?: string;
+  bookuserList?: IsvRuleSaveRequestBookuserList[];
   status?: number;
   userId?: string;
   static names(): { [key: string]: string } {
     return {
       bookType: 'book_type',
+      bookuserList: 'bookuser_list',
       status: 'status',
       userId: 'user_id',
     };
@@ -10025,6 +10027,35 @@ export class IsvRuleSaveRequest extends $tea.Model {
   static types(): { [key: string]: any } {
     return {
       bookType: 'string',
+      bookuserList: { 'type': 'array', 'itemType': IsvRuleSaveRequestBookuserList },
+      status: 'number',
+      userId: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class IsvRuleSaveShrinkRequest extends $tea.Model {
+  bookType?: string;
+  bookuserListShrink?: string;
+  status?: number;
+  userId?: string;
+  static names(): { [key: string]: string } {
+    return {
+      bookType: 'book_type',
+      bookuserListShrink: 'bookuser_list',
+      status: 'status',
+      userId: 'user_id',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      bookType: 'string',
+      bookuserListShrink: 'string',
       status: 'number',
       userId: 'string',
     };
@@ -27146,6 +27177,28 @@ export class InvoiceSearchResponseBodyModule extends $tea.Model {
   }
 }
 
+export class IsvRuleSaveRequestBookuserList extends $tea.Model {
+  entityId?: string;
+  entityType?: number;
+  static names(): { [key: string]: string } {
+    return {
+      entityId: 'entity_id',
+      entityType: 'entity_type',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      entityId: 'string',
+      entityType: 'number',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
 export class IsvUserSaveRequestUserList extends $tea.Model {
   departId?: number;
   email?: string;
@@ -35890,11 +35943,21 @@ export default class Client extends OpenApi {
     return await this.invoiceSearchWithOptions(request, headers, runtime);
   }
 
-  async isvRuleSaveWithOptions(request: IsvRuleSaveRequest, headers: IsvRuleSaveHeaders, runtime: $Util.RuntimeOptions): Promise<IsvRuleSaveResponse> {
-    Util.validateModel(request);
+  async isvRuleSaveWithOptions(tmpReq: IsvRuleSaveRequest, headers: IsvRuleSaveHeaders, runtime: $Util.RuntimeOptions): Promise<IsvRuleSaveResponse> {
+    Util.validateModel(tmpReq);
+    let request = new IsvRuleSaveShrinkRequest({ });
+    OpenApiUtil.convert(tmpReq, request);
+    if (!Util.isUnset(tmpReq.bookuserList)) {
+      request.bookuserListShrink = OpenApiUtil.arrayToStringWithSpecifiedStyle(tmpReq.bookuserList, "bookuser_list", "json");
+    }
+
     let body : {[key: string ]: any} = { };
     if (!Util.isUnset(request.bookType)) {
       body["book_type"] = request.bookType;
+    }
+
+    if (!Util.isUnset(request.bookuserListShrink)) {
+      body["bookuser_list"] = request.bookuserListShrink;
     }
 
     if (!Util.isUnset(request.status)) {
