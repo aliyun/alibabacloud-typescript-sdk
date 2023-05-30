@@ -350,6 +350,229 @@ export class BatchCopyVpcFirewallControlPolicyResponse extends $tea.Model {
   }
 }
 
+export class CreateTrFirewallV2Request extends $tea.Model {
+  cenId?: string;
+  firewallDescription?: string;
+  firewallName?: string;
+  firewallSubnetCidr?: string;
+  firewallVpcCidr?: string;
+  firewallVpcId?: string;
+  firewallVswitchId?: string;
+  lang?: string;
+  regionNo?: string;
+  routeMode?: string;
+  trAttachmentMasterCidr?: string;
+  trAttachmentSlaveCidr?: string;
+  transitRouterId?: string;
+  static names(): { [key: string]: string } {
+    return {
+      cenId: 'CenId',
+      firewallDescription: 'FirewallDescription',
+      firewallName: 'FirewallName',
+      firewallSubnetCidr: 'FirewallSubnetCidr',
+      firewallVpcCidr: 'FirewallVpcCidr',
+      firewallVpcId: 'FirewallVpcId',
+      firewallVswitchId: 'FirewallVswitchId',
+      lang: 'Lang',
+      regionNo: 'RegionNo',
+      routeMode: 'RouteMode',
+      trAttachmentMasterCidr: 'TrAttachmentMasterCidr',
+      trAttachmentSlaveCidr: 'TrAttachmentSlaveCidr',
+      transitRouterId: 'TransitRouterId',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      cenId: 'string',
+      firewallDescription: 'string',
+      firewallName: 'string',
+      firewallSubnetCidr: 'string',
+      firewallVpcCidr: 'string',
+      firewallVpcId: 'string',
+      firewallVswitchId: 'string',
+      lang: 'string',
+      regionNo: 'string',
+      routeMode: 'string',
+      trAttachmentMasterCidr: 'string',
+      trAttachmentSlaveCidr: 'string',
+      transitRouterId: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class CreateTrFirewallV2ResponseBody extends $tea.Model {
+  firewallId?: string;
+  requestId?: string;
+  static names(): { [key: string]: string } {
+    return {
+      firewallId: 'FirewallId',
+      requestId: 'RequestId',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      firewallId: 'string',
+      requestId: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class CreateTrFirewallV2Response extends $tea.Model {
+  headers: { [key: string]: string };
+  statusCode: number;
+  body: CreateTrFirewallV2ResponseBody;
+  static names(): { [key: string]: string } {
+    return {
+      headers: 'headers',
+      statusCode: 'statusCode',
+      body: 'body',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
+      body: CreateTrFirewallV2ResponseBody,
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class CreateTrFirewallV2RoutePolicyRequest extends $tea.Model {
+  destCandidateList?: CreateTrFirewallV2RoutePolicyRequestDestCandidateList[];
+  firewallId?: string;
+  lang?: string;
+  policyDescription?: string;
+  policyName?: string;
+  policyType?: string;
+  srcCandidateList?: CreateTrFirewallV2RoutePolicyRequestSrcCandidateList[];
+  static names(): { [key: string]: string } {
+    return {
+      destCandidateList: 'DestCandidateList',
+      firewallId: 'FirewallId',
+      lang: 'Lang',
+      policyDescription: 'PolicyDescription',
+      policyName: 'PolicyName',
+      policyType: 'PolicyType',
+      srcCandidateList: 'SrcCandidateList',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      destCandidateList: { 'type': 'array', 'itemType': CreateTrFirewallV2RoutePolicyRequestDestCandidateList },
+      firewallId: 'string',
+      lang: 'string',
+      policyDescription: 'string',
+      policyName: 'string',
+      policyType: 'string',
+      srcCandidateList: { 'type': 'array', 'itemType': CreateTrFirewallV2RoutePolicyRequestSrcCandidateList },
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class CreateTrFirewallV2RoutePolicyShrinkRequest extends $tea.Model {
+  destCandidateListShrink?: string;
+  firewallId?: string;
+  lang?: string;
+  policyDescription?: string;
+  policyName?: string;
+  policyType?: string;
+  srcCandidateListShrink?: string;
+  static names(): { [key: string]: string } {
+    return {
+      destCandidateListShrink: 'DestCandidateList',
+      firewallId: 'FirewallId',
+      lang: 'Lang',
+      policyDescription: 'PolicyDescription',
+      policyName: 'PolicyName',
+      policyType: 'PolicyType',
+      srcCandidateListShrink: 'SrcCandidateList',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      destCandidateListShrink: 'string',
+      firewallId: 'string',
+      lang: 'string',
+      policyDescription: 'string',
+      policyName: 'string',
+      policyType: 'string',
+      srcCandidateListShrink: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class CreateTrFirewallV2RoutePolicyResponseBody extends $tea.Model {
+  requestId?: string;
+  trFirewallRoutePolicyId?: string;
+  static names(): { [key: string]: string } {
+    return {
+      requestId: 'RequestId',
+      trFirewallRoutePolicyId: 'TrFirewallRoutePolicyId',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      requestId: 'string',
+      trFirewallRoutePolicyId: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class CreateTrFirewallV2RoutePolicyResponse extends $tea.Model {
+  headers: { [key: string]: string };
+  statusCode: number;
+  body: CreateTrFirewallV2RoutePolicyResponseBody;
+  static names(): { [key: string]: string } {
+    return {
+      headers: 'headers',
+      statusCode: 'statusCode',
+      body: 'body',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
+      body: CreateTrFirewallV2RoutePolicyResponseBody,
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
 export class CreateVpcFirewallCenConfigureRequest extends $tea.Model {
   cenId?: string;
   firewallSwitch?: string;
@@ -782,6 +1005,75 @@ export class DeleteControlPolicyResponse extends $tea.Model {
   }
 }
 
+export class DeleteFirewallV2RoutePoliciesRequest extends $tea.Model {
+  firewallId?: string;
+  lang?: string;
+  trFirewallRoutePolicyId?: string;
+  static names(): { [key: string]: string } {
+    return {
+      firewallId: 'FirewallId',
+      lang: 'Lang',
+      trFirewallRoutePolicyId: 'TrFirewallRoutePolicyId',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      firewallId: 'string',
+      lang: 'string',
+      trFirewallRoutePolicyId: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class DeleteFirewallV2RoutePoliciesResponseBody extends $tea.Model {
+  requestId?: string;
+  static names(): { [key: string]: string } {
+    return {
+      requestId: 'RequestId',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      requestId: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class DeleteFirewallV2RoutePoliciesResponse extends $tea.Model {
+  headers: { [key: string]: string };
+  statusCode: number;
+  body: DeleteFirewallV2RoutePoliciesResponseBody;
+  static names(): { [key: string]: string } {
+    return {
+      headers: 'headers',
+      statusCode: 'statusCode',
+      body: 'body',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
+      body: DeleteFirewallV2RoutePoliciesResponseBody,
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
 export class DeleteInstanceMembersRequest extends $tea.Model {
   memberUids?: number[];
   static names(): { [key: string]: string } {
@@ -837,6 +1129,72 @@ export class DeleteInstanceMembersResponse extends $tea.Model {
       headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
       statusCode: 'number',
       body: DeleteInstanceMembersResponseBody,
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class DeleteTrFirewallV2Request extends $tea.Model {
+  firewallId?: string;
+  lang?: string;
+  static names(): { [key: string]: string } {
+    return {
+      firewallId: 'FirewallId',
+      lang: 'Lang',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      firewallId: 'string',
+      lang: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class DeleteTrFirewallV2ResponseBody extends $tea.Model {
+  requestId?: string;
+  static names(): { [key: string]: string } {
+    return {
+      requestId: 'RequestId',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      requestId: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class DeleteTrFirewallV2Response extends $tea.Model {
+  headers: { [key: string]: string };
+  statusCode: number;
+  body: DeleteTrFirewallV2ResponseBody;
+  static names(): { [key: string]: string } {
+    return {
+      headers: 'headers',
+      statusCode: 'statusCode',
+      body: 'body',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
+      body: DeleteTrFirewallV2ResponseBody,
     };
   }
 
@@ -1511,6 +1869,135 @@ export class DescribeInstanceMembersResponse extends $tea.Model {
   }
 }
 
+export class DescribeInternetTrafficTrendRequest extends $tea.Model {
+  direction?: string;
+  endTime?: string;
+  lang?: string;
+  sourceCode?: string;
+  sourceIp?: string;
+  srcPrivateIP?: string;
+  srcPublicIP?: string;
+  startTime?: string;
+  trafficType?: string;
+  static names(): { [key: string]: string } {
+    return {
+      direction: 'Direction',
+      endTime: 'EndTime',
+      lang: 'Lang',
+      sourceCode: 'SourceCode',
+      sourceIp: 'SourceIp',
+      srcPrivateIP: 'SrcPrivateIP',
+      srcPublicIP: 'SrcPublicIP',
+      startTime: 'StartTime',
+      trafficType: 'TrafficType',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      direction: 'string',
+      endTime: 'string',
+      lang: 'string',
+      sourceCode: 'string',
+      sourceIp: 'string',
+      srcPrivateIP: 'string',
+      srcPublicIP: 'string',
+      startTime: 'string',
+      trafficType: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class DescribeInternetTrafficTrendResponseBody extends $tea.Model {
+  avgInBps?: number;
+  avgOutBps?: number;
+  avgSession?: number;
+  avgTotalBps?: number;
+  dataList?: DescribeInternetTrafficTrendResponseBodyDataList[];
+  maxBandwidthTime?: number;
+  maxInBps?: number;
+  maxOutBps?: number;
+  maxSession?: number;
+  maxTotalBps?: number;
+  requestId?: string;
+  totalBytes?: number;
+  totalInBytes?: number;
+  totalOutBytes?: number;
+  totalSession?: number;
+  static names(): { [key: string]: string } {
+    return {
+      avgInBps: 'AvgInBps',
+      avgOutBps: 'AvgOutBps',
+      avgSession: 'AvgSession',
+      avgTotalBps: 'AvgTotalBps',
+      dataList: 'DataList',
+      maxBandwidthTime: 'MaxBandwidthTime',
+      maxInBps: 'MaxInBps',
+      maxOutBps: 'MaxOutBps',
+      maxSession: 'MaxSession',
+      maxTotalBps: 'MaxTotalBps',
+      requestId: 'RequestId',
+      totalBytes: 'TotalBytes',
+      totalInBytes: 'TotalInBytes',
+      totalOutBytes: 'TotalOutBytes',
+      totalSession: 'TotalSession',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      avgInBps: 'number',
+      avgOutBps: 'number',
+      avgSession: 'number',
+      avgTotalBps: 'number',
+      dataList: { 'type': 'array', 'itemType': DescribeInternetTrafficTrendResponseBodyDataList },
+      maxBandwidthTime: 'number',
+      maxInBps: 'number',
+      maxOutBps: 'number',
+      maxSession: 'number',
+      maxTotalBps: 'number',
+      requestId: 'string',
+      totalBytes: 'number',
+      totalInBytes: 'number',
+      totalOutBytes: 'number',
+      totalSession: 'number',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class DescribeInternetTrafficTrendResponse extends $tea.Model {
+  headers: { [key: string]: string };
+  statusCode: number;
+  body: DescribeInternetTrafficTrendResponseBody;
+  static names(): { [key: string]: string } {
+    return {
+      headers: 'headers',
+      statusCode: 'statusCode',
+      body: 'body',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
+      body: DescribeInternetTrafficTrendResponseBody,
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
 export class DescribeInvadeEventListRequest extends $tea.Model {
   assetsIP?: string;
   assetsInstanceId?: string;
@@ -2112,6 +2599,432 @@ export class DescribeRiskEventGroupResponse extends $tea.Model {
       headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
       statusCode: 'number',
       body: DescribeRiskEventGroupResponseBody,
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class DescribeTrFirewallPolicyBackUpAssociationListRequest extends $tea.Model {
+  firewallId?: string;
+  lang?: string;
+  trFirewallRoutePolicyId?: string;
+  static names(): { [key: string]: string } {
+    return {
+      firewallId: 'FirewallId',
+      lang: 'Lang',
+      trFirewallRoutePolicyId: 'TrFirewallRoutePolicyId',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      firewallId: 'string',
+      lang: 'string',
+      trFirewallRoutePolicyId: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class DescribeTrFirewallPolicyBackUpAssociationListResponseBody extends $tea.Model {
+  policyAssociationBackupConfigs?: DescribeTrFirewallPolicyBackUpAssociationListResponseBodyPolicyAssociationBackupConfigs[];
+  requestId?: string;
+  static names(): { [key: string]: string } {
+    return {
+      policyAssociationBackupConfigs: 'PolicyAssociationBackupConfigs',
+      requestId: 'RequestId',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      policyAssociationBackupConfigs: { 'type': 'array', 'itemType': DescribeTrFirewallPolicyBackUpAssociationListResponseBodyPolicyAssociationBackupConfigs },
+      requestId: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class DescribeTrFirewallPolicyBackUpAssociationListResponse extends $tea.Model {
+  headers: { [key: string]: string };
+  statusCode: number;
+  body: DescribeTrFirewallPolicyBackUpAssociationListResponseBody;
+  static names(): { [key: string]: string } {
+    return {
+      headers: 'headers',
+      statusCode: 'statusCode',
+      body: 'body',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
+      body: DescribeTrFirewallPolicyBackUpAssociationListResponseBody,
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class DescribeTrFirewallV2RoutePolicyListRequest extends $tea.Model {
+  currentPage?: number;
+  firewallId?: string;
+  lang?: string;
+  pageSize?: number;
+  static names(): { [key: string]: string } {
+    return {
+      currentPage: 'CurrentPage',
+      firewallId: 'FirewallId',
+      lang: 'Lang',
+      pageSize: 'PageSize',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      currentPage: 'number',
+      firewallId: 'string',
+      lang: 'string',
+      pageSize: 'number',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class DescribeTrFirewallV2RoutePolicyListResponseBody extends $tea.Model {
+  requestId?: string;
+  trFirewallRoutePolicies?: DescribeTrFirewallV2RoutePolicyListResponseBodyTrFirewallRoutePolicies[];
+  static names(): { [key: string]: string } {
+    return {
+      requestId: 'RequestId',
+      trFirewallRoutePolicies: 'TrFirewallRoutePolicies',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      requestId: 'string',
+      trFirewallRoutePolicies: { 'type': 'array', 'itemType': DescribeTrFirewallV2RoutePolicyListResponseBodyTrFirewallRoutePolicies },
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class DescribeTrFirewallV2RoutePolicyListResponse extends $tea.Model {
+  headers: { [key: string]: string };
+  statusCode: number;
+  body: DescribeTrFirewallV2RoutePolicyListResponseBody;
+  static names(): { [key: string]: string } {
+    return {
+      headers: 'headers',
+      statusCode: 'statusCode',
+      body: 'body',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
+      body: DescribeTrFirewallV2RoutePolicyListResponseBody,
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class DescribeTrFirewallsV2DetailRequest extends $tea.Model {
+  firewallId?: string;
+  lang?: string;
+  static names(): { [key: string]: string } {
+    return {
+      firewallId: 'FirewallId',
+      lang: 'Lang',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      firewallId: 'string',
+      lang: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class DescribeTrFirewallsV2DetailResponseBody extends $tea.Model {
+  cenId?: string;
+  firewallDescription?: string;
+  firewallEniId?: string;
+  firewallEniVpcId?: string;
+  firewallEniVswitchId?: string;
+  firewallId?: string;
+  firewallName?: string;
+  firewallStatus?: string;
+  firewallSwitchStatus?: string;
+  regionNo?: string;
+  requestId?: string;
+  routeMode?: string;
+  transitRouterId?: string;
+  static names(): { [key: string]: string } {
+    return {
+      cenId: 'CenId',
+      firewallDescription: 'FirewallDescription',
+      firewallEniId: 'FirewallEniId',
+      firewallEniVpcId: 'FirewallEniVpcId',
+      firewallEniVswitchId: 'FirewallEniVswitchId',
+      firewallId: 'FirewallId',
+      firewallName: 'FirewallName',
+      firewallStatus: 'FirewallStatus',
+      firewallSwitchStatus: 'FirewallSwitchStatus',
+      regionNo: 'RegionNo',
+      requestId: 'RequestId',
+      routeMode: 'RouteMode',
+      transitRouterId: 'TransitRouterId',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      cenId: 'string',
+      firewallDescription: 'string',
+      firewallEniId: 'string',
+      firewallEniVpcId: 'string',
+      firewallEniVswitchId: 'string',
+      firewallId: 'string',
+      firewallName: 'string',
+      firewallStatus: 'string',
+      firewallSwitchStatus: 'string',
+      regionNo: 'string',
+      requestId: 'string',
+      routeMode: 'string',
+      transitRouterId: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class DescribeTrFirewallsV2DetailResponse extends $tea.Model {
+  headers: { [key: string]: string };
+  statusCode: number;
+  body: DescribeTrFirewallsV2DetailResponseBody;
+  static names(): { [key: string]: string } {
+    return {
+      headers: 'headers',
+      statusCode: 'statusCode',
+      body: 'body',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
+      body: DescribeTrFirewallsV2DetailResponseBody,
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class DescribeTrFirewallsV2ListRequest extends $tea.Model {
+  cenId?: string;
+  currentPage?: number;
+  firewallId?: string;
+  firewallName?: string;
+  firewallSwitchStatus?: string;
+  lang?: string;
+  ownerId?: string;
+  pageSize?: number;
+  regionNo?: string;
+  routeMode?: string;
+  transitRouterId?: string;
+  static names(): { [key: string]: string } {
+    return {
+      cenId: 'CenId',
+      currentPage: 'CurrentPage',
+      firewallId: 'FirewallId',
+      firewallName: 'FirewallName',
+      firewallSwitchStatus: 'FirewallSwitchStatus',
+      lang: 'Lang',
+      ownerId: 'OwnerId',
+      pageSize: 'PageSize',
+      regionNo: 'RegionNo',
+      routeMode: 'RouteMode',
+      transitRouterId: 'TransitRouterId',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      cenId: 'string',
+      currentPage: 'number',
+      firewallId: 'string',
+      firewallName: 'string',
+      firewallSwitchStatus: 'string',
+      lang: 'string',
+      ownerId: 'string',
+      pageSize: 'number',
+      regionNo: 'string',
+      routeMode: 'string',
+      transitRouterId: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class DescribeTrFirewallsV2ListResponseBody extends $tea.Model {
+  requestId?: string;
+  totalCount?: string;
+  vpcTrFirewalls?: DescribeTrFirewallsV2ListResponseBodyVpcTrFirewalls[];
+  static names(): { [key: string]: string } {
+    return {
+      requestId: 'RequestId',
+      totalCount: 'TotalCount',
+      vpcTrFirewalls: 'VpcTrFirewalls',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      requestId: 'string',
+      totalCount: 'string',
+      vpcTrFirewalls: { 'type': 'array', 'itemType': DescribeTrFirewallsV2ListResponseBodyVpcTrFirewalls },
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class DescribeTrFirewallsV2ListResponse extends $tea.Model {
+  headers: { [key: string]: string };
+  statusCode: number;
+  body: DescribeTrFirewallsV2ListResponseBody;
+  static names(): { [key: string]: string } {
+    return {
+      headers: 'headers',
+      statusCode: 'statusCode',
+      body: 'body',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
+      body: DescribeTrFirewallsV2ListResponseBody,
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class DescribeTrFirewallsV2RouteListRequest extends $tea.Model {
+  currentPage?: string;
+  firewallId?: string;
+  lang?: string;
+  pageSize?: string;
+  trFirewallRoutePolicyId?: string;
+  static names(): { [key: string]: string } {
+    return {
+      currentPage: 'CurrentPage',
+      firewallId: 'FirewallId',
+      lang: 'Lang',
+      pageSize: 'PageSize',
+      trFirewallRoutePolicyId: 'TrFirewallRoutePolicyId',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      currentPage: 'string',
+      firewallId: 'string',
+      lang: 'string',
+      pageSize: 'string',
+      trFirewallRoutePolicyId: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class DescribeTrFirewallsV2RouteListResponseBody extends $tea.Model {
+  firewallRouteDetailList?: DescribeTrFirewallsV2RouteListResponseBodyFirewallRouteDetailList[];
+  requestId?: string;
+  static names(): { [key: string]: string } {
+    return {
+      firewallRouteDetailList: 'FirewallRouteDetailList',
+      requestId: 'RequestId',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      firewallRouteDetailList: { 'type': 'array', 'itemType': DescribeTrFirewallsV2RouteListResponseBodyFirewallRouteDetailList },
+      requestId: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class DescribeTrFirewallsV2RouteListResponse extends $tea.Model {
+  headers: { [key: string]: string };
+  statusCode: number;
+  body: DescribeTrFirewallsV2RouteListResponseBody;
+  static names(): { [key: string]: string } {
+    return {
+      headers: 'headers',
+      statusCode: 'statusCode',
+      body: 'body',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
+      body: DescribeTrFirewallsV2RouteListResponseBody,
     };
   }
 
@@ -3314,6 +4227,81 @@ export class ModifyControlPolicyPositionResponse extends $tea.Model {
   }
 }
 
+export class ModifyFirewallV2RoutePolicySwitchRequest extends $tea.Model {
+  firewallId?: string;
+  lang?: string;
+  shouldRecover?: string;
+  trFirewallRoutePolicyId?: string;
+  trFirewallRoutePolicySwitchStatus?: string;
+  static names(): { [key: string]: string } {
+    return {
+      firewallId: 'FirewallId',
+      lang: 'Lang',
+      shouldRecover: 'ShouldRecover',
+      trFirewallRoutePolicyId: 'TrFirewallRoutePolicyId',
+      trFirewallRoutePolicySwitchStatus: 'TrFirewallRoutePolicySwitchStatus',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      firewallId: 'string',
+      lang: 'string',
+      shouldRecover: 'string',
+      trFirewallRoutePolicyId: 'string',
+      trFirewallRoutePolicySwitchStatus: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class ModifyFirewallV2RoutePolicySwitchResponseBody extends $tea.Model {
+  requestId?: string;
+  static names(): { [key: string]: string } {
+    return {
+      requestId: 'RequestId',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      requestId: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class ModifyFirewallV2RoutePolicySwitchResponse extends $tea.Model {
+  headers: { [key: string]: string };
+  statusCode: number;
+  body: ModifyFirewallV2RoutePolicySwitchResponseBody;
+  static names(): { [key: string]: string } {
+    return {
+      headers: 'headers',
+      statusCode: 'statusCode',
+      body: 'body',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
+      body: ModifyFirewallV2RoutePolicySwitchResponseBody,
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
 export class ModifyInstanceMemberAttributesRequest extends $tea.Model {
   members?: ModifyInstanceMemberAttributesRequestMembers[];
   static names(): { [key: string]: string } {
@@ -3438,6 +4426,184 @@ export class ModifyPolicyAdvancedConfigResponse extends $tea.Model {
       headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
       statusCode: 'number',
       body: ModifyPolicyAdvancedConfigResponseBody,
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class ModifyTrFirewallV2ConfigurationRequest extends $tea.Model {
+  firewallId?: string;
+  firewallName?: string;
+  lang?: string;
+  static names(): { [key: string]: string } {
+    return {
+      firewallId: 'FirewallId',
+      firewallName: 'FirewallName',
+      lang: 'Lang',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      firewallId: 'string',
+      firewallName: 'string',
+      lang: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class ModifyTrFirewallV2ConfigurationResponseBody extends $tea.Model {
+  requestId?: string;
+  static names(): { [key: string]: string } {
+    return {
+      requestId: 'RequestId',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      requestId: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class ModifyTrFirewallV2ConfigurationResponse extends $tea.Model {
+  headers: { [key: string]: string };
+  statusCode: number;
+  body: ModifyTrFirewallV2ConfigurationResponseBody;
+  static names(): { [key: string]: string } {
+    return {
+      headers: 'headers',
+      statusCode: 'statusCode',
+      body: 'body',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
+      body: ModifyTrFirewallV2ConfigurationResponseBody,
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class ModifyTrFirewallV2RoutePolicyScopeRequest extends $tea.Model {
+  destCandidateList?: ModifyTrFirewallV2RoutePolicyScopeRequestDestCandidateList[];
+  firewallId?: string;
+  lang?: string;
+  srcCandidateList?: ModifyTrFirewallV2RoutePolicyScopeRequestSrcCandidateList[];
+  trFirewallRoutePolicyId?: string;
+  static names(): { [key: string]: string } {
+    return {
+      destCandidateList: 'DestCandidateList',
+      firewallId: 'FirewallId',
+      lang: 'Lang',
+      srcCandidateList: 'SrcCandidateList',
+      trFirewallRoutePolicyId: 'TrFirewallRoutePolicyId',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      destCandidateList: { 'type': 'array', 'itemType': ModifyTrFirewallV2RoutePolicyScopeRequestDestCandidateList },
+      firewallId: 'string',
+      lang: 'string',
+      srcCandidateList: { 'type': 'array', 'itemType': ModifyTrFirewallV2RoutePolicyScopeRequestSrcCandidateList },
+      trFirewallRoutePolicyId: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class ModifyTrFirewallV2RoutePolicyScopeShrinkRequest extends $tea.Model {
+  destCandidateListShrink?: string;
+  firewallId?: string;
+  lang?: string;
+  srcCandidateListShrink?: string;
+  trFirewallRoutePolicyId?: string;
+  static names(): { [key: string]: string } {
+    return {
+      destCandidateListShrink: 'DestCandidateList',
+      firewallId: 'FirewallId',
+      lang: 'Lang',
+      srcCandidateListShrink: 'SrcCandidateList',
+      trFirewallRoutePolicyId: 'TrFirewallRoutePolicyId',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      destCandidateListShrink: 'string',
+      firewallId: 'string',
+      lang: 'string',
+      srcCandidateListShrink: 'string',
+      trFirewallRoutePolicyId: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class ModifyTrFirewallV2RoutePolicyScopeResponseBody extends $tea.Model {
+  requestId?: string;
+  trFirewallRoutePolicyId?: string;
+  static names(): { [key: string]: string } {
+    return {
+      requestId: 'RequestId',
+      trFirewallRoutePolicyId: 'TrFirewallRoutePolicyId',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      requestId: 'string',
+      trFirewallRoutePolicyId: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class ModifyTrFirewallV2RoutePolicyScopeResponse extends $tea.Model {
+  headers: { [key: string]: string };
+  statusCode: number;
+  body: ModifyTrFirewallV2RoutePolicyScopeResponseBody;
+  static names(): { [key: string]: string } {
+    return {
+      headers: 'headers',
+      statusCode: 'statusCode',
+      body: 'body',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
+      body: ModifyTrFirewallV2RoutePolicyScopeResponseBody,
     };
   }
 
@@ -4396,6 +5562,50 @@ export class AddInstanceMembersRequestMembers extends $tea.Model {
   }
 }
 
+export class CreateTrFirewallV2RoutePolicyRequestDestCandidateList extends $tea.Model {
+  candidateId?: string;
+  candidateType?: string;
+  static names(): { [key: string]: string } {
+    return {
+      candidateId: 'CandidateId',
+      candidateType: 'CandidateType',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      candidateId: 'string',
+      candidateType: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class CreateTrFirewallV2RoutePolicyRequestSrcCandidateList extends $tea.Model {
+  candidateId?: string;
+  candidateType?: string;
+  static names(): { [key: string]: string } {
+    return {
+      candidateId: 'CandidateId',
+      candidateType: 'CandidateType',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      candidateId: 'string',
+      candidateType: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
 export class DescribeAddressBookResponseBodyAclsTagList extends $tea.Model {
   tagKey?: string;
   tagValue?: string;
@@ -4722,6 +5932,49 @@ export class DescribeInstanceMembersResponseBodyPageInfo extends $tea.Model {
       currentPage: 'number',
       pageSize: 'number',
       totalCount: 'number',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class DescribeInternetTrafficTrendResponseBodyDataList extends $tea.Model {
+  inBps?: number;
+  inBytes?: number;
+  inPps?: number;
+  newConn?: number;
+  outBps?: number;
+  outBytes?: number;
+  outPps?: number;
+  sessionCount?: number;
+  time?: number;
+  static names(): { [key: string]: string } {
+    return {
+      inBps: 'InBps',
+      inBytes: 'InBytes',
+      inPps: 'InPps',
+      newConn: 'NewConn',
+      outBps: 'OutBps',
+      outBytes: 'OutBytes',
+      outPps: 'OutPps',
+      sessionCount: 'SessionCount',
+      time: 'Time',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      inBps: 'number',
+      inBytes: 'number',
+      inPps: 'number',
+      newConn: 'number',
+      outBps: 'number',
+      outBytes: 'number',
+      outPps: 'number',
+      sessionCount: 'number',
+      time: 'number',
     };
   }
 
@@ -5290,6 +6543,226 @@ export class DescribeRiskEventGroupResponseBodyDataList extends $tea.Model {
       vpcDstInfo: DescribeRiskEventGroupResponseBodyDataListVpcDstInfo,
       vpcSrcInfo: DescribeRiskEventGroupResponseBodyDataListVpcSrcInfo,
       vulLevel: 'number',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class DescribeTrFirewallPolicyBackUpAssociationListResponseBodyPolicyAssociationBackupConfigs extends $tea.Model {
+  candidateId?: string;
+  candidateName?: string;
+  candidateType?: string;
+  currentRouteTableId?: string;
+  originalRouteTableId?: string;
+  static names(): { [key: string]: string } {
+    return {
+      candidateId: 'CandidateId',
+      candidateName: 'CandidateName',
+      candidateType: 'CandidateType',
+      currentRouteTableId: 'CurrentRouteTableId',
+      originalRouteTableId: 'OriginalRouteTableId',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      candidateId: 'string',
+      candidateName: 'string',
+      candidateType: 'string',
+      currentRouteTableId: 'string',
+      originalRouteTableId: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class DescribeTrFirewallV2RoutePolicyListResponseBodyTrFirewallRoutePoliciesDestCandidateList extends $tea.Model {
+  candidateId?: string;
+  candidateType?: string;
+  static names(): { [key: string]: string } {
+    return {
+      candidateId: 'CandidateId',
+      candidateType: 'CandidateType',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      candidateId: 'string',
+      candidateType: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class DescribeTrFirewallV2RoutePolicyListResponseBodyTrFirewallRoutePoliciesSrcCandidateList extends $tea.Model {
+  candidateId?: string;
+  candidateType?: string;
+  static names(): { [key: string]: string } {
+    return {
+      candidateId: 'CandidateId',
+      candidateType: 'CandidateType',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      candidateId: 'string',
+      candidateType: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class DescribeTrFirewallV2RoutePolicyListResponseBodyTrFirewallRoutePolicies extends $tea.Model {
+  destCandidateList?: DescribeTrFirewallV2RoutePolicyListResponseBodyTrFirewallRoutePoliciesDestCandidateList[];
+  policyDescription?: string;
+  policyName?: string;
+  policyStatus?: string;
+  policyType?: string;
+  srcCandidateList?: DescribeTrFirewallV2RoutePolicyListResponseBodyTrFirewallRoutePoliciesSrcCandidateList[];
+  trFirewallRoutePolicyId?: string;
+  static names(): { [key: string]: string } {
+    return {
+      destCandidateList: 'DestCandidateList',
+      policyDescription: 'PolicyDescription',
+      policyName: 'PolicyName',
+      policyStatus: 'PolicyStatus',
+      policyType: 'PolicyType',
+      srcCandidateList: 'SrcCandidateList',
+      trFirewallRoutePolicyId: 'TrFirewallRoutePolicyId',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      destCandidateList: { 'type': 'array', 'itemType': DescribeTrFirewallV2RoutePolicyListResponseBodyTrFirewallRoutePoliciesDestCandidateList },
+      policyDescription: 'string',
+      policyName: 'string',
+      policyStatus: 'string',
+      policyType: 'string',
+      srcCandidateList: { 'type': 'array', 'itemType': DescribeTrFirewallV2RoutePolicyListResponseBodyTrFirewallRoutePoliciesSrcCandidateList },
+      trFirewallRoutePolicyId: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class DescribeTrFirewallsV2ListResponseBodyVpcTrFirewallsIpsConfig extends $tea.Model {
+  basicRules?: number;
+  enableAllPatch?: number;
+  runMode?: number;
+  static names(): { [key: string]: string } {
+    return {
+      basicRules: 'BasicRules',
+      enableAllPatch: 'EnableAllPatch',
+      runMode: 'RunMode',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      basicRules: 'number',
+      enableAllPatch: 'number',
+      runMode: 'number',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class DescribeTrFirewallsV2ListResponseBodyVpcTrFirewalls extends $tea.Model {
+  cenId?: string;
+  cenName?: string;
+  firewallId?: string;
+  firewallSwitchStatus?: string;
+  ipsConfig?: DescribeTrFirewallsV2ListResponseBodyVpcTrFirewallsIpsConfig;
+  ownerId?: number;
+  precheckStatus?: string;
+  regionNo?: string;
+  regionStatus?: string;
+  resultCode?: string;
+  routeMode?: string;
+  transitRouterId?: string;
+  vpcFirewallName?: string;
+  static names(): { [key: string]: string } {
+    return {
+      cenId: 'CenId',
+      cenName: 'CenName',
+      firewallId: 'FirewallId',
+      firewallSwitchStatus: 'FirewallSwitchStatus',
+      ipsConfig: 'IpsConfig',
+      ownerId: 'OwnerId',
+      precheckStatus: 'PrecheckStatus',
+      regionNo: 'RegionNo',
+      regionStatus: 'RegionStatus',
+      resultCode: 'ResultCode',
+      routeMode: 'RouteMode',
+      transitRouterId: 'TransitRouterId',
+      vpcFirewallName: 'VpcFirewallName',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      cenId: 'string',
+      cenName: 'string',
+      firewallId: 'string',
+      firewallSwitchStatus: 'string',
+      ipsConfig: DescribeTrFirewallsV2ListResponseBodyVpcTrFirewallsIpsConfig,
+      ownerId: 'number',
+      precheckStatus: 'string',
+      regionNo: 'string',
+      regionStatus: 'string',
+      resultCode: 'string',
+      routeMode: 'string',
+      transitRouterId: 'string',
+      vpcFirewallName: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class DescribeTrFirewallsV2RouteListResponseBodyFirewallRouteDetailList extends $tea.Model {
+  trFirewallRouteDestination?: string;
+  trFirewallRouteNexthop?: string;
+  trFirewallRoutePolicyId?: string;
+  trFirewallRouteTableId?: string;
+  static names(): { [key: string]: string } {
+    return {
+      trFirewallRouteDestination: 'TrFirewallRouteDestination',
+      trFirewallRouteNexthop: 'TrFirewallRouteNexthop',
+      trFirewallRoutePolicyId: 'TrFirewallRoutePolicyId',
+      trFirewallRouteTableId: 'TrFirewallRouteTableId',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      trFirewallRouteDestination: 'string',
+      trFirewallRouteNexthop: 'string',
+      trFirewallRoutePolicyId: 'string',
+      trFirewallRouteTableId: 'string',
     };
   }
 
@@ -6278,6 +7751,50 @@ export class ModifyInstanceMemberAttributesRequestMembers extends $tea.Model {
   }
 }
 
+export class ModifyTrFirewallV2RoutePolicyScopeRequestDestCandidateList extends $tea.Model {
+  candidateId?: string;
+  candidateType?: string;
+  static names(): { [key: string]: string } {
+    return {
+      candidateId: 'CandidateId',
+      candidateType: 'CandidateType',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      candidateId: 'string',
+      candidateType: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class ModifyTrFirewallV2RoutePolicyScopeRequestSrcCandidateList extends $tea.Model {
+  candidateId?: string;
+  candidateType?: string;
+  static names(): { [key: string]: string } {
+    return {
+      candidateId: 'CandidateId',
+      candidateType: 'CandidateType',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      candidateId: 'string',
+      candidateType: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
 
 export default class Client extends OpenApi {
 
@@ -6384,7 +7901,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-    * You can call the AddControlPolicy operation to create an access control policy to allow, deny, or monitor traffic that passes through Cloud Firewall.
+    * You can call the AddControlPolicy operation to create an access control policy to allow, block, or monitor traffic that reaches Cloud Firewall.
     * ## Limits
     * You can call this operation up to 10 times per second per account. If the number of the calls per second exceeds the limit, throttling is triggered. As a result, your business may be affected. We recommend that you take note of the limit when you call this operation.
     *
@@ -6485,7 +8002,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-    * You can call the AddControlPolicy operation to create an access control policy to allow, deny, or monitor traffic that passes through Cloud Firewall.
+    * You can call the AddControlPolicy operation to create an access control policy to allow, block, or monitor traffic that reaches Cloud Firewall.
     * ## Limits
     * You can call this operation up to 10 times per second per account. If the number of the calls per second exceeds the limit, throttling is triggered. As a result, your business may be affected. We recommend that you take note of the limit when you call this operation.
     *
@@ -6605,6 +8122,146 @@ export default class Client extends OpenApi {
   async batchCopyVpcFirewallControlPolicy(request: BatchCopyVpcFirewallControlPolicyRequest): Promise<BatchCopyVpcFirewallControlPolicyResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.batchCopyVpcFirewallControlPolicyWithOptions(request, runtime);
+  }
+
+  async createTrFirewallV2WithOptions(request: CreateTrFirewallV2Request, runtime: $Util.RuntimeOptions): Promise<CreateTrFirewallV2Response> {
+    Util.validateModel(request);
+    let query = { };
+    if (!Util.isUnset(request.cenId)) {
+      query["CenId"] = request.cenId;
+    }
+
+    if (!Util.isUnset(request.firewallDescription)) {
+      query["FirewallDescription"] = request.firewallDescription;
+    }
+
+    if (!Util.isUnset(request.firewallName)) {
+      query["FirewallName"] = request.firewallName;
+    }
+
+    if (!Util.isUnset(request.firewallSubnetCidr)) {
+      query["FirewallSubnetCidr"] = request.firewallSubnetCidr;
+    }
+
+    if (!Util.isUnset(request.firewallVpcCidr)) {
+      query["FirewallVpcCidr"] = request.firewallVpcCidr;
+    }
+
+    if (!Util.isUnset(request.firewallVpcId)) {
+      query["FirewallVpcId"] = request.firewallVpcId;
+    }
+
+    if (!Util.isUnset(request.firewallVswitchId)) {
+      query["FirewallVswitchId"] = request.firewallVswitchId;
+    }
+
+    if (!Util.isUnset(request.lang)) {
+      query["Lang"] = request.lang;
+    }
+
+    if (!Util.isUnset(request.regionNo)) {
+      query["RegionNo"] = request.regionNo;
+    }
+
+    if (!Util.isUnset(request.routeMode)) {
+      query["RouteMode"] = request.routeMode;
+    }
+
+    if (!Util.isUnset(request.trAttachmentMasterCidr)) {
+      query["TrAttachmentMasterCidr"] = request.trAttachmentMasterCidr;
+    }
+
+    if (!Util.isUnset(request.trAttachmentSlaveCidr)) {
+      query["TrAttachmentSlaveCidr"] = request.trAttachmentSlaveCidr;
+    }
+
+    if (!Util.isUnset(request.transitRouterId)) {
+      query["TransitRouterId"] = request.transitRouterId;
+    }
+
+    let req = new $OpenApi.OpenApiRequest({
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApi.Params({
+      action: "CreateTrFirewallV2",
+      version: "2017-12-07",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $tea.cast<CreateTrFirewallV2Response>(await this.callApi(params, req, runtime), new CreateTrFirewallV2Response({}));
+  }
+
+  async createTrFirewallV2(request: CreateTrFirewallV2Request): Promise<CreateTrFirewallV2Response> {
+    let runtime = new $Util.RuntimeOptions({ });
+    return await this.createTrFirewallV2WithOptions(request, runtime);
+  }
+
+  async createTrFirewallV2RoutePolicyWithOptions(tmpReq: CreateTrFirewallV2RoutePolicyRequest, runtime: $Util.RuntimeOptions): Promise<CreateTrFirewallV2RoutePolicyResponse> {
+    Util.validateModel(tmpReq);
+    let request = new CreateTrFirewallV2RoutePolicyShrinkRequest({ });
+    OpenApiUtil.convert(tmpReq, request);
+    if (!Util.isUnset(tmpReq.destCandidateList)) {
+      request.destCandidateListShrink = OpenApiUtil.arrayToStringWithSpecifiedStyle(tmpReq.destCandidateList, "DestCandidateList", "json");
+    }
+
+    if (!Util.isUnset(tmpReq.srcCandidateList)) {
+      request.srcCandidateListShrink = OpenApiUtil.arrayToStringWithSpecifiedStyle(tmpReq.srcCandidateList, "SrcCandidateList", "json");
+    }
+
+    let query = { };
+    if (!Util.isUnset(request.destCandidateListShrink)) {
+      query["DestCandidateList"] = request.destCandidateListShrink;
+    }
+
+    if (!Util.isUnset(request.firewallId)) {
+      query["FirewallId"] = request.firewallId;
+    }
+
+    if (!Util.isUnset(request.lang)) {
+      query["Lang"] = request.lang;
+    }
+
+    if (!Util.isUnset(request.policyDescription)) {
+      query["PolicyDescription"] = request.policyDescription;
+    }
+
+    if (!Util.isUnset(request.policyName)) {
+      query["PolicyName"] = request.policyName;
+    }
+
+    if (!Util.isUnset(request.policyType)) {
+      query["PolicyType"] = request.policyType;
+    }
+
+    if (!Util.isUnset(request.srcCandidateListShrink)) {
+      query["SrcCandidateList"] = request.srcCandidateListShrink;
+    }
+
+    let req = new $OpenApi.OpenApiRequest({
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApi.Params({
+      action: "CreateTrFirewallV2RoutePolicy",
+      version: "2017-12-07",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $tea.cast<CreateTrFirewallV2RoutePolicyResponse>(await this.callApi(params, req, runtime), new CreateTrFirewallV2RoutePolicyResponse({}));
+  }
+
+  async createTrFirewallV2RoutePolicy(request: CreateTrFirewallV2RoutePolicyRequest): Promise<CreateTrFirewallV2RoutePolicyResponse> {
+    let runtime = new $Util.RuntimeOptions({ });
+    return await this.createTrFirewallV2RoutePolicyWithOptions(request, runtime);
   }
 
   /**
@@ -6981,6 +8638,43 @@ export default class Client extends OpenApi {
     return await this.deleteControlPolicyWithOptions(request, runtime);
   }
 
+  async deleteFirewallV2RoutePoliciesWithOptions(request: DeleteFirewallV2RoutePoliciesRequest, runtime: $Util.RuntimeOptions): Promise<DeleteFirewallV2RoutePoliciesResponse> {
+    Util.validateModel(request);
+    let query = { };
+    if (!Util.isUnset(request.firewallId)) {
+      query["FirewallId"] = request.firewallId;
+    }
+
+    if (!Util.isUnset(request.lang)) {
+      query["Lang"] = request.lang;
+    }
+
+    if (!Util.isUnset(request.trFirewallRoutePolicyId)) {
+      query["TrFirewallRoutePolicyId"] = request.trFirewallRoutePolicyId;
+    }
+
+    let req = new $OpenApi.OpenApiRequest({
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApi.Params({
+      action: "DeleteFirewallV2RoutePolicies",
+      version: "2017-12-07",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $tea.cast<DeleteFirewallV2RoutePoliciesResponse>(await this.callApi(params, req, runtime), new DeleteFirewallV2RoutePoliciesResponse({}));
+  }
+
+  async deleteFirewallV2RoutePolicies(request: DeleteFirewallV2RoutePoliciesRequest): Promise<DeleteFirewallV2RoutePoliciesResponse> {
+    let runtime = new $Util.RuntimeOptions({ });
+    return await this.deleteFirewallV2RoutePoliciesWithOptions(request, runtime);
+  }
+
   /**
     * You can call the DeleteInstanceMembers operation to remove members from Cloud Firewall. 
     * ## Limits
@@ -7025,6 +8719,39 @@ export default class Client extends OpenApi {
   async deleteInstanceMembers(request: DeleteInstanceMembersRequest): Promise<DeleteInstanceMembersResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.deleteInstanceMembersWithOptions(request, runtime);
+  }
+
+  async deleteTrFirewallV2WithOptions(request: DeleteTrFirewallV2Request, runtime: $Util.RuntimeOptions): Promise<DeleteTrFirewallV2Response> {
+    Util.validateModel(request);
+    let query = { };
+    if (!Util.isUnset(request.firewallId)) {
+      query["FirewallId"] = request.firewallId;
+    }
+
+    if (!Util.isUnset(request.lang)) {
+      query["Lang"] = request.lang;
+    }
+
+    let req = new $OpenApi.OpenApiRequest({
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApi.Params({
+      action: "DeleteTrFirewallV2",
+      version: "2017-12-07",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $tea.cast<DeleteTrFirewallV2Response>(await this.callApi(params, req, runtime), new DeleteTrFirewallV2Response({}));
+  }
+
+  async deleteTrFirewallV2(request: DeleteTrFirewallV2Request): Promise<DeleteTrFirewallV2Response> {
+    let runtime = new $Util.RuntimeOptions({ });
+    return await this.deleteTrFirewallV2WithOptions(request, runtime);
   }
 
   /**
@@ -7256,7 +8983,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-    * You can call the DescribeAssetList operation to query the assets that are protected by Cloud Firewall. 
+    * You can call the DescribeAssetList operation to query the assets that are protected by Cloud Firewall.
     * ## Limits
     * You can call this operation up to 10 times per second per account. If the number of the calls per second exceeds the limit, throttling is triggered. As a result, your business may be affected. We recommend that you take note of the limit when you call this operation.
     *
@@ -7337,7 +9064,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-    * You can call the DescribeAssetList operation to query the assets that are protected by Cloud Firewall. 
+    * You can call the DescribeAssetList operation to query the assets that are protected by Cloud Firewall.
     * ## Limits
     * You can call this operation up to 10 times per second per account. If the number of the calls per second exceeds the limit, throttling is triggered. As a result, your business may be affected. We recommend that you take note of the limit when you call this operation.
     *
@@ -7565,6 +9292,71 @@ export default class Client extends OpenApi {
   async describeInstanceMembers(request: DescribeInstanceMembersRequest): Promise<DescribeInstanceMembersResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.describeInstanceMembersWithOptions(request, runtime);
+  }
+
+  async describeInternetTrafficTrendWithOptions(request: DescribeInternetTrafficTrendRequest, runtime: $Util.RuntimeOptions): Promise<DescribeInternetTrafficTrendResponse> {
+    Util.validateModel(request);
+    let query = { };
+    if (!Util.isUnset(request.direction)) {
+      query["Direction"] = request.direction;
+    }
+
+    if (!Util.isUnset(request.endTime)) {
+      query["EndTime"] = request.endTime;
+    }
+
+    if (!Util.isUnset(request.lang)) {
+      query["Lang"] = request.lang;
+    }
+
+    if (!Util.isUnset(request.lang)) {
+      query["Lang"] = request.lang;
+    }
+
+    if (!Util.isUnset(request.sourceCode)) {
+      query["SourceCode"] = request.sourceCode;
+    }
+
+    if (!Util.isUnset(request.sourceIp)) {
+      query["SourceIp"] = request.sourceIp;
+    }
+
+    if (!Util.isUnset(request.srcPrivateIP)) {
+      query["SrcPrivateIP"] = request.srcPrivateIP;
+    }
+
+    if (!Util.isUnset(request.srcPublicIP)) {
+      query["SrcPublicIP"] = request.srcPublicIP;
+    }
+
+    if (!Util.isUnset(request.startTime)) {
+      query["StartTime"] = request.startTime;
+    }
+
+    if (!Util.isUnset(request.trafficType)) {
+      query["TrafficType"] = request.trafficType;
+    }
+
+    let req = new $OpenApi.OpenApiRequest({
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApi.Params({
+      action: "DescribeInternetTrafficTrend",
+      version: "2017-12-07",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $tea.cast<DescribeInternetTrafficTrendResponse>(await this.callApi(params, req, runtime), new DescribeInternetTrafficTrendResponse({}));
+  }
+
+  async describeInternetTrafficTrend(request: DescribeInternetTrafficTrendRequest): Promise<DescribeInternetTrafficTrendResponse> {
+    let runtime = new $Util.RuntimeOptions({ });
+    return await this.describeInternetTrafficTrendWithOptions(request, runtime);
   }
 
   async describeInvadeEventListWithOptions(request: DescribeInvadeEventListRequest, runtime: $Util.RuntimeOptions): Promise<DescribeInvadeEventListResponse> {
@@ -8052,6 +9844,231 @@ export default class Client extends OpenApi {
     return await this.describeRiskEventGroupWithOptions(request, runtime);
   }
 
+  async describeTrFirewallPolicyBackUpAssociationListWithOptions(request: DescribeTrFirewallPolicyBackUpAssociationListRequest, runtime: $Util.RuntimeOptions): Promise<DescribeTrFirewallPolicyBackUpAssociationListResponse> {
+    Util.validateModel(request);
+    let query = { };
+    if (!Util.isUnset(request.firewallId)) {
+      query["FirewallId"] = request.firewallId;
+    }
+
+    if (!Util.isUnset(request.lang)) {
+      query["Lang"] = request.lang;
+    }
+
+    if (!Util.isUnset(request.trFirewallRoutePolicyId)) {
+      query["TrFirewallRoutePolicyId"] = request.trFirewallRoutePolicyId;
+    }
+
+    let req = new $OpenApi.OpenApiRequest({
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApi.Params({
+      action: "DescribeTrFirewallPolicyBackUpAssociationList",
+      version: "2017-12-07",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $tea.cast<DescribeTrFirewallPolicyBackUpAssociationListResponse>(await this.callApi(params, req, runtime), new DescribeTrFirewallPolicyBackUpAssociationListResponse({}));
+  }
+
+  async describeTrFirewallPolicyBackUpAssociationList(request: DescribeTrFirewallPolicyBackUpAssociationListRequest): Promise<DescribeTrFirewallPolicyBackUpAssociationListResponse> {
+    let runtime = new $Util.RuntimeOptions({ });
+    return await this.describeTrFirewallPolicyBackUpAssociationListWithOptions(request, runtime);
+  }
+
+  async describeTrFirewallV2RoutePolicyListWithOptions(request: DescribeTrFirewallV2RoutePolicyListRequest, runtime: $Util.RuntimeOptions): Promise<DescribeTrFirewallV2RoutePolicyListResponse> {
+    Util.validateModel(request);
+    let query = { };
+    if (!Util.isUnset(request.currentPage)) {
+      query["CurrentPage"] = request.currentPage;
+    }
+
+    if (!Util.isUnset(request.firewallId)) {
+      query["FirewallId"] = request.firewallId;
+    }
+
+    if (!Util.isUnset(request.lang)) {
+      query["Lang"] = request.lang;
+    }
+
+    if (!Util.isUnset(request.pageSize)) {
+      query["PageSize"] = request.pageSize;
+    }
+
+    let req = new $OpenApi.OpenApiRequest({
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApi.Params({
+      action: "DescribeTrFirewallV2RoutePolicyList",
+      version: "2017-12-07",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $tea.cast<DescribeTrFirewallV2RoutePolicyListResponse>(await this.callApi(params, req, runtime), new DescribeTrFirewallV2RoutePolicyListResponse({}));
+  }
+
+  async describeTrFirewallV2RoutePolicyList(request: DescribeTrFirewallV2RoutePolicyListRequest): Promise<DescribeTrFirewallV2RoutePolicyListResponse> {
+    let runtime = new $Util.RuntimeOptions({ });
+    return await this.describeTrFirewallV2RoutePolicyListWithOptions(request, runtime);
+  }
+
+  async describeTrFirewallsV2DetailWithOptions(request: DescribeTrFirewallsV2DetailRequest, runtime: $Util.RuntimeOptions): Promise<DescribeTrFirewallsV2DetailResponse> {
+    Util.validateModel(request);
+    let query = { };
+    if (!Util.isUnset(request.firewallId)) {
+      query["FirewallId"] = request.firewallId;
+    }
+
+    if (!Util.isUnset(request.lang)) {
+      query["Lang"] = request.lang;
+    }
+
+    let req = new $OpenApi.OpenApiRequest({
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApi.Params({
+      action: "DescribeTrFirewallsV2Detail",
+      version: "2017-12-07",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $tea.cast<DescribeTrFirewallsV2DetailResponse>(await this.callApi(params, req, runtime), new DescribeTrFirewallsV2DetailResponse({}));
+  }
+
+  async describeTrFirewallsV2Detail(request: DescribeTrFirewallsV2DetailRequest): Promise<DescribeTrFirewallsV2DetailResponse> {
+    let runtime = new $Util.RuntimeOptions({ });
+    return await this.describeTrFirewallsV2DetailWithOptions(request, runtime);
+  }
+
+  async describeTrFirewallsV2ListWithOptions(request: DescribeTrFirewallsV2ListRequest, runtime: $Util.RuntimeOptions): Promise<DescribeTrFirewallsV2ListResponse> {
+    Util.validateModel(request);
+    let query = { };
+    if (!Util.isUnset(request.cenId)) {
+      query["CenId"] = request.cenId;
+    }
+
+    if (!Util.isUnset(request.currentPage)) {
+      query["CurrentPage"] = request.currentPage;
+    }
+
+    if (!Util.isUnset(request.firewallId)) {
+      query["FirewallId"] = request.firewallId;
+    }
+
+    if (!Util.isUnset(request.firewallName)) {
+      query["FirewallName"] = request.firewallName;
+    }
+
+    if (!Util.isUnset(request.firewallSwitchStatus)) {
+      query["FirewallSwitchStatus"] = request.firewallSwitchStatus;
+    }
+
+    if (!Util.isUnset(request.lang)) {
+      query["Lang"] = request.lang;
+    }
+
+    if (!Util.isUnset(request.ownerId)) {
+      query["OwnerId"] = request.ownerId;
+    }
+
+    if (!Util.isUnset(request.pageSize)) {
+      query["PageSize"] = request.pageSize;
+    }
+
+    if (!Util.isUnset(request.regionNo)) {
+      query["RegionNo"] = request.regionNo;
+    }
+
+    if (!Util.isUnset(request.routeMode)) {
+      query["RouteMode"] = request.routeMode;
+    }
+
+    if (!Util.isUnset(request.transitRouterId)) {
+      query["TransitRouterId"] = request.transitRouterId;
+    }
+
+    let req = new $OpenApi.OpenApiRequest({
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApi.Params({
+      action: "DescribeTrFirewallsV2List",
+      version: "2017-12-07",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $tea.cast<DescribeTrFirewallsV2ListResponse>(await this.callApi(params, req, runtime), new DescribeTrFirewallsV2ListResponse({}));
+  }
+
+  async describeTrFirewallsV2List(request: DescribeTrFirewallsV2ListRequest): Promise<DescribeTrFirewallsV2ListResponse> {
+    let runtime = new $Util.RuntimeOptions({ });
+    return await this.describeTrFirewallsV2ListWithOptions(request, runtime);
+  }
+
+  async describeTrFirewallsV2RouteListWithOptions(request: DescribeTrFirewallsV2RouteListRequest, runtime: $Util.RuntimeOptions): Promise<DescribeTrFirewallsV2RouteListResponse> {
+    Util.validateModel(request);
+    let query = { };
+    if (!Util.isUnset(request.currentPage)) {
+      query["CurrentPage"] = request.currentPage;
+    }
+
+    if (!Util.isUnset(request.firewallId)) {
+      query["FirewallId"] = request.firewallId;
+    }
+
+    if (!Util.isUnset(request.lang)) {
+      query["Lang"] = request.lang;
+    }
+
+    if (!Util.isUnset(request.pageSize)) {
+      query["PageSize"] = request.pageSize;
+    }
+
+    if (!Util.isUnset(request.trFirewallRoutePolicyId)) {
+      query["TrFirewallRoutePolicyId"] = request.trFirewallRoutePolicyId;
+    }
+
+    let req = new $OpenApi.OpenApiRequest({
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApi.Params({
+      action: "DescribeTrFirewallsV2RouteList",
+      version: "2017-12-07",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $tea.cast<DescribeTrFirewallsV2RouteListResponse>(await this.callApi(params, req, runtime), new DescribeTrFirewallsV2RouteListResponse({}));
+  }
+
+  async describeTrFirewallsV2RouteList(request: DescribeTrFirewallsV2RouteListRequest): Promise<DescribeTrFirewallsV2RouteListResponse> {
+    let runtime = new $Util.RuntimeOptions({ });
+    return await this.describeTrFirewallsV2RouteListWithOptions(request, runtime);
+  }
+
   async describeUserAssetIPTrafficInfoWithOptions(request: DescribeUserAssetIPTrafficInfoRequest, runtime: $Util.RuntimeOptions): Promise<DescribeUserAssetIPTrafficInfoResponse> {
     Util.validateModel(request);
     let query = OpenApiUtil.query(Util.toMap(request));
@@ -8296,7 +10313,9 @@ export default class Client extends OpenApi {
   }
 
   /**
-    * You can call the DescribeVpcFirewallControlPolicy operation to query the details of all access control policies that are created for a specified VPC firewall. Different access control policies are used when a VPC firewall is used to protect traffic between two VPCs that are connected by using a Cloud Enterprise Network (CEN) instance or an Express Connect circuit.
+    * You can call the DescribeVpcFirewallControlPolicy operation to query the information about all access control policies that are created for a specified VPC firewall. Different access control policies are used when a VPC firewall is used to protect traffic between two VPCs that are connected by using a Cloud Enterprise Network (CEN) instance or an Express Connect circuit.
+    * ## Limits
+    * You can call this operation up to 10 times per second per account. If the number of the calls per second exceeds the limit, throttling is triggered. As a result, your business may be affected. We recommend that you take note of the limit when you call this operation.
     *
     * @param request DescribeVpcFirewallControlPolicyRequest
     * @param runtime runtime options for this request RuntimeOptions
@@ -8371,7 +10390,9 @@ export default class Client extends OpenApi {
   }
 
   /**
-    * You can call the DescribeVpcFirewallControlPolicy operation to query the details of all access control policies that are created for a specified VPC firewall. Different access control policies are used when a VPC firewall is used to protect traffic between two VPCs that are connected by using a Cloud Enterprise Network (CEN) instance or an Express Connect circuit.
+    * You can call the DescribeVpcFirewallControlPolicy operation to query the information about all access control policies that are created for a specified VPC firewall. Different access control policies are used when a VPC firewall is used to protect traffic between two VPCs that are connected by using a Cloud Enterprise Network (CEN) instance or an Express Connect circuit.
+    * ## Limits
+    * You can call this operation up to 10 times per second per account. If the number of the calls per second exceeds the limit, throttling is triggered. As a result, your business may be affected. We recommend that you take note of the limit when you call this operation.
     *
     * @param request DescribeVpcFirewallControlPolicyRequest
     * @return DescribeVpcFirewallControlPolicyResponse
@@ -8497,8 +10518,8 @@ export default class Client extends OpenApi {
 
   /**
     * You can call the DescribeVpcFirewallList operation to query the details about VPC firewalls by page. Each VPC firewall protects traffic between two VPCs that are connected by using an Express Connect circuit.
-    * ## Limits
-    * You can call this operation up to 10 times per second per account. If the number of the calls per second exceeds the limit, throttling is triggered. As a result, your business may be affected. We recommend that you take note of the limit when you call this operation.
+    * ### Limits
+    * You can call this operation up to 10 times per second per account. If the number of calls per second exceeds the limit, throttling is triggered. As a result, your business may be affected. We recommend that you take note of the limit when you call this operation.
     *
     * @param request DescribeVpcFirewallListRequest
     * @param runtime runtime options for this request RuntimeOptions
@@ -8574,8 +10595,8 @@ export default class Client extends OpenApi {
 
   /**
     * You can call the DescribeVpcFirewallList operation to query the details about VPC firewalls by page. Each VPC firewall protects traffic between two VPCs that are connected by using an Express Connect circuit.
-    * ## Limits
-    * You can call this operation up to 10 times per second per account. If the number of the calls per second exceeds the limit, throttling is triggered. As a result, your business may be affected. We recommend that you take note of the limit when you call this operation.
+    * ### Limits
+    * You can call this operation up to 10 times per second per account. If the number of calls per second exceeds the limit, throttling is triggered. As a result, your business may be affected. We recommend that you take note of the limit when you call this operation.
     *
     * @param request DescribeVpcFirewallListRequest
     * @return DescribeVpcFirewallListResponse
@@ -8978,6 +10999,51 @@ export default class Client extends OpenApi {
     return await this.modifyControlPolicyPositionWithOptions(request, runtime);
   }
 
+  async modifyFirewallV2RoutePolicySwitchWithOptions(request: ModifyFirewallV2RoutePolicySwitchRequest, runtime: $Util.RuntimeOptions): Promise<ModifyFirewallV2RoutePolicySwitchResponse> {
+    Util.validateModel(request);
+    let query = { };
+    if (!Util.isUnset(request.firewallId)) {
+      query["FirewallId"] = request.firewallId;
+    }
+
+    if (!Util.isUnset(request.lang)) {
+      query["Lang"] = request.lang;
+    }
+
+    if (!Util.isUnset(request.shouldRecover)) {
+      query["ShouldRecover"] = request.shouldRecover;
+    }
+
+    if (!Util.isUnset(request.trFirewallRoutePolicyId)) {
+      query["TrFirewallRoutePolicyId"] = request.trFirewallRoutePolicyId;
+    }
+
+    if (!Util.isUnset(request.trFirewallRoutePolicySwitchStatus)) {
+      query["TrFirewallRoutePolicySwitchStatus"] = request.trFirewallRoutePolicySwitchStatus;
+    }
+
+    let req = new $OpenApi.OpenApiRequest({
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApi.Params({
+      action: "ModifyFirewallV2RoutePolicySwitch",
+      version: "2017-12-07",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $tea.cast<ModifyFirewallV2RoutePolicySwitchResponse>(await this.callApi(params, req, runtime), new ModifyFirewallV2RoutePolicySwitchResponse({}));
+  }
+
+  async modifyFirewallV2RoutePolicySwitch(request: ModifyFirewallV2RoutePolicySwitchRequest): Promise<ModifyFirewallV2RoutePolicySwitchResponse> {
+    let runtime = new $Util.RuntimeOptions({ });
+    return await this.modifyFirewallV2RoutePolicySwitchWithOptions(request, runtime);
+  }
+
   /**
     * You can call the ModifyInstanceMemberAttributes operation to update the information about members in Cloud Firewall.  
     * ## Limits
@@ -9076,6 +11142,98 @@ export default class Client extends OpenApi {
   async modifyPolicyAdvancedConfig(request: ModifyPolicyAdvancedConfigRequest): Promise<ModifyPolicyAdvancedConfigResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.modifyPolicyAdvancedConfigWithOptions(request, runtime);
+  }
+
+  async modifyTrFirewallV2ConfigurationWithOptions(request: ModifyTrFirewallV2ConfigurationRequest, runtime: $Util.RuntimeOptions): Promise<ModifyTrFirewallV2ConfigurationResponse> {
+    Util.validateModel(request);
+    let query = { };
+    if (!Util.isUnset(request.firewallId)) {
+      query["FirewallId"] = request.firewallId;
+    }
+
+    if (!Util.isUnset(request.firewallName)) {
+      query["FirewallName"] = request.firewallName;
+    }
+
+    if (!Util.isUnset(request.lang)) {
+      query["Lang"] = request.lang;
+    }
+
+    let req = new $OpenApi.OpenApiRequest({
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApi.Params({
+      action: "ModifyTrFirewallV2Configuration",
+      version: "2017-12-07",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $tea.cast<ModifyTrFirewallV2ConfigurationResponse>(await this.callApi(params, req, runtime), new ModifyTrFirewallV2ConfigurationResponse({}));
+  }
+
+  async modifyTrFirewallV2Configuration(request: ModifyTrFirewallV2ConfigurationRequest): Promise<ModifyTrFirewallV2ConfigurationResponse> {
+    let runtime = new $Util.RuntimeOptions({ });
+    return await this.modifyTrFirewallV2ConfigurationWithOptions(request, runtime);
+  }
+
+  async modifyTrFirewallV2RoutePolicyScopeWithOptions(tmpReq: ModifyTrFirewallV2RoutePolicyScopeRequest, runtime: $Util.RuntimeOptions): Promise<ModifyTrFirewallV2RoutePolicyScopeResponse> {
+    Util.validateModel(tmpReq);
+    let request = new ModifyTrFirewallV2RoutePolicyScopeShrinkRequest({ });
+    OpenApiUtil.convert(tmpReq, request);
+    if (!Util.isUnset(tmpReq.destCandidateList)) {
+      request.destCandidateListShrink = OpenApiUtil.arrayToStringWithSpecifiedStyle(tmpReq.destCandidateList, "DestCandidateList", "json");
+    }
+
+    if (!Util.isUnset(tmpReq.srcCandidateList)) {
+      request.srcCandidateListShrink = OpenApiUtil.arrayToStringWithSpecifiedStyle(tmpReq.srcCandidateList, "SrcCandidateList", "json");
+    }
+
+    let query = { };
+    if (!Util.isUnset(request.destCandidateListShrink)) {
+      query["DestCandidateList"] = request.destCandidateListShrink;
+    }
+
+    if (!Util.isUnset(request.firewallId)) {
+      query["FirewallId"] = request.firewallId;
+    }
+
+    if (!Util.isUnset(request.lang)) {
+      query["Lang"] = request.lang;
+    }
+
+    if (!Util.isUnset(request.srcCandidateListShrink)) {
+      query["SrcCandidateList"] = request.srcCandidateListShrink;
+    }
+
+    if (!Util.isUnset(request.trFirewallRoutePolicyId)) {
+      query["TrFirewallRoutePolicyId"] = request.trFirewallRoutePolicyId;
+    }
+
+    let req = new $OpenApi.OpenApiRequest({
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApi.Params({
+      action: "ModifyTrFirewallV2RoutePolicyScope",
+      version: "2017-12-07",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $tea.cast<ModifyTrFirewallV2RoutePolicyScopeResponse>(await this.callApi(params, req, runtime), new ModifyTrFirewallV2RoutePolicyScopeResponse({}));
+  }
+
+  async modifyTrFirewallV2RoutePolicyScope(request: ModifyTrFirewallV2RoutePolicyScopeRequest): Promise<ModifyTrFirewallV2RoutePolicyScopeResponse> {
+    let runtime = new $Util.RuntimeOptions({ });
+    return await this.modifyTrFirewallV2RoutePolicyScopeWithOptions(request, runtime);
   }
 
   /**
@@ -9263,7 +11421,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-    * You can call the ModifyVpcFirewallControlPolicy operation to modify the configurations of an access control policy that is created for a VPC firewall in a specific policy group. Different access control policies are used for the VPC firewall that is used to protect each Cloud Enterprise Network (CEN) instance and the VPC firewall that is used to protect each Express Connect circuit.  
+    * You can call the ModifyVpcFirewallControlPolicy operation to modify the configurations of an access control policy that is created for a VPC firewall in a specified policy group. Different access control policies are used for the VPC firewalls that are used to protect each Cloud Enterprise Network (CEN) instance and the VPC firewalls that are used to protect each Express Connect circuit.
     * ## Limits
     * You can call this operation up to 10 times per second per account. If the number of the calls per second exceeds the limit, throttling is triggered. As a result, your business may be affected. We recommend that you take note of the limit when you call this operation.
     *
@@ -9352,7 +11510,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-    * You can call the ModifyVpcFirewallControlPolicy operation to modify the configurations of an access control policy that is created for a VPC firewall in a specific policy group. Different access control policies are used for the VPC firewall that is used to protect each Cloud Enterprise Network (CEN) instance and the VPC firewall that is used to protect each Express Connect circuit.  
+    * You can call the ModifyVpcFirewallControlPolicy operation to modify the configurations of an access control policy that is created for a VPC firewall in a specified policy group. Different access control policies are used for the VPC firewalls that are used to protect each Cloud Enterprise Network (CEN) instance and the VPC firewalls that are used to protect each Express Connect circuit.
     * ## Limits
     * You can call this operation up to 10 times per second per account. If the number of the calls per second exceeds the limit, throttling is triggered. As a result, your business may be affected. We recommend that you take note of the limit when you call this operation.
     *
