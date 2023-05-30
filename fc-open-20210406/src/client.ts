@@ -4751,6 +4751,7 @@ export class InvokeFunctionHeaders extends $tea.Model {
   xFcDate?: string;
   xFcInvocationType?: string;
   xFcLogType?: string;
+  xFcStatefulAsyncInvocationEnable?: string;
   xFcStatefulAsyncInvocationId?: string;
   xFcTraceId?: string;
   static names(): { [key: string]: string } {
@@ -4760,6 +4761,7 @@ export class InvokeFunctionHeaders extends $tea.Model {
       xFcDate: 'X-Fc-Date',
       xFcInvocationType: 'X-Fc-Invocation-Type',
       xFcLogType: 'X-Fc-Log-Type',
+      xFcStatefulAsyncInvocationEnable: 'X-Fc-Stateful-Async-Invocation-Enable',
       xFcStatefulAsyncInvocationId: 'X-Fc-Stateful-Async-Invocation-Id',
       xFcTraceId: 'X-Fc-Trace-Id',
     };
@@ -4772,6 +4774,7 @@ export class InvokeFunctionHeaders extends $tea.Model {
       xFcDate: 'string',
       xFcInvocationType: 'string',
       xFcLogType: 'string',
+      xFcStatefulAsyncInvocationEnable: 'string',
       xFcStatefulAsyncInvocationId: 'string',
       xFcTraceId: 'string',
     };
@@ -10194,14 +10197,6 @@ export default class Client extends OpenApi {
     return await this.getFunctionWithOptions(serviceName, functionName, request, headers, runtime);
   }
 
-  /**
-    * StatefulAsyncInvocation indicates whether the asynchronous task feature is enabled. If the value of StatefulAsyncInvocation is true, the asynchronous task feature is enabled. All asynchronous invocations change to asynchronous task mode.
-    *
-    * @param request GetFunctionAsyncInvokeConfigRequest
-    * @param headers GetFunctionAsyncInvokeConfigHeaders
-    * @param runtime runtime options for this request RuntimeOptions
-    * @return GetFunctionAsyncInvokeConfigResponse
-   */
   async getFunctionAsyncInvokeConfigWithOptions(serviceName: string, functionName: string, request: GetFunctionAsyncInvokeConfigRequest, headers: GetFunctionAsyncInvokeConfigHeaders, runtime: $Util.RuntimeOptions): Promise<GetFunctionAsyncInvokeConfigResponse> {
     Util.validateModel(request);
     let query : {[key: string ]: any} = { };
@@ -10244,12 +10239,6 @@ export default class Client extends OpenApi {
     return $tea.cast<GetFunctionAsyncInvokeConfigResponse>(await this.callApi(params, req, runtime), new GetFunctionAsyncInvokeConfigResponse({}));
   }
 
-  /**
-    * StatefulAsyncInvocation indicates whether the asynchronous task feature is enabled. If the value of StatefulAsyncInvocation is true, the asynchronous task feature is enabled. All asynchronous invocations change to asynchronous task mode.
-    *
-    * @param request GetFunctionAsyncInvokeConfigRequest
-    * @return GetFunctionAsyncInvokeConfigResponse
-   */
   async getFunctionAsyncInvokeConfig(serviceName: string, functionName: string, request: GetFunctionAsyncInvokeConfigRequest): Promise<GetFunctionAsyncInvokeConfigResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     let headers = new GetFunctionAsyncInvokeConfigHeaders({ });
@@ -10538,7 +10527,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-    * StatefulAsyncInvocation: asynchronous task. Asynchronous tasks allow you to manage the states on the basis of common asynchronous invocations, which is more suitable for task scenarios.
+    * The version or alias of the service to which the asynchronous task belongs.
     *
     * @param request GetStatefulAsyncInvocationRequest
     * @param headers GetStatefulAsyncInvocationHeaders
@@ -10600,7 +10589,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-    * StatefulAsyncInvocation: asynchronous task. Asynchronous tasks allow you to manage the states on the basis of common asynchronous invocations, which is more suitable for task scenarios.
+    * The version or alias of the service to which the asynchronous task belongs.
     *
     * @param request GetStatefulAsyncInvocationRequest
     * @return GetStatefulAsyncInvocationResponse
@@ -10683,6 +10672,10 @@ export default class Client extends OpenApi {
 
     if (!Util.isUnset(headers.xFcLogType)) {
       realHeaders["X-Fc-Log-Type"] = Util.toJSONString(headers.xFcLogType);
+    }
+
+    if (!Util.isUnset(headers.xFcStatefulAsyncInvocationEnable)) {
+      realHeaders["X-Fc-Stateful-Async-Invocation-Enable"] = Util.toJSONString(headers.xFcStatefulAsyncInvocationEnable);
     }
 
     if (!Util.isUnset(headers.xFcStatefulAsyncInvocationId)) {
@@ -10886,14 +10879,6 @@ export default class Client extends OpenApi {
     return await this.listEventSourcesWithOptions(serviceName, functionName, request, headers, runtime);
   }
 
-  /**
-    * StatefulAsyncInvocation indicates whether the asynchronous task feature is enabled. If StatefulAsyncInvocation is set to true, the asynchronous task is enabled. All asynchronous invocations to the function corresponding to this configuration change to asynchronous task mode.
-    *
-    * @param request ListFunctionAsyncInvokeConfigsRequest
-    * @param headers ListFunctionAsyncInvokeConfigsHeaders
-    * @param runtime runtime options for this request RuntimeOptions
-    * @return ListFunctionAsyncInvokeConfigsResponse
-   */
   async listFunctionAsyncInvokeConfigsWithOptions(serviceName: string, functionName: string, request: ListFunctionAsyncInvokeConfigsRequest, headers: ListFunctionAsyncInvokeConfigsHeaders, runtime: $Util.RuntimeOptions): Promise<ListFunctionAsyncInvokeConfigsResponse> {
     Util.validateModel(request);
     let query : {[key: string ]: any} = { };
@@ -10952,12 +10937,6 @@ export default class Client extends OpenApi {
     return $tea.cast<ListFunctionAsyncInvokeConfigsResponse>(await this.callApi(params, req, runtime), new ListFunctionAsyncInvokeConfigsResponse({}));
   }
 
-  /**
-    * StatefulAsyncInvocation indicates whether the asynchronous task feature is enabled. If StatefulAsyncInvocation is set to true, the asynchronous task is enabled. All asynchronous invocations to the function corresponding to this configuration change to asynchronous task mode.
-    *
-    * @param request ListFunctionAsyncInvokeConfigsRequest
-    * @return ListFunctionAsyncInvokeConfigsResponse
-   */
   async listFunctionAsyncInvokeConfigs(serviceName: string, functionName: string, request: ListFunctionAsyncInvokeConfigsRequest): Promise<ListFunctionAsyncInvokeConfigsResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     let headers = new ListFunctionAsyncInvokeConfigsHeaders({ });
@@ -11029,8 +11008,8 @@ export default class Client extends OpenApi {
   }
 
   /**
-    * The ListInstances operation allows you to query the available instances of a function.
-    * Available instances are instances that are processing requests or can be scheduled to process requests. Available instances queried by the ListInstances operation are the same as those that can be used when you call the InvokeFunction operation with the same values specified for the `serviceName`, `functionName`, and `qualifier` parameters.
+    * The maximum number of resources to return. Valid values: \\[0,1000].
+    * The number of returned resources is less than or equal to the specified number.
     *
     * @param request ListInstancesRequest
     * @param headers ListInstancesHeaders
@@ -11080,8 +11059,8 @@ export default class Client extends OpenApi {
   }
 
   /**
-    * The ListInstances operation allows you to query the available instances of a function.
-    * Available instances are instances that are processing requests or can be scheduled to process requests. Available instances queried by the ListInstances operation are the same as those that can be used when you call the InvokeFunction operation with the same values specified for the `serviceName`, `functionName`, and `qualifier` parameters.
+    * The maximum number of resources to return. Valid values: \\[0,1000].
+    * The number of returned resources is less than or equal to the specified number.
     *
     * @param request ListInstancesRequest
     * @return ListInstancesResponse
@@ -11505,7 +11484,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-    * StatefulAsyncInvocation: asynchronous task. Asynchronous tasks allow you to manage the states on the basis of common asynchronous invocations, which is more suitable for task scenarios.
+    * The metadata of the service and function to which the asynchronous task belongs.
     *
     * @param request ListStatefulAsyncInvocationFunctionsRequest
     * @param headers ListStatefulAsyncInvocationFunctionsHeaders
@@ -11559,7 +11538,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-    * StatefulAsyncInvocation: asynchronous task. Asynchronous tasks allow you to manage the states on the basis of common asynchronous invocations, which is more suitable for task scenarios.
+    * The metadata of the service and function to which the asynchronous task belongs.
     *
     * @param request ListStatefulAsyncInvocationFunctionsRequest
     * @return ListStatefulAsyncInvocationFunctionsResponse
@@ -11571,7 +11550,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-    * StatefulAsyncInvocation: asynchronous task. Asynchronous tasks allow you to manage the states on the basis of common asynchronous invocations, which is more suitable for task scenarios.
+    * The name of the service to which the asynchronous task belongs.
     *
     * @param request ListStatefulAsyncInvocationsRequest
     * @param headers ListStatefulAsyncInvocationsHeaders
@@ -11665,7 +11644,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-    * StatefulAsyncInvocation: asynchronous task. Asynchronous tasks allow you to manage the states on the basis of common asynchronous invocations, which is more suitable for task scenarios.
+    * The name of the service to which the asynchronous task belongs.
     *
     * @param request ListStatefulAsyncInvocationsRequest
     * @return ListStatefulAsyncInvocationsResponse
@@ -11882,7 +11861,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-    * StatefulAsyncInvocation specifies the configurations of the asynchronous task. Asynchronous tasks allow you to manage the states on the basis of common asynchronous invocations, which is more suitable for task scenarios.
+    * The maximum validity period of messages.
     *
     * @param request PutFunctionAsyncInvokeConfigRequest
     * @param headers PutFunctionAsyncInvokeConfigHeaders
@@ -11950,7 +11929,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-    * StatefulAsyncInvocation specifies the configurations of the asynchronous task. Asynchronous tasks allow you to manage the states on the basis of common asynchronous invocations, which is more suitable for task scenarios.
+    * The maximum validity period of messages.
     *
     * @param request PutFunctionAsyncInvokeConfigRequest
     * @return PutFunctionAsyncInvokeConfigResponse
