@@ -23367,24 +23367,12 @@ export default class Client extends OpenApi {
       query["BackendId"] = request.backendId;
     }
 
-    if (!Util.isUnset(request.constantParameters)) {
-      query["ConstantParameters"] = request.constantParameters;
-    }
-
     if (!Util.isUnset(request.description)) {
       query["Description"] = request.description;
     }
 
     if (!Util.isUnset(request.disableInternet)) {
       query["DisableInternet"] = request.disableInternet;
-    }
-
-    if (!Util.isUnset(request.errorCodeSamples)) {
-      query["ErrorCodeSamples"] = request.errorCodeSamples;
-    }
-
-    if (!Util.isUnset(request.failResultSample)) {
-      query["FailResultSample"] = request.failResultSample;
     }
 
     if (!Util.isUnset(request.forceNonceCheck)) {
@@ -23403,20 +23391,8 @@ export default class Client extends OpenApi {
       query["RequestConfig"] = request.requestConfig;
     }
 
-    if (!Util.isUnset(request.requestParameters)) {
-      query["RequestParameters"] = request.requestParameters;
-    }
-
     if (!Util.isUnset(request.resultBodyModel)) {
       query["ResultBodyModel"] = request.resultBodyModel;
-    }
-
-    if (!Util.isUnset(request.resultDescriptions)) {
-      query["ResultDescriptions"] = request.resultDescriptions;
-    }
-
-    if (!Util.isUnset(request.resultSample)) {
-      query["ResultSample"] = request.resultSample;
     }
 
     if (!Util.isUnset(request.resultType)) {
@@ -23431,18 +23407,6 @@ export default class Client extends OpenApi {
       query["ServiceConfig"] = request.serviceConfig;
     }
 
-    if (!Util.isUnset(request.serviceParameters)) {
-      query["ServiceParameters"] = request.serviceParameters;
-    }
-
-    if (!Util.isUnset(request.serviceParametersMap)) {
-      query["ServiceParametersMap"] = request.serviceParametersMap;
-    }
-
-    if (!Util.isUnset(request.systemParameters)) {
-      query["SystemParameters"] = request.systemParameters;
-    }
-
     if (!Util.isUnset(request.visibility)) {
       query["Visibility"] = request.visibility;
     }
@@ -23451,8 +23415,46 @@ export default class Client extends OpenApi {
       query["WebSocketApiType"] = request.webSocketApiType;
     }
 
+    let body : {[key: string ]: any} = { };
+    if (!Util.isUnset(request.constantParameters)) {
+      body["ConstantParameters"] = request.constantParameters;
+    }
+
+    if (!Util.isUnset(request.errorCodeSamples)) {
+      body["ErrorCodeSamples"] = request.errorCodeSamples;
+    }
+
+    if (!Util.isUnset(request.failResultSample)) {
+      body["FailResultSample"] = request.failResultSample;
+    }
+
+    if (!Util.isUnset(request.requestParameters)) {
+      body["RequestParameters"] = request.requestParameters;
+    }
+
+    if (!Util.isUnset(request.resultDescriptions)) {
+      body["ResultDescriptions"] = request.resultDescriptions;
+    }
+
+    if (!Util.isUnset(request.resultSample)) {
+      body["ResultSample"] = request.resultSample;
+    }
+
+    if (!Util.isUnset(request.serviceParameters)) {
+      body["ServiceParameters"] = request.serviceParameters;
+    }
+
+    if (!Util.isUnset(request.serviceParametersMap)) {
+      body["ServiceParametersMap"] = request.serviceParametersMap;
+    }
+
+    if (!Util.isUnset(request.systemParameters)) {
+      body["SystemParameters"] = request.systemParameters;
+    }
+
     let req = new $OpenApi.OpenApiRequest({
       query: OpenApiUtil.query(query),
+      body: OpenApiUtil.parseToMap(body),
     });
     let params = new $OpenApi.Params({
       action: "CreateApi",
