@@ -886,6 +886,118 @@ export class DetectKneeXRayResponse extends $tea.Model {
   }
 }
 
+export class DetectLiverSteatosisRequest extends $tea.Model {
+  dataFormat?: string;
+  orgId?: string;
+  orgName?: string;
+  sourceType?: string;
+  URLList?: DetectLiverSteatosisRequestURLList[];
+  static names(): { [key: string]: string } {
+    return {
+      dataFormat: 'DataFormat',
+      orgId: 'OrgId',
+      orgName: 'OrgName',
+      sourceType: 'SourceType',
+      URLList: 'URLList',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      dataFormat: 'string',
+      orgId: 'string',
+      orgName: 'string',
+      sourceType: 'string',
+      URLList: { 'type': 'array', 'itemType': DetectLiverSteatosisRequestURLList },
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class DetectLiverSteatosisAdvanceRequest extends $tea.Model {
+  dataFormat?: string;
+  orgId?: string;
+  orgName?: string;
+  sourceType?: string;
+  URLList?: DetectLiverSteatosisAdvanceRequestURLList[];
+  static names(): { [key: string]: string } {
+    return {
+      dataFormat: 'DataFormat',
+      orgId: 'OrgId',
+      orgName: 'OrgName',
+      sourceType: 'SourceType',
+      URLList: 'URLList',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      dataFormat: 'string',
+      orgId: 'string',
+      orgName: 'string',
+      sourceType: 'string',
+      URLList: { 'type': 'array', 'itemType': DetectLiverSteatosisAdvanceRequestURLList },
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class DetectLiverSteatosisResponseBody extends $tea.Model {
+  data?: DetectLiverSteatosisResponseBodyData;
+  message?: string;
+  requestId?: string;
+  static names(): { [key: string]: string } {
+    return {
+      data: 'Data',
+      message: 'Message',
+      requestId: 'RequestId',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      data: DetectLiverSteatosisResponseBodyData,
+      message: 'string',
+      requestId: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class DetectLiverSteatosisResponse extends $tea.Model {
+  headers: { [key: string]: string };
+  statusCode: number;
+  body: DetectLiverSteatosisResponseBody;
+  static names(): { [key: string]: string } {
+    return {
+      headers: 'headers',
+      statusCode: 'statusCode',
+      body: 'body',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
+      body: DetectLiverSteatosisResponseBody,
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
 export class DetectLungNoduleRequest extends $tea.Model {
   dataFormat?: string;
   orgId?: string;
@@ -1630,6 +1742,118 @@ export class GetAsyncJobResultResponse extends $tea.Model {
   }
 }
 
+export class PredictCVDRequest extends $tea.Model {
+  dataFormat?: string;
+  dataSourceType?: string;
+  orgId?: string;
+  orgName?: string;
+  URLList?: PredictCVDRequestURLList[];
+  static names(): { [key: string]: string } {
+    return {
+      dataFormat: 'DataFormat',
+      dataSourceType: 'DataSourceType',
+      orgId: 'OrgId',
+      orgName: 'OrgName',
+      URLList: 'URLList',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      dataFormat: 'string',
+      dataSourceType: 'string',
+      orgId: 'string',
+      orgName: 'string',
+      URLList: { 'type': 'array', 'itemType': PredictCVDRequestURLList },
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class PredictCVDAdvanceRequest extends $tea.Model {
+  dataFormat?: string;
+  dataSourceType?: string;
+  orgId?: string;
+  orgName?: string;
+  URLList?: PredictCVDAdvanceRequestURLList[];
+  static names(): { [key: string]: string } {
+    return {
+      dataFormat: 'DataFormat',
+      dataSourceType: 'DataSourceType',
+      orgId: 'OrgId',
+      orgName: 'OrgName',
+      URLList: 'URLList',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      dataFormat: 'string',
+      dataSourceType: 'string',
+      orgId: 'string',
+      orgName: 'string',
+      URLList: { 'type': 'array', 'itemType': PredictCVDAdvanceRequestURLList },
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class PredictCVDResponseBody extends $tea.Model {
+  data?: PredictCVDResponseBodyData;
+  message?: string;
+  requestId?: string;
+  static names(): { [key: string]: string } {
+    return {
+      data: 'Data',
+      message: 'Message',
+      requestId: 'RequestId',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      data: PredictCVDResponseBodyData,
+      message: 'string',
+      requestId: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class PredictCVDResponse extends $tea.Model {
+  headers: { [key: string]: string };
+  statusCode: number;
+  body: PredictCVDResponseBody;
+  static names(): { [key: string]: string } {
+    return {
+      headers: 'headers',
+      statusCode: 'statusCode',
+      body: 'body',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
+      body: PredictCVDResponseBody,
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
 export class RunCTRegistrationRequest extends $tea.Model {
   dataFormat?: string;
   dataSourceType?: string;
@@ -1875,6 +2099,118 @@ export class RunMedQAResponse extends $tea.Model {
   }
 }
 
+export class ScreenCRCRequest extends $tea.Model {
+  dataFormat?: string;
+  dataSourceType?: string;
+  orgId?: string;
+  orgName?: string;
+  URLList?: ScreenCRCRequestURLList[];
+  static names(): { [key: string]: string } {
+    return {
+      dataFormat: 'DataFormat',
+      dataSourceType: 'DataSourceType',
+      orgId: 'OrgId',
+      orgName: 'OrgName',
+      URLList: 'URLList',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      dataFormat: 'string',
+      dataSourceType: 'string',
+      orgId: 'string',
+      orgName: 'string',
+      URLList: { 'type': 'array', 'itemType': ScreenCRCRequestURLList },
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class ScreenCRCAdvanceRequest extends $tea.Model {
+  dataFormat?: string;
+  dataSourceType?: string;
+  orgId?: string;
+  orgName?: string;
+  URLList?: ScreenCRCAdvanceRequestURLList[];
+  static names(): { [key: string]: string } {
+    return {
+      dataFormat: 'DataFormat',
+      dataSourceType: 'DataSourceType',
+      orgId: 'OrgId',
+      orgName: 'OrgName',
+      URLList: 'URLList',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      dataFormat: 'string',
+      dataSourceType: 'string',
+      orgId: 'string',
+      orgName: 'string',
+      URLList: { 'type': 'array', 'itemType': ScreenCRCAdvanceRequestURLList },
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class ScreenCRCResponseBody extends $tea.Model {
+  data?: ScreenCRCResponseBodyData;
+  message?: string;
+  requestId?: string;
+  static names(): { [key: string]: string } {
+    return {
+      data: 'Data',
+      message: 'Message',
+      requestId: 'RequestId',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      data: ScreenCRCResponseBodyData,
+      message: 'string',
+      requestId: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class ScreenCRCResponse extends $tea.Model {
+  headers: { [key: string]: string };
+  statusCode: number;
+  body: ScreenCRCResponseBody;
+  static names(): { [key: string]: string } {
+    return {
+      headers: 'headers',
+      statusCode: 'statusCode',
+      body: 'body',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
+      body: ScreenCRCResponseBody,
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
 export class ScreenChestCTRequest extends $tea.Model {
   dataFormat?: string;
   mask?: number;
@@ -2057,6 +2393,230 @@ export class ScreenECResponse extends $tea.Model {
       headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
       statusCode: 'number',
       body: ScreenECResponseBody,
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class ScreenGCRequest extends $tea.Model {
+  dataFormat?: string;
+  dataSourceType?: string;
+  orgId?: string;
+  orgName?: string;
+  URLList?: ScreenGCRequestURLList[];
+  static names(): { [key: string]: string } {
+    return {
+      dataFormat: 'DataFormat',
+      dataSourceType: 'DataSourceType',
+      orgId: 'OrgId',
+      orgName: 'OrgName',
+      URLList: 'URLList',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      dataFormat: 'string',
+      dataSourceType: 'string',
+      orgId: 'string',
+      orgName: 'string',
+      URLList: { 'type': 'array', 'itemType': ScreenGCRequestURLList },
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class ScreenGCAdvanceRequest extends $tea.Model {
+  dataFormat?: string;
+  dataSourceType?: string;
+  orgId?: string;
+  orgName?: string;
+  URLList?: ScreenGCAdvanceRequestURLList[];
+  static names(): { [key: string]: string } {
+    return {
+      dataFormat: 'DataFormat',
+      dataSourceType: 'DataSourceType',
+      orgId: 'OrgId',
+      orgName: 'OrgName',
+      URLList: 'URLList',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      dataFormat: 'string',
+      dataSourceType: 'string',
+      orgId: 'string',
+      orgName: 'string',
+      URLList: { 'type': 'array', 'itemType': ScreenGCAdvanceRequestURLList },
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class ScreenGCResponseBody extends $tea.Model {
+  data?: ScreenGCResponseBodyData;
+  message?: string;
+  requestId?: string;
+  static names(): { [key: string]: string } {
+    return {
+      data: 'Data',
+      message: 'Message',
+      requestId: 'RequestId',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      data: ScreenGCResponseBodyData,
+      message: 'string',
+      requestId: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class ScreenGCResponse extends $tea.Model {
+  headers: { [key: string]: string };
+  statusCode: number;
+  body: ScreenGCResponseBody;
+  static names(): { [key: string]: string } {
+    return {
+      headers: 'headers',
+      statusCode: 'statusCode',
+      body: 'body',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
+      body: ScreenGCResponseBody,
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class ScreenLCRequest extends $tea.Model {
+  dataFormat?: string;
+  dataSourceType?: string;
+  orgId?: string;
+  orgName?: string;
+  URLList?: ScreenLCRequestURLList[];
+  static names(): { [key: string]: string } {
+    return {
+      dataFormat: 'DataFormat',
+      dataSourceType: 'DataSourceType',
+      orgId: 'OrgId',
+      orgName: 'OrgName',
+      URLList: 'URLList',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      dataFormat: 'string',
+      dataSourceType: 'string',
+      orgId: 'string',
+      orgName: 'string',
+      URLList: { 'type': 'array', 'itemType': ScreenLCRequestURLList },
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class ScreenLCAdvanceRequest extends $tea.Model {
+  dataFormat?: string;
+  dataSourceType?: string;
+  orgId?: string;
+  orgName?: string;
+  URLList?: ScreenLCAdvanceRequestURLList[];
+  static names(): { [key: string]: string } {
+    return {
+      dataFormat: 'DataFormat',
+      dataSourceType: 'DataSourceType',
+      orgId: 'OrgId',
+      orgName: 'OrgName',
+      URLList: 'URLList',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      dataFormat: 'string',
+      dataSourceType: 'string',
+      orgId: 'string',
+      orgName: 'string',
+      URLList: { 'type': 'array', 'itemType': ScreenLCAdvanceRequestURLList },
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class ScreenLCResponseBody extends $tea.Model {
+  data?: ScreenLCResponseBodyData;
+  message?: string;
+  requestId?: string;
+  static names(): { [key: string]: string } {
+    return {
+      data: 'Data',
+      message: 'Message',
+      requestId: 'RequestId',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      data: ScreenLCResponseBodyData,
+      message: 'string',
+      requestId: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class ScreenLCResponse extends $tea.Model {
+  headers: { [key: string]: string };
+  statusCode: number;
+  body: ScreenLCResponseBody;
+  static names(): { [key: string]: string } {
+    return {
+      headers: 'headers',
+      statusCode: 'statusCode',
+      body: 'body',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
+      body: ScreenLCResponseBody,
     };
   }
 
@@ -3145,6 +3705,142 @@ export class DetectKneeXRayResponseBodyData extends $tea.Model {
   }
 }
 
+export class DetectLiverSteatosisRequestURLList extends $tea.Model {
+  URL?: string;
+  static names(): { [key: string]: string } {
+    return {
+      URL: 'URL',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      URL: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class DetectLiverSteatosisAdvanceRequestURLList extends $tea.Model {
+  URLObject?: Readable;
+  static names(): { [key: string]: string } {
+    return {
+      URLObject: 'URL',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      URLObject: 'Readable',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class DetectLiverSteatosisResponseBodyDataDetections extends $tea.Model {
+  liverHU?: number;
+  liverROI1?: number;
+  liverROI2?: number;
+  liverROI3?: number;
+  liverSlice?: number;
+  liverSpleenDifference?: number;
+  liverSpleenRatio?: number;
+  liverVolume?: number;
+  prediction?: string;
+  probability?: number;
+  ROI1Center?: number[];
+  ROI2Center?: number[];
+  ROI3Center?: number[];
+  radius?: number;
+  spleenCenter?: number[];
+  spleenHU?: number;
+  spleenROI?: number;
+  spleenSlice?: number;
+  spleenVolume?: number;
+  static names(): { [key: string]: string } {
+    return {
+      liverHU: 'LiverHU',
+      liverROI1: 'LiverROI1',
+      liverROI2: 'LiverROI2',
+      liverROI3: 'LiverROI3',
+      liverSlice: 'LiverSlice',
+      liverSpleenDifference: 'LiverSpleenDifference',
+      liverSpleenRatio: 'LiverSpleenRatio',
+      liverVolume: 'LiverVolume',
+      prediction: 'Prediction',
+      probability: 'Probability',
+      ROI1Center: 'ROI1Center',
+      ROI2Center: 'ROI2Center',
+      ROI3Center: 'ROI3Center',
+      radius: 'Radius',
+      spleenCenter: 'SpleenCenter',
+      spleenHU: 'SpleenHU',
+      spleenROI: 'SpleenROI',
+      spleenSlice: 'SpleenSlice',
+      spleenVolume: 'SpleenVolume',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      liverHU: 'number',
+      liverROI1: 'number',
+      liverROI2: 'number',
+      liverROI3: 'number',
+      liverSlice: 'number',
+      liverSpleenDifference: 'number',
+      liverSpleenRatio: 'number',
+      liverVolume: 'number',
+      prediction: 'string',
+      probability: 'number',
+      ROI1Center: { 'type': 'array', 'itemType': 'number' },
+      ROI2Center: { 'type': 'array', 'itemType': 'number' },
+      ROI3Center: { 'type': 'array', 'itemType': 'number' },
+      radius: 'number',
+      spleenCenter: { 'type': 'array', 'itemType': 'number' },
+      spleenHU: 'number',
+      spleenROI: 'number',
+      spleenSlice: 'number',
+      spleenVolume: 'number',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class DetectLiverSteatosisResponseBodyData extends $tea.Model {
+  detections?: DetectLiverSteatosisResponseBodyDataDetections[];
+  origin?: number[];
+  spacing?: number[];
+  static names(): { [key: string]: string } {
+    return {
+      detections: 'Detections',
+      origin: 'Origin',
+      spacing: 'Spacing',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      detections: { 'type': 'array', 'itemType': DetectLiverSteatosisResponseBodyDataDetections },
+      origin: { 'type': 'array', 'itemType': 'number' },
+      spacing: { 'type': 'array', 'itemType': 'number' },
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
 export class DetectLungNoduleRequestURLList extends $tea.Model {
   URL?: string;
   static names(): { [key: string]: string } {
@@ -3757,6 +4453,146 @@ export class GetAsyncJobResultResponseBodyData extends $tea.Model {
   }
 }
 
+export class PredictCVDRequestURLList extends $tea.Model {
+  URL?: string;
+  static names(): { [key: string]: string } {
+    return {
+      URL: 'URL',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      URL: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class PredictCVDAdvanceRequestURLList extends $tea.Model {
+  URLObject?: Readable;
+  static names(): { [key: string]: string } {
+    return {
+      URLObject: 'URL',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      URLObject: 'Readable',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class PredictCVDResponseBodyDataLesionFeatureScore extends $tea.Model {
+  aortaCalciumScore?: number[];
+  aortaCalciumVolume?: number[];
+  ascAoMaxDiam?: number[];
+  ascendAortaLength?: number[];
+  cardioThoracicRatio?: number[];
+  coronaryCalciumScore?: number[];
+  coronaryCalciumVol?: number[];
+  deepFeature?: number[];
+  eatHUMean?: number[];
+  eatHUSTD?: number[];
+  eatVolume?: number[];
+  leftLungLowattRatio?: number[];
+  myoEpiRatio?: number[];
+  rightLungLowattRatio?: number[];
+  static names(): { [key: string]: string } {
+    return {
+      aortaCalciumScore: 'AortaCalciumScore',
+      aortaCalciumVolume: 'AortaCalciumVolume',
+      ascAoMaxDiam: 'AscAoMaxDiam',
+      ascendAortaLength: 'AscendAortaLength',
+      cardioThoracicRatio: 'CardioThoracicRatio',
+      coronaryCalciumScore: 'CoronaryCalciumScore',
+      coronaryCalciumVol: 'CoronaryCalciumVol',
+      deepFeature: 'DeepFeature',
+      eatHUMean: 'EatHUMean',
+      eatHUSTD: 'EatHUSTD',
+      eatVolume: 'EatVolume',
+      leftLungLowattRatio: 'LeftLungLowattRatio',
+      myoEpiRatio: 'MyoEpiRatio',
+      rightLungLowattRatio: 'RightLungLowattRatio',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      aortaCalciumScore: { 'type': 'array', 'itemType': 'number' },
+      aortaCalciumVolume: { 'type': 'array', 'itemType': 'number' },
+      ascAoMaxDiam: { 'type': 'array', 'itemType': 'number' },
+      ascendAortaLength: { 'type': 'array', 'itemType': 'number' },
+      cardioThoracicRatio: { 'type': 'array', 'itemType': 'number' },
+      coronaryCalciumScore: { 'type': 'array', 'itemType': 'number' },
+      coronaryCalciumVol: { 'type': 'array', 'itemType': 'number' },
+      deepFeature: { 'type': 'array', 'itemType': 'number' },
+      eatHUMean: { 'type': 'array', 'itemType': 'number' },
+      eatHUSTD: { 'type': 'array', 'itemType': 'number' },
+      eatVolume: { 'type': 'array', 'itemType': 'number' },
+      leftLungLowattRatio: { 'type': 'array', 'itemType': 'number' },
+      myoEpiRatio: { 'type': 'array', 'itemType': 'number' },
+      rightLungLowattRatio: { 'type': 'array', 'itemType': 'number' },
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class PredictCVDResponseBodyDataLesion extends $tea.Model {
+  CVDProbability?: number;
+  featureScore?: PredictCVDResponseBodyDataLesionFeatureScore;
+  resultURL?: string[];
+  static names(): { [key: string]: string } {
+    return {
+      CVDProbability: 'CVDProbability',
+      featureScore: 'FeatureScore',
+      resultURL: 'ResultURL',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      CVDProbability: 'number',
+      featureScore: PredictCVDResponseBodyDataLesionFeatureScore,
+      resultURL: { 'type': 'array', 'itemType': 'string' },
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class PredictCVDResponseBodyData extends $tea.Model {
+  lesion?: PredictCVDResponseBodyDataLesion;
+  static names(): { [key: string]: string } {
+    return {
+      lesion: 'Lesion',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      lesion: PredictCVDResponseBodyDataLesion,
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
 export class RunCTRegistrationRequestFloatingList extends $tea.Model {
   floatingURL?: string;
   static names(): { [key: string]: string } {
@@ -4003,6 +4839,91 @@ export class RunMedQAResponseBodyData extends $tea.Model {
   }
 }
 
+export class ScreenCRCRequestURLList extends $tea.Model {
+  URL?: string;
+  static names(): { [key: string]: string } {
+    return {
+      URL: 'URL',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      URL: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class ScreenCRCAdvanceRequestURLList extends $tea.Model {
+  URLObject?: Readable;
+  static names(): { [key: string]: string } {
+    return {
+      URLObject: 'URL',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      URLObject: 'Readable',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class ScreenCRCResponseBodyDataLesion extends $tea.Model {
+  CRCVolume?: string;
+  colorectumVolume?: string;
+  mask?: string;
+  probabilities?: string;
+  static names(): { [key: string]: string } {
+    return {
+      CRCVolume: 'CRCVolume',
+      colorectumVolume: 'ColorectumVolume',
+      mask: 'Mask',
+      probabilities: 'Probabilities',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      CRCVolume: 'string',
+      colorectumVolume: 'string',
+      mask: 'string',
+      probabilities: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class ScreenCRCResponseBodyData extends $tea.Model {
+  lesion?: ScreenCRCResponseBodyDataLesion;
+  static names(): { [key: string]: string } {
+    return {
+      lesion: 'Lesion',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      lesion: ScreenCRCResponseBodyDataLesion,
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
 export class ScreenChestCTRequestURLList extends $tea.Model {
   URL?: string;
   static names(): { [key: string]: string } {
@@ -4231,12 +5152,14 @@ export class ScreenChestCTResponseBodyDataCalcBMD extends $tea.Model {
   detections?: ScreenChestCTResponseBodyDataCalcBMDDetections[];
   origin?: number[];
   resultURL?: string;
+  seriesInstanceUid?: string;
   spacing?: number[];
   static names(): { [key: string]: string } {
     return {
       detections: 'Detections',
       origin: 'Origin',
       resultURL: 'ResultURL',
+      seriesInstanceUid: 'SeriesInstanceUid',
       spacing: 'Spacing',
     };
   }
@@ -4246,6 +5169,7 @@ export class ScreenChestCTResponseBodyDataCalcBMD extends $tea.Model {
       detections: { 'type': 'array', 'itemType': ScreenChestCTResponseBodyDataCalcBMDDetections },
       origin: { 'type': 'array', 'itemType': 'number' },
       resultURL: 'string',
+      seriesInstanceUid: 'string',
       spacing: { 'type': 'array', 'itemType': 'number' },
     };
   }
@@ -4365,11 +5289,13 @@ export class ScreenChestCTResponseBodyDataDetectLiverSteatosisDetections extends
 export class ScreenChestCTResponseBodyDataDetectLiverSteatosis extends $tea.Model {
   detections?: ScreenChestCTResponseBodyDataDetectLiverSteatosisDetections[];
   origin?: number[];
+  seriesInstanceUid?: string;
   spacing?: number[];
   static names(): { [key: string]: string } {
     return {
       detections: 'Detections',
       origin: 'Origin',
+      seriesInstanceUid: 'SeriesInstanceUid',
       spacing: 'Spacing',
     };
   }
@@ -4378,6 +5304,7 @@ export class ScreenChestCTResponseBodyDataDetectLiverSteatosis extends $tea.Mode
     return {
       detections: { 'type': 'array', 'itemType': ScreenChestCTResponseBodyDataDetectLiverSteatosisDetections },
       origin: { 'type': 'array', 'itemType': 'number' },
+      seriesInstanceUid: 'string',
       spacing: { 'type': 'array', 'itemType': 'number' },
     };
   }
@@ -4690,6 +5617,155 @@ export class ScreenChestCTResponseBodyDataLungNodule extends $tea.Model {
   }
 }
 
+export class ScreenChestCTResponseBodyDataPredictCVDLesionFeatureScore extends $tea.Model {
+  aortaCalciumScore?: number[];
+  aortaCalciumVolume?: number[];
+  ascAoMaxDiam?: number[];
+  ascendAortaLength?: number[];
+  cardioThoracicRatio?: number[];
+  coronaryCalciumVol?: number[];
+  deepFeature?: number[];
+  eatHUMean?: number[];
+  eatHUSTD?: number[];
+  eatVolume?: number[];
+  leftLungLowattRatio?: number[];
+  myoEpiRatio?: number[];
+  rightLungLowattRatio?: number[];
+  static names(): { [key: string]: string } {
+    return {
+      aortaCalciumScore: 'AortaCalciumScore',
+      aortaCalciumVolume: 'AortaCalciumVolume',
+      ascAoMaxDiam: 'AscAoMaxDiam',
+      ascendAortaLength: 'AscendAortaLength',
+      cardioThoracicRatio: 'CardioThoracicRatio',
+      coronaryCalciumVol: 'CoronaryCalciumVol',
+      deepFeature: 'DeepFeature',
+      eatHUMean: 'EatHUMean',
+      eatHUSTD: 'EatHUSTD',
+      eatVolume: 'EatVolume',
+      leftLungLowattRatio: 'LeftLungLowattRatio',
+      myoEpiRatio: 'MyoEpiRatio',
+      rightLungLowattRatio: 'RightLungLowattRatio',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      aortaCalciumScore: { 'type': 'array', 'itemType': 'number' },
+      aortaCalciumVolume: { 'type': 'array', 'itemType': 'number' },
+      ascAoMaxDiam: { 'type': 'array', 'itemType': 'number' },
+      ascendAortaLength: { 'type': 'array', 'itemType': 'number' },
+      cardioThoracicRatio: { 'type': 'array', 'itemType': 'number' },
+      coronaryCalciumVol: { 'type': 'array', 'itemType': 'number' },
+      deepFeature: { 'type': 'array', 'itemType': 'number' },
+      eatHUMean: { 'type': 'array', 'itemType': 'number' },
+      eatHUSTD: { 'type': 'array', 'itemType': 'number' },
+      eatVolume: { 'type': 'array', 'itemType': 'number' },
+      leftLungLowattRatio: { 'type': 'array', 'itemType': 'number' },
+      myoEpiRatio: { 'type': 'array', 'itemType': 'number' },
+      rightLungLowattRatio: { 'type': 'array', 'itemType': 'number' },
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class ScreenChestCTResponseBodyDataPredictCVDLesion extends $tea.Model {
+  CVDProbability?: number;
+  featureScore?: ScreenChestCTResponseBodyDataPredictCVDLesionFeatureScore;
+  resultURL?: string[];
+  static names(): { [key: string]: string } {
+    return {
+      CVDProbability: 'CVDProbability',
+      featureScore: 'FeatureScore',
+      resultURL: 'ResultURL',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      CVDProbability: 'number',
+      featureScore: ScreenChestCTResponseBodyDataPredictCVDLesionFeatureScore,
+      resultURL: { 'type': 'array', 'itemType': 'string' },
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class ScreenChestCTResponseBodyDataPredictCVD extends $tea.Model {
+  lesion?: ScreenChestCTResponseBodyDataPredictCVDLesion;
+  seriesInstanceUid?: string;
+  static names(): { [key: string]: string } {
+    return {
+      lesion: 'Lesion',
+      seriesInstanceUid: 'SeriesInstanceUid',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      lesion: ScreenChestCTResponseBodyDataPredictCVDLesion,
+      seriesInstanceUid: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class ScreenChestCTResponseBodyDataScreenCRCLesion extends $tea.Model {
+  colorectumVolume?: string;
+  mask?: string;
+  probabilities?: string[];
+  static names(): { [key: string]: string } {
+    return {
+      colorectumVolume: 'ColorectumVolume',
+      mask: 'Mask',
+      probabilities: 'Probabilities',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      colorectumVolume: 'string',
+      mask: 'string',
+      probabilities: { 'type': 'array', 'itemType': 'string' },
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class ScreenChestCTResponseBodyDataScreenCRC extends $tea.Model {
+  lesion?: ScreenChestCTResponseBodyDataScreenCRCLesion;
+  seriesInstanceUid?: string;
+  static names(): { [key: string]: string } {
+    return {
+      lesion: 'Lesion',
+      seriesInstanceUid: 'SeriesInstanceUid',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      lesion: ScreenChestCTResponseBodyDataScreenCRCLesion,
+      seriesInstanceUid: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
 export class ScreenChestCTResponseBodyDataScreenEcLesion extends $tea.Model {
   benignVolume?: string;
   ecVolume?: string;
@@ -4743,6 +5819,171 @@ export class ScreenChestCTResponseBodyDataScreenEc extends $tea.Model {
   }
 }
 
+export class ScreenChestCTResponseBodyDataScreenGCLesion extends $tea.Model {
+  GCVolume?: string;
+  mask?: string;
+  nonGCVolume?: string;
+  probabilities?: string[];
+  stomachVolume?: string;
+  static names(): { [key: string]: string } {
+    return {
+      GCVolume: 'GCVolume',
+      mask: 'Mask',
+      nonGCVolume: 'NonGCVolume',
+      probabilities: 'Probabilities',
+      stomachVolume: 'StomachVolume',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      GCVolume: 'string',
+      mask: 'string',
+      nonGCVolume: 'string',
+      probabilities: { 'type': 'array', 'itemType': 'string' },
+      stomachVolume: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class ScreenChestCTResponseBodyDataScreenGC extends $tea.Model {
+  lesion?: ScreenChestCTResponseBodyDataScreenGCLesion;
+  seriesInstanceUid?: string;
+  static names(): { [key: string]: string } {
+    return {
+      lesion: 'Lesion',
+      seriesInstanceUid: 'SeriesInstanceUid',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      lesion: ScreenChestCTResponseBodyDataScreenGCLesion,
+      seriesInstanceUid: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class ScreenChestCTResponseBodyDataScreenLCLesionLesionList extends $tea.Model {
+  diameter?: number[];
+  keySlice?: number;
+  malignancy?: number;
+  recistEndpoints?: number[];
+  type?: string;
+  volume?: number;
+  static names(): { [key: string]: string } {
+    return {
+      diameter: 'Diameter',
+      keySlice: 'KeySlice',
+      malignancy: 'Malignancy',
+      recistEndpoints: 'RecistEndpoints',
+      type: 'Type',
+      volume: 'Volume',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      diameter: { 'type': 'array', 'itemType': 'number' },
+      keySlice: 'number',
+      malignancy: 'number',
+      recistEndpoints: { 'type': 'array', 'itemType': 'number' },
+      type: 'string',
+      volume: 'number',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class ScreenChestCTResponseBodyDataScreenLCLesionPatientLevelResult extends $tea.Model {
+  benignNonCystProb?: string;
+  cystProb?: string;
+  HCCProb?: string;
+  malignantNonHCCProb?: string;
+  static names(): { [key: string]: string } {
+    return {
+      benignNonCystProb: 'BenignNonCystProb',
+      cystProb: 'CystProb',
+      HCCProb: 'HCCProb',
+      malignantNonHCCProb: 'MalignantNonHCCProb',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      benignNonCystProb: 'string',
+      cystProb: 'string',
+      HCCProb: 'string',
+      malignantNonHCCProb: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class ScreenChestCTResponseBodyDataScreenLCLesion extends $tea.Model {
+  lesionList?: ScreenChestCTResponseBodyDataScreenLCLesionLesionList[];
+  liverVolume?: string;
+  mask?: string;
+  patientLevelResult?: ScreenChestCTResponseBodyDataScreenLCLesionPatientLevelResult;
+  static names(): { [key: string]: string } {
+    return {
+      lesionList: 'LesionList',
+      liverVolume: 'LiverVolume',
+      mask: 'Mask',
+      patientLevelResult: 'PatientLevelResult',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      lesionList: { 'type': 'array', 'itemType': ScreenChestCTResponseBodyDataScreenLCLesionLesionList },
+      liverVolume: 'string',
+      mask: 'string',
+      patientLevelResult: ScreenChestCTResponseBodyDataScreenLCLesionPatientLevelResult,
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class ScreenChestCTResponseBodyDataScreenLC extends $tea.Model {
+  lesion?: ScreenChestCTResponseBodyDataScreenLCLesion;
+  seriesInstanceUid?: string;
+  static names(): { [key: string]: string } {
+    return {
+      lesion: 'Lesion',
+      seriesInstanceUid: 'SeriesInstanceUid',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      lesion: ScreenChestCTResponseBodyDataScreenLCLesion,
+      seriesInstanceUid: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
 export class ScreenChestCTResponseBodyData extends $tea.Model {
   analyzeChestVessel?: ScreenChestCTResponseBodyDataAnalyzeChestVessel;
   CACS?: ScreenChestCTResponseBodyDataCACS;
@@ -4755,7 +5996,11 @@ export class ScreenChestCTResponseBodyData extends $tea.Model {
   errorMessage?: string;
   lungNodule?: ScreenChestCTResponseBodyDataLungNodule;
   nestedUrlList?: { [key: string]: any };
+  predictCVD?: ScreenChestCTResponseBodyDataPredictCVD;
+  screenCRC?: ScreenChestCTResponseBodyDataScreenCRC;
   screenEc?: ScreenChestCTResponseBodyDataScreenEc;
+  screenGC?: ScreenChestCTResponseBodyDataScreenGC;
+  screenLC?: ScreenChestCTResponseBodyDataScreenLC;
   URLList?: { [key: string]: any };
   static names(): { [key: string]: string } {
     return {
@@ -4770,7 +6015,11 @@ export class ScreenChestCTResponseBodyData extends $tea.Model {
       errorMessage: 'ErrorMessage',
       lungNodule: 'LungNodule',
       nestedUrlList: 'NestedUrlList',
+      predictCVD: 'PredictCVD',
+      screenCRC: 'ScreenCRC',
       screenEc: 'ScreenEc',
+      screenGC: 'ScreenGC',
+      screenLC: 'ScreenLC',
       URLList: 'URLList',
     };
   }
@@ -4788,7 +6037,11 @@ export class ScreenChestCTResponseBodyData extends $tea.Model {
       errorMessage: 'string',
       lungNodule: ScreenChestCTResponseBodyDataLungNodule,
       nestedUrlList: { 'type': 'map', 'keyType': 'string', 'valueType': 'any' },
+      predictCVD: ScreenChestCTResponseBodyDataPredictCVD,
+      screenCRC: ScreenChestCTResponseBodyDataScreenCRC,
       screenEc: ScreenChestCTResponseBodyDataScreenEc,
+      screenGC: ScreenChestCTResponseBodyDataScreenGC,
+      screenLC: ScreenChestCTResponseBodyDataScreenLC,
       URLList: { 'type': 'map', 'keyType': 'string', 'valueType': 'any' },
     };
   }
@@ -4859,6 +6112,241 @@ export class ScreenECResponseBodyData extends $tea.Model {
   static types(): { [key: string]: any } {
     return {
       lesion: ScreenECResponseBodyDataLesion,
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class ScreenGCRequestURLList extends $tea.Model {
+  URL?: string;
+  static names(): { [key: string]: string } {
+    return {
+      URL: 'URL',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      URL: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class ScreenGCAdvanceRequestURLList extends $tea.Model {
+  URLObject?: Readable;
+  static names(): { [key: string]: string } {
+    return {
+      URLObject: 'URL',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      URLObject: 'Readable',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class ScreenGCResponseBodyDataLesion extends $tea.Model {
+  GCVolume?: string;
+  mask?: string;
+  nonGCVolume?: string;
+  probabilities?: string;
+  stomachVolume?: string;
+  static names(): { [key: string]: string } {
+    return {
+      GCVolume: 'GCVolume',
+      mask: 'Mask',
+      nonGCVolume: 'NonGCVolume',
+      probabilities: 'Probabilities',
+      stomachVolume: 'StomachVolume',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      GCVolume: 'string',
+      mask: 'string',
+      nonGCVolume: 'string',
+      probabilities: 'string',
+      stomachVolume: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class ScreenGCResponseBodyData extends $tea.Model {
+  lesion?: ScreenGCResponseBodyDataLesion;
+  static names(): { [key: string]: string } {
+    return {
+      lesion: 'Lesion',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      lesion: ScreenGCResponseBodyDataLesion,
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class ScreenLCRequestURLList extends $tea.Model {
+  URL?: string;
+  static names(): { [key: string]: string } {
+    return {
+      URL: 'URL',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      URL: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class ScreenLCAdvanceRequestURLList extends $tea.Model {
+  URLObject?: Readable;
+  static names(): { [key: string]: string } {
+    return {
+      URLObject: 'URL',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      URLObject: 'Readable',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class ScreenLCResponseBodyDataLesionLesionList extends $tea.Model {
+  diameter?: number[];
+  keySlice?: number;
+  malignancy?: number;
+  recistEndpoints?: number[];
+  type?: string;
+  volume?: number;
+  static names(): { [key: string]: string } {
+    return {
+      diameter: 'Diameter',
+      keySlice: 'KeySlice',
+      malignancy: 'Malignancy',
+      recistEndpoints: 'RecistEndpoints',
+      type: 'Type',
+      volume: 'Volume',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      diameter: { 'type': 'array', 'itemType': 'number' },
+      keySlice: 'number',
+      malignancy: 'number',
+      recistEndpoints: { 'type': 'array', 'itemType': 'number' },
+      type: 'string',
+      volume: 'number',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class ScreenLCResponseBodyDataLesionPatientLevelResult extends $tea.Model {
+  benignNonCystProb?: string;
+  cystProb?: number;
+  HCCProb?: number;
+  malignantNonHCCProb?: number;
+  static names(): { [key: string]: string } {
+    return {
+      benignNonCystProb: 'BenignNonCystProb',
+      cystProb: 'CystProb',
+      HCCProb: 'HCCProb',
+      malignantNonHCCProb: 'MalignantNonHCCProb',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      benignNonCystProb: 'string',
+      cystProb: 'number',
+      HCCProb: 'number',
+      malignantNonHCCProb: 'number',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class ScreenLCResponseBodyDataLesion extends $tea.Model {
+  lesionList?: ScreenLCResponseBodyDataLesionLesionList[];
+  liverVolume?: number;
+  mask?: string;
+  patientLevelResult?: ScreenLCResponseBodyDataLesionPatientLevelResult;
+  static names(): { [key: string]: string } {
+    return {
+      lesionList: 'LesionList',
+      liverVolume: 'LiverVolume',
+      mask: 'Mask',
+      patientLevelResult: 'PatientLevelResult',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      lesionList: { 'type': 'array', 'itemType': ScreenLCResponseBodyDataLesionLesionList },
+      liverVolume: 'number',
+      mask: 'string',
+      patientLevelResult: ScreenLCResponseBodyDataLesionPatientLevelResult,
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class ScreenLCResponseBodyData extends $tea.Model {
+  lesion?: ScreenLCResponseBodyDataLesion;
+  static names(): { [key: string]: string } {
+    return {
+      lesion: 'Lesion',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      lesion: ScreenLCResponseBodyDataLesion,
     };
   }
 
@@ -6063,6 +7551,134 @@ export default class Client extends OpenApi {
     return detectKneeXRayResp;
   }
 
+  async detectLiverSteatosisWithOptions(request: DetectLiverSteatosisRequest, runtime: $Util.RuntimeOptions): Promise<DetectLiverSteatosisResponse> {
+    Util.validateModel(request);
+    let body : {[key: string ]: any} = { };
+    if (!Util.isUnset(request.dataFormat)) {
+      body["DataFormat"] = request.dataFormat;
+    }
+
+    if (!Util.isUnset(request.orgId)) {
+      body["OrgId"] = request.orgId;
+    }
+
+    if (!Util.isUnset(request.orgName)) {
+      body["OrgName"] = request.orgName;
+    }
+
+    if (!Util.isUnset(request.sourceType)) {
+      body["SourceType"] = request.sourceType;
+    }
+
+    if (!Util.isUnset(request.URLList)) {
+      body["URLList"] = request.URLList;
+    }
+
+    let req = new $OpenApi.OpenApiRequest({
+      body: OpenApiUtil.parseToMap(body),
+    });
+    let params = new $OpenApi.Params({
+      action: "DetectLiverSteatosis",
+      version: "2020-03-20",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $tea.cast<DetectLiverSteatosisResponse>(await this.callApi(params, req, runtime), new DetectLiverSteatosisResponse({}));
+  }
+
+  async detectLiverSteatosis(request: DetectLiverSteatosisRequest): Promise<DetectLiverSteatosisResponse> {
+    let runtime = new $Util.RuntimeOptions({ });
+    return await this.detectLiverSteatosisWithOptions(request, runtime);
+  }
+
+  async detectLiverSteatosisAdvance(request: DetectLiverSteatosisAdvanceRequest, runtime: $Util.RuntimeOptions): Promise<DetectLiverSteatosisResponse> {
+    // Step 0: init client
+    let accessKeyId = await this._credential.getAccessKeyId();
+    let accessKeySecret = await this._credential.getAccessKeySecret();
+    let securityToken = await this._credential.getSecurityToken();
+    let credentialType = this._credential.getType();
+    let openPlatformEndpoint = this._openPlatformEndpoint;
+    if (Util.isUnset(openPlatformEndpoint)) {
+      openPlatformEndpoint = "openplatform.aliyuncs.com";
+    }
+
+    if (Util.isUnset(credentialType)) {
+      credentialType = "access_key";
+    }
+
+    let authConfig = new $OpenApi.Config({
+      accessKeyId: accessKeyId,
+      accessKeySecret: accessKeySecret,
+      securityToken: securityToken,
+      type: credentialType,
+      endpoint: openPlatformEndpoint,
+      protocol: this._protocol,
+      regionId: this._regionId,
+    });
+    let authClient = new OpenPlatform(authConfig);
+    let authRequest = new $OpenPlatform.AuthorizeFileUploadRequest({
+      product: "imageprocess",
+      regionId: this._regionId,
+    });
+    let authResponse = new $OpenPlatform.AuthorizeFileUploadResponse({ });
+    let ossConfig = new $OSS.Config({
+      accessKeySecret: accessKeySecret,
+      type: "access_key",
+      protocol: this._protocol,
+      regionId: this._regionId,
+    });
+    let ossClient : OSS = null;
+    let fileObj = new $FileForm.FileField({ });
+    let ossHeader = new $OSS.PostObjectRequestHeader({ });
+    let uploadRequest = new $OSS.PostObjectRequest({ });
+    let ossRuntime = new $OSSUtil.RuntimeOptions({ });
+    OpenApiUtil.convert(runtime, ossRuntime);
+    let detectLiverSteatosisReq = new DetectLiverSteatosisRequest({ });
+    OpenApiUtil.convert(request, detectLiverSteatosisReq);
+    if (!Util.isUnset(request.URLList)) {
+      let i0 : number = 0;
+
+      for (let item0 of request.URLList) {
+        if (!Util.isUnset(item0.URLObject)) {
+          authResponse = await authClient.authorizeFileUploadWithOptions(authRequest, runtime);
+          ossConfig.accessKeyId = authResponse.body.accessKeyId;
+          ossConfig.endpoint = OpenApiUtil.getEndpoint(authResponse.body.endpoint, authResponse.body.useAccelerate, this._endpointType);
+          ossClient = new OSS(ossConfig);
+          fileObj = new $FileForm.FileField({
+            filename: authResponse.body.objectKey,
+            content: item0.URLObject,
+            contentType: "",
+          });
+          ossHeader = new $OSS.PostObjectRequestHeader({
+            accessKeyId: authResponse.body.accessKeyId,
+            policy: authResponse.body.encodedPolicy,
+            signature: authResponse.body.signature,
+            key: authResponse.body.objectKey,
+            file: fileObj,
+            successActionStatus: "201",
+          });
+          uploadRequest = new $OSS.PostObjectRequest({
+            bucketName: authResponse.body.bucket,
+            header: ossHeader,
+          });
+          await ossClient.postObject(uploadRequest, ossRuntime);
+          let tmp : DetectLiverSteatosisRequestURLList = detectLiverSteatosisReq.URLList[i0];
+          tmp.URL = `http://${authResponse.body.bucket}.${authResponse.body.endpoint}/${authResponse.body.objectKey}`;
+          i0 = Number.ltoi(Number.add(Number.itol(i0), Number.itol(1)));
+        }
+
+      }
+    }
+
+    let detectLiverSteatosisResp = await this.detectLiverSteatosisWithOptions(detectLiverSteatosisReq, runtime);
+    return detectLiverSteatosisResp;
+  }
+
   async detectLungNoduleWithOptions(request: DetectLungNoduleRequest, runtime: $Util.RuntimeOptions): Promise<DetectLungNoduleResponse> {
     Util.validateModel(request);
     let body : {[key: string ]: any} = { };
@@ -6848,6 +8464,134 @@ export default class Client extends OpenApi {
     return await this.getAsyncJobResultWithOptions(request, runtime);
   }
 
+  async predictCVDWithOptions(request: PredictCVDRequest, runtime: $Util.RuntimeOptions): Promise<PredictCVDResponse> {
+    Util.validateModel(request);
+    let body : {[key: string ]: any} = { };
+    if (!Util.isUnset(request.dataFormat)) {
+      body["DataFormat"] = request.dataFormat;
+    }
+
+    if (!Util.isUnset(request.dataSourceType)) {
+      body["DataSourceType"] = request.dataSourceType;
+    }
+
+    if (!Util.isUnset(request.orgId)) {
+      body["OrgId"] = request.orgId;
+    }
+
+    if (!Util.isUnset(request.orgName)) {
+      body["OrgName"] = request.orgName;
+    }
+
+    if (!Util.isUnset(request.URLList)) {
+      body["URLList"] = request.URLList;
+    }
+
+    let req = new $OpenApi.OpenApiRequest({
+      body: OpenApiUtil.parseToMap(body),
+    });
+    let params = new $OpenApi.Params({
+      action: "PredictCVD",
+      version: "2020-03-20",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $tea.cast<PredictCVDResponse>(await this.callApi(params, req, runtime), new PredictCVDResponse({}));
+  }
+
+  async predictCVD(request: PredictCVDRequest): Promise<PredictCVDResponse> {
+    let runtime = new $Util.RuntimeOptions({ });
+    return await this.predictCVDWithOptions(request, runtime);
+  }
+
+  async predictCVDAdvance(request: PredictCVDAdvanceRequest, runtime: $Util.RuntimeOptions): Promise<PredictCVDResponse> {
+    // Step 0: init client
+    let accessKeyId = await this._credential.getAccessKeyId();
+    let accessKeySecret = await this._credential.getAccessKeySecret();
+    let securityToken = await this._credential.getSecurityToken();
+    let credentialType = this._credential.getType();
+    let openPlatformEndpoint = this._openPlatformEndpoint;
+    if (Util.isUnset(openPlatformEndpoint)) {
+      openPlatformEndpoint = "openplatform.aliyuncs.com";
+    }
+
+    if (Util.isUnset(credentialType)) {
+      credentialType = "access_key";
+    }
+
+    let authConfig = new $OpenApi.Config({
+      accessKeyId: accessKeyId,
+      accessKeySecret: accessKeySecret,
+      securityToken: securityToken,
+      type: credentialType,
+      endpoint: openPlatformEndpoint,
+      protocol: this._protocol,
+      regionId: this._regionId,
+    });
+    let authClient = new OpenPlatform(authConfig);
+    let authRequest = new $OpenPlatform.AuthorizeFileUploadRequest({
+      product: "imageprocess",
+      regionId: this._regionId,
+    });
+    let authResponse = new $OpenPlatform.AuthorizeFileUploadResponse({ });
+    let ossConfig = new $OSS.Config({
+      accessKeySecret: accessKeySecret,
+      type: "access_key",
+      protocol: this._protocol,
+      regionId: this._regionId,
+    });
+    let ossClient : OSS = null;
+    let fileObj = new $FileForm.FileField({ });
+    let ossHeader = new $OSS.PostObjectRequestHeader({ });
+    let uploadRequest = new $OSS.PostObjectRequest({ });
+    let ossRuntime = new $OSSUtil.RuntimeOptions({ });
+    OpenApiUtil.convert(runtime, ossRuntime);
+    let predictCVDReq = new PredictCVDRequest({ });
+    OpenApiUtil.convert(request, predictCVDReq);
+    if (!Util.isUnset(request.URLList)) {
+      let i0 : number = 0;
+
+      for (let item0 of request.URLList) {
+        if (!Util.isUnset(item0.URLObject)) {
+          authResponse = await authClient.authorizeFileUploadWithOptions(authRequest, runtime);
+          ossConfig.accessKeyId = authResponse.body.accessKeyId;
+          ossConfig.endpoint = OpenApiUtil.getEndpoint(authResponse.body.endpoint, authResponse.body.useAccelerate, this._endpointType);
+          ossClient = new OSS(ossConfig);
+          fileObj = new $FileForm.FileField({
+            filename: authResponse.body.objectKey,
+            content: item0.URLObject,
+            contentType: "",
+          });
+          ossHeader = new $OSS.PostObjectRequestHeader({
+            accessKeyId: authResponse.body.accessKeyId,
+            policy: authResponse.body.encodedPolicy,
+            signature: authResponse.body.signature,
+            key: authResponse.body.objectKey,
+            file: fileObj,
+            successActionStatus: "201",
+          });
+          uploadRequest = new $OSS.PostObjectRequest({
+            bucketName: authResponse.body.bucket,
+            header: ossHeader,
+          });
+          await ossClient.postObject(uploadRequest, ossRuntime);
+          let tmp : PredictCVDRequestURLList = predictCVDReq.URLList[i0];
+          tmp.URL = `http://${authResponse.body.bucket}.${authResponse.body.endpoint}/${authResponse.body.objectKey}`;
+          i0 = Number.ltoi(Number.add(Number.itol(i0), Number.itol(1)));
+        }
+
+      }
+    }
+
+    let predictCVDResp = await this.predictCVDWithOptions(predictCVDReq, runtime);
+    return predictCVDResp;
+  }
+
   async runCTRegistrationWithOptions(request: RunCTRegistrationRequest, runtime: $Util.RuntimeOptions): Promise<RunCTRegistrationResponse> {
     Util.validateModel(request);
     let body : {[key: string ]: any} = { };
@@ -7155,6 +8899,134 @@ export default class Client extends OpenApi {
     return runMedQAResp;
   }
 
+  async screenCRCWithOptions(request: ScreenCRCRequest, runtime: $Util.RuntimeOptions): Promise<ScreenCRCResponse> {
+    Util.validateModel(request);
+    let body : {[key: string ]: any} = { };
+    if (!Util.isUnset(request.dataFormat)) {
+      body["DataFormat"] = request.dataFormat;
+    }
+
+    if (!Util.isUnset(request.dataSourceType)) {
+      body["DataSourceType"] = request.dataSourceType;
+    }
+
+    if (!Util.isUnset(request.orgId)) {
+      body["OrgId"] = request.orgId;
+    }
+
+    if (!Util.isUnset(request.orgName)) {
+      body["OrgName"] = request.orgName;
+    }
+
+    if (!Util.isUnset(request.URLList)) {
+      body["URLList"] = request.URLList;
+    }
+
+    let req = new $OpenApi.OpenApiRequest({
+      body: OpenApiUtil.parseToMap(body),
+    });
+    let params = new $OpenApi.Params({
+      action: "ScreenCRC",
+      version: "2020-03-20",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $tea.cast<ScreenCRCResponse>(await this.callApi(params, req, runtime), new ScreenCRCResponse({}));
+  }
+
+  async screenCRC(request: ScreenCRCRequest): Promise<ScreenCRCResponse> {
+    let runtime = new $Util.RuntimeOptions({ });
+    return await this.screenCRCWithOptions(request, runtime);
+  }
+
+  async screenCRCAdvance(request: ScreenCRCAdvanceRequest, runtime: $Util.RuntimeOptions): Promise<ScreenCRCResponse> {
+    // Step 0: init client
+    let accessKeyId = await this._credential.getAccessKeyId();
+    let accessKeySecret = await this._credential.getAccessKeySecret();
+    let securityToken = await this._credential.getSecurityToken();
+    let credentialType = this._credential.getType();
+    let openPlatformEndpoint = this._openPlatformEndpoint;
+    if (Util.isUnset(openPlatformEndpoint)) {
+      openPlatformEndpoint = "openplatform.aliyuncs.com";
+    }
+
+    if (Util.isUnset(credentialType)) {
+      credentialType = "access_key";
+    }
+
+    let authConfig = new $OpenApi.Config({
+      accessKeyId: accessKeyId,
+      accessKeySecret: accessKeySecret,
+      securityToken: securityToken,
+      type: credentialType,
+      endpoint: openPlatformEndpoint,
+      protocol: this._protocol,
+      regionId: this._regionId,
+    });
+    let authClient = new OpenPlatform(authConfig);
+    let authRequest = new $OpenPlatform.AuthorizeFileUploadRequest({
+      product: "imageprocess",
+      regionId: this._regionId,
+    });
+    let authResponse = new $OpenPlatform.AuthorizeFileUploadResponse({ });
+    let ossConfig = new $OSS.Config({
+      accessKeySecret: accessKeySecret,
+      type: "access_key",
+      protocol: this._protocol,
+      regionId: this._regionId,
+    });
+    let ossClient : OSS = null;
+    let fileObj = new $FileForm.FileField({ });
+    let ossHeader = new $OSS.PostObjectRequestHeader({ });
+    let uploadRequest = new $OSS.PostObjectRequest({ });
+    let ossRuntime = new $OSSUtil.RuntimeOptions({ });
+    OpenApiUtil.convert(runtime, ossRuntime);
+    let screenCRCReq = new ScreenCRCRequest({ });
+    OpenApiUtil.convert(request, screenCRCReq);
+    if (!Util.isUnset(request.URLList)) {
+      let i0 : number = 0;
+
+      for (let item0 of request.URLList) {
+        if (!Util.isUnset(item0.URLObject)) {
+          authResponse = await authClient.authorizeFileUploadWithOptions(authRequest, runtime);
+          ossConfig.accessKeyId = authResponse.body.accessKeyId;
+          ossConfig.endpoint = OpenApiUtil.getEndpoint(authResponse.body.endpoint, authResponse.body.useAccelerate, this._endpointType);
+          ossClient = new OSS(ossConfig);
+          fileObj = new $FileForm.FileField({
+            filename: authResponse.body.objectKey,
+            content: item0.URLObject,
+            contentType: "",
+          });
+          ossHeader = new $OSS.PostObjectRequestHeader({
+            accessKeyId: authResponse.body.accessKeyId,
+            policy: authResponse.body.encodedPolicy,
+            signature: authResponse.body.signature,
+            key: authResponse.body.objectKey,
+            file: fileObj,
+            successActionStatus: "201",
+          });
+          uploadRequest = new $OSS.PostObjectRequest({
+            bucketName: authResponse.body.bucket,
+            header: ossHeader,
+          });
+          await ossClient.postObject(uploadRequest, ossRuntime);
+          let tmp : ScreenCRCRequestURLList = screenCRCReq.URLList[i0];
+          tmp.URL = `http://${authResponse.body.bucket}.${authResponse.body.endpoint}/${authResponse.body.objectKey}`;
+          i0 = Number.ltoi(Number.add(Number.itol(i0), Number.itol(1)));
+        }
+
+      }
+    }
+
+    let screenCRCResp = await this.screenCRCWithOptions(screenCRCReq, runtime);
+    return screenCRCResp;
+  }
+
   async screenChestCTWithOptions(request: ScreenChestCTRequest, runtime: $Util.RuntimeOptions): Promise<ScreenChestCTResponse> {
     Util.validateModel(request);
     let body : {[key: string ]: any} = { };
@@ -7318,6 +9190,262 @@ export default class Client extends OpenApi {
   async screenEC(request: ScreenECRequest): Promise<ScreenECResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.screenECWithOptions(request, runtime);
+  }
+
+  async screenGCWithOptions(request: ScreenGCRequest, runtime: $Util.RuntimeOptions): Promise<ScreenGCResponse> {
+    Util.validateModel(request);
+    let body : {[key: string ]: any} = { };
+    if (!Util.isUnset(request.dataFormat)) {
+      body["DataFormat"] = request.dataFormat;
+    }
+
+    if (!Util.isUnset(request.dataSourceType)) {
+      body["DataSourceType"] = request.dataSourceType;
+    }
+
+    if (!Util.isUnset(request.orgId)) {
+      body["OrgId"] = request.orgId;
+    }
+
+    if (!Util.isUnset(request.orgName)) {
+      body["OrgName"] = request.orgName;
+    }
+
+    if (!Util.isUnset(request.URLList)) {
+      body["URLList"] = request.URLList;
+    }
+
+    let req = new $OpenApi.OpenApiRequest({
+      body: OpenApiUtil.parseToMap(body),
+    });
+    let params = new $OpenApi.Params({
+      action: "ScreenGC",
+      version: "2020-03-20",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $tea.cast<ScreenGCResponse>(await this.callApi(params, req, runtime), new ScreenGCResponse({}));
+  }
+
+  async screenGC(request: ScreenGCRequest): Promise<ScreenGCResponse> {
+    let runtime = new $Util.RuntimeOptions({ });
+    return await this.screenGCWithOptions(request, runtime);
+  }
+
+  async screenGCAdvance(request: ScreenGCAdvanceRequest, runtime: $Util.RuntimeOptions): Promise<ScreenGCResponse> {
+    // Step 0: init client
+    let accessKeyId = await this._credential.getAccessKeyId();
+    let accessKeySecret = await this._credential.getAccessKeySecret();
+    let securityToken = await this._credential.getSecurityToken();
+    let credentialType = this._credential.getType();
+    let openPlatformEndpoint = this._openPlatformEndpoint;
+    if (Util.isUnset(openPlatformEndpoint)) {
+      openPlatformEndpoint = "openplatform.aliyuncs.com";
+    }
+
+    if (Util.isUnset(credentialType)) {
+      credentialType = "access_key";
+    }
+
+    let authConfig = new $OpenApi.Config({
+      accessKeyId: accessKeyId,
+      accessKeySecret: accessKeySecret,
+      securityToken: securityToken,
+      type: credentialType,
+      endpoint: openPlatformEndpoint,
+      protocol: this._protocol,
+      regionId: this._regionId,
+    });
+    let authClient = new OpenPlatform(authConfig);
+    let authRequest = new $OpenPlatform.AuthorizeFileUploadRequest({
+      product: "imageprocess",
+      regionId: this._regionId,
+    });
+    let authResponse = new $OpenPlatform.AuthorizeFileUploadResponse({ });
+    let ossConfig = new $OSS.Config({
+      accessKeySecret: accessKeySecret,
+      type: "access_key",
+      protocol: this._protocol,
+      regionId: this._regionId,
+    });
+    let ossClient : OSS = null;
+    let fileObj = new $FileForm.FileField({ });
+    let ossHeader = new $OSS.PostObjectRequestHeader({ });
+    let uploadRequest = new $OSS.PostObjectRequest({ });
+    let ossRuntime = new $OSSUtil.RuntimeOptions({ });
+    OpenApiUtil.convert(runtime, ossRuntime);
+    let screenGCReq = new ScreenGCRequest({ });
+    OpenApiUtil.convert(request, screenGCReq);
+    if (!Util.isUnset(request.URLList)) {
+      let i0 : number = 0;
+
+      for (let item0 of request.URLList) {
+        if (!Util.isUnset(item0.URLObject)) {
+          authResponse = await authClient.authorizeFileUploadWithOptions(authRequest, runtime);
+          ossConfig.accessKeyId = authResponse.body.accessKeyId;
+          ossConfig.endpoint = OpenApiUtil.getEndpoint(authResponse.body.endpoint, authResponse.body.useAccelerate, this._endpointType);
+          ossClient = new OSS(ossConfig);
+          fileObj = new $FileForm.FileField({
+            filename: authResponse.body.objectKey,
+            content: item0.URLObject,
+            contentType: "",
+          });
+          ossHeader = new $OSS.PostObjectRequestHeader({
+            accessKeyId: authResponse.body.accessKeyId,
+            policy: authResponse.body.encodedPolicy,
+            signature: authResponse.body.signature,
+            key: authResponse.body.objectKey,
+            file: fileObj,
+            successActionStatus: "201",
+          });
+          uploadRequest = new $OSS.PostObjectRequest({
+            bucketName: authResponse.body.bucket,
+            header: ossHeader,
+          });
+          await ossClient.postObject(uploadRequest, ossRuntime);
+          let tmp : ScreenGCRequestURLList = screenGCReq.URLList[i0];
+          tmp.URL = `http://${authResponse.body.bucket}.${authResponse.body.endpoint}/${authResponse.body.objectKey}`;
+          i0 = Number.ltoi(Number.add(Number.itol(i0), Number.itol(1)));
+        }
+
+      }
+    }
+
+    let screenGCResp = await this.screenGCWithOptions(screenGCReq, runtime);
+    return screenGCResp;
+  }
+
+  async screenLCWithOptions(request: ScreenLCRequest, runtime: $Util.RuntimeOptions): Promise<ScreenLCResponse> {
+    Util.validateModel(request);
+    let body : {[key: string ]: any} = { };
+    if (!Util.isUnset(request.dataFormat)) {
+      body["DataFormat"] = request.dataFormat;
+    }
+
+    if (!Util.isUnset(request.dataSourceType)) {
+      body["DataSourceType"] = request.dataSourceType;
+    }
+
+    if (!Util.isUnset(request.orgId)) {
+      body["OrgId"] = request.orgId;
+    }
+
+    if (!Util.isUnset(request.orgName)) {
+      body["OrgName"] = request.orgName;
+    }
+
+    if (!Util.isUnset(request.URLList)) {
+      body["URLList"] = request.URLList;
+    }
+
+    let req = new $OpenApi.OpenApiRequest({
+      body: OpenApiUtil.parseToMap(body),
+    });
+    let params = new $OpenApi.Params({
+      action: "ScreenLC",
+      version: "2020-03-20",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $tea.cast<ScreenLCResponse>(await this.callApi(params, req, runtime), new ScreenLCResponse({}));
+  }
+
+  async screenLC(request: ScreenLCRequest): Promise<ScreenLCResponse> {
+    let runtime = new $Util.RuntimeOptions({ });
+    return await this.screenLCWithOptions(request, runtime);
+  }
+
+  async screenLCAdvance(request: ScreenLCAdvanceRequest, runtime: $Util.RuntimeOptions): Promise<ScreenLCResponse> {
+    // Step 0: init client
+    let accessKeyId = await this._credential.getAccessKeyId();
+    let accessKeySecret = await this._credential.getAccessKeySecret();
+    let securityToken = await this._credential.getSecurityToken();
+    let credentialType = this._credential.getType();
+    let openPlatformEndpoint = this._openPlatformEndpoint;
+    if (Util.isUnset(openPlatformEndpoint)) {
+      openPlatformEndpoint = "openplatform.aliyuncs.com";
+    }
+
+    if (Util.isUnset(credentialType)) {
+      credentialType = "access_key";
+    }
+
+    let authConfig = new $OpenApi.Config({
+      accessKeyId: accessKeyId,
+      accessKeySecret: accessKeySecret,
+      securityToken: securityToken,
+      type: credentialType,
+      endpoint: openPlatformEndpoint,
+      protocol: this._protocol,
+      regionId: this._regionId,
+    });
+    let authClient = new OpenPlatform(authConfig);
+    let authRequest = new $OpenPlatform.AuthorizeFileUploadRequest({
+      product: "imageprocess",
+      regionId: this._regionId,
+    });
+    let authResponse = new $OpenPlatform.AuthorizeFileUploadResponse({ });
+    let ossConfig = new $OSS.Config({
+      accessKeySecret: accessKeySecret,
+      type: "access_key",
+      protocol: this._protocol,
+      regionId: this._regionId,
+    });
+    let ossClient : OSS = null;
+    let fileObj = new $FileForm.FileField({ });
+    let ossHeader = new $OSS.PostObjectRequestHeader({ });
+    let uploadRequest = new $OSS.PostObjectRequest({ });
+    let ossRuntime = new $OSSUtil.RuntimeOptions({ });
+    OpenApiUtil.convert(runtime, ossRuntime);
+    let screenLCReq = new ScreenLCRequest({ });
+    OpenApiUtil.convert(request, screenLCReq);
+    if (!Util.isUnset(request.URLList)) {
+      let i0 : number = 0;
+
+      for (let item0 of request.URLList) {
+        if (!Util.isUnset(item0.URLObject)) {
+          authResponse = await authClient.authorizeFileUploadWithOptions(authRequest, runtime);
+          ossConfig.accessKeyId = authResponse.body.accessKeyId;
+          ossConfig.endpoint = OpenApiUtil.getEndpoint(authResponse.body.endpoint, authResponse.body.useAccelerate, this._endpointType);
+          ossClient = new OSS(ossConfig);
+          fileObj = new $FileForm.FileField({
+            filename: authResponse.body.objectKey,
+            content: item0.URLObject,
+            contentType: "",
+          });
+          ossHeader = new $OSS.PostObjectRequestHeader({
+            accessKeyId: authResponse.body.accessKeyId,
+            policy: authResponse.body.encodedPolicy,
+            signature: authResponse.body.signature,
+            key: authResponse.body.objectKey,
+            file: fileObj,
+            successActionStatus: "201",
+          });
+          uploadRequest = new $OSS.PostObjectRequest({
+            bucketName: authResponse.body.bucket,
+            header: ossHeader,
+          });
+          await ossClient.postObject(uploadRequest, ossRuntime);
+          let tmp : ScreenLCRequestURLList = screenLCReq.URLList[i0];
+          tmp.URL = `http://${authResponse.body.bucket}.${authResponse.body.endpoint}/${authResponse.body.objectKey}`;
+          i0 = Number.ltoi(Number.add(Number.itol(i0), Number.itol(1)));
+        }
+
+      }
+    }
+
+    let screenLCResp = await this.screenLCWithOptions(screenLCReq, runtime);
+    return screenLCResp;
   }
 
   async segmentLymphNodeWithOptions(request: SegmentLymphNodeRequest, runtime: $Util.RuntimeOptions): Promise<SegmentLymphNodeResponse> {
