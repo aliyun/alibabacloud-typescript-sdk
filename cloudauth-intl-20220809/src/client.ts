@@ -8,6 +8,102 @@ import OpenApiUtil from '@alicloud/openapi-util';
 import EndpointUtil from '@alicloud/endpoint-util';
 import * as $tea from '@alicloud/tea-typescript';
 
+export class CardOcrRequest extends $tea.Model {
+  docType?: string;
+  idFaceQuality?: string;
+  idOcrPictureBase64?: string;
+  idOcrPictureUrl?: string;
+  merchantBizId?: string;
+  merchantUserId?: string;
+  ocr?: string;
+  productCode?: string;
+  spoof?: string;
+  static names(): { [key: string]: string } {
+    return {
+      docType: 'DocType',
+      idFaceQuality: 'IdFaceQuality',
+      idOcrPictureBase64: 'IdOcrPictureBase64',
+      idOcrPictureUrl: 'IdOcrPictureUrl',
+      merchantBizId: 'MerchantBizId',
+      merchantUserId: 'MerchantUserId',
+      ocr: 'Ocr',
+      productCode: 'ProductCode',
+      spoof: 'Spoof',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      docType: 'string',
+      idFaceQuality: 'string',
+      idOcrPictureBase64: 'string',
+      idOcrPictureUrl: 'string',
+      merchantBizId: 'string',
+      merchantUserId: 'string',
+      ocr: 'string',
+      productCode: 'string',
+      spoof: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class CardOcrResponseBody extends $tea.Model {
+  code?: string;
+  message?: string;
+  requestId?: string;
+  result?: CardOcrResponseBodyResult;
+  static names(): { [key: string]: string } {
+    return {
+      code: 'Code',
+      message: 'Message',
+      requestId: 'RequestId',
+      result: 'Result',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      code: 'string',
+      message: 'string',
+      requestId: 'string',
+      result: CardOcrResponseBodyResult,
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class CardOcrResponse extends $tea.Model {
+  headers: { [key: string]: string };
+  statusCode: number;
+  body: CardOcrResponseBody;
+  static names(): { [key: string]: string } {
+    return {
+      headers: 'headers',
+      statusCode: 'statusCode',
+      body: 'body',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
+      body: CardOcrResponseBody,
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
 export class CheckResultRequest extends $tea.Model {
   extraImageControlList?: string;
   isReturnImage?: string;
@@ -812,6 +908,34 @@ export class InitializeResponse extends $tea.Model {
   }
 }
 
+export class CardOcrResponseBodyResult extends $tea.Model {
+  extCardInfo?: string;
+  passed?: string;
+  subCode?: string;
+  transactionId?: string;
+  static names(): { [key: string]: string } {
+    return {
+      extCardInfo: 'ExtCardInfo',
+      passed: 'Passed',
+      subCode: 'SubCode',
+      transactionId: 'TransactionId',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      extCardInfo: 'string',
+      passed: 'string',
+      subCode: 'string',
+      transactionId: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
 export class CheckResultResponseBodyResult extends $tea.Model {
   ekycResult?: string;
   extBasicInfo?: string;
@@ -1184,6 +1308,67 @@ export default class Client extends OpenApi {
     }
 
     return EndpointUtil.getEndpointRules(productId, regionId, endpointRule, network, suffix);
+  }
+
+  async cardOcrWithOptions(request: CardOcrRequest, runtime: $Util.RuntimeOptions): Promise<CardOcrResponse> {
+    Util.validateModel(request);
+    let query = { };
+    if (!Util.isUnset(request.docType)) {
+      query["DocType"] = request.docType;
+    }
+
+    if (!Util.isUnset(request.idFaceQuality)) {
+      query["IdFaceQuality"] = request.idFaceQuality;
+    }
+
+    if (!Util.isUnset(request.idOcrPictureBase64)) {
+      query["IdOcrPictureBase64"] = request.idOcrPictureBase64;
+    }
+
+    if (!Util.isUnset(request.idOcrPictureUrl)) {
+      query["IdOcrPictureUrl"] = request.idOcrPictureUrl;
+    }
+
+    if (!Util.isUnset(request.merchantBizId)) {
+      query["MerchantBizId"] = request.merchantBizId;
+    }
+
+    if (!Util.isUnset(request.merchantUserId)) {
+      query["MerchantUserId"] = request.merchantUserId;
+    }
+
+    if (!Util.isUnset(request.ocr)) {
+      query["Ocr"] = request.ocr;
+    }
+
+    if (!Util.isUnset(request.productCode)) {
+      query["ProductCode"] = request.productCode;
+    }
+
+    if (!Util.isUnset(request.spoof)) {
+      query["Spoof"] = request.spoof;
+    }
+
+    let req = new $OpenApi.OpenApiRequest({
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApi.Params({
+      action: "CardOcr",
+      version: "2022-08-09",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $tea.cast<CardOcrResponse>(await this.callApi(params, req, runtime), new CardOcrResponse({}));
+  }
+
+  async cardOcr(request: CardOcrRequest): Promise<CardOcrResponse> {
+    let runtime = new $Util.RuntimeOptions({ });
+    return await this.cardOcrWithOptions(request, runtime);
   }
 
   async checkResultWithOptions(request: CheckResultRequest, runtime: $Util.RuntimeOptions): Promise<CheckResultResponse> {
