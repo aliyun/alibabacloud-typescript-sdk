@@ -665,6 +665,72 @@ export class AddNetworkInterfaceToInstanceResponse extends $tea.Model {
   }
 }
 
+export class AddSnatIpForSnatEntryRequest extends $tea.Model {
+  snatEntryId?: string;
+  snatIp?: string;
+  static names(): { [key: string]: string } {
+    return {
+      snatEntryId: 'SnatEntryId',
+      snatIp: 'SnatIp',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      snatEntryId: 'string',
+      snatIp: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class AddSnatIpForSnatEntryResponseBody extends $tea.Model {
+  requestId?: string;
+  static names(): { [key: string]: string } {
+    return {
+      requestId: 'RequestId',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      requestId: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class AddSnatIpForSnatEntryResponse extends $tea.Model {
+  headers: { [key: string]: string };
+  statusCode: number;
+  body: AddSnatIpForSnatEntryResponseBody;
+  static names(): { [key: string]: string } {
+    return {
+      headers: 'headers',
+      statusCode: 'statusCode',
+      body: 'body',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
+      body: AddSnatIpForSnatEntryResponseBody,
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
 export class AssignPrivateIpAddressesRequest extends $tea.Model {
   networkInterfaceId?: string;
   vSwitchId?: string;
@@ -4922,6 +4988,72 @@ export class DeleteSnatEntryResponse extends $tea.Model {
       headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
       statusCode: 'number',
       body: DeleteSnatEntryResponseBody,
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class DeleteSnatIpForSnatEntryRequest extends $tea.Model {
+  snatEntryId?: string;
+  snatIp?: string;
+  static names(): { [key: string]: string } {
+    return {
+      snatEntryId: 'SnatEntryId',
+      snatIp: 'SnatIp',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      snatEntryId: 'string',
+      snatIp: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class DeleteSnatIpForSnatEntryResponseBody extends $tea.Model {
+  requestId?: string;
+  static names(): { [key: string]: string } {
+    return {
+      requestId: 'RequestId',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      requestId: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class DeleteSnatIpForSnatEntryResponse extends $tea.Model {
+  headers: { [key: string]: string };
+  statusCode: number;
+  body: DeleteSnatIpForSnatEntryResponseBody;
+  static names(): { [key: string]: string } {
+    return {
+      headers: 'headers',
+      statusCode: 'statusCode',
+      body: 'body',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
+      body: DeleteSnatIpForSnatEntryResponseBody,
     };
   }
 
@@ -11575,6 +11707,93 @@ export class DescribeServcieScheduleResponse extends $tea.Model {
   }
 }
 
+export class DescribeSnatAttributeRequest extends $tea.Model {
+  snatEntryId?: string;
+  static names(): { [key: string]: string } {
+    return {
+      snatEntryId: 'SnatEntryId',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      snatEntryId: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class DescribeSnatAttributeResponseBody extends $tea.Model {
+  creationTime?: string;
+  natGatewayId?: string;
+  requestId?: string;
+  snatEntryId?: string;
+  snatEntryName?: string;
+  snatIp?: string;
+  snatIps?: DescribeSnatAttributeResponseBodySnatIps[];
+  sourceCIDR?: string;
+  status?: string;
+  static names(): { [key: string]: string } {
+    return {
+      creationTime: 'CreationTime',
+      natGatewayId: 'NatGatewayId',
+      requestId: 'RequestId',
+      snatEntryId: 'SnatEntryId',
+      snatEntryName: 'SnatEntryName',
+      snatIp: 'SnatIp',
+      snatIps: 'SnatIps',
+      sourceCIDR: 'SourceCIDR',
+      status: 'Status',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      creationTime: 'string',
+      natGatewayId: 'string',
+      requestId: 'string',
+      snatEntryId: 'string',
+      snatEntryName: 'string',
+      snatIp: 'string',
+      snatIps: { 'type': 'array', 'itemType': DescribeSnatAttributeResponseBodySnatIps },
+      sourceCIDR: 'string',
+      status: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class DescribeSnatAttributeResponse extends $tea.Model {
+  headers: { [key: string]: string };
+  statusCode: number;
+  body: DescribeSnatAttributeResponseBody;
+  static names(): { [key: string]: string } {
+    return {
+      headers: 'headers',
+      statusCode: 'statusCode',
+      body: 'body',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
+      body: DescribeSnatAttributeResponseBody,
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
 export class DescribeSnatTableEntriesRequest extends $tea.Model {
   natGatewayId?: string;
   pageNumber?: number;
@@ -17185,6 +17404,72 @@ export class StartLoadBalancerListenerResponse extends $tea.Model {
   }
 }
 
+export class StartSnatIpForSnatEntryRequest extends $tea.Model {
+  snatEntryId?: string;
+  snatIp?: string;
+  static names(): { [key: string]: string } {
+    return {
+      snatEntryId: 'SnatEntryId',
+      snatIp: 'SnatIp',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      snatEntryId: 'string',
+      snatIp: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class StartSnatIpForSnatEntryResponseBody extends $tea.Model {
+  requestId?: string;
+  static names(): { [key: string]: string } {
+    return {
+      requestId: 'RequestId',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      requestId: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class StartSnatIpForSnatEntryResponse extends $tea.Model {
+  headers: { [key: string]: string };
+  statusCode: number;
+  body: StartSnatIpForSnatEntryResponseBody;
+  static names(): { [key: string]: string } {
+    return {
+      headers: 'headers',
+      statusCode: 'statusCode',
+      body: 'body',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
+      body: StartSnatIpForSnatEntryResponseBody,
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
 export class StopEpnInstanceRequest extends $tea.Model {
   EPNInstanceId?: string;
   static names(): { [key: string]: string } {
@@ -17466,6 +17751,72 @@ export class StopLoadBalancerListenerResponse extends $tea.Model {
       headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
       statusCode: 'number',
       body: StopLoadBalancerListenerResponseBody,
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class StopSnatIpForSnatEntryRequest extends $tea.Model {
+  snatEntryId?: string;
+  snatIp?: string;
+  static names(): { [key: string]: string } {
+    return {
+      snatEntryId: 'SnatEntryId',
+      snatIp: 'SnatIp',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      snatEntryId: 'string',
+      snatIp: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class StopSnatIpForSnatEntryResponseBody extends $tea.Model {
+  requestId?: string;
+  static names(): { [key: string]: string } {
+    return {
+      requestId: 'RequestId',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      requestId: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class StopSnatIpForSnatEntryResponse extends $tea.Model {
+  headers: { [key: string]: string };
+  statusCode: number;
+  body: StopSnatIpForSnatEntryResponseBody;
+  static names(): { [key: string]: string } {
+    return {
+      headers: 'headers',
+      statusCode: 'statusCode',
+      body: 'body',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
+      body: StopSnatIpForSnatEntryResponseBody,
     };
   }
 
@@ -24763,6 +25114,31 @@ export class DescribeServcieScheduleResponseBodyPodAbstractInfo extends $tea.Mod
   }
 }
 
+export class DescribeSnatAttributeResponseBodySnatIps extends $tea.Model {
+  creationTime?: string;
+  ip?: string;
+  status?: string;
+  static names(): { [key: string]: string } {
+    return {
+      creationTime: 'CreationTime',
+      ip: 'Ip',
+      status: 'Status',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      creationTime: 'string',
+      ip: 'string',
+      status: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
 export class DescribeSnatTableEntriesResponseBodySnatTableEntries extends $tea.Model {
   natGatewayId?: string;
   snatEntryId?: string;
@@ -25745,6 +26121,39 @@ export default class Client extends OpenApi {
   async addNetworkInterfaceToInstance(request: AddNetworkInterfaceToInstanceRequest): Promise<AddNetworkInterfaceToInstanceResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.addNetworkInterfaceToInstanceWithOptions(request, runtime);
+  }
+
+  async addSnatIpForSnatEntryWithOptions(request: AddSnatIpForSnatEntryRequest, runtime: $Util.RuntimeOptions): Promise<AddSnatIpForSnatEntryResponse> {
+    Util.validateModel(request);
+    let query = { };
+    if (!Util.isUnset(request.snatEntryId)) {
+      query["SnatEntryId"] = request.snatEntryId;
+    }
+
+    if (!Util.isUnset(request.snatIp)) {
+      query["SnatIp"] = request.snatIp;
+    }
+
+    let req = new $OpenApi.OpenApiRequest({
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApi.Params({
+      action: "AddSnatIpForSnatEntry",
+      version: "2017-11-10",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $tea.cast<AddSnatIpForSnatEntryResponse>(await this.callApi(params, req, runtime), new AddSnatIpForSnatEntryResponse({}));
+  }
+
+  async addSnatIpForSnatEntry(request: AddSnatIpForSnatEntryRequest): Promise<AddSnatIpForSnatEntryResponse> {
+    let runtime = new $Util.RuntimeOptions({ });
+    return await this.addSnatIpForSnatEntryWithOptions(request, runtime);
   }
 
   async assignPrivateIpAddressesWithOptions(request: AssignPrivateIpAddressesRequest, runtime: $Util.RuntimeOptions): Promise<AssignPrivateIpAddressesResponse> {
@@ -28157,6 +28566,39 @@ export default class Client extends OpenApi {
   async deleteSnatEntry(request: DeleteSnatEntryRequest): Promise<DeleteSnatEntryResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.deleteSnatEntryWithOptions(request, runtime);
+  }
+
+  async deleteSnatIpForSnatEntryWithOptions(request: DeleteSnatIpForSnatEntryRequest, runtime: $Util.RuntimeOptions): Promise<DeleteSnatIpForSnatEntryResponse> {
+    Util.validateModel(request);
+    let query = { };
+    if (!Util.isUnset(request.snatEntryId)) {
+      query["SnatEntryId"] = request.snatEntryId;
+    }
+
+    if (!Util.isUnset(request.snatIp)) {
+      query["SnatIp"] = request.snatIp;
+    }
+
+    let req = new $OpenApi.OpenApiRequest({
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApi.Params({
+      action: "DeleteSnatIpForSnatEntry",
+      version: "2017-11-10",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $tea.cast<DeleteSnatIpForSnatEntryResponse>(await this.callApi(params, req, runtime), new DeleteSnatIpForSnatEntryResponse({}));
+  }
+
+  async deleteSnatIpForSnatEntry(request: DeleteSnatIpForSnatEntryRequest): Promise<DeleteSnatIpForSnatEntryResponse> {
+    let runtime = new $Util.RuntimeOptions({ });
+    return await this.deleteSnatIpForSnatEntryWithOptions(request, runtime);
   }
 
   async deleteVSwitchWithOptions(request: DeleteVSwitchRequest, runtime: $Util.RuntimeOptions): Promise<DeleteVSwitchResponse> {
@@ -31124,6 +31566,31 @@ export default class Client extends OpenApi {
     return await this.describeServcieScheduleWithOptions(request, runtime);
   }
 
+  async describeSnatAttributeWithOptions(request: DescribeSnatAttributeRequest, runtime: $Util.RuntimeOptions): Promise<DescribeSnatAttributeResponse> {
+    Util.validateModel(request);
+    let query = OpenApiUtil.query(Util.toMap(request));
+    let req = new $OpenApi.OpenApiRequest({
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApi.Params({
+      action: "DescribeSnatAttribute",
+      version: "2017-11-10",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "GET",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $tea.cast<DescribeSnatAttributeResponse>(await this.callApi(params, req, runtime), new DescribeSnatAttributeResponse({}));
+  }
+
+  async describeSnatAttribute(request: DescribeSnatAttributeRequest): Promise<DescribeSnatAttributeResponse> {
+    let runtime = new $Util.RuntimeOptions({ });
+    return await this.describeSnatAttributeWithOptions(request, runtime);
+  }
+
   async describeSnatTableEntriesWithOptions(request: DescribeSnatTableEntriesRequest, runtime: $Util.RuntimeOptions): Promise<DescribeSnatTableEntriesResponse> {
     Util.validateModel(request);
     let query = OpenApiUtil.query(Util.toMap(request));
@@ -34062,6 +34529,39 @@ export default class Client extends OpenApi {
     return await this.startLoadBalancerListenerWithOptions(request, runtime);
   }
 
+  async startSnatIpForSnatEntryWithOptions(request: StartSnatIpForSnatEntryRequest, runtime: $Util.RuntimeOptions): Promise<StartSnatIpForSnatEntryResponse> {
+    Util.validateModel(request);
+    let query = { };
+    if (!Util.isUnset(request.snatEntryId)) {
+      query["SnatEntryId"] = request.snatEntryId;
+    }
+
+    if (!Util.isUnset(request.snatIp)) {
+      query["SnatIp"] = request.snatIp;
+    }
+
+    let req = new $OpenApi.OpenApiRequest({
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApi.Params({
+      action: "StartSnatIpForSnatEntry",
+      version: "2017-11-10",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $tea.cast<StartSnatIpForSnatEntryResponse>(await this.callApi(params, req, runtime), new StartSnatIpForSnatEntryResponse({}));
+  }
+
+  async startSnatIpForSnatEntry(request: StartSnatIpForSnatEntryRequest): Promise<StartSnatIpForSnatEntryResponse> {
+    let runtime = new $Util.RuntimeOptions({ });
+    return await this.startSnatIpForSnatEntryWithOptions(request, runtime);
+  }
+
   async stopEpnInstanceWithOptions(request: StopEpnInstanceRequest, runtime: $Util.RuntimeOptions): Promise<StopEpnInstanceResponse> {
     Util.validateModel(request);
     let query = { };
@@ -34198,6 +34698,39 @@ export default class Client extends OpenApi {
   async stopLoadBalancerListener(request: StopLoadBalancerListenerRequest): Promise<StopLoadBalancerListenerResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.stopLoadBalancerListenerWithOptions(request, runtime);
+  }
+
+  async stopSnatIpForSnatEntryWithOptions(request: StopSnatIpForSnatEntryRequest, runtime: $Util.RuntimeOptions): Promise<StopSnatIpForSnatEntryResponse> {
+    Util.validateModel(request);
+    let query = { };
+    if (!Util.isUnset(request.snatEntryId)) {
+      query["SnatEntryId"] = request.snatEntryId;
+    }
+
+    if (!Util.isUnset(request.snatIp)) {
+      query["SnatIp"] = request.snatIp;
+    }
+
+    let req = new $OpenApi.OpenApiRequest({
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApi.Params({
+      action: "StopSnatIpForSnatEntry",
+      version: "2017-11-10",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $tea.cast<StopSnatIpForSnatEntryResponse>(await this.callApi(params, req, runtime), new StopSnatIpForSnatEntryResponse({}));
+  }
+
+  async stopSnatIpForSnatEntry(request: StopSnatIpForSnatEntryRequest): Promise<StopSnatIpForSnatEntryResponse> {
+    let runtime = new $Util.RuntimeOptions({ });
+    return await this.stopSnatIpForSnatEntryWithOptions(request, runtime);
   }
 
   async unAssociateEnsEipAddressWithOptions(request: UnAssociateEnsEipAddressRequest, runtime: $Util.RuntimeOptions): Promise<UnAssociateEnsEipAddressResponse> {
