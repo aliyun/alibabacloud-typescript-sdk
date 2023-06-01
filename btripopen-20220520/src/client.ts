@@ -7608,6 +7608,7 @@ export class HotelOrderCreateRequest extends $tea.Model {
   contractPhone?: string;
   corpPayPrice?: number;
   disOrderId?: string;
+  extra?: string;
   invoiceInfo?: HotelOrderCreateRequestInvoiceInfo;
   itemId?: number;
   itineraryNo?: string;
@@ -7631,6 +7632,7 @@ export class HotelOrderCreateRequest extends $tea.Model {
       contractPhone: 'contract_phone',
       corpPayPrice: 'corp_pay_price',
       disOrderId: 'dis_order_id',
+      extra: 'extra',
       invoiceInfo: 'invoice_info',
       itemId: 'item_id',
       itineraryNo: 'itinerary_no',
@@ -7657,6 +7659,7 @@ export class HotelOrderCreateRequest extends $tea.Model {
       contractPhone: 'string',
       corpPayPrice: 'number',
       disOrderId: 'string',
+      extra: 'string',
       invoiceInfo: HotelOrderCreateRequestInvoiceInfo,
       itemId: 'number',
       itineraryNo: 'string',
@@ -7687,6 +7690,7 @@ export class HotelOrderCreateShrinkRequest extends $tea.Model {
   contractPhone?: string;
   corpPayPrice?: number;
   disOrderId?: string;
+  extra?: string;
   invoiceInfoShrink?: string;
   itemId?: number;
   itineraryNo?: string;
@@ -7710,6 +7714,7 @@ export class HotelOrderCreateShrinkRequest extends $tea.Model {
       contractPhone: 'contract_phone',
       corpPayPrice: 'corp_pay_price',
       disOrderId: 'dis_order_id',
+      extra: 'extra',
       invoiceInfoShrink: 'invoice_info',
       itemId: 'item_id',
       itineraryNo: 'itinerary_no',
@@ -7736,6 +7741,7 @@ export class HotelOrderCreateShrinkRequest extends $tea.Model {
       contractPhone: 'string',
       corpPayPrice: 'number',
       disOrderId: 'string',
+      extra: 'string',
       invoiceInfoShrink: 'string',
       itemId: 'number',
       itineraryNo: 'string',
@@ -24706,6 +24712,7 @@ export class HotelOrderCreateRequestOccupantInfoList extends $tea.Model {
 export class HotelOrderCreateRequestPromotionInfoPromotionDetailInfoList extends $tea.Model {
   checkStatus?: boolean;
   needCheck?: boolean;
+  promotionCode?: string;
   promotionId?: string;
   promotionName?: string;
   promotionPrice?: number;
@@ -24714,6 +24721,7 @@ export class HotelOrderCreateRequestPromotionInfoPromotionDetailInfoList extends
     return {
       checkStatus: 'check_status',
       needCheck: 'need_check',
+      promotionCode: 'promotion_code',
       promotionId: 'promotion_id',
       promotionName: 'promotion_name',
       promotionPrice: 'promotion_price',
@@ -24725,6 +24733,7 @@ export class HotelOrderCreateRequestPromotionInfoPromotionDetailInfoList extends
     return {
       checkStatus: 'boolean',
       needCheck: 'boolean',
+      promotionCode: 'string',
       promotionId: 'string',
       promotionName: 'string',
       promotionPrice: 'number',
@@ -25557,6 +25566,7 @@ export class HotelOrderPreValidateRequestOccupantInfoList extends $tea.Model {
 export class HotelOrderPreValidateResponseBodyModulePromotionInfoPromotionDetailInfoList extends $tea.Model {
   checkStatus?: boolean;
   needCheck?: boolean;
+  promotionCode?: string;
   promotionId?: string;
   promotionName?: string;
   promotionPrice?: number;
@@ -25565,6 +25575,7 @@ export class HotelOrderPreValidateResponseBodyModulePromotionInfoPromotionDetail
     return {
       checkStatus: 'check_status',
       needCheck: 'need_check',
+      promotionCode: 'promotion_code',
       promotionId: 'promotion_id',
       promotionName: 'promotion_name',
       promotionPrice: 'promotion_price',
@@ -25576,6 +25587,7 @@ export class HotelOrderPreValidateResponseBodyModulePromotionInfoPromotionDetail
     return {
       checkStatus: 'boolean',
       needCheck: 'boolean',
+      promotionCode: 'string',
       promotionId: 'string',
       promotionName: 'string',
       promotionPrice: 'number',
@@ -25615,16 +25627,22 @@ export class HotelOrderPreValidateResponseBodyModulePromotionInfo extends $tea.M
 
 export class HotelOrderPreValidateResponseBodyModuleRatePlanDaily extends $tea.Model {
   board?: string;
+  discountPrice?: string;
   price?: number;
   rateStartTime?: string;
   roomCount?: number;
+  roundingDiscountPrice?: string;
+  roundingPrice?: string;
   serviceFee?: number;
   static names(): { [key: string]: string } {
     return {
       board: 'board',
+      discountPrice: 'discount_price',
       price: 'price',
       rateStartTime: 'rate_start_time',
       roomCount: 'room_count',
+      roundingDiscountPrice: 'rounding_discount_price',
+      roundingPrice: 'rounding_price',
       serviceFee: 'service_fee',
     };
   }
@@ -25632,9 +25650,12 @@ export class HotelOrderPreValidateResponseBodyModuleRatePlanDaily extends $tea.M
   static types(): { [key: string]: any } {
     return {
       board: 'string',
+      discountPrice: 'string',
       price: 'number',
       rateStartTime: 'string',
       roomCount: 'number',
+      roundingDiscountPrice: 'string',
+      roundingPrice: 'string',
       serviceFee: 'number',
     };
   }
@@ -26158,6 +26179,7 @@ export class HotelSearchResponseBodyModuleItems extends $tea.Model {
   isProtocol?: boolean;
   location?: string;
   minPrice?: number;
+  originalMinPrice?: number;
   score?: string;
   status?: number;
   tel?: string;
@@ -26177,6 +26199,7 @@ export class HotelSearchResponseBodyModuleItems extends $tea.Model {
       isProtocol: 'is_protocol',
       location: 'location',
       minPrice: 'min_price',
+      originalMinPrice: 'original_min_price',
       score: 'score',
       status: 'status',
       tel: 'tel',
@@ -26199,6 +26222,7 @@ export class HotelSearchResponseBodyModuleItems extends $tea.Model {
       isProtocol: 'boolean',
       location: 'string',
       minPrice: 'number',
+      originalMinPrice: 'number',
       score: 'string',
       status: 'number',
       tel: 'string',
@@ -34822,6 +34846,10 @@ export default class Client extends OpenApi {
 
     if (!Util.isUnset(request.disOrderId)) {
       body["dis_order_id"] = request.disOrderId;
+    }
+
+    if (!Util.isUnset(request.extra)) {
+      body["extra"] = request.extra;
     }
 
     if (!Util.isUnset(request.invoiceInfoShrink)) {
