@@ -775,6 +775,146 @@ export class AuthLoginWithThirdUserInfoResponse extends $tea.Model {
   }
 }
 
+export class CheckAndDoVoipCallForHotelHeaders extends $tea.Model {
+  commonHeaders?: { [key: string]: string };
+  xAcsAligenieAccessToken?: string;
+  authorization?: string;
+  static names(): { [key: string]: string } {
+    return {
+      commonHeaders: 'commonHeaders',
+      xAcsAligenieAccessToken: 'x-acs-aligenie-access-token',
+      authorization: 'Authorization',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      commonHeaders: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      xAcsAligenieAccessToken: 'string',
+      authorization: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class CheckAndDoVoipCallForHotelRequest extends $tea.Model {
+  bizData?: string;
+  calleeNick?: string;
+  calleePhoneNum?: string;
+  deviceInfo?: CheckAndDoVoipCallForHotelRequestDeviceInfo;
+  userInfo?: CheckAndDoVoipCallForHotelRequestUserInfo;
+  static names(): { [key: string]: string } {
+    return {
+      bizData: 'BizData',
+      calleeNick: 'CalleeNick',
+      calleePhoneNum: 'CalleePhoneNum',
+      deviceInfo: 'DeviceInfo',
+      userInfo: 'UserInfo',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      bizData: 'string',
+      calleeNick: 'string',
+      calleePhoneNum: 'string',
+      deviceInfo: CheckAndDoVoipCallForHotelRequestDeviceInfo,
+      userInfo: CheckAndDoVoipCallForHotelRequestUserInfo,
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class CheckAndDoVoipCallForHotelShrinkRequest extends $tea.Model {
+  bizData?: string;
+  calleeNick?: string;
+  calleePhoneNum?: string;
+  deviceInfoShrink?: string;
+  userInfoShrink?: string;
+  static names(): { [key: string]: string } {
+    return {
+      bizData: 'BizData',
+      calleeNick: 'CalleeNick',
+      calleePhoneNum: 'CalleePhoneNum',
+      deviceInfoShrink: 'DeviceInfo',
+      userInfoShrink: 'UserInfo',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      bizData: 'string',
+      calleeNick: 'string',
+      calleePhoneNum: 'string',
+      deviceInfoShrink: 'string',
+      userInfoShrink: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class CheckAndDoVoipCallForHotelResponseBody extends $tea.Model {
+  code?: number;
+  message?: string;
+  requestId?: string;
+  result?: CheckAndDoVoipCallForHotelResponseBodyResult;
+  static names(): { [key: string]: string } {
+    return {
+      code: 'Code',
+      message: 'Message',
+      requestId: 'RequestId',
+      result: 'Result',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      code: 'number',
+      message: 'string',
+      requestId: 'string',
+      result: CheckAndDoVoipCallForHotelResponseBodyResult,
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class CheckAndDoVoipCallForHotelResponse extends $tea.Model {
+  headers: { [key: string]: string };
+  statusCode: number;
+  body: CheckAndDoVoipCallForHotelResponseBody;
+  static names(): { [key: string]: string } {
+    return {
+      headers: 'headers',
+      statusCode: 'statusCode',
+      body: 'body',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
+      body: CheckAndDoVoipCallForHotelResponseBody,
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
 export class CheckAuthCodeBindForExtHeaders extends $tea.Model {
   commonHeaders?: { [key: string]: string };
   xAcsAligenieAccessToken?: string;
@@ -8607,6 +8747,183 @@ export class AuthLoginWithThirdUserInfoResponseBodyResult extends $tea.Model {
   }
 }
 
+export class CheckAndDoVoipCallForHotelRequestDeviceInfo extends $tea.Model {
+  encodeKey?: string;
+  encodeType?: string;
+  id?: string;
+  idType?: string;
+  organizationId?: string;
+  static names(): { [key: string]: string } {
+    return {
+      encodeKey: 'EncodeKey',
+      encodeType: 'EncodeType',
+      id: 'Id',
+      idType: 'IdType',
+      organizationId: 'OrganizationId',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      encodeKey: 'string',
+      encodeType: 'string',
+      id: 'string',
+      idType: 'string',
+      organizationId: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class CheckAndDoVoipCallForHotelRequestUserInfo extends $tea.Model {
+  encodeKey?: string;
+  encodeType?: string;
+  id?: string;
+  idType?: string;
+  organizationId?: string;
+  static names(): { [key: string]: string } {
+    return {
+      encodeKey: 'EncodeKey',
+      encodeType: 'EncodeType',
+      id: 'Id',
+      idType: 'IdType',
+      organizationId: 'OrganizationId',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      encodeKey: 'string',
+      encodeType: 'string',
+      id: 'string',
+      idType: 'string',
+      organizationId: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class CheckAndDoVoipCallForHotelResponseBodyResultDeviceTargetsData extends $tea.Model {
+  deviceIcon?: string;
+  deviceName?: string;
+  deviceType?: string;
+  online?: boolean;
+  uuid?: string;
+  static names(): { [key: string]: string } {
+    return {
+      deviceIcon: 'DeviceIcon',
+      deviceName: 'DeviceName',
+      deviceType: 'DeviceType',
+      online: 'Online',
+      uuid: 'Uuid',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      deviceIcon: 'string',
+      deviceName: 'string',
+      deviceType: 'string',
+      online: 'boolean',
+      uuid: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class CheckAndDoVoipCallForHotelResponseBodyResultDeviceTargets extends $tea.Model {
+  code?: number;
+  data?: CheckAndDoVoipCallForHotelResponseBodyResultDeviceTargetsData[];
+  msg?: string;
+  static names(): { [key: string]: string } {
+    return {
+      code: 'Code',
+      data: 'Data',
+      msg: 'Msg',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      code: 'number',
+      data: { 'type': 'array', 'itemType': CheckAndDoVoipCallForHotelResponseBodyResultDeviceTargetsData },
+      msg: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class CheckAndDoVoipCallForHotelResponseBodyResultStartCallResult extends $tea.Model {
+  message?: string;
+  retCode?: number;
+  retValue?: string;
+  success?: boolean;
+  traceId?: string;
+  static names(): { [key: string]: string } {
+    return {
+      message: 'Message',
+      retCode: 'RetCode',
+      retValue: 'RetValue',
+      success: 'Success',
+      traceId: 'TraceId',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      message: 'string',
+      retCode: 'number',
+      retValue: 'string',
+      success: 'boolean',
+      traceId: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class CheckAndDoVoipCallForHotelResponseBodyResult extends $tea.Model {
+  deviceTargets?: CheckAndDoVoipCallForHotelResponseBodyResultDeviceTargets;
+  isStartCall?: boolean;
+  passed?: boolean;
+  startCallResult?: CheckAndDoVoipCallForHotelResponseBodyResultStartCallResult;
+  static names(): { [key: string]: string } {
+    return {
+      deviceTargets: 'DeviceTargets',
+      isStartCall: 'IsStartCall',
+      passed: 'Passed',
+      startCallResult: 'StartCallResult',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      deviceTargets: CheckAndDoVoipCallForHotelResponseBodyResultDeviceTargets,
+      isStartCall: 'boolean',
+      passed: 'boolean',
+      startCallResult: CheckAndDoVoipCallForHotelResponseBodyResultStartCallResult,
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
 export class CheckAuthCodeBindForExtRequestUserInfo extends $tea.Model {
   encodeKey?: string;
   encodeType?: string;
@@ -14825,7 +15142,7 @@ export class ScgSearchResponseBodyResult extends $tea.Model {
   isAudition?: boolean;
   isCharge?: string;
   needCharge?: boolean;
-  rawId?: number;
+  rawId?: string;
   singers?: string;
   source?: string;
   supportAudition?: boolean;
@@ -14868,7 +15185,7 @@ export class ScgSearchResponseBodyResult extends $tea.Model {
       isAudition: 'boolean',
       isCharge: 'string',
       needCharge: 'boolean',
-      rawId: 'number',
+      rawId: 'string',
       singers: 'string',
       source: 'string',
       supportAudition: 'boolean',
@@ -15536,26 +15853,20 @@ export default class Client extends OpenApi {
     return EndpointUtil.getEndpointRules(productId, regionId, endpointRule, network, suffix);
   }
 
-  async addAndRemoveFavoriteContent(request: AddAndRemoveFavoriteContentRequest): Promise<AddAndRemoveFavoriteContentResponse> {
-    let runtime = new $Util.RuntimeOptions({ });
-    let headers = new AddAndRemoveFavoriteContentHeaders({ });
-    return await this.addAndRemoveFavoriteContentWithOptions(request, headers, runtime);
-  }
-
   async addAndRemoveFavoriteContentWithOptions(tmpReq: AddAndRemoveFavoriteContentRequest, headers: AddAndRemoveFavoriteContentHeaders, runtime: $Util.RuntimeOptions): Promise<AddAndRemoveFavoriteContentResponse> {
     Util.validateModel(tmpReq);
     let request = new AddAndRemoveFavoriteContentShrinkRequest({ });
     OpenApiUtil.convert(tmpReq, request);
-    if (!Util.isUnset($tea.toMap(tmpReq.deviceInfo))) {
-      request.deviceInfoShrink = OpenApiUtil.arrayToStringWithSpecifiedStyle($tea.toMap(tmpReq.deviceInfo), "DeviceInfo", "json");
+    if (!Util.isUnset(tmpReq.deviceInfo)) {
+      request.deviceInfoShrink = OpenApiUtil.arrayToStringWithSpecifiedStyle(tmpReq.deviceInfo, "DeviceInfo", "json");
     }
 
-    if (!Util.isUnset($tea.toMap(tmpReq.openAddAndRemoveFavoriteContentRequest))) {
-      request.openAddAndRemoveFavoriteContentRequestShrink = OpenApiUtil.arrayToStringWithSpecifiedStyle($tea.toMap(tmpReq.openAddAndRemoveFavoriteContentRequest), "OpenAddAndRemoveFavoriteContentRequest", "json");
+    if (!Util.isUnset(tmpReq.openAddAndRemoveFavoriteContentRequest)) {
+      request.openAddAndRemoveFavoriteContentRequestShrink = OpenApiUtil.arrayToStringWithSpecifiedStyle(tmpReq.openAddAndRemoveFavoriteContentRequest, "OpenAddAndRemoveFavoriteContentRequest", "json");
     }
 
-    if (!Util.isUnset($tea.toMap(tmpReq.userInfo))) {
-      request.userInfoShrink = OpenApiUtil.arrayToStringWithSpecifiedStyle($tea.toMap(tmpReq.userInfo), "UserInfo", "json");
+    if (!Util.isUnset(tmpReq.userInfo)) {
+      request.userInfoShrink = OpenApiUtil.arrayToStringWithSpecifiedStyle(tmpReq.userInfo, "UserInfo", "json");
     }
 
     let query : {[key: string ]: any} = { };
@@ -15604,26 +15915,26 @@ export default class Client extends OpenApi {
     return $tea.cast<AddAndRemoveFavoriteContentResponse>(await this.callApi(params, req, runtime), new AddAndRemoveFavoriteContentResponse({}));
   }
 
-  async addSub(request: AddSubRequest): Promise<AddSubResponse> {
+  async addAndRemoveFavoriteContent(request: AddAndRemoveFavoriteContentRequest): Promise<AddAndRemoveFavoriteContentResponse> {
     let runtime = new $Util.RuntimeOptions({ });
-    let headers = new AddSubHeaders({ });
-    return await this.addSubWithOptions(request, headers, runtime);
+    let headers = new AddAndRemoveFavoriteContentHeaders({ });
+    return await this.addAndRemoveFavoriteContentWithOptions(request, headers, runtime);
   }
 
   async addSubWithOptions(tmpReq: AddSubRequest, headers: AddSubHeaders, runtime: $Util.RuntimeOptions): Promise<AddSubResponse> {
     Util.validateModel(tmpReq);
     let request = new AddSubShrinkRequest({ });
     OpenApiUtil.convert(tmpReq, request);
-    if (!Util.isUnset($tea.toMap(tmpReq.addSubscriptionInfoRequest))) {
-      request.addSubscriptionInfoRequestShrink = OpenApiUtil.arrayToStringWithSpecifiedStyle($tea.toMap(tmpReq.addSubscriptionInfoRequest), "AddSubscriptionInfoRequest", "json");
+    if (!Util.isUnset(tmpReq.addSubscriptionInfoRequest)) {
+      request.addSubscriptionInfoRequestShrink = OpenApiUtil.arrayToStringWithSpecifiedStyle(tmpReq.addSubscriptionInfoRequest, "AddSubscriptionInfoRequest", "json");
     }
 
-    if (!Util.isUnset($tea.toMap(tmpReq.deviceInfo))) {
-      request.deviceInfoShrink = OpenApiUtil.arrayToStringWithSpecifiedStyle($tea.toMap(tmpReq.deviceInfo), "DeviceInfo", "json");
+    if (!Util.isUnset(tmpReq.deviceInfo)) {
+      request.deviceInfoShrink = OpenApiUtil.arrayToStringWithSpecifiedStyle(tmpReq.deviceInfo, "DeviceInfo", "json");
     }
 
-    if (!Util.isUnset($tea.toMap(tmpReq.userInfo))) {
-      request.userInfoShrink = OpenApiUtil.arrayToStringWithSpecifiedStyle($tea.toMap(tmpReq.userInfo), "UserInfo", "json");
+    if (!Util.isUnset(tmpReq.userInfo)) {
+      request.userInfoShrink = OpenApiUtil.arrayToStringWithSpecifiedStyle(tmpReq.userInfo, "UserInfo", "json");
     }
 
     let query : {[key: string ]: any} = { };
@@ -15670,10 +15981,10 @@ export default class Client extends OpenApi {
     return $tea.cast<AddSubResponse>(await this.callApi(params, req, runtime), new AddSubResponse({}));
   }
 
-  async authLoginWithAligenieUserInfo(request: AuthLoginWithAligenieUserInfoRequest): Promise<AuthLoginWithAligenieUserInfoResponse> {
+  async addSub(request: AddSubRequest): Promise<AddSubResponse> {
     let runtime = new $Util.RuntimeOptions({ });
-    let headers = new AuthLoginWithAligenieUserInfoHeaders({ });
-    return await this.authLoginWithAligenieUserInfoWithOptions(request, headers, runtime);
+    let headers = new AddSubHeaders({ });
+    return await this.addSubWithOptions(request, headers, runtime);
   }
 
   async authLoginWithAligenieUserInfoWithOptions(request: AuthLoginWithAligenieUserInfoRequest, headers: AuthLoginWithAligenieUserInfoHeaders, runtime: $Util.RuntimeOptions): Promise<AuthLoginWithAligenieUserInfoResponse> {
@@ -15718,10 +16029,10 @@ export default class Client extends OpenApi {
     return $tea.cast<AuthLoginWithAligenieUserInfoResponse>(await this.callApi(params, req, runtime), new AuthLoginWithAligenieUserInfoResponse({}));
   }
 
-  async authLoginWithAligenieUserInfoGeneratedByPhoneNumber(request: AuthLoginWithAligenieUserInfoGeneratedByPhoneNumberRequest): Promise<AuthLoginWithAligenieUserInfoGeneratedByPhoneNumberResponse> {
+  async authLoginWithAligenieUserInfo(request: AuthLoginWithAligenieUserInfoRequest): Promise<AuthLoginWithAligenieUserInfoResponse> {
     let runtime = new $Util.RuntimeOptions({ });
-    let headers = new AuthLoginWithAligenieUserInfoGeneratedByPhoneNumberHeaders({ });
-    return await this.authLoginWithAligenieUserInfoGeneratedByPhoneNumberWithOptions(request, headers, runtime);
+    let headers = new AuthLoginWithAligenieUserInfoHeaders({ });
+    return await this.authLoginWithAligenieUserInfoWithOptions(request, headers, runtime);
   }
 
   async authLoginWithAligenieUserInfoGeneratedByPhoneNumberWithOptions(request: AuthLoginWithAligenieUserInfoGeneratedByPhoneNumberRequest, headers: AuthLoginWithAligenieUserInfoGeneratedByPhoneNumberHeaders, runtime: $Util.RuntimeOptions): Promise<AuthLoginWithAligenieUserInfoGeneratedByPhoneNumberResponse> {
@@ -15762,10 +16073,10 @@ export default class Client extends OpenApi {
     return $tea.cast<AuthLoginWithAligenieUserInfoGeneratedByPhoneNumberResponse>(await this.callApi(params, req, runtime), new AuthLoginWithAligenieUserInfoGeneratedByPhoneNumberResponse({}));
   }
 
-  async authLoginWithTaobaoUserInfo(request: AuthLoginWithTaobaoUserInfoRequest): Promise<AuthLoginWithTaobaoUserInfoResponse> {
+  async authLoginWithAligenieUserInfoGeneratedByPhoneNumber(request: AuthLoginWithAligenieUserInfoGeneratedByPhoneNumberRequest): Promise<AuthLoginWithAligenieUserInfoGeneratedByPhoneNumberResponse> {
     let runtime = new $Util.RuntimeOptions({ });
-    let headers = new AuthLoginWithTaobaoUserInfoHeaders({ });
-    return await this.authLoginWithTaobaoUserInfoWithOptions(request, headers, runtime);
+    let headers = new AuthLoginWithAligenieUserInfoGeneratedByPhoneNumberHeaders({ });
+    return await this.authLoginWithAligenieUserInfoGeneratedByPhoneNumberWithOptions(request, headers, runtime);
   }
 
   async authLoginWithTaobaoUserInfoWithOptions(request: AuthLoginWithTaobaoUserInfoRequest, headers: AuthLoginWithTaobaoUserInfoHeaders, runtime: $Util.RuntimeOptions): Promise<AuthLoginWithTaobaoUserInfoResponse> {
@@ -15810,10 +16121,10 @@ export default class Client extends OpenApi {
     return $tea.cast<AuthLoginWithTaobaoUserInfoResponse>(await this.callApi(params, req, runtime), new AuthLoginWithTaobaoUserInfoResponse({}));
   }
 
-  async authLoginWithThirdUserInfo(request: AuthLoginWithThirdUserInfoRequest): Promise<AuthLoginWithThirdUserInfoResponse> {
+  async authLoginWithTaobaoUserInfo(request: AuthLoginWithTaobaoUserInfoRequest): Promise<AuthLoginWithTaobaoUserInfoResponse> {
     let runtime = new $Util.RuntimeOptions({ });
-    let headers = new AuthLoginWithThirdUserInfoHeaders({ });
-    return await this.authLoginWithThirdUserInfoWithOptions(request, headers, runtime);
+    let headers = new AuthLoginWithTaobaoUserInfoHeaders({ });
+    return await this.authLoginWithTaobaoUserInfoWithOptions(request, headers, runtime);
   }
 
   async authLoginWithThirdUserInfoWithOptions(tmpReq: AuthLoginWithThirdUserInfoRequest, headers: AuthLoginWithThirdUserInfoHeaders, runtime: $Util.RuntimeOptions): Promise<AuthLoginWithThirdUserInfoResponse> {
@@ -15872,18 +16183,88 @@ export default class Client extends OpenApi {
     return $tea.cast<AuthLoginWithThirdUserInfoResponse>(await this.callApi(params, req, runtime), new AuthLoginWithThirdUserInfoResponse({}));
   }
 
-  async checkAuthCodeBindForExt(request: CheckAuthCodeBindForExtRequest): Promise<CheckAuthCodeBindForExtResponse> {
+  async authLoginWithThirdUserInfo(request: AuthLoginWithThirdUserInfoRequest): Promise<AuthLoginWithThirdUserInfoResponse> {
     let runtime = new $Util.RuntimeOptions({ });
-    let headers = new CheckAuthCodeBindForExtHeaders({ });
-    return await this.checkAuthCodeBindForExtWithOptions(request, headers, runtime);
+    let headers = new AuthLoginWithThirdUserInfoHeaders({ });
+    return await this.authLoginWithThirdUserInfoWithOptions(request, headers, runtime);
+  }
+
+  async checkAndDoVoipCallForHotelWithOptions(tmpReq: CheckAndDoVoipCallForHotelRequest, headers: CheckAndDoVoipCallForHotelHeaders, runtime: $Util.RuntimeOptions): Promise<CheckAndDoVoipCallForHotelResponse> {
+    Util.validateModel(tmpReq);
+    let request = new CheckAndDoVoipCallForHotelShrinkRequest({ });
+    OpenApiUtil.convert(tmpReq, request);
+    if (!Util.isUnset(tmpReq.deviceInfo)) {
+      request.deviceInfoShrink = OpenApiUtil.arrayToStringWithSpecifiedStyle(tmpReq.deviceInfo, "DeviceInfo", "json");
+    }
+
+    if (!Util.isUnset(tmpReq.userInfo)) {
+      request.userInfoShrink = OpenApiUtil.arrayToStringWithSpecifiedStyle(tmpReq.userInfo, "UserInfo", "json");
+    }
+
+    let body : {[key: string ]: any} = { };
+    if (!Util.isUnset(request.bizData)) {
+      body["BizData"] = request.bizData;
+    }
+
+    if (!Util.isUnset(request.calleeNick)) {
+      body["CalleeNick"] = request.calleeNick;
+    }
+
+    if (!Util.isUnset(request.calleePhoneNum)) {
+      body["CalleePhoneNum"] = request.calleePhoneNum;
+    }
+
+    if (!Util.isUnset(request.deviceInfoShrink)) {
+      body["DeviceInfo"] = request.deviceInfoShrink;
+    }
+
+    if (!Util.isUnset(request.userInfoShrink)) {
+      body["UserInfo"] = request.userInfoShrink;
+    }
+
+    let realHeaders : {[key: string ]: string} = { };
+    if (!Util.isUnset(headers.commonHeaders)) {
+      realHeaders = headers.commonHeaders;
+    }
+
+    if (!Util.isUnset(headers.xAcsAligenieAccessToken)) {
+      realHeaders["x-acs-aligenie-access-token"] = Util.toJSONString(headers.xAcsAligenieAccessToken);
+    }
+
+    if (!Util.isUnset(headers.authorization)) {
+      realHeaders["Authorization"] = Util.toJSONString(headers.authorization);
+    }
+
+    let req = new $OpenApi.OpenApiRequest({
+      headers: realHeaders,
+      body: OpenApiUtil.parseToMap(body),
+    });
+    let params = new $OpenApi.Params({
+      action: "CheckAndDoVoipCallForHotel",
+      version: "ssp_1.0",
+      protocol: "HTTPS",
+      pathname: `/v1.0/ssp/checkAndDoVoipCallForHotel`,
+      method: "POST",
+      authType: "AK",
+      style: "ROA",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $tea.cast<CheckAndDoVoipCallForHotelResponse>(await this.callApi(params, req, runtime), new CheckAndDoVoipCallForHotelResponse({}));
+  }
+
+  async checkAndDoVoipCallForHotel(request: CheckAndDoVoipCallForHotelRequest): Promise<CheckAndDoVoipCallForHotelResponse> {
+    let runtime = new $Util.RuntimeOptions({ });
+    let headers = new CheckAndDoVoipCallForHotelHeaders({ });
+    return await this.checkAndDoVoipCallForHotelWithOptions(request, headers, runtime);
   }
 
   async checkAuthCodeBindForExtWithOptions(tmpReq: CheckAuthCodeBindForExtRequest, headers: CheckAuthCodeBindForExtHeaders, runtime: $Util.RuntimeOptions): Promise<CheckAuthCodeBindForExtResponse> {
     Util.validateModel(tmpReq);
     let request = new CheckAuthCodeBindForExtShrinkRequest({ });
     OpenApiUtil.convert(tmpReq, request);
-    if (!Util.isUnset($tea.toMap(tmpReq.userInfo))) {
-      request.userInfoShrink = OpenApiUtil.arrayToStringWithSpecifiedStyle($tea.toMap(tmpReq.userInfo), "UserInfo", "json");
+    if (!Util.isUnset(tmpReq.userInfo)) {
+      request.userInfoShrink = OpenApiUtil.arrayToStringWithSpecifiedStyle(tmpReq.userInfo, "UserInfo", "json");
     }
 
     let query : {[key: string ]: any} = { };
@@ -15934,26 +16315,26 @@ export default class Client extends OpenApi {
     return $tea.cast<CheckAuthCodeBindForExtResponse>(await this.callApi(params, req, runtime), new CheckAuthCodeBindForExtResponse({}));
   }
 
-  async createAlarm(request: CreateAlarmRequest): Promise<CreateAlarmResponse> {
+  async checkAuthCodeBindForExt(request: CheckAuthCodeBindForExtRequest): Promise<CheckAuthCodeBindForExtResponse> {
     let runtime = new $Util.RuntimeOptions({ });
-    let headers = new CreateAlarmHeaders({ });
-    return await this.createAlarmWithOptions(request, headers, runtime);
+    let headers = new CheckAuthCodeBindForExtHeaders({ });
+    return await this.checkAuthCodeBindForExtWithOptions(request, headers, runtime);
   }
 
   async createAlarmWithOptions(tmpReq: CreateAlarmRequest, headers: CreateAlarmHeaders, runtime: $Util.RuntimeOptions): Promise<CreateAlarmResponse> {
     Util.validateModel(tmpReq);
     let request = new CreateAlarmShrinkRequest({ });
     OpenApiUtil.convert(tmpReq, request);
-    if (!Util.isUnset($tea.toMap(tmpReq.deviceInfo))) {
-      request.deviceInfoShrink = OpenApiUtil.arrayToStringWithSpecifiedStyle($tea.toMap(tmpReq.deviceInfo), "DeviceInfo", "json");
+    if (!Util.isUnset(tmpReq.deviceInfo)) {
+      request.deviceInfoShrink = OpenApiUtil.arrayToStringWithSpecifiedStyle(tmpReq.deviceInfo, "DeviceInfo", "json");
     }
 
-    if (!Util.isUnset($tea.toMap(tmpReq.payload))) {
-      request.payloadShrink = OpenApiUtil.arrayToStringWithSpecifiedStyle($tea.toMap(tmpReq.payload), "Payload", "json");
+    if (!Util.isUnset(tmpReq.payload)) {
+      request.payloadShrink = OpenApiUtil.arrayToStringWithSpecifiedStyle(tmpReq.payload, "Payload", "json");
     }
 
-    if (!Util.isUnset($tea.toMap(tmpReq.userInfo))) {
-      request.userInfoShrink = OpenApiUtil.arrayToStringWithSpecifiedStyle($tea.toMap(tmpReq.userInfo), "UserInfo", "json");
+    if (!Util.isUnset(tmpReq.userInfo)) {
+      request.userInfoShrink = OpenApiUtil.arrayToStringWithSpecifiedStyle(tmpReq.userInfo, "UserInfo", "json");
     }
 
     let body : {[key: string ]: any} = { };
@@ -16000,26 +16381,26 @@ export default class Client extends OpenApi {
     return $tea.cast<CreateAlarmResponse>(await this.callApi(params, req, runtime), new CreateAlarmResponse({}));
   }
 
-  async createPlayingList(request: CreatePlayingListRequest): Promise<CreatePlayingListResponse> {
+  async createAlarm(request: CreateAlarmRequest): Promise<CreateAlarmResponse> {
     let runtime = new $Util.RuntimeOptions({ });
-    let headers = new CreatePlayingListHeaders({ });
-    return await this.createPlayingListWithOptions(request, headers, runtime);
+    let headers = new CreateAlarmHeaders({ });
+    return await this.createAlarmWithOptions(request, headers, runtime);
   }
 
   async createPlayingListWithOptions(tmpReq: CreatePlayingListRequest, headers: CreatePlayingListHeaders, runtime: $Util.RuntimeOptions): Promise<CreatePlayingListResponse> {
     Util.validateModel(tmpReq);
     let request = new CreatePlayingListShrinkRequest({ });
     OpenApiUtil.convert(tmpReq, request);
-    if (!Util.isUnset($tea.toMap(tmpReq.deviceInfo))) {
-      request.deviceInfoShrink = OpenApiUtil.arrayToStringWithSpecifiedStyle($tea.toMap(tmpReq.deviceInfo), "DeviceInfo", "json");
+    if (!Util.isUnset(tmpReq.deviceInfo)) {
+      request.deviceInfoShrink = OpenApiUtil.arrayToStringWithSpecifiedStyle(tmpReq.deviceInfo, "DeviceInfo", "json");
     }
 
-    if (!Util.isUnset($tea.toMap(tmpReq.openCreatePlayingListRequest))) {
-      request.openCreatePlayingListRequestShrink = OpenApiUtil.arrayToStringWithSpecifiedStyle($tea.toMap(tmpReq.openCreatePlayingListRequest), "OpenCreatePlayingListRequest", "json");
+    if (!Util.isUnset(tmpReq.openCreatePlayingListRequest)) {
+      request.openCreatePlayingListRequestShrink = OpenApiUtil.arrayToStringWithSpecifiedStyle(tmpReq.openCreatePlayingListRequest, "OpenCreatePlayingListRequest", "json");
     }
 
-    if (!Util.isUnset($tea.toMap(tmpReq.userInfo))) {
-      request.userInfoShrink = OpenApiUtil.arrayToStringWithSpecifiedStyle($tea.toMap(tmpReq.userInfo), "UserInfo", "json");
+    if (!Util.isUnset(tmpReq.userInfo)) {
+      request.userInfoShrink = OpenApiUtil.arrayToStringWithSpecifiedStyle(tmpReq.userInfo, "UserInfo", "json");
     }
 
     let query : {[key: string ]: any} = { };
@@ -16068,26 +16449,26 @@ export default class Client extends OpenApi {
     return $tea.cast<CreatePlayingListResponse>(await this.callApi(params, req, runtime), new CreatePlayingListResponse({}));
   }
 
-  async createScheduleTask(request: CreateScheduleTaskRequest): Promise<CreateScheduleTaskResponse> {
+  async createPlayingList(request: CreatePlayingListRequest): Promise<CreatePlayingListResponse> {
     let runtime = new $Util.RuntimeOptions({ });
-    let headers = new CreateScheduleTaskHeaders({ });
-    return await this.createScheduleTaskWithOptions(request, headers, runtime);
+    let headers = new CreatePlayingListHeaders({ });
+    return await this.createPlayingListWithOptions(request, headers, runtime);
   }
 
   async createScheduleTaskWithOptions(tmpReq: CreateScheduleTaskRequest, headers: CreateScheduleTaskHeaders, runtime: $Util.RuntimeOptions): Promise<CreateScheduleTaskResponse> {
     Util.validateModel(tmpReq);
     let request = new CreateScheduleTaskShrinkRequest({ });
     OpenApiUtil.convert(tmpReq, request);
-    if (!Util.isUnset($tea.toMap(tmpReq.deviceInfo))) {
-      request.deviceInfoShrink = OpenApiUtil.arrayToStringWithSpecifiedStyle($tea.toMap(tmpReq.deviceInfo), "DeviceInfo", "json");
+    if (!Util.isUnset(tmpReq.deviceInfo)) {
+      request.deviceInfoShrink = OpenApiUtil.arrayToStringWithSpecifiedStyle(tmpReq.deviceInfo, "DeviceInfo", "json");
     }
 
-    if (!Util.isUnset($tea.toMap(tmpReq.payload))) {
-      request.payloadShrink = OpenApiUtil.arrayToStringWithSpecifiedStyle($tea.toMap(tmpReq.payload), "Payload", "json");
+    if (!Util.isUnset(tmpReq.payload)) {
+      request.payloadShrink = OpenApiUtil.arrayToStringWithSpecifiedStyle(tmpReq.payload, "Payload", "json");
     }
 
-    if (!Util.isUnset($tea.toMap(tmpReq.userInfo))) {
-      request.userInfoShrink = OpenApiUtil.arrayToStringWithSpecifiedStyle($tea.toMap(tmpReq.userInfo), "UserInfo", "json");
+    if (!Util.isUnset(tmpReq.userInfo)) {
+      request.userInfoShrink = OpenApiUtil.arrayToStringWithSpecifiedStyle(tmpReq.userInfo, "UserInfo", "json");
     }
 
     let body : {[key: string ]: any} = { };
@@ -16134,26 +16515,26 @@ export default class Client extends OpenApi {
     return $tea.cast<CreateScheduleTaskResponse>(await this.callApi(params, req, runtime), new CreateScheduleTaskResponse({}));
   }
 
-  async deleteAlarms(request: DeleteAlarmsRequest): Promise<DeleteAlarmsResponse> {
+  async createScheduleTask(request: CreateScheduleTaskRequest): Promise<CreateScheduleTaskResponse> {
     let runtime = new $Util.RuntimeOptions({ });
-    let headers = new DeleteAlarmsHeaders({ });
-    return await this.deleteAlarmsWithOptions(request, headers, runtime);
+    let headers = new CreateScheduleTaskHeaders({ });
+    return await this.createScheduleTaskWithOptions(request, headers, runtime);
   }
 
   async deleteAlarmsWithOptions(tmpReq: DeleteAlarmsRequest, headers: DeleteAlarmsHeaders, runtime: $Util.RuntimeOptions): Promise<DeleteAlarmsResponse> {
     Util.validateModel(tmpReq);
     let request = new DeleteAlarmsShrinkRequest({ });
     OpenApiUtil.convert(tmpReq, request);
-    if (!Util.isUnset($tea.toMap(tmpReq.deviceInfo))) {
-      request.deviceInfoShrink = OpenApiUtil.arrayToStringWithSpecifiedStyle($tea.toMap(tmpReq.deviceInfo), "DeviceInfo", "json");
+    if (!Util.isUnset(tmpReq.deviceInfo)) {
+      request.deviceInfoShrink = OpenApiUtil.arrayToStringWithSpecifiedStyle(tmpReq.deviceInfo, "DeviceInfo", "json");
     }
 
-    if (!Util.isUnset($tea.toMap(tmpReq.payload))) {
-      request.payloadShrink = OpenApiUtil.arrayToStringWithSpecifiedStyle($tea.toMap(tmpReq.payload), "Payload", "json");
+    if (!Util.isUnset(tmpReq.payload)) {
+      request.payloadShrink = OpenApiUtil.arrayToStringWithSpecifiedStyle(tmpReq.payload, "Payload", "json");
     }
 
-    if (!Util.isUnset($tea.toMap(tmpReq.userInfo))) {
-      request.userInfoShrink = OpenApiUtil.arrayToStringWithSpecifiedStyle($tea.toMap(tmpReq.userInfo), "UserInfo", "json");
+    if (!Util.isUnset(tmpReq.userInfo)) {
+      request.userInfoShrink = OpenApiUtil.arrayToStringWithSpecifiedStyle(tmpReq.userInfo, "UserInfo", "json");
     }
 
     let body : {[key: string ]: any} = { };
@@ -16200,26 +16581,26 @@ export default class Client extends OpenApi {
     return $tea.cast<DeleteAlarmsResponse>(await this.callApi(params, req, runtime), new DeleteAlarmsResponse({}));
   }
 
-  async deleteScheduleTask(request: DeleteScheduleTaskRequest): Promise<DeleteScheduleTaskResponse> {
+  async deleteAlarms(request: DeleteAlarmsRequest): Promise<DeleteAlarmsResponse> {
     let runtime = new $Util.RuntimeOptions({ });
-    let headers = new DeleteScheduleTaskHeaders({ });
-    return await this.deleteScheduleTaskWithOptions(request, headers, runtime);
+    let headers = new DeleteAlarmsHeaders({ });
+    return await this.deleteAlarmsWithOptions(request, headers, runtime);
   }
 
   async deleteScheduleTaskWithOptions(tmpReq: DeleteScheduleTaskRequest, headers: DeleteScheduleTaskHeaders, runtime: $Util.RuntimeOptions): Promise<DeleteScheduleTaskResponse> {
     Util.validateModel(tmpReq);
     let request = new DeleteScheduleTaskShrinkRequest({ });
     OpenApiUtil.convert(tmpReq, request);
-    if (!Util.isUnset($tea.toMap(tmpReq.deviceInfo))) {
-      request.deviceInfoShrink = OpenApiUtil.arrayToStringWithSpecifiedStyle($tea.toMap(tmpReq.deviceInfo), "DeviceInfo", "json");
+    if (!Util.isUnset(tmpReq.deviceInfo)) {
+      request.deviceInfoShrink = OpenApiUtil.arrayToStringWithSpecifiedStyle(tmpReq.deviceInfo, "DeviceInfo", "json");
     }
 
-    if (!Util.isUnset($tea.toMap(tmpReq.payload))) {
-      request.payloadShrink = OpenApiUtil.arrayToStringWithSpecifiedStyle($tea.toMap(tmpReq.payload), "Payload", "json");
+    if (!Util.isUnset(tmpReq.payload)) {
+      request.payloadShrink = OpenApiUtil.arrayToStringWithSpecifiedStyle(tmpReq.payload, "Payload", "json");
     }
 
-    if (!Util.isUnset($tea.toMap(tmpReq.userInfo))) {
-      request.userInfoShrink = OpenApiUtil.arrayToStringWithSpecifiedStyle($tea.toMap(tmpReq.userInfo), "UserInfo", "json");
+    if (!Util.isUnset(tmpReq.userInfo)) {
+      request.userInfoShrink = OpenApiUtil.arrayToStringWithSpecifiedStyle(tmpReq.userInfo, "UserInfo", "json");
     }
 
     let body : {[key: string ]: any} = { };
@@ -16266,10 +16647,10 @@ export default class Client extends OpenApi {
     return $tea.cast<DeleteScheduleTaskResponse>(await this.callApi(params, req, runtime), new DeleteScheduleTaskResponse({}));
   }
 
-  async deleteSub(request: DeleteSubRequest): Promise<DeleteSubResponse> {
+  async deleteScheduleTask(request: DeleteScheduleTaskRequest): Promise<DeleteScheduleTaskResponse> {
     let runtime = new $Util.RuntimeOptions({ });
-    let headers = new DeleteSubHeaders({ });
-    return await this.deleteSubWithOptions(request, headers, runtime);
+    let headers = new DeleteScheduleTaskHeaders({ });
+    return await this.deleteScheduleTaskWithOptions(request, headers, runtime);
   }
 
   async deleteSubWithOptions(request: DeleteSubRequest, headers: DeleteSubHeaders, runtime: $Util.RuntimeOptions): Promise<DeleteSubResponse> {
@@ -16310,22 +16691,22 @@ export default class Client extends OpenApi {
     return $tea.cast<DeleteSubResponse>(await this.callApi(params, req, runtime), new DeleteSubResponse({}));
   }
 
-  async deviceControl(request: DeviceControlRequest): Promise<DeviceControlResponse> {
+  async deleteSub(request: DeleteSubRequest): Promise<DeleteSubResponse> {
     let runtime = new $Util.RuntimeOptions({ });
-    let headers = new DeviceControlHeaders({ });
-    return await this.deviceControlWithOptions(request, headers, runtime);
+    let headers = new DeleteSubHeaders({ });
+    return await this.deleteSubWithOptions(request, headers, runtime);
   }
 
   async deviceControlWithOptions(tmpReq: DeviceControlRequest, headers: DeviceControlHeaders, runtime: $Util.RuntimeOptions): Promise<DeviceControlResponse> {
     Util.validateModel(tmpReq);
     let request = new DeviceControlShrinkRequest({ });
     OpenApiUtil.convert(tmpReq, request);
-    if (!Util.isUnset($tea.toMap(tmpReq.controlRequest))) {
-      request.controlRequestShrink = OpenApiUtil.arrayToStringWithSpecifiedStyle($tea.toMap(tmpReq.controlRequest), "ControlRequest", "json");
+    if (!Util.isUnset(tmpReq.controlRequest)) {
+      request.controlRequestShrink = OpenApiUtil.arrayToStringWithSpecifiedStyle(tmpReq.controlRequest, "ControlRequest", "json");
     }
 
-    if (!Util.isUnset($tea.toMap(tmpReq.deviceInfo))) {
-      request.deviceInfoShrink = OpenApiUtil.arrayToStringWithSpecifiedStyle($tea.toMap(tmpReq.deviceInfo), "DeviceInfo", "json");
+    if (!Util.isUnset(tmpReq.deviceInfo)) {
+      request.deviceInfoShrink = OpenApiUtil.arrayToStringWithSpecifiedStyle(tmpReq.deviceInfo, "DeviceInfo", "json");
     }
 
     let query : {[key: string ]: any} = { };
@@ -16370,10 +16751,10 @@ export default class Client extends OpenApi {
     return $tea.cast<DeviceControlResponse>(await this.callApi(params, req, runtime), new DeviceControlResponse({}));
   }
 
-  async ecologyOpennessAuthenticate(request: EcologyOpennessAuthenticateRequest): Promise<EcologyOpennessAuthenticateResponse> {
+  async deviceControl(request: DeviceControlRequest): Promise<DeviceControlResponse> {
     let runtime = new $Util.RuntimeOptions({ });
-    let headers = new EcologyOpennessAuthenticateHeaders({ });
-    return await this.ecologyOpennessAuthenticateWithOptions(request, headers, runtime);
+    let headers = new DeviceControlHeaders({ });
+    return await this.deviceControlWithOptions(request, headers, runtime);
   }
 
   async ecologyOpennessAuthenticateWithOptions(request: EcologyOpennessAuthenticateRequest, headers: EcologyOpennessAuthenticateHeaders, runtime: $Util.RuntimeOptions): Promise<EcologyOpennessAuthenticateResponse> {
@@ -16422,10 +16803,10 @@ export default class Client extends OpenApi {
     return $tea.cast<EcologyOpennessAuthenticateResponse>(await this.callApi(params, req, runtime), new EcologyOpennessAuthenticateResponse({}));
   }
 
-  async ecologyOpennessSendVerificationCode(request: EcologyOpennessSendVerificationCodeRequest): Promise<EcologyOpennessSendVerificationCodeResponse> {
+  async ecologyOpennessAuthenticate(request: EcologyOpennessAuthenticateRequest): Promise<EcologyOpennessAuthenticateResponse> {
     let runtime = new $Util.RuntimeOptions({ });
-    let headers = new EcologyOpennessSendVerificationCodeHeaders({ });
-    return await this.ecologyOpennessSendVerificationCodeWithOptions(request, headers, runtime);
+    let headers = new EcologyOpennessAuthenticateHeaders({ });
+    return await this.ecologyOpennessAuthenticateWithOptions(request, headers, runtime);
   }
 
   async ecologyOpennessSendVerificationCodeWithOptions(request: EcologyOpennessSendVerificationCodeRequest, headers: EcologyOpennessSendVerificationCodeHeaders, runtime: $Util.RuntimeOptions): Promise<EcologyOpennessSendVerificationCodeResponse> {
@@ -16474,10 +16855,10 @@ export default class Client extends OpenApi {
     return $tea.cast<EcologyOpennessSendVerificationCodeResponse>(await this.callApi(params, req, runtime), new EcologyOpennessSendVerificationCodeResponse({}));
   }
 
-  async findUserlistToAuthLoginWithPhoneNumber(request: FindUserlistToAuthLoginWithPhoneNumberRequest): Promise<FindUserlistToAuthLoginWithPhoneNumberResponse> {
+  async ecologyOpennessSendVerificationCode(request: EcologyOpennessSendVerificationCodeRequest): Promise<EcologyOpennessSendVerificationCodeResponse> {
     let runtime = new $Util.RuntimeOptions({ });
-    let headers = new FindUserlistToAuthLoginWithPhoneNumberHeaders({ });
-    return await this.findUserlistToAuthLoginWithPhoneNumberWithOptions(request, headers, runtime);
+    let headers = new EcologyOpennessSendVerificationCodeHeaders({ });
+    return await this.ecologyOpennessSendVerificationCodeWithOptions(request, headers, runtime);
   }
 
   async findUserlistToAuthLoginWithPhoneNumberWithOptions(request: FindUserlistToAuthLoginWithPhoneNumberRequest, headers: FindUserlistToAuthLoginWithPhoneNumberHeaders, runtime: $Util.RuntimeOptions): Promise<FindUserlistToAuthLoginWithPhoneNumberResponse> {
@@ -16530,26 +16911,26 @@ export default class Client extends OpenApi {
     return $tea.cast<FindUserlistToAuthLoginWithPhoneNumberResponse>(await this.callApi(params, req, runtime), new FindUserlistToAuthLoginWithPhoneNumberResponse({}));
   }
 
-  async getAlarm(request: GetAlarmRequest): Promise<GetAlarmResponse> {
+  async findUserlistToAuthLoginWithPhoneNumber(request: FindUserlistToAuthLoginWithPhoneNumberRequest): Promise<FindUserlistToAuthLoginWithPhoneNumberResponse> {
     let runtime = new $Util.RuntimeOptions({ });
-    let headers = new GetAlarmHeaders({ });
-    return await this.getAlarmWithOptions(request, headers, runtime);
+    let headers = new FindUserlistToAuthLoginWithPhoneNumberHeaders({ });
+    return await this.findUserlistToAuthLoginWithPhoneNumberWithOptions(request, headers, runtime);
   }
 
   async getAlarmWithOptions(tmpReq: GetAlarmRequest, headers: GetAlarmHeaders, runtime: $Util.RuntimeOptions): Promise<GetAlarmResponse> {
     Util.validateModel(tmpReq);
     let request = new GetAlarmShrinkRequest({ });
     OpenApiUtil.convert(tmpReq, request);
-    if (!Util.isUnset($tea.toMap(tmpReq.deviceInfo))) {
-      request.deviceInfoShrink = OpenApiUtil.arrayToStringWithSpecifiedStyle($tea.toMap(tmpReq.deviceInfo), "DeviceInfo", "json");
+    if (!Util.isUnset(tmpReq.deviceInfo)) {
+      request.deviceInfoShrink = OpenApiUtil.arrayToStringWithSpecifiedStyle(tmpReq.deviceInfo, "DeviceInfo", "json");
     }
 
-    if (!Util.isUnset($tea.toMap(tmpReq.payload))) {
-      request.payloadShrink = OpenApiUtil.arrayToStringWithSpecifiedStyle($tea.toMap(tmpReq.payload), "Payload", "json");
+    if (!Util.isUnset(tmpReq.payload)) {
+      request.payloadShrink = OpenApiUtil.arrayToStringWithSpecifiedStyle(tmpReq.payload, "Payload", "json");
     }
 
-    if (!Util.isUnset($tea.toMap(tmpReq.userInfo))) {
-      request.userInfoShrink = OpenApiUtil.arrayToStringWithSpecifiedStyle($tea.toMap(tmpReq.userInfo), "UserInfo", "json");
+    if (!Util.isUnset(tmpReq.userInfo)) {
+      request.userInfoShrink = OpenApiUtil.arrayToStringWithSpecifiedStyle(tmpReq.userInfo, "UserInfo", "json");
     }
 
     let body : {[key: string ]: any} = { };
@@ -16596,10 +16977,10 @@ export default class Client extends OpenApi {
     return $tea.cast<GetAlarmResponse>(await this.callApi(params, req, runtime), new GetAlarmResponse({}));
   }
 
-  async getAlbum(request: GetAlbumRequest): Promise<GetAlbumResponse> {
+  async getAlarm(request: GetAlarmRequest): Promise<GetAlarmResponse> {
     let runtime = new $Util.RuntimeOptions({ });
-    let headers = new GetAlbumHeaders({ });
-    return await this.getAlbumWithOptions(request, headers, runtime);
+    let headers = new GetAlarmHeaders({ });
+    return await this.getAlarmWithOptions(request, headers, runtime);
   }
 
   async getAlbumWithOptions(request: GetAlbumRequest, headers: GetAlbumHeaders, runtime: $Util.RuntimeOptions): Promise<GetAlbumResponse> {
@@ -16644,10 +17025,10 @@ export default class Client extends OpenApi {
     return $tea.cast<GetAlbumResponse>(await this.callApi(params, req, runtime), new GetAlbumResponse({}));
   }
 
-  async getAlbumDetailById(request: GetAlbumDetailByIdRequest): Promise<GetAlbumDetailByIdResponse> {
+  async getAlbum(request: GetAlbumRequest): Promise<GetAlbumResponse> {
     let runtime = new $Util.RuntimeOptions({ });
-    let headers = new GetAlbumDetailByIdHeaders({ });
-    return await this.getAlbumDetailByIdWithOptions(request, headers, runtime);
+    let headers = new GetAlbumHeaders({ });
+    return await this.getAlbumWithOptions(request, headers, runtime);
   }
 
   async getAlbumDetailByIdWithOptions(request: GetAlbumDetailByIdRequest, headers: GetAlbumDetailByIdHeaders, runtime: $Util.RuntimeOptions): Promise<GetAlbumDetailByIdResponse> {
@@ -16688,10 +17069,10 @@ export default class Client extends OpenApi {
     return $tea.cast<GetAlbumDetailByIdResponse>(await this.callApi(params, req, runtime), new GetAlbumDetailByIdResponse({}));
   }
 
-  async getAligenieUserInfo(request: GetAligenieUserInfoRequest): Promise<GetAligenieUserInfoResponse> {
+  async getAlbumDetailById(request: GetAlbumDetailByIdRequest): Promise<GetAlbumDetailByIdResponse> {
     let runtime = new $Util.RuntimeOptions({ });
-    let headers = new GetAligenieUserInfoHeaders({ });
-    return await this.getAligenieUserInfoWithOptions(request, headers, runtime);
+    let headers = new GetAlbumDetailByIdHeaders({ });
+    return await this.getAlbumDetailByIdWithOptions(request, headers, runtime);
   }
 
   async getAligenieUserInfoWithOptions(request: GetAligenieUserInfoRequest, headers: GetAligenieUserInfoHeaders, runtime: $Util.RuntimeOptions): Promise<GetAligenieUserInfoResponse> {
@@ -16732,22 +17113,22 @@ export default class Client extends OpenApi {
     return $tea.cast<GetAligenieUserInfoResponse>(await this.callApi(params, req, runtime), new GetAligenieUserInfoResponse({}));
   }
 
-  async getCodeEnhance(request: GetCodeEnhanceRequest): Promise<GetCodeEnhanceResponse> {
+  async getAligenieUserInfo(request: GetAligenieUserInfoRequest): Promise<GetAligenieUserInfoResponse> {
     let runtime = new $Util.RuntimeOptions({ });
-    let headers = new GetCodeEnhanceHeaders({ });
-    return await this.getCodeEnhanceWithOptions(request, headers, runtime);
+    let headers = new GetAligenieUserInfoHeaders({ });
+    return await this.getAligenieUserInfoWithOptions(request, headers, runtime);
   }
 
   async getCodeEnhanceWithOptions(tmpReq: GetCodeEnhanceRequest, headers: GetCodeEnhanceHeaders, runtime: $Util.RuntimeOptions): Promise<GetCodeEnhanceResponse> {
     Util.validateModel(tmpReq);
     let request = new GetCodeEnhanceShrinkRequest({ });
     OpenApiUtil.convert(tmpReq, request);
-    if (!Util.isUnset($tea.toMap(tmpReq.channelInfo))) {
-      request.channelInfoShrink = OpenApiUtil.arrayToStringWithSpecifiedStyle($tea.toMap(tmpReq.channelInfo), "ChannelInfo", "json");
+    if (!Util.isUnset(tmpReq.channelInfo)) {
+      request.channelInfoShrink = OpenApiUtil.arrayToStringWithSpecifiedStyle(tmpReq.channelInfo, "ChannelInfo", "json");
     }
 
-    if (!Util.isUnset($tea.toMap(tmpReq.userInfo))) {
-      request.userInfoShrink = OpenApiUtil.arrayToStringWithSpecifiedStyle($tea.toMap(tmpReq.userInfo), "UserInfo", "json");
+    if (!Util.isUnset(tmpReq.userInfo)) {
+      request.userInfoShrink = OpenApiUtil.arrayToStringWithSpecifiedStyle(tmpReq.userInfo, "UserInfo", "json");
     }
 
     let query : {[key: string ]: any} = { };
@@ -16790,10 +17171,10 @@ export default class Client extends OpenApi {
     return $tea.cast<GetCodeEnhanceResponse>(await this.callApi(params, req, runtime), new GetCodeEnhanceResponse({}));
   }
 
-  async getContent(request: GetContentRequest): Promise<GetContentResponse> {
+  async getCodeEnhance(request: GetCodeEnhanceRequest): Promise<GetCodeEnhanceResponse> {
     let runtime = new $Util.RuntimeOptions({ });
-    let headers = new GetContentHeaders({ });
-    return await this.getContentWithOptions(request, headers, runtime);
+    let headers = new GetCodeEnhanceHeaders({ });
+    return await this.getCodeEnhanceWithOptions(request, headers, runtime);
   }
 
   async getContentWithOptions(request: GetContentRequest, headers: GetContentHeaders, runtime: $Util.RuntimeOptions): Promise<GetContentResponse> {
@@ -16838,22 +17219,22 @@ export default class Client extends OpenApi {
     return $tea.cast<GetContentResponse>(await this.callApi(params, req, runtime), new GetContentResponse({}));
   }
 
-  async getCurrentPlayingItem(request: GetCurrentPlayingItemRequest): Promise<GetCurrentPlayingItemResponse> {
+  async getContent(request: GetContentRequest): Promise<GetContentResponse> {
     let runtime = new $Util.RuntimeOptions({ });
-    let headers = new GetCurrentPlayingItemHeaders({ });
-    return await this.getCurrentPlayingItemWithOptions(request, headers, runtime);
+    let headers = new GetContentHeaders({ });
+    return await this.getContentWithOptions(request, headers, runtime);
   }
 
   async getCurrentPlayingItemWithOptions(tmpReq: GetCurrentPlayingItemRequest, headers: GetCurrentPlayingItemHeaders, runtime: $Util.RuntimeOptions): Promise<GetCurrentPlayingItemResponse> {
     Util.validateModel(tmpReq);
     let request = new GetCurrentPlayingItemShrinkRequest({ });
     OpenApiUtil.convert(tmpReq, request);
-    if (!Util.isUnset($tea.toMap(tmpReq.deviceInfo))) {
-      request.deviceInfoShrink = OpenApiUtil.arrayToStringWithSpecifiedStyle($tea.toMap(tmpReq.deviceInfo), "DeviceInfo", "json");
+    if (!Util.isUnset(tmpReq.deviceInfo)) {
+      request.deviceInfoShrink = OpenApiUtil.arrayToStringWithSpecifiedStyle(tmpReq.deviceInfo, "DeviceInfo", "json");
     }
 
-    if (!Util.isUnset($tea.toMap(tmpReq.userInfo))) {
-      request.userInfoShrink = OpenApiUtil.arrayToStringWithSpecifiedStyle($tea.toMap(tmpReq.userInfo), "UserInfo", "json");
+    if (!Util.isUnset(tmpReq.userInfo)) {
+      request.userInfoShrink = OpenApiUtil.arrayToStringWithSpecifiedStyle(tmpReq.userInfo, "UserInfo", "json");
     }
 
     let query : {[key: string ]: any} = { };
@@ -16896,26 +17277,26 @@ export default class Client extends OpenApi {
     return $tea.cast<GetCurrentPlayingItemResponse>(await this.callApi(params, req, runtime), new GetCurrentPlayingItemResponse({}));
   }
 
-  async getCurrentPlayingList(request: GetCurrentPlayingListRequest): Promise<GetCurrentPlayingListResponse> {
+  async getCurrentPlayingItem(request: GetCurrentPlayingItemRequest): Promise<GetCurrentPlayingItemResponse> {
     let runtime = new $Util.RuntimeOptions({ });
-    let headers = new GetCurrentPlayingListHeaders({ });
-    return await this.getCurrentPlayingListWithOptions(request, headers, runtime);
+    let headers = new GetCurrentPlayingItemHeaders({ });
+    return await this.getCurrentPlayingItemWithOptions(request, headers, runtime);
   }
 
   async getCurrentPlayingListWithOptions(tmpReq: GetCurrentPlayingListRequest, headers: GetCurrentPlayingListHeaders, runtime: $Util.RuntimeOptions): Promise<GetCurrentPlayingListResponse> {
     Util.validateModel(tmpReq);
     let request = new GetCurrentPlayingListShrinkRequest({ });
     OpenApiUtil.convert(tmpReq, request);
-    if (!Util.isUnset($tea.toMap(tmpReq.deviceInfo))) {
-      request.deviceInfoShrink = OpenApiUtil.arrayToStringWithSpecifiedStyle($tea.toMap(tmpReq.deviceInfo), "DeviceInfo", "json");
+    if (!Util.isUnset(tmpReq.deviceInfo)) {
+      request.deviceInfoShrink = OpenApiUtil.arrayToStringWithSpecifiedStyle(tmpReq.deviceInfo, "DeviceInfo", "json");
     }
 
-    if (!Util.isUnset($tea.toMap(tmpReq.openQueryPlayListRequest))) {
-      request.openQueryPlayListRequestShrink = OpenApiUtil.arrayToStringWithSpecifiedStyle($tea.toMap(tmpReq.openQueryPlayListRequest), "OpenQueryPlayListRequest", "json");
+    if (!Util.isUnset(tmpReq.openQueryPlayListRequest)) {
+      request.openQueryPlayListRequestShrink = OpenApiUtil.arrayToStringWithSpecifiedStyle(tmpReq.openQueryPlayListRequest, "OpenQueryPlayListRequest", "json");
     }
 
-    if (!Util.isUnset($tea.toMap(tmpReq.userInfo))) {
-      request.userInfoShrink = OpenApiUtil.arrayToStringWithSpecifiedStyle($tea.toMap(tmpReq.userInfo), "UserInfo", "json");
+    if (!Util.isUnset(tmpReq.userInfo)) {
+      request.userInfoShrink = OpenApiUtil.arrayToStringWithSpecifiedStyle(tmpReq.userInfo, "UserInfo", "json");
     }
 
     let query : {[key: string ]: any} = { };
@@ -16964,18 +17345,18 @@ export default class Client extends OpenApi {
     return $tea.cast<GetCurrentPlayingListResponse>(await this.callApi(params, req, runtime), new GetCurrentPlayingListResponse({}));
   }
 
-  async getDeviceBasicInfo(request: GetDeviceBasicInfoRequest): Promise<GetDeviceBasicInfoResponse> {
+  async getCurrentPlayingList(request: GetCurrentPlayingListRequest): Promise<GetCurrentPlayingListResponse> {
     let runtime = new $Util.RuntimeOptions({ });
-    let headers = new GetDeviceBasicInfoHeaders({ });
-    return await this.getDeviceBasicInfoWithOptions(request, headers, runtime);
+    let headers = new GetCurrentPlayingListHeaders({ });
+    return await this.getCurrentPlayingListWithOptions(request, headers, runtime);
   }
 
   async getDeviceBasicInfoWithOptions(tmpReq: GetDeviceBasicInfoRequest, headers: GetDeviceBasicInfoHeaders, runtime: $Util.RuntimeOptions): Promise<GetDeviceBasicInfoResponse> {
     Util.validateModel(tmpReq);
     let request = new GetDeviceBasicInfoShrinkRequest({ });
     OpenApiUtil.convert(tmpReq, request);
-    if (!Util.isUnset($tea.toMap(tmpReq.deviceInfo))) {
-      request.deviceInfoShrink = OpenApiUtil.arrayToStringWithSpecifiedStyle($tea.toMap(tmpReq.deviceInfo), "DeviceInfo", "json");
+    if (!Util.isUnset(tmpReq.deviceInfo)) {
+      request.deviceInfoShrink = OpenApiUtil.arrayToStringWithSpecifiedStyle(tmpReq.deviceInfo, "DeviceInfo", "json");
     }
 
     let query : {[key: string ]: any} = { };
@@ -17014,10 +17395,10 @@ export default class Client extends OpenApi {
     return $tea.cast<GetDeviceBasicInfoResponse>(await this.callApi(params, req, runtime), new GetDeviceBasicInfoResponse({}));
   }
 
-  async getDeviceIdByIdentity(request: GetDeviceIdByIdentityRequest): Promise<GetDeviceIdByIdentityResponse> {
+  async getDeviceBasicInfo(request: GetDeviceBasicInfoRequest): Promise<GetDeviceBasicInfoResponse> {
     let runtime = new $Util.RuntimeOptions({ });
-    let headers = new GetDeviceIdByIdentityHeaders({ });
-    return await this.getDeviceIdByIdentityWithOptions(request, headers, runtime);
+    let headers = new GetDeviceBasicInfoHeaders({ });
+    return await this.getDeviceBasicInfoWithOptions(request, headers, runtime);
   }
 
   async getDeviceIdByIdentityWithOptions(request: GetDeviceIdByIdentityRequest, headers: GetDeviceIdByIdentityHeaders, runtime: $Util.RuntimeOptions): Promise<GetDeviceIdByIdentityResponse> {
@@ -17074,18 +17455,18 @@ export default class Client extends OpenApi {
     return $tea.cast<GetDeviceIdByIdentityResponse>(await this.callApi(params, req, runtime), new GetDeviceIdByIdentityResponse({}));
   }
 
-  async getDeviceSetting(request: GetDeviceSettingRequest): Promise<GetDeviceSettingResponse> {
+  async getDeviceIdByIdentity(request: GetDeviceIdByIdentityRequest): Promise<GetDeviceIdByIdentityResponse> {
     let runtime = new $Util.RuntimeOptions({ });
-    let headers = new GetDeviceSettingHeaders({ });
-    return await this.getDeviceSettingWithOptions(request, headers, runtime);
+    let headers = new GetDeviceIdByIdentityHeaders({ });
+    return await this.getDeviceIdByIdentityWithOptions(request, headers, runtime);
   }
 
   async getDeviceSettingWithOptions(tmpReq: GetDeviceSettingRequest, headers: GetDeviceSettingHeaders, runtime: $Util.RuntimeOptions): Promise<GetDeviceSettingResponse> {
     Util.validateModel(tmpReq);
     let request = new GetDeviceSettingShrinkRequest({ });
     OpenApiUtil.convert(tmpReq, request);
-    if (!Util.isUnset($tea.toMap(tmpReq.deviceInfo))) {
-      request.deviceInfoShrink = OpenApiUtil.arrayToStringWithSpecifiedStyle($tea.toMap(tmpReq.deviceInfo), "DeviceInfo", "json");
+    if (!Util.isUnset(tmpReq.deviceInfo)) {
+      request.deviceInfoShrink = OpenApiUtil.arrayToStringWithSpecifiedStyle(tmpReq.deviceInfo, "DeviceInfo", "json");
     }
 
     if (!Util.isUnset(tmpReq.keys)) {
@@ -17132,18 +17513,18 @@ export default class Client extends OpenApi {
     return $tea.cast<GetDeviceSettingResponse>(await this.callApi(params, req, runtime), new GetDeviceSettingResponse({}));
   }
 
-  async getDeviceStatusDetail(request: GetDeviceStatusDetailRequest): Promise<GetDeviceStatusDetailResponse> {
+  async getDeviceSetting(request: GetDeviceSettingRequest): Promise<GetDeviceSettingResponse> {
     let runtime = new $Util.RuntimeOptions({ });
-    let headers = new GetDeviceStatusDetailHeaders({ });
-    return await this.getDeviceStatusDetailWithOptions(request, headers, runtime);
+    let headers = new GetDeviceSettingHeaders({ });
+    return await this.getDeviceSettingWithOptions(request, headers, runtime);
   }
 
   async getDeviceStatusDetailWithOptions(tmpReq: GetDeviceStatusDetailRequest, headers: GetDeviceStatusDetailHeaders, runtime: $Util.RuntimeOptions): Promise<GetDeviceStatusDetailResponse> {
     Util.validateModel(tmpReq);
     let request = new GetDeviceStatusDetailShrinkRequest({ });
     OpenApiUtil.convert(tmpReq, request);
-    if (!Util.isUnset($tea.toMap(tmpReq.deviceInfo))) {
-      request.deviceInfoShrink = OpenApiUtil.arrayToStringWithSpecifiedStyle($tea.toMap(tmpReq.deviceInfo), "DeviceInfo", "json");
+    if (!Util.isUnset(tmpReq.deviceInfo)) {
+      request.deviceInfoShrink = OpenApiUtil.arrayToStringWithSpecifiedStyle(tmpReq.deviceInfo, "DeviceInfo", "json");
     }
 
     if (!Util.isUnset(tmpReq.keys)) {
@@ -17190,18 +17571,18 @@ export default class Client extends OpenApi {
     return $tea.cast<GetDeviceStatusDetailResponse>(await this.callApi(params, req, runtime), new GetDeviceStatusDetailResponse({}));
   }
 
-  async getDeviceStatusInfo(request: GetDeviceStatusInfoRequest): Promise<GetDeviceStatusInfoResponse> {
+  async getDeviceStatusDetail(request: GetDeviceStatusDetailRequest): Promise<GetDeviceStatusDetailResponse> {
     let runtime = new $Util.RuntimeOptions({ });
-    let headers = new GetDeviceStatusInfoHeaders({ });
-    return await this.getDeviceStatusInfoWithOptions(request, headers, runtime);
+    let headers = new GetDeviceStatusDetailHeaders({ });
+    return await this.getDeviceStatusDetailWithOptions(request, headers, runtime);
   }
 
   async getDeviceStatusInfoWithOptions(tmpReq: GetDeviceStatusInfoRequest, headers: GetDeviceStatusInfoHeaders, runtime: $Util.RuntimeOptions): Promise<GetDeviceStatusInfoResponse> {
     Util.validateModel(tmpReq);
     let request = new GetDeviceStatusInfoShrinkRequest({ });
     OpenApiUtil.convert(tmpReq, request);
-    if (!Util.isUnset($tea.toMap(tmpReq.deviceInfo))) {
-      request.deviceInfoShrink = OpenApiUtil.arrayToStringWithSpecifiedStyle($tea.toMap(tmpReq.deviceInfo), "DeviceInfo", "json");
+    if (!Util.isUnset(tmpReq.deviceInfo)) {
+      request.deviceInfoShrink = OpenApiUtil.arrayToStringWithSpecifiedStyle(tmpReq.deviceInfo, "DeviceInfo", "json");
     }
 
     let query : {[key: string ]: any} = { };
@@ -17240,18 +17621,18 @@ export default class Client extends OpenApi {
     return $tea.cast<GetDeviceStatusInfoResponse>(await this.callApi(params, req, runtime), new GetDeviceStatusInfoResponse({}));
   }
 
-  async getDeviceTag(request: GetDeviceTagRequest): Promise<GetDeviceTagResponse> {
+  async getDeviceStatusInfo(request: GetDeviceStatusInfoRequest): Promise<GetDeviceStatusInfoResponse> {
     let runtime = new $Util.RuntimeOptions({ });
-    let headers = new GetDeviceTagHeaders({ });
-    return await this.getDeviceTagWithOptions(request, headers, runtime);
+    let headers = new GetDeviceStatusInfoHeaders({ });
+    return await this.getDeviceStatusInfoWithOptions(request, headers, runtime);
   }
 
   async getDeviceTagWithOptions(tmpReq: GetDeviceTagRequest, headers: GetDeviceTagHeaders, runtime: $Util.RuntimeOptions): Promise<GetDeviceTagResponse> {
     Util.validateModel(tmpReq);
     let request = new GetDeviceTagShrinkRequest({ });
     OpenApiUtil.convert(tmpReq, request);
-    if (!Util.isUnset($tea.toMap(tmpReq.deviceInfo))) {
-      request.deviceInfoShrink = OpenApiUtil.arrayToStringWithSpecifiedStyle($tea.toMap(tmpReq.deviceInfo), "DeviceInfo", "json");
+    if (!Util.isUnset(tmpReq.deviceInfo)) {
+      request.deviceInfoShrink = OpenApiUtil.arrayToStringWithSpecifiedStyle(tmpReq.deviceInfo, "DeviceInfo", "json");
     }
 
     let query : {[key: string ]: any} = { };
@@ -17290,26 +17671,26 @@ export default class Client extends OpenApi {
     return $tea.cast<GetDeviceTagResponse>(await this.callApi(params, req, runtime), new GetDeviceTagResponse({}));
   }
 
-  async getScheduleTask(request: GetScheduleTaskRequest): Promise<GetScheduleTaskResponse> {
+  async getDeviceTag(request: GetDeviceTagRequest): Promise<GetDeviceTagResponse> {
     let runtime = new $Util.RuntimeOptions({ });
-    let headers = new GetScheduleTaskHeaders({ });
-    return await this.getScheduleTaskWithOptions(request, headers, runtime);
+    let headers = new GetDeviceTagHeaders({ });
+    return await this.getDeviceTagWithOptions(request, headers, runtime);
   }
 
   async getScheduleTaskWithOptions(tmpReq: GetScheduleTaskRequest, headers: GetScheduleTaskHeaders, runtime: $Util.RuntimeOptions): Promise<GetScheduleTaskResponse> {
     Util.validateModel(tmpReq);
     let request = new GetScheduleTaskShrinkRequest({ });
     OpenApiUtil.convert(tmpReq, request);
-    if (!Util.isUnset($tea.toMap(tmpReq.deviceInfo))) {
-      request.deviceInfoShrink = OpenApiUtil.arrayToStringWithSpecifiedStyle($tea.toMap(tmpReq.deviceInfo), "DeviceInfo", "json");
+    if (!Util.isUnset(tmpReq.deviceInfo)) {
+      request.deviceInfoShrink = OpenApiUtil.arrayToStringWithSpecifiedStyle(tmpReq.deviceInfo, "DeviceInfo", "json");
     }
 
-    if (!Util.isUnset($tea.toMap(tmpReq.payload))) {
-      request.payloadShrink = OpenApiUtil.arrayToStringWithSpecifiedStyle($tea.toMap(tmpReq.payload), "Payload", "json");
+    if (!Util.isUnset(tmpReq.payload)) {
+      request.payloadShrink = OpenApiUtil.arrayToStringWithSpecifiedStyle(tmpReq.payload, "Payload", "json");
     }
 
-    if (!Util.isUnset($tea.toMap(tmpReq.userInfo))) {
-      request.userInfoShrink = OpenApiUtil.arrayToStringWithSpecifiedStyle($tea.toMap(tmpReq.userInfo), "UserInfo", "json");
+    if (!Util.isUnset(tmpReq.userInfo)) {
+      request.userInfoShrink = OpenApiUtil.arrayToStringWithSpecifiedStyle(tmpReq.userInfo, "UserInfo", "json");
     }
 
     let body : {[key: string ]: any} = { };
@@ -17356,18 +17737,18 @@ export default class Client extends OpenApi {
     return $tea.cast<GetScheduleTaskResponse>(await this.callApi(params, req, runtime), new GetScheduleTaskResponse({}));
   }
 
-  async getUnreadMessageCount(request: GetUnreadMessageCountRequest): Promise<GetUnreadMessageCountResponse> {
+  async getScheduleTask(request: GetScheduleTaskRequest): Promise<GetScheduleTaskResponse> {
     let runtime = new $Util.RuntimeOptions({ });
-    let headers = new GetUnreadMessageCountHeaders({ });
-    return await this.getUnreadMessageCountWithOptions(request, headers, runtime);
+    let headers = new GetScheduleTaskHeaders({ });
+    return await this.getScheduleTaskWithOptions(request, headers, runtime);
   }
 
   async getUnreadMessageCountWithOptions(tmpReq: GetUnreadMessageCountRequest, headers: GetUnreadMessageCountHeaders, runtime: $Util.RuntimeOptions): Promise<GetUnreadMessageCountResponse> {
     Util.validateModel(tmpReq);
     let request = new GetUnreadMessageCountShrinkRequest({ });
     OpenApiUtil.convert(tmpReq, request);
-    if (!Util.isUnset($tea.toMap(tmpReq.userInfo))) {
-      request.userInfoShrink = OpenApiUtil.arrayToStringWithSpecifiedStyle($tea.toMap(tmpReq.userInfo), "UserInfo", "json");
+    if (!Util.isUnset(tmpReq.userInfo)) {
+      request.userInfoShrink = OpenApiUtil.arrayToStringWithSpecifiedStyle(tmpReq.userInfo, "UserInfo", "json");
     }
 
     let query : {[key: string ]: any} = { };
@@ -17406,18 +17787,18 @@ export default class Client extends OpenApi {
     return $tea.cast<GetUnreadMessageCountResponse>(await this.callApi(params, req, runtime), new GetUnreadMessageCountResponse({}));
   }
 
-  async getUserByDeviceId(request: GetUserByDeviceIdRequest): Promise<GetUserByDeviceIdResponse> {
+  async getUnreadMessageCount(request: GetUnreadMessageCountRequest): Promise<GetUnreadMessageCountResponse> {
     let runtime = new $Util.RuntimeOptions({ });
-    let headers = new GetUserByDeviceIdHeaders({ });
-    return await this.getUserByDeviceIdWithOptions(request, headers, runtime);
+    let headers = new GetUnreadMessageCountHeaders({ });
+    return await this.getUnreadMessageCountWithOptions(request, headers, runtime);
   }
 
   async getUserByDeviceIdWithOptions(tmpReq: GetUserByDeviceIdRequest, headers: GetUserByDeviceIdHeaders, runtime: $Util.RuntimeOptions): Promise<GetUserByDeviceIdResponse> {
     Util.validateModel(tmpReq);
     let request = new GetUserByDeviceIdShrinkRequest({ });
     OpenApiUtil.convert(tmpReq, request);
-    if (!Util.isUnset($tea.toMap(tmpReq.deviceInfo))) {
-      request.deviceInfoShrink = OpenApiUtil.arrayToStringWithSpecifiedStyle($tea.toMap(tmpReq.deviceInfo), "DeviceInfo", "json");
+    if (!Util.isUnset(tmpReq.deviceInfo)) {
+      request.deviceInfoShrink = OpenApiUtil.arrayToStringWithSpecifiedStyle(tmpReq.deviceInfo, "DeviceInfo", "json");
     }
 
     let query : {[key: string ]: any} = { };
@@ -17456,26 +17837,26 @@ export default class Client extends OpenApi {
     return $tea.cast<GetUserByDeviceIdResponse>(await this.callApi(params, req, runtime), new GetUserByDeviceIdResponse({}));
   }
 
-  async getWeather(request: GetWeatherRequest): Promise<GetWeatherResponse> {
+  async getUserByDeviceId(request: GetUserByDeviceIdRequest): Promise<GetUserByDeviceIdResponse> {
     let runtime = new $Util.RuntimeOptions({ });
-    let headers = new GetWeatherHeaders({ });
-    return await this.getWeatherWithOptions(request, headers, runtime);
+    let headers = new GetUserByDeviceIdHeaders({ });
+    return await this.getUserByDeviceIdWithOptions(request, headers, runtime);
   }
 
   async getWeatherWithOptions(tmpReq: GetWeatherRequest, headers: GetWeatherHeaders, runtime: $Util.RuntimeOptions): Promise<GetWeatherResponse> {
     Util.validateModel(tmpReq);
     let request = new GetWeatherShrinkRequest({ });
     OpenApiUtil.convert(tmpReq, request);
-    if (!Util.isUnset($tea.toMap(tmpReq.deviceInfo))) {
-      request.deviceInfoShrink = OpenApiUtil.arrayToStringWithSpecifiedStyle($tea.toMap(tmpReq.deviceInfo), "DeviceInfo", "json");
+    if (!Util.isUnset(tmpReq.deviceInfo)) {
+      request.deviceInfoShrink = OpenApiUtil.arrayToStringWithSpecifiedStyle(tmpReq.deviceInfo, "DeviceInfo", "json");
     }
 
-    if (!Util.isUnset($tea.toMap(tmpReq.payload))) {
-      request.payloadShrink = OpenApiUtil.arrayToStringWithSpecifiedStyle($tea.toMap(tmpReq.payload), "Payload", "json");
+    if (!Util.isUnset(tmpReq.payload)) {
+      request.payloadShrink = OpenApiUtil.arrayToStringWithSpecifiedStyle(tmpReq.payload, "Payload", "json");
     }
 
-    if (!Util.isUnset($tea.toMap(tmpReq.userInfo))) {
-      request.userInfoShrink = OpenApiUtil.arrayToStringWithSpecifiedStyle($tea.toMap(tmpReq.userInfo), "UserInfo", "json");
+    if (!Util.isUnset(tmpReq.userInfo)) {
+      request.userInfoShrink = OpenApiUtil.arrayToStringWithSpecifiedStyle(tmpReq.userInfo, "UserInfo", "json");
     }
 
     let body : {[key: string ]: any} = { };
@@ -17522,26 +17903,26 @@ export default class Client extends OpenApi {
     return $tea.cast<GetWeatherResponse>(await this.callApi(params, req, runtime), new GetWeatherResponse({}));
   }
 
-  async indexControlPlayingList(request: IndexControlPlayingListRequest): Promise<IndexControlPlayingListResponse> {
+  async getWeather(request: GetWeatherRequest): Promise<GetWeatherResponse> {
     let runtime = new $Util.RuntimeOptions({ });
-    let headers = new IndexControlPlayingListHeaders({ });
-    return await this.indexControlPlayingListWithOptions(request, headers, runtime);
+    let headers = new GetWeatherHeaders({ });
+    return await this.getWeatherWithOptions(request, headers, runtime);
   }
 
   async indexControlPlayingListWithOptions(tmpReq: IndexControlPlayingListRequest, headers: IndexControlPlayingListHeaders, runtime: $Util.RuntimeOptions): Promise<IndexControlPlayingListResponse> {
     Util.validateModel(tmpReq);
     let request = new IndexControlPlayingListShrinkRequest({ });
     OpenApiUtil.convert(tmpReq, request);
-    if (!Util.isUnset($tea.toMap(tmpReq.deviceInfo))) {
-      request.deviceInfoShrink = OpenApiUtil.arrayToStringWithSpecifiedStyle($tea.toMap(tmpReq.deviceInfo), "DeviceInfo", "json");
+    if (!Util.isUnset(tmpReq.deviceInfo)) {
+      request.deviceInfoShrink = OpenApiUtil.arrayToStringWithSpecifiedStyle(tmpReq.deviceInfo, "DeviceInfo", "json");
     }
 
-    if (!Util.isUnset($tea.toMap(tmpReq.openIndexControlRequest))) {
-      request.openIndexControlRequestShrink = OpenApiUtil.arrayToStringWithSpecifiedStyle($tea.toMap(tmpReq.openIndexControlRequest), "OpenIndexControlRequest", "json");
+    if (!Util.isUnset(tmpReq.openIndexControlRequest)) {
+      request.openIndexControlRequestShrink = OpenApiUtil.arrayToStringWithSpecifiedStyle(tmpReq.openIndexControlRequest, "OpenIndexControlRequest", "json");
     }
 
-    if (!Util.isUnset($tea.toMap(tmpReq.userInfo))) {
-      request.userInfoShrink = OpenApiUtil.arrayToStringWithSpecifiedStyle($tea.toMap(tmpReq.userInfo), "UserInfo", "json");
+    if (!Util.isUnset(tmpReq.userInfo)) {
+      request.userInfoShrink = OpenApiUtil.arrayToStringWithSpecifiedStyle(tmpReq.userInfo, "UserInfo", "json");
     }
 
     let query : {[key: string ]: any} = { };
@@ -17590,26 +17971,26 @@ export default class Client extends OpenApi {
     return $tea.cast<IndexControlPlayingListResponse>(await this.callApi(params, req, runtime), new IndexControlPlayingListResponse({}));
   }
 
-  async listAlarms(request: ListAlarmsRequest): Promise<ListAlarmsResponse> {
+  async indexControlPlayingList(request: IndexControlPlayingListRequest): Promise<IndexControlPlayingListResponse> {
     let runtime = new $Util.RuntimeOptions({ });
-    let headers = new ListAlarmsHeaders({ });
-    return await this.listAlarmsWithOptions(request, headers, runtime);
+    let headers = new IndexControlPlayingListHeaders({ });
+    return await this.indexControlPlayingListWithOptions(request, headers, runtime);
   }
 
   async listAlarmsWithOptions(tmpReq: ListAlarmsRequest, headers: ListAlarmsHeaders, runtime: $Util.RuntimeOptions): Promise<ListAlarmsResponse> {
     Util.validateModel(tmpReq);
     let request = new ListAlarmsShrinkRequest({ });
     OpenApiUtil.convert(tmpReq, request);
-    if (!Util.isUnset($tea.toMap(tmpReq.deviceInfo))) {
-      request.deviceInfoShrink = OpenApiUtil.arrayToStringWithSpecifiedStyle($tea.toMap(tmpReq.deviceInfo), "DeviceInfo", "json");
+    if (!Util.isUnset(tmpReq.deviceInfo)) {
+      request.deviceInfoShrink = OpenApiUtil.arrayToStringWithSpecifiedStyle(tmpReq.deviceInfo, "DeviceInfo", "json");
     }
 
-    if (!Util.isUnset($tea.toMap(tmpReq.payload))) {
-      request.payloadShrink = OpenApiUtil.arrayToStringWithSpecifiedStyle($tea.toMap(tmpReq.payload), "Payload", "json");
+    if (!Util.isUnset(tmpReq.payload)) {
+      request.payloadShrink = OpenApiUtil.arrayToStringWithSpecifiedStyle(tmpReq.payload, "Payload", "json");
     }
 
-    if (!Util.isUnset($tea.toMap(tmpReq.userInfo))) {
-      request.userInfoShrink = OpenApiUtil.arrayToStringWithSpecifiedStyle($tea.toMap(tmpReq.userInfo), "UserInfo", "json");
+    if (!Util.isUnset(tmpReq.userInfo)) {
+      request.userInfoShrink = OpenApiUtil.arrayToStringWithSpecifiedStyle(tmpReq.userInfo, "UserInfo", "json");
     }
 
     let body : {[key: string ]: any} = { };
@@ -17656,10 +18037,10 @@ export default class Client extends OpenApi {
     return $tea.cast<ListAlarmsResponse>(await this.callApi(params, req, runtime), new ListAlarmsResponse({}));
   }
 
-  async listAlbumDetail(request: ListAlbumDetailRequest): Promise<ListAlbumDetailResponse> {
+  async listAlarms(request: ListAlarmsRequest): Promise<ListAlarmsResponse> {
     let runtime = new $Util.RuntimeOptions({ });
-    let headers = new ListAlbumDetailHeaders({ });
-    return await this.listAlbumDetailWithOptions(request, headers, runtime);
+    let headers = new ListAlarmsHeaders({ });
+    return await this.listAlarmsWithOptions(request, headers, runtime);
   }
 
   async listAlbumDetailWithOptions(request: ListAlbumDetailRequest, headers: ListAlbumDetailHeaders, runtime: $Util.RuntimeOptions): Promise<ListAlbumDetailResponse> {
@@ -17708,10 +18089,10 @@ export default class Client extends OpenApi {
     return $tea.cast<ListAlbumDetailResponse>(await this.callApi(params, req, runtime), new ListAlbumDetailResponse({}));
   }
 
-  async listAlbumIsAdded(request: ListAlbumIsAddedRequest): Promise<ListAlbumIsAddedResponse> {
+  async listAlbumDetail(request: ListAlbumDetailRequest): Promise<ListAlbumDetailResponse> {
     let runtime = new $Util.RuntimeOptions({ });
-    let headers = new ListAlbumIsAddedHeaders({ });
-    return await this.listAlbumIsAddedWithOptions(request, headers, runtime);
+    let headers = new ListAlbumDetailHeaders({ });
+    return await this.listAlbumDetailWithOptions(request, headers, runtime);
   }
 
   async listAlbumIsAddedWithOptions(tmpReq: ListAlbumIsAddedRequest, headers: ListAlbumIsAddedHeaders, runtime: $Util.RuntimeOptions): Promise<ListAlbumIsAddedResponse> {
@@ -17722,12 +18103,12 @@ export default class Client extends OpenApi {
       request.albumIdListShrink = OpenApiUtil.arrayToStringWithSpecifiedStyle(tmpReq.albumIdList, "AlbumIdList", "json");
     }
 
-    if (!Util.isUnset($tea.toMap(tmpReq.deviceInfo))) {
-      request.deviceInfoShrink = OpenApiUtil.arrayToStringWithSpecifiedStyle($tea.toMap(tmpReq.deviceInfo), "DeviceInfo", "json");
+    if (!Util.isUnset(tmpReq.deviceInfo)) {
+      request.deviceInfoShrink = OpenApiUtil.arrayToStringWithSpecifiedStyle(tmpReq.deviceInfo, "DeviceInfo", "json");
     }
 
-    if (!Util.isUnset($tea.toMap(tmpReq.userInfo))) {
-      request.userInfoShrink = OpenApiUtil.arrayToStringWithSpecifiedStyle($tea.toMap(tmpReq.userInfo), "UserInfo", "json");
+    if (!Util.isUnset(tmpReq.userInfo)) {
+      request.userInfoShrink = OpenApiUtil.arrayToStringWithSpecifiedStyle(tmpReq.userInfo, "UserInfo", "json");
     }
 
     let query : {[key: string ]: any} = { };
@@ -17774,26 +18155,26 @@ export default class Client extends OpenApi {
     return $tea.cast<ListAlbumIsAddedResponse>(await this.callApi(params, req, runtime), new ListAlbumIsAddedResponse({}));
   }
 
-  async listCateContent(request: ListCateContentRequest): Promise<ListCateContentResponse> {
+  async listAlbumIsAdded(request: ListAlbumIsAddedRequest): Promise<ListAlbumIsAddedResponse> {
     let runtime = new $Util.RuntimeOptions({ });
-    let headers = new ListCateContentHeaders({ });
-    return await this.listCateContentWithOptions(request, headers, runtime);
+    let headers = new ListAlbumIsAddedHeaders({ });
+    return await this.listAlbumIsAddedWithOptions(request, headers, runtime);
   }
 
   async listCateContentWithOptions(tmpReq: ListCateContentRequest, headers: ListCateContentHeaders, runtime: $Util.RuntimeOptions): Promise<ListCateContentResponse> {
     Util.validateModel(tmpReq);
     let request = new ListCateContentShrinkRequest({ });
     OpenApiUtil.convert(tmpReq, request);
-    if (!Util.isUnset($tea.toMap(tmpReq.deviceInfo))) {
-      request.deviceInfoShrink = OpenApiUtil.arrayToStringWithSpecifiedStyle($tea.toMap(tmpReq.deviceInfo), "DeviceInfo", "json");
+    if (!Util.isUnset(tmpReq.deviceInfo)) {
+      request.deviceInfoShrink = OpenApiUtil.arrayToStringWithSpecifiedStyle(tmpReq.deviceInfo, "DeviceInfo", "json");
     }
 
-    if (!Util.isUnset($tea.toMap(tmpReq.request))) {
-      request.requestShrink = OpenApiUtil.arrayToStringWithSpecifiedStyle($tea.toMap(tmpReq.request), "Request", "json");
+    if (!Util.isUnset(tmpReq.request)) {
+      request.requestShrink = OpenApiUtil.arrayToStringWithSpecifiedStyle(tmpReq.request, "Request", "json");
     }
 
-    if (!Util.isUnset($tea.toMap(tmpReq.userInfo))) {
-      request.userInfoShrink = OpenApiUtil.arrayToStringWithSpecifiedStyle($tea.toMap(tmpReq.userInfo), "UserInfo", "json");
+    if (!Util.isUnset(tmpReq.userInfo)) {
+      request.userInfoShrink = OpenApiUtil.arrayToStringWithSpecifiedStyle(tmpReq.userInfo, "UserInfo", "json");
     }
 
     let query : {[key: string ]: any} = { };
@@ -17842,10 +18223,10 @@ export default class Client extends OpenApi {
     return $tea.cast<ListCateContentResponse>(await this.callApi(params, req, runtime), new ListCateContentResponse({}));
   }
 
-  async listCateInfo(request: ListCateInfoRequest): Promise<ListCateInfoResponse> {
+  async listCateContent(request: ListCateContentRequest): Promise<ListCateContentResponse> {
     let runtime = new $Util.RuntimeOptions({ });
-    let headers = new ListCateInfoHeaders({ });
-    return await this.listCateInfoWithOptions(request, headers, runtime);
+    let headers = new ListCateContentHeaders({ });
+    return await this.listCateContentWithOptions(request, headers, runtime);
   }
 
   async listCateInfoWithOptions(request: ListCateInfoRequest, headers: ListCateInfoHeaders, runtime: $Util.RuntimeOptions): Promise<ListCateInfoResponse> {
@@ -17886,10 +18267,10 @@ export default class Client extends OpenApi {
     return $tea.cast<ListCateInfoResponse>(await this.callApi(params, req, runtime), new ListCateInfoResponse({}));
   }
 
-  async listCommonCateFirstFloor(request: ListCommonCateFirstFloorRequest): Promise<ListCommonCateFirstFloorResponse> {
+  async listCateInfo(request: ListCateInfoRequest): Promise<ListCateInfoResponse> {
     let runtime = new $Util.RuntimeOptions({ });
-    let headers = new ListCommonCateFirstFloorHeaders({ });
-    return await this.listCommonCateFirstFloorWithOptions(request, headers, runtime);
+    let headers = new ListCateInfoHeaders({ });
+    return await this.listCateInfoWithOptions(request, headers, runtime);
   }
 
   async listCommonCateFirstFloorWithOptions(request: ListCommonCateFirstFloorRequest, headers: ListCommonCateFirstFloorHeaders, runtime: $Util.RuntimeOptions): Promise<ListCommonCateFirstFloorResponse> {
@@ -17930,10 +18311,10 @@ export default class Client extends OpenApi {
     return $tea.cast<ListCommonCateFirstFloorResponse>(await this.callApi(params, req, runtime), new ListCommonCateFirstFloorResponse({}));
   }
 
-  async listCommonCateSecondFloor(request: ListCommonCateSecondFloorRequest): Promise<ListCommonCateSecondFloorResponse> {
+  async listCommonCateFirstFloor(request: ListCommonCateFirstFloorRequest): Promise<ListCommonCateFirstFloorResponse> {
     let runtime = new $Util.RuntimeOptions({ });
-    let headers = new ListCommonCateSecondFloorHeaders({ });
-    return await this.listCommonCateSecondFloorWithOptions(request, headers, runtime);
+    let headers = new ListCommonCateFirstFloorHeaders({ });
+    return await this.listCommonCateFirstFloorWithOptions(request, headers, runtime);
   }
 
   async listCommonCateSecondFloorWithOptions(request: ListCommonCateSecondFloorRequest, headers: ListCommonCateSecondFloorHeaders, runtime: $Util.RuntimeOptions): Promise<ListCommonCateSecondFloorResponse> {
@@ -17974,18 +18355,18 @@ export default class Client extends OpenApi {
     return $tea.cast<ListCommonCateSecondFloorResponse>(await this.callApi(params, req, runtime), new ListCommonCateSecondFloorResponse({}));
   }
 
-  async listDeviceBasicInfo(request: ListDeviceBasicInfoRequest): Promise<ListDeviceBasicInfoResponse> {
+  async listCommonCateSecondFloor(request: ListCommonCateSecondFloorRequest): Promise<ListCommonCateSecondFloorResponse> {
     let runtime = new $Util.RuntimeOptions({ });
-    let headers = new ListDeviceBasicInfoHeaders({ });
-    return await this.listDeviceBasicInfoWithOptions(request, headers, runtime);
+    let headers = new ListCommonCateSecondFloorHeaders({ });
+    return await this.listCommonCateSecondFloorWithOptions(request, headers, runtime);
   }
 
   async listDeviceBasicInfoWithOptions(tmpReq: ListDeviceBasicInfoRequest, headers: ListDeviceBasicInfoHeaders, runtime: $Util.RuntimeOptions): Promise<ListDeviceBasicInfoResponse> {
     Util.validateModel(tmpReq);
     let request = new ListDeviceBasicInfoShrinkRequest({ });
     OpenApiUtil.convert(tmpReq, request);
-    if (!Util.isUnset($tea.toMap(tmpReq.deviceInfos))) {
-      request.deviceInfosShrink = OpenApiUtil.arrayToStringWithSpecifiedStyle($tea.toMap(tmpReq.deviceInfos), "DeviceInfos", "json");
+    if (!Util.isUnset(tmpReq.deviceInfos)) {
+      request.deviceInfosShrink = OpenApiUtil.arrayToStringWithSpecifiedStyle(tmpReq.deviceInfos, "DeviceInfos", "json");
     }
 
     let query : {[key: string ]: any} = { };
@@ -18024,18 +18405,18 @@ export default class Client extends OpenApi {
     return $tea.cast<ListDeviceBasicInfoResponse>(await this.callApi(params, req, runtime), new ListDeviceBasicInfoResponse({}));
   }
 
-  async listDeviceByUserId(request: ListDeviceByUserIdRequest): Promise<ListDeviceByUserIdResponse> {
+  async listDeviceBasicInfo(request: ListDeviceBasicInfoRequest): Promise<ListDeviceBasicInfoResponse> {
     let runtime = new $Util.RuntimeOptions({ });
-    let headers = new ListDeviceByUserIdHeaders({ });
-    return await this.listDeviceByUserIdWithOptions(request, headers, runtime);
+    let headers = new ListDeviceBasicInfoHeaders({ });
+    return await this.listDeviceBasicInfoWithOptions(request, headers, runtime);
   }
 
   async listDeviceByUserIdWithOptions(tmpReq: ListDeviceByUserIdRequest, headers: ListDeviceByUserIdHeaders, runtime: $Util.RuntimeOptions): Promise<ListDeviceByUserIdResponse> {
     Util.validateModel(tmpReq);
     let request = new ListDeviceByUserIdShrinkRequest({ });
     OpenApiUtil.convert(tmpReq, request);
-    if (!Util.isUnset($tea.toMap(tmpReq.userInfo))) {
-      request.userInfoShrink = OpenApiUtil.arrayToStringWithSpecifiedStyle($tea.toMap(tmpReq.userInfo), "UserInfo", "json");
+    if (!Util.isUnset(tmpReq.userInfo)) {
+      request.userInfoShrink = OpenApiUtil.arrayToStringWithSpecifiedStyle(tmpReq.userInfo, "UserInfo", "json");
     }
 
     let query : {[key: string ]: any} = { };
@@ -18074,22 +18455,22 @@ export default class Client extends OpenApi {
     return $tea.cast<ListDeviceByUserIdResponse>(await this.callApi(params, req, runtime), new ListDeviceByUserIdResponse({}));
   }
 
-  async listDeviceByUserIdAndChanel(request: ListDeviceByUserIdAndChanelRequest): Promise<ListDeviceByUserIdAndChanelResponse> {
+  async listDeviceByUserId(request: ListDeviceByUserIdRequest): Promise<ListDeviceByUserIdResponse> {
     let runtime = new $Util.RuntimeOptions({ });
-    let headers = new ListDeviceByUserIdAndChanelHeaders({ });
-    return await this.listDeviceByUserIdAndChanelWithOptions(request, headers, runtime);
+    let headers = new ListDeviceByUserIdHeaders({ });
+    return await this.listDeviceByUserIdWithOptions(request, headers, runtime);
   }
 
   async listDeviceByUserIdAndChanelWithOptions(tmpReq: ListDeviceByUserIdAndChanelRequest, headers: ListDeviceByUserIdAndChanelHeaders, runtime: $Util.RuntimeOptions): Promise<ListDeviceByUserIdAndChanelResponse> {
     Util.validateModel(tmpReq);
     let request = new ListDeviceByUserIdAndChanelShrinkRequest({ });
     OpenApiUtil.convert(tmpReq, request);
-    if (!Util.isUnset($tea.toMap(tmpReq.channelInfo))) {
-      request.channelInfoShrink = OpenApiUtil.arrayToStringWithSpecifiedStyle($tea.toMap(tmpReq.channelInfo), "ChannelInfo", "json");
+    if (!Util.isUnset(tmpReq.channelInfo)) {
+      request.channelInfoShrink = OpenApiUtil.arrayToStringWithSpecifiedStyle(tmpReq.channelInfo, "ChannelInfo", "json");
     }
 
-    if (!Util.isUnset($tea.toMap(tmpReq.userInfo))) {
-      request.userInfoShrink = OpenApiUtil.arrayToStringWithSpecifiedStyle($tea.toMap(tmpReq.userInfo), "UserInfo", "json");
+    if (!Util.isUnset(tmpReq.userInfo)) {
+      request.userInfoShrink = OpenApiUtil.arrayToStringWithSpecifiedStyle(tmpReq.userInfo, "UserInfo", "json");
     }
 
     let query : {[key: string ]: any} = { };
@@ -18132,10 +18513,10 @@ export default class Client extends OpenApi {
     return $tea.cast<ListDeviceByUserIdAndChanelResponse>(await this.callApi(params, req, runtime), new ListDeviceByUserIdAndChanelResponse({}));
   }
 
-  async listDeviceIdByIdentities(request: ListDeviceIdByIdentitiesRequest): Promise<ListDeviceIdByIdentitiesResponse> {
+  async listDeviceByUserIdAndChanel(request: ListDeviceByUserIdAndChanelRequest): Promise<ListDeviceByUserIdAndChanelResponse> {
     let runtime = new $Util.RuntimeOptions({ });
-    let headers = new ListDeviceIdByIdentitiesHeaders({ });
-    return await this.listDeviceIdByIdentitiesWithOptions(request, headers, runtime);
+    let headers = new ListDeviceByUserIdAndChanelHeaders({ });
+    return await this.listDeviceByUserIdAndChanelWithOptions(request, headers, runtime);
   }
 
   async listDeviceIdByIdentitiesWithOptions(tmpReq: ListDeviceIdByIdentitiesRequest, headers: ListDeviceIdByIdentitiesHeaders, runtime: $Util.RuntimeOptions): Promise<ListDeviceIdByIdentitiesResponse> {
@@ -18198,26 +18579,26 @@ export default class Client extends OpenApi {
     return $tea.cast<ListDeviceIdByIdentitiesResponse>(await this.callApi(params, req, runtime), new ListDeviceIdByIdentitiesResponse({}));
   }
 
-  async listMusic(request: ListMusicRequest): Promise<ListMusicResponse> {
+  async listDeviceIdByIdentities(request: ListDeviceIdByIdentitiesRequest): Promise<ListDeviceIdByIdentitiesResponse> {
     let runtime = new $Util.RuntimeOptions({ });
-    let headers = new ListMusicHeaders({ });
-    return await this.listMusicWithOptions(request, headers, runtime);
+    let headers = new ListDeviceIdByIdentitiesHeaders({ });
+    return await this.listDeviceIdByIdentitiesWithOptions(request, headers, runtime);
   }
 
   async listMusicWithOptions(tmpReq: ListMusicRequest, headers: ListMusicHeaders, runtime: $Util.RuntimeOptions): Promise<ListMusicResponse> {
     Util.validateModel(tmpReq);
     let request = new ListMusicShrinkRequest({ });
     OpenApiUtil.convert(tmpReq, request);
-    if (!Util.isUnset($tea.toMap(tmpReq.deviceInfo))) {
-      request.deviceInfoShrink = OpenApiUtil.arrayToStringWithSpecifiedStyle($tea.toMap(tmpReq.deviceInfo), "DeviceInfo", "json");
+    if (!Util.isUnset(tmpReq.deviceInfo)) {
+      request.deviceInfoShrink = OpenApiUtil.arrayToStringWithSpecifiedStyle(tmpReq.deviceInfo, "DeviceInfo", "json");
     }
 
-    if (!Util.isUnset($tea.toMap(tmpReq.payload))) {
-      request.payloadShrink = OpenApiUtil.arrayToStringWithSpecifiedStyle($tea.toMap(tmpReq.payload), "Payload", "json");
+    if (!Util.isUnset(tmpReq.payload)) {
+      request.payloadShrink = OpenApiUtil.arrayToStringWithSpecifiedStyle(tmpReq.payload, "Payload", "json");
     }
 
-    if (!Util.isUnset($tea.toMap(tmpReq.userInfo))) {
-      request.userInfoShrink = OpenApiUtil.arrayToStringWithSpecifiedStyle($tea.toMap(tmpReq.userInfo), "UserInfo", "json");
+    if (!Util.isUnset(tmpReq.userInfo)) {
+      request.userInfoShrink = OpenApiUtil.arrayToStringWithSpecifiedStyle(tmpReq.userInfo, "UserInfo", "json");
     }
 
     let body : {[key: string ]: any} = { };
@@ -18264,26 +18645,26 @@ export default class Client extends OpenApi {
     return $tea.cast<ListMusicResponse>(await this.callApi(params, req, runtime), new ListMusicResponse({}));
   }
 
-  async listPlayHistory(request: ListPlayHistoryRequest): Promise<ListPlayHistoryResponse> {
+  async listMusic(request: ListMusicRequest): Promise<ListMusicResponse> {
     let runtime = new $Util.RuntimeOptions({ });
-    let headers = new ListPlayHistoryHeaders({ });
-    return await this.listPlayHistoryWithOptions(request, headers, runtime);
+    let headers = new ListMusicHeaders({ });
+    return await this.listMusicWithOptions(request, headers, runtime);
   }
 
   async listPlayHistoryWithOptions(tmpReq: ListPlayHistoryRequest, headers: ListPlayHistoryHeaders, runtime: $Util.RuntimeOptions): Promise<ListPlayHistoryResponse> {
     Util.validateModel(tmpReq);
     let request = new ListPlayHistoryShrinkRequest({ });
     OpenApiUtil.convert(tmpReq, request);
-    if (!Util.isUnset($tea.toMap(tmpReq.deviceInfo))) {
-      request.deviceInfoShrink = OpenApiUtil.arrayToStringWithSpecifiedStyle($tea.toMap(tmpReq.deviceInfo), "DeviceInfo", "json");
+    if (!Util.isUnset(tmpReq.deviceInfo)) {
+      request.deviceInfoShrink = OpenApiUtil.arrayToStringWithSpecifiedStyle(tmpReq.deviceInfo, "DeviceInfo", "json");
     }
 
-    if (!Util.isUnset($tea.toMap(tmpReq.request))) {
-      request.requestShrink = OpenApiUtil.arrayToStringWithSpecifiedStyle($tea.toMap(tmpReq.request), "Request", "json");
+    if (!Util.isUnset(tmpReq.request)) {
+      request.requestShrink = OpenApiUtil.arrayToStringWithSpecifiedStyle(tmpReq.request, "Request", "json");
     }
 
-    if (!Util.isUnset($tea.toMap(tmpReq.userInfo))) {
-      request.userInfoShrink = OpenApiUtil.arrayToStringWithSpecifiedStyle($tea.toMap(tmpReq.userInfo), "UserInfo", "json");
+    if (!Util.isUnset(tmpReq.userInfo)) {
+      request.userInfoShrink = OpenApiUtil.arrayToStringWithSpecifiedStyle(tmpReq.userInfo, "UserInfo", "json");
     }
 
     let query : {[key: string ]: any} = { };
@@ -18332,26 +18713,26 @@ export default class Client extends OpenApi {
     return $tea.cast<ListPlayHistoryResponse>(await this.callApi(params, req, runtime), new ListPlayHistoryResponse({}));
   }
 
-  async listRecommendContent(request: ListRecommendContentRequest): Promise<ListRecommendContentResponse> {
+  async listPlayHistory(request: ListPlayHistoryRequest): Promise<ListPlayHistoryResponse> {
     let runtime = new $Util.RuntimeOptions({ });
-    let headers = new ListRecommendContentHeaders({ });
-    return await this.listRecommendContentWithOptions(request, headers, runtime);
+    let headers = new ListPlayHistoryHeaders({ });
+    return await this.listPlayHistoryWithOptions(request, headers, runtime);
   }
 
   async listRecommendContentWithOptions(tmpReq: ListRecommendContentRequest, headers: ListRecommendContentHeaders, runtime: $Util.RuntimeOptions): Promise<ListRecommendContentResponse> {
     Util.validateModel(tmpReq);
     let request = new ListRecommendContentShrinkRequest({ });
     OpenApiUtil.convert(tmpReq, request);
-    if (!Util.isUnset($tea.toMap(tmpReq.deviceInfo))) {
-      request.deviceInfoShrink = OpenApiUtil.arrayToStringWithSpecifiedStyle($tea.toMap(tmpReq.deviceInfo), "DeviceInfo", "json");
+    if (!Util.isUnset(tmpReq.deviceInfo)) {
+      request.deviceInfoShrink = OpenApiUtil.arrayToStringWithSpecifiedStyle(tmpReq.deviceInfo, "DeviceInfo", "json");
     }
 
-    if (!Util.isUnset($tea.toMap(tmpReq.request))) {
-      request.requestShrink = OpenApiUtil.arrayToStringWithSpecifiedStyle($tea.toMap(tmpReq.request), "Request", "json");
+    if (!Util.isUnset(tmpReq.request)) {
+      request.requestShrink = OpenApiUtil.arrayToStringWithSpecifiedStyle(tmpReq.request, "Request", "json");
     }
 
-    if (!Util.isUnset($tea.toMap(tmpReq.userInfo))) {
-      request.userInfoShrink = OpenApiUtil.arrayToStringWithSpecifiedStyle($tea.toMap(tmpReq.userInfo), "UserInfo", "json");
+    if (!Util.isUnset(tmpReq.userInfo)) {
+      request.userInfoShrink = OpenApiUtil.arrayToStringWithSpecifiedStyle(tmpReq.userInfo, "UserInfo", "json");
     }
 
     let query : {[key: string ]: any} = { };
@@ -18400,26 +18781,26 @@ export default class Client extends OpenApi {
     return $tea.cast<ListRecommendContentResponse>(await this.callApi(params, req, runtime), new ListRecommendContentResponse({}));
   }
 
-  async listSub(request: ListSubRequest): Promise<ListSubResponse> {
+  async listRecommendContent(request: ListRecommendContentRequest): Promise<ListRecommendContentResponse> {
     let runtime = new $Util.RuntimeOptions({ });
-    let headers = new ListSubHeaders({ });
-    return await this.listSubWithOptions(request, headers, runtime);
+    let headers = new ListRecommendContentHeaders({ });
+    return await this.listRecommendContentWithOptions(request, headers, runtime);
   }
 
   async listSubWithOptions(tmpReq: ListSubRequest, headers: ListSubHeaders, runtime: $Util.RuntimeOptions): Promise<ListSubResponse> {
     Util.validateModel(tmpReq);
     let request = new ListSubShrinkRequest({ });
     OpenApiUtil.convert(tmpReq, request);
-    if (!Util.isUnset($tea.toMap(tmpReq.deviceInfo))) {
-      request.deviceInfoShrink = OpenApiUtil.arrayToStringWithSpecifiedStyle($tea.toMap(tmpReq.deviceInfo), "DeviceInfo", "json");
+    if (!Util.isUnset(tmpReq.deviceInfo)) {
+      request.deviceInfoShrink = OpenApiUtil.arrayToStringWithSpecifiedStyle(tmpReq.deviceInfo, "DeviceInfo", "json");
     }
 
-    if (!Util.isUnset($tea.toMap(tmpReq.page))) {
-      request.pageShrink = OpenApiUtil.arrayToStringWithSpecifiedStyle($tea.toMap(tmpReq.page), "Page", "json");
+    if (!Util.isUnset(tmpReq.page)) {
+      request.pageShrink = OpenApiUtil.arrayToStringWithSpecifiedStyle(tmpReq.page, "Page", "json");
     }
 
-    if (!Util.isUnset($tea.toMap(tmpReq.userInfo))) {
-      request.userInfoShrink = OpenApiUtil.arrayToStringWithSpecifiedStyle($tea.toMap(tmpReq.userInfo), "UserInfo", "json");
+    if (!Util.isUnset(tmpReq.userInfo)) {
+      request.userInfoShrink = OpenApiUtil.arrayToStringWithSpecifiedStyle(tmpReq.userInfo, "UserInfo", "json");
     }
 
     let query : {[key: string ]: any} = { };
@@ -18466,26 +18847,26 @@ export default class Client extends OpenApi {
     return $tea.cast<ListSubResponse>(await this.callApi(params, req, runtime), new ListSubResponse({}));
   }
 
-  async listSubAlbum(request: ListSubAlbumRequest): Promise<ListSubAlbumResponse> {
+  async listSub(request: ListSubRequest): Promise<ListSubResponse> {
     let runtime = new $Util.RuntimeOptions({ });
-    let headers = new ListSubAlbumHeaders({ });
-    return await this.listSubAlbumWithOptions(request, headers, runtime);
+    let headers = new ListSubHeaders({ });
+    return await this.listSubWithOptions(request, headers, runtime);
   }
 
   async listSubAlbumWithOptions(tmpReq: ListSubAlbumRequest, headers: ListSubAlbumHeaders, runtime: $Util.RuntimeOptions): Promise<ListSubAlbumResponse> {
     Util.validateModel(tmpReq);
     let request = new ListSubAlbumShrinkRequest({ });
     OpenApiUtil.convert(tmpReq, request);
-    if (!Util.isUnset($tea.toMap(tmpReq.deviceInfo))) {
-      request.deviceInfoShrink = OpenApiUtil.arrayToStringWithSpecifiedStyle($tea.toMap(tmpReq.deviceInfo), "DeviceInfo", "json");
+    if (!Util.isUnset(tmpReq.deviceInfo)) {
+      request.deviceInfoShrink = OpenApiUtil.arrayToStringWithSpecifiedStyle(tmpReq.deviceInfo, "DeviceInfo", "json");
     }
 
-    if (!Util.isUnset($tea.toMap(tmpReq.querySubscriptionAlbumRequest))) {
-      request.querySubscriptionAlbumRequestShrink = OpenApiUtil.arrayToStringWithSpecifiedStyle($tea.toMap(tmpReq.querySubscriptionAlbumRequest), "QuerySubscriptionAlbumRequest", "json");
+    if (!Util.isUnset(tmpReq.querySubscriptionAlbumRequest)) {
+      request.querySubscriptionAlbumRequestShrink = OpenApiUtil.arrayToStringWithSpecifiedStyle(tmpReq.querySubscriptionAlbumRequest, "QuerySubscriptionAlbumRequest", "json");
     }
 
-    if (!Util.isUnset($tea.toMap(tmpReq.userInfo))) {
-      request.userInfoShrink = OpenApiUtil.arrayToStringWithSpecifiedStyle($tea.toMap(tmpReq.userInfo), "UserInfo", "json");
+    if (!Util.isUnset(tmpReq.userInfo)) {
+      request.userInfoShrink = OpenApiUtil.arrayToStringWithSpecifiedStyle(tmpReq.userInfo, "UserInfo", "json");
     }
 
     let query : {[key: string ]: any} = { };
@@ -18532,10 +18913,10 @@ export default class Client extends OpenApi {
     return $tea.cast<ListSubAlbumResponse>(await this.callApi(params, req, runtime), new ListSubAlbumResponse({}));
   }
 
-  async listSubscriptionAlbumCategory(request: ListSubscriptionAlbumCategoryRequest): Promise<ListSubscriptionAlbumCategoryResponse> {
+  async listSubAlbum(request: ListSubAlbumRequest): Promise<ListSubAlbumResponse> {
     let runtime = new $Util.RuntimeOptions({ });
-    let headers = new ListSubscriptionAlbumCategoryHeaders({ });
-    return await this.listSubscriptionAlbumCategoryWithOptions(request, headers, runtime);
+    let headers = new ListSubAlbumHeaders({ });
+    return await this.listSubAlbumWithOptions(request, headers, runtime);
   }
 
   async listSubscriptionAlbumCategoryWithOptions(request: ListSubscriptionAlbumCategoryRequest, headers: ListSubscriptionAlbumCategoryHeaders, runtime: $Util.RuntimeOptions): Promise<ListSubscriptionAlbumCategoryResponse> {
@@ -18576,18 +18957,18 @@ export default class Client extends OpenApi {
     return $tea.cast<ListSubscriptionAlbumCategoryResponse>(await this.callApi(params, req, runtime), new ListSubscriptionAlbumCategoryResponse({}));
   }
 
-  async listUserMessage(request: ListUserMessageRequest): Promise<ListUserMessageResponse> {
+  async listSubscriptionAlbumCategory(request: ListSubscriptionAlbumCategoryRequest): Promise<ListSubscriptionAlbumCategoryResponse> {
     let runtime = new $Util.RuntimeOptions({ });
-    let headers = new ListUserMessageHeaders({ });
-    return await this.listUserMessageWithOptions(request, headers, runtime);
+    let headers = new ListSubscriptionAlbumCategoryHeaders({ });
+    return await this.listSubscriptionAlbumCategoryWithOptions(request, headers, runtime);
   }
 
   async listUserMessageWithOptions(tmpReq: ListUserMessageRequest, headers: ListUserMessageHeaders, runtime: $Util.RuntimeOptions): Promise<ListUserMessageResponse> {
     Util.validateModel(tmpReq);
     let request = new ListUserMessageShrinkRequest({ });
     OpenApiUtil.convert(tmpReq, request);
-    if (!Util.isUnset($tea.toMap(tmpReq.userInfo))) {
-      request.userInfoShrink = OpenApiUtil.arrayToStringWithSpecifiedStyle($tea.toMap(tmpReq.userInfo), "UserInfo", "json");
+    if (!Util.isUnset(tmpReq.userInfo)) {
+      request.userInfoShrink = OpenApiUtil.arrayToStringWithSpecifiedStyle(tmpReq.userInfo, "UserInfo", "json");
     }
 
     let query : {[key: string ]: any} = { };
@@ -18634,26 +19015,26 @@ export default class Client extends OpenApi {
     return $tea.cast<ListUserMessageResponse>(await this.callApi(params, req, runtime), new ListUserMessageResponse({}));
   }
 
-  async playAndPauseControl(request: PlayAndPauseControlRequest): Promise<PlayAndPauseControlResponse> {
+  async listUserMessage(request: ListUserMessageRequest): Promise<ListUserMessageResponse> {
     let runtime = new $Util.RuntimeOptions({ });
-    let headers = new PlayAndPauseControlHeaders({ });
-    return await this.playAndPauseControlWithOptions(request, headers, runtime);
+    let headers = new ListUserMessageHeaders({ });
+    return await this.listUserMessageWithOptions(request, headers, runtime);
   }
 
   async playAndPauseControlWithOptions(tmpReq: PlayAndPauseControlRequest, headers: PlayAndPauseControlHeaders, runtime: $Util.RuntimeOptions): Promise<PlayAndPauseControlResponse> {
     Util.validateModel(tmpReq);
     let request = new PlayAndPauseControlShrinkRequest({ });
     OpenApiUtil.convert(tmpReq, request);
-    if (!Util.isUnset($tea.toMap(tmpReq.deviceInfo))) {
-      request.deviceInfoShrink = OpenApiUtil.arrayToStringWithSpecifiedStyle($tea.toMap(tmpReq.deviceInfo), "DeviceInfo", "json");
+    if (!Util.isUnset(tmpReq.deviceInfo)) {
+      request.deviceInfoShrink = OpenApiUtil.arrayToStringWithSpecifiedStyle(tmpReq.deviceInfo, "DeviceInfo", "json");
     }
 
-    if (!Util.isUnset($tea.toMap(tmpReq.openPlayAndPauseControlParam))) {
-      request.openPlayAndPauseControlParamShrink = OpenApiUtil.arrayToStringWithSpecifiedStyle($tea.toMap(tmpReq.openPlayAndPauseControlParam), "OpenPlayAndPauseControlParam", "json");
+    if (!Util.isUnset(tmpReq.openPlayAndPauseControlParam)) {
+      request.openPlayAndPauseControlParamShrink = OpenApiUtil.arrayToStringWithSpecifiedStyle(tmpReq.openPlayAndPauseControlParam, "OpenPlayAndPauseControlParam", "json");
     }
 
-    if (!Util.isUnset($tea.toMap(tmpReq.userInfo))) {
-      request.userInfoShrink = OpenApiUtil.arrayToStringWithSpecifiedStyle($tea.toMap(tmpReq.userInfo), "UserInfo", "json");
+    if (!Util.isUnset(tmpReq.userInfo)) {
+      request.userInfoShrink = OpenApiUtil.arrayToStringWithSpecifiedStyle(tmpReq.userInfo, "UserInfo", "json");
     }
 
     let query : {[key: string ]: any} = { };
@@ -18702,26 +19083,26 @@ export default class Client extends OpenApi {
     return $tea.cast<PlayAndPauseControlResponse>(await this.callApi(params, req, runtime), new PlayAndPauseControlResponse({}));
   }
 
-  async playModeControl(request: PlayModeControlRequest): Promise<PlayModeControlResponse> {
+  async playAndPauseControl(request: PlayAndPauseControlRequest): Promise<PlayAndPauseControlResponse> {
     let runtime = new $Util.RuntimeOptions({ });
-    let headers = new PlayModeControlHeaders({ });
-    return await this.playModeControlWithOptions(request, headers, runtime);
+    let headers = new PlayAndPauseControlHeaders({ });
+    return await this.playAndPauseControlWithOptions(request, headers, runtime);
   }
 
   async playModeControlWithOptions(tmpReq: PlayModeControlRequest, headers: PlayModeControlHeaders, runtime: $Util.RuntimeOptions): Promise<PlayModeControlResponse> {
     Util.validateModel(tmpReq);
     let request = new PlayModeControlShrinkRequest({ });
     OpenApiUtil.convert(tmpReq, request);
-    if (!Util.isUnset($tea.toMap(tmpReq.deviceInfo))) {
-      request.deviceInfoShrink = OpenApiUtil.arrayToStringWithSpecifiedStyle($tea.toMap(tmpReq.deviceInfo), "DeviceInfo", "json");
+    if (!Util.isUnset(tmpReq.deviceInfo)) {
+      request.deviceInfoShrink = OpenApiUtil.arrayToStringWithSpecifiedStyle(tmpReq.deviceInfo, "DeviceInfo", "json");
     }
 
-    if (!Util.isUnset($tea.toMap(tmpReq.openPlayModeControlRequest))) {
-      request.openPlayModeControlRequestShrink = OpenApiUtil.arrayToStringWithSpecifiedStyle($tea.toMap(tmpReq.openPlayModeControlRequest), "OpenPlayModeControlRequest", "json");
+    if (!Util.isUnset(tmpReq.openPlayModeControlRequest)) {
+      request.openPlayModeControlRequestShrink = OpenApiUtil.arrayToStringWithSpecifiedStyle(tmpReq.openPlayModeControlRequest, "OpenPlayModeControlRequest", "json");
     }
 
-    if (!Util.isUnset($tea.toMap(tmpReq.userInfo))) {
-      request.userInfoShrink = OpenApiUtil.arrayToStringWithSpecifiedStyle($tea.toMap(tmpReq.userInfo), "UserInfo", "json");
+    if (!Util.isUnset(tmpReq.userInfo)) {
+      request.userInfoShrink = OpenApiUtil.arrayToStringWithSpecifiedStyle(tmpReq.userInfo, "UserInfo", "json");
     }
 
     let query : {[key: string ]: any} = { };
@@ -18770,26 +19151,26 @@ export default class Client extends OpenApi {
     return $tea.cast<PlayModeControlResponse>(await this.callApi(params, req, runtime), new PlayModeControlResponse({}));
   }
 
-  async previousAndNextControl(request: PreviousAndNextControlRequest): Promise<PreviousAndNextControlResponse> {
+  async playModeControl(request: PlayModeControlRequest): Promise<PlayModeControlResponse> {
     let runtime = new $Util.RuntimeOptions({ });
-    let headers = new PreviousAndNextControlHeaders({ });
-    return await this.previousAndNextControlWithOptions(request, headers, runtime);
+    let headers = new PlayModeControlHeaders({ });
+    return await this.playModeControlWithOptions(request, headers, runtime);
   }
 
   async previousAndNextControlWithOptions(tmpReq: PreviousAndNextControlRequest, headers: PreviousAndNextControlHeaders, runtime: $Util.RuntimeOptions): Promise<PreviousAndNextControlResponse> {
     Util.validateModel(tmpReq);
     let request = new PreviousAndNextControlShrinkRequest({ });
     OpenApiUtil.convert(tmpReq, request);
-    if (!Util.isUnset($tea.toMap(tmpReq.deviceInfo))) {
-      request.deviceInfoShrink = OpenApiUtil.arrayToStringWithSpecifiedStyle($tea.toMap(tmpReq.deviceInfo), "DeviceInfo", "json");
+    if (!Util.isUnset(tmpReq.deviceInfo)) {
+      request.deviceInfoShrink = OpenApiUtil.arrayToStringWithSpecifiedStyle(tmpReq.deviceInfo, "DeviceInfo", "json");
     }
 
-    if (!Util.isUnset($tea.toMap(tmpReq.openControlPlayingListRequest))) {
-      request.openControlPlayingListRequestShrink = OpenApiUtil.arrayToStringWithSpecifiedStyle($tea.toMap(tmpReq.openControlPlayingListRequest), "OpenControlPlayingListRequest", "json");
+    if (!Util.isUnset(tmpReq.openControlPlayingListRequest)) {
+      request.openControlPlayingListRequestShrink = OpenApiUtil.arrayToStringWithSpecifiedStyle(tmpReq.openControlPlayingListRequest, "OpenControlPlayingListRequest", "json");
     }
 
-    if (!Util.isUnset($tea.toMap(tmpReq.userInfo))) {
-      request.userInfoShrink = OpenApiUtil.arrayToStringWithSpecifiedStyle($tea.toMap(tmpReq.userInfo), "UserInfo", "json");
+    if (!Util.isUnset(tmpReq.userInfo)) {
+      request.userInfoShrink = OpenApiUtil.arrayToStringWithSpecifiedStyle(tmpReq.userInfo, "UserInfo", "json");
     }
 
     let query : {[key: string ]: any} = { };
@@ -18838,26 +19219,26 @@ export default class Client extends OpenApi {
     return $tea.cast<PreviousAndNextControlResponse>(await this.callApi(params, req, runtime), new PreviousAndNextControlResponse({}));
   }
 
-  async progressControl(request: ProgressControlRequest): Promise<ProgressControlResponse> {
+  async previousAndNextControl(request: PreviousAndNextControlRequest): Promise<PreviousAndNextControlResponse> {
     let runtime = new $Util.RuntimeOptions({ });
-    let headers = new ProgressControlHeaders({ });
-    return await this.progressControlWithOptions(request, headers, runtime);
+    let headers = new PreviousAndNextControlHeaders({ });
+    return await this.previousAndNextControlWithOptions(request, headers, runtime);
   }
 
   async progressControlWithOptions(tmpReq: ProgressControlRequest, headers: ProgressControlHeaders, runtime: $Util.RuntimeOptions): Promise<ProgressControlResponse> {
     Util.validateModel(tmpReq);
     let request = new ProgressControlShrinkRequest({ });
     OpenApiUtil.convert(tmpReq, request);
-    if (!Util.isUnset($tea.toMap(tmpReq.deviceInfo))) {
-      request.deviceInfoShrink = OpenApiUtil.arrayToStringWithSpecifiedStyle($tea.toMap(tmpReq.deviceInfo), "DeviceInfo", "json");
+    if (!Util.isUnset(tmpReq.deviceInfo)) {
+      request.deviceInfoShrink = OpenApiUtil.arrayToStringWithSpecifiedStyle(tmpReq.deviceInfo, "DeviceInfo", "json");
     }
 
-    if (!Util.isUnset($tea.toMap(tmpReq.openProgressControlRequest))) {
-      request.openProgressControlRequestShrink = OpenApiUtil.arrayToStringWithSpecifiedStyle($tea.toMap(tmpReq.openProgressControlRequest), "OpenProgressControlRequest", "json");
+    if (!Util.isUnset(tmpReq.openProgressControlRequest)) {
+      request.openProgressControlRequestShrink = OpenApiUtil.arrayToStringWithSpecifiedStyle(tmpReq.openProgressControlRequest, "OpenProgressControlRequest", "json");
     }
 
-    if (!Util.isUnset($tea.toMap(tmpReq.userInfo))) {
-      request.userInfoShrink = OpenApiUtil.arrayToStringWithSpecifiedStyle($tea.toMap(tmpReq.userInfo), "UserInfo", "json");
+    if (!Util.isUnset(tmpReq.userInfo)) {
+      request.userInfoShrink = OpenApiUtil.arrayToStringWithSpecifiedStyle(tmpReq.userInfo, "UserInfo", "json");
     }
 
     let query : {[key: string ]: any} = { };
@@ -18906,26 +19287,26 @@ export default class Client extends OpenApi {
     return $tea.cast<ProgressControlResponse>(await this.callApi(params, req, runtime), new ProgressControlResponse({}));
   }
 
-  async queryMusicType(request: QueryMusicTypeRequest): Promise<QueryMusicTypeResponse> {
+  async progressControl(request: ProgressControlRequest): Promise<ProgressControlResponse> {
     let runtime = new $Util.RuntimeOptions({ });
-    let headers = new QueryMusicTypeHeaders({ });
-    return await this.queryMusicTypeWithOptions(request, headers, runtime);
+    let headers = new ProgressControlHeaders({ });
+    return await this.progressControlWithOptions(request, headers, runtime);
   }
 
   async queryMusicTypeWithOptions(tmpReq: QueryMusicTypeRequest, headers: QueryMusicTypeHeaders, runtime: $Util.RuntimeOptions): Promise<QueryMusicTypeResponse> {
     Util.validateModel(tmpReq);
     let request = new QueryMusicTypeShrinkRequest({ });
     OpenApiUtil.convert(tmpReq, request);
-    if (!Util.isUnset($tea.toMap(tmpReq.deviceInfo))) {
-      request.deviceInfoShrink = OpenApiUtil.arrayToStringWithSpecifiedStyle($tea.toMap(tmpReq.deviceInfo), "DeviceInfo", "json");
+    if (!Util.isUnset(tmpReq.deviceInfo)) {
+      request.deviceInfoShrink = OpenApiUtil.arrayToStringWithSpecifiedStyle(tmpReq.deviceInfo, "DeviceInfo", "json");
     }
 
-    if (!Util.isUnset($tea.toMap(tmpReq.payload))) {
-      request.payloadShrink = OpenApiUtil.arrayToStringWithSpecifiedStyle($tea.toMap(tmpReq.payload), "Payload", "json");
+    if (!Util.isUnset(tmpReq.payload)) {
+      request.payloadShrink = OpenApiUtil.arrayToStringWithSpecifiedStyle(tmpReq.payload, "Payload", "json");
     }
 
-    if (!Util.isUnset($tea.toMap(tmpReq.userInfo))) {
-      request.userInfoShrink = OpenApiUtil.arrayToStringWithSpecifiedStyle($tea.toMap(tmpReq.userInfo), "UserInfo", "json");
+    if (!Util.isUnset(tmpReq.userInfo)) {
+      request.userInfoShrink = OpenApiUtil.arrayToStringWithSpecifiedStyle(tmpReq.userInfo, "UserInfo", "json");
     }
 
     let body : {[key: string ]: any} = { };
@@ -18972,18 +19353,18 @@ export default class Client extends OpenApi {
     return $tea.cast<QueryMusicTypeResponse>(await this.callApi(params, req, runtime), new QueryMusicTypeResponse({}));
   }
 
-  async readMessage(request: ReadMessageRequest): Promise<ReadMessageResponse> {
+  async queryMusicType(request: QueryMusicTypeRequest): Promise<QueryMusicTypeResponse> {
     let runtime = new $Util.RuntimeOptions({ });
-    let headers = new ReadMessageHeaders({ });
-    return await this.readMessageWithOptions(request, headers, runtime);
+    let headers = new QueryMusicTypeHeaders({ });
+    return await this.queryMusicTypeWithOptions(request, headers, runtime);
   }
 
   async readMessageWithOptions(tmpReq: ReadMessageRequest, headers: ReadMessageHeaders, runtime: $Util.RuntimeOptions): Promise<ReadMessageResponse> {
     Util.validateModel(tmpReq);
     let request = new ReadMessageShrinkRequest({ });
     OpenApiUtil.convert(tmpReq, request);
-    if (!Util.isUnset($tea.toMap(tmpReq.userInfo))) {
-      request.userInfoShrink = OpenApiUtil.arrayToStringWithSpecifiedStyle($tea.toMap(tmpReq.userInfo), "UserInfo", "json");
+    if (!Util.isUnset(tmpReq.userInfo)) {
+      request.userInfoShrink = OpenApiUtil.arrayToStringWithSpecifiedStyle(tmpReq.userInfo, "UserInfo", "json");
     }
 
     let query : {[key: string ]: any} = { };
@@ -19026,22 +19407,22 @@ export default class Client extends OpenApi {
     return $tea.cast<ReadMessageResponse>(await this.callApi(params, req, runtime), new ReadMessageResponse({}));
   }
 
-  async scanCodeBind(request: ScanCodeBindRequest): Promise<ScanCodeBindResponse> {
+  async readMessage(request: ReadMessageRequest): Promise<ReadMessageResponse> {
     let runtime = new $Util.RuntimeOptions({ });
-    let headers = new ScanCodeBindHeaders({ });
-    return await this.scanCodeBindWithOptions(request, headers, runtime);
+    let headers = new ReadMessageHeaders({ });
+    return await this.readMessageWithOptions(request, headers, runtime);
   }
 
   async scanCodeBindWithOptions(tmpReq: ScanCodeBindRequest, headers: ScanCodeBindHeaders, runtime: $Util.RuntimeOptions): Promise<ScanCodeBindResponse> {
     Util.validateModel(tmpReq);
     let request = new ScanCodeBindShrinkRequest({ });
     OpenApiUtil.convert(tmpReq, request);
-    if (!Util.isUnset($tea.toMap(tmpReq.bindReq))) {
-      request.bindReqShrink = OpenApiUtil.arrayToStringWithSpecifiedStyle($tea.toMap(tmpReq.bindReq), "BindReq", "json");
+    if (!Util.isUnset(tmpReq.bindReq)) {
+      request.bindReqShrink = OpenApiUtil.arrayToStringWithSpecifiedStyle(tmpReq.bindReq, "BindReq", "json");
     }
 
-    if (!Util.isUnset($tea.toMap(tmpReq.userInfo))) {
-      request.userInfoShrink = OpenApiUtil.arrayToStringWithSpecifiedStyle($tea.toMap(tmpReq.userInfo), "UserInfo", "json");
+    if (!Util.isUnset(tmpReq.userInfo)) {
+      request.userInfoShrink = OpenApiUtil.arrayToStringWithSpecifiedStyle(tmpReq.userInfo, "UserInfo", "json");
     }
 
     let body : {[key: string ]: any} = { };
@@ -19084,18 +19465,18 @@ export default class Client extends OpenApi {
     return $tea.cast<ScanCodeBindResponse>(await this.callApi(params, req, runtime), new ScanCodeBindResponse({}));
   }
 
-  async scgSearch(request: ScgSearchRequest): Promise<ScgSearchResponse> {
+  async scanCodeBind(request: ScanCodeBindRequest): Promise<ScanCodeBindResponse> {
     let runtime = new $Util.RuntimeOptions({ });
-    let headers = new ScgSearchHeaders({ });
-    return await this.scgSearchWithOptions(request, headers, runtime);
+    let headers = new ScanCodeBindHeaders({ });
+    return await this.scanCodeBindWithOptions(request, headers, runtime);
   }
 
   async scgSearchWithOptions(tmpReq: ScgSearchRequest, headers: ScgSearchHeaders, runtime: $Util.RuntimeOptions): Promise<ScgSearchResponse> {
     Util.validateModel(tmpReq);
     let request = new ScgSearchShrinkRequest({ });
     OpenApiUtil.convert(tmpReq, request);
-    if (!Util.isUnset($tea.toMap(tmpReq.scgFilter))) {
-      request.scgFilterShrink = OpenApiUtil.arrayToStringWithSpecifiedStyle($tea.toMap(tmpReq.scgFilter), "ScgFilter", "json");
+    if (!Util.isUnset(tmpReq.scgFilter)) {
+      request.scgFilterShrink = OpenApiUtil.arrayToStringWithSpecifiedStyle(tmpReq.scgFilter, "ScgFilter", "json");
     }
 
     let query : {[key: string ]: any} = { };
@@ -19138,26 +19519,26 @@ export default class Client extends OpenApi {
     return $tea.cast<ScgSearchResponse>(await this.callApi(params, req, runtime), new ScgSearchResponse({}));
   }
 
-  async searchContent(request: SearchContentRequest): Promise<SearchContentResponse> {
+  async scgSearch(request: ScgSearchRequest): Promise<ScgSearchResponse> {
     let runtime = new $Util.RuntimeOptions({ });
-    let headers = new SearchContentHeaders({ });
-    return await this.searchContentWithOptions(request, headers, runtime);
+    let headers = new ScgSearchHeaders({ });
+    return await this.scgSearchWithOptions(request, headers, runtime);
   }
 
   async searchContentWithOptions(tmpReq: SearchContentRequest, headers: SearchContentHeaders, runtime: $Util.RuntimeOptions): Promise<SearchContentResponse> {
     Util.validateModel(tmpReq);
     let request = new SearchContentShrinkRequest({ });
     OpenApiUtil.convert(tmpReq, request);
-    if (!Util.isUnset($tea.toMap(tmpReq.deviceInfo))) {
-      request.deviceInfoShrink = OpenApiUtil.arrayToStringWithSpecifiedStyle($tea.toMap(tmpReq.deviceInfo), "DeviceInfo", "json");
+    if (!Util.isUnset(tmpReq.deviceInfo)) {
+      request.deviceInfoShrink = OpenApiUtil.arrayToStringWithSpecifiedStyle(tmpReq.deviceInfo, "DeviceInfo", "json");
     }
 
-    if (!Util.isUnset($tea.toMap(tmpReq.request))) {
-      request.requestShrink = OpenApiUtil.arrayToStringWithSpecifiedStyle($tea.toMap(tmpReq.request), "Request", "json");
+    if (!Util.isUnset(tmpReq.request)) {
+      request.requestShrink = OpenApiUtil.arrayToStringWithSpecifiedStyle(tmpReq.request, "Request", "json");
     }
 
-    if (!Util.isUnset($tea.toMap(tmpReq.userInfo))) {
-      request.userInfoShrink = OpenApiUtil.arrayToStringWithSpecifiedStyle($tea.toMap(tmpReq.userInfo), "UserInfo", "json");
+    if (!Util.isUnset(tmpReq.userInfo)) {
+      request.userInfoShrink = OpenApiUtil.arrayToStringWithSpecifiedStyle(tmpReq.userInfo, "UserInfo", "json");
     }
 
     let query : {[key: string ]: any} = { };
@@ -19206,18 +19587,18 @@ export default class Client extends OpenApi {
     return $tea.cast<SearchContentResponse>(await this.callApi(params, req, runtime), new SearchContentResponse({}));
   }
 
-  async sendMessage(request: SendMessageRequest): Promise<SendMessageResponse> {
+  async searchContent(request: SearchContentRequest): Promise<SearchContentResponse> {
     let runtime = new $Util.RuntimeOptions({ });
-    let headers = new SendMessageHeaders({ });
-    return await this.sendMessageWithOptions(request, headers, runtime);
+    let headers = new SearchContentHeaders({ });
+    return await this.searchContentWithOptions(request, headers, runtime);
   }
 
   async sendMessageWithOptions(tmpReq: SendMessageRequest, headers: SendMessageHeaders, runtime: $Util.RuntimeOptions): Promise<SendMessageResponse> {
     Util.validateModel(tmpReq);
     let request = new SendMessageShrinkRequest({ });
     OpenApiUtil.convert(tmpReq, request);
-    if (!Util.isUnset($tea.toMap(tmpReq.userInfo))) {
-      request.userInfoShrink = OpenApiUtil.arrayToStringWithSpecifiedStyle($tea.toMap(tmpReq.userInfo), "UserInfo", "json");
+    if (!Util.isUnset(tmpReq.userInfo)) {
+      request.userInfoShrink = OpenApiUtil.arrayToStringWithSpecifiedStyle(tmpReq.userInfo, "UserInfo", "json");
     }
 
     let query : {[key: string ]: any} = { };
@@ -19260,18 +19641,18 @@ export default class Client extends OpenApi {
     return $tea.cast<SendMessageResponse>(await this.callApi(params, req, runtime), new SendMessageResponse({}));
   }
 
-  async setDeviceSetting(request: SetDeviceSettingRequest): Promise<SetDeviceSettingResponse> {
+  async sendMessage(request: SendMessageRequest): Promise<SendMessageResponse> {
     let runtime = new $Util.RuntimeOptions({ });
-    let headers = new SetDeviceSettingHeaders({ });
-    return await this.setDeviceSettingWithOptions(request, headers, runtime);
+    let headers = new SendMessageHeaders({ });
+    return await this.sendMessageWithOptions(request, headers, runtime);
   }
 
   async setDeviceSettingWithOptions(tmpReq: SetDeviceSettingRequest, headers: SetDeviceSettingHeaders, runtime: $Util.RuntimeOptions): Promise<SetDeviceSettingResponse> {
     Util.validateModel(tmpReq);
     let request = new SetDeviceSettingShrinkRequest({ });
     OpenApiUtil.convert(tmpReq, request);
-    if (!Util.isUnset($tea.toMap(tmpReq.deviceInfo))) {
-      request.deviceInfoShrink = OpenApiUtil.arrayToStringWithSpecifiedStyle($tea.toMap(tmpReq.deviceInfo), "DeviceInfo", "json");
+    if (!Util.isUnset(tmpReq.deviceInfo)) {
+      request.deviceInfoShrink = OpenApiUtil.arrayToStringWithSpecifiedStyle(tmpReq.deviceInfo, "DeviceInfo", "json");
     }
 
     let query : {[key: string ]: any} = { };
@@ -19320,10 +19701,10 @@ export default class Client extends OpenApi {
     return $tea.cast<SetDeviceSettingResponse>(await this.callApi(params, req, runtime), new SetDeviceSettingResponse({}));
   }
 
-  async unbindAligenieUser(request: UnbindAligenieUserRequest): Promise<UnbindAligenieUserResponse> {
+  async setDeviceSetting(request: SetDeviceSettingRequest): Promise<SetDeviceSettingResponse> {
     let runtime = new $Util.RuntimeOptions({ });
-    let headers = new UnbindAligenieUserHeaders({ });
-    return await this.unbindAligenieUserWithOptions(request, headers, runtime);
+    let headers = new SetDeviceSettingHeaders({ });
+    return await this.setDeviceSettingWithOptions(request, headers, runtime);
   }
 
   async unbindAligenieUserWithOptions(request: UnbindAligenieUserRequest, headers: UnbindAligenieUserHeaders, runtime: $Util.RuntimeOptions): Promise<UnbindAligenieUserResponse> {
@@ -19364,22 +19745,22 @@ export default class Client extends OpenApi {
     return $tea.cast<UnbindAligenieUserResponse>(await this.callApi(params, req, runtime), new UnbindAligenieUserResponse({}));
   }
 
-  async unbindDevice(request: UnbindDeviceRequest): Promise<UnbindDeviceResponse> {
+  async unbindAligenieUser(request: UnbindAligenieUserRequest): Promise<UnbindAligenieUserResponse> {
     let runtime = new $Util.RuntimeOptions({ });
-    let headers = new UnbindDeviceHeaders({ });
-    return await this.unbindDeviceWithOptions(request, headers, runtime);
+    let headers = new UnbindAligenieUserHeaders({ });
+    return await this.unbindAligenieUserWithOptions(request, headers, runtime);
   }
 
   async unbindDeviceWithOptions(tmpReq: UnbindDeviceRequest, headers: UnbindDeviceHeaders, runtime: $Util.RuntimeOptions): Promise<UnbindDeviceResponse> {
     Util.validateModel(tmpReq);
     let request = new UnbindDeviceShrinkRequest({ });
     OpenApiUtil.convert(tmpReq, request);
-    if (!Util.isUnset($tea.toMap(tmpReq.deviceInfo))) {
-      request.deviceInfoShrink = OpenApiUtil.arrayToStringWithSpecifiedStyle($tea.toMap(tmpReq.deviceInfo), "DeviceInfo", "json");
+    if (!Util.isUnset(tmpReq.deviceInfo)) {
+      request.deviceInfoShrink = OpenApiUtil.arrayToStringWithSpecifiedStyle(tmpReq.deviceInfo, "DeviceInfo", "json");
     }
 
-    if (!Util.isUnset($tea.toMap(tmpReq.userInfo))) {
-      request.userInfoShrink = OpenApiUtil.arrayToStringWithSpecifiedStyle($tea.toMap(tmpReq.userInfo), "UserInfo", "json");
+    if (!Util.isUnset(tmpReq.userInfo)) {
+      request.userInfoShrink = OpenApiUtil.arrayToStringWithSpecifiedStyle(tmpReq.userInfo, "UserInfo", "json");
     }
 
     let body : {[key: string ]: any} = { };
@@ -19422,26 +19803,26 @@ export default class Client extends OpenApi {
     return $tea.cast<UnbindDeviceResponse>(await this.callApi(params, req, runtime), new UnbindDeviceResponse({}));
   }
 
-  async updateAlarm(request: UpdateAlarmRequest): Promise<UpdateAlarmResponse> {
+  async unbindDevice(request: UnbindDeviceRequest): Promise<UnbindDeviceResponse> {
     let runtime = new $Util.RuntimeOptions({ });
-    let headers = new UpdateAlarmHeaders({ });
-    return await this.updateAlarmWithOptions(request, headers, runtime);
+    let headers = new UnbindDeviceHeaders({ });
+    return await this.unbindDeviceWithOptions(request, headers, runtime);
   }
 
   async updateAlarmWithOptions(tmpReq: UpdateAlarmRequest, headers: UpdateAlarmHeaders, runtime: $Util.RuntimeOptions): Promise<UpdateAlarmResponse> {
     Util.validateModel(tmpReq);
     let request = new UpdateAlarmShrinkRequest({ });
     OpenApiUtil.convert(tmpReq, request);
-    if (!Util.isUnset($tea.toMap(tmpReq.deviceInfo))) {
-      request.deviceInfoShrink = OpenApiUtil.arrayToStringWithSpecifiedStyle($tea.toMap(tmpReq.deviceInfo), "DeviceInfo", "json");
+    if (!Util.isUnset(tmpReq.deviceInfo)) {
+      request.deviceInfoShrink = OpenApiUtil.arrayToStringWithSpecifiedStyle(tmpReq.deviceInfo, "DeviceInfo", "json");
     }
 
-    if (!Util.isUnset($tea.toMap(tmpReq.payload))) {
-      request.payloadShrink = OpenApiUtil.arrayToStringWithSpecifiedStyle($tea.toMap(tmpReq.payload), "Payload", "json");
+    if (!Util.isUnset(tmpReq.payload)) {
+      request.payloadShrink = OpenApiUtil.arrayToStringWithSpecifiedStyle(tmpReq.payload, "Payload", "json");
     }
 
-    if (!Util.isUnset($tea.toMap(tmpReq.userInfo))) {
-      request.userInfoShrink = OpenApiUtil.arrayToStringWithSpecifiedStyle($tea.toMap(tmpReq.userInfo), "UserInfo", "json");
+    if (!Util.isUnset(tmpReq.userInfo)) {
+      request.userInfoShrink = OpenApiUtil.arrayToStringWithSpecifiedStyle(tmpReq.userInfo, "UserInfo", "json");
     }
 
     let body : {[key: string ]: any} = { };
@@ -19486,6 +19867,12 @@ export default class Client extends OpenApi {
       bodyType: "json",
     });
     return $tea.cast<UpdateAlarmResponse>(await this.callApi(params, req, runtime), new UpdateAlarmResponse({}));
+  }
+
+  async updateAlarm(request: UpdateAlarmRequest): Promise<UpdateAlarmResponse> {
+    let runtime = new $Util.RuntimeOptions({ });
+    let headers = new UpdateAlarmHeaders({ });
+    return await this.updateAlarmWithOptions(request, headers, runtime);
   }
 
 }
