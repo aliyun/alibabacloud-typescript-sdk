@@ -1808,12 +1808,14 @@ export class DescribeFileUploadSignedUrlRequest extends $tea.Model {
 export class DescribeFileUploadSignedUrlResponseBody extends $tea.Model {
   id?: string;
   ossCallbackUrl?: string;
+  overwrite?: boolean;
   requestId?: string;
   signUrl?: string;
   static names(): { [key: string]: string } {
     return {
       id: 'Id',
       ossCallbackUrl: 'OssCallbackUrl',
+      overwrite: 'Overwrite',
       requestId: 'RequestId',
       signUrl: 'SignUrl',
     };
@@ -1823,6 +1825,7 @@ export class DescribeFileUploadSignedUrlResponseBody extends $tea.Model {
     return {
       id: 'string',
       ossCallbackUrl: 'string',
+      overwrite: 'boolean',
       requestId: 'string',
       signUrl: 'string',
     };
@@ -4718,11 +4721,13 @@ export class QuerySpaceSpecDetailResponse extends $tea.Model {
 
 export class QuerySpaceUsageRequest extends $tea.Model {
   endTime?: string;
+  interval?: number;
   spaceId?: string;
   startTime?: string;
   static names(): { [key: string]: string } {
     return {
       endTime: 'EndTime',
+      interval: 'Interval',
       spaceId: 'SpaceId',
       startTime: 'StartTime',
     };
@@ -4731,6 +4736,7 @@ export class QuerySpaceUsageRequest extends $tea.Model {
   static types(): { [key: string]: any } {
     return {
       endTime: 'string',
+      interval: 'number',
       spaceId: 'string',
       startTime: 'string',
     };
@@ -5432,12 +5438,14 @@ export class SaveWebHostingCustomDomainConfigResponse extends $tea.Model {
 
 export class SaveWebHostingCustomDomainCorsConfigRequest extends $tea.Model {
   accessControlAllowOrigin?: string;
+  accessOriginControl?: boolean;
   domainName?: string;
   enableCors?: boolean;
   spaceId?: string;
   static names(): { [key: string]: string } {
     return {
       accessControlAllowOrigin: 'AccessControlAllowOrigin',
+      accessOriginControl: 'AccessOriginControl',
       domainName: 'DomainName',
       enableCors: 'EnableCors',
       spaceId: 'SpaceId',
@@ -5447,6 +5455,7 @@ export class SaveWebHostingCustomDomainCorsConfigRequest extends $tea.Model {
   static types(): { [key: string]: any } {
     return {
       accessControlAllowOrigin: 'string',
+      accessOriginControl: 'boolean',
       domainName: 'string',
       enableCors: 'boolean',
       spaceId: 'string',
@@ -7184,6 +7193,7 @@ export class ListSpaceResponseBodySpaces extends $tea.Model {
 
 export class ListWebHostingCustomDomainsResponseBodyData extends $tea.Model {
   accessControlAllowOrigin?: string;
+  accessOriginControl?: boolean;
   cname?: string;
   createTime?: number;
   description?: string;
@@ -7196,6 +7206,7 @@ export class ListWebHostingCustomDomainsResponseBodyData extends $tea.Model {
   static names(): { [key: string]: string } {
     return {
       accessControlAllowOrigin: 'AccessControlAllowOrigin',
+      accessOriginControl: 'AccessOriginControl',
       cname: 'Cname',
       createTime: 'CreateTime',
       description: 'Description',
@@ -7211,6 +7222,7 @@ export class ListWebHostingCustomDomainsResponseBodyData extends $tea.Model {
   static types(): { [key: string]: any } {
     return {
       accessControlAllowOrigin: 'string',
+      accessOriginControl: 'boolean',
       cname: 'string',
       createTime: 'number',
       description: 'string',
@@ -9878,6 +9890,10 @@ export default class Client extends OpenApi {
       body["EndTime"] = request.endTime;
     }
 
+    if (!Util.isUnset(request.interval)) {
+      body["Interval"] = request.interval;
+    }
+
     if (!Util.isUnset(request.spaceId)) {
       body["SpaceId"] = request.spaceId;
     }
@@ -10246,6 +10262,10 @@ export default class Client extends OpenApi {
     let body : {[key: string ]: any} = { };
     if (!Util.isUnset(request.accessControlAllowOrigin)) {
       body["AccessControlAllowOrigin"] = request.accessControlAllowOrigin;
+    }
+
+    if (!Util.isUnset(request.accessOriginControl)) {
+      body["AccessOriginControl"] = request.accessOriginControl;
     }
 
     if (!Util.isUnset(request.domainName)) {
