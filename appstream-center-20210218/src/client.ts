@@ -8,12 +8,86 @@ import OpenApiUtil from '@alicloud/openapi-util';
 import EndpointUtil from '@alicloud/endpoint-util';
 import * as $tea from '@alicloud/tea-typescript';
 
+export class ExpireLoginTokenRequest extends $tea.Model {
+  endUserId?: string;
+  loginToken?: string;
+  officeSiteId?: string;
+  sessionId?: string;
+  static names(): { [key: string]: string } {
+    return {
+      endUserId: 'EndUserId',
+      loginToken: 'LoginToken',
+      officeSiteId: 'OfficeSiteId',
+      sessionId: 'SessionId',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      endUserId: 'string',
+      loginToken: 'string',
+      officeSiteId: 'string',
+      sessionId: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class ExpireLoginTokenResponseBody extends $tea.Model {
+  requestId?: string;
+  static names(): { [key: string]: string } {
+    return {
+      requestId: 'RequestId',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      requestId: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class ExpireLoginTokenResponse extends $tea.Model {
+  headers: { [key: string]: string };
+  statusCode: number;
+  body: ExpireLoginTokenResponseBody;
+  static names(): { [key: string]: string } {
+    return {
+      headers: 'headers',
+      statusCode: 'statusCode',
+      body: 'body',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
+      body: ExpireLoginTokenResponseBody,
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
 export class GetAuthCodeRequest extends $tea.Model {
+  autoCreateUser?: boolean;
   endUserId?: string;
   externalUserId?: string;
   policy?: string;
   static names(): { [key: string]: string } {
     return {
+      autoCreateUser: 'AutoCreateUser',
       endUserId: 'EndUserId',
       externalUserId: 'ExternalUserId',
       policy: 'Policy',
@@ -22,6 +96,7 @@ export class GetAuthCodeRequest extends $tea.Model {
 
   static types(): { [key: string]: any } {
     return {
+      autoCreateUser: 'boolean',
       endUserId: 'string',
       externalUserId: 'string',
       policy: 'string',
@@ -128,9 +203,54 @@ export default class Client extends OpenApi {
     return EndpointUtil.getEndpointRules(productId, regionId, endpointRule, network, suffix);
   }
 
+  async expireLoginTokenWithOptions(request: ExpireLoginTokenRequest, runtime: $Util.RuntimeOptions): Promise<ExpireLoginTokenResponse> {
+    Util.validateModel(request);
+    let body : {[key: string ]: any} = { };
+    if (!Util.isUnset(request.endUserId)) {
+      body["EndUserId"] = request.endUserId;
+    }
+
+    if (!Util.isUnset(request.loginToken)) {
+      body["LoginToken"] = request.loginToken;
+    }
+
+    if (!Util.isUnset(request.officeSiteId)) {
+      body["OfficeSiteId"] = request.officeSiteId;
+    }
+
+    if (!Util.isUnset(request.sessionId)) {
+      body["SessionId"] = request.sessionId;
+    }
+
+    let req = new $OpenApi.OpenApiRequest({
+      body: OpenApiUtil.parseToMap(body),
+    });
+    let params = new $OpenApi.Params({
+      action: "ExpireLoginToken",
+      version: "2021-02-18",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $tea.cast<ExpireLoginTokenResponse>(await this.callApi(params, req, runtime), new ExpireLoginTokenResponse({}));
+  }
+
+  async expireLoginToken(request: ExpireLoginTokenRequest): Promise<ExpireLoginTokenResponse> {
+    let runtime = new $Util.RuntimeOptions({ });
+    return await this.expireLoginTokenWithOptions(request, runtime);
+  }
+
   async getAuthCodeWithOptions(request: GetAuthCodeRequest, runtime: $Util.RuntimeOptions): Promise<GetAuthCodeResponse> {
     Util.validateModel(request);
     let body : {[key: string ]: any} = { };
+    if (!Util.isUnset(request.autoCreateUser)) {
+      body["AutoCreateUser"] = request.autoCreateUser;
+    }
+
     if (!Util.isUnset(request.endUserId)) {
       body["EndUserId"] = request.endUserId;
     }
