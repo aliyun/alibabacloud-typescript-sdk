@@ -7333,6 +7333,8 @@ export class DescribeCheckWarningDetailRequest extends $tea.Model {
 
 export class DescribeCheckWarningDetailResponseBody extends $tea.Model {
   advice?: string;
+  checkDetailAssetInfo?: { [key: string]: string }[];
+  checkDetailColumns?: DescribeCheckWarningDetailResponseBodyCheckDetailColumns[];
   checkId?: number;
   description?: string;
   item?: string;
@@ -7343,6 +7345,8 @@ export class DescribeCheckWarningDetailResponseBody extends $tea.Model {
   static names(): { [key: string]: string } {
     return {
       advice: 'Advice',
+      checkDetailAssetInfo: 'CheckDetailAssetInfo',
+      checkDetailColumns: 'CheckDetailColumns',
       checkId: 'CheckId',
       description: 'Description',
       item: 'Item',
@@ -7356,6 +7360,8 @@ export class DescribeCheckWarningDetailResponseBody extends $tea.Model {
   static types(): { [key: string]: any } {
     return {
       advice: 'string',
+      checkDetailAssetInfo: { 'type': 'array', 'itemType': { 'type': 'map', 'keyType': 'string', 'valueType': 'string' } },
+      checkDetailColumns: { 'type': 'array', 'itemType': DescribeCheckWarningDetailResponseBodyCheckDetailColumns },
       checkId: 'number',
       description: 'string',
       item: 'string',
@@ -23832,6 +23838,78 @@ export class GetAppNetworkResponse extends $tea.Model {
   }
 }
 
+export class GetAssetDetailByUuidRequest extends $tea.Model {
+  lang?: string;
+  sourceIp?: string;
+  uuid?: string;
+  static names(): { [key: string]: string } {
+    return {
+      lang: 'Lang',
+      sourceIp: 'SourceIp',
+      uuid: 'Uuid',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      lang: 'string',
+      sourceIp: 'string',
+      uuid: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class GetAssetDetailByUuidResponseBody extends $tea.Model {
+  assetDetail?: GetAssetDetailByUuidResponseBodyAssetDetail;
+  requestId?: string;
+  static names(): { [key: string]: string } {
+    return {
+      assetDetail: 'AssetDetail',
+      requestId: 'RequestId',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      assetDetail: GetAssetDetailByUuidResponseBodyAssetDetail,
+      requestId: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class GetAssetDetailByUuidResponse extends $tea.Model {
+  headers: { [key: string]: string };
+  statusCode: number;
+  body: GetAssetDetailByUuidResponseBody;
+  static names(): { [key: string]: string } {
+    return {
+      headers: 'headers',
+      statusCode: 'statusCode',
+      body: 'body',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
+      body: GetAssetDetailByUuidResponseBody,
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
 export class GetAssetSelectionConfigRequest extends $tea.Model {
   businessType?: string;
   static names(): { [key: string]: string } {
@@ -39983,6 +40061,59 @@ export class DescribeCheckFixDetailsResponseBodyCheckFixDetails extends $tea.Mod
   }
 }
 
+export class DescribeCheckWarningDetailResponseBodyCheckDetailColumnsGrids extends $tea.Model {
+  key?: string;
+  showName?: string;
+  type?: string;
+  static names(): { [key: string]: string } {
+    return {
+      key: 'Key',
+      showName: 'ShowName',
+      type: 'Type',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      key: 'string',
+      showName: 'string',
+      type: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class DescribeCheckWarningDetailResponseBodyCheckDetailColumns extends $tea.Model {
+  grids?: DescribeCheckWarningDetailResponseBodyCheckDetailColumnsGrids[];
+  key?: string;
+  showName?: string;
+  type?: string;
+  static names(): { [key: string]: string } {
+    return {
+      grids: 'Grids',
+      key: 'Key',
+      showName: 'ShowName',
+      type: 'Type',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      grids: { 'type': 'array', 'itemType': DescribeCheckWarningDetailResponseBodyCheckDetailColumnsGrids },
+      key: 'string',
+      showName: 'string',
+      type: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
 export class DescribeCheckWarningMachinesResponseBodyMachines extends $tea.Model {
   bind?: boolean;
   instanceId?: string;
@@ -49671,6 +49802,152 @@ export class GetAppNetworkResponseBodyAppNetwork extends $tea.Model {
       edge: { 'type': 'array', 'itemType': GetAppNetworkResponseBodyAppNetworkEdge },
       namespace: { 'type': 'array', 'itemType': GetAppNetworkResponseBodyAppNetworkNamespace },
       node: { 'type': 'array', 'itemType': GetAppNetworkResponseBodyAppNetworkNode },
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class GetAssetDetailByUuidResponseBodyAssetDetailDiskInfoList extends $tea.Model {
+  diskName?: string;
+  totalSize?: number;
+  totalSizeByte?: number;
+  useSize?: number;
+  useSizeByte?: number;
+  static names(): { [key: string]: string } {
+    return {
+      diskName: 'DiskName',
+      totalSize: 'TotalSize',
+      totalSizeByte: 'TotalSizeByte',
+      useSize: 'UseSize',
+      useSizeByte: 'UseSizeByte',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      diskName: 'string',
+      totalSize: 'number',
+      totalSizeByte: 'number',
+      useSize: 'number',
+      useSizeByte: 'number',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class GetAssetDetailByUuidResponseBodyAssetDetail extends $tea.Model {
+  assetType?: string;
+  authModifyTime?: number;
+  authVersion?: number;
+  bind?: boolean;
+  clientStatus?: string;
+  clientVersion?: string;
+  cpu?: number;
+  cpuInfo?: string;
+  createTime?: number;
+  diskInfoList?: GetAssetDetailByUuidResponseBodyAssetDetailDiskInfoList[];
+  flag?: number;
+  groupTrace?: string;
+  hostName?: string;
+  instanceId?: string;
+  instanceName?: string;
+  internetIp?: string;
+  intranetIp?: string;
+  ip?: string;
+  ipList?: string[];
+  kernel?: string;
+  macList?: string[];
+  mem?: number;
+  memory?: number;
+  os?: string;
+  osDetail?: string;
+  osName?: string;
+  region?: string;
+  regionId?: string;
+  regionName?: string;
+  sysInfo?: string;
+  tag?: string;
+  uuid?: string;
+  vpcInstanceId?: string;
+  static names(): { [key: string]: string } {
+    return {
+      assetType: 'AssetType',
+      authModifyTime: 'AuthModifyTime',
+      authVersion: 'AuthVersion',
+      bind: 'Bind',
+      clientStatus: 'ClientStatus',
+      clientVersion: 'ClientVersion',
+      cpu: 'Cpu',
+      cpuInfo: 'CpuInfo',
+      createTime: 'CreateTime',
+      diskInfoList: 'DiskInfoList',
+      flag: 'Flag',
+      groupTrace: 'GroupTrace',
+      hostName: 'HostName',
+      instanceId: 'InstanceId',
+      instanceName: 'InstanceName',
+      internetIp: 'InternetIp',
+      intranetIp: 'IntranetIp',
+      ip: 'Ip',
+      ipList: 'IpList',
+      kernel: 'Kernel',
+      macList: 'MacList',
+      mem: 'Mem',
+      memory: 'Memory',
+      os: 'Os',
+      osDetail: 'OsDetail',
+      osName: 'OsName',
+      region: 'Region',
+      regionId: 'RegionId',
+      regionName: 'RegionName',
+      sysInfo: 'SysInfo',
+      tag: 'Tag',
+      uuid: 'Uuid',
+      vpcInstanceId: 'VpcInstanceId',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      assetType: 'string',
+      authModifyTime: 'number',
+      authVersion: 'number',
+      bind: 'boolean',
+      clientStatus: 'string',
+      clientVersion: 'string',
+      cpu: 'number',
+      cpuInfo: 'string',
+      createTime: 'number',
+      diskInfoList: { 'type': 'array', 'itemType': GetAssetDetailByUuidResponseBodyAssetDetailDiskInfoList },
+      flag: 'number',
+      groupTrace: 'string',
+      hostName: 'string',
+      instanceId: 'string',
+      instanceName: 'string',
+      internetIp: 'string',
+      intranetIp: 'string',
+      ip: 'string',
+      ipList: { 'type': 'array', 'itemType': 'string' },
+      kernel: 'string',
+      macList: { 'type': 'array', 'itemType': 'string' },
+      mem: 'number',
+      memory: 'number',
+      os: 'string',
+      osDetail: 'string',
+      osName: 'string',
+      region: 'string',
+      regionId: 'string',
+      regionName: 'string',
+      sysInfo: 'string',
+      tag: 'string',
+      uuid: 'string',
+      vpcInstanceId: 'string',
     };
   }
 
@@ -67361,6 +67638,43 @@ export default class Client extends OpenApi {
   async getAppNetwork(request: GetAppNetworkRequest): Promise<GetAppNetworkResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.getAppNetworkWithOptions(request, runtime);
+  }
+
+  async getAssetDetailByUuidWithOptions(request: GetAssetDetailByUuidRequest, runtime: $Util.RuntimeOptions): Promise<GetAssetDetailByUuidResponse> {
+    Util.validateModel(request);
+    let query = { };
+    if (!Util.isUnset(request.lang)) {
+      query["Lang"] = request.lang;
+    }
+
+    if (!Util.isUnset(request.sourceIp)) {
+      query["SourceIp"] = request.sourceIp;
+    }
+
+    if (!Util.isUnset(request.uuid)) {
+      query["Uuid"] = request.uuid;
+    }
+
+    let req = new $OpenApi.OpenApiRequest({
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApi.Params({
+      action: "GetAssetDetailByUuid",
+      version: "2018-12-03",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $tea.cast<GetAssetDetailByUuidResponse>(await this.callApi(params, req, runtime), new GetAssetDetailByUuidResponse({}));
+  }
+
+  async getAssetDetailByUuid(request: GetAssetDetailByUuidRequest): Promise<GetAssetDetailByUuidResponse> {
+    let runtime = new $Util.RuntimeOptions({ });
+    return await this.getAssetDetailByUuidWithOptions(request, runtime);
   }
 
   async getAssetSelectionConfigWithOptions(request: GetAssetSelectionConfigRequest, runtime: $Util.RuntimeOptions): Promise<GetAssetSelectionConfigResponse> {
