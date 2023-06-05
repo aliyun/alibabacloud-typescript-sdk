@@ -831,8 +831,6 @@ export class CreateBaselineRequest extends $tea.Model {
 
 export class CreateBaselineResponseBody extends $tea.Model {
   data?: number;
-  dynamicErrorCode?: string;
-  dynamicErrorMessage?: string;
   errorCode?: string;
   errorMessage?: string;
   httpStatusCode?: number;
@@ -841,8 +839,6 @@ export class CreateBaselineResponseBody extends $tea.Model {
   static names(): { [key: string]: string } {
     return {
       data: 'Data',
-      dynamicErrorCode: 'DynamicErrorCode',
-      dynamicErrorMessage: 'DynamicErrorMessage',
       errorCode: 'ErrorCode',
       errorMessage: 'ErrorMessage',
       httpStatusCode: 'HttpStatusCode',
@@ -854,8 +850,6 @@ export class CreateBaselineResponseBody extends $tea.Model {
   static types(): { [key: string]: any } {
     return {
       data: 'number',
-      dynamicErrorCode: 'string',
-      dynamicErrorMessage: 'string',
       errorCode: 'string',
       errorMessage: 'string',
       httpStatusCode: 'number',
@@ -1915,6 +1909,7 @@ export class CreateFileRequest extends $tea.Model {
   fileFolderPath?: string;
   fileName?: string;
   fileType?: number;
+  ignoreParentSkipRunningProperty?: boolean;
   inputList?: string;
   inputParameters?: string;
   outputParameters?: string;
@@ -1946,6 +1941,7 @@ export class CreateFileRequest extends $tea.Model {
       fileFolderPath: 'FileFolderPath',
       fileName: 'FileName',
       fileType: 'FileType',
+      ignoreParentSkipRunningProperty: 'IgnoreParentSkipRunningProperty',
       inputList: 'InputList',
       inputParameters: 'InputParameters',
       outputParameters: 'OutputParameters',
@@ -1980,6 +1976,7 @@ export class CreateFileRequest extends $tea.Model {
       fileFolderPath: 'string',
       fileName: 'string',
       fileType: 'number',
+      ignoreParentSkipRunningProperty: 'boolean',
       inputList: 'string',
       inputParameters: 'string',
       outputParameters: 'string',
@@ -3676,8 +3673,6 @@ export class DeleteBaselineRequest extends $tea.Model {
 
 export class DeleteBaselineResponseBody extends $tea.Model {
   data?: boolean;
-  dynamicErrorCode?: string;
-  dynamicErrorMessage?: string;
   errorCode?: string;
   errorMessage?: string;
   httpStatusCode?: number;
@@ -3686,8 +3681,6 @@ export class DeleteBaselineResponseBody extends $tea.Model {
   static names(): { [key: string]: string } {
     return {
       data: 'Data',
-      dynamicErrorCode: 'DynamicErrorCode',
-      dynamicErrorMessage: 'DynamicErrorMessage',
       errorCode: 'ErrorCode',
       errorMessage: 'ErrorMessage',
       httpStatusCode: 'HttpStatusCode',
@@ -3699,8 +3692,6 @@ export class DeleteBaselineResponseBody extends $tea.Model {
   static types(): { [key: string]: any } {
     return {
       data: 'boolean',
-      dynamicErrorCode: 'string',
-      dynamicErrorMessage: 'string',
       errorCode: 'string',
       errorMessage: 'string',
       httpStatusCode: 'number',
@@ -6001,8 +5992,6 @@ export class GetBaselineRequest extends $tea.Model {
 
 export class GetBaselineResponseBody extends $tea.Model {
   data?: GetBaselineResponseBodyData;
-  dynamicErrorCode?: string;
-  dynamicErrorMessage?: string;
   errorCode?: string;
   errorMessage?: string;
   httpStatusCode?: number;
@@ -6011,8 +6000,6 @@ export class GetBaselineResponseBody extends $tea.Model {
   static names(): { [key: string]: string } {
     return {
       data: 'Data',
-      dynamicErrorCode: 'DynamicErrorCode',
-      dynamicErrorMessage: 'DynamicErrorMessage',
       errorCode: 'ErrorCode',
       errorMessage: 'ErrorMessage',
       httpStatusCode: 'HttpStatusCode',
@@ -6024,8 +6011,6 @@ export class GetBaselineResponseBody extends $tea.Model {
   static types(): { [key: string]: any } {
     return {
       data: GetBaselineResponseBodyData,
-      dynamicErrorCode: 'string',
-      dynamicErrorMessage: 'string',
       errorCode: 'string',
       errorMessage: 'string',
       httpStatusCode: 'number',
@@ -11969,8 +11954,6 @@ export class ListBaselinesRequest extends $tea.Model {
 
 export class ListBaselinesResponseBody extends $tea.Model {
   data?: ListBaselinesResponseBodyData;
-  dynamicErrorCode?: string;
-  dynamicErrorMessage?: string;
   errorCode?: string;
   errorMessage?: string;
   httpStatusCode?: number;
@@ -11979,8 +11962,6 @@ export class ListBaselinesResponseBody extends $tea.Model {
   static names(): { [key: string]: string } {
     return {
       data: 'Data',
-      dynamicErrorCode: 'DynamicErrorCode',
-      dynamicErrorMessage: 'DynamicErrorMessage',
       errorCode: 'ErrorCode',
       errorMessage: 'ErrorMessage',
       httpStatusCode: 'HttpStatusCode',
@@ -11992,8 +11973,6 @@ export class ListBaselinesResponseBody extends $tea.Model {
   static types(): { [key: string]: any } {
     return {
       data: ListBaselinesResponseBodyData,
-      dynamicErrorCode: 'string',
-      dynamicErrorMessage: 'string',
       errorCode: 'string',
       errorMessage: 'string',
       httpStatusCode: 'number',
@@ -17467,6 +17446,7 @@ export class RunCycleDagNodesResponse extends $tea.Model {
 export class RunManualDagNodesRequest extends $tea.Model {
   bizDate?: string;
   dagParameters?: string;
+  endBizDate?: string;
   excludeNodeIds?: string;
   flowName?: string;
   includeNodeIds?: string;
@@ -17474,10 +17454,12 @@ export class RunManualDagNodesRequest extends $tea.Model {
   projectEnv?: string;
   projectId?: number;
   projectName?: string;
+  startBizDate?: string;
   static names(): { [key: string]: string } {
     return {
       bizDate: 'BizDate',
       dagParameters: 'DagParameters',
+      endBizDate: 'EndBizDate',
       excludeNodeIds: 'ExcludeNodeIds',
       flowName: 'FlowName',
       includeNodeIds: 'IncludeNodeIds',
@@ -17485,6 +17467,7 @@ export class RunManualDagNodesRequest extends $tea.Model {
       projectEnv: 'ProjectEnv',
       projectId: 'ProjectId',
       projectName: 'ProjectName',
+      startBizDate: 'StartBizDate',
     };
   }
 
@@ -17492,6 +17475,7 @@ export class RunManualDagNodesRequest extends $tea.Model {
     return {
       bizDate: 'string',
       dagParameters: 'string',
+      endBizDate: 'string',
       excludeNodeIds: 'string',
       flowName: 'string',
       includeNodeIds: 'string',
@@ -17499,6 +17483,7 @@ export class RunManualDagNodesRequest extends $tea.Model {
       projectEnv: 'string',
       projectId: 'number',
       projectName: 'string',
+      startBizDate: 'string',
     };
   }
 
@@ -19340,8 +19325,6 @@ export class UpdateBaselineShrinkRequest extends $tea.Model {
 
 export class UpdateBaselineResponseBody extends $tea.Model {
   data?: boolean;
-  dynamicErrorCode?: string;
-  dynamicErrorMessage?: string;
   errorCode?: string;
   errorMessage?: string;
   httpStatusCode?: number;
@@ -19350,8 +19333,6 @@ export class UpdateBaselineResponseBody extends $tea.Model {
   static names(): { [key: string]: string } {
     return {
       data: 'Data',
-      dynamicErrorCode: 'DynamicErrorCode',
-      dynamicErrorMessage: 'DynamicErrorMessage',
       errorCode: 'ErrorCode',
       errorMessage: 'ErrorMessage',
       httpStatusCode: 'HttpStatusCode',
@@ -19363,8 +19344,6 @@ export class UpdateBaselineResponseBody extends $tea.Model {
   static types(): { [key: string]: any } {
     return {
       data: 'boolean',
-      dynamicErrorCode: 'string',
-      dynamicErrorMessage: 'string',
       errorCode: 'string',
       errorMessage: 'string',
       httpStatusCode: 'number',
@@ -19953,6 +19932,7 @@ export class UpdateFileRequest extends $tea.Model {
   fileFolderPath?: string;
   fileId?: number;
   fileName?: string;
+  ignoreParentSkipRunningProperty?: boolean;
   inputList?: string;
   inputParameters?: string;
   outputList?: string;
@@ -19984,6 +19964,7 @@ export class UpdateFileRequest extends $tea.Model {
       fileFolderPath: 'FileFolderPath',
       fileId: 'FileId',
       fileName: 'FileName',
+      ignoreParentSkipRunningProperty: 'IgnoreParentSkipRunningProperty',
       inputList: 'InputList',
       inputParameters: 'InputParameters',
       outputList: 'OutputList',
@@ -20018,6 +19999,7 @@ export class UpdateFileRequest extends $tea.Model {
       fileFolderPath: 'string',
       fileId: 'number',
       fileName: 'string',
+      ignoreParentSkipRunningProperty: 'boolean',
       inputList: 'string',
       inputParameters: 'string',
       outputList: 'string',
@@ -22234,11 +22216,11 @@ export class GetBaselineResponseBodyData extends $tea.Model {
   baselineName?: string;
   baselineType?: string;
   enabled?: boolean;
+  nodeIds?: number[];
   overTimeSettings?: GetBaselineResponseBodyDataOverTimeSettings[];
   owner?: string;
   priority?: number;
   projectId?: number;
-  taskIds?: number[];
   static names(): { [key: string]: string } {
     return {
       alertEnabled: 'AlertEnabled',
@@ -22248,11 +22230,11 @@ export class GetBaselineResponseBodyData extends $tea.Model {
       baselineName: 'BaselineName',
       baselineType: 'BaselineType',
       enabled: 'Enabled',
+      nodeIds: 'NodeIds',
       overTimeSettings: 'OverTimeSettings',
       owner: 'Owner',
       priority: 'Priority',
       projectId: 'ProjectId',
-      taskIds: 'TaskIds',
     };
   }
 
@@ -22265,11 +22247,11 @@ export class GetBaselineResponseBodyData extends $tea.Model {
       baselineName: 'string',
       baselineType: 'string',
       enabled: 'boolean',
+      nodeIds: { 'type': 'array', 'itemType': 'number' },
       overTimeSettings: { 'type': 'array', 'itemType': GetBaselineResponseBodyDataOverTimeSettings },
       owner: 'string',
       priority: 'number',
       projectId: 'number',
-      taskIds: { 'type': 'array', 'itemType': 'number' },
     };
   }
 
@@ -33778,7 +33760,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-    * For more information about how to add your Alibaba Cloud account or a RAM user as a member of a DataWorks workspace, see [Add a member to a DataWorks workspace](~~136941~~).
+    * The ID of the DataWorks workspace. You can call the [ListProjects](~~178393~~) operation to query the ID.
     *
     * @param request AddProjectMemberToRoleRequest
     * @param runtime runtime options for this request RuntimeOptions
@@ -33821,7 +33803,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-    * For more information about how to add your Alibaba Cloud account or a RAM user as a member of a DataWorks workspace, see [Add a member to a DataWorks workspace](~~136941~~).
+    * The ID of the DataWorks workspace. You can call the [ListProjects](~~178393~~) operation to query the ID.
     *
     * @param request AddProjectMemberToRoleRequest
     * @return AddProjectMemberToRoleResponse
@@ -34850,6 +34832,10 @@ export default class Client extends OpenApi {
       body["FileType"] = request.fileType;
     }
 
+    if (!Util.isUnset(request.ignoreParentSkipRunningProperty)) {
+      body["IgnoreParentSkipRunningProperty"] = request.ignoreParentSkipRunningProperty;
+    }
+
     if (!Util.isUnset(request.inputList)) {
       body["InputList"] = request.inputList;
     }
@@ -35251,7 +35237,8 @@ export default class Client extends OpenApi {
   }
 
   /**
-    * Collections are classified into various types. The names of collections of the same type must be different.
+    * A category must belong to a data album.
+    * You can create a category in a data album only after you create the data album. You can set the value of the parentQualifiedName parameter to the unique identifier of the data album to create the category.
     *
     * @param request CreateMetaCollectionRequest
     * @param runtime runtime options for this request RuntimeOptions
@@ -35294,7 +35281,8 @@ export default class Client extends OpenApi {
   }
 
   /**
-    * Collections are classified into various types. The names of collections of the same type must be different.
+    * A category must belong to a data album.
+    * You can create a category in a data album only after you create the data album. You can set the value of the parentQualifiedName parameter to the unique identifier of the data album to create the category.
     *
     * @param request CreateMetaCollectionRequest
     * @return CreateMetaCollectionResponse
@@ -36993,8 +36981,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-    * DataWorks allows you to use only the [CreateDISyncTask](~~278725~~) operation to create a batch synchronization node in Data Integration. To create a real-time synchronization node or a synchronization solution, you must first call the [GenerateDISyncTaskConfigForCreating](~~383463~~) operation to generate the ID of an asynchronous thread and call the [QueryDISyncTaskConfigProcessResult](~~383465~~) operation to obtain the asynchronously generated parameters based on the ID. Then, you can call the [CreateDISyncTask](~~278725~~) operation and use the parameters as request parameters to create a real-time synchronization node or a synchronization solution in Data Integration.
-    * DataWorks allows you to create real-time synchronization nodes and synchronization solutions in Data Integration only in asynchronous mode.
+    * The operation that you want to perform.
     *
     * @param request GenerateDISyncTaskConfigForCreatingRequest
     * @param runtime runtime options for this request RuntimeOptions
@@ -37037,8 +37024,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-    * DataWorks allows you to use only the [CreateDISyncTask](~~278725~~) operation to create a batch synchronization node in Data Integration. To create a real-time synchronization node or a synchronization solution, you must first call the [GenerateDISyncTaskConfigForCreating](~~383463~~) operation to generate the ID of an asynchronous thread and call the [QueryDISyncTaskConfigProcessResult](~~383465~~) operation to obtain the asynchronously generated parameters based on the ID. Then, you can call the [CreateDISyncTask](~~278725~~) operation and use the parameters as request parameters to create a real-time synchronization node or a synchronization solution in Data Integration.
-    * DataWorks allows you to create real-time synchronization nodes and synchronization solutions in Data Integration only in asynchronous mode.
+    * The operation that you want to perform.
     *
     * @param request GenerateDISyncTaskConfigForCreatingRequest
     * @return GenerateDISyncTaskConfigForCreatingResponse
@@ -37049,7 +37035,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-    * DataWorks allows you to use only the [UpdateDISyncTask](~~289109~~) operation to update a batch synchronization node in Data Integration. To update a real-time synchronization node or a synchronization solution, you must first call the GenerateDISyncTaskConfigForUpdating operation to generate the ID of an asynchronous thread and call the [QueryDISyncTaskConfigProcessResult](~~383465~~) operation to obtain the asynchronously generated parameters based on the ID. Then, you can call the UpdateDISyncTask operation and use the parameters as request parameters to update a real-time synchronization node or a synchronization solution in Data Integration. DataWorks allows you to update real-time synchronization nodes and synchronization solutions in Data Integration only in asynchronous mode.
+    * The operation that you want to perform.
     *
     * @param request GenerateDISyncTaskConfigForUpdatingRequest
     * @param runtime runtime options for this request RuntimeOptions
@@ -37096,7 +37082,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-    * DataWorks allows you to use only the [UpdateDISyncTask](~~289109~~) operation to update a batch synchronization node in Data Integration. To update a real-time synchronization node or a synchronization solution, you must first call the GenerateDISyncTaskConfigForUpdating operation to generate the ID of an asynchronous thread and call the [QueryDISyncTaskConfigProcessResult](~~383465~~) operation to obtain the asynchronously generated parameters based on the ID. Then, you can call the UpdateDISyncTask operation and use the parameters as request parameters to update a real-time synchronization node or a synchronization solution in Data Integration. DataWorks allows you to update real-time synchronization nodes and synchronization solutions in Data Integration only in asynchronous mode.
+    * The operation that you want to perform.
     *
     * @param request GenerateDISyncTaskConfigForUpdatingRequest
     * @return GenerateDISyncTaskConfigForUpdatingResponse
@@ -38456,7 +38442,8 @@ export default class Client extends OpenApi {
   }
 
   /**
-    * You can call this operation to query only the basic metadata information about a MaxCompute or E-MapReduce (EMR) compute engine instance.
+    * The ID of the EMR cluster. This parameter is required only if you set the DataSourceType parameter to emr.
+    * You can log on to the [EMR console](https://emr.console.aliyun.com/?spm=a2c4g.11186623.0.0.965cc5c2GeiHet#/cn-hangzhou) to obtain the ID of the EMR cluster.
     *
     * @param request GetMetaDBInfoRequest
     * @param runtime runtime options for this request RuntimeOptions
@@ -38483,7 +38470,8 @@ export default class Client extends OpenApi {
   }
 
   /**
-    * You can call this operation to query only the basic metadata information about a MaxCompute or E-MapReduce (EMR) compute engine instance.
+    * The ID of the EMR cluster. This parameter is required only if you set the DataSourceType parameter to emr.
+    * You can log on to the [EMR console](https://emr.console.aliyun.com/?spm=a2c4g.11186623.0.0.965cc5c2GeiHet#/cn-hangzhou) to obtain the ID of the EMR cluster.
     *
     * @param request GetMetaDBInfoRequest
     * @return GetMetaDBInfoResponse
@@ -38848,7 +38836,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-    * You can call this operation to query only the partitions of a metatable in a MaxCompute or E-MapReduce (EMR) compute engine instance.
+    * The operation that you want to perform. Set the value to **GetMetaTablePartition**.
     *
     * @param tmpReq GetMetaTablePartitionRequest
     * @param runtime runtime options for this request RuntimeOptions
@@ -38913,7 +38901,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-    * You can call this operation to query only the partitions of a metatable in a MaxCompute or E-MapReduce (EMR) compute engine instance.
+    * The operation that you want to perform. Set the value to **GetMetaTablePartition**.
     *
     * @param request GetMetaTablePartitionRequest
     * @return GetMetaTablePartitionResponse
@@ -40251,16 +40239,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-    * Supported DAG types:
-    * *   MANUAL: the DAG for a manually triggered workflow.
-    * *   SMOKE_TEST: the DAG for a smoke testing workflow.
-    * *   SUPPLY_DATA: the DAG for a data backfill instance.
-    * *   BUSINESS_PROCESS_DAG: the DAG for a one-time workflow.
-    * Supported DAG states:
-    * *   CREATED: The DAG is created.
-    * *   RUNNING: The DAG is running.
-    * *   FAILURE: The DAG fails to run.
-    * *   SUCCESS: The DAG successfully runs.
+    * The operation that you want to perform. Set the value to **ListDags**.
     *
     * @param request ListDagsRequest
     * @param runtime runtime options for this request RuntimeOptions
@@ -40295,16 +40274,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-    * Supported DAG types:
-    * *   MANUAL: the DAG for a manually triggered workflow.
-    * *   SMOKE_TEST: the DAG for a smoke testing workflow.
-    * *   SUPPLY_DATA: the DAG for a data backfill instance.
-    * *   BUSINESS_PROCESS_DAG: the DAG for a one-time workflow.
-    * Supported DAG states:
-    * *   CREATED: The DAG is created.
-    * *   RUNNING: The DAG is running.
-    * *   FAILURE: The DAG fails to run.
-    * *   SUCCESS: The DAG successfully runs.
+    * The operation that you want to perform. Set the value to **ListDags**.
     *
     * @param request ListDagsRequest
     * @return ListDagsResponse
@@ -41325,7 +41295,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-    * The type can be ALBUM or ALBUM_CATEGORY. ALBUM indicates data albums. ALBUM_CATEGORY indicates categories.
+    * You can configure only one of the Creator, Administrator, and Follower parameters.
     *
     * @param request ListMetaCollectionsRequest
     * @param runtime runtime options for this request RuntimeOptions
@@ -41388,7 +41358,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-    * The type can be ALBUM or ALBUM_CATEGORY. ALBUM indicates data albums. ALBUM_CATEGORY indicates categories.
+    * You can configure only one of the Creator, Administrator, and Follower parameters.
     *
     * @param request ListMetaCollectionsRequest
     * @return ListMetaCollectionsResponse
@@ -42599,8 +42569,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-    * DataWorks allows you to call only the [CreateDISyncTask](~~278725~~) or [UpdateDISyncTask](~~289109~~) operation to create or update a batch synchronization node in Data Integration. To create or update a real-time synchronization node or a synchronization solution, you must first call the GenerateDISyncTaskConfigForCreating or GenerateDISyncTaskConfigForUpdating operation to generate the ID of an asynchronous thread and call the [QueryDISyncTaskConfigProcessResult](~~383465~~) operation to obtain the asynchronously generated parameters based on the ID. Then, you can call the CreateDISyncTask or UpdateDISyncTask operation and use the parameters as request parameters to create or update a real-time synchronization node or a synchronization solution.
-    * DataWorks allows you to create or update real-time synchronization nodes and synchronization solutions in Data Integration only in asynchronous mode.
+    * The operation that you want to perform.
     *
     * @param request QueryDISyncTaskConfigProcessResultRequest
     * @param runtime runtime options for this request RuntimeOptions
@@ -42639,8 +42608,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-    * DataWorks allows you to call only the [CreateDISyncTask](~~278725~~) or [UpdateDISyncTask](~~289109~~) operation to create or update a batch synchronization node in Data Integration. To create or update a real-time synchronization node or a synchronization solution, you must first call the GenerateDISyncTaskConfigForCreating or GenerateDISyncTaskConfigForUpdating operation to generate the ID of an asynchronous thread and call the [QueryDISyncTaskConfigProcessResult](~~383465~~) operation to obtain the asynchronously generated parameters based on the ID. Then, you can call the CreateDISyncTask or UpdateDISyncTask operation and use the parameters as request parameters to create or update a real-time synchronization node or a synchronization solution.
-    * DataWorks allows you to create or update real-time synchronization nodes and synchronization solutions in Data Integration only in asynchronous mode.
+    * The operation that you want to perform.
     *
     * @param request QueryDISyncTaskConfigProcessResultRequest
     * @return QueryDISyncTaskConfigProcessResultResponse
@@ -42650,16 +42618,6 @@ export default class Client extends OpenApi {
     return await this.queryDISyncTaskConfigProcessResultWithOptions(request, runtime);
   }
 
-  /**
-    * *   You must use FML statements to query information about the data modeling engine when you call this operation.
-    * *   The information about the data modeling engine can be queried by page, except for data layers, business processes, and data domains. You can add an offset to the end of an FML statement.
-    *     The num LIMIT num statement specifies the offset when the information about the data modeling engine is queried, and the number of pages to return each time. The offset value must be a multiple of the number of pages.
-    * *   A maximum of 1,000 entries can be returned each time you call the operation.
-    *
-    * @param request QueryPublicModelEngineRequest
-    * @param runtime runtime options for this request RuntimeOptions
-    * @return QueryPublicModelEngineResponse
-   */
   async queryPublicModelEngineWithOptions(request: QueryPublicModelEngineRequest, runtime: $Util.RuntimeOptions): Promise<QueryPublicModelEngineResponse> {
     Util.validateModel(request);
     let body : {[key: string ]: any} = { };
@@ -42688,15 +42646,6 @@ export default class Client extends OpenApi {
     return $tea.cast<QueryPublicModelEngineResponse>(await this.callApi(params, req, runtime), new QueryPublicModelEngineResponse({}));
   }
 
-  /**
-    * *   You must use FML statements to query information about the data modeling engine when you call this operation.
-    * *   The information about the data modeling engine can be queried by page, except for data layers, business processes, and data domains. You can add an offset to the end of an FML statement.
-    *     The num LIMIT num statement specifies the offset when the information about the data modeling engine is queried, and the number of pages to return each time. The offset value must be a multiple of the number of pages.
-    * *   A maximum of 1,000 entries can be returned each time you call the operation.
-    *
-    * @param request QueryPublicModelEngineRequest
-    * @return QueryPublicModelEngineResponse
-   */
   async queryPublicModelEngine(request: QueryPublicModelEngineRequest): Promise<QueryPublicModelEngineResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.queryPublicModelEngineWithOptions(request, runtime);
@@ -43000,6 +42949,10 @@ export default class Client extends OpenApi {
       body["DagParameters"] = request.dagParameters;
     }
 
+    if (!Util.isUnset(request.endBizDate)) {
+      body["EndBizDate"] = request.endBizDate;
+    }
+
     if (!Util.isUnset(request.excludeNodeIds)) {
       body["ExcludeNodeIds"] = request.excludeNodeIds;
     }
@@ -43026,6 +42979,10 @@ export default class Client extends OpenApi {
 
     if (!Util.isUnset(request.projectName)) {
       body["ProjectName"] = request.projectName;
+    }
+
+    if (!Util.isUnset(request.startBizDate)) {
+      body["StartBizDate"] = request.startBizDate;
     }
 
     let req = new $OpenApi.OpenApiRequest({
@@ -43207,7 +43164,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-    * You can call this operation to query only metatables in a MaxCompute or E-MapReduce (EMR) compute engine instance.
+    * The operation that you want to perform. Set the value to **SearchMetaTables**.
     *
     * @param request SearchMetaTablesRequest
     * @param runtime runtime options for this request RuntimeOptions
@@ -43266,7 +43223,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-    * You can call this operation to query only metatables in a MaxCompute or E-MapReduce (EMR) compute engine instance.
+    * The operation that you want to perform. Set the value to **SearchMetaTables**.
     *
     * @param request SearchMetaTablesRequest
     * @return SearchMetaTablesResponse
@@ -44097,7 +44054,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-    * DataWorks allows you to specify a default global configuration only for the processing rules of DDL messages in synchronization solutions. After you configure the **processing rules of DDL messages** in synchronization solutions, the configuration is used as the default global configuration and applies to all real-time synchronization nodes in the solutions. You can modify the **processing rules of DDL messages** based on your business requirements. For more information about how to configure a synchronization solution, see [Synchronization solutions](~~199008~~).
+    * The operation that you want to perform. Set the value to **UpdateDIProjectConfig**.
     *
     * @param request UpdateDIProjectConfigRequest
     * @param runtime runtime options for this request RuntimeOptions
@@ -44140,7 +44097,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-    * DataWorks allows you to specify a default global configuration only for the processing rules of DDL messages in synchronization solutions. After you configure the **processing rules of DDL messages** in synchronization solutions, the configuration is used as the default global configuration and applies to all real-time synchronization nodes in the solutions. You can modify the **processing rules of DDL messages** based on your business requirements. For more information about how to configure a synchronization solution, see [Synchronization solutions](~~199008~~).
+    * The operation that you want to perform. Set the value to **UpdateDIProjectConfig**.
     *
     * @param request UpdateDIProjectConfigRequest
     * @return UpdateDIProjectConfigResponse
@@ -44391,6 +44348,10 @@ export default class Client extends OpenApi {
       body["FileName"] = request.fileName;
     }
 
+    if (!Util.isUnset(request.ignoreParentSkipRunningProperty)) {
+      body["IgnoreParentSkipRunningProperty"] = request.ignoreParentSkipRunningProperty;
+    }
+
     if (!Util.isUnset(request.inputList)) {
       body["InputList"] = request.inputList;
     }
@@ -44595,7 +44556,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-    * Only the name and comment of a collection can be updated.
+    * You must configure at least one of the Name and Comment parameters when you update a collection.
     *
     * @param request UpdateMetaCollectionRequest
     * @param runtime runtime options for this request RuntimeOptions
@@ -44634,7 +44595,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-    * Only the name and comment of a collection can be updated.
+    * You must configure at least one of the Name and Comment parameters when you update a collection.
     *
     * @param request UpdateMetaCollectionRequest
     * @return UpdateMetaCollectionResponse
