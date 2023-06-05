@@ -24666,6 +24666,7 @@ export class HotelOrderCreateRequestOccupantInfoList extends $tea.Model {
   lastName?: string;
   name?: string;
   phone?: string;
+  roomNo?: string;
   staffNo?: string;
   userType?: number;
   static names(): { [key: string]: string } {
@@ -24681,6 +24682,7 @@ export class HotelOrderCreateRequestOccupantInfoList extends $tea.Model {
       lastName: 'last_name',
       name: 'name',
       phone: 'phone',
+      roomNo: 'room_no',
       staffNo: 'staff_no',
       userType: 'user_type',
     };
@@ -24699,6 +24701,7 @@ export class HotelOrderCreateRequestOccupantInfoList extends $tea.Model {
       lastName: 'string',
       name: 'string',
       phone: 'string',
+      roomNo: 'string',
       staffNo: 'string',
       userType: 'number',
     };
@@ -25020,6 +25023,7 @@ export class HotelOrderDetailInfoResponseBodyModuleOccupantInfoList extends $tea
   lastName?: string;
   name?: string;
   phone?: string;
+  roomNo?: string;
   selected?: boolean;
   staffNo?: string;
   userType?: number;
@@ -25038,6 +25042,7 @@ export class HotelOrderDetailInfoResponseBodyModuleOccupantInfoList extends $tea
       lastName: 'last_name',
       name: 'name',
       phone: 'phone',
+      roomNo: 'room_no',
       selected: 'selected',
       staffNo: 'staff_no',
       userType: 'user_type',
@@ -25059,6 +25064,7 @@ export class HotelOrderDetailInfoResponseBodyModuleOccupantInfoList extends $tea
       lastName: 'string',
       name: 'string',
       phone: 'string',
+      roomNo: 'string',
       selected: 'boolean',
       staffNo: 'string',
       userType: 'number',
@@ -25628,6 +25634,7 @@ export class HotelOrderPreValidateResponseBodyModulePromotionInfo extends $tea.M
 export class HotelOrderPreValidateResponseBodyModuleRatePlanDaily extends $tea.Model {
   board?: string;
   discountPrice?: string;
+  maxBookingNum?: string;
   price?: number;
   rateStartTime?: string;
   roomCount?: number;
@@ -25638,6 +25645,7 @@ export class HotelOrderPreValidateResponseBodyModuleRatePlanDaily extends $tea.M
     return {
       board: 'board',
       discountPrice: 'discount_price',
+      maxBookingNum: 'max_booking_num',
       price: 'price',
       rateStartTime: 'rate_start_time',
       roomCount: 'room_count',
@@ -25651,6 +25659,7 @@ export class HotelOrderPreValidateResponseBodyModuleRatePlanDaily extends $tea.M
     return {
       board: 'string',
       discountPrice: 'string',
+      maxBookingNum: 'string',
       price: 'number',
       rateStartTime: 'string',
       roomCount: 'number',
