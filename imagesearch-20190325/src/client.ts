@@ -87,10 +87,12 @@ export class AddImageResponseBody extends $tea.Model {
 
 export class AddImageResponse extends $tea.Model {
   headers: { [key: string]: string };
+  statusCode: number;
   body: AddImageResponseBody;
   static names(): { [key: string]: string } {
     return {
       headers: 'headers',
+      statusCode: 'statusCode',
       body: 'body',
     };
   }
@@ -98,6 +100,7 @@ export class AddImageResponse extends $tea.Model {
   static types(): { [key: string]: any } {
     return {
       headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
       body: AddImageResponseBody,
     };
   }
@@ -162,10 +165,12 @@ export class DeleteImageResponseBody extends $tea.Model {
 
 export class DeleteImageResponse extends $tea.Model {
   headers: { [key: string]: string };
+  statusCode: number;
   body: DeleteImageResponseBody;
   static names(): { [key: string]: string } {
     return {
       headers: 'headers',
+      statusCode: 'statusCode',
       body: 'body',
     };
   }
@@ -173,6 +178,7 @@ export class DeleteImageResponse extends $tea.Model {
   static types(): { [key: string]: any } {
     return {
       headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
       body: DeleteImageResponseBody,
     };
   }
@@ -270,10 +276,12 @@ export class SearchImageResponseBody extends $tea.Model {
 
 export class SearchImageResponse extends $tea.Model {
   headers: { [key: string]: string };
+  statusCode: number;
   body: SearchImageResponseBody;
   static names(): { [key: string]: string } {
     return {
       headers: 'headers',
+      statusCode: 'statusCode',
       body: 'body',
     };
   }
@@ -281,6 +289,7 @@ export class SearchImageResponse extends $tea.Model {
   static types(): { [key: string]: any } {
     return {
       headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
       body: SearchImageResponseBody,
     };
   }
@@ -318,6 +327,7 @@ export class SearchImageResponseBodyAuctions extends $tea.Model {
   intAttr?: number;
   picName?: string;
   productId?: string;
+  score?: number;
   sortExprValues?: string;
   strAttr?: string;
   static names(): { [key: string]: string } {
@@ -327,6 +337,7 @@ export class SearchImageResponseBodyAuctions extends $tea.Model {
       intAttr: 'IntAttr',
       picName: 'PicName',
       productId: 'ProductId',
+      score: 'Score',
       sortExprValues: 'SortExprValues',
       strAttr: 'StrAttr',
     };
@@ -339,6 +350,7 @@ export class SearchImageResponseBodyAuctions extends $tea.Model {
       intAttr: 'number',
       picName: 'string',
       productId: 'string',
+      score: 'number',
       sortExprValues: 'string',
       strAttr: 'string',
     };
@@ -396,14 +408,35 @@ export class SearchImageResponseBodyPicInfoAllCategories extends $tea.Model {
   }
 }
 
+export class SearchImageResponseBodyPicInfoMultiRegion extends $tea.Model {
+  region?: string;
+  static names(): { [key: string]: string } {
+    return {
+      region: 'Region',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      region: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
 export class SearchImageResponseBodyPicInfo extends $tea.Model {
   allCategories?: SearchImageResponseBodyPicInfoAllCategories[];
   categoryId?: number;
+  multiRegion?: SearchImageResponseBodyPicInfoMultiRegion[];
   region?: string;
   static names(): { [key: string]: string } {
     return {
       allCategories: 'AllCategories',
       categoryId: 'CategoryId',
+      multiRegion: 'MultiRegion',
       region: 'Region',
     };
   }
@@ -412,6 +445,7 @@ export class SearchImageResponseBodyPicInfo extends $tea.Model {
     return {
       allCategories: { 'type': 'array', 'itemType': SearchImageResponseBodyPicInfoAllCategories },
       categoryId: 'number',
+      multiRegion: { 'type': 'array', 'itemType': SearchImageResponseBodyPicInfoMultiRegion },
       region: 'string',
     };
   }
@@ -442,12 +476,6 @@ export default class Client extends OpenApi {
     }
 
     return EndpointUtil.getEndpointRules(productId, regionId, endpointRule, network, suffix);
-  }
-
-  async addImage(request: AddImageRequest): Promise<AddImageResponse> {
-    let runtime = new $Util.RuntimeOptions({ });
-    let headers : {[key: string ]: string} = { };
-    return await this.addImageWithOptions(request, headers, runtime);
   }
 
   async addImageWithOptions(request: AddImageRequest, headers: {[key: string ]: string}, runtime: $Util.RuntimeOptions): Promise<AddImageResponse> {
@@ -497,13 +525,24 @@ export default class Client extends OpenApi {
       headers: headers,
       body: OpenApiUtil.parseToMap(body),
     });
-    return $tea.cast<AddImageResponse>(await this.doROARequestWithForm("AddImage", "2019-03-25", "HTTPS", "POST", "AK", `/v2/image/add`, "json", req, runtime), new AddImageResponse({}));
+    let params = new $OpenApi.Params({
+      action: "AddImage",
+      version: "2019-03-25",
+      protocol: "HTTPS",
+      pathname: `/v2/image/add`,
+      method: "POST",
+      authType: "AK",
+      style: "ROA",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $tea.cast<AddImageResponse>(await this.callApi(params, req, runtime), new AddImageResponse({}));
   }
 
-  async deleteImage(request: DeleteImageRequest): Promise<DeleteImageResponse> {
+  async addImage(request: AddImageRequest): Promise<AddImageResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     let headers : {[key: string ]: string} = { };
-    return await this.deleteImageWithOptions(request, headers, runtime);
+    return await this.addImageWithOptions(request, headers, runtime);
   }
 
   async deleteImageWithOptions(request: DeleteImageRequest, headers: {[key: string ]: string}, runtime: $Util.RuntimeOptions): Promise<DeleteImageResponse> {
@@ -525,13 +564,24 @@ export default class Client extends OpenApi {
       headers: headers,
       body: OpenApiUtil.parseToMap(body),
     });
-    return $tea.cast<DeleteImageResponse>(await this.doROARequestWithForm("DeleteImage", "2019-03-25", "HTTPS", "POST", "AK", `/v2/image/delete`, "json", req, runtime), new DeleteImageResponse({}));
+    let params = new $OpenApi.Params({
+      action: "DeleteImage",
+      version: "2019-03-25",
+      protocol: "HTTPS",
+      pathname: `/v2/image/delete`,
+      method: "POST",
+      authType: "AK",
+      style: "ROA",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $tea.cast<DeleteImageResponse>(await this.callApi(params, req, runtime), new DeleteImageResponse({}));
   }
 
-  async searchImage(request: SearchImageRequest): Promise<SearchImageResponse> {
+  async deleteImage(request: DeleteImageRequest): Promise<DeleteImageResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     let headers : {[key: string ]: string} = { };
-    return await this.searchImageWithOptions(request, headers, runtime);
+    return await this.deleteImageWithOptions(request, headers, runtime);
   }
 
   async searchImageWithOptions(request: SearchImageRequest, headers: {[key: string ]: string}, runtime: $Util.RuntimeOptions): Promise<SearchImageResponse> {
@@ -585,7 +635,24 @@ export default class Client extends OpenApi {
       headers: headers,
       body: OpenApiUtil.parseToMap(body),
     });
-    return $tea.cast<SearchImageResponse>(await this.doROARequestWithForm("SearchImage", "2019-03-25", "HTTPS", "POST", "AK", `/v2/image/search`, "json", req, runtime), new SearchImageResponse({}));
+    let params = new $OpenApi.Params({
+      action: "SearchImage",
+      version: "2019-03-25",
+      protocol: "HTTPS",
+      pathname: `/v2/image/search`,
+      method: "POST",
+      authType: "AK",
+      style: "ROA",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $tea.cast<SearchImageResponse>(await this.callApi(params, req, runtime), new SearchImageResponse({}));
+  }
+
+  async searchImage(request: SearchImageRequest): Promise<SearchImageResponse> {
+    let runtime = new $Util.RuntimeOptions({ });
+    let headers : {[key: string ]: string} = { };
+    return await this.searchImageWithOptions(request, headers, runtime);
   }
 
 }
