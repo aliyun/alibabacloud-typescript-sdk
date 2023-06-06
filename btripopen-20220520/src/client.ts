@@ -24666,7 +24666,7 @@ export class HotelOrderCreateRequestOccupantInfoList extends $tea.Model {
   lastName?: string;
   name?: string;
   phone?: string;
-  roomNo?: string;
+  roomNo?: number;
   staffNo?: string;
   userType?: number;
   static names(): { [key: string]: string } {
@@ -24701,7 +24701,7 @@ export class HotelOrderCreateRequestOccupantInfoList extends $tea.Model {
       lastName: 'string',
       name: 'string',
       phone: 'string',
-      roomNo: 'string',
+      roomNo: 'number',
       staffNo: 'string',
       userType: 'number',
     };
@@ -25023,7 +25023,7 @@ export class HotelOrderDetailInfoResponseBodyModuleOccupantInfoList extends $tea
   lastName?: string;
   name?: string;
   phone?: string;
-  roomNo?: string;
+  roomNo?: number;
   selected?: boolean;
   staffNo?: string;
   userType?: number;
@@ -25064,7 +25064,7 @@ export class HotelOrderDetailInfoResponseBodyModuleOccupantInfoList extends $tea
       lastName: 'string',
       name: 'string',
       phone: 'string',
-      roomNo: 'string',
+      roomNo: 'number',
       selected: 'boolean',
       staffNo: 'string',
       userType: 'number',
