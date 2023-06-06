@@ -1432,6 +1432,72 @@ export class CreateUploadStreamResponse extends $tea.Model {
   }
 }
 
+export class DecryptKMSDataKeyRequest extends $tea.Model {
+  ciphertextBlob?: string;
+  static names(): { [key: string]: string } {
+    return {
+      ciphertextBlob: 'CiphertextBlob',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      ciphertextBlob: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class DecryptKMSDataKeyResponseBody extends $tea.Model {
+  dataKey?: DecryptKMSDataKeyResponseBodyDataKey;
+  requestId?: string;
+  static names(): { [key: string]: string } {
+    return {
+      dataKey: 'DataKey',
+      requestId: 'RequestId',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      dataKey: DecryptKMSDataKeyResponseBodyDataKey,
+      requestId: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class DecryptKMSDataKeyResponse extends $tea.Model {
+  headers: { [key: string]: string };
+  statusCode: number;
+  body: DecryptKMSDataKeyResponseBody;
+  static names(): { [key: string]: string } {
+    return {
+      headers: 'headers',
+      statusCode: 'statusCode',
+      body: 'body',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
+      body: DecryptKMSDataKeyResponseBody,
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
 export class DeleteCategoryRequest extends $tea.Model {
   cateId?: number;
   static names(): { [key: string]: string } {
@@ -4607,6 +4673,53 @@ export class DescribeQueryConfigsResponse extends $tea.Model {
       headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
       statusCode: 'number',
       body: DescribeQueryConfigsResponseBody,
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class GenerateKMSDataKeyResponseBody extends $tea.Model {
+  dataKey?: GenerateKMSDataKeyResponseBodyDataKey;
+  requestId?: string;
+  static names(): { [key: string]: string } {
+    return {
+      dataKey: 'DataKey',
+      requestId: 'RequestId',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      dataKey: GenerateKMSDataKeyResponseBodyDataKey,
+      requestId: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class GenerateKMSDataKeyResponse extends $tea.Model {
+  headers: { [key: string]: string };
+  statusCode: number;
+  body: GenerateKMSDataKeyResponseBody;
+  static names(): { [key: string]: string } {
+    return {
+      headers: 'headers',
+      statusCode: 'statusCode',
+      body: 'body',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
+      body: GenerateKMSDataKeyResponseBody,
     };
   }
 
@@ -14880,6 +14993,28 @@ export class CreatePipelineResponseBodyPipeline extends $tea.Model {
   }
 }
 
+export class DecryptKMSDataKeyResponseBodyDataKey extends $tea.Model {
+  keyId?: string;
+  plaintext?: string;
+  static names(): { [key: string]: string } {
+    return {
+      keyId: 'KeyId',
+      plaintext: 'Plaintext',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      keyId: 'string',
+      plaintext: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
 export class DeleteLiveRecordFilesResponseBodyDeleteFileInfoList extends $tea.Model {
   code?: string;
   message?: string;
@@ -15623,6 +15758,31 @@ export class DescribeQueryConfigsResponseBodyConfigs extends $tea.Model {
   static types(): { [key: string]: any } {
     return {
       value: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class GenerateKMSDataKeyResponseBodyDataKey extends $tea.Model {
+  ciphertextBlob?: string;
+  keyId?: string;
+  plaintext?: string;
+  static names(): { [key: string]: string } {
+    return {
+      ciphertextBlob: 'CiphertextBlob',
+      keyId: 'KeyId',
+      plaintext: 'Plaintext',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      ciphertextBlob: 'string',
+      keyId: 'string',
+      plaintext: 'string',
     };
   }
 
@@ -18764,11 +18924,13 @@ export class GetTranscodeJobResponseBodyTranscodeParentJobOutputGroupProcessConf
   cipherText?: string;
   decryptKeyUri?: string;
   encryptType?: string;
+  keyServiceType?: string;
   static names(): { [key: string]: string } {
     return {
       cipherText: 'CipherText',
       decryptKeyUri: 'DecryptKeyUri',
       encryptType: 'EncryptType',
+      keyServiceType: 'KeyServiceType',
     };
   }
 
@@ -18777,6 +18939,7 @@ export class GetTranscodeJobResponseBodyTranscodeParentJobOutputGroupProcessConf
       cipherText: 'string',
       decryptKeyUri: 'string',
       encryptType: 'string',
+      keyServiceType: 'string',
     };
   }
 
@@ -19696,11 +19859,13 @@ export class GetTranscodeJobResponseBodyTranscodeParentJobTranscodeJobListProces
   cipherText?: string;
   decryptKeyUri?: string;
   encryptType?: string;
+  keyServiceType?: string;
   static names(): { [key: string]: string } {
     return {
       cipherText: 'CipherText',
       decryptKeyUri: 'DecryptKeyUri',
       encryptType: 'EncryptType',
+      keyServiceType: 'KeyServiceType',
     };
   }
 
@@ -19709,6 +19874,7 @@ export class GetTranscodeJobResponseBodyTranscodeParentJobTranscodeJobListProces
       cipherText: 'string',
       decryptKeyUri: 'string',
       encryptType: 'string',
+      keyServiceType: 'string',
     };
   }
 
@@ -26780,11 +26946,13 @@ export class SubmitTranscodeJobRequestOutputGroupProcessConfigEncryption extends
   cipherText?: string;
   decryptKeyUri?: string;
   encryptType?: string;
+  keyServiceType?: string;
   static names(): { [key: string]: string } {
     return {
       cipherText: 'CipherText',
       decryptKeyUri: 'DecryptKeyUri',
       encryptType: 'EncryptType',
+      keyServiceType: 'KeyServiceType',
     };
   }
 
@@ -26793,6 +26961,7 @@ export class SubmitTranscodeJobRequestOutputGroupProcessConfigEncryption extends
       cipherText: 'string',
       decryptKeyUri: 'string',
       encryptType: 'string',
+      keyServiceType: 'string',
     };
   }
 
@@ -27489,11 +27658,13 @@ export class SubmitTranscodeJobResponseBodyTranscodeParentJobOutputGroupProcessC
   cipherText?: string;
   decryptKeyUri?: string;
   encryptType?: string;
+  keyServiceType?: string;
   static names(): { [key: string]: string } {
     return {
       cipherText: 'CipherText',
       decryptKeyUri: 'DecryptKeyUri',
       encryptType: 'EncryptType',
+      keyServiceType: 'KeyServiceType',
     };
   }
 
@@ -27502,6 +27673,7 @@ export class SubmitTranscodeJobResponseBodyTranscodeParentJobOutputGroupProcessC
       cipherText: 'string',
       decryptKeyUri: 'string',
       encryptType: 'string',
+      keyServiceType: 'string',
     };
   }
 
@@ -28421,11 +28593,13 @@ export class SubmitTranscodeJobResponseBodyTranscodeParentJobTranscodeJobListPro
   cipherText?: string;
   decryptKeyUri?: string;
   encryptType?: string;
+  keyServiceType?: string;
   static names(): { [key: string]: string } {
     return {
       cipherText: 'CipherText',
       decryptKeyUri: 'DecryptKeyUri',
       encryptType: 'EncryptType',
+      keyServiceType: 'KeyServiceType',
     };
   }
 
@@ -28434,6 +28608,7 @@ export class SubmitTranscodeJobResponseBodyTranscodeParentJobTranscodeJobListPro
       cipherText: 'string',
       decryptKeyUri: 'string',
       encryptType: 'string',
+      keyServiceType: 'string',
     };
   }
 
@@ -30197,6 +30372,35 @@ export default class Client extends OpenApi {
     return await this.createUploadStreamWithOptions(request, runtime);
   }
 
+  async decryptKMSDataKeyWithOptions(request: DecryptKMSDataKeyRequest, runtime: $Util.RuntimeOptions): Promise<DecryptKMSDataKeyResponse> {
+    Util.validateModel(request);
+    let query = { };
+    if (!Util.isUnset(request.ciphertextBlob)) {
+      query["CiphertextBlob"] = request.ciphertextBlob;
+    }
+
+    let req = new $OpenApi.OpenApiRequest({
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApi.Params({
+      action: "DecryptKMSDataKey",
+      version: "2020-11-09",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $tea.cast<DecryptKMSDataKeyResponse>(await this.callApi(params, req, runtime), new DecryptKMSDataKeyResponse({}));
+  }
+
+  async decryptKMSDataKey(request: DecryptKMSDataKeyRequest): Promise<DecryptKMSDataKeyResponse> {
+    let runtime = new $Util.RuntimeOptions({ });
+    return await this.decryptKMSDataKeyWithOptions(request, runtime);
+  }
+
   async deleteCategoryWithOptions(request: DeleteCategoryRequest, runtime: $Util.RuntimeOptions): Promise<DeleteCategoryResponse> {
     Util.validateModel(request);
     let query = { };
@@ -31830,6 +32034,27 @@ export default class Client extends OpenApi {
   async describeQueryConfigs(request: DescribeQueryConfigsRequest): Promise<DescribeQueryConfigsResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.describeQueryConfigsWithOptions(request, runtime);
+  }
+
+  async generateKMSDataKeyWithOptions(runtime: $Util.RuntimeOptions): Promise<GenerateKMSDataKeyResponse> {
+    let req = new $OpenApi.OpenApiRequest({ });
+    let params = new $OpenApi.Params({
+      action: "GenerateKMSDataKey",
+      version: "2020-11-09",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $tea.cast<GenerateKMSDataKeyResponse>(await this.callApi(params, req, runtime), new GenerateKMSDataKeyResponse({}));
+  }
+
+  async generateKMSDataKey(): Promise<GenerateKMSDataKeyResponse> {
+    let runtime = new $Util.RuntimeOptions({ });
+    return await this.generateKMSDataKeyWithOptions(runtime);
   }
 
   async getCategoriesWithOptions(request: GetCategoriesRequest, runtime: $Util.RuntimeOptions): Promise<GetCategoriesResponse> {
