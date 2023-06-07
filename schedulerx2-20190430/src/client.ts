@@ -2392,6 +2392,102 @@ export class GetLogResponse extends $tea.Model {
   }
 }
 
+export class GetOverviewRequest extends $tea.Model {
+  endTime?: number;
+  groupId?: string;
+  metricType?: number;
+  namespace?: string;
+  namespaceSource?: string;
+  operate?: string;
+  regionId?: string;
+  startTime?: number;
+  static names(): { [key: string]: string } {
+    return {
+      endTime: 'EndTime',
+      groupId: 'GroupId',
+      metricType: 'MetricType',
+      namespace: 'Namespace',
+      namespaceSource: 'NamespaceSource',
+      operate: 'Operate',
+      regionId: 'RegionId',
+      startTime: 'StartTime',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      endTime: 'number',
+      groupId: 'string',
+      metricType: 'number',
+      namespace: 'string',
+      namespaceSource: 'string',
+      operate: 'string',
+      regionId: 'string',
+      startTime: 'number',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class GetOverviewResponseBody extends $tea.Model {
+  code?: number;
+  data?: string;
+  message?: string;
+  requestId?: string;
+  success?: boolean;
+  static names(): { [key: string]: string } {
+    return {
+      code: 'Code',
+      data: 'Data',
+      message: 'Message',
+      requestId: 'RequestId',
+      success: 'Success',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      code: 'number',
+      data: 'string',
+      message: 'string',
+      requestId: 'string',
+      success: 'boolean',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class GetOverviewResponse extends $tea.Model {
+  headers: { [key: string]: string };
+  statusCode: number;
+  body: GetOverviewResponseBody;
+  static names(): { [key: string]: string } {
+    return {
+      headers: 'headers',
+      statusCode: 'statusCode',
+      body: 'body',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
+      body: GetOverviewResponseBody,
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
 export class GetWorkFlowRequest extends $tea.Model {
   groupId?: string;
   namespace?: string;
@@ -2744,11 +2840,13 @@ export class GrantPermissionResponse extends $tea.Model {
 }
 
 export class ListGroupsRequest extends $tea.Model {
+  appGroupName?: string;
   namespace?: string;
   namespaceSource?: string;
   regionId?: string;
   static names(): { [key: string]: string } {
     return {
+      appGroupName: 'AppGroupName',
       namespace: 'Namespace',
       namespaceSource: 'NamespaceSource',
       regionId: 'RegionId',
@@ -2757,6 +2855,7 @@ export class ListGroupsRequest extends $tea.Model {
 
   static types(): { [key: string]: any } {
     return {
+      appGroupName: 'string',
       namespace: 'string',
       namespaceSource: 'string',
       regionId: 'string',
@@ -2915,15 +3014,21 @@ export class ListJobsResponse extends $tea.Model {
 }
 
 export class ListNamespacesRequest extends $tea.Model {
+  namespace?: string;
+  namespaceName?: string;
   regionId?: string;
   static names(): { [key: string]: string } {
     return {
+      namespace: 'Namespace',
+      namespaceName: 'NamespaceName',
       regionId: 'RegionId',
     };
   }
 
   static types(): { [key: string]: any } {
     return {
+      namespace: 'string',
+      namespaceName: 'string',
       regionId: 'string',
     };
   }
@@ -3715,12 +3820,14 @@ export class UpdateJobRequest extends $tea.Model {
   taskAttemptInterval?: number;
   taskDispatchMode?: string;
   taskMaxAttempt?: number;
+  template?: string;
   timeExpression?: string;
   timeType?: number;
   timeout?: number;
   timeoutEnable?: boolean;
   timeoutKillEnable?: boolean;
   timezone?: string;
+  XAttrs?: string;
   static names(): { [key: string]: string } {
     return {
       attemptInterval: 'AttemptInterval',
@@ -3752,12 +3859,14 @@ export class UpdateJobRequest extends $tea.Model {
       taskAttemptInterval: 'TaskAttemptInterval',
       taskDispatchMode: 'TaskDispatchMode',
       taskMaxAttempt: 'TaskMaxAttempt',
+      template: 'Template',
       timeExpression: 'TimeExpression',
       timeType: 'TimeType',
       timeout: 'Timeout',
       timeoutEnable: 'TimeoutEnable',
       timeoutKillEnable: 'TimeoutKillEnable',
       timezone: 'Timezone',
+      XAttrs: 'XAttrs',
     };
   }
 
@@ -3792,12 +3901,14 @@ export class UpdateJobRequest extends $tea.Model {
       taskAttemptInterval: 'number',
       taskDispatchMode: 'string',
       taskMaxAttempt: 'number',
+      template: 'string',
       timeExpression: 'string',
       timeType: 'number',
       timeout: 'number',
       timeoutEnable: 'boolean',
       timeoutKillEnable: 'boolean',
       timezone: 'string',
+      XAttrs: 'string',
     };
   }
 
@@ -6324,7 +6435,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-    * > : The combination of the `JobID` and `ScheduleTime` parameters serves as a unique index. Therefore, after the ExecuteJob operation is called to run a job once, a sleep for one second is required before the ExecuteJob operation is called to run the job again. Otherwise, the job may fail.
+    * > The combination of the `JobID` and `ScheduleTime` parameters serves as a unique index. Therefore, after the ExecuteJob operation is called to run a job once, a sleep for one second is required before the ExecuteJob operation is called to run the job again. Otherwise, the job may fail.
     *
     * @param request ExecuteJobRequest
     * @param runtime runtime options for this request RuntimeOptions
@@ -6351,7 +6462,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-    * > : The combination of the `JobID` and `ScheduleTime` parameters serves as a unique index. Therefore, after the ExecuteJob operation is called to run a job once, a sleep for one second is required before the ExecuteJob operation is called to run the job again. Otherwise, the job may fail.
+    * > The combination of the `JobID` and `ScheduleTime` parameters serves as a unique index. Therefore, after the ExecuteJob operation is called to run a job once, a sleep for one second is required before the ExecuteJob operation is called to run the job again. Otherwise, the job may fail.
     *
     * @param request ExecuteJobRequest
     * @return ExecuteJobResponse
@@ -6523,6 +6634,63 @@ export default class Client extends OpenApi {
     return await this.getLogWithOptions(request, runtime);
   }
 
+  async getOverviewWithOptions(request: GetOverviewRequest, runtime: $Util.RuntimeOptions): Promise<GetOverviewResponse> {
+    Util.validateModel(request);
+    let query = { };
+    if (!Util.isUnset(request.endTime)) {
+      query["EndTime"] = request.endTime;
+    }
+
+    if (!Util.isUnset(request.groupId)) {
+      query["GroupId"] = request.groupId;
+    }
+
+    if (!Util.isUnset(request.metricType)) {
+      query["MetricType"] = request.metricType;
+    }
+
+    if (!Util.isUnset(request.namespace)) {
+      query["Namespace"] = request.namespace;
+    }
+
+    if (!Util.isUnset(request.namespaceSource)) {
+      query["NamespaceSource"] = request.namespaceSource;
+    }
+
+    if (!Util.isUnset(request.operate)) {
+      query["Operate"] = request.operate;
+    }
+
+    if (!Util.isUnset(request.regionId)) {
+      query["RegionId"] = request.regionId;
+    }
+
+    if (!Util.isUnset(request.startTime)) {
+      query["StartTime"] = request.startTime;
+    }
+
+    let req = new $OpenApi.OpenApiRequest({
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApi.Params({
+      action: "GetOverview",
+      version: "2019-04-30",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $tea.cast<GetOverviewResponse>(await this.callApi(params, req, runtime), new GetOverviewResponse({}));
+  }
+
+  async getOverview(request: GetOverviewRequest): Promise<GetOverviewResponse> {
+    let runtime = new $Util.RuntimeOptions({ });
+    return await this.getOverviewWithOptions(request, runtime);
+  }
+
   async getWorkFlowWithOptions(request: GetWorkFlowRequest, runtime: $Util.RuntimeOptions): Promise<GetWorkFlowResponse> {
     Util.validateModel(request);
     let query = OpenApiUtil.query(Util.toMap(request));
@@ -6652,10 +6820,14 @@ export default class Client extends OpenApi {
   }
 
   /**
-    * >  Before you call this operation, you must add the following dependency to the pom.xml file:
-    *       <groupId>com.aliyun</groupId>
-    *       <artifactId>aliyun-java-sdk-schedulerx2</artifactId>
-    *       <version>1.0.5</version>
+    * Before you call this operation, you must add the following dependency to the pom.xml file:
+    * ```xml
+    * <dependency>
+    *     <groupId>com.aliyun</groupId>
+    *     <artifactId>aliyun-java-sdk-schedulerx2</artifactId>
+    *     <version>1.0.5</version>
+    * </dependency>
+    * ```
     *
     * @param request ListGroupsRequest
     * @param runtime runtime options for this request RuntimeOptions
@@ -6663,7 +6835,23 @@ export default class Client extends OpenApi {
    */
   async listGroupsWithOptions(request: ListGroupsRequest, runtime: $Util.RuntimeOptions): Promise<ListGroupsResponse> {
     Util.validateModel(request);
-    let query = OpenApiUtil.query(Util.toMap(request));
+    let query = { };
+    if (!Util.isUnset(request.appGroupName)) {
+      query["AppGroupName"] = request.appGroupName;
+    }
+
+    if (!Util.isUnset(request.namespace)) {
+      query["Namespace"] = request.namespace;
+    }
+
+    if (!Util.isUnset(request.namespaceSource)) {
+      query["NamespaceSource"] = request.namespaceSource;
+    }
+
+    if (!Util.isUnset(request.regionId)) {
+      query["RegionId"] = request.regionId;
+    }
+
     let req = new $OpenApi.OpenApiRequest({
       query: OpenApiUtil.query(query),
     });
@@ -6672,7 +6860,7 @@ export default class Client extends OpenApi {
       version: "2019-04-30",
       protocol: "HTTPS",
       pathname: "/",
-      method: "GET",
+      method: "POST",
       authType: "AK",
       style: "RPC",
       reqBodyType: "formData",
@@ -6682,10 +6870,14 @@ export default class Client extends OpenApi {
   }
 
   /**
-    * >  Before you call this operation, you must add the following dependency to the pom.xml file:
-    *       <groupId>com.aliyun</groupId>
-    *       <artifactId>aliyun-java-sdk-schedulerx2</artifactId>
-    *       <version>1.0.5</version>
+    * Before you call this operation, you must add the following dependency to the pom.xml file:
+    * ```xml
+    * <dependency>
+    *     <groupId>com.aliyun</groupId>
+    *     <artifactId>aliyun-java-sdk-schedulerx2</artifactId>
+    *     <version>1.0.5</version>
+    * </dependency>
+    * ```
     *
     * @param request ListGroupsRequest
     * @return ListGroupsResponse
@@ -6757,7 +6949,19 @@ export default class Client extends OpenApi {
    */
   async listNamespacesWithOptions(request: ListNamespacesRequest, runtime: $Util.RuntimeOptions): Promise<ListNamespacesResponse> {
     Util.validateModel(request);
-    let query = OpenApiUtil.query(Util.toMap(request));
+    let query = { };
+    if (!Util.isUnset(request.namespace)) {
+      query["Namespace"] = request.namespace;
+    }
+
+    if (!Util.isUnset(request.namespaceName)) {
+      query["NamespaceName"] = request.namespaceName;
+    }
+
+    if (!Util.isUnset(request.regionId)) {
+      query["RegionId"] = request.regionId;
+    }
+
     let req = new $OpenApi.OpenApiRequest({
       query: OpenApiUtil.query(query),
     });
@@ -6766,7 +6970,7 @@ export default class Client extends OpenApi {
       version: "2019-04-30",
       protocol: "HTTPS",
       pathname: "/",
-      method: "GET",
+      method: "POST",
       authType: "AK",
       style: "RPC",
       reqBodyType: "formData",
@@ -7255,6 +7459,10 @@ export default class Client extends OpenApi {
       body["TaskMaxAttempt"] = request.taskMaxAttempt;
     }
 
+    if (!Util.isUnset(request.template)) {
+      body["Template"] = request.template;
+    }
+
     if (!Util.isUnset(request.timeExpression)) {
       body["TimeExpression"] = request.timeExpression;
     }
@@ -7277,6 +7485,10 @@ export default class Client extends OpenApi {
 
     if (!Util.isUnset(request.timezone)) {
       body["Timezone"] = request.timezone;
+    }
+
+    if (!Util.isUnset(request.XAttrs)) {
+      body["XAttrs"] = request.XAttrs;
     }
 
     let req = new $OpenApi.OpenApiRequest({
