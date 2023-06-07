@@ -8,6 +8,342 @@ import OpenApiUtil from '@alicloud/openapi-util';
 import EndpointUtil from '@alicloud/endpoint-util';
 import * as $tea from '@alicloud/tea-typescript';
 
+export class GetH5PageTrendRequest extends $tea.Model {
+  appVersion?: string;
+  dataSourceId?: string;
+  endDate?: string;
+  startDate?: string;
+  timeUnit?: string;
+  static names(): { [key: string]: string } {
+    return {
+      appVersion: 'appVersion',
+      dataSourceId: 'dataSourceId',
+      endDate: 'endDate',
+      startDate: 'startDate',
+      timeUnit: 'timeUnit',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      appVersion: 'string',
+      dataSourceId: 'string',
+      endDate: 'string',
+      startDate: 'string',
+      timeUnit: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class GetH5PageTrendResponseBody extends $tea.Model {
+  code?: number;
+  data?: GetH5PageTrendResponseBodyData[];
+  msg?: string;
+  success?: boolean;
+  static names(): { [key: string]: string } {
+    return {
+      code: 'code',
+      data: 'data',
+      msg: 'msg',
+      success: 'success',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      code: 'number',
+      data: { 'type': 'array', 'itemType': GetH5PageTrendResponseBodyData },
+      msg: 'string',
+      success: 'boolean',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class GetH5PageTrendResponse extends $tea.Model {
+  headers: { [key: string]: string };
+  statusCode: number;
+  body: GetH5PageTrendResponseBody;
+  static names(): { [key: string]: string } {
+    return {
+      headers: 'headers',
+      statusCode: 'statusCode',
+      body: 'body',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
+      body: GetH5PageTrendResponseBody,
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class GetLaunchTrendRequest extends $tea.Model {
+  appVersion?: string;
+  dataSourceId?: string;
+  endDate?: string;
+  startDate?: string;
+  timeUnit?: string;
+  static names(): { [key: string]: string } {
+    return {
+      appVersion: 'appVersion',
+      dataSourceId: 'dataSourceId',
+      endDate: 'endDate',
+      startDate: 'startDate',
+      timeUnit: 'timeUnit',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      appVersion: 'string',
+      dataSourceId: 'string',
+      endDate: 'string',
+      startDate: 'string',
+      timeUnit: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class GetLaunchTrendResponseBody extends $tea.Model {
+  code?: number;
+  data?: GetLaunchTrendResponseBodyData[];
+  msg?: string;
+  success?: boolean;
+  static names(): { [key: string]: string } {
+    return {
+      code: 'code',
+      data: 'data',
+      msg: 'msg',
+      success: 'success',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      code: 'number',
+      data: { 'type': 'array', 'itemType': GetLaunchTrendResponseBodyData },
+      msg: 'string',
+      success: 'boolean',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class GetLaunchTrendResponse extends $tea.Model {
+  headers: { [key: string]: string };
+  statusCode: number;
+  body: GetLaunchTrendResponseBody;
+  static names(): { [key: string]: string } {
+    return {
+      headers: 'headers',
+      statusCode: 'statusCode',
+      body: 'body',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
+      body: GetLaunchTrendResponseBody,
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class GetNativePageTrendRequest extends $tea.Model {
+  appVersion?: string;
+  dataSourceId?: string;
+  endDate?: string;
+  startDate?: string;
+  timeUnit?: string;
+  static names(): { [key: string]: string } {
+    return {
+      appVersion: 'appVersion',
+      dataSourceId: 'dataSourceId',
+      endDate: 'endDate',
+      startDate: 'startDate',
+      timeUnit: 'timeUnit',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      appVersion: 'string',
+      dataSourceId: 'string',
+      endDate: 'string',
+      startDate: 'string',
+      timeUnit: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class GetNativePageTrendResponseBody extends $tea.Model {
+  code?: number;
+  data?: GetNativePageTrendResponseBodyData[];
+  msg?: string;
+  success?: boolean;
+  static names(): { [key: string]: string } {
+    return {
+      code: 'code',
+      data: 'data',
+      msg: 'msg',
+      success: 'success',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      code: 'number',
+      data: { 'type': 'array', 'itemType': GetNativePageTrendResponseBodyData },
+      msg: 'string',
+      success: 'boolean',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class GetNativePageTrendResponse extends $tea.Model {
+  headers: { [key: string]: string };
+  statusCode: number;
+  body: GetNativePageTrendResponseBody;
+  static names(): { [key: string]: string } {
+    return {
+      headers: 'headers',
+      statusCode: 'statusCode',
+      body: 'body',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
+      body: GetNativePageTrendResponseBody,
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class GetNetworkTrendRequest extends $tea.Model {
+  appVersion?: string;
+  dataSourceId?: string;
+  endDate?: string;
+  startDate?: string;
+  timeUnit?: string;
+  static names(): { [key: string]: string } {
+    return {
+      appVersion: 'appVersion',
+      dataSourceId: 'dataSourceId',
+      endDate: 'endDate',
+      startDate: 'startDate',
+      timeUnit: 'timeUnit',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      appVersion: 'string',
+      dataSourceId: 'string',
+      endDate: 'string',
+      startDate: 'string',
+      timeUnit: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class GetNetworkTrendResponseBody extends $tea.Model {
+  code?: number;
+  data?: GetNetworkTrendResponseBodyData[];
+  msg?: string;
+  success?: boolean;
+  static names(): { [key: string]: string } {
+    return {
+      code: 'code',
+      data: 'data',
+      msg: 'msg',
+      success: 'success',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      code: 'number',
+      data: { 'type': 'array', 'itemType': GetNetworkTrendResponseBodyData },
+      msg: 'string',
+      success: 'boolean',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class GetNetworkTrendResponse extends $tea.Model {
+  headers: { [key: string]: string };
+  statusCode: number;
+  body: GetNetworkTrendResponseBody;
+  static names(): { [key: string]: string } {
+    return {
+      headers: 'headers',
+      statusCode: 'statusCode',
+      body: 'body',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
+      body: GetNetworkTrendResponseBody,
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
 export class GetStatTrendRequest extends $tea.Model {
   appVersion?: string;
   dataSourceId?: string;
@@ -329,6 +665,187 @@ export class UpdateAlertPlanResponse extends $tea.Model {
   }
 }
 
+export class GetH5PageTrendResponseBodyData extends $tea.Model {
+  analyzeDOM?: number;
+  appCache?: number;
+  contentTrans?: number;
+  dns?: number;
+  domReady?: number;
+  fcp?: number;
+  firstByte?: number;
+  fiveSecondRate?: number;
+  fp?: number;
+  loadEvent?: number;
+  loadFinish?: number;
+  loadResource?: number;
+  logCnt?: number;
+  oneSecondRate?: number;
+  redirect?: number;
+  ssl?: number;
+  tcp?: number;
+  timePoint?: string;
+  ttfb?: number;
+  tti?: number;
+  twoSecondRate?: number;
+  unload?: number;
+  static names(): { [key: string]: string } {
+    return {
+      analyzeDOM: 'analyzeDOM',
+      appCache: 'appCache',
+      contentTrans: 'contentTrans',
+      dns: 'dns',
+      domReady: 'domReady',
+      fcp: 'fcp',
+      firstByte: 'firstByte',
+      fiveSecondRate: 'fiveSecondRate',
+      fp: 'fp',
+      loadEvent: 'loadEvent',
+      loadFinish: 'loadFinish',
+      loadResource: 'loadResource',
+      logCnt: 'logCnt',
+      oneSecondRate: 'oneSecondRate',
+      redirect: 'redirect',
+      ssl: 'ssl',
+      tcp: 'tcp',
+      timePoint: 'timePoint',
+      ttfb: 'ttfb',
+      tti: 'tti',
+      twoSecondRate: 'twoSecondRate',
+      unload: 'unload',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      analyzeDOM: 'number',
+      appCache: 'number',
+      contentTrans: 'number',
+      dns: 'number',
+      domReady: 'number',
+      fcp: 'number',
+      firstByte: 'number',
+      fiveSecondRate: 'number',
+      fp: 'number',
+      loadEvent: 'number',
+      loadFinish: 'number',
+      loadResource: 'number',
+      logCnt: 'number',
+      oneSecondRate: 'number',
+      redirect: 'number',
+      ssl: 'number',
+      tcp: 'number',
+      timePoint: 'string',
+      ttfb: 'number',
+      tti: 'number',
+      twoSecondRate: 'number',
+      unload: 'number',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class GetLaunchTrendResponseBodyData extends $tea.Model {
+  coldLaunchCount?: number;
+  coldLaunchDuration?: number;
+  firstLaunchCount?: number;
+  firstLaunchDuration?: number;
+  hotLaunchCount?: number;
+  hotLaunchDuration?: number;
+  timePoint?: string;
+  static names(): { [key: string]: string } {
+    return {
+      coldLaunchCount: 'coldLaunchCount',
+      coldLaunchDuration: 'coldLaunchDuration',
+      firstLaunchCount: 'firstLaunchCount',
+      firstLaunchDuration: 'firstLaunchDuration',
+      hotLaunchCount: 'hotLaunchCount',
+      hotLaunchDuration: 'hotLaunchDuration',
+      timePoint: 'timePoint',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      coldLaunchCount: 'number',
+      coldLaunchDuration: 'number',
+      firstLaunchCount: 'number',
+      firstLaunchDuration: 'number',
+      hotLaunchCount: 'number',
+      hotLaunchDuration: 'number',
+      timePoint: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class GetNativePageTrendResponseBodyData extends $tea.Model {
+  avgLoadDuration?: number;
+  crashRate?: number;
+  loadCnt?: number;
+  slowLoadRate?: number;
+  timePoint?: string;
+  static names(): { [key: string]: string } {
+    return {
+      avgLoadDuration: 'avgLoadDuration',
+      crashRate: 'crashRate',
+      loadCnt: 'loadCnt',
+      slowLoadRate: 'slowLoadRate',
+      timePoint: 'timePoint',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      avgLoadDuration: 'number',
+      crashRate: 'number',
+      loadCnt: 'number',
+      slowLoadRate: 'number',
+      timePoint: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class GetNetworkTrendResponseBodyData extends $tea.Model {
+  avgCost?: number;
+  avgResponseTime?: number;
+  avgTransformBytes?: number;
+  requestPerMinute?: number;
+  timePoint?: string;
+  static names(): { [key: string]: string } {
+    return {
+      avgCost: 'avgCost',
+      avgResponseTime: 'avgResponseTime',
+      avgTransformBytes: 'avgTransformBytes',
+      requestPerMinute: 'requestPerMinute',
+      timePoint: 'timePoint',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      avgCost: 'number',
+      avgResponseTime: 'number',
+      avgTransformBytes: 'number',
+      requestPerMinute: 'number',
+      timePoint: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
 export class GetStatTrendResponseBodyData extends $tea.Model {
   affectedUserCount?: number;
   affectedUserRate?: number;
@@ -448,10 +965,192 @@ export default class Client extends OpenApi {
     return EndpointUtil.getEndpointRules(productId, regionId, endpointRule, network, suffix);
   }
 
-  async getStatTrend(request: GetStatTrendRequest): Promise<GetStatTrendResponse> {
+  async getH5PageTrendWithOptions(request: GetH5PageTrendRequest, headers: {[key: string ]: string}, runtime: $Util.RuntimeOptions): Promise<GetH5PageTrendResponse> {
+    Util.validateModel(request);
+    let query : {[key: string ]: any} = { };
+    if (!Util.isUnset(request.appVersion)) {
+      query["appVersion"] = request.appVersion;
+    }
+
+    if (!Util.isUnset(request.dataSourceId)) {
+      query["dataSourceId"] = request.dataSourceId;
+    }
+
+    if (!Util.isUnset(request.endDate)) {
+      query["endDate"] = request.endDate;
+    }
+
+    if (!Util.isUnset(request.startDate)) {
+      query["startDate"] = request.startDate;
+    }
+
+    if (!Util.isUnset(request.timeUnit)) {
+      query["timeUnit"] = request.timeUnit;
+    }
+
+    let req = new $OpenApi.OpenApiRequest({
+      headers: headers,
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApi.Params({
+      action: "GetH5PageTrend",
+      version: "2022-02-14",
+      protocol: "HTTPS",
+      pathname: `/stat/getH5PageTrend`,
+      method: "GET",
+      authType: "AK",
+      style: "ROA",
+      reqBodyType: "json",
+      bodyType: "json",
+    });
+    return $tea.cast<GetH5PageTrendResponse>(await this.callApi(params, req, runtime), new GetH5PageTrendResponse({}));
+  }
+
+  async getH5PageTrend(request: GetH5PageTrendRequest): Promise<GetH5PageTrendResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     let headers : {[key: string ]: string} = { };
-    return await this.getStatTrendWithOptions(request, headers, runtime);
+    return await this.getH5PageTrendWithOptions(request, headers, runtime);
+  }
+
+  async getLaunchTrendWithOptions(request: GetLaunchTrendRequest, headers: {[key: string ]: string}, runtime: $Util.RuntimeOptions): Promise<GetLaunchTrendResponse> {
+    Util.validateModel(request);
+    let query : {[key: string ]: any} = { };
+    if (!Util.isUnset(request.appVersion)) {
+      query["appVersion"] = request.appVersion;
+    }
+
+    if (!Util.isUnset(request.dataSourceId)) {
+      query["dataSourceId"] = request.dataSourceId;
+    }
+
+    if (!Util.isUnset(request.endDate)) {
+      query["endDate"] = request.endDate;
+    }
+
+    if (!Util.isUnset(request.startDate)) {
+      query["startDate"] = request.startDate;
+    }
+
+    if (!Util.isUnset(request.timeUnit)) {
+      query["timeUnit"] = request.timeUnit;
+    }
+
+    let req = new $OpenApi.OpenApiRequest({
+      headers: headers,
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApi.Params({
+      action: "GetLaunchTrend",
+      version: "2022-02-14",
+      protocol: "HTTPS",
+      pathname: `/stat/getLaunchTrend`,
+      method: "GET",
+      authType: "AK",
+      style: "ROA",
+      reqBodyType: "json",
+      bodyType: "json",
+    });
+    return $tea.cast<GetLaunchTrendResponse>(await this.callApi(params, req, runtime), new GetLaunchTrendResponse({}));
+  }
+
+  async getLaunchTrend(request: GetLaunchTrendRequest): Promise<GetLaunchTrendResponse> {
+    let runtime = new $Util.RuntimeOptions({ });
+    let headers : {[key: string ]: string} = { };
+    return await this.getLaunchTrendWithOptions(request, headers, runtime);
+  }
+
+  async getNativePageTrendWithOptions(request: GetNativePageTrendRequest, headers: {[key: string ]: string}, runtime: $Util.RuntimeOptions): Promise<GetNativePageTrendResponse> {
+    Util.validateModel(request);
+    let query : {[key: string ]: any} = { };
+    if (!Util.isUnset(request.appVersion)) {
+      query["appVersion"] = request.appVersion;
+    }
+
+    if (!Util.isUnset(request.dataSourceId)) {
+      query["dataSourceId"] = request.dataSourceId;
+    }
+
+    if (!Util.isUnset(request.endDate)) {
+      query["endDate"] = request.endDate;
+    }
+
+    if (!Util.isUnset(request.startDate)) {
+      query["startDate"] = request.startDate;
+    }
+
+    if (!Util.isUnset(request.timeUnit)) {
+      query["timeUnit"] = request.timeUnit;
+    }
+
+    let req = new $OpenApi.OpenApiRequest({
+      headers: headers,
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApi.Params({
+      action: "GetNativePageTrend",
+      version: "2022-02-14",
+      protocol: "HTTPS",
+      pathname: `/stat/getNativePageTrend`,
+      method: "GET",
+      authType: "AK",
+      style: "ROA",
+      reqBodyType: "json",
+      bodyType: "json",
+    });
+    return $tea.cast<GetNativePageTrendResponse>(await this.callApi(params, req, runtime), new GetNativePageTrendResponse({}));
+  }
+
+  async getNativePageTrend(request: GetNativePageTrendRequest): Promise<GetNativePageTrendResponse> {
+    let runtime = new $Util.RuntimeOptions({ });
+    let headers : {[key: string ]: string} = { };
+    return await this.getNativePageTrendWithOptions(request, headers, runtime);
+  }
+
+  async getNetworkTrendWithOptions(request: GetNetworkTrendRequest, headers: {[key: string ]: string}, runtime: $Util.RuntimeOptions): Promise<GetNetworkTrendResponse> {
+    Util.validateModel(request);
+    let query : {[key: string ]: any} = { };
+    if (!Util.isUnset(request.appVersion)) {
+      query["appVersion"] = request.appVersion;
+    }
+
+    if (!Util.isUnset(request.dataSourceId)) {
+      query["dataSourceId"] = request.dataSourceId;
+    }
+
+    if (!Util.isUnset(request.endDate)) {
+      query["endDate"] = request.endDate;
+    }
+
+    if (!Util.isUnset(request.startDate)) {
+      query["startDate"] = request.startDate;
+    }
+
+    if (!Util.isUnset(request.timeUnit)) {
+      query["timeUnit"] = request.timeUnit;
+    }
+
+    let req = new $OpenApi.OpenApiRequest({
+      headers: headers,
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApi.Params({
+      action: "GetNetworkTrend",
+      version: "2022-02-14",
+      protocol: "HTTPS",
+      pathname: `/stat/getNetworkTrend`,
+      method: "GET",
+      authType: "AK",
+      style: "ROA",
+      reqBodyType: "json",
+      bodyType: "json",
+    });
+    return $tea.cast<GetNetworkTrendResponse>(await this.callApi(params, req, runtime), new GetNetworkTrendResponse({}));
+  }
+
+  async getNetworkTrend(request: GetNetworkTrendRequest): Promise<GetNetworkTrendResponse> {
+    let runtime = new $Util.RuntimeOptions({ });
+    let headers : {[key: string ]: string} = { };
+    return await this.getNetworkTrendWithOptions(request, headers, runtime);
   }
 
   async getStatTrendWithOptions(request: GetStatTrendRequest, headers: {[key: string ]: string}, runtime: $Util.RuntimeOptions): Promise<GetStatTrendResponse> {
@@ -495,10 +1194,10 @@ export default class Client extends OpenApi {
     return $tea.cast<GetStatTrendResponse>(await this.callApi(params, req, runtime), new GetStatTrendResponse({}));
   }
 
-  async getSymUploadParam(request: GetSymUploadParamRequest): Promise<GetSymUploadParamResponse> {
+  async getStatTrend(request: GetStatTrendRequest): Promise<GetStatTrendResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     let headers : {[key: string ]: string} = { };
-    return await this.getSymUploadParamWithOptions(request, headers, runtime);
+    return await this.getStatTrendWithOptions(request, headers, runtime);
   }
 
   async getSymUploadParamWithOptions(request: GetSymUploadParamRequest, headers: {[key: string ]: string}, runtime: $Util.RuntimeOptions): Promise<GetSymUploadParamResponse> {
@@ -538,10 +1237,10 @@ export default class Client extends OpenApi {
     return $tea.cast<GetSymUploadParamResponse>(await this.callApi(params, req, runtime), new GetSymUploadParamResponse({}));
   }
 
-  async getTodayStatTrend(request: GetTodayStatTrendRequest): Promise<GetTodayStatTrendResponse> {
+  async getSymUploadParam(request: GetSymUploadParamRequest): Promise<GetSymUploadParamResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     let headers : {[key: string ]: string} = { };
-    return await this.getTodayStatTrendWithOptions(request, headers, runtime);
+    return await this.getSymUploadParamWithOptions(request, headers, runtime);
   }
 
   async getTodayStatTrendWithOptions(request: GetTodayStatTrendRequest, headers: {[key: string ]: string}, runtime: $Util.RuntimeOptions): Promise<GetTodayStatTrendResponse> {
@@ -577,10 +1276,10 @@ export default class Client extends OpenApi {
     return $tea.cast<GetTodayStatTrendResponse>(await this.callApi(params, req, runtime), new GetTodayStatTrendResponse({}));
   }
 
-  async updateAlertPlan(request: UpdateAlertPlanRequest): Promise<UpdateAlertPlanResponse> {
+  async getTodayStatTrend(request: GetTodayStatTrendRequest): Promise<GetTodayStatTrendResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     let headers : {[key: string ]: string} = { };
-    return await this.updateAlertPlanWithOptions(request, headers, runtime);
+    return await this.getTodayStatTrendWithOptions(request, headers, runtime);
   }
 
   async updateAlertPlanWithOptions(request: UpdateAlertPlanRequest, headers: {[key: string ]: string}, runtime: $Util.RuntimeOptions): Promise<UpdateAlertPlanResponse> {
@@ -614,6 +1313,12 @@ export default class Client extends OpenApi {
       bodyType: "json",
     });
     return $tea.cast<UpdateAlertPlanResponse>(await this.callApi(params, req, runtime), new UpdateAlertPlanResponse({}));
+  }
+
+  async updateAlertPlan(request: UpdateAlertPlanRequest): Promise<UpdateAlertPlanResponse> {
+    let runtime = new $Util.RuntimeOptions({ });
+    let headers : {[key: string ]: string} = { };
+    return await this.updateAlertPlanWithOptions(request, headers, runtime);
   }
 
 }
