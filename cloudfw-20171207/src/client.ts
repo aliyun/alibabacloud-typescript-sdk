@@ -2684,12 +2684,14 @@ export class DescribeTrFirewallV2RoutePolicyListRequest extends $tea.Model {
   firewallId?: string;
   lang?: string;
   pageSize?: number;
+  policyId?: string;
   static names(): { [key: string]: string } {
     return {
       currentPage: 'CurrentPage',
       firewallId: 'FirewallId',
       lang: 'Lang',
       pageSize: 'PageSize',
+      policyId: 'PolicyId',
     };
   }
 
@@ -2699,6 +2701,7 @@ export class DescribeTrFirewallV2RoutePolicyListRequest extends $tea.Model {
       firewallId: 'string',
       lang: 'string',
       pageSize: 'number',
+      policyId: 'string',
     };
   }
 
@@ -2709,10 +2712,12 @@ export class DescribeTrFirewallV2RoutePolicyListRequest extends $tea.Model {
 
 export class DescribeTrFirewallV2RoutePolicyListResponseBody extends $tea.Model {
   requestId?: string;
+  totalCount?: string;
   trFirewallRoutePolicies?: DescribeTrFirewallV2RoutePolicyListResponseBodyTrFirewallRoutePolicies[];
   static names(): { [key: string]: string } {
     return {
       requestId: 'RequestId',
+      totalCount: 'TotalCount',
       trFirewallRoutePolicies: 'TrFirewallRoutePolicies',
     };
   }
@@ -2720,6 +2725,7 @@ export class DescribeTrFirewallV2RoutePolicyListResponseBody extends $tea.Model 
   static types(): { [key: string]: any } {
     return {
       requestId: 'string',
+      totalCount: 'string',
       trFirewallRoutePolicies: { 'type': 'array', 'itemType': DescribeTrFirewallV2RoutePolicyListResponseBodyTrFirewallRoutePolicies },
     };
   }
@@ -9898,6 +9904,10 @@ export default class Client extends OpenApi {
 
     if (!Util.isUnset(request.pageSize)) {
       query["PageSize"] = request.pageSize;
+    }
+
+    if (!Util.isUnset(request.policyId)) {
+      query["PolicyId"] = request.policyId;
     }
 
     let req = new $OpenApi.OpenApiRequest({
