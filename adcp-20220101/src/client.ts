@@ -1578,6 +1578,7 @@ export class UpdateHubClusterFeatureRequest extends $tea.Model {
   apiServerEipId?: string;
   argoCDEnabled?: boolean;
   argoServerEnabled?: boolean;
+  armsEnabled?: boolean;
   auditLogEnabled?: boolean;
   clusterId?: string;
   deletionProtection?: boolean;
@@ -1592,6 +1593,7 @@ export class UpdateHubClusterFeatureRequest extends $tea.Model {
       apiServerEipId: 'ApiServerEipId',
       argoCDEnabled: 'ArgoCDEnabled',
       argoServerEnabled: 'ArgoServerEnabled',
+      armsEnabled: 'ArmsEnabled',
       auditLogEnabled: 'AuditLogEnabled',
       clusterId: 'ClusterId',
       deletionProtection: 'DeletionProtection',
@@ -1609,6 +1611,7 @@ export class UpdateHubClusterFeatureRequest extends $tea.Model {
       apiServerEipId: 'string',
       argoCDEnabled: 'boolean',
       argoServerEnabled: 'boolean',
+      armsEnabled: 'boolean',
       auditLogEnabled: 'boolean',
       clusterId: 'string',
       deletionProtection: 'boolean',
@@ -1630,6 +1633,7 @@ export class UpdateHubClusterFeatureShrinkRequest extends $tea.Model {
   apiServerEipId?: string;
   argoCDEnabled?: boolean;
   argoServerEnabled?: boolean;
+  armsEnabled?: boolean;
   auditLogEnabled?: boolean;
   clusterId?: string;
   deletionProtection?: boolean;
@@ -1644,6 +1648,7 @@ export class UpdateHubClusterFeatureShrinkRequest extends $tea.Model {
       apiServerEipId: 'ApiServerEipId',
       argoCDEnabled: 'ArgoCDEnabled',
       argoServerEnabled: 'ArgoServerEnabled',
+      armsEnabled: 'ArmsEnabled',
       auditLogEnabled: 'AuditLogEnabled',
       clusterId: 'ClusterId',
       deletionProtection: 'DeletionProtection',
@@ -1661,6 +1666,7 @@ export class UpdateHubClusterFeatureShrinkRequest extends $tea.Model {
       apiServerEipId: 'string',
       argoCDEnabled: 'boolean',
       argoServerEnabled: 'boolean',
+      armsEnabled: 'boolean',
       auditLogEnabled: 'boolean',
       clusterId: 'string',
       deletionProtection: 'boolean',
@@ -3915,6 +3921,10 @@ export default class Client extends OpenApi {
 
     if (!Util.isUnset(request.argoServerEnabled)) {
       query["ArgoServerEnabled"] = request.argoServerEnabled;
+    }
+
+    if (!Util.isUnset(request.armsEnabled)) {
+      query["ArmsEnabled"] = request.armsEnabled;
     }
 
     if (!Util.isUnset(request.auditLogEnabled)) {
