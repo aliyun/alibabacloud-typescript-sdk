@@ -1,6 +1,6 @@
 {
   "name": "@alicloud/avatar20220130",
-  "version": "1.0.19",
+  "version": "1.0.21",
   "description": "",
   "main": "dist/client.js",
   "scripts": {

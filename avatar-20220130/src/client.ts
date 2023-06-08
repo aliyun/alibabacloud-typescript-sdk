@@ -527,6 +527,168 @@ export class LicenseAuthResponse extends $tea.Model {
   }
 }
 
+export class QueryAvatarRequest extends $tea.Model {
+  code?: string;
+  tenantId?: number;
+  static names(): { [key: string]: string } {
+    return {
+      code: 'Code',
+      tenantId: 'TenantId',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      code: 'string',
+      tenantId: 'number',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class QueryAvatarResponseBody extends $tea.Model {
+  code?: string;
+  data?: QueryAvatarResponseBodyData;
+  message?: string;
+  requestId?: string;
+  success?: boolean;
+  static names(): { [key: string]: string } {
+    return {
+      code: 'Code',
+      data: 'Data',
+      message: 'Message',
+      requestId: 'RequestId',
+      success: 'Success',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      code: 'string',
+      data: QueryAvatarResponseBodyData,
+      message: 'string',
+      requestId: 'string',
+      success: 'boolean',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class QueryAvatarResponse extends $tea.Model {
+  headers: { [key: string]: string };
+  statusCode: number;
+  body: QueryAvatarResponseBody;
+  static names(): { [key: string]: string } {
+    return {
+      headers: 'headers',
+      statusCode: 'statusCode',
+      body: 'body',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
+      body: QueryAvatarResponseBody,
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class QueryAvatarListRequest extends $tea.Model {
+  modelType?: string;
+  pageNo?: number;
+  pageSize?: number;
+  tenantId?: number;
+  static names(): { [key: string]: string } {
+    return {
+      modelType: 'ModelType',
+      pageNo: 'PageNo',
+      pageSize: 'PageSize',
+      tenantId: 'TenantId',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      modelType: 'string',
+      pageNo: 'number',
+      pageSize: 'number',
+      tenantId: 'number',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class QueryAvatarListResponseBody extends $tea.Model {
+  code?: string;
+  data?: QueryAvatarListResponseBodyData;
+  message?: string;
+  requestId?: string;
+  success?: boolean;
+  static names(): { [key: string]: string } {
+    return {
+      code: 'Code',
+      data: 'Data',
+      message: 'Message',
+      requestId: 'RequestId',
+      success: 'Success',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      code: 'string',
+      data: QueryAvatarListResponseBodyData,
+      message: 'string',
+      requestId: 'string',
+      success: 'boolean',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class QueryAvatarListResponse extends $tea.Model {
+  headers: { [key: string]: string };
+  statusCode: number;
+  body: QueryAvatarListResponseBody;
+  static names(): { [key: string]: string } {
+    return {
+      headers: 'headers',
+      statusCode: 'statusCode',
+      body: 'body',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
+      body: QueryAvatarListResponseBody,
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
 export class QueryRunningInstanceRequest extends $tea.Model {
   app?: QueryRunningInstanceRequestApp;
   sessionId?: string;
@@ -1094,6 +1256,130 @@ export class StopInstanceResponse extends $tea.Model {
   }
 }
 
+export class SubmitAudioTo2DAvatarVideoTaskRequest extends $tea.Model {
+  app?: SubmitAudioTo2DAvatarVideoTaskRequestApp;
+  avatarInfo?: SubmitAudioTo2DAvatarVideoTaskRequestAvatarInfo;
+  tenantId?: number;
+  title?: string;
+  url?: string;
+  videoInfo?: SubmitAudioTo2DAvatarVideoTaskRequestVideoInfo;
+  static names(): { [key: string]: string } {
+    return {
+      app: 'App',
+      avatarInfo: 'AvatarInfo',
+      tenantId: 'TenantId',
+      title: 'Title',
+      url: 'Url',
+      videoInfo: 'VideoInfo',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      app: SubmitAudioTo2DAvatarVideoTaskRequestApp,
+      avatarInfo: SubmitAudioTo2DAvatarVideoTaskRequestAvatarInfo,
+      tenantId: 'number',
+      title: 'string',
+      url: 'string',
+      videoInfo: SubmitAudioTo2DAvatarVideoTaskRequestVideoInfo,
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class SubmitAudioTo2DAvatarVideoTaskShrinkRequest extends $tea.Model {
+  appShrink?: string;
+  avatarInfoShrink?: string;
+  tenantId?: number;
+  title?: string;
+  url?: string;
+  videoInfoShrink?: string;
+  static names(): { [key: string]: string } {
+    return {
+      appShrink: 'App',
+      avatarInfoShrink: 'AvatarInfo',
+      tenantId: 'TenantId',
+      title: 'Title',
+      url: 'Url',
+      videoInfoShrink: 'VideoInfo',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      appShrink: 'string',
+      avatarInfoShrink: 'string',
+      tenantId: 'number',
+      title: 'string',
+      url: 'string',
+      videoInfoShrink: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class SubmitAudioTo2DAvatarVideoTaskResponseBody extends $tea.Model {
+  code?: string;
+  data?: SubmitAudioTo2DAvatarVideoTaskResponseBodyData;
+  message?: string;
+  requestId?: string;
+  success?: string;
+  static names(): { [key: string]: string } {
+    return {
+      code: 'Code',
+      data: 'Data',
+      message: 'Message',
+      requestId: 'RequestId',
+      success: 'Success',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      code: 'string',
+      data: SubmitAudioTo2DAvatarVideoTaskResponseBodyData,
+      message: 'string',
+      requestId: 'string',
+      success: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class SubmitAudioTo2DAvatarVideoTaskResponse extends $tea.Model {
+  headers: { [key: string]: string };
+  statusCode: number;
+  body: SubmitAudioTo2DAvatarVideoTaskResponseBody;
+  static names(): { [key: string]: string } {
+    return {
+      headers: 'headers',
+      statusCode: 'statusCode',
+      body: 'body',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
+      body: SubmitAudioTo2DAvatarVideoTaskResponseBody,
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
 export class SubmitTextTo2DAvatarVideoTaskRequest extends $tea.Model {
   app?: SubmitTextTo2DAvatarVideoTaskRequestApp;
   audioInfo?: SubmitTextTo2DAvatarVideoTaskRequestAudioInfo;
@@ -1348,124 +1634,6 @@ export class SubmitTextTo3DAvatarVideoTaskResponse extends $tea.Model {
   }
 }
 
-export class SubmitTextToSignVideoTaskRequest extends $tea.Model {
-  app?: SubmitTextToSignVideoTaskRequestApp;
-  tenantId?: number;
-  text?: string;
-  title?: string;
-  videoInfo?: SubmitTextToSignVideoTaskRequestVideoInfo;
-  static names(): { [key: string]: string } {
-    return {
-      app: 'App',
-      tenantId: 'TenantId',
-      text: 'Text',
-      title: 'Title',
-      videoInfo: 'VideoInfo',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      app: SubmitTextToSignVideoTaskRequestApp,
-      tenantId: 'number',
-      text: 'string',
-      title: 'string',
-      videoInfo: SubmitTextToSignVideoTaskRequestVideoInfo,
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class SubmitTextToSignVideoTaskShrinkRequest extends $tea.Model {
-  appShrink?: string;
-  tenantId?: number;
-  text?: string;
-  title?: string;
-  videoInfoShrink?: string;
-  static names(): { [key: string]: string } {
-    return {
-      appShrink: 'App',
-      tenantId: 'TenantId',
-      text: 'Text',
-      title: 'Title',
-      videoInfoShrink: 'VideoInfo',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      appShrink: 'string',
-      tenantId: 'number',
-      text: 'string',
-      title: 'string',
-      videoInfoShrink: 'string',
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class SubmitTextToSignVideoTaskResponseBody extends $tea.Model {
-  code?: string;
-  data?: SubmitTextToSignVideoTaskResponseBodyData;
-  message?: string;
-  requestId?: string;
-  success?: string;
-  static names(): { [key: string]: string } {
-    return {
-      code: 'Code',
-      data: 'Data',
-      message: 'Message',
-      requestId: 'RequestId',
-      success: 'Success',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      code: 'string',
-      data: SubmitTextToSignVideoTaskResponseBodyData,
-      message: 'string',
-      requestId: 'string',
-      success: 'string',
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class SubmitTextToSignVideoTaskResponse extends $tea.Model {
-  headers: { [key: string]: string };
-  statusCode: number;
-  body: SubmitTextToSignVideoTaskResponseBody;
-  static names(): { [key: string]: string } {
-    return {
-      headers: 'headers',
-      statusCode: 'statusCode',
-      body: 'body',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
-      statusCode: 'number',
-      body: SubmitTextToSignVideoTaskResponseBody,
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
 export class CancelVideoTaskRequestApp extends $tea.Model {
   appId?: string;
   static names(): { [key: string]: string } {
@@ -1624,6 +1792,7 @@ export class GetVideoTaskInfoResponseBodyDataTaskResult extends $tea.Model {
   failCode?: string;
   failReason?: string;
   subtitlesUrl?: string;
+  videoDuration?: number;
   videoUrl?: string;
   wordSubtitlesUrl?: string;
   static names(): { [key: string]: string } {
@@ -1631,6 +1800,7 @@ export class GetVideoTaskInfoResponseBodyDataTaskResult extends $tea.Model {
       failCode: 'FailCode',
       failReason: 'FailReason',
       subtitlesUrl: 'SubtitlesUrl',
+      videoDuration: 'VideoDuration',
       videoUrl: 'VideoUrl',
       wordSubtitlesUrl: 'WordSubtitlesUrl',
     };
@@ -1641,6 +1811,7 @@ export class GetVideoTaskInfoResponseBodyDataTaskResult extends $tea.Model {
       failCode: 'string',
       failReason: 'string',
       subtitlesUrl: 'string',
+      videoDuration: 'number',
       videoUrl: 'string',
       wordSubtitlesUrl: 'string',
     };
@@ -1693,6 +1864,258 @@ export class LicenseAuthResponseBodyData extends $tea.Model {
   static types(): { [key: string]: any } {
     return {
       token: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class QueryAvatarResponseBodyDataSupportedResolutionsOffline extends $tea.Model {
+  desc?: string;
+  height?: number;
+  width?: number;
+  static names(): { [key: string]: string } {
+    return {
+      desc: 'Desc',
+      height: 'Height',
+      width: 'Width',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      desc: 'string',
+      height: 'number',
+      width: 'number',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class QueryAvatarResponseBodyDataSupportedResolutionsOnline extends $tea.Model {
+  desc?: string;
+  height?: number;
+  width?: number;
+  static names(): { [key: string]: string } {
+    return {
+      desc: 'Desc',
+      height: 'Height',
+      width: 'Width',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      desc: 'string',
+      height: 'number',
+      width: 'number',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class QueryAvatarResponseBodyDataSupportedResolutions extends $tea.Model {
+  offline?: QueryAvatarResponseBodyDataSupportedResolutionsOffline[];
+  online?: QueryAvatarResponseBodyDataSupportedResolutionsOnline[];
+  static names(): { [key: string]: string } {
+    return {
+      offline: 'Offline',
+      online: 'Online',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      offline: { 'type': 'array', 'itemType': QueryAvatarResponseBodyDataSupportedResolutionsOffline },
+      online: { 'type': 'array', 'itemType': QueryAvatarResponseBodyDataSupportedResolutionsOnline },
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class QueryAvatarResponseBodyData extends $tea.Model {
+  avatarType?: string;
+  description?: string;
+  image?: string;
+  modelType?: string;
+  name?: string;
+  portrait?: string;
+  supportedResolutions?: QueryAvatarResponseBodyDataSupportedResolutions;
+  static names(): { [key: string]: string } {
+    return {
+      avatarType: 'AvatarType',
+      description: 'Description',
+      image: 'Image',
+      modelType: 'ModelType',
+      name: 'Name',
+      portrait: 'Portrait',
+      supportedResolutions: 'SupportedResolutions',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      avatarType: 'string',
+      description: 'string',
+      image: 'string',
+      modelType: 'string',
+      name: 'string',
+      portrait: 'string',
+      supportedResolutions: QueryAvatarResponseBodyDataSupportedResolutions,
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class QueryAvatarListResponseBodyDataListSupportedResolutionsOffline extends $tea.Model {
+  desc?: string;
+  height?: number;
+  width?: number;
+  static names(): { [key: string]: string } {
+    return {
+      desc: 'Desc',
+      height: 'Height',
+      width: 'Width',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      desc: 'string',
+      height: 'number',
+      width: 'number',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class QueryAvatarListResponseBodyDataListSupportedResolutionsOnline extends $tea.Model {
+  desc?: string;
+  height?: number;
+  width?: number;
+  static names(): { [key: string]: string } {
+    return {
+      desc: 'Desc',
+      height: 'Height',
+      width: 'Width',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      desc: 'string',
+      height: 'number',
+      width: 'number',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class QueryAvatarListResponseBodyDataListSupportedResolutions extends $tea.Model {
+  offline?: QueryAvatarListResponseBodyDataListSupportedResolutionsOffline[];
+  online?: QueryAvatarListResponseBodyDataListSupportedResolutionsOnline[];
+  static names(): { [key: string]: string } {
+    return {
+      offline: 'Offline',
+      online: 'Online',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      offline: { 'type': 'array', 'itemType': QueryAvatarListResponseBodyDataListSupportedResolutionsOffline },
+      online: { 'type': 'array', 'itemType': QueryAvatarListResponseBodyDataListSupportedResolutionsOnline },
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class QueryAvatarListResponseBodyDataList extends $tea.Model {
+  avatarType?: string;
+  code?: string;
+  description?: string;
+  image?: string;
+  modelType?: string;
+  name?: string;
+  portrait?: string;
+  supportedResolutions?: QueryAvatarListResponseBodyDataListSupportedResolutions;
+  static names(): { [key: string]: string } {
+    return {
+      avatarType: 'AvatarType',
+      code: 'Code',
+      description: 'Description',
+      image: 'Image',
+      modelType: 'ModelType',
+      name: 'Name',
+      portrait: 'Portrait',
+      supportedResolutions: 'SupportedResolutions',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      avatarType: 'string',
+      code: 'string',
+      description: 'string',
+      image: 'string',
+      modelType: 'string',
+      name: 'string',
+      portrait: 'string',
+      supportedResolutions: QueryAvatarListResponseBodyDataListSupportedResolutions,
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class QueryAvatarListResponseBodyData extends $tea.Model {
+  list?: QueryAvatarListResponseBodyDataList[];
+  pageNo?: number;
+  pageSize?: number;
+  totalCount?: number;
+  totalPage?: number;
+  static names(): { [key: string]: string } {
+    return {
+      list: 'List',
+      pageNo: 'PageNo',
+      pageSize: 'PageSize',
+      totalCount: 'TotalCount',
+      totalPage: 'TotalPage',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      list: { 'type': 'array', 'itemType': QueryAvatarListResponseBodyDataList },
+      pageNo: 'number',
+      pageSize: 'number',
+      totalCount: 'number',
+      totalPage: 'number',
     };
   }
 
@@ -2107,6 +2530,91 @@ export class StopInstanceResponseBodyData extends $tea.Model {
   }
 }
 
+export class SubmitAudioTo2DAvatarVideoTaskRequestApp extends $tea.Model {
+  appId?: string;
+  static names(): { [key: string]: string } {
+    return {
+      appId: 'AppId',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      appId: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class SubmitAudioTo2DAvatarVideoTaskRequestAvatarInfo extends $tea.Model {
+  code?: string;
+  static names(): { [key: string]: string } {
+    return {
+      code: 'Code',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      code: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class SubmitAudioTo2DAvatarVideoTaskRequestVideoInfo extends $tea.Model {
+  alphaFormat?: number;
+  backgroundImageUrl?: string;
+  isAlpha?: boolean;
+  resolution?: number;
+  static names(): { [key: string]: string } {
+    return {
+      alphaFormat: 'AlphaFormat',
+      backgroundImageUrl: 'BackgroundImageUrl',
+      isAlpha: 'IsAlpha',
+      resolution: 'Resolution',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      alphaFormat: 'number',
+      backgroundImageUrl: 'string',
+      isAlpha: 'boolean',
+      resolution: 'number',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class SubmitAudioTo2DAvatarVideoTaskResponseBodyData extends $tea.Model {
+  taskUuid?: string;
+  static names(): { [key: string]: string } {
+    return {
+      taskUuid: 'TaskUuid',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      taskUuid: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
 export class SubmitTextTo2DAvatarVideoTaskRequestApp extends $tea.Model {
   appId?: string;
   static names(): { [key: string]: string } {
@@ -2174,22 +2682,28 @@ export class SubmitTextTo2DAvatarVideoTaskRequestAvatarInfo extends $tea.Model {
 }
 
 export class SubmitTextTo2DAvatarVideoTaskRequestVideoInfo extends $tea.Model {
+  alphaFormat?: number;
   backgroundImageUrl?: string;
   isAlpha?: boolean;
   isSubtitles?: boolean;
+  resolution?: number;
   static names(): { [key: string]: string } {
     return {
+      alphaFormat: 'AlphaFormat',
       backgroundImageUrl: 'BackgroundImageUrl',
       isAlpha: 'IsAlpha',
       isSubtitles: 'IsSubtitles',
+      resolution: 'Resolution',
     };
   }
 
   static types(): { [key: string]: any } {
     return {
+      alphaFormat: 'number',
       backgroundImageUrl: 'string',
       isAlpha: 'boolean',
       isSubtitles: 'boolean',
+      resolution: 'number',
     };
   }
 
@@ -2293,69 +2807,6 @@ export class SubmitTextTo3DAvatarVideoTaskRequestVideoInfo extends $tea.Model {
 }
 
 export class SubmitTextTo3DAvatarVideoTaskResponseBodyData extends $tea.Model {
-  taskUuid?: string;
-  static names(): { [key: string]: string } {
-    return {
-      taskUuid: 'TaskUuid',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      taskUuid: 'string',
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class SubmitTextToSignVideoTaskRequestApp extends $tea.Model {
-  appId?: string;
-  static names(): { [key: string]: string } {
-    return {
-      appId: 'AppId',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      appId: 'string',
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class SubmitTextToSignVideoTaskRequestVideoInfo extends $tea.Model {
-  isAlpha?: boolean;
-  isSubtitles?: boolean;
-  resolution?: number;
-  static names(): { [key: string]: string } {
-    return {
-      isAlpha: 'IsAlpha',
-      isSubtitles: 'IsSubtitles',
-      resolution: 'Resolution',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      isAlpha: 'boolean',
-      isSubtitles: 'boolean',
-      resolution: 'number',
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class SubmitTextToSignVideoTaskResponseBodyData extends $tea.Model {
   taskUuid?: string;
   static names(): { [key: string]: string } {
     return {
@@ -2614,6 +3065,72 @@ export default class Client extends OpenApi {
   async licenseAuth(request: LicenseAuthRequest): Promise<LicenseAuthResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.licenseAuthWithOptions(request, runtime);
+  }
+
+  async queryAvatarWithOptions(request: QueryAvatarRequest, runtime: $Util.RuntimeOptions): Promise<QueryAvatarResponse> {
+    Util.validateModel(request);
+    let query = OpenApiUtil.query(Util.toMap(request));
+    let req = new $OpenApi.OpenApiRequest({
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApi.Params({
+      action: "QueryAvatar",
+      version: "2022-01-30",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "GET",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $tea.cast<QueryAvatarResponse>(await this.callApi(params, req, runtime), new QueryAvatarResponse({}));
+  }
+
+  async queryAvatar(request: QueryAvatarRequest): Promise<QueryAvatarResponse> {
+    let runtime = new $Util.RuntimeOptions({ });
+    return await this.queryAvatarWithOptions(request, runtime);
+  }
+
+  async queryAvatarListWithOptions(request: QueryAvatarListRequest, runtime: $Util.RuntimeOptions): Promise<QueryAvatarListResponse> {
+    Util.validateModel(request);
+    let query = { };
+    if (!Util.isUnset(request.modelType)) {
+      query["ModelType"] = request.modelType;
+    }
+
+    if (!Util.isUnset(request.pageNo)) {
+      query["PageNo"] = request.pageNo;
+    }
+
+    if (!Util.isUnset(request.pageSize)) {
+      query["PageSize"] = request.pageSize;
+    }
+
+    if (!Util.isUnset(request.tenantId)) {
+      query["TenantId"] = request.tenantId;
+    }
+
+    let req = new $OpenApi.OpenApiRequest({
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApi.Params({
+      action: "QueryAvatarList",
+      version: "2022-01-30",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $tea.cast<QueryAvatarListResponse>(await this.callApi(params, req, runtime), new QueryAvatarListResponse({}));
+  }
+
+  async queryAvatarList(request: QueryAvatarListRequest): Promise<QueryAvatarListResponse> {
+    let runtime = new $Util.RuntimeOptions({ });
+    return await this.queryAvatarListWithOptions(request, runtime);
   }
 
   async queryRunningInstanceWithOptions(tmpReq: QueryRunningInstanceRequest, runtime: $Util.RuntimeOptions): Promise<QueryRunningInstanceResponse> {
@@ -2876,6 +3393,69 @@ export default class Client extends OpenApi {
     return await this.stopInstanceWithOptions(request, runtime);
   }
 
+  async submitAudioTo2DAvatarVideoTaskWithOptions(tmpReq: SubmitAudioTo2DAvatarVideoTaskRequest, runtime: $Util.RuntimeOptions): Promise<SubmitAudioTo2DAvatarVideoTaskResponse> {
+    Util.validateModel(tmpReq);
+    let request = new SubmitAudioTo2DAvatarVideoTaskShrinkRequest({ });
+    OpenApiUtil.convert(tmpReq, request);
+    if (!Util.isUnset(tmpReq.app)) {
+      request.appShrink = OpenApiUtil.arrayToStringWithSpecifiedStyle(tmpReq.app, "App", "json");
+    }
+
+    if (!Util.isUnset(tmpReq.avatarInfo)) {
+      request.avatarInfoShrink = OpenApiUtil.arrayToStringWithSpecifiedStyle(tmpReq.avatarInfo, "AvatarInfo", "json");
+    }
+
+    if (!Util.isUnset(tmpReq.videoInfo)) {
+      request.videoInfoShrink = OpenApiUtil.arrayToStringWithSpecifiedStyle(tmpReq.videoInfo, "VideoInfo", "json");
+    }
+
+    let query = { };
+    if (!Util.isUnset(request.appShrink)) {
+      query["App"] = request.appShrink;
+    }
+
+    if (!Util.isUnset(request.avatarInfoShrink)) {
+      query["AvatarInfo"] = request.avatarInfoShrink;
+    }
+
+    if (!Util.isUnset(request.tenantId)) {
+      query["TenantId"] = request.tenantId;
+    }
+
+    if (!Util.isUnset(request.title)) {
+      query["Title"] = request.title;
+    }
+
+    if (!Util.isUnset(request.url)) {
+      query["Url"] = request.url;
+    }
+
+    if (!Util.isUnset(request.videoInfoShrink)) {
+      query["VideoInfo"] = request.videoInfoShrink;
+    }
+
+    let req = new $OpenApi.OpenApiRequest({
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApi.Params({
+      action: "SubmitAudioTo2DAvatarVideoTask",
+      version: "2022-01-30",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $tea.cast<SubmitAudioTo2DAvatarVideoTaskResponse>(await this.callApi(params, req, runtime), new SubmitAudioTo2DAvatarVideoTaskResponse({}));
+  }
+
+  async submitAudioTo2DAvatarVideoTask(request: SubmitAudioTo2DAvatarVideoTaskRequest): Promise<SubmitAudioTo2DAvatarVideoTaskResponse> {
+    let runtime = new $Util.RuntimeOptions({ });
+    return await this.submitAudioTo2DAvatarVideoTaskWithOptions(request, runtime);
+  }
+
   async submitTextTo2DAvatarVideoTaskWithOptions(tmpReq: SubmitTextTo2DAvatarVideoTaskRequest, runtime: $Util.RuntimeOptions): Promise<SubmitTextTo2DAvatarVideoTaskResponse> {
     Util.validateModel(tmpReq);
     let request = new SubmitTextTo2DAvatarVideoTaskShrinkRequest({ });
@@ -3008,61 +3588,6 @@ export default class Client extends OpenApi {
   async submitTextTo3DAvatarVideoTask(request: SubmitTextTo3DAvatarVideoTaskRequest): Promise<SubmitTextTo3DAvatarVideoTaskResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.submitTextTo3DAvatarVideoTaskWithOptions(request, runtime);
-  }
-
-  async submitTextToSignVideoTaskWithOptions(tmpReq: SubmitTextToSignVideoTaskRequest, runtime: $Util.RuntimeOptions): Promise<SubmitTextToSignVideoTaskResponse> {
-    Util.validateModel(tmpReq);
-    let request = new SubmitTextToSignVideoTaskShrinkRequest({ });
-    OpenApiUtil.convert(tmpReq, request);
-    if (!Util.isUnset(tmpReq.app)) {
-      request.appShrink = OpenApiUtil.arrayToStringWithSpecifiedStyle(tmpReq.app, "App", "json");
-    }
-
-    if (!Util.isUnset(tmpReq.videoInfo)) {
-      request.videoInfoShrink = OpenApiUtil.arrayToStringWithSpecifiedStyle(tmpReq.videoInfo, "VideoInfo", "json");
-    }
-
-    let query = { };
-    if (!Util.isUnset(request.appShrink)) {
-      query["App"] = request.appShrink;
-    }
-
-    if (!Util.isUnset(request.tenantId)) {
-      query["TenantId"] = request.tenantId;
-    }
-
-    if (!Util.isUnset(request.text)) {
-      query["Text"] = request.text;
-    }
-
-    if (!Util.isUnset(request.title)) {
-      query["Title"] = request.title;
-    }
-
-    if (!Util.isUnset(request.videoInfoShrink)) {
-      query["VideoInfo"] = request.videoInfoShrink;
-    }
-
-    let req = new $OpenApi.OpenApiRequest({
-      query: OpenApiUtil.query(query),
-    });
-    let params = new $OpenApi.Params({
-      action: "SubmitTextToSignVideoTask",
-      version: "2022-01-30",
-      protocol: "HTTPS",
-      pathname: "/",
-      method: "POST",
-      authType: "AK",
-      style: "RPC",
-      reqBodyType: "formData",
-      bodyType: "json",
-    });
-    return $tea.cast<SubmitTextToSignVideoTaskResponse>(await this.callApi(params, req, runtime), new SubmitTextToSignVideoTaskResponse({}));
-  }
-
-  async submitTextToSignVideoTask(request: SubmitTextToSignVideoTaskRequest): Promise<SubmitTextToSignVideoTaskResponse> {
-    let runtime = new $Util.RuntimeOptions({ });
-    return await this.submitTextToSignVideoTaskWithOptions(request, runtime);
   }
 
 }
