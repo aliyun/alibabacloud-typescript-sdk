@@ -608,6 +608,102 @@ export class DescribeTransactionsListResponse extends $tea.Model {
   }
 }
 
+export class DocOcrRequest extends $tea.Model {
+  docType?: string;
+  idFaceQuality?: string;
+  idOcrPictureBase64?: string;
+  idOcrPictureUrl?: string;
+  merchantBizId?: string;
+  merchantUserId?: string;
+  ocr?: string;
+  productCode?: string;
+  spoof?: string;
+  static names(): { [key: string]: string } {
+    return {
+      docType: 'DocType',
+      idFaceQuality: 'IdFaceQuality',
+      idOcrPictureBase64: 'IdOcrPictureBase64',
+      idOcrPictureUrl: 'IdOcrPictureUrl',
+      merchantBizId: 'MerchantBizId',
+      merchantUserId: 'MerchantUserId',
+      ocr: 'Ocr',
+      productCode: 'ProductCode',
+      spoof: 'Spoof',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      docType: 'string',
+      idFaceQuality: 'string',
+      idOcrPictureBase64: 'string',
+      idOcrPictureUrl: 'string',
+      merchantBizId: 'string',
+      merchantUserId: 'string',
+      ocr: 'string',
+      productCode: 'string',
+      spoof: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class DocOcrResponseBody extends $tea.Model {
+  code?: string;
+  message?: string;
+  requestId?: string;
+  result?: DocOcrResponseBodyResult;
+  static names(): { [key: string]: string } {
+    return {
+      code: 'Code',
+      message: 'Message',
+      requestId: 'RequestId',
+      result: 'Result',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      code: 'string',
+      message: 'string',
+      requestId: 'string',
+      result: DocOcrResponseBodyResult,
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class DocOcrResponse extends $tea.Model {
+  headers: { [key: string]: string };
+  statusCode: number;
+  body: DocOcrResponseBody;
+  static names(): { [key: string]: string } {
+    return {
+      headers: 'headers',
+      statusCode: 'statusCode',
+      body: 'body',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
+      body: DocOcrResponseBody,
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
 export class FaceCompareRequest extends $tea.Model {
   merchantBizId?: string;
   sourceFacePicture?: string;
@@ -910,12 +1006,14 @@ export class InitializeResponse extends $tea.Model {
 
 export class CardOcrResponseBodyResult extends $tea.Model {
   extCardInfo?: string;
+  extIdInfo?: string;
   passed?: string;
   subCode?: string;
   transactionId?: string;
   static names(): { [key: string]: string } {
     return {
       extCardInfo: 'ExtCardInfo',
+      extIdInfo: 'ExtIdInfo',
       passed: 'Passed',
       subCode: 'SubCode',
       transactionId: 'TransactionId',
@@ -925,6 +1023,7 @@ export class CardOcrResponseBodyResult extends $tea.Model {
   static types(): { [key: string]: any } {
     return {
       extCardInfo: 'string',
+      extIdInfo: 'string',
       passed: 'string',
       subCode: 'string',
       transactionId: 'string',
@@ -1184,6 +1283,34 @@ export class DescribeTransactionsListResponseBodyData extends $tea.Model {
   }
 }
 
+export class DocOcrResponseBodyResult extends $tea.Model {
+  extIdInfo?: string;
+  passed?: string;
+  subCode?: string;
+  transactionId?: string;
+  static names(): { [key: string]: string } {
+    return {
+      extIdInfo: 'ExtIdInfo',
+      passed: 'Passed',
+      subCode: 'SubCode',
+      transactionId: 'TransactionId',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      extIdInfo: 'string',
+      passed: 'string',
+      subCode: 'string',
+      transactionId: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
 export class FaceCompareResponseBodyResult extends $tea.Model {
   faceComparisonScore?: number;
   passed?: string;
@@ -1310,6 +1437,14 @@ export default class Client extends OpenApi {
     return EndpointUtil.getEndpointRules(productId, regionId, endpointRule, network, suffix);
   }
 
+  /**
+    * @deprecated : CardOcr is deprecated, please use Cloudauth-intl::2022-08-09::DocOcr instead.
+    *
+    * @param request CardOcrRequest
+    * @param runtime runtime options for this request RuntimeOptions
+    * @return CardOcrResponse
+   */
+  // Deprecated
   async cardOcrWithOptions(request: CardOcrRequest, runtime: $Util.RuntimeOptions): Promise<CardOcrResponse> {
     Util.validateModel(request);
     let query = { };
@@ -1366,6 +1501,13 @@ export default class Client extends OpenApi {
     return $tea.cast<CardOcrResponse>(await this.callApi(params, req, runtime), new CardOcrResponse({}));
   }
 
+  /**
+    * @deprecated : CardOcr is deprecated, please use Cloudauth-intl::2022-08-09::DocOcr instead.
+    *
+    * @param request CardOcrRequest
+    * @return CardOcrResponse
+   */
+  // Deprecated
   async cardOcr(request: CardOcrRequest): Promise<CardOcrResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.cardOcrWithOptions(request, runtime);
@@ -1619,6 +1761,67 @@ export default class Client extends OpenApi {
   async describeTransactionsList(request: DescribeTransactionsListRequest): Promise<DescribeTransactionsListResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.describeTransactionsListWithOptions(request, runtime);
+  }
+
+  async docOcrWithOptions(request: DocOcrRequest, runtime: $Util.RuntimeOptions): Promise<DocOcrResponse> {
+    Util.validateModel(request);
+    let query = { };
+    if (!Util.isUnset(request.docType)) {
+      query["DocType"] = request.docType;
+    }
+
+    if (!Util.isUnset(request.idFaceQuality)) {
+      query["IdFaceQuality"] = request.idFaceQuality;
+    }
+
+    if (!Util.isUnset(request.idOcrPictureBase64)) {
+      query["IdOcrPictureBase64"] = request.idOcrPictureBase64;
+    }
+
+    if (!Util.isUnset(request.idOcrPictureUrl)) {
+      query["IdOcrPictureUrl"] = request.idOcrPictureUrl;
+    }
+
+    if (!Util.isUnset(request.merchantBizId)) {
+      query["MerchantBizId"] = request.merchantBizId;
+    }
+
+    if (!Util.isUnset(request.merchantUserId)) {
+      query["MerchantUserId"] = request.merchantUserId;
+    }
+
+    if (!Util.isUnset(request.ocr)) {
+      query["Ocr"] = request.ocr;
+    }
+
+    if (!Util.isUnset(request.productCode)) {
+      query["ProductCode"] = request.productCode;
+    }
+
+    if (!Util.isUnset(request.spoof)) {
+      query["Spoof"] = request.spoof;
+    }
+
+    let req = new $OpenApi.OpenApiRequest({
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApi.Params({
+      action: "DocOcr",
+      version: "2022-08-09",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $tea.cast<DocOcrResponse>(await this.callApi(params, req, runtime), new DocOcrResponse({}));
+  }
+
+  async docOcr(request: DocOcrRequest): Promise<DocOcrResponse> {
+    let runtime = new $Util.RuntimeOptions({ });
+    return await this.docOcrWithOptions(request, runtime);
   }
 
   async faceCompareWithOptions(request: FaceCompareRequest, runtime: $Util.RuntimeOptions): Promise<FaceCompareResponse> {
