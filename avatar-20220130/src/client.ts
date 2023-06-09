@@ -1380,6 +1380,130 @@ export class SubmitAudioTo2DAvatarVideoTaskResponse extends $tea.Model {
   }
 }
 
+export class SubmitAudioTo3DAvatarVideoTaskRequest extends $tea.Model {
+  app?: SubmitAudioTo3DAvatarVideoTaskRequestApp;
+  avatarInfo?: SubmitAudioTo3DAvatarVideoTaskRequestAvatarInfo;
+  tenantId?: number;
+  title?: string;
+  url?: string;
+  videoInfo?: SubmitAudioTo3DAvatarVideoTaskRequestVideoInfo;
+  static names(): { [key: string]: string } {
+    return {
+      app: 'App',
+      avatarInfo: 'AvatarInfo',
+      tenantId: 'TenantId',
+      title: 'Title',
+      url: 'Url',
+      videoInfo: 'VideoInfo',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      app: SubmitAudioTo3DAvatarVideoTaskRequestApp,
+      avatarInfo: SubmitAudioTo3DAvatarVideoTaskRequestAvatarInfo,
+      tenantId: 'number',
+      title: 'string',
+      url: 'string',
+      videoInfo: SubmitAudioTo3DAvatarVideoTaskRequestVideoInfo,
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class SubmitAudioTo3DAvatarVideoTaskShrinkRequest extends $tea.Model {
+  appShrink?: string;
+  avatarInfoShrink?: string;
+  tenantId?: number;
+  title?: string;
+  url?: string;
+  videoInfoShrink?: string;
+  static names(): { [key: string]: string } {
+    return {
+      appShrink: 'App',
+      avatarInfoShrink: 'AvatarInfo',
+      tenantId: 'TenantId',
+      title: 'Title',
+      url: 'Url',
+      videoInfoShrink: 'VideoInfo',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      appShrink: 'string',
+      avatarInfoShrink: 'string',
+      tenantId: 'number',
+      title: 'string',
+      url: 'string',
+      videoInfoShrink: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class SubmitAudioTo3DAvatarVideoTaskResponseBody extends $tea.Model {
+  code?: string;
+  data?: SubmitAudioTo3DAvatarVideoTaskResponseBodyData;
+  message?: string;
+  requestId?: string;
+  success?: string;
+  static names(): { [key: string]: string } {
+    return {
+      code: 'Code',
+      data: 'Data',
+      message: 'Message',
+      requestId: 'RequestId',
+      success: 'Success',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      code: 'string',
+      data: SubmitAudioTo3DAvatarVideoTaskResponseBodyData,
+      message: 'string',
+      requestId: 'string',
+      success: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class SubmitAudioTo3DAvatarVideoTaskResponse extends $tea.Model {
+  headers: { [key: string]: string };
+  statusCode: number;
+  body: SubmitAudioTo3DAvatarVideoTaskResponseBody;
+  static names(): { [key: string]: string } {
+    return {
+      headers: 'headers',
+      statusCode: 'statusCode',
+      body: 'body',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
+      body: SubmitAudioTo3DAvatarVideoTaskResponseBody,
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
 export class SubmitTextTo2DAvatarVideoTaskRequest extends $tea.Model {
   app?: SubmitTextTo2DAvatarVideoTaskRequestApp;
   audioInfo?: SubmitTextTo2DAvatarVideoTaskRequestAudioInfo;
@@ -2615,6 +2739,97 @@ export class SubmitAudioTo2DAvatarVideoTaskResponseBodyData extends $tea.Model {
   }
 }
 
+export class SubmitAudioTo3DAvatarVideoTaskRequestApp extends $tea.Model {
+  appId?: string;
+  static names(): { [key: string]: string } {
+    return {
+      appId: 'AppId',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      appId: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class SubmitAudioTo3DAvatarVideoTaskRequestAvatarInfo extends $tea.Model {
+  angle?: number;
+  code?: string;
+  locate?: number;
+  static names(): { [key: string]: string } {
+    return {
+      angle: 'Angle',
+      code: 'Code',
+      locate: 'Locate',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      angle: 'number',
+      code: 'string',
+      locate: 'number',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class SubmitAudioTo3DAvatarVideoTaskRequestVideoInfo extends $tea.Model {
+  alphaFormat?: number;
+  backgroundImageUrl?: string;
+  isAlpha?: boolean;
+  resolution?: number;
+  static names(): { [key: string]: string } {
+    return {
+      alphaFormat: 'AlphaFormat',
+      backgroundImageUrl: 'BackgroundImageUrl',
+      isAlpha: 'IsAlpha',
+      resolution: 'Resolution',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      alphaFormat: 'number',
+      backgroundImageUrl: 'string',
+      isAlpha: 'boolean',
+      resolution: 'number',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class SubmitAudioTo3DAvatarVideoTaskResponseBodyData extends $tea.Model {
+  taskUuid?: string;
+  static names(): { [key: string]: string } {
+    return {
+      taskUuid: 'TaskUuid',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      taskUuid: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
 export class SubmitTextTo2DAvatarVideoTaskRequestApp extends $tea.Model {
   appId?: string;
   static names(): { [key: string]: string } {
@@ -3454,6 +3669,69 @@ export default class Client extends OpenApi {
   async submitAudioTo2DAvatarVideoTask(request: SubmitAudioTo2DAvatarVideoTaskRequest): Promise<SubmitAudioTo2DAvatarVideoTaskResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.submitAudioTo2DAvatarVideoTaskWithOptions(request, runtime);
+  }
+
+  async submitAudioTo3DAvatarVideoTaskWithOptions(tmpReq: SubmitAudioTo3DAvatarVideoTaskRequest, runtime: $Util.RuntimeOptions): Promise<SubmitAudioTo3DAvatarVideoTaskResponse> {
+    Util.validateModel(tmpReq);
+    let request = new SubmitAudioTo3DAvatarVideoTaskShrinkRequest({ });
+    OpenApiUtil.convert(tmpReq, request);
+    if (!Util.isUnset(tmpReq.app)) {
+      request.appShrink = OpenApiUtil.arrayToStringWithSpecifiedStyle(tmpReq.app, "App", "json");
+    }
+
+    if (!Util.isUnset(tmpReq.avatarInfo)) {
+      request.avatarInfoShrink = OpenApiUtil.arrayToStringWithSpecifiedStyle(tmpReq.avatarInfo, "AvatarInfo", "json");
+    }
+
+    if (!Util.isUnset(tmpReq.videoInfo)) {
+      request.videoInfoShrink = OpenApiUtil.arrayToStringWithSpecifiedStyle(tmpReq.videoInfo, "VideoInfo", "json");
+    }
+
+    let query = { };
+    if (!Util.isUnset(request.appShrink)) {
+      query["App"] = request.appShrink;
+    }
+
+    if (!Util.isUnset(request.avatarInfoShrink)) {
+      query["AvatarInfo"] = request.avatarInfoShrink;
+    }
+
+    if (!Util.isUnset(request.tenantId)) {
+      query["TenantId"] = request.tenantId;
+    }
+
+    if (!Util.isUnset(request.title)) {
+      query["Title"] = request.title;
+    }
+
+    if (!Util.isUnset(request.url)) {
+      query["Url"] = request.url;
+    }
+
+    if (!Util.isUnset(request.videoInfoShrink)) {
+      query["VideoInfo"] = request.videoInfoShrink;
+    }
+
+    let req = new $OpenApi.OpenApiRequest({
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApi.Params({
+      action: "SubmitAudioTo3DAvatarVideoTask",
+      version: "2022-01-30",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $tea.cast<SubmitAudioTo3DAvatarVideoTaskResponse>(await this.callApi(params, req, runtime), new SubmitAudioTo3DAvatarVideoTaskResponse({}));
+  }
+
+  async submitAudioTo3DAvatarVideoTask(request: SubmitAudioTo3DAvatarVideoTaskRequest): Promise<SubmitAudioTo3DAvatarVideoTaskResponse> {
+    let runtime = new $Util.RuntimeOptions({ });
+    return await this.submitAudioTo3DAvatarVideoTaskWithOptions(request, runtime);
   }
 
   async submitTextTo2DAvatarVideoTaskWithOptions(tmpReq: SubmitTextTo2DAvatarVideoTaskRequest, runtime: $Util.RuntimeOptions): Promise<SubmitTextTo2DAvatarVideoTaskResponse> {
