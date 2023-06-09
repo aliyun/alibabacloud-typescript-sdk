@@ -497,6 +497,81 @@ export class GetResourceConfigurationResponse extends $tea.Model {
   }
 }
 
+export class GetResourceCountsRequest extends $tea.Model {
+  filter?: GetResourceCountsRequestFilter[];
+  groupByKey?: string;
+  static names(): { [key: string]: string } {
+    return {
+      filter: 'Filter',
+      groupByKey: 'GroupByKey',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      filter: { 'type': 'array', 'itemType': GetResourceCountsRequestFilter },
+      groupByKey: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class GetResourceCountsResponseBody extends $tea.Model {
+  filters?: GetResourceCountsResponseBodyFilters[];
+  groupByKey?: string;
+  requestId?: string;
+  resourceCounts?: GetResourceCountsResponseBodyResourceCounts[];
+  static names(): { [key: string]: string } {
+    return {
+      filters: 'Filters',
+      groupByKey: 'GroupByKey',
+      requestId: 'RequestId',
+      resourceCounts: 'ResourceCounts',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      filters: { 'type': 'array', 'itemType': GetResourceCountsResponseBodyFilters },
+      groupByKey: 'string',
+      requestId: 'string',
+      resourceCounts: { 'type': 'array', 'itemType': GetResourceCountsResponseBodyResourceCounts },
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class GetResourceCountsResponse extends $tea.Model {
+  headers: { [key: string]: string };
+  statusCode: number;
+  body: GetResourceCountsResponseBody;
+  static names(): { [key: string]: string } {
+    return {
+      headers: 'headers',
+      statusCode: 'statusCode',
+      body: 'body',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
+      body: GetResourceCountsResponseBody,
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
 export class ListMultiAccountResourceGroupsRequest extends $tea.Model {
   accountId?: string;
   maxResults?: number;
@@ -1192,6 +1267,75 @@ export class GetResourceConfigurationResponseBodyTags extends $tea.Model {
   }
 }
 
+export class GetResourceCountsRequestFilter extends $tea.Model {
+  key?: string;
+  matchType?: string;
+  value?: string[];
+  static names(): { [key: string]: string } {
+    return {
+      key: 'Key',
+      matchType: 'MatchType',
+      value: 'Value',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      key: 'string',
+      matchType: 'string',
+      value: { 'type': 'array', 'itemType': 'string' },
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class GetResourceCountsResponseBodyFilters extends $tea.Model {
+  key?: string;
+  values?: string[];
+  static names(): { [key: string]: string } {
+    return {
+      key: 'Key',
+      values: 'Values',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      key: 'string',
+      values: { 'type': 'array', 'itemType': 'string' },
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class GetResourceCountsResponseBodyResourceCounts extends $tea.Model {
+  count?: number;
+  groupName?: string;
+  static names(): { [key: string]: string } {
+    return {
+      count: 'Count',
+      groupName: 'GroupName',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      count: 'number',
+      groupName: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
 export class ListMultiAccountResourceGroupsResponseBodyResourceGroups extends $tea.Model {
   accountId?: string;
   createDate?: string;
@@ -1599,6 +1743,13 @@ export default class Client extends OpenApi {
     return await this.disableResourceCenterWithOptions(runtime);
   }
 
+  /**
+    * If you have created a resource directory for your enterprise, you can enable the cross-account resource search feature by using the management account of the resource directory or a delegated administrator account of Resource Center to view the resources of members in the resource directory. For more information about a resource directory, see [Resource Directory overview](~~200506~~).
+    *
+    * @param request EnableMultiAccountResourceCenterRequest
+    * @param runtime runtime options for this request RuntimeOptions
+    * @return EnableMultiAccountResourceCenterResponse
+   */
   async enableMultiAccountResourceCenterWithOptions(runtime: $Util.RuntimeOptions): Promise<EnableMultiAccountResourceCenterResponse> {
     let req = new $OpenApi.OpenApiRequest({ });
     let params = new $OpenApi.Params({
@@ -1615,6 +1766,11 @@ export default class Client extends OpenApi {
     return $tea.cast<EnableMultiAccountResourceCenterResponse>(await this.callApi(params, req, runtime), new EnableMultiAccountResourceCenterResponse({}));
   }
 
+  /**
+    * If you have created a resource directory for your enterprise, you can enable the cross-account resource search feature by using the management account of the resource directory or a delegated administrator account of Resource Center to view the resources of members in the resource directory. For more information about a resource directory, see [Resource Directory overview](~~200506~~).
+    *
+    * @return EnableMultiAccountResourceCenterResponse
+   */
   async enableMultiAccountResourceCenter(): Promise<EnableMultiAccountResourceCenterResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.enableMultiAccountResourceCenterWithOptions(runtime);
@@ -1759,6 +1915,39 @@ export default class Client extends OpenApi {
   async getResourceConfiguration(request: GetResourceConfigurationRequest): Promise<GetResourceConfigurationResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.getResourceConfigurationWithOptions(request, runtime);
+  }
+
+  async getResourceCountsWithOptions(request: GetResourceCountsRequest, runtime: $Util.RuntimeOptions): Promise<GetResourceCountsResponse> {
+    Util.validateModel(request);
+    let query = { };
+    if (!Util.isUnset(request.filter)) {
+      query["Filter"] = request.filter;
+    }
+
+    if (!Util.isUnset(request.groupByKey)) {
+      query["GroupByKey"] = request.groupByKey;
+    }
+
+    let req = new $OpenApi.OpenApiRequest({
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApi.Params({
+      action: "GetResourceCounts",
+      version: "2022-12-01",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $tea.cast<GetResourceCountsResponse>(await this.callApi(params, req, runtime), new GetResourceCountsResponse({}));
+  }
+
+  async getResourceCounts(request: GetResourceCountsRequest): Promise<GetResourceCountsResponse> {
+    let runtime = new $Util.RuntimeOptions({ });
+    return await this.getResourceCountsWithOptions(request, runtime);
   }
 
   async listMultiAccountResourceGroupsWithOptions(request: ListMultiAccountResourceGroupsRequest, runtime: $Util.RuntimeOptions): Promise<ListMultiAccountResourceGroupsResponse> {
