@@ -456,31 +456,6 @@ export class CreateUserGroupRequest extends $tea.Model {
   }
 }
 
-export class CreateUserGroupShrinkRequest extends $tea.Model {
-  attributesShrink?: string;
-  description?: string;
-  name?: string;
-  static names(): { [key: string]: string } {
-    return {
-      attributesShrink: 'Attributes',
-      description: 'Description',
-      name: 'Name',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      attributesShrink: 'string',
-      description: 'string',
-      name: 'string',
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
 export class CreateUserGroupResponseBody extends $tea.Model {
   requestId?: string;
   userGroupId?: string;
@@ -1085,25 +1060,6 @@ export class ListApplicationsForPrivateAccessPolicyRequest extends $tea.Model {
   }
 }
 
-export class ListApplicationsForPrivateAccessPolicyShrinkRequest extends $tea.Model {
-  policyIdsShrink?: string;
-  static names(): { [key: string]: string } {
-    return {
-      policyIdsShrink: 'PolicyIds',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      policyIdsShrink: 'string',
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
 export class ListApplicationsForPrivateAccessPolicyResponseBody extends $tea.Model {
   polices?: ListApplicationsForPrivateAccessPolicyResponseBodyPolices[];
   requestId?: string;
@@ -1170,25 +1126,6 @@ export class ListApplicationsForPrivateAccessTagRequest extends $tea.Model {
   }
 }
 
-export class ListApplicationsForPrivateAccessTagShrinkRequest extends $tea.Model {
-  tagIdsShrink?: string;
-  static names(): { [key: string]: string } {
-    return {
-      tagIdsShrink: 'TagIds',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      tagIdsShrink: 'string',
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
 export class ListApplicationsForPrivateAccessTagResponseBody extends $tea.Model {
   requestId?: string;
   tags?: ListApplicationsForPrivateAccessTagResponseBodyTags[];
@@ -1241,12 +1178,16 @@ export class ListConnectorsRequest extends $tea.Model {
   currentPage?: number;
   name?: string;
   pageSize?: number;
+  status?: string;
+  switchStatus?: string;
   static names(): { [key: string]: string } {
     return {
       connectorIds: 'ConnectorIds',
       currentPage: 'CurrentPage',
       name: 'Name',
       pageSize: 'PageSize',
+      status: 'Status',
+      switchStatus: 'SwitchStatus',
     };
   }
 
@@ -1256,34 +1197,8 @@ export class ListConnectorsRequest extends $tea.Model {
       currentPage: 'number',
       name: 'string',
       pageSize: 'number',
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class ListConnectorsShrinkRequest extends $tea.Model {
-  connectorIdsShrink?: string;
-  currentPage?: number;
-  name?: string;
-  pageSize?: number;
-  static names(): { [key: string]: string } {
-    return {
-      connectorIdsShrink: 'ConnectorIds',
-      currentPage: 'CurrentPage',
-      name: 'Name',
-      pageSize: 'PageSize',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      connectorIdsShrink: 'string',
-      currentPage: 'number',
-      name: 'string',
-      pageSize: 'number',
+      status: 'string',
+      switchStatus: 'string',
     };
   }
 
@@ -1361,25 +1276,6 @@ export class ListPolicesForPrivateAccessApplicationRequest extends $tea.Model {
   }
 }
 
-export class ListPolicesForPrivateAccessApplicationShrinkRequest extends $tea.Model {
-  applicationIdsShrink?: string;
-  static names(): { [key: string]: string } {
-    return {
-      applicationIdsShrink: 'ApplicationIds',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      applicationIdsShrink: 'string',
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
 export class ListPolicesForPrivateAccessApplicationResponseBody extends $tea.Model {
   applications?: ListPolicesForPrivateAccessApplicationResponseBodyApplications[];
   requestId?: string;
@@ -1446,25 +1342,6 @@ export class ListPolicesForPrivateAccessTagRequest extends $tea.Model {
   }
 }
 
-export class ListPolicesForPrivateAccessTagShrinkRequest extends $tea.Model {
-  tagIdsShrink?: string;
-  static names(): { [key: string]: string } {
-    return {
-      tagIdsShrink: 'TagIds',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      tagIdsShrink: 'string',
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
 export class ListPolicesForPrivateAccessTagResponseBody extends $tea.Model {
   requestId?: string;
   tags?: ListPolicesForPrivateAccessTagResponseBodyTags[];
@@ -1523,25 +1400,6 @@ export class ListPolicesForUserGroupRequest extends $tea.Model {
   static types(): { [key: string]: any } {
     return {
       userGroupIds: { 'type': 'array', 'itemType': 'string' },
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class ListPolicesForUserGroupShrinkRequest extends $tea.Model {
-  userGroupIdsShrink?: string;
-  static names(): { [key: string]: string } {
-    return {
-      userGroupIdsShrink: 'UserGroupIds',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      userGroupIdsShrink: 'string',
     };
   }
 
@@ -1623,46 +1481,6 @@ export class ListPrivateAccessApplicationsRequest extends $tea.Model {
     return {
       address: 'string',
       applicationIds: { 'type': 'array', 'itemType': 'string' },
-      currentPage: 'number',
-      name: 'string',
-      pageSize: 'number',
-      policyId: 'string',
-      status: 'string',
-      tagId: 'string',
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class ListPrivateAccessApplicationsShrinkRequest extends $tea.Model {
-  address?: string;
-  applicationIdsShrink?: string;
-  currentPage?: number;
-  name?: string;
-  pageSize?: number;
-  policyId?: string;
-  status?: string;
-  tagId?: string;
-  static names(): { [key: string]: string } {
-    return {
-      address: 'Address',
-      applicationIdsShrink: 'ApplicationIds',
-      currentPage: 'CurrentPage',
-      name: 'Name',
-      pageSize: 'PageSize',
-      policyId: 'PolicyId',
-      status: 'Status',
-      tagId: 'TagId',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      address: 'string',
-      applicationIdsShrink: 'string',
       currentPage: 'number',
       name: 'string',
       pageSize: 'number',
@@ -1770,49 +1588,6 @@ export class ListPrivateAccessPolicesRequest extends $tea.Model {
   }
 }
 
-export class ListPrivateAccessPolicesShrinkRequest extends $tea.Model {
-  applicationId?: string;
-  currentPage?: number;
-  name?: string;
-  pageSize?: number;
-  policyAction?: string;
-  policyIdsShrink?: string;
-  status?: string;
-  tagId?: string;
-  userGroupId?: string;
-  static names(): { [key: string]: string } {
-    return {
-      applicationId: 'ApplicationId',
-      currentPage: 'CurrentPage',
-      name: 'Name',
-      pageSize: 'PageSize',
-      policyAction: 'PolicyAction',
-      policyIdsShrink: 'PolicyIds',
-      status: 'Status',
-      tagId: 'TagId',
-      userGroupId: 'UserGroupId',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      applicationId: 'string',
-      currentPage: 'number',
-      name: 'string',
-      pageSize: 'number',
-      policyAction: 'string',
-      policyIdsShrink: 'string',
-      status: 'string',
-      tagId: 'string',
-      userGroupId: 'string',
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
 export class ListPrivateAccessPolicesResponseBody extends $tea.Model {
   polices?: ListPrivateAccessPolicesResponseBodyPolices[];
   requestId?: string;
@@ -1897,40 +1672,6 @@ export class ListPrivateAccessTagsRequest extends $tea.Model {
   }
 }
 
-export class ListPrivateAccessTagsShrinkRequest extends $tea.Model {
-  applicationId?: string;
-  currentPage?: number;
-  name?: string;
-  pageSize?: number;
-  policyId?: string;
-  tagIdsShrink?: string;
-  static names(): { [key: string]: string } {
-    return {
-      applicationId: 'ApplicationId',
-      currentPage: 'CurrentPage',
-      name: 'Name',
-      pageSize: 'PageSize',
-      policyId: 'PolicyId',
-      tagIdsShrink: 'TagIds',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      applicationId: 'string',
-      currentPage: 'number',
-      name: 'string',
-      pageSize: 'number',
-      policyId: 'string',
-      tagIdsShrink: 'string',
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
 export class ListPrivateAccessTagsResponseBody extends $tea.Model {
   requestId?: string;
   tags?: ListPrivateAccessTagsResponseBodyTags[];
@@ -2000,25 +1741,6 @@ export class ListTagsForPrivateAccessApplicationRequest extends $tea.Model {
   }
 }
 
-export class ListTagsForPrivateAccessApplicationShrinkRequest extends $tea.Model {
-  applicationIdsShrink?: string;
-  static names(): { [key: string]: string } {
-    return {
-      applicationIdsShrink: 'ApplicationIds',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      applicationIdsShrink: 'string',
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
 export class ListTagsForPrivateAccessApplicationResponseBody extends $tea.Model {
   applications?: ListTagsForPrivateAccessApplicationResponseBodyApplications[];
   requestId?: string;
@@ -2077,25 +1799,6 @@ export class ListTagsForPrivateAccessPolicyRequest extends $tea.Model {
   static types(): { [key: string]: any } {
     return {
       policyIds: { 'type': 'array', 'itemType': 'string' },
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class ListTagsForPrivateAccessPolicyShrinkRequest extends $tea.Model {
-  policyIdsShrink?: string;
-  static names(): { [key: string]: string } {
-    return {
-      policyIdsShrink: 'PolicyIds',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      policyIdsShrink: 'string',
     };
   }
 
@@ -2185,40 +1888,6 @@ export class ListUserGroupsRequest extends $tea.Model {
   }
 }
 
-export class ListUserGroupsShrinkRequest extends $tea.Model {
-  attributeValue?: string;
-  currentPage?: number;
-  name?: string;
-  PAPolicyId?: string;
-  pageSize?: number;
-  userGroupIdsShrink?: string;
-  static names(): { [key: string]: string } {
-    return {
-      attributeValue: 'AttributeValue',
-      currentPage: 'CurrentPage',
-      name: 'Name',
-      PAPolicyId: 'PAPolicyId',
-      pageSize: 'PageSize',
-      userGroupIdsShrink: 'UserGroupIds',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      attributeValue: 'string',
-      currentPage: 'number',
-      name: 'string',
-      PAPolicyId: 'string',
-      pageSize: 'number',
-      userGroupIdsShrink: 'string',
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
 export class ListUserGroupsResponseBody extends $tea.Model {
   requestId?: string;
   totalNum?: number;
@@ -2280,25 +1949,6 @@ export class ListUserGroupsForPrivateAccessPolicyRequest extends $tea.Model {
   static types(): { [key: string]: any } {
     return {
       policyIds: { 'type': 'array', 'itemType': 'string' },
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class ListUserGroupsForPrivateAccessPolicyShrinkRequest extends $tea.Model {
-  policyIdsShrink?: string;
-  static names(): { [key: string]: string } {
-    return {
-      policyIdsShrink: 'PolicyIds',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      policyIdsShrink: 'string',
     };
   }
 
@@ -2643,34 +2293,6 @@ export class UpdateUserGroupRequest extends $tea.Model {
   static types(): { [key: string]: any } {
     return {
       attributes: { 'type': 'array', 'itemType': UpdateUserGroupRequestAttributes },
-      description: 'string',
-      modifyType: 'string',
-      userGroupId: 'string',
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class UpdateUserGroupShrinkRequest extends $tea.Model {
-  attributesShrink?: string;
-  description?: string;
-  modifyType?: string;
-  userGroupId?: string;
-  static names(): { [key: string]: string } {
-    return {
-      attributesShrink: 'Attributes',
-      description: 'Description',
-      modifyType: 'ModifyType',
-      userGroupId: 'UserGroupId',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      attributesShrink: 'string',
       description: 'string',
       modifyType: 'string',
       userGroupId: 'string',
@@ -4266,17 +3888,12 @@ export default class Client extends OpenApi {
     return await this.createPrivateAccessTagWithOptions(request, runtime);
   }
 
-  async createUserGroupWithOptions(tmpReq: CreateUserGroupRequest, runtime: $Util.RuntimeOptions): Promise<CreateUserGroupResponse> {
-    Util.validateModel(tmpReq);
-    let request = new CreateUserGroupShrinkRequest({ });
-    OpenApiUtil.convert(tmpReq, request);
-    if (!Util.isUnset(tmpReq.attributes)) {
-      request.attributesShrink = OpenApiUtil.arrayToStringWithSpecifiedStyle(tmpReq.attributes, "Attributes", "json");
-    }
-
+  async createUserGroupWithOptions(request: CreateUserGroupRequest, runtime: $Util.RuntimeOptions): Promise<CreateUserGroupResponse> {
+    Util.validateModel(request);
     let body : {[key: string ]: any} = { };
-    if (!Util.isUnset(request.attributesShrink)) {
-      body["Attributes"] = request.attributesShrink;
+    let bodyFlat : {[key: string ]: any} = { };
+    if (!Util.isUnset(request.attributes)) {
+      bodyFlat["Attributes"] = request.attributes;
     }
 
     if (!Util.isUnset(request.description)) {
@@ -4287,6 +3904,10 @@ export default class Client extends OpenApi {
       body["Name"] = request.name;
     }
 
+    body = {
+      ...body,
+      ...OpenApiUtil.query(bodyFlat),
+    };
     let req = new $OpenApi.OpenApiRequest({
       body: OpenApiUtil.parseToMap(body),
     });
@@ -4539,14 +4160,8 @@ export default class Client extends OpenApi {
     return await this.getUserGroupWithOptions(request, runtime);
   }
 
-  async listApplicationsForPrivateAccessPolicyWithOptions(tmpReq: ListApplicationsForPrivateAccessPolicyRequest, runtime: $Util.RuntimeOptions): Promise<ListApplicationsForPrivateAccessPolicyResponse> {
-    Util.validateModel(tmpReq);
-    let request = new ListApplicationsForPrivateAccessPolicyShrinkRequest({ });
-    OpenApiUtil.convert(tmpReq, request);
-    if (!Util.isUnset(tmpReq.policyIds)) {
-      request.policyIdsShrink = OpenApiUtil.arrayToStringWithSpecifiedStyle(tmpReq.policyIds, "PolicyIds", "json");
-    }
-
+  async listApplicationsForPrivateAccessPolicyWithOptions(request: ListApplicationsForPrivateAccessPolicyRequest, runtime: $Util.RuntimeOptions): Promise<ListApplicationsForPrivateAccessPolicyResponse> {
+    Util.validateModel(request);
     let query = OpenApiUtil.query(Util.toMap(request));
     let req = new $OpenApi.OpenApiRequest({
       query: OpenApiUtil.query(query),
@@ -4570,14 +4185,8 @@ export default class Client extends OpenApi {
     return await this.listApplicationsForPrivateAccessPolicyWithOptions(request, runtime);
   }
 
-  async listApplicationsForPrivateAccessTagWithOptions(tmpReq: ListApplicationsForPrivateAccessTagRequest, runtime: $Util.RuntimeOptions): Promise<ListApplicationsForPrivateAccessTagResponse> {
-    Util.validateModel(tmpReq);
-    let request = new ListApplicationsForPrivateAccessTagShrinkRequest({ });
-    OpenApiUtil.convert(tmpReq, request);
-    if (!Util.isUnset(tmpReq.tagIds)) {
-      request.tagIdsShrink = OpenApiUtil.arrayToStringWithSpecifiedStyle(tmpReq.tagIds, "TagIds", "json");
-    }
-
+  async listApplicationsForPrivateAccessTagWithOptions(request: ListApplicationsForPrivateAccessTagRequest, runtime: $Util.RuntimeOptions): Promise<ListApplicationsForPrivateAccessTagResponse> {
+    Util.validateModel(request);
     let query = OpenApiUtil.query(Util.toMap(request));
     let req = new $OpenApi.OpenApiRequest({
       query: OpenApiUtil.query(query),
@@ -4601,14 +4210,8 @@ export default class Client extends OpenApi {
     return await this.listApplicationsForPrivateAccessTagWithOptions(request, runtime);
   }
 
-  async listConnectorsWithOptions(tmpReq: ListConnectorsRequest, runtime: $Util.RuntimeOptions): Promise<ListConnectorsResponse> {
-    Util.validateModel(tmpReq);
-    let request = new ListConnectorsShrinkRequest({ });
-    OpenApiUtil.convert(tmpReq, request);
-    if (!Util.isUnset(tmpReq.connectorIds)) {
-      request.connectorIdsShrink = OpenApiUtil.arrayToStringWithSpecifiedStyle(tmpReq.connectorIds, "ConnectorIds", "json");
-    }
-
+  async listConnectorsWithOptions(request: ListConnectorsRequest, runtime: $Util.RuntimeOptions): Promise<ListConnectorsResponse> {
+    Util.validateModel(request);
     let query = OpenApiUtil.query(Util.toMap(request));
     let req = new $OpenApi.OpenApiRequest({
       query: OpenApiUtil.query(query),
@@ -4632,14 +4235,8 @@ export default class Client extends OpenApi {
     return await this.listConnectorsWithOptions(request, runtime);
   }
 
-  async listPolicesForPrivateAccessApplicationWithOptions(tmpReq: ListPolicesForPrivateAccessApplicationRequest, runtime: $Util.RuntimeOptions): Promise<ListPolicesForPrivateAccessApplicationResponse> {
-    Util.validateModel(tmpReq);
-    let request = new ListPolicesForPrivateAccessApplicationShrinkRequest({ });
-    OpenApiUtil.convert(tmpReq, request);
-    if (!Util.isUnset(tmpReq.applicationIds)) {
-      request.applicationIdsShrink = OpenApiUtil.arrayToStringWithSpecifiedStyle(tmpReq.applicationIds, "ApplicationIds", "json");
-    }
-
+  async listPolicesForPrivateAccessApplicationWithOptions(request: ListPolicesForPrivateAccessApplicationRequest, runtime: $Util.RuntimeOptions): Promise<ListPolicesForPrivateAccessApplicationResponse> {
+    Util.validateModel(request);
     let query = OpenApiUtil.query(Util.toMap(request));
     let req = new $OpenApi.OpenApiRequest({
       query: OpenApiUtil.query(query),
@@ -4663,14 +4260,8 @@ export default class Client extends OpenApi {
     return await this.listPolicesForPrivateAccessApplicationWithOptions(request, runtime);
   }
 
-  async listPolicesForPrivateAccessTagWithOptions(tmpReq: ListPolicesForPrivateAccessTagRequest, runtime: $Util.RuntimeOptions): Promise<ListPolicesForPrivateAccessTagResponse> {
-    Util.validateModel(tmpReq);
-    let request = new ListPolicesForPrivateAccessTagShrinkRequest({ });
-    OpenApiUtil.convert(tmpReq, request);
-    if (!Util.isUnset(tmpReq.tagIds)) {
-      request.tagIdsShrink = OpenApiUtil.arrayToStringWithSpecifiedStyle(tmpReq.tagIds, "TagIds", "json");
-    }
-
+  async listPolicesForPrivateAccessTagWithOptions(request: ListPolicesForPrivateAccessTagRequest, runtime: $Util.RuntimeOptions): Promise<ListPolicesForPrivateAccessTagResponse> {
+    Util.validateModel(request);
     let query = OpenApiUtil.query(Util.toMap(request));
     let req = new $OpenApi.OpenApiRequest({
       query: OpenApiUtil.query(query),
@@ -4694,14 +4285,8 @@ export default class Client extends OpenApi {
     return await this.listPolicesForPrivateAccessTagWithOptions(request, runtime);
   }
 
-  async listPolicesForUserGroupWithOptions(tmpReq: ListPolicesForUserGroupRequest, runtime: $Util.RuntimeOptions): Promise<ListPolicesForUserGroupResponse> {
-    Util.validateModel(tmpReq);
-    let request = new ListPolicesForUserGroupShrinkRequest({ });
-    OpenApiUtil.convert(tmpReq, request);
-    if (!Util.isUnset(tmpReq.userGroupIds)) {
-      request.userGroupIdsShrink = OpenApiUtil.arrayToStringWithSpecifiedStyle(tmpReq.userGroupIds, "UserGroupIds", "json");
-    }
-
+  async listPolicesForUserGroupWithOptions(request: ListPolicesForUserGroupRequest, runtime: $Util.RuntimeOptions): Promise<ListPolicesForUserGroupResponse> {
+    Util.validateModel(request);
     let query = OpenApiUtil.query(Util.toMap(request));
     let req = new $OpenApi.OpenApiRequest({
       query: OpenApiUtil.query(query),
@@ -4725,14 +4310,8 @@ export default class Client extends OpenApi {
     return await this.listPolicesForUserGroupWithOptions(request, runtime);
   }
 
-  async listPrivateAccessApplicationsWithOptions(tmpReq: ListPrivateAccessApplicationsRequest, runtime: $Util.RuntimeOptions): Promise<ListPrivateAccessApplicationsResponse> {
-    Util.validateModel(tmpReq);
-    let request = new ListPrivateAccessApplicationsShrinkRequest({ });
-    OpenApiUtil.convert(tmpReq, request);
-    if (!Util.isUnset(tmpReq.applicationIds)) {
-      request.applicationIdsShrink = OpenApiUtil.arrayToStringWithSpecifiedStyle(tmpReq.applicationIds, "ApplicationIds", "json");
-    }
-
+  async listPrivateAccessApplicationsWithOptions(request: ListPrivateAccessApplicationsRequest, runtime: $Util.RuntimeOptions): Promise<ListPrivateAccessApplicationsResponse> {
+    Util.validateModel(request);
     let query = OpenApiUtil.query(Util.toMap(request));
     let req = new $OpenApi.OpenApiRequest({
       query: OpenApiUtil.query(query),
@@ -4756,14 +4335,8 @@ export default class Client extends OpenApi {
     return await this.listPrivateAccessApplicationsWithOptions(request, runtime);
   }
 
-  async listPrivateAccessPolicesWithOptions(tmpReq: ListPrivateAccessPolicesRequest, runtime: $Util.RuntimeOptions): Promise<ListPrivateAccessPolicesResponse> {
-    Util.validateModel(tmpReq);
-    let request = new ListPrivateAccessPolicesShrinkRequest({ });
-    OpenApiUtil.convert(tmpReq, request);
-    if (!Util.isUnset(tmpReq.policyIds)) {
-      request.policyIdsShrink = OpenApiUtil.arrayToStringWithSpecifiedStyle(tmpReq.policyIds, "PolicyIds", "json");
-    }
-
+  async listPrivateAccessPolicesWithOptions(request: ListPrivateAccessPolicesRequest, runtime: $Util.RuntimeOptions): Promise<ListPrivateAccessPolicesResponse> {
+    Util.validateModel(request);
     let query = OpenApiUtil.query(Util.toMap(request));
     let req = new $OpenApi.OpenApiRequest({
       query: OpenApiUtil.query(query),
@@ -4787,14 +4360,8 @@ export default class Client extends OpenApi {
     return await this.listPrivateAccessPolicesWithOptions(request, runtime);
   }
 
-  async listPrivateAccessTagsWithOptions(tmpReq: ListPrivateAccessTagsRequest, runtime: $Util.RuntimeOptions): Promise<ListPrivateAccessTagsResponse> {
-    Util.validateModel(tmpReq);
-    let request = new ListPrivateAccessTagsShrinkRequest({ });
-    OpenApiUtil.convert(tmpReq, request);
-    if (!Util.isUnset(tmpReq.tagIds)) {
-      request.tagIdsShrink = OpenApiUtil.arrayToStringWithSpecifiedStyle(tmpReq.tagIds, "TagIds", "json");
-    }
-
+  async listPrivateAccessTagsWithOptions(request: ListPrivateAccessTagsRequest, runtime: $Util.RuntimeOptions): Promise<ListPrivateAccessTagsResponse> {
+    Util.validateModel(request);
     let query = OpenApiUtil.query(Util.toMap(request));
     let req = new $OpenApi.OpenApiRequest({
       query: OpenApiUtil.query(query),
@@ -4818,14 +4385,8 @@ export default class Client extends OpenApi {
     return await this.listPrivateAccessTagsWithOptions(request, runtime);
   }
 
-  async listTagsForPrivateAccessApplicationWithOptions(tmpReq: ListTagsForPrivateAccessApplicationRequest, runtime: $Util.RuntimeOptions): Promise<ListTagsForPrivateAccessApplicationResponse> {
-    Util.validateModel(tmpReq);
-    let request = new ListTagsForPrivateAccessApplicationShrinkRequest({ });
-    OpenApiUtil.convert(tmpReq, request);
-    if (!Util.isUnset(tmpReq.applicationIds)) {
-      request.applicationIdsShrink = OpenApiUtil.arrayToStringWithSpecifiedStyle(tmpReq.applicationIds, "ApplicationIds", "json");
-    }
-
+  async listTagsForPrivateAccessApplicationWithOptions(request: ListTagsForPrivateAccessApplicationRequest, runtime: $Util.RuntimeOptions): Promise<ListTagsForPrivateAccessApplicationResponse> {
+    Util.validateModel(request);
     let query = OpenApiUtil.query(Util.toMap(request));
     let req = new $OpenApi.OpenApiRequest({
       query: OpenApiUtil.query(query),
@@ -4849,14 +4410,8 @@ export default class Client extends OpenApi {
     return await this.listTagsForPrivateAccessApplicationWithOptions(request, runtime);
   }
 
-  async listTagsForPrivateAccessPolicyWithOptions(tmpReq: ListTagsForPrivateAccessPolicyRequest, runtime: $Util.RuntimeOptions): Promise<ListTagsForPrivateAccessPolicyResponse> {
-    Util.validateModel(tmpReq);
-    let request = new ListTagsForPrivateAccessPolicyShrinkRequest({ });
-    OpenApiUtil.convert(tmpReq, request);
-    if (!Util.isUnset(tmpReq.policyIds)) {
-      request.policyIdsShrink = OpenApiUtil.arrayToStringWithSpecifiedStyle(tmpReq.policyIds, "PolicyIds", "json");
-    }
-
+  async listTagsForPrivateAccessPolicyWithOptions(request: ListTagsForPrivateAccessPolicyRequest, runtime: $Util.RuntimeOptions): Promise<ListTagsForPrivateAccessPolicyResponse> {
+    Util.validateModel(request);
     let query = OpenApiUtil.query(Util.toMap(request));
     let req = new $OpenApi.OpenApiRequest({
       query: OpenApiUtil.query(query),
@@ -4880,14 +4435,8 @@ export default class Client extends OpenApi {
     return await this.listTagsForPrivateAccessPolicyWithOptions(request, runtime);
   }
 
-  async listUserGroupsWithOptions(tmpReq: ListUserGroupsRequest, runtime: $Util.RuntimeOptions): Promise<ListUserGroupsResponse> {
-    Util.validateModel(tmpReq);
-    let request = new ListUserGroupsShrinkRequest({ });
-    OpenApiUtil.convert(tmpReq, request);
-    if (!Util.isUnset(tmpReq.userGroupIds)) {
-      request.userGroupIdsShrink = OpenApiUtil.arrayToStringWithSpecifiedStyle(tmpReq.userGroupIds, "UserGroupIds", "json");
-    }
-
+  async listUserGroupsWithOptions(request: ListUserGroupsRequest, runtime: $Util.RuntimeOptions): Promise<ListUserGroupsResponse> {
+    Util.validateModel(request);
     let query = OpenApiUtil.query(Util.toMap(request));
     let req = new $OpenApi.OpenApiRequest({
       query: OpenApiUtil.query(query),
@@ -4911,14 +4460,8 @@ export default class Client extends OpenApi {
     return await this.listUserGroupsWithOptions(request, runtime);
   }
 
-  async listUserGroupsForPrivateAccessPolicyWithOptions(tmpReq: ListUserGroupsForPrivateAccessPolicyRequest, runtime: $Util.RuntimeOptions): Promise<ListUserGroupsForPrivateAccessPolicyResponse> {
-    Util.validateModel(tmpReq);
-    let request = new ListUserGroupsForPrivateAccessPolicyShrinkRequest({ });
-    OpenApiUtil.convert(tmpReq, request);
-    if (!Util.isUnset(tmpReq.policyIds)) {
-      request.policyIdsShrink = OpenApiUtil.arrayToStringWithSpecifiedStyle(tmpReq.policyIds, "PolicyIds", "json");
-    }
-
+  async listUserGroupsForPrivateAccessPolicyWithOptions(request: ListUserGroupsForPrivateAccessPolicyRequest, runtime: $Util.RuntimeOptions): Promise<ListUserGroupsForPrivateAccessPolicyResponse> {
+    Util.validateModel(request);
     let query = OpenApiUtil.query(Util.toMap(request));
     let req = new $OpenApi.OpenApiRequest({
       query: OpenApiUtil.query(query),
@@ -5104,17 +4647,12 @@ export default class Client extends OpenApi {
     return await this.updatePrivateAccessPolicyWithOptions(request, runtime);
   }
 
-  async updateUserGroupWithOptions(tmpReq: UpdateUserGroupRequest, runtime: $Util.RuntimeOptions): Promise<UpdateUserGroupResponse> {
-    Util.validateModel(tmpReq);
-    let request = new UpdateUserGroupShrinkRequest({ });
-    OpenApiUtil.convert(tmpReq, request);
-    if (!Util.isUnset(tmpReq.attributes)) {
-      request.attributesShrink = OpenApiUtil.arrayToStringWithSpecifiedStyle(tmpReq.attributes, "Attributes", "json");
-    }
-
+  async updateUserGroupWithOptions(request: UpdateUserGroupRequest, runtime: $Util.RuntimeOptions): Promise<UpdateUserGroupResponse> {
+    Util.validateModel(request);
     let body : {[key: string ]: any} = { };
-    if (!Util.isUnset(request.attributesShrink)) {
-      body["Attributes"] = request.attributesShrink;
+    let bodyFlat : {[key: string ]: any} = { };
+    if (!Util.isUnset(request.attributes)) {
+      bodyFlat["Attributes"] = request.attributes;
     }
 
     if (!Util.isUnset(request.description)) {
@@ -5129,6 +4667,10 @@ export default class Client extends OpenApi {
       body["UserGroupId"] = request.userGroupId;
     }
 
+    body = {
+      ...body,
+      ...OpenApiUtil.query(bodyFlat),
+    };
     let req = new $OpenApi.OpenApiRequest({
       body: OpenApiUtil.parseToMap(body),
     });
