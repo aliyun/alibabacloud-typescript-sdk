@@ -81,6 +81,81 @@ export class Entity extends $tea.Model {
   }
 }
 
+export class LineageEntityVO extends $tea.Model {
+  detailUrl?: string;
+  name?: string;
+  parentName?: string;
+  qualifiedName?: string;
+  static names(): { [key: string]: string } {
+    return {
+      detailUrl: 'DetailUrl',
+      name: 'Name',
+      parentName: 'ParentName',
+      qualifiedName: 'QualifiedName',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      detailUrl: 'string',
+      name: 'string',
+      parentName: 'string',
+      qualifiedName: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class LineageRelationRegisterVO extends $tea.Model {
+  createTimestamp?: number;
+  destEntity?: LineageEntityVO;
+  relationship?: RelationshipVO;
+  srcEntity?: LineageEntityVO;
+  static names(): { [key: string]: string } {
+    return {
+      createTimestamp: 'CreateTimestamp',
+      destEntity: 'DestEntity',
+      relationship: 'Relationship',
+      srcEntity: 'SrcEntity',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      createTimestamp: 'number',
+      destEntity: LineageEntityVO,
+      relationship: RelationshipVO,
+      srcEntity: LineageEntityVO,
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class RelationshipVO extends $tea.Model {
+  type?: string;
+  static names(): { [key: string]: string } {
+    return {
+      type: 'Type',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      type: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
 export class AbolishDataServiceApiRequest extends $tea.Model {
   apiId?: number;
   projectId?: number;
@@ -4427,6 +4502,90 @@ export class DeleteFromMetaCategoryResponse extends $tea.Model {
       headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
       statusCode: 'number',
       body: DeleteFromMetaCategoryResponseBody,
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class DeleteLineageRelationRequest extends $tea.Model {
+  destEntityQualifiedName?: string;
+  relationshipGuid?: string;
+  srcEntityQualifiedName?: string;
+  static names(): { [key: string]: string } {
+    return {
+      destEntityQualifiedName: 'DestEntityQualifiedName',
+      relationshipGuid: 'RelationshipGuid',
+      srcEntityQualifiedName: 'SrcEntityQualifiedName',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      destEntityQualifiedName: 'string',
+      relationshipGuid: 'string',
+      srcEntityQualifiedName: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class DeleteLineageRelationResponseBody extends $tea.Model {
+  errorCode?: string;
+  errorMessage?: string;
+  httpStatusCode?: number;
+  requestId?: string;
+  status?: boolean;
+  success?: boolean;
+  static names(): { [key: string]: string } {
+    return {
+      errorCode: 'ErrorCode',
+      errorMessage: 'ErrorMessage',
+      httpStatusCode: 'HttpStatusCode',
+      requestId: 'RequestId',
+      status: 'Status',
+      success: 'Success',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      errorCode: 'string',
+      errorMessage: 'string',
+      httpStatusCode: 'number',
+      requestId: 'string',
+      status: 'boolean',
+      success: 'boolean',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class DeleteLineageRelationResponse extends $tea.Model {
+  headers: { [key: string]: string };
+  statusCode: number;
+  body: DeleteLineageRelationResponseBody;
+  static names(): { [key: string]: string } {
+    return {
+      headers: 'headers',
+      statusCode: 'statusCode',
+      body: 'body',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
+      body: DeleteLineageRelationResponseBody,
     };
   }
 
@@ -14165,6 +14324,96 @@ export class ListInstancesResponse extends $tea.Model {
   }
 }
 
+export class ListLineageRequest extends $tea.Model {
+  direction?: string;
+  entityQualifiedName?: string;
+  keyword?: string;
+  nextToken?: string;
+  pageSize?: number;
+  static names(): { [key: string]: string } {
+    return {
+      direction: 'Direction',
+      entityQualifiedName: 'EntityQualifiedName',
+      keyword: 'Keyword',
+      nextToken: 'NextToken',
+      pageSize: 'PageSize',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      direction: 'string',
+      entityQualifiedName: 'string',
+      keyword: 'string',
+      nextToken: 'string',
+      pageSize: 'number',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class ListLineageResponseBody extends $tea.Model {
+  data?: ListLineageResponseBodyData;
+  errorCode?: string;
+  errorMessage?: string;
+  httpStatusCode?: number;
+  requestId?: string;
+  success?: boolean;
+  static names(): { [key: string]: string } {
+    return {
+      data: 'Data',
+      errorCode: 'ErrorCode',
+      errorMessage: 'ErrorMessage',
+      httpStatusCode: 'HttpStatusCode',
+      requestId: 'RequestId',
+      success: 'Success',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      data: ListLineageResponseBodyData,
+      errorCode: 'string',
+      errorMessage: 'string',
+      httpStatusCode: 'number',
+      requestId: 'string',
+      success: 'boolean',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class ListLineageResponse extends $tea.Model {
+  headers: { [key: string]: string };
+  statusCode: number;
+  body: ListLineageResponseBody;
+  static names(): { [key: string]: string } {
+    return {
+      headers: 'headers',
+      statusCode: 'statusCode',
+      body: 'body',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
+      body: ListLineageResponseBody,
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
 export class ListManualDagInstancesRequest extends $tea.Model {
   dagId?: string;
   projectEnv?: string;
@@ -16931,6 +17180,103 @@ export class QueryPublicModelEngineResponse extends $tea.Model {
       headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
       statusCode: 'number',
       body: QueryPublicModelEngineResponseBody,
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class RegisterLineageRelationRequest extends $tea.Model {
+  lineageRelationRegisterVO?: LineageRelationRegisterVO;
+  static names(): { [key: string]: string } {
+    return {
+      lineageRelationRegisterVO: 'LineageRelationRegisterVO',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      lineageRelationRegisterVO: LineageRelationRegisterVO,
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class RegisterLineageRelationShrinkRequest extends $tea.Model {
+  lineageRelationRegisterVOShrink?: string;
+  static names(): { [key: string]: string } {
+    return {
+      lineageRelationRegisterVOShrink: 'LineageRelationRegisterVO',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      lineageRelationRegisterVOShrink: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class RegisterLineageRelationResponseBody extends $tea.Model {
+  errorCode?: string;
+  errorMessage?: string;
+  httpStatusCode?: number;
+  lineageRelation?: RegisterLineageRelationResponseBodyLineageRelation;
+  requestId?: string;
+  success?: boolean;
+  static names(): { [key: string]: string } {
+    return {
+      errorCode: 'ErrorCode',
+      errorMessage: 'ErrorMessage',
+      httpStatusCode: 'HttpStatusCode',
+      lineageRelation: 'LineageRelation',
+      requestId: 'RequestId',
+      success: 'Success',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      errorCode: 'string',
+      errorMessage: 'string',
+      httpStatusCode: 'number',
+      lineageRelation: RegisterLineageRelationResponseBodyLineageRelation,
+      requestId: 'string',
+      success: 'boolean',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class RegisterLineageRelationResponse extends $tea.Model {
+  headers: { [key: string]: string };
+  statusCode: number;
+  body: RegisterLineageRelationResponseBody;
+  static names(): { [key: string]: string } {
+    return {
+      headers: 'headers',
+      statusCode: 'statusCode',
+      body: 'body',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
+      body: RegisterLineageRelationResponseBody,
     };
   }
 
@@ -30779,6 +31125,81 @@ export class ListInstancesResponseBodyData extends $tea.Model {
   }
 }
 
+export class ListLineageResponseBodyDataDataEntityListRelationList extends $tea.Model {
+  channel?: string;
+  datasource?: string;
+  guid?: string;
+  type?: string;
+  static names(): { [key: string]: string } {
+    return {
+      channel: 'Channel',
+      datasource: 'Datasource',
+      guid: 'Guid',
+      type: 'Type',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      channel: 'string',
+      datasource: 'string',
+      guid: 'string',
+      type: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class ListLineageResponseBodyDataDataEntityList extends $tea.Model {
+  createTimestamp?: number;
+  entity?: Entity;
+  relationList?: ListLineageResponseBodyDataDataEntityListRelationList[];
+  static names(): { [key: string]: string } {
+    return {
+      createTimestamp: 'CreateTimestamp',
+      entity: 'Entity',
+      relationList: 'RelationList',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      createTimestamp: 'number',
+      entity: Entity,
+      relationList: { 'type': 'array', 'itemType': ListLineageResponseBodyDataDataEntityListRelationList },
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class ListLineageResponseBodyData extends $tea.Model {
+  dataEntityList?: ListLineageResponseBodyDataDataEntityList[];
+  nextToken?: string;
+  static names(): { [key: string]: string } {
+    return {
+      dataEntityList: 'DataEntityList',
+      nextToken: 'NextToken',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      dataEntityList: { 'type': 'array', 'itemType': ListLineageResponseBodyDataDataEntityList },
+      nextToken: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
 export class ListManualDagInstancesResponseBodyInstances extends $tea.Model {
   beginRunningTime?: number;
   beginWaitResTime?: number;
@@ -32943,6 +33364,31 @@ export class QueryDISyncTaskConfigProcessResultResponseBodyData extends $tea.Mod
       message: 'string',
       status: 'string',
       taskContent: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class RegisterLineageRelationResponseBodyLineageRelation extends $tea.Model {
+  destEntityQualifiedName?: string;
+  relationshipGuid?: string;
+  srcEntityQualifiedName?: string;
+  static names(): { [key: string]: string } {
+    return {
+      destEntityQualifiedName: 'DestEntityQualifiedName',
+      relationshipGuid: 'RelationshipGuid',
+      srcEntityQualifiedName: 'SrcEntityQualifiedName',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      destEntityQualifiedName: 'string',
+      relationshipGuid: 'string',
+      srcEntityQualifiedName: 'string',
     };
   }
 
@@ -36356,6 +36802,43 @@ export default class Client extends OpenApi {
   async deleteFromMetaCategory(request: DeleteFromMetaCategoryRequest): Promise<DeleteFromMetaCategoryResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.deleteFromMetaCategoryWithOptions(request, runtime);
+  }
+
+  async deleteLineageRelationWithOptions(request: DeleteLineageRelationRequest, runtime: $Util.RuntimeOptions): Promise<DeleteLineageRelationResponse> {
+    Util.validateModel(request);
+    let query = { };
+    if (!Util.isUnset(request.destEntityQualifiedName)) {
+      query["DestEntityQualifiedName"] = request.destEntityQualifiedName;
+    }
+
+    if (!Util.isUnset(request.relationshipGuid)) {
+      query["RelationshipGuid"] = request.relationshipGuid;
+    }
+
+    if (!Util.isUnset(request.srcEntityQualifiedName)) {
+      query["SrcEntityQualifiedName"] = request.srcEntityQualifiedName;
+    }
+
+    let req = new $OpenApi.OpenApiRequest({
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApi.Params({
+      action: "DeleteLineageRelation",
+      version: "2020-05-18",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $tea.cast<DeleteLineageRelationResponse>(await this.callApi(params, req, runtime), new DeleteLineageRelationResponse({}));
+  }
+
+  async deleteLineageRelation(request: DeleteLineageRelationRequest): Promise<DeleteLineageRelationResponse> {
+    let runtime = new $Util.RuntimeOptions({ });
+    return await this.deleteLineageRelationWithOptions(request, runtime);
   }
 
   async deleteMetaCategoryWithOptions(request: DeleteMetaCategoryRequest, runtime: $Util.RuntimeOptions): Promise<DeleteMetaCategoryResponse> {
@@ -41212,6 +41695,51 @@ export default class Client extends OpenApi {
     return await this.listInstancesWithOptions(request, runtime);
   }
 
+  async listLineageWithOptions(request: ListLineageRequest, runtime: $Util.RuntimeOptions): Promise<ListLineageResponse> {
+    Util.validateModel(request);
+    let query = { };
+    if (!Util.isUnset(request.direction)) {
+      query["Direction"] = request.direction;
+    }
+
+    if (!Util.isUnset(request.entityQualifiedName)) {
+      query["EntityQualifiedName"] = request.entityQualifiedName;
+    }
+
+    if (!Util.isUnset(request.keyword)) {
+      query["Keyword"] = request.keyword;
+    }
+
+    if (!Util.isUnset(request.nextToken)) {
+      query["NextToken"] = request.nextToken;
+    }
+
+    if (!Util.isUnset(request.pageSize)) {
+      query["PageSize"] = request.pageSize;
+    }
+
+    let req = new $OpenApi.OpenApiRequest({
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApi.Params({
+      action: "ListLineage",
+      version: "2020-05-18",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $tea.cast<ListLineageResponse>(await this.callApi(params, req, runtime), new ListLineageResponse({}));
+  }
+
+  async listLineage(request: ListLineageRequest): Promise<ListLineageResponse> {
+    let runtime = new $Util.RuntimeOptions({ });
+    return await this.listLineageWithOptions(request, runtime);
+  }
+
   async listManualDagInstancesWithOptions(request: ListManualDagInstancesRequest, runtime: $Util.RuntimeOptions): Promise<ListManualDagInstancesResponse> {
     Util.validateModel(request);
     let body : {[key: string ]: any} = { };
@@ -42649,6 +43177,41 @@ export default class Client extends OpenApi {
   async queryPublicModelEngine(request: QueryPublicModelEngineRequest): Promise<QueryPublicModelEngineResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.queryPublicModelEngineWithOptions(request, runtime);
+  }
+
+  async registerLineageRelationWithOptions(tmpReq: RegisterLineageRelationRequest, runtime: $Util.RuntimeOptions): Promise<RegisterLineageRelationResponse> {
+    Util.validateModel(tmpReq);
+    let request = new RegisterLineageRelationShrinkRequest({ });
+    OpenApiUtil.convert(tmpReq, request);
+    if (!Util.isUnset(tmpReq.lineageRelationRegisterVO)) {
+      request.lineageRelationRegisterVOShrink = OpenApiUtil.arrayToStringWithSpecifiedStyle(tmpReq.lineageRelationRegisterVO, "LineageRelationRegisterVO", "json");
+    }
+
+    let body : {[key: string ]: any} = { };
+    if (!Util.isUnset(request.lineageRelationRegisterVOShrink)) {
+      body["LineageRelationRegisterVO"] = request.lineageRelationRegisterVOShrink;
+    }
+
+    let req = new $OpenApi.OpenApiRequest({
+      body: OpenApiUtil.parseToMap(body),
+    });
+    let params = new $OpenApi.Params({
+      action: "RegisterLineageRelation",
+      version: "2020-05-18",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $tea.cast<RegisterLineageRelationResponse>(await this.callApi(params, req, runtime), new RegisterLineageRelationResponse({}));
+  }
+
+  async registerLineageRelation(request: RegisterLineageRelationRequest): Promise<RegisterLineageRelationResponse> {
+    let runtime = new $Util.RuntimeOptions({ });
+    return await this.registerLineageRelationWithOptions(request, runtime);
   }
 
   async removeProjectMemberFromRoleWithOptions(request: RemoveProjectMemberFromRoleRequest, runtime: $Util.RuntimeOptions): Promise<RemoveProjectMemberFromRoleResponse> {
