@@ -6478,6 +6478,7 @@ export class GroupDepartSaveRequest extends $tea.Model {
   outerDeptPid?: string;
   status?: number;
   subCorpIdList?: string[];
+  syncGroup?: boolean;
   static names(): { [key: string]: string } {
     return {
       deptName: 'dept_name',
@@ -6486,6 +6487,7 @@ export class GroupDepartSaveRequest extends $tea.Model {
       outerDeptPid: 'outer_dept_pid',
       status: 'status',
       subCorpIdList: 'sub_corp_id_list',
+      syncGroup: 'sync_group',
     };
   }
 
@@ -6497,6 +6499,7 @@ export class GroupDepartSaveRequest extends $tea.Model {
       outerDeptPid: 'string',
       status: 'number',
       subCorpIdList: { 'type': 'array', 'itemType': 'string' },
+      syncGroup: 'boolean',
     };
   }
 
@@ -6512,6 +6515,7 @@ export class GroupDepartSaveShrinkRequest extends $tea.Model {
   outerDeptPid?: string;
   status?: number;
   subCorpIdListShrink?: string;
+  syncGroup?: boolean;
   static names(): { [key: string]: string } {
     return {
       deptName: 'dept_name',
@@ -6520,6 +6524,7 @@ export class GroupDepartSaveShrinkRequest extends $tea.Model {
       outerDeptPid: 'outer_dept_pid',
       status: 'status',
       subCorpIdListShrink: 'sub_corp_id_list',
+      syncGroup: 'sync_group',
     };
   }
 
@@ -6531,6 +6536,7 @@ export class GroupDepartSaveShrinkRequest extends $tea.Model {
       outerDeptPid: 'string',
       status: 'number',
       subCorpIdListShrink: 'string',
+      syncGroup: 'boolean',
     };
   }
 
@@ -34309,6 +34315,10 @@ export default class Client extends OpenApi {
 
     if (!Util.isUnset(request.subCorpIdListShrink)) {
       body["sub_corp_id_list"] = request.subCorpIdListShrink;
+    }
+
+    if (!Util.isUnset(request.syncGroup)) {
+      body["sync_group"] = request.syncGroup;
     }
 
     let realHeaders : {[key: string ]: string} = { };
