@@ -215,15 +215,18 @@ export class AbstractFilmVideoResponse extends $tea.Model {
 }
 
 export class AddFaceVideoTemplateRequest extends $tea.Model {
+  videoScene?: string;
   videoURL?: string;
   static names(): { [key: string]: string } {
     return {
+      videoScene: 'VideoScene',
       videoURL: 'VideoURL',
     };
   }
 
   static types(): { [key: string]: any } {
     return {
+      videoScene: 'string',
       videoURL: 'string',
     };
   }
@@ -234,15 +237,18 @@ export class AddFaceVideoTemplateRequest extends $tea.Model {
 }
 
 export class AddFaceVideoTemplateAdvanceRequest extends $tea.Model {
+  videoScene?: string;
   videoURLObject?: Readable;
   static names(): { [key: string]: string } {
     return {
+      videoScene: 'VideoScene',
       videoURLObject: 'VideoURL',
     };
   }
 
   static types(): { [key: string]: any } {
     return {
+      videoScene: 'string',
       videoURLObject: 'Readable',
     };
   }
@@ -1641,10 +1647,12 @@ export class MergeVideoFaceResponse extends $tea.Model {
 
 export class MergeVideoModelFaceRequest extends $tea.Model {
   faceImageURL?: string;
+  mergeInfos?: MergeVideoModelFaceRequestMergeInfos[];
   templateId?: string;
   static names(): { [key: string]: string } {
     return {
       faceImageURL: 'FaceImageURL',
+      mergeInfos: 'MergeInfos',
       templateId: 'TemplateId',
     };
   }
@@ -1652,6 +1660,7 @@ export class MergeVideoModelFaceRequest extends $tea.Model {
   static types(): { [key: string]: any } {
     return {
       faceImageURL: 'string',
+      mergeInfos: { 'type': 'array', 'itemType': MergeVideoModelFaceRequestMergeInfos },
       templateId: 'string',
     };
   }
@@ -1663,10 +1672,12 @@ export class MergeVideoModelFaceRequest extends $tea.Model {
 
 export class MergeVideoModelFaceAdvanceRequest extends $tea.Model {
   faceImageURLObject?: Readable;
+  mergeInfos?: MergeVideoModelFaceAdvanceRequestMergeInfos[];
   templateId?: string;
   static names(): { [key: string]: string } {
     return {
       faceImageURLObject: 'FaceImageURL',
+      mergeInfos: 'MergeInfos',
       templateId: 'TemplateId',
     };
   }
@@ -1674,6 +1685,7 @@ export class MergeVideoModelFaceAdvanceRequest extends $tea.Model {
   static types(): { [key: string]: any } {
     return {
       faceImageURLObject: 'Readable',
+      mergeInfos: { 'type': 'array', 'itemType': MergeVideoModelFaceAdvanceRequestMergeInfos },
       templateId: 'string',
     };
   }
@@ -2122,16 +2134,41 @@ export class AbstractFilmVideoResponseBodyData extends $tea.Model {
   }
 }
 
+export class AddFaceVideoTemplateResponseBodyDateFaceInfos extends $tea.Model {
+  templateFaceID?: string;
+  templateFaceURL?: string;
+  static names(): { [key: string]: string } {
+    return {
+      templateFaceID: 'TemplateFaceID',
+      templateFaceURL: 'TemplateFaceURL',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      templateFaceID: 'string',
+      templateFaceURL: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
 export class AddFaceVideoTemplateResponseBodyDate extends $tea.Model {
+  faceInfos?: AddFaceVideoTemplateResponseBodyDateFaceInfos[];
   templateId?: string;
   static names(): { [key: string]: string } {
     return {
+      faceInfos: 'FaceInfos',
       templateId: 'TemplateId',
     };
   }
 
   static types(): { [key: string]: any } {
     return {
+      faceInfos: { 'type': 'array', 'itemType': AddFaceVideoTemplateResponseBodyDateFaceInfos },
       templateId: 'string',
     };
   }
@@ -2493,6 +2530,56 @@ export class MergeVideoFaceResponseBodyData extends $tea.Model {
   }
 }
 
+export class MergeVideoModelFaceRequestMergeInfos extends $tea.Model {
+  imageURL?: string;
+  templateFaceID?: string;
+  templateFaceURL?: string;
+  static names(): { [key: string]: string } {
+    return {
+      imageURL: 'ImageURL',
+      templateFaceID: 'TemplateFaceID',
+      templateFaceURL: 'TemplateFaceURL',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      imageURL: 'string',
+      templateFaceID: 'string',
+      templateFaceURL: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class MergeVideoModelFaceAdvanceRequestMergeInfos extends $tea.Model {
+  imageURL?: string;
+  templateFaceID?: string;
+  templateFaceURL?: string;
+  static names(): { [key: string]: string } {
+    return {
+      imageURL: 'ImageURL',
+      templateFaceID: 'TemplateFaceID',
+      templateFaceURL: 'TemplateFaceURL',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      imageURL: 'string',
+      templateFaceID: 'string',
+      templateFaceURL: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
 export class MergeVideoModelFaceResponseBodyData extends $tea.Model {
   videoURL?: string;
   static names(): { [key: string]: string } {
@@ -2512,8 +2599,31 @@ export class MergeVideoModelFaceResponseBodyData extends $tea.Model {
   }
 }
 
+export class QueryFaceVideoTemplateResponseBodyDataElementsFaceInfos extends $tea.Model {
+  templateFaceID?: string;
+  templateFaceURL?: string;
+  static names(): { [key: string]: string } {
+    return {
+      templateFaceID: 'TemplateFaceID',
+      templateFaceURL: 'TemplateFaceURL',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      templateFaceID: 'string',
+      templateFaceURL: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
 export class QueryFaceVideoTemplateResponseBodyDataElements extends $tea.Model {
   createTime?: string;
+  faceInfos?: QueryFaceVideoTemplateResponseBodyDataElementsFaceInfos[];
   templateId?: string;
   templateURL?: string;
   updateTime?: string;
@@ -2521,6 +2631,7 @@ export class QueryFaceVideoTemplateResponseBodyDataElements extends $tea.Model {
   static names(): { [key: string]: string } {
     return {
       createTime: 'CreateTime',
+      faceInfos: 'FaceInfos',
       templateId: 'TemplateId',
       templateURL: 'TemplateURL',
       updateTime: 'UpdateTime',
@@ -2531,6 +2642,7 @@ export class QueryFaceVideoTemplateResponseBodyDataElements extends $tea.Model {
   static types(): { [key: string]: any } {
     return {
       createTime: 'string',
+      faceInfos: { 'type': 'array', 'itemType': QueryFaceVideoTemplateResponseBodyDataElementsFaceInfos },
       templateId: 'string',
       templateURL: 'string',
       updateTime: 'string',
@@ -2867,6 +2979,10 @@ export default class Client extends OpenApi {
   async addFaceVideoTemplateWithOptions(request: AddFaceVideoTemplateRequest, runtime: $Util.RuntimeOptions): Promise<AddFaceVideoTemplateResponse> {
     Util.validateModel(request);
     let body : {[key: string ]: any} = { };
+    if (!Util.isUnset(request.videoScene)) {
+      body["VideoScene"] = request.videoScene;
+    }
+
     if (!Util.isUnset(request.videoURL)) {
       body["VideoURL"] = request.videoURL;
     }
@@ -4358,6 +4474,10 @@ export default class Client extends OpenApi {
     let body : {[key: string ]: any} = { };
     if (!Util.isUnset(request.faceImageURL)) {
       body["FaceImageURL"] = request.faceImageURL;
+    }
+
+    if (!Util.isUnset(request.mergeInfos)) {
+      body["MergeInfos"] = request.mergeInfos;
     }
 
     if (!Util.isUnset(request.templateId)) {
