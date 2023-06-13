@@ -576,6 +576,9 @@ export class CreateTrFirewallV2RoutePolicyResponse extends $tea.Model {
 export class CreateVpcFirewallCenConfigureRequest extends $tea.Model {
   cenId?: string;
   firewallSwitch?: string;
+  firewallVSwitchCidrBlock?: string;
+  firewallVpcCidrBlock?: string;
+  firewallVpcZoneId?: string;
   lang?: string;
   memberUid?: string;
   networkInstanceId?: string;
@@ -586,6 +589,9 @@ export class CreateVpcFirewallCenConfigureRequest extends $tea.Model {
     return {
       cenId: 'CenId',
       firewallSwitch: 'FirewallSwitch',
+      firewallVSwitchCidrBlock: 'FirewallVSwitchCidrBlock',
+      firewallVpcCidrBlock: 'FirewallVpcCidrBlock',
+      firewallVpcZoneId: 'FirewallVpcZoneId',
       lang: 'Lang',
       memberUid: 'MemberUid',
       networkInstanceId: 'NetworkInstanceId',
@@ -599,6 +605,9 @@ export class CreateVpcFirewallCenConfigureRequest extends $tea.Model {
     return {
       cenId: 'string',
       firewallSwitch: 'string',
+      firewallVSwitchCidrBlock: 'string',
+      firewallVpcCidrBlock: 'string',
+      firewallVpcZoneId: 'string',
       lang: 'string',
       memberUid: 'string',
       networkInstanceId: 'string',
@@ -3238,6 +3247,7 @@ export class DescribeVpcFirewallCenDetailRequest extends $tea.Model {
 export class DescribeVpcFirewallCenDetailResponseBody extends $tea.Model {
   connectType?: string;
   firewallSwitchStatus?: string;
+  firewallVpc?: DescribeVpcFirewallCenDetailResponseBodyFirewallVpc;
   localVpc?: DescribeVpcFirewallCenDetailResponseBodyLocalVpc;
   requestId?: string;
   vpcFirewallId?: string;
@@ -3246,6 +3256,7 @@ export class DescribeVpcFirewallCenDetailResponseBody extends $tea.Model {
     return {
       connectType: 'ConnectType',
       firewallSwitchStatus: 'FirewallSwitchStatus',
+      firewallVpc: 'FirewallVpc',
       localVpc: 'LocalVpc',
       requestId: 'RequestId',
       vpcFirewallId: 'VpcFirewallId',
@@ -3257,6 +3268,7 @@ export class DescribeVpcFirewallCenDetailResponseBody extends $tea.Model {
     return {
       connectType: 'string',
       firewallSwitchStatus: 'string',
+      firewallVpc: DescribeVpcFirewallCenDetailResponseBodyFirewallVpc,
       localVpc: DescribeVpcFirewallCenDetailResponseBodyLocalVpc,
       requestId: 'string',
       vpcFirewallId: 'string',
@@ -6694,6 +6706,68 @@ export class DescribeTrFirewallsV2ListResponseBodyVpcTrFirewallsIpsConfig extend
   }
 }
 
+export class DescribeTrFirewallsV2ListResponseBodyVpcTrFirewallsProtectedResource extends $tea.Model {
+  count?: number;
+  peerTrList?: string[];
+  vbrList?: string[];
+  vpcList?: string[];
+  vpnList?: string[];
+  static names(): { [key: string]: string } {
+    return {
+      count: 'Count',
+      peerTrList: 'PeerTrList',
+      vbrList: 'VbrList',
+      vpcList: 'VpcList',
+      vpnList: 'VpnList',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      count: 'number',
+      peerTrList: { 'type': 'array', 'itemType': 'string' },
+      vbrList: { 'type': 'array', 'itemType': 'string' },
+      vpcList: { 'type': 'array', 'itemType': 'string' },
+      vpnList: { 'type': 'array', 'itemType': 'string' },
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class DescribeTrFirewallsV2ListResponseBodyVpcTrFirewallsUnprotectedResource extends $tea.Model {
+  count?: number;
+  peerTrList?: string[];
+  vbrList?: string[];
+  vpcList?: string[];
+  vpnList?: string[];
+  static names(): { [key: string]: string } {
+    return {
+      count: 'Count',
+      peerTrList: 'PeerTrList',
+      vbrList: 'VbrList',
+      vpcList: 'VpcList',
+      vpnList: 'VpnList',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      count: 'number',
+      peerTrList: { 'type': 'array', 'itemType': 'string' },
+      vbrList: { 'type': 'array', 'itemType': 'string' },
+      vpcList: { 'type': 'array', 'itemType': 'string' },
+      vpnList: { 'type': 'array', 'itemType': 'string' },
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
 export class DescribeTrFirewallsV2ListResponseBodyVpcTrFirewalls extends $tea.Model {
   cenId?: string;
   cenName?: string;
@@ -6702,11 +6776,13 @@ export class DescribeTrFirewallsV2ListResponseBodyVpcTrFirewalls extends $tea.Mo
   ipsConfig?: DescribeTrFirewallsV2ListResponseBodyVpcTrFirewallsIpsConfig;
   ownerId?: number;
   precheckStatus?: string;
+  protectedResource?: DescribeTrFirewallsV2ListResponseBodyVpcTrFirewallsProtectedResource;
   regionNo?: string;
   regionStatus?: string;
   resultCode?: string;
   routeMode?: string;
   transitRouterId?: string;
+  unprotectedResource?: DescribeTrFirewallsV2ListResponseBodyVpcTrFirewallsUnprotectedResource;
   vpcFirewallName?: string;
   static names(): { [key: string]: string } {
     return {
@@ -6717,11 +6793,13 @@ export class DescribeTrFirewallsV2ListResponseBodyVpcTrFirewalls extends $tea.Mo
       ipsConfig: 'IpsConfig',
       ownerId: 'OwnerId',
       precheckStatus: 'PrecheckStatus',
+      protectedResource: 'ProtectedResource',
       regionNo: 'RegionNo',
       regionStatus: 'RegionStatus',
       resultCode: 'ResultCode',
       routeMode: 'RouteMode',
       transitRouterId: 'TransitRouterId',
+      unprotectedResource: 'UnprotectedResource',
       vpcFirewallName: 'VpcFirewallName',
     };
   }
@@ -6735,11 +6813,13 @@ export class DescribeTrFirewallsV2ListResponseBodyVpcTrFirewalls extends $tea.Mo
       ipsConfig: DescribeTrFirewallsV2ListResponseBodyVpcTrFirewallsIpsConfig,
       ownerId: 'number',
       precheckStatus: 'string',
+      protectedResource: DescribeTrFirewallsV2ListResponseBodyVpcTrFirewallsProtectedResource,
       regionNo: 'string',
       regionStatus: 'string',
       resultCode: 'string',
       routeMode: 'string',
       transitRouterId: 'string',
+      unprotectedResource: DescribeTrFirewallsV2ListResponseBodyVpcTrFirewallsUnprotectedResource,
       vpcFirewallName: 'string',
     };
   }
@@ -6802,13 +6882,49 @@ export class DescribeVpcFirewallAclGroupListResponseBodyAclGroupList extends $te
   }
 }
 
+export class DescribeVpcFirewallCenDetailResponseBodyFirewallVpc extends $tea.Model {
+  allowConfiguration?: number;
+  vpcCidr?: string;
+  vpcId?: string;
+  vswitchCidr?: string;
+  vswitchId?: string;
+  zoneId?: string;
+  static names(): { [key: string]: string } {
+    return {
+      allowConfiguration: 'AllowConfiguration',
+      vpcCidr: 'VpcCidr',
+      vpcId: 'VpcId',
+      vswitchCidr: 'VswitchCidr',
+      vswitchId: 'VswitchId',
+      zoneId: 'ZoneId',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      allowConfiguration: 'number',
+      vpcCidr: 'string',
+      vpcId: 'string',
+      vswitchCidr: 'string',
+      vswitchId: 'string',
+      zoneId: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
 export class DescribeVpcFirewallCenDetailResponseBodyLocalVpcEniList extends $tea.Model {
   eniId?: string;
   eniPrivateIpAddress?: string;
+  eniVSwitchId?: string;
   static names(): { [key: string]: string } {
     return {
       eniId: 'EniId',
       eniPrivateIpAddress: 'EniPrivateIpAddress',
+      eniVSwitchId: 'EniVSwitchId',
     };
   }
 
@@ -6816,6 +6932,7 @@ export class DescribeVpcFirewallCenDetailResponseBodyLocalVpcEniList extends $te
     return {
       eniId: 'string',
       eniPrivateIpAddress: 'string',
+      eniVSwitchId: 'string',
     };
   }
 
@@ -8288,6 +8405,18 @@ export default class Client extends OpenApi {
 
     if (!Util.isUnset(request.firewallSwitch)) {
       query["FirewallSwitch"] = request.firewallSwitch;
+    }
+
+    if (!Util.isUnset(request.firewallVSwitchCidrBlock)) {
+      query["FirewallVSwitchCidrBlock"] = request.firewallVSwitchCidrBlock;
+    }
+
+    if (!Util.isUnset(request.firewallVpcCidrBlock)) {
+      query["FirewallVpcCidrBlock"] = request.firewallVpcCidrBlock;
+    }
+
+    if (!Util.isUnset(request.firewallVpcZoneId)) {
+      query["FirewallVpcZoneId"] = request.firewallVpcZoneId;
     }
 
     if (!Util.isUnset(request.lang)) {
