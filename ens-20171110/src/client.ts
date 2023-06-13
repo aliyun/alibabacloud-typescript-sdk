@@ -1260,6 +1260,7 @@ export class CreateARMServerInstancesRequest extends $tea.Model {
   period?: number;
   periodUnit?: string;
   resolution?: string;
+  serverName?: string;
   serverType?: string;
   static names(): { [key: string]: string } {
     return {
@@ -1275,6 +1276,7 @@ export class CreateARMServerInstancesRequest extends $tea.Model {
       period: 'Period',
       periodUnit: 'PeriodUnit',
       resolution: 'Resolution',
+      serverName: 'ServerName',
       serverType: 'ServerType',
     };
   }
@@ -1293,6 +1295,7 @@ export class CreateARMServerInstancesRequest extends $tea.Model {
       period: 'number',
       periodUnit: 'string',
       resolution: 'string',
+      serverName: 'string',
       serverType: 'string',
     };
   }
@@ -12067,6 +12070,171 @@ export class DescribeVSwitchesResponse extends $tea.Model {
   }
 }
 
+export class DescribeWorkflowRequest extends $tea.Model {
+  aliUid?: string;
+  businessId?: string;
+  endDate?: string;
+  ensRegionId?: string;
+  id?: string;
+  instanceId?: string;
+  pageNum?: string;
+  pageSize?: string;
+  startDate?: string;
+  status?: string;
+  workFlowId?: string;
+  workFlowName?: string;
+  static names(): { [key: string]: string } {
+    return {
+      aliUid: 'AliUid',
+      businessId: 'BusinessId',
+      endDate: 'EndDate',
+      ensRegionId: 'EnsRegionId',
+      id: 'Id',
+      instanceId: 'InstanceId',
+      pageNum: 'PageNum',
+      pageSize: 'PageSize',
+      startDate: 'StartDate',
+      status: 'Status',
+      workFlowId: 'WorkFlowId',
+      workFlowName: 'WorkFlowName',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      aliUid: 'string',
+      businessId: 'string',
+      endDate: 'string',
+      ensRegionId: 'string',
+      id: 'string',
+      instanceId: 'string',
+      pageNum: 'string',
+      pageSize: 'string',
+      startDate: 'string',
+      status: 'string',
+      workFlowId: 'string',
+      workFlowName: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class DescribeWorkflowResponseBody extends $tea.Model {
+  requestId?: string;
+  workFlowInfo?: DescribeWorkflowResponseBodyWorkFlowInfo[];
+  static names(): { [key: string]: string } {
+    return {
+      requestId: 'RequestId',
+      workFlowInfo: 'WorkFlowInfo',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      requestId: 'string',
+      workFlowInfo: { 'type': 'array', 'itemType': DescribeWorkflowResponseBodyWorkFlowInfo },
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class DescribeWorkflowResponse extends $tea.Model {
+  headers: { [key: string]: string };
+  statusCode: number;
+  body: DescribeWorkflowResponseBody;
+  static names(): { [key: string]: string } {
+    return {
+      headers: 'headers',
+      statusCode: 'statusCode',
+      body: 'body',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
+      body: DescribeWorkflowResponseBody,
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class DescribeWorkflowActivityRequest extends $tea.Model {
+  workFlowId?: string;
+  static names(): { [key: string]: string } {
+    return {
+      workFlowId: 'WorkFlowId',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      workFlowId: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class DescribeWorkflowActivityResponseBody extends $tea.Model {
+  activityInfo?: DescribeWorkflowActivityResponseBodyActivityInfo[];
+  requestId?: string;
+  static names(): { [key: string]: string } {
+    return {
+      activityInfo: 'ActivityInfo',
+      requestId: 'RequestId',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      activityInfo: { 'type': 'array', 'itemType': DescribeWorkflowActivityResponseBodyActivityInfo },
+      requestId: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class DescribeWorkflowActivityResponse extends $tea.Model {
+  headers: { [key: string]: string };
+  statusCode: number;
+  body: DescribeWorkflowActivityResponseBody;
+  static names(): { [key: string]: string } {
+    return {
+      headers: 'headers',
+      statusCode: 'statusCode',
+      body: 'body',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
+      body: DescribeWorkflowActivityResponseBody,
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
 export class DetachDiskRequest extends $tea.Model {
   diskId?: string;
   instanceId?: string;
@@ -15931,6 +16099,170 @@ export class RestartDeviceInstanceResponse extends $tea.Model {
   }
 }
 
+export class RestartWorkflowRequest extends $tea.Model {
+  workflowIds?: string[];
+  static names(): { [key: string]: string } {
+    return {
+      workflowIds: 'WorkflowIds',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      workflowIds: { 'type': 'array', 'itemType': 'string' },
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class RestartWorkflowShrinkRequest extends $tea.Model {
+  workflowIdsShrink?: string;
+  static names(): { [key: string]: string } {
+    return {
+      workflowIdsShrink: 'WorkflowIds',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      workflowIdsShrink: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class RestartWorkflowResponseBody extends $tea.Model {
+  requestId?: string;
+  static names(): { [key: string]: string } {
+    return {
+      requestId: 'RequestId',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      requestId: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class RestartWorkflowResponse extends $tea.Model {
+  headers: { [key: string]: string };
+  statusCode: number;
+  body: RestartWorkflowResponseBody;
+  static names(): { [key: string]: string } {
+    return {
+      headers: 'headers',
+      statusCode: 'statusCode',
+      body: 'body',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
+      body: RestartWorkflowResponseBody,
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class RetryWorkflowRequest extends $tea.Model {
+  workflowIds?: string[];
+  static names(): { [key: string]: string } {
+    return {
+      workflowIds: 'WorkflowIds',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      workflowIds: { 'type': 'array', 'itemType': 'string' },
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class RetryWorkflowShrinkRequest extends $tea.Model {
+  workflowIdsShrink?: string;
+  static names(): { [key: string]: string } {
+    return {
+      workflowIdsShrink: 'WorkflowIds',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      workflowIdsShrink: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class RetryWorkflowResponseBody extends $tea.Model {
+  requestId?: string;
+  static names(): { [key: string]: string } {
+    return {
+      requestId: 'RequestId',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      requestId: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class RetryWorkflowResponse extends $tea.Model {
+  headers: { [key: string]: string };
+  statusCode: number;
+  body: RetryWorkflowResponseBody;
+  static names(): { [key: string]: string } {
+    return {
+      headers: 'headers',
+      statusCode: 'statusCode',
+      body: 'body',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
+      body: RetryWorkflowResponseBody,
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
 export class RevokeSecurityGroupRequest extends $tea.Model {
   ipProtocol?: string;
   policy?: string;
@@ -16163,6 +16495,88 @@ export class RollbackApplicationResponse extends $tea.Model {
       headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
       statusCode: 'number',
       body: RollbackApplicationResponseBody,
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class RollbackWorkflowRequest extends $tea.Model {
+  workflowIds?: string[];
+  static names(): { [key: string]: string } {
+    return {
+      workflowIds: 'WorkflowIds',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      workflowIds: { 'type': 'array', 'itemType': 'string' },
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class RollbackWorkflowShrinkRequest extends $tea.Model {
+  workflowIdsShrink?: string;
+  static names(): { [key: string]: string } {
+    return {
+      workflowIdsShrink: 'WorkflowIds',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      workflowIdsShrink: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class RollbackWorkflowResponseBody extends $tea.Model {
+  requestId?: string;
+  static names(): { [key: string]: string } {
+    return {
+      requestId: 'RequestId',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      requestId: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class RollbackWorkflowResponse extends $tea.Model {
+  headers: { [key: string]: string };
+  statusCode: number;
+  body: RollbackWorkflowResponseBody;
+  static names(): { [key: string]: string } {
+    return {
+      headers: 'headers',
+      statusCode: 'statusCode',
+      body: 'body',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
+      body: RollbackWorkflowResponseBody,
     };
   }
 
@@ -17817,6 +18231,88 @@ export class StopSnatIpForSnatEntryResponse extends $tea.Model {
       headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
       statusCode: 'number',
       body: StopSnatIpForSnatEntryResponseBody,
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class TerminateWorkflowRequest extends $tea.Model {
+  workflowIds?: string[];
+  static names(): { [key: string]: string } {
+    return {
+      workflowIds: 'WorkflowIds',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      workflowIds: { 'type': 'array', 'itemType': 'string' },
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class TerminateWorkflowShrinkRequest extends $tea.Model {
+  workflowIdsShrink?: string;
+  static names(): { [key: string]: string } {
+    return {
+      workflowIdsShrink: 'WorkflowIds',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      workflowIdsShrink: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class TerminateWorkflowResponseBody extends $tea.Model {
+  requestId?: string;
+  static names(): { [key: string]: string } {
+    return {
+      requestId: 'RequestId',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      requestId: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class TerminateWorkflowResponse extends $tea.Model {
+  headers: { [key: string]: string };
+  statusCode: number;
+  body: TerminateWorkflowResponseBody;
+  static names(): { [key: string]: string } {
+    return {
+      headers: 'headers',
+      statusCode: 'statusCode',
+      body: 'body',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
+      body: TerminateWorkflowResponseBody,
     };
   }
 
@@ -23642,12 +24138,14 @@ export class DescribePriceResponseBodyPriceInfo extends $tea.Model {
 }
 
 export class DescribeRegionBandwidthQuotaResponseBodyBandwidthQuotaBandwidthInfo extends $tea.Model {
+  isp?: string;
   monthAverageQuota?: number;
   monthMax?: number;
   weekAverageQuota?: number;
   weekMax?: number;
   static names(): { [key: string]: string } {
     return {
+      isp: 'Isp',
       monthAverageQuota: 'MonthAverageQuota',
       monthMax: 'MonthMax',
       weekAverageQuota: 'WeekAverageQuota',
@@ -23657,6 +24155,7 @@ export class DescribeRegionBandwidthQuotaResponseBodyBandwidthQuotaBandwidthInfo
 
   static types(): { [key: string]: any } {
     return {
+      isp: 'string',
       monthAverageQuota: 'number',
       monthMax: 'number',
       weekAverageQuota: 'number',
@@ -23692,7 +24191,7 @@ export class DescribeRegionBandwidthQuotaResponseBodyBandwidthQuotaInstanceInfo 
 }
 
 export class DescribeRegionBandwidthQuotaResponseBodyBandwidthQuota extends $tea.Model {
-  bandwidthInfo?: DescribeRegionBandwidthQuotaResponseBodyBandwidthQuotaBandwidthInfo;
+  bandwidthInfo?: DescribeRegionBandwidthQuotaResponseBodyBandwidthQuotaBandwidthInfo[];
   date?: string;
   instanceInfo?: DescribeRegionBandwidthQuotaResponseBodyBandwidthQuotaInstanceInfo[];
   regionId?: string;
@@ -23707,7 +24206,7 @@ export class DescribeRegionBandwidthQuotaResponseBodyBandwidthQuota extends $tea
 
   static types(): { [key: string]: any } {
     return {
-      bandwidthInfo: DescribeRegionBandwidthQuotaResponseBodyBandwidthQuotaBandwidthInfo,
+      bandwidthInfo: { 'type': 'array', 'itemType': DescribeRegionBandwidthQuotaResponseBodyBandwidthQuotaBandwidthInfo },
       date: 'string',
       instanceInfo: { 'type': 'array', 'itemType': DescribeRegionBandwidthQuotaResponseBodyBandwidthQuotaInstanceInfo },
       regionId: 'string',
@@ -25291,6 +25790,128 @@ export class DescribeVSwitchesResponseBodyVSwitches extends $tea.Model {
   }
 }
 
+export class DescribeWorkflowResponseBodyWorkFlowInfo extends $tea.Model {
+  aliUid?: string;
+  bizType?: string;
+  bussinessId?: string;
+  duration?: string;
+  ensRegionId?: string;
+  gmtCreate?: string;
+  gmtEnd?: string;
+  gmtExpire?: string;
+  gmtModify?: string;
+  gmtStart?: string;
+  id?: string;
+  initAttributes?: string;
+  instanceId?: string;
+  name?: string;
+  priority?: string;
+  status?: string;
+  workerNode?: string;
+  workflowId?: string;
+  static names(): { [key: string]: string } {
+    return {
+      aliUid: 'AliUid',
+      bizType: 'BizType',
+      bussinessId: 'BussinessId',
+      duration: 'Duration',
+      ensRegionId: 'EnsRegionId',
+      gmtCreate: 'GmtCreate',
+      gmtEnd: 'GmtEnd',
+      gmtExpire: 'GmtExpire',
+      gmtModify: 'GmtModify',
+      gmtStart: 'GmtStart',
+      id: 'Id',
+      initAttributes: 'InitAttributes',
+      instanceId: 'InstanceId',
+      name: 'Name',
+      priority: 'Priority',
+      status: 'Status',
+      workerNode: 'WorkerNode',
+      workflowId: 'WorkflowId',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      aliUid: 'string',
+      bizType: 'string',
+      bussinessId: 'string',
+      duration: 'string',
+      ensRegionId: 'string',
+      gmtCreate: 'string',
+      gmtEnd: 'string',
+      gmtExpire: 'string',
+      gmtModify: 'string',
+      gmtStart: 'string',
+      id: 'string',
+      initAttributes: 'string',
+      instanceId: 'string',
+      name: 'string',
+      priority: 'string',
+      status: 'string',
+      workerNode: 'string',
+      workflowId: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class DescribeWorkflowActivityResponseBodyActivityInfo extends $tea.Model {
+  activityId?: string;
+  activityName?: string;
+  duration?: string;
+  error?: string;
+  gmtCreate?: string;
+  gmtEnd?: string;
+  gmtStart?: string;
+  input?: string;
+  method?: string;
+  output?: string;
+  state?: string;
+  workerNode?: string;
+  static names(): { [key: string]: string } {
+    return {
+      activityId: 'ActivityId',
+      activityName: 'ActivityName',
+      duration: 'Duration',
+      error: 'Error',
+      gmtCreate: 'GmtCreate',
+      gmtEnd: 'GmtEnd',
+      gmtStart: 'GmtStart',
+      input: 'Input',
+      method: 'Method',
+      output: 'Output',
+      state: 'State',
+      workerNode: 'WorkerNode',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      activityId: 'string',
+      activityName: 'string',
+      duration: 'string',
+      error: 'string',
+      gmtCreate: 'string',
+      gmtEnd: 'string',
+      gmtStart: 'string',
+      input: 'string',
+      method: 'string',
+      output: 'string',
+      state: 'string',
+      workerNode: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
 export class DistApplicationDataResponseBodyDistInstanceIds extends $tea.Model {
   distInstanceId?: string[];
   static names(): { [key: string]: string } {
@@ -25726,15 +26347,18 @@ export class RunInstancesRequestDataDisk extends $tea.Model {
 }
 
 export class RunInstancesRequestSystemDisk extends $tea.Model {
+  category?: string;
   size?: number;
   static names(): { [key: string]: string } {
     return {
+      category: 'Category',
       size: 'Size',
     };
   }
 
   static types(): { [key: string]: any } {
     return {
+      category: 'string',
       size: 'number',
     };
   }
@@ -26500,6 +27124,10 @@ export default class Client extends OpenApi {
 
     if (!Util.isUnset(request.resolution)) {
       query["Resolution"] = request.resolution;
+    }
+
+    if (!Util.isUnset(request.serverName)) {
+      query["ServerName"] = request.serverName;
     }
 
     if (!Util.isUnset(request.serverType)) {
@@ -31722,6 +32350,108 @@ export default class Client extends OpenApi {
     return await this.describeVSwitchesWithOptions(request, runtime);
   }
 
+  async describeWorkflowWithOptions(request: DescribeWorkflowRequest, runtime: $Util.RuntimeOptions): Promise<DescribeWorkflowResponse> {
+    Util.validateModel(request);
+    let query = { };
+    if (!Util.isUnset(request.aliUid)) {
+      query["AliUid"] = request.aliUid;
+    }
+
+    if (!Util.isUnset(request.businessId)) {
+      query["BusinessId"] = request.businessId;
+    }
+
+    if (!Util.isUnset(request.endDate)) {
+      query["EndDate"] = request.endDate;
+    }
+
+    if (!Util.isUnset(request.ensRegionId)) {
+      query["EnsRegionId"] = request.ensRegionId;
+    }
+
+    if (!Util.isUnset(request.id)) {
+      query["Id"] = request.id;
+    }
+
+    if (!Util.isUnset(request.instanceId)) {
+      query["InstanceId"] = request.instanceId;
+    }
+
+    if (!Util.isUnset(request.pageNum)) {
+      query["PageNum"] = request.pageNum;
+    }
+
+    if (!Util.isUnset(request.pageSize)) {
+      query["PageSize"] = request.pageSize;
+    }
+
+    if (!Util.isUnset(request.startDate)) {
+      query["StartDate"] = request.startDate;
+    }
+
+    if (!Util.isUnset(request.status)) {
+      query["Status"] = request.status;
+    }
+
+    if (!Util.isUnset(request.workFlowId)) {
+      query["WorkFlowId"] = request.workFlowId;
+    }
+
+    if (!Util.isUnset(request.workFlowName)) {
+      query["WorkFlowName"] = request.workFlowName;
+    }
+
+    let req = new $OpenApi.OpenApiRequest({
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApi.Params({
+      action: "DescribeWorkflow",
+      version: "2017-11-10",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $tea.cast<DescribeWorkflowResponse>(await this.callApi(params, req, runtime), new DescribeWorkflowResponse({}));
+  }
+
+  async describeWorkflow(request: DescribeWorkflowRequest): Promise<DescribeWorkflowResponse> {
+    let runtime = new $Util.RuntimeOptions({ });
+    return await this.describeWorkflowWithOptions(request, runtime);
+  }
+
+  async describeWorkflowActivityWithOptions(request: DescribeWorkflowActivityRequest, runtime: $Util.RuntimeOptions): Promise<DescribeWorkflowActivityResponse> {
+    Util.validateModel(request);
+    let query = { };
+    if (!Util.isUnset(request.workFlowId)) {
+      query["WorkFlowId"] = request.workFlowId;
+    }
+
+    let req = new $OpenApi.OpenApiRequest({
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApi.Params({
+      action: "DescribeWorkflowActivity",
+      version: "2017-11-10",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $tea.cast<DescribeWorkflowActivityResponse>(await this.callApi(params, req, runtime), new DescribeWorkflowActivityResponse({}));
+  }
+
+  async describeWorkflowActivity(request: DescribeWorkflowActivityRequest): Promise<DescribeWorkflowActivityResponse> {
+    let runtime = new $Util.RuntimeOptions({ });
+    return await this.describeWorkflowActivityWithOptions(request, runtime);
+  }
+
   async detachDiskWithOptions(request: DetachDiskRequest, runtime: $Util.RuntimeOptions): Promise<DetachDiskResponse> {
     Util.validateModel(request);
     let query = { };
@@ -33597,6 +34327,76 @@ export default class Client extends OpenApi {
     return await this.restartDeviceInstanceWithOptions(request, runtime);
   }
 
+  async restartWorkflowWithOptions(tmpReq: RestartWorkflowRequest, runtime: $Util.RuntimeOptions): Promise<RestartWorkflowResponse> {
+    Util.validateModel(tmpReq);
+    let request = new RestartWorkflowShrinkRequest({ });
+    OpenApiUtil.convert(tmpReq, request);
+    if (!Util.isUnset(tmpReq.workflowIds)) {
+      request.workflowIdsShrink = OpenApiUtil.arrayToStringWithSpecifiedStyle(tmpReq.workflowIds, "WorkflowIds", "json");
+    }
+
+    let query = { };
+    if (!Util.isUnset(request.workflowIdsShrink)) {
+      query["WorkflowIds"] = request.workflowIdsShrink;
+    }
+
+    let req = new $OpenApi.OpenApiRequest({
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApi.Params({
+      action: "RestartWorkflow",
+      version: "2017-11-10",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $tea.cast<RestartWorkflowResponse>(await this.callApi(params, req, runtime), new RestartWorkflowResponse({}));
+  }
+
+  async restartWorkflow(request: RestartWorkflowRequest): Promise<RestartWorkflowResponse> {
+    let runtime = new $Util.RuntimeOptions({ });
+    return await this.restartWorkflowWithOptions(request, runtime);
+  }
+
+  async retryWorkflowWithOptions(tmpReq: RetryWorkflowRequest, runtime: $Util.RuntimeOptions): Promise<RetryWorkflowResponse> {
+    Util.validateModel(tmpReq);
+    let request = new RetryWorkflowShrinkRequest({ });
+    OpenApiUtil.convert(tmpReq, request);
+    if (!Util.isUnset(tmpReq.workflowIds)) {
+      request.workflowIdsShrink = OpenApiUtil.arrayToStringWithSpecifiedStyle(tmpReq.workflowIds, "WorkflowIds", "json");
+    }
+
+    let query = { };
+    if (!Util.isUnset(request.workflowIdsShrink)) {
+      query["WorkflowIds"] = request.workflowIdsShrink;
+    }
+
+    let req = new $OpenApi.OpenApiRequest({
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApi.Params({
+      action: "RetryWorkflow",
+      version: "2017-11-10",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $tea.cast<RetryWorkflowResponse>(await this.callApi(params, req, runtime), new RetryWorkflowResponse({}));
+  }
+
+  async retryWorkflow(request: RetryWorkflowRequest): Promise<RetryWorkflowResponse> {
+    let runtime = new $Util.RuntimeOptions({ });
+    return await this.retryWorkflowWithOptions(request, runtime);
+  }
+
   async revokeSecurityGroupWithOptions(request: RevokeSecurityGroupRequest, runtime: $Util.RuntimeOptions): Promise<RevokeSecurityGroupResponse> {
     Util.validateModel(request);
     let query = { };
@@ -33750,6 +34550,41 @@ export default class Client extends OpenApi {
   async rollbackApplication(request: RollbackApplicationRequest): Promise<RollbackApplicationResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.rollbackApplicationWithOptions(request, runtime);
+  }
+
+  async rollbackWorkflowWithOptions(tmpReq: RollbackWorkflowRequest, runtime: $Util.RuntimeOptions): Promise<RollbackWorkflowResponse> {
+    Util.validateModel(tmpReq);
+    let request = new RollbackWorkflowShrinkRequest({ });
+    OpenApiUtil.convert(tmpReq, request);
+    if (!Util.isUnset(tmpReq.workflowIds)) {
+      request.workflowIdsShrink = OpenApiUtil.arrayToStringWithSpecifiedStyle(tmpReq.workflowIds, "WorkflowIds", "json");
+    }
+
+    let query = { };
+    if (!Util.isUnset(request.workflowIdsShrink)) {
+      query["WorkflowIds"] = request.workflowIdsShrink;
+    }
+
+    let req = new $OpenApi.OpenApiRequest({
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApi.Params({
+      action: "RollbackWorkflow",
+      version: "2017-11-10",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $tea.cast<RollbackWorkflowResponse>(await this.callApi(params, req, runtime), new RollbackWorkflowResponse({}));
+  }
+
+  async rollbackWorkflow(request: RollbackWorkflowRequest): Promise<RollbackWorkflowResponse> {
+    let runtime = new $Util.RuntimeOptions({ });
+    return await this.rollbackWorkflowWithOptions(request, runtime);
   }
 
   async runInstancesWithOptions(tmpReq: RunInstancesRequest, runtime: $Util.RuntimeOptions): Promise<RunInstancesResponse> {
@@ -34731,6 +35566,41 @@ export default class Client extends OpenApi {
   async stopSnatIpForSnatEntry(request: StopSnatIpForSnatEntryRequest): Promise<StopSnatIpForSnatEntryResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.stopSnatIpForSnatEntryWithOptions(request, runtime);
+  }
+
+  async terminateWorkflowWithOptions(tmpReq: TerminateWorkflowRequest, runtime: $Util.RuntimeOptions): Promise<TerminateWorkflowResponse> {
+    Util.validateModel(tmpReq);
+    let request = new TerminateWorkflowShrinkRequest({ });
+    OpenApiUtil.convert(tmpReq, request);
+    if (!Util.isUnset(tmpReq.workflowIds)) {
+      request.workflowIdsShrink = OpenApiUtil.arrayToStringWithSpecifiedStyle(tmpReq.workflowIds, "WorkflowIds", "json");
+    }
+
+    let query = { };
+    if (!Util.isUnset(request.workflowIdsShrink)) {
+      query["WorkflowIds"] = request.workflowIdsShrink;
+    }
+
+    let req = new $OpenApi.OpenApiRequest({
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApi.Params({
+      action: "TerminateWorkflow",
+      version: "2017-11-10",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $tea.cast<TerminateWorkflowResponse>(await this.callApi(params, req, runtime), new TerminateWorkflowResponse({}));
+  }
+
+  async terminateWorkflow(request: TerminateWorkflowRequest): Promise<TerminateWorkflowResponse> {
+    let runtime = new $Util.RuntimeOptions({ });
+    return await this.terminateWorkflowWithOptions(request, runtime);
   }
 
   async unAssociateEnsEipAddressWithOptions(request: UnAssociateEnsEipAddressRequest, runtime: $Util.RuntimeOptions): Promise<UnAssociateEnsEipAddressResponse> {
