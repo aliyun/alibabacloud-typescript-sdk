@@ -876,6 +876,7 @@ export class QueryTimedResetOperateStatusResponse extends $tea.Model {
 export class SendMessageRequest extends $tea.Model {
   feedback?: boolean;
   sessionId?: string;
+  streamExtension?: SendMessageRequestStreamExtension;
   tenantId?: number;
   textRequest?: SendMessageRequestTextRequest;
   VAMLRequest?: SendMessageRequestVAMLRequest;
@@ -883,6 +884,7 @@ export class SendMessageRequest extends $tea.Model {
     return {
       feedback: 'Feedback',
       sessionId: 'SessionId',
+      streamExtension: 'StreamExtension',
       tenantId: 'TenantId',
       textRequest: 'TextRequest',
       VAMLRequest: 'VAMLRequest',
@@ -893,6 +895,7 @@ export class SendMessageRequest extends $tea.Model {
     return {
       feedback: 'boolean',
       sessionId: 'string',
+      streamExtension: SendMessageRequestStreamExtension,
       tenantId: 'number',
       textRequest: SendMessageRequestTextRequest,
       VAMLRequest: SendMessageRequestVAMLRequest,
@@ -907,6 +910,7 @@ export class SendMessageRequest extends $tea.Model {
 export class SendMessageShrinkRequest extends $tea.Model {
   feedback?: boolean;
   sessionId?: string;
+  streamExtensionShrink?: string;
   tenantId?: number;
   textRequestShrink?: string;
   VAMLRequestShrink?: string;
@@ -914,6 +918,7 @@ export class SendMessageShrinkRequest extends $tea.Model {
     return {
       feedback: 'Feedback',
       sessionId: 'SessionId',
+      streamExtensionShrink: 'StreamExtension',
       tenantId: 'TenantId',
       textRequestShrink: 'TextRequest',
       VAMLRequestShrink: 'VAMLRequest',
@@ -924,6 +929,7 @@ export class SendMessageShrinkRequest extends $tea.Model {
     return {
       feedback: 'boolean',
       sessionId: 'string',
+      streamExtensionShrink: 'string',
       tenantId: 'number',
       textRequestShrink: 'string',
       VAMLRequestShrink: 'string',
@@ -2385,6 +2391,31 @@ export class QueryTimedResetOperateStatusResponseBodyData extends $tea.Model {
   }
 }
 
+export class SendMessageRequestStreamExtension extends $tea.Model {
+  index?: number;
+  isStream?: boolean;
+  position?: string;
+  static names(): { [key: string]: string } {
+    return {
+      index: 'Index',
+      isStream: 'IsStream',
+      position: 'Position',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      index: 'number',
+      isStream: 'boolean',
+      position: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
 export class SendMessageRequestTextRequest extends $tea.Model {
   commandType?: string;
   id?: string;
@@ -3428,6 +3459,10 @@ export default class Client extends OpenApi {
     Util.validateModel(tmpReq);
     let request = new SendMessageShrinkRequest({ });
     OpenApiUtil.convert(tmpReq, request);
+    if (!Util.isUnset(tmpReq.streamExtension)) {
+      request.streamExtensionShrink = OpenApiUtil.arrayToStringWithSpecifiedStyle(tmpReq.streamExtension, "StreamExtension", "json");
+    }
+
     if (!Util.isUnset(tmpReq.textRequest)) {
       request.textRequestShrink = OpenApiUtil.arrayToStringWithSpecifiedStyle(tmpReq.textRequest, "TextRequest", "json");
     }
@@ -3443,6 +3478,10 @@ export default class Client extends OpenApi {
 
     if (!Util.isUnset(request.sessionId)) {
       query["SessionId"] = request.sessionId;
+    }
+
+    if (!Util.isUnset(request.streamExtensionShrink)) {
+      query["StreamExtension"] = request.streamExtensionShrink;
     }
 
     if (!Util.isUnset(request.tenantId)) {
