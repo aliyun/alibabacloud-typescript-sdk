@@ -1031,11 +1031,13 @@ export class SubmitDocStructureJobRequest extends $tea.Model {
   fileName?: string;
   fileNameExtension?: string;
   fileUrl?: string;
+  structureType?: string;
   static names(): { [key: string]: string } {
     return {
       fileName: 'FileName',
       fileNameExtension: 'FileNameExtension',
       fileUrl: 'FileUrl',
+      structureType: 'StructureType',
     };
   }
 
@@ -1044,6 +1046,7 @@ export class SubmitDocStructureJobRequest extends $tea.Model {
       fileName: 'string',
       fileNameExtension: 'string',
       fileUrl: 'string',
+      structureType: 'string',
     };
   }
 
@@ -1056,11 +1059,13 @@ export class SubmitDocStructureJobAdvanceRequest extends $tea.Model {
   fileName?: string;
   fileNameExtension?: string;
   fileUrlObject?: Readable;
+  structureType?: string;
   static names(): { [key: string]: string } {
     return {
       fileName: 'FileName',
       fileNameExtension: 'FileNameExtension',
       fileUrlObject: 'FileUrl',
+      structureType: 'StructureType',
     };
   }
 
@@ -1069,6 +1074,7 @@ export class SubmitDocStructureJobAdvanceRequest extends $tea.Model {
       fileName: 'string',
       fileNameExtension: 'string',
       fileUrlObject: 'Readable',
+      structureType: 'string',
     };
   }
 
@@ -2352,6 +2358,10 @@ export default class Client extends OpenApi {
 
     if (!Util.isUnset(request.fileUrl)) {
       query["FileUrl"] = request.fileUrl;
+    }
+
+    if (!Util.isUnset(request.structureType)) {
+      query["StructureType"] = request.structureType;
     }
 
     let req = new $OpenApi.OpenApiRequest({
