@@ -576,6 +576,7 @@ export class DescribeTaskResponseBody extends $tea.Model {
   clusterName?: string;
   createTime?: string;
   message?: string;
+  nodeIds?: string[];
   requestId?: string;
   steps?: DescribeTaskResponseBodySteps[];
   taskState?: string;
@@ -587,6 +588,7 @@ export class DescribeTaskResponseBody extends $tea.Model {
       clusterName: 'ClusterName',
       createTime: 'CreateTime',
       message: 'Message',
+      nodeIds: 'NodeIds',
       requestId: 'RequestId',
       steps: 'Steps',
       taskState: 'TaskState',
@@ -601,6 +603,7 @@ export class DescribeTaskResponseBody extends $tea.Model {
       clusterName: 'string',
       createTime: 'string',
       message: 'string',
+      nodeIds: { 'type': 'array', 'itemType': 'string' },
       requestId: 'string',
       steps: { 'type': 'array', 'itemType': DescribeTaskResponseBodySteps },
       taskState: 'string',
