@@ -1029,8 +1029,11 @@ export class CheckServiceLinkedRoleResponse extends $tea.Model {
 }
 
 export class CloneDBInstanceRequest extends $tea.Model {
+  autoPay?: boolean;
   backupId?: string;
   backupType?: string;
+  bpeEnabled?: string;
+  burstingEnabled?: boolean;
   category?: string;
   DBInstanceClass?: string;
   DBInstanceId?: string;
@@ -1053,10 +1056,15 @@ export class CloneDBInstanceRequest extends $tea.Model {
   VPCId?: string;
   vSwitchId?: string;
   zoneId?: string;
+  zoneIdSlave1?: string;
+  zoneIdSlave2?: string;
   static names(): { [key: string]: string } {
     return {
+      autoPay: 'AutoPay',
       backupId: 'BackupId',
       backupType: 'BackupType',
+      bpeEnabled: 'BpeEnabled',
+      burstingEnabled: 'BurstingEnabled',
       category: 'Category',
       DBInstanceClass: 'DBInstanceClass',
       DBInstanceId: 'DBInstanceId',
@@ -1079,13 +1087,18 @@ export class CloneDBInstanceRequest extends $tea.Model {
       VPCId: 'VPCId',
       vSwitchId: 'VSwitchId',
       zoneId: 'ZoneId',
+      zoneIdSlave1: 'ZoneIdSlave1',
+      zoneIdSlave2: 'ZoneIdSlave2',
     };
   }
 
   static types(): { [key: string]: any } {
     return {
+      autoPay: 'boolean',
       backupId: 'string',
       backupType: 'string',
+      bpeEnabled: 'string',
+      burstingEnabled: 'boolean',
       category: 'string',
       DBInstanceClass: 'string',
       DBInstanceId: 'string',
@@ -1108,6 +1121,8 @@ export class CloneDBInstanceRequest extends $tea.Model {
       VPCId: 'string',
       vSwitchId: 'string',
       zoneId: 'string',
+      zoneIdSlave1: 'string',
+      zoneIdSlave2: 'string',
     };
   }
 
@@ -1117,8 +1132,11 @@ export class CloneDBInstanceRequest extends $tea.Model {
 }
 
 export class CloneDBInstanceShrinkRequest extends $tea.Model {
+  autoPay?: boolean;
   backupId?: string;
   backupType?: string;
+  bpeEnabled?: string;
+  burstingEnabled?: boolean;
   category?: string;
   DBInstanceClass?: string;
   DBInstanceId?: string;
@@ -1141,10 +1159,15 @@ export class CloneDBInstanceShrinkRequest extends $tea.Model {
   VPCId?: string;
   vSwitchId?: string;
   zoneId?: string;
+  zoneIdSlave1?: string;
+  zoneIdSlave2?: string;
   static names(): { [key: string]: string } {
     return {
+      autoPay: 'AutoPay',
       backupId: 'BackupId',
       backupType: 'BackupType',
+      bpeEnabled: 'BpeEnabled',
+      burstingEnabled: 'BurstingEnabled',
       category: 'Category',
       DBInstanceClass: 'DBInstanceClass',
       DBInstanceId: 'DBInstanceId',
@@ -1167,13 +1190,18 @@ export class CloneDBInstanceShrinkRequest extends $tea.Model {
       VPCId: 'VPCId',
       vSwitchId: 'VSwitchId',
       zoneId: 'ZoneId',
+      zoneIdSlave1: 'ZoneIdSlave1',
+      zoneIdSlave2: 'ZoneIdSlave2',
     };
   }
 
   static types(): { [key: string]: any } {
     return {
+      autoPay: 'boolean',
       backupId: 'string',
       backupType: 'string',
+      bpeEnabled: 'string',
+      burstingEnabled: 'boolean',
       category: 'string',
       DBInstanceClass: 'string',
       DBInstanceId: 'string',
@@ -1196,6 +1224,8 @@ export class CloneDBInstanceShrinkRequest extends $tea.Model {
       VPCId: 'string',
       vSwitchId: 'string',
       zoneId: 'string',
+      zoneIdSlave1: 'string',
+      zoneIdSlave2: 'string',
     };
   }
 
@@ -1944,8 +1974,11 @@ export class CreateCloudMigrationTaskResponse extends $tea.Model {
 
 export class CreateDBInstanceRequest extends $tea.Model {
   amount?: number;
+  autoPay?: boolean;
   autoRenew?: string;
   babelfishConfig?: string;
+  bpeEnabled?: string;
+  burstingEnabled?: boolean;
   businessInfo?: string;
   category?: string;
   clientToken?: string;
@@ -1969,6 +2002,7 @@ export class CreateDBInstanceRequest extends $tea.Model {
   instanceNetworkType?: string;
   payType?: string;
   period?: string;
+  port?: string;
   privateIpAddress?: string;
   regionId?: string;
   resourceGroupId?: string;
@@ -1995,8 +2029,11 @@ export class CreateDBInstanceRequest extends $tea.Model {
   static names(): { [key: string]: string } {
     return {
       amount: 'Amount',
+      autoPay: 'AutoPay',
       autoRenew: 'AutoRenew',
       babelfishConfig: 'BabelfishConfig',
+      bpeEnabled: 'BpeEnabled',
+      burstingEnabled: 'BurstingEnabled',
       businessInfo: 'BusinessInfo',
       category: 'Category',
       clientToken: 'ClientToken',
@@ -2020,6 +2057,7 @@ export class CreateDBInstanceRequest extends $tea.Model {
       instanceNetworkType: 'InstanceNetworkType',
       payType: 'PayType',
       period: 'Period',
+      port: 'Port',
       privateIpAddress: 'PrivateIpAddress',
       regionId: 'RegionId',
       resourceGroupId: 'ResourceGroupId',
@@ -2049,8 +2087,11 @@ export class CreateDBInstanceRequest extends $tea.Model {
   static types(): { [key: string]: any } {
     return {
       amount: 'number',
+      autoPay: 'boolean',
       autoRenew: 'string',
       babelfishConfig: 'string',
+      bpeEnabled: 'string',
+      burstingEnabled: 'boolean',
       businessInfo: 'string',
       category: 'string',
       clientToken: 'string',
@@ -2074,6 +2115,7 @@ export class CreateDBInstanceRequest extends $tea.Model {
       instanceNetworkType: 'string',
       payType: 'string',
       period: 'string',
+      port: 'string',
       privateIpAddress: 'string',
       regionId: 'string',
       resourceGroupId: 'string',
@@ -2107,8 +2149,11 @@ export class CreateDBInstanceRequest extends $tea.Model {
 
 export class CreateDBInstanceShrinkRequest extends $tea.Model {
   amount?: number;
+  autoPay?: boolean;
   autoRenew?: string;
   babelfishConfig?: string;
+  bpeEnabled?: string;
+  burstingEnabled?: boolean;
   businessInfo?: string;
   category?: string;
   clientToken?: string;
@@ -2132,6 +2177,7 @@ export class CreateDBInstanceShrinkRequest extends $tea.Model {
   instanceNetworkType?: string;
   payType?: string;
   period?: string;
+  port?: string;
   privateIpAddress?: string;
   regionId?: string;
   resourceGroupId?: string;
@@ -2158,8 +2204,11 @@ export class CreateDBInstanceShrinkRequest extends $tea.Model {
   static names(): { [key: string]: string } {
     return {
       amount: 'Amount',
+      autoPay: 'AutoPay',
       autoRenew: 'AutoRenew',
       babelfishConfig: 'BabelfishConfig',
+      bpeEnabled: 'BpeEnabled',
+      burstingEnabled: 'BurstingEnabled',
       businessInfo: 'BusinessInfo',
       category: 'Category',
       clientToken: 'ClientToken',
@@ -2183,6 +2232,7 @@ export class CreateDBInstanceShrinkRequest extends $tea.Model {
       instanceNetworkType: 'InstanceNetworkType',
       payType: 'PayType',
       period: 'Period',
+      port: 'Port',
       privateIpAddress: 'PrivateIpAddress',
       regionId: 'RegionId',
       resourceGroupId: 'ResourceGroupId',
@@ -2212,8 +2262,11 @@ export class CreateDBInstanceShrinkRequest extends $tea.Model {
   static types(): { [key: string]: any } {
     return {
       amount: 'number',
+      autoPay: 'boolean',
       autoRenew: 'string',
       babelfishConfig: 'string',
+      bpeEnabled: 'string',
+      burstingEnabled: 'boolean',
       businessInfo: 'string',
       category: 'string',
       clientToken: 'string',
@@ -2237,6 +2290,7 @@ export class CreateDBInstanceShrinkRequest extends $tea.Model {
       instanceNetworkType: 'string',
       payType: 'string',
       period: 'string',
+      port: 'string',
       privateIpAddress: 'string',
       regionId: 'string',
       resourceGroupId: 'string',
@@ -2560,6 +2614,268 @@ export class CreateDBInstanceEndpointAddressResponse extends $tea.Model {
       headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
       statusCode: 'number',
       body: CreateDBInstanceEndpointAddressResponseBody,
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class CreateDBInstanceForRebuildRequest extends $tea.Model {
+  clientToken?: string;
+  DBInstanceDescription?: string;
+  DBInstanceId?: string;
+  DBInstanceNetType?: string;
+  instanceNetworkType?: string;
+  ownerAccount?: string;
+  ownerId?: number;
+  payType?: string;
+  period?: string;
+  regionId?: string;
+  resourceGroupId?: string;
+  resourceOwnerAccount?: string;
+  resourceOwnerId?: number;
+  securityIPList?: string;
+  securityToken?: string;
+  usedTime?: string;
+  VPCId?: string;
+  vSwitchId?: string;
+  zoneId?: string;
+  zoneIdSlave1?: string;
+  zoneIdSlave2?: string;
+  static names(): { [key: string]: string } {
+    return {
+      clientToken: 'ClientToken',
+      DBInstanceDescription: 'DBInstanceDescription',
+      DBInstanceId: 'DBInstanceId',
+      DBInstanceNetType: 'DBInstanceNetType',
+      instanceNetworkType: 'InstanceNetworkType',
+      ownerAccount: 'OwnerAccount',
+      ownerId: 'OwnerId',
+      payType: 'PayType',
+      period: 'Period',
+      regionId: 'RegionId',
+      resourceGroupId: 'ResourceGroupId',
+      resourceOwnerAccount: 'ResourceOwnerAccount',
+      resourceOwnerId: 'ResourceOwnerId',
+      securityIPList: 'SecurityIPList',
+      securityToken: 'SecurityToken',
+      usedTime: 'UsedTime',
+      VPCId: 'VPCId',
+      vSwitchId: 'VSwitchId',
+      zoneId: 'ZoneId',
+      zoneIdSlave1: 'ZoneIdSlave1',
+      zoneIdSlave2: 'ZoneIdSlave2',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      clientToken: 'string',
+      DBInstanceDescription: 'string',
+      DBInstanceId: 'string',
+      DBInstanceNetType: 'string',
+      instanceNetworkType: 'string',
+      ownerAccount: 'string',
+      ownerId: 'number',
+      payType: 'string',
+      period: 'string',
+      regionId: 'string',
+      resourceGroupId: 'string',
+      resourceOwnerAccount: 'string',
+      resourceOwnerId: 'number',
+      securityIPList: 'string',
+      securityToken: 'string',
+      usedTime: 'string',
+      VPCId: 'string',
+      vSwitchId: 'string',
+      zoneId: 'string',
+      zoneIdSlave1: 'string',
+      zoneIdSlave2: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class CreateDBInstanceForRebuildResponseBody extends $tea.Model {
+  DBInstanceId?: string;
+  message?: string;
+  orderId?: string;
+  requestId?: string;
+  taskId?: string;
+  static names(): { [key: string]: string } {
+    return {
+      DBInstanceId: 'DBInstanceId',
+      message: 'Message',
+      orderId: 'OrderId',
+      requestId: 'RequestId',
+      taskId: 'TaskId',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      DBInstanceId: 'string',
+      message: 'string',
+      orderId: 'string',
+      requestId: 'string',
+      taskId: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class CreateDBInstanceForRebuildResponse extends $tea.Model {
+  headers: { [key: string]: string };
+  statusCode: number;
+  body: CreateDBInstanceForRebuildResponseBody;
+  static names(): { [key: string]: string } {
+    return {
+      headers: 'headers',
+      statusCode: 'statusCode',
+      body: 'body',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
+      body: CreateDBInstanceForRebuildResponseBody,
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class CreateDBNodesRequest extends $tea.Model {
+  clientToken?: string;
+  DBInstanceId?: string;
+  DBNode?: CreateDBNodesRequestDBNode[];
+  ownerAccount?: string;
+  ownerId?: number;
+  resourceOwnerAccount?: string;
+  resourceOwnerId?: number;
+  static names(): { [key: string]: string } {
+    return {
+      clientToken: 'ClientToken',
+      DBInstanceId: 'DBInstanceId',
+      DBNode: 'DBNode',
+      ownerAccount: 'OwnerAccount',
+      ownerId: 'OwnerId',
+      resourceOwnerAccount: 'ResourceOwnerAccount',
+      resourceOwnerId: 'ResourceOwnerId',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      clientToken: 'string',
+      DBInstanceId: 'string',
+      DBNode: { 'type': 'array', 'itemType': CreateDBNodesRequestDBNode },
+      ownerAccount: 'string',
+      ownerId: 'number',
+      resourceOwnerAccount: 'string',
+      resourceOwnerId: 'number',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class CreateDBNodesShrinkRequest extends $tea.Model {
+  clientToken?: string;
+  DBInstanceId?: string;
+  DBNodeShrink?: string;
+  ownerAccount?: string;
+  ownerId?: number;
+  resourceOwnerAccount?: string;
+  resourceOwnerId?: number;
+  static names(): { [key: string]: string } {
+    return {
+      clientToken: 'ClientToken',
+      DBInstanceId: 'DBInstanceId',
+      DBNodeShrink: 'DBNode',
+      ownerAccount: 'OwnerAccount',
+      ownerId: 'OwnerId',
+      resourceOwnerAccount: 'ResourceOwnerAccount',
+      resourceOwnerId: 'ResourceOwnerId',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      clientToken: 'string',
+      DBInstanceId: 'string',
+      DBNodeShrink: 'string',
+      ownerAccount: 'string',
+      ownerId: 'number',
+      resourceOwnerAccount: 'string',
+      resourceOwnerId: 'number',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class CreateDBNodesResponseBody extends $tea.Model {
+  DBInstanceId?: string;
+  nodeIds?: string;
+  orderId?: number;
+  requestId?: string;
+  static names(): { [key: string]: string } {
+    return {
+      DBInstanceId: 'DBInstanceId',
+      nodeIds: 'NodeIds',
+      orderId: 'OrderId',
+      requestId: 'RequestId',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      DBInstanceId: 'string',
+      nodeIds: 'string',
+      orderId: 'number',
+      requestId: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class CreateDBNodesResponse extends $tea.Model {
+  headers: { [key: string]: string };
+  statusCode: number;
+  body: CreateDBNodesResponseBody;
+  static names(): { [key: string]: string } {
+    return {
+      headers: 'headers',
+      statusCode: 'statusCode',
+      body: 'body',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
+      body: CreateDBNodesResponseBody,
     };
   }
 
@@ -3439,7 +3755,10 @@ export class CreateParameterGroupResponse extends $tea.Model {
 }
 
 export class CreateReadOnlyDBInstanceRequest extends $tea.Model {
+  autoPay?: boolean;
   autoRenew?: string;
+  bpeEnabled?: string;
+  burstingEnabled?: boolean;
   category?: string;
   clientToken?: string;
   DBInstanceClass?: string;
@@ -3471,7 +3790,10 @@ export class CreateReadOnlyDBInstanceRequest extends $tea.Model {
   zoneId?: string;
   static names(): { [key: string]: string } {
     return {
+      autoPay: 'AutoPay',
       autoRenew: 'AutoRenew',
+      bpeEnabled: 'BpeEnabled',
+      burstingEnabled: 'BurstingEnabled',
       category: 'Category',
       clientToken: 'ClientToken',
       DBInstanceClass: 'DBInstanceClass',
@@ -3506,7 +3828,10 @@ export class CreateReadOnlyDBInstanceRequest extends $tea.Model {
 
   static types(): { [key: string]: any } {
     return {
+      autoPay: 'boolean',
       autoRenew: 'string',
+      bpeEnabled: 'string',
+      burstingEnabled: 'boolean',
       category: 'string',
       clientToken: 'string',
       DBInstanceClass: 'string',
@@ -4425,6 +4750,130 @@ export class DeleteDBInstanceEndpointAddressResponse extends $tea.Model {
   }
 }
 
+export class DeleteDBNodesRequest extends $tea.Model {
+  clientToken?: string;
+  DBInstanceId?: string;
+  DBNodeId?: string[];
+  ownerAccount?: string;
+  ownerId?: number;
+  resourceOwnerAccount?: string;
+  resourceOwnerId?: number;
+  static names(): { [key: string]: string } {
+    return {
+      clientToken: 'ClientToken',
+      DBInstanceId: 'DBInstanceId',
+      DBNodeId: 'DBNodeId',
+      ownerAccount: 'OwnerAccount',
+      ownerId: 'OwnerId',
+      resourceOwnerAccount: 'ResourceOwnerAccount',
+      resourceOwnerId: 'ResourceOwnerId',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      clientToken: 'string',
+      DBInstanceId: 'string',
+      DBNodeId: { 'type': 'array', 'itemType': 'string' },
+      ownerAccount: 'string',
+      ownerId: 'number',
+      resourceOwnerAccount: 'string',
+      resourceOwnerId: 'number',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class DeleteDBNodesShrinkRequest extends $tea.Model {
+  clientToken?: string;
+  DBInstanceId?: string;
+  DBNodeIdShrink?: string;
+  ownerAccount?: string;
+  ownerId?: number;
+  resourceOwnerAccount?: string;
+  resourceOwnerId?: number;
+  static names(): { [key: string]: string } {
+    return {
+      clientToken: 'ClientToken',
+      DBInstanceId: 'DBInstanceId',
+      DBNodeIdShrink: 'DBNodeId',
+      ownerAccount: 'OwnerAccount',
+      ownerId: 'OwnerId',
+      resourceOwnerAccount: 'ResourceOwnerAccount',
+      resourceOwnerId: 'ResourceOwnerId',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      clientToken: 'string',
+      DBInstanceId: 'string',
+      DBNodeIdShrink: 'string',
+      ownerAccount: 'string',
+      ownerId: 'number',
+      resourceOwnerAccount: 'string',
+      resourceOwnerId: 'number',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class DeleteDBNodesResponseBody extends $tea.Model {
+  DBInstanceId?: string;
+  orderId?: number;
+  requestId?: string;
+  static names(): { [key: string]: string } {
+    return {
+      DBInstanceId: 'DBInstanceId',
+      orderId: 'OrderId',
+      requestId: 'RequestId',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      DBInstanceId: 'string',
+      orderId: 'number',
+      requestId: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class DeleteDBNodesResponse extends $tea.Model {
+  headers: { [key: string]: string };
+  statusCode: number;
+  body: DeleteDBNodesResponseBody;
+  static names(): { [key: string]: string } {
+    return {
+      headers: 'headers',
+      statusCode: 'statusCode',
+      body: 'body',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
+      body: DeleteDBNodesResponseBody,
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
 export class DeleteDBProxyEndpointAddressRequest extends $tea.Model {
   DBInstanceId?: string;
   DBProxyConnectStringNetType?: string;
@@ -4801,6 +5250,96 @@ export class DeleteSecretResponse extends $tea.Model {
       headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
       statusCode: 'number',
       body: DeleteSecretResponseBody,
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class DeleteSlotRequest extends $tea.Model {
+  clientToken?: string;
+  DBInstanceId?: string;
+  ownerAccount?: string;
+  ownerId?: number;
+  resourceGroupId?: string;
+  resourceOwnerAccount?: string;
+  resourceOwnerId?: number;
+  slotName?: string;
+  slotStatus?: string;
+  static names(): { [key: string]: string } {
+    return {
+      clientToken: 'ClientToken',
+      DBInstanceId: 'DBInstanceId',
+      ownerAccount: 'OwnerAccount',
+      ownerId: 'OwnerId',
+      resourceGroupId: 'ResourceGroupId',
+      resourceOwnerAccount: 'ResourceOwnerAccount',
+      resourceOwnerId: 'ResourceOwnerId',
+      slotName: 'SlotName',
+      slotStatus: 'SlotStatus',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      clientToken: 'string',
+      DBInstanceId: 'string',
+      ownerAccount: 'string',
+      ownerId: 'number',
+      resourceGroupId: 'string',
+      resourceOwnerAccount: 'string',
+      resourceOwnerId: 'number',
+      slotName: 'string',
+      slotStatus: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class DeleteSlotResponseBody extends $tea.Model {
+  requestId?: string;
+  slotName?: string;
+  static names(): { [key: string]: string } {
+    return {
+      requestId: 'RequestId',
+      slotName: 'SlotName',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      requestId: 'string',
+      slotName: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class DeleteSlotResponse extends $tea.Model {
+  headers: { [key: string]: string };
+  statusCode: number;
+  body: DeleteSlotResponseBody;
+  static names(): { [key: string]: string } {
+    return {
+      headers: 'headers',
+      statusCode: 'statusCode',
+      body: 'body',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
+      body: DeleteSlotResponseBody,
     };
   }
 
@@ -5251,6 +5790,126 @@ export class DescribeActionEventPolicyResponse extends $tea.Model {
       headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
       statusCode: 'number',
       body: DescribeActionEventPolicyResponseBody,
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class DescribeActiveOperationTasksRequest extends $tea.Model {
+  allowCancel?: number;
+  allowChange?: number;
+  changeLevel?: string;
+  dbType?: string;
+  insName?: string;
+  ownerAccount?: string;
+  ownerId?: number;
+  pageNumber?: number;
+  pageSize?: number;
+  productId?: string;
+  region?: string;
+  resourceOwnerAccount?: string;
+  resourceOwnerId?: number;
+  securityToken?: string;
+  status?: number;
+  taskType?: string;
+  static names(): { [key: string]: string } {
+    return {
+      allowCancel: 'AllowCancel',
+      allowChange: 'AllowChange',
+      changeLevel: 'ChangeLevel',
+      dbType: 'DbType',
+      insName: 'InsName',
+      ownerAccount: 'OwnerAccount',
+      ownerId: 'OwnerId',
+      pageNumber: 'PageNumber',
+      pageSize: 'PageSize',
+      productId: 'ProductId',
+      region: 'Region',
+      resourceOwnerAccount: 'ResourceOwnerAccount',
+      resourceOwnerId: 'ResourceOwnerId',
+      securityToken: 'SecurityToken',
+      status: 'Status',
+      taskType: 'TaskType',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      allowCancel: 'number',
+      allowChange: 'number',
+      changeLevel: 'string',
+      dbType: 'string',
+      insName: 'string',
+      ownerAccount: 'string',
+      ownerId: 'number',
+      pageNumber: 'number',
+      pageSize: 'number',
+      productId: 'string',
+      region: 'string',
+      resourceOwnerAccount: 'string',
+      resourceOwnerId: 'number',
+      securityToken: 'string',
+      status: 'number',
+      taskType: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class DescribeActiveOperationTasksResponseBody extends $tea.Model {
+  items?: DescribeActiveOperationTasksResponseBodyItems[];
+  pageNumber?: number;
+  pageSize?: number;
+  requestId?: string;
+  totalRecordCount?: number;
+  static names(): { [key: string]: string } {
+    return {
+      items: 'Items',
+      pageNumber: 'PageNumber',
+      pageSize: 'PageSize',
+      requestId: 'RequestId',
+      totalRecordCount: 'TotalRecordCount',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      items: { 'type': 'array', 'itemType': DescribeActiveOperationTasksResponseBodyItems },
+      pageNumber: 'number',
+      pageSize: 'number',
+      requestId: 'string',
+      totalRecordCount: 'number',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class DescribeActiveOperationTasksResponse extends $tea.Model {
+  headers: { [key: string]: string };
+  statusCode: number;
+  body: DescribeActiveOperationTasksResponseBody;
+  static names(): { [key: string]: string } {
+    return {
+      headers: 'headers',
+      statusCode: 'statusCode',
+      body: 'body',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
+      body: DescribeActiveOperationTasksResponseBody,
     };
   }
 
@@ -7404,6 +8063,7 @@ export class DescribeDBInstanceEncryptionKeyResponseBody extends $tea.Model {
   deleteDate?: string;
   description?: string;
   encryptionKey?: string;
+  encryptionKeyList?: DescribeDBInstanceEncryptionKeyResponseBodyEncryptionKeyList[];
   encryptionKeyStatus?: string;
   keyUsage?: string;
   materialExpireTime?: string;
@@ -7415,6 +8075,7 @@ export class DescribeDBInstanceEncryptionKeyResponseBody extends $tea.Model {
       deleteDate: 'DeleteDate',
       description: 'Description',
       encryptionKey: 'EncryptionKey',
+      encryptionKeyList: 'EncryptionKeyList',
       encryptionKeyStatus: 'EncryptionKeyStatus',
       keyUsage: 'KeyUsage',
       materialExpireTime: 'MaterialExpireTime',
@@ -7429,6 +8090,7 @@ export class DescribeDBInstanceEncryptionKeyResponseBody extends $tea.Model {
       deleteDate: 'string',
       description: 'string',
       encryptionKey: 'string',
+      encryptionKeyList: { 'type': 'array', 'itemType': DescribeDBInstanceEncryptionKeyResponseBodyEncryptionKeyList },
       encryptionKeyStatus: 'string',
       keyUsage: 'string',
       materialExpireTime: 'string',
@@ -8617,6 +9279,7 @@ export class DescribeDBInstanceTDEResponse extends $tea.Model {
 }
 
 export class DescribeDBInstancesRequest extends $tea.Model {
+  category?: string;
   clientToken?: string;
   connectionMode?: string;
   connectionString?: string;
@@ -8629,6 +9292,7 @@ export class DescribeDBInstancesRequest extends $tea.Model {
   engine?: string;
   engineVersion?: string;
   expired?: string;
+  filter?: string;
   instanceLevel?: number;
   instanceNetworkType?: string;
   maxResults?: number;
@@ -8650,6 +9314,7 @@ export class DescribeDBInstancesRequest extends $tea.Model {
   proxyId?: string;
   static names(): { [key: string]: string } {
     return {
+      category: 'Category',
       clientToken: 'ClientToken',
       connectionMode: 'ConnectionMode',
       connectionString: 'ConnectionString',
@@ -8662,6 +9327,7 @@ export class DescribeDBInstancesRequest extends $tea.Model {
       engine: 'Engine',
       engineVersion: 'EngineVersion',
       expired: 'Expired',
+      filter: 'Filter',
       instanceLevel: 'InstanceLevel',
       instanceNetworkType: 'InstanceNetworkType',
       maxResults: 'MaxResults',
@@ -8686,6 +9352,7 @@ export class DescribeDBInstancesRequest extends $tea.Model {
 
   static types(): { [key: string]: any } {
     return {
+      category: 'string',
       clientToken: 'string',
       connectionMode: 'string',
       connectionString: 'string',
@@ -8698,6 +9365,7 @@ export class DescribeDBInstancesRequest extends $tea.Model {
       engine: 'string',
       engineVersion: 'string',
       expired: 'string',
+      filter: 'string',
       instanceLevel: 'number',
       instanceNetworkType: 'string',
       maxResults: 'number',
@@ -9377,6 +10045,7 @@ export class DescribeDBProxyRequest extends $tea.Model {
 }
 
 export class DescribeDBProxyResponseBody extends $tea.Model {
+  DBProxyAVZones?: DescribeDBProxyResponseBodyDBProxyAVZones;
   DBProxyConnectStringItems?: DescribeDBProxyResponseBodyDBProxyConnectStringItems;
   DBProxyEngineType?: string;
   DBProxyInstanceCurrentMinorVersion?: string;
@@ -9392,6 +10061,7 @@ export class DescribeDBProxyResponseBody extends $tea.Model {
   resourceGroupId?: string;
   static names(): { [key: string]: string } {
     return {
+      DBProxyAVZones: 'DBProxyAVZones',
       DBProxyConnectStringItems: 'DBProxyConnectStringItems',
       DBProxyEngineType: 'DBProxyEngineType',
       DBProxyInstanceCurrentMinorVersion: 'DBProxyInstanceCurrentMinorVersion',
@@ -9410,6 +10080,7 @@ export class DescribeDBProxyResponseBody extends $tea.Model {
 
   static types(): { [key: string]: any } {
     return {
+      DBProxyAVZones: DescribeDBProxyResponseBodyDBProxyAVZones,
       DBProxyConnectStringItems: DescribeDBProxyResponseBodyDBProxyConnectStringItems,
       DBProxyEngineType: 'string',
       DBProxyInstanceCurrentMinorVersion: 'string',
@@ -10642,6 +11313,216 @@ export class DescribeHASwitchConfigResponse extends $tea.Model {
       headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
       statusCode: 'number',
       body: DescribeHASwitchConfigResponseBody,
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class DescribeHistoryTasksRequest extends $tea.Model {
+  fromExecTime?: number;
+  fromStartTime?: string;
+  instanceId?: string;
+  instanceType?: string;
+  ownerId?: number;
+  pageNumber?: number;
+  pageSize?: number;
+  regionId?: string;
+  resourceGroupId?: string;
+  resourceOwnerAccount?: number;
+  resourceOwnerId?: number;
+  securityToken?: string;
+  status?: string;
+  taskId?: string;
+  taskType?: string;
+  toExecTime?: number;
+  toStartTime?: string;
+  static names(): { [key: string]: string } {
+    return {
+      fromExecTime: 'FromExecTime',
+      fromStartTime: 'FromStartTime',
+      instanceId: 'InstanceId',
+      instanceType: 'InstanceType',
+      ownerId: 'OwnerId',
+      pageNumber: 'PageNumber',
+      pageSize: 'PageSize',
+      regionId: 'RegionId',
+      resourceGroupId: 'ResourceGroupId',
+      resourceOwnerAccount: 'ResourceOwnerAccount',
+      resourceOwnerId: 'ResourceOwnerId',
+      securityToken: 'SecurityToken',
+      status: 'Status',
+      taskId: 'TaskId',
+      taskType: 'TaskType',
+      toExecTime: 'ToExecTime',
+      toStartTime: 'ToStartTime',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      fromExecTime: 'number',
+      fromStartTime: 'string',
+      instanceId: 'string',
+      instanceType: 'string',
+      ownerId: 'number',
+      pageNumber: 'number',
+      pageSize: 'number',
+      regionId: 'string',
+      resourceGroupId: 'string',
+      resourceOwnerAccount: 'number',
+      resourceOwnerId: 'number',
+      securityToken: 'string',
+      status: 'string',
+      taskId: 'string',
+      taskType: 'string',
+      toExecTime: 'number',
+      toStartTime: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class DescribeHistoryTasksResponseBody extends $tea.Model {
+  items?: DescribeHistoryTasksResponseBodyItems[];
+  pageNumber?: number;
+  pageSize?: number;
+  requestId?: string;
+  totalCount?: number;
+  static names(): { [key: string]: string } {
+    return {
+      items: 'Items',
+      pageNumber: 'PageNumber',
+      pageSize: 'PageSize',
+      requestId: 'RequestId',
+      totalCount: 'TotalCount',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      items: { 'type': 'array', 'itemType': DescribeHistoryTasksResponseBodyItems },
+      pageNumber: 'number',
+      pageSize: 'number',
+      requestId: 'string',
+      totalCount: 'number',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class DescribeHistoryTasksResponse extends $tea.Model {
+  headers: { [key: string]: string };
+  statusCode: number;
+  body: DescribeHistoryTasksResponseBody;
+  static names(): { [key: string]: string } {
+    return {
+      headers: 'headers',
+      statusCode: 'statusCode',
+      body: 'body',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
+      body: DescribeHistoryTasksResponseBody,
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class DescribeHostWebShellRequest extends $tea.Model {
+  accountName?: string;
+  accountPassword?: string;
+  DBInstanceId?: string;
+  hostName?: string;
+  ownerId?: number;
+  regionID?: string;
+  resourceOwnerAccount?: string;
+  resourceOwnerId?: number;
+  static names(): { [key: string]: string } {
+    return {
+      accountName: 'AccountName',
+      accountPassword: 'AccountPassword',
+      DBInstanceId: 'DBInstanceId',
+      hostName: 'HostName',
+      ownerId: 'OwnerId',
+      regionID: 'RegionID',
+      resourceOwnerAccount: 'ResourceOwnerAccount',
+      resourceOwnerId: 'ResourceOwnerId',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      accountName: 'string',
+      accountPassword: 'string',
+      DBInstanceId: 'string',
+      hostName: 'string',
+      ownerId: 'number',
+      regionID: 'string',
+      resourceOwnerAccount: 'string',
+      resourceOwnerId: 'number',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class DescribeHostWebShellResponseBody extends $tea.Model {
+  loginUrl?: string;
+  requestId?: string;
+  static names(): { [key: string]: string } {
+    return {
+      loginUrl: 'LoginUrl',
+      requestId: 'RequestId',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      loginUrl: 'string',
+      requestId: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class DescribeHostWebShellResponse extends $tea.Model {
+  headers: { [key: string]: string };
+  statusCode: number;
+  body: DescribeHostWebShellResponseBody;
+  static names(): { [key: string]: string } {
+    return {
+      headers: 'headers',
+      statusCode: 'statusCode',
+      body: 'body',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
+      body: DescribeHostWebShellResponseBody,
     };
   }
 
@@ -12158,6 +13039,7 @@ export class DescribeParametersResponseBody extends $tea.Model {
   configParameters?: DescribeParametersResponseBodyConfigParameters;
   engine?: string;
   engineVersion?: string;
+  paramGroupInfo?: DescribeParametersResponseBodyParamGroupInfo;
   requestId?: string;
   runningParameters?: DescribeParametersResponseBodyRunningParameters;
   static names(): { [key: string]: string } {
@@ -12165,6 +13047,7 @@ export class DescribeParametersResponseBody extends $tea.Model {
       configParameters: 'ConfigParameters',
       engine: 'Engine',
       engineVersion: 'EngineVersion',
+      paramGroupInfo: 'ParamGroupInfo',
       requestId: 'RequestId',
       runningParameters: 'RunningParameters',
     };
@@ -12175,6 +13058,7 @@ export class DescribeParametersResponseBody extends $tea.Model {
       configParameters: DescribeParametersResponseBodyConfigParameters,
       engine: 'string',
       engineVersion: 'string',
+      paramGroupInfo: DescribeParametersResponseBodyParamGroupInfo,
       requestId: 'string',
       runningParameters: DescribeParametersResponseBodyRunningParameters,
     };
@@ -12372,11 +13256,13 @@ export class DescribePriceResponseBody extends $tea.Model {
   priceInfo?: DescribePriceResponseBodyPriceInfo;
   requestId?: string;
   rules?: DescribePriceResponseBodyRules;
+  showDiscount?: boolean;
   static names(): { [key: string]: string } {
     return {
       priceInfo: 'PriceInfo',
       requestId: 'RequestId',
       rules: 'Rules',
+      showDiscount: 'ShowDiscount',
     };
   }
 
@@ -12385,6 +13271,7 @@ export class DescribePriceResponseBody extends $tea.Model {
       priceInfo: DescribePriceResponseBodyPriceInfo,
       requestId: 'string',
       rules: DescribePriceResponseBodyRules,
+      showDiscount: 'boolean',
     };
   }
 
@@ -13627,10 +14514,95 @@ export class DescribeSecurityGroupConfigurationResponse extends $tea.Model {
   }
 }
 
+export class DescribeSlotsRequest extends $tea.Model {
+  clientToken?: string;
+  DBInstanceId?: string;
+  ownerAccount?: string;
+  ownerId?: number;
+  resourceGroupId?: string;
+  resourceOwnerAccount?: string;
+  resourceOwnerId?: number;
+  static names(): { [key: string]: string } {
+    return {
+      clientToken: 'ClientToken',
+      DBInstanceId: 'DBInstanceId',
+      ownerAccount: 'OwnerAccount',
+      ownerId: 'OwnerId',
+      resourceGroupId: 'ResourceGroupId',
+      resourceOwnerAccount: 'ResourceOwnerAccount',
+      resourceOwnerId: 'ResourceOwnerId',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      clientToken: 'string',
+      DBInstanceId: 'string',
+      ownerAccount: 'string',
+      ownerId: 'number',
+      resourceGroupId: 'string',
+      resourceOwnerAccount: 'string',
+      resourceOwnerId: 'number',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class DescribeSlotsResponseBody extends $tea.Model {
+  requestId?: string;
+  slots?: DescribeSlotsResponseBodySlots[];
+  static names(): { [key: string]: string } {
+    return {
+      requestId: 'RequestId',
+      slots: 'Slots',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      requestId: 'string',
+      slots: { 'type': 'array', 'itemType': DescribeSlotsResponseBodySlots },
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class DescribeSlotsResponse extends $tea.Model {
+  headers: { [key: string]: string };
+  statusCode: number;
+  body: DescribeSlotsResponseBody;
+  static names(): { [key: string]: string } {
+    return {
+      headers: 'headers',
+      statusCode: 'statusCode',
+      body: 'body',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
+      body: DescribeSlotsResponseBody,
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
 export class DescribeSlowLogRecordsRequest extends $tea.Model {
   DBInstanceId?: string;
   DBName?: string;
   endTime?: string;
+  nodeId?: string;
   ownerAccount?: string;
   ownerId?: number;
   pageNumber?: number;
@@ -13644,6 +14616,7 @@ export class DescribeSlowLogRecordsRequest extends $tea.Model {
       DBInstanceId: 'DBInstanceId',
       DBName: 'DBName',
       endTime: 'EndTime',
+      nodeId: 'NodeId',
       ownerAccount: 'OwnerAccount',
       ownerId: 'OwnerId',
       pageNumber: 'PageNumber',
@@ -13660,6 +14633,7 @@ export class DescribeSlowLogRecordsRequest extends $tea.Model {
       DBInstanceId: 'string',
       DBName: 'string',
       endTime: 'string',
+      nodeId: 'string',
       ownerAccount: 'string',
       ownerId: 'number',
       pageNumber: 'number',
@@ -13847,6 +14821,84 @@ export class DescribeSlowLogsResponse extends $tea.Model {
       headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
       statusCode: 'number',
       body: DescribeSlowLogsResponseBody,
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class DescribeSupportOnlineResizeDiskRequest extends $tea.Model {
+  DBInstanceId?: string;
+  ownerAccount?: string;
+  static names(): { [key: string]: string } {
+    return {
+      DBInstanceId: 'DBInstanceId',
+      ownerAccount: 'OwnerAccount',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      DBInstanceId: 'string',
+      ownerAccount: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class DescribeSupportOnlineResizeDiskResponseBody extends $tea.Model {
+  code?: string;
+  data?: string;
+  message?: string;
+  requestId?: string;
+  success?: boolean;
+  static names(): { [key: string]: string } {
+    return {
+      code: 'Code',
+      data: 'Data',
+      message: 'Message',
+      requestId: 'RequestId',
+      success: 'Success',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      code: 'string',
+      data: 'string',
+      message: 'string',
+      requestId: 'string',
+      success: 'boolean',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class DescribeSupportOnlineResizeDiskResponse extends $tea.Model {
+  headers: { [key: string]: string };
+  statusCode: number;
+  body: DescribeSupportOnlineResizeDiskResponseBody;
+  static names(): { [key: string]: string } {
+    return {
+      headers: 'headers',
+      statusCode: 'statusCode',
+      body: 'body',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
+      body: DescribeSupportOnlineResizeDiskResponseBody,
     };
   }
 
@@ -15955,6 +17007,93 @@ export class ModifyActionEventPolicyResponse extends $tea.Model {
   }
 }
 
+export class ModifyActiveOperationTasksRequest extends $tea.Model {
+  ids?: string;
+  immediateStart?: number;
+  ownerAccount?: string;
+  ownerId?: number;
+  resourceOwnerAccount?: string;
+  resourceOwnerId?: number;
+  securityToken?: string;
+  switchTime?: string;
+  static names(): { [key: string]: string } {
+    return {
+      ids: 'Ids',
+      immediateStart: 'ImmediateStart',
+      ownerAccount: 'OwnerAccount',
+      ownerId: 'OwnerId',
+      resourceOwnerAccount: 'ResourceOwnerAccount',
+      resourceOwnerId: 'ResourceOwnerId',
+      securityToken: 'SecurityToken',
+      switchTime: 'SwitchTime',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      ids: 'string',
+      immediateStart: 'number',
+      ownerAccount: 'string',
+      ownerId: 'number',
+      resourceOwnerAccount: 'string',
+      resourceOwnerId: 'number',
+      securityToken: 'string',
+      switchTime: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class ModifyActiveOperationTasksResponseBody extends $tea.Model {
+  ids?: string;
+  requestId?: string;
+  static names(): { [key: string]: string } {
+    return {
+      ids: 'Ids',
+      requestId: 'RequestId',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      ids: 'string',
+      requestId: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class ModifyActiveOperationTasksResponse extends $tea.Model {
+  headers: { [key: string]: string };
+  statusCode: number;
+  body: ModifyActiveOperationTasksResponseBody;
+  static names(): { [key: string]: string } {
+    return {
+      headers: 'headers',
+      statusCode: 'statusCode',
+      body: 'body',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
+      body: ModifyActiveOperationTasksResponseBody,
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
 export class ModifyBackupPolicyRequest extends $tea.Model {
   archiveBackupKeepCount?: number;
   archiveBackupKeepPolicy?: string;
@@ -17751,6 +18890,7 @@ export class ModifyDBInstanceSSLResponse extends $tea.Model {
 }
 
 export class ModifyDBInstanceSpecRequest extends $tea.Model {
+  burstingEnabled?: boolean;
   category?: string;
   DBInstanceClass?: string;
   DBInstanceId?: string;
@@ -17773,6 +18913,7 @@ export class ModifyDBInstanceSpecRequest extends $tea.Model {
   zoneId?: string;
   static names(): { [key: string]: string } {
     return {
+      burstingEnabled: 'BurstingEnabled',
       category: 'Category',
       DBInstanceClass: 'DBInstanceClass',
       DBInstanceId: 'DBInstanceId',
@@ -17798,6 +18939,7 @@ export class ModifyDBInstanceSpecRequest extends $tea.Model {
 
   static types(): { [key: string]: any } {
     return {
+      burstingEnabled: 'boolean',
       category: 'string',
       DBInstanceClass: 'string',
       DBInstanceId: 'string',
@@ -17827,6 +18969,7 @@ export class ModifyDBInstanceSpecRequest extends $tea.Model {
 }
 
 export class ModifyDBInstanceSpecShrinkRequest extends $tea.Model {
+  burstingEnabled?: boolean;
   category?: string;
   DBInstanceClass?: string;
   DBInstanceId?: string;
@@ -17849,6 +18992,7 @@ export class ModifyDBInstanceSpecShrinkRequest extends $tea.Model {
   zoneId?: string;
   static names(): { [key: string]: string } {
     return {
+      burstingEnabled: 'BurstingEnabled',
       category: 'Category',
       DBInstanceClass: 'DBInstanceClass',
       DBInstanceId: 'DBInstanceId',
@@ -17874,6 +19018,7 @@ export class ModifyDBInstanceSpecShrinkRequest extends $tea.Model {
 
   static types(): { [key: string]: any } {
     return {
+      burstingEnabled: 'boolean',
       category: 'string',
       DBInstanceClass: 'string',
       DBInstanceId: 'string',
@@ -20760,81 +21905,6 @@ export class RenewInstanceResponse extends $tea.Model {
   }
 }
 
-export class RequestServiceOfCloudDBARequest extends $tea.Model {
-  DBInstanceId?: string;
-  serviceRequestParam?: string;
-  serviceRequestType?: string;
-  static names(): { [key: string]: string } {
-    return {
-      DBInstanceId: 'DBInstanceId',
-      serviceRequestParam: 'ServiceRequestParam',
-      serviceRequestType: 'ServiceRequestType',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      DBInstanceId: 'string',
-      serviceRequestParam: 'string',
-      serviceRequestType: 'string',
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class RequestServiceOfCloudDBAResponseBody extends $tea.Model {
-  attrData?: string;
-  listData?: string;
-  requestId?: string;
-  static names(): { [key: string]: string } {
-    return {
-      attrData: 'AttrData',
-      listData: 'ListData',
-      requestId: 'RequestId',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      attrData: 'string',
-      listData: 'string',
-      requestId: 'string',
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class RequestServiceOfCloudDBAResponse extends $tea.Model {
-  headers: { [key: string]: string };
-  statusCode: number;
-  body: RequestServiceOfCloudDBAResponseBody;
-  static names(): { [key: string]: string } {
-    return {
-      headers: 'headers',
-      statusCode: 'statusCode',
-      body: 'body',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
-      statusCode: 'number',
-      body: RequestServiceOfCloudDBAResponseBody,
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
 export class ResetAccountRequest extends $tea.Model {
   accountName?: string;
   accountPassword?: string;
@@ -23164,6 +24234,28 @@ export class CreateDBInstanceEndpointAddressResponseBodyData extends $tea.Model 
   }
 }
 
+export class CreateDBNodesRequestDBNode extends $tea.Model {
+  classCode?: string;
+  zoneId?: string;
+  static names(): { [key: string]: string } {
+    return {
+      classCode: 'classCode',
+      zoneId: 'zoneId',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      classCode: 'string',
+      zoneId: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
 export class CreateGADInstanceRequestTag extends $tea.Model {
   key?: string;
   value?: string;
@@ -23189,6 +24281,7 @@ export class CreateGADInstanceRequestTag extends $tea.Model {
 export class CreateGADInstanceRequestUnitNode extends $tea.Model {
   DBInstanceDescription?: string;
   DBInstanceStorage?: number;
+  DBInstanceStorageType?: string;
   dbInstanceClass?: string;
   dtsConflict?: string;
   dtsInstanceClass?: string;
@@ -23206,6 +24299,7 @@ export class CreateGADInstanceRequestUnitNode extends $tea.Model {
     return {
       DBInstanceDescription: 'DBInstanceDescription',
       DBInstanceStorage: 'DBInstanceStorage',
+      DBInstanceStorageType: 'DBInstanceStorageType',
       dbInstanceClass: 'DbInstanceClass',
       dtsConflict: 'DtsConflict',
       dtsInstanceClass: 'DtsInstanceClass',
@@ -23226,6 +24320,7 @@ export class CreateGADInstanceRequestUnitNode extends $tea.Model {
     return {
       DBInstanceDescription: 'string',
       DBInstanceStorage: 'number',
+      DBInstanceStorageType: 'string',
       dbInstanceClass: 'string',
       dtsConflict: 'string',
       dtsInstanceClass: 'string',
@@ -23275,6 +24370,7 @@ export class CreateGADInstanceResponseBodyResult extends $tea.Model {
 export class CreateGadInstanceMemberRequestUnitNode extends $tea.Model {
   DBInstanceDescription?: string;
   DBInstanceStorage?: number;
+  DBInstanceStorageType?: string;
   dbInstanceClass?: string;
   dtsConflict?: string;
   dtsInstanceClass?: string;
@@ -23291,6 +24387,7 @@ export class CreateGadInstanceMemberRequestUnitNode extends $tea.Model {
     return {
       DBInstanceDescription: 'DBInstanceDescription',
       DBInstanceStorage: 'DBInstanceStorage',
+      DBInstanceStorageType: 'DBInstanceStorageType',
       dbInstanceClass: 'DbInstanceClass',
       dtsConflict: 'DtsConflict',
       dtsInstanceClass: 'DtsInstanceClass',
@@ -23310,6 +24407,7 @@ export class CreateGadInstanceMemberRequestUnitNode extends $tea.Model {
     return {
       DBInstanceDescription: 'string',
       DBInstanceStorage: 'number',
+      DBInstanceStorageType: 'string',
       dbInstanceClass: 'string',
       dtsConflict: 'string',
       dtsInstanceClass: 'string',
@@ -23572,6 +24670,103 @@ export class DescribeAccountsResponseBodyAccounts extends $tea.Model {
   static types(): { [key: string]: any } {
     return {
       DBInstanceAccount: { 'type': 'array', 'itemType': DescribeAccountsResponseBodyAccountsDBInstanceAccount },
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class DescribeActiveOperationTasksResponseBodyItems extends $tea.Model {
+  allowCancel?: string;
+  allowChange?: string;
+  changeLevel?: string;
+  changeLevelEn?: string;
+  changeLevelZh?: string;
+  createdTime?: string;
+  currentAVZ?: string;
+  dbType?: string;
+  dbVersion?: string;
+  deadline?: string;
+  id?: number;
+  impact?: string;
+  impactEn?: string;
+  impactZh?: string;
+  insComment?: string;
+  insName?: string;
+  modifiedTime?: string;
+  prepareInterval?: string;
+  region?: string;
+  resultInfo?: string;
+  startTime?: string;
+  status?: number;
+  subInsNames?: string[];
+  switchTime?: string;
+  taskType?: string;
+  taskTypeEn?: string;
+  taskTypeZh?: string;
+  static names(): { [key: string]: string } {
+    return {
+      allowCancel: 'AllowCancel',
+      allowChange: 'AllowChange',
+      changeLevel: 'ChangeLevel',
+      changeLevelEn: 'ChangeLevelEn',
+      changeLevelZh: 'ChangeLevelZh',
+      createdTime: 'CreatedTime',
+      currentAVZ: 'CurrentAVZ',
+      dbType: 'DbType',
+      dbVersion: 'DbVersion',
+      deadline: 'Deadline',
+      id: 'Id',
+      impact: 'Impact',
+      impactEn: 'ImpactEn',
+      impactZh: 'ImpactZh',
+      insComment: 'InsComment',
+      insName: 'InsName',
+      modifiedTime: 'ModifiedTime',
+      prepareInterval: 'PrepareInterval',
+      region: 'Region',
+      resultInfo: 'ResultInfo',
+      startTime: 'StartTime',
+      status: 'Status',
+      subInsNames: 'SubInsNames',
+      switchTime: 'SwitchTime',
+      taskType: 'TaskType',
+      taskTypeEn: 'TaskTypeEn',
+      taskTypeZh: 'TaskTypeZh',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      allowCancel: 'string',
+      allowChange: 'string',
+      changeLevel: 'string',
+      changeLevelEn: 'string',
+      changeLevelZh: 'string',
+      createdTime: 'string',
+      currentAVZ: 'string',
+      dbType: 'string',
+      dbVersion: 'string',
+      deadline: 'string',
+      id: 'number',
+      impact: 'string',
+      impactEn: 'string',
+      impactZh: 'string',
+      insComment: 'string',
+      insName: 'string',
+      modifiedTime: 'string',
+      prepareInterval: 'string',
+      region: 'string',
+      resultInfo: 'string',
+      startTime: 'string',
+      status: 'number',
+      subInsNames: { 'type': 'array', 'itemType': 'string' },
+      switchTime: 'string',
+      taskType: 'string',
+      taskTypeEn: 'string',
+      taskTypeZh: 'string',
     };
   }
 
@@ -24764,6 +25959,8 @@ export class DescribeDBInstanceAttributeResponseBodyItemsDBInstanceAttribute ext
   autoUpgradeMinorVersion?: string;
   availabilityValue?: string;
   babelfishConfig?: DescribeDBInstanceAttributeResponseBodyItemsDBInstanceAttributeBabelfishConfig;
+  bpeEnabled?: string;
+  burstingEnabled?: boolean;
   category?: string;
   collation?: string;
   connectionMode?: string;
@@ -24833,6 +26030,8 @@ export class DescribeDBInstanceAttributeResponseBodyItemsDBInstanceAttribute ext
       autoUpgradeMinorVersion: 'AutoUpgradeMinorVersion',
       availabilityValue: 'AvailabilityValue',
       babelfishConfig: 'BabelfishConfig',
+      bpeEnabled: 'BpeEnabled',
+      burstingEnabled: 'BurstingEnabled',
       category: 'Category',
       collation: 'Collation',
       connectionMode: 'ConnectionMode',
@@ -24905,6 +26104,8 @@ export class DescribeDBInstanceAttributeResponseBodyItemsDBInstanceAttribute ext
       autoUpgradeMinorVersion: 'string',
       availabilityValue: 'string',
       babelfishConfig: DescribeDBInstanceAttributeResponseBodyItemsDBInstanceAttributeBabelfishConfig,
+      bpeEnabled: 'string',
+      burstingEnabled: 'boolean',
       category: 'string',
       collation: 'string',
       connectionMode: 'string',
@@ -25068,6 +26269,55 @@ export class DescribeDBInstanceByTagsResponseBodyItems extends $tea.Model {
   static types(): { [key: string]: any } {
     return {
       DBInstanceTag: { 'type': 'array', 'itemType': DescribeDBInstanceByTagsResponseBodyItemsDBInstanceTag },
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class DescribeDBInstanceEncryptionKeyResponseBodyEncryptionKeyList extends $tea.Model {
+  aliasName?: string;
+  creator?: string;
+  deleteDate?: string;
+  description?: string;
+  encryptionKey?: string;
+  encryptionKeyStatus?: string;
+  keyType?: string;
+  keyUsage?: string;
+  materialExpireTime?: string;
+  origin?: string;
+  usedBy?: string;
+  static names(): { [key: string]: string } {
+    return {
+      aliasName: 'AliasName',
+      creator: 'Creator',
+      deleteDate: 'DeleteDate',
+      description: 'Description',
+      encryptionKey: 'EncryptionKey',
+      encryptionKeyStatus: 'EncryptionKeyStatus',
+      keyType: 'KeyType',
+      keyUsage: 'KeyUsage',
+      materialExpireTime: 'MaterialExpireTime',
+      origin: 'Origin',
+      usedBy: 'UsedBy',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      aliasName: 'string',
+      creator: 'string',
+      deleteDate: 'string',
+      description: 'string',
+      encryptionKey: 'string',
+      encryptionKeyStatus: 'string',
+      keyType: 'string',
+      keyUsage: 'string',
+      materialExpireTime: 'string',
+      origin: 'string',
+      usedBy: 'string',
     };
   }
 
@@ -25895,6 +27145,8 @@ export class DescribeDBInstancesResponseBodyItemsDBInstanceReadOnlyDBInstanceIds
 }
 
 export class DescribeDBInstancesResponseBodyItemsDBInstance extends $tea.Model {
+  bpeEnabled?: string;
+  burstingEnabled?: boolean;
   category?: string;
   connectionMode?: string;
   connectionString?: string;
@@ -25944,6 +27196,8 @@ export class DescribeDBInstancesResponseBodyItemsDBInstance extends $tea.Model {
   zoneId?: string;
   static names(): { [key: string]: string } {
     return {
+      bpeEnabled: 'BpeEnabled',
+      burstingEnabled: 'BurstingEnabled',
       category: 'Category',
       connectionMode: 'ConnectionMode',
       connectionString: 'ConnectionString',
@@ -25996,6 +27250,8 @@ export class DescribeDBInstancesResponseBodyItemsDBInstance extends $tea.Model {
 
   static types(): { [key: string]: any } {
     return {
+      bpeEnabled: 'string',
+      burstingEnabled: 'boolean',
       category: 'string',
       connectionMode: 'string',
       connectionString: 'string',
@@ -26568,6 +27824,25 @@ export class DescribeDBMiniEngineVersionsResponseBodyMinorVersionItems extends $
   }
 }
 
+export class DescribeDBProxyResponseBodyDBProxyAVZones extends $tea.Model {
+  DBProxyAVZones?: string[];
+  static names(): { [key: string]: string } {
+    return {
+      DBProxyAVZones: 'DBProxyAVZones',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      DBProxyAVZones: { 'type': 'array', 'itemType': 'string' },
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
 export class DescribeDBProxyResponseBodyDBProxyConnectStringItemsDBProxyConnectStringItems extends $tea.Model {
   DBProxyConnectString?: string;
   DBProxyConnectStringNetType?: string;
@@ -26575,7 +27850,9 @@ export class DescribeDBProxyResponseBodyDBProxyConnectStringItemsDBProxyConnectS
   DBProxyConnectStringPort?: string;
   DBProxyEndpointId?: string;
   DBProxyEndpointName?: string;
+  DBProxyVpcId?: string;
   DBProxyVpcInstanceId?: string;
+  DBProxyVswitchId?: string;
   static names(): { [key: string]: string } {
     return {
       DBProxyConnectString: 'DBProxyConnectString',
@@ -26584,7 +27861,9 @@ export class DescribeDBProxyResponseBodyDBProxyConnectStringItemsDBProxyConnectS
       DBProxyConnectStringPort: 'DBProxyConnectStringPort',
       DBProxyEndpointId: 'DBProxyEndpointId',
       DBProxyEndpointName: 'DBProxyEndpointName',
+      DBProxyVpcId: 'DBProxyVpcId',
       DBProxyVpcInstanceId: 'DBProxyVpcInstanceId',
+      DBProxyVswitchId: 'DBProxyVswitchId',
     };
   }
 
@@ -26596,7 +27875,9 @@ export class DescribeDBProxyResponseBodyDBProxyConnectStringItemsDBProxyConnectS
       DBProxyConnectStringPort: 'string',
       DBProxyEndpointId: 'string',
       DBProxyEndpointName: 'string',
+      DBProxyVpcId: 'string',
       DBProxyVpcInstanceId: 'string',
+      DBProxyVswitchId: 'string',
     };
   }
 
@@ -27517,6 +28798,82 @@ export class DescribeGadInstancesResponseBodyGadInstances extends $tea.Model {
       modificationTime: 'string',
       service: 'string',
       status: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class DescribeHistoryTasksResponseBodyItems extends $tea.Model {
+  actionInfo?: string;
+  callerSource?: string;
+  callerUid?: string;
+  currentStepName?: string;
+  dbType?: string;
+  endTime?: string;
+  instanceId?: string;
+  instanceName?: string;
+  instanceType?: string;
+  product?: string;
+  progress?: number;
+  reasonCode?: string;
+  regionId?: string;
+  remainTime?: number;
+  startTime?: string;
+  status?: number;
+  taskDetail?: string;
+  taskId?: string;
+  taskType?: string;
+  uid?: string;
+  static names(): { [key: string]: string } {
+    return {
+      actionInfo: 'ActionInfo',
+      callerSource: 'CallerSource',
+      callerUid: 'CallerUid',
+      currentStepName: 'CurrentStepName',
+      dbType: 'DbType',
+      endTime: 'EndTime',
+      instanceId: 'InstanceId',
+      instanceName: 'InstanceName',
+      instanceType: 'InstanceType',
+      product: 'Product',
+      progress: 'Progress',
+      reasonCode: 'ReasonCode',
+      regionId: 'RegionId',
+      remainTime: 'RemainTime',
+      startTime: 'StartTime',
+      status: 'Status',
+      taskDetail: 'TaskDetail',
+      taskId: 'TaskId',
+      taskType: 'TaskType',
+      uid: 'Uid',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      actionInfo: 'string',
+      callerSource: 'string',
+      callerUid: 'string',
+      currentStepName: 'string',
+      dbType: 'string',
+      endTime: 'string',
+      instanceId: 'string',
+      instanceName: 'string',
+      instanceType: 'string',
+      product: 'string',
+      progress: 'number',
+      reasonCode: 'string',
+      regionId: 'string',
+      remainTime: 'number',
+      startTime: 'string',
+      status: 'number',
+      taskDetail: 'string',
+      taskId: 'string',
+      taskType: 'string',
+      uid: 'string',
     };
   }
 
@@ -28449,6 +29806,34 @@ export class DescribeParametersResponseBodyConfigParameters extends $tea.Model {
   static types(): { [key: string]: any } {
     return {
       DBInstanceParameter: { 'type': 'array', 'itemType': DescribeParametersResponseBodyConfigParametersDBInstanceParameter },
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class DescribeParametersResponseBodyParamGroupInfo extends $tea.Model {
+  paramGroupId?: string;
+  parameterGroupDesc?: string;
+  parameterGroupName?: string;
+  parameterGroupType?: string;
+  static names(): { [key: string]: string } {
+    return {
+      paramGroupId: 'ParamGroupId',
+      parameterGroupDesc: 'ParameterGroupDesc',
+      parameterGroupName: 'ParameterGroupName',
+      parameterGroupType: 'ParameterGroupType',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      paramGroupId: 'string',
+      parameterGroupDesc: 'string',
+      parameterGroupName: 'string',
+      parameterGroupType: 'string',
     };
   }
 
@@ -29440,11 +30825,13 @@ export class DescribeSecurityGroupConfigurationResponseBodyItemsEcsSecurityGroup
   networkType?: string;
   regionId?: string;
   securityGroupId?: string;
+  securityGroupName?: string;
   static names(): { [key: string]: string } {
     return {
       networkType: 'NetworkType',
       regionId: 'RegionId',
       securityGroupId: 'SecurityGroupId',
+      securityGroupName: 'SecurityGroupName',
     };
   }
 
@@ -29453,6 +30840,7 @@ export class DescribeSecurityGroupConfigurationResponseBodyItemsEcsSecurityGroup
       networkType: 'string',
       regionId: 'string',
       securityGroupId: 'string',
+      securityGroupName: 'string',
     };
   }
 
@@ -29472,6 +30860,43 @@ export class DescribeSecurityGroupConfigurationResponseBodyItems extends $tea.Mo
   static types(): { [key: string]: any } {
     return {
       ecsSecurityGroupRelation: { 'type': 'array', 'itemType': DescribeSecurityGroupConfigurationResponseBodyItemsEcsSecurityGroupRelation },
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class DescribeSlotsResponseBodySlots extends $tea.Model {
+  database?: string;
+  plugin?: string;
+  slotName?: string;
+  slotStatus?: string;
+  slotType?: string;
+  temporary?: string;
+  walDelay?: string;
+  static names(): { [key: string]: string } {
+    return {
+      database: 'Database',
+      plugin: 'Plugin',
+      slotName: 'SlotName',
+      slotStatus: 'SlotStatus',
+      slotType: 'SlotType',
+      temporary: 'Temporary',
+      walDelay: 'WalDelay',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      database: 'string',
+      plugin: 'string',
+      slotName: 'string',
+      slotStatus: 'string',
+      slotType: 'string',
+      temporary: 'string',
+      walDelay: 'string',
     };
   }
 
@@ -29582,9 +31007,11 @@ export class DescribeSlowLogsResponseBodyItemsSQLSlowLog extends $tea.Model {
   createTime?: string;
   DBName?: string;
   maxExecutionTime?: number;
+  maxExecutionTimeMS?: number;
   maxIOWriteCounts?: number;
   maxLastRowsAffectedCounts?: number;
   maxLockTime?: number;
+  maxLockTimeMS?: number;
   maxLogicalReadCounts?: number;
   maxPhysicalReadCounts?: number;
   maxRowsAffectedCounts?: number;
@@ -29629,9 +31056,11 @@ export class DescribeSlowLogsResponseBodyItemsSQLSlowLog extends $tea.Model {
       createTime: 'CreateTime',
       DBName: 'DBName',
       maxExecutionTime: 'MaxExecutionTime',
+      maxExecutionTimeMS: 'MaxExecutionTimeMS',
       maxIOWriteCounts: 'MaxIOWriteCounts',
       maxLastRowsAffectedCounts: 'MaxLastRowsAffectedCounts',
       maxLockTime: 'MaxLockTime',
+      maxLockTimeMS: 'MaxLockTimeMS',
       maxLogicalReadCounts: 'MaxLogicalReadCounts',
       maxPhysicalReadCounts: 'MaxPhysicalReadCounts',
       maxRowsAffectedCounts: 'MaxRowsAffectedCounts',
@@ -29679,9 +31108,11 @@ export class DescribeSlowLogsResponseBodyItemsSQLSlowLog extends $tea.Model {
       createTime: 'string',
       DBName: 'string',
       maxExecutionTime: 'number',
+      maxExecutionTimeMS: 'number',
       maxIOWriteCounts: 'number',
       maxLastRowsAffectedCounts: 'number',
       maxLockTime: 'number',
+      maxLockTimeMS: 'number',
       maxLogicalReadCounts: 'number',
       maxPhysicalReadCounts: 'number',
       maxRowsAffectedCounts: 'number',
@@ -29975,6 +31406,7 @@ export class DescribeUpgradeMajorVersionTasksResponseBodyItems extends $tea.Mode
 }
 
 export class DescribeVSwitchesResponseBodyVSwitchs extends $tea.Model {
+  availableIpAddressCount?: string;
   cidrBlock?: string;
   description?: string;
   isDefault?: boolean;
@@ -29984,6 +31416,7 @@ export class DescribeVSwitchesResponseBodyVSwitchs extends $tea.Model {
   vSwitchName?: string;
   static names(): { [key: string]: string } {
     return {
+      availableIpAddressCount: 'AvailableIpAddressCount',
       cidrBlock: 'CidrBlock',
       description: 'Description',
       isDefault: 'IsDefault',
@@ -29996,6 +31429,7 @@ export class DescribeVSwitchesResponseBodyVSwitchs extends $tea.Model {
 
   static types(): { [key: string]: any } {
     return {
+      availableIpAddressCount: 'string',
       cidrBlock: 'string',
       description: 'string',
       isDefault: 'boolean',
@@ -30711,6 +32145,14 @@ export default class Client extends OpenApi {
     return EndpointUtil.getEndpointRules(productId, regionId, endpointRule, network, suffix);
   }
 
+  /**
+    * ## Prerequisites
+    * Before you call the ActivateMigrationTargetInstance operation, make sure that a cloud migration task is created by calling the [CreateCloudMigrationTask](~~411690~~) operation. In addition, make sure that the value that is returned for the **MigrateStage** parameter from the call of the [DescribeCloudMigrationResult](~~412150~~) operation is **increment**.
+    *
+    * @param request ActivateMigrationTargetInstanceRequest
+    * @param runtime runtime options for this request RuntimeOptions
+    * @return ActivateMigrationTargetInstanceResponse
+   */
   async activateMigrationTargetInstanceWithOptions(request: ActivateMigrationTargetInstanceRequest, runtime: $Util.RuntimeOptions): Promise<ActivateMigrationTargetInstanceResponse> {
     Util.validateModel(request);
     let query = { };
@@ -30751,11 +32193,30 @@ export default class Client extends OpenApi {
     return $tea.cast<ActivateMigrationTargetInstanceResponse>(await this.callApi(params, req, runtime), new ActivateMigrationTargetInstanceResponse({}));
   }
 
+  /**
+    * ## Prerequisites
+    * Before you call the ActivateMigrationTargetInstance operation, make sure that a cloud migration task is created by calling the [CreateCloudMigrationTask](~~411690~~) operation. In addition, make sure that the value that is returned for the **MigrateStage** parameter from the call of the [DescribeCloudMigrationResult](~~412150~~) operation is **increment**.
+    *
+    * @param request ActivateMigrationTargetInstanceRequest
+    * @return ActivateMigrationTargetInstanceResponse
+   */
   async activateMigrationTargetInstance(request: ActivateMigrationTargetInstanceRequest): Promise<ActivateMigrationTargetInstanceResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.activateMigrationTargetInstanceWithOptions(request, runtime);
   }
 
+  /**
+    * This operation has the following limits:
+    * *   Each tag consists of a TagKey and a TagValue. The TagKey is required, and the TagValue is optional.
+    * *   The values of TagKey and TagValue cannot start with aliyun.
+    * *   The values of TagKey and TagValue are not case-sensitive.
+    * *   The maximum length of a TagKey is 64 characters, and the maximum length of a TagValue is 128 characters.
+    * *   Each instance can be bound to a maximum of 10 tags. Each tag that is bound to the same instance must have a unique TagKey. If you bind a new tag to the instance and the TagKey of the new tag is the same as that of an existing tag, the new tag overwrites the existing tag.
+    *
+    * @param request AddTagsToResourceRequest
+    * @param runtime runtime options for this request RuntimeOptions
+    * @return AddTagsToResourceResponse
+   */
   async addTagsToResourceWithOptions(request: AddTagsToResourceRequest, runtime: $Util.RuntimeOptions): Promise<AddTagsToResourceResponse> {
     Util.validateModel(request);
     let query = { };
@@ -30816,11 +32277,30 @@ export default class Client extends OpenApi {
     return $tea.cast<AddTagsToResourceResponse>(await this.callApi(params, req, runtime), new AddTagsToResourceResponse({}));
   }
 
+  /**
+    * This operation has the following limits:
+    * *   Each tag consists of a TagKey and a TagValue. The TagKey is required, and the TagValue is optional.
+    * *   The values of TagKey and TagValue cannot start with aliyun.
+    * *   The values of TagKey and TagValue are not case-sensitive.
+    * *   The maximum length of a TagKey is 64 characters, and the maximum length of a TagValue is 128 characters.
+    * *   Each instance can be bound to a maximum of 10 tags. Each tag that is bound to the same instance must have a unique TagKey. If you bind a new tag to the instance and the TagKey of the new tag is the same as that of an existing tag, the new tag overwrites the existing tag.
+    *
+    * @param request AddTagsToResourceRequest
+    * @return AddTagsToResourceResponse
+   */
   async addTagsToResource(request: AddTagsToResourceRequest): Promise<AddTagsToResourceResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.addTagsToResourceWithOptions(request, runtime);
   }
 
+  /**
+    * ###
+    * You can apply for only one public endpoint for an instance.
+    *
+    * @param request AllocateInstancePublicConnectionRequest
+    * @param runtime runtime options for this request RuntimeOptions
+    * @return AllocateInstancePublicConnectionResponse
+   */
   async allocateInstancePublicConnectionWithOptions(request: AllocateInstancePublicConnectionRequest, runtime: $Util.RuntimeOptions): Promise<AllocateInstancePublicConnectionResponse> {
     Util.validateModel(request);
     let query = { };
@@ -30877,11 +32357,34 @@ export default class Client extends OpenApi {
     return $tea.cast<AllocateInstancePublicConnectionResponse>(await this.callApi(params, req, runtime), new AllocateInstancePublicConnectionResponse({}));
   }
 
+  /**
+    * ###
+    * You can apply for only one public endpoint for an instance.
+    *
+    * @param request AllocateInstancePublicConnectionRequest
+    * @return AllocateInstancePublicConnectionResponse
+   */
   async allocateInstancePublicConnection(request: AllocateInstancePublicConnectionRequest): Promise<AllocateInstancePublicConnectionResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.allocateInstancePublicConnectionWithOptions(request, runtime);
   }
 
+  /**
+    * If read-only instances are attached to a primary ApsaraDB RDS for SQL Server instance, you can call this operation to apply for a unified read-only routing endpoint for the primary instance. After you apply for a read-only routing endpoint for a primary instance, the existing endpoints of the primary instance and its read-only instances remain valid. In addition, you can still apply for internal and public endpoints.
+    * Before you call this operation, make sure that the following requirements are met:
+    * *   If the instance runs MySQL, the instance uses a shared proxy.
+    * *   The instance is in the Running state.
+    * *   Read-only instances are attached to the primary instance.
+    * *   The instance does not have an ongoing Data Transmission Service (DTS) migration task.
+    * *   The instance runs one of the following database versions and RDS editions:
+    *     *   SQL Server (cluster edition)
+    *     *   MySQL 5.7 on RDS High-availability Edition with local SSDs
+    *     *   MySQL 5.6
+    *
+    * @param request AllocateReadWriteSplittingConnectionRequest
+    * @param runtime runtime options for this request RuntimeOptions
+    * @return AllocateReadWriteSplittingConnectionResponse
+   */
   async allocateReadWriteSplittingConnectionWithOptions(request: AllocateReadWriteSplittingConnectionRequest, runtime: $Util.RuntimeOptions): Promise<AllocateReadWriteSplittingConnectionResponse> {
     Util.validateModel(request);
     let query = { };
@@ -30946,11 +32449,39 @@ export default class Client extends OpenApi {
     return $tea.cast<AllocateReadWriteSplittingConnectionResponse>(await this.callApi(params, req, runtime), new AllocateReadWriteSplittingConnectionResponse({}));
   }
 
+  /**
+    * If read-only instances are attached to a primary ApsaraDB RDS for SQL Server instance, you can call this operation to apply for a unified read-only routing endpoint for the primary instance. After you apply for a read-only routing endpoint for a primary instance, the existing endpoints of the primary instance and its read-only instances remain valid. In addition, you can still apply for internal and public endpoints.
+    * Before you call this operation, make sure that the following requirements are met:
+    * *   If the instance runs MySQL, the instance uses a shared proxy.
+    * *   The instance is in the Running state.
+    * *   Read-only instances are attached to the primary instance.
+    * *   The instance does not have an ongoing Data Transmission Service (DTS) migration task.
+    * *   The instance runs one of the following database versions and RDS editions:
+    *     *   SQL Server (cluster edition)
+    *     *   MySQL 5.7 on RDS High-availability Edition with local SSDs
+    *     *   MySQL 5.6
+    *
+    * @param request AllocateReadWriteSplittingConnectionRequest
+    * @return AllocateReadWriteSplittingConnectionResponse
+   */
   async allocateReadWriteSplittingConnection(request: AllocateReadWriteSplittingConnectionRequest): Promise<AllocateReadWriteSplittingConnectionResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.allocateReadWriteSplittingConnectionWithOptions(request, runtime);
   }
 
+  /**
+    * When the [read/write splitting](~~51073~~) feature is enabled, this operation is used to calculate system-assigned read weights. For more information about custom read weights, see [DescribeDBInstanceNetInfo](~~26237~~).
+    * Before you call this operation, make sure that the following requirements are met:
+    * *   The shared proxy feature is enabled for your ApsaraDB RDS for MySQL instance.
+    * *   The instance must run one of the following database engine versions and RDS editions:
+    *     *   MySQL 5.7 on RDS High-availability Edition (with local SSDs)
+    *     *   MySQL 5.6
+    *     *   SQL Server on RDS Cluster Edition
+    *
+    * @param request CalculateDBInstanceWeightRequest
+    * @param runtime runtime options for this request RuntimeOptions
+    * @return CalculateDBInstanceWeightResponse
+   */
   async calculateDBInstanceWeightWithOptions(request: CalculateDBInstanceWeightRequest, runtime: $Util.RuntimeOptions): Promise<CalculateDBInstanceWeightResponse> {
     Util.validateModel(request);
     let query = { };
@@ -30979,11 +32510,31 @@ export default class Client extends OpenApi {
     return $tea.cast<CalculateDBInstanceWeightResponse>(await this.callApi(params, req, runtime), new CalculateDBInstanceWeightResponse({}));
   }
 
+  /**
+    * When the [read/write splitting](~~51073~~) feature is enabled, this operation is used to calculate system-assigned read weights. For more information about custom read weights, see [DescribeDBInstanceNetInfo](~~26237~~).
+    * Before you call this operation, make sure that the following requirements are met:
+    * *   The shared proxy feature is enabled for your ApsaraDB RDS for MySQL instance.
+    * *   The instance must run one of the following database engine versions and RDS editions:
+    *     *   MySQL 5.7 on RDS High-availability Edition (with local SSDs)
+    *     *   MySQL 5.6
+    *     *   SQL Server on RDS Cluster Edition
+    *
+    * @param request CalculateDBInstanceWeightRequest
+    * @return CalculateDBInstanceWeightResponse
+   */
   async calculateDBInstanceWeight(request: CalculateDBInstanceWeightRequest): Promise<CalculateDBInstanceWeightResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.calculateDBInstanceWeightWithOptions(request, runtime);
   }
 
+  /**
+    * This operation is supported for instances that run SQL Server and belong to the dedicated or dedicated host instance family. For more information about how to start a migration task, see [ImportDatabaseBetweenInstances](~~26301~~).
+    * > This operation is not supported for instances that run SQL Server 2017 on RDS Cluster Edition.
+    *
+    * @param request CancelImportRequest
+    * @param runtime runtime options for this request RuntimeOptions
+    * @return CancelImportResponse
+   */
   async cancelImportWithOptions(request: CancelImportRequest, runtime: $Util.RuntimeOptions): Promise<CancelImportResponse> {
     Util.validateModel(request);
     let query = { };
@@ -31028,6 +32579,13 @@ export default class Client extends OpenApi {
     return $tea.cast<CancelImportResponse>(await this.callApi(params, req, runtime), new CancelImportResponse({}));
   }
 
+  /**
+    * This operation is supported for instances that run SQL Server and belong to the dedicated or dedicated host instance family. For more information about how to start a migration task, see [ImportDatabaseBetweenInstances](~~26301~~).
+    * > This operation is not supported for instances that run SQL Server 2017 on RDS Cluster Edition.
+    *
+    * @param request CancelImportRequest
+    * @return CancelImportResponse
+   */
   async cancelImport(request: CancelImportRequest): Promise<CancelImportResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.cancelImportWithOptions(request, runtime);
@@ -31143,6 +32701,16 @@ export default class Client extends OpenApi {
     return await this.checkCloudResourceAuthorizedWithOptions(request, runtime);
   }
 
+  /**
+    * Before you call this operation, make sure that the source instance runs one of the following database engines:
+    * *   MySQL. For more information, see [Back up an ApsaraDB RDS for MySQL instance across regions](~~120824~~).
+    * *   SQL Server. For more information, see [Back up an ApsaraDB RDS for SQL Server instance across regions](~~187923~~).
+    * *   PostgreSQL. For more information, see [Back up an ApsaraDB RDS for PostgreSQL instance across regions](~~206671~~).
+    *
+    * @param request CheckCreateDdrDBInstanceRequest
+    * @param runtime runtime options for this request RuntimeOptions
+    * @return CheckCreateDdrDBInstanceResponse
+   */
   async checkCreateDdrDBInstanceWithOptions(request: CheckCreateDdrDBInstanceRequest, runtime: $Util.RuntimeOptions): Promise<CheckCreateDdrDBInstanceResponse> {
     Util.validateModel(request);
     let query = { };
@@ -31215,6 +32783,15 @@ export default class Client extends OpenApi {
     return $tea.cast<CheckCreateDdrDBInstanceResponse>(await this.callApi(params, req, runtime), new CheckCreateDdrDBInstanceResponse({}));
   }
 
+  /**
+    * Before you call this operation, make sure that the source instance runs one of the following database engines:
+    * *   MySQL. For more information, see [Back up an ApsaraDB RDS for MySQL instance across regions](~~120824~~).
+    * *   SQL Server. For more information, see [Back up an ApsaraDB RDS for SQL Server instance across regions](~~187923~~).
+    * *   PostgreSQL. For more information, see [Back up an ApsaraDB RDS for PostgreSQL instance across regions](~~206671~~).
+    *
+    * @param request CheckCreateDdrDBInstanceRequest
+    * @return CheckCreateDdrDBInstanceResponse
+   */
   async checkCreateDdrDBInstance(request: CheckCreateDdrDBInstanceRequest): Promise<CheckCreateDdrDBInstanceResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.checkCreateDdrDBInstanceWithOptions(request, runtime);
@@ -31363,21 +32940,48 @@ export default class Client extends OpenApi {
     return await this.checkServiceLinkedRoleWithOptions(request, runtime);
   }
 
+  /**
+    * Before you call this operation, make sure that the following requirements are met:
+    * *   The original instance is in the Running state.
+    * *   The original instance does not have ongoing migration tasks.
+    * *   The log backup feature is enabled for the original instance to support point-in-time recovery.
+    * *   If you want to clone the original instance by using backup sets, the original instance must have at least one backup set.
+    * > ApsaraDB RDS allows you to create a cloned instance by using the credentials of your RAM user. Make sure that your RAM user is granted the permissions that are required to clone an instance. For more information, see [Use RAM to manage ApsaraDB RDS permissions](~~58932~~).
+    * Take note of the following information:
+    * *   The new instance has the same IP address whitelist, SQL Explorer (SQL Audit), alert threshold, backup, and parameter settings as the original instance.
+    * *   The data and account information of the new instance is the same as that indicated by the backup set or point in time used for restoration of the original instance.
+    *
+    * @param tmpReq CloneDBInstanceRequest
+    * @param runtime runtime options for this request RuntimeOptions
+    * @return CloneDBInstanceResponse
+   */
   async cloneDBInstanceWithOptions(tmpReq: CloneDBInstanceRequest, runtime: $Util.RuntimeOptions): Promise<CloneDBInstanceResponse> {
     Util.validateModel(tmpReq);
     let request = new CloneDBInstanceShrinkRequest({ });
     OpenApiUtil.convert(tmpReq, request);
-    if (!Util.isUnset($tea.toMap(tmpReq.serverlessConfig))) {
-      request.serverlessConfigShrink = OpenApiUtil.arrayToStringWithSpecifiedStyle($tea.toMap(tmpReq.serverlessConfig), "ServerlessConfig", "json");
+    if (!Util.isUnset(tmpReq.serverlessConfig)) {
+      request.serverlessConfigShrink = OpenApiUtil.arrayToStringWithSpecifiedStyle(tmpReq.serverlessConfig, "ServerlessConfig", "json");
     }
 
     let query = { };
+    if (!Util.isUnset(request.autoPay)) {
+      query["AutoPay"] = request.autoPay;
+    }
+
     if (!Util.isUnset(request.backupId)) {
       query["BackupId"] = request.backupId;
     }
 
     if (!Util.isUnset(request.backupType)) {
       query["BackupType"] = request.backupType;
+    }
+
+    if (!Util.isUnset(request.bpeEnabled)) {
+      query["BpeEnabled"] = request.bpeEnabled;
+    }
+
+    if (!Util.isUnset(request.burstingEnabled)) {
+      query["BurstingEnabled"] = request.burstingEnabled;
     }
 
     if (!Util.isUnset(request.category)) {
@@ -31468,6 +33072,14 @@ export default class Client extends OpenApi {
       query["ZoneId"] = request.zoneId;
     }
 
+    if (!Util.isUnset(request.zoneIdSlave1)) {
+      query["ZoneIdSlave1"] = request.zoneIdSlave1;
+    }
+
+    if (!Util.isUnset(request.zoneIdSlave2)) {
+      query["ZoneIdSlave2"] = request.zoneIdSlave2;
+    }
+
     let req = new $OpenApi.OpenApiRequest({
       query: OpenApiUtil.query(query),
     });
@@ -31485,11 +33097,33 @@ export default class Client extends OpenApi {
     return $tea.cast<CloneDBInstanceResponse>(await this.callApi(params, req, runtime), new CloneDBInstanceResponse({}));
   }
 
+  /**
+    * Before you call this operation, make sure that the following requirements are met:
+    * *   The original instance is in the Running state.
+    * *   The original instance does not have ongoing migration tasks.
+    * *   The log backup feature is enabled for the original instance to support point-in-time recovery.
+    * *   If you want to clone the original instance by using backup sets, the original instance must have at least one backup set.
+    * > ApsaraDB RDS allows you to create a cloned instance by using the credentials of your RAM user. Make sure that your RAM user is granted the permissions that are required to clone an instance. For more information, see [Use RAM to manage ApsaraDB RDS permissions](~~58932~~).
+    * Take note of the following information:
+    * *   The new instance has the same IP address whitelist, SQL Explorer (SQL Audit), alert threshold, backup, and parameter settings as the original instance.
+    * *   The data and account information of the new instance is the same as that indicated by the backup set or point in time used for restoration of the original instance.
+    *
+    * @param request CloneDBInstanceRequest
+    * @return CloneDBInstanceResponse
+   */
   async cloneDBInstance(request: CloneDBInstanceRequest): Promise<CloneDBInstanceResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.cloneDBInstanceWithOptions(request, runtime);
   }
 
+  /**
+    * You can configure a number of parameters at a time by using a parameter template and then apply the parameter template to an instance. For more information, see [Use a parameter template to configure the parameters of ApsaraDB RDS for MySQL instances](~~130565~~) or [Use a parameter template to configure the parameters of ApsaraDB RDS for PostgreSQL instances](~~457176~~).
+    * > This operation is supported only when your instance runs MySQL or PostgreSQL.
+    *
+    * @param request CloneParameterGroupRequest
+    * @param runtime runtime options for this request RuntimeOptions
+    * @return CloneParameterGroupResponse
+   */
   async cloneParameterGroupWithOptions(request: CloneParameterGroupRequest, runtime: $Util.RuntimeOptions): Promise<CloneParameterGroupResponse> {
     Util.validateModel(request);
     let query = { };
@@ -31542,11 +33176,25 @@ export default class Client extends OpenApi {
     return $tea.cast<CloneParameterGroupResponse>(await this.callApi(params, req, runtime), new CloneParameterGroupResponse({}));
   }
 
+  /**
+    * You can configure a number of parameters at a time by using a parameter template and then apply the parameter template to an instance. For more information, see [Use a parameter template to configure the parameters of ApsaraDB RDS for MySQL instances](~~130565~~) or [Use a parameter template to configure the parameters of ApsaraDB RDS for PostgreSQL instances](~~457176~~).
+    * > This operation is supported only when your instance runs MySQL or PostgreSQL.
+    *
+    * @param request CloneParameterGroupRequest
+    * @return CloneParameterGroupResponse
+   */
   async cloneParameterGroup(request: CloneParameterGroupRequest): Promise<CloneParameterGroupResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.cloneParameterGroupWithOptions(request, runtime);
   }
 
+  /**
+    * After you call the QueryNotify operation to query notifications for an instance, you can call this operation to mark the notifications as confirmed. For more information, see [Query notifications for an ApsaraDB RDS instance](~~427959~~).
+    *
+    * @param tmpReq ConfirmNotifyRequest
+    * @param runtime runtime options for this request RuntimeOptions
+    * @return ConfirmNotifyResponse
+   */
   async confirmNotifyWithOptions(tmpReq: ConfirmNotifyRequest, runtime: $Util.RuntimeOptions): Promise<ConfirmNotifyResponse> {
     Util.validateModel(tmpReq);
     let request = new ConfirmNotifyShrinkRequest({ });
@@ -31581,11 +33229,24 @@ export default class Client extends OpenApi {
     return $tea.cast<ConfirmNotifyResponse>(await this.callApi(params, req, runtime), new ConfirmNotifyResponse({}));
   }
 
+  /**
+    * After you call the QueryNotify operation to query notifications for an instance, you can call this operation to mark the notifications as confirmed. For more information, see [Query notifications for an ApsaraDB RDS instance](~~427959~~).
+    *
+    * @param request ConfirmNotifyRequest
+    * @return ConfirmNotifyResponse
+   */
   async confirmNotify(request: ConfirmNotifyRequest): Promise<ConfirmNotifyResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.confirmNotifyWithOptions(request, runtime);
   }
 
+  /**
+    * This operation is phased out.
+    *
+    * @param request CopyDatabaseRequest
+    * @param runtime runtime options for this request RuntimeOptions
+    * @return CopyDatabaseResponse
+   */
   async copyDatabaseWithOptions(request: CopyDatabaseRequest, runtime: $Util.RuntimeOptions): Promise<CopyDatabaseResponse> {
     Util.validateModel(request);
     let query = { };
@@ -31618,11 +33279,31 @@ export default class Client extends OpenApi {
     return $tea.cast<CopyDatabaseResponse>(await this.callApi(params, req, runtime), new CopyDatabaseResponse({}));
   }
 
+  /**
+    * This operation is phased out.
+    *
+    * @param request CopyDatabaseRequest
+    * @return CopyDatabaseResponse
+   */
   async copyDatabase(request: CopyDatabaseRequest): Promise<CopyDatabaseResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.copyDatabaseWithOptions(request, runtime);
   }
 
+  /**
+    * You can also call this operation to restore specific databases to an existing instance by point in time or backup set. For more information, see [Restore the data of an ApsaraDB RDS for SQL Server instance](~~95722~~).
+    * Before you call this operation, make sure that the following requirements are met:
+    * *   The source and destination instances belong to the same account.
+    * *   The source and destination instances run the same version of database engine.
+    * *   The source and destination instances reside in the same region and use the same network type. The instances can reside in different zones.
+    * *   The source and destination instances do not have databases whose names are the same.
+    * *   The available storage of the destination instance is larger than the total size of the databases that you want to replicate from the source instance.
+    * > This operation is supported only for instances that run SQL Server 2012 and later.
+    *
+    * @param request CopyDatabaseBetweenInstancesRequest
+    * @param runtime runtime options for this request RuntimeOptions
+    * @return CopyDatabaseBetweenInstancesResponse
+   */
   async copyDatabaseBetweenInstancesWithOptions(request: CopyDatabaseBetweenInstancesRequest, runtime: $Util.RuntimeOptions): Promise<CopyDatabaseBetweenInstancesResponse> {
     Util.validateModel(request);
     let query = { };
@@ -31671,11 +33352,37 @@ export default class Client extends OpenApi {
     return $tea.cast<CopyDatabaseBetweenInstancesResponse>(await this.callApi(params, req, runtime), new CopyDatabaseBetweenInstancesResponse({}));
   }
 
+  /**
+    * You can also call this operation to restore specific databases to an existing instance by point in time or backup set. For more information, see [Restore the data of an ApsaraDB RDS for SQL Server instance](~~95722~~).
+    * Before you call this operation, make sure that the following requirements are met:
+    * *   The source and destination instances belong to the same account.
+    * *   The source and destination instances run the same version of database engine.
+    * *   The source and destination instances reside in the same region and use the same network type. The instances can reside in different zones.
+    * *   The source and destination instances do not have databases whose names are the same.
+    * *   The available storage of the destination instance is larger than the total size of the databases that you want to replicate from the source instance.
+    * > This operation is supported only for instances that run SQL Server 2012 and later.
+    *
+    * @param request CopyDatabaseBetweenInstancesRequest
+    * @return CopyDatabaseBetweenInstancesResponse
+   */
   async copyDatabaseBetweenInstances(request: CopyDatabaseBetweenInstancesRequest): Promise<CopyDatabaseBetweenInstancesResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.copyDatabaseBetweenInstancesWithOptions(request, runtime);
   }
 
+  /**
+    * Before you call this operation, make sure that the following requirements are met:
+    * *   The instance is in the Running state.
+    * *   The database is in the Running state.
+    * *   The number of accounts that are created on the instance does not exceed the upper limit. For more information, see [Limits](~~41872~~).
+    * > 
+    * *   This operation is supported for instances that run MySQL, MariaDB, PostgreSQL, and SQL Server. However, if the instance runs SQL Server 2017 or SQL Server 2019 on RDS Cluster Edition, this operation is not supported.
+    * *   You can create multiple privileged accounts and standard accounts on an instance that runs PostgreSQL.
+    *
+    * @param request CreateAccountRequest
+    * @param runtime runtime options for this request RuntimeOptions
+    * @return CreateAccountResponse
+   */
   async createAccountWithOptions(request: CreateAccountRequest, runtime: $Util.RuntimeOptions): Promise<CreateAccountResponse> {
     Util.validateModel(request);
     let query = { };
@@ -31732,11 +33439,34 @@ export default class Client extends OpenApi {
     return $tea.cast<CreateAccountResponse>(await this.callApi(params, req, runtime), new CreateAccountResponse({}));
   }
 
+  /**
+    * Before you call this operation, make sure that the following requirements are met:
+    * *   The instance is in the Running state.
+    * *   The database is in the Running state.
+    * *   The number of accounts that are created on the instance does not exceed the upper limit. For more information, see [Limits](~~41872~~).
+    * > 
+    * *   This operation is supported for instances that run MySQL, MariaDB, PostgreSQL, and SQL Server. However, if the instance runs SQL Server 2017 or SQL Server 2019 on RDS Cluster Edition, this operation is not supported.
+    * *   You can create multiple privileged accounts and standard accounts on an instance that runs PostgreSQL.
+    *
+    * @param request CreateAccountRequest
+    * @return CreateAccountResponse
+   */
   async createAccount(request: CreateAccountRequest): Promise<CreateAccountResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.createAccountWithOptions(request, runtime);
   }
 
+  /**
+    * This operation uses the backup feature of ApsaraDB RDS to create a backup set. You can also use an operation of Database Backup (DBS) to create a backup set. For more information, see [List of operations by function of DBS](~~437245~~).
+    * Before you call this operation, make sure that the following requirements are met:
+    * *   The original instance is in the Running state.
+    * *   The instance does not have ongoing backup tasks.
+    * *   The number of backup files that are created per day for an instance cannot exceed 20.
+    *
+    * @param request CreateBackupRequest
+    * @param runtime runtime options for this request RuntimeOptions
+    * @return CreateBackupResponse
+   */
   async createBackupWithOptions(request: CreateBackupRequest, runtime: $Util.RuntimeOptions): Promise<CreateBackupResponse> {
     Util.validateModel(request);
     let query = { };
@@ -31785,11 +33515,44 @@ export default class Client extends OpenApi {
     return $tea.cast<CreateBackupResponse>(await this.callApi(params, req, runtime), new CreateBackupResponse({}));
   }
 
+  /**
+    * This operation uses the backup feature of ApsaraDB RDS to create a backup set. You can also use an operation of Database Backup (DBS) to create a backup set. For more information, see [List of operations by function of DBS](~~437245~~).
+    * Before you call this operation, make sure that the following requirements are met:
+    * *   The original instance is in the Running state.
+    * *   The instance does not have ongoing backup tasks.
+    * *   The number of backup files that are created per day for an instance cannot exceed 20.
+    *
+    * @param request CreateBackupRequest
+    * @return CreateBackupResponse
+   */
   async createBackup(request: CreateBackupRequest): Promise<CreateBackupResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.createBackupWithOptions(request, runtime);
   }
 
+  /**
+    * ## Prerequisites
+    * The RDS instance meets the following requirements:
+    * * The RDS instance and the self-managed PostgreSQL instance run the same PostgreSQL version, which can be PostgreSQL 10, PostgreSQL 11, PostgreSQL 12, PostgreSQL 13, PostgreSQL 14, or PostgreSQL 15.
+    * * The RDS instance is a primary instance. Read-only RDS instances do not support cloud migration.
+    * * The RDS instance uses cloud disks.
+    * * The RDS instance is empty. The available storage of the RDS instance is greater than or equal to the size of the data in the self-managed PostgreSQL instance.
+    * The self-managed PostgreSQL instance meets the following requirements:
+    * * Network configurations
+    * |Migration source|Network configuration|
+    * |:---|---|
+    * |Self-managed ECS-based PostgreSQL Database|If the self-managed PostgreSQL instance resides on an Elastic Compute Service (ECS) instance, the ECS instance and the RDS instance must reside in the same virtual private cloud (VPC). If the ECS instance and the RDS instance reside in different VPCs, use Cloud Enterprise Network (CEN) to connect the VPCs. For more information, see [What is CEN?](~~181681~~)|
+    * |Self-managed PostgreSQL database in a data center (within the same VPC as the destination database)|The data center is able to communicate with the VPC to which the destination RDS instance belongs. For more information, see [Connect a data center to a VPC](~~97768~~).|
+    * * If the self-managed PostgreSQL instance resides on an ECS instance, an ECS security group is configured. For more information, see [(Optional) Configure an ECS security group on a self-managed PostgreSQL instance](~~369726~~).
+    * * The configurations that are described in [Configure a self-managed PostgreSQL instance to listen to remote connections](~~369727~~) are complete.
+    * * The configurations that are described in [Create an account for cloud migration on a self-managed PostgreSQL instance](~~369500~~) are complete.
+    * * The configurations that are described in [Update the pg\\_hba.conf file of a self-managed PostgreSQL instance](~~369728~~) are complete.
+    * * The configurations that are described in [Configure the firewall of the server on which a self-managed PostgreSQL instance resides](~~369729~~) are complete.
+    *
+    * @param request CreateCloudMigrationPrecheckTaskRequest
+    * @param runtime runtime options for this request RuntimeOptions
+    * @return CreateCloudMigrationPrecheckTaskResponse
+   */
   async createCloudMigrationPrecheckTaskWithOptions(request: CreateCloudMigrationPrecheckTaskRequest, runtime: $Util.RuntimeOptions): Promise<CreateCloudMigrationPrecheckTaskResponse> {
     Util.validateModel(request);
     let query = { };
@@ -31842,11 +33605,41 @@ export default class Client extends OpenApi {
     return $tea.cast<CreateCloudMigrationPrecheckTaskResponse>(await this.callApi(params, req, runtime), new CreateCloudMigrationPrecheckTaskResponse({}));
   }
 
+  /**
+    * ## Prerequisites
+    * The RDS instance meets the following requirements:
+    * * The RDS instance and the self-managed PostgreSQL instance run the same PostgreSQL version, which can be PostgreSQL 10, PostgreSQL 11, PostgreSQL 12, PostgreSQL 13, PostgreSQL 14, or PostgreSQL 15.
+    * * The RDS instance is a primary instance. Read-only RDS instances do not support cloud migration.
+    * * The RDS instance uses cloud disks.
+    * * The RDS instance is empty. The available storage of the RDS instance is greater than or equal to the size of the data in the self-managed PostgreSQL instance.
+    * The self-managed PostgreSQL instance meets the following requirements:
+    * * Network configurations
+    * |Migration source|Network configuration|
+    * |:---|---|
+    * |Self-managed ECS-based PostgreSQL Database|If the self-managed PostgreSQL instance resides on an Elastic Compute Service (ECS) instance, the ECS instance and the RDS instance must reside in the same virtual private cloud (VPC). If the ECS instance and the RDS instance reside in different VPCs, use Cloud Enterprise Network (CEN) to connect the VPCs. For more information, see [What is CEN?](~~181681~~)|
+    * |Self-managed PostgreSQL database in a data center (within the same VPC as the destination database)|The data center is able to communicate with the VPC to which the destination RDS instance belongs. For more information, see [Connect a data center to a VPC](~~97768~~).|
+    * * If the self-managed PostgreSQL instance resides on an ECS instance, an ECS security group is configured. For more information, see [(Optional) Configure an ECS security group on a self-managed PostgreSQL instance](~~369726~~).
+    * * The configurations that are described in [Configure a self-managed PostgreSQL instance to listen to remote connections](~~369727~~) are complete.
+    * * The configurations that are described in [Create an account for cloud migration on a self-managed PostgreSQL instance](~~369500~~) are complete.
+    * * The configurations that are described in [Update the pg\\_hba.conf file of a self-managed PostgreSQL instance](~~369728~~) are complete.
+    * * The configurations that are described in [Configure the firewall of the server on which a self-managed PostgreSQL instance resides](~~369729~~) are complete.
+    *
+    * @param request CreateCloudMigrationPrecheckTaskRequest
+    * @return CreateCloudMigrationPrecheckTaskResponse
+   */
   async createCloudMigrationPrecheckTask(request: CreateCloudMigrationPrecheckTaskRequest): Promise<CreateCloudMigrationPrecheckTaskResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.createCloudMigrationPrecheckTaskWithOptions(request, runtime);
   }
 
+  /**
+    * ## Prerequisites
+    * Before you call this operation, make sure that the ApsaraDB RDS for PostgreSQL instance passes the cloud migration assessment.
+    *
+    * @param request CreateCloudMigrationTaskRequest
+    * @param runtime runtime options for this request RuntimeOptions
+    * @return CreateCloudMigrationTaskResponse
+   */
   async createCloudMigrationTaskWithOptions(request: CreateCloudMigrationTaskRequest, runtime: $Util.RuntimeOptions): Promise<CreateCloudMigrationTaskResponse> {
     Util.validateModel(request);
     let query = { };
@@ -31899,22 +33692,41 @@ export default class Client extends OpenApi {
     return $tea.cast<CreateCloudMigrationTaskResponse>(await this.callApi(params, req, runtime), new CreateCloudMigrationTaskResponse({}));
   }
 
+  /**
+    * ## Prerequisites
+    * Before you call this operation, make sure that the ApsaraDB RDS for PostgreSQL instance passes the cloud migration assessment.
+    *
+    * @param request CreateCloudMigrationTaskRequest
+    * @return CreateCloudMigrationTaskResponse
+   */
   async createCloudMigrationTask(request: CreateCloudMigrationTaskRequest): Promise<CreateCloudMigrationTaskResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.createCloudMigrationTaskWithOptions(request, runtime);
   }
 
+  /**
+    * Before you call this operation, make sure that you understand the billing methods and pricing of ApsaraDB RDS. For more information, see [Billable items, billing methods, and pricing](~~45020~~).
+    * For more information about ApsaraDB RDS instance types, see [Primary ApsaraDB RDS instance types](~~26312~~).
+    *
+    * @param tmpReq CreateDBInstanceRequest
+    * @param runtime runtime options for this request RuntimeOptions
+    * @return CreateDBInstanceResponse
+   */
   async createDBInstanceWithOptions(tmpReq: CreateDBInstanceRequest, runtime: $Util.RuntimeOptions): Promise<CreateDBInstanceResponse> {
     Util.validateModel(tmpReq);
     let request = new CreateDBInstanceShrinkRequest({ });
     OpenApiUtil.convert(tmpReq, request);
-    if (!Util.isUnset($tea.toMap(tmpReq.serverlessConfig))) {
-      request.serverlessConfigShrink = OpenApiUtil.arrayToStringWithSpecifiedStyle($tea.toMap(tmpReq.serverlessConfig), "ServerlessConfig", "json");
+    if (!Util.isUnset(tmpReq.serverlessConfig)) {
+      request.serverlessConfigShrink = OpenApiUtil.arrayToStringWithSpecifiedStyle(tmpReq.serverlessConfig, "ServerlessConfig", "json");
     }
 
     let query = { };
     if (!Util.isUnset(request.amount)) {
       query["Amount"] = request.amount;
+    }
+
+    if (!Util.isUnset(request.autoPay)) {
+      query["AutoPay"] = request.autoPay;
     }
 
     if (!Util.isUnset(request.autoRenew)) {
@@ -31923,6 +33735,14 @@ export default class Client extends OpenApi {
 
     if (!Util.isUnset(request.babelfishConfig)) {
       query["BabelfishConfig"] = request.babelfishConfig;
+    }
+
+    if (!Util.isUnset(request.bpeEnabled)) {
+      query["BpeEnabled"] = request.bpeEnabled;
+    }
+
+    if (!Util.isUnset(request.burstingEnabled)) {
+      query["BurstingEnabled"] = request.burstingEnabled;
     }
 
     if (!Util.isUnset(request.businessInfo)) {
@@ -32015,6 +33835,10 @@ export default class Client extends OpenApi {
 
     if (!Util.isUnset(request.period)) {
       query["Period"] = request.period;
+    }
+
+    if (!Util.isUnset(request.port)) {
+      query["Port"] = request.port;
     }
 
     if (!Util.isUnset(request.privateIpAddress)) {
@@ -32126,11 +33950,28 @@ export default class Client extends OpenApi {
     return $tea.cast<CreateDBInstanceResponse>(await this.callApi(params, req, runtime), new CreateDBInstanceResponse({}));
   }
 
+  /**
+    * Before you call this operation, make sure that you understand the billing methods and pricing of ApsaraDB RDS. For more information, see [Billable items, billing methods, and pricing](~~45020~~).
+    * For more information about ApsaraDB RDS instance types, see [Primary ApsaraDB RDS instance types](~~26312~~).
+    *
+    * @param request CreateDBInstanceRequest
+    * @return CreateDBInstanceResponse
+   */
   async createDBInstance(request: CreateDBInstanceRequest): Promise<CreateDBInstanceResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.createDBInstanceWithOptions(request, runtime);
   }
 
+  /**
+    * ## Background information
+    * *   This operation is suitable only for ApsaraDB RDS for MySQL instances that run RDS Cluster Edition.
+    * *   Each type of endpoint can contain an internal endpoint and an external endpoint. When you create any type of endpoint, an internal endpoint is automatically created for the endpoint.
+    * *   If the instance runs MySQL, you must specify VPCId, VSwitchId, and NodeItems.
+    *
+    * @param tmpReq CreateDBInstanceEndpointRequest
+    * @param runtime runtime options for this request RuntimeOptions
+    * @return CreateDBInstanceEndpointResponse
+   */
   async createDBInstanceEndpointWithOptions(tmpReq: CreateDBInstanceEndpointRequest, runtime: $Util.RuntimeOptions): Promise<CreateDBInstanceEndpointResponse> {
     Util.validateModel(tmpReq);
     let request = new CreateDBInstanceEndpointShrinkRequest({ });
@@ -32201,11 +34042,30 @@ export default class Client extends OpenApi {
     return $tea.cast<CreateDBInstanceEndpointResponse>(await this.callApi(params, req, runtime), new CreateDBInstanceEndpointResponse({}));
   }
 
+  /**
+    * ## Background information
+    * *   This operation is suitable only for ApsaraDB RDS for MySQL instances that run RDS Cluster Edition.
+    * *   Each type of endpoint can contain an internal endpoint and an external endpoint. When you create any type of endpoint, an internal endpoint is automatically created for the endpoint.
+    * *   If the instance runs MySQL, you must specify VPCId, VSwitchId, and NodeItems.
+    *
+    * @param request CreateDBInstanceEndpointRequest
+    * @return CreateDBInstanceEndpointResponse
+   */
   async createDBInstanceEndpoint(request: CreateDBInstanceEndpointRequest): Promise<CreateDBInstanceEndpointResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.createDBInstanceEndpointWithOptions(request, runtime);
   }
 
+  /**
+    * ## Background information
+    * *   This operation is suitable only for ApsaraDB RDS for MySQL instances that run RDS Cluster Edition.
+    * *   You can create a public endpoint of an endpoint type only when no public endpoint is created for this endpoint type.
+    * *   The node weights and other configurations are the same as those of the internal endpoint of this endpoint type. Only one public endpoint and one internal endpoint can be created for each endpoint type.
+    *
+    * @param request CreateDBInstanceEndpointAddressRequest
+    * @param runtime runtime options for this request RuntimeOptions
+    * @return CreateDBInstanceEndpointAddressResponse
+   */
   async createDBInstanceEndpointAddressWithOptions(request: CreateDBInstanceEndpointAddressRequest, runtime: $Util.RuntimeOptions): Promise<CreateDBInstanceEndpointAddressResponse> {
     Util.validateModel(request);
     let query = { };
@@ -32254,11 +34114,228 @@ export default class Client extends OpenApi {
     return $tea.cast<CreateDBInstanceEndpointAddressResponse>(await this.callApi(params, req, runtime), new CreateDBInstanceEndpointAddressResponse({}));
   }
 
+  /**
+    * ## Background information
+    * *   This operation is suitable only for ApsaraDB RDS for MySQL instances that run RDS Cluster Edition.
+    * *   You can create a public endpoint of an endpoint type only when no public endpoint is created for this endpoint type.
+    * *   The node weights and other configurations are the same as those of the internal endpoint of this endpoint type. Only one public endpoint and one internal endpoint can be created for each endpoint type.
+    *
+    * @param request CreateDBInstanceEndpointAddressRequest
+    * @return CreateDBInstanceEndpointAddressResponse
+   */
   async createDBInstanceEndpointAddress(request: CreateDBInstanceEndpointAddressRequest): Promise<CreateDBInstanceEndpointAddressResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.createDBInstanceEndpointAddressWithOptions(request, runtime);
   }
 
+  /**
+    * **Before you call this operation, make sure that you understand the billing methods and pricing of ApsaraDB RDS. For more information, see [Pricing, billable items, and billing methods](~~45020~~).**
+    * You can call this operation only for instances that are moved to the recycle bin. For more information about instances that can be moved to the recycle bin, see [Recycle bin](~~96065~~).
+    *
+    * @param request CreateDBInstanceForRebuildRequest
+    * @param runtime runtime options for this request RuntimeOptions
+    * @return CreateDBInstanceForRebuildResponse
+   */
+  async createDBInstanceForRebuildWithOptions(request: CreateDBInstanceForRebuildRequest, runtime: $Util.RuntimeOptions): Promise<CreateDBInstanceForRebuildResponse> {
+    Util.validateModel(request);
+    let query = { };
+    if (!Util.isUnset(request.clientToken)) {
+      query["ClientToken"] = request.clientToken;
+    }
+
+    if (!Util.isUnset(request.DBInstanceDescription)) {
+      query["DBInstanceDescription"] = request.DBInstanceDescription;
+    }
+
+    if (!Util.isUnset(request.DBInstanceId)) {
+      query["DBInstanceId"] = request.DBInstanceId;
+    }
+
+    if (!Util.isUnset(request.DBInstanceNetType)) {
+      query["DBInstanceNetType"] = request.DBInstanceNetType;
+    }
+
+    if (!Util.isUnset(request.instanceNetworkType)) {
+      query["InstanceNetworkType"] = request.instanceNetworkType;
+    }
+
+    if (!Util.isUnset(request.ownerAccount)) {
+      query["OwnerAccount"] = request.ownerAccount;
+    }
+
+    if (!Util.isUnset(request.ownerId)) {
+      query["OwnerId"] = request.ownerId;
+    }
+
+    if (!Util.isUnset(request.payType)) {
+      query["PayType"] = request.payType;
+    }
+
+    if (!Util.isUnset(request.period)) {
+      query["Period"] = request.period;
+    }
+
+    if (!Util.isUnset(request.regionId)) {
+      query["RegionId"] = request.regionId;
+    }
+
+    if (!Util.isUnset(request.resourceGroupId)) {
+      query["ResourceGroupId"] = request.resourceGroupId;
+    }
+
+    if (!Util.isUnset(request.resourceOwnerAccount)) {
+      query["ResourceOwnerAccount"] = request.resourceOwnerAccount;
+    }
+
+    if (!Util.isUnset(request.resourceOwnerId)) {
+      query["ResourceOwnerId"] = request.resourceOwnerId;
+    }
+
+    if (!Util.isUnset(request.securityIPList)) {
+      query["SecurityIPList"] = request.securityIPList;
+    }
+
+    if (!Util.isUnset(request.securityToken)) {
+      query["SecurityToken"] = request.securityToken;
+    }
+
+    if (!Util.isUnset(request.usedTime)) {
+      query["UsedTime"] = request.usedTime;
+    }
+
+    if (!Util.isUnset(request.VPCId)) {
+      query["VPCId"] = request.VPCId;
+    }
+
+    if (!Util.isUnset(request.vSwitchId)) {
+      query["VSwitchId"] = request.vSwitchId;
+    }
+
+    if (!Util.isUnset(request.zoneId)) {
+      query["ZoneId"] = request.zoneId;
+    }
+
+    if (!Util.isUnset(request.zoneIdSlave1)) {
+      query["ZoneIdSlave1"] = request.zoneIdSlave1;
+    }
+
+    if (!Util.isUnset(request.zoneIdSlave2)) {
+      query["ZoneIdSlave2"] = request.zoneIdSlave2;
+    }
+
+    let req = new $OpenApi.OpenApiRequest({
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApi.Params({
+      action: "CreateDBInstanceForRebuild",
+      version: "2014-08-15",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $tea.cast<CreateDBInstanceForRebuildResponse>(await this.callApi(params, req, runtime), new CreateDBInstanceForRebuildResponse({}));
+  }
+
+  /**
+    * **Before you call this operation, make sure that you understand the billing methods and pricing of ApsaraDB RDS. For more information, see [Pricing, billable items, and billing methods](~~45020~~).**
+    * You can call this operation only for instances that are moved to the recycle bin. For more information about instances that can be moved to the recycle bin, see [Recycle bin](~~96065~~).
+    *
+    * @param request CreateDBInstanceForRebuildRequest
+    * @return CreateDBInstanceForRebuildResponse
+   */
+  async createDBInstanceForRebuild(request: CreateDBInstanceForRebuildRequest): Promise<CreateDBInstanceForRebuildResponse> {
+    let runtime = new $Util.RuntimeOptions({ });
+    return await this.createDBInstanceForRebuildWithOptions(request, runtime);
+  }
+
+  /**
+    * ## Background information
+    * This operation is suitable only for ApsaraDB RDS for MySQL instances that run RDS Cluster Edition. These RDS instances are referred to as RDS clusters.
+    *
+    * @param tmpReq CreateDBNodesRequest
+    * @param runtime runtime options for this request RuntimeOptions
+    * @return CreateDBNodesResponse
+   */
+  async createDBNodesWithOptions(tmpReq: CreateDBNodesRequest, runtime: $Util.RuntimeOptions): Promise<CreateDBNodesResponse> {
+    Util.validateModel(tmpReq);
+    let request = new CreateDBNodesShrinkRequest({ });
+    OpenApiUtil.convert(tmpReq, request);
+    if (!Util.isUnset(tmpReq.DBNode)) {
+      request.DBNodeShrink = OpenApiUtil.arrayToStringWithSpecifiedStyle(tmpReq.DBNode, "DBNode", "json");
+    }
+
+    let query = { };
+    if (!Util.isUnset(request.clientToken)) {
+      query["ClientToken"] = request.clientToken;
+    }
+
+    if (!Util.isUnset(request.DBInstanceId)) {
+      query["DBInstanceId"] = request.DBInstanceId;
+    }
+
+    if (!Util.isUnset(request.DBNodeShrink)) {
+      query["DBNode"] = request.DBNodeShrink;
+    }
+
+    if (!Util.isUnset(request.ownerAccount)) {
+      query["OwnerAccount"] = request.ownerAccount;
+    }
+
+    if (!Util.isUnset(request.ownerId)) {
+      query["OwnerId"] = request.ownerId;
+    }
+
+    if (!Util.isUnset(request.resourceOwnerAccount)) {
+      query["ResourceOwnerAccount"] = request.resourceOwnerAccount;
+    }
+
+    if (!Util.isUnset(request.resourceOwnerId)) {
+      query["ResourceOwnerId"] = request.resourceOwnerId;
+    }
+
+    let req = new $OpenApi.OpenApiRequest({
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApi.Params({
+      action: "CreateDBNodes",
+      version: "2014-08-15",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $tea.cast<CreateDBNodesResponse>(await this.callApi(params, req, runtime), new CreateDBNodesResponse({}));
+  }
+
+  /**
+    * ## Background information
+    * This operation is suitable only for ApsaraDB RDS for MySQL instances that run RDS Cluster Edition. These RDS instances are referred to as RDS clusters.
+    *
+    * @param request CreateDBNodesRequest
+    * @return CreateDBNodesResponse
+   */
+  async createDBNodes(request: CreateDBNodesRequest): Promise<CreateDBNodesResponse> {
+    let runtime = new $Util.RuntimeOptions({ });
+    return await this.createDBNodesWithOptions(request, runtime);
+  }
+
+  /**
+    * After you enable the dedicated proxy feature for an ApsaraDB RDS for MySQL instance or enable the database proxy feature for an ApsaraDB RDS for PostgreSQL instance, a default proxy endpoint is created. You can call this operation to create proxy endpoints of different network types. For more information, see [Activate and configure the database proxy feature for an ApsaraDB RDS for PostgreSQL instance](~~418272~~) and [What are database proxies?](~~138705~~)
+    * > 
+    * *   The following network types are supported for ApsaraDB RDS for MySQL instances that use local disks: virtual private cloud (VPC), Classic, and Public.
+    * *   The following network types are supported for instances that use cloud disks: VPC and Public. If you want to create a proxy endpoint of the public network type, you must configure IP address whitelists for the instance and its read-only instances to ensure connectivity between the client and the instance. You can call the [ModifySecurityIps](~~26242~~) operation to configure an IP address whitelist for an instance.
+    *
+    * @param request CreateDBProxyEndpointAddressRequest
+    * @param runtime runtime options for this request RuntimeOptions
+    * @return CreateDBProxyEndpointAddressResponse
+   */
   async createDBProxyEndpointAddressWithOptions(request: CreateDBProxyEndpointAddressRequest, runtime: $Util.RuntimeOptions): Promise<CreateDBProxyEndpointAddressResponse> {
     Util.validateModel(request);
     let query = { };
@@ -32323,11 +34400,32 @@ export default class Client extends OpenApi {
     return $tea.cast<CreateDBProxyEndpointAddressResponse>(await this.callApi(params, req, runtime), new CreateDBProxyEndpointAddressResponse({}));
   }
 
+  /**
+    * After you enable the dedicated proxy feature for an ApsaraDB RDS for MySQL instance or enable the database proxy feature for an ApsaraDB RDS for PostgreSQL instance, a default proxy endpoint is created. You can call this operation to create proxy endpoints of different network types. For more information, see [Activate and configure the database proxy feature for an ApsaraDB RDS for PostgreSQL instance](~~418272~~) and [What are database proxies?](~~138705~~)
+    * > 
+    * *   The following network types are supported for ApsaraDB RDS for MySQL instances that use local disks: virtual private cloud (VPC), Classic, and Public.
+    * *   The following network types are supported for instances that use cloud disks: VPC and Public. If you want to create a proxy endpoint of the public network type, you must configure IP address whitelists for the instance and its read-only instances to ensure connectivity between the client and the instance. You can call the [ModifySecurityIps](~~26242~~) operation to configure an IP address whitelist for an instance.
+    *
+    * @param request CreateDBProxyEndpointAddressRequest
+    * @return CreateDBProxyEndpointAddressResponse
+   */
   async createDBProxyEndpointAddress(request: CreateDBProxyEndpointAddressRequest): Promise<CreateDBProxyEndpointAddressResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.createDBProxyEndpointAddressWithOptions(request, runtime);
   }
 
+  /**
+    * If you want to perform data management tasks such as data change and schema design, use Data Management (DMS). For more information, see [List of operations by function of DMS](~~97965~~).
+    * Before you call this operation, make sure that the following requirements are met:
+    * *   The instance is in the Running state.
+    * *   The maximum number of databases that can be created on an instance is not reached. You can call the [DescribeDBInstanceAttribute](~~26231~~) operation to query the maximum number of databases that can be created on an instance.
+    * *   The instance is not a read-only instance.
+    * > This operation is not supported for instances that run PostgreSQL with local SSDs or SQL Server 2017 (cluster edition). You can execute the CREATE DATABASE statement to create a database.
+    *
+    * @param request CreateDatabaseRequest
+    * @param runtime runtime options for this request RuntimeOptions
+    * @return CreateDatabaseResponse
+   */
   async createDatabaseWithOptions(request: CreateDatabaseRequest, runtime: $Util.RuntimeOptions): Promise<CreateDatabaseResponse> {
     Util.validateModel(request);
     let query = { };
@@ -32384,11 +34482,33 @@ export default class Client extends OpenApi {
     return $tea.cast<CreateDatabaseResponse>(await this.callApi(params, req, runtime), new CreateDatabaseResponse({}));
   }
 
+  /**
+    * If you want to perform data management tasks such as data change and schema design, use Data Management (DMS). For more information, see [List of operations by function of DMS](~~97965~~).
+    * Before you call this operation, make sure that the following requirements are met:
+    * *   The instance is in the Running state.
+    * *   The maximum number of databases that can be created on an instance is not reached. You can call the [DescribeDBInstanceAttribute](~~26231~~) operation to query the maximum number of databases that can be created on an instance.
+    * *   The instance is not a read-only instance.
+    * > This operation is not supported for instances that run PostgreSQL with local SSDs or SQL Server 2017 (cluster edition). You can execute the CREATE DATABASE statement to create a database.
+    *
+    * @param request CreateDatabaseRequest
+    * @return CreateDatabaseResponse
+   */
   async createDatabase(request: CreateDatabaseRequest): Promise<CreateDatabaseResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.createDatabaseWithOptions(request, runtime);
   }
 
+  /**
+    * Before you call this operation, you can call the [CheckCreateDdrDBInstance](~~121721~~) operation to check whether the data of the source instance can be restored from a cross-region backup set.
+    * Before you call this operation, make sure that the instance runs one of the following database engines:
+    * *   MySQL. For more information, see [Back up an ApsaraDB RDS for MySQL instance across regions](~~120824~~).
+    * *   SQL Server. For more information, see [Back up an ApsaraDB RDS for SQL Server instance across regions](~~187923~~).
+    * *   PostgreSQL. For more information, see [Enable cross-region backups for an ApsaraDB RDS for PostgreSQL instance](~~206671~~).
+    *
+    * @param request CreateDdrInstanceRequest
+    * @param runtime runtime options for this request RuntimeOptions
+    * @return CreateDdrInstanceResponse
+   */
   async createDdrInstanceWithOptions(request: CreateDdrInstanceRequest, runtime: $Util.RuntimeOptions): Promise<CreateDdrInstanceResponse> {
     Util.validateModel(request);
     let query = { };
@@ -32529,11 +34649,29 @@ export default class Client extends OpenApi {
     return $tea.cast<CreateDdrInstanceResponse>(await this.callApi(params, req, runtime), new CreateDdrInstanceResponse({}));
   }
 
+  /**
+    * Before you call this operation, you can call the [CheckCreateDdrDBInstance](~~121721~~) operation to check whether the data of the source instance can be restored from a cross-region backup set.
+    * Before you call this operation, make sure that the instance runs one of the following database engines:
+    * *   MySQL. For more information, see [Back up an ApsaraDB RDS for MySQL instance across regions](~~120824~~).
+    * *   SQL Server. For more information, see [Back up an ApsaraDB RDS for SQL Server instance across regions](~~187923~~).
+    * *   PostgreSQL. For more information, see [Enable cross-region backups for an ApsaraDB RDS for PostgreSQL instance](~~206671~~).
+    *
+    * @param request CreateDdrInstanceRequest
+    * @return CreateDdrInstanceResponse
+   */
   async createDdrInstance(request: CreateDdrInstanceRequest): Promise<CreateDdrInstanceResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.createDdrInstanceWithOptions(request, runtime);
   }
 
+  /**
+    * > This operation is no longer maintained. You can use the CreateDiagnosticReport operation of Database Autonomy Service (DAS) to create a diagnostic report.
+    * After you call this operation to create a diagnostic report, you can call the DescribeDiagnosticReportList operation to download the diagnostic report.
+    *
+    * @param request CreateDiagnosticReportRequest
+    * @param runtime runtime options for this request RuntimeOptions
+    * @return CreateDiagnosticReportResponse
+   */
   async createDiagnosticReportWithOptions(request: CreateDiagnosticReportRequest, runtime: $Util.RuntimeOptions): Promise<CreateDiagnosticReportResponse> {
     Util.validateModel(request);
     let query = { };
@@ -32566,11 +34704,30 @@ export default class Client extends OpenApi {
     return $tea.cast<CreateDiagnosticReportResponse>(await this.callApi(params, req, runtime), new CreateDiagnosticReportResponse({}));
   }
 
+  /**
+    * > This operation is no longer maintained. You can use the CreateDiagnosticReport operation of Database Autonomy Service (DAS) to create a diagnostic report.
+    * After you call this operation to create a diagnostic report, you can call the DescribeDiagnosticReportList operation to download the diagnostic report.
+    *
+    * @param request CreateDiagnosticReportRequest
+    * @return CreateDiagnosticReportResponse
+   */
   async createDiagnosticReport(request: CreateDiagnosticReportRequest): Promise<CreateDiagnosticReportResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.createDiagnosticReportWithOptions(request, runtime);
   }
 
+  /**
+    * ### Prerequisites
+    * *   Your Alibaba Cloud account is used.
+    * *   The balance in your Alibaba Cloud account is greater than or equal to USD 100.
+    * *   A primary ApsaraDB RDS for MySQL instance is created, and the instance is not running as a node in a global active database cluster. You can call the [CreateDBInstance](~~26228~~) operation to create an instance.
+    * > You must create a primary ApsaraDB RDS for MySQL instance in one of the following regions: China (Hangzhou), China (Shanghai), China (Qingdao), China (Beijing), China (Zhangjiakou), China (Shenzhen), and China (Chengdu).
+    * For more information, see [Create and release an ApsaraDB RDS global active database cluster](~~328592~~).
+    *
+    * @param request CreateGADInstanceRequest
+    * @param runtime runtime options for this request RuntimeOptions
+    * @return CreateGADInstanceResponse
+   */
   async createGADInstanceWithOptions(request: CreateGADInstanceRequest, runtime: $Util.RuntimeOptions): Promise<CreateGADInstanceResponse> {
     Util.validateModel(request);
     let query = { };
@@ -32627,11 +34784,31 @@ export default class Client extends OpenApi {
     return $tea.cast<CreateGADInstanceResponse>(await this.callApi(params, req, runtime), new CreateGADInstanceResponse({}));
   }
 
+  /**
+    * ### Prerequisites
+    * *   Your Alibaba Cloud account is used.
+    * *   The balance in your Alibaba Cloud account is greater than or equal to USD 100.
+    * *   A primary ApsaraDB RDS for MySQL instance is created, and the instance is not running as a node in a global active database cluster. You can call the [CreateDBInstance](~~26228~~) operation to create an instance.
+    * > You must create a primary ApsaraDB RDS for MySQL instance in one of the following regions: China (Hangzhou), China (Shanghai), China (Qingdao), China (Beijing), China (Zhangjiakou), China (Shenzhen), and China (Chengdu).
+    * For more information, see [Create and release an ApsaraDB RDS global active database cluster](~~328592~~).
+    *
+    * @param request CreateGADInstanceRequest
+    * @return CreateGADInstanceResponse
+   */
   async createGADInstance(request: CreateGADInstanceRequest): Promise<CreateGADInstanceResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.createGADInstanceWithOptions(request, runtime);
   }
 
+  /**
+    * ## Prerequisites
+    * An ApsaraDB RDS global active database cluster is created. You can call the [CreateGADInstance](~~336893~~) operation to create a global active database cluster.
+    * For more information, see [Add unit nodes to or move unit nodes from an ApsaraDB RDS global active database cluster](~~331851~~).
+    *
+    * @param request CreateGadInstanceMemberRequest
+    * @param runtime runtime options for this request RuntimeOptions
+    * @return CreateGadInstanceMemberResponse
+   */
   async createGadInstanceMemberWithOptions(request: CreateGadInstanceMemberRequest, runtime: $Util.RuntimeOptions): Promise<CreateGadInstanceMemberResponse> {
     Util.validateModel(request);
     let query = { };
@@ -32680,6 +34857,14 @@ export default class Client extends OpenApi {
     return $tea.cast<CreateGadInstanceMemberResponse>(await this.callApi(params, req, runtime), new CreateGadInstanceMemberResponse({}));
   }
 
+  /**
+    * ## Prerequisites
+    * An ApsaraDB RDS global active database cluster is created. You can call the [CreateGADInstance](~~336893~~) operation to create a global active database cluster.
+    * For more information, see [Add unit nodes to or move unit nodes from an ApsaraDB RDS global active database cluster](~~331851~~).
+    *
+    * @param request CreateGadInstanceMemberRequest
+    * @return CreateGadInstanceMemberResponse
+   */
   async createGadInstanceMember(request: CreateGadInstanceMemberRequest): Promise<CreateGadInstanceMemberResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.createGadInstanceMemberWithOptions(request, runtime);
@@ -32754,6 +34939,13 @@ export default class Client extends OpenApi {
     return await this.createMigrateTaskWithOptions(request, runtime);
   }
 
+  /**
+    * This operation is used to migrate backup data to the cloud. Before you call this operation, make sure that you understand the descriptions in [Migrate the full backup data of a self-managed SQL Server database to an ApsaraDB RDS instance that runs SQL Server 2008 R2](~~95737~~), [Migrate the full backup data of a self-managed SQL Server database to an ApsaraDB RDS instance that runs SQL Server 2012, SQL Server 2014, SQL Server 2016, SQL Server 2017, or SQL Server 2019](~~95738~~), and [Migrate the incremental backup data of a self-managed SQL Server database to an ApsaraDB RDS instance that runs SQL Server 2012, SQL Server 2014, SQL Server 2016, SQL Server 2017, or SQL Server 2019](~~95736~~).
+    *
+    * @param request CreateOnlineDatabaseTaskRequest
+    * @param runtime runtime options for this request RuntimeOptions
+    * @return CreateOnlineDatabaseTaskResponse
+   */
   async createOnlineDatabaseTaskWithOptions(request: CreateOnlineDatabaseTaskRequest, runtime: $Util.RuntimeOptions): Promise<CreateOnlineDatabaseTaskResponse> {
     Util.validateModel(request);
     let query = { };
@@ -32810,11 +35002,25 @@ export default class Client extends OpenApi {
     return $tea.cast<CreateOnlineDatabaseTaskResponse>(await this.callApi(params, req, runtime), new CreateOnlineDatabaseTaskResponse({}));
   }
 
+  /**
+    * This operation is used to migrate backup data to the cloud. Before you call this operation, make sure that you understand the descriptions in [Migrate the full backup data of a self-managed SQL Server database to an ApsaraDB RDS instance that runs SQL Server 2008 R2](~~95737~~), [Migrate the full backup data of a self-managed SQL Server database to an ApsaraDB RDS instance that runs SQL Server 2012, SQL Server 2014, SQL Server 2016, SQL Server 2017, or SQL Server 2019](~~95738~~), and [Migrate the incremental backup data of a self-managed SQL Server database to an ApsaraDB RDS instance that runs SQL Server 2012, SQL Server 2014, SQL Server 2016, SQL Server 2017, or SQL Server 2019](~~95736~~).
+    *
+    * @param request CreateOnlineDatabaseTaskRequest
+    * @return CreateOnlineDatabaseTaskResponse
+   */
   async createOnlineDatabaseTask(request: CreateOnlineDatabaseTaskRequest): Promise<CreateOnlineDatabaseTaskResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.createOnlineDatabaseTaskWithOptions(request, runtime);
   }
 
+  /**
+    * You can configure a number of parameters at a time by using a parameter template and then apply the parameter template to an instance. For more information, see [Use a parameter template to configure the parameters of ApsaraDB RDS for MySQL instances](~~130565~~) and [Use a parameter template to configure the parameters of ApsaraDB RDS for PostgreSQL instances](~~457176~~).
+    * > This operation is supported only when your instance runs MySQL or PostgreSQL.
+    *
+    * @param request CreateParameterGroupRequest
+    * @param runtime runtime options for this request RuntimeOptions
+    * @return CreateParameterGroupResponse
+   */
   async createParameterGroupWithOptions(request: CreateParameterGroupRequest, runtime: $Util.RuntimeOptions): Promise<CreateParameterGroupResponse> {
     Util.validateModel(request);
     let query = { };
@@ -32871,16 +35077,51 @@ export default class Client extends OpenApi {
     return $tea.cast<CreateParameterGroupResponse>(await this.callApi(params, req, runtime), new CreateParameterGroupResponse({}));
   }
 
+  /**
+    * You can configure a number of parameters at a time by using a parameter template and then apply the parameter template to an instance. For more information, see [Use a parameter template to configure the parameters of ApsaraDB RDS for MySQL instances](~~130565~~) and [Use a parameter template to configure the parameters of ApsaraDB RDS for PostgreSQL instances](~~457176~~).
+    * > This operation is supported only when your instance runs MySQL or PostgreSQL.
+    *
+    * @param request CreateParameterGroupRequest
+    * @return CreateParameterGroupResponse
+   */
   async createParameterGroup(request: CreateParameterGroupRequest): Promise<CreateParameterGroupResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.createParameterGroupWithOptions(request, runtime);
   }
 
+  /**
+    * **Before you call this operation, take note of the following limits:**
+    * *   The primary instance cannot belong to a dedicated cluster and must run one of the following database engine versions and RDS editions:
+    *     *   MySQL 8.0 on RDS High-availability Edition or RDS Enterprise Edition.
+    *     *   MySQL 5.7 on RDS High-availability Edition or RDS Enterprise Edition.
+    *     *   MySQL 5.6.
+    *     *   SQL Server 2017 on RDS Cluster Edition.
+    *     *   PostgreSQL 10, PostgreSQL 11, PostgreSQL 12, PostgreSQL 13, PostgreSQL 14, or PostgreSQL 15 on RDS High-availability Edition. If the primary instance runs PostgreSQL 10, the instance must use local disks and must be a dedicated instance that provides at least 8 cores and 32 GB of memory.
+    * *   If the primary instance runs MySQL, you can create up to 10 read-only instances.
+    * *   If the primary instance runs SQL Server, you can create up to seven read-only instances.
+    * *   If the primary instance runs PostgreSQL with local disks, you can create up to five read-only instances. If the primary instance runs PostgreSQL with cloud disks, you can create up to 32 read-only instances.
+    *
+    * @param request CreateReadOnlyDBInstanceRequest
+    * @param runtime runtime options for this request RuntimeOptions
+    * @return CreateReadOnlyDBInstanceResponse
+   */
   async createReadOnlyDBInstanceWithOptions(request: CreateReadOnlyDBInstanceRequest, runtime: $Util.RuntimeOptions): Promise<CreateReadOnlyDBInstanceResponse> {
     Util.validateModel(request);
     let query = { };
+    if (!Util.isUnset(request.autoPay)) {
+      query["AutoPay"] = request.autoPay;
+    }
+
     if (!Util.isUnset(request.autoRenew)) {
       query["AutoRenew"] = request.autoRenew;
+    }
+
+    if (!Util.isUnset(request.bpeEnabled)) {
+      query["BpeEnabled"] = request.bpeEnabled;
+    }
+
+    if (!Util.isUnset(request.burstingEnabled)) {
+      query["BurstingEnabled"] = request.burstingEnabled;
     }
 
     if (!Util.isUnset(request.category)) {
@@ -33016,6 +35257,21 @@ export default class Client extends OpenApi {
     return $tea.cast<CreateReadOnlyDBInstanceResponse>(await this.callApi(params, req, runtime), new CreateReadOnlyDBInstanceResponse({}));
   }
 
+  /**
+    * **Before you call this operation, take note of the following limits:**
+    * *   The primary instance cannot belong to a dedicated cluster and must run one of the following database engine versions and RDS editions:
+    *     *   MySQL 8.0 on RDS High-availability Edition or RDS Enterprise Edition.
+    *     *   MySQL 5.7 on RDS High-availability Edition or RDS Enterprise Edition.
+    *     *   MySQL 5.6.
+    *     *   SQL Server 2017 on RDS Cluster Edition.
+    *     *   PostgreSQL 10, PostgreSQL 11, PostgreSQL 12, PostgreSQL 13, PostgreSQL 14, or PostgreSQL 15 on RDS High-availability Edition. If the primary instance runs PostgreSQL 10, the instance must use local disks and must be a dedicated instance that provides at least 8 cores and 32 GB of memory.
+    * *   If the primary instance runs MySQL, you can create up to 10 read-only instances.
+    * *   If the primary instance runs SQL Server, you can create up to seven read-only instances.
+    * *   If the primary instance runs PostgreSQL with local disks, you can create up to five read-only instances. If the primary instance runs PostgreSQL with cloud disks, you can create up to 32 read-only instances.
+    *
+    * @param request CreateReadOnlyDBInstanceRequest
+    * @return CreateReadOnlyDBInstanceResponse
+   */
   async createReadOnlyDBInstance(request: CreateReadOnlyDBInstanceRequest): Promise<CreateReadOnlyDBInstanceResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.createReadOnlyDBInstanceWithOptions(request, runtime);
@@ -33098,6 +35354,15 @@ export default class Client extends OpenApi {
     return await this.createSecretWithOptions(request, runtime);
   }
 
+  /**
+    * ApsaraDB RDS supports the following service-linked roles:
+    * *   The AliyunServiceRoleForRdsPgsqlOnEcs role is used for ApsaraDB RDS for PostgreSQL instances.
+    * *   The AliyunServiceRoleForRDSProxyOnEcs role is used for the database proxy feature of ApsaraDB RDS instances.
+    *
+    * @param request CreateServiceLinkedRoleRequest
+    * @param runtime runtime options for this request RuntimeOptions
+    * @return CreateServiceLinkedRoleResponse
+   */
   async createServiceLinkedRoleWithOptions(request: CreateServiceLinkedRoleRequest, runtime: $Util.RuntimeOptions): Promise<CreateServiceLinkedRoleResponse> {
     Util.validateModel(request);
     let query = { };
@@ -33138,11 +35403,32 @@ export default class Client extends OpenApi {
     return $tea.cast<CreateServiceLinkedRoleResponse>(await this.callApi(params, req, runtime), new CreateServiceLinkedRoleResponse({}));
   }
 
+  /**
+    * ApsaraDB RDS supports the following service-linked roles:
+    * *   The AliyunServiceRoleForRdsPgsqlOnEcs role is used for ApsaraDB RDS for PostgreSQL instances.
+    * *   The AliyunServiceRoleForRDSProxyOnEcs role is used for the database proxy feature of ApsaraDB RDS instances.
+    *
+    * @param request CreateServiceLinkedRoleRequest
+    * @return CreateServiceLinkedRoleResponse
+   */
   async createServiceLinkedRole(request: CreateServiceLinkedRoleRequest): Promise<CreateServiceLinkedRoleResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.createServiceLinkedRoleWithOptions(request, runtime);
   }
 
+  /**
+    * You can create a temporary instance based on a backup file or a point in time within the past seven days.
+    * Before you call this operation, make sure that the following requirements are met:
+    * *   Your instance runs SQL Server 2008 R2.
+    * *   Your instance is in the Running state.
+    * *   Your instance does not have ongoing migration tasks.
+    * *   The last creation of a backup file is completed.
+    * > After a temporary instance is created, the temporary instance inherits the data in the backup file.
+    *
+    * @param request CreateTempDBInstanceRequest
+    * @param runtime runtime options for this request RuntimeOptions
+    * @return CreateTempDBInstanceResponse
+   */
   async createTempDBInstanceWithOptions(request: CreateTempDBInstanceRequest, runtime: $Util.RuntimeOptions): Promise<CreateTempDBInstanceResponse> {
     Util.validateModel(request);
     let query = { };
@@ -33195,11 +35481,30 @@ export default class Client extends OpenApi {
     return $tea.cast<CreateTempDBInstanceResponse>(await this.callApi(params, req, runtime), new CreateTempDBInstanceResponse({}));
   }
 
+  /**
+    * You can create a temporary instance based on a backup file or a point in time within the past seven days.
+    * Before you call this operation, make sure that the following requirements are met:
+    * *   Your instance runs SQL Server 2008 R2.
+    * *   Your instance is in the Running state.
+    * *   Your instance does not have ongoing migration tasks.
+    * *   The last creation of a backup file is completed.
+    * > After a temporary instance is created, the temporary instance inherits the data in the backup file.
+    *
+    * @param request CreateTempDBInstanceRequest
+    * @return CreateTempDBInstanceResponse
+   */
   async createTempDBInstance(request: CreateTempDBInstanceRequest): Promise<CreateTempDBInstanceResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.createTempDBInstanceWithOptions(request, runtime);
   }
 
+  /**
+    * This operation is available only for ApsaraDB RDS for SQL Server instances.
+    *
+    * @param request DeleteADSettingRequest
+    * @param runtime runtime options for this request RuntimeOptions
+    * @return DeleteADSettingResponse
+   */
   async deleteADSettingWithOptions(request: DeleteADSettingRequest, runtime: $Util.RuntimeOptions): Promise<DeleteADSettingResponse> {
     Util.validateModel(request);
     let query = { };
@@ -33244,11 +35549,27 @@ export default class Client extends OpenApi {
     return $tea.cast<DeleteADSettingResponse>(await this.callApi(params, req, runtime), new DeleteADSettingResponse({}));
   }
 
+  /**
+    * This operation is available only for ApsaraDB RDS for SQL Server instances.
+    *
+    * @param request DeleteADSettingRequest
+    * @return DeleteADSettingResponse
+   */
   async deleteADSetting(request: DeleteADSettingRequest): Promise<DeleteADSettingResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.deleteADSettingWithOptions(request, runtime);
   }
 
+  /**
+    * Before you call this operation, make sure that the instance is in the Running state. If the instance is not in the Running state, the operation fails.
+    * > 
+    * *   This operation is not supported for instances that run SQL Server 2017 EE, PostgreSQL with local SSDs.
+    * *   If you want to delete an account from an instance that runs PostgreSQL with standard SSDs or enhanced SSDs (ESSDs) and the account has permissions on specific objects such as databases and tables, this operation reports the "`Some objects depend on account`" error. Before you can delete the account, you must remove the permissions from the account.
+    *
+    * @param request DeleteAccountRequest
+    * @param runtime runtime options for this request RuntimeOptions
+    * @return DeleteAccountResponse
+   */
   async deleteAccountWithOptions(request: DeleteAccountRequest, runtime: $Util.RuntimeOptions): Promise<DeleteAccountResponse> {
     Util.validateModel(request);
     let query = { };
@@ -33293,11 +35614,32 @@ export default class Client extends OpenApi {
     return $tea.cast<DeleteAccountResponse>(await this.callApi(params, req, runtime), new DeleteAccountResponse({}));
   }
 
+  /**
+    * Before you call this operation, make sure that the instance is in the Running state. If the instance is not in the Running state, the operation fails.
+    * > 
+    * *   This operation is not supported for instances that run SQL Server 2017 EE, PostgreSQL with local SSDs.
+    * *   If you want to delete an account from an instance that runs PostgreSQL with standard SSDs or enhanced SSDs (ESSDs) and the account has permissions on specific objects such as databases and tables, this operation reports the "`Some objects depend on account`" error. Before you can delete the account, you must remove the permissions from the account.
+    *
+    * @param request DeleteAccountRequest
+    * @return DeleteAccountResponse
+   */
   async deleteAccount(request: DeleteAccountRequest): Promise<DeleteAccountResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.deleteAccountWithOptions(request, runtime);
   }
 
+  /**
+    * Backup sets of only the instance itself are deleted. Backup sets of the associated instances such as read-only, disaster recovery, and cloned instances are not deleted.
+    * Before you call this operation, make sure that the following requirements are met:
+    * *   The instance is in the Running state.
+    * *   The instance runs PostgreSQL or MySQL on RDS High-availability.
+    * *   If the log backup feature is disabled, instances cannot be restored by point in time. You can delete data backup sets that are retained for more than seven days.
+    * *   If the log backup feature is enabled and the log backup retention period is shorter than the data backup retention period, you can delete the data backup files that are retained for a period longer than the log backup retention period.
+    *
+    * @param request DeleteBackupRequest
+    * @param runtime runtime options for this request RuntimeOptions
+    * @return DeleteBackupResponse
+   */
   async deleteBackupWithOptions(request: DeleteBackupRequest, runtime: $Util.RuntimeOptions): Promise<DeleteBackupResponse> {
     Util.validateModel(request);
     let query = { };
@@ -33342,11 +35684,29 @@ export default class Client extends OpenApi {
     return $tea.cast<DeleteBackupResponse>(await this.callApi(params, req, runtime), new DeleteBackupResponse({}));
   }
 
+  /**
+    * Backup sets of only the instance itself are deleted. Backup sets of the associated instances such as read-only, disaster recovery, and cloned instances are not deleted.
+    * Before you call this operation, make sure that the following requirements are met:
+    * *   The instance is in the Running state.
+    * *   The instance runs PostgreSQL or MySQL on RDS High-availability.
+    * *   If the log backup feature is disabled, instances cannot be restored by point in time. You can delete data backup sets that are retained for more than seven days.
+    * *   If the log backup feature is enabled and the log backup retention period is shorter than the data backup retention period, you can delete the data backup files that are retained for a period longer than the log backup retention period.
+    *
+    * @param request DeleteBackupRequest
+    * @return DeleteBackupResponse
+   */
   async deleteBackup(request: DeleteBackupRequest): Promise<DeleteBackupResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.deleteBackupWithOptions(request, runtime);
   }
 
+  /**
+    * This operation is available for users whose accounts are added to the whitelist of an ApsaraDB RDS for SQL Server instance. If your account is not added to the whitelist of the instance, you can join the Database Backup (DBS) DingTalk group whose ID is 35585947 and contact the on-duty engineer to add your account to the whitelist.
+    *
+    * @param request DeleteBackupFileRequest
+    * @param runtime runtime options for this request RuntimeOptions
+    * @return DeleteBackupFileResponse
+   */
   async deleteBackupFileWithOptions(request: DeleteBackupFileRequest, runtime: $Util.RuntimeOptions): Promise<DeleteBackupFileResponse> {
     Util.validateModel(request);
     let query = { };
@@ -33399,6 +35759,12 @@ export default class Client extends OpenApi {
     return $tea.cast<DeleteBackupFileResponse>(await this.callApi(params, req, runtime), new DeleteBackupFileResponse({}));
   }
 
+  /**
+    * This operation is available for users whose accounts are added to the whitelist of an ApsaraDB RDS for SQL Server instance. If your account is not added to the whitelist of the instance, you can join the Database Backup (DBS) DingTalk group whose ID is 35585947 and contact the on-duty engineer to add your account to the whitelist.
+    *
+    * @param request DeleteBackupFileRequest
+    * @return DeleteBackupFileResponse
+   */
   async deleteBackupFile(request: DeleteBackupFileRequest): Promise<DeleteBackupFileResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.deleteBackupFileWithOptions(request, runtime);
@@ -33494,6 +35860,15 @@ export default class Client extends OpenApi {
     return await this.deleteDBInstanceEndpointWithOptions(request, runtime);
   }
 
+  /**
+    * ## Background information
+    * *   This operation is suitable only for ApsaraDB RDS for MySQL instances that run RDS Cluster Edition.
+    * *   You can delete only the public endpoint of each endpoint type from the instance. If you want to delete an internal endpoint of any endpoint type, you can delete the type of endpoint.
+    *
+    * @param request DeleteDBInstanceEndpointAddressRequest
+    * @param runtime runtime options for this request RuntimeOptions
+    * @return DeleteDBInstanceEndpointAddressResponse
+   */
   async deleteDBInstanceEndpointAddressWithOptions(request: DeleteDBInstanceEndpointAddressRequest, runtime: $Util.RuntimeOptions): Promise<DeleteDBInstanceEndpointAddressResponse> {
     Util.validateModel(request);
     let query = { };
@@ -33536,9 +35911,91 @@ export default class Client extends OpenApi {
     return $tea.cast<DeleteDBInstanceEndpointAddressResponse>(await this.callApi(params, req, runtime), new DeleteDBInstanceEndpointAddressResponse({}));
   }
 
+  /**
+    * ## Background information
+    * *   This operation is suitable only for ApsaraDB RDS for MySQL instances that run RDS Cluster Edition.
+    * *   You can delete only the public endpoint of each endpoint type from the instance. If you want to delete an internal endpoint of any endpoint type, you can delete the type of endpoint.
+    *
+    * @param request DeleteDBInstanceEndpointAddressRequest
+    * @return DeleteDBInstanceEndpointAddressResponse
+   */
   async deleteDBInstanceEndpointAddress(request: DeleteDBInstanceEndpointAddressRequest): Promise<DeleteDBInstanceEndpointAddressResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.deleteDBInstanceEndpointAddressWithOptions(request, runtime);
+  }
+
+  /**
+    * ## Background information
+    * This operation is suitable only for ApsaraDB RDS for MySQL instances that run RDS Cluster Edition. These RDS instances are referred to as RDS clusters.
+    *
+    * @param tmpReq DeleteDBNodesRequest
+    * @param runtime runtime options for this request RuntimeOptions
+    * @return DeleteDBNodesResponse
+   */
+  async deleteDBNodesWithOptions(tmpReq: DeleteDBNodesRequest, runtime: $Util.RuntimeOptions): Promise<DeleteDBNodesResponse> {
+    Util.validateModel(tmpReq);
+    let request = new DeleteDBNodesShrinkRequest({ });
+    OpenApiUtil.convert(tmpReq, request);
+    if (!Util.isUnset(tmpReq.DBNodeId)) {
+      request.DBNodeIdShrink = OpenApiUtil.arrayToStringWithSpecifiedStyle(tmpReq.DBNodeId, "DBNodeId", "json");
+    }
+
+    let query = { };
+    if (!Util.isUnset(request.clientToken)) {
+      query["ClientToken"] = request.clientToken;
+    }
+
+    if (!Util.isUnset(request.DBInstanceId)) {
+      query["DBInstanceId"] = request.DBInstanceId;
+    }
+
+    if (!Util.isUnset(request.DBNodeIdShrink)) {
+      query["DBNodeId"] = request.DBNodeIdShrink;
+    }
+
+    if (!Util.isUnset(request.ownerAccount)) {
+      query["OwnerAccount"] = request.ownerAccount;
+    }
+
+    if (!Util.isUnset(request.ownerId)) {
+      query["OwnerId"] = request.ownerId;
+    }
+
+    if (!Util.isUnset(request.resourceOwnerAccount)) {
+      query["ResourceOwnerAccount"] = request.resourceOwnerAccount;
+    }
+
+    if (!Util.isUnset(request.resourceOwnerId)) {
+      query["ResourceOwnerId"] = request.resourceOwnerId;
+    }
+
+    let req = new $OpenApi.OpenApiRequest({
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApi.Params({
+      action: "DeleteDBNodes",
+      version: "2014-08-15",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $tea.cast<DeleteDBNodesResponse>(await this.callApi(params, req, runtime), new DeleteDBNodesResponse({}));
+  }
+
+  /**
+    * ## Background information
+    * This operation is suitable only for ApsaraDB RDS for MySQL instances that run RDS Cluster Edition. These RDS instances are referred to as RDS clusters.
+    *
+    * @param request DeleteDBNodesRequest
+    * @return DeleteDBNodesResponse
+   */
+  async deleteDBNodes(request: DeleteDBNodesRequest): Promise<DeleteDBNodesResponse> {
+    let runtime = new $Util.RuntimeOptions({ });
+    return await this.deleteDBNodesWithOptions(request, runtime);
   }
 
   async deleteDBProxyEndpointAddressWithOptions(request: DeleteDBProxyEndpointAddressRequest, runtime: $Util.RuntimeOptions): Promise<DeleteDBProxyEndpointAddressResponse> {
@@ -33590,6 +36047,17 @@ export default class Client extends OpenApi {
     return await this.deleteDBProxyEndpointAddressWithOptions(request, runtime);
   }
 
+  /**
+    * Before you call this operation, make sure that the following requirements are met:
+    * *   The instance is in the Running state.
+    * *   The instance is a primary instance.
+    * *   The instance runs MySQL, SQL Server, or MariaDB.
+    * > This operation is not supported for instances that run PostgreSQL. You can execute the DROP DATABASE statement to drop a database from an ApsaraDB RDS for PostgreSQL instance.
+    *
+    * @param request DeleteDatabaseRequest
+    * @param runtime runtime options for this request RuntimeOptions
+    * @return DeleteDatabaseResponse
+   */
   async deleteDatabaseWithOptions(request: DeleteDatabaseRequest, runtime: $Util.RuntimeOptions): Promise<DeleteDatabaseResponse> {
     Util.validateModel(request);
     let query = { };
@@ -33622,11 +36090,30 @@ export default class Client extends OpenApi {
     return $tea.cast<DeleteDatabaseResponse>(await this.callApi(params, req, runtime), new DeleteDatabaseResponse({}));
   }
 
+  /**
+    * Before you call this operation, make sure that the following requirements are met:
+    * *   The instance is in the Running state.
+    * *   The instance is a primary instance.
+    * *   The instance runs MySQL, SQL Server, or MariaDB.
+    * > This operation is not supported for instances that run PostgreSQL. You can execute the DROP DATABASE statement to drop a database from an ApsaraDB RDS for PostgreSQL instance.
+    *
+    * @param request DeleteDatabaseRequest
+    * @return DeleteDatabaseResponse
+   */
   async deleteDatabase(request: DeleteDatabaseRequest): Promise<DeleteDatabaseResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.deleteDatabaseWithOptions(request, runtime);
   }
 
+  /**
+    * ## Precautions
+    * *   A global active database cluster cannot be restored after it is deleted. Proceed with caution when you delete a global active database cluster.
+    * *   If you delete a global active database cluster, the system removes all nodes and Data Transmission Service (DTS) synchronization tasks from the cluster. However, the system does not release the ApsaraDB RDS for MySQL instances that run as nodes in the cluster. If you no longer need the ApsaraDB RDS for MySQL instances, you can call the [DeleteDBInstance](~~26229~~) to delete the instances one after another.
+    *
+    * @param request DeleteGadInstanceRequest
+    * @param runtime runtime options for this request RuntimeOptions
+    * @return DeleteGadInstanceResponse
+   */
   async deleteGadInstanceWithOptions(request: DeleteGadInstanceRequest, runtime: $Util.RuntimeOptions): Promise<DeleteGadInstanceResponse> {
     Util.validateModel(request);
     let query = { };
@@ -33655,11 +36142,29 @@ export default class Client extends OpenApi {
     return $tea.cast<DeleteGadInstanceResponse>(await this.callApi(params, req, runtime), new DeleteGadInstanceResponse({}));
   }
 
+  /**
+    * ## Precautions
+    * *   A global active database cluster cannot be restored after it is deleted. Proceed with caution when you delete a global active database cluster.
+    * *   If you delete a global active database cluster, the system removes all nodes and Data Transmission Service (DTS) synchronization tasks from the cluster. However, the system does not release the ApsaraDB RDS for MySQL instances that run as nodes in the cluster. If you no longer need the ApsaraDB RDS for MySQL instances, you can call the [DeleteDBInstance](~~26229~~) to delete the instances one after another.
+    *
+    * @param request DeleteGadInstanceRequest
+    * @return DeleteGadInstanceResponse
+   */
   async deleteGadInstance(request: DeleteGadInstanceRequest): Promise<DeleteGadInstanceResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.deleteGadInstanceWithOptions(request, runtime);
   }
 
+  /**
+    * You can apply a parameter template to an instance to manage a number of parameters at a time. For more information, see [Use a parameter template to configure the parameters of ApsaraDB RDS for MySQL instances](~~130565~~) or [Use a parameter template to configure the parameters of ApsaraDB RDS for PostgreSQL instances](~~457176~~).
+    * > 
+    * *   If you delete a parameter template, the instances to which the parameter template is applied are not affected.
+    * *   Before you can delete a parameter template in ApsaraDB RDS for PostgreSQL, you must apply another parameter template to the ApsaraDB RDS for PostgreSQL instances to which the parameter template is applied. You can call the [DescribeParameterGroup](~~144842~~) operation to query the instances to which a parameter template is applied.
+    *
+    * @param request DeleteParameterGroupRequest
+    * @param runtime runtime options for this request RuntimeOptions
+    * @return DeleteParameterGroupResponse
+   */
   async deleteParameterGroupWithOptions(request: DeleteParameterGroupRequest, runtime: $Util.RuntimeOptions): Promise<DeleteParameterGroupResponse> {
     Util.validateModel(request);
     let query = { };
@@ -33700,6 +36205,15 @@ export default class Client extends OpenApi {
     return $tea.cast<DeleteParameterGroupResponse>(await this.callApi(params, req, runtime), new DeleteParameterGroupResponse({}));
   }
 
+  /**
+    * You can apply a parameter template to an instance to manage a number of parameters at a time. For more information, see [Use a parameter template to configure the parameters of ApsaraDB RDS for MySQL instances](~~130565~~) or [Use a parameter template to configure the parameters of ApsaraDB RDS for PostgreSQL instances](~~457176~~).
+    * > 
+    * *   If you delete a parameter template, the instances to which the parameter template is applied are not affected.
+    * *   Before you can delete a parameter template in ApsaraDB RDS for PostgreSQL, you must apply another parameter template to the ApsaraDB RDS for PostgreSQL instances to which the parameter template is applied. You can call the [DescribeParameterGroup](~~144842~~) operation to query the instances to which a parameter template is applied.
+    *
+    * @param request DeleteParameterGroupRequest
+    * @return DeleteParameterGroupResponse
+   */
   async deleteParameterGroup(request: DeleteParameterGroupRequest): Promise<DeleteParameterGroupResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.deleteParameterGroupWithOptions(request, runtime);
@@ -33766,6 +36280,91 @@ export default class Client extends OpenApi {
     return await this.deleteSecretWithOptions(request, runtime);
   }
 
+  /**
+    * *   This operation is available only for ApsaraDB RDS for PostgreSQL instances.
+    * *   A replication slot can be deleted only when SlotStatus is **INACTIVE**. You can call the DescribeSlots operation to query the status of a replication slot.
+    *
+    * @param request DeleteSlotRequest
+    * @param runtime runtime options for this request RuntimeOptions
+    * @return DeleteSlotResponse
+   */
+  async deleteSlotWithOptions(request: DeleteSlotRequest, runtime: $Util.RuntimeOptions): Promise<DeleteSlotResponse> {
+    Util.validateModel(request);
+    let query = { };
+    if (!Util.isUnset(request.clientToken)) {
+      query["ClientToken"] = request.clientToken;
+    }
+
+    if (!Util.isUnset(request.DBInstanceId)) {
+      query["DBInstanceId"] = request.DBInstanceId;
+    }
+
+    if (!Util.isUnset(request.ownerAccount)) {
+      query["OwnerAccount"] = request.ownerAccount;
+    }
+
+    if (!Util.isUnset(request.ownerId)) {
+      query["OwnerId"] = request.ownerId;
+    }
+
+    if (!Util.isUnset(request.resourceGroupId)) {
+      query["ResourceGroupId"] = request.resourceGroupId;
+    }
+
+    if (!Util.isUnset(request.resourceOwnerAccount)) {
+      query["ResourceOwnerAccount"] = request.resourceOwnerAccount;
+    }
+
+    if (!Util.isUnset(request.resourceOwnerId)) {
+      query["ResourceOwnerId"] = request.resourceOwnerId;
+    }
+
+    if (!Util.isUnset(request.slotName)) {
+      query["SlotName"] = request.slotName;
+    }
+
+    if (!Util.isUnset(request.slotStatus)) {
+      query["SlotStatus"] = request.slotStatus;
+    }
+
+    let req = new $OpenApi.OpenApiRequest({
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApi.Params({
+      action: "DeleteSlot",
+      version: "2014-08-15",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $tea.cast<DeleteSlotResponse>(await this.callApi(params, req, runtime), new DeleteSlotResponse({}));
+  }
+
+  /**
+    * *   This operation is available only for ApsaraDB RDS for PostgreSQL instances.
+    * *   A replication slot can be deleted only when SlotStatus is **INACTIVE**. You can call the DescribeSlots operation to query the status of a replication slot.
+    *
+    * @param request DeleteSlotRequest
+    * @return DeleteSlotResponse
+   */
+  async deleteSlot(request: DeleteSlotRequest): Promise<DeleteSlotResponse> {
+    let runtime = new $Util.RuntimeOptions({ });
+    return await this.deleteSlotWithOptions(request, runtime);
+  }
+
+  /**
+    * > 
+    * *   A full backup file contains the data of a self-managed MySQL database. You can restore the data of a self-managed MySQL database from a full backup file to an ApsaraDB RDS for MySQL instance. For more information, see [Migrate the data of a self-managed MySQL 5.7 instance to the cloud](~~251779~~).
+    * *   This operation deletes full backup files only from the ApsaraDB RDS console. This operation does not affect the full backup files that are stored as objects in Object Storage Service (OSS) buckets. After you call this operation to delete a full backup file, you can call the [ImportUserBackupFile](~~260266~~) operation to reimport the full backup file.
+    *
+    * @param request DeleteUserBackupFileRequest
+    * @param runtime runtime options for this request RuntimeOptions
+    * @return DeleteUserBackupFileResponse
+   */
   async deleteUserBackupFileWithOptions(request: DeleteUserBackupFileRequest, runtime: $Util.RuntimeOptions): Promise<DeleteUserBackupFileResponse> {
     Util.validateModel(request);
     let query = { };
@@ -33806,11 +36405,26 @@ export default class Client extends OpenApi {
     return $tea.cast<DeleteUserBackupFileResponse>(await this.callApi(params, req, runtime), new DeleteUserBackupFileResponse({}));
   }
 
+  /**
+    * > 
+    * *   A full backup file contains the data of a self-managed MySQL database. You can restore the data of a self-managed MySQL database from a full backup file to an ApsaraDB RDS for MySQL instance. For more information, see [Migrate the data of a self-managed MySQL 5.7 instance to the cloud](~~251779~~).
+    * *   This operation deletes full backup files only from the ApsaraDB RDS console. This operation does not affect the full backup files that are stored as objects in Object Storage Service (OSS) buckets. After you call this operation to delete a full backup file, you can call the [ImportUserBackupFile](~~260266~~) operation to reimport the full backup file.
+    *
+    * @param request DeleteUserBackupFileRequest
+    * @return DeleteUserBackupFileResponse
+   */
   async deleteUserBackupFile(request: DeleteUserBackupFileRequest): Promise<DeleteUserBackupFileResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.deleteUserBackupFileWithOptions(request, runtime);
   }
 
+  /**
+    * This operation is suitable only for the instances that run MySQL or SQL Server. For more information about how to run a migration task, see [ImportDatabaseBetweenInstances](~~26301~~).
+    *
+    * @param request DescibeImportsFromDatabaseRequest
+    * @param runtime runtime options for this request RuntimeOptions
+    * @return DescibeImportsFromDatabaseResponse
+   */
   async descibeImportsFromDatabaseWithOptions(request: DescibeImportsFromDatabaseRequest, runtime: $Util.RuntimeOptions): Promise<DescibeImportsFromDatabaseResponse> {
     Util.validateModel(request);
     let query = { };
@@ -33879,11 +36493,24 @@ export default class Client extends OpenApi {
     return $tea.cast<DescibeImportsFromDatabaseResponse>(await this.callApi(params, req, runtime), new DescibeImportsFromDatabaseResponse({}));
   }
 
+  /**
+    * This operation is suitable only for the instances that run MySQL or SQL Server. For more information about how to run a migration task, see [ImportDatabaseBetweenInstances](~~26301~~).
+    *
+    * @param request DescibeImportsFromDatabaseRequest
+    * @return DescibeImportsFromDatabaseResponse
+   */
   async descibeImportsFromDatabase(request: DescibeImportsFromDatabaseRequest): Promise<DescibeImportsFromDatabaseResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.descibeImportsFromDatabaseWithOptions(request, runtime);
   }
 
+  /**
+    * This operation is available only for ApsaraDB RDS for SQL Server instances.
+    *
+    * @param request DescribeADInfoRequest
+    * @param runtime runtime options for this request RuntimeOptions
+    * @return DescribeADInfoResponse
+   */
   async describeADInfoWithOptions(request: DescribeADInfoRequest, runtime: $Util.RuntimeOptions): Promise<DescribeADInfoResponse> {
     Util.validateModel(request);
     let query = { };
@@ -33928,11 +36555,24 @@ export default class Client extends OpenApi {
     return $tea.cast<DescribeADInfoResponse>(await this.callApi(params, req, runtime), new DescribeADInfoResponse({}));
   }
 
+  /**
+    * This operation is available only for ApsaraDB RDS for SQL Server instances.
+    *
+    * @param request DescribeADInfoRequest
+    * @return DescribeADInfoResponse
+   */
   async describeADInfo(request: DescribeADInfoRequest): Promise<DescribeADInfoResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.describeADInfoWithOptions(request, runtime);
   }
 
+  /**
+    * > This operation is not supported for instances that run SQL Server 2017 on RDS Cluster Edition.
+    *
+    * @param request DescribeAccountsRequest
+    * @param runtime runtime options for this request RuntimeOptions
+    * @return DescribeAccountsResponse
+   */
   async describeAccountsWithOptions(request: DescribeAccountsRequest, runtime: $Util.RuntimeOptions): Promise<DescribeAccountsResponse> {
     Util.validateModel(request);
     let query = { };
@@ -33977,11 +36617,24 @@ export default class Client extends OpenApi {
     return $tea.cast<DescribeAccountsResponse>(await this.callApi(params, req, runtime), new DescribeAccountsResponse({}));
   }
 
+  /**
+    * > This operation is not supported for instances that run SQL Server 2017 on RDS Cluster Edition.
+    *
+    * @param request DescribeAccountsRequest
+    * @return DescribeAccountsResponse
+   */
   async describeAccounts(request: DescribeAccountsRequest): Promise<DescribeAccountsResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.describeAccountsWithOptions(request, runtime);
   }
 
+  /**
+    * The event history feature enables you to view the events that occurred in a region over a specific time range. The events include instance creation and parameter reconfiguration. For more information, see [Event history](~~129759~~).
+    *
+    * @param request DescribeActionEventPolicyRequest
+    * @param runtime runtime options for this request RuntimeOptions
+    * @return DescribeActionEventPolicyResponse
+   */
   async describeActionEventPolicyWithOptions(request: DescribeActionEventPolicyRequest, runtime: $Util.RuntimeOptions): Promise<DescribeActionEventPolicyResponse> {
     Util.validateModel(request);
     let query = { };
@@ -34018,9 +36671,117 @@ export default class Client extends OpenApi {
     return $tea.cast<DescribeActionEventPolicyResponse>(await this.callApi(params, req, runtime), new DescribeActionEventPolicyResponse({}));
   }
 
+  /**
+    * The event history feature enables you to view the events that occurred in a region over a specific time range. The events include instance creation and parameter reconfiguration. For more information, see [Event history](~~129759~~).
+    *
+    * @param request DescribeActionEventPolicyRequest
+    * @return DescribeActionEventPolicyResponse
+   */
   async describeActionEventPolicy(request: DescribeActionEventPolicyRequest): Promise<DescribeActionEventPolicyResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.describeActionEventPolicyWithOptions(request, runtime);
+  }
+
+  /**
+    * After you call this operation and obtain the information about a specific O\\&M task, you can call the [ModifyActiveOperationTask](~~611454~~) operation to modify the scheduled switching time of the O\\&M task. You can also view the task and modify the scheduled switching time on the Task Center page of the ApsaraDB RDS console.
+    *
+    * @param request DescribeActiveOperationTasksRequest
+    * @param runtime runtime options for this request RuntimeOptions
+    * @return DescribeActiveOperationTasksResponse
+   */
+  async describeActiveOperationTasksWithOptions(request: DescribeActiveOperationTasksRequest, runtime: $Util.RuntimeOptions): Promise<DescribeActiveOperationTasksResponse> {
+    Util.validateModel(request);
+    let query = { };
+    if (!Util.isUnset(request.allowCancel)) {
+      query["AllowCancel"] = request.allowCancel;
+    }
+
+    if (!Util.isUnset(request.allowChange)) {
+      query["AllowChange"] = request.allowChange;
+    }
+
+    if (!Util.isUnset(request.changeLevel)) {
+      query["ChangeLevel"] = request.changeLevel;
+    }
+
+    if (!Util.isUnset(request.dbType)) {
+      query["DbType"] = request.dbType;
+    }
+
+    if (!Util.isUnset(request.insName)) {
+      query["InsName"] = request.insName;
+    }
+
+    if (!Util.isUnset(request.ownerAccount)) {
+      query["OwnerAccount"] = request.ownerAccount;
+    }
+
+    if (!Util.isUnset(request.ownerId)) {
+      query["OwnerId"] = request.ownerId;
+    }
+
+    if (!Util.isUnset(request.pageNumber)) {
+      query["PageNumber"] = request.pageNumber;
+    }
+
+    if (!Util.isUnset(request.pageSize)) {
+      query["PageSize"] = request.pageSize;
+    }
+
+    if (!Util.isUnset(request.productId)) {
+      query["ProductId"] = request.productId;
+    }
+
+    if (!Util.isUnset(request.region)) {
+      query["Region"] = request.region;
+    }
+
+    if (!Util.isUnset(request.resourceOwnerAccount)) {
+      query["ResourceOwnerAccount"] = request.resourceOwnerAccount;
+    }
+
+    if (!Util.isUnset(request.resourceOwnerId)) {
+      query["ResourceOwnerId"] = request.resourceOwnerId;
+    }
+
+    if (!Util.isUnset(request.securityToken)) {
+      query["SecurityToken"] = request.securityToken;
+    }
+
+    if (!Util.isUnset(request.status)) {
+      query["Status"] = request.status;
+    }
+
+    if (!Util.isUnset(request.taskType)) {
+      query["TaskType"] = request.taskType;
+    }
+
+    let req = new $OpenApi.OpenApiRequest({
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApi.Params({
+      action: "DescribeActiveOperationTasks",
+      version: "2014-08-15",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $tea.cast<DescribeActiveOperationTasksResponse>(await this.callApi(params, req, runtime), new DescribeActiveOperationTasksResponse({}));
+  }
+
+  /**
+    * After you call this operation and obtain the information about a specific O\\&M task, you can call the [ModifyActiveOperationTask](~~611454~~) operation to modify the scheduled switching time of the O\\&M task. You can also view the task and modify the scheduled switching time on the Task Center page of the ApsaraDB RDS console.
+    *
+    * @param request DescribeActiveOperationTasksRequest
+    * @return DescribeActiveOperationTasksResponse
+   */
+  async describeActiveOperationTasks(request: DescribeActiveOperationTasksRequest): Promise<DescribeActiveOperationTasksResponse> {
+    let runtime = new $Util.RuntimeOptions({ });
+    return await this.describeActiveOperationTasksWithOptions(request, runtime);
   }
 
   async describeAnalyticdbByPrimaryDBInstanceWithOptions(request: DescribeAnalyticdbByPrimaryDBInstanceRequest, runtime: $Util.RuntimeOptions): Promise<DescribeAnalyticdbByPrimaryDBInstanceResponse> {
@@ -34137,6 +36898,16 @@ export default class Client extends OpenApi {
     return await this.describeAvailableClassesWithOptions(request, runtime);
   }
 
+  /**
+    * Before you call this operation, make sure that the instance runs one of the following database engines:
+    * *   MySQL. For more information, see [Back up an ApsaraDB RDS for MySQL instance across regions](~~120824~~).
+    * *   SQL Server. For more information, see [Back up an ApsaraDB RDS for SQL Server instance across regions](~~187923~~).
+    * *   PostgreSQL. For more information, see [Back up an ApsaraDB RDS for PostgreSQL instance across regions](~~206671~~).
+    *
+    * @param request DescribeAvailableCrossRegionRequest
+    * @param runtime runtime options for this request RuntimeOptions
+    * @return DescribeAvailableCrossRegionResponse
+   */
   async describeAvailableCrossRegionWithOptions(request: DescribeAvailableCrossRegionRequest, runtime: $Util.RuntimeOptions): Promise<DescribeAvailableCrossRegionResponse> {
     Util.validateModel(request);
     let query = { };
@@ -34173,11 +36944,29 @@ export default class Client extends OpenApi {
     return $tea.cast<DescribeAvailableCrossRegionResponse>(await this.callApi(params, req, runtime), new DescribeAvailableCrossRegionResponse({}));
   }
 
+  /**
+    * Before you call this operation, make sure that the instance runs one of the following database engines:
+    * *   MySQL. For more information, see [Back up an ApsaraDB RDS for MySQL instance across regions](~~120824~~).
+    * *   SQL Server. For more information, see [Back up an ApsaraDB RDS for SQL Server instance across regions](~~187923~~).
+    * *   PostgreSQL. For more information, see [Back up an ApsaraDB RDS for PostgreSQL instance across regions](~~206671~~).
+    *
+    * @param request DescribeAvailableCrossRegionRequest
+    * @return DescribeAvailableCrossRegionResponse
+   */
   async describeAvailableCrossRegion(request: DescribeAvailableCrossRegionRequest): Promise<DescribeAvailableCrossRegionResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.describeAvailableCrossRegionWithOptions(request, runtime);
   }
 
+  /**
+    * ### Prerequisites
+    * The instance runs PostgreSQL.
+    * For more information, see [View the Enhanced Monitoring metrics of an ApsaraDB RDS for PostgreSQL instance](~~299200~~).
+    *
+    * @param request DescribeAvailableMetricsRequest
+    * @param runtime runtime options for this request RuntimeOptions
+    * @return DescribeAvailableMetricsResponse
+   */
   async describeAvailableMetricsWithOptions(request: DescribeAvailableMetricsRequest, runtime: $Util.RuntimeOptions): Promise<DescribeAvailableMetricsResponse> {
     Util.validateModel(request);
     let query = { };
@@ -34210,11 +36999,29 @@ export default class Client extends OpenApi {
     return $tea.cast<DescribeAvailableMetricsResponse>(await this.callApi(params, req, runtime), new DescribeAvailableMetricsResponse({}));
   }
 
+  /**
+    * ### Prerequisites
+    * The instance runs PostgreSQL.
+    * For more information, see [View the Enhanced Monitoring metrics of an ApsaraDB RDS for PostgreSQL instance](~~299200~~).
+    *
+    * @param request DescribeAvailableMetricsRequest
+    * @return DescribeAvailableMetricsResponse
+   */
   async describeAvailableMetrics(request: DescribeAvailableMetricsRequest): Promise<DescribeAvailableMetricsResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.describeAvailableMetricsWithOptions(request, runtime);
   }
 
+  /**
+    * To query the time range to which you can restore data by using a common backup file, see [DescribeBackups](~~26273~~).
+    * Before you call this operation, make sure that the instance runs one of the following database engines:
+    * *   MySQL. For more information, see [Back up an ApsaraDB RDS for MySQL instance across regions](~~120824~~).
+    * *   PostgreSQL. For more information, see [Back up an ApsaraDB RDS for PostgreSQL instance across regions](~~206671~~).
+    *
+    * @param request DescribeAvailableRecoveryTimeRequest
+    * @param runtime runtime options for this request RuntimeOptions
+    * @return DescribeAvailableRecoveryTimeResponse
+   */
   async describeAvailableRecoveryTimeWithOptions(request: DescribeAvailableRecoveryTimeRequest, runtime: $Util.RuntimeOptions): Promise<DescribeAvailableRecoveryTimeResponse> {
     Util.validateModel(request);
     let query = { };
@@ -34263,6 +37070,15 @@ export default class Client extends OpenApi {
     return $tea.cast<DescribeAvailableRecoveryTimeResponse>(await this.callApi(params, req, runtime), new DescribeAvailableRecoveryTimeResponse({}));
   }
 
+  /**
+    * To query the time range to which you can restore data by using a common backup file, see [DescribeBackups](~~26273~~).
+    * Before you call this operation, make sure that the instance runs one of the following database engines:
+    * *   MySQL. For more information, see [Back up an ApsaraDB RDS for MySQL instance across regions](~~120824~~).
+    * *   PostgreSQL. For more information, see [Back up an ApsaraDB RDS for PostgreSQL instance across regions](~~206671~~).
+    *
+    * @param request DescribeAvailableRecoveryTimeRequest
+    * @return DescribeAvailableRecoveryTimeResponse
+   */
   async describeAvailableRecoveryTime(request: DescribeAvailableRecoveryTimeRequest): Promise<DescribeAvailableRecoveryTimeResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.describeAvailableRecoveryTimeWithOptions(request, runtime);
@@ -34329,6 +37145,13 @@ export default class Client extends OpenApi {
     return await this.describeAvailableZonesWithOptions(request, runtime);
   }
 
+  /**
+    * > This operation is phased out.
+    *
+    * @param request DescribeBackupDatabaseRequest
+    * @param runtime runtime options for this request RuntimeOptions
+    * @return DescribeBackupDatabaseResponse
+   */
   async describeBackupDatabaseWithOptions(request: DescribeBackupDatabaseRequest, runtime: $Util.RuntimeOptions): Promise<DescribeBackupDatabaseResponse> {
     Util.validateModel(request);
     let query = { };
@@ -34369,6 +37192,12 @@ export default class Client extends OpenApi {
     return $tea.cast<DescribeBackupDatabaseResponse>(await this.callApi(params, req, runtime), new DescribeBackupDatabaseResponse({}));
   }
 
+  /**
+    * > This operation is phased out.
+    *
+    * @param request DescribeBackupDatabaseRequest
+    * @return DescribeBackupDatabaseResponse
+   */
   async describeBackupDatabase(request: DescribeBackupDatabaseRequest): Promise<DescribeBackupDatabaseResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.describeBackupDatabaseWithOptions(request, runtime);
@@ -34496,6 +37325,13 @@ export default class Client extends OpenApi {
     return await this.describeBackupTasksWithOptions(request, runtime);
   }
 
+  /**
+    * > A backup set can be used to restore data only when **BackupStatus** of the backup set is **Success**.
+    *
+    * @param request DescribeBackupsRequest
+    * @param runtime runtime options for this request RuntimeOptions
+    * @return DescribeBackupsResponse
+   */
   async describeBackupsWithOptions(request: DescribeBackupsRequest, runtime: $Util.RuntimeOptions): Promise<DescribeBackupsResponse> {
     Util.validateModel(request);
     let query = { };
@@ -34560,11 +37396,27 @@ export default class Client extends OpenApi {
     return $tea.cast<DescribeBackupsResponse>(await this.callApi(params, req, runtime), new DescribeBackupsResponse({}));
   }
 
+  /**
+    * > A backup set can be used to restore data only when **BackupStatus** of the backup set is **Success**.
+    *
+    * @param request DescribeBackupsRequest
+    * @return DescribeBackupsResponse
+   */
   async describeBackups(request: DescribeBackupsRequest): Promise<DescribeBackupsResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.describeBackupsWithOptions(request, runtime);
   }
 
+  /**
+    * *   If the return value of the **DownloadLink** parameter is NULL, ApsaraDB RDS does not provide a URL for you to download binary log files.
+    * *   If the return value of the **DownloadLink** parameter is not NULL, ApsaraDB RDS provides a URL for you to download binary log files. The expiration time of the URL is specified by the **LinkExpiredTime** parameter. You must download the binary log files before the expiration time.
+    * *   Each binary log file that is returned by this operation contains the log entries that are generated over the time range specified by the StartTime and EndTime parameters.
+    * > This operation is not supported for instances that run SQL Server.
+    *
+    * @param request DescribeBinlogFilesRequest
+    * @param runtime runtime options for this request RuntimeOptions
+    * @return DescribeBinlogFilesResponse
+   */
   async describeBinlogFilesWithOptions(request: DescribeBinlogFilesRequest, runtime: $Util.RuntimeOptions): Promise<DescribeBinlogFilesResponse> {
     Util.validateModel(request);
     let query = { };
@@ -34621,6 +37473,15 @@ export default class Client extends OpenApi {
     return $tea.cast<DescribeBinlogFilesResponse>(await this.callApi(params, req, runtime), new DescribeBinlogFilesResponse({}));
   }
 
+  /**
+    * *   If the return value of the **DownloadLink** parameter is NULL, ApsaraDB RDS does not provide a URL for you to download binary log files.
+    * *   If the return value of the **DownloadLink** parameter is not NULL, ApsaraDB RDS provides a URL for you to download binary log files. The expiration time of the URL is specified by the **LinkExpiredTime** parameter. You must download the binary log files before the expiration time.
+    * *   Each binary log file that is returned by this operation contains the log entries that are generated over the time range specified by the StartTime and EndTime parameters.
+    * > This operation is not supported for instances that run SQL Server.
+    *
+    * @param request DescribeBinlogFilesRequest
+    * @return DescribeBinlogFilesResponse
+   */
   async describeBinlogFiles(request: DescribeBinlogFilesRequest): Promise<DescribeBinlogFilesResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.describeBinlogFilesWithOptions(request, runtime);
@@ -34675,6 +37536,14 @@ export default class Client extends OpenApi {
     return await this.describeCharacterSetNameWithOptions(request, runtime);
   }
 
+  /**
+    * ## Prerequisites
+    * Before you call the DescribeCloudMigrationPrecheckResult operation, make sure that the CreateCloudMigrationPrecheckTask operation is called to create a cloud migration assessment task for the ApsaraDB RDS for PostgreSQL instance.
+    *
+    * @param request DescribeCloudMigrationPrecheckResultRequest
+    * @param runtime runtime options for this request RuntimeOptions
+    * @return DescribeCloudMigrationPrecheckResultResponse
+   */
   async describeCloudMigrationPrecheckResultWithOptions(request: DescribeCloudMigrationPrecheckResultRequest, runtime: $Util.RuntimeOptions): Promise<DescribeCloudMigrationPrecheckResultResponse> {
     Util.validateModel(request);
     let query = { };
@@ -34727,11 +37596,26 @@ export default class Client extends OpenApi {
     return $tea.cast<DescribeCloudMigrationPrecheckResultResponse>(await this.callApi(params, req, runtime), new DescribeCloudMigrationPrecheckResultResponse({}));
   }
 
+  /**
+    * ## Prerequisites
+    * Before you call the DescribeCloudMigrationPrecheckResult operation, make sure that the CreateCloudMigrationPrecheckTask operation is called to create a cloud migration assessment task for the ApsaraDB RDS for PostgreSQL instance.
+    *
+    * @param request DescribeCloudMigrationPrecheckResultRequest
+    * @return DescribeCloudMigrationPrecheckResultResponse
+   */
   async describeCloudMigrationPrecheckResult(request: DescribeCloudMigrationPrecheckResultRequest): Promise<DescribeCloudMigrationPrecheckResultResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.describeCloudMigrationPrecheckResultWithOptions(request, runtime);
   }
 
+  /**
+    * ## Prerequisites
+    * Before you call the DescribeCloudMigrationResult operation, make sure that cloud migration tasks are created by calling the [CreateCloudMigrationTask](~~411690~~) operation.
+    *
+    * @param request DescribeCloudMigrationResultRequest
+    * @param runtime runtime options for this request RuntimeOptions
+    * @return DescribeCloudMigrationResultResponse
+   */
   async describeCloudMigrationResultWithOptions(request: DescribeCloudMigrationResultRequest, runtime: $Util.RuntimeOptions): Promise<DescribeCloudMigrationResultResponse> {
     Util.validateModel(request);
     let query = { };
@@ -34784,11 +37668,25 @@ export default class Client extends OpenApi {
     return $tea.cast<DescribeCloudMigrationResultResponse>(await this.callApi(params, req, runtime), new DescribeCloudMigrationResultResponse({}));
   }
 
+  /**
+    * ## Prerequisites
+    * Before you call the DescribeCloudMigrationResult operation, make sure that cloud migration tasks are created by calling the [CreateCloudMigrationTask](~~411690~~) operation.
+    *
+    * @param request DescribeCloudMigrationResultRequest
+    * @return DescribeCloudMigrationResultResponse
+   */
   async describeCloudMigrationResult(request: DescribeCloudMigrationResultRequest): Promise<DescribeCloudMigrationResultResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.describeCloudMigrationResultWithOptions(request, runtime);
   }
 
+  /**
+    * >  This operation is supported only for instances that run SQL Server 2012 or later.
+    *
+    * @param request DescribeCollationTimeZonesRequest
+    * @param runtime runtime options for this request RuntimeOptions
+    * @return DescribeCollationTimeZonesResponse
+   */
   async describeCollationTimeZonesWithOptions(request: DescribeCollationTimeZonesRequest, runtime: $Util.RuntimeOptions): Promise<DescribeCollationTimeZonesResponse> {
     Util.validateModel(request);
     let query = { };
@@ -34821,11 +37719,28 @@ export default class Client extends OpenApi {
     return $tea.cast<DescribeCollationTimeZonesResponse>(await this.callApi(params, req, runtime), new DescribeCollationTimeZonesResponse({}));
   }
 
+  /**
+    * >  This operation is supported only for instances that run SQL Server 2012 or later.
+    *
+    * @param request DescribeCollationTimeZonesRequest
+    * @return DescribeCollationTimeZonesResponse
+   */
   async describeCollationTimeZones(request: DescribeCollationTimeZonesRequest): Promise<DescribeCollationTimeZonesResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.describeCollationTimeZonesWithOptions(request, runtime);
   }
 
+  /**
+    * ApsaraDB RDS for MySQL instances support cross-region backup and restoration. For more information, see [Back up an ApsaraDB RDS for MySQL instance across regions](~~120824~~) and [Restore the data of an ApsaraDB RDS for MySQL instance across regions](~~120875~~).
+    * Before you call this operation, make sure that the instance runs one of the following database engines:
+    * *   MySQL. For more information, see [Back up an ApsaraDB RDS for MySQL instance across regions](~~120824~~).
+    * *   SQL Server. For more information, see [Back up an ApsaraDB RDS for SQL Server instance across regions](~~187923~~).
+    * *   PostgreSQL. For more information, see [Enable cross-region backups for an ApsaraDB RDS for PostgreSQL instance](~~206671~~).
+    *
+    * @param request DescribeCrossBackupMetaListRequest
+    * @param runtime runtime options for this request RuntimeOptions
+    * @return DescribeCrossBackupMetaListResponse
+   */
   async describeCrossBackupMetaListWithOptions(request: DescribeCrossBackupMetaListRequest, runtime: $Util.RuntimeOptions): Promise<DescribeCrossBackupMetaListResponse> {
     Util.validateModel(request);
     let query = { };
@@ -34886,11 +37801,31 @@ export default class Client extends OpenApi {
     return $tea.cast<DescribeCrossBackupMetaListResponse>(await this.callApi(params, req, runtime), new DescribeCrossBackupMetaListResponse({}));
   }
 
+  /**
+    * ApsaraDB RDS for MySQL instances support cross-region backup and restoration. For more information, see [Back up an ApsaraDB RDS for MySQL instance across regions](~~120824~~) and [Restore the data of an ApsaraDB RDS for MySQL instance across regions](~~120875~~).
+    * Before you call this operation, make sure that the instance runs one of the following database engines:
+    * *   MySQL. For more information, see [Back up an ApsaraDB RDS for MySQL instance across regions](~~120824~~).
+    * *   SQL Server. For more information, see [Back up an ApsaraDB RDS for SQL Server instance across regions](~~187923~~).
+    * *   PostgreSQL. For more information, see [Enable cross-region backups for an ApsaraDB RDS for PostgreSQL instance](~~206671~~).
+    *
+    * @param request DescribeCrossBackupMetaListRequest
+    * @return DescribeCrossBackupMetaListResponse
+   */
   async describeCrossBackupMetaList(request: DescribeCrossBackupMetaListRequest): Promise<DescribeCrossBackupMetaListResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.describeCrossBackupMetaListWithOptions(request, runtime);
   }
 
+  /**
+    * Before you call this operation, make sure that the instance runs one of the following database engines:
+    * *   MySQL. For more information, see [Back up an ApsaraDB RDS for MySQL instance across regions](~~120824~~).
+    * *   SQL Server. For more information, see [Back up an ApsaraDB RDS for SQL Server instance across regions](~~187923~~).
+    * *   PostgreSQL. For more information, see [Enable cross-region backups for an ApsaraDB RDS for PostgreSQL instance](~~206671~~).
+    *
+    * @param request DescribeCrossRegionBackupDBInstanceRequest
+    * @param runtime runtime options for this request RuntimeOptions
+    * @return DescribeCrossRegionBackupDBInstanceResponse
+   */
   async describeCrossRegionBackupDBInstanceWithOptions(request: DescribeCrossRegionBackupDBInstanceRequest, runtime: $Util.RuntimeOptions): Promise<DescribeCrossRegionBackupDBInstanceResponse> {
     Util.validateModel(request);
     let query = { };
@@ -34939,11 +37874,31 @@ export default class Client extends OpenApi {
     return $tea.cast<DescribeCrossRegionBackupDBInstanceResponse>(await this.callApi(params, req, runtime), new DescribeCrossRegionBackupDBInstanceResponse({}));
   }
 
+  /**
+    * Before you call this operation, make sure that the instance runs one of the following database engines:
+    * *   MySQL. For more information, see [Back up an ApsaraDB RDS for MySQL instance across regions](~~120824~~).
+    * *   SQL Server. For more information, see [Back up an ApsaraDB RDS for SQL Server instance across regions](~~187923~~).
+    * *   PostgreSQL. For more information, see [Enable cross-region backups for an ApsaraDB RDS for PostgreSQL instance](~~206671~~).
+    *
+    * @param request DescribeCrossRegionBackupDBInstanceRequest
+    * @return DescribeCrossRegionBackupDBInstanceResponse
+   */
   async describeCrossRegionBackupDBInstance(request: DescribeCrossRegionBackupDBInstanceRequest): Promise<DescribeCrossRegionBackupDBInstanceResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.describeCrossRegionBackupDBInstanceWithOptions(request, runtime);
   }
 
+  /**
+    * For more information about how to query the cross-region log backup files of an RDS instance, see [DescribeCrossRegionLogBackupFiles](~~121734~~).
+    * Before you call this operation, make sure that the instance runs one of the following database engines:
+    * *   MySQL. For more information, see [Back up an ApsaraDB RDS for MySQL instance across regions](~~120824~~).
+    * *   SQL Server. For more information, see [Back up an ApsaraDB RDS for SQL Server instance across regions](~~187923~~).
+    * *   PostgreSQL. For more information, see [Back up an ApsaraDB RDS for PostgreSQL instance across regions](~~206671~~).
+    *
+    * @param request DescribeCrossRegionBackupsRequest
+    * @param runtime runtime options for this request RuntimeOptions
+    * @return DescribeCrossRegionBackupsResponse
+   */
   async describeCrossRegionBackupsWithOptions(request: DescribeCrossRegionBackupsRequest, runtime: $Util.RuntimeOptions): Promise<DescribeCrossRegionBackupsResponse> {
     Util.validateModel(request);
     let query = { };
@@ -35016,11 +37971,32 @@ export default class Client extends OpenApi {
     return $tea.cast<DescribeCrossRegionBackupsResponse>(await this.callApi(params, req, runtime), new DescribeCrossRegionBackupsResponse({}));
   }
 
+  /**
+    * For more information about how to query the cross-region log backup files of an RDS instance, see [DescribeCrossRegionLogBackupFiles](~~121734~~).
+    * Before you call this operation, make sure that the instance runs one of the following database engines:
+    * *   MySQL. For more information, see [Back up an ApsaraDB RDS for MySQL instance across regions](~~120824~~).
+    * *   SQL Server. For more information, see [Back up an ApsaraDB RDS for SQL Server instance across regions](~~187923~~).
+    * *   PostgreSQL. For more information, see [Back up an ApsaraDB RDS for PostgreSQL instance across regions](~~206671~~).
+    *
+    * @param request DescribeCrossRegionBackupsRequest
+    * @return DescribeCrossRegionBackupsResponse
+   */
   async describeCrossRegionBackups(request: DescribeCrossRegionBackupsRequest): Promise<DescribeCrossRegionBackupsResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.describeCrossRegionBackupsWithOptions(request, runtime);
   }
 
+  /**
+    * For more information about how to query the cross-region data backup files of an RDS instance, see [DescribeCrossRegionBackups](~~121733~~).
+    * Before you call this operation, make sure that the instance runs one of the following database engine versions and RDS editions:
+    * *   MySQL 8.0 on RDS High-availability Edition (with local SSDs)
+    * *   MySQL 5.7 on RDS High-availability Edition (with local SSDs)
+    * *   MySQL 5.6
+    *
+    * @param request DescribeCrossRegionLogBackupFilesRequest
+    * @param runtime runtime options for this request RuntimeOptions
+    * @return DescribeCrossRegionLogBackupFilesResponse
+   */
   async describeCrossRegionLogBackupFilesWithOptions(request: DescribeCrossRegionLogBackupFilesRequest, runtime: $Util.RuntimeOptions): Promise<DescribeCrossRegionLogBackupFilesResponse> {
     Util.validateModel(request);
     let query = { };
@@ -35081,6 +38057,16 @@ export default class Client extends OpenApi {
     return $tea.cast<DescribeCrossRegionLogBackupFilesResponse>(await this.callApi(params, req, runtime), new DescribeCrossRegionLogBackupFilesResponse({}));
   }
 
+  /**
+    * For more information about how to query the cross-region data backup files of an RDS instance, see [DescribeCrossRegionBackups](~~121733~~).
+    * Before you call this operation, make sure that the instance runs one of the following database engine versions and RDS editions:
+    * *   MySQL 8.0 on RDS High-availability Edition (with local SSDs)
+    * *   MySQL 5.7 on RDS High-availability Edition (with local SSDs)
+    * *   MySQL 5.6
+    *
+    * @param request DescribeCrossRegionLogBackupFilesRequest
+    * @return DescribeCrossRegionLogBackupFilesResponse
+   */
   async describeCrossRegionLogBackupFiles(request: DescribeCrossRegionLogBackupFilesRequest): Promise<DescribeCrossRegionLogBackupFilesResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.describeCrossRegionLogBackupFilesWithOptions(request, runtime);
@@ -35188,6 +38174,13 @@ export default class Client extends OpenApi {
     return await this.describeDBInstanceByTagsWithOptions(request, runtime);
   }
 
+  /**
+    * This operation is phased out.
+    *
+    * @param request DescribeDBInstanceDetailRequest
+    * @param runtime runtime options for this request RuntimeOptions
+    * @return DescribeDBInstanceDetailResponse
+   */
   async describeDBInstanceDetailWithOptions(request: DescribeDBInstanceDetailRequest, runtime: $Util.RuntimeOptions): Promise<DescribeDBInstanceDetailResponse> {
     Util.validateModel(request);
     let query = { };
@@ -35236,6 +38229,12 @@ export default class Client extends OpenApi {
     return $tea.cast<DescribeDBInstanceDetailResponse>(await this.callApi(params, req, runtime), new DescribeDBInstanceDetailResponse({}));
   }
 
+  /**
+    * This operation is phased out.
+    *
+    * @param request DescribeDBInstanceDetailRequest
+    * @return DescribeDBInstanceDetailResponse
+   */
   async describeDBInstanceDetail(request: DescribeDBInstanceDetailRequest): Promise<DescribeDBInstanceDetailResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.describeDBInstanceDetailWithOptions(request, runtime);
@@ -35302,6 +38301,15 @@ export default class Client extends OpenApi {
     return await this.describeDBInstanceEncryptionKeyWithOptions(request, runtime);
   }
 
+  /**
+    * ## Background information
+    * *   An ApsaraDB RDS for MySQL instance that runs RDS Cluster Edition is created. The instance is referred to as a cluster.
+    * *   This operation is suitable only for ApsaraDB RDS for MySQL instances that run RDS Cluster Edition.
+    *
+    * @param request DescribeDBInstanceEndpointsRequest
+    * @param runtime runtime options for this request RuntimeOptions
+    * @return DescribeDBInstanceEndpointsResponse
+   */
   async describeDBInstanceEndpointsWithOptions(request: DescribeDBInstanceEndpointsRequest, runtime: $Util.RuntimeOptions): Promise<DescribeDBInstanceEndpointsResponse> {
     Util.validateModel(request);
     let query = { };
@@ -35338,6 +38346,14 @@ export default class Client extends OpenApi {
     return $tea.cast<DescribeDBInstanceEndpointsResponse>(await this.callApi(params, req, runtime), new DescribeDBInstanceEndpointsResponse({}));
   }
 
+  /**
+    * ## Background information
+    * *   An ApsaraDB RDS for MySQL instance that runs RDS Cluster Edition is created. The instance is referred to as a cluster.
+    * *   This operation is suitable only for ApsaraDB RDS for MySQL instances that run RDS Cluster Edition.
+    *
+    * @param request DescribeDBInstanceEndpointsRequest
+    * @return DescribeDBInstanceEndpointsResponse
+   */
   async describeDBInstanceEndpoints(request: DescribeDBInstanceEndpointsRequest): Promise<DescribeDBInstanceEndpointsResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.describeDBInstanceEndpointsWithOptions(request, runtime);
@@ -35429,6 +38445,14 @@ export default class Client extends OpenApi {
     return await this.describeDBInstanceIPArrayListWithOptions(request, runtime);
   }
 
+  /**
+    * ApsaraDB RDS instances are deployed based on ECS instances. This operation is used to query the hostname of the ECS instance where an ApsaraDB RDS instance resides. The hostname is required when you [configure a distributed transaction whitelist](~~124321~~).
+    * This operation is applicable to instances that run one of the following SQL Server versions on RDS High-availability Edition: SQL Server 2012 SE, SQL Server 2012 EE, SQL Server 2014 SE, SQL Server 2016 SE, SQL Server 2016 EE, and SQL Server 2017 SE.
+    *
+    * @param request DescribeDBInstanceIpHostnameRequest
+    * @param runtime runtime options for this request RuntimeOptions
+    * @return DescribeDBInstanceIpHostnameResponse
+   */
   async describeDBInstanceIpHostnameWithOptions(request: DescribeDBInstanceIpHostnameRequest, runtime: $Util.RuntimeOptions): Promise<DescribeDBInstanceIpHostnameResponse> {
     Util.validateModel(request);
     let query = { };
@@ -35477,11 +38501,27 @@ export default class Client extends OpenApi {
     return $tea.cast<DescribeDBInstanceIpHostnameResponse>(await this.callApi(params, req, runtime), new DescribeDBInstanceIpHostnameResponse({}));
   }
 
+  /**
+    * ApsaraDB RDS instances are deployed based on ECS instances. This operation is used to query the hostname of the ECS instance where an ApsaraDB RDS instance resides. The hostname is required when you [configure a distributed transaction whitelist](~~124321~~).
+    * This operation is applicable to instances that run one of the following SQL Server versions on RDS High-availability Edition: SQL Server 2012 SE, SQL Server 2012 EE, SQL Server 2014 SE, SQL Server 2016 SE, SQL Server 2016 EE, and SQL Server 2017 SE.
+    *
+    * @param request DescribeDBInstanceIpHostnameRequest
+    * @return DescribeDBInstanceIpHostnameResponse
+   */
   async describeDBInstanceIpHostname(request: DescribeDBInstanceIpHostnameRequest): Promise<DescribeDBInstanceIpHostnameResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.describeDBInstanceIpHostnameWithOptions(request, runtime);
   }
 
+  /**
+    * ### Prerequisites
+    * The instance runs PostgreSQL.
+    * For more information, see [View the Enhanced Monitoring metrics of an ApsaraDB RDS for PostgreSQL instance](~~299200~~).
+    *
+    * @param request DescribeDBInstanceMetricsRequest
+    * @param runtime runtime options for this request RuntimeOptions
+    * @return DescribeDBInstanceMetricsResponse
+   */
   async describeDBInstanceMetricsWithOptions(request: DescribeDBInstanceMetricsRequest, runtime: $Util.RuntimeOptions): Promise<DescribeDBInstanceMetricsResponse> {
     Util.validateModel(request);
     let query = { };
@@ -35514,11 +38554,26 @@ export default class Client extends OpenApi {
     return $tea.cast<DescribeDBInstanceMetricsResponse>(await this.callApi(params, req, runtime), new DescribeDBInstanceMetricsResponse({}));
   }
 
+  /**
+    * ### Prerequisites
+    * The instance runs PostgreSQL.
+    * For more information, see [View the Enhanced Monitoring metrics of an ApsaraDB RDS for PostgreSQL instance](~~299200~~).
+    *
+    * @param request DescribeDBInstanceMetricsRequest
+    * @return DescribeDBInstanceMetricsResponse
+   */
   async describeDBInstanceMetrics(request: DescribeDBInstanceMetricsRequest): Promise<DescribeDBInstanceMetricsResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.describeDBInstanceMetricsWithOptions(request, runtime);
   }
 
+  /**
+    * >  This operation is not supported for RDS instances that run PostgreSQL. The monitoring frequency of such an instance varies based on the query time range. For more information, see [Query performance metrics](~~26280~~).
+    *
+    * @param request DescribeDBInstanceMonitorRequest
+    * @param runtime runtime options for this request RuntimeOptions
+    * @return DescribeDBInstanceMonitorResponse
+   */
   async describeDBInstanceMonitorWithOptions(request: DescribeDBInstanceMonitorRequest, runtime: $Util.RuntimeOptions): Promise<DescribeDBInstanceMonitorResponse> {
     Util.validateModel(request);
     let query = { };
@@ -35563,6 +38618,12 @@ export default class Client extends OpenApi {
     return $tea.cast<DescribeDBInstanceMonitorResponse>(await this.callApi(params, req, runtime), new DescribeDBInstanceMonitorResponse({}));
   }
 
+  /**
+    * >  This operation is not supported for RDS instances that run PostgreSQL. The monitoring frequency of such an instance varies based on the query time range. For more information, see [Query performance metrics](~~26280~~).
+    *
+    * @param request DescribeDBInstanceMonitorRequest
+    * @return DescribeDBInstanceMonitorResponse
+   */
   async describeDBInstanceMonitor(request: DescribeDBInstanceMonitorRequest): Promise<DescribeDBInstanceMonitorResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.describeDBInstanceMonitorWithOptions(request, runtime);
@@ -35686,6 +38747,40 @@ export default class Client extends OpenApi {
     return await this.describeDBInstanceNetInfoForChannelWithOptions(request, runtime);
   }
 
+  /**
+    * You can query the performance of an instance over a specific time range based on its performance metrics. Performance metrics are generated by using one of the following methods based on the database engine and version, RDS edition, [monitoring frequency](~~26200~~) ([ModifyDBInstanceMonitor](~~26282~~)), and query time range:
+    * *   For instances that do not run MySQL on RDS High-availability Edition with standard SSDs or enhanced SSDs (ESSDs) and those that do not run MariaDB:
+    *     *   5-second monitoring frequency
+    *         *   If the query time range is greater than seven days, performance metrics are collected at 1-day intervals.
+    *         *   If the query time range is greater than one day but less than or equal to seven days, performance metrics are collected at 1-hour intervals.
+    *         *   If the query time range is greater than or equal to an hour but less than or equal to one day, performance metrics are collected at 1-minute intervals.
+    *         *   If the query time range is less than an hour, performance metrics are collected at 5-second intervals.
+    *     *   60-second monitoring frequency
+    *         *   If the query time range is greater than 30 days, performance metrics are collected at 1-day intervals.
+    *         *   If the query time range is greater than seven days but less than or equal to 30 days, performance metrics are collected at 1-hour intervals.
+    *         *   If the query time range is less than or equal to seven days, performance metrics are collected at 1-minute intervals.
+    *     *   300-second monitoring frequency
+    *         *   If the query time range is greater than 30 days, performance metrics are collected at 1-day intervals.
+    *         *   If the query time range is greater than seven days but less than or equal to 30 days, performance metrics are collected at 1-hour intervals.
+    *         *   If the query time range is less than or equal to seven days, performance metrics are collected at 5-minute intervals.
+    * *   For instances that are running MySQL on RDS High-availability Edition with standard SSDs or ESSDs and those that are running MariaDB:
+    *     *   If the query time range is greater than 30 days, performance metrics are collected at 1-day intervals.
+    *     *   If the query time range is greater than seven days but less than or equal to 30 days, performance metrics are collected at 1-hour intervals.
+    *     *   If the query time range is less than or equal to seven days, performance metrics are collected at 1-minute intervals.
+    * *   For instances that run PostgreSQL with local SSDs, standard SSDs, or ESSDs:
+    *     *   If the query time range is less than or equal to an hour, performance metrics are collected at 5-second intervals.
+    *     *   If the query time range is less than or equal to 2 hours, performance metrics are collected at 10-second intervals.
+    *     *   If the query time range is less than or equal to 6 hours, performance metrics are collected at 30-second intervals.
+    *     *   If the query time range is less than or equal to 12 hours, performance metrics are collected at 1-minute intervals.
+    *     *   If the query time range is less than or equal to one day, performance metrics are collected at 2-minute intervals.
+    *     *   If the query time range is less than or equal to five days, performance metrics are collected at 10-minute intervals.
+    *     *   If the query time range is less than or equal to 15 days, performance metrics are collected at 30-minute intervals.
+    *     *   If the query time range is less than or equal to 30 days, performance metrics are collected at 1-hour intervals.
+    *
+    * @param request DescribeDBInstancePerformanceRequest
+    * @param runtime runtime options for this request RuntimeOptions
+    * @return DescribeDBInstancePerformanceResponse
+   */
   async describeDBInstancePerformanceWithOptions(request: DescribeDBInstancePerformanceRequest, runtime: $Util.RuntimeOptions): Promise<DescribeDBInstancePerformanceResponse> {
     Util.validateModel(request);
     let query = { };
@@ -35730,11 +38825,52 @@ export default class Client extends OpenApi {
     return $tea.cast<DescribeDBInstancePerformanceResponse>(await this.callApi(params, req, runtime), new DescribeDBInstancePerformanceResponse({}));
   }
 
+  /**
+    * You can query the performance of an instance over a specific time range based on its performance metrics. Performance metrics are generated by using one of the following methods based on the database engine and version, RDS edition, [monitoring frequency](~~26200~~) ([ModifyDBInstanceMonitor](~~26282~~)), and query time range:
+    * *   For instances that do not run MySQL on RDS High-availability Edition with standard SSDs or enhanced SSDs (ESSDs) and those that do not run MariaDB:
+    *     *   5-second monitoring frequency
+    *         *   If the query time range is greater than seven days, performance metrics are collected at 1-day intervals.
+    *         *   If the query time range is greater than one day but less than or equal to seven days, performance metrics are collected at 1-hour intervals.
+    *         *   If the query time range is greater than or equal to an hour but less than or equal to one day, performance metrics are collected at 1-minute intervals.
+    *         *   If the query time range is less than an hour, performance metrics are collected at 5-second intervals.
+    *     *   60-second monitoring frequency
+    *         *   If the query time range is greater than 30 days, performance metrics are collected at 1-day intervals.
+    *         *   If the query time range is greater than seven days but less than or equal to 30 days, performance metrics are collected at 1-hour intervals.
+    *         *   If the query time range is less than or equal to seven days, performance metrics are collected at 1-minute intervals.
+    *     *   300-second monitoring frequency
+    *         *   If the query time range is greater than 30 days, performance metrics are collected at 1-day intervals.
+    *         *   If the query time range is greater than seven days but less than or equal to 30 days, performance metrics are collected at 1-hour intervals.
+    *         *   If the query time range is less than or equal to seven days, performance metrics are collected at 5-minute intervals.
+    * *   For instances that are running MySQL on RDS High-availability Edition with standard SSDs or ESSDs and those that are running MariaDB:
+    *     *   If the query time range is greater than 30 days, performance metrics are collected at 1-day intervals.
+    *     *   If the query time range is greater than seven days but less than or equal to 30 days, performance metrics are collected at 1-hour intervals.
+    *     *   If the query time range is less than or equal to seven days, performance metrics are collected at 1-minute intervals.
+    * *   For instances that run PostgreSQL with local SSDs, standard SSDs, or ESSDs:
+    *     *   If the query time range is less than or equal to an hour, performance metrics are collected at 5-second intervals.
+    *     *   If the query time range is less than or equal to 2 hours, performance metrics are collected at 10-second intervals.
+    *     *   If the query time range is less than or equal to 6 hours, performance metrics are collected at 30-second intervals.
+    *     *   If the query time range is less than or equal to 12 hours, performance metrics are collected at 1-minute intervals.
+    *     *   If the query time range is less than or equal to one day, performance metrics are collected at 2-minute intervals.
+    *     *   If the query time range is less than or equal to five days, performance metrics are collected at 10-minute intervals.
+    *     *   If the query time range is less than or equal to 15 days, performance metrics are collected at 30-minute intervals.
+    *     *   If the query time range is less than or equal to 30 days, performance metrics are collected at 1-hour intervals.
+    *
+    * @param request DescribeDBInstancePerformanceRequest
+    * @return DescribeDBInstancePerformanceResponse
+   */
   async describeDBInstancePerformance(request: DescribeDBInstancePerformanceRequest): Promise<DescribeDBInstancePerformanceResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.describeDBInstancePerformanceWithOptions(request, runtime);
   }
 
+  /**
+    * @deprecated
+    *
+    * @param request DescribeDBInstancePromoteActivityRequest
+    * @param runtime runtime options for this request RuntimeOptions
+    * @return DescribeDBInstancePromoteActivityResponse
+   */
+  // Deprecated
   async describeDBInstancePromoteActivityWithOptions(request: DescribeDBInstancePromoteActivityRequest, runtime: $Util.RuntimeOptions): Promise<DescribeDBInstancePromoteActivityResponse> {
     Util.validateModel(request);
     let query = { };
@@ -35779,11 +38915,28 @@ export default class Client extends OpenApi {
     return $tea.cast<DescribeDBInstancePromoteActivityResponse>(await this.callApi(params, req, runtime), new DescribeDBInstancePromoteActivityResponse({}));
   }
 
+  /**
+    * @deprecated
+    *
+    * @param request DescribeDBInstancePromoteActivityRequest
+    * @return DescribeDBInstancePromoteActivityResponse
+   */
+  // Deprecated
   async describeDBInstancePromoteActivity(request: DescribeDBInstancePromoteActivityRequest): Promise<DescribeDBInstancePromoteActivityResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.describeDBInstancePromoteActivityWithOptions(request, runtime);
   }
 
+  /**
+    * This operation is used to query the original settings of shared proxies rather than the latest settings of dedicated proxies. For more information about how to query the settings of dedicated proxies, see [DescribeDBProxy](~~141055~~).
+    * Before you call this operation, make sure that the following requirements are met:
+    * *   The shared proxy feature must be enabled for the primary instance.
+    * *   The read/write splitting feature must be enabled for the primary instance.
+    *
+    * @param request DescribeDBInstanceProxyConfigurationRequest
+    * @param runtime runtime options for this request RuntimeOptions
+    * @return DescribeDBInstanceProxyConfigurationResponse
+   */
   async describeDBInstanceProxyConfigurationWithOptions(request: DescribeDBInstanceProxyConfigurationRequest, runtime: $Util.RuntimeOptions): Promise<DescribeDBInstanceProxyConfigurationResponse> {
     Util.validateModel(request);
     let query = { };
@@ -35820,11 +38973,30 @@ export default class Client extends OpenApi {
     return $tea.cast<DescribeDBInstanceProxyConfigurationResponse>(await this.callApi(params, req, runtime), new DescribeDBInstanceProxyConfigurationResponse({}));
   }
 
+  /**
+    * This operation is used to query the original settings of shared proxies rather than the latest settings of dedicated proxies. For more information about how to query the settings of dedicated proxies, see [DescribeDBProxy](~~141055~~).
+    * Before you call this operation, make sure that the following requirements are met:
+    * *   The shared proxy feature must be enabled for the primary instance.
+    * *   The read/write splitting feature must be enabled for the primary instance.
+    *
+    * @param request DescribeDBInstanceProxyConfigurationRequest
+    * @return DescribeDBInstanceProxyConfigurationResponse
+   */
   async describeDBInstanceProxyConfiguration(request: DescribeDBInstanceProxyConfigurationRequest): Promise<DescribeDBInstanceProxyConfigurationResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.describeDBInstanceProxyConfigurationWithOptions(request, runtime);
   }
 
+  /**
+    * Before you call this operation, make sure that your instance is one of the following instances:
+    * *   ApsaraDB RDS for MySQL instances that do not run RDS Basic Edition
+    * *   ApsaraDB RDS for SQL Server instances
+    * *   ApsaraDB RDS for PostgreSQL instances that use cloud disks
+    *
+    * @param request DescribeDBInstanceSSLRequest
+    * @param runtime runtime options for this request RuntimeOptions
+    * @return DescribeDBInstanceSSLResponse
+   */
   async describeDBInstanceSSLWithOptions(request: DescribeDBInstanceSSLRequest, runtime: $Util.RuntimeOptions): Promise<DescribeDBInstanceSSLResponse> {
     Util.validateModel(request);
     let query = { };
@@ -35865,11 +39037,28 @@ export default class Client extends OpenApi {
     return $tea.cast<DescribeDBInstanceSSLResponse>(await this.callApi(params, req, runtime), new DescribeDBInstanceSSLResponse({}));
   }
 
+  /**
+    * Before you call this operation, make sure that your instance is one of the following instances:
+    * *   ApsaraDB RDS for MySQL instances that do not run RDS Basic Edition
+    * *   ApsaraDB RDS for SQL Server instances
+    * *   ApsaraDB RDS for PostgreSQL instances that use cloud disks
+    *
+    * @param request DescribeDBInstanceSSLRequest
+    * @return DescribeDBInstanceSSLResponse
+   */
   async describeDBInstanceSSL(request: DescribeDBInstanceSSLRequest): Promise<DescribeDBInstanceSSLResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.describeDBInstanceSSLWithOptions(request, runtime);
   }
 
+  /**
+    * This operation is used to view the [Transparent Data Encryption (TDE)](~~96121~~) configuration of an instance.
+    * The TDE feature is enabled for the instance by calling the [ModifyDBInstanceTDE](~~26256~~) operation.
+    *
+    * @param request DescribeDBInstanceTDERequest
+    * @param runtime runtime options for this request RuntimeOptions
+    * @return DescribeDBInstanceTDEResponse
+   */
   async describeDBInstanceTDEWithOptions(request: DescribeDBInstanceTDERequest, runtime: $Util.RuntimeOptions): Promise<DescribeDBInstanceTDEResponse> {
     Util.validateModel(request);
     let query = { };
@@ -35910,14 +39099,36 @@ export default class Client extends OpenApi {
     return $tea.cast<DescribeDBInstanceTDEResponse>(await this.callApi(params, req, runtime), new DescribeDBInstanceTDEResponse({}));
   }
 
+  /**
+    * This operation is used to view the [Transparent Data Encryption (TDE)](~~96121~~) configuration of an instance.
+    * The TDE feature is enabled for the instance by calling the [ModifyDBInstanceTDE](~~26256~~) operation.
+    *
+    * @param request DescribeDBInstanceTDERequest
+    * @return DescribeDBInstanceTDEResponse
+   */
   async describeDBInstanceTDE(request: DescribeDBInstanceTDERequest): Promise<DescribeDBInstanceTDEResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.describeDBInstanceTDEWithOptions(request, runtime);
   }
 
+  /**
+    * You can use one of the following methods to check the response:
+    * *   Method 1: Use **MaxResults** to specify the number of entries per page. Then, use **NextToken** to specify the token that is used to display the next page. **NextToken** is set to the value that is returned from the most recent call of the **DescribeDBInstances** operation for **NextToken**.
+    *     > The first time you call the DescribeDBInstances operation to perform a paged query, you need only to specify **MaxResults**. In this case, the operation returns the data of the first page and the value of **NextToken**.
+    * *   Method 2: Use **PageSize** to specify the number of entries per page. Then, use **PageNumber** to display the next page.
+    * > You can use only one of the preceding methods. If a large number of entries are returned, we recommend that you use Method 1 to increase the query speed.
+    *
+    * @param request DescribeDBInstancesRequest
+    * @param runtime runtime options for this request RuntimeOptions
+    * @return DescribeDBInstancesResponse
+   */
   async describeDBInstancesWithOptions(request: DescribeDBInstancesRequest, runtime: $Util.RuntimeOptions): Promise<DescribeDBInstancesResponse> {
     Util.validateModel(request);
     let query = { };
+    if (!Util.isUnset(request.category)) {
+      query["Category"] = request.category;
+    }
+
     if (!Util.isUnset(request.clientToken)) {
       query["ClientToken"] = request.clientToken;
     }
@@ -35964,6 +39175,10 @@ export default class Client extends OpenApi {
 
     if (!Util.isUnset(request.expired)) {
       query["Expired"] = request.expired;
+    }
+
+    if (!Util.isUnset(request.filter)) {
+      query["Filter"] = request.filter;
     }
 
     if (!Util.isUnset(request.instanceLevel)) {
@@ -36059,11 +39274,28 @@ export default class Client extends OpenApi {
     return $tea.cast<DescribeDBInstancesResponse>(await this.callApi(params, req, runtime), new DescribeDBInstancesResponse({}));
   }
 
+  /**
+    * You can use one of the following methods to check the response:
+    * *   Method 1: Use **MaxResults** to specify the number of entries per page. Then, use **NextToken** to specify the token that is used to display the next page. **NextToken** is set to the value that is returned from the most recent call of the **DescribeDBInstances** operation for **NextToken**.
+    *     > The first time you call the DescribeDBInstances operation to perform a paged query, you need only to specify **MaxResults**. In this case, the operation returns the data of the first page and the value of **NextToken**.
+    * *   Method 2: Use **PageSize** to specify the number of entries per page. Then, use **PageNumber** to display the next page.
+    * > You can use only one of the preceding methods. If a large number of entries are returned, we recommend that you use Method 1 to increase the query speed.
+    *
+    * @param request DescribeDBInstancesRequest
+    * @return DescribeDBInstancesResponse
+   */
   async describeDBInstances(request: DescribeDBInstancesRequest): Promise<DescribeDBInstancesResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.describeDBInstancesWithOptions(request, runtime);
   }
 
+  /**
+    * This operation is no longer available. You can call the DescribeDBInstanceAttribute operation to query information about an instance.
+    *
+    * @param request DescribeDBInstancesAsCsvRequest
+    * @param runtime runtime options for this request RuntimeOptions
+    * @return DescribeDBInstancesAsCsvResponse
+   */
   async describeDBInstancesAsCsvWithOptions(request: DescribeDBInstancesAsCsvRequest, runtime: $Util.RuntimeOptions): Promise<DescribeDBInstancesAsCsvResponse> {
     Util.validateModel(request);
     let query = { };
@@ -36108,11 +39340,24 @@ export default class Client extends OpenApi {
     return $tea.cast<DescribeDBInstancesAsCsvResponse>(await this.callApi(params, req, runtime), new DescribeDBInstancesAsCsvResponse({}));
   }
 
+  /**
+    * This operation is no longer available. You can call the DescribeDBInstanceAttribute operation to query information about an instance.
+    *
+    * @param request DescribeDBInstancesAsCsvRequest
+    * @return DescribeDBInstancesAsCsvResponse
+   */
   async describeDBInstancesAsCsv(request: DescribeDBInstancesAsCsvRequest): Promise<DescribeDBInstancesAsCsvResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.describeDBInstancesAsCsvWithOptions(request, runtime);
   }
 
+  /**
+    * > This operation is available only for subscription instances.
+    *
+    * @param request DescribeDBInstancesByExpireTimeRequest
+    * @param runtime runtime options for this request RuntimeOptions
+    * @return DescribeDBInstancesByExpireTimeResponse
+   */
   async describeDBInstancesByExpireTimeWithOptions(request: DescribeDBInstancesByExpireTimeRequest, runtime: $Util.RuntimeOptions): Promise<DescribeDBInstancesByExpireTimeResponse> {
     Util.validateModel(request);
     let query = { };
@@ -36177,11 +39422,24 @@ export default class Client extends OpenApi {
     return $tea.cast<DescribeDBInstancesByExpireTimeResponse>(await this.callApi(params, req, runtime), new DescribeDBInstancesByExpireTimeResponse({}));
   }
 
+  /**
+    * > This operation is available only for subscription instances.
+    *
+    * @param request DescribeDBInstancesByExpireTimeRequest
+    * @return DescribeDBInstancesByExpireTimeResponse
+   */
   async describeDBInstancesByExpireTime(request: DescribeDBInstancesByExpireTimeRequest): Promise<DescribeDBInstancesByExpireTimeResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.describeDBInstancesByExpireTimeWithOptions(request, runtime);
   }
 
+  /**
+    * This operation is phased out.
+    *
+    * @param request DescribeDBInstancesByPerformanceRequest
+    * @param runtime runtime options for this request RuntimeOptions
+    * @return DescribeDBInstancesByPerformanceResponse
+   */
   async describeDBInstancesByPerformanceWithOptions(request: DescribeDBInstancesByPerformanceRequest, runtime: $Util.RuntimeOptions): Promise<DescribeDBInstancesByPerformanceResponse> {
     Util.validateModel(request);
     let query = { };
@@ -36262,11 +39520,24 @@ export default class Client extends OpenApi {
     return $tea.cast<DescribeDBInstancesByPerformanceResponse>(await this.callApi(params, req, runtime), new DescribeDBInstancesByPerformanceResponse({}));
   }
 
+  /**
+    * This operation is phased out.
+    *
+    * @param request DescribeDBInstancesByPerformanceRequest
+    * @return DescribeDBInstancesByPerformanceResponse
+   */
   async describeDBInstancesByPerformance(request: DescribeDBInstancesByPerformanceRequest): Promise<DescribeDBInstancesByPerformanceResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.describeDBInstancesByPerformanceWithOptions(request, runtime);
   }
 
+  /**
+    * This operation is phased out.
+    *
+    * @param request DescribeDBInstancesForCloneRequest
+    * @param runtime runtime options for this request RuntimeOptions
+    * @return DescribeDBInstancesForCloneResponse
+   */
   async describeDBInstancesForCloneWithOptions(request: DescribeDBInstancesForCloneRequest, runtime: $Util.RuntimeOptions): Promise<DescribeDBInstancesForCloneResponse> {
     Util.validateModel(request);
     let query = { };
@@ -36391,11 +39662,24 @@ export default class Client extends OpenApi {
     return $tea.cast<DescribeDBInstancesForCloneResponse>(await this.callApi(params, req, runtime), new DescribeDBInstancesForCloneResponse({}));
   }
 
+  /**
+    * This operation is phased out.
+    *
+    * @param request DescribeDBInstancesForCloneRequest
+    * @return DescribeDBInstancesForCloneResponse
+   */
   async describeDBInstancesForClone(request: DescribeDBInstancesForCloneRequest): Promise<DescribeDBInstancesForCloneResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.describeDBInstancesForCloneWithOptions(request, runtime);
   }
 
+  /**
+    * Before you purchase or upgrade an ApsaraDB RDS for MySQL instance or an ApsaraDB RDS for PostgreSQL instance, you can call the DescribeDBMiniEngineVersions operation to query the minor engine versions that are available for the instance.
+    *
+    * @param request DescribeDBMiniEngineVersionsRequest
+    * @param runtime runtime options for this request RuntimeOptions
+    * @return DescribeDBMiniEngineVersionsResponse
+   */
   async describeDBMiniEngineVersionsWithOptions(request: DescribeDBMiniEngineVersionsRequest, runtime: $Util.RuntimeOptions): Promise<DescribeDBMiniEngineVersionsResponse> {
     Util.validateModel(request);
     let query = { };
@@ -36452,11 +39736,26 @@ export default class Client extends OpenApi {
     return $tea.cast<DescribeDBMiniEngineVersionsResponse>(await this.callApi(params, req, runtime), new DescribeDBMiniEngineVersionsResponse({}));
   }
 
+  /**
+    * Before you purchase or upgrade an ApsaraDB RDS for MySQL instance or an ApsaraDB RDS for PostgreSQL instance, you can call the DescribeDBMiniEngineVersions operation to query the minor engine versions that are available for the instance.
+    *
+    * @param request DescribeDBMiniEngineVersionsRequest
+    * @return DescribeDBMiniEngineVersionsResponse
+   */
   async describeDBMiniEngineVersions(request: DescribeDBMiniEngineVersionsRequest): Promise<DescribeDBMiniEngineVersionsResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.describeDBMiniEngineVersionsWithOptions(request, runtime);
   }
 
+  /**
+    * Before you call the ModifyDBProxyEndpoint operation, make sure that the [ModifyDBProxy](~~141054~~) operation is called to enable the database proxy feature for the instance.
+    * *   The dedicated proxy feature of ApsaraDB RDS for MySQL provides capabilities such as read/write splitting and short-lived connection optimization. For more information, see [What are database proxies?](~~138705~~)
+    * *   The database proxy feature of ApsaraDB RDS for PostgreSQL supports read/write splitting. For more information, see [What are database proxies?](~~412194~~)
+    *
+    * @param request DescribeDBProxyRequest
+    * @param runtime runtime options for this request RuntimeOptions
+    * @return DescribeDBProxyResponse
+   */
   async describeDBProxyWithOptions(request: DescribeDBProxyRequest, runtime: $Util.RuntimeOptions): Promise<DescribeDBProxyResponse> {
     Util.validateModel(request);
     let query = { };
@@ -36509,11 +39808,28 @@ export default class Client extends OpenApi {
     return $tea.cast<DescribeDBProxyResponse>(await this.callApi(params, req, runtime), new DescribeDBProxyResponse({}));
   }
 
+  /**
+    * Before you call the ModifyDBProxyEndpoint operation, make sure that the [ModifyDBProxy](~~141054~~) operation is called to enable the database proxy feature for the instance.
+    * *   The dedicated proxy feature of ApsaraDB RDS for MySQL provides capabilities such as read/write splitting and short-lived connection optimization. For more information, see [What are database proxies?](~~138705~~)
+    * *   The database proxy feature of ApsaraDB RDS for PostgreSQL supports read/write splitting. For more information, see [What are database proxies?](~~412194~~)
+    *
+    * @param request DescribeDBProxyRequest
+    * @return DescribeDBProxyResponse
+   */
   async describeDBProxy(request: DescribeDBProxyRequest): Promise<DescribeDBProxyResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.describeDBProxyWithOptions(request, runtime);
   }
 
+  /**
+    * Before you call the DescribeDBProxyEndpoint operation, make sure that the [ModifyDBProxy](~~141054~~) operation is called to enable the database proxy feature for the instance.
+    * *   The dedicated proxy feature of ApsaraDB RDS for MySQL provides capabilities such as read/write splitting and short-lived connection optimization. For more information, see [What are database proxies?](~~138705~~)
+    * *   The database proxy feature of ApsaraDB RDS for PostgreSQL supports read/write splitting. For more information, see [What are database proxies?](~~412194~~)
+    *
+    * @param request DescribeDBProxyEndpointRequest
+    * @param runtime runtime options for this request RuntimeOptions
+    * @return DescribeDBProxyEndpointResponse
+   */
   async describeDBProxyEndpointWithOptions(request: DescribeDBProxyEndpointRequest, runtime: $Util.RuntimeOptions): Promise<DescribeDBProxyEndpointResponse> {
     Util.validateModel(request);
     let query = { };
@@ -36570,11 +39886,28 @@ export default class Client extends OpenApi {
     return $tea.cast<DescribeDBProxyEndpointResponse>(await this.callApi(params, req, runtime), new DescribeDBProxyEndpointResponse({}));
   }
 
+  /**
+    * Before you call the DescribeDBProxyEndpoint operation, make sure that the [ModifyDBProxy](~~141054~~) operation is called to enable the database proxy feature for the instance.
+    * *   The dedicated proxy feature of ApsaraDB RDS for MySQL provides capabilities such as read/write splitting and short-lived connection optimization. For more information, see [What are database proxies?](~~138705~~)
+    * *   The database proxy feature of ApsaraDB RDS for PostgreSQL supports read/write splitting. For more information, see [What are database proxies?](~~412194~~)
+    *
+    * @param request DescribeDBProxyEndpointRequest
+    * @return DescribeDBProxyEndpointResponse
+   */
   async describeDBProxyEndpoint(request: DescribeDBProxyEndpointRequest): Promise<DescribeDBProxyEndpointResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.describeDBProxyEndpointWithOptions(request, runtime);
   }
 
+  /**
+    * Before you call the DescribeDBProxyPerformance operation, make sure that the [ModifyDBProxy](~~141054~~) operation is called to enable the database proxy feature for the instance.
+    * *   The dedicated proxy feature of ApsaraDB RDS for MySQL provides capabilities such as read/write splitting and short-lived connection optimization. For more information, see [What are database proxies?](~~138705~~)
+    * *   The database proxy feature of ApsaraDB RDS for PostgreSQL supports read/write splitting. For more information, see [What are database proxies?](~~412194~~)
+    *
+    * @param request DescribeDBProxyPerformanceRequest
+    * @param runtime runtime options for this request RuntimeOptions
+    * @return DescribeDBProxyPerformanceResponse
+   */
   async describeDBProxyPerformanceWithOptions(request: DescribeDBProxyPerformanceRequest, runtime: $Util.RuntimeOptions): Promise<DescribeDBProxyPerformanceResponse> {
     Util.validateModel(request);
     let query = { };
@@ -36639,11 +39972,27 @@ export default class Client extends OpenApi {
     return $tea.cast<DescribeDBProxyPerformanceResponse>(await this.callApi(params, req, runtime), new DescribeDBProxyPerformanceResponse({}));
   }
 
+  /**
+    * Before you call the DescribeDBProxyPerformance operation, make sure that the [ModifyDBProxy](~~141054~~) operation is called to enable the database proxy feature for the instance.
+    * *   The dedicated proxy feature of ApsaraDB RDS for MySQL provides capabilities such as read/write splitting and short-lived connection optimization. For more information, see [What are database proxies?](~~138705~~)
+    * *   The database proxy feature of ApsaraDB RDS for PostgreSQL supports read/write splitting. For more information, see [What are database proxies?](~~412194~~)
+    *
+    * @param request DescribeDBProxyPerformanceRequest
+    * @return DescribeDBProxyPerformanceResponse
+   */
   async describeDBProxyPerformance(request: DescribeDBProxyPerformanceRequest): Promise<DescribeDBProxyPerformanceResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.describeDBProxyPerformanceWithOptions(request, runtime);
   }
 
+  /**
+    * For more information, see [Configure a distributed transaction whitelist](~~124321~~).
+    * This operation is applicable to instances that run one of the following SQL Server versions on RDS High-Availability Edition: SQL Server 2012 SE, SQL Server 2012 EE, SQL Server 2014 SE, SQL Server 2016 SE, SQL Server 2016 EE, and SQL Server 2017 SE.
+    *
+    * @param request DescribeDTCSecurityIpHostsForSQLServerRequest
+    * @param runtime runtime options for this request RuntimeOptions
+    * @return DescribeDTCSecurityIpHostsForSQLServerResponse
+   */
   async describeDTCSecurityIpHostsForSQLServerWithOptions(request: DescribeDTCSecurityIpHostsForSQLServerRequest, runtime: $Util.RuntimeOptions): Promise<DescribeDTCSecurityIpHostsForSQLServerResponse> {
     Util.validateModel(request);
     let query = { };
@@ -36696,11 +40045,25 @@ export default class Client extends OpenApi {
     return $tea.cast<DescribeDTCSecurityIpHostsForSQLServerResponse>(await this.callApi(params, req, runtime), new DescribeDTCSecurityIpHostsForSQLServerResponse({}));
   }
 
+  /**
+    * For more information, see [Configure a distributed transaction whitelist](~~124321~~).
+    * This operation is applicable to instances that run one of the following SQL Server versions on RDS High-Availability Edition: SQL Server 2012 SE, SQL Server 2012 EE, SQL Server 2014 SE, SQL Server 2016 SE, SQL Server 2016 EE, and SQL Server 2017 SE.
+    *
+    * @param request DescribeDTCSecurityIpHostsForSQLServerRequest
+    * @return DescribeDTCSecurityIpHostsForSQLServerResponse
+   */
   async describeDTCSecurityIpHostsForSQLServer(request: DescribeDTCSecurityIpHostsForSQLServerRequest): Promise<DescribeDTCSecurityIpHostsForSQLServerResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.describeDTCSecurityIpHostsForSQLServerWithOptions(request, runtime);
   }
 
+  /**
+    * >  If the specified request parameters are invalid, no database information is returned.
+    *
+    * @param request DescribeDatabasesRequest
+    * @param runtime runtime options for this request RuntimeOptions
+    * @return DescribeDatabasesResponse
+   */
   async describeDatabasesWithOptions(request: DescribeDatabasesRequest, runtime: $Util.RuntimeOptions): Promise<DescribeDatabasesResponse> {
     Util.validateModel(request);
     let query = { };
@@ -36761,11 +40124,24 @@ export default class Client extends OpenApi {
     return $tea.cast<DescribeDatabasesResponse>(await this.callApi(params, req, runtime), new DescribeDatabasesResponse({}));
   }
 
+  /**
+    * >  If the specified request parameters are invalid, no database information is returned.
+    *
+    * @param request DescribeDatabasesRequest
+    * @return DescribeDatabasesResponse
+   */
   async describeDatabases(request: DescribeDatabasesRequest): Promise<DescribeDatabasesResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.describeDatabasesWithOptions(request, runtime);
   }
 
+  /**
+    * Dedicated clusters allow you to manage a number of instances at a time. You can create multiple dedicated clusters in a single region. Each dedicated cluster consists of multiple hosts. You can create multiple instances on each host. For more information, see [What is ApsaraDB MyBase?](~~141455~~)
+    *
+    * @param request DescribeDedicatedHostGroupsRequest
+    * @param runtime runtime options for this request RuntimeOptions
+    * @return DescribeDedicatedHostGroupsResponse
+   */
   async describeDedicatedHostGroupsWithOptions(request: DescribeDedicatedHostGroupsRequest, runtime: $Util.RuntimeOptions): Promise<DescribeDedicatedHostGroupsResponse> {
     Util.validateModel(request);
     let query = { };
@@ -36810,11 +40186,24 @@ export default class Client extends OpenApi {
     return $tea.cast<DescribeDedicatedHostGroupsResponse>(await this.callApi(params, req, runtime), new DescribeDedicatedHostGroupsResponse({}));
   }
 
+  /**
+    * Dedicated clusters allow you to manage a number of instances at a time. You can create multiple dedicated clusters in a single region. Each dedicated cluster consists of multiple hosts. You can create multiple instances on each host. For more information, see [What is ApsaraDB MyBase?](~~141455~~)
+    *
+    * @param request DescribeDedicatedHostGroupsRequest
+    * @return DescribeDedicatedHostGroupsResponse
+   */
   async describeDedicatedHostGroups(request: DescribeDedicatedHostGroupsRequest): Promise<DescribeDedicatedHostGroupsResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.describeDedicatedHostGroupsWithOptions(request, runtime);
   }
 
+  /**
+    * Dedicated clusters allow you to manage a number of instances at a time. You can create multiple dedicated clusters in a single region. Each dedicated cluster consists of multiple hosts. You can create multiple instances on each host. For more information, see [What is ApsaraDB MyBase?](~~141455~~)
+    *
+    * @param request DescribeDedicatedHostsRequest
+    * @param runtime runtime options for this request RuntimeOptions
+    * @return DescribeDedicatedHostsResponse
+   */
   async describeDedicatedHostsWithOptions(request: DescribeDedicatedHostsRequest, runtime: $Util.RuntimeOptions): Promise<DescribeDedicatedHostsResponse> {
     Util.validateModel(request);
     let query = { };
@@ -36879,11 +40268,24 @@ export default class Client extends OpenApi {
     return $tea.cast<DescribeDedicatedHostsResponse>(await this.callApi(params, req, runtime), new DescribeDedicatedHostsResponse({}));
   }
 
+  /**
+    * Dedicated clusters allow you to manage a number of instances at a time. You can create multiple dedicated clusters in a single region. Each dedicated cluster consists of multiple hosts. You can create multiple instances on each host. For more information, see [What is ApsaraDB MyBase?](~~141455~~)
+    *
+    * @param request DescribeDedicatedHostsRequest
+    * @return DescribeDedicatedHostsResponse
+   */
   async describeDedicatedHosts(request: DescribeDedicatedHostsRequest): Promise<DescribeDedicatedHostsResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.describeDedicatedHostsWithOptions(request, runtime);
   }
 
+  /**
+    * This operation is supported for instances that run MySQL with local SSDs. For more information about how to retain the data backup files of an instance after the instance is released, see [Configure automatic backup](~~98818~~).
+    *
+    * @param request DescribeDetachedBackupsRequest
+    * @param runtime runtime options for this request RuntimeOptions
+    * @return DescribeDetachedBackupsResponse
+   */
   async describeDetachedBackupsWithOptions(request: DescribeDetachedBackupsRequest, runtime: $Util.RuntimeOptions): Promise<DescribeDetachedBackupsResponse> {
     Util.validateModel(request);
     let query = { };
@@ -36948,11 +40350,26 @@ export default class Client extends OpenApi {
     return $tea.cast<DescribeDetachedBackupsResponse>(await this.callApi(params, req, runtime), new DescribeDetachedBackupsResponse({}));
   }
 
+  /**
+    * This operation is supported for instances that run MySQL with local SSDs. For more information about how to retain the data backup files of an instance after the instance is released, see [Configure automatic backup](~~98818~~).
+    *
+    * @param request DescribeDetachedBackupsRequest
+    * @return DescribeDetachedBackupsResponse
+   */
   async describeDetachedBackups(request: DescribeDetachedBackupsRequest): Promise<DescribeDetachedBackupsResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.describeDetachedBackupsWithOptions(request, runtime);
   }
 
+  /**
+    * > This operation is no longer maintained. You can use the [DescribeDiagnosticReportList](~~443006~~) operation of Database Autonomy Service (DAS) to query a list of diagnostic reports.
+    * *   The returned diagnosis reports include data collection time, data generation time, and download URLs. The system retains the reports for 15 days.
+    * *   This operation is not suitable for instances that run SQL Server 2017 on RDS Cluster Edition.
+    *
+    * @param request DescribeDiagnosticReportListRequest
+    * @param runtime runtime options for this request RuntimeOptions
+    * @return DescribeDiagnosticReportListResponse
+   */
   async describeDiagnosticReportListWithOptions(request: DescribeDiagnosticReportListRequest, runtime: $Util.RuntimeOptions): Promise<DescribeDiagnosticReportListResponse> {
     Util.validateModel(request);
     let query = { };
@@ -36981,11 +40398,26 @@ export default class Client extends OpenApi {
     return $tea.cast<DescribeDiagnosticReportListResponse>(await this.callApi(params, req, runtime), new DescribeDiagnosticReportListResponse({}));
   }
 
+  /**
+    * > This operation is no longer maintained. You can use the [DescribeDiagnosticReportList](~~443006~~) operation of Database Autonomy Service (DAS) to query a list of diagnostic reports.
+    * *   The returned diagnosis reports include data collection time, data generation time, and download URLs. The system retains the reports for 15 days.
+    * *   This operation is not suitable for instances that run SQL Server 2017 on RDS Cluster Edition.
+    *
+    * @param request DescribeDiagnosticReportListRequest
+    * @return DescribeDiagnosticReportListResponse
+   */
   async describeDiagnosticReportList(request: DescribeDiagnosticReportListRequest): Promise<DescribeDiagnosticReportListResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.describeDiagnosticReportListWithOptions(request, runtime);
   }
 
+  /**
+    * Error logs contain the time when they were generated and the error messages.
+    *
+    * @param request DescribeErrorLogsRequest
+    * @param runtime runtime options for this request RuntimeOptions
+    * @return DescribeErrorLogsResponse
+   */
   async describeErrorLogsWithOptions(request: DescribeErrorLogsRequest, runtime: $Util.RuntimeOptions): Promise<DescribeErrorLogsResponse> {
     Util.validateModel(request);
     let query = { };
@@ -37042,11 +40474,25 @@ export default class Client extends OpenApi {
     return $tea.cast<DescribeErrorLogsResponse>(await this.callApi(params, req, runtime), new DescribeErrorLogsResponse({}));
   }
 
+  /**
+    * Error logs contain the time when they were generated and the error messages.
+    *
+    * @param request DescribeErrorLogsRequest
+    * @return DescribeErrorLogsResponse
+   */
   async describeErrorLogs(request: DescribeErrorLogsRequest): Promise<DescribeErrorLogsResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.describeErrorLogsWithOptions(request, runtime);
   }
 
+  /**
+    * The event history feature enables you to view the events that occurred within a region over a specific time range. Historical events include instance creation and parameter modification. For more information, see [View the event history of an ApsaraDB RDS instance](~~129759~~).
+    * Before you call this operation, make sure that the event history feature is enabled. Otherwise, this operation fails.
+    *
+    * @param request DescribeEventsRequest
+    * @param runtime runtime options for this request RuntimeOptions
+    * @return DescribeEventsResponse
+   */
   async describeEventsWithOptions(request: DescribeEventsRequest, runtime: $Util.RuntimeOptions): Promise<DescribeEventsResponse> {
     Util.validateModel(request);
     let query = { };
@@ -37099,6 +40545,13 @@ export default class Client extends OpenApi {
     return $tea.cast<DescribeEventsResponse>(await this.callApi(params, req, runtime), new DescribeEventsResponse({}));
   }
 
+  /**
+    * The event history feature enables you to view the events that occurred within a region over a specific time range. Historical events include instance creation and parameter modification. For more information, see [View the event history of an ApsaraDB RDS instance](~~129759~~).
+    * Before you call this operation, make sure that the event history feature is enabled. Otherwise, this operation fails.
+    *
+    * @param request DescribeEventsRequest
+    * @return DescribeEventsResponse
+   */
   async describeEvents(request: DescribeEventsRequest): Promise<DescribeEventsResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.describeEventsWithOptions(request, runtime);
@@ -37141,6 +40594,13 @@ export default class Client extends OpenApi {
     return await this.describeGadInstancesWithOptions(request, runtime);
   }
 
+  /**
+    * By default, Alibaba Cloud uses persistent connections to check the availability of an instance. For more information, see [What is availability detection?](~~207467~~)
+    *
+    * @param request DescribeHADiagnoseConfigRequest
+    * @param runtime runtime options for this request RuntimeOptions
+    * @return DescribeHADiagnoseConfigResponse
+   */
   async describeHADiagnoseConfigWithOptions(request: DescribeHADiagnoseConfigRequest, runtime: $Util.RuntimeOptions): Promise<DescribeHADiagnoseConfigResponse> {
     Util.validateModel(request);
     let query = { };
@@ -37181,11 +40641,25 @@ export default class Client extends OpenApi {
     return $tea.cast<DescribeHADiagnoseConfigResponse>(await this.callApi(params, req, runtime), new DescribeHADiagnoseConfigResponse({}));
   }
 
+  /**
+    * By default, Alibaba Cloud uses persistent connections to check the availability of an instance. For more information, see [What is availability detection?](~~207467~~)
+    *
+    * @param request DescribeHADiagnoseConfigRequest
+    * @return DescribeHADiagnoseConfigResponse
+   */
   async describeHADiagnoseConfig(request: DescribeHADiagnoseConfigRequest): Promise<DescribeHADiagnoseConfigResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.describeHADiagnoseConfigWithOptions(request, runtime);
   }
 
+  /**
+    * After a primary/secondary switchover is complete, the primary instance is demoted to the secondary instance and the secondary instance is promoted to primary. For more information, see [Switch workloads over between primary and secondary ApsaraDB RDS instances](~~96054~~).
+    * When you call this operation, you must make sure that the instance runs RDS High-availability Edition, RDS Enterprise Edition, and RDS Cluster Edition. RDS Cluster Edition is supported for ApsaraDB RDS for MySQL and ApsaraDB RDS for SQL Server.
+    *
+    * @param request DescribeHASwitchConfigRequest
+    * @param runtime runtime options for this request RuntimeOptions
+    * @return DescribeHASwitchConfigResponse
+   */
   async describeHASwitchConfigWithOptions(request: DescribeHASwitchConfigRequest, runtime: $Util.RuntimeOptions): Promise<DescribeHASwitchConfigResponse> {
     Util.validateModel(request);
     let query = { };
@@ -37226,9 +40700,166 @@ export default class Client extends OpenApi {
     return $tea.cast<DescribeHASwitchConfigResponse>(await this.callApi(params, req, runtime), new DescribeHASwitchConfigResponse({}));
   }
 
+  /**
+    * After a primary/secondary switchover is complete, the primary instance is demoted to the secondary instance and the secondary instance is promoted to primary. For more information, see [Switch workloads over between primary and secondary ApsaraDB RDS instances](~~96054~~).
+    * When you call this operation, you must make sure that the instance runs RDS High-availability Edition, RDS Enterprise Edition, and RDS Cluster Edition. RDS Cluster Edition is supported for ApsaraDB RDS for MySQL and ApsaraDB RDS for SQL Server.
+    *
+    * @param request DescribeHASwitchConfigRequest
+    * @return DescribeHASwitchConfigResponse
+   */
   async describeHASwitchConfig(request: DescribeHASwitchConfigRequest): Promise<DescribeHASwitchConfigResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.describeHASwitchConfigWithOptions(request, runtime);
+  }
+
+  async describeHistoryTasksWithOptions(request: DescribeHistoryTasksRequest, runtime: $Util.RuntimeOptions): Promise<DescribeHistoryTasksResponse> {
+    Util.validateModel(request);
+    let query = { };
+    if (!Util.isUnset(request.fromExecTime)) {
+      query["FromExecTime"] = request.fromExecTime;
+    }
+
+    if (!Util.isUnset(request.fromStartTime)) {
+      query["FromStartTime"] = request.fromStartTime;
+    }
+
+    if (!Util.isUnset(request.instanceId)) {
+      query["InstanceId"] = request.instanceId;
+    }
+
+    if (!Util.isUnset(request.instanceType)) {
+      query["InstanceType"] = request.instanceType;
+    }
+
+    if (!Util.isUnset(request.ownerId)) {
+      query["OwnerId"] = request.ownerId;
+    }
+
+    if (!Util.isUnset(request.pageNumber)) {
+      query["PageNumber"] = request.pageNumber;
+    }
+
+    if (!Util.isUnset(request.pageSize)) {
+      query["PageSize"] = request.pageSize;
+    }
+
+    if (!Util.isUnset(request.regionId)) {
+      query["RegionId"] = request.regionId;
+    }
+
+    if (!Util.isUnset(request.resourceGroupId)) {
+      query["ResourceGroupId"] = request.resourceGroupId;
+    }
+
+    if (!Util.isUnset(request.resourceOwnerAccount)) {
+      query["ResourceOwnerAccount"] = request.resourceOwnerAccount;
+    }
+
+    if (!Util.isUnset(request.resourceOwnerId)) {
+      query["ResourceOwnerId"] = request.resourceOwnerId;
+    }
+
+    if (!Util.isUnset(request.securityToken)) {
+      query["SecurityToken"] = request.securityToken;
+    }
+
+    if (!Util.isUnset(request.status)) {
+      query["Status"] = request.status;
+    }
+
+    if (!Util.isUnset(request.taskId)) {
+      query["TaskId"] = request.taskId;
+    }
+
+    if (!Util.isUnset(request.taskType)) {
+      query["TaskType"] = request.taskType;
+    }
+
+    if (!Util.isUnset(request.toExecTime)) {
+      query["ToExecTime"] = request.toExecTime;
+    }
+
+    if (!Util.isUnset(request.toStartTime)) {
+      query["ToStartTime"] = request.toStartTime;
+    }
+
+    let req = new $OpenApi.OpenApiRequest({
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApi.Params({
+      action: "DescribeHistoryTasks",
+      version: "2014-08-15",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $tea.cast<DescribeHistoryTasksResponse>(await this.callApi(params, req, runtime), new DescribeHistoryTasksResponse({}));
+  }
+
+  async describeHistoryTasks(request: DescribeHistoryTasksRequest): Promise<DescribeHistoryTasksResponse> {
+    let runtime = new $Util.RuntimeOptions({ });
+    return await this.describeHistoryTasksWithOptions(request, runtime);
+  }
+
+  async describeHostWebShellWithOptions(request: DescribeHostWebShellRequest, runtime: $Util.RuntimeOptions): Promise<DescribeHostWebShellResponse> {
+    Util.validateModel(request);
+    let query = { };
+    if (!Util.isUnset(request.accountName)) {
+      query["AccountName"] = request.accountName;
+    }
+
+    if (!Util.isUnset(request.accountPassword)) {
+      query["AccountPassword"] = request.accountPassword;
+    }
+
+    if (!Util.isUnset(request.DBInstanceId)) {
+      query["DBInstanceId"] = request.DBInstanceId;
+    }
+
+    if (!Util.isUnset(request.hostName)) {
+      query["HostName"] = request.hostName;
+    }
+
+    if (!Util.isUnset(request.ownerId)) {
+      query["OwnerId"] = request.ownerId;
+    }
+
+    if (!Util.isUnset(request.regionID)) {
+      query["RegionID"] = request.regionID;
+    }
+
+    if (!Util.isUnset(request.resourceOwnerAccount)) {
+      query["ResourceOwnerAccount"] = request.resourceOwnerAccount;
+    }
+
+    if (!Util.isUnset(request.resourceOwnerId)) {
+      query["ResourceOwnerId"] = request.resourceOwnerId;
+    }
+
+    let req = new $OpenApi.OpenApiRequest({
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApi.Params({
+      action: "DescribeHostWebShell",
+      version: "2014-08-15",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $tea.cast<DescribeHostWebShellResponse>(await this.callApi(params, req, runtime), new DescribeHostWebShellResponse({}));
+  }
+
+  async describeHostWebShell(request: DescribeHostWebShellRequest): Promise<DescribeHostWebShellResponse> {
+    let runtime = new $Util.RuntimeOptions({ });
+    return await this.describeHostWebShellWithOptions(request, runtime);
   }
 
   async describeInstanceAutoRenewalAttributeWithOptions(request: DescribeInstanceAutoRenewalAttributeRequest, runtime: $Util.RuntimeOptions): Promise<DescribeInstanceAutoRenewalAttributeResponse> {
@@ -37296,6 +40927,16 @@ export default class Client extends OpenApi {
     return await this.describeInstanceAutoRenewalAttributeWithOptions(request, runtime);
   }
 
+  /**
+    * Before you call this operation, make sure that the instance runs one of the following database engines:
+    * *   MySQL. For more information, see [Back up an ApsaraDB RDS for MySQL instance across regions](~~120824~~).
+    * *   SQL Server. For more information, see [Back up an ApsaraDB RDS for SQL Server instance across regions](~~187923~~).
+    * *   PostgreSQL. For more information, see [Enable cross-region backups for an ApsaraDB RDS for PostgreSQL instance](~~206671~~).
+    *
+    * @param request DescribeInstanceCrossBackupPolicyRequest
+    * @param runtime runtime options for this request RuntimeOptions
+    * @return DescribeInstanceCrossBackupPolicyResponse
+   */
   async describeInstanceCrossBackupPolicyWithOptions(request: DescribeInstanceCrossBackupPolicyRequest, runtime: $Util.RuntimeOptions): Promise<DescribeInstanceCrossBackupPolicyResponse> {
     Util.validateModel(request);
     let query = { };
@@ -37336,6 +40977,15 @@ export default class Client extends OpenApi {
     return $tea.cast<DescribeInstanceCrossBackupPolicyResponse>(await this.callApi(params, req, runtime), new DescribeInstanceCrossBackupPolicyResponse({}));
   }
 
+  /**
+    * Before you call this operation, make sure that the instance runs one of the following database engines:
+    * *   MySQL. For more information, see [Back up an ApsaraDB RDS for MySQL instance across regions](~~120824~~).
+    * *   SQL Server. For more information, see [Back up an ApsaraDB RDS for SQL Server instance across regions](~~187923~~).
+    * *   PostgreSQL. For more information, see [Enable cross-region backups for an ApsaraDB RDS for PostgreSQL instance](~~206671~~).
+    *
+    * @param request DescribeInstanceCrossBackupPolicyRequest
+    * @return DescribeInstanceCrossBackupPolicyResponse
+   */
   async describeInstanceCrossBackupPolicy(request: DescribeInstanceCrossBackupPolicyRequest): Promise<DescribeInstanceCrossBackupPolicyResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.describeInstanceCrossBackupPolicyWithOptions(request, runtime);
@@ -37496,6 +41146,14 @@ export default class Client extends OpenApi {
     return await this.describeLogBackupFilesWithOptions(request, runtime);
   }
 
+  /**
+    * Before you call the [RestoreTable](~~131510~~) operation to restore individual databases or tables of an ApsaraDB RDS for MySQL instance, you can call this operation to query the information about the databases and tables that can be restored. For more information, see [Restore individual databases and tables of an ApsaraDB RDS for MySQL instance](~~103175~~).
+    * > This operation is supported only when the instance runs MySQL 8.0, MySQL 5.7, or MySQL 5.6 on RDS High-availability Edition with local disks.
+    *
+    * @param request DescribeMetaListRequest
+    * @param runtime runtime options for this request RuntimeOptions
+    * @return DescribeMetaListResponse
+   */
   async describeMetaListWithOptions(request: DescribeMetaListRequest, runtime: $Util.RuntimeOptions): Promise<DescribeMetaListResponse> {
     Util.validateModel(request);
     let query = { };
@@ -37568,6 +41226,13 @@ export default class Client extends OpenApi {
     return $tea.cast<DescribeMetaListResponse>(await this.callApi(params, req, runtime), new DescribeMetaListResponse({}));
   }
 
+  /**
+    * Before you call the [RestoreTable](~~131510~~) operation to restore individual databases or tables of an ApsaraDB RDS for MySQL instance, you can call this operation to query the information about the databases and tables that can be restored. For more information, see [Restore individual databases and tables of an ApsaraDB RDS for MySQL instance](~~103175~~).
+    * > This operation is supported only when the instance runs MySQL 8.0, MySQL 5.7, or MySQL 5.6 on RDS High-availability Edition with local disks.
+    *
+    * @param request DescribeMetaListRequest
+    * @return DescribeMetaListResponse
+   */
   async describeMetaList(request: DescribeMetaListRequest): Promise<DescribeMetaListResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.describeMetaListWithOptions(request, runtime);
@@ -37622,6 +41287,16 @@ export default class Client extends OpenApi {
     return await this.describeMigrateTaskByIdWithOptions(request, runtime);
   }
 
+  /**
+    * This operation allows you to query the migration tasks that are created for the instance over the last week.
+    * > 
+    * *   This operation is supported only for migration tasks that are created to migrate full backup files.
+    * *   This operation is not supported for instances that run SQL Server 2017 on RDS Cluster Edition.
+    *
+    * @param request DescribeMigrateTasksRequest
+    * @param runtime runtime options for this request RuntimeOptions
+    * @return DescribeMigrateTasksResponse
+   */
   async describeMigrateTasksWithOptions(request: DescribeMigrateTasksRequest, runtime: $Util.RuntimeOptions): Promise<DescribeMigrateTasksResponse> {
     Util.validateModel(request);
     let query = { };
@@ -37678,6 +41353,15 @@ export default class Client extends OpenApi {
     return $tea.cast<DescribeMigrateTasksResponse>(await this.callApi(params, req, runtime), new DescribeMigrateTasksResponse({}));
   }
 
+  /**
+    * This operation allows you to query the migration tasks that are created for the instance over the last week.
+    * > 
+    * *   This operation is supported only for migration tasks that are created to migrate full backup files.
+    * *   This operation is not supported for instances that run SQL Server 2017 on RDS Cluster Edition.
+    *
+    * @param request DescribeMigrateTasksRequest
+    * @return DescribeMigrateTasksResponse
+   */
   async describeMigrateTasks(request: DescribeMigrateTasksRequest): Promise<DescribeMigrateTasksResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.describeMigrateTasksWithOptions(request, runtime);
@@ -37805,6 +41489,13 @@ export default class Client extends OpenApi {
     return await this.describeModifyParameterLogWithOptions(request, runtime);
   }
 
+  /**
+    * >  This operation is not supported for instances that run SQL Server 2017 EE or SQL Server 2019 EE.
+    *
+    * @param request DescribeOssDownloadsRequest
+    * @param runtime runtime options for this request RuntimeOptions
+    * @return DescribeOssDownloadsResponse
+   */
   async describeOssDownloadsWithOptions(request: DescribeOssDownloadsRequest, runtime: $Util.RuntimeOptions): Promise<DescribeOssDownloadsResponse> {
     Util.validateModel(request);
     let query = { };
@@ -37849,6 +41540,12 @@ export default class Client extends OpenApi {
     return $tea.cast<DescribeOssDownloadsResponse>(await this.callApi(params, req, runtime), new DescribeOssDownloadsResponse({}));
   }
 
+  /**
+    * >  This operation is not supported for instances that run SQL Server 2017 EE or SQL Server 2019 EE.
+    *
+    * @param request DescribeOssDownloadsRequest
+    * @return DescribeOssDownloadsResponse
+   */
   async describeOssDownloads(request: DescribeOssDownloadsRequest): Promise<DescribeOssDownloadsResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.describeOssDownloadsWithOptions(request, runtime);
@@ -37907,6 +41604,14 @@ export default class Client extends OpenApi {
     return await this.describePGHbaConfigWithOptions(request, runtime);
   }
 
+  /**
+    * You can configure a number of parameters at a time by using a parameter template and then apply the parameter template to instances. For more information, see [Use a parameter template to configure the parameters of ApsaraDB RDS for MySQL instances](~~130565~~) or [Use a parameter template to configure the parameters of ApsaraDB RDS for PostgreSQL instances](~~457176~~).
+    * >  You can apply parameter templates only to ApsaraDB RDS for MySQL instances and ApsaraDB RDS for PostgreSQL instances.
+    *
+    * @param request DescribeParameterGroupRequest
+    * @param runtime runtime options for this request RuntimeOptions
+    * @return DescribeParameterGroupResponse
+   */
   async describeParameterGroupWithOptions(request: DescribeParameterGroupRequest, runtime: $Util.RuntimeOptions): Promise<DescribeParameterGroupResponse> {
     Util.validateModel(request);
     let query = { };
@@ -37947,11 +41652,26 @@ export default class Client extends OpenApi {
     return $tea.cast<DescribeParameterGroupResponse>(await this.callApi(params, req, runtime), new DescribeParameterGroupResponse({}));
   }
 
+  /**
+    * You can configure a number of parameters at a time by using a parameter template and then apply the parameter template to instances. For more information, see [Use a parameter template to configure the parameters of ApsaraDB RDS for MySQL instances](~~130565~~) or [Use a parameter template to configure the parameters of ApsaraDB RDS for PostgreSQL instances](~~457176~~).
+    * >  You can apply parameter templates only to ApsaraDB RDS for MySQL instances and ApsaraDB RDS for PostgreSQL instances.
+    *
+    * @param request DescribeParameterGroupRequest
+    * @return DescribeParameterGroupResponse
+   */
   async describeParameterGroup(request: DescribeParameterGroupRequest): Promise<DescribeParameterGroupResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.describeParameterGroupWithOptions(request, runtime);
   }
 
+  /**
+    * You can configure a number of parameters at a time by using a parameter template and then apply the parameter template to instances. For more information, see [Use a parameter template to configure the parameters of ApsaraDB RDS for MySQL instances](~~130565~~) or [Use a parameter template to configure the parameters of ApsaraDB RDS for PostgreSQL instances](~~457176~~).
+    * >  You can apply parameter templates only to ApsaraDB RDS for MySQL instances and ApsaraDB RDS for PostgreSQL instances.
+    *
+    * @param request DescribeParameterGroupsRequest
+    * @param runtime runtime options for this request RuntimeOptions
+    * @return DescribeParameterGroupsResponse
+   */
   async describeParameterGroupsWithOptions(request: DescribeParameterGroupsRequest, runtime: $Util.RuntimeOptions): Promise<DescribeParameterGroupsResponse> {
     Util.validateModel(request);
     let query = { };
@@ -37992,11 +41712,29 @@ export default class Client extends OpenApi {
     return $tea.cast<DescribeParameterGroupsResponse>(await this.callApi(params, req, runtime), new DescribeParameterGroupsResponse({}));
   }
 
+  /**
+    * You can configure a number of parameters at a time by using a parameter template and then apply the parameter template to instances. For more information, see [Use a parameter template to configure the parameters of ApsaraDB RDS for MySQL instances](~~130565~~) or [Use a parameter template to configure the parameters of ApsaraDB RDS for PostgreSQL instances](~~457176~~).
+    * >  You can apply parameter templates only to ApsaraDB RDS for MySQL instances and ApsaraDB RDS for PostgreSQL instances.
+    *
+    * @param request DescribeParameterGroupsRequest
+    * @return DescribeParameterGroupsResponse
+   */
   async describeParameterGroups(request: DescribeParameterGroupsRequest): Promise<DescribeParameterGroupsResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.describeParameterGroupsWithOptions(request, runtime);
   }
 
+  /**
+    * Before you call this operation, make sure that the instance runs one of the following database engines:
+    * *   MySQL 5.5, 5.6, 5.7, and 8.0
+    * *   SQL Server 2008 R2
+    * *   PostgreSQL 9.4, 10, 11, and 12
+    * *   MariaDB 10.3
+    *
+    * @param request DescribeParameterTemplatesRequest
+    * @param runtime runtime options for this request RuntimeOptions
+    * @return DescribeParameterTemplatesResponse
+   */
   async describeParameterTemplatesWithOptions(request: DescribeParameterTemplatesRequest, runtime: $Util.RuntimeOptions): Promise<DescribeParameterTemplatesResponse> {
     Util.validateModel(request);
     let query = { };
@@ -38057,11 +41795,32 @@ export default class Client extends OpenApi {
     return $tea.cast<DescribeParameterTemplatesResponse>(await this.callApi(params, req, runtime), new DescribeParameterTemplatesResponse({}));
   }
 
+  /**
+    * Before you call this operation, make sure that the instance runs one of the following database engines:
+    * *   MySQL 5.5, 5.6, 5.7, and 8.0
+    * *   SQL Server 2008 R2
+    * *   PostgreSQL 9.4, 10, 11, and 12
+    * *   MariaDB 10.3
+    *
+    * @param request DescribeParameterTemplatesRequest
+    * @return DescribeParameterTemplatesResponse
+   */
   async describeParameterTemplates(request: DescribeParameterTemplatesRequest): Promise<DescribeParameterTemplatesResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.describeParameterTemplatesWithOptions(request, runtime);
   }
 
+  /**
+    * Before you call this operation, make sure that the instance runs one of the following database engines:
+    * *   MySQL 5.5, MySQL 5.6, MySQL 5.7, or MySQL 8.0
+    * *   SQL Server 2008 R2
+    * *   PostgreSQL 10, PostgreSQL 11, PostgreSQL 12, PostgreSQL 13, PostgreSQL 14, or PostgreSQL 15
+    * *   MariaDB 10.3
+    *
+    * @param request DescribeParametersRequest
+    * @param runtime runtime options for this request RuntimeOptions
+    * @return DescribeParametersResponse
+   */
   async describeParametersWithOptions(request: DescribeParametersRequest, runtime: $Util.RuntimeOptions): Promise<DescribeParametersResponse> {
     Util.validateModel(request);
     let query = { };
@@ -38106,6 +41865,16 @@ export default class Client extends OpenApi {
     return $tea.cast<DescribeParametersResponse>(await this.callApi(params, req, runtime), new DescribeParametersResponse({}));
   }
 
+  /**
+    * Before you call this operation, make sure that the instance runs one of the following database engines:
+    * *   MySQL 5.5, MySQL 5.6, MySQL 5.7, or MySQL 8.0
+    * *   SQL Server 2008 R2
+    * *   PostgreSQL 10, PostgreSQL 11, PostgreSQL 12, PostgreSQL 13, PostgreSQL 14, or PostgreSQL 15
+    * *   MariaDB 10.3
+    *
+    * @param request DescribeParametersRequest
+    * @return DescribeParametersResponse
+   */
   async describeParameters(request: DescribeParametersRequest): Promise<DescribeParametersResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.describeParametersWithOptions(request, runtime);
@@ -38226,6 +41995,14 @@ export default class Client extends OpenApi {
     return await this.describePriceWithOptions(request, runtime);
   }
 
+  /**
+    * @deprecated
+    *
+    * @param request DescribeRdsResourceSettingsRequest
+    * @param runtime runtime options for this request RuntimeOptions
+    * @return DescribeRdsResourceSettingsResponse
+   */
+  // Deprecated
   async describeRdsResourceSettingsWithOptions(request: DescribeRdsResourceSettingsRequest, runtime: $Util.RuntimeOptions): Promise<DescribeRdsResourceSettingsResponse> {
     Util.validateModel(request);
     let query = { };
@@ -38262,11 +42039,27 @@ export default class Client extends OpenApi {
     return $tea.cast<DescribeRdsResourceSettingsResponse>(await this.callApi(params, req, runtime), new DescribeRdsResourceSettingsResponse({}));
   }
 
+  /**
+    * @deprecated
+    *
+    * @param request DescribeRdsResourceSettingsRequest
+    * @return DescribeRdsResourceSettingsResponse
+   */
+  // Deprecated
   async describeRdsResourceSettings(request: DescribeRdsResourceSettingsRequest): Promise<DescribeRdsResourceSettingsResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.describeRdsResourceSettingsWithOptions(request, runtime);
   }
 
+  /**
+    * Before you call this operation, make sure that the following requirements are met:
+    * *   The primary instance must run the MySQL or PostgreSQL database engine.
+    * *   The primary instance must be attached with a read-only instance.
+    *
+    * @param request DescribeReadDBInstanceDelayRequest
+    * @param runtime runtime options for this request RuntimeOptions
+    * @return DescribeReadDBInstanceDelayResponse
+   */
   async describeReadDBInstanceDelayWithOptions(request: DescribeReadDBInstanceDelayRequest, runtime: $Util.RuntimeOptions): Promise<DescribeReadDBInstanceDelayResponse> {
     Util.validateModel(request);
     let query = { };
@@ -38319,6 +42112,14 @@ export default class Client extends OpenApi {
     return $tea.cast<DescribeReadDBInstanceDelayResponse>(await this.callApi(params, req, runtime), new DescribeReadDBInstanceDelayResponse({}));
   }
 
+  /**
+    * Before you call this operation, make sure that the following requirements are met:
+    * *   The primary instance must run the MySQL or PostgreSQL database engine.
+    * *   The primary instance must be attached with a read-only instance.
+    *
+    * @param request DescribeReadDBInstanceDelayRequest
+    * @return DescribeReadDBInstanceDelayResponse
+   */
   async describeReadDBInstanceDelay(request: DescribeReadDBInstanceDelayRequest): Promise<DescribeReadDBInstanceDelayResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.describeReadDBInstanceDelayWithOptions(request, runtime);
@@ -38369,6 +42170,14 @@ export default class Client extends OpenApi {
     return await this.describeRegionInfosWithOptions(request, runtime);
   }
 
+  /**
+    * Before you call the [CreateDBInstance](~~26228~~) operation to create an RDS instance, you can call the DescribeRegions operation to query the available regions and zones.
+    * >  If a zone supports the multi-zone deployment method, the value of the ZoneId parameter for the zone contains an MAZ part. Examples: cn-hangzhou-MAZ6(b,f) and cn-hangzhou-MAZ5(b,e,f).
+    *
+    * @param request DescribeRegionsRequest
+    * @param runtime runtime options for this request RuntimeOptions
+    * @return DescribeRegionsResponse
+   */
   async describeRegionsWithOptions(request: DescribeRegionsRequest, runtime: $Util.RuntimeOptions): Promise<DescribeRegionsResponse> {
     Util.validateModel(request);
     let query = { };
@@ -38397,11 +42206,25 @@ export default class Client extends OpenApi {
     return $tea.cast<DescribeRegionsResponse>(await this.callApi(params, req, runtime), new DescribeRegionsResponse({}));
   }
 
+  /**
+    * Before you call the [CreateDBInstance](~~26228~~) operation to create an RDS instance, you can call the DescribeRegions operation to query the available regions and zones.
+    * >  If a zone supports the multi-zone deployment method, the value of the ZoneId parameter for the zone contains an MAZ part. Examples: cn-hangzhou-MAZ6(b,f) and cn-hangzhou-MAZ5(b,e,f).
+    *
+    * @param request DescribeRegionsRequest
+    * @return DescribeRegionsResponse
+   */
   async describeRegions(request: DescribeRegionsRequest): Promise<DescribeRegionsResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.describeRegionsWithOptions(request, runtime);
   }
 
+  /**
+    * This operation is supported only for subscription instances.
+    *
+    * @param request DescribeRenewalPriceRequest
+    * @param runtime runtime options for this request RuntimeOptions
+    * @return DescribeRenewalPriceResponse
+   */
   async describeRenewalPriceWithOptions(request: DescribeRenewalPriceRequest, runtime: $Util.RuntimeOptions): Promise<DescribeRenewalPriceResponse> {
     Util.validateModel(request);
     let query = { };
@@ -38478,6 +42301,12 @@ export default class Client extends OpenApi {
     return $tea.cast<DescribeRenewalPriceResponse>(await this.callApi(params, req, runtime), new DescribeRenewalPriceResponse({}));
   }
 
+  /**
+    * This operation is supported only for subscription instances.
+    *
+    * @param request DescribeRenewalPriceRequest
+    * @return DescribeRenewalPriceResponse
+   */
   async describeRenewalPrice(request: DescribeRenewalPriceRequest): Promise<DescribeRenewalPriceResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.describeRenewalPriceWithOptions(request, runtime);
@@ -38532,6 +42361,16 @@ export default class Client extends OpenApi {
     return await this.describeResourceUsageWithOptions(request, runtime);
   }
 
+  /**
+    * This operation is applicable to the following database engine versions:
+    * *   MySQL
+    * *   SQL Server 2008 R2
+    * *   PostgreSQL
+    *
+    * @param request DescribeSQLCollectorPolicyRequest
+    * @param runtime runtime options for this request RuntimeOptions
+    * @return DescribeSQLCollectorPolicyResponse
+   */
   async describeSQLCollectorPolicyWithOptions(request: DescribeSQLCollectorPolicyRequest, runtime: $Util.RuntimeOptions): Promise<DescribeSQLCollectorPolicyResponse> {
     Util.validateModel(request);
     let query = { };
@@ -38580,11 +42419,28 @@ export default class Client extends OpenApi {
     return $tea.cast<DescribeSQLCollectorPolicyResponse>(await this.callApi(params, req, runtime), new DescribeSQLCollectorPolicyResponse({}));
   }
 
+  /**
+    * This operation is applicable to the following database engine versions:
+    * *   MySQL
+    * *   SQL Server 2008 R2
+    * *   PostgreSQL
+    *
+    * @param request DescribeSQLCollectorPolicyRequest
+    * @return DescribeSQLCollectorPolicyResponse
+   */
   async describeSQLCollectorPolicy(request: DescribeSQLCollectorPolicyRequest): Promise<DescribeSQLCollectorPolicyResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.describeSQLCollectorPolicyWithOptions(request, runtime);
   }
 
+  /**
+    * The SQL explorer feature must be enabled for the instance.
+    * The instance must run MySQL. For more information, see [SQL Explorer](~~96123~~).
+    *
+    * @param request DescribeSQLCollectorRetentionRequest
+    * @param runtime runtime options for this request RuntimeOptions
+    * @return DescribeSQLCollectorRetentionResponse
+   */
   async describeSQLCollectorRetentionWithOptions(request: DescribeSQLCollectorRetentionRequest, runtime: $Util.RuntimeOptions): Promise<DescribeSQLCollectorRetentionResponse> {
     Util.validateModel(request);
     let query = { };
@@ -38633,11 +42489,29 @@ export default class Client extends OpenApi {
     return $tea.cast<DescribeSQLCollectorRetentionResponse>(await this.callApi(params, req, runtime), new DescribeSQLCollectorRetentionResponse({}));
   }
 
+  /**
+    * The SQL explorer feature must be enabled for the instance.
+    * The instance must run MySQL. For more information, see [SQL Explorer](~~96123~~).
+    *
+    * @param request DescribeSQLCollectorRetentionRequest
+    * @return DescribeSQLCollectorRetentionResponse
+   */
   async describeSQLCollectorRetention(request: DescribeSQLCollectorRetentionRequest): Promise<DescribeSQLCollectorRetentionResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.describeSQLCollectorRetentionWithOptions(request, runtime);
   }
 
+  /**
+    * Before you call this operation, make sure that the instance runs one of the following database engines:
+    * *   MySQL
+    * *   SQL Server 2008 R2
+    * *   PostgreSQL
+    * >  The DescribeSQLLogFiles operation cannot be used to query the audit log files that are generated by SQL Explorer Trial Edition for an ApsaraDB RDS for MySQL instance.
+    *
+    * @param request DescribeSQLLogFilesRequest
+    * @param runtime runtime options for this request RuntimeOptions
+    * @return DescribeSQLLogFilesResponse
+   */
   async describeSQLLogFilesWithOptions(request: DescribeSQLLogFilesRequest, runtime: $Util.RuntimeOptions): Promise<DescribeSQLLogFilesResponse> {
     Util.validateModel(request);
     let query = { };
@@ -38690,11 +42564,35 @@ export default class Client extends OpenApi {
     return $tea.cast<DescribeSQLLogFilesResponse>(await this.callApi(params, req, runtime), new DescribeSQLLogFilesResponse({}));
   }
 
+  /**
+    * Before you call this operation, make sure that the instance runs one of the following database engines:
+    * *   MySQL
+    * *   SQL Server 2008 R2
+    * *   PostgreSQL
+    * >  The DescribeSQLLogFiles operation cannot be used to query the audit log files that are generated by SQL Explorer Trial Edition for an ApsaraDB RDS for MySQL instance.
+    *
+    * @param request DescribeSQLLogFilesRequest
+    * @return DescribeSQLLogFilesResponse
+   */
   async describeSQLLogFiles(request: DescribeSQLLogFilesRequest): Promise<DescribeSQLLogFilesResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.describeSQLLogFilesWithOptions(request, runtime);
   }
 
+  /**
+    * Before you call this operation, make sure that the instance runs one of the following database engines:
+    * *   MySQL
+    * *   SQL Server
+    * *   PostgreSQL
+    * > 
+    * *   You can call this operation up to 1,000 times per minute per account. The calls initiated by using both your Alibaba Cloud account and RAM users within your Alibaba Cloud account are counted.
+    * *   This operation cannot be used to query the logs that are generated by SQL Explorer Trial Edition for an ApsaraDB RDS for MySQL instance.
+    * *   When you call this operation and set the **Form** parameter to **File** to generate an audit file, a maximum of 1 million log entries can be recorded in the audit file, and you cannot filter log entries by keyword.
+    *
+    * @param request DescribeSQLLogRecordsRequest
+    * @param runtime runtime options for this request RuntimeOptions
+    * @return DescribeSQLLogRecordsResponse
+   */
   async describeSQLLogRecordsWithOptions(request: DescribeSQLLogRecordsRequest, runtime: $Util.RuntimeOptions): Promise<DescribeSQLLogRecordsResponse> {
     Util.validateModel(request);
     let query = { };
@@ -38775,6 +42673,19 @@ export default class Client extends OpenApi {
     return $tea.cast<DescribeSQLLogRecordsResponse>(await this.callApi(params, req, runtime), new DescribeSQLLogRecordsResponse({}));
   }
 
+  /**
+    * Before you call this operation, make sure that the instance runs one of the following database engines:
+    * *   MySQL
+    * *   SQL Server
+    * *   PostgreSQL
+    * > 
+    * *   You can call this operation up to 1,000 times per minute per account. The calls initiated by using both your Alibaba Cloud account and RAM users within your Alibaba Cloud account are counted.
+    * *   This operation cannot be used to query the logs that are generated by SQL Explorer Trial Edition for an ApsaraDB RDS for MySQL instance.
+    * *   When you call this operation and set the **Form** parameter to **File** to generate an audit file, a maximum of 1 million log entries can be recorded in the audit file, and you cannot filter log entries by keyword.
+    *
+    * @param request DescribeSQLLogRecordsRequest
+    * @return DescribeSQLLogRecordsResponse
+   */
   async describeSQLLogRecords(request: DescribeSQLLogRecordsRequest): Promise<DescribeSQLLogRecordsResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.describeSQLLogRecordsWithOptions(request, runtime);
@@ -38910,6 +42821,13 @@ export default class Client extends OpenApi {
     return await this.describeSecretsWithOptions(request, runtime);
   }
 
+  /**
+    * After an RDS instance is added to an ECS security group, all ECS instances in the security group can access the RDS instance. For more information, see [Configure a whitelist for an RDS instance](~~96118~~).
+    *
+    * @param request DescribeSecurityGroupConfigurationRequest
+    * @param runtime runtime options for this request RuntimeOptions
+    * @return DescribeSecurityGroupConfigurationResponse
+   */
   async describeSecurityGroupConfigurationWithOptions(request: DescribeSecurityGroupConfigurationRequest, runtime: $Util.RuntimeOptions): Promise<DescribeSecurityGroupConfigurationResponse> {
     Util.validateModel(request);
     let query = { };
@@ -38946,11 +42864,90 @@ export default class Client extends OpenApi {
     return $tea.cast<DescribeSecurityGroupConfigurationResponse>(await this.callApi(params, req, runtime), new DescribeSecurityGroupConfigurationResponse({}));
   }
 
+  /**
+    * After an RDS instance is added to an ECS security group, all ECS instances in the security group can access the RDS instance. For more information, see [Configure a whitelist for an RDS instance](~~96118~~).
+    *
+    * @param request DescribeSecurityGroupConfigurationRequest
+    * @return DescribeSecurityGroupConfigurationResponse
+   */
   async describeSecurityGroupConfiguration(request: DescribeSecurityGroupConfigurationRequest): Promise<DescribeSecurityGroupConfigurationResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.describeSecurityGroupConfigurationWithOptions(request, runtime);
   }
 
+  /**
+    * This operation is available only for ApsaraDB RDS for PostgreSQL instances.
+    *
+    * @param request DescribeSlotsRequest
+    * @param runtime runtime options for this request RuntimeOptions
+    * @return DescribeSlotsResponse
+   */
+  async describeSlotsWithOptions(request: DescribeSlotsRequest, runtime: $Util.RuntimeOptions): Promise<DescribeSlotsResponse> {
+    Util.validateModel(request);
+    let query = { };
+    if (!Util.isUnset(request.clientToken)) {
+      query["ClientToken"] = request.clientToken;
+    }
+
+    if (!Util.isUnset(request.DBInstanceId)) {
+      query["DBInstanceId"] = request.DBInstanceId;
+    }
+
+    if (!Util.isUnset(request.ownerAccount)) {
+      query["OwnerAccount"] = request.ownerAccount;
+    }
+
+    if (!Util.isUnset(request.ownerId)) {
+      query["OwnerId"] = request.ownerId;
+    }
+
+    if (!Util.isUnset(request.resourceGroupId)) {
+      query["ResourceGroupId"] = request.resourceGroupId;
+    }
+
+    if (!Util.isUnset(request.resourceOwnerAccount)) {
+      query["ResourceOwnerAccount"] = request.resourceOwnerAccount;
+    }
+
+    if (!Util.isUnset(request.resourceOwnerId)) {
+      query["ResourceOwnerId"] = request.resourceOwnerId;
+    }
+
+    let req = new $OpenApi.OpenApiRequest({
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApi.Params({
+      action: "DescribeSlots",
+      version: "2014-08-15",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $tea.cast<DescribeSlotsResponse>(await this.callApi(params, req, runtime), new DescribeSlotsResponse({}));
+  }
+
+  /**
+    * This operation is available only for ApsaraDB RDS for PostgreSQL instances.
+    *
+    * @param request DescribeSlotsRequest
+    * @return DescribeSlotsResponse
+   */
+  async describeSlots(request: DescribeSlotsRequest): Promise<DescribeSlotsResponse> {
+    let runtime = new $Util.RuntimeOptions({ });
+    return await this.describeSlotsWithOptions(request, runtime);
+  }
+
+  /**
+    * The unique ID of the SQL statement.
+    *
+    * @param request DescribeSlowLogRecordsRequest
+    * @param runtime runtime options for this request RuntimeOptions
+    * @return DescribeSlowLogRecordsResponse
+   */
   async describeSlowLogRecordsWithOptions(request: DescribeSlowLogRecordsRequest, runtime: $Util.RuntimeOptions): Promise<DescribeSlowLogRecordsResponse> {
     Util.validateModel(request);
     let query = { };
@@ -38964,6 +42961,10 @@ export default class Client extends OpenApi {
 
     if (!Util.isUnset(request.endTime)) {
       query["EndTime"] = request.endTime;
+    }
+
+    if (!Util.isUnset(request.nodeId)) {
+      query["NodeId"] = request.nodeId;
     }
 
     if (!Util.isUnset(request.ownerAccount)) {
@@ -39015,11 +43016,28 @@ export default class Client extends OpenApi {
     return $tea.cast<DescribeSlowLogRecordsResponse>(await this.callApi(params, req, runtime), new DescribeSlowLogRecordsResponse({}));
   }
 
+  /**
+    * The unique ID of the SQL statement.
+    *
+    * @param request DescribeSlowLogRecordsRequest
+    * @return DescribeSlowLogRecordsResponse
+   */
   async describeSlowLogRecords(request: DescribeSlowLogRecordsRequest): Promise<DescribeSlowLogRecordsResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.describeSlowLogRecordsWithOptions(request, runtime);
   }
 
+  /**
+    * Before you call this operation, make sure that the instance runs one of the following database engine versions:
+    * *   All MySQL versions except MySQL 5.7 that is used with RDS Basic edition
+    * *   SQL Server 2008 R2
+    * *   MariaDB 10.3
+    * >  Slow query logs are not collected in real time and may show a latency of 6 hours to 8 hours.
+    *
+    * @param request DescribeSlowLogsRequest
+    * @param runtime runtime options for this request RuntimeOptions
+    * @return DescribeSlowLogsResponse
+   */
   async describeSlowLogsWithOptions(request: DescribeSlowLogsRequest, runtime: $Util.RuntimeOptions): Promise<DescribeSlowLogsResponse> {
     Util.validateModel(request);
     let query = { };
@@ -39084,11 +43102,76 @@ export default class Client extends OpenApi {
     return $tea.cast<DescribeSlowLogsResponse>(await this.callApi(params, req, runtime), new DescribeSlowLogsResponse({}));
   }
 
+  /**
+    * Before you call this operation, make sure that the instance runs one of the following database engine versions:
+    * *   All MySQL versions except MySQL 5.7 that is used with RDS Basic edition
+    * *   SQL Server 2008 R2
+    * *   MariaDB 10.3
+    * >  Slow query logs are not collected in real time and may show a latency of 6 hours to 8 hours.
+    *
+    * @param request DescribeSlowLogsRequest
+    * @return DescribeSlowLogsResponse
+   */
   async describeSlowLogs(request: DescribeSlowLogsRequest): Promise<DescribeSlowLogsResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.describeSlowLogsWithOptions(request, runtime);
   }
 
+  /**
+    * This operation is supported only for instances that run SQL Server.
+    *
+    * @param request DescribeSupportOnlineResizeDiskRequest
+    * @param runtime runtime options for this request RuntimeOptions
+    * @return DescribeSupportOnlineResizeDiskResponse
+   */
+  async describeSupportOnlineResizeDiskWithOptions(request: DescribeSupportOnlineResizeDiskRequest, runtime: $Util.RuntimeOptions): Promise<DescribeSupportOnlineResizeDiskResponse> {
+    Util.validateModel(request);
+    let query = { };
+    if (!Util.isUnset(request.DBInstanceId)) {
+      query["DBInstanceId"] = request.DBInstanceId;
+    }
+
+    if (!Util.isUnset(request.ownerAccount)) {
+      query["OwnerAccount"] = request.ownerAccount;
+    }
+
+    let req = new $OpenApi.OpenApiRequest({
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApi.Params({
+      action: "DescribeSupportOnlineResizeDisk",
+      version: "2014-08-15",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $tea.cast<DescribeSupportOnlineResizeDiskResponse>(await this.callApi(params, req, runtime), new DescribeSupportOnlineResizeDiskResponse({}));
+  }
+
+  /**
+    * This operation is supported only for instances that run SQL Server.
+    *
+    * @param request DescribeSupportOnlineResizeDiskRequest
+    * @return DescribeSupportOnlineResizeDiskResponse
+   */
+  async describeSupportOnlineResizeDisk(request: DescribeSupportOnlineResizeDiskRequest): Promise<DescribeSupportOnlineResizeDiskResponse> {
+    let runtime = new $Util.RuntimeOptions({ });
+    return await this.describeSupportOnlineResizeDiskWithOptions(request, runtime);
+  }
+
+  /**
+    * Before you call this operation, make sure that the following requirements are met:
+    * *   If an instance ID is specified, all tags that are added to this instance are queried, and other filter conditions are invalid.
+    * *   If you specify only TagKey, the results that match the specified TagKey are returned. If you specify both TagKey and TagValue, the results that match both the specified TagKey and TagValue are returned.
+    *
+    * @param request DescribeTagsRequest
+    * @param runtime runtime options for this request RuntimeOptions
+    * @return DescribeTagsResponse
+   */
   async describeTagsWithOptions(request: DescribeTagsRequest, runtime: $Util.RuntimeOptions): Promise<DescribeTagsResponse> {
     Util.validateModel(request);
     let query = { };
@@ -39149,11 +43232,26 @@ export default class Client extends OpenApi {
     return $tea.cast<DescribeTagsResponse>(await this.callApi(params, req, runtime), new DescribeTagsResponse({}));
   }
 
+  /**
+    * Before you call this operation, make sure that the following requirements are met:
+    * *   If an instance ID is specified, all tags that are added to this instance are queried, and other filter conditions are invalid.
+    * *   If you specify only TagKey, the results that match the specified TagKey are returned. If you specify both TagKey and TagValue, the results that match both the specified TagKey and TagValue are returned.
+    *
+    * @param request DescribeTagsRequest
+    * @return DescribeTagsResponse
+   */
   async describeTags(request: DescribeTagsRequest): Promise<DescribeTagsResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.describeTagsWithOptions(request, runtime);
   }
 
+  /**
+    * This operation is phased out.
+    *
+    * @param request DescribeTasksRequest
+    * @param runtime runtime options for this request RuntimeOptions
+    * @return DescribeTasksResponse
+   */
   async describeTasksWithOptions(request: DescribeTasksRequest, runtime: $Util.RuntimeOptions): Promise<DescribeTasksResponse> {
     Util.validateModel(request);
     let query = { };
@@ -39218,11 +43316,25 @@ export default class Client extends OpenApi {
     return $tea.cast<DescribeTasksResponse>(await this.callApi(params, req, runtime), new DescribeTasksResponse({}));
   }
 
+  /**
+    * This operation is phased out.
+    *
+    * @param request DescribeTasksRequest
+    * @return DescribeTasksResponse
+   */
   async describeTasks(request: DescribeTasksRequest): Promise<DescribeTasksResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.describeTasksWithOptions(request, runtime);
   }
 
+  /**
+    * Before you upgrade the major engine version of an ApsaraDB RDS for PostgreSQL instance, you must perform an upgrade check and make sure that the check result is **Success**. You can call this operation to query the upgrade check report.  
+    * If the check result is **Fail**, you must handle the errors that occurred. For more information about how to handle common errors, see [Introduction to the check report for a major engine version upgrade to an ApsaraDB RDS for PostgreSQL instance](https://www.alibabacloud.com/help/en/apsaradb-for-rds/latest/introduction-to-the-check-report-of-a-major-engine-version-upgrade-for-an-apsaradb-rds-for-postgresql-instance).
+    *
+    * @param request DescribeUpgradeMajorVersionPrecheckTaskRequest
+    * @param runtime runtime options for this request RuntimeOptions
+    * @return DescribeUpgradeMajorVersionPrecheckTaskResponse
+   */
   async describeUpgradeMajorVersionPrecheckTaskWithOptions(request: DescribeUpgradeMajorVersionPrecheckTaskRequest, runtime: $Util.RuntimeOptions): Promise<DescribeUpgradeMajorVersionPrecheckTaskResponse> {
     Util.validateModel(request);
     let query = { };
@@ -39279,6 +43391,13 @@ export default class Client extends OpenApi {
     return $tea.cast<DescribeUpgradeMajorVersionPrecheckTaskResponse>(await this.callApi(params, req, runtime), new DescribeUpgradeMajorVersionPrecheckTaskResponse({}));
   }
 
+  /**
+    * Before you upgrade the major engine version of an ApsaraDB RDS for PostgreSQL instance, you must perform an upgrade check and make sure that the check result is **Success**. You can call this operation to query the upgrade check report.  
+    * If the check result is **Fail**, you must handle the errors that occurred. For more information about how to handle common errors, see [Introduction to the check report for a major engine version upgrade to an ApsaraDB RDS for PostgreSQL instance](https://www.alibabacloud.com/help/en/apsaradb-for-rds/latest/introduction-to-the-check-report-of-a-major-engine-version-upgrade-for-an-apsaradb-rds-for-postgresql-instance).
+    *
+    * @param request DescribeUpgradeMajorVersionPrecheckTaskRequest
+    * @return DescribeUpgradeMajorVersionPrecheckTaskResponse
+   */
   async describeUpgradeMajorVersionPrecheckTask(request: DescribeUpgradeMajorVersionPrecheckTaskRequest): Promise<DescribeUpgradeMajorVersionPrecheckTaskResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.describeUpgradeMajorVersionPrecheckTaskWithOptions(request, runtime);
@@ -39418,6 +43537,13 @@ export default class Client extends OpenApi {
     return await this.describeVSwitchesWithOptions(request, runtime);
   }
 
+  /**
+    * The DestroyDBInstance operation is phased out.
+    *
+    * @param request DestroyDBInstanceRequest
+    * @param runtime runtime options for this request RuntimeOptions
+    * @return DestroyDBInstanceResponse
+   */
   async destroyDBInstanceWithOptions(request: DestroyDBInstanceRequest, runtime: $Util.RuntimeOptions): Promise<DestroyDBInstanceResponse> {
     Util.validateModel(request);
     let query = { };
@@ -39462,11 +43588,25 @@ export default class Client extends OpenApi {
     return $tea.cast<DestroyDBInstanceResponse>(await this.callApi(params, req, runtime), new DestroyDBInstanceResponse({}));
   }
 
+  /**
+    * The DestroyDBInstance operation is phased out.
+    *
+    * @param request DestroyDBInstanceRequest
+    * @return DestroyDBInstanceResponse
+   */
   async destroyDBInstance(request: DestroyDBInstanceRequest): Promise<DestroyDBInstanceResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.destroyDBInstanceWithOptions(request, runtime);
   }
 
+  /**
+    * ## Precautions
+    * This operation can be used to remove only unit nodes.
+    *
+    * @param request DetachGadInstanceMemberRequest
+    * @param runtime runtime options for this request RuntimeOptions
+    * @return DetachGadInstanceMemberResponse
+   */
   async detachGadInstanceMemberWithOptions(request: DetachGadInstanceMemberRequest, runtime: $Util.RuntimeOptions): Promise<DetachGadInstanceMemberResponse> {
     Util.validateModel(request);
     let query = { };
@@ -39499,6 +43639,13 @@ export default class Client extends OpenApi {
     return $tea.cast<DetachGadInstanceMemberResponse>(await this.callApi(params, req, runtime), new DetachGadInstanceMemberResponse({}));
   }
 
+  /**
+    * ## Precautions
+    * This operation can be used to remove only unit nodes.
+    *
+    * @param request DetachGadInstanceMemberRequest
+    * @return DetachGadInstanceMemberResponse
+   */
   async detachGadInstanceMember(request: DetachGadInstanceMemberRequest): Promise<DetachGadInstanceMemberResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.detachGadInstanceMemberWithOptions(request, runtime);
@@ -39533,6 +43680,20 @@ export default class Client extends OpenApi {
     return await this.getDBInstanceTopologyWithOptions(request, runtime);
   }
 
+  /**
+    * ApsaraDB RDS provides the dedicated proxy feature. You can configure SSL encryption for the dedicated proxy endpoint of an instance. This allows you to ensure the data security of the instance. For more information about the dedicated proxy feature, see [Dedicated proxy](~~138705~~).
+    * Before you call this operation, make sure that the following requirements are met:
+    * *   The dedicated proxy feature must be enabled for the instance.
+    * *   The minor engine version that the dedicated proxies of the instance run must be 1.12.8 or later.
+    * *   The minor engine version of the instance must be 20200831 or later, and the instance must run the following MySQL versions and RDS editions:
+    *     *   MySQL 8.0 on RDS High-availability Edition with local SSDs
+    *     *   MySQL 5.7 on RDS High-availability Edition with local SSDs
+    *     *   MySQL 5.6 on RDS High-availability Edition with local SSDs
+    *
+    * @param request GetDbProxyInstanceSslRequest
+    * @param runtime runtime options for this request RuntimeOptions
+    * @return GetDbProxyInstanceSslResponse
+   */
   async getDbProxyInstanceSslWithOptions(request: GetDbProxyInstanceSslRequest, runtime: $Util.RuntimeOptions): Promise<GetDbProxyInstanceSslResponse> {
     Util.validateModel(request);
     let query = { };
@@ -39569,11 +43730,32 @@ export default class Client extends OpenApi {
     return $tea.cast<GetDbProxyInstanceSslResponse>(await this.callApi(params, req, runtime), new GetDbProxyInstanceSslResponse({}));
   }
 
+  /**
+    * ApsaraDB RDS provides the dedicated proxy feature. You can configure SSL encryption for the dedicated proxy endpoint of an instance. This allows you to ensure the data security of the instance. For more information about the dedicated proxy feature, see [Dedicated proxy](~~138705~~).
+    * Before you call this operation, make sure that the following requirements are met:
+    * *   The dedicated proxy feature must be enabled for the instance.
+    * *   The minor engine version that the dedicated proxies of the instance run must be 1.12.8 or later.
+    * *   The minor engine version of the instance must be 20200831 or later, and the instance must run the following MySQL versions and RDS editions:
+    *     *   MySQL 8.0 on RDS High-availability Edition with local SSDs
+    *     *   MySQL 5.7 on RDS High-availability Edition with local SSDs
+    *     *   MySQL 5.6 on RDS High-availability Edition with local SSDs
+    *
+    * @param request GetDbProxyInstanceSslRequest
+    * @return GetDbProxyInstanceSslResponse
+   */
   async getDbProxyInstanceSsl(request: GetDbProxyInstanceSslRequest): Promise<GetDbProxyInstanceSslResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.getDbProxyInstanceSslWithOptions(request, runtime);
   }
 
+  /**
+    * Each account can be granted permissions on one or more databases. Before you call this operation, make sure that the instance is in the Running state.
+    * > This operation is not supported for instances that run SQL Server 2017 on RDS Cluster Edition or run PostgreSQL with local disks.
+    *
+    * @param request GrantAccountPrivilegeRequest
+    * @param runtime runtime options for this request RuntimeOptions
+    * @return GrantAccountPrivilegeResponse
+   */
   async grantAccountPrivilegeWithOptions(request: GrantAccountPrivilegeRequest, runtime: $Util.RuntimeOptions): Promise<GrantAccountPrivilegeResponse> {
     Util.validateModel(request);
     let query = { };
@@ -39614,11 +43796,30 @@ export default class Client extends OpenApi {
     return $tea.cast<GrantAccountPrivilegeResponse>(await this.callApi(params, req, runtime), new GrantAccountPrivilegeResponse({}));
   }
 
+  /**
+    * Each account can be granted permissions on one or more databases. Before you call this operation, make sure that the instance is in the Running state.
+    * > This operation is not supported for instances that run SQL Server 2017 on RDS Cluster Edition or run PostgreSQL with local disks.
+    *
+    * @param request GrantAccountPrivilegeRequest
+    * @return GrantAccountPrivilegeResponse
+   */
   async grantAccountPrivilege(request: GrantAccountPrivilegeRequest): Promise<GrantAccountPrivilegeResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.grantAccountPrivilegeWithOptions(request, runtime);
   }
 
+  /**
+    * When you seek help from Alibaba Cloud technical support to troubleshoot instance exceptions, you need to grant permissions to the service account of your instance. The service account is used by Alibaba Cloud technical support to perform operations on the databases of your instance.
+    * This operation is available only when your instance runs one of the following database engines:
+    * *   MySQL
+    * *   SQL Server
+    * *   PostgreSQL
+    * For more information, see [Grant permissions to the service account of an ApsaraDB RDS for MySQL instance](~~96102~~), [Grant permissions to the service account of an ApsaraDB RDS for SQL Server instance](~~95693~~), and [Grant permissions to the service account of an ApsaraDB RDS for PostgreSQL instance](~~146887~~).
+    *
+    * @param request GrantOperatorPermissionRequest
+    * @param runtime runtime options for this request RuntimeOptions
+    * @return GrantOperatorPermissionResponse
+   */
   async grantOperatorPermissionWithOptions(request: GrantOperatorPermissionRequest, runtime: $Util.RuntimeOptions): Promise<GrantOperatorPermissionResponse> {
     Util.validateModel(request);
     let query = { };
@@ -39667,11 +43868,39 @@ export default class Client extends OpenApi {
     return $tea.cast<GrantOperatorPermissionResponse>(await this.callApi(params, req, runtime), new GrantOperatorPermissionResponse({}));
   }
 
+  /**
+    * When you seek help from Alibaba Cloud technical support to troubleshoot instance exceptions, you need to grant permissions to the service account of your instance. The service account is used by Alibaba Cloud technical support to perform operations on the databases of your instance.
+    * This operation is available only when your instance runs one of the following database engines:
+    * *   MySQL
+    * *   SQL Server
+    * *   PostgreSQL
+    * For more information, see [Grant permissions to the service account of an ApsaraDB RDS for MySQL instance](~~96102~~), [Grant permissions to the service account of an ApsaraDB RDS for SQL Server instance](~~95693~~), and [Grant permissions to the service account of an ApsaraDB RDS for PostgreSQL instance](~~146887~~).
+    *
+    * @param request GrantOperatorPermissionRequest
+    * @return GrantOperatorPermissionResponse
+   */
   async grantOperatorPermission(request: GrantOperatorPermissionRequest): Promise<GrantOperatorPermissionResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.grantOperatorPermissionWithOptions(request, runtime);
   }
 
+  /**
+    * We recommend that you use Data Transmission Service (DTS). DTS provides data migration, subscription, and synchronization features that allow you to establish stable, secure transmission links. For more information, see [DTS API overview](~~49456~~).
+    * During the migration, the source instance is in the **Migrating** state, and the destination instance is in the **Importing** state.
+    * Before you call this operation, make sure that the following requirements are met:
+    * *   The source and destination instances must run SQL Server and belong to the dedicated or dedicated host instance family. For more information about the supported instance types, see [Primary instance types](~~26312~~).
+    * *   The source and destination instances must be created by using the same user credentials.
+    * *   The instance is in the Running state.
+    * *   The source and destination databases must be in the Running state.
+    * *   The remaining storage of the destination instance must be greater than the storage capacity of the source instance.
+    * > 
+    * *   This operation is not supported for instances that run SQL Server 2017 on RDS Cluster Edition.
+    * *   You can migrate the data of multiple databases at a time.
+    *
+    * @param request ImportDatabaseBetweenInstancesRequest
+    * @param runtime runtime options for this request RuntimeOptions
+    * @return ImportDatabaseBetweenInstancesResponse
+   */
   async importDatabaseBetweenInstancesWithOptions(request: ImportDatabaseBetweenInstancesRequest, runtime: $Util.RuntimeOptions): Promise<ImportDatabaseBetweenInstancesResponse> {
     Util.validateModel(request);
     let query = { };
@@ -39720,11 +43949,38 @@ export default class Client extends OpenApi {
     return $tea.cast<ImportDatabaseBetweenInstancesResponse>(await this.callApi(params, req, runtime), new ImportDatabaseBetweenInstancesResponse({}));
   }
 
+  /**
+    * We recommend that you use Data Transmission Service (DTS). DTS provides data migration, subscription, and synchronization features that allow you to establish stable, secure transmission links. For more information, see [DTS API overview](~~49456~~).
+    * During the migration, the source instance is in the **Migrating** state, and the destination instance is in the **Importing** state.
+    * Before you call this operation, make sure that the following requirements are met:
+    * *   The source and destination instances must run SQL Server and belong to the dedicated or dedicated host instance family. For more information about the supported instance types, see [Primary instance types](~~26312~~).
+    * *   The source and destination instances must be created by using the same user credentials.
+    * *   The instance is in the Running state.
+    * *   The source and destination databases must be in the Running state.
+    * *   The remaining storage of the destination instance must be greater than the storage capacity of the source instance.
+    * > 
+    * *   This operation is not supported for instances that run SQL Server 2017 on RDS Cluster Edition.
+    * *   You can migrate the data of multiple databases at a time.
+    *
+    * @param request ImportDatabaseBetweenInstancesRequest
+    * @return ImportDatabaseBetweenInstancesResponse
+   */
   async importDatabaseBetweenInstances(request: ImportDatabaseBetweenInstancesRequest): Promise<ImportDatabaseBetweenInstancesResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.importDatabaseBetweenInstancesWithOptions(request, runtime);
   }
 
+  /**
+    * > A full backup file contains the data of a self-managed MySQL database. You can restore the data of a self-managed MySQL database from a full backup file to an ApsaraDB RDS for MySQL instance.
+    * Before you call this operation, make sure that the following requirements are met:
+    * *   The self-managed MySQL database runs MySQL 5.7 and is backed up by using XtraBackup. The name of the backup file ends with `_qp.xb`. For more information, see [Migrate the data of a self-managed MySQL 5.7 instance to the cloud](~~251779~~).
+    * *   The full backup file of the self-managed MySQL database is uploaded to an Object Storage Service (OSS) bucket in the region of the ApsaraDB RDS for MySQL instance. For more information, see [Migrate the data of a self-managed MySQL 5.7 instance to the cloud](~~251779~~).
+    * > This operation is supported only for MySQL 5.7.
+    *
+    * @param request ImportUserBackupFileRequest
+    * @param runtime runtime options for this request RuntimeOptions
+    * @return ImportUserBackupFileResponse
+   */
   async importUserBackupFileWithOptions(request: ImportUserBackupFileRequest, runtime: $Util.RuntimeOptions): Promise<ImportUserBackupFileResponse> {
     Util.validateModel(request);
     let query = { };
@@ -39789,6 +44045,16 @@ export default class Client extends OpenApi {
     return $tea.cast<ImportUserBackupFileResponse>(await this.callApi(params, req, runtime), new ImportUserBackupFileResponse({}));
   }
 
+  /**
+    * > A full backup file contains the data of a self-managed MySQL database. You can restore the data of a self-managed MySQL database from a full backup file to an ApsaraDB RDS for MySQL instance.
+    * Before you call this operation, make sure that the following requirements are met:
+    * *   The self-managed MySQL database runs MySQL 5.7 and is backed up by using XtraBackup. The name of the backup file ends with `_qp.xb`. For more information, see [Migrate the data of a self-managed MySQL 5.7 instance to the cloud](~~251779~~).
+    * *   The full backup file of the self-managed MySQL database is uploaded to an Object Storage Service (OSS) bucket in the region of the ApsaraDB RDS for MySQL instance. For more information, see [Migrate the data of a self-managed MySQL 5.7 instance to the cloud](~~251779~~).
+    * > This operation is supported only for MySQL 5.7.
+    *
+    * @param request ImportUserBackupFileRequest
+    * @return ImportUserBackupFileResponse
+   */
   async importUserBackupFile(request: ImportUserBackupFileRequest): Promise<ImportUserBackupFileResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.importUserBackupFileWithOptions(request, runtime);
@@ -39908,6 +44174,16 @@ export default class Client extends OpenApi {
     return await this.listTagResourcesWithOptions(request, runtime);
   }
 
+  /**
+    * > 
+    * *   A full backup file contains the data of a self-managed MySQL database. You can restore the data of a self-managed MySQL database from a full backup file to an ApsaraDB RDS for MySQL instance. For more information, see [Migrate the data of a self-managed MySQL 5.7 instance to the cloud](~~251779~~).
+    * *   Before you call the [CreateDBInstance](~~26228~~) operation to create an ApsaraDB RDS for MySQL instance into which you want to import full backup files, you can call this operation to query the IDs of full backup files.
+    * *   You can call the [ImportUserBackupFile](~~260266~~) operation to import a full backup file into an ApsaraDB RDS for MySQL instance.
+    *
+    * @param request ListUserBackupFilesRequest
+    * @param runtime runtime options for this request RuntimeOptions
+    * @return ListUserBackupFilesResponse
+   */
   async listUserBackupFilesWithOptions(request: ListUserBackupFilesRequest, runtime: $Util.RuntimeOptions): Promise<ListUserBackupFilesResponse> {
     Util.validateModel(request);
     let query = { };
@@ -39964,11 +44240,27 @@ export default class Client extends OpenApi {
     return $tea.cast<ListUserBackupFilesResponse>(await this.callApi(params, req, runtime), new ListUserBackupFilesResponse({}));
   }
 
+  /**
+    * > 
+    * *   A full backup file contains the data of a self-managed MySQL database. You can restore the data of a self-managed MySQL database from a full backup file to an ApsaraDB RDS for MySQL instance. For more information, see [Migrate the data of a self-managed MySQL 5.7 instance to the cloud](~~251779~~).
+    * *   Before you call the [CreateDBInstance](~~26228~~) operation to create an ApsaraDB RDS for MySQL instance into which you want to import full backup files, you can call this operation to query the IDs of full backup files.
+    * *   You can call the [ImportUserBackupFile](~~260266~~) operation to import a full backup file into an ApsaraDB RDS for MySQL instance.
+    *
+    * @param request ListUserBackupFilesRequest
+    * @return ListUserBackupFilesResponse
+   */
   async listUserBackupFiles(request: ListUserBackupFilesRequest): Promise<ListUserBackupFilesResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.listUserBackupFilesWithOptions(request, runtime);
   }
 
+  /**
+    * You cannot use a locked account to log on to the corresponding instance. You must first unlock the account. For more information, see [Lock and delete an account](~~147649~~).
+    *
+    * @param request LockAccountRequest
+    * @param runtime runtime options for this request RuntimeOptions
+    * @return LockAccountResponse
+   */
   async lockAccountWithOptions(request: LockAccountRequest, runtime: $Util.RuntimeOptions): Promise<LockAccountResponse> {
     Util.validateModel(request);
     let query = { };
@@ -40009,6 +44301,12 @@ export default class Client extends OpenApi {
     return $tea.cast<LockAccountResponse>(await this.callApi(params, req, runtime), new LockAccountResponse({}));
   }
 
+  /**
+    * You cannot use a locked account to log on to the corresponding instance. You must first unlock the account. For more information, see [Lock and delete an account](~~147649~~).
+    *
+    * @param request LockAccountRequest
+    * @return LockAccountResponse
+   */
   async lockAccount(request: LockAccountRequest): Promise<LockAccountResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.lockAccountWithOptions(request, runtime);
@@ -40051,6 +44349,13 @@ export default class Client extends OpenApi {
     return await this.migrateConnectionToOtherZoneWithOptions(request, runtime);
   }
 
+  /**
+    * Dedicated clusters allow you to manage a number of instances at a time. You can create multiple dedicated clusters in a single region. Each dedicated cluster consists of multiple hosts. You can create multiple instances on each host. For more information, see [What is ApsaraDB MyBase?](~~141455~~)
+    *
+    * @param request MigrateDBInstanceRequest
+    * @param runtime runtime options for this request RuntimeOptions
+    * @return MigrateDBInstanceResponse
+   */
   async migrateDBInstanceWithOptions(request: MigrateDBInstanceRequest, runtime: $Util.RuntimeOptions): Promise<MigrateDBInstanceResponse> {
     Util.validateModel(request);
     let query = { };
@@ -40119,11 +44424,28 @@ export default class Client extends OpenApi {
     return $tea.cast<MigrateDBInstanceResponse>(await this.callApi(params, req, runtime), new MigrateDBInstanceResponse({}));
   }
 
+  /**
+    * Dedicated clusters allow you to manage a number of instances at a time. You can create multiple dedicated clusters in a single region. Each dedicated cluster consists of multiple hosts. You can create multiple instances on each host. For more information, see [What is ApsaraDB MyBase?](~~141455~~)
+    *
+    * @param request MigrateDBInstanceRequest
+    * @return MigrateDBInstanceResponse
+   */
   async migrateDBInstance(request: MigrateDBInstanceRequest): Promise<MigrateDBInstanceResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.migrateDBInstanceWithOptions(request, runtime);
   }
 
+  /**
+    * *   In standard whitelist mode, IP addresses in the whitelist apply to both the classic network and VPCs. To minimize security risks, we recommend that you use the enhanced whitelist mode.
+    * *   In enhanced whitelist mode, IP addresses in the whitelist are divided into VPC IP addresses and IP addresses of the classic network and Internet.
+    * > 
+    * *   You cannot change the whitelist mode from the enhanced whitelist mode to the standard whitelist mode.
+    * *   This operation is not supported for instances that run SQL Server and MariaDB.
+    *
+    * @param request MigrateSecurityIPModeRequest
+    * @param runtime runtime options for this request RuntimeOptions
+    * @return MigrateSecurityIPModeResponse
+   */
   async migrateSecurityIPModeWithOptions(request: MigrateSecurityIPModeRequest, runtime: $Util.RuntimeOptions): Promise<MigrateSecurityIPModeResponse> {
     Util.validateModel(request);
     let query = { };
@@ -40160,11 +44482,32 @@ export default class Client extends OpenApi {
     return $tea.cast<MigrateSecurityIPModeResponse>(await this.callApi(params, req, runtime), new MigrateSecurityIPModeResponse({}));
   }
 
+  /**
+    * *   In standard whitelist mode, IP addresses in the whitelist apply to both the classic network and VPCs. To minimize security risks, we recommend that you use the enhanced whitelist mode.
+    * *   In enhanced whitelist mode, IP addresses in the whitelist are divided into VPC IP addresses and IP addresses of the classic network and Internet.
+    * > 
+    * *   You cannot change the whitelist mode from the enhanced whitelist mode to the standard whitelist mode.
+    * *   This operation is not supported for instances that run SQL Server and MariaDB.
+    *
+    * @param request MigrateSecurityIPModeRequest
+    * @return MigrateSecurityIPModeResponse
+   */
   async migrateSecurityIPMode(request: MigrateSecurityIPModeRequest): Promise<MigrateSecurityIPModeResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.migrateSecurityIPModeWithOptions(request, runtime);
   }
 
+  /**
+    * The prerequisites for this operation vary based on the database engine of the instance. For more information, see the following topics:
+    * *   [RDS MySQL](~~96053~~)
+    * *   [RDS PostgreSQL](~~96746~~)
+    * *   [RDS SQL Server](~~95658~~)
+    * > This operation allows you to migrate an instance across zones in the same region. This operation does not allow you to migrate an instance across zones in different regions. For example, you cannot migrate an instance from a zone in the China (Hangzhou) region to a zone in the China (Qingdao) region.
+    *
+    * @param request MigrateToOtherZoneRequest
+    * @param runtime runtime options for this request RuntimeOptions
+    * @return MigrateToOtherZoneResponse
+   */
   async migrateToOtherZoneWithOptions(request: MigrateToOtherZoneRequest, runtime: $Util.RuntimeOptions): Promise<MigrateToOtherZoneResponse> {
     Util.validateModel(request);
     let query = { };
@@ -40249,11 +44592,28 @@ export default class Client extends OpenApi {
     return $tea.cast<MigrateToOtherZoneResponse>(await this.callApi(params, req, runtime), new MigrateToOtherZoneResponse({}));
   }
 
+  /**
+    * The prerequisites for this operation vary based on the database engine of the instance. For more information, see the following topics:
+    * *   [RDS MySQL](~~96053~~)
+    * *   [RDS PostgreSQL](~~96746~~)
+    * *   [RDS SQL Server](~~95658~~)
+    * > This operation allows you to migrate an instance across zones in the same region. This operation does not allow you to migrate an instance across zones in different regions. For example, you cannot migrate an instance from a zone in the China (Hangzhou) region to a zone in the China (Qingdao) region.
+    *
+    * @param request MigrateToOtherZoneRequest
+    * @return MigrateToOtherZoneResponse
+   */
   async migrateToOtherZone(request: MigrateToOtherZoneRequest): Promise<MigrateToOtherZoneResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.migrateToOtherZoneWithOptions(request, runtime);
   }
 
+  /**
+    * This operation is available only for ApsaraDB RDS for SQL Server instances.
+    *
+    * @param request ModifyADInfoRequest
+    * @param runtime runtime options for this request RuntimeOptions
+    * @return ModifyADInfoResponse
+   */
   async modifyADInfoWithOptions(request: ModifyADInfoRequest, runtime: $Util.RuntimeOptions): Promise<ModifyADInfoResponse> {
     Util.validateModel(request);
     let query = { };
@@ -40314,11 +44674,24 @@ export default class Client extends OpenApi {
     return $tea.cast<ModifyADInfoResponse>(await this.callApi(params, req, runtime), new ModifyADInfoResponse({}));
   }
 
+  /**
+    * This operation is available only for ApsaraDB RDS for SQL Server instances.
+    *
+    * @param request ModifyADInfoRequest
+    * @return ModifyADInfoResponse
+   */
   async modifyADInfo(request: ModifyADInfoRequest): Promise<ModifyADInfoResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.modifyADInfoWithOptions(request, runtime);
   }
 
+  /**
+    * > This operation is not supported for instances that run SQL Server 2017 on RDS Cluster Edition or run PostgreSQL.
+    *
+    * @param request ModifyAccountDescriptionRequest
+    * @param runtime runtime options for this request RuntimeOptions
+    * @return ModifyAccountDescriptionResponse
+   */
   async modifyAccountDescriptionWithOptions(request: ModifyAccountDescriptionRequest, runtime: $Util.RuntimeOptions): Promise<ModifyAccountDescriptionResponse> {
     Util.validateModel(request);
     let query = { };
@@ -40367,11 +44740,24 @@ export default class Client extends OpenApi {
     return $tea.cast<ModifyAccountDescriptionResponse>(await this.callApi(params, req, runtime), new ModifyAccountDescriptionResponse({}));
   }
 
+  /**
+    * > This operation is not supported for instances that run SQL Server 2017 on RDS Cluster Edition or run PostgreSQL.
+    *
+    * @param request ModifyAccountDescriptionRequest
+    * @return ModifyAccountDescriptionResponse
+   */
   async modifyAccountDescription(request: ModifyAccountDescriptionRequest): Promise<ModifyAccountDescriptionResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.modifyAccountDescriptionWithOptions(request, runtime);
   }
 
+  /**
+    * The event history feature enables you to view historical events that occurred in a region over a specific time range. These events include instance creation and parameter reconfiguration. For more information, see [Event history](~~129759~~).
+    *
+    * @param request ModifyActionEventPolicyRequest
+    * @param runtime runtime options for this request RuntimeOptions
+    * @return ModifyActionEventPolicyResponse
+   */
   async modifyActionEventPolicyWithOptions(request: ModifyActionEventPolicyRequest, runtime: $Util.RuntimeOptions): Promise<ModifyActionEventPolicyResponse> {
     Util.validateModel(request);
     let query = { };
@@ -40412,11 +44798,96 @@ export default class Client extends OpenApi {
     return $tea.cast<ModifyActionEventPolicyResponse>(await this.callApi(params, req, runtime), new ModifyActionEventPolicyResponse({}));
   }
 
+  /**
+    * The event history feature enables you to view historical events that occurred in a region over a specific time range. These events include instance creation and parameter reconfiguration. For more information, see [Event history](~~129759~~).
+    *
+    * @param request ModifyActionEventPolicyRequest
+    * @return ModifyActionEventPolicyResponse
+   */
   async modifyActionEventPolicy(request: ModifyActionEventPolicyRequest): Promise<ModifyActionEventPolicyResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.modifyActionEventPolicyWithOptions(request, runtime);
   }
 
+  /**
+    * O\\&M tasks such as instance migration and version upgrades are notified by text message, phone call, email, internal message, or in the ApsaraDB RDS console. You can call this operation to change the scheduled switching time. You can also view the task and change the switching time on the Task Center page.
+    *
+    * @param request ModifyActiveOperationTasksRequest
+    * @param runtime runtime options for this request RuntimeOptions
+    * @return ModifyActiveOperationTasksResponse
+   */
+  async modifyActiveOperationTasksWithOptions(request: ModifyActiveOperationTasksRequest, runtime: $Util.RuntimeOptions): Promise<ModifyActiveOperationTasksResponse> {
+    Util.validateModel(request);
+    let query = { };
+    if (!Util.isUnset(request.ids)) {
+      query["Ids"] = request.ids;
+    }
+
+    if (!Util.isUnset(request.immediateStart)) {
+      query["ImmediateStart"] = request.immediateStart;
+    }
+
+    if (!Util.isUnset(request.ownerAccount)) {
+      query["OwnerAccount"] = request.ownerAccount;
+    }
+
+    if (!Util.isUnset(request.ownerId)) {
+      query["OwnerId"] = request.ownerId;
+    }
+
+    if (!Util.isUnset(request.resourceOwnerAccount)) {
+      query["ResourceOwnerAccount"] = request.resourceOwnerAccount;
+    }
+
+    if (!Util.isUnset(request.resourceOwnerId)) {
+      query["ResourceOwnerId"] = request.resourceOwnerId;
+    }
+
+    if (!Util.isUnset(request.securityToken)) {
+      query["SecurityToken"] = request.securityToken;
+    }
+
+    if (!Util.isUnset(request.switchTime)) {
+      query["SwitchTime"] = request.switchTime;
+    }
+
+    let req = new $OpenApi.OpenApiRequest({
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApi.Params({
+      action: "ModifyActiveOperationTasks",
+      version: "2014-08-15",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $tea.cast<ModifyActiveOperationTasksResponse>(await this.callApi(params, req, runtime), new ModifyActiveOperationTasksResponse({}));
+  }
+
+  /**
+    * O\\&M tasks such as instance migration and version upgrades are notified by text message, phone call, email, internal message, or in the ApsaraDB RDS console. You can call this operation to change the scheduled switching time. You can also view the task and change the switching time on the Task Center page.
+    *
+    * @param request ModifyActiveOperationTasksRequest
+    * @return ModifyActiveOperationTasksResponse
+   */
+  async modifyActiveOperationTasks(request: ModifyActiveOperationTasksRequest): Promise<ModifyActiveOperationTasksResponse> {
+    let runtime = new $Util.RuntimeOptions({ });
+    return await this.modifyActiveOperationTasksWithOptions(request, runtime);
+  }
+
+  /**
+    * Before you call this operation, make sure that the following requirements are met:
+    * *   The instance is not a read-only instance.
+    * *   The instance is in the Running state.
+    *
+    * @param request ModifyBackupPolicyRequest
+    * @param runtime runtime options for this request RuntimeOptions
+    * @return ModifyBackupPolicyResponse
+   */
   async modifyBackupPolicyWithOptions(request: ModifyBackupPolicyRequest, runtime: $Util.RuntimeOptions): Promise<ModifyBackupPolicyResponse> {
     Util.validateModel(request);
     let query = { };
@@ -40541,11 +45012,26 @@ export default class Client extends OpenApi {
     return $tea.cast<ModifyBackupPolicyResponse>(await this.callApi(params, req, runtime), new ModifyBackupPolicyResponse({}));
   }
 
+  /**
+    * Before you call this operation, make sure that the following requirements are met:
+    * *   The instance is not a read-only instance.
+    * *   The instance is in the Running state.
+    *
+    * @param request ModifyBackupPolicyRequest
+    * @return ModifyBackupPolicyResponse
+   */
   async modifyBackupPolicy(request: ModifyBackupPolicyRequest): Promise<ModifyBackupPolicyResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.modifyBackupPolicyWithOptions(request, runtime);
   }
 
+  /**
+    * > This operation is phased out.
+    *
+    * @param request ModifyCollationTimeZoneRequest
+    * @param runtime runtime options for this request RuntimeOptions
+    * @return ModifyCollationTimeZoneResponse
+   */
   async modifyCollationTimeZoneWithOptions(request: ModifyCollationTimeZoneRequest, runtime: $Util.RuntimeOptions): Promise<ModifyCollationTimeZoneResponse> {
     Util.validateModel(request);
     let query = { };
@@ -40590,11 +45076,24 @@ export default class Client extends OpenApi {
     return $tea.cast<ModifyCollationTimeZoneResponse>(await this.callApi(params, req, runtime), new ModifyCollationTimeZoneResponse({}));
   }
 
+  /**
+    * > This operation is phased out.
+    *
+    * @param request ModifyCollationTimeZoneRequest
+    * @return ModifyCollationTimeZoneResponse
+   */
   async modifyCollationTimeZone(request: ModifyCollationTimeZoneRequest): Promise<ModifyCollationTimeZoneResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.modifyCollationTimeZoneWithOptions(request, runtime);
   }
 
+  /**
+    * > This operation is not applicable to instances that run PostgreSQL.
+    *
+    * @param request ModifyDBDescriptionRequest
+    * @param runtime runtime options for this request RuntimeOptions
+    * @return ModifyDBDescriptionResponse
+   */
   async modifyDBDescriptionWithOptions(request: ModifyDBDescriptionRequest, runtime: $Util.RuntimeOptions): Promise<ModifyDBDescriptionResponse> {
     Util.validateModel(request);
     let query = { };
@@ -40643,11 +45142,24 @@ export default class Client extends OpenApi {
     return $tea.cast<ModifyDBDescriptionResponse>(await this.callApi(params, req, runtime), new ModifyDBDescriptionResponse({}));
   }
 
+  /**
+    * > This operation is not applicable to instances that run PostgreSQL.
+    *
+    * @param request ModifyDBDescriptionRequest
+    * @return ModifyDBDescriptionResponse
+   */
   async modifyDBDescription(request: ModifyDBDescriptionRequest): Promise<ModifyDBDescriptionResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.modifyDBDescriptionWithOptions(request, runtime);
   }
 
+  /**
+    * This operation is supported only for instances that run MySQL.
+    *
+    * @param request ModifyDBInstanceAutoUpgradeMinorVersionRequest
+    * @param runtime runtime options for this request RuntimeOptions
+    * @return ModifyDBInstanceAutoUpgradeMinorVersionResponse
+   */
   async modifyDBInstanceAutoUpgradeMinorVersionWithOptions(request: ModifyDBInstanceAutoUpgradeMinorVersionRequest, runtime: $Util.RuntimeOptions): Promise<ModifyDBInstanceAutoUpgradeMinorVersionResponse> {
     Util.validateModel(request);
     let query = { };
@@ -40692,11 +45204,24 @@ export default class Client extends OpenApi {
     return $tea.cast<ModifyDBInstanceAutoUpgradeMinorVersionResponse>(await this.callApi(params, req, runtime), new ModifyDBInstanceAutoUpgradeMinorVersionResponse({}));
   }
 
+  /**
+    * This operation is supported only for instances that run MySQL.
+    *
+    * @param request ModifyDBInstanceAutoUpgradeMinorVersionRequest
+    * @return ModifyDBInstanceAutoUpgradeMinorVersionResponse
+   */
   async modifyDBInstanceAutoUpgradeMinorVersion(request: ModifyDBInstanceAutoUpgradeMinorVersionRequest): Promise<ModifyDBInstanceAutoUpgradeMinorVersionResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.modifyDBInstanceAutoUpgradeMinorVersionWithOptions(request, runtime);
   }
 
+  /**
+    * > The API has been taken offline
+    *
+    * @param request ModifyDBInstanceConnectionModeRequest
+    * @param runtime runtime options for this request RuntimeOptions
+    * @return ModifyDBInstanceConnectionModeResponse
+   */
   async modifyDBInstanceConnectionModeWithOptions(request: ModifyDBInstanceConnectionModeRequest, runtime: $Util.RuntimeOptions): Promise<ModifyDBInstanceConnectionModeResponse> {
     Util.validateModel(request);
     let query = { };
@@ -40741,11 +45266,27 @@ export default class Client extends OpenApi {
     return $tea.cast<ModifyDBInstanceConnectionModeResponse>(await this.callApi(params, req, runtime), new ModifyDBInstanceConnectionModeResponse({}));
   }
 
+  /**
+    * > The API has been taken offline
+    *
+    * @param request ModifyDBInstanceConnectionModeRequest
+    * @return ModifyDBInstanceConnectionModeResponse
+   */
   async modifyDBInstanceConnectionMode(request: ModifyDBInstanceConnectionModeRequest): Promise<ModifyDBInstanceConnectionModeResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.modifyDBInstanceConnectionModeWithOptions(request, runtime);
   }
 
+  /**
+    * ApsaraDB RDS provides the internal and public endpoints. ApsaraDB RDS also allows hybrid access by using both a virtual private cloud (VPC) endpoint and a classic network endpoint.
+    * > 
+    * *   You can change only the prefix of an endpoint.
+    * *   The read/write splitting endpoint cannot be changed.
+    *
+    * @param request ModifyDBInstanceConnectionStringRequest
+    * @param runtime runtime options for this request RuntimeOptions
+    * @return ModifyDBInstanceConnectionStringResponse
+   */
   async modifyDBInstanceConnectionStringWithOptions(request: ModifyDBInstanceConnectionStringRequest, runtime: $Util.RuntimeOptions): Promise<ModifyDBInstanceConnectionStringResponse> {
     Util.validateModel(request);
     let query = { };
@@ -40806,6 +45347,15 @@ export default class Client extends OpenApi {
     return $tea.cast<ModifyDBInstanceConnectionStringResponse>(await this.callApi(params, req, runtime), new ModifyDBInstanceConnectionStringResponse({}));
   }
 
+  /**
+    * ApsaraDB RDS provides the internal and public endpoints. ApsaraDB RDS also allows hybrid access by using both a virtual private cloud (VPC) endpoint and a classic network endpoint.
+    * > 
+    * *   You can change only the prefix of an endpoint.
+    * *   The read/write splitting endpoint cannot be changed.
+    *
+    * @param request ModifyDBInstanceConnectionStringRequest
+    * @return ModifyDBInstanceConnectionStringResponse
+   */
   async modifyDBInstanceConnectionString(request: ModifyDBInstanceConnectionStringRequest): Promise<ModifyDBInstanceConnectionStringResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.modifyDBInstanceConnectionStringWithOptions(request, runtime);
@@ -40856,6 +45406,13 @@ export default class Client extends OpenApi {
     return await this.modifyDBInstanceDelayedReplicationTimeWithOptions(request, runtime);
   }
 
+  /**
+    * For more information, see [Enable or disable the release protection feature for an ApsaraDB RDS for MySQL instance](~~414512~~).
+    *
+    * @param request ModifyDBInstanceDeletionProtectionRequest
+    * @param runtime runtime options for this request RuntimeOptions
+    * @return ModifyDBInstanceDeletionProtectionResponse
+   */
   async modifyDBInstanceDeletionProtectionWithOptions(request: ModifyDBInstanceDeletionProtectionRequest, runtime: $Util.RuntimeOptions): Promise<ModifyDBInstanceDeletionProtectionResponse> {
     Util.validateModel(request);
     let query = { };
@@ -40904,6 +45461,12 @@ export default class Client extends OpenApi {
     return $tea.cast<ModifyDBInstanceDeletionProtectionResponse>(await this.callApi(params, req, runtime), new ModifyDBInstanceDeletionProtectionResponse({}));
   }
 
+  /**
+    * For more information, see [Enable or disable the release protection feature for an ApsaraDB RDS for MySQL instance](~~414512~~).
+    *
+    * @param request ModifyDBInstanceDeletionProtectionRequest
+    * @return ModifyDBInstanceDeletionProtectionResponse
+   */
   async modifyDBInstanceDeletionProtection(request: ModifyDBInstanceDeletionProtectionRequest): Promise<ModifyDBInstanceDeletionProtectionResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.modifyDBInstanceDeletionProtectionWithOptions(request, runtime);
@@ -40958,6 +45521,15 @@ export default class Client extends OpenApi {
     return await this.modifyDBInstanceDescriptionWithOptions(request, runtime);
   }
 
+  /**
+    * ## Background information
+    * *   This operation is suitable only for ApsaraDB RDS for MySQL instances that run RDS Cluster Edition.
+    * *   When you modify information about the endpoint of an instance, you can modify the settings only of common parameters of the endpoint, such as the weight and description. This operation is called to manage an endpoint.
+    *
+    * @param tmpReq ModifyDBInstanceEndpointRequest
+    * @param runtime runtime options for this request RuntimeOptions
+    * @return ModifyDBInstanceEndpointResponse
+   */
   async modifyDBInstanceEndpointWithOptions(tmpReq: ModifyDBInstanceEndpointRequest, runtime: $Util.RuntimeOptions): Promise<ModifyDBInstanceEndpointResponse> {
     Util.validateModel(tmpReq);
     let request = new ModifyDBInstanceEndpointShrinkRequest({ });
@@ -41008,11 +45580,29 @@ export default class Client extends OpenApi {
     return $tea.cast<ModifyDBInstanceEndpointResponse>(await this.callApi(params, req, runtime), new ModifyDBInstanceEndpointResponse({}));
   }
 
+  /**
+    * ## Background information
+    * *   This operation is suitable only for ApsaraDB RDS for MySQL instances that run RDS Cluster Edition.
+    * *   When you modify information about the endpoint of an instance, you can modify the settings only of common parameters of the endpoint, such as the weight and description. This operation is called to manage an endpoint.
+    *
+    * @param request ModifyDBInstanceEndpointRequest
+    * @return ModifyDBInstanceEndpointResponse
+   */
   async modifyDBInstanceEndpoint(request: ModifyDBInstanceEndpointRequest): Promise<ModifyDBInstanceEndpointResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.modifyDBInstanceEndpointWithOptions(request, runtime);
   }
 
+  /**
+    * ## Background information
+    * *   This operation is suitable only for ApsaraDB RDS for MySQL instances that run RDS Cluster Edition.
+    * *   You can modify the following information about the endpoint of an instance: the public and internal endpoints, the public and internal ports, and the virtual private cloud (VPC), vSwitch, and IP address of the internal endpoint.
+    * *   The VPC and vSwitch must be modified at the same time. If you specify the VPC, vSwitch, and IP address of the internal endpoint, you do not need to specify the endpoint and port. If you specify the endpoint and port of the internal endpoint, you do not need to specify the VPC, vSwitch, and IP address.
+    *
+    * @param request ModifyDBInstanceEndpointAddressRequest
+    * @param runtime runtime options for this request RuntimeOptions
+    * @return ModifyDBInstanceEndpointAddressResponse
+   */
   async modifyDBInstanceEndpointAddressWithOptions(request: ModifyDBInstanceEndpointAddressRequest, runtime: $Util.RuntimeOptions): Promise<ModifyDBInstanceEndpointAddressResponse> {
     Util.validateModel(request);
     let query = { };
@@ -41073,6 +45663,15 @@ export default class Client extends OpenApi {
     return $tea.cast<ModifyDBInstanceEndpointAddressResponse>(await this.callApi(params, req, runtime), new ModifyDBInstanceEndpointAddressResponse({}));
   }
 
+  /**
+    * ## Background information
+    * *   This operation is suitable only for ApsaraDB RDS for MySQL instances that run RDS Cluster Edition.
+    * *   You can modify the following information about the endpoint of an instance: the public and internal endpoints, the public and internal ports, and the virtual private cloud (VPC), vSwitch, and IP address of the internal endpoint.
+    * *   The VPC and vSwitch must be modified at the same time. If you specify the VPC, vSwitch, and IP address of the internal endpoint, you do not need to specify the endpoint and port. If you specify the endpoint and port of the internal endpoint, you do not need to specify the VPC, vSwitch, and IP address.
+    *
+    * @param request ModifyDBInstanceEndpointAddressRequest
+    * @return ModifyDBInstanceEndpointAddressResponse
+   */
   async modifyDBInstanceEndpointAddress(request: ModifyDBInstanceEndpointAddressRequest): Promise<ModifyDBInstanceEndpointAddressResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.modifyDBInstanceEndpointAddressWithOptions(request, runtime);
@@ -41131,6 +45730,13 @@ export default class Client extends OpenApi {
     return await this.modifyDBInstanceHAConfigWithOptions(request, runtime);
   }
 
+  /**
+    * You can set the maintenance time to a period of time during off-peak hours. Alibaba Cloud performs routine maintenance within the maintenance time to minimize impacts on your business.
+    *
+    * @param request ModifyDBInstanceMaintainTimeRequest
+    * @param runtime runtime options for this request RuntimeOptions
+    * @return ModifyDBInstanceMaintainTimeResponse
+   */
   async modifyDBInstanceMaintainTimeWithOptions(request: ModifyDBInstanceMaintainTimeRequest, runtime: $Util.RuntimeOptions): Promise<ModifyDBInstanceMaintainTimeResponse> {
     Util.validateModel(request);
     let query = { };
@@ -41179,11 +45785,26 @@ export default class Client extends OpenApi {
     return $tea.cast<ModifyDBInstanceMaintainTimeResponse>(await this.callApi(params, req, runtime), new ModifyDBInstanceMaintainTimeResponse({}));
   }
 
+  /**
+    * You can set the maintenance time to a period of time during off-peak hours. Alibaba Cloud performs routine maintenance within the maintenance time to minimize impacts on your business.
+    *
+    * @param request ModifyDBInstanceMaintainTimeRequest
+    * @return ModifyDBInstanceMaintainTimeResponse
+   */
   async modifyDBInstanceMaintainTime(request: ModifyDBInstanceMaintainTimeRequest): Promise<ModifyDBInstanceMaintainTimeResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.modifyDBInstanceMaintainTimeWithOptions(request, runtime);
   }
 
+  /**
+    * ## Prerequisites
+    * Before you call this operation, make sure that the instance runs PostgreSQL.
+    * For more information, see [View the Enhanced Monitoring metrics of an ApsaraDB RDS for PostgreSQL instance](~~299200~~).
+    *
+    * @param request ModifyDBInstanceMetricsRequest
+    * @param runtime runtime options for this request RuntimeOptions
+    * @return ModifyDBInstanceMetricsResponse
+   */
   async modifyDBInstanceMetricsWithOptions(request: ModifyDBInstanceMetricsRequest, runtime: $Util.RuntimeOptions): Promise<ModifyDBInstanceMetricsResponse> {
     Util.validateModel(request);
     let query = { };
@@ -41220,11 +45841,29 @@ export default class Client extends OpenApi {
     return $tea.cast<ModifyDBInstanceMetricsResponse>(await this.callApi(params, req, runtime), new ModifyDBInstanceMetricsResponse({}));
   }
 
+  /**
+    * ## Prerequisites
+    * Before you call this operation, make sure that the instance runs PostgreSQL.
+    * For more information, see [View the Enhanced Monitoring metrics of an ApsaraDB RDS for PostgreSQL instance](~~299200~~).
+    *
+    * @param request ModifyDBInstanceMetricsRequest
+    * @return ModifyDBInstanceMetricsResponse
+   */
   async modifyDBInstanceMetrics(request: ModifyDBInstanceMetricsRequest): Promise<ModifyDBInstanceMetricsResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.modifyDBInstanceMetricsWithOptions(request, runtime);
   }
 
+  /**
+    * Before you call this operation, make sure that you understand the billing methods and pricing of ApsaraDB RDS. For more information, see [Billable items, billing methods, and pricing](~~45020~~).
+    * Alibaba Cloud provides different monitoring frequencies for different instances. For more information, see [Set monitoring frequencies](~~26200~~).
+    * > * If your want to set the monitoring frequency to every few seconds, you are charged additional fees. For more information, see [Billable items, billing methods, and pricing](~~45020~~).
+    * > * This operation is not supported for ApsaraDB RDS for PostgreSQL instances. The monitoring frequency of an ApsaraDB RDS for PostgreSQL instance varies based on the query time range. For more information, see [Query performance metrics](~~26280~~).
+    *
+    * @param request ModifyDBInstanceMonitorRequest
+    * @param runtime runtime options for this request RuntimeOptions
+    * @return ModifyDBInstanceMonitorResponse
+   */
   async modifyDBInstanceMonitorWithOptions(request: ModifyDBInstanceMonitorRequest, runtime: $Util.RuntimeOptions): Promise<ModifyDBInstanceMonitorResponse> {
     Util.validateModel(request);
     let query = { };
@@ -41273,11 +45912,27 @@ export default class Client extends OpenApi {
     return $tea.cast<ModifyDBInstanceMonitorResponse>(await this.callApi(params, req, runtime), new ModifyDBInstanceMonitorResponse({}));
   }
 
+  /**
+    * Before you call this operation, make sure that you understand the billing methods and pricing of ApsaraDB RDS. For more information, see [Billable items, billing methods, and pricing](~~45020~~).
+    * Alibaba Cloud provides different monitoring frequencies for different instances. For more information, see [Set monitoring frequencies](~~26200~~).
+    * > * If your want to set the monitoring frequency to every few seconds, you are charged additional fees. For more information, see [Billable items, billing methods, and pricing](~~45020~~).
+    * > * This operation is not supported for ApsaraDB RDS for PostgreSQL instances. The monitoring frequency of an ApsaraDB RDS for PostgreSQL instance varies based on the query time range. For more information, see [Query performance metrics](~~26280~~).
+    *
+    * @param request ModifyDBInstanceMonitorRequest
+    * @return ModifyDBInstanceMonitorResponse
+   */
   async modifyDBInstanceMonitor(request: ModifyDBInstanceMonitorRequest): Promise<ModifyDBInstanceMonitorResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.modifyDBInstanceMonitorWithOptions(request, runtime);
   }
 
+  /**
+    * When an ApsaraDB for RDS instance is in the hybrid access mode, which uses both a VPC endpoint and a classic network endpoint, this operation is used to extend the expiration time of the classic network endpoint.
+    *
+    * @param request ModifyDBInstanceNetworkExpireTimeRequest
+    * @param runtime runtime options for this request RuntimeOptions
+    * @return ModifyDBInstanceNetworkExpireTimeResponse
+   */
   async modifyDBInstanceNetworkExpireTimeWithOptions(request: ModifyDBInstanceNetworkExpireTimeRequest, runtime: $Util.RuntimeOptions): Promise<ModifyDBInstanceNetworkExpireTimeResponse> {
     Util.validateModel(request);
     let query = { };
@@ -41326,11 +45981,25 @@ export default class Client extends OpenApi {
     return $tea.cast<ModifyDBInstanceNetworkExpireTimeResponse>(await this.callApi(params, req, runtime), new ModifyDBInstanceNetworkExpireTimeResponse({}));
   }
 
+  /**
+    * When an ApsaraDB for RDS instance is in the hybrid access mode, which uses both a VPC endpoint and a classic network endpoint, this operation is used to extend the expiration time of the classic network endpoint.
+    *
+    * @param request ModifyDBInstanceNetworkExpireTimeRequest
+    * @return ModifyDBInstanceNetworkExpireTimeResponse
+   */
   async modifyDBInstanceNetworkExpireTime(request: ModifyDBInstanceNetworkExpireTimeRequest): Promise<ModifyDBInstanceNetworkExpireTimeResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.modifyDBInstanceNetworkExpireTimeWithOptions(request, runtime);
   }
 
+  /**
+    * ## Prerequisites
+    * The network type of the instance is classic network.
+    *
+    * @param request ModifyDBInstanceNetworkTypeRequest
+    * @param runtime runtime options for this request RuntimeOptions
+    * @return ModifyDBInstanceNetworkTypeResponse
+   */
   async modifyDBInstanceNetworkTypeWithOptions(request: ModifyDBInstanceNetworkTypeRequest, runtime: $Util.RuntimeOptions): Promise<ModifyDBInstanceNetworkTypeResponse> {
     Util.validateModel(request);
     let query = { };
@@ -41403,11 +46072,32 @@ export default class Client extends OpenApi {
     return $tea.cast<ModifyDBInstanceNetworkTypeResponse>(await this.callApi(params, req, runtime), new ModifyDBInstanceNetworkTypeResponse({}));
   }
 
+  /**
+    * ## Prerequisites
+    * The network type of the instance is classic network.
+    *
+    * @param request ModifyDBInstanceNetworkTypeRequest
+    * @return ModifyDBInstanceNetworkTypeResponse
+   */
   async modifyDBInstanceNetworkType(request: ModifyDBInstanceNetworkTypeRequest): Promise<ModifyDBInstanceNetworkTypeResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.modifyDBInstanceNetworkTypeWithOptions(request, runtime);
   }
 
+  /**
+    * This operation is used to change only the billing method of an instance from pay-as-you-go to subscription.
+    * The following requirements must be met:
+    * *   The instance belongs to the current account.
+    * *   The instance uses one of the most recent instance types. For more information, see [Instance types](~~26312~~).
+    *     **
+    *     **Note**You cannot change the billing method of an instance that uses a phased-out instance type from pay-as-you-go to subscription. If you want to change the billing method of an instance that uses a phased-out instance type from pay-as-you-go to subscription, you must change the instance type of the instance to one of the most recent instance types. Then, you can change the billing method of the instance from pay-as-you-go to subscription. To change the instance type of an instance, you can change the instance specifications of the instance. For more information, see [Change the specifications of an ApsaraDB RDS instance](~~96061~~).
+    * *   The instance uses the pay-as-you-go billing method and is in the Running state.
+    * *   Your Alibaba Cloud account has no unpaid orders for the instance for which you want to change the billing method.
+    *
+    * @param request ModifyDBInstancePayTypeRequest
+    * @param runtime runtime options for this request RuntimeOptions
+    * @return ModifyDBInstancePayTypeResponse
+   */
   async modifyDBInstancePayTypeWithOptions(request: ModifyDBInstancePayTypeRequest, runtime: $Util.RuntimeOptions): Promise<ModifyDBInstancePayTypeResponse> {
     Util.validateModel(request);
     let query = { };
@@ -41448,11 +46138,31 @@ export default class Client extends OpenApi {
     return $tea.cast<ModifyDBInstancePayTypeResponse>(await this.callApi(params, req, runtime), new ModifyDBInstancePayTypeResponse({}));
   }
 
+  /**
+    * This operation is used to change only the billing method of an instance from pay-as-you-go to subscription.
+    * The following requirements must be met:
+    * *   The instance belongs to the current account.
+    * *   The instance uses one of the most recent instance types. For more information, see [Instance types](~~26312~~).
+    *     **
+    *     **Note**You cannot change the billing method of an instance that uses a phased-out instance type from pay-as-you-go to subscription. If you want to change the billing method of an instance that uses a phased-out instance type from pay-as-you-go to subscription, you must change the instance type of the instance to one of the most recent instance types. Then, you can change the billing method of the instance from pay-as-you-go to subscription. To change the instance type of an instance, you can change the instance specifications of the instance. For more information, see [Change the specifications of an ApsaraDB RDS instance](~~96061~~).
+    * *   The instance uses the pay-as-you-go billing method and is in the Running state.
+    * *   Your Alibaba Cloud account has no unpaid orders for the instance for which you want to change the billing method.
+    *
+    * @param request ModifyDBInstancePayTypeRequest
+    * @return ModifyDBInstancePayTypeResponse
+   */
   async modifyDBInstancePayType(request: ModifyDBInstancePayTypeRequest): Promise<ModifyDBInstancePayTypeResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.modifyDBInstancePayTypeWithOptions(request, runtime);
   }
 
+  /**
+    * > This operation is phased out.
+    *
+    * @param request ModifyDBInstanceProxyConfigurationRequest
+    * @param runtime runtime options for this request RuntimeOptions
+    * @return ModifyDBInstanceProxyConfigurationResponse
+   */
   async modifyDBInstanceProxyConfigurationWithOptions(request: ModifyDBInstanceProxyConfigurationRequest, runtime: $Util.RuntimeOptions): Promise<ModifyDBInstanceProxyConfigurationResponse> {
     Util.validateModel(request);
     let query = { };
@@ -41497,11 +46207,30 @@ export default class Client extends OpenApi {
     return $tea.cast<ModifyDBInstanceProxyConfigurationResponse>(await this.callApi(params, req, runtime), new ModifyDBInstanceProxyConfigurationResponse({}));
   }
 
+  /**
+    * > This operation is phased out.
+    *
+    * @param request ModifyDBInstanceProxyConfigurationRequest
+    * @return ModifyDBInstanceProxyConfigurationResponse
+   */
   async modifyDBInstanceProxyConfiguration(request: ModifyDBInstanceProxyConfigurationRequest): Promise<ModifyDBInstanceProxyConfigurationResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.modifyDBInstanceProxyConfigurationWithOptions(request, runtime);
   }
 
+  /**
+    * This operation is used to configure SSL encryption for an instance. For more information, see [](~~32474~~).
+    * > 
+    * *   Before you call this operation, make sure that your instance is one of the following instances:
+    *     *   ApsaraDB RDS for MySQL instances that do not run RDS Basic Edition
+    *     *   ApsaraDB RDS for SQL Server instances
+    *     *   ApsaraDB RDS for PostgreSQL instances that use cloud disks
+    * *   SSL encryption is not supported for the connections to the read/write splitting endpoint of an instance.
+    *
+    * @param request ModifyDBInstanceSSLRequest
+    * @param runtime runtime options for this request RuntimeOptions
+    * @return ModifyDBInstanceSSLResponse
+   */
   async modifyDBInstanceSSLWithOptions(request: ModifyDBInstanceSSLRequest, runtime: $Util.RuntimeOptions): Promise<ModifyDBInstanceSSLResponse> {
     Util.validateModel(request);
     let query = { };
@@ -41586,20 +46315,49 @@ export default class Client extends OpenApi {
     return $tea.cast<ModifyDBInstanceSSLResponse>(await this.callApi(params, req, runtime), new ModifyDBInstanceSSLResponse({}));
   }
 
+  /**
+    * This operation is used to configure SSL encryption for an instance. For more information, see [](~~32474~~).
+    * > 
+    * *   Before you call this operation, make sure that your instance is one of the following instances:
+    *     *   ApsaraDB RDS for MySQL instances that do not run RDS Basic Edition
+    *     *   ApsaraDB RDS for SQL Server instances
+    *     *   ApsaraDB RDS for PostgreSQL instances that use cloud disks
+    * *   SSL encryption is not supported for the connections to the read/write splitting endpoint of an instance.
+    *
+    * @param request ModifyDBInstanceSSLRequest
+    * @return ModifyDBInstanceSSLResponse
+   */
   async modifyDBInstanceSSL(request: ModifyDBInstanceSSLRequest): Promise<ModifyDBInstanceSSLResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.modifyDBInstanceSSLWithOptions(request, runtime);
   }
 
+  /**
+    * Before you call this operation, make sure that the following requirements are met:
+    * *   The instance is in the Running state.
+    * *   The instance has no ongoing backup tasks.
+    * *   At least one of DBInstanceClass and DBInstanceStorage is specified in the request.
+    * *   If you want to decrease the storage capacity, the new storage capacity that you specify must be greater than or equal to 1.1 times the used storage.
+    * *   The instance is a primary instance or read-only instance.
+    * > If you want to upgrade the RDS edition of the instance, you must select an instance type that supports the new RDS edition. For example, if you want to upgrade the RDS edition of the instance from RDS Basic Edition to RDS High-availability Edition, you must select an instance type that supports RDS High-availability Edition.
+    *
+    * @param tmpReq ModifyDBInstanceSpecRequest
+    * @param runtime runtime options for this request RuntimeOptions
+    * @return ModifyDBInstanceSpecResponse
+   */
   async modifyDBInstanceSpecWithOptions(tmpReq: ModifyDBInstanceSpecRequest, runtime: $Util.RuntimeOptions): Promise<ModifyDBInstanceSpecResponse> {
     Util.validateModel(tmpReq);
     let request = new ModifyDBInstanceSpecShrinkRequest({ });
     OpenApiUtil.convert(tmpReq, request);
-    if (!Util.isUnset($tea.toMap(tmpReq.serverlessConfiguration))) {
-      request.serverlessConfigurationShrink = OpenApiUtil.arrayToStringWithSpecifiedStyle($tea.toMap(tmpReq.serverlessConfiguration), "ServerlessConfiguration", "json");
+    if (!Util.isUnset(tmpReq.serverlessConfiguration)) {
+      request.serverlessConfigurationShrink = OpenApiUtil.arrayToStringWithSpecifiedStyle(tmpReq.serverlessConfiguration, "ServerlessConfiguration", "json");
     }
 
     let query = { };
+    if (!Util.isUnset(request.burstingEnabled)) {
+      query["BurstingEnabled"] = request.burstingEnabled;
+    }
+
     if (!Util.isUnset(request.category)) {
       query["Category"] = request.category;
     }
@@ -41697,11 +46455,38 @@ export default class Client extends OpenApi {
     return $tea.cast<ModifyDBInstanceSpecResponse>(await this.callApi(params, req, runtime), new ModifyDBInstanceSpecResponse({}));
   }
 
+  /**
+    * Before you call this operation, make sure that the following requirements are met:
+    * *   The instance is in the Running state.
+    * *   The instance has no ongoing backup tasks.
+    * *   At least one of DBInstanceClass and DBInstanceStorage is specified in the request.
+    * *   If you want to decrease the storage capacity, the new storage capacity that you specify must be greater than or equal to 1.1 times the used storage.
+    * *   The instance is a primary instance or read-only instance.
+    * > If you want to upgrade the RDS edition of the instance, you must select an instance type that supports the new RDS edition. For example, if you want to upgrade the RDS edition of the instance from RDS Basic Edition to RDS High-availability Edition, you must select an instance type that supports RDS High-availability Edition.
+    *
+    * @param request ModifyDBInstanceSpecRequest
+    * @return ModifyDBInstanceSpecResponse
+   */
   async modifyDBInstanceSpec(request: ModifyDBInstanceSpecRequest): Promise<ModifyDBInstanceSpecResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.modifyDBInstanceSpecWithOptions(request, runtime);
   }
 
+  /**
+    * TDE can perform real-time I/O encryption and decryption on data files. TDE encrypts data before the data is written to a disk, and decrypts data before the data is read from a disk and written to the memory. For more information, see [Configure TDE for an ApsaraDB RDS for MySQL instance](~~96121~~).
+    * Before you call this operation, make sure that the following requirements are met:
+    * *   Key Management Service (KMS) is activated. If KMS is not activated, you can activate KMS when you enable TDE.
+    * *   The instance must run one of the following database engine versions and RDS editions:
+    *     *   MySQL 8.0 (with a minor engine version of 20191015 or later) on RDS High-availability Edition with local disks
+    *     *   MySQL 5.7 (with a minor engine version of 20191015 or later) on RDS High-availability Edition with local disks
+    *     *   MySQL 5.6
+    *     *   SQL Server 2019 SE or an Enterprise Edition of SQL Server
+    *     *   PostgreSQL 10, PostgreSQL 11, PostgreSQL 12, PostgreSQL 13, PostgreSQL 14, PostgreSQL 15 with cloud disks and a minor engine version of 20221030 or later
+    *
+    * @param request ModifyDBInstanceTDERequest
+    * @param runtime runtime options for this request RuntimeOptions
+    * @return ModifyDBInstanceTDEResponse
+   */
   async modifyDBInstanceTDEWithOptions(request: ModifyDBInstanceTDERequest, runtime: $Util.RuntimeOptions): Promise<ModifyDBInstanceTDEResponse> {
     Util.validateModel(request);
     let query = { };
@@ -41774,11 +46559,45 @@ export default class Client extends OpenApi {
     return $tea.cast<ModifyDBInstanceTDEResponse>(await this.callApi(params, req, runtime), new ModifyDBInstanceTDEResponse({}));
   }
 
+  /**
+    * TDE can perform real-time I/O encryption and decryption on data files. TDE encrypts data before the data is written to a disk, and decrypts data before the data is read from a disk and written to the memory. For more information, see [Configure TDE for an ApsaraDB RDS for MySQL instance](~~96121~~).
+    * Before you call this operation, make sure that the following requirements are met:
+    * *   Key Management Service (KMS) is activated. If KMS is not activated, you can activate KMS when you enable TDE.
+    * *   The instance must run one of the following database engine versions and RDS editions:
+    *     *   MySQL 8.0 (with a minor engine version of 20191015 or later) on RDS High-availability Edition with local disks
+    *     *   MySQL 5.7 (with a minor engine version of 20191015 or later) on RDS High-availability Edition with local disks
+    *     *   MySQL 5.6
+    *     *   SQL Server 2019 SE or an Enterprise Edition of SQL Server
+    *     *   PostgreSQL 10, PostgreSQL 11, PostgreSQL 12, PostgreSQL 13, PostgreSQL 14, PostgreSQL 15 with cloud disks and a minor engine version of 20221030 or later
+    *
+    * @param request ModifyDBInstanceTDERequest
+    * @return ModifyDBInstanceTDEResponse
+   */
   async modifyDBInstanceTDE(request: ModifyDBInstanceTDERequest): Promise<ModifyDBInstanceTDEResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.modifyDBInstanceTDEWithOptions(request, runtime);
   }
 
+  /**
+    * *   The dedicated proxy feature of ApsaraDB RDS for MySQL provides capabilities such as read/write splitting and short-lived connection optimization. For more information, see [What are database proxies?](~~138705~~)
+    * *   The database proxy feature of ApsaraDB RDS for PostgreSQL supports read/write splitting. For more information, see [What are database proxies?](~~412194~~)
+    * Before you call this operation, make sure that the following requirements are met:
+    * If the instance runs MySQL, the instance must run one of the following MySQL versions and RDS editions:
+    * *   MySQL 8.0 with a minor engine version of 20191204 or later on RDS Enterprise Edition
+    * *   MySQL 8.0 with a minor engine version of 20190915 or later on RDS High-availability Edition
+    * *   MySQL 5.7 with a minor engine version of 20191128 or later on RDS Enterprise Edition
+    * *   MySQL 5.7 with a minor engine version of 20190925 or later on RDS High-availability Edition
+    * *   MySQL 5.6 with a minor engine version of 20200229 or later on RDS High-availability Edition
+    * If the instance runs PostgreSQL, the instance must meet the following requirements:
+    * *   The instance runs PostgreSQL 10, PostgreSQL 11, PostgreSQL 12, PostgreSQL 13, PostgreSQL 14, or PostgreSQL 15.
+    * *   The instance uses cloud disks.
+    * *   The instance runs RDS High-availability Edition.
+    * *   The instance is a primary instance.
+    *
+    * @param request ModifyDBProxyRequest
+    * @param runtime runtime options for this request RuntimeOptions
+    * @return ModifyDBProxyResponse
+   */
   async modifyDBProxyWithOptions(request: ModifyDBProxyRequest, runtime: $Util.RuntimeOptions): Promise<ModifyDBProxyResponse> {
     Util.validateModel(request);
     let query = { };
@@ -41851,11 +46670,39 @@ export default class Client extends OpenApi {
     return $tea.cast<ModifyDBProxyResponse>(await this.callApi(params, req, runtime), new ModifyDBProxyResponse({}));
   }
 
+  /**
+    * *   The dedicated proxy feature of ApsaraDB RDS for MySQL provides capabilities such as read/write splitting and short-lived connection optimization. For more information, see [What are database proxies?](~~138705~~)
+    * *   The database proxy feature of ApsaraDB RDS for PostgreSQL supports read/write splitting. For more information, see [What are database proxies?](~~412194~~)
+    * Before you call this operation, make sure that the following requirements are met:
+    * If the instance runs MySQL, the instance must run one of the following MySQL versions and RDS editions:
+    * *   MySQL 8.0 with a minor engine version of 20191204 or later on RDS Enterprise Edition
+    * *   MySQL 8.0 with a minor engine version of 20190915 or later on RDS High-availability Edition
+    * *   MySQL 5.7 with a minor engine version of 20191128 or later on RDS Enterprise Edition
+    * *   MySQL 5.7 with a minor engine version of 20190925 or later on RDS High-availability Edition
+    * *   MySQL 5.6 with a minor engine version of 20200229 or later on RDS High-availability Edition
+    * If the instance runs PostgreSQL, the instance must meet the following requirements:
+    * *   The instance runs PostgreSQL 10, PostgreSQL 11, PostgreSQL 12, PostgreSQL 13, PostgreSQL 14, or PostgreSQL 15.
+    * *   The instance uses cloud disks.
+    * *   The instance runs RDS High-availability Edition.
+    * *   The instance is a primary instance.
+    *
+    * @param request ModifyDBProxyRequest
+    * @return ModifyDBProxyResponse
+   */
   async modifyDBProxy(request: ModifyDBProxyRequest): Promise<ModifyDBProxyResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.modifyDBProxyWithOptions(request, runtime);
   }
 
+  /**
+    * Before you call the ModifyDBProxyEndpoint operation, make sure that the [ModifyDBProxy](~~141054~~) operation is called to enable the database proxy feature for the instance.
+    * *   The dedicated proxy feature of ApsaraDB RDS for MySQL provides capabilities such as read/write splitting and short-lived connection optimization. For more information, see [What are database proxies?](~~138705~~)
+    * *   The database proxy feature of ApsaraDB RDS for PostgreSQL supports read/write splitting. For more information, see [What are database proxies?](~~412194~~)
+    *
+    * @param request ModifyDBProxyEndpointRequest
+    * @param runtime runtime options for this request RuntimeOptions
+    * @return ModifyDBProxyEndpointResponse
+   */
   async modifyDBProxyEndpointWithOptions(request: ModifyDBProxyEndpointRequest, runtime: $Util.RuntimeOptions): Promise<ModifyDBProxyEndpointResponse> {
     Util.validateModel(request);
     let query = { };
@@ -41940,11 +46787,26 @@ export default class Client extends OpenApi {
     return $tea.cast<ModifyDBProxyEndpointResponse>(await this.callApi(params, req, runtime), new ModifyDBProxyEndpointResponse({}));
   }
 
+  /**
+    * Before you call the ModifyDBProxyEndpoint operation, make sure that the [ModifyDBProxy](~~141054~~) operation is called to enable the database proxy feature for the instance.
+    * *   The dedicated proxy feature of ApsaraDB RDS for MySQL provides capabilities such as read/write splitting and short-lived connection optimization. For more information, see [What are database proxies?](~~138705~~)
+    * *   The database proxy feature of ApsaraDB RDS for PostgreSQL supports read/write splitting. For more information, see [What are database proxies?](~~412194~~)
+    *
+    * @param request ModifyDBProxyEndpointRequest
+    * @return ModifyDBProxyEndpointResponse
+   */
   async modifyDBProxyEndpoint(request: ModifyDBProxyEndpointRequest): Promise<ModifyDBProxyEndpointResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.modifyDBProxyEndpointWithOptions(request, runtime);
   }
 
+  /**
+    * After you enable the database proxy feature, a default proxy endpoint is generated. The proxy terminal feature is bound to the default proxy endpoint. You can create, modify, or delete a proxy endpoint.
+    *
+    * @param request ModifyDBProxyEndpointAddressRequest
+    * @param runtime runtime options for this request RuntimeOptions
+    * @return ModifyDBProxyEndpointAddressResponse
+   */
   async modifyDBProxyEndpointAddressWithOptions(request: ModifyDBProxyEndpointAddressRequest, runtime: $Util.RuntimeOptions): Promise<ModifyDBProxyEndpointAddressResponse> {
     Util.validateModel(request);
     let query = { };
@@ -42005,11 +46867,26 @@ export default class Client extends OpenApi {
     return $tea.cast<ModifyDBProxyEndpointAddressResponse>(await this.callApi(params, req, runtime), new ModifyDBProxyEndpointAddressResponse({}));
   }
 
+  /**
+    * After you enable the database proxy feature, a default proxy endpoint is generated. The proxy terminal feature is bound to the default proxy endpoint. You can create, modify, or delete a proxy endpoint.
+    *
+    * @param request ModifyDBProxyEndpointAddressRequest
+    * @return ModifyDBProxyEndpointAddressResponse
+   */
   async modifyDBProxyEndpointAddress(request: ModifyDBProxyEndpointAddressRequest): Promise<ModifyDBProxyEndpointAddressResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.modifyDBProxyEndpointAddressWithOptions(request, runtime);
   }
 
+  /**
+    * Before you call the ModifyDBProxyInstance operation, make sure that the [ModifyDBProxy](~~141054~~) operation is called to enable the database proxy feature for the instance.
+    * *   The dedicated proxy feature of ApsaraDB RDS for MySQL provides capabilities such as read/write splitting and short-lived connection optimization. For more information, see [What are database proxies?](~~138705~~)
+    * *   The database proxy feature of ApsaraDB RDS for PostgreSQL supports read/write splitting. For more information, see [What are database proxies?](~~412194~~)
+    *
+    * @param request ModifyDBProxyInstanceRequest
+    * @param runtime runtime options for this request RuntimeOptions
+    * @return ModifyDBProxyInstanceResponse
+   */
   async modifyDBProxyInstanceWithOptions(request: ModifyDBProxyInstanceRequest, runtime: $Util.RuntimeOptions): Promise<ModifyDBProxyInstanceResponse> {
     Util.validateModel(request);
     let query = { };
@@ -42074,11 +46951,27 @@ export default class Client extends OpenApi {
     return $tea.cast<ModifyDBProxyInstanceResponse>(await this.callApi(params, req, runtime), new ModifyDBProxyInstanceResponse({}));
   }
 
+  /**
+    * Before you call the ModifyDBProxyInstance operation, make sure that the [ModifyDBProxy](~~141054~~) operation is called to enable the database proxy feature for the instance.
+    * *   The dedicated proxy feature of ApsaraDB RDS for MySQL provides capabilities such as read/write splitting and short-lived connection optimization. For more information, see [What are database proxies?](~~138705~~)
+    * *   The database proxy feature of ApsaraDB RDS for PostgreSQL supports read/write splitting. For more information, see [What are database proxies?](~~412194~~)
+    *
+    * @param request ModifyDBProxyInstanceRequest
+    * @return ModifyDBProxyInstanceResponse
+   */
   async modifyDBProxyInstance(request: ModifyDBProxyInstanceRequest): Promise<ModifyDBProxyInstanceResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.modifyDBProxyInstanceWithOptions(request, runtime);
   }
 
+  /**
+    * Distributed transaction whitelists allow for distributed transactions between an Elastic Compute Service (ECS) instance and an RDS instance. For more information, see [Configure a distributed transaction whitelist](~~124321~~).
+    * This operation is applicable to instances that run one of the following SQL Server versions in the RDS High-Availability Edition: 2012 SE, 2012 EE, 2014 SE, 2016 SE, 2016 EE, and 2017 SE.
+    *
+    * @param request ModifyDTCSecurityIpHostsForSQLServerRequest
+    * @param runtime runtime options for this request RuntimeOptions
+    * @return ModifyDTCSecurityIpHostsForSQLServerResponse
+   */
   async modifyDTCSecurityIpHostsForSQLServerWithOptions(request: ModifyDTCSecurityIpHostsForSQLServerRequest, runtime: $Util.RuntimeOptions): Promise<ModifyDTCSecurityIpHostsForSQLServerResponse> {
     Util.validateModel(request);
     let query = { };
@@ -42135,11 +47028,26 @@ export default class Client extends OpenApi {
     return $tea.cast<ModifyDTCSecurityIpHostsForSQLServerResponse>(await this.callApi(params, req, runtime), new ModifyDTCSecurityIpHostsForSQLServerResponse({}));
   }
 
+  /**
+    * Distributed transaction whitelists allow for distributed transactions between an Elastic Compute Service (ECS) instance and an RDS instance. For more information, see [Configure a distributed transaction whitelist](~~124321~~).
+    * This operation is applicable to instances that run one of the following SQL Server versions in the RDS High-Availability Edition: 2012 SE, 2012 EE, 2014 SE, 2016 SE, 2016 EE, and 2017 SE.
+    *
+    * @param request ModifyDTCSecurityIpHostsForSQLServerRequest
+    * @return ModifyDTCSecurityIpHostsForSQLServerResponse
+   */
   async modifyDTCSecurityIpHostsForSQLServer(request: ModifyDTCSecurityIpHostsForSQLServerRequest): Promise<ModifyDTCSecurityIpHostsForSQLServerResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.modifyDTCSecurityIpHostsForSQLServerWithOptions(request, runtime);
   }
 
+  /**
+    * This operation is supported for ApsaraDB RDS for MySQL instances that run RDS High-availability Edition and use standard SSDs or enhanced SSDs (ESSDs) and ApsaraDB RDS for PostgreSQL instances that use standard SSDs or ESSDs. If the available storage reaches the specified threshold, ApsaraDB RDS increases the storage capacity of the instance to meet your storage requirements. In most cases, no transient connections occur during the expansion process. For more information, see [Configure automatic storage expansion for an ApsaraDB RDS for MySQL instance](~~173826~~) and [Configure automatic storage expansion for an ApsaraDB RDS for PostgreSQL instance](~~432496~~).
+    * >  If an automatic storage expansion is triggered, ApsaraDB RDS increases the storage capacity based on the larger value between 15% of the purchased storage capacity and 5 GB.
+    *
+    * @param request ModifyDasInstanceConfigRequest
+    * @param runtime runtime options for this request RuntimeOptions
+    * @return ModifyDasInstanceConfigResponse
+   */
   async modifyDasInstanceConfigWithOptions(request: ModifyDasInstanceConfigRequest, runtime: $Util.RuntimeOptions): Promise<ModifyDasInstanceConfigResponse> {
     Util.validateModel(request);
     let query = { };
@@ -42192,11 +47100,33 @@ export default class Client extends OpenApi {
     return $tea.cast<ModifyDasInstanceConfigResponse>(await this.callApi(params, req, runtime), new ModifyDasInstanceConfigResponse({}));
   }
 
+  /**
+    * This operation is supported for ApsaraDB RDS for MySQL instances that run RDS High-availability Edition and use standard SSDs or enhanced SSDs (ESSDs) and ApsaraDB RDS for PostgreSQL instances that use standard SSDs or ESSDs. If the available storage reaches the specified threshold, ApsaraDB RDS increases the storage capacity of the instance to meet your storage requirements. In most cases, no transient connections occur during the expansion process. For more information, see [Configure automatic storage expansion for an ApsaraDB RDS for MySQL instance](~~173826~~) and [Configure automatic storage expansion for an ApsaraDB RDS for PostgreSQL instance](~~432496~~).
+    * >  If an automatic storage expansion is triggered, ApsaraDB RDS increases the storage capacity based on the larger value between 15% of the purchased storage capacity and 5 GB.
+    *
+    * @param request ModifyDasInstanceConfigRequest
+    * @return ModifyDasInstanceConfigResponse
+   */
   async modifyDasInstanceConfig(request: ModifyDasInstanceConfigRequest): Promise<ModifyDasInstanceConfigResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.modifyDasInstanceConfigWithOptions(request, runtime);
   }
 
+  /**
+    * The system provides the dedicated proxy feature. You can configure SSL encryption for the dedicated proxy endpoint of an instance. This allows you to ensure the data security of the instance. For more information about the dedicated proxy feature, see [Dedicated proxy](~~138705~~).
+    * Before you call this operation, make sure that the following requirements are met:
+    * *   The dedicated proxy feature is enabled for the instance.
+    * *   The minor engine version that the dedicated proxies of the instance run is 1.12.8 or later.
+    * *   Your RDS instance runs one of the following MySQL versions:
+    *     *   MySQL 8.0 on RDS High-availability Edition with local disks. The minor engine version is 20200831 or later.
+    *     *   MySQL 5.7 on RDS High-availability Edition with local disks. The minor engine version is 20200831 or later.
+    *     *   MySQL 5.6 on RDS High-availability Edition with local disks. The minor engine version is 20200831 or later.
+    * > Calling this operation causes your instance to restart. Proceed with caution.
+    *
+    * @param request ModifyDbProxyInstanceSslRequest
+    * @param runtime runtime options for this request RuntimeOptions
+    * @return ModifyDbProxyInstanceSslResponse
+   */
   async modifyDbProxyInstanceSslWithOptions(request: ModifyDbProxyInstanceSslRequest, runtime: $Util.RuntimeOptions): Promise<ModifyDbProxyInstanceSslResponse> {
     Util.validateModel(request);
     let query = { };
@@ -42245,11 +47175,32 @@ export default class Client extends OpenApi {
     return $tea.cast<ModifyDbProxyInstanceSslResponse>(await this.callApi(params, req, runtime), new ModifyDbProxyInstanceSslResponse({}));
   }
 
+  /**
+    * The system provides the dedicated proxy feature. You can configure SSL encryption for the dedicated proxy endpoint of an instance. This allows you to ensure the data security of the instance. For more information about the dedicated proxy feature, see [Dedicated proxy](~~138705~~).
+    * Before you call this operation, make sure that the following requirements are met:
+    * *   The dedicated proxy feature is enabled for the instance.
+    * *   The minor engine version that the dedicated proxies of the instance run is 1.12.8 or later.
+    * *   Your RDS instance runs one of the following MySQL versions:
+    *     *   MySQL 8.0 on RDS High-availability Edition with local disks. The minor engine version is 20200831 or later.
+    *     *   MySQL 5.7 on RDS High-availability Edition with local disks. The minor engine version is 20200831 or later.
+    *     *   MySQL 5.6 on RDS High-availability Edition with local disks. The minor engine version is 20200831 or later.
+    * > Calling this operation causes your instance to restart. Proceed with caution.
+    *
+    * @param request ModifyDbProxyInstanceSslRequest
+    * @return ModifyDbProxyInstanceSslResponse
+   */
   async modifyDbProxyInstanceSsl(request: ModifyDbProxyInstanceSslRequest): Promise<ModifyDbProxyInstanceSslResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.modifyDbProxyInstanceSslWithOptions(request, runtime);
   }
 
+  /**
+    * By default, Alibaba Cloud uses persistent connections to check the availability of an instance. For more information, see [What is availability detection?](~~207467~~)
+    *
+    * @param request ModifyHADiagnoseConfigRequest
+    * @param runtime runtime options for this request RuntimeOptions
+    * @return ModifyHADiagnoseConfigResponse
+   */
   async modifyHADiagnoseConfigWithOptions(request: ModifyHADiagnoseConfigRequest, runtime: $Util.RuntimeOptions): Promise<ModifyHADiagnoseConfigResponse> {
     Util.validateModel(request);
     let query = { };
@@ -42294,11 +47245,25 @@ export default class Client extends OpenApi {
     return $tea.cast<ModifyHADiagnoseConfigResponse>(await this.callApi(params, req, runtime), new ModifyHADiagnoseConfigResponse({}));
   }
 
+  /**
+    * By default, Alibaba Cloud uses persistent connections to check the availability of an instance. For more information, see [What is availability detection?](~~207467~~)
+    *
+    * @param request ModifyHADiagnoseConfigRequest
+    * @return ModifyHADiagnoseConfigResponse
+   */
   async modifyHADiagnoseConfig(request: ModifyHADiagnoseConfigRequest): Promise<ModifyHADiagnoseConfigResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.modifyHADiagnoseConfigWithOptions(request, runtime);
   }
 
+  /**
+    * After a switchover is complete, the original primary RDS instance runs as the secondary RDS instance. For more information, see [Switch workloads over between primary and secondary ApsaraDB RDS for MySQL instances](~~96054~~).
+    * Before you call this operation, make sure that the instance does not run the RDS Basic Edition.
+    *
+    * @param request ModifyHASwitchConfigRequest
+    * @param runtime runtime options for this request RuntimeOptions
+    * @return ModifyHASwitchConfigResponse
+   */
   async modifyHASwitchConfigWithOptions(request: ModifyHASwitchConfigRequest, runtime: $Util.RuntimeOptions): Promise<ModifyHASwitchConfigResponse> {
     Util.validateModel(request);
     let query = { };
@@ -42347,11 +47312,25 @@ export default class Client extends OpenApi {
     return $tea.cast<ModifyHASwitchConfigResponse>(await this.callApi(params, req, runtime), new ModifyHASwitchConfigResponse({}));
   }
 
+  /**
+    * After a switchover is complete, the original primary RDS instance runs as the secondary RDS instance. For more information, see [Switch workloads over between primary and secondary ApsaraDB RDS for MySQL instances](~~96054~~).
+    * Before you call this operation, make sure that the instance does not run the RDS Basic Edition.
+    *
+    * @param request ModifyHASwitchConfigRequest
+    * @return ModifyHASwitchConfigResponse
+   */
   async modifyHASwitchConfig(request: ModifyHASwitchConfigRequest): Promise<ModifyHASwitchConfigResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.modifyHASwitchConfigWithOptions(request, runtime);
   }
 
+  /**
+    * If you enable auto-renewal for your instance, you do not need to manually renew your subscription or be concerned about business interruptions caused by subscription expiration. For more information, see [Configure auto-renewal](~~96049~~).
+    *
+    * @param request ModifyInstanceAutoRenewalAttributeRequest
+    * @param runtime runtime options for this request RuntimeOptions
+    * @return ModifyInstanceAutoRenewalAttributeResponse
+   */
   async modifyInstanceAutoRenewalAttributeWithOptions(request: ModifyInstanceAutoRenewalAttributeRequest, runtime: $Util.RuntimeOptions): Promise<ModifyInstanceAutoRenewalAttributeResponse> {
     Util.validateModel(request);
     let query = { };
@@ -42408,11 +47387,27 @@ export default class Client extends OpenApi {
     return $tea.cast<ModifyInstanceAutoRenewalAttributeResponse>(await this.callApi(params, req, runtime), new ModifyInstanceAutoRenewalAttributeResponse({}));
   }
 
+  /**
+    * If you enable auto-renewal for your instance, you do not need to manually renew your subscription or be concerned about business interruptions caused by subscription expiration. For more information, see [Configure auto-renewal](~~96049~~).
+    *
+    * @param request ModifyInstanceAutoRenewalAttributeRequest
+    * @return ModifyInstanceAutoRenewalAttributeResponse
+   */
   async modifyInstanceAutoRenewalAttribute(request: ModifyInstanceAutoRenewalAttributeRequest): Promise<ModifyInstanceAutoRenewalAttributeResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.modifyInstanceAutoRenewalAttributeWithOptions(request, runtime);
   }
 
+  /**
+    * Before you call this operation, make sure that the instance runs one of the following database engines:
+    * *   MySQL. For more information, see [Back up an ApsaraDB RDS for MySQL instance across regions](~~120824~~).
+    * *   SQL Server. For more information, see [Back up an ApsaraDB RDS for SQL Server instance across regions](~~187923~~).
+    * *   PostgreSQL. For more information, see [Enable cross-region backups for an ApsaraDB RDS for PostgreSQL instance](~~206671~~).
+    *
+    * @param request ModifyInstanceCrossBackupPolicyRequest
+    * @param runtime runtime options for this request RuntimeOptions
+    * @return ModifyInstanceCrossBackupPolicyResponse
+   */
   async modifyInstanceCrossBackupPolicyWithOptions(request: ModifyInstanceCrossBackupPolicyRequest, runtime: $Util.RuntimeOptions): Promise<ModifyInstanceCrossBackupPolicyResponse> {
     Util.validateModel(request);
     let query = { };
@@ -42477,11 +47472,28 @@ export default class Client extends OpenApi {
     return $tea.cast<ModifyInstanceCrossBackupPolicyResponse>(await this.callApi(params, req, runtime), new ModifyInstanceCrossBackupPolicyResponse({}));
   }
 
+  /**
+    * Before you call this operation, make sure that the instance runs one of the following database engines:
+    * *   MySQL. For more information, see [Back up an ApsaraDB RDS for MySQL instance across regions](~~120824~~).
+    * *   SQL Server. For more information, see [Back up an ApsaraDB RDS for SQL Server instance across regions](~~187923~~).
+    * *   PostgreSQL. For more information, see [Enable cross-region backups for an ApsaraDB RDS for PostgreSQL instance](~~206671~~).
+    *
+    * @param request ModifyInstanceCrossBackupPolicyRequest
+    * @return ModifyInstanceCrossBackupPolicyResponse
+   */
   async modifyInstanceCrossBackupPolicy(request: ModifyInstanceCrossBackupPolicyRequest): Promise<ModifyInstanceCrossBackupPolicyResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.modifyInstanceCrossBackupPolicyWithOptions(request, runtime);
   }
 
+  /**
+    * ApsaraDB RDS for PostgreSQL allows you to modify the pg_hba.conf file based on your business requirements. For more information, see [Introduction to the pg_hba.conf file](https://www.postgresql.org/docs/11/auth-pg-hba-conf.html).
+    * You can modify the information of the Active Directory (AD) domain controller in the pg_hba.conf file of an instance. Then, you can connect the instance to a self-managed AD domain. For more information, see [Connect an ApsaraDB RDS for PostgreSQL instance to a self-managed AD domain](~~349288~~).
+    *
+    * @param request ModifyPGHbaConfigRequest
+    * @param runtime runtime options for this request RuntimeOptions
+    * @return ModifyPGHbaConfigResponse
+   */
   async modifyPGHbaConfigWithOptions(request: ModifyPGHbaConfigRequest, runtime: $Util.RuntimeOptions): Promise<ModifyPGHbaConfigResponse> {
     Util.validateModel(request);
     let query = { };
@@ -42534,11 +47546,26 @@ export default class Client extends OpenApi {
     return $tea.cast<ModifyPGHbaConfigResponse>(await this.callApi(params, req, runtime), new ModifyPGHbaConfigResponse({}));
   }
 
+  /**
+    * ApsaraDB RDS for PostgreSQL allows you to modify the pg_hba.conf file based on your business requirements. For more information, see [Introduction to the pg_hba.conf file](https://www.postgresql.org/docs/11/auth-pg-hba-conf.html).
+    * You can modify the information of the Active Directory (AD) domain controller in the pg_hba.conf file of an instance. Then, you can connect the instance to a self-managed AD domain. For more information, see [Connect an ApsaraDB RDS for PostgreSQL instance to a self-managed AD domain](~~349288~~).
+    *
+    * @param request ModifyPGHbaConfigRequest
+    * @return ModifyPGHbaConfigResponse
+   */
   async modifyPGHbaConfig(request: ModifyPGHbaConfigRequest): Promise<ModifyPGHbaConfigResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.modifyPGHbaConfigWithOptions(request, runtime);
   }
 
+  /**
+    * You can modify the parameters directly or by using a parameter template. After you submit the parameter modification request, ApsaraDB RDS starts a task to apply the new parameter values to the instance. If a new parameter value takes effect only after the instance restarts, ApsaraDB RDS restarts the instance. For information about configurable parameters, see [Configure the parameters of an ApsaraDB RDS for MySQL instance](~~96063~~).
+    * > Before the system runs a parameter modification task, the system checks whether the parameters exist, whether they are configurable, and whether the new parameter values are valid.
+    *
+    * @param request ModifyParameterRequest
+    * @param runtime runtime options for this request RuntimeOptions
+    * @return ModifyParameterResponse
+   */
   async modifyParameterWithOptions(request: ModifyParameterRequest, runtime: $Util.RuntimeOptions): Promise<ModifyParameterResponse> {
     Util.validateModel(request);
     let query = { };
@@ -42603,11 +47630,26 @@ export default class Client extends OpenApi {
     return $tea.cast<ModifyParameterResponse>(await this.callApi(params, req, runtime), new ModifyParameterResponse({}));
   }
 
+  /**
+    * You can modify the parameters directly or by using a parameter template. After you submit the parameter modification request, ApsaraDB RDS starts a task to apply the new parameter values to the instance. If a new parameter value takes effect only after the instance restarts, ApsaraDB RDS restarts the instance. For information about configurable parameters, see [Configure the parameters of an ApsaraDB RDS for MySQL instance](~~96063~~).
+    * > Before the system runs a parameter modification task, the system checks whether the parameters exist, whether they are configurable, and whether the new parameter values are valid.
+    *
+    * @param request ModifyParameterRequest
+    * @return ModifyParameterResponse
+   */
   async modifyParameter(request: ModifyParameterRequest): Promise<ModifyParameterResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.modifyParameterWithOptions(request, runtime);
   }
 
+  /**
+    * You can configure a number of parameters at a time by using a parameter template and then apply the parameter template to an instance. For more information, see [Use a parameter template to configure the parameters of ApsaraDB RDS for MySQL instances](~~130565~~) or [Use a parameter template to configure the parameters of ApsaraDB RDS for PostgreSQL instances](~~457176~~).
+    * > This operation is supported only when your instance runs MySQL or PostgreSQL.
+    *
+    * @param request ModifyParameterGroupRequest
+    * @param runtime runtime options for this request RuntimeOptions
+    * @return ModifyParameterGroupResponse
+   */
   async modifyParameterGroupWithOptions(request: ModifyParameterGroupRequest, runtime: $Util.RuntimeOptions): Promise<ModifyParameterGroupResponse> {
     Util.validateModel(request);
     let query = { };
@@ -42664,11 +47706,31 @@ export default class Client extends OpenApi {
     return $tea.cast<ModifyParameterGroupResponse>(await this.callApi(params, req, runtime), new ModifyParameterGroupResponse({}));
   }
 
+  /**
+    * You can configure a number of parameters at a time by using a parameter template and then apply the parameter template to an instance. For more information, see [Use a parameter template to configure the parameters of ApsaraDB RDS for MySQL instances](~~130565~~) or [Use a parameter template to configure the parameters of ApsaraDB RDS for PostgreSQL instances](~~457176~~).
+    * > This operation is supported only when your instance runs MySQL or PostgreSQL.
+    *
+    * @param request ModifyParameterGroupRequest
+    * @return ModifyParameterGroupResponse
+   */
   async modifyParameterGroup(request: ModifyParameterGroupRequest): Promise<ModifyParameterGroupResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.modifyParameterGroupWithOptions(request, runtime);
   }
 
+  /**
+    * Before you call this operation, make sure that the following requirements are met:
+    * *   The shared proxy feature is enabled for your ApsaraDB RDS for MySQL instance.
+    * *   The read/write splitting feature is enabled for your ApsaraDB RDS for MySQL instance.
+    * *   The instance must run one of the following database engine versions and RDS editions:
+    *     *   MySQL 5.7 on RDS High-availability Edition (with local disks)
+    *     *   MySQL 5.6
+    *     *   SQL Server on RDS Cluster Edition
+    *
+    * @param request ModifyReadWriteSplittingConnectionRequest
+    * @param runtime runtime options for this request RuntimeOptions
+    * @return ModifyReadWriteSplittingConnectionResponse
+   */
   async modifyReadWriteSplittingConnectionWithOptions(request: ModifyReadWriteSplittingConnectionRequest, runtime: $Util.RuntimeOptions): Promise<ModifyReadWriteSplittingConnectionResponse> {
     Util.validateModel(request);
     let query = { };
@@ -42729,11 +47791,30 @@ export default class Client extends OpenApi {
     return $tea.cast<ModifyReadWriteSplittingConnectionResponse>(await this.callApi(params, req, runtime), new ModifyReadWriteSplittingConnectionResponse({}));
   }
 
+  /**
+    * Before you call this operation, make sure that the following requirements are met:
+    * *   The shared proxy feature is enabled for your ApsaraDB RDS for MySQL instance.
+    * *   The read/write splitting feature is enabled for your ApsaraDB RDS for MySQL instance.
+    * *   The instance must run one of the following database engine versions and RDS editions:
+    *     *   MySQL 5.7 on RDS High-availability Edition (with local disks)
+    *     *   MySQL 5.6
+    *     *   SQL Server on RDS Cluster Edition
+    *
+    * @param request ModifyReadWriteSplittingConnectionRequest
+    * @return ModifyReadWriteSplittingConnectionResponse
+   */
   async modifyReadWriteSplittingConnection(request: ModifyReadWriteSplittingConnectionRequest): Promise<ModifyReadWriteSplittingConnectionResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.modifyReadWriteSplittingConnectionWithOptions(request, runtime);
   }
 
+  /**
+    * You can specify the latency at which your primary RDS instance replicates data to a read-only instance. For more information, see [Set a replication delay for an RDS MySQL read-only instance](~~96056~~).
+    *
+    * @param request ModifyReadonlyInstanceDelayReplicationTimeRequest
+    * @param runtime runtime options for this request RuntimeOptions
+    * @return ModifyReadonlyInstanceDelayReplicationTimeResponse
+   */
   async modifyReadonlyInstanceDelayReplicationTimeWithOptions(request: ModifyReadonlyInstanceDelayReplicationTimeRequest, runtime: $Util.RuntimeOptions): Promise<ModifyReadonlyInstanceDelayReplicationTimeResponse> {
     Util.validateModel(request);
     let query = { };
@@ -42774,11 +47855,24 @@ export default class Client extends OpenApi {
     return $tea.cast<ModifyReadonlyInstanceDelayReplicationTimeResponse>(await this.callApi(params, req, runtime), new ModifyReadonlyInstanceDelayReplicationTimeResponse({}));
   }
 
+  /**
+    * You can specify the latency at which your primary RDS instance replicates data to a read-only instance. For more information, see [Set a replication delay for an RDS MySQL read-only instance](~~96056~~).
+    *
+    * @param request ModifyReadonlyInstanceDelayReplicationTimeRequest
+    * @return ModifyReadonlyInstanceDelayReplicationTimeResponse
+   */
   async modifyReadonlyInstanceDelayReplicationTime(request: ModifyReadonlyInstanceDelayReplicationTimeRequest): Promise<ModifyReadonlyInstanceDelayReplicationTimeResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.modifyReadonlyInstanceDelayReplicationTimeWithOptions(request, runtime);
   }
 
+  /**
+    * Resource Management enables you to build an organizational structure for resources based on your business needs. You can use a resource directory, folders, accounts, and resource groups to hierarchically organize and manage resources. For more information, see [What is Resource Management?](~~94475~~)
+    *
+    * @param request ModifyResourceGroupRequest
+    * @param runtime runtime options for this request RuntimeOptions
+    * @return ModifyResourceGroupResponse
+   */
   async modifyResourceGroupWithOptions(request: ModifyResourceGroupRequest, runtime: $Util.RuntimeOptions): Promise<ModifyResourceGroupResponse> {
     Util.validateModel(request);
     let query = { };
@@ -42827,11 +47921,28 @@ export default class Client extends OpenApi {
     return $tea.cast<ModifyResourceGroupResponse>(await this.callApi(params, req, runtime), new ModifyResourceGroupResponse({}));
   }
 
+  /**
+    * Resource Management enables you to build an organizational structure for resources based on your business needs. You can use a resource directory, folders, accounts, and resource groups to hierarchically organize and manage resources. For more information, see [What is Resource Management?](~~94475~~)
+    *
+    * @param request ModifyResourceGroupRequest
+    * @return ModifyResourceGroupResponse
+   */
   async modifyResourceGroup(request: ModifyResourceGroupRequest): Promise<ModifyResourceGroupResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.modifyResourceGroupWithOptions(request, runtime);
   }
 
+  /**
+    * Before you call this operation, make sure that the instance runs one of the following database engines:
+    * *   MySQL
+    * *   SQL Server
+    * *   PostgreSQL
+    * > If you call this operation by using the credentials of a RAM user, the RAM user must have the read and write permissions such as AliyunRDSFullAccess on the instance. If the RAM user does not have the read and write permissions on the instance, the system displays a message stating that you do not have the permissions to call this operation. For more information about how to grant permissions to a RAM user, see [Use RAM to manage ApsaraDB RDS permissions](~~58932~~).
+    *
+    * @param request ModifySQLCollectorPolicyRequest
+    * @param runtime runtime options for this request RuntimeOptions
+    * @return ModifySQLCollectorPolicyResponse
+   */
   async modifySQLCollectorPolicyWithOptions(request: ModifySQLCollectorPolicyRequest, runtime: $Util.RuntimeOptions): Promise<ModifySQLCollectorPolicyResponse> {
     Util.validateModel(request);
     let query = { };
@@ -42880,11 +47991,30 @@ export default class Client extends OpenApi {
     return $tea.cast<ModifySQLCollectorPolicyResponse>(await this.callApi(params, req, runtime), new ModifySQLCollectorPolicyResponse({}));
   }
 
+  /**
+    * Before you call this operation, make sure that the instance runs one of the following database engines:
+    * *   MySQL
+    * *   SQL Server
+    * *   PostgreSQL
+    * > If you call this operation by using the credentials of a RAM user, the RAM user must have the read and write permissions such as AliyunRDSFullAccess on the instance. If the RAM user does not have the read and write permissions on the instance, the system displays a message stating that you do not have the permissions to call this operation. For more information about how to grant permissions to a RAM user, see [Use RAM to manage ApsaraDB RDS permissions](~~58932~~).
+    *
+    * @param request ModifySQLCollectorPolicyRequest
+    * @return ModifySQLCollectorPolicyResponse
+   */
   async modifySQLCollectorPolicy(request: ModifySQLCollectorPolicyRequest): Promise<ModifySQLCollectorPolicyResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.modifySQLCollectorPolicyWithOptions(request, runtime);
   }
 
+  /**
+    * The SQL explorer must be enabled for the instance.
+    * The instance must run MySQL. For more information, see [SQL Explorer](~~96123~~).
+    * >  After you shorten the log backup retention period, log backpack files that are stored longer than the specified log backup retention period are immediately deleted.
+    *
+    * @param request ModifySQLCollectorRetentionRequest
+    * @param runtime runtime options for this request RuntimeOptions
+    * @return ModifySQLCollectorRetentionResponse
+   */
   async modifySQLCollectorRetentionWithOptions(request: ModifySQLCollectorRetentionRequest, runtime: $Util.RuntimeOptions): Promise<ModifySQLCollectorRetentionResponse> {
     Util.validateModel(request);
     let query = { };
@@ -42937,11 +48067,26 @@ export default class Client extends OpenApi {
     return $tea.cast<ModifySQLCollectorRetentionResponse>(await this.callApi(params, req, runtime), new ModifySQLCollectorRetentionResponse({}));
   }
 
+  /**
+    * The SQL explorer must be enabled for the instance.
+    * The instance must run MySQL. For more information, see [SQL Explorer](~~96123~~).
+    * >  After you shorten the log backup retention period, log backpack files that are stored longer than the specified log backup retention period are immediately deleted.
+    *
+    * @param request ModifySQLCollectorRetentionRequest
+    * @return ModifySQLCollectorRetentionResponse
+   */
   async modifySQLCollectorRetention(request: ModifySQLCollectorRetentionRequest): Promise<ModifySQLCollectorRetentionResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.modifySQLCollectorRetentionWithOptions(request, runtime);
   }
 
+  /**
+    * After an RDS instance is added to an ECS security group, all ECS instances in the security group can access the RDS instance. For more information, see [Configure a whitelist for an RDS instance](~~96118~~).
+    *
+    * @param request ModifySecurityGroupConfigurationRequest
+    * @param runtime runtime options for this request RuntimeOptions
+    * @return ModifySecurityGroupConfigurationResponse
+   */
   async modifySecurityGroupConfigurationWithOptions(request: ModifySecurityGroupConfigurationRequest, runtime: $Util.RuntimeOptions): Promise<ModifySecurityGroupConfigurationResponse> {
     Util.validateModel(request);
     let query = { };
@@ -42982,11 +48127,25 @@ export default class Client extends OpenApi {
     return $tea.cast<ModifySecurityGroupConfigurationResponse>(await this.callApi(params, req, runtime), new ModifySecurityGroupConfigurationResponse({}));
   }
 
+  /**
+    * After an RDS instance is added to an ECS security group, all ECS instances in the security group can access the RDS instance. For more information, see [Configure a whitelist for an RDS instance](~~96118~~).
+    *
+    * @param request ModifySecurityGroupConfigurationRequest
+    * @return ModifySecurityGroupConfigurationResponse
+   */
   async modifySecurityGroupConfiguration(request: ModifySecurityGroupConfigurationRequest): Promise<ModifySecurityGroupConfigurationResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.modifySecurityGroupConfigurationWithOptions(request, runtime);
   }
 
+  /**
+    * An IP address whitelist contains the IP addresses and CIDR blocks that are granted access to the instance. For more information about how to configure an IP address whitelist, see [Configure an IP address whitelist for an ApsaraDB RDS instance](~~96118~~).
+    * > Before you call this operation, make sure that the instance is in the Running state. If the instance is not in the Running state, the operation fails.
+    *
+    * @param request ModifySecurityIpsRequest
+    * @param runtime runtime options for this request RuntimeOptions
+    * @return ModifySecurityIpsResponse
+   */
   async modifySecurityIpsWithOptions(request: ModifySecurityIpsRequest, runtime: $Util.RuntimeOptions): Promise<ModifySecurityIpsResponse> {
     Util.validateModel(request);
     let query = { };
@@ -43043,11 +48202,30 @@ export default class Client extends OpenApi {
     return $tea.cast<ModifySecurityIpsResponse>(await this.callApi(params, req, runtime), new ModifySecurityIpsResponse({}));
   }
 
+  /**
+    * An IP address whitelist contains the IP addresses and CIDR blocks that are granted access to the instance. For more information about how to configure an IP address whitelist, see [Configure an IP address whitelist for an ApsaraDB RDS instance](~~96118~~).
+    * > Before you call this operation, make sure that the instance is in the Running state. If the instance is not in the Running state, the operation fails.
+    *
+    * @param request ModifySecurityIpsRequest
+    * @return ModifySecurityIpsResponse
+   */
   async modifySecurityIps(request: ModifySecurityIpsRequest): Promise<ModifySecurityIpsResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.modifySecurityIpsWithOptions(request, runtime);
   }
 
+  /**
+    * ApsaraDB RDS automatically uploads log backup files to Object Storage Service (OSS) buckets. If the remaining storage of an instance is insufficient, you can upload the log backup files of the instance to OSS buckets. After you upload the log backup files of an instance, ApsaraDB RDS deletes these files from the instance to release storage. This operation is called to upload log backup files from an instance to OSS buckets and then delete these files from the instance. If the instance runs SQL Server, transaction log backup files are compressed before they are uploaded. For more information about log backups, see [Back up an ApsaraDB RDS for MySQL instance](~~98818~~) or [Back up an ApsaraDB RDS for SQL Server instance](~~95717~~).
+    * > 
+    * *   This operation is available only for instances that run MySQL or SQL Server.
+    * *   When you upload log backup files, the data restoration feature is not affected.
+    * *   This operation is called to release storage. The backup storage usage is not reduced.
+    * *   The OSS buckets to which log backup files are uploaded are provided by ApsaraDB RDS. You do not need to purchase these OSS buckets. In addition, you cannot access these OSS buckets.
+    *
+    * @param request PurgeDBInstanceLogRequest
+    * @param runtime runtime options for this request RuntimeOptions
+    * @return PurgeDBInstanceLogResponse
+   */
   async purgeDBInstanceLogWithOptions(request: PurgeDBInstanceLogRequest, runtime: $Util.RuntimeOptions): Promise<PurgeDBInstanceLogResponse> {
     Util.validateModel(request);
     let query = { };
@@ -43092,11 +48270,30 @@ export default class Client extends OpenApi {
     return $tea.cast<PurgeDBInstanceLogResponse>(await this.callApi(params, req, runtime), new PurgeDBInstanceLogResponse({}));
   }
 
+  /**
+    * ApsaraDB RDS automatically uploads log backup files to Object Storage Service (OSS) buckets. If the remaining storage of an instance is insufficient, you can upload the log backup files of the instance to OSS buckets. After you upload the log backup files of an instance, ApsaraDB RDS deletes these files from the instance to release storage. This operation is called to upload log backup files from an instance to OSS buckets and then delete these files from the instance. If the instance runs SQL Server, transaction log backup files are compressed before they are uploaded. For more information about log backups, see [Back up an ApsaraDB RDS for MySQL instance](~~98818~~) or [Back up an ApsaraDB RDS for SQL Server instance](~~95717~~).
+    * > 
+    * *   This operation is available only for instances that run MySQL or SQL Server.
+    * *   When you upload log backup files, the data restoration feature is not affected.
+    * *   This operation is called to release storage. The backup storage usage is not reduced.
+    * *   The OSS buckets to which log backup files are uploaded are provided by ApsaraDB RDS. You do not need to purchase these OSS buckets. In addition, you cannot access these OSS buckets.
+    *
+    * @param request PurgeDBInstanceLogRequest
+    * @return PurgeDBInstanceLogResponse
+   */
   async purgeDBInstanceLog(request: PurgeDBInstanceLogRequest): Promise<PurgeDBInstanceLogResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.purgeDBInstanceLogWithOptions(request, runtime);
   }
 
+  /**
+    * The notifications are highlighted at the top of the ApsaraDB RDS console. The notifications include renewal reminders and reminders of instance creation failures.
+    * After you call this operation to query notifications, you can call the [ConfirmNotify](~~428005~~) operation to mark the notifications as confirmed, which means that you understand the content of the notifications.
+    *
+    * @param request QueryNotifyRequest
+    * @param runtime runtime options for this request RuntimeOptions
+    * @return QueryNotifyResponse
+   */
   async queryNotifyWithOptions(request: QueryNotifyRequest, runtime: $Util.RuntimeOptions): Promise<QueryNotifyResponse> {
     Util.validateModel(request);
     let body : {[key: string ]: any} = { };
@@ -43137,11 +48334,25 @@ export default class Client extends OpenApi {
     return $tea.cast<QueryNotifyResponse>(await this.callApi(params, req, runtime), new QueryNotifyResponse({}));
   }
 
+  /**
+    * The notifications are highlighted at the top of the ApsaraDB RDS console. The notifications include renewal reminders and reminders of instance creation failures.
+    * After you call this operation to query notifications, you can call the [ConfirmNotify](~~428005~~) operation to mark the notifications as confirmed, which means that you understand the content of the notifications.
+    *
+    * @param request QueryNotifyRequest
+    * @return QueryNotifyResponse
+   */
   async queryNotify(request: QueryNotifyRequest): Promise<QueryNotifyResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.queryNotifyWithOptions(request, runtime);
   }
 
+  /**
+    * Dedicated clusters allow you to manage a number of instances at a time. You can create multiple dedicated clusters in a single region. Each dedicated cluster consists of multiple hosts. You can create multiple instances on each host. For more information, see [What is ApsaraDB MyBase?](~~141455~~)
+    *
+    * @param request RebuildDBInstanceRequest
+    * @param runtime runtime options for this request RuntimeOptions
+    * @return RebuildDBInstanceResponse
+   */
   async rebuildDBInstanceWithOptions(request: RebuildDBInstanceRequest, runtime: $Util.RuntimeOptions): Promise<RebuildDBInstanceResponse> {
     Util.validateModel(request);
     let query = { };
@@ -43194,11 +48405,25 @@ export default class Client extends OpenApi {
     return $tea.cast<RebuildDBInstanceResponse>(await this.callApi(params, req, runtime), new RebuildDBInstanceResponse({}));
   }
 
+  /**
+    * Dedicated clusters allow you to manage a number of instances at a time. You can create multiple dedicated clusters in a single region. Each dedicated cluster consists of multiple hosts. You can create multiple instances on each host. For more information, see [What is ApsaraDB MyBase?](~~141455~~)
+    *
+    * @param request RebuildDBInstanceRequest
+    * @return RebuildDBInstanceResponse
+   */
   async rebuildDBInstance(request: RebuildDBInstanceRequest): Promise<RebuildDBInstanceResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.rebuildDBInstanceWithOptions(request, runtime);
   }
 
+  /**
+    * ## Prerequisites
+    * A disaster recovery instance is created.
+    *
+    * @param request ReceiveDBInstanceRequest
+    * @param runtime runtime options for this request RuntimeOptions
+    * @return ReceiveDBInstanceResponse
+   */
   async receiveDBInstanceWithOptions(request: ReceiveDBInstanceRequest, runtime: $Util.RuntimeOptions): Promise<ReceiveDBInstanceResponse> {
     Util.validateModel(request);
     let query = { };
@@ -43243,11 +48468,29 @@ export default class Client extends OpenApi {
     return $tea.cast<ReceiveDBInstanceResponse>(await this.callApi(params, req, runtime), new ReceiveDBInstanceResponse({}));
   }
 
+  /**
+    * ## Prerequisites
+    * A disaster recovery instance is created.
+    *
+    * @param request ReceiveDBInstanceRequest
+    * @return ReceiveDBInstanceResponse
+   */
   async receiveDBInstance(request: ReceiveDBInstanceRequest): Promise<ReceiveDBInstanceResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.receiveDBInstanceWithOptions(request, runtime);
   }
 
+  /**
+    * You can call this operation to restore databases to a new instance or an existing instance. If you want to restore databases to an existing instance, we recommend that you call the [Copy databases](~~88810~~) operation.
+    * If you want to restore databases to a new instance, you must create an instance and then restore specific or all databases to the new instance.
+    * *   If you specify the name of a database, only the specified database is restored to the new instance.
+    * *   If you do not specify the name of a database, all databases are restored to the new instance.
+    * > This operation is supported only for instances that run SQL Server 2012 or later.
+    *
+    * @param request RecoveryDBInstanceRequest
+    * @param runtime runtime options for this request RuntimeOptions
+    * @return RecoveryDBInstanceResponse
+   */
   async recoveryDBInstanceWithOptions(request: RecoveryDBInstanceRequest, runtime: $Util.RuntimeOptions): Promise<RecoveryDBInstanceResponse> {
     Util.validateModel(request);
     let query = { };
@@ -43332,6 +48575,16 @@ export default class Client extends OpenApi {
     return $tea.cast<RecoveryDBInstanceResponse>(await this.callApi(params, req, runtime), new RecoveryDBInstanceResponse({}));
   }
 
+  /**
+    * You can call this operation to restore databases to a new instance or an existing instance. If you want to restore databases to an existing instance, we recommend that you call the [Copy databases](~~88810~~) operation.
+    * If you want to restore databases to a new instance, you must create an instance and then restore specific or all databases to the new instance.
+    * *   If you specify the name of a database, only the specified database is restored to the new instance.
+    * *   If you do not specify the name of a database, all databases are restored to the new instance.
+    * > This operation is supported only for instances that run SQL Server 2012 or later.
+    *
+    * @param request RecoveryDBInstanceRequest
+    * @return RecoveryDBInstanceResponse
+   */
   async recoveryDBInstance(request: RecoveryDBInstanceRequest): Promise<RecoveryDBInstanceResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.recoveryDBInstanceWithOptions(request, runtime);
@@ -43390,6 +48643,13 @@ export default class Client extends OpenApi {
     return await this.releaseInstanceConnectionWithOptions(request, runtime);
   }
 
+  /**
+    * To ensure data security, you can release the public endpoint when you do not need to access the database from the Internet.
+    *
+    * @param request ReleaseInstancePublicConnectionRequest
+    * @param runtime runtime options for this request RuntimeOptions
+    * @return ReleaseInstancePublicConnectionResponse
+   */
   async releaseInstancePublicConnectionWithOptions(request: ReleaseInstancePublicConnectionRequest, runtime: $Util.RuntimeOptions): Promise<ReleaseInstancePublicConnectionResponse> {
     Util.validateModel(request);
     let query = { };
@@ -43434,11 +48694,30 @@ export default class Client extends OpenApi {
     return $tea.cast<ReleaseInstancePublicConnectionResponse>(await this.callApi(params, req, runtime), new ReleaseInstancePublicConnectionResponse({}));
   }
 
+  /**
+    * To ensure data security, you can release the public endpoint when you do not need to access the database from the Internet.
+    *
+    * @param request ReleaseInstancePublicConnectionRequest
+    * @return ReleaseInstancePublicConnectionResponse
+   */
   async releaseInstancePublicConnection(request: ReleaseInstancePublicConnectionRequest): Promise<ReleaseInstancePublicConnectionResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.releaseInstancePublicConnectionWithOptions(request, runtime);
   }
 
+  /**
+    * Before you call this operation, make sure that the following requirements are met:
+    * *   If the instance runs MySQL, the instance uses a shared proxy.
+    * *   The read/write splitting feature is enabled for the instance.
+    * *   The instance runs one of the following database versions and RDS editions:
+    *     *   MySQL 5.7 on RDS High-availability Edition with local SSDs
+    *     *   MySQL 5.6
+    *     *   SQL Server (cluster edition)
+    *
+    * @param request ReleaseReadWriteSplittingConnectionRequest
+    * @param runtime runtime options for this request RuntimeOptions
+    * @return ReleaseReadWriteSplittingConnectionResponse
+   */
   async releaseReadWriteSplittingConnectionWithOptions(request: ReleaseReadWriteSplittingConnectionRequest, runtime: $Util.RuntimeOptions): Promise<ReleaseReadWriteSplittingConnectionResponse> {
     Util.validateModel(request);
     let query = { };
@@ -43479,11 +48758,34 @@ export default class Client extends OpenApi {
     return $tea.cast<ReleaseReadWriteSplittingConnectionResponse>(await this.callApi(params, req, runtime), new ReleaseReadWriteSplittingConnectionResponse({}));
   }
 
+  /**
+    * Before you call this operation, make sure that the following requirements are met:
+    * *   If the instance runs MySQL, the instance uses a shared proxy.
+    * *   The read/write splitting feature is enabled for the instance.
+    * *   The instance runs one of the following database versions and RDS editions:
+    *     *   MySQL 5.7 on RDS High-availability Edition with local SSDs
+    *     *   MySQL 5.6
+    *     *   SQL Server (cluster edition)
+    *
+    * @param request ReleaseReadWriteSplittingConnectionRequest
+    * @return ReleaseReadWriteSplittingConnectionResponse
+   */
   async releaseReadWriteSplittingConnection(request: ReleaseReadWriteSplittingConnectionRequest): Promise<ReleaseReadWriteSplittingConnectionResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.releaseReadWriteSplittingConnectionWithOptions(request, runtime);
   }
 
+  /**
+    * This operation has the following limits:
+    * *   A maximum of 10 tags can be unbound in a single request.
+    * *   If a tag is unbound from all of the instances to which the tag has been bound, the tag is automatically deleted.
+    * *   If you specify only a TagKey, all tags that match the TagKey condition are unbound.
+    * *   You must specify at least a TagKey or a set of a TagKey and a TagValue.
+    *
+    * @param request RemoveTagsFromResourceRequest
+    * @param runtime runtime options for this request RuntimeOptions
+    * @return RemoveTagsFromResourceResponse
+   */
   async removeTagsFromResourceWithOptions(request: RemoveTagsFromResourceRequest, runtime: $Util.RuntimeOptions): Promise<RemoveTagsFromResourceResponse> {
     Util.validateModel(request);
     let query = { };
@@ -43544,11 +48846,33 @@ export default class Client extends OpenApi {
     return $tea.cast<RemoveTagsFromResourceResponse>(await this.callApi(params, req, runtime), new RemoveTagsFromResourceResponse({}));
   }
 
+  /**
+    * This operation has the following limits:
+    * *   A maximum of 10 tags can be unbound in a single request.
+    * *   If a tag is unbound from all of the instances to which the tag has been bound, the tag is automatically deleted.
+    * *   If you specify only a TagKey, all tags that match the TagKey condition are unbound.
+    * *   You must specify at least a TagKey or a set of a TagKey and a TagValue.
+    *
+    * @param request RemoveTagsFromResourceRequest
+    * @return RemoveTagsFromResourceResponse
+   */
   async removeTagsFromResource(request: RemoveTagsFromResourceRequest): Promise<RemoveTagsFromResourceResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.removeTagsFromResourceWithOptions(request, runtime);
   }
 
+  /**
+    * Before you call this operation, make sure that you understand the billing methods and pricing of ApsaraDB RDS. For more information, see [Billable items, billing methods, and pricing](~~45020~~).
+    * Before you call this operation, make sure that the following requirements are met:
+    * *   The instance is a subscription instance.
+    * *   Your account supports credit card payments or balance payments.
+    *     **
+    *     **Note**By default, coupons available for your account are preferentially used for payment.
+    *
+    * @param request RenewInstanceRequest
+    * @param runtime runtime options for this request RuntimeOptions
+    * @return RenewInstanceResponse
+   */
   async renewInstanceWithOptions(request: RenewInstanceRequest, runtime: $Util.RuntimeOptions): Promise<RenewInstanceResponse> {
     Util.validateModel(request);
     let query = { };
@@ -43601,48 +48925,30 @@ export default class Client extends OpenApi {
     return $tea.cast<RenewInstanceResponse>(await this.callApi(params, req, runtime), new RenewInstanceResponse({}));
   }
 
+  /**
+    * Before you call this operation, make sure that you understand the billing methods and pricing of ApsaraDB RDS. For more information, see [Billable items, billing methods, and pricing](~~45020~~).
+    * Before you call this operation, make sure that the following requirements are met:
+    * *   The instance is a subscription instance.
+    * *   Your account supports credit card payments or balance payments.
+    *     **
+    *     **Note**By default, coupons available for your account are preferentially used for payment.
+    *
+    * @param request RenewInstanceRequest
+    * @return RenewInstanceResponse
+   */
   async renewInstance(request: RenewInstanceRequest): Promise<RenewInstanceResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.renewInstanceWithOptions(request, runtime);
   }
 
-  async requestServiceOfCloudDBAWithOptions(request: RequestServiceOfCloudDBARequest, runtime: $Util.RuntimeOptions): Promise<RequestServiceOfCloudDBAResponse> {
-    Util.validateModel(request);
-    let query = { };
-    if (!Util.isUnset(request.DBInstanceId)) {
-      query["DBInstanceId"] = request.DBInstanceId;
-    }
-
-    if (!Util.isUnset(request.serviceRequestParam)) {
-      query["ServiceRequestParam"] = request.serviceRequestParam;
-    }
-
-    if (!Util.isUnset(request.serviceRequestType)) {
-      query["ServiceRequestType"] = request.serviceRequestType;
-    }
-
-    let req = new $OpenApi.OpenApiRequest({
-      query: OpenApiUtil.query(query),
-    });
-    let params = new $OpenApi.Params({
-      action: "RequestServiceOfCloudDBA",
-      version: "2014-08-15",
-      protocol: "HTTPS",
-      pathname: "/",
-      method: "POST",
-      authType: "AK",
-      style: "RPC",
-      reqBodyType: "formData",
-      bodyType: "json",
-    });
-    return $tea.cast<RequestServiceOfCloudDBAResponse>(await this.callApi(params, req, runtime), new RequestServiceOfCloudDBAResponse({}));
-  }
-
-  async requestServiceOfCloudDBA(request: RequestServiceOfCloudDBARequest): Promise<RequestServiceOfCloudDBAResponse> {
-    let runtime = new $Util.RuntimeOptions({ });
-    return await this.requestServiceOfCloudDBAWithOptions(request, runtime);
-  }
-
+  /**
+    * **
+    * **This operation is not supported for instances that run SQL Server 2008 R2 because they do not have privileged accounts.
+    *
+    * @param request ResetAccountRequest
+    * @param runtime runtime options for this request RuntimeOptions
+    * @return ResetAccountResponse
+   */
   async resetAccountWithOptions(request: ResetAccountRequest, runtime: $Util.RuntimeOptions): Promise<ResetAccountResponse> {
     Util.validateModel(request);
     let query = { };
@@ -43691,11 +48997,26 @@ export default class Client extends OpenApi {
     return $tea.cast<ResetAccountResponse>(await this.callApi(params, req, runtime), new ResetAccountResponse({}));
   }
 
+  /**
+    * **
+    * **This operation is not supported for instances that run SQL Server 2008 R2 because they do not have privileged accounts.
+    *
+    * @param request ResetAccountRequest
+    * @return ResetAccountResponse
+   */
   async resetAccount(request: ResetAccountRequest): Promise<ResetAccountResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.resetAccountWithOptions(request, runtime);
   }
 
+  /**
+    * Before you call this operation, make sure that the instance is in the Running state.
+    * > If the instance runs SQL Server 2017 on RDS Cluster Edition or runs PostgreSQL, you cannot call this operation to reset the passwords of accounts that are created by using SQL statements.
+    *
+    * @param request ResetAccountPasswordRequest
+    * @param runtime runtime options for this request RuntimeOptions
+    * @return ResetAccountPasswordResponse
+   */
   async resetAccountPasswordWithOptions(request: ResetAccountPasswordRequest, runtime: $Util.RuntimeOptions): Promise<ResetAccountPasswordResponse> {
     Util.validateModel(request);
     let query = { };
@@ -43744,11 +49065,28 @@ export default class Client extends OpenApi {
     return $tea.cast<ResetAccountPasswordResponse>(await this.callApi(params, req, runtime), new ResetAccountPasswordResponse({}));
   }
 
+  /**
+    * Before you call this operation, make sure that the instance is in the Running state.
+    * > If the instance runs SQL Server 2017 on RDS Cluster Edition or runs PostgreSQL, you cannot call this operation to reset the passwords of accounts that are created by using SQL statements.
+    *
+    * @param request ResetAccountPasswordRequest
+    * @return ResetAccountPasswordResponse
+   */
   async resetAccountPassword(request: ResetAccountPasswordRequest): Promise<ResetAccountPasswordResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.resetAccountPasswordWithOptions(request, runtime);
   }
 
+  /**
+    * If a large number of transactions need to be submitted or rolled back, the restart process may be delayed for a minute.\\
+    * Before you call this operation, make sure that the following requirements are met:
+    * *   The instance is in the Running state.
+    * *   The instance does not have ongoing backup tasks.
+    *
+    * @param request RestartDBInstanceRequest
+    * @param runtime runtime options for this request RuntimeOptions
+    * @return RestartDBInstanceResponse
+   */
   async restartDBInstanceWithOptions(request: RestartDBInstanceRequest, runtime: $Util.RuntimeOptions): Promise<RestartDBInstanceResponse> {
     Util.validateModel(request);
     let query = { };
@@ -43793,6 +49131,15 @@ export default class Client extends OpenApi {
     return $tea.cast<RestartDBInstanceResponse>(await this.callApi(params, req, runtime), new RestartDBInstanceResponse({}));
   }
 
+  /**
+    * If a large number of transactions need to be submitted or rolled back, the restart process may be delayed for a minute.\\
+    * Before you call this operation, make sure that the following requirements are met:
+    * *   The instance is in the Running state.
+    * *   The instance does not have ongoing backup tasks.
+    *
+    * @param request RestartDBInstanceRequest
+    * @return RestartDBInstanceResponse
+   */
   async restartDBInstance(request: RestartDBInstanceRequest): Promise<RestartDBInstanceResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.restartDBInstanceWithOptions(request, runtime);
@@ -43875,6 +49222,20 @@ export default class Client extends OpenApi {
     return await this.restoreDdrTableWithOptions(request, runtime);
   }
 
+  /**
+    * ApsaraDB RDS for MySQL supports the restoration of individual databases and tables. If you delete databases or tables from an instance, you can restore the databases or tables by using a backup file. For more information, see [Restore individual databases and tables of an ApsaraDB RDS for MySQL instance](~~103175~~).
+    * Before you call this operation, make sure that the following requirements are met:
+    * *   The instance is in the Running state.
+    * *   The instance does not have ongoing migration tasks.
+    * *   If you want to restore data to a specific point in time, make sure that the log backup feature is enabled for the instance. For more information, see [Back up an ApsaraDB RDS for MySQL instance](~~98818~~).
+    * *   The restoration of individual databases or tables is enabled, and new backups are created. For more information, see [Restore individual databases and tables of an ApsaraDB RDS for MySQL instance](~~103175~~).
+    * *   The names that you want to use for the restored tables do not exist in the instance.
+    * > This operation is supported only for instances that run MySQL.
+    *
+    * @param request RestoreTableRequest
+    * @param runtime runtime options for this request RuntimeOptions
+    * @return RestoreTableResponse
+   */
   async restoreTableWithOptions(request: RestoreTableRequest, runtime: $Util.RuntimeOptions): Promise<RestoreTableResponse> {
     Util.validateModel(request);
     let query = { };
@@ -43935,11 +49296,36 @@ export default class Client extends OpenApi {
     return $tea.cast<RestoreTableResponse>(await this.callApi(params, req, runtime), new RestoreTableResponse({}));
   }
 
+  /**
+    * ApsaraDB RDS for MySQL supports the restoration of individual databases and tables. If you delete databases or tables from an instance, you can restore the databases or tables by using a backup file. For more information, see [Restore individual databases and tables of an ApsaraDB RDS for MySQL instance](~~103175~~).
+    * Before you call this operation, make sure that the following requirements are met:
+    * *   The instance is in the Running state.
+    * *   The instance does not have ongoing migration tasks.
+    * *   If you want to restore data to a specific point in time, make sure that the log backup feature is enabled for the instance. For more information, see [Back up an ApsaraDB RDS for MySQL instance](~~98818~~).
+    * *   The restoration of individual databases or tables is enabled, and new backups are created. For more information, see [Restore individual databases and tables of an ApsaraDB RDS for MySQL instance](~~103175~~).
+    * *   The names that you want to use for the restored tables do not exist in the instance.
+    * > This operation is supported only for instances that run MySQL.
+    *
+    * @param request RestoreTableRequest
+    * @return RestoreTableResponse
+   */
   async restoreTable(request: RestoreTableRequest): Promise<RestoreTableResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.restoreTableWithOptions(request, runtime);
   }
 
+  /**
+    * Before you call this operation, make sure that the following requirements are met:
+    * *   The instance is in the Running state.
+    * *   The database is in the Running state.
+    * > 
+    * *   The permissions that can be revoked include SELECT, INSERT, UPDATE, DELETE, CREATE, DROP, REFERENCES, INDEX, ALTER, CREATE TEMPORARY TABLES, LOCK TABLES, EXECUTE, CREATE VIEW, SHOW VIEW, CREATE ROUTINE, ALTER ROUTINE, EVENT, and TRIGGER.
+    * *   This operation is not supported for instances that run SQL Server 2017 on RDS Cluster Edition or PostgreSQL.
+    *
+    * @param request RevokeAccountPrivilegeRequest
+    * @param runtime runtime options for this request RuntimeOptions
+    * @return RevokeAccountPrivilegeResponse
+   */
   async revokeAccountPrivilegeWithOptions(request: RevokeAccountPrivilegeRequest, runtime: $Util.RuntimeOptions): Promise<RevokeAccountPrivilegeResponse> {
     Util.validateModel(request);
     let query = { };
@@ -43988,11 +49374,33 @@ export default class Client extends OpenApi {
     return $tea.cast<RevokeAccountPrivilegeResponse>(await this.callApi(params, req, runtime), new RevokeAccountPrivilegeResponse({}));
   }
 
+  /**
+    * Before you call this operation, make sure that the following requirements are met:
+    * *   The instance is in the Running state.
+    * *   The database is in the Running state.
+    * > 
+    * *   The permissions that can be revoked include SELECT, INSERT, UPDATE, DELETE, CREATE, DROP, REFERENCES, INDEX, ALTER, CREATE TEMPORARY TABLES, LOCK TABLES, EXECUTE, CREATE VIEW, SHOW VIEW, CREATE ROUTINE, ALTER ROUTINE, EVENT, and TRIGGER.
+    * *   This operation is not supported for instances that run SQL Server 2017 on RDS Cluster Edition or PostgreSQL.
+    *
+    * @param request RevokeAccountPrivilegeRequest
+    * @return RevokeAccountPrivilegeResponse
+   */
   async revokeAccountPrivilege(request: RevokeAccountPrivilegeRequest): Promise<RevokeAccountPrivilegeResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.revokeAccountPrivilegeWithOptions(request, runtime);
   }
 
+  /**
+    * After Alibaba Cloud technical support resolves the issues on your instance, you can revoke permissions from the service account of your instance.
+    * This operation is available only when your instance runs one of the following database engines:
+    * *   MySQL
+    * *   SQL Server
+    * *   PostgreSQL
+    *
+    * @param request RevokeOperatorPermissionRequest
+    * @param runtime runtime options for this request RuntimeOptions
+    * @return RevokeOperatorPermissionResponse
+   */
   async revokeOperatorPermissionWithOptions(request: RevokeOperatorPermissionRequest, runtime: $Util.RuntimeOptions): Promise<RevokeOperatorPermissionResponse> {
     Util.validateModel(request);
     let query = { };
@@ -44033,6 +49441,16 @@ export default class Client extends OpenApi {
     return $tea.cast<RevokeOperatorPermissionResponse>(await this.callApi(params, req, runtime), new RevokeOperatorPermissionResponse({}));
   }
 
+  /**
+    * After Alibaba Cloud technical support resolves the issues on your instance, you can revoke permissions from the service account of your instance.
+    * This operation is available only when your instance runs one of the following database engines:
+    * *   MySQL
+    * *   SQL Server
+    * *   PostgreSQL
+    *
+    * @param request RevokeOperatorPermissionRequest
+    * @return RevokeOperatorPermissionResponse
+   */
   async revokeOperatorPermission(request: RevokeOperatorPermissionRequest): Promise<RevokeOperatorPermissionResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.revokeOperatorPermissionWithOptions(request, runtime);
@@ -44131,6 +49549,20 @@ export default class Client extends OpenApi {
     return await this.startDBInstanceWithOptions(request, runtime);
   }
 
+  /**
+    * *   You cannot stop a serverless ApsaraDB RDS for MySQL instance because serverless instances support the automatic start and stop feature. For more information, see [Configure a serverless instance](~~421557~~).
+    * *   For more information about how to stop an ApsaraDB RDS for MySQL instance, see [Suspend an instance](~~427093~~).
+    * *   For more information about how to stop an ApsaraDB RDS for PostgreSQL instance, see [Suspend an instance](~~452314~~).
+    * *   For more information about how to stop a ApsaraDB RDS for SQL Server instance, see [Suspend an instance](~~462504~~).
+    * *   The following list describes the usage notes when you stop an instance that is created in a dedicated cluster:
+    *     *   After you stop an instance, the computing resources of the instance are released. However, the data of the instance is retained. The retained data can be used to start the instance.
+    *     *   When you stop an instance, all the read-only instances that are attached to the instance are stopped at the same time.
+    *     *   After you stop an instance, the storage resources of the instance are still retained. You do not need to pay extra fees for the storage of the retained data.
+    *
+    * @param request StopDBInstanceRequest
+    * @param runtime runtime options for this request RuntimeOptions
+    * @return StopDBInstanceResponse
+   */
   async stopDBInstanceWithOptions(request: StopDBInstanceRequest, runtime: $Util.RuntimeOptions): Promise<StopDBInstanceResponse> {
     Util.validateModel(request);
     let query = { };
@@ -44171,11 +49603,31 @@ export default class Client extends OpenApi {
     return $tea.cast<StopDBInstanceResponse>(await this.callApi(params, req, runtime), new StopDBInstanceResponse({}));
   }
 
+  /**
+    * *   You cannot stop a serverless ApsaraDB RDS for MySQL instance because serverless instances support the automatic start and stop feature. For more information, see [Configure a serverless instance](~~421557~~).
+    * *   For more information about how to stop an ApsaraDB RDS for MySQL instance, see [Suspend an instance](~~427093~~).
+    * *   For more information about how to stop an ApsaraDB RDS for PostgreSQL instance, see [Suspend an instance](~~452314~~).
+    * *   For more information about how to stop a ApsaraDB RDS for SQL Server instance, see [Suspend an instance](~~462504~~).
+    * *   The following list describes the usage notes when you stop an instance that is created in a dedicated cluster:
+    *     *   After you stop an instance, the computing resources of the instance are released. However, the data of the instance is retained. The retained data can be used to start the instance.
+    *     *   When you stop an instance, all the read-only instances that are attached to the instance are stopped at the same time.
+    *     *   After you stop an instance, the storage resources of the instance are still retained. You do not need to pay extra fees for the storage of the retained data.
+    *
+    * @param request StopDBInstanceRequest
+    * @return StopDBInstanceResponse
+   */
   async stopDBInstance(request: StopDBInstanceRequest): Promise<StopDBInstanceResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.stopDBInstanceWithOptions(request, runtime);
   }
 
+  /**
+    * This operation switches workloads over between the primary and secondary instances that do not run RDS Basic Edition. After the switchover, the secondary instance serves as the primary instance.
+    *
+    * @param request SwitchDBInstanceHARequest
+    * @param runtime runtime options for this request RuntimeOptions
+    * @return SwitchDBInstanceHAResponse
+   */
   async switchDBInstanceHAWithOptions(request: SwitchDBInstanceHARequest, runtime: $Util.RuntimeOptions): Promise<SwitchDBInstanceHAResponse> {
     Util.validateModel(request);
     let query = { };
@@ -44228,11 +49680,29 @@ export default class Client extends OpenApi {
     return $tea.cast<SwitchDBInstanceHAResponse>(await this.callApi(params, req, runtime), new SwitchDBInstanceHAResponse({}));
   }
 
+  /**
+    * This operation switches workloads over between the primary and secondary instances that do not run RDS Basic Edition. After the switchover, the secondary instance serves as the primary instance.
+    *
+    * @param request SwitchDBInstanceHARequest
+    * @return SwitchDBInstanceHAResponse
+   */
   async switchDBInstanceHA(request: SwitchDBInstanceHARequest): Promise<SwitchDBInstanceHAResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.switchDBInstanceHAWithOptions(request, runtime);
   }
 
+  /**
+    * To save endpoint resources, you can call this operation to switch an instance between its internal and public endpoints. After the endpoint that is used to connect to the instance is changed, you must update the endpoint information in the code of your application and restart the application.
+    * Before you call this operation, make sure that the following requirements are met:
+    * *   The instance is connected by using its internal or public endpoint.
+    * *   The instance is in the Running state.
+    * *   The number of times that you have switched the instance between its internal and public endpoints within the last 24 hours does not reach 20.
+    * *   The instance resides in the classic network.
+    *
+    * @param request SwitchDBInstanceNetTypeRequest
+    * @param runtime runtime options for this request RuntimeOptions
+    * @return SwitchDBInstanceNetTypeResponse
+   */
   async switchDBInstanceNetTypeWithOptions(request: SwitchDBInstanceNetTypeRequest, runtime: $Util.RuntimeOptions): Promise<SwitchDBInstanceNetTypeResponse> {
     Util.validateModel(request);
     let query = { };
@@ -44289,11 +49759,34 @@ export default class Client extends OpenApi {
     return $tea.cast<SwitchDBInstanceNetTypeResponse>(await this.callApi(params, req, runtime), new SwitchDBInstanceNetTypeResponse({}));
   }
 
+  /**
+    * To save endpoint resources, you can call this operation to switch an instance between its internal and public endpoints. After the endpoint that is used to connect to the instance is changed, you must update the endpoint information in the code of your application and restart the application.
+    * Before you call this operation, make sure that the following requirements are met:
+    * *   The instance is connected by using its internal or public endpoint.
+    * *   The instance is in the Running state.
+    * *   The number of times that you have switched the instance between its internal and public endpoints within the last 24 hours does not reach 20.
+    * *   The instance resides in the classic network.
+    *
+    * @param request SwitchDBInstanceNetTypeRequest
+    * @return SwitchDBInstanceNetTypeResponse
+   */
   async switchDBInstanceNetType(request: SwitchDBInstanceNetTypeRequest): Promise<SwitchDBInstanceNetTypeResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.switchDBInstanceNetTypeWithOptions(request, runtime);
   }
 
+  /**
+    * The instance must run one of the following database engines:
+    * *   MySQL with local SSDs, standard SSDs, or enhanced ESSDs (ESSDs)
+    * *   SQL Server with standard SSDs or ESSDs
+    * *   MariaDB with standard SSDs or ESSDs
+    * *   PostgreSQL with standard SSDs or ESSDs
+    * For more information about the impact of VPC and vSwitch changes, see [Switch an ApsaraDB RDS for MySQL instance to a new VPC and a new vSwitch](~~137567~~).
+    *
+    * @param request SwitchDBInstanceVpcRequest
+    * @param runtime runtime options for this request RuntimeOptions
+    * @return SwitchDBInstanceVpcResponse
+   */
   async switchDBInstanceVpcWithOptions(request: SwitchDBInstanceVpcRequest, runtime: $Util.RuntimeOptions): Promise<SwitchDBInstanceVpcResponse> {
     Util.validateModel(request);
     let query = { };
@@ -44334,6 +49827,17 @@ export default class Client extends OpenApi {
     return $tea.cast<SwitchDBInstanceVpcResponse>(await this.callApi(params, req, runtime), new SwitchDBInstanceVpcResponse({}));
   }
 
+  /**
+    * The instance must run one of the following database engines:
+    * *   MySQL with local SSDs, standard SSDs, or enhanced ESSDs (ESSDs)
+    * *   SQL Server with standard SSDs or ESSDs
+    * *   MariaDB with standard SSDs or ESSDs
+    * *   PostgreSQL with standard SSDs or ESSDs
+    * For more information about the impact of VPC and vSwitch changes, see [Switch an ApsaraDB RDS for MySQL instance to a new VPC and a new vSwitch](~~137567~~).
+    *
+    * @param request SwitchDBInstanceVpcRequest
+    * @return SwitchDBInstanceVpcResponse
+   */
   async switchDBInstanceVpc(request: SwitchDBInstanceVpcRequest): Promise<SwitchDBInstanceVpcResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.switchDBInstanceVpcWithOptions(request, runtime);
@@ -44384,6 +49888,18 @@ export default class Client extends OpenApi {
     return await this.switchGuardToMasterInstanceWithOptions(request, runtime);
   }
 
+  /**
+    * If you have a large number of instances, you can create multiple tags and add these tags to the instances. Then, you can filter these instances by tag.
+    * *   A tag consists of a key and a value. Each key must be unique in a region for an Alibaba Cloud account. Different keys can be mapped to the same value.
+    * *   If the tag that you specify does not exist, this tag is automatically created and added to the specified instance.
+    * *   If the key of the specified tag is the same as that of an existing tag, the specified tag overwrites the existing tag.
+    * *   You can add up to 20 tags to an instance.
+    * *   You can add tags to up to 50 instances in each call.
+    *
+    * @param request TagResourcesRequest
+    * @param runtime runtime options for this request RuntimeOptions
+    * @return TagResourcesResponse
+   */
   async tagResourcesWithOptions(request: TagResourcesRequest, runtime: $Util.RuntimeOptions): Promise<TagResourcesResponse> {
     Util.validateModel(request);
     let query = { };
@@ -44432,6 +49948,17 @@ export default class Client extends OpenApi {
     return $tea.cast<TagResourcesResponse>(await this.callApi(params, req, runtime), new TagResourcesResponse({}));
   }
 
+  /**
+    * If you have a large number of instances, you can create multiple tags and add these tags to the instances. Then, you can filter these instances by tag.
+    * *   A tag consists of a key and a value. Each key must be unique in a region for an Alibaba Cloud account. Different keys can be mapped to the same value.
+    * *   If the tag that you specify does not exist, this tag is automatically created and added to the specified instance.
+    * *   If the key of the specified tag is the same as that of an existing tag, the specified tag overwrites the existing tag.
+    * *   You can add up to 20 tags to an instance.
+    * *   You can add tags to up to 50 instances in each call.
+    *
+    * @param request TagResourcesRequest
+    * @return TagResourcesResponse
+   */
   async tagResources(request: TagResourcesRequest): Promise<TagResourcesResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.tagResourcesWithOptions(request, runtime);
@@ -44482,6 +50009,21 @@ export default class Client extends OpenApi {
     return await this.terminateMigrateTaskWithOptions(request, runtime);
   }
 
+  /**
+    * > 
+    * *   If you change the billing method of an instance from subscription to pay-as-you-go, a refund may be provided. The refund amount is equal to the remaining subscription fee deducted by an amount of service fee. For more information, see [Switch an ApsaraDB RDS for MySQL instance from subscription to pay-as-you-go](~~161875~~).
+    * *   If the balance of your Alibaba Cloud account is insufficient, you cannot change the billing method of an instance from pay-as-you-go to subscription.
+    * *   This operation is not supported for instances whose specification change orders are not completed.
+    * *   This operation is not supported for instances that are created in dedicated clusters.
+    * ApsaraDB RDS supports the following two billing methods:
+    * *   Subscription: A subscription instance is an instance for which you pay an upfront fee. For long-term use, the subscription billing method is more cost-effective than the pay-as-you-go billing method. You are offered lower prices for longer subscription durations.
+    * *   Pay-as-you-go: A pay-as-you-go instance is an instance for which you are charged per hour based on your resource usage. The hourly fee is calculated based on the instance type that you specify in the purchase order and is deducted from the balance of your Alibaba Cloud account. We recommend that you select the pay-as-you-go billing method for short-term use. If you no longer need your pay-as-you-go instance, you can release the instance to reduce costs.
+    * For more information about the billing methods, see [Pricing, billable items, and billing methods](~~45020~~).
+    *
+    * @param request TransformDBInstancePayTypeRequest
+    * @param runtime runtime options for this request RuntimeOptions
+    * @return TransformDBInstancePayTypeResponse
+   */
   async transformDBInstancePayTypeWithOptions(request: TransformDBInstancePayTypeRequest, runtime: $Util.RuntimeOptions): Promise<TransformDBInstancePayTypeResponse> {
     Util.validateModel(request);
     let query = { };
@@ -44546,11 +50088,32 @@ export default class Client extends OpenApi {
     return $tea.cast<TransformDBInstancePayTypeResponse>(await this.callApi(params, req, runtime), new TransformDBInstancePayTypeResponse({}));
   }
 
+  /**
+    * > 
+    * *   If you change the billing method of an instance from subscription to pay-as-you-go, a refund may be provided. The refund amount is equal to the remaining subscription fee deducted by an amount of service fee. For more information, see [Switch an ApsaraDB RDS for MySQL instance from subscription to pay-as-you-go](~~161875~~).
+    * *   If the balance of your Alibaba Cloud account is insufficient, you cannot change the billing method of an instance from pay-as-you-go to subscription.
+    * *   This operation is not supported for instances whose specification change orders are not completed.
+    * *   This operation is not supported for instances that are created in dedicated clusters.
+    * ApsaraDB RDS supports the following two billing methods:
+    * *   Subscription: A subscription instance is an instance for which you pay an upfront fee. For long-term use, the subscription billing method is more cost-effective than the pay-as-you-go billing method. You are offered lower prices for longer subscription durations.
+    * *   Pay-as-you-go: A pay-as-you-go instance is an instance for which you are charged per hour based on your resource usage. The hourly fee is calculated based on the instance type that you specify in the purchase order and is deducted from the balance of your Alibaba Cloud account. We recommend that you select the pay-as-you-go billing method for short-term use. If you no longer need your pay-as-you-go instance, you can release the instance to reduce costs.
+    * For more information about the billing methods, see [Pricing, billable items, and billing methods](~~45020~~).
+    *
+    * @param request TransformDBInstancePayTypeRequest
+    * @return TransformDBInstancePayTypeResponse
+   */
   async transformDBInstancePayType(request: TransformDBInstancePayTypeRequest): Promise<TransformDBInstancePayTypeResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.transformDBInstancePayTypeWithOptions(request, runtime);
   }
 
+  /**
+    * You cannot use a locked account to log on to the corresponding instance. You must first unlock the account. For more information, see [Unlock and delete an account](~~147649~~).
+    *
+    * @param request UnlockAccountRequest
+    * @param runtime runtime options for this request RuntimeOptions
+    * @return UnlockAccountResponse
+   */
   async unlockAccountWithOptions(request: UnlockAccountRequest, runtime: $Util.RuntimeOptions): Promise<UnlockAccountResponse> {
     Util.validateModel(request);
     let query = { };
@@ -44591,11 +50154,25 @@ export default class Client extends OpenApi {
     return $tea.cast<UnlockAccountResponse>(await this.callApi(params, req, runtime), new UnlockAccountResponse({}));
   }
 
+  /**
+    * You cannot use a locked account to log on to the corresponding instance. You must first unlock the account. For more information, see [Unlock and delete an account](~~147649~~).
+    *
+    * @param request UnlockAccountRequest
+    * @return UnlockAccountResponse
+   */
   async unlockAccount(request: UnlockAccountRequest): Promise<UnlockAccountResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.unlockAccountWithOptions(request, runtime);
   }
 
+  /**
+    * > *   You can remove up to 20 tags at a time.
+    * > *   If a tag is removed from an instance and is not added to other instances, the tag is automatically deleted.
+    *
+    * @param request UntagResourcesRequest
+    * @param runtime runtime options for this request RuntimeOptions
+    * @return UntagResourcesResponse
+   */
   async untagResourcesWithOptions(request: UntagResourcesRequest, runtime: $Util.RuntimeOptions): Promise<UntagResourcesResponse> {
     Util.validateModel(request);
     let query = { };
@@ -44648,11 +50225,25 @@ export default class Client extends OpenApi {
     return $tea.cast<UntagResourcesResponse>(await this.callApi(params, req, runtime), new UntagResourcesResponse({}));
   }
 
+  /**
+    * > *   You can remove up to 20 tags at a time.
+    * > *   If a tag is removed from an instance and is not added to other instances, the tag is automatically deleted.
+    *
+    * @param request UntagResourcesRequest
+    * @return UntagResourcesResponse
+   */
   async untagResources(request: UntagResourcesRequest): Promise<UntagResourcesResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.untagResourcesWithOptions(request, runtime);
   }
 
+  /**
+    * > A full backup file contains the data of a self-managed MySQL database. You can restore the data of a self-managed MySQL database from a full backup file to an ApsaraDB RDS for MySQL instance. For more information, see [Migrate the data of a self-managed MySQL 5.7 instance to the cloud](~~251779~~).
+    *
+    * @param request UpdateUserBackupFileRequest
+    * @param runtime runtime options for this request RuntimeOptions
+    * @return UpdateUserBackupFileResponse
+   */
   async updateUserBackupFileWithOptions(request: UpdateUserBackupFileRequest, runtime: $Util.RuntimeOptions): Promise<UpdateUserBackupFileResponse> {
     Util.validateModel(request);
     let query = { };
@@ -44701,11 +50292,32 @@ export default class Client extends OpenApi {
     return $tea.cast<UpdateUserBackupFileResponse>(await this.callApi(params, req, runtime), new UpdateUserBackupFileResponse({}));
   }
 
+  /**
+    * > A full backup file contains the data of a self-managed MySQL database. You can restore the data of a self-managed MySQL database from a full backup file to an ApsaraDB RDS for MySQL instance. For more information, see [Migrate the data of a self-managed MySQL 5.7 instance to the cloud](~~251779~~).
+    *
+    * @param request UpdateUserBackupFileRequest
+    * @return UpdateUserBackupFileResponse
+   */
   async updateUserBackupFile(request: UpdateUserBackupFileRequest): Promise<UpdateUserBackupFileResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.updateUserBackupFileWithOptions(request, runtime);
   }
 
+  /**
+    * > The fee that you must pay after the upgrade varies based on the instance types and storage types of the original instance and the new instance.
+    * If the instance is a primary instance to which read-only instances or disaster recovery instances are attached, you must upgrade the major engine versions of the read-only instances or disaster recovery instances before you upgrade the major engine version of the primary instance.
+    * Before you call this operation, make sure that the following requirements are met:
+    * *   The instance is in the Running state.
+    * *   The instance runs one of the following database versions:
+    *     *   MySQL 5.7
+    *     *   MySQL 5.6
+    *     *   MySQL 5.5
+    * You can call the [UpgradeDBInstanceMajorVersion](~~330972~~) operation to upgrade the major engine version of an ApsaraDB RDS for PostgreSQL instance.
+    *
+    * @param request UpgradeDBInstanceEngineVersionRequest
+    * @param runtime runtime options for this request RuntimeOptions
+    * @return UpgradeDBInstanceEngineVersionResponse
+   */
   async upgradeDBInstanceEngineVersionWithOptions(request: UpgradeDBInstanceEngineVersionRequest, runtime: $Util.RuntimeOptions): Promise<UpgradeDBInstanceEngineVersionResponse> {
     Util.validateModel(request);
     let query = { };
@@ -44758,11 +50370,33 @@ export default class Client extends OpenApi {
     return $tea.cast<UpgradeDBInstanceEngineVersionResponse>(await this.callApi(params, req, runtime), new UpgradeDBInstanceEngineVersionResponse({}));
   }
 
+  /**
+    * > The fee that you must pay after the upgrade varies based on the instance types and storage types of the original instance and the new instance.
+    * If the instance is a primary instance to which read-only instances or disaster recovery instances are attached, you must upgrade the major engine versions of the read-only instances or disaster recovery instances before you upgrade the major engine version of the primary instance.
+    * Before you call this operation, make sure that the following requirements are met:
+    * *   The instance is in the Running state.
+    * *   The instance runs one of the following database versions:
+    *     *   MySQL 5.7
+    *     *   MySQL 5.6
+    *     *   MySQL 5.5
+    * You can call the [UpgradeDBInstanceMajorVersion](~~330972~~) operation to upgrade the major engine version of an ApsaraDB RDS for PostgreSQL instance.
+    *
+    * @param request UpgradeDBInstanceEngineVersionRequest
+    * @return UpgradeDBInstanceEngineVersionResponse
+   */
   async upgradeDBInstanceEngineVersion(request: UpgradeDBInstanceEngineVersionRequest): Promise<UpgradeDBInstanceEngineVersionResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.upgradeDBInstanceEngineVersionWithOptions(request, runtime);
   }
 
+  /**
+    * An update to the minor engine version enhances performance, introduces new features, and fixes known bugs. For more information, see [Update the minor engine version of an ApsaraDB RDS for MySQL instance](~~96059~~), [Update the minor engine version of an ApsaraDB RDS for SQL Server instance](~~213582~~), and [Update the minor engine version of an ApsaraDB RDS for PostgreSQL instance](~~146895~~).
+    * > This operation is supported for instances that run MySQL, SQL Server, or PostgreSQL.
+    *
+    * @param request UpgradeDBInstanceKernelVersionRequest
+    * @param runtime runtime options for this request RuntimeOptions
+    * @return UpgradeDBInstanceKernelVersionResponse
+   */
   async upgradeDBInstanceKernelVersionWithOptions(request: UpgradeDBInstanceKernelVersionRequest, runtime: $Util.RuntimeOptions): Promise<UpgradeDBInstanceKernelVersionResponse> {
     Util.validateModel(request);
     let query = { };
@@ -44811,11 +50445,32 @@ export default class Client extends OpenApi {
     return $tea.cast<UpgradeDBInstanceKernelVersionResponse>(await this.callApi(params, req, runtime), new UpgradeDBInstanceKernelVersionResponse({}));
   }
 
+  /**
+    * An update to the minor engine version enhances performance, introduces new features, and fixes known bugs. For more information, see [Update the minor engine version of an ApsaraDB RDS for MySQL instance](~~96059~~), [Update the minor engine version of an ApsaraDB RDS for SQL Server instance](~~213582~~), and [Update the minor engine version of an ApsaraDB RDS for PostgreSQL instance](~~146895~~).
+    * > This operation is supported for instances that run MySQL, SQL Server, or PostgreSQL.
+    *
+    * @param request UpgradeDBInstanceKernelVersionRequest
+    * @return UpgradeDBInstanceKernelVersionResponse
+   */
   async upgradeDBInstanceKernelVersion(request: UpgradeDBInstanceKernelVersionRequest): Promise<UpgradeDBInstanceKernelVersionResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.upgradeDBInstanceKernelVersionWithOptions(request, runtime);
   }
 
+  /**
+    * During an upgrade, ApsaraDB RDS retains the original instance and creates an instance that runs the new major engine version. You are **charged** for the new instance based on the **pay-as-you-go** billing method after the instance is created. The new instance **does not inherit the discounts that are offered to the original instance**. Before you call this operation, make sure that you fully understand the billing methods and pricing of ApsaraDB RDS. You can decide whether to upgrade the major engine version based on your business requirements. For more information, see [Billable items, billing methods, and pricing](~~45020~~).
+    * Before you upgrade the major engine version, you must call the [UpgradeDBInstanceMajorVersionPrecheck](~~330050~~) operation to perform an upgrade check and then call the [DescribeUpgradeMajorVersionPrecheckTask](~~330088~~) operation to query the upgrade check report. You can call the UpgradeDBInstanceMajorVersion operation only when the check result is **Success**.
+    * Before you call this operation, make sure that the following requirements are met:
+    * *   The original instance runs PostgreSQL 14, PostgreSQL 13, PostgreSQL 12, PostgreSQL 11, PostgreSQL 10, or PostgreSQL 9.4.
+    * *   The instance runs RDS High-availability Edition or RDS Basic Edition.
+    * *   The instance resides in a virtual private cloud (VPC). If the instance resides in the classic network, you must migrate the instance to a VPC before you call this operation. For more information about how to view or change the network type of an instance, see [Change the network type of an ApsaraDB RDS for PostgreSQL instance](~~96761~~).
+    * *   The instance is not a read-only instance and is not created in a dedicated cluster.
+    * An upgrade causes impacts such as a transient connection that lasts a few minutes. We recommend that you perform an upgrade during off-peak hours. Before you perform an upgrade, we recommend that you read the description in [Upgrade the major engine version of an ApsaraDB RDS for PostgreSQL instance](~~203309~~).
+    *
+    * @param request UpgradeDBInstanceMajorVersionRequest
+    * @param runtime runtime options for this request RuntimeOptions
+    * @return UpgradeDBInstanceMajorVersionResponse
+   */
   async upgradeDBInstanceMajorVersionWithOptions(request: UpgradeDBInstanceMajorVersionRequest, runtime: $Util.RuntimeOptions): Promise<UpgradeDBInstanceMajorVersionResponse> {
     Util.validateModel(request);
     let query = { };
@@ -44916,11 +50571,33 @@ export default class Client extends OpenApi {
     return $tea.cast<UpgradeDBInstanceMajorVersionResponse>(await this.callApi(params, req, runtime), new UpgradeDBInstanceMajorVersionResponse({}));
   }
 
+  /**
+    * During an upgrade, ApsaraDB RDS retains the original instance and creates an instance that runs the new major engine version. You are **charged** for the new instance based on the **pay-as-you-go** billing method after the instance is created. The new instance **does not inherit the discounts that are offered to the original instance**. Before you call this operation, make sure that you fully understand the billing methods and pricing of ApsaraDB RDS. You can decide whether to upgrade the major engine version based on your business requirements. For more information, see [Billable items, billing methods, and pricing](~~45020~~).
+    * Before you upgrade the major engine version, you must call the [UpgradeDBInstanceMajorVersionPrecheck](~~330050~~) operation to perform an upgrade check and then call the [DescribeUpgradeMajorVersionPrecheckTask](~~330088~~) operation to query the upgrade check report. You can call the UpgradeDBInstanceMajorVersion operation only when the check result is **Success**.
+    * Before you call this operation, make sure that the following requirements are met:
+    * *   The original instance runs PostgreSQL 14, PostgreSQL 13, PostgreSQL 12, PostgreSQL 11, PostgreSQL 10, or PostgreSQL 9.4.
+    * *   The instance runs RDS High-availability Edition or RDS Basic Edition.
+    * *   The instance resides in a virtual private cloud (VPC). If the instance resides in the classic network, you must migrate the instance to a VPC before you call this operation. For more information about how to view or change the network type of an instance, see [Change the network type of an ApsaraDB RDS for PostgreSQL instance](~~96761~~).
+    * *   The instance is not a read-only instance and is not created in a dedicated cluster.
+    * An upgrade causes impacts such as a transient connection that lasts a few minutes. We recommend that you perform an upgrade during off-peak hours. Before you perform an upgrade, we recommend that you read the description in [Upgrade the major engine version of an ApsaraDB RDS for PostgreSQL instance](~~203309~~).
+    *
+    * @param request UpgradeDBInstanceMajorVersionRequest
+    * @return UpgradeDBInstanceMajorVersionResponse
+   */
   async upgradeDBInstanceMajorVersion(request: UpgradeDBInstanceMajorVersionRequest): Promise<UpgradeDBInstanceMajorVersionResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.upgradeDBInstanceMajorVersionWithOptions(request, runtime);
   }
 
+  /**
+    * ApsaraDB RDS for PostgreSQL provides the major version upgrade feature. You can use this feature to upgrade the major engine version of an ApsaraDB RDS for PostgreSQL instance.
+    * Before you perform an upgrade, you must perform an upgrade check and make sure that the check result is **Success**. You can call this operation to perform an upgrade check.
+    * An upgrade brings impacts, such as a transient connection that lasts a few minutes. We recommend that you perform an upgrade during off-peak hours. Before you perform an upgrade, we recommend that you read [Upgrade the major engine version of an ApsaraDB RDS for PostgreSQL instance](~~203309~~).
+    *
+    * @param request UpgradeDBInstanceMajorVersionPrecheckRequest
+    * @param runtime runtime options for this request RuntimeOptions
+    * @return UpgradeDBInstanceMajorVersionPrecheckResponse
+   */
   async upgradeDBInstanceMajorVersionPrecheckWithOptions(request: UpgradeDBInstanceMajorVersionPrecheckRequest, runtime: $Util.RuntimeOptions): Promise<UpgradeDBInstanceMajorVersionPrecheckResponse> {
     Util.validateModel(request);
     let query = { };
@@ -44953,11 +50630,28 @@ export default class Client extends OpenApi {
     return $tea.cast<UpgradeDBInstanceMajorVersionPrecheckResponse>(await this.callApi(params, req, runtime), new UpgradeDBInstanceMajorVersionPrecheckResponse({}));
   }
 
+  /**
+    * ApsaraDB RDS for PostgreSQL provides the major version upgrade feature. You can use this feature to upgrade the major engine version of an ApsaraDB RDS for PostgreSQL instance.
+    * Before you perform an upgrade, you must perform an upgrade check and make sure that the check result is **Success**. You can call this operation to perform an upgrade check.
+    * An upgrade brings impacts, such as a transient connection that lasts a few minutes. We recommend that you perform an upgrade during off-peak hours. Before you perform an upgrade, we recommend that you read [Upgrade the major engine version of an ApsaraDB RDS for PostgreSQL instance](~~203309~~).
+    *
+    * @param request UpgradeDBInstanceMajorVersionPrecheckRequest
+    * @return UpgradeDBInstanceMajorVersionPrecheckResponse
+   */
   async upgradeDBInstanceMajorVersionPrecheck(request: UpgradeDBInstanceMajorVersionPrecheckRequest): Promise<UpgradeDBInstanceMajorVersionPrecheckResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.upgradeDBInstanceMajorVersionPrecheckWithOptions(request, runtime);
   }
 
+  /**
+    * Before you call the ModifyDBProxyEndpoint operation, make sure that the [ModifyDBProxy](~~141054~~) operation is called to enable the database proxy feature for the instance.
+    * *   The dedicated proxy feature of ApsaraDB RDS for MySQL provides capabilities such as read/write splitting and short-lived connection optimization. For more information, see [What are database proxies?](~~138705~~)
+    * *   The database proxy feature of ApsaraDB RDS for PostgreSQL supports read/write splitting. For more information, see [What are database proxies?](~~412194~~)
+    *
+    * @param request UpgradeDBProxyInstanceKernelVersionRequest
+    * @param runtime runtime options for this request RuntimeOptions
+    * @return UpgradeDBProxyInstanceKernelVersionResponse
+   */
   async upgradeDBProxyInstanceKernelVersionWithOptions(request: UpgradeDBProxyInstanceKernelVersionRequest, runtime: $Util.RuntimeOptions): Promise<UpgradeDBProxyInstanceKernelVersionResponse> {
     Util.validateModel(request);
     let query = { };
@@ -45006,6 +50700,14 @@ export default class Client extends OpenApi {
     return $tea.cast<UpgradeDBProxyInstanceKernelVersionResponse>(await this.callApi(params, req, runtime), new UpgradeDBProxyInstanceKernelVersionResponse({}));
   }
 
+  /**
+    * Before you call the ModifyDBProxyEndpoint operation, make sure that the [ModifyDBProxy](~~141054~~) operation is called to enable the database proxy feature for the instance.
+    * *   The dedicated proxy feature of ApsaraDB RDS for MySQL provides capabilities such as read/write splitting and short-lived connection optimization. For more information, see [What are database proxies?](~~138705~~)
+    * *   The database proxy feature of ApsaraDB RDS for PostgreSQL supports read/write splitting. For more information, see [What are database proxies?](~~412194~~)
+    *
+    * @param request UpgradeDBProxyInstanceKernelVersionRequest
+    * @return UpgradeDBProxyInstanceKernelVersionResponse
+   */
   async upgradeDBProxyInstanceKernelVersion(request: UpgradeDBProxyInstanceKernelVersionRequest): Promise<UpgradeDBProxyInstanceKernelVersionResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.upgradeDBProxyInstanceKernelVersionWithOptions(request, runtime);
