@@ -9208,6 +9208,7 @@ export class InvoiceAddRequest extends $tea.Model {
   thirdPartId?: string;
   title?: string;
   type?: number;
+  unitType?: number;
   static names(): { [key: string]: string } {
     return {
       address: 'address',
@@ -9218,6 +9219,7 @@ export class InvoiceAddRequest extends $tea.Model {
       thirdPartId: 'third_part_id',
       title: 'title',
       type: 'type',
+      unitType: 'unit_type',
     };
   }
 
@@ -9231,6 +9233,7 @@ export class InvoiceAddRequest extends $tea.Model {
       thirdPartId: 'string',
       title: 'string',
       type: 'number',
+      unitType: 'number',
     };
   }
 
@@ -9423,6 +9426,7 @@ export class InvoiceModifyRequest extends $tea.Model {
   thirdPartId?: string;
   title?: string;
   type?: number;
+  unitType?: number;
   static names(): { [key: string]: string } {
     return {
       address: 'address',
@@ -9433,6 +9437,7 @@ export class InvoiceModifyRequest extends $tea.Model {
       thirdPartId: 'third_part_id',
       title: 'title',
       type: 'type',
+      unitType: 'unit_type',
     };
   }
 
@@ -9446,6 +9451,7 @@ export class InvoiceModifyRequest extends $tea.Model {
       thirdPartId: 'string',
       title: 'string',
       type: 'number',
+      unitType: 'number',
     };
   }
 
@@ -35647,6 +35653,10 @@ export default class Client extends OpenApi {
       body["type"] = request.type;
     }
 
+    if (!Util.isUnset(request.unitType)) {
+      body["unit_type"] = request.unitType;
+    }
+
     let realHeaders : {[key: string ]: string} = { };
     if (!Util.isUnset(headers.commonHeaders)) {
       realHeaders = headers.commonHeaders;
@@ -35753,6 +35763,10 @@ export default class Client extends OpenApi {
 
     if (!Util.isUnset(request.type)) {
       body["type"] = request.type;
+    }
+
+    if (!Util.isUnset(request.unitType)) {
+      body["unit_type"] = request.unitType;
     }
 
     let realHeaders : {[key: string ]: string} = { };
