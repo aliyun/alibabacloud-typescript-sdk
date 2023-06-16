@@ -27370,10 +27370,48 @@ export class MonthBillGetResponseBodyModule extends $tea.Model {
   }
 }
 
+export class QueryReimbursementOrderResponseBodyModuleExpensesExpenseCompositions extends $tea.Model {
+  billSettlementId?: number;
+  feeType?: string;
+  remark?: string;
+  remindTagList?: string[];
+  settlementAmount?: string;
+  settlementTime?: string;
+  voucherType?: number;
+  static names(): { [key: string]: string } {
+    return {
+      billSettlementId: 'bill_settlement_id',
+      feeType: 'fee_type',
+      remark: 'remark',
+      remindTagList: 'remind_tag_list',
+      settlementAmount: 'settlement_amount',
+      settlementTime: 'settlement_time',
+      voucherType: 'voucher_type',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      billSettlementId: 'number',
+      feeType: 'string',
+      remark: 'string',
+      remindTagList: { 'type': 'array', 'itemType': 'string' },
+      settlementAmount: 'string',
+      settlementTime: 'string',
+      voucherType: 'number',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
 export class QueryReimbursementOrderResponseBodyModuleExpenses extends $tea.Model {
   amount?: string;
   currency?: string;
   expenseCity?: string;
+  expenseCompositions?: QueryReimbursementOrderResponseBodyModuleExpensesExpenseCompositions[];
   expenseTime?: string;
   expenseType?: string;
   expenseTypeCode?: string;
@@ -27385,6 +27423,7 @@ export class QueryReimbursementOrderResponseBodyModuleExpenses extends $tea.Mode
       amount: 'amount',
       currency: 'currency',
       expenseCity: 'expense_city',
+      expenseCompositions: 'expense_compositions',
       expenseTime: 'expense_time',
       expenseType: 'expense_type',
       expenseTypeCode: 'expense_type_code',
@@ -27399,6 +27438,7 @@ export class QueryReimbursementOrderResponseBodyModuleExpenses extends $tea.Mode
       amount: 'string',
       currency: 'string',
       expenseCity: 'string',
+      expenseCompositions: { 'type': 'array', 'itemType': QueryReimbursementOrderResponseBodyModuleExpensesExpenseCompositions },
       expenseTime: 'string',
       expenseType: 'string',
       expenseTypeCode: 'string',
