@@ -4153,6 +4153,8 @@ export class DescribeApiGroupResponseBody extends $tea.Model {
   instanceType?: string;
   instanceVipList?: string;
   ipv6Status?: string;
+  migrationError?: string;
+  migrationStatus?: string;
   modifiedTime?: string;
   passthroughHeaders?: string;
   regionId?: string;
@@ -4188,6 +4190,8 @@ export class DescribeApiGroupResponseBody extends $tea.Model {
       instanceType: 'InstanceType',
       instanceVipList: 'InstanceVipList',
       ipv6Status: 'Ipv6Status',
+      migrationError: 'MigrationError',
+      migrationStatus: 'MigrationStatus',
       modifiedTime: 'ModifiedTime',
       passthroughHeaders: 'PassthroughHeaders',
       regionId: 'RegionId',
@@ -4226,6 +4230,8 @@ export class DescribeApiGroupResponseBody extends $tea.Model {
       instanceType: 'string',
       instanceVipList: 'string',
       ipv6Status: 'string',
+      migrationError: 'string',
+      migrationStatus: 'string',
       modifiedTime: 'string',
       passthroughHeaders: 'string',
       regionId: 'string',
@@ -11119,6 +11125,7 @@ export class ModifyApiGroupRequest extends $tea.Model {
   passthroughHeaders?: string;
   rpcPattern?: string;
   securityToken?: string;
+  supportSSE?: string;
   tag?: ModifyApiGroupRequestTag[];
   userLogConfig?: string;
   static names(): { [key: string]: string } {
@@ -11134,6 +11141,7 @@ export class ModifyApiGroupRequest extends $tea.Model {
       passthroughHeaders: 'PassthroughHeaders',
       rpcPattern: 'RpcPattern',
       securityToken: 'SecurityToken',
+      supportSSE: 'SupportSSE',
       tag: 'Tag',
       userLogConfig: 'UserLogConfig',
     };
@@ -11152,6 +11160,7 @@ export class ModifyApiGroupRequest extends $tea.Model {
       passthroughHeaders: 'string',
       rpcPattern: 'string',
       securityToken: 'string',
+      supportSSE: 'string',
       tag: { 'type': 'array', 'itemType': ModifyApiGroupRequestTag },
       userLogConfig: 'string',
     };
@@ -18544,6 +18553,74 @@ export class DescribeAuthorizedAppsResponseBodyAuthorizedApps extends $tea.Model
   }
 }
 
+export class DescribeBackendInfoResponseBodyBackendInfoBackendModelsBackendConfigDiscoveryConfigNacosConfig extends $tea.Model {
+  accessKey?: string;
+  authType?: string;
+  clusters?: string;
+  groupName?: string;
+  namespace?: string;
+  password?: string;
+  secretKey?: string;
+  serverAddress?: string;
+  serviceName?: string;
+  userName?: string;
+  static names(): { [key: string]: string } {
+    return {
+      accessKey: 'AccessKey',
+      authType: 'AuthType',
+      clusters: 'Clusters',
+      groupName: 'GroupName',
+      namespace: 'Namespace',
+      password: 'Password',
+      secretKey: 'SecretKey',
+      serverAddress: 'ServerAddress',
+      serviceName: 'ServiceName',
+      userName: 'UserName',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      accessKey: 'string',
+      authType: 'string',
+      clusters: 'string',
+      groupName: 'string',
+      namespace: 'string',
+      password: 'string',
+      secretKey: 'string',
+      serverAddress: 'string',
+      serviceName: 'string',
+      userName: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class DescribeBackendInfoResponseBodyBackendInfoBackendModelsBackendConfigDiscoveryConfig extends $tea.Model {
+  nacosConfig?: DescribeBackendInfoResponseBodyBackendInfoBackendModelsBackendConfigDiscoveryConfigNacosConfig;
+  rcType?: string;
+  static names(): { [key: string]: string } {
+    return {
+      nacosConfig: 'NacosConfig',
+      rcType: 'RcType',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      nacosConfig: DescribeBackendInfoResponseBodyBackendInfoBackendModelsBackendConfigDiscoveryConfigNacosConfig,
+      rcType: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
 export class DescribeBackendInfoResponseBodyBackendInfoBackendModelsBackendConfigEventBridgeConfig extends $tea.Model {
   eventBridgeRegionId?: string;
   eventBus?: string;
@@ -18719,6 +18796,7 @@ export class DescribeBackendInfoResponseBodyBackendInfoBackendModelsBackendConfi
 }
 
 export class DescribeBackendInfoResponseBodyBackendInfoBackendModelsBackendConfig extends $tea.Model {
+  discoveryConfig?: DescribeBackendInfoResponseBodyBackendInfoBackendModelsBackendConfigDiscoveryConfig;
   eventBridgeConfig?: DescribeBackendInfoResponseBodyBackendInfoBackendModelsBackendConfigEventBridgeConfig;
   functionComputeConfig?: DescribeBackendInfoResponseBodyBackendInfoBackendModelsBackendConfigFunctionComputeConfig;
   httpTargetHostName?: string;
@@ -18729,6 +18807,7 @@ export class DescribeBackendInfoResponseBodyBackendInfoBackendModelsBackendConfi
   vpcConfig?: DescribeBackendInfoResponseBodyBackendInfoBackendModelsBackendConfigVpcConfig;
   static names(): { [key: string]: string } {
     return {
+      discoveryConfig: 'DiscoveryConfig',
       eventBridgeConfig: 'EventBridgeConfig',
       functionComputeConfig: 'FunctionComputeConfig',
       httpTargetHostName: 'HttpTargetHostName',
@@ -18742,6 +18821,7 @@ export class DescribeBackendInfoResponseBodyBackendInfoBackendModelsBackendConfi
 
   static types(): { [key: string]: any } {
     return {
+      discoveryConfig: DescribeBackendInfoResponseBodyBackendInfoBackendModelsBackendConfigDiscoveryConfig,
       eventBridgeConfig: DescribeBackendInfoResponseBodyBackendInfoBackendModelsBackendConfigEventBridgeConfig,
       functionComputeConfig: DescribeBackendInfoResponseBodyBackendInfoBackendModelsBackendConfigFunctionComputeConfig,
       httpTargetHostName: 'string',
@@ -20481,6 +20561,7 @@ export class DescribeInstancesResponseBodyInstancesInstanceAttribute extends $te
   aclStatus?: string;
   aclType?: string;
   classicEgressAddress?: string;
+  connectCidrBlocks?: string;
   connectVpcId?: string;
   createdTime?: string;
   dedicatedInstanceType?: string;
@@ -20502,6 +20583,8 @@ export class DescribeInstancesResponseBodyInstancesInstanceAttribute extends $te
   instanceType?: string;
   internetEgressAddress?: string;
   intranetSegments?: string;
+  maintainEndTime?: string;
+  maintainStartTime?: string;
   networkInterfaceAttributes?: DescribeInstancesResponseBodyInstancesInstanceAttributeNetworkInterfaceAttributes;
   regionId?: string;
   status?: string;
@@ -20522,6 +20605,7 @@ export class DescribeInstancesResponseBodyInstancesInstanceAttribute extends $te
       aclStatus: 'AclStatus',
       aclType: 'AclType',
       classicEgressAddress: 'ClassicEgressAddress',
+      connectCidrBlocks: 'ConnectCidrBlocks',
       connectVpcId: 'ConnectVpcId',
       createdTime: 'CreatedTime',
       dedicatedInstanceType: 'DedicatedInstanceType',
@@ -20543,6 +20627,8 @@ export class DescribeInstancesResponseBodyInstancesInstanceAttribute extends $te
       instanceType: 'InstanceType',
       internetEgressAddress: 'InternetEgressAddress',
       intranetSegments: 'IntranetSegments',
+      maintainEndTime: 'MaintainEndTime',
+      maintainStartTime: 'MaintainStartTime',
       networkInterfaceAttributes: 'NetworkInterfaceAttributes',
       regionId: 'RegionId',
       status: 'Status',
@@ -20566,6 +20652,7 @@ export class DescribeInstancesResponseBodyInstancesInstanceAttribute extends $te
       aclStatus: 'string',
       aclType: 'string',
       classicEgressAddress: 'string',
+      connectCidrBlocks: 'string',
       connectVpcId: 'string',
       createdTime: 'string',
       dedicatedInstanceType: 'string',
@@ -20587,6 +20674,8 @@ export class DescribeInstancesResponseBodyInstancesInstanceAttribute extends $te
       instanceType: 'string',
       internetEgressAddress: 'string',
       intranetSegments: 'string',
+      maintainEndTime: 'string',
+      maintainStartTime: 'string',
       networkInterfaceAttributes: DescribeInstancesResponseBodyInstancesInstanceAttributeNetworkInterfaceAttributes,
       regionId: 'string',
       status: 'string',
@@ -29475,6 +29564,10 @@ export default class Client extends OpenApi {
 
     if (!Util.isUnset(request.securityToken)) {
       query["SecurityToken"] = request.securityToken;
+    }
+
+    if (!Util.isUnset(request.supportSSE)) {
+      query["SupportSSE"] = request.supportSSE;
     }
 
     if (!Util.isUnset(request.tag)) {
