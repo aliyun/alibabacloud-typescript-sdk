@@ -1,6 +1,6 @@
 {
   "name": "@alicloud/cloudapi20160714",
-  "version": "2.2.19",
+  "version": "2.2.20",
   "description": "",
   "main": "dist/client.js",
   "scripts": {

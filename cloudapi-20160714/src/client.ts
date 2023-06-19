@@ -9593,6 +9593,84 @@ export class DescribeSignaturesByApiResponse extends $tea.Model {
   }
 }
 
+export class DescribeSummaryDataRequest extends $tea.Model {
+  securityToken?: string;
+  static names(): { [key: string]: string } {
+    return {
+      securityToken: 'SecurityToken',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      securityToken: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class DescribeSummaryDataResponseBody extends $tea.Model {
+  expireInstanceNum?: number;
+  region?: string;
+  requestId?: string;
+  usageApiNum?: number;
+  usageGroupNum?: number;
+  usageInstanceNum?: number;
+  static names(): { [key: string]: string } {
+    return {
+      expireInstanceNum: 'ExpireInstanceNum',
+      region: 'Region',
+      requestId: 'RequestId',
+      usageApiNum: 'UsageApiNum',
+      usageGroupNum: 'UsageGroupNum',
+      usageInstanceNum: 'UsageInstanceNum',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      expireInstanceNum: 'number',
+      region: 'string',
+      requestId: 'string',
+      usageApiNum: 'number',
+      usageGroupNum: 'number',
+      usageInstanceNum: 'number',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class DescribeSummaryDataResponse extends $tea.Model {
+  headers: { [key: string]: string };
+  statusCode: number;
+  body: DescribeSummaryDataResponseBody;
+  static names(): { [key: string]: string } {
+    return {
+      headers: 'headers',
+      statusCode: 'statusCode',
+      body: 'body',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
+      body: DescribeSummaryDataResponseBody,
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
 export class DescribeSystemParametersRequest extends $tea.Model {
   securityToken?: string;
   static names(): { [key: string]: string } {
@@ -28506,6 +28584,35 @@ export default class Client extends OpenApi {
   async describeSignaturesByApi(request: DescribeSignaturesByApiRequest): Promise<DescribeSignaturesByApiResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.describeSignaturesByApiWithOptions(request, runtime);
+  }
+
+  async describeSummaryDataWithOptions(request: DescribeSummaryDataRequest, runtime: $Util.RuntimeOptions): Promise<DescribeSummaryDataResponse> {
+    Util.validateModel(request);
+    let query = { };
+    if (!Util.isUnset(request.securityToken)) {
+      query["SecurityToken"] = request.securityToken;
+    }
+
+    let req = new $OpenApi.OpenApiRequest({
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApi.Params({
+      action: "DescribeSummaryData",
+      version: "2016-07-14",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $tea.cast<DescribeSummaryDataResponse>(await this.callApi(params, req, runtime), new DescribeSummaryDataResponse({}));
+  }
+
+  async describeSummaryData(request: DescribeSummaryDataRequest): Promise<DescribeSummaryDataResponse> {
+    let runtime = new $Util.RuntimeOptions({ });
+    return await this.describeSummaryDataWithOptions(request, runtime);
   }
 
   /**
