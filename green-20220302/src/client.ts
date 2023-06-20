@@ -501,15 +501,18 @@ export class DescribeImageResultExtResponseBodyDataPublicFigure extends $tea.Mod
 
 export class DescribeImageResultExtResponseBodyDataTextInImage extends $tea.Model {
   ocrDatas?: string[];
+  riskWords?: string[];
   static names(): { [key: string]: string } {
     return {
       ocrDatas: 'OcrDatas',
+      riskWords: 'RiskWords',
     };
   }
 
   static types(): { [key: string]: any } {
     return {
       ocrDatas: { 'type': 'array', 'itemType': 'string' },
+      riskWords: { 'type': 'array', 'itemType': 'string' },
     };
   }
 
