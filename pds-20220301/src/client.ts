@@ -338,6 +338,31 @@ export class FaceGroup extends $tea.Model {
   }
 }
 
+export class FaceThumbnail extends $tea.Model {
+  faceGroupId?: string;
+  faceId?: string;
+  faceThumbnail?: string;
+  static names(): { [key: string]: string } {
+    return {
+      faceGroupId: 'face_group_id',
+      faceId: 'face_id',
+      faceThumbnail: 'face_thumbnail',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      faceGroupId: 'string',
+      faceId: 'string',
+      faceThumbnail: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
 export class File extends $tea.Model {
   category?: string;
   contentHash?: string;
@@ -352,8 +377,9 @@ export class File extends $tea.Model {
   fileExtension?: string;
   fileId?: string;
   hidden?: boolean;
+  imageMediaMetadata?: ImageMediaMetadata;
   investigationInfo?: FileInvestigationInfo;
-  labels?: string;
+  labels?: string[];
   localCreatedAt?: string;
   localModifiedAt?: string;
   name?: string;
@@ -363,6 +389,7 @@ export class File extends $tea.Model {
   starred?: boolean;
   status?: string;
   thumbnail?: string;
+  thumbnailUrls?: { [key: string]: string };
   trashedAt?: string;
   type?: string;
   updatedAt?: string;
@@ -382,6 +409,7 @@ export class File extends $tea.Model {
       fileExtension: 'file_extension',
       fileId: 'file_id',
       hidden: 'hidden',
+      imageMediaMetadata: 'image_media_metadata',
       investigationInfo: 'investigation_info',
       labels: 'labels',
       localCreatedAt: 'local_created_at',
@@ -393,6 +421,7 @@ export class File extends $tea.Model {
       starred: 'starred',
       status: 'status',
       thumbnail: 'thumbnail',
+      thumbnailUrls: 'thumbnail_urls',
       trashedAt: 'trashed_at',
       type: 'type',
       updatedAt: 'updated_at',
@@ -415,8 +444,9 @@ export class File extends $tea.Model {
       fileExtension: 'string',
       fileId: 'string',
       hidden: 'boolean',
+      imageMediaMetadata: ImageMediaMetadata,
       investigationInfo: FileInvestigationInfo,
-      labels: 'string',
+      labels: { 'type': 'array', 'itemType': 'string' },
       localCreatedAt: 'string',
       localModifiedAt: 'string',
       name: 'string',
@@ -426,6 +456,7 @@ export class File extends $tea.Model {
       starred: 'boolean',
       status: 'string',
       thumbnail: 'string',
+      thumbnailUrls: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
       trashedAt: 'string',
       type: 'string',
       updatedAt: 'string',
@@ -618,22 +649,102 @@ export class IdentityToBenefitPkgMapping extends $tea.Model {
 }
 
 export class ImageMediaMetadata extends $tea.Model {
+  addressLine?: string;
+  city?: string;
+  country?: string;
+  district?: string;
+  exif?: string;
+  faces?: string;
+  facesThumbnail?: FaceThumbnail[];
   height?: number;
-  takenAt?: string;
+  imageQuality?: ImageQuality;
+  imageTags?: SystemTag[];
+  location?: string;
+  province?: string;
+  time?: string;
+  township?: string;
   width?: number;
   static names(): { [key: string]: string } {
     return {
+      addressLine: 'address_line',
+      city: 'city',
+      country: 'country',
+      district: 'district',
+      exif: 'exif',
+      faces: 'faces',
+      facesThumbnail: 'faces_thumbnail',
       height: 'height',
-      takenAt: 'taken_at',
+      imageQuality: 'image_quality',
+      imageTags: 'image_tags',
+      location: 'location',
+      province: 'province',
+      time: 'time',
+      township: 'township',
       width: 'width',
     };
   }
 
   static types(): { [key: string]: any } {
     return {
+      addressLine: 'string',
+      city: 'string',
+      country: 'string',
+      district: 'string',
+      exif: 'string',
+      faces: 'string',
+      facesThumbnail: { 'type': 'array', 'itemType': FaceThumbnail },
       height: 'number',
-      takenAt: 'string',
+      imageQuality: ImageQuality,
+      imageTags: { 'type': 'array', 'itemType': SystemTag },
+      location: 'string',
+      province: 'string',
+      time: 'string',
+      township: 'string',
       width: 'number',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class ImageProcess extends $tea.Model {
+  imageThumbnailProcess?: string;
+  officeThumbnailProcess?: string;
+  videoThumbnailProcess?: string;
+  static names(): { [key: string]: string } {
+    return {
+      imageThumbnailProcess: 'image_thumbnail_process',
+      officeThumbnailProcess: 'office_thumbnail_process',
+      videoThumbnailProcess: 'video_thumbnail_process',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      imageThumbnailProcess: 'string',
+      officeThumbnailProcess: 'string',
+      videoThumbnailProcess: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class ImageQuality extends $tea.Model {
+  overallScore?: number;
+  static names(): { [key: string]: string } {
+    return {
+      overallScore: 'overall_score',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      overallScore: 'number',
     };
   }
 
@@ -911,7 +1022,63 @@ export class ShareLink extends $tea.Model {
   }
 }
 
+export class Story extends $tea.Model {
+  coverFileId?: string;
+  coverFileThumbnailUrl?: string;
+  createdAt?: string;
+  customLabels?: { [key: string]: any };
+  faceGroupIds?: string[];
+  storyEndTime?: string;
+  storyFileList?: File[];
+  storyId?: string;
+  storyName?: string;
+  storyStartTime?: string;
+  storySubType?: string;
+  storyType?: string;
+  updatedAt?: string;
+  static names(): { [key: string]: string } {
+    return {
+      coverFileId: 'cover_file_id',
+      coverFileThumbnailUrl: 'cover_file_thumbnail_url',
+      createdAt: 'created_at',
+      customLabels: 'custom_labels',
+      faceGroupIds: 'face_group_ids',
+      storyEndTime: 'story_end_time',
+      storyFileList: 'story_file_list',
+      storyId: 'story_id',
+      storyName: 'story_name',
+      storyStartTime: 'story_start_time',
+      storySubType: 'story_sub_type',
+      storyType: 'story_type',
+      updatedAt: 'updated_at',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      coverFileId: 'string',
+      coverFileThumbnailUrl: 'string',
+      createdAt: 'string',
+      customLabels: { 'type': 'map', 'keyType': 'string', 'valueType': 'any' },
+      faceGroupIds: { 'type': 'array', 'itemType': 'string' },
+      storyEndTime: 'string',
+      storyFileList: { 'type': 'array', 'itemType': File },
+      storyId: 'string',
+      storyName: 'string',
+      storyStartTime: 'string',
+      storySubType: 'string',
+      storyType: 'string',
+      updatedAt: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
 export class SystemTag extends $tea.Model {
+  centricScore?: number;
   confidence?: number;
   name?: string;
   parentName?: string;
@@ -919,6 +1086,7 @@ export class SystemTag extends $tea.Model {
   tagLevel?: number;
   static names(): { [key: string]: string } {
     return {
+      centricScore: 'centric_score',
       confidence: 'confidence',
       name: 'name',
       parentName: 'parent_name',
@@ -929,6 +1097,7 @@ export class SystemTag extends $tea.Model {
 
   static types(): { [key: string]: any } {
     return {
+      centricScore: 'number',
       confidence: 'number',
       name: 'string',
       parentName: 'string',
@@ -1234,6 +1403,78 @@ export class AddGroupMemberResponse extends $tea.Model {
     return {
       headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
       statusCode: 'number',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class AddStoryFilesRequest extends $tea.Model {
+  driveId?: string;
+  files?: AddStoryFilesRequestFiles[];
+  storyId?: string;
+  static names(): { [key: string]: string } {
+    return {
+      driveId: 'drive_id',
+      files: 'files',
+      storyId: 'story_id',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      driveId: 'string',
+      files: { 'type': 'array', 'itemType': AddStoryFilesRequestFiles },
+      storyId: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class AddStoryFilesResponseBody extends $tea.Model {
+  driveId?: string;
+  storyId?: string;
+  static names(): { [key: string]: string } {
+    return {
+      driveId: 'drive_id',
+      storyId: 'story_id',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      driveId: 'string',
+      storyId: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class AddStoryFilesResponse extends $tea.Model {
+  headers: { [key: string]: string };
+  statusCode: number;
+  body: AddStoryFilesResponseBody;
+  static names(): { [key: string]: string } {
+    return {
+      headers: 'headers',
+      statusCode: 'statusCode',
+      body: 'body',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
+      body: AddStoryFilesResponseBody,
     };
   }
 
@@ -1643,6 +1884,90 @@ export class CopyFileResponse extends $tea.Model {
       headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
       statusCode: 'number',
       body: CopyFileResponseBody,
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class CreateCustomizedStoryRequest extends $tea.Model {
+  customLabels?: { [key: string]: string };
+  driveId?: string;
+  storyCover?: CreateCustomizedStoryRequestStoryCover;
+  storyFiles?: CreateCustomizedStoryRequestStoryFiles[];
+  storyName?: string;
+  storySubType?: string;
+  storyType?: string;
+  static names(): { [key: string]: string } {
+    return {
+      customLabels: 'custom_labels',
+      driveId: 'drive_id',
+      storyCover: 'story_cover',
+      storyFiles: 'story_files',
+      storyName: 'story_name',
+      storySubType: 'story_sub_type',
+      storyType: 'story_type',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      customLabels: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      driveId: 'string',
+      storyCover: CreateCustomizedStoryRequestStoryCover,
+      storyFiles: { 'type': 'array', 'itemType': CreateCustomizedStoryRequestStoryFiles },
+      storyName: 'string',
+      storySubType: 'string',
+      storyType: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class CreateCustomizedStoryResponseBody extends $tea.Model {
+  driveId?: string;
+  storyId?: string;
+  static names(): { [key: string]: string } {
+    return {
+      driveId: 'drive_id',
+      storyId: 'story_id',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      driveId: 'string',
+      storyId: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class CreateCustomizedStoryResponse extends $tea.Model {
+  headers: { [key: string]: string };
+  statusCode: number;
+  body: CreateCustomizedStoryResponseBody;
+  static names(): { [key: string]: string } {
+    return {
+      headers: 'headers',
+      statusCode: 'statusCode',
+      body: 'body',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
+      body: CreateCustomizedStoryResponseBody,
     };
   }
 
@@ -2142,6 +2467,162 @@ export class CreateShareLinkResponse extends $tea.Model {
   }
 }
 
+export class CreateSimilarImageClusterTaskRequest extends $tea.Model {
+  driveId?: string;
+  static names(): { [key: string]: string } {
+    return {
+      driveId: 'drive_id',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      driveId: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class CreateSimilarImageClusterTaskResponseBody extends $tea.Model {
+  taskId?: string;
+  static names(): { [key: string]: string } {
+    return {
+      taskId: 'task_id',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      taskId: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class CreateSimilarImageClusterTaskResponse extends $tea.Model {
+  headers: { [key: string]: string };
+  statusCode: number;
+  body: CreateSimilarImageClusterTaskResponseBody;
+  static names(): { [key: string]: string } {
+    return {
+      headers: 'headers',
+      statusCode: 'statusCode',
+      body: 'body',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
+      body: CreateSimilarImageClusterTaskResponseBody,
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class CreateStoryRequest extends $tea.Model {
+  address?: Address;
+  customLabels?: { [key: string]: string };
+  driveId?: string;
+  maxImageCount?: number;
+  minImageCount?: number;
+  storyEndTime?: string;
+  storyId?: string;
+  storyName?: string;
+  storyStartTime?: string;
+  storySubType?: string;
+  storyType?: string;
+  static names(): { [key: string]: string } {
+    return {
+      address: 'address',
+      customLabels: 'custom_labels',
+      driveId: 'drive_id',
+      maxImageCount: 'max_image_count',
+      minImageCount: 'min_image_count',
+      storyEndTime: 'story_end_time',
+      storyId: 'story_id',
+      storyName: 'story_name',
+      storyStartTime: 'story_start_time',
+      storySubType: 'story_sub_type',
+      storyType: 'story_type',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      address: Address,
+      customLabels: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      driveId: 'string',
+      maxImageCount: 'number',
+      minImageCount: 'number',
+      storyEndTime: 'string',
+      storyId: 'string',
+      storyName: 'string',
+      storyStartTime: 'string',
+      storySubType: 'string',
+      storyType: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class CreateStoryResponseBody extends $tea.Model {
+  driveId?: string;
+  static names(): { [key: string]: string } {
+    return {
+      driveId: 'drive_id',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      driveId: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class CreateStoryResponse extends $tea.Model {
+  headers: { [key: string]: string };
+  statusCode: number;
+  body: CreateStoryResponseBody;
+  static names(): { [key: string]: string } {
+    return {
+      headers: 'headers',
+      statusCode: 'statusCode',
+      body: 'body',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
+      body: CreateStoryResponseBody,
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
 export class CreateUserRequest extends $tea.Model {
   avatar?: string;
   description?: string;
@@ -2586,6 +3067,72 @@ export class DeleteRevisionResponse extends $tea.Model {
     return {
       headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
       statusCode: 'number',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class DeleteStoryRequest extends $tea.Model {
+  driveId?: string;
+  storyId?: string;
+  static names(): { [key: string]: string } {
+    return {
+      driveId: 'drive_id',
+      storyId: 'story_id',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      driveId: 'string',
+      storyId: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class DeleteStoryResponseBody extends $tea.Model {
+  driveId?: string;
+  static names(): { [key: string]: string } {
+    return {
+      driveId: 'drive_id',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      driveId: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class DeleteStoryResponse extends $tea.Model {
+  headers: { [key: string]: string };
+  statusCode: number;
+  body: DeleteStoryResponseBody;
+  static names(): { [key: string]: string } {
+    return {
+      headers: 'headers',
+      statusCode: 'statusCode',
+      body: 'body',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
+      body: DeleteStoryResponseBody,
     };
   }
 
@@ -3881,6 +4428,137 @@ export class GetShareLinkTokenResponse extends $tea.Model {
   }
 }
 
+export class GetStoryRequest extends $tea.Model {
+  coverImageThumbnailProcess?: string;
+  coverVideoThumbnailProcess?: string;
+  driveId?: string;
+  imageThumbnailProcess?: string;
+  imageUrlProcess?: string;
+  storyId?: string;
+  urlExpireSec?: number;
+  videoThumbnailProcess?: string;
+  static names(): { [key: string]: string } {
+    return {
+      coverImageThumbnailProcess: 'cover_image_thumbnail_process',
+      coverVideoThumbnailProcess: 'cover_video_thumbnail_process',
+      driveId: 'drive_id',
+      imageThumbnailProcess: 'image_thumbnail_process',
+      imageUrlProcess: 'image_url_process',
+      storyId: 'story_id',
+      urlExpireSec: 'url_expire_sec',
+      videoThumbnailProcess: 'video_thumbnail_process',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      coverImageThumbnailProcess: 'string',
+      coverVideoThumbnailProcess: 'string',
+      driveId: 'string',
+      imageThumbnailProcess: 'string',
+      imageUrlProcess: 'string',
+      storyId: 'string',
+      urlExpireSec: 'number',
+      videoThumbnailProcess: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class GetStoryResponse extends $tea.Model {
+  headers: { [key: string]: string };
+  statusCode: number;
+  body: Story;
+  static names(): { [key: string]: string } {
+    return {
+      headers: 'headers',
+      statusCode: 'statusCode',
+      body: 'body',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
+      body: Story,
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class GetTaskStatusRequest extends $tea.Model {
+  driveId?: string;
+  taskId?: string;
+  static names(): { [key: string]: string } {
+    return {
+      driveId: 'drive_id',
+      taskId: 'task_id',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      driveId: 'string',
+      taskId: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class GetTaskStatusResponseBody extends $tea.Model {
+  status?: string;
+  static names(): { [key: string]: string } {
+    return {
+      status: 'status',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      status: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class GetTaskStatusResponse extends $tea.Model {
+  headers: { [key: string]: string };
+  statusCode: number;
+  body: GetTaskStatusResponseBody;
+  static names(): { [key: string]: string } {
+    return {
+      headers: 'headers',
+      statusCode: 'statusCode',
+      body: 'body',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
+      body: GetTaskStatusResponseBody,
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
 export class GetUploadUrlRequest extends $tea.Model {
   driveId?: string;
   fileId?: string;
@@ -4815,6 +5493,7 @@ export class ListFileRequest extends $tea.Model {
   parentFileId?: string;
   shareId?: string;
   status?: string;
+  thumbnailProcesses?: { [key: string]: ImageProcess };
   type?: string;
   static names(): { [key: string]: string } {
     return {
@@ -4828,6 +5507,7 @@ export class ListFileRequest extends $tea.Model {
       parentFileId: 'parent_file_id',
       shareId: 'share_id',
       status: 'status',
+      thumbnailProcesses: 'thumbnail_processes',
       type: 'type',
     };
   }
@@ -4844,6 +5524,7 @@ export class ListFileRequest extends $tea.Model {
       parentFileId: 'string',
       shareId: 'string',
       status: 'string',
+      thumbnailProcesses: { 'type': 'map', 'keyType': 'string', 'valueType': ImageProcess },
       type: 'string',
     };
   }
@@ -6032,6 +6713,78 @@ export class RemoveGroupMemberResponse extends $tea.Model {
   }
 }
 
+export class RemoveStoryFilesRequest extends $tea.Model {
+  driveId?: string;
+  files?: RemoveStoryFilesRequestFiles[];
+  storyId?: string;
+  static names(): { [key: string]: string } {
+    return {
+      driveId: 'drive_id',
+      files: 'files',
+      storyId: 'story_id',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      driveId: 'string',
+      files: { 'type': 'array', 'itemType': RemoveStoryFilesRequestFiles },
+      storyId: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class RemoveStoryFilesResponseBody extends $tea.Model {
+  driveId?: string;
+  storyId?: string;
+  static names(): { [key: string]: string } {
+    return {
+      driveId: 'drive_id',
+      storyId: 'story_id',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      driveId: 'string',
+      storyId: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class RemoveStoryFilesResponse extends $tea.Model {
+  headers: { [key: string]: string };
+  statusCode: number;
+  body: RemoveStoryFilesResponseBody;
+  static names(): { [key: string]: string } {
+    return {
+      headers: 'headers',
+      statusCode: 'statusCode',
+      body: 'body',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
+      body: RemoveStoryFilesResponseBody,
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
 export class RestoreFileRequest extends $tea.Model {
   driveId?: string;
   fileId?: string;
@@ -6629,6 +7382,198 @@ export class SearchShareLinkResponse extends $tea.Model {
       headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
       statusCode: 'number',
       body: SearchShareLinkResponseBody,
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class SearchSimilarImageClustersRequest extends $tea.Model {
+  driveId?: string;
+  imageThumbnailProcess?: string;
+  limit?: number;
+  marker?: string;
+  order?: string;
+  static names(): { [key: string]: string } {
+    return {
+      driveId: 'drive_id',
+      imageThumbnailProcess: 'image_thumbnail_process',
+      limit: 'limit',
+      marker: 'marker',
+      order: 'order',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      driveId: 'string',
+      imageThumbnailProcess: 'string',
+      limit: 'number',
+      marker: 'string',
+      order: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class SearchSimilarImageClustersResponseBody extends $tea.Model {
+  nextMarker?: string;
+  similarImageClusters?: SearchSimilarImageClustersResponseBodySimilarImageClusters[];
+  static names(): { [key: string]: string } {
+    return {
+      nextMarker: 'next_marker',
+      similarImageClusters: 'similar_image_clusters',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      nextMarker: 'string',
+      similarImageClusters: { 'type': 'array', 'itemType': SearchSimilarImageClustersResponseBodySimilarImageClusters },
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class SearchSimilarImageClustersResponse extends $tea.Model {
+  headers: { [key: string]: string };
+  statusCode: number;
+  body: SearchSimilarImageClustersResponseBody;
+  static names(): { [key: string]: string } {
+    return {
+      headers: 'headers',
+      statusCode: 'statusCode',
+      body: 'body',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
+      body: SearchSimilarImageClustersResponseBody,
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class SearchStoriesRequest extends $tea.Model {
+  coverImageThumbnailProcess?: string;
+  coverVideoThumbnailProcess?: string;
+  createTimeRange?: SearchStoriesRequestCreateTimeRange;
+  customLabels?: string;
+  driveId?: string;
+  faceGroupIds?: string[];
+  limit?: number;
+  marker?: string;
+  order?: string;
+  sort?: string;
+  storyEndTimeRange?: SearchStoriesRequestStoryEndTimeRange;
+  storyId?: string;
+  storyName?: string;
+  storyStartTimeRange?: SearchStoriesRequestStoryStartTimeRange;
+  storyType?: string;
+  urlExpireSec?: number;
+  withEmptyStories?: boolean;
+  static names(): { [key: string]: string } {
+    return {
+      coverImageThumbnailProcess: 'cover_image_thumbnail_process',
+      coverVideoThumbnailProcess: 'cover_video_thumbnail_process',
+      createTimeRange: 'create_time_range',
+      customLabels: 'custom_labels',
+      driveId: 'drive_id',
+      faceGroupIds: 'face_group_ids',
+      limit: 'limit',
+      marker: 'marker',
+      order: 'order',
+      sort: 'sort',
+      storyEndTimeRange: 'story_end_time_range',
+      storyId: 'story_id',
+      storyName: 'story_name',
+      storyStartTimeRange: 'story_start_time_range',
+      storyType: 'story_type',
+      urlExpireSec: 'url_expire_sec',
+      withEmptyStories: 'with_empty_stories',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      coverImageThumbnailProcess: 'string',
+      coverVideoThumbnailProcess: 'string',
+      createTimeRange: SearchStoriesRequestCreateTimeRange,
+      customLabels: 'string',
+      driveId: 'string',
+      faceGroupIds: { 'type': 'array', 'itemType': 'string' },
+      limit: 'number',
+      marker: 'string',
+      order: 'string',
+      sort: 'string',
+      storyEndTimeRange: SearchStoriesRequestStoryEndTimeRange,
+      storyId: 'string',
+      storyName: 'string',
+      storyStartTimeRange: SearchStoriesRequestStoryStartTimeRange,
+      storyType: 'string',
+      urlExpireSec: 'number',
+      withEmptyStories: 'boolean',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class SearchStoriesResponseBody extends $tea.Model {
+  items?: Story[];
+  nextMarker?: string;
+  static names(): { [key: string]: string } {
+    return {
+      items: 'items',
+      nextMarker: 'next_marker',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      items: { 'type': 'array', 'itemType': Story },
+      nextMarker: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class SearchStoriesResponse extends $tea.Model {
+  headers: { [key: string]: string };
+  statusCode: number;
+  body: SearchStoriesResponseBody;
+  static names(): { [key: string]: string } {
+    return {
+      headers: 'headers',
+      statusCode: 'statusCode',
+      body: 'body',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
+      body: SearchStoriesResponseBody,
     };
   }
 
@@ -7382,6 +8327,84 @@ export class UpdateShareLinkResponse extends $tea.Model {
   }
 }
 
+export class UpdateStoryRequest extends $tea.Model {
+  cover?: UpdateStoryRequestCover;
+  customLabels?: { [key: string]: string };
+  driveId?: string;
+  storyId?: string;
+  storyName?: string;
+  static names(): { [key: string]: string } {
+    return {
+      cover: 'cover',
+      customLabels: 'custom_labels',
+      driveId: 'drive_id',
+      storyId: 'story_id',
+      storyName: 'story_name',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      cover: UpdateStoryRequestCover,
+      customLabels: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      driveId: 'string',
+      storyId: 'string',
+      storyName: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class UpdateStoryResponseBody extends $tea.Model {
+  driveId?: string;
+  storyId?: string;
+  static names(): { [key: string]: string } {
+    return {
+      driveId: 'drive_id',
+      storyId: 'story_id',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      driveId: 'string',
+      storyId: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class UpdateStoryResponse extends $tea.Model {
+  headers: { [key: string]: string };
+  statusCode: number;
+  body: UpdateStoryResponseBody;
+  static names(): { [key: string]: string } {
+    return {
+      headers: 'headers',
+      statusCode: 'statusCode',
+      body: 'body',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
+      body: UpdateStoryResponseBody,
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
 export class UpdateUserRequest extends $tea.Model {
   avatar?: string;
   description?: string;
@@ -7672,6 +8695,28 @@ export class VideoPreviewPlayMetaMeta extends $tea.Model {
   }
 }
 
+export class AddStoryFilesRequestFiles extends $tea.Model {
+  fileId?: string;
+  revisionId?: string;
+  static names(): { [key: string]: string } {
+    return {
+      fileId: 'file_id',
+      revisionId: 'revision_id',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      fileId: 'string',
+      revisionId: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
 export class BatchRequestRequests extends $tea.Model {
   body?: { [key: string]: string };
   headers?: { [key: string]: string };
@@ -7720,6 +8765,50 @@ export class BatchResponseBodyResponses extends $tea.Model {
       body: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
       id: 'string',
       status: 'number',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class CreateCustomizedStoryRequestStoryCover extends $tea.Model {
+  fileId?: string;
+  revisionId?: string;
+  static names(): { [key: string]: string } {
+    return {
+      fileId: 'file_id',
+      revisionId: 'revision_id',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      fileId: 'string',
+      revisionId: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class CreateCustomizedStoryRequestStoryFiles extends $tea.Model {
+  fileId?: string;
+  revisionId?: string;
+  static names(): { [key: string]: string } {
+    return {
+      fileId: 'file_id',
+      revisionId: 'revision_id',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      fileId: 'string',
+      revisionId: 'string',
     };
   }
 
@@ -7960,6 +9049,135 @@ export class ParseKeywordsResponseBodyTimeRange extends $tea.Model {
   }
 }
 
+export class RemoveStoryFilesRequestFiles extends $tea.Model {
+  fileId?: string;
+  revisionId?: string;
+  static names(): { [key: string]: string } {
+    return {
+      fileId: 'file_id',
+      revisionId: 'revision_id',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      fileId: 'string',
+      revisionId: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class SearchSimilarImageClustersResponseBodySimilarImageClusters extends $tea.Model {
+  files?: File[];
+  static names(): { [key: string]: string } {
+    return {
+      files: 'files',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      files: { 'type': 'array', 'itemType': File },
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class SearchStoriesRequestCreateTimeRange extends $tea.Model {
+  end?: string;
+  start?: string;
+  static names(): { [key: string]: string } {
+    return {
+      end: 'end',
+      start: 'start',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      end: 'string',
+      start: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class SearchStoriesRequestStoryEndTimeRange extends $tea.Model {
+  end?: string;
+  start?: string;
+  static names(): { [key: string]: string } {
+    return {
+      end: 'end',
+      start: 'start',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      end: 'string',
+      start: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class SearchStoriesRequestStoryStartTimeRange extends $tea.Model {
+  end?: string;
+  start?: string;
+  static names(): { [key: string]: string } {
+    return {
+      end: 'end',
+      start: 'start',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      end: 'string',
+      start: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class UpdateStoryRequestCover extends $tea.Model {
+  fileId?: string;
+  revisionId?: string;
+  static names(): { [key: string]: string } {
+    return {
+      fileId: 'file_id',
+      revisionId: 'revision_id',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      fileId: 'string',
+      revisionId: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
 export class UpdateUserRequestGroupInfoList extends $tea.Model {
   groupId?: string;
   static names(): { [key: string]: string } {
@@ -8032,6 +9250,45 @@ export default class Client extends OpenApi {
     let runtime = new $Util.RuntimeOptions({ });
     let headers : {[key: string ]: string} = { };
     return await this.addGroupMemberWithOptions(domainId, request, headers, runtime);
+  }
+
+  async addStoryFilesWithOptions(request: AddStoryFilesRequest, headers: {[key: string ]: string}, runtime: $Util.RuntimeOptions): Promise<AddStoryFilesResponse> {
+    Util.validateModel(request);
+    let body : {[key: string ]: any} = { };
+    if (!Util.isUnset(request.driveId)) {
+      body["drive_id"] = request.driveId;
+    }
+
+    if (!Util.isUnset(request.files)) {
+      body["files"] = request.files;
+    }
+
+    if (!Util.isUnset(request.storyId)) {
+      body["story_id"] = request.storyId;
+    }
+
+    let req = new $OpenApi.OpenApiRequest({
+      headers: headers,
+      body: OpenApiUtil.parseToMap(body),
+    });
+    let params = new $OpenApi.Params({
+      action: "AddStoryFiles",
+      version: "2022-03-01",
+      protocol: "HTTPS",
+      pathname: `/v2/image/add_story_files`,
+      method: "POST",
+      authType: "AK",
+      style: "ROA",
+      reqBodyType: "json",
+      bodyType: "json",
+    });
+    return $tea.cast<AddStoryFilesResponse>(await this.execute(params, req, runtime), new AddStoryFilesResponse({}));
+  }
+
+  async addStoryFiles(request: AddStoryFilesRequest): Promise<AddStoryFilesResponse> {
+    let runtime = new $Util.RuntimeOptions({ });
+    let headers : {[key: string ]: string} = { };
+    return await this.addStoryFilesWithOptions(request, headers, runtime);
   }
 
   async authorizeWithOptions(tmpReq: AuthorizeRequest, headers: {[key: string ]: string}, runtime: $Util.RuntimeOptions): Promise<AuthorizeResponse> {
@@ -8280,6 +9537,61 @@ export default class Client extends OpenApi {
     let runtime = new $Util.RuntimeOptions({ });
     let headers : {[key: string ]: string} = { };
     return await this.copyFileWithOptions(request, headers, runtime);
+  }
+
+  async createCustomizedStoryWithOptions(request: CreateCustomizedStoryRequest, headers: {[key: string ]: string}, runtime: $Util.RuntimeOptions): Promise<CreateCustomizedStoryResponse> {
+    Util.validateModel(request);
+    let body : {[key: string ]: any} = { };
+    if (!Util.isUnset(request.customLabels)) {
+      body["custom_labels"] = request.customLabels;
+    }
+
+    if (!Util.isUnset(request.driveId)) {
+      body["drive_id"] = request.driveId;
+    }
+
+    if (!Util.isUnset(request.storyCover)) {
+      body["story_cover"] = request.storyCover;
+    }
+
+    if (!Util.isUnset(request.storyFiles)) {
+      body["story_files"] = request.storyFiles;
+    }
+
+    if (!Util.isUnset(request.storyName)) {
+      body["story_name"] = request.storyName;
+    }
+
+    if (!Util.isUnset(request.storySubType)) {
+      body["story_sub_type"] = request.storySubType;
+    }
+
+    if (!Util.isUnset(request.storyType)) {
+      body["story_type"] = request.storyType;
+    }
+
+    let req = new $OpenApi.OpenApiRequest({
+      headers: headers,
+      body: OpenApiUtil.parseToMap(body),
+    });
+    let params = new $OpenApi.Params({
+      action: "CreateCustomizedStory",
+      version: "2022-03-01",
+      protocol: "HTTPS",
+      pathname: `/v2/image/create_customized_story`,
+      method: "POST",
+      authType: "AK",
+      style: "ROA",
+      reqBodyType: "json",
+      bodyType: "json",
+    });
+    return $tea.cast<CreateCustomizedStoryResponse>(await this.execute(params, req, runtime), new CreateCustomizedStoryResponse({}));
+  }
+
+  async createCustomizedStory(request: CreateCustomizedStoryRequest): Promise<CreateCustomizedStoryResponse> {
+    let runtime = new $Util.RuntimeOptions({ });
+    let headers : {[key: string ]: string} = { };
+    return await this.createCustomizedStoryWithOptions(request, headers, runtime);
   }
 
   async createDomainWithOptions(request: CreateDomainRequest, headers: {[key: string ]: string}, runtime: $Util.RuntimeOptions): Promise<CreateDomainResponse> {
@@ -8680,6 +9992,108 @@ export default class Client extends OpenApi {
     return await this.createShareLinkWithOptions(request, headers, runtime);
   }
 
+  async createSimilarImageClusterTaskWithOptions(request: CreateSimilarImageClusterTaskRequest, headers: {[key: string ]: string}, runtime: $Util.RuntimeOptions): Promise<CreateSimilarImageClusterTaskResponse> {
+    Util.validateModel(request);
+    let body : {[key: string ]: any} = { };
+    if (!Util.isUnset(request.driveId)) {
+      body["drive_id"] = request.driveId;
+    }
+
+    let req = new $OpenApi.OpenApiRequest({
+      headers: headers,
+      body: OpenApiUtil.parseToMap(body),
+    });
+    let params = new $OpenApi.Params({
+      action: "CreateSimilarImageClusterTask",
+      version: "2022-03-01",
+      protocol: "HTTPS",
+      pathname: `/v2/image/create_similar_image_cluster_task`,
+      method: "POST",
+      authType: "AK",
+      style: "ROA",
+      reqBodyType: "json",
+      bodyType: "json",
+    });
+    return $tea.cast<CreateSimilarImageClusterTaskResponse>(await this.execute(params, req, runtime), new CreateSimilarImageClusterTaskResponse({}));
+  }
+
+  async createSimilarImageClusterTask(request: CreateSimilarImageClusterTaskRequest): Promise<CreateSimilarImageClusterTaskResponse> {
+    let runtime = new $Util.RuntimeOptions({ });
+    let headers : {[key: string ]: string} = { };
+    return await this.createSimilarImageClusterTaskWithOptions(request, headers, runtime);
+  }
+
+  async createStoryWithOptions(request: CreateStoryRequest, headers: {[key: string ]: string}, runtime: $Util.RuntimeOptions): Promise<CreateStoryResponse> {
+    Util.validateModel(request);
+    let body : {[key: string ]: any} = { };
+    if (!Util.isUnset(request.address)) {
+      body["address"] = request.address;
+    }
+
+    if (!Util.isUnset(request.customLabels)) {
+      body["custom_labels"] = request.customLabels;
+    }
+
+    if (!Util.isUnset(request.driveId)) {
+      body["drive_id"] = request.driveId;
+    }
+
+    if (!Util.isUnset(request.maxImageCount)) {
+      body["max_image_count"] = request.maxImageCount;
+    }
+
+    if (!Util.isUnset(request.minImageCount)) {
+      body["min_image_count"] = request.minImageCount;
+    }
+
+    if (!Util.isUnset(request.storyEndTime)) {
+      body["story_end_time"] = request.storyEndTime;
+    }
+
+    if (!Util.isUnset(request.storyId)) {
+      body["story_id"] = request.storyId;
+    }
+
+    if (!Util.isUnset(request.storyName)) {
+      body["story_name"] = request.storyName;
+    }
+
+    if (!Util.isUnset(request.storyStartTime)) {
+      body["story_start_time"] = request.storyStartTime;
+    }
+
+    if (!Util.isUnset(request.storySubType)) {
+      body["story_sub_type"] = request.storySubType;
+    }
+
+    if (!Util.isUnset(request.storyType)) {
+      body["story_type"] = request.storyType;
+    }
+
+    let req = new $OpenApi.OpenApiRequest({
+      headers: headers,
+      body: OpenApiUtil.parseToMap(body),
+    });
+    let params = new $OpenApi.Params({
+      action: "CreateStory",
+      version: "2022-03-01",
+      protocol: "HTTPS",
+      pathname: `/v2/image/create_story`,
+      method: "POST",
+      authType: "AK",
+      style: "ROA",
+      reqBodyType: "json",
+      bodyType: "json",
+    });
+    return $tea.cast<CreateStoryResponse>(await this.execute(params, req, runtime), new CreateStoryResponse({}));
+  }
+
+  async createStory(request: CreateStoryRequest): Promise<CreateStoryResponse> {
+    let runtime = new $Util.RuntimeOptions({ });
+    let headers : {[key: string ]: string} = { };
+    return await this.createStoryWithOptions(request, headers, runtime);
+  }
+
   async createUserWithOptions(request: CreateUserRequest, headers: {[key: string ]: string}, runtime: $Util.RuntimeOptions): Promise<CreateUserResponse> {
     Util.validateModel(request);
     let body : {[key: string ]: any} = { };
@@ -8955,6 +10369,41 @@ export default class Client extends OpenApi {
     let runtime = new $Util.RuntimeOptions({ });
     let headers : {[key: string ]: string} = { };
     return await this.deleteRevisionWithOptions(request, headers, runtime);
+  }
+
+  async deleteStoryWithOptions(request: DeleteStoryRequest, headers: {[key: string ]: string}, runtime: $Util.RuntimeOptions): Promise<DeleteStoryResponse> {
+    Util.validateModel(request);
+    let body : {[key: string ]: any} = { };
+    if (!Util.isUnset(request.driveId)) {
+      body["drive_id"] = request.driveId;
+    }
+
+    if (!Util.isUnset(request.storyId)) {
+      body["story_id"] = request.storyId;
+    }
+
+    let req = new $OpenApi.OpenApiRequest({
+      headers: headers,
+      body: OpenApiUtil.parseToMap(body),
+    });
+    let params = new $OpenApi.Params({
+      action: "DeleteStory",
+      version: "2022-03-01",
+      protocol: "HTTPS",
+      pathname: `/v2/image/delete_story`,
+      method: "POST",
+      authType: "AK",
+      style: "ROA",
+      reqBodyType: "json",
+      bodyType: "json",
+    });
+    return $tea.cast<DeleteStoryResponse>(await this.execute(params, req, runtime), new DeleteStoryResponse({}));
+  }
+
+  async deleteStory(request: DeleteStoryRequest): Promise<DeleteStoryResponse> {
+    let runtime = new $Util.RuntimeOptions({ });
+    let headers : {[key: string ]: string} = { };
+    return await this.deleteStoryWithOptions(request, headers, runtime);
   }
 
   async deleteUserWithOptions(request: DeleteUserRequest, headers: {[key: string ]: string}, runtime: $Util.RuntimeOptions): Promise<DeleteUserResponse> {
@@ -9775,6 +11224,100 @@ export default class Client extends OpenApi {
     return await this.getShareLinkTokenWithOptions(request, headers, runtime);
   }
 
+  async getStoryWithOptions(request: GetStoryRequest, headers: {[key: string ]: string}, runtime: $Util.RuntimeOptions): Promise<GetStoryResponse> {
+    Util.validateModel(request);
+    let body : {[key: string ]: any} = { };
+    if (!Util.isUnset(request.coverImageThumbnailProcess)) {
+      body["cover_image_thumbnail_process"] = request.coverImageThumbnailProcess;
+    }
+
+    if (!Util.isUnset(request.coverVideoThumbnailProcess)) {
+      body["cover_video_thumbnail_process"] = request.coverVideoThumbnailProcess;
+    }
+
+    if (!Util.isUnset(request.driveId)) {
+      body["drive_id"] = request.driveId;
+    }
+
+    if (!Util.isUnset(request.imageThumbnailProcess)) {
+      body["image_thumbnail_process"] = request.imageThumbnailProcess;
+    }
+
+    if (!Util.isUnset(request.imageUrlProcess)) {
+      body["image_url_process"] = request.imageUrlProcess;
+    }
+
+    if (!Util.isUnset(request.storyId)) {
+      body["story_id"] = request.storyId;
+    }
+
+    if (!Util.isUnset(request.urlExpireSec)) {
+      body["url_expire_sec"] = request.urlExpireSec;
+    }
+
+    if (!Util.isUnset(request.videoThumbnailProcess)) {
+      body["video_thumbnail_process"] = request.videoThumbnailProcess;
+    }
+
+    let req = new $OpenApi.OpenApiRequest({
+      headers: headers,
+      body: OpenApiUtil.parseToMap(body),
+    });
+    let params = new $OpenApi.Params({
+      action: "GetStory",
+      version: "2022-03-01",
+      protocol: "HTTPS",
+      pathname: `/v2/image/get_story`,
+      method: "POST",
+      authType: "AK",
+      style: "ROA",
+      reqBodyType: "json",
+      bodyType: "json",
+    });
+    return $tea.cast<GetStoryResponse>(await this.execute(params, req, runtime), new GetStoryResponse({}));
+  }
+
+  async getStory(request: GetStoryRequest): Promise<GetStoryResponse> {
+    let runtime = new $Util.RuntimeOptions({ });
+    let headers : {[key: string ]: string} = { };
+    return await this.getStoryWithOptions(request, headers, runtime);
+  }
+
+  async getTaskStatusWithOptions(request: GetTaskStatusRequest, headers: {[key: string ]: string}, runtime: $Util.RuntimeOptions): Promise<GetTaskStatusResponse> {
+    Util.validateModel(request);
+    let body : {[key: string ]: any} = { };
+    if (!Util.isUnset(request.driveId)) {
+      body["drive_id"] = request.driveId;
+    }
+
+    if (!Util.isUnset(request.taskId)) {
+      body["task_id"] = request.taskId;
+    }
+
+    let req = new $OpenApi.OpenApiRequest({
+      headers: headers,
+      body: OpenApiUtil.parseToMap(body),
+    });
+    let params = new $OpenApi.Params({
+      action: "GetTaskStatus",
+      version: "2022-03-01",
+      protocol: "HTTPS",
+      pathname: `/v2/image/get_task_status`,
+      method: "POST",
+      authType: "AK",
+      style: "ROA",
+      reqBodyType: "json",
+      bodyType: "json",
+    });
+    return $tea.cast<GetTaskStatusResponse>(await this.execute(params, req, runtime), new GetTaskStatusResponse({}));
+  }
+
+  async getTaskStatus(request: GetTaskStatusRequest): Promise<GetTaskStatusResponse> {
+    let runtime = new $Util.RuntimeOptions({ });
+    let headers : {[key: string ]: string} = { };
+    return await this.getTaskStatusWithOptions(request, headers, runtime);
+  }
+
   async getUploadUrlWithOptions(request: GetUploadUrlRequest, headers: {[key: string ]: string}, runtime: $Util.RuntimeOptions): Promise<GetUploadUrlResponse> {
     Util.validateModel(request);
     let body : {[key: string ]: any} = { };
@@ -10386,6 +11929,10 @@ export default class Client extends OpenApi {
 
     if (!Util.isUnset(request.status)) {
       body["status"] = request.status;
+    }
+
+    if (!Util.isUnset(request.thumbnailProcesses)) {
+      body["thumbnail_processes"] = request.thumbnailProcesses;
     }
 
     if (!Util.isUnset(request.type)) {
@@ -11065,6 +12612,45 @@ export default class Client extends OpenApi {
     return await this.removeGroupMemberWithOptions(domainId, request, headers, runtime);
   }
 
+  async removeStoryFilesWithOptions(request: RemoveStoryFilesRequest, headers: {[key: string ]: string}, runtime: $Util.RuntimeOptions): Promise<RemoveStoryFilesResponse> {
+    Util.validateModel(request);
+    let body : {[key: string ]: any} = { };
+    if (!Util.isUnset(request.driveId)) {
+      body["drive_id"] = request.driveId;
+    }
+
+    if (!Util.isUnset(request.files)) {
+      body["files"] = request.files;
+    }
+
+    if (!Util.isUnset(request.storyId)) {
+      body["story_id"] = request.storyId;
+    }
+
+    let req = new $OpenApi.OpenApiRequest({
+      headers: headers,
+      body: OpenApiUtil.parseToMap(body),
+    });
+    let params = new $OpenApi.Params({
+      action: "RemoveStoryFiles",
+      version: "2022-03-01",
+      protocol: "HTTPS",
+      pathname: `/v2/image/remove_story_files`,
+      method: "POST",
+      authType: "AK",
+      style: "ROA",
+      reqBodyType: "json",
+      bodyType: "json",
+    });
+    return $tea.cast<RemoveStoryFilesResponse>(await this.execute(params, req, runtime), new RemoveStoryFilesResponse({}));
+  }
+
+  async removeStoryFiles(request: RemoveStoryFilesRequest): Promise<RemoveStoryFilesResponse> {
+    let runtime = new $Util.RuntimeOptions({ });
+    let headers : {[key: string ]: string} = { };
+    return await this.removeStoryFilesWithOptions(request, headers, runtime);
+  }
+
   async restoreFileWithOptions(request: RestoreFileRequest, headers: {[key: string ]: string}, runtime: $Util.RuntimeOptions): Promise<RestoreFileResponse> {
     Util.validateModel(request);
     let body : {[key: string ]: any} = { };
@@ -11431,6 +13017,148 @@ export default class Client extends OpenApi {
     let runtime = new $Util.RuntimeOptions({ });
     let headers : {[key: string ]: string} = { };
     return await this.searchShareLinkWithOptions(request, headers, runtime);
+  }
+
+  async searchSimilarImageClustersWithOptions(request: SearchSimilarImageClustersRequest, headers: {[key: string ]: string}, runtime: $Util.RuntimeOptions): Promise<SearchSimilarImageClustersResponse> {
+    Util.validateModel(request);
+    let body : {[key: string ]: any} = { };
+    if (!Util.isUnset(request.driveId)) {
+      body["drive_id"] = request.driveId;
+    }
+
+    if (!Util.isUnset(request.imageThumbnailProcess)) {
+      body["image_thumbnail_process"] = request.imageThumbnailProcess;
+    }
+
+    if (!Util.isUnset(request.limit)) {
+      body["limit"] = request.limit;
+    }
+
+    if (!Util.isUnset(request.marker)) {
+      body["marker"] = request.marker;
+    }
+
+    if (!Util.isUnset(request.order)) {
+      body["order"] = request.order;
+    }
+
+    let req = new $OpenApi.OpenApiRequest({
+      headers: headers,
+      body: OpenApiUtil.parseToMap(body),
+    });
+    let params = new $OpenApi.Params({
+      action: "SearchSimilarImageClusters",
+      version: "2022-03-01",
+      protocol: "HTTPS",
+      pathname: `/v2/image/query_similar_image_clusters`,
+      method: "POST",
+      authType: "AK",
+      style: "ROA",
+      reqBodyType: "json",
+      bodyType: "json",
+    });
+    return $tea.cast<SearchSimilarImageClustersResponse>(await this.execute(params, req, runtime), new SearchSimilarImageClustersResponse({}));
+  }
+
+  async searchSimilarImageClusters(request: SearchSimilarImageClustersRequest): Promise<SearchSimilarImageClustersResponse> {
+    let runtime = new $Util.RuntimeOptions({ });
+    let headers : {[key: string ]: string} = { };
+    return await this.searchSimilarImageClustersWithOptions(request, headers, runtime);
+  }
+
+  async searchStoriesWithOptions(request: SearchStoriesRequest, headers: {[key: string ]: string}, runtime: $Util.RuntimeOptions): Promise<SearchStoriesResponse> {
+    Util.validateModel(request);
+    let body : {[key: string ]: any} = { };
+    if (!Util.isUnset(request.coverImageThumbnailProcess)) {
+      body["cover_image_thumbnail_process"] = request.coverImageThumbnailProcess;
+    }
+
+    if (!Util.isUnset(request.coverVideoThumbnailProcess)) {
+      body["cover_video_thumbnail_process"] = request.coverVideoThumbnailProcess;
+    }
+
+    if (!Util.isUnset(request.createTimeRange)) {
+      body["create_time_range"] = request.createTimeRange;
+    }
+
+    if (!Util.isUnset(request.customLabels)) {
+      body["custom_labels"] = request.customLabels;
+    }
+
+    if (!Util.isUnset(request.driveId)) {
+      body["drive_id"] = request.driveId;
+    }
+
+    if (!Util.isUnset(request.faceGroupIds)) {
+      body["face_group_ids"] = request.faceGroupIds;
+    }
+
+    if (!Util.isUnset(request.limit)) {
+      body["limit"] = request.limit;
+    }
+
+    if (!Util.isUnset(request.marker)) {
+      body["marker"] = request.marker;
+    }
+
+    if (!Util.isUnset(request.order)) {
+      body["order"] = request.order;
+    }
+
+    if (!Util.isUnset(request.sort)) {
+      body["sort"] = request.sort;
+    }
+
+    if (!Util.isUnset(request.storyEndTimeRange)) {
+      body["story_end_time_range"] = request.storyEndTimeRange;
+    }
+
+    if (!Util.isUnset(request.storyId)) {
+      body["story_id"] = request.storyId;
+    }
+
+    if (!Util.isUnset(request.storyName)) {
+      body["story_name"] = request.storyName;
+    }
+
+    if (!Util.isUnset(request.storyStartTimeRange)) {
+      body["story_start_time_range"] = request.storyStartTimeRange;
+    }
+
+    if (!Util.isUnset(request.storyType)) {
+      body["story_type"] = request.storyType;
+    }
+
+    if (!Util.isUnset(request.urlExpireSec)) {
+      body["url_expire_sec"] = request.urlExpireSec;
+    }
+
+    if (!Util.isUnset(request.withEmptyStories)) {
+      body["with_empty_stories"] = request.withEmptyStories;
+    }
+
+    let req = new $OpenApi.OpenApiRequest({
+      headers: headers,
+      body: OpenApiUtil.parseToMap(body),
+    });
+    let params = new $OpenApi.Params({
+      action: "SearchStories",
+      version: "2022-03-01",
+      protocol: "HTTPS",
+      pathname: `/v2/image/find_stories`,
+      method: "POST",
+      authType: "AK",
+      style: "ROA",
+      reqBodyType: "json",
+      bodyType: "json",
+    });
+    return $tea.cast<SearchStoriesResponse>(await this.execute(params, req, runtime), new SearchStoriesResponse({}));
+  }
+
+  async searchStories(request: SearchStoriesRequest): Promise<SearchStoriesResponse> {
+    let runtime = new $Util.RuntimeOptions({ });
+    let headers : {[key: string ]: string} = { };
+    return await this.searchStoriesWithOptions(request, headers, runtime);
   }
 
   async searchUserWithOptions(request: SearchUserRequest, headers: {[key: string ]: string}, runtime: $Util.RuntimeOptions): Promise<SearchUserResponse> {
@@ -12028,6 +13756,53 @@ export default class Client extends OpenApi {
     let runtime = new $Util.RuntimeOptions({ });
     let headers : {[key: string ]: string} = { };
     return await this.updateShareLinkWithOptions(request, headers, runtime);
+  }
+
+  async updateStoryWithOptions(request: UpdateStoryRequest, headers: {[key: string ]: string}, runtime: $Util.RuntimeOptions): Promise<UpdateStoryResponse> {
+    Util.validateModel(request);
+    let body : {[key: string ]: any} = { };
+    if (!Util.isUnset(request.cover)) {
+      body["cover"] = request.cover;
+    }
+
+    if (!Util.isUnset(request.customLabels)) {
+      body["custom_labels"] = request.customLabels;
+    }
+
+    if (!Util.isUnset(request.driveId)) {
+      body["drive_id"] = request.driveId;
+    }
+
+    if (!Util.isUnset(request.storyId)) {
+      body["story_id"] = request.storyId;
+    }
+
+    if (!Util.isUnset(request.storyName)) {
+      body["story_name"] = request.storyName;
+    }
+
+    let req = new $OpenApi.OpenApiRequest({
+      headers: headers,
+      body: OpenApiUtil.parseToMap(body),
+    });
+    let params = new $OpenApi.Params({
+      action: "UpdateStory",
+      version: "2022-03-01",
+      protocol: "HTTPS",
+      pathname: `/v2/image/update_story`,
+      method: "POST",
+      authType: "AK",
+      style: "ROA",
+      reqBodyType: "json",
+      bodyType: "json",
+    });
+    return $tea.cast<UpdateStoryResponse>(await this.execute(params, req, runtime), new UpdateStoryResponse({}));
+  }
+
+  async updateStory(request: UpdateStoryRequest): Promise<UpdateStoryResponse> {
+    let runtime = new $Util.RuntimeOptions({ });
+    let headers : {[key: string ]: string} = { };
+    return await this.updateStoryWithOptions(request, headers, runtime);
   }
 
   async updateUserWithOptions(request: UpdateUserRequest, headers: {[key: string ]: string}, runtime: $Util.RuntimeOptions): Promise<UpdateUserResponse> {
