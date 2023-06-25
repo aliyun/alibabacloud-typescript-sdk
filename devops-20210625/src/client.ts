@@ -1759,6 +1759,192 @@ export class CreateTagResponse extends $tea.Model {
   }
 }
 
+export class CreateTestCaseRequest extends $tea.Model {
+  assignedTo?: string;
+  directoryIdentifier?: string;
+  fieldValueList?: CreateTestCaseRequestFieldValueList[];
+  priority?: string;
+  spaceIdentifier?: string;
+  subject?: string;
+  tags?: string[];
+  testcaseStepContentInfo?: CreateTestCaseRequestTestcaseStepContentInfo;
+  static names(): { [key: string]: string } {
+    return {
+      assignedTo: 'assignedTo',
+      directoryIdentifier: 'directoryIdentifier',
+      fieldValueList: 'fieldValueList',
+      priority: 'priority',
+      spaceIdentifier: 'spaceIdentifier',
+      subject: 'subject',
+      tags: 'tags',
+      testcaseStepContentInfo: 'testcaseStepContentInfo',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      assignedTo: 'string',
+      directoryIdentifier: 'string',
+      fieldValueList: { 'type': 'array', 'itemType': CreateTestCaseRequestFieldValueList },
+      priority: 'string',
+      spaceIdentifier: 'string',
+      subject: 'string',
+      tags: { 'type': 'array', 'itemType': 'string' },
+      testcaseStepContentInfo: CreateTestCaseRequestTestcaseStepContentInfo,
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class CreateTestCaseResponseBody extends $tea.Model {
+  errorCode?: string;
+  errorMsg?: string;
+  requestId?: string;
+  success?: boolean;
+  testcase?: CreateTestCaseResponseBodyTestcase;
+  static names(): { [key: string]: string } {
+    return {
+      errorCode: 'errorCode',
+      errorMsg: 'errorMsg',
+      requestId: 'requestId',
+      success: 'success',
+      testcase: 'testcase',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      errorCode: 'string',
+      errorMsg: 'string',
+      requestId: 'string',
+      success: 'boolean',
+      testcase: CreateTestCaseResponseBodyTestcase,
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class CreateTestCaseResponse extends $tea.Model {
+  headers: { [key: string]: string };
+  statusCode: number;
+  body: CreateTestCaseResponseBody;
+  static names(): { [key: string]: string } {
+    return {
+      headers: 'headers',
+      statusCode: 'statusCode',
+      body: 'body',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
+      body: CreateTestCaseResponseBody,
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class CreateUserKeyRequest extends $tea.Model {
+  accessToken?: string;
+  expireTime?: string;
+  keyScope?: string;
+  publicKey?: string;
+  title?: string;
+  organizationId?: string;
+  static names(): { [key: string]: string } {
+    return {
+      accessToken: 'accessToken',
+      expireTime: 'expireTime',
+      keyScope: 'keyScope',
+      publicKey: 'publicKey',
+      title: 'title',
+      organizationId: 'organizationId',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      accessToken: 'string',
+      expireTime: 'string',
+      keyScope: 'string',
+      publicKey: 'string',
+      title: 'string',
+      organizationId: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class CreateUserKeyResponseBody extends $tea.Model {
+  errorCode?: string;
+  errorMessage?: string;
+  requestId?: string;
+  result?: CreateUserKeyResponseBodyResult;
+  success?: boolean;
+  static names(): { [key: string]: string } {
+    return {
+      errorCode: 'errorCode',
+      errorMessage: 'errorMessage',
+      requestId: 'requestId',
+      result: 'result',
+      success: 'success',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      errorCode: 'string',
+      errorMessage: 'string',
+      requestId: 'string',
+      result: CreateUserKeyResponseBodyResult,
+      success: 'boolean',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class CreateUserKeyResponse extends $tea.Model {
+  headers: { [key: string]: string };
+  statusCode: number;
+  body: CreateUserKeyResponseBody;
+  static names(): { [key: string]: string } {
+    return {
+      headers: 'headers',
+      statusCode: 'statusCode',
+      body: 'body',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
+      body: CreateUserKeyResponseBody,
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
 export class CreateVariableGroupRequest extends $tea.Model {
   description?: string;
   name?: string;
@@ -3509,6 +3695,84 @@ export class DeleteTagResponse extends $tea.Model {
       headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
       statusCode: 'number',
       body: DeleteTagResponseBody,
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class DeleteUserKeyRequest extends $tea.Model {
+  accessToken?: string;
+  organizationId?: string;
+  static names(): { [key: string]: string } {
+    return {
+      accessToken: 'accessToken',
+      organizationId: 'organizationId',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      accessToken: 'string',
+      organizationId: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class DeleteUserKeyResponseBody extends $tea.Model {
+  errorCode?: string;
+  errorMessage?: string;
+  requestId?: string;
+  result?: DeleteUserKeyResponseBodyResult;
+  success?: boolean;
+  static names(): { [key: string]: string } {
+    return {
+      errorCode: 'errorCode',
+      errorMessage: 'errorMessage',
+      requestId: 'requestId',
+      result: 'result',
+      success: 'success',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      errorCode: 'string',
+      errorMessage: 'string',
+      requestId: 'string',
+      result: DeleteUserKeyResponseBodyResult,
+      success: 'boolean',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class DeleteUserKeyResponse extends $tea.Model {
+  headers: { [key: string]: string };
+  statusCode: number;
+  body: DeleteUserKeyResponseBody;
+  static names(): { [key: string]: string } {
+    return {
+      headers: 'headers',
+      statusCode: 'statusCode',
+      body: 'body',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
+      body: DeleteUserKeyResponseBody,
     };
   }
 
@@ -5595,6 +5859,180 @@ export class GetSprintInfoResponse extends $tea.Model {
   }
 }
 
+export class GetTestResultListRequest extends $tea.Model {
+  conditions?: string;
+  directoryIdentifier?: string;
+  static names(): { [key: string]: string } {
+    return {
+      conditions: 'conditions',
+      directoryIdentifier: 'directoryIdentifier',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      conditions: 'string',
+      directoryIdentifier: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class GetTestResultListResponseBody extends $tea.Model {
+  errorCode?: string;
+  errorMsg?: string;
+  requestId?: string;
+  success?: boolean;
+  testResult?: GetTestResultListResponseBodyTestResult[];
+  static names(): { [key: string]: string } {
+    return {
+      errorCode: 'errorCode',
+      errorMsg: 'errorMsg',
+      requestId: 'requestId',
+      success: 'success',
+      testResult: 'testResult',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      errorCode: 'string',
+      errorMsg: 'string',
+      requestId: 'string',
+      success: 'boolean',
+      testResult: { 'type': 'array', 'itemType': GetTestResultListResponseBodyTestResult },
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class GetTestResultListResponse extends $tea.Model {
+  headers: { [key: string]: string };
+  statusCode: number;
+  body: GetTestResultListResponseBody;
+  static names(): { [key: string]: string } {
+    return {
+      headers: 'headers',
+      statusCode: 'statusCode',
+      body: 'body',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
+      body: GetTestResultListResponseBody,
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class GetTestcaseListRequest extends $tea.Model {
+  conditions?: string;
+  directoryIdentifier?: string;
+  maxResult?: string;
+  nextToken?: string;
+  spaceIdentifier?: string;
+  static names(): { [key: string]: string } {
+    return {
+      conditions: 'conditions',
+      directoryIdentifier: 'directoryIdentifier',
+      maxResult: 'maxResult',
+      nextToken: 'nextToken',
+      spaceIdentifier: 'spaceIdentifier',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      conditions: 'string',
+      directoryIdentifier: 'string',
+      maxResult: 'string',
+      nextToken: 'string',
+      spaceIdentifier: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class GetTestcaseListResponseBody extends $tea.Model {
+  errorCode?: string;
+  errorMsg?: string;
+  maxResults?: number;
+  nextToken?: string;
+  requestId?: string;
+  success?: boolean;
+  testcase?: GetTestcaseListResponseBodyTestcase[];
+  totalCount?: number;
+  static names(): { [key: string]: string } {
+    return {
+      errorCode: 'errorCode',
+      errorMsg: 'errorMsg',
+      maxResults: 'maxResults',
+      nextToken: 'nextToken',
+      requestId: 'requestId',
+      success: 'success',
+      testcase: 'testcase',
+      totalCount: 'totalCount',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      errorCode: 'string',
+      errorMsg: 'string',
+      maxResults: 'number',
+      nextToken: 'string',
+      requestId: 'string',
+      success: 'boolean',
+      testcase: { 'type': 'array', 'itemType': GetTestcaseListResponseBodyTestcase },
+      totalCount: 'number',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class GetTestcaseListResponse extends $tea.Model {
+  headers: { [key: string]: string };
+  statusCode: number;
+  body: GetTestcaseListResponseBody;
+  static names(): { [key: string]: string } {
+    return {
+      headers: 'headers',
+      statusCode: 'statusCode',
+      body: 'body',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
+      body: GetTestcaseListResponseBody,
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
 export class GetUserInfoRequest extends $tea.Model {
   organizationId?: string;
   static names(): { [key: string]: string } {
@@ -6617,6 +7055,7 @@ export class ListHostGroupsResponse extends $tea.Model {
 }
 
 export class ListOrganizationMembersRequest extends $tea.Model {
+  containsExternInfo?: boolean;
   externUid?: string;
   joinTimeFrom?: number;
   joinTimeTo?: number;
@@ -6627,6 +7066,7 @@ export class ListOrganizationMembersRequest extends $tea.Model {
   state?: string;
   static names(): { [key: string]: string } {
     return {
+      containsExternInfo: 'containsExternInfo',
       externUid: 'externUid',
       joinTimeFrom: 'joinTimeFrom',
       joinTimeTo: 'joinTimeTo',
@@ -6640,6 +7080,7 @@ export class ListOrganizationMembersRequest extends $tea.Model {
 
   static types(): { [key: string]: any } {
     return {
+      containsExternInfo: 'boolean',
       externUid: 'string',
       joinTimeFrom: 'number',
       joinTimeTo: 'number',
@@ -9190,6 +9631,171 @@ export class ListSprintsResponse extends $tea.Model {
       headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
       statusCode: 'number',
       body: ListSprintsResponseBody,
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class ListTestCaseFieldsRequest extends $tea.Model {
+  spaceIdentifier?: string;
+  static names(): { [key: string]: string } {
+    return {
+      spaceIdentifier: 'spaceIdentifier',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      spaceIdentifier: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class ListTestCaseFieldsResponseBody extends $tea.Model {
+  errorCode?: string;
+  errorMsg?: string;
+  fields?: ListTestCaseFieldsResponseBodyFields[];
+  requestId?: string;
+  success?: boolean;
+  static names(): { [key: string]: string } {
+    return {
+      errorCode: 'errorCode',
+      errorMsg: 'errorMsg',
+      fields: 'fields',
+      requestId: 'requestId',
+      success: 'success',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      errorCode: 'string',
+      errorMsg: 'string',
+      fields: { 'type': 'array', 'itemType': ListTestCaseFieldsResponseBodyFields },
+      requestId: 'string',
+      success: 'boolean',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class ListTestCaseFieldsResponse extends $tea.Model {
+  headers: { [key: string]: string };
+  statusCode: number;
+  body: ListTestCaseFieldsResponseBody;
+  static names(): { [key: string]: string } {
+    return {
+      headers: 'headers',
+      statusCode: 'statusCode',
+      body: 'body',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
+      body: ListTestCaseFieldsResponseBody,
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class ListUserKeysRequest extends $tea.Model {
+  accessToken?: string;
+  orderBy?: string;
+  organizationId?: string;
+  page?: number;
+  pageSize?: number;
+  sort?: string;
+  static names(): { [key: string]: string } {
+    return {
+      accessToken: 'accessToken',
+      orderBy: 'orderBy',
+      organizationId: 'organizationId',
+      page: 'page',
+      pageSize: 'pageSize',
+      sort: 'sort',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      accessToken: 'string',
+      orderBy: 'string',
+      organizationId: 'string',
+      page: 'number',
+      pageSize: 'number',
+      sort: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class ListUserKeysResponseBody extends $tea.Model {
+  errorCode?: string;
+  errorMessage?: string;
+  requestId?: string;
+  result?: ListUserKeysResponseBodyResult[];
+  success?: boolean;
+  static names(): { [key: string]: string } {
+    return {
+      errorCode: 'errorCode',
+      errorMessage: 'errorMessage',
+      requestId: 'requestId',
+      result: 'result',
+      success: 'success',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      errorCode: 'string',
+      errorMessage: 'string',
+      requestId: 'string',
+      result: { 'type': 'array', 'itemType': ListUserKeysResponseBodyResult },
+      success: 'boolean',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class ListUserKeysResponse extends $tea.Model {
+  headers: { [key: string]: string };
+  statusCode: number;
+  body: ListUserKeysResponseBody;
+  static names(): { [key: string]: string } {
+    return {
+      headers: 'headers',
+      statusCode: 'statusCode',
+      body: 'body',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
+      body: ListUserKeysResponseBody,
     };
   }
 
@@ -11893,6 +12499,156 @@ export class UpdateResourceMemberResponse extends $tea.Model {
   }
 }
 
+export class UpdateTestCaseRequest extends $tea.Model {
+  updateWorkitemPropertyRequest?: UpdateTestCaseRequestUpdateWorkitemPropertyRequest[];
+  static names(): { [key: string]: string } {
+    return {
+      updateWorkitemPropertyRequest: 'updateWorkitemPropertyRequest',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      updateWorkitemPropertyRequest: { 'type': 'array', 'itemType': UpdateTestCaseRequestUpdateWorkitemPropertyRequest },
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class UpdateTestCaseResponseBody extends $tea.Model {
+  testcase?: UpdateTestCaseResponseBodyTestcase;
+  errorCode?: string;
+  errorMsg?: string;
+  requestId?: string;
+  success?: boolean;
+  static names(): { [key: string]: string } {
+    return {
+      testcase: 'Testcase',
+      errorCode: 'errorCode',
+      errorMsg: 'errorMsg',
+      requestId: 'requestId',
+      success: 'success',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      testcase: UpdateTestCaseResponseBodyTestcase,
+      errorCode: 'string',
+      errorMsg: 'string',
+      requestId: 'string',
+      success: 'boolean',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class UpdateTestCaseResponse extends $tea.Model {
+  headers: { [key: string]: string };
+  statusCode: number;
+  body: UpdateTestCaseResponseBody;
+  static names(): { [key: string]: string } {
+    return {
+      headers: 'headers',
+      statusCode: 'statusCode',
+      body: 'body',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
+      body: UpdateTestCaseResponseBody,
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class UpdateTestResultRequest extends $tea.Model {
+  executor?: string;
+  status?: string;
+  static names(): { [key: string]: string } {
+    return {
+      executor: 'executor',
+      status: 'status',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      executor: 'string',
+      status: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class UpdateTestResultResponseBody extends $tea.Model {
+  errorCode?: string;
+  errorMsg?: string;
+  requestId?: string;
+  success?: boolean;
+  static names(): { [key: string]: string } {
+    return {
+      errorCode: 'errorCode',
+      errorMsg: 'errorMsg',
+      requestId: 'requestId',
+      success: 'success',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      errorCode: 'string',
+      errorMsg: 'string',
+      requestId: 'string',
+      success: 'boolean',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class UpdateTestResultResponse extends $tea.Model {
+  headers: { [key: string]: string };
+  statusCode: number;
+  body: UpdateTestResultResponseBody;
+  static names(): { [key: string]: string } {
+    return {
+      headers: 'headers',
+      statusCode: 'statusCode',
+      body: 'body',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
+      body: UpdateTestResultResponseBody,
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
 export class UpdateVariableGroupRequest extends $tea.Model {
   description?: string;
   name?: string;
@@ -13329,6 +14085,361 @@ export class CreateTagResponseBodyResult extends $tea.Model {
   }
 }
 
+export class CreateTestCaseRequestFieldValueList extends $tea.Model {
+  fieldIdentifier?: string;
+  value?: string;
+  static names(): { [key: string]: string } {
+    return {
+      fieldIdentifier: 'fieldIdentifier',
+      value: 'value',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      fieldIdentifier: 'string',
+      value: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class CreateTestCaseRequestTestcaseStepContentInfoStepResultList extends $tea.Model {
+  expected?: string;
+  step?: string;
+  static names(): { [key: string]: string } {
+    return {
+      expected: 'expected',
+      step: 'step',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      expected: 'string',
+      step: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class CreateTestCaseRequestTestcaseStepContentInfo extends $tea.Model {
+  precondition?: string;
+  stepResultList?: CreateTestCaseRequestTestcaseStepContentInfoStepResultList[];
+  stepType?: string;
+  static names(): { [key: string]: string } {
+    return {
+      precondition: 'precondition',
+      stepResultList: 'stepResultList',
+      stepType: 'stepType',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      precondition: 'string',
+      stepResultList: { 'type': 'array', 'itemType': CreateTestCaseRequestTestcaseStepContentInfoStepResultList },
+      stepType: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class CreateTestCaseResponseBodyTestcaseAssignedTo extends $tea.Model {
+  assignIdentifier?: string;
+  name?: string;
+  tbRoleId?: string;
+  static names(): { [key: string]: string } {
+    return {
+      assignIdentifier: 'assignIdentifier',
+      name: 'name',
+      tbRoleId: 'tbRoleId',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      assignIdentifier: 'string',
+      name: 'string',
+      tbRoleId: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class CreateTestCaseResponseBodyTestcaseCreator extends $tea.Model {
+  createIdentifier?: string;
+  name?: string;
+  static names(): { [key: string]: string } {
+    return {
+      createIdentifier: 'createIdentifier',
+      name: 'name',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      createIdentifier: 'string',
+      name: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class CreateTestCaseResponseBodyTestcaseDetailInfoExpectedResult extends $tea.Model {
+  expectContent?: string;
+  expectContentType?: string;
+  expectIdentifier?: string;
+  static names(): { [key: string]: string } {
+    return {
+      expectContent: 'expectContent',
+      expectContentType: 'expectContentType',
+      expectIdentifier: 'expectIdentifier',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      expectContent: 'string',
+      expectContentType: 'string',
+      expectIdentifier: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class CreateTestCaseResponseBodyTestcaseDetailInfoPrecondition extends $tea.Model {
+  preContent?: string;
+  preContentType?: string;
+  preIdentifier?: string;
+  static names(): { [key: string]: string } {
+    return {
+      preContent: 'preContent',
+      preContentType: 'preContentType',
+      preIdentifier: 'preIdentifier',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      preContent: 'string',
+      preContentType: 'string',
+      preIdentifier: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class CreateTestCaseResponseBodyTestcaseDetailInfoStepContent extends $tea.Model {
+  stepContent?: string;
+  stepContentType?: string;
+  stepIdentifier?: string;
+  static names(): { [key: string]: string } {
+    return {
+      stepContent: 'stepContent',
+      stepContentType: 'stepContentType',
+      stepIdentifier: 'stepIdentifier',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      stepContent: 'string',
+      stepContentType: 'string',
+      stepIdentifier: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class CreateTestCaseResponseBodyTestcaseDetailInfo extends $tea.Model {
+  expectedResult?: CreateTestCaseResponseBodyTestcaseDetailInfoExpectedResult;
+  precondition?: CreateTestCaseResponseBodyTestcaseDetailInfoPrecondition;
+  stepContent?: CreateTestCaseResponseBodyTestcaseDetailInfoStepContent;
+  stepType?: string;
+  static names(): { [key: string]: string } {
+    return {
+      expectedResult: 'expectedResult',
+      precondition: 'precondition',
+      stepContent: 'stepContent',
+      stepType: 'stepType',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      expectedResult: CreateTestCaseResponseBodyTestcaseDetailInfoExpectedResult,
+      precondition: CreateTestCaseResponseBodyTestcaseDetailInfoPrecondition,
+      stepContent: CreateTestCaseResponseBodyTestcaseDetailInfoStepContent,
+      stepType: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class CreateTestCaseResponseBodyTestcaseDirectory extends $tea.Model {
+  childIdentifier?: string;
+  directoryIdentifier?: string;
+  name?: string;
+  pathName?: string[];
+  static names(): { [key: string]: string } {
+    return {
+      childIdentifier: 'childIdentifier',
+      directoryIdentifier: 'directoryIdentifier',
+      name: 'name',
+      pathName: 'pathName',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      childIdentifier: 'string',
+      directoryIdentifier: 'string',
+      name: 'string',
+      pathName: { 'type': 'array', 'itemType': 'string' },
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class CreateTestCaseResponseBodyTestcaseModifier extends $tea.Model {
+  modifyIdentifier?: string;
+  name?: string;
+  static names(): { [key: string]: string } {
+    return {
+      modifyIdentifier: 'modifyIdentifier',
+      name: 'name',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      modifyIdentifier: 'string',
+      name: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class CreateTestCaseResponseBodyTestcase extends $tea.Model {
+  assignedTo?: CreateTestCaseResponseBodyTestcaseAssignedTo;
+  categoryIdentifier?: string;
+  creator?: CreateTestCaseResponseBodyTestcaseCreator;
+  detailInfo?: CreateTestCaseResponseBodyTestcaseDetailInfo;
+  directory?: CreateTestCaseResponseBodyTestcaseDirectory;
+  identifier?: string;
+  modifier?: CreateTestCaseResponseBodyTestcaseModifier;
+  spaceIdentifier?: string;
+  spaceType?: string;
+  subject?: string;
+  static names(): { [key: string]: string } {
+    return {
+      assignedTo: 'assignedTo',
+      categoryIdentifier: 'categoryIdentifier',
+      creator: 'creator',
+      detailInfo: 'detailInfo',
+      directory: 'directory',
+      identifier: 'identifier',
+      modifier: 'modifier',
+      spaceIdentifier: 'spaceIdentifier',
+      spaceType: 'spaceType',
+      subject: 'subject',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      assignedTo: CreateTestCaseResponseBodyTestcaseAssignedTo,
+      categoryIdentifier: 'string',
+      creator: CreateTestCaseResponseBodyTestcaseCreator,
+      detailInfo: CreateTestCaseResponseBodyTestcaseDetailInfo,
+      directory: CreateTestCaseResponseBodyTestcaseDirectory,
+      identifier: 'string',
+      modifier: CreateTestCaseResponseBodyTestcaseModifier,
+      spaceIdentifier: 'string',
+      spaceType: 'string',
+      subject: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class CreateUserKeyResponseBodyResult extends $tea.Model {
+  createdAt?: string;
+  expireTime?: string;
+  fingerPrint?: string;
+  id?: number;
+  keyScope?: string;
+  lastUsedTime?: string;
+  publicKey?: string;
+  title?: string;
+  static names(): { [key: string]: string } {
+    return {
+      createdAt: 'createdAt',
+      expireTime: 'expireTime',
+      fingerPrint: 'fingerPrint',
+      id: 'id',
+      keyScope: 'keyScope',
+      lastUsedTime: 'lastUsedTime',
+      publicKey: 'publicKey',
+      title: 'title',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      createdAt: 'string',
+      expireTime: 'string',
+      fingerPrint: 'string',
+      id: 'number',
+      keyScope: 'string',
+      lastUsedTime: 'string',
+      publicKey: 'string',
+      title: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
 export class CreateWorkitemRequestFieldValueList extends $tea.Model {
   fieldIdentifier?: string;
   value?: string;
@@ -14020,6 +15131,55 @@ export class DeleteTagResponseBodyResult extends $tea.Model {
   static types(): { [key: string]: any } {
     return {
       tagName: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class DeleteUserKeyResponseBodyResult extends $tea.Model {
+  context?: string;
+  createdAt?: string;
+  expireTime?: string;
+  fingerPrint?: string;
+  id?: number;
+  keyScope?: string;
+  lastUsedTime?: string;
+  publicKey?: string;
+  shaContext?: string;
+  title?: string;
+  updatedAt?: string;
+  static names(): { [key: string]: string } {
+    return {
+      context: 'context',
+      createdAt: 'createdAt',
+      expireTime: 'expireTime',
+      fingerPrint: 'fingerPrint',
+      id: 'id',
+      keyScope: 'keyScope',
+      lastUsedTime: 'lastUsedTime',
+      publicKey: 'publicKey',
+      shaContext: 'shaContext',
+      title: 'title',
+      updatedAt: 'updatedAt',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      context: 'string',
+      createdAt: 'string',
+      expireTime: 'string',
+      fingerPrint: 'string',
+      id: 'number',
+      keyScope: 'string',
+      lastUsedTime: 'string',
+      publicKey: 'string',
+      shaContext: 'string',
+      title: 'string',
+      updatedAt: 'string',
     };
   }
 
@@ -15991,6 +17151,264 @@ export class GetSprintInfoResponseBodySprint extends $tea.Model {
       spaceIdentifier: 'string',
       startDate: 'number',
       status: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class GetTestResultListResponseBodyTestResultAssignedTo extends $tea.Model {
+  assignedToIdenttifier?: string;
+  name?: string;
+  static names(): { [key: string]: string } {
+    return {
+      assignedToIdenttifier: 'assignedToIdenttifier',
+      name: 'name',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      assignedToIdenttifier: 'string',
+      name: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class GetTestResultListResponseBodyTestResultCustomFields extends $tea.Model {
+  fieldClassName?: string;
+  fieldFormat?: string;
+  fieldIdentifier?: string;
+  value?: string;
+  static names(): { [key: string]: string } {
+    return {
+      fieldClassName: 'fieldClassName',
+      fieldFormat: 'fieldFormat',
+      fieldIdentifier: 'fieldIdentifier',
+      value: 'value',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      fieldClassName: 'string',
+      fieldFormat: 'string',
+      fieldIdentifier: 'string',
+      value: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class GetTestResultListResponseBodyTestResultTestResultExecutor extends $tea.Model {
+  executorIdentifier?: string;
+  name?: string;
+  static names(): { [key: string]: string } {
+    return {
+      executorIdentifier: 'executorIdentifier',
+      name: 'name',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      executorIdentifier: 'string',
+      name: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class GetTestResultListResponseBodyTestResult extends $tea.Model {
+  assignedTo?: GetTestResultListResponseBodyTestResultAssignedTo;
+  bugCount?: number;
+  categoryIdentifier?: string;
+  customFields?: GetTestResultListResponseBodyTestResultCustomFields[];
+  gmtCreate?: number;
+  spaceIdentifier?: string;
+  subject?: string;
+  testResultExecutor?: GetTestResultListResponseBodyTestResultTestResultExecutor;
+  testResultGmtCreate?: number;
+  testResultIdentifier?: string;
+  testResultStatus?: string;
+  testcaseIdentifier?: string;
+  static names(): { [key: string]: string } {
+    return {
+      assignedTo: 'assignedTo',
+      bugCount: 'bugCount',
+      categoryIdentifier: 'categoryIdentifier',
+      customFields: 'customFields',
+      gmtCreate: 'gmtCreate',
+      spaceIdentifier: 'spaceIdentifier',
+      subject: 'subject',
+      testResultExecutor: 'testResultExecutor',
+      testResultGmtCreate: 'testResultGmtCreate',
+      testResultIdentifier: 'testResultIdentifier',
+      testResultStatus: 'testResultStatus',
+      testcaseIdentifier: 'testcaseIdentifier',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      assignedTo: GetTestResultListResponseBodyTestResultAssignedTo,
+      bugCount: 'number',
+      categoryIdentifier: 'string',
+      customFields: { 'type': 'array', 'itemType': GetTestResultListResponseBodyTestResultCustomFields },
+      gmtCreate: 'number',
+      spaceIdentifier: 'string',
+      subject: 'string',
+      testResultExecutor: GetTestResultListResponseBodyTestResultTestResultExecutor,
+      testResultGmtCreate: 'number',
+      testResultIdentifier: 'string',
+      testResultStatus: 'string',
+      testcaseIdentifier: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class GetTestcaseListResponseBodyTestcaseAssignedTo extends $tea.Model {
+  assignedToIdenttifier?: string;
+  name?: string;
+  static names(): { [key: string]: string } {
+    return {
+      assignedToIdenttifier: 'assignedToIdenttifier',
+      name: 'name',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      assignedToIdenttifier: 'string',
+      name: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class GetTestcaseListResponseBodyTestcaseCustomFields extends $tea.Model {
+  fieldClassName?: string;
+  fieldFormat?: string;
+  fieldIdentifier?: string;
+  value?: string;
+  static names(): { [key: string]: string } {
+    return {
+      fieldClassName: 'fieldClassName',
+      fieldFormat: 'fieldFormat',
+      fieldIdentifier: 'fieldIdentifier',
+      value: 'value',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      fieldClassName: 'string',
+      fieldFormat: 'string',
+      fieldIdentifier: 'string',
+      value: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class GetTestcaseListResponseBodyTestcaseSpace extends $tea.Model {
+  spaceIdentifier?: string;
+  type?: string;
+  static names(): { [key: string]: string } {
+    return {
+      spaceIdentifier: 'spaceIdentifier',
+      type: 'type',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      spaceIdentifier: 'string',
+      type: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class GetTestcaseListResponseBodyTestcaseTags extends $tea.Model {
+  name?: string;
+  tagIdentifier?: string;
+  static names(): { [key: string]: string } {
+    return {
+      name: 'name',
+      tagIdentifier: 'tagIdentifier',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      name: 'string',
+      tagIdentifier: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class GetTestcaseListResponseBodyTestcase extends $tea.Model {
+  assignedTo?: GetTestcaseListResponseBodyTestcaseAssignedTo;
+  categoryIdentifier?: string;
+  customFields?: GetTestcaseListResponseBodyTestcaseCustomFields[];
+  gmtCreate?: number;
+  identifier?: string;
+  space?: GetTestcaseListResponseBodyTestcaseSpace;
+  subject?: string;
+  tags?: GetTestcaseListResponseBodyTestcaseTags[];
+  static names(): { [key: string]: string } {
+    return {
+      assignedTo: 'assignedTo',
+      categoryIdentifier: 'categoryIdentifier',
+      customFields: 'customFields',
+      gmtCreate: 'gmtCreate',
+      identifier: 'identifier',
+      space: 'space',
+      subject: 'subject',
+      tags: 'tags',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      assignedTo: GetTestcaseListResponseBodyTestcaseAssignedTo,
+      categoryIdentifier: 'string',
+      customFields: { 'type': 'array', 'itemType': GetTestcaseListResponseBodyTestcaseCustomFields },
+      gmtCreate: 'number',
+      identifier: 'string',
+      space: GetTestcaseListResponseBodyTestcaseSpace,
+      subject: 'string',
+      tags: { 'type': 'array', 'itemType': GetTestcaseListResponseBodyTestcaseTags },
     };
   }
 
@@ -19297,6 +20715,150 @@ export class ListSprintsResponseBodySprints extends $tea.Model {
   }
 }
 
+export class ListTestCaseFieldsResponseBodyFieldsOptions extends $tea.Model {
+  displayValue?: string;
+  fieldIdentifier?: string;
+  identifier?: string;
+  level?: number;
+  position?: number;
+  value?: string;
+  valueEn?: string;
+  static names(): { [key: string]: string } {
+    return {
+      displayValue: 'displayValue',
+      fieldIdentifier: 'fieldIdentifier',
+      identifier: 'identifier',
+      level: 'level',
+      position: 'position',
+      value: 'value',
+      valueEn: 'valueEn',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      displayValue: 'string',
+      fieldIdentifier: 'string',
+      identifier: 'string',
+      level: 'number',
+      position: 'number',
+      value: 'string',
+      valueEn: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class ListTestCaseFieldsResponseBodyFields extends $tea.Model {
+  className?: string;
+  creator?: string;
+  defaultValue?: string;
+  description?: string;
+  format?: string;
+  gmtCreate?: number;
+  gmtModified?: number;
+  identifier?: string;
+  isRequired?: boolean;
+  isShowWhenCreate?: boolean;
+  isSystemRequired?: boolean;
+  linkWithService?: string;
+  modifier?: string;
+  name?: string;
+  options?: ListTestCaseFieldsResponseBodyFieldsOptions[];
+  resourceType?: string;
+  type?: string;
+  static names(): { [key: string]: string } {
+    return {
+      className: 'className',
+      creator: 'creator',
+      defaultValue: 'defaultValue',
+      description: 'description',
+      format: 'format',
+      gmtCreate: 'gmtCreate',
+      gmtModified: 'gmtModified',
+      identifier: 'identifier',
+      isRequired: 'isRequired',
+      isShowWhenCreate: 'isShowWhenCreate',
+      isSystemRequired: 'isSystemRequired',
+      linkWithService: 'linkWithService',
+      modifier: 'modifier',
+      name: 'name',
+      options: 'options',
+      resourceType: 'resourceType',
+      type: 'type',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      className: 'string',
+      creator: 'string',
+      defaultValue: 'string',
+      description: 'string',
+      format: 'string',
+      gmtCreate: 'number',
+      gmtModified: 'number',
+      identifier: 'string',
+      isRequired: 'boolean',
+      isShowWhenCreate: 'boolean',
+      isSystemRequired: 'boolean',
+      linkWithService: 'string',
+      modifier: 'string',
+      name: 'string',
+      options: { 'type': 'array', 'itemType': ListTestCaseFieldsResponseBodyFieldsOptions },
+      resourceType: 'string',
+      type: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class ListUserKeysResponseBodyResult extends $tea.Model {
+  createdAt?: string;
+  expireTime?: string;
+  fingerPrint?: string;
+  id?: number;
+  keyScope?: string;
+  lastUsedTime?: string;
+  publicKey?: string;
+  tittle?: string;
+  static names(): { [key: string]: string } {
+    return {
+      createdAt: 'createdAt',
+      expireTime: 'expireTime',
+      fingerPrint: 'fingerPrint',
+      id: 'id',
+      keyScope: 'keyScope',
+      lastUsedTime: 'lastUsedTime',
+      publicKey: 'publicKey',
+      tittle: 'tittle',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      createdAt: 'string',
+      expireTime: 'string',
+      fingerPrint: 'string',
+      id: 'number',
+      keyScope: 'string',
+      lastUsedTime: 'string',
+      publicKey: 'string',
+      tittle: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
 export class ListVariableGroupsResponseBodyVariableGroupsRelatedPipelines extends $tea.Model {
   id?: number;
   name?: string;
@@ -20650,6 +22212,274 @@ export class UpdateRepositoryMemberResponseBodyResult extends $tea.Model {
   }
 }
 
+export class UpdateTestCaseRequestUpdateWorkitemPropertyRequest extends $tea.Model {
+  fieldIdentifier?: string;
+  fieldValue?: string;
+  static names(): { [key: string]: string } {
+    return {
+      fieldIdentifier: 'fieldIdentifier',
+      fieldValue: 'fieldValue',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      fieldIdentifier: 'string',
+      fieldValue: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class UpdateTestCaseResponseBodyTestcaseAssignedTo extends $tea.Model {
+  assignIdentifier?: string;
+  name?: string;
+  tbRoleId?: string;
+  static names(): { [key: string]: string } {
+    return {
+      assignIdentifier: 'assignIdentifier',
+      name: 'name',
+      tbRoleId: 'tbRoleId',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      assignIdentifier: 'string',
+      name: 'string',
+      tbRoleId: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class UpdateTestCaseResponseBodyTestcaseCreator extends $tea.Model {
+  createIdentifier?: string;
+  name?: string;
+  static names(): { [key: string]: string } {
+    return {
+      createIdentifier: 'createIdentifier',
+      name: 'name',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      createIdentifier: 'string',
+      name: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class UpdateTestCaseResponseBodyTestcaseDetailInfoExpectedResult extends $tea.Model {
+  expectContent?: string;
+  expectContentType?: string;
+  expectIdentifier?: string;
+  static names(): { [key: string]: string } {
+    return {
+      expectContent: 'expectContent',
+      expectContentType: 'expectContentType',
+      expectIdentifier: 'expectIdentifier',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      expectContent: 'string',
+      expectContentType: 'string',
+      expectIdentifier: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class UpdateTestCaseResponseBodyTestcaseDetailInfoPrecondition extends $tea.Model {
+  preContent?: string;
+  preContentType?: string;
+  preIdentifier?: string;
+  static names(): { [key: string]: string } {
+    return {
+      preContent: 'preContent',
+      preContentType: 'preContentType',
+      preIdentifier: 'preIdentifier',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      preContent: 'string',
+      preContentType: 'string',
+      preIdentifier: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class UpdateTestCaseResponseBodyTestcaseDetailInfoStepContent extends $tea.Model {
+  stepContent?: string;
+  stepContentType?: string;
+  stepIdentifier?: string;
+  static names(): { [key: string]: string } {
+    return {
+      stepContent: 'stepContent',
+      stepContentType: 'stepContentType',
+      stepIdentifier: 'stepIdentifier',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      stepContent: 'string',
+      stepContentType: 'string',
+      stepIdentifier: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class UpdateTestCaseResponseBodyTestcaseDetailInfo extends $tea.Model {
+  expectedResult?: UpdateTestCaseResponseBodyTestcaseDetailInfoExpectedResult;
+  precondition?: UpdateTestCaseResponseBodyTestcaseDetailInfoPrecondition;
+  stepContent?: UpdateTestCaseResponseBodyTestcaseDetailInfoStepContent;
+  stepType?: string;
+  static names(): { [key: string]: string } {
+    return {
+      expectedResult: 'expectedResult',
+      precondition: 'precondition',
+      stepContent: 'stepContent',
+      stepType: 'stepType',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      expectedResult: UpdateTestCaseResponseBodyTestcaseDetailInfoExpectedResult,
+      precondition: UpdateTestCaseResponseBodyTestcaseDetailInfoPrecondition,
+      stepContent: UpdateTestCaseResponseBodyTestcaseDetailInfoStepContent,
+      stepType: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class UpdateTestCaseResponseBodyTestcaseDirectory extends $tea.Model {
+  childIdentifier?: string;
+  directoryIdentifier?: string;
+  name?: string;
+  pathName?: string[];
+  static names(): { [key: string]: string } {
+    return {
+      childIdentifier: 'childIdentifier',
+      directoryIdentifier: 'directoryIdentifier',
+      name: 'name',
+      pathName: 'pathName',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      childIdentifier: 'string',
+      directoryIdentifier: 'string',
+      name: 'string',
+      pathName: { 'type': 'array', 'itemType': 'string' },
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class UpdateTestCaseResponseBodyTestcaseModifier extends $tea.Model {
+  modifyIdentifier?: string;
+  name?: string;
+  static names(): { [key: string]: string } {
+    return {
+      modifyIdentifier: 'modifyIdentifier',
+      name: 'name',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      modifyIdentifier: 'string',
+      name: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class UpdateTestCaseResponseBodyTestcase extends $tea.Model {
+  assignedTo?: UpdateTestCaseResponseBodyTestcaseAssignedTo;
+  categoryIdentifier?: string;
+  creator?: UpdateTestCaseResponseBodyTestcaseCreator;
+  detailInfo?: UpdateTestCaseResponseBodyTestcaseDetailInfo;
+  directory?: UpdateTestCaseResponseBodyTestcaseDirectory;
+  identifier?: string;
+  modifier?: UpdateTestCaseResponseBodyTestcaseModifier;
+  spaceIdentifier?: string;
+  spaceType?: string;
+  subject?: string;
+  static names(): { [key: string]: string } {
+    return {
+      assignedTo: 'assignedTo',
+      categoryIdentifier: 'categoryIdentifier',
+      creator: 'creator',
+      detailInfo: 'detailInfo',
+      directory: 'directory',
+      identifier: 'identifier',
+      modifier: 'modifier',
+      spaceIdentifier: 'spaceIdentifier',
+      spaceType: 'spaceType',
+      subject: 'subject',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      assignedTo: UpdateTestCaseResponseBodyTestcaseAssignedTo,
+      categoryIdentifier: 'string',
+      creator: UpdateTestCaseResponseBodyTestcaseCreator,
+      detailInfo: UpdateTestCaseResponseBodyTestcaseDetailInfo,
+      directory: UpdateTestCaseResponseBodyTestcaseDirectory,
+      identifier: 'string',
+      modifier: UpdateTestCaseResponseBodyTestcaseModifier,
+      spaceIdentifier: 'string',
+      spaceType: 'string',
+      subject: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
 export class UpdateWorkItemResponseBodyWorkitem extends $tea.Model {
   assignedTo?: string;
   categoryIdentifier?: string;
@@ -21937,6 +23767,118 @@ export default class Client extends OpenApi {
     return await this.createTagWithOptions(repositoryId, request, headers, runtime);
   }
 
+  async createTestCaseWithOptions(organizationId: string, request: CreateTestCaseRequest, headers: {[key: string ]: string}, runtime: $Util.RuntimeOptions): Promise<CreateTestCaseResponse> {
+    Util.validateModel(request);
+    let body : {[key: string ]: any} = { };
+    if (!Util.isUnset(request.assignedTo)) {
+      body["assignedTo"] = request.assignedTo;
+    }
+
+    if (!Util.isUnset(request.directoryIdentifier)) {
+      body["directoryIdentifier"] = request.directoryIdentifier;
+    }
+
+    if (!Util.isUnset(request.fieldValueList)) {
+      body["fieldValueList"] = request.fieldValueList;
+    }
+
+    if (!Util.isUnset(request.priority)) {
+      body["priority"] = request.priority;
+    }
+
+    if (!Util.isUnset(request.spaceIdentifier)) {
+      body["spaceIdentifier"] = request.spaceIdentifier;
+    }
+
+    if (!Util.isUnset(request.subject)) {
+      body["subject"] = request.subject;
+    }
+
+    if (!Util.isUnset(request.tags)) {
+      body["tags"] = request.tags;
+    }
+
+    if (!Util.isUnset(request.testcaseStepContentInfo)) {
+      body["testcaseStepContentInfo"] = request.testcaseStepContentInfo;
+    }
+
+    let req = new $OpenApi.OpenApiRequest({
+      headers: headers,
+      body: OpenApiUtil.parseToMap(body),
+    });
+    let params = new $OpenApi.Params({
+      action: "CreateTestCase",
+      version: "2021-06-25",
+      protocol: "HTTPS",
+      pathname: `/organization/${OpenApiUtil.getEncodeParam(organizationId)}/testhub/testcase`,
+      method: "POST",
+      authType: "AK",
+      style: "ROA",
+      reqBodyType: "json",
+      bodyType: "json",
+    });
+    return $tea.cast<CreateTestCaseResponse>(await this.callApi(params, req, runtime), new CreateTestCaseResponse({}));
+  }
+
+  async createTestCase(organizationId: string, request: CreateTestCaseRequest): Promise<CreateTestCaseResponse> {
+    let runtime = new $Util.RuntimeOptions({ });
+    let headers : {[key: string ]: string} = { };
+    return await this.createTestCaseWithOptions(organizationId, request, headers, runtime);
+  }
+
+  async createUserKeyWithOptions(request: CreateUserKeyRequest, headers: {[key: string ]: string}, runtime: $Util.RuntimeOptions): Promise<CreateUserKeyResponse> {
+    Util.validateModel(request);
+    let query : {[key: string ]: any} = { };
+    if (!Util.isUnset(request.accessToken)) {
+      query["accessToken"] = request.accessToken;
+    }
+
+    if (!Util.isUnset(request.organizationId)) {
+      query["organizationId"] = request.organizationId;
+    }
+
+    let body : {[key: string ]: any} = { };
+    if (!Util.isUnset(request.expireTime)) {
+      body["expireTime"] = request.expireTime;
+    }
+
+    if (!Util.isUnset(request.keyScope)) {
+      body["keyScope"] = request.keyScope;
+    }
+
+    if (!Util.isUnset(request.publicKey)) {
+      body["publicKey"] = request.publicKey;
+    }
+
+    if (!Util.isUnset(request.title)) {
+      body["title"] = request.title;
+    }
+
+    let req = new $OpenApi.OpenApiRequest({
+      headers: headers,
+      query: OpenApiUtil.query(query),
+      body: OpenApiUtil.parseToMap(body),
+    });
+    let params = new $OpenApi.Params({
+      action: "CreateUserKey",
+      version: "2021-06-25",
+      protocol: "HTTPS",
+      pathname: `/api/v3/user/keys/create`,
+      method: "POST",
+      authType: "AK",
+      style: "ROA",
+      reqBodyType: "json",
+      bodyType: "json",
+    });
+    return $tea.cast<CreateUserKeyResponse>(await this.callApi(params, req, runtime), new CreateUserKeyResponse({}));
+  }
+
+  async createUserKey(request: CreateUserKeyRequest): Promise<CreateUserKeyResponse> {
+    let runtime = new $Util.RuntimeOptions({ });
+    let headers : {[key: string ]: string} = { };
+    return await this.createUserKeyWithOptions(request, headers, runtime);
+  }
+
   async createVariableGroupWithOptions(organizationId: string, request: CreateVariableGroupRequest, headers: {[key: string ]: string}, runtime: $Util.RuntimeOptions): Promise<CreateVariableGroupResponse> {
     Util.validateModel(request);
     let body : {[key: string ]: any} = { };
@@ -22838,6 +24780,41 @@ export default class Client extends OpenApi {
     let runtime = new $Util.RuntimeOptions({ });
     let headers : {[key: string ]: string} = { };
     return await this.deleteTagWithOptions(repositoryId, request, headers, runtime);
+  }
+
+  async deleteUserKeyWithOptions(keyId: string, request: DeleteUserKeyRequest, headers: {[key: string ]: string}, runtime: $Util.RuntimeOptions): Promise<DeleteUserKeyResponse> {
+    Util.validateModel(request);
+    let query : {[key: string ]: any} = { };
+    if (!Util.isUnset(request.accessToken)) {
+      query["accessToken"] = request.accessToken;
+    }
+
+    if (!Util.isUnset(request.organizationId)) {
+      query["organizationId"] = request.organizationId;
+    }
+
+    let req = new $OpenApi.OpenApiRequest({
+      headers: headers,
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApi.Params({
+      action: "DeleteUserKey",
+      version: "2021-06-25",
+      protocol: "HTTPS",
+      pathname: `/api/v3/user/keys/${OpenApiUtil.getEncodeParam(keyId)}`,
+      method: "DELETE",
+      authType: "AK",
+      style: "ROA",
+      reqBodyType: "json",
+      bodyType: "json",
+    });
+    return $tea.cast<DeleteUserKeyResponse>(await this.callApi(params, req, runtime), new DeleteUserKeyResponse({}));
+  }
+
+  async deleteUserKey(keyId: string, request: DeleteUserKeyRequest): Promise<DeleteUserKeyResponse> {
+    let runtime = new $Util.RuntimeOptions({ });
+    let headers : {[key: string ]: string} = { };
+    return await this.deleteUserKeyWithOptions(keyId, request, headers, runtime);
   }
 
   async deleteVariableGroupWithOptions(organizationId: string, id: string, headers: {[key: string ]: string}, runtime: $Util.RuntimeOptions): Promise<DeleteVariableGroupResponse> {
@@ -23801,6 +25778,88 @@ export default class Client extends OpenApi {
     return await this.getSprintInfoWithOptions(organizationId, sprintId, headers, runtime);
   }
 
+  async getTestResultListWithOptions(organizationId: string, testPlanIdentifier: string, request: GetTestResultListRequest, headers: {[key: string ]: string}, runtime: $Util.RuntimeOptions): Promise<GetTestResultListResponse> {
+    Util.validateModel(request);
+    let body : {[key: string ]: any} = { };
+    if (!Util.isUnset(request.conditions)) {
+      body["conditions"] = request.conditions;
+    }
+
+    if (!Util.isUnset(request.directoryIdentifier)) {
+      body["directoryIdentifier"] = request.directoryIdentifier;
+    }
+
+    let req = new $OpenApi.OpenApiRequest({
+      headers: headers,
+      body: OpenApiUtil.parseToMap(body),
+    });
+    let params = new $OpenApi.Params({
+      action: "GetTestResultList",
+      version: "2021-06-25",
+      protocol: "HTTPS",
+      pathname: `/organization/${OpenApiUtil.getEncodeParam(organizationId)}/testhub/testplan/${OpenApiUtil.getEncodeParam(testPlanIdentifier)}/testresults`,
+      method: "POST",
+      authType: "AK",
+      style: "ROA",
+      reqBodyType: "json",
+      bodyType: "json",
+    });
+    return $tea.cast<GetTestResultListResponse>(await this.callApi(params, req, runtime), new GetTestResultListResponse({}));
+  }
+
+  async getTestResultList(organizationId: string, testPlanIdentifier: string, request: GetTestResultListRequest): Promise<GetTestResultListResponse> {
+    let runtime = new $Util.RuntimeOptions({ });
+    let headers : {[key: string ]: string} = { };
+    return await this.getTestResultListWithOptions(organizationId, testPlanIdentifier, request, headers, runtime);
+  }
+
+  async getTestcaseListWithOptions(organizationId: string, request: GetTestcaseListRequest, headers: {[key: string ]: string}, runtime: $Util.RuntimeOptions): Promise<GetTestcaseListResponse> {
+    Util.validateModel(request);
+    let body : {[key: string ]: any} = { };
+    if (!Util.isUnset(request.conditions)) {
+      body["conditions"] = request.conditions;
+    }
+
+    if (!Util.isUnset(request.directoryIdentifier)) {
+      body["directoryIdentifier"] = request.directoryIdentifier;
+    }
+
+    if (!Util.isUnset(request.maxResult)) {
+      body["maxResult"] = request.maxResult;
+    }
+
+    if (!Util.isUnset(request.nextToken)) {
+      body["nextToken"] = request.nextToken;
+    }
+
+    if (!Util.isUnset(request.spaceIdentifier)) {
+      body["spaceIdentifier"] = request.spaceIdentifier;
+    }
+
+    let req = new $OpenApi.OpenApiRequest({
+      headers: headers,
+      body: OpenApiUtil.parseToMap(body),
+    });
+    let params = new $OpenApi.Params({
+      action: "GetTestcaseList",
+      version: "2021-06-25",
+      protocol: "HTTPS",
+      pathname: `/organization/${OpenApiUtil.getEncodeParam(organizationId)}/testhub/testcases`,
+      method: "POST",
+      authType: "AK",
+      style: "ROA",
+      reqBodyType: "json",
+      bodyType: "json",
+    });
+    return $tea.cast<GetTestcaseListResponse>(await this.callApi(params, req, runtime), new GetTestcaseListResponse({}));
+  }
+
+  async getTestcaseList(organizationId: string, request: GetTestcaseListRequest): Promise<GetTestcaseListResponse> {
+    let runtime = new $Util.RuntimeOptions({ });
+    let headers : {[key: string ]: string} = { };
+    return await this.getTestcaseListWithOptions(organizationId, request, headers, runtime);
+  }
+
   async getUserInfoWithOptions(request: GetUserInfoRequest, headers: {[key: string ]: string}, runtime: $Util.RuntimeOptions): Promise<GetUserInfoResponse> {
     Util.validateModel(request);
     let query : {[key: string ]: any} = { };
@@ -24269,6 +26328,10 @@ export default class Client extends OpenApi {
   async listOrganizationMembersWithOptions(organizationId: string, request: ListOrganizationMembersRequest, headers: {[key: string ]: string}, runtime: $Util.RuntimeOptions): Promise<ListOrganizationMembersResponse> {
     Util.validateModel(request);
     let query : {[key: string ]: any} = { };
+    if (!Util.isUnset(request.containsExternInfo)) {
+      query["containsExternInfo"] = request.containsExternInfo;
+    }
+
     if (!Util.isUnset(request.externUid)) {
       query["externUid"] = request.externUid;
     }
@@ -25618,6 +27681,88 @@ export default class Client extends OpenApi {
     let runtime = new $Util.RuntimeOptions({ });
     let headers : {[key: string ]: string} = { };
     return await this.listSprintsWithOptions(organizationId, request, headers, runtime);
+  }
+
+  async listTestCaseFieldsWithOptions(organizationId: string, request: ListTestCaseFieldsRequest, headers: {[key: string ]: string}, runtime: $Util.RuntimeOptions): Promise<ListTestCaseFieldsResponse> {
+    Util.validateModel(request);
+    let query : {[key: string ]: any} = { };
+    if (!Util.isUnset(request.spaceIdentifier)) {
+      query["spaceIdentifier"] = request.spaceIdentifier;
+    }
+
+    let req = new $OpenApi.OpenApiRequest({
+      headers: headers,
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApi.Params({
+      action: "ListTestCaseFields",
+      version: "2021-06-25",
+      protocol: "HTTPS",
+      pathname: `/organization/${OpenApiUtil.getEncodeParam(organizationId)}/testhub/testcase/fields`,
+      method: "GET",
+      authType: "AK",
+      style: "ROA",
+      reqBodyType: "json",
+      bodyType: "json",
+    });
+    return $tea.cast<ListTestCaseFieldsResponse>(await this.callApi(params, req, runtime), new ListTestCaseFieldsResponse({}));
+  }
+
+  async listTestCaseFields(organizationId: string, request: ListTestCaseFieldsRequest): Promise<ListTestCaseFieldsResponse> {
+    let runtime = new $Util.RuntimeOptions({ });
+    let headers : {[key: string ]: string} = { };
+    return await this.listTestCaseFieldsWithOptions(organizationId, request, headers, runtime);
+  }
+
+  async listUserKeysWithOptions(request: ListUserKeysRequest, headers: {[key: string ]: string}, runtime: $Util.RuntimeOptions): Promise<ListUserKeysResponse> {
+    Util.validateModel(request);
+    let query : {[key: string ]: any} = { };
+    if (!Util.isUnset(request.accessToken)) {
+      query["accessToken"] = request.accessToken;
+    }
+
+    if (!Util.isUnset(request.orderBy)) {
+      query["orderBy"] = request.orderBy;
+    }
+
+    if (!Util.isUnset(request.organizationId)) {
+      query["organizationId"] = request.organizationId;
+    }
+
+    if (!Util.isUnset(request.page)) {
+      query["page"] = request.page;
+    }
+
+    if (!Util.isUnset(request.pageSize)) {
+      query["pageSize"] = request.pageSize;
+    }
+
+    if (!Util.isUnset(request.sort)) {
+      query["sort"] = request.sort;
+    }
+
+    let req = new $OpenApi.OpenApiRequest({
+      headers: headers,
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApi.Params({
+      action: "ListUserKeys",
+      version: "2021-06-25",
+      protocol: "HTTPS",
+      pathname: `/api/v3/user/keys`,
+      method: "GET",
+      authType: "AK",
+      style: "ROA",
+      reqBodyType: "json",
+      bodyType: "json",
+    });
+    return $tea.cast<ListUserKeysResponse>(await this.callApi(params, req, runtime), new ListUserKeysResponse({}));
+  }
+
+  async listUserKeys(request: ListUserKeysRequest): Promise<ListUserKeysResponse> {
+    let runtime = new $Util.RuntimeOptions({ });
+    let headers : {[key: string ]: string} = { };
+    return await this.listUserKeysWithOptions(request, headers, runtime);
   }
 
   async listVariableGroupsWithOptions(organizationId: string, request: ListVariableGroupsRequest, headers: {[key: string ]: string}, runtime: $Util.RuntimeOptions): Promise<ListVariableGroupsResponse> {
@@ -27019,6 +29164,72 @@ export default class Client extends OpenApi {
     let runtime = new $Util.RuntimeOptions({ });
     let headers : {[key: string ]: string} = { };
     return await this.updateResourceMemberWithOptions(organizationId, resourceType, resourceId, accountId, request, headers, runtime);
+  }
+
+  async updateTestCaseWithOptions(organizationId: string, testcaseIdentifier: string, request: UpdateTestCaseRequest, headers: {[key: string ]: string}, runtime: $Util.RuntimeOptions): Promise<UpdateTestCaseResponse> {
+    Util.validateModel(request);
+    let body : {[key: string ]: any} = { };
+    if (!Util.isUnset(request.updateWorkitemPropertyRequest)) {
+      body["updateWorkitemPropertyRequest"] = request.updateWorkitemPropertyRequest;
+    }
+
+    let req = new $OpenApi.OpenApiRequest({
+      headers: headers,
+      body: OpenApiUtil.parseToMap(body),
+    });
+    let params = new $OpenApi.Params({
+      action: "UpdateTestCase",
+      version: "2021-06-25",
+      protocol: "HTTPS",
+      pathname: `/organization/${OpenApiUtil.getEncodeParam(organizationId)}/testhub/testcase/${OpenApiUtil.getEncodeParam(testcaseIdentifier)}`,
+      method: "PUT",
+      authType: "AK",
+      style: "ROA",
+      reqBodyType: "json",
+      bodyType: "json",
+    });
+    return $tea.cast<UpdateTestCaseResponse>(await this.callApi(params, req, runtime), new UpdateTestCaseResponse({}));
+  }
+
+  async updateTestCase(organizationId: string, testcaseIdentifier: string, request: UpdateTestCaseRequest): Promise<UpdateTestCaseResponse> {
+    let runtime = new $Util.RuntimeOptions({ });
+    let headers : {[key: string ]: string} = { };
+    return await this.updateTestCaseWithOptions(organizationId, testcaseIdentifier, request, headers, runtime);
+  }
+
+  async updateTestResultWithOptions(organizationId: string, testPlanIdentifier: string, testcaseIdentifier: string, request: UpdateTestResultRequest, headers: {[key: string ]: string}, runtime: $Util.RuntimeOptions): Promise<UpdateTestResultResponse> {
+    Util.validateModel(request);
+    let body : {[key: string ]: any} = { };
+    if (!Util.isUnset(request.executor)) {
+      body["executor"] = request.executor;
+    }
+
+    if (!Util.isUnset(request.status)) {
+      body["status"] = request.status;
+    }
+
+    let req = new $OpenApi.OpenApiRequest({
+      headers: headers,
+      body: OpenApiUtil.parseToMap(body),
+    });
+    let params = new $OpenApi.Params({
+      action: "UpdateTestResult",
+      version: "2021-06-25",
+      protocol: "HTTPS",
+      pathname: `/organization/${OpenApiUtil.getEncodeParam(organizationId)}/testhub/testplan/${OpenApiUtil.getEncodeParam(testPlanIdentifier)}/testresult/${OpenApiUtil.getEncodeParam(testcaseIdentifier)}`,
+      method: "PUT",
+      authType: "AK",
+      style: "ROA",
+      reqBodyType: "json",
+      bodyType: "json",
+    });
+    return $tea.cast<UpdateTestResultResponse>(await this.callApi(params, req, runtime), new UpdateTestResultResponse({}));
+  }
+
+  async updateTestResult(organizationId: string, testPlanIdentifier: string, testcaseIdentifier: string, request: UpdateTestResultRequest): Promise<UpdateTestResultResponse> {
+    let runtime = new $Util.RuntimeOptions({ });
+    let headers : {[key: string ]: string} = { };
+    return await this.updateTestResultWithOptions(organizationId, testPlanIdentifier, testcaseIdentifier, request, headers, runtime);
   }
 
   async updateVariableGroupWithOptions(organizationId: string, id: string, request: UpdateVariableGroupRequest, headers: {[key: string ]: string}, runtime: $Util.RuntimeOptions): Promise<UpdateVariableGroupResponse> {
