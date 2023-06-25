@@ -1265,6 +1265,9 @@ export class StopInstanceResponse extends $tea.Model {
 export class SubmitAudioTo2DAvatarVideoTaskRequest extends $tea.Model {
   app?: SubmitAudioTo2DAvatarVideoTaskRequestApp;
   avatarInfo?: SubmitAudioTo2DAvatarVideoTaskRequestAvatarInfo;
+  callback?: boolean;
+  callbackParams?: string;
+  extParams?: string;
   tenantId?: number;
   title?: string;
   url?: string;
@@ -1273,6 +1276,9 @@ export class SubmitAudioTo2DAvatarVideoTaskRequest extends $tea.Model {
     return {
       app: 'App',
       avatarInfo: 'AvatarInfo',
+      callback: 'Callback',
+      callbackParams: 'CallbackParams',
+      extParams: 'ExtParams',
       tenantId: 'TenantId',
       title: 'Title',
       url: 'Url',
@@ -1284,6 +1290,9 @@ export class SubmitAudioTo2DAvatarVideoTaskRequest extends $tea.Model {
     return {
       app: SubmitAudioTo2DAvatarVideoTaskRequestApp,
       avatarInfo: SubmitAudioTo2DAvatarVideoTaskRequestAvatarInfo,
+      callback: 'boolean',
+      callbackParams: 'string',
+      extParams: 'string',
       tenantId: 'number',
       title: 'string',
       url: 'string',
@@ -1299,6 +1308,9 @@ export class SubmitAudioTo2DAvatarVideoTaskRequest extends $tea.Model {
 export class SubmitAudioTo2DAvatarVideoTaskShrinkRequest extends $tea.Model {
   appShrink?: string;
   avatarInfoShrink?: string;
+  callback?: boolean;
+  callbackParams?: string;
+  extParams?: string;
   tenantId?: number;
   title?: string;
   url?: string;
@@ -1307,6 +1319,9 @@ export class SubmitAudioTo2DAvatarVideoTaskShrinkRequest extends $tea.Model {
     return {
       appShrink: 'App',
       avatarInfoShrink: 'AvatarInfo',
+      callback: 'Callback',
+      callbackParams: 'CallbackParams',
+      extParams: 'ExtParams',
       tenantId: 'TenantId',
       title: 'Title',
       url: 'Url',
@@ -1318,6 +1333,9 @@ export class SubmitAudioTo2DAvatarVideoTaskShrinkRequest extends $tea.Model {
     return {
       appShrink: 'string',
       avatarInfoShrink: 'string',
+      callback: 'boolean',
+      callbackParams: 'string',
+      extParams: 'string',
       tenantId: 'number',
       title: 'string',
       url: 'string',
@@ -1389,6 +1407,9 @@ export class SubmitAudioTo2DAvatarVideoTaskResponse extends $tea.Model {
 export class SubmitAudioTo3DAvatarVideoTaskRequest extends $tea.Model {
   app?: SubmitAudioTo3DAvatarVideoTaskRequestApp;
   avatarInfo?: SubmitAudioTo3DAvatarVideoTaskRequestAvatarInfo;
+  callback?: boolean;
+  callbackParams?: string;
+  extParams?: string;
   tenantId?: number;
   title?: string;
   url?: string;
@@ -1397,6 +1418,9 @@ export class SubmitAudioTo3DAvatarVideoTaskRequest extends $tea.Model {
     return {
       app: 'App',
       avatarInfo: 'AvatarInfo',
+      callback: 'Callback',
+      callbackParams: 'CallbackParams',
+      extParams: 'ExtParams',
       tenantId: 'TenantId',
       title: 'Title',
       url: 'Url',
@@ -1408,6 +1432,9 @@ export class SubmitAudioTo3DAvatarVideoTaskRequest extends $tea.Model {
     return {
       app: SubmitAudioTo3DAvatarVideoTaskRequestApp,
       avatarInfo: SubmitAudioTo3DAvatarVideoTaskRequestAvatarInfo,
+      callback: 'boolean',
+      callbackParams: 'string',
+      extParams: 'string',
       tenantId: 'number',
       title: 'string',
       url: 'string',
@@ -1423,6 +1450,9 @@ export class SubmitAudioTo3DAvatarVideoTaskRequest extends $tea.Model {
 export class SubmitAudioTo3DAvatarVideoTaskShrinkRequest extends $tea.Model {
   appShrink?: string;
   avatarInfoShrink?: string;
+  callback?: boolean;
+  callbackParams?: string;
+  extParams?: string;
   tenantId?: number;
   title?: string;
   url?: string;
@@ -1431,6 +1461,9 @@ export class SubmitAudioTo3DAvatarVideoTaskShrinkRequest extends $tea.Model {
     return {
       appShrink: 'App',
       avatarInfoShrink: 'AvatarInfo',
+      callback: 'Callback',
+      callbackParams: 'CallbackParams',
+      extParams: 'ExtParams',
       tenantId: 'TenantId',
       title: 'Title',
       url: 'Url',
@@ -1442,6 +1475,9 @@ export class SubmitAudioTo3DAvatarVideoTaskShrinkRequest extends $tea.Model {
     return {
       appShrink: 'string',
       avatarInfoShrink: 'string',
+      callback: 'boolean',
+      callbackParams: 'string',
+      extParams: 'string',
       tenantId: 'number',
       title: 'string',
       url: 'string',
@@ -1514,6 +1550,9 @@ export class SubmitTextTo2DAvatarVideoTaskRequest extends $tea.Model {
   app?: SubmitTextTo2DAvatarVideoTaskRequestApp;
   audioInfo?: SubmitTextTo2DAvatarVideoTaskRequestAudioInfo;
   avatarInfo?: SubmitTextTo2DAvatarVideoTaskRequestAvatarInfo;
+  callback?: boolean;
+  callbackParams?: string;
+  extParams?: string;
   tenantId?: number;
   text?: string;
   title?: string;
@@ -1523,6 +1562,9 @@ export class SubmitTextTo2DAvatarVideoTaskRequest extends $tea.Model {
       app: 'App',
       audioInfo: 'AudioInfo',
       avatarInfo: 'AvatarInfo',
+      callback: 'Callback',
+      callbackParams: 'CallbackParams',
+      extParams: 'ExtParams',
       tenantId: 'TenantId',
       text: 'Text',
       title: 'Title',
@@ -1535,6 +1577,9 @@ export class SubmitTextTo2DAvatarVideoTaskRequest extends $tea.Model {
       app: SubmitTextTo2DAvatarVideoTaskRequestApp,
       audioInfo: SubmitTextTo2DAvatarVideoTaskRequestAudioInfo,
       avatarInfo: SubmitTextTo2DAvatarVideoTaskRequestAvatarInfo,
+      callback: 'boolean',
+      callbackParams: 'string',
+      extParams: 'string',
       tenantId: 'number',
       text: 'string',
       title: 'string',
@@ -1551,6 +1596,9 @@ export class SubmitTextTo2DAvatarVideoTaskShrinkRequest extends $tea.Model {
   appShrink?: string;
   audioInfoShrink?: string;
   avatarInfoShrink?: string;
+  callback?: boolean;
+  callbackParams?: string;
+  extParams?: string;
   tenantId?: number;
   text?: string;
   title?: string;
@@ -1560,6 +1608,9 @@ export class SubmitTextTo2DAvatarVideoTaskShrinkRequest extends $tea.Model {
       appShrink: 'App',
       audioInfoShrink: 'AudioInfo',
       avatarInfoShrink: 'AvatarInfo',
+      callback: 'Callback',
+      callbackParams: 'CallbackParams',
+      extParams: 'ExtParams',
       tenantId: 'TenantId',
       text: 'Text',
       title: 'Title',
@@ -1572,6 +1623,9 @@ export class SubmitTextTo2DAvatarVideoTaskShrinkRequest extends $tea.Model {
       appShrink: 'string',
       audioInfoShrink: 'string',
       avatarInfoShrink: 'string',
+      callback: 'boolean',
+      callbackParams: 'string',
+      extParams: 'string',
       tenantId: 'number',
       text: 'string',
       title: 'string',
@@ -3672,6 +3726,18 @@ export default class Client extends OpenApi {
       query["AvatarInfo"] = request.avatarInfoShrink;
     }
 
+    if (!Util.isUnset(request.callback)) {
+      query["Callback"] = request.callback;
+    }
+
+    if (!Util.isUnset(request.callbackParams)) {
+      query["CallbackParams"] = request.callbackParams;
+    }
+
+    if (!Util.isUnset(request.extParams)) {
+      query["ExtParams"] = request.extParams;
+    }
+
     if (!Util.isUnset(request.tenantId)) {
       query["TenantId"] = request.tenantId;
     }
@@ -3733,6 +3799,18 @@ export default class Client extends OpenApi {
 
     if (!Util.isUnset(request.avatarInfoShrink)) {
       query["AvatarInfo"] = request.avatarInfoShrink;
+    }
+
+    if (!Util.isUnset(request.callback)) {
+      query["Callback"] = request.callback;
+    }
+
+    if (!Util.isUnset(request.callbackParams)) {
+      query["CallbackParams"] = request.callbackParams;
+    }
+
+    if (!Util.isUnset(request.extParams)) {
+      query["ExtParams"] = request.extParams;
     }
 
     if (!Util.isUnset(request.tenantId)) {
@@ -3804,6 +3882,18 @@ export default class Client extends OpenApi {
 
     if (!Util.isUnset(request.avatarInfoShrink)) {
       query["AvatarInfo"] = request.avatarInfoShrink;
+    }
+
+    if (!Util.isUnset(request.callback)) {
+      query["Callback"] = request.callback;
+    }
+
+    if (!Util.isUnset(request.callbackParams)) {
+      query["CallbackParams"] = request.callbackParams;
+    }
+
+    if (!Util.isUnset(request.extParams)) {
+      query["ExtParams"] = request.extParams;
     }
 
     if (!Util.isUnset(request.tenantId)) {
