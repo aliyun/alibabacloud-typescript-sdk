@@ -2024,11 +2024,13 @@ export class GenerateTemplateByScratchRequest extends $tea.Model {
   provisionRegionId?: string;
   regionId?: string;
   templateScratchId?: string;
+  templateType?: string;
   static names(): { [key: string]: string } {
     return {
       provisionRegionId: 'ProvisionRegionId',
       regionId: 'RegionId',
       templateScratchId: 'TemplateScratchId',
+      templateType: 'TemplateType',
     };
   }
 
@@ -2037,6 +2039,7 @@ export class GenerateTemplateByScratchRequest extends $tea.Model {
       provisionRegionId: 'string',
       regionId: 'string',
       templateScratchId: 'string',
+      templateType: 'string',
     };
   }
 
@@ -7841,11 +7844,13 @@ export class GenerateTemplateByScratchResponseBodyResourcesToImport extends $tea
 
 export class GenerateTemplatePolicyResponseBodyPolicyStatement extends $tea.Model {
   action?: string[];
+  condition?: { [key: string]: any };
   effect?: string;
   resource?: string;
   static names(): { [key: string]: string } {
     return {
       action: 'Action',
+      condition: 'Condition',
       effect: 'Effect',
       resource: 'Resource',
     };
@@ -7854,6 +7859,7 @@ export class GenerateTemplatePolicyResponseBodyPolicyStatement extends $tea.Mode
   static types(): { [key: string]: any } {
     return {
       action: { 'type': 'array', 'itemType': 'string' },
+      condition: { 'type': 'map', 'keyType': 'string', 'valueType': 'any' },
       effect: 'string',
       resource: 'string',
     };
@@ -9189,6 +9195,34 @@ export class GetTemplateParameterConstraintsResponseBodyParameterConstraintsNotS
   }
 }
 
+export class GetTemplateParameterConstraintsResponseBodyParameterConstraintsOriginalConstraints extends $tea.Model {
+  allowedValues?: any[];
+  propertyName?: string;
+  resourceName?: string;
+  resourceType?: string;
+  static names(): { [key: string]: string } {
+    return {
+      allowedValues: 'AllowedValues',
+      propertyName: 'PropertyName',
+      resourceName: 'ResourceName',
+      resourceType: 'ResourceType',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      allowedValues: { 'type': 'array', 'itemType': 'any' },
+      propertyName: 'string',
+      resourceName: 'string',
+      resourceType: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
 export class GetTemplateParameterConstraintsResponseBodyParameterConstraintsQueryErrors extends $tea.Model {
   errorMessage?: string;
   resourceName?: string;
@@ -9222,6 +9256,7 @@ export class GetTemplateParameterConstraintsResponseBodyParameterConstraints ext
   illegalValueByParameterConstraints?: any[];
   illegalValueByRules?: any[];
   notSupportResources?: GetTemplateParameterConstraintsResponseBodyParameterConstraintsNotSupportResources[];
+  originalConstraints?: GetTemplateParameterConstraintsResponseBodyParameterConstraintsOriginalConstraints[];
   parameterKey?: string;
   queryErrors?: GetTemplateParameterConstraintsResponseBodyParameterConstraintsQueryErrors[];
   type?: string;
@@ -9234,6 +9269,7 @@ export class GetTemplateParameterConstraintsResponseBodyParameterConstraints ext
       illegalValueByParameterConstraints: 'IllegalValueByParameterConstraints',
       illegalValueByRules: 'IllegalValueByRules',
       notSupportResources: 'NotSupportResources',
+      originalConstraints: 'OriginalConstraints',
       parameterKey: 'ParameterKey',
       queryErrors: 'QueryErrors',
       type: 'Type',
@@ -9249,6 +9285,7 @@ export class GetTemplateParameterConstraintsResponseBodyParameterConstraints ext
       illegalValueByParameterConstraints: { 'type': 'array', 'itemType': 'any' },
       illegalValueByRules: { 'type': 'array', 'itemType': 'any' },
       notSupportResources: { 'type': 'array', 'itemType': GetTemplateParameterConstraintsResponseBodyParameterConstraintsNotSupportResources },
+      originalConstraints: { 'type': 'array', 'itemType': GetTemplateParameterConstraintsResponseBodyParameterConstraintsOriginalConstraints },
       parameterKey: 'string',
       queryErrors: { 'type': 'array', 'itemType': GetTemplateParameterConstraintsResponseBodyParameterConstraintsQueryErrors },
       type: 'string',
@@ -12848,6 +12885,10 @@ export default class Client extends OpenApi {
       query["TemplateScratchId"] = request.templateScratchId;
     }
 
+    if (!Util.isUnset(request.templateType)) {
+      query["TemplateType"] = request.templateType;
+    }
+
     let req = new $OpenApi.OpenApiRequest({
       query: OpenApiUtil.query(query),
     });
@@ -12987,7 +13028,9 @@ export default class Client extends OpenApi {
   }
 
   /**
-    * The Terraform version that is supported by ROS. The parameter value is the same as the value of the Transform parameter in a Terraform template.
+    * You can call this operation to query the Terraform hosting, resource cleaner, and scenario features.
+    * This topic provides an example on how to query the details of features supported by ROS in the China (Hangzhou) region. The details include Terraform versions, provider versions, and supported resource types.
+    * >  In the Examples section, only part of the sample code is provided.
     *
     * @param request GetFeatureDetailsRequest
     * @param runtime runtime options for this request RuntimeOptions
@@ -13022,7 +13065,9 @@ export default class Client extends OpenApi {
   }
 
   /**
-    * The Terraform version that is supported by ROS. The parameter value is the same as the value of the Transform parameter in a Terraform template.
+    * You can call this operation to query the Terraform hosting, resource cleaner, and scenario features.
+    * This topic provides an example on how to query the details of features supported by ROS in the China (Hangzhou) region. The details include Terraform versions, provider versions, and supported resource types.
+    * >  In the Examples section, only part of the sample code is provided.
     *
     * @param request GetFeatureDetailsRequest
     * @return GetFeatureDetailsResponse
@@ -13651,10 +13696,6 @@ export default class Client extends OpenApi {
       query["StackId"] = request.stackId;
     }
 
-    if (!Util.isUnset(request.templateBody)) {
-      query["TemplateBody"] = request.templateBody;
-    }
-
     if (!Util.isUnset(request.templateId)) {
       query["TemplateId"] = request.templateId;
     }
@@ -13675,8 +13716,14 @@ export default class Client extends OpenApi {
       query["TemplateVersion"] = request.templateVersion;
     }
 
+    let body : {[key: string ]: any} = { };
+    if (!Util.isUnset(request.templateBody)) {
+      body["TemplateBody"] = request.templateBody;
+    }
+
     let req = new $OpenApi.OpenApiRequest({
       query: OpenApiUtil.query(query),
+      body: OpenApiUtil.parseToMap(body),
     });
     let params = new $OpenApi.Params({
       action: "GetTemplateEstimateCost",
@@ -13748,10 +13795,6 @@ export default class Client extends OpenApi {
       query["StackId"] = request.stackId;
     }
 
-    if (!Util.isUnset(request.templateBody)) {
-      query["TemplateBody"] = request.templateBody;
-    }
-
     if (!Util.isUnset(request.templateId)) {
       query["TemplateId"] = request.templateId;
     }
@@ -13764,8 +13807,14 @@ export default class Client extends OpenApi {
       query["TemplateVersion"] = request.templateVersion;
     }
 
+    let body : {[key: string ]: any} = { };
+    if (!Util.isUnset(request.templateBody)) {
+      body["TemplateBody"] = request.templateBody;
+    }
+
     let req = new $OpenApi.OpenApiRequest({
       query: OpenApiUtil.query(query),
+      body: OpenApiUtil.parseToMap(body),
     });
     let params = new $OpenApi.Params({
       action: "GetTemplateParameterConstraints",
@@ -14419,7 +14468,9 @@ export default class Client extends OpenApi {
   }
 
   /**
-    * The ID of the stack.
+    * The ListStackOperationRisks operation is suitable for the following scenarios:
+    * *   You want to detect high risks that may arise in resources when you delete a stack that contains the resources, and query the cause of each risk in a resource.
+    * *   When you create a stack, the creation may fail. In this case, you can call this operation to check which types of permissions that are required to create stacks are missing.
     *
     * @param request ListStackOperationRisksRequest
     * @param runtime runtime options for this request RuntimeOptions
@@ -14490,7 +14541,9 @@ export default class Client extends OpenApi {
   }
 
   /**
-    * The ID of the stack.
+    * The ListStackOperationRisks operation is suitable for the following scenarios:
+    * *   You want to detect high risks that may arise in resources when you delete a stack that contains the resources, and query the cause of each risk in a resource.
+    * *   When you create a stack, the creation may fail. In this case, you can call this operation to check which types of permissions that are required to create stacks are missing.
     *
     * @param request ListStackOperationRisksRequest
     * @return ListStackOperationRisksResponse
