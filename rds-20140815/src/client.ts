@@ -9453,7 +9453,9 @@ export class DescribeDBInstancesResponse extends $tea.Model {
 }
 
 export class DescribeDBInstancesAsCsvRequest extends $tea.Model {
+  cachedAsync?: boolean;
   DBInstanceId?: string;
+  exportKey?: string;
   ownerId?: number;
   regionId?: string;
   resourceGroupId?: string;
@@ -9461,7 +9463,9 @@ export class DescribeDBInstancesAsCsvRequest extends $tea.Model {
   resourceOwnerId?: number;
   static names(): { [key: string]: string } {
     return {
+      cachedAsync: 'CachedAsync',
       DBInstanceId: 'DBInstanceId',
+      exportKey: 'ExportKey',
       ownerId: 'OwnerId',
       regionId: 'RegionId',
       resourceGroupId: 'ResourceGroupId',
@@ -9472,7 +9476,9 @@ export class DescribeDBInstancesAsCsvRequest extends $tea.Model {
 
   static types(): { [key: string]: any } {
     return {
+      cachedAsync: 'boolean',
       DBInstanceId: 'string',
+      exportKey: 'string',
       ownerId: 'number',
       regionId: 'string',
       resourceGroupId: 'string',
@@ -27326,6 +27332,25 @@ export class DescribeDBInstancesResponseBodyItems extends $tea.Model {
   }
 }
 
+export class DescribeDBInstancesAsCsvResponseBodyItemsDBInstanceAttributeSlaveZones extends $tea.Model {
+  slaveRegion?: string[];
+  static names(): { [key: string]: string } {
+    return {
+      slaveRegion: 'slaveRegion',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      slaveRegion: { 'type': 'array', 'itemType': 'string' },
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
 export class DescribeDBInstancesAsCsvResponseBodyItemsDBInstanceAttribute extends $tea.Model {
   accountMaxQuantity?: number;
   accountType?: string;
@@ -27348,6 +27373,7 @@ export class DescribeDBInstancesAsCsvResponseBodyItemsDBInstanceAttribute extend
   engine?: string;
   engineVersion?: string;
   expireTime?: string;
+  exportKey?: string;
   guardDBInstanceId?: string;
   incrementSourceDBInstanceId?: string;
   instanceNetworkType?: string;
@@ -27362,6 +27388,7 @@ export class DescribeDBInstancesAsCsvResponseBodyItemsDBInstanceAttribute extend
   readDelayTime?: string;
   regionId?: string;
   securityIPList?: string;
+  slaveZones?: DescribeDBInstancesAsCsvResponseBodyItemsDBInstanceAttributeSlaveZones;
   supportUpgradeAccountType?: string;
   tags?: string;
   tempDBInstanceId?: string;
@@ -27391,6 +27418,7 @@ export class DescribeDBInstancesAsCsvResponseBodyItemsDBInstanceAttribute extend
       engine: 'Engine',
       engineVersion: 'EngineVersion',
       expireTime: 'ExpireTime',
+      exportKey: 'ExportKey',
       guardDBInstanceId: 'GuardDBInstanceId',
       incrementSourceDBInstanceId: 'IncrementSourceDBInstanceId',
       instanceNetworkType: 'InstanceNetworkType',
@@ -27405,6 +27433,7 @@ export class DescribeDBInstancesAsCsvResponseBodyItemsDBInstanceAttribute extend
       readDelayTime: 'ReadDelayTime',
       regionId: 'RegionId',
       securityIPList: 'SecurityIPList',
+      slaveZones: 'SlaveZones',
       supportUpgradeAccountType: 'SupportUpgradeAccountType',
       tags: 'Tags',
       tempDBInstanceId: 'TempDBInstanceId',
@@ -27437,6 +27466,7 @@ export class DescribeDBInstancesAsCsvResponseBodyItemsDBInstanceAttribute extend
       engine: 'string',
       engineVersion: 'string',
       expireTime: 'string',
+      exportKey: 'string',
       guardDBInstanceId: 'string',
       incrementSourceDBInstanceId: 'string',
       instanceNetworkType: 'string',
@@ -27451,6 +27481,7 @@ export class DescribeDBInstancesAsCsvResponseBodyItemsDBInstanceAttribute extend
       readDelayTime: 'string',
       regionId: 'string',
       securityIPList: 'string',
+      slaveZones: DescribeDBInstancesAsCsvResponseBodyItemsDBInstanceAttributeSlaveZones,
       supportUpgradeAccountType: 'string',
       tags: 'string',
       tempDBInstanceId: 'string',
@@ -28166,8 +28197,67 @@ export class DescribeDatabasesResponseBodyDatabasesDatabaseAccounts extends $tea
   }
 }
 
+export class DescribeDatabasesResponseBodyDatabasesDatabaseAdvancedInfo extends $tea.Model {
+  advancedDbProperty?: { [key: string]: any }[];
+  static names(): { [key: string]: string } {
+    return {
+      advancedDbProperty: 'AdvancedDbProperty',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      advancedDbProperty: { 'type': 'array', 'itemType': { 'type': 'map', 'keyType': 'string', 'valueType': 'any' } },
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class DescribeDatabasesResponseBodyDatabasesDatabaseBasicInfo extends $tea.Model {
+  basicDbProperty?: { [key: string]: any }[];
+  static names(): { [key: string]: string } {
+    return {
+      basicDbProperty: 'BasicDbProperty',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      basicDbProperty: { 'type': 'array', 'itemType': { 'type': 'map', 'keyType': 'string', 'valueType': 'any' } },
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class DescribeDatabasesResponseBodyDatabasesDatabaseRuntimeInfo extends $tea.Model {
+  runtimeDbProperty?: { [key: string]: any }[];
+  static names(): { [key: string]: string } {
+    return {
+      runtimeDbProperty: 'RuntimeDbProperty',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      runtimeDbProperty: { 'type': 'array', 'itemType': { 'type': 'map', 'keyType': 'string', 'valueType': 'any' } },
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
 export class DescribeDatabasesResponseBodyDatabasesDatabase extends $tea.Model {
   accounts?: DescribeDatabasesResponseBodyDatabasesDatabaseAccounts;
+  advancedInfo?: DescribeDatabasesResponseBodyDatabasesDatabaseAdvancedInfo;
+  basicInfo?: DescribeDatabasesResponseBodyDatabasesDatabaseBasicInfo;
   characterSetName?: string;
   collate?: string;
   connLimit?: string;
@@ -28180,11 +28270,14 @@ export class DescribeDatabasesResponseBodyDatabasesDatabase extends $tea.Model {
   pageNumber?: number;
   pageSize?: number;
   resourceGroupId?: string;
+  runtimeInfo?: DescribeDatabasesResponseBodyDatabasesDatabaseRuntimeInfo;
   tablespace?: string;
   totalCount?: number;
   static names(): { [key: string]: string } {
     return {
       accounts: 'Accounts',
+      advancedInfo: 'AdvancedInfo',
+      basicInfo: 'BasicInfo',
       characterSetName: 'CharacterSetName',
       collate: 'Collate',
       connLimit: 'ConnLimit',
@@ -28197,6 +28290,7 @@ export class DescribeDatabasesResponseBodyDatabasesDatabase extends $tea.Model {
       pageNumber: 'PageNumber',
       pageSize: 'PageSize',
       resourceGroupId: 'ResourceGroupId',
+      runtimeInfo: 'RuntimeInfo',
       tablespace: 'Tablespace',
       totalCount: 'TotalCount',
     };
@@ -28205,6 +28299,8 @@ export class DescribeDatabasesResponseBodyDatabasesDatabase extends $tea.Model {
   static types(): { [key: string]: any } {
     return {
       accounts: DescribeDatabasesResponseBodyDatabasesDatabaseAccounts,
+      advancedInfo: DescribeDatabasesResponseBodyDatabasesDatabaseAdvancedInfo,
+      basicInfo: DescribeDatabasesResponseBodyDatabasesDatabaseBasicInfo,
       characterSetName: 'string',
       collate: 'string',
       connLimit: 'string',
@@ -28217,6 +28313,7 @@ export class DescribeDatabasesResponseBodyDatabasesDatabase extends $tea.Model {
       pageNumber: 'number',
       pageSize: 'number',
       resourceGroupId: 'string',
+      runtimeInfo: DescribeDatabasesResponseBodyDatabasesDatabaseRuntimeInfo,
       tablespace: 'string',
       totalCount: 'number',
     };
@@ -39299,8 +39396,16 @@ export default class Client extends OpenApi {
   async describeDBInstancesAsCsvWithOptions(request: DescribeDBInstancesAsCsvRequest, runtime: $Util.RuntimeOptions): Promise<DescribeDBInstancesAsCsvResponse> {
     Util.validateModel(request);
     let query = { };
+    if (!Util.isUnset(request.cachedAsync)) {
+      query["CachedAsync"] = request.cachedAsync;
+    }
+
     if (!Util.isUnset(request.DBInstanceId)) {
       query["DBInstanceId"] = request.DBInstanceId;
+    }
+
+    if (!Util.isUnset(request.exportKey)) {
+      query["ExportKey"] = request.exportKey;
     }
 
     if (!Util.isUnset(request.ownerId)) {
@@ -42506,7 +42611,9 @@ export default class Client extends OpenApi {
     * *   MySQL
     * *   SQL Server 2008 R2
     * *   PostgreSQL
-    * >  The DescribeSQLLogFiles operation cannot be used to query the audit log files that are generated by SQL Explorer Trial Edition for an ApsaraDB RDS for MySQL instance.
+    * > 
+    * *   The DescribeSQLLogFiles operation cannot be called to query the log files that are generated by SQL Explorer Trial Edition for an ApsaraDB RDS for MySQL instance.
+    * *   The DescribeSQLLogFiles operation cannot be called to query the log files that are generated by the SQL Explorer feature and manually exported from the ApsaraDB RDS console. The DescribeSQLLogFiles operation can be called to query the SQL Explorer log files that are generated by calling the [DescribeSQLLogRecords](~~610533~~) operation with the request parameter **Form** set to **File**.
     *
     * @param request DescribeSQLLogFilesRequest
     * @param runtime runtime options for this request RuntimeOptions
@@ -42569,7 +42676,9 @@ export default class Client extends OpenApi {
     * *   MySQL
     * *   SQL Server 2008 R2
     * *   PostgreSQL
-    * >  The DescribeSQLLogFiles operation cannot be used to query the audit log files that are generated by SQL Explorer Trial Edition for an ApsaraDB RDS for MySQL instance.
+    * > 
+    * *   The DescribeSQLLogFiles operation cannot be called to query the log files that are generated by SQL Explorer Trial Edition for an ApsaraDB RDS for MySQL instance.
+    * *   The DescribeSQLLogFiles operation cannot be called to query the log files that are generated by the SQL Explorer feature and manually exported from the ApsaraDB RDS console. The DescribeSQLLogFiles operation can be called to query the SQL Explorer log files that are generated by calling the [DescribeSQLLogRecords](~~610533~~) operation with the request parameter **Form** set to **File**.
     *
     * @param request DescribeSQLLogFilesRequest
     * @return DescribeSQLLogFilesResponse
