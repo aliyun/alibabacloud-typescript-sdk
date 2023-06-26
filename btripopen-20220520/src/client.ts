@@ -24579,10 +24579,14 @@ export class HotelIndexInfoResponseBodyModule extends $tea.Model {
 
 export class HotelOrderCancelResponseBodyModule extends $tea.Model {
   cancelSuccess?: boolean;
+  code?: string;
+  desc?: string;
   forfeitFee?: number;
   static names(): { [key: string]: string } {
     return {
       cancelSuccess: 'cancel_success',
+      code: 'code',
+      desc: 'desc',
       forfeitFee: 'forfeit_fee',
     };
   }
@@ -24590,6 +24594,8 @@ export class HotelOrderCancelResponseBodyModule extends $tea.Model {
   static types(): { [key: string]: any } {
     return {
       cancelSuccess: 'boolean',
+      code: 'string',
+      desc: 'string',
       forfeitFee: 'number',
     };
   }
