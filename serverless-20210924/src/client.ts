@@ -474,12 +474,10 @@ export class PipelineTemplate extends $tea.Model {
 
 export class PipelineTemplateSpec extends $tea.Model {
   context?: Context;
-  contextSchema?: { [key: string]: any };
   tasks?: TaskExec[];
   static names(): { [key: string]: string } {
     return {
       context: 'context',
-      contextSchema: 'contextSchema',
       tasks: 'tasks',
     };
   }
@@ -487,7 +485,6 @@ export class PipelineTemplateSpec extends $tea.Model {
   static types(): { [key: string]: any } {
     return {
       context: Context,
-      contextSchema: { 'type': 'map', 'keyType': 'string', 'valueType': 'any' },
       tasks: { 'type': 'array', 'itemType': TaskExec },
     };
   }
@@ -988,14 +985,12 @@ export class TaskTemplate extends $tea.Model {
 
 export class TaskTemplateSpec extends $tea.Model {
   context?: Context;
-  contextSchema?: { [key: string]: any };
   description?: string;
   executeCondition?: Condition;
   worker?: TaskWorker;
   static names(): { [key: string]: string } {
     return {
       context: 'context',
-      contextSchema: 'contextSchema',
       description: 'description',
       executeCondition: 'executeCondition',
       worker: 'worker',
@@ -1005,7 +1000,6 @@ export class TaskTemplateSpec extends $tea.Model {
   static types(): { [key: string]: any } {
     return {
       context: Context,
-      contextSchema: { 'type': 'map', 'keyType': 'string', 'valueType': 'any' },
       description: 'string',
       executeCondition: Condition,
       worker: TaskWorker,
