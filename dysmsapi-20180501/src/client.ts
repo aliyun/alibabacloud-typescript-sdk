@@ -14,6 +14,7 @@ export class BatchSendMessageToGlobeRequest extends $tea.Model {
   taskId?: string;
   to?: string;
   type?: string;
+  validityPeriod?: number;
   static names(): { [key: string]: string } {
     return {
       from: 'From',
@@ -21,6 +22,7 @@ export class BatchSendMessageToGlobeRequest extends $tea.Model {
       taskId: 'TaskId',
       to: 'To',
       type: 'Type',
+      validityPeriod: 'ValidityPeriod',
     };
   }
 
@@ -31,6 +33,7 @@ export class BatchSendMessageToGlobeRequest extends $tea.Model {
       taskId: 'string',
       to: 'string',
       type: 'string',
+      validityPeriod: 'number',
     };
   }
 
@@ -78,10 +81,12 @@ export class BatchSendMessageToGlobeResponseBody extends $tea.Model {
 
 export class BatchSendMessageToGlobeResponse extends $tea.Model {
   headers: { [key: string]: string };
+  statusCode: number;
   body: BatchSendMessageToGlobeResponseBody;
   static names(): { [key: string]: string } {
     return {
       headers: 'headers',
+      statusCode: 'statusCode',
       body: 'body',
     };
   }
@@ -89,6 +94,7 @@ export class BatchSendMessageToGlobeResponse extends $tea.Model {
   static types(): { [key: string]: any } {
     return {
       headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
       body: BatchSendMessageToGlobeResponseBody,
     };
   }
@@ -147,10 +153,12 @@ export class ConversionDataResponseBody extends $tea.Model {
 
 export class ConversionDataResponse extends $tea.Model {
   headers: { [key: string]: string };
+  statusCode: number;
   body: ConversionDataResponseBody;
   static names(): { [key: string]: string } {
     return {
       headers: 'headers',
+      statusCode: 'statusCode',
       body: 'body',
     };
   }
@@ -158,6 +166,7 @@ export class ConversionDataResponse extends $tea.Model {
   static types(): { [key: string]: any } {
     return {
       headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
       body: ConversionDataResponseBody,
     };
   }
@@ -240,10 +249,12 @@ export class QueryMessageResponseBody extends $tea.Model {
 
 export class QueryMessageResponse extends $tea.Model {
   headers: { [key: string]: string };
+  statusCode: number;
   body: QueryMessageResponseBody;
   static names(): { [key: string]: string } {
     return {
       headers: 'headers',
+      statusCode: 'statusCode',
       body: 'body',
     };
   }
@@ -251,6 +262,7 @@ export class QueryMessageResponse extends $tea.Model {
   static types(): { [key: string]: any } {
     return {
       headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
       body: QueryMessageResponseBody,
     };
   }
@@ -265,12 +277,14 @@ export class SendMessageToGlobeRequest extends $tea.Model {
   message?: string;
   taskId?: string;
   to?: string;
+  validityPeriod?: number;
   static names(): { [key: string]: string } {
     return {
       from: 'From',
       message: 'Message',
       taskId: 'TaskId',
       to: 'To',
+      validityPeriod: 'ValidityPeriod',
     };
   }
 
@@ -280,6 +294,7 @@ export class SendMessageToGlobeRequest extends $tea.Model {
       message: 'string',
       taskId: 'string',
       to: 'string',
+      validityPeriod: 'number',
     };
   }
 
@@ -330,10 +345,12 @@ export class SendMessageToGlobeResponseBody extends $tea.Model {
 
 export class SendMessageToGlobeResponse extends $tea.Model {
   headers: { [key: string]: string };
+  statusCode: number;
   body: SendMessageToGlobeResponseBody;
   static names(): { [key: string]: string } {
     return {
       headers: 'headers',
+      statusCode: 'statusCode',
       body: 'body',
     };
   }
@@ -341,6 +358,7 @@ export class SendMessageToGlobeResponse extends $tea.Model {
   static types(): { [key: string]: any } {
     return {
       headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
       body: SendMessageToGlobeResponseBody,
     };
   }
@@ -356,6 +374,7 @@ export class SendMessageWithTemplateRequest extends $tea.Model {
   templateCode?: string;
   templateParam?: string;
   to?: string;
+  validityPeriod?: number;
   static names(): { [key: string]: string } {
     return {
       from: 'From',
@@ -363,6 +382,7 @@ export class SendMessageWithTemplateRequest extends $tea.Model {
       templateCode: 'TemplateCode',
       templateParam: 'TemplateParam',
       to: 'To',
+      validityPeriod: 'ValidityPeriod',
     };
   }
 
@@ -373,6 +393,7 @@ export class SendMessageWithTemplateRequest extends $tea.Model {
       templateCode: 'string',
       templateParam: 'string',
       to: 'string',
+      validityPeriod: 'number',
     };
   }
 
@@ -420,10 +441,12 @@ export class SendMessageWithTemplateResponseBody extends $tea.Model {
 
 export class SendMessageWithTemplateResponse extends $tea.Model {
   headers: { [key: string]: string };
+  statusCode: number;
   body: SendMessageWithTemplateResponseBody;
   static names(): { [key: string]: string } {
     return {
       headers: 'headers',
+      statusCode: 'statusCode',
       body: 'body',
     };
   }
@@ -431,6 +454,7 @@ export class SendMessageWithTemplateResponse extends $tea.Model {
   static types(): { [key: string]: any } {
     return {
       headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
       body: SendMessageWithTemplateResponseBody,
     };
   }
@@ -492,10 +516,12 @@ export class SmsConversionResponseBody extends $tea.Model {
 
 export class SmsConversionResponse extends $tea.Model {
   headers: { [key: string]: string };
+  statusCode: number;
   body: SmsConversionResponseBody;
   static names(): { [key: string]: string } {
     return {
       headers: 'headers',
+      statusCode: 'statusCode',
       body: 'body',
     };
   }
@@ -503,6 +529,7 @@ export class SmsConversionResponse extends $tea.Model {
   static types(): { [key: string]: any } {
     return {
       headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
       body: SmsConversionResponseBody,
     };
   }
@@ -595,9 +622,11 @@ export default class Client extends OpenApi {
     this._endpointRule = "central";
     this._endpointMap = {
       'ap-southeast-1': "dysmsapi.ap-southeast-1.aliyuncs.com",
-      'ap-southeast-5': "dysmsapi-xman.ap-southeast-5.aliyuncs.com",
+      'ap-southeast-5': "dysmsapi.ap-southeast-5.aliyuncs.com",
       'cn-beijing': "dysmsapi-proxy.cn-beijing.aliyuncs.com",
       'cn-hongkong': "dysmsapi-xman.cn-hongkong.aliyuncs.com",
+      'eu-central-1': "dysmsapi.eu-central-1.aliyuncs.com",
+      'us-east-1': "dysmsapi.us-east-1.aliyuncs.com",
     };
     this.checkConfig(config);
     this._endpoint = this.getEndpoint("dysmsapi", this._regionId, this._endpointRule, this._network, this._suffix, this._endpointMap, this._endpoint);
@@ -616,6 +645,18 @@ export default class Client extends OpenApi {
     return EndpointUtil.getEndpointRules(productId, regionId, endpointRule, network, suffix);
   }
 
+  /**
+    * *   You cannot call the BatchSendMessageToGlobe operation to send messages to the Chinese mainland.
+    * *   You can call the BatchSendMessageToGlobe operation to send notifications and promotional messages to a limited number of mobile phone numbers at a time. To send messages exceeding more than 1,000 mobile number per request, you can choose to use the broadcast messaging feature available in the Alibaba Cloud SMS console.
+    * *   For time-sensitive related messages, we recommend that you use the [SendMessageToGlobe](~~SendMessageToGlobe~~) operation to ensure that messages are delivered on time.
+    * *   In each request, you can send messages to up to 1,000 mobile phone numbers.
+    * ### QPS limit
+    * You may call this operation only once per second. If the number of calls per second exceeds this limit, throttling will be triggered. This can potentially impact your business operations. Therefore, we recommend that you take note of this limit when making calls to this operation.
+    *
+    * @param request BatchSendMessageToGlobeRequest
+    * @param runtime runtime options for this request RuntimeOptions
+    * @return BatchSendMessageToGlobeResponse
+   */
   async batchSendMessageToGlobeWithOptions(request: BatchSendMessageToGlobeRequest, runtime: $Util.RuntimeOptions): Promise<BatchSendMessageToGlobeResponse> {
     Util.validateModel(request);
     let query = { };
@@ -639,6 +680,10 @@ export default class Client extends OpenApi {
       query["Type"] = request.type;
     }
 
+    if (!Util.isUnset(request.validityPeriod)) {
+      query["ValidityPeriod"] = request.validityPeriod;
+    }
+
     let req = new $OpenApi.OpenApiRequest({
       query: OpenApiUtil.query(query),
     });
@@ -656,11 +701,32 @@ export default class Client extends OpenApi {
     return $tea.cast<BatchSendMessageToGlobeResponse>(await this.callApi(params, req, runtime), new BatchSendMessageToGlobeResponse({}));
   }
 
+  /**
+    * *   You cannot call the BatchSendMessageToGlobe operation to send messages to the Chinese mainland.
+    * *   You can call the BatchSendMessageToGlobe operation to send notifications and promotional messages to a limited number of mobile phone numbers at a time. To send messages exceeding more than 1,000 mobile number per request, you can choose to use the broadcast messaging feature available in the Alibaba Cloud SMS console.
+    * *   For time-sensitive related messages, we recommend that you use the [SendMessageToGlobe](~~SendMessageToGlobe~~) operation to ensure that messages are delivered on time.
+    * *   In each request, you can send messages to up to 1,000 mobile phone numbers.
+    * ### QPS limit
+    * You may call this operation only once per second. If the number of calls per second exceeds this limit, throttling will be triggered. This can potentially impact your business operations. Therefore, we recommend that you take note of this limit when making calls to this operation.
+    *
+    * @param request BatchSendMessageToGlobeRequest
+    * @return BatchSendMessageToGlobeResponse
+   */
   async batchSendMessageToGlobe(request: BatchSendMessageToGlobeRequest): Promise<BatchSendMessageToGlobeResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.batchSendMessageToGlobeWithOptions(request, runtime);
   }
 
+  /**
+    * Metrics:
+    * *   Requested OTP messages
+    * *   Verified OTP messages
+    * An OTP conversion rate is calculated based on the following formula: OTP conversion rate = Number of verified OTP messages/Number of requested OTP messages.
+    *
+    * @param request ConversionDataRequest
+    * @param runtime runtime options for this request RuntimeOptions
+    * @return ConversionDataResponse
+   */
   async conversionDataWithOptions(request: ConversionDataRequest, runtime: $Util.RuntimeOptions): Promise<ConversionDataResponse> {
     Util.validateModel(request);
     let body : {[key: string ]: any} = { };
@@ -689,11 +755,28 @@ export default class Client extends OpenApi {
     return $tea.cast<ConversionDataResponse>(await this.callApi(params, req, runtime), new ConversionDataResponse({}));
   }
 
+  /**
+    * Metrics:
+    * *   Requested OTP messages
+    * *   Verified OTP messages
+    * An OTP conversion rate is calculated based on the following formula: OTP conversion rate = Number of verified OTP messages/Number of requested OTP messages.
+    *
+    * @param request ConversionDataRequest
+    * @return ConversionDataResponse
+   */
   async conversionData(request: ConversionDataRequest): Promise<ConversionDataResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.conversionDataWithOptions(request, runtime);
   }
 
+  /**
+    * ### QPS limit
+    * You can call this operation up to 300 times per second. If the number of the calls per second exceeds a limit, throttling is triggered. As a result, your business may be affected. We recommend that you take note of the limits when you call this operation.
+    *
+    * @param request QueryMessageRequest
+    * @param runtime runtime options for this request RuntimeOptions
+    * @return QueryMessageResponse
+   */
   async queryMessageWithOptions(request: QueryMessageRequest, runtime: $Util.RuntimeOptions): Promise<QueryMessageResponse> {
     Util.validateModel(request);
     let query = { };
@@ -718,11 +801,28 @@ export default class Client extends OpenApi {
     return $tea.cast<QueryMessageResponse>(await this.callApi(params, req, runtime), new QueryMessageResponse({}));
   }
 
+  /**
+    * ### QPS limit
+    * You can call this operation up to 300 times per second. If the number of the calls per second exceeds a limit, throttling is triggered. As a result, your business may be affected. We recommend that you take note of the limits when you call this operation.
+    *
+    * @param request QueryMessageRequest
+    * @return QueryMessageResponse
+   */
   async queryMessage(request: QueryMessageRequest): Promise<QueryMessageResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.queryMessageWithOptions(request, runtime);
   }
 
+  /**
+    * ### Usage notes
+    * You cannot call the SendMessageToGlobe operation to send messages to the Chinese mainland.
+    * ### QPS limit
+    * You may call this operation up to 300 times per second. If the number of calls per second exceeds this limit, throttling will be triggered. This can potentially impact your business operations. Therefore, we recommend that you take note of this limit when making calls to this operation.
+    *
+    * @param request SendMessageToGlobeRequest
+    * @param runtime runtime options for this request RuntimeOptions
+    * @return SendMessageToGlobeResponse
+   */
   async sendMessageToGlobeWithOptions(request: SendMessageToGlobeRequest, runtime: $Util.RuntimeOptions): Promise<SendMessageToGlobeResponse> {
     Util.validateModel(request);
     let query = { };
@@ -742,6 +842,10 @@ export default class Client extends OpenApi {
       query["To"] = request.to;
     }
 
+    if (!Util.isUnset(request.validityPeriod)) {
+      query["ValidityPeriod"] = request.validityPeriod;
+    }
+
     let req = new $OpenApi.OpenApiRequest({
       query: OpenApiUtil.query(query),
     });
@@ -759,11 +863,28 @@ export default class Client extends OpenApi {
     return $tea.cast<SendMessageToGlobeResponse>(await this.callApi(params, req, runtime), new SendMessageToGlobeResponse({}));
   }
 
+  /**
+    * ### Usage notes
+    * You cannot call the SendMessageToGlobe operation to send messages to the Chinese mainland.
+    * ### QPS limit
+    * You may call this operation up to 300 times per second. If the number of calls per second exceeds this limit, throttling will be triggered. This can potentially impact your business operations. Therefore, we recommend that you take note of this limit when making calls to this operation.
+    *
+    * @param request SendMessageToGlobeRequest
+    * @return SendMessageToGlobeResponse
+   */
   async sendMessageToGlobe(request: SendMessageToGlobeRequest): Promise<SendMessageToGlobeResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.sendMessageToGlobeWithOptions(request, runtime);
   }
 
+  /**
+    * ### Usage notes
+    * You can call the SendMessageWithTemplate operation to send messages only to the Chinese mainland.
+    *
+    * @param request SendMessageWithTemplateRequest
+    * @param runtime runtime options for this request RuntimeOptions
+    * @return SendMessageWithTemplateResponse
+   */
   async sendMessageWithTemplateWithOptions(request: SendMessageWithTemplateRequest, runtime: $Util.RuntimeOptions): Promise<SendMessageWithTemplateResponse> {
     Util.validateModel(request);
     let query = { };
@@ -787,6 +908,10 @@ export default class Client extends OpenApi {
       query["To"] = request.to;
     }
 
+    if (!Util.isUnset(request.validityPeriod)) {
+      query["ValidityPeriod"] = request.validityPeriod;
+    }
+
     let req = new $OpenApi.OpenApiRequest({
       query: OpenApiUtil.query(query),
     });
@@ -804,11 +929,31 @@ export default class Client extends OpenApi {
     return $tea.cast<SendMessageWithTemplateResponse>(await this.callApi(params, req, runtime), new SendMessageWithTemplateResponse({}));
   }
 
+  /**
+    * ### Usage notes
+    * You can call the SendMessageWithTemplate operation to send messages only to the Chinese mainland.
+    *
+    * @param request SendMessageWithTemplateRequest
+    * @return SendMessageWithTemplateResponse
+   */
   async sendMessageWithTemplate(request: SendMessageWithTemplateRequest): Promise<SendMessageWithTemplateResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.sendMessageWithTemplateWithOptions(request, runtime);
   }
 
+  /**
+    * Metrics:
+    * *   Requested OTP messages
+    * *   Verified OTP messages
+    * An OTP conversion rate is calculated based on the following formula: OTP conversion rate = Number of verified OTP messages/Number of requested OTP messages.
+    * > If you call the SmsConversion operation to query OTP conversion rates, your business may be affected. We recommend that you perform the following operations:
+    * > * Call the SmsConversion operation in an asynchronous manner by configuring queues or events.
+    * > * Manually degrade your services or use a circuit breaker to automatically degrade services.
+    *
+    * @param request SmsConversionRequest
+    * @param runtime runtime options for this request RuntimeOptions
+    * @return SmsConversionResponse
+   */
   async smsConversionWithOptions(request: SmsConversionRequest, runtime: $Util.RuntimeOptions): Promise<SmsConversionResponse> {
     Util.validateModel(request);
     let query = { };
@@ -841,6 +986,18 @@ export default class Client extends OpenApi {
     return $tea.cast<SmsConversionResponse>(await this.callApi(params, req, runtime), new SmsConversionResponse({}));
   }
 
+  /**
+    * Metrics:
+    * *   Requested OTP messages
+    * *   Verified OTP messages
+    * An OTP conversion rate is calculated based on the following formula: OTP conversion rate = Number of verified OTP messages/Number of requested OTP messages.
+    * > If you call the SmsConversion operation to query OTP conversion rates, your business may be affected. We recommend that you perform the following operations:
+    * > * Call the SmsConversion operation in an asynchronous manner by configuring queues or events.
+    * > * Manually degrade your services or use a circuit breaker to automatically degrade services.
+    *
+    * @param request SmsConversionRequest
+    * @return SmsConversionResponse
+   */
   async smsConversion(request: SmsConversionRequest): Promise<SmsConversionResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.smsConversionWithOptions(request, runtime);
