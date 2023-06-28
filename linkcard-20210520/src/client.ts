@@ -142,6 +142,7 @@ export class AddDirectionalAddressRequest extends $tea.Model {
   msgNotify?: boolean;
   serialNo?: string;
   source?: string;
+  urlInsecurityForce?: boolean;
   static names(): { [key: string]: string } {
     return {
       address: 'Address',
@@ -150,6 +151,7 @@ export class AddDirectionalAddressRequest extends $tea.Model {
       msgNotify: 'MsgNotify',
       serialNo: 'SerialNo',
       source: 'Source',
+      urlInsecurityForce: 'UrlInsecurityForce',
     };
   }
 
@@ -161,6 +163,7 @@ export class AddDirectionalAddressRequest extends $tea.Model {
       msgNotify: 'boolean',
       serialNo: 'string',
       source: 'string',
+      urlInsecurityForce: 'boolean',
     };
   }
 
@@ -3481,6 +3484,7 @@ export class GetCredentialPoolStatisticsResponseBodyData extends $tea.Model {
   credentialType?: string;
   effectiveAvailableFlow?: string;
   effectiveTotalFlow?: string;
+  monthExceedFee?: number;
   monthFeatureFee?: number;
   monthUsedAmount?: number;
   poolAvaiable?: string;
@@ -3498,6 +3502,7 @@ export class GetCredentialPoolStatisticsResponseBodyData extends $tea.Model {
       credentialType: 'CredentialType',
       effectiveAvailableFlow: 'EffectiveAvailableFlow',
       effectiveTotalFlow: 'EffectiveTotalFlow',
+      monthExceedFee: 'MonthExceedFee',
       monthFeatureFee: 'MonthFeatureFee',
       monthUsedAmount: 'MonthUsedAmount',
       poolAvaiable: 'PoolAvaiable',
@@ -3518,6 +3523,7 @@ export class GetCredentialPoolStatisticsResponseBodyData extends $tea.Model {
       credentialType: 'string',
       effectiveAvailableFlow: 'string',
       effectiveTotalFlow: 'string',
+      monthExceedFee: 'number',
       monthFeatureFee: 'number',
       monthUsedAmount: 'number',
       poolAvaiable: 'string',
@@ -4216,6 +4222,10 @@ export default class Client extends OpenApi {
 
     if (!Util.isUnset(request.source)) {
       query["Source"] = request.source;
+    }
+
+    if (!Util.isUnset(request.urlInsecurityForce)) {
+      query["UrlInsecurityForce"] = request.urlInsecurityForce;
     }
 
     let req = new $OpenApi.OpenApiRequest({
