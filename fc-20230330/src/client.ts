@@ -1,0 +1,6485 @@
+// This file is auto-generated, don't edit it
+/**
+ *
+ */
+import Util, * as $Util from '@alicloud/tea-util';
+import OpenApi, * as $OpenApi from '@alicloud/openapi-client';
+import OpenApiUtil from '@alicloud/openapi-util';
+import EndpointUtil from '@alicloud/endpoint-util';
+import { Readable } from 'stream';
+import * as $tea from '@alicloud/tea-typescript';
+
+export class AccelerationInfo extends $tea.Model {
+  status?: string;
+  static names(): { [key: string]: string } {
+    return {
+      status: 'status',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      status: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class Alias extends $tea.Model {
+  additionalVersionWeight?: { [key: string]: number };
+  aliasName?: string;
+  createdTime?: string;
+  description?: string;
+  lastModifiedTime?: string;
+  versionId?: string;
+  static names(): { [key: string]: string } {
+    return {
+      additionalVersionWeight: 'additionalVersionWeight',
+      aliasName: 'aliasName',
+      createdTime: 'createdTime',
+      description: 'description',
+      lastModifiedTime: 'lastModifiedTime',
+      versionId: 'versionId',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      additionalVersionWeight: { 'type': 'map', 'keyType': 'string', 'valueType': 'number' },
+      aliasName: 'string',
+      createdTime: 'string',
+      description: 'string',
+      lastModifiedTime: 'string',
+      versionId: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class AsyncConfig extends $tea.Model {
+  createdTime?: string;
+  destinationConfig?: DestinationConfig;
+  functionName?: string;
+  lastModifiedTime?: string;
+  maxAsyncEventAgeInSeconds?: number;
+  maxAsyncRetryAttempts?: number;
+  qualifier?: string;
+  static names(): { [key: string]: string } {
+    return {
+      createdTime: 'createdTime',
+      destinationConfig: 'destinationConfig',
+      functionName: 'functionName',
+      lastModifiedTime: 'lastModifiedTime',
+      maxAsyncEventAgeInSeconds: 'maxAsyncEventAgeInSeconds',
+      maxAsyncRetryAttempts: 'maxAsyncRetryAttempts',
+      qualifier: 'qualifier',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      createdTime: 'string',
+      destinationConfig: DestinationConfig,
+      functionName: 'string',
+      lastModifiedTime: 'string',
+      maxAsyncEventAgeInSeconds: 'number',
+      maxAsyncRetryAttempts: 'number',
+      qualifier: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class CertConfig extends $tea.Model {
+  certName?: string;
+  certificate?: string;
+  privateKey?: string;
+  static names(): { [key: string]: string } {
+    return {
+      certName: 'certName',
+      certificate: 'certificate',
+      privateKey: 'privateKey',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      certName: 'string',
+      certificate: 'string',
+      privateKey: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class ConcurrencyConfig extends $tea.Model {
+  functionArn?: string;
+  reservedConcurrency?: number;
+  static names(): { [key: string]: string } {
+    return {
+      functionArn: 'functionArn',
+      reservedConcurrency: 'reservedConcurrency',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      functionArn: 'string',
+      reservedConcurrency: 'number',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class CreateAliasInput extends $tea.Model {
+  additionalVersionWeight?: { [key: string]: number };
+  aliasName?: string;
+  description?: string;
+  versionId?: string;
+  static names(): { [key: string]: string } {
+    return {
+      additionalVersionWeight: 'additionalVersionWeight',
+      aliasName: 'aliasName',
+      description: 'description',
+      versionId: 'versionId',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      additionalVersionWeight: { 'type': 'map', 'keyType': 'string', 'valueType': 'number' },
+      aliasName: 'string',
+      description: 'string',
+      versionId: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class CreateCustomDomainInput extends $tea.Model {
+  certConfig?: CertConfig;
+  domainName?: string;
+  protocol?: string;
+  routeConfig?: RouteConfig;
+  tlsConfig?: TLSConfig;
+  wafConfig?: WAFConfig;
+  static names(): { [key: string]: string } {
+    return {
+      certConfig: 'certConfig',
+      domainName: 'domainName',
+      protocol: 'protocol',
+      routeConfig: 'routeConfig',
+      tlsConfig: 'tlsConfig',
+      wafConfig: 'wafConfig',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      certConfig: CertConfig,
+      domainName: 'string',
+      protocol: 'string',
+      routeConfig: RouteConfig,
+      tlsConfig: TLSConfig,
+      wafConfig: WAFConfig,
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class CreateFunctionInput extends $tea.Model {
+  code?: InputCodeLocation;
+  cpu?: number;
+  customContainerConfig?: CustomContainerConfig;
+  customDNS?: CustomDNS;
+  customRuntimeConfig?: CustomRuntimeConfig;
+  description?: string;
+  diskSize?: number;
+  environmentVariables?: { [key: string]: string };
+  functionName?: string;
+  gpuConfig?: GPUConfig;
+  handler?: string;
+  instanceConcurrency?: number;
+  instanceLifecycleConfig?: InstanceLifecycleConfig;
+  internetAccess?: boolean;
+  layers?: string[];
+  logConfig?: LogConfig;
+  memorySize?: number;
+  nasConfig?: NASConfig;
+  ossMountConfig?: OSSMountConfig;
+  role?: string;
+  runtime?: string;
+  timeout?: number;
+  tracingConfig?: TracingConfig;
+  vpcBinding?: VPCBinding;
+  vpcConfig?: VPCConfig;
+  static names(): { [key: string]: string } {
+    return {
+      code: 'code',
+      cpu: 'cpu',
+      customContainerConfig: 'customContainerConfig',
+      customDNS: 'customDNS',
+      customRuntimeConfig: 'customRuntimeConfig',
+      description: 'description',
+      diskSize: 'diskSize',
+      environmentVariables: 'environmentVariables',
+      functionName: 'functionName',
+      gpuConfig: 'gpuConfig',
+      handler: 'handler',
+      instanceConcurrency: 'instanceConcurrency',
+      instanceLifecycleConfig: 'instanceLifecycleConfig',
+      internetAccess: 'internetAccess',
+      layers: 'layers',
+      logConfig: 'logConfig',
+      memorySize: 'memorySize',
+      nasConfig: 'nasConfig',
+      ossMountConfig: 'ossMountConfig',
+      role: 'role',
+      runtime: 'runtime',
+      timeout: 'timeout',
+      tracingConfig: 'tracingConfig',
+      vpcBinding: 'vpcBinding',
+      vpcConfig: 'vpcConfig',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      code: InputCodeLocation,
+      cpu: 'number',
+      customContainerConfig: CustomContainerConfig,
+      customDNS: CustomDNS,
+      customRuntimeConfig: CustomRuntimeConfig,
+      description: 'string',
+      diskSize: 'number',
+      environmentVariables: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      functionName: 'string',
+      gpuConfig: GPUConfig,
+      handler: 'string',
+      instanceConcurrency: 'number',
+      instanceLifecycleConfig: InstanceLifecycleConfig,
+      internetAccess: 'boolean',
+      layers: { 'type': 'array', 'itemType': 'string' },
+      logConfig: LogConfig,
+      memorySize: 'number',
+      nasConfig: NASConfig,
+      ossMountConfig: OSSMountConfig,
+      role: 'string',
+      runtime: 'string',
+      timeout: 'number',
+      tracingConfig: TracingConfig,
+      vpcBinding: VPCBinding,
+      vpcConfig: VPCConfig,
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class CreateLayerVersionInput extends $tea.Model {
+  code?: InputCodeLocation;
+  compatibleRuntime?: string[];
+  description?: string;
+  license?: string;
+  static names(): { [key: string]: string } {
+    return {
+      code: 'code',
+      compatibleRuntime: 'compatibleRuntime',
+      description: 'description',
+      license: 'license',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      code: InputCodeLocation,
+      compatibleRuntime: { 'type': 'array', 'itemType': 'string' },
+      description: 'string',
+      license: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class CreateTriggerInput extends $tea.Model {
+  description?: string;
+  invocationRole?: string;
+  qualifier?: string;
+  sourceArn?: string;
+  triggerConfig?: string;
+  triggerName?: string;
+  triggerType?: string;
+  static names(): { [key: string]: string } {
+    return {
+      description: 'description',
+      invocationRole: 'invocationRole',
+      qualifier: 'qualifier',
+      sourceArn: 'sourceArn',
+      triggerConfig: 'triggerConfig',
+      triggerName: 'triggerName',
+      triggerType: 'triggerType',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      description: 'string',
+      invocationRole: 'string',
+      qualifier: 'string',
+      sourceArn: 'string',
+      triggerConfig: 'string',
+      triggerName: 'string',
+      triggerType: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class CustomContainerConfig extends $tea.Model {
+  accelerationInfo?: AccelerationInfo;
+  accelerationType?: string;
+  acrInstanceID?: string;
+  command?: string[];
+  entrypoint?: string[];
+  healthCheckConfig?: CustomHealthCheckConfig;
+  image?: string;
+  port?: number;
+  static names(): { [key: string]: string } {
+    return {
+      accelerationInfo: 'accelerationInfo',
+      accelerationType: 'accelerationType',
+      acrInstanceID: 'acrInstanceID',
+      command: 'command',
+      entrypoint: 'entrypoint',
+      healthCheckConfig: 'healthCheckConfig',
+      image: 'image',
+      port: 'port',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      accelerationInfo: AccelerationInfo,
+      accelerationType: 'string',
+      acrInstanceID: 'string',
+      command: { 'type': 'array', 'itemType': 'string' },
+      entrypoint: { 'type': 'array', 'itemType': 'string' },
+      healthCheckConfig: CustomHealthCheckConfig,
+      image: 'string',
+      port: 'number',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class CustomDNS extends $tea.Model {
+  dnsOptions?: DNSOption[];
+  nameServers?: string[];
+  searches?: string[];
+  static names(): { [key: string]: string } {
+    return {
+      dnsOptions: 'dnsOptions',
+      nameServers: 'nameServers',
+      searches: 'searches',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      dnsOptions: { 'type': 'array', 'itemType': DNSOption },
+      nameServers: { 'type': 'array', 'itemType': 'string' },
+      searches: { 'type': 'array', 'itemType': 'string' },
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class CustomDomain extends $tea.Model {
+  accountId?: string;
+  apiVersion?: string;
+  certConfig?: CertConfig;
+  createdTime?: string;
+  domainName?: string;
+  lastModifiedTime?: string;
+  protocol?: string;
+  routeConfig?: RouteConfig;
+  subdomainCount?: string;
+  tlsConfig?: TLSConfig;
+  wafConfig?: WAFConfig;
+  static names(): { [key: string]: string } {
+    return {
+      accountId: 'accountId',
+      apiVersion: 'apiVersion',
+      certConfig: 'certConfig',
+      createdTime: 'createdTime',
+      domainName: 'domainName',
+      lastModifiedTime: 'lastModifiedTime',
+      protocol: 'protocol',
+      routeConfig: 'routeConfig',
+      subdomainCount: 'subdomainCount',
+      tlsConfig: 'tlsConfig',
+      wafConfig: 'wafConfig',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      accountId: 'string',
+      apiVersion: 'string',
+      certConfig: CertConfig,
+      createdTime: 'string',
+      domainName: 'string',
+      lastModifiedTime: 'string',
+      protocol: 'string',
+      routeConfig: RouteConfig,
+      subdomainCount: 'string',
+      tlsConfig: TLSConfig,
+      wafConfig: WAFConfig,
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class CustomHealthCheckConfig extends $tea.Model {
+  failureThreshold?: number;
+  httpGetUrl?: string;
+  initialDelaySeconds?: number;
+  periodSeconds?: number;
+  successThreshold?: number;
+  timeoutSeconds?: number;
+  static names(): { [key: string]: string } {
+    return {
+      failureThreshold: 'failureThreshold',
+      httpGetUrl: 'httpGetUrl',
+      initialDelaySeconds: 'initialDelaySeconds',
+      periodSeconds: 'periodSeconds',
+      successThreshold: 'successThreshold',
+      timeoutSeconds: 'timeoutSeconds',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      failureThreshold: 'number',
+      httpGetUrl: 'string',
+      initialDelaySeconds: 'number',
+      periodSeconds: 'number',
+      successThreshold: 'number',
+      timeoutSeconds: 'number',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class CustomRuntimeConfig extends $tea.Model {
+  args?: string[];
+  command?: string[];
+  healthCheckConfig?: CustomHealthCheckConfig;
+  port?: number;
+  static names(): { [key: string]: string } {
+    return {
+      args: 'args',
+      command: 'command',
+      healthCheckConfig: 'healthCheckConfig',
+      port: 'port',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      args: { 'type': 'array', 'itemType': 'string' },
+      command: { 'type': 'array', 'itemType': 'string' },
+      healthCheckConfig: CustomHealthCheckConfig,
+      port: 'number',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class DNSOption extends $tea.Model {
+  name?: string;
+  value?: string;
+  static names(): { [key: string]: string } {
+    return {
+      name: 'name',
+      value: 'value',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      name: 'string',
+      value: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class Destination extends $tea.Model {
+  destination?: string;
+  static names(): { [key: string]: string } {
+    return {
+      destination: 'destination',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      destination: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class DestinationConfig extends $tea.Model {
+  onFailure?: Destination;
+  onSuccess?: Destination;
+  static names(): { [key: string]: string } {
+    return {
+      onFailure: 'onFailure',
+      onSuccess: 'onSuccess',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      onFailure: Destination,
+      onSuccess: Destination,
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class EqualRule extends $tea.Model {
+  match?: string;
+  replacement?: string;
+  static names(): { [key: string]: string } {
+    return {
+      match: 'match',
+      replacement: 'replacement',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      match: 'string',
+      replacement: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class Error extends $tea.Model {
+  code?: string;
+  message?: string;
+  requestId?: string;
+  static names(): { [key: string]: string } {
+    return {
+      code: 'code',
+      message: 'message',
+      requestId: 'requestId',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      code: 'string',
+      message: 'string',
+      requestId: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class Function extends $tea.Model {
+  codeChecksum?: string;
+  codeSize?: number;
+  cpu?: number;
+  createdTime?: string;
+  customContainerConfig?: CustomContainerConfig;
+  customDNS?: CustomDNS;
+  customRuntimeConfig?: CustomRuntimeConfig;
+  description?: string;
+  diskSize?: number;
+  environmentVariables?: { [key: string]: string };
+  functionArn?: string;
+  functionId?: string;
+  functionName?: string;
+  gpuConfig?: GPUConfig;
+  handler?: string;
+  instanceConcurrency?: number;
+  instanceLifecycleConfig?: InstanceLifecycleConfig;
+  internetAccess?: boolean;
+  lastModifiedTime?: string;
+  layers?: FunctionLayer[];
+  logConfig?: LogConfig;
+  memorySize?: number;
+  nasConfig?: NASConfig;
+  ossMountConfig?: OSSMountConfig;
+  role?: string;
+  runtime?: string;
+  timeout?: number;
+  tracingConfig?: TracingConfig;
+  vpcBinding?: VPCBinding;
+  vpcConfig?: VPCConfig;
+  static names(): { [key: string]: string } {
+    return {
+      codeChecksum: 'codeChecksum',
+      codeSize: 'codeSize',
+      cpu: 'cpu',
+      createdTime: 'createdTime',
+      customContainerConfig: 'customContainerConfig',
+      customDNS: 'customDNS',
+      customRuntimeConfig: 'customRuntimeConfig',
+      description: 'description',
+      diskSize: 'diskSize',
+      environmentVariables: 'environmentVariables',
+      functionArn: 'functionArn',
+      functionId: 'functionId',
+      functionName: 'functionName',
+      gpuConfig: 'gpuConfig',
+      handler: 'handler',
+      instanceConcurrency: 'instanceConcurrency',
+      instanceLifecycleConfig: 'instanceLifecycleConfig',
+      internetAccess: 'internetAccess',
+      lastModifiedTime: 'lastModifiedTime',
+      layers: 'layers',
+      logConfig: 'logConfig',
+      memorySize: 'memorySize',
+      nasConfig: 'nasConfig',
+      ossMountConfig: 'ossMountConfig',
+      role: 'role',
+      runtime: 'runtime',
+      timeout: 'timeout',
+      tracingConfig: 'tracingConfig',
+      vpcBinding: 'vpcBinding',
+      vpcConfig: 'vpcConfig',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      codeChecksum: 'string',
+      codeSize: 'number',
+      cpu: 'number',
+      createdTime: 'string',
+      customContainerConfig: CustomContainerConfig,
+      customDNS: CustomDNS,
+      customRuntimeConfig: CustomRuntimeConfig,
+      description: 'string',
+      diskSize: 'number',
+      environmentVariables: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      functionArn: 'string',
+      functionId: 'string',
+      functionName: 'string',
+      gpuConfig: GPUConfig,
+      handler: 'string',
+      instanceConcurrency: 'number',
+      instanceLifecycleConfig: InstanceLifecycleConfig,
+      internetAccess: 'boolean',
+      lastModifiedTime: 'string',
+      layers: { 'type': 'array', 'itemType': FunctionLayer },
+      logConfig: LogConfig,
+      memorySize: 'number',
+      nasConfig: NASConfig,
+      ossMountConfig: OSSMountConfig,
+      role: 'string',
+      runtime: 'string',
+      timeout: 'number',
+      tracingConfig: TracingConfig,
+      vpcBinding: VPCBinding,
+      vpcConfig: VPCConfig,
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class FunctionLayer extends $tea.Model {
+  arn?: string;
+  size?: number;
+  static names(): { [key: string]: string } {
+    return {
+      arn: 'arn',
+      size: 'size',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      arn: 'string',
+      size: 'number',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class GPUConfig extends $tea.Model {
+  gpuMemorySize?: number;
+  gpuType?: string;
+  static names(): { [key: string]: string } {
+    return {
+      gpuMemorySize: 'gpuMemorySize',
+      gpuType: 'gpuType',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      gpuMemorySize: 'number',
+      gpuType: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class GetResourceTagsOutput extends $tea.Model {
+  resourceArn?: string;
+  tags?: { [key: string]: string };
+  static names(): { [key: string]: string } {
+    return {
+      resourceArn: 'resourceArn',
+      tags: 'tags',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      resourceArn: 'string',
+      tags: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class HTTPTrigger extends $tea.Model {
+  urlInternet?: string;
+  urlIntranet?: string;
+  static names(): { [key: string]: string } {
+    return {
+      urlInternet: 'urlInternet',
+      urlIntranet: 'urlIntranet',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      urlInternet: 'string',
+      urlIntranet: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class HealthCheckConfig extends $tea.Model {
+  failureThreshold?: number;
+  httpGetUrl?: string;
+  initialDelaySeconds?: number;
+  periodSeconds?: number;
+  successThreshold?: number;
+  timeoutSeconds?: number;
+  static names(): { [key: string]: string } {
+    return {
+      failureThreshold: 'failureThreshold',
+      httpGetUrl: 'httpGetUrl',
+      initialDelaySeconds: 'initialDelaySeconds',
+      periodSeconds: 'periodSeconds',
+      successThreshold: 'successThreshold',
+      timeoutSeconds: 'timeoutSeconds',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      failureThreshold: 'number',
+      httpGetUrl: 'string',
+      initialDelaySeconds: 'number',
+      periodSeconds: 'number',
+      successThreshold: 'number',
+      timeoutSeconds: 'number',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class InnerRewriteConfig extends $tea.Model {
+  regexRules?: RewriteRegexRule[];
+  static names(): { [key: string]: string } {
+    return {
+      regexRules: 'regexRules',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      regexRules: { 'type': 'array', 'itemType': RewriteRegexRule },
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class InputCodeLocation extends $tea.Model {
+  checksum?: string;
+  ossBucketName?: string;
+  ossObjectName?: string;
+  zipFile?: string;
+  static names(): { [key: string]: string } {
+    return {
+      checksum: 'checksum',
+      ossBucketName: 'ossBucketName',
+      ossObjectName: 'ossObjectName',
+      zipFile: 'zipFile',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      checksum: 'string',
+      ossBucketName: 'string',
+      ossObjectName: 'string',
+      zipFile: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class InstanceInfo extends $tea.Model {
+  instanceId?: string;
+  versionId?: string;
+  static names(): { [key: string]: string } {
+    return {
+      instanceId: 'instanceId',
+      versionId: 'versionId',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      instanceId: 'string',
+      versionId: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class InstanceLifecycleConfig extends $tea.Model {
+  initializer?: LifecycleHook;
+  preStop?: LifecycleHook;
+  static names(): { [key: string]: string } {
+    return {
+      initializer: 'initializer',
+      preStop: 'preStop',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      initializer: LifecycleHook,
+      preStop: LifecycleHook,
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class Layer extends $tea.Model {
+  acl?: string;
+  code?: OutputCodeLocation;
+  codeChecksum?: string;
+  codeSize?: number;
+  compatibleRuntime?: string[];
+  createTime?: string;
+  description?: string;
+  layerName?: string;
+  layerVersionArn?: string;
+  license?: string;
+  version?: number;
+  static names(): { [key: string]: string } {
+    return {
+      acl: 'acl',
+      code: 'code',
+      codeChecksum: 'codeChecksum',
+      codeSize: 'codeSize',
+      compatibleRuntime: 'compatibleRuntime',
+      createTime: 'createTime',
+      description: 'description',
+      layerName: 'layerName',
+      layerVersionArn: 'layerVersionArn',
+      license: 'license',
+      version: 'version',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      acl: 'string',
+      code: OutputCodeLocation,
+      codeChecksum: 'string',
+      codeSize: 'number',
+      compatibleRuntime: { 'type': 'array', 'itemType': 'string' },
+      createTime: 'string',
+      description: 'string',
+      layerName: 'string',
+      layerVersionArn: 'string',
+      license: 'string',
+      version: 'number',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class LifecycleHook extends $tea.Model {
+  handler?: string;
+  timeout?: number;
+  static names(): { [key: string]: string } {
+    return {
+      handler: 'handler',
+      timeout: 'timeout',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      handler: 'string',
+      timeout: 'number',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class ListAliasesOutput extends $tea.Model {
+  aliases?: Alias[];
+  nextToken?: string;
+  static names(): { [key: string]: string } {
+    return {
+      aliases: 'aliases',
+      nextToken: 'nextToken',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      aliases: { 'type': 'array', 'itemType': Alias },
+      nextToken: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class ListAsyncInvokeConfigOutput extends $tea.Model {
+  configs?: AsyncConfig[];
+  nextToken?: string;
+  static names(): { [key: string]: string } {
+    return {
+      configs: 'configs',
+      nextToken: 'nextToken',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      configs: { 'type': 'array', 'itemType': AsyncConfig },
+      nextToken: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class ListConcurrencyConfigsOutput extends $tea.Model {
+  configs?: ConcurrencyConfig[];
+  nextToken?: string;
+  static names(): { [key: string]: string } {
+    return {
+      configs: 'configs',
+      nextToken: 'nextToken',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      configs: { 'type': 'array', 'itemType': ConcurrencyConfig },
+      nextToken: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class ListCustomDomainOutput extends $tea.Model {
+  customDomains?: CustomDomain[];
+  nextToken?: string;
+  static names(): { [key: string]: string } {
+    return {
+      customDomains: 'customDomains',
+      nextToken: 'nextToken',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      customDomains: { 'type': 'array', 'itemType': CustomDomain },
+      nextToken: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class ListFunctionsOutput extends $tea.Model {
+  functions?: Function[];
+  nextToken?: string;
+  static names(): { [key: string]: string } {
+    return {
+      functions: 'functions',
+      nextToken: 'nextToken',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      functions: { 'type': 'array', 'itemType': Function },
+      nextToken: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class ListInstancesOutput extends $tea.Model {
+  instances?: InstanceInfo[];
+  static names(): { [key: string]: string } {
+    return {
+      instances: 'instances',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      instances: { 'type': 'array', 'itemType': InstanceInfo },
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class ListLayerVersionOutput extends $tea.Model {
+  layers?: Layer[];
+  nextVersion?: number;
+  static names(): { [key: string]: string } {
+    return {
+      layers: 'layers',
+      nextVersion: 'nextVersion',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      layers: { 'type': 'array', 'itemType': Layer },
+      nextVersion: 'number',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class ListLayersOutput extends $tea.Model {
+  layers?: Layer[];
+  nextToken?: string;
+  static names(): { [key: string]: string } {
+    return {
+      layers: 'layers',
+      nextToken: 'nextToken',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      layers: { 'type': 'array', 'itemType': Layer },
+      nextToken: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class ListProvisionConfigsOutput extends $tea.Model {
+  nextToken?: string;
+  provisionConfigs?: ProvisionConfig[];
+  static names(): { [key: string]: string } {
+    return {
+      nextToken: 'nextToken',
+      provisionConfigs: 'provisionConfigs',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      nextToken: 'string',
+      provisionConfigs: { 'type': 'array', 'itemType': ProvisionConfig },
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class ListTaggedResourcesOutput extends $tea.Model {
+  nextToken?: string;
+  resources?: Resource[];
+  static names(): { [key: string]: string } {
+    return {
+      nextToken: 'nextToken',
+      resources: 'resources',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      nextToken: 'string',
+      resources: { 'type': 'array', 'itemType': Resource },
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class ListTriggersOutput extends $tea.Model {
+  nextToken?: string;
+  triggers?: Trigger[];
+  static names(): { [key: string]: string } {
+    return {
+      nextToken: 'nextToken',
+      triggers: 'triggers',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      nextToken: 'string',
+      triggers: { 'type': 'array', 'itemType': Trigger },
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class ListVersionsOutput extends $tea.Model {
+  direction?: string;
+  nextToken?: string;
+  versions?: Version[];
+  static names(): { [key: string]: string } {
+    return {
+      direction: 'direction',
+      nextToken: 'nextToken',
+      versions: 'versions',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      direction: 'string',
+      nextToken: 'string',
+      versions: { 'type': 'array', 'itemType': Version },
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class LogConfig extends $tea.Model {
+  enableInstanceMetrics?: boolean;
+  enableRequestMetrics?: boolean;
+  logBeginRule?: string;
+  logstore?: string;
+  project?: string;
+  static names(): { [key: string]: string } {
+    return {
+      enableInstanceMetrics: 'enableInstanceMetrics',
+      enableRequestMetrics: 'enableRequestMetrics',
+      logBeginRule: 'logBeginRule',
+      logstore: 'logstore',
+      project: 'project',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      enableInstanceMetrics: 'boolean',
+      enableRequestMetrics: 'boolean',
+      logBeginRule: 'string',
+      logstore: 'string',
+      project: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class NASConfig extends $tea.Model {
+  groupId?: number;
+  mountPoints?: NASMountConfig[];
+  userId?: number;
+  static names(): { [key: string]: string } {
+    return {
+      groupId: 'groupId',
+      mountPoints: 'mountPoints',
+      userId: 'userId',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      groupId: 'number',
+      mountPoints: { 'type': 'array', 'itemType': NASMountConfig },
+      userId: 'number',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class NASMountConfig extends $tea.Model {
+  enableTLS?: boolean;
+  mountDir?: string;
+  serverAddr?: string;
+  static names(): { [key: string]: string } {
+    return {
+      enableTLS: 'enableTLS',
+      mountDir: 'mountDir',
+      serverAddr: 'serverAddr',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      enableTLS: 'boolean',
+      mountDir: 'string',
+      serverAddr: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class OSSMountConfig extends $tea.Model {
+  mountPoints?: OSSMountPoint[];
+  static names(): { [key: string]: string } {
+    return {
+      mountPoints: 'mountPoints',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      mountPoints: { 'type': 'array', 'itemType': OSSMountPoint },
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class OSSMountPoint extends $tea.Model {
+  bucketName?: string;
+  bucketPath?: string;
+  endpoint?: string;
+  mountDir?: string;
+  readOnly?: boolean;
+  static names(): { [key: string]: string } {
+    return {
+      bucketName: 'bucketName',
+      bucketPath: 'bucketPath',
+      endpoint: 'endpoint',
+      mountDir: 'mountDir',
+      readOnly: 'readOnly',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      bucketName: 'string',
+      bucketPath: 'string',
+      endpoint: 'string',
+      mountDir: 'string',
+      readOnly: 'boolean',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class OutputCodeLocation extends $tea.Model {
+  location?: string;
+  repositoryType?: string;
+  static names(): { [key: string]: string } {
+    return {
+      location: 'location',
+      repositoryType: 'repositoryType',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      location: 'string',
+      repositoryType: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class OutputFuncCode extends $tea.Model {
+  checksum?: string;
+  url?: string;
+  static names(): { [key: string]: string } {
+    return {
+      checksum: 'checksum',
+      url: 'url',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      checksum: 'string',
+      url: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class PathConfig extends $tea.Model {
+  accountId?: string;
+  functionName?: string;
+  innerRewriteConfig?: InnerRewriteConfig;
+  methods?: string[];
+  path?: string;
+  qualifier?: string;
+  rewriteConfig?: RewriteConfig;
+  serviceName?: string;
+  static names(): { [key: string]: string } {
+    return {
+      accountId: 'accountId',
+      functionName: 'functionName',
+      innerRewriteConfig: 'innerRewriteConfig',
+      methods: 'methods',
+      path: 'path',
+      qualifier: 'qualifier',
+      rewriteConfig: 'rewriteConfig',
+      serviceName: 'serviceName',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      accountId: 'string',
+      functionName: 'string',
+      innerRewriteConfig: InnerRewriteConfig,
+      methods: { 'type': 'array', 'itemType': 'string' },
+      path: 'string',
+      qualifier: 'string',
+      rewriteConfig: RewriteConfig,
+      serviceName: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class PolicyItem extends $tea.Model {
+  key?: string;
+  operator?: string;
+  type?: string;
+  value?: string;
+  static names(): { [key: string]: string } {
+    return {
+      key: 'key',
+      operator: 'operator',
+      type: 'type',
+      value: 'value',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      key: 'string',
+      operator: 'string',
+      type: 'string',
+      value: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class ProvisionConfig extends $tea.Model {
+  alwaysAllocateCPU?: boolean;
+  current?: number;
+  currentError?: string;
+  functionArn?: string;
+  scheduledActions?: ScheduledAction[];
+  target?: number;
+  targetTrackingPolicies?: TargetTrackingPolicy[];
+  static names(): { [key: string]: string } {
+    return {
+      alwaysAllocateCPU: 'alwaysAllocateCPU',
+      current: 'current',
+      currentError: 'currentError',
+      functionArn: 'functionArn',
+      scheduledActions: 'scheduledActions',
+      target: 'target',
+      targetTrackingPolicies: 'targetTrackingPolicies',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      alwaysAllocateCPU: 'boolean',
+      current: 'number',
+      currentError: 'string',
+      functionArn: 'string',
+      scheduledActions: { 'type': 'array', 'itemType': ScheduledAction },
+      target: 'number',
+      targetTrackingPolicies: { 'type': 'array', 'itemType': TargetTrackingPolicy },
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class PublishVersionInput extends $tea.Model {
+  description?: string;
+  static names(): { [key: string]: string } {
+    return {
+      description: 'description',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      description: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class PutAsyncInvokeConfigInput extends $tea.Model {
+  destinationConfig?: DestinationConfig;
+  maxAsyncEventAgeInSeconds?: number;
+  maxAsyncRetryAttempts?: number;
+  static names(): { [key: string]: string } {
+    return {
+      destinationConfig: 'destinationConfig',
+      maxAsyncEventAgeInSeconds: 'maxAsyncEventAgeInSeconds',
+      maxAsyncRetryAttempts: 'maxAsyncRetryAttempts',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      destinationConfig: DestinationConfig,
+      maxAsyncEventAgeInSeconds: 'number',
+      maxAsyncRetryAttempts: 'number',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class PutConcurrencyInput extends $tea.Model {
+  reservedConcurrency?: number;
+  static names(): { [key: string]: string } {
+    return {
+      reservedConcurrency: 'reservedConcurrency',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      reservedConcurrency: 'number',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class PutProvisionConfigInput extends $tea.Model {
+  alwaysAllocateCPU?: boolean;
+  scheduledActions?: ScheduledAction[];
+  target?: number;
+  targetTrackingPolicies?: TargetTrackingPolicy[];
+  static names(): { [key: string]: string } {
+    return {
+      alwaysAllocateCPU: 'alwaysAllocateCPU',
+      scheduledActions: 'scheduledActions',
+      target: 'target',
+      targetTrackingPolicies: 'targetTrackingPolicies',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      alwaysAllocateCPU: 'boolean',
+      scheduledActions: { 'type': 'array', 'itemType': ScheduledAction },
+      target: 'number',
+      targetTrackingPolicies: { 'type': 'array', 'itemType': TargetTrackingPolicy },
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class RegexRule extends $tea.Model {
+  match?: string;
+  replacement?: string;
+  static names(): { [key: string]: string } {
+    return {
+      match: 'match',
+      replacement: 'replacement',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      match: 'string',
+      replacement: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class Resource extends $tea.Model {
+  resourceArn?: string;
+  tags?: { [key: string]: string };
+  static names(): { [key: string]: string } {
+    return {
+      resourceArn: 'resourceArn',
+      tags: 'tags',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      resourceArn: 'string',
+      tags: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class RewriteConfig extends $tea.Model {
+  equalRules?: EqualRule[];
+  regexRules?: RegexRule[];
+  wildcardRules?: WildcardRule[];
+  static names(): { [key: string]: string } {
+    return {
+      equalRules: 'equalRules',
+      regexRules: 'regexRules',
+      wildcardRules: 'wildcardRules',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      equalRules: { 'type': 'array', 'itemType': EqualRule },
+      regexRules: { 'type': 'array', 'itemType': RegexRule },
+      wildcardRules: { 'type': 'array', 'itemType': WildcardRule },
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class RewriteRegexRule extends $tea.Model {
+  regexStr?: string;
+  replacement?: string;
+  static names(): { [key: string]: string } {
+    return {
+      regexStr: 'regexStr',
+      replacement: 'replacement',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      regexStr: 'string',
+      replacement: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class RouteConfig extends $tea.Model {
+  routes?: PathConfig[];
+  static names(): { [key: string]: string } {
+    return {
+      routes: 'routes',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      routes: { 'type': 'array', 'itemType': PathConfig },
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class RoutePolicy extends $tea.Model {
+  condition?: string;
+  policyItems?: PolicyItem[];
+  static names(): { [key: string]: string } {
+    return {
+      condition: 'condition',
+      policyItems: 'policyItems',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      condition: 'string',
+      policyItems: { 'type': 'array', 'itemType': PolicyItem },
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class ScheduledAction extends $tea.Model {
+  endTime?: string;
+  name?: string;
+  scheduleExpression?: string;
+  startTime?: string;
+  target?: number;
+  static names(): { [key: string]: string } {
+    return {
+      endTime: 'endTime',
+      name: 'name',
+      scheduleExpression: 'scheduleExpression',
+      startTime: 'startTime',
+      target: 'target',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      endTime: 'string',
+      name: 'string',
+      scheduleExpression: 'string',
+      startTime: 'string',
+      target: 'number',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class TLSConfig extends $tea.Model {
+  cipherSuites?: string[];
+  maxVersion?: string;
+  minVersion?: string;
+  static names(): { [key: string]: string } {
+    return {
+      cipherSuites: 'cipherSuites',
+      maxVersion: 'maxVersion',
+      minVersion: 'minVersion',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      cipherSuites: { 'type': 'array', 'itemType': 'string' },
+      maxVersion: 'string',
+      minVersion: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class Tag extends $tea.Model {
+  key?: string;
+  value?: string;
+  static names(): { [key: string]: string } {
+    return {
+      key: 'key',
+      value: 'value',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      key: 'string',
+      value: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class TagResourceInput extends $tea.Model {
+  resourceArn?: string;
+  resourceType?: string;
+  tags?: { [key: string]: string };
+  static names(): { [key: string]: string } {
+    return {
+      resourceArn: 'resourceArn',
+      resourceType: 'resourceType',
+      tags: 'tags',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      resourceArn: 'string',
+      resourceType: 'string',
+      tags: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class TargetTrackingPolicy extends $tea.Model {
+  endTime?: string;
+  maxCapacity?: number;
+  metricTarget?: number;
+  metricType?: string;
+  minCapacity?: number;
+  name?: string;
+  startTime?: string;
+  static names(): { [key: string]: string } {
+    return {
+      endTime: 'endTime',
+      maxCapacity: 'maxCapacity',
+      metricTarget: 'metricTarget',
+      metricType: 'metricType',
+      minCapacity: 'minCapacity',
+      name: 'name',
+      startTime: 'startTime',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      endTime: 'string',
+      maxCapacity: 'number',
+      metricTarget: 'number',
+      metricType: 'string',
+      minCapacity: 'number',
+      name: 'string',
+      startTime: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class TracingConfig extends $tea.Model {
+  params?: { [key: string]: string };
+  type?: string;
+  static names(): { [key: string]: string } {
+    return {
+      params: 'params',
+      type: 'type',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      params: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      type: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class Trigger extends $tea.Model {
+  createdTime?: string;
+  description?: string;
+  httpTrigger?: HTTPTrigger;
+  invocationRole?: string;
+  lastModifiedTime?: string;
+  qualifier?: string;
+  sourceArn?: string;
+  status?: string;
+  targetArn?: string;
+  triggerConfig?: string;
+  triggerId?: string;
+  triggerName?: string;
+  triggerType?: string;
+  static names(): { [key: string]: string } {
+    return {
+      createdTime: 'createdTime',
+      description: 'description',
+      httpTrigger: 'httpTrigger',
+      invocationRole: 'invocationRole',
+      lastModifiedTime: 'lastModifiedTime',
+      qualifier: 'qualifier',
+      sourceArn: 'sourceArn',
+      status: 'status',
+      targetArn: 'targetArn',
+      triggerConfig: 'triggerConfig',
+      triggerId: 'triggerId',
+      triggerName: 'triggerName',
+      triggerType: 'triggerType',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      createdTime: 'string',
+      description: 'string',
+      httpTrigger: HTTPTrigger,
+      invocationRole: 'string',
+      lastModifiedTime: 'string',
+      qualifier: 'string',
+      sourceArn: 'string',
+      status: 'string',
+      targetArn: 'string',
+      triggerConfig: 'string',
+      triggerId: 'string',
+      triggerName: 'string',
+      triggerType: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class UpdateAliasInput extends $tea.Model {
+  additionalVersionWeight?: { [key: string]: number };
+  description?: string;
+  versionId?: string;
+  static names(): { [key: string]: string } {
+    return {
+      additionalVersionWeight: 'additionalVersionWeight',
+      description: 'description',
+      versionId: 'versionId',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      additionalVersionWeight: { 'type': 'map', 'keyType': 'string', 'valueType': 'number' },
+      description: 'string',
+      versionId: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class UpdateCustomDomainInput extends $tea.Model {
+  certConfig?: CertConfig;
+  protocol?: string;
+  routeConfig?: RouteConfig;
+  tlsConfig?: TLSConfig;
+  wafConfig?: WAFConfig;
+  static names(): { [key: string]: string } {
+    return {
+      certConfig: 'certConfig',
+      protocol: 'protocol',
+      routeConfig: 'routeConfig',
+      tlsConfig: 'tlsConfig',
+      wafConfig: 'wafConfig',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      certConfig: CertConfig,
+      protocol: 'string',
+      routeConfig: RouteConfig,
+      tlsConfig: TLSConfig,
+      wafConfig: WAFConfig,
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class UpdateFunctionInput extends $tea.Model {
+  code?: InputCodeLocation;
+  cpu?: number;
+  customContainerConfig?: CustomContainerConfig;
+  customDNS?: CustomDNS;
+  customRuntimeConfig?: CustomRuntimeConfig;
+  description?: string;
+  diskSize?: number;
+  environmentVariables?: { [key: string]: string };
+  gpuConfig?: GPUConfig;
+  handler?: string;
+  instanceConcurrency?: number;
+  instanceLifecycleConfig?: InstanceLifecycleConfig;
+  internetAccess?: boolean;
+  layers?: string[];
+  logConfig?: LogConfig;
+  memorySize?: number;
+  nasConfig?: NASConfig;
+  ossMountConfig?: OSSMountConfig;
+  role?: string;
+  runtime?: string;
+  timeout?: number;
+  tracingConfig?: TracingConfig;
+  vpcBinding?: VPCBinding;
+  vpcConfig?: VPCConfig;
+  static names(): { [key: string]: string } {
+    return {
+      code: 'code',
+      cpu: 'cpu',
+      customContainerConfig: 'customContainerConfig',
+      customDNS: 'customDNS',
+      customRuntimeConfig: 'customRuntimeConfig',
+      description: 'description',
+      diskSize: 'diskSize',
+      environmentVariables: 'environmentVariables',
+      gpuConfig: 'gpuConfig',
+      handler: 'handler',
+      instanceConcurrency: 'instanceConcurrency',
+      instanceLifecycleConfig: 'instanceLifecycleConfig',
+      internetAccess: 'internetAccess',
+      layers: 'layers',
+      logConfig: 'logConfig',
+      memorySize: 'memorySize',
+      nasConfig: 'nasConfig',
+      ossMountConfig: 'ossMountConfig',
+      role: 'role',
+      runtime: 'runtime',
+      timeout: 'timeout',
+      tracingConfig: 'tracingConfig',
+      vpcBinding: 'vpcBinding',
+      vpcConfig: 'vpcConfig',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      code: InputCodeLocation,
+      cpu: 'number',
+      customContainerConfig: CustomContainerConfig,
+      customDNS: CustomDNS,
+      customRuntimeConfig: CustomRuntimeConfig,
+      description: 'string',
+      diskSize: 'number',
+      environmentVariables: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      gpuConfig: GPUConfig,
+      handler: 'string',
+      instanceConcurrency: 'number',
+      instanceLifecycleConfig: InstanceLifecycleConfig,
+      internetAccess: 'boolean',
+      layers: { 'type': 'array', 'itemType': 'string' },
+      logConfig: LogConfig,
+      memorySize: 'number',
+      nasConfig: NASConfig,
+      ossMountConfig: OSSMountConfig,
+      role: 'string',
+      runtime: 'string',
+      timeout: 'number',
+      tracingConfig: TracingConfig,
+      vpcBinding: VPCBinding,
+      vpcConfig: VPCConfig,
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class UpdateTriggerInput extends $tea.Model {
+  description?: string;
+  invocationRole?: string;
+  qualifier?: string;
+  triggerConfig?: string;
+  static names(): { [key: string]: string } {
+    return {
+      description: 'description',
+      invocationRole: 'invocationRole',
+      qualifier: 'qualifier',
+      triggerConfig: 'triggerConfig',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      description: 'string',
+      invocationRole: 'string',
+      qualifier: 'string',
+      triggerConfig: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class VPCBinding extends $tea.Model {
+  vpcIds?: string[];
+  static names(): { [key: string]: string } {
+    return {
+      vpcIds: 'vpcIds',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      vpcIds: { 'type': 'array', 'itemType': 'string' },
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class VPCConfig extends $tea.Model {
+  securityGroupId?: string;
+  vSwitchIds?: string[];
+  vpcId?: string;
+  static names(): { [key: string]: string } {
+    return {
+      securityGroupId: 'securityGroupId',
+      vSwitchIds: 'vSwitchIds',
+      vpcId: 'vpcId',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      securityGroupId: 'string',
+      vSwitchIds: { 'type': 'array', 'itemType': 'string' },
+      vpcId: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class Version extends $tea.Model {
+  createdTime?: string;
+  description?: string;
+  functionVersionArn?: string;
+  lastModifiedTime?: string;
+  versionId?: string;
+  static names(): { [key: string]: string } {
+    return {
+      createdTime: 'createdTime',
+      description: 'description',
+      functionVersionArn: 'functionVersionArn',
+      lastModifiedTime: 'lastModifiedTime',
+      versionId: 'versionId',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      createdTime: 'string',
+      description: 'string',
+      functionVersionArn: 'string',
+      lastModifiedTime: 'string',
+      versionId: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class WAFConfig extends $tea.Model {
+  enableWAF?: boolean;
+  static names(): { [key: string]: string } {
+    return {
+      enableWAF: 'enableWAF',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      enableWAF: 'boolean',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class WildcardRule extends $tea.Model {
+  match?: string;
+  replacement?: string;
+  static names(): { [key: string]: string } {
+    return {
+      match: 'match',
+      replacement: 'replacement',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      match: 'string',
+      replacement: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class CreateAliasRequest extends $tea.Model {
+  request?: CreateAliasInput;
+  static names(): { [key: string]: string } {
+    return {
+      request: 'request',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      request: CreateAliasInput,
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class CreateAliasResponse extends $tea.Model {
+  headers: { [key: string]: string };
+  statusCode: number;
+  body: Alias;
+  static names(): { [key: string]: string } {
+    return {
+      headers: 'headers',
+      statusCode: 'statusCode',
+      body: 'body',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
+      body: Alias,
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class CreateCustomDomainRequest extends $tea.Model {
+  request?: CreateCustomDomainInput;
+  static names(): { [key: string]: string } {
+    return {
+      request: 'request',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      request: CreateCustomDomainInput,
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class CreateCustomDomainResponse extends $tea.Model {
+  headers: { [key: string]: string };
+  statusCode: number;
+  body: CustomDomain;
+  static names(): { [key: string]: string } {
+    return {
+      headers: 'headers',
+      statusCode: 'statusCode',
+      body: 'body',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
+      body: CustomDomain,
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class CreateFunctionRequest extends $tea.Model {
+  request?: CreateFunctionInput;
+  static names(): { [key: string]: string } {
+    return {
+      request: 'request',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      request: CreateFunctionInput,
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class CreateFunctionResponse extends $tea.Model {
+  headers: { [key: string]: string };
+  statusCode: number;
+  body: Function;
+  static names(): { [key: string]: string } {
+    return {
+      headers: 'headers',
+      statusCode: 'statusCode',
+      body: 'body',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
+      body: Function,
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class CreateLayerVersionRequest extends $tea.Model {
+  request?: CreateLayerVersionInput;
+  static names(): { [key: string]: string } {
+    return {
+      request: 'request',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      request: CreateLayerVersionInput,
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class CreateLayerVersionResponse extends $tea.Model {
+  headers: { [key: string]: string };
+  statusCode: number;
+  body: Layer;
+  static names(): { [key: string]: string } {
+    return {
+      headers: 'headers',
+      statusCode: 'statusCode',
+      body: 'body',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
+      body: Layer,
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class CreateTriggerRequest extends $tea.Model {
+  request?: CreateTriggerInput;
+  static names(): { [key: string]: string } {
+    return {
+      request: 'request',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      request: CreateTriggerInput,
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class CreateTriggerResponse extends $tea.Model {
+  headers: { [key: string]: string };
+  statusCode: number;
+  body: Trigger;
+  static names(): { [key: string]: string } {
+    return {
+      headers: 'headers',
+      statusCode: 'statusCode',
+      body: 'body',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
+      body: Trigger,
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class DeleteAliasResponse extends $tea.Model {
+  headers: { [key: string]: string };
+  statusCode: number;
+  static names(): { [key: string]: string } {
+    return {
+      headers: 'headers',
+      statusCode: 'statusCode',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class DeleteAsyncInvokeConfigRequest extends $tea.Model {
+  qualifier?: string;
+  static names(): { [key: string]: string } {
+    return {
+      qualifier: 'qualifier',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      qualifier: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class DeleteAsyncInvokeConfigResponse extends $tea.Model {
+  headers: { [key: string]: string };
+  statusCode: number;
+  static names(): { [key: string]: string } {
+    return {
+      headers: 'headers',
+      statusCode: 'statusCode',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class DeleteConcurrencyConfigResponse extends $tea.Model {
+  headers: { [key: string]: string };
+  statusCode: number;
+  static names(): { [key: string]: string } {
+    return {
+      headers: 'headers',
+      statusCode: 'statusCode',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class DeleteCustomDomainResponse extends $tea.Model {
+  headers: { [key: string]: string };
+  statusCode: number;
+  static names(): { [key: string]: string } {
+    return {
+      headers: 'headers',
+      statusCode: 'statusCode',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class DeleteFunctionResponse extends $tea.Model {
+  headers: { [key: string]: string };
+  statusCode: number;
+  static names(): { [key: string]: string } {
+    return {
+      headers: 'headers',
+      statusCode: 'statusCode',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class DeleteFunctionVersionResponse extends $tea.Model {
+  headers: { [key: string]: string };
+  statusCode: number;
+  static names(): { [key: string]: string } {
+    return {
+      headers: 'headers',
+      statusCode: 'statusCode',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class DeleteLayerVersionResponse extends $tea.Model {
+  headers: { [key: string]: string };
+  statusCode: number;
+  static names(): { [key: string]: string } {
+    return {
+      headers: 'headers',
+      statusCode: 'statusCode',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class DeleteProvisionConfigRequest extends $tea.Model {
+  qualifier?: string;
+  static names(): { [key: string]: string } {
+    return {
+      qualifier: 'qualifier',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      qualifier: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class DeleteProvisionConfigResponse extends $tea.Model {
+  headers: { [key: string]: string };
+  statusCode: number;
+  static names(): { [key: string]: string } {
+    return {
+      headers: 'headers',
+      statusCode: 'statusCode',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class DeleteTriggerResponse extends $tea.Model {
+  headers: { [key: string]: string };
+  statusCode: number;
+  static names(): { [key: string]: string } {
+    return {
+      headers: 'headers',
+      statusCode: 'statusCode',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class GetAliasResponse extends $tea.Model {
+  headers: { [key: string]: string };
+  statusCode: number;
+  body: Alias;
+  static names(): { [key: string]: string } {
+    return {
+      headers: 'headers',
+      statusCode: 'statusCode',
+      body: 'body',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
+      body: Alias,
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class GetAsyncInvokeConfigRequest extends $tea.Model {
+  qualifier?: string;
+  static names(): { [key: string]: string } {
+    return {
+      qualifier: 'qualifier',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      qualifier: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class GetAsyncInvokeConfigResponse extends $tea.Model {
+  headers: { [key: string]: string };
+  statusCode: number;
+  body: AsyncConfig;
+  static names(): { [key: string]: string } {
+    return {
+      headers: 'headers',
+      statusCode: 'statusCode',
+      body: 'body',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
+      body: AsyncConfig,
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class GetConcurrencyConfigResponse extends $tea.Model {
+  headers: { [key: string]: string };
+  statusCode: number;
+  body: ConcurrencyConfig;
+  static names(): { [key: string]: string } {
+    return {
+      headers: 'headers',
+      statusCode: 'statusCode',
+      body: 'body',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
+      body: ConcurrencyConfig,
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class GetCustomDomainResponse extends $tea.Model {
+  headers: { [key: string]: string };
+  statusCode: number;
+  body: CustomDomain;
+  static names(): { [key: string]: string } {
+    return {
+      headers: 'headers',
+      statusCode: 'statusCode',
+      body: 'body',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
+      body: CustomDomain,
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class GetFunctionRequest extends $tea.Model {
+  qualifier?: string;
+  static names(): { [key: string]: string } {
+    return {
+      qualifier: 'qualifier',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      qualifier: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class GetFunctionResponse extends $tea.Model {
+  headers: { [key: string]: string };
+  statusCode: number;
+  body: Function;
+  static names(): { [key: string]: string } {
+    return {
+      headers: 'headers',
+      statusCode: 'statusCode',
+      body: 'body',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
+      body: Function,
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class GetFunctionCodeRequest extends $tea.Model {
+  qualifier?: string;
+  static names(): { [key: string]: string } {
+    return {
+      qualifier: 'qualifier',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      qualifier: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class GetFunctionCodeResponse extends $tea.Model {
+  headers: { [key: string]: string };
+  statusCode: number;
+  body: OutputFuncCode;
+  static names(): { [key: string]: string } {
+    return {
+      headers: 'headers',
+      statusCode: 'statusCode',
+      body: 'body',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
+      body: OutputFuncCode,
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class GetLayerVersionResponse extends $tea.Model {
+  headers: { [key: string]: string };
+  statusCode: number;
+  body: Layer;
+  static names(): { [key: string]: string } {
+    return {
+      headers: 'headers',
+      statusCode: 'statusCode',
+      body: 'body',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
+      body: Layer,
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class GetLayerVersionByArnResponse extends $tea.Model {
+  headers: { [key: string]: string };
+  statusCode: number;
+  body: Layer;
+  static names(): { [key: string]: string } {
+    return {
+      headers: 'headers',
+      statusCode: 'statusCode',
+      body: 'body',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
+      body: Layer,
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class GetProvisionConfigRequest extends $tea.Model {
+  qualifier?: string;
+  static names(): { [key: string]: string } {
+    return {
+      qualifier: 'qualifier',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      qualifier: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class GetProvisionConfigResponse extends $tea.Model {
+  headers: { [key: string]: string };
+  statusCode: number;
+  body: ProvisionConfig;
+  static names(): { [key: string]: string } {
+    return {
+      headers: 'headers',
+      statusCode: 'statusCode',
+      body: 'body',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
+      body: ProvisionConfig,
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class GetResourceTagsRequest extends $tea.Model {
+  arn?: string;
+  static names(): { [key: string]: string } {
+    return {
+      arn: 'arn',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      arn: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class GetResourceTagsResponse extends $tea.Model {
+  headers: { [key: string]: string };
+  statusCode: number;
+  body: GetResourceTagsOutput;
+  static names(): { [key: string]: string } {
+    return {
+      headers: 'headers',
+      statusCode: 'statusCode',
+      body: 'body',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
+      body: GetResourceTagsOutput,
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class GetTriggerResponse extends $tea.Model {
+  headers: { [key: string]: string };
+  statusCode: number;
+  body: Trigger;
+  static names(): { [key: string]: string } {
+    return {
+      headers: 'headers',
+      statusCode: 'statusCode',
+      body: 'body',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
+      body: Trigger,
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class InvokeFunctionHeaders extends $tea.Model {
+  commonHeaders?: { [key: string]: string };
+  xFcInvocationType?: string;
+  xFcLogType?: string;
+  static names(): { [key: string]: string } {
+    return {
+      commonHeaders: 'commonHeaders',
+      xFcInvocationType: 'x-fc-invocation-type',
+      xFcLogType: 'x-fc-log-type',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      commonHeaders: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      xFcInvocationType: 'string',
+      xFcLogType: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class InvokeFunctionRequest extends $tea.Model {
+  qualifier?: string;
+  request?: Readable;
+  static names(): { [key: string]: string } {
+    return {
+      qualifier: 'qualifier',
+      request: 'request',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      qualifier: 'string',
+      request: 'Readable',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class InvokeFunctionResponse extends $tea.Model {
+  headers: { [key: string]: string };
+  statusCode: number;
+  body: Readable;
+  static names(): { [key: string]: string } {
+    return {
+      headers: 'headers',
+      statusCode: 'statusCode',
+      body: 'body',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
+      body: 'Readable',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class ListAliasesRequest extends $tea.Model {
+  limit?: number;
+  nextToken?: string;
+  prefix?: string;
+  static names(): { [key: string]: string } {
+    return {
+      limit: 'limit',
+      nextToken: 'nextToken',
+      prefix: 'prefix',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      limit: 'number',
+      nextToken: 'string',
+      prefix: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class ListAliasesResponse extends $tea.Model {
+  headers: { [key: string]: string };
+  statusCode: number;
+  body: ListAliasesOutput;
+  static names(): { [key: string]: string } {
+    return {
+      headers: 'headers',
+      statusCode: 'statusCode',
+      body: 'body',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
+      body: ListAliasesOutput,
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class ListAsyncInvokeConfigsRequest extends $tea.Model {
+  functionName?: string;
+  limit?: number;
+  nextToken?: string;
+  static names(): { [key: string]: string } {
+    return {
+      functionName: 'functionName',
+      limit: 'limit',
+      nextToken: 'nextToken',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      functionName: 'string',
+      limit: 'number',
+      nextToken: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class ListAsyncInvokeConfigsResponse extends $tea.Model {
+  headers: { [key: string]: string };
+  statusCode: number;
+  body: ListAsyncInvokeConfigOutput;
+  static names(): { [key: string]: string } {
+    return {
+      headers: 'headers',
+      statusCode: 'statusCode',
+      body: 'body',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
+      body: ListAsyncInvokeConfigOutput,
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class ListConcurrencyConfigsRequest extends $tea.Model {
+  functionName?: string;
+  limit?: number;
+  nextToken?: string;
+  static names(): { [key: string]: string } {
+    return {
+      functionName: 'functionName',
+      limit: 'limit',
+      nextToken: 'nextToken',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      functionName: 'string',
+      limit: 'number',
+      nextToken: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class ListConcurrencyConfigsResponse extends $tea.Model {
+  headers: { [key: string]: string };
+  statusCode: number;
+  body: ListConcurrencyConfigsOutput;
+  static names(): { [key: string]: string } {
+    return {
+      headers: 'headers',
+      statusCode: 'statusCode',
+      body: 'body',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
+      body: ListConcurrencyConfigsOutput,
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class ListCustomDomainsRequest extends $tea.Model {
+  limit?: number;
+  nextToken?: string;
+  prefix?: string;
+  static names(): { [key: string]: string } {
+    return {
+      limit: 'limit',
+      nextToken: 'nextToken',
+      prefix: 'prefix',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      limit: 'number',
+      nextToken: 'string',
+      prefix: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class ListCustomDomainsResponse extends $tea.Model {
+  headers: { [key: string]: string };
+  statusCode: number;
+  body: ListCustomDomainOutput;
+  static names(): { [key: string]: string } {
+    return {
+      headers: 'headers',
+      statusCode: 'statusCode',
+      body: 'body',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
+      body: ListCustomDomainOutput,
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class ListFunctionVersionsRequest extends $tea.Model {
+  direction?: string;
+  limit?: number;
+  nextToken?: string;
+  static names(): { [key: string]: string } {
+    return {
+      direction: 'direction',
+      limit: 'limit',
+      nextToken: 'nextToken',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      direction: 'string',
+      limit: 'number',
+      nextToken: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class ListFunctionVersionsResponse extends $tea.Model {
+  headers: { [key: string]: string };
+  statusCode: number;
+  body: ListVersionsOutput;
+  static names(): { [key: string]: string } {
+    return {
+      headers: 'headers',
+      statusCode: 'statusCode',
+      body: 'body',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
+      body: ListVersionsOutput,
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class ListFunctionsRequest extends $tea.Model {
+  limit?: number;
+  nextToken?: string;
+  prefix?: string;
+  static names(): { [key: string]: string } {
+    return {
+      limit: 'limit',
+      nextToken: 'nextToken',
+      prefix: 'prefix',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      limit: 'number',
+      nextToken: 'string',
+      prefix: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class ListFunctionsResponse extends $tea.Model {
+  headers: { [key: string]: string };
+  statusCode: number;
+  body: ListFunctionsOutput;
+  static names(): { [key: string]: string } {
+    return {
+      headers: 'headers',
+      statusCode: 'statusCode',
+      body: 'body',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
+      body: ListFunctionsOutput,
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class ListInstancesRequest extends $tea.Model {
+  qualifier?: string;
+  withAllActive?: boolean;
+  static names(): { [key: string]: string } {
+    return {
+      qualifier: 'qualifier',
+      withAllActive: 'withAllActive',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      qualifier: 'string',
+      withAllActive: 'boolean',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class ListInstancesResponse extends $tea.Model {
+  headers: { [key: string]: string };
+  statusCode: number;
+  body: ListInstancesOutput;
+  static names(): { [key: string]: string } {
+    return {
+      headers: 'headers',
+      statusCode: 'statusCode',
+      body: 'body',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
+      body: ListInstancesOutput,
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class ListLayerVersionsRequest extends $tea.Model {
+  limit?: number;
+  startVersion?: string;
+  static names(): { [key: string]: string } {
+    return {
+      limit: 'limit',
+      startVersion: 'startVersion',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      limit: 'number',
+      startVersion: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class ListLayerVersionsResponse extends $tea.Model {
+  headers: { [key: string]: string };
+  statusCode: number;
+  body: ListLayerVersionOutput;
+  static names(): { [key: string]: string } {
+    return {
+      headers: 'headers',
+      statusCode: 'statusCode',
+      body: 'body',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
+      body: ListLayerVersionOutput,
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class ListLayersRequest extends $tea.Model {
+  limit?: number;
+  nextToken?: string;
+  official?: string;
+  prefix?: string;
+  public?: string;
+  static names(): { [key: string]: string } {
+    return {
+      limit: 'limit',
+      nextToken: 'nextToken',
+      official: 'official',
+      prefix: 'prefix',
+      public: 'public',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      limit: 'number',
+      nextToken: 'string',
+      official: 'string',
+      prefix: 'string',
+      public: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class ListLayersResponse extends $tea.Model {
+  headers: { [key: string]: string };
+  statusCode: number;
+  body: ListLayersOutput;
+  static names(): { [key: string]: string } {
+    return {
+      headers: 'headers',
+      statusCode: 'statusCode',
+      body: 'body',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
+      body: ListLayersOutput,
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class ListProvisionConfigsRequest extends $tea.Model {
+  functionName?: string;
+  limit?: number;
+  nextToken?: string;
+  static names(): { [key: string]: string } {
+    return {
+      functionName: 'functionName',
+      limit: 'limit',
+      nextToken: 'nextToken',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      functionName: 'string',
+      limit: 'number',
+      nextToken: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class ListProvisionConfigsResponse extends $tea.Model {
+  headers: { [key: string]: string };
+  statusCode: number;
+  body: ListProvisionConfigsOutput;
+  static names(): { [key: string]: string } {
+    return {
+      headers: 'headers',
+      statusCode: 'statusCode',
+      body: 'body',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
+      body: ListProvisionConfigsOutput,
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class ListTaggedResourcesRequest extends $tea.Model {
+  limit?: number;
+  nextToken?: string;
+  static names(): { [key: string]: string } {
+    return {
+      limit: 'limit',
+      nextToken: 'nextToken',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      limit: 'number',
+      nextToken: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class ListTaggedResourcesResponse extends $tea.Model {
+  headers: { [key: string]: string };
+  statusCode: number;
+  body: ListTaggedResourcesOutput;
+  static names(): { [key: string]: string } {
+    return {
+      headers: 'headers',
+      statusCode: 'statusCode',
+      body: 'body',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
+      body: ListTaggedResourcesOutput,
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class ListTriggersRequest extends $tea.Model {
+  limit?: number;
+  nextToken?: string;
+  prefix?: string;
+  static names(): { [key: string]: string } {
+    return {
+      limit: 'limit',
+      nextToken: 'nextToken',
+      prefix: 'prefix',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      limit: 'number',
+      nextToken: 'string',
+      prefix: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class ListTriggersResponse extends $tea.Model {
+  headers: { [key: string]: string };
+  statusCode: number;
+  body: ListTriggersOutput;
+  static names(): { [key: string]: string } {
+    return {
+      headers: 'headers',
+      statusCode: 'statusCode',
+      body: 'body',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
+      body: ListTriggersOutput,
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class PublishFunctionVersionRequest extends $tea.Model {
+  request?: PublishVersionInput;
+  static names(): { [key: string]: string } {
+    return {
+      request: 'request',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      request: PublishVersionInput,
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class PublishFunctionVersionResponse extends $tea.Model {
+  headers: { [key: string]: string };
+  statusCode: number;
+  body: Version;
+  static names(): { [key: string]: string } {
+    return {
+      headers: 'headers',
+      statusCode: 'statusCode',
+      body: 'body',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
+      body: Version,
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class PutAsyncInvokeConfigRequest extends $tea.Model {
+  qualifier?: string;
+  request?: PutAsyncInvokeConfigInput;
+  static names(): { [key: string]: string } {
+    return {
+      qualifier: 'qualifier',
+      request: 'request',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      qualifier: 'string',
+      request: PutAsyncInvokeConfigInput,
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class PutAsyncInvokeConfigResponse extends $tea.Model {
+  headers: { [key: string]: string };
+  statusCode: number;
+  body: AsyncConfig;
+  static names(): { [key: string]: string } {
+    return {
+      headers: 'headers',
+      statusCode: 'statusCode',
+      body: 'body',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
+      body: AsyncConfig,
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class PutConcurrencyConfigRequest extends $tea.Model {
+  request?: PutConcurrencyInput;
+  static names(): { [key: string]: string } {
+    return {
+      request: 'request',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      request: PutConcurrencyInput,
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class PutConcurrencyConfigResponse extends $tea.Model {
+  headers: { [key: string]: string };
+  statusCode: number;
+  body: ConcurrencyConfig;
+  static names(): { [key: string]: string } {
+    return {
+      headers: 'headers',
+      statusCode: 'statusCode',
+      body: 'body',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
+      body: ConcurrencyConfig,
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class PutLayerACLRequest extends $tea.Model {
+  public?: string;
+  static names(): { [key: string]: string } {
+    return {
+      public: 'public',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      public: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class PutLayerACLResponse extends $tea.Model {
+  headers: { [key: string]: string };
+  statusCode: number;
+  static names(): { [key: string]: string } {
+    return {
+      headers: 'headers',
+      statusCode: 'statusCode',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class PutProvisionConfigRequest extends $tea.Model {
+  qualifier?: string;
+  request?: PutProvisionConfigInput;
+  static names(): { [key: string]: string } {
+    return {
+      qualifier: 'qualifier',
+      request: 'request',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      qualifier: 'string',
+      request: PutProvisionConfigInput,
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class PutProvisionConfigResponse extends $tea.Model {
+  headers: { [key: string]: string };
+  statusCode: number;
+  body: ProvisionConfig;
+  static names(): { [key: string]: string } {
+    return {
+      headers: 'headers',
+      statusCode: 'statusCode',
+      body: 'body',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
+      body: ProvisionConfig,
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class TagResourceRequest extends $tea.Model {
+  request?: TagResourceInput;
+  static names(): { [key: string]: string } {
+    return {
+      request: 'request',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      request: TagResourceInput,
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class TagResourceResponse extends $tea.Model {
+  headers: { [key: string]: string };
+  statusCode: number;
+  body: Tag;
+  static names(): { [key: string]: string } {
+    return {
+      headers: 'headers',
+      statusCode: 'statusCode',
+      body: 'body',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
+      body: Tag,
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class UntagResourceRequest extends $tea.Model {
+  all?: boolean;
+  arn?: string;
+  tagKeys?: string;
+  static names(): { [key: string]: string } {
+    return {
+      all: 'all',
+      arn: 'arn',
+      tagKeys: 'tagKeys',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      all: 'boolean',
+      arn: 'string',
+      tagKeys: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class UntagResourceResponse extends $tea.Model {
+  headers: { [key: string]: string };
+  statusCode: number;
+  static names(): { [key: string]: string } {
+    return {
+      headers: 'headers',
+      statusCode: 'statusCode',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class UpdateAliasRequest extends $tea.Model {
+  request?: UpdateAliasInput;
+  static names(): { [key: string]: string } {
+    return {
+      request: 'request',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      request: UpdateAliasInput,
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class UpdateAliasResponse extends $tea.Model {
+  headers: { [key: string]: string };
+  statusCode: number;
+  body: Alias;
+  static names(): { [key: string]: string } {
+    return {
+      headers: 'headers',
+      statusCode: 'statusCode',
+      body: 'body',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
+      body: Alias,
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class UpdateCustomDomainRequest extends $tea.Model {
+  request?: UpdateCustomDomainInput;
+  static names(): { [key: string]: string } {
+    return {
+      request: 'request',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      request: UpdateCustomDomainInput,
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class UpdateCustomDomainResponse extends $tea.Model {
+  headers: { [key: string]: string };
+  statusCode: number;
+  body: CustomDomain;
+  static names(): { [key: string]: string } {
+    return {
+      headers: 'headers',
+      statusCode: 'statusCode',
+      body: 'body',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
+      body: CustomDomain,
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class UpdateFunctionRequest extends $tea.Model {
+  request?: UpdateFunctionInput;
+  static names(): { [key: string]: string } {
+    return {
+      request: 'request',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      request: UpdateFunctionInput,
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class UpdateFunctionResponse extends $tea.Model {
+  headers: { [key: string]: string };
+  statusCode: number;
+  body: Function;
+  static names(): { [key: string]: string } {
+    return {
+      headers: 'headers',
+      statusCode: 'statusCode',
+      body: 'body',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
+      body: Function,
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class UpdateTriggerRequest extends $tea.Model {
+  request?: UpdateTriggerInput;
+  static names(): { [key: string]: string } {
+    return {
+      request: 'request',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      request: UpdateTriggerInput,
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class UpdateTriggerResponse extends $tea.Model {
+  headers: { [key: string]: string };
+  statusCode: number;
+  body: Trigger;
+  static names(): { [key: string]: string } {
+    return {
+      headers: 'headers',
+      statusCode: 'statusCode',
+      body: 'body',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
+      body: Trigger,
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+
+export default class Client extends OpenApi {
+
+  constructor(config: $OpenApi.Config) {
+    super(config);
+    this._endpointRule = "";
+    this.checkConfig(config);
+    this._endpoint = this.getEndpoint("fc", this._regionId, this._endpointRule, this._network, this._suffix, this._endpointMap, this._endpoint);
+  }
+
+
+  getEndpoint(productId: string, regionId: string, endpointRule: string, network: string, suffix: string, endpointMap: {[key: string ]: string}, endpoint: string): string {
+    if (!Util.empty(endpoint)) {
+      return endpoint;
+    }
+
+    if (!Util.isUnset(endpointMap) && !Util.empty(endpointMap[regionId])) {
+      return endpointMap[regionId];
+    }
+
+    return EndpointUtil.getEndpointRules(productId, regionId, endpointRule, network, suffix);
+  }
+
+  /**
+    * create function version
+    *
+    * @param request CreateAliasRequest
+    * @param headers map
+    * @param runtime runtime options for this request RuntimeOptions
+    * @return CreateAliasResponse
+   */
+  async createAliasWithOptions(functionName: string, request: CreateAliasRequest, headers: {[key: string ]: string}, runtime: $Util.RuntimeOptions): Promise<CreateAliasResponse> {
+    Util.validateModel(request);
+    let req = new $OpenApi.OpenApiRequest({
+      headers: headers,
+      body: OpenApiUtil.parseToMap(request.request),
+    });
+    let params = new $OpenApi.Params({
+      action: "CreateAlias",
+      version: "2023-03-30",
+      protocol: "HTTPS",
+      pathname: `/2023-03-30/functions/${OpenApiUtil.getEncodeParam(functionName)}/aliases`,
+      method: "POST",
+      authType: "AK",
+      style: "ROA",
+      reqBodyType: "json",
+      bodyType: "json",
+    });
+    return $tea.cast<CreateAliasResponse>(await this.callApi(params, req, runtime), new CreateAliasResponse({}));
+  }
+
+  /**
+    * create function version
+    *
+    * @param request CreateAliasRequest
+    * @return CreateAliasResponse
+   */
+  async createAlias(functionName: string, request: CreateAliasRequest): Promise<CreateAliasResponse> {
+    let runtime = new $Util.RuntimeOptions({ });
+    let headers : {[key: string ]: string} = { };
+    return await this.createAliasWithOptions(functionName, request, headers, runtime);
+  }
+
+  /**
+    * Create custom domain.
+    *
+    * @param request CreateCustomDomainRequest
+    * @param headers map
+    * @param runtime runtime options for this request RuntimeOptions
+    * @return CreateCustomDomainResponse
+   */
+  async createCustomDomainWithOptions(request: CreateCustomDomainRequest, headers: {[key: string ]: string}, runtime: $Util.RuntimeOptions): Promise<CreateCustomDomainResponse> {
+    Util.validateModel(request);
+    let req = new $OpenApi.OpenApiRequest({
+      headers: headers,
+      body: OpenApiUtil.parseToMap(request.request),
+    });
+    let params = new $OpenApi.Params({
+      action: "CreateCustomDomain",
+      version: "2023-03-30",
+      protocol: "HTTPS",
+      pathname: `/2023-03-30/custom-domains`,
+      method: "POST",
+      authType: "AK",
+      style: "ROA",
+      reqBodyType: "json",
+      bodyType: "json",
+    });
+    return $tea.cast<CreateCustomDomainResponse>(await this.callApi(params, req, runtime), new CreateCustomDomainResponse({}));
+  }
+
+  /**
+    * Create custom domain.
+    *
+    * @param request CreateCustomDomainRequest
+    * @return CreateCustomDomainResponse
+   */
+  async createCustomDomain(request: CreateCustomDomainRequest): Promise<CreateCustomDomainResponse> {
+    let runtime = new $Util.RuntimeOptions({ });
+    let headers : {[key: string ]: string} = { };
+    return await this.createCustomDomainWithOptions(request, headers, runtime);
+  }
+
+  /**
+    * Create function
+    *
+    * @param request CreateFunctionRequest
+    * @param headers map
+    * @param runtime runtime options for this request RuntimeOptions
+    * @return CreateFunctionResponse
+   */
+  async createFunctionWithOptions(request: CreateFunctionRequest, headers: {[key: string ]: string}, runtime: $Util.RuntimeOptions): Promise<CreateFunctionResponse> {
+    Util.validateModel(request);
+    let req = new $OpenApi.OpenApiRequest({
+      headers: headers,
+      body: OpenApiUtil.parseToMap(request.request),
+    });
+    let params = new $OpenApi.Params({
+      action: "CreateFunction",
+      version: "2023-03-30",
+      protocol: "HTTPS",
+      pathname: `/2023-03-30/functions`,
+      method: "POST",
+      authType: "AK",
+      style: "ROA",
+      reqBodyType: "json",
+      bodyType: "json",
+    });
+    return $tea.cast<CreateFunctionResponse>(await this.callApi(params, req, runtime), new CreateFunctionResponse({}));
+  }
+
+  /**
+    * Create function
+    *
+    * @param request CreateFunctionRequest
+    * @return CreateFunctionResponse
+   */
+  async createFunction(request: CreateFunctionRequest): Promise<CreateFunctionResponse> {
+    let runtime = new $Util.RuntimeOptions({ });
+    let headers : {[key: string ]: string} = { };
+    return await this.createFunctionWithOptions(request, headers, runtime);
+  }
+
+  /**
+    * Create layer version
+    *
+    * @param request CreateLayerVersionRequest
+    * @param headers map
+    * @param runtime runtime options for this request RuntimeOptions
+    * @return CreateLayerVersionResponse
+   */
+  async createLayerVersionWithOptions(layerName: string, request: CreateLayerVersionRequest, headers: {[key: string ]: string}, runtime: $Util.RuntimeOptions): Promise<CreateLayerVersionResponse> {
+    Util.validateModel(request);
+    let req = new $OpenApi.OpenApiRequest({
+      headers: headers,
+      body: OpenApiUtil.parseToMap(request.request),
+    });
+    let params = new $OpenApi.Params({
+      action: "CreateLayerVersion",
+      version: "2023-03-30",
+      protocol: "HTTPS",
+      pathname: `/2023-03-30/layers/${OpenApiUtil.getEncodeParam(layerName)}/versions`,
+      method: "POST",
+      authType: "AK",
+      style: "ROA",
+      reqBodyType: "json",
+      bodyType: "json",
+    });
+    return $tea.cast<CreateLayerVersionResponse>(await this.callApi(params, req, runtime), new CreateLayerVersionResponse({}));
+  }
+
+  /**
+    * Create layer version
+    *
+    * @param request CreateLayerVersionRequest
+    * @return CreateLayerVersionResponse
+   */
+  async createLayerVersion(layerName: string, request: CreateLayerVersionRequest): Promise<CreateLayerVersionResponse> {
+    let runtime = new $Util.RuntimeOptions({ });
+    let headers : {[key: string ]: string} = { };
+    return await this.createLayerVersionWithOptions(layerName, request, headers, runtime);
+  }
+
+  /**
+    * Create trigger.
+    *
+    * @param request CreateTriggerRequest
+    * @param headers map
+    * @param runtime runtime options for this request RuntimeOptions
+    * @return CreateTriggerResponse
+   */
+  async createTriggerWithOptions(functionName: string, request: CreateTriggerRequest, headers: {[key: string ]: string}, runtime: $Util.RuntimeOptions): Promise<CreateTriggerResponse> {
+    Util.validateModel(request);
+    let req = new $OpenApi.OpenApiRequest({
+      headers: headers,
+      body: OpenApiUtil.parseToMap(request.request),
+    });
+    let params = new $OpenApi.Params({
+      action: "CreateTrigger",
+      version: "2023-03-30",
+      protocol: "HTTPS",
+      pathname: `/2023-03-30/functions/${OpenApiUtil.getEncodeParam(functionName)}/triggers`,
+      method: "POST",
+      authType: "AK",
+      style: "ROA",
+      reqBodyType: "json",
+      bodyType: "json",
+    });
+    return $tea.cast<CreateTriggerResponse>(await this.callApi(params, req, runtime), new CreateTriggerResponse({}));
+  }
+
+  /**
+    * Create trigger.
+    *
+    * @param request CreateTriggerRequest
+    * @return CreateTriggerResponse
+   */
+  async createTrigger(functionName: string, request: CreateTriggerRequest): Promise<CreateTriggerResponse> {
+    let runtime = new $Util.RuntimeOptions({ });
+    let headers : {[key: string ]: string} = { };
+    return await this.createTriggerWithOptions(functionName, request, headers, runtime);
+  }
+
+  /**
+    * Delete function alias
+    *
+    * @param headers map
+    * @param runtime runtime options for this request RuntimeOptions
+    * @return DeleteAliasResponse
+   */
+  async deleteAliasWithOptions(functionName: string, aliasName: string, headers: {[key: string ]: string}, runtime: $Util.RuntimeOptions): Promise<DeleteAliasResponse> {
+    let req = new $OpenApi.OpenApiRequest({
+      headers: headers,
+    });
+    let params = new $OpenApi.Params({
+      action: "DeleteAlias",
+      version: "2023-03-30",
+      protocol: "HTTPS",
+      pathname: `/2023-03-30/functions/${OpenApiUtil.getEncodeParam(functionName)}/aliases/${OpenApiUtil.getEncodeParam(aliasName)}`,
+      method: "DELETE",
+      authType: "AK",
+      style: "ROA",
+      reqBodyType: "json",
+      bodyType: "none",
+    });
+    return $tea.cast<DeleteAliasResponse>(await this.callApi(params, req, runtime), new DeleteAliasResponse({}));
+  }
+
+  /**
+    * Delete function alias
+    *
+    * @return DeleteAliasResponse
+   */
+  async deleteAlias(functionName: string, aliasName: string): Promise<DeleteAliasResponse> {
+    let runtime = new $Util.RuntimeOptions({ });
+    let headers : {[key: string ]: string} = { };
+    return await this.deleteAliasWithOptions(functionName, aliasName, headers, runtime);
+  }
+
+  /**
+    * Delete function async invoke config
+    *
+    * @param request DeleteAsyncInvokeConfigRequest
+    * @param headers map
+    * @param runtime runtime options for this request RuntimeOptions
+    * @return DeleteAsyncInvokeConfigResponse
+   */
+  async deleteAsyncInvokeConfigWithOptions(functionName: string, request: DeleteAsyncInvokeConfigRequest, headers: {[key: string ]: string}, runtime: $Util.RuntimeOptions): Promise<DeleteAsyncInvokeConfigResponse> {
+    Util.validateModel(request);
+    let query : {[key: string ]: any} = { };
+    if (!Util.isUnset(request.qualifier)) {
+      query["qualifier"] = request.qualifier;
+    }
+
+    let req = new $OpenApi.OpenApiRequest({
+      headers: headers,
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApi.Params({
+      action: "DeleteAsyncInvokeConfig",
+      version: "2023-03-30",
+      protocol: "HTTPS",
+      pathname: `/2023-03-30/functions/${OpenApiUtil.getEncodeParam(functionName)}/async-invoke-config`,
+      method: "DELETE",
+      authType: "AK",
+      style: "ROA",
+      reqBodyType: "json",
+      bodyType: "none",
+    });
+    return $tea.cast<DeleteAsyncInvokeConfigResponse>(await this.callApi(params, req, runtime), new DeleteAsyncInvokeConfigResponse({}));
+  }
+
+  /**
+    * Delete function async invoke config
+    *
+    * @param request DeleteAsyncInvokeConfigRequest
+    * @return DeleteAsyncInvokeConfigResponse
+   */
+  async deleteAsyncInvokeConfig(functionName: string, request: DeleteAsyncInvokeConfigRequest): Promise<DeleteAsyncInvokeConfigResponse> {
+    let runtime = new $Util.RuntimeOptions({ });
+    let headers : {[key: string ]: string} = { };
+    return await this.deleteAsyncInvokeConfigWithOptions(functionName, request, headers, runtime);
+  }
+
+  /**
+    * deletes the concurrency config for a function
+    *
+    * @param headers map
+    * @param runtime runtime options for this request RuntimeOptions
+    * @return DeleteConcurrencyConfigResponse
+   */
+  async deleteConcurrencyConfigWithOptions(functionName: string, headers: {[key: string ]: string}, runtime: $Util.RuntimeOptions): Promise<DeleteConcurrencyConfigResponse> {
+    let req = new $OpenApi.OpenApiRequest({
+      headers: headers,
+    });
+    let params = new $OpenApi.Params({
+      action: "DeleteConcurrencyConfig",
+      version: "2023-03-30",
+      protocol: "HTTPS",
+      pathname: `/2023-03-30/functions/${OpenApiUtil.getEncodeParam(functionName)}/concurrency`,
+      method: "DELETE",
+      authType: "AK",
+      style: "ROA",
+      reqBodyType: "json",
+      bodyType: "none",
+    });
+    return $tea.cast<DeleteConcurrencyConfigResponse>(await this.callApi(params, req, runtime), new DeleteConcurrencyConfigResponse({}));
+  }
+
+  /**
+    * deletes the concurrency config for a function
+    *
+    * @return DeleteConcurrencyConfigResponse
+   */
+  async deleteConcurrencyConfig(functionName: string): Promise<DeleteConcurrencyConfigResponse> {
+    let runtime = new $Util.RuntimeOptions({ });
+    let headers : {[key: string ]: string} = { };
+    return await this.deleteConcurrencyConfigWithOptions(functionName, headers, runtime);
+  }
+
+  /**
+    * Delete custom domain.
+    *
+    * @param headers map
+    * @param runtime runtime options for this request RuntimeOptions
+    * @return DeleteCustomDomainResponse
+   */
+  async deleteCustomDomainWithOptions(domainName: string, headers: {[key: string ]: string}, runtime: $Util.RuntimeOptions): Promise<DeleteCustomDomainResponse> {
+    let req = new $OpenApi.OpenApiRequest({
+      headers: headers,
+    });
+    let params = new $OpenApi.Params({
+      action: "DeleteCustomDomain",
+      version: "2023-03-30",
+      protocol: "HTTPS",
+      pathname: `/2023-03-30/custom-domains/${OpenApiUtil.getEncodeParam(domainName)}`,
+      method: "DELETE",
+      authType: "AK",
+      style: "ROA",
+      reqBodyType: "json",
+      bodyType: "none",
+    });
+    return $tea.cast<DeleteCustomDomainResponse>(await this.callApi(params, req, runtime), new DeleteCustomDomainResponse({}));
+  }
+
+  /**
+    * Delete custom domain.
+    *
+    * @return DeleteCustomDomainResponse
+   */
+  async deleteCustomDomain(domainName: string): Promise<DeleteCustomDomainResponse> {
+    let runtime = new $Util.RuntimeOptions({ });
+    let headers : {[key: string ]: string} = { };
+    return await this.deleteCustomDomainWithOptions(domainName, headers, runtime);
+  }
+
+  /**
+    * Delete function
+    *
+    * @param headers map
+    * @param runtime runtime options for this request RuntimeOptions
+    * @return DeleteFunctionResponse
+   */
+  async deleteFunctionWithOptions(functionName: string, headers: {[key: string ]: string}, runtime: $Util.RuntimeOptions): Promise<DeleteFunctionResponse> {
+    let req = new $OpenApi.OpenApiRequest({
+      headers: headers,
+    });
+    let params = new $OpenApi.Params({
+      action: "DeleteFunction",
+      version: "2023-03-30",
+      protocol: "HTTPS",
+      pathname: `/2023-03-30/functions/${OpenApiUtil.getEncodeParam(functionName)}`,
+      method: "DELETE",
+      authType: "AK",
+      style: "ROA",
+      reqBodyType: "json",
+      bodyType: "none",
+    });
+    return $tea.cast<DeleteFunctionResponse>(await this.callApi(params, req, runtime), new DeleteFunctionResponse({}));
+  }
+
+  /**
+    * Delete function
+    *
+    * @return DeleteFunctionResponse
+   */
+  async deleteFunction(functionName: string): Promise<DeleteFunctionResponse> {
+    let runtime = new $Util.RuntimeOptions({ });
+    let headers : {[key: string ]: string} = { };
+    return await this.deleteFunctionWithOptions(functionName, headers, runtime);
+  }
+
+  /**
+    * Delete function version
+    *
+    * @param headers map
+    * @param runtime runtime options for this request RuntimeOptions
+    * @return DeleteFunctionVersionResponse
+   */
+  async deleteFunctionVersionWithOptions(functionName: string, versionID: string, headers: {[key: string ]: string}, runtime: $Util.RuntimeOptions): Promise<DeleteFunctionVersionResponse> {
+    let req = new $OpenApi.OpenApiRequest({
+      headers: headers,
+    });
+    let params = new $OpenApi.Params({
+      action: "DeleteFunctionVersion",
+      version: "2023-03-30",
+      protocol: "HTTPS",
+      pathname: `/2023-03-30/functions/${OpenApiUtil.getEncodeParam(functionName)}/versions/${OpenApiUtil.getEncodeParam(versionID)}`,
+      method: "DELETE",
+      authType: "AK",
+      style: "ROA",
+      reqBodyType: "json",
+      bodyType: "none",
+    });
+    return $tea.cast<DeleteFunctionVersionResponse>(await this.callApi(params, req, runtime), new DeleteFunctionVersionResponse({}));
+  }
+
+  /**
+    * Delete function version
+    *
+    * @return DeleteFunctionVersionResponse
+   */
+  async deleteFunctionVersion(functionName: string, versionID: string): Promise<DeleteFunctionVersionResponse> {
+    let runtime = new $Util.RuntimeOptions({ });
+    let headers : {[key: string ]: string} = { };
+    return await this.deleteFunctionVersionWithOptions(functionName, versionID, headers, runtime);
+  }
+
+  /**
+    * Delete layer version
+    *
+    * @param headers map
+    * @param runtime runtime options for this request RuntimeOptions
+    * @return DeleteLayerVersionResponse
+   */
+  async deleteLayerVersionWithOptions(layerName: string, version: string, headers: {[key: string ]: string}, runtime: $Util.RuntimeOptions): Promise<DeleteLayerVersionResponse> {
+    let req = new $OpenApi.OpenApiRequest({
+      headers: headers,
+    });
+    let params = new $OpenApi.Params({
+      action: "DeleteLayerVersion",
+      version: "2023-03-30",
+      protocol: "HTTPS",
+      pathname: `/2023-03-30/layers/${OpenApiUtil.getEncodeParam(layerName)}/versions/${OpenApiUtil.getEncodeParam(version)}`,
+      method: "DELETE",
+      authType: "AK",
+      style: "ROA",
+      reqBodyType: "json",
+      bodyType: "none",
+    });
+    return $tea.cast<DeleteLayerVersionResponse>(await this.callApi(params, req, runtime), new DeleteLayerVersionResponse({}));
+  }
+
+  /**
+    * Delete layer version
+    *
+    * @return DeleteLayerVersionResponse
+   */
+  async deleteLayerVersion(layerName: string, version: string): Promise<DeleteLayerVersionResponse> {
+    let runtime = new $Util.RuntimeOptions({ });
+    let headers : {[key: string ]: string} = { };
+    return await this.deleteLayerVersionWithOptions(layerName, version, headers, runtime);
+  }
+
+  /**
+    * Delete provision config.
+    *
+    * @param request DeleteProvisionConfigRequest
+    * @param headers map
+    * @param runtime runtime options for this request RuntimeOptions
+    * @return DeleteProvisionConfigResponse
+   */
+  async deleteProvisionConfigWithOptions(functionName: string, request: DeleteProvisionConfigRequest, headers: {[key: string ]: string}, runtime: $Util.RuntimeOptions): Promise<DeleteProvisionConfigResponse> {
+    Util.validateModel(request);
+    let query : {[key: string ]: any} = { };
+    if (!Util.isUnset(request.qualifier)) {
+      query["qualifier"] = request.qualifier;
+    }
+
+    let req = new $OpenApi.OpenApiRequest({
+      headers: headers,
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApi.Params({
+      action: "DeleteProvisionConfig",
+      version: "2023-03-30",
+      protocol: "HTTPS",
+      pathname: `/2023-03-30/functions/${OpenApiUtil.getEncodeParam(functionName)}/provision-config`,
+      method: "DELETE",
+      authType: "AK",
+      style: "ROA",
+      reqBodyType: "json",
+      bodyType: "none",
+    });
+    return $tea.cast<DeleteProvisionConfigResponse>(await this.callApi(params, req, runtime), new DeleteProvisionConfigResponse({}));
+  }
+
+  /**
+    * Delete provision config.
+    *
+    * @param request DeleteProvisionConfigRequest
+    * @return DeleteProvisionConfigResponse
+   */
+  async deleteProvisionConfig(functionName: string, request: DeleteProvisionConfigRequest): Promise<DeleteProvisionConfigResponse> {
+    let runtime = new $Util.RuntimeOptions({ });
+    let headers : {[key: string ]: string} = { };
+    return await this.deleteProvisionConfigWithOptions(functionName, request, headers, runtime);
+  }
+
+  /**
+    * Delete trigger.
+    *
+    * @param headers map
+    * @param runtime runtime options for this request RuntimeOptions
+    * @return DeleteTriggerResponse
+   */
+  async deleteTriggerWithOptions(functionName: string, triggerName: string, headers: {[key: string ]: string}, runtime: $Util.RuntimeOptions): Promise<DeleteTriggerResponse> {
+    let req = new $OpenApi.OpenApiRequest({
+      headers: headers,
+    });
+    let params = new $OpenApi.Params({
+      action: "DeleteTrigger",
+      version: "2023-03-30",
+      protocol: "HTTPS",
+      pathname: `/2023-03-30/functions/${OpenApiUtil.getEncodeParam(functionName)}/triggers/${OpenApiUtil.getEncodeParam(triggerName)}`,
+      method: "DELETE",
+      authType: "AK",
+      style: "ROA",
+      reqBodyType: "json",
+      bodyType: "none",
+    });
+    return $tea.cast<DeleteTriggerResponse>(await this.callApi(params, req, runtime), new DeleteTriggerResponse({}));
+  }
+
+  /**
+    * Delete trigger.
+    *
+    * @return DeleteTriggerResponse
+   */
+  async deleteTrigger(functionName: string, triggerName: string): Promise<DeleteTriggerResponse> {
+    let runtime = new $Util.RuntimeOptions({ });
+    let headers : {[key: string ]: string} = { };
+    return await this.deleteTriggerWithOptions(functionName, triggerName, headers, runtime);
+  }
+
+  /**
+    * Get function alias
+    *
+    * @param headers map
+    * @param runtime runtime options for this request RuntimeOptions
+    * @return GetAliasResponse
+   */
+  async getAliasWithOptions(functionName: string, aliasName: string, headers: {[key: string ]: string}, runtime: $Util.RuntimeOptions): Promise<GetAliasResponse> {
+    let req = new $OpenApi.OpenApiRequest({
+      headers: headers,
+    });
+    let params = new $OpenApi.Params({
+      action: "GetAlias",
+      version: "2023-03-30",
+      protocol: "HTTPS",
+      pathname: `/2023-03-30/functions/${OpenApiUtil.getEncodeParam(functionName)}/aliases/${OpenApiUtil.getEncodeParam(aliasName)}`,
+      method: "GET",
+      authType: "AK",
+      style: "ROA",
+      reqBodyType: "json",
+      bodyType: "json",
+    });
+    return $tea.cast<GetAliasResponse>(await this.callApi(params, req, runtime), new GetAliasResponse({}));
+  }
+
+  /**
+    * Get function alias
+    *
+    * @return GetAliasResponse
+   */
+  async getAlias(functionName: string, aliasName: string): Promise<GetAliasResponse> {
+    let runtime = new $Util.RuntimeOptions({ });
+    let headers : {[key: string ]: string} = { };
+    return await this.getAliasWithOptions(functionName, aliasName, headers, runtime);
+  }
+
+  /**
+    * Get function async invoke config
+    *
+    * @param request GetAsyncInvokeConfigRequest
+    * @param headers map
+    * @param runtime runtime options for this request RuntimeOptions
+    * @return GetAsyncInvokeConfigResponse
+   */
+  async getAsyncInvokeConfigWithOptions(functionName: string, request: GetAsyncInvokeConfigRequest, headers: {[key: string ]: string}, runtime: $Util.RuntimeOptions): Promise<GetAsyncInvokeConfigResponse> {
+    Util.validateModel(request);
+    let query : {[key: string ]: any} = { };
+    if (!Util.isUnset(request.qualifier)) {
+      query["qualifier"] = request.qualifier;
+    }
+
+    let req = new $OpenApi.OpenApiRequest({
+      headers: headers,
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApi.Params({
+      action: "GetAsyncInvokeConfig",
+      version: "2023-03-30",
+      protocol: "HTTPS",
+      pathname: `/2023-03-30/functions/${OpenApiUtil.getEncodeParam(functionName)}/async-invoke-config`,
+      method: "GET",
+      authType: "AK",
+      style: "ROA",
+      reqBodyType: "json",
+      bodyType: "json",
+    });
+    return $tea.cast<GetAsyncInvokeConfigResponse>(await this.callApi(params, req, runtime), new GetAsyncInvokeConfigResponse({}));
+  }
+
+  /**
+    * Get function async invoke config
+    *
+    * @param request GetAsyncInvokeConfigRequest
+    * @return GetAsyncInvokeConfigResponse
+   */
+  async getAsyncInvokeConfig(functionName: string, request: GetAsyncInvokeConfigRequest): Promise<GetAsyncInvokeConfigResponse> {
+    let runtime = new $Util.RuntimeOptions({ });
+    let headers : {[key: string ]: string} = { };
+    return await this.getAsyncInvokeConfigWithOptions(functionName, request, headers, runtime);
+  }
+
+  /**
+    * gets the concurrency config for a function
+    *
+    * @param headers map
+    * @param runtime runtime options for this request RuntimeOptions
+    * @return GetConcurrencyConfigResponse
+   */
+  async getConcurrencyConfigWithOptions(functionName: string, headers: {[key: string ]: string}, runtime: $Util.RuntimeOptions): Promise<GetConcurrencyConfigResponse> {
+    let req = new $OpenApi.OpenApiRequest({
+      headers: headers,
+    });
+    let params = new $OpenApi.Params({
+      action: "GetConcurrencyConfig",
+      version: "2023-03-30",
+      protocol: "HTTPS",
+      pathname: `/2023-03-30/functions/${OpenApiUtil.getEncodeParam(functionName)}/concurrency`,
+      method: "GET",
+      authType: "AK",
+      style: "ROA",
+      reqBodyType: "json",
+      bodyType: "json",
+    });
+    return $tea.cast<GetConcurrencyConfigResponse>(await this.callApi(params, req, runtime), new GetConcurrencyConfigResponse({}));
+  }
+
+  /**
+    * gets the concurrency config for a function
+    *
+    * @return GetConcurrencyConfigResponse
+   */
+  async getConcurrencyConfig(functionName: string): Promise<GetConcurrencyConfigResponse> {
+    let runtime = new $Util.RuntimeOptions({ });
+    let headers : {[key: string ]: string} = { };
+    return await this.getConcurrencyConfigWithOptions(functionName, headers, runtime);
+  }
+
+  /**
+    * Get custom domain.
+    *
+    * @param headers map
+    * @param runtime runtime options for this request RuntimeOptions
+    * @return GetCustomDomainResponse
+   */
+  async getCustomDomainWithOptions(domainName: string, headers: {[key: string ]: string}, runtime: $Util.RuntimeOptions): Promise<GetCustomDomainResponse> {
+    let req = new $OpenApi.OpenApiRequest({
+      headers: headers,
+    });
+    let params = new $OpenApi.Params({
+      action: "GetCustomDomain",
+      version: "2023-03-30",
+      protocol: "HTTPS",
+      pathname: `/2023-03-30/custom-domains/${OpenApiUtil.getEncodeParam(domainName)}`,
+      method: "GET",
+      authType: "AK",
+      style: "ROA",
+      reqBodyType: "json",
+      bodyType: "json",
+    });
+    return $tea.cast<GetCustomDomainResponse>(await this.callApi(params, req, runtime), new GetCustomDomainResponse({}));
+  }
+
+  /**
+    * Get custom domain.
+    *
+    * @return GetCustomDomainResponse
+   */
+  async getCustomDomain(domainName: string): Promise<GetCustomDomainResponse> {
+    let runtime = new $Util.RuntimeOptions({ });
+    let headers : {[key: string ]: string} = { };
+    return await this.getCustomDomainWithOptions(domainName, headers, runtime);
+  }
+
+  /**
+    * Get function info by function name
+    *
+    * @param request GetFunctionRequest
+    * @param headers map
+    * @param runtime runtime options for this request RuntimeOptions
+    * @return GetFunctionResponse
+   */
+  async getFunctionWithOptions(functionName: string, request: GetFunctionRequest, headers: {[key: string ]: string}, runtime: $Util.RuntimeOptions): Promise<GetFunctionResponse> {
+    Util.validateModel(request);
+    let query : {[key: string ]: any} = { };
+    if (!Util.isUnset(request.qualifier)) {
+      query["qualifier"] = request.qualifier;
+    }
+
+    let req = new $OpenApi.OpenApiRequest({
+      headers: headers,
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApi.Params({
+      action: "GetFunction",
+      version: "2023-03-30",
+      protocol: "HTTPS",
+      pathname: `/2023-03-30/functions/${OpenApiUtil.getEncodeParam(functionName)}`,
+      method: "GET",
+      authType: "AK",
+      style: "ROA",
+      reqBodyType: "json",
+      bodyType: "json",
+    });
+    return $tea.cast<GetFunctionResponse>(await this.callApi(params, req, runtime), new GetFunctionResponse({}));
+  }
+
+  /**
+    * Get function info by function name
+    *
+    * @param request GetFunctionRequest
+    * @return GetFunctionResponse
+   */
+  async getFunction(functionName: string, request: GetFunctionRequest): Promise<GetFunctionResponse> {
+    let runtime = new $Util.RuntimeOptions({ });
+    let headers : {[key: string ]: string} = { };
+    return await this.getFunctionWithOptions(functionName, request, headers, runtime);
+  }
+
+  /**
+    * Get function code by function name
+    *
+    * @param request GetFunctionCodeRequest
+    * @param headers map
+    * @param runtime runtime options for this request RuntimeOptions
+    * @return GetFunctionCodeResponse
+   */
+  async getFunctionCodeWithOptions(functionName: string, request: GetFunctionCodeRequest, headers: {[key: string ]: string}, runtime: $Util.RuntimeOptions): Promise<GetFunctionCodeResponse> {
+    Util.validateModel(request);
+    let query : {[key: string ]: any} = { };
+    if (!Util.isUnset(request.qualifier)) {
+      query["qualifier"] = request.qualifier;
+    }
+
+    let req = new $OpenApi.OpenApiRequest({
+      headers: headers,
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApi.Params({
+      action: "GetFunctionCode",
+      version: "2023-03-30",
+      protocol: "HTTPS",
+      pathname: `/2023-03-30/functions/${OpenApiUtil.getEncodeParam(functionName)}/code`,
+      method: "GET",
+      authType: "AK",
+      style: "ROA",
+      reqBodyType: "json",
+      bodyType: "json",
+    });
+    return $tea.cast<GetFunctionCodeResponse>(await this.callApi(params, req, runtime), new GetFunctionCodeResponse({}));
+  }
+
+  /**
+    * Get function code by function name
+    *
+    * @param request GetFunctionCodeRequest
+    * @return GetFunctionCodeResponse
+   */
+  async getFunctionCode(functionName: string, request: GetFunctionCodeRequest): Promise<GetFunctionCodeResponse> {
+    let runtime = new $Util.RuntimeOptions({ });
+    let headers : {[key: string ]: string} = { };
+    return await this.getFunctionCodeWithOptions(functionName, request, headers, runtime);
+  }
+
+  /**
+    * Get layer version.
+    *
+    * @param headers map
+    * @param runtime runtime options for this request RuntimeOptions
+    * @return GetLayerVersionResponse
+   */
+  async getLayerVersionWithOptions(layerName: string, version: string, headers: {[key: string ]: string}, runtime: $Util.RuntimeOptions): Promise<GetLayerVersionResponse> {
+    let req = new $OpenApi.OpenApiRequest({
+      headers: headers,
+    });
+    let params = new $OpenApi.Params({
+      action: "GetLayerVersion",
+      version: "2023-03-30",
+      protocol: "HTTPS",
+      pathname: `/2023-03-30/layers/${OpenApiUtil.getEncodeParam(layerName)}/versions/${OpenApiUtil.getEncodeParam(version)}`,
+      method: "GET",
+      authType: "AK",
+      style: "ROA",
+      reqBodyType: "json",
+      bodyType: "json",
+    });
+    return $tea.cast<GetLayerVersionResponse>(await this.callApi(params, req, runtime), new GetLayerVersionResponse({}));
+  }
+
+  /**
+    * Get layer version.
+    *
+    * @return GetLayerVersionResponse
+   */
+  async getLayerVersion(layerName: string, version: string): Promise<GetLayerVersionResponse> {
+    let runtime = new $Util.RuntimeOptions({ });
+    let headers : {[key: string ]: string} = { };
+    return await this.getLayerVersionWithOptions(layerName, version, headers, runtime);
+  }
+
+  /**
+    * Get layer version by arn.
+    *
+    * @param headers map
+    * @param runtime runtime options for this request RuntimeOptions
+    * @return GetLayerVersionByArnResponse
+   */
+  async getLayerVersionByArnWithOptions(arn: string, headers: {[key: string ]: string}, runtime: $Util.RuntimeOptions): Promise<GetLayerVersionByArnResponse> {
+    let req = new $OpenApi.OpenApiRequest({
+      headers: headers,
+    });
+    let params = new $OpenApi.Params({
+      action: "GetLayerVersionByArn",
+      version: "2023-03-30",
+      protocol: "HTTPS",
+      pathname: `/2023-03-30/layerarn/${OpenApiUtil.getEncodeParam(arn)}`,
+      method: "GET",
+      authType: "AK",
+      style: "ROA",
+      reqBodyType: "json",
+      bodyType: "json",
+    });
+    return $tea.cast<GetLayerVersionByArnResponse>(await this.callApi(params, req, runtime), new GetLayerVersionByArnResponse({}));
+  }
+
+  /**
+    * Get layer version by arn.
+    *
+    * @return GetLayerVersionByArnResponse
+   */
+  async getLayerVersionByArn(arn: string): Promise<GetLayerVersionByArnResponse> {
+    let runtime = new $Util.RuntimeOptions({ });
+    let headers : {[key: string ]: string} = { };
+    return await this.getLayerVersionByArnWithOptions(arn, headers, runtime);
+  }
+
+  /**
+    * Get provision config.
+    *
+    * @param request GetProvisionConfigRequest
+    * @param headers map
+    * @param runtime runtime options for this request RuntimeOptions
+    * @return GetProvisionConfigResponse
+   */
+  async getProvisionConfigWithOptions(functionName: string, request: GetProvisionConfigRequest, headers: {[key: string ]: string}, runtime: $Util.RuntimeOptions): Promise<GetProvisionConfigResponse> {
+    Util.validateModel(request);
+    let query : {[key: string ]: any} = { };
+    if (!Util.isUnset(request.qualifier)) {
+      query["qualifier"] = request.qualifier;
+    }
+
+    let req = new $OpenApi.OpenApiRequest({
+      headers: headers,
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApi.Params({
+      action: "GetProvisionConfig",
+      version: "2023-03-30",
+      protocol: "HTTPS",
+      pathname: `/2023-03-30/functions/${OpenApiUtil.getEncodeParam(functionName)}/provision-config`,
+      method: "GET",
+      authType: "AK",
+      style: "ROA",
+      reqBodyType: "json",
+      bodyType: "json",
+    });
+    return $tea.cast<GetProvisionConfigResponse>(await this.callApi(params, req, runtime), new GetProvisionConfigResponse({}));
+  }
+
+  /**
+    * Get provision config.
+    *
+    * @param request GetProvisionConfigRequest
+    * @return GetProvisionConfigResponse
+   */
+  async getProvisionConfig(functionName: string, request: GetProvisionConfigRequest): Promise<GetProvisionConfigResponse> {
+    let runtime = new $Util.RuntimeOptions({ });
+    let headers : {[key: string ]: string} = { };
+    return await this.getProvisionConfigWithOptions(functionName, request, headers, runtime);
+  }
+
+  /**
+    * Get resource tag
+    *
+    * @param request GetResourceTagsRequest
+    * @param headers map
+    * @param runtime runtime options for this request RuntimeOptions
+    * @return GetResourceTagsResponse
+   */
+  async getResourceTagsWithOptions(request: GetResourceTagsRequest, headers: {[key: string ]: string}, runtime: $Util.RuntimeOptions): Promise<GetResourceTagsResponse> {
+    Util.validateModel(request);
+    let query : {[key: string ]: any} = { };
+    if (!Util.isUnset(request.arn)) {
+      query["arn"] = request.arn;
+    }
+
+    let req = new $OpenApi.OpenApiRequest({
+      headers: headers,
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApi.Params({
+      action: "GetResourceTags",
+      version: "2023-03-30",
+      protocol: "HTTPS",
+      pathname: `/2023-03-30/tag`,
+      method: "GET",
+      authType: "AK",
+      style: "ROA",
+      reqBodyType: "json",
+      bodyType: "json",
+    });
+    return $tea.cast<GetResourceTagsResponse>(await this.callApi(params, req, runtime), new GetResourceTagsResponse({}));
+  }
+
+  /**
+    * Get resource tag
+    *
+    * @param request GetResourceTagsRequest
+    * @return GetResourceTagsResponse
+   */
+  async getResourceTags(request: GetResourceTagsRequest): Promise<GetResourceTagsResponse> {
+    let runtime = new $Util.RuntimeOptions({ });
+    let headers : {[key: string ]: string} = { };
+    return await this.getResourceTagsWithOptions(request, headers, runtime);
+  }
+
+  /**
+    * Get trigger.
+    *
+    * @param headers map
+    * @param runtime runtime options for this request RuntimeOptions
+    * @return GetTriggerResponse
+   */
+  async getTriggerWithOptions(functionName: string, triggerName: string, headers: {[key: string ]: string}, runtime: $Util.RuntimeOptions): Promise<GetTriggerResponse> {
+    let req = new $OpenApi.OpenApiRequest({
+      headers: headers,
+    });
+    let params = new $OpenApi.Params({
+      action: "GetTrigger",
+      version: "2023-03-30",
+      protocol: "HTTPS",
+      pathname: `/2023-03-30/functions/${OpenApiUtil.getEncodeParam(functionName)}/triggers/${OpenApiUtil.getEncodeParam(triggerName)}`,
+      method: "GET",
+      authType: "AK",
+      style: "ROA",
+      reqBodyType: "json",
+      bodyType: "json",
+    });
+    return $tea.cast<GetTriggerResponse>(await this.callApi(params, req, runtime), new GetTriggerResponse({}));
+  }
+
+  /**
+    * Get trigger.
+    *
+    * @return GetTriggerResponse
+   */
+  async getTrigger(functionName: string, triggerName: string): Promise<GetTriggerResponse> {
+    let runtime = new $Util.RuntimeOptions({ });
+    let headers : {[key: string ]: string} = { };
+    return await this.getTriggerWithOptions(functionName, triggerName, headers, runtime);
+  }
+
+  /**
+    * Invoke function
+    *
+    * @param request InvokeFunctionRequest
+    * @param headers InvokeFunctionHeaders
+    * @param runtime runtime options for this request RuntimeOptions
+    * @return InvokeFunctionResponse
+   */
+  async invokeFunctionWithOptions(functionName: string, request: InvokeFunctionRequest, headers: InvokeFunctionHeaders, runtime: $Util.RuntimeOptions): Promise<InvokeFunctionResponse> {
+    Util.validateModel(request);
+    let query : {[key: string ]: any} = { };
+    if (!Util.isUnset(request.qualifier)) {
+      query["qualifier"] = request.qualifier;
+    }
+
+    let realHeaders : {[key: string ]: string} = { };
+    if (!Util.isUnset(headers.commonHeaders)) {
+      realHeaders = headers.commonHeaders;
+    }
+
+    if (!Util.isUnset(headers.xFcInvocationType)) {
+      realHeaders["x-fc-invocation-type"] = Util.toJSONString(headers.xFcInvocationType);
+    }
+
+    if (!Util.isUnset(headers.xFcLogType)) {
+      realHeaders["x-fc-log-type"] = Util.toJSONString(headers.xFcLogType);
+    }
+
+    let req = new $OpenApi.OpenApiRequest({
+      headers: realHeaders,
+      query: OpenApiUtil.query(query),
+      body: request.request,
+      stream: request.request,
+    });
+    let params = new $OpenApi.Params({
+      action: "InvokeFunction",
+      version: "2023-03-30",
+      protocol: "HTTPS",
+      pathname: `/2023-03-30/functions/${OpenApiUtil.getEncodeParam(functionName)}/invocations`,
+      method: "POST",
+      authType: "AK",
+      style: "ROA",
+      reqBodyType: "json",
+      bodyType: "binary",
+    });
+    let res = new InvokeFunctionResponse({ });
+    let tmp = Util.assertAsMap(await this.callApi(params, req, runtime));
+    if (!Util.isUnset(tmp["body"])) {
+      let respBody = Util.assertAsReadable(tmp["body"]);
+      res.body = respBody;
+    }
+
+    if (!Util.isUnset(tmp["headers"])) {
+      let respHeaders = Util.assertAsMap(tmp["headers"]);
+      res.headers = Util.stringifyMapValue(respHeaders);
+    }
+
+    if (!Util.isUnset(tmp["statusCode"])) {
+      let statusCode = Util.assertAsInteger(tmp["statusCode"]);
+      res.statusCode = statusCode;
+    }
+
+    return res;
+  }
+
+  /**
+    * Invoke function
+    *
+    * @param request InvokeFunctionRequest
+    * @return InvokeFunctionResponse
+   */
+  async invokeFunction(functionName: string, request: InvokeFunctionRequest): Promise<InvokeFunctionResponse> {
+    let runtime = new $Util.RuntimeOptions({ });
+    let headers = new InvokeFunctionHeaders({ });
+    return await this.invokeFunctionWithOptions(functionName, request, headers, runtime);
+  }
+
+  /**
+    * List function aliases
+    *
+    * @param request ListAliasesRequest
+    * @param headers map
+    * @param runtime runtime options for this request RuntimeOptions
+    * @return ListAliasesResponse
+   */
+  async listAliasesWithOptions(functionName: string, request: ListAliasesRequest, headers: {[key: string ]: string}, runtime: $Util.RuntimeOptions): Promise<ListAliasesResponse> {
+    Util.validateModel(request);
+    let query : {[key: string ]: any} = { };
+    if (!Util.isUnset(request.limit)) {
+      query["limit"] = request.limit;
+    }
+
+    if (!Util.isUnset(request.nextToken)) {
+      query["nextToken"] = request.nextToken;
+    }
+
+    if (!Util.isUnset(request.prefix)) {
+      query["prefix"] = request.prefix;
+    }
+
+    let req = new $OpenApi.OpenApiRequest({
+      headers: headers,
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApi.Params({
+      action: "ListAliases",
+      version: "2023-03-30",
+      protocol: "HTTPS",
+      pathname: `/2023-03-30/functions/${OpenApiUtil.getEncodeParam(functionName)}/aliases`,
+      method: "GET",
+      authType: "AK",
+      style: "ROA",
+      reqBodyType: "json",
+      bodyType: "json",
+    });
+    return $tea.cast<ListAliasesResponse>(await this.callApi(params, req, runtime), new ListAliasesResponse({}));
+  }
+
+  /**
+    * List function aliases
+    *
+    * @param request ListAliasesRequest
+    * @return ListAliasesResponse
+   */
+  async listAliases(functionName: string, request: ListAliasesRequest): Promise<ListAliasesResponse> {
+    let runtime = new $Util.RuntimeOptions({ });
+    let headers : {[key: string ]: string} = { };
+    return await this.listAliasesWithOptions(functionName, request, headers, runtime);
+  }
+
+  /**
+    * List all functions async invoke config
+    *
+    * @param request ListAsyncInvokeConfigsRequest
+    * @param headers map
+    * @param runtime runtime options for this request RuntimeOptions
+    * @return ListAsyncInvokeConfigsResponse
+   */
+  async listAsyncInvokeConfigsWithOptions(request: ListAsyncInvokeConfigsRequest, headers: {[key: string ]: string}, runtime: $Util.RuntimeOptions): Promise<ListAsyncInvokeConfigsResponse> {
+    Util.validateModel(request);
+    let query : {[key: string ]: any} = { };
+    if (!Util.isUnset(request.functionName)) {
+      query["functionName"] = request.functionName;
+    }
+
+    if (!Util.isUnset(request.limit)) {
+      query["limit"] = request.limit;
+    }
+
+    if (!Util.isUnset(request.nextToken)) {
+      query["nextToken"] = request.nextToken;
+    }
+
+    let req = new $OpenApi.OpenApiRequest({
+      headers: headers,
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApi.Params({
+      action: "ListAsyncInvokeConfigs",
+      version: "2023-03-30",
+      protocol: "HTTPS",
+      pathname: `/2023-03-30/async-invoke-configs`,
+      method: "GET",
+      authType: "AK",
+      style: "ROA",
+      reqBodyType: "json",
+      bodyType: "json",
+    });
+    return $tea.cast<ListAsyncInvokeConfigsResponse>(await this.callApi(params, req, runtime), new ListAsyncInvokeConfigsResponse({}));
+  }
+
+  /**
+    * List all functions async invoke config
+    *
+    * @param request ListAsyncInvokeConfigsRequest
+    * @return ListAsyncInvokeConfigsResponse
+   */
+  async listAsyncInvokeConfigs(request: ListAsyncInvokeConfigsRequest): Promise<ListAsyncInvokeConfigsResponse> {
+    let runtime = new $Util.RuntimeOptions({ });
+    let headers : {[key: string ]: string} = { };
+    return await this.listAsyncInvokeConfigsWithOptions(request, headers, runtime);
+  }
+
+  /**
+    * List all functions concurrency configs
+    *
+    * @param request ListConcurrencyConfigsRequest
+    * @param headers map
+    * @param runtime runtime options for this request RuntimeOptions
+    * @return ListConcurrencyConfigsResponse
+   */
+  async listConcurrencyConfigsWithOptions(request: ListConcurrencyConfigsRequest, headers: {[key: string ]: string}, runtime: $Util.RuntimeOptions): Promise<ListConcurrencyConfigsResponse> {
+    Util.validateModel(request);
+    let query : {[key: string ]: any} = { };
+    if (!Util.isUnset(request.functionName)) {
+      query["functionName"] = request.functionName;
+    }
+
+    if (!Util.isUnset(request.limit)) {
+      query["limit"] = request.limit;
+    }
+
+    if (!Util.isUnset(request.nextToken)) {
+      query["nextToken"] = request.nextToken;
+    }
+
+    let req = new $OpenApi.OpenApiRequest({
+      headers: headers,
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApi.Params({
+      action: "ListConcurrencyConfigs",
+      version: "2023-03-30",
+      protocol: "HTTPS",
+      pathname: `/2023-03-30/concurrency-configs`,
+      method: "GET",
+      authType: "AK",
+      style: "ROA",
+      reqBodyType: "json",
+      bodyType: "json",
+    });
+    return $tea.cast<ListConcurrencyConfigsResponse>(await this.callApi(params, req, runtime), new ListConcurrencyConfigsResponse({}));
+  }
+
+  /**
+    * List all functions concurrency configs
+    *
+    * @param request ListConcurrencyConfigsRequest
+    * @return ListConcurrencyConfigsResponse
+   */
+  async listConcurrencyConfigs(request: ListConcurrencyConfigsRequest): Promise<ListConcurrencyConfigsResponse> {
+    let runtime = new $Util.RuntimeOptions({ });
+    let headers : {[key: string ]: string} = { };
+    return await this.listConcurrencyConfigsWithOptions(request, headers, runtime);
+  }
+
+  /**
+    * List custom domains.
+    *
+    * @param request ListCustomDomainsRequest
+    * @param headers map
+    * @param runtime runtime options for this request RuntimeOptions
+    * @return ListCustomDomainsResponse
+   */
+  async listCustomDomainsWithOptions(request: ListCustomDomainsRequest, headers: {[key: string ]: string}, runtime: $Util.RuntimeOptions): Promise<ListCustomDomainsResponse> {
+    Util.validateModel(request);
+    let query : {[key: string ]: any} = { };
+    if (!Util.isUnset(request.limit)) {
+      query["limit"] = request.limit;
+    }
+
+    if (!Util.isUnset(request.nextToken)) {
+      query["nextToken"] = request.nextToken;
+    }
+
+    if (!Util.isUnset(request.prefix)) {
+      query["prefix"] = request.prefix;
+    }
+
+    let req = new $OpenApi.OpenApiRequest({
+      headers: headers,
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApi.Params({
+      action: "ListCustomDomains",
+      version: "2023-03-30",
+      protocol: "HTTPS",
+      pathname: `/2023-03-30/custom-domains`,
+      method: "GET",
+      authType: "AK",
+      style: "ROA",
+      reqBodyType: "json",
+      bodyType: "json",
+    });
+    return $tea.cast<ListCustomDomainsResponse>(await this.callApi(params, req, runtime), new ListCustomDomainsResponse({}));
+  }
+
+  /**
+    * List custom domains.
+    *
+    * @param request ListCustomDomainsRequest
+    * @return ListCustomDomainsResponse
+   */
+  async listCustomDomains(request: ListCustomDomainsRequest): Promise<ListCustomDomainsResponse> {
+    let runtime = new $Util.RuntimeOptions({ });
+    let headers : {[key: string ]: string} = { };
+    return await this.listCustomDomainsWithOptions(request, headers, runtime);
+  }
+
+  /**
+    * List function versions
+    *
+    * @param request ListFunctionVersionsRequest
+    * @param headers map
+    * @param runtime runtime options for this request RuntimeOptions
+    * @return ListFunctionVersionsResponse
+   */
+  async listFunctionVersionsWithOptions(functionName: string, request: ListFunctionVersionsRequest, headers: {[key: string ]: string}, runtime: $Util.RuntimeOptions): Promise<ListFunctionVersionsResponse> {
+    Util.validateModel(request);
+    let query : {[key: string ]: any} = { };
+    if (!Util.isUnset(request.direction)) {
+      query["direction"] = request.direction;
+    }
+
+    if (!Util.isUnset(request.limit)) {
+      query["limit"] = request.limit;
+    }
+
+    if (!Util.isUnset(request.nextToken)) {
+      query["nextToken"] = request.nextToken;
+    }
+
+    let req = new $OpenApi.OpenApiRequest({
+      headers: headers,
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApi.Params({
+      action: "ListFunctionVersions",
+      version: "2023-03-30",
+      protocol: "HTTPS",
+      pathname: `/2023-03-30/functions/${OpenApiUtil.getEncodeParam(functionName)}/versions`,
+      method: "GET",
+      authType: "AK",
+      style: "ROA",
+      reqBodyType: "json",
+      bodyType: "json",
+    });
+    return $tea.cast<ListFunctionVersionsResponse>(await this.callApi(params, req, runtime), new ListFunctionVersionsResponse({}));
+  }
+
+  /**
+    * List function versions
+    *
+    * @param request ListFunctionVersionsRequest
+    * @return ListFunctionVersionsResponse
+   */
+  async listFunctionVersions(functionName: string, request: ListFunctionVersionsRequest): Promise<ListFunctionVersionsResponse> {
+    let runtime = new $Util.RuntimeOptions({ });
+    let headers : {[key: string ]: string} = { };
+    return await this.listFunctionVersionsWithOptions(functionName, request, headers, runtime);
+  }
+
+  /**
+    * Lists existing functions.
+    *
+    * @param request ListFunctionsRequest
+    * @param headers map
+    * @param runtime runtime options for this request RuntimeOptions
+    * @return ListFunctionsResponse
+   */
+  async listFunctionsWithOptions(request: ListFunctionsRequest, headers: {[key: string ]: string}, runtime: $Util.RuntimeOptions): Promise<ListFunctionsResponse> {
+    Util.validateModel(request);
+    let query : {[key: string ]: any} = { };
+    if (!Util.isUnset(request.limit)) {
+      query["limit"] = request.limit;
+    }
+
+    if (!Util.isUnset(request.nextToken)) {
+      query["nextToken"] = request.nextToken;
+    }
+
+    if (!Util.isUnset(request.prefix)) {
+      query["prefix"] = request.prefix;
+    }
+
+    let req = new $OpenApi.OpenApiRequest({
+      headers: headers,
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApi.Params({
+      action: "ListFunctions",
+      version: "2023-03-30",
+      protocol: "HTTPS",
+      pathname: `/2023-03-30/functions`,
+      method: "GET",
+      authType: "AK",
+      style: "ROA",
+      reqBodyType: "json",
+      bodyType: "json",
+    });
+    return $tea.cast<ListFunctionsResponse>(await this.callApi(params, req, runtime), new ListFunctionsResponse({}));
+  }
+
+  /**
+    * Lists existing functions.
+    *
+    * @param request ListFunctionsRequest
+    * @return ListFunctionsResponse
+   */
+  async listFunctions(request: ListFunctionsRequest): Promise<ListFunctionsResponse> {
+    let runtime = new $Util.RuntimeOptions({ });
+    let headers : {[key: string ]: string} = { };
+    return await this.listFunctionsWithOptions(request, headers, runtime);
+  }
+
+  /**
+    * List instances for function.
+    *
+    * @param request ListInstancesRequest
+    * @param headers map
+    * @param runtime runtime options for this request RuntimeOptions
+    * @return ListInstancesResponse
+   */
+  async listInstancesWithOptions(functionName: string, request: ListInstancesRequest, headers: {[key: string ]: string}, runtime: $Util.RuntimeOptions): Promise<ListInstancesResponse> {
+    Util.validateModel(request);
+    let query : {[key: string ]: any} = { };
+    if (!Util.isUnset(request.qualifier)) {
+      query["qualifier"] = request.qualifier;
+    }
+
+    if (!Util.isUnset(request.withAllActive)) {
+      query["withAllActive"] = request.withAllActive;
+    }
+
+    let req = new $OpenApi.OpenApiRequest({
+      headers: headers,
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApi.Params({
+      action: "ListInstances",
+      version: "2023-03-30",
+      protocol: "HTTPS",
+      pathname: `/2023-03-30/functions/${OpenApiUtil.getEncodeParam(functionName)}/instances`,
+      method: "GET",
+      authType: "AK",
+      style: "ROA",
+      reqBodyType: "json",
+      bodyType: "json",
+    });
+    return $tea.cast<ListInstancesResponse>(await this.callApi(params, req, runtime), new ListInstancesResponse({}));
+  }
+
+  /**
+    * List instances for function.
+    *
+    * @param request ListInstancesRequest
+    * @return ListInstancesResponse
+   */
+  async listInstances(functionName: string, request: ListInstancesRequest): Promise<ListInstancesResponse> {
+    let runtime = new $Util.RuntimeOptions({ });
+    let headers : {[key: string ]: string} = { };
+    return await this.listInstancesWithOptions(functionName, request, headers, runtime);
+  }
+
+  /**
+    * List layer versions.
+    *
+    * @param request ListLayerVersionsRequest
+    * @param headers map
+    * @param runtime runtime options for this request RuntimeOptions
+    * @return ListLayerVersionsResponse
+   */
+  async listLayerVersionsWithOptions(layerName: string, request: ListLayerVersionsRequest, headers: {[key: string ]: string}, runtime: $Util.RuntimeOptions): Promise<ListLayerVersionsResponse> {
+    Util.validateModel(request);
+    let query : {[key: string ]: any} = { };
+    if (!Util.isUnset(request.limit)) {
+      query["limit"] = request.limit;
+    }
+
+    if (!Util.isUnset(request.startVersion)) {
+      query["startVersion"] = request.startVersion;
+    }
+
+    let req = new $OpenApi.OpenApiRequest({
+      headers: headers,
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApi.Params({
+      action: "ListLayerVersions",
+      version: "2023-03-30",
+      protocol: "HTTPS",
+      pathname: `/2023-03-30/layers/${OpenApiUtil.getEncodeParam(layerName)}/versions`,
+      method: "GET",
+      authType: "AK",
+      style: "ROA",
+      reqBodyType: "json",
+      bodyType: "json",
+    });
+    return $tea.cast<ListLayerVersionsResponse>(await this.callApi(params, req, runtime), new ListLayerVersionsResponse({}));
+  }
+
+  /**
+    * List layer versions.
+    *
+    * @param request ListLayerVersionsRequest
+    * @return ListLayerVersionsResponse
+   */
+  async listLayerVersions(layerName: string, request: ListLayerVersionsRequest): Promise<ListLayerVersionsResponse> {
+    let runtime = new $Util.RuntimeOptions({ });
+    let headers : {[key: string ]: string} = { };
+    return await this.listLayerVersionsWithOptions(layerName, request, headers, runtime);
+  }
+
+  /**
+    * List layers .
+    *
+    * @param request ListLayersRequest
+    * @param headers map
+    * @param runtime runtime options for this request RuntimeOptions
+    * @return ListLayersResponse
+   */
+  async listLayersWithOptions(request: ListLayersRequest, headers: {[key: string ]: string}, runtime: $Util.RuntimeOptions): Promise<ListLayersResponse> {
+    Util.validateModel(request);
+    let query : {[key: string ]: any} = { };
+    if (!Util.isUnset(request.limit)) {
+      query["limit"] = request.limit;
+    }
+
+    if (!Util.isUnset(request.nextToken)) {
+      query["nextToken"] = request.nextToken;
+    }
+
+    if (!Util.isUnset(request.official)) {
+      query["official"] = request.official;
+    }
+
+    if (!Util.isUnset(request.prefix)) {
+      query["prefix"] = request.prefix;
+    }
+
+    if (!Util.isUnset(request.public)) {
+      query["public"] = request.public;
+    }
+
+    let req = new $OpenApi.OpenApiRequest({
+      headers: headers,
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApi.Params({
+      action: "ListLayers",
+      version: "2023-03-30",
+      protocol: "HTTPS",
+      pathname: `/2023-03-30/layers`,
+      method: "GET",
+      authType: "AK",
+      style: "ROA",
+      reqBodyType: "json",
+      bodyType: "json",
+    });
+    return $tea.cast<ListLayersResponse>(await this.callApi(params, req, runtime), new ListLayersResponse({}));
+  }
+
+  /**
+    * List layers .
+    *
+    * @param request ListLayersRequest
+    * @return ListLayersResponse
+   */
+  async listLayers(request: ListLayersRequest): Promise<ListLayersResponse> {
+    let runtime = new $Util.RuntimeOptions({ });
+    let headers : {[key: string ]: string} = { };
+    return await this.listLayersWithOptions(request, headers, runtime);
+  }
+
+  /**
+    * List provision configs.
+    *
+    * @param request ListProvisionConfigsRequest
+    * @param headers map
+    * @param runtime runtime options for this request RuntimeOptions
+    * @return ListProvisionConfigsResponse
+   */
+  async listProvisionConfigsWithOptions(request: ListProvisionConfigsRequest, headers: {[key: string ]: string}, runtime: $Util.RuntimeOptions): Promise<ListProvisionConfigsResponse> {
+    Util.validateModel(request);
+    let query : {[key: string ]: any} = { };
+    if (!Util.isUnset(request.functionName)) {
+      query["functionName"] = request.functionName;
+    }
+
+    if (!Util.isUnset(request.limit)) {
+      query["limit"] = request.limit;
+    }
+
+    if (!Util.isUnset(request.nextToken)) {
+      query["nextToken"] = request.nextToken;
+    }
+
+    let req = new $OpenApi.OpenApiRequest({
+      headers: headers,
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApi.Params({
+      action: "ListProvisionConfigs",
+      version: "2023-03-30",
+      protocol: "HTTPS",
+      pathname: `/2023-03-30/provision-configs`,
+      method: "GET",
+      authType: "AK",
+      style: "ROA",
+      reqBodyType: "json",
+      bodyType: "json",
+    });
+    return $tea.cast<ListProvisionConfigsResponse>(await this.callApi(params, req, runtime), new ListProvisionConfigsResponse({}));
+  }
+
+  /**
+    * List provision configs.
+    *
+    * @param request ListProvisionConfigsRequest
+    * @return ListProvisionConfigsResponse
+   */
+  async listProvisionConfigs(request: ListProvisionConfigsRequest): Promise<ListProvisionConfigsResponse> {
+    let runtime = new $Util.RuntimeOptions({ });
+    let headers : {[key: string ]: string} = { };
+    return await this.listProvisionConfigsWithOptions(request, headers, runtime);
+  }
+
+  /**
+    * List tagged resources
+    *
+    * @param request ListTaggedResourcesRequest
+    * @param headers map
+    * @param runtime runtime options for this request RuntimeOptions
+    * @return ListTaggedResourcesResponse
+   */
+  async listTaggedResourcesWithOptions(request: ListTaggedResourcesRequest, headers: {[key: string ]: string}, runtime: $Util.RuntimeOptions): Promise<ListTaggedResourcesResponse> {
+    Util.validateModel(request);
+    let query : {[key: string ]: any} = { };
+    if (!Util.isUnset(request.limit)) {
+      query["limit"] = request.limit;
+    }
+
+    if (!Util.isUnset(request.nextToken)) {
+      query["nextToken"] = request.nextToken;
+    }
+
+    let req = new $OpenApi.OpenApiRequest({
+      headers: headers,
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApi.Params({
+      action: "ListTaggedResources",
+      version: "2023-03-30",
+      protocol: "HTTPS",
+      pathname: `/2023-03-30/tags`,
+      method: "GET",
+      authType: "AK",
+      style: "ROA",
+      reqBodyType: "json",
+      bodyType: "json",
+    });
+    return $tea.cast<ListTaggedResourcesResponse>(await this.callApi(params, req, runtime), new ListTaggedResourcesResponse({}));
+  }
+
+  /**
+    * List tagged resources
+    *
+    * @param request ListTaggedResourcesRequest
+    * @return ListTaggedResourcesResponse
+   */
+  async listTaggedResources(request: ListTaggedResourcesRequest): Promise<ListTaggedResourcesResponse> {
+    let runtime = new $Util.RuntimeOptions({ });
+    let headers : {[key: string ]: string} = { };
+    return await this.listTaggedResourcesWithOptions(request, headers, runtime);
+  }
+
+  /**
+    * List triggers.
+    *
+    * @param request ListTriggersRequest
+    * @param headers map
+    * @param runtime runtime options for this request RuntimeOptions
+    * @return ListTriggersResponse
+   */
+  async listTriggersWithOptions(functionName: string, request: ListTriggersRequest, headers: {[key: string ]: string}, runtime: $Util.RuntimeOptions): Promise<ListTriggersResponse> {
+    Util.validateModel(request);
+    let query : {[key: string ]: any} = { };
+    if (!Util.isUnset(request.limit)) {
+      query["limit"] = request.limit;
+    }
+
+    if (!Util.isUnset(request.nextToken)) {
+      query["nextToken"] = request.nextToken;
+    }
+
+    if (!Util.isUnset(request.prefix)) {
+      query["prefix"] = request.prefix;
+    }
+
+    let req = new $OpenApi.OpenApiRequest({
+      headers: headers,
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApi.Params({
+      action: "ListTriggers",
+      version: "2023-03-30",
+      protocol: "HTTPS",
+      pathname: `/2023-03-30/functions/${OpenApiUtil.getEncodeParam(functionName)}/triggers`,
+      method: "GET",
+      authType: "AK",
+      style: "ROA",
+      reqBodyType: "json",
+      bodyType: "json",
+    });
+    return $tea.cast<ListTriggersResponse>(await this.callApi(params, req, runtime), new ListTriggersResponse({}));
+  }
+
+  /**
+    * List triggers.
+    *
+    * @param request ListTriggersRequest
+    * @return ListTriggersResponse
+   */
+  async listTriggers(functionName: string, request: ListTriggersRequest): Promise<ListTriggersResponse> {
+    let runtime = new $Util.RuntimeOptions({ });
+    let headers : {[key: string ]: string} = { };
+    return await this.listTriggersWithOptions(functionName, request, headers, runtime);
+  }
+
+  /**
+    * publish new function version
+    *
+    * @param request PublishFunctionVersionRequest
+    * @param headers map
+    * @param runtime runtime options for this request RuntimeOptions
+    * @return PublishFunctionVersionResponse
+   */
+  async publishFunctionVersionWithOptions(functionName: string, request: PublishFunctionVersionRequest, headers: {[key: string ]: string}, runtime: $Util.RuntimeOptions): Promise<PublishFunctionVersionResponse> {
+    Util.validateModel(request);
+    let req = new $OpenApi.OpenApiRequest({
+      headers: headers,
+      body: OpenApiUtil.parseToMap(request.request),
+    });
+    let params = new $OpenApi.Params({
+      action: "PublishFunctionVersion",
+      version: "2023-03-30",
+      protocol: "HTTPS",
+      pathname: `/2023-03-30/functions/${OpenApiUtil.getEncodeParam(functionName)}/versions`,
+      method: "POST",
+      authType: "AK",
+      style: "ROA",
+      reqBodyType: "json",
+      bodyType: "json",
+    });
+    return $tea.cast<PublishFunctionVersionResponse>(await this.callApi(params, req, runtime), new PublishFunctionVersionResponse({}));
+  }
+
+  /**
+    * publish new function version
+    *
+    * @param request PublishFunctionVersionRequest
+    * @return PublishFunctionVersionResponse
+   */
+  async publishFunctionVersion(functionName: string, request: PublishFunctionVersionRequest): Promise<PublishFunctionVersionResponse> {
+    let runtime = new $Util.RuntimeOptions({ });
+    let headers : {[key: string ]: string} = { };
+    return await this.publishFunctionVersionWithOptions(functionName, request, headers, runtime);
+  }
+
+  /**
+    * Put function async invoke config.
+    *
+    * @param request PutAsyncInvokeConfigRequest
+    * @param headers map
+    * @param runtime runtime options for this request RuntimeOptions
+    * @return PutAsyncInvokeConfigResponse
+   */
+  async putAsyncInvokeConfigWithOptions(functionName: string, request: PutAsyncInvokeConfigRequest, headers: {[key: string ]: string}, runtime: $Util.RuntimeOptions): Promise<PutAsyncInvokeConfigResponse> {
+    Util.validateModel(request);
+    let query : {[key: string ]: any} = { };
+    if (!Util.isUnset(request.qualifier)) {
+      query["qualifier"] = request.qualifier;
+    }
+
+    let req = new $OpenApi.OpenApiRequest({
+      headers: headers,
+      query: OpenApiUtil.query(query),
+      body: OpenApiUtil.parseToMap(request.request),
+    });
+    let params = new $OpenApi.Params({
+      action: "PutAsyncInvokeConfig",
+      version: "2023-03-30",
+      protocol: "HTTPS",
+      pathname: `/2023-03-30/functions/${OpenApiUtil.getEncodeParam(functionName)}/async-invoke-config`,
+      method: "PUT",
+      authType: "AK",
+      style: "ROA",
+      reqBodyType: "json",
+      bodyType: "json",
+    });
+    return $tea.cast<PutAsyncInvokeConfigResponse>(await this.callApi(params, req, runtime), new PutAsyncInvokeConfigResponse({}));
+  }
+
+  /**
+    * Put function async invoke config.
+    *
+    * @param request PutAsyncInvokeConfigRequest
+    * @return PutAsyncInvokeConfigResponse
+   */
+  async putAsyncInvokeConfig(functionName: string, request: PutAsyncInvokeConfigRequest): Promise<PutAsyncInvokeConfigResponse> {
+    let runtime = new $Util.RuntimeOptions({ });
+    let headers : {[key: string ]: string} = { };
+    return await this.putAsyncInvokeConfigWithOptions(functionName, request, headers, runtime);
+  }
+
+  /**
+    * sets the concurrency config for a function
+    *
+    * @param request PutConcurrencyConfigRequest
+    * @param headers map
+    * @param runtime runtime options for this request RuntimeOptions
+    * @return PutConcurrencyConfigResponse
+   */
+  async putConcurrencyConfigWithOptions(functionName: string, request: PutConcurrencyConfigRequest, headers: {[key: string ]: string}, runtime: $Util.RuntimeOptions): Promise<PutConcurrencyConfigResponse> {
+    Util.validateModel(request);
+    let req = new $OpenApi.OpenApiRequest({
+      headers: headers,
+      body: OpenApiUtil.parseToMap(request.request),
+    });
+    let params = new $OpenApi.Params({
+      action: "PutConcurrencyConfig",
+      version: "2023-03-30",
+      protocol: "HTTPS",
+      pathname: `/2023-03-30/functions/${OpenApiUtil.getEncodeParam(functionName)}/concurrency`,
+      method: "PUT",
+      authType: "AK",
+      style: "ROA",
+      reqBodyType: "json",
+      bodyType: "json",
+    });
+    return $tea.cast<PutConcurrencyConfigResponse>(await this.callApi(params, req, runtime), new PutConcurrencyConfigResponse({}));
+  }
+
+  /**
+    * sets the concurrency config for a function
+    *
+    * @param request PutConcurrencyConfigRequest
+    * @return PutConcurrencyConfigResponse
+   */
+  async putConcurrencyConfig(functionName: string, request: PutConcurrencyConfigRequest): Promise<PutConcurrencyConfigResponse> {
+    let runtime = new $Util.RuntimeOptions({ });
+    let headers : {[key: string ]: string} = { };
+    return await this.putConcurrencyConfigWithOptions(functionName, request, headers, runtime);
+  }
+
+  /**
+    * Update layer ACL.
+    *
+    * @param request PutLayerACLRequest
+    * @param headers map
+    * @param runtime runtime options for this request RuntimeOptions
+    * @return PutLayerACLResponse
+   */
+  async putLayerACLWithOptions(layerName: string, request: PutLayerACLRequest, headers: {[key: string ]: string}, runtime: $Util.RuntimeOptions): Promise<PutLayerACLResponse> {
+    Util.validateModel(request);
+    let query : {[key: string ]: any} = { };
+    if (!Util.isUnset(request.public)) {
+      query["public"] = request.public;
+    }
+
+    let req = new $OpenApi.OpenApiRequest({
+      headers: headers,
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApi.Params({
+      action: "PutLayerACL",
+      version: "2023-03-30",
+      protocol: "HTTPS",
+      pathname: `/2023-03-30/layers/${OpenApiUtil.getEncodeParam(layerName)}/acl`,
+      method: "PUT",
+      authType: "AK",
+      style: "ROA",
+      reqBodyType: "json",
+      bodyType: "none",
+    });
+    return $tea.cast<PutLayerACLResponse>(await this.callApi(params, req, runtime), new PutLayerACLResponse({}));
+  }
+
+  /**
+    * Update layer ACL.
+    *
+    * @param request PutLayerACLRequest
+    * @return PutLayerACLResponse
+   */
+  async putLayerACL(layerName: string, request: PutLayerACLRequest): Promise<PutLayerACLResponse> {
+    let runtime = new $Util.RuntimeOptions({ });
+    let headers : {[key: string ]: string} = { };
+    return await this.putLayerACLWithOptions(layerName, request, headers, runtime);
+  }
+
+  /**
+    * Put provision config.
+    *
+    * @param request PutProvisionConfigRequest
+    * @param headers map
+    * @param runtime runtime options for this request RuntimeOptions
+    * @return PutProvisionConfigResponse
+   */
+  async putProvisionConfigWithOptions(functionName: string, request: PutProvisionConfigRequest, headers: {[key: string ]: string}, runtime: $Util.RuntimeOptions): Promise<PutProvisionConfigResponse> {
+    Util.validateModel(request);
+    let query : {[key: string ]: any} = { };
+    if (!Util.isUnset(request.qualifier)) {
+      query["qualifier"] = request.qualifier;
+    }
+
+    let req = new $OpenApi.OpenApiRequest({
+      headers: headers,
+      query: OpenApiUtil.query(query),
+      body: OpenApiUtil.parseToMap(request.request),
+    });
+    let params = new $OpenApi.Params({
+      action: "PutProvisionConfig",
+      version: "2023-03-30",
+      protocol: "HTTPS",
+      pathname: `/2023-03-30/functions/${OpenApiUtil.getEncodeParam(functionName)}/provision-config`,
+      method: "PUT",
+      authType: "AK",
+      style: "ROA",
+      reqBodyType: "json",
+      bodyType: "json",
+    });
+    return $tea.cast<PutProvisionConfigResponse>(await this.callApi(params, req, runtime), new PutProvisionConfigResponse({}));
+  }
+
+  /**
+    * Put provision config.
+    *
+    * @param request PutProvisionConfigRequest
+    * @return PutProvisionConfigResponse
+   */
+  async putProvisionConfig(functionName: string, request: PutProvisionConfigRequest): Promise<PutProvisionConfigResponse> {
+    let runtime = new $Util.RuntimeOptions({ });
+    let headers : {[key: string ]: string} = { };
+    return await this.putProvisionConfigWithOptions(functionName, request, headers, runtime);
+  }
+
+  /**
+    * Tag resource
+    *
+    * @param request TagResourceRequest
+    * @param headers map
+    * @param runtime runtime options for this request RuntimeOptions
+    * @return TagResourceResponse
+   */
+  async tagResourceWithOptions(request: TagResourceRequest, headers: {[key: string ]: string}, runtime: $Util.RuntimeOptions): Promise<TagResourceResponse> {
+    Util.validateModel(request);
+    let req = new $OpenApi.OpenApiRequest({
+      headers: headers,
+      body: OpenApiUtil.parseToMap(request.request),
+    });
+    let params = new $OpenApi.Params({
+      action: "TagResource",
+      version: "2023-03-30",
+      protocol: "HTTPS",
+      pathname: `/2023-03-30/tag`,
+      method: "POST",
+      authType: "AK",
+      style: "ROA",
+      reqBodyType: "json",
+      bodyType: "json",
+    });
+    return $tea.cast<TagResourceResponse>(await this.callApi(params, req, runtime), new TagResourceResponse({}));
+  }
+
+  /**
+    * Tag resource
+    *
+    * @param request TagResourceRequest
+    * @return TagResourceResponse
+   */
+  async tagResource(request: TagResourceRequest): Promise<TagResourceResponse> {
+    let runtime = new $Util.RuntimeOptions({ });
+    let headers : {[key: string ]: string} = { };
+    return await this.tagResourceWithOptions(request, headers, runtime);
+  }
+
+  /**
+    * Untag resource tag, support resource type: function, service
+    *
+    * @param request UntagResourceRequest
+    * @param headers map
+    * @param runtime runtime options for this request RuntimeOptions
+    * @return UntagResourceResponse
+   */
+  async untagResourceWithOptions(request: UntagResourceRequest, headers: {[key: string ]: string}, runtime: $Util.RuntimeOptions): Promise<UntagResourceResponse> {
+    Util.validateModel(request);
+    let query : {[key: string ]: any} = { };
+    if (!Util.isUnset(request.all)) {
+      query["all"] = request.all;
+    }
+
+    if (!Util.isUnset(request.arn)) {
+      query["arn"] = request.arn;
+    }
+
+    if (!Util.isUnset(request.tagKeys)) {
+      query["tagKeys"] = request.tagKeys;
+    }
+
+    let req = new $OpenApi.OpenApiRequest({
+      headers: headers,
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApi.Params({
+      action: "UntagResource",
+      version: "2023-03-30",
+      protocol: "HTTPS",
+      pathname: `/2023-03-30/tag`,
+      method: "DELETE",
+      authType: "AK",
+      style: "ROA",
+      reqBodyType: "json",
+      bodyType: "none",
+    });
+    return $tea.cast<UntagResourceResponse>(await this.callApi(params, req, runtime), new UntagResourceResponse({}));
+  }
+
+  /**
+    * Untag resource tag, support resource type: function, service
+    *
+    * @param request UntagResourceRequest
+    * @return UntagResourceResponse
+   */
+  async untagResource(request: UntagResourceRequest): Promise<UntagResourceResponse> {
+    let runtime = new $Util.RuntimeOptions({ });
+    let headers : {[key: string ]: string} = { };
+    return await this.untagResourceWithOptions(request, headers, runtime);
+  }
+
+  /**
+    * Update function alias
+    *
+    * @param request UpdateAliasRequest
+    * @param headers map
+    * @param runtime runtime options for this request RuntimeOptions
+    * @return UpdateAliasResponse
+   */
+  async updateAliasWithOptions(functionName: string, aliasName: string, request: UpdateAliasRequest, headers: {[key: string ]: string}, runtime: $Util.RuntimeOptions): Promise<UpdateAliasResponse> {
+    Util.validateModel(request);
+    let req = new $OpenApi.OpenApiRequest({
+      headers: headers,
+      body: OpenApiUtil.parseToMap(request.request),
+    });
+    let params = new $OpenApi.Params({
+      action: "UpdateAlias",
+      version: "2023-03-30",
+      protocol: "HTTPS",
+      pathname: `/2023-03-30/functions/${OpenApiUtil.getEncodeParam(functionName)}/aliases/${OpenApiUtil.getEncodeParam(aliasName)}`,
+      method: "PUT",
+      authType: "AK",
+      style: "ROA",
+      reqBodyType: "json",
+      bodyType: "json",
+    });
+    return $tea.cast<UpdateAliasResponse>(await this.callApi(params, req, runtime), new UpdateAliasResponse({}));
+  }
+
+  /**
+    * Update function alias
+    *
+    * @param request UpdateAliasRequest
+    * @return UpdateAliasResponse
+   */
+  async updateAlias(functionName: string, aliasName: string, request: UpdateAliasRequest): Promise<UpdateAliasResponse> {
+    let runtime = new $Util.RuntimeOptions({ });
+    let headers : {[key: string ]: string} = { };
+    return await this.updateAliasWithOptions(functionName, aliasName, request, headers, runtime);
+  }
+
+  /**
+    * Update custom domain.
+    *
+    * @param request UpdateCustomDomainRequest
+    * @param headers map
+    * @param runtime runtime options for this request RuntimeOptions
+    * @return UpdateCustomDomainResponse
+   */
+  async updateCustomDomainWithOptions(domainName: string, request: UpdateCustomDomainRequest, headers: {[key: string ]: string}, runtime: $Util.RuntimeOptions): Promise<UpdateCustomDomainResponse> {
+    Util.validateModel(request);
+    let req = new $OpenApi.OpenApiRequest({
+      headers: headers,
+      body: OpenApiUtil.parseToMap(request.request),
+    });
+    let params = new $OpenApi.Params({
+      action: "UpdateCustomDomain",
+      version: "2023-03-30",
+      protocol: "HTTPS",
+      pathname: `/2023-03-30/custom-domains/${OpenApiUtil.getEncodeParam(domainName)}`,
+      method: "PUT",
+      authType: "AK",
+      style: "ROA",
+      reqBodyType: "json",
+      bodyType: "json",
+    });
+    return $tea.cast<UpdateCustomDomainResponse>(await this.callApi(params, req, runtime), new UpdateCustomDomainResponse({}));
+  }
+
+  /**
+    * Update custom domain.
+    *
+    * @param request UpdateCustomDomainRequest
+    * @return UpdateCustomDomainResponse
+   */
+  async updateCustomDomain(domainName: string, request: UpdateCustomDomainRequest): Promise<UpdateCustomDomainResponse> {
+    let runtime = new $Util.RuntimeOptions({ });
+    let headers : {[key: string ]: string} = { };
+    return await this.updateCustomDomainWithOptions(domainName, request, headers, runtime);
+  }
+
+  /**
+    * Update function
+    *
+    * @param request UpdateFunctionRequest
+    * @param headers map
+    * @param runtime runtime options for this request RuntimeOptions
+    * @return UpdateFunctionResponse
+   */
+  async updateFunctionWithOptions(functionName: string, request: UpdateFunctionRequest, headers: {[key: string ]: string}, runtime: $Util.RuntimeOptions): Promise<UpdateFunctionResponse> {
+    Util.validateModel(request);
+    let req = new $OpenApi.OpenApiRequest({
+      headers: headers,
+      body: OpenApiUtil.parseToMap(request.request),
+    });
+    let params = new $OpenApi.Params({
+      action: "UpdateFunction",
+      version: "2023-03-30",
+      protocol: "HTTPS",
+      pathname: `/2023-03-30/functions/${OpenApiUtil.getEncodeParam(functionName)}`,
+      method: "PUT",
+      authType: "AK",
+      style: "ROA",
+      reqBodyType: "json",
+      bodyType: "json",
+    });
+    return $tea.cast<UpdateFunctionResponse>(await this.callApi(params, req, runtime), new UpdateFunctionResponse({}));
+  }
+
+  /**
+    * Update function
+    *
+    * @param request UpdateFunctionRequest
+    * @return UpdateFunctionResponse
+   */
+  async updateFunction(functionName: string, request: UpdateFunctionRequest): Promise<UpdateFunctionResponse> {
+    let runtime = new $Util.RuntimeOptions({ });
+    let headers : {[key: string ]: string} = { };
+    return await this.updateFunctionWithOptions(functionName, request, headers, runtime);
+  }
+
+  /**
+    * Update trigger.
+    *
+    * @param request UpdateTriggerRequest
+    * @param headers map
+    * @param runtime runtime options for this request RuntimeOptions
+    * @return UpdateTriggerResponse
+   */
+  async updateTriggerWithOptions(functionName: string, triggerName: string, request: UpdateTriggerRequest, headers: {[key: string ]: string}, runtime: $Util.RuntimeOptions): Promise<UpdateTriggerResponse> {
+    Util.validateModel(request);
+    let req = new $OpenApi.OpenApiRequest({
+      headers: headers,
+      body: OpenApiUtil.parseToMap(request.request),
+    });
+    let params = new $OpenApi.Params({
+      action: "UpdateTrigger",
+      version: "2023-03-30",
+      protocol: "HTTPS",
+      pathname: `/2023-03-30/functions/${OpenApiUtil.getEncodeParam(functionName)}/triggers/${OpenApiUtil.getEncodeParam(triggerName)}`,
+      method: "PUT",
+      authType: "AK",
+      style: "ROA",
+      reqBodyType: "json",
+      bodyType: "json",
+    });
+    return $tea.cast<UpdateTriggerResponse>(await this.callApi(params, req, runtime), new UpdateTriggerResponse({}));
+  }
+
+  /**
+    * Update trigger.
+    *
+    * @param request UpdateTriggerRequest
+    * @return UpdateTriggerResponse
+   */
+  async updateTrigger(functionName: string, triggerName: string, request: UpdateTriggerRequest): Promise<UpdateTriggerResponse> {
+    let runtime = new $Util.RuntimeOptions({ });
+    let headers : {[key: string ]: string} = { };
+    return await this.updateTriggerWithOptions(functionName, triggerName, request, headers, runtime);
+  }
+
+}
