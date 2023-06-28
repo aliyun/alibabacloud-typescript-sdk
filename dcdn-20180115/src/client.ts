@@ -12914,6 +12914,84 @@ export class SetDcdnDomainStagingConfigResponse extends $tea.Model {
   }
 }
 
+export class SetDcdnFullDomainsBlockIPRequest extends $tea.Model {
+  blockInterval?: number;
+  IPList?: string;
+  operationType?: string;
+  updateType?: string;
+  static names(): { [key: string]: string } {
+    return {
+      blockInterval: 'BlockInterval',
+      IPList: 'IPList',
+      operationType: 'OperationType',
+      updateType: 'UpdateType',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      blockInterval: 'number',
+      IPList: 'string',
+      operationType: 'string',
+      updateType: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class SetDcdnFullDomainsBlockIPResponseBody extends $tea.Model {
+  code?: number;
+  message?: string;
+  requestId?: string;
+  static names(): { [key: string]: string } {
+    return {
+      code: 'Code',
+      message: 'Message',
+      requestId: 'RequestId',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      code: 'number',
+      message: 'string',
+      requestId: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class SetDcdnFullDomainsBlockIPResponse extends $tea.Model {
+  headers: { [key: string]: string };
+  statusCode: number;
+  body: SetDcdnFullDomainsBlockIPResponseBody;
+  static names(): { [key: string]: string } {
+    return {
+      headers: 'headers',
+      statusCode: 'statusCode',
+      body: 'body',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
+      body: SetDcdnFullDomainsBlockIPResponseBody,
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
 export class SetDcdnUserConfigRequest extends $tea.Model {
   configs?: string;
   functionId?: number;
@@ -26429,7 +26507,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-    * The ID of the request.
+    * > You can call this operation up to 100 times per second per account.
     *
     * @param request DescribeDcdnUserTagsRequest
     * @param runtime runtime options for this request RuntimeOptions
@@ -26452,7 +26530,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-    * The ID of the request.
+    * > You can call this operation up to 100 times per second per account.
     *
     * @return DescribeDcdnUserTagsResponse
    */
@@ -28660,6 +28738,60 @@ export default class Client extends OpenApi {
   async setDcdnDomainStagingConfig(request: SetDcdnDomainStagingConfigRequest): Promise<SetDcdnDomainStagingConfigResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.setDcdnDomainStagingConfigWithOptions(request, runtime);
+  }
+
+  /**
+    * > You can call this operation up to 10 times per second per account.
+    *
+    * @param request SetDcdnFullDomainsBlockIPRequest
+    * @param runtime runtime options for this request RuntimeOptions
+    * @return SetDcdnFullDomainsBlockIPResponse
+   */
+  async setDcdnFullDomainsBlockIPWithOptions(request: SetDcdnFullDomainsBlockIPRequest, runtime: $Util.RuntimeOptions): Promise<SetDcdnFullDomainsBlockIPResponse> {
+    Util.validateModel(request);
+    let body : {[key: string ]: any} = { };
+    if (!Util.isUnset(request.blockInterval)) {
+      body["BlockInterval"] = request.blockInterval;
+    }
+
+    if (!Util.isUnset(request.IPList)) {
+      body["IPList"] = request.IPList;
+    }
+
+    if (!Util.isUnset(request.operationType)) {
+      body["OperationType"] = request.operationType;
+    }
+
+    if (!Util.isUnset(request.updateType)) {
+      body["UpdateType"] = request.updateType;
+    }
+
+    let req = new $OpenApi.OpenApiRequest({
+      body: OpenApiUtil.parseToMap(body),
+    });
+    let params = new $OpenApi.Params({
+      action: "SetDcdnFullDomainsBlockIP",
+      version: "2018-01-15",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $tea.cast<SetDcdnFullDomainsBlockIPResponse>(await this.callApi(params, req, runtime), new SetDcdnFullDomainsBlockIPResponse({}));
+  }
+
+  /**
+    * > You can call this operation up to 10 times per second per account.
+    *
+    * @param request SetDcdnFullDomainsBlockIPRequest
+    * @return SetDcdnFullDomainsBlockIPResponse
+   */
+  async setDcdnFullDomainsBlockIP(request: SetDcdnFullDomainsBlockIPRequest): Promise<SetDcdnFullDomainsBlockIPResponse> {
+    let runtime = new $Util.RuntimeOptions({ });
+    return await this.setDcdnFullDomainsBlockIPWithOptions(request, runtime);
   }
 
   /**
