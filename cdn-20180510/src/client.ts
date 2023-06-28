@@ -12,6 +12,7 @@ export class AddCdnDomainRequest extends $tea.Model {
   cdnType?: string;
   checkUrl?: string;
   domainName?: string;
+  globalResourcePlan?: string;
   ownerAccount?: string;
   ownerId?: number;
   resourceGroupId?: string;
@@ -25,6 +26,7 @@ export class AddCdnDomainRequest extends $tea.Model {
       cdnType: 'CdnType',
       checkUrl: 'CheckUrl',
       domainName: 'DomainName',
+      globalResourcePlan: 'GlobalResourcePlan',
       ownerAccount: 'OwnerAccount',
       ownerId: 'OwnerId',
       resourceGroupId: 'ResourceGroupId',
@@ -41,6 +43,7 @@ export class AddCdnDomainRequest extends $tea.Model {
       cdnType: 'string',
       checkUrl: 'string',
       domainName: 'string',
+      globalResourcePlan: 'string',
       ownerAccount: 'string',
       ownerId: 'number',
       resourceGroupId: 'string',
@@ -12136,6 +12139,7 @@ export class DescribeCdnDomainDetailResponseBodyGetDomainDetailModel extends $te
   description?: string;
   domainName?: string;
   domainStatus?: string;
+  globalResourcePlan?: string;
   gmtCreated?: string;
   gmtModified?: string;
   httpsCname?: string;
@@ -12150,6 +12154,7 @@ export class DescribeCdnDomainDetailResponseBodyGetDomainDetailModel extends $te
       description: 'Description',
       domainName: 'DomainName',
       domainStatus: 'DomainStatus',
+      globalResourcePlan: 'GlobalResourcePlan',
       gmtCreated: 'GmtCreated',
       gmtModified: 'GmtModified',
       httpsCname: 'HttpsCname',
@@ -12167,6 +12172,7 @@ export class DescribeCdnDomainDetailResponseBodyGetDomainDetailModel extends $te
       description: 'string',
       domainName: 'string',
       domainStatus: 'string',
+      globalResourcePlan: 'string',
       gmtCreated: 'string',
       gmtModified: 'string',
       httpsCname: 'string',
@@ -16473,6 +16479,7 @@ export class DescribeUserDomainsResponseBodyDomainsPageData extends $tea.Model {
   domainId?: number;
   domainName?: string;
   domainStatus?: string;
+  globalResourcePlan?: string;
   gmtCreated?: string;
   gmtModified?: string;
   resourceGroupId?: string;
@@ -16488,6 +16495,7 @@ export class DescribeUserDomainsResponseBodyDomainsPageData extends $tea.Model {
       domainId: 'DomainId',
       domainName: 'DomainName',
       domainStatus: 'DomainStatus',
+      globalResourcePlan: 'GlobalResourcePlan',
       gmtCreated: 'GmtCreated',
       gmtModified: 'GmtModified',
       resourceGroupId: 'ResourceGroupId',
@@ -16506,6 +16514,7 @@ export class DescribeUserDomainsResponseBodyDomainsPageData extends $tea.Model {
       domainId: 'number',
       domainName: 'string',
       domainStatus: 'string',
+      globalResourcePlan: 'string',
       gmtCreated: 'string',
       gmtModified: 'string',
       resourceGroupId: 'string',
@@ -17056,6 +17065,10 @@ export default class Client extends OpenApi {
 
     if (!Util.isUnset(request.domainName)) {
       query["DomainName"] = request.domainName;
+    }
+
+    if (!Util.isUnset(request.globalResourcePlan)) {
+      query["GlobalResourcePlan"] = request.globalResourcePlan;
     }
 
     if (!Util.isUnset(request.ownerAccount)) {
