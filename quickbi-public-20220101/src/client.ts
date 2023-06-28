@@ -3122,6 +3122,246 @@ export class ModifyApiDatasourceParametersResponse extends $tea.Model {
   }
 }
 
+export class QueryComponentPerformanceRequest extends $tea.Model {
+  costTimeAvgMin?: number;
+  pageNum?: number;
+  pageSize?: number;
+  queryType?: string;
+  reportId?: string;
+  resourceType?: string;
+  workspaceId?: string;
+  static names(): { [key: string]: string } {
+    return {
+      costTimeAvgMin: 'CostTimeAvgMin',
+      pageNum: 'PageNum',
+      pageSize: 'PageSize',
+      queryType: 'QueryType',
+      reportId: 'ReportId',
+      resourceType: 'ResourceType',
+      workspaceId: 'WorkspaceId',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      costTimeAvgMin: 'number',
+      pageNum: 'number',
+      pageSize: 'number',
+      queryType: 'string',
+      reportId: 'string',
+      resourceType: 'string',
+      workspaceId: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class QueryComponentPerformanceResponseBody extends $tea.Model {
+  requestId?: string;
+  result?: QueryComponentPerformanceResponseBodyResult[];
+  success?: boolean;
+  static names(): { [key: string]: string } {
+    return {
+      requestId: 'RequestId',
+      result: 'Result',
+      success: 'Success',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      requestId: 'string',
+      result: { 'type': 'array', 'itemType': QueryComponentPerformanceResponseBodyResult },
+      success: 'boolean',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class QueryComponentPerformanceResponse extends $tea.Model {
+  headers: { [key: string]: string };
+  statusCode: number;
+  body: QueryComponentPerformanceResponseBody;
+  static names(): { [key: string]: string } {
+    return {
+      headers: 'headers',
+      statusCode: 'statusCode',
+      body: 'body',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
+      body: QueryComponentPerformanceResponseBody,
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class QueryCubeOptimizationRequest extends $tea.Model {
+  workspaceId?: string;
+  static names(): { [key: string]: string } {
+    return {
+      workspaceId: 'WorkspaceId',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      workspaceId: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class QueryCubeOptimizationResponseBody extends $tea.Model {
+  requestId?: string;
+  result?: QueryCubeOptimizationResponseBodyResult[];
+  success?: boolean;
+  static names(): { [key: string]: string } {
+    return {
+      requestId: 'RequestId',
+      result: 'Result',
+      success: 'Success',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      requestId: 'string',
+      result: { 'type': 'array', 'itemType': QueryCubeOptimizationResponseBodyResult },
+      success: 'boolean',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class QueryCubeOptimizationResponse extends $tea.Model {
+  headers: { [key: string]: string };
+  statusCode: number;
+  body: QueryCubeOptimizationResponseBody;
+  static names(): { [key: string]: string } {
+    return {
+      headers: 'headers',
+      statusCode: 'statusCode',
+      body: 'body',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
+      body: QueryCubeOptimizationResponseBody,
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class QueryCubePerformanceRequest extends $tea.Model {
+  costTimeAvgMin?: number;
+  cubeId?: string;
+  pageNum?: number;
+  pageSize?: number;
+  queryType?: string;
+  workspaceId?: string;
+  static names(): { [key: string]: string } {
+    return {
+      costTimeAvgMin: 'CostTimeAvgMin',
+      cubeId: 'CubeId',
+      pageNum: 'PageNum',
+      pageSize: 'PageSize',
+      queryType: 'QueryType',
+      workspaceId: 'WorkspaceId',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      costTimeAvgMin: 'number',
+      cubeId: 'string',
+      pageNum: 'number',
+      pageSize: 'number',
+      queryType: 'string',
+      workspaceId: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class QueryCubePerformanceResponseBody extends $tea.Model {
+  requestId?: string;
+  result?: QueryCubePerformanceResponseBodyResult[];
+  success?: boolean;
+  static names(): { [key: string]: string } {
+    return {
+      requestId: 'RequestId',
+      result: 'Result',
+      success: 'Success',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      requestId: 'string',
+      result: { 'type': 'array', 'itemType': QueryCubePerformanceResponseBodyResult },
+      success: 'boolean',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class QueryCubePerformanceResponse extends $tea.Model {
+  headers: { [key: string]: string };
+  statusCode: number;
+  body: QueryCubePerformanceResponseBody;
+  static names(): { [key: string]: string } {
+    return {
+      headers: 'headers',
+      statusCode: 'statusCode',
+      body: 'body',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
+      body: QueryCubePerformanceResponseBody,
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
 export class QueryDataServiceRequest extends $tea.Model {
   apiId?: string;
   conditions?: string;
@@ -3746,6 +3986,93 @@ export class QueryReadableResourcesListByUserIdResponse extends $tea.Model {
       headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
       statusCode: 'number',
       body: QueryReadableResourcesListByUserIdResponseBody,
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class QueryReportPerformanceRequest extends $tea.Model {
+  costTimeAvgMin?: number;
+  pageNum?: number;
+  pageSize?: number;
+  queryType?: string;
+  reportId?: string;
+  resourceType?: string;
+  workspaceId?: string;
+  static names(): { [key: string]: string } {
+    return {
+      costTimeAvgMin: 'CostTimeAvgMin',
+      pageNum: 'PageNum',
+      pageSize: 'PageSize',
+      queryType: 'QueryType',
+      reportId: 'ReportId',
+      resourceType: 'ResourceType',
+      workspaceId: 'WorkspaceId',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      costTimeAvgMin: 'number',
+      pageNum: 'number',
+      pageSize: 'number',
+      queryType: 'string',
+      reportId: 'string',
+      resourceType: 'string',
+      workspaceId: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class QueryReportPerformanceResponseBody extends $tea.Model {
+  requestId?: string;
+  result?: QueryReportPerformanceResponseBodyResult[];
+  success?: boolean;
+  static names(): { [key: string]: string } {
+    return {
+      requestId: 'RequestId',
+      result: 'Result',
+      success: 'Success',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      requestId: 'string',
+      result: { 'type': 'array', 'itemType': QueryReportPerformanceResponseBodyResult },
+      success: 'boolean',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class QueryReportPerformanceResponse extends $tea.Model {
+  headers: { [key: string]: string };
+  statusCode: number;
+  body: QueryReportPerformanceResponseBody;
+  static names(): { [key: string]: string } {
+    return {
+      headers: 'headers',
+      statusCode: 'statusCode',
+      body: 'body',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
+      body: QueryReportPerformanceResponseBody,
     };
   }
 
@@ -6745,6 +7072,274 @@ export class ListUserGroupsByUserIdResponseBodyResult extends $tea.Model {
   }
 }
 
+export class QueryComponentPerformanceResponseBodyResult extends $tea.Model {
+  cacheCostTimeAvg?: number;
+  cacheQueryCount?: number;
+  componentId?: string;
+  componentName?: string;
+  costTimeAvg?: number;
+  queryCount?: number;
+  queryCountAvg?: number;
+  queryOverFivePercentNum?: number;
+  queryOverFiveSecPercent?: string;
+  queryOverTenSecPercent?: string;
+  queryOverTenSecPercentNum?: number;
+  queryTimeoutCount?: number;
+  queryTimeoutCountPercent?: number;
+  quickIndexCostTimeAvg?: number;
+  quickIndexQueryCount?: number;
+  repeatQueryPercent?: string;
+  repeatQueryPercentNum?: number;
+  repeatSqlQueryCount?: number;
+  repeatSqlQueryPercent?: string;
+  reportId?: string;
+  reportName?: string;
+  reportType?: string;
+  workspaceId?: string;
+  workspaceName?: string;
+  static names(): { [key: string]: string } {
+    return {
+      cacheCostTimeAvg: 'CacheCostTimeAvg',
+      cacheQueryCount: 'CacheQueryCount',
+      componentId: 'ComponentId',
+      componentName: 'ComponentName',
+      costTimeAvg: 'CostTimeAvg',
+      queryCount: 'QueryCount',
+      queryCountAvg: 'QueryCountAvg',
+      queryOverFivePercentNum: 'QueryOverFivePercentNum',
+      queryOverFiveSecPercent: 'QueryOverFiveSecPercent',
+      queryOverTenSecPercent: 'QueryOverTenSecPercent',
+      queryOverTenSecPercentNum: 'QueryOverTenSecPercentNum',
+      queryTimeoutCount: 'QueryTimeoutCount',
+      queryTimeoutCountPercent: 'QueryTimeoutCountPercent',
+      quickIndexCostTimeAvg: 'QuickIndexCostTimeAvg',
+      quickIndexQueryCount: 'QuickIndexQueryCount',
+      repeatQueryPercent: 'RepeatQueryPercent',
+      repeatQueryPercentNum: 'RepeatQueryPercentNum',
+      repeatSqlQueryCount: 'RepeatSqlQueryCount',
+      repeatSqlQueryPercent: 'RepeatSqlQueryPercent',
+      reportId: 'ReportId',
+      reportName: 'ReportName',
+      reportType: 'ReportType',
+      workspaceId: 'WorkspaceId',
+      workspaceName: 'WorkspaceName',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      cacheCostTimeAvg: 'number',
+      cacheQueryCount: 'number',
+      componentId: 'string',
+      componentName: 'string',
+      costTimeAvg: 'number',
+      queryCount: 'number',
+      queryCountAvg: 'number',
+      queryOverFivePercentNum: 'number',
+      queryOverFiveSecPercent: 'string',
+      queryOverTenSecPercent: 'string',
+      queryOverTenSecPercentNum: 'number',
+      queryTimeoutCount: 'number',
+      queryTimeoutCountPercent: 'number',
+      quickIndexCostTimeAvg: 'number',
+      quickIndexQueryCount: 'number',
+      repeatQueryPercent: 'string',
+      repeatQueryPercentNum: 'number',
+      repeatSqlQueryCount: 'number',
+      repeatSqlQueryPercent: 'string',
+      reportId: 'string',
+      reportName: 'string',
+      reportType: 'string',
+      workspaceId: 'string',
+      workspaceName: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class QueryCubeOptimizationResponseBodyResultCubePerformanceDiagnoseModel extends $tea.Model {
+  cacheCostTimeAvg?: number;
+  cacheQueryCount?: number;
+  costTimeAvg?: number;
+  cubeId?: string;
+  cubeName?: string;
+  queryCount?: number;
+  queryCountAvg?: number;
+  queryOverFivePercentNum?: number;
+  queryOverFiveSecPercent?: string;
+  queryOverTenSecPercent?: string;
+  queryOverTenSecPercentNum?: number;
+  queryTimeoutCount?: number;
+  queryTimeoutCountPercent?: number;
+  quickIndexCostTimeAvg?: number;
+  quickIndexQueryCount?: number;
+  repeatQueryPercent?: string;
+  repeatQueryPercentNum?: number;
+  repeatSqlQueryCount?: number;
+  repeatSqlQueryPercent?: string;
+  workspaceId?: string;
+  workspaceName?: string;
+  static names(): { [key: string]: string } {
+    return {
+      cacheCostTimeAvg: 'CacheCostTimeAvg',
+      cacheQueryCount: 'CacheQueryCount',
+      costTimeAvg: 'CostTimeAvg',
+      cubeId: 'CubeId',
+      cubeName: 'CubeName',
+      queryCount: 'QueryCount',
+      queryCountAvg: 'QueryCountAvg',
+      queryOverFivePercentNum: 'QueryOverFivePercentNum',
+      queryOverFiveSecPercent: 'QueryOverFiveSecPercent',
+      queryOverTenSecPercent: 'QueryOverTenSecPercent',
+      queryOverTenSecPercentNum: 'QueryOverTenSecPercentNum',
+      queryTimeoutCount: 'QueryTimeoutCount',
+      queryTimeoutCountPercent: 'QueryTimeoutCountPercent',
+      quickIndexCostTimeAvg: 'QuickIndexCostTimeAvg',
+      quickIndexQueryCount: 'QuickIndexQueryCount',
+      repeatQueryPercent: 'RepeatQueryPercent',
+      repeatQueryPercentNum: 'RepeatQueryPercentNum',
+      repeatSqlQueryCount: 'RepeatSqlQueryCount',
+      repeatSqlQueryPercent: 'RepeatSqlQueryPercent',
+      workspaceId: 'WorkspaceId',
+      workspaceName: 'WorkspaceName',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      cacheCostTimeAvg: 'number',
+      cacheQueryCount: 'number',
+      costTimeAvg: 'number',
+      cubeId: 'string',
+      cubeName: 'string',
+      queryCount: 'number',
+      queryCountAvg: 'number',
+      queryOverFivePercentNum: 'number',
+      queryOverFiveSecPercent: 'string',
+      queryOverTenSecPercent: 'string',
+      queryOverTenSecPercentNum: 'number',
+      queryTimeoutCount: 'number',
+      queryTimeoutCountPercent: 'number',
+      quickIndexCostTimeAvg: 'number',
+      quickIndexQueryCount: 'number',
+      repeatQueryPercent: 'string',
+      repeatQueryPercentNum: 'number',
+      repeatSqlQueryCount: 'number',
+      repeatSqlQueryPercent: 'string',
+      workspaceId: 'string',
+      workspaceName: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class QueryCubeOptimizationResponseBodyResult extends $tea.Model {
+  adviceType?: string;
+  cubePerformanceDiagnoseModel?: QueryCubeOptimizationResponseBodyResultCubePerformanceDiagnoseModel;
+  static names(): { [key: string]: string } {
+    return {
+      adviceType: 'AdviceType',
+      cubePerformanceDiagnoseModel: 'CubePerformanceDiagnoseModel',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      adviceType: 'string',
+      cubePerformanceDiagnoseModel: QueryCubeOptimizationResponseBodyResultCubePerformanceDiagnoseModel,
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class QueryCubePerformanceResponseBodyResult extends $tea.Model {
+  cacheCostTimeAvg?: number;
+  cacheQueryCount?: number;
+  costTimeAvg?: number;
+  cubeId?: string;
+  cubeName?: string;
+  queryCount?: number;
+  queryCountAvg?: number;
+  queryOverFivePercentNum?: number;
+  queryOverFiveSecPercent?: string;
+  queryOverTenSecPercent?: string;
+  queryOverTenSecPercentNum?: number;
+  queryTimeoutCount?: number;
+  queryTimeoutCountPercent?: number;
+  quickIndexCostTimeAvg?: number;
+  quickIndexQueryCount?: number;
+  repeatQueryPercent?: string;
+  repeatQueryPercentNum?: number;
+  repeatSqlQueryCount?: number;
+  repeatSqlQueryPercent?: string;
+  workspaceId?: string;
+  workspaceName?: string;
+  static names(): { [key: string]: string } {
+    return {
+      cacheCostTimeAvg: 'CacheCostTimeAvg',
+      cacheQueryCount: 'CacheQueryCount',
+      costTimeAvg: 'CostTimeAvg',
+      cubeId: 'CubeId',
+      cubeName: 'CubeName',
+      queryCount: 'QueryCount',
+      queryCountAvg: 'QueryCountAvg',
+      queryOverFivePercentNum: 'QueryOverFivePercentNum',
+      queryOverFiveSecPercent: 'QueryOverFiveSecPercent',
+      queryOverTenSecPercent: 'QueryOverTenSecPercent',
+      queryOverTenSecPercentNum: 'QueryOverTenSecPercentNum',
+      queryTimeoutCount: 'QueryTimeoutCount',
+      queryTimeoutCountPercent: 'QueryTimeoutCountPercent',
+      quickIndexCostTimeAvg: 'QuickIndexCostTimeAvg',
+      quickIndexQueryCount: 'QuickIndexQueryCount',
+      repeatQueryPercent: 'RepeatQueryPercent',
+      repeatQueryPercentNum: 'RepeatQueryPercentNum',
+      repeatSqlQueryCount: 'RepeatSqlQueryCount',
+      repeatSqlQueryPercent: 'RepeatSqlQueryPercent',
+      workspaceId: 'WorkspaceId',
+      workspaceName: 'WorkspaceName',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      cacheCostTimeAvg: 'number',
+      cacheQueryCount: 'number',
+      costTimeAvg: 'number',
+      cubeId: 'string',
+      cubeName: 'string',
+      queryCount: 'number',
+      queryCountAvg: 'number',
+      queryOverFivePercentNum: 'number',
+      queryOverFiveSecPercent: 'string',
+      queryOverTenSecPercent: 'string',
+      queryOverTenSecPercentNum: 'number',
+      queryTimeoutCount: 'number',
+      queryTimeoutCountPercent: 'number',
+      quickIndexCostTimeAvg: 'number',
+      quickIndexQueryCount: 'number',
+      repeatQueryPercent: 'string',
+      repeatQueryPercentNum: 'number',
+      repeatSqlQueryCount: 'number',
+      repeatSqlQueryPercent: 'string',
+      workspaceId: 'string',
+      workspaceName: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
 export class QueryDataServiceResponseBodyResultHeaders extends $tea.Model {
   aggregator?: string;
   column?: string;
@@ -7398,6 +7993,94 @@ export class QueryReadableResourcesListByUserIdResponseBodyResult extends $tea.M
       workName: 'string',
       workType: 'string',
       worksId: 'string',
+      workspaceId: 'string',
+      workspaceName: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class QueryReportPerformanceResponseBodyResult extends $tea.Model {
+  cacheCostTimeAvg?: number;
+  cacheQueryCount?: number;
+  componentQueryCount?: number;
+  componentQueryCountAvg?: number;
+  costTimeAvg?: number;
+  queryCount?: number;
+  queryCountAvg?: number;
+  queryOverFivePercentNum?: number;
+  queryOverFiveSecPercent?: string;
+  queryOverTenSecPercent?: string;
+  queryOverTenSecPercentNum?: number;
+  queryTimeoutCount?: number;
+  queryTimeoutCountPercent?: number;
+  quickIndexCostTimeAvg?: number;
+  quickIndexQueryCount?: number;
+  repeatQueryPercent?: string;
+  repeatQueryPercentNum?: number;
+  repeatSqlQueryCount?: number;
+  repeatSqlQueryPercent?: string;
+  reportId?: string;
+  reportName?: string;
+  reportType?: string;
+  workspaceId?: string;
+  workspaceName?: string;
+  static names(): { [key: string]: string } {
+    return {
+      cacheCostTimeAvg: 'CacheCostTimeAvg',
+      cacheQueryCount: 'CacheQueryCount',
+      componentQueryCount: 'ComponentQueryCount',
+      componentQueryCountAvg: 'ComponentQueryCountAvg',
+      costTimeAvg: 'CostTimeAvg',
+      queryCount: 'QueryCount',
+      queryCountAvg: 'QueryCountAvg',
+      queryOverFivePercentNum: 'QueryOverFivePercentNum',
+      queryOverFiveSecPercent: 'QueryOverFiveSecPercent',
+      queryOverTenSecPercent: 'QueryOverTenSecPercent',
+      queryOverTenSecPercentNum: 'QueryOverTenSecPercentNum',
+      queryTimeoutCount: 'QueryTimeoutCount',
+      queryTimeoutCountPercent: 'QueryTimeoutCountPercent',
+      quickIndexCostTimeAvg: 'QuickIndexCostTimeAvg',
+      quickIndexQueryCount: 'QuickIndexQueryCount',
+      repeatQueryPercent: 'RepeatQueryPercent',
+      repeatQueryPercentNum: 'RepeatQueryPercentNum',
+      repeatSqlQueryCount: 'RepeatSqlQueryCount',
+      repeatSqlQueryPercent: 'RepeatSqlQueryPercent',
+      reportId: 'ReportId',
+      reportName: 'ReportName',
+      reportType: 'ReportType',
+      workspaceId: 'WorkspaceId',
+      workspaceName: 'WorkspaceName',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      cacheCostTimeAvg: 'number',
+      cacheQueryCount: 'number',
+      componentQueryCount: 'number',
+      componentQueryCountAvg: 'number',
+      costTimeAvg: 'number',
+      queryCount: 'number',
+      queryCountAvg: 'number',
+      queryOverFivePercentNum: 'number',
+      queryOverFiveSecPercent: 'string',
+      queryOverTenSecPercent: 'string',
+      queryOverTenSecPercentNum: 'number',
+      queryTimeoutCount: 'number',
+      queryTimeoutCountPercent: 'number',
+      quickIndexCostTimeAvg: 'number',
+      quickIndexQueryCount: 'number',
+      repeatQueryPercent: 'string',
+      repeatQueryPercentNum: 'number',
+      repeatSqlQueryCount: 'number',
+      repeatSqlQueryPercent: 'string',
+      reportId: 'string',
+      reportName: 'string',
+      reportType: 'string',
       workspaceId: 'string',
       workspaceName: 'string',
     };
@@ -8428,9 +9111,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-    * Indicates whether the request is successful. Valid values:
-    * *   true: The request was successful.
-    * *   false: The request failed.
+    * > : You can only Quick BI the new row-column permission model. If you are still using the old row-column permission model, migrate to the new row-column permission model before you call this operation. To migrate row-level permissions to the new row-level permission model, perform the following steps: Choose Organizations> Security Configurations> Upgrade Row-Level Permissions. On the Upgrade Row-Level Permissions page, click **Upgrade**.\\n
     *
     * @param request AddDataLevelPermissionRuleUsersRequest
     * @param runtime runtime options for this request RuntimeOptions
@@ -8461,9 +9142,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-    * Indicates whether the request is successful. Valid values:
-    * *   true: The request was successful.
-    * *   false: The request failed.
+    * > : You can only Quick BI the new row-column permission model. If you are still using the old row-column permission model, migrate to the new row-column permission model before you call this operation. To migrate row-level permissions to the new row-level permission model, perform the following steps: Choose Organizations> Security Configurations> Upgrade Row-Level Permissions. On the Upgrade Row-Level Permissions page, click **Upgrade**.\\n
     *
     * @param request AddDataLevelPermissionRuleUsersRequest
     * @return AddDataLevelPermissionRuleUsersResponse
@@ -10002,6 +10681,137 @@ export default class Client extends OpenApi {
     return await this.modifyApiDatasourceParametersWithOptions(request, runtime);
   }
 
+  async queryComponentPerformanceWithOptions(request: QueryComponentPerformanceRequest, runtime: $Util.RuntimeOptions): Promise<QueryComponentPerformanceResponse> {
+    Util.validateModel(request);
+    let query = { };
+    if (!Util.isUnset(request.costTimeAvgMin)) {
+      query["CostTimeAvgMin"] = request.costTimeAvgMin;
+    }
+
+    if (!Util.isUnset(request.pageNum)) {
+      query["PageNum"] = request.pageNum;
+    }
+
+    if (!Util.isUnset(request.pageSize)) {
+      query["PageSize"] = request.pageSize;
+    }
+
+    if (!Util.isUnset(request.queryType)) {
+      query["QueryType"] = request.queryType;
+    }
+
+    if (!Util.isUnset(request.reportId)) {
+      query["ReportId"] = request.reportId;
+    }
+
+    if (!Util.isUnset(request.resourceType)) {
+      query["ResourceType"] = request.resourceType;
+    }
+
+    if (!Util.isUnset(request.workspaceId)) {
+      query["WorkspaceId"] = request.workspaceId;
+    }
+
+    let req = new $OpenApi.OpenApiRequest({
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApi.Params({
+      action: "QueryComponentPerformance",
+      version: "2022-01-01",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $tea.cast<QueryComponentPerformanceResponse>(await this.callApi(params, req, runtime), new QueryComponentPerformanceResponse({}));
+  }
+
+  async queryComponentPerformance(request: QueryComponentPerformanceRequest): Promise<QueryComponentPerformanceResponse> {
+    let runtime = new $Util.RuntimeOptions({ });
+    return await this.queryComponentPerformanceWithOptions(request, runtime);
+  }
+
+  async queryCubeOptimizationWithOptions(request: QueryCubeOptimizationRequest, runtime: $Util.RuntimeOptions): Promise<QueryCubeOptimizationResponse> {
+    Util.validateModel(request);
+    let query = { };
+    if (!Util.isUnset(request.workspaceId)) {
+      query["WorkspaceId"] = request.workspaceId;
+    }
+
+    let req = new $OpenApi.OpenApiRequest({
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApi.Params({
+      action: "QueryCubeOptimization",
+      version: "2022-01-01",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $tea.cast<QueryCubeOptimizationResponse>(await this.callApi(params, req, runtime), new QueryCubeOptimizationResponse({}));
+  }
+
+  async queryCubeOptimization(request: QueryCubeOptimizationRequest): Promise<QueryCubeOptimizationResponse> {
+    let runtime = new $Util.RuntimeOptions({ });
+    return await this.queryCubeOptimizationWithOptions(request, runtime);
+  }
+
+  async queryCubePerformanceWithOptions(request: QueryCubePerformanceRequest, runtime: $Util.RuntimeOptions): Promise<QueryCubePerformanceResponse> {
+    Util.validateModel(request);
+    let query = { };
+    if (!Util.isUnset(request.costTimeAvgMin)) {
+      query["CostTimeAvgMin"] = request.costTimeAvgMin;
+    }
+
+    if (!Util.isUnset(request.cubeId)) {
+      query["CubeId"] = request.cubeId;
+    }
+
+    if (!Util.isUnset(request.pageNum)) {
+      query["PageNum"] = request.pageNum;
+    }
+
+    if (!Util.isUnset(request.pageSize)) {
+      query["PageSize"] = request.pageSize;
+    }
+
+    if (!Util.isUnset(request.queryType)) {
+      query["QueryType"] = request.queryType;
+    }
+
+    if (!Util.isUnset(request.workspaceId)) {
+      query["WorkspaceId"] = request.workspaceId;
+    }
+
+    let req = new $OpenApi.OpenApiRequest({
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApi.Params({
+      action: "QueryCubePerformance",
+      version: "2022-01-01",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $tea.cast<QueryCubePerformanceResponse>(await this.callApi(params, req, runtime), new QueryCubePerformanceResponse({}));
+  }
+
+  async queryCubePerformance(request: QueryCubePerformanceRequest): Promise<QueryCubePerformanceResponse> {
+    let runtime = new $Util.RuntimeOptions({ });
+    return await this.queryCubePerformanceWithOptions(request, runtime);
+  }
+
   /**
     * f4cc43bc3***
     *
@@ -10053,9 +10863,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-    * The execution result of the interface is returned. Valid values:
-    * *   true: The request was successful.
-    * *   false: The request fails.
+    * The data source, directory, and dataset model (including dimensions, measures, physical fields, custom SQL text, and association relationships).
     *
     * @param request QueryDatasetDetailInfoRequest
     * @param runtime runtime options for this request RuntimeOptions
@@ -10086,9 +10894,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-    * The execution result of the interface is returned. Valid values:
-    * *   true: The request was successful.
-    * *   false: The request fails.
+    * The data source, directory, and dataset model (including dimensions, measures, physical fields, custom SQL text, and association relationships).
     *
     * @param request QueryDatasetDetailInfoRequest
     * @return QueryDatasetDetailInfoResponse
@@ -10323,6 +11129,59 @@ export default class Client extends OpenApi {
   async queryReadableResourcesListByUserId(request: QueryReadableResourcesListByUserIdRequest): Promise<QueryReadableResourcesListByUserIdResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.queryReadableResourcesListByUserIdWithOptions(request, runtime);
+  }
+
+  async queryReportPerformanceWithOptions(request: QueryReportPerformanceRequest, runtime: $Util.RuntimeOptions): Promise<QueryReportPerformanceResponse> {
+    Util.validateModel(request);
+    let query = { };
+    if (!Util.isUnset(request.costTimeAvgMin)) {
+      query["CostTimeAvgMin"] = request.costTimeAvgMin;
+    }
+
+    if (!Util.isUnset(request.pageNum)) {
+      query["PageNum"] = request.pageNum;
+    }
+
+    if (!Util.isUnset(request.pageSize)) {
+      query["PageSize"] = request.pageSize;
+    }
+
+    if (!Util.isUnset(request.queryType)) {
+      query["QueryType"] = request.queryType;
+    }
+
+    if (!Util.isUnset(request.reportId)) {
+      query["ReportId"] = request.reportId;
+    }
+
+    if (!Util.isUnset(request.resourceType)) {
+      query["ResourceType"] = request.resourceType;
+    }
+
+    if (!Util.isUnset(request.workspaceId)) {
+      query["WorkspaceId"] = request.workspaceId;
+    }
+
+    let req = new $OpenApi.OpenApiRequest({
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApi.Params({
+      action: "QueryReportPerformance",
+      version: "2022-01-01",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $tea.cast<QueryReportPerformanceResponse>(await this.callApi(params, req, runtime), new QueryReportPerformanceResponse({}));
+  }
+
+  async queryReportPerformance(request: QueryReportPerformanceRequest): Promise<QueryReportPerformanceResponse> {
+    let runtime = new $Util.RuntimeOptions({ });
+    return await this.queryReportPerformanceWithOptions(request, runtime);
   }
 
   async queryShareListWithOptions(request: QueryShareListRequest, runtime: $Util.RuntimeOptions): Promise<QueryShareListResponse> {
@@ -10936,15 +11795,6 @@ export default class Client extends OpenApi {
     return await this.setDataLevelPermissionExtraConfigWithOptions(request, runtime);
   }
 
-  /**
-    * Indicates whether the request is successful. Valid values:
-    * *   true: The request was successful.
-    * *   false: The request failed.
-    *
-    * @param request SetDataLevelPermissionRuleConfigRequest
-    * @param runtime runtime options for this request RuntimeOptions
-    * @return SetDataLevelPermissionRuleConfigResponse
-   */
   async setDataLevelPermissionRuleConfigWithOptions(request: SetDataLevelPermissionRuleConfigRequest, runtime: $Util.RuntimeOptions): Promise<SetDataLevelPermissionRuleConfigResponse> {
     Util.validateModel(request);
     let query = { };
@@ -10969,14 +11819,6 @@ export default class Client extends OpenApi {
     return $tea.cast<SetDataLevelPermissionRuleConfigResponse>(await this.callApi(params, req, runtime), new SetDataLevelPermissionRuleConfigResponse({}));
   }
 
-  /**
-    * Indicates whether the request is successful. Valid values:
-    * *   true: The request was successful.
-    * *   false: The request failed.
-    *
-    * @param request SetDataLevelPermissionRuleConfigRequest
-    * @return SetDataLevelPermissionRuleConfigResponse
-   */
   async setDataLevelPermissionRuleConfig(request: SetDataLevelPermissionRuleConfigRequest): Promise<SetDataLevelPermissionRuleConfigResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.setDataLevelPermissionRuleConfigWithOptions(request, runtime);
