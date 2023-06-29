@@ -86,6 +86,7 @@ export class CreateConfigResponse extends $tea.Model {
 export class CreateDataLimitRequest extends $tea.Model {
   auditStatus?: number;
   autoScan?: number;
+  certificatePermission?: string;
   enable?: number;
   engineType?: string;
   eventStatus?: number;
@@ -103,6 +104,7 @@ export class CreateDataLimitRequest extends $tea.Model {
     return {
       auditStatus: 'AuditStatus',
       autoScan: 'AutoScan',
+      certificatePermission: 'CertificatePermission',
       enable: 'Enable',
       engineType: 'EngineType',
       eventStatus: 'EventStatus',
@@ -123,6 +125,7 @@ export class CreateDataLimitRequest extends $tea.Model {
     return {
       auditStatus: 'number',
       autoScan: 'number',
+      certificatePermission: 'string',
       enable: 'number',
       engineType: 'string',
       eventStatus: 'number',
@@ -197,6 +200,7 @@ export class CreateRuleRequest extends $tea.Model {
   contentCategory?: number;
   description?: string;
   lang?: string;
+  matchType?: number;
   name?: string;
   productCode?: string;
   productId?: number;
@@ -204,6 +208,7 @@ export class CreateRuleRequest extends $tea.Model {
   ruleType?: number;
   statExpress?: string;
   status?: number;
+  supportForm?: number;
   target?: string;
   warnLevel?: number;
   static names(): { [key: string]: string } {
@@ -213,6 +218,7 @@ export class CreateRuleRequest extends $tea.Model {
       contentCategory: 'ContentCategory',
       description: 'Description',
       lang: 'Lang',
+      matchType: 'MatchType',
       name: 'Name',
       productCode: 'ProductCode',
       productId: 'ProductId',
@@ -220,6 +226,7 @@ export class CreateRuleRequest extends $tea.Model {
       ruleType: 'RuleType',
       statExpress: 'StatExpress',
       status: 'Status',
+      supportForm: 'SupportForm',
       target: 'Target',
       warnLevel: 'WarnLevel',
     };
@@ -232,6 +239,7 @@ export class CreateRuleRequest extends $tea.Model {
       contentCategory: 'number',
       description: 'string',
       lang: 'string',
+      matchType: 'number',
       name: 'string',
       productCode: 'string',
       productId: 'number',
@@ -239,6 +247,7 @@ export class CreateRuleRequest extends $tea.Model {
       ruleType: 'number',
       statExpress: 'string',
       status: 'number',
+      supportForm: 'number',
       target: 'string',
       warnLevel: 'number',
     };
@@ -1400,6 +1409,201 @@ export class DescribeDataMaskingTasksResponse extends $tea.Model {
   }
 }
 
+export class DescribeDataObjectColumnDetailRequest extends $tea.Model {
+  currentPage?: number;
+  id?: number;
+  lang?: string;
+  pageSize?: number;
+  productId?: number;
+  templateId?: number;
+  static names(): { [key: string]: string } {
+    return {
+      currentPage: 'CurrentPage',
+      id: 'Id',
+      lang: 'Lang',
+      pageSize: 'PageSize',
+      productId: 'ProductId',
+      templateId: 'TemplateId',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      currentPage: 'number',
+      id: 'number',
+      lang: 'string',
+      pageSize: 'number',
+      productId: 'number',
+      templateId: 'number',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class DescribeDataObjectColumnDetailResponseBody extends $tea.Model {
+  currentPage?: number;
+  items?: DescribeDataObjectColumnDetailResponseBodyItems[];
+  pageSize?: number;
+  requestId?: string;
+  totalCount?: number;
+  static names(): { [key: string]: string } {
+    return {
+      currentPage: 'CurrentPage',
+      items: 'Items',
+      pageSize: 'PageSize',
+      requestId: 'RequestId',
+      totalCount: 'TotalCount',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      currentPage: 'number',
+      items: { 'type': 'array', 'itemType': DescribeDataObjectColumnDetailResponseBodyItems },
+      pageSize: 'number',
+      requestId: 'string',
+      totalCount: 'number',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class DescribeDataObjectColumnDetailResponse extends $tea.Model {
+  headers: { [key: string]: string };
+  statusCode: number;
+  body: DescribeDataObjectColumnDetailResponseBody;
+  static names(): { [key: string]: string } {
+    return {
+      headers: 'headers',
+      statusCode: 'statusCode',
+      body: 'body',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
+      body: DescribeDataObjectColumnDetailResponseBody,
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class DescribeDataObjectsRequest extends $tea.Model {
+  currentPage?: number;
+  domainId?: number;
+  lang?: string;
+  modelTagIds?: string;
+  pageSize?: number;
+  parentCategoryIds?: string;
+  productIds?: string;
+  queryName?: string;
+  riskLevels?: string;
+  serviceRegionId?: string;
+  templateId?: number;
+  static names(): { [key: string]: string } {
+    return {
+      currentPage: 'CurrentPage',
+      domainId: 'DomainId',
+      lang: 'Lang',
+      modelTagIds: 'ModelTagIds',
+      pageSize: 'PageSize',
+      parentCategoryIds: 'ParentCategoryIds',
+      productIds: 'ProductIds',
+      queryName: 'QueryName',
+      riskLevels: 'RiskLevels',
+      serviceRegionId: 'ServiceRegionId',
+      templateId: 'TemplateId',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      currentPage: 'number',
+      domainId: 'number',
+      lang: 'string',
+      modelTagIds: 'string',
+      pageSize: 'number',
+      parentCategoryIds: 'string',
+      productIds: 'string',
+      queryName: 'string',
+      riskLevels: 'string',
+      serviceRegionId: 'string',
+      templateId: 'number',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class DescribeDataObjectsResponseBody extends $tea.Model {
+  currentPage?: number;
+  items?: DescribeDataObjectsResponseBodyItems[];
+  pageSize?: number;
+  requestId?: string;
+  totalCount?: number;
+  static names(): { [key: string]: string } {
+    return {
+      currentPage: 'CurrentPage',
+      items: 'Items',
+      pageSize: 'PageSize',
+      requestId: 'RequestId',
+      totalCount: 'TotalCount',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      currentPage: 'number',
+      items: { 'type': 'array', 'itemType': DescribeDataObjectsResponseBodyItems },
+      pageSize: 'number',
+      requestId: 'string',
+      totalCount: 'number',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class DescribeDataObjectsResponse extends $tea.Model {
+  headers: { [key: string]: string };
+  statusCode: number;
+  body: DescribeDataObjectsResponseBody;
+  static names(): { [key: string]: string } {
+    return {
+      headers: 'headers',
+      statusCode: 'statusCode',
+      body: 'body',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
+      body: DescribeDataObjectsResponseBody,
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
 export class DescribeEventDetailRequest extends $tea.Model {
   id?: number;
   lang?: string;
@@ -1951,6 +2155,7 @@ export class DescribeOssObjectsRequest extends $tea.Model {
   riskLevelId?: number;
   ruleId?: number;
   serviceRegionId?: string;
+  templateId?: number;
   static names(): { [key: string]: string } {
     return {
       currentPage: 'CurrentPage',
@@ -1963,6 +2168,7 @@ export class DescribeOssObjectsRequest extends $tea.Model {
       riskLevelId: 'RiskLevelId',
       ruleId: 'RuleId',
       serviceRegionId: 'ServiceRegionId',
+      templateId: 'TemplateId',
     };
   }
 
@@ -1978,6 +2184,7 @@ export class DescribeOssObjectsRequest extends $tea.Model {
       riskLevelId: 'number',
       ruleId: 'number',
       serviceRegionId: 'string',
+      templateId: 'number',
     };
   }
 
@@ -2140,15 +2347,18 @@ export class DescribePackagesResponse extends $tea.Model {
 
 export class DescribeRiskLevelsRequest extends $tea.Model {
   lang?: string;
+  templateId?: number;
   static names(): { [key: string]: string } {
     return {
       lang: 'Lang',
+      templateId: 'TemplateId',
     };
   }
 
   static types(): { [key: string]: any } {
     return {
       lang: 'string',
+      templateId: 'number',
     };
   }
 
@@ -2212,6 +2422,7 @@ export class DescribeRulesRequest extends $tea.Model {
   groupId?: string;
   keywordCompatible?: boolean;
   lang?: string;
+  matchType?: number;
   name?: string;
   pageSize?: number;
   productCode?: number;
@@ -2229,6 +2440,7 @@ export class DescribeRulesRequest extends $tea.Model {
       groupId: 'GroupId',
       keywordCompatible: 'KeywordCompatible',
       lang: 'Lang',
+      matchType: 'MatchType',
       name: 'Name',
       pageSize: 'PageSize',
       productCode: 'ProductCode',
@@ -2249,6 +2461,7 @@ export class DescribeRulesRequest extends $tea.Model {
       groupId: 'string',
       keywordCompatible: 'boolean',
       lang: 'string',
+      matchType: 'number',
       name: 'string',
       pageSize: 'number',
       productCode: 'number',
@@ -2333,6 +2546,7 @@ export class DescribeTablesRequest extends $tea.Model {
   riskLevelId?: number;
   ruleId?: number;
   serviceRegionId?: string;
+  templateId?: number;
   static names(): { [key: string]: string } {
     return {
       currentPage: 'CurrentPage',
@@ -2346,6 +2560,7 @@ export class DescribeTablesRequest extends $tea.Model {
       riskLevelId: 'RiskLevelId',
       ruleId: 'RuleId',
       serviceRegionId: 'ServiceRegionId',
+      templateId: 'TemplateId',
     };
   }
 
@@ -2362,6 +2577,7 @@ export class DescribeTablesRequest extends $tea.Model {
       riskLevelId: 'number',
       ruleId: 'number',
       serviceRegionId: 'string',
+      templateId: 'number',
     };
   }
 
@@ -2708,8 +2924,11 @@ export class ModifyDataLimitRequest extends $tea.Model {
   port?: number;
   resourceType?: number;
   samplingSize?: number;
+  securityGroupIdList?: string[];
   serviceRegionId?: string;
   userName?: string;
+  vSwitchIdList?: string[];
+  vpcId?: string;
   static names(): { [key: string]: string } {
     return {
       auditStatus: 'AuditStatus',
@@ -2723,8 +2942,11 @@ export class ModifyDataLimitRequest extends $tea.Model {
       port: 'Port',
       resourceType: 'ResourceType',
       samplingSize: 'SamplingSize',
+      securityGroupIdList: 'SecurityGroupIdList',
       serviceRegionId: 'ServiceRegionId',
       userName: 'UserName',
+      vSwitchIdList: 'VSwitchIdList',
+      vpcId: 'VpcId',
     };
   }
 
@@ -2741,8 +2963,11 @@ export class ModifyDataLimitRequest extends $tea.Model {
       port: 'number',
       resourceType: 'number',
       samplingSize: 'number',
+      securityGroupIdList: { 'type': 'array', 'itemType': 'string' },
       serviceRegionId: 'string',
       userName: 'string',
+      vSwitchIdList: { 'type': 'array', 'itemType': 'string' },
+      vpcId: 'string',
     };
   }
 
@@ -3076,11 +3301,13 @@ export class ModifyRuleRequest extends $tea.Model {
   content?: string;
   id?: number;
   lang?: string;
+  matchType?: number;
   name?: string;
   productCode?: string;
   productId?: number;
   riskLevelId?: number;
   ruleType?: number;
+  supportForm?: number;
   warnLevel?: number;
   static names(): { [key: string]: string } {
     return {
@@ -3088,11 +3315,13 @@ export class ModifyRuleRequest extends $tea.Model {
       content: 'Content',
       id: 'Id',
       lang: 'Lang',
+      matchType: 'MatchType',
       name: 'Name',
       productCode: 'ProductCode',
       productId: 'ProductId',
       riskLevelId: 'RiskLevelId',
       ruleType: 'RuleType',
+      supportForm: 'SupportForm',
       warnLevel: 'WarnLevel',
     };
   }
@@ -3103,11 +3332,13 @@ export class ModifyRuleRequest extends $tea.Model {
       content: 'string',
       id: 'number',
       lang: 'string',
+      matchType: 'number',
       name: 'string',
       productCode: 'string',
       productId: 'number',
       riskLevelId: 'number',
       ruleType: 'number',
+      supportForm: 'number',
       warnLevel: 'number',
     };
   }
@@ -3339,12 +3570,35 @@ export class DescribeCategoryTemplateRuleListResponseBodyItems extends $tea.Mode
   }
 }
 
+export class DescribeColumnsResponseBodyItemsModelTags extends $tea.Model {
+  id?: number;
+  name?: string;
+  static names(): { [key: string]: string } {
+    return {
+      id: 'Id',
+      name: 'Name',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      id: 'number',
+      name: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
 export class DescribeColumnsResponseBodyItems extends $tea.Model {
   creationTime?: number;
   dataType?: string;
   id?: string;
   instanceId?: number;
   instanceName?: string;
+  modelTags?: DescribeColumnsResponseBodyItemsModelTags[];
   name?: string;
   odpsRiskLevelName?: string;
   odpsRiskLevelValue?: number;
@@ -3366,6 +3620,7 @@ export class DescribeColumnsResponseBodyItems extends $tea.Model {
       id: 'Id',
       instanceId: 'InstanceId',
       instanceName: 'InstanceName',
+      modelTags: 'ModelTags',
       name: 'Name',
       odpsRiskLevelName: 'OdpsRiskLevelName',
       odpsRiskLevelValue: 'OdpsRiskLevelValue',
@@ -3390,6 +3645,7 @@ export class DescribeColumnsResponseBodyItems extends $tea.Model {
       id: 'string',
       instanceId: 'number',
       instanceName: 'string',
+      modelTags: { 'type': 'array', 'itemType': DescribeColumnsResponseBodyItemsModelTags },
       name: 'string',
       odpsRiskLevelName: 'string',
       odpsRiskLevelValue: 'number',
@@ -3721,6 +3977,7 @@ export class DescribeDataLimitsResponseBodyItems extends $tea.Model {
   resourceType?: number;
   resourceTypeCode?: string;
   samplingSize?: number;
+  securityGroupIdList?: string[];
   supportAudit?: boolean;
   supportDatamask?: boolean;
   supportEvent?: boolean;
@@ -3729,6 +3986,8 @@ export class DescribeDataLimitsResponseBodyItems extends $tea.Model {
   tenantName?: string;
   totalCount?: number;
   userName?: string;
+  vSwitchIdList?: string[];
+  vpcId?: string;
   static names(): { [key: string]: string } {
     return {
       auditStatus: 'AuditStatus',
@@ -3759,6 +4018,7 @@ export class DescribeDataLimitsResponseBodyItems extends $tea.Model {
       resourceType: 'ResourceType',
       resourceTypeCode: 'ResourceTypeCode',
       samplingSize: 'SamplingSize',
+      securityGroupIdList: 'SecurityGroupIdList',
       supportAudit: 'SupportAudit',
       supportDatamask: 'SupportDatamask',
       supportEvent: 'SupportEvent',
@@ -3767,6 +4027,8 @@ export class DescribeDataLimitsResponseBodyItems extends $tea.Model {
       tenantName: 'TenantName',
       totalCount: 'TotalCount',
       userName: 'UserName',
+      vSwitchIdList: 'VSwitchIdList',
+      vpcId: 'VpcId',
     };
   }
 
@@ -3800,6 +4062,7 @@ export class DescribeDataLimitsResponseBodyItems extends $tea.Model {
       resourceType: 'number',
       resourceTypeCode: 'string',
       samplingSize: 'number',
+      securityGroupIdList: { 'type': 'array', 'itemType': 'string' },
       supportAudit: 'boolean',
       supportDatamask: 'boolean',
       supportEvent: 'boolean',
@@ -3808,6 +4071,8 @@ export class DescribeDataLimitsResponseBodyItems extends $tea.Model {
       tenantName: 'string',
       totalCount: 'number',
       userName: 'string',
+      vSwitchIdList: { 'type': 'array', 'itemType': 'string' },
+      vpcId: 'string',
     };
   }
 
@@ -3945,6 +4210,191 @@ export class DescribeDataMaskingTasksResponseBodyItems extends $tea.Model {
       taskId: 'string',
       taskName: 'string',
       triggerType: 'number',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class DescribeDataObjectColumnDetailResponseBodyItemsModelTags extends $tea.Model {
+  id?: number;
+  name?: string;
+  static names(): { [key: string]: string } {
+    return {
+      id: 'Id',
+      name: 'Name',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      id: 'number',
+      name: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class DescribeDataObjectColumnDetailResponseBodyItems extends $tea.Model {
+  categories?: string[];
+  columnComment?: string;
+  columnName?: string;
+  dataType?: string;
+  id?: string;
+  modelTags?: DescribeDataObjectColumnDetailResponseBodyItemsModelTags[];
+  primaryKey?: boolean;
+  riskLevelId?: number;
+  riskLevelName?: string;
+  ruleId?: number;
+  ruleName?: string;
+  static names(): { [key: string]: string } {
+    return {
+      categories: 'Categories',
+      columnComment: 'ColumnComment',
+      columnName: 'ColumnName',
+      dataType: 'DataType',
+      id: 'Id',
+      modelTags: 'ModelTags',
+      primaryKey: 'PrimaryKey',
+      riskLevelId: 'RiskLevelId',
+      riskLevelName: 'RiskLevelName',
+      ruleId: 'RuleId',
+      ruleName: 'RuleName',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      categories: { 'type': 'array', 'itemType': 'string' },
+      columnComment: 'string',
+      columnName: 'string',
+      dataType: 'string',
+      id: 'string',
+      modelTags: { 'type': 'array', 'itemType': DescribeDataObjectColumnDetailResponseBodyItemsModelTags },
+      primaryKey: 'boolean',
+      riskLevelId: 'number',
+      riskLevelName: 'string',
+      ruleId: 'number',
+      ruleName: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class DescribeDataObjectsResponseBodyItemsModelTags extends $tea.Model {
+  id?: number;
+  name?: string;
+  static names(): { [key: string]: string } {
+    return {
+      id: 'Id',
+      name: 'Name',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      id: 'number',
+      name: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class DescribeDataObjectsResponseBodyItemsRuleList extends $tea.Model {
+  riskLevelId?: number;
+  riskLevelName?: string;
+  ruleCount?: number;
+  ruleId?: number;
+  ruleName?: string;
+  static names(): { [key: string]: string } {
+    return {
+      riskLevelId: 'RiskLevelId',
+      riskLevelName: 'RiskLevelName',
+      ruleCount: 'RuleCount',
+      ruleId: 'RuleId',
+      ruleName: 'RuleName',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      riskLevelId: 'number',
+      riskLevelName: 'string',
+      ruleCount: 'number',
+      ruleId: 'number',
+      ruleName: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class DescribeDataObjectsResponseBodyItems extends $tea.Model {
+  categories?: string[];
+  id?: string;
+  instanceDescription?: string;
+  instanceId?: string;
+  lastScanTime?: number;
+  modelTags?: DescribeDataObjectsResponseBodyItemsModelTags[];
+  name?: string;
+  objectType?: string;
+  path?: string;
+  productCode?: string;
+  productId?: number;
+  regionName?: string;
+  ruleList?: DescribeDataObjectsResponseBodyItemsRuleList[];
+  sensitiveCount?: number;
+  templateId?: number;
+  static names(): { [key: string]: string } {
+    return {
+      categories: 'Categories',
+      id: 'Id',
+      instanceDescription: 'InstanceDescription',
+      instanceId: 'InstanceId',
+      lastScanTime: 'LastScanTime',
+      modelTags: 'ModelTags',
+      name: 'Name',
+      objectType: 'ObjectType',
+      path: 'Path',
+      productCode: 'ProductCode',
+      productId: 'ProductId',
+      regionName: 'RegionName',
+      ruleList: 'RuleList',
+      sensitiveCount: 'SensitiveCount',
+      templateId: 'TemplateId',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      categories: { 'type': 'array', 'itemType': 'string' },
+      id: 'string',
+      instanceDescription: 'string',
+      instanceId: 'string',
+      lastScanTime: 'number',
+      modelTags: { 'type': 'array', 'itemType': DescribeDataObjectsResponseBodyItemsModelTags },
+      name: 'string',
+      objectType: 'string',
+      path: 'string',
+      productCode: 'string',
+      productId: 'number',
+      regionName: 'string',
+      ruleList: { 'type': 'array', 'itemType': DescribeDataObjectsResponseBodyItemsRuleList },
+      sensitiveCount: 'number',
+      templateId: 'number',
     };
   }
 
@@ -4447,6 +4897,28 @@ export class DescribeInstanceSourcesResponseBodyItems extends $tea.Model {
   }
 }
 
+export class DescribeInstancesResponseBodyItemsModelTags extends $tea.Model {
+  id?: number;
+  name?: string;
+  static names(): { [key: string]: string } {
+    return {
+      id: 'Id',
+      name: 'Name',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      id: 'number',
+      name: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
 export class DescribeInstancesResponseBodyItems extends $tea.Model {
   creationTime?: number;
   departName?: string;
@@ -4454,6 +4926,7 @@ export class DescribeInstancesResponseBodyItems extends $tea.Model {
   instanceDescription?: string;
   labelsec?: boolean;
   lastFinishTime?: number;
+  modelTags?: DescribeInstancesResponseBodyItemsModelTags[];
   name?: string;
   odpsRiskLevelName?: string;
   owner?: string;
@@ -4475,6 +4948,7 @@ export class DescribeInstancesResponseBodyItems extends $tea.Model {
       instanceDescription: 'InstanceDescription',
       labelsec: 'Labelsec',
       lastFinishTime: 'LastFinishTime',
+      modelTags: 'ModelTags',
       name: 'Name',
       odpsRiskLevelName: 'OdpsRiskLevelName',
       owner: 'Owner',
@@ -4499,6 +4973,7 @@ export class DescribeInstancesResponseBodyItems extends $tea.Model {
       instanceDescription: 'string',
       labelsec: 'boolean',
       lastFinishTime: 'number',
+      modelTags: { 'type': 'array', 'itemType': DescribeInstancesResponseBodyItemsModelTags },
       name: 'string',
       odpsRiskLevelName: 'string',
       owner: 'string',
@@ -4520,9 +4995,32 @@ export class DescribeInstancesResponseBodyItems extends $tea.Model {
   }
 }
 
+export class DescribeOssObjectDetailResponseBodyOssObjectDetailRuleListModelTags extends $tea.Model {
+  id?: number;
+  name?: string;
+  static names(): { [key: string]: string } {
+    return {
+      id: 'Id',
+      name: 'Name',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      id: 'number',
+      name: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
 export class DescribeOssObjectDetailResponseBodyOssObjectDetailRuleList extends $tea.Model {
   categoryName?: string;
   count?: number;
+  modelTags?: DescribeOssObjectDetailResponseBodyOssObjectDetailRuleListModelTags[];
   riskLevelId?: number;
   riskLevelName?: string;
   ruleName?: string;
@@ -4530,6 +5028,7 @@ export class DescribeOssObjectDetailResponseBodyOssObjectDetailRuleList extends 
     return {
       categoryName: 'CategoryName',
       count: 'Count',
+      modelTags: 'ModelTags',
       riskLevelId: 'RiskLevelId',
       riskLevelName: 'RiskLevelName',
       ruleName: 'RuleName',
@@ -4540,6 +5039,7 @@ export class DescribeOssObjectDetailResponseBodyOssObjectDetailRuleList extends 
     return {
       categoryName: 'string',
       count: 'number',
+      modelTags: { 'type': 'array', 'itemType': DescribeOssObjectDetailResponseBodyOssObjectDetailRuleListModelTags },
       riskLevelId: 'number',
       riskLevelName: 'string',
       ruleName: 'string',
@@ -4757,6 +5257,7 @@ export class DescribeRulesResponseBodyItems extends $tea.Model {
   id?: number;
   loginName?: string;
   majorKey?: string;
+  matchType?: number;
   name?: string;
   productCode?: string;
   productId?: number;
@@ -4764,6 +5265,7 @@ export class DescribeRulesResponseBodyItems extends $tea.Model {
   riskLevelName?: string;
   statExpress?: string;
   status?: number;
+  supportForm?: number;
   target?: string;
   userId?: number;
   warnLevel?: number;
@@ -4783,6 +5285,7 @@ export class DescribeRulesResponseBodyItems extends $tea.Model {
       id: 'Id',
       loginName: 'LoginName',
       majorKey: 'MajorKey',
+      matchType: 'MatchType',
       name: 'Name',
       productCode: 'ProductCode',
       productId: 'ProductId',
@@ -4790,6 +5293,7 @@ export class DescribeRulesResponseBodyItems extends $tea.Model {
       riskLevelName: 'RiskLevelName',
       statExpress: 'StatExpress',
       status: 'Status',
+      supportForm: 'SupportForm',
       target: 'Target',
       userId: 'UserId',
       warnLevel: 'WarnLevel',
@@ -4812,6 +5316,7 @@ export class DescribeRulesResponseBodyItems extends $tea.Model {
       id: 'number',
       loginName: 'string',
       majorKey: 'string',
+      matchType: 'number',
       name: 'string',
       productCode: 'string',
       productId: 'number',
@@ -4819,6 +5324,7 @@ export class DescribeRulesResponseBodyItems extends $tea.Model {
       riskLevelName: 'string',
       statExpress: 'string',
       status: 'number',
+      supportForm: 'number',
       target: 'string',
       userId: 'number',
       warnLevel: 'number',
@@ -4924,13 +5430,19 @@ export class DescribeTablesResponseBodyItems extends $tea.Model {
 
 export class DescribeUserStatusResponseBodyUserStatus extends $tea.Model {
   accessKeyId?: string;
+  auditClosable?: boolean;
+  auditReleasable?: boolean;
   authed?: boolean;
   chargeType?: string;
   dataManagerRole?: number;
   instanceId?: string;
   instanceNum?: number;
+  instanceTotalCount?: number;
   labStatus?: number;
+  ossTotalSize?: number;
   purchased?: boolean;
+  releaseDays?: number;
+  releaseTime?: number;
   remainDays?: number;
   trail?: boolean;
   useInstanceNum?: number;
@@ -4938,13 +5450,19 @@ export class DescribeUserStatusResponseBodyUserStatus extends $tea.Model {
   static names(): { [key: string]: string } {
     return {
       accessKeyId: 'AccessKeyId',
+      auditClosable: 'AuditClosable',
+      auditReleasable: 'AuditReleasable',
       authed: 'Authed',
       chargeType: 'ChargeType',
       dataManagerRole: 'DataManagerRole',
       instanceId: 'InstanceId',
       instanceNum: 'InstanceNum',
+      instanceTotalCount: 'InstanceTotalCount',
       labStatus: 'LabStatus',
+      ossTotalSize: 'OssTotalSize',
       purchased: 'Purchased',
+      releaseDays: 'ReleaseDays',
+      releaseTime: 'ReleaseTime',
       remainDays: 'RemainDays',
       trail: 'Trail',
       useInstanceNum: 'UseInstanceNum',
@@ -4955,13 +5473,19 @@ export class DescribeUserStatusResponseBodyUserStatus extends $tea.Model {
   static types(): { [key: string]: any } {
     return {
       accessKeyId: 'string',
+      auditClosable: 'boolean',
+      auditReleasable: 'boolean',
       authed: 'boolean',
       chargeType: 'string',
       dataManagerRole: 'number',
       instanceId: 'string',
       instanceNum: 'number',
+      instanceTotalCount: 'number',
       labStatus: 'number',
+      ossTotalSize: 'number',
       purchased: 'boolean',
+      releaseDays: 'number',
+      releaseTime: 'number',
       remainDays: 'number',
       trail: 'boolean',
       useInstanceNum: 'number',
@@ -5000,6 +5524,15 @@ export default class Client extends OpenApi {
     return EndpointUtil.getEndpointRules(productId, regionId, endpointRule, network, suffix);
   }
 
+  /**
+    * You can call this operation to create or restore configurations based on the codes of common configuration items. This allows you to manage the configurations of common configuration items.
+    * # Limits
+    * You can call this operation up to 10 times per second per account. If the number of the calls per second exceeds the limit, throttling is triggered. As a result, your business may be affected. We recommend that you take note of the limit when you call this operation.
+    *
+    * @param request CreateConfigRequest
+    * @param runtime runtime options for this request RuntimeOptions
+    * @return CreateConfigResponse
+   */
   async createConfigWithOptions(request: CreateConfigRequest, runtime: $Util.RuntimeOptions): Promise<CreateConfigResponse> {
     Util.validateModel(request);
     let query = { };
@@ -5036,11 +5569,28 @@ export default class Client extends OpenApi {
     return $tea.cast<CreateConfigResponse>(await this.callApi(params, req, runtime), new CreateConfigResponse({}));
   }
 
+  /**
+    * You can call this operation to create or restore configurations based on the codes of common configuration items. This allows you to manage the configurations of common configuration items.
+    * # Limits
+    * You can call this operation up to 10 times per second per account. If the number of the calls per second exceeds the limit, throttling is triggered. As a result, your business may be affected. We recommend that you take note of the limit when you call this operation.
+    *
+    * @param request CreateConfigRequest
+    * @return CreateConfigResponse
+   */
   async createConfig(request: CreateConfigRequest): Promise<CreateConfigResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.createConfigWithOptions(request, runtime);
   }
 
+  /**
+    * You can call this operation to authorize DSC to scan data assets to ensure the security of the data assets.
+    * # Limits
+    * You can call this operation up to 10 times per second per account. If the number of the calls per second exceeds the limit, throttling is triggered. As a result, your business may be affected. We recommend that you take note of the limit when you call this operation.
+    *
+    * @param request CreateDataLimitRequest
+    * @param runtime runtime options for this request RuntimeOptions
+    * @return CreateDataLimitResponse
+   */
   async createDataLimitWithOptions(request: CreateDataLimitRequest, runtime: $Util.RuntimeOptions): Promise<CreateDataLimitResponse> {
     Util.validateModel(request);
     let query = { };
@@ -5050,6 +5600,10 @@ export default class Client extends OpenApi {
 
     if (!Util.isUnset(request.autoScan)) {
       query["AutoScan"] = request.autoScan;
+    }
+
+    if (!Util.isUnset(request.certificatePermission)) {
+      query["CertificatePermission"] = request.certificatePermission;
     }
 
     if (!Util.isUnset(request.enable)) {
@@ -5121,6 +5675,14 @@ export default class Client extends OpenApi {
     return $tea.cast<CreateDataLimitResponse>(await this.callApi(params, req, runtime), new CreateDataLimitResponse({}));
   }
 
+  /**
+    * You can call this operation to authorize DSC to scan data assets to ensure the security of the data assets.
+    * # Limits
+    * You can call this operation up to 10 times per second per account. If the number of the calls per second exceeds the limit, throttling is triggered. As a result, your business may be affected. We recommend that you take note of the limit when you call this operation.
+    *
+    * @param request CreateDataLimitRequest
+    * @return CreateDataLimitResponse
+   */
   async createDataLimit(request: CreateDataLimitRequest): Promise<CreateDataLimitResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.createDataLimitWithOptions(request, runtime);
@@ -5149,6 +5711,10 @@ export default class Client extends OpenApi {
       query["Lang"] = request.lang;
     }
 
+    if (!Util.isUnset(request.matchType)) {
+      query["MatchType"] = request.matchType;
+    }
+
     if (!Util.isUnset(request.name)) {
       query["Name"] = request.name;
     }
@@ -5175,6 +5741,10 @@ export default class Client extends OpenApi {
 
     if (!Util.isUnset(request.status)) {
       query["Status"] = request.status;
+    }
+
+    if (!Util.isUnset(request.supportForm)) {
+      query["SupportForm"] = request.supportForm;
     }
 
     if (!Util.isUnset(request.target)) {
@@ -5207,6 +5777,15 @@ export default class Client extends OpenApi {
     return await this.createRuleWithOptions(request, runtime);
   }
 
+  /**
+    * You can call this operation to create a custom scan task for authorized data assets. You can customize the interval between two consecutive scan tasks and the time when the scan task is executed next time.
+    * # Limits
+    * You can call this operation up to 10 times per second per account. If the number of the calls per second exceeds the limit, throttling is triggered. As a result, your business may be affected. We recommend that you take note of the limit when you call this operation.
+    *
+    * @param request CreateScanTaskRequest
+    * @param runtime runtime options for this request RuntimeOptions
+    * @return CreateScanTaskResponse
+   */
   async createScanTaskWithOptions(request: CreateScanTaskRequest, runtime: $Util.RuntimeOptions): Promise<CreateScanTaskResponse> {
     Util.validateModel(request);
     let query = { };
@@ -5271,11 +5850,28 @@ export default class Client extends OpenApi {
     return $tea.cast<CreateScanTaskResponse>(await this.callApi(params, req, runtime), new CreateScanTaskResponse({}));
   }
 
+  /**
+    * You can call this operation to create a custom scan task for authorized data assets. You can customize the interval between two consecutive scan tasks and the time when the scan task is executed next time.
+    * # Limits
+    * You can call this operation up to 10 times per second per account. If the number of the calls per second exceeds the limit, throttling is triggered. As a result, your business may be affected. We recommend that you take note of the limit when you call this operation.
+    *
+    * @param request CreateScanTaskRequest
+    * @return CreateScanTaskResponse
+   */
   async createScanTask(request: CreateScanTaskRequest): Promise<CreateScanTaskResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.createScanTaskWithOptions(request, runtime);
   }
 
+  /**
+    * You can call this operation to allow DSC to access the data assets in services such as Object Storage Service (OSS), ApsaraDB RDS, and MaxCompute. After you call this operation, the system automatically creates a service-linked role named AliyunServiceRoleForSDDP and attaches the AliyunServiceRolePolicyForSDDP policy to the role.
+    * # Limits
+    * You can call this operation up to 10 times per second per account. If the number of the calls per second exceeds the limit, throttling is triggered. As a result, your business may be affected. We recommend that you take note of the limit when you call this operation.
+    *
+    * @param request CreateSlrRoleRequest
+    * @param runtime runtime options for this request RuntimeOptions
+    * @return CreateSlrRoleResponse
+   */
   async createSlrRoleWithOptions(request: CreateSlrRoleRequest, runtime: $Util.RuntimeOptions): Promise<CreateSlrRoleResponse> {
     Util.validateModel(request);
     let query = { };
@@ -5300,11 +5896,28 @@ export default class Client extends OpenApi {
     return $tea.cast<CreateSlrRoleResponse>(await this.callApi(params, req, runtime), new CreateSlrRoleResponse({}));
   }
 
+  /**
+    * You can call this operation to allow DSC to access the data assets in services such as Object Storage Service (OSS), ApsaraDB RDS, and MaxCompute. After you call this operation, the system automatically creates a service-linked role named AliyunServiceRoleForSDDP and attaches the AliyunServiceRolePolicyForSDDP policy to the role.
+    * # Limits
+    * You can call this operation up to 10 times per second per account. If the number of the calls per second exceeds the limit, throttling is triggered. As a result, your business may be affected. We recommend that you take note of the limit when you call this operation.
+    *
+    * @param request CreateSlrRoleRequest
+    * @return CreateSlrRoleResponse
+   */
   async createSlrRole(request: CreateSlrRoleRequest): Promise<CreateSlrRoleResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.createSlrRoleWithOptions(request, runtime);
   }
 
+  /**
+    * You can call this operation to revoke the permissions on a data asset from Data Security Center (DSC).
+    * # Limits
+    * You can call this operation up to 10 times per second per account. If the number of the calls per second exceeds the limit, throttling is triggered. As a result, your business may be affected. We recommend that you take note of the limit when you call this operation.
+    *
+    * @param request DeleteDataLimitRequest
+    * @param runtime runtime options for this request RuntimeOptions
+    * @return DeleteDataLimitResponse
+   */
   async deleteDataLimitWithOptions(request: DeleteDataLimitRequest, runtime: $Util.RuntimeOptions): Promise<DeleteDataLimitResponse> {
     Util.validateModel(request);
     let query = { };
@@ -5333,6 +5946,14 @@ export default class Client extends OpenApi {
     return $tea.cast<DeleteDataLimitResponse>(await this.callApi(params, req, runtime), new DeleteDataLimitResponse({}));
   }
 
+  /**
+    * You can call this operation to revoke the permissions on a data asset from Data Security Center (DSC).
+    * # Limits
+    * You can call this operation up to 10 times per second per account. If the number of the calls per second exceeds the limit, throttling is triggered. As a result, your business may be affected. We recommend that you take note of the limit when you call this operation.
+    *
+    * @param request DeleteDataLimitRequest
+    * @return DeleteDataLimitResponse
+   */
   async deleteDataLimit(request: DeleteDataLimitRequest): Promise<DeleteDataLimitResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.deleteDataLimitWithOptions(request, runtime);
@@ -5371,6 +5992,15 @@ export default class Client extends OpenApi {
     return await this.deleteRuleWithOptions(request, runtime);
   }
 
+  /**
+    * You can call this operation to query rules in a classification template.
+    * # Limits
+    * You can call this operation up to 10 times per second per account. If the number of the calls per second exceeds the limit, throttling is triggered. As a result, your business may be affected. We recommend that you take note of the limit when you call this operation.
+    *
+    * @param request DescribeCategoryTemplateRuleListRequest
+    * @param runtime runtime options for this request RuntimeOptions
+    * @return DescribeCategoryTemplateRuleListResponse
+   */
   async describeCategoryTemplateRuleListWithOptions(request: DescribeCategoryTemplateRuleListRequest, runtime: $Util.RuntimeOptions): Promise<DescribeCategoryTemplateRuleListResponse> {
     Util.validateModel(request);
     let query = { };
@@ -5411,11 +6041,28 @@ export default class Client extends OpenApi {
     return $tea.cast<DescribeCategoryTemplateRuleListResponse>(await this.callApi(params, req, runtime), new DescribeCategoryTemplateRuleListResponse({}));
   }
 
+  /**
+    * You can call this operation to query rules in a classification template.
+    * # Limits
+    * You can call this operation up to 10 times per second per account. If the number of the calls per second exceeds the limit, throttling is triggered. As a result, your business may be affected. We recommend that you take note of the limit when you call this operation.
+    *
+    * @param request DescribeCategoryTemplateRuleListRequest
+    * @return DescribeCategoryTemplateRuleListResponse
+   */
   async describeCategoryTemplateRuleList(request: DescribeCategoryTemplateRuleListRequest): Promise<DescribeCategoryTemplateRuleListResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.describeCategoryTemplateRuleListWithOptions(request, runtime);
   }
 
+  /**
+    * You can call this operation to query the data in columns of a table that may contain sensitive data. This helps you analyze sensitive data.
+    * # Limits
+    * You can call this operation up to 10 times per second per account. If the number of the calls per second exceeds the limit, throttling is triggered. As a result, your business may be affected. We recommend that you take note of the limit when you call this operation.
+    *
+    * @param request DescribeColumnsRequest
+    * @param runtime runtime options for this request RuntimeOptions
+    * @return DescribeColumnsResponse
+   */
   async describeColumnsWithOptions(request: DescribeColumnsRequest, runtime: $Util.RuntimeOptions): Promise<DescribeColumnsResponse> {
     Util.validateModel(request);
     let query = { };
@@ -5488,6 +6135,14 @@ export default class Client extends OpenApi {
     return $tea.cast<DescribeColumnsResponse>(await this.callApi(params, req, runtime), new DescribeColumnsResponse({}));
   }
 
+  /**
+    * You can call this operation to query the data in columns of a table that may contain sensitive data. This helps you analyze sensitive data.
+    * # Limits
+    * You can call this operation up to 10 times per second per account. If the number of the calls per second exceeds the limit, throttling is triggered. As a result, your business may be affected. We recommend that you take note of the limit when you call this operation.
+    *
+    * @param request DescribeColumnsRequest
+    * @return DescribeColumnsResponse
+   */
   async describeColumns(request: DescribeColumnsRequest): Promise<DescribeColumnsResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.describeColumnsWithOptions(request, runtime);
@@ -5612,6 +6267,15 @@ export default class Client extends OpenApi {
     return await this.describeDataLimitDetailWithOptions(request, runtime);
   }
 
+  /**
+    * You can call this operation to query the data assets that are authorized to be scanned. This facilitates resource search and aggregation.
+    * # Limits
+    * You can call this operation up to 10 times per second per account. If the number of the calls per second exceeds the limit, throttling is triggered. As a result, your business may be affected. We recommend that you take note of the limit when you call this operation.
+    *
+    * @param request DescribeDataLimitSetRequest
+    * @param runtime runtime options for this request RuntimeOptions
+    * @return DescribeDataLimitSetResponse
+   */
   async describeDataLimitSetWithOptions(request: DescribeDataLimitSetRequest, runtime: $Util.RuntimeOptions): Promise<DescribeDataLimitSetResponse> {
     Util.validateModel(request);
     let query = { };
@@ -5644,6 +6308,14 @@ export default class Client extends OpenApi {
     return $tea.cast<DescribeDataLimitSetResponse>(await this.callApi(params, req, runtime), new DescribeDataLimitSetResponse({}));
   }
 
+  /**
+    * You can call this operation to query the data assets that are authorized to be scanned. This facilitates resource search and aggregation.
+    * # Limits
+    * You can call this operation up to 10 times per second per account. If the number of the calls per second exceeds the limit, throttling is triggered. As a result, your business may be affected. We recommend that you take note of the limit when you call this operation.
+    *
+    * @param request DescribeDataLimitSetRequest
+    * @return DescribeDataLimitSetResponse
+   */
   async describeDataLimitSet(request: DescribeDataLimitSetRequest): Promise<DescribeDataLimitSetResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.describeDataLimitSetWithOptions(request, runtime);
@@ -5726,6 +6398,15 @@ export default class Client extends OpenApi {
     return await this.describeDataLimitsWithOptions(request, runtime);
   }
 
+  /**
+    * You can call this operation to query the execution information of a static de-identification task, including the status and progress.
+    * # Limits
+    * You can call this operation up to 10 times per second per account. If the number of the calls per second exceeds the limit, throttling is triggered. As a result, your business may be affected. We recommend that you take note of the limit when you call this operation.
+    *
+    * @param request DescribeDataMaskingRunHistoryRequest
+    * @param runtime runtime options for this request RuntimeOptions
+    * @return DescribeDataMaskingRunHistoryResponse
+   */
   async describeDataMaskingRunHistoryWithOptions(request: DescribeDataMaskingRunHistoryRequest, runtime: $Util.RuntimeOptions): Promise<DescribeDataMaskingRunHistoryResponse> {
     Util.validateModel(request);
     let query = { };
@@ -5790,11 +6471,28 @@ export default class Client extends OpenApi {
     return $tea.cast<DescribeDataMaskingRunHistoryResponse>(await this.callApi(params, req, runtime), new DescribeDataMaskingRunHistoryResponse({}));
   }
 
+  /**
+    * You can call this operation to query the execution information of a static de-identification task, including the status and progress.
+    * # Limits
+    * You can call this operation up to 10 times per second per account. If the number of the calls per second exceeds the limit, throttling is triggered. As a result, your business may be affected. We recommend that you take note of the limit when you call this operation.
+    *
+    * @param request DescribeDataMaskingRunHistoryRequest
+    * @return DescribeDataMaskingRunHistoryResponse
+   */
   async describeDataMaskingRunHistory(request: DescribeDataMaskingRunHistoryRequest): Promise<DescribeDataMaskingRunHistoryResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.describeDataMaskingRunHistoryWithOptions(request, runtime);
   }
 
+  /**
+    * You can call this operation to query static de-identification tasks. This facilitates task queries and management.
+    * # Limits
+    * You can call this operation up to 10 times per second per account. If the number of the calls per second exceeds the limit, throttling is triggered. As a result, your business may be affected. We recommend that you take note of the limit when you call this operation.
+    *
+    * @param request DescribeDataMaskingTasksRequest
+    * @param runtime runtime options for this request RuntimeOptions
+    * @return DescribeDataMaskingTasksResponse
+   */
   async describeDataMaskingTasksWithOptions(request: DescribeDataMaskingTasksRequest, runtime: $Util.RuntimeOptions): Promise<DescribeDataMaskingTasksResponse> {
     Util.validateModel(request);
     let query = { };
@@ -5843,9 +6541,135 @@ export default class Client extends OpenApi {
     return $tea.cast<DescribeDataMaskingTasksResponse>(await this.callApi(params, req, runtime), new DescribeDataMaskingTasksResponse({}));
   }
 
+  /**
+    * You can call this operation to query static de-identification tasks. This facilitates task queries and management.
+    * # Limits
+    * You can call this operation up to 10 times per second per account. If the number of the calls per second exceeds the limit, throttling is triggered. As a result, your business may be affected. We recommend that you take note of the limit when you call this operation.
+    *
+    * @param request DescribeDataMaskingTasksRequest
+    * @return DescribeDataMaskingTasksResponse
+   */
   async describeDataMaskingTasks(request: DescribeDataMaskingTasksRequest): Promise<DescribeDataMaskingTasksResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.describeDataMaskingTasksWithOptions(request, runtime);
+  }
+
+  async describeDataObjectColumnDetailWithOptions(request: DescribeDataObjectColumnDetailRequest, runtime: $Util.RuntimeOptions): Promise<DescribeDataObjectColumnDetailResponse> {
+    Util.validateModel(request);
+    let query = { };
+    if (!Util.isUnset(request.currentPage)) {
+      query["CurrentPage"] = request.currentPage;
+    }
+
+    if (!Util.isUnset(request.id)) {
+      query["Id"] = request.id;
+    }
+
+    if (!Util.isUnset(request.lang)) {
+      query["Lang"] = request.lang;
+    }
+
+    if (!Util.isUnset(request.pageSize)) {
+      query["PageSize"] = request.pageSize;
+    }
+
+    if (!Util.isUnset(request.productId)) {
+      query["ProductId"] = request.productId;
+    }
+
+    if (!Util.isUnset(request.templateId)) {
+      query["TemplateId"] = request.templateId;
+    }
+
+    let req = new $OpenApi.OpenApiRequest({
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApi.Params({
+      action: "DescribeDataObjectColumnDetail",
+      version: "2019-01-03",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $tea.cast<DescribeDataObjectColumnDetailResponse>(await this.callApi(params, req, runtime), new DescribeDataObjectColumnDetailResponse({}));
+  }
+
+  async describeDataObjectColumnDetail(request: DescribeDataObjectColumnDetailRequest): Promise<DescribeDataObjectColumnDetailResponse> {
+    let runtime = new $Util.RuntimeOptions({ });
+    return await this.describeDataObjectColumnDetailWithOptions(request, runtime);
+  }
+
+  async describeDataObjectsWithOptions(request: DescribeDataObjectsRequest, runtime: $Util.RuntimeOptions): Promise<DescribeDataObjectsResponse> {
+    Util.validateModel(request);
+    let query = { };
+    if (!Util.isUnset(request.currentPage)) {
+      query["CurrentPage"] = request.currentPage;
+    }
+
+    if (!Util.isUnset(request.domainId)) {
+      query["DomainId"] = request.domainId;
+    }
+
+    if (!Util.isUnset(request.lang)) {
+      query["Lang"] = request.lang;
+    }
+
+    if (!Util.isUnset(request.modelTagIds)) {
+      query["ModelTagIds"] = request.modelTagIds;
+    }
+
+    if (!Util.isUnset(request.pageSize)) {
+      query["PageSize"] = request.pageSize;
+    }
+
+    if (!Util.isUnset(request.parentCategoryIds)) {
+      query["ParentCategoryIds"] = request.parentCategoryIds;
+    }
+
+    if (!Util.isUnset(request.productIds)) {
+      query["ProductIds"] = request.productIds;
+    }
+
+    if (!Util.isUnset(request.queryName)) {
+      query["QueryName"] = request.queryName;
+    }
+
+    if (!Util.isUnset(request.riskLevels)) {
+      query["RiskLevels"] = request.riskLevels;
+    }
+
+    if (!Util.isUnset(request.serviceRegionId)) {
+      query["ServiceRegionId"] = request.serviceRegionId;
+    }
+
+    if (!Util.isUnset(request.templateId)) {
+      query["TemplateId"] = request.templateId;
+    }
+
+    let req = new $OpenApi.OpenApiRequest({
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApi.Params({
+      action: "DescribeDataObjects",
+      version: "2019-01-03",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $tea.cast<DescribeDataObjectsResponse>(await this.callApi(params, req, runtime), new DescribeDataObjectsResponse({}));
+  }
+
+  async describeDataObjects(request: DescribeDataObjectsRequest): Promise<DescribeDataObjectsResponse> {
+    let runtime = new $Util.RuntimeOptions({ });
+    return await this.describeDataObjectsWithOptions(request, runtime);
   }
 
   async describeEventDetailWithOptions(request: DescribeEventDetailRequest, runtime: $Util.RuntimeOptions): Promise<DescribeEventDetailResponse> {
@@ -5922,6 +6746,15 @@ export default class Client extends OpenApi {
     return await this.describeEventTypesWithOptions(request, runtime);
   }
 
+  /**
+    * You can call this operation to query anomalous events that may involve data leaks. This helps you search for and handle anomalous events.
+    * # Limits
+    * You can call this operation up to 10 times per second per account. If the number of the calls per second exceeds the limit, throttling is triggered. As a result, your business may be affected. We recommend that you take note of the limit when you call this operation.
+    *
+    * @param request DescribeEventsRequest
+    * @param runtime runtime options for this request RuntimeOptions
+    * @return DescribeEventsResponse
+   */
   async describeEventsWithOptions(request: DescribeEventsRequest, runtime: $Util.RuntimeOptions): Promise<DescribeEventsResponse> {
     Util.validateModel(request);
     let query = { };
@@ -6002,11 +6835,28 @@ export default class Client extends OpenApi {
     return $tea.cast<DescribeEventsResponse>(await this.callApi(params, req, runtime), new DescribeEventsResponse({}));
   }
 
+  /**
+    * You can call this operation to query anomalous events that may involve data leaks. This helps you search for and handle anomalous events.
+    * # Limits
+    * You can call this operation up to 10 times per second per account. If the number of the calls per second exceeds the limit, throttling is triggered. As a result, your business may be affected. We recommend that you take note of the limit when you call this operation.
+    *
+    * @param request DescribeEventsRequest
+    * @return DescribeEventsResponse
+   */
   async describeEvents(request: DescribeEventsRequest): Promise<DescribeEventsResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.describeEventsWithOptions(request, runtime);
   }
 
+  /**
+    * You can call this operation to query the data assets that DSC is not authorized to access. This helps you obtain information about the data assets.
+    * # Limits
+    * You can call this operation up to 10 times per second per account. If the number of the calls per second exceeds the limit, throttling is triggered. As a result, your business may be affected. We recommend that you take note of the limit when you call this operation.
+    *
+    * @param request DescribeInstanceSourcesRequest
+    * @param runtime runtime options for this request RuntimeOptions
+    * @return DescribeInstanceSourcesResponse
+   */
   async describeInstanceSourcesWithOptions(request: DescribeInstanceSourcesRequest, runtime: $Util.RuntimeOptions): Promise<DescribeInstanceSourcesResponse> {
     Util.validateModel(request);
     let query = { };
@@ -6075,11 +6925,28 @@ export default class Client extends OpenApi {
     return $tea.cast<DescribeInstanceSourcesResponse>(await this.callApi(params, req, runtime), new DescribeInstanceSourcesResponse({}));
   }
 
+  /**
+    * You can call this operation to query the data assets that DSC is not authorized to access. This helps you obtain information about the data assets.
+    * # Limits
+    * You can call this operation up to 10 times per second per account. If the number of the calls per second exceeds the limit, throttling is triggered. As a result, your business may be affected. We recommend that you take note of the limit when you call this operation.
+    *
+    * @param request DescribeInstanceSourcesRequest
+    * @return DescribeInstanceSourcesResponse
+   */
   async describeInstanceSources(request: DescribeInstanceSourcesRequest): Promise<DescribeInstanceSourcesResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.describeInstanceSourcesWithOptions(request, runtime);
   }
 
+  /**
+    * When you call the DescribeInstances operation, you can specify parameters such as Name and RiskLevelId to query data assets that meet filter conditions.
+    * # Limits
+    * You can call this operation up to 10 times per second per account. If the number of the calls per second exceeds the limit, throttling is triggered. As a result, your business may be affected. We recommend that you take note of the limit when you call this operation.
+    *
+    * @param request DescribeInstancesRequest
+    * @param runtime runtime options for this request RuntimeOptions
+    * @return DescribeInstancesResponse
+   */
   async describeInstancesWithOptions(request: DescribeInstancesRequest, runtime: $Util.RuntimeOptions): Promise<DescribeInstancesResponse> {
     Util.validateModel(request);
     let query = { };
@@ -6140,11 +7007,28 @@ export default class Client extends OpenApi {
     return $tea.cast<DescribeInstancesResponse>(await this.callApi(params, req, runtime), new DescribeInstancesResponse({}));
   }
 
+  /**
+    * When you call the DescribeInstances operation, you can specify parameters such as Name and RiskLevelId to query data assets that meet filter conditions.
+    * # Limits
+    * You can call this operation up to 10 times per second per account. If the number of the calls per second exceeds the limit, throttling is triggered. As a result, your business may be affected. We recommend that you take note of the limit when you call this operation.
+    *
+    * @param request DescribeInstancesRequest
+    * @return DescribeInstancesResponse
+   */
   async describeInstances(request: DescribeInstancesRequest): Promise<DescribeInstancesResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.describeInstancesWithOptions(request, runtime);
   }
 
+  /**
+    * You can call this operation to query the details of an OSS object. This helps you locate sensitive data detected in OSS.
+    * ## Limits
+    * You can call this operation up to 10 times per second per account. If the number of the calls per second exceeds the limit, throttling is triggered. As a result, your business may be affected. We recommend that you take note of the limit when you call this operation.
+    *
+    * @param request DescribeOssObjectDetailRequest
+    * @param runtime runtime options for this request RuntimeOptions
+    * @return DescribeOssObjectDetailResponse
+   */
   async describeOssObjectDetailWithOptions(request: DescribeOssObjectDetailRequest, runtime: $Util.RuntimeOptions): Promise<DescribeOssObjectDetailResponse> {
     Util.validateModel(request);
     let query = { };
@@ -6173,6 +7057,14 @@ export default class Client extends OpenApi {
     return $tea.cast<DescribeOssObjectDetailResponse>(await this.callApi(params, req, runtime), new DescribeOssObjectDetailResponse({}));
   }
 
+  /**
+    * You can call this operation to query the details of an OSS object. This helps you locate sensitive data detected in OSS.
+    * ## Limits
+    * You can call this operation up to 10 times per second per account. If the number of the calls per second exceeds the limit, throttling is triggered. As a result, your business may be affected. We recommend that you take note of the limit when you call this operation.
+    *
+    * @param request DescribeOssObjectDetailRequest
+    * @return DescribeOssObjectDetailResponse
+   */
   async describeOssObjectDetail(request: DescribeOssObjectDetailRequest): Promise<DescribeOssObjectDetailResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.describeOssObjectDetailWithOptions(request, runtime);
@@ -6221,6 +7113,10 @@ export default class Client extends OpenApi {
       query["ServiceRegionId"] = request.serviceRegionId;
     }
 
+    if (!Util.isUnset(request.templateId)) {
+      query["TemplateId"] = request.templateId;
+    }
+
     let req = new $OpenApi.OpenApiRequest({
       query: OpenApiUtil.query(query),
     });
@@ -6243,6 +7139,15 @@ export default class Client extends OpenApi {
     return await this.describeOssObjectsWithOptions(request, runtime);
   }
 
+  /**
+    * You can call this operation to query MaxCompute packages that are scanned by DSC. This helps you search for MaxCompute packages and view the summary of MaxCompute packages.
+    * # Limits
+    * You can call this operation up to 10 times per second per account. If the number of the calls per second exceeds the limit, throttling is triggered. As a result, your business may be affected. We recommend that you take note of the limit when you call this operation.
+    *
+    * @param request DescribePackagesRequest
+    * @param runtime runtime options for this request RuntimeOptions
+    * @return DescribePackagesResponse
+   */
   async describePackagesWithOptions(request: DescribePackagesRequest, runtime: $Util.RuntimeOptions): Promise<DescribePackagesResponse> {
     Util.validateModel(request);
     let query = { };
@@ -6295,16 +7200,37 @@ export default class Client extends OpenApi {
     return $tea.cast<DescribePackagesResponse>(await this.callApi(params, req, runtime), new DescribePackagesResponse({}));
   }
 
+  /**
+    * You can call this operation to query MaxCompute packages that are scanned by DSC. This helps you search for MaxCompute packages and view the summary of MaxCompute packages.
+    * # Limits
+    * You can call this operation up to 10 times per second per account. If the number of the calls per second exceeds the limit, throttling is triggered. As a result, your business may be affected. We recommend that you take note of the limit when you call this operation.
+    *
+    * @param request DescribePackagesRequest
+    * @return DescribePackagesResponse
+   */
   async describePackages(request: DescribePackagesRequest): Promise<DescribePackagesResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.describePackagesWithOptions(request, runtime);
   }
 
+  /**
+    * You can call this operation to query the sensitivity levels that are defined in the current rule template provided by DSC. This helps you learn about the number of times that each sensitivity level is referenced in the rule template and the highest sensitivity level.
+    * # Limits
+    * You can call this operation up to 10 times per second per account. If the number of the calls per second exceeds the limit, throttling is triggered. As a result, your business may be affected. We recommend that you take note of the limit when you call this operation.
+    *
+    * @param request DescribeRiskLevelsRequest
+    * @param runtime runtime options for this request RuntimeOptions
+    * @return DescribeRiskLevelsResponse
+   */
   async describeRiskLevelsWithOptions(request: DescribeRiskLevelsRequest, runtime: $Util.RuntimeOptions): Promise<DescribeRiskLevelsResponse> {
     Util.validateModel(request);
     let query = { };
     if (!Util.isUnset(request.lang)) {
       query["Lang"] = request.lang;
+    }
+
+    if (!Util.isUnset(request.templateId)) {
+      query["TemplateId"] = request.templateId;
     }
 
     let req = new $OpenApi.OpenApiRequest({
@@ -6324,6 +7250,14 @@ export default class Client extends OpenApi {
     return $tea.cast<DescribeRiskLevelsResponse>(await this.callApi(params, req, runtime), new DescribeRiskLevelsResponse({}));
   }
 
+  /**
+    * You can call this operation to query the sensitivity levels that are defined in the current rule template provided by DSC. This helps you learn about the number of times that each sensitivity level is referenced in the rule template and the highest sensitivity level.
+    * # Limits
+    * You can call this operation up to 10 times per second per account. If the number of the calls per second exceeds the limit, throttling is triggered. As a result, your business may be affected. We recommend that you take note of the limit when you call this operation.
+    *
+    * @param request DescribeRiskLevelsRequest
+    * @return DescribeRiskLevelsResponse
+   */
   async describeRiskLevels(request: DescribeRiskLevelsRequest): Promise<DescribeRiskLevelsResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.describeRiskLevelsWithOptions(request, runtime);
@@ -6358,6 +7292,10 @@ export default class Client extends OpenApi {
 
     if (!Util.isUnset(request.lang)) {
       query["Lang"] = request.lang;
+    }
+
+    if (!Util.isUnset(request.matchType)) {
+      query["MatchType"] = request.matchType;
     }
 
     if (!Util.isUnset(request.name)) {
@@ -6414,6 +7352,15 @@ export default class Client extends OpenApi {
     return await this.describeRulesWithOptions(request, runtime);
   }
 
+  /**
+    * When you call the DescribeTables operation to query tables, you can specify parameters such as Name and RiskLevelId to filter tables.
+    * # Limits
+    * You can send up to 10 requests per second to call this operation by using your Alibaba Cloud account. If you send excessive requests, throttling is implemented, and your business may be affected.
+    *
+    * @param request DescribeTablesRequest
+    * @param runtime runtime options for this request RuntimeOptions
+    * @return DescribeTablesResponse
+   */
   async describeTablesWithOptions(request: DescribeTablesRequest, runtime: $Util.RuntimeOptions): Promise<DescribeTablesResponse> {
     Util.validateModel(request);
     let query = { };
@@ -6461,6 +7408,10 @@ export default class Client extends OpenApi {
       query["ServiceRegionId"] = request.serviceRegionId;
     }
 
+    if (!Util.isUnset(request.templateId)) {
+      query["TemplateId"] = request.templateId;
+    }
+
     let req = new $OpenApi.OpenApiRequest({
       query: OpenApiUtil.query(query),
     });
@@ -6478,11 +7429,28 @@ export default class Client extends OpenApi {
     return $tea.cast<DescribeTablesResponse>(await this.callApi(params, req, runtime), new DescribeTablesResponse({}));
   }
 
+  /**
+    * When you call the DescribeTables operation to query tables, you can specify parameters such as Name and RiskLevelId to filter tables.
+    * # Limits
+    * You can send up to 10 requests per second to call this operation by using your Alibaba Cloud account. If you send excessive requests, throttling is implemented, and your business may be affected.
+    *
+    * @param request DescribeTablesRequest
+    * @return DescribeTablesResponse
+   */
   async describeTables(request: DescribeTablesRequest): Promise<DescribeTablesResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.describeTablesWithOptions(request, runtime);
   }
 
+  /**
+    * You can call this operation to query the information about the current account. This helps you get familiar with your account that accesses Data Security Center (DSC).
+    * # Limits
+    * You can call this operation up to 10 times per second per account. If the number of the calls per second exceeds the limit, throttling is triggered. As a result, your business may be affected. We recommend that you take note of the limit when you call this operation.
+    *
+    * @param request DescribeUserStatusRequest
+    * @param runtime runtime options for this request RuntimeOptions
+    * @return DescribeUserStatusResponse
+   */
   async describeUserStatusWithOptions(request: DescribeUserStatusRequest, runtime: $Util.RuntimeOptions): Promise<DescribeUserStatusResponse> {
     Util.validateModel(request);
     let query = { };
@@ -6507,11 +7475,28 @@ export default class Client extends OpenApi {
     return $tea.cast<DescribeUserStatusResponse>(await this.callApi(params, req, runtime), new DescribeUserStatusResponse({}));
   }
 
+  /**
+    * You can call this operation to query the information about the current account. This helps you get familiar with your account that accesses Data Security Center (DSC).
+    * # Limits
+    * You can call this operation up to 10 times per second per account. If the number of the calls per second exceeds the limit, throttling is triggered. As a result, your business may be affected. We recommend that you take note of the limit when you call this operation.
+    *
+    * @param request DescribeUserStatusRequest
+    * @return DescribeUserStatusResponse
+   */
   async describeUserStatus(request: DescribeUserStatusRequest): Promise<DescribeUserStatusResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.describeUserStatusWithOptions(request, runtime);
   }
 
+  /**
+    * You can call this operation to disable a configuration item based on the code of the configuration item. This helps you modify configurations at the earliest opportunity.
+    * # Limits
+    * You can call this operation up to 10 times per second per account. If the number of the calls per second exceeds the limit, throttling is triggered. As a result, your business may be affected. We recommend that you take note of the limit when you call this operation.
+    *
+    * @param request DisableUserConfigRequest
+    * @param runtime runtime options for this request RuntimeOptions
+    * @return DisableUserConfigResponse
+   */
   async disableUserConfigWithOptions(request: DisableUserConfigRequest, runtime: $Util.RuntimeOptions): Promise<DisableUserConfigResponse> {
     Util.validateModel(request);
     let query = { };
@@ -6540,6 +7525,14 @@ export default class Client extends OpenApi {
     return $tea.cast<DisableUserConfigResponse>(await this.callApi(params, req, runtime), new DisableUserConfigResponse({}));
   }
 
+  /**
+    * You can call this operation to disable a configuration item based on the code of the configuration item. This helps you modify configurations at the earliest opportunity.
+    * # Limits
+    * You can call this operation up to 10 times per second per account. If the number of the calls per second exceeds the limit, throttling is triggered. As a result, your business may be affected. We recommend that you take note of the limit when you call this operation.
+    *
+    * @param request DisableUserConfigRequest
+    * @return DisableUserConfigResponse
+   */
   async disableUserConfig(request: DisableUserConfigRequest): Promise<DisableUserConfigResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.disableUserConfigWithOptions(request, runtime);
@@ -6662,12 +7655,24 @@ export default class Client extends OpenApi {
       query["SamplingSize"] = request.samplingSize;
     }
 
+    if (!Util.isUnset(request.securityGroupIdList)) {
+      query["SecurityGroupIdList"] = request.securityGroupIdList;
+    }
+
     if (!Util.isUnset(request.serviceRegionId)) {
       query["ServiceRegionId"] = request.serviceRegionId;
     }
 
     if (!Util.isUnset(request.userName)) {
       query["UserName"] = request.userName;
+    }
+
+    if (!Util.isUnset(request.vSwitchIdList)) {
+      query["VSwitchIdList"] = request.vSwitchIdList;
+    }
+
+    if (!Util.isUnset(request.vpcId)) {
+      query["VpcId"] = request.vpcId;
     }
 
     let req = new $OpenApi.OpenApiRequest({
@@ -6692,6 +7697,15 @@ export default class Client extends OpenApi {
     return await this.modifyDataLimitWithOptions(request, runtime);
   }
 
+  /**
+    * You can call this operation to modify the sensitivity levels of data. This helps you manage the sensitivity levels.
+    * # Limits
+    * You can call this operation up to 10 times per second per account. If the number of the calls per second exceeds the limit, throttling is triggered. As a result, your business may be affected. We recommend that you take note of the limit when you call this operation.
+    *
+    * @param request ModifyDefaultLevelRequest
+    * @param runtime runtime options for this request RuntimeOptions
+    * @return ModifyDefaultLevelResponse
+   */
   async modifyDefaultLevelWithOptions(request: ModifyDefaultLevelRequest, runtime: $Util.RuntimeOptions): Promise<ModifyDefaultLevelResponse> {
     Util.validateModel(request);
     let query = { };
@@ -6724,11 +7738,28 @@ export default class Client extends OpenApi {
     return $tea.cast<ModifyDefaultLevelResponse>(await this.callApi(params, req, runtime), new ModifyDefaultLevelResponse({}));
   }
 
+  /**
+    * You can call this operation to modify the sensitivity levels of data. This helps you manage the sensitivity levels.
+    * # Limits
+    * You can call this operation up to 10 times per second per account. If the number of the calls per second exceeds the limit, throttling is triggered. As a result, your business may be affected. We recommend that you take note of the limit when you call this operation.
+    *
+    * @param request ModifyDefaultLevelRequest
+    * @return ModifyDefaultLevelResponse
+   */
   async modifyDefaultLevel(request: ModifyDefaultLevelRequest): Promise<ModifyDefaultLevelResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.modifyDefaultLevelWithOptions(request, runtime);
   }
 
+  /**
+    * You can call this operation to handle anomalous events that involve data leaks. This helps protect your data assets at the earliest opportunity.
+    * # Limits
+    * You can call this operation up to 10 times per second per account. If the number of the calls per second exceeds the limit, throttling is triggered. As a result, your business may be affected. We recommend that you take note of the limit when you call this operation.
+    *
+    * @param request ModifyEventStatusRequest
+    * @param runtime runtime options for this request RuntimeOptions
+    * @return ModifyEventStatusResponse
+   */
   async modifyEventStatusWithOptions(request: ModifyEventStatusRequest, runtime: $Util.RuntimeOptions): Promise<ModifyEventStatusResponse> {
     Util.validateModel(request);
     let query = { };
@@ -6769,6 +7800,14 @@ export default class Client extends OpenApi {
     return $tea.cast<ModifyEventStatusResponse>(await this.callApi(params, req, runtime), new ModifyEventStatusResponse({}));
   }
 
+  /**
+    * You can call this operation to handle anomalous events that involve data leaks. This helps protect your data assets at the earliest opportunity.
+    * # Limits
+    * You can call this operation up to 10 times per second per account. If the number of the calls per second exceeds the limit, throttling is triggered. As a result, your business may be affected. We recommend that you take note of the limit when you call this operation.
+    *
+    * @param request ModifyEventStatusRequest
+    * @return ModifyEventStatusResponse
+   */
   async modifyEventStatus(request: ModifyEventStatusRequest): Promise<ModifyEventStatusResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.modifyEventStatusWithOptions(request, runtime);
@@ -6807,6 +7846,15 @@ export default class Client extends OpenApi {
     return await this.modifyEventTypeStatusWithOptions(request, runtime);
   }
 
+  /**
+    * You can call this operation to enable or disable the report task. After you activate Data Security Center (DSC), the report task is enabled by default. After you disable the report task, you cannot view statistics that are newly generated in the Report Center module, on the Overview page of the Cloud Native Data Audit module, and in the Data security lab module. Existing statistics are not affected.
+    * # Limits
+    * You can call this operation up to 10 times per second per account. If the number of the calls per second exceeds the limit, throttling is triggered. As a result, your business may be affected. We recommend that you take note of the limit when you call this operation.
+    *
+    * @param request ModifyReportTaskStatusRequest
+    * @param runtime runtime options for this request RuntimeOptions
+    * @return ModifyReportTaskStatusResponse
+   */
   async modifyReportTaskStatusWithOptions(request: ModifyReportTaskStatusRequest, runtime: $Util.RuntimeOptions): Promise<ModifyReportTaskStatusResponse> {
     Util.validateModel(request);
     let query = { };
@@ -6835,11 +7883,28 @@ export default class Client extends OpenApi {
     return $tea.cast<ModifyReportTaskStatusResponse>(await this.callApi(params, req, runtime), new ModifyReportTaskStatusResponse({}));
   }
 
+  /**
+    * You can call this operation to enable or disable the report task. After you activate Data Security Center (DSC), the report task is enabled by default. After you disable the report task, you cannot view statistics that are newly generated in the Report Center module, on the Overview page of the Cloud Native Data Audit module, and in the Data security lab module. Existing statistics are not affected.
+    * # Limits
+    * You can call this operation up to 10 times per second per account. If the number of the calls per second exceeds the limit, throttling is triggered. As a result, your business may be affected. We recommend that you take note of the limit when you call this operation.
+    *
+    * @param request ModifyReportTaskStatusRequest
+    * @return ModifyReportTaskStatusResponse
+   */
   async modifyReportTaskStatus(request: ModifyReportTaskStatusRequest): Promise<ModifyReportTaskStatusResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.modifyReportTaskStatusWithOptions(request, runtime);
   }
 
+  /**
+    * When you call this operation, you must configure request parameters to specify the rule name, rule ID, and rule content.
+    * # Limits
+    * You can call this operation up to 10 times per second per account. If the number of the calls per second exceeds the limit, throttling is triggered. As a result, your business may be affected. We recommend that you take note of the limit when you call this operation.
+    *
+    * @param request ModifyRuleRequest
+    * @param runtime runtime options for this request RuntimeOptions
+    * @return ModifyRuleResponse
+   */
   async modifyRuleWithOptions(request: ModifyRuleRequest, runtime: $Util.RuntimeOptions): Promise<ModifyRuleResponse> {
     Util.validateModel(request);
     let query = { };
@@ -6857,6 +7922,10 @@ export default class Client extends OpenApi {
 
     if (!Util.isUnset(request.lang)) {
       query["Lang"] = request.lang;
+    }
+
+    if (!Util.isUnset(request.matchType)) {
+      query["MatchType"] = request.matchType;
     }
 
     if (!Util.isUnset(request.name)) {
@@ -6877,6 +7946,10 @@ export default class Client extends OpenApi {
 
     if (!Util.isUnset(request.ruleType)) {
       query["RuleType"] = request.ruleType;
+    }
+
+    if (!Util.isUnset(request.supportForm)) {
+      query["SupportForm"] = request.supportForm;
     }
 
     if (!Util.isUnset(request.warnLevel)) {
@@ -6900,6 +7973,14 @@ export default class Client extends OpenApi {
     return $tea.cast<ModifyRuleResponse>(await this.callApi(params, req, runtime), new ModifyRuleResponse({}));
   }
 
+  /**
+    * When you call this operation, you must configure request parameters to specify the rule name, rule ID, and rule content.
+    * # Limits
+    * You can call this operation up to 10 times per second per account. If the number of the calls per second exceeds the limit, throttling is triggered. As a result, your business may be affected. We recommend that you take note of the limit when you call this operation.
+    *
+    * @param request ModifyRuleRequest
+    * @return ModifyRuleResponse
+   */
   async modifyRule(request: ModifyRuleRequest): Promise<ModifyRuleResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.modifyRuleWithOptions(request, runtime);
@@ -6946,6 +8027,15 @@ export default class Client extends OpenApi {
     return await this.modifyRuleStatusWithOptions(request, runtime);
   }
 
+  /**
+    * You can call this operation to stop a de-identification task that is running. For example, you can stop a de-identification task that is used to de-identify specific data.
+    * # Limits
+    * You can call this operation up to 10 times per second per account. If the number of the calls per second exceeds the limit, throttling is triggered. As a result, your business may be affected. We recommend that you take note of the limit when you call this operation.
+    *
+    * @param request StopMaskingProcessRequest
+    * @param runtime runtime options for this request RuntimeOptions
+    * @return StopMaskingProcessResponse
+   */
   async stopMaskingProcessWithOptions(request: StopMaskingProcessRequest, runtime: $Util.RuntimeOptions): Promise<StopMaskingProcessResponse> {
     Util.validateModel(request);
     let query = { };
@@ -6974,6 +8064,14 @@ export default class Client extends OpenApi {
     return $tea.cast<StopMaskingProcessResponse>(await this.callApi(params, req, runtime), new StopMaskingProcessResponse({}));
   }
 
+  /**
+    * You can call this operation to stop a de-identification task that is running. For example, you can stop a de-identification task that is used to de-identify specific data.
+    * # Limits
+    * You can call this operation up to 10 times per second per account. If the number of the calls per second exceeds the limit, throttling is triggered. As a result, your business may be affected. We recommend that you take note of the limit when you call this operation.
+    *
+    * @param request StopMaskingProcessRequest
+    * @return StopMaskingProcessResponse
+   */
   async stopMaskingProcess(request: StopMaskingProcessRequest): Promise<StopMaskingProcessResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.stopMaskingProcessWithOptions(request, runtime);
