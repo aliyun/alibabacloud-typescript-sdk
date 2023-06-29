@@ -192,6 +192,7 @@ export class AllocateInstancePublicConnectionRequest extends $tea.Model {
   generalGroupName?: string;
   ownerAccount?: string;
   ownerId?: number;
+  PGBouncerPort?: string;
   port?: string;
   resourceOwnerAccount?: string;
   resourceOwnerId?: number;
@@ -203,6 +204,7 @@ export class AllocateInstancePublicConnectionRequest extends $tea.Model {
       generalGroupName: 'GeneralGroupName',
       ownerAccount: 'OwnerAccount',
       ownerId: 'OwnerId',
+      PGBouncerPort: 'PGBouncerPort',
       port: 'Port',
       resourceOwnerAccount: 'ResourceOwnerAccount',
       resourceOwnerId: 'ResourceOwnerId',
@@ -217,6 +219,7 @@ export class AllocateInstancePublicConnectionRequest extends $tea.Model {
       generalGroupName: 'string',
       ownerAccount: 'string',
       ownerId: 'number',
+      PGBouncerPort: 'string',
       port: 'string',
       resourceOwnerAccount: 'string',
       resourceOwnerId: 'number',
@@ -2402,6 +2405,7 @@ export class CreateDBInstanceEndpointRequest extends $tea.Model {
   nodeItems?: CreateDBInstanceEndpointRequestNodeItems[];
   port?: string;
   privateIpAddress?: string;
+  resourceGroupId?: string;
   resourceOwnerId?: number;
   vSwitchId?: string;
   vpcId?: string;
@@ -2415,6 +2419,7 @@ export class CreateDBInstanceEndpointRequest extends $tea.Model {
       nodeItems: 'NodeItems',
       port: 'Port',
       privateIpAddress: 'PrivateIpAddress',
+      resourceGroupId: 'ResourceGroupId',
       resourceOwnerId: 'ResourceOwnerId',
       vSwitchId: 'VSwitchId',
       vpcId: 'VpcId',
@@ -2431,6 +2436,7 @@ export class CreateDBInstanceEndpointRequest extends $tea.Model {
       nodeItems: { 'type': 'array', 'itemType': CreateDBInstanceEndpointRequestNodeItems },
       port: 'string',
       privateIpAddress: 'string',
+      resourceGroupId: 'string',
       resourceOwnerId: 'number',
       vSwitchId: 'string',
       vpcId: 'string',
@@ -2451,6 +2457,7 @@ export class CreateDBInstanceEndpointShrinkRequest extends $tea.Model {
   nodeItemsShrink?: string;
   port?: string;
   privateIpAddress?: string;
+  resourceGroupId?: string;
   resourceOwnerId?: number;
   vSwitchId?: string;
   vpcId?: string;
@@ -2464,6 +2471,7 @@ export class CreateDBInstanceEndpointShrinkRequest extends $tea.Model {
       nodeItemsShrink: 'NodeItems',
       port: 'Port',
       privateIpAddress: 'PrivateIpAddress',
+      resourceGroupId: 'ResourceGroupId',
       resourceOwnerId: 'ResourceOwnerId',
       vSwitchId: 'VSwitchId',
       vpcId: 'VpcId',
@@ -2480,6 +2488,7 @@ export class CreateDBInstanceEndpointShrinkRequest extends $tea.Model {
       nodeItemsShrink: 'string',
       port: 'string',
       privateIpAddress: 'string',
+      resourceGroupId: 'string',
       resourceOwnerId: 'number',
       vSwitchId: 'string',
       vpcId: 'string',
@@ -2545,6 +2554,7 @@ export class CreateDBInstanceEndpointAddressRequest extends $tea.Model {
   DBInstanceId?: string;
   ipType?: string;
   port?: string;
+  resourceGroupId?: string;
   resourceOwnerId?: number;
   static names(): { [key: string]: string } {
     return {
@@ -2554,6 +2564,7 @@ export class CreateDBInstanceEndpointAddressRequest extends $tea.Model {
       DBInstanceId: 'DBInstanceId',
       ipType: 'IpType',
       port: 'Port',
+      resourceGroupId: 'ResourceGroupId',
       resourceOwnerId: 'ResourceOwnerId',
     };
   }
@@ -2566,6 +2577,7 @@ export class CreateDBInstanceEndpointAddressRequest extends $tea.Model {
       DBInstanceId: 'string',
       ipType: 'string',
       port: 'string',
+      resourceGroupId: 'string',
       resourceOwnerId: 'number',
     };
   }
@@ -2763,6 +2775,7 @@ export class CreateDBNodesRequest extends $tea.Model {
   DBNode?: CreateDBNodesRequestDBNode[];
   ownerAccount?: string;
   ownerId?: number;
+  resourceGroupId?: string;
   resourceOwnerAccount?: string;
   resourceOwnerId?: number;
   static names(): { [key: string]: string } {
@@ -2772,6 +2785,7 @@ export class CreateDBNodesRequest extends $tea.Model {
       DBNode: 'DBNode',
       ownerAccount: 'OwnerAccount',
       ownerId: 'OwnerId',
+      resourceGroupId: 'ResourceGroupId',
       resourceOwnerAccount: 'ResourceOwnerAccount',
       resourceOwnerId: 'ResourceOwnerId',
     };
@@ -2784,6 +2798,7 @@ export class CreateDBNodesRequest extends $tea.Model {
       DBNode: { 'type': 'array', 'itemType': CreateDBNodesRequestDBNode },
       ownerAccount: 'string',
       ownerId: 'number',
+      resourceGroupId: 'string',
       resourceOwnerAccount: 'string',
       resourceOwnerId: 'number',
     };
@@ -2800,6 +2815,7 @@ export class CreateDBNodesShrinkRequest extends $tea.Model {
   DBNodeShrink?: string;
   ownerAccount?: string;
   ownerId?: number;
+  resourceGroupId?: string;
   resourceOwnerAccount?: string;
   resourceOwnerId?: number;
   static names(): { [key: string]: string } {
@@ -2809,6 +2825,7 @@ export class CreateDBNodesShrinkRequest extends $tea.Model {
       DBNodeShrink: 'DBNode',
       ownerAccount: 'OwnerAccount',
       ownerId: 'OwnerId',
+      resourceGroupId: 'ResourceGroupId',
       resourceOwnerAccount: 'ResourceOwnerAccount',
       resourceOwnerId: 'ResourceOwnerId',
     };
@@ -2821,6 +2838,7 @@ export class CreateDBNodesShrinkRequest extends $tea.Model {
       DBNodeShrink: 'string',
       ownerAccount: 'string',
       ownerId: 'number',
+      resourceGroupId: 'string',
       resourceOwnerAccount: 'string',
       resourceOwnerId: 'number',
     };
@@ -17594,6 +17612,7 @@ export class ModifyDBInstanceConnectionStringRequest extends $tea.Model {
   generalGroupName?: string;
   ownerAccount?: string;
   ownerId?: number;
+  PGBouncerPort?: string;
   port?: string;
   resourceOwnerAccount?: string;
   resourceOwnerId?: number;
@@ -17606,6 +17625,7 @@ export class ModifyDBInstanceConnectionStringRequest extends $tea.Model {
       generalGroupName: 'GeneralGroupName',
       ownerAccount: 'OwnerAccount',
       ownerId: 'OwnerId',
+      PGBouncerPort: 'PGBouncerPort',
       port: 'Port',
       resourceOwnerAccount: 'ResourceOwnerAccount',
       resourceOwnerId: 'ResourceOwnerId',
@@ -17621,6 +17641,7 @@ export class ModifyDBInstanceConnectionStringRequest extends $tea.Model {
       generalGroupName: 'string',
       ownerAccount: 'string',
       ownerId: 'number',
+      PGBouncerPort: 'string',
       port: 'string',
       resourceOwnerAccount: 'string',
       resourceOwnerId: 'number',
@@ -26008,6 +26029,7 @@ export class DescribeDBInstanceAttributeResponseBodyItemsDBInstanceAttribute ext
   maxConnections?: number;
   maxIOMBPS?: number;
   maxIOPS?: number;
+  PGBouncerEnabled?: string;
   payType?: string;
   port?: string;
   proxyType?: number;
@@ -26079,6 +26101,7 @@ export class DescribeDBInstanceAttributeResponseBodyItemsDBInstanceAttribute ext
       maxConnections: 'MaxConnections',
       maxIOMBPS: 'MaxIOMBPS',
       maxIOPS: 'MaxIOPS',
+      PGBouncerEnabled: 'PGBouncerEnabled',
       payType: 'PayType',
       port: 'Port',
       proxyType: 'ProxyType',
@@ -26153,6 +26176,7 @@ export class DescribeDBInstanceAttributeResponseBodyItemsDBInstanceAttribute ext
       maxConnections: 'number',
       maxIOMBPS: 'number',
       maxIOPS: 'number',
+      PGBouncerEnabled: 'string',
       payType: 'string',
       port: 'string',
       proxyType: 'number',
@@ -26751,6 +26775,7 @@ export class DescribeDBInstanceNetInfoResponseBodyDBInstanceNetInfosDBInstanceNe
   IPAddress?: string;
   IPType?: string;
   maxDelayTime?: string;
+  PGBouncerPort?: string;
   port?: string;
   securityIPGroups?: DescribeDBInstanceNetInfoResponseBodyDBInstanceNetInfosDBInstanceNetInfoSecurityIPGroups;
   upgradeable?: string;
@@ -26767,6 +26792,7 @@ export class DescribeDBInstanceNetInfoResponseBodyDBInstanceNetInfosDBInstanceNe
       IPAddress: 'IPAddress',
       IPType: 'IPType',
       maxDelayTime: 'MaxDelayTime',
+      PGBouncerPort: 'PGBouncerPort',
       port: 'Port',
       securityIPGroups: 'SecurityIPGroups',
       upgradeable: 'Upgradeable',
@@ -26786,6 +26812,7 @@ export class DescribeDBInstanceNetInfoResponseBodyDBInstanceNetInfosDBInstanceNe
       IPAddress: 'string',
       IPType: 'string',
       maxDelayTime: 'string',
+      PGBouncerPort: 'string',
       port: 'string',
       securityIPGroups: DescribeDBInstanceNetInfoResponseBodyDBInstanceNetInfosDBInstanceNetInfoSecurityIPGroups,
       upgradeable: 'string',
@@ -32425,6 +32452,10 @@ export default class Client extends OpenApi {
       query["OwnerId"] = request.ownerId;
     }
 
+    if (!Util.isUnset(request.PGBouncerPort)) {
+      query["PGBouncerPort"] = request.PGBouncerPort;
+    }
+
     if (!Util.isUnset(request.port)) {
       query["Port"] = request.port;
     }
@@ -34110,6 +34141,10 @@ export default class Client extends OpenApi {
       query["PrivateIpAddress"] = request.privateIpAddress;
     }
 
+    if (!Util.isUnset(request.resourceGroupId)) {
+      query["ResourceGroupId"] = request.resourceGroupId;
+    }
+
     if (!Util.isUnset(request.resourceOwnerId)) {
       query["ResourceOwnerId"] = request.resourceOwnerId;
     }
@@ -34188,6 +34223,10 @@ export default class Client extends OpenApi {
 
     if (!Util.isUnset(request.port)) {
       query["Port"] = request.port;
+    }
+
+    if (!Util.isUnset(request.resourceGroupId)) {
+      query["ResourceGroupId"] = request.resourceGroupId;
     }
 
     if (!Util.isUnset(request.resourceOwnerId)) {
@@ -34384,6 +34423,10 @@ export default class Client extends OpenApi {
 
     if (!Util.isUnset(request.ownerId)) {
       query["OwnerId"] = request.ownerId;
+    }
+
+    if (!Util.isUnset(request.resourceGroupId)) {
+      query["ResourceGroupId"] = request.resourceGroupId;
     }
 
     if (!Util.isUnset(request.resourceOwnerAccount)) {
@@ -39387,12 +39430,14 @@ export default class Client extends OpenApi {
   }
 
   /**
+    * @deprecated : DescribeDBInstancesAsCsv is deprecated, please use Rds::2014-08-15::DescribeDBInstances instead.
     * This operation is no longer available. You can call the DescribeDBInstanceAttribute operation to query information about an instance.
     *
     * @param request DescribeDBInstancesAsCsvRequest
     * @param runtime runtime options for this request RuntimeOptions
     * @return DescribeDBInstancesAsCsvResponse
    */
+  // Deprecated
   async describeDBInstancesAsCsvWithOptions(request: DescribeDBInstancesAsCsvRequest, runtime: $Util.RuntimeOptions): Promise<DescribeDBInstancesAsCsvResponse> {
     Util.validateModel(request);
     let query = { };
@@ -39446,11 +39491,13 @@ export default class Client extends OpenApi {
   }
 
   /**
+    * @deprecated : DescribeDBInstancesAsCsv is deprecated, please use Rds::2014-08-15::DescribeDBInstances instead.
     * This operation is no longer available. You can call the DescribeDBInstanceAttribute operation to query information about an instance.
     *
     * @param request DescribeDBInstancesAsCsvRequest
     * @return DescribeDBInstancesAsCsvResponse
    */
+  // Deprecated
   async describeDBInstancesAsCsv(request: DescribeDBInstancesAsCsvRequest): Promise<DescribeDBInstancesAsCsvResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.describeDBInstancesAsCsvWithOptions(request, runtime);
@@ -45425,6 +45472,10 @@ export default class Client extends OpenApi {
 
     if (!Util.isUnset(request.ownerId)) {
       query["OwnerId"] = request.ownerId;
+    }
+
+    if (!Util.isUnset(request.PGBouncerPort)) {
+      query["PGBouncerPort"] = request.PGBouncerPort;
     }
 
     if (!Util.isUnset(request.port)) {
