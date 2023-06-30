@@ -6571,6 +6571,7 @@ export class DescribeBackupPolicyResponseBody extends $tea.Model {
   backupInterval?: string;
   backupLog?: string;
   backupMethod?: string;
+  backupPriority?: number;
   backupRetentionPeriod?: number;
   category?: string;
   compressType?: string;
@@ -6587,6 +6588,7 @@ export class DescribeBackupPolicyResponseBody extends $tea.Model {
   preferredNextBackupTime?: string;
   releasedKeepPolicy?: string;
   requestId?: string;
+  supportModifyBackupPriority?: boolean;
   supportReleasedKeep?: number;
   supportVolumeShadowCopy?: number;
   static names(): { [key: string]: string } {
@@ -6597,6 +6599,7 @@ export class DescribeBackupPolicyResponseBody extends $tea.Model {
       backupInterval: 'BackupInterval',
       backupLog: 'BackupLog',
       backupMethod: 'BackupMethod',
+      backupPriority: 'BackupPriority',
       backupRetentionPeriod: 'BackupRetentionPeriod',
       category: 'Category',
       compressType: 'CompressType',
@@ -6613,6 +6616,7 @@ export class DescribeBackupPolicyResponseBody extends $tea.Model {
       preferredNextBackupTime: 'PreferredNextBackupTime',
       releasedKeepPolicy: 'ReleasedKeepPolicy',
       requestId: 'RequestId',
+      supportModifyBackupPriority: 'SupportModifyBackupPriority',
       supportReleasedKeep: 'SupportReleasedKeep',
       supportVolumeShadowCopy: 'SupportVolumeShadowCopy',
     };
@@ -6626,6 +6630,7 @@ export class DescribeBackupPolicyResponseBody extends $tea.Model {
       backupInterval: 'string',
       backupLog: 'string',
       backupMethod: 'string',
+      backupPriority: 'number',
       backupRetentionPeriod: 'number',
       category: 'string',
       compressType: 'string',
@@ -6642,6 +6647,7 @@ export class DescribeBackupPolicyResponseBody extends $tea.Model {
       preferredNextBackupTime: 'string',
       releasedKeepPolicy: 'string',
       requestId: 'string',
+      supportModifyBackupPriority: 'boolean',
       supportReleasedKeep: 'number',
       supportVolumeShadowCopy: 'number',
     };
@@ -17126,6 +17132,7 @@ export class ModifyBackupPolicyRequest extends $tea.Model {
   backupLog?: string;
   backupMethod?: string;
   backupPolicyMode?: string;
+  backupPriority?: number;
   backupRetentionPeriod?: string;
   category?: string;
   compressType?: string;
@@ -17154,6 +17161,7 @@ export class ModifyBackupPolicyRequest extends $tea.Model {
       backupLog: 'BackupLog',
       backupMethod: 'BackupMethod',
       backupPolicyMode: 'BackupPolicyMode',
+      backupPriority: 'BackupPriority',
       backupRetentionPeriod: 'BackupRetentionPeriod',
       category: 'Category',
       compressType: 'CompressType',
@@ -17185,6 +17193,7 @@ export class ModifyBackupPolicyRequest extends $tea.Model {
       backupLog: 'string',
       backupMethod: 'string',
       backupPolicyMode: 'string',
+      backupPriority: 'number',
       backupRetentionPeriod: 'string',
       category: 'string',
       compressType: 'string',
@@ -45073,6 +45082,10 @@ export default class Client extends OpenApi {
 
     if (!Util.isUnset(request.backupPolicyMode)) {
       query["BackupPolicyMode"] = request.backupPolicyMode;
+    }
+
+    if (!Util.isUnset(request.backupPriority)) {
+      query["BackupPriority"] = request.backupPriority;
     }
 
     if (!Util.isUnset(request.backupRetentionPeriod)) {
