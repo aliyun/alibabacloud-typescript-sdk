@@ -599,6 +599,90 @@ export class DeleteRuleResponse extends $tea.Model {
   }
 }
 
+export class DescribeCategoryTemplateListRequest extends $tea.Model {
+  currentPage?: number;
+  lang?: string;
+  pageSize?: number;
+  usageScenario?: number;
+  static names(): { [key: string]: string } {
+    return {
+      currentPage: 'CurrentPage',
+      lang: 'Lang',
+      pageSize: 'PageSize',
+      usageScenario: 'UsageScenario',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      currentPage: 'number',
+      lang: 'string',
+      pageSize: 'number',
+      usageScenario: 'number',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class DescribeCategoryTemplateListResponseBody extends $tea.Model {
+  currentPage?: number;
+  items?: DescribeCategoryTemplateListResponseBodyItems[];
+  pageSize?: number;
+  requestId?: string;
+  totalCount?: number;
+  static names(): { [key: string]: string } {
+    return {
+      currentPage: 'CurrentPage',
+      items: 'Items',
+      pageSize: 'PageSize',
+      requestId: 'RequestId',
+      totalCount: 'TotalCount',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      currentPage: 'number',
+      items: { 'type': 'array', 'itemType': DescribeCategoryTemplateListResponseBodyItems },
+      pageSize: 'number',
+      requestId: 'string',
+      totalCount: 'number',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class DescribeCategoryTemplateListResponse extends $tea.Model {
+  headers: { [key: string]: string };
+  statusCode: number;
+  body: DescribeCategoryTemplateListResponseBody;
+  static names(): { [key: string]: string } {
+    return {
+      headers: 'headers',
+      statusCode: 'statusCode',
+      body: 'body',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
+      body: DescribeCategoryTemplateListResponseBody,
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
 export class DescribeCategoryTemplateRuleListRequest extends $tea.Model {
   currentPage?: number;
   lang?: string;
@@ -3533,6 +3617,55 @@ export class StopMaskingProcessResponse extends $tea.Model {
   }
 }
 
+export class DescribeCategoryTemplateListResponseBodyItems extends $tea.Model {
+  currentRiskLevel?: number;
+  description?: string;
+  gmtCreate?: number;
+  gmtModified?: number;
+  id?: number;
+  maxCategoryLevel?: number;
+  maxRiskLevel?: number;
+  name?: string;
+  status?: number;
+  supportEdit?: number;
+  type?: number;
+  static names(): { [key: string]: string } {
+    return {
+      currentRiskLevel: 'CurrentRiskLevel',
+      description: 'Description',
+      gmtCreate: 'GmtCreate',
+      gmtModified: 'GmtModified',
+      id: 'Id',
+      maxCategoryLevel: 'MaxCategoryLevel',
+      maxRiskLevel: 'MaxRiskLevel',
+      name: 'Name',
+      status: 'Status',
+      supportEdit: 'SupportEdit',
+      type: 'Type',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      currentRiskLevel: 'number',
+      description: 'string',
+      gmtCreate: 'number',
+      gmtModified: 'number',
+      id: 'number',
+      maxCategoryLevel: 'number',
+      maxRiskLevel: 'number',
+      name: 'string',
+      status: 'number',
+      supportEdit: 'number',
+      type: 'number',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
 export class DescribeCategoryTemplateRuleListResponseBodyItems extends $tea.Model {
   description?: string;
   id?: number;
@@ -5990,6 +6123,47 @@ export default class Client extends OpenApi {
   async deleteRule(request: DeleteRuleRequest): Promise<DeleteRuleResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.deleteRuleWithOptions(request, runtime);
+  }
+
+  async describeCategoryTemplateListWithOptions(request: DescribeCategoryTemplateListRequest, runtime: $Util.RuntimeOptions): Promise<DescribeCategoryTemplateListResponse> {
+    Util.validateModel(request);
+    let query = { };
+    if (!Util.isUnset(request.currentPage)) {
+      query["CurrentPage"] = request.currentPage;
+    }
+
+    if (!Util.isUnset(request.lang)) {
+      query["Lang"] = request.lang;
+    }
+
+    if (!Util.isUnset(request.pageSize)) {
+      query["PageSize"] = request.pageSize;
+    }
+
+    if (!Util.isUnset(request.usageScenario)) {
+      query["UsageScenario"] = request.usageScenario;
+    }
+
+    let req = new $OpenApi.OpenApiRequest({
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApi.Params({
+      action: "DescribeCategoryTemplateList",
+      version: "2019-01-03",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $tea.cast<DescribeCategoryTemplateListResponse>(await this.callApi(params, req, runtime), new DescribeCategoryTemplateListResponse({}));
+  }
+
+  async describeCategoryTemplateList(request: DescribeCategoryTemplateListRequest): Promise<DescribeCategoryTemplateListResponse> {
+    let runtime = new $Util.RuntimeOptions({ });
+    return await this.describeCategoryTemplateListWithOptions(request, runtime);
   }
 
   /**
