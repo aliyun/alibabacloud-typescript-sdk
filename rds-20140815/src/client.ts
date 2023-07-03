@@ -13143,6 +13143,7 @@ export class DescribePriceRequest extends $tea.Model {
   regionId?: string;
   resourceOwnerAccount?: string;
   resourceOwnerId?: number;
+  serverlessConfig?: DescribePriceRequestServerlessConfig;
   timeType?: string;
   usedTime?: number;
   zoneId?: string;
@@ -13166,6 +13167,7 @@ export class DescribePriceRequest extends $tea.Model {
       regionId: 'RegionId',
       resourceOwnerAccount: 'ResourceOwnerAccount',
       resourceOwnerId: 'ResourceOwnerId',
+      serverlessConfig: 'ServerlessConfig',
       timeType: 'TimeType',
       usedTime: 'UsedTime',
       zoneId: 'ZoneId',
@@ -13192,6 +13194,7 @@ export class DescribePriceRequest extends $tea.Model {
       regionId: 'string',
       resourceOwnerAccount: 'string',
       resourceOwnerId: 'number',
+      serverlessConfig: DescribePriceRequestServerlessConfig,
       timeType: 'string',
       usedTime: 'number',
       zoneId: 'string',
@@ -13222,6 +13225,7 @@ export class DescribePriceShrinkRequest extends $tea.Model {
   regionId?: string;
   resourceOwnerAccount?: string;
   resourceOwnerId?: number;
+  serverlessConfigShrink?: string;
   timeType?: string;
   usedTime?: number;
   zoneId?: string;
@@ -13245,6 +13249,7 @@ export class DescribePriceShrinkRequest extends $tea.Model {
       regionId: 'RegionId',
       resourceOwnerAccount: 'ResourceOwnerAccount',
       resourceOwnerId: 'ResourceOwnerId',
+      serverlessConfigShrink: 'ServerlessConfig',
       timeType: 'TimeType',
       usedTime: 'UsedTime',
       zoneId: 'ZoneId',
@@ -13271,6 +13276,7 @@ export class DescribePriceShrinkRequest extends $tea.Model {
       regionId: 'string',
       resourceOwnerAccount: 'string',
       resourceOwnerId: 'number',
+      serverlessConfigShrink: 'string',
       timeType: 'string',
       usedTime: 'number',
       zoneId: 'string',
@@ -13287,12 +13293,16 @@ export class DescribePriceResponseBody extends $tea.Model {
   requestId?: string;
   rules?: DescribePriceResponseBodyRules;
   showDiscount?: boolean;
+  tradeMaxRCUAmount?: number;
+  tradeMinRCUAmount?: number;
   static names(): { [key: string]: string } {
     return {
       priceInfo: 'PriceInfo',
       requestId: 'RequestId',
       rules: 'Rules',
       showDiscount: 'ShowDiscount',
+      tradeMaxRCUAmount: 'TradeMaxRCUAmount',
+      tradeMinRCUAmount: 'TradeMinRCUAmount',
     };
   }
 
@@ -13302,6 +13312,8 @@ export class DescribePriceResponseBody extends $tea.Model {
       requestId: 'string',
       rules: DescribePriceResponseBodyRules,
       showDiscount: 'boolean',
+      tradeMaxRCUAmount: 'number',
+      tradeMinRCUAmount: 'number',
     };
   }
 
@@ -30128,6 +30140,28 @@ export class DescribePriceRequestDBNode extends $tea.Model {
   }
 }
 
+export class DescribePriceRequestServerlessConfig extends $tea.Model {
+  maxCapacity?: number;
+  minCapacity?: number;
+  static names(): { [key: string]: string } {
+    return {
+      maxCapacity: 'MaxCapacity',
+      minCapacity: 'MinCapacity',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      maxCapacity: 'number',
+      minCapacity: 'number',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
 export class DescribePriceResponseBodyPriceInfoActivityInfo extends $tea.Model {
   checkErrMsg?: string;
   errorCode?: string;
@@ -42136,6 +42170,10 @@ export default class Client extends OpenApi {
       request.DBNodeShrink = OpenApiUtil.arrayToStringWithSpecifiedStyle(tmpReq.DBNode, "DBNode", "json");
     }
 
+    if (!Util.isUnset(tmpReq.serverlessConfig)) {
+      request.serverlessConfigShrink = OpenApiUtil.arrayToStringWithSpecifiedStyle(tmpReq.serverlessConfig, "ServerlessConfig", "json");
+    }
+
     let query = { };
     if (!Util.isUnset(request.clientToken)) {
       query["ClientToken"] = request.clientToken;
@@ -42207,6 +42245,10 @@ export default class Client extends OpenApi {
 
     if (!Util.isUnset(request.resourceOwnerId)) {
       query["ResourceOwnerId"] = request.resourceOwnerId;
+    }
+
+    if (!Util.isUnset(request.serverlessConfigShrink)) {
+      query["ServerlessConfig"] = request.serverlessConfigShrink;
     }
 
     if (!Util.isUnset(request.timeType)) {
