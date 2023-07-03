@@ -104,6 +104,87 @@ export class CreateAsyncPredictResponse extends $tea.Model {
   }
 }
 
+export class FindUserReport4AlinlpRequest extends $tea.Model {
+  beginTime?: string;
+  customerUserParentId?: number;
+  endTime?: string;
+  modelType?: string;
+  type?: string;
+  static names(): { [key: string]: string } {
+    return {
+      beginTime: 'BeginTime',
+      customerUserParentId: 'CustomerUserParentId',
+      endTime: 'EndTime',
+      modelType: 'ModelType',
+      type: 'Type',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      beginTime: 'string',
+      customerUserParentId: 'number',
+      endTime: 'string',
+      modelType: 'string',
+      type: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class FindUserReport4AlinlpResponseBody extends $tea.Model {
+  code?: string;
+  data?: FindUserReport4AlinlpResponseBodyData[];
+  requestId?: string;
+  static names(): { [key: string]: string } {
+    return {
+      code: 'Code',
+      data: 'Data',
+      requestId: 'RequestId',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      code: 'string',
+      data: { 'type': 'array', 'itemType': FindUserReport4AlinlpResponseBodyData },
+      requestId: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class FindUserReport4AlinlpResponse extends $tea.Model {
+  headers: { [key: string]: string };
+  statusCode: number;
+  body: FindUserReport4AlinlpResponseBody;
+  static names(): { [key: string]: string } {
+    return {
+      headers: 'headers',
+      statusCode: 'statusCode',
+      body: 'body',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
+      body: FindUserReport4AlinlpResponseBody,
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
 export class GetAsyncPredictRequest extends $tea.Model {
   asyncPredictId?: number;
   static names(): { [key: string]: string } {
@@ -280,10 +361,12 @@ export class RunPreTrainServiceRequest extends $tea.Model {
 }
 
 export class RunPreTrainServiceResponseBody extends $tea.Model {
+  billingCount?: number;
   predictResult?: string;
   requestId?: string;
   static names(): { [key: string]: string } {
     return {
+      billingCount: 'BillingCount',
       predictResult: 'PredictResult',
       requestId: 'RequestId',
     };
@@ -291,6 +374,7 @@ export class RunPreTrainServiceResponseBody extends $tea.Model {
 
   static types(): { [key: string]: any } {
     return {
+      billingCount: 'number',
       predictResult: 'string',
       requestId: 'string',
     };
@@ -318,6 +402,112 @@ export class RunPreTrainServiceResponse extends $tea.Model {
       headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
       statusCode: 'number',
       body: RunPreTrainServiceResponseBody,
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class RunPreTrainServiceNewRequest extends $tea.Model {
+  predictContent?: string;
+  serviceName?: string;
+  serviceVersion?: string;
+  static names(): { [key: string]: string } {
+    return {
+      predictContent: 'PredictContent',
+      serviceName: 'ServiceName',
+      serviceVersion: 'ServiceVersion',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      predictContent: 'string',
+      serviceName: 'string',
+      serviceVersion: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class RunPreTrainServiceNewResponseBody extends $tea.Model {
+  billingCount?: number;
+  predictResult?: string;
+  requestId?: string;
+  static names(): { [key: string]: string } {
+    return {
+      billingCount: 'BillingCount',
+      predictResult: 'PredictResult',
+      requestId: 'RequestId',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      billingCount: 'number',
+      predictResult: 'string',
+      requestId: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class RunPreTrainServiceNewResponse extends $tea.Model {
+  headers: { [key: string]: string };
+  statusCode: number;
+  body: RunPreTrainServiceNewResponseBody;
+  static names(): { [key: string]: string } {
+    return {
+      headers: 'headers',
+      statusCode: 'statusCode',
+      body: 'body',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
+      body: RunPreTrainServiceNewResponseBody,
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class FindUserReport4AlinlpResponseBodyData extends $tea.Model {
+  failCount?: number;
+  qpsMax?: number;
+  rptTime?: string;
+  successCount?: number;
+  totalCount?: number;
+  static names(): { [key: string]: string } {
+    return {
+      failCount: 'FailCount',
+      qpsMax: 'QpsMax',
+      rptTime: 'RptTime',
+      successCount: 'SuccessCount',
+      totalCount: 'TotalCount',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      failCount: 'number',
+      qpsMax: 'number',
+      rptTime: 'string',
+      successCount: 'number',
+      totalCount: 'number',
     };
   }
 
@@ -416,6 +606,51 @@ export default class Client extends OpenApi {
   async createAsyncPredict(request: CreateAsyncPredictRequest): Promise<CreateAsyncPredictResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.createAsyncPredictWithOptions(request, runtime);
+  }
+
+  async findUserReport4AlinlpWithOptions(request: FindUserReport4AlinlpRequest, runtime: $Util.RuntimeOptions): Promise<FindUserReport4AlinlpResponse> {
+    Util.validateModel(request);
+    let body : {[key: string ]: any} = { };
+    if (!Util.isUnset(request.beginTime)) {
+      body["BeginTime"] = request.beginTime;
+    }
+
+    if (!Util.isUnset(request.customerUserParentId)) {
+      body["CustomerUserParentId"] = request.customerUserParentId;
+    }
+
+    if (!Util.isUnset(request.endTime)) {
+      body["EndTime"] = request.endTime;
+    }
+
+    if (!Util.isUnset(request.modelType)) {
+      body["ModelType"] = request.modelType;
+    }
+
+    if (!Util.isUnset(request.type)) {
+      body["Type"] = request.type;
+    }
+
+    let req = new $OpenApi.OpenApiRequest({
+      body: OpenApiUtil.parseToMap(body),
+    });
+    let params = new $OpenApi.Params({
+      action: "FindUserReport4Alinlp",
+      version: "2019-11-11",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $tea.cast<FindUserReport4AlinlpResponse>(await this.callApi(params, req, runtime), new FindUserReport4AlinlpResponse({}));
+  }
+
+  async findUserReport4Alinlp(request: FindUserReport4AlinlpRequest): Promise<FindUserReport4AlinlpResponse> {
+    let runtime = new $Util.RuntimeOptions({ });
+    return await this.findUserReport4AlinlpWithOptions(request, runtime);
   }
 
   async getAsyncPredictWithOptions(request: GetAsyncPredictRequest, runtime: $Util.RuntimeOptions): Promise<GetAsyncPredictResponse> {
@@ -523,6 +758,43 @@ export default class Client extends OpenApi {
   async runPreTrainService(request: RunPreTrainServiceRequest): Promise<RunPreTrainServiceResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.runPreTrainServiceWithOptions(request, runtime);
+  }
+
+  async runPreTrainServiceNewWithOptions(request: RunPreTrainServiceNewRequest, runtime: $Util.RuntimeOptions): Promise<RunPreTrainServiceNewResponse> {
+    Util.validateModel(request);
+    let body : {[key: string ]: any} = { };
+    if (!Util.isUnset(request.predictContent)) {
+      body["PredictContent"] = request.predictContent;
+    }
+
+    if (!Util.isUnset(request.serviceName)) {
+      body["ServiceName"] = request.serviceName;
+    }
+
+    if (!Util.isUnset(request.serviceVersion)) {
+      body["ServiceVersion"] = request.serviceVersion;
+    }
+
+    let req = new $OpenApi.OpenApiRequest({
+      body: OpenApiUtil.parseToMap(body),
+    });
+    let params = new $OpenApi.Params({
+      action: "RunPreTrainServiceNew",
+      version: "2019-11-11",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $tea.cast<RunPreTrainServiceNewResponse>(await this.callApi(params, req, runtime), new RunPreTrainServiceNewResponse({}));
+  }
+
+  async runPreTrainServiceNew(request: RunPreTrainServiceNewRequest): Promise<RunPreTrainServiceNewResponse> {
+    let runtime = new $Util.RuntimeOptions({ });
+    return await this.runPreTrainServiceNewWithOptions(request, runtime);
   }
 
 }
