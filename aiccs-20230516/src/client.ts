@@ -983,6 +983,7 @@ export class EditTaskResponse extends $tea.Model {
 export class ImportNumberRequest extends $tea.Model {
   customers?: ImportNumberRequestCustomers[];
   failReturn?: number;
+  outId?: string;
   ownerId?: number;
   resourceOwnerAccount?: string;
   resourceOwnerId?: number;
@@ -991,6 +992,7 @@ export class ImportNumberRequest extends $tea.Model {
     return {
       customers: 'Customers',
       failReturn: 'FailReturn',
+      outId: 'OutId',
       ownerId: 'OwnerId',
       resourceOwnerAccount: 'ResourceOwnerAccount',
       resourceOwnerId: 'ResourceOwnerId',
@@ -1002,6 +1004,7 @@ export class ImportNumberRequest extends $tea.Model {
     return {
       customers: { 'type': 'array', 'itemType': ImportNumberRequestCustomers },
       failReturn: 'number',
+      outId: 'string',
       ownerId: 'number',
       resourceOwnerAccount: 'string',
       resourceOwnerId: 'number',
@@ -1017,6 +1020,7 @@ export class ImportNumberRequest extends $tea.Model {
 export class ImportNumberShrinkRequest extends $tea.Model {
   customersShrink?: string;
   failReturn?: number;
+  outId?: string;
   ownerId?: number;
   resourceOwnerAccount?: string;
   resourceOwnerId?: number;
@@ -1025,6 +1029,7 @@ export class ImportNumberShrinkRequest extends $tea.Model {
     return {
       customersShrink: 'Customers',
       failReturn: 'FailReturn',
+      outId: 'OutId',
       ownerId: 'OwnerId',
       resourceOwnerAccount: 'ResourceOwnerAccount',
       resourceOwnerId: 'ResourceOwnerId',
@@ -1036,6 +1041,7 @@ export class ImportNumberShrinkRequest extends $tea.Model {
     return {
       customersShrink: 'string',
       failReturn: 'number',
+      outId: 'string',
       ownerId: 'number',
       resourceOwnerAccount: 'string',
       resourceOwnerId: 'number',
@@ -3860,6 +3866,10 @@ export default class Client extends OpenApi {
 
     if (!Util.isUnset(request.failReturn)) {
       query["FailReturn"] = request.failReturn;
+    }
+
+    if (!Util.isUnset(request.outId)) {
+      query["OutId"] = request.outId;
     }
 
     if (!Util.isUnset(request.ownerId)) {
