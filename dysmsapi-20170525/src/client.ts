@@ -353,6 +353,87 @@ export class CheckMobilesCardSupportResponse extends $tea.Model {
   }
 }
 
+export class ConversionDataIntlRequest extends $tea.Model {
+  conversionRate?: string;
+  ownerId?: number;
+  reportTime?: number;
+  resourceOwnerAccount?: string;
+  resourceOwnerId?: number;
+  static names(): { [key: string]: string } {
+    return {
+      conversionRate: 'ConversionRate',
+      ownerId: 'OwnerId',
+      reportTime: 'ReportTime',
+      resourceOwnerAccount: 'ResourceOwnerAccount',
+      resourceOwnerId: 'ResourceOwnerId',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      conversionRate: 'string',
+      ownerId: 'number',
+      reportTime: 'number',
+      resourceOwnerAccount: 'string',
+      resourceOwnerId: 'number',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class ConversionDataIntlResponseBody extends $tea.Model {
+  code?: string;
+  message?: string;
+  requestId?: string;
+  static names(): { [key: string]: string } {
+    return {
+      code: 'Code',
+      message: 'Message',
+      requestId: 'RequestId',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      code: 'string',
+      message: 'string',
+      requestId: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class ConversionDataIntlResponse extends $tea.Model {
+  headers: { [key: string]: string };
+  statusCode: number;
+  body: ConversionDataIntlResponseBody;
+  static names(): { [key: string]: string } {
+    return {
+      headers: 'headers',
+      statusCode: 'statusCode',
+      body: 'body',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
+      body: ConversionDataIntlResponseBody,
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
 export class CreateCardSmsTemplateRequest extends $tea.Model {
   factorys?: string;
   memo?: string;
@@ -454,6 +535,96 @@ export class CreateCardSmsTemplateResponse extends $tea.Model {
       headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
       statusCode: 'number',
       body: CreateCardSmsTemplateResponseBody,
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class CreateSmartShortUrlRequest extends $tea.Model {
+  expiration?: number;
+  ownerId?: number;
+  phoneNumbers?: string;
+  resourceOwnerAccount?: string;
+  resourceOwnerId?: number;
+  sourceName?: string;
+  sourceUrl?: string;
+  static names(): { [key: string]: string } {
+    return {
+      expiration: 'Expiration',
+      ownerId: 'OwnerId',
+      phoneNumbers: 'PhoneNumbers',
+      resourceOwnerAccount: 'ResourceOwnerAccount',
+      resourceOwnerId: 'ResourceOwnerId',
+      sourceName: 'SourceName',
+      sourceUrl: 'SourceUrl',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      expiration: 'number',
+      ownerId: 'number',
+      phoneNumbers: 'string',
+      resourceOwnerAccount: 'string',
+      resourceOwnerId: 'number',
+      sourceName: 'string',
+      sourceUrl: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class CreateSmartShortUrlResponseBody extends $tea.Model {
+  code?: string;
+  message?: string;
+  model?: CreateSmartShortUrlResponseBodyModel[];
+  requestId?: string;
+  static names(): { [key: string]: string } {
+    return {
+      code: 'Code',
+      message: 'Message',
+      model: 'Model',
+      requestId: 'RequestId',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      code: 'string',
+      message: 'string',
+      model: { 'type': 'array', 'itemType': CreateSmartShortUrlResponseBodyModel },
+      requestId: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class CreateSmartShortUrlResponse extends $tea.Model {
+  headers: { [key: string]: string };
+  statusCode: number;
+  body: CreateSmartShortUrlResponseBody;
+  static names(): { [key: string]: string } {
+    return {
+      headers: 'headers',
+      statusCode: 'statusCode',
+      body: 'body',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
+      body: CreateSmartShortUrlResponseBody,
     };
   }
 
@@ -1459,6 +1630,117 @@ export class QueryMobilesCardSupportResponse extends $tea.Model {
       headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
       statusCode: 'number',
       body: QueryMobilesCardSupportResponseBody,
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class QueryPageSmartShortUrlLogRequest extends $tea.Model {
+  clickState?: number;
+  createDateEnd?: number;
+  createDateStart?: number;
+  endId?: number;
+  ownerId?: number;
+  pageNo?: number;
+  pageSize?: number;
+  phoneNumber?: string;
+  resourceOwnerAccount?: string;
+  resourceOwnerId?: number;
+  shortName?: string;
+  shortUrl?: string;
+  startId?: number;
+  static names(): { [key: string]: string } {
+    return {
+      clickState: 'ClickState',
+      createDateEnd: 'CreateDateEnd',
+      createDateStart: 'CreateDateStart',
+      endId: 'EndId',
+      ownerId: 'OwnerId',
+      pageNo: 'PageNo',
+      pageSize: 'PageSize',
+      phoneNumber: 'PhoneNumber',
+      resourceOwnerAccount: 'ResourceOwnerAccount',
+      resourceOwnerId: 'ResourceOwnerId',
+      shortName: 'ShortName',
+      shortUrl: 'ShortUrl',
+      startId: 'StartId',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      clickState: 'number',
+      createDateEnd: 'number',
+      createDateStart: 'number',
+      endId: 'number',
+      ownerId: 'number',
+      pageNo: 'number',
+      pageSize: 'number',
+      phoneNumber: 'string',
+      resourceOwnerAccount: 'string',
+      resourceOwnerId: 'number',
+      shortName: 'string',
+      shortUrl: 'string',
+      startId: 'number',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class QueryPageSmartShortUrlLogResponseBody extends $tea.Model {
+  code?: string;
+  message?: string;
+  model?: QueryPageSmartShortUrlLogResponseBodyModel;
+  requestId?: string;
+  success?: boolean;
+  static names(): { [key: string]: string } {
+    return {
+      code: 'Code',
+      message: 'Message',
+      model: 'Model',
+      requestId: 'RequestId',
+      success: 'Success',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      code: 'string',
+      message: 'string',
+      model: QueryPageSmartShortUrlLogResponseBodyModel,
+      requestId: 'string',
+      success: 'boolean',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class QueryPageSmartShortUrlLogResponse extends $tea.Model {
+  headers: { [key: string]: string };
+  statusCode: number;
+  body: QueryPageSmartShortUrlLogResponseBody;
+  static names(): { [key: string]: string } {
+    return {
+      headers: 'headers',
+      statusCode: 'statusCode',
+      body: 'body',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
+      body: QueryPageSmartShortUrlLogResponseBody,
     };
   }
 
@@ -2523,6 +2805,90 @@ export class SendSmsResponse extends $tea.Model {
   }
 }
 
+export class SmsConversionIntlRequest extends $tea.Model {
+  conversionTime?: number;
+  delivered?: boolean;
+  messageId?: string;
+  ownerId?: number;
+  resourceOwnerAccount?: string;
+  resourceOwnerId?: number;
+  static names(): { [key: string]: string } {
+    return {
+      conversionTime: 'ConversionTime',
+      delivered: 'Delivered',
+      messageId: 'MessageId',
+      ownerId: 'OwnerId',
+      resourceOwnerAccount: 'ResourceOwnerAccount',
+      resourceOwnerId: 'ResourceOwnerId',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      conversionTime: 'number',
+      delivered: 'boolean',
+      messageId: 'string',
+      ownerId: 'number',
+      resourceOwnerAccount: 'string',
+      resourceOwnerId: 'number',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class SmsConversionIntlResponseBody extends $tea.Model {
+  code?: string;
+  message?: string;
+  requestId?: string;
+  static names(): { [key: string]: string } {
+    return {
+      code: 'Code',
+      message: 'Message',
+      requestId: 'RequestId',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      code: 'string',
+      message: 'string',
+      requestId: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class SmsConversionIntlResponse extends $tea.Model {
+  headers: { [key: string]: string };
+  statusCode: number;
+  body: SmsConversionIntlResponseBody;
+  static names(): { [key: string]: string } {
+    return {
+      headers: 'headers',
+      statusCode: 'statusCode',
+      body: 'body',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
+      body: SmsConversionIntlResponseBody,
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
 export class TagResourcesRequest extends $tea.Model {
   ownerId?: number;
   prodCode?: string;
@@ -2813,6 +3179,37 @@ export class CreateCardSmsTemplateResponseBodyData extends $tea.Model {
   }
 }
 
+export class CreateSmartShortUrlResponseBodyModel extends $tea.Model {
+  domain?: string;
+  expiration?: number;
+  phoneNumber?: string;
+  shortName?: string;
+  shortUrl?: string;
+  static names(): { [key: string]: string } {
+    return {
+      domain: 'Domain',
+      expiration: 'Expiration',
+      phoneNumber: 'PhoneNumber',
+      shortName: 'ShortName',
+      shortUrl: 'ShortUrl',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      domain: 'string',
+      expiration: 'number',
+      phoneNumber: 'string',
+      shortName: 'string',
+      shortUrl: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
 export class GetCardSmsLinkResponseBodyData extends $tea.Model {
   cardPhoneNumbers?: string;
   cardSignNames?: string;
@@ -3068,6 +3465,71 @@ export class QueryMobilesCardSupportResponseBodyData extends $tea.Model {
   static types(): { [key: string]: any } {
     return {
       queryResult: { 'type': 'array', 'itemType': QueryMobilesCardSupportResponseBodyDataQueryResult },
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class QueryPageSmartShortUrlLogResponseBodyModelList extends $tea.Model {
+  clickState?: number;
+  clickTime?: number;
+  createTime?: number;
+  phoneNumber?: string;
+  shortName?: string;
+  shortUrl?: string;
+  static names(): { [key: string]: string } {
+    return {
+      clickState: 'ClickState',
+      clickTime: 'ClickTime',
+      createTime: 'CreateTime',
+      phoneNumber: 'PhoneNumber',
+      shortName: 'ShortName',
+      shortUrl: 'ShortUrl',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      clickState: 'number',
+      clickTime: 'number',
+      createTime: 'number',
+      phoneNumber: 'string',
+      shortName: 'string',
+      shortUrl: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class QueryPageSmartShortUrlLogResponseBodyModel extends $tea.Model {
+  list?: QueryPageSmartShortUrlLogResponseBodyModelList[];
+  pageNo?: number;
+  pageSize?: number;
+  totalCount?: number;
+  totalPage?: number;
+  static names(): { [key: string]: string } {
+    return {
+      list: 'List',
+      pageNo: 'PageNo',
+      pageSize: 'PageSize',
+      totalCount: 'TotalCount',
+      totalPage: 'TotalPage',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      list: { 'type': 'array', 'itemType': QueryPageSmartShortUrlLogResponseBodyModelList },
+      pageNo: 'number',
+      pageSize: 'number',
+      totalCount: 'number',
+      totalPage: 'number',
     };
   }
 
@@ -3478,9 +3940,11 @@ export default class Client extends OpenApi {
     this._endpointRule = "central";
     this._endpointMap = {
       'ap-southeast-1': "dysmsapi.ap-southeast-1.aliyuncs.com",
-      'ap-southeast-5': "dysmsapi-xman.ap-southeast-5.aliyuncs.com",
+      'ap-southeast-5': "dysmsapi.ap-southeast-5.aliyuncs.com",
       'cn-beijing': "dysmsapi-proxy.cn-beijing.aliyuncs.com",
       'cn-hongkong': "dysmsapi-xman.cn-hongkong.aliyuncs.com",
+      'eu-central-1': "dysmsapi.eu-central-1.aliyuncs.com",
+      'us-east-1': "dysmsapi.us-east-1.aliyuncs.com",
     };
     this.checkConfig(config);
     this._endpoint = this.getEndpoint("dysmsapi", this._regionId, this._endpointRule, this._network, this._suffix, this._endpointMap, this._endpoint);
@@ -3695,6 +4159,51 @@ export default class Client extends OpenApi {
     return await this.checkMobilesCardSupportWithOptions(request, runtime);
   }
 
+  async conversionDataIntlWithOptions(request: ConversionDataIntlRequest, runtime: $Util.RuntimeOptions): Promise<ConversionDataIntlResponse> {
+    Util.validateModel(request);
+    let query = { };
+    if (!Util.isUnset(request.conversionRate)) {
+      query["ConversionRate"] = request.conversionRate;
+    }
+
+    if (!Util.isUnset(request.ownerId)) {
+      query["OwnerId"] = request.ownerId;
+    }
+
+    if (!Util.isUnset(request.reportTime)) {
+      query["ReportTime"] = request.reportTime;
+    }
+
+    if (!Util.isUnset(request.resourceOwnerAccount)) {
+      query["ResourceOwnerAccount"] = request.resourceOwnerAccount;
+    }
+
+    if (!Util.isUnset(request.resourceOwnerId)) {
+      query["ResourceOwnerId"] = request.resourceOwnerId;
+    }
+
+    let req = new $OpenApi.OpenApiRequest({
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApi.Params({
+      action: "ConversionDataIntl",
+      version: "2017-05-25",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $tea.cast<ConversionDataIntlResponse>(await this.callApi(params, req, runtime), new ConversionDataIntlResponse({}));
+  }
+
+  async conversionDataIntl(request: ConversionDataIntlRequest): Promise<ConversionDataIntlResponse> {
+    let runtime = new $Util.RuntimeOptions({ });
+    return await this.conversionDataIntlWithOptions(request, runtime);
+  }
+
   async createCardSmsTemplateWithOptions(tmpReq: CreateCardSmsTemplateRequest, runtime: $Util.RuntimeOptions): Promise<CreateCardSmsTemplateResponse> {
     Util.validateModel(tmpReq);
     let request = new CreateCardSmsTemplateShrinkRequest({ });
@@ -3740,6 +4249,59 @@ export default class Client extends OpenApi {
   async createCardSmsTemplate(request: CreateCardSmsTemplateRequest): Promise<CreateCardSmsTemplateResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.createCardSmsTemplateWithOptions(request, runtime);
+  }
+
+  async createSmartShortUrlWithOptions(request: CreateSmartShortUrlRequest, runtime: $Util.RuntimeOptions): Promise<CreateSmartShortUrlResponse> {
+    Util.validateModel(request);
+    let query = { };
+    if (!Util.isUnset(request.expiration)) {
+      query["Expiration"] = request.expiration;
+    }
+
+    if (!Util.isUnset(request.ownerId)) {
+      query["OwnerId"] = request.ownerId;
+    }
+
+    if (!Util.isUnset(request.phoneNumbers)) {
+      query["PhoneNumbers"] = request.phoneNumbers;
+    }
+
+    if (!Util.isUnset(request.resourceOwnerAccount)) {
+      query["ResourceOwnerAccount"] = request.resourceOwnerAccount;
+    }
+
+    if (!Util.isUnset(request.resourceOwnerId)) {
+      query["ResourceOwnerId"] = request.resourceOwnerId;
+    }
+
+    if (!Util.isUnset(request.sourceName)) {
+      query["SourceName"] = request.sourceName;
+    }
+
+    if (!Util.isUnset(request.sourceUrl)) {
+      query["SourceUrl"] = request.sourceUrl;
+    }
+
+    let req = new $OpenApi.OpenApiRequest({
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApi.Params({
+      action: "CreateSmartShortUrl",
+      version: "2017-05-25",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $tea.cast<CreateSmartShortUrlResponse>(await this.callApi(params, req, runtime), new CreateSmartShortUrlResponse({}));
+  }
+
+  async createSmartShortUrl(request: CreateSmartShortUrlRequest): Promise<CreateSmartShortUrlResponse> {
+    let runtime = new $Util.RuntimeOptions({ });
+    return await this.createSmartShortUrlWithOptions(request, runtime);
   }
 
   async deleteShortUrlWithOptions(request: DeleteShortUrlRequest, runtime: $Util.RuntimeOptions): Promise<DeleteShortUrlResponse> {
@@ -4278,6 +4840,83 @@ export default class Client extends OpenApi {
   async queryMobilesCardSupport(request: QueryMobilesCardSupportRequest): Promise<QueryMobilesCardSupportResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.queryMobilesCardSupportWithOptions(request, runtime);
+  }
+
+  async queryPageSmartShortUrlLogWithOptions(request: QueryPageSmartShortUrlLogRequest, runtime: $Util.RuntimeOptions): Promise<QueryPageSmartShortUrlLogResponse> {
+    Util.validateModel(request);
+    let query = { };
+    if (!Util.isUnset(request.clickState)) {
+      query["ClickState"] = request.clickState;
+    }
+
+    if (!Util.isUnset(request.createDateEnd)) {
+      query["CreateDateEnd"] = request.createDateEnd;
+    }
+
+    if (!Util.isUnset(request.createDateStart)) {
+      query["CreateDateStart"] = request.createDateStart;
+    }
+
+    if (!Util.isUnset(request.endId)) {
+      query["EndId"] = request.endId;
+    }
+
+    if (!Util.isUnset(request.ownerId)) {
+      query["OwnerId"] = request.ownerId;
+    }
+
+    if (!Util.isUnset(request.pageNo)) {
+      query["PageNo"] = request.pageNo;
+    }
+
+    if (!Util.isUnset(request.pageSize)) {
+      query["PageSize"] = request.pageSize;
+    }
+
+    if (!Util.isUnset(request.phoneNumber)) {
+      query["PhoneNumber"] = request.phoneNumber;
+    }
+
+    if (!Util.isUnset(request.resourceOwnerAccount)) {
+      query["ResourceOwnerAccount"] = request.resourceOwnerAccount;
+    }
+
+    if (!Util.isUnset(request.resourceOwnerId)) {
+      query["ResourceOwnerId"] = request.resourceOwnerId;
+    }
+
+    if (!Util.isUnset(request.shortName)) {
+      query["ShortName"] = request.shortName;
+    }
+
+    if (!Util.isUnset(request.shortUrl)) {
+      query["ShortUrl"] = request.shortUrl;
+    }
+
+    if (!Util.isUnset(request.startId)) {
+      query["StartId"] = request.startId;
+    }
+
+    let req = new $OpenApi.OpenApiRequest({
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApi.Params({
+      action: "QueryPageSmartShortUrlLog",
+      version: "2017-05-25",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $tea.cast<QueryPageSmartShortUrlLogResponse>(await this.callApi(params, req, runtime), new QueryPageSmartShortUrlLogResponse({}));
+  }
+
+  async queryPageSmartShortUrlLog(request: QueryPageSmartShortUrlLogRequest): Promise<QueryPageSmartShortUrlLogResponse> {
+    let runtime = new $Util.RuntimeOptions({ });
+    return await this.queryPageSmartShortUrlLogWithOptions(request, runtime);
   }
 
   async querySendDetailsWithOptions(request: QuerySendDetailsRequest, runtime: $Util.RuntimeOptions): Promise<QuerySendDetailsResponse> {
@@ -4889,6 +5528,55 @@ export default class Client extends OpenApi {
   async sendSms(request: SendSmsRequest): Promise<SendSmsResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.sendSmsWithOptions(request, runtime);
+  }
+
+  async smsConversionIntlWithOptions(request: SmsConversionIntlRequest, runtime: $Util.RuntimeOptions): Promise<SmsConversionIntlResponse> {
+    Util.validateModel(request);
+    let query = { };
+    if (!Util.isUnset(request.conversionTime)) {
+      query["ConversionTime"] = request.conversionTime;
+    }
+
+    if (!Util.isUnset(request.delivered)) {
+      query["Delivered"] = request.delivered;
+    }
+
+    if (!Util.isUnset(request.messageId)) {
+      query["MessageId"] = request.messageId;
+    }
+
+    if (!Util.isUnset(request.ownerId)) {
+      query["OwnerId"] = request.ownerId;
+    }
+
+    if (!Util.isUnset(request.resourceOwnerAccount)) {
+      query["ResourceOwnerAccount"] = request.resourceOwnerAccount;
+    }
+
+    if (!Util.isUnset(request.resourceOwnerId)) {
+      query["ResourceOwnerId"] = request.resourceOwnerId;
+    }
+
+    let req = new $OpenApi.OpenApiRequest({
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApi.Params({
+      action: "SmsConversionIntl",
+      version: "2017-05-25",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $tea.cast<SmsConversionIntlResponse>(await this.callApi(params, req, runtime), new SmsConversionIntlResponse({}));
+  }
+
+  async smsConversionIntl(request: SmsConversionIntlRequest): Promise<SmsConversionIntlResponse> {
+    let runtime = new $Util.RuntimeOptions({ });
+    return await this.smsConversionIntlWithOptions(request, runtime);
   }
 
   async tagResourcesWithOptions(request: TagResourcesRequest, runtime: $Util.RuntimeOptions): Promise<TagResourcesResponse> {
