@@ -778,7 +778,9 @@ export class AllocateEipAddressRequest extends $tea.Model {
   description?: string;
   ISP?: string;
   instanceChargeType?: string;
+  instanceId?: string;
   internetChargeType?: string;
+  ipAddress?: string;
   name?: string;
   netmode?: string;
   ownerAccount?: string;
@@ -791,6 +793,7 @@ export class AllocateEipAddressRequest extends $tea.Model {
   resourceOwnerAccount?: string;
   resourceOwnerId?: number;
   securityProtectionTypes?: string[];
+  zone?: string;
   static names(): { [key: string]: string } {
     return {
       activityId: 'ActivityId',
@@ -800,7 +803,9 @@ export class AllocateEipAddressRequest extends $tea.Model {
       description: 'Description',
       ISP: 'ISP',
       instanceChargeType: 'InstanceChargeType',
+      instanceId: 'InstanceId',
       internetChargeType: 'InternetChargeType',
+      ipAddress: 'IpAddress',
       name: 'Name',
       netmode: 'Netmode',
       ownerAccount: 'OwnerAccount',
@@ -813,6 +818,7 @@ export class AllocateEipAddressRequest extends $tea.Model {
       resourceOwnerAccount: 'ResourceOwnerAccount',
       resourceOwnerId: 'ResourceOwnerId',
       securityProtectionTypes: 'SecurityProtectionTypes',
+      zone: 'Zone',
     };
   }
 
@@ -825,7 +831,9 @@ export class AllocateEipAddressRequest extends $tea.Model {
       description: 'string',
       ISP: 'string',
       instanceChargeType: 'string',
+      instanceId: 'string',
       internetChargeType: 'string',
+      ipAddress: 'string',
       name: 'string',
       netmode: 'string',
       ownerAccount: 'string',
@@ -838,6 +846,7 @@ export class AllocateEipAddressRequest extends $tea.Model {
       resourceOwnerAccount: 'string',
       resourceOwnerId: 'number',
       securityProtectionTypes: { 'type': 'array', 'itemType': 'string' },
+      zone: 'string',
     };
   }
 
@@ -1044,6 +1053,7 @@ export class AllocateEipSegmentAddressRequest extends $tea.Model {
   resourceGroupId?: string;
   resourceOwnerAccount?: string;
   resourceOwnerId?: number;
+  zone?: string;
   static names(): { [key: string]: string } {
     return {
       bandwidth: 'Bandwidth',
@@ -1058,6 +1068,7 @@ export class AllocateEipSegmentAddressRequest extends $tea.Model {
       resourceGroupId: 'ResourceGroupId',
       resourceOwnerAccount: 'ResourceOwnerAccount',
       resourceOwnerId: 'ResourceOwnerId',
+      zone: 'Zone',
     };
   }
 
@@ -1075,6 +1086,7 @@ export class AllocateEipSegmentAddressRequest extends $tea.Model {
       resourceGroupId: 'string',
       resourceOwnerAccount: 'string',
       resourceOwnerId: 'number',
+      zone: 'string',
     };
   }
 
@@ -1085,12 +1097,10 @@ export class AllocateEipSegmentAddressRequest extends $tea.Model {
 
 export class AllocateEipSegmentAddressResponseBody extends $tea.Model {
   eipSegmentInstanceId?: string;
-  orderId?: number;
   requestId?: string;
   static names(): { [key: string]: string } {
     return {
       eipSegmentInstanceId: 'EipSegmentInstanceId',
-      orderId: 'OrderId',
       requestId: 'RequestId',
     };
   }
@@ -1098,7 +1108,6 @@ export class AllocateEipSegmentAddressResponseBody extends $tea.Model {
   static types(): { [key: string]: any } {
     return {
       eipSegmentInstanceId: 'string',
-      orderId: 'number',
       requestId: 'string',
     };
   }
@@ -2234,6 +2243,7 @@ export class AssociateRouteTablesWithVpcGatewayEndpointResponse extends $tea.Mod
 export class AssociateVpcCidrBlockRequest extends $tea.Model {
   IPv6CidrBlock?: string;
   ipVersion?: string;
+  ipamPoolId?: string;
   ipv6Isp?: string;
   ownerAccount?: string;
   ownerId?: number;
@@ -2246,6 +2256,7 @@ export class AssociateVpcCidrBlockRequest extends $tea.Model {
     return {
       IPv6CidrBlock: 'IPv6CidrBlock',
       ipVersion: 'IpVersion',
+      ipamPoolId: 'IpamPoolId',
       ipv6Isp: 'Ipv6Isp',
       ownerAccount: 'OwnerAccount',
       ownerId: 'OwnerId',
@@ -2261,6 +2272,7 @@ export class AssociateVpcCidrBlockRequest extends $tea.Model {
     return {
       IPv6CidrBlock: 'string',
       ipVersion: 'string',
+      ipamPoolId: 'string',
       ipv6Isp: 'string',
       ownerAccount: 'string',
       ownerId: 'number',
@@ -3695,6 +3707,7 @@ export class CreateCustomerGatewayRequest extends $tea.Model {
   regionId?: string;
   resourceOwnerAccount?: string;
   resourceOwnerId?: number;
+  tags?: CreateCustomerGatewayRequestTags[];
   static names(): { [key: string]: string } {
     return {
       asn: 'Asn',
@@ -3708,6 +3721,7 @@ export class CreateCustomerGatewayRequest extends $tea.Model {
       regionId: 'RegionId',
       resourceOwnerAccount: 'ResourceOwnerAccount',
       resourceOwnerId: 'ResourceOwnerId',
+      tags: 'Tags',
     };
   }
 
@@ -3724,6 +3738,7 @@ export class CreateCustomerGatewayRequest extends $tea.Model {
       regionId: 'string',
       resourceOwnerAccount: 'string',
       resourceOwnerId: 'number',
+      tags: { 'type': 'array', 'itemType': CreateCustomerGatewayRequestTags },
     };
   }
 
@@ -3791,6 +3806,189 @@ export class CreateCustomerGatewayResponse extends $tea.Model {
   }
 }
 
+export class CreateDefaultVSwitchRequest extends $tea.Model {
+  clientToken?: string;
+  ipv6CidrBlock?: number;
+  ownerAccount?: string;
+  ownerId?: number;
+  regionId?: string;
+  resourceOwnerAccount?: string;
+  resourceOwnerId?: number;
+  zoneId?: string;
+  static names(): { [key: string]: string } {
+    return {
+      clientToken: 'ClientToken',
+      ipv6CidrBlock: 'Ipv6CidrBlock',
+      ownerAccount: 'OwnerAccount',
+      ownerId: 'OwnerId',
+      regionId: 'RegionId',
+      resourceOwnerAccount: 'ResourceOwnerAccount',
+      resourceOwnerId: 'ResourceOwnerId',
+      zoneId: 'ZoneId',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      clientToken: 'string',
+      ipv6CidrBlock: 'number',
+      ownerAccount: 'string',
+      ownerId: 'number',
+      regionId: 'string',
+      resourceOwnerAccount: 'string',
+      resourceOwnerId: 'number',
+      zoneId: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class CreateDefaultVSwitchResponseBody extends $tea.Model {
+  requestId?: string;
+  vSwitchId?: string;
+  static names(): { [key: string]: string } {
+    return {
+      requestId: 'RequestId',
+      vSwitchId: 'VSwitchId',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      requestId: 'string',
+      vSwitchId: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class CreateDefaultVSwitchResponse extends $tea.Model {
+  headers: { [key: string]: string };
+  statusCode: number;
+  body: CreateDefaultVSwitchResponseBody;
+  static names(): { [key: string]: string } {
+    return {
+      headers: 'headers',
+      statusCode: 'statusCode',
+      body: 'body',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
+      body: CreateDefaultVSwitchResponseBody,
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class CreateDefaultVpcRequest extends $tea.Model {
+  clientToken?: string;
+  enableIpv6?: boolean;
+  ipv6CidrBlock?: string;
+  ownerAccount?: string;
+  ownerId?: number;
+  regionId?: string;
+  resourceGroupId?: string;
+  resourceOwnerAccount?: string;
+  resourceOwnerId?: number;
+  static names(): { [key: string]: string } {
+    return {
+      clientToken: 'ClientToken',
+      enableIpv6: 'EnableIpv6',
+      ipv6CidrBlock: 'Ipv6CidrBlock',
+      ownerAccount: 'OwnerAccount',
+      ownerId: 'OwnerId',
+      regionId: 'RegionId',
+      resourceGroupId: 'ResourceGroupId',
+      resourceOwnerAccount: 'ResourceOwnerAccount',
+      resourceOwnerId: 'ResourceOwnerId',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      clientToken: 'string',
+      enableIpv6: 'boolean',
+      ipv6CidrBlock: 'string',
+      ownerAccount: 'string',
+      ownerId: 'number',
+      regionId: 'string',
+      resourceGroupId: 'string',
+      resourceOwnerAccount: 'string',
+      resourceOwnerId: 'number',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class CreateDefaultVpcResponseBody extends $tea.Model {
+  requestId?: string;
+  routeTableId?: string;
+  VRouterId?: string;
+  vpcId?: string;
+  static names(): { [key: string]: string } {
+    return {
+      requestId: 'RequestId',
+      routeTableId: 'RouteTableId',
+      VRouterId: 'VRouterId',
+      vpcId: 'VpcId',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      requestId: 'string',
+      routeTableId: 'string',
+      VRouterId: 'string',
+      vpcId: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class CreateDefaultVpcResponse extends $tea.Model {
+  headers: { [key: string]: string };
+  statusCode: number;
+  body: CreateDefaultVpcResponseBody;
+  static names(): { [key: string]: string } {
+    return {
+      headers: 'headers',
+      statusCode: 'statusCode',
+      body: 'body',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
+      body: CreateDefaultVpcResponseBody,
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
 export class CreateDhcpOptionsSetRequest extends $tea.Model {
   clientToken?: string;
   dhcpOptionsSetDescription?: string;
@@ -3803,6 +4001,7 @@ export class CreateDhcpOptionsSetRequest extends $tea.Model {
   ownerAccount?: string;
   ownerId?: number;
   regionId?: string;
+  resourceGroupId?: string;
   resourceOwnerAccount?: string;
   resourceOwnerId?: number;
   static names(): { [key: string]: string } {
@@ -3818,6 +4017,7 @@ export class CreateDhcpOptionsSetRequest extends $tea.Model {
       ownerAccount: 'OwnerAccount',
       ownerId: 'OwnerId',
       regionId: 'RegionId',
+      resourceGroupId: 'ResourceGroupId',
       resourceOwnerAccount: 'ResourceOwnerAccount',
       resourceOwnerId: 'ResourceOwnerId',
     };
@@ -3836,6 +4036,7 @@ export class CreateDhcpOptionsSetRequest extends $tea.Model {
       ownerAccount: 'string',
       ownerId: 'number',
       regionId: 'string',
+      resourceGroupId: 'string',
       resourceOwnerAccount: 'string',
       resourceOwnerId: 'number',
     };
@@ -3849,10 +4050,12 @@ export class CreateDhcpOptionsSetRequest extends $tea.Model {
 export class CreateDhcpOptionsSetResponseBody extends $tea.Model {
   dhcpOptionsSetId?: string;
   requestId?: string;
+  resourceGroupId?: string;
   static names(): { [key: string]: string } {
     return {
       dhcpOptionsSetId: 'DhcpOptionsSetId',
       requestId: 'RequestId',
+      resourceGroupId: 'ResourceGroupId',
     };
   }
 
@@ -3860,6 +4063,7 @@ export class CreateDhcpOptionsSetResponseBody extends $tea.Model {
     return {
       dhcpOptionsSetId: 'string',
       requestId: 'string',
+      resourceGroupId: 'string',
     };
   }
 
@@ -4013,6 +4217,7 @@ export class CreateFlowLogRequest extends $tea.Model {
   ownerId?: number;
   projectName?: string;
   regionId?: string;
+  resourceGroupId?: string;
   resourceId?: string;
   resourceOwnerAccount?: string;
   resourceOwnerId?: number;
@@ -4029,6 +4234,7 @@ export class CreateFlowLogRequest extends $tea.Model {
       ownerId: 'OwnerId',
       projectName: 'ProjectName',
       regionId: 'RegionId',
+      resourceGroupId: 'ResourceGroupId',
       resourceId: 'ResourceId',
       resourceOwnerAccount: 'ResourceOwnerAccount',
       resourceOwnerId: 'ResourceOwnerId',
@@ -4048,6 +4254,7 @@ export class CreateFlowLogRequest extends $tea.Model {
       ownerId: 'number',
       projectName: 'string',
       regionId: 'string',
+      resourceGroupId: 'string',
       resourceId: 'string',
       resourceOwnerAccount: 'string',
       resourceOwnerId: 'number',
@@ -4065,11 +4272,13 @@ export class CreateFlowLogRequest extends $tea.Model {
 export class CreateFlowLogResponseBody extends $tea.Model {
   flowLogId?: string;
   requestId?: string;
+  resourceGroupId?: string;
   success?: string;
   static names(): { [key: string]: string } {
     return {
       flowLogId: 'FlowLogId',
       requestId: 'RequestId',
+      resourceGroupId: 'ResourceGroupId',
       success: 'Success',
     };
   }
@@ -4078,6 +4287,7 @@ export class CreateFlowLogResponseBody extends $tea.Model {
     return {
       flowLogId: 'string',
       requestId: 'string',
+      resourceGroupId: 'string',
       success: 'string',
     };
   }
@@ -4435,6 +4645,7 @@ export class CreateHaVipRequest extends $tea.Model {
   ownerAccount?: string;
   ownerId?: number;
   regionId?: string;
+  resourceGroupId?: string;
   resourceOwnerAccount?: string;
   resourceOwnerId?: number;
   vSwitchId?: string;
@@ -4447,6 +4658,7 @@ export class CreateHaVipRequest extends $tea.Model {
       ownerAccount: 'OwnerAccount',
       ownerId: 'OwnerId',
       regionId: 'RegionId',
+      resourceGroupId: 'ResourceGroupId',
       resourceOwnerAccount: 'ResourceOwnerAccount',
       resourceOwnerId: 'ResourceOwnerId',
       vSwitchId: 'VSwitchId',
@@ -4462,6 +4674,7 @@ export class CreateHaVipRequest extends $tea.Model {
       ownerAccount: 'string',
       ownerId: 'number',
       regionId: 'string',
+      resourceGroupId: 'string',
       resourceOwnerAccount: 'string',
       resourceOwnerId: 'number',
       vSwitchId: 'string',
@@ -4948,6 +5161,7 @@ export class CreateIpv4GatewayRequest extends $tea.Model {
   ownerAccount?: string;
   ownerId?: number;
   regionId?: string;
+  resourceGroupId?: string;
   resourceOwnerAccount?: string;
   resourceOwnerId?: number;
   vpcId?: string;
@@ -4960,6 +5174,7 @@ export class CreateIpv4GatewayRequest extends $tea.Model {
       ownerAccount: 'OwnerAccount',
       ownerId: 'OwnerId',
       regionId: 'RegionId',
+      resourceGroupId: 'ResourceGroupId',
       resourceOwnerAccount: 'ResourceOwnerAccount',
       resourceOwnerId: 'ResourceOwnerId',
       vpcId: 'VpcId',
@@ -4975,6 +5190,7 @@ export class CreateIpv4GatewayRequest extends $tea.Model {
       ownerAccount: 'string',
       ownerId: 'number',
       regionId: 'string',
+      resourceGroupId: 'string',
       resourceOwnerAccount: 'string',
       resourceOwnerId: 'number',
       vpcId: 'string',
@@ -4989,10 +5205,12 @@ export class CreateIpv4GatewayRequest extends $tea.Model {
 export class CreateIpv4GatewayResponseBody extends $tea.Model {
   ipv4GatewayId?: string;
   requestId?: string;
+  resourceGroupId?: string;
   static names(): { [key: string]: string } {
     return {
       ipv4GatewayId: 'Ipv4GatewayId',
       requestId: 'RequestId',
+      resourceGroupId: 'ResourceGroupId',
     };
   }
 
@@ -5000,6 +5218,7 @@ export class CreateIpv4GatewayResponseBody extends $tea.Model {
     return {
       ipv4GatewayId: 'string',
       requestId: 'string',
+      resourceGroupId: 'string',
     };
   }
 
@@ -5136,6 +5355,7 @@ export class CreateIpv6GatewayRequest extends $tea.Model {
   ownerAccount?: string;
   ownerId?: number;
   regionId?: string;
+  resourceGroupId?: string;
   resourceOwnerAccount?: string;
   resourceOwnerId?: number;
   vpcId?: string;
@@ -5147,6 +5367,7 @@ export class CreateIpv6GatewayRequest extends $tea.Model {
       ownerAccount: 'OwnerAccount',
       ownerId: 'OwnerId',
       regionId: 'RegionId',
+      resourceGroupId: 'ResourceGroupId',
       resourceOwnerAccount: 'ResourceOwnerAccount',
       resourceOwnerId: 'ResourceOwnerId',
       vpcId: 'VpcId',
@@ -5161,6 +5382,7 @@ export class CreateIpv6GatewayRequest extends $tea.Model {
       ownerAccount: 'string',
       ownerId: 'number',
       regionId: 'string',
+      resourceGroupId: 'string',
       resourceOwnerAccount: 'string',
       resourceOwnerId: 'number',
       vpcId: 'string',
@@ -5175,10 +5397,12 @@ export class CreateIpv6GatewayRequest extends $tea.Model {
 export class CreateIpv6GatewayResponseBody extends $tea.Model {
   ipv6GatewayId?: string;
   requestId?: string;
+  resourceGroupId?: string;
   static names(): { [key: string]: string } {
     return {
       ipv6GatewayId: 'Ipv6GatewayId',
       requestId: 'RequestId',
+      resourceGroupId: 'ResourceGroupId',
     };
   }
 
@@ -5186,6 +5410,7 @@ export class CreateIpv6GatewayResponseBody extends $tea.Model {
     return {
       ipv6GatewayId: 'string',
       requestId: 'string',
+      resourceGroupId: 'string',
     };
   }
 
@@ -5363,7 +5588,6 @@ export class CreateNatIpRequest extends $tea.Model {
   natGatewayId?: string;
   natIp?: string;
   natIpCidr?: string;
-  natIpCidrId?: string;
   natIpDescription?: string;
   natIpName?: string;
   ownerAccount?: string;
@@ -5378,7 +5602,6 @@ export class CreateNatIpRequest extends $tea.Model {
       natGatewayId: 'NatGatewayId',
       natIp: 'NatIp',
       natIpCidr: 'NatIpCidr',
-      natIpCidrId: 'NatIpCidrId',
       natIpDescription: 'NatIpDescription',
       natIpName: 'NatIpName',
       ownerAccount: 'OwnerAccount',
@@ -5396,7 +5619,6 @@ export class CreateNatIpRequest extends $tea.Model {
       natGatewayId: 'string',
       natIp: 'string',
       natIpCidr: 'string',
-      natIpCidrId: 'string',
       natIpDescription: 'string',
       natIpName: 'string',
       ownerAccount: 'string',
@@ -5664,6 +5886,7 @@ export class CreatePhysicalConnectionRequest extends $tea.Model {
   resourceGroupId?: string;
   resourceOwnerAccount?: string;
   resourceOwnerId?: number;
+  tag?: CreatePhysicalConnectionRequestTag[];
   type?: string;
   bandwidth?: number;
   static names(): { [key: string]: string } {
@@ -5683,6 +5906,7 @@ export class CreatePhysicalConnectionRequest extends $tea.Model {
       resourceGroupId: 'ResourceGroupId',
       resourceOwnerAccount: 'ResourceOwnerAccount',
       resourceOwnerId: 'ResourceOwnerId',
+      tag: 'Tag',
       type: 'Type',
       bandwidth: 'bandwidth',
     };
@@ -5705,6 +5929,7 @@ export class CreatePhysicalConnectionRequest extends $tea.Model {
       resourceGroupId: 'string',
       resourceOwnerAccount: 'string',
       resourceOwnerId: 'number',
+      tag: { 'type': 'array', 'itemType': CreatePhysicalConnectionRequestTag },
       type: 'string',
       bandwidth: 'number',
     };
@@ -6295,12 +6520,10 @@ export class CreateRouteTableRequest extends $tea.Model {
 }
 
 export class CreateRouteTableResponseBody extends $tea.Model {
-  associateType?: string;
   requestId?: string;
   routeTableId?: string;
   static names(): { [key: string]: string } {
     return {
-      associateType: 'AssociateType',
       requestId: 'RequestId',
       routeTableId: 'RouteTableId',
     };
@@ -6308,7 +6531,6 @@ export class CreateRouteTableResponseBody extends $tea.Model {
 
   static types(): { [key: string]: any } {
     return {
-      associateType: 'string',
       requestId: 'string',
       routeTableId: 'string',
     };
@@ -6347,6 +6569,7 @@ export class CreateRouteTableResponse extends $tea.Model {
 export class CreateRouterInterfaceRequest extends $tea.Model {
   accessPointId?: string;
   autoPay?: boolean;
+  autoRenew?: boolean;
   clientToken?: string;
   description?: string;
   fastLinkMode?: boolean;
@@ -6375,6 +6598,7 @@ export class CreateRouterInterfaceRequest extends $tea.Model {
     return {
       accessPointId: 'AccessPointId',
       autoPay: 'AutoPay',
+      autoRenew: 'AutoRenew',
       clientToken: 'ClientToken',
       description: 'Description',
       fastLinkMode: 'FastLinkMode',
@@ -6406,6 +6630,7 @@ export class CreateRouterInterfaceRequest extends $tea.Model {
     return {
       accessPointId: 'string',
       autoPay: 'boolean',
+      autoRenew: 'boolean',
       clientToken: 'string',
       description: 'string',
       fastLinkMode: 'boolean',
@@ -6802,6 +7027,7 @@ export class CreateTrafficMirrorFilterRequest extends $tea.Model {
   ownerAccount?: string;
   ownerId?: number;
   regionId?: string;
+  resourceGroupId?: string;
   resourceOwnerAccount?: string;
   resourceOwnerId?: number;
   trafficMirrorFilterDescription?: string;
@@ -6815,6 +7041,7 @@ export class CreateTrafficMirrorFilterRequest extends $tea.Model {
       ownerAccount: 'OwnerAccount',
       ownerId: 'OwnerId',
       regionId: 'RegionId',
+      resourceGroupId: 'ResourceGroupId',
       resourceOwnerAccount: 'ResourceOwnerAccount',
       resourceOwnerId: 'ResourceOwnerId',
       trafficMirrorFilterDescription: 'TrafficMirrorFilterDescription',
@@ -6831,6 +7058,7 @@ export class CreateTrafficMirrorFilterRequest extends $tea.Model {
       ownerAccount: 'string',
       ownerId: 'number',
       regionId: 'string',
+      resourceGroupId: 'string',
       resourceOwnerAccount: 'string',
       resourceOwnerId: 'number',
       trafficMirrorFilterDescription: 'string',
@@ -6845,10 +7073,12 @@ export class CreateTrafficMirrorFilterRequest extends $tea.Model {
 
 export class CreateTrafficMirrorFilterResponseBody extends $tea.Model {
   requestId?: string;
+  resourceGroupId?: string;
   trafficMirrorFilterId?: string;
   static names(): { [key: string]: string } {
     return {
       requestId: 'RequestId',
+      resourceGroupId: 'ResourceGroupId',
       trafficMirrorFilterId: 'TrafficMirrorFilterId',
     };
   }
@@ -6856,6 +7086,7 @@ export class CreateTrafficMirrorFilterResponseBody extends $tea.Model {
   static types(): { [key: string]: any } {
     return {
       requestId: 'string',
+      resourceGroupId: 'string',
       trafficMirrorFilterId: 'string',
     };
   }
@@ -6995,6 +7226,7 @@ export class CreateTrafficMirrorSessionRequest extends $tea.Model {
   packetLength?: number;
   priority?: number;
   regionId?: string;
+  resourceGroupId?: string;
   resourceOwnerAccount?: string;
   resourceOwnerId?: number;
   trafficMirrorFilterId?: string;
@@ -7014,6 +7246,7 @@ export class CreateTrafficMirrorSessionRequest extends $tea.Model {
       packetLength: 'PacketLength',
       priority: 'Priority',
       regionId: 'RegionId',
+      resourceGroupId: 'ResourceGroupId',
       resourceOwnerAccount: 'ResourceOwnerAccount',
       resourceOwnerId: 'ResourceOwnerId',
       trafficMirrorFilterId: 'TrafficMirrorFilterId',
@@ -7036,6 +7269,7 @@ export class CreateTrafficMirrorSessionRequest extends $tea.Model {
       packetLength: 'number',
       priority: 'number',
       regionId: 'string',
+      resourceGroupId: 'string',
       resourceOwnerAccount: 'string',
       resourceOwnerId: 'number',
       trafficMirrorFilterId: 'string',
@@ -7055,10 +7289,12 @@ export class CreateTrafficMirrorSessionRequest extends $tea.Model {
 
 export class CreateTrafficMirrorSessionResponseBody extends $tea.Model {
   requestId?: string;
+  resourceGroupId?: string;
   trafficMirrorSessionId?: string;
   static names(): { [key: string]: string } {
     return {
       requestId: 'RequestId',
+      resourceGroupId: 'ResourceGroupId',
       trafficMirrorSessionId: 'TrafficMirrorSessionId',
     };
   }
@@ -7066,6 +7302,7 @@ export class CreateTrafficMirrorSessionResponseBody extends $tea.Model {
   static types(): { [key: string]: any } {
     return {
       requestId: 'string',
+      resourceGroupId: 'string',
       trafficMirrorSessionId: 'string',
     };
   }
@@ -7547,6 +7784,7 @@ export class CreateVirtualPhysicalConnectionRequest extends $tea.Model {
   regionId?: string;
   resourceGroupId?: string;
   spec?: string;
+  tag?: CreateVirtualPhysicalConnectionRequestTag[];
   token?: string;
   vlanId?: number;
   vpconnAliUid?: number;
@@ -7560,6 +7798,7 @@ export class CreateVirtualPhysicalConnectionRequest extends $tea.Model {
       regionId: 'RegionId',
       resourceGroupId: 'ResourceGroupId',
       spec: 'Spec',
+      tag: 'Tag',
       token: 'Token',
       vlanId: 'VlanId',
       vpconnAliUid: 'VpconnAliUid',
@@ -7576,6 +7815,7 @@ export class CreateVirtualPhysicalConnectionRequest extends $tea.Model {
       regionId: 'string',
       resourceGroupId: 'string',
       spec: 'string',
+      tag: { 'type': 'array', 'itemType': CreateVirtualPhysicalConnectionRequestTag },
       token: 'string',
       vlanId: 'number',
       vpconnAliUid: 'number',
@@ -7640,6 +7880,7 @@ export class CreateVpcRequest extends $tea.Model {
   description?: string;
   dryRun?: boolean;
   enableIpv6?: boolean;
+  ipv4IpamPoolId?: string;
   ipv6CidrBlock?: string;
   ipv6Isp?: string;
   ownerAccount?: string;
@@ -7657,6 +7898,7 @@ export class CreateVpcRequest extends $tea.Model {
       description: 'Description',
       dryRun: 'DryRun',
       enableIpv6: 'EnableIpv6',
+      ipv4IpamPoolId: 'Ipv4IpamPoolId',
       ipv6CidrBlock: 'Ipv6CidrBlock',
       ipv6Isp: 'Ipv6Isp',
       ownerAccount: 'OwnerAccount',
@@ -7677,6 +7919,7 @@ export class CreateVpcRequest extends $tea.Model {
       description: 'string',
       dryRun: 'boolean',
       enableIpv6: 'boolean',
+      ipv4IpamPoolId: 'string',
       ipv6CidrBlock: 'string',
       ipv6Isp: 'string',
       ownerAccount: 'string',
@@ -7760,6 +8003,7 @@ export class CreateVpcGatewayEndpointRequest extends $tea.Model {
   ownerId?: number;
   policyDocument?: string;
   regionId?: string;
+  resourceGroupId?: string;
   resourceOwnerAccount?: string;
   resourceOwnerId?: number;
   serviceName?: string;
@@ -7774,6 +8018,7 @@ export class CreateVpcGatewayEndpointRequest extends $tea.Model {
       ownerId: 'OwnerId',
       policyDocument: 'PolicyDocument',
       regionId: 'RegionId',
+      resourceGroupId: 'ResourceGroupId',
       resourceOwnerAccount: 'ResourceOwnerAccount',
       resourceOwnerId: 'ResourceOwnerId',
       serviceName: 'ServiceName',
@@ -7791,6 +8036,7 @@ export class CreateVpcGatewayEndpointRequest extends $tea.Model {
       ownerId: 'number',
       policyDocument: 'string',
       regionId: 'string',
+      resourceGroupId: 'string',
       resourceOwnerAccount: 'string',
       resourceOwnerId: 'number',
       serviceName: 'string',
@@ -7808,6 +8054,7 @@ export class CreateVpcGatewayEndpointResponseBody extends $tea.Model {
   endpointId?: string;
   endpointName?: string;
   requestId?: string;
+  resourceGroupId?: string;
   serviceName?: string;
   static names(): { [key: string]: string } {
     return {
@@ -7815,6 +8062,7 @@ export class CreateVpcGatewayEndpointResponseBody extends $tea.Model {
       endpointId: 'EndpointId',
       endpointName: 'EndpointName',
       requestId: 'RequestId',
+      resourceGroupId: 'ResourceGroupId',
       serviceName: 'ServiceName',
     };
   }
@@ -7825,6 +8073,7 @@ export class CreateVpcGatewayEndpointResponseBody extends $tea.Model {
       endpointId: 'string',
       endpointName: 'string',
       requestId: 'string',
+      resourceGroupId: 'string',
       serviceName: 'string',
     };
   }
@@ -8062,6 +8311,7 @@ export class CreateVpnAttachmentRequest extends $tea.Model {
   remoteSubnet?: string;
   resourceOwnerAccount?: string;
   resourceOwnerId?: number;
+  tags?: CreateVpnAttachmentRequestTags[];
   static names(): { [key: string]: string } {
     return {
       autoConfigRoute: 'AutoConfigRoute',
@@ -8083,6 +8333,7 @@ export class CreateVpnAttachmentRequest extends $tea.Model {
       remoteSubnet: 'RemoteSubnet',
       resourceOwnerAccount: 'ResourceOwnerAccount',
       resourceOwnerId: 'ResourceOwnerId',
+      tags: 'Tags',
     };
   }
 
@@ -8107,6 +8358,7 @@ export class CreateVpnAttachmentRequest extends $tea.Model {
       remoteSubnet: 'string',
       resourceOwnerAccount: 'string',
       resourceOwnerId: 'number',
+      tags: { 'type': 'array', 'itemType': CreateVpnAttachmentRequestTags },
     };
   }
 
@@ -8185,6 +8437,7 @@ export class CreateVpnConnectionRequest extends $tea.Model {
   effectImmediately?: boolean;
   enableDpd?: boolean;
   enableNatTraversal?: boolean;
+  enableTunnelsBgp?: boolean;
   healthCheckConfig?: string;
   ikeConfig?: string;
   ipsecConfig?: string;
@@ -8197,6 +8450,8 @@ export class CreateVpnConnectionRequest extends $tea.Model {
   remoteSubnet?: string;
   resourceOwnerAccount?: string;
   resourceOwnerId?: number;
+  tags?: CreateVpnConnectionRequestTags[];
+  tunnelOptionsSpecification?: CreateVpnConnectionRequestTunnelOptionsSpecification[];
   vpnGatewayId?: string;
   static names(): { [key: string]: string } {
     return {
@@ -8207,6 +8462,7 @@ export class CreateVpnConnectionRequest extends $tea.Model {
       effectImmediately: 'EffectImmediately',
       enableDpd: 'EnableDpd',
       enableNatTraversal: 'EnableNatTraversal',
+      enableTunnelsBgp: 'EnableTunnelsBgp',
       healthCheckConfig: 'HealthCheckConfig',
       ikeConfig: 'IkeConfig',
       ipsecConfig: 'IpsecConfig',
@@ -8219,6 +8475,8 @@ export class CreateVpnConnectionRequest extends $tea.Model {
       remoteSubnet: 'RemoteSubnet',
       resourceOwnerAccount: 'ResourceOwnerAccount',
       resourceOwnerId: 'ResourceOwnerId',
+      tags: 'Tags',
+      tunnelOptionsSpecification: 'TunnelOptionsSpecification',
       vpnGatewayId: 'VpnGatewayId',
     };
   }
@@ -8232,6 +8490,7 @@ export class CreateVpnConnectionRequest extends $tea.Model {
       effectImmediately: 'boolean',
       enableDpd: 'boolean',
       enableNatTraversal: 'boolean',
+      enableTunnelsBgp: 'boolean',
       healthCheckConfig: 'string',
       ikeConfig: 'string',
       ipsecConfig: 'string',
@@ -8244,6 +8503,8 @@ export class CreateVpnConnectionRequest extends $tea.Model {
       remoteSubnet: 'string',
       resourceOwnerAccount: 'string',
       resourceOwnerId: 'number',
+      tags: { 'type': 'array', 'itemType': CreateVpnConnectionRequestTags },
+      tunnelOptionsSpecification: { 'type': 'array', 'itemType': CreateVpnConnectionRequestTunnelOptionsSpecification },
       vpnGatewayId: 'string',
     };
   }
@@ -8310,6 +8571,7 @@ export class CreateVpnGatewayRequest extends $tea.Model {
   autoPay?: boolean;
   bandwidth?: number;
   clientToken?: string;
+  disasterRecoveryVSwitchId?: string;
   enableIpsec?: boolean;
   enableSsl?: boolean;
   instanceChargeType?: string;
@@ -8330,6 +8592,7 @@ export class CreateVpnGatewayRequest extends $tea.Model {
       autoPay: 'AutoPay',
       bandwidth: 'Bandwidth',
       clientToken: 'ClientToken',
+      disasterRecoveryVSwitchId: 'DisasterRecoveryVSwitchId',
       enableIpsec: 'EnableIpsec',
       enableSsl: 'EnableSsl',
       instanceChargeType: 'InstanceChargeType',
@@ -8353,6 +8616,7 @@ export class CreateVpnGatewayRequest extends $tea.Model {
       autoPay: 'boolean',
       bandwidth: 'number',
       clientToken: 'string',
+      disasterRecoveryVSwitchId: 'string',
       enableIpsec: 'boolean',
       enableSsl: 'boolean',
       instanceChargeType: 'string',
@@ -12138,6 +12402,8 @@ export class DeleteVirtualBorderRouterResponse extends $tea.Model {
 }
 
 export class DeleteVpcRequest extends $tea.Model {
+  dryRun?: boolean;
+  forceDelete?: boolean;
   ownerAccount?: string;
   ownerId?: number;
   regionId?: string;
@@ -12146,6 +12412,8 @@ export class DeleteVpcRequest extends $tea.Model {
   vpcId?: string;
   static names(): { [key: string]: string } {
     return {
+      dryRun: 'DryRun',
+      forceDelete: 'ForceDelete',
       ownerAccount: 'OwnerAccount',
       ownerId: 'OwnerId',
       regionId: 'RegionId',
@@ -12157,6 +12425,8 @@ export class DeleteVpcRequest extends $tea.Model {
 
   static types(): { [key: string]: any } {
     return {
+      dryRun: 'boolean',
+      forceDelete: 'boolean',
       ownerAccount: 'string',
       ownerId: 'number',
       regionId: 'string',
@@ -12909,6 +13179,7 @@ export class DeletionProtectionResponse extends $tea.Model {
 }
 
 export class DescribeAccessPointsRequest extends $tea.Model {
+  acceptLanguage?: string;
   ownerId?: number;
   pageNumber?: number;
   pageSize?: number;
@@ -12917,6 +13188,7 @@ export class DescribeAccessPointsRequest extends $tea.Model {
   resourceOwnerId?: number;
   static names(): { [key: string]: string } {
     return {
+      acceptLanguage: 'AcceptLanguage',
       ownerId: 'OwnerId',
       pageNumber: 'PageNumber',
       pageSize: 'PageSize',
@@ -12928,6 +13200,7 @@ export class DescribeAccessPointsRequest extends $tea.Model {
 
   static types(): { [key: string]: any } {
     return {
+      acceptLanguage: 'string',
       ownerId: 'number',
       pageNumber: 'number',
       pageSize: 'number',
@@ -13315,6 +13588,7 @@ export class DescribeCommonBandwidthPackagesRequest extends $tea.Model {
   resourceOwnerAccount?: string;
   resourceOwnerId?: number;
   securityProtectionEnabled?: boolean;
+  tag?: DescribeCommonBandwidthPackagesRequestTag[];
   static names(): { [key: string]: string } {
     return {
       bandwidthPackageId: 'BandwidthPackageId',
@@ -13330,6 +13604,7 @@ export class DescribeCommonBandwidthPackagesRequest extends $tea.Model {
       resourceOwnerAccount: 'ResourceOwnerAccount',
       resourceOwnerId: 'ResourceOwnerId',
       securityProtectionEnabled: 'SecurityProtectionEnabled',
+      tag: 'Tag',
     };
   }
 
@@ -13348,6 +13623,7 @@ export class DescribeCommonBandwidthPackagesRequest extends $tea.Model {
       resourceOwnerAccount: 'string',
       resourceOwnerId: 'number',
       securityProtectionEnabled: 'boolean',
+      tag: { 'type': 'array', 'itemType': DescribeCommonBandwidthPackagesRequestTag },
     };
   }
 
@@ -13455,6 +13731,7 @@ export class DescribeCustomerGatewayResponseBody extends $tea.Model {
   ipAddress?: string;
   name?: string;
   requestId?: string;
+  tags?: DescribeCustomerGatewayResponseBodyTags;
   static names(): { [key: string]: string } {
     return {
       asn: 'Asn',
@@ -13465,6 +13742,7 @@ export class DescribeCustomerGatewayResponseBody extends $tea.Model {
       ipAddress: 'IpAddress',
       name: 'Name',
       requestId: 'RequestId',
+      tags: 'Tags',
     };
   }
 
@@ -13478,6 +13756,7 @@ export class DescribeCustomerGatewayResponseBody extends $tea.Model {
       ipAddress: 'string',
       name: 'string',
       requestId: 'string',
+      tags: DescribeCustomerGatewayResponseBodyTags,
     };
   }
 
@@ -13520,6 +13799,7 @@ export class DescribeCustomerGatewaysRequest extends $tea.Model {
   regionId?: string;
   resourceOwnerAccount?: string;
   resourceOwnerId?: number;
+  tag?: DescribeCustomerGatewaysRequestTag[];
   static names(): { [key: string]: string } {
     return {
       customerGatewayId: 'CustomerGatewayId',
@@ -13530,6 +13810,7 @@ export class DescribeCustomerGatewaysRequest extends $tea.Model {
       regionId: 'RegionId',
       resourceOwnerAccount: 'ResourceOwnerAccount',
       resourceOwnerId: 'ResourceOwnerId',
+      tag: 'Tag',
     };
   }
 
@@ -13543,6 +13824,7 @@ export class DescribeCustomerGatewaysRequest extends $tea.Model {
       regionId: 'string',
       resourceOwnerAccount: 'string',
       resourceOwnerId: 'number',
+      tag: { 'type': 'array', 'itemType': DescribeCustomerGatewaysRequestTag },
     };
   }
 
@@ -14125,11 +14407,13 @@ export class DescribeFlowLogsRequest extends $tea.Model {
   pageSize?: number;
   projectName?: string;
   regionId?: string;
+  resourceGroupId?: string;
   resourceId?: string;
   resourceOwnerAccount?: string;
   resourceOwnerId?: number;
   resourceType?: string;
   status?: string;
+  tags?: DescribeFlowLogsRequestTags[];
   trafficType?: string;
   vpcId?: string;
   static names(): { [key: string]: string } {
@@ -14144,11 +14428,13 @@ export class DescribeFlowLogsRequest extends $tea.Model {
       pageSize: 'PageSize',
       projectName: 'ProjectName',
       regionId: 'RegionId',
+      resourceGroupId: 'ResourceGroupId',
       resourceId: 'ResourceId',
       resourceOwnerAccount: 'ResourceOwnerAccount',
       resourceOwnerId: 'ResourceOwnerId',
       resourceType: 'ResourceType',
       status: 'Status',
+      tags: 'Tags',
       trafficType: 'TrafficType',
       vpcId: 'VpcId',
     };
@@ -14166,11 +14452,13 @@ export class DescribeFlowLogsRequest extends $tea.Model {
       pageSize: 'number',
       projectName: 'string',
       regionId: 'string',
+      resourceGroupId: 'string',
       resourceId: 'string',
       resourceOwnerAccount: 'string',
       resourceOwnerId: 'number',
       resourceType: 'string',
       status: 'string',
+      tags: { 'type': 'array', 'itemType': DescribeFlowLogsRequestTags },
       trafficType: 'string',
       vpcId: 'string',
     };
@@ -14589,8 +14877,10 @@ export class DescribeHaVipsRequest extends $tea.Model {
   pageNumber?: number;
   pageSize?: number;
   regionId?: string;
+  resourceGroupId?: string;
   resourceOwnerAccount?: string;
   resourceOwnerId?: number;
+  tags?: DescribeHaVipsRequestTags[];
   static names(): { [key: string]: string } {
     return {
       filter: 'Filter',
@@ -14599,8 +14889,10 @@ export class DescribeHaVipsRequest extends $tea.Model {
       pageNumber: 'PageNumber',
       pageSize: 'PageSize',
       regionId: 'RegionId',
+      resourceGroupId: 'ResourceGroupId',
       resourceOwnerAccount: 'ResourceOwnerAccount',
       resourceOwnerId: 'ResourceOwnerId',
+      tags: 'Tags',
     };
   }
 
@@ -14612,8 +14904,10 @@ export class DescribeHaVipsRequest extends $tea.Model {
       pageNumber: 'number',
       pageSize: 'number',
       regionId: 'string',
+      resourceGroupId: 'string',
       resourceOwnerAccount: 'string',
       resourceOwnerId: 'number',
+      tags: { 'type': 'array', 'itemType': DescribeHaVipsRequestTags },
     };
   }
 
@@ -15224,6 +15518,7 @@ export class DescribeIPv6TranslatorsResponse extends $tea.Model {
 export class DescribeIpv6AddressesRequest extends $tea.Model {
   associatedInstanceId?: string;
   associatedInstanceType?: string;
+  includeReservationData?: boolean;
   ipv6Address?: string;
   ipv6AddressId?: string;
   ipv6InternetBandwidthId?: string;
@@ -15242,6 +15537,7 @@ export class DescribeIpv6AddressesRequest extends $tea.Model {
     return {
       associatedInstanceId: 'AssociatedInstanceId',
       associatedInstanceType: 'AssociatedInstanceType',
+      includeReservationData: 'IncludeReservationData',
       ipv6Address: 'Ipv6Address',
       ipv6AddressId: 'Ipv6AddressId',
       ipv6InternetBandwidthId: 'Ipv6InternetBandwidthId',
@@ -15263,6 +15559,7 @@ export class DescribeIpv6AddressesRequest extends $tea.Model {
     return {
       associatedInstanceId: 'string',
       associatedInstanceType: 'string',
+      includeReservationData: 'boolean',
       ipv6Address: 'string',
       ipv6AddressId: 'string',
       ipv6InternetBandwidthId: 'string',
@@ -15493,7 +15790,9 @@ export class DescribeIpv6GatewayAttributeResponseBody extends $tea.Model {
   name?: string;
   regionId?: string;
   requestId?: string;
+  resourceGroupId?: string;
   status?: string;
+  tags?: DescribeIpv6GatewayAttributeResponseBodyTags;
   vpcId?: string;
   static names(): { [key: string]: string } {
     return {
@@ -15506,7 +15805,9 @@ export class DescribeIpv6GatewayAttributeResponseBody extends $tea.Model {
       name: 'Name',
       regionId: 'RegionId',
       requestId: 'RequestId',
+      resourceGroupId: 'ResourceGroupId',
       status: 'Status',
+      tags: 'Tags',
       vpcId: 'VpcId',
     };
   }
@@ -15522,7 +15823,9 @@ export class DescribeIpv6GatewayAttributeResponseBody extends $tea.Model {
       name: 'string',
       regionId: 'string',
       requestId: 'string',
+      resourceGroupId: 'string',
       status: 'string',
+      tags: DescribeIpv6GatewayAttributeResponseBodyTags,
       vpcId: 'string',
     };
   }
@@ -15565,8 +15868,10 @@ export class DescribeIpv6GatewaysRequest extends $tea.Model {
   pageNumber?: number;
   pageSize?: number;
   regionId?: string;
+  resourceGroupId?: string;
   resourceOwnerAccount?: string;
   resourceOwnerId?: number;
+  tags?: DescribeIpv6GatewaysRequestTags[];
   vpcId?: string;
   static names(): { [key: string]: string } {
     return {
@@ -15577,8 +15882,10 @@ export class DescribeIpv6GatewaysRequest extends $tea.Model {
       pageNumber: 'PageNumber',
       pageSize: 'PageSize',
       regionId: 'RegionId',
+      resourceGroupId: 'ResourceGroupId',
       resourceOwnerAccount: 'ResourceOwnerAccount',
       resourceOwnerId: 'ResourceOwnerId',
+      tags: 'Tags',
       vpcId: 'VpcId',
     };
   }
@@ -15592,8 +15899,10 @@ export class DescribeIpv6GatewaysRequest extends $tea.Model {
       pageNumber: 'number',
       pageSize: 'number',
       regionId: 'string',
+      resourceGroupId: 'string',
       resourceOwnerAccount: 'string',
       resourceOwnerId: 'number',
+      tags: { 'type': 'array', 'itemType': DescribeIpv6GatewaysRequestTags },
       vpcId: 'string',
     };
   }
@@ -15881,6 +16190,7 @@ export class DescribeNetworkAclsRequest extends $tea.Model {
   resourceOwnerAccount?: string;
   resourceOwnerId?: number;
   resourceType?: string;
+  tags?: DescribeNetworkAclsRequestTags[];
   vpcId?: string;
   static names(): { [key: string]: string } {
     return {
@@ -15895,6 +16205,7 @@ export class DescribeNetworkAclsRequest extends $tea.Model {
       resourceOwnerAccount: 'ResourceOwnerAccount',
       resourceOwnerId: 'ResourceOwnerId',
       resourceType: 'ResourceType',
+      tags: 'Tags',
       vpcId: 'VpcId',
     };
   }
@@ -15912,6 +16223,7 @@ export class DescribeNetworkAclsRequest extends $tea.Model {
       resourceOwnerAccount: 'string',
       resourceOwnerId: 'number',
       resourceType: 'string',
+      tags: { 'type': 'array', 'itemType': DescribeNetworkAclsRequestTags },
       vpcId: 'string',
     };
   }
@@ -17405,6 +17717,108 @@ export class DescribeSslVpnClientCertsResponse extends $tea.Model {
   }
 }
 
+export class DescribeSslVpnClientsRequest extends $tea.Model {
+  ownerAccount?: string;
+  ownerId?: number;
+  pageNumber?: number;
+  pageSize?: number;
+  regionId?: string;
+  resourceOwnerAccount?: string;
+  resourceOwnerId?: number;
+  vpnGatewayId?: string;
+  static names(): { [key: string]: string } {
+    return {
+      ownerAccount: 'OwnerAccount',
+      ownerId: 'OwnerId',
+      pageNumber: 'PageNumber',
+      pageSize: 'PageSize',
+      regionId: 'RegionId',
+      resourceOwnerAccount: 'ResourceOwnerAccount',
+      resourceOwnerId: 'ResourceOwnerId',
+      vpnGatewayId: 'VpnGatewayId',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      ownerAccount: 'string',
+      ownerId: 'number',
+      pageNumber: 'number',
+      pageSize: 'number',
+      regionId: 'string',
+      resourceOwnerAccount: 'string',
+      resourceOwnerId: 'number',
+      vpnGatewayId: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class DescribeSslVpnClientsResponseBody extends $tea.Model {
+  clientInfoList?: DescribeSslVpnClientsResponseBodyClientInfoList[];
+  pageNumber?: number;
+  pageSize?: number;
+  regionId?: string;
+  requestId?: string;
+  totalCount?: number;
+  vpnGatewayId?: string;
+  static names(): { [key: string]: string } {
+    return {
+      clientInfoList: 'ClientInfoList',
+      pageNumber: 'PageNumber',
+      pageSize: 'PageSize',
+      regionId: 'RegionId',
+      requestId: 'RequestId',
+      totalCount: 'TotalCount',
+      vpnGatewayId: 'VpnGatewayId',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      clientInfoList: { 'type': 'array', 'itemType': DescribeSslVpnClientsResponseBodyClientInfoList },
+      pageNumber: 'number',
+      pageSize: 'number',
+      regionId: 'string',
+      requestId: 'string',
+      totalCount: 'number',
+      vpnGatewayId: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class DescribeSslVpnClientsResponse extends $tea.Model {
+  headers: { [key: string]: string };
+  statusCode: number;
+  body: DescribeSslVpnClientsResponseBody;
+  static names(): { [key: string]: string } {
+    return {
+      headers: 'headers',
+      statusCode: 'statusCode',
+      body: 'body',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
+      body: DescribeSslVpnClientsResponseBody,
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
 export class DescribeSslVpnServersRequest extends $tea.Model {
   name?: string;
   ownerAccount?: string;
@@ -17940,7 +18354,9 @@ export class DescribeVSwitchAttributesResponseBody extends $tea.Model {
   requestId?: string;
   resourceGroupId?: string;
   routeTable?: DescribeVSwitchAttributesResponseBodyRouteTable;
+  shareType?: string;
   status?: string;
+  tags?: DescribeVSwitchAttributesResponseBodyTags;
   vSwitchId?: string;
   vSwitchName?: string;
   vpcId?: string;
@@ -17958,7 +18374,9 @@ export class DescribeVSwitchAttributesResponseBody extends $tea.Model {
       requestId: 'RequestId',
       resourceGroupId: 'ResourceGroupId',
       routeTable: 'RouteTable',
+      shareType: 'ShareType',
       status: 'Status',
+      tags: 'Tags',
       vSwitchId: 'VSwitchId',
       vSwitchName: 'VSwitchName',
       vpcId: 'VpcId',
@@ -17979,7 +18397,9 @@ export class DescribeVSwitchAttributesResponseBody extends $tea.Model {
       requestId: 'string',
       resourceGroupId: 'string',
       routeTable: DescribeVSwitchAttributesResponseBodyRouteTable,
+      shareType: 'string',
       status: 'string',
+      tags: DescribeVSwitchAttributesResponseBodyTags,
       vSwitchId: 'string',
       vSwitchName: 'string',
       vpcId: 'string',
@@ -18599,6 +19019,7 @@ export class DescribeVpcAttributeResponseBody extends $tea.Model {
   secondaryCidrBlocks?: DescribeVpcAttributeResponseBodySecondaryCidrBlocks;
   status?: string;
   supportIpv4Gateway?: boolean;
+  tags?: DescribeVpcAttributeResponseBodyTags;
   userCidrs?: DescribeVpcAttributeResponseBodyUserCidrs;
   VRouterId?: string;
   vSwitchIds?: DescribeVpcAttributeResponseBodyVSwitchIds;
@@ -18625,6 +19046,7 @@ export class DescribeVpcAttributeResponseBody extends $tea.Model {
       secondaryCidrBlocks: 'SecondaryCidrBlocks',
       status: 'Status',
       supportIpv4Gateway: 'SupportIpv4Gateway',
+      tags: 'Tags',
       userCidrs: 'UserCidrs',
       VRouterId: 'VRouterId',
       vSwitchIds: 'VSwitchIds',
@@ -18654,6 +19076,7 @@ export class DescribeVpcAttributeResponseBody extends $tea.Model {
       secondaryCidrBlocks: DescribeVpcAttributeResponseBodySecondaryCidrBlocks,
       status: 'string',
       supportIpv4Gateway: 'boolean',
+      tags: DescribeVpcAttributeResponseBodyTags,
       userCidrs: DescribeVpcAttributeResponseBodyUserCidrs,
       VRouterId: 'string',
       vSwitchIds: DescribeVpcAttributeResponseBodyVSwitchIds,
@@ -18948,6 +19371,7 @@ export class DescribeVpnConnectionResponseBody extends $tea.Model {
   effectImmediately?: boolean;
   enableDpd?: boolean;
   enableNatTraversal?: boolean;
+  enableTunnelsBgp?: boolean;
   ikeConfig?: DescribeVpnConnectionResponseBodyIkeConfig;
   internetIp?: string;
   ipsecConfig?: DescribeVpnConnectionResponseBodyIpsecConfig;
@@ -18960,8 +19384,10 @@ export class DescribeVpnConnectionResponseBody extends $tea.Model {
   spec?: string;
   state?: string;
   status?: string;
+  tags?: DescribeVpnConnectionResponseBodyTags;
   transitRouterId?: string;
   transitRouterName?: string;
+  tunnelOptionsSpecification?: DescribeVpnConnectionResponseBodyTunnelOptionsSpecification;
   vcoHealthCheck?: DescribeVpnConnectionResponseBodyVcoHealthCheck;
   vpnBgpConfig?: DescribeVpnConnectionResponseBodyVpnBgpConfig;
   vpnConnectionId?: string;
@@ -18977,6 +19403,7 @@ export class DescribeVpnConnectionResponseBody extends $tea.Model {
       effectImmediately: 'EffectImmediately',
       enableDpd: 'EnableDpd',
       enableNatTraversal: 'EnableNatTraversal',
+      enableTunnelsBgp: 'EnableTunnelsBgp',
       ikeConfig: 'IkeConfig',
       internetIp: 'InternetIp',
       ipsecConfig: 'IpsecConfig',
@@ -18989,8 +19416,10 @@ export class DescribeVpnConnectionResponseBody extends $tea.Model {
       spec: 'Spec',
       state: 'State',
       status: 'Status',
+      tags: 'Tags',
       transitRouterId: 'TransitRouterId',
       transitRouterName: 'TransitRouterName',
+      tunnelOptionsSpecification: 'TunnelOptionsSpecification',
       vcoHealthCheck: 'VcoHealthCheck',
       vpnBgpConfig: 'VpnBgpConfig',
       vpnConnectionId: 'VpnConnectionId',
@@ -19009,6 +19438,7 @@ export class DescribeVpnConnectionResponseBody extends $tea.Model {
       effectImmediately: 'boolean',
       enableDpd: 'boolean',
       enableNatTraversal: 'boolean',
+      enableTunnelsBgp: 'boolean',
       ikeConfig: DescribeVpnConnectionResponseBodyIkeConfig,
       internetIp: 'string',
       ipsecConfig: DescribeVpnConnectionResponseBodyIpsecConfig,
@@ -19021,8 +19451,10 @@ export class DescribeVpnConnectionResponseBody extends $tea.Model {
       spec: 'string',
       state: 'string',
       status: 'string',
+      tags: DescribeVpnConnectionResponseBodyTags,
       transitRouterId: 'string',
       transitRouterName: 'string',
+      tunnelOptionsSpecification: DescribeVpnConnectionResponseBodyTunnelOptionsSpecification,
       vcoHealthCheck: DescribeVpnConnectionResponseBodyVcoHealthCheck,
       vpnBgpConfig: DescribeVpnConnectionResponseBodyVpnBgpConfig,
       vpnConnectionId: 'string',
@@ -19072,6 +19504,7 @@ export class DescribeVpnConnectionLogsRequest extends $tea.Model {
   resourceOwnerAccount?: string;
   resourceOwnerId?: number;
   to?: number;
+  tunnelId?: string;
   vpnConnectionId?: string;
   static names(): { [key: string]: string } {
     return {
@@ -19085,6 +19518,7 @@ export class DescribeVpnConnectionLogsRequest extends $tea.Model {
       resourceOwnerAccount: 'ResourceOwnerAccount',
       resourceOwnerId: 'ResourceOwnerId',
       to: 'To',
+      tunnelId: 'TunnelId',
       vpnConnectionId: 'VpnConnectionId',
     };
   }
@@ -19101,6 +19535,7 @@ export class DescribeVpnConnectionLogsRequest extends $tea.Model {
       resourceOwnerAccount: 'string',
       resourceOwnerId: 'number',
       to: 'number',
+      tunnelId: 'string',
       vpnConnectionId: 'string',
     };
   }
@@ -19178,6 +19613,7 @@ export class DescribeVpnConnectionsRequest extends $tea.Model {
   regionId?: string;
   resourceOwnerAccount?: string;
   resourceOwnerId?: number;
+  tag?: DescribeVpnConnectionsRequestTag[];
   vpnConnectionId?: string;
   vpnGatewayId?: string;
   static names(): { [key: string]: string } {
@@ -19190,6 +19626,7 @@ export class DescribeVpnConnectionsRequest extends $tea.Model {
       regionId: 'RegionId',
       resourceOwnerAccount: 'ResourceOwnerAccount',
       resourceOwnerId: 'ResourceOwnerId',
+      tag: 'Tag',
       vpnConnectionId: 'VpnConnectionId',
       vpnGatewayId: 'VpnGatewayId',
     };
@@ -19205,6 +19642,7 @@ export class DescribeVpnConnectionsRequest extends $tea.Model {
       regionId: 'string',
       resourceOwnerAccount: 'string',
       resourceOwnerId: 'number',
+      tag: { 'type': 'array', 'itemType': DescribeVpnConnectionsRequestTag },
       vpnConnectionId: 'string',
       vpnGatewayId: 'string',
     };
@@ -19410,6 +19848,8 @@ export class DescribeVpnGatewayResponseBody extends $tea.Model {
   chargeType?: string;
   createTime?: number;
   description?: string;
+  disasterRecoveryInternetIp?: string;
+  disasterRecoveryVSwitchId?: string;
   enableBgp?: boolean;
   endTime?: number;
   internetIp?: string;
@@ -19421,6 +19861,7 @@ export class DescribeVpnGatewayResponseBody extends $tea.Model {
   spec?: string;
   sslMaxConnections?: number;
   sslVpn?: string;
+  sslVpnInternetIp?: string;
   status?: string;
   tag?: string;
   tags?: DescribeVpnGatewayResponseBodyTags;
@@ -19435,6 +19876,8 @@ export class DescribeVpnGatewayResponseBody extends $tea.Model {
       chargeType: 'ChargeType',
       createTime: 'CreateTime',
       description: 'Description',
+      disasterRecoveryInternetIp: 'DisasterRecoveryInternetIp',
+      disasterRecoveryVSwitchId: 'DisasterRecoveryVSwitchId',
       enableBgp: 'EnableBgp',
       endTime: 'EndTime',
       internetIp: 'InternetIp',
@@ -19446,6 +19889,7 @@ export class DescribeVpnGatewayResponseBody extends $tea.Model {
       spec: 'Spec',
       sslMaxConnections: 'SslMaxConnections',
       sslVpn: 'SslVpn',
+      sslVpnInternetIp: 'SslVpnInternetIp',
       status: 'Status',
       tag: 'Tag',
       tags: 'Tags',
@@ -19463,6 +19907,8 @@ export class DescribeVpnGatewayResponseBody extends $tea.Model {
       chargeType: 'string',
       createTime: 'number',
       description: 'string',
+      disasterRecoveryInternetIp: 'string',
+      disasterRecoveryVSwitchId: 'string',
       enableBgp: 'boolean',
       endTime: 'number',
       internetIp: 'string',
@@ -19474,6 +19920,7 @@ export class DescribeVpnGatewayResponseBody extends $tea.Model {
       spec: 'string',
       sslMaxConnections: 'number',
       sslVpn: 'string',
+      sslVpnInternetIp: 'string',
       status: 'string',
       tag: 'string',
       tags: DescribeVpnGatewayResponseBodyTags,
@@ -21026,7 +21473,9 @@ export class GetDhcpOptionsSetResponseBody extends $tea.Model {
   dhcpOptionsSetName?: string;
   ownerId?: number;
   requestId?: string;
+  resourceGroupId?: string;
   status?: string;
+  tags?: GetDhcpOptionsSetResponseBodyTags[];
   static names(): { [key: string]: string } {
     return {
       associateVpcs: 'AssociateVpcs',
@@ -21036,7 +21485,9 @@ export class GetDhcpOptionsSetResponseBody extends $tea.Model {
       dhcpOptionsSetName: 'DhcpOptionsSetName',
       ownerId: 'OwnerId',
       requestId: 'RequestId',
+      resourceGroupId: 'ResourceGroupId',
       status: 'Status',
+      tags: 'Tags',
     };
   }
 
@@ -21049,7 +21500,9 @@ export class GetDhcpOptionsSetResponseBody extends $tea.Model {
       dhcpOptionsSetName: 'string',
       ownerId: 'number',
       requestId: 'string',
+      resourceGroupId: 'string',
       status: 'string',
+      tags: { 'type': 'array', 'itemType': GetDhcpOptionsSetResponseBodyTags },
     };
   }
 
@@ -21206,7 +21659,9 @@ export class GetIpv4GatewayAttributeResponseBody extends $tea.Model {
   ipv4GatewayName?: string;
   ipv4GatewayRouteTableId?: string;
   requestId?: string;
+  resourceGroupId?: string;
   status?: string;
+  tags?: GetIpv4GatewayAttributeResponseBodyTags[];
   vpcId?: string;
   static names(): { [key: string]: string } {
     return {
@@ -21217,7 +21672,9 @@ export class GetIpv4GatewayAttributeResponseBody extends $tea.Model {
       ipv4GatewayName: 'Ipv4GatewayName',
       ipv4GatewayRouteTableId: 'Ipv4GatewayRouteTableId',
       requestId: 'RequestId',
+      resourceGroupId: 'ResourceGroupId',
       status: 'Status',
+      tags: 'Tags',
       vpcId: 'VpcId',
     };
   }
@@ -21231,7 +21688,9 @@ export class GetIpv4GatewayAttributeResponseBody extends $tea.Model {
       ipv4GatewayName: 'string',
       ipv4GatewayRouteTableId: 'string',
       requestId: 'string',
+      resourceGroupId: 'string',
       status: 'string',
+      tags: { 'type': 'array', 'itemType': GetIpv4GatewayAttributeResponseBodyTags },
       vpcId: 'string',
     };
   }
@@ -21576,16 +22035,31 @@ export class GetPhysicalConnectionServiceStatusResponse extends $tea.Model {
 }
 
 export class GetTrafficMirrorServiceStatusRequest extends $tea.Model {
+  clientToken?: string;
+  ownerAccount?: string;
   ownerId?: number;
+  regionId?: string;
+  resourceOwnerAccount?: string;
+  resourceOwnerId?: number;
   static names(): { [key: string]: string } {
     return {
+      clientToken: 'ClientToken',
+      ownerAccount: 'OwnerAccount',
       ownerId: 'OwnerId',
+      regionId: 'RegionId',
+      resourceOwnerAccount: 'ResourceOwnerAccount',
+      resourceOwnerId: 'ResourceOwnerId',
     };
   }
 
   static types(): { [key: string]: any } {
     return {
+      clientToken: 'string',
+      ownerAccount: 'string',
       ownerId: 'number',
+      regionId: 'string',
+      resourceOwnerAccount: 'string',
+      resourceOwnerId: 'number',
     };
   }
 
@@ -21683,8 +22157,10 @@ export class GetVpcGatewayEndpointAttributeResponseBody extends $tea.Model {
   endpointStatus?: string;
   policyDocument?: string;
   requestId?: string;
+  resourceGroupId?: string;
   routeTables?: string[];
   serviceName?: string;
+  tags?: GetVpcGatewayEndpointAttributeResponseBodyTags[];
   vpcId?: string;
   static names(): { [key: string]: string } {
     return {
@@ -21695,8 +22171,10 @@ export class GetVpcGatewayEndpointAttributeResponseBody extends $tea.Model {
       endpointStatus: 'EndpointStatus',
       policyDocument: 'PolicyDocument',
       requestId: 'RequestId',
+      resourceGroupId: 'ResourceGroupId',
       routeTables: 'RouteTables',
       serviceName: 'ServiceName',
+      tags: 'Tags',
       vpcId: 'VpcId',
     };
   }
@@ -21710,8 +22188,10 @@ export class GetVpcGatewayEndpointAttributeResponseBody extends $tea.Model {
       endpointStatus: 'string',
       policyDocument: 'string',
       requestId: 'string',
+      resourceGroupId: 'string',
       routeTables: { 'type': 'array', 'itemType': 'string' },
       serviceName: 'string',
+      tags: { 'type': 'array', 'itemType': GetVpcGatewayEndpointAttributeResponseBodyTags },
       vpcId: 'string',
     };
   }
@@ -22401,8 +22881,10 @@ export class ListDhcpOptionsSetsRequest extends $tea.Model {
   ownerAccount?: string;
   ownerId?: number;
   regionId?: string;
+  resourceGroupId?: string;
   resourceOwnerAccount?: string;
   resourceOwnerId?: number;
+  tags?: ListDhcpOptionsSetsRequestTags[];
   static names(): { [key: string]: string } {
     return {
       dhcpOptionsSetId: 'DhcpOptionsSetId',
@@ -22413,8 +22895,10 @@ export class ListDhcpOptionsSetsRequest extends $tea.Model {
       ownerAccount: 'OwnerAccount',
       ownerId: 'OwnerId',
       regionId: 'RegionId',
+      resourceGroupId: 'ResourceGroupId',
       resourceOwnerAccount: 'ResourceOwnerAccount',
       resourceOwnerId: 'ResourceOwnerId',
+      tags: 'Tags',
     };
   }
 
@@ -22428,8 +22912,10 @@ export class ListDhcpOptionsSetsRequest extends $tea.Model {
       ownerAccount: 'string',
       ownerId: 'number',
       regionId: 'string',
+      resourceGroupId: 'string',
       resourceOwnerAccount: 'string',
       resourceOwnerId: 'number',
+      tags: { 'type': 'array', 'itemType': ListDhcpOptionsSetsRequestTags },
     };
   }
 
@@ -22442,11 +22928,13 @@ export class ListDhcpOptionsSetsResponseBody extends $tea.Model {
   dhcpOptionsSets?: ListDhcpOptionsSetsResponseBodyDhcpOptionsSets[];
   nextToken?: string;
   requestId?: string;
+  totalCount?: string;
   static names(): { [key: string]: string } {
     return {
       dhcpOptionsSets: 'DhcpOptionsSets',
       nextToken: 'NextToken',
       requestId: 'RequestId',
+      totalCount: 'TotalCount',
     };
   }
 
@@ -22455,6 +22943,7 @@ export class ListDhcpOptionsSetsResponseBody extends $tea.Model {
       dhcpOptionsSets: { 'type': 'array', 'itemType': ListDhcpOptionsSetsResponseBodyDhcpOptionsSets },
       nextToken: 'string',
       requestId: 'string',
+      totalCount: 'string',
     };
   }
 
@@ -23029,8 +23518,10 @@ export class ListIpv4GatewaysRequest extends $tea.Model {
   ownerAccount?: string;
   ownerId?: number;
   regionId?: string;
+  resourceGroupId?: string;
   resourceOwnerAccount?: string;
   resourceOwnerId?: number;
+  tags?: ListIpv4GatewaysRequestTags[];
   vpcId?: string;
   static names(): { [key: string]: string } {
     return {
@@ -23041,8 +23532,10 @@ export class ListIpv4GatewaysRequest extends $tea.Model {
       ownerAccount: 'OwnerAccount',
       ownerId: 'OwnerId',
       regionId: 'RegionId',
+      resourceGroupId: 'ResourceGroupId',
       resourceOwnerAccount: 'ResourceOwnerAccount',
       resourceOwnerId: 'ResourceOwnerId',
+      tags: 'Tags',
       vpcId: 'VpcId',
     };
   }
@@ -23056,8 +23549,10 @@ export class ListIpv4GatewaysRequest extends $tea.Model {
       ownerAccount: 'string',
       ownerId: 'number',
       regionId: 'string',
+      resourceGroupId: 'string',
       resourceOwnerAccount: 'string',
       resourceOwnerId: 'number',
+      tags: { 'type': 'array', 'itemType': ListIpv4GatewaysRequestTags },
       vpcId: 'string',
     };
   }
@@ -23494,14 +23989,12 @@ export class ListPublicIpAddressPoolCidrBlocksRequest extends $tea.Model {
 }
 
 export class ListPublicIpAddressPoolCidrBlocksResponseBody extends $tea.Model {
-  maxResults?: number;
   nextToken?: string;
   publicIpPoolCidrBlockList?: ListPublicIpAddressPoolCidrBlocksResponseBodyPublicIpPoolCidrBlockList[];
   requestId?: string;
   totalCount?: number;
   static names(): { [key: string]: string } {
     return {
-      maxResults: 'MaxResults',
       nextToken: 'NextToken',
       publicIpPoolCidrBlockList: 'PublicIpPoolCidrBlockList',
       requestId: 'RequestId',
@@ -23511,7 +24004,6 @@ export class ListPublicIpAddressPoolCidrBlocksResponseBody extends $tea.Model {
 
   static types(): { [key: string]: any } {
     return {
-      maxResults: 'number',
       nextToken: 'string',
       publicIpPoolCidrBlockList: { 'type': 'array', 'itemType': ListPublicIpAddressPoolCidrBlocksResponseBodyPublicIpPoolCidrBlockList },
       requestId: 'string',
@@ -23608,14 +24100,12 @@ export class ListPublicIpAddressPoolsRequest extends $tea.Model {
 }
 
 export class ListPublicIpAddressPoolsResponseBody extends $tea.Model {
-  maxResults?: number;
   nextToken?: string;
   publicIpAddressPoolList?: ListPublicIpAddressPoolsResponseBodyPublicIpAddressPoolList[];
   requestId?: string;
   totalCount?: number;
   static names(): { [key: string]: string } {
     return {
-      maxResults: 'MaxResults',
       nextToken: 'NextToken',
       publicIpAddressPoolList: 'PublicIpAddressPoolList',
       requestId: 'RequestId',
@@ -23625,7 +24115,6 @@ export class ListPublicIpAddressPoolsResponseBody extends $tea.Model {
 
   static types(): { [key: string]: any } {
     return {
-      maxResults: 'number',
       nextToken: 'string',
       publicIpAddressPoolList: { 'type': 'array', 'itemType': ListPublicIpAddressPoolsResponseBodyPublicIpAddressPoolList },
       requestId: 'string',
@@ -23861,8 +24350,10 @@ export class ListTrafficMirrorFiltersRequest extends $tea.Model {
   ownerAccount?: string;
   ownerId?: number;
   regionId?: string;
+  resourceGroupId?: string;
   resourceOwnerAccount?: string;
   resourceOwnerId?: number;
+  tags?: ListTrafficMirrorFiltersRequestTags[];
   trafficMirrorFilterIds?: string[];
   trafficMirrorFilterName?: string;
   static names(): { [key: string]: string } {
@@ -23872,8 +24363,10 @@ export class ListTrafficMirrorFiltersRequest extends $tea.Model {
       ownerAccount: 'OwnerAccount',
       ownerId: 'OwnerId',
       regionId: 'RegionId',
+      resourceGroupId: 'ResourceGroupId',
       resourceOwnerAccount: 'ResourceOwnerAccount',
       resourceOwnerId: 'ResourceOwnerId',
+      tags: 'Tags',
       trafficMirrorFilterIds: 'TrafficMirrorFilterIds',
       trafficMirrorFilterName: 'TrafficMirrorFilterName',
     };
@@ -23886,8 +24379,10 @@ export class ListTrafficMirrorFiltersRequest extends $tea.Model {
       ownerAccount: 'string',
       ownerId: 'number',
       regionId: 'string',
+      resourceGroupId: 'string',
       resourceOwnerAccount: 'string',
       resourceOwnerId: 'number',
+      tags: { 'type': 'array', 'itemType': ListTrafficMirrorFiltersRequestTags },
       trafficMirrorFilterIds: { 'type': 'array', 'itemType': 'string' },
       trafficMirrorFilterName: 'string',
     };
@@ -23899,12 +24394,16 @@ export class ListTrafficMirrorFiltersRequest extends $tea.Model {
 }
 
 export class ListTrafficMirrorFiltersResponseBody extends $tea.Model {
+  count?: number;
+  maxResults?: number;
   nextToken?: string;
   requestId?: string;
   totalCount?: string;
   trafficMirrorFilters?: ListTrafficMirrorFiltersResponseBodyTrafficMirrorFilters[];
   static names(): { [key: string]: string } {
     return {
+      count: 'Count',
+      maxResults: 'MaxResults',
       nextToken: 'NextToken',
       requestId: 'RequestId',
       totalCount: 'TotalCount',
@@ -23914,6 +24413,8 @@ export class ListTrafficMirrorFiltersResponseBody extends $tea.Model {
 
   static types(): { [key: string]: any } {
     return {
+      count: 'number',
+      maxResults: 'number',
       nextToken: 'string',
       requestId: 'string',
       totalCount: 'string',
@@ -23959,8 +24460,10 @@ export class ListTrafficMirrorSessionsRequest extends $tea.Model {
   ownerId?: number;
   priority?: number;
   regionId?: string;
+  resourceGroupId?: string;
   resourceOwnerAccount?: string;
   resourceOwnerId?: number;
+  tags?: ListTrafficMirrorSessionsRequestTags[];
   trafficMirrorFilterId?: string;
   trafficMirrorSessionIds?: string[];
   trafficMirrorSessionName?: string;
@@ -23976,8 +24479,10 @@ export class ListTrafficMirrorSessionsRequest extends $tea.Model {
       ownerId: 'OwnerId',
       priority: 'Priority',
       regionId: 'RegionId',
+      resourceGroupId: 'ResourceGroupId',
       resourceOwnerAccount: 'ResourceOwnerAccount',
       resourceOwnerId: 'ResourceOwnerId',
+      tags: 'Tags',
       trafficMirrorFilterId: 'TrafficMirrorFilterId',
       trafficMirrorSessionIds: 'TrafficMirrorSessionIds',
       trafficMirrorSessionName: 'TrafficMirrorSessionName',
@@ -23996,8 +24501,10 @@ export class ListTrafficMirrorSessionsRequest extends $tea.Model {
       ownerId: 'number',
       priority: 'number',
       regionId: 'string',
+      resourceGroupId: 'string',
       resourceOwnerAccount: 'string',
       resourceOwnerId: 'number',
+      tags: { 'type': 'array', 'itemType': ListTrafficMirrorSessionsRequestTags },
       trafficMirrorFilterId: 'string',
       trafficMirrorSessionIds: { 'type': 'array', 'itemType': 'string' },
       trafficMirrorSessionName: 'string',
@@ -24274,9 +24781,11 @@ export class ListVpcGatewayEndpointsRequest extends $tea.Model {
   ownerAccount?: string;
   ownerId?: number;
   regionId?: string;
+  resourceGroupId?: string;
   resourceOwnerAccount?: string;
   resourceOwnerId?: number;
   serviceName?: string;
+  tags?: ListVpcGatewayEndpointsRequestTags[];
   static names(): { [key: string]: string } {
     return {
       endpointId: 'EndpointId',
@@ -24286,9 +24795,11 @@ export class ListVpcGatewayEndpointsRequest extends $tea.Model {
       ownerAccount: 'OwnerAccount',
       ownerId: 'OwnerId',
       regionId: 'RegionId',
+      resourceGroupId: 'ResourceGroupId',
       resourceOwnerAccount: 'ResourceOwnerAccount',
       resourceOwnerId: 'ResourceOwnerId',
       serviceName: 'ServiceName',
+      tags: 'Tags',
     };
   }
 
@@ -24301,9 +24812,11 @@ export class ListVpcGatewayEndpointsRequest extends $tea.Model {
       ownerAccount: 'string',
       ownerId: 'number',
       regionId: 'string',
+      resourceGroupId: 'string',
       resourceOwnerAccount: 'string',
       resourceOwnerId: 'number',
       serviceName: 'string',
+      tags: { 'type': 'array', 'itemType': ListVpcGatewayEndpointsRequestTags },
     };
   }
 
@@ -28656,6 +29169,7 @@ export class ModifyVpnConnectionAttributeRequest extends $tea.Model {
   effectImmediately?: boolean;
   enableDpd?: boolean;
   enableNatTraversal?: boolean;
+  enableTunnelsBgp?: boolean;
   healthCheckConfig?: string;
   ikeConfig?: string;
   ipsecConfig?: string;
@@ -28668,6 +29182,7 @@ export class ModifyVpnConnectionAttributeRequest extends $tea.Model {
   remoteSubnet?: string;
   resourceOwnerAccount?: string;
   resourceOwnerId?: number;
+  tunnelOptionsSpecification?: ModifyVpnConnectionAttributeRequestTunnelOptionsSpecification[];
   vpnConnectionId?: string;
   static names(): { [key: string]: string } {
     return {
@@ -28677,6 +29192,7 @@ export class ModifyVpnConnectionAttributeRequest extends $tea.Model {
       effectImmediately: 'EffectImmediately',
       enableDpd: 'EnableDpd',
       enableNatTraversal: 'EnableNatTraversal',
+      enableTunnelsBgp: 'EnableTunnelsBgp',
       healthCheckConfig: 'HealthCheckConfig',
       ikeConfig: 'IkeConfig',
       ipsecConfig: 'IpsecConfig',
@@ -28689,6 +29205,7 @@ export class ModifyVpnConnectionAttributeRequest extends $tea.Model {
       remoteSubnet: 'RemoteSubnet',
       resourceOwnerAccount: 'ResourceOwnerAccount',
       resourceOwnerId: 'ResourceOwnerId',
+      tunnelOptionsSpecification: 'TunnelOptionsSpecification',
       vpnConnectionId: 'VpnConnectionId',
     };
   }
@@ -28701,6 +29218,7 @@ export class ModifyVpnConnectionAttributeRequest extends $tea.Model {
       effectImmediately: 'boolean',
       enableDpd: 'boolean',
       enableNatTraversal: 'boolean',
+      enableTunnelsBgp: 'boolean',
       healthCheckConfig: 'string',
       ikeConfig: 'string',
       ipsecConfig: 'string',
@@ -28713,6 +29231,7 @@ export class ModifyVpnConnectionAttributeRequest extends $tea.Model {
       remoteSubnet: 'string',
       resourceOwnerAccount: 'string',
       resourceOwnerId: 'number',
+      tunnelOptionsSpecification: { 'type': 'array', 'itemType': ModifyVpnConnectionAttributeRequestTunnelOptionsSpecification },
       vpnConnectionId: 'string',
     };
   }
@@ -28729,12 +29248,14 @@ export class ModifyVpnConnectionAttributeResponseBody extends $tea.Model {
   effectImmediately?: boolean;
   enableDpd?: boolean;
   enableNatTraversal?: boolean;
+  enableTunnelsBgp?: boolean;
   ikeConfig?: ModifyVpnConnectionAttributeResponseBodyIkeConfig;
   ipsecConfig?: ModifyVpnConnectionAttributeResponseBodyIpsecConfig;
   localSubnet?: string;
   name?: string;
   remoteSubnet?: string;
   requestId?: string;
+  tunnelOptionsSpecification?: ModifyVpnConnectionAttributeResponseBodyTunnelOptionsSpecification;
   vcoHealthCheck?: ModifyVpnConnectionAttributeResponseBodyVcoHealthCheck;
   vpnBgpConfig?: ModifyVpnConnectionAttributeResponseBodyVpnBgpConfig;
   vpnConnectionId?: string;
@@ -28747,12 +29268,14 @@ export class ModifyVpnConnectionAttributeResponseBody extends $tea.Model {
       effectImmediately: 'EffectImmediately',
       enableDpd: 'EnableDpd',
       enableNatTraversal: 'EnableNatTraversal',
+      enableTunnelsBgp: 'EnableTunnelsBgp',
       ikeConfig: 'IkeConfig',
       ipsecConfig: 'IpsecConfig',
       localSubnet: 'LocalSubnet',
       name: 'Name',
       remoteSubnet: 'RemoteSubnet',
       requestId: 'RequestId',
+      tunnelOptionsSpecification: 'TunnelOptionsSpecification',
       vcoHealthCheck: 'VcoHealthCheck',
       vpnBgpConfig: 'VpnBgpConfig',
       vpnConnectionId: 'VpnConnectionId',
@@ -28768,12 +29291,14 @@ export class ModifyVpnConnectionAttributeResponseBody extends $tea.Model {
       effectImmediately: 'boolean',
       enableDpd: 'boolean',
       enableNatTraversal: 'boolean',
+      enableTunnelsBgp: 'boolean',
       ikeConfig: ModifyVpnConnectionAttributeResponseBodyIkeConfig,
       ipsecConfig: ModifyVpnConnectionAttributeResponseBodyIpsecConfig,
       localSubnet: 'string',
       name: 'string',
       remoteSubnet: 'string',
       requestId: 'string',
+      tunnelOptionsSpecification: ModifyVpnConnectionAttributeResponseBodyTunnelOptionsSpecification,
       vcoHealthCheck: ModifyVpnConnectionAttributeResponseBodyVcoHealthCheck,
       vpnBgpConfig: ModifyVpnConnectionAttributeResponseBodyVpnBgpConfig,
       vpnConnectionId: 'string',
@@ -28862,6 +29387,8 @@ export class ModifyVpnGatewayAttributeResponseBody extends $tea.Model {
   businessStatus?: string;
   createTime?: number;
   description?: string;
+  disasterRecoveryInternetIp?: string;
+  disasterRecoveryVSwitchId?: string;
   enableBgp?: boolean;
   endTime?: number;
   internetIp?: string;
@@ -28869,6 +29396,7 @@ export class ModifyVpnGatewayAttributeResponseBody extends $tea.Model {
   name?: string;
   requestId?: string;
   spec?: string;
+  sslVpnInternetIp?: string;
   status?: string;
   vSwitchId?: string;
   vpcId?: string;
@@ -28879,6 +29407,8 @@ export class ModifyVpnGatewayAttributeResponseBody extends $tea.Model {
       businessStatus: 'BusinessStatus',
       createTime: 'CreateTime',
       description: 'Description',
+      disasterRecoveryInternetIp: 'DisasterRecoveryInternetIp',
+      disasterRecoveryVSwitchId: 'DisasterRecoveryVSwitchId',
       enableBgp: 'EnableBgp',
       endTime: 'EndTime',
       internetIp: 'InternetIp',
@@ -28886,6 +29416,7 @@ export class ModifyVpnGatewayAttributeResponseBody extends $tea.Model {
       name: 'Name',
       requestId: 'RequestId',
       spec: 'Spec',
+      sslVpnInternetIp: 'SslVpnInternetIp',
       status: 'Status',
       vSwitchId: 'VSwitchId',
       vpcId: 'VpcId',
@@ -28899,6 +29430,8 @@ export class ModifyVpnGatewayAttributeResponseBody extends $tea.Model {
       businessStatus: 'string',
       createTime: 'number',
       description: 'string',
+      disasterRecoveryInternetIp: 'string',
+      disasterRecoveryVSwitchId: 'string',
       enableBgp: 'boolean',
       endTime: 'number',
       internetIp: 'string',
@@ -28906,6 +29439,7 @@ export class ModifyVpnGatewayAttributeResponseBody extends $tea.Model {
       name: 'string',
       requestId: 'string',
       spec: 'string',
+      sslVpnInternetIp: 'string',
       status: 'string',
       vSwitchId: 'string',
       vpcId: 'string',
@@ -29586,16 +30120,31 @@ export class OpenPhysicalConnectionServiceResponse extends $tea.Model {
 }
 
 export class OpenTrafficMirrorServiceRequest extends $tea.Model {
+  clientToken?: string;
+  ownerAccount?: string;
   ownerId?: number;
+  regionId?: string;
+  resourceOwnerAccount?: string;
+  resourceOwnerId?: number;
   static names(): { [key: string]: string } {
     return {
+      clientToken: 'ClientToken',
+      ownerAccount: 'OwnerAccount',
       ownerId: 'OwnerId',
+      regionId: 'RegionId',
+      resourceOwnerAccount: 'ResourceOwnerAccount',
+      resourceOwnerId: 'ResourceOwnerId',
     };
   }
 
   static types(): { [key: string]: any } {
     return {
+      clientToken: 'string',
+      ownerAccount: 'string',
       ownerId: 'number',
+      regionId: 'string',
+      resourceOwnerAccount: 'string',
+      resourceOwnerId: 'number',
     };
   }
 
@@ -29605,18 +30154,21 @@ export class OpenTrafficMirrorServiceRequest extends $tea.Model {
 }
 
 export class OpenTrafficMirrorServiceResponseBody extends $tea.Model {
-  orderId?: string;
+  code?: string;
+  message?: string;
   requestId?: string;
   static names(): { [key: string]: string } {
     return {
-      orderId: 'OrderId',
+      code: 'Code',
+      message: 'Message',
       requestId: 'RequestId',
     };
   }
 
   static types(): { [key: string]: any } {
     return {
-      orderId: 'string',
+      code: 'string',
+      message: 'string',
       requestId: 'string',
     };
   }
@@ -32823,6 +33375,7 @@ export class UpdateTrafficMirrorSessionAttributeRequest extends $tea.Model {
   enabled?: boolean;
   ownerAccount?: string;
   ownerId?: number;
+  packetLength?: number;
   priority?: number;
   regionId?: string;
   resourceOwnerAccount?: string;
@@ -32841,6 +33394,7 @@ export class UpdateTrafficMirrorSessionAttributeRequest extends $tea.Model {
       enabled: 'Enabled',
       ownerAccount: 'OwnerAccount',
       ownerId: 'OwnerId',
+      packetLength: 'PacketLength',
       priority: 'Priority',
       regionId: 'RegionId',
       resourceOwnerAccount: 'ResourceOwnerAccount',
@@ -32862,6 +33416,7 @@ export class UpdateTrafficMirrorSessionAttributeRequest extends $tea.Model {
       enabled: 'boolean',
       ownerAccount: 'string',
       ownerId: 'number',
+      packetLength: 'number',
       priority: 'number',
       regionId: 'string',
       resourceOwnerAccount: 'string',
@@ -33335,6 +33890,28 @@ export class AssociateNetworkAclRequestResource extends $tea.Model {
   }
 }
 
+export class CreateCustomerGatewayRequestTags extends $tea.Model {
+  key?: string;
+  value?: string;
+  static names(): { [key: string]: string } {
+    return {
+      key: 'Key',
+      value: 'Value',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      key: 'string',
+      value: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
 export class CreateNatGatewayRequestTag extends $tea.Model {
   key?: string;
   value?: string;
@@ -33616,6 +34193,28 @@ export class CreateNetworkAclResponseBodyNetworkAclAttribute extends $tea.Model 
   }
 }
 
+export class CreatePhysicalConnectionRequestTag extends $tea.Model {
+  key?: string;
+  value?: string;
+  static names(): { [key: string]: string } {
+    return {
+      key: 'Key',
+      value: 'Value',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      key: 'string',
+      value: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
 export class CreatePhysicalConnectionOccupancyOrderResponseBodyData extends $tea.Model {
   orderId?: string;
   static names(): { [key: string]: string } {
@@ -33636,7 +34235,7 @@ export class CreatePhysicalConnectionOccupancyOrderResponseBodyData extends $tea
 }
 
 export class CreateRouteEntriesRequestRouteEntries extends $tea.Model {
-  describption?: string;
+  description?: string;
   dstCidrBlock?: string;
   ipVersion?: number;
   name?: string;
@@ -33645,7 +34244,7 @@ export class CreateRouteEntriesRequestRouteEntries extends $tea.Model {
   routeTableId?: string;
   static names(): { [key: string]: string } {
     return {
-      describption: 'Describption',
+      description: 'Description',
       dstCidrBlock: 'DstCidrBlock',
       ipVersion: 'IpVersion',
       name: 'Name',
@@ -33657,7 +34256,7 @@ export class CreateRouteEntriesRequestRouteEntries extends $tea.Model {
 
   static types(): { [key: string]: any } {
     return {
-      describption: 'string',
+      description: 'string',
       dstCidrBlock: 'string',
       ipVersion: 'number',
       name: 'string',
@@ -33911,6 +34510,28 @@ export class CreateTrafficMirrorFilterRulesResponseBodyIngressRules extends $tea
   }
 }
 
+export class CreateVirtualPhysicalConnectionRequestTag extends $tea.Model {
+  key?: string;
+  value?: string;
+  static names(): { [key: string]: string } {
+    return {
+      key: 'Key',
+      value: 'Value',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      key: 'string',
+      value: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
 export class CreateVpcPrefixListRequestPrefixListEntries extends $tea.Model {
   cidr?: string;
   description?: string;
@@ -33925,6 +34546,186 @@ export class CreateVpcPrefixListRequestPrefixListEntries extends $tea.Model {
     return {
       cidr: 'string',
       description: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class CreateVpnAttachmentRequestTags extends $tea.Model {
+  key?: string;
+  value?: string;
+  static names(): { [key: string]: string } {
+    return {
+      key: 'Key',
+      value: 'Value',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      key: 'string',
+      value: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class CreateVpnConnectionRequestTags extends $tea.Model {
+  key?: string;
+  value?: string;
+  static names(): { [key: string]: string } {
+    return {
+      key: 'Key',
+      value: 'Value',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      key: 'string',
+      value: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class CreateVpnConnectionRequestTunnelOptionsSpecificationTunnelBgpConfig extends $tea.Model {
+  localAsn?: number;
+  localBgpIp?: string;
+  tunnelCidr?: string;
+  static names(): { [key: string]: string } {
+    return {
+      localAsn: 'LocalAsn',
+      localBgpIp: 'LocalBgpIp',
+      tunnelCidr: 'TunnelCidr',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      localAsn: 'number',
+      localBgpIp: 'string',
+      tunnelCidr: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class CreateVpnConnectionRequestTunnelOptionsSpecificationTunnelIkeConfig extends $tea.Model {
+  ikeAuthAlg?: string;
+  ikeEncAlg?: string;
+  ikeLifetime?: number;
+  ikeMode?: string;
+  ikePfs?: string;
+  ikeVersion?: string;
+  localId?: string;
+  psk?: string;
+  remoteId?: string;
+  static names(): { [key: string]: string } {
+    return {
+      ikeAuthAlg: 'IkeAuthAlg',
+      ikeEncAlg: 'IkeEncAlg',
+      ikeLifetime: 'IkeLifetime',
+      ikeMode: 'IkeMode',
+      ikePfs: 'IkePfs',
+      ikeVersion: 'IkeVersion',
+      localId: 'LocalId',
+      psk: 'Psk',
+      remoteId: 'RemoteId',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      ikeAuthAlg: 'string',
+      ikeEncAlg: 'string',
+      ikeLifetime: 'number',
+      ikeMode: 'string',
+      ikePfs: 'string',
+      ikeVersion: 'string',
+      localId: 'string',
+      psk: 'string',
+      remoteId: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class CreateVpnConnectionRequestTunnelOptionsSpecificationTunnelIpsecConfig extends $tea.Model {
+  ipsecAuthAlg?: string;
+  ipsecEncAlg?: string;
+  ipsecLifetime?: number;
+  ipsecPfs?: string;
+  static names(): { [key: string]: string } {
+    return {
+      ipsecAuthAlg: 'IpsecAuthAlg',
+      ipsecEncAlg: 'IpsecEncAlg',
+      ipsecLifetime: 'IpsecLifetime',
+      ipsecPfs: 'IpsecPfs',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      ipsecAuthAlg: 'string',
+      ipsecEncAlg: 'string',
+      ipsecLifetime: 'number',
+      ipsecPfs: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class CreateVpnConnectionRequestTunnelOptionsSpecification extends $tea.Model {
+  customerGatewayId?: string;
+  enableDpd?: boolean;
+  enableNatTraversal?: boolean;
+  remoteCaCertificate?: string;
+  role?: string;
+  tunnelBgpConfig?: CreateVpnConnectionRequestTunnelOptionsSpecificationTunnelBgpConfig;
+  tunnelIkeConfig?: CreateVpnConnectionRequestTunnelOptionsSpecificationTunnelIkeConfig;
+  tunnelIpsecConfig?: CreateVpnConnectionRequestTunnelOptionsSpecificationTunnelIpsecConfig;
+  static names(): { [key: string]: string } {
+    return {
+      customerGatewayId: 'CustomerGatewayId',
+      enableDpd: 'EnableDpd',
+      enableNatTraversal: 'EnableNatTraversal',
+      remoteCaCertificate: 'RemoteCaCertificate',
+      role: 'Role',
+      tunnelBgpConfig: 'TunnelBgpConfig',
+      tunnelIkeConfig: 'TunnelIkeConfig',
+      tunnelIpsecConfig: 'TunnelIpsecConfig',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      customerGatewayId: 'string',
+      enableDpd: 'boolean',
+      enableNatTraversal: 'boolean',
+      remoteCaCertificate: 'string',
+      role: 'string',
+      tunnelBgpConfig: CreateVpnConnectionRequestTunnelOptionsSpecificationTunnelBgpConfig,
+      tunnelIkeConfig: CreateVpnConnectionRequestTunnelOptionsSpecificationTunnelIkeConfig,
+      tunnelIpsecConfig: CreateVpnConnectionRequestTunnelOptionsSpecificationTunnelIpsecConfig,
     };
   }
 
@@ -34342,6 +35143,28 @@ export class DescribeBgpPeersResponseBodyBgpPeers extends $tea.Model {
   }
 }
 
+export class DescribeCommonBandwidthPackagesRequestTag extends $tea.Model {
+  key?: string;
+  value?: string;
+  static names(): { [key: string]: string } {
+    return {
+      key: 'Key',
+      value: 'Value',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      key: 'string',
+      value: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
 export class DescribeCommonBandwidthPackagesResponseBodyCommonBandwidthPackagesCommonBandwidthPackagePublicIpAddressesPublicIpAddresse extends $tea.Model {
   allocationId?: string;
   bandwidthPackageIpRelationStatus?: string;
@@ -34405,6 +35228,47 @@ export class DescribeCommonBandwidthPackagesResponseBodyCommonBandwidthPackagesC
   }
 }
 
+export class DescribeCommonBandwidthPackagesResponseBodyCommonBandwidthPackagesCommonBandwidthPackageTagsTag extends $tea.Model {
+  key?: string;
+  value?: string;
+  static names(): { [key: string]: string } {
+    return {
+      key: 'Key',
+      value: 'Value',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      key: 'string',
+      value: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class DescribeCommonBandwidthPackagesResponseBodyCommonBandwidthPackagesCommonBandwidthPackageTags extends $tea.Model {
+  tag?: DescribeCommonBandwidthPackagesResponseBodyCommonBandwidthPackagesCommonBandwidthPackageTagsTag[];
+  static names(): { [key: string]: string } {
+    return {
+      tag: 'Tag',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      tag: { 'type': 'array', 'itemType': DescribeCommonBandwidthPackagesResponseBodyCommonBandwidthPackagesCommonBandwidthPackageTagsTag },
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
 export class DescribeCommonBandwidthPackagesResponseBodyCommonBandwidthPackagesCommonBandwidthPackage extends $tea.Model {
   bandwidth?: string;
   bandwidthPackageId?: string;
@@ -34429,6 +35293,7 @@ export class DescribeCommonBandwidthPackagesResponseBodyCommonBandwidthPackagesC
   securityProtectionTypes?: DescribeCommonBandwidthPackagesResponseBodyCommonBandwidthPackagesCommonBandwidthPackageSecurityProtectionTypes;
   serviceManaged?: number;
   status?: string;
+  tags?: DescribeCommonBandwidthPackagesResponseBodyCommonBandwidthPackagesCommonBandwidthPackageTags;
   static names(): { [key: string]: string } {
     return {
       bandwidth: 'Bandwidth',
@@ -34454,6 +35319,7 @@ export class DescribeCommonBandwidthPackagesResponseBodyCommonBandwidthPackagesC
       securityProtectionTypes: 'SecurityProtectionTypes',
       serviceManaged: 'ServiceManaged',
       status: 'Status',
+      tags: 'Tags',
     };
   }
 
@@ -34482,6 +35348,7 @@ export class DescribeCommonBandwidthPackagesResponseBodyCommonBandwidthPackagesC
       securityProtectionTypes: DescribeCommonBandwidthPackagesResponseBodyCommonBandwidthPackagesCommonBandwidthPackageSecurityProtectionTypes,
       serviceManaged: 'number',
       status: 'string',
+      tags: DescribeCommonBandwidthPackagesResponseBodyCommonBandwidthPackagesCommonBandwidthPackageTags,
     };
   }
 
@@ -34509,6 +35376,110 @@ export class DescribeCommonBandwidthPackagesResponseBodyCommonBandwidthPackages 
   }
 }
 
+export class DescribeCustomerGatewayResponseBodyTagsTag extends $tea.Model {
+  key?: string;
+  value?: string;
+  static names(): { [key: string]: string } {
+    return {
+      key: 'Key',
+      value: 'Value',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      key: 'string',
+      value: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class DescribeCustomerGatewayResponseBodyTags extends $tea.Model {
+  tag?: DescribeCustomerGatewayResponseBodyTagsTag[];
+  static names(): { [key: string]: string } {
+    return {
+      tag: 'Tag',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      tag: { 'type': 'array', 'itemType': DescribeCustomerGatewayResponseBodyTagsTag },
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class DescribeCustomerGatewaysRequestTag extends $tea.Model {
+  key?: string;
+  value?: string;
+  static names(): { [key: string]: string } {
+    return {
+      key: 'Key',
+      value: 'Value',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      key: 'string',
+      value: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class DescribeCustomerGatewaysResponseBodyCustomerGatewaysCustomerGatewayTagsTag extends $tea.Model {
+  key?: string;
+  value?: string;
+  static names(): { [key: string]: string } {
+    return {
+      key: 'Key',
+      value: 'Value',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      key: 'string',
+      value: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class DescribeCustomerGatewaysResponseBodyCustomerGatewaysCustomerGatewayTags extends $tea.Model {
+  tag?: DescribeCustomerGatewaysResponseBodyCustomerGatewaysCustomerGatewayTagsTag[];
+  static names(): { [key: string]: string } {
+    return {
+      tag: 'Tag',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      tag: { 'type': 'array', 'itemType': DescribeCustomerGatewaysResponseBodyCustomerGatewaysCustomerGatewayTagsTag },
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
 export class DescribeCustomerGatewaysResponseBodyCustomerGatewaysCustomerGateway extends $tea.Model {
   asn?: number;
   authKey?: string;
@@ -34517,6 +35488,7 @@ export class DescribeCustomerGatewaysResponseBodyCustomerGatewaysCustomerGateway
   description?: string;
   ipAddress?: string;
   name?: string;
+  tags?: DescribeCustomerGatewaysResponseBodyCustomerGatewaysCustomerGatewayTags;
   static names(): { [key: string]: string } {
     return {
       asn: 'Asn',
@@ -34526,6 +35498,7 @@ export class DescribeCustomerGatewaysResponseBodyCustomerGatewaysCustomerGateway
       description: 'Description',
       ipAddress: 'IpAddress',
       name: 'Name',
+      tags: 'Tags',
     };
   }
 
@@ -34538,6 +35511,7 @@ export class DescribeCustomerGatewaysResponseBodyCustomerGatewaysCustomerGateway
       description: 'string',
       ipAddress: 'string',
       name: 'string',
+      tags: DescribeCustomerGatewaysResponseBodyCustomerGatewaysCustomerGatewayTags,
     };
   }
 
@@ -34568,6 +35542,7 @@ export class DescribeCustomerGatewaysResponseBodyCustomerGateways extends $tea.M
 export class DescribeEcGrantRelationResponseBodyEcGrantRelations extends $tea.Model {
   aliUid?: number;
   gmtCreate?: string;
+  grantType?: string;
   instanceId?: string;
   instanceName?: string;
   instanceRouterId?: string;
@@ -34580,6 +35555,7 @@ export class DescribeEcGrantRelationResponseBodyEcGrantRelations extends $tea.Mo
     return {
       aliUid: 'AliUid',
       gmtCreate: 'GmtCreate',
+      grantType: 'GrantType',
       instanceId: 'InstanceId',
       instanceName: 'InstanceName',
       instanceRouterId: 'InstanceRouterId',
@@ -34595,6 +35571,7 @@ export class DescribeEcGrantRelationResponseBodyEcGrantRelations extends $tea.Mo
     return {
       aliUid: 'number',
       gmtCreate: 'string',
+      grantType: 'string',
       instanceId: 'string',
       instanceName: 'string',
       instanceRouterId: 'string',
@@ -34986,6 +35963,7 @@ export class DescribeEipSegmentResponseBodyEipSegmentsEipSegment extends $tea.Mo
   regionId?: string;
   segment?: string;
   status?: string;
+  zone?: string;
   static names(): { [key: string]: string } {
     return {
       creationTime: 'CreationTime',
@@ -34996,6 +35974,7 @@ export class DescribeEipSegmentResponseBodyEipSegmentsEipSegment extends $tea.Mo
       regionId: 'RegionId',
       segment: 'Segment',
       status: 'Status',
+      zone: 'Zone',
     };
   }
 
@@ -35009,6 +35988,7 @@ export class DescribeEipSegmentResponseBodyEipSegmentsEipSegment extends $tea.Mo
       regionId: 'string',
       segment: 'string',
       status: 'string',
+      zone: 'string',
     };
   }
 
@@ -35036,11 +36016,74 @@ export class DescribeEipSegmentResponseBodyEipSegments extends $tea.Model {
   }
 }
 
+export class DescribeFlowLogsRequestTags extends $tea.Model {
+  key?: string;
+  value?: string;
+  static names(): { [key: string]: string } {
+    return {
+      key: 'Key',
+      value: 'Value',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      key: 'string',
+      value: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class DescribeFlowLogsResponseBodyFlowLogsFlowLogTagsTag extends $tea.Model {
+  key?: string;
+  value?: string;
+  static names(): { [key: string]: string } {
+    return {
+      key: 'Key',
+      value: 'Value',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      key: 'string',
+      value: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class DescribeFlowLogsResponseBodyFlowLogsFlowLogTags extends $tea.Model {
+  tag?: DescribeFlowLogsResponseBodyFlowLogsFlowLogTagsTag[];
+  static names(): { [key: string]: string } {
+    return {
+      tag: 'Tag',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      tag: { 'type': 'array', 'itemType': DescribeFlowLogsResponseBodyFlowLogsFlowLogTagsTag },
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
 export class DescribeFlowLogsResponseBodyFlowLogsFlowLogTrafficPath extends $tea.Model {
   trafficPathList?: string[];
   static names(): { [key: string]: string } {
     return {
-      trafficPathList: 'trafficPathList',
+      trafficPathList: 'TrafficPathList',
     };
   }
 
@@ -35065,10 +36108,12 @@ export class DescribeFlowLogsResponseBodyFlowLogsFlowLog extends $tea.Model {
   logStoreName?: string;
   projectName?: string;
   regionId?: string;
+  resourceGroupId?: string;
   resourceId?: string;
   resourceType?: string;
   serviceType?: string;
   status?: string;
+  tags?: DescribeFlowLogsResponseBodyFlowLogsFlowLogTags;
   trafficPath?: DescribeFlowLogsResponseBodyFlowLogsFlowLogTrafficPath;
   trafficType?: string;
   static names(): { [key: string]: string } {
@@ -35082,10 +36127,12 @@ export class DescribeFlowLogsResponseBodyFlowLogsFlowLog extends $tea.Model {
       logStoreName: 'LogStoreName',
       projectName: 'ProjectName',
       regionId: 'RegionId',
+      resourceGroupId: 'ResourceGroupId',
       resourceId: 'ResourceId',
       resourceType: 'ResourceType',
       serviceType: 'ServiceType',
       status: 'Status',
+      tags: 'Tags',
       trafficPath: 'TrafficPath',
       trafficType: 'TrafficType',
     };
@@ -35102,10 +36149,12 @@ export class DescribeFlowLogsResponseBodyFlowLogsFlowLog extends $tea.Model {
       logStoreName: 'string',
       projectName: 'string',
       regionId: 'string',
+      resourceGroupId: 'string',
       resourceId: 'string',
       resourceType: 'string',
       serviceType: 'string',
       status: 'string',
+      tags: DescribeFlowLogsResponseBodyFlowLogsFlowLogTags,
       trafficPath: DescribeFlowLogsResponseBodyFlowLogsFlowLogTrafficPath,
       trafficType: 'string',
     };
@@ -35434,6 +36483,28 @@ export class DescribeHaVipsRequestFilter extends $tea.Model {
   }
 }
 
+export class DescribeHaVipsRequestTags extends $tea.Model {
+  key?: string;
+  value?: string;
+  static names(): { [key: string]: string } {
+    return {
+      key: 'Key',
+      value: 'Value',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      key: 'string',
+      value: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
 export class DescribeHaVipsResponseBodyHaVipsHaVipAssociatedEipAddresses extends $tea.Model {
   associatedEipAddresse?: string[];
   static names(): { [key: string]: string } {
@@ -35472,6 +36543,47 @@ export class DescribeHaVipsResponseBodyHaVipsHaVipAssociatedInstances extends $t
   }
 }
 
+export class DescribeHaVipsResponseBodyHaVipsHaVipTagsTag extends $tea.Model {
+  key?: string;
+  value?: string;
+  static names(): { [key: string]: string } {
+    return {
+      key: 'Key',
+      value: 'Value',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      key: 'string',
+      value: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class DescribeHaVipsResponseBodyHaVipsHaVipTags extends $tea.Model {
+  tag?: DescribeHaVipsResponseBodyHaVipsHaVipTagsTag[];
+  static names(): { [key: string]: string } {
+    return {
+      tag: 'Tag',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      tag: { 'type': 'array', 'itemType': DescribeHaVipsResponseBodyHaVipsHaVipTagsTag },
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
 export class DescribeHaVipsResponseBodyHaVipsHaVip extends $tea.Model {
   associatedEipAddresses?: DescribeHaVipsResponseBodyHaVipsHaVipAssociatedEipAddresses;
   associatedInstanceType?: string;
@@ -35484,7 +36596,9 @@ export class DescribeHaVipsResponseBodyHaVipsHaVip extends $tea.Model {
   masterInstanceId?: string;
   name?: string;
   regionId?: string;
+  resourceGroupId?: string;
   status?: string;
+  tags?: DescribeHaVipsResponseBodyHaVipsHaVipTags;
   vSwitchId?: string;
   vpcId?: string;
   static names(): { [key: string]: string } {
@@ -35500,7 +36614,9 @@ export class DescribeHaVipsResponseBodyHaVipsHaVip extends $tea.Model {
       masterInstanceId: 'MasterInstanceId',
       name: 'Name',
       regionId: 'RegionId',
+      resourceGroupId: 'ResourceGroupId',
       status: 'Status',
+      tags: 'Tags',
       vSwitchId: 'VSwitchId',
       vpcId: 'VpcId',
     };
@@ -35519,7 +36635,9 @@ export class DescribeHaVipsResponseBodyHaVipsHaVip extends $tea.Model {
       masterInstanceId: 'string',
       name: 'string',
       regionId: 'string',
+      resourceGroupId: 'string',
       status: 'string',
+      tags: DescribeHaVipsResponseBodyHaVipsHaVipTags,
       vSwitchId: 'string',
       vpcId: 'string',
     };
@@ -35816,16 +36934,26 @@ export class DescribeIPv6TranslatorsResponseBodyIpv6Translators extends $tea.Mod
 export class DescribeIpv6AddressesResponseBodyIpv6AddressesIpv6AddressIpv6InternetBandwidth extends $tea.Model {
   bandwidth?: number;
   businessStatus?: string;
+  hasReservationData?: boolean;
   instanceChargeType?: string;
   internetChargeType?: string;
   ipv6InternetBandwidthId?: string;
+  reservationActiveTime?: string;
+  reservationBandwidth?: number;
+  reservationInternetChargeType?: string;
+  reservationOrderType?: string;
   static names(): { [key: string]: string } {
     return {
       bandwidth: 'Bandwidth',
       businessStatus: 'BusinessStatus',
+      hasReservationData: 'HasReservationData',
       instanceChargeType: 'InstanceChargeType',
       internetChargeType: 'InternetChargeType',
       ipv6InternetBandwidthId: 'Ipv6InternetBandwidthId',
+      reservationActiveTime: 'ReservationActiveTime',
+      reservationBandwidth: 'ReservationBandwidth',
+      reservationInternetChargeType: 'ReservationInternetChargeType',
+      reservationOrderType: 'ReservationOrderType',
     };
   }
 
@@ -35833,9 +36961,14 @@ export class DescribeIpv6AddressesResponseBodyIpv6AddressesIpv6AddressIpv6Intern
     return {
       bandwidth: 'number',
       businessStatus: 'string',
+      hasReservationData: 'boolean',
       instanceChargeType: 'string',
       internetChargeType: 'string',
       ipv6InternetBandwidthId: 'string',
+      reservationActiveTime: 'string',
+      reservationBandwidth: 'number',
+      reservationInternetChargeType: 'string',
+      reservationOrderType: 'string',
     };
   }
 
@@ -35974,6 +37107,110 @@ export class DescribeIpv6EgressOnlyRulesResponseBodyIpv6EgressOnlyRules extends 
   }
 }
 
+export class DescribeIpv6GatewayAttributeResponseBodyTagsTag extends $tea.Model {
+  key?: string;
+  value?: string;
+  static names(): { [key: string]: string } {
+    return {
+      key: 'Key',
+      value: 'Value',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      key: 'string',
+      value: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class DescribeIpv6GatewayAttributeResponseBodyTags extends $tea.Model {
+  tag?: DescribeIpv6GatewayAttributeResponseBodyTagsTag[];
+  static names(): { [key: string]: string } {
+    return {
+      tag: 'Tag',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      tag: { 'type': 'array', 'itemType': DescribeIpv6GatewayAttributeResponseBodyTagsTag },
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class DescribeIpv6GatewaysRequestTags extends $tea.Model {
+  key?: string;
+  value?: string;
+  static names(): { [key: string]: string } {
+    return {
+      key: 'Key',
+      value: 'Value',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      key: 'string',
+      value: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class DescribeIpv6GatewaysResponseBodyIpv6GatewaysIpv6GatewayTagsTag extends $tea.Model {
+  key?: string;
+  value?: string;
+  static names(): { [key: string]: string } {
+    return {
+      key: 'Key',
+      value: 'Value',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      key: 'string',
+      value: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class DescribeIpv6GatewaysResponseBodyIpv6GatewaysIpv6GatewayTags extends $tea.Model {
+  tag?: DescribeIpv6GatewaysResponseBodyIpv6GatewaysIpv6GatewayTagsTag[];
+  static names(): { [key: string]: string } {
+    return {
+      tag: 'Tag',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      tag: { 'type': 'array', 'itemType': DescribeIpv6GatewaysResponseBodyIpv6GatewaysIpv6GatewayTagsTag },
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
 export class DescribeIpv6GatewaysResponseBodyIpv6GatewaysIpv6Gateway extends $tea.Model {
   businessStatus?: string;
   creationTime?: string;
@@ -35983,7 +37220,9 @@ export class DescribeIpv6GatewaysResponseBodyIpv6GatewaysIpv6Gateway extends $te
   ipv6GatewayId?: string;
   name?: string;
   regionId?: string;
+  resourceGroupId?: string;
   status?: string;
+  tags?: DescribeIpv6GatewaysResponseBodyIpv6GatewaysIpv6GatewayTags;
   vpcId?: string;
   static names(): { [key: string]: string } {
     return {
@@ -35995,7 +37234,9 @@ export class DescribeIpv6GatewaysResponseBodyIpv6GatewaysIpv6Gateway extends $te
       ipv6GatewayId: 'Ipv6GatewayId',
       name: 'Name',
       regionId: 'RegionId',
+      resourceGroupId: 'ResourceGroupId',
       status: 'Status',
+      tags: 'Tags',
       vpcId: 'VpcId',
     };
   }
@@ -36010,7 +37251,9 @@ export class DescribeIpv6GatewaysResponseBodyIpv6GatewaysIpv6Gateway extends $te
       ipv6GatewayId: 'string',
       name: 'string',
       regionId: 'string',
+      resourceGroupId: 'string',
       status: 'string',
+      tags: DescribeIpv6GatewaysResponseBodyIpv6GatewaysIpv6GatewayTags,
       vpcId: 'string',
     };
   }
@@ -36527,6 +37770,47 @@ export class DescribeNetworkAclAttributesResponseBodyNetworkAclAttributeResource
   }
 }
 
+export class DescribeNetworkAclAttributesResponseBodyNetworkAclAttributeTagsTag extends $tea.Model {
+  key?: string;
+  value?: string;
+  static names(): { [key: string]: string } {
+    return {
+      key: 'Key',
+      value: 'Value',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      key: 'string',
+      value: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class DescribeNetworkAclAttributesResponseBodyNetworkAclAttributeTags extends $tea.Model {
+  tag?: DescribeNetworkAclAttributesResponseBodyNetworkAclAttributeTagsTag[];
+  static names(): { [key: string]: string } {
+    return {
+      tag: 'Tag',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      tag: { 'type': 'array', 'itemType': DescribeNetworkAclAttributesResponseBodyNetworkAclAttributeTagsTag },
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
 export class DescribeNetworkAclAttributesResponseBodyNetworkAclAttribute extends $tea.Model {
   creationTime?: string;
   description?: string;
@@ -36538,6 +37822,7 @@ export class DescribeNetworkAclAttributesResponseBodyNetworkAclAttribute extends
   regionId?: string;
   resources?: DescribeNetworkAclAttributesResponseBodyNetworkAclAttributeResources;
   status?: string;
+  tags?: DescribeNetworkAclAttributesResponseBodyNetworkAclAttributeTags;
   vpcId?: string;
   static names(): { [key: string]: string } {
     return {
@@ -36551,6 +37836,7 @@ export class DescribeNetworkAclAttributesResponseBodyNetworkAclAttribute extends
       regionId: 'RegionId',
       resources: 'Resources',
       status: 'Status',
+      tags: 'Tags',
       vpcId: 'VpcId',
     };
   }
@@ -36567,7 +37853,30 @@ export class DescribeNetworkAclAttributesResponseBodyNetworkAclAttribute extends
       regionId: 'string',
       resources: DescribeNetworkAclAttributesResponseBodyNetworkAclAttributeResources,
       status: 'string',
+      tags: DescribeNetworkAclAttributesResponseBodyNetworkAclAttributeTags,
       vpcId: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class DescribeNetworkAclsRequestTags extends $tea.Model {
+  key?: string;
+  value?: string;
+  static names(): { [key: string]: string } {
+    return {
+      key: 'Key',
+      value: 'Value',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      key: 'string',
+      value: 'string',
     };
   }
 
@@ -36732,6 +38041,47 @@ export class DescribeNetworkAclsResponseBodyNetworkAclsNetworkAclResources exten
   }
 }
 
+export class DescribeNetworkAclsResponseBodyNetworkAclsNetworkAclTagsTag extends $tea.Model {
+  key?: string;
+  value?: string;
+  static names(): { [key: string]: string } {
+    return {
+      key: 'Key',
+      value: 'Value',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      key: 'string',
+      value: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class DescribeNetworkAclsResponseBodyNetworkAclsNetworkAclTags extends $tea.Model {
+  tag?: DescribeNetworkAclsResponseBodyNetworkAclsNetworkAclTagsTag[];
+  static names(): { [key: string]: string } {
+    return {
+      tag: 'Tag',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      tag: { 'type': 'array', 'itemType': DescribeNetworkAclsResponseBodyNetworkAclsNetworkAclTagsTag },
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
 export class DescribeNetworkAclsResponseBodyNetworkAclsNetworkAcl extends $tea.Model {
   creationTime?: string;
   description?: string;
@@ -36743,6 +38093,7 @@ export class DescribeNetworkAclsResponseBodyNetworkAclsNetworkAcl extends $tea.M
   regionId?: string;
   resources?: DescribeNetworkAclsResponseBodyNetworkAclsNetworkAclResources;
   status?: string;
+  tags?: DescribeNetworkAclsResponseBodyNetworkAclsNetworkAclTags;
   vpcId?: string;
   static names(): { [key: string]: string } {
     return {
@@ -36756,6 +38107,7 @@ export class DescribeNetworkAclsResponseBodyNetworkAclsNetworkAcl extends $tea.M
       regionId: 'RegionId',
       resources: 'Resources',
       status: 'Status',
+      tags: 'Tags',
       vpcId: 'VpcId',
     };
   }
@@ -36772,6 +38124,7 @@ export class DescribeNetworkAclsResponseBodyNetworkAclsNetworkAcl extends $tea.M
       regionId: 'string',
       resources: DescribeNetworkAclsResponseBodyNetworkAclsNetworkAclResources,
       status: 'string',
+      tags: DescribeNetworkAclsResponseBodyNetworkAclsNetworkAclTags,
       vpcId: 'string',
     };
   }
@@ -36946,6 +38299,7 @@ export class DescribePhysicalConnectionsRequestTags extends $tea.Model {
 export class DescribePhysicalConnectionsResponseBodyPhysicalConnectionSetPhysicalConnectionType extends $tea.Model {
   accessPointId?: string;
   accessPointType?: string;
+  adDetailLocation?: string;
   adLocation?: string;
   bandwidth?: number;
   businessStatus?: string;
@@ -36983,6 +38337,7 @@ export class DescribePhysicalConnectionsResponseBodyPhysicalConnectionSetPhysica
     return {
       accessPointId: 'AccessPointId',
       accessPointType: 'AccessPointType',
+      adDetailLocation: 'AdDetailLocation',
       adLocation: 'AdLocation',
       bandwidth: 'Bandwidth',
       businessStatus: 'BusinessStatus',
@@ -37023,6 +38378,7 @@ export class DescribePhysicalConnectionsResponseBodyPhysicalConnectionSetPhysica
     return {
       accessPointId: 'string',
       accessPointType: 'string',
+      adDetailLocation: 'string',
       adLocation: 'string',
       bandwidth: 'number',
       businessStatus: 'string',
@@ -37955,6 +39311,46 @@ export class DescribeSslVpnClientCertsResponseBodySslVpnClientCertKeys extends $
   }
 }
 
+export class DescribeSslVpnClientsResponseBodyClientInfoList extends $tea.Model {
+  commonName?: string;
+  connectedTime?: number;
+  ip?: string;
+  port?: string;
+  privateIp?: string;
+  receiveBytes?: number;
+  sendBytes?: number;
+  status?: string;
+  static names(): { [key: string]: string } {
+    return {
+      commonName: 'CommonName',
+      connectedTime: 'ConnectedTime',
+      ip: 'Ip',
+      port: 'Port',
+      privateIp: 'PrivateIp',
+      receiveBytes: 'ReceiveBytes',
+      sendBytes: 'SendBytes',
+      status: 'Status',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      commonName: 'string',
+      connectedTime: 'number',
+      ip: 'string',
+      port: 'string',
+      privateIp: 'string',
+      receiveBytes: 'number',
+      sendBytes: 'number',
+      status: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
 export class DescribeSslVpnServersResponseBodySslVpnServersSslVpnServer extends $tea.Model {
   cipher?: string;
   clientIpPool?: string;
@@ -38283,6 +39679,47 @@ export class DescribeVSwitchAttributesResponseBodyRouteTable extends $tea.Model 
   }
 }
 
+export class DescribeVSwitchAttributesResponseBodyTagsTag extends $tea.Model {
+  key?: string;
+  value?: string;
+  static names(): { [key: string]: string } {
+    return {
+      key: 'Key',
+      value: 'Value',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      key: 'string',
+      value: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class DescribeVSwitchAttributesResponseBodyTags extends $tea.Model {
+  tag?: DescribeVSwitchAttributesResponseBodyTagsTag[];
+  static names(): { [key: string]: string } {
+    return {
+      tag: 'Tag',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      tag: { 'type': 'array', 'itemType': DescribeVSwitchAttributesResponseBodyTagsTag },
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
 export class DescribeVSwitchesResponseBodyVSwitchesVSwitchRouteTable extends $tea.Model {
   routeTableId?: string;
   routeTableType?: string;
@@ -38357,6 +39794,7 @@ export class DescribeVSwitchesResponseBodyVSwitchesVSwitch extends $tea.Model {
   ownerId?: number;
   resourceGroupId?: string;
   routeTable?: DescribeVSwitchesResponseBodyVSwitchesVSwitchRouteTable;
+  shareType?: string;
   status?: string;
   tags?: DescribeVSwitchesResponseBodyVSwitchesVSwitchTags;
   vSwitchId?: string;
@@ -38375,6 +39813,7 @@ export class DescribeVSwitchesResponseBodyVSwitchesVSwitch extends $tea.Model {
       ownerId: 'OwnerId',
       resourceGroupId: 'ResourceGroupId',
       routeTable: 'RouteTable',
+      shareType: 'ShareType',
       status: 'Status',
       tags: 'Tags',
       vSwitchId: 'VSwitchId',
@@ -38396,6 +39835,7 @@ export class DescribeVSwitchesResponseBodyVSwitchesVSwitch extends $tea.Model {
       ownerId: 'number',
       resourceGroupId: 'string',
       routeTable: DescribeVSwitchesResponseBodyVSwitchesVSwitchRouteTable,
+      shareType: 'string',
       status: 'string',
       tags: DescribeVSwitchesResponseBodyVSwitchesVSwitchTags,
       vSwitchId: 'string',
@@ -39032,6 +40472,47 @@ export class DescribeVpcAttributeResponseBodySecondaryCidrBlocks extends $tea.Mo
   }
 }
 
+export class DescribeVpcAttributeResponseBodyTagsTag extends $tea.Model {
+  key?: string;
+  value?: string;
+  static names(): { [key: string]: string } {
+    return {
+      key: 'Key',
+      value: 'Value',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      key: 'string',
+      value: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class DescribeVpcAttributeResponseBodyTags extends $tea.Model {
+  tag?: DescribeVpcAttributeResponseBodyTagsTag[];
+  static names(): { [key: string]: string } {
+    return {
+      tag: 'Tag',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      tag: { 'type': 'array', 'itemType': DescribeVpcAttributeResponseBodyTagsTag },
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
 export class DescribeVpcAttributeResponseBodyUserCidrs extends $tea.Model {
   userCidr?: string[];
   static names(): { [key: string]: string } {
@@ -39456,6 +40937,229 @@ export class DescribeVpnConnectionResponseBodyIpsecConfig extends $tea.Model {
   }
 }
 
+export class DescribeVpnConnectionResponseBodyTagsTag extends $tea.Model {
+  key?: string;
+  value?: string;
+  static names(): { [key: string]: string } {
+    return {
+      key: 'Key',
+      value: 'Value',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      key: 'string',
+      value: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class DescribeVpnConnectionResponseBodyTags extends $tea.Model {
+  tag?: DescribeVpnConnectionResponseBodyTagsTag[];
+  static names(): { [key: string]: string } {
+    return {
+      tag: 'Tag',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      tag: { 'type': 'array', 'itemType': DescribeVpnConnectionResponseBodyTagsTag },
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class DescribeVpnConnectionResponseBodyTunnelOptionsSpecificationTunnelOptionsTunnelBgpConfig extends $tea.Model {
+  bgpStatus?: string;
+  enableBgp?: string;
+  localAsn?: string;
+  localBgpIp?: string;
+  peerAsn?: string;
+  peerBgpIp?: string;
+  tunnelCidr?: string;
+  static names(): { [key: string]: string } {
+    return {
+      bgpStatus: 'BgpStatus',
+      enableBgp: 'EnableBgp',
+      localAsn: 'LocalAsn',
+      localBgpIp: 'LocalBgpIp',
+      peerAsn: 'PeerAsn',
+      peerBgpIp: 'PeerBgpIp',
+      tunnelCidr: 'TunnelCidr',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      bgpStatus: 'string',
+      enableBgp: 'string',
+      localAsn: 'string',
+      localBgpIp: 'string',
+      peerAsn: 'string',
+      peerBgpIp: 'string',
+      tunnelCidr: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class DescribeVpnConnectionResponseBodyTunnelOptionsSpecificationTunnelOptionsTunnelIkeConfig extends $tea.Model {
+  ikeAuthAlg?: string;
+  ikeEncAlg?: string;
+  ikeLifetime?: string;
+  ikeMode?: string;
+  ikePfs?: string;
+  ikeVersion?: string;
+  localId?: string;
+  psk?: string;
+  remoteId?: string;
+  static names(): { [key: string]: string } {
+    return {
+      ikeAuthAlg: 'IkeAuthAlg',
+      ikeEncAlg: 'IkeEncAlg',
+      ikeLifetime: 'IkeLifetime',
+      ikeMode: 'IkeMode',
+      ikePfs: 'IkePfs',
+      ikeVersion: 'IkeVersion',
+      localId: 'LocalId',
+      psk: 'Psk',
+      remoteId: 'RemoteId',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      ikeAuthAlg: 'string',
+      ikeEncAlg: 'string',
+      ikeLifetime: 'string',
+      ikeMode: 'string',
+      ikePfs: 'string',
+      ikeVersion: 'string',
+      localId: 'string',
+      psk: 'string',
+      remoteId: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class DescribeVpnConnectionResponseBodyTunnelOptionsSpecificationTunnelOptionsTunnelIpsecConfig extends $tea.Model {
+  ipsecAuthAlg?: string;
+  ipsecEncAlg?: string;
+  ipsecLifetime?: string;
+  ipsecPfs?: string;
+  static names(): { [key: string]: string } {
+    return {
+      ipsecAuthAlg: 'IpsecAuthAlg',
+      ipsecEncAlg: 'IpsecEncAlg',
+      ipsecLifetime: 'IpsecLifetime',
+      ipsecPfs: 'IpsecPfs',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      ipsecAuthAlg: 'string',
+      ipsecEncAlg: 'string',
+      ipsecLifetime: 'string',
+      ipsecPfs: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class DescribeVpnConnectionResponseBodyTunnelOptionsSpecificationTunnelOptions extends $tea.Model {
+  customerGatewayId?: string;
+  enableDpd?: string;
+  enableNatTraversal?: string;
+  internetIp?: string;
+  remoteCaCertificate?: string;
+  role?: string;
+  state?: string;
+  status?: string;
+  tunnelBgpConfig?: DescribeVpnConnectionResponseBodyTunnelOptionsSpecificationTunnelOptionsTunnelBgpConfig;
+  tunnelId?: string;
+  tunnelIkeConfig?: DescribeVpnConnectionResponseBodyTunnelOptionsSpecificationTunnelOptionsTunnelIkeConfig;
+  tunnelIpsecConfig?: DescribeVpnConnectionResponseBodyTunnelOptionsSpecificationTunnelOptionsTunnelIpsecConfig;
+  zoneNo?: string;
+  static names(): { [key: string]: string } {
+    return {
+      customerGatewayId: 'CustomerGatewayId',
+      enableDpd: 'EnableDpd',
+      enableNatTraversal: 'EnableNatTraversal',
+      internetIp: 'InternetIp',
+      remoteCaCertificate: 'RemoteCaCertificate',
+      role: 'Role',
+      state: 'State',
+      status: 'Status',
+      tunnelBgpConfig: 'TunnelBgpConfig',
+      tunnelId: 'TunnelId',
+      tunnelIkeConfig: 'TunnelIkeConfig',
+      tunnelIpsecConfig: 'TunnelIpsecConfig',
+      zoneNo: 'ZoneNo',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      customerGatewayId: 'string',
+      enableDpd: 'string',
+      enableNatTraversal: 'string',
+      internetIp: 'string',
+      remoteCaCertificate: 'string',
+      role: 'string',
+      state: 'string',
+      status: 'string',
+      tunnelBgpConfig: DescribeVpnConnectionResponseBodyTunnelOptionsSpecificationTunnelOptionsTunnelBgpConfig,
+      tunnelId: 'string',
+      tunnelIkeConfig: DescribeVpnConnectionResponseBodyTunnelOptionsSpecificationTunnelOptionsTunnelIkeConfig,
+      tunnelIpsecConfig: DescribeVpnConnectionResponseBodyTunnelOptionsSpecificationTunnelOptionsTunnelIpsecConfig,
+      zoneNo: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class DescribeVpnConnectionResponseBodyTunnelOptionsSpecification extends $tea.Model {
+  tunnelOptions?: DescribeVpnConnectionResponseBodyTunnelOptionsSpecificationTunnelOptions[];
+  static names(): { [key: string]: string } {
+    return {
+      tunnelOptions: 'TunnelOptions',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      tunnelOptions: { 'type': 'array', 'itemType': DescribeVpnConnectionResponseBodyTunnelOptionsSpecificationTunnelOptions },
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
 export class DescribeVpnConnectionResponseBodyVcoHealthCheck extends $tea.Model {
   dip?: string;
   enable?: string;
@@ -39552,6 +41256,28 @@ export class DescribeVpnConnectionLogsResponseBodyData extends $tea.Model {
   }
 }
 
+export class DescribeVpnConnectionsRequestTag extends $tea.Model {
+  key?: string;
+  value?: string;
+  static names(): { [key: string]: string } {
+    return {
+      key: 'Key',
+      value: 'Value',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      key: 'string',
+      value: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
 export class DescribeVpnConnectionsResponseBodyVpnConnectionsVpnConnectionIkeConfig extends $tea.Model {
   ikeAuthAlg?: string;
   ikeEncAlg?: string;
@@ -39615,6 +41341,229 @@ export class DescribeVpnConnectionsResponseBodyVpnConnectionsVpnConnectionIpsecC
       ipsecEncAlg: 'string',
       ipsecLifetime: 'number',
       ipsecPfs: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class DescribeVpnConnectionsResponseBodyVpnConnectionsVpnConnectionTagTag extends $tea.Model {
+  key?: string;
+  value?: string;
+  static names(): { [key: string]: string } {
+    return {
+      key: 'Key',
+      value: 'Value',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      key: 'string',
+      value: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class DescribeVpnConnectionsResponseBodyVpnConnectionsVpnConnectionTag extends $tea.Model {
+  tag?: DescribeVpnConnectionsResponseBodyVpnConnectionsVpnConnectionTagTag[];
+  static names(): { [key: string]: string } {
+    return {
+      tag: 'Tag',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      tag: { 'type': 'array', 'itemType': DescribeVpnConnectionsResponseBodyVpnConnectionsVpnConnectionTagTag },
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class DescribeVpnConnectionsResponseBodyVpnConnectionsVpnConnectionTunnelOptionsSpecificationTunnelOptionsTunnelBgpConfig extends $tea.Model {
+  bgpStatus?: string;
+  enableBgp?: string;
+  localAsn?: string;
+  localBgpIp?: string;
+  peerAsn?: string;
+  peerBgpIp?: string;
+  tunnelCidr?: string;
+  static names(): { [key: string]: string } {
+    return {
+      bgpStatus: 'BgpStatus',
+      enableBgp: 'EnableBgp',
+      localAsn: 'LocalAsn',
+      localBgpIp: 'LocalBgpIp',
+      peerAsn: 'PeerAsn',
+      peerBgpIp: 'PeerBgpIp',
+      tunnelCidr: 'TunnelCidr',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      bgpStatus: 'string',
+      enableBgp: 'string',
+      localAsn: 'string',
+      localBgpIp: 'string',
+      peerAsn: 'string',
+      peerBgpIp: 'string',
+      tunnelCidr: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class DescribeVpnConnectionsResponseBodyVpnConnectionsVpnConnectionTunnelOptionsSpecificationTunnelOptionsTunnelIkeConfig extends $tea.Model {
+  ikeAuthAlg?: string;
+  ikeEncAlg?: string;
+  ikeLifetime?: string;
+  ikeMode?: string;
+  ikePfs?: string;
+  ikeVersion?: string;
+  localId?: string;
+  psk?: string;
+  remoteId?: string;
+  static names(): { [key: string]: string } {
+    return {
+      ikeAuthAlg: 'IkeAuthAlg',
+      ikeEncAlg: 'IkeEncAlg',
+      ikeLifetime: 'IkeLifetime',
+      ikeMode: 'IkeMode',
+      ikePfs: 'IkePfs',
+      ikeVersion: 'IkeVersion',
+      localId: 'LocalId',
+      psk: 'Psk',
+      remoteId: 'RemoteId',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      ikeAuthAlg: 'string',
+      ikeEncAlg: 'string',
+      ikeLifetime: 'string',
+      ikeMode: 'string',
+      ikePfs: 'string',
+      ikeVersion: 'string',
+      localId: 'string',
+      psk: 'string',
+      remoteId: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class DescribeVpnConnectionsResponseBodyVpnConnectionsVpnConnectionTunnelOptionsSpecificationTunnelOptionsTunnelIpsecConfig extends $tea.Model {
+  ipsecAuthAlg?: string;
+  ipsecEncAlg?: string;
+  ipsecLifetime?: string;
+  ipsecPfs?: string;
+  static names(): { [key: string]: string } {
+    return {
+      ipsecAuthAlg: 'IpsecAuthAlg',
+      ipsecEncAlg: 'IpsecEncAlg',
+      ipsecLifetime: 'IpsecLifetime',
+      ipsecPfs: 'IpsecPfs',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      ipsecAuthAlg: 'string',
+      ipsecEncAlg: 'string',
+      ipsecLifetime: 'string',
+      ipsecPfs: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class DescribeVpnConnectionsResponseBodyVpnConnectionsVpnConnectionTunnelOptionsSpecificationTunnelOptions extends $tea.Model {
+  customerGatewayId?: string;
+  enableDpd?: string;
+  enableNatTraversal?: string;
+  internetIp?: string;
+  remoteCaCertificate?: string;
+  role?: string;
+  state?: string;
+  status?: string;
+  tunnelBgpConfig?: DescribeVpnConnectionsResponseBodyVpnConnectionsVpnConnectionTunnelOptionsSpecificationTunnelOptionsTunnelBgpConfig;
+  tunnelId?: string;
+  tunnelIkeConfig?: DescribeVpnConnectionsResponseBodyVpnConnectionsVpnConnectionTunnelOptionsSpecificationTunnelOptionsTunnelIkeConfig;
+  tunnelIpsecConfig?: DescribeVpnConnectionsResponseBodyVpnConnectionsVpnConnectionTunnelOptionsSpecificationTunnelOptionsTunnelIpsecConfig;
+  zoneNo?: string;
+  static names(): { [key: string]: string } {
+    return {
+      customerGatewayId: 'CustomerGatewayId',
+      enableDpd: 'EnableDpd',
+      enableNatTraversal: 'EnableNatTraversal',
+      internetIp: 'InternetIp',
+      remoteCaCertificate: 'RemoteCaCertificate',
+      role: 'Role',
+      state: 'State',
+      status: 'Status',
+      tunnelBgpConfig: 'TunnelBgpConfig',
+      tunnelId: 'TunnelId',
+      tunnelIkeConfig: 'TunnelIkeConfig',
+      tunnelIpsecConfig: 'TunnelIpsecConfig',
+      zoneNo: 'ZoneNo',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      customerGatewayId: 'string',
+      enableDpd: 'string',
+      enableNatTraversal: 'string',
+      internetIp: 'string',
+      remoteCaCertificate: 'string',
+      role: 'string',
+      state: 'string',
+      status: 'string',
+      tunnelBgpConfig: DescribeVpnConnectionsResponseBodyVpnConnectionsVpnConnectionTunnelOptionsSpecificationTunnelOptionsTunnelBgpConfig,
+      tunnelId: 'string',
+      tunnelIkeConfig: DescribeVpnConnectionsResponseBodyVpnConnectionsVpnConnectionTunnelOptionsSpecificationTunnelOptionsTunnelIkeConfig,
+      tunnelIpsecConfig: DescribeVpnConnectionsResponseBodyVpnConnectionsVpnConnectionTunnelOptionsSpecificationTunnelOptionsTunnelIpsecConfig,
+      zoneNo: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class DescribeVpnConnectionsResponseBodyVpnConnectionsVpnConnectionTunnelOptionsSpecification extends $tea.Model {
+  tunnelOptions?: DescribeVpnConnectionsResponseBodyVpnConnectionsVpnConnectionTunnelOptionsSpecificationTunnelOptions[];
+  static names(): { [key: string]: string } {
+    return {
+      tunnelOptions: 'TunnelOptions',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      tunnelOptions: { 'type': 'array', 'itemType': DescribeVpnConnectionsResponseBodyVpnConnectionsVpnConnectionTunnelOptionsSpecificationTunnelOptions },
     };
   }
 
@@ -39706,6 +41655,7 @@ export class DescribeVpnConnectionsResponseBodyVpnConnectionsVpnConnection exten
   effectImmediately?: boolean;
   enableDpd?: boolean;
   enableNatTraversal?: boolean;
+  enableTunnelsBgp?: boolean;
   ikeConfig?: DescribeVpnConnectionsResponseBodyVpnConnectionsVpnConnectionIkeConfig;
   internetIp?: string;
   ipsecConfig?: DescribeVpnConnectionsResponseBodyVpnConnectionsVpnConnectionIpsecConfig;
@@ -39717,8 +41667,10 @@ export class DescribeVpnConnectionsResponseBodyVpnConnectionsVpnConnection exten
   spec?: string;
   state?: string;
   status?: string;
+  tag?: DescribeVpnConnectionsResponseBodyVpnConnectionsVpnConnectionTag;
   transitRouterId?: string;
   transitRouterName?: string;
+  tunnelOptionsSpecification?: DescribeVpnConnectionsResponseBodyVpnConnectionsVpnConnectionTunnelOptionsSpecification;
   vcoHealthCheck?: DescribeVpnConnectionsResponseBodyVpnConnectionsVpnConnectionVcoHealthCheck;
   vpnBgpConfig?: DescribeVpnConnectionsResponseBodyVpnConnectionsVpnConnectionVpnBgpConfig;
   vpnConnectionId?: string;
@@ -39733,6 +41685,7 @@ export class DescribeVpnConnectionsResponseBodyVpnConnectionsVpnConnection exten
       effectImmediately: 'EffectImmediately',
       enableDpd: 'EnableDpd',
       enableNatTraversal: 'EnableNatTraversal',
+      enableTunnelsBgp: 'EnableTunnelsBgp',
       ikeConfig: 'IkeConfig',
       internetIp: 'InternetIp',
       ipsecConfig: 'IpsecConfig',
@@ -39744,8 +41697,10 @@ export class DescribeVpnConnectionsResponseBodyVpnConnectionsVpnConnection exten
       spec: 'Spec',
       state: 'State',
       status: 'Status',
+      tag: 'Tag',
       transitRouterId: 'TransitRouterId',
       transitRouterName: 'TransitRouterName',
+      tunnelOptionsSpecification: 'TunnelOptionsSpecification',
       vcoHealthCheck: 'VcoHealthCheck',
       vpnBgpConfig: 'VpnBgpConfig',
       vpnConnectionId: 'VpnConnectionId',
@@ -39763,6 +41718,7 @@ export class DescribeVpnConnectionsResponseBodyVpnConnectionsVpnConnection exten
       effectImmediately: 'boolean',
       enableDpd: 'boolean',
       enableNatTraversal: 'boolean',
+      enableTunnelsBgp: 'boolean',
       ikeConfig: DescribeVpnConnectionsResponseBodyVpnConnectionsVpnConnectionIkeConfig,
       internetIp: 'string',
       ipsecConfig: DescribeVpnConnectionsResponseBodyVpnConnectionsVpnConnectionIpsecConfig,
@@ -39774,8 +41730,10 @@ export class DescribeVpnConnectionsResponseBodyVpnConnectionsVpnConnection exten
       spec: 'string',
       state: 'string',
       status: 'string',
+      tag: DescribeVpnConnectionsResponseBodyVpnConnectionsVpnConnectionTag,
       transitRouterId: 'string',
       transitRouterName: 'string',
+      tunnelOptionsSpecification: DescribeVpnConnectionsResponseBodyVpnConnectionsVpnConnectionTunnelOptionsSpecification,
       vcoHealthCheck: DescribeVpnConnectionsResponseBodyVpnConnectionsVpnConnectionVcoHealthCheck,
       vpnBgpConfig: DescribeVpnConnectionsResponseBodyVpnConnectionsVpnConnectionVpnBgpConfig,
       vpnConnectionId: 'string',
@@ -40025,6 +41983,8 @@ export class DescribeVpnGatewaysResponseBodyVpnGatewaysVpnGateway extends $tea.M
   chargeType?: string;
   createTime?: number;
   description?: string;
+  disasterRecoveryInternetIp?: string;
+  disasterRecoveryVSwitchId?: string;
   enableBgp?: boolean;
   endTime?: number;
   internetIp?: string;
@@ -40035,6 +41995,7 @@ export class DescribeVpnGatewaysResponseBodyVpnGatewaysVpnGateway extends $tea.M
   spec?: string;
   sslMaxConnections?: number;
   sslVpn?: string;
+  sslVpnInternetIp?: string;
   status?: string;
   tag?: string;
   tags?: DescribeVpnGatewaysResponseBodyVpnGatewaysVpnGatewayTags;
@@ -40049,6 +42010,8 @@ export class DescribeVpnGatewaysResponseBodyVpnGatewaysVpnGateway extends $tea.M
       chargeType: 'ChargeType',
       createTime: 'CreateTime',
       description: 'Description',
+      disasterRecoveryInternetIp: 'DisasterRecoveryInternetIp',
+      disasterRecoveryVSwitchId: 'DisasterRecoveryVSwitchId',
       enableBgp: 'EnableBgp',
       endTime: 'EndTime',
       internetIp: 'InternetIp',
@@ -40059,6 +42022,7 @@ export class DescribeVpnGatewaysResponseBodyVpnGatewaysVpnGateway extends $tea.M
       spec: 'Spec',
       sslMaxConnections: 'SslMaxConnections',
       sslVpn: 'SslVpn',
+      sslVpnInternetIp: 'SslVpnInternetIp',
       status: 'Status',
       tag: 'Tag',
       tags: 'Tags',
@@ -40076,6 +42040,8 @@ export class DescribeVpnGatewaysResponseBodyVpnGatewaysVpnGateway extends $tea.M
       chargeType: 'string',
       createTime: 'number',
       description: 'string',
+      disasterRecoveryInternetIp: 'string',
+      disasterRecoveryVSwitchId: 'string',
       enableBgp: 'boolean',
       endTime: 'number',
       internetIp: 'string',
@@ -40086,6 +42052,7 @@ export class DescribeVpnGatewaysResponseBodyVpnGatewaysVpnGateway extends $tea.M
       spec: 'string',
       sslMaxConnections: 'number',
       sslVpn: 'string',
+      sslVpnInternetIp: 'string',
       status: 'string',
       tag: 'string',
       tags: DescribeVpnGatewaysResponseBodyVpnGatewaysVpnGatewayTags,
@@ -40123,6 +42090,7 @@ export class DescribeVpnGatewaysResponseBodyVpnGateways extends $tea.Model {
 export class DescribeVpnPbrRouteEntriesResponseBodyVpnPbrRouteEntriesVpnPbrRouteEntry extends $tea.Model {
   createTime?: number;
   nextHop?: string;
+  nextHopTunnelId?: string;
   priority?: number;
   routeDest?: string;
   routeSource?: string;
@@ -40133,6 +42101,7 @@ export class DescribeVpnPbrRouteEntriesResponseBodyVpnPbrRouteEntriesVpnPbrRoute
     return {
       createTime: 'CreateTime',
       nextHop: 'NextHop',
+      nextHopTunnelId: 'NextHopTunnelId',
       priority: 'Priority',
       routeDest: 'RouteDest',
       routeSource: 'RouteSource',
@@ -40146,6 +42115,7 @@ export class DescribeVpnPbrRouteEntriesResponseBodyVpnPbrRouteEntriesVpnPbrRoute
     return {
       createTime: 'number',
       nextHop: 'string',
+      nextHopTunnelId: 'string',
       priority: 'number',
       routeDest: 'string',
       routeSource: 'string',
@@ -40184,6 +42154,7 @@ export class DescribeVpnRouteEntriesResponseBodyVpnRouteEntriesVpnRouteEntry ext
   community?: string;
   createTime?: number;
   nextHop?: string;
+  nextHopTunnelId?: string;
   routeDest?: string;
   routeEntryType?: string;
   source?: string;
@@ -40196,6 +42167,7 @@ export class DescribeVpnRouteEntriesResponseBodyVpnRouteEntriesVpnRouteEntry ext
       community: 'Community',
       createTime: 'CreateTime',
       nextHop: 'NextHop',
+      nextHopTunnelId: 'NextHopTunnelId',
       routeDest: 'RouteDest',
       routeEntryType: 'RouteEntryType',
       source: 'Source',
@@ -40211,6 +42183,7 @@ export class DescribeVpnRouteEntriesResponseBodyVpnRouteEntriesVpnRouteEntry ext
       community: 'string',
       createTime: 'number',
       nextHop: 'string',
+      nextHopTunnelId: 'string',
       routeDest: 'string',
       routeEntryType: 'string',
       source: 'string',
@@ -40378,6 +42351,130 @@ export class DownloadVpnConnectionConfigResponseBodyVpnConnectionConfigIpsecConf
   }
 }
 
+export class DownloadVpnConnectionConfigResponseBodyVpnConnectionConfigTunnelsConfigTunnelConfigIkeConfig extends $tea.Model {
+  ikeAuthAlg?: string;
+  ikeEncAlg?: string;
+  ikeLifetime?: number;
+  ikeMode?: string;
+  ikePfs?: string;
+  ikeVersion?: string;
+  localId?: string;
+  psk?: string;
+  remoteId?: string;
+  static names(): { [key: string]: string } {
+    return {
+      ikeAuthAlg: 'IkeAuthAlg',
+      ikeEncAlg: 'IkeEncAlg',
+      ikeLifetime: 'IkeLifetime',
+      ikeMode: 'IkeMode',
+      ikePfs: 'IkePfs',
+      ikeVersion: 'IkeVersion',
+      localId: 'LocalId',
+      psk: 'Psk',
+      remoteId: 'RemoteId',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      ikeAuthAlg: 'string',
+      ikeEncAlg: 'string',
+      ikeLifetime: 'number',
+      ikeMode: 'string',
+      ikePfs: 'string',
+      ikeVersion: 'string',
+      localId: 'string',
+      psk: 'string',
+      remoteId: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class DownloadVpnConnectionConfigResponseBodyVpnConnectionConfigTunnelsConfigTunnelConfigIpsecConfig extends $tea.Model {
+  ipsecAuthAlg?: string;
+  ipsecEncAlg?: string;
+  ipsecLifetime?: number;
+  ipsecPfs?: string;
+  static names(): { [key: string]: string } {
+    return {
+      ipsecAuthAlg: 'IpsecAuthAlg',
+      ipsecEncAlg: 'IpsecEncAlg',
+      ipsecLifetime: 'IpsecLifetime',
+      ipsecPfs: 'IpsecPfs',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      ipsecAuthAlg: 'string',
+      ipsecEncAlg: 'string',
+      ipsecLifetime: 'number',
+      ipsecPfs: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class DownloadVpnConnectionConfigResponseBodyVpnConnectionConfigTunnelsConfigTunnelConfig extends $tea.Model {
+  ikeConfig?: DownloadVpnConnectionConfigResponseBodyVpnConnectionConfigTunnelsConfigTunnelConfigIkeConfig;
+  ipsecConfig?: DownloadVpnConnectionConfigResponseBodyVpnConnectionConfigTunnelsConfigTunnelConfigIpsecConfig;
+  local?: string;
+  remote?: string;
+  rightCaCert?: string;
+  tunnelId?: string;
+  static names(): { [key: string]: string } {
+    return {
+      ikeConfig: 'IkeConfig',
+      ipsecConfig: 'IpsecConfig',
+      local: 'Local',
+      remote: 'Remote',
+      rightCaCert: 'RightCaCert',
+      tunnelId: 'TunnelId',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      ikeConfig: DownloadVpnConnectionConfigResponseBodyVpnConnectionConfigTunnelsConfigTunnelConfigIkeConfig,
+      ipsecConfig: DownloadVpnConnectionConfigResponseBodyVpnConnectionConfigTunnelsConfigTunnelConfigIpsecConfig,
+      local: 'string',
+      remote: 'string',
+      rightCaCert: 'string',
+      tunnelId: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class DownloadVpnConnectionConfigResponseBodyVpnConnectionConfigTunnelsConfig extends $tea.Model {
+  tunnelConfig?: DownloadVpnConnectionConfigResponseBodyVpnConnectionConfigTunnelsConfigTunnelConfig[];
+  static names(): { [key: string]: string } {
+    return {
+      tunnelConfig: 'TunnelConfig',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      tunnelConfig: { 'type': 'array', 'itemType': DownloadVpnConnectionConfigResponseBodyVpnConnectionConfigTunnelsConfigTunnelConfig },
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
 export class DownloadVpnConnectionConfigResponseBodyVpnConnectionConfig extends $tea.Model {
   ikeConfig?: DownloadVpnConnectionConfigResponseBodyVpnConnectionConfigIkeConfig;
   ipsecConfig?: DownloadVpnConnectionConfigResponseBodyVpnConnectionConfigIpsecConfig;
@@ -40385,6 +42482,7 @@ export class DownloadVpnConnectionConfigResponseBodyVpnConnectionConfig extends 
   localSubnet?: string;
   remote?: string;
   remoteSubnet?: string;
+  tunnelsConfig?: DownloadVpnConnectionConfigResponseBodyVpnConnectionConfigTunnelsConfig;
   static names(): { [key: string]: string } {
     return {
       ikeConfig: 'IkeConfig',
@@ -40393,6 +42491,7 @@ export class DownloadVpnConnectionConfigResponseBodyVpnConnectionConfig extends 
       localSubnet: 'LocalSubnet',
       remote: 'Remote',
       remoteSubnet: 'RemoteSubnet',
+      tunnelsConfig: 'TunnelsConfig',
     };
   }
 
@@ -40404,6 +42503,7 @@ export class DownloadVpnConnectionConfigResponseBodyVpnConnectionConfig extends 
       localSubnet: 'string',
       remote: 'string',
       remoteSubnet: 'string',
+      tunnelsConfig: DownloadVpnConnectionConfigResponseBodyVpnConnectionConfigTunnelsConfig,
     };
   }
 
@@ -40454,6 +42554,50 @@ export class GetDhcpOptionsSetResponseBodyDhcpOptions extends $tea.Model {
       domainNameServers: 'string',
       ipv6LeaseTime: 'string',
       leaseTime: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class GetDhcpOptionsSetResponseBodyTags extends $tea.Model {
+  key?: string;
+  value?: string;
+  static names(): { [key: string]: string } {
+    return {
+      key: 'Key',
+      value: 'Value',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      key: 'string',
+      value: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class GetIpv4GatewayAttributeResponseBodyTags extends $tea.Model {
+  key?: string;
+  value?: string;
+  static names(): { [key: string]: string } {
+    return {
+      key: 'Key',
+      value: 'Value',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      key: 'string',
+      value: 'string',
     };
   }
 
@@ -40656,6 +42800,28 @@ export class GetNatGatewayConvertStatusResponseBodyConvertSteps extends $tea.Mod
   }
 }
 
+export class GetVpcGatewayEndpointAttributeResponseBodyTags extends $tea.Model {
+  key?: string;
+  value?: string;
+  static names(): { [key: string]: string } {
+    return {
+      key: 'Key',
+      value: 'Value',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      key: 'string',
+      value: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
 export class GetVpcPrefixListAssociationsResponseBodyPrefixListAssociation extends $tea.Model {
   ownerId?: string;
   prefixListId?: string;
@@ -40830,6 +42996,28 @@ export class ListBusinessAccessPointsResponseBodyBusinessAccessPoints extends $t
   }
 }
 
+export class ListDhcpOptionsSetsRequestTags extends $tea.Model {
+  key?: string;
+  value?: string;
+  static names(): { [key: string]: string } {
+    return {
+      key: 'Key',
+      value: 'Value',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      key: 'string',
+      value: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
 export class ListDhcpOptionsSetsResponseBodyDhcpOptionsSetsDhcpOptions extends $tea.Model {
   domainName?: string;
   domainNameServers?: string;
@@ -40858,6 +43046,28 @@ export class ListDhcpOptionsSetsResponseBodyDhcpOptionsSetsDhcpOptions extends $
   }
 }
 
+export class ListDhcpOptionsSetsResponseBodyDhcpOptionsSetsTags extends $tea.Model {
+  key?: string;
+  value?: string;
+  static names(): { [key: string]: string } {
+    return {
+      key: 'Key',
+      value: 'Value',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      key: 'string',
+      value: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
 export class ListDhcpOptionsSetsResponseBodyDhcpOptionsSets extends $tea.Model {
   associateVpcCount?: number;
   dhcpOptions?: ListDhcpOptionsSetsResponseBodyDhcpOptionsSetsDhcpOptions;
@@ -40865,7 +43075,9 @@ export class ListDhcpOptionsSetsResponseBodyDhcpOptionsSets extends $tea.Model {
   dhcpOptionsSetId?: string;
   dhcpOptionsSetName?: string;
   ownerId?: number;
+  resourceGroupId?: string;
   status?: string;
+  tags?: ListDhcpOptionsSetsResponseBodyDhcpOptionsSetsTags[];
   static names(): { [key: string]: string } {
     return {
       associateVpcCount: 'AssociateVpcCount',
@@ -40874,7 +43086,9 @@ export class ListDhcpOptionsSetsResponseBodyDhcpOptionsSets extends $tea.Model {
       dhcpOptionsSetId: 'DhcpOptionsSetId',
       dhcpOptionsSetName: 'DhcpOptionsSetName',
       ownerId: 'OwnerId',
+      resourceGroupId: 'ResourceGroupId',
       status: 'Status',
+      tags: 'Tags',
     };
   }
 
@@ -40886,7 +43100,9 @@ export class ListDhcpOptionsSetsResponseBodyDhcpOptionsSets extends $tea.Model {
       dhcpOptionsSetId: 'string',
       dhcpOptionsSetName: 'string',
       ownerId: 'number',
+      resourceGroupId: 'string',
       status: 'string',
+      tags: { 'type': 'array', 'itemType': ListDhcpOptionsSetsResponseBodyDhcpOptionsSetsTags },
     };
   }
 
@@ -41172,6 +43388,50 @@ export class ListIpsecServersResponseBodyIpsecServers extends $tea.Model {
   }
 }
 
+export class ListIpv4GatewaysRequestTags extends $tea.Model {
+  key?: string;
+  value?: string;
+  static names(): { [key: string]: string } {
+    return {
+      key: 'Key',
+      value: 'Value',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      key: 'string',
+      value: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class ListIpv4GatewaysResponseBodyIpv4GatewayModelsTags extends $tea.Model {
+  key?: string;
+  value?: string;
+  static names(): { [key: string]: string } {
+    return {
+      key: 'Key',
+      value: 'Value',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      key: 'string',
+      value: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
 export class ListIpv4GatewaysResponseBodyIpv4GatewayModels extends $tea.Model {
   enabled?: boolean;
   gmtCreate?: string;
@@ -41179,7 +43439,9 @@ export class ListIpv4GatewaysResponseBodyIpv4GatewayModels extends $tea.Model {
   ipv4GatewayId?: string;
   ipv4GatewayName?: string;
   ipv4GatewayRouteTableId?: string;
+  resourceGroupId?: string;
   status?: string;
+  tags?: ListIpv4GatewaysResponseBodyIpv4GatewayModelsTags[];
   vpcId?: string;
   static names(): { [key: string]: string } {
     return {
@@ -41189,7 +43451,9 @@ export class ListIpv4GatewaysResponseBodyIpv4GatewayModels extends $tea.Model {
       ipv4GatewayId: 'Ipv4GatewayId',
       ipv4GatewayName: 'Ipv4GatewayName',
       ipv4GatewayRouteTableId: 'Ipv4GatewayRouteTableId',
+      resourceGroupId: 'ResourceGroupId',
       status: 'Status',
+      tags: 'Tags',
       vpcId: 'VpcId',
     };
   }
@@ -41202,7 +43466,9 @@ export class ListIpv4GatewaysResponseBodyIpv4GatewayModels extends $tea.Model {
       ipv4GatewayId: 'string',
       ipv4GatewayName: 'string',
       ipv4GatewayRouteTableId: 'string',
+      resourceGroupId: 'string',
       status: 'string',
+      tags: { 'type': 'array', 'itemType': ListIpv4GatewaysResponseBodyIpv4GatewayModelsTags },
       vpcId: 'string',
     };
   }
@@ -41487,6 +43753,7 @@ export class ListPublicIpAddressPoolsResponseBodyPublicIpAddressPoolList extends
   tags?: ListPublicIpAddressPoolsResponseBodyPublicIpAddressPoolListTags[];
   totalIpNum?: number;
   usedIpNum?: number;
+  userType?: boolean;
   static names(): { [key: string]: string } {
     return {
       creationTime: 'CreationTime',
@@ -41503,6 +43770,7 @@ export class ListPublicIpAddressPoolsResponseBodyPublicIpAddressPoolList extends
       tags: 'Tags',
       totalIpNum: 'TotalIpNum',
       usedIpNum: 'UsedIpNum',
+      userType: 'UserType',
     };
   }
 
@@ -41522,6 +43790,7 @@ export class ListPublicIpAddressPoolsResponseBodyPublicIpAddressPoolList extends
       tags: { 'type': 'array', 'itemType': ListPublicIpAddressPoolsResponseBodyPublicIpAddressPoolListTags },
       totalIpNum: 'number',
       usedIpNum: 'number',
+      userType: 'boolean',
     };
   }
 
@@ -41668,6 +43937,28 @@ export class ListTagResourcesForExpressConnectResponseBodyTagResources extends $
   }
 }
 
+export class ListTrafficMirrorFiltersRequestTags extends $tea.Model {
+  key?: string;
+  value?: string;
+  static names(): { [key: string]: string } {
+    return {
+      key: 'Key',
+      value: 'Value',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      key: 'string',
+      value: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
 export class ListTrafficMirrorFiltersResponseBodyTrafficMirrorFiltersEgressRules extends $tea.Model {
   action?: string;
   destinationCidrBlock?: string;
@@ -41766,9 +44057,33 @@ export class ListTrafficMirrorFiltersResponseBodyTrafficMirrorFiltersIngressRule
   }
 }
 
+export class ListTrafficMirrorFiltersResponseBodyTrafficMirrorFiltersTags extends $tea.Model {
+  key?: string;
+  value?: string;
+  static names(): { [key: string]: string } {
+    return {
+      key: 'Key',
+      value: 'Value',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      key: 'string',
+      value: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
 export class ListTrafficMirrorFiltersResponseBodyTrafficMirrorFilters extends $tea.Model {
   egressRules?: ListTrafficMirrorFiltersResponseBodyTrafficMirrorFiltersEgressRules[];
   ingressRules?: ListTrafficMirrorFiltersResponseBodyTrafficMirrorFiltersIngressRules[];
+  resourceGroupId?: string;
+  tags?: ListTrafficMirrorFiltersResponseBodyTrafficMirrorFiltersTags[];
   trafficMirrorFilterDescription?: string;
   trafficMirrorFilterId?: string;
   trafficMirrorFilterName?: string;
@@ -41777,6 +44092,8 @@ export class ListTrafficMirrorFiltersResponseBodyTrafficMirrorFilters extends $t
     return {
       egressRules: 'EgressRules',
       ingressRules: 'IngressRules',
+      resourceGroupId: 'ResourceGroupId',
+      tags: 'Tags',
       trafficMirrorFilterDescription: 'TrafficMirrorFilterDescription',
       trafficMirrorFilterId: 'TrafficMirrorFilterId',
       trafficMirrorFilterName: 'TrafficMirrorFilterName',
@@ -41788,6 +44105,8 @@ export class ListTrafficMirrorFiltersResponseBodyTrafficMirrorFilters extends $t
     return {
       egressRules: { 'type': 'array', 'itemType': ListTrafficMirrorFiltersResponseBodyTrafficMirrorFiltersEgressRules },
       ingressRules: { 'type': 'array', 'itemType': ListTrafficMirrorFiltersResponseBodyTrafficMirrorFiltersIngressRules },
+      resourceGroupId: 'string',
+      tags: { 'type': 'array', 'itemType': ListTrafficMirrorFiltersResponseBodyTrafficMirrorFiltersTags },
       trafficMirrorFilterDescription: 'string',
       trafficMirrorFilterId: 'string',
       trafficMirrorFilterName: 'string',
@@ -41800,10 +44119,56 @@ export class ListTrafficMirrorFiltersResponseBodyTrafficMirrorFilters extends $t
   }
 }
 
+export class ListTrafficMirrorSessionsRequestTags extends $tea.Model {
+  key?: string;
+  value?: string;
+  static names(): { [key: string]: string } {
+    return {
+      key: 'Key',
+      value: 'Value',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      key: 'string',
+      value: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class ListTrafficMirrorSessionsResponseBodyTrafficMirrorSessionsTags extends $tea.Model {
+  key?: string;
+  value?: string;
+  static names(): { [key: string]: string } {
+    return {
+      key: 'Key',
+      value: 'Value',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      key: 'string',
+      value: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
 export class ListTrafficMirrorSessionsResponseBodyTrafficMirrorSessions extends $tea.Model {
   enabled?: boolean;
   packetLength?: number;
   priority?: number;
+  resourceGroupId?: string;
+  tags?: ListTrafficMirrorSessionsResponseBodyTrafficMirrorSessionsTags[];
   trafficMirrorFilterId?: string;
   trafficMirrorSessionBusinessStatus?: string;
   trafficMirrorSessionDescription?: string;
@@ -41819,6 +44184,8 @@ export class ListTrafficMirrorSessionsResponseBodyTrafficMirrorSessions extends 
       enabled: 'Enabled',
       packetLength: 'PacketLength',
       priority: 'Priority',
+      resourceGroupId: 'ResourceGroupId',
+      tags: 'Tags',
       trafficMirrorFilterId: 'TrafficMirrorFilterId',
       trafficMirrorSessionBusinessStatus: 'TrafficMirrorSessionBusinessStatus',
       trafficMirrorSessionDescription: 'TrafficMirrorSessionDescription',
@@ -41837,6 +44204,8 @@ export class ListTrafficMirrorSessionsResponseBodyTrafficMirrorSessions extends 
       enabled: 'boolean',
       packetLength: 'number',
       priority: 'number',
+      resourceGroupId: 'string',
+      tags: { 'type': 'array', 'itemType': ListTrafficMirrorSessionsResponseBodyTrafficMirrorSessionsTags },
       trafficMirrorFilterId: 'string',
       trafficMirrorSessionBusinessStatus: 'string',
       trafficMirrorSessionDescription: 'string',
@@ -42014,6 +44383,50 @@ export class ListVpcEndpointServicesByEndUserResponseBodyServices extends $tea.M
   }
 }
 
+export class ListVpcGatewayEndpointsRequestTags extends $tea.Model {
+  key?: string;
+  value?: string;
+  static names(): { [key: string]: string } {
+    return {
+      key: 'Key',
+      value: 'Value',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      key: 'string',
+      value: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class ListVpcGatewayEndpointsResponseBodyEndpointsTags extends $tea.Model {
+  key?: string;
+  value?: string;
+  static names(): { [key: string]: string } {
+    return {
+      key: 'Key',
+      value: 'Value',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      key: 'string',
+      value: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
 export class ListVpcGatewayEndpointsResponseBodyEndpoints extends $tea.Model {
   associatedRouteTables?: string[];
   creationTime?: string;
@@ -42022,7 +44435,9 @@ export class ListVpcGatewayEndpointsResponseBodyEndpoints extends $tea.Model {
   endpointName?: string;
   endpointStatus?: string;
   policyDocument?: string;
+  resourceGroupId?: string;
   serviceName?: string;
+  tags?: ListVpcGatewayEndpointsResponseBodyEndpointsTags[];
   vpcId?: string;
   static names(): { [key: string]: string } {
     return {
@@ -42033,7 +44448,9 @@ export class ListVpcGatewayEndpointsResponseBodyEndpoints extends $tea.Model {
       endpointName: 'EndpointName',
       endpointStatus: 'EndpointStatus',
       policyDocument: 'PolicyDocument',
+      resourceGroupId: 'ResourceGroupId',
       serviceName: 'ServiceName',
+      tags: 'Tags',
       vpcId: 'VpcId',
     };
   }
@@ -42047,7 +44464,9 @@ export class ListVpcGatewayEndpointsResponseBodyEndpoints extends $tea.Model {
       endpointName: 'string',
       endpointStatus: 'string',
       policyDocument: 'string',
+      resourceGroupId: 'string',
       serviceName: 'string',
+      tags: { 'type': 'array', 'itemType': ListVpcGatewayEndpointsResponseBodyEndpointsTags },
       vpcId: 'string',
     };
   }
@@ -42274,6 +44693,139 @@ export class ModifyVpnAttachmentAttributeResponseBodyVpnBgpConfig extends $tea.M
   }
 }
 
+export class ModifyVpnConnectionAttributeRequestTunnelOptionsSpecificationTunnelBgpConfig extends $tea.Model {
+  localAsn?: number;
+  localBgpIp?: string;
+  tunnelCidr?: string;
+  static names(): { [key: string]: string } {
+    return {
+      localAsn: 'LocalAsn',
+      localBgpIp: 'LocalBgpIp',
+      tunnelCidr: 'TunnelCidr',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      localAsn: 'number',
+      localBgpIp: 'string',
+      tunnelCidr: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class ModifyVpnConnectionAttributeRequestTunnelOptionsSpecificationTunnelIkeConfig extends $tea.Model {
+  ikeAuthAlg?: string;
+  ikeEncAlg?: string;
+  ikeLifetime?: number;
+  ikeMode?: string;
+  ikePfs?: string;
+  ikeVersion?: string;
+  localId?: string;
+  psk?: string;
+  remoteId?: string;
+  static names(): { [key: string]: string } {
+    return {
+      ikeAuthAlg: 'IkeAuthAlg',
+      ikeEncAlg: 'IkeEncAlg',
+      ikeLifetime: 'IkeLifetime',
+      ikeMode: 'IkeMode',
+      ikePfs: 'IkePfs',
+      ikeVersion: 'IkeVersion',
+      localId: 'LocalId',
+      psk: 'Psk',
+      remoteId: 'RemoteId',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      ikeAuthAlg: 'string',
+      ikeEncAlg: 'string',
+      ikeLifetime: 'number',
+      ikeMode: 'string',
+      ikePfs: 'string',
+      ikeVersion: 'string',
+      localId: 'string',
+      psk: 'string',
+      remoteId: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class ModifyVpnConnectionAttributeRequestTunnelOptionsSpecificationTunnelIpsecConfig extends $tea.Model {
+  ipsecAuthAlg?: string;
+  ipsecEncAlg?: string;
+  ipsecLifetime?: number;
+  ipsecPfs?: string;
+  static names(): { [key: string]: string } {
+    return {
+      ipsecAuthAlg: 'IpsecAuthAlg',
+      ipsecEncAlg: 'IpsecEncAlg',
+      ipsecLifetime: 'IpsecLifetime',
+      ipsecPfs: 'IpsecPfs',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      ipsecAuthAlg: 'string',
+      ipsecEncAlg: 'string',
+      ipsecLifetime: 'number',
+      ipsecPfs: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class ModifyVpnConnectionAttributeRequestTunnelOptionsSpecification extends $tea.Model {
+  enableDpd?: boolean;
+  enableNatTraversal?: boolean;
+  remoteCaCertificate?: string;
+  tunnelBgpConfig?: ModifyVpnConnectionAttributeRequestTunnelOptionsSpecificationTunnelBgpConfig;
+  tunnelId?: string;
+  tunnelIkeConfig?: ModifyVpnConnectionAttributeRequestTunnelOptionsSpecificationTunnelIkeConfig;
+  tunnelIpsecConfig?: ModifyVpnConnectionAttributeRequestTunnelOptionsSpecificationTunnelIpsecConfig;
+  static names(): { [key: string]: string } {
+    return {
+      enableDpd: 'EnableDpd',
+      enableNatTraversal: 'EnableNatTraversal',
+      remoteCaCertificate: 'RemoteCaCertificate',
+      tunnelBgpConfig: 'TunnelBgpConfig',
+      tunnelId: 'TunnelId',
+      tunnelIkeConfig: 'TunnelIkeConfig',
+      tunnelIpsecConfig: 'TunnelIpsecConfig',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      enableDpd: 'boolean',
+      enableNatTraversal: 'boolean',
+      remoteCaCertificate: 'string',
+      tunnelBgpConfig: ModifyVpnConnectionAttributeRequestTunnelOptionsSpecificationTunnelBgpConfig,
+      tunnelId: 'string',
+      tunnelIkeConfig: ModifyVpnConnectionAttributeRequestTunnelOptionsSpecificationTunnelIkeConfig,
+      tunnelIpsecConfig: ModifyVpnConnectionAttributeRequestTunnelOptionsSpecificationTunnelIpsecConfig,
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
 export class ModifyVpnConnectionAttributeResponseBodyIkeConfig extends $tea.Model {
   ikeAuthAlg?: string;
   ikeEncAlg?: string;
@@ -42337,6 +44889,188 @@ export class ModifyVpnConnectionAttributeResponseBodyIpsecConfig extends $tea.Mo
       ipsecEncAlg: 'string',
       ipsecLifetime: 'number',
       ipsecPfs: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class ModifyVpnConnectionAttributeResponseBodyTunnelOptionsSpecificationTunnelOptionsTunnelBgpConfig extends $tea.Model {
+  bgpStatus?: string;
+  enableBgp?: boolean;
+  localAsn?: number;
+  localBgpIp?: string;
+  peerAsn?: number;
+  peerBgpIp?: string;
+  tunnelCidr?: string;
+  static names(): { [key: string]: string } {
+    return {
+      bgpStatus: 'BgpStatus',
+      enableBgp: 'EnableBgp',
+      localAsn: 'LocalAsn',
+      localBgpIp: 'LocalBgpIp',
+      peerAsn: 'PeerAsn',
+      peerBgpIp: 'PeerBgpIp',
+      tunnelCidr: 'TunnelCidr',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      bgpStatus: 'string',
+      enableBgp: 'boolean',
+      localAsn: 'number',
+      localBgpIp: 'string',
+      peerAsn: 'number',
+      peerBgpIp: 'string',
+      tunnelCidr: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class ModifyVpnConnectionAttributeResponseBodyTunnelOptionsSpecificationTunnelOptionsTunnelIkeConfig extends $tea.Model {
+  ikeAuthAlg?: string;
+  ikeEncAlg?: string;
+  ikeLifetime?: number;
+  ikeMode?: string;
+  ikePfs?: string;
+  ikeVersion?: string;
+  localId?: string;
+  psk?: string;
+  remoteId?: string;
+  static names(): { [key: string]: string } {
+    return {
+      ikeAuthAlg: 'IkeAuthAlg',
+      ikeEncAlg: 'IkeEncAlg',
+      ikeLifetime: 'IkeLifetime',
+      ikeMode: 'IkeMode',
+      ikePfs: 'IkePfs',
+      ikeVersion: 'IkeVersion',
+      localId: 'LocalId',
+      psk: 'Psk',
+      remoteId: 'RemoteId',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      ikeAuthAlg: 'string',
+      ikeEncAlg: 'string',
+      ikeLifetime: 'number',
+      ikeMode: 'string',
+      ikePfs: 'string',
+      ikeVersion: 'string',
+      localId: 'string',
+      psk: 'string',
+      remoteId: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class ModifyVpnConnectionAttributeResponseBodyTunnelOptionsSpecificationTunnelOptionsTunnelIpsecConfig extends $tea.Model {
+  ipsecAuthAlg?: string;
+  ipsecEncAlg?: string;
+  ipsecLifetime?: number;
+  ipsecPfs?: string;
+  static names(): { [key: string]: string } {
+    return {
+      ipsecAuthAlg: 'IpsecAuthAlg',
+      ipsecEncAlg: 'IpsecEncAlg',
+      ipsecLifetime: 'IpsecLifetime',
+      ipsecPfs: 'IpsecPfs',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      ipsecAuthAlg: 'string',
+      ipsecEncAlg: 'string',
+      ipsecLifetime: 'number',
+      ipsecPfs: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class ModifyVpnConnectionAttributeResponseBodyTunnelOptionsSpecificationTunnelOptions extends $tea.Model {
+  customerGatewayId?: string;
+  enableDpd?: boolean;
+  enableNatTraversal?: boolean;
+  internetIp?: string;
+  remoteCaCertificate?: string;
+  role?: string;
+  state?: string;
+  status?: string;
+  tunnelBgpConfig?: ModifyVpnConnectionAttributeResponseBodyTunnelOptionsSpecificationTunnelOptionsTunnelBgpConfig;
+  tunnelId?: string;
+  tunnelIkeConfig?: ModifyVpnConnectionAttributeResponseBodyTunnelOptionsSpecificationTunnelOptionsTunnelIkeConfig;
+  tunnelIpsecConfig?: ModifyVpnConnectionAttributeResponseBodyTunnelOptionsSpecificationTunnelOptionsTunnelIpsecConfig;
+  zoneNo?: string;
+  static names(): { [key: string]: string } {
+    return {
+      customerGatewayId: 'CustomerGatewayId',
+      enableDpd: 'EnableDpd',
+      enableNatTraversal: 'EnableNatTraversal',
+      internetIp: 'InternetIp',
+      remoteCaCertificate: 'RemoteCaCertificate',
+      role: 'Role',
+      state: 'State',
+      status: 'Status',
+      tunnelBgpConfig: 'TunnelBgpConfig',
+      tunnelId: 'TunnelId',
+      tunnelIkeConfig: 'TunnelIkeConfig',
+      tunnelIpsecConfig: 'TunnelIpsecConfig',
+      zoneNo: 'ZoneNo',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      customerGatewayId: 'string',
+      enableDpd: 'boolean',
+      enableNatTraversal: 'boolean',
+      internetIp: 'string',
+      remoteCaCertificate: 'string',
+      role: 'string',
+      state: 'string',
+      status: 'string',
+      tunnelBgpConfig: ModifyVpnConnectionAttributeResponseBodyTunnelOptionsSpecificationTunnelOptionsTunnelBgpConfig,
+      tunnelId: 'string',
+      tunnelIkeConfig: ModifyVpnConnectionAttributeResponseBodyTunnelOptionsSpecificationTunnelOptionsTunnelIkeConfig,
+      tunnelIpsecConfig: ModifyVpnConnectionAttributeResponseBodyTunnelOptionsSpecificationTunnelOptionsTunnelIpsecConfig,
+      zoneNo: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class ModifyVpnConnectionAttributeResponseBodyTunnelOptionsSpecification extends $tea.Model {
+  tunnelOptions?: ModifyVpnConnectionAttributeResponseBodyTunnelOptionsSpecificationTunnelOptions[];
+  static names(): { [key: string]: string } {
+    return {
+      tunnelOptions: 'TunnelOptions',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      tunnelOptions: { 'type': 'array', 'itemType': ModifyVpnConnectionAttributeResponseBodyTunnelOptionsSpecificationTunnelOptions },
     };
   }
 
@@ -42673,6 +45407,16 @@ export default class Client extends OpenApi {
     return await this.activateRouterInterfaceWithOptions(request, runtime);
   }
 
+  /**
+    * *   The **ActiveFlowLog** operation is asynchronous. After you send the request, the system returns a request ID. However, the operation is still being performed in the system background. You can call the [DescribeFlowLogs](~~87923~~) operation to query the status of a flow log:
+    *     *   If the flow log is in the **Activating** state, the flow log is being started.
+    *     *   If the flow log is in the **Active** state, the flow log is started.
+    * *   You cannot repeatedly call the **ActiveFlowLog** operation to start a flow log within the specified period of time.
+    *
+    * @param request ActiveFlowLogRequest
+    * @param runtime runtime options for this request RuntimeOptions
+    * @return ActiveFlowLogResponse
+   */
   async activeFlowLogWithOptions(request: ActiveFlowLogRequest, runtime: $Util.RuntimeOptions): Promise<ActiveFlowLogResponse> {
     Util.validateModel(request);
     let query = { };
@@ -42717,6 +45461,15 @@ export default class Client extends OpenApi {
     return $tea.cast<ActiveFlowLogResponse>(await this.callApi(params, req, runtime), new ActiveFlowLogResponse({}));
   }
 
+  /**
+    * *   The **ActiveFlowLog** operation is asynchronous. After you send the request, the system returns a request ID. However, the operation is still being performed in the system background. You can call the [DescribeFlowLogs](~~87923~~) operation to query the status of a flow log:
+    *     *   If the flow log is in the **Activating** state, the flow log is being started.
+    *     *   If the flow log is in the **Active** state, the flow log is started.
+    * *   You cannot repeatedly call the **ActiveFlowLog** operation to start a flow log within the specified period of time.
+    *
+    * @param request ActiveFlowLogRequest
+    * @return ActiveFlowLogResponse
+   */
   async activeFlowLog(request: ActiveFlowLogRequest): Promise<ActiveFlowLogResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.activeFlowLogWithOptions(request, runtime);
@@ -42783,6 +45536,19 @@ export default class Client extends OpenApi {
     return await this.addBgpNetworkWithOptions(request, runtime);
   }
 
+  /**
+    * *   When you call this operation to associate an EIP with an EIP bandwidth plan, make sure that the EIP meets the following requirements:
+    *     *   The EIP uses the pay-as-you-go billing method.
+    *     *   The EIP and the EIP bandwidth plan belong to the same region.
+    *     *   The line type of the EIP is the same as that of the EIP bandwidth plan.
+    * *   The **AddCommonBandwidthPackageIp** operation is asynchronous. After you send the request, the system returns a request ID. However, the operation is still being performed in the system background. You can call the [DescribeCommonBandwidthPackages](~~120309~~) operation to query the status of an EIP bandwidth plan:
+    *     *   If the EIP bandwidth plan is in the **BINDING** state, the EIP is being associated with the EIP bandwidth plan. In this state, you can only query the EIP bandwidth plan and cannot perform other operations.
+    *     *   If the EIP bandwidth plan is in the **BINDED** state, the EIP is associated with the EIP bandwidth plan.
+    *
+    * @param request AddCommonBandwidthPackageIpRequest
+    * @param runtime runtime options for this request RuntimeOptions
+    * @return AddCommonBandwidthPackageIpResponse
+   */
   async addCommonBandwidthPackageIpWithOptions(request: AddCommonBandwidthPackageIpRequest, runtime: $Util.RuntimeOptions): Promise<AddCommonBandwidthPackageIpResponse> {
     Util.validateModel(request);
     let query = { };
@@ -42839,11 +45605,36 @@ export default class Client extends OpenApi {
     return $tea.cast<AddCommonBandwidthPackageIpResponse>(await this.callApi(params, req, runtime), new AddCommonBandwidthPackageIpResponse({}));
   }
 
+  /**
+    * *   When you call this operation to associate an EIP with an EIP bandwidth plan, make sure that the EIP meets the following requirements:
+    *     *   The EIP uses the pay-as-you-go billing method.
+    *     *   The EIP and the EIP bandwidth plan belong to the same region.
+    *     *   The line type of the EIP is the same as that of the EIP bandwidth plan.
+    * *   The **AddCommonBandwidthPackageIp** operation is asynchronous. After you send the request, the system returns a request ID. However, the operation is still being performed in the system background. You can call the [DescribeCommonBandwidthPackages](~~120309~~) operation to query the status of an EIP bandwidth plan:
+    *     *   If the EIP bandwidth plan is in the **BINDING** state, the EIP is being associated with the EIP bandwidth plan. In this state, you can only query the EIP bandwidth plan and cannot perform other operations.
+    *     *   If the EIP bandwidth plan is in the **BINDED** state, the EIP is associated with the EIP bandwidth plan.
+    *
+    * @param request AddCommonBandwidthPackageIpRequest
+    * @return AddCommonBandwidthPackageIpResponse
+   */
   async addCommonBandwidthPackageIp(request: AddCommonBandwidthPackageIpRequest): Promise<AddCommonBandwidthPackageIpResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.addCommonBandwidthPackageIpWithOptions(request, runtime);
   }
 
+  /**
+    * *   When you call this operation to associate EIPs with an EIP bandwidth plan, make sure that the EIPs meet the following requirements:
+    *     *   The EIPs use the pay-as-you-go billing method.
+    *     *   The EIPs and the EIP bandwidth plan belong to the same region.
+    *     *   The line type of the EIPs is the same as that of the EIP bandwidth plan.
+    * *   The **AddCommonBandwidthPackageIps** operation is asynchronous. After you send the request, the system returns a request ID. However, the operation is still being performed in the system background. You can call the [DescribeCommonBandwidthPackages](~~120309~~) operation to query the status of an EIP bandwidth plan:
+    *     *   If the EIP bandwidth plan is in the **BINDING** state, the EIPs are being associated with the EIP bandwidth plan. In this state, you can only query the EIP bandwidth plan and cannot perform other operations.
+    *     *   If the EIP bandwidth plan is in the **BINDED** state, the EIPs are associated with the EIP bandwidth plan.
+    *
+    * @param request AddCommonBandwidthPackageIpsRequest
+    * @param runtime runtime options for this request RuntimeOptions
+    * @return AddCommonBandwidthPackageIpsResponse
+   */
   async addCommonBandwidthPackageIpsWithOptions(request: AddCommonBandwidthPackageIpsRequest, runtime: $Util.RuntimeOptions): Promise<AddCommonBandwidthPackageIpsResponse> {
     Util.validateModel(request);
     let query = { };
@@ -42900,6 +45691,18 @@ export default class Client extends OpenApi {
     return $tea.cast<AddCommonBandwidthPackageIpsResponse>(await this.callApi(params, req, runtime), new AddCommonBandwidthPackageIpsResponse({}));
   }
 
+  /**
+    * *   When you call this operation to associate EIPs with an EIP bandwidth plan, make sure that the EIPs meet the following requirements:
+    *     *   The EIPs use the pay-as-you-go billing method.
+    *     *   The EIPs and the EIP bandwidth plan belong to the same region.
+    *     *   The line type of the EIPs is the same as that of the EIP bandwidth plan.
+    * *   The **AddCommonBandwidthPackageIps** operation is asynchronous. After you send the request, the system returns a request ID. However, the operation is still being performed in the system background. You can call the [DescribeCommonBandwidthPackages](~~120309~~) operation to query the status of an EIP bandwidth plan:
+    *     *   If the EIP bandwidth plan is in the **BINDING** state, the EIPs are being associated with the EIP bandwidth plan. In this state, you can only query the EIP bandwidth plan and cannot perform other operations.
+    *     *   If the EIP bandwidth plan is in the **BINDED** state, the EIPs are associated with the EIP bandwidth plan.
+    *
+    * @param request AddCommonBandwidthPackageIpsRequest
+    * @return AddCommonBandwidthPackageIpsResponse
+   */
   async addCommonBandwidthPackageIps(request: AddCommonBandwidthPackageIpsRequest): Promise<AddCommonBandwidthPackageIpsResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.addCommonBandwidthPackageIpsWithOptions(request, runtime);
@@ -42958,6 +45761,14 @@ export default class Client extends OpenApi {
     return await this.addGlobalAccelerationInstanceIpWithOptions(request, runtime);
   }
 
+  /**
+    * @deprecated
+    *
+    * @param request AddIPv6TranslatorAclListEntryRequest
+    * @param runtime runtime options for this request RuntimeOptions
+    * @return AddIPv6TranslatorAclListEntryResponse
+   */
+  // Deprecated
   async addIPv6TranslatorAclListEntryWithOptions(request: AddIPv6TranslatorAclListEntryRequest, runtime: $Util.RuntimeOptions): Promise<AddIPv6TranslatorAclListEntryResponse> {
     Util.validateModel(request);
     let query = { };
@@ -43010,11 +45821,26 @@ export default class Client extends OpenApi {
     return $tea.cast<AddIPv6TranslatorAclListEntryResponse>(await this.callApi(params, req, runtime), new AddIPv6TranslatorAclListEntryResponse({}));
   }
 
+  /**
+    * @deprecated
+    *
+    * @param request AddIPv6TranslatorAclListEntryRequest
+    * @return AddIPv6TranslatorAclListEntryResponse
+   */
+  // Deprecated
   async addIPv6TranslatorAclListEntry(request: AddIPv6TranslatorAclListEntryRequest): Promise<AddIPv6TranslatorAclListEntryResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.addIPv6TranslatorAclListEntryWithOptions(request, runtime);
   }
 
+  /**
+    * The CIDR block.
+    * >  You cannot set the **CidrBlock** and **CidrMask** parameters at the same time.
+    *
+    * @param request AddPublicIpAddressPoolCidrBlockRequest
+    * @param runtime runtime options for this request RuntimeOptions
+    * @return AddPublicIpAddressPoolCidrBlockResponse
+   */
   async addPublicIpAddressPoolCidrBlockWithOptions(request: AddPublicIpAddressPoolCidrBlockRequest, runtime: $Util.RuntimeOptions): Promise<AddPublicIpAddressPoolCidrBlockResponse> {
     Util.validateModel(request);
     let query = { };
@@ -43075,11 +45901,27 @@ export default class Client extends OpenApi {
     return $tea.cast<AddPublicIpAddressPoolCidrBlockResponse>(await this.callApi(params, req, runtime), new AddPublicIpAddressPoolCidrBlockResponse({}));
   }
 
+  /**
+    * The CIDR block.
+    * >  You cannot set the **CidrBlock** and **CidrMask** parameters at the same time.
+    *
+    * @param request AddPublicIpAddressPoolCidrBlockRequest
+    * @return AddPublicIpAddressPoolCidrBlockResponse
+   */
   async addPublicIpAddressPoolCidrBlock(request: AddPublicIpAddressPoolCidrBlockRequest): Promise<AddPublicIpAddressPoolCidrBlockResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.addPublicIpAddressPoolCidrBlockWithOptions(request, runtime);
   }
 
+  /**
+    * The client token that is used to ensure the idempotence of the request.
+    * You can use the client to generate the value, but you must make sure that it is unique among different requests. The client token can contain only ASCII characters.
+    * >  If you do not set this parameter, the system uses **RequestId** as **ClientToken**. **RequestId** may be different for each API request.
+    *
+    * @param request AddSourcesToTrafficMirrorSessionRequest
+    * @param runtime runtime options for this request RuntimeOptions
+    * @return AddSourcesToTrafficMirrorSessionResponse
+   */
   async addSourcesToTrafficMirrorSessionWithOptions(request: AddSourcesToTrafficMirrorSessionRequest, runtime: $Util.RuntimeOptions): Promise<AddSourcesToTrafficMirrorSessionResponse> {
     Util.validateModel(request);
     let query = { };
@@ -43136,11 +45978,30 @@ export default class Client extends OpenApi {
     return $tea.cast<AddSourcesToTrafficMirrorSessionResponse>(await this.callApi(params, req, runtime), new AddSourcesToTrafficMirrorSessionResponse({}));
   }
 
+  /**
+    * The client token that is used to ensure the idempotence of the request.
+    * You can use the client to generate the value, but you must make sure that it is unique among different requests. The client token can contain only ASCII characters.
+    * >  If you do not set this parameter, the system uses **RequestId** as **ClientToken**. **RequestId** may be different for each API request.
+    *
+    * @param request AddSourcesToTrafficMirrorSessionRequest
+    * @return AddSourcesToTrafficMirrorSessionResponse
+   */
   async addSourcesToTrafficMirrorSession(request: AddSourcesToTrafficMirrorSessionRequest): Promise<AddSourcesToTrafficMirrorSessionResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.addSourcesToTrafficMirrorSessionWithOptions(request, runtime);
   }
 
+  /**
+    * The maximum bandwidth of the EIP. Unit: Mbit/s.
+    * *   When **InstanceChargeType** is set to **PostPaid** and **InternetChargeType** is set to **PayByBandwidth**, valid values for **Bandwidth** are **1** to **500**.
+    * *   When **InstanceChargeType** is set to **PostPaid** and **InternetChargeType** is set to **PayByTraffic**, valid values for **Bandwidth** are **1** to **200**.
+    * *   When **InstanceChargeType** is set to **PrePaid**, valid values for **Bandwidth** are **1** to **1000**.
+    * Default value: **5**. Unit: Mbit/s.
+    *
+    * @param request AllocateEipAddressRequest
+    * @param runtime runtime options for this request RuntimeOptions
+    * @return AllocateEipAddressResponse
+   */
   async allocateEipAddressWithOptions(request: AllocateEipAddressRequest, runtime: $Util.RuntimeOptions): Promise<AllocateEipAddressResponse> {
     Util.validateModel(request);
     let query = { };
@@ -43172,8 +46033,16 @@ export default class Client extends OpenApi {
       query["InstanceChargeType"] = request.instanceChargeType;
     }
 
+    if (!Util.isUnset(request.instanceId)) {
+      query["InstanceId"] = request.instanceId;
+    }
+
     if (!Util.isUnset(request.internetChargeType)) {
       query["InternetChargeType"] = request.internetChargeType;
+    }
+
+    if (!Util.isUnset(request.ipAddress)) {
+      query["IpAddress"] = request.ipAddress;
     }
 
     if (!Util.isUnset(request.name)) {
@@ -43224,6 +46093,10 @@ export default class Client extends OpenApi {
       query["SecurityProtectionTypes"] = request.securityProtectionTypes;
     }
 
+    if (!Util.isUnset(request.zone)) {
+      query["Zone"] = request.zone;
+    }
+
     let req = new $OpenApi.OpenApiRequest({
       query: OpenApiUtil.query(query),
     });
@@ -43241,6 +46114,16 @@ export default class Client extends OpenApi {
     return $tea.cast<AllocateEipAddressResponse>(await this.callApi(params, req, runtime), new AllocateEipAddressResponse({}));
   }
 
+  /**
+    * The maximum bandwidth of the EIP. Unit: Mbit/s.
+    * *   When **InstanceChargeType** is set to **PostPaid** and **InternetChargeType** is set to **PayByBandwidth**, valid values for **Bandwidth** are **1** to **500**.
+    * *   When **InstanceChargeType** is set to **PostPaid** and **InternetChargeType** is set to **PayByTraffic**, valid values for **Bandwidth** are **1** to **200**.
+    * *   When **InstanceChargeType** is set to **PrePaid**, valid values for **Bandwidth** are **1** to **1000**.
+    * Default value: **5**. Unit: Mbit/s.
+    *
+    * @param request AllocateEipAddressRequest
+    * @return AllocateEipAddressResponse
+   */
   async allocateEipAddress(request: AllocateEipAddressRequest): Promise<AllocateEipAddressResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.allocateEipAddressWithOptions(request, runtime);
@@ -43347,6 +46230,13 @@ export default class Client extends OpenApi {
     return await this.allocateEipAddressProWithOptions(request, runtime);
   }
 
+  /**
+    * The operation that you want to perform. The operation that you want to perform. Set the value to **AllocateEipSegmentAddress**.
+    *
+    * @param request AllocateEipSegmentAddressRequest
+    * @param runtime runtime options for this request RuntimeOptions
+    * @return AllocateEipSegmentAddressResponse
+   */
   async allocateEipSegmentAddressWithOptions(request: AllocateEipSegmentAddressRequest, runtime: $Util.RuntimeOptions): Promise<AllocateEipSegmentAddressResponse> {
     Util.validateModel(request);
     let query = { };
@@ -43398,6 +46288,10 @@ export default class Client extends OpenApi {
       query["ResourceOwnerId"] = request.resourceOwnerId;
     }
 
+    if (!Util.isUnset(request.zone)) {
+      query["Zone"] = request.zone;
+    }
+
     let req = new $OpenApi.OpenApiRequest({
       query: OpenApiUtil.query(query),
     });
@@ -43415,11 +46309,24 @@ export default class Client extends OpenApi {
     return $tea.cast<AllocateEipSegmentAddressResponse>(await this.callApi(params, req, runtime), new AllocateEipSegmentAddressResponse({}));
   }
 
+  /**
+    * The operation that you want to perform. The operation that you want to perform. Set the value to **AllocateEipSegmentAddress**.
+    *
+    * @param request AllocateEipSegmentAddressRequest
+    * @return AllocateEipSegmentAddressResponse
+   */
   async allocateEipSegmentAddress(request: AllocateEipSegmentAddressRequest): Promise<AllocateEipSegmentAddressResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.allocateEipSegmentAddressWithOptions(request, runtime);
   }
 
+  /**
+    * You cannot call the **AllocateIpv6InternetBandwidth** operation to purchase Internet bandwidth for an IPv6 gateway at the same time.
+    *
+    * @param request AllocateIpv6InternetBandwidthRequest
+    * @param runtime runtime options for this request RuntimeOptions
+    * @return AllocateIpv6InternetBandwidthResponse
+   */
   async allocateIpv6InternetBandwidthWithOptions(request: AllocateIpv6InternetBandwidthRequest, runtime: $Util.RuntimeOptions): Promise<AllocateIpv6InternetBandwidthResponse> {
     Util.validateModel(request);
     let query = { };
@@ -43484,11 +46391,26 @@ export default class Client extends OpenApi {
     return $tea.cast<AllocateIpv6InternetBandwidthResponse>(await this.callApi(params, req, runtime), new AllocateIpv6InternetBandwidthResponse({}));
   }
 
+  /**
+    * You cannot call the **AllocateIpv6InternetBandwidth** operation to purchase Internet bandwidth for an IPv6 gateway at the same time.
+    *
+    * @param request AllocateIpv6InternetBandwidthRequest
+    * @return AllocateIpv6InternetBandwidthResponse
+   */
   async allocateIpv6InternetBandwidth(request: AllocateIpv6InternetBandwidthRequest): Promise<AllocateIpv6InternetBandwidthResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.allocateIpv6InternetBandwidthWithOptions(request, runtime);
   }
 
+  /**
+    * The following section describes how to allocate an IPv6 CIDR block to a virtual private cloud (VPC):
+    * 1\\. Call the AllocateVpcIpv6Cidr operation to reserve an IPv6 CIDR block.
+    * 2\\. If you want to allocate the reserved IPv6 CIDR block to an existing VPC, call the [AssociateVpcCidrBlock](~~146745~~) operation, specify the **RegionId** and **VpcId** parameters, and set the **IPv6CidrBlock** parameter to the reserved IPv6 CIDR block and the **IpVersion** parameter to **IPV6**. If you want to allocate the reserved IPv6 CIDR block to a new VPC, call the [CreateVpc](~~35737~~) operation, specify the **RegionId** parameter, and set the **Ipv6CidrBlock** parameter to the reserved IPv6 CIDR block and the **EnableIpv6** parameter to **true**.
+    *
+    * @param request AllocateVpcIpv6CidrRequest
+    * @param runtime runtime options for this request RuntimeOptions
+    * @return AllocateVpcIpv6CidrResponse
+   */
   async allocateVpcIpv6CidrWithOptions(request: AllocateVpcIpv6CidrRequest, runtime: $Util.RuntimeOptions): Promise<AllocateVpcIpv6CidrResponse> {
     Util.validateModel(request);
     let query = { };
@@ -43549,6 +46471,14 @@ export default class Client extends OpenApi {
     return $tea.cast<AllocateVpcIpv6CidrResponse>(await this.callApi(params, req, runtime), new AllocateVpcIpv6CidrResponse({}));
   }
 
+  /**
+    * The following section describes how to allocate an IPv6 CIDR block to a virtual private cloud (VPC):
+    * 1\\. Call the AllocateVpcIpv6Cidr operation to reserve an IPv6 CIDR block.
+    * 2\\. If you want to allocate the reserved IPv6 CIDR block to an existing VPC, call the [AssociateVpcCidrBlock](~~146745~~) operation, specify the **RegionId** and **VpcId** parameters, and set the **IPv6CidrBlock** parameter to the reserved IPv6 CIDR block and the **IpVersion** parameter to **IPV6**. If you want to allocate the reserved IPv6 CIDR block to a new VPC, call the [CreateVpc](~~35737~~) operation, specify the **RegionId** parameter, and set the **Ipv6CidrBlock** parameter to the reserved IPv6 CIDR block and the **EnableIpv6** parameter to **true**.
+    *
+    * @param request AllocateVpcIpv6CidrRequest
+    * @return AllocateVpcIpv6CidrResponse
+   */
   async allocateVpcIpv6Cidr(request: AllocateVpcIpv6CidrRequest): Promise<AllocateVpcIpv6CidrResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.allocateVpcIpv6CidrWithOptions(request, runtime);
@@ -43639,6 +46569,14 @@ export default class Client extends OpenApi {
     return await this.applyPhysicalConnectionLOAWithOptions(request, runtime);
   }
 
+  /**
+    * The ID of the region to which the EIP belongs.
+    * You can call the [DescribeRegions](~~36063~~) operation to query the most recent region list.
+    *
+    * @param request AssociateEipAddressRequest
+    * @param runtime runtime options for this request RuntimeOptions
+    * @return AssociateEipAddressResponse
+   */
   async associateEipAddressWithOptions(request: AssociateEipAddressRequest, runtime: $Util.RuntimeOptions): Promise<AssociateEipAddressResponse> {
     Util.validateModel(request);
     let query = { };
@@ -43711,11 +46649,29 @@ export default class Client extends OpenApi {
     return $tea.cast<AssociateEipAddressResponse>(await this.callApi(params, req, runtime), new AssociateEipAddressResponse({}));
   }
 
+  /**
+    * The ID of the region to which the EIP belongs.
+    * You can call the [DescribeRegions](~~36063~~) operation to query the most recent region list.
+    *
+    * @param request AssociateEipAddressRequest
+    * @return AssociateEipAddressResponse
+   */
   async associateEipAddress(request: AssociateEipAddressRequest): Promise<AssociateEipAddressResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.associateEipAddressWithOptions(request, runtime);
   }
 
+  /**
+    * *   You can call the **AssociateEipAddressBatch** operation to associate EIPs with a NAT gateway or a secondary elastic network interface (ENI) in the same region. For more information about how to associate EIPs with other instances, see [AssociateEipAddress](~~120195~~).
+    * *   The **AssociateEipAddressBatch** operation is asynchronous. After you send the request, the system returns a request ID. However, the operation is still being performed in the system background. You can call the [DescribeEipAddresses](~~120193~~) operation to query the status of an EIP.
+    *     *   If the EIP is in the **Associating** state, the EIP is being associated. In this state, you can only query the EIP and cannot perform other operations.
+    *     *   If the EIP is in the **InUse** state, the EIP is associated.
+    * *   You cannot repeatedly call **AssociateEipAddressBatch** to associate an EIP with an instance within the specified period of time.
+    *
+    * @param request AssociateEipAddressBatchRequest
+    * @param runtime runtime options for this request RuntimeOptions
+    * @return AssociateEipAddressBatchResponse
+   */
   async associateEipAddressBatchWithOptions(request: AssociateEipAddressBatchRequest, runtime: $Util.RuntimeOptions): Promise<AssociateEipAddressBatchResponse> {
     Util.validateModel(request);
     let query = { };
@@ -43776,11 +46732,38 @@ export default class Client extends OpenApi {
     return $tea.cast<AssociateEipAddressBatchResponse>(await this.callApi(params, req, runtime), new AssociateEipAddressBatchResponse({}));
   }
 
+  /**
+    * *   You can call the **AssociateEipAddressBatch** operation to associate EIPs with a NAT gateway or a secondary elastic network interface (ENI) in the same region. For more information about how to associate EIPs with other instances, see [AssociateEipAddress](~~120195~~).
+    * *   The **AssociateEipAddressBatch** operation is asynchronous. After you send the request, the system returns a request ID. However, the operation is still being performed in the system background. You can call the [DescribeEipAddresses](~~120193~~) operation to query the status of an EIP.
+    *     *   If the EIP is in the **Associating** state, the EIP is being associated. In this state, you can only query the EIP and cannot perform other operations.
+    *     *   If the EIP is in the **InUse** state, the EIP is associated.
+    * *   You cannot repeatedly call **AssociateEipAddressBatch** to associate an EIP with an instance within the specified period of time.
+    *
+    * @param request AssociateEipAddressBatchRequest
+    * @return AssociateEipAddressBatchResponse
+   */
   async associateEipAddressBatch(request: AssociateEipAddressBatchRequest): Promise<AssociateEipAddressBatchResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.associateEipAddressBatchWithOptions(request, runtime);
   }
 
+  /**
+    * ## Usage notes
+    * When you call this operation, take note of the following items:
+    * *   You can specify only an Elastic Compute Service (ECS) instance in a virtual private cloud (VPC) or a Server Load Balancer (SLB) instance as a backend server.
+    * *   You can associate each GA instance with only one backend server.
+    * *   You can associate multiple GA instances with the same backend server.
+    * *   The backend server and the GA instance must belong to the same Alibaba Cloud account.
+    * *   The region of the backend server must belong to the service area of the GA instance.
+    * *   You can call this operation to associate only a dedicated-bandwidth GA instance with a backend server.
+    * To associate a shared-bandwidth GA instance with a backend server, perform the following operations:
+    * 1.  Associate an elastic IP address (EIP) with the shared-bandwidth GA instance: For more information, see [AddGlobalAccelerationInstanceIp](~~86045~~).
+    * 2.  Associate the EIP with a backend server. For more information, see [AssociateEipAddress](~~120195~~). When you call AssociateEipAddress, specify **InstanceRegionId**.
+    *
+    * @param request AssociateGlobalAccelerationInstanceRequest
+    * @param runtime runtime options for this request RuntimeOptions
+    * @return AssociateGlobalAccelerationInstanceResponse
+   */
   async associateGlobalAccelerationInstanceWithOptions(request: AssociateGlobalAccelerationInstanceRequest, runtime: $Util.RuntimeOptions): Promise<AssociateGlobalAccelerationInstanceResponse> {
     Util.validateModel(request);
     let query = { };
@@ -43837,11 +46820,43 @@ export default class Client extends OpenApi {
     return $tea.cast<AssociateGlobalAccelerationInstanceResponse>(await this.callApi(params, req, runtime), new AssociateGlobalAccelerationInstanceResponse({}));
   }
 
+  /**
+    * ## Usage notes
+    * When you call this operation, take note of the following items:
+    * *   You can specify only an Elastic Compute Service (ECS) instance in a virtual private cloud (VPC) or a Server Load Balancer (SLB) instance as a backend server.
+    * *   You can associate each GA instance with only one backend server.
+    * *   You can associate multiple GA instances with the same backend server.
+    * *   The backend server and the GA instance must belong to the same Alibaba Cloud account.
+    * *   The region of the backend server must belong to the service area of the GA instance.
+    * *   You can call this operation to associate only a dedicated-bandwidth GA instance with a backend server.
+    * To associate a shared-bandwidth GA instance with a backend server, perform the following operations:
+    * 1.  Associate an elastic IP address (EIP) with the shared-bandwidth GA instance: For more information, see [AddGlobalAccelerationInstanceIp](~~86045~~).
+    * 2.  Associate the EIP with a backend server. For more information, see [AssociateEipAddress](~~120195~~). When you call AssociateEipAddress, specify **InstanceRegionId**.
+    *
+    * @param request AssociateGlobalAccelerationInstanceRequest
+    * @return AssociateGlobalAccelerationInstanceResponse
+   */
   async associateGlobalAccelerationInstance(request: AssociateGlobalAccelerationInstanceRequest): Promise<AssociateGlobalAccelerationInstanceResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.associateGlobalAccelerationInstanceWithOptions(request, runtime);
   }
 
+  /**
+    * When you call this operation, take note of the following limits:
+    * *   An HAVIP immediately takes effect after it is associated. You do not need to restart the ECS instance. However, you must associate the HAVIP with the ENI of the ECS instance.
+    * *   The HAVIP and ECS instance must belong to the same vSwitch.
+    * *   You can associate an HAVIP with at most two ECS instances.
+    * *   The ECS instance must be in the **Running** or **Stopped** state.
+    * *   The HAVIP must be in the **Available** or **InUse** state.
+    * *   The **AssociateHaVip** operation is asynchronous. After you send the request, the system returns a request ID. However, the operation is still being performed in the system background. You can call the [DescribeHaVips](~~114611~~) operation to query the status of an HAVIP:
+    *     *   If the HAVIP is in the **Associating** state, the HAVIP is being associated.
+    *     *   If the HAVIP is in the **InUse** state, the HAVIP is associated.
+    * *   You cannot repeatedly call the **AssociateHaVip** operation to associate an HAVIP within the specified period of time.
+    *
+    * @param request AssociateHaVipRequest
+    * @param runtime runtime options for this request RuntimeOptions
+    * @return AssociateHaVipResponse
+   */
   async associateHaVipWithOptions(request: AssociateHaVipRequest, runtime: $Util.RuntimeOptions): Promise<AssociateHaVipResponse> {
     Util.validateModel(request);
     let query = { };
@@ -43898,11 +46913,33 @@ export default class Client extends OpenApi {
     return $tea.cast<AssociateHaVipResponse>(await this.callApi(params, req, runtime), new AssociateHaVipResponse({}));
   }
 
+  /**
+    * When you call this operation, take note of the following limits:
+    * *   An HAVIP immediately takes effect after it is associated. You do not need to restart the ECS instance. However, you must associate the HAVIP with the ENI of the ECS instance.
+    * *   The HAVIP and ECS instance must belong to the same vSwitch.
+    * *   You can associate an HAVIP with at most two ECS instances.
+    * *   The ECS instance must be in the **Running** or **Stopped** state.
+    * *   The HAVIP must be in the **Available** or **InUse** state.
+    * *   The **AssociateHaVip** operation is asynchronous. After you send the request, the system returns a request ID. However, the operation is still being performed in the system background. You can call the [DescribeHaVips](~~114611~~) operation to query the status of an HAVIP:
+    *     *   If the HAVIP is in the **Associating** state, the HAVIP is being associated.
+    *     *   If the HAVIP is in the **InUse** state, the HAVIP is associated.
+    * *   You cannot repeatedly call the **AssociateHaVip** operation to associate an HAVIP within the specified period of time.
+    *
+    * @param request AssociateHaVipRequest
+    * @return AssociateHaVipResponse
+   */
   async associateHaVip(request: AssociateHaVipRequest): Promise<AssociateHaVipResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.associateHaVipWithOptions(request, runtime);
   }
 
+  /**
+    * The ID of the resource with which you want to associate the network ACL.
+    *
+    * @param request AssociateNetworkAclRequest
+    * @param runtime runtime options for this request RuntimeOptions
+    * @return AssociateNetworkAclResponse
+   */
   async associateNetworkAclWithOptions(request: AssociateNetworkAclRequest, runtime: $Util.RuntimeOptions): Promise<AssociateNetworkAclResponse> {
     Util.validateModel(request);
     let query = { };
@@ -43955,6 +46992,12 @@ export default class Client extends OpenApi {
     return $tea.cast<AssociateNetworkAclResponse>(await this.callApi(params, req, runtime), new AssociateNetworkAclResponse({}));
   }
 
+  /**
+    * The ID of the resource with which you want to associate the network ACL.
+    *
+    * @param request AssociateNetworkAclRequest
+    * @return AssociateNetworkAclResponse
+   */
   async associateNetworkAcl(request: AssociateNetworkAclRequest): Promise<AssociateNetworkAclResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.associateNetworkAclWithOptions(request, runtime);
@@ -44053,6 +47096,15 @@ export default class Client extends OpenApi {
     return await this.associatePhysicalConnectionToVirtualBorderRouterWithOptions(request, runtime);
   }
 
+  /**
+    * The **AssociateRouteTable** operation is asynchronous. After you send the request, the system returns a request ID. However, the operation is still being performed in the system background. You can call the [DescribeVSwitchAttributes](~~94567~~) operation to query the status of a vSwitch:
+    * *   If the vSwitch is in the **Pending** state, the route table is being associated with the vSwitch.
+    * *   If the vSwitch is in the **Available** state, the route table is associated with the vSwitch.
+    *
+    * @param request AssociateRouteTableRequest
+    * @param runtime runtime options for this request RuntimeOptions
+    * @return AssociateRouteTableResponse
+   */
   async associateRouteTableWithOptions(request: AssociateRouteTableRequest, runtime: $Util.RuntimeOptions): Promise<AssociateRouteTableResponse> {
     Util.validateModel(request);
     let query = { };
@@ -44109,6 +47161,14 @@ export default class Client extends OpenApi {
     return $tea.cast<AssociateRouteTableResponse>(await this.callApi(params, req, runtime), new AssociateRouteTableResponse({}));
   }
 
+  /**
+    * The **AssociateRouteTable** operation is asynchronous. After you send the request, the system returns a request ID. However, the operation is still being performed in the system background. You can call the [DescribeVSwitchAttributes](~~94567~~) operation to query the status of a vSwitch:
+    * *   If the vSwitch is in the **Pending** state, the route table is being associated with the vSwitch.
+    * *   If the vSwitch is in the **Available** state, the route table is associated with the vSwitch.
+    *
+    * @param request AssociateRouteTableRequest
+    * @return AssociateRouteTableResponse
+   */
   async associateRouteTable(request: AssociateRouteTableRequest): Promise<AssociateRouteTableResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.associateRouteTableWithOptions(request, runtime);
@@ -44179,6 +47239,13 @@ export default class Client extends OpenApi {
     return await this.associateRouteTableWithGatewayWithOptions(request, runtime);
   }
 
+  /**
+    * The ID of the gateway endpoint to be associated with the route table.
+    *
+    * @param request AssociateRouteTablesWithVpcGatewayEndpointRequest
+    * @param runtime runtime options for this request RuntimeOptions
+    * @return AssociateRouteTablesWithVpcGatewayEndpointResponse
+   */
   async associateRouteTablesWithVpcGatewayEndpointWithOptions(request: AssociateRouteTablesWithVpcGatewayEndpointRequest, runtime: $Util.RuntimeOptions): Promise<AssociateRouteTablesWithVpcGatewayEndpointResponse> {
     Util.validateModel(request);
     let query = { };
@@ -44235,11 +47302,26 @@ export default class Client extends OpenApi {
     return $tea.cast<AssociateRouteTablesWithVpcGatewayEndpointResponse>(await this.callApi(params, req, runtime), new AssociateRouteTablesWithVpcGatewayEndpointResponse({}));
   }
 
+  /**
+    * The ID of the gateway endpoint to be associated with the route table.
+    *
+    * @param request AssociateRouteTablesWithVpcGatewayEndpointRequest
+    * @return AssociateRouteTablesWithVpcGatewayEndpointResponse
+   */
   async associateRouteTablesWithVpcGatewayEndpoint(request: AssociateRouteTablesWithVpcGatewayEndpointRequest): Promise<AssociateRouteTablesWithVpcGatewayEndpointResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.associateRouteTablesWithVpcGatewayEndpointWithOptions(request, runtime);
   }
 
+  /**
+    * The IP version. Valid values:
+    * *   **IPV4**: IPv4
+    * *   **IPV6**: IPv6. If you set **IpVersion** to **IPV6** and do not set **SecondaryCidrBlock**, you can add IPv6 CIDR blocks to the VPC.
+    *
+    * @param request AssociateVpcCidrBlockRequest
+    * @param runtime runtime options for this request RuntimeOptions
+    * @return AssociateVpcCidrBlockResponse
+   */
   async associateVpcCidrBlockWithOptions(request: AssociateVpcCidrBlockRequest, runtime: $Util.RuntimeOptions): Promise<AssociateVpcCidrBlockResponse> {
     Util.validateModel(request);
     let query = { };
@@ -44249,6 +47331,10 @@ export default class Client extends OpenApi {
 
     if (!Util.isUnset(request.ipVersion)) {
       query["IpVersion"] = request.ipVersion;
+    }
+
+    if (!Util.isUnset(request.ipamPoolId)) {
+      query["IpamPoolId"] = request.ipamPoolId;
     }
 
     if (!Util.isUnset(request.ipv6Isp)) {
@@ -44304,11 +47390,37 @@ export default class Client extends OpenApi {
     return $tea.cast<AssociateVpcCidrBlockResponse>(await this.callApi(params, req, runtime), new AssociateVpcCidrBlockResponse({}));
   }
 
+  /**
+    * The IP version. Valid values:
+    * *   **IPV4**: IPv4
+    * *   **IPV6**: IPv6. If you set **IpVersion** to **IPV6** and do not set **SecondaryCidrBlock**, you can add IPv6 CIDR blocks to the VPC.
+    *
+    * @param request AssociateVpcCidrBlockRequest
+    * @return AssociateVpcCidrBlockResponse
+   */
   async associateVpcCidrBlock(request: AssociateVpcCidrBlockRequest): Promise<AssociateVpcCidrBlockResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.associateVpcCidrBlockWithOptions(request, runtime);
   }
 
+  /**
+    * ## Usage notes
+    * Before you associate a VPN gateway with an SSL certificate, take note of the following items:
+    * *   You can associate only VPN gateways of the ShangMi (SM) type with SSL certificates. You need to associate a VPN gateway of the SM type with two SSL certificates, one as the encryption certificate and the other as the signature certificate.
+    * *   The SSL certificates must use the SM algorithm.
+    * *   You cannot specify one SSL certificate as both the encryption certificate and signature certificate for one VPN gateway.
+    * *   The first time you associate a VPN gateway of the SM type with an SSL certificate, the system automatically creates the AliyunServiceRoleForVPNCertificate service-linked role. In addition, the system adds the AliyunServiceRolePolicyForVPNCertificate policy to the role, which allows the VPN gateway to access other cloud resources. For more information, see [AliyunServiceRoleForVPNCertificate](~~203323~~).
+    * *   **AssociateVpnGatewayWithCertificate** is an asynchronous operation. After a request is sent, the system returns a request ID and runs the task in the background. You can call the [DescribeVpnGateway](~~73720~~) operation to query the status of the task.
+    *     *   If the VPN gateway is in the **updating** state, the SSL certificate is being associated.
+    *     *   If the VPN gateway is in the **active** state, the SSL certificate is being associated.
+    * *   You cannot call **AssociateVpnGatewayWithCertificate** within a specific period of time.
+    * ## Prerequisites
+    * Make sure that you have two SSL certificates that use the SM algorithm in the Certificate Management Service console. For more information about SSL certificates, see [What is Certificate Management Service?](~~28535~~).
+    *
+    * @param request AssociateVpnGatewayWithCertificateRequest
+    * @param runtime runtime options for this request RuntimeOptions
+    * @return AssociateVpnGatewayWithCertificateResponse
+   */
   async associateVpnGatewayWithCertificateWithOptions(request: AssociateVpnGatewayWithCertificateRequest, runtime: $Util.RuntimeOptions): Promise<AssociateVpnGatewayWithCertificateResponse> {
     Util.validateModel(request);
     let query = { };
@@ -44353,11 +47465,38 @@ export default class Client extends OpenApi {
     return $tea.cast<AssociateVpnGatewayWithCertificateResponse>(await this.callApi(params, req, runtime), new AssociateVpnGatewayWithCertificateResponse({}));
   }
 
+  /**
+    * ## Usage notes
+    * Before you associate a VPN gateway with an SSL certificate, take note of the following items:
+    * *   You can associate only VPN gateways of the ShangMi (SM) type with SSL certificates. You need to associate a VPN gateway of the SM type with two SSL certificates, one as the encryption certificate and the other as the signature certificate.
+    * *   The SSL certificates must use the SM algorithm.
+    * *   You cannot specify one SSL certificate as both the encryption certificate and signature certificate for one VPN gateway.
+    * *   The first time you associate a VPN gateway of the SM type with an SSL certificate, the system automatically creates the AliyunServiceRoleForVPNCertificate service-linked role. In addition, the system adds the AliyunServiceRolePolicyForVPNCertificate policy to the role, which allows the VPN gateway to access other cloud resources. For more information, see [AliyunServiceRoleForVPNCertificate](~~203323~~).
+    * *   **AssociateVpnGatewayWithCertificate** is an asynchronous operation. After a request is sent, the system returns a request ID and runs the task in the background. You can call the [DescribeVpnGateway](~~73720~~) operation to query the status of the task.
+    *     *   If the VPN gateway is in the **updating** state, the SSL certificate is being associated.
+    *     *   If the VPN gateway is in the **active** state, the SSL certificate is being associated.
+    * *   You cannot call **AssociateVpnGatewayWithCertificate** within a specific period of time.
+    * ## Prerequisites
+    * Make sure that you have two SSL certificates that use the SM algorithm in the Certificate Management Service console. For more information about SSL certificates, see [What is Certificate Management Service?](~~28535~~).
+    *
+    * @param request AssociateVpnGatewayWithCertificateRequest
+    * @return AssociateVpnGatewayWithCertificateResponse
+   */
   async associateVpnGatewayWithCertificate(request: AssociateVpnGatewayWithCertificateRequest): Promise<AssociateVpnGatewayWithCertificateResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.associateVpnGatewayWithCertificateWithOptions(request, runtime);
   }
 
+  /**
+    * *   The **AttachDhcpOptionsSetToVpc** operation is asynchronous. After you send the request, the system returns a request ID. However, the operation is still being performed in the system background. You can call the [DescribeVpcAttribute](~~94565~~) operation to query the status of a DHCP options set:
+    *     *   If the DHCP options set is in the **Pending** state, the DHCP options set is being associated.
+    *     *   If the DHCP options set is in the **InUse** state, the DHCP options set is associated.
+    * *   You cannot repeatedly call the **AttachDhcpOptionsSetToVpc** operation to associate DHCP options sets with a VPC within the specified period of time.
+    *
+    * @param request AttachDhcpOptionsSetToVpcRequest
+    * @param runtime runtime options for this request RuntimeOptions
+    * @return AttachDhcpOptionsSetToVpcResponse
+   */
   async attachDhcpOptionsSetToVpcWithOptions(request: AttachDhcpOptionsSetToVpcRequest, runtime: $Util.RuntimeOptions): Promise<AttachDhcpOptionsSetToVpcResponse> {
     Util.validateModel(request);
     let query = { };
@@ -44414,6 +47553,15 @@ export default class Client extends OpenApi {
     return $tea.cast<AttachDhcpOptionsSetToVpcResponse>(await this.callApi(params, req, runtime), new AttachDhcpOptionsSetToVpcResponse({}));
   }
 
+  /**
+    * *   The **AttachDhcpOptionsSetToVpc** operation is asynchronous. After you send the request, the system returns a request ID. However, the operation is still being performed in the system background. You can call the [DescribeVpcAttribute](~~94565~~) operation to query the status of a DHCP options set:
+    *     *   If the DHCP options set is in the **Pending** state, the DHCP options set is being associated.
+    *     *   If the DHCP options set is in the **InUse** state, the DHCP options set is associated.
+    * *   You cannot repeatedly call the **AttachDhcpOptionsSetToVpc** operation to associate DHCP options sets with a VPC within the specified period of time.
+    *
+    * @param request AttachDhcpOptionsSetToVpcRequest
+    * @return AttachDhcpOptionsSetToVpcResponse
+   */
   async attachDhcpOptionsSetToVpc(request: AttachDhcpOptionsSetToVpcRequest): Promise<AttachDhcpOptionsSetToVpcResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.attachDhcpOptionsSetToVpcWithOptions(request, runtime);
@@ -44464,6 +47612,14 @@ export default class Client extends OpenApi {
     return await this.attachVbrToVpconnWithOptions(request, runtime);
   }
 
+  /**
+    * *   After this operation is performed, the maximum bandwidth of the EIP equals that of the EIP bandwidth plan.
+    * *   You cannot repeatedly call the **CancelCommonBandwidthPackageIpBandwidth** operation to remove the maximum bandwidth configured for an EIP within the specified period of time.
+    *
+    * @param request CancelCommonBandwidthPackageIpBandwidthRequest
+    * @param runtime runtime options for this request RuntimeOptions
+    * @return CancelCommonBandwidthPackageIpBandwidthResponse
+   */
   async cancelCommonBandwidthPackageIpBandwidthWithOptions(request: CancelCommonBandwidthPackageIpBandwidthRequest, runtime: $Util.RuntimeOptions): Promise<CancelCommonBandwidthPackageIpBandwidthResponse> {
     Util.validateModel(request);
     let query = { };
@@ -44512,11 +47668,26 @@ export default class Client extends OpenApi {
     return $tea.cast<CancelCommonBandwidthPackageIpBandwidthResponse>(await this.callApi(params, req, runtime), new CancelCommonBandwidthPackageIpBandwidthResponse({}));
   }
 
+  /**
+    * *   After this operation is performed, the maximum bandwidth of the EIP equals that of the EIP bandwidth plan.
+    * *   You cannot repeatedly call the **CancelCommonBandwidthPackageIpBandwidth** operation to remove the maximum bandwidth configured for an EIP within the specified period of time.
+    *
+    * @param request CancelCommonBandwidthPackageIpBandwidthRequest
+    * @return CancelCommonBandwidthPackageIpBandwidthResponse
+   */
   async cancelCommonBandwidthPackageIpBandwidth(request: CancelCommonBandwidthPackageIpBandwidthRequest): Promise<CancelCommonBandwidthPackageIpBandwidthResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.cancelCommonBandwidthPackageIpBandwidthWithOptions(request, runtime);
   }
 
+  /**
+    * ## Limits
+    * You can cancel only an Express Connect circuit that is in the **Initial**, **Approved**, **Allocated**, or **Confirmed** state.
+    *
+    * @param request CancelPhysicalConnectionRequest
+    * @param runtime runtime options for this request RuntimeOptions
+    * @return CancelPhysicalConnectionResponse
+   */
   async cancelPhysicalConnectionWithOptions(request: CancelPhysicalConnectionRequest, runtime: $Util.RuntimeOptions): Promise<CancelPhysicalConnectionResponse> {
     Util.validateModel(request);
     let query = { };
@@ -44565,11 +47736,25 @@ export default class Client extends OpenApi {
     return $tea.cast<CancelPhysicalConnectionResponse>(await this.callApi(params, req, runtime), new CancelPhysicalConnectionResponse({}));
   }
 
+  /**
+    * ## Limits
+    * You can cancel only an Express Connect circuit that is in the **Initial**, **Approved**, **Allocated**, or **Confirmed** state.
+    *
+    * @param request CancelPhysicalConnectionRequest
+    * @return CancelPhysicalConnectionResponse
+   */
   async cancelPhysicalConnection(request: CancelPhysicalConnectionRequest): Promise<CancelPhysicalConnectionResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.cancelPhysicalConnectionWithOptions(request, runtime);
   }
 
+  /**
+    * You cannot repeatedly call the **ChangeResourceGroup** operation within the specified period of time.
+    *
+    * @param request ChangeResourceGroupRequest
+    * @param runtime runtime options for this request RuntimeOptions
+    * @return ChangeResourceGroupResponse
+   */
   async changeResourceGroupWithOptions(request: ChangeResourceGroupRequest, runtime: $Util.RuntimeOptions): Promise<ChangeResourceGroupResponse> {
     Util.validateModel(request);
     let query = { };
@@ -44606,6 +47791,12 @@ export default class Client extends OpenApi {
     return $tea.cast<ChangeResourceGroupResponse>(await this.callApi(params, req, runtime), new ChangeResourceGroupResponse({}));
   }
 
+  /**
+    * You cannot repeatedly call the **ChangeResourceGroup** operation within the specified period of time.
+    *
+    * @param request ChangeResourceGroupRequest
+    * @return ChangeResourceGroupResponse
+   */
   async changeResourceGroup(request: ChangeResourceGroupRequest): Promise<ChangeResourceGroupResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.changeResourceGroupWithOptions(request, runtime);
@@ -44831,6 +48022,17 @@ export default class Client extends OpenApi {
     return await this.confirmPhysicalConnectionWithOptions(request, runtime);
   }
 
+  /**
+    * After you call this operation, the router interface enters the **Connecting** state. When the connection is established, it enters the **Active** state.
+    * When you call this operation, take note of the following rules:
+    * *   Only an initiator router interface in the **Idle** state can initiate a connection.
+    * *   You can create only one pair of connected router interfaces between two routers.
+    * *   You cannot initiate a connection if your Alibaba Cloud account has a router interface with overdue payments.
+    *
+    * @param request ConnectRouterInterfaceRequest
+    * @param runtime runtime options for this request RuntimeOptions
+    * @return ConnectRouterInterfaceResponse
+   */
   async connectRouterInterfaceWithOptions(request: ConnectRouterInterfaceRequest, runtime: $Util.RuntimeOptions): Promise<ConnectRouterInterfaceResponse> {
     Util.validateModel(request);
     let query = { };
@@ -44871,11 +48073,31 @@ export default class Client extends OpenApi {
     return $tea.cast<ConnectRouterInterfaceResponse>(await this.callApi(params, req, runtime), new ConnectRouterInterfaceResponse({}));
   }
 
+  /**
+    * After you call this operation, the router interface enters the **Connecting** state. When the connection is established, it enters the **Active** state.
+    * When you call this operation, take note of the following rules:
+    * *   Only an initiator router interface in the **Idle** state can initiate a connection.
+    * *   You can create only one pair of connected router interfaces between two routers.
+    * *   You cannot initiate a connection if your Alibaba Cloud account has a router interface with overdue payments.
+    *
+    * @param request ConnectRouterInterfaceRequest
+    * @return ConnectRouterInterfaceResponse
+   */
   async connectRouterInterface(request: ConnectRouterInterfaceRequest): Promise<ConnectRouterInterfaceResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.connectRouterInterfaceWithOptions(request, runtime);
   }
 
+  /**
+    * Before you convert a NAT bandwidth package to an Internet Shared Bandwidth instance, make sure you are aware of the following:
+    * *   The conversion does not incur any additional fees.
+    * *   The conversion does not affect the SNAT or DNAT entries of the NAT Gateway, and has no impact on the running services. However, we recommend that you perform the conversion during off-peak hours.
+    * *   After the conversion, the public IP address in the NAT bandwidth package is converted to an EIP. The peak bandwidth and billing method of the Internet Shared Bandwidth instance are consistent with those of the original NAT bandwidth package.
+    *
+    * @param request ConvertBandwidthPackageRequest
+    * @param runtime runtime options for this request RuntimeOptions
+    * @return ConvertBandwidthPackageResponse
+   */
   async convertBandwidthPackageWithOptions(request: ConvertBandwidthPackageRequest, runtime: $Util.RuntimeOptions): Promise<ConvertBandwidthPackageResponse> {
     Util.validateModel(request);
     let query = { };
@@ -44924,11 +48146,30 @@ export default class Client extends OpenApi {
     return $tea.cast<ConvertBandwidthPackageResponse>(await this.callApi(params, req, runtime), new ConvertBandwidthPackageResponse({}));
   }
 
+  /**
+    * Before you convert a NAT bandwidth package to an Internet Shared Bandwidth instance, make sure you are aware of the following:
+    * *   The conversion does not incur any additional fees.
+    * *   The conversion does not affect the SNAT or DNAT entries of the NAT Gateway, and has no impact on the running services. However, we recommend that you perform the conversion during off-peak hours.
+    * *   After the conversion, the public IP address in the NAT bandwidth package is converted to an EIP. The peak bandwidth and billing method of the Internet Shared Bandwidth instance are consistent with those of the original NAT bandwidth package.
+    *
+    * @param request ConvertBandwidthPackageRequest
+    * @return ConvertBandwidthPackageResponse
+   */
   async convertBandwidthPackage(request: ConvertBandwidthPackageRequest): Promise<ConvertBandwidthPackageResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.convertBandwidthPackageWithOptions(request, runtime);
   }
 
+  /**
+    * *   The **CopyNetworkAclEntries** operation is asynchronous. After you send the request, the system returns a request ID. However, the operation is still being performed in the system background. You can call the [DescribeNetworkAclAttributes](~~116542~~) operation to query the status of a network ACL:
+    *     *   If the network ACL is in the **Modifying** state, the rules of the network ACL are being copied.
+    *     *   If the network ACL is in the **Available** state, the rules of the network ACL are copied.
+    * *   You cannot repeatedly call the **CopyNetworkAclEntries** operation to copy the rules of a network ACL within the specified period of time.
+    *
+    * @param request CopyNetworkAclEntriesRequest
+    * @param runtime runtime options for this request RuntimeOptions
+    * @return CopyNetworkAclEntriesResponse
+   */
   async copyNetworkAclEntriesWithOptions(request: CopyNetworkAclEntriesRequest, runtime: $Util.RuntimeOptions): Promise<CopyNetworkAclEntriesResponse> {
     Util.validateModel(request);
     let query = { };
@@ -44981,11 +48222,34 @@ export default class Client extends OpenApi {
     return $tea.cast<CopyNetworkAclEntriesResponse>(await this.callApi(params, req, runtime), new CopyNetworkAclEntriesResponse({}));
   }
 
+  /**
+    * *   The **CopyNetworkAclEntries** operation is asynchronous. After you send the request, the system returns a request ID. However, the operation is still being performed in the system background. You can call the [DescribeNetworkAclAttributes](~~116542~~) operation to query the status of a network ACL:
+    *     *   If the network ACL is in the **Modifying** state, the rules of the network ACL are being copied.
+    *     *   If the network ACL is in the **Available** state, the rules of the network ACL are copied.
+    * *   You cannot repeatedly call the **CopyNetworkAclEntries** operation to copy the rules of a network ACL within the specified period of time.
+    *
+    * @param request CopyNetworkAclEntriesRequest
+    * @return CopyNetworkAclEntriesResponse
+   */
   async copyNetworkAclEntries(request: CopyNetworkAclEntriesRequest): Promise<CopyNetworkAclEntriesResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.copyNetworkAclEntriesWithOptions(request, runtime);
   }
 
+  /**
+    * You can use BGP to connect a VBR to a data center. Each BGP group is associated with a VBR. You can add a BGP peer that needs to communicate with a VBR to a BGP group and advertise the BGP network in the VBR.
+    * BGP groups are used to simplify BGP configurations. You can add BGP peers that use the same configurations to one BGP group. Before you start, you must create a BGP group with the requested autonomous system number (ASN).
+    * When you call this operation, take note of the following limits:
+    * *   You can specify only the data center that is connected to the VBR through an Express Connect circuit as a BGP peer.
+    * *   VBRs support only BGP-4.
+    * *   You can create at most eight BGP peers for each VBR.
+    * *   Each BGP peer supports at most 110 dynamic routes.
+    * *   The ASN of Alibaba Cloud is 45104. You can specify a 2-byte or 4-byte ASN for the data center.
+    *
+    * @param request CreateBgpGroupRequest
+    * @param runtime runtime options for this request RuntimeOptions
+    * @return CreateBgpGroupResponse
+   */
   async createBgpGroupWithOptions(request: CreateBgpGroupRequest, runtime: $Util.RuntimeOptions): Promise<CreateBgpGroupResponse> {
     Util.validateModel(request);
     let query = { };
@@ -45066,6 +48330,19 @@ export default class Client extends OpenApi {
     return $tea.cast<CreateBgpGroupResponse>(await this.callApi(params, req, runtime), new CreateBgpGroupResponse({}));
   }
 
+  /**
+    * You can use BGP to connect a VBR to a data center. Each BGP group is associated with a VBR. You can add a BGP peer that needs to communicate with a VBR to a BGP group and advertise the BGP network in the VBR.
+    * BGP groups are used to simplify BGP configurations. You can add BGP peers that use the same configurations to one BGP group. Before you start, you must create a BGP group with the requested autonomous system number (ASN).
+    * When you call this operation, take note of the following limits:
+    * *   You can specify only the data center that is connected to the VBR through an Express Connect circuit as a BGP peer.
+    * *   VBRs support only BGP-4.
+    * *   You can create at most eight BGP peers for each VBR.
+    * *   Each BGP peer supports at most 110 dynamic routes.
+    * *   The ASN of Alibaba Cloud is 45104. You can specify a 2-byte or 4-byte ASN for the data center.
+    *
+    * @param request CreateBgpGroupRequest
+    * @return CreateBgpGroupResponse
+   */
   async createBgpGroup(request: CreateBgpGroupRequest): Promise<CreateBgpGroupResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.createBgpGroupWithOptions(request, runtime);
@@ -45272,6 +48549,10 @@ export default class Client extends OpenApi {
       query["ResourceOwnerId"] = request.resourceOwnerId;
     }
 
+    if (!Util.isUnset(request.tags)) {
+      query["Tags"] = request.tags;
+    }
+
     let req = new $OpenApi.OpenApiRequest({
       query: OpenApiUtil.query(query),
     });
@@ -45292,6 +48573,190 @@ export default class Client extends OpenApi {
   async createCustomerGateway(request: CreateCustomerGatewayRequest): Promise<CreateCustomerGatewayResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.createCustomerGatewayWithOptions(request, runtime);
+  }
+
+  /**
+    * ## Usage notes
+    * When you call this operation, take note of the following items:
+    * *   The first IP address and last three IP addresses of a default vSwitch CIDR block are reserved. For example, if the CIDR block of a vSwitch is 192.168.1.0/24, the IP addresses 192.168.1.0, 192.168.1.253, 192.168.1.254, and 192.168.1.255 are reserved.
+    * *   The number of instances in the default vSwitch cannot exceed the remaining number of instances supported by the VPC (15,000 minus the number of existing instances).
+    * *   Default vSwitches do not support multicasting or broadcasting.
+    * *   After you create a default vSwitch, you cannot modify its CIDR block.
+    * *   **CreateDefaultVSwitch** is an asynchronous operation. After a request is sent, the system returns a request ID and runs the task in the background. You can call the [DescribeVSwitchAttributes](~~94567~~) operation to query the status of a default vSwitch:
+    *     *   If a default vSwitch is in the **Pending** state, it is being configured.
+    *     *   If a default vSwitch is in the **Available** state, it is available.
+    * *   If a default vSwitch already exists in a region, you cannot call this operation to create a default vSwitch in this region.
+    * *   Before you create a default vSwitch, make sure that a default VPC is created. You can call the [CreateDefaultVpc](~~609152~~) operation to create a default VPC.
+    *
+    * @param request CreateDefaultVSwitchRequest
+    * @param runtime runtime options for this request RuntimeOptions
+    * @return CreateDefaultVSwitchResponse
+   */
+  async createDefaultVSwitchWithOptions(request: CreateDefaultVSwitchRequest, runtime: $Util.RuntimeOptions): Promise<CreateDefaultVSwitchResponse> {
+    Util.validateModel(request);
+    let query = { };
+    if (!Util.isUnset(request.clientToken)) {
+      query["ClientToken"] = request.clientToken;
+    }
+
+    if (!Util.isUnset(request.ipv6CidrBlock)) {
+      query["Ipv6CidrBlock"] = request.ipv6CidrBlock;
+    }
+
+    if (!Util.isUnset(request.ownerAccount)) {
+      query["OwnerAccount"] = request.ownerAccount;
+    }
+
+    if (!Util.isUnset(request.ownerId)) {
+      query["OwnerId"] = request.ownerId;
+    }
+
+    if (!Util.isUnset(request.regionId)) {
+      query["RegionId"] = request.regionId;
+    }
+
+    if (!Util.isUnset(request.resourceOwnerAccount)) {
+      query["ResourceOwnerAccount"] = request.resourceOwnerAccount;
+    }
+
+    if (!Util.isUnset(request.resourceOwnerId)) {
+      query["ResourceOwnerId"] = request.resourceOwnerId;
+    }
+
+    if (!Util.isUnset(request.zoneId)) {
+      query["ZoneId"] = request.zoneId;
+    }
+
+    let req = new $OpenApi.OpenApiRequest({
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApi.Params({
+      action: "CreateDefaultVSwitch",
+      version: "2016-04-28",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $tea.cast<CreateDefaultVSwitchResponse>(await this.callApi(params, req, runtime), new CreateDefaultVSwitchResponse({}));
+  }
+
+  /**
+    * ## Usage notes
+    * When you call this operation, take note of the following items:
+    * *   The first IP address and last three IP addresses of a default vSwitch CIDR block are reserved. For example, if the CIDR block of a vSwitch is 192.168.1.0/24, the IP addresses 192.168.1.0, 192.168.1.253, 192.168.1.254, and 192.168.1.255 are reserved.
+    * *   The number of instances in the default vSwitch cannot exceed the remaining number of instances supported by the VPC (15,000 minus the number of existing instances).
+    * *   Default vSwitches do not support multicasting or broadcasting.
+    * *   After you create a default vSwitch, you cannot modify its CIDR block.
+    * *   **CreateDefaultVSwitch** is an asynchronous operation. After a request is sent, the system returns a request ID and runs the task in the background. You can call the [DescribeVSwitchAttributes](~~94567~~) operation to query the status of a default vSwitch:
+    *     *   If a default vSwitch is in the **Pending** state, it is being configured.
+    *     *   If a default vSwitch is in the **Available** state, it is available.
+    * *   If a default vSwitch already exists in a region, you cannot call this operation to create a default vSwitch in this region.
+    * *   Before you create a default vSwitch, make sure that a default VPC is created. You can call the [CreateDefaultVpc](~~609152~~) operation to create a default VPC.
+    *
+    * @param request CreateDefaultVSwitchRequest
+    * @return CreateDefaultVSwitchResponse
+   */
+  async createDefaultVSwitch(request: CreateDefaultVSwitchRequest): Promise<CreateDefaultVSwitchResponse> {
+    let runtime = new $Util.RuntimeOptions({ });
+    return await this.createDefaultVSwitchWithOptions(request, runtime);
+  }
+
+  /**
+    * ## Usage notes
+    * When you call this operation, take note of the following items:
+    * *   After you create a default VPC, you cannot change its CIDR block. However, you can add secondary IPv4 CIDR blocks to it.
+    * *   In each default VPC, cloud services can use a maximum of 60,000 private IP addresses. You cannot increase the quota.
+    * *   After you create a default VPC, a vRouter and a route table are automatically created for the VPC.
+    * *   At most three user CIDR blocks can be added to a VPC. If a user CIDR block includes another user CIDR block, the one with the shorter subnet mask takes effect. For example, if 10.0.0.0/8 and 10.1.0.0/16 are specified, only 10.0.0.0/8 takes effect.
+    * *   **CreateDefaultVpc** is an asynchronous operation. After a request is sent, the system returns a request ID and runs the task in the background. You can call the [DescribeVpcAttribute](~~94565~~) operation to query the status of the task:
+    *     *   If the default VPC is in the **Pending** state, the VPC is being configured.
+    *     *   If the default VPC is in the **Available** state, the VPC is available.
+    * *   You cannot repeatedly call the **CreateDefaultVpc** operation within a specific time period.
+    * *   You can create only one default VPC in each region.
+    *
+    * @param request CreateDefaultVpcRequest
+    * @param runtime runtime options for this request RuntimeOptions
+    * @return CreateDefaultVpcResponse
+   */
+  async createDefaultVpcWithOptions(request: CreateDefaultVpcRequest, runtime: $Util.RuntimeOptions): Promise<CreateDefaultVpcResponse> {
+    Util.validateModel(request);
+    let query = { };
+    if (!Util.isUnset(request.clientToken)) {
+      query["ClientToken"] = request.clientToken;
+    }
+
+    if (!Util.isUnset(request.enableIpv6)) {
+      query["EnableIpv6"] = request.enableIpv6;
+    }
+
+    if (!Util.isUnset(request.ipv6CidrBlock)) {
+      query["Ipv6CidrBlock"] = request.ipv6CidrBlock;
+    }
+
+    if (!Util.isUnset(request.ownerAccount)) {
+      query["OwnerAccount"] = request.ownerAccount;
+    }
+
+    if (!Util.isUnset(request.ownerId)) {
+      query["OwnerId"] = request.ownerId;
+    }
+
+    if (!Util.isUnset(request.regionId)) {
+      query["RegionId"] = request.regionId;
+    }
+
+    if (!Util.isUnset(request.resourceGroupId)) {
+      query["ResourceGroupId"] = request.resourceGroupId;
+    }
+
+    if (!Util.isUnset(request.resourceOwnerAccount)) {
+      query["ResourceOwnerAccount"] = request.resourceOwnerAccount;
+    }
+
+    if (!Util.isUnset(request.resourceOwnerId)) {
+      query["ResourceOwnerId"] = request.resourceOwnerId;
+    }
+
+    let req = new $OpenApi.OpenApiRequest({
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApi.Params({
+      action: "CreateDefaultVpc",
+      version: "2016-04-28",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $tea.cast<CreateDefaultVpcResponse>(await this.callApi(params, req, runtime), new CreateDefaultVpcResponse({}));
+  }
+
+  /**
+    * ## Usage notes
+    * When you call this operation, take note of the following items:
+    * *   After you create a default VPC, you cannot change its CIDR block. However, you can add secondary IPv4 CIDR blocks to it.
+    * *   In each default VPC, cloud services can use a maximum of 60,000 private IP addresses. You cannot increase the quota.
+    * *   After you create a default VPC, a vRouter and a route table are automatically created for the VPC.
+    * *   At most three user CIDR blocks can be added to a VPC. If a user CIDR block includes another user CIDR block, the one with the shorter subnet mask takes effect. For example, if 10.0.0.0/8 and 10.1.0.0/16 are specified, only 10.0.0.0/8 takes effect.
+    * *   **CreateDefaultVpc** is an asynchronous operation. After a request is sent, the system returns a request ID and runs the task in the background. You can call the [DescribeVpcAttribute](~~94565~~) operation to query the status of the task:
+    *     *   If the default VPC is in the **Pending** state, the VPC is being configured.
+    *     *   If the default VPC is in the **Available** state, the VPC is available.
+    * *   You cannot repeatedly call the **CreateDefaultVpc** operation within a specific time period.
+    * *   You can create only one default VPC in each region.
+    *
+    * @param request CreateDefaultVpcRequest
+    * @return CreateDefaultVpcResponse
+   */
+  async createDefaultVpc(request: CreateDefaultVpcRequest): Promise<CreateDefaultVpcResponse> {
+    let runtime = new $Util.RuntimeOptions({ });
+    return await this.createDefaultVpcWithOptions(request, runtime);
   }
 
   async createDhcpOptionsSetWithOptions(request: CreateDhcpOptionsSetRequest, runtime: $Util.RuntimeOptions): Promise<CreateDhcpOptionsSetResponse> {
@@ -45339,6 +48804,10 @@ export default class Client extends OpenApi {
 
     if (!Util.isUnset(request.regionId)) {
       query["RegionId"] = request.regionId;
+    }
+
+    if (!Util.isUnset(request.resourceGroupId)) {
+      query["ResourceGroupId"] = request.resourceGroupId;
     }
 
     if (!Util.isUnset(request.resourceOwnerAccount)) {
@@ -45460,6 +48929,15 @@ export default class Client extends OpenApi {
     return await this.createExpressCloudConnectionWithOptions(request, runtime);
   }
 
+  /**
+    * **CreateFlowLog** is an asynchronous operation. After you send a request, the system returns a request ID and runs the task in the background. You can call the [DescribeFlowLogs](~~87923~~) operation to query the status of a flow log:
+    * *   If the flow log is in the **Activating** state, the flow log is being created.
+    * *   If the flow log is in the **Active** state, the flow log is created and started.
+    *
+    * @param request CreateFlowLogRequest
+    * @param runtime runtime options for this request RuntimeOptions
+    * @return CreateFlowLogResponse
+   */
   async createFlowLogWithOptions(request: CreateFlowLogRequest, runtime: $Util.RuntimeOptions): Promise<CreateFlowLogResponse> {
     Util.validateModel(request);
     let query = { };
@@ -45493,6 +48971,10 @@ export default class Client extends OpenApi {
 
     if (!Util.isUnset(request.regionId)) {
       query["RegionId"] = request.regionId;
+    }
+
+    if (!Util.isUnset(request.resourceGroupId)) {
+      query["ResourceGroupId"] = request.resourceGroupId;
     }
 
     if (!Util.isUnset(request.resourceId)) {
@@ -45536,11 +49018,27 @@ export default class Client extends OpenApi {
     return $tea.cast<CreateFlowLogResponse>(await this.callApi(params, req, runtime), new CreateFlowLogResponse({}));
   }
 
+  /**
+    * **CreateFlowLog** is an asynchronous operation. After you send a request, the system returns a request ID and runs the task in the background. You can call the [DescribeFlowLogs](~~87923~~) operation to query the status of a flow log:
+    * *   If the flow log is in the **Activating** state, the flow log is being created.
+    * *   If the flow log is in the **Active** state, the flow log is created and started.
+    *
+    * @param request CreateFlowLogRequest
+    * @return CreateFlowLogResponse
+   */
   async createFlowLog(request: CreateFlowLogRequest): Promise<CreateFlowLogResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.createFlowLogWithOptions(request, runtime);
   }
 
+  /**
+    * The region ID of the NAT gateway.
+    * You can call the [DescribeRegions](~~36063~~) operation to query the most recent region list.
+    *
+    * @param request CreateForwardEntryRequest
+    * @param runtime runtime options for this request RuntimeOptions
+    * @return CreateForwardEntryResponse
+   */
   async createForwardEntryWithOptions(request: CreateForwardEntryRequest, runtime: $Util.RuntimeOptions): Promise<CreateForwardEntryResponse> {
     Util.validateModel(request);
     let query = { };
@@ -45617,11 +49115,25 @@ export default class Client extends OpenApi {
     return $tea.cast<CreateForwardEntryResponse>(await this.callApi(params, req, runtime), new CreateForwardEntryResponse({}));
   }
 
+  /**
+    * The region ID of the NAT gateway.
+    * You can call the [DescribeRegions](~~36063~~) operation to query the most recent region list.
+    *
+    * @param request CreateForwardEntryRequest
+    * @return CreateForwardEntryResponse
+   */
   async createForwardEntry(request: CreateForwardEntryRequest): Promise<CreateForwardEntryResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.createForwardEntryWithOptions(request, runtime);
   }
 
+  /**
+    * The operation that you want to perform. Set the value to **CreateFullNatEntry**.
+    *
+    * @param request CreateFullNatEntryRequest
+    * @param runtime runtime options for this request RuntimeOptions
+    * @return CreateFullNatEntryResponse
+   */
   async createFullNatEntryWithOptions(request: CreateFullNatEntryRequest, runtime: $Util.RuntimeOptions): Promise<CreateFullNatEntryResponse> {
     Util.validateModel(request);
     let query = { };
@@ -45706,11 +49218,25 @@ export default class Client extends OpenApi {
     return $tea.cast<CreateFullNatEntryResponse>(await this.callApi(params, req, runtime), new CreateFullNatEntryResponse({}));
   }
 
+  /**
+    * The operation that you want to perform. Set the value to **CreateFullNatEntry**.
+    *
+    * @param request CreateFullNatEntryRequest
+    * @return CreateFullNatEntryResponse
+   */
   async createFullNatEntry(request: CreateFullNatEntryRequest): Promise<CreateFullNatEntryResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.createFullNatEntryWithOptions(request, runtime);
   }
 
+  /**
+    * ## Usage notes
+    * You can call this operation to create only pay-as-you-go GA instances.
+    *
+    * @param request CreateGlobalAccelerationInstanceRequest
+    * @param runtime runtime options for this request RuntimeOptions
+    * @return CreateGlobalAccelerationInstanceResponse
+   */
   async createGlobalAccelerationInstanceWithOptions(request: CreateGlobalAccelerationInstanceRequest, runtime: $Util.RuntimeOptions): Promise<CreateGlobalAccelerationInstanceResponse> {
     Util.validateModel(request);
     let query = { };
@@ -45775,11 +49301,27 @@ export default class Client extends OpenApi {
     return $tea.cast<CreateGlobalAccelerationInstanceResponse>(await this.callApi(params, req, runtime), new CreateGlobalAccelerationInstanceResponse({}));
   }
 
+  /**
+    * ## Usage notes
+    * You can call this operation to create only pay-as-you-go GA instances.
+    *
+    * @param request CreateGlobalAccelerationInstanceRequest
+    * @return CreateGlobalAccelerationInstanceResponse
+   */
   async createGlobalAccelerationInstance(request: CreateGlobalAccelerationInstanceRequest): Promise<CreateGlobalAccelerationInstanceResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.createGlobalAccelerationInstanceWithOptions(request, runtime);
   }
 
+  /**
+    * **CreateHaVip** is an asynchronous operation. After you send the request, the system returns a request ID and runs the task in the background. You can call the [DescribeHaVips](~~114611~~) operation to query the status of an HAVIP:
+    * *   If the HAVIP is in the **Creating** state, the HAVIP is being created.
+    * *   If the HAVIP is in the **Available** state, the HAVIP is created.
+    *
+    * @param request CreateHaVipRequest
+    * @param runtime runtime options for this request RuntimeOptions
+    * @return CreateHaVipResponse
+   */
   async createHaVipWithOptions(request: CreateHaVipRequest, runtime: $Util.RuntimeOptions): Promise<CreateHaVipResponse> {
     Util.validateModel(request);
     let query = { };
@@ -45811,6 +49353,10 @@ export default class Client extends OpenApi {
       query["RegionId"] = request.regionId;
     }
 
+    if (!Util.isUnset(request.resourceGroupId)) {
+      query["ResourceGroupId"] = request.resourceGroupId;
+    }
+
     if (!Util.isUnset(request.resourceOwnerAccount)) {
       query["ResourceOwnerAccount"] = request.resourceOwnerAccount;
     }
@@ -45840,11 +49386,27 @@ export default class Client extends OpenApi {
     return $tea.cast<CreateHaVipResponse>(await this.callApi(params, req, runtime), new CreateHaVipResponse({}));
   }
 
+  /**
+    * **CreateHaVip** is an asynchronous operation. After you send the request, the system returns a request ID and runs the task in the background. You can call the [DescribeHaVips](~~114611~~) operation to query the status of an HAVIP:
+    * *   If the HAVIP is in the **Creating** state, the HAVIP is being created.
+    * *   If the HAVIP is in the **Available** state, the HAVIP is created.
+    *
+    * @param request CreateHaVipRequest
+    * @return CreateHaVipResponse
+   */
   async createHaVip(request: CreateHaVipRequest): Promise<CreateHaVipResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.createHaVipWithOptions(request, runtime);
   }
 
+  /**
+    * @deprecated
+    *
+    * @param request CreateIPv6TranslatorRequest
+    * @param runtime runtime options for this request RuntimeOptions
+    * @return CreateIPv6TranslatorResponse
+   */
+  // Deprecated
   async createIPv6TranslatorWithOptions(request: CreateIPv6TranslatorRequest, runtime: $Util.RuntimeOptions): Promise<CreateIPv6TranslatorResponse> {
     Util.validateModel(request);
     let query = { };
@@ -45917,11 +49479,26 @@ export default class Client extends OpenApi {
     return $tea.cast<CreateIPv6TranslatorResponse>(await this.callApi(params, req, runtime), new CreateIPv6TranslatorResponse({}));
   }
 
+  /**
+    * @deprecated
+    *
+    * @param request CreateIPv6TranslatorRequest
+    * @return CreateIPv6TranslatorResponse
+   */
+  // Deprecated
   async createIPv6Translator(request: CreateIPv6TranslatorRequest): Promise<CreateIPv6TranslatorResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.createIPv6TranslatorWithOptions(request, runtime);
   }
 
+  /**
+    * @deprecated
+    *
+    * @param request CreateIPv6TranslatorAclListRequest
+    * @param runtime runtime options for this request RuntimeOptions
+    * @return CreateIPv6TranslatorAclListResponse
+   */
+  // Deprecated
   async createIPv6TranslatorAclListWithOptions(request: CreateIPv6TranslatorAclListRequest, runtime: $Util.RuntimeOptions): Promise<CreateIPv6TranslatorAclListResponse> {
     Util.validateModel(request);
     let query = { };
@@ -45970,11 +49547,26 @@ export default class Client extends OpenApi {
     return $tea.cast<CreateIPv6TranslatorAclListResponse>(await this.callApi(params, req, runtime), new CreateIPv6TranslatorAclListResponse({}));
   }
 
+  /**
+    * @deprecated
+    *
+    * @param request CreateIPv6TranslatorAclListRequest
+    * @return CreateIPv6TranslatorAclListResponse
+   */
+  // Deprecated
   async createIPv6TranslatorAclList(request: CreateIPv6TranslatorAclListRequest): Promise<CreateIPv6TranslatorAclListResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.createIPv6TranslatorAclListWithOptions(request, runtime);
   }
 
+  /**
+    * @deprecated
+    *
+    * @param request CreateIPv6TranslatorEntryRequest
+    * @param runtime runtime options for this request RuntimeOptions
+    * @return CreateIPv6TranslatorEntryResponse
+   */
+  // Deprecated
   async createIPv6TranslatorEntryWithOptions(request: CreateIPv6TranslatorEntryRequest, runtime: $Util.RuntimeOptions): Promise<CreateIPv6TranslatorEntryResponse> {
     Util.validateModel(request);
     let query = { };
@@ -46059,11 +49651,29 @@ export default class Client extends OpenApi {
     return $tea.cast<CreateIPv6TranslatorEntryResponse>(await this.callApi(params, req, runtime), new CreateIPv6TranslatorEntryResponse({}));
   }
 
+  /**
+    * @deprecated
+    *
+    * @param request CreateIPv6TranslatorEntryRequest
+    * @return CreateIPv6TranslatorEntryResponse
+   */
+  // Deprecated
   async createIPv6TranslatorEntry(request: CreateIPv6TranslatorEntryRequest): Promise<CreateIPv6TranslatorEntryResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.createIPv6TranslatorEntryWithOptions(request, runtime);
   }
 
+  /**
+    * *   Before you create an IPsec server, you must create a VPN gateway and enable the SSL-VPN feature for the VPN gateway. For more information, see [CreateVpnGateway](~~120363~~).
+    * *   The **CreateIpsecServer** operation is asynchronous. After you send the request, the system returns a request ID. However, the operation is still being performed in the system background. You can call the [DescribeVpnGateway](~~73720~~) operation to query the status of a VPN gateway.
+    *     *   If the VPN gateway is in the **updating** state, the IPsec server is being created.
+    *     *   If the VPN gateway is in the **active** state, the IPsec server is created.
+    * *   You cannot repeatedly call **CreateIpsecServer** to create an IPsec server for a VPN gateway within the specified period of time.
+    *
+    * @param request CreateIpsecServerRequest
+    * @param runtime runtime options for this request RuntimeOptions
+    * @return CreateIpsecServerResponse
+   */
   async createIpsecServerWithOptions(request: CreateIpsecServerRequest, runtime: $Util.RuntimeOptions): Promise<CreateIpsecServerResponse> {
     Util.validateModel(request);
     let query = { };
@@ -46132,11 +49742,31 @@ export default class Client extends OpenApi {
     return $tea.cast<CreateIpsecServerResponse>(await this.callApi(params, req, runtime), new CreateIpsecServerResponse({}));
   }
 
+  /**
+    * *   Before you create an IPsec server, you must create a VPN gateway and enable the SSL-VPN feature for the VPN gateway. For more information, see [CreateVpnGateway](~~120363~~).
+    * *   The **CreateIpsecServer** operation is asynchronous. After you send the request, the system returns a request ID. However, the operation is still being performed in the system background. You can call the [DescribeVpnGateway](~~73720~~) operation to query the status of a VPN gateway.
+    *     *   If the VPN gateway is in the **updating** state, the IPsec server is being created.
+    *     *   If the VPN gateway is in the **active** state, the IPsec server is created.
+    * *   You cannot repeatedly call **CreateIpsecServer** to create an IPsec server for a VPN gateway within the specified period of time.
+    *
+    * @param request CreateIpsecServerRequest
+    * @return CreateIpsecServerResponse
+   */
   async createIpsecServer(request: CreateIpsecServerRequest): Promise<CreateIpsecServerResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.createIpsecServerWithOptions(request, runtime);
   }
 
+  /**
+    * *   **CreateIpv4Gateway** is an asynchronous operation. After you send a request, the system returns a request ID and runs the task in the background. You can call the [GetIpv4GatewayAttribute](~~407670~~) operation to query the status of an IPv4 gateway:
+    *     *   If the IPv4 gateway is in the **Creating** state, the IPv4 gateway is being created.
+    *     *   If the IPv4 gateway is in the **Created** state, the IPv4 gateway is created.
+    * *   You cannot repeatedly call the **CreateIpv4Gateway** operation to create IPv4 gateways in a virtual private cloud (VPC) within the specified period of time.
+    *
+    * @param request CreateIpv4GatewayRequest
+    * @param runtime runtime options for this request RuntimeOptions
+    * @return CreateIpv4GatewayResponse
+   */
   async createIpv4GatewayWithOptions(request: CreateIpv4GatewayRequest, runtime: $Util.RuntimeOptions): Promise<CreateIpv4GatewayResponse> {
     Util.validateModel(request);
     let query = { };
@@ -46172,6 +49802,10 @@ export default class Client extends OpenApi {
       query["RegionId"] = request.regionId;
     }
 
+    if (!Util.isUnset(request.resourceGroupId)) {
+      query["ResourceGroupId"] = request.resourceGroupId;
+    }
+
     if (!Util.isUnset(request.resourceOwnerAccount)) {
       query["ResourceOwnerAccount"] = request.resourceOwnerAccount;
     }
@@ -46201,11 +49835,30 @@ export default class Client extends OpenApi {
     return $tea.cast<CreateIpv4GatewayResponse>(await this.callApi(params, req, runtime), new CreateIpv4GatewayResponse({}));
   }
 
+  /**
+    * *   **CreateIpv4Gateway** is an asynchronous operation. After you send a request, the system returns a request ID and runs the task in the background. You can call the [GetIpv4GatewayAttribute](~~407670~~) operation to query the status of an IPv4 gateway:
+    *     *   If the IPv4 gateway is in the **Creating** state, the IPv4 gateway is being created.
+    *     *   If the IPv4 gateway is in the **Created** state, the IPv4 gateway is created.
+    * *   You cannot repeatedly call the **CreateIpv4Gateway** operation to create IPv4 gateways in a virtual private cloud (VPC) within the specified period of time.
+    *
+    * @param request CreateIpv4GatewayRequest
+    * @return CreateIpv4GatewayResponse
+   */
   async createIpv4Gateway(request: CreateIpv4GatewayRequest): Promise<CreateIpv4GatewayResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.createIpv4GatewayWithOptions(request, runtime);
   }
 
+  /**
+    * *   The **CreateIpv6EgressOnlyRule** operation is asynchronous. After you send the request, the system returns a request ID. However, the operation is still being performed in the system background. You can call the [DescribeIpv6EgressOnlyRules](~~102208~~) operation to query the status of an egress-only rule.
+    *     *   If the egress-only rule is in the **Creating** state, the egress-only rule is being created.
+    *     *   If the egress-only rule is in the **Created** state, the egress-only rule is created.
+    * *   You cannot repeatedly call the **CreateIpv6EgressOnlyRule** operation to add egress-only rules for an IPv6 address within the specified period of time.
+    *
+    * @param request CreateIpv6EgressOnlyRuleRequest
+    * @param runtime runtime options for this request RuntimeOptions
+    * @return CreateIpv6EgressOnlyRuleResponse
+   */
   async createIpv6EgressOnlyRuleWithOptions(request: CreateIpv6EgressOnlyRuleRequest, runtime: $Util.RuntimeOptions): Promise<CreateIpv6EgressOnlyRuleResponse> {
     Util.validateModel(request);
     let query = { };
@@ -46274,11 +49927,30 @@ export default class Client extends OpenApi {
     return $tea.cast<CreateIpv6EgressOnlyRuleResponse>(await this.callApi(params, req, runtime), new CreateIpv6EgressOnlyRuleResponse({}));
   }
 
+  /**
+    * *   The **CreateIpv6EgressOnlyRule** operation is asynchronous. After you send the request, the system returns a request ID. However, the operation is still being performed in the system background. You can call the [DescribeIpv6EgressOnlyRules](~~102208~~) operation to query the status of an egress-only rule.
+    *     *   If the egress-only rule is in the **Creating** state, the egress-only rule is being created.
+    *     *   If the egress-only rule is in the **Created** state, the egress-only rule is created.
+    * *   You cannot repeatedly call the **CreateIpv6EgressOnlyRule** operation to add egress-only rules for an IPv6 address within the specified period of time.
+    *
+    * @param request CreateIpv6EgressOnlyRuleRequest
+    * @return CreateIpv6EgressOnlyRuleResponse
+   */
   async createIpv6EgressOnlyRule(request: CreateIpv6EgressOnlyRuleRequest): Promise<CreateIpv6EgressOnlyRuleResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.createIpv6EgressOnlyRuleWithOptions(request, runtime);
   }
 
+  /**
+    * *   **CreateIpv6Gateway** is an asynchronous operation. After you send a request, the system returns a request ID and runs the task in the background. You can call the [DescribeIpv6GatewayAttribute](~~102226~~) operation to query the state of an IPv6 gateway.
+    *     *   If the IPv6 gateway is in the **Creating** state, the IPv6 gateway is being created.
+    *     *   If the IPv6 gateway is in the **Created** state, the IPv6 gateway is created.
+    * *   You cannot call the **CreateIpv6Gateway** operation to create multiple IPv6 gateways in a virtual private cloud (VPC) at the same time.
+    *
+    * @param request CreateIpv6GatewayRequest
+    * @param runtime runtime options for this request RuntimeOptions
+    * @return CreateIpv6GatewayResponse
+   */
   async createIpv6GatewayWithOptions(request: CreateIpv6GatewayRequest, runtime: $Util.RuntimeOptions): Promise<CreateIpv6GatewayResponse> {
     Util.validateModel(request);
     let query = { };
@@ -46310,6 +49982,10 @@ export default class Client extends OpenApi {
       query["RegionId"] = request.regionId;
     }
 
+    if (!Util.isUnset(request.resourceGroupId)) {
+      query["ResourceGroupId"] = request.resourceGroupId;
+    }
+
     if (!Util.isUnset(request.resourceOwnerAccount)) {
       query["ResourceOwnerAccount"] = request.resourceOwnerAccount;
     }
@@ -46339,11 +50015,34 @@ export default class Client extends OpenApi {
     return $tea.cast<CreateIpv6GatewayResponse>(await this.callApi(params, req, runtime), new CreateIpv6GatewayResponse({}));
   }
 
+  /**
+    * *   **CreateIpv6Gateway** is an asynchronous operation. After you send a request, the system returns a request ID and runs the task in the background. You can call the [DescribeIpv6GatewayAttribute](~~102226~~) operation to query the state of an IPv6 gateway.
+    *     *   If the IPv6 gateway is in the **Creating** state, the IPv6 gateway is being created.
+    *     *   If the IPv6 gateway is in the **Created** state, the IPv6 gateway is created.
+    * *   You cannot call the **CreateIpv6Gateway** operation to create multiple IPv6 gateways in a virtual private cloud (VPC) at the same time.
+    *
+    * @param request CreateIpv6GatewayRequest
+    * @return CreateIpv6GatewayResponse
+   */
   async createIpv6Gateway(request: CreateIpv6GatewayRequest): Promise<CreateIpv6GatewayResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.createIpv6GatewayWithOptions(request, runtime);
   }
 
+  /**
+    * Before you call this operation, take note of the following items:
+    * *   When you create an enhanced NAT gateway for the first time, the system automatically creates the service-linked role AliyunServiceRoleForNatgw. Then, the system attaches the permission policy AliyunServiceRolePolicyForNatgw to the role. This allows the NAT gateway to access other resources on Alibaba Cloud. For more information, see [Service-linked roles](~~174251~~).
+    * *   After you create an enhanced Internet NAT gateway, a route entry is automatically added to the route table of the VPC. The destination CIDR block of the route entry is 0.0.0.0/0 and the next hop is the NAT gateway. This ensures that traffic is routed to the NAT gateway.
+    * *   **CreateNatGateway** is an asynchronous operation. After you send a request, the system returns a request ID and runs the task in the background. You can call the [DescribeNatGateways](~~36054~~) operation to query the status of a NAT gateway.
+    *     *   If a NAT gateway is in the **Creating** state, the NAT gateway is being created. In this case, you can query the NAT gateway but cannot perform other operations.
+    *     *   If a NAT gateway is in the **Available** state, the NAT gateway is created.
+    *         It takes 1 to 3 minutes to create a NAT gateway.
+    * *   You cannot repeatedly call the **CreateNatGateway** operation to create a VPC NAT gateway or an Internet NAT gateway within the specified period of time.
+    *
+    * @param request CreateNatGatewayRequest
+    * @param runtime runtime options for this request RuntimeOptions
+    * @return CreateNatGatewayResponse
+   */
   async createNatGatewayWithOptions(request: CreateNatGatewayRequest, runtime: $Util.RuntimeOptions): Promise<CreateNatGatewayResponse> {
     Util.validateModel(request);
     let query = { };
@@ -46452,11 +50151,31 @@ export default class Client extends OpenApi {
     return $tea.cast<CreateNatGatewayResponse>(await this.callApi(params, req, runtime), new CreateNatGatewayResponse({}));
   }
 
+  /**
+    * Before you call this operation, take note of the following items:
+    * *   When you create an enhanced NAT gateway for the first time, the system automatically creates the service-linked role AliyunServiceRoleForNatgw. Then, the system attaches the permission policy AliyunServiceRolePolicyForNatgw to the role. This allows the NAT gateway to access other resources on Alibaba Cloud. For more information, see [Service-linked roles](~~174251~~).
+    * *   After you create an enhanced Internet NAT gateway, a route entry is automatically added to the route table of the VPC. The destination CIDR block of the route entry is 0.0.0.0/0 and the next hop is the NAT gateway. This ensures that traffic is routed to the NAT gateway.
+    * *   **CreateNatGateway** is an asynchronous operation. After you send a request, the system returns a request ID and runs the task in the background. You can call the [DescribeNatGateways](~~36054~~) operation to query the status of a NAT gateway.
+    *     *   If a NAT gateway is in the **Creating** state, the NAT gateway is being created. In this case, you can query the NAT gateway but cannot perform other operations.
+    *     *   If a NAT gateway is in the **Available** state, the NAT gateway is created.
+    *         It takes 1 to 3 minutes to create a NAT gateway.
+    * *   You cannot repeatedly call the **CreateNatGateway** operation to create a VPC NAT gateway or an Internet NAT gateway within the specified period of time.
+    *
+    * @param request CreateNatGatewayRequest
+    * @return CreateNatGatewayResponse
+   */
   async createNatGateway(request: CreateNatGatewayRequest): Promise<CreateNatGatewayResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.createNatGatewayWithOptions(request, runtime);
   }
 
+  /**
+    * The ID of the Virtual Private Cloud (VPC) NAT gateway for which you want to create the NAT IP address.
+    *
+    * @param request CreateNatIpRequest
+    * @param runtime runtime options for this request RuntimeOptions
+    * @return CreateNatIpResponse
+   */
   async createNatIpWithOptions(request: CreateNatIpRequest, runtime: $Util.RuntimeOptions): Promise<CreateNatIpResponse> {
     Util.validateModel(request);
     let query = { };
@@ -46478,10 +50197,6 @@ export default class Client extends OpenApi {
 
     if (!Util.isUnset(request.natIpCidr)) {
       query["NatIpCidr"] = request.natIpCidr;
-    }
-
-    if (!Util.isUnset(request.natIpCidrId)) {
-      query["NatIpCidrId"] = request.natIpCidrId;
     }
 
     if (!Util.isUnset(request.natIpDescription)) {
@@ -46533,11 +50248,24 @@ export default class Client extends OpenApi {
     return $tea.cast<CreateNatIpResponse>(await this.callApi(params, req, runtime), new CreateNatIpResponse({}));
   }
 
+  /**
+    * The ID of the Virtual Private Cloud (VPC) NAT gateway for which you want to create the NAT IP address.
+    *
+    * @param request CreateNatIpRequest
+    * @return CreateNatIpResponse
+   */
   async createNatIp(request: CreateNatIpRequest): Promise<CreateNatIpResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.createNatIpWithOptions(request, runtime);
   }
 
+  /**
+    * The ID of the Virtual Private Cloud (VPC) NAT gateway with which you want to associate the CIDR block.
+    *
+    * @param request CreateNatIpCidrRequest
+    * @param runtime runtime options for this request RuntimeOptions
+    * @return CreateNatIpCidrResponse
+   */
   async createNatIpCidrWithOptions(request: CreateNatIpCidrRequest, runtime: $Util.RuntimeOptions): Promise<CreateNatIpCidrResponse> {
     Util.validateModel(request);
     let query = { };
@@ -46606,6 +50334,12 @@ export default class Client extends OpenApi {
     return $tea.cast<CreateNatIpCidrResponse>(await this.callApi(params, req, runtime), new CreateNatIpCidrResponse({}));
   }
 
+  /**
+    * The ID of the Virtual Private Cloud (VPC) NAT gateway with which you want to associate the CIDR block.
+    *
+    * @param request CreateNatIpCidrRequest
+    * @return CreateNatIpCidrResponse
+   */
   async createNatIpCidr(request: CreateNatIpCidrRequest): Promise<CreateNatIpCidrResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.createNatIpCidrWithOptions(request, runtime);
@@ -46672,6 +50406,13 @@ export default class Client extends OpenApi {
     return await this.createNetworkAclWithOptions(request, runtime);
   }
 
+  /**
+    * The access point ID of the Express Connect circuit.
+    *
+    * @param request CreatePhysicalConnectionRequest
+    * @param runtime runtime options for this request RuntimeOptions
+    * @return CreatePhysicalConnectionResponse
+   */
   async createPhysicalConnectionWithOptions(request: CreatePhysicalConnectionRequest, runtime: $Util.RuntimeOptions): Promise<CreatePhysicalConnectionResponse> {
     Util.validateModel(request);
     let query = { };
@@ -46739,6 +50480,10 @@ export default class Client extends OpenApi {
       query["ResourceOwnerId"] = request.resourceOwnerId;
     }
 
+    if (!Util.isUnset(request.tag)) {
+      query["Tag"] = request.tag;
+    }
+
     if (!Util.isUnset(request.type)) {
       query["Type"] = request.type;
     }
@@ -46764,11 +50509,24 @@ export default class Client extends OpenApi {
     return $tea.cast<CreatePhysicalConnectionResponse>(await this.callApi(params, req, runtime), new CreatePhysicalConnectionResponse({}));
   }
 
+  /**
+    * The access point ID of the Express Connect circuit.
+    *
+    * @param request CreatePhysicalConnectionRequest
+    * @return CreatePhysicalConnectionResponse
+   */
   async createPhysicalConnection(request: CreatePhysicalConnectionRequest): Promise<CreatePhysicalConnectionResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.createPhysicalConnectionWithOptions(request, runtime);
   }
 
+  /**
+    * >  You can call this operation only when the Express Connect circuit is in the **Complete** state.
+    *
+    * @param request CreatePhysicalConnectionOccupancyOrderRequest
+    * @param runtime runtime options for this request RuntimeOptions
+    * @return CreatePhysicalConnectionOccupancyOrderResponse
+   */
   async createPhysicalConnectionOccupancyOrderWithOptions(request: CreatePhysicalConnectionOccupancyOrderRequest, runtime: $Util.RuntimeOptions): Promise<CreatePhysicalConnectionOccupancyOrderResponse> {
     Util.validateModel(request);
     let query = { };
@@ -46833,6 +50591,12 @@ export default class Client extends OpenApi {
     return $tea.cast<CreatePhysicalConnectionOccupancyOrderResponse>(await this.callApi(params, req, runtime), new CreatePhysicalConnectionOccupancyOrderResponse({}));
   }
 
+  /**
+    * >  You can call this operation only when the Express Connect circuit is in the **Complete** state.
+    *
+    * @param request CreatePhysicalConnectionOccupancyOrderRequest
+    * @return CreatePhysicalConnectionOccupancyOrderResponse
+   */
   async createPhysicalConnectionOccupancyOrder(request: CreatePhysicalConnectionOccupancyOrderRequest): Promise<CreatePhysicalConnectionOccupancyOrderResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.createPhysicalConnectionOccupancyOrderWithOptions(request, runtime);
@@ -46911,6 +50675,14 @@ export default class Client extends OpenApi {
     return await this.createPhysicalConnectionSetupOrderWithOptions(request, runtime);
   }
 
+  /**
+    * ## Limits
+    * By default, the IP address pool feature is unavailable. You can apply for the privilege to use the **IP address pool feature** on the Quota Center page. For more information, see [Request a quota increase in the Quota Center console](~~108213~~).
+    *
+    * @param request CreatePublicIpAddressPoolRequest
+    * @param runtime runtime options for this request RuntimeOptions
+    * @return CreatePublicIpAddressPoolResponse
+   */
   async createPublicIpAddressPoolWithOptions(request: CreatePublicIpAddressPoolRequest, runtime: $Util.RuntimeOptions): Promise<CreatePublicIpAddressPoolResponse> {
     Util.validateModel(request);
     let query = { };
@@ -46975,11 +50747,25 @@ export default class Client extends OpenApi {
     return $tea.cast<CreatePublicIpAddressPoolResponse>(await this.callApi(params, req, runtime), new CreatePublicIpAddressPoolResponse({}));
   }
 
+  /**
+    * ## Limits
+    * By default, the IP address pool feature is unavailable. You can apply for the privilege to use the **IP address pool feature** on the Quota Center page. For more information, see [Request a quota increase in the Quota Center console](~~108213~~).
+    *
+    * @param request CreatePublicIpAddressPoolRequest
+    * @return CreatePublicIpAddressPoolResponse
+   */
   async createPublicIpAddressPool(request: CreatePublicIpAddressPoolRequest): Promise<CreatePublicIpAddressPoolResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.createPublicIpAddressPoolWithOptions(request, runtime);
   }
 
+  /**
+    * The operation that you want to perform. Set the value to **CreateRouteEntries**.
+    *
+    * @param request CreateRouteEntriesRequest
+    * @param runtime runtime options for this request RuntimeOptions
+    * @return CreateRouteEntriesResponse
+   */
   async createRouteEntriesWithOptions(request: CreateRouteEntriesRequest, runtime: $Util.RuntimeOptions): Promise<CreateRouteEntriesResponse> {
     Util.validateModel(request);
     let query = { };
@@ -47028,11 +50814,24 @@ export default class Client extends OpenApi {
     return $tea.cast<CreateRouteEntriesResponse>(await this.callApi(params, req, runtime), new CreateRouteEntriesResponse({}));
   }
 
+  /**
+    * The operation that you want to perform. Set the value to **CreateRouteEntries**.
+    *
+    * @param request CreateRouteEntriesRequest
+    * @return CreateRouteEntriesResponse
+   */
   async createRouteEntries(request: CreateRouteEntriesRequest): Promise<CreateRouteEntriesResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.createRouteEntriesWithOptions(request, runtime);
   }
 
+  /**
+    * The ID of the route table to which you want to add a custom route entry.
+    *
+    * @param request CreateRouteEntryRequest
+    * @param runtime runtime options for this request RuntimeOptions
+    * @return CreateRouteEntryResponse
+   */
   async createRouteEntryWithOptions(request: CreateRouteEntryRequest, runtime: $Util.RuntimeOptions): Promise<CreateRouteEntryResponse> {
     Util.validateModel(request);
     let query = { };
@@ -47105,11 +50904,27 @@ export default class Client extends OpenApi {
     return $tea.cast<CreateRouteEntryResponse>(await this.callApi(params, req, runtime), new CreateRouteEntryResponse({}));
   }
 
+  /**
+    * The ID of the route table to which you want to add a custom route entry.
+    *
+    * @param request CreateRouteEntryRequest
+    * @return CreateRouteEntryResponse
+   */
   async createRouteEntry(request: CreateRouteEntryRequest): Promise<CreateRouteEntryResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.createRouteEntryWithOptions(request, runtime);
   }
 
+  /**
+    * *   The **CreateRouteTable** operation is asynchronous. After you send the request, the system returns a request ID. However, the operation is still being performed in the system background. You can call the [DescribeRouteTableList](~~87602~~) operation to query the status of a custom route table:
+    *     *   If the custom route table is in the **Creating** state, the custom route table is being created.
+    *     *   If the custom route table is in the **Created** state, the custom route table is created.
+    * *   You cannot repeatedly call the **CreateRouteTable** operation to create a custom route table within the specified period of time.
+    *
+    * @param request CreateRouteTableRequest
+    * @param runtime runtime options for this request RuntimeOptions
+    * @return CreateRouteTableResponse
+   */
   async createRouteTableWithOptions(request: CreateRouteTableRequest, runtime: $Util.RuntimeOptions): Promise<CreateRouteTableResponse> {
     Util.validateModel(request);
     let query = { };
@@ -47174,11 +50989,33 @@ export default class Client extends OpenApi {
     return $tea.cast<CreateRouteTableResponse>(await this.callApi(params, req, runtime), new CreateRouteTableResponse({}));
   }
 
+  /**
+    * *   The **CreateRouteTable** operation is asynchronous. After you send the request, the system returns a request ID. However, the operation is still being performed in the system background. You can call the [DescribeRouteTableList](~~87602~~) operation to query the status of a custom route table:
+    *     *   If the custom route table is in the **Creating** state, the custom route table is being created.
+    *     *   If the custom route table is in the **Created** state, the custom route table is created.
+    * *   You cannot repeatedly call the **CreateRouteTable** operation to create a custom route table within the specified period of time.
+    *
+    * @param request CreateRouteTableRequest
+    * @return CreateRouteTableResponse
+   */
   async createRouteTable(request: CreateRouteTableRequest): Promise<CreateRouteTableResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.createRouteTableWithOptions(request, runtime);
   }
 
+  /**
+    * When you call this operation, take note of the following limits:
+    * *   You can create only one pair of interfaces to be connected between two routers.
+    * *   You can create a maximum of five router interfaces for a router.
+    * *   If your Alibaba Cloud account has a router interface with overdue payments, you cannot create new router interfaces.
+    * *   Each destination CIDR block of route entries in the same route table must be unique.
+    * *   A virtual border router (VBR) can serve only as a requester. The VBR must be in the Activated state.
+    * *   You can call this operation to create subscription and pay-as-you-go router interfaces.
+    *
+    * @param request CreateRouterInterfaceRequest
+    * @param runtime runtime options for this request RuntimeOptions
+    * @return CreateRouterInterfaceResponse
+   */
   async createRouterInterfaceWithOptions(request: CreateRouterInterfaceRequest, runtime: $Util.RuntimeOptions): Promise<CreateRouterInterfaceResponse> {
     Util.validateModel(request);
     let query = { };
@@ -47188,6 +51025,10 @@ export default class Client extends OpenApi {
 
     if (!Util.isUnset(request.autoPay)) {
       query["AutoPay"] = request.autoPay;
+    }
+
+    if (!Util.isUnset(request.autoRenew)) {
+      query["AutoRenew"] = request.autoRenew;
     }
 
     if (!Util.isUnset(request.clientToken)) {
@@ -47307,11 +51148,38 @@ export default class Client extends OpenApi {
     return $tea.cast<CreateRouterInterfaceResponse>(await this.callApi(params, req, runtime), new CreateRouterInterfaceResponse({}));
   }
 
+  /**
+    * When you call this operation, take note of the following limits:
+    * *   You can create only one pair of interfaces to be connected between two routers.
+    * *   You can create a maximum of five router interfaces for a router.
+    * *   If your Alibaba Cloud account has a router interface with overdue payments, you cannot create new router interfaces.
+    * *   Each destination CIDR block of route entries in the same route table must be unique.
+    * *   A virtual border router (VBR) can serve only as a requester. The VBR must be in the Activated state.
+    * *   You can call this operation to create subscription and pay-as-you-go router interfaces.
+    *
+    * @param request CreateRouterInterfaceRequest
+    * @return CreateRouterInterfaceResponse
+   */
   async createRouterInterface(request: CreateRouterInterfaceRequest): Promise<CreateRouterInterfaceResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.createRouterInterfaceWithOptions(request, runtime);
   }
 
+  /**
+    * You can call this operation to add SNAT entries to Internet NAT gateways and Virtual Private Cloud (VPC) NAT gateways. In this topic, a NAT gateway refers to both gateway types.
+    * Before you call this operation, take note of the following limits:
+    * *   **CreateSnatEntry** is an asynchronous operation. After you make a request, an SNAT entry ID is returned but the specified SNAT entry is not added. The system adds the entry in the background. You can call the [DescribeSnatTableEntries](~~42677~~) operation to query the status of the SNAT entry.
+    *     *   If the SNAT entry is in the **Pending** state, the system is adding the SNAT entry. You can only query the status of the SNAT entry, but cannot perform other operations.
+    *     *   If the SNAT entry is in the **Available** state, the SNAT entry is added.
+    * *   You cannot repeatedly call the **CreateSnatEntry** operation to add an SNAT entry to an SNAT table within the specified period of time.
+    * *   The vSwitch and Elastic Compute Service (ECS) instance specified in an SNAT entry must be created in the virtual private cloud (VPC) where the NAT gateway is deployed.
+    * *   Each vSwitch or ECS instance can be specified in only one SNAT entry.
+    * *   If a high-availability virtual IP address (HAVIP) exists in a vSwitch, you cannot create SNAT entries.
+    *
+    * @param request CreateSnatEntryRequest
+    * @param runtime runtime options for this request RuntimeOptions
+    * @return CreateSnatEntryResponse
+   */
   async createSnatEntryWithOptions(request: CreateSnatEntryRequest, runtime: $Util.RuntimeOptions): Promise<CreateSnatEntryResponse> {
     Util.validateModel(request);
     let query = { };
@@ -47380,6 +51248,20 @@ export default class Client extends OpenApi {
     return $tea.cast<CreateSnatEntryResponse>(await this.callApi(params, req, runtime), new CreateSnatEntryResponse({}));
   }
 
+  /**
+    * You can call this operation to add SNAT entries to Internet NAT gateways and Virtual Private Cloud (VPC) NAT gateways. In this topic, a NAT gateway refers to both gateway types.
+    * Before you call this operation, take note of the following limits:
+    * *   **CreateSnatEntry** is an asynchronous operation. After you make a request, an SNAT entry ID is returned but the specified SNAT entry is not added. The system adds the entry in the background. You can call the [DescribeSnatTableEntries](~~42677~~) operation to query the status of the SNAT entry.
+    *     *   If the SNAT entry is in the **Pending** state, the system is adding the SNAT entry. You can only query the status of the SNAT entry, but cannot perform other operations.
+    *     *   If the SNAT entry is in the **Available** state, the SNAT entry is added.
+    * *   You cannot repeatedly call the **CreateSnatEntry** operation to add an SNAT entry to an SNAT table within the specified period of time.
+    * *   The vSwitch and Elastic Compute Service (ECS) instance specified in an SNAT entry must be created in the virtual private cloud (VPC) where the NAT gateway is deployed.
+    * *   Each vSwitch or ECS instance can be specified in only one SNAT entry.
+    * *   If a high-availability virtual IP address (HAVIP) exists in a vSwitch, you cannot create SNAT entries.
+    *
+    * @param request CreateSnatEntryRequest
+    * @return CreateSnatEntryResponse
+   */
   async createSnatEntry(request: CreateSnatEntryRequest): Promise<CreateSnatEntryResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.createSnatEntryWithOptions(request, runtime);
@@ -47442,6 +51324,16 @@ export default class Client extends OpenApi {
     return await this.createSslVpnClientCertWithOptions(request, runtime);
   }
 
+  /**
+    * *   The **CreateSslVpnServer** operation is asynchronous. After you send the request, the system returns a request ID, but the operation is still being performed in the system background. You can call the [DescribeVpnGateway](~~73720~~) operation to query the status of the associated VPN gateway and determine whether the SSL server is created.
+    *     *   If the VPN gateway is in the **updating** state, the SSL server is being created.
+    *     *   If the VPN gateway is in the **active** state, the SSL server is created.
+    * *   You cannot repeatedly call the **CreateSslVpnServer** operation for the same VPN gateway within the specified period of time.
+    *
+    * @param request CreateSslVpnServerRequest
+    * @param runtime runtime options for this request RuntimeOptions
+    * @return CreateSslVpnServerResponse
+   */
   async createSslVpnServerWithOptions(request: CreateSslVpnServerRequest, runtime: $Util.RuntimeOptions): Promise<CreateSslVpnServerResponse> {
     Util.validateModel(request);
     let query = { };
@@ -47530,11 +51422,29 @@ export default class Client extends OpenApi {
     return $tea.cast<CreateSslVpnServerResponse>(await this.callApi(params, req, runtime), new CreateSslVpnServerResponse({}));
   }
 
+  /**
+    * *   The **CreateSslVpnServer** operation is asynchronous. After you send the request, the system returns a request ID, but the operation is still being performed in the system background. You can call the [DescribeVpnGateway](~~73720~~) operation to query the status of the associated VPN gateway and determine whether the SSL server is created.
+    *     *   If the VPN gateway is in the **updating** state, the SSL server is being created.
+    *     *   If the VPN gateway is in the **active** state, the SSL server is created.
+    * *   You cannot repeatedly call the **CreateSslVpnServer** operation for the same VPN gateway within the specified period of time.
+    *
+    * @param request CreateSslVpnServerRequest
+    * @return CreateSslVpnServerResponse
+   */
   async createSslVpnServer(request: CreateSslVpnServerRequest): Promise<CreateSslVpnServerResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.createSslVpnServerWithOptions(request, runtime);
   }
 
+  /**
+    * **CreateTrafficMirrorFilter** is an asynchronous operation. After you send a request, the system returns a request ID and runs the task in the background. You can call the [ListTrafficMirrorFilters](~~261353~~) operation to query the status of a filter.
+    * *   If the filter is in the **Creating** state, the filter is being created.
+    * *   If the filter is in the **Created** state, the filter is created.
+    *
+    * @param request CreateTrafficMirrorFilterRequest
+    * @param runtime runtime options for this request RuntimeOptions
+    * @return CreateTrafficMirrorFilterResponse
+   */
   async createTrafficMirrorFilterWithOptions(request: CreateTrafficMirrorFilterRequest, runtime: $Util.RuntimeOptions): Promise<CreateTrafficMirrorFilterResponse> {
     Util.validateModel(request);
     let query = { };
@@ -47564,6 +51474,10 @@ export default class Client extends OpenApi {
 
     if (!Util.isUnset(request.regionId)) {
       query["RegionId"] = request.regionId;
+    }
+
+    if (!Util.isUnset(request.resourceGroupId)) {
+      query["ResourceGroupId"] = request.resourceGroupId;
     }
 
     if (!Util.isUnset(request.resourceOwnerAccount)) {
@@ -47599,11 +51513,26 @@ export default class Client extends OpenApi {
     return $tea.cast<CreateTrafficMirrorFilterResponse>(await this.callApi(params, req, runtime), new CreateTrafficMirrorFilterResponse({}));
   }
 
+  /**
+    * **CreateTrafficMirrorFilter** is an asynchronous operation. After you send a request, the system returns a request ID and runs the task in the background. You can call the [ListTrafficMirrorFilters](~~261353~~) operation to query the status of a filter.
+    * *   If the filter is in the **Creating** state, the filter is being created.
+    * *   If the filter is in the **Created** state, the filter is created.
+    *
+    * @param request CreateTrafficMirrorFilterRequest
+    * @return CreateTrafficMirrorFilterResponse
+   */
   async createTrafficMirrorFilter(request: CreateTrafficMirrorFilterRequest): Promise<CreateTrafficMirrorFilterResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.createTrafficMirrorFilterWithOptions(request, runtime);
   }
 
+  /**
+    * The ID of the filter.
+    *
+    * @param request CreateTrafficMirrorFilterRulesRequest
+    * @param runtime runtime options for this request RuntimeOptions
+    * @return CreateTrafficMirrorFilterRulesResponse
+   */
   async createTrafficMirrorFilterRulesWithOptions(request: CreateTrafficMirrorFilterRulesRequest, runtime: $Util.RuntimeOptions): Promise<CreateTrafficMirrorFilterRulesResponse> {
     Util.validateModel(request);
     let query = { };
@@ -47664,11 +51593,25 @@ export default class Client extends OpenApi {
     return $tea.cast<CreateTrafficMirrorFilterRulesResponse>(await this.callApi(params, req, runtime), new CreateTrafficMirrorFilterRulesResponse({}));
   }
 
+  /**
+    * The ID of the filter.
+    *
+    * @param request CreateTrafficMirrorFilterRulesRequest
+    * @return CreateTrafficMirrorFilterRulesResponse
+   */
   async createTrafficMirrorFilterRules(request: CreateTrafficMirrorFilterRulesRequest): Promise<CreateTrafficMirrorFilterRulesResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.createTrafficMirrorFilterRulesWithOptions(request, runtime);
   }
 
+  /**
+    * The description of the traffic mirror session.
+    * The description must be 1 to 256 characters in length and cannot start with `http://` or `https://`.
+    *
+    * @param request CreateTrafficMirrorSessionRequest
+    * @param runtime runtime options for this request RuntimeOptions
+    * @return CreateTrafficMirrorSessionResponse
+   */
   async createTrafficMirrorSessionWithOptions(request: CreateTrafficMirrorSessionRequest, runtime: $Util.RuntimeOptions): Promise<CreateTrafficMirrorSessionResponse> {
     Util.validateModel(request);
     let query = { };
@@ -47702,6 +51645,10 @@ export default class Client extends OpenApi {
 
     if (!Util.isUnset(request.regionId)) {
       query["RegionId"] = request.regionId;
+    }
+
+    if (!Util.isUnset(request.resourceGroupId)) {
+      query["ResourceGroupId"] = request.resourceGroupId;
     }
 
     if (!Util.isUnset(request.resourceOwnerAccount)) {
@@ -47757,11 +51704,26 @@ export default class Client extends OpenApi {
     return $tea.cast<CreateTrafficMirrorSessionResponse>(await this.callApi(params, req, runtime), new CreateTrafficMirrorSessionResponse({}));
   }
 
+  /**
+    * The description of the traffic mirror session.
+    * The description must be 1 to 256 characters in length and cannot start with `http://` or `https://`.
+    *
+    * @param request CreateTrafficMirrorSessionRequest
+    * @return CreateTrafficMirrorSessionResponse
+   */
   async createTrafficMirrorSession(request: CreateTrafficMirrorSessionRequest): Promise<CreateTrafficMirrorSessionResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.createTrafficMirrorSessionWithOptions(request, runtime);
   }
 
+  /**
+    * The zone ID of the vSwitch.
+    * You can call the [DescribeZones](~~36064~~) operation to query the most recent zone list.
+    *
+    * @param request CreateVSwitchRequest
+    * @param runtime runtime options for this request RuntimeOptions
+    * @return CreateVSwitchResponse
+   */
   async createVSwitchWithOptions(request: CreateVSwitchRequest, runtime: $Util.RuntimeOptions): Promise<CreateVSwitchResponse> {
     Util.validateModel(request);
     let query = { };
@@ -47834,6 +51796,13 @@ export default class Client extends OpenApi {
     return $tea.cast<CreateVSwitchResponse>(await this.callApi(params, req, runtime), new CreateVSwitchResponse({}));
   }
 
+  /**
+    * The zone ID of the vSwitch.
+    * You can call the [DescribeZones](~~36064~~) operation to query the most recent zone list.
+    *
+    * @param request CreateVSwitchRequest
+    * @return CreateVSwitchResponse
+   */
   async createVSwitch(request: CreateVSwitchRequest): Promise<CreateVSwitchResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.createVSwitchWithOptions(request, runtime);
@@ -47908,6 +51877,18 @@ export default class Client extends OpenApi {
     return await this.createVbrHaWithOptions(request, runtime);
   }
 
+  /**
+    * *   You cannot create a destination-based route whose destination CIDR block is 0.0.0.0/0.
+    * *   When you create a destination-based route for an IPsec-VPN connection, do not create a route that meets the following conditions: The destination CIDR block is 100.64.0.0/10 or one of its subnets. The next hop is the IPsec-VPN connection. Such a route results in one of the following errors: The status of the IPsec-VPN connection cannot be displayed in the console. The negotiations of the IPsec-VPN connection fail.
+    * *   **CreateVcoRouteEntry** is an asynchronous operation. After you send a request, the system returns a request ID and runs the task in the background. You can call the [DescribeVpnConnection](~~53046~~) operation to query the status of a route based on the status of the associated IPsec-VPN connection.
+    *     *   If the IPsec-VPN connection is in the **updating** state, the route is being created.
+    *     *   If the IPsec-VPN connection is in the **attached** state, the route is created.
+    * *   You cannot repeatedly call **CreateVcoRouteEntry** to create a route for the same IPsec-VPN connection within the specified period of time.
+    *
+    * @param request CreateVcoRouteEntryRequest
+    * @param runtime runtime options for this request RuntimeOptions
+    * @return CreateVcoRouteEntryResponse
+   */
   async createVcoRouteEntryWithOptions(request: CreateVcoRouteEntryRequest, runtime: $Util.RuntimeOptions): Promise<CreateVcoRouteEntryResponse> {
     Util.validateModel(request);
     let query = { };
@@ -47972,11 +51953,30 @@ export default class Client extends OpenApi {
     return $tea.cast<CreateVcoRouteEntryResponse>(await this.callApi(params, req, runtime), new CreateVcoRouteEntryResponse({}));
   }
 
+  /**
+    * *   You cannot create a destination-based route whose destination CIDR block is 0.0.0.0/0.
+    * *   When you create a destination-based route for an IPsec-VPN connection, do not create a route that meets the following conditions: The destination CIDR block is 100.64.0.0/10 or one of its subnets. The next hop is the IPsec-VPN connection. Such a route results in one of the following errors: The status of the IPsec-VPN connection cannot be displayed in the console. The negotiations of the IPsec-VPN connection fail.
+    * *   **CreateVcoRouteEntry** is an asynchronous operation. After you send a request, the system returns a request ID and runs the task in the background. You can call the [DescribeVpnConnection](~~53046~~) operation to query the status of a route based on the status of the associated IPsec-VPN connection.
+    *     *   If the IPsec-VPN connection is in the **updating** state, the route is being created.
+    *     *   If the IPsec-VPN connection is in the **attached** state, the route is created.
+    * *   You cannot repeatedly call **CreateVcoRouteEntry** to create a route for the same IPsec-VPN connection within the specified period of time.
+    *
+    * @param request CreateVcoRouteEntryRequest
+    * @return CreateVcoRouteEntryResponse
+   */
   async createVcoRouteEntry(request: CreateVcoRouteEntryRequest): Promise<CreateVcoRouteEntryResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.createVcoRouteEntryWithOptions(request, runtime);
   }
 
+  /**
+    * The ID of the Express Connect circuit.
+    * You can create a VBR for a dedicated connection or a hosted connection.
+    *
+    * @param request CreateVirtualBorderRouterRequest
+    * @param runtime runtime options for this request RuntimeOptions
+    * @return CreateVirtualBorderRouterResponse
+   */
   async createVirtualBorderRouterWithOptions(request: CreateVirtualBorderRouterRequest, runtime: $Util.RuntimeOptions): Promise<CreateVirtualBorderRouterResponse> {
     Util.validateModel(request);
     let query = { };
@@ -48081,11 +52081,27 @@ export default class Client extends OpenApi {
     return $tea.cast<CreateVirtualBorderRouterResponse>(await this.callApi(params, req, runtime), new CreateVirtualBorderRouterResponse({}));
   }
 
+  /**
+    * The ID of the Express Connect circuit.
+    * You can create a VBR for a dedicated connection or a hosted connection.
+    *
+    * @param request CreateVirtualBorderRouterRequest
+    * @return CreateVirtualBorderRouterResponse
+   */
   async createVirtualBorderRouter(request: CreateVirtualBorderRouterRequest): Promise<CreateVirtualBorderRouterResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.createVirtualBorderRouterWithOptions(request, runtime);
   }
 
+  /**
+    * The payer for the hosted connection. Valid values:
+    * *   **PayByPhysicalConnectionOwner**: The partner pays for the hosted connection.
+    * *   **PayByVirtualPhysicalConnectionOwner**: The tenant pays for the hosted connection.
+    *
+    * @param request CreateVirtualPhysicalConnectionRequest
+    * @param runtime runtime options for this request RuntimeOptions
+    * @return CreateVirtualPhysicalConnectionResponse
+   */
   async createVirtualPhysicalConnectionWithOptions(request: CreateVirtualPhysicalConnectionRequest, runtime: $Util.RuntimeOptions): Promise<CreateVirtualPhysicalConnectionResponse> {
     Util.validateModel(request);
     let query = { };
@@ -48121,6 +52137,10 @@ export default class Client extends OpenApi {
       query["Spec"] = request.spec;
     }
 
+    if (!Util.isUnset(request.tag)) {
+      query["Tag"] = request.tag;
+    }
+
     if (!Util.isUnset(request.token)) {
       query["Token"] = request.token;
     }
@@ -48150,11 +52170,35 @@ export default class Client extends OpenApi {
     return $tea.cast<CreateVirtualPhysicalConnectionResponse>(await this.callApi(params, req, runtime), new CreateVirtualPhysicalConnectionResponse({}));
   }
 
+  /**
+    * The payer for the hosted connection. Valid values:
+    * *   **PayByPhysicalConnectionOwner**: The partner pays for the hosted connection.
+    * *   **PayByVirtualPhysicalConnectionOwner**: The tenant pays for the hosted connection.
+    *
+    * @param request CreateVirtualPhysicalConnectionRequest
+    * @return CreateVirtualPhysicalConnectionResponse
+   */
   async createVirtualPhysicalConnection(request: CreateVirtualPhysicalConnectionRequest): Promise<CreateVirtualPhysicalConnectionResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.createVirtualPhysicalConnectionWithOptions(request, runtime);
   }
 
+  /**
+    * When you call this operation, take note of the following rules:
+    * *   You can specify only one CIDR block for each VPC.
+    * *   After you create a VPC, you cannot change its CIDR block. However, you can add secondary IPv4 CIDR blocks to the VPC.
+    * *   In each VPC, cloud services can use a maximum of 60,000 private IP addresses. You cannot increase the quota.
+    * *   After you create a VPC, a vRouter and a route table are automatically created.
+    * *   At most three user CIDR blocks can be added to a VPC. If a user CIDR block includes another user CIDR block, the one with the shorter subnet mask takes effect. For example, if 10.0.0.0/8 and 10.1.0.0/16 are specified, only 10.0.0.0/8 takes effect.
+    * *   The **CreateVpc** operation is asynchronous. After you send a request, the system returns a request ID and runs the task in the background. You can call the [DescribeVpcAttribute](~~94565~~) operation to query the status of a VPC:
+    *     *   If the VPC is in the **Creating** state, the VPC is being created.
+    *     *   If the VPC is in the **Created** state, the VPC is created.
+    * *   You cannot repeatedly call the **CreateVpc** operation to create default VPCs within the specified period of time. However, you can repeatedly call this operation to create custom VPCs within the specified period of time.
+    *
+    * @param request CreateVpcRequest
+    * @param runtime runtime options for this request RuntimeOptions
+    * @return CreateVpcResponse
+   */
   async createVpcWithOptions(request: CreateVpcRequest, runtime: $Util.RuntimeOptions): Promise<CreateVpcResponse> {
     Util.validateModel(request);
     let query = { };
@@ -48176,6 +52220,10 @@ export default class Client extends OpenApi {
 
     if (!Util.isUnset(request.enableIpv6)) {
       query["EnableIpv6"] = request.enableIpv6;
+    }
+
+    if (!Util.isUnset(request.ipv4IpamPoolId)) {
+      query["Ipv4IpamPoolId"] = request.ipv4IpamPoolId;
     }
 
     if (!Util.isUnset(request.ipv6CidrBlock)) {
@@ -48235,11 +52283,34 @@ export default class Client extends OpenApi {
     return $tea.cast<CreateVpcResponse>(await this.callApi(params, req, runtime), new CreateVpcResponse({}));
   }
 
+  /**
+    * When you call this operation, take note of the following rules:
+    * *   You can specify only one CIDR block for each VPC.
+    * *   After you create a VPC, you cannot change its CIDR block. However, you can add secondary IPv4 CIDR blocks to the VPC.
+    * *   In each VPC, cloud services can use a maximum of 60,000 private IP addresses. You cannot increase the quota.
+    * *   After you create a VPC, a vRouter and a route table are automatically created.
+    * *   At most three user CIDR blocks can be added to a VPC. If a user CIDR block includes another user CIDR block, the one with the shorter subnet mask takes effect. For example, if 10.0.0.0/8 and 10.1.0.0/16 are specified, only 10.0.0.0/8 takes effect.
+    * *   The **CreateVpc** operation is asynchronous. After you send a request, the system returns a request ID and runs the task in the background. You can call the [DescribeVpcAttribute](~~94565~~) operation to query the status of a VPC:
+    *     *   If the VPC is in the **Creating** state, the VPC is being created.
+    *     *   If the VPC is in the **Created** state, the VPC is created.
+    * *   You cannot repeatedly call the **CreateVpc** operation to create default VPCs within the specified period of time. However, you can repeatedly call this operation to create custom VPCs within the specified period of time.
+    *
+    * @param request CreateVpcRequest
+    * @return CreateVpcResponse
+   */
   async createVpc(request: CreateVpcRequest): Promise<CreateVpcResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.createVpcWithOptions(request, runtime);
   }
 
+  /**
+    * The description of the gateway endpoint.
+    * The description must be 1 to 255 characters in length.
+    *
+    * @param request CreateVpcGatewayEndpointRequest
+    * @param runtime runtime options for this request RuntimeOptions
+    * @return CreateVpcGatewayEndpointResponse
+   */
   async createVpcGatewayEndpointWithOptions(request: CreateVpcGatewayEndpointRequest, runtime: $Util.RuntimeOptions): Promise<CreateVpcGatewayEndpointResponse> {
     Util.validateModel(request);
     let query = { };
@@ -48275,6 +52346,10 @@ export default class Client extends OpenApi {
       query["RegionId"] = request.regionId;
     }
 
+    if (!Util.isUnset(request.resourceGroupId)) {
+      query["ResourceGroupId"] = request.resourceGroupId;
+    }
+
     if (!Util.isUnset(request.resourceOwnerAccount)) {
       query["ResourceOwnerAccount"] = request.resourceOwnerAccount;
     }
@@ -48308,11 +52383,25 @@ export default class Client extends OpenApi {
     return $tea.cast<CreateVpcGatewayEndpointResponse>(await this.callApi(params, req, runtime), new CreateVpcGatewayEndpointResponse({}));
   }
 
+  /**
+    * The description of the gateway endpoint.
+    * The description must be 1 to 255 characters in length.
+    *
+    * @param request CreateVpcGatewayEndpointRequest
+    * @return CreateVpcGatewayEndpointResponse
+   */
   async createVpcGatewayEndpoint(request: CreateVpcGatewayEndpointRequest): Promise<CreateVpcGatewayEndpointResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.createVpcGatewayEndpointWithOptions(request, runtime);
   }
 
+  /**
+    * You cannot repeatedly call the **CreateVpcPrefixList** operation to create a prefix list in a region within the specified period of time.
+    *
+    * @param request CreateVpcPrefixListRequest
+    * @param runtime runtime options for this request RuntimeOptions
+    * @return CreateVpcPrefixListResponse
+   */
   async createVpcPrefixListWithOptions(request: CreateVpcPrefixListRequest, runtime: $Util.RuntimeOptions): Promise<CreateVpcPrefixListResponse> {
     Util.validateModel(request);
     let query = { };
@@ -48385,11 +52474,26 @@ export default class Client extends OpenApi {
     return $tea.cast<CreateVpcPrefixListResponse>(await this.callApi(params, req, runtime), new CreateVpcPrefixListResponse({}));
   }
 
+  /**
+    * You cannot repeatedly call the **CreateVpcPrefixList** operation to create a prefix list in a region within the specified period of time.
+    *
+    * @param request CreateVpcPrefixListRequest
+    * @return CreateVpcPrefixListResponse
+   */
   async createVpcPrefixList(request: CreateVpcPrefixListRequest): Promise<CreateVpcPrefixListResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.createVpcPrefixListWithOptions(request, runtime);
   }
 
+  /**
+    * Specifies the party that must pay for the shared Express Connect circuit. Valid values:
+    * *   **PayByPhysicalConnectionOwner**: If you set the value to PayByPhysicalConnectionOwner, the Express Connect partner must pay for the shared Express Connect circuit.
+    * *   **PayByVirtualPhysicalConnectionOwner**: If you set the value to PayByVirtualPhysicalConnectionOwner, the tenant must pay for the shared Express Connect circuit.
+    *
+    * @param request CreateVpconnFromVbrRequest
+    * @param runtime runtime options for this request RuntimeOptions
+    * @return CreateVpconnFromVbrResponse
+   */
   async createVpconnFromVbrWithOptions(request: CreateVpconnFromVbrRequest, runtime: $Util.RuntimeOptions): Promise<CreateVpconnFromVbrResponse> {
     Util.validateModel(request);
     let query = { };
@@ -48430,11 +52534,29 @@ export default class Client extends OpenApi {
     return $tea.cast<CreateVpconnFromVbrResponse>(await this.callApi(params, req, runtime), new CreateVpconnFromVbrResponse({}));
   }
 
+  /**
+    * Specifies the party that must pay for the shared Express Connect circuit. Valid values:
+    * *   **PayByPhysicalConnectionOwner**: If you set the value to PayByPhysicalConnectionOwner, the Express Connect partner must pay for the shared Express Connect circuit.
+    * *   **PayByVirtualPhysicalConnectionOwner**: If you set the value to PayByVirtualPhysicalConnectionOwner, the tenant must pay for the shared Express Connect circuit.
+    *
+    * @param request CreateVpconnFromVbrRequest
+    * @return CreateVpconnFromVbrResponse
+   */
   async createVpconnFromVbr(request: CreateVpconnFromVbrRequest): Promise<CreateVpconnFromVbrResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.createVpconnFromVbrWithOptions(request, runtime);
   }
 
+  /**
+    * By default, an IPsec-VPN connection created by calling the `CreateVpnAttachment` operation is not associated with a resource. You can associate an IPsec-VPN connection with a transit router by calling the [CreateTransitRouterVpnAttachment](~~443993~~) operation.
+    * ## Prerequisites
+    * Before you create an IPsec-VPN connection, make sure that you created a customer gateway in the region where you want to create the IPsec-VPN connection. For more information, see [CreateCustomerGateway](/help/en/vpn-gateway/latest/createcustomergateway). 
+    * If you want to add BGP configurations to an IPsec-VPN connection, make sure that an autonomous system number (ASN) is assigned to the customer gateway.
+    *
+    * @param request CreateVpnAttachmentRequest
+    * @param runtime runtime options for this request RuntimeOptions
+    * @return CreateVpnAttachmentResponse
+   */
   async createVpnAttachmentWithOptions(request: CreateVpnAttachmentRequest, runtime: $Util.RuntimeOptions): Promise<CreateVpnAttachmentResponse> {
     Util.validateModel(request);
     let query = { };
@@ -48514,6 +52636,10 @@ export default class Client extends OpenApi {
       query["ResourceOwnerId"] = request.resourceOwnerId;
     }
 
+    if (!Util.isUnset(request.tags)) {
+      query["Tags"] = request.tags;
+    }
+
     let req = new $OpenApi.OpenApiRequest({
       query: OpenApiUtil.query(query),
     });
@@ -48531,11 +52657,30 @@ export default class Client extends OpenApi {
     return $tea.cast<CreateVpnAttachmentResponse>(await this.callApi(params, req, runtime), new CreateVpnAttachmentResponse({}));
   }
 
+  /**
+    * By default, an IPsec-VPN connection created by calling the `CreateVpnAttachment` operation is not associated with a resource. You can associate an IPsec-VPN connection with a transit router by calling the [CreateTransitRouterVpnAttachment](~~443993~~) operation.
+    * ## Prerequisites
+    * Before you create an IPsec-VPN connection, make sure that you created a customer gateway in the region where you want to create the IPsec-VPN connection. For more information, see [CreateCustomerGateway](/help/en/vpn-gateway/latest/createcustomergateway). 
+    * If you want to add BGP configurations to an IPsec-VPN connection, make sure that an autonomous system number (ASN) is assigned to the customer gateway.
+    *
+    * @param request CreateVpnAttachmentRequest
+    * @return CreateVpnAttachmentResponse
+   */
   async createVpnAttachment(request: CreateVpnAttachmentRequest): Promise<CreateVpnAttachmentResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.createVpnAttachmentWithOptions(request, runtime);
   }
 
+  /**
+    * *   **CreateVpnConnection** is an asynchronous operation. After you send a request, the system returns a request ID and runs the task in the background. You can call [DescribeVpnGateway](~~73720~~) to query the status of a VPN gateway.
+    *     *   If the VPN gateway is in the **updating** state, the IPsec-VPN connection is being created.
+    *     *   If the VPN gateway is in the **active** state, the IPsec-VPN connection has been created.
+    * *   You cannot repeatedly call **CreateVpnConnection** to create an IPsec-VPN connection on a VPN gateway within the specified period of time.
+    *
+    * @param request CreateVpnConnectionRequest
+    * @param runtime runtime options for this request RuntimeOptions
+    * @return CreateVpnConnectionResponse
+   */
   async createVpnConnectionWithOptions(request: CreateVpnConnectionRequest, runtime: $Util.RuntimeOptions): Promise<CreateVpnConnectionResponse> {
     Util.validateModel(request);
     let query = { };
@@ -48565,6 +52710,10 @@ export default class Client extends OpenApi {
 
     if (!Util.isUnset(request.enableNatTraversal)) {
       query["EnableNatTraversal"] = request.enableNatTraversal;
+    }
+
+    if (!Util.isUnset(request.enableTunnelsBgp)) {
+      query["EnableTunnelsBgp"] = request.enableTunnelsBgp;
     }
 
     if (!Util.isUnset(request.healthCheckConfig)) {
@@ -48615,12 +52764,27 @@ export default class Client extends OpenApi {
       query["ResourceOwnerId"] = request.resourceOwnerId;
     }
 
+    if (!Util.isUnset(request.tags)) {
+      query["Tags"] = request.tags;
+    }
+
     if (!Util.isUnset(request.vpnGatewayId)) {
       query["VpnGatewayId"] = request.vpnGatewayId;
     }
 
+    let body : {[key: string ]: any} = { };
+    let bodyFlat : {[key: string ]: any} = { };
+    if (!Util.isUnset(request.tunnelOptionsSpecification)) {
+      bodyFlat["TunnelOptionsSpecification"] = request.tunnelOptionsSpecification;
+    }
+
+    body = {
+      ...body,
+      ...OpenApiUtil.query(bodyFlat),
+    };
     let req = new $OpenApi.OpenApiRequest({
       query: OpenApiUtil.query(query),
+      body: OpenApiUtil.parseToMap(body),
     });
     let params = new $OpenApi.Params({
       action: "CreateVpnConnection",
@@ -48636,11 +52800,27 @@ export default class Client extends OpenApi {
     return $tea.cast<CreateVpnConnectionResponse>(await this.callApi(params, req, runtime), new CreateVpnConnectionResponse({}));
   }
 
+  /**
+    * *   **CreateVpnConnection** is an asynchronous operation. After you send a request, the system returns a request ID and runs the task in the background. You can call [DescribeVpnGateway](~~73720~~) to query the status of a VPN gateway.
+    *     *   If the VPN gateway is in the **updating** state, the IPsec-VPN connection is being created.
+    *     *   If the VPN gateway is in the **active** state, the IPsec-VPN connection has been created.
+    * *   You cannot repeatedly call **CreateVpnConnection** to create an IPsec-VPN connection on a VPN gateway within the specified period of time.
+    *
+    * @param request CreateVpnConnectionRequest
+    * @return CreateVpnConnectionResponse
+   */
   async createVpnConnection(request: CreateVpnConnectionRequest): Promise<CreateVpnConnectionResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.createVpnConnectionWithOptions(request, runtime);
   }
 
+  /**
+    * The region ID of the VPN gateway. You can call the [DescribeRegions](~~36063~~) operation to query the most recent region list.
+    *
+    * @param request CreateVpnGatewayRequest
+    * @param runtime runtime options for this request RuntimeOptions
+    * @return CreateVpnGatewayResponse
+   */
   async createVpnGatewayWithOptions(request: CreateVpnGatewayRequest, runtime: $Util.RuntimeOptions): Promise<CreateVpnGatewayResponse> {
     Util.validateModel(request);
     let query = { };
@@ -48654,6 +52834,10 @@ export default class Client extends OpenApi {
 
     if (!Util.isUnset(request.clientToken)) {
       query["ClientToken"] = request.clientToken;
+    }
+
+    if (!Util.isUnset(request.disasterRecoveryVSwitchId)) {
+      query["DisasterRecoveryVSwitchId"] = request.disasterRecoveryVSwitchId;
     }
 
     if (!Util.isUnset(request.enableIpsec)) {
@@ -48733,11 +52917,29 @@ export default class Client extends OpenApi {
     return $tea.cast<CreateVpnGatewayResponse>(await this.callApi(params, req, runtime), new CreateVpnGatewayResponse({}));
   }
 
+  /**
+    * The region ID of the VPN gateway. You can call the [DescribeRegions](~~36063~~) operation to query the most recent region list.
+    *
+    * @param request CreateVpnGatewayRequest
+    * @return CreateVpnGatewayResponse
+   */
   async createVpnGateway(request: CreateVpnGatewayRequest): Promise<CreateVpnGatewayResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.createVpnGatewayWithOptions(request, runtime);
   }
 
+  /**
+    * *   Before you call this operation, we recommend that you learn about the match rules of policy-based routes and limits on policy-based routes. For more information, see [Work with policy-based routes](~~110777~~).
+    * *   Before you create a policy-based route, make sure that an IPsec-VPN connection is created. For more information, see [CreateVpnConnection](~~120391~~).
+    * *   **CreateVpnPbrRouteEntry** is an asynchronous operation. After you send the request, the route information is returned but the operation is still being performed in the background. You can call [DescribeVpnGateway](~~73720~~) to query the status of a VPN gateway.
+    *     *   If a VPN gateway is in the **updating** state, the policy-based route entry is being created.
+    *     *   If a VPN gateway is in the **active** state, the policy-based route entry is created.
+    * *   You cannot repeatedly call **CreateVpnPbrRouteEntry** to create a policy-based route for a VPN gateway within the specified period of time.
+    *
+    * @param request CreateVpnPbrRouteEntryRequest
+    * @param runtime runtime options for this request RuntimeOptions
+    * @return CreateVpnPbrRouteEntryResponse
+   */
   async createVpnPbrRouteEntryWithOptions(request: CreateVpnPbrRouteEntryRequest, runtime: $Util.RuntimeOptions): Promise<CreateVpnPbrRouteEntryResponse> {
     Util.validateModel(request);
     let query = { };
@@ -48818,11 +53020,32 @@ export default class Client extends OpenApi {
     return $tea.cast<CreateVpnPbrRouteEntryResponse>(await this.callApi(params, req, runtime), new CreateVpnPbrRouteEntryResponse({}));
   }
 
+  /**
+    * *   Before you call this operation, we recommend that you learn about the match rules of policy-based routes and limits on policy-based routes. For more information, see [Work with policy-based routes](~~110777~~).
+    * *   Before you create a policy-based route, make sure that an IPsec-VPN connection is created. For more information, see [CreateVpnConnection](~~120391~~).
+    * *   **CreateVpnPbrRouteEntry** is an asynchronous operation. After you send the request, the route information is returned but the operation is still being performed in the background. You can call [DescribeVpnGateway](~~73720~~) to query the status of a VPN gateway.
+    *     *   If a VPN gateway is in the **updating** state, the policy-based route entry is being created.
+    *     *   If a VPN gateway is in the **active** state, the policy-based route entry is created.
+    * *   You cannot repeatedly call **CreateVpnPbrRouteEntry** to create a policy-based route for a VPN gateway within the specified period of time.
+    *
+    * @param request CreateVpnPbrRouteEntryRequest
+    * @return CreateVpnPbrRouteEntryResponse
+   */
   async createVpnPbrRouteEntry(request: CreateVpnPbrRouteEntryRequest): Promise<CreateVpnPbrRouteEntryResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.createVpnPbrRouteEntryWithOptions(request, runtime);
   }
 
+  /**
+    * *   **CreateVpnRouteEntry** is an asynchronous operation. After you call the operation, the route configurations are returned but the operation is still being performed in the background. You can call [DescribeVpnGateway](~~73720~~) to query the status of a destination-based route entry.
+    *     *   If a VPN gateway is in the **updating** state, the destination-based route entry is being created.
+    *     *   If a VPN gateway is in the **active** state, the destination-based route entry has been created.
+    * *   You cannot repeatedly call **CreateVpnRouteEntry** to create a destination-based route entry for a VPN gateway within the specified period of time.
+    *
+    * @param request CreateVpnRouteEntryRequest
+    * @param runtime runtime options for this request RuntimeOptions
+    * @return CreateVpnRouteEntryResponse
+   */
   async createVpnRouteEntryWithOptions(request: CreateVpnRouteEntryRequest, runtime: $Util.RuntimeOptions): Promise<CreateVpnRouteEntryResponse> {
     Util.validateModel(request);
     let query = { };
@@ -48895,6 +53118,15 @@ export default class Client extends OpenApi {
     return $tea.cast<CreateVpnRouteEntryResponse>(await this.callApi(params, req, runtime), new CreateVpnRouteEntryResponse({}));
   }
 
+  /**
+    * *   **CreateVpnRouteEntry** is an asynchronous operation. After you call the operation, the route configurations are returned but the operation is still being performed in the background. You can call [DescribeVpnGateway](~~73720~~) to query the status of a destination-based route entry.
+    *     *   If a VPN gateway is in the **updating** state, the destination-based route entry is being created.
+    *     *   If a VPN gateway is in the **active** state, the destination-based route entry has been created.
+    * *   You cannot repeatedly call **CreateVpnRouteEntry** to create a destination-based route entry for a VPN gateway within the specified period of time.
+    *
+    * @param request CreateVpnRouteEntryRequest
+    * @return CreateVpnRouteEntryResponse
+   */
   async createVpnRouteEntry(request: CreateVpnRouteEntryRequest): Promise<CreateVpnRouteEntryResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.createVpnRouteEntryWithOptions(request, runtime);
@@ -48945,6 +53177,16 @@ export default class Client extends OpenApi {
     return await this.deactivateRouterInterfaceWithOptions(request, runtime);
   }
 
+  /**
+    * *   The **DeactiveFlowLog** operation is asynchronous. After you send the request, the system returns a request ID. However, the operation is still being performed in the system background. You can call the [DescribeFlowLogs](~~87923~~) operation to query the status of a flow log:
+    *     *   If the flow log is in the **Deactivating** state, the flow log is being disabled.
+    *     *   If the flow log is in the **Inactive** state, the flow log is disabled.
+    * *   You cannot repeatedly call the **DeactiveFlowLog** operation to disable a flow log within the specified period of time.
+    *
+    * @param request DeactiveFlowLogRequest
+    * @param runtime runtime options for this request RuntimeOptions
+    * @return DeactiveFlowLogResponse
+   */
   async deactiveFlowLogWithOptions(request: DeactiveFlowLogRequest, runtime: $Util.RuntimeOptions): Promise<DeactiveFlowLogResponse> {
     Util.validateModel(request);
     let query = { };
@@ -48989,6 +53231,15 @@ export default class Client extends OpenApi {
     return $tea.cast<DeactiveFlowLogResponse>(await this.callApi(params, req, runtime), new DeactiveFlowLogResponse({}));
   }
 
+  /**
+    * *   The **DeactiveFlowLog** operation is asynchronous. After you send the request, the system returns a request ID. However, the operation is still being performed in the system background. You can call the [DescribeFlowLogs](~~87923~~) operation to query the status of a flow log:
+    *     *   If the flow log is in the **Deactivating** state, the flow log is being disabled.
+    *     *   If the flow log is in the **Inactive** state, the flow log is disabled.
+    * *   You cannot repeatedly call the **DeactiveFlowLog** operation to disable a flow log within the specified period of time.
+    *
+    * @param request DeactiveFlowLogRequest
+    * @return DeactiveFlowLogResponse
+   */
   async deactiveFlowLog(request: DeactiveFlowLogRequest): Promise<DeactiveFlowLogResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.deactiveFlowLogWithOptions(request, runtime);
@@ -49157,6 +53408,13 @@ export default class Client extends OpenApi {
     return await this.deleteBgpPeerWithOptions(request, runtime);
   }
 
+  /**
+    * You cannot repeatedly call the **DeleteCommonBandwidthPackage** operation to delete an EIP bandwidth plan within the specified period of time.
+    *
+    * @param request DeleteCommonBandwidthPackageRequest
+    * @param runtime runtime options for this request RuntimeOptions
+    * @return DeleteCommonBandwidthPackageResponse
+   */
   async deleteCommonBandwidthPackageWithOptions(request: DeleteCommonBandwidthPackageRequest, runtime: $Util.RuntimeOptions): Promise<DeleteCommonBandwidthPackageResponse> {
     Util.validateModel(request);
     let query = { };
@@ -49205,6 +53463,12 @@ export default class Client extends OpenApi {
     return $tea.cast<DeleteCommonBandwidthPackageResponse>(await this.callApi(params, req, runtime), new DeleteCommonBandwidthPackageResponse({}));
   }
 
+  /**
+    * You cannot repeatedly call the **DeleteCommonBandwidthPackage** operation to delete an EIP bandwidth plan within the specified period of time.
+    *
+    * @param request DeleteCommonBandwidthPackageRequest
+    * @return DeleteCommonBandwidthPackageResponse
+   */
   async deleteCommonBandwidthPackage(request: DeleteCommonBandwidthPackageRequest): Promise<DeleteCommonBandwidthPackageResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.deleteCommonBandwidthPackageWithOptions(request, runtime);
@@ -49263,6 +53527,16 @@ export default class Client extends OpenApi {
     return await this.deleteCustomerGatewayWithOptions(request, runtime);
   }
 
+  /**
+    * *   The **DeleteDhcpOptionsSet** operation is asynchronous. After you send the request, the system returns a request ID. However, the operation is still being performed in the system background. You can call the [GetDhcpOptionsSet](~~189208~~) operation to query the status of a DHCP options set:
+    *     *   If the DHCP options set is in the **Deleting** state, the DHCP options set is being deleted.
+    *     *   If you cannot query the DHCP options set, the DHCP options set is deleted.
+    * *   You cannot repeatedly call the **DeleteDhcpOptionsSet** operation to delete a DHCP options set within the specified period of time.
+    *
+    * @param request DeleteDhcpOptionsSetRequest
+    * @param runtime runtime options for this request RuntimeOptions
+    * @return DeleteDhcpOptionsSetResponse
+   */
   async deleteDhcpOptionsSetWithOptions(request: DeleteDhcpOptionsSetRequest, runtime: $Util.RuntimeOptions): Promise<DeleteDhcpOptionsSetResponse> {
     Util.validateModel(request);
     let query = { };
@@ -49315,11 +53589,30 @@ export default class Client extends OpenApi {
     return $tea.cast<DeleteDhcpOptionsSetResponse>(await this.callApi(params, req, runtime), new DeleteDhcpOptionsSetResponse({}));
   }
 
+  /**
+    * *   The **DeleteDhcpOptionsSet** operation is asynchronous. After you send the request, the system returns a request ID. However, the operation is still being performed in the system background. You can call the [GetDhcpOptionsSet](~~189208~~) operation to query the status of a DHCP options set:
+    *     *   If the DHCP options set is in the **Deleting** state, the DHCP options set is being deleted.
+    *     *   If you cannot query the DHCP options set, the DHCP options set is deleted.
+    * *   You cannot repeatedly call the **DeleteDhcpOptionsSet** operation to delete a DHCP options set within the specified period of time.
+    *
+    * @param request DeleteDhcpOptionsSetRequest
+    * @return DeleteDhcpOptionsSetResponse
+   */
   async deleteDhcpOptionsSet(request: DeleteDhcpOptionsSetRequest): Promise<DeleteDhcpOptionsSetResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.deleteDhcpOptionsSetWithOptions(request, runtime);
   }
 
+  /**
+    * *   The **DeleteFlowLog** operation is asynchronous. After you send the request, the system returns a request ID. However, the operation is still being performed in the system background. You can call the [DescribeFlowLogs](~~87923~~) operation to query the status of a flow log:
+    *     *   If the flow log is in the **Deleting** state, the flow log is being deleted.
+    *     *   If you cannot query the flow log, the flow log is deleted.
+    * *   You cannot repeatedly call the **DeleteFlowLog** operation to delete a flow log within the specified period of time.
+    *
+    * @param request DeleteFlowLogRequest
+    * @param runtime runtime options for this request RuntimeOptions
+    * @return DeleteFlowLogResponse
+   */
   async deleteFlowLogWithOptions(request: DeleteFlowLogRequest, runtime: $Util.RuntimeOptions): Promise<DeleteFlowLogResponse> {
     Util.validateModel(request);
     let query = { };
@@ -49364,11 +53657,28 @@ export default class Client extends OpenApi {
     return $tea.cast<DeleteFlowLogResponse>(await this.callApi(params, req, runtime), new DeleteFlowLogResponse({}));
   }
 
+  /**
+    * *   The **DeleteFlowLog** operation is asynchronous. After you send the request, the system returns a request ID. However, the operation is still being performed in the system background. You can call the [DescribeFlowLogs](~~87923~~) operation to query the status of a flow log:
+    *     *   If the flow log is in the **Deleting** state, the flow log is being deleted.
+    *     *   If you cannot query the flow log, the flow log is deleted.
+    * *   You cannot repeatedly call the **DeleteFlowLog** operation to delete a flow log within the specified period of time.
+    *
+    * @param request DeleteFlowLogRequest
+    * @return DeleteFlowLogResponse
+   */
   async deleteFlowLog(request: DeleteFlowLogRequest): Promise<DeleteFlowLogResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.deleteFlowLogWithOptions(request, runtime);
   }
 
+  /**
+    * The region ID of the NAT gateway.
+    * You can call the [DescribeRegions](~~36063~~) operation to query the most recent region list.
+    *
+    * @param request DeleteForwardEntryRequest
+    * @param runtime runtime options for this request RuntimeOptions
+    * @return DeleteForwardEntryResponse
+   */
   async deleteForwardEntryWithOptions(request: DeleteForwardEntryRequest, runtime: $Util.RuntimeOptions): Promise<DeleteForwardEntryResponse> {
     Util.validateModel(request);
     let query = { };
@@ -49421,11 +53731,25 @@ export default class Client extends OpenApi {
     return $tea.cast<DeleteForwardEntryResponse>(await this.callApi(params, req, runtime), new DeleteForwardEntryResponse({}));
   }
 
+  /**
+    * The region ID of the NAT gateway.
+    * You can call the [DescribeRegions](~~36063~~) operation to query the most recent region list.
+    *
+    * @param request DeleteForwardEntryRequest
+    * @return DeleteForwardEntryResponse
+   */
   async deleteForwardEntry(request: DeleteForwardEntryRequest): Promise<DeleteForwardEntryResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.deleteForwardEntryWithOptions(request, runtime);
   }
 
+  /**
+    * The operation that you want to perform. Set the value to **DeleteFullNatEntry**.
+    *
+    * @param request DeleteFullNatEntryRequest
+    * @param runtime runtime options for this request RuntimeOptions
+    * @return DeleteFullNatEntryResponse
+   */
   async deleteFullNatEntryWithOptions(request: DeleteFullNatEntryRequest, runtime: $Util.RuntimeOptions): Promise<DeleteFullNatEntryResponse> {
     Util.validateModel(request);
     let query = { };
@@ -49482,11 +53806,27 @@ export default class Client extends OpenApi {
     return $tea.cast<DeleteFullNatEntryResponse>(await this.callApi(params, req, runtime), new DeleteFullNatEntryResponse({}));
   }
 
+  /**
+    * The operation that you want to perform. Set the value to **DeleteFullNatEntry**.
+    *
+    * @param request DeleteFullNatEntryRequest
+    * @return DeleteFullNatEntryResponse
+   */
   async deleteFullNatEntry(request: DeleteFullNatEntryRequest): Promise<DeleteFullNatEntryResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.deleteFullNatEntryWithOptions(request, runtime);
   }
 
+  /**
+    * When you call this operation, take note of the following items:
+    * *   You can delete only pay-as-you-go instances.
+    * *   Before you can delete a dedicated instance, disassociate the backend server from the instance first.
+    * *   Before you can delete a shared instance, disassociate the elastic IP address (EIP) from the instance first.
+    *
+    * @param request DeleteGlobalAccelerationInstanceRequest
+    * @param runtime runtime options for this request RuntimeOptions
+    * @return DeleteGlobalAccelerationInstanceResponse
+   */
   async deleteGlobalAccelerationInstanceWithOptions(request: DeleteGlobalAccelerationInstanceRequest, runtime: $Util.RuntimeOptions): Promise<DeleteGlobalAccelerationInstanceResponse> {
     Util.validateModel(request);
     let query = { };
@@ -49531,11 +53871,34 @@ export default class Client extends OpenApi {
     return $tea.cast<DeleteGlobalAccelerationInstanceResponse>(await this.callApi(params, req, runtime), new DeleteGlobalAccelerationInstanceResponse({}));
   }
 
+  /**
+    * When you call this operation, take note of the following items:
+    * *   You can delete only pay-as-you-go instances.
+    * *   Before you can delete a dedicated instance, disassociate the backend server from the instance first.
+    * *   Before you can delete a shared instance, disassociate the elastic IP address (EIP) from the instance first.
+    *
+    * @param request DeleteGlobalAccelerationInstanceRequest
+    * @return DeleteGlobalAccelerationInstanceResponse
+   */
   async deleteGlobalAccelerationInstance(request: DeleteGlobalAccelerationInstanceRequest): Promise<DeleteGlobalAccelerationInstanceResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.deleteGlobalAccelerationInstanceWithOptions(request, runtime);
   }
 
+  /**
+    * When you call this operation, take note of the following rules:
+    * *   You can delete only HAVIPs that are in the Available state.
+    * *   Make sure that no route points to the HAVIP that you want to delete.
+    * *   Make sure that no elastic IP address (EIP) is associated with the HAVIP that you want to delete.
+    * *   The **DeleteHaVip** operation is asynchronous. After you send the request, the system returns a request ID. However, the operation is still being performed in the system background. You can call the [DescribeHaVips](~~114611~~) operation to query the status of an HAVIP:
+    *     *   If the HAVIP is in the **Deleting** state, the HAVIP is being deleted.
+    *     *   If you cannot query the HAVIP, the HAVIP is deleted.
+    * *   You cannot repeatedly call the **DeleteHaVip** operation to delete an HAVIP within the specified period of time.
+    *
+    * @param request DeleteHaVipRequest
+    * @param runtime runtime options for this request RuntimeOptions
+    * @return DeleteHaVipResponse
+   */
   async deleteHaVipWithOptions(request: DeleteHaVipRequest, runtime: $Util.RuntimeOptions): Promise<DeleteHaVipResponse> {
     Util.validateModel(request);
     let query = { };
@@ -49584,6 +53947,19 @@ export default class Client extends OpenApi {
     return $tea.cast<DeleteHaVipResponse>(await this.callApi(params, req, runtime), new DeleteHaVipResponse({}));
   }
 
+  /**
+    * When you call this operation, take note of the following rules:
+    * *   You can delete only HAVIPs that are in the Available state.
+    * *   Make sure that no route points to the HAVIP that you want to delete.
+    * *   Make sure that no elastic IP address (EIP) is associated with the HAVIP that you want to delete.
+    * *   The **DeleteHaVip** operation is asynchronous. After you send the request, the system returns a request ID. However, the operation is still being performed in the system background. You can call the [DescribeHaVips](~~114611~~) operation to query the status of an HAVIP:
+    *     *   If the HAVIP is in the **Deleting** state, the HAVIP is being deleted.
+    *     *   If you cannot query the HAVIP, the HAVIP is deleted.
+    * *   You cannot repeatedly call the **DeleteHaVip** operation to delete an HAVIP within the specified period of time.
+    *
+    * @param request DeleteHaVipRequest
+    * @return DeleteHaVipResponse
+   */
   async deleteHaVip(request: DeleteHaVipRequest): Promise<DeleteHaVipResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.deleteHaVipWithOptions(request, runtime);
@@ -49642,6 +54018,14 @@ export default class Client extends OpenApi {
     return await this.deleteIPv6TranslatorWithOptions(request, runtime);
   }
 
+  /**
+    * @deprecated
+    *
+    * @param request DeleteIPv6TranslatorAclListRequest
+    * @param runtime runtime options for this request RuntimeOptions
+    * @return DeleteIPv6TranslatorAclListResponse
+   */
+  // Deprecated
   async deleteIPv6TranslatorAclListWithOptions(request: DeleteIPv6TranslatorAclListRequest, runtime: $Util.RuntimeOptions): Promise<DeleteIPv6TranslatorAclListResponse> {
     Util.validateModel(request);
     let query = { };
@@ -49690,11 +54074,26 @@ export default class Client extends OpenApi {
     return $tea.cast<DeleteIPv6TranslatorAclListResponse>(await this.callApi(params, req, runtime), new DeleteIPv6TranslatorAclListResponse({}));
   }
 
+  /**
+    * @deprecated
+    *
+    * @param request DeleteIPv6TranslatorAclListRequest
+    * @return DeleteIPv6TranslatorAclListResponse
+   */
+  // Deprecated
   async deleteIPv6TranslatorAclList(request: DeleteIPv6TranslatorAclListRequest): Promise<DeleteIPv6TranslatorAclListResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.deleteIPv6TranslatorAclListWithOptions(request, runtime);
   }
 
+  /**
+    * @deprecated
+    *
+    * @param request DeleteIPv6TranslatorEntryRequest
+    * @param runtime runtime options for this request RuntimeOptions
+    * @return DeleteIPv6TranslatorEntryResponse
+   */
+  // Deprecated
   async deleteIPv6TranslatorEntryWithOptions(request: DeleteIPv6TranslatorEntryRequest, runtime: $Util.RuntimeOptions): Promise<DeleteIPv6TranslatorEntryResponse> {
     Util.validateModel(request);
     let query = { };
@@ -49747,11 +54146,28 @@ export default class Client extends OpenApi {
     return $tea.cast<DeleteIPv6TranslatorEntryResponse>(await this.callApi(params, req, runtime), new DeleteIPv6TranslatorEntryResponse({}));
   }
 
+  /**
+    * @deprecated
+    *
+    * @param request DeleteIPv6TranslatorEntryRequest
+    * @return DeleteIPv6TranslatorEntryResponse
+   */
+  // Deprecated
   async deleteIPv6TranslatorEntry(request: DeleteIPv6TranslatorEntryRequest): Promise<DeleteIPv6TranslatorEntryResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.deleteIPv6TranslatorEntryWithOptions(request, runtime);
   }
 
+  /**
+    * *   The **DeleteIpsecServer** operation is asynchronous. After you send the request, the system returns a request ID. However, the operation is still being performed in the system background. You can call [DescribeVpnGateway](~~73720~~) to query the status of a VPN gateway.
+    *     *   If a VPN gateway is in the **updating** state, the IPsec server is being deleted.
+    *     *   If a VPN gateway is in the **active** state, the IPsec server has been deleted.
+    * *   You cannot repeatedly call **DeleteIpsecServer** to delete an IPsec server from a VPN gateway within the specified period of time.
+    *
+    * @param request DeleteIpsecServerRequest
+    * @param runtime runtime options for this request RuntimeOptions
+    * @return DeleteIpsecServerResponse
+   */
   async deleteIpsecServerWithOptions(request: DeleteIpsecServerRequest, runtime: $Util.RuntimeOptions): Promise<DeleteIpsecServerResponse> {
     Util.validateModel(request);
     let query = { };
@@ -49788,11 +54204,27 @@ export default class Client extends OpenApi {
     return $tea.cast<DeleteIpsecServerResponse>(await this.callApi(params, req, runtime), new DeleteIpsecServerResponse({}));
   }
 
+  /**
+    * *   The **DeleteIpsecServer** operation is asynchronous. After you send the request, the system returns a request ID. However, the operation is still being performed in the system background. You can call [DescribeVpnGateway](~~73720~~) to query the status of a VPN gateway.
+    *     *   If a VPN gateway is in the **updating** state, the IPsec server is being deleted.
+    *     *   If a VPN gateway is in the **active** state, the IPsec server has been deleted.
+    * *   You cannot repeatedly call **DeleteIpsecServer** to delete an IPsec server from a VPN gateway within the specified period of time.
+    *
+    * @param request DeleteIpsecServerRequest
+    * @return DeleteIpsecServerResponse
+   */
   async deleteIpsecServer(request: DeleteIpsecServerRequest): Promise<DeleteIpsecServerResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.deleteIpsecServerWithOptions(request, runtime);
   }
 
+  /**
+    * The ID of the IPv4 gateway that you want to delete.
+    *
+    * @param request DeleteIpv4GatewayRequest
+    * @param runtime runtime options for this request RuntimeOptions
+    * @return DeleteIpv4GatewayResponse
+   */
   async deleteIpv4GatewayWithOptions(request: DeleteIpv4GatewayRequest, runtime: $Util.RuntimeOptions): Promise<DeleteIpv4GatewayResponse> {
     Util.validateModel(request);
     let query = { };
@@ -49849,11 +54281,27 @@ export default class Client extends OpenApi {
     return $tea.cast<DeleteIpv4GatewayResponse>(await this.callApi(params, req, runtime), new DeleteIpv4GatewayResponse({}));
   }
 
+  /**
+    * The ID of the IPv4 gateway that you want to delete.
+    *
+    * @param request DeleteIpv4GatewayRequest
+    * @return DeleteIpv4GatewayResponse
+   */
   async deleteIpv4Gateway(request: DeleteIpv4GatewayRequest): Promise<DeleteIpv4GatewayResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.deleteIpv4GatewayWithOptions(request, runtime);
   }
 
+  /**
+    * *   **DeleteIpv6EgressOnlyRule** is an asynchronous operation. After you send a request, the system returns a request ID. However, the operation is still being performed in the system background. You can call the [DescribeIpv6EgressOnlyRules](~~102208~~) operation to query whether the egress-only rule is deleted.
+    *     *   If the egress-only rule is in the **Deleting** state, it indicates that the egress-only rule is being deleted.
+    *     *   If you cannot query the egress-only rule, it indicates that the egress-only rule is deleted.
+    * *   You cannot call the **DeleteIpv6EgressOnlyRule** operation to delete an egress-only rule again when the rule is being deleted.
+    *
+    * @param request DeleteIpv6EgressOnlyRuleRequest
+    * @param runtime runtime options for this request RuntimeOptions
+    * @return DeleteIpv6EgressOnlyRuleResponse
+   */
   async deleteIpv6EgressOnlyRuleWithOptions(request: DeleteIpv6EgressOnlyRuleRequest, runtime: $Util.RuntimeOptions): Promise<DeleteIpv6EgressOnlyRuleResponse> {
     Util.validateModel(request);
     let query = { };
@@ -49906,11 +54354,31 @@ export default class Client extends OpenApi {
     return $tea.cast<DeleteIpv6EgressOnlyRuleResponse>(await this.callApi(params, req, runtime), new DeleteIpv6EgressOnlyRuleResponse({}));
   }
 
+  /**
+    * *   **DeleteIpv6EgressOnlyRule** is an asynchronous operation. After you send a request, the system returns a request ID. However, the operation is still being performed in the system background. You can call the [DescribeIpv6EgressOnlyRules](~~102208~~) operation to query whether the egress-only rule is deleted.
+    *     *   If the egress-only rule is in the **Deleting** state, it indicates that the egress-only rule is being deleted.
+    *     *   If you cannot query the egress-only rule, it indicates that the egress-only rule is deleted.
+    * *   You cannot call the **DeleteIpv6EgressOnlyRule** operation to delete an egress-only rule again when the rule is being deleted.
+    *
+    * @param request DeleteIpv6EgressOnlyRuleRequest
+    * @return DeleteIpv6EgressOnlyRuleResponse
+   */
   async deleteIpv6EgressOnlyRule(request: DeleteIpv6EgressOnlyRuleRequest): Promise<DeleteIpv6EgressOnlyRuleResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.deleteIpv6EgressOnlyRuleWithOptions(request, runtime);
   }
 
+  /**
+    * - The **DeleteIpv6Gateway** operation is asynchronous. After you send the request, the system returns a request ID. However, the operation is still being performed in the system background. You can call the [DescribeIpv6GatewayAttribute](/help/en/virtual-private-cloud/latest/describeipv6gatewayattribute) operation to query the status of an IPv6 gateway:   - If the IPv6 gateway is in the **Deleting** state, the IPv6 gateway is being deleted.
+    *   - If you cannot query the IPv6 gateway, the IPv6 gateway is deleted.
+    * - After you call the **DeleteIpv6Gateway** operation to delete an IPv6 gateway, you cannot call the operation again to delete the IPv6 gateway until the deletion task is complete.
+    * ## Prerequisites
+    * Before you delete an IPv6 gateway, you must delete the egress-only rules of the IPv6 gateway. For more information, see [DeleteIpv6EgressOnlyRule](~~102201~~).
+    *
+    * @param request DeleteIpv6GatewayRequest
+    * @param runtime runtime options for this request RuntimeOptions
+    * @return DeleteIpv6GatewayResponse
+   */
   async deleteIpv6GatewayWithOptions(request: DeleteIpv6GatewayRequest, runtime: $Util.RuntimeOptions): Promise<DeleteIpv6GatewayResponse> {
     Util.validateModel(request);
     let query = { };
@@ -49959,11 +54427,28 @@ export default class Client extends OpenApi {
     return $tea.cast<DeleteIpv6GatewayResponse>(await this.callApi(params, req, runtime), new DeleteIpv6GatewayResponse({}));
   }
 
+  /**
+    * - The **DeleteIpv6Gateway** operation is asynchronous. After you send the request, the system returns a request ID. However, the operation is still being performed in the system background. You can call the [DescribeIpv6GatewayAttribute](/help/en/virtual-private-cloud/latest/describeipv6gatewayattribute) operation to query the status of an IPv6 gateway:   - If the IPv6 gateway is in the **Deleting** state, the IPv6 gateway is being deleted.
+    *   - If you cannot query the IPv6 gateway, the IPv6 gateway is deleted.
+    * - After you call the **DeleteIpv6Gateway** operation to delete an IPv6 gateway, you cannot call the operation again to delete the IPv6 gateway until the deletion task is complete.
+    * ## Prerequisites
+    * Before you delete an IPv6 gateway, you must delete the egress-only rules of the IPv6 gateway. For more information, see [DeleteIpv6EgressOnlyRule](~~102201~~).
+    *
+    * @param request DeleteIpv6GatewayRequest
+    * @return DeleteIpv6GatewayResponse
+   */
   async deleteIpv6Gateway(request: DeleteIpv6GatewayRequest): Promise<DeleteIpv6GatewayResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.deleteIpv6GatewayWithOptions(request, runtime);
   }
 
+  /**
+    * You cannot call the **DeleteIpv6InternetBandwidth** operation to delete the same Internet bandwidth at the same time.
+    *
+    * @param request DeleteIpv6InternetBandwidthRequest
+    * @param runtime runtime options for this request RuntimeOptions
+    * @return DeleteIpv6InternetBandwidthResponse
+   */
   async deleteIpv6InternetBandwidthWithOptions(request: DeleteIpv6InternetBandwidthRequest, runtime: $Util.RuntimeOptions): Promise<DeleteIpv6InternetBandwidthResponse> {
     Util.validateModel(request);
     let query = { };
@@ -50016,11 +54501,25 @@ export default class Client extends OpenApi {
     return $tea.cast<DeleteIpv6InternetBandwidthResponse>(await this.callApi(params, req, runtime), new DeleteIpv6InternetBandwidthResponse({}));
   }
 
+  /**
+    * You cannot call the **DeleteIpv6InternetBandwidth** operation to delete the same Internet bandwidth at the same time.
+    *
+    * @param request DeleteIpv6InternetBandwidthRequest
+    * @return DeleteIpv6InternetBandwidthResponse
+   */
   async deleteIpv6InternetBandwidth(request: DeleteIpv6InternetBandwidthRequest): Promise<DeleteIpv6InternetBandwidthResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.deleteIpv6InternetBandwidthWithOptions(request, runtime);
   }
 
+  /**
+    * The ID of the region where the NAT gateway is deployed.
+    * You can call the [DescribeRegions](~~36063~~) operation to query the most recent region list.
+    *
+    * @param request DeleteNatGatewayRequest
+    * @param runtime runtime options for this request RuntimeOptions
+    * @return DeleteNatGatewayResponse
+   */
   async deleteNatGatewayWithOptions(request: DeleteNatGatewayRequest, runtime: $Util.RuntimeOptions): Promise<DeleteNatGatewayResponse> {
     Util.validateModel(request);
     let query = { };
@@ -50069,11 +54568,25 @@ export default class Client extends OpenApi {
     return $tea.cast<DeleteNatGatewayResponse>(await this.callApi(params, req, runtime), new DeleteNatGatewayResponse({}));
   }
 
+  /**
+    * The ID of the region where the NAT gateway is deployed.
+    * You can call the [DescribeRegions](~~36063~~) operation to query the most recent region list.
+    *
+    * @param request DeleteNatGatewayRequest
+    * @return DeleteNatGatewayResponse
+   */
   async deleteNatGateway(request: DeleteNatGatewayRequest): Promise<DeleteNatGatewayResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.deleteNatGatewayWithOptions(request, runtime);
   }
 
+  /**
+    * The ID of the NAT IP address that you want to delete.
+    *
+    * @param request DeleteNatIpRequest
+    * @param runtime runtime options for this request RuntimeOptions
+    * @return DeleteNatIpResponse
+   */
   async deleteNatIpWithOptions(request: DeleteNatIpRequest, runtime: $Util.RuntimeOptions): Promise<DeleteNatIpResponse> {
     Util.validateModel(request);
     let query = { };
@@ -50130,11 +54643,24 @@ export default class Client extends OpenApi {
     return $tea.cast<DeleteNatIpResponse>(await this.callApi(params, req, runtime), new DeleteNatIpResponse({}));
   }
 
+  /**
+    * The ID of the NAT IP address that you want to delete.
+    *
+    * @param request DeleteNatIpRequest
+    * @return DeleteNatIpResponse
+   */
   async deleteNatIp(request: DeleteNatIpRequest): Promise<DeleteNatIpResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.deleteNatIpWithOptions(request, runtime);
   }
 
+  /**
+    * You cannot repeatedly call the **DeleteNatIpCidr** operation to delete a NAT CIDR block within the specified period of time.
+    *
+    * @param request DeleteNatIpCidrRequest
+    * @param runtime runtime options for this request RuntimeOptions
+    * @return DeleteNatIpCidrResponse
+   */
   async deleteNatIpCidrWithOptions(request: DeleteNatIpCidrRequest, runtime: $Util.RuntimeOptions): Promise<DeleteNatIpCidrResponse> {
     Util.validateModel(request);
     let query = { };
@@ -50195,11 +54721,24 @@ export default class Client extends OpenApi {
     return $tea.cast<DeleteNatIpCidrResponse>(await this.callApi(params, req, runtime), new DeleteNatIpCidrResponse({}));
   }
 
+  /**
+    * You cannot repeatedly call the **DeleteNatIpCidr** operation to delete a NAT CIDR block within the specified period of time.
+    *
+    * @param request DeleteNatIpCidrRequest
+    * @return DeleteNatIpCidrResponse
+   */
   async deleteNatIpCidr(request: DeleteNatIpCidrRequest): Promise<DeleteNatIpCidrResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.deleteNatIpCidrWithOptions(request, runtime);
   }
 
+  /**
+    * You cannot repeatedly call the **DeleteNetworkAcl** operation to delete a network ACL within the specified period of time.
+    *
+    * @param request DeleteNetworkAclRequest
+    * @param runtime runtime options for this request RuntimeOptions
+    * @return DeleteNetworkAclResponse
+   */
   async deleteNetworkAclWithOptions(request: DeleteNetworkAclRequest, runtime: $Util.RuntimeOptions): Promise<DeleteNetworkAclResponse> {
     Util.validateModel(request);
     let query = { };
@@ -50248,11 +54787,25 @@ export default class Client extends OpenApi {
     return $tea.cast<DeleteNetworkAclResponse>(await this.callApi(params, req, runtime), new DeleteNetworkAclResponse({}));
   }
 
+  /**
+    * You cannot repeatedly call the **DeleteNetworkAcl** operation to delete a network ACL within the specified period of time.
+    *
+    * @param request DeleteNetworkAclRequest
+    * @return DeleteNetworkAclResponse
+   */
   async deleteNetworkAcl(request: DeleteNetworkAclRequest): Promise<DeleteNetworkAclResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.deleteNetworkAclWithOptions(request, runtime);
   }
 
+  /**
+    * ## Limit
+    * You can only delete a connection over an Express Connect circuit that is in the **Rejected**, **Canceled**, **AllocationFailed**, or **Terminated** state.
+    *
+    * @param request DeletePhysicalConnectionRequest
+    * @param runtime runtime options for this request RuntimeOptions
+    * @return DeletePhysicalConnectionResponse
+   */
   async deletePhysicalConnectionWithOptions(request: DeletePhysicalConnectionRequest, runtime: $Util.RuntimeOptions): Promise<DeletePhysicalConnectionResponse> {
     Util.validateModel(request);
     let query = { };
@@ -50301,11 +54854,25 @@ export default class Client extends OpenApi {
     return $tea.cast<DeletePhysicalConnectionResponse>(await this.callApi(params, req, runtime), new DeletePhysicalConnectionResponse({}));
   }
 
+  /**
+    * ## Limit
+    * You can only delete a connection over an Express Connect circuit that is in the **Rejected**, **Canceled**, **AllocationFailed**, or **Terminated** state.
+    *
+    * @param request DeletePhysicalConnectionRequest
+    * @return DeletePhysicalConnectionResponse
+   */
   async deletePhysicalConnection(request: DeletePhysicalConnectionRequest): Promise<DeletePhysicalConnectionResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.deletePhysicalConnectionWithOptions(request, runtime);
   }
 
+  /**
+    * The ID of the IP address pool.
+    *
+    * @param request DeletePublicIpAddressPoolRequest
+    * @param runtime runtime options for this request RuntimeOptions
+    * @return DeletePublicIpAddressPoolResponse
+   */
   async deletePublicIpAddressPoolWithOptions(request: DeletePublicIpAddressPoolRequest, runtime: $Util.RuntimeOptions): Promise<DeletePublicIpAddressPoolResponse> {
     Util.validateModel(request);
     let query = { };
@@ -50358,11 +54925,24 @@ export default class Client extends OpenApi {
     return $tea.cast<DeletePublicIpAddressPoolResponse>(await this.callApi(params, req, runtime), new DeletePublicIpAddressPoolResponse({}));
   }
 
+  /**
+    * The ID of the IP address pool.
+    *
+    * @param request DeletePublicIpAddressPoolRequest
+    * @return DeletePublicIpAddressPoolResponse
+   */
   async deletePublicIpAddressPool(request: DeletePublicIpAddressPoolRequest): Promise<DeletePublicIpAddressPoolResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.deletePublicIpAddressPoolWithOptions(request, runtime);
   }
 
+  /**
+    * The ID of the IP address pool.
+    *
+    * @param request DeletePublicIpAddressPoolCidrBlockRequest
+    * @param runtime runtime options for this request RuntimeOptions
+    * @return DeletePublicIpAddressPoolCidrBlockResponse
+   */
   async deletePublicIpAddressPoolCidrBlockWithOptions(request: DeletePublicIpAddressPoolCidrBlockRequest, runtime: $Util.RuntimeOptions): Promise<DeletePublicIpAddressPoolCidrBlockResponse> {
     Util.validateModel(request);
     let query = { };
@@ -50419,11 +54999,30 @@ export default class Client extends OpenApi {
     return $tea.cast<DeletePublicIpAddressPoolCidrBlockResponse>(await this.callApi(params, req, runtime), new DeletePublicIpAddressPoolCidrBlockResponse({}));
   }
 
+  /**
+    * The ID of the IP address pool.
+    *
+    * @param request DeletePublicIpAddressPoolCidrBlockRequest
+    * @return DeletePublicIpAddressPoolCidrBlockResponse
+   */
   async deletePublicIpAddressPoolCidrBlock(request: DeletePublicIpAddressPoolCidrBlockRequest): Promise<DeletePublicIpAddressPoolCidrBlockResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.deletePublicIpAddressPoolCidrBlockWithOptions(request, runtime);
   }
 
+  /**
+    * When you call this operation, take note of the following items:
+    * *   You can delete only route entries that are in the **Available** state.
+    * *   You cannot delete a route entry of a virtual private cloud (VPC) in which a vSwitch or another route entry is being created or deleted.
+    * *   **DeleteRouteEntries** is an asynchronous operation. After you call this operation, the system returns a request ID and runs the task in the background. You can call the [DescribeRouteEntryList](~~138148~~) operation to query the status of a route entry.
+    *     *   If the route entry is in the **Deleting** state, the route entry is being deleted.
+    *     *   If you cannot query the route entry, the route entry is deleted.
+    * *   You cannot repeatedly call **DeleteRouteEntries** within a specific period of time.
+    *
+    * @param request DeleteRouteEntriesRequest
+    * @param runtime runtime options for this request RuntimeOptions
+    * @return DeleteRouteEntriesResponse
+   */
   async deleteRouteEntriesWithOptions(request: DeleteRouteEntriesRequest, runtime: $Util.RuntimeOptions): Promise<DeleteRouteEntriesResponse> {
     Util.validateModel(request);
     let query = { };
@@ -50472,11 +55071,37 @@ export default class Client extends OpenApi {
     return $tea.cast<DeleteRouteEntriesResponse>(await this.callApi(params, req, runtime), new DeleteRouteEntriesResponse({}));
   }
 
+  /**
+    * When you call this operation, take note of the following items:
+    * *   You can delete only route entries that are in the **Available** state.
+    * *   You cannot delete a route entry of a virtual private cloud (VPC) in which a vSwitch or another route entry is being created or deleted.
+    * *   **DeleteRouteEntries** is an asynchronous operation. After you call this operation, the system returns a request ID and runs the task in the background. You can call the [DescribeRouteEntryList](~~138148~~) operation to query the status of a route entry.
+    *     *   If the route entry is in the **Deleting** state, the route entry is being deleted.
+    *     *   If you cannot query the route entry, the route entry is deleted.
+    * *   You cannot repeatedly call **DeleteRouteEntries** within a specific period of time.
+    *
+    * @param request DeleteRouteEntriesRequest
+    * @return DeleteRouteEntriesResponse
+   */
   async deleteRouteEntries(request: DeleteRouteEntriesRequest): Promise<DeleteRouteEntriesResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.deleteRouteEntriesWithOptions(request, runtime);
   }
 
+  /**
+    * When you call this operation, take note of the following rules:
+    * *   You can delete only routes that are in the **Available** state.
+    * *   You cannot delete a route of a virtual private cloud (VPC) in which a vSwitch or a route is being created.
+    * *   Before you call this operation to delete a route of a VBR route table, call the [DescribeRouteEntryList](~~138148~~) operation to query the **NextHopId** of the route first.
+    * *   The **DeleteRouteEntry** operation is asynchronous. After you send the request, the system returns a request ID. However, the operation is still being performed in the system background. You can call the [DescribeRouteEntryList](~~138148~~) operation to query the status of a route:
+    *     *   If the route is in the **Deleting** state, the route is being deleted.
+    *     *   If you cannot query the route, the route is deleted.
+    * *   You cannot repeatedly call the **DeleteRouteEntry** operation to delete a route from the route table of a vRouter or a VBR within the specified period of time.
+    *
+    * @param request DeleteRouteEntryRequest
+    * @param runtime runtime options for this request RuntimeOptions
+    * @return DeleteRouteEntryResponse
+   */
   async deleteRouteEntryWithOptions(request: DeleteRouteEntryRequest, runtime: $Util.RuntimeOptions): Promise<DeleteRouteEntryResponse> {
     Util.validateModel(request);
     let query = { };
@@ -50537,11 +55162,34 @@ export default class Client extends OpenApi {
     return $tea.cast<DeleteRouteEntryResponse>(await this.callApi(params, req, runtime), new DeleteRouteEntryResponse({}));
   }
 
+  /**
+    * When you call this operation, take note of the following rules:
+    * *   You can delete only routes that are in the **Available** state.
+    * *   You cannot delete a route of a virtual private cloud (VPC) in which a vSwitch or a route is being created.
+    * *   Before you call this operation to delete a route of a VBR route table, call the [DescribeRouteEntryList](~~138148~~) operation to query the **NextHopId** of the route first.
+    * *   The **DeleteRouteEntry** operation is asynchronous. After you send the request, the system returns a request ID. However, the operation is still being performed in the system background. You can call the [DescribeRouteEntryList](~~138148~~) operation to query the status of a route:
+    *     *   If the route is in the **Deleting** state, the route is being deleted.
+    *     *   If you cannot query the route, the route is deleted.
+    * *   You cannot repeatedly call the **DeleteRouteEntry** operation to delete a route from the route table of a vRouter or a VBR within the specified period of time.
+    *
+    * @param request DeleteRouteEntryRequest
+    * @return DeleteRouteEntryResponse
+   */
   async deleteRouteEntry(request: DeleteRouteEntryRequest): Promise<DeleteRouteEntryResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.deleteRouteEntryWithOptions(request, runtime);
   }
 
+  /**
+    * *   The **DeleteRouteTable** operation is asynchronous. After you send the request, the system returns a request ID. However, the operation is still being performed in the system background. You can call the [DescribeRouteTableList](~~87602~~) operation to query the status of a custom route table:
+    *     *   If the custom route table is in the **Deleting** state, the custom route table is being deleted.
+    *     *   If you cannot query the custom route table, the custom route table is deleted.
+    * *   You cannot repeatedly call the **DeleteRouteTable** operation to delete a custom route table within the specified period of time.
+    *
+    * @param request DeleteRouteTableRequest
+    * @param runtime runtime options for this request RuntimeOptions
+    * @return DeleteRouteTableResponse
+   */
   async deleteRouteTableWithOptions(request: DeleteRouteTableRequest, runtime: $Util.RuntimeOptions): Promise<DeleteRouteTableResponse> {
     Util.validateModel(request);
     let query = { };
@@ -50590,11 +55238,29 @@ export default class Client extends OpenApi {
     return $tea.cast<DeleteRouteTableResponse>(await this.callApi(params, req, runtime), new DeleteRouteTableResponse({}));
   }
 
+  /**
+    * *   The **DeleteRouteTable** operation is asynchronous. After you send the request, the system returns a request ID. However, the operation is still being performed in the system background. You can call the [DescribeRouteTableList](~~87602~~) operation to query the status of a custom route table:
+    *     *   If the custom route table is in the **Deleting** state, the custom route table is being deleted.
+    *     *   If you cannot query the custom route table, the custom route table is deleted.
+    * *   You cannot repeatedly call the **DeleteRouteTable** operation to delete a custom route table within the specified period of time.
+    *
+    * @param request DeleteRouteTableRequest
+    * @return DeleteRouteTableResponse
+   */
   async deleteRouteTable(request: DeleteRouteTableRequest): Promise<DeleteRouteTableResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.deleteRouteTableWithOptions(request, runtime);
   }
 
+  /**
+    * When you call this operation, take note of the following limits:
+    * *   You can delete only a router interface that is in the **Idle** or **Inactive** state.
+    * *   Before you delete a router interface, you must delete all custom route entries destined for the router interface.
+    *
+    * @param request DeleteRouterInterfaceRequest
+    * @param runtime runtime options for this request RuntimeOptions
+    * @return DeleteRouterInterfaceResponse
+   */
   async deleteRouterInterfaceWithOptions(request: DeleteRouterInterfaceRequest, runtime: $Util.RuntimeOptions): Promise<DeleteRouterInterfaceResponse> {
     Util.validateModel(request);
     let query = { };
@@ -50643,11 +55309,29 @@ export default class Client extends OpenApi {
     return $tea.cast<DeleteRouterInterfaceResponse>(await this.callApi(params, req, runtime), new DeleteRouterInterfaceResponse({}));
   }
 
+  /**
+    * When you call this operation, take note of the following limits:
+    * *   You can delete only a router interface that is in the **Idle** or **Inactive** state.
+    * *   Before you delete a router interface, you must delete all custom route entries destined for the router interface.
+    *
+    * @param request DeleteRouterInterfaceRequest
+    * @return DeleteRouterInterfaceResponse
+   */
   async deleteRouterInterface(request: DeleteRouterInterfaceRequest): Promise<DeleteRouterInterfaceResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.deleteRouterInterfaceWithOptions(request, runtime);
   }
 
+  /**
+    * DeleteSnatEntry is an asynchronous operation. After you make a request, the ID of the request is returned but the specified SNAT entry is not deleted. The system deletes the SNAT entry in the background. You can call the [DescribeSnatTableEntries](~~42677~~) operation to query the status of SNAT entries.
+    * *   If the SNAT entries are in the **Deleting** state, the system is deleting the SNAT entries. In this case, you can only query the status of the SNAT entries, and cannot perform other operations.
+    * *   If no SNAT entry is returned in the response, the SNAT entry is deleted.
+    * If some SNAT entries are in the **Pending** state, you cannot delete these SNAT entries.
+    *
+    * @param request DeleteSnatEntryRequest
+    * @param runtime runtime options for this request RuntimeOptions
+    * @return DeleteSnatEntryResponse
+   */
   async deleteSnatEntryWithOptions(request: DeleteSnatEntryRequest, runtime: $Util.RuntimeOptions): Promise<DeleteSnatEntryResponse> {
     Util.validateModel(request);
     let query = { };
@@ -50700,11 +55384,30 @@ export default class Client extends OpenApi {
     return $tea.cast<DeleteSnatEntryResponse>(await this.callApi(params, req, runtime), new DeleteSnatEntryResponse({}));
   }
 
+  /**
+    * DeleteSnatEntry is an asynchronous operation. After you make a request, the ID of the request is returned but the specified SNAT entry is not deleted. The system deletes the SNAT entry in the background. You can call the [DescribeSnatTableEntries](~~42677~~) operation to query the status of SNAT entries.
+    * *   If the SNAT entries are in the **Deleting** state, the system is deleting the SNAT entries. In this case, you can only query the status of the SNAT entries, and cannot perform other operations.
+    * *   If no SNAT entry is returned in the response, the SNAT entry is deleted.
+    * If some SNAT entries are in the **Pending** state, you cannot delete these SNAT entries.
+    *
+    * @param request DeleteSnatEntryRequest
+    * @return DeleteSnatEntryResponse
+   */
   async deleteSnatEntry(request: DeleteSnatEntryRequest): Promise<DeleteSnatEntryResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.deleteSnatEntryWithOptions(request, runtime);
   }
 
+  /**
+    * *   The **DeleteSslVpnClientCert** operation is asynchronous. After you send a request, the system returns a request ID. However, the operation is still being performed in the system background. You can call [DescribeVpnGateway](~~73720~~) to query the status of a VPN gateway associated with an SSL server. You can check whether an SSL client certificate is deleted based on the status of the VPN gateway.
+    *     *   If the VPN gateway is in the **updating** state, the SSL client certificate is being deleted.
+    *     *   If the VPN gateway is in the **active** state, the SSL client certificate is deleted.
+    * *   You cannot repeatedly call **DeleteSslVpnClientCert** to delete an SSL client certificate from the same VPN gateway within the specified period of time.
+    *
+    * @param request DeleteSslVpnClientCertRequest
+    * @param runtime runtime options for this request RuntimeOptions
+    * @return DeleteSslVpnClientCertResponse
+   */
   async deleteSslVpnClientCertWithOptions(request: DeleteSslVpnClientCertRequest, runtime: $Util.RuntimeOptions): Promise<DeleteSslVpnClientCertResponse> {
     Util.validateModel(request);
     let query = { };
@@ -50753,11 +55456,30 @@ export default class Client extends OpenApi {
     return $tea.cast<DeleteSslVpnClientCertResponse>(await this.callApi(params, req, runtime), new DeleteSslVpnClientCertResponse({}));
   }
 
+  /**
+    * *   The **DeleteSslVpnClientCert** operation is asynchronous. After you send a request, the system returns a request ID. However, the operation is still being performed in the system background. You can call [DescribeVpnGateway](~~73720~~) to query the status of a VPN gateway associated with an SSL server. You can check whether an SSL client certificate is deleted based on the status of the VPN gateway.
+    *     *   If the VPN gateway is in the **updating** state, the SSL client certificate is being deleted.
+    *     *   If the VPN gateway is in the **active** state, the SSL client certificate is deleted.
+    * *   You cannot repeatedly call **DeleteSslVpnClientCert** to delete an SSL client certificate from the same VPN gateway within the specified period of time.
+    *
+    * @param request DeleteSslVpnClientCertRequest
+    * @return DeleteSslVpnClientCertResponse
+   */
   async deleteSslVpnClientCert(request: DeleteSslVpnClientCertRequest): Promise<DeleteSslVpnClientCertResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.deleteSslVpnClientCertWithOptions(request, runtime);
   }
 
+  /**
+    * *   The **DeleteSslVpnServer** operation is asynchronous. After you send a request, the system returns a request ID. However, the operation is still being performed in the system background. You can call the [DescribeVpnGateway](~~73720~~) operation to query the status of an SSL server based on the status of the associated VPN gateway.
+    *     *   If the VPN gateway is in the **updating** state, the SSL server is being deleted.
+    *     *   If the VPN gateway is in the **active** state, the SSL server is deleted.
+    * *   You cannot repeatedly call the **DeleteSslVpnServer** operation to delete an SSL server from the same VPN gateway within the specified period of time.
+    *
+    * @param request DeleteSslVpnServerRequest
+    * @param runtime runtime options for this request RuntimeOptions
+    * @return DeleteSslVpnServerResponse
+   */
   async deleteSslVpnServerWithOptions(request: DeleteSslVpnServerRequest, runtime: $Util.RuntimeOptions): Promise<DeleteSslVpnServerResponse> {
     Util.validateModel(request);
     let query = { };
@@ -50806,11 +55528,27 @@ export default class Client extends OpenApi {
     return $tea.cast<DeleteSslVpnServerResponse>(await this.callApi(params, req, runtime), new DeleteSslVpnServerResponse({}));
   }
 
+  /**
+    * *   The **DeleteSslVpnServer** operation is asynchronous. After you send a request, the system returns a request ID. However, the operation is still being performed in the system background. You can call the [DescribeVpnGateway](~~73720~~) operation to query the status of an SSL server based on the status of the associated VPN gateway.
+    *     *   If the VPN gateway is in the **updating** state, the SSL server is being deleted.
+    *     *   If the VPN gateway is in the **active** state, the SSL server is deleted.
+    * *   You cannot repeatedly call the **DeleteSslVpnServer** operation to delete an SSL server from the same VPN gateway within the specified period of time.
+    *
+    * @param request DeleteSslVpnServerRequest
+    * @return DeleteSslVpnServerResponse
+   */
   async deleteSslVpnServer(request: DeleteSslVpnServerRequest): Promise<DeleteSslVpnServerResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.deleteSslVpnServerWithOptions(request, runtime);
   }
 
+  /**
+    * The ID of the filter.
+    *
+    * @param request DeleteTrafficMirrorFilterRequest
+    * @param runtime runtime options for this request RuntimeOptions
+    * @return DeleteTrafficMirrorFilterResponse
+   */
   async deleteTrafficMirrorFilterWithOptions(request: DeleteTrafficMirrorFilterRequest, runtime: $Util.RuntimeOptions): Promise<DeleteTrafficMirrorFilterResponse> {
     Util.validateModel(request);
     let query = { };
@@ -50863,11 +55601,24 @@ export default class Client extends OpenApi {
     return $tea.cast<DeleteTrafficMirrorFilterResponse>(await this.callApi(params, req, runtime), new DeleteTrafficMirrorFilterResponse({}));
   }
 
+  /**
+    * The ID of the filter.
+    *
+    * @param request DeleteTrafficMirrorFilterRequest
+    * @return DeleteTrafficMirrorFilterResponse
+   */
   async deleteTrafficMirrorFilter(request: DeleteTrafficMirrorFilterRequest): Promise<DeleteTrafficMirrorFilterResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.deleteTrafficMirrorFilterWithOptions(request, runtime);
   }
 
+  /**
+    * The ID of the filter.
+    *
+    * @param request DeleteTrafficMirrorFilterRulesRequest
+    * @param runtime runtime options for this request RuntimeOptions
+    * @return DeleteTrafficMirrorFilterRulesResponse
+   */
   async deleteTrafficMirrorFilterRulesWithOptions(request: DeleteTrafficMirrorFilterRulesRequest, runtime: $Util.RuntimeOptions): Promise<DeleteTrafficMirrorFilterRulesResponse> {
     Util.validateModel(request);
     let query = { };
@@ -50924,11 +55675,26 @@ export default class Client extends OpenApi {
     return $tea.cast<DeleteTrafficMirrorFilterRulesResponse>(await this.callApi(params, req, runtime), new DeleteTrafficMirrorFilterRulesResponse({}));
   }
 
+  /**
+    * The ID of the filter.
+    *
+    * @param request DeleteTrafficMirrorFilterRulesRequest
+    * @return DeleteTrafficMirrorFilterRulesResponse
+   */
   async deleteTrafficMirrorFilterRules(request: DeleteTrafficMirrorFilterRulesRequest): Promise<DeleteTrafficMirrorFilterRulesResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.deleteTrafficMirrorFilterRulesWithOptions(request, runtime);
   }
 
+  /**
+    * The client token that is used to ensure the idempotence of the request.
+    * You can use the client to generate the value, but you must make sure that it is unique among all requests. ClientToken can contain only ASCII characters.
+    * >  If you do not specify this parameter, **ClientToken** is set to the value of **RequestId**. The value of **RequestId** for each API request may be different.
+    *
+    * @param request DeleteTrafficMirrorSessionRequest
+    * @param runtime runtime options for this request RuntimeOptions
+    * @return DeleteTrafficMirrorSessionResponse
+   */
   async deleteTrafficMirrorSessionWithOptions(request: DeleteTrafficMirrorSessionRequest, runtime: $Util.RuntimeOptions): Promise<DeleteTrafficMirrorSessionResponse> {
     Util.validateModel(request);
     let query = { };
@@ -50981,11 +55747,33 @@ export default class Client extends OpenApi {
     return $tea.cast<DeleteTrafficMirrorSessionResponse>(await this.callApi(params, req, runtime), new DeleteTrafficMirrorSessionResponse({}));
   }
 
+  /**
+    * The client token that is used to ensure the idempotence of the request.
+    * You can use the client to generate the value, but you must make sure that it is unique among all requests. ClientToken can contain only ASCII characters.
+    * >  If you do not specify this parameter, **ClientToken** is set to the value of **RequestId**. The value of **RequestId** for each API request may be different.
+    *
+    * @param request DeleteTrafficMirrorSessionRequest
+    * @return DeleteTrafficMirrorSessionResponse
+   */
   async deleteTrafficMirrorSession(request: DeleteTrafficMirrorSessionRequest): Promise<DeleteTrafficMirrorSessionResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.deleteTrafficMirrorSessionWithOptions(request, runtime);
   }
 
+  /**
+    * When you call this operation, take note of the following limits:
+    * *   Before you delete a vSwitch, you must first release or remove all virtual private cloud (VPC) resources, including vSwitches, instances, router interfaces, and high-availability virtual IP addresses (HAVIPs).
+    * *   You can delete only vSwitches that are in the **Available** state.
+    * *   You cannot delete a vSwitch from a VPC where a vSwitch or a route is being created or deleted.
+    * *   **DeleteVSwitch** is an asynchronous operation. After you send a request, the system returns a request ID and runs the task in the background. You can call the [DescribeVSwitchAttributes](~~94567~~) operation to query the status of a vSwitch:
+    *     *   If the vSwitch is in the **Pending** state, the vSwitch is being deleted.
+    *     *   If you cannot query the vSwitch, the vSwitch is deleted.
+    * *   You cannot repeatedly call the **DeleteVSwitch** operation to delete a vSwitch within the specified period of time.
+    *
+    * @param request DeleteVSwitchRequest
+    * @param runtime runtime options for this request RuntimeOptions
+    * @return DeleteVSwitchResponse
+   */
   async deleteVSwitchWithOptions(request: DeleteVSwitchRequest, runtime: $Util.RuntimeOptions): Promise<DeleteVSwitchResponse> {
     Util.validateModel(request);
     let query = { };
@@ -51030,6 +55818,19 @@ export default class Client extends OpenApi {
     return $tea.cast<DeleteVSwitchResponse>(await this.callApi(params, req, runtime), new DeleteVSwitchResponse({}));
   }
 
+  /**
+    * When you call this operation, take note of the following limits:
+    * *   Before you delete a vSwitch, you must first release or remove all virtual private cloud (VPC) resources, including vSwitches, instances, router interfaces, and high-availability virtual IP addresses (HAVIPs).
+    * *   You can delete only vSwitches that are in the **Available** state.
+    * *   You cannot delete a vSwitch from a VPC where a vSwitch or a route is being created or deleted.
+    * *   **DeleteVSwitch** is an asynchronous operation. After you send a request, the system returns a request ID and runs the task in the background. You can call the [DescribeVSwitchAttributes](~~94567~~) operation to query the status of a vSwitch:
+    *     *   If the vSwitch is in the **Pending** state, the vSwitch is being deleted.
+    *     *   If you cannot query the vSwitch, the vSwitch is deleted.
+    * *   You cannot repeatedly call the **DeleteVSwitch** operation to delete a vSwitch within the specified period of time.
+    *
+    * @param request DeleteVSwitchRequest
+    * @return DeleteVSwitchResponse
+   */
   async deleteVSwitch(request: DeleteVSwitchRequest): Promise<DeleteVSwitchResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.deleteVSwitchWithOptions(request, runtime);
@@ -51088,6 +55889,16 @@ export default class Client extends OpenApi {
     return await this.deleteVbrHaWithOptions(request, runtime);
   }
 
+  /**
+    * *   The **DeleteVcoRouteEntry** operation is asynchronous. After you send the request, the system returns a request ID. However, the operation is still being performed in the system background. You can call the [DescribeVpnConnection](~~53046~~) operation to query the status of a route based on the status of the associated IPsec-VPN connection.
+    *     *   If the IPsec-VPN connection is in the **updating** state, the route is being deleted.
+    *     *   If the IPsec-VPN connection is in the **attached** state, the route is deleted.
+    * *   You cannot repeatedly call the **DeleteVcoRouteEntry** operation to delete a route from the same IPsec-VPN connection within the specified period of time.
+    *
+    * @param request DeleteVcoRouteEntryRequest
+    * @param runtime runtime options for this request RuntimeOptions
+    * @return DeleteVcoRouteEntryResponse
+   */
   async deleteVcoRouteEntryWithOptions(request: DeleteVcoRouteEntryRequest, runtime: $Util.RuntimeOptions): Promise<DeleteVcoRouteEntryResponse> {
     Util.validateModel(request);
     let query = { };
@@ -51148,11 +55959,31 @@ export default class Client extends OpenApi {
     return $tea.cast<DeleteVcoRouteEntryResponse>(await this.callApi(params, req, runtime), new DeleteVcoRouteEntryResponse({}));
   }
 
+  /**
+    * *   The **DeleteVcoRouteEntry** operation is asynchronous. After you send the request, the system returns a request ID. However, the operation is still being performed in the system background. You can call the [DescribeVpnConnection](~~53046~~) operation to query the status of a route based on the status of the associated IPsec-VPN connection.
+    *     *   If the IPsec-VPN connection is in the **updating** state, the route is being deleted.
+    *     *   If the IPsec-VPN connection is in the **attached** state, the route is deleted.
+    * *   You cannot repeatedly call the **DeleteVcoRouteEntry** operation to delete a route from the same IPsec-VPN connection within the specified period of time.
+    *
+    * @param request DeleteVcoRouteEntryRequest
+    * @return DeleteVcoRouteEntryResponse
+   */
   async deleteVcoRouteEntry(request: DeleteVcoRouteEntryRequest): Promise<DeleteVcoRouteEntryResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.deleteVcoRouteEntryWithOptions(request, runtime);
   }
 
+  /**
+    * ## Limits
+    * Before you call this operation, take note of the following limits:
+    * *   Before you delete a VBR, you must delete all router interfaces of the VBR.
+    * *   You can delete only a VBR that is in the** Unconfirmed**,** Enabled**, or** Terminated** state.
+    * *   If the owner of an Express Connect circuit wants to delete a VBR that belongs to another Alibaba Cloud account, the VBR must be in the **Unconfirmed** state.
+    *
+    * @param request DeleteVirtualBorderRouterRequest
+    * @param runtime runtime options for this request RuntimeOptions
+    * @return DeleteVirtualBorderRouterResponse
+   */
   async deleteVirtualBorderRouterWithOptions(request: DeleteVirtualBorderRouterRequest, runtime: $Util.RuntimeOptions): Promise<DeleteVirtualBorderRouterResponse> {
     Util.validateModel(request);
     let query = { };
@@ -51201,14 +56032,45 @@ export default class Client extends OpenApi {
     return $tea.cast<DeleteVirtualBorderRouterResponse>(await this.callApi(params, req, runtime), new DeleteVirtualBorderRouterResponse({}));
   }
 
+  /**
+    * ## Limits
+    * Before you call this operation, take note of the following limits:
+    * *   Before you delete a VBR, you must delete all router interfaces of the VBR.
+    * *   You can delete only a VBR that is in the** Unconfirmed**,** Enabled**, or** Terminated** state.
+    * *   If the owner of an Express Connect circuit wants to delete a VBR that belongs to another Alibaba Cloud account, the VBR must be in the **Unconfirmed** state.
+    *
+    * @param request DeleteVirtualBorderRouterRequest
+    * @return DeleteVirtualBorderRouterResponse
+   */
   async deleteVirtualBorderRouter(request: DeleteVirtualBorderRouterRequest): Promise<DeleteVirtualBorderRouterResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.deleteVirtualBorderRouterWithOptions(request, runtime);
   }
 
+  /**
+    * When you call this operation, take note of the following limits:
+    * *   Before you delete a VPC, make sure that all resources deployed in the VPC are released or removed, such as vSwitches, instances, and high-availability virtual IP addresses (HAVIPs).
+    * *   You can delete only a VPC that is in the **Available** state.
+    * *   The **DeleteVpc** operation is asynchronous. After you send the request, the system returns a request ID. However, the operation is still being performed in the system background. You can call the [DescribeVpcAttribute](~~94565~~) operation to query the status of a VPC:
+    *     *   If the VPC is in the **Deleting** state, the VPC is being deleted.
+    *     *   If you cannot query the VPC, the VPC is deleted.
+    * *   You cannot repeatedly call the **DeleteVpc** operation to delete a VPC within the specified period of time.
+    *
+    * @param request DeleteVpcRequest
+    * @param runtime runtime options for this request RuntimeOptions
+    * @return DeleteVpcResponse
+   */
   async deleteVpcWithOptions(request: DeleteVpcRequest, runtime: $Util.RuntimeOptions): Promise<DeleteVpcResponse> {
     Util.validateModel(request);
     let query = { };
+    if (!Util.isUnset(request.dryRun)) {
+      query["DryRun"] = request.dryRun;
+    }
+
+    if (!Util.isUnset(request.forceDelete)) {
+      query["ForceDelete"] = request.forceDelete;
+    }
+
     if (!Util.isUnset(request.ownerAccount)) {
       query["OwnerAccount"] = request.ownerAccount;
     }
@@ -51250,6 +56112,18 @@ export default class Client extends OpenApi {
     return $tea.cast<DeleteVpcResponse>(await this.callApi(params, req, runtime), new DeleteVpcResponse({}));
   }
 
+  /**
+    * When you call this operation, take note of the following limits:
+    * *   Before you delete a VPC, make sure that all resources deployed in the VPC are released or removed, such as vSwitches, instances, and high-availability virtual IP addresses (HAVIPs).
+    * *   You can delete only a VPC that is in the **Available** state.
+    * *   The **DeleteVpc** operation is asynchronous. After you send the request, the system returns a request ID. However, the operation is still being performed in the system background. You can call the [DescribeVpcAttribute](~~94565~~) operation to query the status of a VPC:
+    *     *   If the VPC is in the **Deleting** state, the VPC is being deleted.
+    *     *   If you cannot query the VPC, the VPC is deleted.
+    * *   You cannot repeatedly call the **DeleteVpc** operation to delete a VPC within the specified period of time.
+    *
+    * @param request DeleteVpcRequest
+    * @return DeleteVpcResponse
+   */
   async deleteVpc(request: DeleteVpcRequest): Promise<DeleteVpcResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.deleteVpcWithOptions(request, runtime);
@@ -51312,6 +56186,13 @@ export default class Client extends OpenApi {
     return await this.deleteVpcGatewayEndpointWithOptions(request, runtime);
   }
 
+  /**
+    * The ID of the prefix list that you want to delete.
+    *
+    * @param request DeleteVpcPrefixListRequest
+    * @param runtime runtime options for this request RuntimeOptions
+    * @return DeleteVpcPrefixListResponse
+   */
   async deleteVpcPrefixListWithOptions(request: DeleteVpcPrefixListRequest, runtime: $Util.RuntimeOptions): Promise<DeleteVpcPrefixListResponse> {
     Util.validateModel(request);
     let query = { };
@@ -51364,11 +56245,25 @@ export default class Client extends OpenApi {
     return $tea.cast<DeleteVpcPrefixListResponse>(await this.callApi(params, req, runtime), new DeleteVpcPrefixListResponse({}));
   }
 
+  /**
+    * The ID of the prefix list that you want to delete.
+    *
+    * @param request DeleteVpcPrefixListRequest
+    * @return DeleteVpcPrefixListResponse
+   */
   async deleteVpcPrefixList(request: DeleteVpcPrefixListRequest): Promise<DeleteVpcPrefixListResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.deleteVpcPrefixListWithOptions(request, runtime);
   }
 
+  /**
+    * *   If the IPsec-VPN connection is associated with a transit router, you must first disassociate the IPsec-VPN connection from the transit router before you delete the IPsec-VPN connection.
+    * *   If the IPsec-VPN connection is not associated with a resource, you can call the `DeleteVpnAttachment` to delete the IPsec-VPN connection.
+    *
+    * @param request DeleteVpnAttachmentRequest
+    * @param runtime runtime options for this request RuntimeOptions
+    * @return DeleteVpnAttachmentResponse
+   */
   async deleteVpnAttachmentWithOptions(request: DeleteVpnAttachmentRequest, runtime: $Util.RuntimeOptions): Promise<DeleteVpnAttachmentResponse> {
     Util.validateModel(request);
     let query = { };
@@ -51413,11 +56308,29 @@ export default class Client extends OpenApi {
     return $tea.cast<DeleteVpnAttachmentResponse>(await this.callApi(params, req, runtime), new DeleteVpnAttachmentResponse({}));
   }
 
+  /**
+    * *   If the IPsec-VPN connection is associated with a transit router, you must first disassociate the IPsec-VPN connection from the transit router before you delete the IPsec-VPN connection.
+    * *   If the IPsec-VPN connection is not associated with a resource, you can call the `DeleteVpnAttachment` to delete the IPsec-VPN connection.
+    *
+    * @param request DeleteVpnAttachmentRequest
+    * @return DeleteVpnAttachmentResponse
+   */
   async deleteVpnAttachment(request: DeleteVpnAttachmentRequest): Promise<DeleteVpnAttachmentResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.deleteVpnAttachmentWithOptions(request, runtime);
   }
 
+  /**
+    * *   The **DeleteVpnConnection** operation is asynchronous. After you send the request, the system returns a request ID. However, the operation is still being performed in the system background. You can call the [DescribeVpnGateway](~~73720~~) operation to query the status of a VPN gateway.
+    *     *   If the VPN gateway is in the **updating** state, the IPsec-VPN connection is being deleted.
+    *     *   If the VPN gateway is in the **active** state, the IPsec-VPN connection is deleted.
+    * *   You cannot repeatedly call **DeleteVpnConnection** to delete an IPsec-VPN connection from the same VPN gateway within the specified period of time.
+    * >  After an IPsec-VPN connection between a virtual private cloud (VPC) and a data center is deleted, the communication between the VPC and data center is interrupted.
+    *
+    * @param request DeleteVpnConnectionRequest
+    * @param runtime runtime options for this request RuntimeOptions
+    * @return DeleteVpnConnectionResponse
+   */
   async deleteVpnConnectionWithOptions(request: DeleteVpnConnectionRequest, runtime: $Util.RuntimeOptions): Promise<DeleteVpnConnectionResponse> {
     Util.validateModel(request);
     let query = { };
@@ -51466,11 +56379,28 @@ export default class Client extends OpenApi {
     return $tea.cast<DeleteVpnConnectionResponse>(await this.callApi(params, req, runtime), new DeleteVpnConnectionResponse({}));
   }
 
+  /**
+    * *   The **DeleteVpnConnection** operation is asynchronous. After you send the request, the system returns a request ID. However, the operation is still being performed in the system background. You can call the [DescribeVpnGateway](~~73720~~) operation to query the status of a VPN gateway.
+    *     *   If the VPN gateway is in the **updating** state, the IPsec-VPN connection is being deleted.
+    *     *   If the VPN gateway is in the **active** state, the IPsec-VPN connection is deleted.
+    * *   You cannot repeatedly call **DeleteVpnConnection** to delete an IPsec-VPN connection from the same VPN gateway within the specified period of time.
+    * >  After an IPsec-VPN connection between a virtual private cloud (VPC) and a data center is deleted, the communication between the VPC and data center is interrupted.
+    *
+    * @param request DeleteVpnConnectionRequest
+    * @return DeleteVpnConnectionResponse
+   */
   async deleteVpnConnection(request: DeleteVpnConnectionRequest): Promise<DeleteVpnConnectionResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.deleteVpnConnectionWithOptions(request, runtime);
   }
 
+  /**
+    * >  You cannot delete a VPN gateway that is associated with an IPsec-VPN connection.
+    *
+    * @param request DeleteVpnGatewayRequest
+    * @param runtime runtime options for this request RuntimeOptions
+    * @return DeleteVpnGatewayResponse
+   */
   async deleteVpnGatewayWithOptions(request: DeleteVpnGatewayRequest, runtime: $Util.RuntimeOptions): Promise<DeleteVpnGatewayResponse> {
     Util.validateModel(request);
     let query = { };
@@ -51519,11 +56449,27 @@ export default class Client extends OpenApi {
     return $tea.cast<DeleteVpnGatewayResponse>(await this.callApi(params, req, runtime), new DeleteVpnGatewayResponse({}));
   }
 
+  /**
+    * >  You cannot delete a VPN gateway that is associated with an IPsec-VPN connection.
+    *
+    * @param request DeleteVpnGatewayRequest
+    * @return DeleteVpnGatewayResponse
+   */
   async deleteVpnGateway(request: DeleteVpnGatewayRequest): Promise<DeleteVpnGatewayResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.deleteVpnGatewayWithOptions(request, runtime);
   }
 
+  /**
+    * *   The **DeleteVpnPbrRouteEntry** operation is asynchronous. After you call the operation, the request ID is returned but the operation is still being performed in the system background. You can call [DescribeVpnGateway](~~73720~~) to query the status of a VPN gateway.
+    *     *   If a VPN gateway is in the **updating** state, the policy-based route is being deleted.
+    *     *   If a VPN gateway is in the **active** state, the policy-based route has been deleted.
+    * *   You cannot repeatedly call **DeleteVpnPbrRouteEntry** to delete a policy-based route within the specified period of time.
+    *
+    * @param request DeleteVpnPbrRouteEntryRequest
+    * @param runtime runtime options for this request RuntimeOptions
+    * @return DeleteVpnPbrRouteEntryResponse
+   */
   async deleteVpnPbrRouteEntryWithOptions(request: DeleteVpnPbrRouteEntryRequest, runtime: $Util.RuntimeOptions): Promise<DeleteVpnPbrRouteEntryResponse> {
     Util.validateModel(request);
     let query = { };
@@ -51596,11 +56542,30 @@ export default class Client extends OpenApi {
     return $tea.cast<DeleteVpnPbrRouteEntryResponse>(await this.callApi(params, req, runtime), new DeleteVpnPbrRouteEntryResponse({}));
   }
 
+  /**
+    * *   The **DeleteVpnPbrRouteEntry** operation is asynchronous. After you call the operation, the request ID is returned but the operation is still being performed in the system background. You can call [DescribeVpnGateway](~~73720~~) to query the status of a VPN gateway.
+    *     *   If a VPN gateway is in the **updating** state, the policy-based route is being deleted.
+    *     *   If a VPN gateway is in the **active** state, the policy-based route has been deleted.
+    * *   You cannot repeatedly call **DeleteVpnPbrRouteEntry** to delete a policy-based route within the specified period of time.
+    *
+    * @param request DeleteVpnPbrRouteEntryRequest
+    * @return DeleteVpnPbrRouteEntryResponse
+   */
   async deleteVpnPbrRouteEntry(request: DeleteVpnPbrRouteEntryRequest): Promise<DeleteVpnPbrRouteEntryResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.deleteVpnPbrRouteEntryWithOptions(request, runtime);
   }
 
+  /**
+    * *   The **DeleteRouteEntry** operation is asynchronous. After you send the request, the system returns a request ID but the operation is still being performed in the system background. You can call [DescribeVpnGateway](~~73720~~) to query the status of a VPN gateway.
+    *     *   If a VPN gateway is in the **updating** state, the destination-based route is being deleted.
+    *     *   If the VPN gateway is in the **active** state, the destination-based route has been deleted.
+    * *   You cannot repeatedly call **DeleteVpnRouteEntry** to delete a destination-based route from a VPN gateway within the specified period of time.
+    *
+    * @param request DeleteVpnRouteEntryRequest
+    * @param runtime runtime options for this request RuntimeOptions
+    * @return DeleteVpnRouteEntryResponse
+   */
   async deleteVpnRouteEntryWithOptions(request: DeleteVpnRouteEntryRequest, runtime: $Util.RuntimeOptions): Promise<DeleteVpnRouteEntryResponse> {
     Util.validateModel(request);
     let query = { };
@@ -51665,11 +56630,27 @@ export default class Client extends OpenApi {
     return $tea.cast<DeleteVpnRouteEntryResponse>(await this.callApi(params, req, runtime), new DeleteVpnRouteEntryResponse({}));
   }
 
+  /**
+    * *   The **DeleteRouteEntry** operation is asynchronous. After you send the request, the system returns a request ID but the operation is still being performed in the system background. You can call [DescribeVpnGateway](~~73720~~) to query the status of a VPN gateway.
+    *     *   If a VPN gateway is in the **updating** state, the destination-based route is being deleted.
+    *     *   If the VPN gateway is in the **active** state, the destination-based route has been deleted.
+    * *   You cannot repeatedly call **DeleteVpnRouteEntry** to delete a destination-based route from a VPN gateway within the specified period of time.
+    *
+    * @param request DeleteVpnRouteEntryRequest
+    * @return DeleteVpnRouteEntryResponse
+   */
   async deleteVpnRouteEntry(request: DeleteVpnRouteEntryRequest): Promise<DeleteVpnRouteEntryResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.deleteVpnRouteEntryWithOptions(request, runtime);
   }
 
+  /**
+    * After you enable deletion protection for an instance, you cannot delete the instance. You must disable deletion protection before you can delete the instance.
+    *
+    * @param request DeletionProtectionRequest
+    * @param runtime runtime options for this request RuntimeOptions
+    * @return DeletionProtectionResponse
+   */
   async deletionProtectionWithOptions(request: DeletionProtectionRequest, runtime: $Util.RuntimeOptions): Promise<DeletionProtectionResponse> {
     Util.validateModel(request);
     let query = { };
@@ -51726,6 +56707,12 @@ export default class Client extends OpenApi {
     return $tea.cast<DeletionProtectionResponse>(await this.callApi(params, req, runtime), new DeletionProtectionResponse({}));
   }
 
+  /**
+    * After you enable deletion protection for an instance, you cannot delete the instance. You must disable deletion protection before you can delete the instance.
+    *
+    * @param request DeletionProtectionRequest
+    * @return DeletionProtectionResponse
+   */
   async deletionProtection(request: DeletionProtectionRequest): Promise<DeletionProtectionResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.deletionProtectionWithOptions(request, runtime);
@@ -51734,6 +56721,10 @@ export default class Client extends OpenApi {
   async describeAccessPointsWithOptions(request: DescribeAccessPointsRequest, runtime: $Util.RuntimeOptions): Promise<DescribeAccessPointsResponse> {
     Util.validateModel(request);
     let query = { };
+    if (!Util.isUnset(request.acceptLanguage)) {
+      query["AcceptLanguage"] = request.acceptLanguage;
+    }
+
     if (!Util.isUnset(request.ownerId)) {
       query["OwnerId"] = request.ownerId;
     }
@@ -52026,6 +57017,10 @@ export default class Client extends OpenApi {
       query["SecurityProtectionEnabled"] = request.securityProtectionEnabled;
     }
 
+    if (!Util.isUnset(request.tag)) {
+      query["Tag"] = request.tag;
+    }
+
     let req = new $OpenApi.OpenApiRequest({
       query: OpenApiUtil.query(query),
     });
@@ -52132,6 +57127,10 @@ export default class Client extends OpenApi {
       query["ResourceOwnerId"] = request.resourceOwnerId;
     }
 
+    if (!Util.isUnset(request.tag)) {
+      query["Tag"] = request.tag;
+    }
+
     let req = new $OpenApi.OpenApiRequest({
       query: OpenApiUtil.query(query),
     });
@@ -52199,6 +57198,13 @@ export default class Client extends OpenApi {
     return await this.describeEcGrantRelationWithOptions(request, runtime);
   }
 
+  /**
+    * The number of the page to return. Default value: **1**.
+    *
+    * @param request DescribeEipAddressesRequest
+    * @param runtime runtime options for this request RuntimeOptions
+    * @return DescribeEipAddressesResponse
+   */
   async describeEipAddressesWithOptions(request: DescribeEipAddressesRequest, runtime: $Util.RuntimeOptions): Promise<DescribeEipAddressesResponse> {
     Util.validateModel(request);
     let query = { };
@@ -52311,11 +57317,24 @@ export default class Client extends OpenApi {
     return $tea.cast<DescribeEipAddressesResponse>(await this.callApi(params, req, runtime), new DescribeEipAddressesResponse({}));
   }
 
+  /**
+    * The number of the page to return. Default value: **1**.
+    *
+    * @param request DescribeEipAddressesRequest
+    * @return DescribeEipAddressesResponse
+   */
   async describeEipAddresses(request: DescribeEipAddressesRequest): Promise<DescribeEipAddressesResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.describeEipAddressesWithOptions(request, runtime);
   }
 
+  /**
+    * You can query only EIPs that are associated with secondary elastic network interfaces (ENIs) in multi-EIP-to-ENI mode.
+    *
+    * @param request DescribeEipGatewayInfoRequest
+    * @param runtime runtime options for this request RuntimeOptions
+    * @return DescribeEipGatewayInfoResponse
+   */
   async describeEipGatewayInfoWithOptions(request: DescribeEipGatewayInfoRequest, runtime: $Util.RuntimeOptions): Promise<DescribeEipGatewayInfoResponse> {
     Util.validateModel(request);
     let query = { };
@@ -52364,11 +57383,24 @@ export default class Client extends OpenApi {
     return $tea.cast<DescribeEipGatewayInfoResponse>(await this.callApi(params, req, runtime), new DescribeEipGatewayInfoResponse({}));
   }
 
+  /**
+    * You can query only EIPs that are associated with secondary elastic network interfaces (ENIs) in multi-EIP-to-ENI mode.
+    *
+    * @param request DescribeEipGatewayInfoRequest
+    * @return DescribeEipGatewayInfoResponse
+   */
   async describeEipGatewayInfo(request: DescribeEipGatewayInfoRequest): Promise<DescribeEipGatewayInfoResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.describeEipGatewayInfoWithOptions(request, runtime);
   }
 
+  /**
+    * To improve user experience in querying monitoring data, we recommend that you call the DescribeMetricList API operation provided by CloudMonitor to query EIP monitoring data. For more information, see [DescribeMetricList](~~51936~~) and [EIP monitoring data](~~162874~~).
+    *
+    * @param request DescribeEipMonitorDataRequest
+    * @param runtime runtime options for this request RuntimeOptions
+    * @return DescribeEipMonitorDataResponse
+   */
   async describeEipMonitorDataWithOptions(request: DescribeEipMonitorDataRequest, runtime: $Util.RuntimeOptions): Promise<DescribeEipMonitorDataResponse> {
     Util.validateModel(request);
     let query = { };
@@ -52425,6 +57457,12 @@ export default class Client extends OpenApi {
     return $tea.cast<DescribeEipMonitorDataResponse>(await this.callApi(params, req, runtime), new DescribeEipMonitorDataResponse({}));
   }
 
+  /**
+    * To improve user experience in querying monitoring data, we recommend that you call the DescribeMetricList API operation provided by CloudMonitor to query EIP monitoring data. For more information, see [DescribeMetricList](~~51936~~) and [EIP monitoring data](~~162874~~).
+    *
+    * @param request DescribeEipMonitorDataRequest
+    * @return DescribeEipMonitorDataResponse
+   */
   async describeEipMonitorData(request: DescribeEipMonitorDataRequest): Promise<DescribeEipMonitorDataResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.describeEipMonitorDataWithOptions(request, runtime);
@@ -52534,6 +57572,10 @@ export default class Client extends OpenApi {
       query["RegionId"] = request.regionId;
     }
 
+    if (!Util.isUnset(request.resourceGroupId)) {
+      query["ResourceGroupId"] = request.resourceGroupId;
+    }
+
     if (!Util.isUnset(request.resourceId)) {
       query["ResourceId"] = request.resourceId;
     }
@@ -52552,6 +57594,10 @@ export default class Client extends OpenApi {
 
     if (!Util.isUnset(request.status)) {
       query["Status"] = request.status;
+    }
+
+    if (!Util.isUnset(request.tags)) {
+      query["Tags"] = request.tags;
     }
 
     if (!Util.isUnset(request.trafficType)) {
@@ -52854,12 +57900,20 @@ export default class Client extends OpenApi {
       query["RegionId"] = request.regionId;
     }
 
+    if (!Util.isUnset(request.resourceGroupId)) {
+      query["ResourceGroupId"] = request.resourceGroupId;
+    }
+
     if (!Util.isUnset(request.resourceOwnerAccount)) {
       query["ResourceOwnerAccount"] = request.resourceOwnerAccount;
     }
 
     if (!Util.isUnset(request.resourceOwnerId)) {
       query["ResourceOwnerId"] = request.resourceOwnerId;
+    }
+
+    if (!Util.isUnset(request.tags)) {
+      query["Tags"] = request.tags;
     }
 
     let req = new $OpenApi.OpenApiRequest({
@@ -52994,6 +58048,14 @@ export default class Client extends OpenApi {
     return await this.describeIPv6TranslatorAclListAttributesWithOptions(request, runtime);
   }
 
+  /**
+    * @deprecated
+    *
+    * @param request DescribeIPv6TranslatorAclListsRequest
+    * @param runtime runtime options for this request RuntimeOptions
+    * @return DescribeIPv6TranslatorAclListsResponse
+   */
+  // Deprecated
   async describeIPv6TranslatorAclListsWithOptions(request: DescribeIPv6TranslatorAclListsRequest, runtime: $Util.RuntimeOptions): Promise<DescribeIPv6TranslatorAclListsResponse> {
     Util.validateModel(request);
     let query = { };
@@ -53050,11 +58112,26 @@ export default class Client extends OpenApi {
     return $tea.cast<DescribeIPv6TranslatorAclListsResponse>(await this.callApi(params, req, runtime), new DescribeIPv6TranslatorAclListsResponse({}));
   }
 
+  /**
+    * @deprecated
+    *
+    * @param request DescribeIPv6TranslatorAclListsRequest
+    * @return DescribeIPv6TranslatorAclListsResponse
+   */
+  // Deprecated
   async describeIPv6TranslatorAclLists(request: DescribeIPv6TranslatorAclListsRequest): Promise<DescribeIPv6TranslatorAclListsResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.describeIPv6TranslatorAclListsWithOptions(request, runtime);
   }
 
+  /**
+    * @deprecated
+    *
+    * @param request DescribeIPv6TranslatorEntriesRequest
+    * @param runtime runtime options for this request RuntimeOptions
+    * @return DescribeIPv6TranslatorEntriesResponse
+   */
+  // Deprecated
   async describeIPv6TranslatorEntriesWithOptions(request: DescribeIPv6TranslatorEntriesRequest, runtime: $Util.RuntimeOptions): Promise<DescribeIPv6TranslatorEntriesResponse> {
     Util.validateModel(request);
     let query = { };
@@ -53151,11 +58228,26 @@ export default class Client extends OpenApi {
     return $tea.cast<DescribeIPv6TranslatorEntriesResponse>(await this.callApi(params, req, runtime), new DescribeIPv6TranslatorEntriesResponse({}));
   }
 
+  /**
+    * @deprecated
+    *
+    * @param request DescribeIPv6TranslatorEntriesRequest
+    * @return DescribeIPv6TranslatorEntriesResponse
+   */
+  // Deprecated
   async describeIPv6TranslatorEntries(request: DescribeIPv6TranslatorEntriesRequest): Promise<DescribeIPv6TranslatorEntriesResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.describeIPv6TranslatorEntriesWithOptions(request, runtime);
   }
 
+  /**
+    * @deprecated
+    *
+    * @param request DescribeIPv6TranslatorsRequest
+    * @param runtime runtime options for this request RuntimeOptions
+    * @return DescribeIPv6TranslatorsResponse
+   */
+  // Deprecated
   async describeIPv6TranslatorsWithOptions(request: DescribeIPv6TranslatorsRequest, runtime: $Util.RuntimeOptions): Promise<DescribeIPv6TranslatorsResponse> {
     Util.validateModel(request);
     let query = { };
@@ -53236,6 +58328,13 @@ export default class Client extends OpenApi {
     return $tea.cast<DescribeIPv6TranslatorsResponse>(await this.callApi(params, req, runtime), new DescribeIPv6TranslatorsResponse({}));
   }
 
+  /**
+    * @deprecated
+    *
+    * @param request DescribeIPv6TranslatorsRequest
+    * @return DescribeIPv6TranslatorsResponse
+   */
+  // Deprecated
   async describeIPv6Translators(request: DescribeIPv6TranslatorsRequest): Promise<DescribeIPv6TranslatorsResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.describeIPv6TranslatorsWithOptions(request, runtime);
@@ -53250,6 +58349,10 @@ export default class Client extends OpenApi {
 
     if (!Util.isUnset(request.associatedInstanceType)) {
       query["AssociatedInstanceType"] = request.associatedInstanceType;
+    }
+
+    if (!Util.isUnset(request.includeReservationData)) {
+      query["IncludeReservationData"] = request.includeReservationData;
     }
 
     if (!Util.isUnset(request.ipv6Address)) {
@@ -53499,12 +58602,20 @@ export default class Client extends OpenApi {
       query["RegionId"] = request.regionId;
     }
 
+    if (!Util.isUnset(request.resourceGroupId)) {
+      query["ResourceGroupId"] = request.resourceGroupId;
+    }
+
     if (!Util.isUnset(request.resourceOwnerAccount)) {
       query["ResourceOwnerAccount"] = request.resourceOwnerAccount;
     }
 
     if (!Util.isUnset(request.resourceOwnerId)) {
       query["ResourceOwnerId"] = request.resourceOwnerId;
+    }
+
+    if (!Util.isUnset(request.tags)) {
+      query["Tags"] = request.tags;
     }
 
     if (!Util.isUnset(request.vpcId)) {
@@ -53533,6 +58644,13 @@ export default class Client extends OpenApi {
     return await this.describeIpv6GatewaysWithOptions(request, runtime);
   }
 
+  /**
+    * You can call this operation to query both Virtual Private Cloud (VPC) NAT gateways and Internet NAT gateways. NAT gateways in this topic refer to both VPC NAT gateways and Internet NAT gateways.
+    *
+    * @param request DescribeNatGatewaysRequest
+    * @param runtime runtime options for this request RuntimeOptions
+    * @return DescribeNatGatewaysResponse
+   */
   async describeNatGatewaysWithOptions(request: DescribeNatGatewaysRequest, runtime: $Util.RuntimeOptions): Promise<DescribeNatGatewaysResponse> {
     Util.validateModel(request);
     let query = { };
@@ -53629,6 +58747,12 @@ export default class Client extends OpenApi {
     return $tea.cast<DescribeNatGatewaysResponse>(await this.callApi(params, req, runtime), new DescribeNatGatewaysResponse({}));
   }
 
+  /**
+    * You can call this operation to query both Virtual Private Cloud (VPC) NAT gateways and Internet NAT gateways. NAT gateways in this topic refer to both VPC NAT gateways and Internet NAT gateways.
+    *
+    * @param request DescribeNatGatewaysRequest
+    * @return DescribeNatGatewaysResponse
+   */
   async describeNatGateways(request: DescribeNatGatewaysRequest): Promise<DescribeNatGatewaysResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.describeNatGatewaysWithOptions(request, runtime);
@@ -53738,6 +58862,10 @@ export default class Client extends OpenApi {
       query["ResourceType"] = request.resourceType;
     }
 
+    if (!Util.isUnset(request.tags)) {
+      query["Tags"] = request.tags;
+    }
+
     if (!Util.isUnset(request.vpcId)) {
       query["VpcId"] = request.vpcId;
     }
@@ -53817,6 +58945,13 @@ export default class Client extends OpenApi {
     return await this.describePhysicalConnectionLOAWithOptions(request, runtime);
   }
 
+  /**
+    * By default, the system queries information about all Express Connect circuits in the specified region. You can query Express Connect circuits that meet specific conditions by specifying filter conditions provided by the **DescribePhysicalConnections** operation. For more information about the supported filter conditions, see **Key** in the **Request parameters** section.
+    *
+    * @param request DescribePhysicalConnectionsRequest
+    * @param runtime runtime options for this request RuntimeOptions
+    * @return DescribePhysicalConnectionsResponse
+   */
   async describePhysicalConnectionsWithOptions(request: DescribePhysicalConnectionsRequest, runtime: $Util.RuntimeOptions): Promise<DescribePhysicalConnectionsResponse> {
     Util.validateModel(request);
     let query = { };
@@ -53885,11 +59020,24 @@ export default class Client extends OpenApi {
     return $tea.cast<DescribePhysicalConnectionsResponse>(await this.callApi(params, req, runtime), new DescribePhysicalConnectionsResponse({}));
   }
 
+  /**
+    * By default, the system queries information about all Express Connect circuits in the specified region. You can query Express Connect circuits that meet specific conditions by specifying filter conditions provided by the **DescribePhysicalConnections** operation. For more information about the supported filter conditions, see **Key** in the **Request parameters** section.
+    *
+    * @param request DescribePhysicalConnectionsRequest
+    * @return DescribePhysicalConnectionsResponse
+   */
   async describePhysicalConnections(request: DescribePhysicalConnectionsRequest): Promise<DescribePhysicalConnectionsResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.describePhysicalConnectionsWithOptions(request, runtime);
   }
 
+  /**
+    * You cannot query the range of public IP addresses of a classic network by calling the **DescribePublicIpAddress** operation.
+    *
+    * @param request DescribePublicIpAddressRequest
+    * @param runtime runtime options for this request RuntimeOptions
+    * @return DescribePublicIpAddressResponse
+   */
   async describePublicIpAddressWithOptions(request: DescribePublicIpAddressRequest, runtime: $Util.RuntimeOptions): Promise<DescribePublicIpAddressResponse> {
     Util.validateModel(request);
     let query = { };
@@ -53942,6 +59090,12 @@ export default class Client extends OpenApi {
     return $tea.cast<DescribePublicIpAddressResponse>(await this.callApi(params, req, runtime), new DescribePublicIpAddressResponse({}));
   }
 
+  /**
+    * You cannot query the range of public IP addresses of a classic network by calling the **DescribePublicIpAddress** operation.
+    *
+    * @param request DescribePublicIpAddressRequest
+    * @return DescribePublicIpAddressResponse
+   */
   async describePublicIpAddress(request: DescribePublicIpAddressRequest): Promise<DescribePublicIpAddressResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.describePublicIpAddressWithOptions(request, runtime);
@@ -53996,6 +59150,13 @@ export default class Client extends OpenApi {
     return await this.describeRegionsWithOptions(request, runtime);
   }
 
+  /**
+    * Before you call the [DeleteRouteEntry](~~36013~~) operation to delete a route, you can call this operation to query the next hop of the route that you want to delete.
+    *
+    * @param request DescribeRouteEntryListRequest
+    * @param runtime runtime options for this request RuntimeOptions
+    * @return DescribeRouteEntryListResponse
+   */
   async describeRouteEntryListWithOptions(request: DescribeRouteEntryListRequest, runtime: $Util.RuntimeOptions): Promise<DescribeRouteEntryListResponse> {
     Util.validateModel(request);
     let query = { };
@@ -54088,6 +59249,12 @@ export default class Client extends OpenApi {
     return $tea.cast<DescribeRouteEntryListResponse>(await this.callApi(params, req, runtime), new DescribeRouteEntryListResponse({}));
   }
 
+  /**
+    * Before you call the [DeleteRouteEntry](~~36013~~) operation to delete a route, you can call this operation to query the next hop of the route that you want to delete.
+    *
+    * @param request DescribeRouteEntryListRequest
+    * @return DescribeRouteEntryListResponse
+   */
   async describeRouteEntryList(request: DescribeRouteEntryListRequest): Promise<DescribeRouteEntryListResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.describeRouteEntryListWithOptions(request, runtime);
@@ -54353,6 +59520,13 @@ export default class Client extends OpenApi {
     return await this.describeRouterInterfacesWithOptions(request, runtime);
   }
 
+  /**
+    * > You can call this operation to query only dedicated-bandwidth GA instances.
+    *
+    * @param request DescribeServerRelatedGlobalAccelerationInstancesRequest
+    * @param runtime runtime options for this request RuntimeOptions
+    * @return DescribeServerRelatedGlobalAccelerationInstancesResponse
+   */
   async describeServerRelatedGlobalAccelerationInstancesWithOptions(request: DescribeServerRelatedGlobalAccelerationInstancesRequest, runtime: $Util.RuntimeOptions): Promise<DescribeServerRelatedGlobalAccelerationInstancesResponse> {
     Util.validateModel(request);
     let query = { };
@@ -54401,6 +59575,12 @@ export default class Client extends OpenApi {
     return $tea.cast<DescribeServerRelatedGlobalAccelerationInstancesResponse>(await this.callApi(params, req, runtime), new DescribeServerRelatedGlobalAccelerationInstancesResponse({}));
   }
 
+  /**
+    * > You can call this operation to query only dedicated-bandwidth GA instances.
+    *
+    * @param request DescribeServerRelatedGlobalAccelerationInstancesRequest
+    * @return DescribeServerRelatedGlobalAccelerationInstancesResponse
+   */
   async describeServerRelatedGlobalAccelerationInstances(request: DescribeServerRelatedGlobalAccelerationInstancesRequest): Promise<DescribeServerRelatedGlobalAccelerationInstancesResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.describeServerRelatedGlobalAccelerationInstancesWithOptions(request, runtime);
@@ -54601,6 +59781,63 @@ export default class Client extends OpenApi {
     return await this.describeSslVpnClientCertsWithOptions(request, runtime);
   }
 
+  async describeSslVpnClientsWithOptions(request: DescribeSslVpnClientsRequest, runtime: $Util.RuntimeOptions): Promise<DescribeSslVpnClientsResponse> {
+    Util.validateModel(request);
+    let query = { };
+    if (!Util.isUnset(request.ownerAccount)) {
+      query["OwnerAccount"] = request.ownerAccount;
+    }
+
+    if (!Util.isUnset(request.ownerId)) {
+      query["OwnerId"] = request.ownerId;
+    }
+
+    if (!Util.isUnset(request.pageNumber)) {
+      query["PageNumber"] = request.pageNumber;
+    }
+
+    if (!Util.isUnset(request.pageSize)) {
+      query["PageSize"] = request.pageSize;
+    }
+
+    if (!Util.isUnset(request.regionId)) {
+      query["RegionId"] = request.regionId;
+    }
+
+    if (!Util.isUnset(request.resourceOwnerAccount)) {
+      query["ResourceOwnerAccount"] = request.resourceOwnerAccount;
+    }
+
+    if (!Util.isUnset(request.resourceOwnerId)) {
+      query["ResourceOwnerId"] = request.resourceOwnerId;
+    }
+
+    if (!Util.isUnset(request.vpnGatewayId)) {
+      query["VpnGatewayId"] = request.vpnGatewayId;
+    }
+
+    let req = new $OpenApi.OpenApiRequest({
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApi.Params({
+      action: "DescribeSslVpnClients",
+      version: "2016-04-28",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $tea.cast<DescribeSslVpnClientsResponse>(await this.callApi(params, req, runtime), new DescribeSslVpnClientsResponse({}));
+  }
+
+  async describeSslVpnClients(request: DescribeSslVpnClientsRequest): Promise<DescribeSslVpnClientsResponse> {
+    let runtime = new $Util.RuntimeOptions({ });
+    return await this.describeSslVpnClientsWithOptions(request, runtime);
+  }
+
   async describeSslVpnServersWithOptions(request: DescribeSslVpnServersRequest, runtime: $Util.RuntimeOptions): Promise<DescribeSslVpnServersResponse> {
     Util.validateModel(request);
     let query = { };
@@ -54796,6 +60033,16 @@ export default class Client extends OpenApi {
     return await this.describeTagKeysForExpressConnectWithOptions(request, runtime);
   }
 
+  /**
+    * *   You must specify **ResourceId.N** or **Tag.N** that consists of **Tag.N.Key** and **Tag.N.Value** in the request to specify the object that you want to query.
+    * *   **Tag.N** is a resource tag that consists of a key-value pair. If you specify only **Tag.N.Key**, all tag values that are associated with the specified tag key are returned. If you specify only **Tag.N.Value**, an error message is returned.
+    * *   If you specify **Tag.N** and **ResourceId.N** to filter tags, **ResourceId.N** must match all specified key-value pairs.
+    * *   If you specify multiple key-value pairs, all tags that match the key-value pairs are returned.
+    *
+    * @param request DescribeTagsRequest
+    * @param runtime runtime options for this request RuntimeOptions
+    * @return DescribeTagsResponse
+   */
   async describeTagsWithOptions(request: DescribeTagsRequest, runtime: $Util.RuntimeOptions): Promise<DescribeTagsResponse> {
     Util.validateModel(request);
     let query = { };
@@ -54856,6 +60103,15 @@ export default class Client extends OpenApi {
     return $tea.cast<DescribeTagsResponse>(await this.callApi(params, req, runtime), new DescribeTagsResponse({}));
   }
 
+  /**
+    * *   You must specify **ResourceId.N** or **Tag.N** that consists of **Tag.N.Key** and **Tag.N.Value** in the request to specify the object that you want to query.
+    * *   **Tag.N** is a resource tag that consists of a key-value pair. If you specify only **Tag.N.Key**, all tag values that are associated with the specified tag key are returned. If you specify only **Tag.N.Value**, an error message is returned.
+    * *   If you specify **Tag.N** and **ResourceId.N** to filter tags, **ResourceId.N** must match all specified key-value pairs.
+    * *   If you specify multiple key-value pairs, all tags that match the key-value pairs are returned.
+    *
+    * @param request DescribeTagsRequest
+    * @return DescribeTagsResponse
+   */
   async describeTags(request: DescribeTagsRequest): Promise<DescribeTagsResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.describeTagsWithOptions(request, runtime);
@@ -55587,6 +60843,10 @@ export default class Client extends OpenApi {
       query["To"] = request.to;
     }
 
+    if (!Util.isUnset(request.tunnelId)) {
+      query["TunnelId"] = request.tunnelId;
+    }
+
     if (!Util.isUnset(request.vpnConnectionId)) {
       query["VpnConnectionId"] = request.vpnConnectionId;
     }
@@ -55646,6 +60906,10 @@ export default class Client extends OpenApi {
 
     if (!Util.isUnset(request.resourceOwnerId)) {
       query["ResourceOwnerId"] = request.resourceOwnerId;
+    }
+
+    if (!Util.isUnset(request.tag)) {
+      query["Tag"] = request.tag;
     }
 
     if (!Util.isUnset(request.vpnConnectionId)) {
@@ -56109,6 +61373,13 @@ export default class Client extends OpenApi {
     return await this.describeZonesWithOptions(request, runtime);
   }
 
+  /**
+    * The region to which the DHCP options set belongs. You can call the [DescribeRegions](~~36063~~) operation to query the most recent region list.
+    *
+    * @param request DetachDhcpOptionsSetFromVpcRequest
+    * @param runtime runtime options for this request RuntimeOptions
+    * @return DetachDhcpOptionsSetFromVpcResponse
+   */
   async detachDhcpOptionsSetFromVpcWithOptions(request: DetachDhcpOptionsSetFromVpcRequest, runtime: $Util.RuntimeOptions): Promise<DetachDhcpOptionsSetFromVpcResponse> {
     Util.validateModel(request);
     let query = { };
@@ -56165,13 +61436,19 @@ export default class Client extends OpenApi {
     return $tea.cast<DetachDhcpOptionsSetFromVpcResponse>(await this.callApi(params, req, runtime), new DetachDhcpOptionsSetFromVpcResponse({}));
   }
 
+  /**
+    * The region to which the DHCP options set belongs. You can call the [DescribeRegions](~~36063~~) operation to query the most recent region list.
+    *
+    * @param request DetachDhcpOptionsSetFromVpcRequest
+    * @return DetachDhcpOptionsSetFromVpcResponse
+   */
   async detachDhcpOptionsSetFromVpc(request: DetachDhcpOptionsSetFromVpcRequest): Promise<DetachDhcpOptionsSetFromVpcResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.detachDhcpOptionsSetFromVpcWithOptions(request, runtime);
   }
 
   /**
-    * VPN网关发起诊断
+    * Only VPN gateways in specific regions support the quick diagnostics feature. For more information about the supported regions, see [Supported regions](~~430697~~).
     *
     * @param request DiagnoseVpnGatewayRequest
     * @param runtime runtime options for this request RuntimeOptions
@@ -56222,7 +61499,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-    * VPN网关发起诊断
+    * Only VPN gateways in specific regions support the quick diagnostics feature. For more information about the supported regions, see [Supported regions](~~430697~~).
     *
     * @param request DiagnoseVpnGatewayRequest
     * @return DiagnoseVpnGatewayResponse
@@ -56452,6 +61729,17 @@ export default class Client extends OpenApi {
     return await this.dissociateRouteTablesFromVpcGatewayEndpointWithOptions(request, runtime);
   }
 
+  /**
+    * ## Usage notes
+    * *   **DissociateVpnGatewayWithCertificate** is an asynchronous operation. After a request is sent, the system returns a request and runs the task in the background. You can call the [DescribeVpnGateway](~~73720~~) operation to query the status the task.
+    *     *   If the VPN gateway is in the **updating** state, the SSL certificate is being disassociated from the VPN gateway.
+    *     *   If the VPN gateway is in the **active** state, the SSL certificate is disassociated from the VPN gateway.
+    * *   You cannot repeatedly call **DissociateVpnGatewayWithCertificate** within a specific period of time.
+    *
+    * @param request DissociateVpnGatewayWithCertificateRequest
+    * @param runtime runtime options for this request RuntimeOptions
+    * @return DissociateVpnGatewayWithCertificateResponse
+   */
   async dissociateVpnGatewayWithCertificateWithOptions(request: DissociateVpnGatewayWithCertificateRequest, runtime: $Util.RuntimeOptions): Promise<DissociateVpnGatewayWithCertificateResponse> {
     Util.validateModel(request);
     let query = { };
@@ -56496,6 +61784,16 @@ export default class Client extends OpenApi {
     return $tea.cast<DissociateVpnGatewayWithCertificateResponse>(await this.callApi(params, req, runtime), new DissociateVpnGatewayWithCertificateResponse({}));
   }
 
+  /**
+    * ## Usage notes
+    * *   **DissociateVpnGatewayWithCertificate** is an asynchronous operation. After a request is sent, the system returns a request and runs the task in the background. You can call the [DescribeVpnGateway](~~73720~~) operation to query the status the task.
+    *     *   If the VPN gateway is in the **updating** state, the SSL certificate is being disassociated from the VPN gateway.
+    *     *   If the VPN gateway is in the **active** state, the SSL certificate is disassociated from the VPN gateway.
+    * *   You cannot repeatedly call **DissociateVpnGatewayWithCertificate** within a specific period of time.
+    *
+    * @param request DissociateVpnGatewayWithCertificateRequest
+    * @return DissociateVpnGatewayWithCertificateResponse
+   */
   async dissociateVpnGatewayWithCertificate(request: DissociateVpnGatewayWithCertificateRequest): Promise<DissociateVpnGatewayWithCertificateResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.dissociateVpnGatewayWithCertificateWithOptions(request, runtime);
@@ -56591,6 +61889,14 @@ export default class Client extends OpenApi {
     return await this.enableNatGatewayEcsMetricWithOptions(request, runtime);
   }
 
+  /**
+    * The region ID of the Express Connect circuit.
+    * You can call the [DescribeRegions](~~36063~~) operation to query the most recent region list.
+    *
+    * @param request EnablePhysicalConnectionRequest
+    * @param runtime runtime options for this request RuntimeOptions
+    * @return EnablePhysicalConnectionResponse
+   */
   async enablePhysicalConnectionWithOptions(request: EnablePhysicalConnectionRequest, runtime: $Util.RuntimeOptions): Promise<EnablePhysicalConnectionResponse> {
     Util.validateModel(request);
     let query = { };
@@ -56639,6 +61945,13 @@ export default class Client extends OpenApi {
     return $tea.cast<EnablePhysicalConnectionResponse>(await this.callApi(params, req, runtime), new EnablePhysicalConnectionResponse({}));
   }
 
+  /**
+    * The region ID of the Express Connect circuit.
+    * You can call the [DescribeRegions](~~36063~~) operation to query the most recent region list.
+    *
+    * @param request EnablePhysicalConnectionRequest
+    * @return EnablePhysicalConnectionResponse
+   */
   async enablePhysicalConnection(request: EnablePhysicalConnectionRequest): Promise<EnablePhysicalConnectionResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.enablePhysicalConnectionWithOptions(request, runtime);
@@ -56697,6 +62010,13 @@ export default class Client extends OpenApi {
     return await this.enableVpcClassicLinkWithOptions(request, runtime);
   }
 
+  /**
+    * The ID of the IPv4 gateway that you want to activate.
+    *
+    * @param request EnableVpcIpv4GatewayRequest
+    * @param runtime runtime options for this request RuntimeOptions
+    * @return EnableVpcIpv4GatewayResponse
+   */
   async enableVpcIpv4GatewayWithOptions(request: EnableVpcIpv4GatewayRequest, runtime: $Util.RuntimeOptions): Promise<EnableVpcIpv4GatewayResponse> {
     Util.validateModel(request);
     let query = { };
@@ -56757,6 +62077,12 @@ export default class Client extends OpenApi {
     return $tea.cast<EnableVpcIpv4GatewayResponse>(await this.callApi(params, req, runtime), new EnableVpcIpv4GatewayResponse({}));
   }
 
+  /**
+    * The ID of the IPv4 gateway that you want to activate.
+    *
+    * @param request EnableVpcIpv4GatewayRequest
+    * @return EnableVpcIpv4GatewayResponse
+   */
   async enableVpcIpv4Gateway(request: EnableVpcIpv4GatewayRequest): Promise<EnableVpcIpv4GatewayResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.enableVpcIpv4GatewayWithOptions(request, runtime);
@@ -56917,6 +62243,13 @@ export default class Client extends OpenApi {
     return await this.getIpv4GatewayAttributeWithOptions(request, runtime);
   }
 
+  /**
+    * You can call this operation to query information about a specified Internet NAT gateway or Virtual Private Cloud (VPC) NAT gateway. In this topic, "NAT gateway" refers to both gateway types.
+    *
+    * @param request GetNatGatewayAttributeRequest
+    * @param runtime runtime options for this request RuntimeOptions
+    * @return GetNatGatewayAttributeResponse
+   */
   async getNatGatewayAttributeWithOptions(request: GetNatGatewayAttributeRequest, runtime: $Util.RuntimeOptions): Promise<GetNatGatewayAttributeResponse> {
     Util.validateModel(request);
     let query = { };
@@ -56965,6 +62298,12 @@ export default class Client extends OpenApi {
     return $tea.cast<GetNatGatewayAttributeResponse>(await this.callApi(params, req, runtime), new GetNatGatewayAttributeResponse({}));
   }
 
+  /**
+    * You can call this operation to query information about a specified Internet NAT gateway or Virtual Private Cloud (VPC) NAT gateway. In this topic, "NAT gateway" refers to both gateway types.
+    *
+    * @param request GetNatGatewayAttributeRequest
+    * @return GetNatGatewayAttributeResponse
+   */
   async getNatGatewayAttribute(request: GetNatGatewayAttributeRequest): Promise<GetNatGatewayAttributeResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.getNatGatewayAttributeWithOptions(request, runtime);
@@ -57023,6 +62362,13 @@ export default class Client extends OpenApi {
     return await this.getNatGatewayConvertStatusWithOptions(request, runtime);
   }
 
+  /**
+    * You can call this API operation to query the status of outbound data transfer billing for the current account. For more information about outbound data transfer billing, see [Outbound data transfer billing](~~274385~~) and [Billing](~~54582~~).
+    *
+    * @param request GetPhysicalConnectionServiceStatusRequest
+    * @param runtime runtime options for this request RuntimeOptions
+    * @return GetPhysicalConnectionServiceStatusResponse
+   */
   async getPhysicalConnectionServiceStatusWithOptions(request: GetPhysicalConnectionServiceStatusRequest, runtime: $Util.RuntimeOptions): Promise<GetPhysicalConnectionServiceStatusResponse> {
     Util.validateModel(request);
     let query = { };
@@ -57063,6 +62409,12 @@ export default class Client extends OpenApi {
     return $tea.cast<GetPhysicalConnectionServiceStatusResponse>(await this.callApi(params, req, runtime), new GetPhysicalConnectionServiceStatusResponse({}));
   }
 
+  /**
+    * You can call this API operation to query the status of outbound data transfer billing for the current account. For more information about outbound data transfer billing, see [Outbound data transfer billing](~~274385~~) and [Billing](~~54582~~).
+    *
+    * @param request GetPhysicalConnectionServiceStatusRequest
+    * @return GetPhysicalConnectionServiceStatusResponse
+   */
   async getPhysicalConnectionServiceStatus(request: GetPhysicalConnectionServiceStatusRequest): Promise<GetPhysicalConnectionServiceStatusResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.getPhysicalConnectionServiceStatusWithOptions(request, runtime);
@@ -57071,8 +62423,32 @@ export default class Client extends OpenApi {
   async getTrafficMirrorServiceStatusWithOptions(request: GetTrafficMirrorServiceStatusRequest, runtime: $Util.RuntimeOptions): Promise<GetTrafficMirrorServiceStatusResponse> {
     Util.validateModel(request);
     let query = { };
+    if (!Util.isUnset(request.clientToken)) {
+      query["ClientToken"] = request.clientToken;
+    }
+
+    if (!Util.isUnset(request.ownerAccount)) {
+      query["OwnerAccount"] = request.ownerAccount;
+    }
+
     if (!Util.isUnset(request.ownerId)) {
       query["OwnerId"] = request.ownerId;
+    }
+
+    if (!Util.isUnset(request.regionId)) {
+      query["RegionId"] = request.regionId;
+    }
+
+    if (!Util.isUnset(request.regionId)) {
+      query["RegionId"] = request.regionId;
+    }
+
+    if (!Util.isUnset(request.resourceOwnerAccount)) {
+      query["ResourceOwnerAccount"] = request.resourceOwnerAccount;
+    }
+
+    if (!Util.isUnset(request.resourceOwnerId)) {
+      query["ResourceOwnerId"] = request.resourceOwnerId;
     }
 
     let req = new $OpenApi.OpenApiRequest({
@@ -57318,7 +62694,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-    * 查询VPN网关一键诊断结果
+    * When you call the **GetVpnGatewayDiagnoseResult** operation, you must set one of the **DiagnoseId** and **VpnGatewayId** parameters.
     *
     * @param request GetVpnGatewayDiagnoseResultRequest
     * @param runtime runtime options for this request RuntimeOptions
@@ -57361,7 +62737,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-    * 查询VPN网关一键诊断结果
+    * When you call the **GetVpnGatewayDiagnoseResult** operation, you must set one of the **DiagnoseId** and **VpnGatewayId** parameters.
     *
     * @param request GetVpnGatewayDiagnoseResultRequest
     * @return GetVpnGatewayDiagnoseResultResponse
@@ -57371,6 +62747,15 @@ export default class Client extends OpenApi {
     return await this.getVpnGatewayDiagnoseResultWithOptions(request, runtime);
   }
 
+  /**
+    * *   Before you can attach a network instance that belongs to another Alibaba Cloud account to your CEN instance, you must grant permissions to your CEN instance.
+    * >  **GrantInstanceToCen** is a Virtual Private Cloud (VPC) operation. Therefore, you must use `vpc.aliyuncs.com` as the domain name when you call this operation. The API version is `2016-04-28`.
+    * *   You cannot repeatedly call the **GrantInstanceToCen** operation to grant the permissions on a network instance to a CEN instance. The network instance can be a VPC, a virtual border router (VBR), or a Cloud Connect Network (CCN) instance.
+    *
+    * @param request GrantInstanceToCenRequest
+    * @param runtime runtime options for this request RuntimeOptions
+    * @return GrantInstanceToCenResponse
+   */
   async grantInstanceToCenWithOptions(request: GrantInstanceToCenRequest, runtime: $Util.RuntimeOptions): Promise<GrantInstanceToCenResponse> {
     Util.validateModel(request);
     let query = { };
@@ -57431,11 +62816,27 @@ export default class Client extends OpenApi {
     return $tea.cast<GrantInstanceToCenResponse>(await this.callApi(params, req, runtime), new GrantInstanceToCenResponse({}));
   }
 
+  /**
+    * *   Before you can attach a network instance that belongs to another Alibaba Cloud account to your CEN instance, you must grant permissions to your CEN instance.
+    * >  **GrantInstanceToCen** is a Virtual Private Cloud (VPC) operation. Therefore, you must use `vpc.aliyuncs.com` as the domain name when you call this operation. The API version is `2016-04-28`.
+    * *   You cannot repeatedly call the **GrantInstanceToCen** operation to grant the permissions on a network instance to a CEN instance. The network instance can be a VPC, a virtual border router (VBR), or a Cloud Connect Network (CCN) instance.
+    *
+    * @param request GrantInstanceToCenRequest
+    * @return GrantInstanceToCenResponse
+   */
   async grantInstanceToCen(request: GrantInstanceToCenRequest): Promise<GrantInstanceToCenResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.grantInstanceToCenWithOptions(request, runtime);
   }
 
+  /**
+    * ## Usage notes
+    * When you connect a VBR to a VPC that belongs to another Alibaba Cloud account, the VBR must acquire the required permissions from the VPC.
+    *
+    * @param tmpReq GrantInstanceToVbrRequest
+    * @param runtime runtime options for this request RuntimeOptions
+    * @return GrantInstanceToVbrResponse
+   */
   async grantInstanceToVbrWithOptions(tmpReq: GrantInstanceToVbrRequest, runtime: $Util.RuntimeOptions): Promise<GrantInstanceToVbrResponse> {
     Util.validateModel(tmpReq);
     let request = new GrantInstanceToVbrShrinkRequest({ });
@@ -57486,6 +62887,13 @@ export default class Client extends OpenApi {
     return $tea.cast<GrantInstanceToVbrResponse>(await this.callApi(params, req, runtime), new GrantInstanceToVbrResponse({}));
   }
 
+  /**
+    * ## Usage notes
+    * When you connect a VBR to a VPC that belongs to another Alibaba Cloud account, the VBR must acquire the required permissions from the VPC.
+    *
+    * @param request GrantInstanceToVbrRequest
+    * @return GrantInstanceToVbrResponse
+   */
   async grantInstanceToVbr(request: GrantInstanceToVbrRequest): Promise<GrantInstanceToVbrResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.grantInstanceToVbrWithOptions(request, runtime);
@@ -57559,12 +62967,20 @@ export default class Client extends OpenApi {
       query["RegionId"] = request.regionId;
     }
 
+    if (!Util.isUnset(request.resourceGroupId)) {
+      query["ResourceGroupId"] = request.resourceGroupId;
+    }
+
     if (!Util.isUnset(request.resourceOwnerAccount)) {
       query["ResourceOwnerAccount"] = request.resourceOwnerAccount;
     }
 
     if (!Util.isUnset(request.resourceOwnerId)) {
       query["ResourceOwnerId"] = request.resourceOwnerId;
+    }
+
+    if (!Util.isUnset(request.tags)) {
+      query["Tags"] = request.tags;
     }
 
     let req = new $OpenApi.OpenApiRequest({
@@ -57589,6 +63005,13 @@ export default class Client extends OpenApi {
     return await this.listDhcpOptionsSetsWithOptions(request, runtime);
   }
 
+  /**
+    * You can call this operation to query zones that support NAT gateways, including Internet NAT gateways and Virtual Private Cloud (VPC) NAT gateways.
+    *
+    * @param request ListEnhanhcedNatGatewayAvailableZonesRequest
+    * @param runtime runtime options for this request RuntimeOptions
+    * @return ListEnhanhcedNatGatewayAvailableZonesResponse
+   */
   async listEnhanhcedNatGatewayAvailableZonesWithOptions(request: ListEnhanhcedNatGatewayAvailableZonesRequest, runtime: $Util.RuntimeOptions): Promise<ListEnhanhcedNatGatewayAvailableZonesResponse> {
     Util.validateModel(request);
     let query = { };
@@ -57637,6 +63060,12 @@ export default class Client extends OpenApi {
     return $tea.cast<ListEnhanhcedNatGatewayAvailableZonesResponse>(await this.callApi(params, req, runtime), new ListEnhanhcedNatGatewayAvailableZonesResponse({}));
   }
 
+  /**
+    * You can call this operation to query zones that support NAT gateways, including Internet NAT gateways and Virtual Private Cloud (VPC) NAT gateways.
+    *
+    * @param request ListEnhanhcedNatGatewayAvailableZonesRequest
+    * @return ListEnhanhcedNatGatewayAvailableZonesResponse
+   */
   async listEnhanhcedNatGatewayAvailableZones(request: ListEnhanhcedNatGatewayAvailableZonesRequest): Promise<ListEnhanhcedNatGatewayAvailableZonesResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.listEnhanhcedNatGatewayAvailableZonesWithOptions(request, runtime);
@@ -57946,12 +63375,20 @@ export default class Client extends OpenApi {
       query["RegionId"] = request.regionId;
     }
 
+    if (!Util.isUnset(request.resourceGroupId)) {
+      query["ResourceGroupId"] = request.resourceGroupId;
+    }
+
     if (!Util.isUnset(request.resourceOwnerAccount)) {
       query["ResourceOwnerAccount"] = request.resourceOwnerAccount;
     }
 
     if (!Util.isUnset(request.resourceOwnerId)) {
       query["ResourceOwnerId"] = request.resourceOwnerId;
+    }
+
+    if (!Util.isUnset(request.tags)) {
+      query["Tags"] = request.tags;
     }
 
     if (!Util.isUnset(request.vpcId)) {
@@ -58150,13 +63587,6 @@ export default class Client extends OpenApi {
     return await this.listNatIpsWithOptions(request, runtime);
   }
 
-  /**
-    * **
-    *
-    * @param request ListPrefixListsRequest
-    * @param runtime runtime options for this request RuntimeOptions
-    * @return ListPrefixListsResponse
-   */
   async listPrefixListsWithOptions(request: ListPrefixListsRequest, runtime: $Util.RuntimeOptions): Promise<ListPrefixListsResponse> {
     Util.validateModel(request);
     let query = { };
@@ -58221,12 +63651,6 @@ export default class Client extends OpenApi {
     return $tea.cast<ListPrefixListsResponse>(await this.callApi(params, req, runtime), new ListPrefixListsResponse({}));
   }
 
-  /**
-    * **
-    *
-    * @param request ListPrefixListsRequest
-    * @return ListPrefixListsResponse
-   */
   async listPrefixLists(request: ListPrefixListsRequest): Promise<ListPrefixListsResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.listPrefixListsWithOptions(request, runtime);
@@ -58378,6 +63802,16 @@ export default class Client extends OpenApi {
     return await this.listPublicIpAddressPoolsWithOptions(request, runtime);
   }
 
+  /**
+    * *   Set **ResourceId.N** or **Tag.N** that consists of **Tag.N.Key** and **Tag.N.Value** in the request to specify the object to be queried.
+    * *   **Tag.N** is a resource tag that consists of a key-value pair. If you set only **Tag.N.Key**, all tag values that are associated with the specified key are returned. If you set only **Tag.N.Value**, an error message is returned.
+    * *   If you set **Tag.N** and **ResourceId.N** to filter tags, **ResourceId.N** must match all specified key-value pairs.
+    * *   If you specify multiple key-value pairs, resources that contain these key-value pairs are returned.
+    *
+    * @param request ListTagResourcesRequest
+    * @param runtime runtime options for this request RuntimeOptions
+    * @return ListTagResourcesResponse
+   */
   async listTagResourcesWithOptions(request: ListTagResourcesRequest, runtime: $Util.RuntimeOptions): Promise<ListTagResourcesResponse> {
     Util.validateModel(request);
     let query = { };
@@ -58438,11 +63872,30 @@ export default class Client extends OpenApi {
     return $tea.cast<ListTagResourcesResponse>(await this.callApi(params, req, runtime), new ListTagResourcesResponse({}));
   }
 
+  /**
+    * *   Set **ResourceId.N** or **Tag.N** that consists of **Tag.N.Key** and **Tag.N.Value** in the request to specify the object to be queried.
+    * *   **Tag.N** is a resource tag that consists of a key-value pair. If you set only **Tag.N.Key**, all tag values that are associated with the specified key are returned. If you set only **Tag.N.Value**, an error message is returned.
+    * *   If you set **Tag.N** and **ResourceId.N** to filter tags, **ResourceId.N** must match all specified key-value pairs.
+    * *   If you specify multiple key-value pairs, resources that contain these key-value pairs are returned.
+    *
+    * @param request ListTagResourcesRequest
+    * @return ListTagResourcesResponse
+   */
   async listTagResources(request: ListTagResourcesRequest): Promise<ListTagResourcesResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.listTagResourcesWithOptions(request, runtime);
   }
 
+  /**
+    * *   You must specify **ResourceId.N** or **Tag.N** that consists of **Tag.N.Key** and **Tag.N.Value** in the request to specify the object that you want to query.
+    * *   **Tag.N** is a resource tag that consists of a key-value pair. If you specify only **Tag.N.Key**, all tag values that are associated with the specified tag key are returned. If you specify only **Tag.N.Value**, an error message is returned.
+    * *   If you specify **Tag.N** and **ResourceId.N** to filter tags, **ResourceId.N** must match all specified key-value pairs.
+    * *   If you specify multiple key-value pairs, resources that contain these key-value pairs are returned.
+    *
+    * @param request ListTagResourcesForExpressConnectRequest
+    * @param runtime runtime options for this request RuntimeOptions
+    * @return ListTagResourcesForExpressConnectResponse
+   */
   async listTagResourcesForExpressConnectWithOptions(request: ListTagResourcesForExpressConnectRequest, runtime: $Util.RuntimeOptions): Promise<ListTagResourcesForExpressConnectResponse> {
     Util.validateModel(request);
     let query = { };
@@ -58503,6 +63956,15 @@ export default class Client extends OpenApi {
     return $tea.cast<ListTagResourcesForExpressConnectResponse>(await this.callApi(params, req, runtime), new ListTagResourcesForExpressConnectResponse({}));
   }
 
+  /**
+    * *   You must specify **ResourceId.N** or **Tag.N** that consists of **Tag.N.Key** and **Tag.N.Value** in the request to specify the object that you want to query.
+    * *   **Tag.N** is a resource tag that consists of a key-value pair. If you specify only **Tag.N.Key**, all tag values that are associated with the specified tag key are returned. If you specify only **Tag.N.Value**, an error message is returned.
+    * *   If you specify **Tag.N** and **ResourceId.N** to filter tags, **ResourceId.N** must match all specified key-value pairs.
+    * *   If you specify multiple key-value pairs, resources that contain these key-value pairs are returned.
+    *
+    * @param request ListTagResourcesForExpressConnectRequest
+    * @return ListTagResourcesForExpressConnectResponse
+   */
   async listTagResourcesForExpressConnect(request: ListTagResourcesForExpressConnectRequest): Promise<ListTagResourcesForExpressConnectResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.listTagResourcesForExpressConnectWithOptions(request, runtime);
@@ -58531,12 +63993,20 @@ export default class Client extends OpenApi {
       query["RegionId"] = request.regionId;
     }
 
+    if (!Util.isUnset(request.resourceGroupId)) {
+      query["ResourceGroupId"] = request.resourceGroupId;
+    }
+
     if (!Util.isUnset(request.resourceOwnerAccount)) {
       query["ResourceOwnerAccount"] = request.resourceOwnerAccount;
     }
 
     if (!Util.isUnset(request.resourceOwnerId)) {
       query["ResourceOwnerId"] = request.resourceOwnerId;
+    }
+
+    if (!Util.isUnset(request.tags)) {
+      query["Tags"] = request.tags;
     }
 
     if (!Util.isUnset(request.trafficMirrorFilterIds)) {
@@ -58600,12 +64070,20 @@ export default class Client extends OpenApi {
       query["RegionId"] = request.regionId;
     }
 
+    if (!Util.isUnset(request.resourceGroupId)) {
+      query["ResourceGroupId"] = request.resourceGroupId;
+    }
+
     if (!Util.isUnset(request.resourceOwnerAccount)) {
       query["ResourceOwnerAccount"] = request.resourceOwnerAccount;
     }
 
     if (!Util.isUnset(request.resourceOwnerId)) {
       query["ResourceOwnerId"] = request.resourceOwnerId;
+    }
+
+    if (!Util.isUnset(request.tags)) {
+      query["Tags"] = request.tags;
     }
 
     if (!Util.isUnset(request.trafficMirrorFilterId)) {
@@ -58815,6 +64293,10 @@ export default class Client extends OpenApi {
       query["RegionId"] = request.regionId;
     }
 
+    if (!Util.isUnset(request.resourceGroupId)) {
+      query["ResourceGroupId"] = request.resourceGroupId;
+    }
+
     if (!Util.isUnset(request.resourceOwnerAccount)) {
       query["ResourceOwnerAccount"] = request.resourceOwnerAccount;
     }
@@ -58825,6 +64307,10 @@ export default class Client extends OpenApi {
 
     if (!Util.isUnset(request.serviceName)) {
       query["ServiceName"] = request.serviceName;
+    }
+
+    if (!Util.isUnset(request.tags)) {
+      query["Tags"] = request.tags;
     }
 
     let req = new $OpenApi.OpenApiRequest({
@@ -58849,6 +64335,18 @@ export default class Client extends OpenApi {
     return await this.listVpcGatewayEndpointsWithOptions(request, runtime);
   }
 
+  /**
+    * ## Usage notes
+    * When you call **ListVpnCertificateAssociations**, take note of the following information:
+    * *   If you specify only **RegionId**, the SSL certificates associated with all VPN gateways in the specified region are queried.
+    * *   If you specify **RegionId** and **CertificateType**, the SSL certificates of the specified type that are associated with the VPN gateways in the specified region are queried.
+    * *   If you specify **RegionId** and **VpnGatewayId**, the SSL certificates associated with the specified VPN gateway in the specified region are queried.
+    * *   If you specify **RegionId** and **CertificateId**, the VPN gateways associated with the specified SSL certificate in the specified region are queried.
+    *
+    * @param request ListVpnCertificateAssociationsRequest
+    * @param runtime runtime options for this request RuntimeOptions
+    * @return ListVpnCertificateAssociationsResponse
+   */
   async listVpnCertificateAssociationsWithOptions(request: ListVpnCertificateAssociationsRequest, runtime: $Util.RuntimeOptions): Promise<ListVpnCertificateAssociationsResponse> {
     Util.validateModel(request);
     let query = { };
@@ -58893,6 +64391,17 @@ export default class Client extends OpenApi {
     return $tea.cast<ListVpnCertificateAssociationsResponse>(await this.callApi(params, req, runtime), new ListVpnCertificateAssociationsResponse({}));
   }
 
+  /**
+    * ## Usage notes
+    * When you call **ListVpnCertificateAssociations**, take note of the following information:
+    * *   If you specify only **RegionId**, the SSL certificates associated with all VPN gateways in the specified region are queried.
+    * *   If you specify **RegionId** and **CertificateType**, the SSL certificates of the specified type that are associated with the VPN gateways in the specified region are queried.
+    * *   If you specify **RegionId** and **VpnGatewayId**, the SSL certificates associated with the specified VPN gateway in the specified region are queried.
+    * *   If you specify **RegionId** and **CertificateId**, the VPN gateways associated with the specified SSL certificate in the specified region are queried.
+    *
+    * @param request ListVpnCertificateAssociationsRequest
+    * @return ListVpnCertificateAssociationsResponse
+   */
   async listVpnCertificateAssociations(request: ListVpnCertificateAssociationsRequest): Promise<ListVpnCertificateAssociationsResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.listVpnCertificateAssociationsWithOptions(request, runtime);
@@ -59109,6 +64618,18 @@ export default class Client extends OpenApi {
     return await this.modifyCommonBandwidthPackageAttributeWithOptions(request, runtime);
   }
 
+  /**
+    * You can call the **ModifyCommonBandwidthPackageIpBandwidth** operation to set the maximum bandwidth of an EIP that is associated with an EIP bandwidth plan. This prevents an EIP from exhausting the bandwidth resources of an EIP bandwidth plan.
+    * For example, two EIPs are associated with an EIP bandwidth plan whose maximum bandwidth is 800 Mbit/s. In this case, you can set the maximum bandwidth of one EIP to 500 Mbit/s and that of the other EIP to 400 Mbit/s. After you set the maximum bandwidth values, the first EIP cannot consume bandwidth higher than 500 Mbit/s. The second EIP cannot consume bandwidth higher than 400 Mbit/s.
+    * When you call this operation, take note of the following items:
+    * *   This operation is valid only for EIPs that are associated with Elastic Compute Service (ECS) instances. This operation is invalid for EIPs that are associated with Server Load Balancer (SLB) instances, NAT gateways, secondary elastic network interfaces (ENIs), or high-availability virtual IP addresses (HAVIPs).
+    * *   This operation is in public preview. You can call this operation to set the maximum bandwidth of EIPs only if the EIPs are associated with an EIP bandwidth plan. The feature is not supported in the console.
+    * *   You cannot repeatedly call this operation to set the maximum bandwidth of an EIP within the specified period of time.
+    *
+    * @param request ModifyCommonBandwidthPackageIpBandwidthRequest
+    * @param runtime runtime options for this request RuntimeOptions
+    * @return ModifyCommonBandwidthPackageIpBandwidthResponse
+   */
   async modifyCommonBandwidthPackageIpBandwidthWithOptions(request: ModifyCommonBandwidthPackageIpBandwidthRequest, runtime: $Util.RuntimeOptions): Promise<ModifyCommonBandwidthPackageIpBandwidthResponse> {
     Util.validateModel(request);
     let query = { };
@@ -59161,11 +64682,30 @@ export default class Client extends OpenApi {
     return $tea.cast<ModifyCommonBandwidthPackageIpBandwidthResponse>(await this.callApi(params, req, runtime), new ModifyCommonBandwidthPackageIpBandwidthResponse({}));
   }
 
+  /**
+    * You can call the **ModifyCommonBandwidthPackageIpBandwidth** operation to set the maximum bandwidth of an EIP that is associated with an EIP bandwidth plan. This prevents an EIP from exhausting the bandwidth resources of an EIP bandwidth plan.
+    * For example, two EIPs are associated with an EIP bandwidth plan whose maximum bandwidth is 800 Mbit/s. In this case, you can set the maximum bandwidth of one EIP to 500 Mbit/s and that of the other EIP to 400 Mbit/s. After you set the maximum bandwidth values, the first EIP cannot consume bandwidth higher than 500 Mbit/s. The second EIP cannot consume bandwidth higher than 400 Mbit/s.
+    * When you call this operation, take note of the following items:
+    * *   This operation is valid only for EIPs that are associated with Elastic Compute Service (ECS) instances. This operation is invalid for EIPs that are associated with Server Load Balancer (SLB) instances, NAT gateways, secondary elastic network interfaces (ENIs), or high-availability virtual IP addresses (HAVIPs).
+    * *   This operation is in public preview. You can call this operation to set the maximum bandwidth of EIPs only if the EIPs are associated with an EIP bandwidth plan. The feature is not supported in the console.
+    * *   You cannot repeatedly call this operation to set the maximum bandwidth of an EIP within the specified period of time.
+    *
+    * @param request ModifyCommonBandwidthPackageIpBandwidthRequest
+    * @return ModifyCommonBandwidthPackageIpBandwidthResponse
+   */
   async modifyCommonBandwidthPackageIpBandwidth(request: ModifyCommonBandwidthPackageIpBandwidthRequest): Promise<ModifyCommonBandwidthPackageIpBandwidthResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.modifyCommonBandwidthPackageIpBandwidthWithOptions(request, runtime);
   }
 
+  /**
+    * The region ID of the EIP bandwidth plan.
+    * You can call the [DescribeRegions](~~36063~~) operation to query the most recent region list.
+    *
+    * @param request ModifyCommonBandwidthPackageSpecRequest
+    * @param runtime runtime options for this request RuntimeOptions
+    * @return ModifyCommonBandwidthPackageSpecResponse
+   */
   async modifyCommonBandwidthPackageSpecWithOptions(request: ModifyCommonBandwidthPackageSpecRequest, runtime: $Util.RuntimeOptions): Promise<ModifyCommonBandwidthPackageSpecResponse> {
     Util.validateModel(request);
     let query = { };
@@ -59214,11 +64754,29 @@ export default class Client extends OpenApi {
     return $tea.cast<ModifyCommonBandwidthPackageSpecResponse>(await this.callApi(params, req, runtime), new ModifyCommonBandwidthPackageSpecResponse({}));
   }
 
+  /**
+    * The region ID of the EIP bandwidth plan.
+    * You can call the [DescribeRegions](~~36063~~) operation to query the most recent region list.
+    *
+    * @param request ModifyCommonBandwidthPackageSpecRequest
+    * @return ModifyCommonBandwidthPackageSpecResponse
+   */
   async modifyCommonBandwidthPackageSpec(request: ModifyCommonBandwidthPackageSpecRequest): Promise<ModifyCommonBandwidthPackageSpecResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.modifyCommonBandwidthPackageSpecWithOptions(request, runtime);
   }
 
+  /**
+    * *   When you call **ModifyCustomerGatewayAttribute**, if a value is assigned to **AuthKey**, the operation is asynchronous. After you call the operation, the information about the customer gateway is returned but the operation is still being performed in the system background. You can call [DescribeVpnGateway](~~73720~~) to query the status of a customer gateway.
+    *     *   If a VPN gateway is in the **updating** state, the configurations are being modified.
+    *     *   If a VPN gateway is in the **active** state, the configurations have been modified.
+    * *   When you call **ModifyCustomerGatewayAttribute**, if no value is assigned to **AuthKey**, the operation is synchronous.
+    * *   You cannot repeatedly call **ModifyCustomerGatewayAttribute** to modify the configurations of a customer gateway within the specified period of time.
+    *
+    * @param request ModifyCustomerGatewayAttributeRequest
+    * @param runtime runtime options for this request RuntimeOptions
+    * @return ModifyCustomerGatewayAttributeResponse
+   */
   async modifyCustomerGatewayAttributeWithOptions(request: ModifyCustomerGatewayAttributeRequest, runtime: $Util.RuntimeOptions): Promise<ModifyCustomerGatewayAttributeResponse> {
     Util.validateModel(request);
     let query = { };
@@ -59279,6 +64837,16 @@ export default class Client extends OpenApi {
     return $tea.cast<ModifyCustomerGatewayAttributeResponse>(await this.callApi(params, req, runtime), new ModifyCustomerGatewayAttributeResponse({}));
   }
 
+  /**
+    * *   When you call **ModifyCustomerGatewayAttribute**, if a value is assigned to **AuthKey**, the operation is asynchronous. After you call the operation, the information about the customer gateway is returned but the operation is still being performed in the system background. You can call [DescribeVpnGateway](~~73720~~) to query the status of a customer gateway.
+    *     *   If a VPN gateway is in the **updating** state, the configurations are being modified.
+    *     *   If a VPN gateway is in the **active** state, the configurations have been modified.
+    * *   When you call **ModifyCustomerGatewayAttribute**, if no value is assigned to **AuthKey**, the operation is synchronous.
+    * *   You cannot repeatedly call **ModifyCustomerGatewayAttribute** to modify the configurations of a customer gateway within the specified period of time.
+    *
+    * @param request ModifyCustomerGatewayAttributeRequest
+    * @return ModifyCustomerGatewayAttributeResponse
+   */
   async modifyCustomerGatewayAttribute(request: ModifyCustomerGatewayAttributeRequest): Promise<ModifyCustomerGatewayAttributeResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.modifyCustomerGatewayAttributeWithOptions(request, runtime);
@@ -59467,6 +65035,16 @@ export default class Client extends OpenApi {
     return await this.modifyExpressCloudConnectionBandwidthWithOptions(request, runtime);
   }
 
+  /**
+    * *   **ModifyFlowLogAttribute** is an asynchronous operation. After you send a request, the system returns a request ID and runs the task in the background. You can call the [DescribeFlowLogs](~~87923~~) operation to query the status of a flow log:
+    *     *   If the flow log is in the **Modifying** state, the flow log is being modified.
+    *     *   If the flow log is in the **Active** or **Inactive** state, the flow log is modified.
+    * *   You cannot repeatedly call the **ModifyFlowLogAttribute** operation to modify a flow log within the specified period of time.
+    *
+    * @param request ModifyFlowLogAttributeRequest
+    * @param runtime runtime options for this request RuntimeOptions
+    * @return ModifyFlowLogAttributeResponse
+   */
   async modifyFlowLogAttributeWithOptions(request: ModifyFlowLogAttributeRequest, runtime: $Util.RuntimeOptions): Promise<ModifyFlowLogAttributeResponse> {
     Util.validateModel(request);
     let query = { };
@@ -59523,11 +65101,27 @@ export default class Client extends OpenApi {
     return $tea.cast<ModifyFlowLogAttributeResponse>(await this.callApi(params, req, runtime), new ModifyFlowLogAttributeResponse({}));
   }
 
+  /**
+    * *   **ModifyFlowLogAttribute** is an asynchronous operation. After you send a request, the system returns a request ID and runs the task in the background. You can call the [DescribeFlowLogs](~~87923~~) operation to query the status of a flow log:
+    *     *   If the flow log is in the **Modifying** state, the flow log is being modified.
+    *     *   If the flow log is in the **Active** or **Inactive** state, the flow log is modified.
+    * *   You cannot repeatedly call the **ModifyFlowLogAttribute** operation to modify a flow log within the specified period of time.
+    *
+    * @param request ModifyFlowLogAttributeRequest
+    * @return ModifyFlowLogAttributeResponse
+   */
   async modifyFlowLogAttribute(request: ModifyFlowLogAttributeRequest): Promise<ModifyFlowLogAttributeResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.modifyFlowLogAttributeWithOptions(request, runtime);
   }
 
+  /**
+    * The ID of the DNAT table to which the DNAT entry belongs.
+    *
+    * @param request ModifyForwardEntryRequest
+    * @param runtime runtime options for this request RuntimeOptions
+    * @return ModifyForwardEntryResponse
+   */
   async modifyForwardEntryWithOptions(request: ModifyForwardEntryRequest, runtime: $Util.RuntimeOptions): Promise<ModifyForwardEntryResponse> {
     Util.validateModel(request);
     let query = { };
@@ -59608,11 +65202,24 @@ export default class Client extends OpenApi {
     return $tea.cast<ModifyForwardEntryResponse>(await this.callApi(params, req, runtime), new ModifyForwardEntryResponse({}));
   }
 
+  /**
+    * The ID of the DNAT table to which the DNAT entry belongs.
+    *
+    * @param request ModifyForwardEntryRequest
+    * @return ModifyForwardEntryResponse
+   */
   async modifyForwardEntry(request: ModifyForwardEntryRequest): Promise<ModifyForwardEntryResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.modifyForwardEntryWithOptions(request, runtime);
   }
 
+  /**
+    * The operation that you want to perform. Set the value to **ModifyFullNatEntryAttribute**.
+    *
+    * @param request ModifyFullNatEntryAttributeRequest
+    * @param runtime runtime options for this request RuntimeOptions
+    * @return ModifyFullNatEntryAttributeResponse
+   */
   async modifyFullNatEntryAttributeWithOptions(request: ModifyFullNatEntryAttributeRequest, runtime: $Util.RuntimeOptions): Promise<ModifyFullNatEntryAttributeResponse> {
     Util.validateModel(request);
     let query = { };
@@ -59701,6 +65308,12 @@ export default class Client extends OpenApi {
     return $tea.cast<ModifyFullNatEntryAttributeResponse>(await this.callApi(params, req, runtime), new ModifyFullNatEntryAttributeResponse({}));
   }
 
+  /**
+    * The operation that you want to perform. Set the value to **ModifyFullNatEntryAttribute**.
+    *
+    * @param request ModifyFullNatEntryAttributeRequest
+    * @return ModifyFullNatEntryAttributeResponse
+   */
   async modifyFullNatEntryAttribute(request: ModifyFullNatEntryAttributeRequest): Promise<ModifyFullNatEntryAttributeResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.modifyFullNatEntryAttributeWithOptions(request, runtime);
@@ -59763,6 +65376,14 @@ export default class Client extends OpenApi {
     return await this.modifyGlobalAccelerationInstanceAttributesWithOptions(request, runtime);
   }
 
+  /**
+    * ## Usage notes
+    * You cannot call this operation to modify the maximum bandwidth of a subscription GA instance.
+    *
+    * @param request ModifyGlobalAccelerationInstanceSpecRequest
+    * @param runtime runtime options for this request RuntimeOptions
+    * @return ModifyGlobalAccelerationInstanceSpecResponse
+   */
   async modifyGlobalAccelerationInstanceSpecWithOptions(request: ModifyGlobalAccelerationInstanceSpecRequest, runtime: $Util.RuntimeOptions): Promise<ModifyGlobalAccelerationInstanceSpecResponse> {
     Util.validateModel(request);
     let query = { };
@@ -59811,11 +65432,25 @@ export default class Client extends OpenApi {
     return $tea.cast<ModifyGlobalAccelerationInstanceSpecResponse>(await this.callApi(params, req, runtime), new ModifyGlobalAccelerationInstanceSpecResponse({}));
   }
 
+  /**
+    * ## Usage notes
+    * You cannot call this operation to modify the maximum bandwidth of a subscription GA instance.
+    *
+    * @param request ModifyGlobalAccelerationInstanceSpecRequest
+    * @return ModifyGlobalAccelerationInstanceSpecResponse
+   */
   async modifyGlobalAccelerationInstanceSpec(request: ModifyGlobalAccelerationInstanceSpecRequest): Promise<ModifyGlobalAccelerationInstanceSpecResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.modifyGlobalAccelerationInstanceSpecWithOptions(request, runtime);
   }
 
+  /**
+    * You cannot repeatedly call the **ModifyHaVipAttribute** operation to modify the name and description of an HAVIP within the specified period of time.
+    *
+    * @param request ModifyHaVipAttributeRequest
+    * @param runtime runtime options for this request RuntimeOptions
+    * @return ModifyHaVipAttributeResponse
+   */
   async modifyHaVipAttributeWithOptions(request: ModifyHaVipAttributeRequest, runtime: $Util.RuntimeOptions): Promise<ModifyHaVipAttributeResponse> {
     Util.validateModel(request);
     let query = { };
@@ -59872,11 +65507,25 @@ export default class Client extends OpenApi {
     return $tea.cast<ModifyHaVipAttributeResponse>(await this.callApi(params, req, runtime), new ModifyHaVipAttributeResponse({}));
   }
 
+  /**
+    * You cannot repeatedly call the **ModifyHaVipAttribute** operation to modify the name and description of an HAVIP within the specified period of time.
+    *
+    * @param request ModifyHaVipAttributeRequest
+    * @return ModifyHaVipAttributeResponse
+   */
   async modifyHaVipAttribute(request: ModifyHaVipAttributeRequest): Promise<ModifyHaVipAttributeResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.modifyHaVipAttributeWithOptions(request, runtime);
   }
 
+  /**
+    * @deprecated
+    *
+    * @param request ModifyIPv6TranslatorAclAttributeRequest
+    * @param runtime runtime options for this request RuntimeOptions
+    * @return ModifyIPv6TranslatorAclAttributeResponse
+   */
+  // Deprecated
   async modifyIPv6TranslatorAclAttributeWithOptions(request: ModifyIPv6TranslatorAclAttributeRequest, runtime: $Util.RuntimeOptions): Promise<ModifyIPv6TranslatorAclAttributeResponse> {
     Util.validateModel(request);
     let query = { };
@@ -59929,6 +65578,13 @@ export default class Client extends OpenApi {
     return $tea.cast<ModifyIPv6TranslatorAclAttributeResponse>(await this.callApi(params, req, runtime), new ModifyIPv6TranslatorAclAttributeResponse({}));
   }
 
+  /**
+    * @deprecated
+    *
+    * @param request ModifyIPv6TranslatorAclAttributeRequest
+    * @return ModifyIPv6TranslatorAclAttributeResponse
+   */
+  // Deprecated
   async modifyIPv6TranslatorAclAttribute(request: ModifyIPv6TranslatorAclAttributeRequest): Promise<ModifyIPv6TranslatorAclAttributeResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.modifyIPv6TranslatorAclAttributeWithOptions(request, runtime);
@@ -60113,6 +65769,14 @@ export default class Client extends OpenApi {
     return await this.modifyIPv6TranslatorBandwidthWithOptions(request, runtime);
   }
 
+  /**
+    * @deprecated
+    *
+    * @param request ModifyIPv6TranslatorEntryRequest
+    * @param runtime runtime options for this request RuntimeOptions
+    * @return ModifyIPv6TranslatorEntryResponse
+   */
+  // Deprecated
   async modifyIPv6TranslatorEntryWithOptions(request: ModifyIPv6TranslatorEntryRequest, runtime: $Util.RuntimeOptions): Promise<ModifyIPv6TranslatorEntryResponse> {
     Util.validateModel(request);
     let query = { };
@@ -60197,6 +65861,13 @@ export default class Client extends OpenApi {
     return $tea.cast<ModifyIPv6TranslatorEntryResponse>(await this.callApi(params, req, runtime), new ModifyIPv6TranslatorEntryResponse({}));
   }
 
+  /**
+    * @deprecated
+    *
+    * @param request ModifyIPv6TranslatorEntryRequest
+    * @return ModifyIPv6TranslatorEntryResponse
+   */
+  // Deprecated
   async modifyIPv6TranslatorEntry(request: ModifyIPv6TranslatorEntryRequest): Promise<ModifyIPv6TranslatorEntryResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.modifyIPv6TranslatorEntryWithOptions(request, runtime);
@@ -60324,6 +65995,13 @@ export default class Client extends OpenApi {
     return await this.modifyIpv6GatewayAttributeWithOptions(request, runtime);
   }
 
+  /**
+    * You cannot repeatedly call the **ModifyIpv6GatewaySpec** operation to change the specification of an IPv6 gateway within the specified period of time.
+    *
+    * @param request ModifyIpv6GatewaySpecRequest
+    * @param runtime runtime options for this request RuntimeOptions
+    * @return ModifyIpv6GatewaySpecResponse
+   */
   async modifyIpv6GatewaySpecWithOptions(request: ModifyIpv6GatewaySpecRequest, runtime: $Util.RuntimeOptions): Promise<ModifyIpv6GatewaySpecResponse> {
     Util.validateModel(request);
     let query = { };
@@ -60380,11 +66058,24 @@ export default class Client extends OpenApi {
     return $tea.cast<ModifyIpv6GatewaySpecResponse>(await this.callApi(params, req, runtime), new ModifyIpv6GatewaySpecResponse({}));
   }
 
+  /**
+    * You cannot repeatedly call the **ModifyIpv6GatewaySpec** operation to change the specification of an IPv6 gateway within the specified period of time.
+    *
+    * @param request ModifyIpv6GatewaySpecRequest
+    * @return ModifyIpv6GatewaySpecResponse
+   */
   async modifyIpv6GatewaySpec(request: ModifyIpv6GatewaySpecRequest): Promise<ModifyIpv6GatewaySpecResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.modifyIpv6GatewaySpecWithOptions(request, runtime);
   }
 
+  /**
+    * You cannot call the **ModifyIpv6InternetBandwidth** operation to modify the Internet bandwidth value of an IPv6 CIDR block at the same time.
+    *
+    * @param request ModifyIpv6InternetBandwidthRequest
+    * @param runtime runtime options for this request RuntimeOptions
+    * @return ModifyIpv6InternetBandwidthResponse
+   */
   async modifyIpv6InternetBandwidthWithOptions(request: ModifyIpv6InternetBandwidthRequest, runtime: $Util.RuntimeOptions): Promise<ModifyIpv6InternetBandwidthResponse> {
     Util.validateModel(request);
     let query = { };
@@ -60445,11 +66136,24 @@ export default class Client extends OpenApi {
     return $tea.cast<ModifyIpv6InternetBandwidthResponse>(await this.callApi(params, req, runtime), new ModifyIpv6InternetBandwidthResponse({}));
   }
 
+  /**
+    * You cannot call the **ModifyIpv6InternetBandwidth** operation to modify the Internet bandwidth value of an IPv6 CIDR block at the same time.
+    *
+    * @param request ModifyIpv6InternetBandwidthRequest
+    * @return ModifyIpv6InternetBandwidthResponse
+   */
   async modifyIpv6InternetBandwidth(request: ModifyIpv6InternetBandwidthRequest): Promise<ModifyIpv6InternetBandwidthResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.modifyIpv6InternetBandwidthWithOptions(request, runtime);
   }
 
+  /**
+    * You can call this operation to query an Internet NAT gateway or a virtual private cloud (VPC) NAT gateway. The term NAT gateway in this topic refers to both types of NAT gateway.
+    *
+    * @param request ModifyNatGatewayAttributeRequest
+    * @param runtime runtime options for this request RuntimeOptions
+    * @return ModifyNatGatewayAttributeResponse
+   */
   async modifyNatGatewayAttributeWithOptions(request: ModifyNatGatewayAttributeRequest, runtime: $Util.RuntimeOptions): Promise<ModifyNatGatewayAttributeResponse> {
     Util.validateModel(request);
     let query = { };
@@ -60510,11 +66214,34 @@ export default class Client extends OpenApi {
     return $tea.cast<ModifyNatGatewayAttributeResponse>(await this.callApi(params, req, runtime), new ModifyNatGatewayAttributeResponse({}));
   }
 
+  /**
+    * You can call this operation to query an Internet NAT gateway or a virtual private cloud (VPC) NAT gateway. The term NAT gateway in this topic refers to both types of NAT gateway.
+    *
+    * @param request ModifyNatGatewayAttributeRequest
+    * @return ModifyNatGatewayAttributeResponse
+   */
   async modifyNatGatewayAttribute(request: ModifyNatGatewayAttributeRequest): Promise<ModifyNatGatewayAttributeResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.modifyNatGatewayAttributeWithOptions(request, runtime);
   }
 
+  /**
+    * - You cannot call this operation to downgrade a subscription Internet NAT gateway. You can downgrade a subscription Internet NAT gateway only in the console.
+    * - When you call this operation to upgrade a subscription Internet NAT gateway, an order is generated. After you complete the payment in the order center, the Internet NAT gateway is upgraded.
+    * - **ModifyNatGatewaySpec** is an asynchronous operation. After you make a request, the ID of the request is returned but the Internet NAT gateway is not upgraded. The system upgrades the NAT gateway in the background. You can call the [DescribeNatGateways](/help/en/virtual-private-cloud/latest/describenatgateways) operation to query the status of an Internet NAT gateway.    - If an Internet NAT gateway is in the **Modifying** state, the NAT gateway is being upgraded. In this case, you can only query the NAT gateway but cannot perform other operations.
+    *   - If an Internet NAT gateway is in the **Available** state, the Internet NAT gateway is upgraded.
+    * - You cannot repeatedly call the **ModifyNatGatewaySpec** operation to resize a pay-by-specification NAT gateway.
+    * Internet NAT gateways are available in different sizes. The size of an Internet NAT gateway determines the SNAT performance, which includes the maximum number of connections and the number of new connections per second. However, the size of a NAT gateway does not affect the data throughput. The following table describes the correlations between different sizes of Internet NAT gateways and SNAT performance metrics.  
+    * | Size | Maximum number of connections | Number of new connections per second |
+    * | ---- | ----------------------------- | ------------------------------------ |
+    * | Small | 10,000 | 1,000 |
+    * | Medium | 50,000 | 5,000 |
+    * | Large | 200,000 | 10,000 |
+    *
+    * @param request ModifyNatGatewaySpecRequest
+    * @param runtime runtime options for this request RuntimeOptions
+    * @return ModifyNatGatewaySpecResponse
+   */
   async modifyNatGatewaySpecWithOptions(request: ModifyNatGatewaySpecRequest, runtime: $Util.RuntimeOptions): Promise<ModifyNatGatewaySpecResponse> {
     Util.validateModel(request);
     let query = { };
@@ -60571,11 +66298,34 @@ export default class Client extends OpenApi {
     return $tea.cast<ModifyNatGatewaySpecResponse>(await this.callApi(params, req, runtime), new ModifyNatGatewaySpecResponse({}));
   }
 
+  /**
+    * - You cannot call this operation to downgrade a subscription Internet NAT gateway. You can downgrade a subscription Internet NAT gateway only in the console.
+    * - When you call this operation to upgrade a subscription Internet NAT gateway, an order is generated. After you complete the payment in the order center, the Internet NAT gateway is upgraded.
+    * - **ModifyNatGatewaySpec** is an asynchronous operation. After you make a request, the ID of the request is returned but the Internet NAT gateway is not upgraded. The system upgrades the NAT gateway in the background. You can call the [DescribeNatGateways](/help/en/virtual-private-cloud/latest/describenatgateways) operation to query the status of an Internet NAT gateway.    - If an Internet NAT gateway is in the **Modifying** state, the NAT gateway is being upgraded. In this case, you can only query the NAT gateway but cannot perform other operations.
+    *   - If an Internet NAT gateway is in the **Available** state, the Internet NAT gateway is upgraded.
+    * - You cannot repeatedly call the **ModifyNatGatewaySpec** operation to resize a pay-by-specification NAT gateway.
+    * Internet NAT gateways are available in different sizes. The size of an Internet NAT gateway determines the SNAT performance, which includes the maximum number of connections and the number of new connections per second. However, the size of a NAT gateway does not affect the data throughput. The following table describes the correlations between different sizes of Internet NAT gateways and SNAT performance metrics.  
+    * | Size | Maximum number of connections | Number of new connections per second |
+    * | ---- | ----------------------------- | ------------------------------------ |
+    * | Small | 10,000 | 1,000 |
+    * | Medium | 50,000 | 5,000 |
+    * | Large | 200,000 | 10,000 |
+    *
+    * @param request ModifyNatGatewaySpecRequest
+    * @return ModifyNatGatewaySpecResponse
+   */
   async modifyNatGatewaySpec(request: ModifyNatGatewaySpecRequest): Promise<ModifyNatGatewaySpecResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.modifyNatGatewaySpecWithOptions(request, runtime);
   }
 
+  /**
+    * The ID of the NAT IP address that you want to modify.
+    *
+    * @param request ModifyNatIpAttributeRequest
+    * @param runtime runtime options for this request RuntimeOptions
+    * @return ModifyNatIpAttributeResponse
+   */
   async modifyNatIpAttributeWithOptions(request: ModifyNatIpAttributeRequest, runtime: $Util.RuntimeOptions): Promise<ModifyNatIpAttributeResponse> {
     Util.validateModel(request);
     let query = { };
@@ -60640,6 +66390,12 @@ export default class Client extends OpenApi {
     return $tea.cast<ModifyNatIpAttributeResponse>(await this.callApi(params, req, runtime), new ModifyNatIpAttributeResponse({}));
   }
 
+  /**
+    * The ID of the NAT IP address that you want to modify.
+    *
+    * @param request ModifyNatIpAttributeRequest
+    * @return ModifyNatIpAttributeResponse
+   */
   async modifyNatIpAttribute(request: ModifyNatIpAttributeRequest): Promise<ModifyNatIpAttributeResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.modifyNatIpAttributeWithOptions(request, runtime);
@@ -60779,6 +66535,17 @@ export default class Client extends OpenApi {
     return await this.modifyNetworkAclAttributesWithOptions(request, runtime);
   }
 
+  /**
+    * ## Limits
+    * When you call this operation, take note of the following limits:
+    * *   If an Express Connect circuit is in the **Initial**, **Enabled**, or **Rejected** state, you can modify the specifications of the Express Connect circuit and the ID of the redundant circuit.
+    * *   If an Express Connect circuit is in the **Canceled**, **Allocating**, **AllocationFailed**, or **Terminated** state, you cannot modify the specifications of the Express Connect circuit.
+    * *   After you modify the specifications of an Express Connect circuit that is in the **Rejected** state, the Express Connect circuit enters the **Initial** state.
+    *
+    * @param request ModifyPhysicalConnectionAttributeRequest
+    * @param runtime runtime options for this request RuntimeOptions
+    * @return ModifyPhysicalConnectionAttributeResponse
+   */
   async modifyPhysicalConnectionAttributeWithOptions(request: ModifyPhysicalConnectionAttributeRequest, runtime: $Util.RuntimeOptions): Promise<ModifyPhysicalConnectionAttributeResponse> {
     Util.validateModel(request);
     let query = { };
@@ -60863,11 +66630,28 @@ export default class Client extends OpenApi {
     return $tea.cast<ModifyPhysicalConnectionAttributeResponse>(await this.callApi(params, req, runtime), new ModifyPhysicalConnectionAttributeResponse({}));
   }
 
+  /**
+    * ## Limits
+    * When you call this operation, take note of the following limits:
+    * *   If an Express Connect circuit is in the **Initial**, **Enabled**, or **Rejected** state, you can modify the specifications of the Express Connect circuit and the ID of the redundant circuit.
+    * *   If an Express Connect circuit is in the **Canceled**, **Allocating**, **AllocationFailed**, or **Terminated** state, you cannot modify the specifications of the Express Connect circuit.
+    * *   After you modify the specifications of an Express Connect circuit that is in the **Rejected** state, the Express Connect circuit enters the **Initial** state.
+    *
+    * @param request ModifyPhysicalConnectionAttributeRequest
+    * @return ModifyPhysicalConnectionAttributeResponse
+   */
   async modifyPhysicalConnectionAttribute(request: ModifyPhysicalConnectionAttributeRequest): Promise<ModifyPhysicalConnectionAttributeResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.modifyPhysicalConnectionAttributeWithOptions(request, runtime);
   }
 
+  /**
+    * You cannot repeatedly call the **ModifyRouteEntry** operation to modify the name and description of a custom route within the specified period of time.
+    *
+    * @param request ModifyRouteEntryRequest
+    * @param runtime runtime options for this request RuntimeOptions
+    * @return ModifyRouteEntryResponse
+   */
   async modifyRouteEntryWithOptions(request: ModifyRouteEntryRequest, runtime: $Util.RuntimeOptions): Promise<ModifyRouteEntryResponse> {
     Util.validateModel(request);
     let query = { };
@@ -60920,11 +66704,24 @@ export default class Client extends OpenApi {
     return $tea.cast<ModifyRouteEntryResponse>(await this.callApi(params, req, runtime), new ModifyRouteEntryResponse({}));
   }
 
+  /**
+    * You cannot repeatedly call the **ModifyRouteEntry** operation to modify the name and description of a custom route within the specified period of time.
+    *
+    * @param request ModifyRouteEntryRequest
+    * @return ModifyRouteEntryResponse
+   */
   async modifyRouteEntry(request: ModifyRouteEntryRequest): Promise<ModifyRouteEntryResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.modifyRouteEntryWithOptions(request, runtime);
   }
 
+  /**
+    * You cannot repeatedly call the **ModifyRouteTableAttributes** operation to modify the name and description of a route table within the specified period of time.
+    *
+    * @param request ModifyRouteTableAttributesRequest
+    * @param runtime runtime options for this request RuntimeOptions
+    * @return ModifyRouteTableAttributesResponse
+   */
   async modifyRouteTableAttributesWithOptions(request: ModifyRouteTableAttributesRequest, runtime: $Util.RuntimeOptions): Promise<ModifyRouteTableAttributesResponse> {
     Util.validateModel(request);
     let query = { };
@@ -60977,6 +66774,12 @@ export default class Client extends OpenApi {
     return $tea.cast<ModifyRouteTableAttributesResponse>(await this.callApi(params, req, runtime), new ModifyRouteTableAttributesResponse({}));
   }
 
+  /**
+    * You cannot repeatedly call the **ModifyRouteTableAttributes** operation to modify the name and description of a route table within the specified period of time.
+    *
+    * @param request ModifyRouteTableAttributesRequest
+    * @return ModifyRouteTableAttributesResponse
+   */
   async modifyRouteTableAttributes(request: ModifyRouteTableAttributesRequest): Promise<ModifyRouteTableAttributesResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.modifyRouteTableAttributesWithOptions(request, runtime);
@@ -61071,6 +66874,14 @@ export default class Client extends OpenApi {
     return await this.modifyRouterInterfaceAttributeWithOptions(request, runtime);
   }
 
+  /**
+    * After you call this operation, the router interface enters the **Activating** state. After the router interface is activated, the router interface enters the **Active** state.
+    * >  You cannot modify the specifications of a router interface that has overdue payments.
+    *
+    * @param request ModifyRouterInterfaceSpecRequest
+    * @param runtime runtime options for this request RuntimeOptions
+    * @return ModifyRouterInterfaceSpecResponse
+   */
   async modifyRouterInterfaceSpecWithOptions(request: ModifyRouterInterfaceSpecRequest, runtime: $Util.RuntimeOptions): Promise<ModifyRouterInterfaceSpecResponse> {
     Util.validateModel(request);
     let query = { };
@@ -61123,11 +66934,29 @@ export default class Client extends OpenApi {
     return $tea.cast<ModifyRouterInterfaceSpecResponse>(await this.callApi(params, req, runtime), new ModifyRouterInterfaceSpecResponse({}));
   }
 
+  /**
+    * After you call this operation, the router interface enters the **Activating** state. After the router interface is activated, the router interface enters the **Active** state.
+    * >  You cannot modify the specifications of a router interface that has overdue payments.
+    *
+    * @param request ModifyRouterInterfaceSpecRequest
+    * @return ModifyRouterInterfaceSpecResponse
+   */
   async modifyRouterInterfaceSpec(request: ModifyRouterInterfaceSpecRequest): Promise<ModifyRouterInterfaceSpecResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.modifyRouterInterfaceSpecWithOptions(request, runtime);
   }
 
+  /**
+    * **ModifySnatEntry** is an asynchronous operation. After you make a request, the ID of the request is returned but the specified SNAT entry is not modified. The system modifies the entry in the background. You can call the [DescribeSnatTableEntries](~~42677~~) operation to query the status of a SNAT entry.
+    * *   **Pending**: indicates that the system is modifying the SNAT entry. You can only query the status of the SNAT entry, but cannot perform other operations.
+    * *   **Available**: indicates that the SNAT entry is modified.
+    * >  **Pending**: indicates that you cannot modify the SNAT entry in the SNAT table.
+    * You cannot repeatedly call the **ModifySnatEntry** operation to modify an SNAT entry within the specified period of time.
+    *
+    * @param request ModifySnatEntryRequest
+    * @param runtime runtime options for this request RuntimeOptions
+    * @return ModifySnatEntryResponse
+   */
   async modifySnatEntryWithOptions(request: ModifySnatEntryRequest, runtime: $Util.RuntimeOptions): Promise<ModifySnatEntryResponse> {
     Util.validateModel(request);
     let query = { };
@@ -61188,6 +67017,16 @@ export default class Client extends OpenApi {
     return $tea.cast<ModifySnatEntryResponse>(await this.callApi(params, req, runtime), new ModifySnatEntryResponse({}));
   }
 
+  /**
+    * **ModifySnatEntry** is an asynchronous operation. After you make a request, the ID of the request is returned but the specified SNAT entry is not modified. The system modifies the entry in the background. You can call the [DescribeSnatTableEntries](~~42677~~) operation to query the status of a SNAT entry.
+    * *   **Pending**: indicates that the system is modifying the SNAT entry. You can only query the status of the SNAT entry, but cannot perform other operations.
+    * *   **Available**: indicates that the SNAT entry is modified.
+    * >  **Pending**: indicates that you cannot modify the SNAT entry in the SNAT table.
+    * You cannot repeatedly call the **ModifySnatEntry** operation to modify an SNAT entry within the specified period of time.
+    *
+    * @param request ModifySnatEntryRequest
+    * @return ModifySnatEntryResponse
+   */
   async modifySnatEntry(request: ModifySnatEntryRequest): Promise<ModifySnatEntryResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.modifySnatEntryWithOptions(request, runtime);
@@ -61250,6 +67089,17 @@ export default class Client extends OpenApi {
     return await this.modifySslVpnClientCertWithOptions(request, runtime);
   }
 
+  /**
+    * *   If you modify only the **name** of the SSL server, the operation is synchronous. If you also modify other configurations, the operation is asynchronous.
+    * *   When **ModifySslVpnServer** is an asynchronous operation, the system returns the request ID but the operation is still being performed in the system background. You can call [DescribeVpnGateway](~~73720~~) to query the status of a VPN gateway.
+    *     *   If a VPN gateway is in the **updating** state, the configurations of the SSL server are being modified.
+    *     *   If a VPN gateway is in the **active** state, the configurations of the SSL server have been modified.
+    * *   You cannot repeatedly call **ModifySslVpnServer** to modify the configurations of an SSL server within the specified period of time.
+    *
+    * @param request ModifySslVpnServerRequest
+    * @param runtime runtime options for this request RuntimeOptions
+    * @return ModifySslVpnServerResponse
+   */
   async modifySslVpnServerWithOptions(request: ModifySslVpnServerRequest, runtime: $Util.RuntimeOptions): Promise<ModifySslVpnServerResponse> {
     Util.validateModel(request);
     let query = { };
@@ -61338,11 +67188,28 @@ export default class Client extends OpenApi {
     return $tea.cast<ModifySslVpnServerResponse>(await this.callApi(params, req, runtime), new ModifySslVpnServerResponse({}));
   }
 
+  /**
+    * *   If you modify only the **name** of the SSL server, the operation is synchronous. If you also modify other configurations, the operation is asynchronous.
+    * *   When **ModifySslVpnServer** is an asynchronous operation, the system returns the request ID but the operation is still being performed in the system background. You can call [DescribeVpnGateway](~~73720~~) to query the status of a VPN gateway.
+    *     *   If a VPN gateway is in the **updating** state, the configurations of the SSL server are being modified.
+    *     *   If a VPN gateway is in the **active** state, the configurations of the SSL server have been modified.
+    * *   You cannot repeatedly call **ModifySslVpnServer** to modify the configurations of an SSL server within the specified period of time.
+    *
+    * @param request ModifySslVpnServerRequest
+    * @return ModifySslVpnServerResponse
+   */
   async modifySslVpnServer(request: ModifySslVpnServerRequest): Promise<ModifySslVpnServerResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.modifySslVpnServerWithOptions(request, runtime);
   }
 
+  /**
+    * The ID of the vRouter.
+    *
+    * @param request ModifyVRouterAttributeRequest
+    * @param runtime runtime options for this request RuntimeOptions
+    * @return ModifyVRouterAttributeResponse
+   */
   async modifyVRouterAttributeWithOptions(request: ModifyVRouterAttributeRequest, runtime: $Util.RuntimeOptions): Promise<ModifyVRouterAttributeResponse> {
     Util.validateModel(request);
     let query = { };
@@ -61395,11 +67262,27 @@ export default class Client extends OpenApi {
     return $tea.cast<ModifyVRouterAttributeResponse>(await this.callApi(params, req, runtime), new ModifyVRouterAttributeResponse({}));
   }
 
+  /**
+    * The ID of the vRouter.
+    *
+    * @param request ModifyVRouterAttributeRequest
+    * @return ModifyVRouterAttributeResponse
+   */
   async modifyVRouterAttribute(request: ModifyVRouterAttributeRequest): Promise<ModifyVRouterAttributeResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.modifyVRouterAttributeWithOptions(request, runtime);
   }
 
+  /**
+    * *   The **ModifyVSwitchAttribute** operation is asynchronous. After you send the request, the system returns a request ID. However, the operation is still being performed in the system background. You can call the [DescribeVSwitchAttributes](~~94567~~) operation to query the status of a vSwitch:
+    *     *   If the vSwitch is in the **Pending** state, the vSwitch is being modified.
+    *     *   If the vSwitch is in the **Available** state, the vSwitch is available.
+    * *   You cannot repeatedly call the **ModifyVSwitchAttribute** operation to modify the name and description of a vSwitch within the specified period of time.
+    *
+    * @param request ModifyVSwitchAttributeRequest
+    * @param runtime runtime options for this request RuntimeOptions
+    * @return ModifyVSwitchAttributeResponse
+   */
   async modifyVSwitchAttributeWithOptions(request: ModifyVSwitchAttributeRequest, runtime: $Util.RuntimeOptions): Promise<ModifyVSwitchAttributeResponse> {
     Util.validateModel(request);
     let query = { };
@@ -61464,11 +67347,30 @@ export default class Client extends OpenApi {
     return $tea.cast<ModifyVSwitchAttributeResponse>(await this.callApi(params, req, runtime), new ModifyVSwitchAttributeResponse({}));
   }
 
+  /**
+    * *   The **ModifyVSwitchAttribute** operation is asynchronous. After you send the request, the system returns a request ID. However, the operation is still being performed in the system background. You can call the [DescribeVSwitchAttributes](~~94567~~) operation to query the status of a vSwitch:
+    *     *   If the vSwitch is in the **Pending** state, the vSwitch is being modified.
+    *     *   If the vSwitch is in the **Available** state, the vSwitch is available.
+    * *   You cannot repeatedly call the **ModifyVSwitchAttribute** operation to modify the name and description of a vSwitch within the specified period of time.
+    *
+    * @param request ModifyVSwitchAttributeRequest
+    * @return ModifyVSwitchAttributeResponse
+   */
   async modifyVSwitchAttribute(request: ModifyVSwitchAttributeRequest): Promise<ModifyVSwitchAttributeResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.modifyVSwitchAttributeWithOptions(request, runtime);
   }
 
+  /**
+    * *   **ModifyVcoRouteEntryWeight** is an asynchronous operation. After you send a request, the system returns a request ID and runs the task in the background. You can call the [DescribeVpnConnection](~~53046~~) operation to query the status of the associated IPsec-VPN connection and determine whether the weight of the specified destination-based route is modified.
+    *     *   If the IPsec-VPN connection is in the **updating** state, the weight of the destination-based route is being modified.
+    *     *   If the IPsec-VPN connection is in the **attached** state, the weight of the destination-based route is modified.
+    * *   You cannot repeatedly call the **ModifyVcoRouteEntryWeight** operation for the same IPsec-VPN connection within the specified period of time.
+    *
+    * @param request ModifyVcoRouteEntryWeightRequest
+    * @param runtime runtime options for this request RuntimeOptions
+    * @return ModifyVcoRouteEntryWeightResponse
+   */
   async modifyVcoRouteEntryWeightWithOptions(request: ModifyVcoRouteEntryWeightRequest, runtime: $Util.RuntimeOptions): Promise<ModifyVcoRouteEntryWeightResponse> {
     Util.validateModel(request);
     let query = { };
@@ -61533,11 +67435,32 @@ export default class Client extends OpenApi {
     return $tea.cast<ModifyVcoRouteEntryWeightResponse>(await this.callApi(params, req, runtime), new ModifyVcoRouteEntryWeightResponse({}));
   }
 
+  /**
+    * *   **ModifyVcoRouteEntryWeight** is an asynchronous operation. After you send a request, the system returns a request ID and runs the task in the background. You can call the [DescribeVpnConnection](~~53046~~) operation to query the status of the associated IPsec-VPN connection and determine whether the weight of the specified destination-based route is modified.
+    *     *   If the IPsec-VPN connection is in the **updating** state, the weight of the destination-based route is being modified.
+    *     *   If the IPsec-VPN connection is in the **attached** state, the weight of the destination-based route is modified.
+    * *   You cannot repeatedly call the **ModifyVcoRouteEntryWeight** operation for the same IPsec-VPN connection within the specified period of time.
+    *
+    * @param request ModifyVcoRouteEntryWeightRequest
+    * @return ModifyVcoRouteEntryWeightResponse
+   */
   async modifyVcoRouteEntryWeight(request: ModifyVcoRouteEntryWeightRequest): Promise<ModifyVcoRouteEntryWeightResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.modifyVcoRouteEntryWeightWithOptions(request, runtime);
   }
 
+  /**
+    * *   Only the owner of an Express Connect circuit can modify the **VlanId** parameter.
+    * *   One VLAN ID of an Express Connect circuit cannot be used by two VBRs at the same time.
+    * *   The VLAN ID of a VBR in the **Terminated** state is reserved for seven days and cannot be used by other VBRs. The VLAN ID can be used by other VBRs after 7 days.
+    * *   You cannot set **LocalGatewayIp**, **PeerGatewayIp**, or **PeeringSubnetMask** for VBRs that do not belong to your Alibaba Cloud account.
+    * *   Set **PeeringSubnetMask** to a subnet mask with 24 to 30 bits in length (255.255.255.0～255.255.255.252).
+    * *   Set **LocalGatewayIp** and **PeerGatewayIp** to IP addresses that belong to the same CIDR block. For example, you can set LocalGatewayIp to 192.168.XX.XX, PeerGatewayIp to 192.168.XX.XX, and PeeringSubnetMask to 255.255.255.248.
+    *
+    * @param request ModifyVirtualBorderRouterAttributeRequest
+    * @param runtime runtime options for this request RuntimeOptions
+    * @return ModifyVirtualBorderRouterAttributeResponse
+   */
   async modifyVirtualBorderRouterAttributeWithOptions(request: ModifyVirtualBorderRouterAttributeRequest, runtime: $Util.RuntimeOptions): Promise<ModifyVirtualBorderRouterAttributeResponse> {
     Util.validateModel(request);
     let query = { };
@@ -61650,11 +67573,29 @@ export default class Client extends OpenApi {
     return $tea.cast<ModifyVirtualBorderRouterAttributeResponse>(await this.callApi(params, req, runtime), new ModifyVirtualBorderRouterAttributeResponse({}));
   }
 
+  /**
+    * *   Only the owner of an Express Connect circuit can modify the **VlanId** parameter.
+    * *   One VLAN ID of an Express Connect circuit cannot be used by two VBRs at the same time.
+    * *   The VLAN ID of a VBR in the **Terminated** state is reserved for seven days and cannot be used by other VBRs. The VLAN ID can be used by other VBRs after 7 days.
+    * *   You cannot set **LocalGatewayIp**, **PeerGatewayIp**, or **PeeringSubnetMask** for VBRs that do not belong to your Alibaba Cloud account.
+    * *   Set **PeeringSubnetMask** to a subnet mask with 24 to 30 bits in length (255.255.255.0～255.255.255.252).
+    * *   Set **LocalGatewayIp** and **PeerGatewayIp** to IP addresses that belong to the same CIDR block. For example, you can set LocalGatewayIp to 192.168.XX.XX, PeerGatewayIp to 192.168.XX.XX, and PeeringSubnetMask to 255.255.255.248.
+    *
+    * @param request ModifyVirtualBorderRouterAttributeRequest
+    * @return ModifyVirtualBorderRouterAttributeResponse
+   */
   async modifyVirtualBorderRouterAttribute(request: ModifyVirtualBorderRouterAttributeRequest): Promise<ModifyVirtualBorderRouterAttributeResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.modifyVirtualBorderRouterAttributeWithOptions(request, runtime);
   }
 
+  /**
+    * You cannot repeatedly call the **ModifyVpcAttribute** operation to modify the name and description of a VPC within the specified period of time.
+    *
+    * @param request ModifyVpcAttributeRequest
+    * @param runtime runtime options for this request RuntimeOptions
+    * @return ModifyVpcAttributeResponse
+   */
   async modifyVpcAttributeWithOptions(request: ModifyVpcAttributeRequest, runtime: $Util.RuntimeOptions): Promise<ModifyVpcAttributeResponse> {
     Util.validateModel(request);
     let query = { };
@@ -61723,11 +67664,24 @@ export default class Client extends OpenApi {
     return $tea.cast<ModifyVpcAttributeResponse>(await this.callApi(params, req, runtime), new ModifyVpcAttributeResponse({}));
   }
 
+  /**
+    * You cannot repeatedly call the **ModifyVpcAttribute** operation to modify the name and description of a VPC within the specified period of time.
+    *
+    * @param request ModifyVpcAttributeRequest
+    * @return ModifyVpcAttributeResponse
+   */
   async modifyVpcAttribute(request: ModifyVpcAttributeRequest): Promise<ModifyVpcAttributeResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.modifyVpcAttributeWithOptions(request, runtime);
   }
 
+  /**
+    * The ID of the prefix list.
+    *
+    * @param request ModifyVpcPrefixListRequest
+    * @param runtime runtime options for this request RuntimeOptions
+    * @return ModifyVpcPrefixListResponse
+   */
   async modifyVpcPrefixListWithOptions(request: ModifyVpcPrefixListRequest, runtime: $Util.RuntimeOptions): Promise<ModifyVpcPrefixListResponse> {
     Util.validateModel(request);
     let query = { };
@@ -61800,11 +67754,30 @@ export default class Client extends OpenApi {
     return $tea.cast<ModifyVpcPrefixListResponse>(await this.callApi(params, req, runtime), new ModifyVpcPrefixListResponse({}));
   }
 
+  /**
+    * The ID of the prefix list.
+    *
+    * @param request ModifyVpcPrefixListRequest
+    * @return ModifyVpcPrefixListResponse
+   */
   async modifyVpcPrefixList(request: ModifyVpcPrefixListRequest): Promise<ModifyVpcPrefixListResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.modifyVpcPrefixListWithOptions(request, runtime);
   }
 
+  /**
+    * *   **ModifyVpnAttachmentAttribute** is an asynchronous operation. After you send a request, the system returns a request ID and runs the task in the background. You can call the [DescribeVpnConnection](~~53046~~) operation to query the status of an IPsec-VPN connection.
+    *     *   If the IPsec-VPN connection is in the **updating** state, it indicates that the IPsec-VPN connection is being modified.
+    *     *   If the IPsec-VPN connection is in the **attached** state, it indicates that the IPsec-VPN connection is modified.
+    * *   You cannot call the **ModifyVpnAttachmentAttribute** operation again on the same IPsec-VPN connection before the previous operation is complete.
+    * *   When you call the **ModifyVpnAttachmentAttribute** operation, take note of the following items:
+    *     *   If the IPsec-VPN connection is associated with a transit router, you cannot change the type of the gateway connected to the IPsec-VPN connection.
+    *     *   If the IPsec-VPN connection is not associated with a resource, you cannot change the type of the gateway connected to the IPsec-VPN connection or the customer gateway connected to the IPsec-VPN connection.
+    *
+    * @param request ModifyVpnAttachmentAttributeRequest
+    * @param runtime runtime options for this request RuntimeOptions
+    * @return ModifyVpnAttachmentAttributeResponse
+   */
   async modifyVpnAttachmentAttributeWithOptions(request: ModifyVpnAttachmentAttributeRequest, runtime: $Util.RuntimeOptions): Promise<ModifyVpnAttachmentAttributeResponse> {
     Util.validateModel(request);
     let query = { };
@@ -61905,11 +67878,33 @@ export default class Client extends OpenApi {
     return $tea.cast<ModifyVpnAttachmentAttributeResponse>(await this.callApi(params, req, runtime), new ModifyVpnAttachmentAttributeResponse({}));
   }
 
+  /**
+    * *   **ModifyVpnAttachmentAttribute** is an asynchronous operation. After you send a request, the system returns a request ID and runs the task in the background. You can call the [DescribeVpnConnection](~~53046~~) operation to query the status of an IPsec-VPN connection.
+    *     *   If the IPsec-VPN connection is in the **updating** state, it indicates that the IPsec-VPN connection is being modified.
+    *     *   If the IPsec-VPN connection is in the **attached** state, it indicates that the IPsec-VPN connection is modified.
+    * *   You cannot call the **ModifyVpnAttachmentAttribute** operation again on the same IPsec-VPN connection before the previous operation is complete.
+    * *   When you call the **ModifyVpnAttachmentAttribute** operation, take note of the following items:
+    *     *   If the IPsec-VPN connection is associated with a transit router, you cannot change the type of the gateway connected to the IPsec-VPN connection.
+    *     *   If the IPsec-VPN connection is not associated with a resource, you cannot change the type of the gateway connected to the IPsec-VPN connection or the customer gateway connected to the IPsec-VPN connection.
+    *
+    * @param request ModifyVpnAttachmentAttributeRequest
+    * @return ModifyVpnAttachmentAttributeResponse
+   */
   async modifyVpnAttachmentAttribute(request: ModifyVpnAttachmentAttributeRequest): Promise<ModifyVpnAttachmentAttributeResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.modifyVpnAttachmentAttributeWithOptions(request, runtime);
   }
 
+  /**
+    * *   **ModifyVpnConnectionAttribute** is an asynchronous operation. After you send a request, the system returns a request ID and runs the task in the background. You can call the [DescribeVpnGateway](~~73720~~) operation to query the status of the VPN gateway. The status of the VPN gateway indicates whether the IPsec-VPN connection is modified.
+    *     *   If the VPN gateway is in the **updating** state, it indicates that the IPsec-VPN connection is being modified.
+    *     *   If the VPN gateway is in the **active** state, it indicates that the IPsec-VPN connection is modified.
+    * *   You cannot call the **ModifyVpnConnectionAttribute** operation again on the same VPN gateway to modify the configuration of an IPsec-VPN connection before the previous operation is complete.
+    *
+    * @param request ModifyVpnConnectionAttributeRequest
+    * @param runtime runtime options for this request RuntimeOptions
+    * @return ModifyVpnConnectionAttributeResponse
+   */
   async modifyVpnConnectionAttributeWithOptions(request: ModifyVpnConnectionAttributeRequest, runtime: $Util.RuntimeOptions): Promise<ModifyVpnConnectionAttributeResponse> {
     Util.validateModel(request);
     let query = { };
@@ -61935,6 +67930,10 @@ export default class Client extends OpenApi {
 
     if (!Util.isUnset(request.enableNatTraversal)) {
       query["EnableNatTraversal"] = request.enableNatTraversal;
+    }
+
+    if (!Util.isUnset(request.enableTunnelsBgp)) {
+      query["EnableTunnelsBgp"] = request.enableTunnelsBgp;
     }
 
     if (!Util.isUnset(request.healthCheckConfig)) {
@@ -61989,8 +67988,19 @@ export default class Client extends OpenApi {
       query["VpnConnectionId"] = request.vpnConnectionId;
     }
 
+    let body : {[key: string ]: any} = { };
+    let bodyFlat : {[key: string ]: any} = { };
+    if (!Util.isUnset(request.tunnelOptionsSpecification)) {
+      bodyFlat["TunnelOptionsSpecification"] = request.tunnelOptionsSpecification;
+    }
+
+    body = {
+      ...body,
+      ...OpenApiUtil.query(bodyFlat),
+    };
     let req = new $OpenApi.OpenApiRequest({
       query: OpenApiUtil.query(query),
+      body: OpenApiUtil.parseToMap(body),
     });
     let params = new $OpenApi.Params({
       action: "ModifyVpnConnectionAttribute",
@@ -62006,11 +68016,30 @@ export default class Client extends OpenApi {
     return $tea.cast<ModifyVpnConnectionAttributeResponse>(await this.callApi(params, req, runtime), new ModifyVpnConnectionAttributeResponse({}));
   }
 
+  /**
+    * *   **ModifyVpnConnectionAttribute** is an asynchronous operation. After you send a request, the system returns a request ID and runs the task in the background. You can call the [DescribeVpnGateway](~~73720~~) operation to query the status of the VPN gateway. The status of the VPN gateway indicates whether the IPsec-VPN connection is modified.
+    *     *   If the VPN gateway is in the **updating** state, it indicates that the IPsec-VPN connection is being modified.
+    *     *   If the VPN gateway is in the **active** state, it indicates that the IPsec-VPN connection is modified.
+    * *   You cannot call the **ModifyVpnConnectionAttribute** operation again on the same VPN gateway to modify the configuration of an IPsec-VPN connection before the previous operation is complete.
+    *
+    * @param request ModifyVpnConnectionAttributeRequest
+    * @return ModifyVpnConnectionAttributeResponse
+   */
   async modifyVpnConnectionAttribute(request: ModifyVpnConnectionAttributeRequest): Promise<ModifyVpnConnectionAttributeResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.modifyVpnConnectionAttributeWithOptions(request, runtime);
   }
 
+  /**
+    * *   **ModifyVpnGatewayAttribute** is an asynchronous operation. After you send the request, the information about the VPN gateway is returned but the operation is still being performed in the system background. You can call the [DescribeVpnGateway](~~73720~~) operation to query the status of a VPN gateway.
+    *     *   If a VPN gateway is in the **updating** state, the VPN gateway is being modified.
+    *     *   If a VPN gateway is in the **active** state, the VPN gateway has been modified.
+    * *   You cannot repeatedly call **ModifyVpnGatewayAttribute** to modify a VPN gateway within the specified period of time.
+    *
+    * @param request ModifyVpnGatewayAttributeRequest
+    * @param runtime runtime options for this request RuntimeOptions
+    * @return ModifyVpnGatewayAttributeResponse
+   */
   async modifyVpnGatewayAttributeWithOptions(request: ModifyVpnGatewayAttributeRequest, runtime: $Util.RuntimeOptions): Promise<ModifyVpnGatewayAttributeResponse> {
     Util.validateModel(request);
     let query = { };
@@ -62071,11 +68100,34 @@ export default class Client extends OpenApi {
     return $tea.cast<ModifyVpnGatewayAttributeResponse>(await this.callApi(params, req, runtime), new ModifyVpnGatewayAttributeResponse({}));
   }
 
+  /**
+    * *   **ModifyVpnGatewayAttribute** is an asynchronous operation. After you send the request, the information about the VPN gateway is returned but the operation is still being performed in the system background. You can call the [DescribeVpnGateway](~~73720~~) operation to query the status of a VPN gateway.
+    *     *   If a VPN gateway is in the **updating** state, the VPN gateway is being modified.
+    *     *   If a VPN gateway is in the **active** state, the VPN gateway has been modified.
+    * *   You cannot repeatedly call **ModifyVpnGatewayAttribute** to modify a VPN gateway within the specified period of time.
+    *
+    * @param request ModifyVpnGatewayAttributeRequest
+    * @return ModifyVpnGatewayAttributeResponse
+   */
   async modifyVpnGatewayAttribute(request: ModifyVpnGatewayAttributeRequest): Promise<ModifyVpnGatewayAttributeResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.modifyVpnGatewayAttributeWithOptions(request, runtime);
   }
 
+  /**
+    * *   You can call the **ModifyVpnPbrRouteEntryAttribute** operation to modify the weight and priority of a policy-based route.
+    *     *   If you want to modify only the weight of a policy-based route, call [ModifyVpnPbrRouteEntryWeight](~~127249~~).
+    *     *   If you want to modify only the priority of a policy-based route, call [ModifyVpnPbrRouteEntryPriority](~~466870~~).
+    *     *   If a policy-based route does not support priorities, you can only call [ModifyVpnPbrRouteEntryWeight](~~127249~~) to modify its weight.
+    * *   The **ModifyVpnPbrRouteEntryAttribute** operation is asynchronous. After you send a request, the system returns a request ID, but the operation is still being performed in the system background. You can call [DescribeVpnGateway](~~73720~~) to query the status of a VPN gateway.
+    *     *   If the VPN gateway is in the **updating** state, the policy-based route is being created.
+    *     *   If the VPN gateway is in the **active** state, the policy-based route is created.
+    * *   You cannot repeatedly call the **ModifyVpnPbrRouteEntryAttribute** operation for the same VPN gateway within the specified period of time
+    *
+    * @param request ModifyVpnPbrRouteEntryAttributeRequest
+    * @param runtime runtime options for this request RuntimeOptions
+    * @return ModifyVpnPbrRouteEntryAttributeResponse
+   */
   async modifyVpnPbrRouteEntryAttributeWithOptions(request: ModifyVpnPbrRouteEntryAttributeRequest, runtime: $Util.RuntimeOptions): Promise<ModifyVpnPbrRouteEntryAttributeResponse> {
     Util.validateModel(request);
     let query = { };
@@ -62152,11 +68204,34 @@ export default class Client extends OpenApi {
     return $tea.cast<ModifyVpnPbrRouteEntryAttributeResponse>(await this.callApi(params, req, runtime), new ModifyVpnPbrRouteEntryAttributeResponse({}));
   }
 
+  /**
+    * *   You can call the **ModifyVpnPbrRouteEntryAttribute** operation to modify the weight and priority of a policy-based route.
+    *     *   If you want to modify only the weight of a policy-based route, call [ModifyVpnPbrRouteEntryWeight](~~127249~~).
+    *     *   If you want to modify only the priority of a policy-based route, call [ModifyVpnPbrRouteEntryPriority](~~466870~~).
+    *     *   If a policy-based route does not support priorities, you can only call [ModifyVpnPbrRouteEntryWeight](~~127249~~) to modify its weight.
+    * *   The **ModifyVpnPbrRouteEntryAttribute** operation is asynchronous. After you send a request, the system returns a request ID, but the operation is still being performed in the system background. You can call [DescribeVpnGateway](~~73720~~) to query the status of a VPN gateway.
+    *     *   If the VPN gateway is in the **updating** state, the policy-based route is being created.
+    *     *   If the VPN gateway is in the **active** state, the policy-based route is created.
+    * *   You cannot repeatedly call the **ModifyVpnPbrRouteEntryAttribute** operation for the same VPN gateway within the specified period of time
+    *
+    * @param request ModifyVpnPbrRouteEntryAttributeRequest
+    * @return ModifyVpnPbrRouteEntryAttributeResponse
+   */
   async modifyVpnPbrRouteEntryAttribute(request: ModifyVpnPbrRouteEntryAttributeRequest): Promise<ModifyVpnPbrRouteEntryAttributeResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.modifyVpnPbrRouteEntryAttributeWithOptions(request, runtime);
   }
 
+  /**
+    * *   The **ModifyVpnPbrRouteEntryPriority** operation is asynchronous. After you send a request, the system returns a request ID, but the operation is still being performed in the system background. You can call [DescribeVpnGateway](~~73720~~) to query the status of a VPN gateway.
+    *     *   If the VPN gateway is in the **updating** state, the policy-based route is being created.
+    *     *   If the VPN gateway is in the **active** state, the policy-based route is created.
+    * *   You cannot repeatedly call the **ModifyVpnPbrRouteEntryPriority** operation for the same VPN gateway within the specified period of time.
+    *
+    * @param request ModifyVpnPbrRouteEntryPriorityRequest
+    * @param runtime runtime options for this request RuntimeOptions
+    * @return ModifyVpnPbrRouteEntryPriorityResponse
+   */
   async modifyVpnPbrRouteEntryPriorityWithOptions(request: ModifyVpnPbrRouteEntryPriorityRequest, runtime: $Util.RuntimeOptions): Promise<ModifyVpnPbrRouteEntryPriorityResponse> {
     Util.validateModel(request);
     let query = { };
@@ -62229,11 +68304,30 @@ export default class Client extends OpenApi {
     return $tea.cast<ModifyVpnPbrRouteEntryPriorityResponse>(await this.callApi(params, req, runtime), new ModifyVpnPbrRouteEntryPriorityResponse({}));
   }
 
+  /**
+    * *   The **ModifyVpnPbrRouteEntryPriority** operation is asynchronous. After you send a request, the system returns a request ID, but the operation is still being performed in the system background. You can call [DescribeVpnGateway](~~73720~~) to query the status of a VPN gateway.
+    *     *   If the VPN gateway is in the **updating** state, the policy-based route is being created.
+    *     *   If the VPN gateway is in the **active** state, the policy-based route is created.
+    * *   You cannot repeatedly call the **ModifyVpnPbrRouteEntryPriority** operation for the same VPN gateway within the specified period of time.
+    *
+    * @param request ModifyVpnPbrRouteEntryPriorityRequest
+    * @return ModifyVpnPbrRouteEntryPriorityResponse
+   */
   async modifyVpnPbrRouteEntryPriority(request: ModifyVpnPbrRouteEntryPriorityRequest): Promise<ModifyVpnPbrRouteEntryPriorityResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.modifyVpnPbrRouteEntryPriorityWithOptions(request, runtime);
   }
 
+  /**
+    * *   The **ModifyVpnPbrRouteEntryWeight** operation is asynchronous. After you send a request, the system returns a request ID, but the operation is still being performed in the system background. You can call [DescribeVpnGateway](~~73720~~) to query the status of a VPN gateway.
+    *     *   If a VPN gateway is in the **updating** state, the policy-based route entry is being modified.
+    *     *   If a VPN gateway is in the **active** state, the policy-based route entry is modified.
+    * *   You cannot repeatedly call the **ModifyVpnPbrRouteEntryWeight** operation for the same VPN gateway within the specified period of time.
+    *
+    * @param request ModifyVpnPbrRouteEntryWeightRequest
+    * @param runtime runtime options for this request RuntimeOptions
+    * @return ModifyVpnPbrRouteEntryWeightResponse
+   */
   async modifyVpnPbrRouteEntryWeightWithOptions(request: ModifyVpnPbrRouteEntryWeightRequest, runtime: $Util.RuntimeOptions): Promise<ModifyVpnPbrRouteEntryWeightResponse> {
     Util.validateModel(request);
     let query = { };
@@ -62310,11 +68404,30 @@ export default class Client extends OpenApi {
     return $tea.cast<ModifyVpnPbrRouteEntryWeightResponse>(await this.callApi(params, req, runtime), new ModifyVpnPbrRouteEntryWeightResponse({}));
   }
 
+  /**
+    * *   The **ModifyVpnPbrRouteEntryWeight** operation is asynchronous. After you send a request, the system returns a request ID, but the operation is still being performed in the system background. You can call [DescribeVpnGateway](~~73720~~) to query the status of a VPN gateway.
+    *     *   If a VPN gateway is in the **updating** state, the policy-based route entry is being modified.
+    *     *   If a VPN gateway is in the **active** state, the policy-based route entry is modified.
+    * *   You cannot repeatedly call the **ModifyVpnPbrRouteEntryWeight** operation for the same VPN gateway within the specified period of time.
+    *
+    * @param request ModifyVpnPbrRouteEntryWeightRequest
+    * @return ModifyVpnPbrRouteEntryWeightResponse
+   */
   async modifyVpnPbrRouteEntryWeight(request: ModifyVpnPbrRouteEntryWeightRequest): Promise<ModifyVpnPbrRouteEntryWeightResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.modifyVpnPbrRouteEntryWeightWithOptions(request, runtime);
   }
 
+  /**
+    * *   The **ModifyVpnRouteEntryWeight** operation is asynchronous. After you send a request, the system returns a request ID, but the operation is still being performed in the system background. You can call [DescribeVpnGateway](~~73720~~) to query the status of a VPN gateway.
+    *     *   If the VPN gateway is in the **updating** state, the weight of the destination-based route is being modified.
+    *     *   If the VPN gateway is in the **active** state, the weight of the destination-based route is modified.
+    * *   You cannot repeatedly call the **ModifyVpnRouteEntryWeight** operation to modify the weight of destination-based route for the same VPN gateway within the specified period of time.
+    *
+    * @param request ModifyVpnRouteEntryWeightRequest
+    * @param runtime runtime options for this request RuntimeOptions
+    * @return ModifyVpnRouteEntryWeightResponse
+   */
   async modifyVpnRouteEntryWeightWithOptions(request: ModifyVpnRouteEntryWeightRequest, runtime: $Util.RuntimeOptions): Promise<ModifyVpnRouteEntryWeightResponse> {
     Util.validateModel(request);
     let query = { };
@@ -62383,6 +68496,15 @@ export default class Client extends OpenApi {
     return $tea.cast<ModifyVpnRouteEntryWeightResponse>(await this.callApi(params, req, runtime), new ModifyVpnRouteEntryWeightResponse({}));
   }
 
+  /**
+    * *   The **ModifyVpnRouteEntryWeight** operation is asynchronous. After you send a request, the system returns a request ID, but the operation is still being performed in the system background. You can call [DescribeVpnGateway](~~73720~~) to query the status of a VPN gateway.
+    *     *   If the VPN gateway is in the **updating** state, the weight of the destination-based route is being modified.
+    *     *   If the VPN gateway is in the **active** state, the weight of the destination-based route is modified.
+    * *   You cannot repeatedly call the **ModifyVpnRouteEntryWeight** operation to modify the weight of destination-based route for the same VPN gateway within the specified period of time.
+    *
+    * @param request ModifyVpnRouteEntryWeightRequest
+    * @return ModifyVpnRouteEntryWeightResponse
+   */
   async modifyVpnRouteEntryWeight(request: ModifyVpnRouteEntryWeightRequest): Promise<ModifyVpnRouteEntryWeightResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.modifyVpnRouteEntryWeightWithOptions(request, runtime);
@@ -62445,6 +68567,14 @@ export default class Client extends OpenApi {
     return await this.moveResourceGroupWithOptions(request, runtime);
   }
 
+  /**
+    * *   You cannot repeatedly call the **OpenFlowLogService** operation within the specified period of time by using an Alibaba Cloud account.
+    * *   You can call the [GetFlowLogServiceStatus](~~449624~~) operation to query the status of the flow log feature.
+    *
+    * @param request OpenFlowLogServiceRequest
+    * @param runtime runtime options for this request RuntimeOptions
+    * @return OpenFlowLogServiceResponse
+   */
   async openFlowLogServiceWithOptions(request: OpenFlowLogServiceRequest, runtime: $Util.RuntimeOptions): Promise<OpenFlowLogServiceResponse> {
     Util.validateModel(request);
     let query = { };
@@ -62493,6 +68623,13 @@ export default class Client extends OpenApi {
     return $tea.cast<OpenFlowLogServiceResponse>(await this.callApi(params, req, runtime), new OpenFlowLogServiceResponse({}));
   }
 
+  /**
+    * *   You cannot repeatedly call the **OpenFlowLogService** operation within the specified period of time by using an Alibaba Cloud account.
+    * *   You can call the [GetFlowLogServiceStatus](~~449624~~) operation to query the status of the flow log feature.
+    *
+    * @param request OpenFlowLogServiceRequest
+    * @return OpenFlowLogServiceResponse
+   */
   async openFlowLogService(request: OpenFlowLogServiceRequest): Promise<OpenFlowLogServiceResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.openFlowLogServiceWithOptions(request, runtime);
@@ -62543,11 +68680,42 @@ export default class Client extends OpenApi {
     return await this.openPhysicalConnectionServiceWithOptions(request, runtime);
   }
 
+  /**
+    * You can enable traffic mirroring for different regions. You cannot repeatedly call the **OpenTrafficMirrorService** operation to enable traffic mirroring for one region within the specified period of time.
+    *
+    * @param request OpenTrafficMirrorServiceRequest
+    * @param runtime runtime options for this request RuntimeOptions
+    * @return OpenTrafficMirrorServiceResponse
+   */
   async openTrafficMirrorServiceWithOptions(request: OpenTrafficMirrorServiceRequest, runtime: $Util.RuntimeOptions): Promise<OpenTrafficMirrorServiceResponse> {
     Util.validateModel(request);
     let query = { };
+    if (!Util.isUnset(request.clientToken)) {
+      query["ClientToken"] = request.clientToken;
+    }
+
+    if (!Util.isUnset(request.ownerAccount)) {
+      query["OwnerAccount"] = request.ownerAccount;
+    }
+
     if (!Util.isUnset(request.ownerId)) {
       query["OwnerId"] = request.ownerId;
+    }
+
+    if (!Util.isUnset(request.regionId)) {
+      query["RegionId"] = request.regionId;
+    }
+
+    if (!Util.isUnset(request.regionId)) {
+      query["RegionId"] = request.regionId;
+    }
+
+    if (!Util.isUnset(request.resourceOwnerAccount)) {
+      query["ResourceOwnerAccount"] = request.resourceOwnerAccount;
+    }
+
+    if (!Util.isUnset(request.resourceOwnerId)) {
+      query["ResourceOwnerId"] = request.resourceOwnerId;
     }
 
     let req = new $OpenApi.OpenApiRequest({
@@ -62567,6 +68735,12 @@ export default class Client extends OpenApi {
     return $tea.cast<OpenTrafficMirrorServiceResponse>(await this.callApi(params, req, runtime), new OpenTrafficMirrorServiceResponse({}));
   }
 
+  /**
+    * You can enable traffic mirroring for different regions. You cannot repeatedly call the **OpenTrafficMirrorService** operation to enable traffic mirroring for one region within the specified period of time.
+    *
+    * @param request OpenTrafficMirrorServiceRequest
+    * @return OpenTrafficMirrorServiceResponse
+   */
   async openTrafficMirrorService(request: OpenTrafficMirrorServiceRequest): Promise<OpenTrafficMirrorServiceResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.openTrafficMirrorServiceWithOptions(request, runtime);
@@ -62641,6 +68815,14 @@ export default class Client extends OpenApi {
     return await this.publishVpnRouteEntryWithOptions(request, runtime);
   }
 
+  /**
+    * The ID of the Express Connect circuit.
+    * >  You can resume only shared Express Connect circuits.
+    *
+    * @param request RecoverPhysicalConnectionRequest
+    * @param runtime runtime options for this request RuntimeOptions
+    * @return RecoverPhysicalConnectionResponse
+   */
   async recoverPhysicalConnectionWithOptions(request: RecoverPhysicalConnectionRequest, runtime: $Util.RuntimeOptions): Promise<RecoverPhysicalConnectionResponse> {
     Util.validateModel(request);
     let query = { };
@@ -62677,11 +68859,28 @@ export default class Client extends OpenApi {
     return $tea.cast<RecoverPhysicalConnectionResponse>(await this.callApi(params, req, runtime), new RecoverPhysicalConnectionResponse({}));
   }
 
+  /**
+    * The ID of the Express Connect circuit.
+    * >  You can resume only shared Express Connect circuits.
+    *
+    * @param request RecoverPhysicalConnectionRequest
+    * @return RecoverPhysicalConnectionResponse
+   */
   async recoverPhysicalConnection(request: RecoverPhysicalConnectionRequest): Promise<RecoverPhysicalConnectionResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.recoverPhysicalConnectionWithOptions(request, runtime);
   }
 
+  /**
+    * After the operation is called, the virtual border router (VBR) changes from the **Terminated** state to the **Recovering** state. When the VBR recovers, it enters the **Enabled** state.
+    * When you call this operation, take note of the following items:
+    * *   Only the owner of the Express Connect circuit can call this operation.
+    * *   The Express Connect circuit to which the VBR connects must be in the **Enabled** state.
+    *
+    * @param request RecoverVirtualBorderRouterRequest
+    * @param runtime runtime options for this request RuntimeOptions
+    * @return RecoverVirtualBorderRouterResponse
+   */
   async recoverVirtualBorderRouterWithOptions(request: RecoverVirtualBorderRouterRequest, runtime: $Util.RuntimeOptions): Promise<RecoverVirtualBorderRouterResponse> {
     Util.validateModel(request);
     let query = { };
@@ -62730,11 +68929,34 @@ export default class Client extends OpenApi {
     return $tea.cast<RecoverVirtualBorderRouterResponse>(await this.callApi(params, req, runtime), new RecoverVirtualBorderRouterResponse({}));
   }
 
+  /**
+    * After the operation is called, the virtual border router (VBR) changes from the **Terminated** state to the **Recovering** state. When the VBR recovers, it enters the **Enabled** state.
+    * When you call this operation, take note of the following items:
+    * *   Only the owner of the Express Connect circuit can call this operation.
+    * *   The Express Connect circuit to which the VBR connects must be in the **Enabled** state.
+    *
+    * @param request RecoverVirtualBorderRouterRequest
+    * @return RecoverVirtualBorderRouterResponse
+   */
   async recoverVirtualBorderRouter(request: RecoverVirtualBorderRouterRequest): Promise<RecoverVirtualBorderRouterResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.recoverVirtualBorderRouterWithOptions(request, runtime);
   }
 
+  /**
+    * Before you call this operation, take note of the following limits:
+    * *   Before you release an EIP, make sure that the EIP meets the following requirements:
+    *     *   You can release only an EIP that is in the **Available** state.
+    *     *   You can release only a pay-as-you-go EIP. You cannot release a subscription EIP.
+    * *   The **ReleaseEipAddress** operation is asynchronous. After you send the request, the system returns a request ID. However, the operation is still being performed in the system background. You can call the [DescribeEipAddresses](~~120193~~) operation to query the status of an EIP:
+    *     *   If the EIP is in the **Releasing** state, the EIP is being released. In this state, you can only query the EIP and cannot perform other operations.
+    *     *   If you cannot query the EIP, the EIP is released.
+    * *   You cannot repeatedly call the **ReleaseEipAddress** operation to release an EIP within the specified period of time.
+    *
+    * @param request ReleaseEipAddressRequest
+    * @param runtime runtime options for this request RuntimeOptions
+    * @return ReleaseEipAddressResponse
+   */
   async releaseEipAddressWithOptions(request: ReleaseEipAddressRequest, runtime: $Util.RuntimeOptions): Promise<ReleaseEipAddressResponse> {
     Util.validateModel(request);
     let query = { };
@@ -62779,11 +69001,35 @@ export default class Client extends OpenApi {
     return $tea.cast<ReleaseEipAddressResponse>(await this.callApi(params, req, runtime), new ReleaseEipAddressResponse({}));
   }
 
+  /**
+    * Before you call this operation, take note of the following limits:
+    * *   Before you release an EIP, make sure that the EIP meets the following requirements:
+    *     *   You can release only an EIP that is in the **Available** state.
+    *     *   You can release only a pay-as-you-go EIP. You cannot release a subscription EIP.
+    * *   The **ReleaseEipAddress** operation is asynchronous. After you send the request, the system returns a request ID. However, the operation is still being performed in the system background. You can call the [DescribeEipAddresses](~~120193~~) operation to query the status of an EIP:
+    *     *   If the EIP is in the **Releasing** state, the EIP is being released. In this state, you can only query the EIP and cannot perform other operations.
+    *     *   If you cannot query the EIP, the EIP is released.
+    * *   You cannot repeatedly call the **ReleaseEipAddress** operation to release an EIP within the specified period of time.
+    *
+    * @param request ReleaseEipAddressRequest
+    * @return ReleaseEipAddressResponse
+   */
   async releaseEipAddress(request: ReleaseEipAddressRequest): Promise<ReleaseEipAddressResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.releaseEipAddressWithOptions(request, runtime);
   }
 
+  /**
+    * *   After you call the **ReleaseEipSegmentAddress** operation, all EIPs in the specified group are released.
+    * *   The **ReleaseEipSegmentAddress** operation is asynchronous. After you send the request, the system returns a request ID. However, the operation is still being performed in the system background. You can call the [DescribeEipSegment](~~156063~~) operation to query the status of a group of contiguous EIPs:
+    *     *   If the group is in the **Releasing** state, EIPs in the group are being released. In this state, you can only query the group and cannot perform other operations.
+    *     *   If you cannot query the group of contiguous EIPs, the contiguous EIPs are released.
+    * *   You cannot repeatedly call the **ReleaseEipSegmentAddress** operation to release a group of contiguous EIPs within the specified period of time.
+    *
+    * @param request ReleaseEipSegmentAddressRequest
+    * @param runtime runtime options for this request RuntimeOptions
+    * @return ReleaseEipSegmentAddressResponse
+   */
   async releaseEipSegmentAddressWithOptions(request: ReleaseEipSegmentAddressRequest, runtime: $Util.RuntimeOptions): Promise<ReleaseEipSegmentAddressResponse> {
     Util.validateModel(request);
     let query = { };
@@ -62832,6 +69078,16 @@ export default class Client extends OpenApi {
     return $tea.cast<ReleaseEipSegmentAddressResponse>(await this.callApi(params, req, runtime), new ReleaseEipSegmentAddressResponse({}));
   }
 
+  /**
+    * *   After you call the **ReleaseEipSegmentAddress** operation, all EIPs in the specified group are released.
+    * *   The **ReleaseEipSegmentAddress** operation is asynchronous. After you send the request, the system returns a request ID. However, the operation is still being performed in the system background. You can call the [DescribeEipSegment](~~156063~~) operation to query the status of a group of contiguous EIPs:
+    *     *   If the group is in the **Releasing** state, EIPs in the group are being released. In this state, you can only query the group and cannot perform other operations.
+    *     *   If you cannot query the group of contiguous EIPs, the contiguous EIPs are released.
+    * *   You cannot repeatedly call the **ReleaseEipSegmentAddress** operation to release a group of contiguous EIPs within the specified period of time.
+    *
+    * @param request ReleaseEipSegmentAddressRequest
+    * @return ReleaseEipSegmentAddressResponse
+   */
   async releaseEipSegmentAddress(request: ReleaseEipSegmentAddressRequest): Promise<ReleaseEipSegmentAddressResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.releaseEipSegmentAddressWithOptions(request, runtime);
@@ -63004,6 +69260,15 @@ export default class Client extends OpenApi {
     return await this.removeIPv6TranslatorAclListEntryWithOptions(request, runtime);
   }
 
+  /**
+    * The client token that is used to ensure the idempotence of the request.
+    * You can use the client to generate the value, but you must make sure that the value is unique among different requests. The token can contain only ASCII characters and cannot exceed 64 characters in length.
+    * >  If you do not set this parameter, the system uses **RequestId** as **ClientToken**. **RequestId** may be different for each API request.
+    *
+    * @param request RemoveSourcesFromTrafficMirrorSessionRequest
+    * @param runtime runtime options for this request RuntimeOptions
+    * @return RemoveSourcesFromTrafficMirrorSessionResponse
+   */
   async removeSourcesFromTrafficMirrorSessionWithOptions(request: RemoveSourcesFromTrafficMirrorSessionRequest, runtime: $Util.RuntimeOptions): Promise<RemoveSourcesFromTrafficMirrorSessionResponse> {
     Util.validateModel(request);
     let query = { };
@@ -63060,11 +69325,29 @@ export default class Client extends OpenApi {
     return $tea.cast<RemoveSourcesFromTrafficMirrorSessionResponse>(await this.callApi(params, req, runtime), new RemoveSourcesFromTrafficMirrorSessionResponse({}));
   }
 
+  /**
+    * The client token that is used to ensure the idempotence of the request.
+    * You can use the client to generate the value, but you must make sure that the value is unique among different requests. The token can contain only ASCII characters and cannot exceed 64 characters in length.
+    * >  If you do not set this parameter, the system uses **RequestId** as **ClientToken**. **RequestId** may be different for each API request.
+    *
+    * @param request RemoveSourcesFromTrafficMirrorSessionRequest
+    * @return RemoveSourcesFromTrafficMirrorSessionResponse
+   */
   async removeSourcesFromTrafficMirrorSession(request: RemoveSourcesFromTrafficMirrorSessionRequest): Promise<RemoveSourcesFromTrafficMirrorSessionResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.removeSourcesFromTrafficMirrorSessionWithOptions(request, runtime);
   }
 
+  /**
+    * *   The **ReplaceVpcDhcpOptionsSet** operation is asynchronous. After you send the request, the system returns a request ID. However, the operation is still being performed in the system background. You can call the [DescribeVpcAttribute](~~94565~~) operation to query the status of a DHCP options set:
+    *     *   If the DHCP options set is in the **Pending** state, the DHCP options set is being replaced.
+    *     *   If the DHCP options set is in the **InUse** state, the DHCP options set is replaced.
+    * *   You cannot repeatedly call the **ReplaceVpcDhcpOptionsSet** operation to replace the DHCP options set associated with a VPC within the specified period of time.
+    *
+    * @param request ReplaceVpcDhcpOptionsSetRequest
+    * @param runtime runtime options for this request RuntimeOptions
+    * @return ReplaceVpcDhcpOptionsSetResponse
+   */
   async replaceVpcDhcpOptionsSetWithOptions(request: ReplaceVpcDhcpOptionsSetRequest, runtime: $Util.RuntimeOptions): Promise<ReplaceVpcDhcpOptionsSetResponse> {
     Util.validateModel(request);
     let query = { };
@@ -63121,11 +69404,34 @@ export default class Client extends OpenApi {
     return $tea.cast<ReplaceVpcDhcpOptionsSetResponse>(await this.callApi(params, req, runtime), new ReplaceVpcDhcpOptionsSetResponse({}));
   }
 
+  /**
+    * *   The **ReplaceVpcDhcpOptionsSet** operation is asynchronous. After you send the request, the system returns a request ID. However, the operation is still being performed in the system background. You can call the [DescribeVpcAttribute](~~94565~~) operation to query the status of a DHCP options set:
+    *     *   If the DHCP options set is in the **Pending** state, the DHCP options set is being replaced.
+    *     *   If the DHCP options set is in the **InUse** state, the DHCP options set is replaced.
+    * *   You cannot repeatedly call the **ReplaceVpcDhcpOptionsSet** operation to replace the DHCP options set associated with a VPC within the specified period of time.
+    *
+    * @param request ReplaceVpcDhcpOptionsSetRequest
+    * @return ReplaceVpcDhcpOptionsSetResponse
+   */
   async replaceVpcDhcpOptionsSet(request: ReplaceVpcDhcpOptionsSetRequest): Promise<ReplaceVpcDhcpOptionsSetResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.replaceVpcDhcpOptionsSetWithOptions(request, runtime);
   }
 
+  /**
+    * *   If you modify the information about a prefix list but the modification is not automatically applied to the route table that is associated with the prefix list, you can call this operation to apply the latest prefix list to the associated route table.
+    * *   The **RetryVpcPrefixListAssociation** operation is asynchronous. After you send the request, the system returns a request ID. However, the operation is still being performed in the background. You can call the [GetVpcPrefixListAssociations](~~445478~~) to check whether the prefix list is re-applied.
+    *     *   If the prefix list is in the **Modifying** state, the prefix list is being re-applied.
+    *     *   If the prefix list is in the **ModifyFailed** state, the prefix list fails to be re-applied.
+    *     *   If the prefix list is in the **Created** state, the prefix list is re-applied.
+    * *   After you call the **RetryVpcPrefixListAssociation** operation to re-apply a prefix list, you cannot call the operation again until the current task is complete.
+    * ## Scenarios
+    * A prefix list can be successfully modified if the following requirements are met: CIDR blocks are valid, CIDR blocks do not conflict, and the number of CIDR blocks does not exceed the maximum number of CIDR blocks supported by the prefix list. If issues occur on the resource that references the prefix list, the reference may fail. The issues include the number of prefix list entries exceeding the quota or CIDR blocks conflicting with existing routes. After you resolve the issues, you can call the **RetryVpcPrefixListAssociation** operation to re-apply the prefix list.
+    *
+    * @param request RetryVpcPrefixListAssociationRequest
+    * @param runtime runtime options for this request RuntimeOptions
+    * @return RetryVpcPrefixListAssociationResponse
+   */
   async retryVpcPrefixListAssociationWithOptions(request: RetryVpcPrefixListAssociationRequest, runtime: $Util.RuntimeOptions): Promise<RetryVpcPrefixListAssociationResponse> {
     Util.validateModel(request);
     let query = { };
@@ -63186,11 +69492,32 @@ export default class Client extends OpenApi {
     return $tea.cast<RetryVpcPrefixListAssociationResponse>(await this.callApi(params, req, runtime), new RetryVpcPrefixListAssociationResponse({}));
   }
 
+  /**
+    * *   If you modify the information about a prefix list but the modification is not automatically applied to the route table that is associated with the prefix list, you can call this operation to apply the latest prefix list to the associated route table.
+    * *   The **RetryVpcPrefixListAssociation** operation is asynchronous. After you send the request, the system returns a request ID. However, the operation is still being performed in the background. You can call the [GetVpcPrefixListAssociations](~~445478~~) to check whether the prefix list is re-applied.
+    *     *   If the prefix list is in the **Modifying** state, the prefix list is being re-applied.
+    *     *   If the prefix list is in the **ModifyFailed** state, the prefix list fails to be re-applied.
+    *     *   If the prefix list is in the **Created** state, the prefix list is re-applied.
+    * *   After you call the **RetryVpcPrefixListAssociation** operation to re-apply a prefix list, you cannot call the operation again until the current task is complete.
+    * ## Scenarios
+    * A prefix list can be successfully modified if the following requirements are met: CIDR blocks are valid, CIDR blocks do not conflict, and the number of CIDR blocks does not exceed the maximum number of CIDR blocks supported by the prefix list. If issues occur on the resource that references the prefix list, the reference may fail. The issues include the number of prefix list entries exceeding the quota or CIDR blocks conflicting with existing routes. After you resolve the issues, you can call the **RetryVpcPrefixListAssociation** operation to re-apply the prefix list.
+    *
+    * @param request RetryVpcPrefixListAssociationRequest
+    * @return RetryVpcPrefixListAssociationResponse
+   */
   async retryVpcPrefixListAssociation(request: RetryVpcPrefixListAssociationRequest): Promise<RetryVpcPrefixListAssociationResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.retryVpcPrefixListAssociationWithOptions(request, runtime);
   }
 
+  /**
+    * *   **RevokeInstanceFromCen** is a Virtual Private Cloud (VPC) operation. Therefore, you must use `vpc.aliyuncs.com` as the domain name when you call this operation. The API version is `2016-04-28`.
+    * *   You cannot repeatedly call the **RevokeInstanceFromCen** operation to revoke the permissions on a network instance that is attached to a CEN instance within the specified period of time. The network instance can be a VPC, virtual border router (VBR), or a Cloud Connect Network (CCN) instance.
+    *
+    * @param request RevokeInstanceFromCenRequest
+    * @param runtime runtime options for this request RuntimeOptions
+    * @return RevokeInstanceFromCenResponse
+   */
   async revokeInstanceFromCenWithOptions(request: RevokeInstanceFromCenRequest, runtime: $Util.RuntimeOptions): Promise<RevokeInstanceFromCenResponse> {
     Util.validateModel(request);
     let query = { };
@@ -63251,6 +69578,13 @@ export default class Client extends OpenApi {
     return $tea.cast<RevokeInstanceFromCenResponse>(await this.callApi(params, req, runtime), new RevokeInstanceFromCenResponse({}));
   }
 
+  /**
+    * *   **RevokeInstanceFromCen** is a Virtual Private Cloud (VPC) operation. Therefore, you must use `vpc.aliyuncs.com` as the domain name when you call this operation. The API version is `2016-04-28`.
+    * *   You cannot repeatedly call the **RevokeInstanceFromCen** operation to revoke the permissions on a network instance that is attached to a CEN instance within the specified period of time. The network instance can be a VPC, virtual border router (VBR), or a Cloud Connect Network (CCN) instance.
+    *
+    * @param request RevokeInstanceFromCenRequest
+    * @return RevokeInstanceFromCenResponse
+   */
   async revokeInstanceFromCen(request: RevokeInstanceFromCenRequest): Promise<RevokeInstanceFromCenResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.revokeInstanceFromCenWithOptions(request, runtime);
@@ -63311,6 +69645,13 @@ export default class Client extends OpenApi {
     return await this.revokeInstanceFromVbrWithOptions(request, runtime);
   }
 
+  /**
+    * You cannot repeatedly call **SetHighDefinitionMonitorLogStatus** within a specific period of time.
+    *
+    * @param request SetHighDefinitionMonitorLogStatusRequest
+    * @param runtime runtime options for this request RuntimeOptions
+    * @return SetHighDefinitionMonitorLogStatusResponse
+   */
   async setHighDefinitionMonitorLogStatusWithOptions(request: SetHighDefinitionMonitorLogStatusRequest, runtime: $Util.RuntimeOptions): Promise<SetHighDefinitionMonitorLogStatusResponse> {
     Util.validateModel(request);
     let query = { };
@@ -63371,11 +69712,24 @@ export default class Client extends OpenApi {
     return $tea.cast<SetHighDefinitionMonitorLogStatusResponse>(await this.callApi(params, req, runtime), new SetHighDefinitionMonitorLogStatusResponse({}));
   }
 
+  /**
+    * You cannot repeatedly call **SetHighDefinitionMonitorLogStatus** within a specific period of time.
+    *
+    * @param request SetHighDefinitionMonitorLogStatusRequest
+    * @return SetHighDefinitionMonitorLogStatusResponse
+   */
   async setHighDefinitionMonitorLogStatus(request: SetHighDefinitionMonitorLogStatusRequest): Promise<SetHighDefinitionMonitorLogStatusResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.setHighDefinitionMonitorLogStatusWithOptions(request, runtime);
   }
 
+  /**
+    * The ID of the resource. You can specify up to 20 IDs.
+    *
+    * @param request TagResourcesRequest
+    * @param runtime runtime options for this request RuntimeOptions
+    * @return TagResourcesResponse
+   */
   async tagResourcesWithOptions(request: TagResourcesRequest, runtime: $Util.RuntimeOptions): Promise<TagResourcesResponse> {
     Util.validateModel(request);
     let query = { };
@@ -63428,11 +69782,29 @@ export default class Client extends OpenApi {
     return $tea.cast<TagResourcesResponse>(await this.callApi(params, req, runtime), new TagResourcesResponse({}));
   }
 
+  /**
+    * The ID of the resource. You can specify up to 20 IDs.
+    *
+    * @param request TagResourcesRequest
+    * @return TagResourcesResponse
+   */
   async tagResources(request: TagResourcesRequest): Promise<TagResourcesResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.tagResourcesWithOptions(request, runtime);
   }
 
+  /**
+    * Tags are used to classify instances. Each tag consists of a key-value pair. To use tags, make sure that the following requirements are met:
+    * *   The keys of tags that are added to the same instance must be unique.
+    * *   You cannot create tags without adding them to instances. All tags must be added to instances.
+    * *   Tag information is not shared across regions.
+    *     For example, you cannot view the tags that are created in the China (Hangzhou) region from the China (Shanghai) region.
+    * *   You can add up to 20 tags to each instance. Before you add a tag to an instance, the system automatically checks the number of existing tags. If the maximum number of tags is reached, an error message is returned.
+    *
+    * @param request TagResourcesForExpressConnectRequest
+    * @param runtime runtime options for this request RuntimeOptions
+    * @return TagResourcesForExpressConnectResponse
+   */
   async tagResourcesForExpressConnectWithOptions(request: TagResourcesForExpressConnectRequest, runtime: $Util.RuntimeOptions): Promise<TagResourcesForExpressConnectResponse> {
     Util.validateModel(request);
     let query = { };
@@ -63485,11 +69857,32 @@ export default class Client extends OpenApi {
     return $tea.cast<TagResourcesForExpressConnectResponse>(await this.callApi(params, req, runtime), new TagResourcesForExpressConnectResponse({}));
   }
 
+  /**
+    * Tags are used to classify instances. Each tag consists of a key-value pair. To use tags, make sure that the following requirements are met:
+    * *   The keys of tags that are added to the same instance must be unique.
+    * *   You cannot create tags without adding them to instances. All tags must be added to instances.
+    * *   Tag information is not shared across regions.
+    *     For example, you cannot view the tags that are created in the China (Hangzhou) region from the China (Shanghai) region.
+    * *   You can add up to 20 tags to each instance. Before you add a tag to an instance, the system automatically checks the number of existing tags. If the maximum number of tags is reached, an error message is returned.
+    *
+    * @param request TagResourcesForExpressConnectRequest
+    * @return TagResourcesForExpressConnectResponse
+   */
   async tagResourcesForExpressConnect(request: TagResourcesForExpressConnectRequest): Promise<TagResourcesForExpressConnectResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.tagResourcesForExpressConnectWithOptions(request, runtime);
   }
 
+  /**
+    * After you call this operation, the specified Express Connect circuit changes to the **Terminating** state. After the Express Connect circuit is disabled, it changes to the **Terminated** state.
+    * When you call this operation, take note of the following limits:
+    * *   You can only terminate an Express Connect circuit that is in the **Enabled** state.
+    * *   Before you disable an Express Connect circuit, you must delete the virtual border routers (VBRs) associated with it.
+    *
+    * @param request TerminatePhysicalConnectionRequest
+    * @param runtime runtime options for this request RuntimeOptions
+    * @return TerminatePhysicalConnectionResponse
+   */
   async terminatePhysicalConnectionWithOptions(request: TerminatePhysicalConnectionRequest, runtime: $Util.RuntimeOptions): Promise<TerminatePhysicalConnectionResponse> {
     Util.validateModel(request);
     let query = { };
@@ -63538,11 +69931,28 @@ export default class Client extends OpenApi {
     return $tea.cast<TerminatePhysicalConnectionResponse>(await this.callApi(params, req, runtime), new TerminatePhysicalConnectionResponse({}));
   }
 
+  /**
+    * After you call this operation, the specified Express Connect circuit changes to the **Terminating** state. After the Express Connect circuit is disabled, it changes to the **Terminated** state.
+    * When you call this operation, take note of the following limits:
+    * *   You can only terminate an Express Connect circuit that is in the **Enabled** state.
+    * *   Before you disable an Express Connect circuit, you must delete the virtual border routers (VBRs) associated with it.
+    *
+    * @param request TerminatePhysicalConnectionRequest
+    * @return TerminatePhysicalConnectionResponse
+   */
   async terminatePhysicalConnection(request: TerminatePhysicalConnectionRequest): Promise<TerminatePhysicalConnectionResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.terminatePhysicalConnectionWithOptions(request, runtime);
   }
 
+  /**
+    * After the operation is called, the VBR changes from the **Enabled** state to the **Terminating** state. After the VBR is terminated, it enters the **Terminated** state.
+    * >  Only the owner of an Express Connect circuit can call this operation.
+    *
+    * @param request TerminateVirtualBorderRouterRequest
+    * @param runtime runtime options for this request RuntimeOptions
+    * @return TerminateVirtualBorderRouterResponse
+   */
   async terminateVirtualBorderRouterWithOptions(request: TerminateVirtualBorderRouterRequest, runtime: $Util.RuntimeOptions): Promise<TerminateVirtualBorderRouterResponse> {
     Util.validateModel(request);
     let query = { };
@@ -63591,6 +70001,13 @@ export default class Client extends OpenApi {
     return $tea.cast<TerminateVirtualBorderRouterResponse>(await this.callApi(params, req, runtime), new TerminateVirtualBorderRouterResponse({}));
   }
 
+  /**
+    * After the operation is called, the VBR changes from the **Enabled** state to the **Terminating** state. After the VBR is terminated, it enters the **Terminated** state.
+    * >  Only the owner of an Express Connect circuit can call this operation.
+    *
+    * @param request TerminateVirtualBorderRouterRequest
+    * @return TerminateVirtualBorderRouterResponse
+   */
   async terminateVirtualBorderRouter(request: TerminateVirtualBorderRouterRequest): Promise<TerminateVirtualBorderRouterResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.terminateVirtualBorderRouterWithOptions(request, runtime);
@@ -63657,6 +70074,15 @@ export default class Client extends OpenApi {
     return await this.unTagResourcesWithOptions(request, runtime);
   }
 
+  /**
+    * Specifies whether to disassociate the EIP from a NAT gateway if a DNAT or SNAT entry is added to the NAT gateway. Valid values:
+    * *   **false** (default): does not disassociate the EIP from a NAT gateway if a DNAT or SNAT entry is added to the NAT gateway.
+    * *   **true**: disassociates the EIP from a NAT gateway if a DNAT or SNAT entry is added to the NAT gateway.
+    *
+    * @param request UnassociateEipAddressRequest
+    * @param runtime runtime options for this request RuntimeOptions
+    * @return UnassociateEipAddressResponse
+   */
   async unassociateEipAddressWithOptions(request: UnassociateEipAddressRequest, runtime: $Util.RuntimeOptions): Promise<UnassociateEipAddressResponse> {
     Util.validateModel(request);
     let query = { };
@@ -63721,6 +70147,14 @@ export default class Client extends OpenApi {
     return $tea.cast<UnassociateEipAddressResponse>(await this.callApi(params, req, runtime), new UnassociateEipAddressResponse({}));
   }
 
+  /**
+    * Specifies whether to disassociate the EIP from a NAT gateway if a DNAT or SNAT entry is added to the NAT gateway. Valid values:
+    * *   **false** (default): does not disassociate the EIP from a NAT gateway if a DNAT or SNAT entry is added to the NAT gateway.
+    * *   **true**: disassociates the EIP from a NAT gateway if a DNAT or SNAT entry is added to the NAT gateway.
+    *
+    * @param request UnassociateEipAddressRequest
+    * @return UnassociateEipAddressResponse
+   */
   async unassociateEipAddress(request: UnassociateEipAddressRequest): Promise<UnassociateEipAddressResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.unassociateEipAddressWithOptions(request, runtime);
@@ -63779,6 +70213,13 @@ export default class Client extends OpenApi {
     return await this.unassociateGlobalAccelerationInstanceWithOptions(request, runtime);
   }
 
+  /**
+    * The client token that is used to ensure the idempotence of the request. You can use the client to generate the value, but you must make sure that the value is unique among different requests. The `ClientToken` value can contain only ASCII characters and cannot exceed 64 characters in length.
+    *
+    * @param request UnassociateHaVipRequest
+    * @param runtime runtime options for this request RuntimeOptions
+    * @return UnassociateHaVipResponse
+   */
   async unassociateHaVipWithOptions(request: UnassociateHaVipRequest, runtime: $Util.RuntimeOptions): Promise<UnassociateHaVipResponse> {
     Util.validateModel(request);
     let query = { };
@@ -63839,11 +70280,24 @@ export default class Client extends OpenApi {
     return $tea.cast<UnassociateHaVipResponse>(await this.callApi(params, req, runtime), new UnassociateHaVipResponse({}));
   }
 
+  /**
+    * The client token that is used to ensure the idempotence of the request. You can use the client to generate the value, but you must make sure that the value is unique among different requests. The `ClientToken` value can contain only ASCII characters and cannot exceed 64 characters in length.
+    *
+    * @param request UnassociateHaVipRequest
+    * @return UnassociateHaVipResponse
+   */
   async unassociateHaVip(request: UnassociateHaVipRequest): Promise<UnassociateHaVipResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.unassociateHaVipWithOptions(request, runtime);
   }
 
+  /**
+    * The ID of the resource from which you want to disassociate the network ACL.
+    *
+    * @param request UnassociateNetworkAclRequest
+    * @param runtime runtime options for this request RuntimeOptions
+    * @return UnassociateNetworkAclResponse
+   */
   async unassociateNetworkAclWithOptions(request: UnassociateNetworkAclRequest, runtime: $Util.RuntimeOptions): Promise<UnassociateNetworkAclResponse> {
     Util.validateModel(request);
     let query = { };
@@ -63896,6 +70350,12 @@ export default class Client extends OpenApi {
     return $tea.cast<UnassociateNetworkAclResponse>(await this.callApi(params, req, runtime), new UnassociateNetworkAclResponse({}));
   }
 
+  /**
+    * The ID of the resource from which you want to disassociate the network ACL.
+    *
+    * @param request UnassociateNetworkAclRequest
+    * @return UnassociateNetworkAclResponse
+   */
   async unassociateNetworkAcl(request: UnassociateNetworkAclRequest): Promise<UnassociateNetworkAclResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.unassociateNetworkAclWithOptions(request, runtime);
@@ -63958,6 +70418,16 @@ export default class Client extends OpenApi {
     return await this.unassociatePhysicalConnectionFromVirtualBorderRouterWithOptions(request, runtime);
   }
 
+  /**
+    * *   The **UnassociateRouteTable** operation is asynchronous. After you send the request, the system returns a request ID. However, the operation is still being performed in the system background. You can call the [DescribeVSwitchAttributes](~~94567~~) operation to query the status of a vSwitch:
+    *     *   If the vSwitch is in the **Pending** state, the route table is being disassociated.
+    *     *   If the vSwitch is in the **Available** state, the route table is disassociated.
+    * *   You cannot repeatedly call the **UnassociateRouteTable** operation to disassociate a route table from a vSwitch within the specified period of time.
+    *
+    * @param request UnassociateRouteTableRequest
+    * @param runtime runtime options for this request RuntimeOptions
+    * @return UnassociateRouteTableResponse
+   */
   async unassociateRouteTableWithOptions(request: UnassociateRouteTableRequest, runtime: $Util.RuntimeOptions): Promise<UnassociateRouteTableResponse> {
     Util.validateModel(request);
     let query = { };
@@ -64014,11 +70484,28 @@ export default class Client extends OpenApi {
     return $tea.cast<UnassociateRouteTableResponse>(await this.callApi(params, req, runtime), new UnassociateRouteTableResponse({}));
   }
 
+  /**
+    * *   The **UnassociateRouteTable** operation is asynchronous. After you send the request, the system returns a request ID. However, the operation is still being performed in the system background. You can call the [DescribeVSwitchAttributes](~~94567~~) operation to query the status of a vSwitch:
+    *     *   If the vSwitch is in the **Pending** state, the route table is being disassociated.
+    *     *   If the vSwitch is in the **Available** state, the route table is disassociated.
+    * *   You cannot repeatedly call the **UnassociateRouteTable** operation to disassociate a route table from a vSwitch within the specified period of time.
+    *
+    * @param request UnassociateRouteTableRequest
+    * @return UnassociateRouteTableResponse
+   */
   async unassociateRouteTable(request: UnassociateRouteTableRequest): Promise<UnassociateRouteTableResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.unassociateRouteTableWithOptions(request, runtime);
   }
 
+  /**
+    * *   Before you delete a secondary CIDR block from a VPC, delete the vSwitch which is created with the CIDR block. For more information, see [DeleteVSwitch](~~35746~~).
+    * *   You cannot repeatedly call the **UnassociateVpcCidrBlock** operation to delete a secondary CIDR block from a VPC within the specified period of time.
+    *
+    * @param request UnassociateVpcCidrBlockRequest
+    * @param runtime runtime options for this request RuntimeOptions
+    * @return UnassociateVpcCidrBlockResponse
+   */
   async unassociateVpcCidrBlockWithOptions(request: UnassociateVpcCidrBlockRequest, runtime: $Util.RuntimeOptions): Promise<UnassociateVpcCidrBlockResponse> {
     Util.validateModel(request);
     let query = { };
@@ -64075,6 +70562,13 @@ export default class Client extends OpenApi {
     return $tea.cast<UnassociateVpcCidrBlockResponse>(await this.callApi(params, req, runtime), new UnassociateVpcCidrBlockResponse({}));
   }
 
+  /**
+    * *   Before you delete a secondary CIDR block from a VPC, delete the vSwitch which is created with the CIDR block. For more information, see [DeleteVSwitch](~~35746~~).
+    * *   You cannot repeatedly call the **UnassociateVpcCidrBlock** operation to delete a secondary CIDR block from a VPC within the specified period of time.
+    *
+    * @param request UnassociateVpcCidrBlockRequest
+    * @return UnassociateVpcCidrBlockResponse
+   */
   async unassociateVpcCidrBlock(request: UnassociateVpcCidrBlockRequest): Promise<UnassociateVpcCidrBlockResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.unassociateVpcCidrBlockWithOptions(request, runtime);
@@ -64303,6 +70797,17 @@ export default class Client extends OpenApi {
     return await this.updateGatewayRouteTableEntryAttributeWithOptions(request, runtime);
   }
 
+  /**
+    * *   If you modify only the **IpsecServerName** parameter, this operation is synchronous. If you modify parameters other than **IpsecServerName**, this operation is asynchronous.
+    * *   When the **UpdateIpsecServer** operation is asynchronous, the system returns a request ID after you send the request. However, the operation is still being performed in the system background. You can call [DescribeVpnGateway](~~73720~~) to query the status of a VPN gateway.
+    *     *   If the VPN gateway is in the **updating** state, the configuration of the IPsec server is being modified.
+    *     *   If the VPN gateway is in the **active** state, the configuration of the IPsec server is modified.
+    * *   You cannot repeatedly call **UpdateIpsecServer** to modify the configuration of an IPsec server of the same VPN gateway within the specified period of time.
+    *
+    * @param request UpdateIpsecServerRequest
+    * @param runtime runtime options for this request RuntimeOptions
+    * @return UpdateIpsecServerResponse
+   */
   async updateIpsecServerWithOptions(request: UpdateIpsecServerRequest, runtime: $Util.RuntimeOptions): Promise<UpdateIpsecServerResponse> {
     Util.validateModel(request);
     let query = { };
@@ -64371,11 +70876,28 @@ export default class Client extends OpenApi {
     return $tea.cast<UpdateIpsecServerResponse>(await this.callApi(params, req, runtime), new UpdateIpsecServerResponse({}));
   }
 
+  /**
+    * *   If you modify only the **IpsecServerName** parameter, this operation is synchronous. If you modify parameters other than **IpsecServerName**, this operation is asynchronous.
+    * *   When the **UpdateIpsecServer** operation is asynchronous, the system returns a request ID after you send the request. However, the operation is still being performed in the system background. You can call [DescribeVpnGateway](~~73720~~) to query the status of a VPN gateway.
+    *     *   If the VPN gateway is in the **updating** state, the configuration of the IPsec server is being modified.
+    *     *   If the VPN gateway is in the **active** state, the configuration of the IPsec server is modified.
+    * *   You cannot repeatedly call **UpdateIpsecServer** to modify the configuration of an IPsec server of the same VPN gateway within the specified period of time.
+    *
+    * @param request UpdateIpsecServerRequest
+    * @return UpdateIpsecServerResponse
+   */
   async updateIpsecServer(request: UpdateIpsecServerRequest): Promise<UpdateIpsecServerResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.updateIpsecServerWithOptions(request, runtime);
   }
 
+  /**
+    * The ID of the IPv4 gateway whose name or description you want to modify.
+    *
+    * @param request UpdateIpv4GatewayAttributeRequest
+    * @param runtime runtime options for this request RuntimeOptions
+    * @return UpdateIpv4GatewayAttributeResponse
+   */
   async updateIpv4GatewayAttributeWithOptions(request: UpdateIpv4GatewayAttributeRequest, runtime: $Util.RuntimeOptions): Promise<UpdateIpv4GatewayAttributeResponse> {
     Util.validateModel(request);
     let query = { };
@@ -64440,11 +70962,32 @@ export default class Client extends OpenApi {
     return $tea.cast<UpdateIpv4GatewayAttributeResponse>(await this.callApi(params, req, runtime), new UpdateIpv4GatewayAttributeResponse({}));
   }
 
+  /**
+    * The ID of the IPv4 gateway whose name or description you want to modify.
+    *
+    * @param request UpdateIpv4GatewayAttributeRequest
+    * @return UpdateIpv4GatewayAttributeResponse
+   */
   async updateIpv4GatewayAttribute(request: UpdateIpv4GatewayAttributeRequest): Promise<UpdateIpv4GatewayAttributeResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.updateIpv4GatewayAttributeWithOptions(request, runtime);
   }
 
+  /**
+    * Before you call this operation, take note of the following limits:
+    * *   **UpdateNatGatewayNatType** is an asynchronous operation. After you make a request, the ID of the request is returned but the NAT gateway is not upgraded. The system upgrades the NAT gateway in the background. You can call the GetNatGatewayConvertStatus operation to query the upgrade progress of a NAT gateway. For more information, see [GetNatGatewayConvertStatus](~~184744~~).
+    *     *   If a NAT gateway is in the **processing** state, it indicates that the NAT gateway is being upgraded. You can only query the state of the NAT gateway but cannot perform other operations.
+    *     *   If a NAT gateway is in the **successful** state, it indicates that the NAT gateway is upgraded.
+    *     *   If a NAT gateway is in the **failed** state, it indicates that the system failed to upgrade the NAT gateway.
+    * *   You cannot repeatedly call the **UpdateNatGatewayNatType** operation to upgrade a NAT gateway within the specified period of time.
+    * *   The billing method and billable items remain the same after the upgrade.
+    * *   It takes about 5 minutes to upgrade a standard NAT gateway to an enhanced NAT gateway. During the upgrade, transient connections may occur once or twice. You can determine whether to enable automatic reconnection or use manual reconnection based on your business requirements.
+    * *   You can only upgrade standard NAT gateways to enhanced NAT gateways. You are not allowed to downgrade enhanced NAT gateways to standard NAT gateways.
+    *
+    * @param request UpdateNatGatewayNatTypeRequest
+    * @param runtime runtime options for this request RuntimeOptions
+    * @return UpdateNatGatewayNatTypeResponse
+   */
   async updateNatGatewayNatTypeWithOptions(request: UpdateNatGatewayNatTypeRequest, runtime: $Util.RuntimeOptions): Promise<UpdateNatGatewayNatTypeResponse> {
     Util.validateModel(request);
     let query = { };
@@ -64509,11 +71052,35 @@ export default class Client extends OpenApi {
     return $tea.cast<UpdateNatGatewayNatTypeResponse>(await this.callApi(params, req, runtime), new UpdateNatGatewayNatTypeResponse({}));
   }
 
+  /**
+    * Before you call this operation, take note of the following limits:
+    * *   **UpdateNatGatewayNatType** is an asynchronous operation. After you make a request, the ID of the request is returned but the NAT gateway is not upgraded. The system upgrades the NAT gateway in the background. You can call the GetNatGatewayConvertStatus operation to query the upgrade progress of a NAT gateway. For more information, see [GetNatGatewayConvertStatus](~~184744~~).
+    *     *   If a NAT gateway is in the **processing** state, it indicates that the NAT gateway is being upgraded. You can only query the state of the NAT gateway but cannot perform other operations.
+    *     *   If a NAT gateway is in the **successful** state, it indicates that the NAT gateway is upgraded.
+    *     *   If a NAT gateway is in the **failed** state, it indicates that the system failed to upgrade the NAT gateway.
+    * *   You cannot repeatedly call the **UpdateNatGatewayNatType** operation to upgrade a NAT gateway within the specified period of time.
+    * *   The billing method and billable items remain the same after the upgrade.
+    * *   It takes about 5 minutes to upgrade a standard NAT gateway to an enhanced NAT gateway. During the upgrade, transient connections may occur once or twice. You can determine whether to enable automatic reconnection or use manual reconnection based on your business requirements.
+    * *   You can only upgrade standard NAT gateways to enhanced NAT gateways. You are not allowed to downgrade enhanced NAT gateways to standard NAT gateways.
+    *
+    * @param request UpdateNatGatewayNatTypeRequest
+    * @return UpdateNatGatewayNatTypeResponse
+   */
   async updateNatGatewayNatType(request: UpdateNatGatewayNatTypeRequest): Promise<UpdateNatGatewayNatTypeResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.updateNatGatewayNatTypeWithOptions(request, runtime);
   }
 
+  /**
+    * *   The **UpdateNetworkAclEntries** operation is asynchronous. After you send the request, the system returns a request ID. However, the operation is still being performed in the system background. You can call the [DescribeNetworkAclAttributes](~~116542~~) operation to query the status of a network ACL:
+    *     *   If the network ACL is in the **Modifying** state, the rules of the network ACL are being updated.
+    *     *   If the network ACL is in the **Available** state, the rules of the network ACL are updated.
+    * *   You cannot repeatedly call the **UpdateNetworkAclEntries** operation to update the rules of a network ACL within the specified period of time.
+    *
+    * @param request UpdateNetworkAclEntriesRequest
+    * @param runtime runtime options for this request RuntimeOptions
+    * @return UpdateNetworkAclEntriesResponse
+   */
   async updateNetworkAclEntriesWithOptions(request: UpdateNetworkAclEntriesRequest, runtime: $Util.RuntimeOptions): Promise<UpdateNetworkAclEntriesResponse> {
     Util.validateModel(request);
     let query = { };
@@ -64578,11 +71145,27 @@ export default class Client extends OpenApi {
     return $tea.cast<UpdateNetworkAclEntriesResponse>(await this.callApi(params, req, runtime), new UpdateNetworkAclEntriesResponse({}));
   }
 
+  /**
+    * *   The **UpdateNetworkAclEntries** operation is asynchronous. After you send the request, the system returns a request ID. However, the operation is still being performed in the system background. You can call the [DescribeNetworkAclAttributes](~~116542~~) operation to query the status of a network ACL:
+    *     *   If the network ACL is in the **Modifying** state, the rules of the network ACL are being updated.
+    *     *   If the network ACL is in the **Available** state, the rules of the network ACL are updated.
+    * *   You cannot repeatedly call the **UpdateNetworkAclEntries** operation to update the rules of a network ACL within the specified period of time.
+    *
+    * @param request UpdateNetworkAclEntriesRequest
+    * @return UpdateNetworkAclEntriesResponse
+   */
   async updateNetworkAclEntries(request: UpdateNetworkAclEntriesRequest): Promise<UpdateNetworkAclEntriesResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.updateNetworkAclEntriesWithOptions(request, runtime);
   }
 
+  /**
+    * The ID of the IP address pool.
+    *
+    * @param request UpdatePublicIpAddressPoolAttributeRequest
+    * @param runtime runtime options for this request RuntimeOptions
+    * @return UpdatePublicIpAddressPoolAttributeResponse
+   */
   async updatePublicIpAddressPoolAttributeWithOptions(request: UpdatePublicIpAddressPoolAttributeRequest, runtime: $Util.RuntimeOptions): Promise<UpdatePublicIpAddressPoolAttributeResponse> {
     Util.validateModel(request);
     let query = { };
@@ -64643,11 +71226,24 @@ export default class Client extends OpenApi {
     return $tea.cast<UpdatePublicIpAddressPoolAttributeResponse>(await this.callApi(params, req, runtime), new UpdatePublicIpAddressPoolAttributeResponse({}));
   }
 
+  /**
+    * The ID of the IP address pool.
+    *
+    * @param request UpdatePublicIpAddressPoolAttributeRequest
+    * @return UpdatePublicIpAddressPoolAttributeResponse
+   */
   async updatePublicIpAddressPoolAttribute(request: UpdatePublicIpAddressPoolAttributeRequest): Promise<UpdatePublicIpAddressPoolAttributeResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.updatePublicIpAddressPoolAttributeWithOptions(request, runtime);
   }
 
+  /**
+    * The ID of the filter.
+    *
+    * @param request UpdateTrafficMirrorFilterAttributeRequest
+    * @param runtime runtime options for this request RuntimeOptions
+    * @return UpdateTrafficMirrorFilterAttributeResponse
+   */
   async updateTrafficMirrorFilterAttributeWithOptions(request: UpdateTrafficMirrorFilterAttributeRequest, runtime: $Util.RuntimeOptions): Promise<UpdateTrafficMirrorFilterAttributeResponse> {
     Util.validateModel(request);
     let query = { };
@@ -64708,11 +71304,24 @@ export default class Client extends OpenApi {
     return $tea.cast<UpdateTrafficMirrorFilterAttributeResponse>(await this.callApi(params, req, runtime), new UpdateTrafficMirrorFilterAttributeResponse({}));
   }
 
+  /**
+    * The ID of the filter.
+    *
+    * @param request UpdateTrafficMirrorFilterAttributeRequest
+    * @return UpdateTrafficMirrorFilterAttributeResponse
+   */
   async updateTrafficMirrorFilterAttribute(request: UpdateTrafficMirrorFilterAttributeRequest): Promise<UpdateTrafficMirrorFilterAttributeResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.updateTrafficMirrorFilterAttributeWithOptions(request, runtime);
   }
 
+  /**
+    * The ID of the inbound or outbound rule.
+    *
+    * @param request UpdateTrafficMirrorFilterRuleAttributeRequest
+    * @param runtime runtime options for this request RuntimeOptions
+    * @return UpdateTrafficMirrorFilterRuleAttributeResponse
+   */
   async updateTrafficMirrorFilterRuleAttributeWithOptions(request: UpdateTrafficMirrorFilterRuleAttributeRequest, runtime: $Util.RuntimeOptions): Promise<UpdateTrafficMirrorFilterRuleAttributeResponse> {
     Util.validateModel(request);
     let query = { };
@@ -64793,11 +71402,25 @@ export default class Client extends OpenApi {
     return $tea.cast<UpdateTrafficMirrorFilterRuleAttributeResponse>(await this.callApi(params, req, runtime), new UpdateTrafficMirrorFilterRuleAttributeResponse({}));
   }
 
+  /**
+    * The ID of the inbound or outbound rule.
+    *
+    * @param request UpdateTrafficMirrorFilterRuleAttributeRequest
+    * @return UpdateTrafficMirrorFilterRuleAttributeResponse
+   */
   async updateTrafficMirrorFilterRuleAttribute(request: UpdateTrafficMirrorFilterRuleAttributeRequest): Promise<UpdateTrafficMirrorFilterRuleAttributeResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.updateTrafficMirrorFilterRuleAttributeWithOptions(request, runtime);
   }
 
+  /**
+    * The description of the traffic mirror session.
+    * The description must be 1 to 256 characters in length and cannot start with `http://` or `https://`.
+    *
+    * @param request UpdateTrafficMirrorSessionAttributeRequest
+    * @param runtime runtime options for this request RuntimeOptions
+    * @return UpdateTrafficMirrorSessionAttributeResponse
+   */
   async updateTrafficMirrorSessionAttributeWithOptions(request: UpdateTrafficMirrorSessionAttributeRequest, runtime: $Util.RuntimeOptions): Promise<UpdateTrafficMirrorSessionAttributeResponse> {
     Util.validateModel(request);
     let query = { };
@@ -64819,6 +71442,10 @@ export default class Client extends OpenApi {
 
     if (!Util.isUnset(request.ownerId)) {
       query["OwnerId"] = request.ownerId;
+    }
+
+    if (!Util.isUnset(request.packetLength)) {
+      query["PacketLength"] = request.packetLength;
     }
 
     if (!Util.isUnset(request.priority)) {
@@ -64882,6 +71509,13 @@ export default class Client extends OpenApi {
     return $tea.cast<UpdateTrafficMirrorSessionAttributeResponse>(await this.callApi(params, req, runtime), new UpdateTrafficMirrorSessionAttributeResponse({}));
   }
 
+  /**
+    * The description of the traffic mirror session.
+    * The description must be 1 to 256 characters in length and cannot start with `http://` or `https://`.
+    *
+    * @param request UpdateTrafficMirrorSessionAttributeRequest
+    * @return UpdateTrafficMirrorSessionAttributeResponse
+   */
   async updateTrafficMirrorSessionAttribute(request: UpdateTrafficMirrorSessionAttributeRequest): Promise<UpdateTrafficMirrorSessionAttributeResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.updateTrafficMirrorSessionAttributeWithOptions(request, runtime);
@@ -64993,6 +71627,13 @@ export default class Client extends OpenApi {
     return await this.updateVirtualPhysicalConnectionWithOptions(request, runtime);
   }
 
+  /**
+    * The ID of the gateway endpoint that you want to modify.
+    *
+    * @param request UpdateVpcGatewayEndpointAttributeRequest
+    * @param runtime runtime options for this request RuntimeOptions
+    * @return UpdateVpcGatewayEndpointAttributeResponse
+   */
   async updateVpcGatewayEndpointAttributeWithOptions(request: UpdateVpcGatewayEndpointAttributeRequest, runtime: $Util.RuntimeOptions): Promise<UpdateVpcGatewayEndpointAttributeResponse> {
     Util.validateModel(request);
     let query = { };
@@ -65057,11 +71698,24 @@ export default class Client extends OpenApi {
     return $tea.cast<UpdateVpcGatewayEndpointAttributeResponse>(await this.callApi(params, req, runtime), new UpdateVpcGatewayEndpointAttributeResponse({}));
   }
 
+  /**
+    * The ID of the gateway endpoint that you want to modify.
+    *
+    * @param request UpdateVpcGatewayEndpointAttributeRequest
+    * @return UpdateVpcGatewayEndpointAttributeResponse
+   */
   async updateVpcGatewayEndpointAttribute(request: UpdateVpcGatewayEndpointAttributeRequest): Promise<UpdateVpcGatewayEndpointAttributeResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.updateVpcGatewayEndpointAttributeWithOptions(request, runtime);
   }
 
+  /**
+    * Before you call this operation, make sure that a VPC NAT gateway is created. For more information, see [CreateNatGateway](~~120219~~).
+    *
+    * @param request VpcDescribeVpcNatGatewayNetworkInterfaceQuotaRequest
+    * @param runtime runtime options for this request RuntimeOptions
+    * @return VpcDescribeVpcNatGatewayNetworkInterfaceQuotaResponse
+   */
   async vpcDescribeVpcNatGatewayNetworkInterfaceQuotaWithOptions(request: VpcDescribeVpcNatGatewayNetworkInterfaceQuotaRequest, runtime: $Util.RuntimeOptions): Promise<VpcDescribeVpcNatGatewayNetworkInterfaceQuotaResponse> {
     Util.validateModel(request);
     let query = { };
@@ -65114,6 +71768,12 @@ export default class Client extends OpenApi {
     return $tea.cast<VpcDescribeVpcNatGatewayNetworkInterfaceQuotaResponse>(await this.callApi(params, req, runtime), new VpcDescribeVpcNatGatewayNetworkInterfaceQuotaResponse({}));
   }
 
+  /**
+    * Before you call this operation, make sure that a VPC NAT gateway is created. For more information, see [CreateNatGateway](~~120219~~).
+    *
+    * @param request VpcDescribeVpcNatGatewayNetworkInterfaceQuotaRequest
+    * @return VpcDescribeVpcNatGatewayNetworkInterfaceQuotaResponse
+   */
   async vpcDescribeVpcNatGatewayNetworkInterfaceQuota(request: VpcDescribeVpcNatGatewayNetworkInterfaceQuotaRequest): Promise<VpcDescribeVpcNatGatewayNetworkInterfaceQuotaResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.vpcDescribeVpcNatGatewayNetworkInterfaceQuotaWithOptions(request, runtime);
