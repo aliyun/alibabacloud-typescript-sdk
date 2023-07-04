@@ -27378,6 +27378,7 @@ export class MonthBillGetResponseBodyModule extends $tea.Model {
 
 export class QueryReimbursementOrderResponseBodyModuleExpensesExpenseCompositions extends $tea.Model {
   billSettlementId?: number;
+  capitalDirection?: string;
   feeType?: string;
   remark?: string;
   remindTagList?: string[];
@@ -27387,6 +27388,7 @@ export class QueryReimbursementOrderResponseBodyModuleExpensesExpenseComposition
   static names(): { [key: string]: string } {
     return {
       billSettlementId: 'bill_settlement_id',
+      capitalDirection: 'capital_direction',
       feeType: 'fee_type',
       remark: 'remark',
       remindTagList: 'remind_tag_list',
@@ -27399,6 +27401,7 @@ export class QueryReimbursementOrderResponseBodyModuleExpensesExpenseComposition
   static types(): { [key: string]: any } {
     return {
       billSettlementId: 'number',
+      capitalDirection: 'string',
       feeType: 'string',
       remark: 'string',
       remindTagList: { 'type': 'array', 'itemType': 'string' },
