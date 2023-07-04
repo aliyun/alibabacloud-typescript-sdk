@@ -1722,6 +1722,96 @@ export class DescribeControlPolicyResponse extends $tea.Model {
   }
 }
 
+export class DescribeDefaultIPSConfigRequest extends $tea.Model {
+  lang?: string;
+  sourceIp?: string;
+  static names(): { [key: string]: string } {
+    return {
+      lang: 'Lang',
+      sourceIp: 'SourceIp',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      lang: 'string',
+      sourceIp: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class DescribeDefaultIPSConfigResponseBody extends $tea.Model {
+  aiRules?: number;
+  basicRules?: number;
+  ctiRules?: number;
+  enableAllPatch?: number;
+  enableDefault?: number;
+  patchRules?: number;
+  requestId?: string;
+  ruleClass?: number;
+  runMode?: number;
+  static names(): { [key: string]: string } {
+    return {
+      aiRules: 'AiRules',
+      basicRules: 'BasicRules',
+      ctiRules: 'CtiRules',
+      enableAllPatch: 'EnableAllPatch',
+      enableDefault: 'EnableDefault',
+      patchRules: 'PatchRules',
+      requestId: 'RequestId',
+      ruleClass: 'RuleClass',
+      runMode: 'RunMode',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      aiRules: 'number',
+      basicRules: 'number',
+      ctiRules: 'number',
+      enableAllPatch: 'number',
+      enableDefault: 'number',
+      patchRules: 'number',
+      requestId: 'string',
+      ruleClass: 'number',
+      runMode: 'number',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class DescribeDefaultIPSConfigResponse extends $tea.Model {
+  headers: { [key: string]: string };
+  statusCode: number;
+  body: DescribeDefaultIPSConfigResponseBody;
+  static names(): { [key: string]: string } {
+    return {
+      headers: 'headers',
+      statusCode: 'statusCode',
+      body: 'body',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
+      body: DescribeDefaultIPSConfigResponseBody,
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
 export class DescribeDomainResolveRequest extends $tea.Model {
   domain?: string;
   ipVersion?: string;
@@ -3141,6 +3231,78 @@ export class DescribeUserAssetIPTrafficInfoResponse extends $tea.Model {
   }
 }
 
+export class DescribeUserIPSWhitelistRequest extends $tea.Model {
+  lang?: string;
+  sourceIp?: string;
+  static names(): { [key: string]: string } {
+    return {
+      lang: 'Lang',
+      sourceIp: 'SourceIp',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      lang: 'string',
+      sourceIp: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class DescribeUserIPSWhitelistResponseBody extends $tea.Model {
+  ipv6Whitelists?: DescribeUserIPSWhitelistResponseBodyIpv6Whitelists[];
+  requestId?: string;
+  whitelists?: DescribeUserIPSWhitelistResponseBodyWhitelists[];
+  static names(): { [key: string]: string } {
+    return {
+      ipv6Whitelists: 'Ipv6Whitelists',
+      requestId: 'RequestId',
+      whitelists: 'Whitelists',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      ipv6Whitelists: { 'type': 'array', 'itemType': DescribeUserIPSWhitelistResponseBodyIpv6Whitelists },
+      requestId: 'string',
+      whitelists: { 'type': 'array', 'itemType': DescribeUserIPSWhitelistResponseBodyWhitelists },
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class DescribeUserIPSWhitelistResponse extends $tea.Model {
+  headers: { [key: string]: string };
+  statusCode: number;
+  body: DescribeUserIPSWhitelistResponseBody;
+  static names(): { [key: string]: string } {
+    return {
+      headers: 'headers',
+      statusCode: 'statusCode',
+      body: 'body',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
+      body: DescribeUserIPSWhitelistResponseBody,
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
 export class DescribeVpcFirewallAclGroupListRequest extends $tea.Model {
   currentPage?: string;
   firewallConfigureStatus?: string;
@@ -4245,6 +4407,96 @@ export class ModifyControlPolicyPositionResponse extends $tea.Model {
   }
 }
 
+export class ModifyDefaultIPSConfigRequest extends $tea.Model {
+  aiRules?: string;
+  basicRules?: string;
+  ctiRules?: string;
+  enableAllPatch?: string;
+  enableDefault?: string;
+  lang?: string;
+  patchRules?: string;
+  ruleClass?: string;
+  runMode?: string;
+  sourceIp?: string;
+  static names(): { [key: string]: string } {
+    return {
+      aiRules: 'AiRules',
+      basicRules: 'BasicRules',
+      ctiRules: 'CtiRules',
+      enableAllPatch: 'EnableAllPatch',
+      enableDefault: 'EnableDefault',
+      lang: 'Lang',
+      patchRules: 'PatchRules',
+      ruleClass: 'RuleClass',
+      runMode: 'RunMode',
+      sourceIp: 'SourceIp',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      aiRules: 'string',
+      basicRules: 'string',
+      ctiRules: 'string',
+      enableAllPatch: 'string',
+      enableDefault: 'string',
+      lang: 'string',
+      patchRules: 'string',
+      ruleClass: 'string',
+      runMode: 'string',
+      sourceIp: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class ModifyDefaultIPSConfigResponseBody extends $tea.Model {
+  requestId?: string;
+  static names(): { [key: string]: string } {
+    return {
+      requestId: 'RequestId',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      requestId: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class ModifyDefaultIPSConfigResponse extends $tea.Model {
+  headers: { [key: string]: string };
+  statusCode: number;
+  body: ModifyDefaultIPSConfigResponseBody;
+  static names(): { [key: string]: string } {
+    return {
+      headers: 'headers',
+      statusCode: 'statusCode',
+      body: 'body',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
+      body: ModifyDefaultIPSConfigResponseBody,
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
 export class ModifyFirewallV2RoutePolicySwitchRequest extends $tea.Model {
   firewallId?: string;
   lang?: string;
@@ -4622,6 +4874,87 @@ export class ModifyTrFirewallV2RoutePolicyScopeResponse extends $tea.Model {
       headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
       statusCode: 'number',
       body: ModifyTrFirewallV2RoutePolicyScopeResponseBody,
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class ModifyUserIPSWhitelistRequest extends $tea.Model {
+  direction?: number;
+  ipVersion?: string;
+  lang?: string;
+  listType?: number;
+  listValue?: string;
+  sourceIp?: string;
+  whiteType?: number;
+  static names(): { [key: string]: string } {
+    return {
+      direction: 'Direction',
+      ipVersion: 'IpVersion',
+      lang: 'Lang',
+      listType: 'ListType',
+      listValue: 'ListValue',
+      sourceIp: 'SourceIp',
+      whiteType: 'WhiteType',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      direction: 'number',
+      ipVersion: 'string',
+      lang: 'string',
+      listType: 'number',
+      listValue: 'string',
+      sourceIp: 'string',
+      whiteType: 'number',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class ModifyUserIPSWhitelistResponseBody extends $tea.Model {
+  requestId?: string;
+  static names(): { [key: string]: string } {
+    return {
+      requestId: 'RequestId',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      requestId: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class ModifyUserIPSWhitelistResponse extends $tea.Model {
+  headers: { [key: string]: string };
+  statusCode: number;
+  body: ModifyUserIPSWhitelistResponseBody;
+  static names(): { [key: string]: string } {
+    return {
+      headers: 'headers',
+      statusCode: 'statusCode',
+      body: 'body',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
+      body: ModifyUserIPSWhitelistResponseBody,
     };
   }
 
@@ -6849,6 +7182,68 @@ export class DescribeTrFirewallsV2RouteListResponseBodyFirewallRouteDetailList e
       trFirewallRouteNexthop: 'string',
       trFirewallRoutePolicyId: 'string',
       trFirewallRouteTableId: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class DescribeUserIPSWhitelistResponseBodyIpv6Whitelists extends $tea.Model {
+  direction?: number;
+  listType?: number;
+  listValue?: string;
+  whiteListValue?: string[];
+  whiteType?: number;
+  static names(): { [key: string]: string } {
+    return {
+      direction: 'Direction',
+      listType: 'ListType',
+      listValue: 'ListValue',
+      whiteListValue: 'WhiteListValue',
+      whiteType: 'WhiteType',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      direction: 'number',
+      listType: 'number',
+      listValue: 'string',
+      whiteListValue: { 'type': 'array', 'itemType': 'string' },
+      whiteType: 'number',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class DescribeUserIPSWhitelistResponseBodyWhitelists extends $tea.Model {
+  direction?: number;
+  listType?: number;
+  listValue?: string;
+  whiteListValue?: string[];
+  whiteType?: number;
+  static names(): { [key: string]: string } {
+    return {
+      direction: 'Direction',
+      listType: 'ListType',
+      listValue: 'ListValue',
+      whiteListValue: 'WhiteListValue',
+      whiteType: 'WhiteType',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      direction: 'number',
+      listType: 'number',
+      listValue: 'string',
+      whiteListValue: { 'type': 'array', 'itemType': 'string' },
+      whiteType: 'number',
     };
   }
 
@@ -9305,6 +9700,39 @@ export default class Client extends OpenApi {
     return await this.describeControlPolicyWithOptions(request, runtime);
   }
 
+  async describeDefaultIPSConfigWithOptions(request: DescribeDefaultIPSConfigRequest, runtime: $Util.RuntimeOptions): Promise<DescribeDefaultIPSConfigResponse> {
+    Util.validateModel(request);
+    let query = { };
+    if (!Util.isUnset(request.lang)) {
+      query["Lang"] = request.lang;
+    }
+
+    if (!Util.isUnset(request.sourceIp)) {
+      query["SourceIp"] = request.sourceIp;
+    }
+
+    let req = new $OpenApi.OpenApiRequest({
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApi.Params({
+      action: "DescribeDefaultIPSConfig",
+      version: "2017-12-07",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $tea.cast<DescribeDefaultIPSConfigResponse>(await this.callApi(params, req, runtime), new DescribeDefaultIPSConfigResponse({}));
+  }
+
+  async describeDefaultIPSConfig(request: DescribeDefaultIPSConfigRequest): Promise<DescribeDefaultIPSConfigResponse> {
+    let runtime = new $Util.RuntimeOptions({ });
+    return await this.describeDefaultIPSConfigWithOptions(request, runtime);
+  }
+
   /**
     * You can call the DescribeDomainResolve operation to query the DNS record of a domain name. This operation can retrieve DNS records only from Alibaba Cloud DNS. Before you can call this operation, make sure that your domain name is hosted on Alibaba Cloud DNS.  
     * ## Limits
@@ -10233,6 +10661,43 @@ export default class Client extends OpenApi {
     return await this.describeUserAssetIPTrafficInfoWithOptions(request, runtime);
   }
 
+  async describeUserIPSWhitelistWithOptions(request: DescribeUserIPSWhitelistRequest, runtime: $Util.RuntimeOptions): Promise<DescribeUserIPSWhitelistResponse> {
+    Util.validateModel(request);
+    let query = { };
+    if (!Util.isUnset(request.lang)) {
+      query["Lang"] = request.lang;
+    }
+
+    if (!Util.isUnset(request.lang)) {
+      query["Lang"] = request.lang;
+    }
+
+    if (!Util.isUnset(request.sourceIp)) {
+      query["SourceIp"] = request.sourceIp;
+    }
+
+    let req = new $OpenApi.OpenApiRequest({
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApi.Params({
+      action: "DescribeUserIPSWhitelist",
+      version: "2017-12-07",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $tea.cast<DescribeUserIPSWhitelistResponse>(await this.callApi(params, req, runtime), new DescribeUserIPSWhitelistResponse({}));
+  }
+
+  async describeUserIPSWhitelist(request: DescribeUserIPSWhitelistRequest): Promise<DescribeUserIPSWhitelistResponse> {
+    let runtime = new $Util.RuntimeOptions({ });
+    return await this.describeUserIPSWhitelistWithOptions(request, runtime);
+  }
+
   /**
     * You can call the DescribeVpcFirewallAclGroupList operation to query the information about all policy groups of access control policies that are created for VPC firewalls.
     * ## Limits
@@ -11138,6 +11603,71 @@ export default class Client extends OpenApi {
     return await this.modifyControlPolicyPositionWithOptions(request, runtime);
   }
 
+  async modifyDefaultIPSConfigWithOptions(request: ModifyDefaultIPSConfigRequest, runtime: $Util.RuntimeOptions): Promise<ModifyDefaultIPSConfigResponse> {
+    Util.validateModel(request);
+    let query = { };
+    if (!Util.isUnset(request.aiRules)) {
+      query["AiRules"] = request.aiRules;
+    }
+
+    if (!Util.isUnset(request.basicRules)) {
+      query["BasicRules"] = request.basicRules;
+    }
+
+    if (!Util.isUnset(request.ctiRules)) {
+      query["CtiRules"] = request.ctiRules;
+    }
+
+    if (!Util.isUnset(request.enableAllPatch)) {
+      query["EnableAllPatch"] = request.enableAllPatch;
+    }
+
+    if (!Util.isUnset(request.enableDefault)) {
+      query["EnableDefault"] = request.enableDefault;
+    }
+
+    if (!Util.isUnset(request.lang)) {
+      query["Lang"] = request.lang;
+    }
+
+    if (!Util.isUnset(request.patchRules)) {
+      query["PatchRules"] = request.patchRules;
+    }
+
+    if (!Util.isUnset(request.ruleClass)) {
+      query["RuleClass"] = request.ruleClass;
+    }
+
+    if (!Util.isUnset(request.runMode)) {
+      query["RunMode"] = request.runMode;
+    }
+
+    if (!Util.isUnset(request.sourceIp)) {
+      query["SourceIp"] = request.sourceIp;
+    }
+
+    let req = new $OpenApi.OpenApiRequest({
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApi.Params({
+      action: "ModifyDefaultIPSConfig",
+      version: "2017-12-07",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $tea.cast<ModifyDefaultIPSConfigResponse>(await this.callApi(params, req, runtime), new ModifyDefaultIPSConfigResponse({}));
+  }
+
+  async modifyDefaultIPSConfig(request: ModifyDefaultIPSConfigRequest): Promise<ModifyDefaultIPSConfigResponse> {
+    let runtime = new $Util.RuntimeOptions({ });
+    return await this.modifyDefaultIPSConfigWithOptions(request, runtime);
+  }
+
   async modifyFirewallV2RoutePolicySwitchWithOptions(request: ModifyFirewallV2RoutePolicySwitchRequest, runtime: $Util.RuntimeOptions): Promise<ModifyFirewallV2RoutePolicySwitchResponse> {
     Util.validateModel(request);
     let query = { };
@@ -11373,6 +11903,63 @@ export default class Client extends OpenApi {
   async modifyTrFirewallV2RoutePolicyScope(request: ModifyTrFirewallV2RoutePolicyScopeRequest): Promise<ModifyTrFirewallV2RoutePolicyScopeResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.modifyTrFirewallV2RoutePolicyScopeWithOptions(request, runtime);
+  }
+
+  async modifyUserIPSWhitelistWithOptions(request: ModifyUserIPSWhitelistRequest, runtime: $Util.RuntimeOptions): Promise<ModifyUserIPSWhitelistResponse> {
+    Util.validateModel(request);
+    let query = { };
+    if (!Util.isUnset(request.direction)) {
+      query["Direction"] = request.direction;
+    }
+
+    if (!Util.isUnset(request.ipVersion)) {
+      query["IpVersion"] = request.ipVersion;
+    }
+
+    if (!Util.isUnset(request.lang)) {
+      query["Lang"] = request.lang;
+    }
+
+    if (!Util.isUnset(request.lang)) {
+      query["Lang"] = request.lang;
+    }
+
+    if (!Util.isUnset(request.listType)) {
+      query["ListType"] = request.listType;
+    }
+
+    if (!Util.isUnset(request.listValue)) {
+      query["ListValue"] = request.listValue;
+    }
+
+    if (!Util.isUnset(request.sourceIp)) {
+      query["SourceIp"] = request.sourceIp;
+    }
+
+    if (!Util.isUnset(request.whiteType)) {
+      query["WhiteType"] = request.whiteType;
+    }
+
+    let req = new $OpenApi.OpenApiRequest({
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApi.Params({
+      action: "ModifyUserIPSWhitelist",
+      version: "2017-12-07",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $tea.cast<ModifyUserIPSWhitelistResponse>(await this.callApi(params, req, runtime), new ModifyUserIPSWhitelistResponse({}));
+  }
+
+  async modifyUserIPSWhitelist(request: ModifyUserIPSWhitelistRequest): Promise<ModifyUserIPSWhitelistResponse> {
+    let runtime = new $Util.RuntimeOptions({ });
+    return await this.modifyUserIPSWhitelistWithOptions(request, runtime);
   }
 
   /**
