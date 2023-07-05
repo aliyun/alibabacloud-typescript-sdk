@@ -1696,7 +1696,11 @@ export class SubmitTextTo2DAvatarVideoTaskResponse extends $tea.Model {
 
 export class SubmitTextTo3DAvatarVideoTaskRequest extends $tea.Model {
   app?: SubmitTextTo3DAvatarVideoTaskRequestApp;
+  audioInfo?: SubmitTextTo3DAvatarVideoTaskRequestAudioInfo;
   avatarInfo?: SubmitTextTo3DAvatarVideoTaskRequestAvatarInfo;
+  callback?: boolean;
+  callbackParams?: string;
+  extParams?: string;
   tenantId?: number;
   text?: string;
   title?: string;
@@ -1704,7 +1708,11 @@ export class SubmitTextTo3DAvatarVideoTaskRequest extends $tea.Model {
   static names(): { [key: string]: string } {
     return {
       app: 'App',
+      audioInfo: 'AudioInfo',
       avatarInfo: 'AvatarInfo',
+      callback: 'Callback',
+      callbackParams: 'CallbackParams',
+      extParams: 'ExtParams',
       tenantId: 'TenantId',
       text: 'Text',
       title: 'Title',
@@ -1715,7 +1723,11 @@ export class SubmitTextTo3DAvatarVideoTaskRequest extends $tea.Model {
   static types(): { [key: string]: any } {
     return {
       app: SubmitTextTo3DAvatarVideoTaskRequestApp,
+      audioInfo: SubmitTextTo3DAvatarVideoTaskRequestAudioInfo,
       avatarInfo: SubmitTextTo3DAvatarVideoTaskRequestAvatarInfo,
+      callback: 'boolean',
+      callbackParams: 'string',
+      extParams: 'string',
       tenantId: 'number',
       text: 'string',
       title: 'string',
@@ -1730,7 +1742,11 @@ export class SubmitTextTo3DAvatarVideoTaskRequest extends $tea.Model {
 
 export class SubmitTextTo3DAvatarVideoTaskShrinkRequest extends $tea.Model {
   appShrink?: string;
+  audioInfoShrink?: string;
   avatarInfoShrink?: string;
+  callback?: boolean;
+  callbackParams?: string;
+  extParams?: string;
   tenantId?: number;
   text?: string;
   title?: string;
@@ -1738,7 +1754,11 @@ export class SubmitTextTo3DAvatarVideoTaskShrinkRequest extends $tea.Model {
   static names(): { [key: string]: string } {
     return {
       appShrink: 'App',
+      audioInfoShrink: 'AudioInfo',
       avatarInfoShrink: 'AvatarInfo',
+      callback: 'Callback',
+      callbackParams: 'CallbackParams',
+      extParams: 'ExtParams',
       tenantId: 'TenantId',
       text: 'Text',
       title: 'Title',
@@ -1749,7 +1769,11 @@ export class SubmitTextTo3DAvatarVideoTaskShrinkRequest extends $tea.Model {
   static types(): { [key: string]: any } {
     return {
       appShrink: 'string',
+      audioInfoShrink: 'string',
       avatarInfoShrink: 'string',
+      callback: 'boolean',
+      callbackParams: 'string',
+      extParams: 'string',
       tenantId: 'number',
       text: 'string',
       title: 'string',
@@ -2846,11 +2870,13 @@ export class SubmitAudioTo3DAvatarVideoTaskRequestApp extends $tea.Model {
 export class SubmitAudioTo3DAvatarVideoTaskRequestAvatarInfo extends $tea.Model {
   angle?: number;
   code?: string;
+  industryCode?: string;
   locate?: number;
   static names(): { [key: string]: string } {
     return {
       angle: 'Angle',
       code: 'Code',
+      industryCode: 'IndustryCode',
       locate: 'Locate',
     };
   }
@@ -2859,6 +2885,7 @@ export class SubmitAudioTo3DAvatarVideoTaskRequestAvatarInfo extends $tea.Model 
     return {
       angle: 'number',
       code: 'string',
+      industryCode: 'string',
       locate: 'number',
     };
   }
@@ -3050,14 +3077,44 @@ export class SubmitTextTo3DAvatarVideoTaskRequestApp extends $tea.Model {
   }
 }
 
+export class SubmitTextTo3DAvatarVideoTaskRequestAudioInfo extends $tea.Model {
+  pitchRate?: number;
+  speechRate?: number;
+  voice?: string;
+  volume?: number;
+  static names(): { [key: string]: string } {
+    return {
+      pitchRate: 'PitchRate',
+      speechRate: 'SpeechRate',
+      voice: 'Voice',
+      volume: 'Volume',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      pitchRate: 'number',
+      speechRate: 'number',
+      voice: 'string',
+      volume: 'number',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
 export class SubmitTextTo3DAvatarVideoTaskRequestAvatarInfo extends $tea.Model {
   angle?: number;
   code?: string;
+  industryCode?: string;
   locate?: number;
   static names(): { [key: string]: string } {
     return {
       angle: 'Angle',
       code: 'Code',
+      industryCode: 'IndustryCode',
       locate: 'Locate',
     };
   }
@@ -3066,6 +3123,7 @@ export class SubmitTextTo3DAvatarVideoTaskRequestAvatarInfo extends $tea.Model {
     return {
       angle: 'number',
       code: 'string',
+      industryCode: 'string',
       locate: 'number',
     };
   }
@@ -3942,6 +4000,10 @@ export default class Client extends OpenApi {
       request.appShrink = OpenApiUtil.arrayToStringWithSpecifiedStyle(tmpReq.app, "App", "json");
     }
 
+    if (!Util.isUnset(tmpReq.audioInfo)) {
+      request.audioInfoShrink = OpenApiUtil.arrayToStringWithSpecifiedStyle(tmpReq.audioInfo, "AudioInfo", "json");
+    }
+
     if (!Util.isUnset(tmpReq.avatarInfo)) {
       request.avatarInfoShrink = OpenApiUtil.arrayToStringWithSpecifiedStyle(tmpReq.avatarInfo, "AvatarInfo", "json");
     }
@@ -3955,8 +4017,24 @@ export default class Client extends OpenApi {
       query["App"] = request.appShrink;
     }
 
+    if (!Util.isUnset(request.audioInfoShrink)) {
+      query["AudioInfo"] = request.audioInfoShrink;
+    }
+
     if (!Util.isUnset(request.avatarInfoShrink)) {
       query["AvatarInfo"] = request.avatarInfoShrink;
+    }
+
+    if (!Util.isUnset(request.callback)) {
+      query["Callback"] = request.callback;
+    }
+
+    if (!Util.isUnset(request.callbackParams)) {
+      query["CallbackParams"] = request.callbackParams;
+    }
+
+    if (!Util.isUnset(request.extParams)) {
+      query["ExtParams"] = request.extParams;
     }
 
     if (!Util.isUnset(request.tenantId)) {
