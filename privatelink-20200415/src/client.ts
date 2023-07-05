@@ -13,6 +13,7 @@ export class AddUserToVpcEndpointServiceRequest extends $tea.Model {
   dryRun?: boolean;
   regionId?: string;
   serviceId?: string;
+  userARN?: string;
   userId?: number;
   static names(): { [key: string]: string } {
     return {
@@ -20,6 +21,7 @@ export class AddUserToVpcEndpointServiceRequest extends $tea.Model {
       dryRun: 'DryRun',
       regionId: 'RegionId',
       serviceId: 'ServiceId',
+      userARN: 'UserARN',
       userId: 'UserId',
     };
   }
@@ -30,6 +32,7 @@ export class AddUserToVpcEndpointServiceRequest extends $tea.Model {
       dryRun: 'boolean',
       regionId: 'string',
       serviceId: 'string',
+      userARN: 'string',
       userId: 'number',
     };
   }
@@ -171,6 +174,7 @@ export class AttachResourceToVpcEndpointServiceRequest extends $tea.Model {
   resourceId?: string;
   resourceType?: string;
   serviceId?: string;
+  zoneId?: string;
   static names(): { [key: string]: string } {
     return {
       clientToken: 'ClientToken',
@@ -179,6 +183,7 @@ export class AttachResourceToVpcEndpointServiceRequest extends $tea.Model {
       resourceId: 'ResourceId',
       resourceType: 'ResourceType',
       serviceId: 'ServiceId',
+      zoneId: 'ZoneId',
     };
   }
 
@@ -190,6 +195,7 @@ export class AttachResourceToVpcEndpointServiceRequest extends $tea.Model {
       resourceId: 'string',
       resourceType: 'string',
       serviceId: 'string',
+      zoneId: 'string',
     };
   }
 
@@ -317,6 +323,75 @@ export class AttachSecurityGroupToVpcEndpointResponse extends $tea.Model {
   }
 }
 
+export class ChangeResourceGroupRequest extends $tea.Model {
+  resourceGroupId?: string;
+  resourceId?: string;
+  resourceRegionId?: string;
+  static names(): { [key: string]: string } {
+    return {
+      resourceGroupId: 'ResourceGroupId',
+      resourceId: 'ResourceId',
+      resourceRegionId: 'ResourceRegionId',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      resourceGroupId: 'string',
+      resourceId: 'string',
+      resourceRegionId: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class ChangeResourceGroupResponseBody extends $tea.Model {
+  requestId?: string;
+  static names(): { [key: string]: string } {
+    return {
+      requestId: 'RequestId',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      requestId: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class ChangeResourceGroupResponse extends $tea.Model {
+  headers: { [key: string]: string };
+  statusCode: number;
+  body: ChangeResourceGroupResponseBody;
+  static names(): { [key: string]: string } {
+    return {
+      headers: 'headers',
+      statusCode: 'statusCode',
+      body: 'body',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
+      body: ChangeResourceGroupResponseBody,
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
 export class CheckProductOpenResponseBody extends $tea.Model {
   requestId?: string;
   success?: boolean;
@@ -364,6 +439,81 @@ export class CheckProductOpenResponse extends $tea.Model {
   }
 }
 
+export class CheckResourceSupportOperateRequest extends $tea.Model {
+  resourceId?: string;
+  resourceType?: string;
+  zoneId?: string;
+  static names(): { [key: string]: string } {
+    return {
+      resourceId: 'ResourceId',
+      resourceType: 'ResourceType',
+      zoneId: 'ZoneId',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      resourceId: 'string',
+      resourceType: 'string',
+      zoneId: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class CheckResourceSupportOperateResponseBody extends $tea.Model {
+  requestId?: string;
+  resourceCanBeDowngraded?: boolean;
+  resourceZoneCanBeDeleted?: boolean;
+  static names(): { [key: string]: string } {
+    return {
+      requestId: 'RequestId',
+      resourceCanBeDowngraded: 'ResourceCanBeDowngraded',
+      resourceZoneCanBeDeleted: 'ResourceZoneCanBeDeleted',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      requestId: 'string',
+      resourceCanBeDowngraded: 'boolean',
+      resourceZoneCanBeDeleted: 'boolean',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class CheckResourceSupportOperateResponse extends $tea.Model {
+  headers: { [key: string]: string };
+  statusCode: number;
+  body: CheckResourceSupportOperateResponseBody;
+  static names(): { [key: string]: string } {
+    return {
+      headers: 'headers',
+      statusCode: 'statusCode',
+      body: 'body',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
+      body: CheckResourceSupportOperateResponseBody,
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
 export class CreateVpcEndpointRequest extends $tea.Model {
   clientToken?: string;
   dryRun?: boolean;
@@ -372,9 +522,11 @@ export class CreateVpcEndpointRequest extends $tea.Model {
   endpointType?: string;
   protectedEnabled?: boolean;
   regionId?: string;
+  resourceGroupId?: string;
   securityGroupId?: string[];
   serviceId?: string;
   serviceName?: string;
+  tag?: CreateVpcEndpointRequestTag[];
   vpcId?: string;
   zone?: CreateVpcEndpointRequestZone[];
   zonePrivateIpAddressCount?: number;
@@ -387,9 +539,11 @@ export class CreateVpcEndpointRequest extends $tea.Model {
       endpointType: 'EndpointType',
       protectedEnabled: 'ProtectedEnabled',
       regionId: 'RegionId',
+      resourceGroupId: 'ResourceGroupId',
       securityGroupId: 'SecurityGroupId',
       serviceId: 'ServiceId',
       serviceName: 'ServiceName',
+      tag: 'Tag',
       vpcId: 'VpcId',
       zone: 'Zone',
       zonePrivateIpAddressCount: 'ZonePrivateIpAddressCount',
@@ -405,9 +559,11 @@ export class CreateVpcEndpointRequest extends $tea.Model {
       endpointType: 'string',
       protectedEnabled: 'boolean',
       regionId: 'string',
+      resourceGroupId: 'string',
       securityGroupId: { 'type': 'array', 'itemType': 'string' },
       serviceId: 'string',
       serviceName: 'string',
+      tag: { 'type': 'array', 'itemType': CreateVpcEndpointRequestTag },
       vpcId: 'string',
       zone: { 'type': 'array', 'itemType': CreateVpcEndpointRequestZone },
       zonePrivateIpAddressCount: 'number',
@@ -506,8 +662,11 @@ export class CreateVpcEndpointServiceRequest extends $tea.Model {
   payer?: string;
   regionId?: string;
   resource?: CreateVpcEndpointServiceRequestResource[];
+  resourceGroupId?: string;
   serviceDescription?: string;
   serviceResourceType?: string;
+  serviceSupportIPv6?: boolean;
+  tag?: CreateVpcEndpointServiceRequestTag[];
   zoneAffinityEnabled?: boolean;
   static names(): { [key: string]: string } {
     return {
@@ -517,8 +676,11 @@ export class CreateVpcEndpointServiceRequest extends $tea.Model {
       payer: 'Payer',
       regionId: 'RegionId',
       resource: 'Resource',
+      resourceGroupId: 'ResourceGroupId',
       serviceDescription: 'ServiceDescription',
       serviceResourceType: 'ServiceResourceType',
+      serviceSupportIPv6: 'ServiceSupportIPv6',
+      tag: 'Tag',
       zoneAffinityEnabled: 'ZoneAffinityEnabled',
     };
   }
@@ -531,8 +693,11 @@ export class CreateVpcEndpointServiceRequest extends $tea.Model {
       payer: 'string',
       regionId: 'string',
       resource: { 'type': 'array', 'itemType': CreateVpcEndpointServiceRequestResource },
+      resourceGroupId: 'string',
       serviceDescription: 'string',
       serviceResourceType: 'string',
+      serviceSupportIPv6: 'boolean',
+      tag: { 'type': 'array', 'itemType': CreateVpcEndpointServiceRequestTag },
       zoneAffinityEnabled: 'boolean',
     };
   }
@@ -546,24 +711,28 @@ export class CreateVpcEndpointServiceResponseBody extends $tea.Model {
   autoAcceptEnabled?: boolean;
   createTime?: string;
   requestId?: string;
+  resourceGroupId?: string;
   serviceBusinessStatus?: string;
   serviceDescription?: string;
   serviceDomain?: string;
   serviceId?: string;
   serviceName?: string;
   serviceStatus?: string;
+  serviceSupportIPv6?: boolean;
   zoneAffinityEnabled?: boolean;
   static names(): { [key: string]: string } {
     return {
       autoAcceptEnabled: 'AutoAcceptEnabled',
       createTime: 'CreateTime',
       requestId: 'RequestId',
+      resourceGroupId: 'ResourceGroupId',
       serviceBusinessStatus: 'ServiceBusinessStatus',
       serviceDescription: 'ServiceDescription',
       serviceDomain: 'ServiceDomain',
       serviceId: 'ServiceId',
       serviceName: 'ServiceName',
       serviceStatus: 'ServiceStatus',
+      serviceSupportIPv6: 'ServiceSupportIPv6',
       zoneAffinityEnabled: 'ZoneAffinityEnabled',
     };
   }
@@ -573,12 +742,14 @@ export class CreateVpcEndpointServiceResponseBody extends $tea.Model {
       autoAcceptEnabled: 'boolean',
       createTime: 'string',
       requestId: 'string',
+      resourceGroupId: 'string',
       serviceBusinessStatus: 'string',
       serviceDescription: 'string',
       serviceDomain: 'string',
       serviceId: 'string',
       serviceName: 'string',
       serviceStatus: 'string',
+      serviceSupportIPv6: 'boolean',
       zoneAffinityEnabled: 'boolean',
     };
   }
@@ -896,6 +1067,7 @@ export class DetachResourceFromVpcEndpointServiceRequest extends $tea.Model {
   resourceId?: string;
   resourceType?: string;
   serviceId?: string;
+  zoneId?: string;
   static names(): { [key: string]: string } {
     return {
       clientToken: 'ClientToken',
@@ -904,6 +1076,7 @@ export class DetachResourceFromVpcEndpointServiceRequest extends $tea.Model {
       resourceId: 'ResourceId',
       resourceType: 'ResourceType',
       serviceId: 'ServiceId',
+      zoneId: 'ZoneId',
     };
   }
 
@@ -915,6 +1088,7 @@ export class DetachResourceFromVpcEndpointServiceRequest extends $tea.Model {
       resourceId: 'string',
       resourceType: 'string',
       serviceId: 'string',
+      zoneId: 'string',
     };
   }
 
@@ -1390,6 +1564,7 @@ export class GetVpcEndpointAttributeResponseBody extends $tea.Model {
   payer?: string;
   regionId?: string;
   requestId?: string;
+  resourceGroupId?: string;
   resourceOwner?: boolean;
   serviceId?: string;
   serviceName?: string;
@@ -1411,6 +1586,7 @@ export class GetVpcEndpointAttributeResponseBody extends $tea.Model {
       payer: 'Payer',
       regionId: 'RegionId',
       requestId: 'RequestId',
+      resourceGroupId: 'ResourceGroupId',
       resourceOwner: 'ResourceOwner',
       serviceId: 'ServiceId',
       serviceName: 'ServiceName',
@@ -1435,6 +1611,7 @@ export class GetVpcEndpointAttributeResponseBody extends $tea.Model {
       payer: 'string',
       regionId: 'string',
       requestId: 'string',
+      resourceGroupId: 'string',
       resourceOwner: 'boolean',
       serviceId: 'string',
       serviceName: 'string',
@@ -1505,6 +1682,7 @@ export class GetVpcEndpointServiceAttributeResponseBody extends $tea.Model {
   payer?: string;
   regionId?: string;
   requestId?: string;
+  resourceGroupId?: string;
   serviceBusinessStatus?: string;
   serviceDescription?: string;
   serviceDomain?: string;
@@ -1512,6 +1690,7 @@ export class GetVpcEndpointServiceAttributeResponseBody extends $tea.Model {
   serviceName?: string;
   serviceResourceType?: string;
   serviceStatus?: string;
+  serviceSupportIPv6?: boolean;
   serviceType?: string;
   zoneAffinityEnabled?: boolean;
   zones?: string[];
@@ -1525,6 +1704,7 @@ export class GetVpcEndpointServiceAttributeResponseBody extends $tea.Model {
       payer: 'Payer',
       regionId: 'RegionId',
       requestId: 'RequestId',
+      resourceGroupId: 'ResourceGroupId',
       serviceBusinessStatus: 'ServiceBusinessStatus',
       serviceDescription: 'ServiceDescription',
       serviceDomain: 'ServiceDomain',
@@ -1532,6 +1712,7 @@ export class GetVpcEndpointServiceAttributeResponseBody extends $tea.Model {
       serviceName: 'ServiceName',
       serviceResourceType: 'ServiceResourceType',
       serviceStatus: 'ServiceStatus',
+      serviceSupportIPv6: 'ServiceSupportIPv6',
       serviceType: 'ServiceType',
       zoneAffinityEnabled: 'ZoneAffinityEnabled',
       zones: 'Zones',
@@ -1548,6 +1729,7 @@ export class GetVpcEndpointServiceAttributeResponseBody extends $tea.Model {
       payer: 'string',
       regionId: 'string',
       requestId: 'string',
+      resourceGroupId: 'string',
       serviceBusinessStatus: 'string',
       serviceDescription: 'string',
       serviceDomain: 'string',
@@ -1555,6 +1737,7 @@ export class GetVpcEndpointServiceAttributeResponseBody extends $tea.Model {
       serviceName: 'string',
       serviceResourceType: 'string',
       serviceStatus: 'string',
+      serviceSupportIPv6: 'boolean',
       serviceType: 'string',
       zoneAffinityEnabled: 'boolean',
       zones: { 'type': 'array', 'itemType': 'string' },
@@ -1592,6 +1775,7 @@ export class GetVpcEndpointServiceAttributeResponse extends $tea.Model {
 }
 
 export class ListVpcEndpointConnectionsRequest extends $tea.Model {
+  connectionId?: number;
   connectionStatus?: string;
   endpointId?: string;
   endpointOwnerId?: number;
@@ -1600,10 +1784,12 @@ export class ListVpcEndpointConnectionsRequest extends $tea.Model {
   nextToken?: string;
   regionId?: string;
   replacedResourceId?: string;
+  resourceGroupId?: string;
   resourceId?: string;
   serviceId?: string;
   static names(): { [key: string]: string } {
     return {
+      connectionId: 'ConnectionId',
       connectionStatus: 'ConnectionStatus',
       endpointId: 'EndpointId',
       endpointOwnerId: 'EndpointOwnerId',
@@ -1612,6 +1798,7 @@ export class ListVpcEndpointConnectionsRequest extends $tea.Model {
       nextToken: 'NextToken',
       regionId: 'RegionId',
       replacedResourceId: 'ReplacedResourceId',
+      resourceGroupId: 'ResourceGroupId',
       resourceId: 'ResourceId',
       serviceId: 'ServiceId',
     };
@@ -1619,6 +1806,7 @@ export class ListVpcEndpointConnectionsRequest extends $tea.Model {
 
   static types(): { [key: string]: any } {
     return {
+      connectionId: 'number',
       connectionStatus: 'string',
       endpointId: 'string',
       endpointOwnerId: 'number',
@@ -1627,6 +1815,7 @@ export class ListVpcEndpointConnectionsRequest extends $tea.Model {
       nextToken: 'string',
       regionId: 'string',
       replacedResourceId: 'string',
+      resourceGroupId: 'string',
       resourceId: 'string',
       serviceId: 'string',
     };
@@ -1642,12 +1831,14 @@ export class ListVpcEndpointConnectionsResponseBody extends $tea.Model {
   maxResults?: number;
   nextToken?: string;
   requestId?: string;
+  totalCount?: string;
   static names(): { [key: string]: string } {
     return {
       connections: 'Connections',
       maxResults: 'MaxResults',
       nextToken: 'NextToken',
       requestId: 'RequestId',
+      totalCount: 'TotalCount',
     };
   }
 
@@ -1657,6 +1848,7 @@ export class ListVpcEndpointConnectionsResponseBody extends $tea.Model {
       maxResults: 'number',
       nextToken: 'string',
       requestId: 'string',
+      totalCount: 'string',
     };
   }
 
@@ -1858,6 +2050,7 @@ export class ListVpcEndpointServiceUsersRequest extends $tea.Model {
   regionId?: string;
   serviceId?: string;
   userId?: number;
+  userListType?: string;
   static names(): { [key: string]: string } {
     return {
       maxResults: 'MaxResults',
@@ -1865,6 +2058,7 @@ export class ListVpcEndpointServiceUsersRequest extends $tea.Model {
       regionId: 'RegionId',
       serviceId: 'ServiceId',
       userId: 'UserId',
+      userListType: 'UserListType',
     };
   }
 
@@ -1875,6 +2069,7 @@ export class ListVpcEndpointServiceUsersRequest extends $tea.Model {
       regionId: 'string',
       serviceId: 'string',
       userId: 'number',
+      userListType: 'string',
     };
   }
 
@@ -1887,12 +2082,16 @@ export class ListVpcEndpointServiceUsersResponseBody extends $tea.Model {
   maxResults?: number;
   nextToken?: string;
   requestId?: string;
+  totalCount?: string;
+  userARNs?: ListVpcEndpointServiceUsersResponseBodyUserARNs[];
   users?: ListVpcEndpointServiceUsersResponseBodyUsers[];
   static names(): { [key: string]: string } {
     return {
       maxResults: 'MaxResults',
       nextToken: 'NextToken',
       requestId: 'RequestId',
+      totalCount: 'TotalCount',
+      userARNs: 'UserARNs',
       users: 'Users',
     };
   }
@@ -1902,6 +2101,8 @@ export class ListVpcEndpointServiceUsersResponseBody extends $tea.Model {
       maxResults: 'number',
       nextToken: 'string',
       requestId: 'string',
+      totalCount: 'string',
+      userARNs: { 'type': 'array', 'itemType': ListVpcEndpointServiceUsersResponseBodyUserARNs },
       users: { 'type': 'array', 'itemType': ListVpcEndpointServiceUsersResponseBodyUsers },
     };
   }
@@ -1941,11 +2142,14 @@ export class ListVpcEndpointServicesRequest extends $tea.Model {
   maxResults?: number;
   nextToken?: string;
   regionId?: string;
+  resourceGroupId?: string;
+  resourceId?: string;
   serviceBusinessStatus?: string;
   serviceId?: string;
   serviceName?: string;
   serviceResourceType?: string;
   serviceStatus?: string;
+  tag?: ListVpcEndpointServicesRequestTag[];
   zoneAffinityEnabled?: boolean;
   static names(): { [key: string]: string } {
     return {
@@ -1953,11 +2157,14 @@ export class ListVpcEndpointServicesRequest extends $tea.Model {
       maxResults: 'MaxResults',
       nextToken: 'NextToken',
       regionId: 'RegionId',
+      resourceGroupId: 'ResourceGroupId',
+      resourceId: 'ResourceId',
       serviceBusinessStatus: 'ServiceBusinessStatus',
       serviceId: 'ServiceId',
       serviceName: 'ServiceName',
       serviceResourceType: 'ServiceResourceType',
       serviceStatus: 'ServiceStatus',
+      tag: 'Tag',
       zoneAffinityEnabled: 'ZoneAffinityEnabled',
     };
   }
@@ -1968,11 +2175,14 @@ export class ListVpcEndpointServicesRequest extends $tea.Model {
       maxResults: 'number',
       nextToken: 'string',
       regionId: 'string',
+      resourceGroupId: 'string',
+      resourceId: 'string',
       serviceBusinessStatus: 'string',
       serviceId: 'string',
       serviceName: 'string',
       serviceResourceType: 'string',
       serviceStatus: 'string',
+      tag: { 'type': 'array', 'itemType': ListVpcEndpointServicesRequestTag },
       zoneAffinityEnabled: 'boolean',
     };
   }
@@ -1987,12 +2197,14 @@ export class ListVpcEndpointServicesResponseBody extends $tea.Model {
   nextToken?: string;
   requestId?: string;
   services?: ListVpcEndpointServicesResponseBodyServices[];
+  totalCount?: number;
   static names(): { [key: string]: string } {
     return {
       maxResults: 'MaxResults',
       nextToken: 'NextToken',
       requestId: 'RequestId',
       services: 'Services',
+      totalCount: 'TotalCount',
     };
   }
 
@@ -2002,6 +2214,7 @@ export class ListVpcEndpointServicesResponseBody extends $tea.Model {
       nextToken: 'string',
       requestId: 'string',
       services: { 'type': 'array', 'itemType': ListVpcEndpointServicesResponseBodyServices },
+      totalCount: 'number',
     };
   }
 
@@ -2039,17 +2252,21 @@ export class ListVpcEndpointServicesByEndUserRequest extends $tea.Model {
   maxResults?: number;
   nextToken?: string;
   regionId?: string;
+  resourceGroupId?: string;
   serviceId?: string;
   serviceName?: string;
   serviceType?: string;
+  tag?: ListVpcEndpointServicesByEndUserRequestTag[];
   static names(): { [key: string]: string } {
     return {
       maxResults: 'MaxResults',
       nextToken: 'NextToken',
       regionId: 'RegionId',
+      resourceGroupId: 'ResourceGroupId',
       serviceId: 'ServiceId',
       serviceName: 'ServiceName',
       serviceType: 'ServiceType',
+      tag: 'Tag',
     };
   }
 
@@ -2058,9 +2275,11 @@ export class ListVpcEndpointServicesByEndUserRequest extends $tea.Model {
       maxResults: 'number',
       nextToken: 'string',
       regionId: 'string',
+      resourceGroupId: 'string',
       serviceId: 'string',
       serviceName: 'string',
       serviceType: 'string',
+      tag: { 'type': 'array', 'itemType': ListVpcEndpointServicesByEndUserRequestTag },
     };
   }
 
@@ -2074,12 +2293,14 @@ export class ListVpcEndpointServicesByEndUserResponseBody extends $tea.Model {
   nextToken?: string;
   requestId?: string;
   services?: ListVpcEndpointServicesByEndUserResponseBodyServices[];
+  totalCount?: string;
   static names(): { [key: string]: string } {
     return {
       maxResults: 'MaxResults',
       nextToken: 'NextToken',
       requestId: 'RequestId',
       services: 'Services',
+      totalCount: 'TotalCount',
     };
   }
 
@@ -2089,6 +2310,7 @@ export class ListVpcEndpointServicesByEndUserResponseBody extends $tea.Model {
       nextToken: 'string',
       requestId: 'string',
       services: { 'type': 'array', 'itemType': ListVpcEndpointServicesByEndUserResponseBodyServices },
+      totalCount: 'string',
     };
   }
 
@@ -2212,7 +2434,9 @@ export class ListVpcEndpointsRequest extends $tea.Model {
   maxResults?: number;
   nextToken?: string;
   regionId?: string;
+  resourceGroupId?: string;
   serviceName?: string;
+  tag?: ListVpcEndpointsRequestTag[];
   vpcId?: string;
   static names(): { [key: string]: string } {
     return {
@@ -2224,7 +2448,9 @@ export class ListVpcEndpointsRequest extends $tea.Model {
       maxResults: 'MaxResults',
       nextToken: 'NextToken',
       regionId: 'RegionId',
+      resourceGroupId: 'ResourceGroupId',
       serviceName: 'ServiceName',
+      tag: 'Tag',
       vpcId: 'VpcId',
     };
   }
@@ -2239,7 +2465,9 @@ export class ListVpcEndpointsRequest extends $tea.Model {
       maxResults: 'number',
       nextToken: 'string',
       regionId: 'string',
+      resourceGroupId: 'string',
       serviceName: 'string',
+      tag: { 'type': 'array', 'itemType': ListVpcEndpointsRequestTag },
       vpcId: 'string',
     };
   }
@@ -2254,12 +2482,14 @@ export class ListVpcEndpointsResponseBody extends $tea.Model {
   maxResults?: number;
   nextToken?: string;
   requestId?: string;
+  totalCount?: number;
   static names(): { [key: string]: string } {
     return {
       endpoints: 'Endpoints',
       maxResults: 'MaxResults',
       nextToken: 'NextToken',
       requestId: 'RequestId',
+      totalCount: 'TotalCount',
     };
   }
 
@@ -2269,6 +2499,7 @@ export class ListVpcEndpointsResponseBody extends $tea.Model {
       maxResults: 'number',
       nextToken: 'string',
       requestId: 'string',
+      totalCount: 'number',
     };
   }
 
@@ -2294,6 +2525,78 @@ export class ListVpcEndpointsResponse extends $tea.Model {
       headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
       statusCode: 'number',
       body: ListVpcEndpointsResponseBody,
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class NotifyResourceAddressFamilyRequest extends $tea.Model {
+  addressFamily?: string;
+  ipv6Address?: string;
+  resourceId?: string;
+  resourceType?: string;
+  static names(): { [key: string]: string } {
+    return {
+      addressFamily: 'AddressFamily',
+      ipv6Address: 'Ipv6Address',
+      resourceId: 'ResourceId',
+      resourceType: 'ResourceType',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      addressFamily: 'string',
+      ipv6Address: 'string',
+      resourceId: 'string',
+      resourceType: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class NotifyResourceAddressFamilyResponseBody extends $tea.Model {
+  requestId?: string;
+  static names(): { [key: string]: string } {
+    return {
+      requestId: 'RequestId',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      requestId: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class NotifyResourceAddressFamilyResponse extends $tea.Model {
+  headers: { [key: string]: string };
+  statusCode: number;
+  body: NotifyResourceAddressFamilyResponseBody;
+  static names(): { [key: string]: string } {
+    return {
+      headers: 'headers',
+      statusCode: 'statusCode',
+      body: 'body',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
+      body: NotifyResourceAddressFamilyResponseBody,
     };
   }
 
@@ -2373,6 +2676,7 @@ export class RemoveUserFromVpcEndpointServiceRequest extends $tea.Model {
   dryRun?: boolean;
   regionId?: string;
   serviceId?: string;
+  userARN?: string;
   userId?: number;
   static names(): { [key: string]: string } {
     return {
@@ -2380,6 +2684,7 @@ export class RemoveUserFromVpcEndpointServiceRequest extends $tea.Model {
       dryRun: 'DryRun',
       regionId: 'RegionId',
       serviceId: 'ServiceId',
+      userARN: 'UserARN',
       userId: 'UserId',
     };
   }
@@ -2390,6 +2695,7 @@ export class RemoveUserFromVpcEndpointServiceRequest extends $tea.Model {
       dryRun: 'boolean',
       regionId: 'string',
       serviceId: 'string',
+      userARN: 'string',
       userId: 'number',
     };
   }
@@ -2510,6 +2816,84 @@ export class RemoveZoneFromVpcEndpointResponse extends $tea.Model {
       headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
       statusCode: 'number',
       body: RemoveZoneFromVpcEndpointResponseBody,
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class TagResourcesRequest extends $tea.Model {
+  clientToken?: string;
+  dryRun?: boolean;
+  regionId?: string;
+  resourceId?: string[];
+  resourceType?: string;
+  tag?: TagResourcesRequestTag[];
+  static names(): { [key: string]: string } {
+    return {
+      clientToken: 'ClientToken',
+      dryRun: 'DryRun',
+      regionId: 'RegionId',
+      resourceId: 'ResourceId',
+      resourceType: 'ResourceType',
+      tag: 'Tag',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      clientToken: 'string',
+      dryRun: 'boolean',
+      regionId: 'string',
+      resourceId: { 'type': 'array', 'itemType': 'string' },
+      resourceType: 'string',
+      tag: { 'type': 'array', 'itemType': TagResourcesRequestTag },
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class TagResourcesResponseBody extends $tea.Model {
+  requestId?: string;
+  static names(): { [key: string]: string } {
+    return {
+      requestId: 'RequestId',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      requestId: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class TagResourcesResponse extends $tea.Model {
+  headers: { [key: string]: string };
+  statusCode: number;
+  body: TagResourcesResponseBody;
+  static names(): { [key: string]: string } {
+    return {
+      headers: 'headers',
+      statusCode: 'statusCode',
+      body: 'body',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
+      body: TagResourcesResponseBody,
     };
   }
 
@@ -2682,6 +3066,7 @@ export class UpdateVpcEndpointServiceAttributeRequest extends $tea.Model {
   regionId?: string;
   serviceDescription?: string;
   serviceId?: string;
+  serviceSupportIPv6?: boolean;
   zoneAffinityEnabled?: boolean;
   static names(): { [key: string]: string } {
     return {
@@ -2692,6 +3077,7 @@ export class UpdateVpcEndpointServiceAttributeRequest extends $tea.Model {
       regionId: 'RegionId',
       serviceDescription: 'ServiceDescription',
       serviceId: 'ServiceId',
+      serviceSupportIPv6: 'ServiceSupportIPv6',
       zoneAffinityEnabled: 'ZoneAffinityEnabled',
     };
   }
@@ -2705,6 +3091,7 @@ export class UpdateVpcEndpointServiceAttributeRequest extends $tea.Model {
       regionId: 'string',
       serviceDescription: 'string',
       serviceId: 'string',
+      serviceSupportIPv6: 'boolean',
       zoneAffinityEnabled: 'boolean',
     };
   }
@@ -2765,6 +3152,7 @@ export class UpdateVpcEndpointServiceResourceAttributeRequest extends $tea.Model
   regionId?: string;
   resourceId?: string;
   serviceId?: string;
+  zoneId?: string;
   static names(): { [key: string]: string } {
     return {
       autoAllocatedEnabled: 'AutoAllocatedEnabled',
@@ -2773,6 +3161,7 @@ export class UpdateVpcEndpointServiceResourceAttributeRequest extends $tea.Model
       regionId: 'RegionId',
       resourceId: 'ResourceId',
       serviceId: 'ServiceId',
+      zoneId: 'ZoneId',
     };
   }
 
@@ -2784,6 +3173,7 @@ export class UpdateVpcEndpointServiceResourceAttributeRequest extends $tea.Model
       regionId: 'string',
       resourceId: 'string',
       serviceId: 'string',
+      zoneId: 'string',
     };
   }
 
@@ -2926,6 +3316,28 @@ export class UpdateVpcEndpointZoneConnectionResourceAttributeResponse extends $t
   }
 }
 
+export class CreateVpcEndpointRequestTag extends $tea.Model {
+  key?: string;
+  value?: string;
+  static names(): { [key: string]: string } {
+    return {
+      key: 'Key',
+      value: 'Value',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      key: 'string',
+      value: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
 export class CreateVpcEndpointRequestZone extends $tea.Model {
   vSwitchId?: string;
   zoneId?: string;
@@ -2954,10 +3366,12 @@ export class CreateVpcEndpointRequestZone extends $tea.Model {
 export class CreateVpcEndpointServiceRequestResource extends $tea.Model {
   resourceId?: string;
   resourceType?: string;
+  zoneId?: string;
   static names(): { [key: string]: string } {
     return {
       resourceId: 'ResourceId',
       resourceType: 'ResourceType',
+      zoneId: 'ZoneId',
     };
   }
 
@@ -2965,6 +3379,29 @@ export class CreateVpcEndpointServiceRequestResource extends $tea.Model {
     return {
       resourceId: 'string',
       resourceType: 'string',
+      zoneId: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class CreateVpcEndpointServiceRequestTag extends $tea.Model {
+  key?: string;
+  value?: string;
+  static names(): { [key: string]: string } {
+    return {
+      key: 'Key',
+      value: 'Value',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      key: 'string',
+      value: 'string',
     };
   }
 
@@ -3059,6 +3496,8 @@ export class DescribeZonesResponseBodyZones extends $tea.Model {
 }
 
 export class ListVpcEndpointConnectionsResponseBodyConnectionsZones extends $tea.Model {
+  connectionId?: number;
+  connectionStringId?: string;
   eniId?: string;
   replacedEniId?: string;
   replacedResourceId?: string;
@@ -3069,6 +3508,8 @@ export class ListVpcEndpointConnectionsResponseBodyConnectionsZones extends $tea
   zoneStatus?: string;
   static names(): { [key: string]: string } {
     return {
+      connectionId: 'ConnectionId',
+      connectionStringId: 'ConnectionStringId',
       eniId: 'EniId',
       replacedEniId: 'ReplacedEniId',
       replacedResourceId: 'ReplacedResourceId',
@@ -3082,6 +3523,8 @@ export class ListVpcEndpointConnectionsResponseBodyConnectionsZones extends $tea
 
   static types(): { [key: string]: any } {
     return {
+      connectionId: 'number',
+      connectionStringId: 'string',
       eniId: 'string',
       replacedEniId: 'string',
       replacedResourceId: 'string',
@@ -3105,6 +3548,7 @@ export class ListVpcEndpointConnectionsResponseBodyConnections extends $tea.Mode
   endpointOwnerId?: number;
   endpointVpcId?: string;
   modifiedTime?: string;
+  resourceGroupId?: string;
   resourceOwner?: boolean;
   serviceId?: string;
   zones?: ListVpcEndpointConnectionsResponseBodyConnectionsZones[];
@@ -3116,6 +3560,7 @@ export class ListVpcEndpointConnectionsResponseBodyConnections extends $tea.Mode
       endpointOwnerId: 'EndpointOwnerId',
       endpointVpcId: 'EndpointVpcId',
       modifiedTime: 'ModifiedTime',
+      resourceGroupId: 'ResourceGroupId',
       resourceOwner: 'ResourceOwner',
       serviceId: 'ServiceId',
       zones: 'Zones',
@@ -3130,6 +3575,7 @@ export class ListVpcEndpointConnectionsResponseBodyConnections extends $tea.Mode
       endpointOwnerId: 'number',
       endpointVpcId: 'string',
       modifiedTime: 'string',
+      resourceGroupId: 'string',
       resourceOwner: 'boolean',
       serviceId: 'string',
       zones: { 'type': 'array', 'itemType': ListVpcEndpointConnectionsResponseBodyConnectionsZones },
@@ -3167,6 +3613,7 @@ export class ListVpcEndpointServiceResourcesResponseBodyResources extends $tea.M
   relatedDeprecatedEndpointCount?: number;
   relatedEndpointCount?: number;
   resourceId?: string;
+  resourceSupportIPv6?: boolean;
   resourceType?: string;
   vSwitchId?: string;
   vpcId?: string;
@@ -3179,6 +3626,7 @@ export class ListVpcEndpointServiceResourcesResponseBodyResources extends $tea.M
       relatedDeprecatedEndpointCount: 'RelatedDeprecatedEndpointCount',
       relatedEndpointCount: 'RelatedEndpointCount',
       resourceId: 'ResourceId',
+      resourceSupportIPv6: 'ResourceSupportIPv6',
       resourceType: 'ResourceType',
       vSwitchId: 'VSwitchId',
       vpcId: 'VpcId',
@@ -3194,10 +3642,30 @@ export class ListVpcEndpointServiceResourcesResponseBodyResources extends $tea.M
       relatedDeprecatedEndpointCount: 'number',
       relatedEndpointCount: 'number',
       resourceId: 'string',
+      resourceSupportIPv6: 'boolean',
       resourceType: 'string',
       vSwitchId: 'string',
       vpcId: 'string',
       zoneId: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class ListVpcEndpointServiceUsersResponseBodyUserARNs extends $tea.Model {
+  userARN?: string;
+  static names(): { [key: string]: string } {
+    return {
+      userARN: 'UserARN',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      userARN: 'string',
     };
   }
 
@@ -3225,6 +3693,50 @@ export class ListVpcEndpointServiceUsersResponseBodyUsers extends $tea.Model {
   }
 }
 
+export class ListVpcEndpointServicesRequestTag extends $tea.Model {
+  key?: string;
+  value?: string;
+  static names(): { [key: string]: string } {
+    return {
+      key: 'Key',
+      value: 'Value',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      key: 'string',
+      value: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class ListVpcEndpointServicesResponseBodyServicesTags extends $tea.Model {
+  key?: string;
+  value?: string;
+  static names(): { [key: string]: string } {
+    return {
+      key: 'Key',
+      value: 'Value',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      key: 'string',
+      value: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
 export class ListVpcEndpointServicesResponseBodyServices extends $tea.Model {
   autoAcceptEnabled?: boolean;
   connectBandwidth?: number;
@@ -3233,6 +3745,7 @@ export class ListVpcEndpointServicesResponseBodyServices extends $tea.Model {
   minBandwidth?: number;
   payer?: string;
   regionId?: string;
+  resourceGroupId?: string;
   serviceBusinessStatus?: string;
   serviceDescription?: string;
   serviceDomain?: string;
@@ -3240,7 +3753,9 @@ export class ListVpcEndpointServicesResponseBodyServices extends $tea.Model {
   serviceName?: string;
   serviceResourceType?: string;
   serviceStatus?: string;
+  serviceSupportIPv6?: boolean;
   serviceType?: string;
+  tags?: ListVpcEndpointServicesResponseBodyServicesTags[];
   zoneAffinityEnabled?: boolean;
   static names(): { [key: string]: string } {
     return {
@@ -3251,6 +3766,7 @@ export class ListVpcEndpointServicesResponseBodyServices extends $tea.Model {
       minBandwidth: 'MinBandwidth',
       payer: 'Payer',
       regionId: 'RegionId',
+      resourceGroupId: 'ResourceGroupId',
       serviceBusinessStatus: 'ServiceBusinessStatus',
       serviceDescription: 'ServiceDescription',
       serviceDomain: 'ServiceDomain',
@@ -3258,7 +3774,9 @@ export class ListVpcEndpointServicesResponseBodyServices extends $tea.Model {
       serviceName: 'ServiceName',
       serviceResourceType: 'ServiceResourceType',
       serviceStatus: 'ServiceStatus',
+      serviceSupportIPv6: 'ServiceSupportIPv6',
       serviceType: 'ServiceType',
+      tags: 'Tags',
       zoneAffinityEnabled: 'ZoneAffinityEnabled',
     };
   }
@@ -3272,6 +3790,7 @@ export class ListVpcEndpointServicesResponseBodyServices extends $tea.Model {
       minBandwidth: 'number',
       payer: 'string',
       regionId: 'string',
+      resourceGroupId: 'string',
       serviceBusinessStatus: 'string',
       serviceDescription: 'string',
       serviceDomain: 'string',
@@ -3279,8 +3798,54 @@ export class ListVpcEndpointServicesResponseBodyServices extends $tea.Model {
       serviceName: 'string',
       serviceResourceType: 'string',
       serviceStatus: 'string',
+      serviceSupportIPv6: 'boolean',
       serviceType: 'string',
+      tags: { 'type': 'array', 'itemType': ListVpcEndpointServicesResponseBodyServicesTags },
       zoneAffinityEnabled: 'boolean',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class ListVpcEndpointServicesByEndUserRequestTag extends $tea.Model {
+  key?: string;
+  value?: string;
+  static names(): { [key: string]: string } {
+    return {
+      key: 'Key',
+      value: 'Value',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      key: 'string',
+      value: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class ListVpcEndpointServicesByEndUserResponseBodyServicesTags extends $tea.Model {
+  key?: string;
+  value?: string;
+  static names(): { [key: string]: string } {
+    return {
+      key: 'Key',
+      value: 'Value',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      key: 'string',
+      value: 'string',
     };
   }
 
@@ -3291,18 +3856,26 @@ export class ListVpcEndpointServicesResponseBodyServices extends $tea.Model {
 
 export class ListVpcEndpointServicesByEndUserResponseBodyServices extends $tea.Model {
   payer?: string;
+  resourceGroupId?: string;
   serviceDomain?: string;
   serviceId?: string;
   serviceName?: string;
+  serviceResourceType?: string;
+  serviceSupportIPv6?: boolean;
   serviceType?: string;
+  tags?: ListVpcEndpointServicesByEndUserResponseBodyServicesTags[];
   zones?: string[];
   static names(): { [key: string]: string } {
     return {
       payer: 'Payer',
+      resourceGroupId: 'ResourceGroupId',
       serviceDomain: 'ServiceDomain',
       serviceId: 'ServiceId',
       serviceName: 'ServiceName',
+      serviceResourceType: 'ServiceResourceType',
+      serviceSupportIPv6: 'ServiceSupportIPv6',
       serviceType: 'ServiceType',
+      tags: 'Tags',
       zones: 'Zones',
     };
   }
@@ -3310,10 +3883,14 @@ export class ListVpcEndpointServicesByEndUserResponseBodyServices extends $tea.M
   static types(): { [key: string]: any } {
     return {
       payer: 'string',
+      resourceGroupId: 'string',
       serviceDomain: 'string',
       serviceId: 'string',
       serviceName: 'string',
+      serviceResourceType: 'string',
+      serviceSupportIPv6: 'boolean',
       serviceType: 'string',
+      tags: { 'type': 'array', 'itemType': ListVpcEndpointServicesByEndUserResponseBodyServicesTags },
       zones: { 'type': 'array', 'itemType': 'string' },
     };
   }
@@ -3331,6 +3908,7 @@ export class ListVpcEndpointZonesResponseBodyZones extends $tea.Model {
   vSwitchId?: string;
   zoneDomain?: string;
   zoneId?: string;
+  zoneIpv6Address?: string;
   zoneStatus?: string;
   static names(): { [key: string]: string } {
     return {
@@ -3341,6 +3919,7 @@ export class ListVpcEndpointZonesResponseBodyZones extends $tea.Model {
       vSwitchId: 'VSwitchId',
       zoneDomain: 'ZoneDomain',
       zoneId: 'ZoneId',
+      zoneIpv6Address: 'ZoneIpv6Address',
       zoneStatus: 'ZoneStatus',
     };
   }
@@ -3354,7 +3933,52 @@ export class ListVpcEndpointZonesResponseBodyZones extends $tea.Model {
       vSwitchId: 'string',
       zoneDomain: 'string',
       zoneId: 'string',
+      zoneIpv6Address: 'string',
       zoneStatus: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class ListVpcEndpointsRequestTag extends $tea.Model {
+  key?: string;
+  value?: string;
+  static names(): { [key: string]: string } {
+    return {
+      key: 'Key',
+      value: 'Value',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      key: 'string',
+      value: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class ListVpcEndpointsResponseBodyEndpointsTags extends $tea.Model {
+  key?: string;
+  value?: string;
+  static names(): { [key: string]: string } {
+    return {
+      key: 'Key',
+      value: 'Value',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      key: 'string',
+      value: 'string',
     };
   }
 
@@ -3375,9 +3999,11 @@ export class ListVpcEndpointsResponseBodyEndpoints extends $tea.Model {
   endpointStatus?: string;
   endpointType?: string;
   regionId?: string;
+  resourceGroupId?: string;
   resourceOwner?: boolean;
   serviceId?: string;
   serviceName?: string;
+  tags?: ListVpcEndpointsResponseBodyEndpointsTags[];
   vpcId?: string;
   zoneAffinityEnabled?: boolean;
   static names(): { [key: string]: string } {
@@ -3393,9 +4019,11 @@ export class ListVpcEndpointsResponseBodyEndpoints extends $tea.Model {
       endpointStatus: 'EndpointStatus',
       endpointType: 'EndpointType',
       regionId: 'RegionId',
+      resourceGroupId: 'ResourceGroupId',
       resourceOwner: 'ResourceOwner',
       serviceId: 'ServiceId',
       serviceName: 'ServiceName',
+      tags: 'Tags',
       vpcId: 'VpcId',
       zoneAffinityEnabled: 'ZoneAffinityEnabled',
     };
@@ -3414,11 +4042,35 @@ export class ListVpcEndpointsResponseBodyEndpoints extends $tea.Model {
       endpointStatus: 'string',
       endpointType: 'string',
       regionId: 'string',
+      resourceGroupId: 'string',
       resourceOwner: 'boolean',
       serviceId: 'string',
       serviceName: 'string',
+      tags: { 'type': 'array', 'itemType': ListVpcEndpointsResponseBodyEndpointsTags },
       vpcId: 'string',
       zoneAffinityEnabled: 'boolean',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class TagResourcesRequestTag extends $tea.Model {
+  key?: string;
+  value?: string;
+  static names(): { [key: string]: string } {
+    return {
+      key: 'Key',
+      value: 'Value',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      key: 'string',
+      value: 'string',
     };
   }
 
@@ -3450,6 +4102,13 @@ export default class Client extends OpenApi {
     return EndpointUtil.getEndpointRules(productId, regionId, endpointRule, network, suffix);
   }
 
+  /**
+    * You cannot repeatedly call the **AddUserToVpcEndpointService** operation to add the ID of an Alibaba Cloud account to a service whitelist within a specified period of time.
+    *
+    * @param request AddUserToVpcEndpointServiceRequest
+    * @param runtime runtime options for this request RuntimeOptions
+    * @return AddUserToVpcEndpointServiceResponse
+   */
   async addUserToVpcEndpointServiceWithOptions(request: AddUserToVpcEndpointServiceRequest, runtime: $Util.RuntimeOptions): Promise<AddUserToVpcEndpointServiceResponse> {
     Util.validateModel(request);
     let query = { };
@@ -3473,6 +4132,10 @@ export default class Client extends OpenApi {
       query["ServiceId"] = request.serviceId;
     }
 
+    if (!Util.isUnset(request.userARN)) {
+      query["UserARN"] = request.userARN;
+    }
+
     if (!Util.isUnset(request.userId)) {
       query["UserId"] = request.userId;
     }
@@ -3494,11 +4157,24 @@ export default class Client extends OpenApi {
     return $tea.cast<AddUserToVpcEndpointServiceResponse>(await this.callApi(params, req, runtime), new AddUserToVpcEndpointServiceResponse({}));
   }
 
+  /**
+    * You cannot repeatedly call the **AddUserToVpcEndpointService** operation to add the ID of an Alibaba Cloud account to a service whitelist within a specified period of time.
+    *
+    * @param request AddUserToVpcEndpointServiceRequest
+    * @return AddUserToVpcEndpointServiceResponse
+   */
   async addUserToVpcEndpointService(request: AddUserToVpcEndpointServiceRequest): Promise<AddUserToVpcEndpointServiceResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.addUserToVpcEndpointServiceWithOptions(request, runtime);
   }
 
+  /**
+    * The request ID.
+    *
+    * @param request AddZoneToVpcEndpointRequest
+    * @param runtime runtime options for this request RuntimeOptions
+    * @return AddZoneToVpcEndpointResponse
+   */
   async addZoneToVpcEndpointWithOptions(request: AddZoneToVpcEndpointRequest, runtime: $Util.RuntimeOptions): Promise<AddZoneToVpcEndpointResponse> {
     Util.validateModel(request);
     let query = { };
@@ -3551,11 +4227,24 @@ export default class Client extends OpenApi {
     return $tea.cast<AddZoneToVpcEndpointResponse>(await this.callApi(params, req, runtime), new AddZoneToVpcEndpointResponse({}));
   }
 
+  /**
+    * The request ID.
+    *
+    * @param request AddZoneToVpcEndpointRequest
+    * @return AddZoneToVpcEndpointResponse
+   */
   async addZoneToVpcEndpoint(request: AddZoneToVpcEndpointRequest): Promise<AddZoneToVpcEndpointResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.addZoneToVpcEndpointWithOptions(request, runtime);
   }
 
+  /**
+    * You cannot repeatedly call the **AttachResourceToVpcEndpointService** operation to add a service resource to an endpoint service within a specified period of time.
+    *
+    * @param request AttachResourceToVpcEndpointServiceRequest
+    * @param runtime runtime options for this request RuntimeOptions
+    * @return AttachResourceToVpcEndpointServiceResponse
+   */
   async attachResourceToVpcEndpointServiceWithOptions(request: AttachResourceToVpcEndpointServiceRequest, runtime: $Util.RuntimeOptions): Promise<AttachResourceToVpcEndpointServiceResponse> {
     Util.validateModel(request);
     let query = { };
@@ -3587,6 +4276,10 @@ export default class Client extends OpenApi {
       query["ServiceId"] = request.serviceId;
     }
 
+    if (!Util.isUnset(request.zoneId)) {
+      query["ZoneId"] = request.zoneId;
+    }
+
     let req = new $OpenApi.OpenApiRequest({
       query: OpenApiUtil.query(query),
     });
@@ -3604,11 +4297,27 @@ export default class Client extends OpenApi {
     return $tea.cast<AttachResourceToVpcEndpointServiceResponse>(await this.callApi(params, req, runtime), new AttachResourceToVpcEndpointServiceResponse({}));
   }
 
+  /**
+    * You cannot repeatedly call the **AttachResourceToVpcEndpointService** operation to add a service resource to an endpoint service within a specified period of time.
+    *
+    * @param request AttachResourceToVpcEndpointServiceRequest
+    * @return AttachResourceToVpcEndpointServiceResponse
+   */
   async attachResourceToVpcEndpointService(request: AttachResourceToVpcEndpointServiceRequest): Promise<AttachResourceToVpcEndpointServiceResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.attachResourceToVpcEndpointServiceWithOptions(request, runtime);
   }
 
+  /**
+    * *   **AttachSecurityGroupToVpcEndpoint** is an asynchronous operation. After a request is sent, the system returns a request ID and runs the task in the background. You can call the [ListVpcEndpoints](~~183558~~) operation to query the state of the endpoint.
+    *     *   If the endpoint is in the **Pending** state, the endpoint is being associated with the security group.
+    *     *   If the endpoint is in the **Active** state, the endpoint is associated with the security group.
+    * *   You cannot repeatedly call the **AttachSecurityGroupToVpcEndpoint** operation to associate an endpoint with a security group within a specified period of time.
+    *
+    * @param request AttachSecurityGroupToVpcEndpointRequest
+    * @param runtime runtime options for this request RuntimeOptions
+    * @return AttachSecurityGroupToVpcEndpointResponse
+   */
   async attachSecurityGroupToVpcEndpointWithOptions(request: AttachSecurityGroupToVpcEndpointRequest, runtime: $Util.RuntimeOptions): Promise<AttachSecurityGroupToVpcEndpointResponse> {
     Util.validateModel(request);
     let query = { };
@@ -3653,9 +4362,55 @@ export default class Client extends OpenApi {
     return $tea.cast<AttachSecurityGroupToVpcEndpointResponse>(await this.callApi(params, req, runtime), new AttachSecurityGroupToVpcEndpointResponse({}));
   }
 
+  /**
+    * *   **AttachSecurityGroupToVpcEndpoint** is an asynchronous operation. After a request is sent, the system returns a request ID and runs the task in the background. You can call the [ListVpcEndpoints](~~183558~~) operation to query the state of the endpoint.
+    *     *   If the endpoint is in the **Pending** state, the endpoint is being associated with the security group.
+    *     *   If the endpoint is in the **Active** state, the endpoint is associated with the security group.
+    * *   You cannot repeatedly call the **AttachSecurityGroupToVpcEndpoint** operation to associate an endpoint with a security group within a specified period of time.
+    *
+    * @param request AttachSecurityGroupToVpcEndpointRequest
+    * @return AttachSecurityGroupToVpcEndpointResponse
+   */
   async attachSecurityGroupToVpcEndpoint(request: AttachSecurityGroupToVpcEndpointRequest): Promise<AttachSecurityGroupToVpcEndpointResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.attachSecurityGroupToVpcEndpointWithOptions(request, runtime);
+  }
+
+  async changeResourceGroupWithOptions(request: ChangeResourceGroupRequest, runtime: $Util.RuntimeOptions): Promise<ChangeResourceGroupResponse> {
+    Util.validateModel(request);
+    let query = { };
+    if (!Util.isUnset(request.resourceGroupId)) {
+      query["ResourceGroupId"] = request.resourceGroupId;
+    }
+
+    if (!Util.isUnset(request.resourceId)) {
+      query["ResourceId"] = request.resourceId;
+    }
+
+    if (!Util.isUnset(request.resourceRegionId)) {
+      query["ResourceRegionId"] = request.resourceRegionId;
+    }
+
+    let req = new $OpenApi.OpenApiRequest({
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApi.Params({
+      action: "ChangeResourceGroup",
+      version: "2020-04-15",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $tea.cast<ChangeResourceGroupResponse>(await this.callApi(params, req, runtime), new ChangeResourceGroupResponse({}));
+  }
+
+  async changeResourceGroup(request: ChangeResourceGroupRequest): Promise<ChangeResourceGroupResponse> {
+    let runtime = new $Util.RuntimeOptions({ });
+    return await this.changeResourceGroupWithOptions(request, runtime);
   }
 
   async checkProductOpenWithOptions(runtime: $Util.RuntimeOptions): Promise<CheckProductOpenResponse> {
@@ -3679,6 +4434,51 @@ export default class Client extends OpenApi {
     return await this.checkProductOpenWithOptions(runtime);
   }
 
+  async checkResourceSupportOperateWithOptions(request: CheckResourceSupportOperateRequest, runtime: $Util.RuntimeOptions): Promise<CheckResourceSupportOperateResponse> {
+    Util.validateModel(request);
+    let query = { };
+    if (!Util.isUnset(request.resourceId)) {
+      query["ResourceId"] = request.resourceId;
+    }
+
+    if (!Util.isUnset(request.resourceType)) {
+      query["ResourceType"] = request.resourceType;
+    }
+
+    if (!Util.isUnset(request.zoneId)) {
+      query["ZoneId"] = request.zoneId;
+    }
+
+    let req = new $OpenApi.OpenApiRequest({
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApi.Params({
+      action: "CheckResourceSupportOperate",
+      version: "2020-04-15",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $tea.cast<CheckResourceSupportOperateResponse>(await this.callApi(params, req, runtime), new CheckResourceSupportOperateResponse({}));
+  }
+
+  async checkResourceSupportOperate(request: CheckResourceSupportOperateRequest): Promise<CheckResourceSupportOperateResponse> {
+    let runtime = new $Util.RuntimeOptions({ });
+    return await this.checkResourceSupportOperateWithOptions(request, runtime);
+  }
+
+  /**
+    * The region ID of the endpoint.
+    * You can call the [DescribeRegions](~~120468~~) operation to query the most recent region list.
+    *
+    * @param request CreateVpcEndpointRequest
+    * @param runtime runtime options for this request RuntimeOptions
+    * @return CreateVpcEndpointResponse
+   */
   async createVpcEndpointWithOptions(request: CreateVpcEndpointRequest, runtime: $Util.RuntimeOptions): Promise<CreateVpcEndpointResponse> {
     Util.validateModel(request);
     let query = { };
@@ -3714,6 +4514,10 @@ export default class Client extends OpenApi {
       query["RegionId"] = request.regionId;
     }
 
+    if (!Util.isUnset(request.resourceGroupId)) {
+      query["ResourceGroupId"] = request.resourceGroupId;
+    }
+
     if (!Util.isUnset(request.securityGroupId)) {
       query["SecurityGroupId"] = request.securityGroupId;
     }
@@ -3724,6 +4528,10 @@ export default class Client extends OpenApi {
 
     if (!Util.isUnset(request.serviceName)) {
       query["ServiceName"] = request.serviceName;
+    }
+
+    if (!Util.isUnset(request.tag)) {
+      query["Tag"] = request.tag;
     }
 
     if (!Util.isUnset(request.vpcId)) {
@@ -3755,11 +4563,25 @@ export default class Client extends OpenApi {
     return $tea.cast<CreateVpcEndpointResponse>(await this.callApi(params, req, runtime), new CreateVpcEndpointResponse({}));
   }
 
+  /**
+    * The region ID of the endpoint.
+    * You can call the [DescribeRegions](~~120468~~) operation to query the most recent region list.
+    *
+    * @param request CreateVpcEndpointRequest
+    * @return CreateVpcEndpointResponse
+   */
   async createVpcEndpoint(request: CreateVpcEndpointRequest): Promise<CreateVpcEndpointResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.createVpcEndpointWithOptions(request, runtime);
   }
 
+  /**
+    * The resource group ID.
+    *
+    * @param request CreateVpcEndpointServiceRequest
+    * @param runtime runtime options for this request RuntimeOptions
+    * @return CreateVpcEndpointServiceResponse
+   */
   async createVpcEndpointServiceWithOptions(request: CreateVpcEndpointServiceRequest, runtime: $Util.RuntimeOptions): Promise<CreateVpcEndpointServiceResponse> {
     Util.validateModel(request);
     let query = { };
@@ -3791,12 +4613,24 @@ export default class Client extends OpenApi {
       query["Resource"] = request.resource;
     }
 
+    if (!Util.isUnset(request.resourceGroupId)) {
+      query["ResourceGroupId"] = request.resourceGroupId;
+    }
+
     if (!Util.isUnset(request.serviceDescription)) {
       query["ServiceDescription"] = request.serviceDescription;
     }
 
     if (!Util.isUnset(request.serviceResourceType)) {
       query["ServiceResourceType"] = request.serviceResourceType;
+    }
+
+    if (!Util.isUnset(request.serviceSupportIPv6)) {
+      query["ServiceSupportIPv6"] = request.serviceSupportIPv6;
+    }
+
+    if (!Util.isUnset(request.tag)) {
+      query["Tag"] = request.tag;
     }
 
     if (!Util.isUnset(request.zoneAffinityEnabled)) {
@@ -3820,11 +4654,26 @@ export default class Client extends OpenApi {
     return $tea.cast<CreateVpcEndpointServiceResponse>(await this.callApi(params, req, runtime), new CreateVpcEndpointServiceResponse({}));
   }
 
+  /**
+    * The resource group ID.
+    *
+    * @param request CreateVpcEndpointServiceRequest
+    * @return CreateVpcEndpointServiceResponse
+   */
   async createVpcEndpointService(request: CreateVpcEndpointServiceRequest): Promise<CreateVpcEndpointServiceResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.createVpcEndpointServiceWithOptions(request, runtime);
   }
 
+  /**
+    * **DeleteVpcEndpoint** is an asynchronous operation. After a request is sent, the system returns a request ID and runs the task in the background. You can call the [GetVpcEndpointAttribute](~~183568~~) operation to check whether the endpoint is deleted.
+    * *   If the endpoint is in the **Deleting** state, the endpoint is being deleted.
+    * *   If the endpoint cannot be queried, the endpoint is deleted.
+    *
+    * @param request DeleteVpcEndpointRequest
+    * @param runtime runtime options for this request RuntimeOptions
+    * @return DeleteVpcEndpointResponse
+   */
   async deleteVpcEndpointWithOptions(request: DeleteVpcEndpointRequest, runtime: $Util.RuntimeOptions): Promise<DeleteVpcEndpointResponse> {
     Util.validateModel(request);
     let query = { };
@@ -3865,11 +4714,29 @@ export default class Client extends OpenApi {
     return $tea.cast<DeleteVpcEndpointResponse>(await this.callApi(params, req, runtime), new DeleteVpcEndpointResponse({}));
   }
 
+  /**
+    * **DeleteVpcEndpoint** is an asynchronous operation. After a request is sent, the system returns a request ID and runs the task in the background. You can call the [GetVpcEndpointAttribute](~~183568~~) operation to check whether the endpoint is deleted.
+    * *   If the endpoint is in the **Deleting** state, the endpoint is being deleted.
+    * *   If the endpoint cannot be queried, the endpoint is deleted.
+    *
+    * @param request DeleteVpcEndpointRequest
+    * @return DeleteVpcEndpointResponse
+   */
   async deleteVpcEndpoint(request: DeleteVpcEndpointRequest): Promise<DeleteVpcEndpointResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.deleteVpcEndpointWithOptions(request, runtime);
   }
 
+  /**
+    * *   **DeleteVpcEndpointService** is an asynchronous operation. After you send a request, the system returns a request ID and runs the task in the background. You can call the [GetVpcEndpointServiceAttribute](~~183542~~) operation to check whether the endpoint service is deleted.
+    *     *   If the endpoint service is in the **Deleting** state, the endpoint service is being deleted.
+    *     *   If the endpoint service cannot be queried, the endpoint service is deleted.
+    * *   You cannot repeatedly call the **DeleteVpcEndpointService** operation to delete an endpoint service that belongs to an Alibaba Cloud account within a specified period of time.
+    *
+    * @param request DeleteVpcEndpointServiceRequest
+    * @param runtime runtime options for this request RuntimeOptions
+    * @return DeleteVpcEndpointServiceResponse
+   */
   async deleteVpcEndpointServiceWithOptions(request: DeleteVpcEndpointServiceRequest, runtime: $Util.RuntimeOptions): Promise<DeleteVpcEndpointServiceResponse> {
     Util.validateModel(request);
     let query = { };
@@ -3910,6 +4777,15 @@ export default class Client extends OpenApi {
     return $tea.cast<DeleteVpcEndpointServiceResponse>(await this.callApi(params, req, runtime), new DeleteVpcEndpointServiceResponse({}));
   }
 
+  /**
+    * *   **DeleteVpcEndpointService** is an asynchronous operation. After you send a request, the system returns a request ID and runs the task in the background. You can call the [GetVpcEndpointServiceAttribute](~~183542~~) operation to check whether the endpoint service is deleted.
+    *     *   If the endpoint service is in the **Deleting** state, the endpoint service is being deleted.
+    *     *   If the endpoint service cannot be queried, the endpoint service is deleted.
+    * *   You cannot repeatedly call the **DeleteVpcEndpointService** operation to delete an endpoint service that belongs to an Alibaba Cloud account within a specified period of time.
+    *
+    * @param request DeleteVpcEndpointServiceRequest
+    * @return DeleteVpcEndpointServiceResponse
+   */
   async deleteVpcEndpointService(request: DeleteVpcEndpointServiceRequest): Promise<DeleteVpcEndpointServiceResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.deleteVpcEndpointServiceWithOptions(request, runtime);
@@ -4012,6 +4888,10 @@ export default class Client extends OpenApi {
       query["ServiceId"] = request.serviceId;
     }
 
+    if (!Util.isUnset(request.zoneId)) {
+      query["ZoneId"] = request.zoneId;
+    }
+
     let req = new $OpenApi.OpenApiRequest({
       query: OpenApiUtil.query(query),
     });
@@ -4034,6 +4914,13 @@ export default class Client extends OpenApi {
     return await this.detachResourceFromVpcEndpointServiceWithOptions(request, runtime);
   }
 
+  /**
+    * 671231
+    *
+    * @param request DetachSecurityGroupFromVpcEndpointRequest
+    * @param runtime runtime options for this request RuntimeOptions
+    * @return DetachSecurityGroupFromVpcEndpointResponse
+   */
   async detachSecurityGroupFromVpcEndpointWithOptions(request: DetachSecurityGroupFromVpcEndpointRequest, runtime: $Util.RuntimeOptions): Promise<DetachSecurityGroupFromVpcEndpointResponse> {
     Util.validateModel(request);
     let query = { };
@@ -4078,11 +4965,27 @@ export default class Client extends OpenApi {
     return $tea.cast<DetachSecurityGroupFromVpcEndpointResponse>(await this.callApi(params, req, runtime), new DetachSecurityGroupFromVpcEndpointResponse({}));
   }
 
+  /**
+    * 671231
+    *
+    * @param request DetachSecurityGroupFromVpcEndpointRequest
+    * @return DetachSecurityGroupFromVpcEndpointResponse
+   */
   async detachSecurityGroupFromVpcEndpoint(request: DetachSecurityGroupFromVpcEndpointRequest): Promise<DetachSecurityGroupFromVpcEndpointResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.detachSecurityGroupFromVpcEndpointWithOptions(request, runtime);
   }
 
+  /**
+    * *   **DisableVpcEndpointConnection** is an asynchronous operation. After a request is sent, the system returns a request ID and runs the task in the background. You can call the [GetVpcEndpointAttribute](~~183568~~) operation to query the state of the endpoint connection.
+    *     *   If the endpoint connection is in the **Disconnecting** state, the endpoint is being disconnected from the endpoint service.
+    *     *   If the endpoint connection is in the **Disconnected** state, the endpoint is disconnected from the endpoint service.
+    * *   You cannot repeatedly call the **DisableVpcEndpointConnection** operation to allow an endpoint service to reject a connection request from an endpoint within a specified period of time.
+    *
+    * @param request DisableVpcEndpointConnectionRequest
+    * @param runtime runtime options for this request RuntimeOptions
+    * @return DisableVpcEndpointConnectionResponse
+   */
   async disableVpcEndpointConnectionWithOptions(request: DisableVpcEndpointConnectionRequest, runtime: $Util.RuntimeOptions): Promise<DisableVpcEndpointConnectionResponse> {
     Util.validateModel(request);
     let query = { };
@@ -4127,11 +5030,29 @@ export default class Client extends OpenApi {
     return $tea.cast<DisableVpcEndpointConnectionResponse>(await this.callApi(params, req, runtime), new DisableVpcEndpointConnectionResponse({}));
   }
 
+  /**
+    * *   **DisableVpcEndpointConnection** is an asynchronous operation. After a request is sent, the system returns a request ID and runs the task in the background. You can call the [GetVpcEndpointAttribute](~~183568~~) operation to query the state of the endpoint connection.
+    *     *   If the endpoint connection is in the **Disconnecting** state, the endpoint is being disconnected from the endpoint service.
+    *     *   If the endpoint connection is in the **Disconnected** state, the endpoint is disconnected from the endpoint service.
+    * *   You cannot repeatedly call the **DisableVpcEndpointConnection** operation to allow an endpoint service to reject a connection request from an endpoint within a specified period of time.
+    *
+    * @param request DisableVpcEndpointConnectionRequest
+    * @return DisableVpcEndpointConnectionResponse
+   */
   async disableVpcEndpointConnection(request: DisableVpcEndpointConnectionRequest): Promise<DisableVpcEndpointConnectionResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.disableVpcEndpointConnectionWithOptions(request, runtime);
   }
 
+  /**
+    * Specifies whether to only precheck the request. Valid values:
+    * *   **true**: only prechecks the API request without performing the operation. The system checks whether your AccessKey pair is valid, whether the Resource Access Management (RAM) user is authorized, and whether required parameters are set. If the request fails to pass the precheck, an error code is returned. If the request passes the check, the `DryRunOperation` error code is returned.
+    * *   **false** (default): sends the request. If the request passes the precheck, a 2xx HTTP status code is returned and the operation is performed.
+    *
+    * @param request DisableVpcEndpointZoneConnectionRequest
+    * @param runtime runtime options for this request RuntimeOptions
+    * @return DisableVpcEndpointZoneConnectionResponse
+   */
   async disableVpcEndpointZoneConnectionWithOptions(request: DisableVpcEndpointZoneConnectionRequest, runtime: $Util.RuntimeOptions): Promise<DisableVpcEndpointZoneConnectionResponse> {
     Util.validateModel(request);
     let query = { };
@@ -4184,11 +5105,29 @@ export default class Client extends OpenApi {
     return $tea.cast<DisableVpcEndpointZoneConnectionResponse>(await this.callApi(params, req, runtime), new DisableVpcEndpointZoneConnectionResponse({}));
   }
 
+  /**
+    * Specifies whether to only precheck the request. Valid values:
+    * *   **true**: only prechecks the API request without performing the operation. The system checks whether your AccessKey pair is valid, whether the Resource Access Management (RAM) user is authorized, and whether required parameters are set. If the request fails to pass the precheck, an error code is returned. If the request passes the check, the `DryRunOperation` error code is returned.
+    * *   **false** (default): sends the request. If the request passes the precheck, a 2xx HTTP status code is returned and the operation is performed.
+    *
+    * @param request DisableVpcEndpointZoneConnectionRequest
+    * @return DisableVpcEndpointZoneConnectionResponse
+   */
   async disableVpcEndpointZoneConnection(request: DisableVpcEndpointZoneConnectionRequest): Promise<DisableVpcEndpointZoneConnectionResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.disableVpcEndpointZoneConnectionWithOptions(request, runtime);
   }
 
+  /**
+    * *   **EnableVpcEndpointConnection** is an asynchronous operation. After you send a request, the system returns a request ID and runs the task in the background. You can call the [GetVpcEndpointAttribute](~~183568~~) operation to query the state of the endpoint connection.
+    *     *   If the state is **Connecting**, the endpoint connection is being established.
+    *     *   If the state is **Connected**, the endpoint connection is established.
+    * *   You cannot repeatedly call the **EnableVpcEndpointConnection** operation to allow an endpoint service of an Alibaba Cloud account to accept a connection request from an endpoint within a specified period of time.
+    *
+    * @param request EnableVpcEndpointConnectionRequest
+    * @param runtime runtime options for this request RuntimeOptions
+    * @return EnableVpcEndpointConnectionResponse
+   */
   async enableVpcEndpointConnectionWithOptions(request: EnableVpcEndpointConnectionRequest, runtime: $Util.RuntimeOptions): Promise<EnableVpcEndpointConnectionResponse> {
     Util.validateModel(request);
     let query = { };
@@ -4237,11 +5176,31 @@ export default class Client extends OpenApi {
     return $tea.cast<EnableVpcEndpointConnectionResponse>(await this.callApi(params, req, runtime), new EnableVpcEndpointConnectionResponse({}));
   }
 
+  /**
+    * *   **EnableVpcEndpointConnection** is an asynchronous operation. After you send a request, the system returns a request ID and runs the task in the background. You can call the [GetVpcEndpointAttribute](~~183568~~) operation to query the state of the endpoint connection.
+    *     *   If the state is **Connecting**, the endpoint connection is being established.
+    *     *   If the state is **Connected**, the endpoint connection is established.
+    * *   You cannot repeatedly call the **EnableVpcEndpointConnection** operation to allow an endpoint service of an Alibaba Cloud account to accept a connection request from an endpoint within a specified period of time.
+    *
+    * @param request EnableVpcEndpointConnectionRequest
+    * @return EnableVpcEndpointConnectionResponse
+   */
   async enableVpcEndpointConnection(request: EnableVpcEndpointConnectionRequest): Promise<EnableVpcEndpointConnectionResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.enableVpcEndpointConnectionWithOptions(request, runtime);
   }
 
+  /**
+    * *   You can call this operation only when the state of the endpoint is **Connected** and the state of the associated zone is **Disconnected**.
+    * *   **EnableVpcEndpointZoneConnection** is an asynchronous operation. After you send a request, the system returns a request ID and runs the task in the background. You can call the [ListVpcEndpointZones](~~183560~~) operation to check whether the endpoint service accepts a connection request from the endpoint in the associated zone.
+    *     *   If the zone is in the **Connecting** state, the endpoint service is accepting the connection request from the endpoint.
+    *     *   If the zone is in the **Connected** state, the endpoint service has accepted the connection request from the endpoint.
+    * *   You cannot repeatedly call the **EnableVpcEndpointZoneConnection** operation to allow an endpoint service to accept a connection request from an endpoint in the associated zone within a specified period of time.
+    *
+    * @param request EnableVpcEndpointZoneConnectionRequest
+    * @param runtime runtime options for this request RuntimeOptions
+    * @return EnableVpcEndpointZoneConnectionResponse
+   */
   async enableVpcEndpointZoneConnectionWithOptions(request: EnableVpcEndpointZoneConnectionRequest, runtime: $Util.RuntimeOptions): Promise<EnableVpcEndpointZoneConnectionResponse> {
     Util.validateModel(request);
     let query = { };
@@ -4290,6 +5249,16 @@ export default class Client extends OpenApi {
     return $tea.cast<EnableVpcEndpointZoneConnectionResponse>(await this.callApi(params, req, runtime), new EnableVpcEndpointZoneConnectionResponse({}));
   }
 
+  /**
+    * *   You can call this operation only when the state of the endpoint is **Connected** and the state of the associated zone is **Disconnected**.
+    * *   **EnableVpcEndpointZoneConnection** is an asynchronous operation. After you send a request, the system returns a request ID and runs the task in the background. You can call the [ListVpcEndpointZones](~~183560~~) operation to check whether the endpoint service accepts a connection request from the endpoint in the associated zone.
+    *     *   If the zone is in the **Connecting** state, the endpoint service is accepting the connection request from the endpoint.
+    *     *   If the zone is in the **Connected** state, the endpoint service has accepted the connection request from the endpoint.
+    * *   You cannot repeatedly call the **EnableVpcEndpointZoneConnection** operation to allow an endpoint service to accept a connection request from an endpoint in the associated zone within a specified period of time.
+    *
+    * @param request EnableVpcEndpointZoneConnectionRequest
+    * @return EnableVpcEndpointZoneConnectionResponse
+   */
   async enableVpcEndpointZoneConnection(request: EnableVpcEndpointZoneConnectionRequest): Promise<EnableVpcEndpointZoneConnectionResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.enableVpcEndpointZoneConnectionWithOptions(request, runtime);
@@ -4372,6 +5341,10 @@ export default class Client extends OpenApi {
   async listVpcEndpointConnectionsWithOptions(request: ListVpcEndpointConnectionsRequest, runtime: $Util.RuntimeOptions): Promise<ListVpcEndpointConnectionsResponse> {
     Util.validateModel(request);
     let query = { };
+    if (!Util.isUnset(request.connectionId)) {
+      query["ConnectionId"] = request.connectionId;
+    }
+
     if (!Util.isUnset(request.connectionStatus)) {
       query["ConnectionStatus"] = request.connectionStatus;
     }
@@ -4406,6 +5379,10 @@ export default class Client extends OpenApi {
 
     if (!Util.isUnset(request.replacedResourceId)) {
       query["ReplacedResourceId"] = request.replacedResourceId;
+    }
+
+    if (!Util.isUnset(request.resourceGroupId)) {
+      query["ResourceGroupId"] = request.resourceGroupId;
     }
 
     if (!Util.isUnset(request.resourceId)) {
@@ -4555,6 +5532,10 @@ export default class Client extends OpenApi {
       query["UserId"] = request.userId;
     }
 
+    if (!Util.isUnset(request.userListType)) {
+      query["UserListType"] = request.userListType;
+    }
+
     let req = new $OpenApi.OpenApiRequest({
       query: OpenApiUtil.query(query),
     });
@@ -4600,6 +5581,14 @@ export default class Client extends OpenApi {
       query["RegionId"] = request.regionId;
     }
 
+    if (!Util.isUnset(request.resourceGroupId)) {
+      query["ResourceGroupId"] = request.resourceGroupId;
+    }
+
+    if (!Util.isUnset(request.resourceId)) {
+      query["ResourceId"] = request.resourceId;
+    }
+
     if (!Util.isUnset(request.serviceBusinessStatus)) {
       query["ServiceBusinessStatus"] = request.serviceBusinessStatus;
     }
@@ -4618,6 +5607,10 @@ export default class Client extends OpenApi {
 
     if (!Util.isUnset(request.serviceStatus)) {
       query["ServiceStatus"] = request.serviceStatus;
+    }
+
+    if (!Util.isUnset(request.tag)) {
+      query["Tag"] = request.tag;
     }
 
     if (!Util.isUnset(request.zoneAffinityEnabled)) {
@@ -4665,6 +5658,10 @@ export default class Client extends OpenApi {
       query["RegionId"] = request.regionId;
     }
 
+    if (!Util.isUnset(request.resourceGroupId)) {
+      query["ResourceGroupId"] = request.resourceGroupId;
+    }
+
     if (!Util.isUnset(request.serviceId)) {
       query["ServiceId"] = request.serviceId;
     }
@@ -4675,6 +5672,10 @@ export default class Client extends OpenApi {
 
     if (!Util.isUnset(request.serviceType)) {
       query["ServiceType"] = request.serviceType;
+    }
+
+    if (!Util.isUnset(request.tag)) {
+      query["Tag"] = request.tag;
     }
 
     let req = new $OpenApi.OpenApiRequest({
@@ -4783,8 +5784,16 @@ export default class Client extends OpenApi {
       query["RegionId"] = request.regionId;
     }
 
+    if (!Util.isUnset(request.resourceGroupId)) {
+      query["ResourceGroupId"] = request.resourceGroupId;
+    }
+
     if (!Util.isUnset(request.serviceName)) {
       query["ServiceName"] = request.serviceName;
+    }
+
+    if (!Util.isUnset(request.tag)) {
+      query["Tag"] = request.tag;
     }
 
     if (!Util.isUnset(request.vpcId)) {
@@ -4811,6 +5820,60 @@ export default class Client extends OpenApi {
   async listVpcEndpoints(request: ListVpcEndpointsRequest): Promise<ListVpcEndpointsResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.listVpcEndpointsWithOptions(request, runtime);
+  }
+
+  /**
+    * The ID of the request.
+    *
+    * @param request NotifyResourceAddressFamilyRequest
+    * @param runtime runtime options for this request RuntimeOptions
+    * @return NotifyResourceAddressFamilyResponse
+   */
+  async notifyResourceAddressFamilyWithOptions(request: NotifyResourceAddressFamilyRequest, runtime: $Util.RuntimeOptions): Promise<NotifyResourceAddressFamilyResponse> {
+    Util.validateModel(request);
+    let query = { };
+    if (!Util.isUnset(request.addressFamily)) {
+      query["AddressFamily"] = request.addressFamily;
+    }
+
+    if (!Util.isUnset(request.ipv6Address)) {
+      query["Ipv6Address"] = request.ipv6Address;
+    }
+
+    if (!Util.isUnset(request.resourceId)) {
+      query["ResourceId"] = request.resourceId;
+    }
+
+    if (!Util.isUnset(request.resourceType)) {
+      query["ResourceType"] = request.resourceType;
+    }
+
+    let req = new $OpenApi.OpenApiRequest({
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApi.Params({
+      action: "NotifyResourceAddressFamily",
+      version: "2020-04-15",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $tea.cast<NotifyResourceAddressFamilyResponse>(await this.callApi(params, req, runtime), new NotifyResourceAddressFamilyResponse({}));
+  }
+
+  /**
+    * The ID of the request.
+    *
+    * @param request NotifyResourceAddressFamilyRequest
+    * @return NotifyResourceAddressFamilyResponse
+   */
+  async notifyResourceAddressFamily(request: NotifyResourceAddressFamilyRequest): Promise<NotifyResourceAddressFamilyResponse> {
+    let runtime = new $Util.RuntimeOptions({ });
+    return await this.notifyResourceAddressFamilyWithOptions(request, runtime);
   }
 
   async openPrivateLinkServiceWithOptions(request: OpenPrivateLinkServiceRequest, runtime: $Util.RuntimeOptions): Promise<OpenPrivateLinkServiceResponse> {
@@ -4842,6 +5905,13 @@ export default class Client extends OpenApi {
     return await this.openPrivateLinkServiceWithOptions(request, runtime);
   }
 
+  /**
+    * You cannot repeatedly call the **RemoveUserFromVpcEndpointService** operation to remove the ID of an Alibaba Cloud account from the whitelist of an endpoint service within a specified period of time.
+    *
+    * @param request RemoveUserFromVpcEndpointServiceRequest
+    * @param runtime runtime options for this request RuntimeOptions
+    * @return RemoveUserFromVpcEndpointServiceResponse
+   */
   async removeUserFromVpcEndpointServiceWithOptions(request: RemoveUserFromVpcEndpointServiceRequest, runtime: $Util.RuntimeOptions): Promise<RemoveUserFromVpcEndpointServiceResponse> {
     Util.validateModel(request);
     let query = { };
@@ -4865,6 +5935,10 @@ export default class Client extends OpenApi {
       query["ServiceId"] = request.serviceId;
     }
 
+    if (!Util.isUnset(request.userARN)) {
+      query["UserARN"] = request.userARN;
+    }
+
     if (!Util.isUnset(request.userId)) {
       query["UserId"] = request.userId;
     }
@@ -4886,11 +5960,27 @@ export default class Client extends OpenApi {
     return $tea.cast<RemoveUserFromVpcEndpointServiceResponse>(await this.callApi(params, req, runtime), new RemoveUserFromVpcEndpointServiceResponse({}));
   }
 
+  /**
+    * You cannot repeatedly call the **RemoveUserFromVpcEndpointService** operation to remove the ID of an Alibaba Cloud account from the whitelist of an endpoint service within a specified period of time.
+    *
+    * @param request RemoveUserFromVpcEndpointServiceRequest
+    * @return RemoveUserFromVpcEndpointServiceResponse
+   */
   async removeUserFromVpcEndpointService(request: RemoveUserFromVpcEndpointServiceRequest): Promise<RemoveUserFromVpcEndpointServiceResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.removeUserFromVpcEndpointServiceWithOptions(request, runtime);
   }
 
+  /**
+    * *   **RemoveZoneFromVpcEndpoint** is an asynchronous operation. After a request is sent, the system returns a request ID and runs the task in the background. You can call the [ListVpcEndpointZones](~~183560~~) operation to check whether the zone of the endpoint is deleted.
+    *     *   If the zone of the endpoint is in the **Deleting** state, the zone is being deleted.
+    *     *   If the zone cannot be queried, the zone is deleted.
+    * *   You cannot repeatedly call the **RemoveZoneFromVpcEndpoint** operation to delete a zone of an endpoint within a specified period of time.
+    *
+    * @param request RemoveZoneFromVpcEndpointRequest
+    * @param runtime runtime options for this request RuntimeOptions
+    * @return RemoveZoneFromVpcEndpointResponse
+   */
   async removeZoneFromVpcEndpointWithOptions(request: RemoveZoneFromVpcEndpointRequest, runtime: $Util.RuntimeOptions): Promise<RemoveZoneFromVpcEndpointResponse> {
     Util.validateModel(request);
     let query = { };
@@ -4935,11 +6025,94 @@ export default class Client extends OpenApi {
     return $tea.cast<RemoveZoneFromVpcEndpointResponse>(await this.callApi(params, req, runtime), new RemoveZoneFromVpcEndpointResponse({}));
   }
 
+  /**
+    * *   **RemoveZoneFromVpcEndpoint** is an asynchronous operation. After a request is sent, the system returns a request ID and runs the task in the background. You can call the [ListVpcEndpointZones](~~183560~~) operation to check whether the zone of the endpoint is deleted.
+    *     *   If the zone of the endpoint is in the **Deleting** state, the zone is being deleted.
+    *     *   If the zone cannot be queried, the zone is deleted.
+    * *   You cannot repeatedly call the **RemoveZoneFromVpcEndpoint** operation to delete a zone of an endpoint within a specified period of time.
+    *
+    * @param request RemoveZoneFromVpcEndpointRequest
+    * @return RemoveZoneFromVpcEndpointResponse
+   */
   async removeZoneFromVpcEndpoint(request: RemoveZoneFromVpcEndpointRequest): Promise<RemoveZoneFromVpcEndpointResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.removeZoneFromVpcEndpointWithOptions(request, runtime);
   }
 
+  /**
+    * > You can add up to 20 tags to an instance. Before you add tags to a resource, Alibaba Cloud checks the number of existing tags of the resource. If the maximum number is reached, an error message is returned.
+    *
+    * @param request TagResourcesRequest
+    * @param runtime runtime options for this request RuntimeOptions
+    * @return TagResourcesResponse
+   */
+  async tagResourcesWithOptions(request: TagResourcesRequest, runtime: $Util.RuntimeOptions): Promise<TagResourcesResponse> {
+    Util.validateModel(request);
+    let body : {[key: string ]: any} = { };
+    if (!Util.isUnset(request.clientToken)) {
+      body["ClientToken"] = request.clientToken;
+    }
+
+    if (!Util.isUnset(request.dryRun)) {
+      body["DryRun"] = request.dryRun;
+    }
+
+    if (!Util.isUnset(request.regionId)) {
+      body["RegionId"] = request.regionId;
+    }
+
+    let bodyFlat : {[key: string ]: any} = { };
+    if (!Util.isUnset(request.resourceId)) {
+      bodyFlat["ResourceId"] = request.resourceId;
+    }
+
+    if (!Util.isUnset(request.resourceType)) {
+      body["ResourceType"] = request.resourceType;
+    }
+
+    if (!Util.isUnset(request.tag)) {
+      bodyFlat["Tag"] = request.tag;
+    }
+
+    body = {
+      ...body,
+      ...OpenApiUtil.query(bodyFlat),
+    };
+    let req = new $OpenApi.OpenApiRequest({
+      body: OpenApiUtil.parseToMap(body),
+    });
+    let params = new $OpenApi.Params({
+      action: "TagResources",
+      version: "2020-04-15",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $tea.cast<TagResourcesResponse>(await this.callApi(params, req, runtime), new TagResourcesResponse({}));
+  }
+
+  /**
+    * > You can add up to 20 tags to an instance. Before you add tags to a resource, Alibaba Cloud checks the number of existing tags of the resource. If the maximum number is reached, an error message is returned.
+    *
+    * @param request TagResourcesRequest
+    * @return TagResourcesResponse
+   */
+  async tagResources(request: TagResourcesRequest): Promise<TagResourcesResponse> {
+    let runtime = new $Util.RuntimeOptions({ });
+    return await this.tagResourcesWithOptions(request, runtime);
+  }
+
+  /**
+    * You cannot repeatedly call the **UpdateVpcEndpointAttribute** operation to modify the attributes of an endpoint that belongs to an Alibaba Cloud account within a specified period of time.
+    *
+    * @param request UpdateVpcEndpointAttributeRequest
+    * @param runtime runtime options for this request RuntimeOptions
+    * @return UpdateVpcEndpointAttributeResponse
+   */
   async updateVpcEndpointAttributeWithOptions(request: UpdateVpcEndpointAttributeRequest, runtime: $Util.RuntimeOptions): Promise<UpdateVpcEndpointAttributeResponse> {
     Util.validateModel(request);
     let query = { };
@@ -4988,11 +6161,24 @@ export default class Client extends OpenApi {
     return $tea.cast<UpdateVpcEndpointAttributeResponse>(await this.callApi(params, req, runtime), new UpdateVpcEndpointAttributeResponse({}));
   }
 
+  /**
+    * You cannot repeatedly call the **UpdateVpcEndpointAttribute** operation to modify the attributes of an endpoint that belongs to an Alibaba Cloud account within a specified period of time.
+    *
+    * @param request UpdateVpcEndpointAttributeRequest
+    * @return UpdateVpcEndpointAttributeResponse
+   */
   async updateVpcEndpointAttribute(request: UpdateVpcEndpointAttributeRequest): Promise<UpdateVpcEndpointAttributeResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.updateVpcEndpointAttributeWithOptions(request, runtime);
   }
 
+  /**
+    * The ID of the endpoint service.
+    *
+    * @param request UpdateVpcEndpointConnectionAttributeRequest
+    * @param runtime runtime options for this request RuntimeOptions
+    * @return UpdateVpcEndpointConnectionAttributeResponse
+   */
   async updateVpcEndpointConnectionAttributeWithOptions(request: UpdateVpcEndpointConnectionAttributeRequest, runtime: $Util.RuntimeOptions): Promise<UpdateVpcEndpointConnectionAttributeResponse> {
     Util.validateModel(request);
     let query = { };
@@ -5041,11 +6227,24 @@ export default class Client extends OpenApi {
     return $tea.cast<UpdateVpcEndpointConnectionAttributeResponse>(await this.callApi(params, req, runtime), new UpdateVpcEndpointConnectionAttributeResponse({}));
   }
 
+  /**
+    * The ID of the endpoint service.
+    *
+    * @param request UpdateVpcEndpointConnectionAttributeRequest
+    * @return UpdateVpcEndpointConnectionAttributeResponse
+   */
   async updateVpcEndpointConnectionAttribute(request: UpdateVpcEndpointConnectionAttributeRequest): Promise<UpdateVpcEndpointConnectionAttributeResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.updateVpcEndpointConnectionAttributeWithOptions(request, runtime);
   }
 
+  /**
+    * You cannot repeatedly call the **UpdateVpcEndpointServiceAttribute** operation to modify the attributes of an endpoint service that belongs to an Alibaba Cloud account within a specified period of time.
+    *
+    * @param request UpdateVpcEndpointServiceAttributeRequest
+    * @param runtime runtime options for this request RuntimeOptions
+    * @return UpdateVpcEndpointServiceAttributeResponse
+   */
   async updateVpcEndpointServiceAttributeWithOptions(request: UpdateVpcEndpointServiceAttributeRequest, runtime: $Util.RuntimeOptions): Promise<UpdateVpcEndpointServiceAttributeResponse> {
     Util.validateModel(request);
     let query = { };
@@ -5081,6 +6280,10 @@ export default class Client extends OpenApi {
       query["ServiceId"] = request.serviceId;
     }
 
+    if (!Util.isUnset(request.serviceSupportIPv6)) {
+      query["ServiceSupportIPv6"] = request.serviceSupportIPv6;
+    }
+
     if (!Util.isUnset(request.zoneAffinityEnabled)) {
       query["ZoneAffinityEnabled"] = request.zoneAffinityEnabled;
     }
@@ -5102,11 +6305,24 @@ export default class Client extends OpenApi {
     return $tea.cast<UpdateVpcEndpointServiceAttributeResponse>(await this.callApi(params, req, runtime), new UpdateVpcEndpointServiceAttributeResponse({}));
   }
 
+  /**
+    * You cannot repeatedly call the **UpdateVpcEndpointServiceAttribute** operation to modify the attributes of an endpoint service that belongs to an Alibaba Cloud account within a specified period of time.
+    *
+    * @param request UpdateVpcEndpointServiceAttributeRequest
+    * @return UpdateVpcEndpointServiceAttributeResponse
+   */
   async updateVpcEndpointServiceAttribute(request: UpdateVpcEndpointServiceAttributeRequest): Promise<UpdateVpcEndpointServiceAttributeResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.updateVpcEndpointServiceAttributeWithOptions(request, runtime);
   }
 
+  /**
+    * You cannot repeatedly call the **UpdateVpcEndpointServiceResourceAttribute** operation to modify the attributes of a service resource that is added to an endpoint service within a specified period of time.
+    *
+    * @param request UpdateVpcEndpointServiceResourceAttributeRequest
+    * @param runtime runtime options for this request RuntimeOptions
+    * @return UpdateVpcEndpointServiceResourceAttributeResponse
+   */
   async updateVpcEndpointServiceResourceAttributeWithOptions(request: UpdateVpcEndpointServiceResourceAttributeRequest, runtime: $Util.RuntimeOptions): Promise<UpdateVpcEndpointServiceResourceAttributeResponse> {
     Util.validateModel(request);
     let query = { };
@@ -5138,6 +6354,10 @@ export default class Client extends OpenApi {
       query["ServiceId"] = request.serviceId;
     }
 
+    if (!Util.isUnset(request.zoneId)) {
+      query["ZoneId"] = request.zoneId;
+    }
+
     let req = new $OpenApi.OpenApiRequest({
       query: OpenApiUtil.query(query),
     });
@@ -5155,11 +6375,32 @@ export default class Client extends OpenApi {
     return $tea.cast<UpdateVpcEndpointServiceResourceAttributeResponse>(await this.callApi(params, req, runtime), new UpdateVpcEndpointServiceResourceAttributeResponse({}));
   }
 
+  /**
+    * You cannot repeatedly call the **UpdateVpcEndpointServiceResourceAttribute** operation to modify the attributes of a service resource that is added to an endpoint service within a specified period of time.
+    *
+    * @param request UpdateVpcEndpointServiceResourceAttributeRequest
+    * @return UpdateVpcEndpointServiceResourceAttributeResponse
+   */
   async updateVpcEndpointServiceResourceAttribute(request: UpdateVpcEndpointServiceResourceAttributeRequest): Promise<UpdateVpcEndpointServiceResourceAttributeResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.updateVpcEndpointServiceResourceAttributeWithOptions(request, runtime);
   }
 
+  /**
+    * ### Prerequisites
+    * By default, the feature of modifying a service resource of a zone to which an endpoint connection belongs is unavailable. To use this feature, log on to the [Quota Center console](https://quotas.console.aliyun.com/white-list-products/privatelink/quotas). Click Whitelist Quotas in the left-side navigation pane and click PrivateLink in the Networking section. On the page that appears, search for `privatelink_whitelist/svc_res_mgt_uat` and click Apply in the Actions column.
+    * ### Usage notes
+    * *   If the endpoint connection is in the **Disconnected** state, you can manually allocate the service resource in the zone.
+    * *   If the endpoint connection is in the **Connected** state, you can manually migrate the service resource in the zone. In this case, the connection might be interrupted.
+    * *   **UpdateVpcEndpointZoneConnectionResourceAttribute** is an asynchronous operation. After a request is sent, the system returns a request ID and runs the task in the background. You can call the [GetVpcEndpointServiceAttribute](~~469330~~) operation to check whether the service resource is modified.
+    *     *   If the endpoint service is in the **Pending** state, the service resource is being modified.
+    *     *   If the endpoint service is in the **Active** state, the service resource is modified.
+    * *   You cannot repeatedly call the **UpdateVpcEndpointZoneConnectionResourceAttribute** operation to modify a service resource in the zone to which an endpoint connection belongs within a specified period of time.
+    *
+    * @param request UpdateVpcEndpointZoneConnectionResourceAttributeRequest
+    * @param runtime runtime options for this request RuntimeOptions
+    * @return UpdateVpcEndpointZoneConnectionResourceAttributeResponse
+   */
   async updateVpcEndpointZoneConnectionResourceAttributeWithOptions(request: UpdateVpcEndpointZoneConnectionResourceAttributeRequest, runtime: $Util.RuntimeOptions): Promise<UpdateVpcEndpointZoneConnectionResourceAttributeResponse> {
     Util.validateModel(request);
     let query = { };
@@ -5224,6 +6465,20 @@ export default class Client extends OpenApi {
     return $tea.cast<UpdateVpcEndpointZoneConnectionResourceAttributeResponse>(await this.callApi(params, req, runtime), new UpdateVpcEndpointZoneConnectionResourceAttributeResponse({}));
   }
 
+  /**
+    * ### Prerequisites
+    * By default, the feature of modifying a service resource of a zone to which an endpoint connection belongs is unavailable. To use this feature, log on to the [Quota Center console](https://quotas.console.aliyun.com/white-list-products/privatelink/quotas). Click Whitelist Quotas in the left-side navigation pane and click PrivateLink in the Networking section. On the page that appears, search for `privatelink_whitelist/svc_res_mgt_uat` and click Apply in the Actions column.
+    * ### Usage notes
+    * *   If the endpoint connection is in the **Disconnected** state, you can manually allocate the service resource in the zone.
+    * *   If the endpoint connection is in the **Connected** state, you can manually migrate the service resource in the zone. In this case, the connection might be interrupted.
+    * *   **UpdateVpcEndpointZoneConnectionResourceAttribute** is an asynchronous operation. After a request is sent, the system returns a request ID and runs the task in the background. You can call the [GetVpcEndpointServiceAttribute](~~469330~~) operation to check whether the service resource is modified.
+    *     *   If the endpoint service is in the **Pending** state, the service resource is being modified.
+    *     *   If the endpoint service is in the **Active** state, the service resource is modified.
+    * *   You cannot repeatedly call the **UpdateVpcEndpointZoneConnectionResourceAttribute** operation to modify a service resource in the zone to which an endpoint connection belongs within a specified period of time.
+    *
+    * @param request UpdateVpcEndpointZoneConnectionResourceAttributeRequest
+    * @return UpdateVpcEndpointZoneConnectionResourceAttributeResponse
+   */
   async updateVpcEndpointZoneConnectionResourceAttribute(request: UpdateVpcEndpointZoneConnectionResourceAttributeRequest): Promise<UpdateVpcEndpointZoneConnectionResourceAttributeResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.updateVpcEndpointZoneConnectionResourceAttributeWithOptions(request, runtime);
