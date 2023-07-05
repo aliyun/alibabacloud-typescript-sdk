@@ -2313,16 +2313,16 @@ export class WildcardRule extends $tea.Model {
 }
 
 export class CreateAliasRequest extends $tea.Model {
-  request?: CreateAliasInput;
+  body?: CreateAliasInput;
   static names(): { [key: string]: string } {
     return {
-      request: 'request',
+      body: 'body',
     };
   }
 
   static types(): { [key: string]: any } {
     return {
-      request: CreateAliasInput,
+      body: CreateAliasInput,
     };
   }
 
@@ -2357,16 +2357,16 @@ export class CreateAliasResponse extends $tea.Model {
 }
 
 export class CreateCustomDomainRequest extends $tea.Model {
-  request?: CreateCustomDomainInput;
+  body?: CreateCustomDomainInput;
   static names(): { [key: string]: string } {
     return {
-      request: 'request',
+      body: 'body',
     };
   }
 
   static types(): { [key: string]: any } {
     return {
-      request: CreateCustomDomainInput,
+      body: CreateCustomDomainInput,
     };
   }
 
@@ -2401,16 +2401,16 @@ export class CreateCustomDomainResponse extends $tea.Model {
 }
 
 export class CreateFunctionRequest extends $tea.Model {
-  request?: CreateFunctionInput;
+  body?: CreateFunctionInput;
   static names(): { [key: string]: string } {
     return {
-      request: 'request',
+      body: 'body',
     };
   }
 
   static types(): { [key: string]: any } {
     return {
-      request: CreateFunctionInput,
+      body: CreateFunctionInput,
     };
   }
 
@@ -2445,16 +2445,16 @@ export class CreateFunctionResponse extends $tea.Model {
 }
 
 export class CreateLayerVersionRequest extends $tea.Model {
-  request?: CreateLayerVersionInput;
+  body?: CreateLayerVersionInput;
   static names(): { [key: string]: string } {
     return {
-      request: 'request',
+      body: 'body',
     };
   }
 
   static types(): { [key: string]: any } {
     return {
-      request: CreateLayerVersionInput,
+      body: CreateLayerVersionInput,
     };
   }
 
@@ -2489,16 +2489,16 @@ export class CreateLayerVersionResponse extends $tea.Model {
 }
 
 export class CreateTriggerRequest extends $tea.Model {
-  request?: CreateTriggerInput;
+  body?: CreateTriggerInput;
   static names(): { [key: string]: string } {
     return {
-      request: 'request',
+      body: 'body',
     };
   }
 
   static types(): { [key: string]: any } {
     return {
-      request: CreateTriggerInput,
+      body: CreateTriggerInput,
     };
   }
 
@@ -3164,19 +3164,19 @@ export class InvokeFunctionHeaders extends $tea.Model {
 }
 
 export class InvokeFunctionRequest extends $tea.Model {
+  body?: Readable;
   qualifier?: string;
-  request?: Readable;
   static names(): { [key: string]: string } {
     return {
+      body: 'body',
       qualifier: 'qualifier',
-      request: 'request',
     };
   }
 
   static types(): { [key: string]: any } {
     return {
+      body: 'Readable',
       qualifier: 'string',
-      request: 'Readable',
     };
   }
 
@@ -3808,16 +3808,16 @@ export class ListTriggersResponse extends $tea.Model {
 }
 
 export class PublishFunctionVersionRequest extends $tea.Model {
-  request?: PublishVersionInput;
+  body?: PublishVersionInput;
   static names(): { [key: string]: string } {
     return {
-      request: 'request',
+      body: 'body',
     };
   }
 
   static types(): { [key: string]: any } {
     return {
-      request: PublishVersionInput,
+      body: PublishVersionInput,
     };
   }
 
@@ -3852,19 +3852,19 @@ export class PublishFunctionVersionResponse extends $tea.Model {
 }
 
 export class PutAsyncInvokeConfigRequest extends $tea.Model {
+  body?: PutAsyncInvokeConfigInput;
   qualifier?: string;
-  request?: PutAsyncInvokeConfigInput;
   static names(): { [key: string]: string } {
     return {
+      body: 'body',
       qualifier: 'qualifier',
-      request: 'request',
     };
   }
 
   static types(): { [key: string]: any } {
     return {
+      body: PutAsyncInvokeConfigInput,
       qualifier: 'string',
-      request: PutAsyncInvokeConfigInput,
     };
   }
 
@@ -3899,16 +3899,16 @@ export class PutAsyncInvokeConfigResponse extends $tea.Model {
 }
 
 export class PutConcurrencyConfigRequest extends $tea.Model {
-  request?: PutConcurrencyInput;
+  body?: PutConcurrencyInput;
   static names(): { [key: string]: string } {
     return {
-      request: 'request',
+      body: 'body',
     };
   }
 
   static types(): { [key: string]: any } {
     return {
-      request: PutConcurrencyInput,
+      body: PutConcurrencyInput,
     };
   }
 
@@ -3984,19 +3984,19 @@ export class PutLayerACLResponse extends $tea.Model {
 }
 
 export class PutProvisionConfigRequest extends $tea.Model {
+  body?: PutProvisionConfigInput;
   qualifier?: string;
-  request?: PutProvisionConfigInput;
   static names(): { [key: string]: string } {
     return {
+      body: 'body',
       qualifier: 'qualifier',
-      request: 'request',
     };
   }
 
   static types(): { [key: string]: any } {
     return {
+      body: PutProvisionConfigInput,
       qualifier: 'string',
-      request: PutProvisionConfigInput,
     };
   }
 
@@ -4031,16 +4031,16 @@ export class PutProvisionConfigResponse extends $tea.Model {
 }
 
 export class TagResourceRequest extends $tea.Model {
-  request?: TagResourceInput;
+  body?: TagResourceInput;
   static names(): { [key: string]: string } {
     return {
-      request: 'request',
+      body: 'body',
     };
   }
 
   static types(): { [key: string]: any } {
     return {
-      request: TagResourceInput,
+      body: TagResourceInput,
     };
   }
 
@@ -4122,16 +4122,16 @@ export class UntagResourceResponse extends $tea.Model {
 }
 
 export class UpdateAliasRequest extends $tea.Model {
-  request?: UpdateAliasInput;
+  body?: UpdateAliasInput;
   static names(): { [key: string]: string } {
     return {
-      request: 'request',
+      body: 'body',
     };
   }
 
   static types(): { [key: string]: any } {
     return {
-      request: UpdateAliasInput,
+      body: UpdateAliasInput,
     };
   }
 
@@ -4166,16 +4166,16 @@ export class UpdateAliasResponse extends $tea.Model {
 }
 
 export class UpdateCustomDomainRequest extends $tea.Model {
-  request?: UpdateCustomDomainInput;
+  body?: UpdateCustomDomainInput;
   static names(): { [key: string]: string } {
     return {
-      request: 'request',
+      body: 'body',
     };
   }
 
   static types(): { [key: string]: any } {
     return {
-      request: UpdateCustomDomainInput,
+      body: UpdateCustomDomainInput,
     };
   }
 
@@ -4210,16 +4210,16 @@ export class UpdateCustomDomainResponse extends $tea.Model {
 }
 
 export class UpdateFunctionRequest extends $tea.Model {
-  request?: UpdateFunctionInput;
+  body?: UpdateFunctionInput;
   static names(): { [key: string]: string } {
     return {
-      request: 'request',
+      body: 'body',
     };
   }
 
   static types(): { [key: string]: any } {
     return {
-      request: UpdateFunctionInput,
+      body: UpdateFunctionInput,
     };
   }
 
@@ -4254,16 +4254,16 @@ export class UpdateFunctionResponse extends $tea.Model {
 }
 
 export class UpdateTriggerRequest extends $tea.Model {
-  request?: UpdateTriggerInput;
+  body?: UpdateTriggerInput;
   static names(): { [key: string]: string } {
     return {
-      request: 'request',
+      body: 'body',
     };
   }
 
   static types(): { [key: string]: any } {
     return {
-      request: UpdateTriggerInput,
+      body: UpdateTriggerInput,
     };
   }
 
@@ -4332,7 +4332,7 @@ export default class Client extends OpenApi {
     Util.validateModel(request);
     let req = new $OpenApi.OpenApiRequest({
       headers: headers,
-      body: OpenApiUtil.parseToMap(request.request),
+      body: OpenApiUtil.parseToMap(request.body),
     });
     let params = new $OpenApi.Params({
       action: "CreateAlias",
@@ -4372,7 +4372,7 @@ export default class Client extends OpenApi {
     Util.validateModel(request);
     let req = new $OpenApi.OpenApiRequest({
       headers: headers,
-      body: OpenApiUtil.parseToMap(request.request),
+      body: OpenApiUtil.parseToMap(request.body),
     });
     let params = new $OpenApi.Params({
       action: "CreateCustomDomain",
@@ -4412,7 +4412,7 @@ export default class Client extends OpenApi {
     Util.validateModel(request);
     let req = new $OpenApi.OpenApiRequest({
       headers: headers,
-      body: OpenApiUtil.parseToMap(request.request),
+      body: OpenApiUtil.parseToMap(request.body),
     });
     let params = new $OpenApi.Params({
       action: "CreateFunction",
@@ -4452,7 +4452,7 @@ export default class Client extends OpenApi {
     Util.validateModel(request);
     let req = new $OpenApi.OpenApiRequest({
       headers: headers,
-      body: OpenApiUtil.parseToMap(request.request),
+      body: OpenApiUtil.parseToMap(request.body),
     });
     let params = new $OpenApi.Params({
       action: "CreateLayerVersion",
@@ -4492,7 +4492,7 @@ export default class Client extends OpenApi {
     Util.validateModel(request);
     let req = new $OpenApi.OpenApiRequest({
       headers: headers,
-      body: OpenApiUtil.parseToMap(request.request),
+      body: OpenApiUtil.parseToMap(request.body),
     });
     let params = new $OpenApi.Params({
       action: "CreateTrigger",
@@ -5334,8 +5334,8 @@ export default class Client extends OpenApi {
     let req = new $OpenApi.OpenApiRequest({
       headers: realHeaders,
       query: OpenApiUtil.query(query),
-      body: request.request,
-      stream: request.request,
+      body: request.body,
+      stream: request.body,
     });
     let params = new $OpenApi.Params({
       action: "InvokeFunction",
@@ -6024,7 +6024,7 @@ export default class Client extends OpenApi {
     Util.validateModel(request);
     let req = new $OpenApi.OpenApiRequest({
       headers: headers,
-      body: OpenApiUtil.parseToMap(request.request),
+      body: OpenApiUtil.parseToMap(request.body),
     });
     let params = new $OpenApi.Params({
       action: "PublishFunctionVersion",
@@ -6070,7 +6070,7 @@ export default class Client extends OpenApi {
     let req = new $OpenApi.OpenApiRequest({
       headers: headers,
       query: OpenApiUtil.query(query),
-      body: OpenApiUtil.parseToMap(request.request),
+      body: OpenApiUtil.parseToMap(request.body),
     });
     let params = new $OpenApi.Params({
       action: "PutAsyncInvokeConfig",
@@ -6110,7 +6110,7 @@ export default class Client extends OpenApi {
     Util.validateModel(request);
     let req = new $OpenApi.OpenApiRequest({
       headers: headers,
-      body: OpenApiUtil.parseToMap(request.request),
+      body: OpenApiUtil.parseToMap(request.body),
     });
     let params = new $OpenApi.Params({
       action: "PutConcurrencyConfig",
@@ -6201,7 +6201,7 @@ export default class Client extends OpenApi {
     let req = new $OpenApi.OpenApiRequest({
       headers: headers,
       query: OpenApiUtil.query(query),
-      body: OpenApiUtil.parseToMap(request.request),
+      body: OpenApiUtil.parseToMap(request.body),
     });
     let params = new $OpenApi.Params({
       action: "PutProvisionConfig",
@@ -6241,7 +6241,7 @@ export default class Client extends OpenApi {
     Util.validateModel(request);
     let req = new $OpenApi.OpenApiRequest({
       headers: headers,
-      body: OpenApiUtil.parseToMap(request.request),
+      body: OpenApiUtil.parseToMap(request.body),
     });
     let params = new $OpenApi.Params({
       action: "TagResource",
@@ -6334,7 +6334,7 @@ export default class Client extends OpenApi {
     Util.validateModel(request);
     let req = new $OpenApi.OpenApiRequest({
       headers: headers,
-      body: OpenApiUtil.parseToMap(request.request),
+      body: OpenApiUtil.parseToMap(request.body),
     });
     let params = new $OpenApi.Params({
       action: "UpdateAlias",
@@ -6374,7 +6374,7 @@ export default class Client extends OpenApi {
     Util.validateModel(request);
     let req = new $OpenApi.OpenApiRequest({
       headers: headers,
-      body: OpenApiUtil.parseToMap(request.request),
+      body: OpenApiUtil.parseToMap(request.body),
     });
     let params = new $OpenApi.Params({
       action: "UpdateCustomDomain",
@@ -6414,7 +6414,7 @@ export default class Client extends OpenApi {
     Util.validateModel(request);
     let req = new $OpenApi.OpenApiRequest({
       headers: headers,
-      body: OpenApiUtil.parseToMap(request.request),
+      body: OpenApiUtil.parseToMap(request.body),
     });
     let params = new $OpenApi.Params({
       action: "UpdateFunction",
@@ -6454,7 +6454,7 @@ export default class Client extends OpenApi {
     Util.validateModel(request);
     let req = new $OpenApi.OpenApiRequest({
       headers: headers,
-      body: OpenApiUtil.parseToMap(request.request),
+      body: OpenApiUtil.parseToMap(request.body),
     });
     let params = new $OpenApi.Params({
       action: "UpdateTrigger",
