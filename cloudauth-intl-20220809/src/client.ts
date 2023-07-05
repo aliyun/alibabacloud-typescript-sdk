@@ -188,6 +188,81 @@ export class CheckResultResponse extends $tea.Model {
   }
 }
 
+export class DeletePictureRequest extends $tea.Model {
+  deletePicAfterQuery?: string;
+  transactionId?: string;
+  static names(): { [key: string]: string } {
+    return {
+      deletePicAfterQuery: 'DeletePicAfterQuery',
+      transactionId: 'TransactionId',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      deletePicAfterQuery: 'string',
+      transactionId: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class DeletePictureResponseBody extends $tea.Model {
+  code?: string;
+  message?: string;
+  requestId?: string;
+  result?: DeletePictureResponseBodyResult;
+  static names(): { [key: string]: string } {
+    return {
+      code: 'Code',
+      message: 'Message',
+      requestId: 'RequestId',
+      result: 'Result',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      code: 'string',
+      message: 'string',
+      requestId: 'string',
+      result: DeletePictureResponseBodyResult,
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class DeletePictureResponse extends $tea.Model {
+  headers: { [key: string]: string };
+  statusCode: number;
+  body: DeletePictureResponseBody;
+  static names(): { [key: string]: string } {
+    return {
+      headers: 'headers',
+      statusCode: 'statusCode',
+      body: 'body',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
+      body: DeletePictureResponseBody,
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
 export class DescribeAddressLabelsRequest extends $tea.Model {
   address?: string;
   coin?: string;
@@ -882,6 +957,7 @@ export class FaceLivenessResponse extends $tea.Model {
 }
 
 export class InitializeRequest extends $tea.Model {
+  authorize?: string;
   crop?: string;
   docType?: string;
   facePictureBase64?: string;
@@ -902,6 +978,7 @@ export class InitializeRequest extends $tea.Model {
   serviceLevel?: string;
   static names(): { [key: string]: string } {
     return {
+      authorize: 'Authorize',
       crop: 'Crop',
       docType: 'DocType',
       facePictureBase64: 'FacePictureBase64',
@@ -925,6 +1002,7 @@ export class InitializeRequest extends $tea.Model {
 
   static types(): { [key: string]: any } {
     return {
+      authorize: 'string',
       crop: 'string',
       docType: 'string',
       facePictureBase64: 'string',
@@ -1064,6 +1142,28 @@ export class CheckResultResponseBodyResult extends $tea.Model {
       extRiskInfo: 'string',
       passed: 'string',
       subCode: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class DeletePictureResponseBodyResult extends $tea.Model {
+  deleteResult?: string;
+  transactionId?: string;
+  static names(): { [key: string]: string } {
+    return {
+      deleteResult: 'DeleteResult',
+      transactionId: 'TransactionId',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      deleteResult: 'string',
+      transactionId: 'string',
     };
   }
 
@@ -1558,6 +1658,39 @@ export default class Client extends OpenApi {
     return await this.checkResultWithOptions(request, runtime);
   }
 
+  async deletePictureWithOptions(request: DeletePictureRequest, runtime: $Util.RuntimeOptions): Promise<DeletePictureResponse> {
+    Util.validateModel(request);
+    let query = { };
+    if (!Util.isUnset(request.deletePicAfterQuery)) {
+      query["DeletePicAfterQuery"] = request.deletePicAfterQuery;
+    }
+
+    if (!Util.isUnset(request.transactionId)) {
+      query["TransactionId"] = request.transactionId;
+    }
+
+    let req = new $OpenApi.OpenApiRequest({
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApi.Params({
+      action: "DeletePicture",
+      version: "2022-08-09",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $tea.cast<DeletePictureResponse>(await this.callApi(params, req, runtime), new DeletePictureResponse({}));
+  }
+
+  async deletePicture(request: DeletePictureRequest): Promise<DeletePictureResponse> {
+    let runtime = new $Util.RuntimeOptions({ });
+    return await this.deletePictureWithOptions(request, runtime);
+  }
+
   async describeAddressLabelsWithOptions(request: DescribeAddressLabelsRequest, runtime: $Util.RuntimeOptions): Promise<DescribeAddressLabelsResponse> {
     Util.validateModel(request);
     let query = { };
@@ -1929,6 +2062,10 @@ export default class Client extends OpenApi {
   async initializeWithOptions(request: InitializeRequest, runtime: $Util.RuntimeOptions): Promise<InitializeResponse> {
     Util.validateModel(request);
     let query = { };
+    if (!Util.isUnset(request.authorize)) {
+      query["Authorize"] = request.authorize;
+    }
+
     if (!Util.isUnset(request.crop)) {
       query["Crop"] = request.crop;
     }
