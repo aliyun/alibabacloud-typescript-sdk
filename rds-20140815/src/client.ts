@@ -19025,6 +19025,7 @@ export class ModifyDBInstanceSSLResponse extends $tea.Model {
 }
 
 export class ModifyDBInstanceSpecRequest extends $tea.Model {
+  autoUseCoupon?: boolean;
   burstingEnabled?: boolean;
   category?: string;
   DBInstanceClass?: string;
@@ -19048,6 +19049,7 @@ export class ModifyDBInstanceSpecRequest extends $tea.Model {
   zoneId?: string;
   static names(): { [key: string]: string } {
     return {
+      autoUseCoupon: 'AutoUseCoupon',
       burstingEnabled: 'BurstingEnabled',
       category: 'Category',
       DBInstanceClass: 'DBInstanceClass',
@@ -19074,6 +19076,7 @@ export class ModifyDBInstanceSpecRequest extends $tea.Model {
 
   static types(): { [key: string]: any } {
     return {
+      autoUseCoupon: 'boolean',
       burstingEnabled: 'boolean',
       category: 'string',
       DBInstanceClass: 'string',
@@ -19104,6 +19107,7 @@ export class ModifyDBInstanceSpecRequest extends $tea.Model {
 }
 
 export class ModifyDBInstanceSpecShrinkRequest extends $tea.Model {
+  autoUseCoupon?: boolean;
   burstingEnabled?: boolean;
   category?: string;
   DBInstanceClass?: string;
@@ -19127,6 +19131,7 @@ export class ModifyDBInstanceSpecShrinkRequest extends $tea.Model {
   zoneId?: string;
   static names(): { [key: string]: string } {
     return {
+      autoUseCoupon: 'AutoUseCoupon',
       burstingEnabled: 'BurstingEnabled',
       category: 'Category',
       DBInstanceClass: 'DBInstanceClass',
@@ -19153,6 +19158,7 @@ export class ModifyDBInstanceSpecShrinkRequest extends $tea.Model {
 
   static types(): { [key: string]: any } {
     return {
+      autoUseCoupon: 'boolean',
       burstingEnabled: 'boolean',
       category: 'string',
       DBInstanceClass: 'string',
@@ -40644,6 +40650,7 @@ export default class Client extends OpenApi {
   }
 
   /**
+    * @deprecated
     * > This operation is no longer maintained. You can use the [DescribeDiagnosticReportList](~~443006~~) operation of Database Autonomy Service (DAS) to query a list of diagnostic reports.
     * *   The returned diagnosis reports include data collection time, data generation time, and download URLs. The system retains the reports for 15 days.
     * *   This operation is not suitable for instances that run SQL Server 2017 on RDS Cluster Edition.
@@ -40652,6 +40659,7 @@ export default class Client extends OpenApi {
     * @param runtime runtime options for this request RuntimeOptions
     * @return DescribeDiagnosticReportListResponse
    */
+  // Deprecated
   async describeDiagnosticReportListWithOptions(request: DescribeDiagnosticReportListRequest, runtime: $Util.RuntimeOptions): Promise<DescribeDiagnosticReportListResponse> {
     Util.validateModel(request);
     let query = { };
@@ -40681,6 +40689,7 @@ export default class Client extends OpenApi {
   }
 
   /**
+    * @deprecated
     * > This operation is no longer maintained. You can use the [DescribeDiagnosticReportList](~~443006~~) operation of Database Autonomy Service (DAS) to query a list of diagnostic reports.
     * *   The returned diagnosis reports include data collection time, data generation time, and download URLs. The system retains the reports for 15 days.
     * *   This operation is not suitable for instances that run SQL Server 2017 on RDS Cluster Edition.
@@ -40688,6 +40697,7 @@ export default class Client extends OpenApi {
     * @param request DescribeDiagnosticReportListRequest
     * @return DescribeDiagnosticReportListResponse
    */
+  // Deprecated
   async describeDiagnosticReportList(request: DescribeDiagnosticReportListRequest): Promise<DescribeDiagnosticReportListResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.describeDiagnosticReportListWithOptions(request, runtime);
@@ -46717,6 +46727,10 @@ export default class Client extends OpenApi {
     }
 
     let query = { };
+    if (!Util.isUnset(request.autoUseCoupon)) {
+      query["AutoUseCoupon"] = request.autoUseCoupon;
+    }
+
     if (!Util.isUnset(request.burstingEnabled)) {
       query["BurstingEnabled"] = request.burstingEnabled;
     }
