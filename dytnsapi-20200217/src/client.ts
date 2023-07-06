@@ -137,7 +137,7 @@ export class DescribePhoneNumberAnalysisRequest extends $tea.Model {
 
 export class DescribePhoneNumberAnalysisResponseBody extends $tea.Model {
   code?: string;
-  data?: DescribePhoneNumberAnalysisResponseBodyData[];
+  data?: DescribePhoneNumberAnalysisResponseBodyData;
   message?: string;
   requestId?: string;
   static names(): { [key: string]: string } {
@@ -152,7 +152,7 @@ export class DescribePhoneNumberAnalysisResponseBody extends $tea.Model {
   static types(): { [key: string]: any } {
     return {
       code: 'string',
-      data: { 'type': 'array', 'itemType': DescribePhoneNumberAnalysisResponseBodyData },
+      data: DescribePhoneNumberAnalysisResponseBodyData,
       message: 'string',
       requestId: 'string',
     };
@@ -1356,7 +1356,7 @@ export class DescribeEmptyNumberResponseBodyData extends $tea.Model {
   }
 }
 
-export class DescribePhoneNumberAnalysisResponseBodyData extends $tea.Model {
+export class DescribePhoneNumberAnalysisResponseBodyDataList extends $tea.Model {
   code?: string;
   number?: string;
   static names(): { [key: string]: string } {
@@ -1370,6 +1370,25 @@ export class DescribePhoneNumberAnalysisResponseBodyData extends $tea.Model {
     return {
       code: 'string',
       number: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class DescribePhoneNumberAnalysisResponseBodyData extends $tea.Model {
+  list?: DescribePhoneNumberAnalysisResponseBodyDataList[];
+  static names(): { [key: string]: string } {
+    return {
+      list: 'List',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      list: { 'type': 'array', 'itemType': DescribePhoneNumberAnalysisResponseBodyDataList },
     };
   }
 
