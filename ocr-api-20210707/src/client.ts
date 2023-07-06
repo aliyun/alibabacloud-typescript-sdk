@@ -3133,10 +3133,12 @@ export class RecognizeInternationalIdcardResponse extends $tea.Model {
 }
 
 export class RecognizeInvoiceRequest extends $tea.Model {
+  pageNo?: number;
   url?: string;
   body?: Readable;
   static names(): { [key: string]: string } {
     return {
+      pageNo: 'PageNo',
       url: 'Url',
       body: 'body',
     };
@@ -3144,6 +3146,7 @@ export class RecognizeInvoiceRequest extends $tea.Model {
 
   static types(): { [key: string]: any } {
     return {
+      pageNo: 'number',
       url: 'string',
       body: 'Readable',
     };
@@ -3610,10 +3613,12 @@ export class RecognizeMedicalDeviceProduceLicenseResponse extends $tea.Model {
 }
 
 export class RecognizeMixedInvoicesRequest extends $tea.Model {
+  pageNo?: number;
   url?: string;
   body?: Readable;
   static names(): { [key: string]: string } {
     return {
+      pageNo: 'PageNo',
       url: 'Url',
       body: 'body',
     };
@@ -3621,6 +3626,7 @@ export class RecognizeMixedInvoicesRequest extends $tea.Model {
 
   static types(): { [key: string]: any } {
     return {
+      pageNo: 'number',
       url: 'string',
       body: 'Readable',
     };
@@ -7149,6 +7155,10 @@ export default class Client extends OpenApi {
   async recognizeInvoiceWithOptions(request: RecognizeInvoiceRequest, runtime: $Util.RuntimeOptions): Promise<RecognizeInvoiceResponse> {
     Util.validateModel(request);
     let query = { };
+    if (!Util.isUnset(request.pageNo)) {
+      query["PageNo"] = request.pageNo;
+    }
+
     if (!Util.isUnset(request.url)) {
       query["Url"] = request.url;
     }
@@ -7371,6 +7381,10 @@ export default class Client extends OpenApi {
   async recognizeMixedInvoicesWithOptions(request: RecognizeMixedInvoicesRequest, runtime: $Util.RuntimeOptions): Promise<RecognizeMixedInvoicesResponse> {
     Util.validateModel(request);
     let query = { };
+    if (!Util.isUnset(request.pageNo)) {
+      query["PageNo"] = request.pageNo;
+    }
+
     if (!Util.isUnset(request.url)) {
       query["Url"] = request.url;
     }
