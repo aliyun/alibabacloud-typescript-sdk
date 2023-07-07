@@ -881,6 +881,117 @@ export class DescribeColumnsResponse extends $tea.Model {
   }
 }
 
+export class DescribeColumnsV2Request extends $tea.Model {
+  currentPage?: number;
+  instanceId?: number;
+  instanceName?: string;
+  lang?: string;
+  name?: string;
+  pageSize?: number;
+  productCode?: string;
+  riskLevelId?: number;
+  ruleId?: number;
+  ruleName?: string;
+  sensLevelName?: string;
+  tableId?: string;
+  tableName?: string;
+  static names(): { [key: string]: string } {
+    return {
+      currentPage: 'CurrentPage',
+      instanceId: 'InstanceId',
+      instanceName: 'InstanceName',
+      lang: 'Lang',
+      name: 'Name',
+      pageSize: 'PageSize',
+      productCode: 'ProductCode',
+      riskLevelId: 'RiskLevelId',
+      ruleId: 'RuleId',
+      ruleName: 'RuleName',
+      sensLevelName: 'SensLevelName',
+      tableId: 'TableId',
+      tableName: 'TableName',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      currentPage: 'number',
+      instanceId: 'number',
+      instanceName: 'string',
+      lang: 'string',
+      name: 'string',
+      pageSize: 'number',
+      productCode: 'string',
+      riskLevelId: 'number',
+      ruleId: 'number',
+      ruleName: 'string',
+      sensLevelName: 'string',
+      tableId: 'string',
+      tableName: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class DescribeColumnsV2ResponseBody extends $tea.Model {
+  currentPage?: number;
+  items?: DescribeColumnsV2ResponseBodyItems[];
+  pageSize?: number;
+  requestId?: string;
+  totalCount?: number;
+  static names(): { [key: string]: string } {
+    return {
+      currentPage: 'CurrentPage',
+      items: 'Items',
+      pageSize: 'PageSize',
+      requestId: 'RequestId',
+      totalCount: 'TotalCount',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      currentPage: 'number',
+      items: { 'type': 'array', 'itemType': DescribeColumnsV2ResponseBodyItems },
+      pageSize: 'number',
+      requestId: 'string',
+      totalCount: 'number',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class DescribeColumnsV2Response extends $tea.Model {
+  headers: { [key: string]: string };
+  statusCode: number;
+  body: DescribeColumnsV2ResponseBody;
+  static names(): { [key: string]: string } {
+    return {
+      headers: 'headers',
+      statusCode: 'statusCode',
+      body: 'body',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
+      body: DescribeColumnsV2ResponseBody,
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
 export class DescribeConfigsRequest extends $tea.Model {
   lang?: string;
   static names(): { [key: string]: string } {
@@ -1583,6 +1694,96 @@ export class DescribeDataObjectColumnDetailResponse extends $tea.Model {
   }
 }
 
+export class DescribeDataObjectColumnDetailV2Request extends $tea.Model {
+  currentPage?: number;
+  id?: string;
+  lang?: string;
+  pageSize?: number;
+  productId?: number;
+  templateId?: number;
+  static names(): { [key: string]: string } {
+    return {
+      currentPage: 'CurrentPage',
+      id: 'Id',
+      lang: 'Lang',
+      pageSize: 'PageSize',
+      productId: 'ProductId',
+      templateId: 'TemplateId',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      currentPage: 'number',
+      id: 'string',
+      lang: 'string',
+      pageSize: 'number',
+      productId: 'number',
+      templateId: 'number',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class DescribeDataObjectColumnDetailV2ResponseBody extends $tea.Model {
+  currentPage?: number;
+  items?: DescribeDataObjectColumnDetailV2ResponseBodyItems[];
+  pageSize?: number;
+  requestId?: string;
+  totalCount?: number;
+  static names(): { [key: string]: string } {
+    return {
+      currentPage: 'CurrentPage',
+      items: 'Items',
+      pageSize: 'PageSize',
+      requestId: 'RequestId',
+      totalCount: 'TotalCount',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      currentPage: 'number',
+      items: { 'type': 'array', 'itemType': DescribeDataObjectColumnDetailV2ResponseBodyItems },
+      pageSize: 'number',
+      requestId: 'string',
+      totalCount: 'number',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class DescribeDataObjectColumnDetailV2Response extends $tea.Model {
+  headers: { [key: string]: string };
+  statusCode: number;
+  body: DescribeDataObjectColumnDetailV2ResponseBody;
+  static names(): { [key: string]: string } {
+    return {
+      headers: 'headers',
+      statusCode: 'statusCode',
+      body: 'body',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
+      body: DescribeDataObjectColumnDetailV2ResponseBody,
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
 export class DescribeDataObjectsRequest extends $tea.Model {
   currentPage?: number;
   domainId?: number;
@@ -2220,6 +2421,75 @@ export class DescribeOssObjectDetailResponse extends $tea.Model {
       headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
       statusCode: 'number',
       body: DescribeOssObjectDetailResponseBody,
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class DescribeOssObjectDetailV2Request extends $tea.Model {
+  id?: string;
+  lang?: string;
+  static names(): { [key: string]: string } {
+    return {
+      id: 'Id',
+      lang: 'Lang',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      id: 'string',
+      lang: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class DescribeOssObjectDetailV2ResponseBody extends $tea.Model {
+  ossObjectDetail?: DescribeOssObjectDetailV2ResponseBodyOssObjectDetail;
+  requestId?: string;
+  static names(): { [key: string]: string } {
+    return {
+      ossObjectDetail: 'OssObjectDetail',
+      requestId: 'RequestId',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      ossObjectDetail: DescribeOssObjectDetailV2ResponseBodyOssObjectDetail,
+      requestId: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class DescribeOssObjectDetailV2Response extends $tea.Model {
+  headers: { [key: string]: string };
+  statusCode: number;
+  body: DescribeOssObjectDetailV2ResponseBody;
+  static names(): { [key: string]: string } {
+    return {
+      headers: 'headers',
+      statusCode: 'statusCode',
+      body: 'body',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
+      body: DescribeOssObjectDetailV2ResponseBody,
     };
   }
 
@@ -3801,6 +4071,104 @@ export class DescribeColumnsResponseBodyItems extends $tea.Model {
   }
 }
 
+export class DescribeColumnsV2ResponseBodyItemsModelTags extends $tea.Model {
+  id?: number;
+  name?: string;
+  static names(): { [key: string]: string } {
+    return {
+      id: 'Id',
+      name: 'Name',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      id: 'number',
+      name: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class DescribeColumnsV2ResponseBodyItems extends $tea.Model {
+  creationTime?: number;
+  dataType?: string;
+  id?: string;
+  instanceId?: number;
+  instanceName?: string;
+  modelTags?: DescribeColumnsV2ResponseBodyItemsModelTags[];
+  name?: string;
+  odpsRiskLevelName?: string;
+  odpsRiskLevelValue?: number;
+  productCode?: string;
+  revisionId?: number;
+  revisionStatus?: number;
+  riskLevelId?: number;
+  riskLevelName?: string;
+  ruleId?: number;
+  ruleName?: string;
+  sensLevelName?: string;
+  sensitive?: boolean;
+  tableId?: number;
+  tableName?: string;
+  static names(): { [key: string]: string } {
+    return {
+      creationTime: 'CreationTime',
+      dataType: 'DataType',
+      id: 'Id',
+      instanceId: 'InstanceId',
+      instanceName: 'InstanceName',
+      modelTags: 'ModelTags',
+      name: 'Name',
+      odpsRiskLevelName: 'OdpsRiskLevelName',
+      odpsRiskLevelValue: 'OdpsRiskLevelValue',
+      productCode: 'ProductCode',
+      revisionId: 'RevisionId',
+      revisionStatus: 'RevisionStatus',
+      riskLevelId: 'RiskLevelId',
+      riskLevelName: 'RiskLevelName',
+      ruleId: 'RuleId',
+      ruleName: 'RuleName',
+      sensLevelName: 'SensLevelName',
+      sensitive: 'Sensitive',
+      tableId: 'TableId',
+      tableName: 'TableName',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      creationTime: 'number',
+      dataType: 'string',
+      id: 'string',
+      instanceId: 'number',
+      instanceName: 'string',
+      modelTags: { 'type': 'array', 'itemType': DescribeColumnsV2ResponseBodyItemsModelTags },
+      name: 'string',
+      odpsRiskLevelName: 'string',
+      odpsRiskLevelValue: 'number',
+      productCode: 'string',
+      revisionId: 'number',
+      revisionStatus: 'number',
+      riskLevelId: 'number',
+      riskLevelName: 'string',
+      ruleId: 'number',
+      ruleName: 'string',
+      sensLevelName: 'string',
+      sensitive: 'boolean',
+      tableId: 'number',
+      tableName: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
 export class DescribeConfigsResponseBodyConfigList extends $tea.Model {
   code?: string;
   defaultValue?: string;
@@ -4409,6 +4777,77 @@ export class DescribeDataObjectColumnDetailResponseBodyItems extends $tea.Model 
       dataType: 'string',
       id: 'string',
       modelTags: { 'type': 'array', 'itemType': DescribeDataObjectColumnDetailResponseBodyItemsModelTags },
+      primaryKey: 'boolean',
+      riskLevelId: 'number',
+      riskLevelName: 'string',
+      ruleId: 'number',
+      ruleName: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class DescribeDataObjectColumnDetailV2ResponseBodyItemsModelTags extends $tea.Model {
+  id?: number;
+  name?: string;
+  static names(): { [key: string]: string } {
+    return {
+      id: 'Id',
+      name: 'Name',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      id: 'number',
+      name: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class DescribeDataObjectColumnDetailV2ResponseBodyItems extends $tea.Model {
+  categories?: string[];
+  columnComment?: string;
+  columnName?: string;
+  dataType?: string;
+  id?: string;
+  modelTags?: DescribeDataObjectColumnDetailV2ResponseBodyItemsModelTags[];
+  primaryKey?: boolean;
+  riskLevelId?: number;
+  riskLevelName?: string;
+  ruleId?: number;
+  ruleName?: string;
+  static names(): { [key: string]: string } {
+    return {
+      categories: 'Categories',
+      columnComment: 'ColumnComment',
+      columnName: 'ColumnName',
+      dataType: 'DataType',
+      id: 'Id',
+      modelTags: 'ModelTags',
+      primaryKey: 'PrimaryKey',
+      riskLevelId: 'RiskLevelId',
+      riskLevelName: 'RiskLevelName',
+      ruleId: 'RuleId',
+      ruleName: 'RuleName',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      categories: { 'type': 'array', 'itemType': 'string' },
+      columnComment: 'string',
+      columnName: 'string',
+      dataType: 'string',
+      id: 'string',
+      modelTags: { 'type': 'array', 'itemType': DescribeDataObjectColumnDetailV2ResponseBodyItemsModelTags },
       primaryKey: 'boolean',
       riskLevelId: 'number',
       riskLevelName: 'string',
@@ -5210,6 +5649,96 @@ export class DescribeOssObjectDetailResponseBodyOssObjectDetail extends $tea.Mod
       regionId: 'string',
       riskLevelName: 'string',
       ruleList: { 'type': 'array', 'itemType': DescribeOssObjectDetailResponseBodyOssObjectDetailRuleList },
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class DescribeOssObjectDetailV2ResponseBodyOssObjectDetailRuleListModelTags extends $tea.Model {
+  id?: number;
+  name?: string;
+  static names(): { [key: string]: string } {
+    return {
+      id: 'Id',
+      name: 'Name',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      id: 'number',
+      name: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class DescribeOssObjectDetailV2ResponseBodyOssObjectDetailRuleList extends $tea.Model {
+  categoryName?: string;
+  count?: number;
+  modelTags?: DescribeOssObjectDetailV2ResponseBodyOssObjectDetailRuleListModelTags[];
+  riskLevelId?: number;
+  riskLevelName?: string;
+  ruleName?: string;
+  static names(): { [key: string]: string } {
+    return {
+      categoryName: 'CategoryName',
+      count: 'Count',
+      modelTags: 'ModelTags',
+      riskLevelId: 'RiskLevelId',
+      riskLevelName: 'RiskLevelName',
+      ruleName: 'RuleName',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      categoryName: 'string',
+      count: 'number',
+      modelTags: { 'type': 'array', 'itemType': DescribeOssObjectDetailV2ResponseBodyOssObjectDetailRuleListModelTags },
+      riskLevelId: 'number',
+      riskLevelName: 'string',
+      ruleName: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class DescribeOssObjectDetailV2ResponseBodyOssObjectDetail extends $tea.Model {
+  bucketName?: string;
+  categoryName?: string;
+  name?: string;
+  regionId?: string;
+  riskLevelName?: string;
+  ruleList?: DescribeOssObjectDetailV2ResponseBodyOssObjectDetailRuleList[];
+  static names(): { [key: string]: string } {
+    return {
+      bucketName: 'BucketName',
+      categoryName: 'CategoryName',
+      name: 'Name',
+      regionId: 'RegionId',
+      riskLevelName: 'RiskLevelName',
+      ruleList: 'RuleList',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      bucketName: 'string',
+      categoryName: 'string',
+      name: 'string',
+      regionId: 'string',
+      riskLevelName: 'string',
+      ruleList: { 'type': 'array', 'itemType': DescribeOssObjectDetailV2ResponseBodyOssObjectDetailRuleList },
     };
   }
 
@@ -6322,6 +6851,83 @@ export default class Client extends OpenApi {
     return await this.describeColumnsWithOptions(request, runtime);
   }
 
+  async describeColumnsV2WithOptions(request: DescribeColumnsV2Request, runtime: $Util.RuntimeOptions): Promise<DescribeColumnsV2Response> {
+    Util.validateModel(request);
+    let query = { };
+    if (!Util.isUnset(request.currentPage)) {
+      query["CurrentPage"] = request.currentPage;
+    }
+
+    if (!Util.isUnset(request.instanceId)) {
+      query["InstanceId"] = request.instanceId;
+    }
+
+    if (!Util.isUnset(request.instanceName)) {
+      query["InstanceName"] = request.instanceName;
+    }
+
+    if (!Util.isUnset(request.lang)) {
+      query["Lang"] = request.lang;
+    }
+
+    if (!Util.isUnset(request.name)) {
+      query["Name"] = request.name;
+    }
+
+    if (!Util.isUnset(request.pageSize)) {
+      query["PageSize"] = request.pageSize;
+    }
+
+    if (!Util.isUnset(request.productCode)) {
+      query["ProductCode"] = request.productCode;
+    }
+
+    if (!Util.isUnset(request.riskLevelId)) {
+      query["RiskLevelId"] = request.riskLevelId;
+    }
+
+    if (!Util.isUnset(request.ruleId)) {
+      query["RuleId"] = request.ruleId;
+    }
+
+    if (!Util.isUnset(request.ruleName)) {
+      query["RuleName"] = request.ruleName;
+    }
+
+    if (!Util.isUnset(request.sensLevelName)) {
+      query["SensLevelName"] = request.sensLevelName;
+    }
+
+    if (!Util.isUnset(request.tableId)) {
+      query["TableId"] = request.tableId;
+    }
+
+    if (!Util.isUnset(request.tableName)) {
+      query["TableName"] = request.tableName;
+    }
+
+    let req = new $OpenApi.OpenApiRequest({
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApi.Params({
+      action: "DescribeColumnsV2",
+      version: "2019-01-03",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $tea.cast<DescribeColumnsV2Response>(await this.callApi(params, req, runtime), new DescribeColumnsV2Response({}));
+  }
+
+  async describeColumnsV2(request: DescribeColumnsV2Request): Promise<DescribeColumnsV2Response> {
+    let runtime = new $Util.RuntimeOptions({ });
+    return await this.describeColumnsV2WithOptions(request, runtime);
+  }
+
   async describeConfigsWithOptions(request: DescribeConfigsRequest, runtime: $Util.RuntimeOptions): Promise<DescribeConfigsResponse> {
     Util.validateModel(request);
     let query = { };
@@ -6775,6 +7381,55 @@ export default class Client extends OpenApi {
   async describeDataObjectColumnDetail(request: DescribeDataObjectColumnDetailRequest): Promise<DescribeDataObjectColumnDetailResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.describeDataObjectColumnDetailWithOptions(request, runtime);
+  }
+
+  async describeDataObjectColumnDetailV2WithOptions(request: DescribeDataObjectColumnDetailV2Request, runtime: $Util.RuntimeOptions): Promise<DescribeDataObjectColumnDetailV2Response> {
+    Util.validateModel(request);
+    let query = { };
+    if (!Util.isUnset(request.currentPage)) {
+      query["CurrentPage"] = request.currentPage;
+    }
+
+    if (!Util.isUnset(request.id)) {
+      query["Id"] = request.id;
+    }
+
+    if (!Util.isUnset(request.lang)) {
+      query["Lang"] = request.lang;
+    }
+
+    if (!Util.isUnset(request.pageSize)) {
+      query["PageSize"] = request.pageSize;
+    }
+
+    if (!Util.isUnset(request.productId)) {
+      query["ProductId"] = request.productId;
+    }
+
+    if (!Util.isUnset(request.templateId)) {
+      query["TemplateId"] = request.templateId;
+    }
+
+    let req = new $OpenApi.OpenApiRequest({
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApi.Params({
+      action: "DescribeDataObjectColumnDetailV2",
+      version: "2019-01-03",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $tea.cast<DescribeDataObjectColumnDetailV2Response>(await this.callApi(params, req, runtime), new DescribeDataObjectColumnDetailV2Response({}));
+  }
+
+  async describeDataObjectColumnDetailV2(request: DescribeDataObjectColumnDetailV2Request): Promise<DescribeDataObjectColumnDetailV2Response> {
+    let runtime = new $Util.RuntimeOptions({ });
+    return await this.describeDataObjectColumnDetailV2WithOptions(request, runtime);
   }
 
   async describeDataObjectsWithOptions(request: DescribeDataObjectsRequest, runtime: $Util.RuntimeOptions): Promise<DescribeDataObjectsResponse> {
@@ -7242,6 +7897,39 @@ export default class Client extends OpenApi {
   async describeOssObjectDetail(request: DescribeOssObjectDetailRequest): Promise<DescribeOssObjectDetailResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.describeOssObjectDetailWithOptions(request, runtime);
+  }
+
+  async describeOssObjectDetailV2WithOptions(request: DescribeOssObjectDetailV2Request, runtime: $Util.RuntimeOptions): Promise<DescribeOssObjectDetailV2Response> {
+    Util.validateModel(request);
+    let query = { };
+    if (!Util.isUnset(request.id)) {
+      query["Id"] = request.id;
+    }
+
+    if (!Util.isUnset(request.lang)) {
+      query["Lang"] = request.lang;
+    }
+
+    let req = new $OpenApi.OpenApiRequest({
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApi.Params({
+      action: "DescribeOssObjectDetailV2",
+      version: "2019-01-03",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $tea.cast<DescribeOssObjectDetailV2Response>(await this.callApi(params, req, runtime), new DescribeOssObjectDetailV2Response({}));
+  }
+
+  async describeOssObjectDetailV2(request: DescribeOssObjectDetailV2Request): Promise<DescribeOssObjectDetailV2Response> {
+    let runtime = new $Util.RuntimeOptions({ });
+    return await this.describeOssObjectDetailV2WithOptions(request, runtime);
   }
 
   async describeOssObjectsWithOptions(request: DescribeOssObjectsRequest, runtime: $Util.RuntimeOptions): Promise<DescribeOssObjectsResponse> {
