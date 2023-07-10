@@ -15350,19 +15350,28 @@ export class ListApplicationMonitorDetectResultResponseBodyApplicationMonitorDet
 }
 
 export class ListAvailableAccelerateAreasResponseBodyAreasRegionList extends $tea.Model {
+  chinaMainland?: boolean;
+  ispTypeList?: string[];
   localName?: string;
   regionId?: string;
+  supportIpv6?: boolean;
   static names(): { [key: string]: string } {
     return {
+      chinaMainland: 'ChinaMainland',
+      ispTypeList: 'IspTypeList',
       localName: 'LocalName',
       regionId: 'RegionId',
+      supportIpv6: 'SupportIpv6',
     };
   }
 
   static types(): { [key: string]: any } {
     return {
+      chinaMainland: 'boolean',
+      ispTypeList: { 'type': 'array', 'itemType': 'string' },
       localName: 'string',
       regionId: 'string',
+      supportIpv6: 'boolean',
     };
   }
 
@@ -15397,11 +15406,13 @@ export class ListAvailableAccelerateAreasResponseBodyAreas extends $tea.Model {
 }
 
 export class ListAvailableBusiRegionsResponseBodyRegions extends $tea.Model {
+  chinaMainland?: boolean;
   localName?: string;
   pop?: boolean;
   regionId?: string;
   static names(): { [key: string]: string } {
     return {
+      chinaMainland: 'ChinaMainland',
       localName: 'LocalName',
       pop: 'Pop',
       regionId: 'RegionId',
@@ -15410,6 +15421,7 @@ export class ListAvailableBusiRegionsResponseBodyRegions extends $tea.Model {
 
   static types(): { [key: string]: any } {
     return {
+      chinaMainland: 'boolean',
       localName: 'string',
       pop: 'boolean',
       regionId: 'string',
