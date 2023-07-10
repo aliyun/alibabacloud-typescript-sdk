@@ -7070,6 +7070,126 @@ export class DescribeCharacterSetNameResponse extends $tea.Model {
   }
 }
 
+export class DescribeClassDetailsRequest extends $tea.Model {
+  classCode?: string;
+  clientToken?: string;
+  commodityCode?: string;
+  engine?: string;
+  engineVersion?: string;
+  ownerId?: number;
+  regionId?: string;
+  resourceOwnerAccount?: string;
+  resourceOwnerId?: number;
+  static names(): { [key: string]: string } {
+    return {
+      classCode: 'ClassCode',
+      clientToken: 'ClientToken',
+      commodityCode: 'CommodityCode',
+      engine: 'Engine',
+      engineVersion: 'EngineVersion',
+      ownerId: 'OwnerId',
+      regionId: 'RegionId',
+      resourceOwnerAccount: 'ResourceOwnerAccount',
+      resourceOwnerId: 'ResourceOwnerId',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      classCode: 'string',
+      clientToken: 'string',
+      commodityCode: 'string',
+      engine: 'string',
+      engineVersion: 'string',
+      ownerId: 'number',
+      regionId: 'string',
+      resourceOwnerAccount: 'string',
+      resourceOwnerId: 'number',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class DescribeClassDetailsResponseBody extends $tea.Model {
+  category?: string;
+  classCode?: string;
+  classGroup?: string;
+  cpu?: string;
+  DBInstanceStorageType?: string;
+  instructionSetArch?: string;
+  maxConnections?: string;
+  maxIOMBPS?: string;
+  maxIOPS?: string;
+  memoryClass?: string;
+  referencePrice?: string;
+  requestId?: string;
+  static names(): { [key: string]: string } {
+    return {
+      category: 'Category',
+      classCode: 'ClassCode',
+      classGroup: 'ClassGroup',
+      cpu: 'Cpu',
+      DBInstanceStorageType: 'DBInstanceStorageType',
+      instructionSetArch: 'InstructionSetArch',
+      maxConnections: 'MaxConnections',
+      maxIOMBPS: 'MaxIOMBPS',
+      maxIOPS: 'MaxIOPS',
+      memoryClass: 'MemoryClass',
+      referencePrice: 'ReferencePrice',
+      requestId: 'RequestId',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      category: 'string',
+      classCode: 'string',
+      classGroup: 'string',
+      cpu: 'string',
+      DBInstanceStorageType: 'string',
+      instructionSetArch: 'string',
+      maxConnections: 'string',
+      maxIOMBPS: 'string',
+      maxIOPS: 'string',
+      memoryClass: 'string',
+      referencePrice: 'string',
+      requestId: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class DescribeClassDetailsResponse extends $tea.Model {
+  headers: { [key: string]: string };
+  statusCode: number;
+  body: DescribeClassDetailsResponseBody;
+  static names(): { [key: string]: string } {
+    return {
+      headers: 'headers',
+      statusCode: 'statusCode',
+      body: 'body',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
+      body: DescribeClassDetailsResponseBody,
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
 export class DescribeCloudMigrationPrecheckResultRequest extends $tea.Model {
   DBInstanceName?: string;
   pageNumber?: number;
@@ -37810,6 +37930,67 @@ export default class Client extends OpenApi {
   async describeCharacterSetName(request: DescribeCharacterSetNameRequest): Promise<DescribeCharacterSetNameResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.describeCharacterSetNameWithOptions(request, runtime);
+  }
+
+  async describeClassDetailsWithOptions(request: DescribeClassDetailsRequest, runtime: $Util.RuntimeOptions): Promise<DescribeClassDetailsResponse> {
+    Util.validateModel(request);
+    let query = { };
+    if (!Util.isUnset(request.classCode)) {
+      query["ClassCode"] = request.classCode;
+    }
+
+    if (!Util.isUnset(request.clientToken)) {
+      query["ClientToken"] = request.clientToken;
+    }
+
+    if (!Util.isUnset(request.commodityCode)) {
+      query["CommodityCode"] = request.commodityCode;
+    }
+
+    if (!Util.isUnset(request.engine)) {
+      query["Engine"] = request.engine;
+    }
+
+    if (!Util.isUnset(request.engineVersion)) {
+      query["EngineVersion"] = request.engineVersion;
+    }
+
+    if (!Util.isUnset(request.ownerId)) {
+      query["OwnerId"] = request.ownerId;
+    }
+
+    if (!Util.isUnset(request.regionId)) {
+      query["RegionId"] = request.regionId;
+    }
+
+    if (!Util.isUnset(request.resourceOwnerAccount)) {
+      query["ResourceOwnerAccount"] = request.resourceOwnerAccount;
+    }
+
+    if (!Util.isUnset(request.resourceOwnerId)) {
+      query["ResourceOwnerId"] = request.resourceOwnerId;
+    }
+
+    let req = new $OpenApi.OpenApiRequest({
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApi.Params({
+      action: "DescribeClassDetails",
+      version: "2014-08-15",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $tea.cast<DescribeClassDetailsResponse>(await this.callApi(params, req, runtime), new DescribeClassDetailsResponse({}));
+  }
+
+  async describeClassDetails(request: DescribeClassDetailsRequest): Promise<DescribeClassDetailsResponse> {
+    let runtime = new $Util.RuntimeOptions({ });
+    return await this.describeClassDetailsWithOptions(request, runtime);
   }
 
   /**
