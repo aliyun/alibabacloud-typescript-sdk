@@ -1416,6 +1416,146 @@ export class ChildAccountAuthResponse extends $tea.Model {
   }
 }
 
+export class ControlRoomDeviceHeaders extends $tea.Model {
+  commonHeaders?: { [key: string]: string };
+  xAcsAligenieAccessToken?: string;
+  authorization?: string;
+  static names(): { [key: string]: string } {
+    return {
+      commonHeaders: 'commonHeaders',
+      xAcsAligenieAccessToken: 'x-acs-aligenie-access-token',
+      authorization: 'Authorization',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      commonHeaders: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      xAcsAligenieAccessToken: 'string',
+      authorization: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class ControlRoomDeviceRequest extends $tea.Model {
+  cmd?: string;
+  deviceNumber?: string;
+  hotelId?: string;
+  properties?: { [key: string]: string };
+  roomNo?: string;
+  static names(): { [key: string]: string } {
+    return {
+      cmd: 'Cmd',
+      deviceNumber: 'DeviceNumber',
+      hotelId: 'HotelId',
+      properties: 'Properties',
+      roomNo: 'RoomNo',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      cmd: 'string',
+      deviceNumber: 'string',
+      hotelId: 'string',
+      properties: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      roomNo: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class ControlRoomDeviceShrinkRequest extends $tea.Model {
+  cmd?: string;
+  deviceNumber?: string;
+  hotelId?: string;
+  propertiesShrink?: string;
+  roomNo?: string;
+  static names(): { [key: string]: string } {
+    return {
+      cmd: 'Cmd',
+      deviceNumber: 'DeviceNumber',
+      hotelId: 'HotelId',
+      propertiesShrink: 'Properties',
+      roomNo: 'RoomNo',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      cmd: 'string',
+      deviceNumber: 'string',
+      hotelId: 'string',
+      propertiesShrink: 'string',
+      roomNo: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class ControlRoomDeviceResponseBody extends $tea.Model {
+  code?: number;
+  message?: string;
+  requestId?: string;
+  result?: ControlRoomDeviceResponseBodyResult;
+  static names(): { [key: string]: string } {
+    return {
+      code: 'Code',
+      message: 'Message',
+      requestId: 'RequestId',
+      result: 'Result',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      code: 'number',
+      message: 'string',
+      requestId: 'string',
+      result: ControlRoomDeviceResponseBodyResult,
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class ControlRoomDeviceResponse extends $tea.Model {
+  headers: { [key: string]: string };
+  statusCode: number;
+  body: ControlRoomDeviceResponseBody;
+  static names(): { [key: string]: string } {
+    return {
+      headers: 'headers',
+      statusCode: 'statusCode',
+      body: 'body',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
+      body: ControlRoomDeviceResponseBody,
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
 export class CreateHotelHeaders extends $tea.Model {
   commonHeaders?: { [key: string]: string };
   xAcsAligenieAccessToken?: string;
@@ -1724,6 +1864,134 @@ export class CreateHotelAlarmResponse extends $tea.Model {
       headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
       statusCode: 'number',
       body: CreateHotelAlarmResponseBody,
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class CreateRcuSceneHeaders extends $tea.Model {
+  commonHeaders?: { [key: string]: string };
+  xAcsAligenieAccessToken?: string;
+  authorization?: string;
+  static names(): { [key: string]: string } {
+    return {
+      commonHeaders: 'commonHeaders',
+      xAcsAligenieAccessToken: 'x-acs-aligenie-access-token',
+      authorization: 'Authorization',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      commonHeaders: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      xAcsAligenieAccessToken: 'string',
+      authorization: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class CreateRcuSceneRequest extends $tea.Model {
+  hotelId?: string;
+  sceneId?: string;
+  sceneRelationExtDTO?: CreateRcuSceneRequestSceneRelationExtDTO;
+  static names(): { [key: string]: string } {
+    return {
+      hotelId: 'HotelId',
+      sceneId: 'SceneId',
+      sceneRelationExtDTO: 'SceneRelationExtDTO',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      hotelId: 'string',
+      sceneId: 'string',
+      sceneRelationExtDTO: CreateRcuSceneRequestSceneRelationExtDTO,
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class CreateRcuSceneShrinkRequest extends $tea.Model {
+  hotelId?: string;
+  sceneId?: string;
+  sceneRelationExtDTOShrink?: string;
+  static names(): { [key: string]: string } {
+    return {
+      hotelId: 'HotelId',
+      sceneId: 'SceneId',
+      sceneRelationExtDTOShrink: 'SceneRelationExtDTO',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      hotelId: 'string',
+      sceneId: 'string',
+      sceneRelationExtDTOShrink: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class CreateRcuSceneResponseBody extends $tea.Model {
+  message?: string;
+  requestId?: string;
+  result?: boolean;
+  statusCode?: number;
+  static names(): { [key: string]: string } {
+    return {
+      message: 'Message',
+      requestId: 'RequestId',
+      result: 'Result',
+      statusCode: 'StatusCode',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      message: 'string',
+      requestId: 'string',
+      result: 'boolean',
+      statusCode: 'number',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class CreateRcuSceneResponse extends $tea.Model {
+  headers: { [key: string]: string };
+  statusCode: number;
+  body: CreateRcuSceneResponseBody;
+  static names(): { [key: string]: string } {
+    return {
+      headers: 'headers',
+      statusCode: 'statusCode',
+      body: 'body',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
+      body: CreateRcuSceneResponseBody,
     };
   }
 
@@ -2365,6 +2633,106 @@ export class DeleteMessageTemplateResponse extends $tea.Model {
       headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
       statusCode: 'number',
       body: DeleteMessageTemplateResponseBody,
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class DeleteRcuSceneHeaders extends $tea.Model {
+  commonHeaders?: { [key: string]: string };
+  xAcsAligenieAccessToken?: string;
+  authorization?: string;
+  static names(): { [key: string]: string } {
+    return {
+      commonHeaders: 'commonHeaders',
+      xAcsAligenieAccessToken: 'x-acs-aligenie-access-token',
+      authorization: 'Authorization',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      commonHeaders: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      xAcsAligenieAccessToken: 'string',
+      authorization: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class DeleteRcuSceneRequest extends $tea.Model {
+  hotelId?: string;
+  sceneId?: string;
+  static names(): { [key: string]: string } {
+    return {
+      hotelId: 'HotelId',
+      sceneId: 'SceneId',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      hotelId: 'string',
+      sceneId: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class DeleteRcuSceneResponseBody extends $tea.Model {
+  message?: string;
+  requestId?: string;
+  result?: boolean;
+  statusCode?: number;
+  static names(): { [key: string]: string } {
+    return {
+      message: 'Message',
+      requestId: 'RequestId',
+      result: 'Result',
+      statusCode: 'StatusCode',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      message: 'string',
+      requestId: 'string',
+      result: 'boolean',
+      statusCode: 'number',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class DeleteRcuSceneResponse extends $tea.Model {
+  headers: { [key: string]: string };
+  statusCode: number;
+  body: DeleteRcuSceneResponseBody;
+  static names(): { [key: string]: string } {
+    return {
+      headers: 'headers',
+      statusCode: 'statusCode',
+      body: 'body',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
+      body: DeleteRcuSceneResponseBody,
     };
   }
 
@@ -4421,6 +4789,128 @@ export class GetWelcomeTextAndMusicResponse extends $tea.Model {
       headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
       statusCode: 'number',
       body: GetWelcomeTextAndMusicResponseBody,
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class ImportHotelConfigHeaders extends $tea.Model {
+  commonHeaders?: { [key: string]: string };
+  xAcsAligenieAccessToken?: string;
+  authorization?: string;
+  static names(): { [key: string]: string } {
+    return {
+      commonHeaders: 'commonHeaders',
+      xAcsAligenieAccessToken: 'x-acs-aligenie-access-token',
+      authorization: 'Authorization',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      commonHeaders: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      xAcsAligenieAccessToken: 'string',
+      authorization: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class ImportHotelConfigRequest extends $tea.Model {
+  hotelId?: string;
+  importHotelConfigRequest?: ImportHotelConfigRequestImportHotelConfigRequest;
+  static names(): { [key: string]: string } {
+    return {
+      hotelId: 'HotelId',
+      importHotelConfigRequest: 'ImportHotelConfigRequest',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      hotelId: 'string',
+      importHotelConfigRequest: ImportHotelConfigRequestImportHotelConfigRequest,
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class ImportHotelConfigShrinkRequest extends $tea.Model {
+  hotelId?: string;
+  importHotelConfigRequestShrink?: string;
+  static names(): { [key: string]: string } {
+    return {
+      hotelId: 'HotelId',
+      importHotelConfigRequestShrink: 'ImportHotelConfigRequest',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      hotelId: 'string',
+      importHotelConfigRequestShrink: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class ImportHotelConfigResponseBody extends $tea.Model {
+  message?: string;
+  requestId?: string;
+  result?: boolean;
+  statusCode?: number;
+  static names(): { [key: string]: string } {
+    return {
+      message: 'Message',
+      requestId: 'RequestId',
+      result: 'Result',
+      statusCode: 'StatusCode',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      message: 'string',
+      requestId: 'string',
+      result: 'boolean',
+      statusCode: 'number',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class ImportHotelConfigResponse extends $tea.Model {
+  headers: { [key: string]: string };
+  statusCode: number;
+  body: ImportHotelConfigResponseBody;
+  static names(): { [key: string]: string } {
+    return {
+      headers: 'headers',
+      statusCode: 'statusCode',
+      body: 'body',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
+      body: ImportHotelConfigResponseBody,
     };
   }
 
@@ -7351,6 +7841,140 @@ export class QueryRoomControlDevicesResponse extends $tea.Model {
   }
 }
 
+export class QuerySceneListHeaders extends $tea.Model {
+  commonHeaders?: { [key: string]: string };
+  xAcsAligenieAccessToken?: string;
+  authorization?: string;
+  static names(): { [key: string]: string } {
+    return {
+      commonHeaders: 'commonHeaders',
+      xAcsAligenieAccessToken: 'x-acs-aligenie-access-token',
+      authorization: 'Authorization',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      commonHeaders: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      xAcsAligenieAccessToken: 'string',
+      authorization: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class QuerySceneListRequest extends $tea.Model {
+  hotelId?: string;
+  sceneStates?: number[];
+  sceneTypes?: string[];
+  templateInfoIds?: string[];
+  static names(): { [key: string]: string } {
+    return {
+      hotelId: 'HotelId',
+      sceneStates: 'SceneStates',
+      sceneTypes: 'SceneTypes',
+      templateInfoIds: 'TemplateInfoIds',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      hotelId: 'string',
+      sceneStates: { 'type': 'array', 'itemType': 'number' },
+      sceneTypes: { 'type': 'array', 'itemType': 'string' },
+      templateInfoIds: { 'type': 'array', 'itemType': 'string' },
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class QuerySceneListShrinkRequest extends $tea.Model {
+  hotelId?: string;
+  sceneStatesShrink?: string;
+  sceneTypesShrink?: string;
+  templateInfoIdsShrink?: string;
+  static names(): { [key: string]: string } {
+    return {
+      hotelId: 'HotelId',
+      sceneStatesShrink: 'SceneStates',
+      sceneTypesShrink: 'SceneTypes',
+      templateInfoIdsShrink: 'TemplateInfoIds',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      hotelId: 'string',
+      sceneStatesShrink: 'string',
+      sceneTypesShrink: 'string',
+      templateInfoIdsShrink: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class QuerySceneListResponseBody extends $tea.Model {
+  message?: string;
+  requestId?: string;
+  results?: QuerySceneListResponseBodyResults[];
+  statusCode?: number;
+  static names(): { [key: string]: string } {
+    return {
+      message: 'Message',
+      requestId: 'RequestId',
+      results: 'Results',
+      statusCode: 'StatusCode',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      message: 'string',
+      requestId: 'string',
+      results: { 'type': 'array', 'itemType': QuerySceneListResponseBodyResults },
+      statusCode: 'number',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class QuerySceneListResponse extends $tea.Model {
+  headers: { [key: string]: string };
+  statusCode: number;
+  body: QuerySceneListResponseBody;
+  static names(): { [key: string]: string } {
+    return {
+      headers: 'headers',
+      statusCode: 'statusCode',
+      body: 'body',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
+      body: QuerySceneListResponseBody,
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
 export class RemoveChildAccountAuthHeaders extends $tea.Model {
   commonHeaders?: { [key: string]: string };
   xAcsAligenieAccessToken?: string;
@@ -8982,6 +9606,134 @@ export class UpdateMessageTemplateResponse extends $tea.Model {
   }
 }
 
+export class UpdateRcuSceneHeaders extends $tea.Model {
+  commonHeaders?: { [key: string]: string };
+  xAcsAligenieAccessToken?: string;
+  authorization?: string;
+  static names(): { [key: string]: string } {
+    return {
+      commonHeaders: 'commonHeaders',
+      xAcsAligenieAccessToken: 'x-acs-aligenie-access-token',
+      authorization: 'Authorization',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      commonHeaders: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      xAcsAligenieAccessToken: 'string',
+      authorization: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class UpdateRcuSceneRequest extends $tea.Model {
+  hotelId?: string;
+  sceneId?: string;
+  sceneRelationExtDTO?: UpdateRcuSceneRequestSceneRelationExtDTO;
+  static names(): { [key: string]: string } {
+    return {
+      hotelId: 'HotelId',
+      sceneId: 'SceneId',
+      sceneRelationExtDTO: 'SceneRelationExtDTO',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      hotelId: 'string',
+      sceneId: 'string',
+      sceneRelationExtDTO: UpdateRcuSceneRequestSceneRelationExtDTO,
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class UpdateRcuSceneShrinkRequest extends $tea.Model {
+  hotelId?: string;
+  sceneId?: string;
+  sceneRelationExtDTOShrink?: string;
+  static names(): { [key: string]: string } {
+    return {
+      hotelId: 'HotelId',
+      sceneId: 'SceneId',
+      sceneRelationExtDTOShrink: 'SceneRelationExtDTO',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      hotelId: 'string',
+      sceneId: 'string',
+      sceneRelationExtDTOShrink: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class UpdateRcuSceneResponseBody extends $tea.Model {
+  message?: string;
+  requestId?: string;
+  result?: boolean;
+  statusCode?: number;
+  static names(): { [key: string]: string } {
+    return {
+      message: 'Message',
+      requestId: 'RequestId',
+      result: 'Result',
+      statusCode: 'StatusCode',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      message: 'string',
+      requestId: 'string',
+      result: 'boolean',
+      statusCode: 'number',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class UpdateRcuSceneResponse extends $tea.Model {
+  headers: { [key: string]: string };
+  statusCode: number;
+  body: UpdateRcuSceneResponseBody;
+  static names(): { [key: string]: string } {
+    return {
+      headers: 'headers',
+      statusCode: 'statusCode',
+      body: 'body',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
+      body: UpdateRcuSceneResponseBody,
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
 export class UpdateServiceQAHeaders extends $tea.Model {
   commonHeaders?: { [key: string]: string };
   xAcsAligenieAccessToken?: string;
@@ -9294,6 +10046,28 @@ export class AuditHotelRequestAuditHotelReq extends $tea.Model {
   }
 }
 
+export class ControlRoomDeviceResponseBodyResult extends $tea.Model {
+  message?: string;
+  status?: number;
+  static names(): { [key: string]: string } {
+    return {
+      message: 'Message',
+      status: 'Status',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      message: 'string',
+      status: 'number',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
 export class CreateHotelAlarmRequestScheduleInfoOnce extends $tea.Model {
   day?: number;
   hour?: number;
@@ -9398,6 +10172,34 @@ export class CreateHotelAlarmResponseBodyResult extends $tea.Model {
       failMsg: 'string',
       roomNo: 'string',
       userOpenId: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class CreateRcuSceneRequestSceneRelationExtDTO extends $tea.Model {
+  corpusList?: string[];
+  description?: string;
+  icon?: string;
+  name?: string;
+  static names(): { [key: string]: string } {
+    return {
+      corpusList: 'CorpusList',
+      description: 'Description',
+      icon: 'Icon',
+      name: 'Name',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      corpusList: { 'type': 'array', 'itemType': 'string' },
+      description: 'string',
+      icon: 'string',
+      name: 'string',
     };
   }
 
@@ -10452,6 +11254,56 @@ export class GetWelcomeTextAndMusicResponseBodyResult extends $tea.Model {
       hotelId: 'string',
       musicUrl: 'string',
       text: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class ImportHotelConfigRequestImportHotelConfigRequestRcuCustomScenes extends $tea.Model {
+  corpusList?: string[];
+  description?: string;
+  icon?: string;
+  name?: string;
+  sceneId?: string;
+  static names(): { [key: string]: string } {
+    return {
+      corpusList: 'CorpusList',
+      description: 'Description',
+      icon: 'Icon',
+      name: 'Name',
+      sceneId: 'SceneId',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      corpusList: { 'type': 'array', 'itemType': 'string' },
+      description: 'string',
+      icon: 'string',
+      name: 'string',
+      sceneId: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class ImportHotelConfigRequestImportHotelConfigRequest extends $tea.Model {
+  rcuCustomScenes?: ImportHotelConfigRequestImportHotelConfigRequestRcuCustomScenes[];
+  static names(): { [key: string]: string } {
+    return {
+      rcuCustomScenes: 'RcuCustomScenes',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      rcuCustomScenes: { 'type': 'array', 'itemType': ImportHotelConfigRequestImportHotelConfigRequestRcuCustomScenes },
     };
   }
 
@@ -12341,11 +13193,13 @@ export class QueryHotelRoomDetailResponseBodyResult extends $tea.Model {
 }
 
 export class QueryRoomControlDevicesResponseBodyResultDevices extends $tea.Model {
+  connectType?: string;
   deviceName?: string;
   name?: string;
   number?: string;
   static names(): { [key: string]: string } {
     return {
+      connectType: 'ConnectType',
       deviceName: 'DeviceName',
       name: 'Name',
       number: 'Number',
@@ -12354,6 +13208,7 @@ export class QueryRoomControlDevicesResponseBodyResultDevices extends $tea.Model
 
   static types(): { [key: string]: any } {
     return {
+      connectType: 'string',
       deviceName: 'string',
       name: 'string',
       number: 'string',
@@ -12382,6 +13237,71 @@ export class QueryRoomControlDevicesResponseBodyResult extends $tea.Model {
       devices: { 'type': 'array', 'itemType': QueryRoomControlDevicesResponseBodyResultDevices },
       location: 'string',
       locationName: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class QuerySceneListResponseBodyResultsTemplateInfoDTOList extends $tea.Model {
+  description?: string;
+  id?: number;
+  name?: string;
+  static names(): { [key: string]: string } {
+    return {
+      description: 'Description',
+      id: 'Id',
+      name: 'Name',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      description: 'string',
+      id: 'number',
+      name: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class QuerySceneListResponseBodyResults extends $tea.Model {
+  icon?: string;
+  sceneId?: string;
+  sceneName?: string;
+  sceneSource?: string;
+  sceneState?: number;
+  sceneType?: string;
+  templateInfoDTOList?: QuerySceneListResponseBodyResultsTemplateInfoDTOList[];
+  unavailableReason?: string;
+  static names(): { [key: string]: string } {
+    return {
+      icon: 'Icon',
+      sceneId: 'SceneId',
+      sceneName: 'SceneName',
+      sceneSource: 'SceneSource',
+      sceneState: 'SceneState',
+      sceneType: 'SceneType',
+      templateInfoDTOList: 'TemplateInfoDTOList',
+      unavailableReason: 'UnavailableReason',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      icon: 'string',
+      sceneId: 'string',
+      sceneName: 'string',
+      sceneSource: 'string',
+      sceneState: 'number',
+      sceneType: 'string',
+      templateInfoDTOList: { 'type': 'array', 'itemType': QuerySceneListResponseBodyResultsTemplateInfoDTOList },
+      unavailableReason: 'string',
     };
   }
 
@@ -12749,6 +13669,34 @@ export class UpdateHotelSceneItemRequestUpdateHotelSceneReq extends $tea.Model {
       id: 'number',
       price: 'number',
       status: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class UpdateRcuSceneRequestSceneRelationExtDTO extends $tea.Model {
+  corpusList?: string[];
+  description?: string;
+  icon?: string;
+  name?: string;
+  static names(): { [key: string]: string } {
+    return {
+      corpusList: 'CorpusList',
+      description: 'Description',
+      icon: 'Icon',
+      name: 'Name',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      corpusList: { 'type': 'array', 'itemType': 'string' },
+      description: 'string',
+      icon: 'string',
+      name: 'string',
     };
   }
 
@@ -13454,6 +14402,72 @@ export default class Client extends OpenApi {
     return await this.childAccountAuthWithOptions(request, headers, runtime);
   }
 
+  async controlRoomDeviceWithOptions(tmpReq: ControlRoomDeviceRequest, headers: ControlRoomDeviceHeaders, runtime: $Util.RuntimeOptions): Promise<ControlRoomDeviceResponse> {
+    Util.validateModel(tmpReq);
+    let request = new ControlRoomDeviceShrinkRequest({ });
+    OpenApiUtil.convert(tmpReq, request);
+    if (!Util.isUnset(tmpReq.properties)) {
+      request.propertiesShrink = OpenApiUtil.arrayToStringWithSpecifiedStyle(tmpReq.properties, "Properties", "json");
+    }
+
+    let body : {[key: string ]: any} = { };
+    if (!Util.isUnset(request.cmd)) {
+      body["Cmd"] = request.cmd;
+    }
+
+    if (!Util.isUnset(request.deviceNumber)) {
+      body["DeviceNumber"] = request.deviceNumber;
+    }
+
+    if (!Util.isUnset(request.hotelId)) {
+      body["HotelId"] = request.hotelId;
+    }
+
+    if (!Util.isUnset(request.propertiesShrink)) {
+      body["Properties"] = request.propertiesShrink;
+    }
+
+    if (!Util.isUnset(request.roomNo)) {
+      body["RoomNo"] = request.roomNo;
+    }
+
+    let realHeaders : {[key: string ]: string} = { };
+    if (!Util.isUnset(headers.commonHeaders)) {
+      realHeaders = headers.commonHeaders;
+    }
+
+    if (!Util.isUnset(headers.xAcsAligenieAccessToken)) {
+      realHeaders["x-acs-aligenie-access-token"] = Util.toJSONString(headers.xAcsAligenieAccessToken);
+    }
+
+    if (!Util.isUnset(headers.authorization)) {
+      realHeaders["Authorization"] = Util.toJSONString(headers.authorization);
+    }
+
+    let req = new $OpenApi.OpenApiRequest({
+      headers: realHeaders,
+      body: OpenApiUtil.parseToMap(body),
+    });
+    let params = new $OpenApi.Params({
+      action: "ControlRoomDevice",
+      version: "ip_1.0",
+      protocol: "HTTPS",
+      pathname: `/v1.0/ip/controlRoomDevice`,
+      method: "POST",
+      authType: "AK",
+      style: "ROA",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $tea.cast<ControlRoomDeviceResponse>(await this.callApi(params, req, runtime), new ControlRoomDeviceResponse({}));
+  }
+
+  async controlRoomDevice(request: ControlRoomDeviceRequest): Promise<ControlRoomDeviceResponse> {
+    let runtime = new $Util.RuntimeOptions({ });
+    let headers = new ControlRoomDeviceHeaders({ });
+    return await this.controlRoomDeviceWithOptions(request, headers, runtime);
+  }
+
   async createHotelWithOptions(tmpReq: CreateHotelRequest, headers: CreateHotelHeaders, runtime: $Util.RuntimeOptions): Promise<CreateHotelResponse> {
     Util.validateModel(tmpReq);
     let request = new CreateHotelShrinkRequest({ });
@@ -13608,6 +14622,64 @@ export default class Client extends OpenApi {
     let runtime = new $Util.RuntimeOptions({ });
     let headers = new CreateHotelAlarmHeaders({ });
     return await this.createHotelAlarmWithOptions(request, headers, runtime);
+  }
+
+  async createRcuSceneWithOptions(tmpReq: CreateRcuSceneRequest, headers: CreateRcuSceneHeaders, runtime: $Util.RuntimeOptions): Promise<CreateRcuSceneResponse> {
+    Util.validateModel(tmpReq);
+    let request = new CreateRcuSceneShrinkRequest({ });
+    OpenApiUtil.convert(tmpReq, request);
+    if (!Util.isUnset(tmpReq.sceneRelationExtDTO)) {
+      request.sceneRelationExtDTOShrink = OpenApiUtil.arrayToStringWithSpecifiedStyle(tmpReq.sceneRelationExtDTO, "SceneRelationExtDTO", "json");
+    }
+
+    let body : {[key: string ]: any} = { };
+    if (!Util.isUnset(request.hotelId)) {
+      body["HotelId"] = request.hotelId;
+    }
+
+    if (!Util.isUnset(request.sceneId)) {
+      body["SceneId"] = request.sceneId;
+    }
+
+    if (!Util.isUnset(request.sceneRelationExtDTOShrink)) {
+      body["SceneRelationExtDTO"] = request.sceneRelationExtDTOShrink;
+    }
+
+    let realHeaders : {[key: string ]: string} = { };
+    if (!Util.isUnset(headers.commonHeaders)) {
+      realHeaders = headers.commonHeaders;
+    }
+
+    if (!Util.isUnset(headers.xAcsAligenieAccessToken)) {
+      realHeaders["x-acs-aligenie-access-token"] = Util.toJSONString(headers.xAcsAligenieAccessToken);
+    }
+
+    if (!Util.isUnset(headers.authorization)) {
+      realHeaders["Authorization"] = Util.toJSONString(headers.authorization);
+    }
+
+    let req = new $OpenApi.OpenApiRequest({
+      headers: realHeaders,
+      body: OpenApiUtil.parseToMap(body),
+    });
+    let params = new $OpenApi.Params({
+      action: "CreateRcuScene",
+      version: "ip_1.0",
+      protocol: "HTTPS",
+      pathname: `/v1.0/ip/createRcuScene`,
+      method: "POST",
+      authType: "AK",
+      style: "ROA",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $tea.cast<CreateRcuSceneResponse>(await this.callApi(params, req, runtime), new CreateRcuSceneResponse({}));
+  }
+
+  async createRcuScene(request: CreateRcuSceneRequest): Promise<CreateRcuSceneResponse> {
+    let runtime = new $Util.RuntimeOptions({ });
+    let headers = new CreateRcuSceneHeaders({ });
+    return await this.createRcuSceneWithOptions(request, headers, runtime);
   }
 
   async deleteCartoonWithOptions(request: DeleteCartoonRequest, headers: DeleteCartoonHeaders, runtime: $Util.RuntimeOptions): Promise<DeleteCartoonResponse> {
@@ -13900,6 +14972,54 @@ export default class Client extends OpenApi {
     let runtime = new $Util.RuntimeOptions({ });
     let headers = new DeleteMessageTemplateHeaders({ });
     return await this.deleteMessageTemplateWithOptions(request, headers, runtime);
+  }
+
+  async deleteRcuSceneWithOptions(request: DeleteRcuSceneRequest, headers: DeleteRcuSceneHeaders, runtime: $Util.RuntimeOptions): Promise<DeleteRcuSceneResponse> {
+    Util.validateModel(request);
+    let body : {[key: string ]: any} = { };
+    if (!Util.isUnset(request.hotelId)) {
+      body["HotelId"] = request.hotelId;
+    }
+
+    if (!Util.isUnset(request.sceneId)) {
+      body["SceneId"] = request.sceneId;
+    }
+
+    let realHeaders : {[key: string ]: string} = { };
+    if (!Util.isUnset(headers.commonHeaders)) {
+      realHeaders = headers.commonHeaders;
+    }
+
+    if (!Util.isUnset(headers.xAcsAligenieAccessToken)) {
+      realHeaders["x-acs-aligenie-access-token"] = Util.toJSONString(headers.xAcsAligenieAccessToken);
+    }
+
+    if (!Util.isUnset(headers.authorization)) {
+      realHeaders["Authorization"] = Util.toJSONString(headers.authorization);
+    }
+
+    let req = new $OpenApi.OpenApiRequest({
+      headers: realHeaders,
+      body: OpenApiUtil.parseToMap(body),
+    });
+    let params = new $OpenApi.Params({
+      action: "DeleteRcuScene",
+      version: "ip_1.0",
+      protocol: "HTTPS",
+      pathname: `/v1.0/ip/deleteRcuScene`,
+      method: "POST",
+      authType: "AK",
+      style: "ROA",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $tea.cast<DeleteRcuSceneResponse>(await this.callApi(params, req, runtime), new DeleteRcuSceneResponse({}));
+  }
+
+  async deleteRcuScene(request: DeleteRcuSceneRequest): Promise<DeleteRcuSceneResponse> {
+    let runtime = new $Util.RuntimeOptions({ });
+    let headers = new DeleteRcuSceneHeaders({ });
+    return await this.deleteRcuSceneWithOptions(request, headers, runtime);
   }
 
   async deviceControlWithOptions(tmpReq: DeviceControlRequest, headers: DeviceControlHeaders, runtime: $Util.RuntimeOptions): Promise<DeviceControlResponse> {
@@ -14835,6 +15955,62 @@ export default class Client extends OpenApi {
     let runtime = new $Util.RuntimeOptions({ });
     let headers = new GetWelcomeTextAndMusicHeaders({ });
     return await this.getWelcomeTextAndMusicWithOptions(request, headers, runtime);
+  }
+
+  async importHotelConfigWithOptions(tmpReq: ImportHotelConfigRequest, headers: ImportHotelConfigHeaders, runtime: $Util.RuntimeOptions): Promise<ImportHotelConfigResponse> {
+    Util.validateModel(tmpReq);
+    let request = new ImportHotelConfigShrinkRequest({ });
+    OpenApiUtil.convert(tmpReq, request);
+    if (!Util.isUnset(tmpReq.importHotelConfigRequest)) {
+      request.importHotelConfigRequestShrink = OpenApiUtil.arrayToStringWithSpecifiedStyle(tmpReq.importHotelConfigRequest, "ImportHotelConfigRequest", "json");
+    }
+
+    let query : {[key: string ]: any} = { };
+    if (!Util.isUnset(request.importHotelConfigRequestShrink)) {
+      query["ImportHotelConfigRequest"] = request.importHotelConfigRequestShrink;
+    }
+
+    let body : {[key: string ]: any} = { };
+    if (!Util.isUnset(request.hotelId)) {
+      body["HotelId"] = request.hotelId;
+    }
+
+    let realHeaders : {[key: string ]: string} = { };
+    if (!Util.isUnset(headers.commonHeaders)) {
+      realHeaders = headers.commonHeaders;
+    }
+
+    if (!Util.isUnset(headers.xAcsAligenieAccessToken)) {
+      realHeaders["x-acs-aligenie-access-token"] = Util.toJSONString(headers.xAcsAligenieAccessToken);
+    }
+
+    if (!Util.isUnset(headers.authorization)) {
+      realHeaders["Authorization"] = Util.toJSONString(headers.authorization);
+    }
+
+    let req = new $OpenApi.OpenApiRequest({
+      headers: realHeaders,
+      query: OpenApiUtil.query(query),
+      body: OpenApiUtil.parseToMap(body),
+    });
+    let params = new $OpenApi.Params({
+      action: "ImportHotelConfig",
+      version: "ip_1.0",
+      protocol: "HTTPS",
+      pathname: `/v1.0/ip/importHotelConfig`,
+      method: "POST",
+      authType: "AK",
+      style: "ROA",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $tea.cast<ImportHotelConfigResponse>(await this.callApi(params, req, runtime), new ImportHotelConfigResponse({}));
+  }
+
+  async importHotelConfig(request: ImportHotelConfigRequest): Promise<ImportHotelConfigResponse> {
+    let runtime = new $Util.RuntimeOptions({ });
+    let headers = new ImportHotelConfigHeaders({ });
+    return await this.importHotelConfigWithOptions(request, headers, runtime);
   }
 
   async importRoomControlDevicesWithOptions(tmpReq: ImportRoomControlDevicesRequest, headers: ImportRoomControlDevicesHeaders, runtime: $Util.RuntimeOptions): Promise<ImportRoomControlDevicesResponse> {
@@ -16191,6 +17367,76 @@ export default class Client extends OpenApi {
     return await this.queryRoomControlDevicesWithOptions(request, headers, runtime);
   }
 
+  async querySceneListWithOptions(tmpReq: QuerySceneListRequest, headers: QuerySceneListHeaders, runtime: $Util.RuntimeOptions): Promise<QuerySceneListResponse> {
+    Util.validateModel(tmpReq);
+    let request = new QuerySceneListShrinkRequest({ });
+    OpenApiUtil.convert(tmpReq, request);
+    if (!Util.isUnset(tmpReq.sceneStates)) {
+      request.sceneStatesShrink = OpenApiUtil.arrayToStringWithSpecifiedStyle(tmpReq.sceneStates, "SceneStates", "json");
+    }
+
+    if (!Util.isUnset(tmpReq.sceneTypes)) {
+      request.sceneTypesShrink = OpenApiUtil.arrayToStringWithSpecifiedStyle(tmpReq.sceneTypes, "SceneTypes", "json");
+    }
+
+    if (!Util.isUnset(tmpReq.templateInfoIds)) {
+      request.templateInfoIdsShrink = OpenApiUtil.arrayToStringWithSpecifiedStyle(tmpReq.templateInfoIds, "TemplateInfoIds", "json");
+    }
+
+    let body : {[key: string ]: any} = { };
+    if (!Util.isUnset(request.hotelId)) {
+      body["HotelId"] = request.hotelId;
+    }
+
+    if (!Util.isUnset(request.sceneStatesShrink)) {
+      body["SceneStates"] = request.sceneStatesShrink;
+    }
+
+    if (!Util.isUnset(request.sceneTypesShrink)) {
+      body["SceneTypes"] = request.sceneTypesShrink;
+    }
+
+    if (!Util.isUnset(request.templateInfoIdsShrink)) {
+      body["TemplateInfoIds"] = request.templateInfoIdsShrink;
+    }
+
+    let realHeaders : {[key: string ]: string} = { };
+    if (!Util.isUnset(headers.commonHeaders)) {
+      realHeaders = headers.commonHeaders;
+    }
+
+    if (!Util.isUnset(headers.xAcsAligenieAccessToken)) {
+      realHeaders["x-acs-aligenie-access-token"] = Util.toJSONString(headers.xAcsAligenieAccessToken);
+    }
+
+    if (!Util.isUnset(headers.authorization)) {
+      realHeaders["Authorization"] = Util.toJSONString(headers.authorization);
+    }
+
+    let req = new $OpenApi.OpenApiRequest({
+      headers: realHeaders,
+      body: OpenApiUtil.parseToMap(body),
+    });
+    let params = new $OpenApi.Params({
+      action: "QuerySceneList",
+      version: "ip_1.0",
+      protocol: "HTTPS",
+      pathname: `/v1.0/ip/querySceneList`,
+      method: "POST",
+      authType: "AK",
+      style: "ROA",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $tea.cast<QuerySceneListResponse>(await this.callApi(params, req, runtime), new QuerySceneListResponse({}));
+  }
+
+  async querySceneList(request: QuerySceneListRequest): Promise<QuerySceneListResponse> {
+    let runtime = new $Util.RuntimeOptions({ });
+    let headers = new QuerySceneListHeaders({ });
+    return await this.querySceneListWithOptions(request, headers, runtime);
+  }
+
   async removeChildAccountAuthWithOptions(request: RemoveChildAccountAuthRequest, headers: RemoveChildAccountAuthHeaders, runtime: $Util.RuntimeOptions): Promise<RemoveChildAccountAuthResponse> {
     Util.validateModel(request);
     let body : {[key: string ]: any} = { };
@@ -17043,6 +18289,64 @@ export default class Client extends OpenApi {
     let runtime = new $Util.RuntimeOptions({ });
     let headers = new UpdateMessageTemplateHeaders({ });
     return await this.updateMessageTemplateWithOptions(request, headers, runtime);
+  }
+
+  async updateRcuSceneWithOptions(tmpReq: UpdateRcuSceneRequest, headers: UpdateRcuSceneHeaders, runtime: $Util.RuntimeOptions): Promise<UpdateRcuSceneResponse> {
+    Util.validateModel(tmpReq);
+    let request = new UpdateRcuSceneShrinkRequest({ });
+    OpenApiUtil.convert(tmpReq, request);
+    if (!Util.isUnset(tmpReq.sceneRelationExtDTO)) {
+      request.sceneRelationExtDTOShrink = OpenApiUtil.arrayToStringWithSpecifiedStyle(tmpReq.sceneRelationExtDTO, "SceneRelationExtDTO", "json");
+    }
+
+    let body : {[key: string ]: any} = { };
+    if (!Util.isUnset(request.hotelId)) {
+      body["HotelId"] = request.hotelId;
+    }
+
+    if (!Util.isUnset(request.sceneId)) {
+      body["SceneId"] = request.sceneId;
+    }
+
+    if (!Util.isUnset(request.sceneRelationExtDTOShrink)) {
+      body["SceneRelationExtDTO"] = request.sceneRelationExtDTOShrink;
+    }
+
+    let realHeaders : {[key: string ]: string} = { };
+    if (!Util.isUnset(headers.commonHeaders)) {
+      realHeaders = headers.commonHeaders;
+    }
+
+    if (!Util.isUnset(headers.xAcsAligenieAccessToken)) {
+      realHeaders["x-acs-aligenie-access-token"] = Util.toJSONString(headers.xAcsAligenieAccessToken);
+    }
+
+    if (!Util.isUnset(headers.authorization)) {
+      realHeaders["Authorization"] = Util.toJSONString(headers.authorization);
+    }
+
+    let req = new $OpenApi.OpenApiRequest({
+      headers: realHeaders,
+      body: OpenApiUtil.parseToMap(body),
+    });
+    let params = new $OpenApi.Params({
+      action: "UpdateRcuScene",
+      version: "ip_1.0",
+      protocol: "HTTPS",
+      pathname: `/v1.0/ip/updateRcuScene`,
+      method: "POST",
+      authType: "AK",
+      style: "ROA",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $tea.cast<UpdateRcuSceneResponse>(await this.callApi(params, req, runtime), new UpdateRcuSceneResponse({}));
+  }
+
+  async updateRcuScene(request: UpdateRcuSceneRequest): Promise<UpdateRcuSceneResponse> {
+    let runtime = new $Util.RuntimeOptions({ });
+    let headers = new UpdateRcuSceneHeaders({ });
+    return await this.updateRcuSceneWithOptions(request, headers, runtime);
   }
 
   async updateServiceQAWithOptions(request: UpdateServiceQARequest, headers: UpdateServiceQAHeaders, runtime: $Util.RuntimeOptions): Promise<UpdateServiceQAResponse> {
