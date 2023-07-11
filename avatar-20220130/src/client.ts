@@ -873,6 +873,130 @@ export class QueryTimedResetOperateStatusResponse extends $tea.Model {
   }
 }
 
+export class SendCommandRequest extends $tea.Model {
+  code?: string;
+  content?: { [key: string]: any };
+  feedback?: boolean;
+  sessionId?: string;
+  tenantId?: number;
+  uniqueCode?: string;
+  static names(): { [key: string]: string } {
+    return {
+      code: 'Code',
+      content: 'Content',
+      feedback: 'Feedback',
+      sessionId: 'SessionId',
+      tenantId: 'TenantId',
+      uniqueCode: 'UniqueCode',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      code: 'string',
+      content: { 'type': 'map', 'keyType': 'string', 'valueType': 'any' },
+      feedback: 'boolean',
+      sessionId: 'string',
+      tenantId: 'number',
+      uniqueCode: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class SendCommandShrinkRequest extends $tea.Model {
+  code?: string;
+  contentShrink?: string;
+  feedback?: boolean;
+  sessionId?: string;
+  tenantId?: number;
+  uniqueCode?: string;
+  static names(): { [key: string]: string } {
+    return {
+      code: 'Code',
+      contentShrink: 'Content',
+      feedback: 'Feedback',
+      sessionId: 'SessionId',
+      tenantId: 'TenantId',
+      uniqueCode: 'UniqueCode',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      code: 'string',
+      contentShrink: 'string',
+      feedback: 'boolean',
+      sessionId: 'string',
+      tenantId: 'number',
+      uniqueCode: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class SendCommandResponseBody extends $tea.Model {
+  code?: string;
+  data?: SendCommandResponseBodyData;
+  message?: string;
+  requestId?: string;
+  success?: boolean;
+  static names(): { [key: string]: string } {
+    return {
+      code: 'Code',
+      data: 'Data',
+      message: 'Message',
+      requestId: 'RequestId',
+      success: 'Success',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      code: 'string',
+      data: SendCommandResponseBodyData,
+      message: 'string',
+      requestId: 'string',
+      success: 'boolean',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class SendCommandResponse extends $tea.Model {
+  headers: { [key: string]: string };
+  statusCode: number;
+  body: SendCommandResponseBody;
+  static names(): { [key: string]: string } {
+    return {
+      headers: 'headers',
+      statusCode: 'statusCode',
+      body: 'body',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
+      body: SendCommandResponseBody,
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
 export class SendMessageRequest extends $tea.Model {
   feedback?: boolean;
   sessionId?: string;
@@ -986,6 +1110,217 @@ export class SendMessageResponse extends $tea.Model {
       headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
       statusCode: 'number',
       body: SendMessageResponseBody,
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class SendTextRequest extends $tea.Model {
+  feedback?: boolean;
+  interrupt?: boolean;
+  sessionId?: string;
+  streamExtension?: SendTextRequestStreamExtension;
+  tenantId?: number;
+  text?: string;
+  uniqueCode?: string;
+  static names(): { [key: string]: string } {
+    return {
+      feedback: 'Feedback',
+      interrupt: 'Interrupt',
+      sessionId: 'SessionId',
+      streamExtension: 'StreamExtension',
+      tenantId: 'TenantId',
+      text: 'Text',
+      uniqueCode: 'UniqueCode',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      feedback: 'boolean',
+      interrupt: 'boolean',
+      sessionId: 'string',
+      streamExtension: SendTextRequestStreamExtension,
+      tenantId: 'number',
+      text: 'string',
+      uniqueCode: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class SendTextShrinkRequest extends $tea.Model {
+  feedback?: boolean;
+  interrupt?: boolean;
+  sessionId?: string;
+  streamExtensionShrink?: string;
+  tenantId?: number;
+  text?: string;
+  uniqueCode?: string;
+  static names(): { [key: string]: string } {
+    return {
+      feedback: 'Feedback',
+      interrupt: 'Interrupt',
+      sessionId: 'SessionId',
+      streamExtensionShrink: 'StreamExtension',
+      tenantId: 'TenantId',
+      text: 'Text',
+      uniqueCode: 'UniqueCode',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      feedback: 'boolean',
+      interrupt: 'boolean',
+      sessionId: 'string',
+      streamExtensionShrink: 'string',
+      tenantId: 'number',
+      text: 'string',
+      uniqueCode: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class SendTextResponseBody extends $tea.Model {
+  code?: string;
+  data?: SendTextResponseBodyData;
+  message?: string;
+  requestId?: string;
+  success?: boolean;
+  static names(): { [key: string]: string } {
+    return {
+      code: 'Code',
+      data: 'Data',
+      message: 'Message',
+      requestId: 'RequestId',
+      success: 'Success',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      code: 'string',
+      data: SendTextResponseBodyData,
+      message: 'string',
+      requestId: 'string',
+      success: 'boolean',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class SendTextResponse extends $tea.Model {
+  headers: { [key: string]: string };
+  statusCode: number;
+  body: SendTextResponseBody;
+  static names(): { [key: string]: string } {
+    return {
+      headers: 'headers',
+      statusCode: 'statusCode',
+      body: 'body',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
+      body: SendTextResponseBody,
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class SendVamlRequest extends $tea.Model {
+  sessionId?: string;
+  tenantId?: number;
+  vaml?: string;
+  static names(): { [key: string]: string } {
+    return {
+      sessionId: 'SessionId',
+      tenantId: 'TenantId',
+      vaml: 'Vaml',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      sessionId: 'string',
+      tenantId: 'number',
+      vaml: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class SendVamlResponseBody extends $tea.Model {
+  code?: string;
+  data?: SendVamlResponseBodyData;
+  message?: string;
+  requestId?: string;
+  success?: boolean;
+  static names(): { [key: string]: string } {
+    return {
+      code: 'Code',
+      data: 'Data',
+      message: 'Message',
+      requestId: 'RequestId',
+      success: 'Success',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      code: 'string',
+      data: SendVamlResponseBodyData,
+      message: 'string',
+      requestId: 'string',
+      success: 'boolean',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class SendVamlResponse extends $tea.Model {
+  headers: { [key: string]: string };
+  statusCode: number;
+  body: SendVamlResponseBody;
+  static names(): { [key: string]: string } {
+    return {
+      headers: 'headers',
+      statusCode: 'statusCode',
+      body: 'body',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
+      body: SendVamlResponseBody,
     };
   }
 
@@ -2469,6 +2804,28 @@ export class QueryTimedResetOperateStatusResponseBodyData extends $tea.Model {
   }
 }
 
+export class SendCommandResponseBodyData extends $tea.Model {
+  sessionId?: string;
+  uniqueCode?: string;
+  static names(): { [key: string]: string } {
+    return {
+      sessionId: 'SessionId',
+      uniqueCode: 'UniqueCode',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      sessionId: 'string',
+      uniqueCode: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
 export class SendMessageRequestStreamExtension extends $tea.Model {
   index?: number;
   isStream?: boolean;
@@ -2558,6 +2915,75 @@ export class SendMessageResponseBodyData extends $tea.Model {
     return {
       requestId: 'string',
       sessionId: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class SendTextRequestStreamExtension extends $tea.Model {
+  index?: number;
+  isStream?: boolean;
+  position?: string;
+  static names(): { [key: string]: string } {
+    return {
+      index: 'Index',
+      isStream: 'IsStream',
+      position: 'Position',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      index: 'number',
+      isStream: 'boolean',
+      position: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class SendTextResponseBodyData extends $tea.Model {
+  sessionId?: string;
+  uniqueCode?: string;
+  static names(): { [key: string]: string } {
+    return {
+      sessionId: 'SessionId',
+      uniqueCode: 'UniqueCode',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      sessionId: 'string',
+      uniqueCode: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class SendVamlResponseBodyData extends $tea.Model {
+  sessionId?: string;
+  uniqueCode?: string;
+  static names(): { [key: string]: string } {
+    return {
+      sessionId: 'SessionId',
+      uniqueCode: 'UniqueCode',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      sessionId: 'string',
+      uniqueCode: 'string',
     };
   }
 
@@ -3567,6 +3993,61 @@ export default class Client extends OpenApi {
     return await this.queryTimedResetOperateStatusWithOptions(request, runtime);
   }
 
+  async sendCommandWithOptions(tmpReq: SendCommandRequest, runtime: $Util.RuntimeOptions): Promise<SendCommandResponse> {
+    Util.validateModel(tmpReq);
+    let request = new SendCommandShrinkRequest({ });
+    OpenApiUtil.convert(tmpReq, request);
+    if (!Util.isUnset(tmpReq.content)) {
+      request.contentShrink = OpenApiUtil.arrayToStringWithSpecifiedStyle(tmpReq.content, "Content", "json");
+    }
+
+    let query = { };
+    if (!Util.isUnset(request.code)) {
+      query["Code"] = request.code;
+    }
+
+    if (!Util.isUnset(request.contentShrink)) {
+      query["Content"] = request.contentShrink;
+    }
+
+    if (!Util.isUnset(request.feedback)) {
+      query["Feedback"] = request.feedback;
+    }
+
+    if (!Util.isUnset(request.sessionId)) {
+      query["SessionId"] = request.sessionId;
+    }
+
+    if (!Util.isUnset(request.tenantId)) {
+      query["TenantId"] = request.tenantId;
+    }
+
+    if (!Util.isUnset(request.uniqueCode)) {
+      query["UniqueCode"] = request.uniqueCode;
+    }
+
+    let req = new $OpenApi.OpenApiRequest({
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApi.Params({
+      action: "SendCommand",
+      version: "2022-01-30",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $tea.cast<SendCommandResponse>(await this.callApi(params, req, runtime), new SendCommandResponse({}));
+  }
+
+  async sendCommand(request: SendCommandRequest): Promise<SendCommandResponse> {
+    let runtime = new $Util.RuntimeOptions({ });
+    return await this.sendCommandWithOptions(request, runtime);
+  }
+
   async sendMessageWithOptions(tmpReq: SendMessageRequest, runtime: $Util.RuntimeOptions): Promise<SendMessageResponse> {
     Util.validateModel(tmpReq);
     let request = new SendMessageShrinkRequest({ });
@@ -3628,6 +4109,102 @@ export default class Client extends OpenApi {
   async sendMessage(request: SendMessageRequest): Promise<SendMessageResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.sendMessageWithOptions(request, runtime);
+  }
+
+  async sendTextWithOptions(tmpReq: SendTextRequest, runtime: $Util.RuntimeOptions): Promise<SendTextResponse> {
+    Util.validateModel(tmpReq);
+    let request = new SendTextShrinkRequest({ });
+    OpenApiUtil.convert(tmpReq, request);
+    if (!Util.isUnset(tmpReq.streamExtension)) {
+      request.streamExtensionShrink = OpenApiUtil.arrayToStringWithSpecifiedStyle(tmpReq.streamExtension, "StreamExtension", "json");
+    }
+
+    let query = { };
+    if (!Util.isUnset(request.feedback)) {
+      query["Feedback"] = request.feedback;
+    }
+
+    if (!Util.isUnset(request.interrupt)) {
+      query["Interrupt"] = request.interrupt;
+    }
+
+    if (!Util.isUnset(request.sessionId)) {
+      query["SessionId"] = request.sessionId;
+    }
+
+    if (!Util.isUnset(request.streamExtensionShrink)) {
+      query["StreamExtension"] = request.streamExtensionShrink;
+    }
+
+    if (!Util.isUnset(request.tenantId)) {
+      query["TenantId"] = request.tenantId;
+    }
+
+    if (!Util.isUnset(request.text)) {
+      query["Text"] = request.text;
+    }
+
+    if (!Util.isUnset(request.uniqueCode)) {
+      query["UniqueCode"] = request.uniqueCode;
+    }
+
+    let req = new $OpenApi.OpenApiRequest({
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApi.Params({
+      action: "SendText",
+      version: "2022-01-30",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $tea.cast<SendTextResponse>(await this.callApi(params, req, runtime), new SendTextResponse({}));
+  }
+
+  async sendText(request: SendTextRequest): Promise<SendTextResponse> {
+    let runtime = new $Util.RuntimeOptions({ });
+    return await this.sendTextWithOptions(request, runtime);
+  }
+
+  async sendVamlWithOptions(request: SendVamlRequest, runtime: $Util.RuntimeOptions): Promise<SendVamlResponse> {
+    Util.validateModel(request);
+    let query = { };
+    if (!Util.isUnset(request.sessionId)) {
+      query["SessionId"] = request.sessionId;
+    }
+
+    if (!Util.isUnset(request.tenantId)) {
+      query["TenantId"] = request.tenantId;
+    }
+
+    if (!Util.isUnset(request.vaml)) {
+      query["Vaml"] = request.vaml;
+    }
+
+    let req = new $OpenApi.OpenApiRequest({
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApi.Params({
+      action: "SendVaml",
+      version: "2022-01-30",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $tea.cast<SendVamlResponse>(await this.callApi(params, req, runtime), new SendVamlResponse({}));
+  }
+
+  async sendVaml(request: SendVamlRequest): Promise<SendVamlResponse> {
+    let runtime = new $Util.RuntimeOptions({ });
+    return await this.sendVamlWithOptions(request, runtime);
   }
 
   async startInstanceWithOptions(tmpReq: StartInstanceRequest, runtime: $Util.RuntimeOptions): Promise<StartInstanceResponse> {
