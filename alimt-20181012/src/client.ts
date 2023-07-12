@@ -1927,10 +1927,12 @@ export class GetTranslateImageBatchResultResponseBodyData extends $tea.Model {
 }
 
 export class TranslateResponseBodyData extends $tea.Model {
+  detectedLanguage?: string;
   translated?: string;
   wordCount?: string;
   static names(): { [key: string]: string } {
     return {
+      detectedLanguage: 'DetectedLanguage',
       translated: 'Translated',
       wordCount: 'WordCount',
     };
@@ -1938,6 +1940,7 @@ export class TranslateResponseBodyData extends $tea.Model {
 
   static types(): { [key: string]: any } {
     return {
+      detectedLanguage: 'string',
       translated: 'string',
       wordCount: 'string',
     };
@@ -2018,10 +2021,12 @@ export class TranslateECommerceResponseBodyData extends $tea.Model {
 }
 
 export class TranslateGeneralResponseBodyData extends $tea.Model {
+  detectedLanguage?: string;
   translated?: string;
   wordCount?: string;
   static names(): { [key: string]: string } {
     return {
+      detectedLanguage: 'DetectedLanguage',
       translated: 'Translated',
       wordCount: 'WordCount',
     };
@@ -2029,6 +2034,7 @@ export class TranslateGeneralResponseBodyData extends $tea.Model {
 
   static types(): { [key: string]: any } {
     return {
+      detectedLanguage: 'string',
       translated: 'string',
       wordCount: 'string',
     };
@@ -2953,6 +2959,14 @@ export default class Client extends OpenApi {
     return translateCertificateResp;
   }
 
+  /**
+    * @deprecated : TranslateECommerce is deprecated, please use alimt::2018-10-12::Translate instead.
+    *
+    * @param request TranslateECommerceRequest
+    * @param runtime runtime options for this request RuntimeOptions
+    * @return TranslateECommerceResponse
+   */
+  // Deprecated
   async translateECommerceWithOptions(request: TranslateECommerceRequest, runtime: $Util.RuntimeOptions): Promise<TranslateECommerceResponse> {
     Util.validateModel(request);
     let query = { };
@@ -2999,6 +3013,13 @@ export default class Client extends OpenApi {
     return $tea.cast<TranslateECommerceResponse>(await this.callApi(params, req, runtime), new TranslateECommerceResponse({}));
   }
 
+  /**
+    * @deprecated : TranslateECommerce is deprecated, please use alimt::2018-10-12::Translate instead.
+    *
+    * @param request TranslateECommerceRequest
+    * @return TranslateECommerceResponse
+   */
+  // Deprecated
   async translateECommerce(request: TranslateECommerceRequest): Promise<TranslateECommerceResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.translateECommerceWithOptions(request, runtime);
