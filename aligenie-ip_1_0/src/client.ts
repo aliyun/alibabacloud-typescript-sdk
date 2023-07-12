@@ -15965,14 +15965,13 @@ export default class Client extends OpenApi {
       request.importHotelConfigRequestShrink = OpenApiUtil.arrayToStringWithSpecifiedStyle(tmpReq.importHotelConfigRequest, "ImportHotelConfigRequest", "json");
     }
 
-    let query : {[key: string ]: any} = { };
-    if (!Util.isUnset(request.importHotelConfigRequestShrink)) {
-      query["ImportHotelConfigRequest"] = request.importHotelConfigRequestShrink;
-    }
-
     let body : {[key: string ]: any} = { };
     if (!Util.isUnset(request.hotelId)) {
       body["HotelId"] = request.hotelId;
+    }
+
+    if (!Util.isUnset(request.importHotelConfigRequestShrink)) {
+      body["ImportHotelConfigRequest"] = request.importHotelConfigRequestShrink;
     }
 
     let realHeaders : {[key: string ]: string} = { };
@@ -15990,7 +15989,6 @@ export default class Client extends OpenApi {
 
     let req = new $OpenApi.OpenApiRequest({
       headers: realHeaders,
-      query: OpenApiUtil.query(query),
       body: OpenApiUtil.parseToMap(body),
     });
     let params = new $OpenApi.Params({
