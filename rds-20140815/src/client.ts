@@ -22331,6 +22331,7 @@ export class ResetAccountPasswordResponse extends $tea.Model {
 export class RestartDBInstanceRequest extends $tea.Model {
   clientToken?: string;
   DBInstanceId?: string;
+  nodeId?: string;
   ownerAccount?: string;
   ownerId?: number;
   resourceOwnerAccount?: string;
@@ -22339,6 +22340,7 @@ export class RestartDBInstanceRequest extends $tea.Model {
     return {
       clientToken: 'ClientToken',
       DBInstanceId: 'DBInstanceId',
+      nodeId: 'NodeId',
       ownerAccount: 'OwnerAccount',
       ownerId: 'OwnerId',
       resourceOwnerAccount: 'ResourceOwnerAccount',
@@ -22350,6 +22352,7 @@ export class RestartDBInstanceRequest extends $tea.Model {
     return {
       clientToken: 'string',
       DBInstanceId: 'string',
+      nodeId: 'string',
       ownerAccount: 'string',
       ownerId: 'number',
       resourceOwnerAccount: 'string',
@@ -24964,6 +24967,7 @@ export class DescribeActiveOperationTasksResponseBodyItems extends $tea.Model {
   status?: number;
   subInsNames?: string[];
   switchTime?: string;
+  taskParams?: string;
   taskType?: string;
   taskTypeEn?: string;
   taskTypeZh?: string;
@@ -24993,6 +24997,7 @@ export class DescribeActiveOperationTasksResponseBodyItems extends $tea.Model {
       status: 'Status',
       subInsNames: 'SubInsNames',
       switchTime: 'SwitchTime',
+      taskParams: 'TaskParams',
       taskType: 'TaskType',
       taskTypeEn: 'TaskTypeEn',
       taskTypeZh: 'TaskTypeZh',
@@ -25025,6 +25030,7 @@ export class DescribeActiveOperationTasksResponseBodyItems extends $tea.Model {
       status: 'number',
       subInsNames: { 'type': 'array', 'itemType': 'string' },
       switchTime: 'string',
+      taskParams: 'string',
       taskType: 'string',
       taskTypeEn: 'string',
       taskTypeZh: 'string',
@@ -49654,6 +49660,10 @@ export default class Client extends OpenApi {
 
     if (!Util.isUnset(request.DBInstanceId)) {
       query["DBInstanceId"] = request.DBInstanceId;
+    }
+
+    if (!Util.isUnset(request.nodeId)) {
+      query["NodeId"] = request.nodeId;
     }
 
     if (!Util.isUnset(request.ownerAccount)) {
