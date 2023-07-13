@@ -25741,6 +25741,7 @@ export class HotelOrderPreValidateResponseBodyModuleRatePlanInfo extends $tea.Mo
   btripHotelCancelPolicyDTO?: HotelOrderPreValidateResponseBodyModuleRatePlanInfoBtripHotelCancelPolicyDTO;
   earliestCheckInTime?: string;
   latestCheckOutTime?: string;
+  maxBookingNum?: number;
   maxOccupancyNum?: number;
   needCertificate?: boolean;
   needEmail?: boolean;
@@ -25753,6 +25754,7 @@ export class HotelOrderPreValidateResponseBodyModuleRatePlanInfo extends $tea.Mo
       btripHotelCancelPolicyDTO: 'btrip_hotel_cancel_policy_d_t_o',
       earliestCheckInTime: 'earliest_check_in_time',
       latestCheckOutTime: 'latest_check_out_time',
+      maxBookingNum: 'max_booking_num',
       maxOccupancyNum: 'max_occupancy_num',
       needCertificate: 'need_certificate',
       needEmail: 'need_email',
@@ -25768,6 +25770,7 @@ export class HotelOrderPreValidateResponseBodyModuleRatePlanInfo extends $tea.Mo
       btripHotelCancelPolicyDTO: HotelOrderPreValidateResponseBodyModuleRatePlanInfoBtripHotelCancelPolicyDTO,
       earliestCheckInTime: 'string',
       latestCheckOutTime: 'string',
+      maxBookingNum: 'number',
       maxOccupancyNum: 'number',
       needCertificate: 'boolean',
       needEmail: 'boolean',
