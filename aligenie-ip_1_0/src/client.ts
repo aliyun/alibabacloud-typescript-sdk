@@ -4824,18 +4824,18 @@ export class ImportHotelConfigHeaders extends $tea.Model {
 
 export class ImportHotelConfigRequest extends $tea.Model {
   hotelId?: string;
-  importHotelConfigRequest?: ImportHotelConfigRequestImportHotelConfigRequest;
+  importHotelConfig?: ImportHotelConfigRequestImportHotelConfig;
   static names(): { [key: string]: string } {
     return {
       hotelId: 'HotelId',
-      importHotelConfigRequest: 'ImportHotelConfigRequest',
+      importHotelConfig: 'ImportHotelConfig',
     };
   }
 
   static types(): { [key: string]: any } {
     return {
       hotelId: 'string',
-      importHotelConfigRequest: ImportHotelConfigRequestImportHotelConfigRequest,
+      importHotelConfig: ImportHotelConfigRequestImportHotelConfig,
     };
   }
 
@@ -4846,18 +4846,18 @@ export class ImportHotelConfigRequest extends $tea.Model {
 
 export class ImportHotelConfigShrinkRequest extends $tea.Model {
   hotelId?: string;
-  importHotelConfigRequestShrink?: string;
+  importHotelConfigShrink?: string;
   static names(): { [key: string]: string } {
     return {
       hotelId: 'HotelId',
-      importHotelConfigRequestShrink: 'ImportHotelConfigRequest',
+      importHotelConfigShrink: 'ImportHotelConfig',
     };
   }
 
   static types(): { [key: string]: any } {
     return {
       hotelId: 'string',
-      importHotelConfigRequestShrink: 'string',
+      importHotelConfigShrink: 'string',
     };
   }
 
@@ -4945,11 +4945,13 @@ export class ImportRoomControlDevicesHeaders extends $tea.Model {
 }
 
 export class ImportRoomControlDevicesRequest extends $tea.Model {
+  enableInfraredDeviceImport?: string;
   hotelId?: string;
   locationDevices?: ImportRoomControlDevicesRequestLocationDevices[];
   roomNo?: string;
   static names(): { [key: string]: string } {
     return {
+      enableInfraredDeviceImport: 'EnableInfraredDeviceImport',
       hotelId: 'HotelId',
       locationDevices: 'LocationDevices',
       roomNo: 'RoomNo',
@@ -4958,6 +4960,7 @@ export class ImportRoomControlDevicesRequest extends $tea.Model {
 
   static types(): { [key: string]: any } {
     return {
+      enableInfraredDeviceImport: 'string',
       hotelId: 'string',
       locationDevices: { 'type': 'array', 'itemType': ImportRoomControlDevicesRequestLocationDevices },
       roomNo: 'string',
@@ -4970,11 +4973,13 @@ export class ImportRoomControlDevicesRequest extends $tea.Model {
 }
 
 export class ImportRoomControlDevicesShrinkRequest extends $tea.Model {
+  enableInfraredDeviceImport?: string;
   hotelId?: string;
   locationDevicesShrink?: string;
   roomNo?: string;
   static names(): { [key: string]: string } {
     return {
+      enableInfraredDeviceImport: 'EnableInfraredDeviceImport',
       hotelId: 'HotelId',
       locationDevicesShrink: 'LocationDevices',
       roomNo: 'RoomNo',
@@ -4983,6 +4988,7 @@ export class ImportRoomControlDevicesShrinkRequest extends $tea.Model {
 
   static types(): { [key: string]: any } {
     return {
+      enableInfraredDeviceImport: 'string',
       hotelId: 'string',
       locationDevicesShrink: 'string',
       roomNo: 'string',
@@ -5267,6 +5273,181 @@ export class InvokeRobotPushResponse extends $tea.Model {
       headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
       statusCode: 'number',
       body: InvokeRobotPushResponseBody,
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class ListAllProvincesHeaders extends $tea.Model {
+  commonHeaders?: { [key: string]: string };
+  xAcsAligenieAccessToken?: string;
+  authorization?: string;
+  static names(): { [key: string]: string } {
+    return {
+      commonHeaders: 'commonHeaders',
+      xAcsAligenieAccessToken: 'x-acs-aligenie-access-token',
+      authorization: 'Authorization',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      commonHeaders: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      xAcsAligenieAccessToken: 'string',
+      authorization: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class ListAllProvincesResponseBody extends $tea.Model {
+  message?: string;
+  requestId?: string;
+  result?: string[];
+  statusCode?: number;
+  static names(): { [key: string]: string } {
+    return {
+      message: 'Message',
+      requestId: 'RequestId',
+      result: 'Result',
+      statusCode: 'StatusCode',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      message: 'string',
+      requestId: 'string',
+      result: { 'type': 'array', 'itemType': 'string' },
+      statusCode: 'number',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class ListAllProvincesResponse extends $tea.Model {
+  headers: { [key: string]: string };
+  statusCode: number;
+  body: ListAllProvincesResponseBody;
+  static names(): { [key: string]: string } {
+    return {
+      headers: 'headers',
+      statusCode: 'statusCode',
+      body: 'body',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
+      body: ListAllProvincesResponseBody,
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class ListCitiesByProvinceHeaders extends $tea.Model {
+  commonHeaders?: { [key: string]: string };
+  xAcsAligenieAccessToken?: string;
+  authorization?: string;
+  static names(): { [key: string]: string } {
+    return {
+      commonHeaders: 'commonHeaders',
+      xAcsAligenieAccessToken: 'x-acs-aligenie-access-token',
+      authorization: 'Authorization',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      commonHeaders: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      xAcsAligenieAccessToken: 'string',
+      authorization: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class ListCitiesByProvinceRequest extends $tea.Model {
+  province?: string;
+  static names(): { [key: string]: string } {
+    return {
+      province: 'Province',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      province: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class ListCitiesByProvinceResponseBody extends $tea.Model {
+  message?: string;
+  requestId?: string;
+  result?: string[];
+  statusCode?: number;
+  static names(): { [key: string]: string } {
+    return {
+      message: 'Message',
+      requestId: 'RequestId',
+      result: 'Result',
+      statusCode: 'StatusCode',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      message: 'string',
+      requestId: 'string',
+      result: { 'type': 'array', 'itemType': 'string' },
+      statusCode: 'number',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class ListCitiesByProvinceResponse extends $tea.Model {
+  headers: { [key: string]: string };
+  statusCode: number;
+  body: ListCitiesByProvinceResponseBody;
+  static names(): { [key: string]: string } {
+    return {
+      headers: 'headers',
+      statusCode: 'statusCode',
+      body: 'body',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
+      body: ListCitiesByProvinceResponseBody,
     };
   }
 
@@ -6730,6 +6911,318 @@ export class ListHotelsResponse extends $tea.Model {
       headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
       statusCode: 'number',
       body: ListHotelsResponseBody,
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class ListInfraredDeviceBrandsHeaders extends $tea.Model {
+  commonHeaders?: { [key: string]: string };
+  xAcsAligenieAccessToken?: string;
+  authorization?: string;
+  static names(): { [key: string]: string } {
+    return {
+      commonHeaders: 'commonHeaders',
+      xAcsAligenieAccessToken: 'x-acs-aligenie-access-token',
+      authorization: 'Authorization',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      commonHeaders: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      xAcsAligenieAccessToken: 'string',
+      authorization: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class ListInfraredDeviceBrandsRequest extends $tea.Model {
+  category?: string;
+  serviceProvider?: string;
+  static names(): { [key: string]: string } {
+    return {
+      category: 'Category',
+      serviceProvider: 'ServiceProvider',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      category: 'string',
+      serviceProvider: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class ListInfraredDeviceBrandsResponseBody extends $tea.Model {
+  message?: string;
+  requestId?: string;
+  result?: { [key: string]: string[] };
+  statusCode?: number;
+  static names(): { [key: string]: string } {
+    return {
+      message: 'Message',
+      requestId: 'RequestId',
+      result: 'Result',
+      statusCode: 'StatusCode',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      message: 'string',
+      requestId: 'string',
+      result: { 'type': 'map', 'keyType': 'string', 'valueType': { 'type': 'array', 'itemType': 'string' } },
+      statusCode: 'number',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class ListInfraredDeviceBrandsResponse extends $tea.Model {
+  headers: { [key: string]: string };
+  statusCode: number;
+  body: ListInfraredDeviceBrandsResponseBody;
+  static names(): { [key: string]: string } {
+    return {
+      headers: 'headers',
+      statusCode: 'statusCode',
+      body: 'body',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
+      body: ListInfraredDeviceBrandsResponseBody,
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class ListInfraredRemoteControllersHeaders extends $tea.Model {
+  commonHeaders?: { [key: string]: string };
+  xAcsAligenieAccessToken?: string;
+  authorization?: string;
+  static names(): { [key: string]: string } {
+    return {
+      commonHeaders: 'commonHeaders',
+      xAcsAligenieAccessToken: 'x-acs-aligenie-access-token',
+      authorization: 'Authorization',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      commonHeaders: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      xAcsAligenieAccessToken: 'string',
+      authorization: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class ListInfraredRemoteControllersRequest extends $tea.Model {
+  brand?: string;
+  category?: string;
+  city?: string;
+  hotelId?: string;
+  province?: string;
+  serviceProvider?: string;
+  static names(): { [key: string]: string } {
+    return {
+      brand: 'Brand',
+      category: 'Category',
+      city: 'City',
+      hotelId: 'HotelId',
+      province: 'Province',
+      serviceProvider: 'ServiceProvider',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      brand: 'string',
+      category: 'string',
+      city: 'string',
+      hotelId: 'string',
+      province: 'string',
+      serviceProvider: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class ListInfraredRemoteControllersResponseBody extends $tea.Model {
+  message?: string;
+  requestId?: string;
+  result?: ListInfraredRemoteControllersResponseBodyResult[];
+  statusCode?: number;
+  static names(): { [key: string]: string } {
+    return {
+      message: 'Message',
+      requestId: 'RequestId',
+      result: 'Result',
+      statusCode: 'StatusCode',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      message: 'string',
+      requestId: 'string',
+      result: { 'type': 'array', 'itemType': ListInfraredRemoteControllersResponseBodyResult },
+      statusCode: 'number',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class ListInfraredRemoteControllersResponse extends $tea.Model {
+  headers: { [key: string]: string };
+  statusCode: number;
+  body: ListInfraredRemoteControllersResponseBody;
+  static names(): { [key: string]: string } {
+    return {
+      headers: 'headers',
+      statusCode: 'statusCode',
+      body: 'body',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
+      body: ListInfraredRemoteControllersResponseBody,
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class ListSTBServiceProvidersHeaders extends $tea.Model {
+  commonHeaders?: { [key: string]: string };
+  xAcsAligenieAccessToken?: string;
+  authorization?: string;
+  static names(): { [key: string]: string } {
+    return {
+      commonHeaders: 'commonHeaders',
+      xAcsAligenieAccessToken: 'x-acs-aligenie-access-token',
+      authorization: 'Authorization',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      commonHeaders: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      xAcsAligenieAccessToken: 'string',
+      authorization: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class ListSTBServiceProvidersRequest extends $tea.Model {
+  city?: string;
+  province?: string;
+  static names(): { [key: string]: string } {
+    return {
+      city: 'City',
+      province: 'Province',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      city: 'string',
+      province: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class ListSTBServiceProvidersResponseBody extends $tea.Model {
+  message?: string;
+  requestId?: string;
+  result?: { [key: string]: string[] };
+  statusCode?: number;
+  static names(): { [key: string]: string } {
+    return {
+      message: 'Message',
+      requestId: 'RequestId',
+      result: 'Result',
+      statusCode: 'StatusCode',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      message: 'string',
+      requestId: 'string',
+      result: { 'type': 'map', 'keyType': 'string', 'valueType': { 'type': 'array', 'itemType': 'string' } },
+      statusCode: 'number',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class ListSTBServiceProvidersResponse extends $tea.Model {
+  headers: { [key: string]: string };
+  statusCode: number;
+  body: ListSTBServiceProvidersResponseBody;
+  static names(): { [key: string]: string } {
+    return {
+      headers: 'headers',
+      statusCode: 'statusCode',
+      body: 'body',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
+      body: ListSTBServiceProvidersResponseBody,
     };
   }
 
@@ -11262,7 +11755,7 @@ export class GetWelcomeTextAndMusicResponseBodyResult extends $tea.Model {
   }
 }
 
-export class ImportHotelConfigRequestImportHotelConfigRequestRcuCustomScenes extends $tea.Model {
+export class ImportHotelConfigRequestImportHotelConfigRcuCustomScenes extends $tea.Model {
   corpusList?: string[];
   description?: string;
   icon?: string;
@@ -11293,8 +11786,8 @@ export class ImportHotelConfigRequestImportHotelConfigRequestRcuCustomScenes ext
   }
 }
 
-export class ImportHotelConfigRequestImportHotelConfigRequest extends $tea.Model {
-  rcuCustomScenes?: ImportHotelConfigRequestImportHotelConfigRequestRcuCustomScenes[];
+export class ImportHotelConfigRequestImportHotelConfig extends $tea.Model {
+  rcuCustomScenes?: ImportHotelConfigRequestImportHotelConfigRcuCustomScenes[];
   static names(): { [key: string]: string } {
     return {
       rcuCustomScenes: 'RcuCustomScenes',
@@ -11303,7 +11796,7 @@ export class ImportHotelConfigRequestImportHotelConfigRequest extends $tea.Model
 
   static types(): { [key: string]: any } {
     return {
-      rcuCustomScenes: { 'type': 'array', 'itemType': ImportHotelConfigRequestImportHotelConfigRequestRcuCustomScenes },
+      rcuCustomScenes: { 'type': 'array', 'itemType': ImportHotelConfigRequestImportHotelConfigRcuCustomScenes },
     };
   }
 
@@ -11313,22 +11806,46 @@ export class ImportHotelConfigRequestImportHotelConfigRequest extends $tea.Model
 }
 
 export class ImportRoomControlDevicesRequestLocationDevicesDevices extends $tea.Model {
+  brand?: string;
+  city?: string;
+  connectType?: string;
   deviceName?: string;
+  infraredId?: string;
+  infraredIndex?: string;
+  infraredVersion?: string;
   name?: string;
   number?: string;
+  province?: string;
+  serviceProvider?: string;
   static names(): { [key: string]: string } {
     return {
+      brand: 'Brand',
+      city: 'City',
+      connectType: 'ConnectType',
       deviceName: 'DeviceName',
+      infraredId: 'InfraredId',
+      infraredIndex: 'InfraredIndex',
+      infraredVersion: 'InfraredVersion',
       name: 'Name',
       number: 'Number',
+      province: 'Province',
+      serviceProvider: 'ServiceProvider',
     };
   }
 
   static types(): { [key: string]: any } {
     return {
+      brand: 'string',
+      city: 'string',
+      connectType: 'string',
       deviceName: 'string',
+      infraredId: 'string',
+      infraredIndex: 'string',
+      infraredVersion: 'string',
       name: 'string',
       number: 'string',
+      province: 'string',
+      serviceProvider: 'string',
     };
   }
 
@@ -12543,6 +13060,31 @@ export class ListHotelsResponseBodyResult extends $tea.Model {
     return {
       hotelInfoList: { 'type': 'array', 'itemType': ListHotelsResponseBodyResultHotelInfoList },
       page: ListHotelsResponseBodyResultPage,
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class ListInfraredRemoteControllersResponseBodyResult extends $tea.Model {
+  index?: number;
+  rid?: number;
+  version?: string;
+  static names(): { [key: string]: string } {
+    return {
+      index: 'Index',
+      rid: 'Rid',
+      version: 'Version',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      index: 'number',
+      rid: 'number',
+      version: 'string',
     };
   }
 
@@ -15961,8 +16503,8 @@ export default class Client extends OpenApi {
     Util.validateModel(tmpReq);
     let request = new ImportHotelConfigShrinkRequest({ });
     OpenApiUtil.convert(tmpReq, request);
-    if (!Util.isUnset(tmpReq.importHotelConfigRequest)) {
-      request.importHotelConfigRequestShrink = OpenApiUtil.arrayToStringWithSpecifiedStyle(tmpReq.importHotelConfigRequest, "ImportHotelConfigRequest", "json");
+    if (!Util.isUnset(tmpReq.importHotelConfig)) {
+      request.importHotelConfigShrink = OpenApiUtil.arrayToStringWithSpecifiedStyle(tmpReq.importHotelConfig, "ImportHotelConfig", "json");
     }
 
     let body : {[key: string ]: any} = { };
@@ -15970,8 +16512,8 @@ export default class Client extends OpenApi {
       body["HotelId"] = request.hotelId;
     }
 
-    if (!Util.isUnset(request.importHotelConfigRequestShrink)) {
-      body["ImportHotelConfigRequest"] = request.importHotelConfigRequestShrink;
+    if (!Util.isUnset(request.importHotelConfigShrink)) {
+      body["ImportHotelConfig"] = request.importHotelConfigShrink;
     }
 
     let realHeaders : {[key: string ]: string} = { };
@@ -16020,6 +16562,10 @@ export default class Client extends OpenApi {
     }
 
     let body : {[key: string ]: any} = { };
+    if (!Util.isUnset(request.enableInfraredDeviceImport)) {
+      body["EnableInfraredDeviceImport"] = request.enableInfraredDeviceImport;
+    }
+
     if (!Util.isUnset(request.hotelId)) {
       body["HotelId"] = request.hotelId;
     }
@@ -16175,6 +16721,87 @@ export default class Client extends OpenApi {
     let runtime = new $Util.RuntimeOptions({ });
     let headers = new InvokeRobotPushHeaders({ });
     return await this.invokeRobotPushWithOptions(request, headers, runtime);
+  }
+
+  async listAllProvincesWithOptions(headers: ListAllProvincesHeaders, runtime: $Util.RuntimeOptions): Promise<ListAllProvincesResponse> {
+    let realHeaders : {[key: string ]: string} = { };
+    if (!Util.isUnset(headers.commonHeaders)) {
+      realHeaders = headers.commonHeaders;
+    }
+
+    if (!Util.isUnset(headers.xAcsAligenieAccessToken)) {
+      realHeaders["x-acs-aligenie-access-token"] = Util.toJSONString(headers.xAcsAligenieAccessToken);
+    }
+
+    if (!Util.isUnset(headers.authorization)) {
+      realHeaders["Authorization"] = Util.toJSONString(headers.authorization);
+    }
+
+    let req = new $OpenApi.OpenApiRequest({
+      headers: realHeaders,
+    });
+    let params = new $OpenApi.Params({
+      action: "ListAllProvinces",
+      version: "ip_1.0",
+      protocol: "HTTPS",
+      pathname: `/v1.0/ip/listAllProvinces`,
+      method: "POST",
+      authType: "AK",
+      style: "ROA",
+      reqBodyType: "json",
+      bodyType: "json",
+    });
+    return $tea.cast<ListAllProvincesResponse>(await this.callApi(params, req, runtime), new ListAllProvincesResponse({}));
+  }
+
+  async listAllProvinces(): Promise<ListAllProvincesResponse> {
+    let runtime = new $Util.RuntimeOptions({ });
+    let headers = new ListAllProvincesHeaders({ });
+    return await this.listAllProvincesWithOptions(headers, runtime);
+  }
+
+  async listCitiesByProvinceWithOptions(request: ListCitiesByProvinceRequest, headers: ListCitiesByProvinceHeaders, runtime: $Util.RuntimeOptions): Promise<ListCitiesByProvinceResponse> {
+    Util.validateModel(request);
+    let body : {[key: string ]: any} = { };
+    if (!Util.isUnset(request.province)) {
+      body["Province"] = request.province;
+    }
+
+    let realHeaders : {[key: string ]: string} = { };
+    if (!Util.isUnset(headers.commonHeaders)) {
+      realHeaders = headers.commonHeaders;
+    }
+
+    if (!Util.isUnset(headers.xAcsAligenieAccessToken)) {
+      realHeaders["x-acs-aligenie-access-token"] = Util.toJSONString(headers.xAcsAligenieAccessToken);
+    }
+
+    if (!Util.isUnset(headers.authorization)) {
+      realHeaders["Authorization"] = Util.toJSONString(headers.authorization);
+    }
+
+    let req = new $OpenApi.OpenApiRequest({
+      headers: realHeaders,
+      body: OpenApiUtil.parseToMap(body),
+    });
+    let params = new $OpenApi.Params({
+      action: "ListCitiesByProvince",
+      version: "ip_1.0",
+      protocol: "HTTPS",
+      pathname: `/v1.0/ip/listCitiesByProvince`,
+      method: "POST",
+      authType: "AK",
+      style: "ROA",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $tea.cast<ListCitiesByProvinceResponse>(await this.callApi(params, req, runtime), new ListCitiesByProvinceResponse({}));
+  }
+
+  async listCitiesByProvince(request: ListCitiesByProvinceRequest): Promise<ListCitiesByProvinceResponse> {
+    let runtime = new $Util.RuntimeOptions({ });
+    let headers = new ListCitiesByProvinceHeaders({ });
+    return await this.listCitiesByProvinceWithOptions(request, headers, runtime);
   }
 
   async listCustomQAWithOptions(tmpReq: ListCustomQARequest, headers: ListCustomQAHeaders, runtime: $Util.RuntimeOptions): Promise<ListCustomQAResponse> {
@@ -16837,6 +17464,166 @@ export default class Client extends OpenApi {
     let runtime = new $Util.RuntimeOptions({ });
     let headers = new ListHotelsHeaders({ });
     return await this.listHotelsWithOptions(request, headers, runtime);
+  }
+
+  async listInfraredDeviceBrandsWithOptions(request: ListInfraredDeviceBrandsRequest, headers: ListInfraredDeviceBrandsHeaders, runtime: $Util.RuntimeOptions): Promise<ListInfraredDeviceBrandsResponse> {
+    Util.validateModel(request);
+    let body : {[key: string ]: any} = { };
+    if (!Util.isUnset(request.category)) {
+      body["Category"] = request.category;
+    }
+
+    if (!Util.isUnset(request.serviceProvider)) {
+      body["ServiceProvider"] = request.serviceProvider;
+    }
+
+    let realHeaders : {[key: string ]: string} = { };
+    if (!Util.isUnset(headers.commonHeaders)) {
+      realHeaders = headers.commonHeaders;
+    }
+
+    if (!Util.isUnset(headers.xAcsAligenieAccessToken)) {
+      realHeaders["x-acs-aligenie-access-token"] = Util.toJSONString(headers.xAcsAligenieAccessToken);
+    }
+
+    if (!Util.isUnset(headers.authorization)) {
+      realHeaders["Authorization"] = Util.toJSONString(headers.authorization);
+    }
+
+    let req = new $OpenApi.OpenApiRequest({
+      headers: realHeaders,
+      body: OpenApiUtil.parseToMap(body),
+    });
+    let params = new $OpenApi.Params({
+      action: "ListInfraredDeviceBrands",
+      version: "ip_1.0",
+      protocol: "HTTPS",
+      pathname: `/v1.0/ip/listInfraredDeviceBrands`,
+      method: "POST",
+      authType: "AK",
+      style: "ROA",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $tea.cast<ListInfraredDeviceBrandsResponse>(await this.callApi(params, req, runtime), new ListInfraredDeviceBrandsResponse({}));
+  }
+
+  async listInfraredDeviceBrands(request: ListInfraredDeviceBrandsRequest): Promise<ListInfraredDeviceBrandsResponse> {
+    let runtime = new $Util.RuntimeOptions({ });
+    let headers = new ListInfraredDeviceBrandsHeaders({ });
+    return await this.listInfraredDeviceBrandsWithOptions(request, headers, runtime);
+  }
+
+  async listInfraredRemoteControllersWithOptions(request: ListInfraredRemoteControllersRequest, headers: ListInfraredRemoteControllersHeaders, runtime: $Util.RuntimeOptions): Promise<ListInfraredRemoteControllersResponse> {
+    Util.validateModel(request);
+    let body : {[key: string ]: any} = { };
+    if (!Util.isUnset(request.brand)) {
+      body["Brand"] = request.brand;
+    }
+
+    if (!Util.isUnset(request.category)) {
+      body["Category"] = request.category;
+    }
+
+    if (!Util.isUnset(request.city)) {
+      body["City"] = request.city;
+    }
+
+    if (!Util.isUnset(request.hotelId)) {
+      body["HotelId"] = request.hotelId;
+    }
+
+    if (!Util.isUnset(request.province)) {
+      body["Province"] = request.province;
+    }
+
+    if (!Util.isUnset(request.serviceProvider)) {
+      body["ServiceProvider"] = request.serviceProvider;
+    }
+
+    let realHeaders : {[key: string ]: string} = { };
+    if (!Util.isUnset(headers.commonHeaders)) {
+      realHeaders = headers.commonHeaders;
+    }
+
+    if (!Util.isUnset(headers.xAcsAligenieAccessToken)) {
+      realHeaders["x-acs-aligenie-access-token"] = Util.toJSONString(headers.xAcsAligenieAccessToken);
+    }
+
+    if (!Util.isUnset(headers.authorization)) {
+      realHeaders["Authorization"] = Util.toJSONString(headers.authorization);
+    }
+
+    let req = new $OpenApi.OpenApiRequest({
+      headers: realHeaders,
+      body: OpenApiUtil.parseToMap(body),
+    });
+    let params = new $OpenApi.Params({
+      action: "ListInfraredRemoteControllers",
+      version: "ip_1.0",
+      protocol: "HTTPS",
+      pathname: `/v1.0/ip/listInfraredRemoteControllers`,
+      method: "POST",
+      authType: "AK",
+      style: "ROA",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $tea.cast<ListInfraredRemoteControllersResponse>(await this.callApi(params, req, runtime), new ListInfraredRemoteControllersResponse({}));
+  }
+
+  async listInfraredRemoteControllers(request: ListInfraredRemoteControllersRequest): Promise<ListInfraredRemoteControllersResponse> {
+    let runtime = new $Util.RuntimeOptions({ });
+    let headers = new ListInfraredRemoteControllersHeaders({ });
+    return await this.listInfraredRemoteControllersWithOptions(request, headers, runtime);
+  }
+
+  async listSTBServiceProvidersWithOptions(request: ListSTBServiceProvidersRequest, headers: ListSTBServiceProvidersHeaders, runtime: $Util.RuntimeOptions): Promise<ListSTBServiceProvidersResponse> {
+    Util.validateModel(request);
+    let body : {[key: string ]: any} = { };
+    if (!Util.isUnset(request.city)) {
+      body["City"] = request.city;
+    }
+
+    if (!Util.isUnset(request.province)) {
+      body["Province"] = request.province;
+    }
+
+    let realHeaders : {[key: string ]: string} = { };
+    if (!Util.isUnset(headers.commonHeaders)) {
+      realHeaders = headers.commonHeaders;
+    }
+
+    if (!Util.isUnset(headers.xAcsAligenieAccessToken)) {
+      realHeaders["x-acs-aligenie-access-token"] = Util.toJSONString(headers.xAcsAligenieAccessToken);
+    }
+
+    if (!Util.isUnset(headers.authorization)) {
+      realHeaders["Authorization"] = Util.toJSONString(headers.authorization);
+    }
+
+    let req = new $OpenApi.OpenApiRequest({
+      headers: realHeaders,
+      body: OpenApiUtil.parseToMap(body),
+    });
+    let params = new $OpenApi.Params({
+      action: "ListSTBServiceProviders",
+      version: "ip_1.0",
+      protocol: "HTTPS",
+      pathname: `/v1.0/ip/listSTBServiceProviders`,
+      method: "POST",
+      authType: "AK",
+      style: "ROA",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $tea.cast<ListSTBServiceProvidersResponse>(await this.callApi(params, req, runtime), new ListSTBServiceProvidersResponse({}));
+  }
+
+  async listSTBServiceProviders(request: ListSTBServiceProvidersRequest): Promise<ListSTBServiceProvidersResponse> {
+    let runtime = new $Util.RuntimeOptions({ });
+    let headers = new ListSTBServiceProvidersHeaders({ });
+    return await this.listSTBServiceProvidersWithOptions(request, headers, runtime);
   }
 
   async listSceneCategoryWithOptions(request: ListSceneCategoryRequest, headers: ListSceneCategoryHeaders, runtime: $Util.RuntimeOptions): Promise<ListSceneCategoryResponse> {
