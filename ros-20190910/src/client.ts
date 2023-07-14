@@ -8611,6 +8611,8 @@ export class GetStackResponseBodyResourceProgress extends $tea.Model {
   inProgressResourceCount?: number;
   inProgressResourceDetails?: GetStackResponseBodyResourceProgressInProgressResourceDetails[];
   pendingResourceCount?: number;
+  stackActionProgress?: number;
+  stackOperationProgress?: number;
   successResourceCount?: number;
   totalResourceCount?: number;
   static names(): { [key: string]: string } {
@@ -8619,6 +8621,8 @@ export class GetStackResponseBodyResourceProgress extends $tea.Model {
       inProgressResourceCount: 'InProgressResourceCount',
       inProgressResourceDetails: 'InProgressResourceDetails',
       pendingResourceCount: 'PendingResourceCount',
+      stackActionProgress: 'StackActionProgress',
+      stackOperationProgress: 'StackOperationProgress',
       successResourceCount: 'SuccessResourceCount',
       totalResourceCount: 'TotalResourceCount',
     };
@@ -8630,6 +8634,8 @@ export class GetStackResponseBodyResourceProgress extends $tea.Model {
       inProgressResourceCount: 'number',
       inProgressResourceDetails: { 'type': 'array', 'itemType': GetStackResponseBodyResourceProgressInProgressResourceDetails },
       pendingResourceCount: 'number',
+      stackActionProgress: 'number',
+      stackOperationProgress: 'number',
       successResourceCount: 'number',
       totalResourceCount: 'number',
     };
