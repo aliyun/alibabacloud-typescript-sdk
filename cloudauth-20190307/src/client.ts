@@ -1705,6 +1705,7 @@ export class DescribeDeviceInfoResponseBodyDeviceInfoList extends $tea.Model {
 }
 
 export class DescribeFaceVerifyResponseBodyResultObject extends $tea.Model {
+  deviceRisk?: string;
   deviceToken?: string;
   identityInfo?: string;
   materialInfo?: string;
@@ -1712,6 +1713,7 @@ export class DescribeFaceVerifyResponseBodyResultObject extends $tea.Model {
   subCode?: string;
   static names(): { [key: string]: string } {
     return {
+      deviceRisk: 'DeviceRisk',
       deviceToken: 'DeviceToken',
       identityInfo: 'IdentityInfo',
       materialInfo: 'MaterialInfo',
@@ -1722,6 +1724,7 @@ export class DescribeFaceVerifyResponseBodyResultObject extends $tea.Model {
 
   static types(): { [key: string]: any } {
     return {
+      deviceRisk: 'string',
       deviceToken: 'string',
       identityInfo: 'string',
       materialInfo: 'string',
