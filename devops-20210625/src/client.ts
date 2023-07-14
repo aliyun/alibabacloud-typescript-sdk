@@ -2485,6 +2485,120 @@ export class CreateWorkitemRecordResponse extends $tea.Model {
   }
 }
 
+export class CreateWorkitemV2Request extends $tea.Model {
+  assignedTo?: string;
+  category?: string;
+  description?: string;
+  fieldValueList?: CreateWorkitemV2RequestFieldValueList[];
+  parentIdentifier?: string;
+  participants?: string[];
+  spaceIdentifier?: string;
+  sprintIdentifier?: string;
+  subject?: string;
+  tags?: string[];
+  trackers?: string[];
+  verifier?: string;
+  versions?: string[];
+  workitemTypeIdentifier?: string;
+  static names(): { [key: string]: string } {
+    return {
+      assignedTo: 'assignedTo',
+      category: 'category',
+      description: 'description',
+      fieldValueList: 'fieldValueList',
+      parentIdentifier: 'parentIdentifier',
+      participants: 'participants',
+      spaceIdentifier: 'spaceIdentifier',
+      sprintIdentifier: 'sprintIdentifier',
+      subject: 'subject',
+      tags: 'tags',
+      trackers: 'trackers',
+      verifier: 'verifier',
+      versions: 'versions',
+      workitemTypeIdentifier: 'workitemTypeIdentifier',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      assignedTo: 'string',
+      category: 'string',
+      description: 'string',
+      fieldValueList: { 'type': 'array', 'itemType': CreateWorkitemV2RequestFieldValueList },
+      parentIdentifier: 'string',
+      participants: { 'type': 'array', 'itemType': 'string' },
+      spaceIdentifier: 'string',
+      sprintIdentifier: 'string',
+      subject: 'string',
+      tags: { 'type': 'array', 'itemType': 'string' },
+      trackers: { 'type': 'array', 'itemType': 'string' },
+      verifier: 'string',
+      versions: { 'type': 'array', 'itemType': 'string' },
+      workitemTypeIdentifier: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class CreateWorkitemV2ResponseBody extends $tea.Model {
+  errorCode?: string;
+  errorMessage?: string;
+  requestId?: string;
+  success?: string;
+  workitemIdentifier?: string;
+  static names(): { [key: string]: string } {
+    return {
+      errorCode: 'errorCode',
+      errorMessage: 'errorMessage',
+      requestId: 'requestId',
+      success: 'success',
+      workitemIdentifier: 'workitemIdentifier',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      errorCode: 'string',
+      errorMessage: 'string',
+      requestId: 'string',
+      success: 'string',
+      workitemIdentifier: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class CreateWorkitemV2Response extends $tea.Model {
+  headers: { [key: string]: string };
+  statusCode: number;
+  body: CreateWorkitemV2ResponseBody;
+  static names(): { [key: string]: string } {
+    return {
+      headers: 'headers',
+      statusCode: 'statusCode',
+      body: 'body',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
+      body: CreateWorkitemV2ResponseBody,
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
 export class CreateWorkspaceRequest extends $tea.Model {
   codeUrl?: string;
   codeVersion?: string;
@@ -6477,6 +6591,81 @@ export class GetWorkItemWorkFlowInfoResponse extends $tea.Model {
       headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
       statusCode: 'number',
       body: GetWorkItemWorkFlowInfoResponseBody,
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class GetWorkitemAttachmentCreatemetaRequest extends $tea.Model {
+  fileName?: string;
+  static names(): { [key: string]: string } {
+    return {
+      fileName: 'fileName',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      fileName: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class GetWorkitemAttachmentCreatemetaResponseBody extends $tea.Model {
+  errorCode?: string;
+  errorMessage?: string;
+  requestId?: string;
+  success?: string;
+  uploadInfo?: GetWorkitemAttachmentCreatemetaResponseBodyUploadInfo;
+  static names(): { [key: string]: string } {
+    return {
+      errorCode: 'errorCode',
+      errorMessage: 'errorMessage',
+      requestId: 'requestId',
+      success: 'success',
+      uploadInfo: 'uploadInfo',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      errorCode: 'string',
+      errorMessage: 'string',
+      requestId: 'string',
+      success: 'string',
+      uploadInfo: GetWorkitemAttachmentCreatemetaResponseBodyUploadInfo,
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class GetWorkitemAttachmentCreatemetaResponse extends $tea.Model {
+  headers: { [key: string]: string };
+  statusCode: number;
+  body: GetWorkitemAttachmentCreatemetaResponseBody;
+  static names(): { [key: string]: string } {
+    return {
+      headers: 'headers',
+      statusCode: 'statusCode',
+      body: 'body',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
+      body: GetWorkitemAttachmentCreatemetaResponseBody,
     };
   }
 
@@ -13129,6 +13318,81 @@ export class UpdateWorkitemFieldResponse extends $tea.Model {
   }
 }
 
+export class WorkitemAttachmentCreateRequest extends $tea.Model {
+  fileKey?: string;
+  originalFilename?: string;
+  static names(): { [key: string]: string } {
+    return {
+      fileKey: 'fileKey',
+      originalFilename: 'originalFilename',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      fileKey: 'string',
+      originalFilename: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class WorkitemAttachmentCreateResponseBody extends $tea.Model {
+  errorCode?: string;
+  errorMessage?: string;
+  requestId?: string;
+  success?: string;
+  static names(): { [key: string]: string } {
+    return {
+      errorCode: 'errorCode',
+      errorMessage: 'errorMessage',
+      requestId: 'requestId',
+      success: 'success',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      errorCode: 'string',
+      errorMessage: 'string',
+      requestId: 'string',
+      success: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class WorkitemAttachmentCreateResponse extends $tea.Model {
+  headers: { [key: string]: string };
+  statusCode: number;
+  body: WorkitemAttachmentCreateResponseBody;
+  static names(): { [key: string]: string } {
+    return {
+      headers: 'headers',
+      statusCode: 'statusCode',
+      body: 'body',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
+      body: WorkitemAttachmentCreateResponseBody,
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
 export class AddGroupMemberResponseBodyResult extends $tea.Model {
   accessLevel?: number;
   avatarUrl?: string;
@@ -14992,6 +15256,28 @@ export class CreateWorkitemRecordResponseBodyWorkitemTime extends $tea.Model {
       recordUser: CreateWorkitemRecordResponseBodyWorkitemTimeRecordUser,
       type: 'string',
       workitemIdentifier: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class CreateWorkitemV2RequestFieldValueList extends $tea.Model {
+  fieldIdentifier?: string;
+  value?: string;
+  static names(): { [key: string]: string } {
+    return {
+      fieldIdentifier: 'fieldIdentifier',
+      value: 'value',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      fieldIdentifier: 'string',
+      value: 'string',
     };
   }
 
@@ -18283,6 +18569,37 @@ export class GetWorkItemWorkFlowInfoResponseBodyWorkflow extends $tea.Model {
       statusOrder: 'string',
       statuses: { 'type': 'array', 'itemType': GetWorkItemWorkFlowInfoResponseBodyWorkflowStatuses },
       workflowActions: { 'type': 'array', 'itemType': GetWorkItemWorkFlowInfoResponseBodyWorkflowWorkflowActions },
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class GetWorkitemAttachmentCreatemetaResponseBodyUploadInfo extends $tea.Model {
+  accessid?: string;
+  dir?: string;
+  host?: string;
+  policy?: string;
+  signature?: string;
+  static names(): { [key: string]: string } {
+    return {
+      accessid: 'accessid',
+      dir: 'dir',
+      host: 'host',
+      policy: 'policy',
+      signature: 'signature',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      accessid: 'string',
+      dir: 'string',
+      host: 'string',
+      policy: 'string',
+      signature: 'string',
     };
   }
 
@@ -24341,6 +24658,89 @@ export default class Client extends OpenApi {
     return await this.createWorkitemRecordWithOptions(organizationId, request, headers, runtime);
   }
 
+  async createWorkitemV2WithOptions(organizationId: string, request: CreateWorkitemV2Request, headers: {[key: string ]: string}, runtime: $Util.RuntimeOptions): Promise<CreateWorkitemV2Response> {
+    Util.validateModel(request);
+    let body : {[key: string ]: any} = { };
+    if (!Util.isUnset(request.assignedTo)) {
+      body["assignedTo"] = request.assignedTo;
+    }
+
+    if (!Util.isUnset(request.category)) {
+      body["category"] = request.category;
+    }
+
+    if (!Util.isUnset(request.description)) {
+      body["description"] = request.description;
+    }
+
+    if (!Util.isUnset(request.fieldValueList)) {
+      body["fieldValueList"] = request.fieldValueList;
+    }
+
+    if (!Util.isUnset(request.parentIdentifier)) {
+      body["parentIdentifier"] = request.parentIdentifier;
+    }
+
+    if (!Util.isUnset(request.participants)) {
+      body["participants"] = request.participants;
+    }
+
+    if (!Util.isUnset(request.spaceIdentifier)) {
+      body["spaceIdentifier"] = request.spaceIdentifier;
+    }
+
+    if (!Util.isUnset(request.sprintIdentifier)) {
+      body["sprintIdentifier"] = request.sprintIdentifier;
+    }
+
+    if (!Util.isUnset(request.subject)) {
+      body["subject"] = request.subject;
+    }
+
+    if (!Util.isUnset(request.tags)) {
+      body["tags"] = request.tags;
+    }
+
+    if (!Util.isUnset(request.trackers)) {
+      body["trackers"] = request.trackers;
+    }
+
+    if (!Util.isUnset(request.verifier)) {
+      body["verifier"] = request.verifier;
+    }
+
+    if (!Util.isUnset(request.versions)) {
+      body["versions"] = request.versions;
+    }
+
+    if (!Util.isUnset(request.workitemTypeIdentifier)) {
+      body["workitemTypeIdentifier"] = request.workitemTypeIdentifier;
+    }
+
+    let req = new $OpenApi.OpenApiRequest({
+      headers: headers,
+      body: OpenApiUtil.parseToMap(body),
+    });
+    let params = new $OpenApi.Params({
+      action: "CreateWorkitemV2",
+      version: "2021-06-25",
+      protocol: "HTTPS",
+      pathname: `/organization/${OpenApiUtil.getEncodeParam(organizationId)}/workitem`,
+      method: "POST",
+      authType: "AK",
+      style: "ROA",
+      reqBodyType: "json",
+      bodyType: "json",
+    });
+    return $tea.cast<CreateWorkitemV2Response>(await this.callApi(params, req, runtime), new CreateWorkitemV2Response({}));
+  }
+
+  async createWorkitemV2(organizationId: string, request: CreateWorkitemV2Request): Promise<CreateWorkitemV2Response> {
+    let runtime = new $Util.RuntimeOptions({ });
+    let headers : {[key: string ]: string} = { };
+    return await this.createWorkitemV2WithOptions(organizationId, request, headers, runtime);
+  }
+
   async createWorkspaceWithOptions(request: CreateWorkspaceRequest, headers: {[key: string ]: string}, runtime: $Util.RuntimeOptions): Promise<CreateWorkspaceResponse> {
     Util.validateModel(request);
     let body : {[key: string ]: any} = { };
@@ -26207,6 +26607,37 @@ export default class Client extends OpenApi {
     let runtime = new $Util.RuntimeOptions({ });
     let headers : {[key: string ]: string} = { };
     return await this.getWorkItemWorkFlowInfoWithOptions(organizationId, workitemId, request, headers, runtime);
+  }
+
+  async getWorkitemAttachmentCreatemetaWithOptions(organizationId: string, workitemIdentifier: string, request: GetWorkitemAttachmentCreatemetaRequest, headers: {[key: string ]: string}, runtime: $Util.RuntimeOptions): Promise<GetWorkitemAttachmentCreatemetaResponse> {
+    Util.validateModel(request);
+    let query : {[key: string ]: any} = { };
+    if (!Util.isUnset(request.fileName)) {
+      query["fileName"] = request.fileName;
+    }
+
+    let req = new $OpenApi.OpenApiRequest({
+      headers: headers,
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApi.Params({
+      action: "GetWorkitemAttachmentCreatemeta",
+      version: "2021-06-25",
+      protocol: "HTTPS",
+      pathname: `/organization/${OpenApiUtil.getEncodeParam(organizationId)}/workitem/${OpenApiUtil.getEncodeParam(workitemIdentifier)}/attachment/createmeta`,
+      method: "GET",
+      authType: "AK",
+      style: "ROA",
+      reqBodyType: "json",
+      bodyType: "json",
+    });
+    return $tea.cast<GetWorkitemAttachmentCreatemetaResponse>(await this.callApi(params, req, runtime), new GetWorkitemAttachmentCreatemetaResponse({}));
+  }
+
+  async getWorkitemAttachmentCreatemeta(organizationId: string, workitemIdentifier: string, request: GetWorkitemAttachmentCreatemetaRequest): Promise<GetWorkitemAttachmentCreatemetaResponse> {
+    let runtime = new $Util.RuntimeOptions({ });
+    let headers : {[key: string ]: string} = { };
+    return await this.getWorkitemAttachmentCreatemetaWithOptions(organizationId, workitemIdentifier, request, headers, runtime);
   }
 
   async getWorkitemCommentListWithOptions(organizationId: string, workitemId: string, headers: {[key: string ]: string}, runtime: $Util.RuntimeOptions): Promise<GetWorkitemCommentListResponse> {
@@ -29620,6 +30051,41 @@ export default class Client extends OpenApi {
     let runtime = new $Util.RuntimeOptions({ });
     let headers : {[key: string ]: string} = { };
     return await this.updateWorkitemFieldWithOptions(organizationId, request, headers, runtime);
+  }
+
+  async workitemAttachmentCreateWithOptions(organizationId: string, workitemIdentifier: string, request: WorkitemAttachmentCreateRequest, headers: {[key: string ]: string}, runtime: $Util.RuntimeOptions): Promise<WorkitemAttachmentCreateResponse> {
+    Util.validateModel(request);
+    let body : {[key: string ]: any} = { };
+    if (!Util.isUnset(request.fileKey)) {
+      body["fileKey"] = request.fileKey;
+    }
+
+    if (!Util.isUnset(request.originalFilename)) {
+      body["originalFilename"] = request.originalFilename;
+    }
+
+    let req = new $OpenApi.OpenApiRequest({
+      headers: headers,
+      body: OpenApiUtil.parseToMap(body),
+    });
+    let params = new $OpenApi.Params({
+      action: "WorkitemAttachmentCreate",
+      version: "2021-06-25",
+      protocol: "HTTPS",
+      pathname: `/organization/${OpenApiUtil.getEncodeParam(organizationId)}/workitem/${OpenApiUtil.getEncodeParam(workitemIdentifier)}/attachment`,
+      method: "POST",
+      authType: "AK",
+      style: "ROA",
+      reqBodyType: "json",
+      bodyType: "json",
+    });
+    return $tea.cast<WorkitemAttachmentCreateResponse>(await this.callApi(params, req, runtime), new WorkitemAttachmentCreateResponse({}));
+  }
+
+  async workitemAttachmentCreate(organizationId: string, workitemIdentifier: string, request: WorkitemAttachmentCreateRequest): Promise<WorkitemAttachmentCreateResponse> {
+    let runtime = new $Util.RuntimeOptions({ });
+    let headers : {[key: string ]: string} = { };
+    return await this.workitemAttachmentCreateWithOptions(organizationId, workitemIdentifier, request, headers, runtime);
   }
 
 }
