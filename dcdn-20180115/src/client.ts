@@ -12848,6 +12848,96 @@ export class SetDcdnDomainSMCertificateResponse extends $tea.Model {
   }
 }
 
+export class SetDcdnDomainSSLCertificateRequest extends $tea.Model {
+  certId?: number;
+  certName?: string;
+  certRegion?: string;
+  certType?: string;
+  domainName?: string;
+  ownerId?: number;
+  SSLPri?: string;
+  SSLProtocol?: string;
+  SSLPub?: string;
+  securityToken?: string;
+  static names(): { [key: string]: string } {
+    return {
+      certId: 'CertId',
+      certName: 'CertName',
+      certRegion: 'CertRegion',
+      certType: 'CertType',
+      domainName: 'DomainName',
+      ownerId: 'OwnerId',
+      SSLPri: 'SSLPri',
+      SSLProtocol: 'SSLProtocol',
+      SSLPub: 'SSLPub',
+      securityToken: 'SecurityToken',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      certId: 'number',
+      certName: 'string',
+      certRegion: 'string',
+      certType: 'string',
+      domainName: 'string',
+      ownerId: 'number',
+      SSLPri: 'string',
+      SSLProtocol: 'string',
+      SSLPub: 'string',
+      securityToken: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class SetDcdnDomainSSLCertificateResponseBody extends $tea.Model {
+  requestId?: string;
+  static names(): { [key: string]: string } {
+    return {
+      requestId: 'RequestId',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      requestId: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class SetDcdnDomainSSLCertificateResponse extends $tea.Model {
+  headers: { [key: string]: string };
+  statusCode: number;
+  body: SetDcdnDomainSSLCertificateResponseBody;
+  static names(): { [key: string]: string } {
+    return {
+      headers: 'headers',
+      statusCode: 'statusCode',
+      body: 'body',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
+      body: SetDcdnDomainSSLCertificateResponseBody,
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
 export class SetDcdnDomainStagingConfigRequest extends $tea.Model {
   domainName?: string;
   functions?: string;
@@ -28559,12 +28649,14 @@ export default class Client extends OpenApi {
   }
 
   /**
+    * @deprecated : SetDcdnDomainCertificate is deprecated, please use dcdn::2018-01-15::SetDcdnDomainSSLCertificate instead.
     * The name of the certificate.
     *
     * @param request SetDcdnDomainCertificateRequest
     * @param runtime runtime options for this request RuntimeOptions
     * @return SetDcdnDomainCertificateResponse
    */
+  // Deprecated
   async setDcdnDomainCertificateWithOptions(request: SetDcdnDomainCertificateRequest, runtime: $Util.RuntimeOptions): Promise<SetDcdnDomainCertificateResponse> {
     Util.validateModel(request);
     let query = { };
@@ -28626,11 +28718,13 @@ export default class Client extends OpenApi {
   }
 
   /**
+    * @deprecated : SetDcdnDomainCertificate is deprecated, please use dcdn::2018-01-15::SetDcdnDomainSSLCertificate instead.
     * The name of the certificate.
     *
     * @param request SetDcdnDomainCertificateRequest
     * @return SetDcdnDomainCertificateResponse
    */
+  // Deprecated
   async setDcdnDomainCertificate(request: SetDcdnDomainCertificateRequest): Promise<SetDcdnDomainCertificateResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.setDcdnDomainCertificateWithOptions(request, runtime);
@@ -28692,6 +28786,71 @@ export default class Client extends OpenApi {
   async setDcdnDomainSMCertificate(request: SetDcdnDomainSMCertificateRequest): Promise<SetDcdnDomainSMCertificateResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.setDcdnDomainSMCertificateWithOptions(request, runtime);
+  }
+
+  async setDcdnDomainSSLCertificateWithOptions(request: SetDcdnDomainSSLCertificateRequest, runtime: $Util.RuntimeOptions): Promise<SetDcdnDomainSSLCertificateResponse> {
+    Util.validateModel(request);
+    let query = { };
+    if (!Util.isUnset(request.certId)) {
+      query["CertId"] = request.certId;
+    }
+
+    if (!Util.isUnset(request.certName)) {
+      query["CertName"] = request.certName;
+    }
+
+    if (!Util.isUnset(request.certRegion)) {
+      query["CertRegion"] = request.certRegion;
+    }
+
+    if (!Util.isUnset(request.certType)) {
+      query["CertType"] = request.certType;
+    }
+
+    if (!Util.isUnset(request.domainName)) {
+      query["DomainName"] = request.domainName;
+    }
+
+    if (!Util.isUnset(request.ownerId)) {
+      query["OwnerId"] = request.ownerId;
+    }
+
+    if (!Util.isUnset(request.SSLPri)) {
+      query["SSLPri"] = request.SSLPri;
+    }
+
+    if (!Util.isUnset(request.SSLProtocol)) {
+      query["SSLProtocol"] = request.SSLProtocol;
+    }
+
+    if (!Util.isUnset(request.SSLPub)) {
+      query["SSLPub"] = request.SSLPub;
+    }
+
+    if (!Util.isUnset(request.securityToken)) {
+      query["SecurityToken"] = request.securityToken;
+    }
+
+    let req = new $OpenApi.OpenApiRequest({
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApi.Params({
+      action: "SetDcdnDomainSSLCertificate",
+      version: "2018-01-15",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $tea.cast<SetDcdnDomainSSLCertificateResponse>(await this.callApi(params, req, runtime), new SetDcdnDomainSSLCertificateResponse({}));
+  }
+
+  async setDcdnDomainSSLCertificate(request: SetDcdnDomainSSLCertificateRequest): Promise<SetDcdnDomainSSLCertificateResponse> {
+    let runtime = new $Util.RuntimeOptions({ });
+    return await this.setDcdnDomainSSLCertificateWithOptions(request, runtime);
   }
 
   /**
