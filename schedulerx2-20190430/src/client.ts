@@ -4614,12 +4614,15 @@ export class GetJobInstanceResponseBodyDataJobInstanceDetail extends $tea.Model 
   executor?: string;
   instanceId?: number;
   jobId?: number;
+  jobName?: string;
+  parameters?: string;
   progress?: string;
   result?: string;
   scheduleTime?: string;
   startTime?: string;
   status?: number;
   timeType?: number;
+  traceId?: string;
   triggerType?: number;
   workAddr?: string;
   static names(): { [key: string]: string } {
@@ -4629,12 +4632,15 @@ export class GetJobInstanceResponseBodyDataJobInstanceDetail extends $tea.Model 
       executor: 'Executor',
       instanceId: 'InstanceId',
       jobId: 'JobId',
+      jobName: 'JobName',
+      parameters: 'Parameters',
       progress: 'Progress',
       result: 'Result',
       scheduleTime: 'ScheduleTime',
       startTime: 'StartTime',
       status: 'Status',
       timeType: 'TimeType',
+      traceId: 'TraceId',
       triggerType: 'TriggerType',
       workAddr: 'WorkAddr',
     };
@@ -4647,12 +4653,15 @@ export class GetJobInstanceResponseBodyDataJobInstanceDetail extends $tea.Model 
       executor: 'string',
       instanceId: 'number',
       jobId: 'number',
+      jobName: 'string',
+      parameters: 'string',
       progress: 'string',
       result: 'string',
       scheduleTime: 'string',
       startTime: 'string',
       status: 'number',
       timeType: 'number',
+      traceId: 'string',
       triggerType: 'number',
       workAddr: 'string',
     };
@@ -4984,6 +4993,7 @@ export class GetWorkflowInstanceResponseBodyDataWfInstanceDagNodes extends $tea.
   result?: string;
   scheduleTime?: string;
   startTime?: string;
+  status?: number;
   workAddr?: string;
   static names(): { [key: string]: string } {
     return {
@@ -4995,6 +5005,7 @@ export class GetWorkflowInstanceResponseBodyDataWfInstanceDagNodes extends $tea.
       result: 'Result',
       scheduleTime: 'ScheduleTime',
       startTime: 'StartTime',
+      status: 'Status',
       workAddr: 'WorkAddr',
     };
   }
@@ -5009,6 +5020,7 @@ export class GetWorkflowInstanceResponseBodyDataWfInstanceDagNodes extends $tea.
       result: 'string',
       scheduleTime: 'string',
       startTime: 'string',
+      status: 'number',
       workAddr: 'string',
     };
   }
