@@ -83,6 +83,59 @@ export class DescribeImageResultExtResponse extends $tea.Model {
   }
 }
 
+export class DescribeUploadTokenResponseBody extends $tea.Model {
+  code?: number;
+  data?: DescribeUploadTokenResponseBodyData;
+  msg?: string;
+  requestId?: string;
+  static names(): { [key: string]: string } {
+    return {
+      code: 'Code',
+      data: 'Data',
+      msg: 'Msg',
+      requestId: 'RequestId',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      code: 'number',
+      data: DescribeUploadTokenResponseBodyData,
+      msg: 'string',
+      requestId: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class DescribeUploadTokenResponse extends $tea.Model {
+  headers: { [key: string]: string };
+  statusCode: number;
+  body: DescribeUploadTokenResponseBody;
+  static names(): { [key: string]: string } {
+    return {
+      headers: 'headers',
+      statusCode: 'statusCode',
+      body: 'body',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
+      body: DescribeUploadTokenResponseBody,
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
 export class ImageModerationRequest extends $tea.Model {
   service?: string;
   serviceParameters?: string;
@@ -546,6 +599,46 @@ export class DescribeImageResultExtResponseBodyData extends $tea.Model {
   }
 }
 
+export class DescribeUploadTokenResponseBodyData extends $tea.Model {
+  accessKeyId?: string;
+  accessKeySecret?: string;
+  bucketName?: string;
+  expiration?: number;
+  fileNamePrefix?: string;
+  ossInternalEndPoint?: string;
+  ossInternetEndPoint?: string;
+  securityToken?: string;
+  static names(): { [key: string]: string } {
+    return {
+      accessKeyId: 'AccessKeyId',
+      accessKeySecret: 'AccessKeySecret',
+      bucketName: 'BucketName',
+      expiration: 'Expiration',
+      fileNamePrefix: 'FileNamePrefix',
+      ossInternalEndPoint: 'OssInternalEndPoint',
+      ossInternetEndPoint: 'OssInternetEndPoint',
+      securityToken: 'SecurityToken',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      accessKeyId: 'string',
+      accessKeySecret: 'string',
+      bucketName: 'string',
+      expiration: 'number',
+      fileNamePrefix: 'string',
+      ossInternalEndPoint: 'string',
+      ossInternetEndPoint: 'string',
+      securityToken: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
 export class ImageModerationResponseBodyDataResult extends $tea.Model {
   confidence?: number;
   label?: string;
@@ -791,6 +884,27 @@ export default class Client extends OpenApi {
   async describeImageResultExt(request: DescribeImageResultExtRequest): Promise<DescribeImageResultExtResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.describeImageResultExtWithOptions(request, runtime);
+  }
+
+  async describeUploadTokenWithOptions(runtime: $Util.RuntimeOptions): Promise<DescribeUploadTokenResponse> {
+    let req = new $OpenApi.OpenApiRequest({ });
+    let params = new $OpenApi.Params({
+      action: "DescribeUploadToken",
+      version: "2022-03-02",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $tea.cast<DescribeUploadTokenResponse>(await this.callApi(params, req, runtime), new DescribeUploadTokenResponse({}));
+  }
+
+  async describeUploadToken(): Promise<DescribeUploadTokenResponse> {
+    let runtime = new $Util.RuntimeOptions({ });
+    return await this.describeUploadTokenWithOptions(runtime);
   }
 
   async imageModerationWithOptions(request: ImageModerationRequest, runtime: $Util.RuntimeOptions): Promise<ImageModerationResponse> {
