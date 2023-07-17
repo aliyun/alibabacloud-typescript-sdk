@@ -1975,6 +1975,7 @@ export class CreateFileRequest extends $tea.Model {
   autoRerunTimes?: number;
   connectionName?: string;
   content?: string;
+  createFolderIfNotExists?: boolean;
   cronExpress?: string;
   cycleType?: string;
   dependentNodeIdList?: string;
@@ -2007,6 +2008,7 @@ export class CreateFileRequest extends $tea.Model {
       autoRerunTimes: 'AutoRerunTimes',
       connectionName: 'ConnectionName',
       content: 'Content',
+      createFolderIfNotExists: 'CreateFolderIfNotExists',
       cronExpress: 'CronExpress',
       cycleType: 'CycleType',
       dependentNodeIdList: 'DependentNodeIdList',
@@ -2042,6 +2044,7 @@ export class CreateFileRequest extends $tea.Model {
       autoRerunTimes: 'number',
       connectionName: 'string',
       content: 'string',
+      createFolderIfNotExists: 'boolean',
       cronExpress: 'string',
       cycleType: 'string',
       dependentNodeIdList: 'string',
@@ -3316,6 +3319,105 @@ export class CreateRemindResponse extends $tea.Model {
   }
 }
 
+export class CreateResourceFileRequest extends $tea.Model {
+  content?: string;
+  fileDescription?: string;
+  fileFolderPath?: string;
+  fileName?: string;
+  fileType?: number;
+  originResourceName?: string;
+  owner?: string;
+  projectId?: number;
+  registerToCalcEngine?: boolean;
+  resourceFile?: string;
+  storageURL?: string;
+  uploadMode?: boolean;
+  static names(): { [key: string]: string } {
+    return {
+      content: 'Content',
+      fileDescription: 'FileDescription',
+      fileFolderPath: 'FileFolderPath',
+      fileName: 'FileName',
+      fileType: 'FileType',
+      originResourceName: 'OriginResourceName',
+      owner: 'Owner',
+      projectId: 'ProjectId',
+      registerToCalcEngine: 'RegisterToCalcEngine',
+      resourceFile: 'ResourceFile',
+      storageURL: 'StorageURL',
+      uploadMode: 'UploadMode',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      content: 'string',
+      fileDescription: 'string',
+      fileFolderPath: 'string',
+      fileName: 'string',
+      fileType: 'number',
+      originResourceName: 'string',
+      owner: 'string',
+      projectId: 'number',
+      registerToCalcEngine: 'boolean',
+      resourceFile: 'string',
+      storageURL: 'string',
+      uploadMode: 'boolean',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class CreateResourceFileResponseBody extends $tea.Model {
+  data?: number;
+  requestId?: string;
+  static names(): { [key: string]: string } {
+    return {
+      data: 'Data',
+      requestId: 'RequestId',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      data: 'number',
+      requestId: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class CreateResourceFileResponse extends $tea.Model {
+  headers: { [key: string]: string };
+  statusCode: number;
+  body: CreateResourceFileResponseBody;
+  static names(): { [key: string]: string } {
+    return {
+      headers: 'headers',
+      statusCode: 'statusCode',
+      body: 'body',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
+      body: CreateResourceFileResponseBody,
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
 export class CreateTableRequest extends $tea.Model {
   appGuid?: string;
   categoryId?: number;
@@ -3616,6 +3718,7 @@ export class CreateTableThemeResponse extends $tea.Model {
 export class CreateUdfFileRequest extends $tea.Model {
   className?: string;
   cmdDescription?: string;
+  createFolderIfNotExists?: boolean;
   example?: string;
   fileFolderPath?: string;
   fileName?: string;
@@ -3630,6 +3733,7 @@ export class CreateUdfFileRequest extends $tea.Model {
     return {
       className: 'ClassName',
       cmdDescription: 'CmdDescription',
+      createFolderIfNotExists: 'CreateFolderIfNotExists',
       example: 'Example',
       fileFolderPath: 'FileFolderPath',
       fileName: 'FileName',
@@ -3647,6 +3751,7 @@ export class CreateUdfFileRequest extends $tea.Model {
     return {
       className: 'string',
       cmdDescription: 'string',
+      createFolderIfNotExists: 'boolean',
       example: 'string',
       fileFolderPath: 'string',
       fileName: 'string',
@@ -13782,9 +13887,13 @@ export class ListFileVersionsResponse extends $tea.Model {
 }
 
 export class ListFilesRequest extends $tea.Model {
+  exactFileName?: string;
   fileFolderPath?: string;
+  fileIdIn?: string;
   fileTypes?: string;
   keyword?: string;
+  needAbsoluteFolderPath?: boolean;
+  needContent?: boolean;
   nodeId?: number;
   owner?: string;
   pageNumber?: number;
@@ -13794,9 +13903,13 @@ export class ListFilesRequest extends $tea.Model {
   useType?: string;
   static names(): { [key: string]: string } {
     return {
+      exactFileName: 'ExactFileName',
       fileFolderPath: 'FileFolderPath',
+      fileIdIn: 'FileIdIn',
       fileTypes: 'FileTypes',
       keyword: 'Keyword',
+      needAbsoluteFolderPath: 'NeedAbsoluteFolderPath',
+      needContent: 'NeedContent',
       nodeId: 'NodeId',
       owner: 'Owner',
       pageNumber: 'PageNumber',
@@ -13809,9 +13922,13 @@ export class ListFilesRequest extends $tea.Model {
 
   static types(): { [key: string]: any } {
     return {
+      exactFileName: 'string',
       fileFolderPath: 'string',
+      fileIdIn: 'string',
       fileTypes: 'string',
       keyword: 'string',
+      needAbsoluteFolderPath: 'boolean',
+      needContent: 'boolean',
       nodeId: 'number',
       owner: 'string',
       pageNumber: 'number',
@@ -30654,6 +30771,7 @@ export class ListFileVersionsResponseBodyData extends $tea.Model {
 }
 
 export class ListFilesResponseBodyDataFiles extends $tea.Model {
+  absoluteFolderPath?: string;
   autoParsing?: boolean;
   bizId?: number;
   businessId?: number;
@@ -30677,6 +30795,7 @@ export class ListFilesResponseBodyDataFiles extends $tea.Model {
   useType?: string;
   static names(): { [key: string]: string } {
     return {
+      absoluteFolderPath: 'AbsoluteFolderPath',
       autoParsing: 'AutoParsing',
       bizId: 'BizId',
       businessId: 'BusinessId',
@@ -30703,6 +30822,7 @@ export class ListFilesResponseBodyDataFiles extends $tea.Model {
 
   static types(): { [key: string]: any } {
     return {
+      absoluteFolderPath: 'string',
       autoParsing: 'boolean',
       bizId: 'number',
       businessId: 'number',
@@ -35242,6 +35362,10 @@ export default class Client extends OpenApi {
       body["Content"] = request.content;
     }
 
+    if (!Util.isUnset(request.createFolderIfNotExists)) {
+      body["CreateFolderIfNotExists"] = request.createFolderIfNotExists;
+    }
+
     if (!Util.isUnset(request.cronExpress)) {
       body["CronExpress"] = request.cronExpress;
     }
@@ -36177,6 +36301,79 @@ export default class Client extends OpenApi {
     return await this.createRemindWithOptions(request, runtime);
   }
 
+  async createResourceFileWithOptions(request: CreateResourceFileRequest, runtime: $Util.RuntimeOptions): Promise<CreateResourceFileResponse> {
+    Util.validateModel(request);
+    let body : {[key: string ]: any} = { };
+    if (!Util.isUnset(request.content)) {
+      body["Content"] = request.content;
+    }
+
+    if (!Util.isUnset(request.fileDescription)) {
+      body["FileDescription"] = request.fileDescription;
+    }
+
+    if (!Util.isUnset(request.fileFolderPath)) {
+      body["FileFolderPath"] = request.fileFolderPath;
+    }
+
+    if (!Util.isUnset(request.fileName)) {
+      body["FileName"] = request.fileName;
+    }
+
+    if (!Util.isUnset(request.fileType)) {
+      body["FileType"] = request.fileType;
+    }
+
+    if (!Util.isUnset(request.originResourceName)) {
+      body["OriginResourceName"] = request.originResourceName;
+    }
+
+    if (!Util.isUnset(request.owner)) {
+      body["Owner"] = request.owner;
+    }
+
+    if (!Util.isUnset(request.projectId)) {
+      body["ProjectId"] = request.projectId;
+    }
+
+    if (!Util.isUnset(request.registerToCalcEngine)) {
+      body["RegisterToCalcEngine"] = request.registerToCalcEngine;
+    }
+
+    if (!Util.isUnset(request.resourceFile)) {
+      body["ResourceFile"] = request.resourceFile;
+    }
+
+    if (!Util.isUnset(request.storageURL)) {
+      body["StorageURL"] = request.storageURL;
+    }
+
+    if (!Util.isUnset(request.uploadMode)) {
+      body["UploadMode"] = request.uploadMode;
+    }
+
+    let req = new $OpenApi.OpenApiRequest({
+      body: OpenApiUtil.parseToMap(body),
+    });
+    let params = new $OpenApi.Params({
+      action: "CreateResourceFile",
+      version: "2020-05-18",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $tea.cast<CreateResourceFileResponse>(await this.callApi(params, req, runtime), new CreateResourceFileResponse({}));
+  }
+
+  async createResourceFile(request: CreateResourceFileRequest): Promise<CreateResourceFileResponse> {
+    let runtime = new $Util.RuntimeOptions({ });
+    return await this.createResourceFileWithOptions(request, runtime);
+  }
+
   async createTableWithOptions(request: CreateTableRequest, runtime: $Util.RuntimeOptions): Promise<CreateTableResponse> {
     Util.validateModel(request);
     let query = { };
@@ -36375,6 +36572,10 @@ export default class Client extends OpenApi {
 
     if (!Util.isUnset(request.cmdDescription)) {
       body["CmdDescription"] = request.cmdDescription;
+    }
+
+    if (!Util.isUnset(request.createFolderIfNotExists)) {
+      body["CreateFolderIfNotExists"] = request.createFolderIfNotExists;
     }
 
     if (!Util.isUnset(request.example)) {
@@ -41384,8 +41585,16 @@ export default class Client extends OpenApi {
   async listFilesWithOptions(request: ListFilesRequest, runtime: $Util.RuntimeOptions): Promise<ListFilesResponse> {
     Util.validateModel(request);
     let body : {[key: string ]: any} = { };
+    if (!Util.isUnset(request.exactFileName)) {
+      body["ExactFileName"] = request.exactFileName;
+    }
+
     if (!Util.isUnset(request.fileFolderPath)) {
       body["FileFolderPath"] = request.fileFolderPath;
+    }
+
+    if (!Util.isUnset(request.fileIdIn)) {
+      body["FileIdIn"] = request.fileIdIn;
     }
 
     if (!Util.isUnset(request.fileTypes)) {
@@ -41394,6 +41603,14 @@ export default class Client extends OpenApi {
 
     if (!Util.isUnset(request.keyword)) {
       body["Keyword"] = request.keyword;
+    }
+
+    if (!Util.isUnset(request.needAbsoluteFolderPath)) {
+      body["NeedAbsoluteFolderPath"] = request.needAbsoluteFolderPath;
+    }
+
+    if (!Util.isUnset(request.needContent)) {
+      body["NeedContent"] = request.needContent;
     }
 
     if (!Util.isUnset(request.nodeId)) {
