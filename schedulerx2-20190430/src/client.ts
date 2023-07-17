@@ -4990,6 +4990,7 @@ export class GetWorkflowInstanceResponseBodyDataWfInstanceDagNodes extends $tea.
   endTime?: string;
   jobId?: number;
   jobInstanceId?: number;
+  jobName?: string;
   result?: string;
   scheduleTime?: string;
   startTime?: string;
@@ -5002,6 +5003,7 @@ export class GetWorkflowInstanceResponseBodyDataWfInstanceDagNodes extends $tea.
       endTime: 'EndTime',
       jobId: 'JobId',
       jobInstanceId: 'JobInstanceId',
+      jobName: 'JobName',
       result: 'Result',
       scheduleTime: 'ScheduleTime',
       startTime: 'StartTime',
@@ -5017,6 +5019,7 @@ export class GetWorkflowInstanceResponseBodyDataWfInstanceDagNodes extends $tea.
       endTime: 'string',
       jobId: 'number',
       jobInstanceId: 'number',
+      jobName: 'string',
       result: 'string',
       scheduleTime: 'string',
       startTime: 'string',
