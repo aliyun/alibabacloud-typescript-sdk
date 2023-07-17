@@ -12,6 +12,7 @@ export class BackendCallGroupRequest extends $tea.Model {
   calledNumber?: string[];
   callerIdNumber?: string;
   countryId?: string;
+  outId?: string;
   ownerId?: number;
   playTimes?: number;
   resourceOwnerAccount?: string;
@@ -28,6 +29,7 @@ export class BackendCallGroupRequest extends $tea.Model {
       calledNumber: 'CalledNumber',
       callerIdNumber: 'CallerIdNumber',
       countryId: 'CountryId',
+      outId: 'OutId',
       ownerId: 'OwnerId',
       playTimes: 'PlayTimes',
       resourceOwnerAccount: 'ResourceOwnerAccount',
@@ -47,6 +49,7 @@ export class BackendCallGroupRequest extends $tea.Model {
       calledNumber: { 'type': 'array', 'itemType': 'string' },
       callerIdNumber: 'string',
       countryId: 'string',
+      outId: 'string',
       ownerId: 'number',
       playTimes: 'number',
       resourceOwnerAccount: 'string',
@@ -70,6 +73,7 @@ export class BackendCallGroupShrinkRequest extends $tea.Model {
   calledNumberShrink?: string;
   callerIdNumber?: string;
   countryId?: string;
+  outId?: string;
   ownerId?: number;
   playTimes?: number;
   resourceOwnerAccount?: string;
@@ -86,6 +90,7 @@ export class BackendCallGroupShrinkRequest extends $tea.Model {
       calledNumberShrink: 'CalledNumber',
       callerIdNumber: 'CallerIdNumber',
       countryId: 'CountryId',
+      outId: 'OutId',
       ownerId: 'OwnerId',
       playTimes: 'PlayTimes',
       resourceOwnerAccount: 'ResourceOwnerAccount',
@@ -105,6 +110,7 @@ export class BackendCallGroupShrinkRequest extends $tea.Model {
       calledNumberShrink: 'string',
       callerIdNumber: 'string',
       countryId: 'string',
+      outId: 'string',
       ownerId: 'number',
       playTimes: 'number',
       resourceOwnerAccount: 'string',
@@ -181,6 +187,7 @@ export class BackendCallSignalRequest extends $tea.Model {
   calledNumber?: string;
   callerIdNumber?: string;
   countryId?: string;
+  outId?: string;
   ownerId?: number;
   playTimes?: number;
   resourceOwnerAccount?: string;
@@ -194,6 +201,7 @@ export class BackendCallSignalRequest extends $tea.Model {
       calledNumber: 'CalledNumber',
       callerIdNumber: 'CallerIdNumber',
       countryId: 'CountryId',
+      outId: 'OutId',
       ownerId: 'OwnerId',
       playTimes: 'PlayTimes',
       resourceOwnerAccount: 'ResourceOwnerAccount',
@@ -210,6 +218,7 @@ export class BackendCallSignalRequest extends $tea.Model {
       calledNumber: 'string',
       callerIdNumber: 'string',
       countryId: 'string',
+      outId: 'string',
       ownerId: 'number',
       playTimes: 'number',
       resourceOwnerAccount: 'string',
@@ -2721,12 +2730,10 @@ export class QueryHomeStatResponse extends $tea.Model {
 export class QueryRecordingEnableRequest extends $tea.Model {
   ownerId?: number;
   resourceOwnerAccount?: string;
-  resourceOwnerId?: number;
   static names(): { [key: string]: string } {
     return {
       ownerId: 'OwnerId',
       resourceOwnerAccount: 'ResourceOwnerAccount',
-      resourceOwnerId: 'ResourceOwnerId',
     };
   }
 
@@ -2734,7 +2741,6 @@ export class QueryRecordingEnableRequest extends $tea.Model {
     return {
       ownerId: 'number',
       resourceOwnerAccount: 'string',
-      resourceOwnerId: 'number',
     };
   }
 
@@ -4891,6 +4897,10 @@ export default class Client extends OpenApi {
       query["CountryId"] = request.countryId;
     }
 
+    if (!Util.isUnset(request.outId)) {
+      query["OutId"] = request.outId;
+    }
+
     if (!Util.isUnset(request.ownerId)) {
       query["OwnerId"] = request.ownerId;
     }
@@ -4970,6 +4980,10 @@ export default class Client extends OpenApi {
 
     if (!Util.isUnset(request.countryId)) {
       query["CountryId"] = request.countryId;
+    }
+
+    if (!Util.isUnset(request.outId)) {
+      query["OutId"] = request.outId;
     }
 
     if (!Util.isUnset(request.ownerId)) {
@@ -6362,10 +6376,6 @@ export default class Client extends OpenApi {
 
     if (!Util.isUnset(request.resourceOwnerAccount)) {
       query["ResourceOwnerAccount"] = request.resourceOwnerAccount;
-    }
-
-    if (!Util.isUnset(request.resourceOwnerId)) {
-      query["ResourceOwnerId"] = request.resourceOwnerId;
     }
 
     let req = new $OpenApi.OpenApiRequest({
