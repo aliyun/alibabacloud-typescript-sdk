@@ -1727,6 +1727,99 @@ export class DeployFunctionResponse extends $tea.Model {
   }
 }
 
+export class DescribeCdnDomainRequest extends $tea.Model {
+  spaceId?: string;
+  tenantId?: string;
+  type?: string;
+  static names(): { [key: string]: string } {
+    return {
+      spaceId: 'SpaceId',
+      tenantId: 'TenantId',
+      type: 'Type',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      spaceId: 'string',
+      tenantId: 'string',
+      type: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class DescribeCdnDomainResponseBody extends $tea.Model {
+  authConfig?: DescribeCdnDomainResponseBodyAuthConfig;
+  corsConfig?: DescribeCdnDomainResponseBodyCorsConfig;
+  domainName?: string;
+  ipConfig?: DescribeCdnDomainResponseBodyIpConfig;
+  refererConfig?: DescribeCdnDomainResponseBodyRefererConfig;
+  requestId?: string;
+  serviceStatus?: string;
+  spaceId?: string;
+  uaConfig?: DescribeCdnDomainResponseBodyUaConfig;
+  static names(): { [key: string]: string } {
+    return {
+      authConfig: 'AuthConfig',
+      corsConfig: 'CorsConfig',
+      domainName: 'DomainName',
+      ipConfig: 'IpConfig',
+      refererConfig: 'RefererConfig',
+      requestId: 'RequestId',
+      serviceStatus: 'ServiceStatus',
+      spaceId: 'SpaceId',
+      uaConfig: 'UaConfig',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      authConfig: DescribeCdnDomainResponseBodyAuthConfig,
+      corsConfig: DescribeCdnDomainResponseBodyCorsConfig,
+      domainName: 'string',
+      ipConfig: DescribeCdnDomainResponseBodyIpConfig,
+      refererConfig: DescribeCdnDomainResponseBodyRefererConfig,
+      requestId: 'string',
+      serviceStatus: 'string',
+      spaceId: 'string',
+      uaConfig: DescribeCdnDomainResponseBodyUaConfig,
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class DescribeCdnDomainResponse extends $tea.Model {
+  headers: { [key: string]: string };
+  statusCode: number;
+  body: DescribeCdnDomainResponseBody;
+  static names(): { [key: string]: string } {
+    return {
+      headers: 'headers',
+      statusCode: 'statusCode',
+      body: 'body',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
+      body: DescribeCdnDomainResponseBody,
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
 export class DescribeFCOpenStatusResponseBody extends $tea.Model {
   requestId?: string;
   status?: string;
@@ -3219,6 +3312,7 @@ export class ListExtensionsResponse extends $tea.Model {
 }
 
 export class ListFileRequest extends $tea.Model {
+  authDelta?: number;
   fileId?: string;
   keyword?: string;
   mode?: string;
@@ -3228,6 +3322,7 @@ export class ListFileRequest extends $tea.Model {
   spaceId?: string;
   static names(): { [key: string]: string } {
     return {
+      authDelta: 'AuthDelta',
       fileId: 'FileId',
       keyword: 'Keyword',
       mode: 'Mode',
@@ -3240,6 +3335,7 @@ export class ListFileRequest extends $tea.Model {
 
   static types(): { [key: string]: any } {
     return {
+      authDelta: 'number',
       fileId: 'string',
       keyword: 'string',
       mode: 'string',
@@ -5367,6 +5463,90 @@ export class SaveAppAuthTokenResponse extends $tea.Model {
   }
 }
 
+export class SaveCdnDomainConfigRequest extends $tea.Model {
+  authConfig?: string;
+  corsConfig?: string;
+  ipConfig?: string;
+  refererConfig?: string;
+  spaceId?: string;
+  tenantId?: string;
+  type?: string;
+  uaConfig?: string;
+  static names(): { [key: string]: string } {
+    return {
+      authConfig: 'AuthConfig',
+      corsConfig: 'CorsConfig',
+      ipConfig: 'IpConfig',
+      refererConfig: 'RefererConfig',
+      spaceId: 'SpaceId',
+      tenantId: 'TenantId',
+      type: 'Type',
+      uaConfig: 'UaConfig',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      authConfig: 'string',
+      corsConfig: 'string',
+      ipConfig: 'string',
+      refererConfig: 'string',
+      spaceId: 'string',
+      tenantId: 'string',
+      type: 'string',
+      uaConfig: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class SaveCdnDomainConfigResponseBody extends $tea.Model {
+  requestId?: string;
+  static names(): { [key: string]: string } {
+    return {
+      requestId: 'RequestId',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      requestId: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class SaveCdnDomainConfigResponse extends $tea.Model {
+  headers: { [key: string]: string };
+  statusCode: number;
+  body: SaveCdnDomainConfigResponseBody;
+  static names(): { [key: string]: string } {
+    return {
+      headers: 'headers',
+      statusCode: 'statusCode',
+      body: 'body',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
+      body: SaveCdnDomainConfigResponseBody,
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
 export class SaveWebHostingCustomDomainConfigRequest extends $tea.Model {
   domainName?: string;
   forceRedirectType?: string;
@@ -6193,6 +6373,140 @@ export class CreateFunctionResponseBodySpec extends $tea.Model {
   }
 }
 
+export class DescribeCdnDomainResponseBodyAuthConfig extends $tea.Model {
+  authDelta?: number;
+  authKey?: string;
+  authType?: string;
+  configId?: string;
+  static names(): { [key: string]: string } {
+    return {
+      authDelta: 'AuthDelta',
+      authKey: 'AuthKey',
+      authType: 'AuthType',
+      configId: 'configId',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      authDelta: 'number',
+      authKey: 'string',
+      authType: 'string',
+      configId: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class DescribeCdnDomainResponseBodyCorsConfig extends $tea.Model {
+  accessOriginControl?: boolean;
+  allowOrigin?: string;
+  configId?: string;
+  static names(): { [key: string]: string } {
+    return {
+      accessOriginControl: 'AccessOriginControl',
+      allowOrigin: 'AllowOrigin',
+      configId: 'ConfigId',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      accessOriginControl: 'boolean',
+      allowOrigin: 'string',
+      configId: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class DescribeCdnDomainResponseBodyIpConfig extends $tea.Model {
+  configId?: string;
+  ipList?: string;
+  type?: string;
+  static names(): { [key: string]: string } {
+    return {
+      configId: 'ConfigId',
+      ipList: 'IpList',
+      type: 'Type',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      configId: 'string',
+      ipList: 'string',
+      type: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class DescribeCdnDomainResponseBodyRefererConfig extends $tea.Model {
+  allowEmpty?: string;
+  configId?: string;
+  disableAst?: string;
+  referList?: string;
+  type?: string;
+  static names(): { [key: string]: string } {
+    return {
+      allowEmpty: 'AllowEmpty',
+      configId: 'ConfigId',
+      disableAst: 'DisableAst',
+      referList: 'ReferList',
+      type: 'Type',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      allowEmpty: 'string',
+      configId: 'string',
+      disableAst: 'string',
+      referList: 'string',
+      type: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class DescribeCdnDomainResponseBodyUaConfig extends $tea.Model {
+  configId?: string;
+  type?: string;
+  uaList?: string;
+  static names(): { [key: string]: string } {
+    return {
+      configId: 'ConfigId',
+      type: 'Type',
+      uaList: 'UaList',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      configId: 'string',
+      type: 'string',
+      uaList: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
 export class DescribeFunctionResponseBodyDeployment extends $tea.Model {
   createdAt?: string;
   deploymentId?: string;
@@ -6811,6 +7125,7 @@ export class ListExtensionsResponseBodyExtensions extends $tea.Model {
 }
 
 export class ListFileResponseBodyDataList extends $tea.Model {
+  authDelta?: number;
   gmtCreate?: string;
   gmtModified?: string;
   id?: string;
@@ -6820,6 +7135,7 @@ export class ListFileResponseBodyDataList extends $tea.Model {
   url?: string;
   static names(): { [key: string]: string } {
     return {
+      authDelta: 'AuthDelta',
       gmtCreate: 'GmtCreate',
       gmtModified: 'GmtModified',
       id: 'Id',
@@ -6832,6 +7148,7 @@ export class ListFileResponseBodyDataList extends $tea.Model {
 
   static types(): { [key: string]: any } {
     return {
+      authDelta: 'number',
       gmtCreate: 'string',
       gmtModified: 'string',
       id: 'string',
@@ -8498,6 +8815,43 @@ export default class Client extends OpenApi {
     return await this.deployFunctionWithOptions(request, runtime);
   }
 
+  async describeCdnDomainWithOptions(request: DescribeCdnDomainRequest, runtime: $Util.RuntimeOptions): Promise<DescribeCdnDomainResponse> {
+    Util.validateModel(request);
+    let body : {[key: string ]: any} = { };
+    if (!Util.isUnset(request.spaceId)) {
+      body["SpaceId"] = request.spaceId;
+    }
+
+    if (!Util.isUnset(request.tenantId)) {
+      body["TenantId"] = request.tenantId;
+    }
+
+    if (!Util.isUnset(request.type)) {
+      body["Type"] = request.type;
+    }
+
+    let req = new $OpenApi.OpenApiRequest({
+      body: OpenApiUtil.parseToMap(body),
+    });
+    let params = new $OpenApi.Params({
+      action: "DescribeCdnDomain",
+      version: "2019-06-15",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $tea.cast<DescribeCdnDomainResponse>(await this.callApi(params, req, runtime), new DescribeCdnDomainResponse({}));
+  }
+
+  async describeCdnDomain(request: DescribeCdnDomainRequest): Promise<DescribeCdnDomainResponse> {
+    let runtime = new $Util.RuntimeOptions({ });
+    return await this.describeCdnDomainWithOptions(request, runtime);
+  }
+
   async describeFCOpenStatusWithOptions(runtime: $Util.RuntimeOptions): Promise<DescribeFCOpenStatusResponse> {
     let req = new $OpenApi.OpenApiRequest({ });
     let params = new $OpenApi.Params({
@@ -9184,6 +9538,10 @@ export default class Client extends OpenApi {
     }
 
     let body : {[key: string ]: any} = { };
+    if (!Util.isUnset(request.authDelta)) {
+      body["AuthDelta"] = request.authDelta;
+    }
+
     if (!Util.isUnset(request.fileId)) {
       body["FileId"] = request.fileId;
     }
@@ -10218,6 +10576,63 @@ export default class Client extends OpenApi {
   async saveAppAuthToken(request: SaveAppAuthTokenRequest): Promise<SaveAppAuthTokenResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.saveAppAuthTokenWithOptions(request, runtime);
+  }
+
+  async saveCdnDomainConfigWithOptions(request: SaveCdnDomainConfigRequest, runtime: $Util.RuntimeOptions): Promise<SaveCdnDomainConfigResponse> {
+    Util.validateModel(request);
+    let body : {[key: string ]: any} = { };
+    if (!Util.isUnset(request.authConfig)) {
+      body["AuthConfig"] = request.authConfig;
+    }
+
+    if (!Util.isUnset(request.corsConfig)) {
+      body["CorsConfig"] = request.corsConfig;
+    }
+
+    if (!Util.isUnset(request.ipConfig)) {
+      body["IpConfig"] = request.ipConfig;
+    }
+
+    if (!Util.isUnset(request.refererConfig)) {
+      body["RefererConfig"] = request.refererConfig;
+    }
+
+    if (!Util.isUnset(request.spaceId)) {
+      body["SpaceId"] = request.spaceId;
+    }
+
+    if (!Util.isUnset(request.tenantId)) {
+      body["TenantId"] = request.tenantId;
+    }
+
+    if (!Util.isUnset(request.type)) {
+      body["Type"] = request.type;
+    }
+
+    if (!Util.isUnset(request.uaConfig)) {
+      body["UaConfig"] = request.uaConfig;
+    }
+
+    let req = new $OpenApi.OpenApiRequest({
+      body: OpenApiUtil.parseToMap(body),
+    });
+    let params = new $OpenApi.Params({
+      action: "SaveCdnDomainConfig",
+      version: "2019-06-15",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $tea.cast<SaveCdnDomainConfigResponse>(await this.callApi(params, req, runtime), new SaveCdnDomainConfigResponse({}));
+  }
+
+  async saveCdnDomainConfig(request: SaveCdnDomainConfigRequest): Promise<SaveCdnDomainConfigResponse> {
+    let runtime = new $Util.RuntimeOptions({ });
+    return await this.saveCdnDomainConfigWithOptions(request, runtime);
   }
 
   async saveWebHostingCustomDomainConfigWithOptions(request: SaveWebHostingCustomDomainConfigRequest, runtime: $Util.RuntimeOptions): Promise<SaveWebHostingCustomDomainConfigResponse> {
