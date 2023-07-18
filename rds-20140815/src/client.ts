@@ -3772,6 +3772,99 @@ export class CreateParameterGroupResponse extends $tea.Model {
   }
 }
 
+export class CreatePostgresExtensionsRequest extends $tea.Model {
+  accountName?: string;
+  clientToken?: string;
+  DBInstanceId?: string;
+  DBNames?: string;
+  extensions?: string;
+  ownerAccount?: string;
+  ownerId?: number;
+  resourceGroupId?: string;
+  resourceOwnerAccount?: string;
+  resourceOwnerId?: number;
+  sourceDatabase?: string;
+  static names(): { [key: string]: string } {
+    return {
+      accountName: 'AccountName',
+      clientToken: 'ClientToken',
+      DBInstanceId: 'DBInstanceId',
+      DBNames: 'DBNames',
+      extensions: 'Extensions',
+      ownerAccount: 'OwnerAccount',
+      ownerId: 'OwnerId',
+      resourceGroupId: 'ResourceGroupId',
+      resourceOwnerAccount: 'ResourceOwnerAccount',
+      resourceOwnerId: 'ResourceOwnerId',
+      sourceDatabase: 'SourceDatabase',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      accountName: 'string',
+      clientToken: 'string',
+      DBInstanceId: 'string',
+      DBNames: 'string',
+      extensions: 'string',
+      ownerAccount: 'string',
+      ownerId: 'number',
+      resourceGroupId: 'string',
+      resourceOwnerAccount: 'string',
+      resourceOwnerId: 'number',
+      sourceDatabase: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class CreatePostgresExtensionsResponseBody extends $tea.Model {
+  requestId?: string;
+  static names(): { [key: string]: string } {
+    return {
+      requestId: 'RequestId',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      requestId: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class CreatePostgresExtensionsResponse extends $tea.Model {
+  headers: { [key: string]: string };
+  statusCode: number;
+  body: CreatePostgresExtensionsResponseBody;
+  static names(): { [key: string]: string } {
+    return {
+      headers: 'headers',
+      statusCode: 'statusCode',
+      body: 'body',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
+      body: CreatePostgresExtensionsResponseBody,
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
 export class CreateReadOnlyDBInstanceRequest extends $tea.Model {
   autoPay?: boolean;
   autoRenew?: string;
@@ -5172,6 +5265,93 @@ export class DeleteParameterGroupResponse extends $tea.Model {
       headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
       statusCode: 'number',
       body: DeleteParameterGroupResponseBody,
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class DeletePostgresExtensionsRequest extends $tea.Model {
+  clientToken?: string;
+  DBInstanceId?: string;
+  DBNames?: string;
+  extensions?: string;
+  ownerAccount?: string;
+  ownerId?: number;
+  resourceGroupId?: string;
+  resourceOwnerAccount?: string;
+  resourceOwnerId?: number;
+  static names(): { [key: string]: string } {
+    return {
+      clientToken: 'ClientToken',
+      DBInstanceId: 'DBInstanceId',
+      DBNames: 'DBNames',
+      extensions: 'Extensions',
+      ownerAccount: 'OwnerAccount',
+      ownerId: 'OwnerId',
+      resourceGroupId: 'ResourceGroupId',
+      resourceOwnerAccount: 'ResourceOwnerAccount',
+      resourceOwnerId: 'ResourceOwnerId',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      clientToken: 'string',
+      DBInstanceId: 'string',
+      DBNames: 'string',
+      extensions: 'string',
+      ownerAccount: 'string',
+      ownerId: 'number',
+      resourceGroupId: 'string',
+      resourceOwnerAccount: 'string',
+      resourceOwnerId: 'number',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class DeletePostgresExtensionsResponseBody extends $tea.Model {
+  requestId?: string;
+  static names(): { [key: string]: string } {
+    return {
+      requestId: 'RequestId',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      requestId: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class DeletePostgresExtensionsResponse extends $tea.Model {
+  headers: { [key: string]: string };
+  statusCode: number;
+  body: DeletePostgresExtensionsResponseBody;
+  static names(): { [key: string]: string } {
+    return {
+      headers: 'headers',
+      statusCode: 'statusCode',
+      body: 'body',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
+      body: DeletePostgresExtensionsResponseBody,
     };
   }
 
@@ -13236,6 +13416,99 @@ export class DescribeParametersResponse extends $tea.Model {
       headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
       statusCode: 'number',
       body: DescribeParametersResponseBody,
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class DescribePostgresExtensionsRequest extends $tea.Model {
+  clientToken?: string;
+  DBInstanceId?: string;
+  DBName?: string;
+  ownerAccount?: string;
+  ownerId?: number;
+  resourceGroupId?: string;
+  resourceOwnerAccount?: string;
+  resourceOwnerId?: number;
+  static names(): { [key: string]: string } {
+    return {
+      clientToken: 'ClientToken',
+      DBInstanceId: 'DBInstanceId',
+      DBName: 'DBName',
+      ownerAccount: 'OwnerAccount',
+      ownerId: 'OwnerId',
+      resourceGroupId: 'ResourceGroupId',
+      resourceOwnerAccount: 'ResourceOwnerAccount',
+      resourceOwnerId: 'ResourceOwnerId',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      clientToken: 'string',
+      DBInstanceId: 'string',
+      DBName: 'string',
+      ownerAccount: 'string',
+      ownerId: 'number',
+      resourceGroupId: 'string',
+      resourceOwnerAccount: 'string',
+      resourceOwnerId: 'number',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class DescribePostgresExtensionsResponseBody extends $tea.Model {
+  installedExtensions?: DescribePostgresExtensionsResponseBodyInstalledExtensions[];
+  overview?: { [key: string]: any };
+  requestId?: string;
+  uninstalledExtensions?: DescribePostgresExtensionsResponseBodyUninstalledExtensions[];
+  static names(): { [key: string]: string } {
+    return {
+      installedExtensions: 'InstalledExtensions',
+      overview: 'Overview',
+      requestId: 'RequestId',
+      uninstalledExtensions: 'UninstalledExtensions',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      installedExtensions: { 'type': 'array', 'itemType': DescribePostgresExtensionsResponseBodyInstalledExtensions },
+      overview: { 'type': 'map', 'keyType': 'string', 'valueType': 'any' },
+      requestId: 'string',
+      uninstalledExtensions: { 'type': 'array', 'itemType': DescribePostgresExtensionsResponseBodyUninstalledExtensions },
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class DescribePostgresExtensionsResponse extends $tea.Model {
+  headers: { [key: string]: string };
+  statusCode: number;
+  body: DescribePostgresExtensionsResponseBody;
+  static names(): { [key: string]: string } {
+    return {
+      headers: 'headers',
+      statusCode: 'statusCode',
+      body: 'body',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
+      body: DescribePostgresExtensionsResponseBody,
     };
   }
 
@@ -23699,6 +23972,93 @@ export class UntagResourcesResponse extends $tea.Model {
   }
 }
 
+export class UpdatePostgresExtensionsRequest extends $tea.Model {
+  clientToken?: string;
+  DBInstanceId?: string;
+  DBNames?: string;
+  extensions?: string;
+  ownerAccount?: string;
+  ownerId?: number;
+  resourceGroupId?: string;
+  resourceOwnerAccount?: string;
+  resourceOwnerId?: number;
+  static names(): { [key: string]: string } {
+    return {
+      clientToken: 'ClientToken',
+      DBInstanceId: 'DBInstanceId',
+      DBNames: 'DBNames',
+      extensions: 'Extensions',
+      ownerAccount: 'OwnerAccount',
+      ownerId: 'OwnerId',
+      resourceGroupId: 'ResourceGroupId',
+      resourceOwnerAccount: 'ResourceOwnerAccount',
+      resourceOwnerId: 'ResourceOwnerId',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      clientToken: 'string',
+      DBInstanceId: 'string',
+      DBNames: 'string',
+      extensions: 'string',
+      ownerAccount: 'string',
+      ownerId: 'number',
+      resourceGroupId: 'string',
+      resourceOwnerAccount: 'string',
+      resourceOwnerId: 'number',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class UpdatePostgresExtensionsResponseBody extends $tea.Model {
+  requestId?: string;
+  static names(): { [key: string]: string } {
+    return {
+      requestId: 'RequestId',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      requestId: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class UpdatePostgresExtensionsResponse extends $tea.Model {
+  headers: { [key: string]: string };
+  statusCode: number;
+  body: UpdatePostgresExtensionsResponseBody;
+  static names(): { [key: string]: string } {
+    return {
+      headers: 'headers',
+      statusCode: 'statusCode',
+      body: 'body',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
+      body: UpdatePostgresExtensionsResponseBody,
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
 export class UpdateUserBackupFileRequest extends $tea.Model {
   backupId?: string;
   comment?: string;
@@ -30250,6 +30610,86 @@ export class DescribeParametersResponseBodyRunningParameters extends $tea.Model 
   }
 }
 
+export class DescribePostgresExtensionsResponseBodyInstalledExtensions extends $tea.Model {
+  category?: string;
+  comment?: string;
+  defaultVersion?: string;
+  installedVersion?: string;
+  name?: string;
+  owner?: string;
+  priority?: string;
+  requires?: string;
+  static names(): { [key: string]: string } {
+    return {
+      category: 'Category',
+      comment: 'Comment',
+      defaultVersion: 'DefaultVersion',
+      installedVersion: 'InstalledVersion',
+      name: 'Name',
+      owner: 'Owner',
+      priority: 'Priority',
+      requires: 'Requires',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      category: 'string',
+      comment: 'string',
+      defaultVersion: 'string',
+      installedVersion: 'string',
+      name: 'string',
+      owner: 'string',
+      priority: 'string',
+      requires: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class DescribePostgresExtensionsResponseBodyUninstalledExtensions extends $tea.Model {
+  category?: string;
+  comment?: string;
+  defaultVersion?: string;
+  installedVersion?: string;
+  name?: string;
+  owner?: string;
+  priority?: string;
+  requires?: string;
+  static names(): { [key: string]: string } {
+    return {
+      category: 'Category',
+      comment: 'Comment',
+      defaultVersion: 'DefaultVersion',
+      installedVersion: 'InstalledVersion',
+      name: 'Name',
+      owner: 'Owner',
+      priority: 'Priority',
+      requires: 'Requires',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      category: 'string',
+      comment: 'string',
+      defaultVersion: 'string',
+      installedVersion: 'string',
+      name: 'string',
+      owner: 'string',
+      priority: 'string',
+      requires: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
 export class DescribePriceRequestDBNode extends $tea.Model {
   classCode?: string;
   zoneId?: string;
@@ -35491,6 +35931,75 @@ export default class Client extends OpenApi {
     return await this.createParameterGroupWithOptions(request, runtime);
   }
 
+  async createPostgresExtensionsWithOptions(request: CreatePostgresExtensionsRequest, runtime: $Util.RuntimeOptions): Promise<CreatePostgresExtensionsResponse> {
+    Util.validateModel(request);
+    let query = { };
+    if (!Util.isUnset(request.accountName)) {
+      query["AccountName"] = request.accountName;
+    }
+
+    if (!Util.isUnset(request.clientToken)) {
+      query["ClientToken"] = request.clientToken;
+    }
+
+    if (!Util.isUnset(request.DBInstanceId)) {
+      query["DBInstanceId"] = request.DBInstanceId;
+    }
+
+    if (!Util.isUnset(request.DBNames)) {
+      query["DBNames"] = request.DBNames;
+    }
+
+    if (!Util.isUnset(request.extensions)) {
+      query["Extensions"] = request.extensions;
+    }
+
+    if (!Util.isUnset(request.ownerAccount)) {
+      query["OwnerAccount"] = request.ownerAccount;
+    }
+
+    if (!Util.isUnset(request.ownerId)) {
+      query["OwnerId"] = request.ownerId;
+    }
+
+    if (!Util.isUnset(request.resourceGroupId)) {
+      query["ResourceGroupId"] = request.resourceGroupId;
+    }
+
+    if (!Util.isUnset(request.resourceOwnerAccount)) {
+      query["ResourceOwnerAccount"] = request.resourceOwnerAccount;
+    }
+
+    if (!Util.isUnset(request.resourceOwnerId)) {
+      query["ResourceOwnerId"] = request.resourceOwnerId;
+    }
+
+    if (!Util.isUnset(request.sourceDatabase)) {
+      query["SourceDatabase"] = request.sourceDatabase;
+    }
+
+    let req = new $OpenApi.OpenApiRequest({
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApi.Params({
+      action: "CreatePostgresExtensions",
+      version: "2014-08-15",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $tea.cast<CreatePostgresExtensionsResponse>(await this.callApi(params, req, runtime), new CreatePostgresExtensionsResponse({}));
+  }
+
+  async createPostgresExtensions(request: CreatePostgresExtensionsRequest): Promise<CreatePostgresExtensionsResponse> {
+    let runtime = new $Util.RuntimeOptions({ });
+    return await this.createPostgresExtensionsWithOptions(request, runtime);
+  }
+
   /**
     * **Before you call this operation, take note of the following limits:**
     * *   The primary instance cannot belong to a dedicated cluster and must run one of the following database engine versions and RDS editions:
@@ -36619,6 +37128,67 @@ export default class Client extends OpenApi {
   async deleteParameterGroup(request: DeleteParameterGroupRequest): Promise<DeleteParameterGroupResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.deleteParameterGroupWithOptions(request, runtime);
+  }
+
+  async deletePostgresExtensionsWithOptions(request: DeletePostgresExtensionsRequest, runtime: $Util.RuntimeOptions): Promise<DeletePostgresExtensionsResponse> {
+    Util.validateModel(request);
+    let query = { };
+    if (!Util.isUnset(request.clientToken)) {
+      query["ClientToken"] = request.clientToken;
+    }
+
+    if (!Util.isUnset(request.DBInstanceId)) {
+      query["DBInstanceId"] = request.DBInstanceId;
+    }
+
+    if (!Util.isUnset(request.DBNames)) {
+      query["DBNames"] = request.DBNames;
+    }
+
+    if (!Util.isUnset(request.extensions)) {
+      query["Extensions"] = request.extensions;
+    }
+
+    if (!Util.isUnset(request.ownerAccount)) {
+      query["OwnerAccount"] = request.ownerAccount;
+    }
+
+    if (!Util.isUnset(request.ownerId)) {
+      query["OwnerId"] = request.ownerId;
+    }
+
+    if (!Util.isUnset(request.resourceGroupId)) {
+      query["ResourceGroupId"] = request.resourceGroupId;
+    }
+
+    if (!Util.isUnset(request.resourceOwnerAccount)) {
+      query["ResourceOwnerAccount"] = request.resourceOwnerAccount;
+    }
+
+    if (!Util.isUnset(request.resourceOwnerId)) {
+      query["ResourceOwnerId"] = request.resourceOwnerId;
+    }
+
+    let req = new $OpenApi.OpenApiRequest({
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApi.Params({
+      action: "DeletePostgresExtensions",
+      version: "2014-08-15",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $tea.cast<DeletePostgresExtensionsResponse>(await this.callApi(params, req, runtime), new DeletePostgresExtensionsResponse({}));
+  }
+
+  async deletePostgresExtensions(request: DeletePostgresExtensionsRequest): Promise<DeletePostgresExtensionsResponse> {
+    let runtime = new $Util.RuntimeOptions({ });
+    return await this.deletePostgresExtensionsWithOptions(request, runtime);
   }
 
   async deleteSecretWithOptions(request: DeleteSecretRequest, runtime: $Util.RuntimeOptions): Promise<DeleteSecretResponse> {
@@ -42357,6 +42927,63 @@ export default class Client extends OpenApi {
   async describeParameters(request: DescribeParametersRequest): Promise<DescribeParametersResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.describeParametersWithOptions(request, runtime);
+  }
+
+  async describePostgresExtensionsWithOptions(request: DescribePostgresExtensionsRequest, runtime: $Util.RuntimeOptions): Promise<DescribePostgresExtensionsResponse> {
+    Util.validateModel(request);
+    let query = { };
+    if (!Util.isUnset(request.clientToken)) {
+      query["ClientToken"] = request.clientToken;
+    }
+
+    if (!Util.isUnset(request.DBInstanceId)) {
+      query["DBInstanceId"] = request.DBInstanceId;
+    }
+
+    if (!Util.isUnset(request.DBName)) {
+      query["DBName"] = request.DBName;
+    }
+
+    if (!Util.isUnset(request.ownerAccount)) {
+      query["OwnerAccount"] = request.ownerAccount;
+    }
+
+    if (!Util.isUnset(request.ownerId)) {
+      query["OwnerId"] = request.ownerId;
+    }
+
+    if (!Util.isUnset(request.resourceGroupId)) {
+      query["ResourceGroupId"] = request.resourceGroupId;
+    }
+
+    if (!Util.isUnset(request.resourceOwnerAccount)) {
+      query["ResourceOwnerAccount"] = request.resourceOwnerAccount;
+    }
+
+    if (!Util.isUnset(request.resourceOwnerId)) {
+      query["ResourceOwnerId"] = request.resourceOwnerId;
+    }
+
+    let req = new $OpenApi.OpenApiRequest({
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApi.Params({
+      action: "DescribePostgresExtensions",
+      version: "2014-08-15",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $tea.cast<DescribePostgresExtensionsResponse>(await this.callApi(params, req, runtime), new DescribePostgresExtensionsResponse({}));
+  }
+
+  async describePostgresExtensions(request: DescribePostgresExtensionsRequest): Promise<DescribePostgresExtensionsResponse> {
+    let runtime = new $Util.RuntimeOptions({ });
+    return await this.describePostgresExtensionsWithOptions(request, runtime);
   }
 
   async describePriceWithOptions(tmpReq: DescribePriceRequest, runtime: $Util.RuntimeOptions): Promise<DescribePriceResponse> {
@@ -50801,6 +51428,67 @@ export default class Client extends OpenApi {
   async untagResources(request: UntagResourcesRequest): Promise<UntagResourcesResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.untagResourcesWithOptions(request, runtime);
+  }
+
+  async updatePostgresExtensionsWithOptions(request: UpdatePostgresExtensionsRequest, runtime: $Util.RuntimeOptions): Promise<UpdatePostgresExtensionsResponse> {
+    Util.validateModel(request);
+    let query = { };
+    if (!Util.isUnset(request.clientToken)) {
+      query["ClientToken"] = request.clientToken;
+    }
+
+    if (!Util.isUnset(request.DBInstanceId)) {
+      query["DBInstanceId"] = request.DBInstanceId;
+    }
+
+    if (!Util.isUnset(request.DBNames)) {
+      query["DBNames"] = request.DBNames;
+    }
+
+    if (!Util.isUnset(request.extensions)) {
+      query["Extensions"] = request.extensions;
+    }
+
+    if (!Util.isUnset(request.ownerAccount)) {
+      query["OwnerAccount"] = request.ownerAccount;
+    }
+
+    if (!Util.isUnset(request.ownerId)) {
+      query["OwnerId"] = request.ownerId;
+    }
+
+    if (!Util.isUnset(request.resourceGroupId)) {
+      query["ResourceGroupId"] = request.resourceGroupId;
+    }
+
+    if (!Util.isUnset(request.resourceOwnerAccount)) {
+      query["ResourceOwnerAccount"] = request.resourceOwnerAccount;
+    }
+
+    if (!Util.isUnset(request.resourceOwnerId)) {
+      query["ResourceOwnerId"] = request.resourceOwnerId;
+    }
+
+    let req = new $OpenApi.OpenApiRequest({
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApi.Params({
+      action: "UpdatePostgresExtensions",
+      version: "2014-08-15",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $tea.cast<UpdatePostgresExtensionsResponse>(await this.callApi(params, req, runtime), new UpdatePostgresExtensionsResponse({}));
+  }
+
+  async updatePostgresExtensions(request: UpdatePostgresExtensionsRequest): Promise<UpdatePostgresExtensionsResponse> {
+    let runtime = new $Util.RuntimeOptions({ });
+    return await this.updatePostgresExtensionsWithOptions(request, runtime);
   }
 
   /**
