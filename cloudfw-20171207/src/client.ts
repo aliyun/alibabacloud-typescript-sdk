@@ -2890,10 +2890,14 @@ export class DescribeTrFirewallsV2DetailResponseBody extends $tea.Model {
   firewallId?: string;
   firewallName?: string;
   firewallStatus?: string;
+  firewallSubnetCidr?: string;
   firewallSwitchStatus?: string;
+  firewallVpcCidr?: string;
   regionNo?: string;
   requestId?: string;
   routeMode?: string;
+  trAttachmentMasterCidr?: string;
+  trAttachmentSlaveCidr?: string;
   transitRouterId?: string;
   static names(): { [key: string]: string } {
     return {
@@ -2905,10 +2909,14 @@ export class DescribeTrFirewallsV2DetailResponseBody extends $tea.Model {
       firewallId: 'FirewallId',
       firewallName: 'FirewallName',
       firewallStatus: 'FirewallStatus',
+      firewallSubnetCidr: 'FirewallSubnetCidr',
       firewallSwitchStatus: 'FirewallSwitchStatus',
+      firewallVpcCidr: 'FirewallVpcCidr',
       regionNo: 'RegionNo',
       requestId: 'RequestId',
       routeMode: 'RouteMode',
+      trAttachmentMasterCidr: 'TrAttachmentMasterCidr',
+      trAttachmentSlaveCidr: 'TrAttachmentSlaveCidr',
       transitRouterId: 'TransitRouterId',
     };
   }
@@ -2923,10 +2931,14 @@ export class DescribeTrFirewallsV2DetailResponseBody extends $tea.Model {
       firewallId: 'string',
       firewallName: 'string',
       firewallStatus: 'string',
+      firewallSubnetCidr: 'string',
       firewallSwitchStatus: 'string',
+      firewallVpcCidr: 'string',
       regionNo: 'string',
       requestId: 'string',
       routeMode: 'string',
+      trAttachmentMasterCidr: 'string',
+      trAttachmentSlaveCidr: 'string',
       transitRouterId: 'string',
     };
   }
@@ -5291,12 +5303,14 @@ export class ModifyVpcFirewallControlPolicyResponse extends $tea.Model {
 }
 
 export class ModifyVpcFirewallControlPolicyPositionRequest extends $tea.Model {
+  aclUuid?: string;
   lang?: string;
   newOrder?: string;
   oldOrder?: string;
   vpcFirewallId?: string;
   static names(): { [key: string]: string } {
     return {
+      aclUuid: 'AclUuid',
       lang: 'Lang',
       newOrder: 'NewOrder',
       oldOrder: 'OldOrder',
@@ -5306,6 +5320,7 @@ export class ModifyVpcFirewallControlPolicyPositionRequest extends $tea.Model {
 
   static types(): { [key: string]: any } {
     return {
+      aclUuid: 'string',
       lang: 'string',
       newOrder: 'string',
       oldOrder: 'string',
@@ -12260,6 +12275,10 @@ export default class Client extends OpenApi {
   async modifyVpcFirewallControlPolicyPositionWithOptions(request: ModifyVpcFirewallControlPolicyPositionRequest, runtime: $Util.RuntimeOptions): Promise<ModifyVpcFirewallControlPolicyPositionResponse> {
     Util.validateModel(request);
     let query = { };
+    if (!Util.isUnset(request.aclUuid)) {
+      query["AclUuid"] = request.aclUuid;
+    }
+
     if (!Util.isUnset(request.lang)) {
       query["Lang"] = request.lang;
     }
