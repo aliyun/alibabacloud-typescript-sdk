@@ -374,6 +374,93 @@ export class AllocateReadWriteSplittingConnectionResponse extends $tea.Model {
   }
 }
 
+export class AttachWhitelistTemplateToInstanceRequest extends $tea.Model {
+  insName?: string;
+  resourceOwnerAccount?: string;
+  resourceOwnerId?: number;
+  templateId?: number;
+  static names(): { [key: string]: string } {
+    return {
+      insName: 'InsName',
+      resourceOwnerAccount: 'ResourceOwnerAccount',
+      resourceOwnerId: 'ResourceOwnerId',
+      templateId: 'TemplateId',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      insName: 'string',
+      resourceOwnerAccount: 'string',
+      resourceOwnerId: 'number',
+      templateId: 'number',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class AttachWhitelistTemplateToInstanceResponseBody extends $tea.Model {
+  code?: string;
+  data?: AttachWhitelistTemplateToInstanceResponseBodyData;
+  httpStatusCode?: number;
+  message?: string;
+  requestId?: string;
+  success?: boolean;
+  static names(): { [key: string]: string } {
+    return {
+      code: 'Code',
+      data: 'Data',
+      httpStatusCode: 'HttpStatusCode',
+      message: 'Message',
+      requestId: 'RequestId',
+      success: 'Success',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      code: 'string',
+      data: AttachWhitelistTemplateToInstanceResponseBodyData,
+      httpStatusCode: 'number',
+      message: 'string',
+      requestId: 'string',
+      success: 'boolean',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class AttachWhitelistTemplateToInstanceResponse extends $tea.Model {
+  headers: { [key: string]: string };
+  statusCode: number;
+  body: AttachWhitelistTemplateToInstanceResponseBody;
+  static names(): { [key: string]: string } {
+    return {
+      headers: 'headers',
+      statusCode: 'statusCode',
+      body: 'body',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
+      body: AttachWhitelistTemplateToInstanceResponseBody,
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
 export class CalculateDBInstanceWeightRequest extends $tea.Model {
   DBInstanceId?: string;
   resourceOwnerId?: number;
@@ -6108,6 +6195,99 @@ export class DescribeActiveOperationTasksResponse extends $tea.Model {
       headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
       statusCode: 'number',
       body: DescribeActiveOperationTasksResponseBody,
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class DescribeAllWhitelistTemplateRequest extends $tea.Model {
+  fuzzySearch?: boolean;
+  maxRecordsPerPage?: number;
+  pageNumbers?: number;
+  resourceOwnerAccount?: string;
+  resourceOwnerId?: number;
+  templateName?: string;
+  static names(): { [key: string]: string } {
+    return {
+      fuzzySearch: 'FuzzySearch',
+      maxRecordsPerPage: 'MaxRecordsPerPage',
+      pageNumbers: 'PageNumbers',
+      resourceOwnerAccount: 'ResourceOwnerAccount',
+      resourceOwnerId: 'ResourceOwnerId',
+      templateName: 'TemplateName',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      fuzzySearch: 'boolean',
+      maxRecordsPerPage: 'number',
+      pageNumbers: 'number',
+      resourceOwnerAccount: 'string',
+      resourceOwnerId: 'number',
+      templateName: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class DescribeAllWhitelistTemplateResponseBody extends $tea.Model {
+  code?: string;
+  data?: DescribeAllWhitelistTemplateResponseBodyData;
+  httpStatusCode?: number;
+  message?: string;
+  requestId?: string;
+  success?: boolean;
+  static names(): { [key: string]: string } {
+    return {
+      code: 'Code',
+      data: 'Data',
+      httpStatusCode: 'HttpStatusCode',
+      message: 'Message',
+      requestId: 'RequestId',
+      success: 'Success',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      code: 'string',
+      data: DescribeAllWhitelistTemplateResponseBodyData,
+      httpStatusCode: 'number',
+      message: 'string',
+      requestId: 'string',
+      success: 'boolean',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class DescribeAllWhitelistTemplateResponse extends $tea.Model {
+  headers: { [key: string]: string };
+  statusCode: number;
+  body: DescribeAllWhitelistTemplateResponseBody;
+  static names(): { [key: string]: string } {
+    return {
+      headers: 'headers',
+      statusCode: 'statusCode',
+      body: 'body',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
+      body: DescribeAllWhitelistTemplateResponseBody,
     };
   }
 
@@ -12164,6 +12344,90 @@ export class DescribeInstanceKeywordsResponse extends $tea.Model {
   }
 }
 
+export class DescribeInstanceLinkedWhitelistTemplateRequest extends $tea.Model {
+  insName?: string;
+  resourceOwnerAccount?: string;
+  resourceOwnerId?: number;
+  static names(): { [key: string]: string } {
+    return {
+      insName: 'InsName',
+      resourceOwnerAccount: 'ResourceOwnerAccount',
+      resourceOwnerId: 'ResourceOwnerId',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      insName: 'string',
+      resourceOwnerAccount: 'string',
+      resourceOwnerId: 'number',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class DescribeInstanceLinkedWhitelistTemplateResponseBody extends $tea.Model {
+  code?: string;
+  data?: DescribeInstanceLinkedWhitelistTemplateResponseBodyData;
+  httpStatusCode?: number;
+  message?: string;
+  requestId?: string;
+  success?: boolean;
+  static names(): { [key: string]: string } {
+    return {
+      code: 'Code',
+      data: 'Data',
+      httpStatusCode: 'HttpStatusCode',
+      message: 'Message',
+      requestId: 'RequestId',
+      success: 'Success',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      code: 'string',
+      data: DescribeInstanceLinkedWhitelistTemplateResponseBodyData,
+      httpStatusCode: 'number',
+      message: 'string',
+      requestId: 'string',
+      success: 'boolean',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class DescribeInstanceLinkedWhitelistTemplateResponse extends $tea.Model {
+  headers: { [key: string]: string };
+  statusCode: number;
+  body: DescribeInstanceLinkedWhitelistTemplateResponseBody;
+  static names(): { [key: string]: string } {
+    return {
+      headers: 'headers',
+      statusCode: 'statusCode',
+      body: 'body',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
+      body: DescribeInstanceLinkedWhitelistTemplateResponseBody,
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
 export class DescribeLocalAvailableRecoveryTimeRequest extends $tea.Model {
   DBInstanceId?: string;
   ownerId?: number;
@@ -15846,6 +16110,174 @@ export class DescribeVSwitchesResponse extends $tea.Model {
   }
 }
 
+export class DescribeWhitelistTemplateRequest extends $tea.Model {
+  resourceOwnerAccount?: string;
+  resourceOwnerId?: number;
+  templateId?: number;
+  static names(): { [key: string]: string } {
+    return {
+      resourceOwnerAccount: 'ResourceOwnerAccount',
+      resourceOwnerId: 'ResourceOwnerId',
+      templateId: 'TemplateId',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      resourceOwnerAccount: 'string',
+      resourceOwnerId: 'number',
+      templateId: 'number',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class DescribeWhitelistTemplateResponseBody extends $tea.Model {
+  code?: string;
+  data?: DescribeWhitelistTemplateResponseBodyData;
+  httpStatusCode?: number;
+  message?: string;
+  requestId?: string;
+  success?: boolean;
+  static names(): { [key: string]: string } {
+    return {
+      code: 'Code',
+      data: 'Data',
+      httpStatusCode: 'HttpStatusCode',
+      message: 'Message',
+      requestId: 'RequestId',
+      success: 'Success',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      code: 'string',
+      data: DescribeWhitelistTemplateResponseBodyData,
+      httpStatusCode: 'number',
+      message: 'string',
+      requestId: 'string',
+      success: 'boolean',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class DescribeWhitelistTemplateResponse extends $tea.Model {
+  headers: { [key: string]: string };
+  statusCode: number;
+  body: DescribeWhitelistTemplateResponseBody;
+  static names(): { [key: string]: string } {
+    return {
+      headers: 'headers',
+      statusCode: 'statusCode',
+      body: 'body',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
+      body: DescribeWhitelistTemplateResponseBody,
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class DescribeWhitelistTemplateLinkedInstanceRequest extends $tea.Model {
+  resourceOwnerAccount?: string;
+  resourceOwnerId?: number;
+  templateId?: number;
+  static names(): { [key: string]: string } {
+    return {
+      resourceOwnerAccount: 'ResourceOwnerAccount',
+      resourceOwnerId: 'ResourceOwnerId',
+      templateId: 'TemplateId',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      resourceOwnerAccount: 'string',
+      resourceOwnerId: 'number',
+      templateId: 'number',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class DescribeWhitelistTemplateLinkedInstanceResponseBody extends $tea.Model {
+  code?: string;
+  data?: DescribeWhitelistTemplateLinkedInstanceResponseBodyData;
+  httpStatusCode?: number;
+  message?: string;
+  requestId?: string;
+  success?: boolean;
+  static names(): { [key: string]: string } {
+    return {
+      code: 'Code',
+      data: 'Data',
+      httpStatusCode: 'HttpStatusCode',
+      message: 'Message',
+      requestId: 'RequestId',
+      success: 'Success',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      code: 'string',
+      data: DescribeWhitelistTemplateLinkedInstanceResponseBodyData,
+      httpStatusCode: 'number',
+      message: 'string',
+      requestId: 'string',
+      success: 'boolean',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class DescribeWhitelistTemplateLinkedInstanceResponse extends $tea.Model {
+  headers: { [key: string]: string };
+  statusCode: number;
+  body: DescribeWhitelistTemplateLinkedInstanceResponseBody;
+  static names(): { [key: string]: string } {
+    return {
+      headers: 'headers',
+      statusCode: 'statusCode',
+      body: 'body',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
+      body: DescribeWhitelistTemplateLinkedInstanceResponseBody,
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
 export class DestroyDBInstanceRequest extends $tea.Model {
   clientToken?: string;
   DBInstanceId?: string;
@@ -15985,6 +16417,93 @@ export class DetachGadInstanceMemberResponse extends $tea.Model {
       headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
       statusCode: 'number',
       body: DetachGadInstanceMemberResponseBody,
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class DetachWhitelistTemplateToInstanceRequest extends $tea.Model {
+  insName?: string;
+  resourceOwnerAccount?: string;
+  resourceOwnerId?: number;
+  templateId?: number;
+  static names(): { [key: string]: string } {
+    return {
+      insName: 'InsName',
+      resourceOwnerAccount: 'ResourceOwnerAccount',
+      resourceOwnerId: 'ResourceOwnerId',
+      templateId: 'TemplateId',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      insName: 'string',
+      resourceOwnerAccount: 'string',
+      resourceOwnerId: 'number',
+      templateId: 'number',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class DetachWhitelistTemplateToInstanceResponseBody extends $tea.Model {
+  code?: string;
+  data?: DetachWhitelistTemplateToInstanceResponseBodyData;
+  httpStatusCode?: number;
+  message?: string;
+  requestId?: string;
+  success?: boolean;
+  static names(): { [key: string]: string } {
+    return {
+      code: 'Code',
+      data: 'Data',
+      httpStatusCode: 'HttpStatusCode',
+      message: 'Message',
+      requestId: 'RequestId',
+      success: 'Success',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      code: 'string',
+      data: DetachWhitelistTemplateToInstanceResponseBodyData,
+      httpStatusCode: 'number',
+      message: 'string',
+      requestId: 'string',
+      success: 'boolean',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class DetachWhitelistTemplateToInstanceResponse extends $tea.Model {
+  headers: { [key: string]: string };
+  statusCode: number;
+  body: DetachWhitelistTemplateToInstanceResponseBody;
+  static names(): { [key: string]: string } {
+    return {
+      headers: 'headers',
+      statusCode: 'statusCode',
+      body: 'body',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
+      body: DetachWhitelistTemplateToInstanceResponseBody,
     };
   }
 
@@ -21587,6 +22106,96 @@ export class ModifySecurityIpsResponse extends $tea.Model {
   }
 }
 
+export class ModifyWhitelistTemplateRequest extends $tea.Model {
+  ipWhitelist?: string;
+  resourceOwnerAccount?: string;
+  resourceOwnerId?: number;
+  templateId?: number;
+  templateName?: string;
+  static names(): { [key: string]: string } {
+    return {
+      ipWhitelist: 'IpWhitelist',
+      resourceOwnerAccount: 'ResourceOwnerAccount',
+      resourceOwnerId: 'ResourceOwnerId',
+      templateId: 'TemplateId',
+      templateName: 'TemplateName',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      ipWhitelist: 'string',
+      resourceOwnerAccount: 'string',
+      resourceOwnerId: 'number',
+      templateId: 'number',
+      templateName: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class ModifyWhitelistTemplateResponseBody extends $tea.Model {
+  code?: string;
+  data?: ModifyWhitelistTemplateResponseBodyData;
+  httpStatusCode?: number;
+  message?: string;
+  requestId?: string;
+  success?: boolean;
+  static names(): { [key: string]: string } {
+    return {
+      code: 'Code',
+      data: 'Data',
+      httpStatusCode: 'HttpStatusCode',
+      message: 'Message',
+      requestId: 'RequestId',
+      success: 'Success',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      code: 'string',
+      data: ModifyWhitelistTemplateResponseBodyData,
+      httpStatusCode: 'number',
+      message: 'string',
+      requestId: 'string',
+      success: 'boolean',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class ModifyWhitelistTemplateResponse extends $tea.Model {
+  headers: { [key: string]: string };
+  statusCode: number;
+  body: ModifyWhitelistTemplateResponseBody;
+  static names(): { [key: string]: string } {
+    return {
+      headers: 'headers',
+      statusCode: 'statusCode',
+      body: 'body',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
+      body: ModifyWhitelistTemplateResponseBody,
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
 export class PurgeDBInstanceLogRequest extends $tea.Model {
   clientToken?: string;
   DBInstanceId?: string;
@@ -24636,6 +25245,25 @@ export class AddTagsToResourceRequestTag extends $tea.Model {
   }
 }
 
+export class AttachWhitelistTemplateToInstanceResponseBodyData extends $tea.Model {
+  status?: string;
+  static names(): { [key: string]: string } {
+    return {
+      status: 'Status',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      status: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
 export class CalculateDBInstanceWeightResponseBodyItemsDBInstanceWeight extends $tea.Model {
   DBInstanceId?: string;
   DBInstanceType?: string;
@@ -25394,6 +26022,74 @@ export class DescribeActiveOperationTasksResponseBodyItems extends $tea.Model {
       taskType: 'string',
       taskTypeEn: 'string',
       taskTypeZh: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class DescribeAllWhitelistTemplateResponseBodyDataTemplates extends $tea.Model {
+  id?: number;
+  ips?: string;
+  templateId?: number;
+  templateName?: string;
+  userId?: number;
+  static names(): { [key: string]: string } {
+    return {
+      id: 'Id',
+      ips: 'Ips',
+      templateId: 'TemplateId',
+      templateName: 'TemplateName',
+      userId: 'UserId',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      id: 'number',
+      ips: 'string',
+      templateId: 'number',
+      templateName: 'string',
+      userId: 'number',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class DescribeAllWhitelistTemplateResponseBodyData extends $tea.Model {
+  currPageNumbers?: number;
+  hasNext?: boolean;
+  hasPrev?: boolean;
+  maxRecordsPerPage?: number;
+  templates?: DescribeAllWhitelistTemplateResponseBodyDataTemplates[];
+  totalPageNumbers?: number;
+  totalRecords?: number;
+  static names(): { [key: string]: string } {
+    return {
+      currPageNumbers: 'CurrPageNumbers',
+      hasNext: 'HasNext',
+      hasPrev: 'HasPrev',
+      maxRecordsPerPage: 'MaxRecordsPerPage',
+      templates: 'Templates',
+      totalPageNumbers: 'TotalPageNumbers',
+      totalRecords: 'TotalRecords',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      currPageNumbers: 'number',
+      hasNext: 'boolean',
+      hasPrev: 'boolean',
+      maxRecordsPerPage: 'number',
+      templates: { 'type': 'array', 'itemType': DescribeAllWhitelistTemplateResponseBodyDataTemplates },
+      totalPageNumbers: 'number',
+      totalRecords: 'number',
     };
   }
 
@@ -29675,6 +30371,59 @@ export class DescribeInstanceKeywordsResponseBodyWords extends $tea.Model {
   }
 }
 
+export class DescribeInstanceLinkedWhitelistTemplateResponseBodyDataTemplates extends $tea.Model {
+  id?: number;
+  ips?: string;
+  templateId?: number;
+  templateName?: string;
+  userId?: number;
+  static names(): { [key: string]: string } {
+    return {
+      id: 'Id',
+      ips: 'Ips',
+      templateId: 'TemplateId',
+      templateName: 'TemplateName',
+      userId: 'UserId',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      id: 'number',
+      ips: 'string',
+      templateId: 'number',
+      templateName: 'string',
+      userId: 'number',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class DescribeInstanceLinkedWhitelistTemplateResponseBodyData extends $tea.Model {
+  insName?: string;
+  templates?: DescribeInstanceLinkedWhitelistTemplateResponseBodyDataTemplates[];
+  static names(): { [key: string]: string } {
+    return {
+      insName: 'InsName',
+      templates: 'Templates',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      insName: 'string',
+      templates: { 'type': 'array', 'itemType': DescribeInstanceLinkedWhitelistTemplateResponseBodyDataTemplates },
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
 export class DescribeLogBackupFilesResponseBodyItemsBinLogFile extends $tea.Model {
   downloadLink?: string;
   fileSize?: number;
@@ -32271,6 +33020,97 @@ export class DescribeVSwitchesResponseBodyVSwitchs extends $tea.Model {
   }
 }
 
+export class DescribeWhitelistTemplateResponseBodyDataTemplate extends $tea.Model {
+  id?: number;
+  ips?: string;
+  templateId?: number;
+  templateName?: string;
+  userId?: number;
+  static names(): { [key: string]: string } {
+    return {
+      id: 'Id',
+      ips: 'Ips',
+      templateId: 'TemplateId',
+      templateName: 'TemplateName',
+      userId: 'UserId',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      id: 'number',
+      ips: 'string',
+      templateId: 'number',
+      templateName: 'string',
+      userId: 'number',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class DescribeWhitelistTemplateResponseBodyData extends $tea.Model {
+  template?: DescribeWhitelistTemplateResponseBodyDataTemplate;
+  static names(): { [key: string]: string } {
+    return {
+      template: 'Template',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      template: DescribeWhitelistTemplateResponseBodyDataTemplate,
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class DescribeWhitelistTemplateLinkedInstanceResponseBodyData extends $tea.Model {
+  insName?: string[];
+  templateId?: number;
+  static names(): { [key: string]: string } {
+    return {
+      insName: 'InsName',
+      templateId: 'TemplateId',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      insName: { 'type': 'array', 'itemType': 'string' },
+      templateId: 'number',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class DetachWhitelistTemplateToInstanceResponseBodyData extends $tea.Model {
+  status?: string;
+  static names(): { [key: string]: string } {
+    return {
+      status: 'Status',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      status: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
 export class GetDBInstanceTopologyResponseBodyDataConnections extends $tea.Model {
   connectionString?: string;
   DBInstanceName?: string;
@@ -32769,6 +33609,25 @@ export class ModifySecurityGroupConfigurationResponseBodyItems extends $tea.Mode
   static types(): { [key: string]: any } {
     return {
       ecsSecurityGroupRelation: { 'type': 'array', 'itemType': ModifySecurityGroupConfigurationResponseBodyItemsEcsSecurityGroupRelation },
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class ModifyWhitelistTemplateResponseBodyData extends $tea.Model {
+  status?: string;
+  static names(): { [key: string]: string } {
+    return {
+      status: 'Status',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      status: 'string',
     };
   }
 
@@ -33297,6 +34156,47 @@ export default class Client extends OpenApi {
   async allocateReadWriteSplittingConnection(request: AllocateReadWriteSplittingConnectionRequest): Promise<AllocateReadWriteSplittingConnectionResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.allocateReadWriteSplittingConnectionWithOptions(request, runtime);
+  }
+
+  async attachWhitelistTemplateToInstanceWithOptions(request: AttachWhitelistTemplateToInstanceRequest, runtime: $Util.RuntimeOptions): Promise<AttachWhitelistTemplateToInstanceResponse> {
+    Util.validateModel(request);
+    let query = { };
+    if (!Util.isUnset(request.insName)) {
+      query["InsName"] = request.insName;
+    }
+
+    if (!Util.isUnset(request.resourceOwnerAccount)) {
+      query["ResourceOwnerAccount"] = request.resourceOwnerAccount;
+    }
+
+    if (!Util.isUnset(request.resourceOwnerId)) {
+      query["ResourceOwnerId"] = request.resourceOwnerId;
+    }
+
+    if (!Util.isUnset(request.templateId)) {
+      query["TemplateId"] = request.templateId;
+    }
+
+    let req = new $OpenApi.OpenApiRequest({
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApi.Params({
+      action: "AttachWhitelistTemplateToInstance",
+      version: "2014-08-15",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $tea.cast<AttachWhitelistTemplateToInstanceResponse>(await this.callApi(params, req, runtime), new AttachWhitelistTemplateToInstanceResponse({}));
+  }
+
+  async attachWhitelistTemplateToInstance(request: AttachWhitelistTemplateToInstanceRequest): Promise<AttachWhitelistTemplateToInstanceResponse> {
+    let runtime = new $Util.RuntimeOptions({ });
+    return await this.attachWhitelistTemplateToInstanceWithOptions(request, runtime);
   }
 
   /**
@@ -37756,6 +38656,55 @@ export default class Client extends OpenApi {
     return await this.describeActiveOperationTasksWithOptions(request, runtime);
   }
 
+  async describeAllWhitelistTemplateWithOptions(request: DescribeAllWhitelistTemplateRequest, runtime: $Util.RuntimeOptions): Promise<DescribeAllWhitelistTemplateResponse> {
+    Util.validateModel(request);
+    let query = { };
+    if (!Util.isUnset(request.fuzzySearch)) {
+      query["FuzzySearch"] = request.fuzzySearch;
+    }
+
+    if (!Util.isUnset(request.maxRecordsPerPage)) {
+      query["MaxRecordsPerPage"] = request.maxRecordsPerPage;
+    }
+
+    if (!Util.isUnset(request.pageNumbers)) {
+      query["PageNumbers"] = request.pageNumbers;
+    }
+
+    if (!Util.isUnset(request.resourceOwnerAccount)) {
+      query["ResourceOwnerAccount"] = request.resourceOwnerAccount;
+    }
+
+    if (!Util.isUnset(request.resourceOwnerId)) {
+      query["ResourceOwnerId"] = request.resourceOwnerId;
+    }
+
+    if (!Util.isUnset(request.templateName)) {
+      query["TemplateName"] = request.templateName;
+    }
+
+    let req = new $OpenApi.OpenApiRequest({
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApi.Params({
+      action: "DescribeAllWhitelistTemplate",
+      version: "2014-08-15",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $tea.cast<DescribeAllWhitelistTemplateResponse>(await this.callApi(params, req, runtime), new DescribeAllWhitelistTemplateResponse({}));
+  }
+
+  async describeAllWhitelistTemplate(request: DescribeAllWhitelistTemplateRequest): Promise<DescribeAllWhitelistTemplateResponse> {
+    let runtime = new $Util.RuntimeOptions({ });
+    return await this.describeAllWhitelistTemplateWithOptions(request, runtime);
+  }
+
   async describeAnalyticdbByPrimaryDBInstanceWithOptions(request: DescribeAnalyticdbByPrimaryDBInstanceRequest, runtime: $Util.RuntimeOptions): Promise<DescribeAnalyticdbByPrimaryDBInstanceResponse> {
     Util.validateModel(request);
     let query = { };
@@ -42085,6 +43034,43 @@ export default class Client extends OpenApi {
     return await this.describeInstanceKeywordsWithOptions(request, runtime);
   }
 
+  async describeInstanceLinkedWhitelistTemplateWithOptions(request: DescribeInstanceLinkedWhitelistTemplateRequest, runtime: $Util.RuntimeOptions): Promise<DescribeInstanceLinkedWhitelistTemplateResponse> {
+    Util.validateModel(request);
+    let query = { };
+    if (!Util.isUnset(request.insName)) {
+      query["InsName"] = request.insName;
+    }
+
+    if (!Util.isUnset(request.resourceOwnerAccount)) {
+      query["ResourceOwnerAccount"] = request.resourceOwnerAccount;
+    }
+
+    if (!Util.isUnset(request.resourceOwnerId)) {
+      query["ResourceOwnerId"] = request.resourceOwnerId;
+    }
+
+    let req = new $OpenApi.OpenApiRequest({
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApi.Params({
+      action: "DescribeInstanceLinkedWhitelistTemplate",
+      version: "2014-08-15",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $tea.cast<DescribeInstanceLinkedWhitelistTemplateResponse>(await this.callApi(params, req, runtime), new DescribeInstanceLinkedWhitelistTemplateResponse({}));
+  }
+
+  async describeInstanceLinkedWhitelistTemplate(request: DescribeInstanceLinkedWhitelistTemplateRequest): Promise<DescribeInstanceLinkedWhitelistTemplateResponse> {
+    let runtime = new $Util.RuntimeOptions({ });
+    return await this.describeInstanceLinkedWhitelistTemplateWithOptions(request, runtime);
+  }
+
   async describeLocalAvailableRecoveryTimeWithOptions(request: DescribeLocalAvailableRecoveryTimeRequest, runtime: $Util.RuntimeOptions): Promise<DescribeLocalAvailableRecoveryTimeResponse> {
     Util.validateModel(request);
     let query = { };
@@ -44655,6 +45641,82 @@ export default class Client extends OpenApi {
     return await this.describeVSwitchesWithOptions(request, runtime);
   }
 
+  async describeWhitelistTemplateWithOptions(request: DescribeWhitelistTemplateRequest, runtime: $Util.RuntimeOptions): Promise<DescribeWhitelistTemplateResponse> {
+    Util.validateModel(request);
+    let query = { };
+    if (!Util.isUnset(request.resourceOwnerAccount)) {
+      query["ResourceOwnerAccount"] = request.resourceOwnerAccount;
+    }
+
+    if (!Util.isUnset(request.resourceOwnerId)) {
+      query["ResourceOwnerId"] = request.resourceOwnerId;
+    }
+
+    if (!Util.isUnset(request.templateId)) {
+      query["TemplateId"] = request.templateId;
+    }
+
+    let req = new $OpenApi.OpenApiRequest({
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApi.Params({
+      action: "DescribeWhitelistTemplate",
+      version: "2014-08-15",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $tea.cast<DescribeWhitelistTemplateResponse>(await this.callApi(params, req, runtime), new DescribeWhitelistTemplateResponse({}));
+  }
+
+  async describeWhitelistTemplate(request: DescribeWhitelistTemplateRequest): Promise<DescribeWhitelistTemplateResponse> {
+    let runtime = new $Util.RuntimeOptions({ });
+    return await this.describeWhitelistTemplateWithOptions(request, runtime);
+  }
+
+  async describeWhitelistTemplateLinkedInstanceWithOptions(request: DescribeWhitelistTemplateLinkedInstanceRequest, runtime: $Util.RuntimeOptions): Promise<DescribeWhitelistTemplateLinkedInstanceResponse> {
+    Util.validateModel(request);
+    let query = { };
+    if (!Util.isUnset(request.resourceOwnerAccount)) {
+      query["ResourceOwnerAccount"] = request.resourceOwnerAccount;
+    }
+
+    if (!Util.isUnset(request.resourceOwnerId)) {
+      query["ResourceOwnerId"] = request.resourceOwnerId;
+    }
+
+    let body : {[key: string ]: any} = { };
+    if (!Util.isUnset(request.templateId)) {
+      body["TemplateId"] = request.templateId;
+    }
+
+    let req = new $OpenApi.OpenApiRequest({
+      query: OpenApiUtil.query(query),
+      body: OpenApiUtil.parseToMap(body),
+    });
+    let params = new $OpenApi.Params({
+      action: "DescribeWhitelistTemplateLinkedInstance",
+      version: "2014-08-15",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $tea.cast<DescribeWhitelistTemplateLinkedInstanceResponse>(await this.callApi(params, req, runtime), new DescribeWhitelistTemplateLinkedInstanceResponse({}));
+  }
+
+  async describeWhitelistTemplateLinkedInstance(request: DescribeWhitelistTemplateLinkedInstanceRequest): Promise<DescribeWhitelistTemplateLinkedInstanceResponse> {
+    let runtime = new $Util.RuntimeOptions({ });
+    return await this.describeWhitelistTemplateLinkedInstanceWithOptions(request, runtime);
+  }
+
   /**
     * The DestroyDBInstance operation is phased out.
     *
@@ -44767,6 +45829,47 @@ export default class Client extends OpenApi {
   async detachGadInstanceMember(request: DetachGadInstanceMemberRequest): Promise<DetachGadInstanceMemberResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.detachGadInstanceMemberWithOptions(request, runtime);
+  }
+
+  async detachWhitelistTemplateToInstanceWithOptions(request: DetachWhitelistTemplateToInstanceRequest, runtime: $Util.RuntimeOptions): Promise<DetachWhitelistTemplateToInstanceResponse> {
+    Util.validateModel(request);
+    let query = { };
+    if (!Util.isUnset(request.insName)) {
+      query["InsName"] = request.insName;
+    }
+
+    if (!Util.isUnset(request.resourceOwnerAccount)) {
+      query["ResourceOwnerAccount"] = request.resourceOwnerAccount;
+    }
+
+    if (!Util.isUnset(request.resourceOwnerId)) {
+      query["ResourceOwnerId"] = request.resourceOwnerId;
+    }
+
+    if (!Util.isUnset(request.templateId)) {
+      query["TemplateId"] = request.templateId;
+    }
+
+    let req = new $OpenApi.OpenApiRequest({
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApi.Params({
+      action: "DetachWhitelistTemplateToInstance",
+      version: "2014-08-15",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $tea.cast<DetachWhitelistTemplateToInstanceResponse>(await this.callApi(params, req, runtime), new DetachWhitelistTemplateToInstanceResponse({}));
+  }
+
+  async detachWhitelistTemplateToInstance(request: DetachWhitelistTemplateToInstanceRequest): Promise<DetachWhitelistTemplateToInstanceResponse> {
+    let runtime = new $Util.RuntimeOptions({ });
+    return await this.detachWhitelistTemplateToInstanceWithOptions(request, runtime);
   }
 
   async getDBInstanceTopologyWithOptions(request: GetDBInstanceTopologyRequest, runtime: $Util.RuntimeOptions): Promise<GetDBInstanceTopologyResponse> {
@@ -49401,6 +50504,51 @@ export default class Client extends OpenApi {
   async modifySecurityIps(request: ModifySecurityIpsRequest): Promise<ModifySecurityIpsResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.modifySecurityIpsWithOptions(request, runtime);
+  }
+
+  async modifyWhitelistTemplateWithOptions(request: ModifyWhitelistTemplateRequest, runtime: $Util.RuntimeOptions): Promise<ModifyWhitelistTemplateResponse> {
+    Util.validateModel(request);
+    let query = { };
+    if (!Util.isUnset(request.ipWhitelist)) {
+      query["IpWhitelist"] = request.ipWhitelist;
+    }
+
+    if (!Util.isUnset(request.resourceOwnerAccount)) {
+      query["ResourceOwnerAccount"] = request.resourceOwnerAccount;
+    }
+
+    if (!Util.isUnset(request.resourceOwnerId)) {
+      query["ResourceOwnerId"] = request.resourceOwnerId;
+    }
+
+    if (!Util.isUnset(request.templateId)) {
+      query["TemplateId"] = request.templateId;
+    }
+
+    if (!Util.isUnset(request.templateName)) {
+      query["TemplateName"] = request.templateName;
+    }
+
+    let req = new $OpenApi.OpenApiRequest({
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApi.Params({
+      action: "ModifyWhitelistTemplate",
+      version: "2014-08-15",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $tea.cast<ModifyWhitelistTemplateResponse>(await this.callApi(params, req, runtime), new ModifyWhitelistTemplateResponse({}));
+  }
+
+  async modifyWhitelistTemplate(request: ModifyWhitelistTemplateRequest): Promise<ModifyWhitelistTemplateResponse> {
+    let runtime = new $Util.RuntimeOptions({ });
+    return await this.modifyWhitelistTemplateWithOptions(request, runtime);
   }
 
   /**
