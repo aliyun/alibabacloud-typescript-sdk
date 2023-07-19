@@ -956,9 +956,88 @@ export class FaceLivenessResponse extends $tea.Model {
   }
 }
 
+export class FraudResultCallBackRequest extends $tea.Model {
+  certifyId?: string;
+  resultCode?: string;
+  verifyDeployEnv?: string;
+  static names(): { [key: string]: string } {
+    return {
+      certifyId: 'CertifyId',
+      resultCode: 'ResultCode',
+      verifyDeployEnv: 'VerifyDeployEnv',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      certifyId: 'string',
+      resultCode: 'string',
+      verifyDeployEnv: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class FraudResultCallBackResponseBody extends $tea.Model {
+  code?: string;
+  message?: string;
+  requestId?: string;
+  success?: boolean;
+  static names(): { [key: string]: string } {
+    return {
+      code: 'Code',
+      message: 'Message',
+      requestId: 'RequestId',
+      success: 'Success',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      code: 'string',
+      message: 'string',
+      requestId: 'string',
+      success: 'boolean',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class FraudResultCallBackResponse extends $tea.Model {
+  headers: { [key: string]: string };
+  statusCode: number;
+  body: FraudResultCallBackResponseBody;
+  static names(): { [key: string]: string } {
+    return {
+      headers: 'headers',
+      statusCode: 'statusCode',
+      body: 'body',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
+      body: FraudResultCallBackResponseBody,
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
 export class InitializeRequest extends $tea.Model {
   authorize?: string;
   crop?: string;
+  docScanMode?: string;
   docType?: string;
   facePictureBase64?: string;
   facePictureUrl?: string;
@@ -980,6 +1059,7 @@ export class InitializeRequest extends $tea.Model {
     return {
       authorize: 'Authorize',
       crop: 'Crop',
+      docScanMode: 'DocScanMode',
       docType: 'DocType',
       facePictureBase64: 'FacePictureBase64',
       facePictureUrl: 'FacePictureUrl',
@@ -1004,6 +1084,7 @@ export class InitializeRequest extends $tea.Model {
     return {
       authorize: 'string',
       crop: 'string',
+      docScanMode: 'string',
       docType: 'string',
       facePictureBase64: 'string',
       facePictureUrl: 'string',
@@ -2059,6 +2140,43 @@ export default class Client extends OpenApi {
     return await this.faceLivenessWithOptions(request, runtime);
   }
 
+  async fraudResultCallBackWithOptions(request: FraudResultCallBackRequest, runtime: $Util.RuntimeOptions): Promise<FraudResultCallBackResponse> {
+    Util.validateModel(request);
+    let query = { };
+    if (!Util.isUnset(request.certifyId)) {
+      query["CertifyId"] = request.certifyId;
+    }
+
+    if (!Util.isUnset(request.resultCode)) {
+      query["ResultCode"] = request.resultCode;
+    }
+
+    if (!Util.isUnset(request.verifyDeployEnv)) {
+      query["VerifyDeployEnv"] = request.verifyDeployEnv;
+    }
+
+    let req = new $OpenApi.OpenApiRequest({
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApi.Params({
+      action: "FraudResultCallBack",
+      version: "2022-08-09",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $tea.cast<FraudResultCallBackResponse>(await this.callApi(params, req, runtime), new FraudResultCallBackResponse({}));
+  }
+
+  async fraudResultCallBack(request: FraudResultCallBackRequest): Promise<FraudResultCallBackResponse> {
+    let runtime = new $Util.RuntimeOptions({ });
+    return await this.fraudResultCallBackWithOptions(request, runtime);
+  }
+
   async initializeWithOptions(request: InitializeRequest, runtime: $Util.RuntimeOptions): Promise<InitializeResponse> {
     Util.validateModel(request);
     let query = { };
@@ -2068,6 +2186,10 @@ export default class Client extends OpenApi {
 
     if (!Util.isUnset(request.crop)) {
       query["Crop"] = request.crop;
+    }
+
+    if (!Util.isUnset(request.docScanMode)) {
+      query["DocScanMode"] = request.docScanMode;
     }
 
     if (!Util.isUnset(request.docType)) {
