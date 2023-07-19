@@ -2280,6 +2280,72 @@ export class GetTensorboardResponse extends $tea.Model {
   }
 }
 
+export class GetWebTerminalRequest extends $tea.Model {
+  podUid?: string;
+  static names(): { [key: string]: string } {
+    return {
+      podUid: 'PodUid',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      podUid: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class GetWebTerminalResponseBody extends $tea.Model {
+  URL?: string;
+  requestId?: string;
+  static names(): { [key: string]: string } {
+    return {
+      URL: 'URL',
+      requestId: 'requestId',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      URL: 'string',
+      requestId: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class GetWebTerminalResponse extends $tea.Model {
+  headers: { [key: string]: string };
+  statusCode: number;
+  body: GetWebTerminalResponseBody;
+  static names(): { [key: string]: string } {
+    return {
+      headers: 'headers',
+      statusCode: 'statusCode',
+      body: 'body',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
+      body: GetWebTerminalResponseBody,
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
 export class ListEcsSpecsRequest extends $tea.Model {
   acceleratorType?: string;
   order?: string;
@@ -3806,6 +3872,37 @@ export default class Client extends OpenApi {
     let runtime = new $Util.RuntimeOptions({ });
     let headers : {[key: string ]: string} = { };
     return await this.getTensorboardWithOptions(TensorboardId, request, headers, runtime);
+  }
+
+  async getWebTerminalWithOptions(JobId: string, PodId: string, request: GetWebTerminalRequest, headers: {[key: string ]: string}, runtime: $Util.RuntimeOptions): Promise<GetWebTerminalResponse> {
+    Util.validateModel(request);
+    let query : {[key: string ]: any} = { };
+    if (!Util.isUnset(request.podUid)) {
+      query["PodUid"] = request.podUid;
+    }
+
+    let req = new $OpenApi.OpenApiRequest({
+      headers: headers,
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApi.Params({
+      action: "GetWebTerminal",
+      version: "2020-12-03",
+      protocol: "HTTPS",
+      pathname: `/api/v1/jobs/${OpenApiUtil.getEncodeParam(JobId)}/pods/${OpenApiUtil.getEncodeParam(PodId)}/webterminal`,
+      method: "GET",
+      authType: "AK",
+      style: "ROA",
+      reqBodyType: "json",
+      bodyType: "json",
+    });
+    return $tea.cast<GetWebTerminalResponse>(await this.callApi(params, req, runtime), new GetWebTerminalResponse({}));
+  }
+
+  async getWebTerminal(JobId: string, PodId: string, request: GetWebTerminalRequest): Promise<GetWebTerminalResponse> {
+    let runtime = new $Util.RuntimeOptions({ });
+    let headers : {[key: string ]: string} = { };
+    return await this.getWebTerminalWithOptions(JobId, PodId, request, headers, runtime);
   }
 
   async listEcsSpecsWithOptions(request: ListEcsSpecsRequest, headers: {[key: string ]: string}, runtime: $Util.RuntimeOptions): Promise<ListEcsSpecsResponse> {
