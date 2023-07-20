@@ -392,6 +392,8 @@ export class Service extends $tea.Model {
   roleAttrs?: string;
   runningInstance?: number;
   safetyLock?: string;
+  secondaryInternetEndpoint?: string;
+  secondaryIntranetEndpoint?: string;
   serviceConfig?: string;
   serviceGroup?: string;
   serviceId?: string;
@@ -430,6 +432,8 @@ export class Service extends $tea.Model {
       roleAttrs: 'RoleAttrs',
       runningInstance: 'RunningInstance',
       safetyLock: 'SafetyLock',
+      secondaryInternetEndpoint: 'SecondaryInternetEndpoint',
+      secondaryIntranetEndpoint: 'SecondaryIntranetEndpoint',
       serviceConfig: 'ServiceConfig',
       serviceGroup: 'ServiceGroup',
       serviceId: 'ServiceId',
@@ -471,6 +475,8 @@ export class Service extends $tea.Model {
       roleAttrs: 'string',
       runningInstance: 'number',
       safetyLock: 'string',
+      secondaryInternetEndpoint: 'string',
+      secondaryIntranetEndpoint: 'string',
       serviceConfig: 'string',
       serviceGroup: 'string',
       serviceId: 'string',
@@ -1581,16 +1587,22 @@ export class DeleteServiceCronScalerResponse extends $tea.Model {
 }
 
 export class DeleteServiceInstancesRequest extends $tea.Model {
+  container?: string;
   instanceList?: string;
+  softRestart?: boolean;
   static names(): { [key: string]: string } {
     return {
+      container: 'Container',
       instanceList: 'InstanceList',
+      softRestart: 'SoftRestart',
     };
   }
 
   static types(): { [key: string]: any } {
     return {
+      container: 'string',
       instanceList: 'string',
+      softRestart: 'boolean',
     };
   }
 
@@ -2293,6 +2305,53 @@ export class DescribeServiceCronScalerResponse extends $tea.Model {
   }
 }
 
+export class DescribeServiceDiagnosisResponseBody extends $tea.Model {
+  diagnosisList?: DescribeServiceDiagnosisResponseBodyDiagnosisList[];
+  requestId?: string;
+  static names(): { [key: string]: string } {
+    return {
+      diagnosisList: 'DiagnosisList',
+      requestId: 'RequestId',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      diagnosisList: { 'type': 'array', 'itemType': DescribeServiceDiagnosisResponseBodyDiagnosisList },
+      requestId: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class DescribeServiceDiagnosisResponse extends $tea.Model {
+  headers: { [key: string]: string };
+  statusCode: number;
+  body: DescribeServiceDiagnosisResponseBody;
+  static names(): { [key: string]: string } {
+    return {
+      headers: 'headers',
+      statusCode: 'statusCode',
+      body: 'body',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
+      body: DescribeServiceDiagnosisResponseBody,
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
 export class DescribeServiceEventRequest extends $tea.Model {
   endTime?: string;
   eventType?: string;
@@ -2375,6 +2434,53 @@ export class DescribeServiceEventResponse extends $tea.Model {
       headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
       statusCode: 'number',
       body: DescribeServiceEventResponseBody,
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class DescribeServiceInstanceDiagnosisResponseBody extends $tea.Model {
+  diagnosis?: DescribeServiceInstanceDiagnosisResponseBodyDiagnosis;
+  requestId?: string;
+  static names(): { [key: string]: string } {
+    return {
+      diagnosis: 'Diagnosis',
+      requestId: 'RequestId',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      diagnosis: DescribeServiceInstanceDiagnosisResponseBodyDiagnosis,
+      requestId: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class DescribeServiceInstanceDiagnosisResponse extends $tea.Model {
+  headers: { [key: string]: string };
+  statusCode: number;
+  body: DescribeServiceInstanceDiagnosisResponseBody;
+  static names(): { [key: string]: string } {
+    return {
+      headers: 'headers',
+      statusCode: 'statusCode',
+      body: 'body',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
+      body: DescribeServiceInstanceDiagnosisResponseBody,
     };
   }
 
@@ -3108,6 +3214,56 @@ export class ListResourcesResponse extends $tea.Model {
   }
 }
 
+export class ListServiceContainersResponseBody extends $tea.Model {
+  containers?: ContainerInfo[];
+  requestId?: string;
+  serviceName?: string;
+  static names(): { [key: string]: string } {
+    return {
+      containers: 'Containers',
+      requestId: 'RequestId',
+      serviceName: 'ServiceName',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      containers: { 'type': 'array', 'itemType': ContainerInfo },
+      requestId: 'string',
+      serviceName: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class ListServiceContainersResponse extends $tea.Model {
+  headers: { [key: string]: string };
+  statusCode: number;
+  body: ListServiceContainersResponseBody;
+  static names(): { [key: string]: string } {
+    return {
+      headers: 'headers',
+      statusCode: 'statusCode',
+      body: 'body',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
+      body: ListServiceContainersResponseBody,
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
 export class ListServiceInstancesRequest extends $tea.Model {
   filter?: string;
   hostIP?: string;
@@ -3524,6 +3680,53 @@ export class ReleaseServiceResponse extends $tea.Model {
       headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
       statusCode: 'number',
       body: ReleaseServiceResponseBody,
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class RestartServiceResponseBody extends $tea.Model {
+  message?: string;
+  requestId?: string;
+  static names(): { [key: string]: string } {
+    return {
+      message: 'Message',
+      requestId: 'RequestId',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      message: 'string',
+      requestId: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class RestartServiceResponse extends $tea.Model {
+  headers: { [key: string]: string };
+  statusCode: number;
+  body: RestartServiceResponseBody;
+  static names(): { [key: string]: string } {
+    return {
+      headers: 'headers',
+      statusCode: 'statusCode',
+      body: 'body',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
+      body: RestartServiceResponseBody,
     };
   }
 
@@ -4720,6 +4923,31 @@ export class DescribeServiceCronScalerResponseBodyScaleJobs extends $tea.Model {
   }
 }
 
+export class DescribeServiceDiagnosisResponseBodyDiagnosisList extends $tea.Model {
+  advices?: string[];
+  causes?: string[];
+  error?: string;
+  static names(): { [key: string]: string } {
+    return {
+      advices: 'Advices',
+      causes: 'Causes',
+      error: 'Error',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      advices: { 'type': 'array', 'itemType': 'string' },
+      causes: { 'type': 'array', 'itemType': 'string' },
+      error: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
 export class DescribeServiceEventResponseBodyEvents extends $tea.Model {
   message?: string;
   reason?: string;
@@ -4740,6 +4968,31 @@ export class DescribeServiceEventResponseBodyEvents extends $tea.Model {
       reason: 'string',
       time: 'string',
       type: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class DescribeServiceInstanceDiagnosisResponseBodyDiagnosis extends $tea.Model {
+  advices?: string[];
+  causes?: string[];
+  error?: string;
+  static names(): { [key: string]: string } {
+    return {
+      advices: 'Advices',
+      causes: 'Causes',
+      error: 'Error',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      advices: { 'type': 'array', 'itemType': 'string' },
+      causes: { 'type': 'array', 'itemType': 'string' },
+      error: 'string',
     };
   }
 
@@ -5549,8 +5802,16 @@ export default class Client extends OpenApi {
   async deleteServiceInstancesWithOptions(ClusterId: string, ServiceName: string, request: DeleteServiceInstancesRequest, headers: {[key: string ]: string}, runtime: $Util.RuntimeOptions): Promise<DeleteServiceInstancesResponse> {
     Util.validateModel(request);
     let query : {[key: string ]: any} = { };
+    if (!Util.isUnset(request.container)) {
+      query["Container"] = request.container;
+    }
+
     if (!Util.isUnset(request.instanceList)) {
       query["InstanceList"] = request.instanceList;
+    }
+
+    if (!Util.isUnset(request.softRestart)) {
+      query["SoftRestart"] = request.softRestart;
     }
 
     let req = new $OpenApi.OpenApiRequest({
@@ -5861,6 +6122,30 @@ export default class Client extends OpenApi {
     return await this.describeServiceCronScalerWithOptions(ClusterId, ServiceName, headers, runtime);
   }
 
+  async describeServiceDiagnosisWithOptions(ClusterId: string, ServiceName: string, headers: {[key: string ]: string}, runtime: $Util.RuntimeOptions): Promise<DescribeServiceDiagnosisResponse> {
+    let req = new $OpenApi.OpenApiRequest({
+      headers: headers,
+    });
+    let params = new $OpenApi.Params({
+      action: "DescribeServiceDiagnosis",
+      version: "2021-07-01",
+      protocol: "HTTPS",
+      pathname: `/api/v2/services/${OpenApiUtil.getEncodeParam(ClusterId)}/${OpenApiUtil.getEncodeParam(ServiceName)}/diagnosis`,
+      method: "GET",
+      authType: "AK",
+      style: "ROA",
+      reqBodyType: "json",
+      bodyType: "json",
+    });
+    return $tea.cast<DescribeServiceDiagnosisResponse>(await this.callApi(params, req, runtime), new DescribeServiceDiagnosisResponse({}));
+  }
+
+  async describeServiceDiagnosis(ClusterId: string, ServiceName: string): Promise<DescribeServiceDiagnosisResponse> {
+    let runtime = new $Util.RuntimeOptions({ });
+    let headers : {[key: string ]: string} = { };
+    return await this.describeServiceDiagnosisWithOptions(ClusterId, ServiceName, headers, runtime);
+  }
+
   async describeServiceEventWithOptions(ClusterId: string, ServiceName: string, request: DescribeServiceEventRequest, headers: {[key: string ]: string}, runtime: $Util.RuntimeOptions): Promise<DescribeServiceEventResponse> {
     Util.validateModel(request);
     let query : {[key: string ]: any} = { };
@@ -5910,6 +6195,30 @@ export default class Client extends OpenApi {
     let runtime = new $Util.RuntimeOptions({ });
     let headers : {[key: string ]: string} = { };
     return await this.describeServiceEventWithOptions(ClusterId, ServiceName, request, headers, runtime);
+  }
+
+  async describeServiceInstanceDiagnosisWithOptions(ClusterId: string, ServiceName: string, InstanceName: string, headers: {[key: string ]: string}, runtime: $Util.RuntimeOptions): Promise<DescribeServiceInstanceDiagnosisResponse> {
+    let req = new $OpenApi.OpenApiRequest({
+      headers: headers,
+    });
+    let params = new $OpenApi.Params({
+      action: "DescribeServiceInstanceDiagnosis",
+      version: "2021-07-01",
+      protocol: "HTTPS",
+      pathname: `/api/v2/services/${OpenApiUtil.getEncodeParam(ClusterId)}/${OpenApiUtil.getEncodeParam(ServiceName)}/instances/${OpenApiUtil.getEncodeParam(InstanceName)}/diagnosis`,
+      method: "GET",
+      authType: "AK",
+      style: "ROA",
+      reqBodyType: "json",
+      bodyType: "json",
+    });
+    return $tea.cast<DescribeServiceInstanceDiagnosisResponse>(await this.callApi(params, req, runtime), new DescribeServiceInstanceDiagnosisResponse({}));
+  }
+
+  async describeServiceInstanceDiagnosis(ClusterId: string, ServiceName: string, InstanceName: string): Promise<DescribeServiceInstanceDiagnosisResponse> {
+    let runtime = new $Util.RuntimeOptions({ });
+    let headers : {[key: string ]: string} = { };
+    return await this.describeServiceInstanceDiagnosisWithOptions(ClusterId, ServiceName, InstanceName, headers, runtime);
   }
 
   async describeServiceLogWithOptions(ClusterId: string, ServiceName: string, request: DescribeServiceLogRequest, headers: {[key: string ]: string}, runtime: $Util.RuntimeOptions): Promise<DescribeServiceLogResponse> {
@@ -6292,6 +6601,30 @@ export default class Client extends OpenApi {
     return await this.listResourcesWithOptions(request, headers, runtime);
   }
 
+  async listServiceContainersWithOptions(ClusterId: string, ServiceName: string, InstanceName: string, headers: {[key: string ]: string}, runtime: $Util.RuntimeOptions): Promise<ListServiceContainersResponse> {
+    let req = new $OpenApi.OpenApiRequest({
+      headers: headers,
+    });
+    let params = new $OpenApi.Params({
+      action: "ListServiceContainers",
+      version: "2021-07-01",
+      protocol: "HTTPS",
+      pathname: `/api/v2/services/${OpenApiUtil.getEncodeParam(ClusterId)}/${OpenApiUtil.getEncodeParam(ServiceName)}/instances/${OpenApiUtil.getEncodeParam(InstanceName)}/containers`,
+      method: "GET",
+      authType: "AK",
+      style: "ROA",
+      reqBodyType: "json",
+      bodyType: "json",
+    });
+    return $tea.cast<ListServiceContainersResponse>(await this.callApi(params, req, runtime), new ListServiceContainersResponse({}));
+  }
+
+  async listServiceContainers(ClusterId: string, ServiceName: string, InstanceName: string): Promise<ListServiceContainersResponse> {
+    let runtime = new $Util.RuntimeOptions({ });
+    let headers : {[key: string ]: string} = { };
+    return await this.listServiceContainersWithOptions(ClusterId, ServiceName, InstanceName, headers, runtime);
+  }
+
   async listServiceInstancesWithOptions(ClusterId: string, ServiceName: string, request: ListServiceInstancesRequest, headers: {[key: string ]: string}, runtime: $Util.RuntimeOptions): Promise<ListServiceInstancesResponse> {
     Util.validateModel(request);
     let query : {[key: string ]: any} = { };
@@ -6524,6 +6857,30 @@ export default class Client extends OpenApi {
     let runtime = new $Util.RuntimeOptions({ });
     let headers : {[key: string ]: string} = { };
     return await this.releaseServiceWithOptions(ClusterId, ServiceName, request, headers, runtime);
+  }
+
+  async restartServiceWithOptions(ClusterId: string, ServiceName: string, headers: {[key: string ]: string}, runtime: $Util.RuntimeOptions): Promise<RestartServiceResponse> {
+    let req = new $OpenApi.OpenApiRequest({
+      headers: headers,
+    });
+    let params = new $OpenApi.Params({
+      action: "RestartService",
+      version: "2021-07-01",
+      protocol: "HTTPS",
+      pathname: `/api/v2/services/${OpenApiUtil.getEncodeParam(ClusterId)}/${OpenApiUtil.getEncodeParam(ServiceName)}/restart`,
+      method: "PUT",
+      authType: "AK",
+      style: "ROA",
+      reqBodyType: "json",
+      bodyType: "json",
+    });
+    return $tea.cast<RestartServiceResponse>(await this.callApi(params, req, runtime), new RestartServiceResponse({}));
+  }
+
+  async restartService(ClusterId: string, ServiceName: string): Promise<RestartServiceResponse> {
+    let runtime = new $Util.RuntimeOptions({ });
+    let headers : {[key: string ]: string} = { };
+    return await this.restartServiceWithOptions(ClusterId, ServiceName, headers, runtime);
   }
 
   async startBenchmarkTaskWithOptions(ClusterId: string, TaskName: string, headers: {[key: string ]: string}, runtime: $Util.RuntimeOptions): Promise<StartBenchmarkTaskResponse> {
