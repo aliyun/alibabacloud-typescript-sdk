@@ -804,11 +804,13 @@ export class AssociateEnsEipAddressRequest extends $tea.Model {
   allocationId?: string;
   instanceId?: string;
   instanceType?: string;
+  standby?: boolean;
   static names(): { [key: string]: string } {
     return {
       allocationId: 'AllocationId',
       instanceId: 'InstanceId',
       instanceType: 'InstanceType',
+      standby: 'Standby',
     };
   }
 
@@ -817,6 +819,7 @@ export class AssociateEnsEipAddressRequest extends $tea.Model {
       allocationId: 'string',
       instanceId: 'string',
       instanceType: 'string',
+      standby: 'boolean',
     };
   }
 
@@ -2086,6 +2089,7 @@ export class CreateForwardEntryRequest extends $tea.Model {
   internalPort?: string;
   ipProtocol?: string;
   natGatewayId?: string;
+  standbyExternalIp?: string;
   static names(): { [key: string]: string } {
     return {
       externalIp: 'ExternalIp',
@@ -2096,6 +2100,7 @@ export class CreateForwardEntryRequest extends $tea.Model {
       internalPort: 'InternalPort',
       ipProtocol: 'IpProtocol',
       natGatewayId: 'NatGatewayId',
+      standbyExternalIp: 'StandbyExternalIp',
     };
   }
 
@@ -2109,6 +2114,7 @@ export class CreateForwardEntryRequest extends $tea.Model {
       internalPort: 'string',
       ipProtocol: 'string',
       natGatewayId: 'string',
+      standbyExternalIp: 'string',
     };
   }
 
@@ -3549,6 +3555,7 @@ export class CreateSnatEntryRequest extends $tea.Model {
   sourceCIDR?: string;
   sourceNetworkId?: string;
   sourceVSwitchId?: string;
+  standbySnatIp?: string;
   static names(): { [key: string]: string } {
     return {
       natGatewayId: 'NatGatewayId',
@@ -3557,6 +3564,7 @@ export class CreateSnatEntryRequest extends $tea.Model {
       sourceCIDR: 'SourceCIDR',
       sourceNetworkId: 'SourceNetworkId',
       sourceVSwitchId: 'SourceVSwitchId',
+      standbySnatIp: 'StandbySnatIp',
     };
   }
 
@@ -3568,6 +3576,7 @@ export class CreateSnatEntryRequest extends $tea.Model {
       sourceCIDR: 'string',
       sourceNetworkId: 'string',
       sourceVSwitchId: 'string',
+      standbySnatIp: 'string',
     };
   }
 
@@ -6804,6 +6813,7 @@ export class DescribeEnsEipAddressesRequest extends $tea.Model {
   ensRegionId?: string;
   pageNumber?: number;
   pageSize?: number;
+  standby?: string;
   static names(): { [key: string]: string } {
     return {
       allocationId: 'AllocationId',
@@ -6814,6 +6824,7 @@ export class DescribeEnsEipAddressesRequest extends $tea.Model {
       ensRegionId: 'EnsRegionId',
       pageNumber: 'PageNumber',
       pageSize: 'PageSize',
+      standby: 'Standby',
     };
   }
 
@@ -6827,6 +6838,7 @@ export class DescribeEnsEipAddressesRequest extends $tea.Model {
       ensRegionId: 'string',
       pageNumber: 'number',
       pageSize: 'number',
+      standby: 'string',
     };
   }
 
@@ -7509,12 +7521,14 @@ export class DescribeEnsRouteEntryListResponse extends $tea.Model {
 export class DescribeEnsSaleControlRequest extends $tea.Model {
   aliUidAccount?: string;
   commodityCode?: string;
+  customAccount?: string;
   moduleCode?: string;
   orderType?: string;
   static names(): { [key: string]: string } {
     return {
       aliUidAccount: 'AliUidAccount',
       commodityCode: 'CommodityCode',
+      customAccount: 'CustomAccount',
       moduleCode: 'ModuleCode',
       orderType: 'OrderType',
     };
@@ -7524,6 +7538,7 @@ export class DescribeEnsSaleControlRequest extends $tea.Model {
     return {
       aliUidAccount: 'string',
       commodityCode: 'string',
+      customAccount: 'string',
       moduleCode: 'string',
       orderType: 'string',
     };
@@ -7583,10 +7598,12 @@ export class DescribeEnsSaleControlResponse extends $tea.Model {
 
 export class DescribeEnsSaleControlAvailableResourceRequest extends $tea.Model {
   commodityCode?: string;
+  customAccount?: string;
   orderType?: string;
   static names(): { [key: string]: string } {
     return {
       commodityCode: 'CommodityCode',
+      customAccount: 'CustomAccount',
       orderType: 'OrderType',
     };
   }
@@ -7594,6 +7611,7 @@ export class DescribeEnsSaleControlAvailableResourceRequest extends $tea.Model {
   static types(): { [key: string]: any } {
     return {
       commodityCode: 'string',
+      customAccount: 'string',
       orderType: 'string',
     };
   }
@@ -7653,12 +7671,14 @@ export class DescribeEnsSaleControlAvailableResourceResponse extends $tea.Model 
 export class DescribeEnsSaleControlStockRequest extends $tea.Model {
   aliUidAccount?: string;
   commodityCode?: string;
+  customAccount?: string;
   moduleCode?: string;
   orderType?: string;
   static names(): { [key: string]: string } {
     return {
       aliUidAccount: 'AliUidAccount',
       commodityCode: 'CommodityCode',
+      customAccount: 'CustomAccount',
       moduleCode: 'ModuleCode',
       orderType: 'OrderType',
     };
@@ -7668,6 +7688,7 @@ export class DescribeEnsSaleControlStockRequest extends $tea.Model {
     return {
       aliUidAccount: 'string',
       commodityCode: 'string',
+      customAccount: 'string',
       moduleCode: 'string',
       orderType: 'string',
     };
@@ -11738,6 +11759,8 @@ export class DescribeSnatAttributeResponseBody extends $tea.Model {
   snatIp?: string;
   snatIps?: DescribeSnatAttributeResponseBodySnatIps[];
   sourceCIDR?: string;
+  standbySnatIp?: string;
+  standbyStatus?: string;
   status?: string;
   static names(): { [key: string]: string } {
     return {
@@ -11749,6 +11772,8 @@ export class DescribeSnatAttributeResponseBody extends $tea.Model {
       snatIp: 'SnatIp',
       snatIps: 'SnatIps',
       sourceCIDR: 'SourceCIDR',
+      standbySnatIp: 'StandbySnatIp',
+      standbyStatus: 'StandbyStatus',
       status: 'Status',
     };
   }
@@ -11763,6 +11788,8 @@ export class DescribeSnatAttributeResponseBody extends $tea.Model {
       snatIp: 'string',
       snatIps: { 'type': 'array', 'itemType': DescribeSnatAttributeResponseBodySnatIps },
       sourceCIDR: 'string',
+      standbySnatIp: 'string',
+      standbyStatus: 'string',
       status: 'string',
     };
   }
@@ -20300,6 +20327,7 @@ export class DescribeDisksResponseBodyDisksDisks extends $tea.Model {
   instanceId?: string;
   instanceName?: string;
   portable?: boolean;
+  serialId?: string;
   size?: number;
   snapshotId?: string;
   status?: string;
@@ -20315,6 +20343,7 @@ export class DescribeDisksResponseBodyDisksDisks extends $tea.Model {
       instanceId: 'InstanceId',
       instanceName: 'InstanceName',
       portable: 'Portable',
+      serialId: 'SerialId',
       size: 'Size',
       snapshotId: 'SnapshotId',
       status: 'Status',
@@ -20333,6 +20362,7 @@ export class DescribeDisksResponseBodyDisksDisks extends $tea.Model {
       instanceId: 'string',
       instanceName: 'string',
       portable: 'boolean',
+      serialId: 'string',
       size: 'number',
       snapshotId: 'string',
       status: 'string',
@@ -20519,8 +20549,10 @@ export class DescribeEnsEipAddressesResponseBodyEipAddressesEipAddress extends $
   instanceType?: string;
   internetChargeType?: string;
   ipAddress?: string;
+  ipStatus?: string;
   isp?: string;
   name?: string;
+  standby?: boolean;
   status?: string;
   static names(): { [key: string]: string } {
     return {
@@ -20534,8 +20566,10 @@ export class DescribeEnsEipAddressesResponseBodyEipAddressesEipAddress extends $
       instanceType: 'InstanceType',
       internetChargeType: 'InternetChargeType',
       ipAddress: 'IpAddress',
+      ipStatus: 'IpStatus',
       isp: 'Isp',
       name: 'Name',
+      standby: 'Standby',
       status: 'Status',
     };
   }
@@ -20552,8 +20586,10 @@ export class DescribeEnsEipAddressesResponseBodyEipAddressesEipAddress extends $
       instanceType: 'string',
       internetChargeType: 'string',
       ipAddress: 'string',
+      ipStatus: 'string',
       isp: 'string',
       name: 'string',
+      standby: 'boolean',
       status: 'string',
     };
   }
@@ -21192,14 +21228,20 @@ export class DescribeEnsSaleControlAvailableResourceResponseBodySaleControlAvail
 
 export class DescribeEnsSaleControlAvailableResourceResponseBodySaleControlAvailableResourceAvailableRegion extends $tea.Model {
   area?: string;
+  city?: string;
+  country?: string;
   ensRegionId?: string;
   ensRegionName?: string;
+  isp?: string;
   province?: string;
   static names(): { [key: string]: string } {
     return {
       area: 'Area',
+      city: 'City',
+      country: 'Country',
       ensRegionId: 'EnsRegionId',
       ensRegionName: 'EnsRegionName',
+      isp: 'Isp',
       province: 'Province',
     };
   }
@@ -21207,8 +21249,11 @@ export class DescribeEnsSaleControlAvailableResourceResponseBodySaleControlAvail
   static types(): { [key: string]: any } {
     return {
       area: 'string',
+      city: 'string',
+      country: 'string',
       ensRegionId: 'string',
       ensRegionName: 'string',
+      isp: 'string',
       province: 'string',
     };
   }
@@ -21985,6 +22030,8 @@ export class DescribeForwardTableEntriesResponseBodyForwardTableEntries extends 
   internalPort?: string;
   ipProtocol?: string;
   natGatewayId?: string;
+  standbyExternalIp?: string;
+  standbyStatus?: string;
   status?: string;
   static names(): { [key: string]: string } {
     return {
@@ -21997,6 +22044,8 @@ export class DescribeForwardTableEntriesResponseBodyForwardTableEntries extends 
       internalPort: 'InternalPort',
       ipProtocol: 'IpProtocol',
       natGatewayId: 'NatGatewayId',
+      standbyExternalIp: 'StandbyExternalIp',
+      standbyStatus: 'StandbyStatus',
       status: 'Status',
     };
   }
@@ -22012,6 +22061,8 @@ export class DescribeForwardTableEntriesResponseBodyForwardTableEntries extends 
       internalPort: 'string',
       ipProtocol: 'string',
       natGatewayId: 'string',
+      standbyExternalIp: 'string',
+      standbyStatus: 'string',
       status: 'string',
     };
   }
@@ -25644,6 +25695,8 @@ export class DescribeSnatTableEntriesResponseBodySnatTableEntries extends $tea.M
   snatEntryName?: string;
   snatIp?: string;
   sourceCIDR?: string;
+  standbySnatIp?: string;
+  standbyStatus?: string;
   status?: string;
   static names(): { [key: string]: string } {
     return {
@@ -25652,6 +25705,8 @@ export class DescribeSnatTableEntriesResponseBodySnatTableEntries extends $tea.M
       snatEntryName: 'SnatEntryName',
       snatIp: 'SnatIp',
       sourceCIDR: 'SourceCIDR',
+      standbySnatIp: 'StandbySnatIp',
+      standbyStatus: 'StandbyStatus',
       status: 'Status',
     };
   }
@@ -25663,6 +25718,8 @@ export class DescribeSnatTableEntriesResponseBodySnatTableEntries extends $tea.M
       snatEntryName: 'string',
       snatIp: 'string',
       sourceCIDR: 'string',
+      standbySnatIp: 'string',
+      standbyStatus: 'string',
       status: 'string',
     };
   }
@@ -26828,6 +26885,10 @@ export default class Client extends OpenApi {
       query["InstanceType"] = request.instanceType;
     }
 
+    if (!Util.isUnset(request.standby)) {
+      query["Standby"] = request.standby;
+    }
+
     let req = new $OpenApi.OpenApiRequest({
       query: OpenApiUtil.query(query),
     });
@@ -27562,6 +27623,10 @@ export default class Client extends OpenApi {
 
     if (!Util.isUnset(request.natGatewayId)) {
       query["NatGatewayId"] = request.natGatewayId;
+    }
+
+    if (!Util.isUnset(request.standbyExternalIp)) {
+      query["StandbyExternalIp"] = request.standbyExternalIp;
     }
 
     let req = new $OpenApi.OpenApiRequest({
@@ -28528,6 +28593,10 @@ export default class Client extends OpenApi {
 
     if (!Util.isUnset(request.sourceVSwitchId)) {
       query["SourceVSwitchId"] = request.sourceVSwitchId;
+    }
+
+    if (!Util.isUnset(request.standbySnatIp)) {
+      query["StandbySnatIp"] = request.standbySnatIp;
     }
 
     let req = new $OpenApi.OpenApiRequest({
@@ -30061,6 +30130,10 @@ export default class Client extends OpenApi {
       query["PageSize"] = request.pageSize;
     }
 
+    if (!Util.isUnset(request.standby)) {
+      query["Standby"] = request.standby;
+    }
+
     let req = new $OpenApi.OpenApiRequest({
       query: OpenApiUtil.query(query),
     });
@@ -30407,6 +30480,10 @@ export default class Client extends OpenApi {
       query["CommodityCode"] = request.commodityCode;
     }
 
+    if (!Util.isUnset(request.customAccount)) {
+      query["CustomAccount"] = request.customAccount;
+    }
+
     if (!Util.isUnset(request.moduleCode)) {
       query["ModuleCode"] = request.moduleCode;
     }
@@ -30444,6 +30521,10 @@ export default class Client extends OpenApi {
       query["CommodityCode"] = request.commodityCode;
     }
 
+    if (!Util.isUnset(request.customAccount)) {
+      query["CustomAccount"] = request.customAccount;
+    }
+
     if (!Util.isUnset(request.orderType)) {
       query["OrderType"] = request.orderType;
     }
@@ -30479,6 +30560,10 @@ export default class Client extends OpenApi {
 
     if (!Util.isUnset(request.commodityCode)) {
       query["CommodityCode"] = request.commodityCode;
+    }
+
+    if (!Util.isUnset(request.customAccount)) {
+      query["CustomAccount"] = request.customAccount;
     }
 
     if (!Util.isUnset(request.moduleCode)) {
@@ -32196,7 +32281,11 @@ export default class Client extends OpenApi {
 
   async describeSnatAttributeWithOptions(request: DescribeSnatAttributeRequest, runtime: $Util.RuntimeOptions): Promise<DescribeSnatAttributeResponse> {
     Util.validateModel(request);
-    let query = OpenApiUtil.query(Util.toMap(request));
+    let query = { };
+    if (!Util.isUnset(request.snatEntryId)) {
+      query["SnatEntryId"] = request.snatEntryId;
+    }
+
     let req = new $OpenApi.OpenApiRequest({
       query: OpenApiUtil.query(query),
     });
@@ -32205,7 +32294,7 @@ export default class Client extends OpenApi {
       version: "2017-11-10",
       protocol: "HTTPS",
       pathname: "/",
-      method: "GET",
+      method: "POST",
       authType: "AK",
       style: "RPC",
       reqBodyType: "formData",
