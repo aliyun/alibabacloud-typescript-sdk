@@ -2300,19 +2300,19 @@ export class GetWebTerminalRequest extends $tea.Model {
 }
 
 export class GetWebTerminalResponseBody extends $tea.Model {
-  URL?: string;
   requestId?: string;
+  webTerminalUrl?: string;
   static names(): { [key: string]: string } {
     return {
-      URL: 'URL',
-      requestId: 'requestId',
+      requestId: 'RequestId',
+      webTerminalUrl: 'WebTerminalUrl',
     };
   }
 
   static types(): { [key: string]: any } {
     return {
-      URL: 'string',
       requestId: 'string',
+      webTerminalUrl: 'string',
     };
   }
 
