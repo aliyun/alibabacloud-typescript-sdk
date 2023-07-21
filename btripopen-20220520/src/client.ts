@@ -15497,7 +15497,9 @@ export class CarOrderQueryResponseBodyModuleCarInfo extends $tea.Model {
   cancelTime?: number;
   carInfo?: string;
   carLevel?: number;
+  driverCard?: string;
   driverConfirmTime?: number;
+  driverName?: string;
   estimatePrice?: number;
   fromAddress?: string;
   fromCityName?: string;
@@ -15521,7 +15523,9 @@ export class CarOrderQueryResponseBodyModuleCarInfo extends $tea.Model {
       cancelTime: 'cancel_time',
       carInfo: 'car_info',
       carLevel: 'car_level',
+      driverCard: 'driver_card',
       driverConfirmTime: 'driver_confirm_time',
+      driverName: 'driver_name',
       estimatePrice: 'estimate_price',
       fromAddress: 'from_address',
       fromCityName: 'from_city_name',
@@ -15548,7 +15552,9 @@ export class CarOrderQueryResponseBodyModuleCarInfo extends $tea.Model {
       cancelTime: 'number',
       carInfo: 'string',
       carLevel: 'number',
+      driverCard: 'string',
       driverConfirmTime: 'number',
+      driverName: 'string',
       estimatePrice: 'number',
       fromAddress: 'string',
       fromCityName: 'string',
@@ -27309,6 +27315,7 @@ export class IsvUserSaveRequestUserList extends $tea.Model {
 }
 
 export class MonthBillGetResponseBodyModuleMonthAccountBillDetail extends $tea.Model {
+  billConfirmed?: number;
   carAmount?: number;
   damageAmount?: number;
   flightAmount?: number;
@@ -27320,6 +27327,7 @@ export class MonthBillGetResponseBodyModuleMonthAccountBillDetail extends $tea.M
   trainAmount?: number;
   static names(): { [key: string]: string } {
     return {
+      billConfirmed: 'billConfirmed',
       carAmount: 'carAmount',
       damageAmount: 'damageAmount',
       flightAmount: 'flightAmount',
@@ -27334,6 +27342,7 @@ export class MonthBillGetResponseBodyModuleMonthAccountBillDetail extends $tea.M
 
   static types(): { [key: string]: any } {
     return {
+      billConfirmed: 'number',
       carAmount: 'number',
       damageAmount: 'number',
       flightAmount: 'number',
