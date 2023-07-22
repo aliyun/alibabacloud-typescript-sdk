@@ -1,6 +1,6 @@
 {
   "name": "@alicloud/rds20140815",
-  "version": "2.3.8",
+  "version": "2.3.9",
   "description": "",
   "main": "dist/client.js",
   "scripts": {
