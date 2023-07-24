@@ -4770,6 +4770,96 @@ export class DescribeDomainDetailDataByLayerResponse extends $tea.Model {
   }
 }
 
+export class DescribeDomainFileSizeProportionDataRequest extends $tea.Model {
+  domainName?: string;
+  endTime?: string;
+  ownerId?: number;
+  securityToken?: string;
+  startTime?: string;
+  static names(): { [key: string]: string } {
+    return {
+      domainName: 'DomainName',
+      endTime: 'EndTime',
+      ownerId: 'OwnerId',
+      securityToken: 'SecurityToken',
+      startTime: 'StartTime',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      domainName: 'string',
+      endTime: 'string',
+      ownerId: 'number',
+      securityToken: 'string',
+      startTime: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class DescribeDomainFileSizeProportionDataResponseBody extends $tea.Model {
+  dataInterval?: string;
+  domainName?: string;
+  endTime?: string;
+  fileSizeProportionDataInterval?: DescribeDomainFileSizeProportionDataResponseBodyFileSizeProportionDataInterval;
+  requestId?: string;
+  startTime?: string;
+  static names(): { [key: string]: string } {
+    return {
+      dataInterval: 'DataInterval',
+      domainName: 'DomainName',
+      endTime: 'EndTime',
+      fileSizeProportionDataInterval: 'FileSizeProportionDataInterval',
+      requestId: 'RequestId',
+      startTime: 'StartTime',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      dataInterval: 'string',
+      domainName: 'string',
+      endTime: 'string',
+      fileSizeProportionDataInterval: DescribeDomainFileSizeProportionDataResponseBodyFileSizeProportionDataInterval,
+      requestId: 'string',
+      startTime: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class DescribeDomainFileSizeProportionDataResponse extends $tea.Model {
+  headers: { [key: string]: string };
+  statusCode: number;
+  body: DescribeDomainFileSizeProportionDataResponseBody;
+  static names(): { [key: string]: string } {
+    return {
+      headers: 'headers',
+      statusCode: 'statusCode',
+      body: 'body',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
+      body: DescribeDomainFileSizeProportionDataResponseBody,
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
 export class DescribeDomainHitRateDataRequest extends $tea.Model {
   domainName?: string;
   endTime?: string;
@@ -13511,6 +13601,88 @@ export class DescribeDomainDetailDataByLayerResponseBodyData extends $tea.Model 
   }
 }
 
+export class DescribeDomainFileSizeProportionDataResponseBodyFileSizeProportionDataIntervalUsageDataValueFileSizeProportionData extends $tea.Model {
+  fileSize?: string;
+  proportion?: string;
+  static names(): { [key: string]: string } {
+    return {
+      fileSize: 'FileSize',
+      proportion: 'Proportion',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      fileSize: 'string',
+      proportion: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class DescribeDomainFileSizeProportionDataResponseBodyFileSizeProportionDataIntervalUsageDataValue extends $tea.Model {
+  fileSizeProportionData?: DescribeDomainFileSizeProportionDataResponseBodyFileSizeProportionDataIntervalUsageDataValueFileSizeProportionData[];
+  static names(): { [key: string]: string } {
+    return {
+      fileSizeProportionData: 'FileSizeProportionData',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      fileSizeProportionData: { 'type': 'array', 'itemType': DescribeDomainFileSizeProportionDataResponseBodyFileSizeProportionDataIntervalUsageDataValueFileSizeProportionData },
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class DescribeDomainFileSizeProportionDataResponseBodyFileSizeProportionDataIntervalUsageData extends $tea.Model {
+  timeStamp?: string;
+  value?: DescribeDomainFileSizeProportionDataResponseBodyFileSizeProportionDataIntervalUsageDataValue;
+  static names(): { [key: string]: string } {
+    return {
+      timeStamp: 'TimeStamp',
+      value: 'Value',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      timeStamp: 'string',
+      value: DescribeDomainFileSizeProportionDataResponseBodyFileSizeProportionDataIntervalUsageDataValue,
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class DescribeDomainFileSizeProportionDataResponseBodyFileSizeProportionDataInterval extends $tea.Model {
+  usageData?: DescribeDomainFileSizeProportionDataResponseBodyFileSizeProportionDataIntervalUsageData[];
+  static names(): { [key: string]: string } {
+    return {
+      usageData: 'UsageData',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      usageData: { 'type': 'array', 'itemType': DescribeDomainFileSizeProportionDataResponseBodyFileSizeProportionDataIntervalUsageData },
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
 export class DescribeDomainHitRateDataResponseBodyHitRateIntervalDataModule extends $tea.Model {
   httpsValue?: string;
   timeStamp?: string;
@@ -19381,18 +19553,13 @@ export default class Client extends OpenApi {
   }
 
   /**
-    * The billable region. Valid values:
-    * *   **CN**: the Chinese mainland
-    * *   **OverSeas**: outside the Chinese mainland
-    * *   **AP1**: Asia Pacific 1
-    * *   **AP2**: Asia Pacific 2
-    * *   **AP3**: Asia Pacific 3
-    * *   **NA**: North America
-    * *   **SA**: South America
-    * *   **EU**: Europe
-    * *   **MEAA**: Middle East and Africa
-    * By default, the value of this parameter is determined by the metering method that is currently used. Regions inside and outside the Chinese mainland are classified into the **CN** and **OverSeas** billable regions. Billable regions inside the Chinese mainland include **CN**. Billable regions outside the Chinese mainland include **AP1**, **AP2**, **AP3**, **NA**, **SA**, **EU**, and **MEAA**.
-    * > For more information about billable regions, see [Billable regions](~~142221~~).
+    * You can call this operation to estimate resource usage of the current month based on the metering method that is specified on the first day of the current month. You can call this operation to estimate resource usage only of the current month within your Alibaba Cloud account. The time range used for the estimation starts at 00:00 on the first day of the current month and ends 2 hours earlier than the current time.
+    * *   Pay by monthly 95th percentile: The top 5% values between the start time and end time are excluded. The estimated value is the highest value among the remaining values.
+    * *   Pay by average daily peak bandwidth per month: Estimated value = Sum of daily peak bandwidth values/Number of days. The current day is excluded.
+    * *   Pay by 4th peak bandwidth per month: The estimated value is the 4th peak bandwidth value between the start time and end time. If the time range is less than four days, the estimated value is 0.
+    * *   Pay by average daily 95th percentile bandwidth per month: Estimated value = Sum of daily 95th percentile bandwidth values/Number of days. The current day is excluded.
+    * *   Pay by 95th percentile bandwidth with 50% off from 00:00 to 08:00: The top 5% values between the start time and end time are excluded. The estimated value is the highest value among the remaining values.
+    * > You can call this operation only once per second per account.
     *
     * @param request DescribeCdnUserBillPredictionRequest
     * @param runtime runtime options for this request RuntimeOptions
@@ -19435,18 +19602,13 @@ export default class Client extends OpenApi {
   }
 
   /**
-    * The billable region. Valid values:
-    * *   **CN**: the Chinese mainland
-    * *   **OverSeas**: outside the Chinese mainland
-    * *   **AP1**: Asia Pacific 1
-    * *   **AP2**: Asia Pacific 2
-    * *   **AP3**: Asia Pacific 3
-    * *   **NA**: North America
-    * *   **SA**: South America
-    * *   **EU**: Europe
-    * *   **MEAA**: Middle East and Africa
-    * By default, the value of this parameter is determined by the metering method that is currently used. Regions inside and outside the Chinese mainland are classified into the **CN** and **OverSeas** billable regions. Billable regions inside the Chinese mainland include **CN**. Billable regions outside the Chinese mainland include **AP1**, **AP2**, **AP3**, **NA**, **SA**, **EU**, and **MEAA**.
-    * > For more information about billable regions, see [Billable regions](~~142221~~).
+    * You can call this operation to estimate resource usage of the current month based on the metering method that is specified on the first day of the current month. You can call this operation to estimate resource usage only of the current month within your Alibaba Cloud account. The time range used for the estimation starts at 00:00 on the first day of the current month and ends 2 hours earlier than the current time.
+    * *   Pay by monthly 95th percentile: The top 5% values between the start time and end time are excluded. The estimated value is the highest value among the remaining values.
+    * *   Pay by average daily peak bandwidth per month: Estimated value = Sum of daily peak bandwidth values/Number of days. The current day is excluded.
+    * *   Pay by 4th peak bandwidth per month: The estimated value is the 4th peak bandwidth value between the start time and end time. If the time range is less than four days, the estimated value is 0.
+    * *   Pay by average daily 95th percentile bandwidth per month: Estimated value = Sum of daily 95th percentile bandwidth values/Number of days. The current day is excluded.
+    * *   Pay by 95th percentile bandwidth with 50% off from 00:00 to 08:00: The top 5% values between the start time and end time are excluded. The estimated value is the highest value among the remaining values.
+    * > You can call this operation only once per second per account.
     *
     * @param request DescribeCdnUserBillPredictionRequest
     * @return DescribeCdnUserBillPredictionResponse
@@ -20304,8 +20466,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-    * *   You can call this operation up to 20 times per second per account.
-    * *   If you do not set the StartTime or EndTime parameter, the request returns the data collected in the last 24 hours. If you set both these parameters, the request returns the data collected within the specified time range.
+    * You can call this operation up to 20 times per second per account.
     *
     * @param request DescribeDomainDetailDataByLayerRequest
     * @param runtime runtime options for this request RuntimeOptions
@@ -20332,8 +20493,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-    * *   You can call this operation up to 20 times per second per account.
-    * *   If you do not set the StartTime or EndTime parameter, the request returns the data collected in the last 24 hours. If you set both these parameters, the request returns the data collected within the specified time range.
+    * You can call this operation up to 20 times per second per account.
     *
     * @param request DescribeDomainDetailDataByLayerRequest
     * @return DescribeDomainDetailDataByLayerResponse
@@ -20341,6 +20501,68 @@ export default class Client extends OpenApi {
   async describeDomainDetailDataByLayer(request: DescribeDomainDetailDataByLayerRequest): Promise<DescribeDomainDetailDataByLayerResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.describeDomainDetailDataByLayerWithOptions(request, runtime);
+  }
+
+  /**
+    * > 
+    * *   If you do not specify StartTime or EndTime, the request returns the data collected in the last 24 hours. If you specify both StartTime and EndTime, the request returns the data collected within the specified time range.
+    * *   You can call this operation up to 10 times per second per account.
+    *
+    * @param request DescribeDomainFileSizeProportionDataRequest
+    * @param runtime runtime options for this request RuntimeOptions
+    * @return DescribeDomainFileSizeProportionDataResponse
+   */
+  async describeDomainFileSizeProportionDataWithOptions(request: DescribeDomainFileSizeProportionDataRequest, runtime: $Util.RuntimeOptions): Promise<DescribeDomainFileSizeProportionDataResponse> {
+    Util.validateModel(request);
+    let query = { };
+    if (!Util.isUnset(request.domainName)) {
+      query["DomainName"] = request.domainName;
+    }
+
+    if (!Util.isUnset(request.endTime)) {
+      query["EndTime"] = request.endTime;
+    }
+
+    if (!Util.isUnset(request.ownerId)) {
+      query["OwnerId"] = request.ownerId;
+    }
+
+    if (!Util.isUnset(request.securityToken)) {
+      query["SecurityToken"] = request.securityToken;
+    }
+
+    if (!Util.isUnset(request.startTime)) {
+      query["StartTime"] = request.startTime;
+    }
+
+    let req = new $OpenApi.OpenApiRequest({
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApi.Params({
+      action: "DescribeDomainFileSizeProportionData",
+      version: "2018-05-10",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $tea.cast<DescribeDomainFileSizeProportionDataResponse>(await this.callApi(params, req, runtime), new DescribeDomainFileSizeProportionDataResponse({}));
+  }
+
+  /**
+    * > 
+    * *   If you do not specify StartTime or EndTime, the request returns the data collected in the last 24 hours. If you specify both StartTime and EndTime, the request returns the data collected within the specified time range.
+    * *   You can call this operation up to 10 times per second per account.
+    *
+    * @param request DescribeDomainFileSizeProportionDataRequest
+    * @return DescribeDomainFileSizeProportionDataResponse
+   */
+  async describeDomainFileSizeProportionData(request: DescribeDomainFileSizeProportionDataRequest): Promise<DescribeDomainFileSizeProportionDataResponse> {
+    let runtime = new $Util.RuntimeOptions({ });
+    return await this.describeDomainFileSizeProportionDataWithOptions(request, runtime);
   }
 
   /**
@@ -24695,6 +24917,7 @@ export default class Client extends OpenApi {
   }
 
   /**
+    * @deprecated : SetDomainServerCertificate is deprecated, please use Cdn::2018-05-10::SetCdnDomainSSLCertificate instead.
     * *   You can call this operation up to 10 times per second per user.
     * *   Method: POST.
     *
@@ -24702,6 +24925,7 @@ export default class Client extends OpenApi {
     * @param runtime runtime options for this request RuntimeOptions
     * @return SetDomainServerCertificateResponse
    */
+  // Deprecated
   async setDomainServerCertificateWithOptions(request: SetDomainServerCertificateRequest, runtime: $Util.RuntimeOptions): Promise<SetDomainServerCertificateResponse> {
     Util.validateModel(request);
     let query = { };
@@ -24759,12 +24983,14 @@ export default class Client extends OpenApi {
   }
 
   /**
+    * @deprecated : SetDomainServerCertificate is deprecated, please use Cdn::2018-05-10::SetCdnDomainSSLCertificate instead.
     * *   You can call this operation up to 10 times per second per user.
     * *   Method: POST.
     *
     * @param request SetDomainServerCertificateRequest
     * @return SetDomainServerCertificateResponse
    */
+  // Deprecated
   async setDomainServerCertificate(request: SetDomainServerCertificateRequest): Promise<SetDomainServerCertificateResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.setDomainServerCertificateWithOptions(request, runtime);
