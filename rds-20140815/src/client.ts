@@ -787,6 +787,7 @@ export class CheckCreateDdrDBInstanceRequest extends $tea.Model {
   engineVersion?: string;
   ownerId?: number;
   regionId?: string;
+  resourceGroupId?: string;
   resourceOwnerAccount?: string;
   resourceOwnerId?: number;
   restoreTime?: string;
@@ -802,6 +803,7 @@ export class CheckCreateDdrDBInstanceRequest extends $tea.Model {
       engineVersion: 'EngineVersion',
       ownerId: 'OwnerId',
       regionId: 'RegionId',
+      resourceGroupId: 'ResourceGroupId',
       resourceOwnerAccount: 'ResourceOwnerAccount',
       resourceOwnerId: 'ResourceOwnerId',
       restoreTime: 'RestoreTime',
@@ -820,6 +822,7 @@ export class CheckCreateDdrDBInstanceRequest extends $tea.Model {
       engineVersion: 'string',
       ownerId: 'number',
       regionId: 'string',
+      resourceGroupId: 'string',
       resourceOwnerAccount: 'string',
       resourceOwnerId: 'number',
       restoreTime: 'string',
@@ -1380,6 +1383,7 @@ export class CloneParameterGroupRequest extends $tea.Model {
   parameterGroupId?: string;
   parameterGroupName?: string;
   regionId?: string;
+  resourceGroupId?: string;
   resourceOwnerAccount?: string;
   resourceOwnerId?: number;
   targetRegionId?: string;
@@ -1390,6 +1394,7 @@ export class CloneParameterGroupRequest extends $tea.Model {
       parameterGroupId: 'ParameterGroupId',
       parameterGroupName: 'ParameterGroupName',
       regionId: 'RegionId',
+      resourceGroupId: 'ResourceGroupId',
       resourceOwnerAccount: 'ResourceOwnerAccount',
       resourceOwnerId: 'ResourceOwnerId',
       targetRegionId: 'TargetRegionId',
@@ -1403,6 +1408,7 @@ export class CloneParameterGroupRequest extends $tea.Model {
       parameterGroupId: 'string',
       parameterGroupName: 'string',
       regionId: 'string',
+      resourceGroupId: 'string',
       resourceOwnerAccount: 'string',
       resourceOwnerId: 'number',
       targetRegionId: 'string',
@@ -3780,6 +3786,7 @@ export class CreateParameterGroupRequest extends $tea.Model {
   parameterGroupName?: string;
   parameters?: string;
   regionId?: string;
+  resourceGroupId?: string;
   resourceOwnerAccount?: string;
   resourceOwnerId?: number;
   static names(): { [key: string]: string } {
@@ -3791,6 +3798,7 @@ export class CreateParameterGroupRequest extends $tea.Model {
       parameterGroupName: 'ParameterGroupName',
       parameters: 'Parameters',
       regionId: 'RegionId',
+      resourceGroupId: 'ResourceGroupId',
       resourceOwnerAccount: 'ResourceOwnerAccount',
       resourceOwnerId: 'ResourceOwnerId',
     };
@@ -3805,6 +3813,7 @@ export class CreateParameterGroupRequest extends $tea.Model {
       parameterGroupName: 'string',
       parameters: 'string',
       regionId: 'string',
+      resourceGroupId: 'string',
       resourceOwnerAccount: 'string',
       resourceOwnerId: 'number',
     };
@@ -5228,10 +5237,12 @@ export class DeleteDatabaseResponse extends $tea.Model {
 export class DeleteGadInstanceRequest extends $tea.Model {
   gadInstanceName?: string;
   regionId?: string;
+  resourceGroupId?: string;
   static names(): { [key: string]: string } {
     return {
       gadInstanceName: 'GadInstanceName',
       regionId: 'RegionId',
+      resourceGroupId: 'ResourceGroupId',
     };
   }
 
@@ -5239,6 +5250,7 @@ export class DeleteGadInstanceRequest extends $tea.Model {
     return {
       gadInstanceName: 'string',
       regionId: 'string',
+      resourceGroupId: 'string',
     };
   }
 
@@ -5295,6 +5307,7 @@ export class DeleteParameterGroupRequest extends $tea.Model {
   ownerId?: number;
   parameterGroupId?: string;
   regionId?: string;
+  resourceGroupId?: string;
   resourceOwnerAccount?: string;
   resourceOwnerId?: number;
   static names(): { [key: string]: string } {
@@ -5302,6 +5315,7 @@ export class DeleteParameterGroupRequest extends $tea.Model {
       ownerId: 'OwnerId',
       parameterGroupId: 'ParameterGroupId',
       regionId: 'RegionId',
+      resourceGroupId: 'ResourceGroupId',
       resourceOwnerAccount: 'ResourceOwnerAccount',
       resourceOwnerId: 'ResourceOwnerId',
     };
@@ -5312,6 +5326,7 @@ export class DeleteParameterGroupRequest extends $tea.Model {
       ownerId: 'number',
       parameterGroupId: 'string',
       regionId: 'string',
+      resourceGroupId: 'string',
       resourceOwnerAccount: 'string',
       resourceOwnerId: 'number',
     };
@@ -5462,6 +5477,7 @@ export class DeleteSecretRequest extends $tea.Model {
   engine?: string;
   ownerId?: number;
   regionId?: string;
+  resourceGroupId?: string;
   resourceOwnerAccount?: string;
   resourceOwnerId?: number;
   secretArn?: string;
@@ -5473,6 +5489,7 @@ export class DeleteSecretRequest extends $tea.Model {
       engine: 'Engine',
       ownerId: 'OwnerId',
       regionId: 'RegionId',
+      resourceGroupId: 'ResourceGroupId',
       resourceOwnerAccount: 'ResourceOwnerAccount',
       resourceOwnerId: 'ResourceOwnerId',
       secretArn: 'SecretArn',
@@ -5487,6 +5504,7 @@ export class DeleteSecretRequest extends $tea.Model {
       engine: 'string',
       ownerId: 'number',
       regionId: 'string',
+      resourceGroupId: 'string',
       resourceOwnerAccount: 'string',
       resourceOwnerId: 'number',
       secretArn: 'string',
@@ -5646,6 +5664,7 @@ export class DeleteUserBackupFileRequest extends $tea.Model {
   backupId?: string;
   ownerId?: number;
   regionId?: string;
+  resourceGroupId?: string;
   resourceOwnerAccount?: string;
   resourceOwnerId?: number;
   static names(): { [key: string]: string } {
@@ -5653,6 +5672,7 @@ export class DeleteUserBackupFileRequest extends $tea.Model {
       backupId: 'BackupId',
       ownerId: 'OwnerId',
       regionId: 'RegionId',
+      resourceGroupId: 'ResourceGroupId',
       resourceOwnerAccount: 'ResourceOwnerAccount',
       resourceOwnerId: 'ResourceOwnerId',
     };
@@ -5663,6 +5683,7 @@ export class DeleteUserBackupFileRequest extends $tea.Model {
       backupId: 'string',
       ownerId: 'number',
       regionId: 'string',
+      resourceGroupId: 'string',
       resourceOwnerAccount: 'string',
       resourceOwnerId: 'number',
     };
@@ -5730,6 +5751,7 @@ export class DescibeImportsFromDatabaseRequest extends $tea.Model {
   ownerId?: number;
   pageNumber?: number;
   pageSize?: number;
+  resourceGroupId?: string;
   resourceOwnerAccount?: string;
   resourceOwnerId?: number;
   startTime?: string;
@@ -5744,6 +5766,7 @@ export class DescibeImportsFromDatabaseRequest extends $tea.Model {
       ownerId: 'OwnerId',
       pageNumber: 'PageNumber',
       pageSize: 'PageSize',
+      resourceGroupId: 'ResourceGroupId',
       resourceOwnerAccount: 'ResourceOwnerAccount',
       resourceOwnerId: 'ResourceOwnerId',
       startTime: 'StartTime',
@@ -5761,6 +5784,7 @@ export class DescibeImportsFromDatabaseRequest extends $tea.Model {
       ownerId: 'number',
       pageNumber: 'number',
       pageSize: 'number',
+      resourceGroupId: 'string',
       resourceOwnerAccount: 'string',
       resourceOwnerId: 'number',
       startTime: 'string',
@@ -6017,12 +6041,14 @@ export class DescribeAccountsResponse extends $tea.Model {
 export class DescribeActionEventPolicyRequest extends $tea.Model {
   ownerId?: number;
   regionId?: string;
+  resourceGroupId?: string;
   resourceOwnerAccount?: string;
   resourceOwnerId?: number;
   static names(): { [key: string]: string } {
     return {
       ownerId: 'OwnerId',
       regionId: 'RegionId',
+      resourceGroupId: 'ResourceGroupId',
       resourceOwnerAccount: 'ResourceOwnerAccount',
       resourceOwnerId: 'ResourceOwnerId',
     };
@@ -6032,6 +6058,7 @@ export class DescribeActionEventPolicyRequest extends $tea.Model {
     return {
       ownerId: 'number',
       regionId: 'string',
+      resourceGroupId: 'string',
       resourceOwnerAccount: 'string',
       resourceOwnerId: 'number',
     };
@@ -7450,6 +7477,7 @@ export class DescribeClassDetailsRequest extends $tea.Model {
   engineVersion?: string;
   ownerId?: number;
   regionId?: string;
+  resourceGroupId?: string;
   resourceOwnerAccount?: string;
   resourceOwnerId?: number;
   static names(): { [key: string]: string } {
@@ -7461,6 +7489,7 @@ export class DescribeClassDetailsRequest extends $tea.Model {
       engineVersion: 'EngineVersion',
       ownerId: 'OwnerId',
       regionId: 'RegionId',
+      resourceGroupId: 'ResourceGroupId',
       resourceOwnerAccount: 'ResourceOwnerAccount',
       resourceOwnerId: 'ResourceOwnerId',
     };
@@ -7475,6 +7504,7 @@ export class DescribeClassDetailsRequest extends $tea.Model {
       engineVersion: 'string',
       ownerId: 'number',
       regionId: 'string',
+      resourceGroupId: 'string',
       resourceOwnerAccount: 'string',
       resourceOwnerId: 'number',
     };
@@ -10063,6 +10093,7 @@ export class DescribeDBInstancesByExpireTimeRequest extends $tea.Model {
   pageNumber?: number;
   pageSize?: number;
   regionId?: string;
+  resourceGroupId?: string;
   resourceOwnerAccount?: string;
   resourceOwnerId?: number;
   tags?: string;
@@ -10076,6 +10107,7 @@ export class DescribeDBInstancesByExpireTimeRequest extends $tea.Model {
       pageNumber: 'PageNumber',
       pageSize: 'PageSize',
       regionId: 'RegionId',
+      resourceGroupId: 'ResourceGroupId',
       resourceOwnerAccount: 'ResourceOwnerAccount',
       resourceOwnerId: 'ResourceOwnerId',
       tags: 'Tags',
@@ -10092,6 +10124,7 @@ export class DescribeDBInstancesByExpireTimeRequest extends $tea.Model {
       pageNumber: 'number',
       pageSize: 'number',
       regionId: 'string',
+      resourceGroupId: 'string',
       resourceOwnerAccount: 'string',
       resourceOwnerId: 'number',
       tags: 'string',
@@ -16375,11 +16408,13 @@ export class DetachGadInstanceMemberRequest extends $tea.Model {
   gadInstanceName?: string;
   memberInstanceName?: string;
   regionId?: string;
+  resourceGroupId?: string;
   static names(): { [key: string]: string } {
     return {
       gadInstanceName: 'GadInstanceName',
       memberInstanceName: 'MemberInstanceName',
       regionId: 'RegionId',
+      resourceGroupId: 'ResourceGroupId',
     };
   }
 
@@ -16388,6 +16423,7 @@ export class DetachGadInstanceMemberRequest extends $tea.Model {
       gadInstanceName: 'string',
       memberInstanceName: 'string',
       regionId: 'string',
+      resourceGroupId: 'string',
     };
   }
 
@@ -16918,6 +16954,7 @@ export class ImportUserBackupFileRequest extends $tea.Model {
   engineVersion?: string;
   ownerId?: number;
   regionId?: string;
+  resourceGroupId?: string;
   resourceOwnerAccount?: string;
   resourceOwnerId?: number;
   restoreSize?: number;
@@ -16931,6 +16968,7 @@ export class ImportUserBackupFileRequest extends $tea.Model {
       engineVersion: 'EngineVersion',
       ownerId: 'OwnerId',
       regionId: 'RegionId',
+      resourceGroupId: 'ResourceGroupId',
       resourceOwnerAccount: 'ResourceOwnerAccount',
       resourceOwnerId: 'ResourceOwnerId',
       restoreSize: 'RestoreSize',
@@ -16947,6 +16985,7 @@ export class ImportUserBackupFileRequest extends $tea.Model {
       engineVersion: 'string',
       ownerId: 'number',
       regionId: 'string',
+      resourceGroupId: 'string',
       resourceOwnerAccount: 'string',
       resourceOwnerId: 'number',
       restoreSize: 'number',
@@ -17196,6 +17235,7 @@ export class ListUserBackupFilesRequest extends $tea.Model {
   ossUrl?: string;
   ownerId?: number;
   regionId?: string;
+  resourceGroupId?: string;
   resourceOwnerAccount?: string;
   resourceOwnerId?: number;
   status?: string;
@@ -17207,6 +17247,7 @@ export class ListUserBackupFilesRequest extends $tea.Model {
       ossUrl: 'OssUrl',
       ownerId: 'OwnerId',
       regionId: 'RegionId',
+      resourceGroupId: 'ResourceGroupId',
       resourceOwnerAccount: 'ResourceOwnerAccount',
       resourceOwnerId: 'ResourceOwnerId',
       status: 'Status',
@@ -17221,6 +17262,7 @@ export class ListUserBackupFilesRequest extends $tea.Model {
       ossUrl: 'string',
       ownerId: 'number',
       regionId: 'string',
+      resourceGroupId: 'string',
       resourceOwnerAccount: 'string',
       resourceOwnerId: 'number',
       status: 'string',
@@ -21448,6 +21490,7 @@ export class ModifyParameterGroupRequest extends $tea.Model {
   parameterGroupName?: string;
   parameters?: string;
   regionId?: string;
+  resourceGroupId?: string;
   resourceOwnerAccount?: string;
   resourceOwnerId?: number;
   static names(): { [key: string]: string } {
@@ -21459,6 +21502,7 @@ export class ModifyParameterGroupRequest extends $tea.Model {
       parameterGroupName: 'ParameterGroupName',
       parameters: 'Parameters',
       regionId: 'RegionId',
+      resourceGroupId: 'ResourceGroupId',
       resourceOwnerAccount: 'ResourceOwnerAccount',
       resourceOwnerId: 'ResourceOwnerId',
     };
@@ -21473,6 +21517,7 @@ export class ModifyParameterGroupRequest extends $tea.Model {
       parameterGroupName: 'string',
       parameters: 'string',
       regionId: 'string',
+      resourceGroupId: 'string',
       resourceOwnerAccount: 'string',
       resourceOwnerId: 'number',
     };
@@ -21624,6 +21669,7 @@ export class ModifyReadonlyInstanceDelayReplicationTimeRequest extends $tea.Mode
   DBInstanceId?: string;
   ownerId?: number;
   readSQLReplicationTime?: string;
+  resourceGroupId?: string;
   resourceOwnerAccount?: string;
   resourceOwnerId?: number;
   static names(): { [key: string]: string } {
@@ -21631,6 +21677,7 @@ export class ModifyReadonlyInstanceDelayReplicationTimeRequest extends $tea.Mode
       DBInstanceId: 'DBInstanceId',
       ownerId: 'OwnerId',
       readSQLReplicationTime: 'ReadSQLReplicationTime',
+      resourceGroupId: 'ResourceGroupId',
       resourceOwnerAccount: 'ResourceOwnerAccount',
       resourceOwnerId: 'ResourceOwnerId',
     };
@@ -21641,6 +21688,7 @@ export class ModifyReadonlyInstanceDelayReplicationTimeRequest extends $tea.Mode
       DBInstanceId: 'string',
       ownerId: 'number',
       readSQLReplicationTime: 'string',
+      resourceGroupId: 'string',
       resourceOwnerAccount: 'string',
       resourceOwnerId: 'number',
     };
@@ -22893,6 +22941,7 @@ export class RemoveTagsFromResourceRequest extends $tea.Model {
   ownerAccount?: string;
   ownerId?: number;
   regionId?: string;
+  resourceGroupId?: string;
   resourceOwnerAccount?: string;
   resourceOwnerId?: number;
   tags?: string;
@@ -22905,6 +22954,7 @@ export class RemoveTagsFromResourceRequest extends $tea.Model {
       ownerAccount: 'OwnerAccount',
       ownerId: 'OwnerId',
       regionId: 'RegionId',
+      resourceGroupId: 'ResourceGroupId',
       resourceOwnerAccount: 'ResourceOwnerAccount',
       resourceOwnerId: 'ResourceOwnerId',
       tags: 'Tags',
@@ -22920,6 +22970,7 @@ export class RemoveTagsFromResourceRequest extends $tea.Model {
       ownerAccount: 'string',
       ownerId: 'number',
       regionId: 'string',
+      resourceGroupId: 'string',
       resourceOwnerAccount: 'string',
       resourceOwnerId: 'number',
       tags: 'string',
@@ -24102,6 +24153,7 @@ export class SwitchGuardToMasterInstanceRequest extends $tea.Model {
   DBInstanceId?: string;
   ownerAccount?: string;
   ownerId?: number;
+  resourceGroupId?: string;
   resourceOwnerAccount?: string;
   resourceOwnerId?: number;
   static names(): { [key: string]: string } {
@@ -24109,6 +24161,7 @@ export class SwitchGuardToMasterInstanceRequest extends $tea.Model {
       DBInstanceId: 'DBInstanceId',
       ownerAccount: 'OwnerAccount',
       ownerId: 'OwnerId',
+      resourceGroupId: 'ResourceGroupId',
       resourceOwnerAccount: 'ResourceOwnerAccount',
       resourceOwnerId: 'ResourceOwnerId',
     };
@@ -24119,6 +24172,7 @@ export class SwitchGuardToMasterInstanceRequest extends $tea.Model {
       DBInstanceId: 'string',
       ownerAccount: 'string',
       ownerId: 'number',
+      resourceGroupId: 'string',
       resourceOwnerAccount: 'string',
       resourceOwnerId: 'number',
     };
@@ -24688,6 +24742,7 @@ export class UpdateUserBackupFileRequest extends $tea.Model {
   comment?: string;
   ownerId?: number;
   regionId?: string;
+  resourceGroupId?: string;
   resourceOwnerAccount?: string;
   resourceOwnerId?: number;
   retention?: number;
@@ -24697,6 +24752,7 @@ export class UpdateUserBackupFileRequest extends $tea.Model {
       comment: 'Comment',
       ownerId: 'OwnerId',
       regionId: 'RegionId',
+      resourceGroupId: 'ResourceGroupId',
       resourceOwnerAccount: 'ResourceOwnerAccount',
       resourceOwnerId: 'ResourceOwnerId',
       retention: 'Retention',
@@ -24709,6 +24765,7 @@ export class UpdateUserBackupFileRequest extends $tea.Model {
       comment: 'string',
       ownerId: 'number',
       regionId: 'string',
+      resourceGroupId: 'string',
       resourceOwnerAccount: 'string',
       resourceOwnerId: 'number',
       retention: 'number',
@@ -34487,6 +34544,10 @@ export default class Client extends OpenApi {
       query["RegionId"] = request.regionId;
     }
 
+    if (!Util.isUnset(request.resourceGroupId)) {
+      query["ResourceGroupId"] = request.resourceGroupId;
+    }
+
     if (!Util.isUnset(request.resourceOwnerAccount)) {
       query["ResourceOwnerAccount"] = request.resourceOwnerAccount;
     }
@@ -34890,6 +34951,10 @@ export default class Client extends OpenApi {
 
     if (!Util.isUnset(request.regionId)) {
       query["RegionId"] = request.regionId;
+    }
+
+    if (!Util.isUnset(request.resourceGroupId)) {
+      query["ResourceGroupId"] = request.resourceGroupId;
     }
 
     if (!Util.isUnset(request.resourceOwnerAccount)) {
@@ -36813,6 +36878,10 @@ export default class Client extends OpenApi {
       query["RegionId"] = request.regionId;
     }
 
+    if (!Util.isUnset(request.resourceGroupId)) {
+      query["ResourceGroupId"] = request.resourceGroupId;
+    }
+
     if (!Util.isUnset(request.resourceOwnerAccount)) {
       query["ResourceOwnerAccount"] = request.resourceOwnerAccount;
     }
@@ -37959,6 +38028,10 @@ export default class Client extends OpenApi {
       query["RegionId"] = request.regionId;
     }
 
+    if (!Util.isUnset(request.resourceGroupId)) {
+      query["ResourceGroupId"] = request.resourceGroupId;
+    }
+
     let req = new $OpenApi.OpenApiRequest({
       query: OpenApiUtil.query(query),
     });
@@ -38012,6 +38085,10 @@ export default class Client extends OpenApi {
 
     if (!Util.isUnset(request.regionId)) {
       query["RegionId"] = request.regionId;
+    }
+
+    if (!Util.isUnset(request.resourceGroupId)) {
+      query["ResourceGroupId"] = request.resourceGroupId;
     }
 
     if (!Util.isUnset(request.resourceOwnerAccount)) {
@@ -38135,6 +38212,10 @@ export default class Client extends OpenApi {
 
     if (!Util.isUnset(request.regionId)) {
       query["RegionId"] = request.regionId;
+    }
+
+    if (!Util.isUnset(request.resourceGroupId)) {
+      query["ResourceGroupId"] = request.resourceGroupId;
     }
 
     if (!Util.isUnset(request.resourceOwnerAccount)) {
@@ -38275,6 +38356,10 @@ export default class Client extends OpenApi {
       query["RegionId"] = request.regionId;
     }
 
+    if (!Util.isUnset(request.resourceGroupId)) {
+      query["ResourceGroupId"] = request.resourceGroupId;
+    }
+
     if (!Util.isUnset(request.resourceOwnerAccount)) {
       query["ResourceOwnerAccount"] = request.resourceOwnerAccount;
     }
@@ -38357,6 +38442,10 @@ export default class Client extends OpenApi {
 
     if (!Util.isUnset(request.pageSize)) {
       query["PageSize"] = request.pageSize;
+    }
+
+    if (!Util.isUnset(request.resourceGroupId)) {
+      query["ResourceGroupId"] = request.resourceGroupId;
     }
 
     if (!Util.isUnset(request.resourceOwnerAccount)) {
@@ -38539,6 +38628,10 @@ export default class Client extends OpenApi {
 
     if (!Util.isUnset(request.regionId)) {
       query["RegionId"] = request.regionId;
+    }
+
+    if (!Util.isUnset(request.resourceGroupId)) {
+      query["ResourceGroupId"] = request.resourceGroupId;
     }
 
     if (!Util.isUnset(request.resourceOwnerAccount)) {
@@ -39513,6 +39606,10 @@ export default class Client extends OpenApi {
 
     if (!Util.isUnset(request.regionId)) {
       query["RegionId"] = request.regionId;
+    }
+
+    if (!Util.isUnset(request.resourceGroupId)) {
+      query["ResourceGroupId"] = request.resourceGroupId;
     }
 
     if (!Util.isUnset(request.resourceOwnerAccount)) {
@@ -41408,6 +41505,10 @@ export default class Client extends OpenApi {
 
     if (!Util.isUnset(request.regionId)) {
       query["RegionId"] = request.regionId;
+    }
+
+    if (!Util.isUnset(request.resourceGroupId)) {
+      query["ResourceGroupId"] = request.resourceGroupId;
     }
 
     if (!Util.isUnset(request.resourceOwnerAccount)) {
@@ -45862,6 +45963,10 @@ export default class Client extends OpenApi {
       query["RegionId"] = request.regionId;
     }
 
+    if (!Util.isUnset(request.resourceGroupId)) {
+      query["ResourceGroupId"] = request.resourceGroupId;
+    }
+
     let req = new $OpenApi.OpenApiRequest({
       query: OpenApiUtil.query(query),
     });
@@ -46289,6 +46394,10 @@ export default class Client extends OpenApi {
       query["RegionId"] = request.regionId;
     }
 
+    if (!Util.isUnset(request.resourceGroupId)) {
+      query["ResourceGroupId"] = request.resourceGroupId;
+    }
+
     if (!Util.isUnset(request.resourceOwnerAccount)) {
       query["ResourceOwnerAccount"] = request.resourceOwnerAccount;
     }
@@ -46486,6 +46595,10 @@ export default class Client extends OpenApi {
 
     if (!Util.isUnset(request.regionId)) {
       query["RegionId"] = request.regionId;
+    }
+
+    if (!Util.isUnset(request.resourceGroupId)) {
+      query["ResourceGroupId"] = request.resourceGroupId;
     }
 
     if (!Util.isUnset(request.resourceOwnerAccount)) {
@@ -50033,6 +50146,10 @@ export default class Client extends OpenApi {
       query["RegionId"] = request.regionId;
     }
 
+    if (!Util.isUnset(request.resourceGroupId)) {
+      query["ResourceGroupId"] = request.resourceGroupId;
+    }
+
     if (!Util.isUnset(request.resourceOwnerAccount)) {
       query["ResourceOwnerAccount"] = request.resourceOwnerAccount;
     }
@@ -50180,6 +50297,10 @@ export default class Client extends OpenApi {
 
     if (!Util.isUnset(request.readSQLReplicationTime)) {
       query["ReadSQLReplicationTime"] = request.readSQLReplicationTime;
+    }
+
+    if (!Util.isUnset(request.resourceGroupId)) {
+      query["ResourceGroupId"] = request.resourceGroupId;
     }
 
     if (!Util.isUnset(request.resourceOwnerAccount)) {
@@ -51204,6 +51325,10 @@ export default class Client extends OpenApi {
 
     if (!Util.isUnset(request.regionId)) {
       query["RegionId"] = request.regionId;
+    }
+
+    if (!Util.isUnset(request.resourceGroupId)) {
+      query["ResourceGroupId"] = request.resourceGroupId;
     }
 
     if (!Util.isUnset(request.resourceOwnerAccount)) {
@@ -52259,6 +52384,10 @@ export default class Client extends OpenApi {
       query["OwnerId"] = request.ownerId;
     }
 
+    if (!Util.isUnset(request.resourceGroupId)) {
+      query["ResourceGroupId"] = request.resourceGroupId;
+    }
+
     if (!Util.isUnset(request.resourceOwnerAccount)) {
       query["ResourceOwnerAccount"] = request.resourceOwnerAccount;
     }
@@ -52723,6 +52852,10 @@ export default class Client extends OpenApi {
 
     if (!Util.isUnset(request.regionId)) {
       query["RegionId"] = request.regionId;
+    }
+
+    if (!Util.isUnset(request.resourceGroupId)) {
+      query["ResourceGroupId"] = request.resourceGroupId;
     }
 
     if (!Util.isUnset(request.resourceOwnerAccount)) {
