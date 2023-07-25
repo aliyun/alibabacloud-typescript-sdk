@@ -3371,6 +3371,58 @@ export class CreateResourceFileRequest extends $tea.Model {
   }
 }
 
+export class CreateResourceFileAdvanceRequest extends $tea.Model {
+  content?: string;
+  fileDescription?: string;
+  fileFolderPath?: string;
+  fileName?: string;
+  fileType?: number;
+  originResourceName?: string;
+  owner?: string;
+  projectId?: number;
+  registerToCalcEngine?: boolean;
+  resourceFileObject?: Readable;
+  storageURL?: string;
+  uploadMode?: boolean;
+  static names(): { [key: string]: string } {
+    return {
+      content: 'Content',
+      fileDescription: 'FileDescription',
+      fileFolderPath: 'FileFolderPath',
+      fileName: 'FileName',
+      fileType: 'FileType',
+      originResourceName: 'OriginResourceName',
+      owner: 'Owner',
+      projectId: 'ProjectId',
+      registerToCalcEngine: 'RegisterToCalcEngine',
+      resourceFileObject: 'ResourceFile',
+      storageURL: 'StorageURL',
+      uploadMode: 'UploadMode',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      content: 'string',
+      fileDescription: 'string',
+      fileFolderPath: 'string',
+      fileName: 'string',
+      fileType: 'number',
+      originResourceName: 'string',
+      owner: 'string',
+      projectId: 'number',
+      registerToCalcEngine: 'boolean',
+      resourceFileObject: 'Readable',
+      storageURL: 'string',
+      uploadMode: 'boolean',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
 export class CreateResourceFileResponseBody extends $tea.Model {
   data?: number;
   requestId?: string;
@@ -36372,6 +36424,80 @@ export default class Client extends OpenApi {
   async createResourceFile(request: CreateResourceFileRequest): Promise<CreateResourceFileResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.createResourceFileWithOptions(request, runtime);
+  }
+
+  async createResourceFileAdvance(request: CreateResourceFileAdvanceRequest, runtime: $Util.RuntimeOptions): Promise<CreateResourceFileResponse> {
+    // Step 0: init client
+    let accessKeyId = await this._credential.getAccessKeyId();
+    let accessKeySecret = await this._credential.getAccessKeySecret();
+    let securityToken = await this._credential.getSecurityToken();
+    let credentialType = this._credential.getType();
+    let openPlatformEndpoint = this._openPlatformEndpoint;
+    if (Util.isUnset(openPlatformEndpoint)) {
+      openPlatformEndpoint = "openplatform.aliyuncs.com";
+    }
+
+    if (Util.isUnset(credentialType)) {
+      credentialType = "access_key";
+    }
+
+    let authConfig = new $OpenApi.Config({
+      accessKeyId: accessKeyId,
+      accessKeySecret: accessKeySecret,
+      securityToken: securityToken,
+      type: credentialType,
+      endpoint: openPlatformEndpoint,
+      protocol: this._protocol,
+      regionId: this._regionId,
+    });
+    let authClient = new OpenPlatform(authConfig);
+    let authRequest = new $OpenPlatform.AuthorizeFileUploadRequest({
+      product: "dataworks-public",
+      regionId: this._regionId,
+    });
+    let authResponse = new $OpenPlatform.AuthorizeFileUploadResponse({ });
+    let ossConfig = new $OSS.Config({
+      accessKeySecret: accessKeySecret,
+      type: "access_key",
+      protocol: this._protocol,
+      regionId: this._regionId,
+    });
+    let ossClient : OSS = null;
+    let fileObj = new $FileForm.FileField({ });
+    let ossHeader = new $OSS.PostObjectRequestHeader({ });
+    let uploadRequest = new $OSS.PostObjectRequest({ });
+    let ossRuntime = new $OSSUtil.RuntimeOptions({ });
+    OpenApiUtil.convert(runtime, ossRuntime);
+    let createResourceFileReq = new CreateResourceFileRequest({ });
+    OpenApiUtil.convert(request, createResourceFileReq);
+    if (!Util.isUnset(request.resourceFileObject)) {
+      authResponse = await authClient.authorizeFileUploadWithOptions(authRequest, runtime);
+      ossConfig.accessKeyId = authResponse.body.accessKeyId;
+      ossConfig.endpoint = OpenApiUtil.getEndpoint(authResponse.body.endpoint, authResponse.body.useAccelerate, this._endpointType);
+      ossClient = new OSS(ossConfig);
+      fileObj = new $FileForm.FileField({
+        filename: authResponse.body.objectKey,
+        content: request.resourceFileObject,
+        contentType: "",
+      });
+      ossHeader = new $OSS.PostObjectRequestHeader({
+        accessKeyId: authResponse.body.accessKeyId,
+        policy: authResponse.body.encodedPolicy,
+        signature: authResponse.body.signature,
+        key: authResponse.body.objectKey,
+        file: fileObj,
+        successActionStatus: "201",
+      });
+      uploadRequest = new $OSS.PostObjectRequest({
+        bucketName: authResponse.body.bucket,
+        header: ossHeader,
+      });
+      await ossClient.postObject(uploadRequest, ossRuntime);
+      createResourceFileReq.resourceFile = `http://${authResponse.body.bucket}.${authResponse.body.endpoint}/${authResponse.body.objectKey}`;
+    }
+
+    let createResourceFileResp = await this.createResourceFileWithOptions(createResourceFileReq, runtime);
+    return createResourceFileResp;
   }
 
   async createTableWithOptions(request: CreateTableRequest, runtime: $Util.RuntimeOptions): Promise<CreateTableResponse> {
