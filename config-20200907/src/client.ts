@@ -111,6 +111,72 @@ export class ActiveAggregateConfigRulesResponse extends $tea.Model {
   }
 }
 
+export class ActiveConfigRulesRequest extends $tea.Model {
+  configRuleIds?: string;
+  static names(): { [key: string]: string } {
+    return {
+      configRuleIds: 'ConfigRuleIds',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      configRuleIds: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class ActiveConfigRulesResponseBody extends $tea.Model {
+  operateRuleResult?: ActiveConfigRulesResponseBodyOperateRuleResult;
+  requestId?: string;
+  static names(): { [key: string]: string } {
+    return {
+      operateRuleResult: 'OperateRuleResult',
+      requestId: 'RequestId',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      operateRuleResult: ActiveConfigRulesResponseBodyOperateRuleResult,
+      requestId: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class ActiveConfigRulesResponse extends $tea.Model {
+  headers: { [key: string]: string };
+  statusCode: number;
+  body: ActiveConfigRulesResponseBody;
+  static names(): { [key: string]: string } {
+    return {
+      headers: 'headers',
+      statusCode: 'statusCode',
+      body: 'body',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
+      body: ActiveConfigRulesResponseBody,
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
 export class AttachAggregateConfigRuleToCompliancePackRequest extends $tea.Model {
   aggregatorId?: string;
   compliancePackId?: string;
@@ -2273,6 +2339,72 @@ export class DeleteConfigDeliveryChannelResponse extends $tea.Model {
   }
 }
 
+export class DeleteConfigRulesRequest extends $tea.Model {
+  configRuleIds?: string;
+  static names(): { [key: string]: string } {
+    return {
+      configRuleIds: 'ConfigRuleIds',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      configRuleIds: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class DeleteConfigRulesResponseBody extends $tea.Model {
+  operateRuleResult?: DeleteConfigRulesResponseBodyOperateRuleResult;
+  requestId?: string;
+  static names(): { [key: string]: string } {
+    return {
+      operateRuleResult: 'OperateRuleResult',
+      requestId: 'RequestId',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      operateRuleResult: DeleteConfigRulesResponseBodyOperateRuleResult,
+      requestId: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class DeleteConfigRulesResponse extends $tea.Model {
+  headers: { [key: string]: string };
+  statusCode: number;
+  body: DeleteConfigRulesResponseBody;
+  static names(): { [key: string]: string } {
+    return {
+      headers: 'headers',
+      statusCode: 'statusCode',
+      body: 'body',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
+      body: DeleteConfigRulesResponseBody,
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
 export class DeleteRemediationsRequest extends $tea.Model {
   remediationIds?: string;
   static names(): { [key: string]: string } {
@@ -2718,6 +2850,78 @@ export class GenerateAggregateConfigRulesReportResponse extends $tea.Model {
   }
 }
 
+export class GenerateAggregateResourceInventoryRequest extends $tea.Model {
+  accountIds?: string;
+  aggregatorId?: string;
+  regions?: string;
+  resourceTypes?: string;
+  static names(): { [key: string]: string } {
+    return {
+      accountIds: 'AccountIds',
+      aggregatorId: 'AggregatorId',
+      regions: 'Regions',
+      resourceTypes: 'ResourceTypes',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      accountIds: 'string',
+      aggregatorId: 'string',
+      regions: 'string',
+      resourceTypes: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class GenerateAggregateResourceInventoryResponseBody extends $tea.Model {
+  requestId?: string;
+  static names(): { [key: string]: string } {
+    return {
+      requestId: 'RequestId',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      requestId: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class GenerateAggregateResourceInventoryResponse extends $tea.Model {
+  headers: { [key: string]: string };
+  statusCode: number;
+  body: GenerateAggregateResourceInventoryResponseBody;
+  static names(): { [key: string]: string } {
+    return {
+      headers: 'headers',
+      statusCode: 'statusCode',
+      body: 'body',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
+      body: GenerateAggregateResourceInventoryResponseBody,
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
 export class GenerateCompliancePackReportRequest extends $tea.Model {
   clientToken?: string;
   compliancePackId?: string;
@@ -2848,6 +3052,72 @@ export class GenerateConfigRulesReportResponse extends $tea.Model {
       headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
       statusCode: 'number',
       body: GenerateConfigRulesReportResponseBody,
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class GenerateResourceInventoryRequest extends $tea.Model {
+  regions?: string;
+  resourceTypes?: string;
+  static names(): { [key: string]: string } {
+    return {
+      regions: 'Regions',
+      resourceTypes: 'ResourceTypes',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      regions: 'string',
+      resourceTypes: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class GenerateResourceInventoryResponseBody extends $tea.Model {
+  requestId?: string;
+  static names(): { [key: string]: string } {
+    return {
+      requestId: 'RequestId',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      requestId: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class GenerateResourceInventoryResponse extends $tea.Model {
+  headers: { [key: string]: string };
+  statusCode: number;
+  body: GenerateResourceInventoryResponseBody;
+  static names(): { [key: string]: string } {
+    return {
+      headers: 'headers',
+      statusCode: 'statusCode',
+      body: 'body',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
+      body: GenerateResourceInventoryResponseBody,
     };
   }
 
@@ -3055,6 +3325,72 @@ export class GetAggregateCompliancePackReportResponse extends $tea.Model {
       headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
       statusCode: 'number',
       body: GetAggregateCompliancePackReportResponseBody,
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class GetAggregateComplianceSummaryRequest extends $tea.Model {
+  aggregatorId?: string;
+  static names(): { [key: string]: string } {
+    return {
+      aggregatorId: 'AggregatorId',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      aggregatorId: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class GetAggregateComplianceSummaryResponseBody extends $tea.Model {
+  complianceSummary?: GetAggregateComplianceSummaryResponseBodyComplianceSummary;
+  requestId?: string;
+  static names(): { [key: string]: string } {
+    return {
+      complianceSummary: 'ComplianceSummary',
+      requestId: 'RequestId',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      complianceSummary: GetAggregateComplianceSummaryResponseBodyComplianceSummary,
+      requestId: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class GetAggregateComplianceSummaryResponse extends $tea.Model {
+  headers: { [key: string]: string };
+  statusCode: number;
+  body: GetAggregateComplianceSummaryResponseBody;
+  static names(): { [key: string]: string } {
+    return {
+      headers: 'headers',
+      statusCode: 'statusCode',
+      body: 'body',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
+      body: GetAggregateComplianceSummaryResponseBody,
     };
   }
 
@@ -4311,6 +4647,53 @@ export class GetCompliancePackReportResponse extends $tea.Model {
   }
 }
 
+export class GetComplianceSummaryResponseBody extends $tea.Model {
+  complianceSummary?: GetComplianceSummaryResponseBodyComplianceSummary;
+  requestId?: string;
+  static names(): { [key: string]: string } {
+    return {
+      complianceSummary: 'ComplianceSummary',
+      requestId: 'RequestId',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      complianceSummary: GetComplianceSummaryResponseBodyComplianceSummary,
+      requestId: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class GetComplianceSummaryResponse extends $tea.Model {
+  headers: { [key: string]: string };
+  statusCode: number;
+  body: GetComplianceSummaryResponseBody;
+  static names(): { [key: string]: string } {
+    return {
+      headers: 'headers',
+      statusCode: 'statusCode',
+      body: 'body',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
+      body: GetComplianceSummaryResponseBody,
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
 export class GetConfigDeliveryChannelRequest extends $tea.Model {
   deliveryChannelId?: string;
   static names(): { [key: string]: string } {
@@ -4614,6 +4997,53 @@ export class GetConfigRulesReportResponse extends $tea.Model {
       headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
       statusCode: 'number',
       body: GetConfigRulesReportResponseBody,
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class GetConfigurationRecorderResponseBody extends $tea.Model {
+  configurationRecorder?: GetConfigurationRecorderResponseBodyConfigurationRecorder;
+  requestId?: string;
+  static names(): { [key: string]: string } {
+    return {
+      configurationRecorder: 'ConfigurationRecorder',
+      requestId: 'RequestId',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      configurationRecorder: GetConfigurationRecorderResponseBodyConfigurationRecorder,
+      requestId: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class GetConfigurationRecorderResponse extends $tea.Model {
+  headers: { [key: string]: string };
+  statusCode: number;
+  body: GetConfigurationRecorderResponseBody;
+  static names(): { [key: string]: string } {
+    return {
+      headers: 'headers',
+      statusCode: 'statusCode',
+      body: 'body',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
+      body: GetConfigurationRecorderResponseBody,
     };
   }
 
@@ -4950,6 +5380,72 @@ export class GetManagedRuleResponse extends $tea.Model {
       headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
       statusCode: 'number',
       body: GetManagedRuleResponseBody,
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class GetRemediationTemplateRequest extends $tea.Model {
+  templateIdentifier?: string;
+  static names(): { [key: string]: string } {
+    return {
+      templateIdentifier: 'TemplateIdentifier',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      templateIdentifier: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class GetRemediationTemplateResponseBody extends $tea.Model {
+  remediationTemplates?: GetRemediationTemplateResponseBodyRemediationTemplates[];
+  requestId?: string;
+  static names(): { [key: string]: string } {
+    return {
+      remediationTemplates: 'RemediationTemplates',
+      requestId: 'RequestId',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      remediationTemplates: { 'type': 'array', 'itemType': GetRemediationTemplateResponseBodyRemediationTemplates },
+      requestId: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class GetRemediationTemplateResponse extends $tea.Model {
+  headers: { [key: string]: string };
+  statusCode: number;
+  body: GetRemediationTemplateResponseBody;
+  static names(): { [key: string]: string } {
+    return {
+      headers: 'headers',
+      statusCode: 'statusCode',
+      body: 'body',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
+      body: GetRemediationTemplateResponseBody,
     };
   }
 
@@ -5385,6 +5881,72 @@ export class GetResourceConfigurationTimelineResponse extends $tea.Model {
       headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
       statusCode: 'number',
       body: GetResourceConfigurationTimelineResponseBody,
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class GetSupportedResourceRelationConfigRequest extends $tea.Model {
+  resourceType?: string;
+  static names(): { [key: string]: string } {
+    return {
+      resourceType: 'ResourceType',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      resourceType: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class GetSupportedResourceRelationConfigResponseBody extends $tea.Model {
+  requestId?: string;
+  resourceRelationConfigList?: GetSupportedResourceRelationConfigResponseBodyResourceRelationConfigList[];
+  static names(): { [key: string]: string } {
+    return {
+      requestId: 'RequestId',
+      resourceRelationConfigList: 'ResourceRelationConfigList',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      requestId: 'string',
+      resourceRelationConfigList: { 'type': 'array', 'itemType': GetSupportedResourceRelationConfigResponseBodyResourceRelationConfigList },
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class GetSupportedResourceRelationConfigResponse extends $tea.Model {
+  headers: { [key: string]: string };
+  statusCode: number;
+  body: GetSupportedResourceRelationConfigResponseBody;
+  static names(): { [key: string]: string } {
+    return {
+      headers: 'headers',
+      statusCode: 'statusCode',
+      body: 'body',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
+      body: GetSupportedResourceRelationConfigResponseBody,
     };
   }
 
@@ -6983,6 +7545,81 @@ export class ListPreManagedRulesResponse extends $tea.Model {
   }
 }
 
+export class ListRemediationExecutionsRequest extends $tea.Model {
+  configRuleId?: string;
+  executionStatus?: string;
+  maxResults?: number;
+  nextToken?: string;
+  static names(): { [key: string]: string } {
+    return {
+      configRuleId: 'ConfigRuleId',
+      executionStatus: 'ExecutionStatus',
+      maxResults: 'MaxResults',
+      nextToken: 'NextToken',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      configRuleId: 'string',
+      executionStatus: 'string',
+      maxResults: 'number',
+      nextToken: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class ListRemediationExecutionsResponseBody extends $tea.Model {
+  remediationExecutionData?: ListRemediationExecutionsResponseBodyRemediationExecutionData;
+  requestId?: string;
+  static names(): { [key: string]: string } {
+    return {
+      remediationExecutionData: 'RemediationExecutionData',
+      requestId: 'RequestId',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      remediationExecutionData: ListRemediationExecutionsResponseBodyRemediationExecutionData,
+      requestId: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class ListRemediationExecutionsResponse extends $tea.Model {
+  headers: { [key: string]: string };
+  statusCode: number;
+  body: ListRemediationExecutionsResponseBody;
+  static names(): { [key: string]: string } {
+    return {
+      headers: 'headers',
+      statusCode: 'statusCode',
+      body: 'body',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
+      body: ListRemediationExecutionsResponseBody,
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
 export class ListRemediationTemplatesRequest extends $tea.Model {
   managedRuleIdentifier?: string;
   pageNumber?: number;
@@ -7428,6 +8065,78 @@ export class ListTagResourcesResponse extends $tea.Model {
   }
 }
 
+export class PutEvaluationsRequest extends $tea.Model {
+  deleteMode?: boolean;
+  evaluations?: string;
+  resultToken?: string;
+  static names(): { [key: string]: string } {
+    return {
+      deleteMode: 'DeleteMode',
+      evaluations: 'Evaluations',
+      resultToken: 'ResultToken',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      deleteMode: 'boolean',
+      evaluations: 'string',
+      resultToken: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class PutEvaluationsResponseBody extends $tea.Model {
+  requestId?: string;
+  result?: boolean;
+  static names(): { [key: string]: string } {
+    return {
+      requestId: 'RequestId',
+      result: 'Result',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      requestId: 'string',
+      result: 'boolean',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class PutEvaluationsResponse extends $tea.Model {
+  headers: { [key: string]: string };
+  statusCode: number;
+  body: PutEvaluationsResponseBody;
+  static names(): { [key: string]: string } {
+    return {
+      headers: 'headers',
+      statusCode: 'statusCode',
+      body: 'body',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
+      body: PutEvaluationsResponseBody,
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
 export class RevertAggregateEvaluationResultsRequest extends $tea.Model {
   aggregatorId?: string;
   configRuleId?: string;
@@ -7688,10 +8397,12 @@ export class StartAggregateConfigRuleEvaluationResponse extends $tea.Model {
 export class StartAggregateRemediationRequest extends $tea.Model {
   aggregatorId?: string;
   configRuleId?: string;
+  resourceAccountId?: number;
   static names(): { [key: string]: string } {
     return {
       aggregatorId: 'AggregatorId',
       configRuleId: 'ConfigRuleId',
+      resourceAccountId: 'ResourceAccountId',
     };
   }
 
@@ -7699,6 +8410,7 @@ export class StartAggregateRemediationRequest extends $tea.Model {
     return {
       aggregatorId: 'string',
       configRuleId: 'string',
+      resourceAccountId: 'number',
     };
   }
 
@@ -7746,6 +8458,125 @@ export class StartAggregateRemediationResponse extends $tea.Model {
       headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
       statusCode: 'number',
       body: StartAggregateRemediationResponseBody,
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class StartConfigRuleEvaluationRequest extends $tea.Model {
+  compliancePackId?: string;
+  configRuleId?: string;
+  revertEvaluation?: boolean;
+  static names(): { [key: string]: string } {
+    return {
+      compliancePackId: 'CompliancePackId',
+      configRuleId: 'ConfigRuleId',
+      revertEvaluation: 'RevertEvaluation',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      compliancePackId: 'string',
+      configRuleId: 'string',
+      revertEvaluation: 'boolean',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class StartConfigRuleEvaluationResponseBody extends $tea.Model {
+  requestId?: string;
+  result?: boolean;
+  static names(): { [key: string]: string } {
+    return {
+      requestId: 'RequestId',
+      result: 'Result',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      requestId: 'string',
+      result: 'boolean',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class StartConfigRuleEvaluationResponse extends $tea.Model {
+  headers: { [key: string]: string };
+  statusCode: number;
+  body: StartConfigRuleEvaluationResponseBody;
+  static names(): { [key: string]: string } {
+    return {
+      headers: 'headers',
+      statusCode: 'statusCode',
+      body: 'body',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
+      body: StartConfigRuleEvaluationResponseBody,
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class StartConfigurationRecorderResponseBody extends $tea.Model {
+  configurationRecorder?: StartConfigurationRecorderResponseBodyConfigurationRecorder;
+  requestId?: string;
+  static names(): { [key: string]: string } {
+    return {
+      configurationRecorder: 'ConfigurationRecorder',
+      requestId: 'RequestId',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      configurationRecorder: StartConfigurationRecorderResponseBodyConfigurationRecorder,
+      requestId: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class StartConfigurationRecorderResponse extends $tea.Model {
+  headers: { [key: string]: string };
+  statusCode: number;
+  body: StartConfigurationRecorderResponseBody;
+  static names(): { [key: string]: string } {
+    return {
+      headers: 'headers',
+      statusCode: 'statusCode',
+      body: 'body',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
+      body: StartConfigurationRecorderResponseBody,
     };
   }
 
@@ -9094,6 +9925,72 @@ export class UpdateConfigRuleResponse extends $tea.Model {
   }
 }
 
+export class UpdateConfigurationRecorderRequest extends $tea.Model {
+  resourceTypes?: string;
+  static names(): { [key: string]: string } {
+    return {
+      resourceTypes: 'ResourceTypes',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      resourceTypes: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class UpdateConfigurationRecorderResponseBody extends $tea.Model {
+  configurationRecorder?: UpdateConfigurationRecorderResponseBodyConfigurationRecorder;
+  requestId?: string;
+  static names(): { [key: string]: string } {
+    return {
+      configurationRecorder: 'ConfigurationRecorder',
+      requestId: 'RequestId',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      configurationRecorder: UpdateConfigurationRecorderResponseBodyConfigurationRecorder,
+      requestId: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class UpdateConfigurationRecorderResponse extends $tea.Model {
+  headers: { [key: string]: string };
+  statusCode: number;
+  body: UpdateConfigurationRecorderResponseBody;
+  static names(): { [key: string]: string } {
+    return {
+      headers: 'headers',
+      statusCode: 'statusCode',
+      body: 'body',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
+      body: UpdateConfigurationRecorderResponseBody,
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
 export class UpdateDeliveryChannelRequest extends $tea.Model {
   clientToken?: string;
   configurationItemChangeNotification?: boolean;
@@ -9379,6 +10276,50 @@ export class ActiveAggregateConfigRulesResponseBodyOperateRuleResult extends $te
   static types(): { [key: string]: any } {
     return {
       operateRuleItemList: { 'type': 'array', 'itemType': ActiveAggregateConfigRulesResponseBodyOperateRuleResultOperateRuleItemList },
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class ActiveConfigRulesResponseBodyOperateRuleResultOperateRuleItemList extends $tea.Model {
+  configRuleId?: string;
+  errorCode?: string;
+  success?: boolean;
+  static names(): { [key: string]: string } {
+    return {
+      configRuleId: 'ConfigRuleId',
+      errorCode: 'ErrorCode',
+      success: 'Success',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      configRuleId: 'string',
+      errorCode: 'string',
+      success: 'boolean',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class ActiveConfigRulesResponseBodyOperateRuleResult extends $tea.Model {
+  operateRuleItemList?: ActiveConfigRulesResponseBodyOperateRuleResultOperateRuleItemList[];
+  static names(): { [key: string]: string } {
+    return {
+      operateRuleItemList: 'OperateRuleItemList',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      operateRuleItemList: { 'type': 'array', 'itemType': ActiveConfigRulesResponseBodyOperateRuleResultOperateRuleItemList },
     };
   }
 
@@ -9901,6 +10842,50 @@ export class DeleteCompliancePacksResponseBodyOperateCompliancePacksResult exten
   }
 }
 
+export class DeleteConfigRulesResponseBodyOperateRuleResultOperateRuleItemList extends $tea.Model {
+  configRuleId?: string;
+  errorCode?: string;
+  success?: boolean;
+  static names(): { [key: string]: string } {
+    return {
+      configRuleId: 'ConfigRuleId',
+      errorCode: 'ErrorCode',
+      success: 'Success',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      configRuleId: 'string',
+      errorCode: 'string',
+      success: 'boolean',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class DeleteConfigRulesResponseBodyOperateRuleResult extends $tea.Model {
+  operateRuleItemList?: DeleteConfigRulesResponseBodyOperateRuleResultOperateRuleItemList[];
+  static names(): { [key: string]: string } {
+    return {
+      operateRuleItemList: 'OperateRuleItemList',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      operateRuleItemList: { 'type': 'array', 'itemType': DeleteConfigRulesResponseBodyOperateRuleResultOperateRuleItemList },
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
 export class DeleteRemediationsResponseBodyRemediationDeleteResults extends $tea.Model {
   errorMessage?: string;
   remediationId?: string;
@@ -10201,6 +11186,7 @@ export class GetAggregateCompliancePackResponseBodyCompliancePackConfigRules ext
   configRuleParameters?: GetAggregateCompliancePackResponseBodyCompliancePackConfigRulesConfigRuleParameters[];
   description?: string;
   managedRuleIdentifier?: string;
+  resourceTypesScope?: string;
   riskLevel?: number;
   static names(): { [key: string]: string } {
     return {
@@ -10209,6 +11195,7 @@ export class GetAggregateCompliancePackResponseBodyCompliancePackConfigRules ext
       configRuleParameters: 'ConfigRuleParameters',
       description: 'Description',
       managedRuleIdentifier: 'ManagedRuleIdentifier',
+      resourceTypesScope: 'ResourceTypesScope',
       riskLevel: 'RiskLevel',
     };
   }
@@ -10220,6 +11207,7 @@ export class GetAggregateCompliancePackResponseBodyCompliancePackConfigRules ext
       configRuleParameters: { 'type': 'array', 'itemType': GetAggregateCompliancePackResponseBodyCompliancePackConfigRulesConfigRuleParameters },
       description: 'string',
       managedRuleIdentifier: 'string',
+      resourceTypesScope: 'string',
       riskLevel: 'number',
     };
   }
@@ -10332,6 +11320,84 @@ export class GetAggregateCompliancePackReportResponseBodyCompliancePackReport ex
       reportCreateTimestamp: 'number',
       reportStatus: 'string',
       reportUrl: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class GetAggregateComplianceSummaryResponseBodyComplianceSummaryComplianceSummaryByConfigRule extends $tea.Model {
+  complianceSummaryTimestamp?: number;
+  compliantCount?: number;
+  nonCompliantCount?: number;
+  totalCount?: number;
+  static names(): { [key: string]: string } {
+    return {
+      complianceSummaryTimestamp: 'ComplianceSummaryTimestamp',
+      compliantCount: 'CompliantCount',
+      nonCompliantCount: 'NonCompliantCount',
+      totalCount: 'TotalCount',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      complianceSummaryTimestamp: 'number',
+      compliantCount: 'number',
+      nonCompliantCount: 'number',
+      totalCount: 'number',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class GetAggregateComplianceSummaryResponseBodyComplianceSummaryComplianceSummaryByResource extends $tea.Model {
+  complianceSummaryTimestamp?: number;
+  compliantCount?: number;
+  nonCompliantCount?: number;
+  totalCount?: number;
+  static names(): { [key: string]: string } {
+    return {
+      complianceSummaryTimestamp: 'ComplianceSummaryTimestamp',
+      compliantCount: 'CompliantCount',
+      nonCompliantCount: 'NonCompliantCount',
+      totalCount: 'TotalCount',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      complianceSummaryTimestamp: 'number',
+      compliantCount: 'number',
+      nonCompliantCount: 'number',
+      totalCount: 'number',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class GetAggregateComplianceSummaryResponseBodyComplianceSummary extends $tea.Model {
+  complianceSummaryByConfigRule?: GetAggregateComplianceSummaryResponseBodyComplianceSummaryComplianceSummaryByConfigRule;
+  complianceSummaryByResource?: GetAggregateComplianceSummaryResponseBodyComplianceSummaryComplianceSummaryByResource;
+  static names(): { [key: string]: string } {
+    return {
+      complianceSummaryByConfigRule: 'ComplianceSummaryByConfigRule',
+      complianceSummaryByResource: 'ComplianceSummaryByResource',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      complianceSummaryByConfigRule: GetAggregateComplianceSummaryResponseBodyComplianceSummaryComplianceSummaryByConfigRule,
+      complianceSummaryByResource: GetAggregateComplianceSummaryResponseBodyComplianceSummaryComplianceSummaryByResource,
     };
   }
 
@@ -11368,6 +12434,7 @@ export class GetCompliancePackResponseBodyCompliancePackConfigRules extends $tea
   configRuleParameters?: GetCompliancePackResponseBodyCompliancePackConfigRulesConfigRuleParameters[];
   description?: string;
   managedRuleIdentifier?: string;
+  resourceTypesScope?: string;
   riskLevel?: number;
   static names(): { [key: string]: string } {
     return {
@@ -11376,6 +12443,7 @@ export class GetCompliancePackResponseBodyCompliancePackConfigRules extends $tea
       configRuleParameters: 'ConfigRuleParameters',
       description: 'Description',
       managedRuleIdentifier: 'ManagedRuleIdentifier',
+      resourceTypesScope: 'ResourceTypesScope',
       riskLevel: 'RiskLevel',
     };
   }
@@ -11387,6 +12455,7 @@ export class GetCompliancePackResponseBodyCompliancePackConfigRules extends $tea
       configRuleParameters: { 'type': 'array', 'itemType': GetCompliancePackResponseBodyCompliancePackConfigRulesConfigRuleParameters },
       description: 'string',
       managedRuleIdentifier: 'string',
+      resourceTypesScope: 'string',
       riskLevel: 'number',
     };
   }
@@ -11496,6 +12565,84 @@ export class GetCompliancePackReportResponseBodyCompliancePackReport extends $te
       reportCreateTimestamp: 'number',
       reportStatus: 'string',
       reportUrl: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class GetComplianceSummaryResponseBodyComplianceSummaryComplianceSummaryByConfigRule extends $tea.Model {
+  complianceSummaryTimestamp?: number;
+  compliantCount?: number;
+  nonCompliantCount?: number;
+  totalCount?: number;
+  static names(): { [key: string]: string } {
+    return {
+      complianceSummaryTimestamp: 'ComplianceSummaryTimestamp',
+      compliantCount: 'CompliantCount',
+      nonCompliantCount: 'NonCompliantCount',
+      totalCount: 'TotalCount',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      complianceSummaryTimestamp: 'number',
+      compliantCount: 'number',
+      nonCompliantCount: 'number',
+      totalCount: 'number',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class GetComplianceSummaryResponseBodyComplianceSummaryComplianceSummaryByResource extends $tea.Model {
+  complianceSummaryTimestamp?: number;
+  compliantCount?: number;
+  nonCompliantCount?: number;
+  totalCount?: number;
+  static names(): { [key: string]: string } {
+    return {
+      complianceSummaryTimestamp: 'ComplianceSummaryTimestamp',
+      compliantCount: 'CompliantCount',
+      nonCompliantCount: 'NonCompliantCount',
+      totalCount: 'TotalCount',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      complianceSummaryTimestamp: 'number',
+      compliantCount: 'number',
+      nonCompliantCount: 'number',
+      totalCount: 'number',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class GetComplianceSummaryResponseBodyComplianceSummary extends $tea.Model {
+  complianceSummaryByConfigRule?: GetComplianceSummaryResponseBodyComplianceSummaryComplianceSummaryByConfigRule;
+  complianceSummaryByResource?: GetComplianceSummaryResponseBodyComplianceSummaryComplianceSummaryByResource;
+  static names(): { [key: string]: string } {
+    return {
+      complianceSummaryByConfigRule: 'ComplianceSummaryByConfigRule',
+      complianceSummaryByResource: 'ComplianceSummaryByResource',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      complianceSummaryByConfigRule: GetComplianceSummaryResponseBodyComplianceSummaryComplianceSummaryByConfigRule,
+      complianceSummaryByResource: GetComplianceSummaryResponseBodyComplianceSummaryComplianceSummaryByResource,
     };
   }
 
@@ -11983,6 +13130,28 @@ export class GetConfigRulesReportResponseBodyConfigRulesReport extends $tea.Mode
   }
 }
 
+export class GetConfigurationRecorderResponseBodyConfigurationRecorder extends $tea.Model {
+  configurationRecorderStatus?: string;
+  resourceTypes?: string[];
+  static names(): { [key: string]: string } {
+    return {
+      configurationRecorderStatus: 'ConfigurationRecorderStatus',
+      resourceTypes: 'ResourceTypes',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      configurationRecorderStatus: 'string',
+      resourceTypes: { 'type': 'array', 'itemType': 'string' },
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
 export class GetDiscoveredResourceResponseBodyDiscoveredResourceDetail extends $tea.Model {
   accountId?: number;
   availabilityZone?: string;
@@ -12161,6 +13330,40 @@ export class GetManagedRuleResponseBodyManagedRule extends $tea.Model {
       riskLevel: 'number',
       scope: GetManagedRuleResponseBodyManagedRuleScope,
       sourceDetails: { 'type': 'array', 'itemType': GetManagedRuleResponseBodyManagedRuleSourceDetails },
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class GetRemediationTemplateResponseBodyRemediationTemplates extends $tea.Model {
+  managedRuleIdentifier?: string;
+  remediationType?: string;
+  templateDefinition?: string;
+  templateDescription?: string;
+  templateIdentifier?: string;
+  templateName?: string;
+  static names(): { [key: string]: string } {
+    return {
+      managedRuleIdentifier: 'ManagedRuleIdentifier',
+      remediationType: 'RemediationType',
+      templateDefinition: 'TemplateDefinition',
+      templateDescription: 'TemplateDescription',
+      templateIdentifier: 'TemplateIdentifier',
+      templateName: 'TemplateName',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      managedRuleIdentifier: 'string',
+      remediationType: 'string',
+      templateDefinition: 'string',
+      templateDescription: 'string',
+      templateIdentifier: 'string',
+      templateName: 'string',
     };
   }
 
@@ -12513,6 +13716,28 @@ export class GetResourceConfigurationTimelineResponseBodyResourceConfigurationTi
       configurationList: { 'type': 'array', 'itemType': GetResourceConfigurationTimelineResponseBodyResourceConfigurationTimelineConfigurationList },
       maxResults: 'number',
       nextToken: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class GetSupportedResourceRelationConfigResponseBodyResourceRelationConfigList extends $tea.Model {
+  relationType?: string;
+  targetResourceType?: string;
+  static names(): { [key: string]: string } {
+    return {
+      relationType: 'RelationType',
+      targetResourceType: 'TargetResourceType',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      relationType: 'string',
+      targetResourceType: 'string',
     };
   }
 
@@ -12933,6 +14158,7 @@ export class ListAggregateConfigRulesResponseBodyConfigRulesConfigRuleList exten
   configRuleState?: string;
   createBy?: ListAggregateConfigRulesResponseBodyConfigRulesConfigRuleListCreateBy;
   description?: string;
+  resourceTypesScope?: string;
   riskLevel?: number;
   sourceIdentifier?: string;
   sourceOwner?: string;
@@ -12948,6 +14174,7 @@ export class ListAggregateConfigRulesResponseBodyConfigRulesConfigRuleList exten
       configRuleState: 'ConfigRuleState',
       createBy: 'CreateBy',
       description: 'Description',
+      resourceTypesScope: 'ResourceTypesScope',
       riskLevel: 'RiskLevel',
       sourceIdentifier: 'SourceIdentifier',
       sourceOwner: 'SourceOwner',
@@ -12966,6 +14193,7 @@ export class ListAggregateConfigRulesResponseBodyConfigRulesConfigRuleList exten
       configRuleState: 'string',
       createBy: ListAggregateConfigRulesResponseBodyConfigRulesConfigRuleListCreateBy,
       description: 'string',
+      resourceTypesScope: 'string',
       riskLevel: 'number',
       sourceIdentifier: 'string',
       sourceOwner: 'string',
@@ -13422,6 +14650,7 @@ export class ListCompliancePackTemplatesResponseBodyCompliancePackTemplatesResul
   description?: string;
   managedRuleIdentifier?: string;
   managedRuleName?: string;
+  resourceTypesScope?: string;
   riskLevel?: number;
   static names(): { [key: string]: string } {
     return {
@@ -13432,6 +14661,7 @@ export class ListCompliancePackTemplatesResponseBodyCompliancePackTemplatesResul
       description: 'Description',
       managedRuleIdentifier: 'ManagedRuleIdentifier',
       managedRuleName: 'ManagedRuleName',
+      resourceTypesScope: 'ResourceTypesScope',
       riskLevel: 'RiskLevel',
     };
   }
@@ -13445,6 +14675,7 @@ export class ListCompliancePackTemplatesResponseBodyCompliancePackTemplatesResul
       description: 'string',
       managedRuleIdentifier: 'string',
       managedRuleName: 'string',
+      resourceTypesScope: 'string',
       riskLevel: 'number',
     };
   }
@@ -13854,6 +15085,7 @@ export class ListConfigRulesResponseBodyConfigRulesConfigRuleList extends $tea.M
   configRuleState?: string;
   createBy?: ListConfigRulesResponseBodyConfigRulesConfigRuleListCreateBy;
   description?: string;
+  resourceTypesScope?: string;
   riskLevel?: number;
   sourceIdentifier?: string;
   sourceOwner?: string;
@@ -13869,6 +15101,7 @@ export class ListConfigRulesResponseBodyConfigRulesConfigRuleList extends $tea.M
       configRuleState: 'ConfigRuleState',
       createBy: 'CreateBy',
       description: 'Description',
+      resourceTypesScope: 'ResourceTypesScope',
       riskLevel: 'RiskLevel',
       sourceIdentifier: 'SourceIdentifier',
       sourceOwner: 'SourceOwner',
@@ -13887,6 +15120,7 @@ export class ListConfigRulesResponseBodyConfigRulesConfigRuleList extends $tea.M
       configRuleState: 'string',
       createBy: ListConfigRulesResponseBodyConfigRulesConfigRuleListCreateBy,
       description: 'string',
+      resourceTypesScope: 'string',
       riskLevel: 'number',
       sourceIdentifier: 'string',
       sourceOwner: 'string',
@@ -14126,6 +15360,65 @@ export class ListPreManagedRulesResponseBodyManagedRules extends $tea.Model {
       identifier: 'string',
       optionalInputParameterDetails: { 'type': 'map', 'keyType': 'string', 'valueType': 'any' },
       resourceType: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class ListRemediationExecutionsResponseBodyRemediationExecutionDataRemediationExecutions extends $tea.Model {
+  executionCreateDate?: string;
+  executionInvocationId?: string;
+  executionResourceIds?: string;
+  executionResourceType?: string;
+  executionStatus?: string;
+  executionStatusMessage?: string;
+  static names(): { [key: string]: string } {
+    return {
+      executionCreateDate: 'ExecutionCreateDate',
+      executionInvocationId: 'ExecutionInvocationId',
+      executionResourceIds: 'ExecutionResourceIds',
+      executionResourceType: 'ExecutionResourceType',
+      executionStatus: 'ExecutionStatus',
+      executionStatusMessage: 'ExecutionStatusMessage',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      executionCreateDate: 'string',
+      executionInvocationId: 'string',
+      executionResourceIds: 'string',
+      executionResourceType: 'string',
+      executionStatus: 'string',
+      executionStatusMessage: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class ListRemediationExecutionsResponseBodyRemediationExecutionData extends $tea.Model {
+  maxResults?: number;
+  nextToken?: string;
+  remediationExecutions?: ListRemediationExecutionsResponseBodyRemediationExecutionDataRemediationExecutions[];
+  static names(): { [key: string]: string } {
+    return {
+      maxResults: 'MaxResults',
+      nextToken: 'NextToken',
+      remediationExecutions: 'RemediationExecutions',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      maxResults: 'number',
+      nextToken: 'string',
+      remediationExecutions: { 'type': 'array', 'itemType': ListRemediationExecutionsResponseBodyRemediationExecutionDataRemediationExecutions },
     };
   }
 
@@ -14528,6 +15821,28 @@ export class RevertEvaluationResultsRequestResources extends $tea.Model {
   }
 }
 
+export class StartConfigurationRecorderResponseBodyConfigurationRecorder extends $tea.Model {
+  configurationRecorderStatus?: string;
+  resourceTypes?: string[];
+  static names(): { [key: string]: string } {
+    return {
+      configurationRecorderStatus: 'ConfigurationRecorderStatus',
+      resourceTypes: 'ResourceTypes',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      configurationRecorderStatus: 'string',
+      resourceTypes: { 'type': 'array', 'itemType': 'string' },
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
 export class TagResourcesRequestTag extends $tea.Model {
   key?: string;
   value?: string;
@@ -14687,6 +16002,28 @@ export class UpdateCompliancePackRequestConfigRules extends $tea.Model {
   }
 }
 
+export class UpdateConfigurationRecorderResponseBodyConfigurationRecorder extends $tea.Model {
+  configurationRecorderStatus?: string;
+  resourceTypes?: string[];
+  static names(): { [key: string]: string } {
+    return {
+      configurationRecorderStatus: 'ConfigurationRecorderStatus',
+      resourceTypes: 'ResourceTypes',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      configurationRecorderStatus: 'string',
+      resourceTypes: { 'type': 'array', 'itemType': 'string' },
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
 
 export default class Client extends OpenApi {
 
@@ -14715,8 +16052,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-    * The ID of the rule. Separate multiple rule IDs with commas (,).
-    * For more information about how to obtain the ID of a rule, see [ListAggregateConfigRules](~~264148~~).
+    * This topic provides an example on how to enable the `cr-5772ba41209e007b****` rule in the `ca-a4e5626622af0079****` account group.
     *
     * @param request ActiveAggregateConfigRulesRequest
     * @param runtime runtime options for this request RuntimeOptions
@@ -14751,8 +16087,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-    * The ID of the rule. Separate multiple rule IDs with commas (,).
-    * For more information about how to obtain the ID of a rule, see [ListAggregateConfigRules](~~264148~~).
+    * This topic provides an example on how to enable the `cr-5772ba41209e007b****` rule in the `ca-a4e5626622af0079****` account group.
     *
     * @param request ActiveAggregateConfigRulesRequest
     * @return ActiveAggregateConfigRulesResponse
@@ -14760,6 +16095,35 @@ export default class Client extends OpenApi {
   async activeAggregateConfigRules(request: ActiveAggregateConfigRulesRequest): Promise<ActiveAggregateConfigRulesResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.activeAggregateConfigRulesWithOptions(request, runtime);
+  }
+
+  async activeConfigRulesWithOptions(request: ActiveConfigRulesRequest, runtime: $Util.RuntimeOptions): Promise<ActiveConfigRulesResponse> {
+    Util.validateModel(request);
+    let query = { };
+    if (!Util.isUnset(request.configRuleIds)) {
+      query["ConfigRuleIds"] = request.configRuleIds;
+    }
+
+    let req = new $OpenApi.OpenApiRequest({
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApi.Params({
+      action: "ActiveConfigRules",
+      version: "2020-09-07",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $tea.cast<ActiveConfigRulesResponse>(await this.callApi(params, req, runtime), new ActiveConfigRulesResponse({}));
+  }
+
+  async activeConfigRules(request: ActiveConfigRulesRequest): Promise<ActiveConfigRulesResponse> {
+    let runtime = new $Util.RuntimeOptions({ });
+    return await this.activeConfigRulesWithOptions(request, runtime);
   }
 
   /**
@@ -14813,7 +16177,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-    * The sample request in this topic shows you how to add the `cr-6cc4626622af00e7****` rule to the `cp-5bb1626622af00bd****` compliance package.
+    * This topic provides an example on how to add the `cr-6cc4626622af00e7****` rule to the `cp-5bb1626622af00bd****` compliance package.
     *
     * @param request AttachConfigRuleToCompliancePackRequest
     * @param runtime runtime options for this request RuntimeOptions
@@ -14848,7 +16212,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-    * The sample request in this topic shows you how to add the `cr-6cc4626622af00e7****` rule to the `cp-5bb1626622af00bd****` compliance package.
+    * This topic provides an example on how to add the `cr-6cc4626622af00e7****` rule to the `cp-5bb1626622af00bd****` compliance package.
     *
     * @param request AttachConfigRuleToCompliancePackRequest
     * @return AttachConfigRuleToCompliancePackResponse
@@ -15117,7 +16481,10 @@ export default class Client extends OpenApi {
   }
 
   /**
-    * The description of the rule.
+    * ### Limits
+    * You can create up to 200 rules for each management account.
+    * ### Usage notes
+    * This topic provides an example on how to create a rule based on the required-tags managed rule in the `ca-a4e5626622af0079****` account group. The returned result shows that the rule is created and its ID is `cr-4e3d626622af0080****`.
     *
     * @param tmpReq CreateAggregateConfigRuleRequest
     * @param runtime runtime options for this request RuntimeOptions
@@ -15234,7 +16601,10 @@ export default class Client extends OpenApi {
   }
 
   /**
-    * The description of the rule.
+    * ### Limits
+    * You can create up to 200 rules for each management account.
+    * ### Usage notes
+    * This topic provides an example on how to create a rule based on the required-tags managed rule in the `ca-a4e5626622af0079****` account group. The returned result shows that the rule is created and its ID is `cr-4e3d626622af0080****`.
     *
     * @param request CreateAggregateConfigRuleRequest
     * @return CreateAggregateConfigRuleResponse
@@ -15245,7 +16615,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-    * The sample request in this topic shows you how to configure a remediation template for the rule whose ID is `cr-6b7c626622af00b4****` in the account group whose ID is `ca-6b4a626622af0012****`. The return result shows that a remediation template is configured and the ID of the remediation setting is `crr-909ba2d4716700eb****`.
+    * This topic provides an example on how to create a remediation template for the rule whose ID is `cr-6b7c626622af00b4****` in the account group whose ID is `ca-6b4a626622af0012****`. The returned result shows that a remediation template is created and the ID of the remediation template is `crr-909ba2d4716700eb****`.
     *
     * @param request CreateAggregateRemediationRequest
     * @param runtime runtime options for this request RuntimeOptions
@@ -15304,7 +16674,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-    * The sample request in this topic shows you how to configure a remediation template for the rule whose ID is `cr-6b7c626622af00b4****` in the account group whose ID is `ca-6b4a626622af0012****`. The return result shows that a remediation template is configured and the ID of the remediation setting is `crr-909ba2d4716700eb****`.
+    * This topic provides an example on how to create a remediation template for the rule whose ID is `cr-6b7c626622af00b4****` in the account group whose ID is `ca-6b4a626622af0012****`. The returned result shows that a remediation template is created and the ID of the remediation template is `crr-909ba2d4716700eb****`.
     *
     * @param request CreateAggregateRemediationRequest
     * @return CreateAggregateRemediationResponse
@@ -15319,7 +16689,7 @@ export default class Client extends OpenApi {
     * Cloud Config supports the following types of account groups:
     * *   Global account group: The global account group contains all the member accounts that are added to the resource directory. A management account can create only one global account group.
     * *   Custom account group: If you create a custom account group, you must manually add all or specific member accounts from the resource directory to the custom account group.
-    * In the example of this topic, a request is sent to create an account group of the `CUSTOM` type. The custom account group is named `Test_Group`, and its description is `Test account group`. The custom account group contains the following two member accounts:
+    * This topic provides an example on how to create an account group of the `CUSTOM` type. The custom account group is named `Test_Group`, and its description is `Test account group`. The custom account group contains the following two member accounts:
     * *   Member account ID: `171322098523****`. Member account name: `Alice`.
     * *   Member account ID: `100532098349****`. Member account name: `Tom`.
     *
@@ -15378,7 +16748,7 @@ export default class Client extends OpenApi {
     * Cloud Config supports the following types of account groups:
     * *   Global account group: The global account group contains all the member accounts that are added to the resource directory. A management account can create only one global account group.
     * *   Custom account group: If you create a custom account group, you must manually add all or specific member accounts from the resource directory to the custom account group.
-    * In the example of this topic, a request is sent to create an account group of the `CUSTOM` type. The custom account group is named `Test_Group`, and its description is `Test account group`. The custom account group contains the following two member accounts:
+    * This topic provides an example on how to create an account group of the `CUSTOM` type. The custom account group is named `Test_Group`, and its description is `Test account group`. The custom account group contains the following two member accounts:
     * *   Member account ID: `171322098523****`. Member account name: `Alice`.
     * *   Member account ID: `100532098349****`. Member account name: `Tom`.
     *
@@ -15684,7 +17054,7 @@ export default class Client extends OpenApi {
 
   /**
     * @deprecated : CreateDeliveryChannel is deprecated, please use Config::2020-09-07::CreateConfigDeliveryChannel,Config::2020-09-07::CreateAggregateConfigDeliveryChannel instead.
-    * In this example, a delivery channel is created. The type of the delivery channle is `OSS`, the Alibaba Cloud Resource Name (ARN) of the delivery destination is `acs:oss:cn-shanghai:100931896542****:new-bucket`, and the ARN of the role that is assigned to the delivery channel is `acs:ram::100931896542****:role/aliyunserviceroleforconfig`. The response shows that the delivery channel is created, and the ID of the delivery channel is `cdc-8e45ff4e06a3a8****`.
+    * In this example, a delivery channel is created. The type of the delivery channel is `OSS`, the Alibaba Cloud Resource Name (ARN) of the delivery destination is `acs:oss:cn-shanghai:100931896542****:new-bucket`, and the ARN of the role that is assigned to the delivery channel is `acs:ram::100931896542****:role/aliyunserviceroleforconfig`. The returned result shows that the delivery channel is created, and the ID of the delivery channel is `cdc-8e45ff4e06a3a8****`.
     *
     * @param request CreateDeliveryChannelRequest
     * @param runtime runtime options for this request RuntimeOptions
@@ -15757,7 +17127,7 @@ export default class Client extends OpenApi {
 
   /**
     * @deprecated : CreateDeliveryChannel is deprecated, please use Config::2020-09-07::CreateConfigDeliveryChannel,Config::2020-09-07::CreateAggregateConfigDeliveryChannel instead.
-    * In this example, a delivery channel is created. The type of the delivery channle is `OSS`, the Alibaba Cloud Resource Name (ARN) of the delivery destination is `acs:oss:cn-shanghai:100931896542****:new-bucket`, and the ARN of the role that is assigned to the delivery channel is `acs:ram::100931896542****:role/aliyunserviceroleforconfig`. The response shows that the delivery channel is created, and the ID of the delivery channel is `cdc-8e45ff4e06a3a8****`.
+    * In this example, a delivery channel is created. The type of the delivery channel is `OSS`, the Alibaba Cloud Resource Name (ARN) of the delivery destination is `acs:oss:cn-shanghai:100931896542****:new-bucket`, and the ARN of the role that is assigned to the delivery channel is `acs:ram::100931896542****:role/aliyunserviceroleforconfig`. The returned result shows that the delivery channel is created, and the ID of the delivery channel is `cdc-8e45ff4e06a3a8****`.
     *
     * @param request CreateDeliveryChannelRequest
     * @return CreateDeliveryChannelResponse
@@ -15769,7 +17139,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-    * In this topic, the rule whose ID is `cr-8a973ac2e2be00a2****` is used as an example. The return result shows that a remediation template is configured and the ID of the remediation setting is `crr-909ba2d4716700eb****`.
+    * This topic provides an example on how to create a remediation template for the rule `cr-8a973ac2e2be00a2****`. The returned result shows that a remediation template is created and the ID of the remediation template is `crr-909ba2d4716700eb****`.
     *
     * @param request CreateRemediationRequest
     * @param runtime runtime options for this request RuntimeOptions
@@ -15824,7 +17194,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-    * In this topic, the rule whose ID is `cr-8a973ac2e2be00a2****` is used as an example. The return result shows that a remediation template is configured and the ID of the remediation setting is `crr-909ba2d4716700eb****`.
+    * This topic provides an example on how to create a remediation template for the rule `cr-8a973ac2e2be00a2****`. The returned result shows that a remediation template is created and the ID of the remediation template is `crr-909ba2d4716700eb****`.
     *
     * @param request CreateRemediationRequest
     * @return CreateRemediationResponse
@@ -15835,8 +17205,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-    * The ID of the rule. Separate multiple rule IDs with commas (,).
-    * For more information about how to obtain the ID of a rule, see [ListAggregateConfigRules](~~264148~~).
+    * This topic provides an example on how to disable the `cr-5772ba41209e007b****` rule in the `ca-04b3fd170e340007****` account group.
     *
     * @param request DeactiveAggregateConfigRulesRequest
     * @param runtime runtime options for this request RuntimeOptions
@@ -15871,8 +17240,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-    * The ID of the rule. Separate multiple rule IDs with commas (,).
-    * For more information about how to obtain the ID of a rule, see [ListAggregateConfigRules](~~264148~~).
+    * This topic provides an example on how to disable the `cr-5772ba41209e007b****` rule in the `ca-04b3fd170e340007****` account group.
     *
     * @param request DeactiveAggregateConfigRulesRequest
     * @return DeactiveAggregateConfigRulesResponse
@@ -15925,7 +17293,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-    * The sample request in this topic shows you how to delete the `cp-541e626622af0087****` compliance package from the `ca-04b3fd170e340007****` account group.
+    * This topic provides an example on how to delete the `cp-541e626622af0087****` compliance package from the `ca-04b3fd170e340007****` account group.
     *
     * @param request DeleteAggregateCompliancePacksRequest
     * @param runtime runtime options for this request RuntimeOptions
@@ -15968,7 +17336,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-    * The sample request in this topic shows you how to delete the `cp-541e626622af0087****` compliance package from the `ca-04b3fd170e340007****` account group.
+    * This topic provides an example on how to delete the `cp-541e626622af0087****` compliance package from the `ca-04b3fd170e340007****` account group.
     *
     * @param request DeleteAggregateCompliancePacksRequest
     * @return DeleteAggregateCompliancePacksResponse
@@ -15979,7 +17347,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-    * This example shows how to delete the `cdc-38c3013b46c9002c****` delivery channel from the `ca-23c6626622af0041****` account group. The response shows that the `cdc-38c3013b46c9002c****` delivery channel is deleted.
+    * This topic provides an example on how to delete the `cdc-38c3013b46c9002c****` delivery channel from the `ca-23c6626622af0041****` account group. The returned result shows that the `cdc-38c3013b46c9002c****` delivery channel is deleted.
     *
     * @param request DeleteAggregateConfigDeliveryChannelRequest
     * @param runtime runtime options for this request RuntimeOptions
@@ -16014,7 +17382,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-    * This example shows how to delete the `cdc-38c3013b46c9002c****` delivery channel from the `ca-23c6626622af0041****` account group. The response shows that the `cdc-38c3013b46c9002c****` delivery channel is deleted.
+    * This topic provides an example on how to delete the `cdc-38c3013b46c9002c****` delivery channel from the `ca-23c6626622af0041****` account group. The returned result shows that the `cdc-38c3013b46c9002c****` delivery channel is deleted.
     *
     * @param request DeleteAggregateConfigDeliveryChannelRequest
     * @return DeleteAggregateConfigDeliveryChannelResponse
@@ -16025,9 +17393,10 @@ export default class Client extends OpenApi {
   }
 
   /**
-    * In this example, a rule named `cr-4e3d626622af0080****` is deleted from the `ca-a4e5626622af0079****` account group.
-    * ## Background information
+    * ### Background information
     * You can delete a rule in the Cloud Config console. After you delete the rule, the configurations of the rule are deleted.
+    * ### Usage notes
+    * This topic provides an example on how to delete the `cr-4e3d626622af0080****` rule from the `ca-a4e5626622af0079****` account group.
     *
     * @param request DeleteAggregateConfigRulesRequest
     * @param runtime runtime options for this request RuntimeOptions
@@ -16062,9 +17431,10 @@ export default class Client extends OpenApi {
   }
 
   /**
-    * In this example, a rule named `cr-4e3d626622af0080****` is deleted from the `ca-a4e5626622af0079****` account group.
-    * ## Background information
+    * ### Background information
     * You can delete a rule in the Cloud Config console. After you delete the rule, the configurations of the rule are deleted.
+    * ### Usage notes
+    * This topic provides an example on how to delete the `cr-4e3d626622af0080****` rule from the `ca-a4e5626622af0079****` account group.
     *
     * @param request DeleteAggregateConfigRulesRequest
     * @return DeleteAggregateConfigRulesResponse
@@ -16075,7 +17445,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-    * The sample request in this topic shows you how to delete the remediation setting whose ID is `crr-909ba2d4716700eb****` from the account group whose ID is `ca-6b4a626622af0012****`. The return result shows that the remediation setting whose ID is `crr-909ba2d4716700eb****` is deleted.
+    * This topic provides an example on how to delete the remediation template whose ID is `crr-909ba2d4716700eb****` from the account group whose ID is `ca-6b4a626622af0012****`. The returned result shows that the remediation template whose ID is `crr-909ba2d4716700eb****` is deleted.
     *
     * @param request DeleteAggregateRemediationsRequest
     * @param runtime runtime options for this request RuntimeOptions
@@ -16110,7 +17480,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-    * The sample request in this topic shows you how to delete the remediation setting whose ID is `crr-909ba2d4716700eb****` from the account group whose ID is `ca-6b4a626622af0012****`. The return result shows that the remediation setting whose ID is `crr-909ba2d4716700eb****` is deleted.
+    * This topic provides an example on how to delete the remediation template whose ID is `crr-909ba2d4716700eb****` from the account group whose ID is `ca-6b4a626622af0012****`. The returned result shows that the remediation template whose ID is `crr-909ba2d4716700eb****` is deleted.
     *
     * @param request DeleteAggregateRemediationsRequest
     * @return DeleteAggregateRemediationsResponse
@@ -16121,7 +17491,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-    * The operation that you want to perform. Set the value to **DeleteAggregators**.
+    * This topic provides an example on how to delete the account group whose ID is `ca-9190626622af00a9****`.
     *
     * @param request DeleteAggregatorsRequest
     * @param runtime runtime options for this request RuntimeOptions
@@ -16156,7 +17526,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-    * The operation that you want to perform. Set the value to **DeleteAggregators**.
+    * This topic provides an example on how to delete the account group whose ID is `ca-9190626622af00a9****`.
     *
     * @param request DeleteAggregatorsRequest
     * @return DeleteAggregatorsResponse
@@ -16167,7 +17537,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-    * In this topic, the `cp-541e626622af0087****` compliance package is used as an example.
+    * This topic provides an example on how to delete the `cp-541e626622af0087****` compliance package.
     *
     * @param request DeleteCompliancePacksRequest
     * @param runtime runtime options for this request RuntimeOptions
@@ -16206,7 +17576,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-    * In this topic, the `cp-541e626622af0087****` compliance package is used as an example.
+    * This topic provides an example on how to delete the `cp-541e626622af0087****` compliance package.
     *
     * @param request DeleteCompliancePacksRequest
     * @return DeleteCompliancePacksResponse
@@ -16217,7 +17587,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-    * This example shows how to delete the `cdc-38c3013b46c9002c****` delivery channel. The response shows that the `cdc-38c3013b46c9002c****` delivery channel is deleted.
+    * This topic provides an example on how to delete the `cdc-38c3013b46c9002c****` delivery channel. The returned result shows that the `cdc-38c3013b46c9002c****` delivery channel is deleted.
     *
     * @param request DeleteConfigDeliveryChannelRequest
     * @param runtime runtime options for this request RuntimeOptions
@@ -16248,7 +17618,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-    * This example shows how to delete the `cdc-38c3013b46c9002c****` delivery channel. The response shows that the `cdc-38c3013b46c9002c****` delivery channel is deleted.
+    * This topic provides an example on how to delete the `cdc-38c3013b46c9002c****` delivery channel. The returned result shows that the `cdc-38c3013b46c9002c****` delivery channel is deleted.
     *
     * @param request DeleteConfigDeliveryChannelRequest
     * @return DeleteConfigDeliveryChannelResponse
@@ -16259,7 +17629,49 @@ export default class Client extends OpenApi {
   }
 
   /**
-    * In this topic, the remediation setting whose ID is `crr-909ba2d4716700eb****` is used as an example. The return result shows that the remediation setting whose ID is `crr-909ba2d4716700eb****` is deleted.
+    * In this example, the rule whose ID is cr-9908626622af0035\\*\\*\\*\\* is deleted.
+    *
+    * @param request DeleteConfigRulesRequest
+    * @param runtime runtime options for this request RuntimeOptions
+    * @return DeleteConfigRulesResponse
+   */
+  async deleteConfigRulesWithOptions(request: DeleteConfigRulesRequest, runtime: $Util.RuntimeOptions): Promise<DeleteConfigRulesResponse> {
+    Util.validateModel(request);
+    let query = { };
+    if (!Util.isUnset(request.configRuleIds)) {
+      query["ConfigRuleIds"] = request.configRuleIds;
+    }
+
+    let req = new $OpenApi.OpenApiRequest({
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApi.Params({
+      action: "DeleteConfigRules",
+      version: "2020-09-07",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $tea.cast<DeleteConfigRulesResponse>(await this.callApi(params, req, runtime), new DeleteConfigRulesResponse({}));
+  }
+
+  /**
+    * In this example, the rule whose ID is cr-9908626622af0035\\*\\*\\*\\* is deleted.
+    *
+    * @param request DeleteConfigRulesRequest
+    * @return DeleteConfigRulesResponse
+   */
+  async deleteConfigRules(request: DeleteConfigRulesRequest): Promise<DeleteConfigRulesResponse> {
+    let runtime = new $Util.RuntimeOptions({ });
+    return await this.deleteConfigRulesWithOptions(request, runtime);
+  }
+
+  /**
+    * This topic provides an example on how to delete the remediation template `crr-909ba2d4716700eb****`. The returned result shows that the remediation template whose ID is `crr-909ba2d4716700eb****` is deleted.
     *
     * @param request DeleteRemediationsRequest
     * @param runtime runtime options for this request RuntimeOptions
@@ -16290,7 +17702,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-    * In this topic, the remediation setting whose ID is `crr-909ba2d4716700eb****` is used as an example. The return result shows that the remediation setting whose ID is `crr-909ba2d4716700eb****` is deleted.
+    * This topic provides an example on how to delete the remediation template `crr-909ba2d4716700eb****`. The returned result shows that the remediation template whose ID is `crr-909ba2d4716700eb****` is deleted.
     *
     * @param request DeleteRemediationsRequest
     * @return DeleteRemediationsResponse
@@ -16355,9 +17767,10 @@ export default class Client extends OpenApi {
   }
 
   /**
-    * The sample request in this topic shows you how to remove the `cr-6cc4626622af00e7****` rule from the `cp-5bb1626622af00bd****` compliance package.
-    * ## Prerequisites
+    * ### Prerequisites
     * One or more rules are added to a compliance package.
+    * ### Usage notes
+    * This topic provides an example on how to remove the `cr-6cc4626622af00e7****` rule from the `cp-5bb1626622af00bd****` compliance package.
     *
     * @param request DetachConfigRuleToCompliancePackRequest
     * @param runtime runtime options for this request RuntimeOptions
@@ -16392,9 +17805,10 @@ export default class Client extends OpenApi {
   }
 
   /**
-    * The sample request in this topic shows you how to remove the `cr-6cc4626622af00e7****` rule from the `cp-5bb1626622af00bd****` compliance package.
-    * ## Prerequisites
+    * ### Prerequisites
     * One or more rules are added to a compliance package.
+    * ### Usage notes
+    * This topic provides an example on how to remove the `cr-6cc4626622af00e7****` rule from the `cp-5bb1626622af00bd****` compliance package.
     *
     * @param request DetachConfigRuleToCompliancePackRequest
     * @return DetachConfigRuleToCompliancePackResponse
@@ -16444,8 +17858,8 @@ export default class Client extends OpenApi {
   }
 
   /**
-    * >  You can call this operation to generate the latest compliance evaluation report. To download the report, call the GetAggregateConfigRulesReport operation. For more information, see [GetAggregateCompliancePackReport](~~262699~~).
-    * The sample request in this topic shows you how to generate a compliance evaluation report based on the `cp-fdc8626622af00f9****` compliance package in the `ca-f632626622af0079****` account group.
+    * > You can call this operation to generate the latest compliance evaluation report. To download the report, call the GetAggregateConfigRulesReport operation. For more information, see [GetAggregateCompliancePackReport](~~262699~~).
+    * This topic provides an example on how to generate a compliance evaluation report based on the `cp-fdc8626622af00f9****` compliance package in the `ca-f632626622af0079****` account group.
     *
     * @param request GenerateAggregateCompliancePackReportRequest
     * @param runtime runtime options for this request RuntimeOptions
@@ -16484,8 +17898,8 @@ export default class Client extends OpenApi {
   }
 
   /**
-    * >  You can call this operation to generate the latest compliance evaluation report. To download the report, call the GetAggregateConfigRulesReport operation. For more information, see [GetAggregateCompliancePackReport](~~262699~~).
-    * The sample request in this topic shows you how to generate a compliance evaluation report based on the `cp-fdc8626622af00f9****` compliance package in the `ca-f632626622af0079****` account group.
+    * > You can call this operation to generate the latest compliance evaluation report. To download the report, call the GetAggregateConfigRulesReport operation. For more information, see [GetAggregateCompliancePackReport](~~262699~~).
+    * This topic provides an example on how to generate a compliance evaluation report based on the `cp-fdc8626622af00f9****` compliance package in the `ca-f632626622af0079****` account group.
     *
     * @param request GenerateAggregateCompliancePackReportRequest
     * @return GenerateAggregateCompliancePackReportResponse
@@ -16496,8 +17910,8 @@ export default class Client extends OpenApi {
   }
 
   /**
-    * >  You can call this operation to generate the latest compliance evaluation report. To download the report, call the GetAggregateConfigRulesReport operation. For more information, see [GetAggregateConfigRulesReport](~~262706~~).
-    * The sample request in this topic shows you how to generate a compliance evaluation report based on all rules in the `ca-f632626622af0079****` account group.
+    * > You can call this operation to generate the latest compliance evaluation report. To download the report, call the GetAggregateConfigRulesReport operation. For more information, see [GetAggregateConfigRulesReport](~~262706~~).
+    * The topic provides an example on how to generate a compliance evaluation report based on all rules in the `ca-f632626622af0079****` account group.
     *
     * @param request GenerateAggregateConfigRulesReportRequest
     * @param runtime runtime options for this request RuntimeOptions
@@ -16536,8 +17950,8 @@ export default class Client extends OpenApi {
   }
 
   /**
-    * >  You can call this operation to generate the latest compliance evaluation report. To download the report, call the GetAggregateConfigRulesReport operation. For more information, see [GetAggregateConfigRulesReport](~~262706~~).
-    * The sample request in this topic shows you how to generate a compliance evaluation report based on all rules in the `ca-f632626622af0079****` account group.
+    * > You can call this operation to generate the latest compliance evaluation report. To download the report, call the GetAggregateConfigRulesReport operation. For more information, see [GetAggregateConfigRulesReport](~~262706~~).
+    * The topic provides an example on how to generate a compliance evaluation report based on all rules in the `ca-f632626622af0079****` account group.
     *
     * @param request GenerateAggregateConfigRulesReportRequest
     * @return GenerateAggregateConfigRulesReportResponse
@@ -16547,9 +17961,50 @@ export default class Client extends OpenApi {
     return await this.generateAggregateConfigRulesReportWithOptions(request, runtime);
   }
 
+  async generateAggregateResourceInventoryWithOptions(request: GenerateAggregateResourceInventoryRequest, runtime: $Util.RuntimeOptions): Promise<GenerateAggregateResourceInventoryResponse> {
+    Util.validateModel(request);
+    let query = { };
+    if (!Util.isUnset(request.accountIds)) {
+      query["AccountIds"] = request.accountIds;
+    }
+
+    if (!Util.isUnset(request.aggregatorId)) {
+      query["AggregatorId"] = request.aggregatorId;
+    }
+
+    if (!Util.isUnset(request.regions)) {
+      query["Regions"] = request.regions;
+    }
+
+    if (!Util.isUnset(request.resourceTypes)) {
+      query["ResourceTypes"] = request.resourceTypes;
+    }
+
+    let req = new $OpenApi.OpenApiRequest({
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApi.Params({
+      action: "GenerateAggregateResourceInventory",
+      version: "2020-09-07",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $tea.cast<GenerateAggregateResourceInventoryResponse>(await this.callApi(params, req, runtime), new GenerateAggregateResourceInventoryResponse({}));
+  }
+
+  async generateAggregateResourceInventory(request: GenerateAggregateResourceInventoryRequest): Promise<GenerateAggregateResourceInventoryResponse> {
+    let runtime = new $Util.RuntimeOptions({ });
+    return await this.generateAggregateResourceInventoryWithOptions(request, runtime);
+  }
+
   /**
-    * >  You can call this operation to generate the latest compliance evaluation report. To download the report, call the GetCompliancePackReport operation. For more information, see [GetCompliancePackReport](~~263347~~).
-    * In this topic, the `cp-a8a8626622af0082****` compliance package is used as an example.
+    * > You can call this operation to generate the latest compliance evaluation report. To download the report, call the GetCompliancePackReport operation. For more information, see [GetCompliancePackReport](~~263347~~).
+    * This topic provides an example on how to generate a compliance evaluation report based on the `cp-a8a8626622af0082****` compliance package.
     *
     * @param request GenerateCompliancePackReportRequest
     * @param runtime runtime options for this request RuntimeOptions
@@ -16584,8 +18039,8 @@ export default class Client extends OpenApi {
   }
 
   /**
-    * >  You can call this operation to generate the latest compliance evaluation report. To download the report, call the GetCompliancePackReport operation. For more information, see [GetCompliancePackReport](~~263347~~).
-    * In this topic, the `cp-a8a8626622af0082****` compliance package is used as an example.
+    * > You can call this operation to generate the latest compliance evaluation report. To download the report, call the GetCompliancePackReport operation. For more information, see [GetCompliancePackReport](~~263347~~).
+    * This topic provides an example on how to generate a compliance evaluation report based on the `cp-a8a8626622af0082****` compliance package.
     *
     * @param request GenerateCompliancePackReportRequest
     * @return GenerateCompliancePackReportResponse
@@ -16643,8 +18098,41 @@ export default class Client extends OpenApi {
     return await this.generateConfigRulesReportWithOptions(request, runtime);
   }
 
+  async generateResourceInventoryWithOptions(request: GenerateResourceInventoryRequest, runtime: $Util.RuntimeOptions): Promise<GenerateResourceInventoryResponse> {
+    Util.validateModel(request);
+    let query = { };
+    if (!Util.isUnset(request.regions)) {
+      query["Regions"] = request.regions;
+    }
+
+    if (!Util.isUnset(request.resourceTypes)) {
+      query["ResourceTypes"] = request.resourceTypes;
+    }
+
+    let req = new $OpenApi.OpenApiRequest({
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApi.Params({
+      action: "GenerateResourceInventory",
+      version: "2020-09-07",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $tea.cast<GenerateResourceInventoryResponse>(await this.callApi(params, req, runtime), new GenerateResourceInventoryResponse({}));
+  }
+
+  async generateResourceInventory(request: GenerateResourceInventoryRequest): Promise<GenerateResourceInventoryResponse> {
+    let runtime = new $Util.RuntimeOptions({ });
+    return await this.generateResourceInventoryWithOptions(request, runtime);
+  }
+
   /**
-    * The sample request in this topic shows you how to query the compliance evaluation results of member accounts monitored by the `cp-541e626622af0087****` compliance package in the `ca-04b3fd170e340007****` account group. The return result shows that two member accounts are monitored by the compliance package and they are both evaluated as compliant.
+    * This topic provides an example on how to query the compliance evaluation results of member accounts for which the `cp-541e626622af0087****` compliance package takes effect in the `ca-04b3fd170e340007****` account group. The returned result shows that two member accounts are monitored by the compliance package and they are both evaluated as compliant.
     *
     * @param request GetAggregateAccountComplianceByPackRequest
     * @param runtime runtime options for this request RuntimeOptions
@@ -16671,7 +18159,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-    * The sample request in this topic shows you how to query the compliance evaluation results of member accounts monitored by the `cp-541e626622af0087****` compliance package in the `ca-04b3fd170e340007****` account group. The return result shows that two member accounts are monitored by the compliance package and they are both evaluated as compliant.
+    * This topic provides an example on how to query the compliance evaluation results of member accounts for which the `cp-541e626622af0087****` compliance package takes effect in the `ca-04b3fd170e340007****` account group. The returned result shows that two member accounts are monitored by the compliance package and they are both evaluated as compliant.
     *
     * @param request GetAggregateAccountComplianceByPackRequest
     * @return GetAggregateAccountComplianceByPackResponse
@@ -16720,8 +18208,8 @@ export default class Client extends OpenApi {
   }
 
   /**
-    * >  Before you call this operation, you must call the GenerateAggregateCompliancePackReport operation to generate the latest compliance evaluation report based on a compliance package as required. For more information, see [GenerateAggregateCompliancePackReport](~~262687~~).
-    * The sample request in this topic shows you how to query the compliance evaluation report that is generated based on the `cp-fdc8626622af00f9****` compliance package in the `ca-f632626622af0079****` account group.
+    * > Before you call this operation, you must call the GenerateAggregateCompliancePackReport operation to generate the latest compliance evaluation report based on a compliance package. For more information, see [GenerateAggregateCompliancePackReport](~~262687~~).
+    * This topic provides an example on how to query the compliance evaluation report that is generated based on the `cp-fdc8626622af00f9****` compliance package in the `ca-f632626622af0079****` account group.
     *
     * @param request GetAggregateCompliancePackReportRequest
     * @param runtime runtime options for this request RuntimeOptions
@@ -16748,8 +18236,8 @@ export default class Client extends OpenApi {
   }
 
   /**
-    * >  Before you call this operation, you must call the GenerateAggregateCompliancePackReport operation to generate the latest compliance evaluation report based on a compliance package as required. For more information, see [GenerateAggregateCompliancePackReport](~~262687~~).
-    * The sample request in this topic shows you how to query the compliance evaluation report that is generated based on the `cp-fdc8626622af00f9****` compliance package in the `ca-f632626622af0079****` account group.
+    * > Before you call this operation, you must call the GenerateAggregateCompliancePackReport operation to generate the latest compliance evaluation report based on a compliance package. For more information, see [GenerateAggregateCompliancePackReport](~~262687~~).
+    * This topic provides an example on how to query the compliance evaluation report that is generated based on the `cp-fdc8626622af00f9****` compliance package in the `ca-f632626622af0079****` account group.
     *
     * @param request GetAggregateCompliancePackReportRequest
     * @return GetAggregateCompliancePackReportResponse
@@ -16757,6 +18245,35 @@ export default class Client extends OpenApi {
   async getAggregateCompliancePackReport(request: GetAggregateCompliancePackReportRequest): Promise<GetAggregateCompliancePackReportResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.getAggregateCompliancePackReportWithOptions(request, runtime);
+  }
+
+  async getAggregateComplianceSummaryWithOptions(request: GetAggregateComplianceSummaryRequest, runtime: $Util.RuntimeOptions): Promise<GetAggregateComplianceSummaryResponse> {
+    Util.validateModel(request);
+    let query = { };
+    if (!Util.isUnset(request.aggregatorId)) {
+      query["AggregatorId"] = request.aggregatorId;
+    }
+
+    let req = new $OpenApi.OpenApiRequest({
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApi.Params({
+      action: "GetAggregateComplianceSummary",
+      version: "2020-09-07",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $tea.cast<GetAggregateComplianceSummaryResponse>(await this.callApi(params, req, runtime), new GetAggregateComplianceSummaryResponse({}));
+  }
+
+  async getAggregateComplianceSummary(request: GetAggregateComplianceSummaryRequest): Promise<GetAggregateComplianceSummaryResponse> {
+    let runtime = new $Util.RuntimeOptions({ });
+    return await this.getAggregateComplianceSummaryWithOptions(request, runtime);
   }
 
   async getAggregateConfigDeliveryChannelWithOptions(request: GetAggregateConfigDeliveryChannelRequest, runtime: $Util.RuntimeOptions): Promise<GetAggregateConfigDeliveryChannelResponse> {
@@ -16877,7 +18394,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-    * In this topic, the `ca-3a58626622af0005****` account group is used as an example. The return result shows four rules that are specified with the high risk level. One of them detects non-compliant resources, and the resources evaluated by the remaining three are all compliant.
+    * This topic provides an example on how to query the summary of compliance evaluation results by rule risk level in the `ca-3a58626622af0005****` account group. The returned result shows four rules that are specified with the high risk level. One of the rules detects non-compliant resources, and the resources evaluated by the remaining three are compliant.
     *
     * @param request GetAggregateConfigRuleSummaryByRiskLevelRequest
     * @param runtime runtime options for this request RuntimeOptions
@@ -16904,7 +18421,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-    * In this topic, the `ca-3a58626622af0005****` account group is used as an example. The return result shows four rules that are specified with the high risk level. One of them detects non-compliant resources, and the resources evaluated by the remaining three are all compliant.
+    * This topic provides an example on how to query the summary of compliance evaluation results by rule risk level in the `ca-3a58626622af0005****` account group. The returned result shows four rules that are specified with the high risk level. One of the rules detects non-compliant resources, and the resources evaluated by the remaining three are compliant.
     *
     * @param request GetAggregateConfigRuleSummaryByRiskLevelRequest
     * @return GetAggregateConfigRuleSummaryByRiskLevelResponse
@@ -16915,8 +18432,8 @@ export default class Client extends OpenApi {
   }
 
   /**
-    * >  Before you call this operation, you must call the GenerateAggregateConfigRulesReport operation to generate the latest compliance evaluation report based on all rules in an account group as required. For more information, see [GenerateAggregateConfigRulesReport](~~262701~~).
-    * The sample request in this topic shows you how to query the compliance evaluation report that is generated based on all rules in the `ca-f632626622af0079****` account group.
+    * > Before you call this operation, you must call the GenerateAggregateConfigRulesReport operation to generate the latest compliance evaluation report based on all rules in an account group. For more information, see [GenerateAggregateConfigRulesReport](~~262701~~).
+    * This topic provides an example on how to query the compliance evaluation report that is generated based on all rules in the `ca-f632626622af0079****` account group.
     *
     * @param request GetAggregateConfigRulesReportRequest
     * @param runtime runtime options for this request RuntimeOptions
@@ -16951,8 +18468,8 @@ export default class Client extends OpenApi {
   }
 
   /**
-    * >  Before you call this operation, you must call the GenerateAggregateConfigRulesReport operation to generate the latest compliance evaluation report based on all rules in an account group as required. For more information, see [GenerateAggregateConfigRulesReport](~~262701~~).
-    * The sample request in this topic shows you how to query the compliance evaluation report that is generated based on all rules in the `ca-f632626622af0079****` account group.
+    * > Before you call this operation, you must call the GenerateAggregateConfigRulesReport operation to generate the latest compliance evaluation report based on all rules in an account group. For more information, see [GenerateAggregateConfigRulesReport](~~262701~~).
+    * This topic provides an example on how to query the compliance evaluation report that is generated based on all rules in the `ca-f632626622af0079****` account group.
     *
     * @param request GetAggregateConfigRulesReportRequest
     * @return GetAggregateConfigRulesReportResponse
@@ -16963,8 +18480,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-    * The type of the resource.
-    * For more information about how to query the type of a resource, see [ListAggregateDiscoveredResources](~~411691~~).
+    * This topic provides an example on how to query the `new-bucket` resource in the `ca-5885626622af0008****` account group.
     *
     * @param request GetAggregateDiscoveredResourceRequest
     * @param runtime runtime options for this request RuntimeOptions
@@ -16991,8 +18507,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-    * The type of the resource.
-    * For more information about how to query the type of a resource, see [ListAggregateDiscoveredResources](~~411691~~).
+    * This topic provides an example on how to query the `new-bucket` resource in the `ca-5885626622af0008****` account group.
     *
     * @param request GetAggregateDiscoveredResourceRequest
     * @return GetAggregateDiscoveredResourceResponse
@@ -17003,8 +18518,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-    * The ID of the rule.
-    * For more information about how to query the ID of a rule, see [ListAggregateConfigRules](~~264148~~).
+    * The sample request in this topic shows you how to query the compliance evaluation results based on the `cr-d369626622af008e****` rule in the `ca-a4e5626622af0079****` account group. The return result shows that a total of 10 resources are evaluated by the rule and five of them are evaluated as compliant.
     *
     * @param request GetAggregateResourceComplianceByConfigRuleRequest
     * @param runtime runtime options for this request RuntimeOptions
@@ -17051,8 +18565,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-    * The ID of the rule.
-    * For more information about how to query the ID of a rule, see [ListAggregateConfigRules](~~264148~~).
+    * The sample request in this topic shows you how to query the compliance evaluation results based on the `cr-d369626622af008e****` rule in the `ca-a4e5626622af0079****` account group. The return result shows that a total of 10 resources are evaluated by the rule and five of them are evaluated as compliant.
     *
     * @param request GetAggregateResourceComplianceByConfigRuleRequest
     * @return GetAggregateResourceComplianceByConfigRuleResponse
@@ -17063,7 +18576,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-    * The sample request in this topic shows you how to query the compliance evaluation results of resources monitored by the `cp-fdc8626622af00f9****` compliance package in the `ca-f632626622af0079****`account group. The return result shows that the total number of monitored resources is `10` and the number of non-compliant resources is `7`.
+    * This topic provides an example on how to query the compliance evaluation results of resources monitored based on the `cp-fdc8626622af00f9****` compliance package in the `ca-f632626622af0079****`account group. The returned result shows that the total number of monitored resources is `10` and the number of non-compliant resources is `7`.
     *
     * @param request GetAggregateResourceComplianceByPackRequest
     * @param runtime runtime options for this request RuntimeOptions
@@ -17090,7 +18603,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-    * The sample request in this topic shows you how to query the compliance evaluation results of resources monitored by the `cp-fdc8626622af00f9****` compliance package in the `ca-f632626622af0079****`account group. The return result shows that the total number of monitored resources is `10` and the number of non-compliant resources is `7`.
+    * This topic provides an example on how to query the compliance evaluation results of resources monitored based on the `cp-fdc8626622af00f9****` compliance package in the `ca-f632626622af0079****`account group. The returned result shows that the total number of monitored resources is `10` and the number of non-compliant resources is `7`.
     *
     * @param request GetAggregateResourceComplianceByPackRequest
     * @return GetAggregateResourceComplianceByPackResponse
@@ -17167,7 +18680,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-    * The operation that you want to perform. Set the value to **GetAggregateResourceComplianceTimeline**.
+    * The sample request in this topic shows you how to query the compliance timeline of the `new-bucket` resource that resides in the `cn-hangzhou` region within the `100931896542****` member account of the `ca-5885626622af0008****` account group. The new-bucket resource is an Object Storage Service (OSS) bucket. The return result shows the following two timestamps on the compliance timeline: `1625200295276` and `1625200228510`. The first timestamp indicates 12:31:35 on July 2, 2021 (UTC+8), and the second timestamp indicates 12:30:28 on July 2, 2021 (UTC+8).
     *
     * @param request GetAggregateResourceComplianceTimelineRequest
     * @param runtime runtime options for this request RuntimeOptions
@@ -17194,7 +18707,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-    * The operation that you want to perform. Set the value to **GetAggregateResourceComplianceTimeline**.
+    * The sample request in this topic shows you how to query the compliance timeline of the `new-bucket` resource that resides in the `cn-hangzhou` region within the `100931896542****` member account of the `ca-5885626622af0008****` account group. The new-bucket resource is an Object Storage Service (OSS) bucket. The return result shows the following two timestamps on the compliance timeline: `1625200295276` and `1625200228510`. The first timestamp indicates 12:31:35 on July 2, 2021 (UTC+8), and the second timestamp indicates 12:30:28 on July 2, 2021 (UTC+8).
     *
     * @param request GetAggregateResourceComplianceTimelineRequest
     * @return GetAggregateResourceComplianceTimelineResponse
@@ -17205,8 +18718,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-    * The ID of the resource.
-    * For more information about how to obtain the ID of a resource, see [ListAggregateDiscoveredResources](~~265983~~).
+    * The sample request in this topic shows you how to query the configuration timeline of the `new-bucket` resource that resides in the `cn-hangzhou` region within the `100931896542****` member account of the `ca-5885626622af0008****` account group. The new-bucket resource is an Object Storage Service (OSS) bucket. The return result shows that the timestamp when the resource configuration changes is `1624961112000`. The timestamp indicates 18:05:12 on June 29, 2021 (UTC+8).
     *
     * @param request GetAggregateResourceConfigurationTimelineRequest
     * @param runtime runtime options for this request RuntimeOptions
@@ -17233,8 +18745,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-    * The ID of the resource.
-    * For more information about how to obtain the ID of a resource, see [ListAggregateDiscoveredResources](~~265983~~).
+    * The sample request in this topic shows you how to query the configuration timeline of the `new-bucket` resource that resides in the `cn-hangzhou` region within the `100931896542****` member account of the `ca-5885626622af0008****` account group. The new-bucket resource is an Object Storage Service (OSS) bucket. The return result shows that the timestamp when the resource configuration changes is `1624961112000`. The timestamp indicates 18:05:12 on June 29, 2021 (UTC+8).
     *
     * @param request GetAggregateResourceConfigurationTimelineRequest
     * @return GetAggregateResourceConfigurationTimelineResponse
@@ -17245,8 +18756,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-    * The ID of the account group.
-    * For more information about how to obtain the ID of an account group, see [ListAggregators](~~255797~~).
+    * This topic provides an example on how to query the statistics on the resources in an account group named `ca-a260626622af0005****` by region. The returned result shows that a total of `10` resources exist in the `cn-hangzhou` region.
     *
     * @param request GetAggregateResourceCountsGroupByRegionRequest
     * @param runtime runtime options for this request RuntimeOptions
@@ -17293,8 +18803,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-    * The ID of the account group.
-    * For more information about how to obtain the ID of an account group, see [ListAggregators](~~255797~~).
+    * This topic provides an example on how to query the statistics on the resources in an account group named `ca-a260626622af0005****` by region. The returned result shows that a total of `10` resources exist in the `cn-hangzhou` region.
     *
     * @param request GetAggregateResourceCountsGroupByRegionRequest
     * @return GetAggregateResourceCountsGroupByRegionResponse
@@ -17439,8 +18948,8 @@ export default class Client extends OpenApi {
   }
 
   /**
-    * >  Before you call this operation, you must call the GenerateCompliancePackReport operation to generate the latest compliance evaluation report based on a compliance package as required. For more information, see [GenerateCompliancePackReport](~~263525~~).
-    * In this topic, the `cp-fdc8626622af00f9****` compliance package is used as an example.
+    * > Before you call this operation, you must call the GenerateCompliancePackReport operation to generate the latest compliance evaluation report based on a compliance package. For more information, see [GenerateCompliancePackReport](~~263525~~).
+    * This topic provides an example on how to query the compliance evaluation report that is generated based on the `cp-fdc8626622af00f9****` compliance package.
     *
     * @param request GetCompliancePackReportRequest
     * @param runtime runtime options for this request RuntimeOptions
@@ -17467,8 +18976,8 @@ export default class Client extends OpenApi {
   }
 
   /**
-    * >  Before you call this operation, you must call the GenerateCompliancePackReport operation to generate the latest compliance evaluation report based on a compliance package as required. For more information, see [GenerateCompliancePackReport](~~263525~~).
-    * In this topic, the `cp-fdc8626622af00f9****` compliance package is used as an example.
+    * > Before you call this operation, you must call the GenerateCompliancePackReport operation to generate the latest compliance evaluation report based on a compliance package. For more information, see [GenerateCompliancePackReport](~~263525~~).
+    * This topic provides an example on how to query the compliance evaluation report that is generated based on the `cp-fdc8626622af00f9****` compliance package.
     *
     * @param request GetCompliancePackReportRequest
     * @return GetCompliancePackReportResponse
@@ -17476,6 +18985,27 @@ export default class Client extends OpenApi {
   async getCompliancePackReport(request: GetCompliancePackReportRequest): Promise<GetCompliancePackReportResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.getCompliancePackReportWithOptions(request, runtime);
+  }
+
+  async getComplianceSummaryWithOptions(runtime: $Util.RuntimeOptions): Promise<GetComplianceSummaryResponse> {
+    let req = new $OpenApi.OpenApiRequest({ });
+    let params = new $OpenApi.Params({
+      action: "GetComplianceSummary",
+      version: "2020-09-07",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $tea.cast<GetComplianceSummaryResponse>(await this.callApi(params, req, runtime), new GetComplianceSummaryResponse({}));
+  }
+
+  async getComplianceSummary(): Promise<GetComplianceSummaryResponse> {
+    let runtime = new $Util.RuntimeOptions({ });
+    return await this.getComplianceSummaryWithOptions(runtime);
   }
 
   async getConfigDeliveryChannelWithOptions(request: GetConfigDeliveryChannelRequest, runtime: $Util.RuntimeOptions): Promise<GetConfigDeliveryChannelResponse> {
@@ -17508,7 +19038,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-    * This example shows how to query the details of the `cr-7f7d626622af0041****` rule.
+    * This topic provides an example on how to query the details of the `cr-7f7d626622af0041****` rule.
     *
     * @param request GetConfigRuleRequest
     * @param runtime runtime options for this request RuntimeOptions
@@ -17539,7 +19069,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-    * This example shows how to query the details of the `cr-7f7d626622af0041****` rule.
+    * This topic provides an example on how to query the details of the `cr-7f7d626622af0041****` rule.
     *
     * @param request GetConfigRuleRequest
     * @return GetConfigRuleResponse
@@ -17662,6 +19192,27 @@ export default class Client extends OpenApi {
   async getConfigRulesReport(request: GetConfigRulesReportRequest): Promise<GetConfigRulesReportResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.getConfigRulesReportWithOptions(request, runtime);
+  }
+
+  async getConfigurationRecorderWithOptions(runtime: $Util.RuntimeOptions): Promise<GetConfigurationRecorderResponse> {
+    let req = new $OpenApi.OpenApiRequest({ });
+    let params = new $OpenApi.Params({
+      action: "GetConfigurationRecorder",
+      version: "2020-09-07",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $tea.cast<GetConfigurationRecorderResponse>(await this.callApi(params, req, runtime), new GetConfigurationRecorderResponse({}));
+  }
+
+  async getConfigurationRecorder(): Promise<GetConfigurationRecorderResponse> {
+    let runtime = new $Util.RuntimeOptions({ });
+    return await this.getConfigurationRecorderWithOptions(runtime);
   }
 
   /**
@@ -17857,6 +19408,35 @@ export default class Client extends OpenApi {
     return await this.getManagedRuleWithOptions(request, runtime);
   }
 
+  async getRemediationTemplateWithOptions(request: GetRemediationTemplateRequest, runtime: $Util.RuntimeOptions): Promise<GetRemediationTemplateResponse> {
+    Util.validateModel(request);
+    let query = { };
+    if (!Util.isUnset(request.templateIdentifier)) {
+      query["TemplateIdentifier"] = request.templateIdentifier;
+    }
+
+    let req = new $OpenApi.OpenApiRequest({
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApi.Params({
+      action: "GetRemediationTemplate",
+      version: "2020-09-07",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $tea.cast<GetRemediationTemplateResponse>(await this.callApi(params, req, runtime), new GetRemediationTemplateResponse({}));
+  }
+
+  async getRemediationTemplate(request: GetRemediationTemplateRequest): Promise<GetRemediationTemplateResponse> {
+    let runtime = new $Util.RuntimeOptions({ });
+    return await this.getRemediationTemplateWithOptions(request, runtime);
+  }
+
   /**
     * In this topic, the `cr-d369626622af008e****` rule is used as an example. The return result shows that a total of 10 resources are evaluated by the rule and `five` of them are evaluated as compliant.
     *
@@ -17896,7 +19476,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-    * In this topic, the `cp-541e626622af0087****` compliance package is used as an example. The return result shows a total of 10 resources and seven of them are evaluated as non-compliant.
+    * This topic provides an example on how to query the compliance evaluation results of resources monitored by using the `cp-541e626622af0087****` compliance package. The returned result shows a total of 10 resources and seven of them are evaluated as non-compliant.
     *
     * @param request GetResourceComplianceByPackRequest
     * @param runtime runtime options for this request RuntimeOptions
@@ -17923,7 +19503,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-    * In this topic, the `cp-541e626622af0087****` compliance package is used as an example. The return result shows a total of 10 resources and seven of them are evaluated as non-compliant.
+    * This topic provides an example on how to query the compliance evaluation results of resources monitored by using the `cp-541e626622af0087****` compliance package. The returned result shows a total of 10 resources and seven of them are evaluated as non-compliant.
     *
     * @param request GetResourceComplianceByPackRequest
     * @return GetResourceComplianceByPackResponse
@@ -18030,7 +19610,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-    * The timestamp that specifies the beginning of the time range to query. By default, Cloud Config retrieves the configuration changes in the last 30 days for the specified resource. Unit: milliseconds.
+    * The sample request in this topic shows you how to query the configuration timeline of the `new-bucket` resource that resides in the `cn-hangzhou` region. The new-bucket resource is an Object Storage Service (OSS) bucket. The return result shows that the timestamp when the resource configuration changes is `1624961112000`. The timestamp indicates 18:05:12 on June 29, 2021 (UTC+8).
     *
     * @param request GetResourceConfigurationTimelineRequest
     * @param runtime runtime options for this request RuntimeOptions
@@ -18057,7 +19637,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-    * The timestamp that specifies the beginning of the time range to query. By default, Cloud Config retrieves the configuration changes in the last 30 days for the specified resource. Unit: milliseconds.
+    * The sample request in this topic shows you how to query the configuration timeline of the `new-bucket` resource that resides in the `cn-hangzhou` region. The new-bucket resource is an Object Storage Service (OSS) bucket. The return result shows that the timestamp when the resource configuration changes is `1624961112000`. The timestamp indicates 18:05:12 on June 29, 2021 (UTC+8).
     *
     * @param request GetResourceConfigurationTimelineRequest
     * @return GetResourceConfigurationTimelineResponse
@@ -18065,6 +19645,48 @@ export default class Client extends OpenApi {
   async getResourceConfigurationTimeline(request: GetResourceConfigurationTimelineRequest): Promise<GetResourceConfigurationTimelineResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.getResourceConfigurationTimelineWithOptions(request, runtime);
+  }
+
+  /**
+    * This topic provides an example to show how to query the resource relationships that are supported by the ACS::ECS::Instance resource type.
+    *
+    * @param request GetSupportedResourceRelationConfigRequest
+    * @param runtime runtime options for this request RuntimeOptions
+    * @return GetSupportedResourceRelationConfigResponse
+   */
+  async getSupportedResourceRelationConfigWithOptions(request: GetSupportedResourceRelationConfigRequest, runtime: $Util.RuntimeOptions): Promise<GetSupportedResourceRelationConfigResponse> {
+    Util.validateModel(request);
+    let query = { };
+    if (!Util.isUnset(request.resourceType)) {
+      query["ResourceType"] = request.resourceType;
+    }
+
+    let req = new $OpenApi.OpenApiRequest({
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApi.Params({
+      action: "GetSupportedResourceRelationConfig",
+      version: "2020-09-07",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $tea.cast<GetSupportedResourceRelationConfigResponse>(await this.callApi(params, req, runtime), new GetSupportedResourceRelationConfigResponse({}));
+  }
+
+  /**
+    * This topic provides an example to show how to query the resource relationships that are supported by the ACS::ECS::Instance resource type.
+    *
+    * @param request GetSupportedResourceRelationConfigRequest
+    * @return GetSupportedResourceRelationConfigResponse
+   */
+  async getSupportedResourceRelationConfig(request: GetSupportedResourceRelationConfigRequest): Promise<GetSupportedResourceRelationConfigResponse> {
+    let runtime = new $Util.RuntimeOptions({ });
+    return await this.getSupportedResourceRelationConfigWithOptions(request, runtime);
   }
 
   /**
@@ -18365,7 +19987,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-    * This topic provides an example on how to query the rules in an account group whose ID is `ca-f632626622af0079****`. The return result shows a total of one rule and two evaluated resources. The resources are both evaluated as `COMPLIANT`.
+    * This topic provides an example on how to query the rules in an account group whose ID is `ca-f632626622af0079****`. The returned result shows a total of one rule and two evaluated resources. The resources are both evaluated as `COMPLIANT`.
     *
     * @param request ListAggregateConfigRulesRequest
     * @param runtime runtime options for this request RuntimeOptions
@@ -18428,7 +20050,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-    * This topic provides an example on how to query the rules in an account group whose ID is `ca-f632626622af0079****`. The return result shows a total of one rule and two evaluated resources. The resources are both evaluated as `COMPLIANT`.
+    * This topic provides an example on how to query the rules in an account group whose ID is `ca-f632626622af0079****`. The returned result shows a total of one rule and two evaluated resources. The resources are both evaluated as `COMPLIANT`.
     *
     * @param request ListAggregateConfigRulesRequest
     * @return ListAggregateConfigRulesResponse
@@ -18439,7 +20061,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-    * The token that you want to use to initiate the current request. If the response of the previous request is truncated, you can use this token to initiate another request and obtain the remaining entries.``
+    * This topic provides an example on how to query a list of resources in the `ca-c560626622af0005****` account group. The returned result shows that eight resources exist in the account group.
     *
     * @param request ListAggregateDiscoveredResourcesRequest
     * @param runtime runtime options for this request RuntimeOptions
@@ -18502,7 +20124,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-    * The token that you want to use to initiate the current request. If the response of the previous request is truncated, you can use this token to initiate another request and obtain the remaining entries.``
+    * This topic provides an example on how to query a list of resources in the `ca-c560626622af0005****` account group. The returned result shows that eight resources exist in the account group.
     *
     * @param request ListAggregateDiscoveredResourcesRequest
     * @return ListAggregateDiscoveredResourcesResponse
@@ -18513,7 +20135,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-    * The sample request in this topic shows you how to query the remediation setting of the rule whose ID is `cr-6b7c626622af00b4****` in the account group whose ID is `ca-6b4a626622af0012****`.
+    * This topic provides an example on how to query the remediation templates of the rule whose ID is `cr-6b7c626622af00b4****` in the account group whose ID is `ca-6b4a626622af0012****`.
     *
     * @param request ListAggregateRemediationsRequest
     * @param runtime runtime options for this request RuntimeOptions
@@ -18548,7 +20170,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-    * The sample request in this topic shows you how to query the remediation setting of the rule whose ID is `cr-6b7c626622af00b4****` in the account group whose ID is `ca-6b4a626622af0012****`.
+    * This topic provides an example on how to query the remediation templates of the rule whose ID is `cr-6b7c626622af00b4****` in the account group whose ID is `ca-6b4a626622af0012****`.
     *
     * @param request ListAggregateRemediationsRequest
     * @return ListAggregateRemediationsResponse
@@ -18624,6 +20246,13 @@ export default class Client extends OpenApi {
     return await this.listAggregateResourceEvaluationResultsWithOptions(request, runtime);
   }
 
+  /**
+    * This topic provides an example on how to query the disks that are associated with an Elastic Compute Service (ECS) instance in an account group.
+    *
+    * @param request ListAggregateResourceRelationsRequest
+    * @param runtime runtime options for this request RuntimeOptions
+    * @return ListAggregateResourceRelationsResponse
+   */
   async listAggregateResourceRelationsWithOptions(request: ListAggregateResourceRelationsRequest, runtime: $Util.RuntimeOptions): Promise<ListAggregateResourceRelationsResponse> {
     Util.validateModel(request);
     let query = { };
@@ -18684,6 +20313,12 @@ export default class Client extends OpenApi {
     return $tea.cast<ListAggregateResourceRelationsResponse>(await this.callApi(params, req, runtime), new ListAggregateResourceRelationsResponse({}));
   }
 
+  /**
+    * This topic provides an example on how to query the disks that are associated with an Elastic Compute Service (ECS) instance in an account group.
+    *
+    * @param request ListAggregateResourceRelationsRequest
+    * @return ListAggregateResourceRelationsResponse
+   */
   async listAggregateResourceRelations(request: ListAggregateResourceRelationsRequest): Promise<ListAggregateResourceRelationsResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.listAggregateResourceRelationsWithOptions(request, runtime);
@@ -19126,6 +20761,47 @@ export default class Client extends OpenApi {
     return await this.listPreManagedRulesWithOptions(request, runtime);
   }
 
+  async listRemediationExecutionsWithOptions(request: ListRemediationExecutionsRequest, runtime: $Util.RuntimeOptions): Promise<ListRemediationExecutionsResponse> {
+    Util.validateModel(request);
+    let query = { };
+    if (!Util.isUnset(request.configRuleId)) {
+      query["ConfigRuleId"] = request.configRuleId;
+    }
+
+    if (!Util.isUnset(request.executionStatus)) {
+      query["ExecutionStatus"] = request.executionStatus;
+    }
+
+    if (!Util.isUnset(request.maxResults)) {
+      query["MaxResults"] = request.maxResults;
+    }
+
+    if (!Util.isUnset(request.nextToken)) {
+      query["NextToken"] = request.nextToken;
+    }
+
+    let req = new $OpenApi.OpenApiRequest({
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApi.Params({
+      action: "ListRemediationExecutions",
+      version: "2020-09-07",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $tea.cast<ListRemediationExecutionsResponse>(await this.callApi(params, req, runtime), new ListRemediationExecutionsResponse({}));
+  }
+
+  async listRemediationExecutions(request: ListRemediationExecutionsRequest): Promise<ListRemediationExecutionsResponse> {
+    let runtime = new $Util.RuntimeOptions({ });
+    return await this.listRemediationExecutionsWithOptions(request, runtime);
+  }
+
   /**
     * In this topic, the `oss-bucket-public-write-prohibited` managed rule is used as an example. The return result shows the details of the remediation template of the `OOS` type for the managed rule. OOS represents Operation Orchestration Service.
     *
@@ -19181,7 +20857,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-    * In this topic, the rule whose ID is `cr-6b7c626622af00b4****` is used as an example.
+    * This topic provides an example on how to query the remediation templates for the rule whose ID is `cr-6b7c626622af00b4****`.
     *
     * @param request ListRemediationsRequest
     * @param runtime runtime options for this request RuntimeOptions
@@ -19220,7 +20896,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-    * In this topic, the rule whose ID is `cr-6b7c626622af00b4****` is used as an example.
+    * This topic provides an example on how to query the remediation templates for the rule whose ID is `cr-6b7c626622af00b4****`.
     *
     * @param request ListRemediationsRequest
     * @return ListRemediationsResponse
@@ -19292,6 +20968,13 @@ export default class Client extends OpenApi {
     return await this.listResourceEvaluationResultsWithOptions(request, runtime);
   }
 
+  /**
+    * This topic provides an example on how to query the disks that are associated with an Elastic Compute Service (ECS) instance within the current Alibaba Cloud account.
+    *
+    * @param request ListResourceRelationsRequest
+    * @param runtime runtime options for this request RuntimeOptions
+    * @return ListResourceRelationsResponse
+   */
   async listResourceRelationsWithOptions(request: ListResourceRelationsRequest, runtime: $Util.RuntimeOptions): Promise<ListResourceRelationsResponse> {
     Util.validateModel(request);
     let query = { };
@@ -19344,6 +21027,12 @@ export default class Client extends OpenApi {
     return $tea.cast<ListResourceRelationsResponse>(await this.callApi(params, req, runtime), new ListResourceRelationsResponse({}));
   }
 
+  /**
+    * This topic provides an example on how to query the disks that are associated with an Elastic Compute Service (ECS) instance within the current Alibaba Cloud account.
+    *
+    * @param request ListResourceRelationsRequest
+    * @return ListResourceRelationsResponse
+   */
   async listResourceRelations(request: ListResourceRelationsRequest): Promise<ListResourceRelationsResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.listResourceRelationsWithOptions(request, runtime);
@@ -19400,10 +21089,48 @@ export default class Client extends OpenApi {
     return await this.listTagResourcesWithOptions(request, runtime);
   }
 
+  async putEvaluationsWithOptions(request: PutEvaluationsRequest, runtime: $Util.RuntimeOptions): Promise<PutEvaluationsResponse> {
+    Util.validateModel(request);
+    let body : {[key: string ]: any} = { };
+    if (!Util.isUnset(request.deleteMode)) {
+      body["DeleteMode"] = request.deleteMode;
+    }
+
+    if (!Util.isUnset(request.evaluations)) {
+      body["Evaluations"] = request.evaluations;
+    }
+
+    if (!Util.isUnset(request.resultToken)) {
+      body["ResultToken"] = request.resultToken;
+    }
+
+    let req = new $OpenApi.OpenApiRequest({
+      body: OpenApiUtil.parseToMap(body),
+    });
+    let params = new $OpenApi.Params({
+      action: "PutEvaluations",
+      version: "2020-09-07",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $tea.cast<PutEvaluationsResponse>(await this.callApi(params, req, runtime), new PutEvaluationsResponse({}));
+  }
+
+  async putEvaluations(request: PutEvaluationsRequest): Promise<PutEvaluationsResponse> {
+    let runtime = new $Util.RuntimeOptions({ });
+    return await this.putEvaluationsWithOptions(request, runtime);
+  }
+
   /**
-    * The sample request in this topic shows you how to reevaluate the `lb-hp3a3b4ztyfm2plgm****` non-compliant resource that is evaluated by the `cr-7e72626622af0051***` rule in the `120886317861****` member account of the `ca-5b6c626622af008f****` account group. The ID of the region in which the resource resides is `cn-beijing`, and the type of the resource is `ACS::SLB::LoadBalancer`.
-    * ## Prerequisites
-    * One or more non-compliant resources that are evaluated by a rule in an account group are ignored.
+    * ### Prerequisites
+    * One or more non-compliant resources that are evaluated based on a rule are ignored.
+    * ### Usage notes
+    * The sample request in this topic shows you how to re-evaluate the `lb-hp3a3b4ztyfm2plgm****` non-compliant resource that is evaluated by the `cr-7e72626622af0051***` rule in the `120886317861****` member account of the `ca-5b6c626622af008f****` account group. The ID of the region in which the resource resides is `cn-beijing`, and the type of the resource is `ACS::SLB::LoadBalancer`.
     *
     * @param tmpReq RevertAggregateEvaluationResultsRequest
     * @param runtime runtime options for this request RuntimeOptions
@@ -19448,9 +21175,10 @@ export default class Client extends OpenApi {
   }
 
   /**
-    * The sample request in this topic shows you how to reevaluate the `lb-hp3a3b4ztyfm2plgm****` non-compliant resource that is evaluated by the `cr-7e72626622af0051***` rule in the `120886317861****` member account of the `ca-5b6c626622af008f****` account group. The ID of the region in which the resource resides is `cn-beijing`, and the type of the resource is `ACS::SLB::LoadBalancer`.
-    * ## Prerequisites
-    * One or more non-compliant resources that are evaluated by a rule in an account group are ignored.
+    * ### Prerequisites
+    * One or more non-compliant resources that are evaluated based on a rule are ignored.
+    * ### Usage notes
+    * The sample request in this topic shows you how to re-evaluate the `lb-hp3a3b4ztyfm2plgm****` non-compliant resource that is evaluated by the `cr-7e72626622af0051***` rule in the `120886317861****` member account of the `ca-5b6c626622af008f****` account group. The ID of the region in which the resource resides is `cn-beijing`, and the type of the resource is `ACS::SLB::LoadBalancer`.
     *
     * @param request RevertAggregateEvaluationResultsRequest
     * @return RevertAggregateEvaluationResultsResponse
@@ -19461,9 +21189,10 @@ export default class Client extends OpenApi {
   }
 
   /**
-    * The sample request in this topic shows you how to reevaluate the `lb-hp3a3b4ztyfm2plgm****` non-compliant resource that is evaluated by the `cr-7e72626622af0051****` rule. The ID of the region in which the resource resides is `cn-beijing`, and the type of the resource is `ACS::SLB::LoadBalancer`.
-    * ## Prerequisites
+    * ### Prerequisites
     * One or more non-compliant resources that are evaluated by a rule are ignored.
+    * ### Usage notes
+    * The sample request in this topic shows you how to re-evaluate the `lb-hp3a3b4ztyfm2plgm****` non-compliant resource that is evaluated by the `cr-7e72626622af0051****` rule. The ID of the region in which the resource resides is `cn-beijing`, and the type of the resource is `ACS::SLB::LoadBalancer`.``
     *
     * @param tmpReq RevertEvaluationResultsRequest
     * @param runtime runtime options for this request RuntimeOptions
@@ -19504,9 +21233,10 @@ export default class Client extends OpenApi {
   }
 
   /**
-    * The sample request in this topic shows you how to reevaluate the `lb-hp3a3b4ztyfm2plgm****` non-compliant resource that is evaluated by the `cr-7e72626622af0051****` rule. The ID of the region in which the resource resides is `cn-beijing`, and the type of the resource is `ACS::SLB::LoadBalancer`.
-    * ## Prerequisites
+    * ### Prerequisites
     * One or more non-compliant resources that are evaluated by a rule are ignored.
+    * ### Usage notes
+    * The sample request in this topic shows you how to re-evaluate the `lb-hp3a3b4ztyfm2plgm****` non-compliant resource that is evaluated by the `cr-7e72626622af0051****` rule. The ID of the region in which the resource resides is `cn-beijing`, and the type of the resource is `ACS::SLB::LoadBalancer`.``
     *
     * @param request RevertEvaluationResultsRequest
     * @return RevertEvaluationResultsResponse
@@ -19517,8 +21247,8 @@ export default class Client extends OpenApi {
   }
 
   /**
-    * >  After you call this operation, the compliance evaluation is performed only once. To query the compliance evaluation results returned by the rule, call the ListAggregateConfigRuleEvaluationResults operation. For more information, see [ListAggregateConfigRuleEvaluationResults](~~265979~~).
-    * The sample request in this topic shows you how to use the `cr-c169626622af009f****` rule in the `ca-3a58626622af0005****` account group to evaluate resources.
+    * > After you call this operation, the compliance evaluation is performed only once. To query the compliance evaluation results returned by the rule, call the ListAggregateConfigRuleEvaluationResults operation. For more information, see [ListAggregateConfigRuleEvaluationResults](~~265979~~).
+    * The sample request in this topic shows how to use the `cr-c169626622af009f****` rule in the `ca-3a58626622af0005****` account group to evaluate resources.
     *
     * @param request StartAggregateConfigRuleEvaluationRequest
     * @param runtime runtime options for this request RuntimeOptions
@@ -19561,8 +21291,8 @@ export default class Client extends OpenApi {
   }
 
   /**
-    * >  After you call this operation, the compliance evaluation is performed only once. To query the compliance evaluation results returned by the rule, call the ListAggregateConfigRuleEvaluationResults operation. For more information, see [ListAggregateConfigRuleEvaluationResults](~~265979~~).
-    * The sample request in this topic shows you how to use the `cr-c169626622af009f****` rule in the `ca-3a58626622af0005****` account group to evaluate resources.
+    * > After you call this operation, the compliance evaluation is performed only once. To query the compliance evaluation results returned by the rule, call the ListAggregateConfigRuleEvaluationResults operation. For more information, see [ListAggregateConfigRuleEvaluationResults](~~265979~~).
+    * The sample request in this topic shows how to use the `cr-c169626622af009f****` rule in the `ca-3a58626622af0005****` account group to evaluate resources.
     *
     * @param request StartAggregateConfigRuleEvaluationRequest
     * @return StartAggregateConfigRuleEvaluationResponse
@@ -19573,7 +21303,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-    * The sample request in this topic shows you how to manually execute the remediation template configured for the rule whose ID is `cr-6b7c626622af00b4****` in the account group whose ID is `ca-6b4a626622af0012****`. The return result shows that the manual execution is successful.
+    * This topic provides an example on how to manually perform a remediation operation by using the rule whose ID is `cr-6b7c626622af00b4****` in the account group whose ID is `ca-6b4a626622af0012****`. The returned result shows that the manual execution is successful.
     *
     * @param request StartAggregateRemediationRequest
     * @param runtime runtime options for this request RuntimeOptions
@@ -19588,6 +21318,10 @@ export default class Client extends OpenApi {
 
     if (!Util.isUnset(request.configRuleId)) {
       query["ConfigRuleId"] = request.configRuleId;
+    }
+
+    if (!Util.isUnset(request.resourceAccountId)) {
+      query["ResourceAccountId"] = request.resourceAccountId;
     }
 
     let req = new $OpenApi.OpenApiRequest({
@@ -19608,7 +21342,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-    * The sample request in this topic shows you how to manually execute the remediation template configured for the rule whose ID is `cr-6b7c626622af00b4****` in the account group whose ID is `ca-6b4a626622af0012****`. The return result shows that the manual execution is successful.
+    * This topic provides an example on how to manually perform a remediation operation by using the rule whose ID is `cr-6b7c626622af00b4****` in the account group whose ID is `ca-6b4a626622af0012****`. The returned result shows that the manual execution is successful.
     *
     * @param request StartAggregateRemediationRequest
     * @return StartAggregateRemediationResponse
@@ -19618,8 +21352,66 @@ export default class Client extends OpenApi {
     return await this.startAggregateRemediationWithOptions(request, runtime);
   }
 
+  async startConfigRuleEvaluationWithOptions(request: StartConfigRuleEvaluationRequest, runtime: $Util.RuntimeOptions): Promise<StartConfigRuleEvaluationResponse> {
+    Util.validateModel(request);
+    let query = { };
+    if (!Util.isUnset(request.compliancePackId)) {
+      query["CompliancePackId"] = request.compliancePackId;
+    }
+
+    if (!Util.isUnset(request.configRuleId)) {
+      query["ConfigRuleId"] = request.configRuleId;
+    }
+
+    if (!Util.isUnset(request.revertEvaluation)) {
+      query["RevertEvaluation"] = request.revertEvaluation;
+    }
+
+    let req = new $OpenApi.OpenApiRequest({
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApi.Params({
+      action: "StartConfigRuleEvaluation",
+      version: "2020-09-07",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $tea.cast<StartConfigRuleEvaluationResponse>(await this.callApi(params, req, runtime), new StartConfigRuleEvaluationResponse({}));
+  }
+
+  async startConfigRuleEvaluation(request: StartConfigRuleEvaluationRequest): Promise<StartConfigRuleEvaluationResponse> {
+    let runtime = new $Util.RuntimeOptions({ });
+    return await this.startConfigRuleEvaluationWithOptions(request, runtime);
+  }
+
+  async startConfigurationRecorderWithOptions(runtime: $Util.RuntimeOptions): Promise<StartConfigurationRecorderResponse> {
+    let req = new $OpenApi.OpenApiRequest({ });
+    let params = new $OpenApi.Params({
+      action: "StartConfigurationRecorder",
+      version: "2020-09-07",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $tea.cast<StartConfigurationRecorderResponse>(await this.callApi(params, req, runtime), new StartConfigurationRecorderResponse({}));
+  }
+
+  async startConfigurationRecorder(): Promise<StartConfigurationRecorderResponse> {
+    let runtime = new $Util.RuntimeOptions({ });
+    return await this.startConfigurationRecorderWithOptions(runtime);
+  }
+
   /**
-    * In this topic, the rule whose ID is `cr-8a973ac2e2be00a2****` is used as an example. The return result shows that the manual execution is successful.
+    * This topic provides an example on how to perform a remediation operation by using the rule whose ID is `cr-8a973ac2e2be00a2****`. The returned result shows that the manual execution is successful.
     *
     * @param request StartRemediationRequest
     * @param runtime runtime options for this request RuntimeOptions
@@ -19650,7 +21442,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-    * In this topic, the rule whose ID is `cr-8a973ac2e2be00a2****` is used as an example. The return result shows that the manual execution is successful.
+    * This topic provides an example on how to perform a remediation operation by using the rule whose ID is `cr-8a973ac2e2be00a2****`. The returned result shows that the manual execution is successful.
     *
     * @param request StartRemediationRequest
     * @return StartRemediationResponse
@@ -19866,7 +21658,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-    * In this example, a delivery channel in an account group is disabled. The ID of the account group is `ca-a4e5626622af0079****`, and the ID of the delivery channel is `cdc-8e45ff4e06a3a8****```. The Status parameter is set to 0. After the delivery channel is disabled, Cloud Config retains the most recent delivery configuration and stops resource data delivery.
+    * This topic provides an example on how to disable a delivery channel in an account group. The ID of the account group is `ca-a4e5626622af0079****`, and the ID of the delivery channel is `cdc-8e45ff4e06a3a8****`. The Status parameter is set to `0`. After the delivery channel is disabled, Cloud Config retains the most recent delivery configuration and stops resource data delivery.
     *
     * @param request UpdateAggregateConfigDeliveryChannelRequest
     * @param runtime runtime options for this request RuntimeOptions
@@ -19945,7 +21737,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-    * In this example, a delivery channel in an account group is disabled. The ID of the account group is `ca-a4e5626622af0079****`, and the ID of the delivery channel is `cdc-8e45ff4e06a3a8****```. The Status parameter is set to 0. After the delivery channel is disabled, Cloud Config retains the most recent delivery configuration and stops resource data delivery.
+    * This topic provides an example on how to disable a delivery channel in an account group. The ID of the account group is `ca-a4e5626622af0079****`, and the ID of the delivery channel is `cdc-8e45ff4e06a3a8****`. The Status parameter is set to `0`. After the delivery channel is disabled, Cloud Config retains the most recent delivery configuration and stops resource data delivery.
     *
     * @param request UpdateAggregateConfigDeliveryChannelRequest
     * @return UpdateAggregateConfigDeliveryChannelResponse
@@ -20491,9 +22283,38 @@ export default class Client extends OpenApi {
     return await this.updateConfigRuleWithOptions(request, runtime);
   }
 
+  async updateConfigurationRecorderWithOptions(request: UpdateConfigurationRecorderRequest, runtime: $Util.RuntimeOptions): Promise<UpdateConfigurationRecorderResponse> {
+    Util.validateModel(request);
+    let body : {[key: string ]: any} = { };
+    if (!Util.isUnset(request.resourceTypes)) {
+      body["ResourceTypes"] = request.resourceTypes;
+    }
+
+    let req = new $OpenApi.OpenApiRequest({
+      body: OpenApiUtil.parseToMap(body),
+    });
+    let params = new $OpenApi.Params({
+      action: "UpdateConfigurationRecorder",
+      version: "2020-09-07",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $tea.cast<UpdateConfigurationRecorderResponse>(await this.callApi(params, req, runtime), new UpdateConfigurationRecorderResponse({}));
+  }
+
+  async updateConfigurationRecorder(request: UpdateConfigurationRecorderRequest): Promise<UpdateConfigurationRecorderResponse> {
+    let runtime = new $Util.RuntimeOptions({ });
+    return await this.updateConfigurationRecorderWithOptions(request, runtime);
+  }
+
   /**
     * @deprecated : UpdateDeliveryChannel is deprecated, please use Config::2020-09-07::UpdateConfigDeliveryChannel,Config::2020-09-07::UpdateAggregateConfigDeliveryChannel instead.
-    * The operation that you want to perform. Set the value to **UpdateDeliveryChannel**.
+    * This topic provides an example on how to change the status of the delivery channel whose ID is `cdc-8e45ff4e06a3a8****` to 0, which indicates that the delivery channel is disabled. After the delivery channel is disabled, Cloud Config retains the last delivery configuration and stops resource data delivery.
     *
     * @param request UpdateDeliveryChannelRequest
     * @param runtime runtime options for this request RuntimeOptions
@@ -20570,7 +22391,7 @@ export default class Client extends OpenApi {
 
   /**
     * @deprecated : UpdateDeliveryChannel is deprecated, please use Config::2020-09-07::UpdateConfigDeliveryChannel,Config::2020-09-07::UpdateAggregateConfigDeliveryChannel instead.
-    * The operation that you want to perform. Set the value to **UpdateDeliveryChannel**.
+    * This topic provides an example on how to change the status of the delivery channel whose ID is `cdc-8e45ff4e06a3a8****` to 0, which indicates that the delivery channel is disabled. After the delivery channel is disabled, Cloud Config retains the last delivery configuration and stops resource data delivery.
     *
     * @param request UpdateDeliveryChannelRequest
     * @return UpdateDeliveryChannelResponse
