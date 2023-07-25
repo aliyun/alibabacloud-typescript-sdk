@@ -2372,10 +2372,12 @@ export class DeleteHotelSceneBookItemHeaders extends $tea.Model {
 export class DeleteHotelSceneBookItemRequest extends $tea.Model {
   hotelId?: string;
   id?: number;
+  name?: string;
   static names(): { [key: string]: string } {
     return {
       hotelId: 'HotelId',
       id: 'Id',
+      name: 'Name',
     };
   }
 
@@ -2383,6 +2385,7 @@ export class DeleteHotelSceneBookItemRequest extends $tea.Model {
     return {
       hotelId: 'string',
       id: 'number',
+      name: 'string',
     };
   }
 
@@ -4125,10 +4128,12 @@ export class GetHotelSceneItemDetailHeaders extends $tea.Model {
 export class GetHotelSceneItemDetailRequest extends $tea.Model {
   hotelId?: string;
   itemId?: number;
+  name?: string;
   static names(): { [key: string]: string } {
     return {
       hotelId: 'HotelId',
       itemId: 'ItemId',
+      name: 'Name',
     };
   }
 
@@ -4136,6 +4141,7 @@ export class GetHotelSceneItemDetailRequest extends $tea.Model {
     return {
       hotelId: 'string',
       itemId: 'number',
+      name: 'string',
     };
   }
 
@@ -12837,20 +12843,26 @@ export class ListHotelSceneItemsResponseBodyResultPage extends $tea.Model {
 
 export class ListHotelSceneItemsResponseBodyResultSceneItemList extends $tea.Model {
   category?: string;
+  deliveryMethod?: string;
   icon?: string;
   id?: number;
   name?: string;
+  paymentMethod?: string;
   price?: number;
+  robotName?: string;
   status?: string;
   type?: string;
   updateTime?: number;
   static names(): { [key: string]: string } {
     return {
       category: 'Category',
+      deliveryMethod: 'DeliveryMethod',
       icon: 'Icon',
       id: 'Id',
       name: 'Name',
+      paymentMethod: 'PaymentMethod',
       price: 'Price',
+      robotName: 'RobotName',
       status: 'Status',
       type: 'Type',
       updateTime: 'UpdateTime',
@@ -12860,10 +12872,13 @@ export class ListHotelSceneItemsResponseBodyResultSceneItemList extends $tea.Mod
   static types(): { [key: string]: any } {
     return {
       category: 'string',
+      deliveryMethod: 'string',
       icon: 'string',
       id: 'number',
       name: 'string',
+      paymentMethod: 'string',
       price: 'number',
+      robotName: 'string',
       status: 'string',
       type: 'string',
       updateTime: 'number',
@@ -14189,27 +14204,39 @@ export class UpdateHotelSceneItemRequestUpdateHotelSceneReqDialogueList extends 
 }
 
 export class UpdateHotelSceneItemRequestUpdateHotelSceneReq extends $tea.Model {
+  deliveryMethod?: string;
   dialogueList?: UpdateHotelSceneItemRequestUpdateHotelSceneReqDialogueList[];
   icon?: string;
   id?: number;
+  name?: string;
+  paymentMethod?: string;
   price?: number;
+  robotName?: string;
   status?: string;
   static names(): { [key: string]: string } {
     return {
+      deliveryMethod: 'DeliveryMethod',
       dialogueList: 'DialogueList',
       icon: 'Icon',
       id: 'Id',
+      name: 'Name',
+      paymentMethod: 'PaymentMethod',
       price: 'Price',
+      robotName: 'RobotName',
       status: 'Status',
     };
   }
 
   static types(): { [key: string]: any } {
     return {
+      deliveryMethod: 'string',
       dialogueList: { 'type': 'array', 'itemType': UpdateHotelSceneItemRequestUpdateHotelSceneReqDialogueList },
       icon: 'string',
       id: 'number',
+      name: 'string',
+      paymentMethod: 'string',
       price: 'number',
+      robotName: 'string',
       status: 'string',
     };
   }
@@ -15387,6 +15414,10 @@ export default class Client extends OpenApi {
       body["Id"] = request.id;
     }
 
+    if (!Util.isUnset(request.name)) {
+      body["Name"] = request.name;
+    }
+
     let realHeaders : {[key: string ]: string} = { };
     if (!Util.isUnset(headers.commonHeaders)) {
       realHeaders = headers.commonHeaders;
@@ -16181,6 +16212,10 @@ export default class Client extends OpenApi {
 
     if (!Util.isUnset(request.itemId)) {
       body["ItemId"] = request.itemId;
+    }
+
+    if (!Util.isUnset(request.name)) {
+      body["Name"] = request.name;
     }
 
     let realHeaders : {[key: string ]: string} = { };
