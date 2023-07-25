@@ -7278,14 +7278,12 @@ export class ListServerlessJobsRequest extends $tea.Model {
   jobNames?: string[];
   pageNumber?: number;
   pageSize?: number;
-  queues?: string[];
   regionId?: string;
   startOrder?: string;
   state?: string;
   submitOrder?: string;
   submitTimeEnd?: string;
   submitTimeStart?: string;
-  users?: string[];
   static names(): { [key: string]: string } {
     return {
       clusterId: 'ClusterId',
@@ -7293,14 +7291,12 @@ export class ListServerlessJobsRequest extends $tea.Model {
       jobNames: 'JobNames',
       pageNumber: 'PageNumber',
       pageSize: 'PageSize',
-      queues: 'Queues',
       regionId: 'RegionId',
       startOrder: 'StartOrder',
       state: 'State',
       submitOrder: 'SubmitOrder',
       submitTimeEnd: 'SubmitTimeEnd',
       submitTimeStart: 'SubmitTimeStart',
-      users: 'Users',
     };
   }
 
@@ -7311,14 +7307,12 @@ export class ListServerlessJobsRequest extends $tea.Model {
       jobNames: { 'type': 'array', 'itemType': 'string' },
       pageNumber: 'number',
       pageSize: 'number',
-      queues: { 'type': 'array', 'itemType': 'string' },
       regionId: 'string',
       startOrder: 'string',
       state: 'string',
       submitOrder: 'string',
       submitTimeEnd: 'string',
       submitTimeStart: 'string',
-      users: { 'type': 'array', 'itemType': 'string' },
     };
   }
 
@@ -14138,31 +14132,31 @@ export class DescribeServerlessJobsResponseBodyJobInfos extends $tea.Model {
   arrayProperties?: DescribeServerlessJobsResponseBodyJobInfosArrayProperties;
   containerGroups?: DescribeServerlessJobsResponseBodyJobInfosContainerGroups[];
   endTime?: number;
-  id?: string;
   isArrayJob?: boolean;
+  jobId?: string;
+  jobName?: string;
   lastModifyTime?: number;
-  name?: string;
-  owner?: string;
   priority?: number;
   queue?: string;
   startTime?: number;
   state?: string;
   submitTime?: number;
+  user?: string;
   static names(): { [key: string]: string } {
     return {
       arrayProperties: 'ArrayProperties',
       containerGroups: 'ContainerGroups',
       endTime: 'EndTime',
-      id: 'Id',
       isArrayJob: 'IsArrayJob',
+      jobId: 'JobId',
+      jobName: 'JobName',
       lastModifyTime: 'LastModifyTime',
-      name: 'Name',
-      owner: 'Owner',
       priority: 'Priority',
       queue: 'Queue',
       startTime: 'StartTime',
       state: 'State',
       submitTime: 'SubmitTime',
+      user: 'User',
     };
   }
 
@@ -14171,16 +14165,16 @@ export class DescribeServerlessJobsResponseBodyJobInfos extends $tea.Model {
       arrayProperties: DescribeServerlessJobsResponseBodyJobInfosArrayProperties,
       containerGroups: { 'type': 'array', 'itemType': DescribeServerlessJobsResponseBodyJobInfosContainerGroups },
       endTime: 'number',
-      id: 'string',
       isArrayJob: 'boolean',
+      jobId: 'string',
+      jobName: 'string',
       lastModifyTime: 'number',
-      name: 'string',
-      owner: 'string',
       priority: 'number',
       queue: 'string',
       startTime: 'number',
       state: 'string',
       submitTime: 'number',
+      user: 'string',
     };
   }
 
@@ -17256,42 +17250,42 @@ export class ListSecurityGroupsResponseBodySecurityGroups extends $tea.Model {
 
 export class ListServerlessJobsResponseBodyJobs extends $tea.Model {
   endTime?: string;
-  id?: string;
   isArrayJob?: boolean;
-  name?: string;
-  owner?: string;
+  jobId?: string;
+  jobName?: string;
   priority?: string;
   queue?: string;
   startTime?: string;
   state?: string;
   submitTime?: string;
+  user?: string;
   static names(): { [key: string]: string } {
     return {
       endTime: 'EndTime',
-      id: 'Id',
       isArrayJob: 'IsArrayJob',
-      name: 'Name',
-      owner: 'Owner',
+      jobId: 'JobId',
+      jobName: 'JobName',
       priority: 'Priority',
       queue: 'Queue',
       startTime: 'StartTime',
       state: 'State',
       submitTime: 'SubmitTime',
+      user: 'User',
     };
   }
 
   static types(): { [key: string]: any } {
     return {
       endTime: 'string',
-      id: 'string',
       isArrayJob: 'boolean',
-      name: 'string',
-      owner: 'string',
+      jobId: 'string',
+      jobName: 'string',
       priority: 'string',
       queue: 'string',
       startTime: 'string',
       state: 'string',
       submitTime: 'string',
+      user: 'string',
     };
   }
 
@@ -18332,18 +18326,18 @@ export class SubmitServerlessJobRequestArrayProperties extends $tea.Model {
 }
 
 export class SubmitServerlessJobRequestContainerEnvironmentVar extends $tea.Model {
-  name?: string;
+  key?: string;
   value?: string;
   static names(): { [key: string]: string } {
     return {
-      name: 'Name',
+      key: 'Key',
       value: 'Value',
     };
   }
 
   static types(): { [key: string]: any } {
     return {
-      name: 'string',
+      key: 'string',
       value: 'string',
     };
   }
@@ -18353,69 +18347,22 @@ export class SubmitServerlessJobRequestContainerEnvironmentVar extends $tea.Mode
   }
 }
 
-export class SubmitServerlessJobRequestContainerVolumeMountFlexVolume extends $tea.Model {
-  driver?: string;
-  options?: string;
-  static names(): { [key: string]: string } {
-    return {
-      driver: 'Driver',
-      options: 'Options',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      driver: 'string',
-      options: 'string',
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class SubmitServerlessJobRequestContainerVolumeMountNFSVolume extends $tea.Model {
-  path?: string;
-  readOnly?: boolean;
-  server?: string;
-  static names(): { [key: string]: string } {
-    return {
-      path: 'Path',
-      readOnly: 'ReadOnly',
-      server: 'Server',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      path: 'string',
-      readOnly: 'boolean',
-      server: 'string',
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
 export class SubmitServerlessJobRequestContainerVolumeMount extends $tea.Model {
-  flexVolume?: SubmitServerlessJobRequestContainerVolumeMountFlexVolume;
-  NFSVolume?: SubmitServerlessJobRequestContainerVolumeMountNFSVolume;
+  flexVolumeDriver?: string;
+  flexVolumeOptions?: string;
   mountPath?: string;
   static names(): { [key: string]: string } {
     return {
-      flexVolume: 'FlexVolume',
-      NFSVolume: 'NFSVolume',
+      flexVolumeDriver: 'FlexVolumeDriver',
+      flexVolumeOptions: 'FlexVolumeOptions',
       mountPath: 'MountPath',
     };
   }
 
   static types(): { [key: string]: any } {
     return {
-      flexVolume: SubmitServerlessJobRequestContainerVolumeMountFlexVolume,
-      NFSVolume: SubmitServerlessJobRequestContainerVolumeMountNFSVolume,
+      flexVolumeDriver: 'string',
+      flexVolumeOptions: 'string',
       mountPath: 'string',
     };
   }
@@ -18595,7 +18542,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-    * The operation that you want to perform. Set the value to AddContainerApp.
+    * If you select an image for a new containerized application, the image is pulled from Docker Hub by default. However, the version of the image may not be up to date. You can call the [PullImage](~~159052~~) operation to pull the latest image.
     *
     * @param request AddContainerAppRequest
     * @param runtime runtime options for this request RuntimeOptions
@@ -18622,7 +18569,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-    * The operation that you want to perform. Set the value to AddContainerApp.
+    * If you select an image for a new containerized application, the image is pulled from Docker Hub by default. However, the version of the image may not be up to date. You can call the [PullImage](~~159052~~) operation to pull the latest image.
     *
     * @param request AddContainerAppRequest
     * @return AddContainerAppResponse
@@ -20928,10 +20875,6 @@ export default class Client extends OpenApi {
       query["PageSize"] = request.pageSize;
     }
 
-    if (!Util.isUnset(request.queues)) {
-      query["Queues"] = request.queues;
-    }
-
     if (!Util.isUnset(request.regionId)) {
       query["RegionId"] = request.regionId;
     }
@@ -20954,10 +20897,6 @@ export default class Client extends OpenApi {
 
     if (!Util.isUnset(request.submitTimeStart)) {
       query["SubmitTimeStart"] = request.submitTimeStart;
-    }
-
-    if (!Util.isUnset(request.users)) {
-      query["Users"] = request.users;
     }
 
     let req = new $OpenApi.OpenApiRequest({
