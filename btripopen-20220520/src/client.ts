@@ -24218,6 +24218,7 @@ export class HotelGoodsQueryResponseBodyModuleRoomsRatesHotelDetailRatePriceDTO 
   breakfast?: string;
   discountPrice?: number;
   lastDiscountsPrice?: number;
+  lastDiscountsRoundingPrice?: number;
   lastNum?: number;
   rateStartTime?: string;
   status?: number;
@@ -24227,6 +24228,7 @@ export class HotelGoodsQueryResponseBodyModuleRoomsRatesHotelDetailRatePriceDTO 
       breakfast: 'breakfast',
       discountPrice: 'discount_price',
       lastDiscountsPrice: 'last_discounts_price',
+      lastDiscountsRoundingPrice: 'last_discounts_rounding_price',
       lastNum: 'last_num',
       rateStartTime: 'rate_start_time',
       status: 'status',
@@ -24239,6 +24241,7 @@ export class HotelGoodsQueryResponseBodyModuleRoomsRatesHotelDetailRatePriceDTO 
       breakfast: 'string',
       discountPrice: 'number',
       lastDiscountsPrice: 'number',
+      lastDiscountsRoundingPrice: 'number',
       lastNum: 'number',
       rateStartTime: 'string',
       status: 'number',
