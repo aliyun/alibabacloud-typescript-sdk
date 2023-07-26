@@ -404,12 +404,10 @@ export class DeleteSandboxInstanceResponse extends $tea.Model {
 export class DescribeDBTablesRecoveryBackupSetRequest extends $tea.Model {
   instanceId?: string;
   regionCode?: string;
-  regionId?: string;
   static names(): { [key: string]: string } {
     return {
       instanceId: 'InstanceId',
       regionCode: 'RegionCode',
-      regionId: 'RegionId',
     };
   }
 
@@ -417,7 +415,6 @@ export class DescribeDBTablesRecoveryBackupSetRequest extends $tea.Model {
     return {
       instanceId: 'string',
       regionCode: 'string',
-      regionId: 'string',
     };
   }
 
@@ -491,12 +488,10 @@ export class DescribeDBTablesRecoveryBackupSetResponse extends $tea.Model {
 export class DescribeDBTablesRecoveryStateRequest extends $tea.Model {
   instanceId?: string;
   regionCode?: string;
-  regionId?: string;
   static names(): { [key: string]: string } {
     return {
       instanceId: 'InstanceId',
       regionCode: 'RegionCode',
-      regionId: 'RegionId',
     };
   }
 
@@ -504,7 +499,6 @@ export class DescribeDBTablesRecoveryStateRequest extends $tea.Model {
     return {
       instanceId: 'string',
       regionCode: 'string',
-      regionId: 'string',
     };
   }
 
@@ -578,12 +572,10 @@ export class DescribeDBTablesRecoveryStateResponse extends $tea.Model {
 export class DescribeDBTablesRecoveryTimeRangeRequest extends $tea.Model {
   instanceId?: string;
   regionCode?: string;
-  regionId?: string;
   static names(): { [key: string]: string } {
     return {
       instanceId: 'InstanceId',
       regionCode: 'RegionCode',
-      regionId: 'RegionId',
     };
   }
 
@@ -591,7 +583,6 @@ export class DescribeDBTablesRecoveryTimeRangeRequest extends $tea.Model {
     return {
       instanceId: 'string',
       regionCode: 'string',
-      regionId: 'string',
     };
   }
 
@@ -1218,14 +1209,12 @@ export class ModifyDBTablesRecoveryStateRequest extends $tea.Model {
   category?: string;
   instanceId?: string;
   regionCode?: string;
-  regionId?: string;
   retention?: string;
   static names(): { [key: string]: string } {
     return {
       category: 'Category',
       instanceId: 'InstanceId',
       regionCode: 'RegionCode',
-      regionId: 'RegionId',
       retention: 'Retention',
     };
   }
@@ -1235,7 +1224,6 @@ export class ModifyDBTablesRecoveryStateRequest extends $tea.Model {
       category: 'string',
       instanceId: 'string',
       regionCode: 'string',
-      regionId: 'string',
       retention: 'string',
     };
   }
@@ -1310,12 +1298,10 @@ export class ModifyDBTablesRecoveryStateResponse extends $tea.Model {
 export class SupportDBTableRecoveryRequest extends $tea.Model {
   instanceId?: string;
   regionCode?: string;
-  regionId?: string;
   static names(): { [key: string]: string } {
     return {
       instanceId: 'InstanceId',
       regionCode: 'RegionCode',
-      regionId: 'RegionId',
     };
   }
 
@@ -1323,7 +1309,6 @@ export class SupportDBTableRecoveryRequest extends $tea.Model {
     return {
       instanceId: 'string',
       regionCode: 'string',
-      regionId: 'string',
     };
   }
 
@@ -1719,7 +1704,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-    * You can create an advanced download task by point in time or backup file. You can set the Download Destination parameter to URL or directly upload the downloaded data to your Object Storage Service (OSS) bucket to facilitate data analysis and offline archiving. For more information, see [Advanced download](~~98819~~).
+    * For ApsaraDB RDS for MySQL instances that use standard SSDs or enhanced SSDs (ESSDs) and meet your business requirements, you can create an advanced download task by point in time or backup set. You can set the download destination to an URL or directly upload the downloaded data to your Object Storage Service (OSS) bucket to facilitate data analysis and offline archiving. For more information, see [Download the backup files of an ApsaraDB RDS for MySQL instance](~~98819~~).
     *
     * @param request CreateDownloadRequest
     * @param runtime runtime options for this request RuntimeOptions
@@ -1790,7 +1775,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-    * You can create an advanced download task by point in time or backup file. You can set the Download Destination parameter to URL or directly upload the downloaded data to your Object Storage Service (OSS) bucket to facilitate data analysis and offline archiving. For more information, see [Advanced download](~~98819~~).
+    * For ApsaraDB RDS for MySQL instances that use standard SSDs or enhanced SSDs (ESSDs) and meet your business requirements, you can create an advanced download task by point in time or backup set. You can set the download destination to an URL or directly upload the downloaded data to your Object Storage Service (OSS) bucket to facilitate data analysis and offline archiving. For more information, see [Download the backup files of an ApsaraDB RDS for MySQL instance](~~98819~~).
     *
     * @param request CreateDownloadRequest
     * @return CreateDownloadResponse
@@ -1801,7 +1786,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-    * Before you call this operation, you must enable the sandbox feature for the database instance. For more information, see [Create a sandbox instance for emergency disaster recovery of an ApsaraDB RDS for MySQL database](~~203154~~) or [Create a sandbox instance for emergency disaster recovery of a self-managed MySQL database](~~185577~~). The API operation is available only in Database Backup (DBS) API of the 2021-01-01 version.
+    * Before you call this operation, you must enable the sandbox feature for the database instance. For more information, see [Use the emergency recovery feature of an ApsaraDB RDS for MySQL instance](~~203154~~) or [Create a sandbox instance for emergency disaster recovery of a self-managed MySQL database](~~185577~~). This operation is available only in Database Backup (DBS) API of the 2021-01-01 version.
     *
     * @param request CreateSandboxInstanceRequest
     * @param runtime runtime options for this request RuntimeOptions
@@ -1868,7 +1853,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-    * Before you call this operation, you must enable the sandbox feature for the database instance. For more information, see [Create a sandbox instance for emergency disaster recovery of an ApsaraDB RDS for MySQL database](~~203154~~) or [Create a sandbox instance for emergency disaster recovery of a self-managed MySQL database](~~185577~~). The API operation is available only in Database Backup (DBS) API of the 2021-01-01 version.
+    * Before you call this operation, you must enable the sandbox feature for the database instance. For more information, see [Use the emergency recovery feature of an ApsaraDB RDS for MySQL instance](~~203154~~) or [Create a sandbox instance for emergency disaster recovery of a self-managed MySQL database](~~185577~~). This operation is available only in Database Backup (DBS) API of the 2021-01-01 version.
     *
     * @param request CreateSandboxInstanceRequest
     * @return CreateSandboxInstanceResponse
@@ -1879,7 +1864,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-    * The API operation is available only in Database Backup (DBS) API of the 2021-01-01 version.
+    * This operation is available only for the Database Backup (DBS) API of the 2021-01-01 version.
     *
     * @param request DeleteSandboxInstanceRequest
     * @param runtime runtime options for this request RuntimeOptions
@@ -1914,7 +1899,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-    * The API operation is available only in Database Backup (DBS) API of the 2021-01-01 version.
+    * This operation is available only for the Database Backup (DBS) API of the 2021-01-01 version.
     *
     * @param request DeleteSandboxInstanceRequest
     * @return DeleteSandboxInstanceResponse
@@ -1933,10 +1918,6 @@ export default class Client extends OpenApi {
 
     if (!Util.isUnset(request.regionCode)) {
       query["RegionCode"] = request.regionCode;
-    }
-
-    if (!Util.isUnset(request.regionId)) {
-      query["RegionId"] = request.regionId;
     }
 
     let req = new $OpenApi.OpenApiRequest({
@@ -1972,10 +1953,6 @@ export default class Client extends OpenApi {
       query["RegionCode"] = request.regionCode;
     }
 
-    if (!Util.isUnset(request.regionId)) {
-      query["RegionId"] = request.regionId;
-    }
-
     let req = new $OpenApi.OpenApiRequest({
       query: OpenApiUtil.query(query),
     });
@@ -2009,10 +1986,6 @@ export default class Client extends OpenApi {
       query["RegionCode"] = request.regionCode;
     }
 
-    if (!Util.isUnset(request.regionId)) {
-      query["RegionId"] = request.regionId;
-    }
-
     let req = new $OpenApi.OpenApiRequest({
       query: OpenApiUtil.query(query),
     });
@@ -2036,7 +2009,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-    * You can create an advanced download task by point in time or backup file. You can set the Download Destination parameter to URL or directly upload the downloaded data to your Object Storage Service (OSS) bucket to facilitate data analysis and offline archiving. For more information, see [Advanced download](~~98819~~).
+    * You can create an advanced download task by point in time or backup set. You can set the download destination to an URL or directly upload the downloaded data to your Object Storage Service (OSS) bucket to facilitate data analysis and offline archiving. For more information, see [Download the backup files of an ApsaraDB RDS for MySQL instance](~~98819~~).
     *
     * @param request DescribeDownloadBackupSetStorageInfoRequest
     * @param runtime runtime options for this request RuntimeOptions
@@ -2083,7 +2056,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-    * You can create an advanced download task by point in time or backup file. You can set the Download Destination parameter to URL or directly upload the downloaded data to your Object Storage Service (OSS) bucket to facilitate data analysis and offline archiving. For more information, see [Advanced download](~~98819~~).
+    * You can create an advanced download task by point in time or backup set. You can set the download destination to an URL or directly upload the downloaded data to your Object Storage Service (OSS) bucket to facilitate data analysis and offline archiving. For more information, see [Download the backup files of an ApsaraDB RDS for MySQL instance](~~98819~~).
     *
     * @param request DescribeDownloadBackupSetStorageInfoRequest
     * @return DescribeDownloadBackupSetStorageInfoResponse
@@ -2094,7 +2067,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-    * You can create an advanced download task by point in time or backup file. You can set the Download Destination parameter to URL or directly upload the downloaded data to your Object Storage Service (OSS) bucket to facilitate data analysis and offline archiving. For more information, see [Advanced download](~~98819~~).
+    * You can create an advanced download task by point in time or backup set. You can set the download destination to an URL or directly upload the downloaded data to your Object Storage Service (OSS) bucket to facilitate data analysis and offline archiving. For more information, see [Download the backup files of an ApsaraDB RDS for MySQL instance](~~98819~~).
     *
     * @param request DescribeDownloadSupportRequest
     * @param runtime runtime options for this request RuntimeOptions
@@ -2129,7 +2102,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-    * You can create an advanced download task by point in time or backup file. You can set the Download Destination parameter to URL or directly upload the downloaded data to your Object Storage Service (OSS) bucket to facilitate data analysis and offline archiving. For more information, see [Advanced download](~~98819~~).
+    * You can create an advanced download task by point in time or backup set. You can set the download destination to an URL or directly upload the downloaded data to your Object Storage Service (OSS) bucket to facilitate data analysis and offline archiving. For more information, see [Download the backup files of an ApsaraDB RDS for MySQL instance](~~98819~~).
     *
     * @param request DescribeDownloadSupportRequest
     * @return DescribeDownloadSupportResponse
@@ -2140,7 +2113,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-    * You can create an advanced download task by point in time or backup file. You can set the Download Destination parameter to URL or directly upload the downloaded data to your Object Storage Service (OSS) bucket to facilitate data analysis and offline archiving. For more information, see [Advanced download](~~98819~~).
+    * You can create an advanced download task by point in time or backup set. You can set the Download Destination parameter to URL or directly upload the downloaded data to your Object Storage Service (OSS) bucket to facilitate data analysis and offline archiving. For more information, see [Download the backup files of an ApsaraDB RDS for MySQL instance](~~98819~~).
     *
     * @param request DescribeDownloadTaskRequest
     * @param runtime runtime options for this request RuntimeOptions
@@ -2215,7 +2188,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-    * You can create an advanced download task by point in time or backup file. You can set the Download Destination parameter to URL or directly upload the downloaded data to your Object Storage Service (OSS) bucket to facilitate data analysis and offline archiving. For more information, see [Advanced download](~~98819~~).
+    * You can create an advanced download task by point in time or backup set. You can set the Download Destination parameter to URL or directly upload the downloaded data to your Object Storage Service (OSS) bucket to facilitate data analysis and offline archiving. For more information, see [Download the backup files of an ApsaraDB RDS for MySQL instance](~~98819~~).
     *
     * @param request DescribeDownloadTaskRequest
     * @return DescribeDownloadTaskResponse
@@ -2226,7 +2199,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-    * Before you call this operation, you must enable the sandbox feature for the database instance. For more information, see [Create a sandbox instance for emergency disaster recovery of an ApsaraDB RDS for MySQL database](~~203154~~) or [Create a sandbox instance for emergency disaster recovery of a self-managed MySQL database](~~185577~~). The API operation is available only in Database Backup (DBS) API of the 2021-01-01 version.
+    * Before you call this operation, you must enable the sandbox feature for the database instance. For more information, see [Use the emergency recovery feature of an ApsaraDB RDS for MySQL instance](~~203154~~) or [Create a sandbox instance for emergency disaster recovery of a self-managed MySQL database](~~185577~~). This operation is available only for the Database Backup (DBS) API of the 2021-01-01 version.
     *
     * @param request DescribeSandboxBackupSetsRequest
     * @param runtime runtime options for this request RuntimeOptions
@@ -2269,7 +2242,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-    * Before you call this operation, you must enable the sandbox feature for the database instance. For more information, see [Create a sandbox instance for emergency disaster recovery of an ApsaraDB RDS for MySQL database](~~203154~~) or [Create a sandbox instance for emergency disaster recovery of a self-managed MySQL database](~~185577~~). The API operation is available only in Database Backup (DBS) API of the 2021-01-01 version.
+    * Before you call this operation, you must enable the sandbox feature for the database instance. For more information, see [Use the emergency recovery feature of an ApsaraDB RDS for MySQL instance](~~203154~~) or [Create a sandbox instance for emergency disaster recovery of a self-managed MySQL database](~~185577~~). This operation is available only for the Database Backup (DBS) API of the 2021-01-01 version.
     *
     * @param request DescribeSandboxBackupSetsRequest
     * @return DescribeSandboxBackupSetsResponse
@@ -2280,7 +2253,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-    * The API operation is available only in Database Backup (DBS) API of the 2021-01-01 version.
+    * This operation is available only in Database Backup (DBS) API of the 2021-01-01 version.
     *
     * @param request DescribeSandboxInstancesRequest
     * @param runtime runtime options for this request RuntimeOptions
@@ -2323,7 +2296,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-    * The API operation is available only in Database Backup (DBS) API of the 2021-01-01 version.
+    * This operation is available only in Database Backup (DBS) API of the 2021-01-01 version.
     *
     * @param request DescribeSandboxInstancesRequest
     * @return DescribeSandboxInstancesResponse
@@ -2334,7 +2307,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-    * Before you call this operation, you must enable the sandbox feature for the database instance. For more information, see [Create a sandbox instance for emergency disaster recovery of an ApsaraDB RDS for MySQL database](~~203154~~) or [Create a sandbox instance for emergency disaster recovery of a self-managed MySQL database](~~185577~~). The API operation is available only in Database Backup (DBS) API of the 2021-01-01 version.
+    * Before you call this operation, you must enable the sandbox feature for the database instance. For more information, see [Use the emergency recovery feature of an ApsaraDB RDS for MySQL instance](~~203154~~) or [Create a sandbox instance for emergency disaster recovery of a self-managed MySQL database](~~185577~~). This operation is available only in Database Backup (DBS) API of the 2021-01-01 version.
     *
     * @param request DescribeSandboxRecoveryTimeRequest
     * @param runtime runtime options for this request RuntimeOptions
@@ -2365,7 +2338,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-    * Before you call this operation, you must enable the sandbox feature for the database instance. For more information, see [Create a sandbox instance for emergency disaster recovery of an ApsaraDB RDS for MySQL database](~~203154~~) or [Create a sandbox instance for emergency disaster recovery of a self-managed MySQL database](~~185577~~). The API operation is available only in Database Backup (DBS) API of the 2021-01-01 version.
+    * Before you call this operation, you must enable the sandbox feature for the database instance. For more information, see [Use the emergency recovery feature of an ApsaraDB RDS for MySQL instance](~~203154~~) or [Create a sandbox instance for emergency disaster recovery of a self-managed MySQL database](~~185577~~). This operation is available only in Database Backup (DBS) API of the 2021-01-01 version.
     *
     * @param request DescribeSandboxRecoveryTimeRequest
     * @return DescribeSandboxRecoveryTimeResponse
@@ -2388,10 +2361,6 @@ export default class Client extends OpenApi {
 
     if (!Util.isUnset(request.regionCode)) {
       query["RegionCode"] = request.regionCode;
-    }
-
-    if (!Util.isUnset(request.regionId)) {
-      query["RegionId"] = request.regionId;
     }
 
     if (!Util.isUnset(request.retention)) {
@@ -2429,10 +2398,6 @@ export default class Client extends OpenApi {
 
     if (!Util.isUnset(request.regionCode)) {
       query["RegionCode"] = request.regionCode;
-    }
-
-    if (!Util.isUnset(request.regionId)) {
-      query["RegionId"] = request.regionId;
     }
 
     let req = new $OpenApi.OpenApiRequest({
