@@ -2373,12 +2373,14 @@ export class GetResourceDirectoryResponse extends $tea.Model {
 
 export class InviteAccountToResourceDirectoryRequest extends $tea.Model {
   note?: string;
+  parentFolderId?: string;
   tag?: InviteAccountToResourceDirectoryRequestTag[];
   targetEntity?: string;
   targetType?: string;
   static names(): { [key: string]: string } {
     return {
       note: 'Note',
+      parentFolderId: 'ParentFolderId',
       tag: 'Tag',
       targetEntity: 'TargetEntity',
       targetType: 'TargetType',
@@ -2388,6 +2390,7 @@ export class InviteAccountToResourceDirectoryRequest extends $tea.Model {
   static types(): { [key: string]: any } {
     return {
       note: 'string',
+      parentFolderId: 'string',
       tag: { 'type': 'array', 'itemType': InviteAccountToResourceDirectoryRequestTag },
       targetEntity: 'string',
       targetType: 'string',
@@ -7453,9 +7456,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-    * Before you disable a resource directory, you must make sure that the following requirements are met:
-    * *   All members of the cloud account type in the resource directory are removed. You can call the [RemoveCloudAccount](~~RemoveCloudAccount~~) operation to remove a member of the cloud account type.
-    * *   All folders except the Root folder are deleted from the resource directory. You can call the [DeleteFolder](~~DeleteFolder~~) operation to delete a folder.
+    * The ID of the request.
     *
     * @param request DestroyResourceDirectoryRequest
     * @param runtime runtime options for this request RuntimeOptions
@@ -7478,9 +7479,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-    * Before you disable a resource directory, you must make sure that the following requirements are met:
-    * *   All members of the cloud account type in the resource directory are removed. You can call the [RemoveCloudAccount](~~RemoveCloudAccount~~) operation to remove a member of the cloud account type.
-    * *   All folders except the Root folder are deleted from the resource directory. You can call the [DeleteFolder](~~DeleteFolder~~) operation to delete a folder.
+    * The ID of the request.
     *
     * @return DestroyResourceDirectoryResponse
    */
@@ -7538,8 +7537,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-    * After you disable the Control Policy feature, the system automatically detaches all access control policies that are attached to folders and members. The system does not delete these access control policies, but you cannot attach them to folders or members again.
-    * > If you disable the Control Policy feature, the permissions of all folders and members in your resource directory are affected. Therefore, proceed with caution.
+    * The ID of the request.
     *
     * @param request DisableControlPolicyRequest
     * @param runtime runtime options for this request RuntimeOptions
@@ -7562,8 +7560,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-    * After you disable the Control Policy feature, the system automatically detaches all access control policies that are attached to folders and members. The system does not delete these access control policies, but you cannot attach them to folders or members again.
-    * > If you disable the Control Policy feature, the permissions of all folders and members in your resource directory are affected. Therefore, proceed with caution.
+    * The ID of the request.
     *
     * @return DisableControlPolicyResponse
    */
@@ -7606,7 +7603,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-    * The Control Policy feature provided by the Resource Directory service allows you to manage the permission boundaries of the folders or members in your resource directory in a centralized manner. This feature is implemented based on the resource directory. You can use this feature to develop common or dedicated rules for access control. The Control Policy feature does not grant permissions but only defines permission boundaries. A member in a resource directory can be used to access resources only after it is granted the required permissions by using the Resource Access Management (RAM) service. For more information, see [Overview of the Control Policy feature](~~178671~~).
+    * The ID of the request.
     *
     * @param request EnableControlPolicyRequest
     * @param runtime runtime options for this request RuntimeOptions
@@ -7629,7 +7626,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-    * The Control Policy feature provided by the Resource Directory service allows you to manage the permission boundaries of the folders or members in your resource directory in a centralized manner. This feature is implemented based on the resource directory. You can use this feature to develop common or dedicated rules for access control. The Control Policy feature does not grant permissions but only defines permission boundaries. A member in a resource directory can be used to access resources only after it is granted the required permissions by using the Resource Access Management (RAM) service. For more information, see [Overview of the Control Policy feature](~~178671~~).
+    * The ID of the request.
     *
     * @return EnableControlPolicyResponse
    */
@@ -8021,6 +8018,10 @@ export default class Client extends OpenApi {
     let query = { };
     if (!Util.isUnset(request.note)) {
       query["Note"] = request.note;
+    }
+
+    if (!Util.isUnset(request.parentFolderId)) {
+      query["ParentFolderId"] = request.parentFolderId;
     }
 
     if (!Util.isUnset(request.tag)) {
@@ -9081,7 +9082,6 @@ export default class Client extends OpenApi {
   }
 
   /**
-    * ### Prerequisites
     * *   To ensure that the system can record the operators of management operations, you must use a RAM user or RAM role to which the AliyunResourceDirectoryFullAccess policy is attached within the management account of your resource directory to call this operation.
     * *   Before you switch the type of a member from resource account to cloud account, make sure that specific conditions are met. For more information about the conditions, see [Switch a resource account to a cloud account](~~111233~~).
     * *   Before you switch the type of a member from cloud account to resource account, make sure that specific conditions are met. For more information about the conditions, see [Switch a cloud account to a resource account](~~209980~~).
@@ -9123,7 +9123,6 @@ export default class Client extends OpenApi {
   }
 
   /**
-    * ### Prerequisites
     * *   To ensure that the system can record the operators of management operations, you must use a RAM user or RAM role to which the AliyunResourceDirectoryFullAccess policy is attached within the management account of your resource directory to call this operation.
     * *   Before you switch the type of a member from resource account to cloud account, make sure that specific conditions are met. For more information about the conditions, see [Switch a resource account to a cloud account](~~111233~~).
     * *   Before you switch the type of a member from cloud account to resource account, make sure that specific conditions are met. For more information about the conditions, see [Switch a cloud account to a resource account](~~209980~~).
