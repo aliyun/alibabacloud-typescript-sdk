@@ -8,81 +8,6 @@ import OpenApiUtil from '@alicloud/openapi-util';
 import EndpointUtil from '@alicloud/endpoint-util';
 import * as $tea from '@alicloud/tea-typescript';
 
-export class AddBuDBInstanceRelationRequest extends $tea.Model {
-  businessUnit?: string;
-  DBInstanceId?: string;
-  ownerId?: number;
-  static names(): { [key: string]: string } {
-    return {
-      businessUnit: 'BusinessUnit',
-      DBInstanceId: 'DBInstanceId',
-      ownerId: 'OwnerId',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      businessUnit: 'string',
-      DBInstanceId: 'string',
-      ownerId: 'number',
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class AddBuDBInstanceRelationResponseBody extends $tea.Model {
-  businessUnit?: string;
-  DBInstanceName?: string;
-  requestId?: string;
-  static names(): { [key: string]: string } {
-    return {
-      businessUnit: 'BusinessUnit',
-      DBInstanceName: 'DBInstanceName',
-      requestId: 'RequestId',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      businessUnit: 'string',
-      DBInstanceName: 'string',
-      requestId: 'string',
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class AddBuDBInstanceRelationResponse extends $tea.Model {
-  headers: { [key: string]: string };
-  statusCode: number;
-  body: AddBuDBInstanceRelationResponseBody;
-  static names(): { [key: string]: string } {
-    return {
-      headers: 'headers',
-      statusCode: 'statusCode',
-      body: 'body',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
-      statusCode: 'number',
-      body: AddBuDBInstanceRelationResponseBody,
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
 export class AllocateInstancePublicConnectionRequest extends $tea.Model {
   addressType?: string;
   connectionStringPrefix?: string;
@@ -314,6 +239,105 @@ export class CreateAccountResponse extends $tea.Model {
   }
 }
 
+export class CreateCollectionRequest extends $tea.Model {
+  collection?: string;
+  DBInstanceId?: string;
+  dimension?: number;
+  fullTextRetrievalFields?: string;
+  managerAccount?: string;
+  managerAccountPassword?: string;
+  metadata?: string;
+  namespace?: string;
+  ownerId?: number;
+  parser?: string;
+  regionId?: string;
+  static names(): { [key: string]: string } {
+    return {
+      collection: 'Collection',
+      DBInstanceId: 'DBInstanceId',
+      dimension: 'Dimension',
+      fullTextRetrievalFields: 'FullTextRetrievalFields',
+      managerAccount: 'ManagerAccount',
+      managerAccountPassword: 'ManagerAccountPassword',
+      metadata: 'Metadata',
+      namespace: 'Namespace',
+      ownerId: 'OwnerId',
+      parser: 'Parser',
+      regionId: 'RegionId',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      collection: 'string',
+      DBInstanceId: 'string',
+      dimension: 'number',
+      fullTextRetrievalFields: 'string',
+      managerAccount: 'string',
+      managerAccountPassword: 'string',
+      metadata: 'string',
+      namespace: 'string',
+      ownerId: 'number',
+      parser: 'string',
+      regionId: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class CreateCollectionResponseBody extends $tea.Model {
+  message?: string;
+  requestId?: string;
+  status?: string;
+  static names(): { [key: string]: string } {
+    return {
+      message: 'Message',
+      requestId: 'RequestId',
+      status: 'Status',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      message: 'string',
+      requestId: 'string',
+      status: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class CreateCollectionResponse extends $tea.Model {
+  headers: { [key: string]: string };
+  statusCode: number;
+  body: CreateCollectionResponseBody;
+  static names(): { [key: string]: string } {
+    return {
+      headers: 'headers',
+      statusCode: 'statusCode',
+      body: 'body',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
+      body: CreateCollectionResponseBody,
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
 export class CreateDBInstanceRequest extends $tea.Model {
   clientToken?: string;
   createSampleData?: boolean;
@@ -322,6 +346,8 @@ export class CreateDBInstanceRequest extends $tea.Model {
   DBInstanceDescription?: string;
   DBInstanceGroupCount?: string;
   DBInstanceMode?: string;
+  encryptionKey?: string;
+  encryptionType?: string;
   engine?: string;
   engineVersion?: string;
   idleTime?: number;
@@ -335,6 +361,7 @@ export class CreateDBInstanceRequest extends $tea.Model {
   regionId?: string;
   resourceGroupId?: string;
   securityIPList?: string;
+  segDiskPerformanceLevel?: string;
   segNodeNum?: string;
   segStorageType?: string;
   serverlessMode?: string;
@@ -345,6 +372,7 @@ export class CreateDBInstanceRequest extends $tea.Model {
   usedTime?: string;
   VPCId?: string;
   vSwitchId?: string;
+  vectorConfigurationStatus?: string;
   zoneId?: string;
   static names(): { [key: string]: string } {
     return {
@@ -355,6 +383,8 @@ export class CreateDBInstanceRequest extends $tea.Model {
       DBInstanceDescription: 'DBInstanceDescription',
       DBInstanceGroupCount: 'DBInstanceGroupCount',
       DBInstanceMode: 'DBInstanceMode',
+      encryptionKey: 'EncryptionKey',
+      encryptionType: 'EncryptionType',
       engine: 'Engine',
       engineVersion: 'EngineVersion',
       idleTime: 'IdleTime',
@@ -368,6 +398,7 @@ export class CreateDBInstanceRequest extends $tea.Model {
       regionId: 'RegionId',
       resourceGroupId: 'ResourceGroupId',
       securityIPList: 'SecurityIPList',
+      segDiskPerformanceLevel: 'SegDiskPerformanceLevel',
       segNodeNum: 'SegNodeNum',
       segStorageType: 'SegStorageType',
       serverlessMode: 'ServerlessMode',
@@ -378,6 +409,7 @@ export class CreateDBInstanceRequest extends $tea.Model {
       usedTime: 'UsedTime',
       VPCId: 'VPCId',
       vSwitchId: 'VSwitchId',
+      vectorConfigurationStatus: 'VectorConfigurationStatus',
       zoneId: 'ZoneId',
     };
   }
@@ -391,6 +423,8 @@ export class CreateDBInstanceRequest extends $tea.Model {
       DBInstanceDescription: 'string',
       DBInstanceGroupCount: 'string',
       DBInstanceMode: 'string',
+      encryptionKey: 'string',
+      encryptionType: 'string',
       engine: 'string',
       engineVersion: 'string',
       idleTime: 'number',
@@ -404,6 +438,7 @@ export class CreateDBInstanceRequest extends $tea.Model {
       regionId: 'string',
       resourceGroupId: 'string',
       securityIPList: 'string',
+      segDiskPerformanceLevel: 'string',
       segNodeNum: 'string',
       segStorageType: 'string',
       serverlessMode: 'string',
@@ -414,6 +449,7 @@ export class CreateDBInstanceRequest extends $tea.Model {
       usedTime: 'string',
       VPCId: 'string',
       vSwitchId: 'string',
+      vectorConfigurationStatus: 'string',
       zoneId: 'string',
     };
   }
@@ -578,126 +614,35 @@ export class CreateDBInstancePlanResponse extends $tea.Model {
   }
 }
 
-export class CreateECSDBInstanceRequest extends $tea.Model {
-  backupId?: string;
-  clientToken?: string;
-  DBInstanceCategory?: string;
-  DBInstanceDescription?: string;
-  encryptionKey?: string;
-  encryptionType?: string;
-  engine?: string;
-  engineVersion?: string;
-  instanceNetworkType?: string;
-  instanceSpec?: string;
-  masterNodeNum?: number;
-  ownerId?: number;
-  payType?: string;
-  period?: string;
-  privateIpAddress?: string;
-  regionId?: string;
-  resourceGroupId?: string;
-  securityIPList?: string;
-  segNodeNum?: number;
-  segStorageType?: string;
-  srcDbInstanceName?: string;
-  storageSize?: number;
-  tag?: CreateECSDBInstanceRequestTag[];
-  usedTime?: string;
-  VPCId?: string;
-  vSwitchId?: string;
-  zoneId?: string;
-  static names(): { [key: string]: string } {
-    return {
-      backupId: 'BackupId',
-      clientToken: 'ClientToken',
-      DBInstanceCategory: 'DBInstanceCategory',
-      DBInstanceDescription: 'DBInstanceDescription',
-      encryptionKey: 'EncryptionKey',
-      encryptionType: 'EncryptionType',
-      engine: 'Engine',
-      engineVersion: 'EngineVersion',
-      instanceNetworkType: 'InstanceNetworkType',
-      instanceSpec: 'InstanceSpec',
-      masterNodeNum: 'MasterNodeNum',
-      ownerId: 'OwnerId',
-      payType: 'PayType',
-      period: 'Period',
-      privateIpAddress: 'PrivateIpAddress',
-      regionId: 'RegionId',
-      resourceGroupId: 'ResourceGroupId',
-      securityIPList: 'SecurityIPList',
-      segNodeNum: 'SegNodeNum',
-      segStorageType: 'SegStorageType',
-      srcDbInstanceName: 'SrcDbInstanceName',
-      storageSize: 'StorageSize',
-      tag: 'Tag',
-      usedTime: 'UsedTime',
-      VPCId: 'VPCId',
-      vSwitchId: 'VSwitchId',
-      zoneId: 'ZoneId',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      backupId: 'string',
-      clientToken: 'string',
-      DBInstanceCategory: 'string',
-      DBInstanceDescription: 'string',
-      encryptionKey: 'string',
-      encryptionType: 'string',
-      engine: 'string',
-      engineVersion: 'string',
-      instanceNetworkType: 'string',
-      instanceSpec: 'string',
-      masterNodeNum: 'number',
-      ownerId: 'number',
-      payType: 'string',
-      period: 'string',
-      privateIpAddress: 'string',
-      regionId: 'string',
-      resourceGroupId: 'string',
-      securityIPList: 'string',
-      segNodeNum: 'number',
-      segStorageType: 'string',
-      srcDbInstanceName: 'string',
-      storageSize: 'number',
-      tag: { 'type': 'array', 'itemType': CreateECSDBInstanceRequestTag },
-      usedTime: 'string',
-      VPCId: 'string',
-      vSwitchId: 'string',
-      zoneId: 'string',
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class CreateECSDBInstanceResponseBody extends $tea.Model {
-  connectionString?: string;
+export class CreateNamespaceRequest extends $tea.Model {
   DBInstanceId?: string;
-  orderId?: string;
-  port?: string;
-  requestId?: string;
+  managerAccount?: string;
+  managerAccountPassword?: string;
+  namespace?: string;
+  namespacePassword?: string;
+  ownerId?: number;
+  regionId?: string;
   static names(): { [key: string]: string } {
     return {
-      connectionString: 'ConnectionString',
       DBInstanceId: 'DBInstanceId',
-      orderId: 'OrderId',
-      port: 'Port',
-      requestId: 'RequestId',
+      managerAccount: 'ManagerAccount',
+      managerAccountPassword: 'ManagerAccountPassword',
+      namespace: 'Namespace',
+      namespacePassword: 'NamespacePassword',
+      ownerId: 'OwnerId',
+      regionId: 'RegionId',
     };
   }
 
   static types(): { [key: string]: any } {
     return {
-      connectionString: 'string',
       DBInstanceId: 'string',
-      orderId: 'string',
-      port: 'string',
-      requestId: 'string',
+      managerAccount: 'string',
+      managerAccountPassword: 'string',
+      namespace: 'string',
+      namespacePassword: 'string',
+      ownerId: 'number',
+      regionId: 'string',
     };
   }
 
@@ -706,10 +651,35 @@ export class CreateECSDBInstanceResponseBody extends $tea.Model {
   }
 }
 
-export class CreateECSDBInstanceResponse extends $tea.Model {
+export class CreateNamespaceResponseBody extends $tea.Model {
+  message?: string;
+  requestId?: string;
+  status?: string;
+  static names(): { [key: string]: string } {
+    return {
+      message: 'Message',
+      requestId: 'RequestId',
+      status: 'Status',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      message: 'string',
+      requestId: 'string',
+      status: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class CreateNamespaceResponse extends $tea.Model {
   headers: { [key: string]: string };
   statusCode: number;
-  body: CreateECSDBInstanceResponseBody;
+  body: CreateNamespaceResponseBody;
   static names(): { [key: string]: string } {
     return {
       headers: 'headers',
@@ -722,7 +692,7 @@ export class CreateECSDBInstanceResponse extends $tea.Model {
     return {
       headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
       statusCode: 'number',
-      body: CreateECSDBInstanceResponseBody,
+      body: CreateNamespaceResponseBody,
     };
   }
 
@@ -864,6 +834,276 @@ export class CreateServiceLinkedRoleResponse extends $tea.Model {
       headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
       statusCode: 'number',
       body: CreateServiceLinkedRoleResponseBody,
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class CreateVectorIndexRequest extends $tea.Model {
+  collection?: string;
+  DBInstanceId?: string;
+  dimension?: number;
+  managerAccount?: string;
+  managerAccountPassword?: string;
+  metrics?: string;
+  namespace?: string;
+  ownerId?: number;
+  regionId?: string;
+  static names(): { [key: string]: string } {
+    return {
+      collection: 'Collection',
+      DBInstanceId: 'DBInstanceId',
+      dimension: 'Dimension',
+      managerAccount: 'ManagerAccount',
+      managerAccountPassword: 'ManagerAccountPassword',
+      metrics: 'Metrics',
+      namespace: 'Namespace',
+      ownerId: 'OwnerId',
+      regionId: 'RegionId',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      collection: 'string',
+      DBInstanceId: 'string',
+      dimension: 'number',
+      managerAccount: 'string',
+      managerAccountPassword: 'string',
+      metrics: 'string',
+      namespace: 'string',
+      ownerId: 'number',
+      regionId: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class CreateVectorIndexResponseBody extends $tea.Model {
+  message?: string;
+  requestId?: string;
+  status?: string;
+  static names(): { [key: string]: string } {
+    return {
+      message: 'Message',
+      requestId: 'RequestId',
+      status: 'Status',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      message: 'string',
+      requestId: 'string',
+      status: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class CreateVectorIndexResponse extends $tea.Model {
+  headers: { [key: string]: string };
+  statusCode: number;
+  body: CreateVectorIndexResponseBody;
+  static names(): { [key: string]: string } {
+    return {
+      headers: 'headers',
+      statusCode: 'statusCode',
+      body: 'body',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
+      body: CreateVectorIndexResponseBody,
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class DeleteCollectionRequest extends $tea.Model {
+  collection?: string;
+  DBInstanceId?: string;
+  namespace?: string;
+  namespacePassword?: string;
+  ownerId?: number;
+  regionId?: string;
+  static names(): { [key: string]: string } {
+    return {
+      collection: 'Collection',
+      DBInstanceId: 'DBInstanceId',
+      namespace: 'Namespace',
+      namespacePassword: 'NamespacePassword',
+      ownerId: 'OwnerId',
+      regionId: 'RegionId',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      collection: 'string',
+      DBInstanceId: 'string',
+      namespace: 'string',
+      namespacePassword: 'string',
+      ownerId: 'number',
+      regionId: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class DeleteCollectionResponseBody extends $tea.Model {
+  message?: string;
+  requestId?: string;
+  status?: string;
+  static names(): { [key: string]: string } {
+    return {
+      message: 'Message',
+      requestId: 'RequestId',
+      status: 'Status',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      message: 'string',
+      requestId: 'string',
+      status: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class DeleteCollectionResponse extends $tea.Model {
+  headers: { [key: string]: string };
+  statusCode: number;
+  body: DeleteCollectionResponseBody;
+  static names(): { [key: string]: string } {
+    return {
+      headers: 'headers',
+      statusCode: 'statusCode',
+      body: 'body',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
+      body: DeleteCollectionResponseBody,
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class DeleteCollectionDataRequest extends $tea.Model {
+  collection?: string;
+  collectionData?: string;
+  collectionDataFilter?: string;
+  DBInstanceId?: string;
+  namespace?: string;
+  namespacePassword?: string;
+  ownerId?: number;
+  regionId?: string;
+  static names(): { [key: string]: string } {
+    return {
+      collection: 'Collection',
+      collectionData: 'CollectionData',
+      collectionDataFilter: 'CollectionDataFilter',
+      DBInstanceId: 'DBInstanceId',
+      namespace: 'Namespace',
+      namespacePassword: 'NamespacePassword',
+      ownerId: 'OwnerId',
+      regionId: 'RegionId',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      collection: 'string',
+      collectionData: 'string',
+      collectionDataFilter: 'string',
+      DBInstanceId: 'string',
+      namespace: 'string',
+      namespacePassword: 'string',
+      ownerId: 'number',
+      regionId: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class DeleteCollectionDataResponseBody extends $tea.Model {
+  appliedRows?: number;
+  message?: string;
+  requestId?: string;
+  status?: string;
+  static names(): { [key: string]: string } {
+    return {
+      appliedRows: 'AppliedRows',
+      message: 'Message',
+      requestId: 'RequestId',
+      status: 'Status',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      appliedRows: 'number',
+      message: 'string',
+      requestId: 'string',
+      status: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class DeleteCollectionDataResponse extends $tea.Model {
+  headers: { [key: string]: string };
+  statusCode: number;
+  body: DeleteCollectionDataResponseBody;
+  static names(): { [key: string]: string } {
+    return {
+      headers: 'headers',
+      statusCode: 'statusCode',
+      body: 'body',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
+      body: DeleteCollectionDataResponseBody,
     };
   }
 
@@ -1025,23 +1265,32 @@ export class DeleteDBInstancePlanResponse extends $tea.Model {
   }
 }
 
-export class DeleteDatabaseRequest extends $tea.Model {
+export class DeleteNamespaceRequest extends $tea.Model {
   DBInstanceId?: string;
-  DBName?: string;
-  resourceGroupId?: string;
+  managerAccount?: string;
+  managerAccountPassword?: string;
+  namespace?: string;
+  ownerId?: number;
+  regionId?: string;
   static names(): { [key: string]: string } {
     return {
       DBInstanceId: 'DBInstanceId',
-      DBName: 'DBName',
-      resourceGroupId: 'ResourceGroupId',
+      managerAccount: 'ManagerAccount',
+      managerAccountPassword: 'ManagerAccountPassword',
+      namespace: 'Namespace',
+      ownerId: 'OwnerId',
+      regionId: 'RegionId',
     };
   }
 
   static types(): { [key: string]: any } {
     return {
       DBInstanceId: 'string',
-      DBName: 'string',
-      resourceGroupId: 'string',
+      managerAccount: 'string',
+      managerAccountPassword: 'string',
+      namespace: 'string',
+      ownerId: 'number',
+      regionId: 'string',
     };
   }
 
@@ -1050,17 +1299,23 @@ export class DeleteDatabaseRequest extends $tea.Model {
   }
 }
 
-export class DeleteDatabaseResponseBody extends $tea.Model {
+export class DeleteNamespaceResponseBody extends $tea.Model {
+  message?: string;
   requestId?: string;
+  status?: string;
   static names(): { [key: string]: string } {
     return {
+      message: 'Message',
       requestId: 'RequestId',
+      status: 'Status',
     };
   }
 
   static types(): { [key: string]: any } {
     return {
+      message: 'string',
       requestId: 'string',
+      status: 'string',
     };
   }
 
@@ -1069,10 +1324,10 @@ export class DeleteDatabaseResponseBody extends $tea.Model {
   }
 }
 
-export class DeleteDatabaseResponse extends $tea.Model {
+export class DeleteNamespaceResponse extends $tea.Model {
   headers: { [key: string]: string };
   statusCode: number;
-  body: DeleteDatabaseResponseBody;
+  body: DeleteNamespaceResponseBody;
   static names(): { [key: string]: string } {
     return {
       headers: 'headers',
@@ -1085,7 +1340,94 @@ export class DeleteDatabaseResponse extends $tea.Model {
     return {
       headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
       statusCode: 'number',
-      body: DeleteDatabaseResponseBody,
+      body: DeleteNamespaceResponseBody,
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class DeleteVectorIndexRequest extends $tea.Model {
+  collection?: string;
+  DBInstanceId?: string;
+  managerAccount?: string;
+  managerAccountPassword?: string;
+  namespace?: string;
+  ownerId?: number;
+  regionId?: string;
+  static names(): { [key: string]: string } {
+    return {
+      collection: 'Collection',
+      DBInstanceId: 'DBInstanceId',
+      managerAccount: 'ManagerAccount',
+      managerAccountPassword: 'ManagerAccountPassword',
+      namespace: 'Namespace',
+      ownerId: 'OwnerId',
+      regionId: 'RegionId',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      collection: 'string',
+      DBInstanceId: 'string',
+      managerAccount: 'string',
+      managerAccountPassword: 'string',
+      namespace: 'string',
+      ownerId: 'number',
+      regionId: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class DeleteVectorIndexResponseBody extends $tea.Model {
+  message?: string;
+  requestId?: string;
+  status?: string;
+  static names(): { [key: string]: string } {
+    return {
+      message: 'Message',
+      requestId: 'RequestId',
+      status: 'Status',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      message: 'string',
+      requestId: 'string',
+      status: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class DeleteVectorIndexResponse extends $tea.Model {
+  headers: { [key: string]: string };
+  statusCode: number;
+  body: DeleteVectorIndexResponseBody;
+  static names(): { [key: string]: string } {
+    return {
+      headers: 'headers',
+      statusCode: 'statusCode',
+      body: 'body',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
+      body: DeleteVectorIndexResponseBody,
     };
   }
 
@@ -1308,6 +1650,114 @@ export class DescribeBackupPolicyResponse extends $tea.Model {
       headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
       statusCode: 'number',
       body: DescribeBackupPolicyResponseBody,
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class DescribeCollectionRequest extends $tea.Model {
+  collection?: string;
+  DBInstanceId?: string;
+  namespace?: string;
+  namespacePassword?: string;
+  ownerId?: number;
+  regionId?: string;
+  static names(): { [key: string]: string } {
+    return {
+      collection: 'Collection',
+      DBInstanceId: 'DBInstanceId',
+      namespace: 'Namespace',
+      namespacePassword: 'NamespacePassword',
+      ownerId: 'OwnerId',
+      regionId: 'RegionId',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      collection: 'string',
+      DBInstanceId: 'string',
+      namespace: 'string',
+      namespacePassword: 'string',
+      ownerId: 'number',
+      regionId: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class DescribeCollectionResponseBody extends $tea.Model {
+  DBInstanceId?: string;
+  dimension?: number;
+  fullTextRetrievalFields?: string;
+  message?: string;
+  metadata?: { [key: string]: string };
+  metrics?: string;
+  namespace?: string;
+  parser?: string;
+  regionId?: string;
+  requestId?: string;
+  status?: string;
+  static names(): { [key: string]: string } {
+    return {
+      DBInstanceId: 'DBInstanceId',
+      dimension: 'Dimension',
+      fullTextRetrievalFields: 'FullTextRetrievalFields',
+      message: 'Message',
+      metadata: 'Metadata',
+      metrics: 'Metrics',
+      namespace: 'Namespace',
+      parser: 'Parser',
+      regionId: 'RegionId',
+      requestId: 'RequestId',
+      status: 'Status',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      DBInstanceId: 'string',
+      dimension: 'number',
+      fullTextRetrievalFields: 'string',
+      message: 'string',
+      metadata: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      metrics: 'string',
+      namespace: 'string',
+      parser: 'string',
+      regionId: 'string',
+      requestId: 'string',
+      status: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class DescribeCollectionResponse extends $tea.Model {
+  headers: { [key: string]: string };
+  statusCode: number;
+  body: DescribeCollectionResponseBody;
+  static names(): { [key: string]: string } {
+    return {
+      headers: 'headers',
+      statusCode: 'statusCode',
+      body: 'body',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
+      body: DescribeCollectionResponseBody,
     };
   }
 
@@ -2114,75 +2564,6 @@ export class DescribeDBInstanceNetInfoResponse extends $tea.Model {
   }
 }
 
-export class DescribeDBInstanceOnECSAttributeRequest extends $tea.Model {
-  DBInstanceId?: string;
-  ownerId?: number;
-  static names(): { [key: string]: string } {
-    return {
-      DBInstanceId: 'DBInstanceId',
-      ownerId: 'OwnerId',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      DBInstanceId: 'string',
-      ownerId: 'number',
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class DescribeDBInstanceOnECSAttributeResponseBody extends $tea.Model {
-  items?: DescribeDBInstanceOnECSAttributeResponseBodyItems;
-  requestId?: string;
-  static names(): { [key: string]: string } {
-    return {
-      items: 'Items',
-      requestId: 'RequestId',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      items: DescribeDBInstanceOnECSAttributeResponseBodyItems,
-      requestId: 'string',
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class DescribeDBInstanceOnECSAttributeResponse extends $tea.Model {
-  headers: { [key: string]: string };
-  statusCode: number;
-  body: DescribeDBInstanceOnECSAttributeResponseBody;
-  static names(): { [key: string]: string } {
-    return {
-      headers: 'headers',
-      statusCode: 'statusCode',
-      body: 'body',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
-      statusCode: 'number',
-      body: DescribeDBInstanceOnECSAttributeResponseBody,
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
 export class DescribeDBInstancePerformanceRequest extends $tea.Model {
   DBInstanceId?: string;
   endTime?: string;
@@ -2364,99 +2745,6 @@ export class DescribeDBInstancePlansResponse extends $tea.Model {
       headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
       statusCode: 'number',
       body: DescribeDBInstancePlansResponseBody,
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class DescribeDBInstanceSQLPatternsRequest extends $tea.Model {
-  DBInstanceId?: string;
-  database?: string;
-  endTime?: string;
-  queryKeywords?: string;
-  sourceIP?: string;
-  startTime?: string;
-  user?: string;
-  static names(): { [key: string]: string } {
-    return {
-      DBInstanceId: 'DBInstanceId',
-      database: 'Database',
-      endTime: 'EndTime',
-      queryKeywords: 'QueryKeywords',
-      sourceIP: 'SourceIP',
-      startTime: 'StartTime',
-      user: 'User',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      DBInstanceId: 'string',
-      database: 'string',
-      endTime: 'string',
-      queryKeywords: 'string',
-      sourceIP: 'string',
-      startTime: 'string',
-      user: 'string',
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class DescribeDBInstanceSQLPatternsResponseBody extends $tea.Model {
-  DBClusterId?: string;
-  endTime?: string;
-  patterns?: DescribeDBInstanceSQLPatternsResponseBodyPatterns[];
-  requestId?: string;
-  startTime?: string;
-  static names(): { [key: string]: string } {
-    return {
-      DBClusterId: 'DBClusterId',
-      endTime: 'EndTime',
-      patterns: 'Patterns',
-      requestId: 'RequestId',
-      startTime: 'StartTime',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      DBClusterId: 'string',
-      endTime: 'string',
-      patterns: { 'type': 'array', 'itemType': DescribeDBInstanceSQLPatternsResponseBodyPatterns },
-      requestId: 'string',
-      startTime: 'string',
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class DescribeDBInstanceSQLPatternsResponse extends $tea.Model {
-  headers: { [key: string]: string };
-  statusCode: number;
-  body: DescribeDBInstanceSQLPatternsResponseBody;
-  static names(): { [key: string]: string } {
-    return {
-      headers: 'headers',
-      statusCode: 'statusCode',
-      body: 'body',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
-      statusCode: 'number',
-      body: DescribeDBInstanceSQLPatternsResponseBody,
     };
   }
 
@@ -2800,6 +3088,75 @@ export class DescribeDataBackupsResponse extends $tea.Model {
       headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
       statusCode: 'number',
       body: DescribeDataBackupsResponseBody,
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class DescribeDataReDistributeInfoRequest extends $tea.Model {
+  DBInstanceId?: string;
+  ownerId?: number;
+  static names(): { [key: string]: string } {
+    return {
+      DBInstanceId: 'DBInstanceId',
+      ownerId: 'OwnerId',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      DBInstanceId: 'string',
+      ownerId: 'number',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class DescribeDataReDistributeInfoResponseBody extends $tea.Model {
+  dataReDistributeInfo?: DescribeDataReDistributeInfoResponseBodyDataReDistributeInfo;
+  requestId?: string;
+  static names(): { [key: string]: string } {
+    return {
+      dataReDistributeInfo: 'DataReDistributeInfo',
+      requestId: 'RequestId',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      dataReDistributeInfo: DescribeDataReDistributeInfoResponseBodyDataReDistributeInfo,
+      requestId: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class DescribeDataReDistributeInfoResponse extends $tea.Model {
+  headers: { [key: string]: string };
+  statusCode: number;
+  body: DescribeDataReDistributeInfoResponseBody;
+  static names(): { [key: string]: string } {
+    return {
+      headers: 'headers',
+      statusCode: 'statusCode',
+      body: 'body',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
+      body: DescribeDataReDistributeInfoResponseBody,
     };
   }
 
@@ -3411,6 +3768,72 @@ export class DescribeDownloadRecordsResponse extends $tea.Model {
   }
 }
 
+export class DescribeDownloadSQLLogsRequest extends $tea.Model {
+  DBInstanceId?: string;
+  static names(): { [key: string]: string } {
+    return {
+      DBInstanceId: 'DBInstanceId',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      DBInstanceId: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class DescribeDownloadSQLLogsResponseBody extends $tea.Model {
+  records?: DescribeDownloadSQLLogsResponseBodyRecords[];
+  requestId?: string;
+  static names(): { [key: string]: string } {
+    return {
+      records: 'Records',
+      requestId: 'RequestId',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      records: { 'type': 'array', 'itemType': DescribeDownloadSQLLogsResponseBodyRecords },
+      requestId: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class DescribeDownloadSQLLogsResponse extends $tea.Model {
+  headers: { [key: string]: string };
+  statusCode: number;
+  body: DescribeDownloadSQLLogsResponseBody;
+  static names(): { [key: string]: string } {
+    return {
+      headers: 'headers',
+      statusCode: 'statusCode',
+      body: 'body',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
+      body: DescribeDownloadSQLLogsResponseBody,
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
 export class DescribeHealthStatusRequest extends $tea.Model {
   DBInstanceId?: string;
   key?: string;
@@ -3637,6 +4060,102 @@ export class DescribeModifyParameterLogResponse extends $tea.Model {
       headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
       statusCode: 'number',
       body: DescribeModifyParameterLogResponseBody,
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class DescribeNamespaceRequest extends $tea.Model {
+  DBInstanceId?: string;
+  managerAccount?: string;
+  managerAccountPassword?: string;
+  namespace?: string;
+  ownerId?: number;
+  regionId?: string;
+  static names(): { [key: string]: string } {
+    return {
+      DBInstanceId: 'DBInstanceId',
+      managerAccount: 'ManagerAccount',
+      managerAccountPassword: 'ManagerAccountPassword',
+      namespace: 'Namespace',
+      ownerId: 'OwnerId',
+      regionId: 'RegionId',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      DBInstanceId: 'string',
+      managerAccount: 'string',
+      managerAccountPassword: 'string',
+      namespace: 'string',
+      ownerId: 'number',
+      regionId: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class DescribeNamespaceResponseBody extends $tea.Model {
+  DBInstanceId?: string;
+  message?: string;
+  namespace?: string;
+  namespaceInfo?: { [key: string]: string };
+  regionId?: string;
+  requestId?: string;
+  status?: string;
+  static names(): { [key: string]: string } {
+    return {
+      DBInstanceId: 'DBInstanceId',
+      message: 'Message',
+      namespace: 'Namespace',
+      namespaceInfo: 'NamespaceInfo',
+      regionId: 'RegionId',
+      requestId: 'RequestId',
+      status: 'Status',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      DBInstanceId: 'string',
+      message: 'string',
+      namespace: 'string',
+      namespaceInfo: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      regionId: 'string',
+      requestId: 'string',
+      status: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class DescribeNamespaceResponse extends $tea.Model {
+  headers: { [key: string]: string };
+  statusCode: number;
+  body: DescribeNamespaceResponseBody;
+  static names(): { [key: string]: string } {
+    return {
+      headers: 'headers',
+      statusCode: 'statusCode',
+      body: 'body',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
+      body: DescribeNamespaceResponseBody,
     };
   }
 
@@ -3954,222 +4473,6 @@ export class DescribeRegionsResponse extends $tea.Model {
   }
 }
 
-export class DescribeResourceUsageRequest extends $tea.Model {
-  DBInstanceId?: string;
-  static names(): { [key: string]: string } {
-    return {
-      DBInstanceId: 'DBInstanceId',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      DBInstanceId: 'string',
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class DescribeResourceUsageResponseBody extends $tea.Model {
-  backupSize?: number;
-  DBInstanceId?: string;
-  dataSize?: number;
-  diskUsed?: number;
-  engine?: string;
-  logSize?: number;
-  requestId?: string;
-  static names(): { [key: string]: string } {
-    return {
-      backupSize: 'BackupSize',
-      DBInstanceId: 'DBInstanceId',
-      dataSize: 'DataSize',
-      diskUsed: 'DiskUsed',
-      engine: 'Engine',
-      logSize: 'LogSize',
-      requestId: 'RequestId',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      backupSize: 'number',
-      DBInstanceId: 'string',
-      dataSize: 'number',
-      diskUsed: 'number',
-      engine: 'string',
-      logSize: 'number',
-      requestId: 'string',
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class DescribeResourceUsageResponse extends $tea.Model {
-  headers: { [key: string]: string };
-  statusCode: number;
-  body: DescribeResourceUsageResponseBody;
-  static names(): { [key: string]: string } {
-    return {
-      headers: 'headers',
-      statusCode: 'statusCode',
-      body: 'body',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
-      statusCode: 'number',
-      body: DescribeResourceUsageResponseBody,
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class DescribeSQLCollectorPolicyRequest extends $tea.Model {
-  DBInstanceId?: string;
-  static names(): { [key: string]: string } {
-    return {
-      DBInstanceId: 'DBInstanceId',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      DBInstanceId: 'string',
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class DescribeSQLCollectorPolicyResponseBody extends $tea.Model {
-  requestId?: string;
-  SQLCollectorStatus?: string;
-  static names(): { [key: string]: string } {
-    return {
-      requestId: 'RequestId',
-      SQLCollectorStatus: 'SQLCollectorStatus',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      requestId: 'string',
-      SQLCollectorStatus: 'string',
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class DescribeSQLCollectorPolicyResponse extends $tea.Model {
-  headers: { [key: string]: string };
-  statusCode: number;
-  body: DescribeSQLCollectorPolicyResponseBody;
-  static names(): { [key: string]: string } {
-    return {
-      headers: 'headers',
-      statusCode: 'statusCode',
-      body: 'body',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
-      statusCode: 'number',
-      body: DescribeSQLCollectorPolicyResponseBody,
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class DescribeSQLLogByQueryIdRequest extends $tea.Model {
-  DBInstanceId?: string;
-  queryId?: string;
-  static names(): { [key: string]: string } {
-    return {
-      DBInstanceId: 'DBInstanceId',
-      queryId: 'QueryId',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      DBInstanceId: 'string',
-      queryId: 'string',
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class DescribeSQLLogByQueryIdResponseBody extends $tea.Model {
-  items?: DescribeSQLLogByQueryIdResponseBodyItems[];
-  requestId?: string;
-  static names(): { [key: string]: string } {
-    return {
-      items: 'Items',
-      requestId: 'RequestId',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      items: { 'type': 'array', 'itemType': DescribeSQLLogByQueryIdResponseBodyItems },
-      requestId: 'string',
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class DescribeSQLLogByQueryIdResponse extends $tea.Model {
-  headers: { [key: string]: string };
-  statusCode: number;
-  body: DescribeSQLLogByQueryIdResponseBody;
-  static names(): { [key: string]: string } {
-    return {
-      headers: 'headers',
-      statusCode: 'statusCode',
-      body: 'body',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
-      statusCode: 'number',
-      body: DescribeSQLLogByQueryIdResponseBody,
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
 export class DescribeSQLLogCountRequest extends $tea.Model {
   DBInstanceId?: string;
   database?: string;
@@ -4273,396 +4576,6 @@ export class DescribeSQLLogCountResponse extends $tea.Model {
       headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
       statusCode: 'number',
       body: DescribeSQLLogCountResponseBody,
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class DescribeSQLLogFilesRequest extends $tea.Model {
-  DBInstanceId?: string;
-  fileName?: string;
-  pageNumber?: number;
-  pageSize?: number;
-  static names(): { [key: string]: string } {
-    return {
-      DBInstanceId: 'DBInstanceId',
-      fileName: 'FileName',
-      pageNumber: 'PageNumber',
-      pageSize: 'PageSize',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      DBInstanceId: 'string',
-      fileName: 'string',
-      pageNumber: 'number',
-      pageSize: 'number',
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class DescribeSQLLogFilesResponseBody extends $tea.Model {
-  items?: DescribeSQLLogFilesResponseBodyItems;
-  pageNumber?: number;
-  pageRecordCount?: number;
-  requestId?: string;
-  totalRecordCount?: number;
-  static names(): { [key: string]: string } {
-    return {
-      items: 'Items',
-      pageNumber: 'PageNumber',
-      pageRecordCount: 'PageRecordCount',
-      requestId: 'RequestId',
-      totalRecordCount: 'TotalRecordCount',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      items: DescribeSQLLogFilesResponseBodyItems,
-      pageNumber: 'number',
-      pageRecordCount: 'number',
-      requestId: 'string',
-      totalRecordCount: 'number',
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class DescribeSQLLogFilesResponse extends $tea.Model {
-  headers: { [key: string]: string };
-  statusCode: number;
-  body: DescribeSQLLogFilesResponseBody;
-  static names(): { [key: string]: string } {
-    return {
-      headers: 'headers',
-      statusCode: 'statusCode',
-      body: 'body',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
-      statusCode: 'number',
-      body: DescribeSQLLogFilesResponseBody,
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class DescribeSQLLogRecordsRequest extends $tea.Model {
-  DBInstanceId?: string;
-  database?: string;
-  endTime?: string;
-  form?: string;
-  pageNumber?: number;
-  pageSize?: number;
-  queryKeywords?: string;
-  startTime?: string;
-  user?: string;
-  static names(): { [key: string]: string } {
-    return {
-      DBInstanceId: 'DBInstanceId',
-      database: 'Database',
-      endTime: 'EndTime',
-      form: 'Form',
-      pageNumber: 'PageNumber',
-      pageSize: 'PageSize',
-      queryKeywords: 'QueryKeywords',
-      startTime: 'StartTime',
-      user: 'User',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      DBInstanceId: 'string',
-      database: 'string',
-      endTime: 'string',
-      form: 'string',
-      pageNumber: 'number',
-      pageSize: 'number',
-      queryKeywords: 'string',
-      startTime: 'string',
-      user: 'string',
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class DescribeSQLLogRecordsResponseBody extends $tea.Model {
-  items?: DescribeSQLLogRecordsResponseBodyItems;
-  pageNumber?: number;
-  pageRecordCount?: number;
-  requestId?: string;
-  totalRecordCount?: number;
-  static names(): { [key: string]: string } {
-    return {
-      items: 'Items',
-      pageNumber: 'PageNumber',
-      pageRecordCount: 'PageRecordCount',
-      requestId: 'RequestId',
-      totalRecordCount: 'TotalRecordCount',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      items: DescribeSQLLogRecordsResponseBodyItems,
-      pageNumber: 'number',
-      pageRecordCount: 'number',
-      requestId: 'string',
-      totalRecordCount: 'number',
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class DescribeSQLLogRecordsResponse extends $tea.Model {
-  headers: { [key: string]: string };
-  statusCode: number;
-  body: DescribeSQLLogRecordsResponseBody;
-  static names(): { [key: string]: string } {
-    return {
-      headers: 'headers',
-      statusCode: 'statusCode',
-      body: 'body',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
-      statusCode: 'number',
-      body: DescribeSQLLogRecordsResponseBody,
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class DescribeSQLLogsRequest extends $tea.Model {
-  DBInstanceId?: string;
-  database?: string;
-  endTime?: string;
-  executeCost?: string;
-  executeState?: string;
-  maxExecuteCost?: string;
-  minExecuteCost?: string;
-  operationClass?: string;
-  operationType?: string;
-  pageNumber?: number;
-  pageSize?: number;
-  queryKeywords?: string;
-  sourceIP?: string;
-  startTime?: string;
-  user?: string;
-  static names(): { [key: string]: string } {
-    return {
-      DBInstanceId: 'DBInstanceId',
-      database: 'Database',
-      endTime: 'EndTime',
-      executeCost: 'ExecuteCost',
-      executeState: 'ExecuteState',
-      maxExecuteCost: 'MaxExecuteCost',
-      minExecuteCost: 'MinExecuteCost',
-      operationClass: 'OperationClass',
-      operationType: 'OperationType',
-      pageNumber: 'PageNumber',
-      pageSize: 'PageSize',
-      queryKeywords: 'QueryKeywords',
-      sourceIP: 'SourceIP',
-      startTime: 'StartTime',
-      user: 'User',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      DBInstanceId: 'string',
-      database: 'string',
-      endTime: 'string',
-      executeCost: 'string',
-      executeState: 'string',
-      maxExecuteCost: 'string',
-      minExecuteCost: 'string',
-      operationClass: 'string',
-      operationType: 'string',
-      pageNumber: 'number',
-      pageSize: 'number',
-      queryKeywords: 'string',
-      sourceIP: 'string',
-      startTime: 'string',
-      user: 'string',
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class DescribeSQLLogsResponseBody extends $tea.Model {
-  items?: DescribeSQLLogsResponseBodyItems[];
-  pageNumber?: number;
-  pageRecordCount?: number;
-  requestId?: string;
-  static names(): { [key: string]: string } {
-    return {
-      items: 'Items',
-      pageNumber: 'PageNumber',
-      pageRecordCount: 'PageRecordCount',
-      requestId: 'RequestId',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      items: { 'type': 'array', 'itemType': DescribeSQLLogsResponseBodyItems },
-      pageNumber: 'number',
-      pageRecordCount: 'number',
-      requestId: 'string',
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class DescribeSQLLogsResponse extends $tea.Model {
-  headers: { [key: string]: string };
-  statusCode: number;
-  body: DescribeSQLLogsResponseBody;
-  static names(): { [key: string]: string } {
-    return {
-      headers: 'headers',
-      statusCode: 'statusCode',
-      body: 'body',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
-      statusCode: 'number',
-      body: DescribeSQLLogsResponseBody,
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class DescribeSQLLogsOnSliceRequest extends $tea.Model {
-  DBInstanceId?: string;
-  executeState?: string;
-  maxExecuteCost?: string;
-  minExecuteCost?: string;
-  pageNumber?: number;
-  pageSize?: number;
-  queryId?: string;
-  sliceId?: string;
-  static names(): { [key: string]: string } {
-    return {
-      DBInstanceId: 'DBInstanceId',
-      executeState: 'ExecuteState',
-      maxExecuteCost: 'MaxExecuteCost',
-      minExecuteCost: 'MinExecuteCost',
-      pageNumber: 'PageNumber',
-      pageSize: 'PageSize',
-      queryId: 'QueryId',
-      sliceId: 'SliceId',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      DBInstanceId: 'string',
-      executeState: 'string',
-      maxExecuteCost: 'string',
-      minExecuteCost: 'string',
-      pageNumber: 'number',
-      pageSize: 'number',
-      queryId: 'string',
-      sliceId: 'string',
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class DescribeSQLLogsOnSliceResponseBody extends $tea.Model {
-  pageNumber?: number;
-  pageRecordCount?: number;
-  requestId?: string;
-  sliceLogItems?: DescribeSQLLogsOnSliceResponseBodySliceLogItems[];
-  static names(): { [key: string]: string } {
-    return {
-      pageNumber: 'PageNumber',
-      pageRecordCount: 'PageRecordCount',
-      requestId: 'RequestId',
-      sliceLogItems: 'SliceLogItems',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      pageNumber: 'number',
-      pageRecordCount: 'number',
-      requestId: 'string',
-      sliceLogItems: { 'type': 'array', 'itemType': DescribeSQLLogsOnSliceResponseBodySliceLogItems },
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class DescribeSQLLogsOnSliceResponse extends $tea.Model {
-  headers: { [key: string]: string };
-  statusCode: number;
-  body: DescribeSQLLogsOnSliceResponseBody;
-  static names(): { [key: string]: string } {
-    return {
-      headers: 'headers',
-      statusCode: 'statusCode',
-      body: 'body',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
-      statusCode: 'number',
-      body: DescribeSQLLogsOnSliceResponseBody,
     };
   }
 
@@ -4858,297 +4771,6 @@ export class DescribeSampleDataResponse extends $tea.Model {
       headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
       statusCode: 'number',
       body: DescribeSampleDataResponseBody,
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class DescribeSlowLogRecordsRequest extends $tea.Model {
-  DBInstanceId?: string;
-  DBName?: string;
-  endTime?: string;
-  pageNumber?: number;
-  pageSize?: number;
-  SQLId?: number;
-  startTime?: string;
-  static names(): { [key: string]: string } {
-    return {
-      DBInstanceId: 'DBInstanceId',
-      DBName: 'DBName',
-      endTime: 'EndTime',
-      pageNumber: 'PageNumber',
-      pageSize: 'PageSize',
-      SQLId: 'SQLId',
-      startTime: 'StartTime',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      DBInstanceId: 'string',
-      DBName: 'string',
-      endTime: 'string',
-      pageNumber: 'number',
-      pageSize: 'number',
-      SQLId: 'number',
-      startTime: 'string',
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class DescribeSlowLogRecordsResponseBody extends $tea.Model {
-  engine?: string;
-  items?: DescribeSlowLogRecordsResponseBodyItems;
-  pageNumber?: number;
-  pageRecordCount?: number;
-  requestId?: string;
-  totalRecordCount?: number;
-  static names(): { [key: string]: string } {
-    return {
-      engine: 'Engine',
-      items: 'Items',
-      pageNumber: 'PageNumber',
-      pageRecordCount: 'PageRecordCount',
-      requestId: 'RequestId',
-      totalRecordCount: 'TotalRecordCount',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      engine: 'string',
-      items: DescribeSlowLogRecordsResponseBodyItems,
-      pageNumber: 'number',
-      pageRecordCount: 'number',
-      requestId: 'string',
-      totalRecordCount: 'number',
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class DescribeSlowLogRecordsResponse extends $tea.Model {
-  headers: { [key: string]: string };
-  statusCode: number;
-  body: DescribeSlowLogRecordsResponseBody;
-  static names(): { [key: string]: string } {
-    return {
-      headers: 'headers',
-      statusCode: 'statusCode',
-      body: 'body',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
-      statusCode: 'number',
-      body: DescribeSlowLogRecordsResponseBody,
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class DescribeSlowSQLLogsRequest extends $tea.Model {
-  DBInstanceId?: string;
-  database?: string;
-  endTime?: string;
-  executeState?: string;
-  maxExecuteCost?: string;
-  minExecuteCost?: string;
-  operationClass?: string;
-  operationType?: string;
-  pageNumber?: number;
-  pageSize?: number;
-  queryKeywords?: string;
-  sourceIP?: string;
-  startTime?: string;
-  user?: string;
-  static names(): { [key: string]: string } {
-    return {
-      DBInstanceId: 'DBInstanceId',
-      database: 'Database',
-      endTime: 'EndTime',
-      executeState: 'ExecuteState',
-      maxExecuteCost: 'MaxExecuteCost',
-      minExecuteCost: 'MinExecuteCost',
-      operationClass: 'OperationClass',
-      operationType: 'OperationType',
-      pageNumber: 'PageNumber',
-      pageSize: 'PageSize',
-      queryKeywords: 'QueryKeywords',
-      sourceIP: 'SourceIP',
-      startTime: 'StartTime',
-      user: 'User',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      DBInstanceId: 'string',
-      database: 'string',
-      endTime: 'string',
-      executeState: 'string',
-      maxExecuteCost: 'string',
-      minExecuteCost: 'string',
-      operationClass: 'string',
-      operationType: 'string',
-      pageNumber: 'number',
-      pageSize: 'number',
-      queryKeywords: 'string',
-      sourceIP: 'string',
-      startTime: 'string',
-      user: 'string',
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class DescribeSlowSQLLogsResponseBody extends $tea.Model {
-  items?: DescribeSlowSQLLogsResponseBodyItems[];
-  pageNumber?: number;
-  pageRecordCount?: number;
-  requestId?: string;
-  static names(): { [key: string]: string } {
-    return {
-      items: 'Items',
-      pageNumber: 'PageNumber',
-      pageRecordCount: 'PageRecordCount',
-      requestId: 'RequestId',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      items: { 'type': 'array', 'itemType': DescribeSlowSQLLogsResponseBodyItems },
-      pageNumber: 'number',
-      pageRecordCount: 'number',
-      requestId: 'string',
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class DescribeSlowSQLLogsResponse extends $tea.Model {
-  headers: { [key: string]: string };
-  statusCode: number;
-  body: DescribeSlowSQLLogsResponseBody;
-  static names(): { [key: string]: string } {
-    return {
-      headers: 'headers',
-      statusCode: 'statusCode',
-      body: 'body',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
-      statusCode: 'number',
-      body: DescribeSlowSQLLogsResponseBody,
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class DescribeSpecificationRequest extends $tea.Model {
-  cpuCores?: number;
-  DBInstanceId?: string;
-  ownerId?: number;
-  storageType?: string;
-  totalNodeNum?: number;
-  static names(): { [key: string]: string } {
-    return {
-      cpuCores: 'CpuCores',
-      DBInstanceId: 'DBInstanceId',
-      ownerId: 'OwnerId',
-      storageType: 'StorageType',
-      totalNodeNum: 'TotalNodeNum',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      cpuCores: 'number',
-      DBInstanceId: 'string',
-      ownerId: 'number',
-      storageType: 'string',
-      totalNodeNum: 'number',
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class DescribeSpecificationResponseBody extends $tea.Model {
-  DBInstanceClass?: DescribeSpecificationResponseBodyDBInstanceClass[];
-  DBInstanceGroupCount?: DescribeSpecificationResponseBodyDBInstanceGroupCount[];
-  requestId?: string;
-  storageNotice?: DescribeSpecificationResponseBodyStorageNotice[];
-  static names(): { [key: string]: string } {
-    return {
-      DBInstanceClass: 'DBInstanceClass',
-      DBInstanceGroupCount: 'DBInstanceGroupCount',
-      requestId: 'RequestId',
-      storageNotice: 'StorageNotice',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      DBInstanceClass: { 'type': 'array', 'itemType': DescribeSpecificationResponseBodyDBInstanceClass },
-      DBInstanceGroupCount: { 'type': 'array', 'itemType': DescribeSpecificationResponseBodyDBInstanceGroupCount },
-      requestId: 'string',
-      storageNotice: { 'type': 'array', 'itemType': DescribeSpecificationResponseBodyStorageNotice },
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class DescribeSpecificationResponse extends $tea.Model {
-  headers: { [key: string]: string };
-  statusCode: number;
-  body: DescribeSpecificationResponseBody;
-  static names(): { [key: string]: string } {
-    return {
-      headers: 'headers',
-      statusCode: 'statusCode',
-      body: 'body',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
-      statusCode: 'number',
-      body: DescribeSpecificationResponseBody,
     };
   }
 
@@ -5649,6 +5271,399 @@ export class DownloadDiagnosisRecordsResponse extends $tea.Model {
   }
 }
 
+export class DownloadSQLLogsRecordsRequest extends $tea.Model {
+  DBInstanceId?: string;
+  database?: string;
+  endTime?: string;
+  executeCost?: string;
+  executeState?: string;
+  lang?: string;
+  maxExecuteCost?: string;
+  minExecuteCost?: string;
+  operationClass?: string;
+  operationType?: string;
+  pageNumber?: number;
+  pageSize?: number;
+  queryKeywords?: string;
+  sourceIP?: string;
+  startTime?: string;
+  user?: string;
+  static names(): { [key: string]: string } {
+    return {
+      DBInstanceId: 'DBInstanceId',
+      database: 'Database',
+      endTime: 'EndTime',
+      executeCost: 'ExecuteCost',
+      executeState: 'ExecuteState',
+      lang: 'Lang',
+      maxExecuteCost: 'MaxExecuteCost',
+      minExecuteCost: 'MinExecuteCost',
+      operationClass: 'OperationClass',
+      operationType: 'OperationType',
+      pageNumber: 'PageNumber',
+      pageSize: 'PageSize',
+      queryKeywords: 'QueryKeywords',
+      sourceIP: 'SourceIP',
+      startTime: 'StartTime',
+      user: 'User',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      DBInstanceId: 'string',
+      database: 'string',
+      endTime: 'string',
+      executeCost: 'string',
+      executeState: 'string',
+      lang: 'string',
+      maxExecuteCost: 'string',
+      minExecuteCost: 'string',
+      operationClass: 'string',
+      operationType: 'string',
+      pageNumber: 'number',
+      pageSize: 'number',
+      queryKeywords: 'string',
+      sourceIP: 'string',
+      startTime: 'string',
+      user: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class DownloadSQLLogsRecordsResponseBody extends $tea.Model {
+  downloadId?: number;
+  requestId?: string;
+  static names(): { [key: string]: string } {
+    return {
+      downloadId: 'DownloadId',
+      requestId: 'RequestId',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      downloadId: 'number',
+      requestId: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class DownloadSQLLogsRecordsResponse extends $tea.Model {
+  headers: { [key: string]: string };
+  statusCode: number;
+  body: DownloadSQLLogsRecordsResponseBody;
+  static names(): { [key: string]: string } {
+    return {
+      headers: 'headers',
+      statusCode: 'statusCode',
+      body: 'body',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
+      body: DownloadSQLLogsRecordsResponseBody,
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class GrantCollectionRequest extends $tea.Model {
+  collection?: string;
+  DBInstanceId?: string;
+  grantToNamespace?: string;
+  grantType?: string;
+  managerAccount?: string;
+  managerAccountPassword?: string;
+  namespace?: string;
+  ownerId?: number;
+  regionId?: string;
+  static names(): { [key: string]: string } {
+    return {
+      collection: 'Collection',
+      DBInstanceId: 'DBInstanceId',
+      grantToNamespace: 'GrantToNamespace',
+      grantType: 'GrantType',
+      managerAccount: 'ManagerAccount',
+      managerAccountPassword: 'ManagerAccountPassword',
+      namespace: 'Namespace',
+      ownerId: 'OwnerId',
+      regionId: 'RegionId',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      collection: 'string',
+      DBInstanceId: 'string',
+      grantToNamespace: 'string',
+      grantType: 'string',
+      managerAccount: 'string',
+      managerAccountPassword: 'string',
+      namespace: 'string',
+      ownerId: 'number',
+      regionId: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class GrantCollectionResponseBody extends $tea.Model {
+  message?: string;
+  requestId?: string;
+  status?: string;
+  static names(): { [key: string]: string } {
+    return {
+      message: 'Message',
+      requestId: 'RequestId',
+      status: 'Status',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      message: 'string',
+      requestId: 'string',
+      status: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class GrantCollectionResponse extends $tea.Model {
+  headers: { [key: string]: string };
+  statusCode: number;
+  body: GrantCollectionResponseBody;
+  static names(): { [key: string]: string } {
+    return {
+      headers: 'headers',
+      statusCode: 'statusCode',
+      body: 'body',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
+      body: GrantCollectionResponseBody,
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class ListCollectionsRequest extends $tea.Model {
+  DBInstanceId?: string;
+  namespace?: string;
+  namespacePassword?: string;
+  ownerId?: number;
+  regionId?: string;
+  static names(): { [key: string]: string } {
+    return {
+      DBInstanceId: 'DBInstanceId',
+      namespace: 'Namespace',
+      namespacePassword: 'NamespacePassword',
+      ownerId: 'OwnerId',
+      regionId: 'RegionId',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      DBInstanceId: 'string',
+      namespace: 'string',
+      namespacePassword: 'string',
+      ownerId: 'number',
+      regionId: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class ListCollectionsResponseBody extends $tea.Model {
+  collections?: ListCollectionsResponseBodyCollections;
+  count?: number;
+  DBInstanceId?: string;
+  message?: string;
+  namespace?: string;
+  regionId?: string;
+  requestId?: string;
+  status?: string;
+  static names(): { [key: string]: string } {
+    return {
+      collections: 'Collections',
+      count: 'Count',
+      DBInstanceId: 'DBInstanceId',
+      message: 'Message',
+      namespace: 'Namespace',
+      regionId: 'RegionId',
+      requestId: 'RequestId',
+      status: 'Status',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      collections: ListCollectionsResponseBodyCollections,
+      count: 'number',
+      DBInstanceId: 'string',
+      message: 'string',
+      namespace: 'string',
+      regionId: 'string',
+      requestId: 'string',
+      status: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class ListCollectionsResponse extends $tea.Model {
+  headers: { [key: string]: string };
+  statusCode: number;
+  body: ListCollectionsResponseBody;
+  static names(): { [key: string]: string } {
+    return {
+      headers: 'headers',
+      statusCode: 'statusCode',
+      body: 'body',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
+      body: ListCollectionsResponseBody,
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class ListNamespacesRequest extends $tea.Model {
+  DBInstanceId?: string;
+  managerAccount?: string;
+  managerAccountPassword?: string;
+  ownerId?: number;
+  regionId?: string;
+  static names(): { [key: string]: string } {
+    return {
+      DBInstanceId: 'DBInstanceId',
+      managerAccount: 'ManagerAccount',
+      managerAccountPassword: 'ManagerAccountPassword',
+      ownerId: 'OwnerId',
+      regionId: 'RegionId',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      DBInstanceId: 'string',
+      managerAccount: 'string',
+      managerAccountPassword: 'string',
+      ownerId: 'number',
+      regionId: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class ListNamespacesResponseBody extends $tea.Model {
+  count?: number;
+  DBInstanceId?: string;
+  message?: string;
+  namespaces?: ListNamespacesResponseBodyNamespaces;
+  regionId?: string;
+  requestId?: string;
+  status?: string;
+  static names(): { [key: string]: string } {
+    return {
+      count: 'Count',
+      DBInstanceId: 'DBInstanceId',
+      message: 'Message',
+      namespaces: 'Namespaces',
+      regionId: 'RegionId',
+      requestId: 'RequestId',
+      status: 'Status',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      count: 'number',
+      DBInstanceId: 'string',
+      message: 'string',
+      namespaces: ListNamespacesResponseBodyNamespaces,
+      regionId: 'string',
+      requestId: 'string',
+      status: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class ListNamespacesResponse extends $tea.Model {
+  headers: { [key: string]: string };
+  statusCode: number;
+  body: ListNamespacesResponseBody;
+  static names(): { [key: string]: string } {
+    return {
+      headers: 'headers',
+      statusCode: 'statusCode',
+      body: 'body',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
+      body: ListNamespacesResponseBody,
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
 export class ListTagResourcesRequest extends $tea.Model {
   nextToken?: string;
   ownerAccount?: string;
@@ -5889,20 +5904,29 @@ export class ModifyBackupPolicyResponse extends $tea.Model {
   }
 }
 
-export class ModifyDBInstanceConnectionModeRequest extends $tea.Model {
-  connectionMode?: string;
+export class ModifyDBInstanceConfigRequest extends $tea.Model {
+  DBInstanceDescription?: string;
   DBInstanceId?: string;
+  idleTime?: number;
+  resourceGroupId?: string;
+  serverlessResource?: number;
   static names(): { [key: string]: string } {
     return {
-      connectionMode: 'ConnectionMode',
+      DBInstanceDescription: 'DBInstanceDescription',
       DBInstanceId: 'DBInstanceId',
+      idleTime: 'IdleTime',
+      resourceGroupId: 'ResourceGroupId',
+      serverlessResource: 'ServerlessResource',
     };
   }
 
   static types(): { [key: string]: any } {
     return {
-      connectionMode: 'string',
+      DBInstanceDescription: 'string',
       DBInstanceId: 'string',
+      idleTime: 'number',
+      resourceGroupId: 'string',
+      serverlessResource: 'number',
     };
   }
 
@@ -5911,17 +5935,26 @@ export class ModifyDBInstanceConnectionModeRequest extends $tea.Model {
   }
 }
 
-export class ModifyDBInstanceConnectionModeResponseBody extends $tea.Model {
+export class ModifyDBInstanceConfigResponseBody extends $tea.Model {
+  dbInstanceId?: string;
+  errorMessage?: string;
   requestId?: string;
+  status?: boolean;
   static names(): { [key: string]: string } {
     return {
+      dbInstanceId: 'DbInstanceId',
+      errorMessage: 'ErrorMessage',
       requestId: 'RequestId',
+      status: 'Status',
     };
   }
 
   static types(): { [key: string]: any } {
     return {
+      dbInstanceId: 'string',
+      errorMessage: 'string',
       requestId: 'string',
+      status: 'boolean',
     };
   }
 
@@ -5930,10 +5963,10 @@ export class ModifyDBInstanceConnectionModeResponseBody extends $tea.Model {
   }
 }
 
-export class ModifyDBInstanceConnectionModeResponse extends $tea.Model {
+export class ModifyDBInstanceConfigResponse extends $tea.Model {
   headers: { [key: string]: string };
   statusCode: number;
-  body: ModifyDBInstanceConnectionModeResponseBody;
+  body: ModifyDBInstanceConfigResponseBody;
   static names(): { [key: string]: string } {
     return {
       headers: 'headers',
@@ -5946,7 +5979,7 @@ export class ModifyDBInstanceConnectionModeResponse extends $tea.Model {
     return {
       headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
       statusCode: 'number',
-      body: ModifyDBInstanceConnectionModeResponseBody,
+      body: ModifyDBInstanceConfigResponseBody,
     };
   }
 
@@ -6160,81 +6193,6 @@ export class ModifyDBInstanceMaintainTimeResponse extends $tea.Model {
       headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
       statusCode: 'number',
       body: ModifyDBInstanceMaintainTimeResponseBody,
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class ModifyDBInstanceNetworkTypeRequest extends $tea.Model {
-  DBInstanceId?: string;
-  instanceNetworkType?: string;
-  privateIpAddress?: string;
-  VPCId?: string;
-  vSwitchId?: string;
-  static names(): { [key: string]: string } {
-    return {
-      DBInstanceId: 'DBInstanceId',
-      instanceNetworkType: 'InstanceNetworkType',
-      privateIpAddress: 'PrivateIpAddress',
-      VPCId: 'VPCId',
-      vSwitchId: 'VSwitchId',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      DBInstanceId: 'string',
-      instanceNetworkType: 'string',
-      privateIpAddress: 'string',
-      VPCId: 'string',
-      vSwitchId: 'string',
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class ModifyDBInstanceNetworkTypeResponseBody extends $tea.Model {
-  requestId?: string;
-  static names(): { [key: string]: string } {
-    return {
-      requestId: 'RequestId',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      requestId: 'string',
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class ModifyDBInstanceNetworkTypeResponse extends $tea.Model {
-  headers: { [key: string]: string };
-  statusCode: number;
-  body: ModifyDBInstanceNetworkTypeResponseBody;
-  static names(): { [key: string]: string } {
-    return {
-      headers: 'headers',
-      statusCode: 'statusCode',
-      body: 'body',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
-      statusCode: 'number',
-      body: ModifyDBInstanceNetworkTypeResponseBody,
     };
   }
 
@@ -6532,6 +6490,7 @@ export class ModifySecurityIpsRequest extends $tea.Model {
   DBInstanceIPArrayAttribute?: string;
   DBInstanceIPArrayName?: string;
   DBInstanceId?: string;
+  modifyMode?: string;
   resourceGroupId?: string;
   securityIPList?: string;
   static names(): { [key: string]: string } {
@@ -6539,6 +6498,7 @@ export class ModifySecurityIpsRequest extends $tea.Model {
       DBInstanceIPArrayAttribute: 'DBInstanceIPArrayAttribute',
       DBInstanceIPArrayName: 'DBInstanceIPArrayName',
       DBInstanceId: 'DBInstanceId',
+      modifyMode: 'ModifyMode',
       resourceGroupId: 'ResourceGroupId',
       securityIPList: 'SecurityIPList',
     };
@@ -6549,6 +6509,7 @@ export class ModifySecurityIpsRequest extends $tea.Model {
       DBInstanceIPArrayAttribute: 'string',
       DBInstanceIPArrayName: 'string',
       DBInstanceId: 'string',
+      modifyMode: 'string',
       resourceGroupId: 'string',
       securityIPList: 'string',
     };
@@ -6595,6 +6556,84 @@ export class ModifySecurityIpsResponse extends $tea.Model {
       headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
       statusCode: 'number',
       body: ModifySecurityIpsResponseBody,
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class ModifyVectorConfigurationRequest extends $tea.Model {
+  DBInstanceId?: string;
+  ownerId?: number;
+  vectorConfigurationStatus?: string;
+  static names(): { [key: string]: string } {
+    return {
+      DBInstanceId: 'DBInstanceId',
+      ownerId: 'OwnerId',
+      vectorConfigurationStatus: 'VectorConfigurationStatus',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      DBInstanceId: 'string',
+      ownerId: 'number',
+      vectorConfigurationStatus: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class ModifyVectorConfigurationResponseBody extends $tea.Model {
+  DBInstanceId?: string;
+  errorMessage?: string;
+  requestId?: string;
+  status?: boolean;
+  static names(): { [key: string]: string } {
+    return {
+      DBInstanceId: 'DBInstanceId',
+      errorMessage: 'ErrorMessage',
+      requestId: 'RequestId',
+      status: 'Status',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      DBInstanceId: 'string',
+      errorMessage: 'string',
+      requestId: 'string',
+      status: 'boolean',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class ModifyVectorConfigurationResponse extends $tea.Model {
+  headers: { [key: string]: string };
+  statusCode: number;
+  body: ModifyVectorConfigurationResponseBody;
+  static names(): { [key: string]: string } {
+    return {
+      headers: 'headers',
+      statusCode: 'statusCode',
+      body: 'body',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
+      body: ModifyVectorConfigurationResponseBody,
     };
   }
 
@@ -6670,6 +6709,148 @@ export class PauseInstanceResponse extends $tea.Model {
       headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
       statusCode: 'number',
       body: PauseInstanceResponseBody,
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class QueryCollectionDataRequest extends $tea.Model {
+  collection?: string;
+  content?: string;
+  DBInstanceId?: string;
+  filter?: string;
+  namespace?: string;
+  namespacePassword?: string;
+  ownerId?: number;
+  regionId?: string;
+  topK?: number;
+  vector?: number[];
+  static names(): { [key: string]: string } {
+    return {
+      collection: 'Collection',
+      content: 'Content',
+      DBInstanceId: 'DBInstanceId',
+      filter: 'Filter',
+      namespace: 'Namespace',
+      namespacePassword: 'NamespacePassword',
+      ownerId: 'OwnerId',
+      regionId: 'RegionId',
+      topK: 'TopK',
+      vector: 'Vector',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      collection: 'string',
+      content: 'string',
+      DBInstanceId: 'string',
+      filter: 'string',
+      namespace: 'string',
+      namespacePassword: 'string',
+      ownerId: 'number',
+      regionId: 'string',
+      topK: 'number',
+      vector: { 'type': 'array', 'itemType': 'number' },
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class QueryCollectionDataShrinkRequest extends $tea.Model {
+  collection?: string;
+  content?: string;
+  DBInstanceId?: string;
+  filter?: string;
+  namespace?: string;
+  namespacePassword?: string;
+  ownerId?: number;
+  regionId?: string;
+  topK?: number;
+  vectorShrink?: string;
+  static names(): { [key: string]: string } {
+    return {
+      collection: 'Collection',
+      content: 'Content',
+      DBInstanceId: 'DBInstanceId',
+      filter: 'Filter',
+      namespace: 'Namespace',
+      namespacePassword: 'NamespacePassword',
+      ownerId: 'OwnerId',
+      regionId: 'RegionId',
+      topK: 'TopK',
+      vectorShrink: 'Vector',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      collection: 'string',
+      content: 'string',
+      DBInstanceId: 'string',
+      filter: 'string',
+      namespace: 'string',
+      namespacePassword: 'string',
+      ownerId: 'number',
+      regionId: 'string',
+      topK: 'number',
+      vectorShrink: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class QueryCollectionDataResponseBody extends $tea.Model {
+  matches?: QueryCollectionDataResponseBodyMatches;
+  requestId?: string;
+  status?: string;
+  static names(): { [key: string]: string } {
+    return {
+      matches: 'Matches',
+      requestId: 'RequestId',
+      status: 'Status',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      matches: QueryCollectionDataResponseBodyMatches,
+      requestId: 'string',
+      status: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class QueryCollectionDataResponse extends $tea.Model {
+  headers: { [key: string]: string };
+  statusCode: number;
+  body: QueryCollectionDataResponseBody;
+  static names(): { [key: string]: string } {
+    return {
+      headers: 'headers',
+      statusCode: 'statusCode',
+      body: 'body',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
+      body: QueryCollectionDataResponseBody,
     };
   }
 
@@ -7631,7 +7812,9 @@ export class UpgradeDBInstanceRequest extends $tea.Model {
   payType?: string;
   regionId?: string;
   resourceGroupId?: string;
+  segDiskPerformanceLevel?: string;
   segNodeNum?: string;
+  segStorageType?: string;
   storageSize?: string;
   upgradeType?: number;
   static names(): { [key: string]: string } {
@@ -7645,7 +7828,9 @@ export class UpgradeDBInstanceRequest extends $tea.Model {
       payType: 'PayType',
       regionId: 'RegionId',
       resourceGroupId: 'ResourceGroupId',
+      segDiskPerformanceLevel: 'SegDiskPerformanceLevel',
       segNodeNum: 'SegNodeNum',
+      segStorageType: 'SegStorageType',
       storageSize: 'StorageSize',
       upgradeType: 'UpgradeType',
     };
@@ -7662,7 +7847,9 @@ export class UpgradeDBInstanceRequest extends $tea.Model {
       payType: 'string',
       regionId: 'string',
       resourceGroupId: 'string',
+      segDiskPerformanceLevel: 'string',
       segNodeNum: 'string',
+      segStorageType: 'string',
       storageSize: 'string',
       upgradeType: 'number',
     };
@@ -7813,20 +8000,35 @@ export class UpgradeDBVersionResponse extends $tea.Model {
   }
 }
 
-export class CreateDBInstanceRequestTag extends $tea.Model {
-  key?: string;
-  value?: string;
+export class UpsertCollectionDataRequest extends $tea.Model {
+  collection?: string;
+  DBInstanceId?: string;
+  namespace?: string;
+  namespacePassword?: string;
+  ownerId?: number;
+  regionId?: string;
+  rows?: UpsertCollectionDataRequestRows[];
   static names(): { [key: string]: string } {
     return {
-      key: 'Key',
-      value: 'Value',
+      collection: 'Collection',
+      DBInstanceId: 'DBInstanceId',
+      namespace: 'Namespace',
+      namespacePassword: 'NamespacePassword',
+      ownerId: 'OwnerId',
+      regionId: 'RegionId',
+      rows: 'Rows',
     };
   }
 
   static types(): { [key: string]: any } {
     return {
-      key: 'string',
-      value: 'string',
+      collection: 'string',
+      DBInstanceId: 'string',
+      namespace: 'string',
+      namespacePassword: 'string',
+      ownerId: 'number',
+      regionId: 'string',
+      rows: { 'type': 'array', 'itemType': UpsertCollectionDataRequestRows },
     };
   }
 
@@ -7835,7 +8037,94 @@ export class CreateDBInstanceRequestTag extends $tea.Model {
   }
 }
 
-export class CreateECSDBInstanceRequestTag extends $tea.Model {
+export class UpsertCollectionDataShrinkRequest extends $tea.Model {
+  collection?: string;
+  DBInstanceId?: string;
+  namespace?: string;
+  namespacePassword?: string;
+  ownerId?: number;
+  regionId?: string;
+  rowsShrink?: string;
+  static names(): { [key: string]: string } {
+    return {
+      collection: 'Collection',
+      DBInstanceId: 'DBInstanceId',
+      namespace: 'Namespace',
+      namespacePassword: 'NamespacePassword',
+      ownerId: 'OwnerId',
+      regionId: 'RegionId',
+      rowsShrink: 'Rows',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      collection: 'string',
+      DBInstanceId: 'string',
+      namespace: 'string',
+      namespacePassword: 'string',
+      ownerId: 'number',
+      regionId: 'string',
+      rowsShrink: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class UpsertCollectionDataResponseBody extends $tea.Model {
+  message?: string;
+  requestId?: string;
+  status?: string;
+  static names(): { [key: string]: string } {
+    return {
+      message: 'Message',
+      requestId: 'RequestId',
+      status: 'Status',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      message: 'string',
+      requestId: 'string',
+      status: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class UpsertCollectionDataResponse extends $tea.Model {
+  headers: { [key: string]: string };
+  statusCode: number;
+  body: UpsertCollectionDataResponseBody;
+  static names(): { [key: string]: string } {
+    return {
+      headers: 'headers',
+      statusCode: 'statusCode',
+      body: 'body',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
+      body: UpsertCollectionDataResponseBody,
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class CreateDBInstanceRequestTag extends $tea.Model {
   key?: string;
   value?: string;
   static names(): { [key: string]: string } {
@@ -8213,6 +8502,7 @@ export class DescribeDBInstanceAttributeResponseBodyItemsDBInstanceAttribute ext
   resourceGroupId?: string;
   runningTime?: string;
   securityIPList?: string;
+  segDiskPerformanceLevel?: string;
   segNodeNum?: number;
   segmentCounts?: number;
   serverlessMode?: string;
@@ -8225,6 +8515,7 @@ export class DescribeDBInstanceAttributeResponseBodyItemsDBInstanceAttribute ext
   supportRestore?: boolean;
   tags?: DescribeDBInstanceAttributeResponseBodyItemsDBInstanceAttributeTags;
   vSwitchId?: string;
+  vectorConfigurationStatus?: string;
   vpcId?: string;
   zoneId?: string;
   static names(): { [key: string]: string } {
@@ -8274,6 +8565,7 @@ export class DescribeDBInstanceAttributeResponseBodyItemsDBInstanceAttribute ext
       resourceGroupId: 'ResourceGroupId',
       runningTime: 'RunningTime',
       securityIPList: 'SecurityIPList',
+      segDiskPerformanceLevel: 'SegDiskPerformanceLevel',
       segNodeNum: 'SegNodeNum',
       segmentCounts: 'SegmentCounts',
       serverlessMode: 'ServerlessMode',
@@ -8286,6 +8578,7 @@ export class DescribeDBInstanceAttributeResponseBodyItemsDBInstanceAttribute ext
       supportRestore: 'SupportRestore',
       tags: 'Tags',
       vSwitchId: 'VSwitchId',
+      vectorConfigurationStatus: 'VectorConfigurationStatus',
       vpcId: 'VpcId',
       zoneId: 'ZoneId',
     };
@@ -8338,6 +8631,7 @@ export class DescribeDBInstanceAttributeResponseBodyItemsDBInstanceAttribute ext
       resourceGroupId: 'string',
       runningTime: 'string',
       securityIPList: 'string',
+      segDiskPerformanceLevel: 'string',
       segNodeNum: 'number',
       segmentCounts: 'number',
       serverlessMode: 'string',
@@ -8350,6 +8644,7 @@ export class DescribeDBInstanceAttributeResponseBodyItemsDBInstanceAttribute ext
       supportRestore: 'boolean',
       tags: DescribeDBInstanceAttributeResponseBodyItemsDBInstanceAttributeTags,
       vSwitchId: 'string',
+      vectorConfigurationStatus: 'string',
       vpcId: 'string',
       zoneId: 'string',
     };
@@ -8774,175 +9069,6 @@ export class DescribeDBInstanceNetInfoResponseBodyDBInstanceNetInfos extends $te
   }
 }
 
-export class DescribeDBInstanceOnECSAttributeResponseBodyItemsDBInstanceAttributeTagsTag extends $tea.Model {
-  key?: string;
-  value?: string;
-  static names(): { [key: string]: string } {
-    return {
-      key: 'Key',
-      value: 'Value',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      key: 'string',
-      value: 'string',
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class DescribeDBInstanceOnECSAttributeResponseBodyItemsDBInstanceAttributeTags extends $tea.Model {
-  tag?: DescribeDBInstanceOnECSAttributeResponseBodyItemsDBInstanceAttributeTagsTag[];
-  static names(): { [key: string]: string } {
-    return {
-      tag: 'Tag',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      tag: { 'type': 'array', 'itemType': DescribeDBInstanceOnECSAttributeResponseBodyItemsDBInstanceAttributeTagsTag },
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class DescribeDBInstanceOnECSAttributeResponseBodyItemsDBInstanceAttribute extends $tea.Model {
-  connectionMode?: string;
-  connectionString?: string;
-  cpuCores?: number;
-  creationTime?: string;
-  DBInstanceCategory?: string;
-  DBInstanceClass?: string;
-  DBInstanceDescription?: string;
-  DBInstanceId?: string;
-  DBInstanceStatus?: string;
-  encryptionKey?: string;
-  encryptionType?: string;
-  engine?: string;
-  engineVersion?: string;
-  expireTime?: string;
-  instanceDeployType?: string;
-  instanceNetworkType?: string;
-  lockMode?: string;
-  masterNodeNum?: number;
-  memorySize?: number;
-  minorVersion?: string;
-  payType?: string;
-  port?: string;
-  regionId?: string;
-  segNodeNum?: number;
-  storageSize?: number;
-  storageType?: string;
-  supportRestore?: boolean;
-  tags?: DescribeDBInstanceOnECSAttributeResponseBodyItemsDBInstanceAttributeTags;
-  vSwitchId?: string;
-  vpcId?: string;
-  zoneId?: string;
-  static names(): { [key: string]: string } {
-    return {
-      connectionMode: 'ConnectionMode',
-      connectionString: 'ConnectionString',
-      cpuCores: 'CpuCores',
-      creationTime: 'CreationTime',
-      DBInstanceCategory: 'DBInstanceCategory',
-      DBInstanceClass: 'DBInstanceClass',
-      DBInstanceDescription: 'DBInstanceDescription',
-      DBInstanceId: 'DBInstanceId',
-      DBInstanceStatus: 'DBInstanceStatus',
-      encryptionKey: 'EncryptionKey',
-      encryptionType: 'EncryptionType',
-      engine: 'Engine',
-      engineVersion: 'EngineVersion',
-      expireTime: 'ExpireTime',
-      instanceDeployType: 'InstanceDeployType',
-      instanceNetworkType: 'InstanceNetworkType',
-      lockMode: 'LockMode',
-      masterNodeNum: 'MasterNodeNum',
-      memorySize: 'MemorySize',
-      minorVersion: 'MinorVersion',
-      payType: 'PayType',
-      port: 'Port',
-      regionId: 'RegionId',
-      segNodeNum: 'SegNodeNum',
-      storageSize: 'StorageSize',
-      storageType: 'StorageType',
-      supportRestore: 'SupportRestore',
-      tags: 'Tags',
-      vSwitchId: 'VSwitchId',
-      vpcId: 'VpcId',
-      zoneId: 'ZoneId',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      connectionMode: 'string',
-      connectionString: 'string',
-      cpuCores: 'number',
-      creationTime: 'string',
-      DBInstanceCategory: 'string',
-      DBInstanceClass: 'string',
-      DBInstanceDescription: 'string',
-      DBInstanceId: 'string',
-      DBInstanceStatus: 'string',
-      encryptionKey: 'string',
-      encryptionType: 'string',
-      engine: 'string',
-      engineVersion: 'string',
-      expireTime: 'string',
-      instanceDeployType: 'string',
-      instanceNetworkType: 'string',
-      lockMode: 'string',
-      masterNodeNum: 'number',
-      memorySize: 'number',
-      minorVersion: 'string',
-      payType: 'string',
-      port: 'string',
-      regionId: 'string',
-      segNodeNum: 'number',
-      storageSize: 'number',
-      storageType: 'string',
-      supportRestore: 'boolean',
-      tags: DescribeDBInstanceOnECSAttributeResponseBodyItemsDBInstanceAttributeTags,
-      vSwitchId: 'string',
-      vpcId: 'string',
-      zoneId: 'string',
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class DescribeDBInstanceOnECSAttributeResponseBodyItems extends $tea.Model {
-  DBInstanceAttribute?: DescribeDBInstanceOnECSAttributeResponseBodyItemsDBInstanceAttribute[];
-  static names(): { [key: string]: string } {
-    return {
-      DBInstanceAttribute: 'DBInstanceAttribute',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      DBInstanceAttribute: { 'type': 'array', 'itemType': DescribeDBInstanceOnECSAttributeResponseBodyItemsDBInstanceAttribute },
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
 export class DescribeDBInstancePlansResponseBodyItemsPlanList extends $tea.Model {
   DBInstanceId?: string;
   planConfig?: string;
@@ -9000,28 +9126,6 @@ export class DescribeDBInstancePlansResponseBodyItems extends $tea.Model {
   static types(): { [key: string]: any } {
     return {
       planList: { 'type': 'array', 'itemType': DescribeDBInstancePlansResponseBodyItemsPlanList },
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class DescribeDBInstanceSQLPatternsResponseBodyPatterns extends $tea.Model {
-  name?: string;
-  values?: { [key: string]: any };
-  static names(): { [key: string]: string } {
-    return {
-      name: 'Name',
-      values: 'Values',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      name: 'string',
-      values: { 'type': 'map', 'keyType': 'string', 'valueType': 'any' },
     };
   }
 
@@ -9283,6 +9387,40 @@ export class DescribeDataBackupsResponseBodyItems extends $tea.Model {
   }
 }
 
+export class DescribeDataReDistributeInfoResponseBodyDataReDistributeInfo extends $tea.Model {
+  message?: string;
+  progress?: number;
+  remainTime?: string;
+  startTime?: string;
+  status?: string;
+  type?: string;
+  static names(): { [key: string]: string } {
+    return {
+      message: 'Message',
+      progress: 'Progress',
+      remainTime: 'RemainTime',
+      startTime: 'StartTime',
+      status: 'Status',
+      type: 'Type',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      message: 'string',
+      progress: 'number',
+      remainTime: 'string',
+      startTime: 'string',
+      status: 'string',
+      type: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
 export class DescribeDataShareInstancesResponseBodyItemsDBInstance extends $tea.Model {
   DBInstanceId?: string;
   DBInstanceMode?: string;
@@ -9513,6 +9651,37 @@ export class DescribeDownloadRecordsResponseBodyRecords extends $tea.Model {
   }
 }
 
+export class DescribeDownloadSQLLogsResponseBodyRecords extends $tea.Model {
+  downloadId?: number;
+  downloadUrl?: string;
+  exceptionMsg?: string;
+  fileName?: string;
+  status?: string;
+  static names(): { [key: string]: string } {
+    return {
+      downloadId: 'DownloadId',
+      downloadUrl: 'DownloadUrl',
+      exceptionMsg: 'ExceptionMsg',
+      fileName: 'FileName',
+      status: 'Status',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      downloadId: 'number',
+      downloadUrl: 'string',
+      exceptionMsg: 'string',
+      fileName: 'string',
+      status: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
 export class DescribeHealthStatusResponseBodyStatusAdbgpSegmentDiskUsagePercentMax extends $tea.Model {
   status?: string;
   value?: number;
@@ -9592,6 +9761,63 @@ export class DescribeHealthStatusResponseBodyStatusAdbpgDiskUsagePercent extends
   static types(): { [key: string]: any } {
     return {
       status: 'string',
+      value: 'number',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class DescribeHealthStatusResponseBodyStatusAdbpgInstanceColdDataGb extends $tea.Model {
+  value?: number;
+  static names(): { [key: string]: string } {
+    return {
+      value: 'Value',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      value: 'number',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class DescribeHealthStatusResponseBodyStatusAdbpgInstanceHotDataGb extends $tea.Model {
+  value?: number;
+  static names(): { [key: string]: string } {
+    return {
+      value: 'Value',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      value: 'number',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class DescribeHealthStatusResponseBodyStatusAdbpgInstanceTotalDataGb extends $tea.Model {
+  value?: number;
+  static names(): { [key: string]: string } {
+    return {
+      value: 'Value',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
       value: 'number',
     };
   }
@@ -9782,6 +10008,9 @@ export class DescribeHealthStatusResponseBodyStatus extends $tea.Model {
   adbpgConnectionStatus?: DescribeHealthStatusResponseBodyStatusAdbpgConnectionStatus;
   adbpgDiskStatus?: DescribeHealthStatusResponseBodyStatusAdbpgDiskStatus;
   adbpgDiskUsagePercent?: DescribeHealthStatusResponseBodyStatusAdbpgDiskUsagePercent;
+  adbpgInstanceColdDataGb?: DescribeHealthStatusResponseBodyStatusAdbpgInstanceColdDataGb;
+  adbpgInstanceHotDataGb?: DescribeHealthStatusResponseBodyStatusAdbpgInstanceHotDataGb;
+  adbpgInstanceTotalDataGb?: DescribeHealthStatusResponseBodyStatusAdbpgInstanceTotalDataGb;
   adbpgMasterDiskUsagePercentMax?: DescribeHealthStatusResponseBodyStatusAdbpgMasterDiskUsagePercentMax;
   adbpgMasterStatus?: DescribeHealthStatusResponseBodyStatusAdbpgMasterStatus;
   adbpgSegmentStatus?: DescribeHealthStatusResponseBodyStatusAdbpgSegmentStatus;
@@ -9796,6 +10025,9 @@ export class DescribeHealthStatusResponseBodyStatus extends $tea.Model {
       adbpgConnectionStatus: 'adbpg_connection_status',
       adbpgDiskStatus: 'adbpg_disk_status',
       adbpgDiskUsagePercent: 'adbpg_disk_usage_percent',
+      adbpgInstanceColdDataGb: 'adbpg_instance_cold_data_gb',
+      adbpgInstanceHotDataGb: 'adbpg_instance_hot_data_gb',
+      adbpgInstanceTotalDataGb: 'adbpg_instance_total_data_gb',
       adbpgMasterDiskUsagePercentMax: 'adbpg_master_disk_usage_percent_max',
       adbpgMasterStatus: 'adbpg_master_status',
       adbpgSegmentStatus: 'adbpg_segment_status',
@@ -9813,6 +10045,9 @@ export class DescribeHealthStatusResponseBodyStatus extends $tea.Model {
       adbpgConnectionStatus: DescribeHealthStatusResponseBodyStatusAdbpgConnectionStatus,
       adbpgDiskStatus: DescribeHealthStatusResponseBodyStatusAdbpgDiskStatus,
       adbpgDiskUsagePercent: DescribeHealthStatusResponseBodyStatusAdbpgDiskUsagePercent,
+      adbpgInstanceColdDataGb: DescribeHealthStatusResponseBodyStatusAdbpgInstanceColdDataGb,
+      adbpgInstanceHotDataGb: DescribeHealthStatusResponseBodyStatusAdbpgInstanceHotDataGb,
+      adbpgInstanceTotalDataGb: DescribeHealthStatusResponseBodyStatusAdbpgInstanceTotalDataGb,
       adbpgMasterDiskUsagePercentMax: DescribeHealthStatusResponseBodyStatusAdbpgMasterDiskUsagePercentMax,
       adbpgMasterStatus: DescribeHealthStatusResponseBodyStatusAdbpgMasterStatus,
       adbpgSegmentStatus: DescribeHealthStatusResponseBodyStatusAdbpgSegmentStatus,
@@ -10189,70 +10424,6 @@ export class DescribeRegionsResponseBodyRegions extends $tea.Model {
   }
 }
 
-export class DescribeSQLLogByQueryIdResponseBodyItems extends $tea.Model {
-  accountName?: string;
-  DBName?: string;
-  DBRole?: string;
-  executeCost?: number;
-  executeState?: string;
-  operationClass?: string;
-  operationExecuteTime?: string;
-  operationType?: string;
-  queryId?: string;
-  returnRowCounts?: number;
-  SQLPlan?: string;
-  SQLText?: string;
-  scanRowCounts?: number;
-  sliceIds?: string[];
-  sourceIP?: string;
-  sourcePort?: number;
-  static names(): { [key: string]: string } {
-    return {
-      accountName: 'AccountName',
-      DBName: 'DBName',
-      DBRole: 'DBRole',
-      executeCost: 'ExecuteCost',
-      executeState: 'ExecuteState',
-      operationClass: 'OperationClass',
-      operationExecuteTime: 'OperationExecuteTime',
-      operationType: 'OperationType',
-      queryId: 'QueryId',
-      returnRowCounts: 'ReturnRowCounts',
-      SQLPlan: 'SQLPlan',
-      SQLText: 'SQLText',
-      scanRowCounts: 'ScanRowCounts',
-      sliceIds: 'SliceIds',
-      sourceIP: 'SourceIP',
-      sourcePort: 'SourcePort',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      accountName: 'string',
-      DBName: 'string',
-      DBRole: 'string',
-      executeCost: 'number',
-      executeState: 'string',
-      operationClass: 'string',
-      operationExecuteTime: 'string',
-      operationType: 'string',
-      queryId: 'string',
-      returnRowCounts: 'number',
-      SQLPlan: 'string',
-      SQLText: 'string',
-      scanRowCounts: 'number',
-      sliceIds: { 'type': 'array', 'itemType': 'string' },
-      sourceIP: 'string',
-      sourcePort: 'number',
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
 export class DescribeSQLLogCountResponseBodyItemsSeriesValues extends $tea.Model {
   point?: string[];
   static names(): { [key: string]: string } {
@@ -10313,216 +10484,6 @@ export class DescribeSQLLogCountResponseBodyItems extends $tea.Model {
   }
 }
 
-export class DescribeSQLLogFilesResponseBodyItemsLogFile extends $tea.Model {
-  fileID?: string;
-  logDownloadURL?: string;
-  logEndTime?: string;
-  logSize?: string;
-  logStartTime?: string;
-  logStatus?: string;
-  static names(): { [key: string]: string } {
-    return {
-      fileID: 'FileID',
-      logDownloadURL: 'LogDownloadURL',
-      logEndTime: 'LogEndTime',
-      logSize: 'LogSize',
-      logStartTime: 'LogStartTime',
-      logStatus: 'LogStatus',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      fileID: 'string',
-      logDownloadURL: 'string',
-      logEndTime: 'string',
-      logSize: 'string',
-      logStartTime: 'string',
-      logStatus: 'string',
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class DescribeSQLLogFilesResponseBodyItems extends $tea.Model {
-  logFile?: DescribeSQLLogFilesResponseBodyItemsLogFile[];
-  static names(): { [key: string]: string } {
-    return {
-      logFile: 'LogFile',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      logFile: { 'type': 'array', 'itemType': DescribeSQLLogFilesResponseBodyItemsLogFile },
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class DescribeSQLLogRecordsResponseBodyItemsSQLRecord extends $tea.Model {
-  accountName?: string;
-  DBName?: string;
-  executeTime?: string;
-  hostAddress?: string;
-  returnRowCounts?: number;
-  SQLText?: string;
-  threadID?: string;
-  totalExecutionTimes?: number;
-  static names(): { [key: string]: string } {
-    return {
-      accountName: 'AccountName',
-      DBName: 'DBName',
-      executeTime: 'ExecuteTime',
-      hostAddress: 'HostAddress',
-      returnRowCounts: 'ReturnRowCounts',
-      SQLText: 'SQLText',
-      threadID: 'ThreadID',
-      totalExecutionTimes: 'TotalExecutionTimes',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      accountName: 'string',
-      DBName: 'string',
-      executeTime: 'string',
-      hostAddress: 'string',
-      returnRowCounts: 'number',
-      SQLText: 'string',
-      threadID: 'string',
-      totalExecutionTimes: 'number',
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class DescribeSQLLogRecordsResponseBodyItems extends $tea.Model {
-  SQLRecord?: DescribeSQLLogRecordsResponseBodyItemsSQLRecord[];
-  static names(): { [key: string]: string } {
-    return {
-      SQLRecord: 'SQLRecord',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      SQLRecord: { 'type': 'array', 'itemType': DescribeSQLLogRecordsResponseBodyItemsSQLRecord },
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class DescribeSQLLogsResponseBodyItems extends $tea.Model {
-  accountName?: string;
-  DBName?: string;
-  DBRole?: string;
-  executeCost?: number;
-  executeState?: string;
-  operationClass?: string;
-  operationExecuteTime?: string;
-  operationType?: string;
-  returnRowCounts?: number;
-  SQLPlan?: string;
-  SQLText?: string;
-  scanRowCounts?: number;
-  sourceIP?: string;
-  sourcePort?: number;
-  static names(): { [key: string]: string } {
-    return {
-      accountName: 'AccountName',
-      DBName: 'DBName',
-      DBRole: 'DBRole',
-      executeCost: 'ExecuteCost',
-      executeState: 'ExecuteState',
-      operationClass: 'OperationClass',
-      operationExecuteTime: 'OperationExecuteTime',
-      operationType: 'OperationType',
-      returnRowCounts: 'ReturnRowCounts',
-      SQLPlan: 'SQLPlan',
-      SQLText: 'SQLText',
-      scanRowCounts: 'ScanRowCounts',
-      sourceIP: 'SourceIP',
-      sourcePort: 'SourcePort',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      accountName: 'string',
-      DBName: 'string',
-      DBRole: 'string',
-      executeCost: 'number',
-      executeState: 'string',
-      operationClass: 'string',
-      operationExecuteTime: 'string',
-      operationType: 'string',
-      returnRowCounts: 'number',
-      SQLPlan: 'string',
-      SQLText: 'string',
-      scanRowCounts: 'number',
-      sourceIP: 'string',
-      sourcePort: 'number',
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class DescribeSQLLogsOnSliceResponseBodySliceLogItems extends $tea.Model {
-  executeCost?: number;
-  executeStatus?: string;
-  operationExecuteEndTime?: string;
-  operationExecuteTime?: string;
-  peakMemory?: number;
-  returnRowCounts?: number;
-  segmentId?: string;
-  segmentName?: string;
-  static names(): { [key: string]: string } {
-    return {
-      executeCost: 'ExecuteCost',
-      executeStatus: 'ExecuteStatus',
-      operationExecuteEndTime: 'OperationExecuteEndTime',
-      operationExecuteTime: 'OperationExecuteTime',
-      peakMemory: 'PeakMemory',
-      returnRowCounts: 'ReturnRowCounts',
-      segmentId: 'SegmentId',
-      segmentName: 'SegmentName',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      executeCost: 'number',
-      executeStatus: 'string',
-      operationExecuteEndTime: 'string',
-      operationExecuteTime: 'string',
-      peakMemory: 'number',
-      returnRowCounts: 'number',
-      segmentId: 'string',
-      segmentName: 'string',
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
 export class DescribeSQLLogsV2ResponseBodyItems extends $tea.Model {
   accountName?: string;
   DBName?: string;
@@ -10570,192 +10531,6 @@ export class DescribeSQLLogsV2ResponseBodyItems extends $tea.Model {
       scanRowCounts: 'number',
       sourceIP: 'string',
       sourcePort: 'number',
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class DescribeSlowLogRecordsResponseBodyItemsSQLSlowRecord extends $tea.Model {
-  DBName?: string;
-  executionStartTime?: string;
-  hostAddress?: string;
-  lockTimes?: number;
-  parseRowCounts?: number;
-  queryTimes?: number;
-  returnRowCounts?: number;
-  SQLText?: string;
-  static names(): { [key: string]: string } {
-    return {
-      DBName: 'DBName',
-      executionStartTime: 'ExecutionStartTime',
-      hostAddress: 'HostAddress',
-      lockTimes: 'LockTimes',
-      parseRowCounts: 'ParseRowCounts',
-      queryTimes: 'QueryTimes',
-      returnRowCounts: 'ReturnRowCounts',
-      SQLText: 'SQLText',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      DBName: 'string',
-      executionStartTime: 'string',
-      hostAddress: 'string',
-      lockTimes: 'number',
-      parseRowCounts: 'number',
-      queryTimes: 'number',
-      returnRowCounts: 'number',
-      SQLText: 'string',
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class DescribeSlowLogRecordsResponseBodyItems extends $tea.Model {
-  SQLSlowRecord?: DescribeSlowLogRecordsResponseBodyItemsSQLSlowRecord[];
-  static names(): { [key: string]: string } {
-    return {
-      SQLSlowRecord: 'SQLSlowRecord',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      SQLSlowRecord: { 'type': 'array', 'itemType': DescribeSlowLogRecordsResponseBodyItemsSQLSlowRecord },
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class DescribeSlowSQLLogsResponseBodyItems extends $tea.Model {
-  accountName?: string;
-  DBName?: string;
-  DBRole?: string;
-  executeCost?: number;
-  executeState?: string;
-  operationClass?: string;
-  operationExecuteTime?: string;
-  operationType?: string;
-  queryId?: string;
-  returnRowCounts?: number;
-  SQLPlan?: string;
-  SQLText?: string;
-  scanRowCounts?: number;
-  sourceIP?: string;
-  sourcePort?: number;
-  static names(): { [key: string]: string } {
-    return {
-      accountName: 'AccountName',
-      DBName: 'DBName',
-      DBRole: 'DBRole',
-      executeCost: 'ExecuteCost',
-      executeState: 'ExecuteState',
-      operationClass: 'OperationClass',
-      operationExecuteTime: 'OperationExecuteTime',
-      operationType: 'OperationType',
-      queryId: 'QueryId',
-      returnRowCounts: 'ReturnRowCounts',
-      SQLPlan: 'SQLPlan',
-      SQLText: 'SQLText',
-      scanRowCounts: 'ScanRowCounts',
-      sourceIP: 'SourceIP',
-      sourcePort: 'SourcePort',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      accountName: 'string',
-      DBName: 'string',
-      DBRole: 'string',
-      executeCost: 'number',
-      executeState: 'string',
-      operationClass: 'string',
-      operationExecuteTime: 'string',
-      operationType: 'string',
-      queryId: 'string',
-      returnRowCounts: 'number',
-      SQLPlan: 'string',
-      SQLText: 'string',
-      scanRowCounts: 'number',
-      sourceIP: 'string',
-      sourcePort: 'number',
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class DescribeSpecificationResponseBodyDBInstanceClass extends $tea.Model {
-  text?: string;
-  value?: string;
-  static names(): { [key: string]: string } {
-    return {
-      text: 'Text',
-      value: 'Value',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      text: 'string',
-      value: 'string',
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class DescribeSpecificationResponseBodyDBInstanceGroupCount extends $tea.Model {
-  text?: string;
-  value?: string;
-  static names(): { [key: string]: string } {
-    return {
-      text: 'Text',
-      value: 'Value',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      text: 'string',
-      value: 'string',
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class DescribeSpecificationResponseBodyStorageNotice extends $tea.Model {
-  text?: string;
-  value?: string;
-  static names(): { [key: string]: string } {
-    return {
-      text: 'Text',
-      value: 'Value',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      text: 'string',
-      value: 'string',
     };
   }
 
@@ -10891,6 +10666,44 @@ export class DescribeWaitingSQLRecordsResponseBodyItems extends $tea.Model {
   }
 }
 
+export class ListCollectionsResponseBodyCollections extends $tea.Model {
+  collection?: string[];
+  static names(): { [key: string]: string } {
+    return {
+      collection: 'Collection',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      collection: { 'type': 'array', 'itemType': 'string' },
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class ListNamespacesResponseBodyNamespaces extends $tea.Model {
+  namespace?: string[];
+  static names(): { [key: string]: string } {
+    return {
+      namespace: 'Namespace',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      namespace: { 'type': 'array', 'itemType': 'string' },
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
 export class ListTagResourcesRequestTag extends $tea.Model {
   key?: string;
   value?: string;
@@ -10960,6 +10773,69 @@ export class ListTagResourcesResponseBodyTagResources extends $tea.Model {
   }
 }
 
+export class QueryCollectionDataResponseBodyMatchesMatchValues extends $tea.Model {
+  value?: number[];
+  static names(): { [key: string]: string } {
+    return {
+      value: 'value',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      value: { 'type': 'array', 'itemType': 'number' },
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class QueryCollectionDataResponseBodyMatchesMatch extends $tea.Model {
+  id?: string;
+  metadata?: { [key: string]: string };
+  values?: QueryCollectionDataResponseBodyMatchesMatchValues;
+  static names(): { [key: string]: string } {
+    return {
+      id: 'Id',
+      metadata: 'Metadata',
+      values: 'Values',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      id: 'string',
+      metadata: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      values: QueryCollectionDataResponseBodyMatchesMatchValues,
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class QueryCollectionDataResponseBodyMatches extends $tea.Model {
+  match?: QueryCollectionDataResponseBodyMatchesMatch[];
+  static names(): { [key: string]: string } {
+    return {
+      match: 'match',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      match: { 'type': 'array', 'itemType': QueryCollectionDataResponseBodyMatchesMatch },
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
 export class TagResourcesRequestTag extends $tea.Model {
   key?: string;
   value?: string;
@@ -10974,6 +10850,31 @@ export class TagResourcesRequestTag extends $tea.Model {
     return {
       key: 'string',
       value: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class UpsertCollectionDataRequestRows extends $tea.Model {
+  id?: string;
+  metadata?: { [key: string]: string };
+  vector?: number[];
+  static names(): { [key: string]: string } {
+    return {
+      id: 'Id',
+      metadata: 'Metadata',
+      vector: 'Vector',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      id: 'string',
+      metadata: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      vector: { 'type': 'array', 'itemType': 'number' },
     };
   }
 
@@ -11021,57 +10922,14 @@ export default class Client extends OpenApi {
   }
 
   /**
-    * @deprecated
+    * You can call this operation to apply for a public endpoint for an AnalyticDB for PostgreSQL instance. Both the primary and instance endpoints of an AnalyticDB for PostgreSQL instance can be public endpoints. For more information, see [Endpoints of an instance and its primary coordinator node](~~204879~~).
+    * ## Limits
+    * You can call this operation up to 1,000 times per second per account. If the number of the calls per second exceeds the limit, throttling is triggered. As a result, your business may be affected. We recommend that you take note of the limit when you call this operation.
     *
-    * @param request AddBuDBInstanceRelationRequest
+    * @param request AllocateInstancePublicConnectionRequest
     * @param runtime runtime options for this request RuntimeOptions
-    * @return AddBuDBInstanceRelationResponse
+    * @return AllocateInstancePublicConnectionResponse
    */
-  // Deprecated
-  async addBuDBInstanceRelationWithOptions(request: AddBuDBInstanceRelationRequest, runtime: $Util.RuntimeOptions): Promise<AddBuDBInstanceRelationResponse> {
-    Util.validateModel(request);
-    let query = { };
-    if (!Util.isUnset(request.businessUnit)) {
-      query["BusinessUnit"] = request.businessUnit;
-    }
-
-    if (!Util.isUnset(request.DBInstanceId)) {
-      query["DBInstanceId"] = request.DBInstanceId;
-    }
-
-    if (!Util.isUnset(request.ownerId)) {
-      query["OwnerId"] = request.ownerId;
-    }
-
-    let req = new $OpenApi.OpenApiRequest({
-      query: OpenApiUtil.query(query),
-    });
-    let params = new $OpenApi.Params({
-      action: "AddBuDBInstanceRelation",
-      version: "2016-05-03",
-      protocol: "HTTPS",
-      pathname: "/",
-      method: "POST",
-      authType: "AK",
-      style: "RPC",
-      reqBodyType: "formData",
-      bodyType: "json",
-    });
-    return $tea.cast<AddBuDBInstanceRelationResponse>(await this.callApi(params, req, runtime), new AddBuDBInstanceRelationResponse({}));
-  }
-
-  /**
-    * @deprecated
-    *
-    * @param request AddBuDBInstanceRelationRequest
-    * @return AddBuDBInstanceRelationResponse
-   */
-  // Deprecated
-  async addBuDBInstanceRelation(request: AddBuDBInstanceRelationRequest): Promise<AddBuDBInstanceRelationResponse> {
-    let runtime = new $Util.RuntimeOptions({ });
-    return await this.addBuDBInstanceRelationWithOptions(request, runtime);
-  }
-
   async allocateInstancePublicConnectionWithOptions(request: AllocateInstancePublicConnectionRequest, runtime: $Util.RuntimeOptions): Promise<AllocateInstancePublicConnectionResponse> {
     Util.validateModel(request);
     let query = { };
@@ -11120,6 +10978,14 @@ export default class Client extends OpenApi {
     return $tea.cast<AllocateInstancePublicConnectionResponse>(await this.callApi(params, req, runtime), new AllocateInstancePublicConnectionResponse({}));
   }
 
+  /**
+    * You can call this operation to apply for a public endpoint for an AnalyticDB for PostgreSQL instance. Both the primary and instance endpoints of an AnalyticDB for PostgreSQL instance can be public endpoints. For more information, see [Endpoints of an instance and its primary coordinator node](~~204879~~).
+    * ## Limits
+    * You can call this operation up to 1,000 times per second per account. If the number of the calls per second exceeds the limit, throttling is triggered. As a result, your business may be affected. We recommend that you take note of the limit when you call this operation.
+    *
+    * @param request AllocateInstancePublicConnectionRequest
+    * @return AllocateInstancePublicConnectionResponse
+   */
   async allocateInstancePublicConnection(request: AllocateInstancePublicConnectionRequest): Promise<AllocateInstancePublicConnectionResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.allocateInstancePublicConnectionWithOptions(request, runtime);
@@ -11154,6 +11020,16 @@ export default class Client extends OpenApi {
     return await this.checkServiceLinkedRoleWithOptions(request, runtime);
   }
 
+  /**
+    * *   Before you can use an AnalyticDB for PostgreSQL instance, you must create a privileged account for the instance.
+    * *   You can call this operation to create only privileged accounts. For information about how to create other types of accounts, see [Create a database account](~~50206~~).
+    * ## Limits
+    * You can call this operation up to 1,000 times per second per account. If the number of the calls per second exceeds the limit, throttling is triggered. As a result, your business may be affected. We recommend that you take note of the limit when you call this operation.
+    *
+    * @param request CreateAccountRequest
+    * @param runtime runtime options for this request RuntimeOptions
+    * @return CreateAccountResponse
+   */
   async createAccountWithOptions(request: CreateAccountRequest, runtime: $Util.RuntimeOptions): Promise<CreateAccountResponse> {
     Util.validateModel(request);
     let query = { };
@@ -11202,11 +11078,99 @@ export default class Client extends OpenApi {
     return $tea.cast<CreateAccountResponse>(await this.callApi(params, req, runtime), new CreateAccountResponse({}));
   }
 
+  /**
+    * *   Before you can use an AnalyticDB for PostgreSQL instance, you must create a privileged account for the instance.
+    * *   You can call this operation to create only privileged accounts. For information about how to create other types of accounts, see [Create a database account](~~50206~~).
+    * ## Limits
+    * You can call this operation up to 1,000 times per second per account. If the number of the calls per second exceeds the limit, throttling is triggered. As a result, your business may be affected. We recommend that you take note of the limit when you call this operation.
+    *
+    * @param request CreateAccountRequest
+    * @return CreateAccountResponse
+   */
   async createAccount(request: CreateAccountRequest): Promise<CreateAccountResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.createAccountWithOptions(request, runtime);
   }
 
+  async createCollectionWithOptions(request: CreateCollectionRequest, runtime: $Util.RuntimeOptions): Promise<CreateCollectionResponse> {
+    Util.validateModel(request);
+    let query = { };
+    if (!Util.isUnset(request.collection)) {
+      query["Collection"] = request.collection;
+    }
+
+    if (!Util.isUnset(request.DBInstanceId)) {
+      query["DBInstanceId"] = request.DBInstanceId;
+    }
+
+    if (!Util.isUnset(request.dimension)) {
+      query["Dimension"] = request.dimension;
+    }
+
+    if (!Util.isUnset(request.fullTextRetrievalFields)) {
+      query["FullTextRetrievalFields"] = request.fullTextRetrievalFields;
+    }
+
+    if (!Util.isUnset(request.managerAccount)) {
+      query["ManagerAccount"] = request.managerAccount;
+    }
+
+    if (!Util.isUnset(request.managerAccountPassword)) {
+      query["ManagerAccountPassword"] = request.managerAccountPassword;
+    }
+
+    if (!Util.isUnset(request.metadata)) {
+      query["Metadata"] = request.metadata;
+    }
+
+    if (!Util.isUnset(request.namespace)) {
+      query["Namespace"] = request.namespace;
+    }
+
+    if (!Util.isUnset(request.ownerId)) {
+      query["OwnerId"] = request.ownerId;
+    }
+
+    if (!Util.isUnset(request.parser)) {
+      query["Parser"] = request.parser;
+    }
+
+    if (!Util.isUnset(request.regionId)) {
+      query["RegionId"] = request.regionId;
+    }
+
+    let req = new $OpenApi.OpenApiRequest({
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApi.Params({
+      action: "CreateCollection",
+      version: "2016-05-03",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $tea.cast<CreateCollectionResponse>(await this.callApi(params, req, runtime), new CreateCollectionResponse({}));
+  }
+
+  async createCollection(request: CreateCollectionRequest): Promise<CreateCollectionResponse> {
+    let runtime = new $Util.RuntimeOptions({ });
+    return await this.createCollectionWithOptions(request, runtime);
+  }
+
+  /**
+    * You can call this operation when you need to create AnalyticDB for PostgreSQL instances to meet the requirements of new applications or services.
+    * Before you call this operation, make sure that you are familiar with the billing of AnalyticDB for PostgreSQL instances. For more information, see [Billing methods](~~35406~~) and [AnalyticDB for PostgreSQL pricing](https://www.alibabacloud.com/zh/product/hybriddb-postgresql/pricing).
+    * ## Limits
+    * You can call this operation up to 1,000 times per second per account. If the number of the calls per second exceeds a limit, throttling is triggered. As a result, your business may be affected. We recommend that you take note of the limits when you call this operation.
+    *
+    * @param request CreateDBInstanceRequest
+    * @param runtime runtime options for this request RuntimeOptions
+    * @return CreateDBInstanceResponse
+   */
   async createDBInstanceWithOptions(request: CreateDBInstanceRequest, runtime: $Util.RuntimeOptions): Promise<CreateDBInstanceResponse> {
     Util.validateModel(request);
     let query = { };
@@ -11236,6 +11200,14 @@ export default class Client extends OpenApi {
 
     if (!Util.isUnset(request.DBInstanceMode)) {
       query["DBInstanceMode"] = request.DBInstanceMode;
+    }
+
+    if (!Util.isUnset(request.encryptionKey)) {
+      query["EncryptionKey"] = request.encryptionKey;
+    }
+
+    if (!Util.isUnset(request.encryptionType)) {
+      query["EncryptionType"] = request.encryptionType;
     }
 
     if (!Util.isUnset(request.engine)) {
@@ -11290,6 +11262,10 @@ export default class Client extends OpenApi {
       query["SecurityIPList"] = request.securityIPList;
     }
 
+    if (!Util.isUnset(request.segDiskPerformanceLevel)) {
+      query["SegDiskPerformanceLevel"] = request.segDiskPerformanceLevel;
+    }
+
     if (!Util.isUnset(request.segNodeNum)) {
       query["SegNodeNum"] = request.segNodeNum;
     }
@@ -11330,6 +11306,10 @@ export default class Client extends OpenApi {
       query["VSwitchId"] = request.vSwitchId;
     }
 
+    if (!Util.isUnset(request.vectorConfigurationStatus)) {
+      query["VectorConfigurationStatus"] = request.vectorConfigurationStatus;
+    }
+
     if (!Util.isUnset(request.zoneId)) {
       query["ZoneId"] = request.zoneId;
     }
@@ -11351,11 +11331,30 @@ export default class Client extends OpenApi {
     return $tea.cast<CreateDBInstanceResponse>(await this.callApi(params, req, runtime), new CreateDBInstanceResponse({}));
   }
 
+  /**
+    * You can call this operation when you need to create AnalyticDB for PostgreSQL instances to meet the requirements of new applications or services.
+    * Before you call this operation, make sure that you are familiar with the billing of AnalyticDB for PostgreSQL instances. For more information, see [Billing methods](~~35406~~) and [AnalyticDB for PostgreSQL pricing](https://www.alibabacloud.com/zh/product/hybriddb-postgresql/pricing).
+    * ## Limits
+    * You can call this operation up to 1,000 times per second per account. If the number of the calls per second exceeds a limit, throttling is triggered. As a result, your business may be affected. We recommend that you take note of the limits when you call this operation.
+    *
+    * @param request CreateDBInstanceRequest
+    * @return CreateDBInstanceResponse
+   */
   async createDBInstance(request: CreateDBInstanceRequest): Promise<CreateDBInstanceResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.createDBInstanceWithOptions(request, runtime);
   }
 
+  /**
+    * You can call this operation to create a plan for an AnalyticDB for PostgreSQL instance. For example, you can create a plan to pause and resume an instance, change the number of compute nodes, or change compute node specifications.
+    * >  This operation is applicable only to pay-as-you-go instances.
+    * ## Limits
+    * You can call this operation up to 1,000 times per second per account. If the number of the calls per second exceeds the limit, throttling is triggered. As a result, your business may be affected. We recommend that you take note of the limit when you call this operation.
+    *
+    * @param request CreateDBInstancePlanRequest
+    * @param runtime runtime options for this request RuntimeOptions
+    * @return CreateDBInstancePlanResponse
+   */
   async createDBInstancePlanWithOptions(request: CreateDBInstancePlanRequest, runtime: $Util.RuntimeOptions): Promise<CreateDBInstancePlanResponse> {
     Util.validateModel(request);
     let query = { };
@@ -11412,127 +11411,56 @@ export default class Client extends OpenApi {
     return $tea.cast<CreateDBInstancePlanResponse>(await this.callApi(params, req, runtime), new CreateDBInstancePlanResponse({}));
   }
 
+  /**
+    * You can call this operation to create a plan for an AnalyticDB for PostgreSQL instance. For example, you can create a plan to pause and resume an instance, change the number of compute nodes, or change compute node specifications.
+    * >  This operation is applicable only to pay-as-you-go instances.
+    * ## Limits
+    * You can call this operation up to 1,000 times per second per account. If the number of the calls per second exceeds the limit, throttling is triggered. As a result, your business may be affected. We recommend that you take note of the limit when you call this operation.
+    *
+    * @param request CreateDBInstancePlanRequest
+    * @return CreateDBInstancePlanResponse
+   */
   async createDBInstancePlan(request: CreateDBInstancePlanRequest): Promise<CreateDBInstancePlanResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.createDBInstancePlanWithOptions(request, runtime);
   }
 
-  async createECSDBInstanceWithOptions(request: CreateECSDBInstanceRequest, runtime: $Util.RuntimeOptions): Promise<CreateECSDBInstanceResponse> {
+  async createNamespaceWithOptions(request: CreateNamespaceRequest, runtime: $Util.RuntimeOptions): Promise<CreateNamespaceResponse> {
     Util.validateModel(request);
     let query = { };
-    if (!Util.isUnset(request.backupId)) {
-      query["BackupId"] = request.backupId;
+    if (!Util.isUnset(request.DBInstanceId)) {
+      query["DBInstanceId"] = request.DBInstanceId;
     }
 
-    if (!Util.isUnset(request.clientToken)) {
-      query["ClientToken"] = request.clientToken;
+    if (!Util.isUnset(request.managerAccount)) {
+      query["ManagerAccount"] = request.managerAccount;
     }
 
-    if (!Util.isUnset(request.DBInstanceCategory)) {
-      query["DBInstanceCategory"] = request.DBInstanceCategory;
+    if (!Util.isUnset(request.managerAccountPassword)) {
+      query["ManagerAccountPassword"] = request.managerAccountPassword;
     }
 
-    if (!Util.isUnset(request.DBInstanceDescription)) {
-      query["DBInstanceDescription"] = request.DBInstanceDescription;
+    if (!Util.isUnset(request.namespace)) {
+      query["Namespace"] = request.namespace;
     }
 
-    if (!Util.isUnset(request.encryptionKey)) {
-      query["EncryptionKey"] = request.encryptionKey;
-    }
-
-    if (!Util.isUnset(request.encryptionType)) {
-      query["EncryptionType"] = request.encryptionType;
-    }
-
-    if (!Util.isUnset(request.engine)) {
-      query["Engine"] = request.engine;
-    }
-
-    if (!Util.isUnset(request.engineVersion)) {
-      query["EngineVersion"] = request.engineVersion;
-    }
-
-    if (!Util.isUnset(request.instanceNetworkType)) {
-      query["InstanceNetworkType"] = request.instanceNetworkType;
-    }
-
-    if (!Util.isUnset(request.instanceSpec)) {
-      query["InstanceSpec"] = request.instanceSpec;
-    }
-
-    if (!Util.isUnset(request.masterNodeNum)) {
-      query["MasterNodeNum"] = request.masterNodeNum;
+    if (!Util.isUnset(request.namespacePassword)) {
+      query["NamespacePassword"] = request.namespacePassword;
     }
 
     if (!Util.isUnset(request.ownerId)) {
       query["OwnerId"] = request.ownerId;
     }
 
-    if (!Util.isUnset(request.payType)) {
-      query["PayType"] = request.payType;
-    }
-
-    if (!Util.isUnset(request.period)) {
-      query["Period"] = request.period;
-    }
-
-    if (!Util.isUnset(request.privateIpAddress)) {
-      query["PrivateIpAddress"] = request.privateIpAddress;
-    }
-
     if (!Util.isUnset(request.regionId)) {
       query["RegionId"] = request.regionId;
-    }
-
-    if (!Util.isUnset(request.resourceGroupId)) {
-      query["ResourceGroupId"] = request.resourceGroupId;
-    }
-
-    if (!Util.isUnset(request.securityIPList)) {
-      query["SecurityIPList"] = request.securityIPList;
-    }
-
-    if (!Util.isUnset(request.segNodeNum)) {
-      query["SegNodeNum"] = request.segNodeNum;
-    }
-
-    if (!Util.isUnset(request.segStorageType)) {
-      query["SegStorageType"] = request.segStorageType;
-    }
-
-    if (!Util.isUnset(request.srcDbInstanceName)) {
-      query["SrcDbInstanceName"] = request.srcDbInstanceName;
-    }
-
-    if (!Util.isUnset(request.storageSize)) {
-      query["StorageSize"] = request.storageSize;
-    }
-
-    if (!Util.isUnset(request.tag)) {
-      query["Tag"] = request.tag;
-    }
-
-    if (!Util.isUnset(request.usedTime)) {
-      query["UsedTime"] = request.usedTime;
-    }
-
-    if (!Util.isUnset(request.VPCId)) {
-      query["VPCId"] = request.VPCId;
-    }
-
-    if (!Util.isUnset(request.vSwitchId)) {
-      query["VSwitchId"] = request.vSwitchId;
-    }
-
-    if (!Util.isUnset(request.zoneId)) {
-      query["ZoneId"] = request.zoneId;
     }
 
     let req = new $OpenApi.OpenApiRequest({
       query: OpenApiUtil.query(query),
     });
     let params = new $OpenApi.Params({
-      action: "CreateECSDBInstance",
+      action: "CreateNamespace",
       version: "2016-05-03",
       protocol: "HTTPS",
       pathname: "/",
@@ -11542,14 +11470,28 @@ export default class Client extends OpenApi {
       reqBodyType: "formData",
       bodyType: "json",
     });
-    return $tea.cast<CreateECSDBInstanceResponse>(await this.callApi(params, req, runtime), new CreateECSDBInstanceResponse({}));
+    return $tea.cast<CreateNamespaceResponse>(await this.callApi(params, req, runtime), new CreateNamespaceResponse({}));
   }
 
-  async createECSDBInstance(request: CreateECSDBInstanceRequest): Promise<CreateECSDBInstanceResponse> {
+  async createNamespace(request: CreateNamespaceRequest): Promise<CreateNamespaceResponse> {
     let runtime = new $Util.RuntimeOptions({ });
-    return await this.createECSDBInstanceWithOptions(request, runtime);
+    return await this.createNamespaceWithOptions(request, runtime);
   }
 
+  /**
+    * You can call this operation to load a sample dataset to an AnalyticDB for PostgreSQL instance. Then, you can execute query statements on the sample dataset to experience or test your instance. For more information about query statements, see [Dataset information and query examples](~~452277~~).
+    * ## Precautions
+    * - If your instance is in elastic storage mode, the sample dataset is supported only for V6.3.10.3 or later. If your instance is in Serverless mode, the sample dataset is supported only for V1.0.4.0 or later. For more information about how to update the minor engine version of an instance, see [Update the minor engine version](/help/en/analyticdb-for-postgresql/latest/upgrade-the-engine-version).
+    * - The sample dataset is about 10 GB in size. Make sure that your instance has sufficient storage space.
+    * - The sample dataset contains a database named `ADB_SampleData_TPCH`. Make sure that your instance does not have a database with the same name. Otherwise, the dataset may fail to be loaded.
+    * - It may take 6 to 8 minutes to load the sample dataset. During this period, operations on your instance such as adding nodes or changing node specifications may be affected.
+    * ## Limits
+    * You can call this operation up to 1,000 times per second per account. If the number of the calls per second exceeds the limit, throttling is triggered. As a result, your business may be affected. We recommend that you take note of the limit when you call this operation.
+    *
+    * @param request CreateSampleDataRequest
+    * @param runtime runtime options for this request RuntimeOptions
+    * @return CreateSampleDataResponse
+   */
   async createSampleDataWithOptions(request: CreateSampleDataRequest, runtime: $Util.RuntimeOptions): Promise<CreateSampleDataResponse> {
     Util.validateModel(request);
     let query = { };
@@ -11578,6 +11520,19 @@ export default class Client extends OpenApi {
     return $tea.cast<CreateSampleDataResponse>(await this.callApi(params, req, runtime), new CreateSampleDataResponse({}));
   }
 
+  /**
+    * You can call this operation to load a sample dataset to an AnalyticDB for PostgreSQL instance. Then, you can execute query statements on the sample dataset to experience or test your instance. For more information about query statements, see [Dataset information and query examples](~~452277~~).
+    * ## Precautions
+    * - If your instance is in elastic storage mode, the sample dataset is supported only for V6.3.10.3 or later. If your instance is in Serverless mode, the sample dataset is supported only for V1.0.4.0 or later. For more information about how to update the minor engine version of an instance, see [Update the minor engine version](/help/en/analyticdb-for-postgresql/latest/upgrade-the-engine-version).
+    * - The sample dataset is about 10 GB in size. Make sure that your instance has sufficient storage space.
+    * - The sample dataset contains a database named `ADB_SampleData_TPCH`. Make sure that your instance does not have a database with the same name. Otherwise, the dataset may fail to be loaded.
+    * - It may take 6 to 8 minutes to load the sample dataset. During this period, operations on your instance such as adding nodes or changing node specifications may be affected.
+    * ## Limits
+    * You can call this operation up to 1,000 times per second per account. If the number of the calls per second exceeds the limit, throttling is triggered. As a result, your business may be affected. We recommend that you take note of the limit when you call this operation.
+    *
+    * @param request CreateSampleDataRequest
+    * @return CreateSampleDataResponse
+   */
   async createSampleData(request: CreateSampleDataRequest): Promise<CreateSampleDataResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.createSampleDataWithOptions(request, runtime);
@@ -11616,6 +11571,183 @@ export default class Client extends OpenApi {
     return await this.createServiceLinkedRoleWithOptions(request, runtime);
   }
 
+  async createVectorIndexWithOptions(request: CreateVectorIndexRequest, runtime: $Util.RuntimeOptions): Promise<CreateVectorIndexResponse> {
+    Util.validateModel(request);
+    let query = { };
+    if (!Util.isUnset(request.collection)) {
+      query["Collection"] = request.collection;
+    }
+
+    if (!Util.isUnset(request.DBInstanceId)) {
+      query["DBInstanceId"] = request.DBInstanceId;
+    }
+
+    if (!Util.isUnset(request.dimension)) {
+      query["Dimension"] = request.dimension;
+    }
+
+    if (!Util.isUnset(request.managerAccount)) {
+      query["ManagerAccount"] = request.managerAccount;
+    }
+
+    if (!Util.isUnset(request.managerAccountPassword)) {
+      query["ManagerAccountPassword"] = request.managerAccountPassword;
+    }
+
+    if (!Util.isUnset(request.metrics)) {
+      query["Metrics"] = request.metrics;
+    }
+
+    if (!Util.isUnset(request.namespace)) {
+      query["Namespace"] = request.namespace;
+    }
+
+    if (!Util.isUnset(request.ownerId)) {
+      query["OwnerId"] = request.ownerId;
+    }
+
+    if (!Util.isUnset(request.regionId)) {
+      query["RegionId"] = request.regionId;
+    }
+
+    let req = new $OpenApi.OpenApiRequest({
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApi.Params({
+      action: "CreateVectorIndex",
+      version: "2016-05-03",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $tea.cast<CreateVectorIndexResponse>(await this.callApi(params, req, runtime), new CreateVectorIndexResponse({}));
+  }
+
+  async createVectorIndex(request: CreateVectorIndexRequest): Promise<CreateVectorIndexResponse> {
+    let runtime = new $Util.RuntimeOptions({ });
+    return await this.createVectorIndexWithOptions(request, runtime);
+  }
+
+  async deleteCollectionWithOptions(request: DeleteCollectionRequest, runtime: $Util.RuntimeOptions): Promise<DeleteCollectionResponse> {
+    Util.validateModel(request);
+    let query = { };
+    if (!Util.isUnset(request.collection)) {
+      query["Collection"] = request.collection;
+    }
+
+    if (!Util.isUnset(request.DBInstanceId)) {
+      query["DBInstanceId"] = request.DBInstanceId;
+    }
+
+    if (!Util.isUnset(request.namespace)) {
+      query["Namespace"] = request.namespace;
+    }
+
+    if (!Util.isUnset(request.namespacePassword)) {
+      query["NamespacePassword"] = request.namespacePassword;
+    }
+
+    if (!Util.isUnset(request.ownerId)) {
+      query["OwnerId"] = request.ownerId;
+    }
+
+    if (!Util.isUnset(request.regionId)) {
+      query["RegionId"] = request.regionId;
+    }
+
+    let req = new $OpenApi.OpenApiRequest({
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApi.Params({
+      action: "DeleteCollection",
+      version: "2016-05-03",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $tea.cast<DeleteCollectionResponse>(await this.callApi(params, req, runtime), new DeleteCollectionResponse({}));
+  }
+
+  async deleteCollection(request: DeleteCollectionRequest): Promise<DeleteCollectionResponse> {
+    let runtime = new $Util.RuntimeOptions({ });
+    return await this.deleteCollectionWithOptions(request, runtime);
+  }
+
+  async deleteCollectionDataWithOptions(request: DeleteCollectionDataRequest, runtime: $Util.RuntimeOptions): Promise<DeleteCollectionDataResponse> {
+    Util.validateModel(request);
+    let query = { };
+    if (!Util.isUnset(request.collection)) {
+      query["Collection"] = request.collection;
+    }
+
+    if (!Util.isUnset(request.collectionData)) {
+      query["CollectionData"] = request.collectionData;
+    }
+
+    if (!Util.isUnset(request.collectionDataFilter)) {
+      query["CollectionDataFilter"] = request.collectionDataFilter;
+    }
+
+    if (!Util.isUnset(request.DBInstanceId)) {
+      query["DBInstanceId"] = request.DBInstanceId;
+    }
+
+    if (!Util.isUnset(request.namespace)) {
+      query["Namespace"] = request.namespace;
+    }
+
+    if (!Util.isUnset(request.namespacePassword)) {
+      query["NamespacePassword"] = request.namespacePassword;
+    }
+
+    if (!Util.isUnset(request.ownerId)) {
+      query["OwnerId"] = request.ownerId;
+    }
+
+    if (!Util.isUnset(request.regionId)) {
+      query["RegionId"] = request.regionId;
+    }
+
+    let req = new $OpenApi.OpenApiRequest({
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApi.Params({
+      action: "DeleteCollectionData",
+      version: "2016-05-03",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $tea.cast<DeleteCollectionDataResponse>(await this.callApi(params, req, runtime), new DeleteCollectionDataResponse({}));
+  }
+
+  async deleteCollectionData(request: DeleteCollectionDataRequest): Promise<DeleteCollectionDataResponse> {
+    let runtime = new $Util.RuntimeOptions({ });
+    return await this.deleteCollectionDataWithOptions(request, runtime);
+  }
+
+  /**
+    * *   Subscription instances cannot be manually released. They are automatically released when they expire.
+    * *   You can call this operation to release pay-as-you-go instances only when they are in the **Running** state.
+    * ## Limits
+    * You can call this operation up to 1,000 times per second per account. If the number of the calls per second exceeds the limit, throttling is triggered. As a result, your business may be affected. We recommend that you take note of the limit when you call this operation.
+    *
+    * @param request DeleteDBInstanceRequest
+    * @param runtime runtime options for this request RuntimeOptions
+    * @return DeleteDBInstanceResponse
+   */
   async deleteDBInstanceWithOptions(request: DeleteDBInstanceRequest, runtime: $Util.RuntimeOptions): Promise<DeleteDBInstanceResponse> {
     Util.validateModel(request);
     let query = { };
@@ -11652,11 +11784,29 @@ export default class Client extends OpenApi {
     return $tea.cast<DeleteDBInstanceResponse>(await this.callApi(params, req, runtime), new DeleteDBInstanceResponse({}));
   }
 
+  /**
+    * *   Subscription instances cannot be manually released. They are automatically released when they expire.
+    * *   You can call this operation to release pay-as-you-go instances only when they are in the **Running** state.
+    * ## Limits
+    * You can call this operation up to 1,000 times per second per account. If the number of the calls per second exceeds the limit, throttling is triggered. As a result, your business may be affected. We recommend that you take note of the limit when you call this operation.
+    *
+    * @param request DeleteDBInstanceRequest
+    * @return DeleteDBInstanceResponse
+   */
   async deleteDBInstance(request: DeleteDBInstanceRequest): Promise<DeleteDBInstanceResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.deleteDBInstanceWithOptions(request, runtime);
   }
 
+  /**
+    * If you no longer need a plan, you can call this operation to delete the plan. The plan management feature is supported only for AnalyticDB for PostgreSQL instances in Serverless mode.
+    * ## Limits
+    * You can call this operation up to 1,000 times per second per account. If the number of the calls per second exceeds the limit, throttling is triggered. As a result, your business may be affected. We recommend that you take note of the limit when you call this operation.
+    *
+    * @param request DeleteDBInstancePlanRequest
+    * @param runtime runtime options for this request RuntimeOptions
+    * @return DeleteDBInstancePlanResponse
+   */
   async deleteDBInstancePlanWithOptions(request: DeleteDBInstancePlanRequest, runtime: $Util.RuntimeOptions): Promise<DeleteDBInstancePlanResponse> {
     Util.validateModel(request);
     let query = { };
@@ -11689,39 +11839,51 @@ export default class Client extends OpenApi {
     return $tea.cast<DeleteDBInstancePlanResponse>(await this.callApi(params, req, runtime), new DeleteDBInstancePlanResponse({}));
   }
 
+  /**
+    * If you no longer need a plan, you can call this operation to delete the plan. The plan management feature is supported only for AnalyticDB for PostgreSQL instances in Serverless mode.
+    * ## Limits
+    * You can call this operation up to 1,000 times per second per account. If the number of the calls per second exceeds the limit, throttling is triggered. As a result, your business may be affected. We recommend that you take note of the limit when you call this operation.
+    *
+    * @param request DeleteDBInstancePlanRequest
+    * @return DeleteDBInstancePlanResponse
+   */
   async deleteDBInstancePlan(request: DeleteDBInstancePlanRequest): Promise<DeleteDBInstancePlanResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.deleteDBInstancePlanWithOptions(request, runtime);
   }
 
-  /**
-    * @deprecated
-    *
-    * @param request DeleteDatabaseRequest
-    * @param runtime runtime options for this request RuntimeOptions
-    * @return DeleteDatabaseResponse
-   */
-  // Deprecated
-  async deleteDatabaseWithOptions(request: DeleteDatabaseRequest, runtime: $Util.RuntimeOptions): Promise<DeleteDatabaseResponse> {
+  async deleteNamespaceWithOptions(request: DeleteNamespaceRequest, runtime: $Util.RuntimeOptions): Promise<DeleteNamespaceResponse> {
     Util.validateModel(request);
     let query = { };
     if (!Util.isUnset(request.DBInstanceId)) {
       query["DBInstanceId"] = request.DBInstanceId;
     }
 
-    if (!Util.isUnset(request.DBName)) {
-      query["DBName"] = request.DBName;
+    if (!Util.isUnset(request.managerAccount)) {
+      query["ManagerAccount"] = request.managerAccount;
     }
 
-    if (!Util.isUnset(request.resourceGroupId)) {
-      query["ResourceGroupId"] = request.resourceGroupId;
+    if (!Util.isUnset(request.managerAccountPassword)) {
+      query["ManagerAccountPassword"] = request.managerAccountPassword;
+    }
+
+    if (!Util.isUnset(request.namespace)) {
+      query["Namespace"] = request.namespace;
+    }
+
+    if (!Util.isUnset(request.ownerId)) {
+      query["OwnerId"] = request.ownerId;
+    }
+
+    if (!Util.isUnset(request.regionId)) {
+      query["RegionId"] = request.regionId;
     }
 
     let req = new $OpenApi.OpenApiRequest({
       query: OpenApiUtil.query(query),
     });
     let params = new $OpenApi.Params({
-      action: "DeleteDatabase",
+      action: "DeleteNamespace",
       version: "2016-05-03",
       protocol: "HTTPS",
       pathname: "/",
@@ -11731,21 +11893,76 @@ export default class Client extends OpenApi {
       reqBodyType: "formData",
       bodyType: "json",
     });
-    return $tea.cast<DeleteDatabaseResponse>(await this.callApi(params, req, runtime), new DeleteDatabaseResponse({}));
+    return $tea.cast<DeleteNamespaceResponse>(await this.callApi(params, req, runtime), new DeleteNamespaceResponse({}));
+  }
+
+  async deleteNamespace(request: DeleteNamespaceRequest): Promise<DeleteNamespaceResponse> {
+    let runtime = new $Util.RuntimeOptions({ });
+    return await this.deleteNamespaceWithOptions(request, runtime);
+  }
+
+  async deleteVectorIndexWithOptions(request: DeleteVectorIndexRequest, runtime: $Util.RuntimeOptions): Promise<DeleteVectorIndexResponse> {
+    Util.validateModel(request);
+    let query = { };
+    if (!Util.isUnset(request.collection)) {
+      query["Collection"] = request.collection;
+    }
+
+    if (!Util.isUnset(request.DBInstanceId)) {
+      query["DBInstanceId"] = request.DBInstanceId;
+    }
+
+    if (!Util.isUnset(request.managerAccount)) {
+      query["ManagerAccount"] = request.managerAccount;
+    }
+
+    if (!Util.isUnset(request.managerAccountPassword)) {
+      query["ManagerAccountPassword"] = request.managerAccountPassword;
+    }
+
+    if (!Util.isUnset(request.namespace)) {
+      query["Namespace"] = request.namespace;
+    }
+
+    if (!Util.isUnset(request.ownerId)) {
+      query["OwnerId"] = request.ownerId;
+    }
+
+    if (!Util.isUnset(request.regionId)) {
+      query["RegionId"] = request.regionId;
+    }
+
+    let req = new $OpenApi.OpenApiRequest({
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApi.Params({
+      action: "DeleteVectorIndex",
+      version: "2016-05-03",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $tea.cast<DeleteVectorIndexResponse>(await this.callApi(params, req, runtime), new DeleteVectorIndexResponse({}));
+  }
+
+  async deleteVectorIndex(request: DeleteVectorIndexRequest): Promise<DeleteVectorIndexResponse> {
+    let runtime = new $Util.RuntimeOptions({ });
+    return await this.deleteVectorIndexWithOptions(request, runtime);
   }
 
   /**
-    * @deprecated
+    * This operation is called to query the information of the privileged account in an AnalyticDB for PostgreSQL instance, such as its state, description, and the instance.
+    * ## Limit
+    * You can call this operation up to 1,000 times per second per account. If the number of the calls per second exceeds the limit, throttling is triggered and may affect your business. We recommend that you take note of the limit when you call this operation.
     *
-    * @param request DeleteDatabaseRequest
-    * @return DeleteDatabaseResponse
+    * @param request DescribeAccountsRequest
+    * @param runtime runtime options for this request RuntimeOptions
+    * @return DescribeAccountsResponse
    */
-  // Deprecated
-  async deleteDatabase(request: DeleteDatabaseRequest): Promise<DeleteDatabaseResponse> {
-    let runtime = new $Util.RuntimeOptions({ });
-    return await this.deleteDatabaseWithOptions(request, runtime);
-  }
-
   async describeAccountsWithOptions(request: DescribeAccountsRequest, runtime: $Util.RuntimeOptions): Promise<DescribeAccountsResponse> {
     Util.validateModel(request);
     let query = { };
@@ -11774,11 +11991,28 @@ export default class Client extends OpenApi {
     return $tea.cast<DescribeAccountsResponse>(await this.callApi(params, req, runtime), new DescribeAccountsResponse({}));
   }
 
+  /**
+    * This operation is called to query the information of the privileged account in an AnalyticDB for PostgreSQL instance, such as its state, description, and the instance.
+    * ## Limit
+    * You can call this operation up to 1,000 times per second per account. If the number of the calls per second exceeds the limit, throttling is triggered and may affect your business. We recommend that you take note of the limit when you call this operation.
+    *
+    * @param request DescribeAccountsRequest
+    * @return DescribeAccountsResponse
+   */
   async describeAccounts(request: DescribeAccountsRequest): Promise<DescribeAccountsResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.describeAccountsWithOptions(request, runtime);
   }
 
+  /**
+    * When you create an AnalyticDB for PostgreSQL instance, you can call this operation to query the available resources within a specific zone.
+    * ## Limits
+    * You can call this operation up to 1,000 times per second per account. If the number of the calls per second exceeds the limit, throttling is triggered. As a result, your business may be affected. We recommend that you take note of the limit when you call this operation.
+    *
+    * @param request DescribeAvailableResourcesRequest
+    * @param runtime runtime options for this request RuntimeOptions
+    * @return DescribeAvailableResourcesResponse
+   */
   async describeAvailableResourcesWithOptions(request: DescribeAvailableResourcesRequest, runtime: $Util.RuntimeOptions): Promise<DescribeAvailableResourcesResponse> {
     Util.validateModel(request);
     let query = { };
@@ -11811,11 +12045,28 @@ export default class Client extends OpenApi {
     return $tea.cast<DescribeAvailableResourcesResponse>(await this.callApi(params, req, runtime), new DescribeAvailableResourcesResponse({}));
   }
 
+  /**
+    * When you create an AnalyticDB for PostgreSQL instance, you can call this operation to query the available resources within a specific zone.
+    * ## Limits
+    * You can call this operation up to 1,000 times per second per account. If the number of the calls per second exceeds the limit, throttling is triggered. As a result, your business may be affected. We recommend that you take note of the limit when you call this operation.
+    *
+    * @param request DescribeAvailableResourcesRequest
+    * @return DescribeAvailableResourcesResponse
+   */
   async describeAvailableResources(request: DescribeAvailableResourcesRequest): Promise<DescribeAvailableResourcesResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.describeAvailableResourcesWithOptions(request, runtime);
   }
 
+  /**
+    * You can call this operation to query the backup settings of an AnalyticDB for PostgreSQL instance in elastic storage mode. Periodically backing data can prevent data loss. For more information about how to modify backup policies, see [ModifyBackupPolicy](~~210095~~).
+    * ## Limits
+    * You can call this operation up to 1,000 times per second per account. If the number of the calls per second exceeds the limit, throttling is triggered. As a result, your business may be affected. We recommend that you take note of the limit when you call this operation.
+    *
+    * @param request DescribeBackupPolicyRequest
+    * @param runtime runtime options for this request RuntimeOptions
+    * @return DescribeBackupPolicyResponse
+   */
   async describeBackupPolicyWithOptions(request: DescribeBackupPolicyRequest, runtime: $Util.RuntimeOptions): Promise<DescribeBackupPolicyResponse> {
     Util.validateModel(request);
     let query = { };
@@ -11840,11 +12091,77 @@ export default class Client extends OpenApi {
     return $tea.cast<DescribeBackupPolicyResponse>(await this.callApi(params, req, runtime), new DescribeBackupPolicyResponse({}));
   }
 
+  /**
+    * You can call this operation to query the backup settings of an AnalyticDB for PostgreSQL instance in elastic storage mode. Periodically backing data can prevent data loss. For more information about how to modify backup policies, see [ModifyBackupPolicy](~~210095~~).
+    * ## Limits
+    * You can call this operation up to 1,000 times per second per account. If the number of the calls per second exceeds the limit, throttling is triggered. As a result, your business may be affected. We recommend that you take note of the limit when you call this operation.
+    *
+    * @param request DescribeBackupPolicyRequest
+    * @return DescribeBackupPolicyResponse
+   */
   async describeBackupPolicy(request: DescribeBackupPolicyRequest): Promise<DescribeBackupPolicyResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.describeBackupPolicyWithOptions(request, runtime);
   }
 
+  async describeCollectionWithOptions(request: DescribeCollectionRequest, runtime: $Util.RuntimeOptions): Promise<DescribeCollectionResponse> {
+    Util.validateModel(request);
+    let query = { };
+    if (!Util.isUnset(request.collection)) {
+      query["Collection"] = request.collection;
+    }
+
+    if (!Util.isUnset(request.DBInstanceId)) {
+      query["DBInstanceId"] = request.DBInstanceId;
+    }
+
+    if (!Util.isUnset(request.namespace)) {
+      query["Namespace"] = request.namespace;
+    }
+
+    if (!Util.isUnset(request.namespacePassword)) {
+      query["NamespacePassword"] = request.namespacePassword;
+    }
+
+    if (!Util.isUnset(request.ownerId)) {
+      query["OwnerId"] = request.ownerId;
+    }
+
+    if (!Util.isUnset(request.regionId)) {
+      query["RegionId"] = request.regionId;
+    }
+
+    let req = new $OpenApi.OpenApiRequest({
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApi.Params({
+      action: "DescribeCollection",
+      version: "2016-05-03",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $tea.cast<DescribeCollectionResponse>(await this.callApi(params, req, runtime), new DescribeCollectionResponse({}));
+  }
+
+  async describeCollection(request: DescribeCollectionRequest): Promise<DescribeCollectionResponse> {
+    let runtime = new $Util.RuntimeOptions({ });
+    return await this.describeCollectionWithOptions(request, runtime);
+  }
+
+  /**
+    * This operation is called to query the information of coordinator and compute nodes in an AnalyticDB for PostgreSQL instance in elastic storage mode or Serverless mode.
+    * ## Limits
+    * You can call this operation up to 1,000 times per second per account. If the number of the calls per second exceeds the limit, throttling is triggered and may affect your business. We recommend that you take note of the limit when you call this operation.
+    *
+    * @param request DescribeDBClusterNodeRequest
+    * @param runtime runtime options for this request RuntimeOptions
+    * @return DescribeDBClusterNodeResponse
+   */
   async describeDBClusterNodeWithOptions(request: DescribeDBClusterNodeRequest, runtime: $Util.RuntimeOptions): Promise<DescribeDBClusterNodeResponse> {
     Util.validateModel(request);
     let query = { };
@@ -11873,11 +12190,29 @@ export default class Client extends OpenApi {
     return $tea.cast<DescribeDBClusterNodeResponse>(await this.callApi(params, req, runtime), new DescribeDBClusterNodeResponse({}));
   }
 
+  /**
+    * This operation is called to query the information of coordinator and compute nodes in an AnalyticDB for PostgreSQL instance in elastic storage mode or Serverless mode.
+    * ## Limits
+    * You can call this operation up to 1,000 times per second per account. If the number of the calls per second exceeds the limit, throttling is triggered and may affect your business. We recommend that you take note of the limit when you call this operation.
+    *
+    * @param request DescribeDBClusterNodeRequest
+    * @return DescribeDBClusterNodeResponse
+   */
   async describeDBClusterNode(request: DescribeDBClusterNodeRequest): Promise<DescribeDBClusterNodeResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.describeDBClusterNodeWithOptions(request, runtime);
   }
 
+  /**
+    * This operation is called to query the performance metrics of an AnalyticDB for PostgreSQL instance, such as the number of connections, memory usage, CPU utilization, I/O throughput, read IOPS, write IOPS, and disk space usage.
+    * You can query monitoring information only within the last 30 days.
+    * ## Limits
+    * You can call this operation up to 1,000 times per second per account. If the number of the calls per second exceeds the limit, throttling is triggered and may affect your business. We recommend that you take note of the limit when you call this operation.
+    *
+    * @param request DescribeDBClusterPerformanceRequest
+    * @param runtime runtime options for this request RuntimeOptions
+    * @return DescribeDBClusterPerformanceResponse
+   */
   async describeDBClusterPerformanceWithOptions(request: DescribeDBClusterPerformanceRequest, runtime: $Util.RuntimeOptions): Promise<DescribeDBClusterPerformanceResponse> {
     Util.validateModel(request);
     let query = { };
@@ -11922,11 +12257,29 @@ export default class Client extends OpenApi {
     return $tea.cast<DescribeDBClusterPerformanceResponse>(await this.callApi(params, req, runtime), new DescribeDBClusterPerformanceResponse({}));
   }
 
+  /**
+    * This operation is called to query the performance metrics of an AnalyticDB for PostgreSQL instance, such as the number of connections, memory usage, CPU utilization, I/O throughput, read IOPS, write IOPS, and disk space usage.
+    * You can query monitoring information only within the last 30 days.
+    * ## Limits
+    * You can call this operation up to 1,000 times per second per account. If the number of the calls per second exceeds the limit, throttling is triggered and may affect your business. We recommend that you take note of the limit when you call this operation.
+    *
+    * @param request DescribeDBClusterPerformanceRequest
+    * @return DescribeDBClusterPerformanceResponse
+   */
   async describeDBClusterPerformance(request: DescribeDBClusterPerformanceRequest): Promise<DescribeDBClusterPerformanceResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.describeDBClusterPerformanceWithOptions(request, runtime);
   }
 
+  /**
+    * You can call this operation to query the information about an AnalyticDB for PostgreSQL instance, such as the instance type, network type, and instance state.
+    * ## Limits
+    * You can call this operation up to 1,000 times per second per account. If the number of the calls per second exceeds a limit, throttling is triggered. As a result, your business may be affected. We recommend that you take note of the limits when you call this operation.
+    *
+    * @param request DescribeDBInstanceAttributeRequest
+    * @param runtime runtime options for this request RuntimeOptions
+    * @return DescribeDBInstanceAttributeResponse
+   */
   async describeDBInstanceAttributeWithOptions(request: DescribeDBInstanceAttributeRequest, runtime: $Util.RuntimeOptions): Promise<DescribeDBInstanceAttributeResponse> {
     Util.validateModel(request);
     let query = { };
@@ -11959,11 +12312,28 @@ export default class Client extends OpenApi {
     return $tea.cast<DescribeDBInstanceAttributeResponse>(await this.callApi(params, req, runtime), new DescribeDBInstanceAttributeResponse({}));
   }
 
+  /**
+    * You can call this operation to query the information about an AnalyticDB for PostgreSQL instance, such as the instance type, network type, and instance state.
+    * ## Limits
+    * You can call this operation up to 1,000 times per second per account. If the number of the calls per second exceeds a limit, throttling is triggered. As a result, your business may be affected. We recommend that you take note of the limits when you call this operation.
+    *
+    * @param request DescribeDBInstanceAttributeRequest
+    * @return DescribeDBInstanceAttributeResponse
+   */
   async describeDBInstanceAttribute(request: DescribeDBInstanceAttributeRequest): Promise<DescribeDBInstanceAttributeResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.describeDBInstanceAttributeWithOptions(request, runtime);
   }
 
+  /**
+    * You can call this operation to query the details of data bloat on an AnalyticDB for PostgreSQL instance in elastic storage mode. The minor version of the instance must be V6.3.10.1 or later. For more information about how to view and update the minor version of an instance, see [View the minor engine version](~~277424~~) and [Update the minor engine version](~~139271~~).
+    * ## Limits
+    * You can call this operation up to 1,000 times per second per account. If the number of the calls per second exceeds the limit, throttling is triggered. As a result, your business may be affected. We recommend that you take note of the limit when you call this operation.
+    *
+    * @param request DescribeDBInstanceDataBloatRequest
+    * @param runtime runtime options for this request RuntimeOptions
+    * @return DescribeDBInstanceDataBloatResponse
+   */
   async describeDBInstanceDataBloatWithOptions(request: DescribeDBInstanceDataBloatRequest, runtime: $Util.RuntimeOptions): Promise<DescribeDBInstanceDataBloatResponse> {
     Util.validateModel(request);
     let query = { };
@@ -11996,11 +12366,28 @@ export default class Client extends OpenApi {
     return $tea.cast<DescribeDBInstanceDataBloatResponse>(await this.callApi(params, req, runtime), new DescribeDBInstanceDataBloatResponse({}));
   }
 
+  /**
+    * You can call this operation to query the details of data bloat on an AnalyticDB for PostgreSQL instance in elastic storage mode. The minor version of the instance must be V6.3.10.1 or later. For more information about how to view and update the minor version of an instance, see [View the minor engine version](~~277424~~) and [Update the minor engine version](~~139271~~).
+    * ## Limits
+    * You can call this operation up to 1,000 times per second per account. If the number of the calls per second exceeds the limit, throttling is triggered. As a result, your business may be affected. We recommend that you take note of the limit when you call this operation.
+    *
+    * @param request DescribeDBInstanceDataBloatRequest
+    * @return DescribeDBInstanceDataBloatResponse
+   */
   async describeDBInstanceDataBloat(request: DescribeDBInstanceDataBloatRequest): Promise<DescribeDBInstanceDataBloatResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.describeDBInstanceDataBloatWithOptions(request, runtime);
   }
 
+  /**
+    * To prevent data skew from affecting your database service, you can call this operation to query the details about data skew on an AnalyticDB for PostgreSQL instance.
+    * ## Limits
+    * You can call this operation up to 1,000 times per second per account. If the number of the calls per second exceeds the limit, throttling is triggered. As a result, your business may be affected. We recommend that you take note of the limit when you call this operation.
+    *
+    * @param request DescribeDBInstanceDataSkewRequest
+    * @param runtime runtime options for this request RuntimeOptions
+    * @return DescribeDBInstanceDataSkewResponse
+   */
   async describeDBInstanceDataSkewWithOptions(request: DescribeDBInstanceDataSkewRequest, runtime: $Util.RuntimeOptions): Promise<DescribeDBInstanceDataSkewResponse> {
     Util.validateModel(request);
     let query = { };
@@ -12033,11 +12420,28 @@ export default class Client extends OpenApi {
     return $tea.cast<DescribeDBInstanceDataSkewResponse>(await this.callApi(params, req, runtime), new DescribeDBInstanceDataSkewResponse({}));
   }
 
+  /**
+    * To prevent data skew from affecting your database service, you can call this operation to query the details about data skew on an AnalyticDB for PostgreSQL instance.
+    * ## Limits
+    * You can call this operation up to 1,000 times per second per account. If the number of the calls per second exceeds the limit, throttling is triggered. As a result, your business may be affected. We recommend that you take note of the limit when you call this operation.
+    *
+    * @param request DescribeDBInstanceDataSkewRequest
+    * @return DescribeDBInstanceDataSkewResponse
+   */
   async describeDBInstanceDataSkew(request: DescribeDBInstanceDataSkewRequest): Promise<DescribeDBInstanceDataSkewResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.describeDBInstanceDataSkewWithOptions(request, runtime);
   }
 
+  /**
+    * You can call this operation to query the distribution and states of coordinator and compute nodes on an AnalyticDB for PostgreSQL instance.
+    * ## Limits
+    * You can call this operation up to 1,000 times per second per account. If the number of the calls per second exceeds the limit, throttling is triggered. As a result, your business may be affected. We recommend that you take note of the limit when you call this operation.
+    *
+    * @param request DescribeDBInstanceDiagnosisSummaryRequest
+    * @param runtime runtime options for this request RuntimeOptions
+    * @return DescribeDBInstanceDiagnosisSummaryResponse
+   */
   async describeDBInstanceDiagnosisSummaryWithOptions(request: DescribeDBInstanceDiagnosisSummaryRequest, runtime: $Util.RuntimeOptions): Promise<DescribeDBInstanceDiagnosisSummaryResponse> {
     Util.validateModel(request);
     let query = { };
@@ -12082,11 +12486,28 @@ export default class Client extends OpenApi {
     return $tea.cast<DescribeDBInstanceDiagnosisSummaryResponse>(await this.callApi(params, req, runtime), new DescribeDBInstanceDiagnosisSummaryResponse({}));
   }
 
+  /**
+    * You can call this operation to query the distribution and states of coordinator and compute nodes on an AnalyticDB for PostgreSQL instance.
+    * ## Limits
+    * You can call this operation up to 1,000 times per second per account. If the number of the calls per second exceeds the limit, throttling is triggered. As a result, your business may be affected. We recommend that you take note of the limit when you call this operation.
+    *
+    * @param request DescribeDBInstanceDiagnosisSummaryRequest
+    * @return DescribeDBInstanceDiagnosisSummaryResponse
+   */
   async describeDBInstanceDiagnosisSummary(request: DescribeDBInstanceDiagnosisSummaryRequest): Promise<DescribeDBInstanceDiagnosisSummaryResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.describeDBInstanceDiagnosisSummaryWithOptions(request, runtime);
   }
 
+  /**
+    * You can call this operation to query the error logs of an AnalyticDB for PostgreSQL instance.
+    * ## Limits
+    * You can call this operation up to 1,000 times per second per account. If the number of the calls per second exceeds the limit, throttling is triggered. As a result, your business may be affected. We recommend that you take note of the limit when you call this operation.
+    *
+    * @param request DescribeDBInstanceErrorLogRequest
+    * @param runtime runtime options for this request RuntimeOptions
+    * @return DescribeDBInstanceErrorLogResponse
+   */
   async describeDBInstanceErrorLogWithOptions(request: DescribeDBInstanceErrorLogRequest, runtime: $Util.RuntimeOptions): Promise<DescribeDBInstanceErrorLogResponse> {
     Util.validateModel(request);
     let query = { };
@@ -12147,11 +12568,28 @@ export default class Client extends OpenApi {
     return $tea.cast<DescribeDBInstanceErrorLogResponse>(await this.callApi(params, req, runtime), new DescribeDBInstanceErrorLogResponse({}));
   }
 
+  /**
+    * You can call this operation to query the error logs of an AnalyticDB for PostgreSQL instance.
+    * ## Limits
+    * You can call this operation up to 1,000 times per second per account. If the number of the calls per second exceeds the limit, throttling is triggered. As a result, your business may be affected. We recommend that you take note of the limit when you call this operation.
+    *
+    * @param request DescribeDBInstanceErrorLogRequest
+    * @return DescribeDBInstanceErrorLogResponse
+   */
   async describeDBInstanceErrorLog(request: DescribeDBInstanceErrorLogRequest): Promise<DescribeDBInstanceErrorLogResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.describeDBInstanceErrorLogWithOptions(request, runtime);
   }
 
+  /**
+    * You can call this operation to query the whitelists of IP addresses that are allowed to access an AnalyticDB for PostgreSQL instance.
+    * ## Limits
+    * You can call this operation up to 1,000 times per second per account. If the number of the calls per second exceeds the limit, throttling is triggered. As a result, your business may be affected. We recommend that you take note of the limit when you call this operation.
+    *
+    * @param request DescribeDBInstanceIPArrayListRequest
+    * @param runtime runtime options for this request RuntimeOptions
+    * @return DescribeDBInstanceIPArrayListResponse
+   */
   async describeDBInstanceIPArrayListWithOptions(request: DescribeDBInstanceIPArrayListRequest, runtime: $Util.RuntimeOptions): Promise<DescribeDBInstanceIPArrayListResponse> {
     Util.validateModel(request);
     let query = { };
@@ -12180,11 +12618,29 @@ export default class Client extends OpenApi {
     return $tea.cast<DescribeDBInstanceIPArrayListResponse>(await this.callApi(params, req, runtime), new DescribeDBInstanceIPArrayListResponse({}));
   }
 
+  /**
+    * You can call this operation to query the whitelists of IP addresses that are allowed to access an AnalyticDB for PostgreSQL instance.
+    * ## Limits
+    * You can call this operation up to 1,000 times per second per account. If the number of the calls per second exceeds the limit, throttling is triggered. As a result, your business may be affected. We recommend that you take note of the limit when you call this operation.
+    *
+    * @param request DescribeDBInstanceIPArrayListRequest
+    * @return DescribeDBInstanceIPArrayListResponse
+   */
   async describeDBInstanceIPArrayList(request: DescribeDBInstanceIPArrayListRequest): Promise<DescribeDBInstanceIPArrayListResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.describeDBInstanceIPArrayListWithOptions(request, runtime);
   }
 
+  /**
+    * Appropriate indexes can improve the database query speed. You can call this operation to query the details of index usage on an AnalyticDB for PostgreSQL instance.
+    * This operation is available only for instances of V6.3.10.1 or later in elastic storage mode. For more information about how to view and update the minor engine version of an instance, see [View the minor engine version](~~277424~~) and [Update the minor engine version](~~139271~~).
+    * ## Limits
+    * You can call this operation up to 1,000 times per second per account. If the number of the calls per second exceeds the limit, throttling is triggered. As a result, your business may be affected. We recommend that you take note of the limit when you call this operation.
+    *
+    * @param request DescribeDBInstanceIndexUsageRequest
+    * @param runtime runtime options for this request RuntimeOptions
+    * @return DescribeDBInstanceIndexUsageResponse
+   */
   async describeDBInstanceIndexUsageWithOptions(request: DescribeDBInstanceIndexUsageRequest, runtime: $Util.RuntimeOptions): Promise<DescribeDBInstanceIndexUsageResponse> {
     Util.validateModel(request);
     let query = { };
@@ -12217,6 +12673,15 @@ export default class Client extends OpenApi {
     return $tea.cast<DescribeDBInstanceIndexUsageResponse>(await this.callApi(params, req, runtime), new DescribeDBInstanceIndexUsageResponse({}));
   }
 
+  /**
+    * Appropriate indexes can improve the database query speed. You can call this operation to query the details of index usage on an AnalyticDB for PostgreSQL instance.
+    * This operation is available only for instances of V6.3.10.1 or later in elastic storage mode. For more information about how to view and update the minor engine version of an instance, see [View the minor engine version](~~277424~~) and [Update the minor engine version](~~139271~~).
+    * ## Limits
+    * You can call this operation up to 1,000 times per second per account. If the number of the calls per second exceeds the limit, throttling is triggered. As a result, your business may be affected. We recommend that you take note of the limit when you call this operation.
+    *
+    * @param request DescribeDBInstanceIndexUsageRequest
+    * @return DescribeDBInstanceIndexUsageResponse
+   */
   async describeDBInstanceIndexUsage(request: DescribeDBInstanceIndexUsageRequest): Promise<DescribeDBInstanceIndexUsageResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.describeDBInstanceIndexUsageWithOptions(request, runtime);
@@ -12249,39 +12714,6 @@ export default class Client extends OpenApi {
   async describeDBInstanceNetInfo(request: DescribeDBInstanceNetInfoRequest): Promise<DescribeDBInstanceNetInfoResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.describeDBInstanceNetInfoWithOptions(request, runtime);
-  }
-
-  async describeDBInstanceOnECSAttributeWithOptions(request: DescribeDBInstanceOnECSAttributeRequest, runtime: $Util.RuntimeOptions): Promise<DescribeDBInstanceOnECSAttributeResponse> {
-    Util.validateModel(request);
-    let query = { };
-    if (!Util.isUnset(request.DBInstanceId)) {
-      query["DBInstanceId"] = request.DBInstanceId;
-    }
-
-    if (!Util.isUnset(request.ownerId)) {
-      query["OwnerId"] = request.ownerId;
-    }
-
-    let req = new $OpenApi.OpenApiRequest({
-      query: OpenApiUtil.query(query),
-    });
-    let params = new $OpenApi.Params({
-      action: "DescribeDBInstanceOnECSAttribute",
-      version: "2016-05-03",
-      protocol: "HTTPS",
-      pathname: "/",
-      method: "POST",
-      authType: "AK",
-      style: "RPC",
-      reqBodyType: "formData",
-      bodyType: "json",
-    });
-    return $tea.cast<DescribeDBInstanceOnECSAttributeResponse>(await this.callApi(params, req, runtime), new DescribeDBInstanceOnECSAttributeResponse({}));
-  }
-
-  async describeDBInstanceOnECSAttribute(request: DescribeDBInstanceOnECSAttributeRequest): Promise<DescribeDBInstanceOnECSAttributeResponse> {
-    let runtime = new $Util.RuntimeOptions({ });
-    return await this.describeDBInstanceOnECSAttributeWithOptions(request, runtime);
   }
 
   async describeDBInstancePerformanceWithOptions(request: DescribeDBInstancePerformanceRequest, runtime: $Util.RuntimeOptions): Promise<DescribeDBInstancePerformanceResponse> {
@@ -12329,6 +12761,15 @@ export default class Client extends OpenApi {
     return await this.describeDBInstancePerformanceWithOptions(request, runtime);
   }
 
+  /**
+    * You can call this operation to query the details of plans for an AnalyticDB for PostgreSQL instance in Serverless mode.
+    * ## Limits
+    * You can call this operation up to 1,000 times per second per account. If the number of the calls per second exceeds the limit, throttling is triggered. As a result, your business may be affected. We recommend that you take note of the limit when you call this operation.
+    *
+    * @param request DescribeDBInstancePlansRequest
+    * @param runtime runtime options for this request RuntimeOptions
+    * @return DescribeDBInstancePlansResponse
+   */
   async describeDBInstancePlansWithOptions(request: DescribeDBInstancePlansRequest, runtime: $Util.RuntimeOptions): Promise<DescribeDBInstancePlansResponse> {
     Util.validateModel(request);
     let query = { };
@@ -12377,62 +12818,17 @@ export default class Client extends OpenApi {
     return $tea.cast<DescribeDBInstancePlansResponse>(await this.callApi(params, req, runtime), new DescribeDBInstancePlansResponse({}));
   }
 
+  /**
+    * You can call this operation to query the details of plans for an AnalyticDB for PostgreSQL instance in Serverless mode.
+    * ## Limits
+    * You can call this operation up to 1,000 times per second per account. If the number of the calls per second exceeds the limit, throttling is triggered. As a result, your business may be affected. We recommend that you take note of the limit when you call this operation.
+    *
+    * @param request DescribeDBInstancePlansRequest
+    * @return DescribeDBInstancePlansResponse
+   */
   async describeDBInstancePlans(request: DescribeDBInstancePlansRequest): Promise<DescribeDBInstancePlansResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.describeDBInstancePlansWithOptions(request, runtime);
-  }
-
-  async describeDBInstanceSQLPatternsWithOptions(request: DescribeDBInstanceSQLPatternsRequest, runtime: $Util.RuntimeOptions): Promise<DescribeDBInstanceSQLPatternsResponse> {
-    Util.validateModel(request);
-    let query = { };
-    if (!Util.isUnset(request.DBInstanceId)) {
-      query["DBInstanceId"] = request.DBInstanceId;
-    }
-
-    if (!Util.isUnset(request.database)) {
-      query["Database"] = request.database;
-    }
-
-    if (!Util.isUnset(request.endTime)) {
-      query["EndTime"] = request.endTime;
-    }
-
-    if (!Util.isUnset(request.queryKeywords)) {
-      query["QueryKeywords"] = request.queryKeywords;
-    }
-
-    if (!Util.isUnset(request.sourceIP)) {
-      query["SourceIP"] = request.sourceIP;
-    }
-
-    if (!Util.isUnset(request.startTime)) {
-      query["StartTime"] = request.startTime;
-    }
-
-    if (!Util.isUnset(request.user)) {
-      query["User"] = request.user;
-    }
-
-    let req = new $OpenApi.OpenApiRequest({
-      query: OpenApiUtil.query(query),
-    });
-    let params = new $OpenApi.Params({
-      action: "DescribeDBInstanceSQLPatterns",
-      version: "2016-05-03",
-      protocol: "HTTPS",
-      pathname: "/",
-      method: "POST",
-      authType: "AK",
-      style: "RPC",
-      reqBodyType: "formData",
-      bodyType: "json",
-    });
-    return $tea.cast<DescribeDBInstanceSQLPatternsResponse>(await this.callApi(params, req, runtime), new DescribeDBInstanceSQLPatternsResponse({}));
-  }
-
-  async describeDBInstanceSQLPatterns(request: DescribeDBInstanceSQLPatternsRequest): Promise<DescribeDBInstanceSQLPatternsResponse> {
-    let runtime = new $Util.RuntimeOptions({ });
-    return await this.describeDBInstanceSQLPatternsWithOptions(request, runtime);
   }
 
   async describeDBInstanceSSLWithOptions(request: DescribeDBInstanceSSLRequest, runtime: $Util.RuntimeOptions): Promise<DescribeDBInstanceSSLResponse> {
@@ -12464,6 +12860,15 @@ export default class Client extends OpenApi {
     return await this.describeDBInstanceSSLWithOptions(request, runtime);
   }
 
+  /**
+    * You can call this operation to query the instance types, network types, and states of AnalyticDB for PostgreSQL instances within a specific region.
+    * ## Limits
+    * You can call this operation up to 1,000 times per second per account. If the number of the calls per second exceeds the limit, throttling is triggered. As a result, your business may be affected. We recommend that you take note of the limit when you call this operation.
+    *
+    * @param tmpReq DescribeDBInstancesRequest
+    * @param runtime runtime options for this request RuntimeOptions
+    * @return DescribeDBInstancesResponse
+   */
   async describeDBInstancesWithOptions(tmpReq: DescribeDBInstancesRequest, runtime: $Util.RuntimeOptions): Promise<DescribeDBInstancesResponse> {
     Util.validateModel(tmpReq);
     let request = new DescribeDBInstancesShrinkRequest({ });
@@ -12554,6 +12959,14 @@ export default class Client extends OpenApi {
     return $tea.cast<DescribeDBInstancesResponse>(await this.callApi(params, req, runtime), new DescribeDBInstancesResponse({}));
   }
 
+  /**
+    * You can call this operation to query the instance types, network types, and states of AnalyticDB for PostgreSQL instances within a specific region.
+    * ## Limits
+    * You can call this operation up to 1,000 times per second per account. If the number of the calls per second exceeds the limit, throttling is triggered. As a result, your business may be affected. We recommend that you take note of the limit when you call this operation.
+    *
+    * @param request DescribeDBInstancesRequest
+    * @return DescribeDBInstancesResponse
+   */
   async describeDBInstances(request: DescribeDBInstancesRequest): Promise<DescribeDBInstancesResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.describeDBInstancesWithOptions(request, runtime);
@@ -12620,6 +13033,48 @@ export default class Client extends OpenApi {
     return await this.describeDataBackupsWithOptions(request, runtime);
   }
 
+  async describeDataReDistributeInfoWithOptions(request: DescribeDataReDistributeInfoRequest, runtime: $Util.RuntimeOptions): Promise<DescribeDataReDistributeInfoResponse> {
+    Util.validateModel(request);
+    let query = { };
+    if (!Util.isUnset(request.DBInstanceId)) {
+      query["DBInstanceId"] = request.DBInstanceId;
+    }
+
+    if (!Util.isUnset(request.ownerId)) {
+      query["OwnerId"] = request.ownerId;
+    }
+
+    let req = new $OpenApi.OpenApiRequest({
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApi.Params({
+      action: "DescribeDataReDistributeInfo",
+      version: "2016-05-03",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $tea.cast<DescribeDataReDistributeInfoResponse>(await this.callApi(params, req, runtime), new DescribeDataReDistributeInfoResponse({}));
+  }
+
+  async describeDataReDistributeInfo(request: DescribeDataReDistributeInfoRequest): Promise<DescribeDataReDistributeInfoResponse> {
+    let runtime = new $Util.RuntimeOptions({ });
+    return await this.describeDataReDistributeInfoWithOptions(request, runtime);
+  }
+
+  /**
+    * You can call this operation to query the state of data sharing for AnalyticDB for PostgreSQL instances in Serverless mode.
+    * ## Limits
+    * You can call this operation up to 1,000 times per second per account. If the number of the calls per second exceeds the limit, throttling is triggered. As a result, your business may be affected. We recommend that you take note of the limit when you call this operation.
+    *
+    * @param request DescribeDataShareInstancesRequest
+    * @param runtime runtime options for this request RuntimeOptions
+    * @return DescribeDataShareInstancesResponse
+   */
   async describeDataShareInstancesWithOptions(request: DescribeDataShareInstancesRequest, runtime: $Util.RuntimeOptions): Promise<DescribeDataShareInstancesResponse> {
     Util.validateModel(request);
     let query = { };
@@ -12664,11 +13119,28 @@ export default class Client extends OpenApi {
     return $tea.cast<DescribeDataShareInstancesResponse>(await this.callApi(params, req, runtime), new DescribeDataShareInstancesResponse({}));
   }
 
+  /**
+    * You can call this operation to query the state of data sharing for AnalyticDB for PostgreSQL instances in Serverless mode.
+    * ## Limits
+    * You can call this operation up to 1,000 times per second per account. If the number of the calls per second exceeds the limit, throttling is triggered. As a result, your business may be affected. We recommend that you take note of the limit when you call this operation.
+    *
+    * @param request DescribeDataShareInstancesRequest
+    * @return DescribeDataShareInstancesResponse
+   */
   async describeDataShareInstances(request: DescribeDataShareInstancesRequest): Promise<DescribeDataShareInstancesResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.describeDataShareInstancesWithOptions(request, runtime);
   }
 
+  /**
+    * You can call this operation to query the details of data sharing performance metrics for an AnalyticDB for PostgreSQL instance in Serverless mode, such as the number of shared topics and the amount of data shared.
+    * ## Limits
+    * You can call this operation up to 1,000 times per second per account. If the number of the calls per second exceeds the limit, throttling is triggered. As a result, your business may be affected. We recommend that you take note of the limit when you call this operation.
+    *
+    * @param request DescribeDataSharePerformanceRequest
+    * @param runtime runtime options for this request RuntimeOptions
+    * @return DescribeDataSharePerformanceResponse
+   */
   async describeDataSharePerformanceWithOptions(request: DescribeDataSharePerformanceRequest, runtime: $Util.RuntimeOptions): Promise<DescribeDataSharePerformanceResponse> {
     Util.validateModel(request);
     let query = { };
@@ -12709,11 +13181,28 @@ export default class Client extends OpenApi {
     return $tea.cast<DescribeDataSharePerformanceResponse>(await this.callApi(params, req, runtime), new DescribeDataSharePerformanceResponse({}));
   }
 
+  /**
+    * You can call this operation to query the details of data sharing performance metrics for an AnalyticDB for PostgreSQL instance in Serverless mode, such as the number of shared topics and the amount of data shared.
+    * ## Limits
+    * You can call this operation up to 1,000 times per second per account. If the number of the calls per second exceeds the limit, throttling is triggered. As a result, your business may be affected. We recommend that you take note of the limit when you call this operation.
+    *
+    * @param request DescribeDataSharePerformanceRequest
+    * @return DescribeDataSharePerformanceResponse
+   */
   async describeDataSharePerformance(request: DescribeDataSharePerformanceRequest): Promise<DescribeDataSharePerformanceResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.describeDataSharePerformanceWithOptions(request, runtime);
   }
 
+  /**
+    * To facilitate management, you can call this operation to query all databases and database accounts on an AnalyticDB for PostgreSQL instance.
+    * ## Limits
+    * You can call this operation up to 1,000 times per second per account. If the number of the calls per second exceeds the limit, throttling is triggered. As a result, your business may be affected. We recommend that you take note of the limit when you call this operation.
+    *
+    * @param request DescribeDiagnosisDimensionsRequest
+    * @param runtime runtime options for this request RuntimeOptions
+    * @return DescribeDiagnosisDimensionsResponse
+   */
   async describeDiagnosisDimensionsWithOptions(request: DescribeDiagnosisDimensionsRequest, runtime: $Util.RuntimeOptions): Promise<DescribeDiagnosisDimensionsResponse> {
     Util.validateModel(request);
     let query = { };
@@ -12738,11 +13227,28 @@ export default class Client extends OpenApi {
     return $tea.cast<DescribeDiagnosisDimensionsResponse>(await this.callApi(params, req, runtime), new DescribeDiagnosisDimensionsResponse({}));
   }
 
+  /**
+    * To facilitate management, you can call this operation to query all databases and database accounts on an AnalyticDB for PostgreSQL instance.
+    * ## Limits
+    * You can call this operation up to 1,000 times per second per account. If the number of the calls per second exceeds the limit, throttling is triggered. As a result, your business may be affected. We recommend that you take note of the limit when you call this operation.
+    *
+    * @param request DescribeDiagnosisDimensionsRequest
+    * @return DescribeDiagnosisDimensionsResponse
+   */
   async describeDiagnosisDimensions(request: DescribeDiagnosisDimensionsRequest): Promise<DescribeDiagnosisDimensionsResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.describeDiagnosisDimensionsWithOptions(request, runtime);
   }
 
+  /**
+    * You can call this operation to query the details of query execution on an AnalyticDB for PostgreSQL instance in elastic storage mode within a specified time range.
+    * ## Limits
+    * You can call this operation up to 1,000 times per second per account. If the number of the calls per second exceeds the limit, throttling is triggered. As a result, your business may be affected. We recommend that you take note of the limit when you call this operation.
+    *
+    * @param request DescribeDiagnosisMonitorPerformanceRequest
+    * @param runtime runtime options for this request RuntimeOptions
+    * @return DescribeDiagnosisMonitorPerformanceResponse
+   */
   async describeDiagnosisMonitorPerformanceWithOptions(request: DescribeDiagnosisMonitorPerformanceRequest, runtime: $Util.RuntimeOptions): Promise<DescribeDiagnosisMonitorPerformanceResponse> {
     Util.validateModel(request);
     let query = { };
@@ -12787,11 +13293,28 @@ export default class Client extends OpenApi {
     return $tea.cast<DescribeDiagnosisMonitorPerformanceResponse>(await this.callApi(params, req, runtime), new DescribeDiagnosisMonitorPerformanceResponse({}));
   }
 
+  /**
+    * You can call this operation to query the details of query execution on an AnalyticDB for PostgreSQL instance in elastic storage mode within a specified time range.
+    * ## Limits
+    * You can call this operation up to 1,000 times per second per account. If the number of the calls per second exceeds the limit, throttling is triggered. As a result, your business may be affected. We recommend that you take note of the limit when you call this operation.
+    *
+    * @param request DescribeDiagnosisMonitorPerformanceRequest
+    * @return DescribeDiagnosisMonitorPerformanceResponse
+   */
   async describeDiagnosisMonitorPerformance(request: DescribeDiagnosisMonitorPerformanceRequest): Promise<DescribeDiagnosisMonitorPerformanceResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.describeDiagnosisMonitorPerformanceWithOptions(request, runtime);
   }
 
+  /**
+    * You can call this operation to query the details of SQL queries on an AnalyticDB for PostgreSQL instance within a specified time range.
+    * ## Limits
+    * You can call this operation up to 1,000 times per second per account. If the number of the calls per second exceeds the limit, throttling is triggered. As a result, your business may be affected. We recommend that you take note of the limit when you call this operation.
+    *
+    * @param request DescribeDiagnosisRecordsRequest
+    * @param runtime runtime options for this request RuntimeOptions
+    * @return DescribeDiagnosisRecordsResponse
+   */
   async describeDiagnosisRecordsWithOptions(request: DescribeDiagnosisRecordsRequest, runtime: $Util.RuntimeOptions): Promise<DescribeDiagnosisRecordsResponse> {
     Util.validateModel(request);
     let query = { };
@@ -12852,11 +13375,29 @@ export default class Client extends OpenApi {
     return $tea.cast<DescribeDiagnosisRecordsResponse>(await this.callApi(params, req, runtime), new DescribeDiagnosisRecordsResponse({}));
   }
 
+  /**
+    * You can call this operation to query the details of SQL queries on an AnalyticDB for PostgreSQL instance within a specified time range.
+    * ## Limits
+    * You can call this operation up to 1,000 times per second per account. If the number of the calls per second exceeds the limit, throttling is triggered. As a result, your business may be affected. We recommend that you take note of the limit when you call this operation.
+    *
+    * @param request DescribeDiagnosisRecordsRequest
+    * @return DescribeDiagnosisRecordsResponse
+   */
   async describeDiagnosisRecords(request: DescribeDiagnosisRecordsRequest): Promise<DescribeDiagnosisRecordsResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.describeDiagnosisRecordsWithOptions(request, runtime);
   }
 
+  /**
+    * You can call this operation to query the details of a specified query on an AnalyticDB for PostgreSQL instance, including the SQL statement, execution plan text, and execution plan tree.
+    * This operation is available only for instances of V6.3.10.1 or later in elastic storage mode. For more information about how to view and update the minor engine version of an instance, see [View the minor engine version](~~277424~~) and [Update the minor engine version](~~139271~~).
+    * ## Limits
+    * You can call this operation up to 1,000 times per second per account. If the number of the calls per second exceeds the limit, throttling is triggered. As a result, your business may be affected. We recommend that you take note of the limit when you call this operation.
+    *
+    * @param request DescribeDiagnosisSQLInfoRequest
+    * @param runtime runtime options for this request RuntimeOptions
+    * @return DescribeDiagnosisSQLInfoResponse
+   */
   async describeDiagnosisSQLInfoWithOptions(request: DescribeDiagnosisSQLInfoRequest, runtime: $Util.RuntimeOptions): Promise<DescribeDiagnosisSQLInfoResponse> {
     Util.validateModel(request);
     let query = { };
@@ -12889,11 +13430,30 @@ export default class Client extends OpenApi {
     return $tea.cast<DescribeDiagnosisSQLInfoResponse>(await this.callApi(params, req, runtime), new DescribeDiagnosisSQLInfoResponse({}));
   }
 
+  /**
+    * You can call this operation to query the details of a specified query on an AnalyticDB for PostgreSQL instance, including the SQL statement, execution plan text, and execution plan tree.
+    * This operation is available only for instances of V6.3.10.1 or later in elastic storage mode. For more information about how to view and update the minor engine version of an instance, see [View the minor engine version](~~277424~~) and [Update the minor engine version](~~139271~~).
+    * ## Limits
+    * You can call this operation up to 1,000 times per second per account. If the number of the calls per second exceeds the limit, throttling is triggered. As a result, your business may be affected. We recommend that you take note of the limit when you call this operation.
+    *
+    * @param request DescribeDiagnosisSQLInfoRequest
+    * @return DescribeDiagnosisSQLInfoResponse
+   */
   async describeDiagnosisSQLInfo(request: DescribeDiagnosisSQLInfoRequest): Promise<DescribeDiagnosisSQLInfoResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.describeDiagnosisSQLInfoWithOptions(request, runtime);
   }
 
+  /**
+    * You must call the [DownloadDiagnosisRecords](~~447700~~) operation to obtain a download record before you can call this operation to query and download the query diagnostic information.
+    * This operation is available only for instances of V6.3.10.1 or later in elastic storage mode. For more information about how to view and update the minor engine version of an instance, see [View the minor engine version](~~277424~~) and [Update the minor engine version](~~139271~~).
+    * ## Limits
+    * You can call this operation up to 1,000 times per second per account. If the number of the calls per second exceeds the limit, throttling is triggered. As a result, your business may be affected. We recommend that you take note of the limit when you call this operation.
+    *
+    * @param request DescribeDownloadRecordsRequest
+    * @param runtime runtime options for this request RuntimeOptions
+    * @return DescribeDownloadRecordsResponse
+   */
   async describeDownloadRecordsWithOptions(request: DescribeDownloadRecordsRequest, runtime: $Util.RuntimeOptions): Promise<DescribeDownloadRecordsResponse> {
     Util.validateModel(request);
     let query = { };
@@ -12918,11 +13478,58 @@ export default class Client extends OpenApi {
     return $tea.cast<DescribeDownloadRecordsResponse>(await this.callApi(params, req, runtime), new DescribeDownloadRecordsResponse({}));
   }
 
+  /**
+    * You must call the [DownloadDiagnosisRecords](~~447700~~) operation to obtain a download record before you can call this operation to query and download the query diagnostic information.
+    * This operation is available only for instances of V6.3.10.1 or later in elastic storage mode. For more information about how to view and update the minor engine version of an instance, see [View the minor engine version](~~277424~~) and [Update the minor engine version](~~139271~~).
+    * ## Limits
+    * You can call this operation up to 1,000 times per second per account. If the number of the calls per second exceeds the limit, throttling is triggered. As a result, your business may be affected. We recommend that you take note of the limit when you call this operation.
+    *
+    * @param request DescribeDownloadRecordsRequest
+    * @return DescribeDownloadRecordsResponse
+   */
   async describeDownloadRecords(request: DescribeDownloadRecordsRequest): Promise<DescribeDownloadRecordsResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.describeDownloadRecordsWithOptions(request, runtime);
   }
 
+  async describeDownloadSQLLogsWithOptions(request: DescribeDownloadSQLLogsRequest, runtime: $Util.RuntimeOptions): Promise<DescribeDownloadSQLLogsResponse> {
+    Util.validateModel(request);
+    let query = { };
+    if (!Util.isUnset(request.DBInstanceId)) {
+      query["DBInstanceId"] = request.DBInstanceId;
+    }
+
+    let req = new $OpenApi.OpenApiRequest({
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApi.Params({
+      action: "DescribeDownloadSQLLogs",
+      version: "2016-05-03",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $tea.cast<DescribeDownloadSQLLogsResponse>(await this.callApi(params, req, runtime), new DescribeDownloadSQLLogsResponse({}));
+  }
+
+  async describeDownloadSQLLogs(request: DescribeDownloadSQLLogsRequest): Promise<DescribeDownloadSQLLogsResponse> {
+    let runtime = new $Util.RuntimeOptions({ });
+    return await this.describeDownloadSQLLogsWithOptions(request, runtime);
+  }
+
+  /**
+    * This operation is called to query the health status of an AnalyticDB for PostgreSQL instance in elastic storage mode or Serverless mode and its coordinator and compute nodes.
+    * ## Limits
+    * You can call this operation up to 1,000 times per second per account. If the number of the calls per second exceeds the limit, throttling is triggered. As a result, your business may be affected. We recommend that you take note of the limit when you call this operation.
+    *
+    * @param request DescribeHealthStatusRequest
+    * @param runtime runtime options for this request RuntimeOptions
+    * @return DescribeHealthStatusResponse
+   */
   async describeHealthStatusWithOptions(request: DescribeHealthStatusRequest, runtime: $Util.RuntimeOptions): Promise<DescribeHealthStatusResponse> {
     Util.validateModel(request);
     let query = { };
@@ -12951,6 +13558,14 @@ export default class Client extends OpenApi {
     return $tea.cast<DescribeHealthStatusResponse>(await this.callApi(params, req, runtime), new DescribeHealthStatusResponse({}));
   }
 
+  /**
+    * This operation is called to query the health status of an AnalyticDB for PostgreSQL instance in elastic storage mode or Serverless mode and its coordinator and compute nodes.
+    * ## Limits
+    * You can call this operation up to 1,000 times per second per account. If the number of the calls per second exceeds the limit, throttling is triggered. As a result, your business may be affected. We recommend that you take note of the limit when you call this operation.
+    *
+    * @param request DescribeHealthStatusRequest
+    * @return DescribeHealthStatusResponse
+   */
   async describeHealthStatus(request: DescribeHealthStatusRequest): Promise<DescribeHealthStatusResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.describeHealthStatusWithOptions(request, runtime);
@@ -13038,6 +13653,64 @@ export default class Client extends OpenApi {
     return await this.describeModifyParameterLogWithOptions(request, runtime);
   }
 
+  async describeNamespaceWithOptions(request: DescribeNamespaceRequest, runtime: $Util.RuntimeOptions): Promise<DescribeNamespaceResponse> {
+    Util.validateModel(request);
+    let query = { };
+    if (!Util.isUnset(request.DBInstanceId)) {
+      query["DBInstanceId"] = request.DBInstanceId;
+    }
+
+    if (!Util.isUnset(request.managerAccount)) {
+      query["ManagerAccount"] = request.managerAccount;
+    }
+
+    if (!Util.isUnset(request.managerAccountPassword)) {
+      query["ManagerAccountPassword"] = request.managerAccountPassword;
+    }
+
+    if (!Util.isUnset(request.namespace)) {
+      query["Namespace"] = request.namespace;
+    }
+
+    if (!Util.isUnset(request.ownerId)) {
+      query["OwnerId"] = request.ownerId;
+    }
+
+    if (!Util.isUnset(request.regionId)) {
+      query["RegionId"] = request.regionId;
+    }
+
+    let req = new $OpenApi.OpenApiRequest({
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApi.Params({
+      action: "DescribeNamespace",
+      version: "2016-05-03",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $tea.cast<DescribeNamespaceResponse>(await this.callApi(params, req, runtime), new DescribeNamespaceResponse({}));
+  }
+
+  async describeNamespace(request: DescribeNamespaceRequest): Promise<DescribeNamespaceResponse> {
+    let runtime = new $Util.RuntimeOptions({ });
+    return await this.describeNamespaceWithOptions(request, runtime);
+  }
+
+  /**
+    * This operation can be called to query the details of parameters in an AnalyticDB for PostgreSQL instance in elastic storage mode or Serverless mode.
+    * ## Limits
+    * You can call this operation up to 1,000 times per second per account. If the number of the calls per second exceeds the limit, throttling is triggered and may affect your business. We recommend that you take note of the limit when you call this operation.
+    *
+    * @param request DescribeParametersRequest
+    * @param runtime runtime options for this request RuntimeOptions
+    * @return DescribeParametersResponse
+   */
   async describeParametersWithOptions(request: DescribeParametersRequest, runtime: $Util.RuntimeOptions): Promise<DescribeParametersResponse> {
     Util.validateModel(request);
     let query = { };
@@ -13062,11 +13735,28 @@ export default class Client extends OpenApi {
     return $tea.cast<DescribeParametersResponse>(await this.callApi(params, req, runtime), new DescribeParametersResponse({}));
   }
 
+  /**
+    * This operation can be called to query the details of parameters in an AnalyticDB for PostgreSQL instance in elastic storage mode or Serverless mode.
+    * ## Limits
+    * You can call this operation up to 1,000 times per second per account. If the number of the calls per second exceeds the limit, throttling is triggered and may affect your business. We recommend that you take note of the limit when you call this operation.
+    *
+    * @param request DescribeParametersRequest
+    * @return DescribeParametersResponse
+   */
   async describeParameters(request: DescribeParametersRequest): Promise<DescribeParametersResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.describeParametersWithOptions(request, runtime);
   }
 
+  /**
+    * When you create AnalyticDB for PostgreSQL instances, you can call this operation to query the details of vSwitches within a specified region or zone.
+    * ## Limits
+    * You can call this operation up to 1,000 times per second per account. If the number of the calls per second exceeds the limit, throttling is triggered. As a result, your business may be affected. We recommend that you take note of the limit when you call this operation.
+    *
+    * @param request DescribeRdsVSwitchsRequest
+    * @param runtime runtime options for this request RuntimeOptions
+    * @return DescribeRdsVSwitchsResponse
+   */
   async describeRdsVSwitchsWithOptions(request: DescribeRdsVSwitchsRequest, runtime: $Util.RuntimeOptions): Promise<DescribeRdsVSwitchsResponse> {
     Util.validateModel(request);
     let query = { };
@@ -13123,11 +13813,28 @@ export default class Client extends OpenApi {
     return $tea.cast<DescribeRdsVSwitchsResponse>(await this.callApi(params, req, runtime), new DescribeRdsVSwitchsResponse({}));
   }
 
+  /**
+    * When you create AnalyticDB for PostgreSQL instances, you can call this operation to query the details of vSwitches within a specified region or zone.
+    * ## Limits
+    * You can call this operation up to 1,000 times per second per account. If the number of the calls per second exceeds the limit, throttling is triggered. As a result, your business may be affected. We recommend that you take note of the limit when you call this operation.
+    *
+    * @param request DescribeRdsVSwitchsRequest
+    * @return DescribeRdsVSwitchsResponse
+   */
   async describeRdsVSwitchs(request: DescribeRdsVSwitchsRequest): Promise<DescribeRdsVSwitchsResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.describeRdsVSwitchsWithOptions(request, runtime);
   }
 
+  /**
+    * When you create an AnalyticDB for PostgreSQL instance, you can call this operation to query the available VPCs within a specified region or zone.
+    * ## Limits
+    * You can call this operation up to 1,000 times per second per account. If the number of the calls per second exceeds the limit, throttling is triggered. As a result, your business may be affected. We recommend that you take note of the limit when you call this operation.
+    *
+    * @param request DescribeRdsVpcsRequest
+    * @param runtime runtime options for this request RuntimeOptions
+    * @return DescribeRdsVpcsResponse
+   */
   async describeRdsVpcsWithOptions(request: DescribeRdsVpcsRequest, runtime: $Util.RuntimeOptions): Promise<DescribeRdsVpcsResponse> {
     Util.validateModel(request);
     let query = { };
@@ -13180,11 +13887,28 @@ export default class Client extends OpenApi {
     return $tea.cast<DescribeRdsVpcsResponse>(await this.callApi(params, req, runtime), new DescribeRdsVpcsResponse({}));
   }
 
+  /**
+    * When you create an AnalyticDB for PostgreSQL instance, you can call this operation to query the available VPCs within a specified region or zone.
+    * ## Limits
+    * You can call this operation up to 1,000 times per second per account. If the number of the calls per second exceeds the limit, throttling is triggered. As a result, your business may be affected. We recommend that you take note of the limit when you call this operation.
+    *
+    * @param request DescribeRdsVpcsRequest
+    * @return DescribeRdsVpcsResponse
+   */
   async describeRdsVpcs(request: DescribeRdsVpcsRequest): Promise<DescribeRdsVpcsResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.describeRdsVpcsWithOptions(request, runtime);
   }
 
+  /**
+    * Before you create an AnalyticDB for PostgreSQL instance, you must call this operation to query available regions and zones.
+    * ## Limit
+    * You can call this operation up to 1,000 times per second per account. If the number of the calls per second exceeds the limit, throttling is triggered and may affect your business. We recommend that you take note of the limit when you call this operation.
+    *
+    * @param request DescribeRegionsRequest
+    * @param runtime runtime options for this request RuntimeOptions
+    * @return DescribeRegionsResponse
+   */
   async describeRegionsWithOptions(request: DescribeRegionsRequest, runtime: $Util.RuntimeOptions): Promise<DescribeRegionsResponse> {
     Util.validateModel(request);
     let query = { };
@@ -13209,100 +13933,17 @@ export default class Client extends OpenApi {
     return $tea.cast<DescribeRegionsResponse>(await this.callApi(params, req, runtime), new DescribeRegionsResponse({}));
   }
 
+  /**
+    * Before you create an AnalyticDB for PostgreSQL instance, you must call this operation to query available regions and zones.
+    * ## Limit
+    * You can call this operation up to 1,000 times per second per account. If the number of the calls per second exceeds the limit, throttling is triggered and may affect your business. We recommend that you take note of the limit when you call this operation.
+    *
+    * @param request DescribeRegionsRequest
+    * @return DescribeRegionsResponse
+   */
   async describeRegions(request: DescribeRegionsRequest): Promise<DescribeRegionsResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.describeRegionsWithOptions(request, runtime);
-  }
-
-  async describeResourceUsageWithOptions(request: DescribeResourceUsageRequest, runtime: $Util.RuntimeOptions): Promise<DescribeResourceUsageResponse> {
-    Util.validateModel(request);
-    let query = { };
-    if (!Util.isUnset(request.DBInstanceId)) {
-      query["DBInstanceId"] = request.DBInstanceId;
-    }
-
-    let req = new $OpenApi.OpenApiRequest({
-      query: OpenApiUtil.query(query),
-    });
-    let params = new $OpenApi.Params({
-      action: "DescribeResourceUsage",
-      version: "2016-05-03",
-      protocol: "HTTPS",
-      pathname: "/",
-      method: "POST",
-      authType: "AK",
-      style: "RPC",
-      reqBodyType: "formData",
-      bodyType: "json",
-    });
-    return $tea.cast<DescribeResourceUsageResponse>(await this.callApi(params, req, runtime), new DescribeResourceUsageResponse({}));
-  }
-
-  async describeResourceUsage(request: DescribeResourceUsageRequest): Promise<DescribeResourceUsageResponse> {
-    let runtime = new $Util.RuntimeOptions({ });
-    return await this.describeResourceUsageWithOptions(request, runtime);
-  }
-
-  async describeSQLCollectorPolicyWithOptions(request: DescribeSQLCollectorPolicyRequest, runtime: $Util.RuntimeOptions): Promise<DescribeSQLCollectorPolicyResponse> {
-    Util.validateModel(request);
-    let query = { };
-    if (!Util.isUnset(request.DBInstanceId)) {
-      query["DBInstanceId"] = request.DBInstanceId;
-    }
-
-    let req = new $OpenApi.OpenApiRequest({
-      query: OpenApiUtil.query(query),
-    });
-    let params = new $OpenApi.Params({
-      action: "DescribeSQLCollectorPolicy",
-      version: "2016-05-03",
-      protocol: "HTTPS",
-      pathname: "/",
-      method: "POST",
-      authType: "AK",
-      style: "RPC",
-      reqBodyType: "formData",
-      bodyType: "json",
-    });
-    return $tea.cast<DescribeSQLCollectorPolicyResponse>(await this.callApi(params, req, runtime), new DescribeSQLCollectorPolicyResponse({}));
-  }
-
-  async describeSQLCollectorPolicy(request: DescribeSQLCollectorPolicyRequest): Promise<DescribeSQLCollectorPolicyResponse> {
-    let runtime = new $Util.RuntimeOptions({ });
-    return await this.describeSQLCollectorPolicyWithOptions(request, runtime);
-  }
-
-  async describeSQLLogByQueryIdWithOptions(request: DescribeSQLLogByQueryIdRequest, runtime: $Util.RuntimeOptions): Promise<DescribeSQLLogByQueryIdResponse> {
-    Util.validateModel(request);
-    let query = { };
-    if (!Util.isUnset(request.DBInstanceId)) {
-      query["DBInstanceId"] = request.DBInstanceId;
-    }
-
-    if (!Util.isUnset(request.queryId)) {
-      query["QueryId"] = request.queryId;
-    }
-
-    let req = new $OpenApi.OpenApiRequest({
-      query: OpenApiUtil.query(query),
-    });
-    let params = new $OpenApi.Params({
-      action: "DescribeSQLLogByQueryId",
-      version: "2016-05-03",
-      protocol: "HTTPS",
-      pathname: "/",
-      method: "POST",
-      authType: "AK",
-      style: "RPC",
-      reqBodyType: "formData",
-      bodyType: "json",
-    });
-    return $tea.cast<DescribeSQLLogByQueryIdResponse>(await this.callApi(params, req, runtime), new DescribeSQLLogByQueryIdResponse({}));
-  }
-
-  async describeSQLLogByQueryId(request: DescribeSQLLogByQueryIdRequest): Promise<DescribeSQLLogByQueryIdResponse> {
-    let runtime = new $Util.RuntimeOptions({ });
-    return await this.describeSQLLogByQueryIdWithOptions(request, runtime);
   }
 
   async describeSQLLogCountWithOptions(request: DescribeSQLLogCountRequest, runtime: $Util.RuntimeOptions): Promise<DescribeSQLLogCountResponse> {
@@ -13382,250 +14023,15 @@ export default class Client extends OpenApi {
     return await this.describeSQLLogCountWithOptions(request, runtime);
   }
 
-  async describeSQLLogFilesWithOptions(request: DescribeSQLLogFilesRequest, runtime: $Util.RuntimeOptions): Promise<DescribeSQLLogFilesResponse> {
-    Util.validateModel(request);
-    let query = { };
-    if (!Util.isUnset(request.DBInstanceId)) {
-      query["DBInstanceId"] = request.DBInstanceId;
-    }
-
-    if (!Util.isUnset(request.fileName)) {
-      query["FileName"] = request.fileName;
-    }
-
-    if (!Util.isUnset(request.pageNumber)) {
-      query["PageNumber"] = request.pageNumber;
-    }
-
-    if (!Util.isUnset(request.pageSize)) {
-      query["PageSize"] = request.pageSize;
-    }
-
-    let req = new $OpenApi.OpenApiRequest({
-      query: OpenApiUtil.query(query),
-    });
-    let params = new $OpenApi.Params({
-      action: "DescribeSQLLogFiles",
-      version: "2016-05-03",
-      protocol: "HTTPS",
-      pathname: "/",
-      method: "POST",
-      authType: "AK",
-      style: "RPC",
-      reqBodyType: "formData",
-      bodyType: "json",
-    });
-    return $tea.cast<DescribeSQLLogFilesResponse>(await this.callApi(params, req, runtime), new DescribeSQLLogFilesResponse({}));
-  }
-
-  async describeSQLLogFiles(request: DescribeSQLLogFilesRequest): Promise<DescribeSQLLogFilesResponse> {
-    let runtime = new $Util.RuntimeOptions({ });
-    return await this.describeSQLLogFilesWithOptions(request, runtime);
-  }
-
-  async describeSQLLogRecordsWithOptions(request: DescribeSQLLogRecordsRequest, runtime: $Util.RuntimeOptions): Promise<DescribeSQLLogRecordsResponse> {
-    Util.validateModel(request);
-    let query = { };
-    if (!Util.isUnset(request.DBInstanceId)) {
-      query["DBInstanceId"] = request.DBInstanceId;
-    }
-
-    if (!Util.isUnset(request.database)) {
-      query["Database"] = request.database;
-    }
-
-    if (!Util.isUnset(request.endTime)) {
-      query["EndTime"] = request.endTime;
-    }
-
-    if (!Util.isUnset(request.form)) {
-      query["Form"] = request.form;
-    }
-
-    if (!Util.isUnset(request.pageNumber)) {
-      query["PageNumber"] = request.pageNumber;
-    }
-
-    if (!Util.isUnset(request.pageSize)) {
-      query["PageSize"] = request.pageSize;
-    }
-
-    if (!Util.isUnset(request.queryKeywords)) {
-      query["QueryKeywords"] = request.queryKeywords;
-    }
-
-    if (!Util.isUnset(request.startTime)) {
-      query["StartTime"] = request.startTime;
-    }
-
-    if (!Util.isUnset(request.user)) {
-      query["User"] = request.user;
-    }
-
-    let req = new $OpenApi.OpenApiRequest({
-      query: OpenApiUtil.query(query),
-    });
-    let params = new $OpenApi.Params({
-      action: "DescribeSQLLogRecords",
-      version: "2016-05-03",
-      protocol: "HTTPS",
-      pathname: "/",
-      method: "POST",
-      authType: "AK",
-      style: "RPC",
-      reqBodyType: "formData",
-      bodyType: "json",
-    });
-    return $tea.cast<DescribeSQLLogRecordsResponse>(await this.callApi(params, req, runtime), new DescribeSQLLogRecordsResponse({}));
-  }
-
-  async describeSQLLogRecords(request: DescribeSQLLogRecordsRequest): Promise<DescribeSQLLogRecordsResponse> {
-    let runtime = new $Util.RuntimeOptions({ });
-    return await this.describeSQLLogRecordsWithOptions(request, runtime);
-  }
-
-  async describeSQLLogsWithOptions(request: DescribeSQLLogsRequest, runtime: $Util.RuntimeOptions): Promise<DescribeSQLLogsResponse> {
-    Util.validateModel(request);
-    let query = { };
-    if (!Util.isUnset(request.DBInstanceId)) {
-      query["DBInstanceId"] = request.DBInstanceId;
-    }
-
-    if (!Util.isUnset(request.database)) {
-      query["Database"] = request.database;
-    }
-
-    if (!Util.isUnset(request.endTime)) {
-      query["EndTime"] = request.endTime;
-    }
-
-    if (!Util.isUnset(request.executeCost)) {
-      query["ExecuteCost"] = request.executeCost;
-    }
-
-    if (!Util.isUnset(request.executeState)) {
-      query["ExecuteState"] = request.executeState;
-    }
-
-    if (!Util.isUnset(request.maxExecuteCost)) {
-      query["MaxExecuteCost"] = request.maxExecuteCost;
-    }
-
-    if (!Util.isUnset(request.minExecuteCost)) {
-      query["MinExecuteCost"] = request.minExecuteCost;
-    }
-
-    if (!Util.isUnset(request.operationClass)) {
-      query["OperationClass"] = request.operationClass;
-    }
-
-    if (!Util.isUnset(request.operationType)) {
-      query["OperationType"] = request.operationType;
-    }
-
-    if (!Util.isUnset(request.pageNumber)) {
-      query["PageNumber"] = request.pageNumber;
-    }
-
-    if (!Util.isUnset(request.pageSize)) {
-      query["PageSize"] = request.pageSize;
-    }
-
-    if (!Util.isUnset(request.queryKeywords)) {
-      query["QueryKeywords"] = request.queryKeywords;
-    }
-
-    if (!Util.isUnset(request.sourceIP)) {
-      query["SourceIP"] = request.sourceIP;
-    }
-
-    if (!Util.isUnset(request.startTime)) {
-      query["StartTime"] = request.startTime;
-    }
-
-    if (!Util.isUnset(request.user)) {
-      query["User"] = request.user;
-    }
-
-    let req = new $OpenApi.OpenApiRequest({
-      query: OpenApiUtil.query(query),
-    });
-    let params = new $OpenApi.Params({
-      action: "DescribeSQLLogs",
-      version: "2016-05-03",
-      protocol: "HTTPS",
-      pathname: "/",
-      method: "POST",
-      authType: "AK",
-      style: "RPC",
-      reqBodyType: "formData",
-      bodyType: "json",
-    });
-    return $tea.cast<DescribeSQLLogsResponse>(await this.callApi(params, req, runtime), new DescribeSQLLogsResponse({}));
-  }
-
-  async describeSQLLogs(request: DescribeSQLLogsRequest): Promise<DescribeSQLLogsResponse> {
-    let runtime = new $Util.RuntimeOptions({ });
-    return await this.describeSQLLogsWithOptions(request, runtime);
-  }
-
-  async describeSQLLogsOnSliceWithOptions(request: DescribeSQLLogsOnSliceRequest, runtime: $Util.RuntimeOptions): Promise<DescribeSQLLogsOnSliceResponse> {
-    Util.validateModel(request);
-    let query = { };
-    if (!Util.isUnset(request.DBInstanceId)) {
-      query["DBInstanceId"] = request.DBInstanceId;
-    }
-
-    if (!Util.isUnset(request.executeState)) {
-      query["ExecuteState"] = request.executeState;
-    }
-
-    if (!Util.isUnset(request.maxExecuteCost)) {
-      query["MaxExecuteCost"] = request.maxExecuteCost;
-    }
-
-    if (!Util.isUnset(request.minExecuteCost)) {
-      query["MinExecuteCost"] = request.minExecuteCost;
-    }
-
-    if (!Util.isUnset(request.pageNumber)) {
-      query["PageNumber"] = request.pageNumber;
-    }
-
-    if (!Util.isUnset(request.pageSize)) {
-      query["PageSize"] = request.pageSize;
-    }
-
-    if (!Util.isUnset(request.queryId)) {
-      query["QueryId"] = request.queryId;
-    }
-
-    if (!Util.isUnset(request.sliceId)) {
-      query["SliceId"] = request.sliceId;
-    }
-
-    let req = new $OpenApi.OpenApiRequest({
-      query: OpenApiUtil.query(query),
-    });
-    let params = new $OpenApi.Params({
-      action: "DescribeSQLLogsOnSlice",
-      version: "2016-05-03",
-      protocol: "HTTPS",
-      pathname: "/",
-      method: "POST",
-      authType: "AK",
-      style: "RPC",
-      reqBodyType: "formData",
-      bodyType: "json",
-    });
-    return $tea.cast<DescribeSQLLogsOnSliceResponse>(await this.callApi(params, req, runtime), new DescribeSQLLogsOnSliceResponse({}));
-  }
-
-  async describeSQLLogsOnSlice(request: DescribeSQLLogsOnSliceRequest): Promise<DescribeSQLLogsOnSliceResponse> {
-    let runtime = new $Util.RuntimeOptions({ });
-    return await this.describeSQLLogsOnSliceWithOptions(request, runtime);
-  }
-
+  /**
+    * You can call this operation to query SQL logs of an AnalyticDB for PostgreSQL instance within a specific time range.
+    * ## Limits
+    * You can call this operation up to 1,000 times per second per account. If the number of the calls per second exceeds the limit, throttling is triggered. As a result, your business may be affected. We recommend that you take note of the limit when you call this operation.
+    *
+    * @param request DescribeSQLLogsV2Request
+    * @param runtime runtime options for this request RuntimeOptions
+    * @return DescribeSQLLogsV2Response
+   */
   async describeSQLLogsV2WithOptions(request: DescribeSQLLogsV2Request, runtime: $Util.RuntimeOptions): Promise<DescribeSQLLogsV2Response> {
     Util.validateModel(request);
     let query = { };
@@ -13714,11 +14120,26 @@ export default class Client extends OpenApi {
     return $tea.cast<DescribeSQLLogsV2Response>(await this.callApi(params, req, runtime), new DescribeSQLLogsV2Response({}));
   }
 
+  /**
+    * You can call this operation to query SQL logs of an AnalyticDB for PostgreSQL instance within a specific time range.
+    * ## Limits
+    * You can call this operation up to 1,000 times per second per account. If the number of the calls per second exceeds the limit, throttling is triggered. As a result, your business may be affected. We recommend that you take note of the limit when you call this operation.
+    *
+    * @param request DescribeSQLLogsV2Request
+    * @return DescribeSQLLogsV2Response
+   */
   async describeSQLLogsV2(request: DescribeSQLLogsV2Request): Promise<DescribeSQLLogsV2Response> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.describeSQLLogsV2WithOptions(request, runtime);
   }
 
+  /**
+    * You can call this operation up to 1,000 times per second per account. If the number of the calls per second exceeds the limit, throttling is triggered. As a result, your business may be affected. We recommend that you take note of the limit when you call this operation.
+    *
+    * @param request DescribeSampleDataRequest
+    * @param runtime runtime options for this request RuntimeOptions
+    * @return DescribeSampleDataResponse
+   */
   async describeSampleDataWithOptions(request: DescribeSampleDataRequest, runtime: $Util.RuntimeOptions): Promise<DescribeSampleDataResponse> {
     Util.validateModel(request);
     let query = { };
@@ -13747,188 +14168,15 @@ export default class Client extends OpenApi {
     return $tea.cast<DescribeSampleDataResponse>(await this.callApi(params, req, runtime), new DescribeSampleDataResponse({}));
   }
 
+  /**
+    * You can call this operation up to 1,000 times per second per account. If the number of the calls per second exceeds the limit, throttling is triggered. As a result, your business may be affected. We recommend that you take note of the limit when you call this operation.
+    *
+    * @param request DescribeSampleDataRequest
+    * @return DescribeSampleDataResponse
+   */
   async describeSampleData(request: DescribeSampleDataRequest): Promise<DescribeSampleDataResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.describeSampleDataWithOptions(request, runtime);
-  }
-
-  async describeSlowLogRecordsWithOptions(request: DescribeSlowLogRecordsRequest, runtime: $Util.RuntimeOptions): Promise<DescribeSlowLogRecordsResponse> {
-    Util.validateModel(request);
-    let query = { };
-    if (!Util.isUnset(request.DBInstanceId)) {
-      query["DBInstanceId"] = request.DBInstanceId;
-    }
-
-    if (!Util.isUnset(request.DBName)) {
-      query["DBName"] = request.DBName;
-    }
-
-    if (!Util.isUnset(request.endTime)) {
-      query["EndTime"] = request.endTime;
-    }
-
-    if (!Util.isUnset(request.pageNumber)) {
-      query["PageNumber"] = request.pageNumber;
-    }
-
-    if (!Util.isUnset(request.pageSize)) {
-      query["PageSize"] = request.pageSize;
-    }
-
-    if (!Util.isUnset(request.SQLId)) {
-      query["SQLId"] = request.SQLId;
-    }
-
-    if (!Util.isUnset(request.startTime)) {
-      query["StartTime"] = request.startTime;
-    }
-
-    let req = new $OpenApi.OpenApiRequest({
-      query: OpenApiUtil.query(query),
-    });
-    let params = new $OpenApi.Params({
-      action: "DescribeSlowLogRecords",
-      version: "2016-05-03",
-      protocol: "HTTPS",
-      pathname: "/",
-      method: "POST",
-      authType: "AK",
-      style: "RPC",
-      reqBodyType: "formData",
-      bodyType: "json",
-    });
-    return $tea.cast<DescribeSlowLogRecordsResponse>(await this.callApi(params, req, runtime), new DescribeSlowLogRecordsResponse({}));
-  }
-
-  async describeSlowLogRecords(request: DescribeSlowLogRecordsRequest): Promise<DescribeSlowLogRecordsResponse> {
-    let runtime = new $Util.RuntimeOptions({ });
-    return await this.describeSlowLogRecordsWithOptions(request, runtime);
-  }
-
-  async describeSlowSQLLogsWithOptions(request: DescribeSlowSQLLogsRequest, runtime: $Util.RuntimeOptions): Promise<DescribeSlowSQLLogsResponse> {
-    Util.validateModel(request);
-    let query = { };
-    if (!Util.isUnset(request.DBInstanceId)) {
-      query["DBInstanceId"] = request.DBInstanceId;
-    }
-
-    if (!Util.isUnset(request.database)) {
-      query["Database"] = request.database;
-    }
-
-    if (!Util.isUnset(request.endTime)) {
-      query["EndTime"] = request.endTime;
-    }
-
-    if (!Util.isUnset(request.executeState)) {
-      query["ExecuteState"] = request.executeState;
-    }
-
-    if (!Util.isUnset(request.maxExecuteCost)) {
-      query["MaxExecuteCost"] = request.maxExecuteCost;
-    }
-
-    if (!Util.isUnset(request.minExecuteCost)) {
-      query["MinExecuteCost"] = request.minExecuteCost;
-    }
-
-    if (!Util.isUnset(request.operationClass)) {
-      query["OperationClass"] = request.operationClass;
-    }
-
-    if (!Util.isUnset(request.operationType)) {
-      query["OperationType"] = request.operationType;
-    }
-
-    if (!Util.isUnset(request.pageNumber)) {
-      query["PageNumber"] = request.pageNumber;
-    }
-
-    if (!Util.isUnset(request.pageSize)) {
-      query["PageSize"] = request.pageSize;
-    }
-
-    if (!Util.isUnset(request.queryKeywords)) {
-      query["QueryKeywords"] = request.queryKeywords;
-    }
-
-    if (!Util.isUnset(request.sourceIP)) {
-      query["SourceIP"] = request.sourceIP;
-    }
-
-    if (!Util.isUnset(request.startTime)) {
-      query["StartTime"] = request.startTime;
-    }
-
-    if (!Util.isUnset(request.user)) {
-      query["User"] = request.user;
-    }
-
-    let req = new $OpenApi.OpenApiRequest({
-      query: OpenApiUtil.query(query),
-    });
-    let params = new $OpenApi.Params({
-      action: "DescribeSlowSQLLogs",
-      version: "2016-05-03",
-      protocol: "HTTPS",
-      pathname: "/",
-      method: "POST",
-      authType: "AK",
-      style: "RPC",
-      reqBodyType: "formData",
-      bodyType: "json",
-    });
-    return $tea.cast<DescribeSlowSQLLogsResponse>(await this.callApi(params, req, runtime), new DescribeSlowSQLLogsResponse({}));
-  }
-
-  async describeSlowSQLLogs(request: DescribeSlowSQLLogsRequest): Promise<DescribeSlowSQLLogsResponse> {
-    let runtime = new $Util.RuntimeOptions({ });
-    return await this.describeSlowSQLLogsWithOptions(request, runtime);
-  }
-
-  async describeSpecificationWithOptions(request: DescribeSpecificationRequest, runtime: $Util.RuntimeOptions): Promise<DescribeSpecificationResponse> {
-    Util.validateModel(request);
-    let query = { };
-    if (!Util.isUnset(request.cpuCores)) {
-      query["CpuCores"] = request.cpuCores;
-    }
-
-    if (!Util.isUnset(request.DBInstanceId)) {
-      query["DBInstanceId"] = request.DBInstanceId;
-    }
-
-    if (!Util.isUnset(request.ownerId)) {
-      query["OwnerId"] = request.ownerId;
-    }
-
-    if (!Util.isUnset(request.storageType)) {
-      query["StorageType"] = request.storageType;
-    }
-
-    if (!Util.isUnset(request.totalNodeNum)) {
-      query["TotalNodeNum"] = request.totalNodeNum;
-    }
-
-    let req = new $OpenApi.OpenApiRequest({
-      query: OpenApiUtil.query(query),
-    });
-    let params = new $OpenApi.Params({
-      action: "DescribeSpecification",
-      version: "2016-05-03",
-      protocol: "HTTPS",
-      pathname: "/",
-      method: "POST",
-      authType: "AK",
-      style: "RPC",
-      reqBodyType: "formData",
-      bodyType: "json",
-    });
-    return $tea.cast<DescribeSpecificationResponse>(await this.callApi(params, req, runtime), new DescribeSpecificationResponse({}));
-  }
-
-  async describeSpecification(request: DescribeSpecificationRequest): Promise<DescribeSpecificationResponse> {
-    let runtime = new $Util.RuntimeOptions({ });
-    return await this.describeSpecificationWithOptions(request, runtime);
   }
 
   async describeSupportFeaturesWithOptions(request: DescribeSupportFeaturesRequest, runtime: $Util.RuntimeOptions): Promise<DescribeSupportFeaturesResponse> {
@@ -14054,6 +14302,15 @@ export default class Client extends OpenApi {
     return await this.describeUserEncryptionKeyListWithOptions(request, runtime);
   }
 
+  /**
+    * You can call this operation to query the details of a lock-waiting query only for an AnalyticDB for PostgreSQL V6.0 instance in elastic storage mode.
+    * ## Limits
+    * You can call this operation up to 1,000 times per second per account. If the number of the calls per second exceeds the limit, throttling is triggered. As a result, your business may be affected. We recommend that you take note of the limit when you call this operation.
+    *
+    * @param request DescribeWaitingSQLInfoRequest
+    * @param runtime runtime options for this request RuntimeOptions
+    * @return DescribeWaitingSQLInfoResponse
+   */
   async describeWaitingSQLInfoWithOptions(request: DescribeWaitingSQLInfoRequest, runtime: $Util.RuntimeOptions): Promise<DescribeWaitingSQLInfoResponse> {
     Util.validateModel(request);
     let query = { };
@@ -14086,11 +14343,28 @@ export default class Client extends OpenApi {
     return $tea.cast<DescribeWaitingSQLInfoResponse>(await this.callApi(params, req, runtime), new DescribeWaitingSQLInfoResponse({}));
   }
 
+  /**
+    * You can call this operation to query the details of a lock-waiting query only for an AnalyticDB for PostgreSQL V6.0 instance in elastic storage mode.
+    * ## Limits
+    * You can call this operation up to 1,000 times per second per account. If the number of the calls per second exceeds the limit, throttling is triggered. As a result, your business may be affected. We recommend that you take note of the limit when you call this operation.
+    *
+    * @param request DescribeWaitingSQLInfoRequest
+    * @return DescribeWaitingSQLInfoResponse
+   */
   async describeWaitingSQLInfo(request: DescribeWaitingSQLInfoRequest): Promise<DescribeWaitingSQLInfoResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.describeWaitingSQLInfoWithOptions(request, runtime);
   }
 
+  /**
+    * You can call this operation to query the lock diagnostics records only for an AnalyticDB for PostgreSQL V6.0 instance in elastic storage mode.
+    * ## Limits
+    * You can call this operation up to 1,000 times per second per account. If the number of the calls per second exceeds the limit, throttling is triggered. As a result, your business may be affected. We recommend that you take note of the limit when you call this operation.
+    *
+    * @param request DescribeWaitingSQLRecordsRequest
+    * @param runtime runtime options for this request RuntimeOptions
+    * @return DescribeWaitingSQLRecordsResponse
+   */
   async describeWaitingSQLRecordsWithOptions(request: DescribeWaitingSQLRecordsRequest, runtime: $Util.RuntimeOptions): Promise<DescribeWaitingSQLRecordsResponse> {
     Util.validateModel(request);
     let query = { };
@@ -14151,11 +14425,29 @@ export default class Client extends OpenApi {
     return $tea.cast<DescribeWaitingSQLRecordsResponse>(await this.callApi(params, req, runtime), new DescribeWaitingSQLRecordsResponse({}));
   }
 
+  /**
+    * You can call this operation to query the lock diagnostics records only for an AnalyticDB for PostgreSQL V6.0 instance in elastic storage mode.
+    * ## Limits
+    * You can call this operation up to 1,000 times per second per account. If the number of the calls per second exceeds the limit, throttling is triggered. As a result, your business may be affected. We recommend that you take note of the limit when you call this operation.
+    *
+    * @param request DescribeWaitingSQLRecordsRequest
+    * @return DescribeWaitingSQLRecordsResponse
+   */
   async describeWaitingSQLRecords(request: DescribeWaitingSQLRecordsRequest): Promise<DescribeWaitingSQLRecordsResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.describeWaitingSQLRecordsWithOptions(request, runtime);
   }
 
+  /**
+    * You can call this operation to download the query diagnostic information of an AnalyticDB for PostgreSQL instance. After the download is complete, you can call the [DescribeDownloadRecords](~~447712~~) operation to query download records and download URLs.
+    * This operation is available only for instances of V6.3.10.1 or later in elastic storage mode. For more information about how to view and update the minor engine version of an instance, see [View the minor engine version](~~277424~~) and [Update the minor engine version](~~139271~~).
+    * ## Limits
+    * You can call this operation up to 1,000 times per second per account. If the number of the calls per second exceeds the limit, throttling is triggered. As a result, your business may be affected. We recommend that you take note of the limit when you call this operation.
+    *
+    * @param request DownloadDiagnosisRecordsRequest
+    * @param runtime runtime options for this request RuntimeOptions
+    * @return DownloadDiagnosisRecordsResponse
+   */
   async downloadDiagnosisRecordsWithOptions(request: DownloadDiagnosisRecordsRequest, runtime: $Util.RuntimeOptions): Promise<DownloadDiagnosisRecordsResponse> {
     Util.validateModel(request);
     let query = { };
@@ -14208,9 +14500,258 @@ export default class Client extends OpenApi {
     return $tea.cast<DownloadDiagnosisRecordsResponse>(await this.callApi(params, req, runtime), new DownloadDiagnosisRecordsResponse({}));
   }
 
+  /**
+    * You can call this operation to download the query diagnostic information of an AnalyticDB for PostgreSQL instance. After the download is complete, you can call the [DescribeDownloadRecords](~~447712~~) operation to query download records and download URLs.
+    * This operation is available only for instances of V6.3.10.1 or later in elastic storage mode. For more information about how to view and update the minor engine version of an instance, see [View the minor engine version](~~277424~~) and [Update the minor engine version](~~139271~~).
+    * ## Limits
+    * You can call this operation up to 1,000 times per second per account. If the number of the calls per second exceeds the limit, throttling is triggered. As a result, your business may be affected. We recommend that you take note of the limit when you call this operation.
+    *
+    * @param request DownloadDiagnosisRecordsRequest
+    * @return DownloadDiagnosisRecordsResponse
+   */
   async downloadDiagnosisRecords(request: DownloadDiagnosisRecordsRequest): Promise<DownloadDiagnosisRecordsResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.downloadDiagnosisRecordsWithOptions(request, runtime);
+  }
+
+  async downloadSQLLogsRecordsWithOptions(request: DownloadSQLLogsRecordsRequest, runtime: $Util.RuntimeOptions): Promise<DownloadSQLLogsRecordsResponse> {
+    Util.validateModel(request);
+    let query = { };
+    if (!Util.isUnset(request.DBInstanceId)) {
+      query["DBInstanceId"] = request.DBInstanceId;
+    }
+
+    if (!Util.isUnset(request.database)) {
+      query["Database"] = request.database;
+    }
+
+    if (!Util.isUnset(request.endTime)) {
+      query["EndTime"] = request.endTime;
+    }
+
+    if (!Util.isUnset(request.executeCost)) {
+      query["ExecuteCost"] = request.executeCost;
+    }
+
+    if (!Util.isUnset(request.executeState)) {
+      query["ExecuteState"] = request.executeState;
+    }
+
+    if (!Util.isUnset(request.lang)) {
+      query["Lang"] = request.lang;
+    }
+
+    if (!Util.isUnset(request.maxExecuteCost)) {
+      query["MaxExecuteCost"] = request.maxExecuteCost;
+    }
+
+    if (!Util.isUnset(request.minExecuteCost)) {
+      query["MinExecuteCost"] = request.minExecuteCost;
+    }
+
+    if (!Util.isUnset(request.operationClass)) {
+      query["OperationClass"] = request.operationClass;
+    }
+
+    if (!Util.isUnset(request.operationType)) {
+      query["OperationType"] = request.operationType;
+    }
+
+    if (!Util.isUnset(request.pageNumber)) {
+      query["PageNumber"] = request.pageNumber;
+    }
+
+    if (!Util.isUnset(request.pageSize)) {
+      query["PageSize"] = request.pageSize;
+    }
+
+    if (!Util.isUnset(request.queryKeywords)) {
+      query["QueryKeywords"] = request.queryKeywords;
+    }
+
+    if (!Util.isUnset(request.sourceIP)) {
+      query["SourceIP"] = request.sourceIP;
+    }
+
+    if (!Util.isUnset(request.startTime)) {
+      query["StartTime"] = request.startTime;
+    }
+
+    if (!Util.isUnset(request.user)) {
+      query["User"] = request.user;
+    }
+
+    let req = new $OpenApi.OpenApiRequest({
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApi.Params({
+      action: "DownloadSQLLogsRecords",
+      version: "2016-05-03",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $tea.cast<DownloadSQLLogsRecordsResponse>(await this.callApi(params, req, runtime), new DownloadSQLLogsRecordsResponse({}));
+  }
+
+  async downloadSQLLogsRecords(request: DownloadSQLLogsRecordsRequest): Promise<DownloadSQLLogsRecordsResponse> {
+    let runtime = new $Util.RuntimeOptions({ });
+    return await this.downloadSQLLogsRecordsWithOptions(request, runtime);
+  }
+
+  async grantCollectionWithOptions(request: GrantCollectionRequest, runtime: $Util.RuntimeOptions): Promise<GrantCollectionResponse> {
+    Util.validateModel(request);
+    let query = { };
+    if (!Util.isUnset(request.collection)) {
+      query["Collection"] = request.collection;
+    }
+
+    if (!Util.isUnset(request.DBInstanceId)) {
+      query["DBInstanceId"] = request.DBInstanceId;
+    }
+
+    if (!Util.isUnset(request.grantToNamespace)) {
+      query["GrantToNamespace"] = request.grantToNamespace;
+    }
+
+    if (!Util.isUnset(request.grantType)) {
+      query["GrantType"] = request.grantType;
+    }
+
+    if (!Util.isUnset(request.managerAccount)) {
+      query["ManagerAccount"] = request.managerAccount;
+    }
+
+    if (!Util.isUnset(request.managerAccountPassword)) {
+      query["ManagerAccountPassword"] = request.managerAccountPassword;
+    }
+
+    if (!Util.isUnset(request.namespace)) {
+      query["Namespace"] = request.namespace;
+    }
+
+    if (!Util.isUnset(request.ownerId)) {
+      query["OwnerId"] = request.ownerId;
+    }
+
+    if (!Util.isUnset(request.regionId)) {
+      query["RegionId"] = request.regionId;
+    }
+
+    let req = new $OpenApi.OpenApiRequest({
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApi.Params({
+      action: "GrantCollection",
+      version: "2016-05-03",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $tea.cast<GrantCollectionResponse>(await this.callApi(params, req, runtime), new GrantCollectionResponse({}));
+  }
+
+  async grantCollection(request: GrantCollectionRequest): Promise<GrantCollectionResponse> {
+    let runtime = new $Util.RuntimeOptions({ });
+    return await this.grantCollectionWithOptions(request, runtime);
+  }
+
+  async listCollectionsWithOptions(request: ListCollectionsRequest, runtime: $Util.RuntimeOptions): Promise<ListCollectionsResponse> {
+    Util.validateModel(request);
+    let query = { };
+    if (!Util.isUnset(request.DBInstanceId)) {
+      query["DBInstanceId"] = request.DBInstanceId;
+    }
+
+    if (!Util.isUnset(request.namespace)) {
+      query["Namespace"] = request.namespace;
+    }
+
+    if (!Util.isUnset(request.namespacePassword)) {
+      query["NamespacePassword"] = request.namespacePassword;
+    }
+
+    if (!Util.isUnset(request.ownerId)) {
+      query["OwnerId"] = request.ownerId;
+    }
+
+    if (!Util.isUnset(request.regionId)) {
+      query["RegionId"] = request.regionId;
+    }
+
+    let req = new $OpenApi.OpenApiRequest({
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApi.Params({
+      action: "ListCollections",
+      version: "2016-05-03",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $tea.cast<ListCollectionsResponse>(await this.callApi(params, req, runtime), new ListCollectionsResponse({}));
+  }
+
+  async listCollections(request: ListCollectionsRequest): Promise<ListCollectionsResponse> {
+    let runtime = new $Util.RuntimeOptions({ });
+    return await this.listCollectionsWithOptions(request, runtime);
+  }
+
+  async listNamespacesWithOptions(request: ListNamespacesRequest, runtime: $Util.RuntimeOptions): Promise<ListNamespacesResponse> {
+    Util.validateModel(request);
+    let query = { };
+    if (!Util.isUnset(request.DBInstanceId)) {
+      query["DBInstanceId"] = request.DBInstanceId;
+    }
+
+    if (!Util.isUnset(request.managerAccount)) {
+      query["ManagerAccount"] = request.managerAccount;
+    }
+
+    if (!Util.isUnset(request.managerAccountPassword)) {
+      query["ManagerAccountPassword"] = request.managerAccountPassword;
+    }
+
+    if (!Util.isUnset(request.ownerId)) {
+      query["OwnerId"] = request.ownerId;
+    }
+
+    if (!Util.isUnset(request.regionId)) {
+      query["RegionId"] = request.regionId;
+    }
+
+    let req = new $OpenApi.OpenApiRequest({
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApi.Params({
+      action: "ListNamespaces",
+      version: "2016-05-03",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $tea.cast<ListNamespacesResponse>(await this.callApi(params, req, runtime), new ListNamespacesResponse({}));
+  }
+
+  async listNamespaces(request: ListNamespacesRequest): Promise<ListNamespacesResponse> {
+    let runtime = new $Util.RuntimeOptions({ });
+    return await this.listNamespacesWithOptions(request, runtime);
   }
 
   async listTagResourcesWithOptions(request: ListTagResourcesRequest, runtime: $Util.RuntimeOptions): Promise<ListTagResourcesResponse> {
@@ -14360,22 +14901,34 @@ export default class Client extends OpenApi {
     return await this.modifyBackupPolicyWithOptions(request, runtime);
   }
 
-  async modifyDBInstanceConnectionModeWithOptions(request: ModifyDBInstanceConnectionModeRequest, runtime: $Util.RuntimeOptions): Promise<ModifyDBInstanceConnectionModeResponse> {
+  async modifyDBInstanceConfigWithOptions(request: ModifyDBInstanceConfigRequest, runtime: $Util.RuntimeOptions): Promise<ModifyDBInstanceConfigResponse> {
     Util.validateModel(request);
     let query = { };
-    if (!Util.isUnset(request.connectionMode)) {
-      query["ConnectionMode"] = request.connectionMode;
+    if (!Util.isUnset(request.DBInstanceDescription)) {
+      query["DBInstanceDescription"] = request.DBInstanceDescription;
     }
 
     if (!Util.isUnset(request.DBInstanceId)) {
       query["DBInstanceId"] = request.DBInstanceId;
     }
 
+    if (!Util.isUnset(request.idleTime)) {
+      query["IdleTime"] = request.idleTime;
+    }
+
+    if (!Util.isUnset(request.resourceGroupId)) {
+      query["ResourceGroupId"] = request.resourceGroupId;
+    }
+
+    if (!Util.isUnset(request.serverlessResource)) {
+      query["ServerlessResource"] = request.serverlessResource;
+    }
+
     let req = new $OpenApi.OpenApiRequest({
       query: OpenApiUtil.query(query),
     });
     let params = new $OpenApi.Params({
-      action: "ModifyDBInstanceConnectionMode",
+      action: "ModifyDBInstanceConfig",
       version: "2016-05-03",
       protocol: "HTTPS",
       pathname: "/",
@@ -14385,12 +14938,12 @@ export default class Client extends OpenApi {
       reqBodyType: "formData",
       bodyType: "json",
     });
-    return $tea.cast<ModifyDBInstanceConnectionModeResponse>(await this.callApi(params, req, runtime), new ModifyDBInstanceConnectionModeResponse({}));
+    return $tea.cast<ModifyDBInstanceConfigResponse>(await this.callApi(params, req, runtime), new ModifyDBInstanceConfigResponse({}));
   }
 
-  async modifyDBInstanceConnectionMode(request: ModifyDBInstanceConnectionModeRequest): Promise<ModifyDBInstanceConnectionModeResponse> {
+  async modifyDBInstanceConfig(request: ModifyDBInstanceConfigRequest): Promise<ModifyDBInstanceConfigResponse> {
     let runtime = new $Util.RuntimeOptions({ });
-    return await this.modifyDBInstanceConnectionModeWithOptions(request, runtime);
+    return await this.modifyDBInstanceConfigWithOptions(request, runtime);
   }
 
   async modifyDBInstanceConnectionStringWithOptions(request: ModifyDBInstanceConnectionStringRequest, runtime: $Util.RuntimeOptions): Promise<ModifyDBInstanceConnectionStringResponse> {
@@ -14434,6 +14987,15 @@ export default class Client extends OpenApi {
     return await this.modifyDBInstanceConnectionStringWithOptions(request, runtime);
   }
 
+  /**
+    * To make it easy to identify AnalyticDB for PostgreSQL instances, you can call this operation to modify the description of instances.
+    * ## Limits
+    * You can call this operation up to 1,000 times per second per account. If the number of the calls per second exceeds the limit, throttling is triggered. As a result, your business may be affected. We recommend that you take note of the limit when you call this operation.
+    *
+    * @param request ModifyDBInstanceDescriptionRequest
+    * @param runtime runtime options for this request RuntimeOptions
+    * @return ModifyDBInstanceDescriptionResponse
+   */
   async modifyDBInstanceDescriptionWithOptions(request: ModifyDBInstanceDescriptionRequest, runtime: $Util.RuntimeOptions): Promise<ModifyDBInstanceDescriptionResponse> {
     Util.validateModel(request);
     let query = { };
@@ -14466,11 +15028,28 @@ export default class Client extends OpenApi {
     return $tea.cast<ModifyDBInstanceDescriptionResponse>(await this.callApi(params, req, runtime), new ModifyDBInstanceDescriptionResponse({}));
   }
 
+  /**
+    * To make it easy to identify AnalyticDB for PostgreSQL instances, you can call this operation to modify the description of instances.
+    * ## Limits
+    * You can call this operation up to 1,000 times per second per account. If the number of the calls per second exceeds the limit, throttling is triggered. As a result, your business may be affected. We recommend that you take note of the limit when you call this operation.
+    *
+    * @param request ModifyDBInstanceDescriptionRequest
+    * @return ModifyDBInstanceDescriptionResponse
+   */
   async modifyDBInstanceDescription(request: ModifyDBInstanceDescriptionRequest): Promise<ModifyDBInstanceDescriptionResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.modifyDBInstanceDescriptionWithOptions(request, runtime);
   }
 
+  /**
+    * The system maintains AnalyticDB for PostgreSQL instances during the maintenance window that you specify. We recommend that you set the maintenance window to off-peak hours to minimize the impact on your business.
+    * ## Limits
+    * You can call this operation up to 1,000 times per second per account. If the number of the calls per second exceeds the limit, throttling is triggered. As a result, your business may be affected. We recommend that you take note of the limit when you call this operation.
+    *
+    * @param request ModifyDBInstanceMaintainTimeRequest
+    * @param runtime runtime options for this request RuntimeOptions
+    * @return ModifyDBInstanceMaintainTimeResponse
+   */
   async modifyDBInstanceMaintainTimeWithOptions(request: ModifyDBInstanceMaintainTimeRequest, runtime: $Util.RuntimeOptions): Promise<ModifyDBInstanceMaintainTimeResponse> {
     Util.validateModel(request);
     let query = { };
@@ -14507,56 +15086,26 @@ export default class Client extends OpenApi {
     return $tea.cast<ModifyDBInstanceMaintainTimeResponse>(await this.callApi(params, req, runtime), new ModifyDBInstanceMaintainTimeResponse({}));
   }
 
+  /**
+    * The system maintains AnalyticDB for PostgreSQL instances during the maintenance window that you specify. We recommend that you set the maintenance window to off-peak hours to minimize the impact on your business.
+    * ## Limits
+    * You can call this operation up to 1,000 times per second per account. If the number of the calls per second exceeds the limit, throttling is triggered. As a result, your business may be affected. We recommend that you take note of the limit when you call this operation.
+    *
+    * @param request ModifyDBInstanceMaintainTimeRequest
+    * @return ModifyDBInstanceMaintainTimeResponse
+   */
   async modifyDBInstanceMaintainTime(request: ModifyDBInstanceMaintainTimeRequest): Promise<ModifyDBInstanceMaintainTimeResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.modifyDBInstanceMaintainTimeWithOptions(request, runtime);
   }
 
-  async modifyDBInstanceNetworkTypeWithOptions(request: ModifyDBInstanceNetworkTypeRequest, runtime: $Util.RuntimeOptions): Promise<ModifyDBInstanceNetworkTypeResponse> {
-    Util.validateModel(request);
-    let query = { };
-    if (!Util.isUnset(request.DBInstanceId)) {
-      query["DBInstanceId"] = request.DBInstanceId;
-    }
-
-    if (!Util.isUnset(request.instanceNetworkType)) {
-      query["InstanceNetworkType"] = request.instanceNetworkType;
-    }
-
-    if (!Util.isUnset(request.privateIpAddress)) {
-      query["PrivateIpAddress"] = request.privateIpAddress;
-    }
-
-    if (!Util.isUnset(request.VPCId)) {
-      query["VPCId"] = request.VPCId;
-    }
-
-    if (!Util.isUnset(request.vSwitchId)) {
-      query["VSwitchId"] = request.vSwitchId;
-    }
-
-    let req = new $OpenApi.OpenApiRequest({
-      query: OpenApiUtil.query(query),
-    });
-    let params = new $OpenApi.Params({
-      action: "ModifyDBInstanceNetworkType",
-      version: "2016-05-03",
-      protocol: "HTTPS",
-      pathname: "/",
-      method: "POST",
-      authType: "AK",
-      style: "RPC",
-      reqBodyType: "formData",
-      bodyType: "json",
-    });
-    return $tea.cast<ModifyDBInstanceNetworkTypeResponse>(await this.callApi(params, req, runtime), new ModifyDBInstanceNetworkTypeResponse({}));
-  }
-
-  async modifyDBInstanceNetworkType(request: ModifyDBInstanceNetworkTypeRequest): Promise<ModifyDBInstanceNetworkTypeResponse> {
-    let runtime = new $Util.RuntimeOptions({ });
-    return await this.modifyDBInstanceNetworkTypeWithOptions(request, runtime);
-  }
-
+  /**
+    * Resource Management allows you to build an organizational structure for resources based on your business requirements. You can use resource directories, folders, accounts, and resource groups to hierarchically organize and manage resources. For more information, see [What is Resource Management?](~~94475~~)
+    *
+    * @param request ModifyDBInstanceResourceGroupRequest
+    * @param runtime runtime options for this request RuntimeOptions
+    * @return ModifyDBInstanceResourceGroupResponse
+   */
   async modifyDBInstanceResourceGroupWithOptions(request: ModifyDBInstanceResourceGroupRequest, runtime: $Util.RuntimeOptions): Promise<ModifyDBInstanceResourceGroupResponse> {
     Util.validateModel(request);
     let query = { };
@@ -14605,6 +15154,12 @@ export default class Client extends OpenApi {
     return $tea.cast<ModifyDBInstanceResourceGroupResponse>(await this.callApi(params, req, runtime), new ModifyDBInstanceResourceGroupResponse({}));
   }
 
+  /**
+    * Resource Management allows you to build an organizational structure for resources based on your business requirements. You can use resource directories, folders, accounts, and resource groups to hierarchically organize and manage resources. For more information, see [What is Resource Management?](~~94475~~)
+    *
+    * @param request ModifyDBInstanceResourceGroupRequest
+    * @return ModifyDBInstanceResourceGroupResponse
+   */
   async modifyDBInstanceResourceGroup(request: ModifyDBInstanceResourceGroupRequest): Promise<ModifyDBInstanceResourceGroupResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.modifyDBInstanceResourceGroupWithOptions(request, runtime);
@@ -14647,6 +15202,15 @@ export default class Client extends OpenApi {
     return await this.modifyDBInstanceSSLWithOptions(request, runtime);
   }
 
+  /**
+    * This operation can be called to modify parameters of an AnalyticDB for PostgreSQL instance in elastic storage mode or Serverless mode.
+    * ## Limits
+    * You can call this operation up to 1,000 times per second per account. If the number of the calls per second exceeds the limit, throttling is triggered and may affect your business. We recommend that you take note of the limit when you call this operation.
+    *
+    * @param request ModifyParametersRequest
+    * @param runtime runtime options for this request RuntimeOptions
+    * @return ModifyParametersResponse
+   */
   async modifyParametersWithOptions(request: ModifyParametersRequest, runtime: $Util.RuntimeOptions): Promise<ModifyParametersResponse> {
     Util.validateModel(request);
     let query = { };
@@ -14679,6 +15243,14 @@ export default class Client extends OpenApi {
     return $tea.cast<ModifyParametersResponse>(await this.callApi(params, req, runtime), new ModifyParametersResponse({}));
   }
 
+  /**
+    * This operation can be called to modify parameters of an AnalyticDB for PostgreSQL instance in elastic storage mode or Serverless mode.
+    * ## Limits
+    * You can call this operation up to 1,000 times per second per account. If the number of the calls per second exceeds the limit, throttling is triggered and may affect your business. We recommend that you take note of the limit when you call this operation.
+    *
+    * @param request ModifyParametersRequest
+    * @return ModifyParametersResponse
+   */
   async modifyParameters(request: ModifyParametersRequest): Promise<ModifyParametersResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.modifyParametersWithOptions(request, runtime);
@@ -14717,6 +15289,15 @@ export default class Client extends OpenApi {
     return await this.modifySQLCollectorPolicyWithOptions(request, runtime);
   }
 
+  /**
+    * To ensure the security and stability of AnalyticDB for PostgreSQL instances, the system denies all external IP addresses to access AnalyticDB for PostgreSQL instances by default. Before you can use an AnalyticDB for PostgreSQL instance, you must add the IP address or CIDR block of your client to the IP address whitelist of the instance.
+    * ## Limits
+    * You can call this operation up to 1,000 times per second per account. If the number of the calls per second exceeds the limit, throttling is triggered. As a result, your business may be affected. We recommend that you take note of the limit when you call this operation.
+    *
+    * @param request ModifySecurityIpsRequest
+    * @param runtime runtime options for this request RuntimeOptions
+    * @return ModifySecurityIpsResponse
+   */
   async modifySecurityIpsWithOptions(request: ModifySecurityIpsRequest, runtime: $Util.RuntimeOptions): Promise<ModifySecurityIpsResponse> {
     Util.validateModel(request);
     let query = { };
@@ -14730,6 +15311,10 @@ export default class Client extends OpenApi {
 
     if (!Util.isUnset(request.DBInstanceId)) {
       query["DBInstanceId"] = request.DBInstanceId;
+    }
+
+    if (!Util.isUnset(request.modifyMode)) {
+      query["ModifyMode"] = request.modifyMode;
     }
 
     if (!Util.isUnset(request.resourceGroupId)) {
@@ -14757,11 +15342,67 @@ export default class Client extends OpenApi {
     return $tea.cast<ModifySecurityIpsResponse>(await this.callApi(params, req, runtime), new ModifySecurityIpsResponse({}));
   }
 
+  /**
+    * To ensure the security and stability of AnalyticDB for PostgreSQL instances, the system denies all external IP addresses to access AnalyticDB for PostgreSQL instances by default. Before you can use an AnalyticDB for PostgreSQL instance, you must add the IP address or CIDR block of your client to the IP address whitelist of the instance.
+    * ## Limits
+    * You can call this operation up to 1,000 times per second per account. If the number of the calls per second exceeds the limit, throttling is triggered. As a result, your business may be affected. We recommend that you take note of the limit when you call this operation.
+    *
+    * @param request ModifySecurityIpsRequest
+    * @return ModifySecurityIpsResponse
+   */
   async modifySecurityIps(request: ModifySecurityIpsRequest): Promise<ModifySecurityIpsResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.modifySecurityIpsWithOptions(request, runtime);
   }
 
+  async modifyVectorConfigurationWithOptions(request: ModifyVectorConfigurationRequest, runtime: $Util.RuntimeOptions): Promise<ModifyVectorConfigurationResponse> {
+    Util.validateModel(request);
+    let query = { };
+    if (!Util.isUnset(request.DBInstanceId)) {
+      query["DBInstanceId"] = request.DBInstanceId;
+    }
+
+    if (!Util.isUnset(request.ownerId)) {
+      query["OwnerId"] = request.ownerId;
+    }
+
+    if (!Util.isUnset(request.vectorConfigurationStatus)) {
+      query["VectorConfigurationStatus"] = request.vectorConfigurationStatus;
+    }
+
+    let req = new $OpenApi.OpenApiRequest({
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApi.Params({
+      action: "ModifyVectorConfiguration",
+      version: "2016-05-03",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $tea.cast<ModifyVectorConfigurationResponse>(await this.callApi(params, req, runtime), new ModifyVectorConfigurationResponse({}));
+  }
+
+  async modifyVectorConfiguration(request: ModifyVectorConfigurationRequest): Promise<ModifyVectorConfigurationResponse> {
+    let runtime = new $Util.RuntimeOptions({ });
+    return await this.modifyVectorConfigurationWithOptions(request, runtime);
+  }
+
+  /**
+    * You can call this operation to pause an AnalyticDB for PostgreSQL instance that is in the **Running** state.
+    * This operation is available only for AnalyticDB for PostgreSQL instances in Serverless mode that run V1.0.2.1 or later. For more information about how to view and update the minor engine version of an instance, see [View the minor engine version](~~277424~~) and [Update the minor engine version](~~139271~~).
+    * >  Before you call this operation, make sure that you are familiar with the billing methods and pricing of AnalyticDB for PostgreSQL instances. For more information, see [Billing methods](~~35406~~) and [AnalyticDB for PostgreSQL pricing](https://www.alibabacloud.com/zh/product/hybriddb-postgresql/pricing).
+    * ## Limits
+    * You can call this operation up to 1,000 times per second per account. If the number of the calls per second exceeds the limit, throttling is triggered. As a result, your business may be affected. We recommend that you take note of the limit when you call this operation.
+    *
+    * @param request PauseInstanceRequest
+    * @param runtime runtime options for this request RuntimeOptions
+    * @return PauseInstanceResponse
+   */
   async pauseInstanceWithOptions(request: PauseInstanceRequest, runtime: $Util.RuntimeOptions): Promise<PauseInstanceResponse> {
     Util.validateModel(request);
     let query = { };
@@ -14790,9 +15431,90 @@ export default class Client extends OpenApi {
     return $tea.cast<PauseInstanceResponse>(await this.callApi(params, req, runtime), new PauseInstanceResponse({}));
   }
 
+  /**
+    * You can call this operation to pause an AnalyticDB for PostgreSQL instance that is in the **Running** state.
+    * This operation is available only for AnalyticDB for PostgreSQL instances in Serverless mode that run V1.0.2.1 or later. For more information about how to view and update the minor engine version of an instance, see [View the minor engine version](~~277424~~) and [Update the minor engine version](~~139271~~).
+    * >  Before you call this operation, make sure that you are familiar with the billing methods and pricing of AnalyticDB for PostgreSQL instances. For more information, see [Billing methods](~~35406~~) and [AnalyticDB for PostgreSQL pricing](https://www.alibabacloud.com/zh/product/hybriddb-postgresql/pricing).
+    * ## Limits
+    * You can call this operation up to 1,000 times per second per account. If the number of the calls per second exceeds the limit, throttling is triggered. As a result, your business may be affected. We recommend that you take note of the limit when you call this operation.
+    *
+    * @param request PauseInstanceRequest
+    * @return PauseInstanceResponse
+   */
   async pauseInstance(request: PauseInstanceRequest): Promise<PauseInstanceResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.pauseInstanceWithOptions(request, runtime);
+  }
+
+  async queryCollectionDataWithOptions(tmpReq: QueryCollectionDataRequest, runtime: $Util.RuntimeOptions): Promise<QueryCollectionDataResponse> {
+    Util.validateModel(tmpReq);
+    let request = new QueryCollectionDataShrinkRequest({ });
+    OpenApiUtil.convert(tmpReq, request);
+    if (!Util.isUnset(tmpReq.vector)) {
+      request.vectorShrink = OpenApiUtil.arrayToStringWithSpecifiedStyle(tmpReq.vector, "Vector", "json");
+    }
+
+    let query = { };
+    if (!Util.isUnset(request.collection)) {
+      query["Collection"] = request.collection;
+    }
+
+    if (!Util.isUnset(request.content)) {
+      query["Content"] = request.content;
+    }
+
+    if (!Util.isUnset(request.DBInstanceId)) {
+      query["DBInstanceId"] = request.DBInstanceId;
+    }
+
+    if (!Util.isUnset(request.filter)) {
+      query["Filter"] = request.filter;
+    }
+
+    if (!Util.isUnset(request.namespace)) {
+      query["Namespace"] = request.namespace;
+    }
+
+    if (!Util.isUnset(request.namespacePassword)) {
+      query["NamespacePassword"] = request.namespacePassword;
+    }
+
+    if (!Util.isUnset(request.ownerId)) {
+      query["OwnerId"] = request.ownerId;
+    }
+
+    if (!Util.isUnset(request.regionId)) {
+      query["RegionId"] = request.regionId;
+    }
+
+    if (!Util.isUnset(request.topK)) {
+      query["TopK"] = request.topK;
+    }
+
+    if (!Util.isUnset(request.vectorShrink)) {
+      query["Vector"] = request.vectorShrink;
+    }
+
+    let req = new $OpenApi.OpenApiRequest({
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApi.Params({
+      action: "QueryCollectionData",
+      version: "2016-05-03",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $tea.cast<QueryCollectionDataResponse>(await this.callApi(params, req, runtime), new QueryCollectionDataResponse({}));
+  }
+
+  async queryCollectionData(request: QueryCollectionDataRequest): Promise<QueryCollectionDataResponse> {
+    let runtime = new $Util.RuntimeOptions({ });
+    return await this.queryCollectionDataWithOptions(request, runtime);
   }
 
   async rebalanceDBInstanceWithOptions(request: RebalanceDBInstanceRequest, runtime: $Util.RuntimeOptions): Promise<RebalanceDBInstanceResponse> {
@@ -14902,6 +15624,15 @@ export default class Client extends OpenApi {
     return await this.resetAccountPasswordWithOptions(request, runtime);
   }
 
+  /**
+    * A restart takes about 3 to 30 minutes. During the restart, services are unavailable. We recommend that you restart the instance during off-peak hours. After the instance is restarted and enters the running state, you can access the instance.
+    * ## Limit
+    * You can call this operation up to 1,000 times per second per account. If the number of the calls per second exceeds the limit, throttling is triggered and may affect your business. We recommend that you take note of the limit when you call this operation.
+    *
+    * @param request RestartDBInstanceRequest
+    * @param runtime runtime options for this request RuntimeOptions
+    * @return RestartDBInstanceResponse
+   */
   async restartDBInstanceWithOptions(request: RestartDBInstanceRequest, runtime: $Util.RuntimeOptions): Promise<RestartDBInstanceResponse> {
     Util.validateModel(request);
     let query = { };
@@ -14930,11 +15661,30 @@ export default class Client extends OpenApi {
     return $tea.cast<RestartDBInstanceResponse>(await this.callApi(params, req, runtime), new RestartDBInstanceResponse({}));
   }
 
+  /**
+    * A restart takes about 3 to 30 minutes. During the restart, services are unavailable. We recommend that you restart the instance during off-peak hours. After the instance is restarted and enters the running state, you can access the instance.
+    * ## Limit
+    * You can call this operation up to 1,000 times per second per account. If the number of the calls per second exceeds the limit, throttling is triggered and may affect your business. We recommend that you take note of the limit when you call this operation.
+    *
+    * @param request RestartDBInstanceRequest
+    * @return RestartDBInstanceResponse
+   */
   async restartDBInstance(request: RestartDBInstanceRequest): Promise<RestartDBInstanceResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.restartDBInstanceWithOptions(request, runtime);
   }
 
+  /**
+    * You can call this operation to resume an AnalyticDB for PostgreSQL instance that is in the **Paused** state.
+    * This operation is available only for AnalyticDB for PostgreSQL instances in Serverless mode that run V1.0.2.1 or later. For more information about how to view and update the minor engine version of an instance, see [View the minor engine version](~~277424~~) and [Update the minor engine version](~~139271~~).
+    * >  Before you call this operation, make sure that you are familiar with the billing methods and pricing of AnalyticDB for PostgreSQL instances. For more information, see [Billing methods](~~35406~~) and [AnalyticDB for PostgreSQL pricing](https://www.alibabacloud.com/zh/product/hybriddb-postgresql/pricing).
+    * ## Limits
+    * You can call this operation up to 1,000 times per second per account. If the number of the calls per second exceeds the limit, throttling is triggered. As a result, your business may be affected. We recommend that you take note of the limit when you call this operation.
+    *
+    * @param request ResumeInstanceRequest
+    * @param runtime runtime options for this request RuntimeOptions
+    * @return ResumeInstanceResponse
+   */
   async resumeInstanceWithOptions(request: ResumeInstanceRequest, runtime: $Util.RuntimeOptions): Promise<ResumeInstanceResponse> {
     Util.validateModel(request);
     let query = { };
@@ -14963,11 +15713,30 @@ export default class Client extends OpenApi {
     return $tea.cast<ResumeInstanceResponse>(await this.callApi(params, req, runtime), new ResumeInstanceResponse({}));
   }
 
+  /**
+    * You can call this operation to resume an AnalyticDB for PostgreSQL instance that is in the **Paused** state.
+    * This operation is available only for AnalyticDB for PostgreSQL instances in Serverless mode that run V1.0.2.1 or later. For more information about how to view and update the minor engine version of an instance, see [View the minor engine version](~~277424~~) and [Update the minor engine version](~~139271~~).
+    * >  Before you call this operation, make sure that you are familiar with the billing methods and pricing of AnalyticDB for PostgreSQL instances. For more information, see [Billing methods](~~35406~~) and [AnalyticDB for PostgreSQL pricing](https://www.alibabacloud.com/zh/product/hybriddb-postgresql/pricing).
+    * ## Limits
+    * You can call this operation up to 1,000 times per second per account. If the number of the calls per second exceeds the limit, throttling is triggered. As a result, your business may be affected. We recommend that you take note of the limit when you call this operation.
+    *
+    * @param request ResumeInstanceRequest
+    * @return ResumeInstanceResponse
+   */
   async resumeInstance(request: ResumeInstanceRequest): Promise<ResumeInstanceResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.resumeInstanceWithOptions(request, runtime);
   }
 
+  /**
+    * You can call this operation to enable or disable a specified plan. The plan management feature is supported only for AnalyticDB for PostgreSQL instances in Serverless mode.
+    * ## Limits
+    * You can call this operation up to 1,000 times per second per account. If the number of the calls per second exceeds the limit, throttling is triggered. As a result, your business may be affected. We recommend that you take note of the limit when you call this operation.
+    *
+    * @param request SetDBInstancePlanStatusRequest
+    * @param runtime runtime options for this request RuntimeOptions
+    * @return SetDBInstancePlanStatusResponse
+   */
   async setDBInstancePlanStatusWithOptions(request: SetDBInstancePlanStatusRequest, runtime: $Util.RuntimeOptions): Promise<SetDBInstancePlanStatusResponse> {
     Util.validateModel(request);
     let query = { };
@@ -15004,11 +15773,28 @@ export default class Client extends OpenApi {
     return $tea.cast<SetDBInstancePlanStatusResponse>(await this.callApi(params, req, runtime), new SetDBInstancePlanStatusResponse({}));
   }
 
+  /**
+    * You can call this operation to enable or disable a specified plan. The plan management feature is supported only for AnalyticDB for PostgreSQL instances in Serverless mode.
+    * ## Limits
+    * You can call this operation up to 1,000 times per second per account. If the number of the calls per second exceeds the limit, throttling is triggered. As a result, your business may be affected. We recommend that you take note of the limit when you call this operation.
+    *
+    * @param request SetDBInstancePlanStatusRequest
+    * @return SetDBInstancePlanStatusResponse
+   */
   async setDBInstancePlanStatus(request: SetDBInstancePlanStatusRequest): Promise<SetDBInstancePlanStatusResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.setDBInstancePlanStatusWithOptions(request, runtime);
   }
 
+  /**
+    * This operation is called to enable or disable data sharing for an AnalyticDB for PostgreSQL instance in Serverless mode.
+    * ## Limits
+    * You can call this operation up to 1,000 times per second per account. Requests that exceed this limit are dropped and you will experience service interruptions. We recommend that you take note of this limit when you call this operation.
+    *
+    * @param tmpReq SetDataShareInstanceRequest
+    * @param runtime runtime options for this request RuntimeOptions
+    * @return SetDataShareInstanceResponse
+   */
   async setDataShareInstanceWithOptions(tmpReq: SetDataShareInstanceRequest, runtime: $Util.RuntimeOptions): Promise<SetDataShareInstanceResponse> {
     Util.validateModel(tmpReq);
     let request = new SetDataShareInstanceShrinkRequest({ });
@@ -15051,6 +15837,14 @@ export default class Client extends OpenApi {
     return $tea.cast<SetDataShareInstanceResponse>(await this.callApi(params, req, runtime), new SetDataShareInstanceResponse({}));
   }
 
+  /**
+    * This operation is called to enable or disable data sharing for an AnalyticDB for PostgreSQL instance in Serverless mode.
+    * ## Limits
+    * You can call this operation up to 1,000 times per second per account. Requests that exceed this limit are dropped and you will experience service interruptions. We recommend that you take note of this limit when you call this operation.
+    *
+    * @param request SetDataShareInstanceRequest
+    * @return SetDataShareInstanceResponse
+   */
   async setDataShareInstance(request: SetDataShareInstanceRequest): Promise<SetDataShareInstanceResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.setDataShareInstanceWithOptions(request, runtime);
@@ -15150,6 +15944,15 @@ export default class Client extends OpenApi {
     return await this.tagResourcesWithOptions(request, runtime);
   }
 
+  /**
+    * You can call this operation to release a sample dataset from an AnalyticDB for PostgreSQL instance. You must have already loaded the sample dataset.
+    * ## Limits
+    * You can call this operation up to 1,000 times per second per account. If the number of the calls per second exceeds the limit, throttling is triggered. As a result, your business may be affected. We recommend that you take note of the limit when you call this operation.
+    *
+    * @param request UnloadSampleDataRequest
+    * @param runtime runtime options for this request RuntimeOptions
+    * @return UnloadSampleDataResponse
+   */
   async unloadSampleDataWithOptions(request: UnloadSampleDataRequest, runtime: $Util.RuntimeOptions): Promise<UnloadSampleDataResponse> {
     Util.validateModel(request);
     let query = { };
@@ -15178,6 +15981,14 @@ export default class Client extends OpenApi {
     return $tea.cast<UnloadSampleDataResponse>(await this.callApi(params, req, runtime), new UnloadSampleDataResponse({}));
   }
 
+  /**
+    * You can call this operation to release a sample dataset from an AnalyticDB for PostgreSQL instance. You must have already loaded the sample dataset.
+    * ## Limits
+    * You can call this operation up to 1,000 times per second per account. If the number of the calls per second exceeds the limit, throttling is triggered. As a result, your business may be affected. We recommend that you take note of the limit when you call this operation.
+    *
+    * @param request UnloadSampleDataRequest
+    * @return UnloadSampleDataResponse
+   */
   async unloadSampleData(request: UnloadSampleDataRequest): Promise<UnloadSampleDataResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.unloadSampleDataWithOptions(request, runtime);
@@ -15244,6 +16055,15 @@ export default class Client extends OpenApi {
     return await this.untagResourcesWithOptions(request, runtime);
   }
 
+  /**
+    * You can call this operation to modify a plan for an AnalyticDB for PostgreSQL instance in Serverless mode. For example, you can modify a plan for periodically pausing and resuming an instance or scaling an instance.
+    * ## Limits
+    * You can call this operation up to 1,000 times per second per account. If the number of the calls per second exceeds the limit, throttling is triggered. As a result, your business may be affected. We recommend that you take note of the limit when you call this operation.
+    *
+    * @param request UpdateDBInstancePlanRequest
+    * @param runtime runtime options for this request RuntimeOptions
+    * @return UpdateDBInstancePlanResponse
+   */
   async updateDBInstancePlanWithOptions(request: UpdateDBInstancePlanRequest, runtime: $Util.RuntimeOptions): Promise<UpdateDBInstancePlanResponse> {
     Util.validateModel(request);
     let query = { };
@@ -15296,11 +16116,30 @@ export default class Client extends OpenApi {
     return $tea.cast<UpdateDBInstancePlanResponse>(await this.callApi(params, req, runtime), new UpdateDBInstancePlanResponse({}));
   }
 
+  /**
+    * You can call this operation to modify a plan for an AnalyticDB for PostgreSQL instance in Serverless mode. For example, you can modify a plan for periodically pausing and resuming an instance or scaling an instance.
+    * ## Limits
+    * You can call this operation up to 1,000 times per second per account. If the number of the calls per second exceeds the limit, throttling is triggered. As a result, your business may be affected. We recommend that you take note of the limit when you call this operation.
+    *
+    * @param request UpdateDBInstancePlanRequest
+    * @return UpdateDBInstancePlanResponse
+   */
   async updateDBInstancePlan(request: UpdateDBInstancePlanRequest): Promise<UpdateDBInstancePlanResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.updateDBInstancePlanWithOptions(request, runtime);
   }
 
+  /**
+    * You can call this operation to change the configurations of an AnalyticDB for PostgreSQL instance.
+    * >  This operation is not supported for instances in reserved storage mode.
+    * Before you call this operation, make sure that you are familiar with the billing of AnalyticDB for PostgreSQL. For more information, see [Billing methods](~~35406~~) and [AnalyticDB for PostgreSQL pricing](https://www.alibabacloud.com/zh/product/hybriddb-postgresql/pricing).
+    * ## Limits
+    * You can call this operation up to 1,000 times per second per account. If the number of the calls per second exceeds the limit, throttling is triggered. As a result, your business may be affected. We recommend that you take note of the limit when you call this operation.
+    *
+    * @param request UpgradeDBInstanceRequest
+    * @param runtime runtime options for this request RuntimeOptions
+    * @return UpgradeDBInstanceResponse
+   */
   async upgradeDBInstanceWithOptions(request: UpgradeDBInstanceRequest, runtime: $Util.RuntimeOptions): Promise<UpgradeDBInstanceResponse> {
     Util.validateModel(request);
     let query = { };
@@ -15340,8 +16179,16 @@ export default class Client extends OpenApi {
       query["ResourceGroupId"] = request.resourceGroupId;
     }
 
+    if (!Util.isUnset(request.segDiskPerformanceLevel)) {
+      query["SegDiskPerformanceLevel"] = request.segDiskPerformanceLevel;
+    }
+
     if (!Util.isUnset(request.segNodeNum)) {
       query["SegNodeNum"] = request.segNodeNum;
+    }
+
+    if (!Util.isUnset(request.segStorageType)) {
+      query["SegStorageType"] = request.segStorageType;
     }
 
     if (!Util.isUnset(request.storageSize)) {
@@ -15369,6 +16216,16 @@ export default class Client extends OpenApi {
     return $tea.cast<UpgradeDBInstanceResponse>(await this.callApi(params, req, runtime), new UpgradeDBInstanceResponse({}));
   }
 
+  /**
+    * You can call this operation to change the configurations of an AnalyticDB for PostgreSQL instance.
+    * >  This operation is not supported for instances in reserved storage mode.
+    * Before you call this operation, make sure that you are familiar with the billing of AnalyticDB for PostgreSQL. For more information, see [Billing methods](~~35406~~) and [AnalyticDB for PostgreSQL pricing](https://www.alibabacloud.com/zh/product/hybriddb-postgresql/pricing).
+    * ## Limits
+    * You can call this operation up to 1,000 times per second per account. If the number of the calls per second exceeds the limit, throttling is triggered. As a result, your business may be affected. We recommend that you take note of the limit when you call this operation.
+    *
+    * @param request UpgradeDBInstanceRequest
+    * @return UpgradeDBInstanceResponse
+   */
   async upgradeDBInstance(request: UpgradeDBInstanceRequest): Promise<UpgradeDBInstanceResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.upgradeDBInstanceWithOptions(request, runtime);
@@ -15425,6 +16282,65 @@ export default class Client extends OpenApi {
   async upgradeDBVersion(request: UpgradeDBVersionRequest): Promise<UpgradeDBVersionResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.upgradeDBVersionWithOptions(request, runtime);
+  }
+
+  async upsertCollectionDataWithOptions(tmpReq: UpsertCollectionDataRequest, runtime: $Util.RuntimeOptions): Promise<UpsertCollectionDataResponse> {
+    Util.validateModel(tmpReq);
+    let request = new UpsertCollectionDataShrinkRequest({ });
+    OpenApiUtil.convert(tmpReq, request);
+    if (!Util.isUnset(tmpReq.rows)) {
+      request.rowsShrink = OpenApiUtil.arrayToStringWithSpecifiedStyle(tmpReq.rows, "Rows", "json");
+    }
+
+    let query = { };
+    if (!Util.isUnset(request.collection)) {
+      query["Collection"] = request.collection;
+    }
+
+    if (!Util.isUnset(request.DBInstanceId)) {
+      query["DBInstanceId"] = request.DBInstanceId;
+    }
+
+    if (!Util.isUnset(request.namespace)) {
+      query["Namespace"] = request.namespace;
+    }
+
+    if (!Util.isUnset(request.namespacePassword)) {
+      query["NamespacePassword"] = request.namespacePassword;
+    }
+
+    if (!Util.isUnset(request.ownerId)) {
+      query["OwnerId"] = request.ownerId;
+    }
+
+    if (!Util.isUnset(request.regionId)) {
+      query["RegionId"] = request.regionId;
+    }
+
+    if (!Util.isUnset(request.rowsShrink)) {
+      query["Rows"] = request.rowsShrink;
+    }
+
+    let req = new $OpenApi.OpenApiRequest({
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApi.Params({
+      action: "UpsertCollectionData",
+      version: "2016-05-03",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $tea.cast<UpsertCollectionDataResponse>(await this.callApi(params, req, runtime), new UpsertCollectionDataResponse({}));
+  }
+
+  async upsertCollectionData(request: UpsertCollectionDataRequest): Promise<UpsertCollectionDataResponse> {
+    let runtime = new $Util.RuntimeOptions({ });
+    return await this.upsertCollectionDataWithOptions(request, runtime);
   }
 
 }
