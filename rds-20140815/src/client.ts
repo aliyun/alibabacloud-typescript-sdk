@@ -20014,6 +20014,7 @@ export class ModifyDBInstanceSpecRequest extends $tea.Model {
   serverlessConfiguration?: ModifyDBInstanceSpecRequestServerlessConfiguration;
   sourceBiz?: string;
   switchTime?: string;
+  targetMinorVersion?: string;
   usedTime?: number;
   zoneId?: string;
   static names(): { [key: string]: string } {
@@ -20038,6 +20039,7 @@ export class ModifyDBInstanceSpecRequest extends $tea.Model {
       serverlessConfiguration: 'ServerlessConfiguration',
       sourceBiz: 'SourceBiz',
       switchTime: 'SwitchTime',
+      targetMinorVersion: 'TargetMinorVersion',
       usedTime: 'UsedTime',
       zoneId: 'ZoneId',
     };
@@ -20065,6 +20067,7 @@ export class ModifyDBInstanceSpecRequest extends $tea.Model {
       serverlessConfiguration: ModifyDBInstanceSpecRequestServerlessConfiguration,
       sourceBiz: 'string',
       switchTime: 'string',
+      targetMinorVersion: 'string',
       usedTime: 'number',
       zoneId: 'string',
     };
@@ -20096,6 +20099,7 @@ export class ModifyDBInstanceSpecShrinkRequest extends $tea.Model {
   serverlessConfigurationShrink?: string;
   sourceBiz?: string;
   switchTime?: string;
+  targetMinorVersion?: string;
   usedTime?: number;
   zoneId?: string;
   static names(): { [key: string]: string } {
@@ -20120,6 +20124,7 @@ export class ModifyDBInstanceSpecShrinkRequest extends $tea.Model {
       serverlessConfigurationShrink: 'ServerlessConfiguration',
       sourceBiz: 'SourceBiz',
       switchTime: 'SwitchTime',
+      targetMinorVersion: 'TargetMinorVersion',
       usedTime: 'UsedTime',
       zoneId: 'ZoneId',
     };
@@ -20147,6 +20152,7 @@ export class ModifyDBInstanceSpecShrinkRequest extends $tea.Model {
       serverlessConfigurationShrink: 'string',
       sourceBiz: 'string',
       switchTime: 'string',
+      targetMinorVersion: 'string',
       usedTime: 'number',
       zoneId: 'string',
     };
@@ -48893,6 +48899,10 @@ export default class Client extends OpenApi {
 
     if (!Util.isUnset(request.switchTime)) {
       query["SwitchTime"] = request.switchTime;
+    }
+
+    if (!Util.isUnset(request.targetMinorVersion)) {
+      query["TargetMinorVersion"] = request.targetMinorVersion;
     }
 
     if (!Util.isUnset(request.usedTime)) {
