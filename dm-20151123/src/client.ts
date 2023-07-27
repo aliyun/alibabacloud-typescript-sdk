@@ -788,6 +788,78 @@ export class DeleteDomainResponse extends $tea.Model {
   }
 }
 
+export class DeleteInvalidAddressRequest extends $tea.Model {
+  ownerId?: number;
+  resourceOwnerAccount?: string;
+  resourceOwnerId?: number;
+  toAddress?: string;
+  static names(): { [key: string]: string } {
+    return {
+      ownerId: 'OwnerId',
+      resourceOwnerAccount: 'ResourceOwnerAccount',
+      resourceOwnerId: 'ResourceOwnerId',
+      toAddress: 'ToAddress',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      ownerId: 'number',
+      resourceOwnerAccount: 'string',
+      resourceOwnerId: 'number',
+      toAddress: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class DeleteInvalidAddressResponseBody extends $tea.Model {
+  requestId?: string;
+  static names(): { [key: string]: string } {
+    return {
+      requestId: 'RequestId',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      requestId: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class DeleteInvalidAddressResponse extends $tea.Model {
+  headers: { [key: string]: string };
+  statusCode: number;
+  body: DeleteInvalidAddressResponseBody;
+  static names(): { [key: string]: string } {
+    return {
+      headers: 'headers',
+      statusCode: 'statusCode',
+      body: 'body',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
+      body: DeleteInvalidAddressResponseBody,
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
 export class DeleteIpfilterByEdmIdRequest extends $tea.Model {
   fromType?: number;
   id?: string;
@@ -1302,6 +1374,9 @@ export class DescDomainResponseBody extends $tea.Model {
   cnameRecord?: string;
   createTime?: string;
   defaultDomain?: string;
+  dkimAuthStatus?: string;
+  dkimPublicKey?: string;
+  dkimRR?: string;
   dnsMx?: string;
   dnsSpf?: string;
   dnsTxt?: string;
@@ -1315,6 +1390,7 @@ export class DescDomainResponseBody extends $tea.Model {
   requestId?: string;
   spfAuthStatus?: string;
   spfRecord?: string;
+  spfRecordV2?: string;
   tlDomainName?: string;
   tracefRecord?: string;
   static names(): { [key: string]: string } {
@@ -1324,6 +1400,9 @@ export class DescDomainResponseBody extends $tea.Model {
       cnameRecord: 'CnameRecord',
       createTime: 'CreateTime',
       defaultDomain: 'DefaultDomain',
+      dkimAuthStatus: 'DkimAuthStatus',
+      dkimPublicKey: 'DkimPublicKey',
+      dkimRR: 'DkimRR',
       dnsMx: 'DnsMx',
       dnsSpf: 'DnsSpf',
       dnsTxt: 'DnsTxt',
@@ -1337,6 +1416,7 @@ export class DescDomainResponseBody extends $tea.Model {
       requestId: 'RequestId',
       spfAuthStatus: 'SpfAuthStatus',
       spfRecord: 'SpfRecord',
+      spfRecordV2: 'SpfRecordV2',
       tlDomainName: 'TlDomainName',
       tracefRecord: 'TracefRecord',
     };
@@ -1349,6 +1429,9 @@ export class DescDomainResponseBody extends $tea.Model {
       cnameRecord: 'string',
       createTime: 'string',
       defaultDomain: 'string',
+      dkimAuthStatus: 'string',
+      dkimPublicKey: 'string',
+      dkimRR: 'string',
       dnsMx: 'string',
       dnsSpf: 'string',
       dnsTxt: 'string',
@@ -1362,6 +1445,7 @@ export class DescDomainResponseBody extends $tea.Model {
       requestId: 'string',
       spfAuthStatus: 'string',
       spfRecord: 'string',
+      spfRecordV2: 'string',
       tlDomainName: 'string',
       tracefRecord: 'string',
     };
@@ -1858,12 +1942,16 @@ export class ModifyMailAddressResponse extends $tea.Model {
 
 export class ModifyPWByDomainRequest extends $tea.Model {
   domainName?: string;
+  ownerId?: number;
   password?: string;
-  resourceOwnerId?: string;
+  resourceOwnerAccount?: string;
+  resourceOwnerId?: number;
   static names(): { [key: string]: string } {
     return {
       domainName: 'DomainName',
+      ownerId: 'OwnerId',
       password: 'Password',
+      resourceOwnerAccount: 'ResourceOwnerAccount',
       resourceOwnerId: 'ResourceOwnerId',
     };
   }
@@ -1871,8 +1959,10 @@ export class ModifyPWByDomainRequest extends $tea.Model {
   static types(): { [key: string]: any } {
     return {
       domainName: 'string',
+      ownerId: 'number',
       password: 'string',
-      resourceOwnerId: 'string',
+      resourceOwnerAccount: 'string',
+      resourceOwnerId: 'number',
     };
   }
 
@@ -4398,6 +4488,47 @@ export default class Client extends OpenApi {
     return await this.deleteDomainWithOptions(request, runtime);
   }
 
+  async deleteInvalidAddressWithOptions(request: DeleteInvalidAddressRequest, runtime: $Util.RuntimeOptions): Promise<DeleteInvalidAddressResponse> {
+    Util.validateModel(request);
+    let query = { };
+    if (!Util.isUnset(request.ownerId)) {
+      query["OwnerId"] = request.ownerId;
+    }
+
+    if (!Util.isUnset(request.resourceOwnerAccount)) {
+      query["ResourceOwnerAccount"] = request.resourceOwnerAccount;
+    }
+
+    if (!Util.isUnset(request.resourceOwnerId)) {
+      query["ResourceOwnerId"] = request.resourceOwnerId;
+    }
+
+    if (!Util.isUnset(request.toAddress)) {
+      query["ToAddress"] = request.toAddress;
+    }
+
+    let req = new $OpenApi.OpenApiRequest({
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApi.Params({
+      action: "DeleteInvalidAddress",
+      version: "2015-11-23",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $tea.cast<DeleteInvalidAddressResponse>(await this.callApi(params, req, runtime), new DeleteInvalidAddressResponse({}));
+  }
+
+  async deleteInvalidAddress(request: DeleteInvalidAddressRequest): Promise<DeleteInvalidAddressResponse> {
+    let runtime = new $Util.RuntimeOptions({ });
+    return await this.deleteInvalidAddressWithOptions(request, runtime);
+  }
+
   async deleteIpfilterByEdmIdWithOptions(request: DeleteIpfilterByEdmIdRequest, runtime: $Util.RuntimeOptions): Promise<DeleteIpfilterByEdmIdResponse> {
     Util.validateModel(request);
     let query = { };
@@ -4965,8 +5096,16 @@ export default class Client extends OpenApi {
       query["DomainName"] = request.domainName;
     }
 
+    if (!Util.isUnset(request.ownerId)) {
+      query["OwnerId"] = request.ownerId;
+    }
+
     if (!Util.isUnset(request.password)) {
       query["Password"] = request.password;
+    }
+
+    if (!Util.isUnset(request.resourceOwnerAccount)) {
+      query["ResourceOwnerAccount"] = request.resourceOwnerAccount;
     }
 
     if (!Util.isUnset(request.resourceOwnerId)) {
