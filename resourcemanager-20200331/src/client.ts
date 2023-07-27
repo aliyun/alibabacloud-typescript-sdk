@@ -4528,6 +4528,7 @@ export class ListResourcesRequest extends $tea.Model {
   resourceGroupId?: string;
   resourceId?: string;
   resourceType?: string;
+  resourceTypes?: ListResourcesRequestResourceTypes[];
   service?: string;
   static names(): { [key: string]: string } {
     return {
@@ -4537,6 +4538,7 @@ export class ListResourcesRequest extends $tea.Model {
       resourceGroupId: 'ResourceGroupId',
       resourceId: 'ResourceId',
       resourceType: 'ResourceType',
+      resourceTypes: 'ResourceTypes',
       service: 'Service',
     };
   }
@@ -4549,6 +4551,7 @@ export class ListResourcesRequest extends $tea.Model {
       resourceGroupId: 'string',
       resourceId: 'string',
       resourceType: 'string',
+      resourceTypes: { 'type': 'array', 'itemType': ListResourcesRequestResourceTypes },
       service: 'string',
     };
   }
@@ -8843,6 +8846,28 @@ export class ListResourceGroupsResponseBodyResourceGroups extends $tea.Model {
   }
 }
 
+export class ListResourcesRequestResourceTypes extends $tea.Model {
+  resourceType?: string;
+  service?: string;
+  static names(): { [key: string]: string } {
+    return {
+      resourceType: 'ResourceType',
+      service: 'Service',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      resourceType: 'string',
+      service: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
 export class ListResourcesResponseBodyResourcesResource extends $tea.Model {
   createDate?: string;
   regionId?: string;
@@ -12433,6 +12458,10 @@ export default class Client extends OpenApi {
 
     if (!Util.isUnset(request.resourceType)) {
       query["ResourceType"] = request.resourceType;
+    }
+
+    if (!Util.isUnset(request.resourceTypes)) {
+      query["ResourceTypes"] = request.resourceTypes;
     }
 
     if (!Util.isUnset(request.service)) {
