@@ -51,6 +51,78 @@ export class AccessControlPolicy extends $tea.Model {
   }
 }
 
+export class AccessMonitorConfiguration extends $tea.Model {
+  status?: string;
+  static names(): { [key: string]: string } {
+    return {
+      status: 'Status',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      status: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class AccessPoint extends $tea.Model {
+  accessPointName?: string;
+  alias?: string;
+  bucket?: string;
+  networkOrigin?: string;
+  status?: string;
+  vpcConfiguration?: AccessPointVpcConfiguration;
+  static names(): { [key: string]: string } {
+    return {
+      accessPointName: 'AccessPointName',
+      alias: 'Alias',
+      bucket: 'Bucket',
+      networkOrigin: 'NetworkOrigin',
+      status: 'Status',
+      vpcConfiguration: 'VpcConfiguration',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      accessPointName: 'string',
+      alias: 'string',
+      bucket: 'string',
+      networkOrigin: 'string',
+      status: 'string',
+      vpcConfiguration: AccessPointVpcConfiguration,
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class AccessPointVpcConfiguration extends $tea.Model {
+  vpcId?: string;
+  static names(): { [key: string]: string } {
+    return {
+      vpcId: 'VpcId',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      vpcId: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
 export class ApplyServerSideEncryptionByDefault extends $tea.Model {
   KMSDataEncryption?: string;
   KMSMasterKeyID?: string;
@@ -83,6 +155,7 @@ export class Bucket extends $tea.Model {
   location?: string;
   name?: string;
   region?: string;
+  resourceGroupId?: string;
   storageClass?: string;
   static names(): { [key: string]: string } {
     return {
@@ -92,6 +165,7 @@ export class Bucket extends $tea.Model {
       location: 'Location',
       name: 'Name',
       region: 'Region',
+      resourceGroupId: 'ResourceGroupId',
       storageClass: 'StorageClass',
     };
   }
@@ -104,7 +178,108 @@ export class Bucket extends $tea.Model {
       location: 'string',
       name: 'string',
       region: 'string',
+      resourceGroupId: 'string',
       storageClass: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class BucketAntiDDOSConfiguration extends $tea.Model {
+  cnames?: BucketAntiDDOSConfigurationCnames;
+  static names(): { [key: string]: string } {
+    return {
+      cnames: 'Cnames',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      cnames: BucketAntiDDOSConfigurationCnames,
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class BucketAntiDDOSInfo extends $tea.Model {
+  activeTime?: number;
+  bucket?: string;
+  cnames?: BucketAntiDDOSInfoCnames;
+  ctime?: number;
+  instanceId?: string;
+  mtime?: number;
+  owner?: string;
+  status?: string;
+  type?: string;
+  static names(): { [key: string]: string } {
+    return {
+      activeTime: 'ActiveTime',
+      bucket: 'Bucket',
+      cnames: 'Cnames',
+      ctime: 'Ctime',
+      instanceId: 'InstanceId',
+      mtime: 'Mtime',
+      owner: 'Owner',
+      status: 'Status',
+      type: 'Type',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      activeTime: 'number',
+      bucket: 'string',
+      cnames: BucketAntiDDOSInfoCnames,
+      ctime: 'number',
+      instanceId: 'string',
+      mtime: 'number',
+      owner: 'string',
+      status: 'string',
+      type: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class BucketCnameConfiguration extends $tea.Model {
+  cname?: BucketCnameConfigurationCname;
+  static names(): { [key: string]: string } {
+    return {
+      cname: 'Cname',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      cname: BucketCnameConfigurationCname,
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class BucketInfo extends $tea.Model {
+  bucket?: BucketInfoBucket;
+  static names(): { [key: string]: string } {
+    return {
+      bucket: 'Bucket',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      bucket: BucketInfoBucket,
     };
   }
 
@@ -124,6 +299,89 @@ export class BucketLoggingStatus extends $tea.Model {
   static types(): { [key: string]: any } {
     return {
       loggingEnabled: LoggingEnabled,
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class BucketResourceGroupConfiguration extends $tea.Model {
+  resourceGroupId?: string;
+  static names(): { [key: string]: string } {
+    return {
+      resourceGroupId: 'ResourceGroupId',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      resourceGroupId: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class BucketStat extends $tea.Model {
+  archiveObjectCount?: number;
+  archiveRealStorage?: number;
+  archiveStorage?: number;
+  coldArchiveObjectCount?: number;
+  coldArchiveRealStorage?: number;
+  coldArchiveStorage?: number;
+  infrequentAccessObjectCount?: number;
+  infrequentAccessRealStorage?: number;
+  infrequentAccessStorage?: number;
+  lastModifiedTime?: number;
+  liveChannelCount?: number;
+  multipartUploadCount?: number;
+  objectCount?: number;
+  standardObjectCount?: number;
+  standardStorage?: number;
+  storage?: number;
+  static names(): { [key: string]: string } {
+    return {
+      archiveObjectCount: 'ArchiveObjectCount',
+      archiveRealStorage: 'ArchiveRealStorage',
+      archiveStorage: 'ArchiveStorage',
+      coldArchiveObjectCount: 'ColdArchiveObjectCount',
+      coldArchiveRealStorage: 'ColdArchiveRealStorage',
+      coldArchiveStorage: 'ColdArchiveStorage',
+      infrequentAccessObjectCount: 'InfrequentAccessObjectCount',
+      infrequentAccessRealStorage: 'InfrequentAccessRealStorage',
+      infrequentAccessStorage: 'InfrequentAccessStorage',
+      lastModifiedTime: 'LastModifiedTime',
+      liveChannelCount: 'LiveChannelCount',
+      multipartUploadCount: 'MultipartUploadCount',
+      objectCount: 'ObjectCount',
+      standardObjectCount: 'StandardObjectCount',
+      standardStorage: 'StandardStorage',
+      storage: 'Storage',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      archiveObjectCount: 'number',
+      archiveRealStorage: 'number',
+      archiveStorage: 'number',
+      coldArchiveObjectCount: 'number',
+      coldArchiveRealStorage: 'number',
+      coldArchiveStorage: 'number',
+      infrequentAccessObjectCount: 'number',
+      infrequentAccessRealStorage: 'number',
+      infrequentAccessStorage: 'number',
+      lastModifiedTime: 'number',
+      liveChannelCount: 'number',
+      multipartUploadCount: 'number',
+      objectCount: 'number',
+      standardObjectCount: 'number',
+      standardStorage: 'number',
+      storage: 'number',
     };
   }
 
@@ -244,6 +502,127 @@ export class CSVOutput extends $tea.Model {
   }
 }
 
+export class CnameCertificate extends $tea.Model {
+  certId?: string;
+  creationDate?: string;
+  fingerprint?: string;
+  status?: string;
+  type?: string;
+  validEndDate?: string;
+  validStartDate?: string;
+  static names(): { [key: string]: string } {
+    return {
+      certId: 'CertId',
+      creationDate: 'CreationDate',
+      fingerprint: 'Fingerprint',
+      status: 'Status',
+      type: 'Type',
+      validEndDate: 'ValidEndDate',
+      validStartDate: 'ValidStartDate',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      certId: 'string',
+      creationDate: 'string',
+      fingerprint: 'string',
+      status: 'string',
+      type: 'string',
+      validEndDate: 'string',
+      validStartDate: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class CnameInfo extends $tea.Model {
+  certificate?: CnameCertificate;
+  domain?: string;
+  lastModified?: string;
+  status?: string;
+  static names(): { [key: string]: string } {
+    return {
+      certificate: 'Certificate',
+      domain: 'Domain',
+      lastModified: 'LastModified',
+      status: 'Status',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      certificate: CnameCertificate,
+      domain: 'string',
+      lastModified: 'string',
+      status: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class CnameSummary extends $tea.Model {
+  certificate?: CnameCertificate;
+  domain?: string;
+  lastModified?: string;
+  status?: string;
+  static names(): { [key: string]: string } {
+    return {
+      certificate: 'Certificate',
+      domain: 'Domain',
+      lastModified: 'LastModified',
+      status: 'Status',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      certificate: CnameCertificate,
+      domain: 'string',
+      lastModified: 'string',
+      status: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class CnameToken extends $tea.Model {
+  bucket?: string;
+  cname?: string;
+  expireTime?: string;
+  token?: string;
+  static names(): { [key: string]: string } {
+    return {
+      bucket: 'Bucket',
+      cname: 'Cname',
+      expireTime: 'ExpireTime',
+      token: 'Token',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      bucket: 'string',
+      cname: 'string',
+      expireTime: 'string',
+      token: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
 export class CommonPrefix extends $tea.Model {
   prefix?: string;
   static names(): { [key: string]: string } {
@@ -318,6 +697,53 @@ export class CopyPartResult extends $tea.Model {
     return {
       ETag: 'string',
       lastModified: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class CreateAccessPointConfiguration extends $tea.Model {
+  accessPointName?: string;
+  networkOrigin?: string;
+  vpcConfiguration?: AccessPointVpcConfiguration;
+  static names(): { [key: string]: string } {
+    return {
+      accessPointName: 'AccessPointName',
+      networkOrigin: 'NetworkOrigin',
+      vpcConfiguration: 'VpcConfiguration',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      accessPointName: 'string',
+      networkOrigin: 'string',
+      vpcConfiguration: AccessPointVpcConfiguration,
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class CreateAccessPointResult extends $tea.Model {
+  accessPointArn?: string;
+  alias?: string;
+  static names(): { [key: string]: string } {
+    return {
+      accessPointArn: 'AccessPointArn',
+      alias: 'Alias',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      accessPointArn: 'string',
+      alias: 'string',
     };
   }
 
@@ -490,6 +916,52 @@ export class ExtendWormConfiguration extends $tea.Model {
   static types(): { [key: string]: any } {
     return {
       retentionPeriodInDays: 'number',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class GetAccessPointResult extends $tea.Model {
+  accessPointArn?: string;
+  accessPointName?: string;
+  accountId?: string;
+  alias?: string;
+  bucket?: string;
+  endpoints?: GetAccessPointResultEndpoints;
+  internalEndpoint?: string;
+  networkOrigin?: string;
+  status?: string;
+  vpcConfiguration?: AccessPointVpcConfiguration;
+  static names(): { [key: string]: string } {
+    return {
+      accessPointArn: 'AccessPointArn',
+      accessPointName: 'AccessPointName',
+      accountId: 'AccountId',
+      alias: 'Alias',
+      bucket: 'Bucket',
+      endpoints: 'Endpoints',
+      internalEndpoint: 'InternalEndpoint',
+      networkOrigin: 'NetworkOrigin',
+      status: 'Status',
+      vpcConfiguration: 'VpcConfiguration',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      accessPointArn: 'string',
+      accessPointName: 'string',
+      accountId: 'string',
+      alias: 'string',
+      bucket: 'string',
+      endpoints: GetAccessPointResultEndpoints,
+      internalEndpoint: 'string',
+      networkOrigin: 'string',
+      status: 'string',
+      vpcConfiguration: AccessPointVpcConfiguration,
     };
   }
 
@@ -783,17 +1255,19 @@ export class LifecycleConfiguration extends $tea.Model {
 export class LifecycleRule extends $tea.Model {
   lifecycleAbortMultipartUpload?: LifecycleRuleLifecycleAbortMultipartUpload;
   lifecycleExpiration?: LifecycleRuleLifecycleExpiration;
+  filter?: LifecycleRuleFilter;
   ID?: string;
   noncurrentVersionExpiration?: LifecycleRuleNoncurrentVersionExpiration;
   noncurrentVersionTransition?: LifecycleRuleNoncurrentVersionTransition[];
   prefix?: string;
   status?: string;
-  tag?: LifecycleRuleTag[];
+  tag?: Tag[];
   lifecycleTransition?: LifecycleRuleLifecycleTransition[];
   static names(): { [key: string]: string } {
     return {
       lifecycleAbortMultipartUpload: 'AbortMultipartUpload',
       lifecycleExpiration: 'Expiration',
+      filter: 'Filter',
       ID: 'ID',
       noncurrentVersionExpiration: 'NoncurrentVersionExpiration',
       noncurrentVersionTransition: 'NoncurrentVersionTransition',
@@ -808,13 +1282,42 @@ export class LifecycleRule extends $tea.Model {
     return {
       lifecycleAbortMultipartUpload: LifecycleRuleLifecycleAbortMultipartUpload,
       lifecycleExpiration: LifecycleRuleLifecycleExpiration,
+      filter: LifecycleRuleFilter,
       ID: 'string',
       noncurrentVersionExpiration: LifecycleRuleNoncurrentVersionExpiration,
       noncurrentVersionTransition: { 'type': 'array', 'itemType': LifecycleRuleNoncurrentVersionTransition },
       prefix: 'string',
       status: 'string',
-      tag: { 'type': 'array', 'itemType': LifecycleRuleTag },
+      tag: { 'type': 'array', 'itemType': Tag },
       lifecycleTransition: { 'type': 'array', 'itemType': LifecycleRuleLifecycleTransition },
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class ListAccessPointsResult extends $tea.Model {
+  accessPoints?: AccessPoint[];
+  accountId?: string;
+  isTruncated?: string;
+  nextContinuationToken?: string;
+  static names(): { [key: string]: string } {
+    return {
+      accessPoints: 'AccessPoints',
+      accountId: 'AccountId',
+      isTruncated: 'IsTruncated',
+      nextContinuationToken: 'NextContinuationToken',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      accessPoints: { 'type': 'array', 'itemType': AccessPoint },
+      accountId: 'string',
+      isTruncated: 'string',
+      nextContinuationToken: 'string',
     };
   }
 
@@ -1104,6 +1607,161 @@ export class LoggingEnabled extends $tea.Model {
   }
 }
 
+export class MetaQuery extends $tea.Model {
+  aggregations?: MetaQueryAggregations;
+  maxResults?: number;
+  nextToken?: string;
+  order?: string;
+  query?: string;
+  sort?: string;
+  static names(): { [key: string]: string } {
+    return {
+      aggregations: 'Aggregations',
+      maxResults: 'MaxResults',
+      nextToken: 'NextToken',
+      order: 'Order',
+      query: 'Query',
+      sort: 'Sort',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      aggregations: MetaQueryAggregations,
+      maxResults: 'number',
+      nextToken: 'string',
+      order: 'string',
+      query: 'string',
+      sort: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class MetaQueryAggregation extends $tea.Model {
+  field?: string;
+  operation?: string;
+  static names(): { [key: string]: string } {
+    return {
+      field: 'Field',
+      operation: 'Operation',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      field: 'string',
+      operation: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class MetaQueryFile extends $tea.Model {
+  ETag?: string;
+  fileModifiedTime?: string;
+  filename?: string;
+  OSSCRC64?: string;
+  OSSObjectType?: string;
+  OSSStorageClass?: string;
+  OSSTagging?: MetaQueryFileOSSTagging;
+  OSSTaggingCount?: number;
+  OSSUserMeta?: MetaQueryFileOSSUserMeta;
+  objectACL?: string;
+  serverSideEncryption?: string;
+  serverSideEncryptionCustomerAlgorithm?: string;
+  size?: number;
+  static names(): { [key: string]: string } {
+    return {
+      ETag: 'ETag',
+      fileModifiedTime: 'FileModifiedTime',
+      filename: 'Filename',
+      OSSCRC64: 'OSSCRC64',
+      OSSObjectType: 'OSSObjectType',
+      OSSStorageClass: 'OSSStorageClass',
+      OSSTagging: 'OSSTagging',
+      OSSTaggingCount: 'OSSTaggingCount',
+      OSSUserMeta: 'OSSUserMeta',
+      objectACL: 'ObjectACL',
+      serverSideEncryption: 'ServerSideEncryption',
+      serverSideEncryptionCustomerAlgorithm: 'ServerSideEncryptionCustomerAlgorithm',
+      size: 'Size',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      ETag: 'string',
+      fileModifiedTime: 'string',
+      filename: 'string',
+      OSSCRC64: 'string',
+      OSSObjectType: 'string',
+      OSSStorageClass: 'string',
+      OSSTagging: MetaQueryFileOSSTagging,
+      OSSTaggingCount: 'number',
+      OSSUserMeta: MetaQueryFileOSSUserMeta,
+      objectACL: 'string',
+      serverSideEncryption: 'string',
+      serverSideEncryptionCustomerAlgorithm: 'string',
+      size: 'number',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class MetaQueryTagging extends $tea.Model {
+  key?: string;
+  value?: string;
+  static names(): { [key: string]: string } {
+    return {
+      key: 'Key',
+      value: 'Value',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      key: 'string',
+      value: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class MetaQueryUserMeta extends $tea.Model {
+  key?: string;
+  value?: string;
+  static names(): { [key: string]: string } {
+    return {
+      key: 'Key',
+      value: 'Value',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      key: 'string',
+      value: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
 export class ObjectIdentifier extends $tea.Model {
   key?: string;
   versionId?: string;
@@ -1131,6 +1789,7 @@ export class ObjectSummary extends $tea.Model {
   key?: string;
   lastModified?: string;
   owner?: Owner;
+  resoreInfo?: string;
   size?: number;
   storageClass?: string;
   type?: string;
@@ -1140,6 +1799,7 @@ export class ObjectSummary extends $tea.Model {
       key: 'Key',
       lastModified: 'LastModified',
       owner: 'Owner',
+      resoreInfo: 'ResoreInfo',
       size: 'Size',
       storageClass: 'StorageClass',
       type: 'Type',
@@ -1152,6 +1812,7 @@ export class ObjectSummary extends $tea.Model {
       key: 'string',
       lastModified: 'string',
       owner: Owner,
+      resoreInfo: 'string',
       size: 'number',
       storageClass: 'string',
       type: 'string',
@@ -1287,15 +1948,36 @@ export class Part extends $tea.Model {
   }
 }
 
+export class RTC extends $tea.Model {
+  status?: string;
+  static names(): { [key: string]: string } {
+    return {
+      status: 'Status',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      status: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
 export class RefererConfiguration extends $tea.Model {
   allowEmptyReferer?: boolean;
   allowTruncateQueryString?: boolean;
   refererList?: RefererConfigurationRefererList;
+  truncatePath?: boolean;
   static names(): { [key: string]: string } {
     return {
       allowEmptyReferer: 'AllowEmptyReferer',
       allowTruncateQueryString: 'AllowTruncateQueryString',
       refererList: 'RefererList',
+      truncatePath: 'TruncatePath',
     };
   }
 
@@ -1304,6 +1986,7 @@ export class RefererConfiguration extends $tea.Model {
       allowEmptyReferer: 'boolean',
       allowTruncateQueryString: 'boolean',
       refererList: RefererConfigurationRefererList,
+      truncatePath: 'boolean',
     };
   }
 
@@ -1692,6 +2375,28 @@ export class RoutingRuleRedirect extends $tea.Model {
   }
 }
 
+export class RtcConfiguration extends $tea.Model {
+  ID?: string;
+  RTC?: RTC;
+  static names(): { [key: string]: string } {
+    return {
+      ID: 'ID',
+      RTC: 'RTC',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      ID: 'string',
+      RTC: RTC,
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
 export class SSEKMS extends $tea.Model {
   keyId?: string;
   static names(): { [key: string]: string } {
@@ -1855,6 +2560,53 @@ export class ServerSideEncryptionRule extends $tea.Model {
   }
 }
 
+export class Style extends $tea.Model {
+  content?: string;
+  static names(): { [key: string]: string } {
+    return {
+      content: 'Content',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      content: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class StyleInfo extends $tea.Model {
+  content?: string;
+  createTime?: string;
+  lastModifyTime?: string;
+  name?: string;
+  static names(): { [key: string]: string } {
+    return {
+      content: 'Content',
+      createTime: 'CreateTime',
+      lastModifyTime: 'LastModifyTime',
+      name: 'Name',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      content: 'string',
+      createTime: 'string',
+      lastModifyTime: 'string',
+      name: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
 export class Tag extends $tea.Model {
   key?: string;
   value?: string;
@@ -1951,6 +2703,40 @@ export class Upload extends $tea.Model {
       initiated: 'string',
       key: 'string',
       uploadId: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class UserAntiDDOSInfo extends $tea.Model {
+  activeTime?: number;
+  ctime?: number;
+  instanceId?: string;
+  mtime?: number;
+  owner?: string;
+  status?: string;
+  static names(): { [key: string]: string } {
+    return {
+      activeTime: 'ActiveTime',
+      ctime: 'Ctime',
+      instanceId: 'InstanceId',
+      mtime: 'Mtime',
+      owner: 'Owner',
+      status: 'Status',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      activeTime: 'number',
+      ctime: 'number',
+      instanceId: 'string',
+      mtime: 'number',
+      owner: 'string',
+      status: 'string',
     };
   }
 
@@ -2223,12 +3009,12 @@ export class CompleteMultipartUploadHeaders extends $tea.Model {
 }
 
 export class CompleteMultipartUploadRequest extends $tea.Model {
-  completeMultipartUpload?: CompleteMultipartUpload;
+  body?: CompleteMultipartUpload;
   encodingType?: string;
   uploadId?: string;
   static names(): { [key: string]: string } {
     return {
-      completeMultipartUpload: 'completeMultipartUpload',
+      body: 'CompleteMultipartUpload',
       encodingType: 'encoding-type',
       uploadId: 'uploadId',
     };
@@ -2236,7 +3022,7 @@ export class CompleteMultipartUploadRequest extends $tea.Model {
 
   static types(): { [key: string]: any } {
     return {
-      completeMultipartUpload: CompleteMultipartUpload,
+      body: CompleteMultipartUpload,
       encodingType: 'string',
       uploadId: 'string',
     };
@@ -2415,7 +3201,7 @@ export class CreateSelectObjectMetaRequest extends $tea.Model {
   selectMetaRequest?: SelectMetaRequest;
   static names(): { [key: string]: string } {
     return {
-      selectMetaRequest: 'body',
+      selectMetaRequest: 'SelectMetaRequest',
     };
   }
 
@@ -2735,6 +3521,28 @@ export class DeleteLiveChannelResponse extends $tea.Model {
   }
 }
 
+export class DeleteMultipleObjectsHeaders extends $tea.Model {
+  commonHeaders?: { [key: string]: string };
+  contentMd5?: string;
+  static names(): { [key: string]: string } {
+    return {
+      commonHeaders: 'commonHeaders',
+      contentMd5: 'content-md5',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      commonHeaders: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      contentMd5: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
 export class DeleteMultipleObjectsRequest extends $tea.Model {
   delete?: Delete;
   encodingType?: string;
@@ -2950,18 +3758,18 @@ export class DescribeRegionsResponse extends $tea.Model {
 }
 
 export class ExtendBucketWormRequest extends $tea.Model {
-  extendWormConfiguration?: ExtendWormConfiguration;
+  body?: ExtendWormConfiguration;
   wormId?: string;
   static names(): { [key: string]: string } {
     return {
-      extendWormConfiguration: 'extendWormConfiguration',
+      body: 'ExtendWormConfiguration',
       wormId: 'wormId',
     };
   }
 
   static types(): { [key: string]: any } {
     return {
-      extendWormConfiguration: ExtendWormConfiguration,
+      body: ExtendWormConfiguration,
       wormId: 'string',
     };
   }
@@ -3131,29 +3939,10 @@ export class GetBucketEncryptionResponse extends $tea.Model {
   }
 }
 
-export class GetBucketInfoResponseBody extends $tea.Model {
-  bucketInfo?: GetBucketInfoResponseBodyBucketInfo;
-  static names(): { [key: string]: string } {
-    return {
-      bucketInfo: 'Bucket',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      bucketInfo: GetBucketInfoResponseBodyBucketInfo,
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
 export class GetBucketInfoResponse extends $tea.Model {
   headers: { [key: string]: string };
   statusCode: number;
-  body: GetBucketInfoResponseBody;
+  body: BucketInfo;
   static names(): { [key: string]: string } {
     return {
       headers: 'headers',
@@ -3166,7 +3955,7 @@ export class GetBucketInfoResponse extends $tea.Model {
     return {
       headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
       statusCode: 'number',
-      body: GetBucketInfoResponseBody,
+      body: BucketInfo,
     };
   }
 
@@ -3413,32 +4202,10 @@ export class GetBucketPolicyResponse extends $tea.Model {
   }
 }
 
-export class GetBucketRefererResponseBody extends $tea.Model {
-  allowEmptyReferer?: boolean;
-  refererList?: GetBucketRefererResponseBodyRefererList;
-  static names(): { [key: string]: string } {
-    return {
-      allowEmptyReferer: 'AllowEmptyReferer',
-      refererList: 'RefererList',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      allowEmptyReferer: 'boolean',
-      refererList: GetBucketRefererResponseBodyRefererList,
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
 export class GetBucketRefererResponse extends $tea.Model {
   headers: { [key: string]: string };
   statusCode: number;
-  body: GetBucketRefererResponseBody;
+  body: RefererConfiguration;
   static names(): { [key: string]: string } {
     return {
       headers: 'headers',
@@ -3451,7 +4218,7 @@ export class GetBucketRefererResponse extends $tea.Model {
     return {
       headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
       statusCode: 'number',
-      body: GetBucketRefererResponseBody,
+      body: RefererConfiguration,
     };
   }
 
@@ -4700,6 +5467,28 @@ export class ListBucketInventoryResponse extends $tea.Model {
   }
 }
 
+export class ListBucketsHeaders extends $tea.Model {
+  commonHeaders?: { [key: string]: string };
+  xOssResourceGroupId?: string;
+  static names(): { [key: string]: string } {
+    return {
+      commonHeaders: 'commonHeaders',
+      xOssResourceGroupId: 'x-oss-resource-group-id',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      commonHeaders: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      xOssResourceGroupId: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
 export class ListBucketsRequest extends $tea.Model {
   marker?: string;
   maxKeys?: number;
@@ -4726,7 +5515,7 @@ export class ListBucketsRequest extends $tea.Model {
 }
 
 export class ListBucketsResponseBody extends $tea.Model {
-  buckets?: ListBucketsResponseBodyBuckets;
+  buckets?: Bucket[];
   isTruncated?: boolean;
   marker?: string;
   maxKeys?: number;
@@ -4735,19 +5524,19 @@ export class ListBucketsResponseBody extends $tea.Model {
   prefix?: string;
   static names(): { [key: string]: string } {
     return {
-      buckets: 'Buckets',
-      isTruncated: 'IsTruncated',
-      marker: 'Marker',
-      maxKeys: 'MaxKeys',
-      nextMarker: 'NextMarker',
-      owner: 'Owner',
-      prefix: 'Prefix',
+      buckets: 'buckets',
+      isTruncated: 'isTruncated',
+      marker: 'marker',
+      maxKeys: 'maxKeys',
+      nextMarker: 'nextMarker',
+      owner: 'owner',
+      prefix: 'prefix',
     };
   }
 
   static types(): { [key: string]: any } {
     return {
-      buckets: ListBucketsResponseBodyBuckets,
+      buckets: { 'type': 'array', 'itemType': Bucket },
       isTruncated: 'boolean',
       marker: 'string',
       maxKeys: 'number',
@@ -5552,10 +6341,12 @@ export class PostVodPlaylistResponse extends $tea.Model {
 export class PutBucketHeaders extends $tea.Model {
   commonHeaders?: { [key: string]: string };
   acl?: string;
+  xOssResourceGroupId?: string;
   static names(): { [key: string]: string } {
     return {
       commonHeaders: 'commonHeaders',
       acl: 'x-oss-acl',
+      xOssResourceGroupId: 'x-oss-resource-group-id',
     };
   }
 
@@ -5563,6 +6354,7 @@ export class PutBucketHeaders extends $tea.Model {
     return {
       commonHeaders: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
       acl: 'string',
+      xOssResourceGroupId: 'string',
     };
   }
 
@@ -6784,6 +7576,171 @@ export class UploadPartCopyResponse extends $tea.Model {
   }
 }
 
+export class BucketAntiDDOSConfigurationCnames extends $tea.Model {
+  domain?: string[];
+  static names(): { [key: string]: string } {
+    return {
+      domain: 'Domain',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      domain: { 'type': 'array', 'itemType': 'string' },
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class BucketAntiDDOSInfoCnames extends $tea.Model {
+  domain?: string[];
+  static names(): { [key: string]: string } {
+    return {
+      domain: 'Domain',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      domain: { 'type': 'array', 'itemType': 'string' },
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class BucketCnameConfigurationCname extends $tea.Model {
+  domain?: string;
+  static names(): { [key: string]: string } {
+    return {
+      domain: 'Domain',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      domain: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class BucketInfoBucketServerSideEncryptionRule extends $tea.Model {
+  KMSDataEncryption?: string;
+  KMSMasterKeyID?: string;
+  SSEAlgorithm?: string;
+  static names(): { [key: string]: string } {
+    return {
+      KMSDataEncryption: 'KMSDataEncryption',
+      KMSMasterKeyID: 'KMSMasterKeyID',
+      SSEAlgorithm: 'SSEAlgorithm',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      KMSDataEncryption: 'string',
+      KMSMasterKeyID: 'string',
+      SSEAlgorithm: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class BucketInfoBucket extends $tea.Model {
+  accessControlList?: AccessControlList;
+  accessMonitor?: string;
+  bucketPolicy?: LoggingEnabled;
+  creationDate?: string;
+  crossRegionReplication?: string;
+  dataRedundancyType?: string;
+  extranetEndpoint?: string;
+  intranetEndpoint?: string;
+  location?: string;
+  name?: string;
+  owner?: Owner;
+  resourceGroupId?: string;
+  serverSideEncryptionRule?: BucketInfoBucketServerSideEncryptionRule;
+  storageClass?: string;
+  transferAcceleration?: string;
+  versioning?: string;
+  static names(): { [key: string]: string } {
+    return {
+      accessControlList: 'AccessControlList',
+      accessMonitor: 'AccessMonitor',
+      bucketPolicy: 'BucketPolicy',
+      creationDate: 'CreationDate',
+      crossRegionReplication: 'CrossRegionReplication',
+      dataRedundancyType: 'DataRedundancyType',
+      extranetEndpoint: 'ExtranetEndpoint',
+      intranetEndpoint: 'IntranetEndpoint',
+      location: 'Location',
+      name: 'Name',
+      owner: 'Owner',
+      resourceGroupId: 'ResourceGroupId',
+      serverSideEncryptionRule: 'ServerSideEncryptionRule',
+      storageClass: 'StorageClass',
+      transferAcceleration: 'TransferAcceleration',
+      versioning: 'Versioning',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      accessControlList: AccessControlList,
+      accessMonitor: 'string',
+      bucketPolicy: LoggingEnabled,
+      creationDate: 'string',
+      crossRegionReplication: 'string',
+      dataRedundancyType: 'string',
+      extranetEndpoint: 'string',
+      intranetEndpoint: 'string',
+      location: 'string',
+      name: 'string',
+      owner: Owner,
+      resourceGroupId: 'string',
+      serverSideEncryptionRule: BucketInfoBucketServerSideEncryptionRule,
+      storageClass: 'string',
+      transferAcceleration: 'string',
+      versioning: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class GetAccessPointResultEndpoints extends $tea.Model {
+  publicEndpoint?: string;
+  static names(): { [key: string]: string } {
+    return {
+      publicEndpoint: 'PublicEndpoint',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      publicEndpoint: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
 export class InventoryConfigurationOptionalFields extends $tea.Model {
   fields?: string[];
   static names(): { [key: string]: string } {
@@ -6850,6 +7807,47 @@ export class LifecycleRuleLifecycleExpiration extends $tea.Model {
   }
 }
 
+export class LifecycleRuleFilterNot extends $tea.Model {
+  prefix?: string;
+  tag?: Tag;
+  static names(): { [key: string]: string } {
+    return {
+      prefix: 'Prefix',
+      tag: 'Tag',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      prefix: 'string',
+      tag: Tag,
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class LifecycleRuleFilter extends $tea.Model {
+  not?: LifecycleRuleFilterNot;
+  static names(): { [key: string]: string } {
+    return {
+      not: 'Not',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      not: LifecycleRuleFilterNot,
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
 export class LifecycleRuleNoncurrentVersionExpiration extends $tea.Model {
   noncurrentDays?: number;
   static names(): { [key: string]: string } {
@@ -6870,18 +7868,27 @@ export class LifecycleRuleNoncurrentVersionExpiration extends $tea.Model {
 }
 
 export class LifecycleRuleNoncurrentVersionTransition extends $tea.Model {
+  allowSmallFile?: boolean;
+  isAccessTime?: boolean;
   noncurrentDays?: number;
+  returnToStdWhenVisit?: boolean;
   storageClass?: string;
   static names(): { [key: string]: string } {
     return {
+      allowSmallFile: 'AllowSmallFile',
+      isAccessTime: 'IsAccessTime',
       noncurrentDays: 'NoncurrentDays',
+      returnToStdWhenVisit: 'ReturnToStdWhenVisit',
       storageClass: 'StorageClass',
     };
   }
 
   static types(): { [key: string]: any } {
     return {
+      allowSmallFile: 'boolean',
+      isAccessTime: 'boolean',
       noncurrentDays: 'number',
+      returnToStdWhenVisit: 'boolean',
       storageClass: 'string',
     };
   }
@@ -6891,44 +7898,31 @@ export class LifecycleRuleNoncurrentVersionTransition extends $tea.Model {
   }
 }
 
-export class LifecycleRuleTag extends $tea.Model {
-  key?: string;
-  value?: string;
-  static names(): { [key: string]: string } {
-    return {
-      key: 'Key',
-      value: 'Value',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      key: 'string',
-      value: 'string',
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
 export class LifecycleRuleLifecycleTransition extends $tea.Model {
+  allowSmallFile?: boolean;
   createdBeforeDate?: string;
   days?: number;
+  isAccessTime?: boolean;
+  returnToStdWhenVisit?: boolean;
   storageClass?: string;
   static names(): { [key: string]: string } {
     return {
+      allowSmallFile: 'AllowSmallFile',
       createdBeforeDate: 'CreatedBeforeDate',
       days: 'Days',
+      isAccessTime: 'IsAccessTime',
+      returnToStdWhenVisit: 'ReturnToStdWhenVisit',
       storageClass: 'StorageClass',
     };
   }
 
   static types(): { [key: string]: any } {
     return {
+      allowSmallFile: 'boolean',
       createdBeforeDate: 'string',
       days: 'number',
+      isAccessTime: 'boolean',
+      returnToStdWhenVisit: 'boolean',
       storageClass: 'string',
     };
   }
@@ -6949,6 +7943,63 @@ export class LocationTransferTypeTransferTypes extends $tea.Model {
   static types(): { [key: string]: any } {
     return {
       type: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class MetaQueryAggregations extends $tea.Model {
+  aggregation?: MetaQueryAggregation[];
+  static names(): { [key: string]: string } {
+    return {
+      aggregation: 'Aggregation',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      aggregation: { 'type': 'array', 'itemType': MetaQueryAggregation },
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class MetaQueryFileOSSTagging extends $tea.Model {
+  tagging?: MetaQueryTagging[];
+  static names(): { [key: string]: string } {
+    return {
+      tagging: 'Tagging',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      tagging: { 'type': 'array', 'itemType': MetaQueryTagging },
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class MetaQueryFileOSSUserMeta extends $tea.Model {
+  userMeta?: MetaQueryUserMeta[];
+  static names(): { [key: string]: string } {
+    return {
+      userMeta: 'UserMeta',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      userMeta: { 'type': 'array', 'itemType': MetaQueryUserMeta },
     };
   }
 
@@ -7143,74 +8194,6 @@ export class GetBucketAclResponseBodyAccessControlList extends $tea.Model {
   }
 }
 
-export class GetBucketInfoResponseBodyBucketInfoAccessControlList extends $tea.Model {
-  grant?: string;
-  static names(): { [key: string]: string } {
-    return {
-      grant: 'Grant',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      grant: 'string',
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class GetBucketInfoResponseBodyBucketInfo extends $tea.Model {
-  accessControlList?: GetBucketInfoResponseBodyBucketInfoAccessControlList;
-  comment?: string;
-  creationDate?: string;
-  crossRegionReplication?: string;
-  extranetEndpoint?: string;
-  intranetEndpoint?: string;
-  location?: string;
-  name?: string;
-  owner?: Owner;
-  storageClass?: string;
-  transferAcceleration?: string;
-  static names(): { [key: string]: string } {
-    return {
-      accessControlList: 'AccessControlList',
-      comment: 'Comment',
-      creationDate: 'CreationDate',
-      crossRegionReplication: 'CrossRegionReplication',
-      extranetEndpoint: 'ExtranetEndpoint',
-      intranetEndpoint: 'IntranetEndpoint',
-      location: 'Location',
-      name: 'Name',
-      owner: 'Owner',
-      storageClass: 'StorageClass',
-      transferAcceleration: 'TransferAcceleration',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      accessControlList: GetBucketInfoResponseBodyBucketInfoAccessControlList,
-      comment: 'string',
-      creationDate: 'string',
-      crossRegionReplication: 'string',
-      extranetEndpoint: 'string',
-      intranetEndpoint: 'string',
-      location: 'string',
-      name: 'string',
-      owner: Owner,
-      storageClass: 'string',
-      transferAcceleration: 'string',
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
 export class GetBucketInventoryResponseBodyOptionalFields extends $tea.Model {
   field?: string[];
   static names(): { [key: string]: string } {
@@ -7222,25 +8205,6 @@ export class GetBucketInventoryResponseBodyOptionalFields extends $tea.Model {
   static types(): { [key: string]: any } {
     return {
       field: { 'type': 'array', 'itemType': 'string' },
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class GetBucketRefererResponseBodyRefererList extends $tea.Model {
-  referer?: string[];
-  static names(): { [key: string]: string } {
-    return {
-      referer: 'Referer',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      referer: { 'type': 'array', 'itemType': 'string' },
     };
   }
 
@@ -7306,25 +8270,6 @@ export class GetObjectAclResponseBodyAccessControlList extends $tea.Model {
   }
 }
 
-export class ListBucketsResponseBodyBuckets extends $tea.Model {
-  buckets?: Bucket[];
-  static names(): { [key: string]: string } {
-    return {
-      buckets: 'Bucket',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      buckets: { 'type': 'array', 'itemType': Bucket },
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
 
 export default class Client extends OpenApi {
   _client: SPI;
@@ -7336,12 +8281,6 @@ export default class Client extends OpenApi {
     this._endpointRule = "";
   }
 
-
-  async abortBucketWorm(bucket: string): Promise<AbortBucketWormResponse> {
-    let runtime = new $Util.RuntimeOptions({ });
-    let headers : {[key: string ]: string} = { };
-    return await this.abortBucketWormWithOptions(bucket, headers, runtime);
-  }
 
   async abortBucketWormWithOptions(bucket: string, headers: {[key: string ]: string}, runtime: $Util.RuntimeOptions): Promise<AbortBucketWormResponse> {
     let hostMap : {[key: string ]: string} = { };
@@ -7364,10 +8303,10 @@ export default class Client extends OpenApi {
     return $tea.cast<AbortBucketWormResponse>(await this.execute(params, req, runtime), new AbortBucketWormResponse({}));
   }
 
-  async abortMultipartUpload(bucket: string, key: string, request: AbortMultipartUploadRequest): Promise<AbortMultipartUploadResponse> {
+  async abortBucketWorm(bucket: string): Promise<AbortBucketWormResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     let headers : {[key: string ]: string} = { };
-    return await this.abortMultipartUploadWithOptions(bucket, key, request, headers, runtime);
+    return await this.abortBucketWormWithOptions(bucket, headers, runtime);
   }
 
   async abortMultipartUploadWithOptions(bucket: string, key: string, request: AbortMultipartUploadRequest, headers: {[key: string ]: string}, runtime: $Util.RuntimeOptions): Promise<AbortMultipartUploadResponse> {
@@ -7398,10 +8337,10 @@ export default class Client extends OpenApi {
     return $tea.cast<AbortMultipartUploadResponse>(await this.execute(params, req, runtime), new AbortMultipartUploadResponse({}));
   }
 
-  async appendObject(bucket: string, key: string, request: AppendObjectRequest): Promise<AppendObjectResponse> {
+  async abortMultipartUpload(bucket: string, key: string, request: AbortMultipartUploadRequest): Promise<AbortMultipartUploadResponse> {
     let runtime = new $Util.RuntimeOptions({ });
-    let headers = new AppendObjectHeaders({ });
-    return await this.appendObjectWithOptions(bucket, key, request, headers, runtime);
+    let headers : {[key: string ]: string} = { };
+    return await this.abortMultipartUploadWithOptions(bucket, key, request, headers, runtime);
   }
 
   async appendObjectWithOptions(bucket: string, key: string, request: AppendObjectRequest, headers: AppendObjectHeaders, runtime: $Util.RuntimeOptions): Promise<AppendObjectResponse> {
@@ -7475,10 +8414,10 @@ export default class Client extends OpenApi {
     return $tea.cast<AppendObjectResponse>(await this.execute(params, req, runtime), new AppendObjectResponse({}));
   }
 
-  async completeBucketWorm(bucket: string, request: CompleteBucketWormRequest): Promise<CompleteBucketWormResponse> {
+  async appendObject(bucket: string, key: string, request: AppendObjectRequest): Promise<AppendObjectResponse> {
     let runtime = new $Util.RuntimeOptions({ });
-    let headers : {[key: string ]: string} = { };
-    return await this.completeBucketWormWithOptions(bucket, request, headers, runtime);
+    let headers = new AppendObjectHeaders({ });
+    return await this.appendObjectWithOptions(bucket, key, request, headers, runtime);
   }
 
   async completeBucketWormWithOptions(bucket: string, request: CompleteBucketWormRequest, headers: {[key: string ]: string}, runtime: $Util.RuntimeOptions): Promise<CompleteBucketWormResponse> {
@@ -7509,10 +8448,10 @@ export default class Client extends OpenApi {
     return $tea.cast<CompleteBucketWormResponse>(await this.execute(params, req, runtime), new CompleteBucketWormResponse({}));
   }
 
-  async completeMultipartUpload(bucket: string, key: string, request: CompleteMultipartUploadRequest): Promise<CompleteMultipartUploadResponse> {
+  async completeBucketWorm(bucket: string, request: CompleteBucketWormRequest): Promise<CompleteBucketWormResponse> {
     let runtime = new $Util.RuntimeOptions({ });
-    let headers = new CompleteMultipartUploadHeaders({ });
-    return await this.completeMultipartUploadWithOptions(bucket, key, request, headers, runtime);
+    let headers : {[key: string ]: string} = { };
+    return await this.completeBucketWormWithOptions(bucket, request, headers, runtime);
   }
 
   async completeMultipartUploadWithOptions(bucket: string, key: string, request: CompleteMultipartUploadRequest, headers: CompleteMultipartUploadHeaders, runtime: $Util.RuntimeOptions): Promise<CompleteMultipartUploadResponse> {
@@ -7526,11 +8465,6 @@ export default class Client extends OpenApi {
 
     if (!Util.isUnset(request.uploadId)) {
       query["uploadId"] = request.uploadId;
-    }
-
-    let body : {[key: string ]: any} = { };
-    if (!Util.isUnset($tea.toMap(request.completeMultipartUpload))) {
-      body["completeMultipartUpload"] = request.completeMultipartUpload;
     }
 
     let realHeaders : {[key: string ]: string} = { };
@@ -7550,7 +8484,7 @@ export default class Client extends OpenApi {
       hostMap: hostMap,
       headers: realHeaders,
       query: OpenApiUtil.query(query),
-      body: OpenApiUtil.parseToMap(body),
+      body: OpenApiUtil.parseToMap(request.body),
     });
     let params = new $OpenApi.Params({
       action: "CompleteMultipartUpload",
@@ -7566,10 +8500,10 @@ export default class Client extends OpenApi {
     return $tea.cast<CompleteMultipartUploadResponse>(await this.execute(params, req, runtime), new CompleteMultipartUploadResponse({}));
   }
 
-  async copyObject(bucket: string, key: string): Promise<CopyObjectResponse> {
+  async completeMultipartUpload(bucket: string, key: string, request: CompleteMultipartUploadRequest): Promise<CompleteMultipartUploadResponse> {
     let runtime = new $Util.RuntimeOptions({ });
-    let headers = new CopyObjectHeaders({ });
-    return await this.copyObjectWithOptions(bucket, key, headers, runtime);
+    let headers = new CompleteMultipartUploadHeaders({ });
+    return await this.completeMultipartUploadWithOptions(bucket, key, request, headers, runtime);
   }
 
   async copyObjectWithOptions(bucket: string, key: string, headers: CopyObjectHeaders, runtime: $Util.RuntimeOptions): Promise<CopyObjectResponse> {
@@ -7654,10 +8588,10 @@ export default class Client extends OpenApi {
     return $tea.cast<CopyObjectResponse>(await this.execute(params, req, runtime), new CopyObjectResponse({}));
   }
 
-  async createSelectObjectMeta(bucket: string, key: string, request: CreateSelectObjectMetaRequest): Promise<CreateSelectObjectMetaResponse> {
+  async copyObject(bucket: string, key: string): Promise<CopyObjectResponse> {
     let runtime = new $Util.RuntimeOptions({ });
-    let headers : {[key: string ]: string} = { };
-    return await this.createSelectObjectMetaWithOptions(bucket, key, request, headers, runtime);
+    let headers = new CopyObjectHeaders({ });
+    return await this.copyObjectWithOptions(bucket, key, headers, runtime);
   }
 
   async createSelectObjectMetaWithOptions(bucket: string, key: string, request: CreateSelectObjectMetaRequest, headers: {[key: string ]: string}, runtime: $Util.RuntimeOptions): Promise<CreateSelectObjectMetaResponse> {
@@ -7667,7 +8601,7 @@ export default class Client extends OpenApi {
     let req = new $OpenApi.OpenApiRequest({
       hostMap: hostMap,
       headers: headers,
-      body: OpenApiUtil.parseToMap($tea.toMap(request.selectMetaRequest)),
+      body: OpenApiUtil.parseToMap(request.selectMetaRequest),
     });
     let params = new $OpenApi.Params({
       action: "CreateSelectObjectMeta",
@@ -7683,10 +8617,10 @@ export default class Client extends OpenApi {
     return $tea.cast<CreateSelectObjectMetaResponse>(await this.execute(params, req, runtime), new CreateSelectObjectMetaResponse({}));
   }
 
-  async deleteBucket(bucket: string): Promise<DeleteBucketResponse> {
+  async createSelectObjectMeta(bucket: string, key: string, request: CreateSelectObjectMetaRequest): Promise<CreateSelectObjectMetaResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     let headers : {[key: string ]: string} = { };
-    return await this.deleteBucketWithOptions(bucket, headers, runtime);
+    return await this.createSelectObjectMetaWithOptions(bucket, key, request, headers, runtime);
   }
 
   async deleteBucketWithOptions(bucket: string, headers: {[key: string ]: string}, runtime: $Util.RuntimeOptions): Promise<DeleteBucketResponse> {
@@ -7710,10 +8644,10 @@ export default class Client extends OpenApi {
     return $tea.cast<DeleteBucketResponse>(await this.execute(params, req, runtime), new DeleteBucketResponse({}));
   }
 
-  async deleteBucketCors(bucket: string): Promise<DeleteBucketCorsResponse> {
+  async deleteBucket(bucket: string): Promise<DeleteBucketResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     let headers : {[key: string ]: string} = { };
-    return await this.deleteBucketCorsWithOptions(bucket, headers, runtime);
+    return await this.deleteBucketWithOptions(bucket, headers, runtime);
   }
 
   async deleteBucketCorsWithOptions(bucket: string, headers: {[key: string ]: string}, runtime: $Util.RuntimeOptions): Promise<DeleteBucketCorsResponse> {
@@ -7737,10 +8671,10 @@ export default class Client extends OpenApi {
     return $tea.cast<DeleteBucketCorsResponse>(await this.execute(params, req, runtime), new DeleteBucketCorsResponse({}));
   }
 
-  async deleteBucketEncryption(bucket: string): Promise<DeleteBucketEncryptionResponse> {
+  async deleteBucketCors(bucket: string): Promise<DeleteBucketCorsResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     let headers : {[key: string ]: string} = { };
-    return await this.deleteBucketEncryptionWithOptions(bucket, headers, runtime);
+    return await this.deleteBucketCorsWithOptions(bucket, headers, runtime);
   }
 
   async deleteBucketEncryptionWithOptions(bucket: string, headers: {[key: string ]: string}, runtime: $Util.RuntimeOptions): Promise<DeleteBucketEncryptionResponse> {
@@ -7764,10 +8698,10 @@ export default class Client extends OpenApi {
     return $tea.cast<DeleteBucketEncryptionResponse>(await this.execute(params, req, runtime), new DeleteBucketEncryptionResponse({}));
   }
 
-  async deleteBucketInventory(bucket: string, request: DeleteBucketInventoryRequest): Promise<DeleteBucketInventoryResponse> {
+  async deleteBucketEncryption(bucket: string): Promise<DeleteBucketEncryptionResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     let headers : {[key: string ]: string} = { };
-    return await this.deleteBucketInventoryWithOptions(bucket, request, headers, runtime);
+    return await this.deleteBucketEncryptionWithOptions(bucket, headers, runtime);
   }
 
   async deleteBucketInventoryWithOptions(bucket: string, request: DeleteBucketInventoryRequest, headers: {[key: string ]: string}, runtime: $Util.RuntimeOptions): Promise<DeleteBucketInventoryResponse> {
@@ -7798,10 +8732,10 @@ export default class Client extends OpenApi {
     return $tea.cast<DeleteBucketInventoryResponse>(await this.execute(params, req, runtime), new DeleteBucketInventoryResponse({}));
   }
 
-  async deleteBucketLifecycle(bucket: string): Promise<DeleteBucketLifecycleResponse> {
+  async deleteBucketInventory(bucket: string, request: DeleteBucketInventoryRequest): Promise<DeleteBucketInventoryResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     let headers : {[key: string ]: string} = { };
-    return await this.deleteBucketLifecycleWithOptions(bucket, headers, runtime);
+    return await this.deleteBucketInventoryWithOptions(bucket, request, headers, runtime);
   }
 
   async deleteBucketLifecycleWithOptions(bucket: string, headers: {[key: string ]: string}, runtime: $Util.RuntimeOptions): Promise<DeleteBucketLifecycleResponse> {
@@ -7825,10 +8759,10 @@ export default class Client extends OpenApi {
     return $tea.cast<DeleteBucketLifecycleResponse>(await this.execute(params, req, runtime), new DeleteBucketLifecycleResponse({}));
   }
 
-  async deleteBucketLogging(bucket: string): Promise<DeleteBucketLoggingResponse> {
+  async deleteBucketLifecycle(bucket: string): Promise<DeleteBucketLifecycleResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     let headers : {[key: string ]: string} = { };
-    return await this.deleteBucketLoggingWithOptions(bucket, headers, runtime);
+    return await this.deleteBucketLifecycleWithOptions(bucket, headers, runtime);
   }
 
   async deleteBucketLoggingWithOptions(bucket: string, headers: {[key: string ]: string}, runtime: $Util.RuntimeOptions): Promise<DeleteBucketLoggingResponse> {
@@ -7852,10 +8786,10 @@ export default class Client extends OpenApi {
     return $tea.cast<DeleteBucketLoggingResponse>(await this.execute(params, req, runtime), new DeleteBucketLoggingResponse({}));
   }
 
-  async deleteBucketPolicy(bucket: string): Promise<DeleteBucketPolicyResponse> {
+  async deleteBucketLogging(bucket: string): Promise<DeleteBucketLoggingResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     let headers : {[key: string ]: string} = { };
-    return await this.deleteBucketPolicyWithOptions(bucket, headers, runtime);
+    return await this.deleteBucketLoggingWithOptions(bucket, headers, runtime);
   }
 
   async deleteBucketPolicyWithOptions(bucket: string, headers: {[key: string ]: string}, runtime: $Util.RuntimeOptions): Promise<DeleteBucketPolicyResponse> {
@@ -7879,10 +8813,10 @@ export default class Client extends OpenApi {
     return $tea.cast<DeleteBucketPolicyResponse>(await this.execute(params, req, runtime), new DeleteBucketPolicyResponse({}));
   }
 
-  async deleteBucketReplication(bucket: string, request: DeleteBucketReplicationRequest): Promise<DeleteBucketReplicationResponse> {
+  async deleteBucketPolicy(bucket: string): Promise<DeleteBucketPolicyResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     let headers : {[key: string ]: string} = { };
-    return await this.deleteBucketReplicationWithOptions(bucket, request, headers, runtime);
+    return await this.deleteBucketPolicyWithOptions(bucket, headers, runtime);
   }
 
   async deleteBucketReplicationWithOptions(bucket: string, request: DeleteBucketReplicationRequest, headers: {[key: string ]: string}, runtime: $Util.RuntimeOptions): Promise<DeleteBucketReplicationResponse> {
@@ -7892,7 +8826,7 @@ export default class Client extends OpenApi {
     let req = new $OpenApi.OpenApiRequest({
       hostMap: hostMap,
       headers: headers,
-      body: OpenApiUtil.parseToMap($tea.toMap(request.body)),
+      body: OpenApiUtil.parseToMap(request.body),
     });
     let params = new $OpenApi.Params({
       action: "DeleteBucketReplication",
@@ -7908,10 +8842,10 @@ export default class Client extends OpenApi {
     return $tea.cast<DeleteBucketReplicationResponse>(await this.execute(params, req, runtime), new DeleteBucketReplicationResponse({}));
   }
 
-  async deleteBucketTags(bucket: string): Promise<DeleteBucketTagsResponse> {
+  async deleteBucketReplication(bucket: string, request: DeleteBucketReplicationRequest): Promise<DeleteBucketReplicationResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     let headers : {[key: string ]: string} = { };
-    return await this.deleteBucketTagsWithOptions(bucket, headers, runtime);
+    return await this.deleteBucketReplicationWithOptions(bucket, request, headers, runtime);
   }
 
   async deleteBucketTagsWithOptions(bucket: string, headers: {[key: string ]: string}, runtime: $Util.RuntimeOptions): Promise<DeleteBucketTagsResponse> {
@@ -7935,10 +8869,10 @@ export default class Client extends OpenApi {
     return $tea.cast<DeleteBucketTagsResponse>(await this.execute(params, req, runtime), new DeleteBucketTagsResponse({}));
   }
 
-  async deleteBucketWebsite(bucket: string): Promise<DeleteBucketWebsiteResponse> {
+  async deleteBucketTags(bucket: string): Promise<DeleteBucketTagsResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     let headers : {[key: string ]: string} = { };
-    return await this.deleteBucketWebsiteWithOptions(bucket, headers, runtime);
+    return await this.deleteBucketTagsWithOptions(bucket, headers, runtime);
   }
 
   async deleteBucketWebsiteWithOptions(bucket: string, headers: {[key: string ]: string}, runtime: $Util.RuntimeOptions): Promise<DeleteBucketWebsiteResponse> {
@@ -7962,10 +8896,10 @@ export default class Client extends OpenApi {
     return $tea.cast<DeleteBucketWebsiteResponse>(await this.execute(params, req, runtime), new DeleteBucketWebsiteResponse({}));
   }
 
-  async deleteLiveChannel(bucket: string, channel: string): Promise<DeleteLiveChannelResponse> {
+  async deleteBucketWebsite(bucket: string): Promise<DeleteBucketWebsiteResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     let headers : {[key: string ]: string} = { };
-    return await this.deleteLiveChannelWithOptions(bucket, channel, headers, runtime);
+    return await this.deleteBucketWebsiteWithOptions(bucket, headers, runtime);
   }
 
   async deleteLiveChannelWithOptions(bucket: string, channel: string, headers: {[key: string ]: string}, runtime: $Util.RuntimeOptions): Promise<DeleteLiveChannelResponse> {
@@ -7989,13 +8923,13 @@ export default class Client extends OpenApi {
     return $tea.cast<DeleteLiveChannelResponse>(await this.execute(params, req, runtime), new DeleteLiveChannelResponse({}));
   }
 
-  async deleteMultipleObjects(bucket: string, request: DeleteMultipleObjectsRequest): Promise<DeleteMultipleObjectsResponse> {
+  async deleteLiveChannel(bucket: string, channel: string): Promise<DeleteLiveChannelResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     let headers : {[key: string ]: string} = { };
-    return await this.deleteMultipleObjectsWithOptions(bucket, request, headers, runtime);
+    return await this.deleteLiveChannelWithOptions(bucket, channel, headers, runtime);
   }
 
-  async deleteMultipleObjectsWithOptions(bucket: string, request: DeleteMultipleObjectsRequest, headers: {[key: string ]: string}, runtime: $Util.RuntimeOptions): Promise<DeleteMultipleObjectsResponse> {
+  async deleteMultipleObjectsWithOptions(bucket: string, request: DeleteMultipleObjectsRequest, headers: DeleteMultipleObjectsHeaders, runtime: $Util.RuntimeOptions): Promise<DeleteMultipleObjectsResponse> {
     Util.validateModel(request);
     let hostMap : {[key: string ]: string} = { };
     hostMap["bucket"] = bucket;
@@ -8004,11 +8938,20 @@ export default class Client extends OpenApi {
       query["encoding-type"] = request.encodingType;
     }
 
+    let realHeaders : {[key: string ]: string} = { };
+    if (!Util.isUnset(headers.commonHeaders)) {
+      realHeaders = headers.commonHeaders;
+    }
+
+    if (!Util.isUnset(headers.contentMd5)) {
+      realHeaders["content-md5"] = Util.toJSONString(headers.contentMd5);
+    }
+
     let req = new $OpenApi.OpenApiRequest({
       hostMap: hostMap,
-      headers: headers,
+      headers: realHeaders,
       query: OpenApiUtil.query(query),
-      body: OpenApiUtil.parseToMap($tea.toMap(request.delete)),
+      body: OpenApiUtil.parseToMap(request.delete),
     });
     let params = new $OpenApi.Params({
       action: "DeleteMultipleObjects",
@@ -8024,10 +8967,10 @@ export default class Client extends OpenApi {
     return $tea.cast<DeleteMultipleObjectsResponse>(await this.execute(params, req, runtime), new DeleteMultipleObjectsResponse({}));
   }
 
-  async deleteObject(bucket: string, key: string, request: DeleteObjectRequest): Promise<DeleteObjectResponse> {
+  async deleteMultipleObjects(bucket: string, request: DeleteMultipleObjectsRequest): Promise<DeleteMultipleObjectsResponse> {
     let runtime = new $Util.RuntimeOptions({ });
-    let headers : {[key: string ]: string} = { };
-    return await this.deleteObjectWithOptions(bucket, key, request, headers, runtime);
+    let headers = new DeleteMultipleObjectsHeaders({ });
+    return await this.deleteMultipleObjectsWithOptions(bucket, request, headers, runtime);
   }
 
   async deleteObjectWithOptions(bucket: string, key: string, request: DeleteObjectRequest, headers: {[key: string ]: string}, runtime: $Util.RuntimeOptions): Promise<DeleteObjectResponse> {
@@ -8058,10 +9001,10 @@ export default class Client extends OpenApi {
     return $tea.cast<DeleteObjectResponse>(await this.execute(params, req, runtime), new DeleteObjectResponse({}));
   }
 
-  async deleteObjectTagging(bucket: string, key: string, request: DeleteObjectTaggingRequest): Promise<DeleteObjectTaggingResponse> {
+  async deleteObject(bucket: string, key: string, request: DeleteObjectRequest): Promise<DeleteObjectResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     let headers : {[key: string ]: string} = { };
-    return await this.deleteObjectTaggingWithOptions(bucket, key, request, headers, runtime);
+    return await this.deleteObjectWithOptions(bucket, key, request, headers, runtime);
   }
 
   async deleteObjectTaggingWithOptions(bucket: string, key: string, request: DeleteObjectTaggingRequest, headers: {[key: string ]: string}, runtime: $Util.RuntimeOptions): Promise<DeleteObjectTaggingResponse> {
@@ -8092,10 +9035,10 @@ export default class Client extends OpenApi {
     return $tea.cast<DeleteObjectTaggingResponse>(await this.execute(params, req, runtime), new DeleteObjectTaggingResponse({}));
   }
 
-  async describeRegions(request: DescribeRegionsRequest): Promise<DescribeRegionsResponse> {
+  async deleteObjectTagging(bucket: string, key: string, request: DeleteObjectTaggingRequest): Promise<DeleteObjectTaggingResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     let headers : {[key: string ]: string} = { };
-    return await this.describeRegionsWithOptions(request, headers, runtime);
+    return await this.deleteObjectTaggingWithOptions(bucket, key, request, headers, runtime);
   }
 
   async describeRegionsWithOptions(request: DescribeRegionsRequest, headers: {[key: string ]: string}, runtime: $Util.RuntimeOptions): Promise<DescribeRegionsResponse> {
@@ -8123,10 +9066,10 @@ export default class Client extends OpenApi {
     return $tea.cast<DescribeRegionsResponse>(await this.execute(params, req, runtime), new DescribeRegionsResponse({}));
   }
 
-  async extendBucketWorm(bucket: string, request: ExtendBucketWormRequest): Promise<ExtendBucketWormResponse> {
+  async describeRegions(request: DescribeRegionsRequest): Promise<DescribeRegionsResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     let headers : {[key: string ]: string} = { };
-    return await this.extendBucketWormWithOptions(bucket, request, headers, runtime);
+    return await this.describeRegionsWithOptions(request, headers, runtime);
   }
 
   async extendBucketWormWithOptions(bucket: string, request: ExtendBucketWormRequest, headers: {[key: string ]: string}, runtime: $Util.RuntimeOptions): Promise<ExtendBucketWormResponse> {
@@ -8138,16 +9081,11 @@ export default class Client extends OpenApi {
       query["wormId"] = request.wormId;
     }
 
-    let body : {[key: string ]: any} = { };
-    if (!Util.isUnset($tea.toMap(request.extendWormConfiguration))) {
-      body["extendWormConfiguration"] = request.extendWormConfiguration;
-    }
-
     let req = new $OpenApi.OpenApiRequest({
       hostMap: hostMap,
       headers: headers,
       query: OpenApiUtil.query(query),
-      body: OpenApiUtil.parseToMap(body),
+      body: OpenApiUtil.parseToMap(request.body),
     });
     let params = new $OpenApi.Params({
       action: "ExtendBucketWorm",
@@ -8163,10 +9101,10 @@ export default class Client extends OpenApi {
     return $tea.cast<ExtendBucketWormResponse>(await this.execute(params, req, runtime), new ExtendBucketWormResponse({}));
   }
 
-  async getBucketAcl(bucket: string): Promise<GetBucketAclResponse> {
+  async extendBucketWorm(bucket: string, request: ExtendBucketWormRequest): Promise<ExtendBucketWormResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     let headers : {[key: string ]: string} = { };
-    return await this.getBucketAclWithOptions(bucket, headers, runtime);
+    return await this.extendBucketWormWithOptions(bucket, request, headers, runtime);
   }
 
   async getBucketAclWithOptions(bucket: string, headers: {[key: string ]: string}, runtime: $Util.RuntimeOptions): Promise<GetBucketAclResponse> {
@@ -8190,10 +9128,10 @@ export default class Client extends OpenApi {
     return $tea.cast<GetBucketAclResponse>(await this.execute(params, req, runtime), new GetBucketAclResponse({}));
   }
 
-  async getBucketCors(bucket: string): Promise<GetBucketCorsResponse> {
+  async getBucketAcl(bucket: string): Promise<GetBucketAclResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     let headers : {[key: string ]: string} = { };
-    return await this.getBucketCorsWithOptions(bucket, headers, runtime);
+    return await this.getBucketAclWithOptions(bucket, headers, runtime);
   }
 
   async getBucketCorsWithOptions(bucket: string, headers: {[key: string ]: string}, runtime: $Util.RuntimeOptions): Promise<GetBucketCorsResponse> {
@@ -8217,10 +9155,10 @@ export default class Client extends OpenApi {
     return $tea.cast<GetBucketCorsResponse>(await this.execute(params, req, runtime), new GetBucketCorsResponse({}));
   }
 
-  async getBucketEncryption(bucket: string): Promise<GetBucketEncryptionResponse> {
+  async getBucketCors(bucket: string): Promise<GetBucketCorsResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     let headers : {[key: string ]: string} = { };
-    return await this.getBucketEncryptionWithOptions(bucket, headers, runtime);
+    return await this.getBucketCorsWithOptions(bucket, headers, runtime);
   }
 
   async getBucketEncryptionWithOptions(bucket: string, headers: {[key: string ]: string}, runtime: $Util.RuntimeOptions): Promise<GetBucketEncryptionResponse> {
@@ -8244,10 +9182,10 @@ export default class Client extends OpenApi {
     return $tea.cast<GetBucketEncryptionResponse>(await this.execute(params, req, runtime), new GetBucketEncryptionResponse({}));
   }
 
-  async getBucketInfo(bucket: string): Promise<GetBucketInfoResponse> {
+  async getBucketEncryption(bucket: string): Promise<GetBucketEncryptionResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     let headers : {[key: string ]: string} = { };
-    return await this.getBucketInfoWithOptions(bucket, headers, runtime);
+    return await this.getBucketEncryptionWithOptions(bucket, headers, runtime);
   }
 
   async getBucketInfoWithOptions(bucket: string, headers: {[key: string ]: string}, runtime: $Util.RuntimeOptions): Promise<GetBucketInfoResponse> {
@@ -8271,10 +9209,10 @@ export default class Client extends OpenApi {
     return $tea.cast<GetBucketInfoResponse>(await this.execute(params, req, runtime), new GetBucketInfoResponse({}));
   }
 
-  async getBucketInventory(bucket: string, request: GetBucketInventoryRequest): Promise<GetBucketInventoryResponse> {
+  async getBucketInfo(bucket: string): Promise<GetBucketInfoResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     let headers : {[key: string ]: string} = { };
-    return await this.getBucketInventoryWithOptions(bucket, request, headers, runtime);
+    return await this.getBucketInfoWithOptions(bucket, headers, runtime);
   }
 
   async getBucketInventoryWithOptions(bucket: string, request: GetBucketInventoryRequest, headers: {[key: string ]: string}, runtime: $Util.RuntimeOptions): Promise<GetBucketInventoryResponse> {
@@ -8305,10 +9243,10 @@ export default class Client extends OpenApi {
     return $tea.cast<GetBucketInventoryResponse>(await this.execute(params, req, runtime), new GetBucketInventoryResponse({}));
   }
 
-  async getBucketLifecycle(bucket: string): Promise<GetBucketLifecycleResponse> {
+  async getBucketInventory(bucket: string, request: GetBucketInventoryRequest): Promise<GetBucketInventoryResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     let headers : {[key: string ]: string} = { };
-    return await this.getBucketLifecycleWithOptions(bucket, headers, runtime);
+    return await this.getBucketInventoryWithOptions(bucket, request, headers, runtime);
   }
 
   async getBucketLifecycleWithOptions(bucket: string, headers: {[key: string ]: string}, runtime: $Util.RuntimeOptions): Promise<GetBucketLifecycleResponse> {
@@ -8332,10 +9270,10 @@ export default class Client extends OpenApi {
     return $tea.cast<GetBucketLifecycleResponse>(await this.execute(params, req, runtime), new GetBucketLifecycleResponse({}));
   }
 
-  async getBucketLocation(bucket: string): Promise<GetBucketLocationResponse> {
+  async getBucketLifecycle(bucket: string): Promise<GetBucketLifecycleResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     let headers : {[key: string ]: string} = { };
-    return await this.getBucketLocationWithOptions(bucket, headers, runtime);
+    return await this.getBucketLifecycleWithOptions(bucket, headers, runtime);
   }
 
   async getBucketLocationWithOptions(bucket: string, headers: {[key: string ]: string}, runtime: $Util.RuntimeOptions): Promise<GetBucketLocationResponse> {
@@ -8359,10 +9297,10 @@ export default class Client extends OpenApi {
     return $tea.cast<GetBucketLocationResponse>(await this.execute(params, req, runtime), new GetBucketLocationResponse({}));
   }
 
-  async getBucketLogging(bucket: string): Promise<GetBucketLoggingResponse> {
+  async getBucketLocation(bucket: string): Promise<GetBucketLocationResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     let headers : {[key: string ]: string} = { };
-    return await this.getBucketLoggingWithOptions(bucket, headers, runtime);
+    return await this.getBucketLocationWithOptions(bucket, headers, runtime);
   }
 
   async getBucketLoggingWithOptions(bucket: string, headers: {[key: string ]: string}, runtime: $Util.RuntimeOptions): Promise<GetBucketLoggingResponse> {
@@ -8386,10 +9324,10 @@ export default class Client extends OpenApi {
     return $tea.cast<GetBucketLoggingResponse>(await this.execute(params, req, runtime), new GetBucketLoggingResponse({}));
   }
 
-  async getBucketPolicy(bucket: string): Promise<GetBucketPolicyResponse> {
+  async getBucketLogging(bucket: string): Promise<GetBucketLoggingResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     let headers : {[key: string ]: string} = { };
-    return await this.getBucketPolicyWithOptions(bucket, headers, runtime);
+    return await this.getBucketLoggingWithOptions(bucket, headers, runtime);
   }
 
   async getBucketPolicyWithOptions(bucket: string, headers: {[key: string ]: string}, runtime: $Util.RuntimeOptions): Promise<GetBucketPolicyResponse> {
@@ -8413,10 +9351,10 @@ export default class Client extends OpenApi {
     return $tea.cast<GetBucketPolicyResponse>(await this.execute(params, req, runtime), new GetBucketPolicyResponse({}));
   }
 
-  async getBucketReferer(bucket: string): Promise<GetBucketRefererResponse> {
+  async getBucketPolicy(bucket: string): Promise<GetBucketPolicyResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     let headers : {[key: string ]: string} = { };
-    return await this.getBucketRefererWithOptions(bucket, headers, runtime);
+    return await this.getBucketPolicyWithOptions(bucket, headers, runtime);
   }
 
   async getBucketRefererWithOptions(bucket: string, headers: {[key: string ]: string}, runtime: $Util.RuntimeOptions): Promise<GetBucketRefererResponse> {
@@ -8435,15 +9373,15 @@ export default class Client extends OpenApi {
       authType: "AK",
       style: "ROA",
       reqBodyType: "xml",
-      bodyType: "xml",
+      bodyType: "json",
     });
     return $tea.cast<GetBucketRefererResponse>(await this.execute(params, req, runtime), new GetBucketRefererResponse({}));
   }
 
-  async getBucketReplication(bucket: string): Promise<GetBucketReplicationResponse> {
+  async getBucketReferer(bucket: string): Promise<GetBucketRefererResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     let headers : {[key: string ]: string} = { };
-    return await this.getBucketReplicationWithOptions(bucket, headers, runtime);
+    return await this.getBucketRefererWithOptions(bucket, headers, runtime);
   }
 
   async getBucketReplicationWithOptions(bucket: string, headers: {[key: string ]: string}, runtime: $Util.RuntimeOptions): Promise<GetBucketReplicationResponse> {
@@ -8467,10 +9405,10 @@ export default class Client extends OpenApi {
     return $tea.cast<GetBucketReplicationResponse>(await this.execute(params, req, runtime), new GetBucketReplicationResponse({}));
   }
 
-  async getBucketReplicationLocation(bucket: string): Promise<GetBucketReplicationLocationResponse> {
+  async getBucketReplication(bucket: string): Promise<GetBucketReplicationResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     let headers : {[key: string ]: string} = { };
-    return await this.getBucketReplicationLocationWithOptions(bucket, headers, runtime);
+    return await this.getBucketReplicationWithOptions(bucket, headers, runtime);
   }
 
   async getBucketReplicationLocationWithOptions(bucket: string, headers: {[key: string ]: string}, runtime: $Util.RuntimeOptions): Promise<GetBucketReplicationLocationResponse> {
@@ -8494,10 +9432,10 @@ export default class Client extends OpenApi {
     return $tea.cast<GetBucketReplicationLocationResponse>(await this.execute(params, req, runtime), new GetBucketReplicationLocationResponse({}));
   }
 
-  async getBucketReplicationProgress(bucket: string, request: GetBucketReplicationProgressRequest): Promise<GetBucketReplicationProgressResponse> {
+  async getBucketReplicationLocation(bucket: string): Promise<GetBucketReplicationLocationResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     let headers : {[key: string ]: string} = { };
-    return await this.getBucketReplicationProgressWithOptions(bucket, request, headers, runtime);
+    return await this.getBucketReplicationLocationWithOptions(bucket, headers, runtime);
   }
 
   async getBucketReplicationProgressWithOptions(bucket: string, request: GetBucketReplicationProgressRequest, headers: {[key: string ]: string}, runtime: $Util.RuntimeOptions): Promise<GetBucketReplicationProgressResponse> {
@@ -8528,10 +9466,10 @@ export default class Client extends OpenApi {
     return $tea.cast<GetBucketReplicationProgressResponse>(await this.execute(params, req, runtime), new GetBucketReplicationProgressResponse({}));
   }
 
-  async getBucketRequestPayment(bucket: string): Promise<GetBucketRequestPaymentResponse> {
+  async getBucketReplicationProgress(bucket: string, request: GetBucketReplicationProgressRequest): Promise<GetBucketReplicationProgressResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     let headers : {[key: string ]: string} = { };
-    return await this.getBucketRequestPaymentWithOptions(bucket, headers, runtime);
+    return await this.getBucketReplicationProgressWithOptions(bucket, request, headers, runtime);
   }
 
   async getBucketRequestPaymentWithOptions(bucket: string, headers: {[key: string ]: string}, runtime: $Util.RuntimeOptions): Promise<GetBucketRequestPaymentResponse> {
@@ -8555,10 +9493,10 @@ export default class Client extends OpenApi {
     return $tea.cast<GetBucketRequestPaymentResponse>(await this.execute(params, req, runtime), new GetBucketRequestPaymentResponse({}));
   }
 
-  async getBucketTags(bucket: string): Promise<GetBucketTagsResponse> {
+  async getBucketRequestPayment(bucket: string): Promise<GetBucketRequestPaymentResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     let headers : {[key: string ]: string} = { };
-    return await this.getBucketTagsWithOptions(bucket, headers, runtime);
+    return await this.getBucketRequestPaymentWithOptions(bucket, headers, runtime);
   }
 
   async getBucketTagsWithOptions(bucket: string, headers: {[key: string ]: string}, runtime: $Util.RuntimeOptions): Promise<GetBucketTagsResponse> {
@@ -8582,10 +9520,10 @@ export default class Client extends OpenApi {
     return $tea.cast<GetBucketTagsResponse>(await this.execute(params, req, runtime), new GetBucketTagsResponse({}));
   }
 
-  async getBucketTransferAcceleration(bucket: string): Promise<GetBucketTransferAccelerationResponse> {
+  async getBucketTags(bucket: string): Promise<GetBucketTagsResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     let headers : {[key: string ]: string} = { };
-    return await this.getBucketTransferAccelerationWithOptions(bucket, headers, runtime);
+    return await this.getBucketTagsWithOptions(bucket, headers, runtime);
   }
 
   async getBucketTransferAccelerationWithOptions(bucket: string, headers: {[key: string ]: string}, runtime: $Util.RuntimeOptions): Promise<GetBucketTransferAccelerationResponse> {
@@ -8609,10 +9547,10 @@ export default class Client extends OpenApi {
     return $tea.cast<GetBucketTransferAccelerationResponse>(await this.execute(params, req, runtime), new GetBucketTransferAccelerationResponse({}));
   }
 
-  async getBucketVersioning(bucket: string): Promise<GetBucketVersioningResponse> {
+  async getBucketTransferAcceleration(bucket: string): Promise<GetBucketTransferAccelerationResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     let headers : {[key: string ]: string} = { };
-    return await this.getBucketVersioningWithOptions(bucket, headers, runtime);
+    return await this.getBucketTransferAccelerationWithOptions(bucket, headers, runtime);
   }
 
   async getBucketVersioningWithOptions(bucket: string, headers: {[key: string ]: string}, runtime: $Util.RuntimeOptions): Promise<GetBucketVersioningResponse> {
@@ -8636,10 +9574,10 @@ export default class Client extends OpenApi {
     return $tea.cast<GetBucketVersioningResponse>(await this.execute(params, req, runtime), new GetBucketVersioningResponse({}));
   }
 
-  async getBucketWebsite(bucket: string): Promise<GetBucketWebsiteResponse> {
+  async getBucketVersioning(bucket: string): Promise<GetBucketVersioningResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     let headers : {[key: string ]: string} = { };
-    return await this.getBucketWebsiteWithOptions(bucket, headers, runtime);
+    return await this.getBucketVersioningWithOptions(bucket, headers, runtime);
   }
 
   async getBucketWebsiteWithOptions(bucket: string, headers: {[key: string ]: string}, runtime: $Util.RuntimeOptions): Promise<GetBucketWebsiteResponse> {
@@ -8663,10 +9601,10 @@ export default class Client extends OpenApi {
     return $tea.cast<GetBucketWebsiteResponse>(await this.execute(params, req, runtime), new GetBucketWebsiteResponse({}));
   }
 
-  async getBucketWorm(bucket: string): Promise<GetBucketWormResponse> {
+  async getBucketWebsite(bucket: string): Promise<GetBucketWebsiteResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     let headers : {[key: string ]: string} = { };
-    return await this.getBucketWormWithOptions(bucket, headers, runtime);
+    return await this.getBucketWebsiteWithOptions(bucket, headers, runtime);
   }
 
   async getBucketWormWithOptions(bucket: string, headers: {[key: string ]: string}, runtime: $Util.RuntimeOptions): Promise<GetBucketWormResponse> {
@@ -8690,10 +9628,10 @@ export default class Client extends OpenApi {
     return $tea.cast<GetBucketWormResponse>(await this.execute(params, req, runtime), new GetBucketWormResponse({}));
   }
 
-  async getLiveChannelHistory(bucket: string, channel: string): Promise<GetLiveChannelHistoryResponse> {
+  async getBucketWorm(bucket: string): Promise<GetBucketWormResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     let headers : {[key: string ]: string} = { };
-    return await this.getLiveChannelHistoryWithOptions(bucket, channel, headers, runtime);
+    return await this.getBucketWormWithOptions(bucket, headers, runtime);
   }
 
   async getLiveChannelHistoryWithOptions(bucket: string, channel: string, headers: {[key: string ]: string}, runtime: $Util.RuntimeOptions): Promise<GetLiveChannelHistoryResponse> {
@@ -8717,10 +9655,10 @@ export default class Client extends OpenApi {
     return $tea.cast<GetLiveChannelHistoryResponse>(await this.execute(params, req, runtime), new GetLiveChannelHistoryResponse({}));
   }
 
-  async getLiveChannelInfo(bucket: string, channel: string): Promise<GetLiveChannelInfoResponse> {
+  async getLiveChannelHistory(bucket: string, channel: string): Promise<GetLiveChannelHistoryResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     let headers : {[key: string ]: string} = { };
-    return await this.getLiveChannelInfoWithOptions(bucket, channel, headers, runtime);
+    return await this.getLiveChannelHistoryWithOptions(bucket, channel, headers, runtime);
   }
 
   async getLiveChannelInfoWithOptions(bucket: string, channel: string, headers: {[key: string ]: string}, runtime: $Util.RuntimeOptions): Promise<GetLiveChannelInfoResponse> {
@@ -8744,10 +9682,10 @@ export default class Client extends OpenApi {
     return $tea.cast<GetLiveChannelInfoResponse>(await this.execute(params, req, runtime), new GetLiveChannelInfoResponse({}));
   }
 
-  async getLiveChannelStat(bucket: string, channel: string): Promise<GetLiveChannelStatResponse> {
+  async getLiveChannelInfo(bucket: string, channel: string): Promise<GetLiveChannelInfoResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     let headers : {[key: string ]: string} = { };
-    return await this.getLiveChannelStatWithOptions(bucket, channel, headers, runtime);
+    return await this.getLiveChannelInfoWithOptions(bucket, channel, headers, runtime);
   }
 
   async getLiveChannelStatWithOptions(bucket: string, channel: string, headers: {[key: string ]: string}, runtime: $Util.RuntimeOptions): Promise<GetLiveChannelStatResponse> {
@@ -8771,12 +9709,25 @@ export default class Client extends OpenApi {
     return $tea.cast<GetLiveChannelStatResponse>(await this.execute(params, req, runtime), new GetLiveChannelStatResponse({}));
   }
 
-  async getObject(bucket: string, key: string, request: GetObjectRequest): Promise<GetObjectResponse> {
+  async getLiveChannelStat(bucket: string, channel: string): Promise<GetLiveChannelStatResponse> {
     let runtime = new $Util.RuntimeOptions({ });
-    let headers = new GetObjectHeaders({ });
-    return await this.getObjectWithOptions(bucket, key, request, headers, runtime);
+    let headers : {[key: string ]: string} = { };
+    return await this.getLiveChannelStatWithOptions(bucket, channel, headers, runtime);
   }
 
+  /**
+    * **Usage notes**
+    * - By default, the GetObject operation supports access over HTTP and HTTPS. To impose a limit on access to a bucket only over HTTPS, configure a bucket policy for the bucket to specify the access method. For more information, see [Configure bucket policies to authorize other users to access OSS resources](~~85111~~).
+    * - If the storage class of the object that you want to query is Archive, you must send a RestoreObject request to restore the object before you call the GetObject operation.
+    * **Versioning**
+    * By default, only the current version of an object is returned after GetObject is called. 
+    * If the version ID of the object is specified in the request, OSS returns the specified version of the object. If the version ID is set to null in the request, OSS returns the version of the object whose version ID is null.
+    *
+    * @param request GetObjectRequest
+    * @param headers GetObjectHeaders
+    * @param runtime runtime options for this request RuntimeOptions
+    * @return GetObjectResponse
+   */
   async getObjectWithOptions(bucket: string, key: string, request: GetObjectRequest, headers: GetObjectHeaders, runtime: $Util.RuntimeOptions): Promise<GetObjectResponse> {
     Util.validateModel(request);
     let hostMap : {[key: string ]: string} = { };
@@ -8854,10 +9805,21 @@ export default class Client extends OpenApi {
     return $tea.cast<GetObjectResponse>(await this.execute(params, req, runtime), new GetObjectResponse({}));
   }
 
-  async getObjectAcl(bucket: string, key: string, request: GetObjectAclRequest): Promise<GetObjectAclResponse> {
+  /**
+    * **Usage notes**
+    * - By default, the GetObject operation supports access over HTTP and HTTPS. To impose a limit on access to a bucket only over HTTPS, configure a bucket policy for the bucket to specify the access method. For more information, see [Configure bucket policies to authorize other users to access OSS resources](~~85111~~).
+    * - If the storage class of the object that you want to query is Archive, you must send a RestoreObject request to restore the object before you call the GetObject operation.
+    * **Versioning**
+    * By default, only the current version of an object is returned after GetObject is called. 
+    * If the version ID of the object is specified in the request, OSS returns the specified version of the object. If the version ID is set to null in the request, OSS returns the version of the object whose version ID is null.
+    *
+    * @param request GetObjectRequest
+    * @return GetObjectResponse
+   */
+  async getObject(bucket: string, key: string, request: GetObjectRequest): Promise<GetObjectResponse> {
     let runtime = new $Util.RuntimeOptions({ });
-    let headers : {[key: string ]: string} = { };
-    return await this.getObjectAclWithOptions(bucket, key, request, headers, runtime);
+    let headers = new GetObjectHeaders({ });
+    return await this.getObjectWithOptions(bucket, key, request, headers, runtime);
   }
 
   async getObjectAclWithOptions(bucket: string, key: string, request: GetObjectAclRequest, headers: {[key: string ]: string}, runtime: $Util.RuntimeOptions): Promise<GetObjectAclResponse> {
@@ -8888,10 +9850,10 @@ export default class Client extends OpenApi {
     return $tea.cast<GetObjectAclResponse>(await this.execute(params, req, runtime), new GetObjectAclResponse({}));
   }
 
-  async getObjectMeta(bucket: string, key: string, request: GetObjectMetaRequest): Promise<GetObjectMetaResponse> {
+  async getObjectAcl(bucket: string, key: string, request: GetObjectAclRequest): Promise<GetObjectAclResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     let headers : {[key: string ]: string} = { };
-    return await this.getObjectMetaWithOptions(bucket, key, request, headers, runtime);
+    return await this.getObjectAclWithOptions(bucket, key, request, headers, runtime);
   }
 
   async getObjectMetaWithOptions(bucket: string, key: string, request: GetObjectMetaRequest, headers: {[key: string ]: string}, runtime: $Util.RuntimeOptions): Promise<GetObjectMetaResponse> {
@@ -8922,10 +9884,10 @@ export default class Client extends OpenApi {
     return $tea.cast<GetObjectMetaResponse>(await this.execute(params, req, runtime), new GetObjectMetaResponse({}));
   }
 
-  async getObjectTagging(bucket: string, key: string, request: GetObjectTaggingRequest): Promise<GetObjectTaggingResponse> {
+  async getObjectMeta(bucket: string, key: string, request: GetObjectMetaRequest): Promise<GetObjectMetaResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     let headers : {[key: string ]: string} = { };
-    return await this.getObjectTaggingWithOptions(bucket, key, request, headers, runtime);
+    return await this.getObjectMetaWithOptions(bucket, key, request, headers, runtime);
   }
 
   async getObjectTaggingWithOptions(bucket: string, key: string, request: GetObjectTaggingRequest, headers: {[key: string ]: string}, runtime: $Util.RuntimeOptions): Promise<GetObjectTaggingResponse> {
@@ -8956,10 +9918,10 @@ export default class Client extends OpenApi {
     return $tea.cast<GetObjectTaggingResponse>(await this.execute(params, req, runtime), new GetObjectTaggingResponse({}));
   }
 
-  async getSymlink(bucket: string, key: string, request: GetSymlinkRequest): Promise<GetSymlinkResponse> {
+  async getObjectTagging(bucket: string, key: string, request: GetObjectTaggingRequest): Promise<GetObjectTaggingResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     let headers : {[key: string ]: string} = { };
-    return await this.getSymlinkWithOptions(bucket, key, request, headers, runtime);
+    return await this.getObjectTaggingWithOptions(bucket, key, request, headers, runtime);
   }
 
   async getSymlinkWithOptions(bucket: string, key: string, request: GetSymlinkRequest, headers: {[key: string ]: string}, runtime: $Util.RuntimeOptions): Promise<GetSymlinkResponse> {
@@ -8990,10 +9952,10 @@ export default class Client extends OpenApi {
     return $tea.cast<GetSymlinkResponse>(await this.execute(params, req, runtime), new GetSymlinkResponse({}));
   }
 
-  async getVodPlaylist(bucket: string, channel: string, request: GetVodPlaylistRequest): Promise<GetVodPlaylistResponse> {
+  async getSymlink(bucket: string, key: string, request: GetSymlinkRequest): Promise<GetSymlinkResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     let headers : {[key: string ]: string} = { };
-    return await this.getVodPlaylistWithOptions(bucket, channel, request, headers, runtime);
+    return await this.getSymlinkWithOptions(bucket, key, request, headers, runtime);
   }
 
   async getVodPlaylistWithOptions(bucket: string, channel: string, request: GetVodPlaylistRequest, headers: {[key: string ]: string}, runtime: $Util.RuntimeOptions): Promise<GetVodPlaylistResponse> {
@@ -9028,12 +9990,21 @@ export default class Client extends OpenApi {
     return $tea.cast<GetVodPlaylistResponse>(await this.execute(params, req, runtime), new GetVodPlaylistResponse({}));
   }
 
-  async headObject(bucket: string, key: string, request: HeadObjectRequest): Promise<HeadObjectResponse> {
+  async getVodPlaylist(bucket: string, channel: string, request: GetVodPlaylistRequest): Promise<GetVodPlaylistResponse> {
     let runtime = new $Util.RuntimeOptions({ });
-    let headers = new HeadObjectHeaders({ });
-    return await this.headObjectWithOptions(bucket, key, request, headers, runtime);
+    let headers : {[key: string ]: string} = { };
+    return await this.getVodPlaylistWithOptions(bucket, channel, request, headers, runtime);
   }
 
+  /**
+    * - When you call this operation, the object content is not returned in the results. 
+    * - By default, you can call the HeadObject operation to query the metadata of the object of the current version. If the current version of the object is a delete marker, OSS returns 404 Not Found. If you specify a version ID in the request, OSS returns the metadata of the object of the specified version.
+    *
+    * @param request HeadObjectRequest
+    * @param headers HeadObjectHeaders
+    * @param runtime runtime options for this request RuntimeOptions
+    * @return HeadObjectResponse
+   */
   async headObjectWithOptions(bucket: string, key: string, request: HeadObjectRequest, headers: HeadObjectHeaders, runtime: $Util.RuntimeOptions): Promise<HeadObjectResponse> {
     Util.validateModel(request);
     let hostMap : {[key: string ]: string} = { };
@@ -9083,10 +10054,17 @@ export default class Client extends OpenApi {
     return $tea.cast<HeadObjectResponse>(await this.execute(params, req, runtime), new HeadObjectResponse({}));
   }
 
-  async initiateBucketWorm(bucket: string, request: InitiateBucketWormRequest): Promise<InitiateBucketWormResponse> {
+  /**
+    * - When you call this operation, the object content is not returned in the results. 
+    * - By default, you can call the HeadObject operation to query the metadata of the object of the current version. If the current version of the object is a delete marker, OSS returns 404 Not Found. If you specify a version ID in the request, OSS returns the metadata of the object of the specified version.
+    *
+    * @param request HeadObjectRequest
+    * @return HeadObjectResponse
+   */
+  async headObject(bucket: string, key: string, request: HeadObjectRequest): Promise<HeadObjectResponse> {
     let runtime = new $Util.RuntimeOptions({ });
-    let headers : {[key: string ]: string} = { };
-    return await this.initiateBucketWormWithOptions(bucket, request, headers, runtime);
+    let headers = new HeadObjectHeaders({ });
+    return await this.headObjectWithOptions(bucket, key, request, headers, runtime);
   }
 
   async initiateBucketWormWithOptions(bucket: string, request: InitiateBucketWormRequest, headers: {[key: string ]: string}, runtime: $Util.RuntimeOptions): Promise<InitiateBucketWormResponse> {
@@ -9096,7 +10074,7 @@ export default class Client extends OpenApi {
     let req = new $OpenApi.OpenApiRequest({
       hostMap: hostMap,
       headers: headers,
-      body: OpenApiUtil.parseToMap($tea.toMap(request.initiateWormConfiguration)),
+      body: OpenApiUtil.parseToMap(request.initiateWormConfiguration),
     });
     let params = new $OpenApi.Params({
       action: "InitiateBucketWorm",
@@ -9112,12 +10090,22 @@ export default class Client extends OpenApi {
     return $tea.cast<InitiateBucketWormResponse>(await this.execute(params, req, runtime), new InitiateBucketWormResponse({}));
   }
 
-  async initiateMultipartUpload(bucket: string, key: string, request: InitiateMultipartUploadRequest): Promise<InitiateMultipartUploadResponse> {
+  async initiateBucketWorm(bucket: string, request: InitiateBucketWormRequest): Promise<InitiateBucketWormResponse> {
     let runtime = new $Util.RuntimeOptions({ });
-    let headers = new InitiateMultipartUploadHeaders({ });
-    return await this.initiateMultipartUploadWithOptions(bucket, key, request, headers, runtime);
+    let headers : {[key: string ]: string} = { };
+    return await this.initiateBucketWormWithOptions(bucket, request, headers, runtime);
   }
 
+  /**
+    * - When you call the InitiateMultipartUpload operation, OSS creates and returns a unique upload ID to identify the multipart upload task. You can initiate operations such as stopping or querying the multipart upload task by using this upload ID.
+    * - When you initiate a multipart upload request to upload an object, the existing object that has the same name is not affected.
+    * - If you want to calculate the signature for authentication when you call this operation, you must add `?uploads` to `CanonicalizedResource`.
+    *
+    * @param request InitiateMultipartUploadRequest
+    * @param headers InitiateMultipartUploadHeaders
+    * @param runtime runtime options for this request RuntimeOptions
+    * @return InitiateMultipartUploadResponse
+   */
   async initiateMultipartUploadWithOptions(bucket: string, key: string, request: InitiateMultipartUploadRequest, headers: InitiateMultipartUploadHeaders, runtime: $Util.RuntimeOptions): Promise<InitiateMultipartUploadResponse> {
     Util.validateModel(request);
     let hostMap : {[key: string ]: string} = { };
@@ -9191,10 +10179,18 @@ export default class Client extends OpenApi {
     return $tea.cast<InitiateMultipartUploadResponse>(await this.execute(params, req, runtime), new InitiateMultipartUploadResponse({}));
   }
 
-  async listBucketInventory(bucket: string, request: ListBucketInventoryRequest): Promise<ListBucketInventoryResponse> {
+  /**
+    * - When you call the InitiateMultipartUpload operation, OSS creates and returns a unique upload ID to identify the multipart upload task. You can initiate operations such as stopping or querying the multipart upload task by using this upload ID.
+    * - When you initiate a multipart upload request to upload an object, the existing object that has the same name is not affected.
+    * - If you want to calculate the signature for authentication when you call this operation, you must add `?uploads` to `CanonicalizedResource`.
+    *
+    * @param request InitiateMultipartUploadRequest
+    * @return InitiateMultipartUploadResponse
+   */
+  async initiateMultipartUpload(bucket: string, key: string, request: InitiateMultipartUploadRequest): Promise<InitiateMultipartUploadResponse> {
     let runtime = new $Util.RuntimeOptions({ });
-    let headers : {[key: string ]: string} = { };
-    return await this.listBucketInventoryWithOptions(bucket, request, headers, runtime);
+    let headers = new InitiateMultipartUploadHeaders({ });
+    return await this.initiateMultipartUploadWithOptions(bucket, key, request, headers, runtime);
   }
 
   async listBucketInventoryWithOptions(bucket: string, request: ListBucketInventoryRequest, headers: {[key: string ]: string}, runtime: $Util.RuntimeOptions): Promise<ListBucketInventoryResponse> {
@@ -9225,13 +10221,13 @@ export default class Client extends OpenApi {
     return $tea.cast<ListBucketInventoryResponse>(await this.execute(params, req, runtime), new ListBucketInventoryResponse({}));
   }
 
-  async listBuckets(request: ListBucketsRequest): Promise<ListBucketsResponse> {
+  async listBucketInventory(bucket: string, request: ListBucketInventoryRequest): Promise<ListBucketInventoryResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     let headers : {[key: string ]: string} = { };
-    return await this.listBucketsWithOptions(request, headers, runtime);
+    return await this.listBucketInventoryWithOptions(bucket, request, headers, runtime);
   }
 
-  async listBucketsWithOptions(request: ListBucketsRequest, headers: {[key: string ]: string}, runtime: $Util.RuntimeOptions): Promise<ListBucketsResponse> {
+  async listBucketsWithOptions(request: ListBucketsRequest, headers: ListBucketsHeaders, runtime: $Util.RuntimeOptions): Promise<ListBucketsResponse> {
     Util.validateModel(request);
     let query : {[key: string ]: any} = { };
     if (!Util.isUnset(request.marker)) {
@@ -9246,8 +10242,17 @@ export default class Client extends OpenApi {
       query["prefix"] = request.prefix;
     }
 
+    let realHeaders : {[key: string ]: string} = { };
+    if (!Util.isUnset(headers.commonHeaders)) {
+      realHeaders = headers.commonHeaders;
+    }
+
+    if (!Util.isUnset(headers.xOssResourceGroupId)) {
+      realHeaders["x-oss-resource-group-id"] = Util.toJSONString(headers.xOssResourceGroupId);
+    }
+
     let req = new $OpenApi.OpenApiRequest({
-      headers: headers,
+      headers: realHeaders,
       query: OpenApiUtil.query(query),
     });
     let params = new $OpenApi.Params({
@@ -9264,10 +10269,10 @@ export default class Client extends OpenApi {
     return $tea.cast<ListBucketsResponse>(await this.execute(params, req, runtime), new ListBucketsResponse({}));
   }
 
-  async listLiveChannel(bucket: string, request: ListLiveChannelRequest): Promise<ListLiveChannelResponse> {
+  async listBuckets(request: ListBucketsRequest): Promise<ListBucketsResponse> {
     let runtime = new $Util.RuntimeOptions({ });
-    let headers : {[key: string ]: string} = { };
-    return await this.listLiveChannelWithOptions(bucket, request, headers, runtime);
+    let headers = new ListBucketsHeaders({ });
+    return await this.listBucketsWithOptions(request, headers, runtime);
   }
 
   async listLiveChannelWithOptions(bucket: string, request: ListLiveChannelRequest, headers: {[key: string ]: string}, runtime: $Util.RuntimeOptions): Promise<ListLiveChannelResponse> {
@@ -9306,10 +10311,10 @@ export default class Client extends OpenApi {
     return $tea.cast<ListLiveChannelResponse>(await this.execute(params, req, runtime), new ListLiveChannelResponse({}));
   }
 
-  async listMultipartUploads(bucket: string, request: ListMultipartUploadsRequest): Promise<ListMultipartUploadsResponse> {
+  async listLiveChannel(bucket: string, request: ListLiveChannelRequest): Promise<ListLiveChannelResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     let headers : {[key: string ]: string} = { };
-    return await this.listMultipartUploadsWithOptions(bucket, request, headers, runtime);
+    return await this.listLiveChannelWithOptions(bucket, request, headers, runtime);
   }
 
   async listMultipartUploadsWithOptions(bucket: string, request: ListMultipartUploadsRequest, headers: {[key: string ]: string}, runtime: $Util.RuntimeOptions): Promise<ListMultipartUploadsResponse> {
@@ -9360,10 +10365,10 @@ export default class Client extends OpenApi {
     return $tea.cast<ListMultipartUploadsResponse>(await this.execute(params, req, runtime), new ListMultipartUploadsResponse({}));
   }
 
-  async listObjectVersions(bucket: string, request: ListObjectVersionsRequest): Promise<ListObjectVersionsResponse> {
+  async listMultipartUploads(bucket: string, request: ListMultipartUploadsRequest): Promise<ListMultipartUploadsResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     let headers : {[key: string ]: string} = { };
-    return await this.listObjectVersionsWithOptions(bucket, request, headers, runtime);
+    return await this.listMultipartUploadsWithOptions(bucket, request, headers, runtime);
   }
 
   async listObjectVersionsWithOptions(bucket: string, request: ListObjectVersionsRequest, headers: {[key: string ]: string}, runtime: $Util.RuntimeOptions): Promise<ListObjectVersionsResponse> {
@@ -9414,10 +10419,10 @@ export default class Client extends OpenApi {
     return $tea.cast<ListObjectVersionsResponse>(await this.execute(params, req, runtime), new ListObjectVersionsResponse({}));
   }
 
-  async listObjects(bucket: string, request: ListObjectsRequest): Promise<ListObjectsResponse> {
+  async listObjectVersions(bucket: string, request: ListObjectVersionsRequest): Promise<ListObjectVersionsResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     let headers : {[key: string ]: string} = { };
-    return await this.listObjectsWithOptions(bucket, request, headers, runtime);
+    return await this.listObjectVersionsWithOptions(bucket, request, headers, runtime);
   }
 
   async listObjectsWithOptions(bucket: string, request: ListObjectsRequest, headers: {[key: string ]: string}, runtime: $Util.RuntimeOptions): Promise<ListObjectsResponse> {
@@ -9464,10 +10469,10 @@ export default class Client extends OpenApi {
     return $tea.cast<ListObjectsResponse>(await this.execute(params, req, runtime), new ListObjectsResponse({}));
   }
 
-  async listObjectsV2(bucket: string, request: ListObjectsV2Request): Promise<ListObjectsV2Response> {
+  async listObjects(bucket: string, request: ListObjectsRequest): Promise<ListObjectsResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     let headers : {[key: string ]: string} = { };
-    return await this.listObjectsV2WithOptions(bucket, request, headers, runtime);
+    return await this.listObjectsWithOptions(bucket, request, headers, runtime);
   }
 
   async listObjectsV2WithOptions(bucket: string, request: ListObjectsV2Request, headers: {[key: string ]: string}, runtime: $Util.RuntimeOptions): Promise<ListObjectsV2Response> {
@@ -9522,10 +10527,10 @@ export default class Client extends OpenApi {
     return $tea.cast<ListObjectsV2Response>(await this.execute(params, req, runtime), new ListObjectsV2Response({}));
   }
 
-  async listParts(bucket: string, key: string, request: ListPartsRequest): Promise<ListPartsResponse> {
+  async listObjectsV2(bucket: string, request: ListObjectsV2Request): Promise<ListObjectsV2Response> {
     let runtime = new $Util.RuntimeOptions({ });
     let headers : {[key: string ]: string} = { };
-    return await this.listPartsWithOptions(bucket, key, request, headers, runtime);
+    return await this.listObjectsV2WithOptions(bucket, request, headers, runtime);
   }
 
   async listPartsWithOptions(bucket: string, key: string, tmpReq: ListPartsRequest, headers: {[key: string ]: string}, runtime: $Util.RuntimeOptions): Promise<ListPartsResponse> {
@@ -9574,10 +10579,10 @@ export default class Client extends OpenApi {
     return $tea.cast<ListPartsResponse>(await this.execute(params, req, runtime), new ListPartsResponse({}));
   }
 
-  async optionObject(bucket: string, key: string): Promise<OptionObjectResponse> {
+  async listParts(bucket: string, key: string, request: ListPartsRequest): Promise<ListPartsResponse> {
     let runtime = new $Util.RuntimeOptions({ });
-    let headers = new OptionObjectHeaders({ });
-    return await this.optionObjectWithOptions(bucket, key, headers, runtime);
+    let headers : {[key: string ]: string} = { };
+    return await this.listPartsWithOptions(bucket, key, request, headers, runtime);
   }
 
   async optionObjectWithOptions(bucket: string, key: string, headers: OptionObjectHeaders, runtime: $Util.RuntimeOptions): Promise<OptionObjectResponse> {
@@ -9618,12 +10623,40 @@ export default class Client extends OpenApi {
     return $tea.cast<OptionObjectResponse>(await this.execute(params, req, runtime), new OptionObjectResponse({}));
   }
 
-  async postObject(bucket: string): Promise<PostObjectResponse> {
+  async optionObject(bucket: string, key: string): Promise<OptionObjectResponse> {
     let runtime = new $Util.RuntimeOptions({ });
-    let headers : {[key: string ]: string} = { };
-    return await this.postObjectWithOptions(bucket, headers, runtime);
+    let headers = new OptionObjectHeaders({ });
+    return await this.optionObjectWithOptions(bucket, key, headers, runtime);
   }
 
+  /**
+    * - 
+    *   The object that is uploaded by calling the PostObject operation cannot be
+    *   larger than 5 GB in size.
+    * - 
+    *   To initiate a PostObject request to a bucket, you must have write permissions
+    *   on the bucket. If the ACL of the bucket to which you want to initiate a
+    *   PostObject request is public-read-write, you do not need to sign the
+    *   PostObject request. In other cases, Object Storage Service (OSS) verifies the
+    *   signature information contained in the request.
+    * - 
+    *   Unlike the PutObject operation, the PostObject operation uses an AccessKey
+    *   secret to calculate the signature for the policy form field. The calculated
+    *   signature string is used as the value of the Signature form field. OSS checks
+    *   this value to verify the validity of the signature.
+    * - 
+    *   The URL of the submitted form is the domain name of the bucket. You do not
+    *   need to specify the object that you want to upload in the URL. In other words,
+    *   the request line is in the format of `POST T/ HTTP/1.1` instead of `POST
+    *   /ObjectName HTTP/1.1`.
+    * - 
+    *   OSS does not check the signature information that is contained in headers or
+    *   URLs in PostObject requests.
+    *
+    * @param headers map
+    * @param runtime runtime options for this request RuntimeOptions
+    * @return PostObjectResponse
+   */
   async postObjectWithOptions(bucket: string, headers: {[key: string ]: string}, runtime: $Util.RuntimeOptions): Promise<PostObjectResponse> {
     let hostMap : {[key: string ]: string} = { };
     hostMap["bucket"] = bucket;
@@ -9645,10 +10678,36 @@ export default class Client extends OpenApi {
     return $tea.cast<PostObjectResponse>(await this.execute(params, req, runtime), new PostObjectResponse({}));
   }
 
-  async postVodPlaylist(bucket: string, channel: string, playlist: string, request: PostVodPlaylistRequest): Promise<PostVodPlaylistResponse> {
+  /**
+    * - 
+    *   The object that is uploaded by calling the PostObject operation cannot be
+    *   larger than 5 GB in size.
+    * - 
+    *   To initiate a PostObject request to a bucket, you must have write permissions
+    *   on the bucket. If the ACL of the bucket to which you want to initiate a
+    *   PostObject request is public-read-write, you do not need to sign the
+    *   PostObject request. In other cases, Object Storage Service (OSS) verifies the
+    *   signature information contained in the request.
+    * - 
+    *   Unlike the PutObject operation, the PostObject operation uses an AccessKey
+    *   secret to calculate the signature for the policy form field. The calculated
+    *   signature string is used as the value of the Signature form field. OSS checks
+    *   this value to verify the validity of the signature.
+    * - 
+    *   The URL of the submitted form is the domain name of the bucket. You do not
+    *   need to specify the object that you want to upload in the URL. In other words,
+    *   the request line is in the format of `POST T/ HTTP/1.1` instead of `POST
+    *   /ObjectName HTTP/1.1`.
+    * - 
+    *   OSS does not check the signature information that is contained in headers or
+    *   URLs in PostObject requests.
+    *
+    * @return PostObjectResponse
+   */
+  async postObject(bucket: string): Promise<PostObjectResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     let headers : {[key: string ]: string} = { };
-    return await this.postVodPlaylistWithOptions(bucket, channel, playlist, request, headers, runtime);
+    return await this.postObjectWithOptions(bucket, headers, runtime);
   }
 
   async postVodPlaylistWithOptions(bucket: string, channel: string, playlist: string, request: PostVodPlaylistRequest, headers: {[key: string ]: string}, runtime: $Util.RuntimeOptions): Promise<PostVodPlaylistResponse> {
@@ -9683,10 +10742,10 @@ export default class Client extends OpenApi {
     return $tea.cast<PostVodPlaylistResponse>(await this.execute(params, req, runtime), new PostVodPlaylistResponse({}));
   }
 
-  async putBucket(bucket: string, request: PutBucketRequest): Promise<PutBucketResponse> {
+  async postVodPlaylist(bucket: string, channel: string, playlist: string, request: PostVodPlaylistRequest): Promise<PostVodPlaylistResponse> {
     let runtime = new $Util.RuntimeOptions({ });
-    let headers = new PutBucketHeaders({ });
-    return await this.putBucketWithOptions(bucket, request, headers, runtime);
+    let headers : {[key: string ]: string} = { };
+    return await this.postVodPlaylistWithOptions(bucket, channel, playlist, request, headers, runtime);
   }
 
   async putBucketWithOptions(bucket: string, request: PutBucketRequest, headers: PutBucketHeaders, runtime: $Util.RuntimeOptions): Promise<PutBucketResponse> {
@@ -9702,10 +10761,14 @@ export default class Client extends OpenApi {
       realHeaders["x-oss-acl"] = Util.toJSONString(headers.acl);
     }
 
+    if (!Util.isUnset(headers.xOssResourceGroupId)) {
+      realHeaders["x-oss-resource-group-id"] = Util.toJSONString(headers.xOssResourceGroupId);
+    }
+
     let req = new $OpenApi.OpenApiRequest({
       hostMap: hostMap,
       headers: realHeaders,
-      body: OpenApiUtil.parseToMap($tea.toMap(request.createBucketConfiguration)),
+      body: OpenApiUtil.parseToMap(request.createBucketConfiguration),
     });
     let params = new $OpenApi.Params({
       action: "PutBucket",
@@ -9721,10 +10784,10 @@ export default class Client extends OpenApi {
     return $tea.cast<PutBucketResponse>(await this.execute(params, req, runtime), new PutBucketResponse({}));
   }
 
-  async putBucketAcl(bucket: string): Promise<PutBucketAclResponse> {
+  async putBucket(bucket: string, request: PutBucketRequest): Promise<PutBucketResponse> {
     let runtime = new $Util.RuntimeOptions({ });
-    let headers = new PutBucketAclHeaders({ });
-    return await this.putBucketAclWithOptions(bucket, headers, runtime);
+    let headers = new PutBucketHeaders({ });
+    return await this.putBucketWithOptions(bucket, request, headers, runtime);
   }
 
   async putBucketAclWithOptions(bucket: string, headers: PutBucketAclHeaders, runtime: $Util.RuntimeOptions): Promise<PutBucketAclResponse> {
@@ -9757,10 +10820,10 @@ export default class Client extends OpenApi {
     return $tea.cast<PutBucketAclResponse>(await this.execute(params, req, runtime), new PutBucketAclResponse({}));
   }
 
-  async putBucketCors(bucket: string, request: PutBucketCorsRequest): Promise<PutBucketCorsResponse> {
+  async putBucketAcl(bucket: string): Promise<PutBucketAclResponse> {
     let runtime = new $Util.RuntimeOptions({ });
-    let headers : {[key: string ]: string} = { };
-    return await this.putBucketCorsWithOptions(bucket, request, headers, runtime);
+    let headers = new PutBucketAclHeaders({ });
+    return await this.putBucketAclWithOptions(bucket, headers, runtime);
   }
 
   async putBucketCorsWithOptions(bucket: string, request: PutBucketCorsRequest, headers: {[key: string ]: string}, runtime: $Util.RuntimeOptions): Promise<PutBucketCorsResponse> {
@@ -9770,7 +10833,7 @@ export default class Client extends OpenApi {
     let req = new $OpenApi.OpenApiRequest({
       hostMap: hostMap,
       headers: headers,
-      body: OpenApiUtil.parseToMap($tea.toMap(request.cORSConfiguration)),
+      body: OpenApiUtil.parseToMap(request.cORSConfiguration),
     });
     let params = new $OpenApi.Params({
       action: "PutBucketCors",
@@ -9786,10 +10849,10 @@ export default class Client extends OpenApi {
     return $tea.cast<PutBucketCorsResponse>(await this.execute(params, req, runtime), new PutBucketCorsResponse({}));
   }
 
-  async putBucketEncryption(bucket: string, request: PutBucketEncryptionRequest): Promise<PutBucketEncryptionResponse> {
+  async putBucketCors(bucket: string, request: PutBucketCorsRequest): Promise<PutBucketCorsResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     let headers : {[key: string ]: string} = { };
-    return await this.putBucketEncryptionWithOptions(bucket, request, headers, runtime);
+    return await this.putBucketCorsWithOptions(bucket, request, headers, runtime);
   }
 
   async putBucketEncryptionWithOptions(bucket: string, request: PutBucketEncryptionRequest, headers: {[key: string ]: string}, runtime: $Util.RuntimeOptions): Promise<PutBucketEncryptionResponse> {
@@ -9799,7 +10862,7 @@ export default class Client extends OpenApi {
     let req = new $OpenApi.OpenApiRequest({
       hostMap: hostMap,
       headers: headers,
-      body: OpenApiUtil.parseToMap($tea.toMap(request.serverSideEncryptionRule)),
+      body: OpenApiUtil.parseToMap(request.serverSideEncryptionRule),
     });
     let params = new $OpenApi.Params({
       action: "PutBucketEncryption",
@@ -9815,10 +10878,10 @@ export default class Client extends OpenApi {
     return $tea.cast<PutBucketEncryptionResponse>(await this.execute(params, req, runtime), new PutBucketEncryptionResponse({}));
   }
 
-  async putBucketInventory(bucket: string, request: PutBucketInventoryRequest): Promise<PutBucketInventoryResponse> {
+  async putBucketEncryption(bucket: string, request: PutBucketEncryptionRequest): Promise<PutBucketEncryptionResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     let headers : {[key: string ]: string} = { };
-    return await this.putBucketInventoryWithOptions(bucket, request, headers, runtime);
+    return await this.putBucketEncryptionWithOptions(bucket, request, headers, runtime);
   }
 
   async putBucketInventoryWithOptions(bucket: string, request: PutBucketInventoryRequest, headers: {[key: string ]: string}, runtime: $Util.RuntimeOptions): Promise<PutBucketInventoryResponse> {
@@ -9834,7 +10897,7 @@ export default class Client extends OpenApi {
       hostMap: hostMap,
       headers: headers,
       query: OpenApiUtil.query(query),
-      body: OpenApiUtil.parseToMap($tea.toMap(request.inventoryConfiguration)),
+      body: OpenApiUtil.parseToMap(request.inventoryConfiguration),
     });
     let params = new $OpenApi.Params({
       action: "PutBucketInventory",
@@ -9850,10 +10913,10 @@ export default class Client extends OpenApi {
     return $tea.cast<PutBucketInventoryResponse>(await this.execute(params, req, runtime), new PutBucketInventoryResponse({}));
   }
 
-  async putBucketLifecycle(bucket: string, request: PutBucketLifecycleRequest): Promise<PutBucketLifecycleResponse> {
+  async putBucketInventory(bucket: string, request: PutBucketInventoryRequest): Promise<PutBucketInventoryResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     let headers : {[key: string ]: string} = { };
-    return await this.putBucketLifecycleWithOptions(bucket, request, headers, runtime);
+    return await this.putBucketInventoryWithOptions(bucket, request, headers, runtime);
   }
 
   async putBucketLifecycleWithOptions(bucket: string, request: PutBucketLifecycleRequest, headers: {[key: string ]: string}, runtime: $Util.RuntimeOptions): Promise<PutBucketLifecycleResponse> {
@@ -9863,7 +10926,7 @@ export default class Client extends OpenApi {
     let req = new $OpenApi.OpenApiRequest({
       hostMap: hostMap,
       headers: headers,
-      body: OpenApiUtil.parseToMap($tea.toMap(request.lifecycleConfiguration)),
+      body: OpenApiUtil.parseToMap(request.lifecycleConfiguration),
     });
     let params = new $OpenApi.Params({
       action: "PutBucketLifecycle",
@@ -9879,10 +10942,10 @@ export default class Client extends OpenApi {
     return $tea.cast<PutBucketLifecycleResponse>(await this.execute(params, req, runtime), new PutBucketLifecycleResponse({}));
   }
 
-  async putBucketLogging(bucket: string, request: PutBucketLoggingRequest): Promise<PutBucketLoggingResponse> {
+  async putBucketLifecycle(bucket: string, request: PutBucketLifecycleRequest): Promise<PutBucketLifecycleResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     let headers : {[key: string ]: string} = { };
-    return await this.putBucketLoggingWithOptions(bucket, request, headers, runtime);
+    return await this.putBucketLifecycleWithOptions(bucket, request, headers, runtime);
   }
 
   async putBucketLoggingWithOptions(bucket: string, request: PutBucketLoggingRequest, headers: {[key: string ]: string}, runtime: $Util.RuntimeOptions): Promise<PutBucketLoggingResponse> {
@@ -9892,7 +10955,7 @@ export default class Client extends OpenApi {
     let req = new $OpenApi.OpenApiRequest({
       hostMap: hostMap,
       headers: headers,
-      body: OpenApiUtil.parseToMap($tea.toMap(request.bucketLoggingStatus)),
+      body: OpenApiUtil.parseToMap(request.bucketLoggingStatus),
     });
     let params = new $OpenApi.Params({
       action: "PutBucketLogging",
@@ -9908,10 +10971,10 @@ export default class Client extends OpenApi {
     return $tea.cast<PutBucketLoggingResponse>(await this.execute(params, req, runtime), new PutBucketLoggingResponse({}));
   }
 
-  async putBucketPolicy(bucket: string, request: PutBucketPolicyRequest): Promise<PutBucketPolicyResponse> {
+  async putBucketLogging(bucket: string, request: PutBucketLoggingRequest): Promise<PutBucketLoggingResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     let headers : {[key: string ]: string} = { };
-    return await this.putBucketPolicyWithOptions(bucket, request, headers, runtime);
+    return await this.putBucketLoggingWithOptions(bucket, request, headers, runtime);
   }
 
   async putBucketPolicyWithOptions(bucket: string, request: PutBucketPolicyRequest, headers: {[key: string ]: string}, runtime: $Util.RuntimeOptions): Promise<PutBucketPolicyResponse> {
@@ -9937,10 +11000,10 @@ export default class Client extends OpenApi {
     return $tea.cast<PutBucketPolicyResponse>(await this.execute(params, req, runtime), new PutBucketPolicyResponse({}));
   }
 
-  async putBucketReferer(bucket: string, request: PutBucketRefererRequest): Promise<PutBucketRefererResponse> {
+  async putBucketPolicy(bucket: string, request: PutBucketPolicyRequest): Promise<PutBucketPolicyResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     let headers : {[key: string ]: string} = { };
-    return await this.putBucketRefererWithOptions(bucket, request, headers, runtime);
+    return await this.putBucketPolicyWithOptions(bucket, request, headers, runtime);
   }
 
   async putBucketRefererWithOptions(bucket: string, request: PutBucketRefererRequest, headers: {[key: string ]: string}, runtime: $Util.RuntimeOptions): Promise<PutBucketRefererResponse> {
@@ -9950,7 +11013,7 @@ export default class Client extends OpenApi {
     let req = new $OpenApi.OpenApiRequest({
       hostMap: hostMap,
       headers: headers,
-      body: OpenApiUtil.parseToMap($tea.toMap(request.refererConfiguration)),
+      body: OpenApiUtil.parseToMap(request.refererConfiguration),
     });
     let params = new $OpenApi.Params({
       action: "PutBucketReferer",
@@ -9966,10 +11029,10 @@ export default class Client extends OpenApi {
     return $tea.cast<PutBucketRefererResponse>(await this.execute(params, req, runtime), new PutBucketRefererResponse({}));
   }
 
-  async putBucketReplication(bucket: string, request: PutBucketReplicationRequest): Promise<PutBucketReplicationResponse> {
+  async putBucketReferer(bucket: string, request: PutBucketRefererRequest): Promise<PutBucketRefererResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     let headers : {[key: string ]: string} = { };
-    return await this.putBucketReplicationWithOptions(bucket, request, headers, runtime);
+    return await this.putBucketRefererWithOptions(bucket, request, headers, runtime);
   }
 
   async putBucketReplicationWithOptions(bucket: string, request: PutBucketReplicationRequest, headers: {[key: string ]: string}, runtime: $Util.RuntimeOptions): Promise<PutBucketReplicationResponse> {
@@ -9979,7 +11042,7 @@ export default class Client extends OpenApi {
     let req = new $OpenApi.OpenApiRequest({
       hostMap: hostMap,
       headers: headers,
-      body: OpenApiUtil.parseToMap($tea.toMap(request.replicationConfiguration)),
+      body: OpenApiUtil.parseToMap(request.replicationConfiguration),
     });
     let params = new $OpenApi.Params({
       action: "PutBucketReplication",
@@ -9995,10 +11058,10 @@ export default class Client extends OpenApi {
     return $tea.cast<PutBucketReplicationResponse>(await this.execute(params, req, runtime), new PutBucketReplicationResponse({}));
   }
 
-  async putBucketRequestPayment(bucket: string, request: PutBucketRequestPaymentRequest): Promise<PutBucketRequestPaymentResponse> {
+  async putBucketReplication(bucket: string, request: PutBucketReplicationRequest): Promise<PutBucketReplicationResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     let headers : {[key: string ]: string} = { };
-    return await this.putBucketRequestPaymentWithOptions(bucket, request, headers, runtime);
+    return await this.putBucketReplicationWithOptions(bucket, request, headers, runtime);
   }
 
   async putBucketRequestPaymentWithOptions(bucket: string, request: PutBucketRequestPaymentRequest, headers: {[key: string ]: string}, runtime: $Util.RuntimeOptions): Promise<PutBucketRequestPaymentResponse> {
@@ -10008,7 +11071,7 @@ export default class Client extends OpenApi {
     let req = new $OpenApi.OpenApiRequest({
       hostMap: hostMap,
       headers: headers,
-      body: OpenApiUtil.parseToMap($tea.toMap(request.requestPaymentConfiguration)),
+      body: OpenApiUtil.parseToMap(request.requestPaymentConfiguration),
     });
     let params = new $OpenApi.Params({
       action: "PutBucketRequestPayment",
@@ -10024,10 +11087,10 @@ export default class Client extends OpenApi {
     return $tea.cast<PutBucketRequestPaymentResponse>(await this.execute(params, req, runtime), new PutBucketRequestPaymentResponse({}));
   }
 
-  async putBucketTags(bucket: string, request: PutBucketTagsRequest): Promise<PutBucketTagsResponse> {
+  async putBucketRequestPayment(bucket: string, request: PutBucketRequestPaymentRequest): Promise<PutBucketRequestPaymentResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     let headers : {[key: string ]: string} = { };
-    return await this.putBucketTagsWithOptions(bucket, request, headers, runtime);
+    return await this.putBucketRequestPaymentWithOptions(bucket, request, headers, runtime);
   }
 
   async putBucketTagsWithOptions(bucket: string, request: PutBucketTagsRequest, headers: {[key: string ]: string}, runtime: $Util.RuntimeOptions): Promise<PutBucketTagsResponse> {
@@ -10037,7 +11100,7 @@ export default class Client extends OpenApi {
     let req = new $OpenApi.OpenApiRequest({
       hostMap: hostMap,
       headers: headers,
-      body: OpenApiUtil.parseToMap($tea.toMap(request.tagging)),
+      body: OpenApiUtil.parseToMap(request.tagging),
     });
     let params = new $OpenApi.Params({
       action: "PutBucketTags",
@@ -10053,10 +11116,10 @@ export default class Client extends OpenApi {
     return $tea.cast<PutBucketTagsResponse>(await this.execute(params, req, runtime), new PutBucketTagsResponse({}));
   }
 
-  async putBucketTransferAcceleration(bucket: string, request: PutBucketTransferAccelerationRequest): Promise<PutBucketTransferAccelerationResponse> {
+  async putBucketTags(bucket: string, request: PutBucketTagsRequest): Promise<PutBucketTagsResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     let headers : {[key: string ]: string} = { };
-    return await this.putBucketTransferAccelerationWithOptions(bucket, request, headers, runtime);
+    return await this.putBucketTagsWithOptions(bucket, request, headers, runtime);
   }
 
   async putBucketTransferAccelerationWithOptions(bucket: string, request: PutBucketTransferAccelerationRequest, headers: {[key: string ]: string}, runtime: $Util.RuntimeOptions): Promise<PutBucketTransferAccelerationResponse> {
@@ -10066,7 +11129,7 @@ export default class Client extends OpenApi {
     let req = new $OpenApi.OpenApiRequest({
       hostMap: hostMap,
       headers: headers,
-      body: OpenApiUtil.parseToMap($tea.toMap(request.transferAccelerationConfiguration)),
+      body: OpenApiUtil.parseToMap(request.transferAccelerationConfiguration),
     });
     let params = new $OpenApi.Params({
       action: "PutBucketTransferAcceleration",
@@ -10082,10 +11145,10 @@ export default class Client extends OpenApi {
     return $tea.cast<PutBucketTransferAccelerationResponse>(await this.execute(params, req, runtime), new PutBucketTransferAccelerationResponse({}));
   }
 
-  async putBucketVersioning(bucket: string, request: PutBucketVersioningRequest): Promise<PutBucketVersioningResponse> {
+  async putBucketTransferAcceleration(bucket: string, request: PutBucketTransferAccelerationRequest): Promise<PutBucketTransferAccelerationResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     let headers : {[key: string ]: string} = { };
-    return await this.putBucketVersioningWithOptions(bucket, request, headers, runtime);
+    return await this.putBucketTransferAccelerationWithOptions(bucket, request, headers, runtime);
   }
 
   async putBucketVersioningWithOptions(bucket: string, request: PutBucketVersioningRequest, headers: {[key: string ]: string}, runtime: $Util.RuntimeOptions): Promise<PutBucketVersioningResponse> {
@@ -10095,7 +11158,7 @@ export default class Client extends OpenApi {
     let req = new $OpenApi.OpenApiRequest({
       hostMap: hostMap,
       headers: headers,
-      body: OpenApiUtil.parseToMap($tea.toMap(request.versioningConfiguration)),
+      body: OpenApiUtil.parseToMap(request.versioningConfiguration),
     });
     let params = new $OpenApi.Params({
       action: "PutBucketVersioning",
@@ -10111,10 +11174,10 @@ export default class Client extends OpenApi {
     return $tea.cast<PutBucketVersioningResponse>(await this.execute(params, req, runtime), new PutBucketVersioningResponse({}));
   }
 
-  async putBucketWebsite(bucket: string, request: PutBucketWebsiteRequest): Promise<PutBucketWebsiteResponse> {
+  async putBucketVersioning(bucket: string, request: PutBucketVersioningRequest): Promise<PutBucketVersioningResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     let headers : {[key: string ]: string} = { };
-    return await this.putBucketWebsiteWithOptions(bucket, request, headers, runtime);
+    return await this.putBucketVersioningWithOptions(bucket, request, headers, runtime);
   }
 
   async putBucketWebsiteWithOptions(bucket: string, request: PutBucketWebsiteRequest, headers: {[key: string ]: string}, runtime: $Util.RuntimeOptions): Promise<PutBucketWebsiteResponse> {
@@ -10124,7 +11187,7 @@ export default class Client extends OpenApi {
     let req = new $OpenApi.OpenApiRequest({
       hostMap: hostMap,
       headers: headers,
-      body: OpenApiUtil.parseToMap($tea.toMap(request.websiteConfiguration)),
+      body: OpenApiUtil.parseToMap(request.websiteConfiguration),
     });
     let params = new $OpenApi.Params({
       action: "PutBucketWebsite",
@@ -10140,10 +11203,10 @@ export default class Client extends OpenApi {
     return $tea.cast<PutBucketWebsiteResponse>(await this.execute(params, req, runtime), new PutBucketWebsiteResponse({}));
   }
 
-  async putLiveChannel(bucket: string, channel: string, request: PutLiveChannelRequest): Promise<PutLiveChannelResponse> {
+  async putBucketWebsite(bucket: string, request: PutBucketWebsiteRequest): Promise<PutBucketWebsiteResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     let headers : {[key: string ]: string} = { };
-    return await this.putLiveChannelWithOptions(bucket, channel, request, headers, runtime);
+    return await this.putBucketWebsiteWithOptions(bucket, request, headers, runtime);
   }
 
   async putLiveChannelWithOptions(bucket: string, channel: string, request: PutLiveChannelRequest, headers: {[key: string ]: string}, runtime: $Util.RuntimeOptions): Promise<PutLiveChannelResponse> {
@@ -10153,7 +11216,7 @@ export default class Client extends OpenApi {
     let req = new $OpenApi.OpenApiRequest({
       hostMap: hostMap,
       headers: headers,
-      body: OpenApiUtil.parseToMap($tea.toMap(request.liveChannelConfiguration)),
+      body: OpenApiUtil.parseToMap(request.liveChannelConfiguration),
     });
     let params = new $OpenApi.Params({
       action: "PutLiveChannel",
@@ -10169,10 +11232,10 @@ export default class Client extends OpenApi {
     return $tea.cast<PutLiveChannelResponse>(await this.execute(params, req, runtime), new PutLiveChannelResponse({}));
   }
 
-  async putLiveChannelStatus(bucket: string, channel: string, request: PutLiveChannelStatusRequest): Promise<PutLiveChannelStatusResponse> {
+  async putLiveChannel(bucket: string, channel: string, request: PutLiveChannelRequest): Promise<PutLiveChannelResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     let headers : {[key: string ]: string} = { };
-    return await this.putLiveChannelStatusWithOptions(bucket, channel, request, headers, runtime);
+    return await this.putLiveChannelWithOptions(bucket, channel, request, headers, runtime);
   }
 
   async putLiveChannelStatusWithOptions(bucket: string, channel: string, request: PutLiveChannelStatusRequest, headers: {[key: string ]: string}, runtime: $Util.RuntimeOptions): Promise<PutLiveChannelStatusResponse> {
@@ -10203,10 +11266,10 @@ export default class Client extends OpenApi {
     return $tea.cast<PutLiveChannelStatusResponse>(await this.execute(params, req, runtime), new PutLiveChannelStatusResponse({}));
   }
 
-  async putObject(bucket: string, key: string, request: PutObjectRequest): Promise<PutObjectResponse> {
+  async putLiveChannelStatus(bucket: string, channel: string, request: PutLiveChannelStatusRequest): Promise<PutLiveChannelStatusResponse> {
     let runtime = new $Util.RuntimeOptions({ });
-    let headers = new PutObjectHeaders({ });
-    return await this.putObjectWithOptions(bucket, key, request, headers, runtime);
+    let headers : {[key: string ]: string} = { };
+    return await this.putLiveChannelStatusWithOptions(bucket, channel, request, headers, runtime);
   }
 
   async putObjectWithOptions(bucket: string, key: string, request: PutObjectRequest, headers: PutObjectHeaders, runtime: $Util.RuntimeOptions): Promise<PutObjectResponse> {
@@ -10270,10 +11333,10 @@ export default class Client extends OpenApi {
     return $tea.cast<PutObjectResponse>(await this.execute(params, req, runtime), new PutObjectResponse({}));
   }
 
-  async putObjectAcl(bucket: string, key: string, request: PutObjectAclRequest): Promise<PutObjectAclResponse> {
+  async putObject(bucket: string, key: string, request: PutObjectRequest): Promise<PutObjectResponse> {
     let runtime = new $Util.RuntimeOptions({ });
-    let headers = new PutObjectAclHeaders({ });
-    return await this.putObjectAclWithOptions(bucket, key, request, headers, runtime);
+    let headers = new PutObjectHeaders({ });
+    return await this.putObjectWithOptions(bucket, key, request, headers, runtime);
   }
 
   async putObjectAclWithOptions(bucket: string, key: string, request: PutObjectAclRequest, headers: PutObjectAclHeaders, runtime: $Util.RuntimeOptions): Promise<PutObjectAclResponse> {
@@ -10313,10 +11376,10 @@ export default class Client extends OpenApi {
     return $tea.cast<PutObjectAclResponse>(await this.execute(params, req, runtime), new PutObjectAclResponse({}));
   }
 
-  async putObjectTagging(bucket: string, key: string, request: PutObjectTaggingRequest): Promise<PutObjectTaggingResponse> {
+  async putObjectAcl(bucket: string, key: string, request: PutObjectAclRequest): Promise<PutObjectAclResponse> {
     let runtime = new $Util.RuntimeOptions({ });
-    let headers : {[key: string ]: string} = { };
-    return await this.putObjectTaggingWithOptions(bucket, key, request, headers, runtime);
+    let headers = new PutObjectAclHeaders({ });
+    return await this.putObjectAclWithOptions(bucket, key, request, headers, runtime);
   }
 
   async putObjectTaggingWithOptions(bucket: string, key: string, request: PutObjectTaggingRequest, headers: {[key: string ]: string}, runtime: $Util.RuntimeOptions): Promise<PutObjectTaggingResponse> {
@@ -10332,7 +11395,7 @@ export default class Client extends OpenApi {
       hostMap: hostMap,
       headers: headers,
       query: OpenApiUtil.query(query),
-      body: OpenApiUtil.parseToMap($tea.toMap(request.tagging)),
+      body: OpenApiUtil.parseToMap(request.tagging),
     });
     let params = new $OpenApi.Params({
       action: "PutObjectTagging",
@@ -10348,10 +11411,10 @@ export default class Client extends OpenApi {
     return $tea.cast<PutObjectTaggingResponse>(await this.execute(params, req, runtime), new PutObjectTaggingResponse({}));
   }
 
-  async putSymlink(bucket: string, key: string): Promise<PutSymlinkResponse> {
+  async putObjectTagging(bucket: string, key: string, request: PutObjectTaggingRequest): Promise<PutObjectTaggingResponse> {
     let runtime = new $Util.RuntimeOptions({ });
-    let headers = new PutSymlinkHeaders({ });
-    return await this.putSymlinkWithOptions(bucket, key, headers, runtime);
+    let headers : {[key: string ]: string} = { };
+    return await this.putObjectTaggingWithOptions(bucket, key, request, headers, runtime);
   }
 
   async putSymlinkWithOptions(bucket: string, key: string, headers: PutSymlinkHeaders, runtime: $Util.RuntimeOptions): Promise<PutSymlinkResponse> {
@@ -10396,10 +11459,10 @@ export default class Client extends OpenApi {
     return $tea.cast<PutSymlinkResponse>(await this.execute(params, req, runtime), new PutSymlinkResponse({}));
   }
 
-  async restoreObject(bucket: string, key: string, request: RestoreObjectRequest): Promise<RestoreObjectResponse> {
+  async putSymlink(bucket: string, key: string): Promise<PutSymlinkResponse> {
     let runtime = new $Util.RuntimeOptions({ });
-    let headers : {[key: string ]: string} = { };
-    return await this.restoreObjectWithOptions(bucket, key, request, headers, runtime);
+    let headers = new PutSymlinkHeaders({ });
+    return await this.putSymlinkWithOptions(bucket, key, headers, runtime);
   }
 
   async restoreObjectWithOptions(bucket: string, key: string, request: RestoreObjectRequest, headers: {[key: string ]: string}, runtime: $Util.RuntimeOptions): Promise<RestoreObjectResponse> {
@@ -10415,7 +11478,7 @@ export default class Client extends OpenApi {
       hostMap: hostMap,
       headers: headers,
       query: OpenApiUtil.query(query),
-      body: OpenApiUtil.parseToMap($tea.toMap(request.restoreRequest)),
+      body: OpenApiUtil.parseToMap(request.restoreRequest),
     });
     let params = new $OpenApi.Params({
       action: "RestoreObject",
@@ -10431,10 +11494,10 @@ export default class Client extends OpenApi {
     return $tea.cast<RestoreObjectResponse>(await this.execute(params, req, runtime), new RestoreObjectResponse({}));
   }
 
-  async selectObject(bucket: string, key: string, request: SelectObjectRequest): Promise<SelectObjectResponse> {
+  async restoreObject(bucket: string, key: string, request: RestoreObjectRequest): Promise<RestoreObjectResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     let headers : {[key: string ]: string} = { };
-    return await this.selectObjectWithOptions(bucket, key, request, headers, runtime);
+    return await this.restoreObjectWithOptions(bucket, key, request, headers, runtime);
   }
 
   async selectObjectWithOptions(bucket: string, key: string, request: SelectObjectRequest, headers: {[key: string ]: string}, runtime: $Util.RuntimeOptions): Promise<SelectObjectResponse> {
@@ -10444,7 +11507,7 @@ export default class Client extends OpenApi {
     let req = new $OpenApi.OpenApiRequest({
       hostMap: hostMap,
       headers: headers,
-      body: OpenApiUtil.parseToMap($tea.toMap(request.selectRequest)),
+      body: OpenApiUtil.parseToMap(request.selectRequest),
     });
     let params = new $OpenApi.Params({
       action: "SelectObject",
@@ -10460,10 +11523,10 @@ export default class Client extends OpenApi {
     return $tea.cast<SelectObjectResponse>(await this.execute(params, req, runtime), new SelectObjectResponse({}));
   }
 
-  async uploadPart(bucket: string, key: string, request: UploadPartRequest): Promise<UploadPartResponse> {
+  async selectObject(bucket: string, key: string, request: SelectObjectRequest): Promise<SelectObjectResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     let headers : {[key: string ]: string} = { };
-    return await this.uploadPartWithOptions(bucket, key, request, headers, runtime);
+    return await this.selectObjectWithOptions(bucket, key, request, headers, runtime);
   }
 
   async uploadPartWithOptions(bucket: string, key: string, request: UploadPartRequest, headers: {[key: string ]: string}, runtime: $Util.RuntimeOptions): Promise<UploadPartResponse> {
@@ -10500,10 +11563,10 @@ export default class Client extends OpenApi {
     return $tea.cast<UploadPartResponse>(await this.execute(params, req, runtime), new UploadPartResponse({}));
   }
 
-  async uploadPartCopy(bucket: string, key: string, request: UploadPartCopyRequest): Promise<UploadPartCopyResponse> {
+  async uploadPart(bucket: string, key: string, request: UploadPartRequest): Promise<UploadPartResponse> {
     let runtime = new $Util.RuntimeOptions({ });
-    let headers = new UploadPartCopyHeaders({ });
-    return await this.uploadPartCopyWithOptions(bucket, key, request, headers, runtime);
+    let headers : {[key: string ]: string} = { };
+    return await this.uploadPartWithOptions(bucket, key, request, headers, runtime);
   }
 
   async uploadPartCopyWithOptions(bucket: string, key: string, request: UploadPartCopyRequest, headers: UploadPartCopyHeaders, runtime: $Util.RuntimeOptions): Promise<UploadPartCopyResponse> {
@@ -10565,6 +11628,12 @@ export default class Client extends OpenApi {
       bodyType: "xml",
     });
     return $tea.cast<UploadPartCopyResponse>(await this.execute(params, req, runtime), new UploadPartCopyResponse({}));
+  }
+
+  async uploadPartCopy(bucket: string, key: string, request: UploadPartCopyRequest): Promise<UploadPartCopyResponse> {
+    let runtime = new $Util.RuntimeOptions({ });
+    let headers = new UploadPartCopyHeaders({ });
+    return await this.uploadPartCopyWithOptions(bucket, key, request, headers, runtime);
   }
 
 }
