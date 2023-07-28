@@ -219,6 +219,7 @@ export class ContinueDeployApplicationGroupResponse extends $tea.Model {
 }
 
 export class CreateApplicationRequest extends $tea.Model {
+  alarmConfig?: CreateApplicationRequestAlarmConfig;
   clientToken?: string;
   description?: string;
   name?: string;
@@ -227,6 +228,7 @@ export class CreateApplicationRequest extends $tea.Model {
   tags?: { [key: string]: any };
   static names(): { [key: string]: string } {
     return {
+      alarmConfig: 'AlarmConfig',
       clientToken: 'ClientToken',
       description: 'Description',
       name: 'Name',
@@ -238,6 +240,7 @@ export class CreateApplicationRequest extends $tea.Model {
 
   static types(): { [key: string]: any } {
     return {
+      alarmConfig: CreateApplicationRequestAlarmConfig,
       clientToken: 'string',
       description: 'string',
       name: 'string',
@@ -253,6 +256,7 @@ export class CreateApplicationRequest extends $tea.Model {
 }
 
 export class CreateApplicationShrinkRequest extends $tea.Model {
+  alarmConfigShrink?: string;
   clientToken?: string;
   description?: string;
   name?: string;
@@ -261,6 +265,7 @@ export class CreateApplicationShrinkRequest extends $tea.Model {
   tagsShrink?: string;
   static names(): { [key: string]: string } {
     return {
+      alarmConfigShrink: 'AlarmConfig',
       clientToken: 'ClientToken',
       description: 'Description',
       name: 'Name',
@@ -272,6 +277,7 @@ export class CreateApplicationShrinkRequest extends $tea.Model {
 
   static types(): { [key: string]: any } {
     return {
+      alarmConfigShrink: 'string',
       clientToken: 'string',
       description: 'string',
       name: 'string',
@@ -715,30 +721,100 @@ export class CreateParameterResponse extends $tea.Model {
 
 export class CreatePatchBaselineRequest extends $tea.Model {
   approvalRules?: string;
+  approvedPatches?: string[];
+  approvedPatchesEnableNonSecurity?: boolean;
   clientToken?: string;
   description?: string;
   name?: string;
   operationSystem?: string;
   regionId?: string;
+  rejectedPatches?: string[];
+  rejectedPatchesAction?: string;
+  sources?: string[];
+  tags?: CreatePatchBaselineRequestTags[];
   static names(): { [key: string]: string } {
     return {
       approvalRules: 'ApprovalRules',
+      approvedPatches: 'ApprovedPatches',
+      approvedPatchesEnableNonSecurity: 'ApprovedPatchesEnableNonSecurity',
       clientToken: 'ClientToken',
       description: 'Description',
       name: 'Name',
       operationSystem: 'OperationSystem',
       regionId: 'RegionId',
+      rejectedPatches: 'RejectedPatches',
+      rejectedPatchesAction: 'RejectedPatchesAction',
+      sources: 'Sources',
+      tags: 'Tags',
     };
   }
 
   static types(): { [key: string]: any } {
     return {
       approvalRules: 'string',
+      approvedPatches: { 'type': 'array', 'itemType': 'string' },
+      approvedPatchesEnableNonSecurity: 'boolean',
       clientToken: 'string',
       description: 'string',
       name: 'string',
       operationSystem: 'string',
       regionId: 'string',
+      rejectedPatches: { 'type': 'array', 'itemType': 'string' },
+      rejectedPatchesAction: 'string',
+      sources: { 'type': 'array', 'itemType': 'string' },
+      tags: { 'type': 'array', 'itemType': CreatePatchBaselineRequestTags },
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class CreatePatchBaselineShrinkRequest extends $tea.Model {
+  approvalRules?: string;
+  approvedPatchesShrink?: string;
+  approvedPatchesEnableNonSecurity?: boolean;
+  clientToken?: string;
+  description?: string;
+  name?: string;
+  operationSystem?: string;
+  regionId?: string;
+  rejectedPatchesShrink?: string;
+  rejectedPatchesAction?: string;
+  sourcesShrink?: string;
+  tagsShrink?: string;
+  static names(): { [key: string]: string } {
+    return {
+      approvalRules: 'ApprovalRules',
+      approvedPatchesShrink: 'ApprovedPatches',
+      approvedPatchesEnableNonSecurity: 'ApprovedPatchesEnableNonSecurity',
+      clientToken: 'ClientToken',
+      description: 'Description',
+      name: 'Name',
+      operationSystem: 'OperationSystem',
+      regionId: 'RegionId',
+      rejectedPatchesShrink: 'RejectedPatches',
+      rejectedPatchesAction: 'RejectedPatchesAction',
+      sourcesShrink: 'Sources',
+      tagsShrink: 'Tags',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      approvalRules: 'string',
+      approvedPatchesShrink: 'string',
+      approvedPatchesEnableNonSecurity: 'boolean',
+      clientToken: 'string',
+      description: 'string',
+      name: 'string',
+      operationSystem: 'string',
+      regionId: 'string',
+      rejectedPatchesShrink: 'string',
+      rejectedPatchesAction: 'string',
+      sourcesShrink: 'string',
+      tagsShrink: 'string',
     };
   }
 
@@ -1953,11 +2029,13 @@ export class DescribeRegionsResponse extends $tea.Model {
 }
 
 export class GenerateExecutionPolicyRequest extends $tea.Model {
+  ramRole?: string;
   regionId?: string;
   templateName?: string;
   templateVersion?: string;
   static names(): { [key: string]: string } {
     return {
+      ramRole: 'RamRole',
       regionId: 'RegionId',
       templateName: 'TemplateName',
       templateVersion: 'TemplateVersion',
@@ -1966,6 +2044,7 @@ export class GenerateExecutionPolicyRequest extends $tea.Model {
 
   static types(): { [key: string]: any } {
     return {
+      ramRole: 'string',
       regionId: 'string',
       templateName: 'string',
       templateVersion: 'string',
@@ -1978,10 +2057,12 @@ export class GenerateExecutionPolicyRequest extends $tea.Model {
 }
 
 export class GenerateExecutionPolicyResponseBody extends $tea.Model {
+  missingPolicy?: string;
   policy?: string;
   requestId?: string;
   static names(): { [key: string]: string } {
     return {
+      missingPolicy: 'MissingPolicy',
       policy: 'Policy',
       requestId: 'RequestId',
     };
@@ -1989,6 +2070,7 @@ export class GenerateExecutionPolicyResponseBody extends $tea.Model {
 
   static types(): { [key: string]: any } {
     return {
+      missingPolicy: 'string',
       policy: 'string',
       requestId: 'string',
     };
@@ -3160,7 +3242,6 @@ export class ListApplicationGroupsRequest extends $tea.Model {
   deployRegionId?: string;
   maxResults?: number;
   nextToken?: string;
-  product?: string;
   regionId?: string;
   resourceId?: string;
   resourceProduct?: string;
@@ -3171,7 +3252,6 @@ export class ListApplicationGroupsRequest extends $tea.Model {
       deployRegionId: 'DeployRegionId',
       maxResults: 'MaxResults',
       nextToken: 'NextToken',
-      product: 'Product',
       regionId: 'RegionId',
       resourceId: 'ResourceId',
       resourceProduct: 'ResourceProduct',
@@ -3185,7 +3265,6 @@ export class ListApplicationGroupsRequest extends $tea.Model {
       deployRegionId: 'string',
       maxResults: 'number',
       nextToken: 'string',
-      product: 'string',
       regionId: 'string',
       resourceId: 'string',
       resourceProduct: 'string',
@@ -3252,6 +3331,7 @@ export class ListApplicationGroupsResponse extends $tea.Model {
 }
 
 export class ListApplicationsRequest extends $tea.Model {
+  applicationType?: string;
   maxResults?: number;
   name?: string;
   names?: string;
@@ -3260,6 +3340,7 @@ export class ListApplicationsRequest extends $tea.Model {
   tags?: { [key: string]: any };
   static names(): { [key: string]: string } {
     return {
+      applicationType: 'ApplicationType',
       maxResults: 'MaxResults',
       name: 'Name',
       names: 'Names',
@@ -3271,6 +3352,7 @@ export class ListApplicationsRequest extends $tea.Model {
 
   static types(): { [key: string]: any } {
     return {
+      applicationType: 'string',
       maxResults: 'number',
       name: 'string',
       names: 'string',
@@ -3286,6 +3368,7 @@ export class ListApplicationsRequest extends $tea.Model {
 }
 
 export class ListApplicationsShrinkRequest extends $tea.Model {
+  applicationType?: string;
   maxResults?: number;
   name?: string;
   names?: string;
@@ -3294,6 +3377,7 @@ export class ListApplicationsShrinkRequest extends $tea.Model {
   tagsShrink?: string;
   static names(): { [key: string]: string } {
     return {
+      applicationType: 'ApplicationType',
       maxResults: 'MaxResults',
       name: 'Name',
       names: 'Names',
@@ -3305,6 +3389,7 @@ export class ListApplicationsShrinkRequest extends $tea.Model {
 
   static types(): { [key: string]: any } {
     return {
+      applicationType: 'string',
       maxResults: 'number',
       name: 'string',
       names: 'string',
@@ -3532,7 +3617,10 @@ export class ListExecutionRiskyTasksResponse extends $tea.Model {
 }
 
 export class ListExecutionsRequest extends $tea.Model {
+  categories?: string;
   category?: string;
+  depth?: string;
+  description?: string;
   endDateAfter?: string;
   endDateBefore?: string;
   executedBy?: string;
@@ -3556,7 +3644,10 @@ export class ListExecutionsRequest extends $tea.Model {
   templateName?: string;
   static names(): { [key: string]: string } {
     return {
+      categories: 'Categories',
       category: 'Category',
+      depth: 'Depth',
+      description: 'Description',
       endDateAfter: 'EndDateAfter',
       endDateBefore: 'EndDateBefore',
       executedBy: 'ExecutedBy',
@@ -3583,7 +3674,10 @@ export class ListExecutionsRequest extends $tea.Model {
 
   static types(): { [key: string]: any } {
     return {
+      categories: 'string',
       category: 'string',
+      depth: 'string',
+      description: 'string',
       endDateAfter: 'string',
       endDateBefore: 'string',
       executedBy: 'string',
@@ -3614,7 +3708,10 @@ export class ListExecutionsRequest extends $tea.Model {
 }
 
 export class ListExecutionsShrinkRequest extends $tea.Model {
+  categories?: string;
   category?: string;
+  depth?: string;
+  description?: string;
   endDateAfter?: string;
   endDateBefore?: string;
   executedBy?: string;
@@ -3638,7 +3735,10 @@ export class ListExecutionsShrinkRequest extends $tea.Model {
   templateName?: string;
   static names(): { [key: string]: string } {
     return {
+      categories: 'Categories',
       category: 'Category',
+      depth: 'Depth',
+      description: 'Description',
       endDateAfter: 'EndDateAfter',
       endDateBefore: 'EndDateBefore',
       executedBy: 'ExecutedBy',
@@ -3665,7 +3765,10 @@ export class ListExecutionsShrinkRequest extends $tea.Model {
 
   static types(): { [key: string]: any } {
     return {
+      categories: 'string',
       category: 'string',
+      depth: 'string',
+      description: 'string',
       endDateAfter: 'string',
       endDateBefore: 'string',
       executedBy: 'string',
@@ -4249,6 +4352,7 @@ export class ListParametersRequest extends $tea.Model {
   recursive?: boolean;
   regionId?: string;
   resourceGroupId?: string;
+  shareType?: string;
   sortField?: string;
   sortOrder?: string;
   tags?: { [key: string]: any };
@@ -4262,6 +4366,7 @@ export class ListParametersRequest extends $tea.Model {
       recursive: 'Recursive',
       regionId: 'RegionId',
       resourceGroupId: 'ResourceGroupId',
+      shareType: 'ShareType',
       sortField: 'SortField',
       sortOrder: 'SortOrder',
       tags: 'Tags',
@@ -4278,6 +4383,7 @@ export class ListParametersRequest extends $tea.Model {
       recursive: 'boolean',
       regionId: 'string',
       resourceGroupId: 'string',
+      shareType: 'string',
       sortField: 'string',
       sortOrder: 'string',
       tags: { 'type': 'map', 'keyType': 'string', 'valueType': 'any' },
@@ -4298,6 +4404,7 @@ export class ListParametersShrinkRequest extends $tea.Model {
   recursive?: boolean;
   regionId?: string;
   resourceGroupId?: string;
+  shareType?: string;
   sortField?: string;
   sortOrder?: string;
   tagsShrink?: string;
@@ -4311,6 +4418,7 @@ export class ListParametersShrinkRequest extends $tea.Model {
       recursive: 'Recursive',
       regionId: 'RegionId',
       resourceGroupId: 'ResourceGroupId',
+      shareType: 'ShareType',
       sortField: 'SortField',
       sortOrder: 'SortOrder',
       tagsShrink: 'Tags',
@@ -4327,6 +4435,7 @@ export class ListParametersShrinkRequest extends $tea.Model {
       recursive: 'boolean',
       regionId: 'string',
       resourceGroupId: 'string',
+      shareType: 'string',
       sortField: 'string',
       sortOrder: 'string',
       tagsShrink: 'string',
@@ -4396,31 +4505,89 @@ export class ListParametersResponse extends $tea.Model {
 }
 
 export class ListPatchBaselinesRequest extends $tea.Model {
+  approvedPatches?: string[];
+  approvedPatchesEnableNonSecurity?: boolean;
   maxResults?: number;
   name?: string;
   nextToken?: string;
   operationSystem?: string;
   regionId?: string;
   shareType?: string;
+  sources?: string[];
+  tags?: ListPatchBaselinesRequestTags[];
   static names(): { [key: string]: string } {
     return {
+      approvedPatches: 'ApprovedPatches',
+      approvedPatchesEnableNonSecurity: 'ApprovedPatchesEnableNonSecurity',
       maxResults: 'MaxResults',
       name: 'Name',
       nextToken: 'NextToken',
       operationSystem: 'OperationSystem',
       regionId: 'RegionId',
       shareType: 'ShareType',
+      sources: 'Sources',
+      tags: 'Tags',
     };
   }
 
   static types(): { [key: string]: any } {
     return {
+      approvedPatches: { 'type': 'array', 'itemType': 'string' },
+      approvedPatchesEnableNonSecurity: 'boolean',
       maxResults: 'number',
       name: 'string',
       nextToken: 'string',
       operationSystem: 'string',
       regionId: 'string',
       shareType: 'string',
+      sources: { 'type': 'array', 'itemType': 'string' },
+      tags: { 'type': 'array', 'itemType': ListPatchBaselinesRequestTags },
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class ListPatchBaselinesShrinkRequest extends $tea.Model {
+  approvedPatchesShrink?: string;
+  approvedPatchesEnableNonSecurity?: boolean;
+  maxResults?: number;
+  name?: string;
+  nextToken?: string;
+  operationSystem?: string;
+  regionId?: string;
+  shareType?: string;
+  sourcesShrink?: string;
+  tagsShrink?: string;
+  static names(): { [key: string]: string } {
+    return {
+      approvedPatchesShrink: 'ApprovedPatches',
+      approvedPatchesEnableNonSecurity: 'ApprovedPatchesEnableNonSecurity',
+      maxResults: 'MaxResults',
+      name: 'Name',
+      nextToken: 'NextToken',
+      operationSystem: 'OperationSystem',
+      regionId: 'RegionId',
+      shareType: 'ShareType',
+      sourcesShrink: 'Sources',
+      tagsShrink: 'Tags',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      approvedPatchesShrink: 'string',
+      approvedPatchesEnableNonSecurity: 'boolean',
+      maxResults: 'number',
+      name: 'string',
+      nextToken: 'string',
+      operationSystem: 'string',
+      regionId: 'string',
+      shareType: 'string',
+      sourcesShrink: 'string',
+      tagsShrink: 'string',
     };
   }
 
@@ -6377,12 +6544,16 @@ export class UntagResourcesResponse extends $tea.Model {
 }
 
 export class UpdateApplicationRequest extends $tea.Model {
+  alarmConfig?: UpdateApplicationRequestAlarmConfig;
+  deleteAlarmRulesBeforeUpdate?: boolean;
   description?: string;
   name?: string;
   regionId?: string;
   tags?: { [key: string]: any };
   static names(): { [key: string]: string } {
     return {
+      alarmConfig: 'AlarmConfig',
+      deleteAlarmRulesBeforeUpdate: 'DeleteAlarmRulesBeforeUpdate',
       description: 'Description',
       name: 'Name',
       regionId: 'RegionId',
@@ -6392,6 +6563,8 @@ export class UpdateApplicationRequest extends $tea.Model {
 
   static types(): { [key: string]: any } {
     return {
+      alarmConfig: UpdateApplicationRequestAlarmConfig,
+      deleteAlarmRulesBeforeUpdate: 'boolean',
       description: 'string',
       name: 'string',
       regionId: 'string',
@@ -6405,12 +6578,16 @@ export class UpdateApplicationRequest extends $tea.Model {
 }
 
 export class UpdateApplicationShrinkRequest extends $tea.Model {
+  alarmConfigShrink?: string;
+  deleteAlarmRulesBeforeUpdate?: boolean;
   description?: string;
   name?: string;
   regionId?: string;
   tagsShrink?: string;
   static names(): { [key: string]: string } {
     return {
+      alarmConfigShrink: 'AlarmConfig',
+      deleteAlarmRulesBeforeUpdate: 'DeleteAlarmRulesBeforeUpdate',
       description: 'Description',
       name: 'Name',
       regionId: 'RegionId',
@@ -6420,6 +6597,8 @@ export class UpdateApplicationShrinkRequest extends $tea.Model {
 
   static types(): { [key: string]: any } {
     return {
+      alarmConfigShrink: 'string',
+      deleteAlarmRulesBeforeUpdate: 'boolean',
       description: 'string',
       name: 'string',
       regionId: 'string',
@@ -6556,12 +6735,14 @@ export class UpdateApplicationGroupResponse extends $tea.Model {
 
 export class UpdateExecutionRequest extends $tea.Model {
   clientToken?: string;
+  description?: string;
   executionId?: string;
   parameters?: string;
   regionId?: string;
   static names(): { [key: string]: string } {
     return {
       clientToken: 'ClientToken',
+      description: 'Description',
       executionId: 'ExecutionId',
       parameters: 'Parameters',
       regionId: 'RegionId',
@@ -6571,6 +6752,7 @@ export class UpdateExecutionRequest extends $tea.Model {
   static types(): { [key: string]: any } {
     return {
       clientToken: 'string',
+      description: 'string',
       executionId: 'string',
       parameters: 'string',
       regionId: 'string',
@@ -6878,27 +7060,94 @@ export class UpdateParameterResponse extends $tea.Model {
 
 export class UpdatePatchBaselineRequest extends $tea.Model {
   approvalRules?: string;
+  approvedPatches?: string[];
+  approvedPatchesEnableNonSecurity?: boolean;
   clientToken?: string;
   description?: string;
   name?: string;
   regionId?: string;
+  rejectedPatches?: string[];
+  rejectedPatchesAction?: string;
+  sources?: string[];
+  tags?: UpdatePatchBaselineRequestTags[];
   static names(): { [key: string]: string } {
     return {
       approvalRules: 'ApprovalRules',
+      approvedPatches: 'ApprovedPatches',
+      approvedPatchesEnableNonSecurity: 'ApprovedPatchesEnableNonSecurity',
       clientToken: 'ClientToken',
       description: 'Description',
       name: 'Name',
       regionId: 'RegionId',
+      rejectedPatches: 'RejectedPatches',
+      rejectedPatchesAction: 'RejectedPatchesAction',
+      sources: 'Sources',
+      tags: 'Tags',
     };
   }
 
   static types(): { [key: string]: any } {
     return {
       approvalRules: 'string',
+      approvedPatches: { 'type': 'array', 'itemType': 'string' },
+      approvedPatchesEnableNonSecurity: 'boolean',
       clientToken: 'string',
       description: 'string',
       name: 'string',
       regionId: 'string',
+      rejectedPatches: { 'type': 'array', 'itemType': 'string' },
+      rejectedPatchesAction: 'string',
+      sources: { 'type': 'array', 'itemType': 'string' },
+      tags: { 'type': 'array', 'itemType': UpdatePatchBaselineRequestTags },
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class UpdatePatchBaselineShrinkRequest extends $tea.Model {
+  approvalRules?: string;
+  approvedPatchesShrink?: string;
+  approvedPatchesEnableNonSecurity?: boolean;
+  clientToken?: string;
+  description?: string;
+  name?: string;
+  regionId?: string;
+  rejectedPatchesShrink?: string;
+  rejectedPatchesAction?: string;
+  sourcesShrink?: string;
+  tagsShrink?: string;
+  static names(): { [key: string]: string } {
+    return {
+      approvalRules: 'ApprovalRules',
+      approvedPatchesShrink: 'ApprovedPatches',
+      approvedPatchesEnableNonSecurity: 'ApprovedPatchesEnableNonSecurity',
+      clientToken: 'ClientToken',
+      description: 'Description',
+      name: 'Name',
+      regionId: 'RegionId',
+      rejectedPatchesShrink: 'RejectedPatches',
+      rejectedPatchesAction: 'RejectedPatchesAction',
+      sourcesShrink: 'Sources',
+      tagsShrink: 'Tags',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      approvalRules: 'string',
+      approvedPatchesShrink: 'string',
+      approvedPatchesEnableNonSecurity: 'boolean',
+      clientToken: 'string',
+      description: 'string',
+      name: 'string',
+      regionId: 'string',
+      rejectedPatchesShrink: 'string',
+      rejectedPatchesAction: 'string',
+      sourcesShrink: 'string',
+      tagsShrink: 'string',
     };
   }
 
@@ -7410,6 +7659,31 @@ export class ValidateTemplateContentResponse extends $tea.Model {
   }
 }
 
+export class CreateApplicationRequestAlarmConfig extends $tea.Model {
+  contactGroups?: string[];
+  healthCheckUrl?: string;
+  templateIds?: string[];
+  static names(): { [key: string]: string } {
+    return {
+      contactGroups: 'ContactGroups',
+      healthCheckUrl: 'HealthCheckUrl',
+      templateIds: 'TemplateIds',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      contactGroups: { 'type': 'array', 'itemType': 'string' },
+      healthCheckUrl: 'string',
+      templateIds: { 'type': 'array', 'itemType': 'string' },
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
 export class CreateApplicationResponseBodyApplication extends $tea.Model {
   createDate?: string;
   description?: string;
@@ -7606,27 +7880,83 @@ export class CreateParameterResponseBodyParameter extends $tea.Model {
   }
 }
 
+export class CreatePatchBaselineRequestTags extends $tea.Model {
+  key?: string;
+  value?: string;
+  static names(): { [key: string]: string } {
+    return {
+      key: 'Key',
+      value: 'Value',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      key: 'string',
+      value: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class CreatePatchBaselineResponseBodyPatchBaselineTags extends $tea.Model {
+  tagKey?: string;
+  tagValue?: string;
+  static names(): { [key: string]: string } {
+    return {
+      tagKey: 'TagKey',
+      tagValue: 'TagValue',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      tagKey: 'string',
+      tagValue: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
 export class CreatePatchBaselineResponseBodyPatchBaseline extends $tea.Model {
   approvalRules?: string;
+  approvedPatches?: string[];
+  approvedPatchesEnableNonSecurity?: boolean;
   createdBy?: string;
   createdDate?: string;
   description?: string;
   id?: string;
   name?: string;
   operationSystem?: string;
+  rejectedPatches?: string[];
+  rejectedPatchesAction?: string;
   shareType?: string;
+  sources?: string[];
+  tags?: CreatePatchBaselineResponseBodyPatchBaselineTags[];
   updatedBy?: string;
   updatedDate?: string;
   static names(): { [key: string]: string } {
     return {
       approvalRules: 'ApprovalRules',
+      approvedPatches: 'ApprovedPatches',
+      approvedPatchesEnableNonSecurity: 'ApprovedPatchesEnableNonSecurity',
       createdBy: 'CreatedBy',
       createdDate: 'CreatedDate',
       description: 'Description',
       id: 'Id',
       name: 'Name',
       operationSystem: 'OperationSystem',
+      rejectedPatches: 'RejectedPatches',
+      rejectedPatchesAction: 'RejectedPatchesAction',
       shareType: 'ShareType',
+      sources: 'Sources',
+      tags: 'Tags',
       updatedBy: 'UpdatedBy',
       updatedDate: 'UpdatedDate',
     };
@@ -7635,13 +7965,19 @@ export class CreatePatchBaselineResponseBodyPatchBaseline extends $tea.Model {
   static types(): { [key: string]: any } {
     return {
       approvalRules: 'string',
+      approvedPatches: { 'type': 'array', 'itemType': 'string' },
+      approvedPatchesEnableNonSecurity: 'boolean',
       createdBy: 'string',
       createdDate: 'string',
       description: 'string',
       id: 'string',
       name: 'string',
       operationSystem: 'string',
+      rejectedPatches: { 'type': 'array', 'itemType': 'string' },
+      rejectedPatchesAction: 'string',
       shareType: 'string',
+      sources: { 'type': 'array', 'itemType': 'string' },
+      tags: { 'type': 'array', 'itemType': CreatePatchBaselineResponseBodyPatchBaselineTags },
       updatedBy: 'string',
       updatedDate: 'string',
     };
@@ -7848,7 +8184,34 @@ export class DescribeRegionsResponseBodyRegions extends $tea.Model {
   }
 }
 
+export class GetApplicationResponseBodyApplicationAlarmConfig extends $tea.Model {
+  contactGroups?: string[];
+  healthCheckUrl?: string;
+  templateIds?: string[];
+  static names(): { [key: string]: string } {
+    return {
+      contactGroups: 'ContactGroups',
+      healthCheckUrl: 'HealthCheckUrl',
+      templateIds: 'TemplateIds',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      contactGroups: { 'type': 'array', 'itemType': 'string' },
+      healthCheckUrl: 'string',
+      templateIds: { 'type': 'array', 'itemType': 'string' },
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
 export class GetApplicationResponseBodyApplication extends $tea.Model {
+  alarmConfig?: GetApplicationResponseBodyApplicationAlarmConfig;
+  applicationType?: string;
   createDate?: string;
   description?: string;
   name?: string;
@@ -7857,6 +8220,8 @@ export class GetApplicationResponseBodyApplication extends $tea.Model {
   updateDate?: string;
   static names(): { [key: string]: string } {
     return {
+      alarmConfig: 'AlarmConfig',
+      applicationType: 'ApplicationType',
       createDate: 'CreateDate',
       description: 'Description',
       name: 'Name',
@@ -7868,6 +8233,8 @@ export class GetApplicationResponseBodyApplication extends $tea.Model {
 
   static types(): { [key: string]: any } {
     return {
+      alarmConfig: GetApplicationResponseBodyApplicationAlarmConfig,
+      applicationType: 'string',
       createDate: 'string',
       description: 'string',
       name: 'string',
@@ -8234,6 +8601,7 @@ export class GetParametersByPathResponseBodyParameters extends $tea.Model {
   name?: string;
   parameterVersion?: number;
   shareType?: string;
+  tags?: { [key: string]: any };
   type?: string;
   updatedBy?: string;
   updatedDate?: string;
@@ -8248,6 +8616,7 @@ export class GetParametersByPathResponseBodyParameters extends $tea.Model {
       name: 'Name',
       parameterVersion: 'ParameterVersion',
       shareType: 'ShareType',
+      tags: 'Tags',
       type: 'Type',
       updatedBy: 'UpdatedBy',
       updatedDate: 'UpdatedDate',
@@ -8265,6 +8634,7 @@ export class GetParametersByPathResponseBodyParameters extends $tea.Model {
       name: 'string',
       parameterVersion: 'number',
       shareType: 'string',
+      tags: { 'type': 'map', 'keyType': 'string', 'valueType': 'any' },
       type: 'string',
       updatedBy: 'string',
       updatedDate: 'string',
@@ -8277,8 +8647,32 @@ export class GetParametersByPathResponseBodyParameters extends $tea.Model {
   }
 }
 
+export class GetPatchBaselineResponseBodyPatchBaselineTags extends $tea.Model {
+  tagKey?: string;
+  tagValue?: string;
+  static names(): { [key: string]: string } {
+    return {
+      tagKey: 'TagKey',
+      tagValue: 'TagValue',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      tagKey: 'string',
+      tagValue: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
 export class GetPatchBaselineResponseBodyPatchBaseline extends $tea.Model {
   approvalRules?: string;
+  approvedPatches?: string[];
+  approvedPatchesEnableNonSecurity?: boolean;
   createdBy?: string;
   createdDate?: string;
   description?: string;
@@ -8286,12 +8680,18 @@ export class GetPatchBaselineResponseBodyPatchBaseline extends $tea.Model {
   isDefault?: boolean;
   name?: string;
   operationSystem?: string;
+  rejectedPatches?: string[];
+  rejectedPatchesAction?: string;
   shareType?: string;
+  sources?: string[];
+  tags?: GetPatchBaselineResponseBodyPatchBaselineTags[];
   updatedBy?: string;
   updatedDate?: string;
   static names(): { [key: string]: string } {
     return {
       approvalRules: 'ApprovalRules',
+      approvedPatches: 'ApprovedPatches',
+      approvedPatchesEnableNonSecurity: 'ApprovedPatchesEnableNonSecurity',
       createdBy: 'CreatedBy',
       createdDate: 'CreatedDate',
       description: 'Description',
@@ -8299,7 +8699,11 @@ export class GetPatchBaselineResponseBodyPatchBaseline extends $tea.Model {
       isDefault: 'IsDefault',
       name: 'Name',
       operationSystem: 'OperationSystem',
+      rejectedPatches: 'RejectedPatches',
+      rejectedPatchesAction: 'RejectedPatchesAction',
       shareType: 'ShareType',
+      sources: 'Sources',
+      tags: 'Tags',
       updatedBy: 'UpdatedBy',
       updatedDate: 'UpdatedDate',
     };
@@ -8308,6 +8712,8 @@ export class GetPatchBaselineResponseBodyPatchBaseline extends $tea.Model {
   static types(): { [key: string]: any } {
     return {
       approvalRules: 'string',
+      approvedPatches: { 'type': 'array', 'itemType': 'string' },
+      approvedPatchesEnableNonSecurity: 'boolean',
       createdBy: 'string',
       createdDate: 'string',
       description: 'string',
@@ -8315,7 +8721,11 @@ export class GetPatchBaselineResponseBodyPatchBaseline extends $tea.Model {
       isDefault: 'boolean',
       name: 'string',
       operationSystem: 'string',
+      rejectedPatches: { 'type': 'array', 'itemType': 'string' },
+      rejectedPatchesAction: 'string',
       shareType: 'string',
+      sources: { 'type': 'array', 'itemType': 'string' },
+      tags: { 'type': 'array', 'itemType': GetPatchBaselineResponseBodyPatchBaselineTags },
       updatedBy: 'string',
       updatedDate: 'string',
     };
@@ -8691,6 +9101,7 @@ export class ListApplicationGroupsResponseBodyApplicationGroups extends $tea.Mod
 }
 
 export class ListApplicationsResponseBodyApplications extends $tea.Model {
+  applicationType?: string;
   createDate?: string;
   description?: string;
   name?: string;
@@ -8699,6 +9110,7 @@ export class ListApplicationsResponseBodyApplications extends $tea.Model {
   updateDate?: string;
   static names(): { [key: string]: string } {
     return {
+      applicationType: 'ApplicationType',
       createDate: 'CreateDate',
       description: 'Description',
       name: 'Name',
@@ -8710,6 +9122,7 @@ export class ListApplicationsResponseBodyApplications extends $tea.Model {
 
   static types(): { [key: string]: any } {
     return {
+      applicationType: 'string',
       createDate: 'string',
       description: 'string',
       name: 'string',
@@ -8816,7 +9229,9 @@ export class ListExecutionsResponseBodyExecutions extends $tea.Model {
   executionId?: string;
   isParent?: boolean;
   lastSuccessfulTriggerTime?: string;
+  lastTriggerOutputs?: string;
   lastTriggerStatus?: string;
+  lastTriggerStatusMessage?: string;
   lastTriggerTime?: string;
   mode?: string;
   outputs?: string;
@@ -8849,7 +9264,9 @@ export class ListExecutionsResponseBodyExecutions extends $tea.Model {
       executionId: 'ExecutionId',
       isParent: 'IsParent',
       lastSuccessfulTriggerTime: 'LastSuccessfulTriggerTime',
+      lastTriggerOutputs: 'LastTriggerOutputs',
       lastTriggerStatus: 'LastTriggerStatus',
+      lastTriggerStatusMessage: 'LastTriggerStatusMessage',
       lastTriggerTime: 'LastTriggerTime',
       mode: 'Mode',
       outputs: 'Outputs',
@@ -8885,7 +9302,9 @@ export class ListExecutionsResponseBodyExecutions extends $tea.Model {
       executionId: 'string',
       isParent: 'boolean',
       lastSuccessfulTriggerTime: 'string',
+      lastTriggerOutputs: 'string',
       lastTriggerStatus: 'string',
+      lastTriggerStatusMessage: 'string',
       lastTriggerTime: 'string',
       mode: 'string',
       outputs: 'string',
@@ -9207,7 +9626,53 @@ export class ListParametersResponseBodyParameters extends $tea.Model {
   }
 }
 
+export class ListPatchBaselinesRequestTags extends $tea.Model {
+  key?: string;
+  value?: string;
+  static names(): { [key: string]: string } {
+    return {
+      key: 'Key',
+      value: 'Value',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      key: 'string',
+      value: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class ListPatchBaselinesResponseBodyPatchBaselinesTags extends $tea.Model {
+  tagKey?: string;
+  tagValue?: string;
+  static names(): { [key: string]: string } {
+    return {
+      tagKey: 'TagKey',
+      tagValue: 'TagValue',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      tagKey: 'string',
+      tagValue: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
 export class ListPatchBaselinesResponseBodyPatchBaselines extends $tea.Model {
+  approvedPatches?: string[];
+  approvedPatchesEnableNonSecurity?: boolean;
   createdBy?: string;
   createdDate?: string;
   description?: string;
@@ -9216,10 +9681,14 @@ export class ListPatchBaselinesResponseBodyPatchBaselines extends $tea.Model {
   name?: string;
   operationSystem?: string;
   shareType?: string;
+  sources?: string[];
+  tags?: ListPatchBaselinesResponseBodyPatchBaselinesTags[];
   updatedBy?: string;
   updatedDate?: string;
   static names(): { [key: string]: string } {
     return {
+      approvedPatches: 'ApprovedPatches',
+      approvedPatchesEnableNonSecurity: 'ApprovedPatchesEnableNonSecurity',
       createdBy: 'CreatedBy',
       createdDate: 'CreatedDate',
       description: 'Description',
@@ -9228,6 +9697,8 @@ export class ListPatchBaselinesResponseBodyPatchBaselines extends $tea.Model {
       name: 'Name',
       operationSystem: 'OperationSystem',
       shareType: 'ShareType',
+      sources: 'Sources',
+      tags: 'Tags',
       updatedBy: 'UpdatedBy',
       updatedDate: 'UpdatedDate',
     };
@@ -9235,6 +9706,8 @@ export class ListPatchBaselinesResponseBodyPatchBaselines extends $tea.Model {
 
   static types(): { [key: string]: any } {
     return {
+      approvedPatches: { 'type': 'array', 'itemType': 'string' },
+      approvedPatchesEnableNonSecurity: 'boolean',
       createdBy: 'string',
       createdDate: 'string',
       description: 'string',
@@ -9243,6 +9716,8 @@ export class ListPatchBaselinesResponseBodyPatchBaselines extends $tea.Model {
       name: 'string',
       operationSystem: 'string',
       shareType: 'string',
+      sources: { 'type': 'array', 'itemType': 'string' },
+      tags: { 'type': 'array', 'itemType': ListPatchBaselinesResponseBodyPatchBaselinesTags },
       updatedBy: 'string',
       updatedDate: 'string',
     };
@@ -9867,6 +10342,31 @@ export class StartExecutionResponseBodyExecution extends $tea.Model {
   }
 }
 
+export class UpdateApplicationRequestAlarmConfig extends $tea.Model {
+  contactGroups?: string[];
+  healthCheckUrl?: string;
+  templateIds?: string[];
+  static names(): { [key: string]: string } {
+    return {
+      contactGroups: 'ContactGroups',
+      healthCheckUrl: 'HealthCheckUrl',
+      templateIds: 'TemplateIds',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      contactGroups: { 'type': 'array', 'itemType': 'string' },
+      healthCheckUrl: 'string',
+      templateIds: { 'type': 'array', 'itemType': 'string' },
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
 export class UpdateApplicationResponseBodyApplication extends $tea.Model {
   createdDate?: string;
   description?: string;
@@ -10063,27 +10563,83 @@ export class UpdateParameterResponseBodyParameter extends $tea.Model {
   }
 }
 
+export class UpdatePatchBaselineRequestTags extends $tea.Model {
+  key?: string;
+  value?: string;
+  static names(): { [key: string]: string } {
+    return {
+      key: 'Key',
+      value: 'Value',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      key: 'string',
+      value: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class UpdatePatchBaselineResponseBodyPatchBaselineTags extends $tea.Model {
+  tagKey?: string;
+  tagValue?: string;
+  static names(): { [key: string]: string } {
+    return {
+      tagKey: 'TagKey',
+      tagValue: 'TagValue',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      tagKey: 'string',
+      tagValue: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
 export class UpdatePatchBaselineResponseBodyPatchBaseline extends $tea.Model {
   approvalRules?: string;
+  approvedPatches?: string[];
+  approvedPatchesEnableNonSecurity?: boolean;
   createdBy?: string;
   createdDate?: string;
   description?: string;
   id?: string;
   name?: string;
   operationSystem?: string;
+  rejectedPatches?: string[];
+  rejectedPatchesAction?: string;
   shareType?: string;
+  sources?: string[];
+  tags?: UpdatePatchBaselineResponseBodyPatchBaselineTags[];
   updatedBy?: string;
   updatedDate?: string;
   static names(): { [key: string]: string } {
     return {
       approvalRules: 'ApprovalRules',
+      approvedPatches: 'ApprovedPatches',
+      approvedPatchesEnableNonSecurity: 'ApprovedPatchesEnableNonSecurity',
       createdBy: 'CreatedBy',
       createdDate: 'CreatedDate',
       description: 'Description',
       id: 'Id',
       name: 'Name',
       operationSystem: 'OperationSystem',
+      rejectedPatches: 'RejectedPatches',
+      rejectedPatchesAction: 'RejectedPatchesAction',
       shareType: 'ShareType',
+      sources: 'Sources',
+      tags: 'Tags',
       updatedBy: 'UpdatedBy',
       updatedDate: 'UpdatedDate',
     };
@@ -10092,13 +10648,19 @@ export class UpdatePatchBaselineResponseBodyPatchBaseline extends $tea.Model {
   static types(): { [key: string]: any } {
     return {
       approvalRules: 'string',
+      approvedPatches: { 'type': 'array', 'itemType': 'string' },
+      approvedPatchesEnableNonSecurity: 'boolean',
       createdBy: 'string',
       createdDate: 'string',
       description: 'string',
       id: 'string',
       name: 'string',
       operationSystem: 'string',
+      rejectedPatches: { 'type': 'array', 'itemType': 'string' },
+      rejectedPatchesAction: 'string',
       shareType: 'string',
+      sources: { 'type': 'array', 'itemType': 'string' },
+      tags: { 'type': 'array', 'itemType': UpdatePatchBaselineResponseBodyPatchBaselineTags },
       updatedBy: 'string',
       updatedDate: 'string',
     };
@@ -10456,11 +11018,19 @@ export default class Client extends OpenApi {
     Util.validateModel(tmpReq);
     let request = new CreateApplicationShrinkRequest({ });
     OpenApiUtil.convert(tmpReq, request);
+    if (!Util.isUnset(tmpReq.alarmConfig)) {
+      request.alarmConfigShrink = OpenApiUtil.arrayToStringWithSpecifiedStyle(tmpReq.alarmConfig, "AlarmConfig", "json");
+    }
+
     if (!Util.isUnset(tmpReq.tags)) {
       request.tagsShrink = OpenApiUtil.arrayToStringWithSpecifiedStyle(tmpReq.tags, "Tags", "json");
     }
 
     let query = { };
+    if (!Util.isUnset(request.alarmConfigShrink)) {
+      query["AlarmConfig"] = request.alarmConfigShrink;
+    }
+
     if (!Util.isUnset(request.clientToken)) {
       query["ClientToken"] = request.clientToken;
     }
@@ -10718,11 +11288,37 @@ export default class Client extends OpenApi {
     return await this.createParameterWithOptions(request, runtime);
   }
 
-  async createPatchBaselineWithOptions(request: CreatePatchBaselineRequest, runtime: $Util.RuntimeOptions): Promise<CreatePatchBaselineResponse> {
-    Util.validateModel(request);
+  async createPatchBaselineWithOptions(tmpReq: CreatePatchBaselineRequest, runtime: $Util.RuntimeOptions): Promise<CreatePatchBaselineResponse> {
+    Util.validateModel(tmpReq);
+    let request = new CreatePatchBaselineShrinkRequest({ });
+    OpenApiUtil.convert(tmpReq, request);
+    if (!Util.isUnset(tmpReq.approvedPatches)) {
+      request.approvedPatchesShrink = OpenApiUtil.arrayToStringWithSpecifiedStyle(tmpReq.approvedPatches, "ApprovedPatches", "json");
+    }
+
+    if (!Util.isUnset(tmpReq.rejectedPatches)) {
+      request.rejectedPatchesShrink = OpenApiUtil.arrayToStringWithSpecifiedStyle(tmpReq.rejectedPatches, "RejectedPatches", "json");
+    }
+
+    if (!Util.isUnset(tmpReq.sources)) {
+      request.sourcesShrink = OpenApiUtil.arrayToStringWithSpecifiedStyle(tmpReq.sources, "Sources", "json");
+    }
+
+    if (!Util.isUnset(tmpReq.tags)) {
+      request.tagsShrink = OpenApiUtil.arrayToStringWithSpecifiedStyle(tmpReq.tags, "Tags", "json");
+    }
+
     let query = { };
     if (!Util.isUnset(request.approvalRules)) {
       query["ApprovalRules"] = request.approvalRules;
+    }
+
+    if (!Util.isUnset(request.approvedPatchesShrink)) {
+      query["ApprovedPatches"] = request.approvedPatchesShrink;
+    }
+
+    if (!Util.isUnset(request.approvedPatchesEnableNonSecurity)) {
+      query["ApprovedPatchesEnableNonSecurity"] = request.approvedPatchesEnableNonSecurity;
     }
 
     if (!Util.isUnset(request.clientToken)) {
@@ -10743,6 +11339,22 @@ export default class Client extends OpenApi {
 
     if (!Util.isUnset(request.regionId)) {
       query["RegionId"] = request.regionId;
+    }
+
+    if (!Util.isUnset(request.rejectedPatchesShrink)) {
+      query["RejectedPatches"] = request.rejectedPatchesShrink;
+    }
+
+    if (!Util.isUnset(request.rejectedPatchesAction)) {
+      query["RejectedPatchesAction"] = request.rejectedPatchesAction;
+    }
+
+    if (!Util.isUnset(request.sourcesShrink)) {
+      query["Sources"] = request.sourcesShrink;
+    }
+
+    if (!Util.isUnset(request.tagsShrink)) {
+      query["Tags"] = request.tagsShrink;
     }
 
     let req = new $OpenApi.OpenApiRequest({
@@ -11366,6 +11978,10 @@ export default class Client extends OpenApi {
   async generateExecutionPolicyWithOptions(request: GenerateExecutionPolicyRequest, runtime: $Util.RuntimeOptions): Promise<GenerateExecutionPolicyResponse> {
     Util.validateModel(request);
     let query = { };
+    if (!Util.isUnset(request.ramRole)) {
+      query["RamRole"] = request.ramRole;
+    }
+
     if (!Util.isUnset(request.regionId)) {
       query["RegionId"] = request.regionId;
     }
@@ -11986,10 +12602,6 @@ export default class Client extends OpenApi {
       query["NextToken"] = request.nextToken;
     }
 
-    if (!Util.isUnset(request.product)) {
-      query["Product"] = request.product;
-    }
-
     if (!Util.isUnset(request.regionId)) {
       query["RegionId"] = request.regionId;
     }
@@ -12037,6 +12649,10 @@ export default class Client extends OpenApi {
     }
 
     let query = { };
+    if (!Util.isUnset(request.applicationType)) {
+      query["ApplicationType"] = request.applicationType;
+    }
+
     if (!Util.isUnset(request.maxResults)) {
       query["MaxResults"] = request.maxResults;
     }
@@ -12083,6 +12699,13 @@ export default class Client extends OpenApi {
     return await this.listApplicationsWithOptions(request, runtime);
   }
 
+  /**
+    * ****
+    *
+    * @param request ListExecutionLogsRequest
+    * @param runtime runtime options for this request RuntimeOptions
+    * @return ListExecutionLogsResponse
+   */
   async listExecutionLogsWithOptions(request: ListExecutionLogsRequest, runtime: $Util.RuntimeOptions): Promise<ListExecutionLogsResponse> {
     Util.validateModel(request);
     let query = { };
@@ -12127,6 +12750,12 @@ export default class Client extends OpenApi {
     return $tea.cast<ListExecutionLogsResponse>(await this.callApi(params, req, runtime), new ListExecutionLogsResponse({}));
   }
 
+  /**
+    * ****
+    *
+    * @param request ListExecutionLogsRequest
+    * @return ListExecutionLogsResponse
+   */
   async listExecutionLogs(request: ListExecutionLogsRequest): Promise<ListExecutionLogsResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.listExecutionLogsWithOptions(request, runtime);
@@ -12174,8 +12803,20 @@ export default class Client extends OpenApi {
     }
 
     let query = { };
+    if (!Util.isUnset(request.categories)) {
+      query["Categories"] = request.categories;
+    }
+
     if (!Util.isUnset(request.category)) {
       query["Category"] = request.category;
+    }
+
+    if (!Util.isUnset(request.depth)) {
+      query["Depth"] = request.depth;
+    }
+
+    if (!Util.isUnset(request.description)) {
+      query["Description"] = request.description;
     }
 
     if (!Util.isUnset(request.endDateAfter)) {
@@ -12560,6 +13201,10 @@ export default class Client extends OpenApi {
       query["ResourceGroupId"] = request.resourceGroupId;
     }
 
+    if (!Util.isUnset(request.shareType)) {
+      query["ShareType"] = request.shareType;
+    }
+
     if (!Util.isUnset(request.sortField)) {
       query["SortField"] = request.sortField;
     }
@@ -12598,9 +13243,31 @@ export default class Client extends OpenApi {
     return await this.listParametersWithOptions(request, runtime);
   }
 
-  async listPatchBaselinesWithOptions(request: ListPatchBaselinesRequest, runtime: $Util.RuntimeOptions): Promise<ListPatchBaselinesResponse> {
-    Util.validateModel(request);
+  async listPatchBaselinesWithOptions(tmpReq: ListPatchBaselinesRequest, runtime: $Util.RuntimeOptions): Promise<ListPatchBaselinesResponse> {
+    Util.validateModel(tmpReq);
+    let request = new ListPatchBaselinesShrinkRequest({ });
+    OpenApiUtil.convert(tmpReq, request);
+    if (!Util.isUnset(tmpReq.approvedPatches)) {
+      request.approvedPatchesShrink = OpenApiUtil.arrayToStringWithSpecifiedStyle(tmpReq.approvedPatches, "ApprovedPatches", "json");
+    }
+
+    if (!Util.isUnset(tmpReq.sources)) {
+      request.sourcesShrink = OpenApiUtil.arrayToStringWithSpecifiedStyle(tmpReq.sources, "Sources", "json");
+    }
+
+    if (!Util.isUnset(tmpReq.tags)) {
+      request.tagsShrink = OpenApiUtil.arrayToStringWithSpecifiedStyle(tmpReq.tags, "Tags", "json");
+    }
+
     let query = { };
+    if (!Util.isUnset(request.approvedPatchesShrink)) {
+      query["ApprovedPatches"] = request.approvedPatchesShrink;
+    }
+
+    if (!Util.isUnset(request.approvedPatchesEnableNonSecurity)) {
+      query["ApprovedPatchesEnableNonSecurity"] = request.approvedPatchesEnableNonSecurity;
+    }
+
     if (!Util.isUnset(request.maxResults)) {
       query["MaxResults"] = request.maxResults;
     }
@@ -12623,6 +13290,14 @@ export default class Client extends OpenApi {
 
     if (!Util.isUnset(request.shareType)) {
       query["ShareType"] = request.shareType;
+    }
+
+    if (!Util.isUnset(request.sourcesShrink)) {
+      query["Sources"] = request.sourcesShrink;
+    }
+
+    if (!Util.isUnset(request.tagsShrink)) {
+      query["Tags"] = request.tagsShrink;
     }
 
     let req = new $OpenApi.OpenApiRequest({
@@ -12737,6 +13412,13 @@ export default class Client extends OpenApi {
     return await this.listSecretParameterVersionsWithOptions(request, runtime);
   }
 
+  /**
+    * Before you call this operation, make sure that you have the permission to manage Key Management Service (KMS) secrets.
+    *
+    * @param tmpReq ListSecretParametersRequest
+    * @param runtime runtime options for this request RuntimeOptions
+    * @return ListSecretParametersResponse
+   */
   async listSecretParametersWithOptions(tmpReq: ListSecretParametersRequest, runtime: $Util.RuntimeOptions): Promise<ListSecretParametersResponse> {
     Util.validateModel(tmpReq);
     let request = new ListSecretParametersShrinkRequest({ });
@@ -12803,6 +13485,12 @@ export default class Client extends OpenApi {
     return $tea.cast<ListSecretParametersResponse>(await this.callApi(params, req, runtime), new ListSecretParametersResponse({}));
   }
 
+  /**
+    * Before you call this operation, make sure that you have the permission to manage Key Management Service (KMS) secrets.
+    *
+    * @param request ListSecretParametersRequest
+    * @return ListSecretParametersResponse
+   */
   async listSecretParameters(request: ListSecretParametersRequest): Promise<ListSecretParametersResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.listSecretParametersWithOptions(request, runtime);
@@ -13241,6 +13929,16 @@ export default class Client extends OpenApi {
     return await this.listTemplatesWithOptions(request, runtime);
   }
 
+  /**
+    * You can call this operation to notify an execution in the following scenarios:
+    * *   If a template contains a special task, such as an approval task, the Operation Orchestration Service (OOS) execution engine sets the execution state to Waiting when the approval task is being run. You can call this operation to specify whether to continue the execution.
+    * *   If you perform debugging in the debug mode, you can call this operation to notify the execution of the subsequent operations after the execution is created or a task is complete.
+    * *   If a high-risk operation task waits for approval, you can call this operation to specify whether to continue the execution.
+    *
+    * @param request NotifyExecutionRequest
+    * @param runtime runtime options for this request RuntimeOptions
+    * @return NotifyExecutionResponse
+   */
   async notifyExecutionWithOptions(request: NotifyExecutionRequest, runtime: $Util.RuntimeOptions): Promise<NotifyExecutionResponse> {
     Util.validateModel(request);
     let query = { };
@@ -13301,6 +13999,15 @@ export default class Client extends OpenApi {
     return $tea.cast<NotifyExecutionResponse>(await this.callApi(params, req, runtime), new NotifyExecutionResponse({}));
   }
 
+  /**
+    * You can call this operation to notify an execution in the following scenarios:
+    * *   If a template contains a special task, such as an approval task, the Operation Orchestration Service (OOS) execution engine sets the execution state to Waiting when the approval task is being run. You can call this operation to specify whether to continue the execution.
+    * *   If you perform debugging in the debug mode, you can call this operation to notify the execution of the subsequent operations after the execution is created or a task is complete.
+    * *   If a high-risk operation task waits for approval, you can call this operation to specify whether to continue the execution.
+    *
+    * @param request NotifyExecutionRequest
+    * @return NotifyExecutionResponse
+   */
   async notifyExecution(request: NotifyExecutionRequest): Promise<NotifyExecutionResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.notifyExecutionWithOptions(request, runtime);
@@ -13679,11 +14386,23 @@ export default class Client extends OpenApi {
     Util.validateModel(tmpReq);
     let request = new UpdateApplicationShrinkRequest({ });
     OpenApiUtil.convert(tmpReq, request);
+    if (!Util.isUnset(tmpReq.alarmConfig)) {
+      request.alarmConfigShrink = OpenApiUtil.arrayToStringWithSpecifiedStyle(tmpReq.alarmConfig, "AlarmConfig", "json");
+    }
+
     if (!Util.isUnset(tmpReq.tags)) {
       request.tagsShrink = OpenApiUtil.arrayToStringWithSpecifiedStyle(tmpReq.tags, "Tags", "json");
     }
 
     let query = { };
+    if (!Util.isUnset(request.alarmConfigShrink)) {
+      query["AlarmConfig"] = request.alarmConfigShrink;
+    }
+
+    if (!Util.isUnset(request.deleteAlarmRulesBeforeUpdate)) {
+      query["DeleteAlarmRulesBeforeUpdate"] = request.deleteAlarmRulesBeforeUpdate;
+    }
+
     if (!Util.isUnset(request.description)) {
       query["Description"] = request.description;
     }
@@ -13768,6 +14487,10 @@ export default class Client extends OpenApi {
     let query = { };
     if (!Util.isUnset(request.clientToken)) {
       query["ClientToken"] = request.clientToken;
+    }
+
+    if (!Util.isUnset(request.description)) {
+      query["Description"] = request.description;
     }
 
     if (!Util.isUnset(request.executionId)) {
@@ -13944,11 +14667,37 @@ export default class Client extends OpenApi {
     return await this.updateParameterWithOptions(request, runtime);
   }
 
-  async updatePatchBaselineWithOptions(request: UpdatePatchBaselineRequest, runtime: $Util.RuntimeOptions): Promise<UpdatePatchBaselineResponse> {
-    Util.validateModel(request);
+  async updatePatchBaselineWithOptions(tmpReq: UpdatePatchBaselineRequest, runtime: $Util.RuntimeOptions): Promise<UpdatePatchBaselineResponse> {
+    Util.validateModel(tmpReq);
+    let request = new UpdatePatchBaselineShrinkRequest({ });
+    OpenApiUtil.convert(tmpReq, request);
+    if (!Util.isUnset(tmpReq.approvedPatches)) {
+      request.approvedPatchesShrink = OpenApiUtil.arrayToStringWithSpecifiedStyle(tmpReq.approvedPatches, "ApprovedPatches", "json");
+    }
+
+    if (!Util.isUnset(tmpReq.rejectedPatches)) {
+      request.rejectedPatchesShrink = OpenApiUtil.arrayToStringWithSpecifiedStyle(tmpReq.rejectedPatches, "RejectedPatches", "json");
+    }
+
+    if (!Util.isUnset(tmpReq.sources)) {
+      request.sourcesShrink = OpenApiUtil.arrayToStringWithSpecifiedStyle(tmpReq.sources, "Sources", "json");
+    }
+
+    if (!Util.isUnset(tmpReq.tags)) {
+      request.tagsShrink = OpenApiUtil.arrayToStringWithSpecifiedStyle(tmpReq.tags, "Tags", "json");
+    }
+
     let query = { };
     if (!Util.isUnset(request.approvalRules)) {
       query["ApprovalRules"] = request.approvalRules;
+    }
+
+    if (!Util.isUnset(request.approvedPatchesShrink)) {
+      query["ApprovedPatches"] = request.approvedPatchesShrink;
+    }
+
+    if (!Util.isUnset(request.approvedPatchesEnableNonSecurity)) {
+      query["ApprovedPatchesEnableNonSecurity"] = request.approvedPatchesEnableNonSecurity;
     }
 
     if (!Util.isUnset(request.clientToken)) {
@@ -13965,6 +14714,22 @@ export default class Client extends OpenApi {
 
     if (!Util.isUnset(request.regionId)) {
       query["RegionId"] = request.regionId;
+    }
+
+    if (!Util.isUnset(request.rejectedPatchesShrink)) {
+      query["RejectedPatches"] = request.rejectedPatchesShrink;
+    }
+
+    if (!Util.isUnset(request.rejectedPatchesAction)) {
+      query["RejectedPatchesAction"] = request.rejectedPatchesAction;
+    }
+
+    if (!Util.isUnset(request.sourcesShrink)) {
+      query["Sources"] = request.sourcesShrink;
+    }
+
+    if (!Util.isUnset(request.tagsShrink)) {
+      query["Tags"] = request.tagsShrink;
     }
 
     let req = new $OpenApi.OpenApiRequest({
