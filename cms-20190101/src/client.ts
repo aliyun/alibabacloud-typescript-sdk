@@ -5065,6 +5065,7 @@ export class DescribeAlertLogCountRequest extends $tea.Model {
   ruleName?: string;
   searchKey?: string;
   sendStatus?: string;
+  sourceType?: string;
   startTime?: number;
   static names(): { [key: string]: string } {
     return {
@@ -5083,6 +5084,7 @@ export class DescribeAlertLogCountRequest extends $tea.Model {
       ruleName: 'RuleName',
       searchKey: 'SearchKey',
       sendStatus: 'SendStatus',
+      sourceType: 'SourceType',
       startTime: 'StartTime',
     };
   }
@@ -5104,6 +5106,7 @@ export class DescribeAlertLogCountRequest extends $tea.Model {
       ruleName: 'string',
       searchKey: 'string',
       sendStatus: 'string',
+      sourceType: 'string',
       startTime: 'number',
     };
   }
@@ -5185,6 +5188,7 @@ export class DescribeAlertLogHistogramRequest extends $tea.Model {
   ruleName?: string;
   searchKey?: string;
   sendStatus?: string;
+  sourceType?: string;
   startTime?: number;
   static names(): { [key: string]: string } {
     return {
@@ -5203,6 +5207,7 @@ export class DescribeAlertLogHistogramRequest extends $tea.Model {
       ruleName: 'RuleName',
       searchKey: 'SearchKey',
       sendStatus: 'SendStatus',
+      sourceType: 'SourceType',
       startTime: 'StartTime',
     };
   }
@@ -5224,6 +5229,7 @@ export class DescribeAlertLogHistogramRequest extends $tea.Model {
       ruleName: 'string',
       searchKey: 'string',
       sendStatus: 'string',
+      sourceType: 'string',
       startTime: 'number',
     };
   }
@@ -5306,6 +5312,7 @@ export class DescribeAlertLogListRequest extends $tea.Model {
   ruleName?: string;
   searchKey?: string;
   sendStatus?: string;
+  sourceType?: string;
   startTime?: number;
   static names(): { [key: string]: string } {
     return {
@@ -5325,6 +5332,7 @@ export class DescribeAlertLogListRequest extends $tea.Model {
       ruleName: 'RuleName',
       searchKey: 'SearchKey',
       sendStatus: 'SendStatus',
+      sourceType: 'SourceType',
       startTime: 'StartTime',
     };
   }
@@ -5347,6 +5355,7 @@ export class DescribeAlertLogListRequest extends $tea.Model {
       ruleName: 'string',
       searchKey: 'string',
       sendStatus: 'string',
+      sourceType: 'string',
       startTime: 'number',
     };
   }
@@ -22503,6 +22512,7 @@ export class DescribeMonitoringAgentProcessesResponseBodyNodeProcesses extends $
 export class DescribeMonitoringAgentStatusesResponseBodyNodeStatusListNodeStatus extends $tea.Model {
   autoInstall?: boolean;
   instanceId?: string;
+  osMonitorConfig?: string;
   osMonitorErrorCode?: string;
   osMonitorErrorDetail?: string;
   osMonitorStatus?: string;
@@ -22512,6 +22522,7 @@ export class DescribeMonitoringAgentStatusesResponseBodyNodeStatusListNodeStatus
     return {
       autoInstall: 'AutoInstall',
       instanceId: 'InstanceId',
+      osMonitorConfig: 'OsMonitorConfig',
       osMonitorErrorCode: 'OsMonitorErrorCode',
       osMonitorErrorDetail: 'OsMonitorErrorDetail',
       osMonitorStatus: 'OsMonitorStatus',
@@ -22524,6 +22535,7 @@ export class DescribeMonitoringAgentStatusesResponseBodyNodeStatusListNodeStatus
     return {
       autoInstall: 'boolean',
       instanceId: 'string',
+      osMonitorConfig: 'string',
       osMonitorErrorCode: 'string',
       osMonitorErrorDetail: 'string',
       osMonitorStatus: 'string',
@@ -28525,6 +28537,10 @@ export default class Client extends OpenApi {
       query["SendStatus"] = request.sendStatus;
     }
 
+    if (!Util.isUnset(request.sourceType)) {
+      query["SourceType"] = request.sourceType;
+    }
+
     if (!Util.isUnset(request.startTime)) {
       query["StartTime"] = request.startTime;
     }
@@ -28621,6 +28637,10 @@ export default class Client extends OpenApi {
 
     if (!Util.isUnset(request.sendStatus)) {
       query["SendStatus"] = request.sendStatus;
+    }
+
+    if (!Util.isUnset(request.sourceType)) {
+      query["SourceType"] = request.sourceType;
     }
 
     if (!Util.isUnset(request.startTime)) {
@@ -28725,6 +28745,10 @@ export default class Client extends OpenApi {
 
     if (!Util.isUnset(request.sendStatus)) {
       query["SendStatus"] = request.sendStatus;
+    }
+
+    if (!Util.isUnset(request.sourceType)) {
+      query["SourceType"] = request.sourceType;
     }
 
     if (!Util.isUnset(request.startTime)) {
@@ -32888,6 +32912,14 @@ export default class Client extends OpenApi {
     return await this.modifySiteMonitorWithOptions(request, runtime);
   }
 
+  /**
+    * @deprecated
+    *
+    * @param request OpenCmsServiceRequest
+    * @param runtime runtime options for this request RuntimeOptions
+    * @return OpenCmsServiceResponse
+   */
+  // Deprecated
   async openCmsServiceWithOptions(runtime: $Util.RuntimeOptions): Promise<OpenCmsServiceResponse> {
     let req = new $OpenApi.OpenApiRequest({ });
     let params = new $OpenApi.Params({
@@ -32904,6 +32936,12 @@ export default class Client extends OpenApi {
     return $tea.cast<OpenCmsServiceResponse>(await this.callApi(params, req, runtime), new OpenCmsServiceResponse({}));
   }
 
+  /**
+    * @deprecated
+    *
+    * @return OpenCmsServiceResponse
+   */
+  // Deprecated
   async openCmsService(): Promise<OpenCmsServiceResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.openCmsServiceWithOptions(runtime);
