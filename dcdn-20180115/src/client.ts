@@ -854,6 +854,144 @@ export class BatchSetDcdnWafDomainConfigsResponse extends $tea.Model {
   }
 }
 
+export class BatchStartDcdnDomainRequest extends $tea.Model {
+  domainNames?: string;
+  ownerId?: number;
+  securityToken?: string;
+  static names(): { [key: string]: string } {
+    return {
+      domainNames: 'DomainNames',
+      ownerId: 'OwnerId',
+      securityToken: 'SecurityToken',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      domainNames: 'string',
+      ownerId: 'number',
+      securityToken: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class BatchStartDcdnDomainResponseBody extends $tea.Model {
+  requestId?: string;
+  static names(): { [key: string]: string } {
+    return {
+      requestId: 'RequestId',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      requestId: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class BatchStartDcdnDomainResponse extends $tea.Model {
+  headers: { [key: string]: string };
+  statusCode: number;
+  body: BatchStartDcdnDomainResponseBody;
+  static names(): { [key: string]: string } {
+    return {
+      headers: 'headers',
+      statusCode: 'statusCode',
+      body: 'body',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
+      body: BatchStartDcdnDomainResponseBody,
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class BatchStopDcdnDomainRequest extends $tea.Model {
+  domainNames?: string;
+  ownerId?: number;
+  securityToken?: string;
+  static names(): { [key: string]: string } {
+    return {
+      domainNames: 'DomainNames',
+      ownerId: 'OwnerId',
+      securityToken: 'SecurityToken',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      domainNames: 'string',
+      ownerId: 'number',
+      securityToken: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class BatchStopDcdnDomainResponseBody extends $tea.Model {
+  requestId?: string;
+  static names(): { [key: string]: string } {
+    return {
+      requestId: 'RequestId',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      requestId: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class BatchStopDcdnDomainResponse extends $tea.Model {
+  headers: { [key: string]: string };
+  statusCode: number;
+  body: BatchStopDcdnDomainResponseBody;
+  static names(): { [key: string]: string } {
+    return {
+      headers: 'headers',
+      statusCode: 'statusCode',
+      body: 'body',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
+      body: BatchStopDcdnDomainResponseBody,
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
 export class CheckDcdnProjectExistRequest extends $tea.Model {
   projectName?: string;
   static names(): { [key: string]: string } {
@@ -1798,6 +1936,69 @@ export class DeleteDcdnKvResponse extends $tea.Model {
       headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
       statusCode: 'number',
       body: DeleteDcdnKvResponseBody,
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class DeleteDcdnKvNamespaceRequest extends $tea.Model {
+  namespace?: string;
+  static names(): { [key: string]: string } {
+    return {
+      namespace: 'Namespace',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      namespace: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class DeleteDcdnKvNamespaceResponseBody extends $tea.Model {
+  requestId?: string;
+  static names(): { [key: string]: string } {
+    return {
+      requestId: 'RequestId',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      requestId: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class DeleteDcdnKvNamespaceResponse extends $tea.Model {
+  headers: { [key: string]: string };
+  statusCode: number;
+  body: DeleteDcdnKvNamespaceResponseBody;
+  static names(): { [key: string]: string } {
+    return {
+      headers: 'headers',
+      statusCode: 'statusCode',
+      body: 'body',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
+      body: DeleteDcdnKvNamespaceResponseBody,
     };
   }
 
@@ -7302,6 +7503,196 @@ export class DescribeDcdnIpaUserDomainsResponse extends $tea.Model {
   }
 }
 
+export class DescribeDcdnKvAccountResponseBody extends $tea.Model {
+  capacityString?: string;
+  capacityUsedString?: string;
+  namespaceList?: DescribeDcdnKvAccountResponseBodyNamespaceList[];
+  namespaceQuota?: number;
+  namespaceUsed?: number;
+  requestId?: string;
+  status?: string;
+  static names(): { [key: string]: string } {
+    return {
+      capacityString: 'CapacityString',
+      capacityUsedString: 'CapacityUsedString',
+      namespaceList: 'NamespaceList',
+      namespaceQuota: 'NamespaceQuota',
+      namespaceUsed: 'NamespaceUsed',
+      requestId: 'RequestId',
+      status: 'Status',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      capacityString: 'string',
+      capacityUsedString: 'string',
+      namespaceList: { 'type': 'array', 'itemType': DescribeDcdnKvAccountResponseBodyNamespaceList },
+      namespaceQuota: 'number',
+      namespaceUsed: 'number',
+      requestId: 'string',
+      status: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class DescribeDcdnKvAccountResponse extends $tea.Model {
+  headers: { [key: string]: string };
+  statusCode: number;
+  body: DescribeDcdnKvAccountResponseBody;
+  static names(): { [key: string]: string } {
+    return {
+      headers: 'headers',
+      statusCode: 'statusCode',
+      body: 'body',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
+      body: DescribeDcdnKvAccountResponseBody,
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class DescribeDcdnKvAccountStatusResponseBody extends $tea.Model {
+  requestId?: string;
+  status?: string;
+  static names(): { [key: string]: string } {
+    return {
+      requestId: 'RequestId',
+      status: 'Status',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      requestId: 'string',
+      status: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class DescribeDcdnKvAccountStatusResponse extends $tea.Model {
+  headers: { [key: string]: string };
+  statusCode: number;
+  body: DescribeDcdnKvAccountStatusResponseBody;
+  static names(): { [key: string]: string } {
+    return {
+      headers: 'headers',
+      statusCode: 'statusCode',
+      body: 'body',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
+      body: DescribeDcdnKvAccountStatusResponseBody,
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class DescribeDcdnKvNamespaceRequest extends $tea.Model {
+  namespace?: string;
+  static names(): { [key: string]: string } {
+    return {
+      namespace: 'Namespace',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      namespace: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class DescribeDcdnKvNamespaceResponseBody extends $tea.Model {
+  capacityString?: string;
+  capacityUsedString?: string;
+  description?: string;
+  namespace?: string;
+  namespaceId?: string;
+  requestId?: string;
+  status?: string;
+  static names(): { [key: string]: string } {
+    return {
+      capacityString: 'CapacityString',
+      capacityUsedString: 'CapacityUsedString',
+      description: 'Description',
+      namespace: 'Namespace',
+      namespaceId: 'NamespaceId',
+      requestId: 'RequestId',
+      status: 'Status',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      capacityString: 'string',
+      capacityUsedString: 'string',
+      description: 'string',
+      namespace: 'string',
+      namespaceId: 'string',
+      requestId: 'string',
+      status: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class DescribeDcdnKvNamespaceResponse extends $tea.Model {
+  headers: { [key: string]: string };
+  statusCode: number;
+  body: DescribeDcdnKvNamespaceResponseBody;
+  static names(): { [key: string]: string } {
+    return {
+      headers: 'headers',
+      statusCode: 'statusCode',
+      body: 'body',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
+      body: DescribeDcdnKvNamespaceResponseBody,
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
 export class DescribeDcdnL2IpsResponseBody extends $tea.Model {
   requestId?: string;
   vips?: string[];
@@ -11844,6 +12235,90 @@ export class GetDcdnKvResponse extends $tea.Model {
   }
 }
 
+export class ListDcdnKvRequest extends $tea.Model {
+  namespace?: string;
+  pageNumber?: number;
+  pageSize?: number;
+  prefix?: string;
+  static names(): { [key: string]: string } {
+    return {
+      namespace: 'Namespace',
+      pageNumber: 'PageNumber',
+      pageSize: 'PageSize',
+      prefix: 'Prefix',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      namespace: 'string',
+      pageNumber: 'number',
+      pageSize: 'number',
+      prefix: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class ListDcdnKvResponseBody extends $tea.Model {
+  keys?: ListDcdnKvResponseBodyKeys[];
+  pageNumber?: number;
+  pageSize?: number;
+  requestId?: string;
+  totalCount?: number;
+  static names(): { [key: string]: string } {
+    return {
+      keys: 'Keys',
+      pageNumber: 'PageNumber',
+      pageSize: 'PageSize',
+      requestId: 'RequestId',
+      totalCount: 'TotalCount',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      keys: { 'type': 'array', 'itemType': ListDcdnKvResponseBodyKeys },
+      pageNumber: 'number',
+      pageSize: 'number',
+      requestId: 'string',
+      totalCount: 'number',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class ListDcdnKvResponse extends $tea.Model {
+  headers: { [key: string]: string };
+  statusCode: number;
+  body: ListDcdnKvResponseBody;
+  static names(): { [key: string]: string } {
+    return {
+      headers: 'headers',
+      statusCode: 'statusCode',
+      body: 'body',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
+      body: ListDcdnKvResponseBody,
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
 export class ListDcdnRealTimeDeliveryProjectRequest extends $tea.Model {
   businessType?: string;
   domainName?: string;
@@ -11980,6 +12455,75 @@ export class ModifyDCdnDomainSchdmByPropertyResponse extends $tea.Model {
       headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
       statusCode: 'number',
       body: ModifyDCdnDomainSchdmByPropertyResponseBody,
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class ModifyDcdnWafGroupRequest extends $tea.Model {
+  id?: number;
+  name?: string;
+  rules?: string;
+  static names(): { [key: string]: string } {
+    return {
+      id: 'Id',
+      name: 'Name',
+      rules: 'Rules',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      id: 'number',
+      name: 'string',
+      rules: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class ModifyDcdnWafGroupResponseBody extends $tea.Model {
+  requestId?: string;
+  static names(): { [key: string]: string } {
+    return {
+      requestId: 'RequestId',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      requestId: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class ModifyDcdnWafGroupResponse extends $tea.Model {
+  headers: { [key: string]: string };
+  statusCode: number;
+  body: ModifyDcdnWafGroupResponseBody;
+  static names(): { [key: string]: string } {
+    return {
+      headers: 'headers',
+      statusCode: 'statusCode',
+      body: 'body',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
+      body: ModifyDcdnWafGroupResponseBody,
     };
   }
 
@@ -12590,6 +13134,84 @@ export class PutDcdnKvResponse extends $tea.Model {
       headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
       statusCode: 'number',
       body: PutDcdnKvResponseBody,
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class PutDcdnKvNamespaceRequest extends $tea.Model {
+  description?: string;
+  namespace?: string;
+  static names(): { [key: string]: string } {
+    return {
+      description: 'Description',
+      namespace: 'Namespace',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      description: 'string',
+      namespace: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class PutDcdnKvNamespaceResponseBody extends $tea.Model {
+  description?: string;
+  namespace?: string;
+  namespaceId?: string;
+  requestId?: string;
+  status?: string;
+  static names(): { [key: string]: string } {
+    return {
+      description: 'Description',
+      namespace: 'Namespace',
+      namespaceId: 'NamespaceId',
+      requestId: 'RequestId',
+      status: 'Status',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      description: 'string',
+      namespace: 'string',
+      namespaceId: 'string',
+      requestId: 'string',
+      status: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class PutDcdnKvNamespaceResponse extends $tea.Model {
+  headers: { [key: string]: string };
+  statusCode: number;
+  body: PutDcdnKvNamespaceResponseBody;
+  static names(): { [key: string]: string } {
+    return {
+      headers: 'headers',
+      statusCode: 'statusCode',
+      body: 'body',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
+      body: PutDcdnKvNamespaceResponseBody,
     };
   }
 
@@ -17791,6 +18413,40 @@ export class DescribeDcdnIpaUserDomainsResponseBodyDomains extends $tea.Model {
   }
 }
 
+export class DescribeDcdnKvAccountResponseBodyNamespaceList extends $tea.Model {
+  capacityString?: string;
+  capacityUsedString?: string;
+  description?: string;
+  namespace?: string;
+  namespaceId?: string;
+  status?: string;
+  static names(): { [key: string]: string } {
+    return {
+      capacityString: 'CapacityString',
+      capacityUsedString: 'CapacityUsedString',
+      description: 'Description',
+      namespace: 'Namespace',
+      namespaceId: 'NamespaceId',
+      status: 'Status',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      capacityString: 'string',
+      capacityUsedString: 'string',
+      description: 'string',
+      namespace: 'string',
+      namespaceId: 'string',
+      status: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
 export class DescribeDcdnRealTimeDeliveryFieldResponseBodyContentFields extends $tea.Model {
   description?: string;
   fieldName?: string;
@@ -19871,6 +20527,28 @@ export class DescribeRDDomainsResponseBodyDomains extends $tea.Model {
   }
 }
 
+export class ListDcdnKvResponseBodyKeys extends $tea.Model {
+  name?: string;
+  updateTime?: string;
+  static names(): { [key: string]: string } {
+    return {
+      name: 'Name',
+      updateTime: 'UpdateTime',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      name: 'string',
+      updateTime: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
 export class ListDcdnRealTimeDeliveryProjectResponseBodyContentProjects extends $tea.Model {
   businessType?: string;
   dataCenter?: string;
@@ -20389,9 +21067,8 @@ export default class Client extends OpenApi {
   }
 
   /**
-    * > 
-    * *   You can specify up to 50 domain names in each request.
-    * *   You can call this operation up to 30 times per second per account.
+    * > - You can specify up to 50 domain names in each request.
+    * > - You can call this operation up to 30 times per second per account.
     *
     * @param request BatchDeleteDcdnDomainConfigsRequest
     * @param runtime runtime options for this request RuntimeOptions
@@ -20438,9 +21115,8 @@ export default class Client extends OpenApi {
   }
 
   /**
-    * > 
-    * *   You can specify up to 50 domain names in each request.
-    * *   You can call this operation up to 30 times per second per account.
+    * > - You can specify up to 50 domain names in each request.
+    * > - You can call this operation up to 30 times per second per account.
     *
     * @param request BatchDeleteDcdnDomainConfigsRequest
     * @return BatchDeleteDcdnDomainConfigsResponse
@@ -20497,7 +21173,6 @@ export default class Client extends OpenApi {
   }
 
   /**
-    * ## Usage notes
     * You can call this operation up to 20 times per second per account.
     *
     * @param request BatchModifyDcdnWafRulesRequest
@@ -20533,7 +21208,6 @@ export default class Client extends OpenApi {
   }
 
   /**
-    * ## Usage notes
     * You can call this operation up to 20 times per second per account.
     *
     * @param request BatchModifyDcdnWafRulesRequest
@@ -20788,6 +21462,118 @@ export default class Client extends OpenApi {
   async batchSetDcdnWafDomainConfigs(request: BatchSetDcdnWafDomainConfigsRequest): Promise<BatchSetDcdnWafDomainConfigsResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.batchSetDcdnWafDomainConfigsWithOptions(request, runtime);
+  }
+
+  /**
+    * > 
+    * *   If an accelerated domain name is in invalid state or your account has an overdue payment, the accelerated domain name cannot be enabled.
+    * *   You can specify up to 50 domain names in each request.
+    * *   You can call this operation up to 30 times per second per account.
+    *
+    * @param request BatchStartDcdnDomainRequest
+    * @param runtime runtime options for this request RuntimeOptions
+    * @return BatchStartDcdnDomainResponse
+   */
+  async batchStartDcdnDomainWithOptions(request: BatchStartDcdnDomainRequest, runtime: $Util.RuntimeOptions): Promise<BatchStartDcdnDomainResponse> {
+    Util.validateModel(request);
+    let query = { };
+    if (!Util.isUnset(request.domainNames)) {
+      query["DomainNames"] = request.domainNames;
+    }
+
+    if (!Util.isUnset(request.ownerId)) {
+      query["OwnerId"] = request.ownerId;
+    }
+
+    if (!Util.isUnset(request.securityToken)) {
+      query["SecurityToken"] = request.securityToken;
+    }
+
+    let req = new $OpenApi.OpenApiRequest({
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApi.Params({
+      action: "BatchStartDcdnDomain",
+      version: "2018-01-15",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $tea.cast<BatchStartDcdnDomainResponse>(await this.callApi(params, req, runtime), new BatchStartDcdnDomainResponse({}));
+  }
+
+  /**
+    * > 
+    * *   If an accelerated domain name is in invalid state or your account has an overdue payment, the accelerated domain name cannot be enabled.
+    * *   You can specify up to 50 domain names in each request.
+    * *   You can call this operation up to 30 times per second per account.
+    *
+    * @param request BatchStartDcdnDomainRequest
+    * @return BatchStartDcdnDomainResponse
+   */
+  async batchStartDcdnDomain(request: BatchStartDcdnDomainRequest): Promise<BatchStartDcdnDomainResponse> {
+    let runtime = new $Util.RuntimeOptions({ });
+    return await this.batchStartDcdnDomainWithOptions(request, runtime);
+  }
+
+  /**
+    * > 
+    * *   After an accelerated domain name is disabled, Dynamic Content Delivery Network (DCDN) retains the domain name information. The system automatically reroutes all requests that are destined for the accelerated domain name to the origin.
+    * *   You can specify up to 50 domain names in each request.
+    * *   You can call this operation up to 30 times per second per account.
+    *
+    * @param request BatchStopDcdnDomainRequest
+    * @param runtime runtime options for this request RuntimeOptions
+    * @return BatchStopDcdnDomainResponse
+   */
+  async batchStopDcdnDomainWithOptions(request: BatchStopDcdnDomainRequest, runtime: $Util.RuntimeOptions): Promise<BatchStopDcdnDomainResponse> {
+    Util.validateModel(request);
+    let query = { };
+    if (!Util.isUnset(request.domainNames)) {
+      query["DomainNames"] = request.domainNames;
+    }
+
+    if (!Util.isUnset(request.ownerId)) {
+      query["OwnerId"] = request.ownerId;
+    }
+
+    if (!Util.isUnset(request.securityToken)) {
+      query["SecurityToken"] = request.securityToken;
+    }
+
+    let req = new $OpenApi.OpenApiRequest({
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApi.Params({
+      action: "BatchStopDcdnDomain",
+      version: "2018-01-15",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $tea.cast<BatchStopDcdnDomainResponse>(await this.callApi(params, req, runtime), new BatchStopDcdnDomainResponse({}));
+  }
+
+  /**
+    * > 
+    * *   After an accelerated domain name is disabled, Dynamic Content Delivery Network (DCDN) retains the domain name information. The system automatically reroutes all requests that are destined for the accelerated domain name to the origin.
+    * *   You can specify up to 50 domain names in each request.
+    * *   You can call this operation up to 30 times per second per account.
+    *
+    * @param request BatchStopDcdnDomainRequest
+    * @return BatchStopDcdnDomainResponse
+   */
+  async batchStopDcdnDomain(request: BatchStopDcdnDomainRequest): Promise<BatchStopDcdnDomainResponse> {
+    let runtime = new $Util.RuntimeOptions({ });
+    return await this.batchStopDcdnDomainWithOptions(request, runtime);
   }
 
   /**
@@ -21461,6 +22247,35 @@ export default class Client extends OpenApi {
   async deleteDcdnKv(request: DeleteDcdnKvRequest): Promise<DeleteDcdnKvResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.deleteDcdnKvWithOptions(request, runtime);
+  }
+
+  async deleteDcdnKvNamespaceWithOptions(request: DeleteDcdnKvNamespaceRequest, runtime: $Util.RuntimeOptions): Promise<DeleteDcdnKvNamespaceResponse> {
+    Util.validateModel(request);
+    let query = { };
+    if (!Util.isUnset(request.namespace)) {
+      query["Namespace"] = request.namespace;
+    }
+
+    let req = new $OpenApi.OpenApiRequest({
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApi.Params({
+      action: "DeleteDcdnKvNamespace",
+      version: "2018-01-15",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $tea.cast<DeleteDcdnKvNamespaceResponse>(await this.callApi(params, req, runtime), new DeleteDcdnKvNamespaceResponse({}));
+  }
+
+  async deleteDcdnKvNamespace(request: DeleteDcdnKvNamespaceRequest): Promise<DeleteDcdnKvNamespaceResponse> {
+    let runtime = new $Util.RuntimeOptions({ });
+    return await this.deleteDcdnKvNamespaceWithOptions(request, runtime);
   }
 
   /**
@@ -23698,11 +24513,16 @@ export default class Client extends OpenApi {
   }
 
   /**
-    * # Usage notes
-    * *   You can call this operation up to 10 times per second per account.
-    * *   The network traffic destined for different domain names may be redirected to the same origin server. Therefore, the byte hit ratios may be inaccurate. The accuracy of query results is based on the actual configurations.
-    * *   If you do not set the **StartTime** or **EndTime** parameter, the request returns the data collected in the last hour. If you set both the **StartTime** and **EndTime** parameters, the request returns the data collected within the specified time range.
-    * **Time granularity** The time granularity varies with the time range specified by the StartTime and EndTime parameters. The following table describes the time period within which historical data is available and the data delay. | Time granularity | Maximum time range per query | Historical data available | Data delay | |---------------|--------| | 1 minute | 1 hour | 7 days | 5 minutes | | 5 minutes | 3 days | 93 days | 15 minutes | | 1 hour | 31 days | 186 days | 4 hours |
+    * * You can call this operation up to 10 times per second per account.
+    * * The network traffic destined for different domain names may be redirected to the same origin server. Therefore, the byte hit ratios may be inaccurate. The accuracy of query results is based on the actual configurations.
+    * * If you do not set the **StartTime** or **EndTime** parameter, the request returns the data collected in the last hour. If you set both the **StartTime** and **EndTime** parameters, the request returns the data collected within the specified time range.
+    * **Time granularity**
+    * The time granularity varies with the time range specified by the StartTime and EndTime parameters. The following table describes the time period within which historical data is available and the data delay.
+    * | Time granularity | Maximum time range per query | Historical data available | Data delay |
+    * |----|------|-----|--------|
+    * | 1 minute | 1 hour | 7 days | 5 minutes |
+    * | 5 minutes | 3 days | 93 days | 15 minutes |
+    * | 1 hour | 31 days | 186 days | 4 hours |
     *
     * @param request DescribeDcdnDomainRealTimeByteHitRateDataRequest
     * @param runtime runtime options for this request RuntimeOptions
@@ -23729,11 +24549,16 @@ export default class Client extends OpenApi {
   }
 
   /**
-    * # Usage notes
-    * *   You can call this operation up to 10 times per second per account.
-    * *   The network traffic destined for different domain names may be redirected to the same origin server. Therefore, the byte hit ratios may be inaccurate. The accuracy of query results is based on the actual configurations.
-    * *   If you do not set the **StartTime** or **EndTime** parameter, the request returns the data collected in the last hour. If you set both the **StartTime** and **EndTime** parameters, the request returns the data collected within the specified time range.
-    * **Time granularity** The time granularity varies with the time range specified by the StartTime and EndTime parameters. The following table describes the time period within which historical data is available and the data delay. | Time granularity | Maximum time range per query | Historical data available | Data delay | |---------------|--------| | 1 minute | 1 hour | 7 days | 5 minutes | | 5 minutes | 3 days | 93 days | 15 minutes | | 1 hour | 31 days | 186 days | 4 hours |
+    * * You can call this operation up to 10 times per second per account.
+    * * The network traffic destined for different domain names may be redirected to the same origin server. Therefore, the byte hit ratios may be inaccurate. The accuracy of query results is based on the actual configurations.
+    * * If you do not set the **StartTime** or **EndTime** parameter, the request returns the data collected in the last hour. If you set both the **StartTime** and **EndTime** parameters, the request returns the data collected within the specified time range.
+    * **Time granularity**
+    * The time granularity varies with the time range specified by the StartTime and EndTime parameters. The following table describes the time period within which historical data is available and the data delay.
+    * | Time granularity | Maximum time range per query | Historical data available | Data delay |
+    * |----|------|-----|--------|
+    * | 1 minute | 1 hour | 7 days | 5 minutes |
+    * | 5 minutes | 3 days | 93 days | 15 minutes |
+    * | 1 hour | 31 days | 186 days | 4 hours |
     *
     * @param request DescribeDcdnDomainRealTimeByteHitRateDataRequest
     * @return DescribeDcdnDomainRealTimeByteHitRateDataResponse
@@ -23956,10 +24781,14 @@ export default class Client extends OpenApi {
   }
 
   /**
-    * #
     * *   You can call this operation up to 10 times per second per account.
     * *   If you do not set the StartTime or EndTime parameter, the request returns the data collected in the last hour. If you set both the parameters, the request returns the data collected within the specified time range.
-    * **Time granularity** The time granularity varies with the time range specified by the StartTime and EndTime parameters. The following table describes the time period within which historical data is available and the data delay. | Time granularity | Maximum time range per query | Historical data available | Data delay | |---------------|--------| | 1 minute | 1 hour | 7 days | 5 minutes | | 5 minutes | 3 days | 93 days | 15 minutes | | 1 hour | 31 days | 186 days | 4 hours |
+    * **Time granularity**
+    * The time granularity varies with the time range specified by the StartTime and EndTime parameters. The following table describes the time period within which historical data is available and the data delay.
+    * | Time granularity | Maximum time range per query | Historical data available | Data delay | 
+    * |-----|-----|-----|--------| 
+    * | 1 minute | 1 hour | 7 days | 5 minutes | 
+    * | 5 minutes | 3 days | 93 days | 15 minutes | | 1 hour | 31 days | 186 days | 4 hours |
     *
     * @param request DescribeDcdnDomainRealTimeSrcBpsDataRequest
     * @param runtime runtime options for this request RuntimeOptions
@@ -23998,10 +24827,14 @@ export default class Client extends OpenApi {
   }
 
   /**
-    * #
     * *   You can call this operation up to 10 times per second per account.
     * *   If you do not set the StartTime or EndTime parameter, the request returns the data collected in the last hour. If you set both the parameters, the request returns the data collected within the specified time range.
-    * **Time granularity** The time granularity varies with the time range specified by the StartTime and EndTime parameters. The following table describes the time period within which historical data is available and the data delay. | Time granularity | Maximum time range per query | Historical data available | Data delay | |---------------|--------| | 1 minute | 1 hour | 7 days | 5 minutes | | 5 minutes | 3 days | 93 days | 15 minutes | | 1 hour | 31 days | 186 days | 4 hours |
+    * **Time granularity**
+    * The time granularity varies with the time range specified by the StartTime and EndTime parameters. The following table describes the time period within which historical data is available and the data delay.
+    * | Time granularity | Maximum time range per query | Historical data available | Data delay | 
+    * |-----|-----|-----|--------| 
+    * | 1 minute | 1 hour | 7 days | 5 minutes | 
+    * | 5 minutes | 3 days | 93 days | 15 minutes | | 1 hour | 31 days | 186 days | 4 hours |
     *
     * @param request DescribeDcdnDomainRealTimeSrcBpsDataRequest
     * @return DescribeDcdnDomainRealTimeSrcBpsDataResponse
@@ -25321,6 +26154,73 @@ export default class Client extends OpenApi {
   async describeDcdnIpaUserDomains(request: DescribeDcdnIpaUserDomainsRequest): Promise<DescribeDcdnIpaUserDomainsResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.describeDcdnIpaUserDomainsWithOptions(request, runtime);
+  }
+
+  async describeDcdnKvAccountWithOptions(runtime: $Util.RuntimeOptions): Promise<DescribeDcdnKvAccountResponse> {
+    let req = new $OpenApi.OpenApiRequest({ });
+    let params = new $OpenApi.Params({
+      action: "DescribeDcdnKvAccount",
+      version: "2018-01-15",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "GET",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $tea.cast<DescribeDcdnKvAccountResponse>(await this.callApi(params, req, runtime), new DescribeDcdnKvAccountResponse({}));
+  }
+
+  async describeDcdnKvAccount(): Promise<DescribeDcdnKvAccountResponse> {
+    let runtime = new $Util.RuntimeOptions({ });
+    return await this.describeDcdnKvAccountWithOptions(runtime);
+  }
+
+  async describeDcdnKvAccountStatusWithOptions(runtime: $Util.RuntimeOptions): Promise<DescribeDcdnKvAccountStatusResponse> {
+    let req = new $OpenApi.OpenApiRequest({ });
+    let params = new $OpenApi.Params({
+      action: "DescribeDcdnKvAccountStatus",
+      version: "2018-01-15",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "GET",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $tea.cast<DescribeDcdnKvAccountStatusResponse>(await this.callApi(params, req, runtime), new DescribeDcdnKvAccountStatusResponse({}));
+  }
+
+  async describeDcdnKvAccountStatus(): Promise<DescribeDcdnKvAccountStatusResponse> {
+    let runtime = new $Util.RuntimeOptions({ });
+    return await this.describeDcdnKvAccountStatusWithOptions(runtime);
+  }
+
+  async describeDcdnKvNamespaceWithOptions(request: DescribeDcdnKvNamespaceRequest, runtime: $Util.RuntimeOptions): Promise<DescribeDcdnKvNamespaceResponse> {
+    Util.validateModel(request);
+    let query = OpenApiUtil.query(Util.toMap(request));
+    let req = new $OpenApi.OpenApiRequest({
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApi.Params({
+      action: "DescribeDcdnKvNamespace",
+      version: "2018-01-15",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "GET",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $tea.cast<DescribeDcdnKvNamespaceResponse>(await this.callApi(params, req, runtime), new DescribeDcdnKvNamespaceResponse({}));
+  }
+
+  async describeDcdnKvNamespace(request: DescribeDcdnKvNamespaceRequest): Promise<DescribeDcdnKvNamespaceResponse> {
+    let runtime = new $Util.RuntimeOptions({ });
+    return await this.describeDcdnKvNamespaceWithOptions(request, runtime);
   }
 
   async describeDcdnL2IpsWithOptions(runtime: $Util.RuntimeOptions): Promise<DescribeDcdnL2IpsResponse> {
@@ -28205,6 +29105,31 @@ export default class Client extends OpenApi {
     return await this.getDcdnKvWithOptions(request, runtime);
   }
 
+  async listDcdnKvWithOptions(request: ListDcdnKvRequest, runtime: $Util.RuntimeOptions): Promise<ListDcdnKvResponse> {
+    Util.validateModel(request);
+    let query = OpenApiUtil.query(Util.toMap(request));
+    let req = new $OpenApi.OpenApiRequest({
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApi.Params({
+      action: "ListDcdnKv",
+      version: "2018-01-15",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "GET",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $tea.cast<ListDcdnKvResponse>(await this.callApi(params, req, runtime), new ListDcdnKvResponse({}));
+  }
+
+  async listDcdnKv(request: ListDcdnKvRequest): Promise<ListDcdnKvResponse> {
+    let runtime = new $Util.RuntimeOptions({ });
+    return await this.listDcdnKvWithOptions(request, runtime);
+  }
+
   /**
     * > You can call this operation up to 100 times per second per account.
     *
@@ -28303,6 +29228,43 @@ export default class Client extends OpenApi {
   async modifyDCdnDomainSchdmByProperty(request: ModifyDCdnDomainSchdmByPropertyRequest): Promise<ModifyDCdnDomainSchdmByPropertyResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.modifyDCdnDomainSchdmByPropertyWithOptions(request, runtime);
+  }
+
+  async modifyDcdnWafGroupWithOptions(request: ModifyDcdnWafGroupRequest, runtime: $Util.RuntimeOptions): Promise<ModifyDcdnWafGroupResponse> {
+    Util.validateModel(request);
+    let body : {[key: string ]: any} = { };
+    if (!Util.isUnset(request.id)) {
+      body["Id"] = request.id;
+    }
+
+    if (!Util.isUnset(request.name)) {
+      body["Name"] = request.name;
+    }
+
+    if (!Util.isUnset(request.rules)) {
+      body["Rules"] = request.rules;
+    }
+
+    let req = new $OpenApi.OpenApiRequest({
+      body: OpenApiUtil.parseToMap(body),
+    });
+    let params = new $OpenApi.Params({
+      action: "ModifyDcdnWafGroup",
+      version: "2018-01-15",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $tea.cast<ModifyDcdnWafGroupResponse>(await this.callApi(params, req, runtime), new ModifyDcdnWafGroupResponse({}));
+  }
+
+  async modifyDcdnWafGroup(request: ModifyDcdnWafGroupRequest): Promise<ModifyDcdnWafGroupResponse> {
+    let runtime = new $Util.RuntimeOptions({ });
+    return await this.modifyDcdnWafGroupWithOptions(request, runtime);
   }
 
   /**
@@ -28762,6 +29724,39 @@ export default class Client extends OpenApi {
   async putDcdnKv(request: PutDcdnKvRequest): Promise<PutDcdnKvResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.putDcdnKvWithOptions(request, runtime);
+  }
+
+  async putDcdnKvNamespaceWithOptions(request: PutDcdnKvNamespaceRequest, runtime: $Util.RuntimeOptions): Promise<PutDcdnKvNamespaceResponse> {
+    Util.validateModel(request);
+    let body : {[key: string ]: any} = { };
+    if (!Util.isUnset(request.description)) {
+      body["Description"] = request.description;
+    }
+
+    if (!Util.isUnset(request.namespace)) {
+      body["Namespace"] = request.namespace;
+    }
+
+    let req = new $OpenApi.OpenApiRequest({
+      body: OpenApiUtil.parseToMap(body),
+    });
+    let params = new $OpenApi.Params({
+      action: "PutDcdnKvNamespace",
+      version: "2018-01-15",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $tea.cast<PutDcdnKvNamespaceResponse>(await this.callApi(params, req, runtime), new PutDcdnKvNamespaceResponse({}));
+  }
+
+  async putDcdnKvNamespace(request: PutDcdnKvNamespaceRequest): Promise<PutDcdnKvNamespaceResponse> {
+    let runtime = new $Util.RuntimeOptions({ });
+    return await this.putDcdnKvNamespaceWithOptions(request, runtime);
   }
 
   /**
