@@ -3650,19 +3650,31 @@ export class CreateRetcodeAppRequest extends $tea.Model {
 }
 
 export class CreateRetcodeAppResponseBody extends $tea.Model {
+  code?: number;
+  data?: string;
+  message?: string;
   requestId?: string;
   retcodeAppDataBean?: CreateRetcodeAppResponseBodyRetcodeAppDataBean;
+  success?: boolean;
   static names(): { [key: string]: string } {
     return {
+      code: 'Code',
+      data: 'Data',
+      message: 'Message',
       requestId: 'RequestId',
       retcodeAppDataBean: 'RetcodeAppDataBean',
+      success: 'Success',
     };
   }
 
   static types(): { [key: string]: any } {
     return {
+      code: 'number',
+      data: 'string',
+      message: 'string',
       requestId: 'string',
       retcodeAppDataBean: CreateRetcodeAppResponseBodyRetcodeAppDataBean,
+      success: 'boolean',
     };
   }
 
@@ -5406,19 +5418,28 @@ export class DeleteRetcodeAppRequest extends $tea.Model {
 }
 
 export class DeleteRetcodeAppResponseBody extends $tea.Model {
+  code?: number;
   data?: string;
+  message?: string;
   requestId?: string;
+  success?: boolean;
   static names(): { [key: string]: string } {
     return {
+      code: 'Code',
       data: 'Data',
+      message: 'Message',
       requestId: 'RequestId',
+      success: 'Success',
     };
   }
 
   static types(): { [key: string]: any } {
     return {
+      code: 'number',
       data: 'string',
+      message: 'string',
       requestId: 'string',
+      success: 'boolean',
     };
   }
 
@@ -29049,7 +29070,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-    * Queries alert rules.
+    * The current operation is no longer maintained. You can call the GetAlertRules operation of Alert Management (New) to query existing alert rules.
     *
     * @param request SearchAlertRulesRequest
     * @param runtime runtime options for this request RuntimeOptions
@@ -29120,7 +29141,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-    * Queries alert rules.
+    * The current operation is no longer maintained. You can call the GetAlertRules operation of Alert Management (New) to query existing alert rules.
     *
     * @param request SearchAlertRulesRequest
     * @return SearchAlertRulesResponse
