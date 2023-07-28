@@ -137,6 +137,7 @@ export class AddBlacklistResponse extends $tea.Model {
 
 export class AddTaskRequest extends $tea.Model {
   callTimeList?: AddTaskRequestCallTimeList[];
+  callbackUrl?: string;
   maxConcurrency?: number;
   name?: string;
   ownerId?: number;
@@ -158,6 +159,7 @@ export class AddTaskRequest extends $tea.Model {
   static names(): { [key: string]: string } {
     return {
       callTimeList: 'CallTimeList',
+      callbackUrl: 'CallbackUrl',
       maxConcurrency: 'MaxConcurrency',
       name: 'Name',
       ownerId: 'OwnerId',
@@ -182,6 +184,7 @@ export class AddTaskRequest extends $tea.Model {
   static types(): { [key: string]: any } {
     return {
       callTimeList: { 'type': 'array', 'itemType': AddTaskRequestCallTimeList },
+      callbackUrl: 'string',
       maxConcurrency: 'number',
       name: 'string',
       ownerId: 'number',
@@ -210,6 +213,7 @@ export class AddTaskRequest extends $tea.Model {
 
 export class AddTaskShrinkRequest extends $tea.Model {
   callTimeListShrink?: string;
+  callbackUrl?: string;
   maxConcurrency?: number;
   name?: string;
   ownerId?: number;
@@ -231,6 +235,7 @@ export class AddTaskShrinkRequest extends $tea.Model {
   static names(): { [key: string]: string } {
     return {
       callTimeListShrink: 'CallTimeList',
+      callbackUrl: 'CallbackUrl',
       maxConcurrency: 'MaxConcurrency',
       name: 'Name',
       ownerId: 'OwnerId',
@@ -255,6 +260,7 @@ export class AddTaskShrinkRequest extends $tea.Model {
   static types(): { [key: string]: any } {
     return {
       callTimeListShrink: 'string',
+      callbackUrl: 'string',
       maxConcurrency: 'number',
       name: 'string',
       ownerId: 'number',
@@ -777,6 +783,7 @@ export class DetailsResponse extends $tea.Model {
 
 export class EditTaskRequest extends $tea.Model {
   callTimeList?: EditTaskRequestCallTimeList[];
+  callbackUrl?: string;
   maxConcurrency?: number;
   name?: string;
   ownerId?: number;
@@ -798,6 +805,7 @@ export class EditTaskRequest extends $tea.Model {
   static names(): { [key: string]: string } {
     return {
       callTimeList: 'CallTimeList',
+      callbackUrl: 'CallbackUrl',
       maxConcurrency: 'MaxConcurrency',
       name: 'Name',
       ownerId: 'OwnerId',
@@ -822,6 +830,7 @@ export class EditTaskRequest extends $tea.Model {
   static types(): { [key: string]: any } {
     return {
       callTimeList: { 'type': 'array', 'itemType': EditTaskRequestCallTimeList },
+      callbackUrl: 'string',
       maxConcurrency: 'number',
       name: 'string',
       ownerId: 'number',
@@ -850,6 +859,7 @@ export class EditTaskRequest extends $tea.Model {
 
 export class EditTaskShrinkRequest extends $tea.Model {
   callTimeListShrink?: string;
+  callbackUrl?: string;
   maxConcurrency?: number;
   name?: string;
   ownerId?: number;
@@ -871,6 +881,7 @@ export class EditTaskShrinkRequest extends $tea.Model {
   static names(): { [key: string]: string } {
     return {
       callTimeListShrink: 'CallTimeList',
+      callbackUrl: 'CallbackUrl',
       maxConcurrency: 'MaxConcurrency',
       name: 'Name',
       ownerId: 'OwnerId',
@@ -895,6 +906,7 @@ export class EditTaskShrinkRequest extends $tea.Model {
   static types(): { [key: string]: any } {
     return {
       callTimeListShrink: 'string',
+      callbackUrl: 'string',
       maxConcurrency: 'number',
       name: 'string',
       ownerId: 'number',
@@ -3429,6 +3441,10 @@ export default class Client extends OpenApi {
       query["CallTimeList"] = request.callTimeListShrink;
     }
 
+    if (!Util.isUnset(request.callbackUrl)) {
+      query["CallbackUrl"] = request.callbackUrl;
+    }
+
     if (!Util.isUnset(request.maxConcurrency)) {
       query["MaxConcurrency"] = request.maxConcurrency;
     }
@@ -3755,6 +3771,10 @@ export default class Client extends OpenApi {
     let query = { };
     if (!Util.isUnset(request.callTimeListShrink)) {
       query["CallTimeList"] = request.callTimeListShrink;
+    }
+
+    if (!Util.isUnset(request.callbackUrl)) {
+      query["CallbackUrl"] = request.callbackUrl;
     }
 
     if (!Util.isUnset(request.maxConcurrency)) {
