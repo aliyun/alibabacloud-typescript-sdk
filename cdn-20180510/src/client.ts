@@ -2083,6 +2083,72 @@ export class DescribeCdnCertificateListResponse extends $tea.Model {
   }
 }
 
+export class DescribeCdnConditionIPBInfoRequest extends $tea.Model {
+  dataId?: string;
+  static names(): { [key: string]: string } {
+    return {
+      dataId: 'DataId',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      dataId: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class DescribeCdnConditionIPBInfoResponseBody extends $tea.Model {
+  datas?: DescribeCdnConditionIPBInfoResponseBodyDatas[];
+  requestId?: string;
+  static names(): { [key: string]: string } {
+    return {
+      datas: 'Datas',
+      requestId: 'RequestId',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      datas: { 'type': 'array', 'itemType': DescribeCdnConditionIPBInfoResponseBodyDatas },
+      requestId: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class DescribeCdnConditionIPBInfoResponse extends $tea.Model {
+  headers: { [key: string]: string };
+  statusCode: number;
+  body: DescribeCdnConditionIPBInfoResponseBody;
+  static names(): { [key: string]: string } {
+    return {
+      headers: 'headers',
+      statusCode: 'statusCode',
+      body: 'body',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
+      body: DescribeCdnConditionIPBInfoResponseBody,
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
 export class DescribeCdnDeletedDomainsRequest extends $tea.Model {
   pageNumber?: number;
   pageSize?: number;
@@ -10058,6 +10124,90 @@ export class ListRealtimeLogDeliveryInfosResponse extends $tea.Model {
   }
 }
 
+export class ListTagResourcesRequest extends $tea.Model {
+  nextToken?: string;
+  resourceId?: string[];
+  resourceType?: string;
+  tag?: ListTagResourcesRequestTag[];
+  tagOwnerBid?: string;
+  tagOwnerUid?: string;
+  static names(): { [key: string]: string } {
+    return {
+      nextToken: 'NextToken',
+      resourceId: 'ResourceId',
+      resourceType: 'ResourceType',
+      tag: 'Tag',
+      tagOwnerBid: 'TagOwnerBid',
+      tagOwnerUid: 'TagOwnerUid',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      nextToken: 'string',
+      resourceId: { 'type': 'array', 'itemType': 'string' },
+      resourceType: 'string',
+      tag: { 'type': 'array', 'itemType': ListTagResourcesRequestTag },
+      tagOwnerBid: 'string',
+      tagOwnerUid: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class ListTagResourcesResponseBody extends $tea.Model {
+  nextToken?: string;
+  requestId?: string;
+  tagResources?: ListTagResourcesResponseBodyTagResources;
+  static names(): { [key: string]: string } {
+    return {
+      nextToken: 'NextToken',
+      requestId: 'RequestId',
+      tagResources: 'TagResources',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      nextToken: 'string',
+      requestId: 'string',
+      tagResources: ListTagResourcesResponseBodyTagResources,
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class ListTagResourcesResponse extends $tea.Model {
+  headers: { [key: string]: string };
+  statusCode: number;
+  body: ListTagResourcesResponseBody;
+  static names(): { [key: string]: string } {
+    return {
+      headers: 'headers',
+      statusCode: 'statusCode',
+      body: 'body',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
+      body: ListTagResourcesResponseBody,
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
 export class ListUserCustomLogConfigResponseBody extends $tea.Model {
   configIds?: ListUserCustomLogConfigResponseBodyConfigIds;
   requestId?: string;
@@ -10175,6 +10325,81 @@ export class ModifyCdnDomainResponse extends $tea.Model {
       headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
       statusCode: 'number',
       body: ModifyCdnDomainResponseBody,
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class ModifyCdnDomainOwnerRequest extends $tea.Model {
+  domainName?: string;
+  ownerAccount?: string;
+  ownerId?: number;
+  securityToken?: string;
+  static names(): { [key: string]: string } {
+    return {
+      domainName: 'DomainName',
+      ownerAccount: 'OwnerAccount',
+      ownerId: 'OwnerId',
+      securityToken: 'SecurityToken',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      domainName: 'string',
+      ownerAccount: 'string',
+      ownerId: 'number',
+      securityToken: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class ModifyCdnDomainOwnerResponseBody extends $tea.Model {
+  content?: { [key: string]: any };
+  requestId?: string;
+  static names(): { [key: string]: string } {
+    return {
+      content: 'Content',
+      requestId: 'RequestId',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      content: { 'type': 'map', 'keyType': 'string', 'valueType': 'any' },
+      requestId: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class ModifyCdnDomainOwnerResponse extends $tea.Model {
+  headers: { [key: string]: string };
+  statusCode: number;
+  body: ModifyCdnDomainOwnerResponseBody;
+  static names(): { [key: string]: string } {
+    return {
+      headers: 'headers',
+      statusCode: 'statusCode',
+      body: 'body',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
+      body: ModifyCdnDomainOwnerResponseBody,
     };
   }
 
@@ -11968,6 +12193,25 @@ export class DescribeCdnCertificateListResponseBodyCertificateListModel extends 
     return {
       certList: DescribeCdnCertificateListResponseBodyCertificateListModelCertList,
       count: 'number',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class DescribeCdnConditionIPBInfoResponseBodyDatas extends $tea.Model {
+  value?: string;
+  static names(): { [key: string]: string } {
+    return {
+      value: 'Value',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      value: 'string',
     };
   }
 
@@ -17111,6 +17355,75 @@ export class ListRealtimeLogDeliveryInfosResponseBodyContent extends $tea.Model 
   }
 }
 
+export class ListTagResourcesRequestTag extends $tea.Model {
+  key?: string;
+  value?: string;
+  static names(): { [key: string]: string } {
+    return {
+      key: 'Key',
+      value: 'Value',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      key: 'string',
+      value: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class ListTagResourcesResponseBodyTagResourcesTagResource extends $tea.Model {
+  resourceId?: string;
+  resourceType?: string;
+  tagKey?: string;
+  tagValue?: string;
+  static names(): { [key: string]: string } {
+    return {
+      resourceId: 'ResourceId',
+      resourceType: 'ResourceType',
+      tagKey: 'TagKey',
+      tagValue: 'TagValue',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      resourceId: 'string',
+      resourceType: 'string',
+      tagKey: 'string',
+      tagValue: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class ListTagResourcesResponseBodyTagResources extends $tea.Model {
+  tagResource?: ListTagResourcesResponseBodyTagResourcesTagResource[];
+  static names(): { [key: string]: string } {
+    return {
+      tagResource: 'TagResource',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      tagResource: { 'type': 'array', 'itemType': ListTagResourcesResponseBodyTagResourcesTagResource },
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
 export class ListUserCustomLogConfigResponseBodyConfigIds extends $tea.Model {
   configId?: string[];
   static names(): { [key: string]: string } {
@@ -18724,6 +19037,35 @@ export default class Client extends OpenApi {
   async describeCdnCertificateList(request: DescribeCdnCertificateListRequest): Promise<DescribeCdnCertificateListResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.describeCdnCertificateListWithOptions(request, runtime);
+  }
+
+  async describeCdnConditionIPBInfoWithOptions(request: DescribeCdnConditionIPBInfoRequest, runtime: $Util.RuntimeOptions): Promise<DescribeCdnConditionIPBInfoResponse> {
+    Util.validateModel(request);
+    let query = { };
+    if (!Util.isUnset(request.dataId)) {
+      query["DataId"] = request.dataId;
+    }
+
+    let req = new $OpenApi.OpenApiRequest({
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApi.Params({
+      action: "DescribeCdnConditionIPBInfo",
+      version: "2018-05-10",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $tea.cast<DescribeCdnConditionIPBInfoResponse>(await this.callApi(params, req, runtime), new DescribeCdnConditionIPBInfoResponse({}));
+  }
+
+  async describeCdnConditionIPBInfo(request: DescribeCdnConditionIPBInfoRequest): Promise<DescribeCdnConditionIPBInfoResponse> {
+    let runtime = new $Util.RuntimeOptions({ });
+    return await this.describeCdnConditionIPBInfoWithOptions(request, runtime);
   }
 
   /**
@@ -24211,6 +24553,55 @@ export default class Client extends OpenApi {
     return await this.listRealtimeLogDeliveryInfosWithOptions(runtime);
   }
 
+  async listTagResourcesWithOptions(request: ListTagResourcesRequest, runtime: $Util.RuntimeOptions): Promise<ListTagResourcesResponse> {
+    Util.validateModel(request);
+    let query = { };
+    if (!Util.isUnset(request.nextToken)) {
+      query["NextToken"] = request.nextToken;
+    }
+
+    if (!Util.isUnset(request.resourceId)) {
+      query["ResourceId"] = request.resourceId;
+    }
+
+    if (!Util.isUnset(request.resourceType)) {
+      query["ResourceType"] = request.resourceType;
+    }
+
+    if (!Util.isUnset(request.tag)) {
+      query["Tag"] = request.tag;
+    }
+
+    if (!Util.isUnset(request.tagOwnerBid)) {
+      query["TagOwnerBid"] = request.tagOwnerBid;
+    }
+
+    if (!Util.isUnset(request.tagOwnerUid)) {
+      query["TagOwnerUid"] = request.tagOwnerUid;
+    }
+
+    let req = new $OpenApi.OpenApiRequest({
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApi.Params({
+      action: "ListTagResources",
+      version: "2018-05-10",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $tea.cast<ListTagResourcesResponse>(await this.callApi(params, req, runtime), new ListTagResourcesResponse({}));
+  }
+
+  async listTagResources(request: ListTagResourcesRequest): Promise<ListTagResourcesResponse> {
+    let runtime = new $Util.RuntimeOptions({ });
+    return await this.listTagResourcesWithOptions(request, runtime);
+  }
+
   /**
     * > You can call this operation up to 100 times per second per account.
     *
@@ -24304,6 +24695,31 @@ export default class Client extends OpenApi {
   async modifyCdnDomain(request: ModifyCdnDomainRequest): Promise<ModifyCdnDomainResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.modifyCdnDomainWithOptions(request, runtime);
+  }
+
+  async modifyCdnDomainOwnerWithOptions(request: ModifyCdnDomainOwnerRequest, runtime: $Util.RuntimeOptions): Promise<ModifyCdnDomainOwnerResponse> {
+    Util.validateModel(request);
+    let query = OpenApiUtil.query(Util.toMap(request));
+    let req = new $OpenApi.OpenApiRequest({
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApi.Params({
+      action: "ModifyCdnDomainOwner",
+      version: "2018-05-10",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "GET",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $tea.cast<ModifyCdnDomainOwnerResponse>(await this.callApi(params, req, runtime), new ModifyCdnDomainOwnerResponse({}));
+  }
+
+  async modifyCdnDomainOwner(request: ModifyCdnDomainOwnerRequest): Promise<ModifyCdnDomainOwnerResponse> {
+    let runtime = new $Util.RuntimeOptions({ });
+    return await this.modifyCdnDomainOwnerWithOptions(request, runtime);
   }
 
   /**
