@@ -1193,6 +1193,8 @@ export class ChangeAssetRefreshTaskConfigResponse extends $tea.Model {
 
 export class ChangeCheckConfigRequest extends $tea.Model {
   addedCheck?: ChangeCheckConfigRequestAddedCheck[];
+  configRequirementIds?: ChangeCheckConfigRequestConfigRequirementIds;
+  configStandardIds?: ChangeCheckConfigRequestConfigStandardIds;
   cycleDays?: number[];
   enableAddCheck?: boolean;
   enableAutoCheck?: boolean;
@@ -1204,6 +1206,8 @@ export class ChangeCheckConfigRequest extends $tea.Model {
   static names(): { [key: string]: string } {
     return {
       addedCheck: 'AddedCheck',
+      configRequirementIds: 'ConfigRequirementIds',
+      configStandardIds: 'ConfigStandardIds',
       cycleDays: 'CycleDays',
       enableAddCheck: 'EnableAddCheck',
       enableAutoCheck: 'EnableAutoCheck',
@@ -1218,12 +1222,63 @@ export class ChangeCheckConfigRequest extends $tea.Model {
   static types(): { [key: string]: any } {
     return {
       addedCheck: { 'type': 'array', 'itemType': ChangeCheckConfigRequestAddedCheck },
+      configRequirementIds: ChangeCheckConfigRequestConfigRequirementIds,
+      configStandardIds: ChangeCheckConfigRequestConfigStandardIds,
       cycleDays: { 'type': 'array', 'itemType': 'number' },
       enableAddCheck: 'boolean',
       enableAutoCheck: 'boolean',
       endTime: 'number',
       regionId: 'string',
       removedCheck: { 'type': 'array', 'itemType': ChangeCheckConfigRequestRemovedCheck },
+      standardIds: { 'type': 'array', 'itemType': 'number' },
+      startTime: 'number',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class ChangeCheckConfigShrinkRequest extends $tea.Model {
+  addedCheck?: ChangeCheckConfigShrinkRequestAddedCheck[];
+  configRequirementIdsShrink?: string;
+  configStandardIdsShrink?: string;
+  cycleDays?: number[];
+  enableAddCheck?: boolean;
+  enableAutoCheck?: boolean;
+  endTime?: number;
+  regionId?: string;
+  removedCheck?: ChangeCheckConfigShrinkRequestRemovedCheck[];
+  standardIds?: number[];
+  startTime?: number;
+  static names(): { [key: string]: string } {
+    return {
+      addedCheck: 'AddedCheck',
+      configRequirementIdsShrink: 'ConfigRequirementIds',
+      configStandardIdsShrink: 'ConfigStandardIds',
+      cycleDays: 'CycleDays',
+      enableAddCheck: 'EnableAddCheck',
+      enableAutoCheck: 'EnableAutoCheck',
+      endTime: 'EndTime',
+      regionId: 'RegionId',
+      removedCheck: 'RemovedCheck',
+      standardIds: 'StandardIds',
+      startTime: 'StartTime',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      addedCheck: { 'type': 'array', 'itemType': ChangeCheckConfigShrinkRequestAddedCheck },
+      configRequirementIdsShrink: 'string',
+      configStandardIdsShrink: 'string',
+      cycleDays: { 'type': 'array', 'itemType': 'number' },
+      enableAddCheck: 'boolean',
+      enableAutoCheck: 'boolean',
+      endTime: 'number',
+      regionId: 'string',
+      removedCheck: { 'type': 'array', 'itemType': ChangeCheckConfigShrinkRequestRemovedCheck },
       standardIds: { 'type': 'array', 'itemType': 'number' },
       startTime: 'number',
     };
@@ -6826,6 +6881,75 @@ export class DescribeAssetsSecurityEventSummaryResponse extends $tea.Model {
       headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
       statusCode: 'number',
       body: DescribeAssetsSecurityEventSummaryResponseBody,
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class DescribeAttachRecordsRequest extends $tea.Model {
+  applicationId?: string;
+  ecsUUIDList?: string[];
+  static names(): { [key: string]: string } {
+    return {
+      applicationId: 'ApplicationId',
+      ecsUUIDList: 'EcsUUIDList',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      applicationId: 'string',
+      ecsUUIDList: { 'type': 'array', 'itemType': 'string' },
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class DescribeAttachRecordsResponseBody extends $tea.Model {
+  accessList?: DescribeAttachRecordsResponseBodyAccessList[];
+  requestId?: string;
+  static names(): { [key: string]: string } {
+    return {
+      accessList: 'AccessList',
+      requestId: 'RequestId',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      accessList: { 'type': 'array', 'itemType': DescribeAttachRecordsResponseBodyAccessList },
+      requestId: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class DescribeAttachRecordsResponse extends $tea.Model {
+  headers: { [key: string]: string };
+  statusCode: number;
+  body: DescribeAttachRecordsResponseBody;
+  static names(): { [key: string]: string } {
+    return {
+      headers: 'headers',
+      statusCode: 'statusCode',
+      body: 'body',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
+      body: DescribeAttachRecordsResponseBody,
     };
   }
 
@@ -27722,6 +27846,72 @@ export class InstallPmAgentResponse extends $tea.Model {
   }
 }
 
+export class InstallRaspAttachRequest extends $tea.Model {
+  applicationId?: string;
+  ecsUUIDList?: string[];
+  static names(): { [key: string]: string } {
+    return {
+      applicationId: 'ApplicationId',
+      ecsUUIDList: 'EcsUUIDList',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      applicationId: 'string',
+      ecsUUIDList: { 'type': 'array', 'itemType': 'string' },
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class InstallRaspAttachResponseBody extends $tea.Model {
+  requestId?: string;
+  static names(): { [key: string]: string } {
+    return {
+      requestId: 'RequestId',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      requestId: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class InstallRaspAttachResponse extends $tea.Model {
+  headers: { [key: string]: string };
+  statusCode: number;
+  body: InstallRaspAttachResponseBody;
+  static names(): { [key: string]: string } {
+    return {
+      headers: 'headers',
+      statusCode: 'statusCode',
+      body: 'body',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
+      body: InstallRaspAttachResponseBody,
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
 export class InstallUniBackupAgentRequest extends $tea.Model {
   policyId?: number;
   static names(): { [key: string]: string } {
@@ -28163,6 +28353,56 @@ export class ListAgentlessTaskResponse extends $tea.Model {
       headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
       statusCode: 'number',
       body: ListAgentlessTaskResponseBody,
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class ListAssetCleanConfigResponseBody extends $tea.Model {
+  count?: number;
+  data?: ListAssetCleanConfigResponseBodyData[];
+  requestId?: string;
+  static names(): { [key: string]: string } {
+    return {
+      count: 'Count',
+      data: 'Data',
+      requestId: 'RequestId',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      count: 'number',
+      data: { 'type': 'array', 'itemType': ListAssetCleanConfigResponseBodyData },
+      requestId: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class ListAssetCleanConfigResponse extends $tea.Model {
+  headers: { [key: string]: string };
+  statusCode: number;
+  body: ListAssetCleanConfigResponseBody;
+  static names(): { [key: string]: string } {
+    return {
+      headers: 'headers',
+      statusCode: 'statusCode',
+      body: 'body',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
+      body: ListAssetCleanConfigResponseBody,
     };
   }
 
@@ -29152,6 +29392,90 @@ export class ListCloudAssetInstancesResponse extends $tea.Model {
       headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
       statusCode: 'number',
       body: ListCloudAssetInstancesResponseBody,
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class ListCloudVendorRegionsRequest extends $tea.Model {
+  lang?: string;
+  vendor?: string;
+  static names(): { [key: string]: string } {
+    return {
+      lang: 'Lang',
+      vendor: 'Vendor',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      lang: 'string',
+      vendor: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class ListCloudVendorRegionsResponseBody extends $tea.Model {
+  code?: string;
+  count?: number;
+  data?: ListCloudVendorRegionsResponseBodyData[];
+  httpStatusCode?: number;
+  message?: string;
+  requestId?: string;
+  success?: boolean;
+  static names(): { [key: string]: string } {
+    return {
+      code: 'Code',
+      count: 'Count',
+      data: 'Data',
+      httpStatusCode: 'HttpStatusCode',
+      message: 'Message',
+      requestId: 'RequestId',
+      success: 'Success',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      code: 'string',
+      count: 'number',
+      data: { 'type': 'array', 'itemType': ListCloudVendorRegionsResponseBodyData },
+      httpStatusCode: 'number',
+      message: 'string',
+      requestId: 'string',
+      success: 'boolean',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class ListCloudVendorRegionsResponse extends $tea.Model {
+  headers: { [key: string]: string };
+  statusCode: number;
+  body: ListCloudVendorRegionsResponseBody;
+  static names(): { [key: string]: string } {
+    return {
+      headers: 'headers',
+      statusCode: 'statusCode',
+      body: 'body',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
+      body: ListCloudVendorRegionsResponseBody,
     };
   }
 
@@ -31470,6 +31794,72 @@ export class ModifyAppVulScanCycleResponse extends $tea.Model {
       headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
       statusCode: 'number',
       body: ModifyAppVulScanCycleResponseBody,
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class ModifyAssetCleanConfigRequest extends $tea.Model {
+  assetCleanConfigs?: ModifyAssetCleanConfigRequestAssetCleanConfigs[];
+  static names(): { [key: string]: string } {
+    return {
+      assetCleanConfigs: 'AssetCleanConfigs',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      assetCleanConfigs: { 'type': 'array', 'itemType': ModifyAssetCleanConfigRequestAssetCleanConfigs },
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class ModifyAssetCleanConfigResponseBody extends $tea.Model {
+  data?: boolean;
+  requestId?: string;
+  static names(): { [key: string]: string } {
+    return {
+      data: 'Data',
+      requestId: 'RequestId',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      data: 'boolean',
+      requestId: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class ModifyAssetCleanConfigResponse extends $tea.Model {
+  headers: { [key: string]: string };
+  statusCode: number;
+  body: ModifyAssetCleanConfigResponseBody;
+  static names(): { [key: string]: string } {
+    return {
+      headers: 'headers',
+      statusCode: 'statusCode',
+      body: 'body',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
+      body: ModifyAssetCleanConfigResponseBody,
     };
   }
 
@@ -38398,6 +38788,72 @@ export class UninstallBackupClientResponse extends $tea.Model {
   }
 }
 
+export class UninstallRaspAttachRequest extends $tea.Model {
+  applicationId?: string;
+  ecsUUIDList?: string[];
+  static names(): { [key: string]: string } {
+    return {
+      applicationId: 'ApplicationId',
+      ecsUUIDList: 'EcsUUIDList',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      applicationId: 'string',
+      ecsUUIDList: { 'type': 'array', 'itemType': 'string' },
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class UninstallRaspAttachResponseBody extends $tea.Model {
+  requestId?: string;
+  static names(): { [key: string]: string } {
+    return {
+      requestId: 'RequestId',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      requestId: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class UninstallRaspAttachResponse extends $tea.Model {
+  headers: { [key: string]: string };
+  statusCode: number;
+  body: UninstallRaspAttachResponseBody;
+  static names(): { [key: string]: string } {
+    return {
+      headers: 'headers',
+      statusCode: 'statusCode',
+      body: 'body',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
+      body: UninstallRaspAttachResponseBody,
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
 export class UninstallUniBackupAgentRequest extends $tea.Model {
   policyId?: number;
   static names(): { [key: string]: string } {
@@ -39474,7 +39930,95 @@ export class ChangeCheckConfigRequestAddedCheck extends $tea.Model {
   }
 }
 
+export class ChangeCheckConfigRequestConfigRequirementIds extends $tea.Model {
+  addIds?: number[];
+  removeIds?: number[];
+  static names(): { [key: string]: string } {
+    return {
+      addIds: 'AddIds',
+      removeIds: 'RemoveIds',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      addIds: { 'type': 'array', 'itemType': 'number' },
+      removeIds: { 'type': 'array', 'itemType': 'number' },
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class ChangeCheckConfigRequestConfigStandardIds extends $tea.Model {
+  addIds?: number[];
+  removeIds?: number[];
+  static names(): { [key: string]: string } {
+    return {
+      addIds: 'AddIds',
+      removeIds: 'RemoveIds',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      addIds: { 'type': 'array', 'itemType': 'number' },
+      removeIds: { 'type': 'array', 'itemType': 'number' },
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
 export class ChangeCheckConfigRequestRemovedCheck extends $tea.Model {
+  checkId?: number;
+  sectionId?: number;
+  static names(): { [key: string]: string } {
+    return {
+      checkId: 'CheckId',
+      sectionId: 'SectionId',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      checkId: 'number',
+      sectionId: 'number',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class ChangeCheckConfigShrinkRequestAddedCheck extends $tea.Model {
+  checkId?: number;
+  sectionId?: number;
+  static names(): { [key: string]: string } {
+    return {
+      checkId: 'CheckId',
+      sectionId: 'SectionId',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      checkId: 'number',
+      sectionId: 'number',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class ChangeCheckConfigShrinkRequestRemovedCheck extends $tea.Model {
   checkId?: number;
   sectionId?: number;
   static names(): { [key: string]: string } {
@@ -40874,6 +41418,37 @@ export class DescribeAssetsSecurityEventSummaryResponseBodyAssets extends $tea.M
       assetType: 'string',
       riskCount: 'number',
       totalCount: 'number',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class DescribeAttachRecordsResponseBodyAccessList extends $tea.Model {
+  attachState?: number;
+  attachSwitch?: string;
+  ecsUUID?: string;
+  installMsg?: string;
+  installState?: number;
+  static names(): { [key: string]: string } {
+    return {
+      attachState: 'AttachState',
+      attachSwitch: 'AttachSwitch',
+      ecsUUID: 'EcsUUID',
+      installMsg: 'InstallMsg',
+      installState: 'InstallState',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      attachState: 'number',
+      attachSwitch: 'string',
+      ecsUUID: 'string',
+      installMsg: 'string',
+      installState: 'number',
     };
   }
 
@@ -53801,6 +54376,31 @@ export class ListAgentlessTaskResponseBodyPageInfo extends $tea.Model {
   }
 }
 
+export class ListAssetCleanConfigResponseBodyData extends $tea.Model {
+  cleanDays?: number;
+  status?: number;
+  type?: number;
+  static names(): { [key: string]: string } {
+    return {
+      cleanDays: 'CleanDays',
+      status: 'Status',
+      type: 'Type',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      cleanDays: 'number',
+      status: 'number',
+      type: 'number',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
 export class ListAssetRefreshTaskConfigResponseBodyAssetRefreshConfig extends $tea.Model {
   schedulePeriod?: number;
   status?: number;
@@ -54595,6 +55195,34 @@ export class ListCloudAssetInstancesResponseBodyPageInfo extends $tea.Model {
       currentPage: 'number',
       pageSize: 'number',
       totalCount: 'number',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class ListCloudVendorRegionsResponseBodyData extends $tea.Model {
+  area?: string;
+  disable?: number;
+  regionId?: string;
+  selected?: number;
+  static names(): { [key: string]: string } {
+    return {
+      area: 'Area',
+      disable: 'Disable',
+      regionId: 'RegionId',
+      selected: 'Selected',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      area: 'string',
+      disable: 'number',
+      regionId: 'string',
+      selected: 'number',
     };
   }
 
@@ -56314,6 +56942,31 @@ export class ListVulAutoRepairConfigResponseBodyVulAutoRepairConfigList extends 
   }
 }
 
+export class ModifyAssetCleanConfigRequestAssetCleanConfigs extends $tea.Model {
+  cleanDays?: number;
+  status?: number;
+  type?: number;
+  static names(): { [key: string]: string } {
+    return {
+      cleanDays: 'CleanDays',
+      status: 'Status',
+      type: 'Type',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      cleanDays: 'number',
+      status: 'number',
+      type: 'number',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
 export class ModifyCreateVulWhitelistResponseBodyVulWhitelistList extends $tea.Model {
   id?: number;
   static names(): { [key: string]: string } {
@@ -57601,11 +58254,29 @@ export default class Client extends OpenApi {
     return await this.changeAssetRefreshTaskConfigWithOptions(request, runtime);
   }
 
-  async changeCheckConfigWithOptions(request: ChangeCheckConfigRequest, runtime: $Util.RuntimeOptions): Promise<ChangeCheckConfigResponse> {
-    Util.validateModel(request);
+  async changeCheckConfigWithOptions(tmpReq: ChangeCheckConfigRequest, runtime: $Util.RuntimeOptions): Promise<ChangeCheckConfigResponse> {
+    Util.validateModel(tmpReq);
+    let request = new ChangeCheckConfigShrinkRequest({ });
+    OpenApiUtil.convert(tmpReq, request);
+    if (!Util.isUnset(tmpReq.configRequirementIds)) {
+      request.configRequirementIdsShrink = OpenApiUtil.arrayToStringWithSpecifiedStyle(tmpReq.configRequirementIds, "ConfigRequirementIds", "json");
+    }
+
+    if (!Util.isUnset(tmpReq.configStandardIds)) {
+      request.configStandardIdsShrink = OpenApiUtil.arrayToStringWithSpecifiedStyle(tmpReq.configStandardIds, "ConfigStandardIds", "json");
+    }
+
     let query = { };
     if (!Util.isUnset(request.addedCheck)) {
       query["AddedCheck"] = request.addedCheck;
+    }
+
+    if (!Util.isUnset(request.configRequirementIdsShrink)) {
+      query["ConfigRequirementIds"] = request.configRequirementIdsShrink;
+    }
+
+    if (!Util.isUnset(request.configStandardIdsShrink)) {
+      query["ConfigStandardIds"] = request.configStandardIdsShrink;
     }
 
     if (!Util.isUnset(request.cycleDays)) {
@@ -60646,6 +61317,39 @@ export default class Client extends OpenApi {
   async describeAssetsSecurityEventSummary(request: DescribeAssetsSecurityEventSummaryRequest): Promise<DescribeAssetsSecurityEventSummaryResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.describeAssetsSecurityEventSummaryWithOptions(request, runtime);
+  }
+
+  async describeAttachRecordsWithOptions(request: DescribeAttachRecordsRequest, runtime: $Util.RuntimeOptions): Promise<DescribeAttachRecordsResponse> {
+    Util.validateModel(request);
+    let query = { };
+    if (!Util.isUnset(request.applicationId)) {
+      query["ApplicationId"] = request.applicationId;
+    }
+
+    if (!Util.isUnset(request.ecsUUIDList)) {
+      query["EcsUUIDList"] = request.ecsUUIDList;
+    }
+
+    let req = new $OpenApi.OpenApiRequest({
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApi.Params({
+      action: "DescribeAttachRecords",
+      version: "2018-12-03",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $tea.cast<DescribeAttachRecordsResponse>(await this.callApi(params, req, runtime), new DescribeAttachRecordsResponse({}));
+  }
+
+  async describeAttachRecords(request: DescribeAttachRecordsRequest): Promise<DescribeAttachRecordsResponse> {
+    let runtime = new $Util.RuntimeOptions({ });
+    return await this.describeAttachRecordsWithOptions(request, runtime);
   }
 
   async describeAttackAnalysisDataWithOptions(request: DescribeAttackAnalysisDataRequest, runtime: $Util.RuntimeOptions): Promise<DescribeAttackAnalysisDataResponse> {
@@ -71727,6 +72431,39 @@ export default class Client extends OpenApi {
     return await this.installPmAgentWithOptions(request, runtime);
   }
 
+  async installRaspAttachWithOptions(request: InstallRaspAttachRequest, runtime: $Util.RuntimeOptions): Promise<InstallRaspAttachResponse> {
+    Util.validateModel(request);
+    let query = { };
+    if (!Util.isUnset(request.applicationId)) {
+      query["ApplicationId"] = request.applicationId;
+    }
+
+    if (!Util.isUnset(request.ecsUUIDList)) {
+      query["EcsUUIDList"] = request.ecsUUIDList;
+    }
+
+    let req = new $OpenApi.OpenApiRequest({
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApi.Params({
+      action: "InstallRaspAttach",
+      version: "2018-12-03",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $tea.cast<InstallRaspAttachResponse>(await this.callApi(params, req, runtime), new InstallRaspAttachResponse({}));
+  }
+
+  async installRaspAttach(request: InstallRaspAttachRequest): Promise<InstallRaspAttachResponse> {
+    let runtime = new $Util.RuntimeOptions({ });
+    return await this.installRaspAttachWithOptions(request, runtime);
+  }
+
   async installUniBackupAgentWithOptions(request: InstallUniBackupAgentRequest, runtime: $Util.RuntimeOptions): Promise<InstallUniBackupAgentResponse> {
     Util.validateModel(request);
     let query = { };
@@ -71983,6 +72720,27 @@ export default class Client extends OpenApi {
   async listAgentlessTask(request: ListAgentlessTaskRequest): Promise<ListAgentlessTaskResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.listAgentlessTaskWithOptions(request, runtime);
+  }
+
+  async listAssetCleanConfigWithOptions(runtime: $Util.RuntimeOptions): Promise<ListAssetCleanConfigResponse> {
+    let req = new $OpenApi.OpenApiRequest({ });
+    let params = new $OpenApi.Params({
+      action: "ListAssetCleanConfig",
+      version: "2018-12-03",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $tea.cast<ListAssetCleanConfigResponse>(await this.callApi(params, req, runtime), new ListAssetCleanConfigResponse({}));
+  }
+
+  async listAssetCleanConfig(): Promise<ListAssetCleanConfigResponse> {
+    let runtime = new $Util.RuntimeOptions({ });
+    return await this.listAssetCleanConfigWithOptions(runtime);
   }
 
   async listAssetRefreshTaskConfigWithOptions(request: ListAssetRefreshTaskConfigRequest, runtime: $Util.RuntimeOptions): Promise<ListAssetRefreshTaskConfigResponse> {
@@ -72551,6 +73309,39 @@ export default class Client extends OpenApi {
   async listCloudAssetInstances(request: ListCloudAssetInstancesRequest): Promise<ListCloudAssetInstancesResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.listCloudAssetInstancesWithOptions(request, runtime);
+  }
+
+  async listCloudVendorRegionsWithOptions(request: ListCloudVendorRegionsRequest, runtime: $Util.RuntimeOptions): Promise<ListCloudVendorRegionsResponse> {
+    Util.validateModel(request);
+    let query = { };
+    if (!Util.isUnset(request.lang)) {
+      query["Lang"] = request.lang;
+    }
+
+    if (!Util.isUnset(request.vendor)) {
+      query["Vendor"] = request.vendor;
+    }
+
+    let req = new $OpenApi.OpenApiRequest({
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApi.Params({
+      action: "ListCloudVendorRegions",
+      version: "2018-12-03",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $tea.cast<ListCloudVendorRegionsResponse>(await this.callApi(params, req, runtime), new ListCloudVendorRegionsResponse({}));
+  }
+
+  async listCloudVendorRegions(request: ListCloudVendorRegionsRequest): Promise<ListCloudVendorRegionsResponse> {
+    let runtime = new $Util.RuntimeOptions({ });
+    return await this.listCloudVendorRegionsWithOptions(request, runtime);
   }
 
   async listClusterCnnfStatusDetailWithOptions(request: ListClusterCnnfStatusDetailRequest, runtime: $Util.RuntimeOptions): Promise<ListClusterCnnfStatusDetailResponse> {
@@ -73722,6 +74513,35 @@ export default class Client extends OpenApi {
   async modifyAppVulScanCycle(request: ModifyAppVulScanCycleRequest): Promise<ModifyAppVulScanCycleResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.modifyAppVulScanCycleWithOptions(request, runtime);
+  }
+
+  async modifyAssetCleanConfigWithOptions(request: ModifyAssetCleanConfigRequest, runtime: $Util.RuntimeOptions): Promise<ModifyAssetCleanConfigResponse> {
+    Util.validateModel(request);
+    let query = { };
+    if (!Util.isUnset(request.assetCleanConfigs)) {
+      query["AssetCleanConfigs"] = request.assetCleanConfigs;
+    }
+
+    let req = new $OpenApi.OpenApiRequest({
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApi.Params({
+      action: "ModifyAssetCleanConfig",
+      version: "2018-12-03",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $tea.cast<ModifyAssetCleanConfigResponse>(await this.callApi(params, req, runtime), new ModifyAssetCleanConfigResponse({}));
+  }
+
+  async modifyAssetCleanConfig(request: ModifyAssetCleanConfigRequest): Promise<ModifyAssetCleanConfigResponse> {
+    let runtime = new $Util.RuntimeOptions({ });
+    return await this.modifyAssetCleanConfigWithOptions(request, runtime);
   }
 
   /**
@@ -77678,6 +78498,39 @@ export default class Client extends OpenApi {
   async uninstallBackupClient(request: UninstallBackupClientRequest): Promise<UninstallBackupClientResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.uninstallBackupClientWithOptions(request, runtime);
+  }
+
+  async uninstallRaspAttachWithOptions(request: UninstallRaspAttachRequest, runtime: $Util.RuntimeOptions): Promise<UninstallRaspAttachResponse> {
+    Util.validateModel(request);
+    let query = { };
+    if (!Util.isUnset(request.applicationId)) {
+      query["ApplicationId"] = request.applicationId;
+    }
+
+    if (!Util.isUnset(request.ecsUUIDList)) {
+      query["EcsUUIDList"] = request.ecsUUIDList;
+    }
+
+    let req = new $OpenApi.OpenApiRequest({
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApi.Params({
+      action: "UninstallRaspAttach",
+      version: "2018-12-03",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $tea.cast<UninstallRaspAttachResponse>(await this.callApi(params, req, runtime), new UninstallRaspAttachResponse({}));
+  }
+
+  async uninstallRaspAttach(request: UninstallRaspAttachRequest): Promise<UninstallRaspAttachResponse> {
+    let runtime = new $Util.RuntimeOptions({ });
+    return await this.uninstallRaspAttachWithOptions(request, runtime);
   }
 
   async uninstallUniBackupAgentWithOptions(request: UninstallUniBackupAgentRequest, runtime: $Util.RuntimeOptions): Promise<UninstallUniBackupAgentResponse> {
