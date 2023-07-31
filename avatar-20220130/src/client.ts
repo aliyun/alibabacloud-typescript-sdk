@@ -192,6 +192,180 @@ export class CloseTimedResetOperateResponse extends $tea.Model {
   }
 }
 
+export class Create2dAvatarRequest extends $tea.Model {
+  callback?: boolean;
+  description?: string;
+  image?: string;
+  name?: string;
+  orientation?: number;
+  portrait?: string;
+  tenantId?: number;
+  transparent?: boolean;
+  video?: string;
+  static names(): { [key: string]: string } {
+    return {
+      callback: 'Callback',
+      description: 'Description',
+      image: 'Image',
+      name: 'Name',
+      orientation: 'Orientation',
+      portrait: 'Portrait',
+      tenantId: 'TenantId',
+      transparent: 'Transparent',
+      video: 'Video',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      callback: 'boolean',
+      description: 'string',
+      image: 'string',
+      name: 'string',
+      orientation: 'number',
+      portrait: 'string',
+      tenantId: 'number',
+      transparent: 'boolean',
+      video: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class Create2dAvatarResponseBody extends $tea.Model {
+  code?: string;
+  data?: Create2dAvatarResponseBodyData;
+  message?: string;
+  requestId?: string;
+  success?: boolean;
+  static names(): { [key: string]: string } {
+    return {
+      code: 'Code',
+      data: 'Data',
+      message: 'Message',
+      requestId: 'RequestId',
+      success: 'Success',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      code: 'string',
+      data: Create2dAvatarResponseBodyData,
+      message: 'string',
+      requestId: 'string',
+      success: 'boolean',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class Create2dAvatarResponse extends $tea.Model {
+  headers: { [key: string]: string };
+  statusCode: number;
+  body: Create2dAvatarResponseBody;
+  static names(): { [key: string]: string } {
+    return {
+      headers: 'headers',
+      statusCode: 'statusCode',
+      body: 'body',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
+      body: Create2dAvatarResponseBody,
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class DeleteAvatarRequest extends $tea.Model {
+  code?: string;
+  tenantId?: number;
+  static names(): { [key: string]: string } {
+    return {
+      code: 'Code',
+      tenantId: 'TenantId',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      code: 'string',
+      tenantId: 'number',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class DeleteAvatarResponseBody extends $tea.Model {
+  code?: string;
+  message?: string;
+  requestId?: string;
+  success?: boolean;
+  static names(): { [key: string]: string } {
+    return {
+      code: 'Code',
+      message: 'Message',
+      requestId: 'RequestId',
+      success: 'Success',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      code: 'string',
+      message: 'string',
+      requestId: 'string',
+      success: 'boolean',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class DeleteAvatarResponse extends $tea.Model {
+  headers: { [key: string]: string };
+  statusCode: number;
+  body: DeleteAvatarResponseBody;
+  static names(): { [key: string]: string } {
+    return {
+      headers: 'headers',
+      statusCode: 'statusCode',
+      body: 'body',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
+      body: DeleteAvatarResponseBody,
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
 export class DuplexDecisionRequest extends $tea.Model {
   appId?: string;
   bizRequestId?: string;
@@ -2177,6 +2351,108 @@ export class SubmitTextTo3DAvatarVideoTaskResponse extends $tea.Model {
   }
 }
 
+export class Update2dAvatarRequest extends $tea.Model {
+  callback?: boolean;
+  code?: string;
+  description?: string;
+  image?: string;
+  name?: string;
+  orientation?: number;
+  portrait?: string;
+  tenantId?: number;
+  transparent?: boolean;
+  video?: string;
+  static names(): { [key: string]: string } {
+    return {
+      callback: 'Callback',
+      code: 'Code',
+      description: 'Description',
+      image: 'Image',
+      name: 'Name',
+      orientation: 'Orientation',
+      portrait: 'Portrait',
+      tenantId: 'TenantId',
+      transparent: 'Transparent',
+      video: 'Video',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      callback: 'boolean',
+      code: 'string',
+      description: 'string',
+      image: 'string',
+      name: 'string',
+      orientation: 'number',
+      portrait: 'string',
+      tenantId: 'number',
+      transparent: 'boolean',
+      video: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class Update2dAvatarResponseBody extends $tea.Model {
+  code?: string;
+  data?: Update2dAvatarResponseBodyData;
+  message?: string;
+  requestId?: string;
+  success?: boolean;
+  static names(): { [key: string]: string } {
+    return {
+      code: 'Code',
+      data: 'Data',
+      message: 'Message',
+      requestId: 'RequestId',
+      success: 'Success',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      code: 'string',
+      data: Update2dAvatarResponseBodyData,
+      message: 'string',
+      requestId: 'string',
+      success: 'boolean',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class Update2dAvatarResponse extends $tea.Model {
+  headers: { [key: string]: string };
+  statusCode: number;
+  body: Update2dAvatarResponseBody;
+  static names(): { [key: string]: string } {
+    return {
+      headers: 'headers',
+      statusCode: 'statusCode',
+      body: 'body',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
+      body: Update2dAvatarResponseBody,
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
 export class CancelVideoTaskRequestApp extends $tea.Model {
   appId?: string;
   static names(): { [key: string]: string } {
@@ -2235,6 +2511,25 @@ export class CloseTimedResetOperateResponseBodyData extends $tea.Model {
     return {
       instanceId: 'string',
       tenantId: 'number',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class Create2dAvatarResponseBodyData extends $tea.Model {
+  code?: string;
+  static names(): { [key: string]: string } {
+    return {
+      code: 'Code',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      code: 'string',
     };
   }
 
@@ -2491,6 +2786,8 @@ export class QueryAvatarResponseBodyData extends $tea.Model {
   avatarType?: string;
   description?: string;
   image?: string;
+  makeFailReason?: string;
+  makeStatus?: string;
   modelType?: string;
   name?: string;
   portrait?: string;
@@ -2500,6 +2797,8 @@ export class QueryAvatarResponseBodyData extends $tea.Model {
       avatarType: 'AvatarType',
       description: 'Description',
       image: 'Image',
+      makeFailReason: 'MakeFailReason',
+      makeStatus: 'MakeStatus',
       modelType: 'ModelType',
       name: 'Name',
       portrait: 'Portrait',
@@ -2512,6 +2811,8 @@ export class QueryAvatarResponseBodyData extends $tea.Model {
       avatarType: 'string',
       description: 'string',
       image: 'string',
+      makeFailReason: 'string',
+      makeStatus: 'string',
       modelType: 'string',
       name: 'string',
       portrait: 'string',
@@ -2601,6 +2902,8 @@ export class QueryAvatarListResponseBodyDataList extends $tea.Model {
   code?: string;
   description?: string;
   image?: string;
+  makeFailReason?: string;
+  makeStatus?: string;
   modelType?: string;
   name?: string;
   portrait?: string;
@@ -2611,6 +2914,8 @@ export class QueryAvatarListResponseBodyDataList extends $tea.Model {
       code: 'Code',
       description: 'Description',
       image: 'Image',
+      makeFailReason: 'MakeFailReason',
+      makeStatus: 'MakeStatus',
       modelType: 'ModelType',
       name: 'Name',
       portrait: 'Portrait',
@@ -2624,6 +2929,8 @@ export class QueryAvatarListResponseBodyDataList extends $tea.Model {
       code: 'string',
       description: 'string',
       image: 'string',
+      makeFailReason: 'string',
+      makeStatus: 'string',
       modelType: 'string',
       name: 'string',
       portrait: 'string',
@@ -3609,6 +3916,25 @@ export class SubmitTextTo3DAvatarVideoTaskResponseBodyData extends $tea.Model {
   }
 }
 
+export class Update2dAvatarResponseBodyData extends $tea.Model {
+  code?: string;
+  static names(): { [key: string]: string } {
+    return {
+      code: 'Code',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      code: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
 
 export default class Client extends OpenApi {
 
@@ -3706,6 +4032,100 @@ export default class Client extends OpenApi {
   async closeTimedResetOperate(request: CloseTimedResetOperateRequest): Promise<CloseTimedResetOperateResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.closeTimedResetOperateWithOptions(request, runtime);
+  }
+
+  async create2dAvatarWithOptions(request: Create2dAvatarRequest, runtime: $Util.RuntimeOptions): Promise<Create2dAvatarResponse> {
+    Util.validateModel(request);
+    let query = { };
+    if (!Util.isUnset(request.callback)) {
+      query["Callback"] = request.callback;
+    }
+
+    if (!Util.isUnset(request.description)) {
+      query["Description"] = request.description;
+    }
+
+    if (!Util.isUnset(request.image)) {
+      query["Image"] = request.image;
+    }
+
+    if (!Util.isUnset(request.name)) {
+      query["Name"] = request.name;
+    }
+
+    if (!Util.isUnset(request.orientation)) {
+      query["Orientation"] = request.orientation;
+    }
+
+    if (!Util.isUnset(request.portrait)) {
+      query["Portrait"] = request.portrait;
+    }
+
+    if (!Util.isUnset(request.tenantId)) {
+      query["TenantId"] = request.tenantId;
+    }
+
+    if (!Util.isUnset(request.transparent)) {
+      query["Transparent"] = request.transparent;
+    }
+
+    if (!Util.isUnset(request.video)) {
+      query["Video"] = request.video;
+    }
+
+    let req = new $OpenApi.OpenApiRequest({
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApi.Params({
+      action: "Create2dAvatar",
+      version: "2022-01-30",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $tea.cast<Create2dAvatarResponse>(await this.callApi(params, req, runtime), new Create2dAvatarResponse({}));
+  }
+
+  async create2dAvatar(request: Create2dAvatarRequest): Promise<Create2dAvatarResponse> {
+    let runtime = new $Util.RuntimeOptions({ });
+    return await this.create2dAvatarWithOptions(request, runtime);
+  }
+
+  async deleteAvatarWithOptions(request: DeleteAvatarRequest, runtime: $Util.RuntimeOptions): Promise<DeleteAvatarResponse> {
+    Util.validateModel(request);
+    let query = { };
+    if (!Util.isUnset(request.code)) {
+      query["Code"] = request.code;
+    }
+
+    if (!Util.isUnset(request.tenantId)) {
+      query["TenantId"] = request.tenantId;
+    }
+
+    let req = new $OpenApi.OpenApiRequest({
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApi.Params({
+      action: "DeleteAvatar",
+      version: "2022-01-30",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $tea.cast<DeleteAvatarResponse>(await this.callApi(params, req, runtime), new DeleteAvatarResponse({}));
+  }
+
+  async deleteAvatar(request: DeleteAvatarRequest): Promise<DeleteAvatarResponse> {
+    let runtime = new $Util.RuntimeOptions({ });
+    return await this.deleteAvatarWithOptions(request, runtime);
   }
 
   async duplexDecisionWithOptions(tmpReq: DuplexDecisionRequest, runtime: $Util.RuntimeOptions): Promise<DuplexDecisionResponse> {
@@ -3853,7 +4273,15 @@ export default class Client extends OpenApi {
 
   async queryAvatarWithOptions(request: QueryAvatarRequest, runtime: $Util.RuntimeOptions): Promise<QueryAvatarResponse> {
     Util.validateModel(request);
-    let query = OpenApiUtil.query(Util.toMap(request));
+    let query = { };
+    if (!Util.isUnset(request.code)) {
+      query["Code"] = request.code;
+    }
+
+    if (!Util.isUnset(request.tenantId)) {
+      query["TenantId"] = request.tenantId;
+    }
+
     let req = new $OpenApi.OpenApiRequest({
       query: OpenApiUtil.query(query),
     });
@@ -3862,7 +4290,7 @@ export default class Client extends OpenApi {
       version: "2022-01-30",
       protocol: "HTTPS",
       pathname: "/",
-      method: "GET",
+      method: "POST",
       authType: "AK",
       style: "RPC",
       reqBodyType: "formData",
@@ -4650,6 +5078,71 @@ export default class Client extends OpenApi {
   async submitTextTo3DAvatarVideoTask(request: SubmitTextTo3DAvatarVideoTaskRequest): Promise<SubmitTextTo3DAvatarVideoTaskResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.submitTextTo3DAvatarVideoTaskWithOptions(request, runtime);
+  }
+
+  async update2dAvatarWithOptions(request: Update2dAvatarRequest, runtime: $Util.RuntimeOptions): Promise<Update2dAvatarResponse> {
+    Util.validateModel(request);
+    let query = { };
+    if (!Util.isUnset(request.callback)) {
+      query["Callback"] = request.callback;
+    }
+
+    if (!Util.isUnset(request.code)) {
+      query["Code"] = request.code;
+    }
+
+    if (!Util.isUnset(request.description)) {
+      query["Description"] = request.description;
+    }
+
+    if (!Util.isUnset(request.image)) {
+      query["Image"] = request.image;
+    }
+
+    if (!Util.isUnset(request.name)) {
+      query["Name"] = request.name;
+    }
+
+    if (!Util.isUnset(request.orientation)) {
+      query["Orientation"] = request.orientation;
+    }
+
+    if (!Util.isUnset(request.portrait)) {
+      query["Portrait"] = request.portrait;
+    }
+
+    if (!Util.isUnset(request.tenantId)) {
+      query["TenantId"] = request.tenantId;
+    }
+
+    if (!Util.isUnset(request.transparent)) {
+      query["Transparent"] = request.transparent;
+    }
+
+    if (!Util.isUnset(request.video)) {
+      query["Video"] = request.video;
+    }
+
+    let req = new $OpenApi.OpenApiRequest({
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApi.Params({
+      action: "Update2dAvatar",
+      version: "2022-01-30",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $tea.cast<Update2dAvatarResponse>(await this.callApi(params, req, runtime), new Update2dAvatarResponse({}));
+  }
+
+  async update2dAvatar(request: Update2dAvatarRequest): Promise<Update2dAvatarResponse> {
+    let runtime = new $Util.RuntimeOptions({ });
+    return await this.update2dAvatarWithOptions(request, runtime);
   }
 
 }
