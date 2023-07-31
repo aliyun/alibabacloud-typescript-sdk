@@ -29537,6 +29537,7 @@ export class TrainOrderListQueryResponseBodyModuleUserAffiliateList extends $tea
 export class TrainOrderListQueryResponseBodyModule extends $tea.Model {
   applyId?: number;
   arrCity?: string;
+  arrCityAdCode?: string;
   arrStation?: string;
   arrTime?: string;
   btripTitle?: string;
@@ -29545,6 +29546,7 @@ export class TrainOrderListQueryResponseBodyModule extends $tea.Model {
   corpName?: string;
   costCenter?: TrainOrderListQueryResponseBodyModuleCostCenter;
   depCity?: string;
+  depCityAdCode?: string;
   depStation?: string;
   depTime?: string;
   departId?: string;
@@ -29575,6 +29577,7 @@ export class TrainOrderListQueryResponseBodyModule extends $tea.Model {
     return {
       applyId: 'apply_id',
       arrCity: 'arr_city',
+      arrCityAdCode: 'arr_city_ad_code',
       arrStation: 'arr_station',
       arrTime: 'arr_time',
       btripTitle: 'btrip_title',
@@ -29583,6 +29586,7 @@ export class TrainOrderListQueryResponseBodyModule extends $tea.Model {
       corpName: 'corp_name',
       costCenter: 'cost_center',
       depCity: 'dep_city',
+      depCityAdCode: 'dep_city_ad_code',
       depStation: 'dep_station',
       depTime: 'dep_time',
       departId: 'depart_id',
@@ -29616,6 +29620,7 @@ export class TrainOrderListQueryResponseBodyModule extends $tea.Model {
     return {
       applyId: 'number',
       arrCity: 'string',
+      arrCityAdCode: 'string',
       arrStation: 'string',
       arrTime: 'string',
       btripTitle: 'string',
@@ -29624,6 +29629,7 @@ export class TrainOrderListQueryResponseBodyModule extends $tea.Model {
       corpName: 'string',
       costCenter: TrainOrderListQueryResponseBodyModuleCostCenter,
       depCity: 'string',
+      depCityAdCode: 'string',
       depStation: 'string',
       depTime: 'string',
       departId: 'string',
