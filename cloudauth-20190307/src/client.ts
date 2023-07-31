@@ -1131,12 +1131,14 @@ export class DetectFaceAttributesResponse extends $tea.Model {
 
 export class InitFaceVerifyRequest extends $tea.Model {
   authId?: string;
+  birthday?: string;
   callbackToken?: string;
   callbackUrl?: string;
   certName?: string;
   certNo?: string;
   certType?: string;
   certifyId?: string;
+  certifyUrlStyle?: string;
   certifyUrlType?: string;
   crop?: string;
   encryptType?: string;
@@ -1145,26 +1147,31 @@ export class InitFaceVerifyRequest extends $tea.Model {
   ip?: string;
   metaInfo?: string;
   mobile?: string;
+  mode?: string;
   model?: string;
   ossBucketName?: string;
   ossObjectName?: string;
   outerOrderNo?: string;
   procedurePriority?: string;
   productCode?: string;
+  readImg?: string;
   returnUrl?: string;
   sceneId?: number;
   suitableType?: string;
   userId?: string;
+  validityDate?: string;
   voluntaryCustomizedContent?: string;
   static names(): { [key: string]: string } {
     return {
       authId: 'AuthId',
+      birthday: 'Birthday',
       callbackToken: 'CallbackToken',
       callbackUrl: 'CallbackUrl',
       certName: 'CertName',
       certNo: 'CertNo',
       certType: 'CertType',
       certifyId: 'CertifyId',
+      certifyUrlStyle: 'CertifyUrlStyle',
       certifyUrlType: 'CertifyUrlType',
       crop: 'Crop',
       encryptType: 'EncryptType',
@@ -1173,16 +1180,19 @@ export class InitFaceVerifyRequest extends $tea.Model {
       ip: 'Ip',
       metaInfo: 'MetaInfo',
       mobile: 'Mobile',
+      mode: 'Mode',
       model: 'Model',
       ossBucketName: 'OssBucketName',
       ossObjectName: 'OssObjectName',
       outerOrderNo: 'OuterOrderNo',
       procedurePriority: 'ProcedurePriority',
       productCode: 'ProductCode',
+      readImg: 'ReadImg',
       returnUrl: 'ReturnUrl',
       sceneId: 'SceneId',
       suitableType: 'SuitableType',
       userId: 'UserId',
+      validityDate: 'ValidityDate',
       voluntaryCustomizedContent: 'VoluntaryCustomizedContent',
     };
   }
@@ -1190,12 +1200,14 @@ export class InitFaceVerifyRequest extends $tea.Model {
   static types(): { [key: string]: any } {
     return {
       authId: 'string',
+      birthday: 'string',
       callbackToken: 'string',
       callbackUrl: 'string',
       certName: 'string',
       certNo: 'string',
       certType: 'string',
       certifyId: 'string',
+      certifyUrlStyle: 'string',
       certifyUrlType: 'string',
       crop: 'string',
       encryptType: 'string',
@@ -1204,16 +1216,19 @@ export class InitFaceVerifyRequest extends $tea.Model {
       ip: 'string',
       metaInfo: 'string',
       mobile: 'string',
+      mode: 'string',
       model: 'string',
       ossBucketName: 'string',
       ossObjectName: 'string',
       outerOrderNo: 'string',
       procedurePriority: 'string',
       productCode: 'string',
+      readImg: 'string',
       returnUrl: 'string',
       sceneId: 'number',
       suitableType: 'string',
       userId: 'string',
+      validityDate: 'string',
       voluntaryCustomizedContent: 'string',
     };
   }
@@ -1711,6 +1726,7 @@ export class DescribeFaceVerifyResponseBodyResultObject extends $tea.Model {
   materialInfo?: string;
   passed?: string;
   subCode?: string;
+  success?: string;
   static names(): { [key: string]: string } {
     return {
       deviceRisk: 'DeviceRisk',
@@ -1719,6 +1735,7 @@ export class DescribeFaceVerifyResponseBodyResultObject extends $tea.Model {
       materialInfo: 'MaterialInfo',
       passed: 'Passed',
       subCode: 'SubCode',
+      success: 'Success',
     };
   }
 
@@ -1730,6 +1747,7 @@ export class DescribeFaceVerifyResponseBodyResultObject extends $tea.Model {
       materialInfo: 'string',
       passed: 'string',
       subCode: 'string',
+      success: 'string',
     };
   }
 
@@ -2918,6 +2936,10 @@ export default class Client extends OpenApi {
   async initFaceVerifyWithOptions(request: InitFaceVerifyRequest, runtime: $Util.RuntimeOptions): Promise<InitFaceVerifyResponse> {
     Util.validateModel(request);
     let query = { };
+    if (!Util.isUnset(request.birthday)) {
+      query["Birthday"] = request.birthday;
+    }
+
     if (!Util.isUnset(request.callbackToken)) {
       query["CallbackToken"] = request.callbackToken;
     }
@@ -2940,6 +2962,10 @@ export default class Client extends OpenApi {
 
     if (!Util.isUnset(request.certifyId)) {
       query["CertifyId"] = request.certifyId;
+    }
+
+    if (!Util.isUnset(request.certifyUrlStyle)) {
+      query["CertifyUrlStyle"] = request.certifyUrlStyle;
     }
 
     if (!Util.isUnset(request.certifyUrlType)) {
@@ -2966,6 +2992,10 @@ export default class Client extends OpenApi {
       query["Mobile"] = request.mobile;
     }
 
+    if (!Util.isUnset(request.mode)) {
+      query["Mode"] = request.mode;
+    }
+
     if (!Util.isUnset(request.ossBucketName)) {
       query["OssBucketName"] = request.ossBucketName;
     }
@@ -2986,6 +3016,10 @@ export default class Client extends OpenApi {
       query["ProductCode"] = request.productCode;
     }
 
+    if (!Util.isUnset(request.readImg)) {
+      query["ReadImg"] = request.readImg;
+    }
+
     if (!Util.isUnset(request.returnUrl)) {
       query["ReturnUrl"] = request.returnUrl;
     }
@@ -3000,6 +3034,10 @@ export default class Client extends OpenApi {
 
     if (!Util.isUnset(request.userId)) {
       query["UserId"] = request.userId;
+    }
+
+    if (!Util.isUnset(request.validityDate)) {
+      query["ValidityDate"] = request.validityDate;
     }
 
     if (!Util.isUnset(request.voluntaryCustomizedContent)) {
