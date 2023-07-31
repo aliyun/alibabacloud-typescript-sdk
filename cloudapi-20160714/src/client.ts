@@ -923,6 +923,7 @@ export class CreateAppRequest extends $tea.Model {
   appName?: string;
   appSecret?: string;
   description?: string;
+  extend?: string;
   securityToken?: string;
   tag?: CreateAppRequestTag[];
   static names(): { [key: string]: string } {
@@ -932,6 +933,7 @@ export class CreateAppRequest extends $tea.Model {
       appName: 'AppName',
       appSecret: 'AppSecret',
       description: 'Description',
+      extend: 'Extend',
       securityToken: 'SecurityToken',
       tag: 'Tag',
     };
@@ -944,6 +946,7 @@ export class CreateAppRequest extends $tea.Model {
       appName: 'string',
       appSecret: 'string',
       description: 'string',
+      extend: 'string',
       securityToken: 'string',
       tag: { 'type': 'array', 'itemType': CreateAppRequestTag },
     };
@@ -3856,7 +3859,6 @@ export class DescribeApiResponseBody extends $tea.Model {
   requestId?: string;
   requestParameters?: DescribeApiResponseBodyRequestParameters;
   resultBodyModel?: string;
-  resultDescriptions?: DescribeApiResponseBodyResultDescriptions;
   resultSample?: string;
   resultType?: string;
   serviceConfig?: DescribeApiResponseBodyServiceConfig;
@@ -3894,7 +3896,6 @@ export class DescribeApiResponseBody extends $tea.Model {
       requestId: 'RequestId',
       requestParameters: 'RequestParameters',
       resultBodyModel: 'ResultBodyModel',
-      resultDescriptions: 'ResultDescriptions',
       resultSample: 'ResultSample',
       resultType: 'ResultType',
       serviceConfig: 'ServiceConfig',
@@ -3935,7 +3936,6 @@ export class DescribeApiResponseBody extends $tea.Model {
       requestId: 'string',
       requestParameters: DescribeApiResponseBodyRequestParameters,
       resultBodyModel: 'string',
-      resultDescriptions: DescribeApiResponseBodyResultDescriptions,
       resultSample: 'string',
       resultType: 'string',
       serviceConfig: DescribeApiResponseBodyServiceConfig,
@@ -4021,7 +4021,6 @@ export class DescribeApiDocResponseBody extends $tea.Model {
   requestConfig?: DescribeApiDocResponseBodyRequestConfig;
   requestId?: string;
   requestParameters?: DescribeApiDocResponseBodyRequestParameters;
-  resultDescriptions?: DescribeApiDocResponseBodyResultDescriptions;
   resultSample?: string;
   resultType?: string;
   stageName?: string;
@@ -4043,7 +4042,6 @@ export class DescribeApiDocResponseBody extends $tea.Model {
       requestConfig: 'RequestConfig',
       requestId: 'RequestId',
       requestParameters: 'RequestParameters',
-      resultDescriptions: 'ResultDescriptions',
       resultSample: 'ResultSample',
       resultType: 'ResultType',
       stageName: 'StageName',
@@ -4068,7 +4066,6 @@ export class DescribeApiDocResponseBody extends $tea.Model {
       requestConfig: DescribeApiDocResponseBodyRequestConfig,
       requestId: 'string',
       requestParameters: DescribeApiDocResponseBodyRequestParameters,
-      resultDescriptions: DescribeApiDocResponseBodyResultDescriptions,
       resultSample: 'string',
       resultType: 'string',
       stageName: 'string',
@@ -4134,7 +4131,6 @@ export class DescribeApiGroupRequest extends $tea.Model {
 export class DescribeApiGroupResponseBody extends $tea.Model {
   basePath?: string;
   billingStatus?: string;
-  classicVpcSubDomain?: string;
   cloudMarketCommodity?: boolean;
   cmsMonitorGroup?: string;
   compatibleFlags?: string;
@@ -4151,7 +4147,6 @@ export class DescribeApiGroupResponseBody extends $tea.Model {
   illegalStatus?: string;
   instanceId?: string;
   instanceType?: string;
-  instanceVipList?: string;
   ipv6Status?: string;
   migrationError?: string;
   migrationStatus?: string;
@@ -4159,7 +4154,6 @@ export class DescribeApiGroupResponseBody extends $tea.Model {
   passthroughHeaders?: string;
   regionId?: string;
   requestId?: string;
-  rpcPattern?: string;
   stageItems?: DescribeApiGroupResponseBodyStageItems;
   status?: string;
   subDomain?: string;
@@ -4171,7 +4165,6 @@ export class DescribeApiGroupResponseBody extends $tea.Model {
     return {
       basePath: 'BasePath',
       billingStatus: 'BillingStatus',
-      classicVpcSubDomain: 'ClassicVpcSubDomain',
       cloudMarketCommodity: 'CloudMarketCommodity',
       cmsMonitorGroup: 'CmsMonitorGroup',
       compatibleFlags: 'CompatibleFlags',
@@ -4188,7 +4181,6 @@ export class DescribeApiGroupResponseBody extends $tea.Model {
       illegalStatus: 'IllegalStatus',
       instanceId: 'InstanceId',
       instanceType: 'InstanceType',
-      instanceVipList: 'InstanceVipList',
       ipv6Status: 'Ipv6Status',
       migrationError: 'MigrationError',
       migrationStatus: 'MigrationStatus',
@@ -4196,7 +4188,6 @@ export class DescribeApiGroupResponseBody extends $tea.Model {
       passthroughHeaders: 'PassthroughHeaders',
       regionId: 'RegionId',
       requestId: 'RequestId',
-      rpcPattern: 'RpcPattern',
       stageItems: 'StageItems',
       status: 'Status',
       subDomain: 'SubDomain',
@@ -4211,7 +4202,6 @@ export class DescribeApiGroupResponseBody extends $tea.Model {
     return {
       basePath: 'string',
       billingStatus: 'string',
-      classicVpcSubDomain: 'string',
       cloudMarketCommodity: 'boolean',
       cmsMonitorGroup: 'string',
       compatibleFlags: 'string',
@@ -4228,7 +4218,6 @@ export class DescribeApiGroupResponseBody extends $tea.Model {
       illegalStatus: 'string',
       instanceId: 'string',
       instanceType: 'string',
-      instanceVipList: 'string',
       ipv6Status: 'string',
       migrationError: 'string',
       migrationStatus: 'string',
@@ -4236,7 +4225,6 @@ export class DescribeApiGroupResponseBody extends $tea.Model {
       passthroughHeaders: 'string',
       regionId: 'string',
       requestId: 'string',
-      rpcPattern: 'string',
       stageItems: DescribeApiGroupResponseBodyStageItems,
       status: 'string',
       subDomain: 'string',
@@ -5891,6 +5879,7 @@ export class DescribeAppResponseBody extends $tea.Model {
   appName?: string;
   createdTime?: string;
   description?: string;
+  extend?: string;
   modifiedTime?: string;
   requestId?: string;
   static names(): { [key: string]: string } {
@@ -5899,6 +5888,7 @@ export class DescribeAppResponseBody extends $tea.Model {
       appName: 'AppName',
       createdTime: 'CreatedTime',
       description: 'Description',
+      extend: 'Extend',
       modifiedTime: 'ModifiedTime',
       requestId: 'RequestId',
     };
@@ -5910,6 +5900,7 @@ export class DescribeAppResponseBody extends $tea.Model {
       appName: 'string',
       createdTime: 'string',
       description: 'string',
+      extend: 'string',
       modifiedTime: 'string',
       requestId: 'string',
     };
@@ -5951,6 +5942,7 @@ export class DescribeAppAttributesRequest extends $tea.Model {
   appKey?: string;
   appName?: string;
   enableTagAuth?: boolean;
+  extend?: string;
   pageNumber?: number;
   pageSize?: number;
   securityToken?: string;
@@ -5963,6 +5955,7 @@ export class DescribeAppAttributesRequest extends $tea.Model {
       appKey: 'AppKey',
       appName: 'AppName',
       enableTagAuth: 'EnableTagAuth',
+      extend: 'Extend',
       pageNumber: 'PageNumber',
       pageSize: 'PageSize',
       securityToken: 'SecurityToken',
@@ -5978,6 +5971,7 @@ export class DescribeAppAttributesRequest extends $tea.Model {
       appKey: 'string',
       appName: 'string',
       enableTagAuth: 'boolean',
+      extend: 'string',
       pageNumber: 'number',
       pageSize: 'number',
       securityToken: 'string',
@@ -11381,6 +11375,7 @@ export class ModifyAppRequest extends $tea.Model {
   appId?: number;
   appName?: string;
   description?: string;
+  extend?: string;
   securityToken?: string;
   tag?: ModifyAppRequestTag[];
   static names(): { [key: string]: string } {
@@ -11388,6 +11383,7 @@ export class ModifyAppRequest extends $tea.Model {
       appId: 'AppId',
       appName: 'AppName',
       description: 'Description',
+      extend: 'Extend',
       securityToken: 'SecurityToken',
       tag: 'Tag',
     };
@@ -11398,6 +11394,7 @@ export class ModifyAppRequest extends $tea.Model {
       appId: 'number',
       appName: 'string',
       description: 'string',
+      extend: 'string',
       securityToken: 'string',
       tag: { 'type': 'array', 'itemType': ModifyAppRequestTag },
     };
@@ -15694,65 +15691,6 @@ export class DescribeApiResponseBodyRequestParameters extends $tea.Model {
   }
 }
 
-export class DescribeApiResponseBodyResultDescriptionsResultDescription extends $tea.Model {
-  description?: string;
-  hasChild?: boolean;
-  id?: string;
-  key?: string;
-  mandatory?: boolean;
-  name?: string;
-  pid?: string;
-  type?: string;
-  static names(): { [key: string]: string } {
-    return {
-      description: 'Description',
-      hasChild: 'HasChild',
-      id: 'Id',
-      key: 'Key',
-      mandatory: 'Mandatory',
-      name: 'Name',
-      pid: 'Pid',
-      type: 'Type',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      description: 'string',
-      hasChild: 'boolean',
-      id: 'string',
-      key: 'string',
-      mandatory: 'boolean',
-      name: 'string',
-      pid: 'string',
-      type: 'string',
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class DescribeApiResponseBodyResultDescriptions extends $tea.Model {
-  resultDescription?: DescribeApiResponseBodyResultDescriptionsResultDescription[];
-  static names(): { [key: string]: string } {
-    return {
-      resultDescription: 'ResultDescription',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      resultDescription: { 'type': 'array', 'itemType': DescribeApiResponseBodyResultDescriptionsResultDescription },
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
 export class DescribeApiResponseBodyServiceConfigEventBridgeConfig extends $tea.Model {
   eventBridgeRegionId?: string;
   eventBus?: string;
@@ -16299,65 +16237,6 @@ export class DescribeApiDocResponseBodyRequestParameters extends $tea.Model {
   }
 }
 
-export class DescribeApiDocResponseBodyResultDescriptionsResultDescription extends $tea.Model {
-  description?: string;
-  hasChild?: boolean;
-  id?: string;
-  key?: string;
-  mandatory?: boolean;
-  name?: string;
-  pid?: string;
-  type?: string;
-  static names(): { [key: string]: string } {
-    return {
-      description: 'Description',
-      hasChild: 'HasChild',
-      id: 'Id',
-      key: 'Key',
-      mandatory: 'Mandatory',
-      name: 'Name',
-      pid: 'Pid',
-      type: 'Type',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      description: 'string',
-      hasChild: 'boolean',
-      id: 'string',
-      key: 'string',
-      mandatory: 'boolean',
-      name: 'string',
-      pid: 'string',
-      type: 'string',
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class DescribeApiDocResponseBodyResultDescriptions extends $tea.Model {
-  resultDescription?: DescribeApiDocResponseBodyResultDescriptionsResultDescription[];
-  static names(): { [key: string]: string } {
-    return {
-      resultDescription: 'ResultDescription',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      resultDescription: { 'type': 'array', 'itemType': DescribeApiDocResponseBodyResultDescriptionsResultDescription },
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
 export class DescribeApiGroupRequestTag extends $tea.Model {
   key?: string;
   value?: string;
@@ -16395,7 +16274,6 @@ export class DescribeApiGroupResponseBodyCustomDomainsDomainItem extends $tea.Mo
   domainWebSocketStatus?: string;
   isHttpRedirectToHttps?: boolean;
   wildcardDomainPatterns?: string;
-  wssEnable?: string;
   static names(): { [key: string]: string } {
     return {
       bindStageName: 'BindStageName',
@@ -16412,7 +16290,6 @@ export class DescribeApiGroupResponseBodyCustomDomainsDomainItem extends $tea.Mo
       domainWebSocketStatus: 'DomainWebSocketStatus',
       isHttpRedirectToHttps: 'IsHttpRedirectToHttps',
       wildcardDomainPatterns: 'WildcardDomainPatterns',
-      wssEnable: 'WssEnable',
     };
   }
 
@@ -16432,7 +16309,6 @@ export class DescribeApiGroupResponseBodyCustomDomainsDomainItem extends $tea.Mo
       domainWebSocketStatus: 'string',
       isHttpRedirectToHttps: 'boolean',
       wildcardDomainPatterns: 'string',
-      wssEnable: 'string',
     };
   }
 
@@ -18390,6 +18266,7 @@ export class DescribeAppAttributesResponseBodyAppsAppAttribute extends $tea.Mode
   appName?: string;
   createdTime?: string;
   description?: string;
+  extend?: string;
   modifiedTime?: string;
   tags?: DescribeAppAttributesResponseBodyAppsAppAttributeTags;
   static names(): { [key: string]: string } {
@@ -18398,6 +18275,7 @@ export class DescribeAppAttributesResponseBodyAppsAppAttribute extends $tea.Mode
       appName: 'AppName',
       createdTime: 'CreatedTime',
       description: 'Description',
+      extend: 'Extend',
       modifiedTime: 'ModifiedTime',
       tags: 'Tags',
     };
@@ -18409,6 +18287,7 @@ export class DescribeAppAttributesResponseBodyAppsAppAttribute extends $tea.Mode
       appName: 'string',
       createdTime: 'string',
       description: 'string',
+      extend: 'string',
       modifiedTime: 'string',
       tags: DescribeAppAttributesResponseBodyAppsAppAttributeTags,
     };
@@ -20585,14 +20464,12 @@ export class DescribeInstancesResponseBodyInstancesInstanceAttributeInstanceSpec
 
 export class DescribeInstancesResponseBodyInstancesInstanceAttributeNetworkInterfaceAttributesNetworkInterfaceAttribute extends $tea.Model {
   cidrBlock?: string;
-  networkInterfaceId?: string;
   securityGroupId?: string;
   vswitchId?: string;
   zoneId?: string;
   static names(): { [key: string]: string } {
     return {
       cidrBlock: 'CidrBlock',
-      networkInterfaceId: 'NetworkInterfaceId',
       securityGroupId: 'SecurityGroupId',
       vswitchId: 'VswitchId',
       zoneId: 'ZoneId',
@@ -20602,7 +20479,6 @@ export class DescribeInstancesResponseBodyInstancesInstanceAttributeNetworkInter
   static types(): { [key: string]: any } {
     return {
       cidrBlock: 'string',
-      networkInterfaceId: 'string',
       securityGroupId: 'string',
       vswitchId: 'string',
       zoneId: 'string',
@@ -20669,7 +20545,6 @@ export class DescribeInstancesResponseBodyInstancesInstanceAttribute extends $te
   supportIpv6?: boolean;
   userVpcId?: string;
   userVswitchId?: string;
-  vipTypeList?: string;
   vpcEgressAddress?: string;
   vpcIntranetEnable?: boolean;
   vpcOwnerId?: number;
@@ -20713,7 +20588,6 @@ export class DescribeInstancesResponseBodyInstancesInstanceAttribute extends $te
       supportIpv6: 'SupportIpv6',
       userVpcId: 'UserVpcId',
       userVswitchId: 'UserVswitchId',
-      vipTypeList: 'VipTypeList',
       vpcEgressAddress: 'VpcEgressAddress',
       vpcIntranetEnable: 'VpcIntranetEnable',
       vpcOwnerId: 'VpcOwnerId',
@@ -20760,7 +20634,6 @@ export class DescribeInstancesResponseBodyInstancesInstanceAttribute extends $te
       supportIpv6: 'boolean',
       userVpcId: 'string',
       userVswitchId: 'string',
-      vipTypeList: 'string',
       vpcEgressAddress: 'string',
       vpcIntranetEnable: 'boolean',
       vpcOwnerId: 'number',
@@ -23776,6 +23649,10 @@ export default class Client extends OpenApi {
       query["Description"] = request.description;
     }
 
+    if (!Util.isUnset(request.extend)) {
+      query["Extend"] = request.extend;
+    }
+
     if (!Util.isUnset(request.securityToken)) {
       query["SecurityToken"] = request.securityToken;
     }
@@ -25440,7 +25317,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-    * The ID of the public key.
+    * *   This operation is intended for API providers.
     *
     * @param request DescribeApiRequest
     * @param runtime runtime options for this request RuntimeOptions
@@ -25479,7 +25356,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-    * The ID of the public key.
+    * *   This operation is intended for API providers.
     *
     * @param request DescribeApiRequest
     * @return DescribeApiResponse
@@ -26604,6 +26481,10 @@ export default class Client extends OpenApi {
 
     if (!Util.isUnset(request.enableTagAuth)) {
       query["EnableTagAuth"] = request.enableTagAuth;
+    }
+
+    if (!Util.isUnset(request.extend)) {
+      query["Extend"] = request.extend;
     }
 
     if (!Util.isUnset(request.pageNumber)) {
@@ -29757,6 +29638,10 @@ export default class Client extends OpenApi {
 
     if (!Util.isUnset(request.description)) {
       query["Description"] = request.description;
+    }
+
+    if (!Util.isUnset(request.extend)) {
+      query["Extend"] = request.extend;
     }
 
     if (!Util.isUnset(request.securityToken)) {
