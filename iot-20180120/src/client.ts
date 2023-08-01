@@ -508,7 +508,7 @@ export class AttachParserDataSourceResponse extends $tea.Model {
 
 export class BatchAddDataForApiSourceRequest extends $tea.Model {
   apiId?: string;
-  contentList?: { [key: string]: any };
+  contentList?: string;
   iotInstanceId?: string;
   static names(): { [key: string]: string } {
     return {
@@ -521,32 +521,7 @@ export class BatchAddDataForApiSourceRequest extends $tea.Model {
   static types(): { [key: string]: any } {
     return {
       apiId: 'string',
-      contentList: { 'type': 'map', 'keyType': 'string', 'valueType': 'any' },
-      iotInstanceId: 'string',
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class BatchAddDataForApiSourceShrinkRequest extends $tea.Model {
-  apiId?: string;
-  contentListShrink?: string;
-  iotInstanceId?: string;
-  static names(): { [key: string]: string } {
-    return {
-      apiId: 'ApiId',
-      contentListShrink: 'ContentList',
-      iotInstanceId: 'IotInstanceId',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      apiId: 'string',
-      contentListShrink: 'string',
+      contentList: 'string',
       iotInstanceId: 'string',
     };
   }
@@ -558,14 +533,12 @@ export class BatchAddDataForApiSourceShrinkRequest extends $tea.Model {
 
 export class BatchAddDataForApiSourceResponseBody extends $tea.Model {
   code?: string;
-  data?: { [key: string]: any };
   errorMessage?: string;
   requestId?: string;
   success?: boolean;
   static names(): { [key: string]: string } {
     return {
       code: 'Code',
-      data: 'Data',
       errorMessage: 'ErrorMessage',
       requestId: 'RequestId',
       success: 'Success',
@@ -575,7 +548,6 @@ export class BatchAddDataForApiSourceResponseBody extends $tea.Model {
   static types(): { [key: string]: any } {
     return {
       code: 'string',
-      data: { 'type': 'map', 'keyType': 'string', 'valueType': 'any' },
       errorMessage: 'string',
       requestId: 'string',
       success: 'boolean',
@@ -48423,21 +48395,15 @@ export default class Client extends OpenApi {
     return await this.attachParserDataSourceWithOptions(request, runtime);
   }
 
-  async batchAddDataForApiSourceWithOptions(tmpReq: BatchAddDataForApiSourceRequest, runtime: $Util.RuntimeOptions): Promise<BatchAddDataForApiSourceResponse> {
-    Util.validateModel(tmpReq);
-    let request = new BatchAddDataForApiSourceShrinkRequest({ });
-    OpenApiUtil.convert(tmpReq, request);
-    if (!Util.isUnset(tmpReq.contentList)) {
-      request.contentListShrink = OpenApiUtil.arrayToStringWithSpecifiedStyle(tmpReq.contentList, "ContentList", "json");
-    }
-
+  async batchAddDataForApiSourceWithOptions(request: BatchAddDataForApiSourceRequest, runtime: $Util.RuntimeOptions): Promise<BatchAddDataForApiSourceResponse> {
+    Util.validateModel(request);
     let query = { };
     if (!Util.isUnset(request.apiId)) {
       query["ApiId"] = request.apiId;
     }
 
-    if (!Util.isUnset(request.contentListShrink)) {
-      query["ContentList"] = request.contentListShrink;
+    if (!Util.isUnset(request.contentList)) {
+      query["ContentList"] = request.contentList;
     }
 
     if (!Util.isUnset(request.iotInstanceId)) {
