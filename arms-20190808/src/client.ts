@@ -97,6 +97,8 @@ export class GrafanaWorkspace extends $tea.Model {
   ntmId?: string;
   personalDomain?: string;
   personalDomainPrefix?: string;
+  privateDomain?: string;
+  privateIp?: string;
   protocol?: string;
   regionId?: string;
   resourceGroupId?: string;
@@ -123,6 +125,8 @@ export class GrafanaWorkspace extends $tea.Model {
       ntmId: 'ntmId',
       personalDomain: 'personalDomain',
       personalDomainPrefix: 'personalDomainPrefix',
+      privateDomain: 'privateDomain',
+      privateIp: 'privateIp',
       protocol: 'protocol',
       regionId: 'regionId',
       resourceGroupId: 'resourceGroupId',
@@ -152,6 +156,8 @@ export class GrafanaWorkspace extends $tea.Model {
       ntmId: 'string',
       personalDomain: 'string',
       personalDomainPrefix: 'string',
+      privateDomain: 'string',
+      privateIp: 'string',
       protocol: 'string',
       regionId: 'string',
       resourceGroupId: 'string',
@@ -3383,19 +3389,28 @@ export class CreatePrometheusAlertRuleRequest extends $tea.Model {
 }
 
 export class CreatePrometheusAlertRuleResponseBody extends $tea.Model {
+  code?: number;
+  message?: string;
   prometheusAlertRule?: CreatePrometheusAlertRuleResponseBodyPrometheusAlertRule;
   requestId?: string;
+  success?: boolean;
   static names(): { [key: string]: string } {
     return {
+      code: 'Code',
+      message: 'Message',
       prometheusAlertRule: 'PrometheusAlertRule',
       requestId: 'RequestId',
+      success: 'Success',
     };
   }
 
   static types(): { [key: string]: any } {
     return {
+      code: 'number',
+      message: 'string',
       prometheusAlertRule: CreatePrometheusAlertRuleResponseBodyPrometheusAlertRule,
       requestId: 'string',
+      success: 'boolean',
     };
   }
 
@@ -5025,10 +5040,14 @@ export class DeletePrometheusAlertRuleRequest extends $tea.Model {
 }
 
 export class DeletePrometheusAlertRuleResponseBody extends $tea.Model {
+  code?: number;
+  message?: string;
   requestId?: string;
   success?: boolean;
   static names(): { [key: string]: string } {
     return {
+      code: 'Code',
+      message: 'Message',
       requestId: 'RequestId',
       success: 'Success',
     };
@@ -5036,6 +5055,8 @@ export class DeletePrometheusAlertRuleResponseBody extends $tea.Model {
 
   static types(): { [key: string]: any } {
     return {
+      code: 'number',
+      message: 'string',
       requestId: 'string',
       success: 'boolean',
     };
@@ -6250,19 +6271,28 @@ export class DescribePrometheusAlertRuleRequest extends $tea.Model {
 }
 
 export class DescribePrometheusAlertRuleResponseBody extends $tea.Model {
+  code?: number;
+  message?: string;
   prometheusAlertRule?: DescribePrometheusAlertRuleResponseBodyPrometheusAlertRule;
   requestId?: string;
+  success?: boolean;
   static names(): { [key: string]: string } {
     return {
+      code: 'Code',
+      message: 'Message',
       prometheusAlertRule: 'PrometheusAlertRule',
       requestId: 'RequestId',
+      success: 'Success',
     };
   }
 
   static types(): { [key: string]: any } {
     return {
+      code: 'number',
+      message: 'string',
       prometheusAlertRule: DescribePrometheusAlertRuleResponseBodyPrometheusAlertRule,
       requestId: 'string',
+      success: 'boolean',
     };
   }
 
@@ -10171,19 +10201,28 @@ export class ListPrometheusAlertRulesRequest extends $tea.Model {
 }
 
 export class ListPrometheusAlertRulesResponseBody extends $tea.Model {
+  code?: number;
+  message?: string;
   prometheusAlertRules?: ListPrometheusAlertRulesResponseBodyPrometheusAlertRules[];
   requestId?: string;
+  success?: boolean;
   static names(): { [key: string]: string } {
     return {
+      code: 'Code',
+      message: 'Message',
       prometheusAlertRules: 'PrometheusAlertRules',
       requestId: 'RequestId',
+      success: 'Success',
     };
   }
 
   static types(): { [key: string]: any } {
     return {
+      code: 'number',
+      message: 'string',
       prometheusAlertRules: { 'type': 'array', 'itemType': ListPrometheusAlertRulesResponseBodyPrometheusAlertRules },
       requestId: 'string',
+      success: 'boolean',
     };
   }
 
@@ -14077,19 +14116,28 @@ export class UpdatePrometheusAlertRuleRequest extends $tea.Model {
 }
 
 export class UpdatePrometheusAlertRuleResponseBody extends $tea.Model {
+  code?: number;
+  message?: string;
   prometheusAlertRule?: UpdatePrometheusAlertRuleResponseBodyPrometheusAlertRule;
   requestId?: string;
+  success?: boolean;
   static names(): { [key: string]: string } {
     return {
+      code: 'Code',
+      message: 'Message',
       prometheusAlertRule: 'PrometheusAlertRule',
       requestId: 'RequestId',
+      success: 'Success',
     };
   }
 
   static types(): { [key: string]: any } {
     return {
+      code: 'number',
+      message: 'string',
       prometheusAlertRule: UpdatePrometheusAlertRuleResponseBodyPrometheusAlertRule,
       requestId: 'string',
+      success: 'boolean',
     };
   }
 
