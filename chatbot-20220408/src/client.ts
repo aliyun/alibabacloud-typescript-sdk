@@ -3426,6 +3426,78 @@ export class GenerateUserAccessTokenResponse extends $tea.Model {
   }
 }
 
+export class GetAgentInfoRequest extends $tea.Model {
+  instanceId?: string;
+  static names(): { [key: string]: string } {
+    return {
+      instanceId: 'InstanceId',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      instanceId: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class GetAgentInfoResponseBody extends $tea.Model {
+  data?: GetAgentInfoResponseBodyData;
+  message?: string;
+  requestId?: string;
+  success?: boolean;
+  static names(): { [key: string]: string } {
+    return {
+      data: 'Data',
+      message: 'Message',
+      requestId: 'RequestId',
+      success: 'Success',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      data: GetAgentInfoResponseBodyData,
+      message: 'string',
+      requestId: 'string',
+      success: 'boolean',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class GetAgentInfoResponse extends $tea.Model {
+  headers: { [key: string]: string };
+  statusCode: number;
+  body: GetAgentInfoResponseBody;
+  static names(): { [key: string]: string } {
+    return {
+      headers: 'headers',
+      statusCode: 'statusCode',
+      body: 'body',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
+      body: GetAgentInfoResponseBody,
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
 export class GetAsyncResultRequest extends $tea.Model {
   agentKey?: string;
   taskId?: string;
@@ -4498,6 +4570,147 @@ export class ListLgfResponse extends $tea.Model {
       headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
       statusCode: 'number',
       body: ListLgfResponseBody,
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class ListSaasInfoRequest extends $tea.Model {
+  agentKey?: string;
+  saasGroupCodes?: string;
+  saasName?: string;
+  static names(): { [key: string]: string } {
+    return {
+      agentKey: 'AgentKey',
+      saasGroupCodes: 'SaasGroupCodes',
+      saasName: 'SaasName',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      agentKey: 'string',
+      saasGroupCodes: 'string',
+      saasName: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class ListSaasInfoResponseBody extends $tea.Model {
+  data?: ListSaasInfoResponseBodyData[];
+  requestId?: string;
+  saasToken?: string;
+  static names(): { [key: string]: string } {
+    return {
+      data: 'Data',
+      requestId: 'RequestId',
+      saasToken: 'SaasToken',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      data: { 'type': 'array', 'itemType': ListSaasInfoResponseBodyData },
+      requestId: 'string',
+      saasToken: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class ListSaasInfoResponse extends $tea.Model {
+  headers: { [key: string]: string };
+  statusCode: number;
+  body: ListSaasInfoResponseBody;
+  static names(): { [key: string]: string } {
+    return {
+      headers: 'headers',
+      statusCode: 'statusCode',
+      body: 'body',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
+      body: ListSaasInfoResponseBody,
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class ListSaasPermissionGroupInfosRequest extends $tea.Model {
+  agentKey?: string;
+  static names(): { [key: string]: string } {
+    return {
+      agentKey: 'AgentKey',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      agentKey: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class ListSaasPermissionGroupInfosResponseBody extends $tea.Model {
+  data?: ListSaasPermissionGroupInfosResponseBodyData[];
+  requestId?: string;
+  static names(): { [key: string]: string } {
+    return {
+      data: 'Data',
+      requestId: 'RequestId',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      data: { 'type': 'array', 'itemType': ListSaasPermissionGroupInfosResponseBodyData },
+      requestId: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class ListSaasPermissionGroupInfosResponse extends $tea.Model {
+  headers: { [key: string]: string };
+  statusCode: number;
+  body: ListSaasPermissionGroupInfosResponseBody;
+  static names(): { [key: string]: string } {
+    return {
+      headers: 'headers',
+      statusCode: 'statusCode',
+      body: 'body',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
+      body: ListSaasPermissionGroupInfosResponseBody,
     };
   }
 
@@ -6660,6 +6873,28 @@ export class DescribeIntentResponseBodySlotInfos extends $tea.Model {
   }
 }
 
+export class GetAgentInfoResponseBodyData extends $tea.Model {
+  agentKey?: string;
+  agentName?: string;
+  static names(): { [key: string]: string } {
+    return {
+      agentKey: 'AgentKey',
+      agentName: 'AgentName',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      agentKey: 'string',
+      agentName: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
 export class ListAgentResponseBodyData extends $tea.Model {
   agentId?: number;
   agentKey?: string;
@@ -6967,6 +7202,90 @@ export class ListLgfResponseBodyLgfs extends $tea.Model {
       lgfId: 'number',
       modifyTime: 'string',
       ruleText: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class ListSaasInfoResponseBodyData extends $tea.Model {
+  code?: string;
+  enName?: string;
+  name?: string;
+  serviceUrl?: string;
+  url?: string;
+  static names(): { [key: string]: string } {
+    return {
+      code: 'Code',
+      enName: 'EnName',
+      name: 'Name',
+      serviceUrl: 'ServiceUrl',
+      url: 'Url',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      code: 'string',
+      enName: 'string',
+      name: 'string',
+      serviceUrl: 'string',
+      url: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class ListSaasPermissionGroupInfosResponseBodyDataPgInfos extends $tea.Model {
+  pgCode?: string;
+  pgEnName?: string;
+  pgName?: string;
+  static names(): { [key: string]: string } {
+    return {
+      pgCode: 'PgCode',
+      pgEnName: 'PgEnName',
+      pgName: 'PgName',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      pgCode: 'string',
+      pgEnName: 'string',
+      pgName: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class ListSaasPermissionGroupInfosResponseBodyData extends $tea.Model {
+  enName?: string;
+  name?: string;
+  pgInfos?: ListSaasPermissionGroupInfosResponseBodyDataPgInfos[];
+  saasCode?: string;
+  static names(): { [key: string]: string } {
+    return {
+      enName: 'EnName',
+      name: 'Name',
+      pgInfos: 'PgInfos',
+      saasCode: 'SaasCode',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      enName: 'string',
+      name: 'string',
+      pgInfos: { 'type': 'array', 'itemType': ListSaasPermissionGroupInfosResponseBodyDataPgInfos },
+      saasCode: 'string',
     };
   }
 
@@ -9165,6 +9484,35 @@ export default class Client extends OpenApi {
     return await this.generateUserAccessTokenWithOptions(request, runtime);
   }
 
+  async getAgentInfoWithOptions(request: GetAgentInfoRequest, runtime: $Util.RuntimeOptions): Promise<GetAgentInfoResponse> {
+    Util.validateModel(request);
+    let query = { };
+    if (!Util.isUnset(request.instanceId)) {
+      query["InstanceId"] = request.instanceId;
+    }
+
+    let req = new $OpenApi.OpenApiRequest({
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApi.Params({
+      action: "GetAgentInfo",
+      version: "2022-04-08",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $tea.cast<GetAgentInfoResponse>(await this.callApi(params, req, runtime), new GetAgentInfoResponse({}));
+  }
+
+  async getAgentInfo(request: GetAgentInfoRequest): Promise<GetAgentInfoResponse> {
+    let runtime = new $Util.RuntimeOptions({ });
+    return await this.getAgentInfoWithOptions(request, runtime);
+  }
+
   async getAsyncResultWithOptions(request: GetAsyncResultRequest, runtime: $Util.RuntimeOptions): Promise<GetAsyncResultResponse> {
     Util.validateModel(request);
     let query = { };
@@ -9696,6 +10044,72 @@ export default class Client extends OpenApi {
   async listLgf(request: ListLgfRequest): Promise<ListLgfResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.listLgfWithOptions(request, runtime);
+  }
+
+  async listSaasInfoWithOptions(request: ListSaasInfoRequest, runtime: $Util.RuntimeOptions): Promise<ListSaasInfoResponse> {
+    Util.validateModel(request);
+    let query = { };
+    if (!Util.isUnset(request.agentKey)) {
+      query["AgentKey"] = request.agentKey;
+    }
+
+    if (!Util.isUnset(request.saasGroupCodes)) {
+      query["SaasGroupCodes"] = request.saasGroupCodes;
+    }
+
+    if (!Util.isUnset(request.saasName)) {
+      query["SaasName"] = request.saasName;
+    }
+
+    let req = new $OpenApi.OpenApiRequest({
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApi.Params({
+      action: "ListSaasInfo",
+      version: "2022-04-08",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $tea.cast<ListSaasInfoResponse>(await this.callApi(params, req, runtime), new ListSaasInfoResponse({}));
+  }
+
+  async listSaasInfo(request: ListSaasInfoRequest): Promise<ListSaasInfoResponse> {
+    let runtime = new $Util.RuntimeOptions({ });
+    return await this.listSaasInfoWithOptions(request, runtime);
+  }
+
+  async listSaasPermissionGroupInfosWithOptions(request: ListSaasPermissionGroupInfosRequest, runtime: $Util.RuntimeOptions): Promise<ListSaasPermissionGroupInfosResponse> {
+    Util.validateModel(request);
+    let query = { };
+    if (!Util.isUnset(request.agentKey)) {
+      query["AgentKey"] = request.agentKey;
+    }
+
+    let req = new $OpenApi.OpenApiRequest({
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApi.Params({
+      action: "ListSaasPermissionGroupInfos",
+      version: "2022-04-08",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $tea.cast<ListSaasPermissionGroupInfosResponse>(await this.callApi(params, req, runtime), new ListSaasPermissionGroupInfosResponse({}));
+  }
+
+  async listSaasPermissionGroupInfos(request: ListSaasPermissionGroupInfosRequest): Promise<ListSaasPermissionGroupInfosResponse> {
+    let runtime = new $Util.RuntimeOptions({ });
+    return await this.listSaasPermissionGroupInfosWithOptions(request, runtime);
   }
 
   async listSimQuestionWithOptions(request: ListSimQuestionRequest, runtime: $Util.RuntimeOptions): Promise<ListSimQuestionResponse> {
