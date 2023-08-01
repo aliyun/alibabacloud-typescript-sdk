@@ -13984,10 +13984,12 @@ export class ApplyListQueryResponseBodyModuleListItinerarySetList extends $tea.M
 }
 
 export class ApplyListQueryResponseBodyModuleListTravelerList extends $tea.Model {
+  jobNo?: string;
   userId?: string;
   userName?: string;
   static names(): { [key: string]: string } {
     return {
+      jobNo: 'job_no',
       userId: 'user_id',
       userName: 'user_name',
     };
@@ -13995,6 +13997,7 @@ export class ApplyListQueryResponseBodyModuleListTravelerList extends $tea.Model
 
   static types(): { [key: string]: any } {
     return {
+      jobNo: 'string',
       userId: 'string',
       userName: 'string',
     };
@@ -15319,6 +15322,7 @@ export class CarOrderListQueryResponseBodyModule extends $tea.Model {
   driverConfirmTime?: string;
   estimatePrice?: number;
   fromAddress?: string;
+  fromCityAdCode?: string;
   fromCityName?: string;
   gmtCreate?: string;
   gmtModified?: string;
@@ -15337,8 +15341,10 @@ export class CarOrderListQueryResponseBodyModule extends $tea.Model {
   provider?: number;
   publishTime?: string;
   realFromAddress?: string;
+  realFromCityAdCode?: string;
   realFromCityName?: string;
   realToAddress?: string;
+  realToCityAdCode?: string;
   realToCityName?: string;
   serviceType?: number;
   specialTypes?: string[];
@@ -15346,6 +15352,7 @@ export class CarOrderListQueryResponseBodyModule extends $tea.Model {
   thirdpartApplyId?: string;
   thirdpartItineraryId?: string;
   toAddress?: string;
+  toCityAdCode?: string;
   toCityName?: string;
   travelDistance?: number;
   userAffiliateList?: CarOrderListQueryResponseBodyModuleUserAffiliateList[];
@@ -15371,6 +15378,7 @@ export class CarOrderListQueryResponseBodyModule extends $tea.Model {
       driverConfirmTime: 'driver_confirm_time',
       estimatePrice: 'estimate_price',
       fromAddress: 'from_address',
+      fromCityAdCode: 'from_city_ad_code',
       fromCityName: 'from_city_name',
       gmtCreate: 'gmt_create',
       gmtModified: 'gmt_modified',
@@ -15389,8 +15397,10 @@ export class CarOrderListQueryResponseBodyModule extends $tea.Model {
       provider: 'provider',
       publishTime: 'publish_time',
       realFromAddress: 'real_from_address',
+      realFromCityAdCode: 'real_from_city_ad_code',
       realFromCityName: 'real_from_city_name',
       realToAddress: 'real_to_address',
+      realToCityAdCode: 'real_to_city_ad_code',
       realToCityName: 'real_to_city_name',
       serviceType: 'service_type',
       specialTypes: 'special_types',
@@ -15398,6 +15408,7 @@ export class CarOrderListQueryResponseBodyModule extends $tea.Model {
       thirdpartApplyId: 'thirdpart_apply_id',
       thirdpartItineraryId: 'thirdpart_itinerary_id',
       toAddress: 'to_address',
+      toCityAdCode: 'to_city_ad_code',
       toCityName: 'to_city_name',
       travelDistance: 'travel_distance',
       userAffiliateList: 'user_affiliate_list',
@@ -15426,6 +15437,7 @@ export class CarOrderListQueryResponseBodyModule extends $tea.Model {
       driverConfirmTime: 'string',
       estimatePrice: 'number',
       fromAddress: 'string',
+      fromCityAdCode: 'string',
       fromCityName: 'string',
       gmtCreate: 'string',
       gmtModified: 'string',
@@ -15444,8 +15456,10 @@ export class CarOrderListQueryResponseBodyModule extends $tea.Model {
       provider: 'number',
       publishTime: 'string',
       realFromAddress: 'string',
+      realFromCityAdCode: 'string',
       realFromCityName: 'string',
       realToAddress: 'string',
+      realToCityAdCode: 'string',
       realToCityName: 'string',
       serviceType: 'number',
       specialTypes: { 'type': 'array', 'itemType': 'string' },
@@ -15453,6 +15467,7 @@ export class CarOrderListQueryResponseBodyModule extends $tea.Model {
       thirdpartApplyId: 'string',
       thirdpartItineraryId: 'string',
       toAddress: 'string',
+      toCityAdCode: 'string',
       toCityName: 'string',
       travelDistance: 'number',
       userAffiliateList: { 'type': 'array', 'itemType': CarOrderListQueryResponseBodyModuleUserAffiliateList },
@@ -15502,19 +15517,23 @@ export class CarOrderQueryResponseBodyModuleCarInfo extends $tea.Model {
   driverName?: string;
   estimatePrice?: number;
   fromAddress?: string;
+  fromCityAdCode?: string;
   fromCityName?: string;
   isSpecial?: boolean;
   memo?: string;
   payTime?: number;
   publishTime?: number;
   realFromAddress?: string;
+  realFromCityAdCode?: string;
   realFromCityName?: string;
   realToAddress?: string;
+  realToCityAdCode?: string;
   realToCityName?: string;
   serviceType?: number;
   specialTypes?: string;
   takenTime?: number;
   toAddress?: string;
+  toCityAdCode?: string;
   toCityName?: string;
   travelDistance?: string;
   static names(): { [key: string]: string } {
@@ -15528,19 +15547,23 @@ export class CarOrderQueryResponseBodyModuleCarInfo extends $tea.Model {
       driverName: 'driver_name',
       estimatePrice: 'estimate_price',
       fromAddress: 'from_address',
+      fromCityAdCode: 'from_city_ad_code',
       fromCityName: 'from_city_name',
       isSpecial: 'is_special',
       memo: 'memo',
       payTime: 'pay_time',
       publishTime: 'publish_time',
       realFromAddress: 'real_from_address',
+      realFromCityAdCode: 'real_from_city_ad_code',
       realFromCityName: 'real_from_city_name',
       realToAddress: 'real_to_address',
+      realToCityAdCode: 'real_to_city_ad_code',
       realToCityName: 'real_to_city_name',
       serviceType: 'service_type',
       specialTypes: 'special_types',
       takenTime: 'taken_time',
       toAddress: 'to_address',
+      toCityAdCode: 'to_city_ad_code',
       toCityName: 'to_city_name',
       travelDistance: 'travel_distance',
     };
@@ -15557,19 +15580,23 @@ export class CarOrderQueryResponseBodyModuleCarInfo extends $tea.Model {
       driverName: 'string',
       estimatePrice: 'number',
       fromAddress: 'string',
+      fromCityAdCode: 'string',
       fromCityName: 'string',
       isSpecial: 'boolean',
       memo: 'string',
       payTime: 'number',
       publishTime: 'number',
       realFromAddress: 'string',
+      realFromCityAdCode: 'string',
       realFromCityName: 'string',
       realToAddress: 'string',
+      realToCityAdCode: 'string',
       realToCityName: 'string',
       serviceType: 'number',
       specialTypes: 'string',
       takenTime: 'number',
       toAddress: 'string',
+      toCityAdCode: 'string',
       toCityName: 'string',
       travelDistance: 'string',
     };
@@ -18572,6 +18599,7 @@ export class FlightOrderListQueryResponseBodyModule extends $tea.Model {
   applyId?: number;
   arrAirport?: string;
   arrCity?: string;
+  arrCityAdCode?: string;
   btripTitle?: string;
   cabinClass?: string;
   contactName?: string;
@@ -18580,6 +18608,7 @@ export class FlightOrderListQueryResponseBodyModule extends $tea.Model {
   costCenter?: FlightOrderListQueryResponseBodyModuleCostCenter;
   depAirport?: string;
   depCity?: string;
+  depCityAdCode?: string;
   depDate?: string;
   departId?: string;
   departName?: string;
@@ -18610,6 +18639,7 @@ export class FlightOrderListQueryResponseBodyModule extends $tea.Model {
       applyId: 'apply_id',
       arrAirport: 'arr_airport',
       arrCity: 'arr_city',
+      arrCityAdCode: 'arr_city_ad_code',
       btripTitle: 'btrip_title',
       cabinClass: 'cabin_class',
       contactName: 'contact_name',
@@ -18618,6 +18648,7 @@ export class FlightOrderListQueryResponseBodyModule extends $tea.Model {
       costCenter: 'cost_center',
       depAirport: 'dep_airport',
       depCity: 'dep_city',
+      depCityAdCode: 'dep_city_ad_code',
       depDate: 'dep_date',
       departId: 'depart_id',
       departName: 'depart_name',
@@ -18651,6 +18682,7 @@ export class FlightOrderListQueryResponseBodyModule extends $tea.Model {
       applyId: 'number',
       arrAirport: 'string',
       arrCity: 'string',
+      arrCityAdCode: 'string',
       btripTitle: 'string',
       cabinClass: 'string',
       contactName: 'string',
@@ -18659,6 +18691,7 @@ export class FlightOrderListQueryResponseBodyModule extends $tea.Model {
       costCenter: FlightOrderListQueryResponseBodyModuleCostCenter,
       depAirport: 'string',
       depCity: 'string',
+      depCityAdCode: 'string',
       depDate: 'string',
       departId: 'string',
       departName: 'string',
@@ -18780,6 +18813,7 @@ export class FlightOrderQueryResponseBodyModuleFlightInfoList extends $tea.Model
   airlineName?: string;
   arrAirportCode?: string;
   arrAirportName?: string;
+  arrCityAdCode?: string;
   arrCityCode?: string;
   arrCityName?: string;
   arrTime?: string;
@@ -18787,6 +18821,7 @@ export class FlightOrderQueryResponseBodyModuleFlightInfoList extends $tea.Model
   cabinLevel?: string;
   depAirportCode?: string;
   depAirportName?: string;
+  depCityAdCode?: string;
   depCityCode?: string;
   depCityName?: string;
   depTime?: string;
@@ -18798,6 +18833,7 @@ export class FlightOrderQueryResponseBodyModuleFlightInfoList extends $tea.Model
       airlineName: 'airline_name',
       arrAirportCode: 'arr_airport_code',
       arrAirportName: 'arr_airport_name',
+      arrCityAdCode: 'arr_city_ad_code',
       arrCityCode: 'arr_city_code',
       arrCityName: 'arr_city_name',
       arrTime: 'arr_time',
@@ -18805,6 +18841,7 @@ export class FlightOrderQueryResponseBodyModuleFlightInfoList extends $tea.Model
       cabinLevel: 'cabin_level',
       depAirportCode: 'dep_airport_code',
       depAirportName: 'dep_airport_name',
+      depCityAdCode: 'dep_city_ad_code',
       depCityCode: 'dep_city_code',
       depCityName: 'dep_city_name',
       depTime: 'dep_time',
@@ -18819,6 +18856,7 @@ export class FlightOrderQueryResponseBodyModuleFlightInfoList extends $tea.Model
       airlineName: 'string',
       arrAirportCode: 'string',
       arrAirportName: 'string',
+      arrCityAdCode: 'string',
       arrCityCode: 'string',
       arrCityName: 'string',
       arrTime: 'string',
@@ -18826,6 +18864,7 @@ export class FlightOrderQueryResponseBodyModuleFlightInfoList extends $tea.Model
       cabinLevel: 'string',
       depAirportCode: 'string',
       depAirportName: 'string',
+      depCityAdCode: 'string',
       depCityCode: 'string',
       depCityName: 'string',
       depTime: 'string',
@@ -25391,6 +25430,7 @@ export class HotelOrderListQueryResponseBodyModule extends $tea.Model {
   checkIn?: string;
   checkOut?: string;
   city?: string;
+  cityAdCode?: string;
   contactName?: string;
   corpId?: string;
   corpName?: string;
@@ -25429,6 +25469,7 @@ export class HotelOrderListQueryResponseBodyModule extends $tea.Model {
       checkIn: 'check_in',
       checkOut: 'check_out',
       city: 'city',
+      cityAdCode: 'city_ad_code',
       contactName: 'contact_name',
       corpId: 'corp_id',
       corpName: 'corp_name',
@@ -25470,6 +25511,7 @@ export class HotelOrderListQueryResponseBodyModule extends $tea.Model {
       checkIn: 'string',
       checkOut: 'string',
       city: 'string',
+      cityAdCode: 'string',
       contactName: 'string',
       corpId: 'string',
       corpName: 'string',
@@ -25835,6 +25877,7 @@ export class HotelOrderQueryResponseBodyModuleHotelInfo extends $tea.Model {
   checkIn?: number;
   checkOut?: number;
   city?: string;
+  cityAdCode?: string;
   hotelName?: string;
   hotelSupportVatInvoiceType?: number;
   night?: number;
@@ -25845,6 +25888,7 @@ export class HotelOrderQueryResponseBodyModuleHotelInfo extends $tea.Model {
       checkIn: 'check_in',
       checkOut: 'check_out',
       city: 'city',
+      cityAdCode: 'city_ad_code',
       hotelName: 'hotel_name',
       hotelSupportVatInvoiceType: 'hotel_support_vat_invoice_type',
       night: 'night',
@@ -25858,6 +25902,7 @@ export class HotelOrderQueryResponseBodyModuleHotelInfo extends $tea.Model {
       checkIn: 'number',
       checkOut: 'number',
       city: 'string',
+      cityAdCode: 'string',
       hotelName: 'string',
       hotelSupportVatInvoiceType: 'number',
       night: 'number',
@@ -30044,16 +30089,20 @@ export class TrainOrderQueryResponseBodyModuleTicketInfoList extends $tea.Model 
 export class TrainOrderQueryResponseBodyModuleTrainInfo extends $tea.Model {
   arrTime?: string;
   depTime?: string;
+  fromCityAdCode?: string;
   fromStationName?: string;
   runTime?: number;
+  toCityAdCode?: string;
   toStationName?: string;
   trainNo?: string;
   static names(): { [key: string]: string } {
     return {
       arrTime: 'arr_time',
       depTime: 'dep_time',
+      fromCityAdCode: 'from_city_ad_code',
       fromStationName: 'from_station_name',
       runTime: 'run_time',
+      toCityAdCode: 'to_city_ad_code',
       toStationName: 'to_station_name',
       trainNo: 'train_no',
     };
@@ -30063,8 +30112,10 @@ export class TrainOrderQueryResponseBodyModuleTrainInfo extends $tea.Model {
     return {
       arrTime: 'string',
       depTime: 'string',
+      fromCityAdCode: 'string',
       fromStationName: 'string',
       runTime: 'number',
+      toCityAdCode: 'string',
       toStationName: 'string',
       trainNo: 'string',
     };
@@ -30503,10 +30554,12 @@ export class TrainOrderQueryV2ResponseBodyModuleTrainOrderInfoTrainInfoListTrain
 export class TrainOrderQueryV2ResponseBodyModuleTrainOrderInfoTrainInfoList extends $tea.Model {
   arrTime?: string;
   depTime?: string;
+  fromCityAdCode?: string;
   fromCityName?: string;
   fromStationName?: string;
   itemId?: number;
   runTime?: number;
+  toCityAdCode?: string;
   toCityName?: string;
   toStationName?: string;
   trainNo?: string;
@@ -30515,10 +30568,12 @@ export class TrainOrderQueryV2ResponseBodyModuleTrainOrderInfoTrainInfoList exte
     return {
       arrTime: 'arr_time',
       depTime: 'dep_time',
+      fromCityAdCode: 'from_city_ad_code',
       fromCityName: 'from_city_name',
       fromStationName: 'from_station_name',
       itemId: 'item_id',
       runTime: 'run_time',
+      toCityAdCode: 'to_city_ad_code',
       toCityName: 'to_city_name',
       toStationName: 'to_station_name',
       trainNo: 'train_no',
@@ -30530,10 +30585,12 @@ export class TrainOrderQueryV2ResponseBodyModuleTrainOrderInfoTrainInfoList exte
     return {
       arrTime: 'string',
       depTime: 'string',
+      fromCityAdCode: 'string',
       fromCityName: 'string',
       fromStationName: 'string',
       itemId: 'number',
       runTime: 'number',
+      toCityAdCode: 'string',
       toCityName: 'string',
       toStationName: 'string',
       trainNo: 'string',
@@ -30549,13 +30606,16 @@ export class TrainOrderQueryV2ResponseBodyModuleTrainOrderInfoTrainInfoList exte
 export class TrainOrderQueryV2ResponseBodyModuleTrainOrderInfoTrainTransferInfo extends $tea.Model {
   costTime?: string;
   endTime?: string;
+  fromCityAdCode?: string;
   fromCityName?: string;
   fromStationName?: string;
   middleCity?: string;
+  middleCityAdCode?: string;
   middleDate?: string;
   middleStation?: string;
   middleType?: string;
   startTime?: string;
+  toCityAdCode?: string;
   toCityName?: string;
   toStationName?: string;
   waitTime?: string;
@@ -30563,13 +30623,16 @@ export class TrainOrderQueryV2ResponseBodyModuleTrainOrderInfoTrainTransferInfo 
     return {
       costTime: 'cost_time',
       endTime: 'end_time',
+      fromCityAdCode: 'from_city_ad_code',
       fromCityName: 'from_city_name',
       fromStationName: 'from_station_name',
       middleCity: 'middle_city',
+      middleCityAdCode: 'middle_city_ad_code',
       middleDate: 'middle_date',
       middleStation: 'middle_station',
       middleType: 'middle_type',
       startTime: 'start_time',
+      toCityAdCode: 'to_city_ad_code',
       toCityName: 'to_city_name',
       toStationName: 'to_station_name',
       waitTime: 'wait_time',
@@ -30580,13 +30643,16 @@ export class TrainOrderQueryV2ResponseBodyModuleTrainOrderInfoTrainTransferInfo 
     return {
       costTime: 'string',
       endTime: 'string',
+      fromCityAdCode: 'string',
       fromCityName: 'string',
       fromStationName: 'string',
       middleCity: 'string',
+      middleCityAdCode: 'string',
       middleDate: 'string',
       middleStation: 'string',
       middleType: 'string',
       startTime: 'string',
+      toCityAdCode: 'string',
       toCityName: 'string',
       toStationName: 'string',
       waitTime: 'string',
