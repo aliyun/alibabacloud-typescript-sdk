@@ -1443,6 +1443,7 @@ export class ControlRoomDeviceHeaders extends $tea.Model {
 
 export class ControlRoomDeviceRequest extends $tea.Model {
   cmd?: string;
+  deviceIndex?: number;
   deviceNumber?: string;
   hotelId?: string;
   properties?: { [key: string]: string };
@@ -1450,6 +1451,7 @@ export class ControlRoomDeviceRequest extends $tea.Model {
   static names(): { [key: string]: string } {
     return {
       cmd: 'Cmd',
+      deviceIndex: 'DeviceIndex',
       deviceNumber: 'DeviceNumber',
       hotelId: 'HotelId',
       properties: 'Properties',
@@ -1460,6 +1462,7 @@ export class ControlRoomDeviceRequest extends $tea.Model {
   static types(): { [key: string]: any } {
     return {
       cmd: 'string',
+      deviceIndex: 'number',
       deviceNumber: 'string',
       hotelId: 'string',
       properties: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
@@ -1474,6 +1477,7 @@ export class ControlRoomDeviceRequest extends $tea.Model {
 
 export class ControlRoomDeviceShrinkRequest extends $tea.Model {
   cmd?: string;
+  deviceIndex?: number;
   deviceNumber?: string;
   hotelId?: string;
   propertiesShrink?: string;
@@ -1481,6 +1485,7 @@ export class ControlRoomDeviceShrinkRequest extends $tea.Model {
   static names(): { [key: string]: string } {
     return {
       cmd: 'Cmd',
+      deviceIndex: 'DeviceIndex',
       deviceNumber: 'DeviceNumber',
       hotelId: 'HotelId',
       propertiesShrink: 'Properties',
@@ -1491,6 +1496,7 @@ export class ControlRoomDeviceShrinkRequest extends $tea.Model {
   static types(): { [key: string]: any } {
     return {
       cmd: 'string',
+      deviceIndex: 'number',
       deviceNumber: 'string',
       hotelId: 'string',
       propertiesShrink: 'string',
@@ -5054,6 +5060,134 @@ export class ImportRoomControlDevicesResponse extends $tea.Model {
       headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
       statusCode: 'number',
       body: ImportRoomControlDevicesResponseBody,
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class ImportRoomGenieScenesHeaders extends $tea.Model {
+  commonHeaders?: { [key: string]: string };
+  xAcsAligenieAccessToken?: string;
+  authorization?: string;
+  static names(): { [key: string]: string } {
+    return {
+      commonHeaders: 'commonHeaders',
+      xAcsAligenieAccessToken: 'x-acs-aligenie-access-token',
+      authorization: 'Authorization',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      commonHeaders: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      xAcsAligenieAccessToken: 'string',
+      authorization: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class ImportRoomGenieScenesRequest extends $tea.Model {
+  hotelId?: string;
+  roomNo?: string;
+  sceneList?: ImportRoomGenieScenesRequestSceneList[];
+  static names(): { [key: string]: string } {
+    return {
+      hotelId: 'HotelId',
+      roomNo: 'RoomNo',
+      sceneList: 'SceneList',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      hotelId: 'string',
+      roomNo: 'string',
+      sceneList: { 'type': 'array', 'itemType': ImportRoomGenieScenesRequestSceneList },
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class ImportRoomGenieScenesShrinkRequest extends $tea.Model {
+  hotelId?: string;
+  roomNo?: string;
+  sceneListShrink?: string;
+  static names(): { [key: string]: string } {
+    return {
+      hotelId: 'HotelId',
+      roomNo: 'RoomNo',
+      sceneListShrink: 'SceneList',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      hotelId: 'string',
+      roomNo: 'string',
+      sceneListShrink: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class ImportRoomGenieScenesResponseBody extends $tea.Model {
+  message?: string;
+  requestId?: string;
+  result?: boolean;
+  statusCode?: number;
+  static names(): { [key: string]: string } {
+    return {
+      message: 'Message',
+      requestId: 'RequestId',
+      result: 'Result',
+      statusCode: 'StatusCode',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      message: 'string',
+      requestId: 'string',
+      result: 'boolean',
+      statusCode: 'number',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class ImportRoomGenieScenesResponse extends $tea.Model {
+  headers: { [key: string]: string };
+  statusCode: number;
+  body: ImportRoomGenieScenesResponseBody;
+  static names(): { [key: string]: string } {
+    return {
+      headers: 'headers',
+      statusCode: 'statusCode',
+      body: 'body',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
+      body: ImportRoomGenieScenesResponseBody,
     };
   }
 
@@ -11811,16 +11945,66 @@ export class ImportHotelConfigRequestImportHotelConfig extends $tea.Model {
   }
 }
 
+export class ImportRoomControlDevicesRequestLocationDevicesDevicesMultiKeySwitchExtSwitchList extends $tea.Model {
+  category?: string;
+  deviceIndex?: number;
+  deviceName?: string;
+  location?: string;
+  static names(): { [key: string]: string } {
+    return {
+      category: 'Category',
+      deviceIndex: 'DeviceIndex',
+      deviceName: 'DeviceName',
+      location: 'Location',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      category: 'string',
+      deviceIndex: 'number',
+      deviceName: 'string',
+      location: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class ImportRoomControlDevicesRequestLocationDevicesDevicesMultiKeySwitchExt extends $tea.Model {
+  switchList?: ImportRoomControlDevicesRequestLocationDevicesDevicesMultiKeySwitchExtSwitchList[];
+  static names(): { [key: string]: string } {
+    return {
+      switchList: 'SwitchList',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      switchList: { 'type': 'array', 'itemType': ImportRoomControlDevicesRequestLocationDevicesDevicesMultiKeySwitchExtSwitchList },
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
 export class ImportRoomControlDevicesRequestLocationDevicesDevices extends $tea.Model {
   brand?: string;
   city?: string;
   connectType?: string;
   deviceName?: string;
+  dn?: string;
   infraredId?: string;
   infraredIndex?: string;
   infraredVersion?: string;
+  multiKeySwitchExt?: ImportRoomControlDevicesRequestLocationDevicesDevicesMultiKeySwitchExt;
   name?: string;
   number?: string;
+  pk?: string;
   province?: string;
   serviceProvider?: string;
   static names(): { [key: string]: string } {
@@ -11829,11 +12013,14 @@ export class ImportRoomControlDevicesRequestLocationDevicesDevices extends $tea.
       city: 'City',
       connectType: 'ConnectType',
       deviceName: 'DeviceName',
+      dn: 'Dn',
       infraredId: 'InfraredId',
       infraredIndex: 'InfraredIndex',
       infraredVersion: 'InfraredVersion',
+      multiKeySwitchExt: 'MultiKeySwitchExt',
       name: 'Name',
       number: 'Number',
+      pk: 'Pk',
       province: 'Province',
       serviceProvider: 'ServiceProvider',
     };
@@ -11845,11 +12032,14 @@ export class ImportRoomControlDevicesRequestLocationDevicesDevices extends $tea.
       city: 'string',
       connectType: 'string',
       deviceName: 'string',
+      dn: 'string',
       infraredId: 'string',
       infraredIndex: 'string',
       infraredVersion: 'string',
+      multiKeySwitchExt: ImportRoomControlDevicesRequestLocationDevicesDevicesMultiKeySwitchExt,
       name: 'string',
       number: 'string',
+      pk: 'string',
       province: 'string',
       serviceProvider: 'string',
     };
@@ -11877,6 +12067,137 @@ export class ImportRoomControlDevicesRequestLocationDevices extends $tea.Model {
       devices: { 'type': 'array', 'itemType': ImportRoomControlDevicesRequestLocationDevicesDevices },
       location: 'string',
       locationName: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class ImportRoomGenieScenesRequestSceneListActionsAttributeValues extends $tea.Model {
+  attributeName?: string;
+  attributeValue?: string;
+  static names(): { [key: string]: string } {
+    return {
+      attributeName: 'AttributeName',
+      attributeValue: 'AttributeValue',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      attributeName: 'string',
+      attributeValue: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class ImportRoomGenieScenesRequestSceneListActionsDevice extends $tea.Model {
+  category?: string;
+  deviceIndex?: number;
+  deviceNumber?: string;
+  type?: number;
+  static names(): { [key: string]: string } {
+    return {
+      category: 'Category',
+      deviceIndex: 'DeviceIndex',
+      deviceNumber: 'DeviceNumber',
+      type: 'Type',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      category: 'string',
+      deviceIndex: 'number',
+      deviceNumber: 'string',
+      type: 'number',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class ImportRoomGenieScenesRequestSceneListActions extends $tea.Model {
+  attributeValues?: ImportRoomGenieScenesRequestSceneListActionsAttributeValues[];
+  device?: ImportRoomGenieScenesRequestSceneListActionsDevice;
+  static names(): { [key: string]: string } {
+    return {
+      attributeValues: 'AttributeValues',
+      device: 'Device',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      attributeValues: { 'type': 'array', 'itemType': ImportRoomGenieScenesRequestSceneListActionsAttributeValues },
+      device: ImportRoomGenieScenesRequestSceneListActionsDevice,
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class ImportRoomGenieScenesRequestSceneListTriggers extends $tea.Model {
+  corpusList?: string[];
+  type?: number;
+  static names(): { [key: string]: string } {
+    return {
+      corpusList: 'CorpusList',
+      type: 'Type',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      corpusList: { 'type': 'array', 'itemType': 'string' },
+      type: 'number',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class ImportRoomGenieScenesRequestSceneList extends $tea.Model {
+  actions?: ImportRoomGenieScenesRequestSceneListActions[];
+  description?: string;
+  display?: boolean;
+  icon?: string;
+  sceneName?: string;
+  triggerLogical?: number;
+  triggers?: ImportRoomGenieScenesRequestSceneListTriggers[];
+  static names(): { [key: string]: string } {
+    return {
+      actions: 'Actions',
+      description: 'Description',
+      display: 'Display',
+      icon: 'Icon',
+      sceneName: 'SceneName',
+      triggerLogical: 'TriggerLogical',
+      triggers: 'Triggers',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      actions: { 'type': 'array', 'itemType': ImportRoomGenieScenesRequestSceneListActions },
+      description: 'string',
+      display: 'boolean',
+      icon: 'string',
+      sceneName: 'string',
+      triggerLogical: 'number',
+      triggers: { 'type': 'array', 'itemType': ImportRoomGenieScenesRequestSceneListTriggers },
     };
   }
 
@@ -13749,26 +14070,91 @@ export class QueryHotelRoomDetailResponseBodyResult extends $tea.Model {
   }
 }
 
+export class QueryRoomControlDevicesResponseBodyResultDevicesMultiKeySwitchExtSwitchList extends $tea.Model {
+  category?: string;
+  deviceIndex?: number;
+  deviceName?: string;
+  deviceStatus?: string;
+  elementCode?: string;
+  location?: string;
+  static names(): { [key: string]: string } {
+    return {
+      category: 'Category',
+      deviceIndex: 'DeviceIndex',
+      deviceName: 'DeviceName',
+      deviceStatus: 'DeviceStatus',
+      elementCode: 'ElementCode',
+      location: 'Location',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      category: 'string',
+      deviceIndex: 'number',
+      deviceName: 'string',
+      deviceStatus: 'string',
+      elementCode: 'string',
+      location: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class QueryRoomControlDevicesResponseBodyResultDevicesMultiKeySwitchExt extends $tea.Model {
+  switchList?: QueryRoomControlDevicesResponseBodyResultDevicesMultiKeySwitchExtSwitchList[];
+  static names(): { [key: string]: string } {
+    return {
+      switchList: 'SwitchList',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      switchList: { 'type': 'array', 'itemType': QueryRoomControlDevicesResponseBodyResultDevicesMultiKeySwitchExtSwitchList },
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
 export class QueryRoomControlDevicesResponseBodyResultDevices extends $tea.Model {
   connectType?: string;
+  DN?: string;
   deviceName?: string;
+  deviceStatus?: string;
+  multiKeySwitchExt?: QueryRoomControlDevicesResponseBodyResultDevicesMultiKeySwitchExt;
   name?: string;
   number?: string;
+  PK?: string;
   static names(): { [key: string]: string } {
     return {
       connectType: 'ConnectType',
+      DN: 'DN',
       deviceName: 'DeviceName',
+      deviceStatus: 'DeviceStatus',
+      multiKeySwitchExt: 'MultiKeySwitchExt',
       name: 'Name',
       number: 'Number',
+      PK: 'PK',
     };
   }
 
   static types(): { [key: string]: any } {
     return {
       connectType: 'string',
+      DN: 'string',
       deviceName: 'string',
+      deviceStatus: 'string',
+      multiKeySwitchExt: QueryRoomControlDevicesResponseBodyResultDevicesMultiKeySwitchExt,
       name: 'string',
       number: 'string',
+      PK: 'string',
     };
   }
 
@@ -14982,6 +15368,10 @@ export default class Client extends OpenApi {
     let body : {[key: string ]: any} = { };
     if (!Util.isUnset(request.cmd)) {
       body["Cmd"] = request.cmd;
+    }
+
+    if (!Util.isUnset(request.deviceIndex)) {
+      body["DeviceIndex"] = request.deviceIndex;
     }
 
     if (!Util.isUnset(request.deviceNumber)) {
@@ -16648,6 +17038,64 @@ export default class Client extends OpenApi {
     let runtime = new $Util.RuntimeOptions({ });
     let headers = new ImportRoomControlDevicesHeaders({ });
     return await this.importRoomControlDevicesWithOptions(request, headers, runtime);
+  }
+
+  async importRoomGenieScenesWithOptions(tmpReq: ImportRoomGenieScenesRequest, headers: ImportRoomGenieScenesHeaders, runtime: $Util.RuntimeOptions): Promise<ImportRoomGenieScenesResponse> {
+    Util.validateModel(tmpReq);
+    let request = new ImportRoomGenieScenesShrinkRequest({ });
+    OpenApiUtil.convert(tmpReq, request);
+    if (!Util.isUnset(tmpReq.sceneList)) {
+      request.sceneListShrink = OpenApiUtil.arrayToStringWithSpecifiedStyle(tmpReq.sceneList, "SceneList", "json");
+    }
+
+    let body : {[key: string ]: any} = { };
+    if (!Util.isUnset(request.hotelId)) {
+      body["HotelId"] = request.hotelId;
+    }
+
+    if (!Util.isUnset(request.roomNo)) {
+      body["RoomNo"] = request.roomNo;
+    }
+
+    if (!Util.isUnset(request.sceneListShrink)) {
+      body["SceneList"] = request.sceneListShrink;
+    }
+
+    let realHeaders : {[key: string ]: string} = { };
+    if (!Util.isUnset(headers.commonHeaders)) {
+      realHeaders = headers.commonHeaders;
+    }
+
+    if (!Util.isUnset(headers.xAcsAligenieAccessToken)) {
+      realHeaders["x-acs-aligenie-access-token"] = Util.toJSONString(headers.xAcsAligenieAccessToken);
+    }
+
+    if (!Util.isUnset(headers.authorization)) {
+      realHeaders["Authorization"] = Util.toJSONString(headers.authorization);
+    }
+
+    let req = new $OpenApi.OpenApiRequest({
+      headers: realHeaders,
+      body: OpenApiUtil.parseToMap(body),
+    });
+    let params = new $OpenApi.Params({
+      action: "ImportRoomGenieScenes",
+      version: "ip_1.0",
+      protocol: "HTTPS",
+      pathname: `/v1.0/ip/importRoomGenieScenes`,
+      method: "POST",
+      authType: "AK",
+      style: "ROA",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $tea.cast<ImportRoomGenieScenesResponse>(await this.callApi(params, req, runtime), new ImportRoomGenieScenesResponse({}));
+  }
+
+  async importRoomGenieScenes(request: ImportRoomGenieScenesRequest): Promise<ImportRoomGenieScenesResponse> {
+    let runtime = new $Util.RuntimeOptions({ });
+    let headers = new ImportRoomGenieScenesHeaders({ });
+    return await this.importRoomGenieScenesWithOptions(request, headers, runtime);
   }
 
   async insertHotelSceneBookItemWithOptions(tmpReq: InsertHotelSceneBookItemRequest, headers: InsertHotelSceneBookItemHeaders, runtime: $Util.RuntimeOptions): Promise<InsertHotelSceneBookItemResponse> {
