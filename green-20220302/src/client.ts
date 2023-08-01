@@ -286,6 +286,156 @@ export class TextModerationResponse extends $tea.Model {
   }
 }
 
+export class VideoModerationRequest extends $tea.Model {
+  service?: string;
+  serviceParameters?: string;
+  static names(): { [key: string]: string } {
+    return {
+      service: 'Service',
+      serviceParameters: 'ServiceParameters',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      service: 'string',
+      serviceParameters: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class VideoModerationResponseBody extends $tea.Model {
+  code?: number;
+  data?: VideoModerationResponseBodyData;
+  message?: string;
+  requestId?: string;
+  static names(): { [key: string]: string } {
+    return {
+      code: 'Code',
+      data: 'Data',
+      message: 'Message',
+      requestId: 'RequestId',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      code: 'number',
+      data: VideoModerationResponseBodyData,
+      message: 'string',
+      requestId: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class VideoModerationResponse extends $tea.Model {
+  headers: { [key: string]: string };
+  statusCode: number;
+  body: VideoModerationResponseBody;
+  static names(): { [key: string]: string } {
+    return {
+      headers: 'headers',
+      statusCode: 'statusCode',
+      body: 'body',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
+      body: VideoModerationResponseBody,
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class VideoModerationResultRequest extends $tea.Model {
+  service?: string;
+  serviceParameters?: string;
+  static names(): { [key: string]: string } {
+    return {
+      service: 'Service',
+      serviceParameters: 'ServiceParameters',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      service: 'string',
+      serviceParameters: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class VideoModerationResultResponseBody extends $tea.Model {
+  code?: number;
+  data?: VideoModerationResultResponseBodyData;
+  message?: string;
+  requestId?: string;
+  static names(): { [key: string]: string } {
+    return {
+      code: 'Code',
+      data: 'Data',
+      message: 'Message',
+      requestId: 'RequestId',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      code: 'number',
+      data: VideoModerationResultResponseBodyData,
+      message: 'string',
+      requestId: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class VideoModerationResultResponse extends $tea.Model {
+  headers: { [key: string]: string };
+  statusCode: number;
+  body: VideoModerationResultResponseBody;
+  static names(): { [key: string]: string } {
+    return {
+      headers: 'headers',
+      statusCode: 'statusCode',
+      body: 'body',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
+      body: VideoModerationResultResponseBody,
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
 export class VoiceModerationRequest extends $tea.Model {
   service?: string;
   serviceParameters?: string;
@@ -711,6 +861,212 @@ export class TextModerationResponseBodyData extends $tea.Model {
   }
 }
 
+export class VideoModerationResponseBodyData extends $tea.Model {
+  taskId?: string;
+  static names(): { [key: string]: string } {
+    return {
+      taskId: 'TaskId',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      taskId: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class VideoModerationResultResponseBodyDataAudioResultSliceDetails extends $tea.Model {
+  endTime?: number;
+  endTimestamp?: number;
+  extend?: string;
+  labels?: string;
+  riskTips?: string;
+  riskWords?: string;
+  score?: number;
+  startTime?: number;
+  startTimestamp?: number;
+  text?: string;
+  url?: string;
+  static names(): { [key: string]: string } {
+    return {
+      endTime: 'EndTime',
+      endTimestamp: 'EndTimestamp',
+      extend: 'Extend',
+      labels: 'Labels',
+      riskTips: 'RiskTips',
+      riskWords: 'RiskWords',
+      score: 'Score',
+      startTime: 'StartTime',
+      startTimestamp: 'StartTimestamp',
+      text: 'Text',
+      url: 'Url',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      endTime: 'number',
+      endTimestamp: 'number',
+      extend: 'string',
+      labels: 'string',
+      riskTips: 'string',
+      riskWords: 'string',
+      score: 'number',
+      startTime: 'number',
+      startTimestamp: 'number',
+      text: 'string',
+      url: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class VideoModerationResultResponseBodyDataAudioResult extends $tea.Model {
+  sliceDetails?: VideoModerationResultResponseBodyDataAudioResultSliceDetails[];
+  static names(): { [key: string]: string } {
+    return {
+      sliceDetails: 'SliceDetails',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      sliceDetails: { 'type': 'array', 'itemType': VideoModerationResultResponseBodyDataAudioResultSliceDetails },
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class VideoModerationResultResponseBodyDataFrameResultFramesResultsResult extends $tea.Model {
+  confidence?: number;
+  label?: string;
+  static names(): { [key: string]: string } {
+    return {
+      confidence: 'Confidence',
+      label: 'Label',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      confidence: 'number',
+      label: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class VideoModerationResultResponseBodyDataFrameResultFramesResults extends $tea.Model {
+  result?: VideoModerationResultResponseBodyDataFrameResultFramesResultsResult[];
+  service?: string;
+  static names(): { [key: string]: string } {
+    return {
+      result: 'Result',
+      service: 'Service',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      result: { 'type': 'array', 'itemType': VideoModerationResultResponseBodyDataFrameResultFramesResultsResult },
+      service: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class VideoModerationResultResponseBodyDataFrameResultFrames extends $tea.Model {
+  offset?: number;
+  results?: VideoModerationResultResponseBodyDataFrameResultFramesResults[];
+  tempUrl?: string;
+  static names(): { [key: string]: string } {
+    return {
+      offset: 'Offset',
+      results: 'Results',
+      tempUrl: 'TempUrl',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      offset: 'number',
+      results: { 'type': 'array', 'itemType': VideoModerationResultResponseBodyDataFrameResultFramesResults },
+      tempUrl: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class VideoModerationResultResponseBodyDataFrameResult extends $tea.Model {
+  frameNum?: number;
+  frames?: VideoModerationResultResponseBodyDataFrameResultFrames[];
+  static names(): { [key: string]: string } {
+    return {
+      frameNum: 'FrameNum',
+      frames: 'Frames',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      frameNum: 'number',
+      frames: { 'type': 'array', 'itemType': VideoModerationResultResponseBodyDataFrameResultFrames },
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class VideoModerationResultResponseBodyData extends $tea.Model {
+  audioResult?: VideoModerationResultResponseBodyDataAudioResult;
+  dataId?: string;
+  frameResult?: VideoModerationResultResponseBodyDataFrameResult;
+  liveId?: string;
+  static names(): { [key: string]: string } {
+    return {
+      audioResult: 'AudioResult',
+      dataId: 'DataId',
+      frameResult: 'FrameResult',
+      liveId: 'LiveId',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      audioResult: VideoModerationResultResponseBodyDataAudioResult,
+      dataId: 'string',
+      frameResult: VideoModerationResultResponseBodyDataFrameResult,
+      liveId: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
 export class VoiceModerationResponseBodyData extends $tea.Model {
   taskId?: string;
   static names(): { [key: string]: string } {
@@ -971,6 +1327,72 @@ export default class Client extends OpenApi {
   async textModeration(request: TextModerationRequest): Promise<TextModerationResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.textModerationWithOptions(request, runtime);
+  }
+
+  async videoModerationWithOptions(request: VideoModerationRequest, runtime: $Util.RuntimeOptions): Promise<VideoModerationResponse> {
+    Util.validateModel(request);
+    let body : {[key: string ]: any} = { };
+    if (!Util.isUnset(request.service)) {
+      body["Service"] = request.service;
+    }
+
+    if (!Util.isUnset(request.serviceParameters)) {
+      body["ServiceParameters"] = request.serviceParameters;
+    }
+
+    let req = new $OpenApi.OpenApiRequest({
+      body: OpenApiUtil.parseToMap(body),
+    });
+    let params = new $OpenApi.Params({
+      action: "VideoModeration",
+      version: "2022-03-02",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $tea.cast<VideoModerationResponse>(await this.callApi(params, req, runtime), new VideoModerationResponse({}));
+  }
+
+  async videoModeration(request: VideoModerationRequest): Promise<VideoModerationResponse> {
+    let runtime = new $Util.RuntimeOptions({ });
+    return await this.videoModerationWithOptions(request, runtime);
+  }
+
+  async videoModerationResultWithOptions(request: VideoModerationResultRequest, runtime: $Util.RuntimeOptions): Promise<VideoModerationResultResponse> {
+    Util.validateModel(request);
+    let body : {[key: string ]: any} = { };
+    if (!Util.isUnset(request.service)) {
+      body["Service"] = request.service;
+    }
+
+    if (!Util.isUnset(request.serviceParameters)) {
+      body["ServiceParameters"] = request.serviceParameters;
+    }
+
+    let req = new $OpenApi.OpenApiRequest({
+      body: OpenApiUtil.parseToMap(body),
+    });
+    let params = new $OpenApi.Params({
+      action: "VideoModerationResult",
+      version: "2022-03-02",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $tea.cast<VideoModerationResultResponse>(await this.callApi(params, req, runtime), new VideoModerationResultResponse({}));
+  }
+
+  async videoModerationResult(request: VideoModerationResultRequest): Promise<VideoModerationResultResponse> {
+    let runtime = new $Util.RuntimeOptions({ });
+    return await this.videoModerationResultWithOptions(request, runtime);
   }
 
   async voiceModerationWithOptions(request: VoiceModerationRequest, runtime: $Util.RuntimeOptions): Promise<VoiceModerationResponse> {
