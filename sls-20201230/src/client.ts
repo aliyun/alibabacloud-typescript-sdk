@@ -112,6 +112,100 @@ export class Histogram extends $tea.Model {
   }
 }
 
+export class LogContent extends $tea.Model {
+  key?: string;
+  value?: string;
+  static names(): { [key: string]: string } {
+    return {
+      key: 'Key',
+      value: 'Value',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      key: 'string',
+      value: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class LogGroup extends $tea.Model {
+  logTags?: LogTag;
+  logs?: LogItem;
+  source?: string;
+  topic?: string;
+  static names(): { [key: string]: string } {
+    return {
+      logTags: 'LogTags',
+      logs: 'Logs',
+      source: 'Source',
+      topic: 'Topic',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      logTags: LogTag,
+      logs: LogItem,
+      source: 'string',
+      topic: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class LogItem extends $tea.Model {
+  contents?: LogContent[];
+  time?: number;
+  static names(): { [key: string]: string } {
+    return {
+      contents: 'Contents',
+      time: 'Time',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      contents: { 'type': 'array', 'itemType': LogContent },
+      time: 'number',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class LogTag extends $tea.Model {
+  key?: string;
+  value?: string;
+  static names(): { [key: string]: string } {
+    return {
+      key: 'Key',
+      value: 'Value',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      key: 'string',
+      value: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
 export class LogtailConfig extends $tea.Model {
   configName?: string;
   createTime?: number;
@@ -772,6 +866,47 @@ export class ConsumerGroupHeartBeatResponse extends $tea.Model {
   }
 }
 
+export class CreateConfigRequest extends $tea.Model {
+  body?: LogtailConfig;
+  static names(): { [key: string]: string } {
+    return {
+      body: 'body',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      body: LogtailConfig,
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class CreateConfigResponse extends $tea.Model {
+  headers: { [key: string]: string };
+  statusCode: number;
+  static names(): { [key: string]: string } {
+    return {
+      headers: 'headers',
+      statusCode: 'statusCode',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
 export class CreateConsumerGroupRequest extends $tea.Model {
   consumerGroup?: string;
   order?: boolean;
@@ -798,6 +933,47 @@ export class CreateConsumerGroupRequest extends $tea.Model {
 }
 
 export class CreateConsumerGroupResponse extends $tea.Model {
+  headers: { [key: string]: string };
+  statusCode: number;
+  static names(): { [key: string]: string } {
+    return {
+      headers: 'headers',
+      statusCode: 'statusCode',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class CreateDashboardRequest extends $tea.Model {
+  body?: Dashboard;
+  static names(): { [key: string]: string } {
+    return {
+      body: 'body',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      body: Dashboard,
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class CreateDashboardResponse extends $tea.Model {
   headers: { [key: string]: string };
   statusCode: number;
   static names(): { [key: string]: string } {
@@ -1375,7 +1551,51 @@ export class CreateSavedSearchResponse extends $tea.Model {
   }
 }
 
+export class DeleteConfigResponse extends $tea.Model {
+  headers: { [key: string]: string };
+  statusCode: number;
+  static names(): { [key: string]: string } {
+    return {
+      headers: 'headers',
+      statusCode: 'statusCode',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
 export class DeleteConsumerGroupResponse extends $tea.Model {
+  headers: { [key: string]: string };
+  statusCode: number;
+  static names(): { [key: string]: string } {
+    return {
+      headers: 'headers',
+      statusCode: 'statusCode',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class DeleteDashboardResponse extends $tea.Model {
   headers: { [key: string]: string };
   statusCode: number;
   static names(): { [key: string]: string } {
@@ -1755,6 +1975,31 @@ export class GetCheckPointResponse extends $tea.Model {
   }
 }
 
+export class GetConfigResponse extends $tea.Model {
+  headers: { [key: string]: string };
+  statusCode: number;
+  body: LogtailConfig;
+  static names(): { [key: string]: string } {
+    return {
+      headers: 'headers',
+      statusCode: 'statusCode',
+      body: 'body',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
+      body: LogtailConfig,
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
 export class GetContextLogsRequest extends $tea.Model {
   backLines?: number;
   forwardLines?: number;
@@ -1960,6 +2205,31 @@ export class GetCursorTimeResponse extends $tea.Model {
       headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
       statusCode: 'number',
       body: GetCursorTimeResponseBody,
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class GetDashboardResponse extends $tea.Model {
+  headers: { [key: string]: string };
+  statusCode: number;
+  body: Dashboard;
+  static names(): { [key: string]: string } {
+    return {
+      headers: 'headers',
+      statusCode: 'statusCode',
+      body: 'body',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
+      body: Dashboard,
     };
   }
 
@@ -2232,6 +2502,124 @@ export class GetLogsResponse extends $tea.Model {
   }
 }
 
+export class GetLogsV2Headers extends $tea.Model {
+  commonHeaders?: { [key: string]: string };
+  acceptEncoding?: string;
+  static names(): { [key: string]: string } {
+    return {
+      commonHeaders: 'commonHeaders',
+      acceptEncoding: 'Accept-Encoding',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      commonHeaders: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      acceptEncoding: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class GetLogsV2Request extends $tea.Model {
+  forward?: boolean;
+  from?: number;
+  line?: number;
+  offset?: number;
+  powerSql?: boolean;
+  query?: string;
+  reverse?: boolean;
+  session?: string;
+  shard?: number;
+  to?: number;
+  topic?: string;
+  static names(): { [key: string]: string } {
+    return {
+      forward: 'forward',
+      from: 'from',
+      line: 'line',
+      offset: 'offset',
+      powerSql: 'powerSql',
+      query: 'query',
+      reverse: 'reverse',
+      session: 'session',
+      shard: 'shard',
+      to: 'to',
+      topic: 'topic',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      forward: 'boolean',
+      from: 'number',
+      line: 'number',
+      offset: 'number',
+      powerSql: 'boolean',
+      query: 'string',
+      reverse: 'boolean',
+      session: 'string',
+      shard: 'number',
+      to: 'number',
+      topic: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class GetLogsV2ResponseBody extends $tea.Model {
+  data?: { [key: string]: string }[];
+  meta?: GetLogsV2ResponseBodyMeta;
+  static names(): { [key: string]: string } {
+    return {
+      data: 'data',
+      meta: 'meta',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      data: { 'type': 'array', 'itemType': { 'type': 'map', 'keyType': 'string', 'valueType': 'string' } },
+      meta: GetLogsV2ResponseBodyMeta,
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class GetLogsV2Response extends $tea.Model {
+  headers: { [key: string]: string };
+  statusCode: number;
+  body: GetLogsV2ResponseBody;
+  static names(): { [key: string]: string } {
+    return {
+      headers: 'headers',
+      statusCode: 'statusCode',
+      body: 'body',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
+      body: GetLogsV2ResponseBody,
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
 export class GetMachineGroupResponse extends $tea.Model {
   headers: { [key: string]: string };
   statusCode: number;
@@ -2463,6 +2851,84 @@ export class GetShipperStatusResponse extends $tea.Model {
   }
 }
 
+export class ListConfigRequest extends $tea.Model {
+  configName?: string;
+  logstoreName?: string;
+  offset?: number;
+  size?: number;
+  static names(): { [key: string]: string } {
+    return {
+      configName: 'configName',
+      logstoreName: 'logstoreName',
+      offset: 'offset',
+      size: 'size',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      configName: 'string',
+      logstoreName: 'string',
+      offset: 'number',
+      size: 'number',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class ListConfigResponseBody extends $tea.Model {
+  configs?: LogtailConfig[];
+  count?: number;
+  total?: number;
+  static names(): { [key: string]: string } {
+    return {
+      configs: 'configs',
+      count: 'count',
+      total: 'total',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      configs: { 'type': 'array', 'itemType': LogtailConfig },
+      count: 'number',
+      total: 'number',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class ListConfigResponse extends $tea.Model {
+  headers: { [key: string]: string };
+  statusCode: number;
+  body: ListConfigResponseBody;
+  static names(): { [key: string]: string } {
+    return {
+      headers: 'headers',
+      statusCode: 'statusCode',
+      body: 'body',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
+      body: ListConfigResponseBody,
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
 export class ListConsumerGroupResponse extends $tea.Model {
   headers: { [key: string]: string };
   statusCode: number;
@@ -2480,6 +2946,75 @@ export class ListConsumerGroupResponse extends $tea.Model {
       headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
       statusCode: 'number',
       body: { 'type': 'array', 'itemType': ConsumerGroup },
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class ListDashboardRequest extends $tea.Model {
+  offset?: number;
+  size?: number;
+  static names(): { [key: string]: string } {
+    return {
+      offset: 'offset',
+      size: 'size',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      offset: 'number',
+      size: 'number',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class ListDashboardResponseBody extends $tea.Model {
+  dashboardItems?: ListDashboardResponseBodyDashboardItems[];
+  dashboards?: string[];
+  static names(): { [key: string]: string } {
+    return {
+      dashboardItems: 'dashboardItems',
+      dashboards: 'dashboards',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      dashboardItems: { 'type': 'array', 'itemType': ListDashboardResponseBodyDashboardItems },
+      dashboards: { 'type': 'array', 'itemType': 'string' },
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class ListDashboardResponse extends $tea.Model {
+  headers: { [key: string]: string };
+  statusCode: number;
+  body: ListDashboardResponseBody;
+  static names(): { [key: string]: string } {
+    return {
+      headers: 'headers',
+      statusCode: 'statusCode',
+      body: 'body',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
+      body: ListDashboardResponseBody,
     };
   }
 
@@ -2670,10 +3205,12 @@ export class ListLogStoresRequest extends $tea.Model {
 }
 
 export class ListLogStoresResponseBody extends $tea.Model {
+  count?: number;
   logstores?: string[];
   total?: number;
   static names(): { [key: string]: string } {
     return {
+      count: 'count',
       logstores: 'logstores',
       total: 'total',
     };
@@ -2681,6 +3218,7 @@ export class ListLogStoresResponseBody extends $tea.Model {
 
   static types(): { [key: string]: any } {
     return {
+      count: 'number',
       logstores: { 'type': 'array', 'itemType': 'string' },
       total: 'number',
     };
@@ -3486,6 +4024,47 @@ export class UntagResourcesResponse extends $tea.Model {
   }
 }
 
+export class UpdateConfigRequest extends $tea.Model {
+  body?: LogtailConfig;
+  static names(): { [key: string]: string } {
+    return {
+      body: 'body',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      body: LogtailConfig,
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class UpdateConfigResponse extends $tea.Model {
+  headers: { [key: string]: string };
+  statusCode: number;
+  static names(): { [key: string]: string } {
+    return {
+      headers: 'headers',
+      statusCode: 'statusCode',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
 export class UpdateConsumerGroupRequest extends $tea.Model {
   order?: boolean;
   timeout?: number;
@@ -3509,6 +4088,59 @@ export class UpdateConsumerGroupRequest extends $tea.Model {
 }
 
 export class UpdateConsumerGroupResponse extends $tea.Model {
+  headers: { [key: string]: string };
+  statusCode: number;
+  static names(): { [key: string]: string } {
+    return {
+      headers: 'headers',
+      statusCode: 'statusCode',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class UpdateDashboardRequest extends $tea.Model {
+  attribute?: { [key: string]: string };
+  charts?: Chart[];
+  dashboardName?: string;
+  description?: string;
+  displayName?: string;
+  static names(): { [key: string]: string } {
+    return {
+      attribute: 'attribute',
+      charts: 'charts',
+      dashboardName: 'dashboardName',
+      description: 'description',
+      displayName: 'displayName',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      attribute: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      charts: { 'type': 'array', 'itemType': Chart },
+      dashboardName: 'string',
+      description: 'string',
+      displayName: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class UpdateDashboardResponse extends $tea.Model {
   headers: { [key: string]: string };
   statusCode: number;
   static names(): { [key: string]: string } {
@@ -4664,6 +5296,58 @@ export class GetIndexResponseBodyLine extends $tea.Model {
   }
 }
 
+export class GetLogsV2ResponseBodyMeta extends $tea.Model {
+  aggQuery?: string;
+  count?: number;
+  elapsedMillisecond?: number;
+  hasSQL?: boolean;
+  isAccurate?: boolean;
+  keys?: string[];
+  processedBytes?: number;
+  processedRows?: number;
+  progress?: string;
+  telementryType?: string;
+  terms?: { [key: string]: any }[];
+  whereQuery?: string;
+  static names(): { [key: string]: string } {
+    return {
+      aggQuery: 'aggQuery',
+      count: 'count',
+      elapsedMillisecond: 'elapsedMillisecond',
+      hasSQL: 'hasSQL',
+      isAccurate: 'isAccurate',
+      keys: 'keys',
+      processedBytes: 'processedBytes',
+      processedRows: 'processedRows',
+      progress: 'progress',
+      telementryType: 'telementryType',
+      terms: 'terms',
+      whereQuery: 'whereQuery',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      aggQuery: 'string',
+      count: 'number',
+      elapsedMillisecond: 'number',
+      hasSQL: 'boolean',
+      isAccurate: 'boolean',
+      keys: { 'type': 'array', 'itemType': 'string' },
+      processedBytes: 'number',
+      processedRows: 'number',
+      progress: 'string',
+      telementryType: 'string',
+      terms: { 'type': 'array', 'itemType': { 'type': 'map', 'keyType': 'string', 'valueType': 'any' } },
+      whereQuery: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
 export class GetShipperStatusResponseBodyStatistics extends $tea.Model {
   fail?: number;
   running?: number;
@@ -4721,6 +5405,28 @@ export class GetShipperStatusResponseBodyTasks extends $tea.Model {
       taskLastDataReceiveTime: 'number',
       taskMessage: 'string',
       taskStatus: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class ListDashboardResponseBodyDashboardItems extends $tea.Model {
+  dashboardName?: string;
+  displayName?: string;
+  static names(): { [key: string]: string } {
+    return {
+      dashboardName: 'dashboardName',
+      displayName: 'displayName',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      dashboardName: 'string',
+      displayName: 'string',
     };
   }
 
@@ -5111,7 +5817,7 @@ export default class Client extends OpenApi {
       authType: "AK",
       style: "ROA",
       reqBodyType: "json",
-      bodyType: "none",
+      bodyType: "json",
     });
     return $tea.cast<ApplyConfigToMachineGroupResponse>(await this.execute(params, req, runtime), new ApplyConfigToMachineGroupResponse({}));
   }
@@ -5122,8 +5828,10 @@ export default class Client extends OpenApi {
     return await this.applyConfigToMachineGroupWithOptions(project, machineGroup, configName, headers, runtime);
   }
 
-  async changeResourceGroupWithOptions(request: ChangeResourceGroupRequest, headers: {[key: string ]: string}, runtime: $Util.RuntimeOptions): Promise<ChangeResourceGroupResponse> {
+  async changeResourceGroupWithOptions(project: string, request: ChangeResourceGroupRequest, headers: {[key: string ]: string}, runtime: $Util.RuntimeOptions): Promise<ChangeResourceGroupResponse> {
     Util.validateModel(request);
+    let hostMap : {[key: string ]: string} = { };
+    hostMap["project"] = project;
     let body : {[key: string ]: any} = { };
     if (!Util.isUnset(request.resourceGroupId)) {
       body["resourceGroupId"] = request.resourceGroupId;
@@ -5138,6 +5846,7 @@ export default class Client extends OpenApi {
     }
 
     let req = new $OpenApi.OpenApiRequest({
+      hostMap: hostMap,
       headers: headers,
       body: OpenApiUtil.parseToMap(body),
     });
@@ -5155,10 +5864,10 @@ export default class Client extends OpenApi {
     return $tea.cast<ChangeResourceGroupResponse>(await this.execute(params, req, runtime), new ChangeResourceGroupResponse({}));
   }
 
-  async changeResourceGroup(request: ChangeResourceGroupRequest): Promise<ChangeResourceGroupResponse> {
+  async changeResourceGroup(project: string, request: ChangeResourceGroupRequest): Promise<ChangeResourceGroupResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     let headers : {[key: string ]: string} = { };
-    return await this.changeResourceGroupWithOptions(request, headers, runtime);
+    return await this.changeResourceGroupWithOptions(project, request, headers, runtime);
   }
 
   async consumerGroupHeartBeatWithOptions(project: string, logstore: string, consumerGroup: string, request: ConsumerGroupHeartBeatRequest, headers: {[key: string ]: string}, runtime: $Util.RuntimeOptions): Promise<ConsumerGroupHeartBeatResponse> {
@@ -5194,6 +5903,35 @@ export default class Client extends OpenApi {
     let runtime = new $Util.RuntimeOptions({ });
     let headers : {[key: string ]: string} = { };
     return await this.consumerGroupHeartBeatWithOptions(project, logstore, consumerGroup, request, headers, runtime);
+  }
+
+  async createConfigWithOptions(project: string, request: CreateConfigRequest, headers: {[key: string ]: string}, runtime: $Util.RuntimeOptions): Promise<CreateConfigResponse> {
+    Util.validateModel(request);
+    let hostMap : {[key: string ]: string} = { };
+    hostMap["project"] = project;
+    let req = new $OpenApi.OpenApiRequest({
+      hostMap: hostMap,
+      headers: headers,
+      body: OpenApiUtil.parseToMap(request.body),
+    });
+    let params = new $OpenApi.Params({
+      action: "CreateConfig",
+      version: "2020-12-30",
+      protocol: "HTTPS",
+      pathname: `/configs`,
+      method: "POST",
+      authType: "AK",
+      style: "ROA",
+      reqBodyType: "json",
+      bodyType: "none",
+    });
+    return $tea.cast<CreateConfigResponse>(await this.execute(params, req, runtime), new CreateConfigResponse({}));
+  }
+
+  async createConfig(project: string, request: CreateConfigRequest): Promise<CreateConfigResponse> {
+    let runtime = new $Util.RuntimeOptions({ });
+    let headers : {[key: string ]: string} = { };
+    return await this.createConfigWithOptions(project, request, headers, runtime);
   }
 
   async createConsumerGroupWithOptions(project: string, logstore: string, request: CreateConsumerGroupRequest, headers: {[key: string ]: string}, runtime: $Util.RuntimeOptions): Promise<CreateConsumerGroupResponse> {
@@ -5236,6 +5974,35 @@ export default class Client extends OpenApi {
     let runtime = new $Util.RuntimeOptions({ });
     let headers : {[key: string ]: string} = { };
     return await this.createConsumerGroupWithOptions(project, logstore, request, headers, runtime);
+  }
+
+  async createDashboardWithOptions(project: string, request: CreateDashboardRequest, headers: {[key: string ]: string}, runtime: $Util.RuntimeOptions): Promise<CreateDashboardResponse> {
+    Util.validateModel(request);
+    let hostMap : {[key: string ]: string} = { };
+    hostMap["project"] = project;
+    let req = new $OpenApi.OpenApiRequest({
+      hostMap: hostMap,
+      headers: headers,
+      body: OpenApiUtil.parseToMap(request.body),
+    });
+    let params = new $OpenApi.Params({
+      action: "CreateDashboard",
+      version: "2020-12-30",
+      protocol: "HTTPS",
+      pathname: `/dashboards`,
+      method: "POST",
+      authType: "AK",
+      style: "ROA",
+      reqBodyType: "json",
+      bodyType: "none",
+    });
+    return $tea.cast<CreateDashboardResponse>(await this.execute(params, req, runtime), new CreateDashboardResponse({}));
+  }
+
+  async createDashboard(project: string, request: CreateDashboardRequest): Promise<CreateDashboardResponse> {
+    let runtime = new $Util.RuntimeOptions({ });
+    let headers : {[key: string ]: string} = { };
+    return await this.createDashboardWithOptions(project, request, headers, runtime);
   }
 
   async createDomainWithOptions(project: string, request: CreateDomainRequest, headers: {[key: string ]: string}, runtime: $Util.RuntimeOptions): Promise<CreateDomainResponse> {
@@ -5646,7 +6413,7 @@ export default class Client extends OpenApi {
       authType: "AK",
       style: "ROA",
       reqBodyType: "json",
-      bodyType: "none",
+      bodyType: "json",
     });
     return $tea.cast<CreateProjectResponse>(await this.execute(params, req, runtime), new CreateProjectResponse({}));
   }
@@ -5749,6 +6516,33 @@ export default class Client extends OpenApi {
     return await this.createSavedSearchWithOptions(project, request, headers, runtime);
   }
 
+  async deleteConfigWithOptions(project: string, configName: string, headers: {[key: string ]: string}, runtime: $Util.RuntimeOptions): Promise<DeleteConfigResponse> {
+    let hostMap : {[key: string ]: string} = { };
+    hostMap["project"] = project;
+    let req = new $OpenApi.OpenApiRequest({
+      hostMap: hostMap,
+      headers: headers,
+    });
+    let params = new $OpenApi.Params({
+      action: "DeleteConfig",
+      version: "2020-12-30",
+      protocol: "HTTPS",
+      pathname: `/configs/${configName}`,
+      method: "DELETE",
+      authType: "AK",
+      style: "ROA",
+      reqBodyType: "json",
+      bodyType: "none",
+    });
+    return $tea.cast<DeleteConfigResponse>(await this.execute(params, req, runtime), new DeleteConfigResponse({}));
+  }
+
+  async deleteConfig(project: string, configName: string): Promise<DeleteConfigResponse> {
+    let runtime = new $Util.RuntimeOptions({ });
+    let headers : {[key: string ]: string} = { };
+    return await this.deleteConfigWithOptions(project, configName, headers, runtime);
+  }
+
   async deleteConsumerGroupWithOptions(project: string, logstore: string, consumerGroup: string, headers: {[key: string ]: string}, runtime: $Util.RuntimeOptions): Promise<DeleteConsumerGroupResponse> {
     let hostMap : {[key: string ]: string} = { };
     hostMap["project"] = project;
@@ -5774,6 +6568,33 @@ export default class Client extends OpenApi {
     let runtime = new $Util.RuntimeOptions({ });
     let headers : {[key: string ]: string} = { };
     return await this.deleteConsumerGroupWithOptions(project, logstore, consumerGroup, headers, runtime);
+  }
+
+  async deleteDashboardWithOptions(project: string, dashboardName: string, headers: {[key: string ]: string}, runtime: $Util.RuntimeOptions): Promise<DeleteDashboardResponse> {
+    let hostMap : {[key: string ]: string} = { };
+    hostMap["project"] = project;
+    let req = new $OpenApi.OpenApiRequest({
+      hostMap: hostMap,
+      headers: headers,
+    });
+    let params = new $OpenApi.Params({
+      action: "DeleteDashboard",
+      version: "2020-12-30",
+      protocol: "HTTPS",
+      pathname: `/dashboards/${dashboardName}`,
+      method: "DELETE",
+      authType: "AK",
+      style: "ROA",
+      reqBodyType: "json",
+      bodyType: "none",
+    });
+    return $tea.cast<DeleteDashboardResponse>(await this.execute(params, req, runtime), new DeleteDashboardResponse({}));
+  }
+
+  async deleteDashboard(project: string, dashboardName: string): Promise<DeleteDashboardResponse> {
+    let runtime = new $Util.RuntimeOptions({ });
+    let headers : {[key: string ]: string} = { };
+    return await this.deleteDashboardWithOptions(project, dashboardName, headers, runtime);
   }
 
   async deleteDomainWithOptions(project: string, domainName: string, headers: {[key: string ]: string}, runtime: $Util.RuntimeOptions): Promise<DeleteDomainResponse> {
@@ -6134,6 +6955,33 @@ export default class Client extends OpenApi {
     return await this.getCheckPointWithOptions(project, logstore, consumerGroup, request, headers, runtime);
   }
 
+  async getConfigWithOptions(project: string, configName: string, headers: {[key: string ]: string}, runtime: $Util.RuntimeOptions): Promise<GetConfigResponse> {
+    let hostMap : {[key: string ]: string} = { };
+    hostMap["project"] = project;
+    let req = new $OpenApi.OpenApiRequest({
+      hostMap: hostMap,
+      headers: headers,
+    });
+    let params = new $OpenApi.Params({
+      action: "GetConfig",
+      version: "2020-12-30",
+      protocol: "HTTPS",
+      pathname: `/configs/${configName}`,
+      method: "GET",
+      authType: "AK",
+      style: "ROA",
+      reqBodyType: "json",
+      bodyType: "json",
+    });
+    return $tea.cast<GetConfigResponse>(await this.execute(params, req, runtime), new GetConfigResponse({}));
+  }
+
+  async getConfig(project: string, configName: string): Promise<GetConfigResponse> {
+    let runtime = new $Util.RuntimeOptions({ });
+    let headers : {[key: string ]: string} = { };
+    return await this.getConfigWithOptions(project, configName, headers, runtime);
+  }
+
   async getContextLogsWithOptions(project: string, logstore: string, request: GetContextLogsRequest, headers: {[key: string ]: string}, runtime: $Util.RuntimeOptions): Promise<GetContextLogsResponse> {
     Util.validateModel(request);
     let hostMap : {[key: string ]: string} = { };
@@ -6250,6 +7098,33 @@ export default class Client extends OpenApi {
     let runtime = new $Util.RuntimeOptions({ });
     let headers : {[key: string ]: string} = { };
     return await this.getCursorTimeWithOptions(project, logstore, shardId, request, headers, runtime);
+  }
+
+  async getDashboardWithOptions(project: string, dashboardName: string, headers: {[key: string ]: string}, runtime: $Util.RuntimeOptions): Promise<GetDashboardResponse> {
+    let hostMap : {[key: string ]: string} = { };
+    hostMap["project"] = project;
+    let req = new $OpenApi.OpenApiRequest({
+      hostMap: hostMap,
+      headers: headers,
+    });
+    let params = new $OpenApi.Params({
+      action: "GetDashboard",
+      version: "2020-12-30",
+      protocol: "HTTPS",
+      pathname: `/dashboards/${dashboardName}`,
+      method: "GET",
+      authType: "AK",
+      style: "ROA",
+      reqBodyType: "json",
+      bodyType: "json",
+    });
+    return $tea.cast<GetDashboardResponse>(await this.execute(params, req, runtime), new GetDashboardResponse({}));
+  }
+
+  async getDashboard(project: string, dashboardName: string): Promise<GetDashboardResponse> {
+    let runtime = new $Util.RuntimeOptions({ });
+    let headers : {[key: string ]: string} = { };
+    return await this.getDashboardWithOptions(project, dashboardName, headers, runtime);
   }
 
   async getExternalStoreWithOptions(project: string, externalStoreName: string, headers: {[key: string ]: string}, runtime: $Util.RuntimeOptions): Promise<GetExternalStoreResponse> {
@@ -6468,6 +7343,89 @@ export default class Client extends OpenApi {
     return await this.getLogsWithOptions(project, logstore, request, headers, runtime);
   }
 
+  async getLogsV2WithOptions(project: string, logstore: string, request: GetLogsV2Request, headers: GetLogsV2Headers, runtime: $Util.RuntimeOptions): Promise<GetLogsV2Response> {
+    Util.validateModel(request);
+    let hostMap : {[key: string ]: string} = { };
+    hostMap["project"] = project;
+    let body : {[key: string ]: any} = { };
+    if (!Util.isUnset(request.forward)) {
+      body["forward"] = request.forward;
+    }
+
+    if (!Util.isUnset(request.from)) {
+      body["from"] = request.from;
+    }
+
+    if (!Util.isUnset(request.line)) {
+      body["line"] = request.line;
+    }
+
+    if (!Util.isUnset(request.offset)) {
+      body["offset"] = request.offset;
+    }
+
+    if (!Util.isUnset(request.powerSql)) {
+      body["powerSql"] = request.powerSql;
+    }
+
+    if (!Util.isUnset(request.query)) {
+      body["query"] = request.query;
+    }
+
+    if (!Util.isUnset(request.reverse)) {
+      body["reverse"] = request.reverse;
+    }
+
+    if (!Util.isUnset(request.session)) {
+      body["session"] = request.session;
+    }
+
+    if (!Util.isUnset(request.shard)) {
+      body["shard"] = request.shard;
+    }
+
+    if (!Util.isUnset(request.to)) {
+      body["to"] = request.to;
+    }
+
+    if (!Util.isUnset(request.topic)) {
+      body["topic"] = request.topic;
+    }
+
+    let realHeaders : {[key: string ]: string} = { };
+    if (!Util.isUnset(headers.commonHeaders)) {
+      realHeaders = headers.commonHeaders;
+    }
+
+    if (!Util.isUnset(headers.acceptEncoding)) {
+      realHeaders["Accept-Encoding"] = Util.toJSONString(headers.acceptEncoding);
+    }
+
+    let req = new $OpenApi.OpenApiRequest({
+      hostMap: hostMap,
+      headers: realHeaders,
+      body: OpenApiUtil.parseToMap(body),
+    });
+    let params = new $OpenApi.Params({
+      action: "GetLogsV2",
+      version: "2020-12-30",
+      protocol: "HTTPS",
+      pathname: `/logstores/${logstore}/logs`,
+      method: "POST",
+      authType: "AK",
+      style: "ROA",
+      reqBodyType: "json",
+      bodyType: "json",
+    });
+    return $tea.cast<GetLogsV2Response>(await this.execute(params, req, runtime), new GetLogsV2Response({}));
+  }
+
+  async getLogsV2(project: string, logstore: string, request: GetLogsV2Request): Promise<GetLogsV2Response> {
+    let runtime = new $Util.RuntimeOptions({ });
+    let headers = new GetLogsV2Headers({ });
+    return await this.getLogsV2WithOptions(project, logstore, request, headers, runtime);
+  }
+
   async getMachineGroupWithOptions(project: string, machineGroup: string, headers: {[key: string ]: string}, runtime: $Util.RuntimeOptions): Promise<GetMachineGroupResponse> {
     let hostMap : {[key: string ]: string} = { };
     hostMap["project"] = project;
@@ -6664,6 +7622,52 @@ export default class Client extends OpenApi {
     return await this.getShipperStatusWithOptions(project, logstore, shipperName, request, headers, runtime);
   }
 
+  async listConfigWithOptions(project: string, request: ListConfigRequest, headers: {[key: string ]: string}, runtime: $Util.RuntimeOptions): Promise<ListConfigResponse> {
+    Util.validateModel(request);
+    let hostMap : {[key: string ]: string} = { };
+    hostMap["project"] = project;
+    let query : {[key: string ]: any} = { };
+    if (!Util.isUnset(request.configName)) {
+      query["configName"] = request.configName;
+    }
+
+    if (!Util.isUnset(request.logstoreName)) {
+      query["logstoreName"] = request.logstoreName;
+    }
+
+    if (!Util.isUnset(request.offset)) {
+      query["offset"] = request.offset;
+    }
+
+    if (!Util.isUnset(request.size)) {
+      query["size"] = request.size;
+    }
+
+    let req = new $OpenApi.OpenApiRequest({
+      hostMap: hostMap,
+      headers: headers,
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApi.Params({
+      action: "ListConfig",
+      version: "2020-12-30",
+      protocol: "HTTPS",
+      pathname: `/configs`,
+      method: "GET",
+      authType: "AK",
+      style: "ROA",
+      reqBodyType: "json",
+      bodyType: "json",
+    });
+    return $tea.cast<ListConfigResponse>(await this.execute(params, req, runtime), new ListConfigResponse({}));
+  }
+
+  async listConfig(project: string, request: ListConfigRequest): Promise<ListConfigResponse> {
+    let runtime = new $Util.RuntimeOptions({ });
+    let headers : {[key: string ]: string} = { };
+    return await this.listConfigWithOptions(project, request, headers, runtime);
+  }
+
   async listConsumerGroupWithOptions(project: string, logstore: string, headers: {[key: string ]: string}, runtime: $Util.RuntimeOptions): Promise<ListConsumerGroupResponse> {
     let hostMap : {[key: string ]: string} = { };
     hostMap["project"] = project;
@@ -6689,6 +7693,44 @@ export default class Client extends OpenApi {
     let runtime = new $Util.RuntimeOptions({ });
     let headers : {[key: string ]: string} = { };
     return await this.listConsumerGroupWithOptions(project, logstore, headers, runtime);
+  }
+
+  async listDashboardWithOptions(project: string, request: ListDashboardRequest, headers: {[key: string ]: string}, runtime: $Util.RuntimeOptions): Promise<ListDashboardResponse> {
+    Util.validateModel(request);
+    let hostMap : {[key: string ]: string} = { };
+    hostMap["project"] = project;
+    let query : {[key: string ]: any} = { };
+    if (!Util.isUnset(request.offset)) {
+      query["offset"] = request.offset;
+    }
+
+    if (!Util.isUnset(request.size)) {
+      query["size"] = request.size;
+    }
+
+    let req = new $OpenApi.OpenApiRequest({
+      hostMap: hostMap,
+      headers: headers,
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApi.Params({
+      action: "ListDashboard",
+      version: "2020-12-30",
+      protocol: "HTTPS",
+      pathname: `/dashboards`,
+      method: "GET",
+      authType: "AK",
+      style: "ROA",
+      reqBodyType: "json",
+      bodyType: "json",
+    });
+    return $tea.cast<ListDashboardResponse>(await this.execute(params, req, runtime), new ListDashboardResponse({}));
+  }
+
+  async listDashboard(project: string, request: ListDashboardRequest): Promise<ListDashboardResponse> {
+    let runtime = new $Util.RuntimeOptions({ });
+    let headers : {[key: string ]: string} = { };
+    return await this.listDashboardWithOptions(project, request, headers, runtime);
   }
 
   async listDomainsWithOptions(project: string, request: ListDomainsRequest, headers: {[key: string ]: string}, runtime: $Util.RuntimeOptions): Promise<ListDomainsResponse> {
@@ -7349,6 +8391,35 @@ export default class Client extends OpenApi {
     return await this.untagResourcesWithOptions(request, headers, runtime);
   }
 
+  async updateConfigWithOptions(project: string, configName: string, request: UpdateConfigRequest, headers: {[key: string ]: string}, runtime: $Util.RuntimeOptions): Promise<UpdateConfigResponse> {
+    Util.validateModel(request);
+    let hostMap : {[key: string ]: string} = { };
+    hostMap["project"] = project;
+    let req = new $OpenApi.OpenApiRequest({
+      hostMap: hostMap,
+      headers: headers,
+      body: OpenApiUtil.parseToMap(request.body),
+    });
+    let params = new $OpenApi.Params({
+      action: "UpdateConfig",
+      version: "2020-12-30",
+      protocol: "HTTPS",
+      pathname: `/configs/${configName}`,
+      method: "PUT",
+      authType: "AK",
+      style: "ROA",
+      reqBodyType: "json",
+      bodyType: "none",
+    });
+    return $tea.cast<UpdateConfigResponse>(await this.execute(params, req, runtime), new UpdateConfigResponse({}));
+  }
+
+  async updateConfig(project: string, configName: string, request: UpdateConfigRequest): Promise<UpdateConfigResponse> {
+    let runtime = new $Util.RuntimeOptions({ });
+    let headers : {[key: string ]: string} = { };
+    return await this.updateConfigWithOptions(project, configName, request, headers, runtime);
+  }
+
   async updateConsumerGroupWithOptions(project: string, logstore: string, consumerGroup: string, request: UpdateConsumerGroupRequest, headers: {[key: string ]: string}, runtime: $Util.RuntimeOptions): Promise<UpdateConsumerGroupResponse> {
     Util.validateModel(request);
     let hostMap : {[key: string ]: string} = { };
@@ -7385,6 +8456,56 @@ export default class Client extends OpenApi {
     let runtime = new $Util.RuntimeOptions({ });
     let headers : {[key: string ]: string} = { };
     return await this.updateConsumerGroupWithOptions(project, logstore, consumerGroup, request, headers, runtime);
+  }
+
+  async updateDashboardWithOptions(project: string, dashboardName: string, request: UpdateDashboardRequest, headers: {[key: string ]: string}, runtime: $Util.RuntimeOptions): Promise<UpdateDashboardResponse> {
+    Util.validateModel(request);
+    let hostMap : {[key: string ]: string} = { };
+    hostMap["project"] = project;
+    let body : {[key: string ]: any} = { };
+    if (!Util.isUnset(request.attribute)) {
+      body["attribute"] = request.attribute;
+    }
+
+    if (!Util.isUnset(request.charts)) {
+      body["charts"] = request.charts;
+    }
+
+    if (!Util.isUnset(request.dashboardName)) {
+      body["dashboardName"] = request.dashboardName;
+    }
+
+    if (!Util.isUnset(request.description)) {
+      body["description"] = request.description;
+    }
+
+    if (!Util.isUnset(request.displayName)) {
+      body["displayName"] = request.displayName;
+    }
+
+    let req = new $OpenApi.OpenApiRequest({
+      hostMap: hostMap,
+      headers: headers,
+      body: OpenApiUtil.parseToMap(body),
+    });
+    let params = new $OpenApi.Params({
+      action: "UpdateDashboard",
+      version: "2020-12-30",
+      protocol: "HTTPS",
+      pathname: `/dashboards/${dashboardName}`,
+      method: "PUT",
+      authType: "AK",
+      style: "ROA",
+      reqBodyType: "json",
+      bodyType: "none",
+    });
+    return $tea.cast<UpdateDashboardResponse>(await this.execute(params, req, runtime), new UpdateDashboardResponse({}));
+  }
+
+  async updateDashboard(project: string, dashboardName: string, request: UpdateDashboardRequest): Promise<UpdateDashboardResponse> {
+    let runtime = new $Util.RuntimeOptions({ });
+    let headers : {[key: string ]: string} = { };
+    return await this.updateDashboardWithOptions(project, dashboardName, request, headers, runtime);
   }
 
   async updateIndexWithOptions(project: string, logstore: string, request: UpdateIndexRequest, headers: {[key: string ]: string}, runtime: $Util.RuntimeOptions): Promise<UpdateIndexResponse> {
