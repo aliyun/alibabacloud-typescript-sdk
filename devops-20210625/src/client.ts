@@ -10071,6 +10071,96 @@ export class ListUserKeysResponse extends $tea.Model {
   }
 }
 
+export class ListUserResourcesRequest extends $tea.Model {
+  accessToken?: string;
+  organizationId?: string;
+  page?: number;
+  pageSize?: number;
+  userIds?: string;
+  static names(): { [key: string]: string } {
+    return {
+      accessToken: 'accessToken',
+      organizationId: 'organizationId',
+      page: 'page',
+      pageSize: 'pageSize',
+      userIds: 'userIds',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      accessToken: 'string',
+      organizationId: 'string',
+      page: 'number',
+      pageSize: 'number',
+      userIds: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class ListUserResourcesResponseBody extends $tea.Model {
+  errorCode?: string;
+  errorMessage?: string;
+  requestId?: string;
+  result?: ListUserResourcesResponseBodyResult[];
+  success?: boolean;
+  total?: number;
+  static names(): { [key: string]: string } {
+    return {
+      errorCode: 'errorCode',
+      errorMessage: 'errorMessage',
+      requestId: 'requestId',
+      result: 'result',
+      success: 'success',
+      total: 'total',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      errorCode: 'string',
+      errorMessage: 'string',
+      requestId: 'string',
+      result: { 'type': 'array', 'itemType': ListUserResourcesResponseBodyResult },
+      success: 'boolean',
+      total: 'number',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class ListUserResourcesResponse extends $tea.Model {
+  headers: { [key: string]: string };
+  statusCode: number;
+  body: ListUserResourcesResponseBody;
+  static names(): { [key: string]: string } {
+    return {
+      headers: 'headers',
+      statusCode: 'statusCode',
+      body: 'body',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
+      body: ListUserResourcesResponseBody,
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
 export class ListVariableGroupsRequest extends $tea.Model {
   maxResults?: number;
   nextToken?: string;
@@ -11435,6 +11525,90 @@ export class StopVMDeployOrderResponse extends $tea.Model {
       headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
       statusCode: 'number',
       body: StopVMDeployOrderResponseBody,
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class TransferRepositoryRequest extends $tea.Model {
+  accessToken?: string;
+  groupId?: string;
+  organizationId?: string;
+  repositoryId?: string;
+  static names(): { [key: string]: string } {
+    return {
+      accessToken: 'accessToken',
+      groupId: 'groupId',
+      organizationId: 'organizationId',
+      repositoryId: 'repositoryId',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      accessToken: 'string',
+      groupId: 'string',
+      organizationId: 'string',
+      repositoryId: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class TransferRepositoryResponseBody extends $tea.Model {
+  errorCode?: string;
+  errorMessage?: string;
+  requestId?: string;
+  result?: TransferRepositoryResponseBodyResult;
+  success?: boolean;
+  static names(): { [key: string]: string } {
+    return {
+      errorCode: 'errorCode',
+      errorMessage: 'errorMessage',
+      requestId: 'requestId',
+      result: 'result',
+      success: 'success',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      errorCode: 'string',
+      errorMessage: 'string',
+      requestId: 'string',
+      result: TransferRepositoryResponseBodyResult,
+      success: 'boolean',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class TransferRepositoryResponse extends $tea.Model {
+  headers: { [key: string]: string };
+  statusCode: number;
+  body: TransferRepositoryResponseBody;
+  static names(): { [key: string]: string } {
+    return {
+      headers: 'headers',
+      statusCode: 'statusCode',
+      body: 'body',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
+      body: TransferRepositoryResponseBody,
     };
   }
 
@@ -13397,7 +13571,6 @@ export class AddGroupMemberResponseBodyResult extends $tea.Model {
   accessLevel?: number;
   avatarUrl?: string;
   email?: string;
-  externUid?: string;
   id?: number;
   name?: string;
   sourceId?: number;
@@ -13408,7 +13581,6 @@ export class AddGroupMemberResponseBodyResult extends $tea.Model {
       accessLevel: 'accessLevel',
       avatarUrl: 'avatarUrl',
       email: 'email',
-      externUid: 'externUid',
       id: 'id',
       name: 'name',
       sourceId: 'sourceId',
@@ -13422,7 +13594,6 @@ export class AddGroupMemberResponseBodyResult extends $tea.Model {
       accessLevel: 'number',
       avatarUrl: 'string',
       email: 'string',
-      externUid: 'string',
       id: 'number',
       name: 'string',
       sourceId: 'number',
@@ -13440,7 +13611,6 @@ export class AddRepositoryMemberResponseBodyResult extends $tea.Model {
   accessLevel?: number;
   avatarUrl?: string;
   email?: string;
-  externUserId?: string;
   id?: number;
   state?: string;
   static names(): { [key: string]: string } {
@@ -13448,7 +13618,6 @@ export class AddRepositoryMemberResponseBodyResult extends $tea.Model {
       accessLevel: 'accessLevel',
       avatarUrl: 'avatarUrl',
       email: 'email',
-      externUserId: 'externUserId',
       id: 'id',
       state: 'state',
     };
@@ -13459,7 +13628,6 @@ export class AddRepositoryMemberResponseBodyResult extends $tea.Model {
       accessLevel: 'number',
       avatarUrl: 'string',
       email: 'string',
-      externUserId: 'string',
       id: 'number',
       state: 'string',
     };
@@ -15364,7 +15532,6 @@ export class DeleteFileResponseBodyResult extends $tea.Model {
 export class DeleteGroupMemberResponseBodyResult extends $tea.Model {
   accessLevel?: number;
   avatarUrl?: string;
-  externUid?: string;
   id?: number;
   memberType?: string;
   name?: string;
@@ -15375,7 +15542,6 @@ export class DeleteGroupMemberResponseBodyResult extends $tea.Model {
     return {
       accessLevel: 'accessLevel',
       avatarUrl: 'avatarUrl',
-      externUid: 'externUid',
       id: 'id',
       memberType: 'memberType',
       name: 'name',
@@ -15389,7 +15555,6 @@ export class DeleteGroupMemberResponseBodyResult extends $tea.Model {
     return {
       accessLevel: 'number',
       avatarUrl: 'string',
-      externUid: 'string',
       id: 'number',
       memberType: 'string',
       name: 'string',
@@ -15464,7 +15629,6 @@ export class DeleteRepositoryGroupResponseBodyResult extends $tea.Model {
 export class DeleteRepositoryMemberResponseBodyResult extends $tea.Model {
   accessLevel?: number;
   createAt?: string;
-  externUid?: string;
   id?: number;
   sourceId?: number;
   sourceType?: string;
@@ -15474,7 +15638,6 @@ export class DeleteRepositoryMemberResponseBodyResult extends $tea.Model {
     return {
       accessLevel: 'accessLevel',
       createAt: 'createAt',
-      externUid: 'externUid',
       id: 'id',
       sourceId: 'sourceId',
       sourceType: 'sourceType',
@@ -15487,7 +15650,6 @@ export class DeleteRepositoryMemberResponseBodyResult extends $tea.Model {
     return {
       accessLevel: 'number',
       createAt: 'string',
-      externUid: 'string',
       id: 'number',
       sourceId: 'number',
       sourceType: 'string',
@@ -15652,21 +15814,17 @@ export class EnableDeployKeyResponseBodyResult extends $tea.Model {
 export class GetBranchInfoResponseBodyResultCommitAuthor extends $tea.Model {
   avatarUrl?: string;
   email?: string;
-  externUid?: string;
   id?: number;
   name?: string;
   state?: string;
-  tbUserId?: string;
   username?: string;
   static names(): { [key: string]: string } {
     return {
       avatarUrl: 'avatarUrl',
       email: 'email',
-      externUid: 'externUid',
       id: 'id',
       name: 'name',
       state: 'state',
-      tbUserId: 'tbUserId',
       username: 'username',
     };
   }
@@ -15675,11 +15833,9 @@ export class GetBranchInfoResponseBodyResultCommitAuthor extends $tea.Model {
     return {
       avatarUrl: 'string',
       email: 'string',
-      externUid: 'string',
       id: 'number',
       name: 'string',
       state: 'string',
-      tbUserId: 'string',
       username: 'string',
     };
   }
@@ -15692,21 +15848,17 @@ export class GetBranchInfoResponseBodyResultCommitAuthor extends $tea.Model {
 export class GetBranchInfoResponseBodyResultCommitCommitter extends $tea.Model {
   avatarUrl?: string;
   email?: string;
-  externUid?: string;
   id?: number;
   name?: string;
   state?: string;
-  tbUserId?: string;
   username?: string;
   static names(): { [key: string]: string } {
     return {
       avatarUrl: 'avatarUrl',
       email: 'email',
-      externUid: 'externUid',
       id: 'id',
       name: 'name',
       state: 'state',
-      tbUserId: 'tbUserId',
       username: 'username',
     };
   }
@@ -15715,11 +15867,9 @@ export class GetBranchInfoResponseBodyResultCommitCommitter extends $tea.Model {
     return {
       avatarUrl: 'string',
       email: 'string',
-      externUid: 'string',
       id: 'number',
       name: 'string',
       state: 'string',
-      tbUserId: 'string',
       username: 'string',
     };
   }
@@ -15880,22 +16030,18 @@ export class GetCodeupOrganizationResponseBodyResult extends $tea.Model {
 export class GetCompareDetailResponseBodyResultCommitsAuthor extends $tea.Model {
   avatarUrl?: string;
   email?: string;
-  externUid?: string;
   id?: number;
   name?: string;
   state?: string;
   username?: string;
-  websiteUrl?: string;
   static names(): { [key: string]: string } {
     return {
       avatarUrl: 'avatarUrl',
       email: 'email',
-      externUid: 'externUid',
       id: 'id',
       name: 'name',
       state: 'state',
       username: 'username',
-      websiteUrl: 'websiteUrl',
     };
   }
 
@@ -15903,12 +16049,10 @@ export class GetCompareDetailResponseBodyResultCommitsAuthor extends $tea.Model 
     return {
       avatarUrl: 'string',
       email: 'string',
-      externUid: 'string',
       id: 'number',
       name: 'string',
       state: 'string',
       username: 'string',
-      websiteUrl: 'string',
     };
   }
 
@@ -15920,22 +16064,18 @@ export class GetCompareDetailResponseBodyResultCommitsAuthor extends $tea.Model 
 export class GetCompareDetailResponseBodyResultCommitsCommitter extends $tea.Model {
   avatarUrl?: string;
   email?: string;
-  externUid?: string;
   id?: number;
   name?: string;
   state?: string;
   username?: string;
-  websiteUrl?: string;
   static names(): { [key: string]: string } {
     return {
       avatarUrl: 'avatarUrl',
       email: 'email',
-      externUid: 'externUid',
       id: 'id',
       name: 'name',
       state: 'state',
       username: 'username',
-      websiteUrl: 'websiteUrl',
     };
   }
 
@@ -15943,12 +16083,10 @@ export class GetCompareDetailResponseBodyResultCommitsCommitter extends $tea.Mod
     return {
       avatarUrl: 'string',
       email: 'string',
-      externUid: 'string',
       id: 'number',
       name: 'string',
       state: 'string',
       username: 'string',
-      websiteUrl: 'string',
     };
   }
 
@@ -17041,14 +17179,12 @@ export class GetProjectInfoResponseBodyProject extends $tea.Model {
 export class GetProjectMemberResponseBodyResult extends $tea.Model {
   accessLevel?: number;
   avatarUrl?: string;
-  externUserId?: string;
   id?: number;
   name?: string;
   static names(): { [key: string]: string } {
     return {
       accessLevel: 'accessLevel',
       avatarUrl: 'avatarUrl',
-      externUserId: 'externUserId',
       id: 'id',
       name: 'name',
     };
@@ -17058,7 +17194,6 @@ export class GetProjectMemberResponseBodyResult extends $tea.Model {
     return {
       accessLevel: 'number',
       avatarUrl: 'string',
-      externUserId: 'string',
       id: 'number',
       name: 'string',
     };
@@ -17185,22 +17320,18 @@ export class GetRepositoryResponseBodyRepository extends $tea.Model {
 export class GetRepositoryCommitResponseBodyResultAuthor extends $tea.Model {
   avatarUrl?: string;
   email?: string;
-  externUid?: string;
   id?: number;
   name?: string;
   state?: string;
-  tbUserId?: string;
   username?: string;
   websiteUrl?: string;
   static names(): { [key: string]: string } {
     return {
       avatarUrl: 'avatarUrl',
       email: 'email',
-      externUid: 'externUid',
       id: 'id',
       name: 'name',
       state: 'state',
-      tbUserId: 'tbUserId',
       username: 'username',
       websiteUrl: 'websiteUrl',
     };
@@ -17210,11 +17341,9 @@ export class GetRepositoryCommitResponseBodyResultAuthor extends $tea.Model {
     return {
       avatarUrl: 'string',
       email: 'string',
-      externUid: 'string',
       id: 'number',
       name: 'string',
       state: 'string',
-      tbUserId: 'string',
       username: 'string',
       websiteUrl: 'string',
     };
@@ -17228,22 +17357,18 @@ export class GetRepositoryCommitResponseBodyResultAuthor extends $tea.Model {
 export class GetRepositoryCommitResponseBodyResultCommitter extends $tea.Model {
   avatarUrl?: string;
   email?: string;
-  externUid?: string;
   id?: number;
   name?: string;
   state?: string;
-  tbUserId?: string;
   username?: string;
   websiteUrl?: string;
   static names(): { [key: string]: string } {
     return {
       avatarUrl: 'avatarUrl',
       email: 'email',
-      externUid: 'externUid',
       id: 'id',
       name: 'name',
       state: 'state',
-      tbUserId: 'tbUserId',
       username: 'username',
       websiteUrl: 'websiteUrl',
     };
@@ -17253,11 +17378,9 @@ export class GetRepositoryCommitResponseBodyResultCommitter extends $tea.Model {
     return {
       avatarUrl: 'string',
       email: 'string',
-      externUid: 'string',
       id: 'number',
       name: 'string',
       state: 'string',
-      tbUserId: 'string',
       username: 'string',
       websiteUrl: 'string',
     };
@@ -17862,7 +17985,6 @@ export class GetTestcaseListResponseBodyTestcase extends $tea.Model {
 export class GetUserInfoResponseBodyResult extends $tea.Model {
   avatarUrl?: string;
   email?: string;
-  externUid?: string;
   id?: number;
   name?: string;
   username?: string;
@@ -17870,7 +17992,6 @@ export class GetUserInfoResponseBodyResult extends $tea.Model {
     return {
       avatarUrl: 'avatarUrl',
       email: 'email',
-      externUid: 'externUid',
       id: 'id',
       name: 'name',
       username: 'username',
@@ -17881,7 +18002,6 @@ export class GetUserInfoResponseBodyResult extends $tea.Model {
     return {
       avatarUrl: 'string',
       email: 'string',
-      externUid: 'string',
       id: 'number',
       name: 'string',
       username: 'string',
@@ -18834,7 +18954,6 @@ export class ListGroupMemberResponseBodyResult extends $tea.Model {
   accessLevel?: number;
   avatarUrl?: string;
   email?: string;
-  externUid?: string;
   id?: number;
   memberType?: string;
   name?: string;
@@ -18846,7 +18965,6 @@ export class ListGroupMemberResponseBodyResult extends $tea.Model {
       accessLevel: 'accessLevel',
       avatarUrl: 'avatarUrl',
       email: 'email',
-      externUid: 'externUid',
       id: 'id',
       memberType: 'memberType',
       name: 'name',
@@ -18861,7 +18979,6 @@ export class ListGroupMemberResponseBodyResult extends $tea.Model {
       accessLevel: 'number',
       avatarUrl: 'string',
       email: 'string',
-      externUid: 'string',
       id: 'number',
       memberType: 'string',
       name: 'string',
@@ -19628,7 +19745,6 @@ export class ListProtectedBranchesResponseBodyResultAllowMergeUsers extends $tea
   email?: string;
   id?: number;
   name?: string;
-  tbUserId?: string;
   username?: string;
   static names(): { [key: string]: string } {
     return {
@@ -19636,7 +19752,6 @@ export class ListProtectedBranchesResponseBodyResultAllowMergeUsers extends $tea
       email: 'email',
       id: 'id',
       name: 'name',
-      tbUserId: 'tbUserId',
       username: 'username',
     };
   }
@@ -19647,7 +19762,6 @@ export class ListProtectedBranchesResponseBodyResultAllowMergeUsers extends $tea
       email: 'string',
       id: 'number',
       name: 'string',
-      tbUserId: 'string',
       username: 'string',
     };
   }
@@ -19662,7 +19776,6 @@ export class ListProtectedBranchesResponseBodyResultAllowPushUsers extends $tea.
   email?: string;
   id?: number;
   name?: string;
-  tbUserId?: string;
   username?: string;
   static names(): { [key: string]: string } {
     return {
@@ -19670,7 +19783,6 @@ export class ListProtectedBranchesResponseBodyResultAllowPushUsers extends $tea.
       email: 'email',
       id: 'id',
       name: 'name',
-      tbUserId: 'tbUserId',
       username: 'username',
     };
   }
@@ -19681,7 +19793,6 @@ export class ListProtectedBranchesResponseBodyResultAllowPushUsers extends $tea.
       email: 'string',
       id: 'number',
       name: 'string',
-      tbUserId: 'string',
       username: 'string',
     };
   }
@@ -19696,7 +19807,6 @@ export class ListProtectedBranchesResponseBodyResultMergeRequestSettingDefaultAs
   email?: string;
   id?: number;
   name?: string;
-  tbUserId?: string;
   username?: string;
   static names(): { [key: string]: string } {
     return {
@@ -19704,7 +19814,6 @@ export class ListProtectedBranchesResponseBodyResultMergeRequestSettingDefaultAs
       email: 'email',
       id: 'id',
       name: 'name',
-      tbUserId: 'tbUserId',
       username: 'username',
     };
   }
@@ -19715,7 +19824,6 @@ export class ListProtectedBranchesResponseBodyResultMergeRequestSettingDefaultAs
       email: 'string',
       id: 'number',
       name: 'string',
-      tbUserId: 'string',
       username: 'string',
     };
   }
@@ -20172,22 +20280,18 @@ export class ListRepositoryCommitDiffResponseBodyResult extends $tea.Model {
 export class ListRepositoryCommitsResponseBodyResultAuthor extends $tea.Model {
   avatarUrl?: string;
   email?: string;
-  externUid?: string;
   id?: number;
   name?: string;
   state?: string;
-  tbUserId?: string;
   username?: string;
   websiteUrl?: string;
   static names(): { [key: string]: string } {
     return {
       avatarUrl: 'avatarUrl',
       email: 'email',
-      externUid: 'externUid',
       id: 'id',
       name: 'name',
       state: 'state',
-      tbUserId: 'tbUserId',
       username: 'username',
       websiteUrl: 'websiteUrl',
     };
@@ -20197,11 +20301,9 @@ export class ListRepositoryCommitsResponseBodyResultAuthor extends $tea.Model {
     return {
       avatarUrl: 'string',
       email: 'string',
-      externUid: 'string',
       id: 'number',
       name: 'string',
       state: 'string',
-      tbUserId: 'string',
       username: 'string',
       websiteUrl: 'string',
     };
@@ -20215,22 +20317,18 @@ export class ListRepositoryCommitsResponseBodyResultAuthor extends $tea.Model {
 export class ListRepositoryCommitsResponseBodyResultCommitter extends $tea.Model {
   avatarUrl?: string;
   email?: string;
-  externUid?: string;
   id?: number;
   name?: string;
   state?: string;
-  tbUserId?: string;
   username?: string;
   websiteUrl?: string;
   static names(): { [key: string]: string } {
     return {
       avatarUrl: 'avatarUrl',
       email: 'email',
-      externUid: 'externUid',
       id: 'id',
       name: 'name',
       state: 'state',
-      tbUserId: 'tbUserId',
       username: 'username',
       websiteUrl: 'websiteUrl',
     };
@@ -20240,11 +20338,9 @@ export class ListRepositoryCommitsResponseBodyResultCommitter extends $tea.Model
     return {
       avatarUrl: 'string',
       email: 'string',
-      externUid: 'string',
       id: 'number',
       name: 'string',
       state: 'string',
-      tbUserId: 'string',
       username: 'string',
       websiteUrl: 'string',
     };
@@ -20449,7 +20545,6 @@ export class ListRepositoryMemberWithInheritedResponseBodyResult extends $tea.Mo
   accessLevel?: number;
   avatarUrl?: string;
   email?: string;
-  externUserId?: string;
   id?: number;
   inherited?: ListRepositoryMemberWithInheritedResponseBodyResultInherited;
   name?: string;
@@ -20460,7 +20555,6 @@ export class ListRepositoryMemberWithInheritedResponseBodyResult extends $tea.Mo
       accessLevel: 'accessLevel',
       avatarUrl: 'avatarUrl',
       email: 'email',
-      externUserId: 'externUserId',
       id: 'id',
       inherited: 'inherited',
       name: 'name',
@@ -20474,7 +20568,6 @@ export class ListRepositoryMemberWithInheritedResponseBodyResult extends $tea.Mo
       accessLevel: 'number',
       avatarUrl: 'string',
       email: 'string',
-      externUserId: 'string',
       id: 'number',
       inherited: ListRepositoryMemberWithInheritedResponseBodyResultInherited,
       name: 'string',
@@ -21332,6 +21425,281 @@ export class ListUserKeysResponseBodyResult extends $tea.Model {
   }
 }
 
+export class ListUserResourcesResponseBodyResultGroupInfosGroupInfo extends $tea.Model {
+  createdAt?: string;
+  description?: string;
+  id?: number;
+  name?: string;
+  nameWithNamespace?: string;
+  ownerId?: number;
+  parentId?: number;
+  path?: string;
+  pathWithNamespace?: string;
+  updatedAt?: string;
+  visibilityLevel?: number;
+  static names(): { [key: string]: string } {
+    return {
+      createdAt: 'createdAt',
+      description: 'description',
+      id: 'id',
+      name: 'name',
+      nameWithNamespace: 'nameWithNamespace',
+      ownerId: 'ownerId',
+      parentId: 'parentId',
+      path: 'path',
+      pathWithNamespace: 'pathWithNamespace',
+      updatedAt: 'updatedAt',
+      visibilityLevel: 'visibilityLevel',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      createdAt: 'string',
+      description: 'string',
+      id: 'number',
+      name: 'string',
+      nameWithNamespace: 'string',
+      ownerId: 'number',
+      parentId: 'number',
+      path: 'string',
+      pathWithNamespace: 'string',
+      updatedAt: 'string',
+      visibilityLevel: 'number',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class ListUserResourcesResponseBodyResultGroupInfosGroupRole extends $tea.Model {
+  accessLevel?: number;
+  cnRoleName?: string;
+  enRoleName?: string;
+  sourceId?: number;
+  sourceType?: string;
+  static names(): { [key: string]: string } {
+    return {
+      accessLevel: 'accessLevel',
+      cnRoleName: 'cnRoleName',
+      enRoleName: 'enRoleName',
+      sourceId: 'sourceId',
+      sourceType: 'sourceType',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      accessLevel: 'number',
+      cnRoleName: 'string',
+      enRoleName: 'string',
+      sourceId: 'number',
+      sourceType: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class ListUserResourcesResponseBodyResultGroupInfos extends $tea.Model {
+  groupInfo?: ListUserResourcesResponseBodyResultGroupInfosGroupInfo;
+  groupRole?: ListUserResourcesResponseBodyResultGroupInfosGroupRole;
+  static names(): { [key: string]: string } {
+    return {
+      groupInfo: 'groupInfo',
+      groupRole: 'groupRole',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      groupInfo: ListUserResourcesResponseBodyResultGroupInfosGroupInfo,
+      groupRole: ListUserResourcesResponseBodyResultGroupInfosGroupRole,
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class ListUserResourcesResponseBodyResultRepositoryInfosRepositoryInfo extends $tea.Model {
+  accessLevel?: number;
+  archived?: boolean;
+  createdAt?: string;
+  creatorId?: number;
+  description?: string;
+  encrypted?: boolean;
+  id?: number;
+  lastActivityAt?: string;
+  name?: string;
+  nameWithNamespace?: string;
+  namespaceId?: number;
+  path?: string;
+  pathWithNamespace?: string;
+  updatedAt?: string;
+  visibilityLevel?: number;
+  static names(): { [key: string]: string } {
+    return {
+      accessLevel: 'accessLevel',
+      archived: 'archived',
+      createdAt: 'createdAt',
+      creatorId: 'creatorId',
+      description: 'description',
+      encrypted: 'encrypted',
+      id: 'id',
+      lastActivityAt: 'lastActivityAt',
+      name: 'name',
+      nameWithNamespace: 'nameWithNamespace',
+      namespaceId: 'namespaceId',
+      path: 'path',
+      pathWithNamespace: 'pathWithNamespace',
+      updatedAt: 'updatedAt',
+      visibilityLevel: 'visibilityLevel',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      accessLevel: 'number',
+      archived: 'boolean',
+      createdAt: 'string',
+      creatorId: 'number',
+      description: 'string',
+      encrypted: 'boolean',
+      id: 'number',
+      lastActivityAt: 'string',
+      name: 'string',
+      nameWithNamespace: 'string',
+      namespaceId: 'number',
+      path: 'string',
+      pathWithNamespace: 'string',
+      updatedAt: 'string',
+      visibilityLevel: 'number',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class ListUserResourcesResponseBodyResultRepositoryInfosRepositoryRole extends $tea.Model {
+  accessLevel?: number;
+  cnRoleName?: string;
+  enRoleName?: string;
+  sourceId?: number;
+  sourceType?: string;
+  static names(): { [key: string]: string } {
+    return {
+      accessLevel: 'accessLevel',
+      cnRoleName: 'cnRoleName',
+      enRoleName: 'enRoleName',
+      sourceId: 'sourceId',
+      sourceType: 'sourceType',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      accessLevel: 'number',
+      cnRoleName: 'string',
+      enRoleName: 'string',
+      sourceId: 'number',
+      sourceType: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class ListUserResourcesResponseBodyResultRepositoryInfos extends $tea.Model {
+  repositoryInfo?: ListUserResourcesResponseBodyResultRepositoryInfosRepositoryInfo;
+  repositoryRole?: ListUserResourcesResponseBodyResultRepositoryInfosRepositoryRole;
+  static names(): { [key: string]: string } {
+    return {
+      repositoryInfo: 'repositoryInfo',
+      repositoryRole: 'repositoryRole',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      repositoryInfo: ListUserResourcesResponseBodyResultRepositoryInfosRepositoryInfo,
+      repositoryRole: ListUserResourcesResponseBodyResultRepositoryInfosRepositoryRole,
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class ListUserResourcesResponseBodyResultUserInfo extends $tea.Model {
+  avatarUrl?: string;
+  email?: string;
+  id?: number;
+  name?: string;
+  state?: string;
+  username?: string;
+  static names(): { [key: string]: string } {
+    return {
+      avatarUrl: 'avatarUrl',
+      email: 'email',
+      id: 'id',
+      name: 'name',
+      state: 'state',
+      username: 'username',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      avatarUrl: 'string',
+      email: 'string',
+      id: 'number',
+      name: 'string',
+      state: 'string',
+      username: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class ListUserResourcesResponseBodyResult extends $tea.Model {
+  groupInfos?: ListUserResourcesResponseBodyResultGroupInfos[];
+  repositoryInfos?: ListUserResourcesResponseBodyResultRepositoryInfos[];
+  userInfo?: ListUserResourcesResponseBodyResultUserInfo;
+  static names(): { [key: string]: string } {
+    return {
+      groupInfos: 'groupInfos',
+      repositoryInfos: 'repositoryInfos',
+      userInfo: 'userInfo',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      groupInfos: { 'type': 'array', 'itemType': ListUserResourcesResponseBodyResultGroupInfos },
+      repositoryInfos: { 'type': 'array', 'itemType': ListUserResourcesResponseBodyResultRepositoryInfos },
+      userInfo: ListUserResourcesResponseBodyResultUserInfo,
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
 export class ListVariableGroupsResponseBodyVariableGroupsRelatedPipelines extends $tea.Model {
   id?: number;
   name?: string;
@@ -21818,6 +22186,79 @@ export class ResetSshKeyResponseBodySshKey extends $tea.Model {
   }
 }
 
+export class TransferRepositoryResponseBodyResult extends $tea.Model {
+  accessLevel?: number;
+  archived?: boolean;
+  createdAt?: string;
+  creatorId?: number;
+  demoProject?: boolean;
+  description?: string;
+  encrypted?: boolean;
+  id?: number;
+  lastActivityAt?: string;
+  name?: string;
+  nameWithNamespace?: string;
+  namespaceId?: number;
+  path?: string;
+  pathWithNamespace?: string;
+  starCount?: number;
+  starred?: boolean;
+  updatedAt?: string;
+  visibilityLevel?: number;
+  webUrl?: string;
+  static names(): { [key: string]: string } {
+    return {
+      accessLevel: 'accessLevel',
+      archived: 'archived',
+      createdAt: 'createdAt',
+      creatorId: 'creatorId',
+      demoProject: 'demoProject',
+      description: 'description',
+      encrypted: 'encrypted',
+      id: 'id',
+      lastActivityAt: 'lastActivityAt',
+      name: 'name',
+      nameWithNamespace: 'nameWithNamespace',
+      namespaceId: 'namespaceId',
+      path: 'path',
+      pathWithNamespace: 'pathWithNamespace',
+      starCount: 'starCount',
+      starred: 'starred',
+      updatedAt: 'updatedAt',
+      visibilityLevel: 'visibilityLevel',
+      webUrl: 'webUrl',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      accessLevel: 'number',
+      archived: 'boolean',
+      createdAt: 'string',
+      creatorId: 'number',
+      demoProject: 'boolean',
+      description: 'string',
+      encrypted: 'boolean',
+      id: 'number',
+      lastActivityAt: 'string',
+      name: 'string',
+      nameWithNamespace: 'string',
+      namespaceId: 'number',
+      path: 'string',
+      pathWithNamespace: 'string',
+      starCount: 'number',
+      starred: 'boolean',
+      updatedAt: 'string',
+      visibilityLevel: 'number',
+      webUrl: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
 export class TriggerRepositoryMirrorSyncResponseBodyResult extends $tea.Model {
   result?: boolean;
   static names(): { [key: string]: string } {
@@ -21915,7 +22356,6 @@ export class UpdateGroupMemberResponseBodyResult extends $tea.Model {
   accessLevel?: number;
   avatarUrl?: string;
   email?: string;
-  externUid?: string;
   id?: number;
   memberType?: string;
   name?: string;
@@ -21927,7 +22367,6 @@ export class UpdateGroupMemberResponseBodyResult extends $tea.Model {
       accessLevel: 'accessLevel',
       avatarUrl: 'avatarUrl',
       email: 'email',
-      externUid: 'externUid',
       id: 'id',
       memberType: 'memberType',
       name: 'name',
@@ -21942,7 +22381,6 @@ export class UpdateGroupMemberResponseBodyResult extends $tea.Model {
       accessLevel: 'number',
       avatarUrl: 'string',
       email: 'string',
-      externUid: 'string',
       id: 'number',
       memberType: 'string',
       name: 'string',
@@ -22629,7 +23067,6 @@ export class UpdateRepositoryMemberResponseBodyResult extends $tea.Model {
   avatarUrl?: string;
   email?: string;
   expireAt?: string;
-  externUid?: string;
   id?: number;
   memberName?: string;
   memberType?: string;
@@ -22637,7 +23074,6 @@ export class UpdateRepositoryMemberResponseBodyResult extends $tea.Model {
   sourceId?: number;
   sourceType?: string;
   state?: string;
-  tbUserId?: string;
   username?: string;
   webUrl?: string;
   static names(): { [key: string]: string } {
@@ -22646,7 +23082,6 @@ export class UpdateRepositoryMemberResponseBodyResult extends $tea.Model {
       avatarUrl: 'avatarUrl',
       email: 'email',
       expireAt: 'expireAt',
-      externUid: 'externUid',
       id: 'id',
       memberName: 'memberName',
       memberType: 'memberType',
@@ -22654,7 +23089,6 @@ export class UpdateRepositoryMemberResponseBodyResult extends $tea.Model {
       sourceId: 'sourceId',
       sourceType: 'sourceType',
       state: 'state',
-      tbUserId: 'tbUserId',
       username: 'username',
       webUrl: 'webUrl',
     };
@@ -22666,7 +23100,6 @@ export class UpdateRepositoryMemberResponseBodyResult extends $tea.Model {
       avatarUrl: 'string',
       email: 'string',
       expireAt: 'string',
-      externUid: 'string',
       id: 'number',
       memberName: 'string',
       memberType: 'string',
@@ -22674,7 +23107,6 @@ export class UpdateRepositoryMemberResponseBodyResult extends $tea.Model {
       sourceId: 'number',
       sourceType: 'string',
       state: 'string',
-      tbUserId: 'string',
       username: 'string',
       webUrl: 'string',
     };
@@ -28387,6 +28819,53 @@ export default class Client extends OpenApi {
     return await this.listUserKeysWithOptions(request, headers, runtime);
   }
 
+  async listUserResourcesWithOptions(request: ListUserResourcesRequest, headers: {[key: string ]: string}, runtime: $Util.RuntimeOptions): Promise<ListUserResourcesResponse> {
+    Util.validateModel(request);
+    let query : {[key: string ]: any} = { };
+    if (!Util.isUnset(request.accessToken)) {
+      query["accessToken"] = request.accessToken;
+    }
+
+    if (!Util.isUnset(request.organizationId)) {
+      query["organizationId"] = request.organizationId;
+    }
+
+    if (!Util.isUnset(request.page)) {
+      query["page"] = request.page;
+    }
+
+    if (!Util.isUnset(request.pageSize)) {
+      query["pageSize"] = request.pageSize;
+    }
+
+    if (!Util.isUnset(request.userIds)) {
+      query["userIds"] = request.userIds;
+    }
+
+    let req = new $OpenApi.OpenApiRequest({
+      headers: headers,
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApi.Params({
+      action: "ListUserResources",
+      version: "2021-06-25",
+      protocol: "HTTPS",
+      pathname: `/api/v4/user/vision/user_resources`,
+      method: "GET",
+      authType: "AK",
+      style: "ROA",
+      reqBodyType: "json",
+      bodyType: "json",
+    });
+    return $tea.cast<ListUserResourcesResponse>(await this.callApi(params, req, runtime), new ListUserResourcesResponse({}));
+  }
+
+  async listUserResources(request: ListUserResourcesRequest): Promise<ListUserResourcesResponse> {
+    let runtime = new $Util.RuntimeOptions({ });
+    let headers : {[key: string ]: string} = { };
+    return await this.listUserResourcesWithOptions(request, headers, runtime);
+  }
+
   async listVariableGroupsWithOptions(organizationId: string, request: ListVariableGroupsRequest, headers: {[key: string ]: string}, runtime: $Util.RuntimeOptions): Promise<ListVariableGroupsResponse> {
     Util.validateModel(request);
     let query : {[key: string ]: any} = { };
@@ -29021,6 +29500,49 @@ export default class Client extends OpenApi {
     let runtime = new $Util.RuntimeOptions({ });
     let headers : {[key: string ]: string} = { };
     return await this.stopVMDeployOrderWithOptions(organizationId, pipelineId, deployOrderId, headers, runtime);
+  }
+
+  async transferRepositoryWithOptions(request: TransferRepositoryRequest, headers: {[key: string ]: string}, runtime: $Util.RuntimeOptions): Promise<TransferRepositoryResponse> {
+    Util.validateModel(request);
+    let query : {[key: string ]: any} = { };
+    if (!Util.isUnset(request.accessToken)) {
+      query["accessToken"] = request.accessToken;
+    }
+
+    if (!Util.isUnset(request.groupId)) {
+      query["groupId"] = request.groupId;
+    }
+
+    if (!Util.isUnset(request.organizationId)) {
+      query["organizationId"] = request.organizationId;
+    }
+
+    if (!Util.isUnset(request.repositoryId)) {
+      query["repositoryId"] = request.repositoryId;
+    }
+
+    let req = new $OpenApi.OpenApiRequest({
+      headers: headers,
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApi.Params({
+      action: "TransferRepository",
+      version: "2021-06-25",
+      protocol: "HTTPS",
+      pathname: `/api/v4/projects/repository/transfer`,
+      method: "POST",
+      authType: "AK",
+      style: "ROA",
+      reqBodyType: "json",
+      bodyType: "json",
+    });
+    return $tea.cast<TransferRepositoryResponse>(await this.callApi(params, req, runtime), new TransferRepositoryResponse({}));
+  }
+
+  async transferRepository(request: TransferRepositoryRequest): Promise<TransferRepositoryResponse> {
+    let runtime = new $Util.RuntimeOptions({ });
+    let headers : {[key: string ]: string} = { };
+    return await this.transferRepositoryWithOptions(request, headers, runtime);
   }
 
   async triggerRepositoryMirrorSyncWithOptions(repositoryId: string, request: TriggerRepositoryMirrorSyncRequest, headers: {[key: string ]: string}, runtime: $Util.RuntimeOptions): Promise<TriggerRepositoryMirrorSyncResponse> {
