@@ -2496,15 +2496,18 @@ export class DescribeDBInstanceIndexUsageResponse extends $tea.Model {
 }
 
 export class DescribeDBInstanceNetInfoRequest extends $tea.Model {
+  connectionString?: string;
   DBInstanceId?: string;
   static names(): { [key: string]: string } {
     return {
+      connectionString: 'ConnectionString',
       DBInstanceId: 'DBInstanceId',
     };
   }
 
   static types(): { [key: string]: any } {
     return {
+      connectionString: 'string',
       DBInstanceId: 'string',
     };
   }
@@ -5475,6 +5478,87 @@ export class GrantCollectionResponse extends $tea.Model {
   }
 }
 
+export class InitVectorDatabaseRequest extends $tea.Model {
+  DBInstanceId?: string;
+  managerAccount?: string;
+  managerAccountPassword?: string;
+  ownerId?: number;
+  regionId?: string;
+  static names(): { [key: string]: string } {
+    return {
+      DBInstanceId: 'DBInstanceId',
+      managerAccount: 'ManagerAccount',
+      managerAccountPassword: 'ManagerAccountPassword',
+      ownerId: 'OwnerId',
+      regionId: 'RegionId',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      DBInstanceId: 'string',
+      managerAccount: 'string',
+      managerAccountPassword: 'string',
+      ownerId: 'number',
+      regionId: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class InitVectorDatabaseResponseBody extends $tea.Model {
+  message?: string;
+  requestId?: string;
+  status?: string;
+  static names(): { [key: string]: string } {
+    return {
+      message: 'Message',
+      requestId: 'RequestId',
+      status: 'Status',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      message: 'string',
+      requestId: 'string',
+      status: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class InitVectorDatabaseResponse extends $tea.Model {
+  headers: { [key: string]: string };
+  statusCode: number;
+  body: InitVectorDatabaseResponseBody;
+  static names(): { [key: string]: string } {
+    return {
+      headers: 'headers',
+      statusCode: 'statusCode',
+      body: 'body',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
+      body: InitVectorDatabaseResponseBody,
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
 export class ListCollectionsRequest extends $tea.Model {
   DBInstanceId?: string;
   namespace?: string;
@@ -6811,11 +6895,13 @@ export class QueryCollectionDataShrinkRequest extends $tea.Model {
 
 export class QueryCollectionDataResponseBody extends $tea.Model {
   matches?: QueryCollectionDataResponseBodyMatches;
+  message?: string;
   requestId?: string;
   status?: string;
   static names(): { [key: string]: string } {
     return {
       matches: 'Matches',
+      message: 'Message',
       requestId: 'RequestId',
       status: 'Status',
     };
@@ -6824,6 +6910,7 @@ export class QueryCollectionDataResponseBody extends $tea.Model {
   static types(): { [key: string]: any } {
     return {
       matches: QueryCollectionDataResponseBodyMatches,
+      message: 'string',
       requestId: 'string',
       status: 'string',
     };
@@ -10795,11 +10882,13 @@ export class QueryCollectionDataResponseBodyMatchesMatchValues extends $tea.Mode
 export class QueryCollectionDataResponseBodyMatchesMatch extends $tea.Model {
   id?: string;
   metadata?: { [key: string]: string };
+  similarity?: number;
   values?: QueryCollectionDataResponseBodyMatchesMatchValues;
   static names(): { [key: string]: string } {
     return {
       id: 'Id',
       metadata: 'Metadata',
+      similarity: 'Similarity',
       values: 'Values',
     };
   }
@@ -10808,6 +10897,7 @@ export class QueryCollectionDataResponseBodyMatchesMatch extends $tea.Model {
     return {
       id: 'string',
       metadata: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      similarity: 'number',
       values: QueryCollectionDataResponseBodyMatchesMatchValues,
     };
   }
@@ -12690,6 +12780,10 @@ export default class Client extends OpenApi {
   async describeDBInstanceNetInfoWithOptions(request: DescribeDBInstanceNetInfoRequest, runtime: $Util.RuntimeOptions): Promise<DescribeDBInstanceNetInfoResponse> {
     Util.validateModel(request);
     let query = { };
+    if (!Util.isUnset(request.connectionString)) {
+      query["ConnectionString"] = request.connectionString;
+    }
+
     if (!Util.isUnset(request.DBInstanceId)) {
       query["DBInstanceId"] = request.DBInstanceId;
     }
@@ -14662,6 +14756,51 @@ export default class Client extends OpenApi {
   async grantCollection(request: GrantCollectionRequest): Promise<GrantCollectionResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.grantCollectionWithOptions(request, runtime);
+  }
+
+  async initVectorDatabaseWithOptions(request: InitVectorDatabaseRequest, runtime: $Util.RuntimeOptions): Promise<InitVectorDatabaseResponse> {
+    Util.validateModel(request);
+    let query = { };
+    if (!Util.isUnset(request.DBInstanceId)) {
+      query["DBInstanceId"] = request.DBInstanceId;
+    }
+
+    if (!Util.isUnset(request.managerAccount)) {
+      query["ManagerAccount"] = request.managerAccount;
+    }
+
+    if (!Util.isUnset(request.managerAccountPassword)) {
+      query["ManagerAccountPassword"] = request.managerAccountPassword;
+    }
+
+    if (!Util.isUnset(request.ownerId)) {
+      query["OwnerId"] = request.ownerId;
+    }
+
+    if (!Util.isUnset(request.regionId)) {
+      query["RegionId"] = request.regionId;
+    }
+
+    let req = new $OpenApi.OpenApiRequest({
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApi.Params({
+      action: "InitVectorDatabase",
+      version: "2016-05-03",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $tea.cast<InitVectorDatabaseResponse>(await this.callApi(params, req, runtime), new InitVectorDatabaseResponse({}));
+  }
+
+  async initVectorDatabase(request: InitVectorDatabaseRequest): Promise<InitVectorDatabaseResponse> {
+    let runtime = new $Util.RuntimeOptions({ });
+    return await this.initVectorDatabaseWithOptions(request, runtime);
   }
 
   async listCollectionsWithOptions(request: ListCollectionsRequest, runtime: $Util.RuntimeOptions): Promise<ListCollectionsResponse> {
