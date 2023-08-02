@@ -14,6 +14,7 @@ export class AddDcdnDomainRequest extends $tea.Model {
   ownerAccount?: string;
   ownerId?: number;
   resourceGroupId?: string;
+  scene?: string;
   scope?: string;
   securityToken?: string;
   sources?: string;
@@ -26,6 +27,7 @@ export class AddDcdnDomainRequest extends $tea.Model {
       ownerAccount: 'OwnerAccount',
       ownerId: 'OwnerId',
       resourceGroupId: 'ResourceGroupId',
+      scene: 'Scene',
       scope: 'Scope',
       securityToken: 'SecurityToken',
       sources: 'Sources',
@@ -41,6 +43,7 @@ export class AddDcdnDomainRequest extends $tea.Model {
       ownerAccount: 'string',
       ownerId: 'number',
       resourceGroupId: 'string',
+      scene: 'string',
       scope: 'string',
       securityToken: 'string',
       sources: 'string',
@@ -1358,6 +1361,78 @@ export class CreateDcdnSubTaskResponse extends $tea.Model {
   }
 }
 
+export class CreateDcdnWafGroupRequest extends $tea.Model {
+  name?: string;
+  subscribe?: string;
+  templateId?: number;
+  static names(): { [key: string]: string } {
+    return {
+      name: 'Name',
+      subscribe: 'Subscribe',
+      templateId: 'TemplateId',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      name: 'string',
+      subscribe: 'string',
+      templateId: 'number',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class CreateDcdnWafGroupResponseBody extends $tea.Model {
+  id?: number;
+  requestId?: string;
+  static names(): { [key: string]: string } {
+    return {
+      id: 'Id',
+      requestId: 'RequestId',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      id: 'number',
+      requestId: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class CreateDcdnWafGroupResponse extends $tea.Model {
+  headers: { [key: string]: string };
+  statusCode: number;
+  body: CreateDcdnWafGroupResponseBody;
+  static names(): { [key: string]: string } {
+    return {
+      headers: 'headers',
+      statusCode: 'statusCode',
+      body: 'body',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
+      body: CreateDcdnWafGroupResponseBody,
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
 export class CreateDcdnWafPolicyRequest extends $tea.Model {
   defenseScene?: string;
   policyName?: string;
@@ -2258,6 +2333,69 @@ export class DeleteDcdnSubTaskResponse extends $tea.Model {
   }
 }
 
+export class DeleteDcdnWafGroupRequest extends $tea.Model {
+  id?: number;
+  static names(): { [key: string]: string } {
+    return {
+      id: 'Id',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      id: 'number',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class DeleteDcdnWafGroupResponseBody extends $tea.Model {
+  requestId?: string;
+  static names(): { [key: string]: string } {
+    return {
+      requestId: 'RequestId',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      requestId: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class DeleteDcdnWafGroupResponse extends $tea.Model {
+  headers: { [key: string]: string };
+  statusCode: number;
+  body: DeleteDcdnWafGroupResponseBody;
+  static names(): { [key: string]: string } {
+    return {
+      headers: 'headers',
+      statusCode: 'statusCode',
+      body: 'body',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
+      body: DeleteDcdnWafGroupResponseBody,
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
 export class DeleteDcdnWafPolicyRequest extends $tea.Model {
   policyId?: number;
   static names(): { [key: string]: string } {
@@ -2992,6 +3130,176 @@ export class DescribeDcdnCertificateListResponse extends $tea.Model {
       headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
       statusCode: 'number',
       body: DescribeDcdnCertificateListResponseBody,
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class DescribeDcdnDdosServiceRequest extends $tea.Model {
+  ownerId?: number;
+  securityToken?: string;
+  static names(): { [key: string]: string } {
+    return {
+      ownerId: 'OwnerId',
+      securityToken: 'SecurityToken',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      ownerId: 'number',
+      securityToken: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class DescribeDcdnDdosServiceResponseBody extends $tea.Model {
+  changingAffectTime?: string;
+  changingChargeType?: string;
+  changingDomianNum?: number;
+  changingEdition?: string;
+  changingProtectNum?: number;
+  chargeType?: string;
+  domianNum?: number;
+  edition?: string;
+  enabled?: string;
+  endingTime?: string;
+  instanceId?: string;
+  openingTime?: string;
+  protectNum?: number;
+  requestId?: string;
+  status?: string;
+  static names(): { [key: string]: string } {
+    return {
+      changingAffectTime: 'ChangingAffectTime',
+      changingChargeType: 'ChangingChargeType',
+      changingDomianNum: 'ChangingDomianNum',
+      changingEdition: 'ChangingEdition',
+      changingProtectNum: 'ChangingProtectNum',
+      chargeType: 'ChargeType',
+      domianNum: 'DomianNum',
+      edition: 'Edition',
+      enabled: 'Enabled',
+      endingTime: 'EndingTime',
+      instanceId: 'InstanceId',
+      openingTime: 'OpeningTime',
+      protectNum: 'ProtectNum',
+      requestId: 'RequestId',
+      status: 'Status',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      changingAffectTime: 'string',
+      changingChargeType: 'string',
+      changingDomianNum: 'number',
+      changingEdition: 'string',
+      changingProtectNum: 'number',
+      chargeType: 'string',
+      domianNum: 'number',
+      edition: 'string',
+      enabled: 'string',
+      endingTime: 'string',
+      instanceId: 'string',
+      openingTime: 'string',
+      protectNum: 'number',
+      requestId: 'string',
+      status: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class DescribeDcdnDdosServiceResponse extends $tea.Model {
+  headers: { [key: string]: string };
+  statusCode: number;
+  body: DescribeDcdnDdosServiceResponseBody;
+  static names(): { [key: string]: string } {
+    return {
+      headers: 'headers',
+      statusCode: 'statusCode',
+      body: 'body',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
+      body: DescribeDcdnDdosServiceResponseBody,
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class DescribeDcdnDdosSpecInfoResponseBody extends $tea.Model {
+  bandwidthLimit?: string;
+  edition?: string;
+  enable?: string;
+  protectedArea?: string;
+  qpsLimit?: string;
+  requestId?: string;
+  specInfos?: DescribeDcdnDdosSpecInfoResponseBodySpecInfos[];
+  static names(): { [key: string]: string } {
+    return {
+      bandwidthLimit: 'BandwidthLimit',
+      edition: 'Edition',
+      enable: 'Enable',
+      protectedArea: 'ProtectedArea',
+      qpsLimit: 'QpsLimit',
+      requestId: 'RequestId',
+      specInfos: 'SpecInfos',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      bandwidthLimit: 'string',
+      edition: 'string',
+      enable: 'string',
+      protectedArea: 'string',
+      qpsLimit: 'string',
+      requestId: 'string',
+      specInfos: { 'type': 'array', 'itemType': DescribeDcdnDdosSpecInfoResponseBodySpecInfos },
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class DescribeDcdnDdosSpecInfoResponse extends $tea.Model {
+  headers: { [key: string]: string };
+  statusCode: number;
+  body: DescribeDcdnDdosSpecInfoResponseBody;
+  static names(): { [key: string]: string } {
+    return {
+      headers: 'headers',
+      statusCode: 'statusCode',
+      body: 'body',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
+      body: DescribeDcdnDdosSpecInfoResponseBody,
     };
   }
 
@@ -8373,6 +8681,53 @@ export class DescribeDcdnReportListResponse extends $tea.Model {
   }
 }
 
+export class DescribeDcdnSLSRealTimeLogTypeResponseBody extends $tea.Model {
+  content?: DescribeDcdnSLSRealTimeLogTypeResponseBodyContent;
+  requestId?: string;
+  static names(): { [key: string]: string } {
+    return {
+      content: 'Content',
+      requestId: 'RequestId',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      content: DescribeDcdnSLSRealTimeLogTypeResponseBodyContent,
+      requestId: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class DescribeDcdnSLSRealTimeLogTypeResponse extends $tea.Model {
+  headers: { [key: string]: string };
+  statusCode: number;
+  body: DescribeDcdnSLSRealTimeLogTypeResponseBody;
+  static names(): { [key: string]: string } {
+    return {
+      headers: 'headers',
+      statusCode: 'statusCode',
+      body: 'body',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
+      body: DescribeDcdnSLSRealTimeLogTypeResponseBody,
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
 export class DescribeDcdnSLSRealtimeLogDeliveryRequest extends $tea.Model {
   projectName?: string;
   static names(): { [key: string]: string } {
@@ -10063,6 +10418,119 @@ export class DescribeDcdnVerifyContentResponse extends $tea.Model {
   }
 }
 
+export class DescribeDcdnWafBotAppKeyResponseBody extends $tea.Model {
+  appKey?: string;
+  requestId?: string;
+  static names(): { [key: string]: string } {
+    return {
+      appKey: 'AppKey',
+      requestId: 'RequestId',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      appKey: 'string',
+      requestId: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class DescribeDcdnWafBotAppKeyResponse extends $tea.Model {
+  headers: { [key: string]: string };
+  statusCode: number;
+  body: DescribeDcdnWafBotAppKeyResponseBody;
+  static names(): { [key: string]: string } {
+    return {
+      headers: 'headers',
+      statusCode: 'statusCode',
+      body: 'body',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
+      body: DescribeDcdnWafBotAppKeyResponseBody,
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class DescribeDcdnWafDefaultRulesRequest extends $tea.Model {
+  queryArgs?: string;
+  static names(): { [key: string]: string } {
+    return {
+      queryArgs: 'QueryArgs',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      queryArgs: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class DescribeDcdnWafDefaultRulesResponseBody extends $tea.Model {
+  content?: DescribeDcdnWafDefaultRulesResponseBodyContent[];
+  requestId?: string;
+  static names(): { [key: string]: string } {
+    return {
+      content: 'Content',
+      requestId: 'RequestId',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      content: { 'type': 'array', 'itemType': DescribeDcdnWafDefaultRulesResponseBodyContent },
+      requestId: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class DescribeDcdnWafDefaultRulesResponse extends $tea.Model {
+  headers: { [key: string]: string };
+  statusCode: number;
+  body: DescribeDcdnWafDefaultRulesResponseBody;
+  static names(): { [key: string]: string } {
+    return {
+      headers: 'headers',
+      statusCode: 'statusCode',
+      body: 'body',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
+      body: DescribeDcdnWafDefaultRulesResponseBody,
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
 export class DescribeDcdnWafDomainRequest extends $tea.Model {
   domainName?: string;
   regionId?: string;
@@ -10412,6 +10880,192 @@ export class DescribeDcdnWafGeoInfoResponse extends $tea.Model {
       headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
       statusCode: 'number',
       body: DescribeDcdnWafGeoInfoResponseBody,
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class DescribeDcdnWafGroupRequest extends $tea.Model {
+  id?: number;
+  language?: string;
+  pageNumber?: number;
+  pageSize?: number;
+  queryArgs?: string;
+  scope?: string;
+  static names(): { [key: string]: string } {
+    return {
+      id: 'Id',
+      language: 'Language',
+      pageNumber: 'PageNumber',
+      pageSize: 'PageSize',
+      queryArgs: 'QueryArgs',
+      scope: 'Scope',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      id: 'number',
+      language: 'string',
+      pageNumber: 'number',
+      pageSize: 'number',
+      queryArgs: 'string',
+      scope: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class DescribeDcdnWafGroupResponseBody extends $tea.Model {
+  id?: number;
+  name?: string;
+  pageNumber?: number;
+  pageSize?: number;
+  requestId?: string;
+  rules?: DescribeDcdnWafGroupResponseBodyRules[];
+  subscribe?: string;
+  templateId?: number;
+  totalCount?: number;
+  static names(): { [key: string]: string } {
+    return {
+      id: 'Id',
+      name: 'Name',
+      pageNumber: 'PageNumber',
+      pageSize: 'PageSize',
+      requestId: 'RequestId',
+      rules: 'Rules',
+      subscribe: 'Subscribe',
+      templateId: 'TemplateId',
+      totalCount: 'TotalCount',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      id: 'number',
+      name: 'string',
+      pageNumber: 'number',
+      pageSize: 'number',
+      requestId: 'string',
+      rules: { 'type': 'array', 'itemType': DescribeDcdnWafGroupResponseBodyRules },
+      subscribe: 'string',
+      templateId: 'number',
+      totalCount: 'number',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class DescribeDcdnWafGroupResponse extends $tea.Model {
+  headers: { [key: string]: string };
+  statusCode: number;
+  body: DescribeDcdnWafGroupResponseBody;
+  static names(): { [key: string]: string } {
+    return {
+      headers: 'headers',
+      statusCode: 'statusCode',
+      body: 'body',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
+      body: DescribeDcdnWafGroupResponseBody,
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class DescribeDcdnWafGroupsRequest extends $tea.Model {
+  language?: string;
+  pageNumber?: number;
+  pageSize?: number;
+  queryArgs?: string;
+  static names(): { [key: string]: string } {
+    return {
+      language: 'Language',
+      pageNumber: 'PageNumber',
+      pageSize: 'PageSize',
+      queryArgs: 'QueryArgs',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      language: 'string',
+      pageNumber: 'number',
+      pageSize: 'number',
+      queryArgs: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class DescribeDcdnWafGroupsResponseBody extends $tea.Model {
+  pageNumber?: number;
+  pageSize?: number;
+  requestId?: string;
+  totalCount?: number;
+  wafGroups?: DescribeDcdnWafGroupsResponseBodyWafGroups[];
+  static names(): { [key: string]: string } {
+    return {
+      pageNumber: 'PageNumber',
+      pageSize: 'PageSize',
+      requestId: 'RequestId',
+      totalCount: 'TotalCount',
+      wafGroups: 'WafGroups',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      pageNumber: 'number',
+      pageSize: 'number',
+      requestId: 'string',
+      totalCount: 'number',
+      wafGroups: { 'type': 'array', 'itemType': DescribeDcdnWafGroupsResponseBodyWafGroups },
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class DescribeDcdnWafGroupsResponse extends $tea.Model {
+  headers: { [key: string]: string };
+  statusCode: number;
+  body: DescribeDcdnWafGroupsResponseBody;
+  static names(): { [key: string]: string } {
+    return {
+      headers: 'headers',
+      statusCode: 'statusCode',
+      body: 'body',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
+      body: DescribeDcdnWafGroupsResponseBody,
     };
   }
 
@@ -11332,6 +11986,215 @@ export class DescribeDcdnsecServiceResponse extends $tea.Model {
       headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
       statusCode: 'number',
       body: DescribeDcdnsecServiceResponseBody,
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class DescribeDdosAllEventListRequest extends $tea.Model {
+  endTime?: string;
+  eventType?: string;
+  pageNumber?: number;
+  pageSize?: number;
+  startTime?: string;
+  static names(): { [key: string]: string } {
+    return {
+      endTime: 'EndTime',
+      eventType: 'EventType',
+      pageNumber: 'PageNumber',
+      pageSize: 'PageSize',
+      startTime: 'StartTime',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      endTime: 'string',
+      eventType: 'string',
+      pageNumber: 'number',
+      pageSize: 'number',
+      startTime: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class DescribeDdosAllEventListResponseBody extends $tea.Model {
+  dataList?: DescribeDdosAllEventListResponseBodyDataList[];
+  pageNumber?: number;
+  pageSize?: number;
+  requestId?: string;
+  total?: number;
+  static names(): { [key: string]: string } {
+    return {
+      dataList: 'DataList',
+      pageNumber: 'PageNumber',
+      pageSize: 'PageSize',
+      requestId: 'RequestId',
+      total: 'Total',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      dataList: { 'type': 'array', 'itemType': DescribeDdosAllEventListResponseBodyDataList },
+      pageNumber: 'number',
+      pageSize: 'number',
+      requestId: 'string',
+      total: 'number',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class DescribeDdosAllEventListResponse extends $tea.Model {
+  headers: { [key: string]: string };
+  statusCode: number;
+  body: DescribeDdosAllEventListResponseBody;
+  static names(): { [key: string]: string } {
+    return {
+      headers: 'headers',
+      statusCode: 'statusCode',
+      body: 'body',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
+      body: DescribeDdosAllEventListResponseBody,
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class DescribeEncryptRoutineUidResponseBody extends $tea.Model {
+  content?: string;
+  requestId?: string;
+  static names(): { [key: string]: string } {
+    return {
+      content: 'Content',
+      requestId: 'RequestId',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      content: 'string',
+      requestId: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class DescribeEncryptRoutineUidResponse extends $tea.Model {
+  headers: { [key: string]: string };
+  statusCode: number;
+  body: DescribeEncryptRoutineUidResponseBody;
+  static names(): { [key: string]: string } {
+    return {
+      headers: 'headers',
+      statusCode: 'statusCode',
+      body: 'body',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
+      body: DescribeEncryptRoutineUidResponseBody,
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class DescribeHighlightInfoRequest extends $tea.Model {
+  endTime?: string;
+  lang?: string;
+  startTime?: string;
+  traceId?: string;
+  static names(): { [key: string]: string } {
+    return {
+      endTime: 'EndTime',
+      lang: 'Lang',
+      startTime: 'StartTime',
+      traceId: 'TraceId',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      endTime: 'string',
+      lang: 'string',
+      startTime: 'string',
+      traceId: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class DescribeHighlightInfoResponseBody extends $tea.Model {
+  dataModule?: DescribeHighlightInfoResponseBodyDataModule[];
+  requestId?: string;
+  static names(): { [key: string]: string } {
+    return {
+      dataModule: 'DataModule',
+      requestId: 'RequestId',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      dataModule: { 'type': 'array', 'itemType': DescribeHighlightInfoResponseBodyDataModule },
+      requestId: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class DescribeHighlightInfoResponse extends $tea.Model {
+  headers: { [key: string]: string };
+  statusCode: number;
+  body: DescribeHighlightInfoResponseBody;
+  static names(): { [key: string]: string } {
+    return {
+      headers: 'headers',
+      statusCode: 'statusCode',
+      body: 'body',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
+      body: DescribeHighlightInfoResponseBody,
     };
   }
 
@@ -15320,6 +16183,53 @@ export class DescribeDcdnCertificateListResponseBodyCertificateListModel extends
   }
 }
 
+export class DescribeDcdnDdosSpecInfoResponseBodySpecInfosConfigs extends $tea.Model {
+  config?: string;
+  expr?: string;
+  value?: string;
+  static names(): { [key: string]: string } {
+    return {
+      config: 'Config',
+      expr: 'Expr',
+      value: 'Value',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      config: 'string',
+      expr: 'string',
+      value: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class DescribeDcdnDdosSpecInfoResponseBodySpecInfos extends $tea.Model {
+  configs?: DescribeDcdnDdosSpecInfoResponseBodySpecInfosConfigs[];
+  rule?: string;
+  static names(): { [key: string]: string } {
+    return {
+      configs: 'Configs',
+      rule: 'Rule',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      configs: { 'type': 'array', 'itemType': DescribeDcdnDdosSpecInfoResponseBodySpecInfosConfigs },
+      rule: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
 export class DescribeDcdnDeletedDomainsResponseBodyDomainsPageData extends $tea.Model {
   domainName?: string;
   gmtModified?: string;
@@ -15838,6 +16748,7 @@ export class DescribeDcdnDomainDetailResponseBodyDomainDetail extends $tea.Model
   resourceGroupId?: string;
   SSLProtocol?: string;
   SSLPub?: string;
+  scene?: string;
   scope?: string;
   sources?: DescribeDcdnDomainDetailResponseBodyDomainDetailSources;
   static names(): { [key: string]: string } {
@@ -15851,6 +16762,7 @@ export class DescribeDcdnDomainDetailResponseBodyDomainDetail extends $tea.Model
       resourceGroupId: 'ResourceGroupId',
       SSLProtocol: 'SSLProtocol',
       SSLPub: 'SSLPub',
+      scene: 'Scene',
       scope: 'Scope',
       sources: 'Sources',
     };
@@ -15867,6 +16779,7 @@ export class DescribeDcdnDomainDetailResponseBodyDomainDetail extends $tea.Model
       resourceGroupId: 'string',
       SSLProtocol: 'string',
       SSLPub: 'string',
+      scene: 'string',
       scope: 'string',
       sources: DescribeDcdnDomainDetailResponseBodyDomainDetailSources,
     };
@@ -18663,6 +19576,47 @@ export class DescribeDcdnRegionAndIspResponseBodyRegions extends $tea.Model {
   }
 }
 
+export class DescribeDcdnSLSRealTimeLogTypeResponseBodyContentBusiness extends $tea.Model {
+  businessType?: string;
+  desc?: string;
+  static names(): { [key: string]: string } {
+    return {
+      businessType: 'BusinessType',
+      desc: 'Desc',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      businessType: 'string',
+      desc: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class DescribeDcdnSLSRealTimeLogTypeResponseBodyContent extends $tea.Model {
+  business?: DescribeDcdnSLSRealTimeLogTypeResponseBodyContentBusiness[];
+  static names(): { [key: string]: string } {
+    return {
+      business: 'Business',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      business: { 'type': 'array', 'itemType': DescribeDcdnSLSRealTimeLogTypeResponseBodyContentBusiness },
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
 export class DescribeDcdnSLSRealtimeLogDeliveryResponseBodyContent extends $tea.Model {
   businessType?: string;
   dataCenter?: string;
@@ -19268,6 +20222,7 @@ export class DescribeDcdnUserDomainsResponseBodyDomainsPageData extends $tea.Mod
   resourceGroupId?: string;
   SSLProtocol?: string;
   sandbox?: string;
+  scene?: string;
   sources?: DescribeDcdnUserDomainsResponseBodyDomainsPageDataSources;
   static names(): { [key: string]: string } {
     return {
@@ -19281,6 +20236,7 @@ export class DescribeDcdnUserDomainsResponseBodyDomainsPageData extends $tea.Mod
       resourceGroupId: 'ResourceGroupId',
       SSLProtocol: 'SSLProtocol',
       sandbox: 'Sandbox',
+      scene: 'Scene',
       sources: 'Sources',
     };
   }
@@ -19297,6 +20253,7 @@ export class DescribeDcdnUserDomainsResponseBodyDomainsPageData extends $tea.Mod
       resourceGroupId: 'string',
       SSLProtocol: 'string',
       sandbox: 'string',
+      scene: 'string',
       sources: DescribeDcdnUserDomainsResponseBodyDomainsPageDataSources,
     };
   }
@@ -19602,6 +20559,59 @@ export class DescribeDcdnUserTagsResponseBodyTags extends $tea.Model {
   }
 }
 
+export class DescribeDcdnWafDefaultRulesResponseBodyContentRules extends $tea.Model {
+  action?: string;
+  config?: string;
+  name?: string;
+  status?: string;
+  type?: string;
+  static names(): { [key: string]: string } {
+    return {
+      action: 'Action',
+      config: 'Config',
+      name: 'Name',
+      status: 'Status',
+      type: 'Type',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      action: 'string',
+      config: 'string',
+      name: 'string',
+      status: 'string',
+      type: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class DescribeDcdnWafDefaultRulesResponseBodyContent extends $tea.Model {
+  defenseScene?: string;
+  rules?: DescribeDcdnWafDefaultRulesResponseBodyContentRules[];
+  static names(): { [key: string]: string } {
+    return {
+      defenseScene: 'DefenseScene',
+      rules: 'Rules',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      defenseScene: 'string',
+      rules: { 'type': 'array', 'itemType': DescribeDcdnWafDefaultRulesResponseBodyContentRules },
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
 export class DescribeDcdnWafDomainResponseBodyOutPutDomains extends $tea.Model {
   aclStatus?: number;
   ccStatus?: number;
@@ -19866,6 +20876,111 @@ export class DescribeDcdnWafGeoInfoResponseBodyContent extends $tea.Model {
     return {
       continents: { 'type': 'array', 'itemType': DescribeDcdnWafGeoInfoResponseBodyContentContinents },
       type: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class DescribeDcdnWafGroupResponseBodyRules extends $tea.Model {
+  applicationType?: number;
+  cveId?: string;
+  cveUrl?: string;
+  description?: string;
+  gmtModified?: string;
+  id?: number;
+  name?: string;
+  protectionType?: number;
+  riskLevel?: number;
+  static names(): { [key: string]: string } {
+    return {
+      applicationType: 'ApplicationType',
+      cveId: 'CveId',
+      cveUrl: 'CveUrl',
+      description: 'Description',
+      gmtModified: 'GmtModified',
+      id: 'Id',
+      name: 'Name',
+      protectionType: 'ProtectionType',
+      riskLevel: 'RiskLevel',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      applicationType: 'number',
+      cveId: 'string',
+      cveUrl: 'string',
+      description: 'string',
+      gmtModified: 'string',
+      id: 'number',
+      name: 'string',
+      protectionType: 'number',
+      riskLevel: 'number',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class DescribeDcdnWafGroupsResponseBodyWafGroupsPolicies extends $tea.Model {
+  id?: number;
+  name?: string;
+  type?: string;
+  static names(): { [key: string]: string } {
+    return {
+      id: 'Id',
+      name: 'Name',
+      type: 'Type',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      id: 'number',
+      name: 'string',
+      type: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class DescribeDcdnWafGroupsResponseBodyWafGroups extends $tea.Model {
+  gmtModified?: string;
+  id?: number;
+  name?: string;
+  policies?: DescribeDcdnWafGroupsResponseBodyWafGroupsPolicies[];
+  ruleCount?: number;
+  subscribe?: string;
+  templateId?: number;
+  static names(): { [key: string]: string } {
+    return {
+      gmtModified: 'GmtModified',
+      id: 'Id',
+      name: 'Name',
+      policies: 'Policies',
+      ruleCount: 'RuleCount',
+      subscribe: 'Subscribe',
+      templateId: 'TemplateId',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      gmtModified: 'string',
+      id: 'number',
+      name: 'string',
+      policies: { 'type': 'array', 'itemType': DescribeDcdnWafGroupsResponseBodyWafGroupsPolicies },
+      ruleCount: 'number',
+      subscribe: 'string',
+      templateId: 'number',
     };
   }
 
@@ -20353,6 +21468,74 @@ export class DescribeDcdnsecServiceResponseBodyOperationLocks extends $tea.Model
   }
 }
 
+export class DescribeDdosAllEventListResponseBodyDataList extends $tea.Model {
+  bps?: number;
+  cps?: number;
+  endTime?: string;
+  eventId?: string;
+  eventType?: string;
+  pps?: number;
+  qps?: number;
+  startTime?: string;
+  target?: string;
+  static names(): { [key: string]: string } {
+    return {
+      bps: 'Bps',
+      cps: 'Cps',
+      endTime: 'EndTime',
+      eventId: 'EventId',
+      eventType: 'EventType',
+      pps: 'Pps',
+      qps: 'Qps',
+      startTime: 'StartTime',
+      target: 'Target',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      bps: 'number',
+      cps: 'number',
+      endTime: 'string',
+      eventId: 'string',
+      eventType: 'string',
+      pps: 'number',
+      qps: 'number',
+      startTime: 'string',
+      target: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class DescribeHighlightInfoResponseBodyDataModule extends $tea.Model {
+  hit?: string;
+  key?: string;
+  raw?: string;
+  static names(): { [key: string]: string } {
+    return {
+      hit: 'Hit',
+      key: 'Key',
+      raw: 'Raw',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      hit: 'string',
+      key: 'string',
+      raw: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
 export class DescribeRDDomainConfigResponseBodyDomainConfigsFunctionArgs extends $tea.Model {
   argName?: string;
   argValue?: string;
@@ -20794,6 +21977,10 @@ export default class Client extends OpenApi {
 
     if (!Util.isUnset(request.resourceGroupId)) {
       query["ResourceGroupId"] = request.resourceGroupId;
+    }
+
+    if (!Util.isUnset(request.scene)) {
+      query["Scene"] = request.scene;
     }
 
     if (!Util.isUnset(request.scope)) {
@@ -21838,6 +23025,43 @@ export default class Client extends OpenApi {
     return await this.createDcdnSubTaskWithOptions(request, runtime);
   }
 
+  async createDcdnWafGroupWithOptions(request: CreateDcdnWafGroupRequest, runtime: $Util.RuntimeOptions): Promise<CreateDcdnWafGroupResponse> {
+    Util.validateModel(request);
+    let body : {[key: string ]: any} = { };
+    if (!Util.isUnset(request.name)) {
+      body["Name"] = request.name;
+    }
+
+    if (!Util.isUnset(request.subscribe)) {
+      body["Subscribe"] = request.subscribe;
+    }
+
+    if (!Util.isUnset(request.templateId)) {
+      body["TemplateId"] = request.templateId;
+    }
+
+    let req = new $OpenApi.OpenApiRequest({
+      body: OpenApiUtil.parseToMap(body),
+    });
+    let params = new $OpenApi.Params({
+      action: "CreateDcdnWafGroup",
+      version: "2018-01-15",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $tea.cast<CreateDcdnWafGroupResponse>(await this.callApi(params, req, runtime), new CreateDcdnWafGroupResponse({}));
+  }
+
+  async createDcdnWafGroup(request: CreateDcdnWafGroupRequest): Promise<CreateDcdnWafGroupResponse> {
+    let runtime = new $Util.RuntimeOptions({ });
+    return await this.createDcdnWafGroupWithOptions(request, runtime);
+  }
+
   /**
     * *   You can call this operation up to 20 times per second per user.
     * *   Alibaba Cloud Dynamic Route for CDN (DCDN) supports POST requests.
@@ -22461,6 +23685,35 @@ export default class Client extends OpenApi {
     return await this.deleteDcdnSubTaskWithOptions(runtime);
   }
 
+  async deleteDcdnWafGroupWithOptions(request: DeleteDcdnWafGroupRequest, runtime: $Util.RuntimeOptions): Promise<DeleteDcdnWafGroupResponse> {
+    Util.validateModel(request);
+    let body : {[key: string ]: any} = { };
+    if (!Util.isUnset(request.id)) {
+      body["Id"] = request.id;
+    }
+
+    let req = new $OpenApi.OpenApiRequest({
+      body: OpenApiUtil.parseToMap(body),
+    });
+    let params = new $OpenApi.Params({
+      action: "DeleteDcdnWafGroup",
+      version: "2018-01-15",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $tea.cast<DeleteDcdnWafGroupResponse>(await this.callApi(params, req, runtime), new DeleteDcdnWafGroupResponse({}));
+  }
+
+  async deleteDcdnWafGroup(request: DeleteDcdnWafGroupRequest): Promise<DeleteDcdnWafGroupResponse> {
+    let runtime = new $Util.RuntimeOptions({ });
+    return await this.deleteDcdnWafGroupWithOptions(request, runtime);
+  }
+
   /**
     * #
     * *   You can call this operation up to 20 times per second.
@@ -22965,6 +24218,60 @@ export default class Client extends OpenApi {
   async describeDcdnCertificateList(request: DescribeDcdnCertificateListRequest): Promise<DescribeDcdnCertificateListResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.describeDcdnCertificateListWithOptions(request, runtime);
+  }
+
+  async describeDcdnDdosServiceWithOptions(request: DescribeDcdnDdosServiceRequest, runtime: $Util.RuntimeOptions): Promise<DescribeDcdnDdosServiceResponse> {
+    Util.validateModel(request);
+    let query = { };
+    if (!Util.isUnset(request.ownerId)) {
+      query["OwnerId"] = request.ownerId;
+    }
+
+    if (!Util.isUnset(request.securityToken)) {
+      query["SecurityToken"] = request.securityToken;
+    }
+
+    let req = new $OpenApi.OpenApiRequest({
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApi.Params({
+      action: "DescribeDcdnDdosService",
+      version: "2018-01-15",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $tea.cast<DescribeDcdnDdosServiceResponse>(await this.callApi(params, req, runtime), new DescribeDcdnDdosServiceResponse({}));
+  }
+
+  async describeDcdnDdosService(request: DescribeDcdnDdosServiceRequest): Promise<DescribeDcdnDdosServiceResponse> {
+    let runtime = new $Util.RuntimeOptions({ });
+    return await this.describeDcdnDdosServiceWithOptions(request, runtime);
+  }
+
+  async describeDcdnDdosSpecInfoWithOptions(runtime: $Util.RuntimeOptions): Promise<DescribeDcdnDdosSpecInfoResponse> {
+    let req = new $OpenApi.OpenApiRequest({ });
+    let params = new $OpenApi.Params({
+      action: "DescribeDcdnDdosSpecInfo",
+      version: "2018-01-15",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $tea.cast<DescribeDcdnDdosSpecInfoResponse>(await this.callApi(params, req, runtime), new DescribeDcdnDdosSpecInfoResponse({}));
+  }
+
+  async describeDcdnDdosSpecInfo(): Promise<DescribeDcdnDdosSpecInfoResponse> {
+    let runtime = new $Util.RuntimeOptions({ });
+    return await this.describeDcdnDdosSpecInfoWithOptions(runtime);
   }
 
   /**
@@ -26655,6 +27962,27 @@ export default class Client extends OpenApi {
     return await this.describeDcdnReportListWithOptions(request, runtime);
   }
 
+  async describeDcdnSLSRealTimeLogTypeWithOptions(runtime: $Util.RuntimeOptions): Promise<DescribeDcdnSLSRealTimeLogTypeResponse> {
+    let req = new $OpenApi.OpenApiRequest({ });
+    let params = new $OpenApi.Params({
+      action: "DescribeDcdnSLSRealTimeLogType",
+      version: "2018-01-15",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "GET",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $tea.cast<DescribeDcdnSLSRealTimeLogTypeResponse>(await this.callApi(params, req, runtime), new DescribeDcdnSLSRealTimeLogTypeResponse({}));
+  }
+
+  async describeDcdnSLSRealTimeLogType(): Promise<DescribeDcdnSLSRealTimeLogTypeResponse> {
+    let runtime = new $Util.RuntimeOptions({ });
+    return await this.describeDcdnSLSRealTimeLogTypeWithOptions(runtime);
+  }
+
   /**
     * > You can call this operation up to 100 times per second per account.
     *
@@ -27735,6 +29063,56 @@ export default class Client extends OpenApi {
     return await this.describeDcdnVerifyContentWithOptions(request, runtime);
   }
 
+  async describeDcdnWafBotAppKeyWithOptions(runtime: $Util.RuntimeOptions): Promise<DescribeDcdnWafBotAppKeyResponse> {
+    let req = new $OpenApi.OpenApiRequest({ });
+    let params = new $OpenApi.Params({
+      action: "DescribeDcdnWafBotAppKey",
+      version: "2018-01-15",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $tea.cast<DescribeDcdnWafBotAppKeyResponse>(await this.callApi(params, req, runtime), new DescribeDcdnWafBotAppKeyResponse({}));
+  }
+
+  async describeDcdnWafBotAppKey(): Promise<DescribeDcdnWafBotAppKeyResponse> {
+    let runtime = new $Util.RuntimeOptions({ });
+    return await this.describeDcdnWafBotAppKeyWithOptions(runtime);
+  }
+
+  async describeDcdnWafDefaultRulesWithOptions(request: DescribeDcdnWafDefaultRulesRequest, runtime: $Util.RuntimeOptions): Promise<DescribeDcdnWafDefaultRulesResponse> {
+    Util.validateModel(request);
+    let query = { };
+    if (!Util.isUnset(request.queryArgs)) {
+      query["QueryArgs"] = request.queryArgs;
+    }
+
+    let req = new $OpenApi.OpenApiRequest({
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApi.Params({
+      action: "DescribeDcdnWafDefaultRules",
+      version: "2018-01-15",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $tea.cast<DescribeDcdnWafDefaultRulesResponse>(await this.callApi(params, req, runtime), new DescribeDcdnWafDefaultRulesResponse({}));
+  }
+
+  async describeDcdnWafDefaultRules(request: DescribeDcdnWafDefaultRulesRequest): Promise<DescribeDcdnWafDefaultRulesResponse> {
+    let runtime = new $Util.RuntimeOptions({ });
+    return await this.describeDcdnWafDefaultRulesWithOptions(request, runtime);
+  }
+
   /**
     * > You can call this operation up to 50 times per second per account.
     *
@@ -27967,6 +29345,96 @@ export default class Client extends OpenApi {
   async describeDcdnWafGeoInfo(request: DescribeDcdnWafGeoInfoRequest): Promise<DescribeDcdnWafGeoInfoResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.describeDcdnWafGeoInfoWithOptions(request, runtime);
+  }
+
+  async describeDcdnWafGroupWithOptions(request: DescribeDcdnWafGroupRequest, runtime: $Util.RuntimeOptions): Promise<DescribeDcdnWafGroupResponse> {
+    Util.validateModel(request);
+    let query = { };
+    if (!Util.isUnset(request.id)) {
+      query["Id"] = request.id;
+    }
+
+    if (!Util.isUnset(request.language)) {
+      query["Language"] = request.language;
+    }
+
+    if (!Util.isUnset(request.pageNumber)) {
+      query["PageNumber"] = request.pageNumber;
+    }
+
+    if (!Util.isUnset(request.pageSize)) {
+      query["PageSize"] = request.pageSize;
+    }
+
+    if (!Util.isUnset(request.queryArgs)) {
+      query["QueryArgs"] = request.queryArgs;
+    }
+
+    if (!Util.isUnset(request.scope)) {
+      query["Scope"] = request.scope;
+    }
+
+    let req = new $OpenApi.OpenApiRequest({
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApi.Params({
+      action: "DescribeDcdnWafGroup",
+      version: "2018-01-15",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $tea.cast<DescribeDcdnWafGroupResponse>(await this.callApi(params, req, runtime), new DescribeDcdnWafGroupResponse({}));
+  }
+
+  async describeDcdnWafGroup(request: DescribeDcdnWafGroupRequest): Promise<DescribeDcdnWafGroupResponse> {
+    let runtime = new $Util.RuntimeOptions({ });
+    return await this.describeDcdnWafGroupWithOptions(request, runtime);
+  }
+
+  async describeDcdnWafGroupsWithOptions(request: DescribeDcdnWafGroupsRequest, runtime: $Util.RuntimeOptions): Promise<DescribeDcdnWafGroupsResponse> {
+    Util.validateModel(request);
+    let query = { };
+    if (!Util.isUnset(request.language)) {
+      query["Language"] = request.language;
+    }
+
+    if (!Util.isUnset(request.pageNumber)) {
+      query["PageNumber"] = request.pageNumber;
+    }
+
+    if (!Util.isUnset(request.pageSize)) {
+      query["PageSize"] = request.pageSize;
+    }
+
+    if (!Util.isUnset(request.queryArgs)) {
+      query["QueryArgs"] = request.queryArgs;
+    }
+
+    let req = new $OpenApi.OpenApiRequest({
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApi.Params({
+      action: "DescribeDcdnWafGroups",
+      version: "2018-01-15",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $tea.cast<DescribeDcdnWafGroupsResponse>(await this.callApi(params, req, runtime), new DescribeDcdnWafGroupsResponse({}));
+  }
+
+  async describeDcdnWafGroups(request: DescribeDcdnWafGroupsRequest): Promise<DescribeDcdnWafGroupsResponse> {
+    let runtime = new $Util.RuntimeOptions({ });
+    return await this.describeDcdnWafGroupsWithOptions(request, runtime);
   }
 
   /**
@@ -28552,6 +30020,113 @@ export default class Client extends OpenApi {
   async describeDcdnsecService(request: DescribeDcdnsecServiceRequest): Promise<DescribeDcdnsecServiceResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.describeDcdnsecServiceWithOptions(request, runtime);
+  }
+
+  async describeDdosAllEventListWithOptions(request: DescribeDdosAllEventListRequest, runtime: $Util.RuntimeOptions): Promise<DescribeDdosAllEventListResponse> {
+    Util.validateModel(request);
+    let query = { };
+    if (!Util.isUnset(request.endTime)) {
+      query["EndTime"] = request.endTime;
+    }
+
+    if (!Util.isUnset(request.eventType)) {
+      query["EventType"] = request.eventType;
+    }
+
+    if (!Util.isUnset(request.pageNumber)) {
+      query["PageNumber"] = request.pageNumber;
+    }
+
+    if (!Util.isUnset(request.pageSize)) {
+      query["PageSize"] = request.pageSize;
+    }
+
+    if (!Util.isUnset(request.startTime)) {
+      query["StartTime"] = request.startTime;
+    }
+
+    let req = new $OpenApi.OpenApiRequest({
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApi.Params({
+      action: "DescribeDdosAllEventList",
+      version: "2018-01-15",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $tea.cast<DescribeDdosAllEventListResponse>(await this.callApi(params, req, runtime), new DescribeDdosAllEventListResponse({}));
+  }
+
+  async describeDdosAllEventList(request: DescribeDdosAllEventListRequest): Promise<DescribeDdosAllEventListResponse> {
+    let runtime = new $Util.RuntimeOptions({ });
+    return await this.describeDdosAllEventListWithOptions(request, runtime);
+  }
+
+  async describeEncryptRoutineUidWithOptions(runtime: $Util.RuntimeOptions): Promise<DescribeEncryptRoutineUidResponse> {
+    let req = new $OpenApi.OpenApiRequest({ });
+    let params = new $OpenApi.Params({
+      action: "DescribeEncryptRoutineUid",
+      version: "2018-01-15",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $tea.cast<DescribeEncryptRoutineUidResponse>(await this.callApi(params, req, runtime), new DescribeEncryptRoutineUidResponse({}));
+  }
+
+  async describeEncryptRoutineUid(): Promise<DescribeEncryptRoutineUidResponse> {
+    let runtime = new $Util.RuntimeOptions({ });
+    return await this.describeEncryptRoutineUidWithOptions(runtime);
+  }
+
+  async describeHighlightInfoWithOptions(request: DescribeHighlightInfoRequest, runtime: $Util.RuntimeOptions): Promise<DescribeHighlightInfoResponse> {
+    Util.validateModel(request);
+    let query = { };
+    if (!Util.isUnset(request.endTime)) {
+      query["EndTime"] = request.endTime;
+    }
+
+    if (!Util.isUnset(request.lang)) {
+      query["Lang"] = request.lang;
+    }
+
+    if (!Util.isUnset(request.startTime)) {
+      query["StartTime"] = request.startTime;
+    }
+
+    if (!Util.isUnset(request.traceId)) {
+      query["TraceId"] = request.traceId;
+    }
+
+    let req = new $OpenApi.OpenApiRequest({
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApi.Params({
+      action: "DescribeHighlightInfo",
+      version: "2018-01-15",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $tea.cast<DescribeHighlightInfoResponse>(await this.callApi(params, req, runtime), new DescribeHighlightInfoResponse({}));
+  }
+
+  async describeHighlightInfo(request: DescribeHighlightInfoRequest): Promise<DescribeHighlightInfoResponse> {
+    let runtime = new $Util.RuntimeOptions({ });
+    return await this.describeHighlightInfoWithOptions(request, runtime);
   }
 
   async describeRDDomainConfigWithOptions(request: DescribeRDDomainConfigRequest, runtime: $Util.RuntimeOptions): Promise<DescribeRDDomainConfigResponse> {
