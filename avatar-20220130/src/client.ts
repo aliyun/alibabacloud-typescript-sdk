@@ -1862,7 +1862,7 @@ export class SubmitAudioTo2DAvatarVideoTaskResponseBody extends $tea.Model {
   data?: SubmitAudioTo2DAvatarVideoTaskResponseBodyData;
   message?: string;
   requestId?: string;
-  success?: string;
+  success?: boolean;
   static names(): { [key: string]: string } {
     return {
       code: 'Code',
@@ -1879,7 +1879,7 @@ export class SubmitAudioTo2DAvatarVideoTaskResponseBody extends $tea.Model {
       data: SubmitAudioTo2DAvatarVideoTaskResponseBodyData,
       message: 'string',
       requestId: 'string',
-      success: 'string',
+      success: 'boolean',
     };
   }
 
@@ -2004,7 +2004,7 @@ export class SubmitAudioTo3DAvatarVideoTaskResponseBody extends $tea.Model {
   data?: SubmitAudioTo3DAvatarVideoTaskResponseBodyData;
   message?: string;
   requestId?: string;
-  success?: string;
+  success?: boolean;
   static names(): { [key: string]: string } {
     return {
       code: 'Code',
@@ -2021,7 +2021,7 @@ export class SubmitAudioTo3DAvatarVideoTaskResponseBody extends $tea.Model {
       data: SubmitAudioTo3DAvatarVideoTaskResponseBodyData,
       message: 'string',
       requestId: 'string',
-      success: 'string',
+      success: 'boolean',
     };
   }
 
@@ -2627,6 +2627,7 @@ export class GetVideoTaskInfoRequestApp extends $tea.Model {
 }
 
 export class GetVideoTaskInfoResponseBodyDataTaskResult extends $tea.Model {
+  alphaUrl?: string;
   failCode?: string;
   failReason?: string;
   subtitlesUrl?: string;
@@ -2635,6 +2636,7 @@ export class GetVideoTaskInfoResponseBodyDataTaskResult extends $tea.Model {
   wordSubtitlesUrl?: string;
   static names(): { [key: string]: string } {
     return {
+      alphaUrl: 'AlphaUrl',
       failCode: 'FailCode',
       failReason: 'FailReason',
       subtitlesUrl: 'SubtitlesUrl',
@@ -2646,6 +2648,7 @@ export class GetVideoTaskInfoResponseBodyDataTaskResult extends $tea.Model {
 
   static types(): { [key: string]: any } {
     return {
+      alphaUrl: 'string',
       failCode: 'string',
       failReason: 'string',
       subtitlesUrl: 'string',
@@ -3747,6 +3750,7 @@ export class SubmitTextTo2DAvatarVideoTaskRequestVideoInfo extends $tea.Model {
   isAlpha?: boolean;
   isSubtitles?: boolean;
   resolution?: number;
+  subtitleEmbedded?: boolean;
   static names(): { [key: string]: string } {
     return {
       alphaFormat: 'AlphaFormat',
@@ -3754,6 +3758,7 @@ export class SubmitTextTo2DAvatarVideoTaskRequestVideoInfo extends $tea.Model {
       isAlpha: 'IsAlpha',
       isSubtitles: 'IsSubtitles',
       resolution: 'Resolution',
+      subtitleEmbedded: 'SubtitleEmbedded',
     };
   }
 
@@ -3764,6 +3769,7 @@ export class SubmitTextTo2DAvatarVideoTaskRequestVideoInfo extends $tea.Model {
       isAlpha: 'boolean',
       isSubtitles: 'boolean',
       resolution: 'number',
+      subtitleEmbedded: 'boolean',
     };
   }
 
@@ -3872,6 +3878,7 @@ export class SubmitTextTo3DAvatarVideoTaskRequestVideoInfo extends $tea.Model {
   isAlpha?: boolean;
   isSubtitles?: boolean;
   resolution?: number;
+  subtitleEmbedded?: boolean;
   static names(): { [key: string]: string } {
     return {
       alphaFormat: 'AlphaFormat',
@@ -3879,6 +3886,7 @@ export class SubmitTextTo3DAvatarVideoTaskRequestVideoInfo extends $tea.Model {
       isAlpha: 'IsAlpha',
       isSubtitles: 'IsSubtitles',
       resolution: 'Resolution',
+      subtitleEmbedded: 'SubtitleEmbedded',
     };
   }
 
@@ -3889,6 +3897,7 @@ export class SubmitTextTo3DAvatarVideoTaskRequestVideoInfo extends $tea.Model {
       isAlpha: 'boolean',
       isSubtitles: 'boolean',
       resolution: 'number',
+      subtitleEmbedded: 'boolean',
     };
   }
 
