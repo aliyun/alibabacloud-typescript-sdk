@@ -14023,6 +14023,7 @@ export class ApplyListQueryResponseBodyModuleList extends $tea.Model {
   itineraryList?: ApplyListQueryResponseBodyModuleListItineraryList[];
   itineraryRule?: number;
   itinerarySetList?: ApplyListQueryResponseBodyModuleListItinerarySetList[];
+  jobNo?: string;
   status?: number;
   statusDesc?: string;
   thirdpartBusinessId?: string;
@@ -14051,6 +14052,7 @@ export class ApplyListQueryResponseBodyModuleList extends $tea.Model {
       itineraryList: 'itinerary_list',
       itineraryRule: 'itinerary_rule',
       itinerarySetList: 'itinerary_set_list',
+      jobNo: 'job_no',
       status: 'status',
       statusDesc: 'status_desc',
       thirdpartBusinessId: 'thirdpart_business_id',
@@ -14082,6 +14084,7 @@ export class ApplyListQueryResponseBodyModuleList extends $tea.Model {
       itineraryList: { 'type': 'array', 'itemType': ApplyListQueryResponseBodyModuleListItineraryList },
       itineraryRule: 'number',
       itinerarySetList: { 'type': 'array', 'itemType': ApplyListQueryResponseBodyModuleListItinerarySetList },
+      jobNo: 'string',
       status: 'number',
       statusDesc: 'string',
       thirdpartBusinessId: 'string',
@@ -15014,9 +15017,14 @@ export class CarApplyQueryResponseBodyApplyList extends $tea.Model {
 
 export class CarBillSettlementQueryResponseBodyModuleDataList extends $tea.Model {
   alipayTradeNo?: string;
+  applyArrCityCode?: string;
+  applyArrCityName?: string;
+  applyDepCityCode?: string;
+  applyDepCityName?: string;
   applyExtendField?: string;
   applyId?: string;
   arrCity?: string;
+  arrCityCode?: string;
   arrDate?: string;
   arrLocation?: string;
   arrTime?: string;
@@ -15033,6 +15041,7 @@ export class CarBillSettlementQueryResponseBodyModuleDataList extends $tea.Model
   costCenterNumber?: string;
   coupon?: number;
   couponPrice?: number;
+  depCityCode?: string;
   department?: string;
   departmentId?: string;
   deptCity?: string;
@@ -15067,6 +15076,7 @@ export class CarBillSettlementQueryResponseBodyModuleDataList extends $tea.Model
   status?: number;
   subOrderId?: string;
   taxRate?: string;
+  thirdItineraryId?: string;
   travelerId?: string;
   travelerJobNo?: string;
   travelerName?: string;
@@ -15075,9 +15085,14 @@ export class CarBillSettlementQueryResponseBodyModuleDataList extends $tea.Model
   static names(): { [key: string]: string } {
     return {
       alipayTradeNo: 'alipay_trade_no',
+      applyArrCityCode: 'apply_arr_city_code',
+      applyArrCityName: 'apply_arr_city_name',
+      applyDepCityCode: 'apply_dep_city_code',
+      applyDepCityName: 'apply_dep_city_name',
       applyExtendField: 'apply_extend_field',
       applyId: 'apply_id',
       arrCity: 'arr_city',
+      arrCityCode: 'arr_city_code',
       arrDate: 'arr_date',
       arrLocation: 'arr_location',
       arrTime: 'arr_time',
@@ -15094,6 +15109,7 @@ export class CarBillSettlementQueryResponseBodyModuleDataList extends $tea.Model
       costCenterNumber: 'cost_center_number',
       coupon: 'coupon',
       couponPrice: 'coupon_price',
+      depCityCode: 'dep_city_code',
       department: 'department',
       departmentId: 'department_id',
       deptCity: 'dept_city',
@@ -15128,6 +15144,7 @@ export class CarBillSettlementQueryResponseBodyModuleDataList extends $tea.Model
       status: 'status',
       subOrderId: 'sub_order_id',
       taxRate: 'tax_rate',
+      thirdItineraryId: 'third_itinerary_id',
       travelerId: 'traveler_id',
       travelerJobNo: 'traveler_job_no',
       travelerName: 'traveler_name',
@@ -15139,9 +15156,14 @@ export class CarBillSettlementQueryResponseBodyModuleDataList extends $tea.Model
   static types(): { [key: string]: any } {
     return {
       alipayTradeNo: 'string',
+      applyArrCityCode: 'string',
+      applyArrCityName: 'string',
+      applyDepCityCode: 'string',
+      applyDepCityName: 'string',
       applyExtendField: 'string',
       applyId: 'string',
       arrCity: 'string',
+      arrCityCode: 'string',
       arrDate: 'string',
       arrLocation: 'string',
       arrTime: 'string',
@@ -15158,6 +15180,7 @@ export class CarBillSettlementQueryResponseBodyModuleDataList extends $tea.Model
       costCenterNumber: 'string',
       coupon: 'number',
       couponPrice: 'number',
+      depCityCode: 'string',
       department: 'string',
       departmentId: 'string',
       deptCity: 'string',
@@ -15192,6 +15215,7 @@ export class CarBillSettlementQueryResponseBodyModuleDataList extends $tea.Model
       status: 'number',
       subOrderId: 'string',
       taxRate: 'string',
+      thirdItineraryId: 'string',
       travelerId: 'string',
       travelerJobNo: 'string',
       travelerName: 'string',
@@ -16578,10 +16602,15 @@ export class FlightBillSettlementQueryResponseBodyModuleDataList extends $tea.Mo
   airlineCorpCode?: string;
   airlineCorpName?: string;
   alipayTradeNo?: string;
+  applyArrCityCode?: string;
+  applyArrCityName?: string;
+  applyDepCityCode?: string;
+  applyDepCityName?: string;
   applyExtendField?: string;
   applyId?: string;
   arrAirportCode?: string;
   arrCity?: string;
+  arrCityCode?: string;
   arrDate?: string;
   arrStation?: string;
   arrTime?: string;
@@ -16602,6 +16631,7 @@ export class FlightBillSettlementQueryResponseBodyModuleDataList extends $tea.Mo
   costCenterNumber?: string;
   coupon?: number;
   depAirportCode?: string;
+  depCityCode?: string;
   department?: string;
   departmentId?: string;
   deptCity?: string;
@@ -16641,6 +16671,7 @@ export class FlightBillSettlementQueryResponseBodyModuleDataList extends $tea.Mo
   settlementType?: string;
   status?: number;
   taxRate?: string;
+  thirdItineraryId?: string;
   ticketId?: string;
   travelerId?: string;
   travelerJobNo?: string;
@@ -16653,10 +16684,15 @@ export class FlightBillSettlementQueryResponseBodyModuleDataList extends $tea.Mo
       airlineCorpCode: 'airline_corp_code',
       airlineCorpName: 'airline_corp_name',
       alipayTradeNo: 'alipay_trade_no',
+      applyArrCityCode: 'apply_arr_city_code',
+      applyArrCityName: 'apply_arr_city_name',
+      applyDepCityCode: 'apply_dep_city_code',
+      applyDepCityName: 'apply_dep_city_name',
       applyExtendField: 'apply_extend_field',
       applyId: 'apply_id',
       arrAirportCode: 'arr_airport_code',
       arrCity: 'arr_city',
+      arrCityCode: 'arr_city_code',
       arrDate: 'arr_date',
       arrStation: 'arr_station',
       arrTime: 'arr_time',
@@ -16677,6 +16713,7 @@ export class FlightBillSettlementQueryResponseBodyModuleDataList extends $tea.Mo
       costCenterNumber: 'cost_center_number',
       coupon: 'coupon',
       depAirportCode: 'dep_airport_code',
+      depCityCode: 'dep_city_code',
       department: 'department',
       departmentId: 'department_id',
       deptCity: 'dept_city',
@@ -16716,6 +16753,7 @@ export class FlightBillSettlementQueryResponseBodyModuleDataList extends $tea.Mo
       settlementType: 'settlement_type',
       status: 'status',
       taxRate: 'tax_rate',
+      thirdItineraryId: 'third_itinerary_id',
       ticketId: 'ticket_id',
       travelerId: 'traveler_id',
       travelerJobNo: 'traveler_job_no',
@@ -16731,10 +16769,15 @@ export class FlightBillSettlementQueryResponseBodyModuleDataList extends $tea.Mo
       airlineCorpCode: 'string',
       airlineCorpName: 'string',
       alipayTradeNo: 'string',
+      applyArrCityCode: 'string',
+      applyArrCityName: 'string',
+      applyDepCityCode: 'string',
+      applyDepCityName: 'string',
       applyExtendField: 'string',
       applyId: 'string',
       arrAirportCode: 'string',
       arrCity: 'string',
+      arrCityCode: 'string',
       arrDate: 'string',
       arrStation: 'string',
       arrTime: 'string',
@@ -16755,6 +16798,7 @@ export class FlightBillSettlementQueryResponseBodyModuleDataList extends $tea.Mo
       costCenterNumber: 'string',
       coupon: 'number',
       depAirportCode: 'string',
+      depCityCode: 'string',
       department: 'string',
       departmentId: 'string',
       deptCity: 'string',
@@ -16794,6 +16838,7 @@ export class FlightBillSettlementQueryResponseBodyModuleDataList extends $tea.Mo
       settlementType: 'string',
       status: 'number',
       taxRate: 'string',
+      thirdItineraryId: 'string',
       ticketId: 'string',
       travelerId: 'string',
       travelerJobNo: 'string',
@@ -23787,6 +23832,10 @@ export class HotelAskingPriceResponseBodyModule extends $tea.Model {
 
 export class HotelBillSettlementQueryResponseBodyModuleDataList extends $tea.Model {
   alipayTradeNo?: string;
+  applyArrCityCode?: string;
+  applyArrCityName?: string;
+  applyDepCityCode?: string;
+  applyDepCityName?: string;
   applyExtendField?: string;
   applyId?: string;
   billRecordTime?: string;
@@ -23836,6 +23885,7 @@ export class HotelBillSettlementQueryResponseBodyModuleDataList extends $tea.Mod
   settlementType?: string;
   status?: number;
   taxRate?: string;
+  thirdItineraryId?: string;
   totalNights?: number;
   travelerId?: string;
   travelerJobNo?: string;
@@ -23844,6 +23894,10 @@ export class HotelBillSettlementQueryResponseBodyModuleDataList extends $tea.Mod
   static names(): { [key: string]: string } {
     return {
       alipayTradeNo: 'alipay_trade_no',
+      applyArrCityCode: 'apply_arr_city_code',
+      applyArrCityName: 'apply_arr_city_name',
+      applyDepCityCode: 'apply_dep_city_code',
+      applyDepCityName: 'apply_dep_city_name',
       applyExtendField: 'apply_extend_field',
       applyId: 'apply_id',
       billRecordTime: 'bill_record_time',
@@ -23893,6 +23947,7 @@ export class HotelBillSettlementQueryResponseBodyModuleDataList extends $tea.Mod
       settlementType: 'settlement_type',
       status: 'status',
       taxRate: 'tax_rate',
+      thirdItineraryId: 'third_itinerary_id',
       totalNights: 'total_nights',
       travelerId: 'traveler_id',
       travelerJobNo: 'traveler_job_no',
@@ -23904,6 +23959,10 @@ export class HotelBillSettlementQueryResponseBodyModuleDataList extends $tea.Mod
   static types(): { [key: string]: any } {
     return {
       alipayTradeNo: 'string',
+      applyArrCityCode: 'string',
+      applyArrCityName: 'string',
+      applyDepCityCode: 'string',
+      applyDepCityName: 'string',
       applyExtendField: 'string',
       applyId: 'string',
       billRecordTime: 'string',
@@ -23953,6 +24012,7 @@ export class HotelBillSettlementQueryResponseBodyModuleDataList extends $tea.Mod
       settlementType: 'string',
       status: 'number',
       taxRate: 'string',
+      thirdItineraryId: 'string',
       totalNights: 'number',
       travelerId: 'string',
       travelerJobNo: 'string',
@@ -26651,10 +26711,15 @@ export class IeFlightBillSettlementQueryResponseBodyModuleDataList extends $tea.
   airlineCorpCode?: string;
   airlineCorpName?: string;
   alipayTradeNo?: string;
+  applyArrCityCode?: string;
+  applyArrCityName?: string;
+  applyDepCityCode?: string;
+  applyDepCityName?: string;
   applyExtendField?: string;
   applyId?: string;
   arrAirportCode?: string;
   arrCity?: string;
+  arrCityCode?: string;
   arrDate?: string;
   arrStation?: string;
   arrTime?: string;
@@ -26675,6 +26740,7 @@ export class IeFlightBillSettlementQueryResponseBodyModuleDataList extends $tea.
   costCenterNumber?: string;
   coupon?: number;
   depAirportCode?: string;
+  depCityCode?: string;
   department?: string;
   departmentId?: string;
   deptCity?: string;
@@ -26715,6 +26781,7 @@ export class IeFlightBillSettlementQueryResponseBodyModuleDataList extends $tea.
   subOrderId?: string;
   taxFee?: number;
   taxRate?: string;
+  thirdItineraryId?: string;
   ticketId?: string;
   trade?: string;
   travelerId?: string;
@@ -26727,10 +26794,15 @@ export class IeFlightBillSettlementQueryResponseBodyModuleDataList extends $tea.
       airlineCorpCode: 'airline_corp_code',
       airlineCorpName: 'airline_corp_name',
       alipayTradeNo: 'alipay_trade_no',
+      applyArrCityCode: 'apply_arr_city_code',
+      applyArrCityName: 'apply_arr_city_name',
+      applyDepCityCode: 'apply_dep_city_code',
+      applyDepCityName: 'apply_dep_city_name',
       applyExtendField: 'apply_extend_field',
       applyId: 'apply_id',
       arrAirportCode: 'arr_airport_code',
       arrCity: 'arr_city',
+      arrCityCode: 'arr_city_code',
       arrDate: 'arr_date',
       arrStation: 'arr_station',
       arrTime: 'arr_time',
@@ -26751,6 +26823,7 @@ export class IeFlightBillSettlementQueryResponseBodyModuleDataList extends $tea.
       costCenterNumber: 'cost_center_number',
       coupon: 'coupon',
       depAirportCode: 'dep_airport_code',
+      depCityCode: 'dep_city_code',
       department: 'department',
       departmentId: 'department_id',
       deptCity: 'dept_city',
@@ -26791,6 +26864,7 @@ export class IeFlightBillSettlementQueryResponseBodyModuleDataList extends $tea.
       subOrderId: 'sub_order_id',
       taxFee: 'tax_fee',
       taxRate: 'tax_rate',
+      thirdItineraryId: 'third_itinerary_id',
       ticketId: 'ticket_id',
       trade: 'trade',
       travelerId: 'traveler_id',
@@ -26806,10 +26880,15 @@ export class IeFlightBillSettlementQueryResponseBodyModuleDataList extends $tea.
       airlineCorpCode: 'string',
       airlineCorpName: 'string',
       alipayTradeNo: 'string',
+      applyArrCityCode: 'string',
+      applyArrCityName: 'string',
+      applyDepCityCode: 'string',
+      applyDepCityName: 'string',
       applyExtendField: 'string',
       applyId: 'string',
       arrAirportCode: 'string',
       arrCity: 'string',
+      arrCityCode: 'string',
       arrDate: 'string',
       arrStation: 'string',
       arrTime: 'string',
@@ -26830,6 +26909,7 @@ export class IeFlightBillSettlementQueryResponseBodyModuleDataList extends $tea.
       costCenterNumber: 'string',
       coupon: 'number',
       depAirportCode: 'string',
+      depCityCode: 'string',
       department: 'string',
       departmentId: 'string',
       deptCity: 'string',
@@ -26870,6 +26950,7 @@ export class IeFlightBillSettlementQueryResponseBodyModuleDataList extends $tea.
       subOrderId: 'string',
       taxFee: 'number',
       taxRate: 'string',
+      thirdItineraryId: 'string',
       ticketId: 'string',
       trade: 'string',
       travelerId: 'string',
@@ -29138,8 +29219,13 @@ export class TicketChangingPayResponseBodyModule extends $tea.Model {
 
 export class TrainBillSettlementQueryResponseBodyModuleDataList extends $tea.Model {
   alipayTradeNo?: string;
+  applyArrCityCode?: string;
+  applyArrCityName?: string;
+  applyDepCityCode?: string;
+  applyDepCityName?: string;
   applyExtendField?: string;
   applyId?: string;
+  arrCityCode?: string;
   arrDate?: string;
   arrStation?: string;
   arrTime?: string;
@@ -29154,6 +29240,7 @@ export class TrainBillSettlementQueryResponseBodyModuleDataList extends $tea.Mod
   costCenter?: string;
   costCenterNumber?: string;
   coupon?: number;
+  depCityCode?: string;
   department?: string;
   departmentId?: string;
   deptDate?: string;
@@ -29180,6 +29267,7 @@ export class TrainBillSettlementQueryResponseBodyModuleDataList extends $tea.Mod
   settlementType?: string;
   status?: number;
   taxRate?: string;
+  thirdItineraryId?: string;
   ticketNo?: string;
   ticketPrice?: number;
   trainNo?: string;
@@ -29191,8 +29279,13 @@ export class TrainBillSettlementQueryResponseBodyModuleDataList extends $tea.Mod
   static names(): { [key: string]: string } {
     return {
       alipayTradeNo: 'alipay_trade_no',
+      applyArrCityCode: 'apply_arr_city_code',
+      applyArrCityName: 'apply_arr_city_name',
+      applyDepCityCode: 'apply_dep_city_code',
+      applyDepCityName: 'apply_dep_city_name',
       applyExtendField: 'apply_extend_field',
       applyId: 'apply_id',
+      arrCityCode: 'arr_city_code',
       arrDate: 'arr_date',
       arrStation: 'arr_station',
       arrTime: 'arr_time',
@@ -29207,6 +29300,7 @@ export class TrainBillSettlementQueryResponseBodyModuleDataList extends $tea.Mod
       costCenter: 'cost_center',
       costCenterNumber: 'cost_center_number',
       coupon: 'coupon',
+      depCityCode: 'dep_city_code',
       department: 'department',
       departmentId: 'department_id',
       deptDate: 'dept_date',
@@ -29233,6 +29327,7 @@ export class TrainBillSettlementQueryResponseBodyModuleDataList extends $tea.Mod
       settlementType: 'settlement_type',
       status: 'status',
       taxRate: 'tax_rate',
+      thirdItineraryId: 'third_itinerary_id',
       ticketNo: 'ticket_no',
       ticketPrice: 'ticket_price',
       trainNo: 'train_no',
@@ -29247,8 +29342,13 @@ export class TrainBillSettlementQueryResponseBodyModuleDataList extends $tea.Mod
   static types(): { [key: string]: any } {
     return {
       alipayTradeNo: 'string',
+      applyArrCityCode: 'string',
+      applyArrCityName: 'string',
+      applyDepCityCode: 'string',
+      applyDepCityName: 'string',
       applyExtendField: 'string',
       applyId: 'string',
+      arrCityCode: 'string',
       arrDate: 'string',
       arrStation: 'string',
       arrTime: 'string',
@@ -29263,6 +29363,7 @@ export class TrainBillSettlementQueryResponseBodyModuleDataList extends $tea.Mod
       costCenter: 'string',
       costCenterNumber: 'string',
       coupon: 'number',
+      depCityCode: 'string',
       department: 'string',
       departmentId: 'string',
       deptDate: 'string',
@@ -29289,6 +29390,7 @@ export class TrainBillSettlementQueryResponseBodyModuleDataList extends $tea.Mod
       settlementType: 'string',
       status: 'number',
       taxRate: 'string',
+      thirdItineraryId: 'string',
       ticketNo: 'string',
       ticketPrice: 'number',
       trainNo: 'string',
