@@ -7307,6 +7307,84 @@ export class DescribeDomainResponse extends $tea.Model {
   }
 }
 
+export class DescribeGroupQpsRequest extends $tea.Model {
+  endTime?: string;
+  groupId?: string;
+  securityToken?: string;
+  stageName?: string;
+  startTime?: string;
+  static names(): { [key: string]: string } {
+    return {
+      endTime: 'EndTime',
+      groupId: 'GroupId',
+      securityToken: 'SecurityToken',
+      stageName: 'StageName',
+      startTime: 'StartTime',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      endTime: 'string',
+      groupId: 'string',
+      securityToken: 'string',
+      stageName: 'string',
+      startTime: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class DescribeGroupQpsResponseBody extends $tea.Model {
+  groupQps?: DescribeGroupQpsResponseBodyGroupQps;
+  requestId?: string;
+  static names(): { [key: string]: string } {
+    return {
+      groupQps: 'GroupQps',
+      requestId: 'RequestId',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      groupQps: DescribeGroupQpsResponseBodyGroupQps,
+      requestId: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class DescribeGroupQpsResponse extends $tea.Model {
+  headers: { [key: string]: string };
+  statusCode: number;
+  body: DescribeGroupQpsResponseBody;
+  static names(): { [key: string]: string } {
+    return {
+      headers: 'headers',
+      statusCode: 'statusCode',
+      body: 'body',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
+      body: DescribeGroupQpsResponseBody,
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
 export class DescribeHistoryApisRequest extends $tea.Model {
   apiId?: string;
   apiName?: string;
@@ -19841,6 +19919,47 @@ export class DescribeDeployedApisResponseBodyDeployedApis extends $tea.Model {
   }
 }
 
+export class DescribeGroupQpsResponseBodyGroupQpsMonitorItem extends $tea.Model {
+  itemTime?: string;
+  itemValue?: string;
+  static names(): { [key: string]: string } {
+    return {
+      itemTime: 'ItemTime',
+      itemValue: 'ItemValue',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      itemTime: 'string',
+      itemValue: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class DescribeGroupQpsResponseBodyGroupQps extends $tea.Model {
+  monitorItem?: DescribeGroupQpsResponseBodyGroupQpsMonitorItem[];
+  static names(): { [key: string]: string } {
+    return {
+      monitorItem: 'MonitorItem',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      monitorItem: { 'type': 'array', 'itemType': DescribeGroupQpsResponseBodyGroupQpsMonitorItem },
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
 export class DescribeHistoryApisResponseBodyApiHisItemsApiHisItem extends $tea.Model {
   apiId?: string;
   apiName?: string;
@@ -27168,6 +27287,51 @@ export default class Client extends OpenApi {
   async describeDomain(request: DescribeDomainRequest): Promise<DescribeDomainResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.describeDomainWithOptions(request, runtime);
+  }
+
+  async describeGroupQpsWithOptions(request: DescribeGroupQpsRequest, runtime: $Util.RuntimeOptions): Promise<DescribeGroupQpsResponse> {
+    Util.validateModel(request);
+    let query = { };
+    if (!Util.isUnset(request.endTime)) {
+      query["EndTime"] = request.endTime;
+    }
+
+    if (!Util.isUnset(request.groupId)) {
+      query["GroupId"] = request.groupId;
+    }
+
+    if (!Util.isUnset(request.securityToken)) {
+      query["SecurityToken"] = request.securityToken;
+    }
+
+    if (!Util.isUnset(request.stageName)) {
+      query["StageName"] = request.stageName;
+    }
+
+    if (!Util.isUnset(request.startTime)) {
+      query["StartTime"] = request.startTime;
+    }
+
+    let req = new $OpenApi.OpenApiRequest({
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApi.Params({
+      action: "DescribeGroupQps",
+      version: "2016-07-14",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $tea.cast<DescribeGroupQpsResponse>(await this.callApi(params, req, runtime), new DescribeGroupQpsResponse({}));
+  }
+
+  async describeGroupQps(request: DescribeGroupQpsRequest): Promise<DescribeGroupQpsResponse> {
+    let runtime = new $Util.RuntimeOptions({ });
+    return await this.describeGroupQpsWithOptions(request, runtime);
   }
 
   async describeHistoryApisWithOptions(request: DescribeHistoryApisRequest, runtime: $Util.RuntimeOptions): Promise<DescribeHistoryApisResponse> {
