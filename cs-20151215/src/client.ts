@@ -192,6 +192,34 @@ export class StandardComponentsValue extends $tea.Model {
   }
 }
 
+export class QuotasValue extends $tea.Model {
+  quota?: string;
+  operationCode?: string;
+  adjustable?: boolean;
+  unit?: string;
+  static names(): { [key: string]: string } {
+    return {
+      quota: 'quota',
+      operationCode: 'operation_code',
+      adjustable: 'adjustable',
+      unit: 'unit',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      quota: 'string',
+      operationCode: 'string',
+      adjustable: 'boolean',
+      unit: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
 export class AttachInstancesRequest extends $tea.Model {
   cpuPolicy?: string;
   formatDisk?: boolean;
@@ -286,6 +314,81 @@ export class AttachInstancesResponse extends $tea.Model {
       headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
       statusCode: 'number',
       body: AttachInstancesResponseBody,
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class AttachInstancesToNodePoolRequest extends $tea.Model {
+  formatDisk?: boolean;
+  instances?: string[];
+  keepInstanceName?: boolean;
+  password?: string;
+  static names(): { [key: string]: string } {
+    return {
+      formatDisk: 'format_disk',
+      instances: 'instances',
+      keepInstanceName: 'keep_instance_name',
+      password: 'password',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      formatDisk: 'boolean',
+      instances: { 'type': 'array', 'itemType': 'string' },
+      keepInstanceName: 'boolean',
+      password: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class AttachInstancesToNodePoolResponseBody extends $tea.Model {
+  requestId?: string;
+  taskId?: string;
+  static names(): { [key: string]: string } {
+    return {
+      requestId: 'request_id',
+      taskId: 'task_id',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      requestId: 'string',
+      taskId: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class AttachInstancesToNodePoolResponse extends $tea.Model {
+  headers: { [key: string]: string };
+  statusCode: number;
+  body: AttachInstancesToNodePoolResponseBody;
+  static names(): { [key: string]: string } {
+    return {
+      headers: 'headers',
+      statusCode: 'statusCode',
+      body: 'body',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
+      body: AttachInstancesToNodePoolResponseBody,
     };
   }
 
@@ -401,21 +504,88 @@ export class CancelWorkflowResponse extends $tea.Model {
   }
 }
 
+export class CheckControlPlaneLogEnableResponseBody extends $tea.Model {
+  aliuid?: string;
+  components?: string[];
+  logProject?: string;
+  logTtl?: string;
+  static names(): { [key: string]: string } {
+    return {
+      aliuid: 'aliuid',
+      components: 'components',
+      logProject: 'log_project',
+      logTtl: 'log_ttl',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      aliuid: 'string',
+      components: { 'type': 'array', 'itemType': 'string' },
+      logProject: 'string',
+      logTtl: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class CheckControlPlaneLogEnableResponse extends $tea.Model {
+  headers: { [key: string]: string };
+  statusCode: number;
+  body: CheckControlPlaneLogEnableResponseBody;
+  static names(): { [key: string]: string } {
+    return {
+      headers: 'headers',
+      statusCode: 'statusCode',
+      body: 'body',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
+      body: CheckControlPlaneLogEnableResponseBody,
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
 export class CreateAutoscalingConfigRequest extends $tea.Model {
   coolDownDuration?: string;
+  daemonsetEvictionForNodes?: boolean;
   expander?: string;
   gpuUtilizationThreshold?: string;
+  maxGracefulTerminationSec?: number;
+  minReplicaCount?: number;
+  recycleNodeDeletionEnabled?: boolean;
   scaleDownEnabled?: boolean;
+  scaleUpFromZero?: boolean;
   scanInterval?: string;
+  skipNodesWithLocalStorage?: boolean;
+  skipNodesWithSystemPods?: boolean;
   unneededDuration?: string;
   utilizationThreshold?: string;
   static names(): { [key: string]: string } {
     return {
       coolDownDuration: 'cool_down_duration',
+      daemonsetEvictionForNodes: 'daemonset_eviction_for_nodes',
       expander: 'expander',
       gpuUtilizationThreshold: 'gpu_utilization_threshold',
+      maxGracefulTerminationSec: 'max_graceful_termination_sec',
+      minReplicaCount: 'min_replica_count',
+      recycleNodeDeletionEnabled: 'recycle_node_deletion_enabled',
       scaleDownEnabled: 'scale_down_enabled',
+      scaleUpFromZero: 'scale_up_from_zero',
       scanInterval: 'scan_interval',
+      skipNodesWithLocalStorage: 'skip_nodes_with_local_storage',
+      skipNodesWithSystemPods: 'skip_nodes_with_system_pods',
       unneededDuration: 'unneeded_duration',
       utilizationThreshold: 'utilization_threshold',
     };
@@ -424,10 +594,17 @@ export class CreateAutoscalingConfigRequest extends $tea.Model {
   static types(): { [key: string]: any } {
     return {
       coolDownDuration: 'string',
+      daemonsetEvictionForNodes: 'boolean',
       expander: 'string',
       gpuUtilizationThreshold: 'string',
+      maxGracefulTerminationSec: 'number',
+      minReplicaCount: 'number',
+      recycleNodeDeletionEnabled: 'boolean',
       scaleDownEnabled: 'boolean',
+      scaleUpFromZero: 'boolean',
       scanInterval: 'string',
+      skipNodesWithLocalStorage: 'boolean',
+      skipNodesWithSystemPods: 'boolean',
       unneededDuration: 'string',
       utilizationThreshold: 'string',
     };
@@ -1289,13 +1466,34 @@ export class DeleteClusterShrinkRequest extends $tea.Model {
   }
 }
 
+export class DeleteClusterResponseBody extends $tea.Model {
+  taskId?: string;
+  static names(): { [key: string]: string } {
+    return {
+      taskId: 'task_id',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      taskId: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
 export class DeleteClusterResponse extends $tea.Model {
   headers: { [key: string]: string };
   statusCode: number;
+  body: DeleteClusterResponseBody;
   static names(): { [key: string]: string } {
     return {
       headers: 'headers',
       statusCode: 'statusCode',
+      body: 'body',
     };
   }
 
@@ -1303,6 +1501,7 @@ export class DeleteClusterResponse extends $tea.Model {
     return {
       headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
       statusCode: 'number',
+      body: DeleteClusterResponseBody,
     };
   }
 
@@ -1763,18 +1962,27 @@ export class DescirbeWorkflowResponse extends $tea.Model {
 }
 
 export class DescribeAddonsRequest extends $tea.Model {
+  clusterProfile?: string;
+  clusterSpec?: string;
   clusterType?: string;
+  clusterVersion?: string;
   region?: string;
   static names(): { [key: string]: string } {
     return {
+      clusterProfile: 'cluster_profile',
+      clusterSpec: 'cluster_spec',
       clusterType: 'cluster_type',
+      clusterVersion: 'cluster_version',
       region: 'region',
     };
   }
 
   static types(): { [key: string]: any } {
     return {
+      clusterProfile: 'string',
+      clusterSpec: 'string',
       clusterType: 'string',
+      clusterVersion: 'string',
       region: 'string',
     };
   }
@@ -1823,6 +2031,59 @@ export class DescribeAddonsResponse extends $tea.Model {
       headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
       statusCode: 'number',
       body: DescribeAddonsResponseBody,
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class DescribeClusterAddonInstanceResponseBody extends $tea.Model {
+  config?: string;
+  name?: string;
+  state?: string;
+  version?: string;
+  static names(): { [key: string]: string } {
+    return {
+      config: 'config',
+      name: 'name',
+      state: 'state',
+      version: 'version',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      config: 'string',
+      name: 'string',
+      state: 'string',
+      version: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class DescribeClusterAddonInstanceResponse extends $tea.Model {
+  headers: { [key: string]: string };
+  statusCode: number;
+  body: DescribeClusterAddonInstanceResponseBody;
+  static names(): { [key: string]: string } {
+    return {
+      headers: 'headers',
+      statusCode: 'statusCode',
+      body: 'body',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
+      body: DescribeClusterAddonInstanceResponseBody,
     };
   }
 
@@ -2069,6 +2330,7 @@ export class DescribeClusterDetailResponseBody extends $tea.Model {
   name?: string;
   networkMode?: string;
   nextVersion?: string;
+  parameters?: { [key: string]: string };
   privateZone?: boolean;
   profile?: string;
   regionId?: string;
@@ -2100,6 +2362,7 @@ export class DescribeClusterDetailResponseBody extends $tea.Model {
       name: 'name',
       networkMode: 'network_mode',
       nextVersion: 'next_version',
+      parameters: 'parameters',
       privateZone: 'private_zone',
       profile: 'profile',
       regionId: 'region_id',
@@ -2134,6 +2397,7 @@ export class DescribeClusterDetailResponseBody extends $tea.Model {
       name: 'string',
       networkMode: 'string',
       nextVersion: 'string',
+      parameters: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
       privateZone: 'boolean',
       profile: 'string',
       regionId: 'string',
@@ -2184,7 +2448,7 @@ export class DescribeClusterDetailResponse extends $tea.Model {
 export class DescribeClusterEventsRequest extends $tea.Model {
   pageNumber?: number;
   pageSize?: number;
-  taskId?: number;
+  taskId?: string;
   static names(): { [key: string]: string } {
     return {
       pageNumber: 'page_number',
@@ -2197,7 +2461,7 @@ export class DescribeClusterEventsRequest extends $tea.Model {
     return {
       pageNumber: 'number',
       pageSize: 'number',
-      taskId: 'number',
+      taskId: 'string',
     };
   }
 
@@ -2670,6 +2934,50 @@ export class DescribeClusterV2UserKubeconfigResponse extends $tea.Model {
       headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
       statusCode: 'number',
       body: DescribeClusterV2UserKubeconfigResponseBody,
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class DescribeClusterVulsResponseBody extends $tea.Model {
+  vulRecords?: DescribeClusterVulsResponseBodyVulRecords[];
+  static names(): { [key: string]: string } {
+    return {
+      vulRecords: 'vul_records',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      vulRecords: { 'type': 'array', 'itemType': DescribeClusterVulsResponseBodyVulRecords },
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class DescribeClusterVulsResponse extends $tea.Model {
+  headers: { [key: string]: string };
+  statusCode: number;
+  body: DescribeClusterVulsResponseBody;
+  static names(): { [key: string]: string } {
+    return {
+      headers: 'headers',
+      statusCode: 'statusCode',
+      body: 'body',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
+      body: DescribeClusterVulsResponseBody,
     };
   }
 
@@ -3193,6 +3501,7 @@ export class DescribeExternalAgentResponse extends $tea.Model {
 export class DescribeKubernetesVersionMetadataRequest extends $tea.Model {
   clusterType?: string;
   kubernetesVersion?: string;
+  mode?: string;
   profile?: string;
   region?: string;
   runtime?: string;
@@ -3200,6 +3509,7 @@ export class DescribeKubernetesVersionMetadataRequest extends $tea.Model {
     return {
       clusterType: 'ClusterType',
       kubernetesVersion: 'KubernetesVersion',
+      mode: 'Mode',
       profile: 'Profile',
       region: 'Region',
       runtime: 'runtime',
@@ -3210,6 +3520,7 @@ export class DescribeKubernetesVersionMetadataRequest extends $tea.Model {
     return {
       clusterType: 'string',
       kubernetesVersion: 'string',
+      mode: 'string',
       profile: 'string',
       region: 'string',
       runtime: 'string',
@@ -3238,6 +3549,25 @@ export class DescribeKubernetesVersionMetadataResponse extends $tea.Model {
       headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
       statusCode: 'number',
       body: { 'type': 'array', 'itemType': DescribeKubernetesVersionMetadataResponseBody },
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class DescribeNodePoolVulsRequest extends $tea.Model {
+  necessity?: string;
+  static names(): { [key: string]: string } {
+    return {
+      necessity: 'necessity',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      necessity: 'string',
     };
   }
 
@@ -3530,6 +3860,75 @@ export class DescribePolicyInstancesStatusResponse extends $tea.Model {
   }
 }
 
+export class DescribeSubaccountK8sClusterUserConfigRequest extends $tea.Model {
+  privateIpAddress?: boolean;
+  temporaryDurationMinutes?: number;
+  static names(): { [key: string]: string } {
+    return {
+      privateIpAddress: 'PrivateIpAddress',
+      temporaryDurationMinutes: 'TemporaryDurationMinutes',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      privateIpAddress: 'boolean',
+      temporaryDurationMinutes: 'number',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class DescribeSubaccountK8sClusterUserConfigResponseBody extends $tea.Model {
+  config?: string;
+  expiration?: string;
+  static names(): { [key: string]: string } {
+    return {
+      config: 'config',
+      expiration: 'expiration',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      config: 'string',
+      expiration: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class DescribeSubaccountK8sClusterUserConfigResponse extends $tea.Model {
+  headers: { [key: string]: string };
+  statusCode: number;
+  body: DescribeSubaccountK8sClusterUserConfigResponseBody;
+  static names(): { [key: string]: string } {
+    return {
+      headers: 'headers',
+      statusCode: 'statusCode',
+      body: 'body',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
+      body: DescribeSubaccountK8sClusterUserConfigResponseBody,
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
 export class DescribeTaskInfoResponseBody extends $tea.Model {
   clusterId?: string;
   created?: string;
@@ -3779,6 +4178,31 @@ export class DescribeTriggerResponse extends $tea.Model {
   }
 }
 
+export class DescribeUserClusterNamespacesResponse extends $tea.Model {
+  headers: { [key: string]: string };
+  statusCode: number;
+  body: string[];
+  static names(): { [key: string]: string } {
+    return {
+      headers: 'headers',
+      statusCode: 'statusCode',
+      body: 'body',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
+      body: { 'type': 'array', 'itemType': 'string' },
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
 export class DescribeUserPermissionResponse extends $tea.Model {
   headers: { [key: string]: string };
   statusCode: number;
@@ -3811,6 +4235,7 @@ export class DescribeUserQuotaResponseBody extends $tea.Model {
   clusterQuota?: number;
   edgeImprovedNodepoolQuota?: DescribeUserQuotaResponseBodyEdgeImprovedNodepoolQuota;
   nodeQuota?: number;
+  quotas?: { [key: string]: QuotasValue };
   static names(): { [key: string]: string } {
     return {
       amkClusterQuota: 'amk_cluster_quota',
@@ -3819,6 +4244,7 @@ export class DescribeUserQuotaResponseBody extends $tea.Model {
       clusterQuota: 'cluster_quota',
       edgeImprovedNodepoolQuota: 'edge_improved_nodepool_quota',
       nodeQuota: 'node_quota',
+      quotas: 'quotas',
     };
   }
 
@@ -3830,6 +4256,7 @@ export class DescribeUserQuotaResponseBody extends $tea.Model {
       clusterQuota: 'number',
       edgeImprovedNodepoolQuota: DescribeUserQuotaResponseBodyEdgeImprovedNodepoolQuota,
       nodeQuota: 'number',
+      quotas: { 'type': 'map', 'keyType': 'string', 'valueType': QuotasValue },
     };
   }
 
@@ -3982,12 +4409,12 @@ export class EdgeClusterAddEdgeMachineResponse extends $tea.Model {
 export class FixNodePoolVulsRequest extends $tea.Model {
   nodes?: string[];
   rolloutPolicy?: FixNodePoolVulsRequestRolloutPolicy;
-  vulList?: string[];
+  vuls?: string[];
   static names(): { [key: string]: string } {
     return {
       nodes: 'nodes',
       rolloutPolicy: 'rollout_policy',
-      vulList: 'vul_list',
+      vuls: 'vuls',
     };
   }
 
@@ -3995,7 +4422,7 @@ export class FixNodePoolVulsRequest extends $tea.Model {
     return {
       nodes: { 'type': 'array', 'itemType': 'string' },
       rolloutPolicy: FixNodePoolVulsRequestRolloutPolicy,
-      vulList: { 'type': 'array', 'itemType': 'string' },
+      vuls: { 'type': 'array', 'itemType': 'string' },
     };
   }
 
@@ -5048,11 +5475,13 @@ export class RemoveClusterNodesResponse extends $tea.Model {
 
 export class RemoveNodePoolNodesRequest extends $tea.Model {
   drainNode?: boolean;
+  instanceIds?: string[];
   nodes?: string[];
   releaseNode?: boolean;
   static names(): { [key: string]: string } {
     return {
       drainNode: 'drain_node',
+      instanceIds: 'instance_ids',
       nodes: 'nodes',
       releaseNode: 'release_node',
     };
@@ -5061,6 +5490,7 @@ export class RemoveNodePoolNodesRequest extends $tea.Model {
   static types(): { [key: string]: any } {
     return {
       drainNode: 'boolean',
+      instanceIds: { 'type': 'array', 'itemType': 'string' },
       nodes: { 'type': 'array', 'itemType': 'string' },
       releaseNode: 'boolean',
     };
@@ -5073,11 +5503,13 @@ export class RemoveNodePoolNodesRequest extends $tea.Model {
 
 export class RemoveNodePoolNodesShrinkRequest extends $tea.Model {
   drainNode?: boolean;
+  instanceIdsShrink?: string;
   nodesShrink?: string;
   releaseNode?: boolean;
   static names(): { [key: string]: string } {
     return {
       drainNode: 'drain_node',
+      instanceIdsShrink: 'instance_ids',
       nodesShrink: 'nodes',
       releaseNode: 'release_node',
     };
@@ -5086,6 +5518,7 @@ export class RemoveNodePoolNodesShrinkRequest extends $tea.Model {
   static types(): { [key: string]: any } {
     return {
       drainNode: 'boolean',
+      instanceIdsShrink: 'string',
       nodesShrink: 'string',
       releaseNode: 'boolean',
     };
@@ -5612,6 +6045,100 @@ export class ScaleOutClusterResponse extends $tea.Model {
   }
 }
 
+export class ScanClusterVulsResponseBody extends $tea.Model {
+  requestId?: string;
+  taskId?: string;
+  static names(): { [key: string]: string } {
+    return {
+      requestId: 'request_id',
+      taskId: 'task_id',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      requestId: 'string',
+      taskId: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class ScanClusterVulsResponse extends $tea.Model {
+  headers: { [key: string]: string };
+  statusCode: number;
+  body: ScanClusterVulsResponseBody;
+  static names(): { [key: string]: string } {
+    return {
+      headers: 'headers',
+      statusCode: 'statusCode',
+      body: 'body',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
+      body: ScanClusterVulsResponseBody,
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class StartAlertResponseBody extends $tea.Model {
+  msg?: string;
+  status?: boolean;
+  static names(): { [key: string]: string } {
+    return {
+      msg: 'msg',
+      status: 'status',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      msg: 'string',
+      status: 'boolean',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class StartAlertResponse extends $tea.Model {
+  headers: { [key: string]: string };
+  statusCode: number;
+  body: StartAlertResponseBody;
+  static names(): { [key: string]: string } {
+    return {
+      headers: 'headers',
+      statusCode: 'statusCode',
+      body: 'body',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
+      body: StartAlertResponseBody,
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
 export class StartWorkflowRequest extends $tea.Model {
   mappingBamOutFilename?: string;
   mappingBamOutPath?: string;
@@ -5721,6 +6248,97 @@ export class StartWorkflowResponse extends $tea.Model {
       headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
       statusCode: 'number',
       body: StartWorkflowResponseBody,
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class StopAlertResponseBody extends $tea.Model {
+  msg?: string;
+  status?: boolean;
+  static names(): { [key: string]: string } {
+    return {
+      msg: 'msg',
+      status: 'status',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      msg: 'string',
+      status: 'boolean',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class StopAlertResponse extends $tea.Model {
+  headers: { [key: string]: string };
+  statusCode: number;
+  body: StopAlertResponseBody;
+  static names(): { [key: string]: string } {
+    return {
+      headers: 'headers',
+      statusCode: 'statusCode',
+      body: 'body',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
+      body: StopAlertResponseBody,
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class SyncClusterNodePoolResponseBody extends $tea.Model {
+  requestId?: string;
+  static names(): { [key: string]: string } {
+    return {
+      requestId: 'RequestId',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      requestId: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class SyncClusterNodePoolResponse extends $tea.Model {
+  headers: { [key: string]: string };
+  statusCode: number;
+  body: SyncClusterNodePoolResponseBody;
+  static names(): { [key: string]: string } {
+    return {
+      headers: 'headers',
+      statusCode: 'statusCode',
+      body: 'body',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
+      body: SyncClusterNodePoolResponseBody,
     };
   }
 
@@ -5873,6 +6491,37 @@ export class UntagResourcesRequest extends $tea.Model {
   }
 }
 
+export class UntagResourcesShrinkRequest extends $tea.Model {
+  all?: boolean;
+  regionId?: string;
+  resourceIdsShrink?: string;
+  resourceType?: string;
+  tagKeysShrink?: string;
+  static names(): { [key: string]: string } {
+    return {
+      all: 'all',
+      regionId: 'region_id',
+      resourceIdsShrink: 'resource_ids',
+      resourceType: 'resource_type',
+      tagKeysShrink: 'tag_keys',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      all: 'boolean',
+      regionId: 'string',
+      resourceIdsShrink: 'string',
+      resourceType: 'string',
+      tagKeysShrink: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
 export class UntagResourcesResponseBody extends $tea.Model {
   requestId?: string;
   static names(): { [key: string]: string } {
@@ -5918,6 +6567,56 @@ export class UntagResourcesResponse extends $tea.Model {
 }
 
 export class UpdateContactGroupForAlertResponse extends $tea.Model {
+  headers: { [key: string]: string };
+  statusCode: number;
+  static names(): { [key: string]: string } {
+    return {
+      headers: 'headers',
+      statusCode: 'statusCode',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class UpdateControlPlaneLogRequest extends $tea.Model {
+  aliuid?: string;
+  components?: string[];
+  logProject?: string;
+  logTtl?: string;
+  static names(): { [key: string]: string } {
+    return {
+      aliuid: 'aliuid',
+      components: 'components',
+      logProject: 'log_project',
+      logTtl: 'log_ttl',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      aliuid: 'string',
+      components: { 'type': 'array', 'itemType': 'string' },
+      logProject: 'string',
+      logTtl: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class UpdateControlPlaneLogResponse extends $tea.Model {
   headers: { [key: string]: string };
   statusCode: number;
   static names(): { [key: string]: string } {
@@ -6038,11 +6737,13 @@ export class UpdateTemplateResponse extends $tea.Model {
 
 export class UpgradeClusterRequest extends $tea.Model {
   componentName?: string;
+  masterOnly?: boolean;
   nextVersion?: string;
   version?: string;
   static names(): { [key: string]: string } {
     return {
       componentName: 'component_name',
+      masterOnly: 'master_only',
       nextVersion: 'next_version',
       version: 'version',
     };
@@ -6051,6 +6752,7 @@ export class UpgradeClusterRequest extends $tea.Model {
   static types(): { [key: string]: any } {
     return {
       componentName: 'string',
+      masterOnly: 'boolean',
       nextVersion: 'string',
       version: 'string',
     };
@@ -6127,11 +6829,13 @@ export class UpgradeClusterAddonsResponse extends $tea.Model {
 export class UpgradeClusterNodepoolRequest extends $tea.Model {
   imageId?: string;
   kubernetesVersion?: string;
+  runtimeType?: string;
   runtimeVersion?: string;
   static names(): { [key: string]: string } {
     return {
       imageId: 'image_id',
       kubernetesVersion: 'kubernetes_version',
+      runtimeType: 'runtime_type',
       runtimeVersion: 'runtime_version',
     };
   }
@@ -6140,6 +6844,7 @@ export class UpgradeClusterNodepoolRequest extends $tea.Model {
     return {
       imageId: 'string',
       kubernetesVersion: 'string',
+      runtimeType: 'string',
       runtimeVersion: 'string',
     };
   }
@@ -6151,15 +6856,18 @@ export class UpgradeClusterNodepoolRequest extends $tea.Model {
 
 export class UpgradeClusterNodepoolResponseBody extends $tea.Model {
   requestId?: string;
+  taskId?: string;
   static names(): { [key: string]: string } {
     return {
       requestId: 'RequestId',
+      taskId: 'task_id',
     };
   }
 
   static types(): { [key: string]: any } {
     return {
       requestId: 'string',
+      taskId: 'string',
     };
   }
 
@@ -6432,6 +7140,28 @@ export class CreateClusterNodePoolRequestNodepoolInfo extends $tea.Model {
   }
 }
 
+export class CreateClusterNodePoolRequestScalingGroupPrivatePoolOptions extends $tea.Model {
+  id?: string;
+  matchCriteria?: string;
+  static names(): { [key: string]: string } {
+    return {
+      id: 'id',
+      matchCriteria: 'match_criteria',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      id: 'string',
+      matchCriteria: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
 export class CreateClusterNodePoolRequestScalingGroupSpotPriceLimit extends $tea.Model {
   instanceType?: string;
   priceLimit?: string;
@@ -6497,6 +7227,7 @@ export class CreateClusterNodePoolRequestScalingGroup extends $tea.Model {
   period?: number;
   periodUnit?: string;
   platform?: string;
+  privatePoolOptions?: CreateClusterNodePoolRequestScalingGroupPrivatePoolOptions;
   rdsInstances?: string[];
   scalingPolicy?: string;
   securityGroupId?: string;
@@ -6532,6 +7263,7 @@ export class CreateClusterNodePoolRequestScalingGroup extends $tea.Model {
       period: 'period',
       periodUnit: 'period_unit',
       platform: 'platform',
+      privatePoolOptions: 'private_pool_options',
       rdsInstances: 'rds_instances',
       scalingPolicy: 'scaling_policy',
       securityGroupId: 'security_group_id',
@@ -6570,6 +7302,7 @@ export class CreateClusterNodePoolRequestScalingGroup extends $tea.Model {
       period: 'number',
       periodUnit: 'string',
       platform: 'string',
+      privatePoolOptions: CreateClusterNodePoolRequestScalingGroupPrivatePoolOptions,
       rdsInstances: { 'type': 'array', 'itemType': 'string' },
       scalingPolicy: 'string',
       securityGroupId: 'string',
@@ -6970,6 +7703,28 @@ export class DescribeClusterNodePoolDetailResponseBodyNodepoolInfo extends $tea.
   }
 }
 
+export class DescribeClusterNodePoolDetailResponseBodyScalingGroupPrivatePoolOptions extends $tea.Model {
+  id?: string;
+  matchCriteria?: string;
+  static names(): { [key: string]: string } {
+    return {
+      id: 'id',
+      matchCriteria: 'match_criteria',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      id: 'string',
+      matchCriteria: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
 export class DescribeClusterNodePoolDetailResponseBodyScalingGroupSpotPriceLimit extends $tea.Model {
   instanceType?: string;
   priceLimit?: string;
@@ -7012,6 +7767,7 @@ export class DescribeClusterNodePoolDetailResponseBodyScalingGroup extends $tea.
   period?: number;
   periodUnit?: string;
   platform?: string;
+  privatePoolOptions?: DescribeClusterNodePoolDetailResponseBodyScalingGroupPrivatePoolOptions;
   ramPolicy?: string;
   rdsInstances?: string[];
   scalingGroupId?: string;
@@ -7048,6 +7804,7 @@ export class DescribeClusterNodePoolDetailResponseBodyScalingGroup extends $tea.
       period: 'period',
       periodUnit: 'period_unit',
       platform: 'platform',
+      privatePoolOptions: 'private_pool_options',
       ramPolicy: 'ram_policy',
       rdsInstances: 'rds_instances',
       scalingGroupId: 'scaling_group_id',
@@ -7087,6 +7844,7 @@ export class DescribeClusterNodePoolDetailResponseBodyScalingGroup extends $tea.
       period: 'number',
       periodUnit: 'string',
       platform: 'string',
+      privatePoolOptions: DescribeClusterNodePoolDetailResponseBodyScalingGroupPrivatePoolOptions,
       ramPolicy: 'string',
       rdsInstances: { 'type': 'array', 'itemType': 'string' },
       scalingGroupId: 'string',
@@ -7370,6 +8128,28 @@ export class DescribeClusterNodePoolsResponseBodyNodepoolsNodepoolInfo extends $
   }
 }
 
+export class DescribeClusterNodePoolsResponseBodyNodepoolsScalingGroupPrivatePoolOptions extends $tea.Model {
+  id?: string;
+  matchCriteria?: string;
+  static names(): { [key: string]: string } {
+    return {
+      id: 'id',
+      matchCriteria: 'match_criteria',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      id: 'string',
+      matchCriteria: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
 export class DescribeClusterNodePoolsResponseBodyNodepoolsScalingGroupSpotPriceLimit extends $tea.Model {
   instanceType?: string;
   priceLimit?: string;
@@ -7412,6 +8192,7 @@ export class DescribeClusterNodePoolsResponseBodyNodepoolsScalingGroup extends $
   period?: number;
   periodUnit?: string;
   platform?: string;
+  privatePoolOptions?: DescribeClusterNodePoolsResponseBodyNodepoolsScalingGroupPrivatePoolOptions;
   ramPolicy?: string;
   rdsInstances?: string[];
   scalingGroupId?: string;
@@ -7448,6 +8229,7 @@ export class DescribeClusterNodePoolsResponseBodyNodepoolsScalingGroup extends $
       period: 'period',
       periodUnit: 'period_unit',
       platform: 'platform',
+      privatePoolOptions: 'private_pool_options',
       ramPolicy: 'ram_policy',
       rdsInstances: 'rds_instances',
       scalingGroupId: 'scaling_group_id',
@@ -7487,6 +8269,7 @@ export class DescribeClusterNodePoolsResponseBodyNodepoolsScalingGroup extends $
       period: 'number',
       periodUnit: 'string',
       platform: 'string',
+      privatePoolOptions: DescribeClusterNodePoolsResponseBodyNodepoolsScalingGroupPrivatePoolOptions,
       ramPolicy: 'string',
       rdsInstances: { 'type': 'array', 'itemType': 'string' },
       scalingGroupId: 'string',
@@ -7826,6 +8609,46 @@ export class DescribeClusterTasksResponseBodyTasks extends $tea.Model {
       taskId: 'string',
       taskType: 'string',
       updated: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class DescribeClusterVulsResponseBodyVulRecords extends $tea.Model {
+  cveList?: string[];
+  necessity?: string;
+  nodeCount?: number;
+  nodepoolId?: string;
+  nodepoolName?: string;
+  vulAliasName?: string;
+  vulName?: string;
+  vulType?: string;
+  static names(): { [key: string]: string } {
+    return {
+      cveList: 'cve_list',
+      necessity: 'necessity',
+      nodeCount: 'node_count',
+      nodepoolId: 'nodepool_id',
+      nodepoolName: 'nodepool_name',
+      vulAliasName: 'vul_alias_name',
+      vulName: 'vul_name',
+      vulType: 'vul_type',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      cveList: { 'type': 'array', 'itemType': 'string' },
+      necessity: 'string',
+      nodeCount: 'number',
+      nodepoolId: 'string',
+      nodepoolName: 'string',
+      vulAliasName: 'string',
+      vulName: 'string',
+      vulType: 'string',
     };
   }
 
@@ -8331,7 +9154,9 @@ export class DescribeKubernetesVersionMetadataResponseBody extends $tea.Model {
   metaData?: { [key: string]: any };
   runtimes?: Runtime[];
   version?: string;
-  multiAz?: string;
+  releaseDate?: string;
+  expirationDate?: string;
+  creatable?: boolean;
   static names(): { [key: string]: string } {
     return {
       capabilities: 'capabilities',
@@ -8339,7 +9164,9 @@ export class DescribeKubernetesVersionMetadataResponseBody extends $tea.Model {
       metaData: 'meta_data',
       runtimes: 'runtimes',
       version: 'version',
-      multiAz: 'multi_az',
+      releaseDate: 'release_date',
+      expirationDate: 'expiration_date',
+      creatable: 'creatable',
     };
   }
 
@@ -8350,7 +9177,9 @@ export class DescribeKubernetesVersionMetadataResponseBody extends $tea.Model {
       metaData: { 'type': 'map', 'keyType': 'string', 'valueType': 'any' },
       runtimes: { 'type': 'array', 'itemType': Runtime },
       version: 'string',
-      multiAz: 'string',
+      releaseDate: 'string',
+      expirationDate: 'string',
+      creatable: 'boolean',
     };
   }
 
@@ -8389,10 +9218,12 @@ export class DescribeNodePoolVulsResponseBodyVulRecordsVulList extends $tea.Mode
 
 export class DescribeNodePoolVulsResponseBodyVulRecords extends $tea.Model {
   instanceId?: string;
+  nodeName?: string;
   vulList?: DescribeNodePoolVulsResponseBodyVulRecordsVulList[];
   static names(): { [key: string]: string } {
     return {
       instanceId: 'instance_id',
+      nodeName: 'node_name',
       vulList: 'vul_list',
     };
   }
@@ -8400,6 +9231,7 @@ export class DescribeNodePoolVulsResponseBodyVulRecords extends $tea.Model {
   static types(): { [key: string]: any } {
     return {
       instanceId: 'string',
+      nodeName: 'string',
       vulList: { 'type': 'array', 'itemType': DescribeNodePoolVulsResponseBodyVulRecordsVulList },
     };
   }
@@ -9460,6 +10292,28 @@ export class ModifyClusterNodePoolRequestNodepoolInfo extends $tea.Model {
   }
 }
 
+export class ModifyClusterNodePoolRequestScalingGroupPrivatePoolOptions extends $tea.Model {
+  id?: string;
+  matchCriteria?: string;
+  static names(): { [key: string]: string } {
+    return {
+      id: 'id',
+      matchCriteria: 'match_criteria',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      id: 'string',
+      matchCriteria: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
 export class ModifyClusterNodePoolRequestScalingGroupSpotPriceLimit extends $tea.Model {
   instanceType?: string;
   priceLimit?: string;
@@ -9501,6 +10355,7 @@ export class ModifyClusterNodePoolRequestScalingGroup extends $tea.Model {
   period?: number;
   periodUnit?: string;
   platform?: string;
+  privatePoolOptions?: ModifyClusterNodePoolRequestScalingGroupPrivatePoolOptions;
   rdsInstances?: string[];
   scalingPolicy?: string;
   spotInstancePools?: number;
@@ -9532,6 +10387,7 @@ export class ModifyClusterNodePoolRequestScalingGroup extends $tea.Model {
       period: 'period',
       periodUnit: 'period_unit',
       platform: 'platform',
+      privatePoolOptions: 'private_pool_options',
       rdsInstances: 'rds_instances',
       scalingPolicy: 'scaling_policy',
       spotInstancePools: 'spot_instance_pools',
@@ -9566,6 +10422,7 @@ export class ModifyClusterNodePoolRequestScalingGroup extends $tea.Model {
       period: 'number',
       periodUnit: 'string',
       platform: 'string',
+      privatePoolOptions: ModifyClusterNodePoolRequestScalingGroupPrivatePoolOptions,
       rdsInstances: { 'type': 'array', 'itemType': 'string' },
       scalingPolicy: 'string',
       spotInstancePools: 'number',
@@ -9798,12 +10655,14 @@ export class UpgradeClusterAddonsRequestBody extends $tea.Model {
   componentName?: string;
   config?: string;
   nextVersion?: string;
+  policy?: string;
   version?: string;
   static names(): { [key: string]: string } {
     return {
       componentName: 'component_name',
       config: 'config',
       nextVersion: 'next_version',
+      policy: 'policy',
       version: 'version',
     };
   }
@@ -9813,6 +10672,7 @@ export class UpgradeClusterAddonsRequestBody extends $tea.Model {
       componentName: 'string',
       config: 'string',
       nextVersion: 'string',
+      policy: 'string',
       version: 'string',
     };
   }
@@ -9878,12 +10738,6 @@ export default class Client extends OpenApi {
     return EndpointUtil.getEndpointRules(productId, regionId, endpointRule, network, suffix);
   }
 
-  async attachInstances(ClusterId: string, request: AttachInstancesRequest): Promise<AttachInstancesResponse> {
-    let runtime = new $Util.RuntimeOptions({ });
-    let headers : {[key: string ]: string} = { };
-    return await this.attachInstancesWithOptions(ClusterId, request, headers, runtime);
-  }
-
   async attachInstancesWithOptions(ClusterId: string, request: AttachInstancesRequest, headers: {[key: string ]: string}, runtime: $Util.RuntimeOptions): Promise<AttachInstancesResponse> {
     Util.validateModel(request);
     let body : {[key: string ]: any} = { };
@@ -9927,7 +10781,7 @@ export default class Client extends OpenApi {
       body["rds_instances"] = request.rdsInstances;
     }
 
-    if (!Util.isUnset($tea.toMap(request.runtime))) {
+    if (!Util.isUnset(request.runtime)) {
       body["runtime"] = request.runtime;
     }
 
@@ -9957,10 +10811,53 @@ export default class Client extends OpenApi {
     return $tea.cast<AttachInstancesResponse>(await this.callApi(params, req, runtime), new AttachInstancesResponse({}));
   }
 
-  async cancelClusterUpgrade(ClusterId: string): Promise<CancelClusterUpgradeResponse> {
+  async attachInstances(ClusterId: string, request: AttachInstancesRequest): Promise<AttachInstancesResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     let headers : {[key: string ]: string} = { };
-    return await this.cancelClusterUpgradeWithOptions(ClusterId, headers, runtime);
+    return await this.attachInstancesWithOptions(ClusterId, request, headers, runtime);
+  }
+
+  async attachInstancesToNodePoolWithOptions(ClusterId: string, NodepoolId: string, request: AttachInstancesToNodePoolRequest, headers: {[key: string ]: string}, runtime: $Util.RuntimeOptions): Promise<AttachInstancesToNodePoolResponse> {
+    Util.validateModel(request);
+    let body : {[key: string ]: any} = { };
+    if (!Util.isUnset(request.formatDisk)) {
+      body["format_disk"] = request.formatDisk;
+    }
+
+    if (!Util.isUnset(request.instances)) {
+      body["instances"] = request.instances;
+    }
+
+    if (!Util.isUnset(request.keepInstanceName)) {
+      body["keep_instance_name"] = request.keepInstanceName;
+    }
+
+    if (!Util.isUnset(request.password)) {
+      body["password"] = request.password;
+    }
+
+    let req = new $OpenApi.OpenApiRequest({
+      headers: headers,
+      body: OpenApiUtil.parseToMap(body),
+    });
+    let params = new $OpenApi.Params({
+      action: "AttachInstancesToNodePool",
+      version: "2015-12-15",
+      protocol: "HTTPS",
+      pathname: `/clusters/${OpenApiUtil.getEncodeParam(ClusterId)}/nodepools/${OpenApiUtil.getEncodeParam(NodepoolId)}/attach`,
+      method: "POST",
+      authType: "AK",
+      style: "ROA",
+      reqBodyType: "json",
+      bodyType: "json",
+    });
+    return $tea.cast<AttachInstancesToNodePoolResponse>(await this.callApi(params, req, runtime), new AttachInstancesToNodePoolResponse({}));
+  }
+
+  async attachInstancesToNodePool(ClusterId: string, NodepoolId: string, request: AttachInstancesToNodePoolRequest): Promise<AttachInstancesToNodePoolResponse> {
+    let runtime = new $Util.RuntimeOptions({ });
+    let headers : {[key: string ]: string} = { };
+    return await this.attachInstancesToNodePoolWithOptions(ClusterId, NodepoolId, request, headers, runtime);
   }
 
   async cancelClusterUpgradeWithOptions(ClusterId: string, headers: {[key: string ]: string}, runtime: $Util.RuntimeOptions): Promise<CancelClusterUpgradeResponse> {
@@ -9981,10 +10878,10 @@ export default class Client extends OpenApi {
     return $tea.cast<CancelClusterUpgradeResponse>(await this.callApi(params, req, runtime), new CancelClusterUpgradeResponse({}));
   }
 
-  async cancelComponentUpgrade(clusterId: string, componentId: string): Promise<CancelComponentUpgradeResponse> {
+  async cancelClusterUpgrade(ClusterId: string): Promise<CancelClusterUpgradeResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     let headers : {[key: string ]: string} = { };
-    return await this.cancelComponentUpgradeWithOptions(clusterId, componentId, headers, runtime);
+    return await this.cancelClusterUpgradeWithOptions(ClusterId, headers, runtime);
   }
 
   async cancelComponentUpgradeWithOptions(clusterId: string, componentId: string, headers: {[key: string ]: string}, runtime: $Util.RuntimeOptions): Promise<CancelComponentUpgradeResponse> {
@@ -10005,10 +10902,10 @@ export default class Client extends OpenApi {
     return $tea.cast<CancelComponentUpgradeResponse>(await this.callApi(params, req, runtime), new CancelComponentUpgradeResponse({}));
   }
 
-  async cancelTask(taskId: string): Promise<CancelTaskResponse> {
+  async cancelComponentUpgrade(clusterId: string, componentId: string): Promise<CancelComponentUpgradeResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     let headers : {[key: string ]: string} = { };
-    return await this.cancelTaskWithOptions(taskId, headers, runtime);
+    return await this.cancelComponentUpgradeWithOptions(clusterId, componentId, headers, runtime);
   }
 
   async cancelTaskWithOptions(taskId: string, headers: {[key: string ]: string}, runtime: $Util.RuntimeOptions): Promise<CancelTaskResponse> {
@@ -10029,10 +10926,10 @@ export default class Client extends OpenApi {
     return $tea.cast<CancelTaskResponse>(await this.callApi(params, req, runtime), new CancelTaskResponse({}));
   }
 
-  async cancelWorkflow(workflowName: string, request: CancelWorkflowRequest): Promise<CancelWorkflowResponse> {
+  async cancelTask(taskId: string): Promise<CancelTaskResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     let headers : {[key: string ]: string} = { };
-    return await this.cancelWorkflowWithOptions(workflowName, request, headers, runtime);
+    return await this.cancelTaskWithOptions(taskId, headers, runtime);
   }
 
   async cancelWorkflowWithOptions(workflowName: string, request: CancelWorkflowRequest, headers: {[key: string ]: string}, runtime: $Util.RuntimeOptions): Promise<CancelWorkflowResponse> {
@@ -10060,10 +10957,34 @@ export default class Client extends OpenApi {
     return $tea.cast<CancelWorkflowResponse>(await this.callApi(params, req, runtime), new CancelWorkflowResponse({}));
   }
 
-  async createAutoscalingConfig(ClusterId: string, request: CreateAutoscalingConfigRequest): Promise<CreateAutoscalingConfigResponse> {
+  async cancelWorkflow(workflowName: string, request: CancelWorkflowRequest): Promise<CancelWorkflowResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     let headers : {[key: string ]: string} = { };
-    return await this.createAutoscalingConfigWithOptions(ClusterId, request, headers, runtime);
+    return await this.cancelWorkflowWithOptions(workflowName, request, headers, runtime);
+  }
+
+  async checkControlPlaneLogEnableWithOptions(ClusterId: string, headers: {[key: string ]: string}, runtime: $Util.RuntimeOptions): Promise<CheckControlPlaneLogEnableResponse> {
+    let req = new $OpenApi.OpenApiRequest({
+      headers: headers,
+    });
+    let params = new $OpenApi.Params({
+      action: "CheckControlPlaneLogEnable",
+      version: "2015-12-15",
+      protocol: "HTTPS",
+      pathname: `/clusters/${OpenApiUtil.getEncodeParam(ClusterId)}/controlplanelog`,
+      method: "GET",
+      authType: "AK",
+      style: "ROA",
+      reqBodyType: "json",
+      bodyType: "json",
+    });
+    return $tea.cast<CheckControlPlaneLogEnableResponse>(await this.callApi(params, req, runtime), new CheckControlPlaneLogEnableResponse({}));
+  }
+
+  async checkControlPlaneLogEnable(ClusterId: string): Promise<CheckControlPlaneLogEnableResponse> {
+    let runtime = new $Util.RuntimeOptions({ });
+    let headers : {[key: string ]: string} = { };
+    return await this.checkControlPlaneLogEnableWithOptions(ClusterId, headers, runtime);
   }
 
   async createAutoscalingConfigWithOptions(ClusterId: string, request: CreateAutoscalingConfigRequest, headers: {[key: string ]: string}, runtime: $Util.RuntimeOptions): Promise<CreateAutoscalingConfigResponse> {
@@ -10071,6 +10992,10 @@ export default class Client extends OpenApi {
     let body : {[key: string ]: any} = { };
     if (!Util.isUnset(request.coolDownDuration)) {
       body["cool_down_duration"] = request.coolDownDuration;
+    }
+
+    if (!Util.isUnset(request.daemonsetEvictionForNodes)) {
+      body["daemonset_eviction_for_nodes"] = request.daemonsetEvictionForNodes;
     }
 
     if (!Util.isUnset(request.expander)) {
@@ -10081,12 +11006,36 @@ export default class Client extends OpenApi {
       body["gpu_utilization_threshold"] = request.gpuUtilizationThreshold;
     }
 
+    if (!Util.isUnset(request.maxGracefulTerminationSec)) {
+      body["max_graceful_termination_sec"] = request.maxGracefulTerminationSec;
+    }
+
+    if (!Util.isUnset(request.minReplicaCount)) {
+      body["min_replica_count"] = request.minReplicaCount;
+    }
+
+    if (!Util.isUnset(request.recycleNodeDeletionEnabled)) {
+      body["recycle_node_deletion_enabled"] = request.recycleNodeDeletionEnabled;
+    }
+
     if (!Util.isUnset(request.scaleDownEnabled)) {
       body["scale_down_enabled"] = request.scaleDownEnabled;
     }
 
+    if (!Util.isUnset(request.scaleUpFromZero)) {
+      body["scale_up_from_zero"] = request.scaleUpFromZero;
+    }
+
     if (!Util.isUnset(request.scanInterval)) {
       body["scan_interval"] = request.scanInterval;
+    }
+
+    if (!Util.isUnset(request.skipNodesWithLocalStorage)) {
+      body["skip_nodes_with_local_storage"] = request.skipNodesWithLocalStorage;
+    }
+
+    if (!Util.isUnset(request.skipNodesWithSystemPods)) {
+      body["skip_nodes_with_system_pods"] = request.skipNodesWithSystemPods;
     }
 
     if (!Util.isUnset(request.unneededDuration)) {
@@ -10115,10 +11064,10 @@ export default class Client extends OpenApi {
     return $tea.cast<CreateAutoscalingConfigResponse>(await this.callApi(params, req, runtime), new CreateAutoscalingConfigResponse({}));
   }
 
-  async createCluster(request: CreateClusterRequest): Promise<CreateClusterResponse> {
+  async createAutoscalingConfig(ClusterId: string, request: CreateAutoscalingConfigRequest): Promise<CreateAutoscalingConfigResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     let headers : {[key: string ]: string} = { };
-    return await this.createClusterWithOptions(request, headers, runtime);
+    return await this.createAutoscalingConfigWithOptions(ClusterId, request, headers, runtime);
   }
 
   async createClusterWithOptions(request: CreateClusterRequest, headers: {[key: string ]: string}, runtime: $Util.RuntimeOptions): Promise<CreateClusterResponse> {
@@ -10360,7 +11309,7 @@ export default class Client extends OpenApi {
       body["resource_group_id"] = request.resourceGroupId;
     }
 
-    if (!Util.isUnset($tea.toMap(request.runtime))) {
+    if (!Util.isUnset(request.runtime)) {
       body["runtime"] = request.runtime;
     }
 
@@ -10494,16 +11443,16 @@ export default class Client extends OpenApi {
     return $tea.cast<CreateClusterResponse>(await this.callApi(params, req, runtime), new CreateClusterResponse({}));
   }
 
-  async createClusterNodePool(ClusterId: string, request: CreateClusterNodePoolRequest): Promise<CreateClusterNodePoolResponse> {
+  async createCluster(request: CreateClusterRequest): Promise<CreateClusterResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     let headers : {[key: string ]: string} = { };
-    return await this.createClusterNodePoolWithOptions(ClusterId, request, headers, runtime);
+    return await this.createClusterWithOptions(request, headers, runtime);
   }
 
   async createClusterNodePoolWithOptions(ClusterId: string, request: CreateClusterNodePoolRequest, headers: {[key: string ]: string}, runtime: $Util.RuntimeOptions): Promise<CreateClusterNodePoolResponse> {
     Util.validateModel(request);
     let body : {[key: string ]: any} = { };
-    if (!Util.isUnset($tea.toMap(request.autoScaling))) {
+    if (!Util.isUnset(request.autoScaling)) {
       body["auto_scaling"] = request.autoScaling;
     }
 
@@ -10511,7 +11460,7 @@ export default class Client extends OpenApi {
       body["count"] = request.count;
     }
 
-    if (!Util.isUnset($tea.toMap(request.interconnectConfig))) {
+    if (!Util.isUnset(request.interconnectConfig)) {
       body["interconnect_config"] = request.interconnectConfig;
     }
 
@@ -10519,11 +11468,11 @@ export default class Client extends OpenApi {
       body["interconnect_mode"] = request.interconnectMode;
     }
 
-    if (!Util.isUnset($tea.toMap(request.kubernetesConfig))) {
+    if (!Util.isUnset(request.kubernetesConfig)) {
       body["kubernetes_config"] = request.kubernetesConfig;
     }
 
-    if (!Util.isUnset($tea.toMap(request.management))) {
+    if (!Util.isUnset(request.management)) {
       body["management"] = request.management;
     }
 
@@ -10531,15 +11480,15 @@ export default class Client extends OpenApi {
       body["max_nodes"] = request.maxNodes;
     }
 
-    if (!Util.isUnset($tea.toMap(request.nodepoolInfo))) {
+    if (!Util.isUnset(request.nodepoolInfo)) {
       body["nodepool_info"] = request.nodepoolInfo;
     }
 
-    if (!Util.isUnset($tea.toMap(request.scalingGroup))) {
+    if (!Util.isUnset(request.scalingGroup)) {
       body["scaling_group"] = request.scalingGroup;
     }
 
-    if (!Util.isUnset($tea.toMap(request.teeConfig))) {
+    if (!Util.isUnset(request.teeConfig)) {
       body["tee_config"] = request.teeConfig;
     }
 
@@ -10561,10 +11510,10 @@ export default class Client extends OpenApi {
     return $tea.cast<CreateClusterNodePoolResponse>(await this.callApi(params, req, runtime), new CreateClusterNodePoolResponse({}));
   }
 
-  async createEdgeMachine(request: CreateEdgeMachineRequest): Promise<CreateEdgeMachineResponse> {
+  async createClusterNodePool(ClusterId: string, request: CreateClusterNodePoolRequest): Promise<CreateClusterNodePoolResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     let headers : {[key: string ]: string} = { };
-    return await this.createEdgeMachineWithOptions(request, headers, runtime);
+    return await this.createClusterNodePoolWithOptions(ClusterId, request, headers, runtime);
   }
 
   async createEdgeMachineWithOptions(request: CreateEdgeMachineRequest, headers: {[key: string ]: string}, runtime: $Util.RuntimeOptions): Promise<CreateEdgeMachineResponse> {
@@ -10600,10 +11549,10 @@ export default class Client extends OpenApi {
     return $tea.cast<CreateEdgeMachineResponse>(await this.callApi(params, req, runtime), new CreateEdgeMachineResponse({}));
   }
 
-  async createKubernetesTrigger(request: CreateKubernetesTriggerRequest): Promise<CreateKubernetesTriggerResponse> {
+  async createEdgeMachine(request: CreateEdgeMachineRequest): Promise<CreateEdgeMachineResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     let headers : {[key: string ]: string} = { };
-    return await this.createKubernetesTriggerWithOptions(request, headers, runtime);
+    return await this.createEdgeMachineWithOptions(request, headers, runtime);
   }
 
   async createKubernetesTriggerWithOptions(request: CreateKubernetesTriggerRequest, headers: {[key: string ]: string}, runtime: $Util.RuntimeOptions): Promise<CreateKubernetesTriggerResponse> {
@@ -10643,10 +11592,10 @@ export default class Client extends OpenApi {
     return $tea.cast<CreateKubernetesTriggerResponse>(await this.callApi(params, req, runtime), new CreateKubernetesTriggerResponse({}));
   }
 
-  async createTemplate(request: CreateTemplateRequest): Promise<CreateTemplateResponse> {
+  async createKubernetesTrigger(request: CreateKubernetesTriggerRequest): Promise<CreateKubernetesTriggerResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     let headers : {[key: string ]: string} = { };
-    return await this.createTemplateWithOptions(request, headers, runtime);
+    return await this.createKubernetesTriggerWithOptions(request, headers, runtime);
   }
 
   async createTemplateWithOptions(request: CreateTemplateRequest, headers: {[key: string ]: string}, runtime: $Util.RuntimeOptions): Promise<CreateTemplateResponse> {
@@ -10690,10 +11639,10 @@ export default class Client extends OpenApi {
     return $tea.cast<CreateTemplateResponse>(await this.callApi(params, req, runtime), new CreateTemplateResponse({}));
   }
 
-  async createTrigger(clusterId: string, request: CreateTriggerRequest): Promise<CreateTriggerResponse> {
+  async createTemplate(request: CreateTemplateRequest): Promise<CreateTemplateResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     let headers : {[key: string ]: string} = { };
-    return await this.createTriggerWithOptions(clusterId, request, headers, runtime);
+    return await this.createTemplateWithOptions(request, headers, runtime);
   }
 
   async createTriggerWithOptions(clusterId: string, request: CreateTriggerRequest, headers: {[key: string ]: string}, runtime: $Util.RuntimeOptions): Promise<CreateTriggerResponse> {
@@ -10733,10 +11682,10 @@ export default class Client extends OpenApi {
     return $tea.cast<CreateTriggerResponse>(await this.callApi(params, req, runtime), new CreateTriggerResponse({}));
   }
 
-  async deleteAlertContact(): Promise<DeleteAlertContactResponse> {
+  async createTrigger(clusterId: string, request: CreateTriggerRequest): Promise<CreateTriggerResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     let headers : {[key: string ]: string} = { };
-    return await this.deleteAlertContactWithOptions(headers, runtime);
+    return await this.createTriggerWithOptions(clusterId, request, headers, runtime);
   }
 
   async deleteAlertContactWithOptions(headers: {[key: string ]: string}, runtime: $Util.RuntimeOptions): Promise<DeleteAlertContactResponse> {
@@ -10757,10 +11706,10 @@ export default class Client extends OpenApi {
     return $tea.cast<DeleteAlertContactResponse>(await this.callApi(params, req, runtime), new DeleteAlertContactResponse({}));
   }
 
-  async deleteAlertContactGroup(): Promise<DeleteAlertContactGroupResponse> {
+  async deleteAlertContact(): Promise<DeleteAlertContactResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     let headers : {[key: string ]: string} = { };
-    return await this.deleteAlertContactGroupWithOptions(headers, runtime);
+    return await this.deleteAlertContactWithOptions(headers, runtime);
   }
 
   async deleteAlertContactGroupWithOptions(headers: {[key: string ]: string}, runtime: $Util.RuntimeOptions): Promise<DeleteAlertContactGroupResponse> {
@@ -10781,10 +11730,10 @@ export default class Client extends OpenApi {
     return $tea.cast<DeleteAlertContactGroupResponse>(await this.callApi(params, req, runtime), new DeleteAlertContactGroupResponse({}));
   }
 
-  async deleteCluster(ClusterId: string, request: DeleteClusterRequest): Promise<DeleteClusterResponse> {
+  async deleteAlertContactGroup(): Promise<DeleteAlertContactGroupResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     let headers : {[key: string ]: string} = { };
-    return await this.deleteClusterWithOptions(ClusterId, request, headers, runtime);
+    return await this.deleteAlertContactGroupWithOptions(headers, runtime);
   }
 
   async deleteClusterWithOptions(ClusterId: string, tmpReq: DeleteClusterRequest, headers: {[key: string ]: string}, runtime: $Util.RuntimeOptions): Promise<DeleteClusterResponse> {
@@ -10821,15 +11770,15 @@ export default class Client extends OpenApi {
       authType: "AK",
       style: "ROA",
       reqBodyType: "json",
-      bodyType: "none",
+      bodyType: "json",
     });
     return $tea.cast<DeleteClusterResponse>(await this.callApi(params, req, runtime), new DeleteClusterResponse({}));
   }
 
-  async deleteClusterNodepool(ClusterId: string, NodepoolId: string, request: DeleteClusterNodepoolRequest): Promise<DeleteClusterNodepoolResponse> {
+  async deleteCluster(ClusterId: string, request: DeleteClusterRequest): Promise<DeleteClusterResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     let headers : {[key: string ]: string} = { };
-    return await this.deleteClusterNodepoolWithOptions(ClusterId, NodepoolId, request, headers, runtime);
+    return await this.deleteClusterWithOptions(ClusterId, request, headers, runtime);
   }
 
   async deleteClusterNodepoolWithOptions(ClusterId: string, NodepoolId: string, request: DeleteClusterNodepoolRequest, headers: {[key: string ]: string}, runtime: $Util.RuntimeOptions): Promise<DeleteClusterNodepoolResponse> {
@@ -10857,12 +11806,24 @@ export default class Client extends OpenApi {
     return $tea.cast<DeleteClusterNodepoolResponse>(await this.callApi(params, req, runtime), new DeleteClusterNodepoolResponse({}));
   }
 
-  async deleteClusterNodes(ClusterId: string, request: DeleteClusterNodesRequest): Promise<DeleteClusterNodesResponse> {
+  async deleteClusterNodepool(ClusterId: string, NodepoolId: string, request: DeleteClusterNodepoolRequest): Promise<DeleteClusterNodepoolResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     let headers : {[key: string ]: string} = { };
-    return await this.deleteClusterNodesWithOptions(ClusterId, request, headers, runtime);
+    return await this.deleteClusterNodepoolWithOptions(ClusterId, NodepoolId, request, headers, runtime);
   }
 
+  /**
+    * > 
+    * *   When you remove a node, the pods that run on the node are migrated to other nodes. This may cause service interruptions. We recommend that you remove nodes during off-peak hours.
+    * *   Unknown errors may occur when you remove nodes. Before you remove nodes, back up the data on the nodes.
+    * *   Nodes remain in the unschedulable state when they are being removed.
+    * *   You can remove only worker nodes by calling this operation.
+    *
+    * @param request DeleteClusterNodesRequest
+    * @param headers map
+    * @param runtime runtime options for this request RuntimeOptions
+    * @return DeleteClusterNodesResponse
+   */
   async deleteClusterNodesWithOptions(ClusterId: string, request: DeleteClusterNodesRequest, headers: {[key: string ]: string}, runtime: $Util.RuntimeOptions): Promise<DeleteClusterNodesResponse> {
     Util.validateModel(request);
     let body : {[key: string ]: any} = { };
@@ -10896,10 +11857,20 @@ export default class Client extends OpenApi {
     return $tea.cast<DeleteClusterNodesResponse>(await this.callApi(params, req, runtime), new DeleteClusterNodesResponse({}));
   }
 
-  async deleteEdgeMachine(edgeMachineid: string, request: DeleteEdgeMachineRequest): Promise<DeleteEdgeMachineResponse> {
+  /**
+    * > 
+    * *   When you remove a node, the pods that run on the node are migrated to other nodes. This may cause service interruptions. We recommend that you remove nodes during off-peak hours.
+    * *   Unknown errors may occur when you remove nodes. Before you remove nodes, back up the data on the nodes.
+    * *   Nodes remain in the unschedulable state when they are being removed.
+    * *   You can remove only worker nodes by calling this operation.
+    *
+    * @param request DeleteClusterNodesRequest
+    * @return DeleteClusterNodesResponse
+   */
+  async deleteClusterNodes(ClusterId: string, request: DeleteClusterNodesRequest): Promise<DeleteClusterNodesResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     let headers : {[key: string ]: string} = { };
-    return await this.deleteEdgeMachineWithOptions(edgeMachineid, request, headers, runtime);
+    return await this.deleteClusterNodesWithOptions(ClusterId, request, headers, runtime);
   }
 
   async deleteEdgeMachineWithOptions(edgeMachineid: string, request: DeleteEdgeMachineRequest, headers: {[key: string ]: string}, runtime: $Util.RuntimeOptions): Promise<DeleteEdgeMachineResponse> {
@@ -10927,10 +11898,10 @@ export default class Client extends OpenApi {
     return $tea.cast<DeleteEdgeMachineResponse>(await this.callApi(params, req, runtime), new DeleteEdgeMachineResponse({}));
   }
 
-  async deleteKubernetesTrigger(Id: string): Promise<DeleteKubernetesTriggerResponse> {
+  async deleteEdgeMachine(edgeMachineid: string, request: DeleteEdgeMachineRequest): Promise<DeleteEdgeMachineResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     let headers : {[key: string ]: string} = { };
-    return await this.deleteKubernetesTriggerWithOptions(Id, headers, runtime);
+    return await this.deleteEdgeMachineWithOptions(edgeMachineid, request, headers, runtime);
   }
 
   async deleteKubernetesTriggerWithOptions(Id: string, headers: {[key: string ]: string}, runtime: $Util.RuntimeOptions): Promise<DeleteKubernetesTriggerResponse> {
@@ -10951,10 +11922,10 @@ export default class Client extends OpenApi {
     return $tea.cast<DeleteKubernetesTriggerResponse>(await this.callApi(params, req, runtime), new DeleteKubernetesTriggerResponse({}));
   }
 
-  async deletePolicyInstance(clusterId: string, policyName: string, request: DeletePolicyInstanceRequest): Promise<DeletePolicyInstanceResponse> {
+  async deleteKubernetesTrigger(Id: string): Promise<DeleteKubernetesTriggerResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     let headers : {[key: string ]: string} = { };
-    return await this.deletePolicyInstanceWithOptions(clusterId, policyName, request, headers, runtime);
+    return await this.deleteKubernetesTriggerWithOptions(Id, headers, runtime);
   }
 
   async deletePolicyInstanceWithOptions(clusterId: string, policyName: string, request: DeletePolicyInstanceRequest, headers: {[key: string ]: string}, runtime: $Util.RuntimeOptions): Promise<DeletePolicyInstanceResponse> {
@@ -10982,10 +11953,10 @@ export default class Client extends OpenApi {
     return $tea.cast<DeletePolicyInstanceResponse>(await this.callApi(params, req, runtime), new DeletePolicyInstanceResponse({}));
   }
 
-  async deleteTemplate(TemplateId: string): Promise<DeleteTemplateResponse> {
+  async deletePolicyInstance(clusterId: string, policyName: string, request: DeletePolicyInstanceRequest): Promise<DeletePolicyInstanceResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     let headers : {[key: string ]: string} = { };
-    return await this.deleteTemplateWithOptions(TemplateId, headers, runtime);
+    return await this.deletePolicyInstanceWithOptions(clusterId, policyName, request, headers, runtime);
   }
 
   async deleteTemplateWithOptions(TemplateId: string, headers: {[key: string ]: string}, runtime: $Util.RuntimeOptions): Promise<DeleteTemplateResponse> {
@@ -11006,10 +11977,10 @@ export default class Client extends OpenApi {
     return $tea.cast<DeleteTemplateResponse>(await this.callApi(params, req, runtime), new DeleteTemplateResponse({}));
   }
 
-  async deleteTrigger(clusterId: string, Id: string): Promise<DeleteTriggerResponse> {
+  async deleteTemplate(TemplateId: string): Promise<DeleteTemplateResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     let headers : {[key: string ]: string} = { };
-    return await this.deleteTriggerWithOptions(clusterId, Id, headers, runtime);
+    return await this.deleteTemplateWithOptions(TemplateId, headers, runtime);
   }
 
   async deleteTriggerWithOptions(clusterId: string, Id: string, headers: {[key: string ]: string}, runtime: $Util.RuntimeOptions): Promise<DeleteTriggerResponse> {
@@ -11030,10 +12001,10 @@ export default class Client extends OpenApi {
     return $tea.cast<DeleteTriggerResponse>(await this.callApi(params, req, runtime), new DeleteTriggerResponse({}));
   }
 
-  async deployPolicyInstance(clusterId: string, policyName: string, request: DeployPolicyInstanceRequest): Promise<DeployPolicyInstanceResponse> {
+  async deleteTrigger(clusterId: string, Id: string): Promise<DeleteTriggerResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     let headers : {[key: string ]: string} = { };
-    return await this.deployPolicyInstanceWithOptions(clusterId, policyName, request, headers, runtime);
+    return await this.deleteTriggerWithOptions(clusterId, Id, headers, runtime);
   }
 
   async deployPolicyInstanceWithOptions(clusterId: string, policyName: string, request: DeployPolicyInstanceRequest, headers: {[key: string ]: string}, runtime: $Util.RuntimeOptions): Promise<DeployPolicyInstanceResponse> {
@@ -11069,10 +12040,10 @@ export default class Client extends OpenApi {
     return $tea.cast<DeployPolicyInstanceResponse>(await this.callApi(params, req, runtime), new DeployPolicyInstanceResponse({}));
   }
 
-  async descirbeWorkflow(workflowName: string): Promise<DescirbeWorkflowResponse> {
+  async deployPolicyInstance(clusterId: string, policyName: string, request: DeployPolicyInstanceRequest): Promise<DeployPolicyInstanceResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     let headers : {[key: string ]: string} = { };
-    return await this.descirbeWorkflowWithOptions(workflowName, headers, runtime);
+    return await this.deployPolicyInstanceWithOptions(clusterId, policyName, request, headers, runtime);
   }
 
   async descirbeWorkflowWithOptions(workflowName: string, headers: {[key: string ]: string}, runtime: $Util.RuntimeOptions): Promise<DescirbeWorkflowResponse> {
@@ -11093,17 +12064,29 @@ export default class Client extends OpenApi {
     return $tea.cast<DescirbeWorkflowResponse>(await this.callApi(params, req, runtime), new DescirbeWorkflowResponse({}));
   }
 
-  async describeAddons(request: DescribeAddonsRequest): Promise<DescribeAddonsResponse> {
+  async descirbeWorkflow(workflowName: string): Promise<DescirbeWorkflowResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     let headers : {[key: string ]: string} = { };
-    return await this.describeAddonsWithOptions(request, headers, runtime);
+    return await this.descirbeWorkflowWithOptions(workflowName, headers, runtime);
   }
 
   async describeAddonsWithOptions(request: DescribeAddonsRequest, headers: {[key: string ]: string}, runtime: $Util.RuntimeOptions): Promise<DescribeAddonsResponse> {
     Util.validateModel(request);
     let query : {[key: string ]: any} = { };
+    if (!Util.isUnset(request.clusterProfile)) {
+      query["cluster_profile"] = request.clusterProfile;
+    }
+
+    if (!Util.isUnset(request.clusterSpec)) {
+      query["cluster_spec"] = request.clusterSpec;
+    }
+
     if (!Util.isUnset(request.clusterType)) {
       query["cluster_type"] = request.clusterType;
+    }
+
+    if (!Util.isUnset(request.clusterVersion)) {
+      query["cluster_version"] = request.clusterVersion;
     }
 
     if (!Util.isUnset(request.region)) {
@@ -11128,10 +12111,34 @@ export default class Client extends OpenApi {
     return $tea.cast<DescribeAddonsResponse>(await this.callApi(params, req, runtime), new DescribeAddonsResponse({}));
   }
 
-  async describeClusterAddonMetadata(clusterId: string, componentId: string, version: string): Promise<DescribeClusterAddonMetadataResponse> {
+  async describeAddons(request: DescribeAddonsRequest): Promise<DescribeAddonsResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     let headers : {[key: string ]: string} = { };
-    return await this.describeClusterAddonMetadataWithOptions(clusterId, componentId, version, headers, runtime);
+    return await this.describeAddonsWithOptions(request, headers, runtime);
+  }
+
+  async describeClusterAddonInstanceWithOptions(ClusterID: string, AddonName: string, headers: {[key: string ]: string}, runtime: $Util.RuntimeOptions): Promise<DescribeClusterAddonInstanceResponse> {
+    let req = new $OpenApi.OpenApiRequest({
+      headers: headers,
+    });
+    let params = new $OpenApi.Params({
+      action: "DescribeClusterAddonInstance",
+      version: "2015-12-15",
+      protocol: "HTTPS",
+      pathname: `/clusters/${OpenApiUtil.getEncodeParam(ClusterID)}/components/${OpenApiUtil.getEncodeParam(AddonName)}/instance`,
+      method: "GET",
+      authType: "AK",
+      style: "ROA",
+      reqBodyType: "json",
+      bodyType: "json",
+    });
+    return $tea.cast<DescribeClusterAddonInstanceResponse>(await this.callApi(params, req, runtime), new DescribeClusterAddonInstanceResponse({}));
+  }
+
+  async describeClusterAddonInstance(ClusterID: string, AddonName: string): Promise<DescribeClusterAddonInstanceResponse> {
+    let runtime = new $Util.RuntimeOptions({ });
+    let headers : {[key: string ]: string} = { };
+    return await this.describeClusterAddonInstanceWithOptions(ClusterID, AddonName, headers, runtime);
   }
 
   async describeClusterAddonMetadataWithOptions(clusterId: string, componentId: string, version: string, headers: {[key: string ]: string}, runtime: $Util.RuntimeOptions): Promise<DescribeClusterAddonMetadataResponse> {
@@ -11152,12 +12159,20 @@ export default class Client extends OpenApi {
     return $tea.cast<DescribeClusterAddonMetadataResponse>(await this.callApi(params, req, runtime), new DescribeClusterAddonMetadataResponse({}));
   }
 
-  async describeClusterAddonUpgradeStatus(ClusterId: string, ComponentId: string): Promise<DescribeClusterAddonUpgradeStatusResponse> {
+  async describeClusterAddonMetadata(clusterId: string, componentId: string, version: string): Promise<DescribeClusterAddonMetadataResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     let headers : {[key: string ]: string} = { };
-    return await this.describeClusterAddonUpgradeStatusWithOptions(ClusterId, ComponentId, headers, runtime);
+    return await this.describeClusterAddonMetadataWithOptions(clusterId, componentId, version, headers, runtime);
   }
 
+  /**
+    * @deprecated
+    *
+    * @param headers map
+    * @param runtime runtime options for this request RuntimeOptions
+    * @return DescribeClusterAddonUpgradeStatusResponse
+   */
+  // Deprecated
   async describeClusterAddonUpgradeStatusWithOptions(ClusterId: string, ComponentId: string, headers: {[key: string ]: string}, runtime: $Util.RuntimeOptions): Promise<DescribeClusterAddonUpgradeStatusResponse> {
     let req = new $OpenApi.OpenApiRequest({
       headers: headers,
@@ -11176,10 +12191,16 @@ export default class Client extends OpenApi {
     return $tea.cast<DescribeClusterAddonUpgradeStatusResponse>(await this.callApi(params, req, runtime), new DescribeClusterAddonUpgradeStatusResponse({}));
   }
 
-  async describeClusterAddonsUpgradeStatus(ClusterId: string, request: DescribeClusterAddonsUpgradeStatusRequest): Promise<DescribeClusterAddonsUpgradeStatusResponse> {
+  /**
+    * @deprecated
+    *
+    * @return DescribeClusterAddonUpgradeStatusResponse
+   */
+  // Deprecated
+  async describeClusterAddonUpgradeStatus(ClusterId: string, ComponentId: string): Promise<DescribeClusterAddonUpgradeStatusResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     let headers : {[key: string ]: string} = { };
-    return await this.describeClusterAddonsUpgradeStatusWithOptions(ClusterId, request, headers, runtime);
+    return await this.describeClusterAddonUpgradeStatusWithOptions(ClusterId, ComponentId, headers, runtime);
   }
 
   async describeClusterAddonsUpgradeStatusWithOptions(ClusterId: string, tmpReq: DescribeClusterAddonsUpgradeStatusRequest, headers: {[key: string ]: string}, runtime: $Util.RuntimeOptions): Promise<DescribeClusterAddonsUpgradeStatusResponse> {
@@ -11213,10 +12234,10 @@ export default class Client extends OpenApi {
     return $tea.cast<DescribeClusterAddonsUpgradeStatusResponse>(await this.callApi(params, req, runtime), new DescribeClusterAddonsUpgradeStatusResponse({}));
   }
 
-  async describeClusterAddonsVersion(ClusterId: string): Promise<DescribeClusterAddonsVersionResponse> {
+  async describeClusterAddonsUpgradeStatus(ClusterId: string, request: DescribeClusterAddonsUpgradeStatusRequest): Promise<DescribeClusterAddonsUpgradeStatusResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     let headers : {[key: string ]: string} = { };
-    return await this.describeClusterAddonsVersionWithOptions(ClusterId, headers, runtime);
+    return await this.describeClusterAddonsUpgradeStatusWithOptions(ClusterId, request, headers, runtime);
   }
 
   async describeClusterAddonsVersionWithOptions(ClusterId: string, headers: {[key: string ]: string}, runtime: $Util.RuntimeOptions): Promise<DescribeClusterAddonsVersionResponse> {
@@ -11237,10 +12258,10 @@ export default class Client extends OpenApi {
     return $tea.cast<DescribeClusterAddonsVersionResponse>(await this.callApi(params, req, runtime), new DescribeClusterAddonsVersionResponse({}));
   }
 
-  async describeClusterAttachScripts(ClusterId: string, request: DescribeClusterAttachScriptsRequest): Promise<DescribeClusterAttachScriptsResponse> {
+  async describeClusterAddonsVersion(ClusterId: string): Promise<DescribeClusterAddonsVersionResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     let headers : {[key: string ]: string} = { };
-    return await this.describeClusterAttachScriptsWithOptions(ClusterId, request, headers, runtime);
+    return await this.describeClusterAddonsVersionWithOptions(ClusterId, headers, runtime);
   }
 
   async describeClusterAttachScriptsWithOptions(ClusterId: string, request: DescribeClusterAttachScriptsRequest, headers: {[key: string ]: string}, runtime: $Util.RuntimeOptions): Promise<DescribeClusterAttachScriptsResponse> {
@@ -11288,10 +12309,10 @@ export default class Client extends OpenApi {
     return $tea.cast<DescribeClusterAttachScriptsResponse>(await this.callApi(params, req, runtime), new DescribeClusterAttachScriptsResponse({}));
   }
 
-  async describeClusterDetail(ClusterId: string): Promise<DescribeClusterDetailResponse> {
+  async describeClusterAttachScripts(ClusterId: string, request: DescribeClusterAttachScriptsRequest): Promise<DescribeClusterAttachScriptsResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     let headers : {[key: string ]: string} = { };
-    return await this.describeClusterDetailWithOptions(ClusterId, headers, runtime);
+    return await this.describeClusterAttachScriptsWithOptions(ClusterId, request, headers, runtime);
   }
 
   async describeClusterDetailWithOptions(ClusterId: string, headers: {[key: string ]: string}, runtime: $Util.RuntimeOptions): Promise<DescribeClusterDetailResponse> {
@@ -11312,10 +12333,10 @@ export default class Client extends OpenApi {
     return $tea.cast<DescribeClusterDetailResponse>(await this.callApi(params, req, runtime), new DescribeClusterDetailResponse({}));
   }
 
-  async describeClusterEvents(ClusterId: string, request: DescribeClusterEventsRequest): Promise<DescribeClusterEventsResponse> {
+  async describeClusterDetail(ClusterId: string): Promise<DescribeClusterDetailResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     let headers : {[key: string ]: string} = { };
-    return await this.describeClusterEventsWithOptions(ClusterId, request, headers, runtime);
+    return await this.describeClusterDetailWithOptions(ClusterId, headers, runtime);
   }
 
   async describeClusterEventsWithOptions(ClusterId: string, request: DescribeClusterEventsRequest, headers: {[key: string ]: string}, runtime: $Util.RuntimeOptions): Promise<DescribeClusterEventsResponse> {
@@ -11351,10 +12372,10 @@ export default class Client extends OpenApi {
     return $tea.cast<DescribeClusterEventsResponse>(await this.callApi(params, req, runtime), new DescribeClusterEventsResponse({}));
   }
 
-  async describeClusterLogs(ClusterId: string): Promise<DescribeClusterLogsResponse> {
+  async describeClusterEvents(ClusterId: string, request: DescribeClusterEventsRequest): Promise<DescribeClusterEventsResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     let headers : {[key: string ]: string} = { };
-    return await this.describeClusterLogsWithOptions(ClusterId, headers, runtime);
+    return await this.describeClusterEventsWithOptions(ClusterId, request, headers, runtime);
   }
 
   async describeClusterLogsWithOptions(ClusterId: string, headers: {[key: string ]: string}, runtime: $Util.RuntimeOptions): Promise<DescribeClusterLogsResponse> {
@@ -11375,10 +12396,10 @@ export default class Client extends OpenApi {
     return $tea.cast<DescribeClusterLogsResponse>(await this.callApi(params, req, runtime), new DescribeClusterLogsResponse({}));
   }
 
-  async describeClusterNodePoolDetail(ClusterId: string, NodepoolId: string): Promise<DescribeClusterNodePoolDetailResponse> {
+  async describeClusterLogs(ClusterId: string): Promise<DescribeClusterLogsResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     let headers : {[key: string ]: string} = { };
-    return await this.describeClusterNodePoolDetailWithOptions(ClusterId, NodepoolId, headers, runtime);
+    return await this.describeClusterLogsWithOptions(ClusterId, headers, runtime);
   }
 
   async describeClusterNodePoolDetailWithOptions(ClusterId: string, NodepoolId: string, headers: {[key: string ]: string}, runtime: $Util.RuntimeOptions): Promise<DescribeClusterNodePoolDetailResponse> {
@@ -11399,10 +12420,10 @@ export default class Client extends OpenApi {
     return $tea.cast<DescribeClusterNodePoolDetailResponse>(await this.callApi(params, req, runtime), new DescribeClusterNodePoolDetailResponse({}));
   }
 
-  async describeClusterNodePools(ClusterId: string): Promise<DescribeClusterNodePoolsResponse> {
+  async describeClusterNodePoolDetail(ClusterId: string, NodepoolId: string): Promise<DescribeClusterNodePoolDetailResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     let headers : {[key: string ]: string} = { };
-    return await this.describeClusterNodePoolsWithOptions(ClusterId, headers, runtime);
+    return await this.describeClusterNodePoolDetailWithOptions(ClusterId, NodepoolId, headers, runtime);
   }
 
   async describeClusterNodePoolsWithOptions(ClusterId: string, headers: {[key: string ]: string}, runtime: $Util.RuntimeOptions): Promise<DescribeClusterNodePoolsResponse> {
@@ -11423,10 +12444,10 @@ export default class Client extends OpenApi {
     return $tea.cast<DescribeClusterNodePoolsResponse>(await this.callApi(params, req, runtime), new DescribeClusterNodePoolsResponse({}));
   }
 
-  async describeClusterNodes(ClusterId: string, request: DescribeClusterNodesRequest): Promise<DescribeClusterNodesResponse> {
+  async describeClusterNodePools(ClusterId: string): Promise<DescribeClusterNodePoolsResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     let headers : {[key: string ]: string} = { };
-    return await this.describeClusterNodesWithOptions(ClusterId, request, headers, runtime);
+    return await this.describeClusterNodePoolsWithOptions(ClusterId, headers, runtime);
   }
 
   async describeClusterNodesWithOptions(ClusterId: string, request: DescribeClusterNodesRequest, headers: {[key: string ]: string}, runtime: $Util.RuntimeOptions): Promise<DescribeClusterNodesResponse> {
@@ -11470,10 +12491,10 @@ export default class Client extends OpenApi {
     return $tea.cast<DescribeClusterNodesResponse>(await this.callApi(params, req, runtime), new DescribeClusterNodesResponse({}));
   }
 
-  async describeClusterResources(ClusterId: string): Promise<DescribeClusterResourcesResponse> {
+  async describeClusterNodes(ClusterId: string, request: DescribeClusterNodesRequest): Promise<DescribeClusterNodesResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     let headers : {[key: string ]: string} = { };
-    return await this.describeClusterResourcesWithOptions(ClusterId, headers, runtime);
+    return await this.describeClusterNodesWithOptions(ClusterId, request, headers, runtime);
   }
 
   async describeClusterResourcesWithOptions(ClusterId: string, headers: {[key: string ]: string}, runtime: $Util.RuntimeOptions): Promise<DescribeClusterResourcesResponse> {
@@ -11494,10 +12515,10 @@ export default class Client extends OpenApi {
     return $tea.cast<DescribeClusterResourcesResponse>(await this.callApi(params, req, runtime), new DescribeClusterResourcesResponse({}));
   }
 
-  async describeClusterTasks(clusterId: string): Promise<DescribeClusterTasksResponse> {
+  async describeClusterResources(ClusterId: string): Promise<DescribeClusterResourcesResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     let headers : {[key: string ]: string} = { };
-    return await this.describeClusterTasksWithOptions(clusterId, headers, runtime);
+    return await this.describeClusterResourcesWithOptions(ClusterId, headers, runtime);
   }
 
   async describeClusterTasksWithOptions(clusterId: string, headers: {[key: string ]: string}, runtime: $Util.RuntimeOptions): Promise<DescribeClusterTasksResponse> {
@@ -11518,10 +12539,10 @@ export default class Client extends OpenApi {
     return $tea.cast<DescribeClusterTasksResponse>(await this.callApi(params, req, runtime), new DescribeClusterTasksResponse({}));
   }
 
-  async describeClusterUserKubeconfig(ClusterId: string, request: DescribeClusterUserKubeconfigRequest): Promise<DescribeClusterUserKubeconfigResponse> {
+  async describeClusterTasks(clusterId: string): Promise<DescribeClusterTasksResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     let headers : {[key: string ]: string} = { };
-    return await this.describeClusterUserKubeconfigWithOptions(ClusterId, request, headers, runtime);
+    return await this.describeClusterTasksWithOptions(clusterId, headers, runtime);
   }
 
   async describeClusterUserKubeconfigWithOptions(ClusterId: string, request: DescribeClusterUserKubeconfigRequest, headers: {[key: string ]: string}, runtime: $Util.RuntimeOptions): Promise<DescribeClusterUserKubeconfigResponse> {
@@ -11553,12 +12574,21 @@ export default class Client extends OpenApi {
     return $tea.cast<DescribeClusterUserKubeconfigResponse>(await this.callApi(params, req, runtime), new DescribeClusterUserKubeconfigResponse({}));
   }
 
-  async describeClusterV2UserKubeconfig(ClusterId: string, request: DescribeClusterV2UserKubeconfigRequest): Promise<DescribeClusterV2UserKubeconfigResponse> {
+  async describeClusterUserKubeconfig(ClusterId: string, request: DescribeClusterUserKubeconfigRequest): Promise<DescribeClusterUserKubeconfigResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     let headers : {[key: string ]: string} = { };
-    return await this.describeClusterV2UserKubeconfigWithOptions(ClusterId, request, headers, runtime);
+    return await this.describeClusterUserKubeconfigWithOptions(ClusterId, request, headers, runtime);
   }
 
+  /**
+    * @deprecated
+    *
+    * @param request DescribeClusterV2UserKubeconfigRequest
+    * @param headers map
+    * @param runtime runtime options for this request RuntimeOptions
+    * @return DescribeClusterV2UserKubeconfigResponse
+   */
+  // Deprecated
   async describeClusterV2UserKubeconfigWithOptions(ClusterId: string, request: DescribeClusterV2UserKubeconfigRequest, headers: {[key: string ]: string}, runtime: $Util.RuntimeOptions): Promise<DescribeClusterV2UserKubeconfigResponse> {
     Util.validateModel(request);
     let query : {[key: string ]: any} = { };
@@ -11584,12 +12614,52 @@ export default class Client extends OpenApi {
     return $tea.cast<DescribeClusterV2UserKubeconfigResponse>(await this.callApi(params, req, runtime), new DescribeClusterV2UserKubeconfigResponse({}));
   }
 
-  async describeClusters(request: DescribeClustersRequest): Promise<DescribeClustersResponse> {
+  /**
+    * @deprecated
+    *
+    * @param request DescribeClusterV2UserKubeconfigRequest
+    * @return DescribeClusterV2UserKubeconfigResponse
+   */
+  // Deprecated
+  async describeClusterV2UserKubeconfig(ClusterId: string, request: DescribeClusterV2UserKubeconfigRequest): Promise<DescribeClusterV2UserKubeconfigResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     let headers : {[key: string ]: string} = { };
-    return await this.describeClustersWithOptions(request, headers, runtime);
+    return await this.describeClusterV2UserKubeconfigWithOptions(ClusterId, request, headers, runtime);
   }
 
+  async describeClusterVulsWithOptions(clusterId: string, headers: {[key: string ]: string}, runtime: $Util.RuntimeOptions): Promise<DescribeClusterVulsResponse> {
+    let req = new $OpenApi.OpenApiRequest({
+      headers: headers,
+    });
+    let params = new $OpenApi.Params({
+      action: "DescribeClusterVuls",
+      version: "2015-12-15",
+      protocol: "HTTPS",
+      pathname: `/clusters/${OpenApiUtil.getEncodeParam(clusterId)}/vuls`,
+      method: "GET",
+      authType: "AK",
+      style: "ROA",
+      reqBodyType: "json",
+      bodyType: "json",
+    });
+    return $tea.cast<DescribeClusterVulsResponse>(await this.callApi(params, req, runtime), new DescribeClusterVulsResponse({}));
+  }
+
+  async describeClusterVuls(clusterId: string): Promise<DescribeClusterVulsResponse> {
+    let runtime = new $Util.RuntimeOptions({ });
+    let headers : {[key: string ]: string} = { };
+    return await this.describeClusterVulsWithOptions(clusterId, headers, runtime);
+  }
+
+  /**
+    * @deprecated
+    *
+    * @param request DescribeClustersRequest
+    * @param headers map
+    * @param runtime runtime options for this request RuntimeOptions
+    * @return DescribeClustersResponse
+   */
+  // Deprecated
   async describeClustersWithOptions(request: DescribeClustersRequest, headers: {[key: string ]: string}, runtime: $Util.RuntimeOptions): Promise<DescribeClustersResponse> {
     Util.validateModel(request);
     let query : {[key: string ]: any} = { };
@@ -11619,10 +12689,17 @@ export default class Client extends OpenApi {
     return $tea.cast<DescribeClustersResponse>(await this.callApi(params, req, runtime), new DescribeClustersResponse({}));
   }
 
-  async describeClustersV1(request: DescribeClustersV1Request): Promise<DescribeClustersV1Response> {
+  /**
+    * @deprecated
+    *
+    * @param request DescribeClustersRequest
+    * @return DescribeClustersResponse
+   */
+  // Deprecated
+  async describeClusters(request: DescribeClustersRequest): Promise<DescribeClustersResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     let headers : {[key: string ]: string} = { };
-    return await this.describeClustersV1WithOptions(request, headers, runtime);
+    return await this.describeClustersWithOptions(request, headers, runtime);
   }
 
   async describeClustersV1WithOptions(request: DescribeClustersV1Request, headers: {[key: string ]: string}, runtime: $Util.RuntimeOptions): Promise<DescribeClustersV1Response> {
@@ -11674,10 +12751,10 @@ export default class Client extends OpenApi {
     return $tea.cast<DescribeClustersV1Response>(await this.callApi(params, req, runtime), new DescribeClustersV1Response({}));
   }
 
-  async describeEdgeMachineActiveProcess(edgeMachineid: string): Promise<DescribeEdgeMachineActiveProcessResponse> {
+  async describeClustersV1(request: DescribeClustersV1Request): Promise<DescribeClustersV1Response> {
     let runtime = new $Util.RuntimeOptions({ });
     let headers : {[key: string ]: string} = { };
-    return await this.describeEdgeMachineActiveProcessWithOptions(edgeMachineid, headers, runtime);
+    return await this.describeClustersV1WithOptions(request, headers, runtime);
   }
 
   async describeEdgeMachineActiveProcessWithOptions(edgeMachineid: string, headers: {[key: string ]: string}, runtime: $Util.RuntimeOptions): Promise<DescribeEdgeMachineActiveProcessResponse> {
@@ -11698,10 +12775,10 @@ export default class Client extends OpenApi {
     return $tea.cast<DescribeEdgeMachineActiveProcessResponse>(await this.callApi(params, req, runtime), new DescribeEdgeMachineActiveProcessResponse({}));
   }
 
-  async describeEdgeMachineModels(): Promise<DescribeEdgeMachineModelsResponse> {
+  async describeEdgeMachineActiveProcess(edgeMachineid: string): Promise<DescribeEdgeMachineActiveProcessResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     let headers : {[key: string ]: string} = { };
-    return await this.describeEdgeMachineModelsWithOptions(headers, runtime);
+    return await this.describeEdgeMachineActiveProcessWithOptions(edgeMachineid, headers, runtime);
   }
 
   async describeEdgeMachineModelsWithOptions(headers: {[key: string ]: string}, runtime: $Util.RuntimeOptions): Promise<DescribeEdgeMachineModelsResponse> {
@@ -11722,10 +12799,10 @@ export default class Client extends OpenApi {
     return $tea.cast<DescribeEdgeMachineModelsResponse>(await this.callApi(params, req, runtime), new DescribeEdgeMachineModelsResponse({}));
   }
 
-  async describeEdgeMachineTunnelConfigDetail(edgeMachineid: string): Promise<DescribeEdgeMachineTunnelConfigDetailResponse> {
+  async describeEdgeMachineModels(): Promise<DescribeEdgeMachineModelsResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     let headers : {[key: string ]: string} = { };
-    return await this.describeEdgeMachineTunnelConfigDetailWithOptions(edgeMachineid, headers, runtime);
+    return await this.describeEdgeMachineModelsWithOptions(headers, runtime);
   }
 
   async describeEdgeMachineTunnelConfigDetailWithOptions(edgeMachineid: string, headers: {[key: string ]: string}, runtime: $Util.RuntimeOptions): Promise<DescribeEdgeMachineTunnelConfigDetailResponse> {
@@ -11746,10 +12823,10 @@ export default class Client extends OpenApi {
     return $tea.cast<DescribeEdgeMachineTunnelConfigDetailResponse>(await this.callApi(params, req, runtime), new DescribeEdgeMachineTunnelConfigDetailResponse({}));
   }
 
-  async describeEdgeMachines(request: DescribeEdgeMachinesRequest): Promise<DescribeEdgeMachinesResponse> {
+  async describeEdgeMachineTunnelConfigDetail(edgeMachineid: string): Promise<DescribeEdgeMachineTunnelConfigDetailResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     let headers : {[key: string ]: string} = { };
-    return await this.describeEdgeMachinesWithOptions(request, headers, runtime);
+    return await this.describeEdgeMachineTunnelConfigDetailWithOptions(edgeMachineid, headers, runtime);
   }
 
   async describeEdgeMachinesWithOptions(request: DescribeEdgeMachinesRequest, headers: {[key: string ]: string}, runtime: $Util.RuntimeOptions): Promise<DescribeEdgeMachinesResponse> {
@@ -11797,10 +12874,10 @@ export default class Client extends OpenApi {
     return $tea.cast<DescribeEdgeMachinesResponse>(await this.callApi(params, req, runtime), new DescribeEdgeMachinesResponse({}));
   }
 
-  async describeEvents(request: DescribeEventsRequest): Promise<DescribeEventsResponse> {
+  async describeEdgeMachines(request: DescribeEdgeMachinesRequest): Promise<DescribeEdgeMachinesResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     let headers : {[key: string ]: string} = { };
-    return await this.describeEventsWithOptions(request, headers, runtime);
+    return await this.describeEdgeMachinesWithOptions(request, headers, runtime);
   }
 
   async describeEventsWithOptions(request: DescribeEventsRequest, headers: {[key: string ]: string}, runtime: $Util.RuntimeOptions): Promise<DescribeEventsResponse> {
@@ -11840,12 +12917,20 @@ export default class Client extends OpenApi {
     return $tea.cast<DescribeEventsResponse>(await this.callApi(params, req, runtime), new DescribeEventsResponse({}));
   }
 
-  async describeExternalAgent(ClusterId: string, request: DescribeExternalAgentRequest): Promise<DescribeExternalAgentResponse> {
+  async describeEvents(request: DescribeEventsRequest): Promise<DescribeEventsResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     let headers : {[key: string ]: string} = { };
-    return await this.describeExternalAgentWithOptions(ClusterId, request, headers, runtime);
+    return await this.describeEventsWithOptions(request, headers, runtime);
   }
 
+  /**
+    * For more information, see [Register an external Kubernetes cluster](~~121053~~).
+    *
+    * @param request DescribeExternalAgentRequest
+    * @param headers map
+    * @param runtime runtime options for this request RuntimeOptions
+    * @return DescribeExternalAgentResponse
+   */
   async describeExternalAgentWithOptions(ClusterId: string, request: DescribeExternalAgentRequest, headers: {[key: string ]: string}, runtime: $Util.RuntimeOptions): Promise<DescribeExternalAgentResponse> {
     Util.validateModel(request);
     let query : {[key: string ]: any} = { };
@@ -11871,10 +12956,16 @@ export default class Client extends OpenApi {
     return $tea.cast<DescribeExternalAgentResponse>(await this.callApi(params, req, runtime), new DescribeExternalAgentResponse({}));
   }
 
-  async describeKubernetesVersionMetadata(request: DescribeKubernetesVersionMetadataRequest): Promise<DescribeKubernetesVersionMetadataResponse> {
+  /**
+    * For more information, see [Register an external Kubernetes cluster](~~121053~~).
+    *
+    * @param request DescribeExternalAgentRequest
+    * @return DescribeExternalAgentResponse
+   */
+  async describeExternalAgent(ClusterId: string, request: DescribeExternalAgentRequest): Promise<DescribeExternalAgentResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     let headers : {[key: string ]: string} = { };
-    return await this.describeKubernetesVersionMetadataWithOptions(request, headers, runtime);
+    return await this.describeExternalAgentWithOptions(ClusterId, request, headers, runtime);
   }
 
   async describeKubernetesVersionMetadataWithOptions(request: DescribeKubernetesVersionMetadataRequest, headers: {[key: string ]: string}, runtime: $Util.RuntimeOptions): Promise<DescribeKubernetesVersionMetadataResponse> {
@@ -11886,6 +12977,10 @@ export default class Client extends OpenApi {
 
     if (!Util.isUnset(request.kubernetesVersion)) {
       query["KubernetesVersion"] = request.kubernetesVersion;
+    }
+
+    if (!Util.isUnset(request.mode)) {
+      query["Mode"] = request.mode;
     }
 
     if (!Util.isUnset(request.profile)) {
@@ -11918,15 +13013,22 @@ export default class Client extends OpenApi {
     return $tea.cast<DescribeKubernetesVersionMetadataResponse>(await this.callApi(params, req, runtime), new DescribeKubernetesVersionMetadataResponse({}));
   }
 
-  async describeNodePoolVuls(clusterId: string, nodepoolId: string): Promise<DescribeNodePoolVulsResponse> {
+  async describeKubernetesVersionMetadata(request: DescribeKubernetesVersionMetadataRequest): Promise<DescribeKubernetesVersionMetadataResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     let headers : {[key: string ]: string} = { };
-    return await this.describeNodePoolVulsWithOptions(clusterId, nodepoolId, headers, runtime);
+    return await this.describeKubernetesVersionMetadataWithOptions(request, headers, runtime);
   }
 
-  async describeNodePoolVulsWithOptions(clusterId: string, nodepoolId: string, headers: {[key: string ]: string}, runtime: $Util.RuntimeOptions): Promise<DescribeNodePoolVulsResponse> {
+  async describeNodePoolVulsWithOptions(clusterId: string, nodepoolId: string, request: DescribeNodePoolVulsRequest, headers: {[key: string ]: string}, runtime: $Util.RuntimeOptions): Promise<DescribeNodePoolVulsResponse> {
+    Util.validateModel(request);
+    let query : {[key: string ]: any} = { };
+    if (!Util.isUnset(request.necessity)) {
+      query["necessity"] = request.necessity;
+    }
+
     let req = new $OpenApi.OpenApiRequest({
       headers: headers,
+      query: OpenApiUtil.query(query),
     });
     let params = new $OpenApi.Params({
       action: "DescribeNodePoolVuls",
@@ -11942,10 +13044,10 @@ export default class Client extends OpenApi {
     return $tea.cast<DescribeNodePoolVulsResponse>(await this.callApi(params, req, runtime), new DescribeNodePoolVulsResponse({}));
   }
 
-  async describePolicies(): Promise<DescribePoliciesResponse> {
+  async describeNodePoolVuls(clusterId: string, nodepoolId: string, request: DescribeNodePoolVulsRequest): Promise<DescribeNodePoolVulsResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     let headers : {[key: string ]: string} = { };
-    return await this.describePoliciesWithOptions(headers, runtime);
+    return await this.describeNodePoolVulsWithOptions(clusterId, nodepoolId, request, headers, runtime);
   }
 
   async describePoliciesWithOptions(headers: {[key: string ]: string}, runtime: $Util.RuntimeOptions): Promise<DescribePoliciesResponse> {
@@ -11966,10 +13068,10 @@ export default class Client extends OpenApi {
     return $tea.cast<DescribePoliciesResponse>(await this.callApi(params, req, runtime), new DescribePoliciesResponse({}));
   }
 
-  async describePolicyDetails(policyName: string): Promise<DescribePolicyDetailsResponse> {
+  async describePolicies(): Promise<DescribePoliciesResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     let headers : {[key: string ]: string} = { };
-    return await this.describePolicyDetailsWithOptions(policyName, headers, runtime);
+    return await this.describePoliciesWithOptions(headers, runtime);
   }
 
   async describePolicyDetailsWithOptions(policyName: string, headers: {[key: string ]: string}, runtime: $Util.RuntimeOptions): Promise<DescribePolicyDetailsResponse> {
@@ -11990,10 +13092,10 @@ export default class Client extends OpenApi {
     return $tea.cast<DescribePolicyDetailsResponse>(await this.callApi(params, req, runtime), new DescribePolicyDetailsResponse({}));
   }
 
-  async describePolicyGovernanceInCluster(clusterId: string): Promise<DescribePolicyGovernanceInClusterResponse> {
+  async describePolicyDetails(policyName: string): Promise<DescribePolicyDetailsResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     let headers : {[key: string ]: string} = { };
-    return await this.describePolicyGovernanceInClusterWithOptions(clusterId, headers, runtime);
+    return await this.describePolicyDetailsWithOptions(policyName, headers, runtime);
   }
 
   async describePolicyGovernanceInClusterWithOptions(clusterId: string, headers: {[key: string ]: string}, runtime: $Util.RuntimeOptions): Promise<DescribePolicyGovernanceInClusterResponse> {
@@ -12014,10 +13116,10 @@ export default class Client extends OpenApi {
     return $tea.cast<DescribePolicyGovernanceInClusterResponse>(await this.callApi(params, req, runtime), new DescribePolicyGovernanceInClusterResponse({}));
   }
 
-  async describePolicyInstances(clusterId: string, request: DescribePolicyInstancesRequest): Promise<DescribePolicyInstancesResponse> {
+  async describePolicyGovernanceInCluster(clusterId: string): Promise<DescribePolicyGovernanceInClusterResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     let headers : {[key: string ]: string} = { };
-    return await this.describePolicyInstancesWithOptions(clusterId, request, headers, runtime);
+    return await this.describePolicyGovernanceInClusterWithOptions(clusterId, headers, runtime);
   }
 
   async describePolicyInstancesWithOptions(clusterId: string, request: DescribePolicyInstancesRequest, headers: {[key: string ]: string}, runtime: $Util.RuntimeOptions): Promise<DescribePolicyInstancesResponse> {
@@ -12049,10 +13151,10 @@ export default class Client extends OpenApi {
     return $tea.cast<DescribePolicyInstancesResponse>(await this.callApi(params, req, runtime), new DescribePolicyInstancesResponse({}));
   }
 
-  async describePolicyInstancesStatus(clusterId: string): Promise<DescribePolicyInstancesStatusResponse> {
+  async describePolicyInstances(clusterId: string, request: DescribePolicyInstancesRequest): Promise<DescribePolicyInstancesResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     let headers : {[key: string ]: string} = { };
-    return await this.describePolicyInstancesStatusWithOptions(clusterId, headers, runtime);
+    return await this.describePolicyInstancesWithOptions(clusterId, request, headers, runtime);
   }
 
   async describePolicyInstancesStatusWithOptions(clusterId: string, headers: {[key: string ]: string}, runtime: $Util.RuntimeOptions): Promise<DescribePolicyInstancesStatusResponse> {
@@ -12073,10 +13175,59 @@ export default class Client extends OpenApi {
     return $tea.cast<DescribePolicyInstancesStatusResponse>(await this.callApi(params, req, runtime), new DescribePolicyInstancesStatusResponse({}));
   }
 
-  async describeTaskInfo(taskId: string): Promise<DescribeTaskInfoResponse> {
+  async describePolicyInstancesStatus(clusterId: string): Promise<DescribePolicyInstancesStatusResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     let headers : {[key: string ]: string} = { };
-    return await this.describeTaskInfoWithOptions(taskId, headers, runtime);
+    return await this.describePolicyInstancesStatusWithOptions(clusterId, headers, runtime);
+  }
+
+  /**
+    * >  You can call this operation only with an Alibaba Cloud account.
+    *
+    * @param request DescribeSubaccountK8sClusterUserConfigRequest
+    * @param headers map
+    * @param runtime runtime options for this request RuntimeOptions
+    * @return DescribeSubaccountK8sClusterUserConfigResponse
+   */
+  async describeSubaccountK8sClusterUserConfigWithOptions(ClusterId: string, Uid: string, request: DescribeSubaccountK8sClusterUserConfigRequest, headers: {[key: string ]: string}, runtime: $Util.RuntimeOptions): Promise<DescribeSubaccountK8sClusterUserConfigResponse> {
+    Util.validateModel(request);
+    let query : {[key: string ]: any} = { };
+    if (!Util.isUnset(request.privateIpAddress)) {
+      query["PrivateIpAddress"] = request.privateIpAddress;
+    }
+
+    if (!Util.isUnset(request.temporaryDurationMinutes)) {
+      query["TemporaryDurationMinutes"] = request.temporaryDurationMinutes;
+    }
+
+    let req = new $OpenApi.OpenApiRequest({
+      headers: headers,
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApi.Params({
+      action: "DescribeSubaccountK8sClusterUserConfig",
+      version: "2015-12-15",
+      protocol: "HTTPS",
+      pathname: `/k8s/${OpenApiUtil.getEncodeParam(ClusterId)}/users/${OpenApiUtil.getEncodeParam(Uid)}/user_config`,
+      method: "GET",
+      authType: "AK",
+      style: "ROA",
+      reqBodyType: "json",
+      bodyType: "json",
+    });
+    return $tea.cast<DescribeSubaccountK8sClusterUserConfigResponse>(await this.callApi(params, req, runtime), new DescribeSubaccountK8sClusterUserConfigResponse({}));
+  }
+
+  /**
+    * >  You can call this operation only with an Alibaba Cloud account.
+    *
+    * @param request DescribeSubaccountK8sClusterUserConfigRequest
+    * @return DescribeSubaccountK8sClusterUserConfigResponse
+   */
+  async describeSubaccountK8sClusterUserConfig(ClusterId: string, Uid: string, request: DescribeSubaccountK8sClusterUserConfigRequest): Promise<DescribeSubaccountK8sClusterUserConfigResponse> {
+    let runtime = new $Util.RuntimeOptions({ });
+    let headers : {[key: string ]: string} = { };
+    return await this.describeSubaccountK8sClusterUserConfigWithOptions(ClusterId, Uid, request, headers, runtime);
   }
 
   async describeTaskInfoWithOptions(taskId: string, headers: {[key: string ]: string}, runtime: $Util.RuntimeOptions): Promise<DescribeTaskInfoResponse> {
@@ -12097,10 +13248,10 @@ export default class Client extends OpenApi {
     return $tea.cast<DescribeTaskInfoResponse>(await this.callApi(params, req, runtime), new DescribeTaskInfoResponse({}));
   }
 
-  async describeTemplateAttribute(TemplateId: string, request: DescribeTemplateAttributeRequest): Promise<DescribeTemplateAttributeResponse> {
+  async describeTaskInfo(taskId: string): Promise<DescribeTaskInfoResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     let headers : {[key: string ]: string} = { };
-    return await this.describeTemplateAttributeWithOptions(TemplateId, request, headers, runtime);
+    return await this.describeTaskInfoWithOptions(taskId, headers, runtime);
   }
 
   async describeTemplateAttributeWithOptions(TemplateId: string, request: DescribeTemplateAttributeRequest, headers: {[key: string ]: string}, runtime: $Util.RuntimeOptions): Promise<DescribeTemplateAttributeResponse> {
@@ -12128,10 +13279,10 @@ export default class Client extends OpenApi {
     return $tea.cast<DescribeTemplateAttributeResponse>(await this.callApi(params, req, runtime), new DescribeTemplateAttributeResponse({}));
   }
 
-  async describeTemplates(request: DescribeTemplatesRequest): Promise<DescribeTemplatesResponse> {
+  async describeTemplateAttribute(TemplateId: string, request: DescribeTemplateAttributeRequest): Promise<DescribeTemplateAttributeResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     let headers : {[key: string ]: string} = { };
-    return await this.describeTemplatesWithOptions(request, headers, runtime);
+    return await this.describeTemplateAttributeWithOptions(TemplateId, request, headers, runtime);
   }
 
   async describeTemplatesWithOptions(request: DescribeTemplatesRequest, headers: {[key: string ]: string}, runtime: $Util.RuntimeOptions): Promise<DescribeTemplatesResponse> {
@@ -12167,10 +13318,10 @@ export default class Client extends OpenApi {
     return $tea.cast<DescribeTemplatesResponse>(await this.callApi(params, req, runtime), new DescribeTemplatesResponse({}));
   }
 
-  async describeTrigger(clusterId: string, request: DescribeTriggerRequest): Promise<DescribeTriggerResponse> {
+  async describeTemplates(request: DescribeTemplatesRequest): Promise<DescribeTemplatesResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     let headers : {[key: string ]: string} = { };
-    return await this.describeTriggerWithOptions(clusterId, request, headers, runtime);
+    return await this.describeTemplatesWithOptions(request, headers, runtime);
   }
 
   async describeTriggerWithOptions(clusterId: string, request: DescribeTriggerRequest, headers: {[key: string ]: string}, runtime: $Util.RuntimeOptions): Promise<DescribeTriggerResponse> {
@@ -12200,7 +13351,7 @@ export default class Client extends OpenApi {
       action: "DescribeTrigger",
       version: "2015-12-15",
       protocol: "HTTPS",
-      pathname: `/clusters/%5Bcluster_id%5D/triggers`,
+      pathname: `/clusters/${OpenApiUtil.getEncodeParam(clusterId)}/triggers`,
       method: "GET",
       authType: "AK",
       style: "ROA",
@@ -12210,10 +13361,34 @@ export default class Client extends OpenApi {
     return $tea.cast<DescribeTriggerResponse>(await this.callApi(params, req, runtime), new DescribeTriggerResponse({}));
   }
 
-  async describeUserPermission(uid: string): Promise<DescribeUserPermissionResponse> {
+  async describeTrigger(clusterId: string, request: DescribeTriggerRequest): Promise<DescribeTriggerResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     let headers : {[key: string ]: string} = { };
-    return await this.describeUserPermissionWithOptions(uid, headers, runtime);
+    return await this.describeTriggerWithOptions(clusterId, request, headers, runtime);
+  }
+
+  async describeUserClusterNamespacesWithOptions(ClusterId: string, headers: {[key: string ]: string}, runtime: $Util.RuntimeOptions): Promise<DescribeUserClusterNamespacesResponse> {
+    let req = new $OpenApi.OpenApiRequest({
+      headers: headers,
+    });
+    let params = new $OpenApi.Params({
+      action: "DescribeUserClusterNamespaces",
+      version: "2015-12-15",
+      protocol: "HTTPS",
+      pathname: `/api/v2/k8s/${OpenApiUtil.getEncodeParam(ClusterId)}/namespaces`,
+      method: "GET",
+      authType: "AK",
+      style: "ROA",
+      reqBodyType: "json",
+      bodyType: "array",
+    });
+    return $tea.cast<DescribeUserClusterNamespacesResponse>(await this.callApi(params, req, runtime), new DescribeUserClusterNamespacesResponse({}));
+  }
+
+  async describeUserClusterNamespaces(ClusterId: string): Promise<DescribeUserClusterNamespacesResponse> {
+    let runtime = new $Util.RuntimeOptions({ });
+    let headers : {[key: string ]: string} = { };
+    return await this.describeUserClusterNamespacesWithOptions(ClusterId, headers, runtime);
   }
 
   async describeUserPermissionWithOptions(uid: string, headers: {[key: string ]: string}, runtime: $Util.RuntimeOptions): Promise<DescribeUserPermissionResponse> {
@@ -12234,10 +13409,10 @@ export default class Client extends OpenApi {
     return $tea.cast<DescribeUserPermissionResponse>(await this.callApi(params, req, runtime), new DescribeUserPermissionResponse({}));
   }
 
-  async describeUserQuota(): Promise<DescribeUserQuotaResponse> {
+  async describeUserPermission(uid: string): Promise<DescribeUserPermissionResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     let headers : {[key: string ]: string} = { };
-    return await this.describeUserQuotaWithOptions(headers, runtime);
+    return await this.describeUserPermissionWithOptions(uid, headers, runtime);
   }
 
   async describeUserQuotaWithOptions(headers: {[key: string ]: string}, runtime: $Util.RuntimeOptions): Promise<DescribeUserQuotaResponse> {
@@ -12258,10 +13433,10 @@ export default class Client extends OpenApi {
     return $tea.cast<DescribeUserQuotaResponse>(await this.callApi(params, req, runtime), new DescribeUserQuotaResponse({}));
   }
 
-  async describeWorkflows(): Promise<DescribeWorkflowsResponse> {
+  async describeUserQuota(): Promise<DescribeUserQuotaResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     let headers : {[key: string ]: string} = { };
-    return await this.describeWorkflowsWithOptions(headers, runtime);
+    return await this.describeUserQuotaWithOptions(headers, runtime);
   }
 
   async describeWorkflowsWithOptions(headers: {[key: string ]: string}, runtime: $Util.RuntimeOptions): Promise<DescribeWorkflowsResponse> {
@@ -12282,10 +13457,10 @@ export default class Client extends OpenApi {
     return $tea.cast<DescribeWorkflowsResponse>(await this.callApi(params, req, runtime), new DescribeWorkflowsResponse({}));
   }
 
-  async edgeClusterAddEdgeMachine(clusterid: string, edgeMachineid: string, request: EdgeClusterAddEdgeMachineRequest): Promise<EdgeClusterAddEdgeMachineResponse> {
+  async describeWorkflows(): Promise<DescribeWorkflowsResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     let headers : {[key: string ]: string} = { };
-    return await this.edgeClusterAddEdgeMachineWithOptions(clusterid, edgeMachineid, request, headers, runtime);
+    return await this.describeWorkflowsWithOptions(headers, runtime);
   }
 
   async edgeClusterAddEdgeMachineWithOptions(clusterid: string, edgeMachineid: string, request: EdgeClusterAddEdgeMachineRequest, headers: {[key: string ]: string}, runtime: $Util.RuntimeOptions): Promise<EdgeClusterAddEdgeMachineResponse> {
@@ -12321,10 +13496,10 @@ export default class Client extends OpenApi {
     return $tea.cast<EdgeClusterAddEdgeMachineResponse>(await this.callApi(params, req, runtime), new EdgeClusterAddEdgeMachineResponse({}));
   }
 
-  async fixNodePoolVuls(clusterId: string, nodepoolId: string, request: FixNodePoolVulsRequest): Promise<FixNodePoolVulsResponse> {
+  async edgeClusterAddEdgeMachine(clusterid: string, edgeMachineid: string, request: EdgeClusterAddEdgeMachineRequest): Promise<EdgeClusterAddEdgeMachineResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     let headers : {[key: string ]: string} = { };
-    return await this.fixNodePoolVulsWithOptions(clusterId, nodepoolId, request, headers, runtime);
+    return await this.edgeClusterAddEdgeMachineWithOptions(clusterid, edgeMachineid, request, headers, runtime);
   }
 
   async fixNodePoolVulsWithOptions(clusterId: string, nodepoolId: string, request: FixNodePoolVulsRequest, headers: {[key: string ]: string}, runtime: $Util.RuntimeOptions): Promise<FixNodePoolVulsResponse> {
@@ -12334,12 +13509,12 @@ export default class Client extends OpenApi {
       body["nodes"] = request.nodes;
     }
 
-    if (!Util.isUnset($tea.toMap(request.rolloutPolicy))) {
+    if (!Util.isUnset(request.rolloutPolicy)) {
       body["rollout_policy"] = request.rolloutPolicy;
     }
 
-    if (!Util.isUnset(request.vulList)) {
-      body["vul_list"] = request.vulList;
+    if (!Util.isUnset(request.vuls)) {
+      body["vuls"] = request.vuls;
     }
 
     let req = new $OpenApi.OpenApiRequest({
@@ -12360,10 +13535,10 @@ export default class Client extends OpenApi {
     return $tea.cast<FixNodePoolVulsResponse>(await this.callApi(params, req, runtime), new FixNodePoolVulsResponse({}));
   }
 
-  async getKubernetesTrigger(ClusterId: string, request: GetKubernetesTriggerRequest): Promise<GetKubernetesTriggerResponse> {
+  async fixNodePoolVuls(clusterId: string, nodepoolId: string, request: FixNodePoolVulsRequest): Promise<FixNodePoolVulsResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     let headers : {[key: string ]: string} = { };
-    return await this.getKubernetesTriggerWithOptions(ClusterId, request, headers, runtime);
+    return await this.fixNodePoolVulsWithOptions(clusterId, nodepoolId, request, headers, runtime);
   }
 
   async getKubernetesTriggerWithOptions(ClusterId: string, request: GetKubernetesTriggerRequest, headers: {[key: string ]: string}, runtime: $Util.RuntimeOptions): Promise<GetKubernetesTriggerResponse> {
@@ -12403,10 +13578,10 @@ export default class Client extends OpenApi {
     return $tea.cast<GetKubernetesTriggerResponse>(await this.callApi(params, req, runtime), new GetKubernetesTriggerResponse({}));
   }
 
-  async getUpgradeStatus(ClusterId: string): Promise<GetUpgradeStatusResponse> {
+  async getKubernetesTrigger(ClusterId: string, request: GetKubernetesTriggerRequest): Promise<GetKubernetesTriggerResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     let headers : {[key: string ]: string} = { };
-    return await this.getUpgradeStatusWithOptions(ClusterId, headers, runtime);
+    return await this.getKubernetesTriggerWithOptions(ClusterId, request, headers, runtime);
   }
 
   async getUpgradeStatusWithOptions(ClusterId: string, headers: {[key: string ]: string}, runtime: $Util.RuntimeOptions): Promise<GetUpgradeStatusResponse> {
@@ -12427,12 +13602,24 @@ export default class Client extends OpenApi {
     return $tea.cast<GetUpgradeStatusResponse>(await this.callApi(params, req, runtime), new GetUpgradeStatusResponse({}));
   }
 
-  async grantPermissions(uid: string, request: GrantPermissionsRequest): Promise<GrantPermissionsResponse> {
+  async getUpgradeStatus(ClusterId: string): Promise<GetUpgradeStatusResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     let headers : {[key: string ]: string} = { };
-    return await this.grantPermissionsWithOptions(uid, request, headers, runtime);
+    return await this.getUpgradeStatusWithOptions(ClusterId, headers, runtime);
   }
 
+  /**
+    * **Precautions**:
+    * *   Make sure that you have granted the specified RAM user at least read permissions on the specified cluster by attaching RAM policies. Otherwise, the `ErrorRamPolicyConfig` error will be returned.
+    *     For more information about how to authorize a RAM user by attaching RAM policies, see [Create a custom RAM policy](~~86485~~).
+    * *   If you call this operation as a RAM user, make sure that this RAM user has the permissions to grant other RAM users the permissions to manage ACK clusters. Otherwise, the `StatusForbidden` or `ForbiddenGrantPermissions` errors will be returned. For more information, see [Use a RAM user to grant RBAC permissions to other RAM users](~~119035~~).
+    * *   This operation overwrites the permissions that have been granted to the specified RAM user. When you call this operation, make sure that the required permissions are included.
+    *
+    * @param request GrantPermissionsRequest
+    * @param headers map
+    * @param runtime runtime options for this request RuntimeOptions
+    * @return GrantPermissionsResponse
+   */
   async grantPermissionsWithOptions(uid: string, request: GrantPermissionsRequest, headers: {[key: string ]: string}, runtime: $Util.RuntimeOptions): Promise<GrantPermissionsResponse> {
     Util.validateModel(request);
     let req = new $OpenApi.OpenApiRequest({
@@ -12453,10 +13640,20 @@ export default class Client extends OpenApi {
     return $tea.cast<GrantPermissionsResponse>(await this.callApi(params, req, runtime), new GrantPermissionsResponse({}));
   }
 
-  async installClusterAddons(ClusterId: string, request: InstallClusterAddonsRequest): Promise<InstallClusterAddonsResponse> {
+  /**
+    * **Precautions**:
+    * *   Make sure that you have granted the specified RAM user at least read permissions on the specified cluster by attaching RAM policies. Otherwise, the `ErrorRamPolicyConfig` error will be returned.
+    *     For more information about how to authorize a RAM user by attaching RAM policies, see [Create a custom RAM policy](~~86485~~).
+    * *   If you call this operation as a RAM user, make sure that this RAM user has the permissions to grant other RAM users the permissions to manage ACK clusters. Otherwise, the `StatusForbidden` or `ForbiddenGrantPermissions` errors will be returned. For more information, see [Use a RAM user to grant RBAC permissions to other RAM users](~~119035~~).
+    * *   This operation overwrites the permissions that have been granted to the specified RAM user. When you call this operation, make sure that the required permissions are included.
+    *
+    * @param request GrantPermissionsRequest
+    * @return GrantPermissionsResponse
+   */
+  async grantPermissions(uid: string, request: GrantPermissionsRequest): Promise<GrantPermissionsResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     let headers : {[key: string ]: string} = { };
-    return await this.installClusterAddonsWithOptions(ClusterId, request, headers, runtime);
+    return await this.grantPermissionsWithOptions(uid, request, headers, runtime);
   }
 
   async installClusterAddonsWithOptions(ClusterId: string, request: InstallClusterAddonsRequest, headers: {[key: string ]: string}, runtime: $Util.RuntimeOptions): Promise<InstallClusterAddonsResponse> {
@@ -12479,10 +13676,10 @@ export default class Client extends OpenApi {
     return $tea.cast<InstallClusterAddonsResponse>(await this.callApi(params, req, runtime), new InstallClusterAddonsResponse({}));
   }
 
-  async listTagResources(request: ListTagResourcesRequest): Promise<ListTagResourcesResponse> {
+  async installClusterAddons(ClusterId: string, request: InstallClusterAddonsRequest): Promise<InstallClusterAddonsResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     let headers : {[key: string ]: string} = { };
-    return await this.listTagResourcesWithOptions(request, headers, runtime);
+    return await this.installClusterAddonsWithOptions(ClusterId, request, headers, runtime);
   }
 
   async listTagResourcesWithOptions(tmpReq: ListTagResourcesRequest, headers: {[key: string ]: string}, runtime: $Util.RuntimeOptions): Promise<ListTagResourcesResponse> {
@@ -12536,10 +13733,10 @@ export default class Client extends OpenApi {
     return $tea.cast<ListTagResourcesResponse>(await this.callApi(params, req, runtime), new ListTagResourcesResponse({}));
   }
 
-  async migrateCluster(clusterId: string, request: MigrateClusterRequest): Promise<MigrateClusterResponse> {
+  async listTagResources(request: ListTagResourcesRequest): Promise<ListTagResourcesResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     let headers : {[key: string ]: string} = { };
-    return await this.migrateClusterWithOptions(clusterId, request, headers, runtime);
+    return await this.listTagResourcesWithOptions(request, headers, runtime);
   }
 
   async migrateClusterWithOptions(clusterId: string, request: MigrateClusterRequest, headers: {[key: string ]: string}, runtime: $Util.RuntimeOptions): Promise<MigrateClusterResponse> {
@@ -12571,10 +13768,10 @@ export default class Client extends OpenApi {
     return $tea.cast<MigrateClusterResponse>(await this.callApi(params, req, runtime), new MigrateClusterResponse({}));
   }
 
-  async modifyCluster(ClusterId: string, request: ModifyClusterRequest): Promise<ModifyClusterResponse> {
+  async migrateCluster(clusterId: string, request: MigrateClusterRequest): Promise<MigrateClusterResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     let headers : {[key: string ]: string} = { };
-    return await this.modifyClusterWithOptions(ClusterId, request, headers, runtime);
+    return await this.migrateClusterWithOptions(clusterId, request, headers, runtime);
   }
 
   async modifyClusterWithOptions(ClusterId: string, request: ModifyClusterRequest, headers: {[key: string ]: string}, runtime: $Util.RuntimeOptions): Promise<ModifyClusterResponse> {
@@ -12608,7 +13805,7 @@ export default class Client extends OpenApi {
       body["instance_deletion_protection"] = request.instanceDeletionProtection;
     }
 
-    if (!Util.isUnset($tea.toMap(request.maintenanceWindow))) {
+    if (!Util.isUnset(request.maintenanceWindow)) {
       body["maintenance_window"] = request.maintenanceWindow;
     }
 
@@ -12634,12 +13831,23 @@ export default class Client extends OpenApi {
     return $tea.cast<ModifyClusterResponse>(await this.callApi(params, req, runtime), new ModifyClusterResponse({}));
   }
 
-  async modifyClusterAddon(clusterId: string, componentId: string, request: ModifyClusterAddonRequest): Promise<ModifyClusterAddonResponse> {
+  async modifyCluster(ClusterId: string, request: ModifyClusterRequest): Promise<ModifyClusterResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     let headers : {[key: string ]: string} = { };
-    return await this.modifyClusterAddonWithOptions(clusterId, componentId, request, headers, runtime);
+    return await this.modifyClusterWithOptions(ClusterId, request, headers, runtime);
   }
 
+  /**
+    * You can use this API operation to modify the components in a Container Service for Kubernetes (ACK) cluster or the control plane components in an ACK Pro cluster.
+    * *   To query the customizable parameters of a component, call the `DescribeClusterAddonMetadata` API operation. For more information, see [Query the metadata of a specified component version](https://www.alibabacloud.com/help/zh/container-service-for-kubernetes/latest/query).
+    * *   For more information about the customizable parameters of control plane components in ACK Pro clusters, see [Customize the parameters of control plane components in ACK Pro clusters](https://www.alibabacloud.com/help/zh/container-service-for-kubernetes/latest/customize-control-plane-parameters-for-a-professional-kubernetes-cluster).
+    * After you call this operation, the component may be redeployed and restarted. We recommend that you evaluate the impact before you call this operation.
+    *
+    * @param request ModifyClusterAddonRequest
+    * @param headers map
+    * @param runtime runtime options for this request RuntimeOptions
+    * @return ModifyClusterAddonResponse
+   */
   async modifyClusterAddonWithOptions(clusterId: string, componentId: string, request: ModifyClusterAddonRequest, headers: {[key: string ]: string}, runtime: $Util.RuntimeOptions): Promise<ModifyClusterAddonResponse> {
     Util.validateModel(request);
     let body : {[key: string ]: any} = { };
@@ -12665,10 +13873,19 @@ export default class Client extends OpenApi {
     return $tea.cast<ModifyClusterAddonResponse>(await this.callApi(params, req, runtime), new ModifyClusterAddonResponse({}));
   }
 
-  async modifyClusterConfiguration(ClusterId: string, request: ModifyClusterConfigurationRequest): Promise<ModifyClusterConfigurationResponse> {
+  /**
+    * You can use this API operation to modify the components in a Container Service for Kubernetes (ACK) cluster or the control plane components in an ACK Pro cluster.
+    * *   To query the customizable parameters of a component, call the `DescribeClusterAddonMetadata` API operation. For more information, see [Query the metadata of a specified component version](https://www.alibabacloud.com/help/zh/container-service-for-kubernetes/latest/query).
+    * *   For more information about the customizable parameters of control plane components in ACK Pro clusters, see [Customize the parameters of control plane components in ACK Pro clusters](https://www.alibabacloud.com/help/zh/container-service-for-kubernetes/latest/customize-control-plane-parameters-for-a-professional-kubernetes-cluster).
+    * After you call this operation, the component may be redeployed and restarted. We recommend that you evaluate the impact before you call this operation.
+    *
+    * @param request ModifyClusterAddonRequest
+    * @return ModifyClusterAddonResponse
+   */
+  async modifyClusterAddon(clusterId: string, componentId: string, request: ModifyClusterAddonRequest): Promise<ModifyClusterAddonResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     let headers : {[key: string ]: string} = { };
-    return await this.modifyClusterConfigurationWithOptions(ClusterId, request, headers, runtime);
+    return await this.modifyClusterAddonWithOptions(clusterId, componentId, request, headers, runtime);
   }
 
   async modifyClusterConfigurationWithOptions(ClusterId: string, request: ModifyClusterConfigurationRequest, headers: {[key: string ]: string}, runtime: $Util.RuntimeOptions): Promise<ModifyClusterConfigurationResponse> {
@@ -12696,36 +13913,36 @@ export default class Client extends OpenApi {
     return $tea.cast<ModifyClusterConfigurationResponse>(await this.callApi(params, req, runtime), new ModifyClusterConfigurationResponse({}));
   }
 
-  async modifyClusterNodePool(ClusterId: string, NodepoolId: string, request: ModifyClusterNodePoolRequest): Promise<ModifyClusterNodePoolResponse> {
+  async modifyClusterConfiguration(ClusterId: string, request: ModifyClusterConfigurationRequest): Promise<ModifyClusterConfigurationResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     let headers : {[key: string ]: string} = { };
-    return await this.modifyClusterNodePoolWithOptions(ClusterId, NodepoolId, request, headers, runtime);
+    return await this.modifyClusterConfigurationWithOptions(ClusterId, request, headers, runtime);
   }
 
   async modifyClusterNodePoolWithOptions(ClusterId: string, NodepoolId: string, request: ModifyClusterNodePoolRequest, headers: {[key: string ]: string}, runtime: $Util.RuntimeOptions): Promise<ModifyClusterNodePoolResponse> {
     Util.validateModel(request);
     let body : {[key: string ]: any} = { };
-    if (!Util.isUnset($tea.toMap(request.autoScaling))) {
+    if (!Util.isUnset(request.autoScaling)) {
       body["auto_scaling"] = request.autoScaling;
     }
 
-    if (!Util.isUnset($tea.toMap(request.kubernetesConfig))) {
+    if (!Util.isUnset(request.kubernetesConfig)) {
       body["kubernetes_config"] = request.kubernetesConfig;
     }
 
-    if (!Util.isUnset($tea.toMap(request.management))) {
+    if (!Util.isUnset(request.management)) {
       body["management"] = request.management;
     }
 
-    if (!Util.isUnset($tea.toMap(request.nodepoolInfo))) {
+    if (!Util.isUnset(request.nodepoolInfo)) {
       body["nodepool_info"] = request.nodepoolInfo;
     }
 
-    if (!Util.isUnset($tea.toMap(request.scalingGroup))) {
+    if (!Util.isUnset(request.scalingGroup)) {
       body["scaling_group"] = request.scalingGroup;
     }
 
-    if (!Util.isUnset($tea.toMap(request.teeConfig))) {
+    if (!Util.isUnset(request.teeConfig)) {
       body["tee_config"] = request.teeConfig;
     }
 
@@ -12751,10 +13968,10 @@ export default class Client extends OpenApi {
     return $tea.cast<ModifyClusterNodePoolResponse>(await this.callApi(params, req, runtime), new ModifyClusterNodePoolResponse({}));
   }
 
-  async modifyClusterTags(ClusterId: string, request: ModifyClusterTagsRequest): Promise<ModifyClusterTagsResponse> {
+  async modifyClusterNodePool(ClusterId: string, NodepoolId: string, request: ModifyClusterNodePoolRequest): Promise<ModifyClusterNodePoolResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     let headers : {[key: string ]: string} = { };
-    return await this.modifyClusterTagsWithOptions(ClusterId, request, headers, runtime);
+    return await this.modifyClusterNodePoolWithOptions(ClusterId, NodepoolId, request, headers, runtime);
   }
 
   async modifyClusterTagsWithOptions(ClusterId: string, request: ModifyClusterTagsRequest, headers: {[key: string ]: string}, runtime: $Util.RuntimeOptions): Promise<ModifyClusterTagsResponse> {
@@ -12777,20 +13994,20 @@ export default class Client extends OpenApi {
     return $tea.cast<ModifyClusterTagsResponse>(await this.callApi(params, req, runtime), new ModifyClusterTagsResponse({}));
   }
 
-  async modifyNodePoolNodeConfig(ClusterId: string, NodepoolId: string, request: ModifyNodePoolNodeConfigRequest): Promise<ModifyNodePoolNodeConfigResponse> {
+  async modifyClusterTags(ClusterId: string, request: ModifyClusterTagsRequest): Promise<ModifyClusterTagsResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     let headers : {[key: string ]: string} = { };
-    return await this.modifyNodePoolNodeConfigWithOptions(ClusterId, NodepoolId, request, headers, runtime);
+    return await this.modifyClusterTagsWithOptions(ClusterId, request, headers, runtime);
   }
 
   async modifyNodePoolNodeConfigWithOptions(ClusterId: string, NodepoolId: string, request: ModifyNodePoolNodeConfigRequest, headers: {[key: string ]: string}, runtime: $Util.RuntimeOptions): Promise<ModifyNodePoolNodeConfigResponse> {
     Util.validateModel(request);
     let body : {[key: string ]: any} = { };
-    if (!Util.isUnset($tea.toMap(request.kubeletConfig))) {
+    if (!Util.isUnset(request.kubeletConfig)) {
       body["kubelet_config"] = request.kubeletConfig;
     }
 
-    if (!Util.isUnset($tea.toMap(request.rollingPolicy))) {
+    if (!Util.isUnset(request.rollingPolicy)) {
       body["rolling_policy"] = request.rollingPolicy;
     }
 
@@ -12812,10 +14029,10 @@ export default class Client extends OpenApi {
     return $tea.cast<ModifyNodePoolNodeConfigResponse>(await this.callApi(params, req, runtime), new ModifyNodePoolNodeConfigResponse({}));
   }
 
-  async modifyPolicyInstance(clusterId: string, policyName: string, request: ModifyPolicyInstanceRequest): Promise<ModifyPolicyInstanceResponse> {
+  async modifyNodePoolNodeConfig(ClusterId: string, NodepoolId: string, request: ModifyNodePoolNodeConfigRequest): Promise<ModifyNodePoolNodeConfigResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     let headers : {[key: string ]: string} = { };
-    return await this.modifyPolicyInstanceWithOptions(clusterId, policyName, request, headers, runtime);
+    return await this.modifyNodePoolNodeConfigWithOptions(ClusterId, NodepoolId, request, headers, runtime);
   }
 
   async modifyPolicyInstanceWithOptions(clusterId: string, policyName: string, request: ModifyPolicyInstanceRequest, headers: {[key: string ]: string}, runtime: $Util.RuntimeOptions): Promise<ModifyPolicyInstanceResponse> {
@@ -12855,12 +14072,20 @@ export default class Client extends OpenApi {
     return $tea.cast<ModifyPolicyInstanceResponse>(await this.callApi(params, req, runtime), new ModifyPolicyInstanceResponse({}));
   }
 
-  async openAckService(request: OpenAckServiceRequest): Promise<OpenAckServiceResponse> {
+  async modifyPolicyInstance(clusterId: string, policyName: string, request: ModifyPolicyInstanceRequest): Promise<ModifyPolicyInstanceResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     let headers : {[key: string ]: string} = { };
-    return await this.openAckServiceWithOptions(request, headers, runtime);
+    return await this.modifyPolicyInstanceWithOptions(clusterId, policyName, request, headers, runtime);
   }
 
+  /**
+    * You can activate ACK with Alibaba Cloud accounts or RAM users that have the authority of AdministratorAccess.
+    *
+    * @param request OpenAckServiceRequest
+    * @param headers map
+    * @param runtime runtime options for this request RuntimeOptions
+    * @return OpenAckServiceResponse
+   */
   async openAckServiceWithOptions(request: OpenAckServiceRequest, headers: {[key: string ]: string}, runtime: $Util.RuntimeOptions): Promise<OpenAckServiceResponse> {
     Util.validateModel(request);
     let query : {[key: string ]: any} = { };
@@ -12886,10 +14111,16 @@ export default class Client extends OpenApi {
     return $tea.cast<OpenAckServiceResponse>(await this.callApi(params, req, runtime), new OpenAckServiceResponse({}));
   }
 
-  async pauseClusterUpgrade(ClusterId: string): Promise<PauseClusterUpgradeResponse> {
+  /**
+    * You can activate ACK with Alibaba Cloud accounts or RAM users that have the authority of AdministratorAccess.
+    *
+    * @param request OpenAckServiceRequest
+    * @return OpenAckServiceResponse
+   */
+  async openAckService(request: OpenAckServiceRequest): Promise<OpenAckServiceResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     let headers : {[key: string ]: string} = { };
-    return await this.pauseClusterUpgradeWithOptions(ClusterId, headers, runtime);
+    return await this.openAckServiceWithOptions(request, headers, runtime);
   }
 
   async pauseClusterUpgradeWithOptions(ClusterId: string, headers: {[key: string ]: string}, runtime: $Util.RuntimeOptions): Promise<PauseClusterUpgradeResponse> {
@@ -12910,10 +14141,10 @@ export default class Client extends OpenApi {
     return $tea.cast<PauseClusterUpgradeResponse>(await this.callApi(params, req, runtime), new PauseClusterUpgradeResponse({}));
   }
 
-  async pauseComponentUpgrade(clusterid: string, componentid: string): Promise<PauseComponentUpgradeResponse> {
+  async pauseClusterUpgrade(ClusterId: string): Promise<PauseClusterUpgradeResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     let headers : {[key: string ]: string} = { };
-    return await this.pauseComponentUpgradeWithOptions(clusterid, componentid, headers, runtime);
+    return await this.pauseClusterUpgradeWithOptions(ClusterId, headers, runtime);
   }
 
   async pauseComponentUpgradeWithOptions(clusterid: string, componentid: string, headers: {[key: string ]: string}, runtime: $Util.RuntimeOptions): Promise<PauseComponentUpgradeResponse> {
@@ -12934,10 +14165,10 @@ export default class Client extends OpenApi {
     return $tea.cast<PauseComponentUpgradeResponse>(await this.callApi(params, req, runtime), new PauseComponentUpgradeResponse({}));
   }
 
-  async pauseTask(taskId: string): Promise<PauseTaskResponse> {
+  async pauseComponentUpgrade(clusterid: string, componentid: string): Promise<PauseComponentUpgradeResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     let headers : {[key: string ]: string} = { };
-    return await this.pauseTaskWithOptions(taskId, headers, runtime);
+    return await this.pauseComponentUpgradeWithOptions(clusterid, componentid, headers, runtime);
   }
 
   async pauseTaskWithOptions(taskId: string, headers: {[key: string ]: string}, runtime: $Util.RuntimeOptions): Promise<PauseTaskResponse> {
@@ -12958,12 +14189,21 @@ export default class Client extends OpenApi {
     return $tea.cast<PauseTaskResponse>(await this.callApi(params, req, runtime), new PauseTaskResponse({}));
   }
 
-  async removeClusterNodes(ClusterId: string, request: RemoveClusterNodesRequest): Promise<RemoveClusterNodesResponse> {
+  async pauseTask(taskId: string): Promise<PauseTaskResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     let headers : {[key: string ]: string} = { };
-    return await this.removeClusterNodesWithOptions(ClusterId, request, headers, runtime);
+    return await this.pauseTaskWithOptions(taskId, headers, runtime);
   }
 
+  /**
+    * @deprecated
+    *
+    * @param request RemoveClusterNodesRequest
+    * @param headers map
+    * @param runtime runtime options for this request RuntimeOptions
+    * @return RemoveClusterNodesResponse
+   */
+  // Deprecated
   async removeClusterNodesWithOptions(ClusterId: string, request: RemoveClusterNodesRequest, headers: {[key: string ]: string}, runtime: $Util.RuntimeOptions): Promise<RemoveClusterNodesResponse> {
     Util.validateModel(request);
     let body : {[key: string ]: any} = { };
@@ -12997,16 +14237,39 @@ export default class Client extends OpenApi {
     return $tea.cast<RemoveClusterNodesResponse>(await this.callApi(params, req, runtime), new RemoveClusterNodesResponse({}));
   }
 
-  async removeNodePoolNodes(ClusterId: string, NodepoolId: string, request: RemoveNodePoolNodesRequest): Promise<RemoveNodePoolNodesResponse> {
+  /**
+    * @deprecated
+    *
+    * @param request RemoveClusterNodesRequest
+    * @return RemoveClusterNodesResponse
+   */
+  // Deprecated
+  async removeClusterNodes(ClusterId: string, request: RemoveClusterNodesRequest): Promise<RemoveClusterNodesResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     let headers : {[key: string ]: string} = { };
-    return await this.removeNodePoolNodesWithOptions(ClusterId, NodepoolId, request, headers, runtime);
+    return await this.removeClusterNodesWithOptions(ClusterId, request, headers, runtime);
   }
 
+  /**
+    * > 
+    * *   When you remove a node, the pods that run on the node are migrated to other nodes. This may cause service interruptions. We recommend that you remove nodes during off-peak hours.
+    * *   Unknown errors may occur when you remove nodes. Before you remove nodes, back up the data on the nodes.
+    * *   Nodes remain in the Unschedulable state when they are being removed.
+    * *   You can remove only worker nodes. You cannot remove control planes.
+    *
+    * @param tmpReq RemoveNodePoolNodesRequest
+    * @param headers map
+    * @param runtime runtime options for this request RuntimeOptions
+    * @return RemoveNodePoolNodesResponse
+   */
   async removeNodePoolNodesWithOptions(ClusterId: string, NodepoolId: string, tmpReq: RemoveNodePoolNodesRequest, headers: {[key: string ]: string}, runtime: $Util.RuntimeOptions): Promise<RemoveNodePoolNodesResponse> {
     Util.validateModel(tmpReq);
     let request = new RemoveNodePoolNodesShrinkRequest({ });
     OpenApiUtil.convert(tmpReq, request);
+    if (!Util.isUnset(tmpReq.instanceIds)) {
+      request.instanceIdsShrink = OpenApiUtil.arrayToStringWithSpecifiedStyle(tmpReq.instanceIds, "instance_ids", "json");
+    }
+
     if (!Util.isUnset(tmpReq.nodes)) {
       request.nodesShrink = OpenApiUtil.arrayToStringWithSpecifiedStyle(tmpReq.nodes, "nodes", "json");
     }
@@ -13014,6 +14277,10 @@ export default class Client extends OpenApi {
     let query : {[key: string ]: any} = { };
     if (!Util.isUnset(request.drainNode)) {
       query["drain_node"] = request.drainNode;
+    }
+
+    if (!Util.isUnset(request.instanceIdsShrink)) {
+      query["instance_ids"] = request.instanceIdsShrink;
     }
 
     if (!Util.isUnset(request.nodesShrink)) {
@@ -13042,10 +14309,20 @@ export default class Client extends OpenApi {
     return $tea.cast<RemoveNodePoolNodesResponse>(await this.callApi(params, req, runtime), new RemoveNodePoolNodesResponse({}));
   }
 
-  async removeWorkflow(workflowName: string): Promise<RemoveWorkflowResponse> {
+  /**
+    * > 
+    * *   When you remove a node, the pods that run on the node are migrated to other nodes. This may cause service interruptions. We recommend that you remove nodes during off-peak hours.
+    * *   Unknown errors may occur when you remove nodes. Before you remove nodes, back up the data on the nodes.
+    * *   Nodes remain in the Unschedulable state when they are being removed.
+    * *   You can remove only worker nodes. You cannot remove control planes.
+    *
+    * @param request RemoveNodePoolNodesRequest
+    * @return RemoveNodePoolNodesResponse
+   */
+  async removeNodePoolNodes(ClusterId: string, NodepoolId: string, request: RemoveNodePoolNodesRequest): Promise<RemoveNodePoolNodesResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     let headers : {[key: string ]: string} = { };
-    return await this.removeWorkflowWithOptions(workflowName, headers, runtime);
+    return await this.removeNodePoolNodesWithOptions(ClusterId, NodepoolId, request, headers, runtime);
   }
 
   async removeWorkflowWithOptions(workflowName: string, headers: {[key: string ]: string}, runtime: $Util.RuntimeOptions): Promise<RemoveWorkflowResponse> {
@@ -13066,10 +14343,10 @@ export default class Client extends OpenApi {
     return $tea.cast<RemoveWorkflowResponse>(await this.callApi(params, req, runtime), new RemoveWorkflowResponse({}));
   }
 
-  async repairClusterNodePool(clusterId: string, nodepoolId: string, request: RepairClusterNodePoolRequest): Promise<RepairClusterNodePoolResponse> {
+  async removeWorkflow(workflowName: string): Promise<RemoveWorkflowResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     let headers : {[key: string ]: string} = { };
-    return await this.repairClusterNodePoolWithOptions(clusterId, nodepoolId, request, headers, runtime);
+    return await this.removeWorkflowWithOptions(workflowName, headers, runtime);
   }
 
   async repairClusterNodePoolWithOptions(clusterId: string, nodepoolId: string, request: RepairClusterNodePoolRequest, headers: {[key: string ]: string}, runtime: $Util.RuntimeOptions): Promise<RepairClusterNodePoolResponse> {
@@ -13097,10 +14374,10 @@ export default class Client extends OpenApi {
     return $tea.cast<RepairClusterNodePoolResponse>(await this.callApi(params, req, runtime), new RepairClusterNodePoolResponse({}));
   }
 
-  async resumeComponentUpgrade(clusterid: string, componentid: string): Promise<ResumeComponentUpgradeResponse> {
+  async repairClusterNodePool(clusterId: string, nodepoolId: string, request: RepairClusterNodePoolRequest): Promise<RepairClusterNodePoolResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     let headers : {[key: string ]: string} = { };
-    return await this.resumeComponentUpgradeWithOptions(clusterid, componentid, headers, runtime);
+    return await this.repairClusterNodePoolWithOptions(clusterId, nodepoolId, request, headers, runtime);
   }
 
   async resumeComponentUpgradeWithOptions(clusterid: string, componentid: string, headers: {[key: string ]: string}, runtime: $Util.RuntimeOptions): Promise<ResumeComponentUpgradeResponse> {
@@ -13121,10 +14398,10 @@ export default class Client extends OpenApi {
     return $tea.cast<ResumeComponentUpgradeResponse>(await this.callApi(params, req, runtime), new ResumeComponentUpgradeResponse({}));
   }
 
-  async resumeTask(taskId: string): Promise<ResumeTaskResponse> {
+  async resumeComponentUpgrade(clusterid: string, componentid: string): Promise<ResumeComponentUpgradeResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     let headers : {[key: string ]: string} = { };
-    return await this.resumeTaskWithOptions(taskId, headers, runtime);
+    return await this.resumeComponentUpgradeWithOptions(clusterid, componentid, headers, runtime);
   }
 
   async resumeTaskWithOptions(taskId: string, headers: {[key: string ]: string}, runtime: $Util.RuntimeOptions): Promise<ResumeTaskResponse> {
@@ -13145,10 +14422,10 @@ export default class Client extends OpenApi {
     return $tea.cast<ResumeTaskResponse>(await this.callApi(params, req, runtime), new ResumeTaskResponse({}));
   }
 
-  async resumeUpgradeCluster(ClusterId: string): Promise<ResumeUpgradeClusterResponse> {
+  async resumeTask(taskId: string): Promise<ResumeTaskResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     let headers : {[key: string ]: string} = { };
-    return await this.resumeUpgradeClusterWithOptions(ClusterId, headers, runtime);
+    return await this.resumeTaskWithOptions(taskId, headers, runtime);
   }
 
   async resumeUpgradeClusterWithOptions(ClusterId: string, headers: {[key: string ]: string}, runtime: $Util.RuntimeOptions): Promise<ResumeUpgradeClusterResponse> {
@@ -13169,12 +14446,21 @@ export default class Client extends OpenApi {
     return $tea.cast<ResumeUpgradeClusterResponse>(await this.callApi(params, req, runtime), new ResumeUpgradeClusterResponse({}));
   }
 
-  async scaleCluster(ClusterId: string, request: ScaleClusterRequest): Promise<ScaleClusterResponse> {
+  async resumeUpgradeCluster(ClusterId: string): Promise<ResumeUpgradeClusterResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     let headers : {[key: string ]: string} = { };
-    return await this.scaleClusterWithOptions(ClusterId, request, headers, runtime);
+    return await this.resumeUpgradeClusterWithOptions(ClusterId, headers, runtime);
   }
 
+  /**
+    * @deprecated
+    *
+    * @param request ScaleClusterRequest
+    * @param headers map
+    * @param runtime runtime options for this request RuntimeOptions
+    * @return ScaleClusterResponse
+   */
+  // Deprecated
   async scaleClusterWithOptions(ClusterId: string, request: ScaleClusterRequest, headers: {[key: string ]: string}, runtime: $Util.RuntimeOptions): Promise<ScaleClusterResponse> {
     Util.validateModel(request);
     let body : {[key: string ]: any} = { };
@@ -13272,10 +14558,17 @@ export default class Client extends OpenApi {
     return $tea.cast<ScaleClusterResponse>(await this.callApi(params, req, runtime), new ScaleClusterResponse({}));
   }
 
-  async scaleClusterNodePool(ClusterId: string, NodepoolId: string, request: ScaleClusterNodePoolRequest): Promise<ScaleClusterNodePoolResponse> {
+  /**
+    * @deprecated
+    *
+    * @param request ScaleClusterRequest
+    * @return ScaleClusterResponse
+   */
+  // Deprecated
+  async scaleCluster(ClusterId: string, request: ScaleClusterRequest): Promise<ScaleClusterResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     let headers : {[key: string ]: string} = { };
-    return await this.scaleClusterNodePoolWithOptions(ClusterId, NodepoolId, request, headers, runtime);
+    return await this.scaleClusterWithOptions(ClusterId, request, headers, runtime);
   }
 
   async scaleClusterNodePoolWithOptions(ClusterId: string, NodepoolId: string, request: ScaleClusterNodePoolRequest, headers: {[key: string ]: string}, runtime: $Util.RuntimeOptions): Promise<ScaleClusterNodePoolResponse> {
@@ -13303,12 +14596,20 @@ export default class Client extends OpenApi {
     return $tea.cast<ScaleClusterNodePoolResponse>(await this.callApi(params, req, runtime), new ScaleClusterNodePoolResponse({}));
   }
 
-  async scaleOutCluster(ClusterId: string, request: ScaleOutClusterRequest): Promise<ScaleOutClusterResponse> {
+  async scaleClusterNodePool(ClusterId: string, NodepoolId: string, request: ScaleClusterNodePoolRequest): Promise<ScaleClusterNodePoolResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     let headers : {[key: string ]: string} = { };
-    return await this.scaleOutClusterWithOptions(ClusterId, request, headers, runtime);
+    return await this.scaleClusterNodePoolWithOptions(ClusterId, NodepoolId, request, headers, runtime);
   }
 
+  /**
+    * >  The ScaleOutCluster API operation is phased out. You must call the node pool-related API operations to manage nodes. If you want to add worker nodes to an ACK cluster, call the ScaleClusterNodePool API operation. For more information, see [ScaleClusterNodePool](~~184928~~).
+    *
+    * @param request ScaleOutClusterRequest
+    * @param headers map
+    * @param runtime runtime options for this request RuntimeOptions
+    * @return ScaleOutClusterResponse
+   */
   async scaleOutClusterWithOptions(ClusterId: string, request: ScaleOutClusterRequest, headers: {[key: string ]: string}, runtime: $Util.RuntimeOptions): Promise<ScaleOutClusterResponse> {
     Util.validateModel(request);
     let body : {[key: string ]: any} = { };
@@ -13340,7 +14641,7 @@ export default class Client extends OpenApi {
       body["rds_instances"] = request.rdsInstances;
     }
 
-    if (!Util.isUnset($tea.toMap(request.runtime))) {
+    if (!Util.isUnset(request.runtime)) {
       body["runtime"] = request.runtime;
     }
 
@@ -13414,10 +14715,64 @@ export default class Client extends OpenApi {
     return $tea.cast<ScaleOutClusterResponse>(await this.callApi(params, req, runtime), new ScaleOutClusterResponse({}));
   }
 
-  async startWorkflow(request: StartWorkflowRequest): Promise<StartWorkflowResponse> {
+  /**
+    * >  The ScaleOutCluster API operation is phased out. You must call the node pool-related API operations to manage nodes. If you want to add worker nodes to an ACK cluster, call the ScaleClusterNodePool API operation. For more information, see [ScaleClusterNodePool](~~184928~~).
+    *
+    * @param request ScaleOutClusterRequest
+    * @return ScaleOutClusterResponse
+   */
+  async scaleOutCluster(ClusterId: string, request: ScaleOutClusterRequest): Promise<ScaleOutClusterResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     let headers : {[key: string ]: string} = { };
-    return await this.startWorkflowWithOptions(request, headers, runtime);
+    return await this.scaleOutClusterWithOptions(ClusterId, request, headers, runtime);
+  }
+
+  async scanClusterVulsWithOptions(clusterId: string, headers: {[key: string ]: string}, runtime: $Util.RuntimeOptions): Promise<ScanClusterVulsResponse> {
+    let req = new $OpenApi.OpenApiRequest({
+      headers: headers,
+    });
+    let params = new $OpenApi.Params({
+      action: "ScanClusterVuls",
+      version: "2015-12-15",
+      protocol: "HTTPS",
+      pathname: `/clusters/${OpenApiUtil.getEncodeParam(clusterId)}/vuls/scan`,
+      method: "POST",
+      authType: "AK",
+      style: "ROA",
+      reqBodyType: "json",
+      bodyType: "json",
+    });
+    return $tea.cast<ScanClusterVulsResponse>(await this.callApi(params, req, runtime), new ScanClusterVulsResponse({}));
+  }
+
+  async scanClusterVuls(clusterId: string): Promise<ScanClusterVulsResponse> {
+    let runtime = new $Util.RuntimeOptions({ });
+    let headers : {[key: string ]: string} = { };
+    return await this.scanClusterVulsWithOptions(clusterId, headers, runtime);
+  }
+
+  async startAlertWithOptions(ClusterId: string, headers: {[key: string ]: string}, runtime: $Util.RuntimeOptions): Promise<StartAlertResponse> {
+    let req = new $OpenApi.OpenApiRequest({
+      headers: headers,
+    });
+    let params = new $OpenApi.Params({
+      action: "StartAlert",
+      version: "2015-12-15",
+      protocol: "HTTPS",
+      pathname: `/alert/${OpenApiUtil.getEncodeParam(ClusterId)}/alert_rule/start`,
+      method: "POST",
+      authType: "AK",
+      style: "ROA",
+      reqBodyType: "json",
+      bodyType: "json",
+    });
+    return $tea.cast<StartAlertResponse>(await this.callApi(params, req, runtime), new StartAlertResponse({}));
+  }
+
+  async startAlert(ClusterId: string): Promise<StartAlertResponse> {
+    let runtime = new $Util.RuntimeOptions({ });
+    let headers : {[key: string ]: string} = { };
+    return await this.startAlertWithOptions(ClusterId, headers, runtime);
   }
 
   async startWorkflowWithOptions(request: StartWorkflowRequest, headers: {[key: string ]: string}, runtime: $Util.RuntimeOptions): Promise<StartWorkflowResponse> {
@@ -13517,10 +14872,58 @@ export default class Client extends OpenApi {
     return $tea.cast<StartWorkflowResponse>(await this.callApi(params, req, runtime), new StartWorkflowResponse({}));
   }
 
-  async tagResources(request: TagResourcesRequest): Promise<TagResourcesResponse> {
+  async startWorkflow(request: StartWorkflowRequest): Promise<StartWorkflowResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     let headers : {[key: string ]: string} = { };
-    return await this.tagResourcesWithOptions(request, headers, runtime);
+    return await this.startWorkflowWithOptions(request, headers, runtime);
+  }
+
+  async stopAlertWithOptions(ClusterId: string, headers: {[key: string ]: string}, runtime: $Util.RuntimeOptions): Promise<StopAlertResponse> {
+    let req = new $OpenApi.OpenApiRequest({
+      headers: headers,
+    });
+    let params = new $OpenApi.Params({
+      action: "StopAlert",
+      version: "2015-12-15",
+      protocol: "HTTPS",
+      pathname: `/alert/${OpenApiUtil.getEncodeParam(ClusterId)}/alert_rule/stop`,
+      method: "POST",
+      authType: "AK",
+      style: "ROA",
+      reqBodyType: "json",
+      bodyType: "json",
+    });
+    return $tea.cast<StopAlertResponse>(await this.callApi(params, req, runtime), new StopAlertResponse({}));
+  }
+
+  async stopAlert(ClusterId: string): Promise<StopAlertResponse> {
+    let runtime = new $Util.RuntimeOptions({ });
+    let headers : {[key: string ]: string} = { };
+    return await this.stopAlertWithOptions(ClusterId, headers, runtime);
+  }
+
+  async syncClusterNodePoolWithOptions(ClusterId: string, headers: {[key: string ]: string}, runtime: $Util.RuntimeOptions): Promise<SyncClusterNodePoolResponse> {
+    let req = new $OpenApi.OpenApiRequest({
+      headers: headers,
+    });
+    let params = new $OpenApi.Params({
+      action: "SyncClusterNodePool",
+      version: "2015-12-15",
+      protocol: "HTTPS",
+      pathname: `/clusters/${OpenApiUtil.getEncodeParam(ClusterId)}/sync_nodepools`,
+      method: "POST",
+      authType: "AK",
+      style: "ROA",
+      reqBodyType: "json",
+      bodyType: "json",
+    });
+    return $tea.cast<SyncClusterNodePoolResponse>(await this.callApi(params, req, runtime), new SyncClusterNodePoolResponse({}));
+  }
+
+  async syncClusterNodePool(ClusterId: string): Promise<SyncClusterNodePoolResponse> {
+    let runtime = new $Util.RuntimeOptions({ });
+    let headers : {[key: string ]: string} = { };
+    return await this.syncClusterNodePoolWithOptions(ClusterId, headers, runtime);
   }
 
   async tagResourcesWithOptions(request: TagResourcesRequest, headers: {[key: string ]: string}, runtime: $Util.RuntimeOptions): Promise<TagResourcesResponse> {
@@ -13560,10 +14963,10 @@ export default class Client extends OpenApi {
     return $tea.cast<TagResourcesResponse>(await this.callApi(params, req, runtime), new TagResourcesResponse({}));
   }
 
-  async unInstallClusterAddons(ClusterId: string, request: UnInstallClusterAddonsRequest): Promise<UnInstallClusterAddonsResponse> {
+  async tagResources(request: TagResourcesRequest): Promise<TagResourcesResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     let headers : {[key: string ]: string} = { };
-    return await this.unInstallClusterAddonsWithOptions(ClusterId, request, headers, runtime);
+    return await this.tagResourcesWithOptions(request, headers, runtime);
   }
 
   async unInstallClusterAddonsWithOptions(ClusterId: string, request: UnInstallClusterAddonsRequest, headers: {[key: string ]: string}, runtime: $Util.RuntimeOptions): Promise<UnInstallClusterAddonsResponse> {
@@ -13586,14 +14989,24 @@ export default class Client extends OpenApi {
     return $tea.cast<UnInstallClusterAddonsResponse>(await this.callApi(params, req, runtime), new UnInstallClusterAddonsResponse({}));
   }
 
-  async untagResources(request: UntagResourcesRequest): Promise<UntagResourcesResponse> {
+  async unInstallClusterAddons(ClusterId: string, request: UnInstallClusterAddonsRequest): Promise<UnInstallClusterAddonsResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     let headers : {[key: string ]: string} = { };
-    return await this.untagResourcesWithOptions(request, headers, runtime);
+    return await this.unInstallClusterAddonsWithOptions(ClusterId, request, headers, runtime);
   }
 
-  async untagResourcesWithOptions(request: UntagResourcesRequest, headers: {[key: string ]: string}, runtime: $Util.RuntimeOptions): Promise<UntagResourcesResponse> {
-    Util.validateModel(request);
+  async untagResourcesWithOptions(tmpReq: UntagResourcesRequest, headers: {[key: string ]: string}, runtime: $Util.RuntimeOptions): Promise<UntagResourcesResponse> {
+    Util.validateModel(tmpReq);
+    let request = new UntagResourcesShrinkRequest({ });
+    OpenApiUtil.convert(tmpReq, request);
+    if (!Util.isUnset(tmpReq.resourceIds)) {
+      request.resourceIdsShrink = OpenApiUtil.arrayToStringWithSpecifiedStyle(tmpReq.resourceIds, "resource_ids", "json");
+    }
+
+    if (!Util.isUnset(tmpReq.tagKeys)) {
+      request.tagKeysShrink = OpenApiUtil.arrayToStringWithSpecifiedStyle(tmpReq.tagKeys, "tag_keys", "json");
+    }
+
     let query : {[key: string ]: any} = { };
     if (!Util.isUnset(request.all)) {
       query["all"] = request.all;
@@ -13603,16 +15016,16 @@ export default class Client extends OpenApi {
       query["region_id"] = request.regionId;
     }
 
-    if (!Util.isUnset(request.resourceIds)) {
-      query["resource_ids"] = request.resourceIds;
+    if (!Util.isUnset(request.resourceIdsShrink)) {
+      query["resource_ids"] = request.resourceIdsShrink;
     }
 
     if (!Util.isUnset(request.resourceType)) {
       query["resource_type"] = request.resourceType;
     }
 
-    if (!Util.isUnset(request.tagKeys)) {
-      query["tag_keys"] = request.tagKeys;
+    if (!Util.isUnset(request.tagKeysShrink)) {
+      query["tag_keys"] = request.tagKeysShrink;
     }
 
     let req = new $OpenApi.OpenApiRequest({
@@ -13633,10 +15046,10 @@ export default class Client extends OpenApi {
     return $tea.cast<UntagResourcesResponse>(await this.callApi(params, req, runtime), new UntagResourcesResponse({}));
   }
 
-  async updateContactGroupForAlert(ClusterId: string): Promise<UpdateContactGroupForAlertResponse> {
+  async untagResources(request: UntagResourcesRequest): Promise<UntagResourcesResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     let headers : {[key: string ]: string} = { };
-    return await this.updateContactGroupForAlertWithOptions(ClusterId, headers, runtime);
+    return await this.untagResourcesWithOptions(request, headers, runtime);
   }
 
   async updateContactGroupForAlertWithOptions(ClusterId: string, headers: {[key: string ]: string}, runtime: $Util.RuntimeOptions): Promise<UpdateContactGroupForAlertResponse> {
@@ -13657,12 +15070,65 @@ export default class Client extends OpenApi {
     return $tea.cast<UpdateContactGroupForAlertResponse>(await this.callApi(params, req, runtime), new UpdateContactGroupForAlertResponse({}));
   }
 
-  async updateK8sClusterUserConfigExpire(ClusterId: string, request: UpdateK8sClusterUserConfigExpireRequest): Promise<UpdateK8sClusterUserConfigExpireResponse> {
+  async updateContactGroupForAlert(ClusterId: string): Promise<UpdateContactGroupForAlertResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     let headers : {[key: string ]: string} = { };
-    return await this.updateK8sClusterUserConfigExpireWithOptions(ClusterId, request, headers, runtime);
+    return await this.updateContactGroupForAlertWithOptions(ClusterId, headers, runtime);
   }
 
+  async updateControlPlaneLogWithOptions(ClusterId: string, request: UpdateControlPlaneLogRequest, headers: {[key: string ]: string}, runtime: $Util.RuntimeOptions): Promise<UpdateControlPlaneLogResponse> {
+    Util.validateModel(request);
+    let body : {[key: string ]: any} = { };
+    if (!Util.isUnset(request.aliuid)) {
+      body["aliuid"] = request.aliuid;
+    }
+
+    if (!Util.isUnset(request.components)) {
+      body["components"] = request.components;
+    }
+
+    if (!Util.isUnset(request.logProject)) {
+      body["log_project"] = request.logProject;
+    }
+
+    if (!Util.isUnset(request.logTtl)) {
+      body["log_ttl"] = request.logTtl;
+    }
+
+    let req = new $OpenApi.OpenApiRequest({
+      headers: headers,
+      body: OpenApiUtil.parseToMap(body),
+    });
+    let params = new $OpenApi.Params({
+      action: "UpdateControlPlaneLog",
+      version: "2015-12-15",
+      protocol: "HTTPS",
+      pathname: `/clusters/${OpenApiUtil.getEncodeParam(ClusterId)}/controlplanelog`,
+      method: "PUT",
+      authType: "AK",
+      style: "ROA",
+      reqBodyType: "json",
+      bodyType: "none",
+    });
+    return $tea.cast<UpdateControlPlaneLogResponse>(await this.callApi(params, req, runtime), new UpdateControlPlaneLogResponse({}));
+  }
+
+  async updateControlPlaneLog(ClusterId: string, request: UpdateControlPlaneLogRequest): Promise<UpdateControlPlaneLogResponse> {
+    let runtime = new $Util.RuntimeOptions({ });
+    let headers : {[key: string ]: string} = { };
+    return await this.updateControlPlaneLogWithOptions(ClusterId, request, headers, runtime);
+  }
+
+  /**
+    * > 
+    * *   You can call this operation only with an Alibaba Cloud account.
+    * *   After you revoke the kubeconfig file of a cluster, the validity period of the kubeconfig file that you specified becomes invalid. You can call this API operation to specify the validity period again.
+    *
+    * @param request UpdateK8sClusterUserConfigExpireRequest
+    * @param headers map
+    * @param runtime runtime options for this request RuntimeOptions
+    * @return UpdateK8sClusterUserConfigExpireResponse
+   */
   async updateK8sClusterUserConfigExpireWithOptions(ClusterId: string, request: UpdateK8sClusterUserConfigExpireRequest, headers: {[key: string ]: string}, runtime: $Util.RuntimeOptions): Promise<UpdateK8sClusterUserConfigExpireResponse> {
     Util.validateModel(request);
     let body : {[key: string ]: any} = { };
@@ -13692,10 +15158,18 @@ export default class Client extends OpenApi {
     return $tea.cast<UpdateK8sClusterUserConfigExpireResponse>(await this.callApi(params, req, runtime), new UpdateK8sClusterUserConfigExpireResponse({}));
   }
 
-  async updateTemplate(TemplateId: string, request: UpdateTemplateRequest): Promise<UpdateTemplateResponse> {
+  /**
+    * > 
+    * *   You can call this operation only with an Alibaba Cloud account.
+    * *   After you revoke the kubeconfig file of a cluster, the validity period of the kubeconfig file that you specified becomes invalid. You can call this API operation to specify the validity period again.
+    *
+    * @param request UpdateK8sClusterUserConfigExpireRequest
+    * @return UpdateK8sClusterUserConfigExpireResponse
+   */
+  async updateK8sClusterUserConfigExpire(ClusterId: string, request: UpdateK8sClusterUserConfigExpireRequest): Promise<UpdateK8sClusterUserConfigExpireResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     let headers : {[key: string ]: string} = { };
-    return await this.updateTemplateWithOptions(TemplateId, request, headers, runtime);
+    return await this.updateK8sClusterUserConfigExpireWithOptions(ClusterId, request, headers, runtime);
   }
 
   async updateTemplateWithOptions(TemplateId: string, request: UpdateTemplateRequest, headers: {[key: string ]: string}, runtime: $Util.RuntimeOptions): Promise<UpdateTemplateResponse> {
@@ -13739,10 +15213,10 @@ export default class Client extends OpenApi {
     return $tea.cast<UpdateTemplateResponse>(await this.callApi(params, req, runtime), new UpdateTemplateResponse({}));
   }
 
-  async upgradeCluster(ClusterId: string, request: UpgradeClusterRequest): Promise<UpgradeClusterResponse> {
+  async updateTemplate(TemplateId: string, request: UpdateTemplateRequest): Promise<UpdateTemplateResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     let headers : {[key: string ]: string} = { };
-    return await this.upgradeClusterWithOptions(ClusterId, request, headers, runtime);
+    return await this.updateTemplateWithOptions(TemplateId, request, headers, runtime);
   }
 
   async upgradeClusterWithOptions(ClusterId: string, request: UpgradeClusterRequest, headers: {[key: string ]: string}, runtime: $Util.RuntimeOptions): Promise<UpgradeClusterResponse> {
@@ -13750,6 +15224,10 @@ export default class Client extends OpenApi {
     let body : {[key: string ]: any} = { };
     if (!Util.isUnset(request.componentName)) {
       body["component_name"] = request.componentName;
+    }
+
+    if (!Util.isUnset(request.masterOnly)) {
+      body["master_only"] = request.masterOnly;
     }
 
     if (!Util.isUnset(request.nextVersion)) {
@@ -13778,10 +15256,10 @@ export default class Client extends OpenApi {
     return $tea.cast<UpgradeClusterResponse>(await this.callApi(params, req, runtime), new UpgradeClusterResponse({}));
   }
 
-  async upgradeClusterAddons(ClusterId: string, request: UpgradeClusterAddonsRequest): Promise<UpgradeClusterAddonsResponse> {
+  async upgradeCluster(ClusterId: string, request: UpgradeClusterRequest): Promise<UpgradeClusterResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     let headers : {[key: string ]: string} = { };
-    return await this.upgradeClusterAddonsWithOptions(ClusterId, request, headers, runtime);
+    return await this.upgradeClusterWithOptions(ClusterId, request, headers, runtime);
   }
 
   async upgradeClusterAddonsWithOptions(ClusterId: string, request: UpgradeClusterAddonsRequest, headers: {[key: string ]: string}, runtime: $Util.RuntimeOptions): Promise<UpgradeClusterAddonsResponse> {
@@ -13804,12 +15282,20 @@ export default class Client extends OpenApi {
     return $tea.cast<UpgradeClusterAddonsResponse>(await this.callApi(params, req, runtime), new UpgradeClusterAddonsResponse({}));
   }
 
-  async upgradeClusterNodepool(ClusterId: string, NodepoolId: string, request: UpgradeClusterNodepoolRequest): Promise<UpgradeClusterNodepoolResponse> {
+  async upgradeClusterAddons(ClusterId: string, request: UpgradeClusterAddonsRequest): Promise<UpgradeClusterAddonsResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     let headers : {[key: string ]: string} = { };
-    return await this.upgradeClusterNodepoolWithOptions(ClusterId, NodepoolId, request, headers, runtime);
+    return await this.upgradeClusterAddonsWithOptions(ClusterId, request, headers, runtime);
   }
 
+  /**
+    * You can call the UpgradeClusterNodepool operation to update the Kubernetes version, OS version, or container runtime version of the nodes in a node pool.
+    *
+    * @param request UpgradeClusterNodepoolRequest
+    * @param headers map
+    * @param runtime runtime options for this request RuntimeOptions
+    * @return UpgradeClusterNodepoolResponse
+   */
   async upgradeClusterNodepoolWithOptions(ClusterId: string, NodepoolId: string, request: UpgradeClusterNodepoolRequest, headers: {[key: string ]: string}, runtime: $Util.RuntimeOptions): Promise<UpgradeClusterNodepoolResponse> {
     Util.validateModel(request);
     let body : {[key: string ]: any} = { };
@@ -13819,6 +15305,10 @@ export default class Client extends OpenApi {
 
     if (!Util.isUnset(request.kubernetesVersion)) {
       body["kubernetes_version"] = request.kubernetesVersion;
+    }
+
+    if (!Util.isUnset(request.runtimeType)) {
+      body["runtime_type"] = request.runtimeType;
     }
 
     if (!Util.isUnset(request.runtimeVersion)) {
@@ -13841,6 +15331,18 @@ export default class Client extends OpenApi {
       bodyType: "json",
     });
     return $tea.cast<UpgradeClusterNodepoolResponse>(await this.callApi(params, req, runtime), new UpgradeClusterNodepoolResponse({}));
+  }
+
+  /**
+    * You can call the UpgradeClusterNodepool operation to update the Kubernetes version, OS version, or container runtime version of the nodes in a node pool.
+    *
+    * @param request UpgradeClusterNodepoolRequest
+    * @return UpgradeClusterNodepoolResponse
+   */
+  async upgradeClusterNodepool(ClusterId: string, NodepoolId: string, request: UpgradeClusterNodepoolRequest): Promise<UpgradeClusterNodepoolResponse> {
+    let runtime = new $Util.RuntimeOptions({ });
+    let headers : {[key: string ]: string} = { };
+    return await this.upgradeClusterNodepoolWithOptions(ClusterId, NodepoolId, request, headers, runtime);
   }
 
 }
