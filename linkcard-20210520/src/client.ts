@@ -1652,6 +1652,7 @@ export class ListCardInfoRequest extends $tea.Model {
   maxRestFlowPercentage?: number;
   minFlow?: string;
   msisdn?: string;
+  networkType?: string;
   notifyId?: string;
   osStatus?: string;
   pageNo?: number;
@@ -1683,6 +1684,7 @@ export class ListCardInfoRequest extends $tea.Model {
       maxRestFlowPercentage: 'MaxRestFlowPercentage',
       minFlow: 'MinFlow',
       msisdn: 'Msisdn',
+      networkType: 'NetworkType',
       notifyId: 'NotifyId',
       osStatus: 'OsStatus',
       pageNo: 'PageNo',
@@ -1717,6 +1719,7 @@ export class ListCardInfoRequest extends $tea.Model {
       maxRestFlowPercentage: 'number',
       minFlow: 'string',
       msisdn: 'string',
+      networkType: 'string',
       notifyId: 'string',
       osStatus: 'string',
       pageNo: 'number',
@@ -3664,10 +3667,12 @@ export class ListCardInfoResponseBodyDataList extends $tea.Model {
   directionalGroupId?: number;
   directionalGroupName?: string;
   expireTime?: string;
+  flowLatestModifiedTime?: string;
   iccid?: string;
   imsi?: string[];
   isAutoRecharge?: boolean;
   msisdn?: string[];
+  networkType?: string;
   notifyId?: string;
   openAccountTime?: string;
   osStatus?: string;
@@ -3698,10 +3703,12 @@ export class ListCardInfoResponseBodyDataList extends $tea.Model {
       directionalGroupId: 'DirectionalGroupId',
       directionalGroupName: 'DirectionalGroupName',
       expireTime: 'ExpireTime',
+      flowLatestModifiedTime: 'FlowLatestModifiedTime',
       iccid: 'Iccid',
       imsi: 'Imsi',
       isAutoRecharge: 'IsAutoRecharge',
       msisdn: 'Msisdn',
+      networkType: 'NetworkType',
       notifyId: 'NotifyId',
       openAccountTime: 'OpenAccountTime',
       osStatus: 'OsStatus',
@@ -3735,10 +3742,12 @@ export class ListCardInfoResponseBodyDataList extends $tea.Model {
       directionalGroupId: 'number',
       directionalGroupName: 'string',
       expireTime: 'string',
+      flowLatestModifiedTime: 'string',
       iccid: 'string',
       imsi: { 'type': 'array', 'itemType': 'string' },
       isAutoRecharge: 'boolean',
       msisdn: { 'type': 'array', 'itemType': 'string' },
+      networkType: 'string',
       notifyId: 'string',
       openAccountTime: 'string',
       osStatus: 'string',
@@ -3986,6 +3995,7 @@ export class ListOrderResponseBodyDataList extends $tea.Model {
   expressNoList?: string[];
   flowType?: string;
   functionFee?: number;
+  networkType?: string;
   orderDetailUrl?: string;
   orderId?: string;
   orderInfo?: string;
@@ -4013,6 +4023,7 @@ export class ListOrderResponseBodyDataList extends $tea.Model {
       expressNoList: 'ExpressNoList',
       flowType: 'FlowType',
       functionFee: 'FunctionFee',
+      networkType: 'NetworkType',
       orderDetailUrl: 'OrderDetailUrl',
       orderId: 'OrderId',
       orderInfo: 'OrderInfo',
@@ -4043,6 +4054,7 @@ export class ListOrderResponseBodyDataList extends $tea.Model {
       expressNoList: { 'type': 'array', 'itemType': 'string' },
       flowType: 'string',
       functionFee: 'number',
+      networkType: 'string',
       orderDetailUrl: 'string',
       orderId: 'string',
       orderInfo: 'string',
@@ -4911,6 +4923,10 @@ export default class Client extends OpenApi {
 
     if (!Util.isUnset(request.msisdn)) {
       query["Msisdn"] = request.msisdn;
+    }
+
+    if (!Util.isUnset(request.networkType)) {
+      query["NetworkType"] = request.networkType;
     }
 
     if (!Util.isUnset(request.notifyId)) {
