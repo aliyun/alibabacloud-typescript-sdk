@@ -5797,12 +5797,14 @@ export class DeleteSyntheticTaskResponse extends $tea.Model {
 
 export class DeleteTraceAppRequest extends $tea.Model {
   appId?: string;
+  deleteReason?: DeleteTraceAppRequestDeleteReason;
   pid?: string;
   regionId?: string;
   type?: string;
   static names(): { [key: string]: string } {
     return {
       appId: 'AppId',
+      deleteReason: 'DeleteReason',
       pid: 'Pid',
       regionId: 'RegionId',
       type: 'Type',
@@ -5812,6 +5814,38 @@ export class DeleteTraceAppRequest extends $tea.Model {
   static types(): { [key: string]: any } {
     return {
       appId: 'string',
+      deleteReason: DeleteTraceAppRequestDeleteReason,
+      pid: 'string',
+      regionId: 'string',
+      type: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class DeleteTraceAppShrinkRequest extends $tea.Model {
+  appId?: string;
+  deleteReasonShrink?: string;
+  pid?: string;
+  regionId?: string;
+  type?: string;
+  static names(): { [key: string]: string } {
+    return {
+      appId: 'AppId',
+      deleteReasonShrink: 'DeleteReason',
+      pid: 'Pid',
+      regionId: 'RegionId',
+      type: 'Type',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      appId: 'string',
+      deleteReasonShrink: 'string',
       pid: 'string',
       regionId: 'string',
       type: 'string',
@@ -5824,19 +5858,28 @@ export class DeleteTraceAppRequest extends $tea.Model {
 }
 
 export class DeleteTraceAppResponseBody extends $tea.Model {
+  code?: number;
   data?: string;
+  message?: string;
   requestId?: string;
+  success?: boolean;
   static names(): { [key: string]: string } {
     return {
+      code: 'Code',
       data: 'Data',
+      message: 'Message',
       requestId: 'RequestId',
+      success: 'Success',
     };
   }
 
   static types(): { [key: string]: any } {
     return {
+      code: 'number',
       data: 'string',
+      message: 'string',
       requestId: 'string',
+      success: 'boolean',
     };
   }
 
@@ -11983,19 +12026,28 @@ export class SaveTraceAppConfigRequest extends $tea.Model {
 }
 
 export class SaveTraceAppConfigResponseBody extends $tea.Model {
+  code?: number;
   data?: string;
+  message?: string;
   requestId?: string;
+  success?: boolean;
   static names(): { [key: string]: string } {
     return {
+      code: 'Code',
       data: 'Data',
+      message: 'Message',
       requestId: 'RequestId',
+      success: 'Success',
     };
   }
 
   static types(): { [key: string]: any } {
     return {
+      code: 'number',
       data: 'string',
+      message: 'string',
       requestId: 'string',
+      success: 'boolean',
     };
   }
 
@@ -14174,6 +14226,8 @@ export class UpdatePrometheusAlertRuleResponse extends $tea.Model {
 export class UpdatePrometheusGlobalViewRequest extends $tea.Model {
   allSubClustersSuccess?: boolean;
   clusterId?: string;
+  groupName?: string;
+  mostRegionId?: string;
   regionId?: string;
   resourceGroupId?: string;
   subClustersJson?: string;
@@ -14181,6 +14235,8 @@ export class UpdatePrometheusGlobalViewRequest extends $tea.Model {
     return {
       allSubClustersSuccess: 'AllSubClustersSuccess',
       clusterId: 'ClusterId',
+      groupName: 'GroupName',
+      mostRegionId: 'MostRegionId',
       regionId: 'RegionId',
       resourceGroupId: 'ResourceGroupId',
       subClustersJson: 'SubClustersJson',
@@ -14191,6 +14247,8 @@ export class UpdatePrometheusGlobalViewRequest extends $tea.Model {
     return {
       allSubClustersSuccess: 'boolean',
       clusterId: 'string',
+      groupName: 'string',
+      mostRegionId: 'string',
       regionId: 'string',
       resourceGroupId: 'string',
       subClustersJson: 'string',
@@ -16574,6 +16632,50 @@ export class CreateSyntheticTaskResponseBodyData extends $tea.Model {
   static types(): { [key: string]: any } {
     return {
       taskId: 'number',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class DeleteTraceAppRequestDeleteReasonReasonIds extends $tea.Model {
+  id?: number;
+  name?: string;
+  static names(): { [key: string]: string } {
+    return {
+      id: 'Id',
+      name: 'Name',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      id: 'number',
+      name: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class DeleteTraceAppRequestDeleteReason extends $tea.Model {
+  reasonIds?: DeleteTraceAppRequestDeleteReasonReasonIds[];
+  remark?: string;
+  static names(): { [key: string]: string } {
+    return {
+      reasonIds: 'ReasonIds',
+      remark: 'Remark',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      reasonIds: { 'type': 'array', 'itemType': DeleteTraceAppRequestDeleteReasonReasonIds },
+      remark: 'string',
     };
   }
 
@@ -25669,11 +25771,21 @@ export default class Client extends OpenApi {
     return await this.deleteSyntheticTaskWithOptions(request, runtime);
   }
 
-  async deleteTraceAppWithOptions(request: DeleteTraceAppRequest, runtime: $Util.RuntimeOptions): Promise<DeleteTraceAppResponse> {
-    Util.validateModel(request);
+  async deleteTraceAppWithOptions(tmpReq: DeleteTraceAppRequest, runtime: $Util.RuntimeOptions): Promise<DeleteTraceAppResponse> {
+    Util.validateModel(tmpReq);
+    let request = new DeleteTraceAppShrinkRequest({ });
+    OpenApiUtil.convert(tmpReq, request);
+    if (!Util.isUnset(tmpReq.deleteReason)) {
+      request.deleteReasonShrink = OpenApiUtil.arrayToStringWithSpecifiedStyle(tmpReq.deleteReason, "DeleteReason", "json");
+    }
+
     let query = { };
     if (!Util.isUnset(request.appId)) {
       query["AppId"] = request.appId;
+    }
+
+    if (!Util.isUnset(request.deleteReasonShrink)) {
+      query["DeleteReason"] = request.deleteReasonShrink;
     }
 
     if (!Util.isUnset(request.pid)) {
@@ -30336,6 +30448,14 @@ export default class Client extends OpenApi {
 
     if (!Util.isUnset(request.clusterId)) {
       query["ClusterId"] = request.clusterId;
+    }
+
+    if (!Util.isUnset(request.groupName)) {
+      query["GroupName"] = request.groupName;
+    }
+
+    if (!Util.isUnset(request.mostRegionId)) {
+      query["MostRegionId"] = request.mostRegionId;
     }
 
     if (!Util.isUnset(request.regionId)) {
