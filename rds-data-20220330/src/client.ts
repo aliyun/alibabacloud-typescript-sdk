@@ -1782,8 +1782,8 @@ export default class Client extends OpenApi {
       request.parametersShrink = OpenApiUtil.arrayToStringWithSpecifiedStyle(tmpReq.parameters, "Parameters", "json");
     }
 
-    if (!Util.isUnset($tea.toMap(tmpReq.resultSetOptions))) {
-      request.resultSetOptionsShrink = OpenApiUtil.arrayToStringWithSpecifiedStyle($tea.toMap(tmpReq.resultSetOptions), "ResultSetOptions", "json");
+    if (!Util.isUnset(tmpReq.resultSetOptions)) {
+      request.resultSetOptionsShrink = OpenApiUtil.arrayToStringWithSpecifiedStyle(tmpReq.resultSetOptions, "ResultSetOptions", "json");
     }
 
     let body : {[key: string ]: any} = { };
