@@ -43392,6 +43392,7 @@ export class DescribeEmgVulItemResponseBodyGroupedVulItems extends $tea.Model {
   name?: string;
   pendingCount?: number;
   progress?: number;
+  raspDefend?: number;
   status?: number;
   type?: string;
   static names(): { [key: string]: string } {
@@ -43403,6 +43404,7 @@ export class DescribeEmgVulItemResponseBodyGroupedVulItems extends $tea.Model {
       name: 'Name',
       pendingCount: 'PendingCount',
       progress: 'Progress',
+      raspDefend: 'RaspDefend',
       status: 'Status',
       type: 'Type',
     };
@@ -43417,6 +43419,7 @@ export class DescribeEmgVulItemResponseBodyGroupedVulItems extends $tea.Model {
       name: 'string',
       pendingCount: 'number',
       progress: 'number',
+      raspDefend: 'number',
       status: 'number',
       type: 'string',
     };
