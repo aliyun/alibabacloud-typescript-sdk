@@ -3397,6 +3397,84 @@ export class ListMessageContactsResponse extends $tea.Model {
   }
 }
 
+export class ListTagKeysRequest extends $tea.Model {
+  keyFilter?: string;
+  maxResults?: number;
+  nextToken?: string;
+  resourceType?: string;
+  static names(): { [key: string]: string } {
+    return {
+      keyFilter: 'KeyFilter',
+      maxResults: 'MaxResults',
+      nextToken: 'NextToken',
+      resourceType: 'ResourceType',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      keyFilter: 'string',
+      maxResults: 'number',
+      nextToken: 'string',
+      resourceType: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class ListTagKeysResponseBody extends $tea.Model {
+  nextToken?: string;
+  requestId?: string;
+  tags?: ListTagKeysResponseBodyTags[];
+  static names(): { [key: string]: string } {
+    return {
+      nextToken: 'NextToken',
+      requestId: 'RequestId',
+      tags: 'Tags',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      nextToken: 'string',
+      requestId: 'string',
+      tags: { 'type': 'array', 'itemType': ListTagKeysResponseBodyTags },
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class ListTagKeysResponse extends $tea.Model {
+  headers: { [key: string]: string };
+  statusCode: number;
+  body: ListTagKeysResponseBody;
+  static names(): { [key: string]: string } {
+    return {
+      headers: 'headers',
+      statusCode: 'statusCode',
+      body: 'body',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
+      body: ListTagKeysResponseBody,
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
 export class ListTagResourcesRequest extends $tea.Model {
   maxResults?: number;
   nextToken?: string;
@@ -3470,6 +3548,87 @@ export class ListTagResourcesResponse extends $tea.Model {
       headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
       statusCode: 'number',
       body: ListTagResourcesResponseBody,
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class ListTagValuesRequest extends $tea.Model {
+  maxResults?: number;
+  nextToken?: string;
+  resourceType?: string;
+  tagKey?: string;
+  valueFilter?: string;
+  static names(): { [key: string]: string } {
+    return {
+      maxResults: 'MaxResults',
+      nextToken: 'NextToken',
+      resourceType: 'ResourceType',
+      tagKey: 'TagKey',
+      valueFilter: 'ValueFilter',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      maxResults: 'number',
+      nextToken: 'string',
+      resourceType: 'string',
+      tagKey: 'string',
+      valueFilter: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class ListTagValuesResponseBody extends $tea.Model {
+  nextToken?: string;
+  requestId?: string;
+  tags?: ListTagValuesResponseBodyTags[];
+  static names(): { [key: string]: string } {
+    return {
+      nextToken: 'NextToken',
+      requestId: 'RequestId',
+      tags: 'Tags',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      nextToken: 'string',
+      requestId: 'string',
+      tags: { 'type': 'array', 'itemType': ListTagValuesResponseBodyTags },
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class ListTagValuesResponse extends $tea.Model {
+  headers: { [key: string]: string };
+  statusCode: number;
+  body: ListTagValuesResponseBody;
+  static names(): { [key: string]: string } {
+    return {
+      headers: 'headers',
+      statusCode: 'statusCode',
+      body: 'body',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
+      body: ListTagValuesResponseBody,
     };
   }
 
@@ -6365,6 +6524,25 @@ export class ListMessageContactsResponseBodyContacts extends $tea.Model {
   }
 }
 
+export class ListTagKeysResponseBodyTags extends $tea.Model {
+  key?: string;
+  static names(): { [key: string]: string } {
+    return {
+      key: 'Key',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      key: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
 export class ListTagResourcesRequestTag extends $tea.Model {
   key?: string;
   value?: string;
@@ -6407,6 +6585,25 @@ export class ListTagResourcesResponseBodyTagResources extends $tea.Model {
       resourceType: 'string',
       tagKey: 'string',
       tagValue: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class ListTagValuesResponseBodyTags extends $tea.Model {
+  value?: string;
+  static names(): { [key: string]: string } {
+    return {
+      value: 'Value',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      value: 'string',
     };
   }
 
@@ -7237,9 +7434,8 @@ export default class Client extends OpenApi {
   }
 
   /**
-    * > The member deletion feature is in invitational preview. You can contact the customer business manager (CBM) of Alibaba Cloud to apply for a trial.
     * Before you delete a member, we recommend that you call the [CheckAccountDelete](~~CheckAccountDelete~~) and [GetAccountDeletionCheckResult](~~GetAccountDeletionCheckResult~~) operations to check whether the member meets deletion requirements. You can call the DeleteAccount operation to delete only members that meet the deletion requirements.
-    * After a member is deleted, the resources and data within the member are deleted, and you can no longer use the member to log on to the Alibaba Cloud Management Console. In addition, the member cannot be recovered. Proceed with caution. For more information about how to delete a member, see [Delete a member of the resource account type](~~446078~~).
+    * After you submit a deletion request for a member, you can call the [GetAccountDeletionStatus](~~GetAccountDeletionStatus~~) operation to query the deletion status of the member. After a member is deleted, the resources and data within the member are deleted, and you can no longer use the member to log on to the Alibaba Cloud Management Console. In addition, the member cannot be recovered. Proceed with caution. For more information about how to delete a member, see [Delete a member of the resource account type](~~446078~~).
     *
     * @param tmpReq DeleteAccountRequest
     * @param runtime runtime options for this request RuntimeOptions
@@ -7280,9 +7476,8 @@ export default class Client extends OpenApi {
   }
 
   /**
-    * > The member deletion feature is in invitational preview. You can contact the customer business manager (CBM) of Alibaba Cloud to apply for a trial.
     * Before you delete a member, we recommend that you call the [CheckAccountDelete](~~CheckAccountDelete~~) and [GetAccountDeletionCheckResult](~~GetAccountDeletionCheckResult~~) operations to check whether the member meets deletion requirements. You can call the DeleteAccount operation to delete only members that meet the deletion requirements.
-    * After a member is deleted, the resources and data within the member are deleted, and you can no longer use the member to log on to the Alibaba Cloud Management Console. In addition, the member cannot be recovered. Proceed with caution. For more information about how to delete a member, see [Delete a member of the resource account type](~~446078~~).
+    * After you submit a deletion request for a member, you can call the [GetAccountDeletionStatus](~~GetAccountDeletionStatus~~) operation to query the deletion status of the member. After a member is deleted, the resources and data within the member are deleted, and you can no longer use the member to log on to the Alibaba Cloud Management Console. In addition, the member cannot be recovered. Proceed with caution. For more information about how to delete a member, see [Delete a member of the resource account type](~~446078~~).
     *
     * @param request DeleteAccountRequest
     * @return DeleteAccountResponse
@@ -8532,6 +8727,47 @@ export default class Client extends OpenApi {
     return await this.listMessageContactsWithOptions(request, runtime);
   }
 
+  async listTagKeysWithOptions(request: ListTagKeysRequest, runtime: $Util.RuntimeOptions): Promise<ListTagKeysResponse> {
+    Util.validateModel(request);
+    let query = { };
+    if (!Util.isUnset(request.keyFilter)) {
+      query["KeyFilter"] = request.keyFilter;
+    }
+
+    if (!Util.isUnset(request.maxResults)) {
+      query["MaxResults"] = request.maxResults;
+    }
+
+    if (!Util.isUnset(request.nextToken)) {
+      query["NextToken"] = request.nextToken;
+    }
+
+    if (!Util.isUnset(request.resourceType)) {
+      query["ResourceType"] = request.resourceType;
+    }
+
+    let req = new $OpenApi.OpenApiRequest({
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApi.Params({
+      action: "ListTagKeys",
+      version: "2022-04-19",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $tea.cast<ListTagKeysResponse>(await this.callApi(params, req, runtime), new ListTagKeysResponse({}));
+  }
+
+  async listTagKeys(request: ListTagKeysRequest): Promise<ListTagKeysResponse> {
+    let runtime = new $Util.RuntimeOptions({ });
+    return await this.listTagKeysWithOptions(request, runtime);
+  }
+
   async listTagResourcesWithOptions(request: ListTagResourcesRequest, runtime: $Util.RuntimeOptions): Promise<ListTagResourcesResponse> {
     Util.validateModel(request);
     let query = { };
@@ -8575,6 +8811,51 @@ export default class Client extends OpenApi {
   async listTagResources(request: ListTagResourcesRequest): Promise<ListTagResourcesResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.listTagResourcesWithOptions(request, runtime);
+  }
+
+  async listTagValuesWithOptions(request: ListTagValuesRequest, runtime: $Util.RuntimeOptions): Promise<ListTagValuesResponse> {
+    Util.validateModel(request);
+    let query = { };
+    if (!Util.isUnset(request.maxResults)) {
+      query["MaxResults"] = request.maxResults;
+    }
+
+    if (!Util.isUnset(request.nextToken)) {
+      query["NextToken"] = request.nextToken;
+    }
+
+    if (!Util.isUnset(request.resourceType)) {
+      query["ResourceType"] = request.resourceType;
+    }
+
+    if (!Util.isUnset(request.tagKey)) {
+      query["TagKey"] = request.tagKey;
+    }
+
+    if (!Util.isUnset(request.valueFilter)) {
+      query["ValueFilter"] = request.valueFilter;
+    }
+
+    let req = new $OpenApi.OpenApiRequest({
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApi.Params({
+      action: "ListTagValues",
+      version: "2022-04-19",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $tea.cast<ListTagValuesResponse>(await this.callApi(params, req, runtime), new ListTagValuesResponse({}));
+  }
+
+  async listTagValues(request: ListTagValuesRequest): Promise<ListTagValuesResponse> {
+    let runtime = new $Util.RuntimeOptions({ });
+    return await this.listTagValuesWithOptions(request, runtime);
   }
 
   async listTargetAttachmentsForControlPolicyWithOptions(request: ListTargetAttachmentsForControlPolicyRequest, runtime: $Util.RuntimeOptions): Promise<ListTargetAttachmentsForControlPolicyResponse> {
