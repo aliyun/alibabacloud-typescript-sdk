@@ -958,11 +958,13 @@ export class FaceLivenessResponse extends $tea.Model {
 
 export class FraudResultCallBackRequest extends $tea.Model {
   certifyId?: string;
+  extParams?: string;
   resultCode?: string;
   verifyDeployEnv?: string;
   static names(): { [key: string]: string } {
     return {
       certifyId: 'CertifyId',
+      extParams: 'ExtParams',
       resultCode: 'ResultCode',
       verifyDeployEnv: 'VerifyDeployEnv',
     };
@@ -971,6 +973,7 @@ export class FraudResultCallBackRequest extends $tea.Model {
   static types(): { [key: string]: any } {
     return {
       certifyId: 'string',
+      extParams: 'string',
       resultCode: 'string',
       verifyDeployEnv: 'string',
     };
@@ -2145,6 +2148,10 @@ export default class Client extends OpenApi {
     let query = { };
     if (!Util.isUnset(request.certifyId)) {
       query["CertifyId"] = request.certifyId;
+    }
+
+    if (!Util.isUnset(request.extParams)) {
+      query["ExtParams"] = request.extParams;
     }
 
     if (!Util.isUnset(request.resultCode)) {
