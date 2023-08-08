@@ -12128,10 +12128,14 @@ export class ImportRoomGenieScenesRequestSceneListActionsDevice extends $tea.Mod
 export class ImportRoomGenieScenesRequestSceneListActions extends $tea.Model {
   attributeValues?: ImportRoomGenieScenesRequestSceneListActionsAttributeValues[];
   device?: ImportRoomGenieScenesRequestSceneListActionsDevice;
+  reply?: string;
+  type?: number;
   static names(): { [key: string]: string } {
     return {
       attributeValues: 'AttributeValues',
       device: 'Device',
+      reply: 'Reply',
+      type: 'Type',
     };
   }
 
@@ -12139,6 +12143,55 @@ export class ImportRoomGenieScenesRequestSceneListActions extends $tea.Model {
     return {
       attributeValues: { 'type': 'array', 'itemType': ImportRoomGenieScenesRequestSceneListActionsAttributeValues },
       device: ImportRoomGenieScenesRequestSceneListActionsDevice,
+      reply: 'string',
+      type: 'number',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class ImportRoomGenieScenesRequestSceneListTriggersAttributeValues extends $tea.Model {
+  attributeName?: string;
+  attributeValue?: string;
+  static names(): { [key: string]: string } {
+    return {
+      attributeName: 'AttributeName',
+      attributeValue: 'AttributeValue',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      attributeName: 'string',
+      attributeValue: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class ImportRoomGenieScenesRequestSceneListTriggersDevice extends $tea.Model {
+  category?: string;
+  deviceIndex?: string;
+  deviceNumber?: string;
+  static names(): { [key: string]: string } {
+    return {
+      category: 'Category',
+      deviceIndex: 'DeviceIndex',
+      deviceNumber: 'DeviceNumber',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      category: 'string',
+      deviceIndex: 'string',
+      deviceNumber: 'string',
     };
   }
 
@@ -12148,18 +12201,24 @@ export class ImportRoomGenieScenesRequestSceneListActions extends $tea.Model {
 }
 
 export class ImportRoomGenieScenesRequestSceneListTriggers extends $tea.Model {
+  attributeValues?: ImportRoomGenieScenesRequestSceneListTriggersAttributeValues[];
   corpusList?: string[];
+  device?: ImportRoomGenieScenesRequestSceneListTriggersDevice;
   type?: number;
   static names(): { [key: string]: string } {
     return {
+      attributeValues: 'AttributeValues',
       corpusList: 'CorpusList',
+      device: 'Device',
       type: 'Type',
     };
   }
 
   static types(): { [key: string]: any } {
     return {
+      attributeValues: { 'type': 'array', 'itemType': ImportRoomGenieScenesRequestSceneListTriggersAttributeValues },
       corpusList: { 'type': 'array', 'itemType': 'string' },
+      device: ImportRoomGenieScenesRequestSceneListTriggersDevice,
       type: 'number',
     };
   }
