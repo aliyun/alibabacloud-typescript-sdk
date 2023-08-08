@@ -35,16 +35,20 @@ export class Addon extends $tea.Model {
 
 export class DataDisk extends $tea.Model {
   autoSnapshotPolicyId?: string;
+  burstingEnabled?: boolean;
   category?: string;
   encrypted?: string;
   performanceLevel?: string;
+  provisionedIops?: number;
   size?: number;
   static names(): { [key: string]: string } {
     return {
       autoSnapshotPolicyId: 'auto_snapshot_policy_id',
+      burstingEnabled: 'bursting_enabled',
       category: 'category',
       encrypted: 'encrypted',
       performanceLevel: 'performance_level',
+      provisionedIops: 'provisioned_iops',
       size: 'size',
     };
   }
@@ -52,9 +56,11 @@ export class DataDisk extends $tea.Model {
   static types(): { [key: string]: any } {
     return {
       autoSnapshotPolicyId: 'string',
+      burstingEnabled: 'boolean',
       category: 'string',
       encrypted: 'string',
       performanceLevel: 'string',
+      provisionedIops: 'number',
       size: 'number',
     };
   }
@@ -84,6 +90,52 @@ export class MaintenanceWindow extends $tea.Model {
       enable: 'boolean',
       maintenanceTime: 'string',
       weeklyPeriod: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class Nodepool extends $tea.Model {
+  autoScaling?: NodepoolAutoScaling;
+  count?: number;
+  interconnectConfig?: NodepoolInterconnectConfig;
+  interconnectMode?: string;
+  kubernetesConfig?: NodepoolKubernetesConfig;
+  management?: NodepoolManagement;
+  maxNodes?: number;
+  nodepoolInfo?: NodepoolNodepoolInfo;
+  scalingGroup?: NodepoolScalingGroup;
+  teeConfig?: NodepoolTeeConfig;
+  static names(): { [key: string]: string } {
+    return {
+      autoScaling: 'auto_scaling',
+      count: 'count',
+      interconnectConfig: 'interconnect_config',
+      interconnectMode: 'interconnect_mode',
+      kubernetesConfig: 'kubernetes_config',
+      management: 'management',
+      maxNodes: 'max_nodes',
+      nodepoolInfo: 'nodepool_info',
+      scalingGroup: 'scaling_group',
+      teeConfig: 'tee_config',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      autoScaling: NodepoolAutoScaling,
+      count: 'number',
+      interconnectConfig: NodepoolInterconnectConfig,
+      interconnectMode: 'string',
+      kubernetesConfig: NodepoolKubernetesConfig,
+      management: NodepoolManagement,
+      maxNodes: 'number',
+      nodepoolInfo: NodepoolNodepoolInfo,
+      scalingGroup: NodepoolScalingGroup,
+      teeConfig: NodepoolTeeConfig,
     };
   }
 
@@ -6893,6 +6945,401 @@ export class UpgradeClusterNodepoolResponse extends $tea.Model {
       headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
       statusCode: 'number',
       body: UpgradeClusterNodepoolResponseBody,
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class NodepoolAutoScaling extends $tea.Model {
+  eipBandwidth?: number;
+  eipInternetChargeType?: string;
+  enable?: boolean;
+  isBondEip?: boolean;
+  maxInstances?: number;
+  minInstances?: number;
+  type?: string;
+  static names(): { [key: string]: string } {
+    return {
+      eipBandwidth: 'eip_bandwidth',
+      eipInternetChargeType: 'eip_internet_charge_type',
+      enable: 'enable',
+      isBondEip: 'is_bond_eip',
+      maxInstances: 'max_instances',
+      minInstances: 'min_instances',
+      type: 'type',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      eipBandwidth: 'number',
+      eipInternetChargeType: 'string',
+      enable: 'boolean',
+      isBondEip: 'boolean',
+      maxInstances: 'number',
+      minInstances: 'number',
+      type: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class NodepoolInterconnectConfig extends $tea.Model {
+  bandwidth?: number;
+  ccnId?: string;
+  ccnRegionId?: string;
+  cenId?: string;
+  improvedPeriod?: string;
+  static names(): { [key: string]: string } {
+    return {
+      bandwidth: 'bandwidth',
+      ccnId: 'ccn_id',
+      ccnRegionId: 'ccn_region_id',
+      cenId: 'cen_id',
+      improvedPeriod: 'improved_period',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      bandwidth: 'number',
+      ccnId: 'string',
+      ccnRegionId: 'string',
+      cenId: 'string',
+      improvedPeriod: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class NodepoolKubernetesConfig extends $tea.Model {
+  cmsEnabled?: boolean;
+  cpuPolicy?: string;
+  labels?: Tag[];
+  nodeNameMode?: string;
+  runtime?: string;
+  runtimeVersion?: string;
+  taints?: Taint[];
+  userData?: string;
+  static names(): { [key: string]: string } {
+    return {
+      cmsEnabled: 'cms_enabled',
+      cpuPolicy: 'cpu_policy',
+      labels: 'labels',
+      nodeNameMode: 'node_name_mode',
+      runtime: 'runtime',
+      runtimeVersion: 'runtime_version',
+      taints: 'taints',
+      userData: 'user_data',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      cmsEnabled: 'boolean',
+      cpuPolicy: 'string',
+      labels: { 'type': 'array', 'itemType': Tag },
+      nodeNameMode: 'string',
+      runtime: 'string',
+      runtimeVersion: 'string',
+      taints: { 'type': 'array', 'itemType': Taint },
+      userData: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class NodepoolManagementUpgradeConfig extends $tea.Model {
+  autoUpgrade?: boolean;
+  maxUnavailable?: number;
+  surge?: number;
+  surgePercentage?: number;
+  static names(): { [key: string]: string } {
+    return {
+      autoUpgrade: 'auto_upgrade',
+      maxUnavailable: 'max_unavailable',
+      surge: 'surge',
+      surgePercentage: 'surge_percentage',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      autoUpgrade: 'boolean',
+      maxUnavailable: 'number',
+      surge: 'number',
+      surgePercentage: 'number',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class NodepoolManagement extends $tea.Model {
+  autoRepair?: boolean;
+  enable?: boolean;
+  upgradeConfig?: NodepoolManagementUpgradeConfig;
+  static names(): { [key: string]: string } {
+    return {
+      autoRepair: 'auto_repair',
+      enable: 'enable',
+      upgradeConfig: 'upgrade_config',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      autoRepair: 'boolean',
+      enable: 'boolean',
+      upgradeConfig: NodepoolManagementUpgradeConfig,
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class NodepoolNodepoolInfo extends $tea.Model {
+  name?: string;
+  resourceGroupId?: string;
+  type?: string;
+  static names(): { [key: string]: string } {
+    return {
+      name: 'name',
+      resourceGroupId: 'resource_group_id',
+      type: 'type',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      name: 'string',
+      resourceGroupId: 'string',
+      type: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class NodepoolScalingGroupPrivatePoolOptions extends $tea.Model {
+  id?: string;
+  matchCriteria?: string;
+  static names(): { [key: string]: string } {
+    return {
+      id: 'id',
+      matchCriteria: 'match_criteria',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      id: 'string',
+      matchCriteria: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class NodepoolScalingGroupSpotPriceLimit extends $tea.Model {
+  instanceType?: string;
+  priceLimit?: string;
+  static names(): { [key: string]: string } {
+    return {
+      instanceType: 'instance_type',
+      priceLimit: 'price_limit',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      instanceType: 'string',
+      priceLimit: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class NodepoolScalingGroupTags extends $tea.Model {
+  key?: string;
+  value?: string;
+  static names(): { [key: string]: string } {
+    return {
+      key: 'key',
+      value: 'value',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      key: 'string',
+      value: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class NodepoolScalingGroup extends $tea.Model {
+  autoRenew?: boolean;
+  autoRenewPeriod?: number;
+  compensateWithOnDemand?: boolean;
+  dataDisks?: DataDisk[];
+  deploymentsetId?: string;
+  desiredSize?: number;
+  imageId?: string;
+  imageType?: string;
+  instanceChargeType?: string;
+  instanceTypes?: string[];
+  internetChargeType?: string;
+  internetMaxBandwidthOut?: number;
+  keyPair?: string;
+  loginPassword?: string;
+  multiAzPolicy?: string;
+  onDemandBaseCapacity?: number;
+  onDemandPercentageAboveBaseCapacity?: number;
+  period?: number;
+  periodUnit?: string;
+  platform?: string;
+  privatePoolOptions?: NodepoolScalingGroupPrivatePoolOptions;
+  rdsInstances?: string[];
+  scalingPolicy?: string;
+  securityGroupId?: string;
+  securityGroupIds?: string[];
+  spotInstancePools?: number;
+  spotInstanceRemedy?: boolean;
+  spotPriceLimit?: NodepoolScalingGroupSpotPriceLimit[];
+  spotStrategy?: string;
+  systemDiskBurstingEnabled?: boolean;
+  systemDiskCategory?: string;
+  systemDiskPerformanceLevel?: string;
+  systemDiskProvisionedIops?: number;
+  systemDiskSize?: number;
+  tags?: NodepoolScalingGroupTags[];
+  vswitchIds?: string[];
+  static names(): { [key: string]: string } {
+    return {
+      autoRenew: 'auto_renew',
+      autoRenewPeriod: 'auto_renew_period',
+      compensateWithOnDemand: 'compensate_with_on_demand',
+      dataDisks: 'data_disks',
+      deploymentsetId: 'deploymentset_id',
+      desiredSize: 'desired_size',
+      imageId: 'image_id',
+      imageType: 'image_type',
+      instanceChargeType: 'instance_charge_type',
+      instanceTypes: 'instance_types',
+      internetChargeType: 'internet_charge_type',
+      internetMaxBandwidthOut: 'internet_max_bandwidth_out',
+      keyPair: 'key_pair',
+      loginPassword: 'login_password',
+      multiAzPolicy: 'multi_az_policy',
+      onDemandBaseCapacity: 'on_demand_base_capacity',
+      onDemandPercentageAboveBaseCapacity: 'on_demand_percentage_above_base_capacity',
+      period: 'period',
+      periodUnit: 'period_unit',
+      platform: 'platform',
+      privatePoolOptions: 'private_pool_options',
+      rdsInstances: 'rds_instances',
+      scalingPolicy: 'scaling_policy',
+      securityGroupId: 'security_group_id',
+      securityGroupIds: 'security_group_ids',
+      spotInstancePools: 'spot_instance_pools',
+      spotInstanceRemedy: 'spot_instance_remedy',
+      spotPriceLimit: 'spot_price_limit',
+      spotStrategy: 'spot_strategy',
+      systemDiskBurstingEnabled: 'system_disk_bursting_enabled',
+      systemDiskCategory: 'system_disk_category',
+      systemDiskPerformanceLevel: 'system_disk_performance_level',
+      systemDiskProvisionedIops: 'system_disk_provisioned_iops',
+      systemDiskSize: 'system_disk_size',
+      tags: 'tags',
+      vswitchIds: 'vswitch_ids',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      autoRenew: 'boolean',
+      autoRenewPeriod: 'number',
+      compensateWithOnDemand: 'boolean',
+      dataDisks: { 'type': 'array', 'itemType': DataDisk },
+      deploymentsetId: 'string',
+      desiredSize: 'number',
+      imageId: 'string',
+      imageType: 'string',
+      instanceChargeType: 'string',
+      instanceTypes: { 'type': 'array', 'itemType': 'string' },
+      internetChargeType: 'string',
+      internetMaxBandwidthOut: 'number',
+      keyPair: 'string',
+      loginPassword: 'string',
+      multiAzPolicy: 'string',
+      onDemandBaseCapacity: 'number',
+      onDemandPercentageAboveBaseCapacity: 'number',
+      period: 'number',
+      periodUnit: 'string',
+      platform: 'string',
+      privatePoolOptions: NodepoolScalingGroupPrivatePoolOptions,
+      rdsInstances: { 'type': 'array', 'itemType': 'string' },
+      scalingPolicy: 'string',
+      securityGroupId: 'string',
+      securityGroupIds: { 'type': 'array', 'itemType': 'string' },
+      spotInstancePools: 'number',
+      spotInstanceRemedy: 'boolean',
+      spotPriceLimit: { 'type': 'array', 'itemType': NodepoolScalingGroupSpotPriceLimit },
+      spotStrategy: 'string',
+      systemDiskBurstingEnabled: 'boolean',
+      systemDiskCategory: 'string',
+      systemDiskPerformanceLevel: 'string',
+      systemDiskProvisionedIops: 'number',
+      systemDiskSize: 'number',
+      tags: { 'type': 'array', 'itemType': NodepoolScalingGroupTags },
+      vswitchIds: { 'type': 'array', 'itemType': 'string' },
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class NodepoolTeeConfig extends $tea.Model {
+  teeEnable?: boolean;
+  static names(): { [key: string]: string } {
+    return {
+      teeEnable: 'tee_enable',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      teeEnable: 'boolean',
     };
   }
 
