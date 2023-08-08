@@ -2711,6 +2711,7 @@ export class CreateMonitoringAgentProcessResponse extends $tea.Model {
 export class CreateSiteMonitorRequest extends $tea.Model {
   address?: string;
   alertIds?: string;
+  customSchedule?: string;
   interval?: string;
   ispCities?: string;
   optionsJson?: string;
@@ -2721,6 +2722,7 @@ export class CreateSiteMonitorRequest extends $tea.Model {
     return {
       address: 'Address',
       alertIds: 'AlertIds',
+      customSchedule: 'CustomSchedule',
       interval: 'Interval',
       ispCities: 'IspCities',
       optionsJson: 'OptionsJson',
@@ -2734,6 +2736,7 @@ export class CreateSiteMonitorRequest extends $tea.Model {
     return {
       address: 'string',
       alertIds: 'string',
+      customSchedule: 'string',
       interval: 'string',
       ispCities: 'string',
       optionsJson: 'string',
@@ -13005,6 +13008,7 @@ export class ModifyMonitorGroupInstancesResponse extends $tea.Model {
 export class ModifySiteMonitorRequest extends $tea.Model {
   address?: string;
   alertIds?: string;
+  customSchedule?: string;
   interval?: string;
   intervalUnit?: string;
   ispCities?: string;
@@ -13016,6 +13020,7 @@ export class ModifySiteMonitorRequest extends $tea.Model {
     return {
       address: 'Address',
       alertIds: 'AlertIds',
+      customSchedule: 'CustomSchedule',
       interval: 'Interval',
       intervalUnit: 'IntervalUnit',
       ispCities: 'IspCities',
@@ -13030,6 +13035,7 @@ export class ModifySiteMonitorRequest extends $tea.Model {
     return {
       address: 'string',
       alertIds: 'string',
+      customSchedule: 'string',
       interval: 'string',
       intervalUnit: 'string',
       ispCities: 'string',
@@ -22808,6 +22814,53 @@ export class DescribeSiteMonitorAttributeResponseBodyMetricRules extends $tea.Mo
   }
 }
 
+export class DescribeSiteMonitorAttributeResponseBodySiteMonitorsCustomScheduleDays extends $tea.Model {
+  days?: number[];
+  static names(): { [key: string]: string } {
+    return {
+      days: 'days',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      days: { 'type': 'array', 'itemType': 'number' },
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class DescribeSiteMonitorAttributeResponseBodySiteMonitorsCustomSchedule extends $tea.Model {
+  days?: DescribeSiteMonitorAttributeResponseBodySiteMonitorsCustomScheduleDays;
+  endHour?: number;
+  startHour?: number;
+  timeZone?: string;
+  static names(): { [key: string]: string } {
+    return {
+      days: 'days',
+      endHour: 'end_hour',
+      startHour: 'start_hour',
+      timeZone: 'time_zone',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      days: DescribeSiteMonitorAttributeResponseBodySiteMonitorsCustomScheduleDays,
+      endHour: 'number',
+      startHour: 'number',
+      timeZone: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
 export class DescribeSiteMonitorAttributeResponseBodySiteMonitorsIspCitiesIspCity extends $tea.Model {
   city?: string;
   cityName?: string;
@@ -23005,6 +23058,7 @@ export class DescribeSiteMonitorAttributeResponseBodySiteMonitorsOptionJson exte
 export class DescribeSiteMonitorAttributeResponseBodySiteMonitors extends $tea.Model {
   address?: string;
   agentGroup?: string;
+  customSchedule?: DescribeSiteMonitorAttributeResponseBodySiteMonitorsCustomSchedule;
   interval?: string;
   ispCities?: DescribeSiteMonitorAttributeResponseBodySiteMonitorsIspCities;
   optionJson?: DescribeSiteMonitorAttributeResponseBodySiteMonitorsOptionJson;
@@ -23016,6 +23070,7 @@ export class DescribeSiteMonitorAttributeResponseBodySiteMonitors extends $tea.M
     return {
       address: 'Address',
       agentGroup: 'AgentGroup',
+      customSchedule: 'CustomSchedule',
       interval: 'Interval',
       ispCities: 'IspCities',
       optionJson: 'OptionJson',
@@ -23030,6 +23085,7 @@ export class DescribeSiteMonitorAttributeResponseBodySiteMonitors extends $tea.M
     return {
       address: 'string',
       agentGroup: 'string',
+      customSchedule: DescribeSiteMonitorAttributeResponseBodySiteMonitorsCustomSchedule,
       interval: 'string',
       ispCities: DescribeSiteMonitorAttributeResponseBodySiteMonitorsIspCities,
       optionJson: DescribeSiteMonitorAttributeResponseBodySiteMonitorsOptionJson,
@@ -27405,6 +27461,10 @@ export default class Client extends OpenApi {
 
     if (!Util.isUnset(request.alertIds)) {
       query["AlertIds"] = request.alertIds;
+    }
+
+    if (!Util.isUnset(request.customSchedule)) {
+      query["CustomSchedule"] = request.customSchedule;
     }
 
     if (!Util.isUnset(request.interval)) {
@@ -32858,6 +32918,10 @@ export default class Client extends OpenApi {
 
     if (!Util.isUnset(request.alertIds)) {
       query["AlertIds"] = request.alertIds;
+    }
+
+    if (!Util.isUnset(request.customSchedule)) {
+      query["CustomSchedule"] = request.customSchedule;
     }
 
     if (!Util.isUnset(request.interval)) {
