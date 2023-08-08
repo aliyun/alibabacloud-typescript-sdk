@@ -263,6 +263,84 @@ export class DeletePictureResponse extends $tea.Model {
   }
 }
 
+export class DeleteVerifyResultRequest extends $tea.Model {
+  deleteAfterQuery?: string;
+  deleteType?: string;
+  transactionId?: string;
+  static names(): { [key: string]: string } {
+    return {
+      deleteAfterQuery: 'DeleteAfterQuery',
+      deleteType: 'DeleteType',
+      transactionId: 'TransactionId',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      deleteAfterQuery: 'string',
+      deleteType: 'string',
+      transactionId: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class DeleteVerifyResultResponseBody extends $tea.Model {
+  code?: string;
+  message?: string;
+  requestId?: string;
+  result?: DeleteVerifyResultResponseBodyResult;
+  static names(): { [key: string]: string } {
+    return {
+      code: 'Code',
+      message: 'Message',
+      requestId: 'RequestId',
+      result: 'Result',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      code: 'string',
+      message: 'string',
+      requestId: 'string',
+      result: DeleteVerifyResultResponseBodyResult,
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class DeleteVerifyResultResponse extends $tea.Model {
+  headers: { [key: string]: string };
+  statusCode: number;
+  body: DeleteVerifyResultResponseBody;
+  static names(): { [key: string]: string } {
+    return {
+      headers: 'headers',
+      statusCode: 'statusCode',
+      body: 'body',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
+      body: DeleteVerifyResultResponseBody,
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
 export class DescribeAddressLabelsRequest extends $tea.Model {
   address?: string;
   coin?: string;
@@ -1256,6 +1334,28 @@ export class DeletePictureResponseBodyResult extends $tea.Model {
   }
 }
 
+export class DeleteVerifyResultResponseBodyResult extends $tea.Model {
+  deleteResult?: string;
+  transactionId?: string;
+  static names(): { [key: string]: string } {
+    return {
+      deleteResult: 'DeleteResult',
+      transactionId: 'TransactionId',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      deleteResult: 'string',
+      transactionId: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
 export class DescribeAddressLabelsResponseBodyData extends $tea.Model {
   labelList?: string[];
   static names(): { [key: string]: string } {
@@ -1773,6 +1873,43 @@ export default class Client extends OpenApi {
   async deletePicture(request: DeletePictureRequest): Promise<DeletePictureResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.deletePictureWithOptions(request, runtime);
+  }
+
+  async deleteVerifyResultWithOptions(request: DeleteVerifyResultRequest, runtime: $Util.RuntimeOptions): Promise<DeleteVerifyResultResponse> {
+    Util.validateModel(request);
+    let query = { };
+    if (!Util.isUnset(request.deleteAfterQuery)) {
+      query["DeleteAfterQuery"] = request.deleteAfterQuery;
+    }
+
+    if (!Util.isUnset(request.deleteType)) {
+      query["DeleteType"] = request.deleteType;
+    }
+
+    if (!Util.isUnset(request.transactionId)) {
+      query["TransactionId"] = request.transactionId;
+    }
+
+    let req = new $OpenApi.OpenApiRequest({
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApi.Params({
+      action: "DeleteVerifyResult",
+      version: "2022-08-09",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $tea.cast<DeleteVerifyResultResponse>(await this.callApi(params, req, runtime), new DeleteVerifyResultResponse({}));
+  }
+
+  async deleteVerifyResult(request: DeleteVerifyResultRequest): Promise<DeleteVerifyResultResponse> {
+    let runtime = new $Util.RuntimeOptions({ });
+    return await this.deleteVerifyResultWithOptions(request, runtime);
   }
 
   async describeAddressLabelsWithOptions(request: DescribeAddressLabelsRequest, runtime: $Util.RuntimeOptions): Promise<DescribeAddressLabelsResponse> {
