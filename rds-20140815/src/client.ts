@@ -37675,6 +37675,23 @@ export default class Client extends OpenApi {
     return await this.deleteBackupFileWithOptions(request, runtime);
   }
 
+  /**
+    * ### Supported database engines
+    * *   MySQL
+    * *   PostgreSQL
+    * *   SQL Server
+    * *   MariaDB
+    * ### References
+    * > Note Before you call this operation, read the following documentation and make sure that you fully understand the prerequisites and impacts of this operation.
+    * *   [Release an ApsaraDB RDS for MySQL instance](~~96057~~)
+    * *   [Release an ApsaraDB RDS for PostgreSQL instance](~~96749~~)
+    * *   [Release an ApsaraDB RDS for SQL Server instance](~~95662~~)
+    * *   [Release an ApsaraDB RDS for MariaDB instance](~~97128~~)
+    *
+    * @param request DeleteDBInstanceRequest
+    * @param runtime runtime options for this request RuntimeOptions
+    * @return DeleteDBInstanceResponse
+   */
   async deleteDBInstanceWithOptions(request: DeleteDBInstanceRequest, runtime: $Util.RuntimeOptions): Promise<DeleteDBInstanceResponse> {
     Util.validateModel(request);
     let query = { };
@@ -37719,6 +37736,22 @@ export default class Client extends OpenApi {
     return $tea.cast<DeleteDBInstanceResponse>(await this.callApi(params, req, runtime), new DeleteDBInstanceResponse({}));
   }
 
+  /**
+    * ### Supported database engines
+    * *   MySQL
+    * *   PostgreSQL
+    * *   SQL Server
+    * *   MariaDB
+    * ### References
+    * > Note Before you call this operation, read the following documentation and make sure that you fully understand the prerequisites and impacts of this operation.
+    * *   [Release an ApsaraDB RDS for MySQL instance](~~96057~~)
+    * *   [Release an ApsaraDB RDS for PostgreSQL instance](~~96749~~)
+    * *   [Release an ApsaraDB RDS for SQL Server instance](~~95662~~)
+    * *   [Release an ApsaraDB RDS for MariaDB instance](~~97128~~)
+    *
+    * @param request DeleteDBInstanceRequest
+    * @return DeleteDBInstanceResponse
+   */
   async deleteDBInstance(request: DeleteDBInstanceRequest): Promise<DeleteDBInstanceResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.deleteDBInstanceWithOptions(request, runtime);
@@ -37907,6 +37940,19 @@ export default class Client extends OpenApi {
     return await this.deleteDBNodesWithOptions(request, runtime);
   }
 
+  /**
+    * ### Supported database engines
+    * *   MySQL
+    * *   PostgreSQL
+    * ### References
+    * > Before you call this operation, carefully read the following documentation. Make sure that you fully understand the prerequisites and impacts for calling this operation.
+    * *   [Configure the dedicated proxy endpoint of an ApsaraDB RDS for MySQL instance](~~184921~~)
+    * *   [Configure the dedicated proxy endpoint for an ApsaraDB RDS for PostgreSQL instance](~~418274~~)
+    *
+    * @param request DeleteDBProxyEndpointAddressRequest
+    * @param runtime runtime options for this request RuntimeOptions
+    * @return DeleteDBProxyEndpointAddressResponse
+   */
   async deleteDBProxyEndpointAddressWithOptions(request: DeleteDBProxyEndpointAddressRequest, runtime: $Util.RuntimeOptions): Promise<DeleteDBProxyEndpointAddressResponse> {
     Util.validateModel(request);
     let query = { };
@@ -37951,6 +37997,18 @@ export default class Client extends OpenApi {
     return $tea.cast<DeleteDBProxyEndpointAddressResponse>(await this.callApi(params, req, runtime), new DeleteDBProxyEndpointAddressResponse({}));
   }
 
+  /**
+    * ### Supported database engines
+    * *   MySQL
+    * *   PostgreSQL
+    * ### References
+    * > Before you call this operation, carefully read the following documentation. Make sure that you fully understand the prerequisites and impacts for calling this operation.
+    * *   [Configure the dedicated proxy endpoint of an ApsaraDB RDS for MySQL instance](~~184921~~)
+    * *   [Configure the dedicated proxy endpoint for an ApsaraDB RDS for PostgreSQL instance](~~418274~~)
+    *
+    * @param request DeleteDBProxyEndpointAddressRequest
+    * @return DeleteDBProxyEndpointAddressResponse
+   */
   async deleteDBProxyEndpointAddress(request: DeleteDBProxyEndpointAddressRequest): Promise<DeleteDBProxyEndpointAddressResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.deleteDBProxyEndpointAddressWithOptions(request, runtime);
@@ -42186,7 +42244,11 @@ export default class Client extends OpenApi {
   }
 
   /**
-    * >  If the specified request parameters are invalid, no database information is returned.
+    * ### Supported database engines
+    * *   MySQL
+    * *   PostgreSQL
+    * *   SQL Server
+    * *   MariaDB
     *
     * @param request DescribeDatabasesRequest
     * @param runtime runtime options for this request RuntimeOptions
@@ -42253,7 +42315,11 @@ export default class Client extends OpenApi {
   }
 
   /**
-    * >  If the specified request parameters are invalid, no database information is returned.
+    * ### Supported database engines
+    * *   MySQL
+    * *   PostgreSQL
+    * *   SQL Server
+    * *   MariaDB
     *
     * @param request DescribeDatabasesRequest
     * @return DescribeDatabasesResponse
