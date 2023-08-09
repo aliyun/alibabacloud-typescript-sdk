@@ -6201,6 +6201,7 @@ export class CreatePhysicalConnectionSetupOrderResponse extends $tea.Model {
 }
 
 export class CreatePublicIpAddressPoolRequest extends $tea.Model {
+  bizType?: string;
   clientToken?: string;
   description?: string;
   dryRun?: boolean;
@@ -6213,8 +6214,10 @@ export class CreatePublicIpAddressPoolRequest extends $tea.Model {
   resourceOwnerAccount?: string;
   resourceOwnerId?: number;
   tag?: CreatePublicIpAddressPoolRequestTag[];
+  zones?: string[];
   static names(): { [key: string]: string } {
     return {
+      bizType: 'BizType',
       clientToken: 'ClientToken',
       description: 'Description',
       dryRun: 'DryRun',
@@ -6227,11 +6230,13 @@ export class CreatePublicIpAddressPoolRequest extends $tea.Model {
       resourceOwnerAccount: 'ResourceOwnerAccount',
       resourceOwnerId: 'ResourceOwnerId',
       tag: 'Tag',
+      zones: 'Zones',
     };
   }
 
   static types(): { [key: string]: any } {
     return {
+      bizType: 'string',
       clientToken: 'string',
       description: 'string',
       dryRun: 'boolean',
@@ -6244,6 +6249,7 @@ export class CreatePublicIpAddressPoolRequest extends $tea.Model {
       resourceOwnerAccount: 'string',
       resourceOwnerId: 'number',
       tag: { 'type': 'array', 'itemType': CreatePublicIpAddressPoolRequestTag },
+      zones: { 'type': 'array', 'itemType': 'string' },
     };
   }
 
@@ -21270,6 +21276,7 @@ export class EnableNatGatewayEcsMetricResponse extends $tea.Model {
 }
 
 export class EnablePhysicalConnectionRequest extends $tea.Model {
+  byPassSp?: boolean;
   clientToken?: string;
   ownerAccount?: string;
   ownerId?: number;
@@ -21279,6 +21286,7 @@ export class EnablePhysicalConnectionRequest extends $tea.Model {
   resourceOwnerId?: number;
   static names(): { [key: string]: string } {
     return {
+      byPassSp: 'ByPassSp',
       clientToken: 'ClientToken',
       ownerAccount: 'OwnerAccount',
       ownerId: 'OwnerId',
@@ -21291,6 +21299,7 @@ export class EnablePhysicalConnectionRequest extends $tea.Model {
 
   static types(): { [key: string]: any } {
     return {
+      byPassSp: 'boolean',
       clientToken: 'string',
       ownerAccount: 'string',
       ownerId: 'number',
@@ -35813,6 +35822,7 @@ export class DescribeCommonBandwidthPackagesResponseBodyCommonBandwidthPackagesC
 export class DescribeCommonBandwidthPackagesResponseBodyCommonBandwidthPackagesCommonBandwidthPackage extends $tea.Model {
   bandwidth?: string;
   bandwidthPackageId?: string;
+  bizType?: string;
   businessStatus?: string;
   creationTime?: string;
   deletionProtection?: boolean;
@@ -35835,10 +35845,12 @@ export class DescribeCommonBandwidthPackagesResponseBodyCommonBandwidthPackagesC
   serviceManaged?: number;
   status?: string;
   tags?: DescribeCommonBandwidthPackagesResponseBodyCommonBandwidthPackagesCommonBandwidthPackageTags;
+  zone?: string;
   static names(): { [key: string]: string } {
     return {
       bandwidth: 'Bandwidth',
       bandwidthPackageId: 'BandwidthPackageId',
+      bizType: 'BizType',
       businessStatus: 'BusinessStatus',
       creationTime: 'CreationTime',
       deletionProtection: 'DeletionProtection',
@@ -35861,6 +35873,7 @@ export class DescribeCommonBandwidthPackagesResponseBodyCommonBandwidthPackagesC
       serviceManaged: 'ServiceManaged',
       status: 'Status',
       tags: 'Tags',
+      zone: 'Zone',
     };
   }
 
@@ -35868,6 +35881,7 @@ export class DescribeCommonBandwidthPackagesResponseBodyCommonBandwidthPackagesC
     return {
       bandwidth: 'string',
       bandwidthPackageId: 'string',
+      bizType: 'string',
       businessStatus: 'string',
       creationTime: 'string',
       deletionProtection: 'boolean',
@@ -35890,6 +35904,7 @@ export class DescribeCommonBandwidthPackagesResponseBodyCommonBandwidthPackagesC
       serviceManaged: 'number',
       status: 'string',
       tags: DescribeCommonBandwidthPackagesResponseBodyCommonBandwidthPackagesCommonBandwidthPackageTags,
+      zone: 'string',
     };
   }
 
@@ -36256,6 +36271,7 @@ export class DescribeEipAddressesResponseBodyEipAddressesEipAddress extends $tea
   bandwidthPackageBandwidth?: string;
   bandwidthPackageId?: string;
   bandwidthPackageType?: string;
+  bizType?: string;
   businessStatus?: string;
   chargeType?: string;
   deletionProtection?: boolean;
@@ -36296,6 +36312,7 @@ export class DescribeEipAddressesResponseBodyEipAddressesEipAddress extends $tea
       bandwidthPackageBandwidth: 'BandwidthPackageBandwidth',
       bandwidthPackageId: 'BandwidthPackageId',
       bandwidthPackageType: 'BandwidthPackageType',
+      bizType: 'BizType',
       businessStatus: 'BusinessStatus',
       chargeType: 'ChargeType',
       deletionProtection: 'DeletionProtection',
@@ -36339,6 +36356,7 @@ export class DescribeEipAddressesResponseBodyEipAddressesEipAddress extends $tea
       bandwidthPackageBandwidth: 'string',
       bandwidthPackageId: 'string',
       bandwidthPackageType: 'string',
+      bizType: 'string',
       businessStatus: 'string',
       chargeType: 'string',
       deletionProtection: 'boolean',
@@ -38843,6 +38861,47 @@ export class DescribePhysicalConnectionsRequestTags extends $tea.Model {
   }
 }
 
+export class DescribePhysicalConnectionsResponseBodyPhysicalConnectionSetPhysicalConnectionTypeTagsTags extends $tea.Model {
+  key?: string;
+  value?: string;
+  static names(): { [key: string]: string } {
+    return {
+      key: 'Key',
+      value: 'Value',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      key: 'string',
+      value: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class DescribePhysicalConnectionsResponseBodyPhysicalConnectionSetPhysicalConnectionTypeTags extends $tea.Model {
+  tags?: DescribePhysicalConnectionsResponseBodyPhysicalConnectionSetPhysicalConnectionTypeTagsTags[];
+  static names(): { [key: string]: string } {
+    return {
+      tags: 'tags',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      tags: { 'type': 'array', 'itemType': DescribePhysicalConnectionsResponseBodyPhysicalConnectionSetPhysicalConnectionTypeTagsTags },
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
 export class DescribePhysicalConnectionsResponseBodyPhysicalConnectionSetPhysicalConnectionType extends $tea.Model {
   accessPointId?: string;
   accessPointType?: string;
@@ -38876,6 +38935,7 @@ export class DescribePhysicalConnectionsResponseBodyPhysicalConnectionSetPhysica
   resourceGroupId?: string;
   spec?: string;
   status?: string;
+  tags?: DescribePhysicalConnectionsResponseBodyPhysicalConnectionSetPhysicalConnectionTypeTags;
   type?: string;
   virtualPhysicalConnectionCount?: number;
   vlanId?: string;
@@ -38914,6 +38974,7 @@ export class DescribePhysicalConnectionsResponseBodyPhysicalConnectionSetPhysica
       resourceGroupId: 'ResourceGroupId',
       spec: 'Spec',
       status: 'Status',
+      tags: 'Tags',
       type: 'Type',
       virtualPhysicalConnectionCount: 'VirtualPhysicalConnectionCount',
       vlanId: 'VlanId',
@@ -38955,6 +39016,7 @@ export class DescribePhysicalConnectionsResponseBodyPhysicalConnectionSetPhysica
       resourceGroupId: 'string',
       spec: 'string',
       status: 'string',
+      tags: DescribePhysicalConnectionsResponseBodyPhysicalConnectionSetPhysicalConnectionTypeTags,
       type: 'string',
       virtualPhysicalConnectionCount: 'number',
       vlanId: 'string',
@@ -44519,6 +44581,7 @@ export class ListPublicIpAddressPoolsResponseBodyPublicIpAddressPoolListTags ext
 }
 
 export class ListPublicIpAddressPoolsResponseBodyPublicIpAddressPoolList extends $tea.Model {
+  bizType?: string;
   creationTime?: string;
   description?: string;
   ipAddressRemaining?: boolean;
@@ -44534,8 +44597,10 @@ export class ListPublicIpAddressPoolsResponseBodyPublicIpAddressPoolList extends
   totalIpNum?: number;
   usedIpNum?: number;
   userType?: boolean;
+  zones?: string[];
   static names(): { [key: string]: string } {
     return {
+      bizType: 'BizType',
       creationTime: 'CreationTime',
       description: 'Description',
       ipAddressRemaining: 'IpAddressRemaining',
@@ -44551,11 +44616,13 @@ export class ListPublicIpAddressPoolsResponseBodyPublicIpAddressPoolList extends
       totalIpNum: 'TotalIpNum',
       usedIpNum: 'UsedIpNum',
       userType: 'UserType',
+      zones: 'Zones',
     };
   }
 
   static types(): { [key: string]: any } {
     return {
+      bizType: 'string',
       creationTime: 'string',
       description: 'string',
       ipAddressRemaining: 'boolean',
@@ -44571,6 +44638,7 @@ export class ListPublicIpAddressPoolsResponseBodyPublicIpAddressPoolList extends
       totalIpNum: 'number',
       usedIpNum: 'number',
       userType: 'boolean',
+      zones: { 'type': 'array', 'itemType': 'string' },
     };
   }
 
@@ -45026,6 +45094,28 @@ export class ListVirtualPhysicalConnectionsRequestTags extends $tea.Model {
   }
 }
 
+export class ListVirtualPhysicalConnectionsResponseBodyVirtualPhysicalConnectionsTags extends $tea.Model {
+  key?: string;
+  value?: string;
+  static names(): { [key: string]: string } {
+    return {
+      key: 'Key',
+      value: 'Value',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      key: 'string',
+      value: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
 export class ListVirtualPhysicalConnectionsResponseBodyVirtualPhysicalConnections extends $tea.Model {
   accessPointId?: string;
   adLocation?: string;
@@ -45054,6 +45144,7 @@ export class ListVirtualPhysicalConnectionsResponseBodyVirtualPhysicalConnection
   resourceGroupId?: string;
   spec?: string;
   status?: string;
+  tags?: ListVirtualPhysicalConnectionsResponseBodyVirtualPhysicalConnectionsTags[];
   type?: string;
   virtualPhysicalConnectionStatus?: string;
   vlanId?: string;
@@ -45086,6 +45177,7 @@ export class ListVirtualPhysicalConnectionsResponseBodyVirtualPhysicalConnection
       resourceGroupId: 'ResourceGroupId',
       spec: 'Spec',
       status: 'Status',
+      tags: 'Tags',
       type: 'Type',
       virtualPhysicalConnectionStatus: 'VirtualPhysicalConnectionStatus',
       vlanId: 'VlanId',
@@ -45121,6 +45213,7 @@ export class ListVirtualPhysicalConnectionsResponseBodyVirtualPhysicalConnection
       resourceGroupId: 'string',
       spec: 'string',
       status: 'string',
+      tags: { 'type': 'array', 'itemType': ListVirtualPhysicalConnectionsResponseBodyVirtualPhysicalConnectionsTags },
       type: 'string',
       virtualPhysicalConnectionStatus: 'string',
       vlanId: 'string',
@@ -51607,6 +51700,10 @@ export default class Client extends OpenApi {
   async createPublicIpAddressPoolWithOptions(request: CreatePublicIpAddressPoolRequest, runtime: $Util.RuntimeOptions): Promise<CreatePublicIpAddressPoolResponse> {
     Util.validateModel(request);
     let query = { };
+    if (!Util.isUnset(request.bizType)) {
+      query["BizType"] = request.bizType;
+    }
+
     if (!Util.isUnset(request.clientToken)) {
       query["ClientToken"] = request.clientToken;
     }
@@ -51653,6 +51750,10 @@ export default class Client extends OpenApi {
 
     if (!Util.isUnset(request.tag)) {
       query["Tag"] = request.tag;
+    }
+
+    if (!Util.isUnset(request.zones)) {
+      query["Zones"] = request.zones;
     }
 
     let req = new $OpenApi.OpenApiRequest({
@@ -63078,6 +63179,10 @@ export default class Client extends OpenApi {
   async enablePhysicalConnectionWithOptions(request: EnablePhysicalConnectionRequest, runtime: $Util.RuntimeOptions): Promise<EnablePhysicalConnectionResponse> {
     Util.validateModel(request);
     let query = { };
+    if (!Util.isUnset(request.byPassSp)) {
+      query["ByPassSp"] = request.byPassSp;
+    }
+
     if (!Util.isUnset(request.clientToken)) {
       query["ClientToken"] = request.clientToken;
     }
