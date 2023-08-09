@@ -4809,6 +4809,115 @@ export class GetWelcomeTextAndMusicResponse extends $tea.Model {
   }
 }
 
+export class HotelQrBindHeaders extends $tea.Model {
+  commonHeaders?: { [key: string]: string };
+  xAcsAligenieAccessToken?: string;
+  authorization?: string;
+  static names(): { [key: string]: string } {
+    return {
+      commonHeaders: 'commonHeaders',
+      xAcsAligenieAccessToken: 'x-acs-aligenie-access-token',
+      authorization: 'Authorization',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      commonHeaders: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      xAcsAligenieAccessToken: 'string',
+      authorization: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class HotelQrBindRequest extends $tea.Model {
+  clientId?: string;
+  code?: string;
+  extInfo?: string;
+  hotelId?: string;
+  roomNo?: string;
+  static names(): { [key: string]: string } {
+    return {
+      clientId: 'ClientId',
+      code: 'Code',
+      extInfo: 'ExtInfo',
+      hotelId: 'HotelId',
+      roomNo: 'RoomNo',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      clientId: 'string',
+      code: 'string',
+      extInfo: 'string',
+      hotelId: 'string',
+      roomNo: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class HotelQrBindResponseBody extends $tea.Model {
+  message?: string;
+  requestId?: string;
+  result?: HotelQrBindResponseBodyResult;
+  statusCode?: number;
+  static names(): { [key: string]: string } {
+    return {
+      message: 'Message',
+      requestId: 'RequestId',
+      result: 'Result',
+      statusCode: 'StatusCode',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      message: 'string',
+      requestId: 'string',
+      result: HotelQrBindResponseBodyResult,
+      statusCode: 'number',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class HotelQrBindResponse extends $tea.Model {
+  headers: { [key: string]: string };
+  statusCode: number;
+  body: HotelQrBindResponseBody;
+  static names(): { [key: string]: string } {
+    return {
+      headers: 'headers',
+      statusCode: 'statusCode',
+      body: 'body',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
+      body: HotelQrBindResponseBody,
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
 export class ImportHotelConfigHeaders extends $tea.Model {
   commonHeaders?: { [key: string]: string };
   xAcsAligenieAccessToken?: string;
@@ -11895,6 +12004,90 @@ export class GetWelcomeTextAndMusicResponseBodyResult extends $tea.Model {
   }
 }
 
+export class HotelQrBindResponseBodyResultOpenDeviceInfo extends $tea.Model {
+  encodeKey?: string;
+  encodeType?: string;
+  id?: string;
+  idType?: string;
+  organizationId?: string;
+  static names(): { [key: string]: string } {
+    return {
+      encodeKey: 'EncodeKey',
+      encodeType: 'EncodeType',
+      id: 'Id',
+      idType: 'IdType',
+      organizationId: 'OrganizationId',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      encodeKey: 'string',
+      encodeType: 'string',
+      id: 'string',
+      idType: 'string',
+      organizationId: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class HotelQrBindResponseBodyResultOpenUserInfo extends $tea.Model {
+  encodeKey?: string;
+  encodeType?: string;
+  id?: string;
+  idType?: string;
+  organizationId?: string;
+  static names(): { [key: string]: string } {
+    return {
+      encodeKey: 'EncodeKey',
+      encodeType: 'EncodeType',
+      id: 'Id',
+      idType: 'IdType',
+      organizationId: 'OrganizationId',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      encodeKey: 'string',
+      encodeType: 'string',
+      id: 'string',
+      idType: 'string',
+      organizationId: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class HotelQrBindResponseBodyResult extends $tea.Model {
+  openDeviceInfo?: HotelQrBindResponseBodyResultOpenDeviceInfo;
+  openUserInfo?: HotelQrBindResponseBodyResultOpenUserInfo;
+  static names(): { [key: string]: string } {
+    return {
+      openDeviceInfo: 'OpenDeviceInfo',
+      openUserInfo: 'OpenUserInfo',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      openDeviceInfo: HotelQrBindResponseBodyResultOpenDeviceInfo,
+      openUserInfo: HotelQrBindResponseBodyResultOpenUserInfo,
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
 export class ImportHotelConfigRequestImportHotelConfigRcuCustomScenes extends $tea.Model {
   corpusList?: string[];
   description?: string;
@@ -16981,6 +17174,66 @@ export default class Client extends OpenApi {
     let runtime = new $Util.RuntimeOptions({ });
     let headers = new GetWelcomeTextAndMusicHeaders({ });
     return await this.getWelcomeTextAndMusicWithOptions(request, headers, runtime);
+  }
+
+  async hotelQrBindWithOptions(request: HotelQrBindRequest, headers: HotelQrBindHeaders, runtime: $Util.RuntimeOptions): Promise<HotelQrBindResponse> {
+    Util.validateModel(request);
+    let body : {[key: string ]: any} = { };
+    if (!Util.isUnset(request.clientId)) {
+      body["ClientId"] = request.clientId;
+    }
+
+    if (!Util.isUnset(request.code)) {
+      body["Code"] = request.code;
+    }
+
+    if (!Util.isUnset(request.extInfo)) {
+      body["ExtInfo"] = request.extInfo;
+    }
+
+    if (!Util.isUnset(request.hotelId)) {
+      body["HotelId"] = request.hotelId;
+    }
+
+    if (!Util.isUnset(request.roomNo)) {
+      body["RoomNo"] = request.roomNo;
+    }
+
+    let realHeaders : {[key: string ]: string} = { };
+    if (!Util.isUnset(headers.commonHeaders)) {
+      realHeaders = headers.commonHeaders;
+    }
+
+    if (!Util.isUnset(headers.xAcsAligenieAccessToken)) {
+      realHeaders["x-acs-aligenie-access-token"] = Util.toJSONString(headers.xAcsAligenieAccessToken);
+    }
+
+    if (!Util.isUnset(headers.authorization)) {
+      realHeaders["Authorization"] = Util.toJSONString(headers.authorization);
+    }
+
+    let req = new $OpenApi.OpenApiRequest({
+      headers: realHeaders,
+      body: OpenApiUtil.parseToMap(body),
+    });
+    let params = new $OpenApi.Params({
+      action: "HotelQrBind",
+      version: "ip_1.0",
+      protocol: "HTTPS",
+      pathname: `/v1.0/ip/hotelQrBind`,
+      method: "POST",
+      authType: "AK",
+      style: "ROA",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $tea.cast<HotelQrBindResponse>(await this.callApi(params, req, runtime), new HotelQrBindResponse({}));
+  }
+
+  async hotelQrBind(request: HotelQrBindRequest): Promise<HotelQrBindResponse> {
+    let runtime = new $Util.RuntimeOptions({ });
+    let headers = new HotelQrBindHeaders({ });
+    return await this.hotelQrBindWithOptions(request, headers, runtime);
   }
 
   async importHotelConfigWithOptions(tmpReq: ImportHotelConfigRequest, headers: ImportHotelConfigHeaders, runtime: $Util.RuntimeOptions): Promise<ImportHotelConfigResponse> {
