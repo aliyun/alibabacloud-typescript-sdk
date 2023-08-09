@@ -738,6 +738,7 @@ export class CreateClusterRequest extends $tea.Model {
   nodeCidrMask?: string;
   nodeNameMode?: string;
   nodePortRange?: string;
+  nodepools?: Nodepool[];
   numOfNodes?: number;
   osType?: string;
   period?: number;
@@ -828,6 +829,7 @@ export class CreateClusterRequest extends $tea.Model {
       nodeCidrMask: 'node_cidr_mask',
       nodeNameMode: 'node_name_mode',
       nodePortRange: 'node_port_range',
+      nodepools: 'nodepools',
       numOfNodes: 'num_of_nodes',
       osType: 'os_type',
       period: 'period',
@@ -921,6 +923,7 @@ export class CreateClusterRequest extends $tea.Model {
       nodeCidrMask: 'string',
       nodeNameMode: 'string',
       nodePortRange: 'string',
+      nodepools: { 'type': 'array', 'itemType': Nodepool },
       numOfNodes: 'number',
       osType: 'string',
       period: 'number',
@@ -7683,8 +7686,10 @@ export class CreateClusterNodePoolRequestScalingGroup extends $tea.Model {
   spotInstanceRemedy?: boolean;
   spotPriceLimit?: CreateClusterNodePoolRequestScalingGroupSpotPriceLimit[];
   spotStrategy?: string;
+  systemDiskBurstingEnabled?: boolean;
   systemDiskCategory?: string;
   systemDiskPerformanceLevel?: string;
+  systemDiskProvisionedIops?: number;
   systemDiskSize?: number;
   tags?: CreateClusterNodePoolRequestScalingGroupTags[];
   vswitchIds?: string[];
@@ -7719,8 +7724,10 @@ export class CreateClusterNodePoolRequestScalingGroup extends $tea.Model {
       spotInstanceRemedy: 'spot_instance_remedy',
       spotPriceLimit: 'spot_price_limit',
       spotStrategy: 'spot_strategy',
+      systemDiskBurstingEnabled: 'system_disk_bursting_enabled',
       systemDiskCategory: 'system_disk_category',
       systemDiskPerformanceLevel: 'system_disk_performance_level',
+      systemDiskProvisionedIops: 'system_disk_provisioned_iops',
       systemDiskSize: 'system_disk_size',
       tags: 'tags',
       vswitchIds: 'vswitch_ids',
@@ -7758,8 +7765,10 @@ export class CreateClusterNodePoolRequestScalingGroup extends $tea.Model {
       spotInstanceRemedy: 'boolean',
       spotPriceLimit: { 'type': 'array', 'itemType': CreateClusterNodePoolRequestScalingGroupSpotPriceLimit },
       spotStrategy: 'string',
+      systemDiskBurstingEnabled: 'boolean',
       systemDiskCategory: 'string',
       systemDiskPerformanceLevel: 'string',
+      systemDiskProvisionedIops: 'number',
       systemDiskSize: 'number',
       tags: { 'type': 'array', 'itemType': CreateClusterNodePoolRequestScalingGroupTags },
       vswitchIds: { 'type': 'array', 'itemType': 'string' },
@@ -11710,6 +11719,10 @@ export default class Client extends OpenApi {
 
     if (!Util.isUnset(request.nodePortRange)) {
       body["node_port_range"] = request.nodePortRange;
+    }
+
+    if (!Util.isUnset(request.nodepools)) {
+      body["nodepools"] = request.nodepools;
     }
 
     if (!Util.isUnset(request.numOfNodes)) {
