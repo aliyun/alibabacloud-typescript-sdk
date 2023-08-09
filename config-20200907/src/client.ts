@@ -462,6 +462,135 @@ export class CopyConfigRulesResponse extends $tea.Model {
   }
 }
 
+export class CreateAdvancedSearchFileRequest extends $tea.Model {
+  sql?: string;
+  static names(): { [key: string]: string } {
+    return {
+      sql: 'Sql',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      sql: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class CreateAdvancedSearchFileResponseBody extends $tea.Model {
+  requestId?: string;
+  static names(): { [key: string]: string } {
+    return {
+      requestId: 'RequestId',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      requestId: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class CreateAdvancedSearchFileResponse extends $tea.Model {
+  headers: { [key: string]: string };
+  statusCode: number;
+  body: CreateAdvancedSearchFileResponseBody;
+  static names(): { [key: string]: string } {
+    return {
+      headers: 'headers',
+      statusCode: 'statusCode',
+      body: 'body',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
+      body: CreateAdvancedSearchFileResponseBody,
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class CreateAggregateAdvancedSearchFileRequest extends $tea.Model {
+  aggregatorId?: string;
+  sql?: string;
+  static names(): { [key: string]: string } {
+    return {
+      aggregatorId: 'AggregatorId',
+      sql: 'Sql',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      aggregatorId: 'string',
+      sql: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class CreateAggregateAdvancedSearchFileResponseBody extends $tea.Model {
+  requestId?: string;
+  static names(): { [key: string]: string } {
+    return {
+      requestId: 'RequestId',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      requestId: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class CreateAggregateAdvancedSearchFileResponse extends $tea.Model {
+  headers: { [key: string]: string };
+  statusCode: number;
+  body: CreateAggregateAdvancedSearchFileResponseBody;
+  static names(): { [key: string]: string } {
+    return {
+      headers: 'headers',
+      statusCode: 'statusCode',
+      body: 'body',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
+      body: CreateAggregateAdvancedSearchFileResponseBody,
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
 export class CreateAggregateCompliancePackRequest extends $tea.Model {
   aggregatorId?: string;
   clientToken?: string;
@@ -3126,6 +3255,53 @@ export class GenerateResourceInventoryResponse extends $tea.Model {
   }
 }
 
+export class GetAdvancedSearchFileResponseBody extends $tea.Model {
+  requestId?: string;
+  resourceSearch?: GetAdvancedSearchFileResponseBodyResourceSearch;
+  static names(): { [key: string]: string } {
+    return {
+      requestId: 'RequestId',
+      resourceSearch: 'ResourceSearch',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      requestId: 'string',
+      resourceSearch: GetAdvancedSearchFileResponseBodyResourceSearch,
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class GetAdvancedSearchFileResponse extends $tea.Model {
+  headers: { [key: string]: string };
+  statusCode: number;
+  body: GetAdvancedSearchFileResponseBody;
+  static names(): { [key: string]: string } {
+    return {
+      headers: 'headers',
+      statusCode: 'statusCode',
+      body: 'body',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
+      body: GetAdvancedSearchFileResponseBody,
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
 export class GetAggregateAccountComplianceByPackRequest extends $tea.Model {
   aggregatorId?: string;
   compliancePackId?: string;
@@ -3187,6 +3363,72 @@ export class GetAggregateAccountComplianceByPackResponse extends $tea.Model {
       headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
       statusCode: 'number',
       body: GetAggregateAccountComplianceByPackResponseBody,
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class GetAggregateAdvancedSearchFileRequest extends $tea.Model {
+  aggregatorId?: string;
+  static names(): { [key: string]: string } {
+    return {
+      aggregatorId: 'AggregatorId',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      aggregatorId: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class GetAggregateAdvancedSearchFileResponseBody extends $tea.Model {
+  requestId?: string;
+  resourceSearch?: GetAggregateAdvancedSearchFileResponseBodyResourceSearch;
+  static names(): { [key: string]: string } {
+    return {
+      requestId: 'RequestId',
+      resourceSearch: 'ResourceSearch',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      requestId: 'string',
+      resourceSearch: GetAggregateAdvancedSearchFileResponseBodyResourceSearch,
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class GetAggregateAdvancedSearchFileResponse extends $tea.Model {
+  headers: { [key: string]: string };
+  statusCode: number;
+  body: GetAggregateAdvancedSearchFileResponseBody;
+  static names(): { [key: string]: string } {
+    return {
+      headers: 'headers',
+      statusCode: 'statusCode',
+      body: 'body',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
+      body: GetAggregateAdvancedSearchFileResponseBody,
     };
   }
 
@@ -4441,6 +4683,72 @@ export class GetAggregateResourceCountsGroupByResourceTypeResponse extends $tea.
       headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
       statusCode: 'number',
       body: GetAggregateResourceCountsGroupByResourceTypeResponseBody,
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class GetAggregateResourceInventoryRequest extends $tea.Model {
+  aggregatorId?: string;
+  static names(): { [key: string]: string } {
+    return {
+      aggregatorId: 'AggregatorId',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      aggregatorId: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class GetAggregateResourceInventoryResponseBody extends $tea.Model {
+  requestId?: string;
+  resourceInventory?: GetAggregateResourceInventoryResponseBodyResourceInventory;
+  static names(): { [key: string]: string } {
+    return {
+      requestId: 'RequestId',
+      resourceInventory: 'ResourceInventory',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      requestId: 'string',
+      resourceInventory: GetAggregateResourceInventoryResponseBodyResourceInventory,
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class GetAggregateResourceInventoryResponse extends $tea.Model {
+  headers: { [key: string]: string };
+  statusCode: number;
+  body: GetAggregateResourceInventoryResponseBody;
+  static names(): { [key: string]: string } {
+    return {
+      headers: 'headers',
+      statusCode: 'statusCode',
+      body: 'body',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
+      body: GetAggregateResourceInventoryResponseBody,
     };
   }
 
@@ -5889,6 +6197,53 @@ export class GetResourceConfigurationTimelineResponse extends $tea.Model {
   }
 }
 
+export class GetResourceInventoryResponseBody extends $tea.Model {
+  requestId?: string;
+  resourceInventory?: GetResourceInventoryResponseBodyResourceInventory;
+  static names(): { [key: string]: string } {
+    return {
+      requestId: 'RequestId',
+      resourceInventory: 'ResourceInventory',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      requestId: 'string',
+      resourceInventory: GetResourceInventoryResponseBodyResourceInventory,
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class GetResourceInventoryResponse extends $tea.Model {
+  headers: { [key: string]: string };
+  statusCode: number;
+  body: GetResourceInventoryResponseBody;
+  static names(): { [key: string]: string } {
+    return {
+      headers: 'headers',
+      statusCode: 'statusCode',
+      body: 'body',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
+      body: GetResourceInventoryResponseBody,
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
 export class GetSupportedResourceRelationConfigRequest extends $tea.Model {
   resourceType?: string;
   static names(): { [key: string]: string } {
@@ -6401,6 +6756,72 @@ export class ListAggregateConfigRuleEvaluationResultsResponse extends $tea.Model
   }
 }
 
+export class ListAggregateConfigRuleEvaluationStatisticsRequest extends $tea.Model {
+  aggregatorId?: string;
+  static names(): { [key: string]: string } {
+    return {
+      aggregatorId: 'AggregatorId',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      aggregatorId: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class ListAggregateConfigRuleEvaluationStatisticsResponseBody extends $tea.Model {
+  evaluationResults?: ListAggregateConfigRuleEvaluationStatisticsResponseBodyEvaluationResults[];
+  requestId?: string;
+  static names(): { [key: string]: string } {
+    return {
+      evaluationResults: 'EvaluationResults',
+      requestId: 'RequestId',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      evaluationResults: { 'type': 'array', 'itemType': ListAggregateConfigRuleEvaluationStatisticsResponseBodyEvaluationResults },
+      requestId: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class ListAggregateConfigRuleEvaluationStatisticsResponse extends $tea.Model {
+  headers: { [key: string]: string };
+  statusCode: number;
+  body: ListAggregateConfigRuleEvaluationStatisticsResponseBody;
+  static names(): { [key: string]: string } {
+    return {
+      headers: 'headers',
+      statusCode: 'statusCode',
+      body: 'body',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
+      body: ListAggregateConfigRuleEvaluationStatisticsResponseBody,
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
 export class ListAggregateConfigRulesRequest extends $tea.Model {
   aggregatorId?: string;
   complianceType?: string;
@@ -6573,6 +6994,87 @@ export class ListAggregateDiscoveredResourcesResponse extends $tea.Model {
       headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
       statusCode: 'number',
       body: ListAggregateDiscoveredResourcesResponseBody,
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class ListAggregateRemediationExecutionsRequest extends $tea.Model {
+  aggregatorId?: string;
+  configRuleId?: string;
+  executionStatus?: string;
+  maxResults?: number;
+  nextToken?: string;
+  resourceAccountId?: number;
+  static names(): { [key: string]: string } {
+    return {
+      aggregatorId: 'AggregatorId',
+      configRuleId: 'ConfigRuleId',
+      executionStatus: 'ExecutionStatus',
+      maxResults: 'MaxResults',
+      nextToken: 'NextToken',
+      resourceAccountId: 'ResourceAccountId',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      aggregatorId: 'string',
+      configRuleId: 'string',
+      executionStatus: 'string',
+      maxResults: 'number',
+      nextToken: 'string',
+      resourceAccountId: 'number',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class ListAggregateRemediationExecutionsResponseBody extends $tea.Model {
+  remediationExecutionData?: ListAggregateRemediationExecutionsResponseBodyRemediationExecutionData;
+  requestId?: string;
+  static names(): { [key: string]: string } {
+    return {
+      remediationExecutionData: 'RemediationExecutionData',
+      requestId: 'RequestId',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      remediationExecutionData: ListAggregateRemediationExecutionsResponseBodyRemediationExecutionData,
+      requestId: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class ListAggregateRemediationExecutionsResponse extends $tea.Model {
+  headers: { [key: string]: string };
+  statusCode: number;
+  body: ListAggregateRemediationExecutionsResponseBody;
+  static names(): { [key: string]: string } {
+    return {
+      headers: 'headers',
+      statusCode: 'statusCode',
+      body: 'body',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
+      body: ListAggregateRemediationExecutionsResponseBody,
     };
   }
 
@@ -6819,6 +7321,75 @@ export class ListAggregateResourceRelationsResponse extends $tea.Model {
       headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
       statusCode: 'number',
       body: ListAggregateResourceRelationsResponseBody,
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class ListAggregateResourcesByAdvancedSearchRequest extends $tea.Model {
+  aggregatorId?: string;
+  sql?: string;
+  static names(): { [key: string]: string } {
+    return {
+      aggregatorId: 'AggregatorId',
+      sql: 'Sql',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      aggregatorId: 'string',
+      sql: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class ListAggregateResourcesByAdvancedSearchResponseBody extends $tea.Model {
+  queryResults?: ListAggregateResourcesByAdvancedSearchResponseBodyQueryResults;
+  requestId?: string;
+  static names(): { [key: string]: string } {
+    return {
+      queryResults: 'QueryResults',
+      requestId: 'RequestId',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      queryResults: ListAggregateResourcesByAdvancedSearchResponseBodyQueryResults,
+      requestId: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class ListAggregateResourcesByAdvancedSearchResponse extends $tea.Model {
+  headers: { [key: string]: string };
+  statusCode: number;
+  body: ListAggregateResourcesByAdvancedSearchResponseBody;
+  static names(): { [key: string]: string } {
+    return {
+      headers: 'headers',
+      statusCode: 'statusCode',
+      body: 'body',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
+      body: ListAggregateResourcesByAdvancedSearchResponseBody,
     };
   }
 
@@ -7196,6 +7767,53 @@ export class ListConfigRuleEvaluationResultsResponse extends $tea.Model {
   }
 }
 
+export class ListConfigRuleEvaluationStatisticsResponseBody extends $tea.Model {
+  evaluationResults?: ListConfigRuleEvaluationStatisticsResponseBodyEvaluationResults[];
+  requestId?: string;
+  static names(): { [key: string]: string } {
+    return {
+      evaluationResults: 'EvaluationResults',
+      requestId: 'RequestId',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      evaluationResults: { 'type': 'array', 'itemType': ListConfigRuleEvaluationStatisticsResponseBodyEvaluationResults },
+      requestId: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class ListConfigRuleEvaluationStatisticsResponse extends $tea.Model {
+  headers: { [key: string]: string };
+  statusCode: number;
+  body: ListConfigRuleEvaluationStatisticsResponseBody;
+  static names(): { [key: string]: string } {
+    return {
+      headers: 'headers',
+      statusCode: 'statusCode',
+      body: 'body',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
+      body: ListConfigRuleEvaluationStatisticsResponseBody,
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
 export class ListConfigRulesRequest extends $tea.Model {
   complianceType?: string;
   configRuleName?: string;
@@ -7356,6 +7974,53 @@ export class ListDiscoveredResourcesResponse extends $tea.Model {
       headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
       statusCode: 'number',
       body: ListDiscoveredResourcesResponseBody,
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class ListIntegratedServiceResponseBody extends $tea.Model {
+  data?: ListIntegratedServiceResponseBodyData[];
+  requestId?: string;
+  static names(): { [key: string]: string } {
+    return {
+      data: 'Data',
+      requestId: 'RequestId',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      data: { 'type': 'array', 'itemType': ListIntegratedServiceResponseBodyData },
+      requestId: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class ListIntegratedServiceResponse extends $tea.Model {
+  headers: { [key: string]: string };
+  statusCode: number;
+  body: ListIntegratedServiceResponseBody;
+  static names(): { [key: string]: string } {
+    return {
+      headers: 'headers',
+      statusCode: 'statusCode',
+      body: 'body',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
+      body: ListIntegratedServiceResponseBody,
     };
   }
 
@@ -7945,6 +8610,147 @@ export class ListResourceRelationsResponse extends $tea.Model {
       headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
       statusCode: 'number',
       body: ListResourceRelationsResponseBody,
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class ListResourcesByAdvancedSearchRequest extends $tea.Model {
+  sql?: string;
+  static names(): { [key: string]: string } {
+    return {
+      sql: 'Sql',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      sql: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class ListResourcesByAdvancedSearchResponseBody extends $tea.Model {
+  queryResults?: ListResourcesByAdvancedSearchResponseBodyQueryResults;
+  requestId?: string;
+  static names(): { [key: string]: string } {
+    return {
+      queryResults: 'QueryResults',
+      requestId: 'RequestId',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      queryResults: ListResourcesByAdvancedSearchResponseBodyQueryResults,
+      requestId: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class ListResourcesByAdvancedSearchResponse extends $tea.Model {
+  headers: { [key: string]: string };
+  statusCode: number;
+  body: ListResourcesByAdvancedSearchResponseBody;
+  static names(): { [key: string]: string } {
+    return {
+      headers: 'headers',
+      statusCode: 'statusCode',
+      body: 'body',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
+      body: ListResourcesByAdvancedSearchResponseBody,
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class ListSupportedProductsRequest extends $tea.Model {
+  maxResults?: number;
+  nextToken?: string;
+  static names(): { [key: string]: string } {
+    return {
+      maxResults: 'MaxResults',
+      nextToken: 'NextToken',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      maxResults: 'number',
+      nextToken: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class ListSupportedProductsResponseBody extends $tea.Model {
+  maxResults?: string;
+  nextToken?: string;
+  products?: ListSupportedProductsResponseBodyProducts[];
+  requestId?: string;
+  static names(): { [key: string]: string } {
+    return {
+      maxResults: 'MaxResults',
+      nextToken: 'NextToken',
+      products: 'Products',
+      requestId: 'RequestId',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      maxResults: 'string',
+      nextToken: 'string',
+      products: { 'type': 'array', 'itemType': ListSupportedProductsResponseBodyProducts },
+      requestId: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class ListSupportedProductsResponse extends $tea.Model {
+  headers: { [key: string]: string };
+  statusCode: number;
+  body: ListSupportedProductsResponseBody;
+  static names(): { [key: string]: string } {
+    return {
+      headers: 'headers',
+      statusCode: 'statusCode',
+      body: 'body',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
+      body: ListSupportedProductsResponseBody,
     };
   }
 
@@ -11102,6 +11908,31 @@ export class EvaluatePreConfigRulesResponseBodyResourceEvaluations extends $tea.
   }
 }
 
+export class GetAdvancedSearchFileResponseBodyResourceSearch extends $tea.Model {
+  downloadUrl?: string;
+  resourceInventoryGenerateTime?: number;
+  status?: string;
+  static names(): { [key: string]: string } {
+    return {
+      downloadUrl: 'DownloadUrl',
+      resourceInventoryGenerateTime: 'ResourceInventoryGenerateTime',
+      status: 'Status',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      downloadUrl: 'string',
+      resourceInventoryGenerateTime: 'number',
+      status: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
 export class GetAggregateAccountComplianceByPackResponseBodyAccountComplianceResultAccountCompliances extends $tea.Model {
   accountId?: number;
   accountName?: string;
@@ -11147,6 +11978,31 @@ export class GetAggregateAccountComplianceByPackResponseBodyAccountComplianceRes
       compliancePackId: 'string',
       nonCompliantCount: 'number',
       totalCount: 'number',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class GetAggregateAdvancedSearchFileResponseBodyResourceSearch extends $tea.Model {
+  downloadUrl?: string;
+  resourceInventoryGenerateTime?: number;
+  status?: string;
+  static names(): { [key: string]: string } {
+    return {
+      downloadUrl: 'DownloadUrl',
+      resourceInventoryGenerateTime: 'ResourceInventoryGenerateTime',
+      status: 'Status',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      downloadUrl: 'string',
+      resourceInventoryGenerateTime: 'number',
+      status: 'string',
     };
   }
 
@@ -12324,6 +13180,31 @@ export class GetAggregateResourceCountsGroupByResourceTypeResponseBodyDiscovered
       groupName: 'string',
       resourceCount: 'number',
       resourceType: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class GetAggregateResourceInventoryResponseBodyResourceInventory extends $tea.Model {
+  downloadUrl?: string;
+  resourceInventoryGenerateTime?: number;
+  status?: string;
+  static names(): { [key: string]: string } {
+    return {
+      downloadUrl: 'DownloadUrl',
+      resourceInventoryGenerateTime: 'ResourceInventoryGenerateTime',
+      status: 'Status',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      downloadUrl: 'string',
+      resourceInventoryGenerateTime: 'number',
+      status: 'string',
     };
   }
 
@@ -13724,6 +14605,31 @@ export class GetResourceConfigurationTimelineResponseBodyResourceConfigurationTi
   }
 }
 
+export class GetResourceInventoryResponseBodyResourceInventory extends $tea.Model {
+  downloadUrl?: string;
+  resourceInventoryGenerateTime?: number;
+  status?: string;
+  static names(): { [key: string]: string } {
+    return {
+      downloadUrl: 'DownloadUrl',
+      resourceInventoryGenerateTime: 'ResourceInventoryGenerateTime',
+      status: 'Status',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      downloadUrl: 'string',
+      resourceInventoryGenerateTime: 'number',
+      status: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
 export class GetSupportedResourceRelationConfigResponseBodyResourceRelationConfigList extends $tea.Model {
   relationType?: string;
   targetResourceType?: string;
@@ -14067,6 +14973,40 @@ export class ListAggregateConfigRuleEvaluationResultsResponseBodyEvaluationResul
   }
 }
 
+export class ListAggregateConfigRuleEvaluationStatisticsResponseBodyEvaluationResults extends $tea.Model {
+  aggregatorId?: string;
+  nonCompliantResourceCnt?: number;
+  nonCompliantRuleCnt?: number;
+  statisticDate?: string;
+  totalResourceCnt?: number;
+  totalRuleCnt?: number;
+  static names(): { [key: string]: string } {
+    return {
+      aggregatorId: 'AggregatorId',
+      nonCompliantResourceCnt: 'NonCompliantResourceCnt',
+      nonCompliantRuleCnt: 'NonCompliantRuleCnt',
+      statisticDate: 'StatisticDate',
+      totalResourceCnt: 'TotalResourceCnt',
+      totalRuleCnt: 'TotalRuleCnt',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      aggregatorId: 'string',
+      nonCompliantResourceCnt: 'number',
+      nonCompliantRuleCnt: 'number',
+      statisticDate: 'string',
+      totalResourceCnt: 'number',
+      totalRuleCnt: 'number',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
 export class ListAggregateConfigRulesResponseBodyConfigRulesConfigRuleListCompliance extends $tea.Model {
   complianceType?: string;
   count?: number;
@@ -14314,6 +15254,65 @@ export class ListAggregateDiscoveredResourcesResponseBodyDiscoveredResourceProfi
   }
 }
 
+export class ListAggregateRemediationExecutionsResponseBodyRemediationExecutionDataRemediationExecutions extends $tea.Model {
+  executionCreateDate?: string;
+  executionInvocationId?: string;
+  executionResourceIds?: string;
+  executionResourceType?: string;
+  executionStatus?: string;
+  executionStatusMessage?: string;
+  static names(): { [key: string]: string } {
+    return {
+      executionCreateDate: 'ExecutionCreateDate',
+      executionInvocationId: 'ExecutionInvocationId',
+      executionResourceIds: 'ExecutionResourceIds',
+      executionResourceType: 'ExecutionResourceType',
+      executionStatus: 'ExecutionStatus',
+      executionStatusMessage: 'ExecutionStatusMessage',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      executionCreateDate: 'string',
+      executionInvocationId: 'string',
+      executionResourceIds: 'string',
+      executionResourceType: 'string',
+      executionStatus: 'string',
+      executionStatusMessage: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class ListAggregateRemediationExecutionsResponseBodyRemediationExecutionData extends $tea.Model {
+  maxResults?: number;
+  nextToken?: string;
+  remediationExecutions?: ListAggregateRemediationExecutionsResponseBodyRemediationExecutionDataRemediationExecutions[];
+  static names(): { [key: string]: string } {
+    return {
+      maxResults: 'MaxResults',
+      nextToken: 'NextToken',
+      remediationExecutions: 'RemediationExecutions',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      maxResults: 'number',
+      nextToken: 'string',
+      remediationExecutions: { 'type': 'array', 'itemType': ListAggregateRemediationExecutionsResponseBodyRemediationExecutionDataRemediationExecutions },
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
 export class ListAggregateRemediationsResponseBodyRemediations extends $tea.Model {
   accountId?: number;
   aggregatorId?: string;
@@ -14547,6 +15546,47 @@ export class ListAggregateResourceRelationsResponseBodyResourceRelations extends
       maxResults: 'number',
       nextToken: 'string',
       resourceRelationList: { 'type': 'array', 'itemType': ListAggregateResourceRelationsResponseBodyResourceRelationsResourceRelationList },
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class ListAggregateResourcesByAdvancedSearchResponseBodyQueryResultsQueryResultList extends $tea.Model {
+  columns?: string[];
+  values?: any[];
+  static names(): { [key: string]: string } {
+    return {
+      columns: 'Columns',
+      values: 'Values',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      columns: { 'type': 'array', 'itemType': 'string' },
+      values: { 'type': 'array', 'itemType': 'any' },
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class ListAggregateResourcesByAdvancedSearchResponseBodyQueryResults extends $tea.Model {
+  queryResultList?: ListAggregateResourcesByAdvancedSearchResponseBodyQueryResultsQueryResultList;
+  static names(): { [key: string]: string } {
+    return {
+      queryResultList: 'QueryResultList',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      queryResultList: ListAggregateResourcesByAdvancedSearchResponseBodyQueryResultsQueryResultList,
     };
   }
 
@@ -15009,6 +16049,37 @@ export class ListConfigRuleEvaluationResultsResponseBodyEvaluationResults extend
   }
 }
 
+export class ListConfigRuleEvaluationStatisticsResponseBodyEvaluationResults extends $tea.Model {
+  nonCompliantResourceCnt?: number;
+  nonCompliantRuleCnt?: number;
+  statisticDate?: string;
+  totalResourceCnt?: number;
+  totalRuleCnt?: number;
+  static names(): { [key: string]: string } {
+    return {
+      nonCompliantResourceCnt: 'NonCompliantResourceCnt',
+      nonCompliantRuleCnt: 'NonCompliantRuleCnt',
+      statisticDate: 'StatisticDate',
+      totalResourceCnt: 'TotalResourceCnt',
+      totalRuleCnt: 'TotalRuleCnt',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      nonCompliantResourceCnt: 'number',
+      nonCompliantRuleCnt: 'number',
+      statisticDate: 'string',
+      totalResourceCnt: 'number',
+      totalRuleCnt: 'number',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
 export class ListConfigRulesResponseBodyConfigRulesConfigRuleListCompliance extends $tea.Model {
   complianceType?: string;
   count?: number;
@@ -15230,6 +16301,31 @@ export class ListDiscoveredResourcesResponseBodyDiscoveredResourceProfiles exten
       maxResults: 'number',
       nextToken: 'string',
       totalCount: 'number',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class ListIntegratedServiceResponseBodyData extends $tea.Model {
+  serviceCode?: string;
+  serviceName?: string;
+  status?: boolean;
+  static names(): { [key: string]: string } {
+    return {
+      serviceCode: 'ServiceCode',
+      serviceName: 'ServiceName',
+      status: 'Status',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      serviceCode: 'string',
+      serviceName: 'string',
+      status: 'boolean',
     };
   }
 
@@ -15688,6 +16784,100 @@ export class ListResourceRelationsResponseBodyResourceRelations extends $tea.Mod
       maxResults: 'number',
       nextToken: 'string',
       resourceRelationList: { 'type': 'array', 'itemType': ListResourceRelationsResponseBodyResourceRelationsResourceRelationList },
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class ListResourcesByAdvancedSearchResponseBodyQueryResultsQueryResultList extends $tea.Model {
+  columns?: string[];
+  values?: any[];
+  static names(): { [key: string]: string } {
+    return {
+      columns: 'Columns',
+      values: 'Values',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      columns: { 'type': 'array', 'itemType': 'string' },
+      values: { 'type': 'array', 'itemType': 'any' },
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class ListResourcesByAdvancedSearchResponseBodyQueryResults extends $tea.Model {
+  queryResultList?: ListResourcesByAdvancedSearchResponseBodyQueryResultsQueryResultList;
+  static names(): { [key: string]: string } {
+    return {
+      queryResultList: 'QueryResultList',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      queryResultList: ListResourcesByAdvancedSearchResponseBodyQueryResultsQueryResultList,
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class ListSupportedProductsResponseBodyProductsResourceTypeList extends $tea.Model {
+  resourceType?: string;
+  typeNameEn?: string;
+  typeNameZh?: string;
+  typePageLink?: string;
+  static names(): { [key: string]: string } {
+    return {
+      resourceType: 'ResourceType',
+      typeNameEn: 'TypeNameEn',
+      typeNameZh: 'TypeNameZh',
+      typePageLink: 'TypePageLink',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      resourceType: 'string',
+      typeNameEn: 'string',
+      typeNameZh: 'string',
+      typePageLink: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class ListSupportedProductsResponseBodyProducts extends $tea.Model {
+  productNameEn?: string;
+  productNameZh?: string;
+  resourceTypeList?: ListSupportedProductsResponseBodyProductsResourceTypeList[];
+  static names(): { [key: string]: string } {
+    return {
+      productNameEn: 'ProductNameEn',
+      productNameZh: 'ProductNameZh',
+      resourceTypeList: 'ResourceTypeList',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      productNameEn: 'string',
+      productNameZh: 'string',
+      resourceTypeList: { 'type': 'array', 'itemType': ListSupportedProductsResponseBodyProductsResourceTypeList },
     };
   }
 
@@ -16294,6 +17484,68 @@ export default class Client extends OpenApi {
   async copyConfigRules(request: CopyConfigRulesRequest): Promise<CopyConfigRulesResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.copyConfigRulesWithOptions(request, runtime);
+  }
+
+  async createAdvancedSearchFileWithOptions(request: CreateAdvancedSearchFileRequest, runtime: $Util.RuntimeOptions): Promise<CreateAdvancedSearchFileResponse> {
+    Util.validateModel(request);
+    let query = { };
+    if (!Util.isUnset(request.sql)) {
+      query["Sql"] = request.sql;
+    }
+
+    let req = new $OpenApi.OpenApiRequest({
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApi.Params({
+      action: "CreateAdvancedSearchFile",
+      version: "2020-09-07",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $tea.cast<CreateAdvancedSearchFileResponse>(await this.callApi(params, req, runtime), new CreateAdvancedSearchFileResponse({}));
+  }
+
+  async createAdvancedSearchFile(request: CreateAdvancedSearchFileRequest): Promise<CreateAdvancedSearchFileResponse> {
+    let runtime = new $Util.RuntimeOptions({ });
+    return await this.createAdvancedSearchFileWithOptions(request, runtime);
+  }
+
+  async createAggregateAdvancedSearchFileWithOptions(request: CreateAggregateAdvancedSearchFileRequest, runtime: $Util.RuntimeOptions): Promise<CreateAggregateAdvancedSearchFileResponse> {
+    Util.validateModel(request);
+    let query = { };
+    if (!Util.isUnset(request.aggregatorId)) {
+      query["AggregatorId"] = request.aggregatorId;
+    }
+
+    if (!Util.isUnset(request.sql)) {
+      query["Sql"] = request.sql;
+    }
+
+    let req = new $OpenApi.OpenApiRequest({
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApi.Params({
+      action: "CreateAggregateAdvancedSearchFile",
+      version: "2020-09-07",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $tea.cast<CreateAggregateAdvancedSearchFileResponse>(await this.callApi(params, req, runtime), new CreateAggregateAdvancedSearchFileResponse({}));
+  }
+
+  async createAggregateAdvancedSearchFile(request: CreateAggregateAdvancedSearchFileRequest): Promise<CreateAggregateAdvancedSearchFileResponse> {
+    let runtime = new $Util.RuntimeOptions({ });
+    return await this.createAggregateAdvancedSearchFileWithOptions(request, runtime);
   }
 
   /**
@@ -18131,6 +19383,27 @@ export default class Client extends OpenApi {
     return await this.generateResourceInventoryWithOptions(request, runtime);
   }
 
+  async getAdvancedSearchFileWithOptions(runtime: $Util.RuntimeOptions): Promise<GetAdvancedSearchFileResponse> {
+    let req = new $OpenApi.OpenApiRequest({ });
+    let params = new $OpenApi.Params({
+      action: "GetAdvancedSearchFile",
+      version: "2020-09-07",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $tea.cast<GetAdvancedSearchFileResponse>(await this.callApi(params, req, runtime), new GetAdvancedSearchFileResponse({}));
+  }
+
+  async getAdvancedSearchFile(): Promise<GetAdvancedSearchFileResponse> {
+    let runtime = new $Util.RuntimeOptions({ });
+    return await this.getAdvancedSearchFileWithOptions(runtime);
+  }
+
   /**
     * This topic provides an example on how to query the compliance evaluation results of member accounts for which the `cp-541e626622af0087****` compliance package takes effect in the `ca-04b3fd170e340007****` account group. The returned result shows that two member accounts are monitored by the compliance package and they are both evaluated as compliant.
     *
@@ -18167,6 +19440,35 @@ export default class Client extends OpenApi {
   async getAggregateAccountComplianceByPack(request: GetAggregateAccountComplianceByPackRequest): Promise<GetAggregateAccountComplianceByPackResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.getAggregateAccountComplianceByPackWithOptions(request, runtime);
+  }
+
+  async getAggregateAdvancedSearchFileWithOptions(request: GetAggregateAdvancedSearchFileRequest, runtime: $Util.RuntimeOptions): Promise<GetAggregateAdvancedSearchFileResponse> {
+    Util.validateModel(request);
+    let query = { };
+    if (!Util.isUnset(request.aggregatorId)) {
+      query["AggregatorId"] = request.aggregatorId;
+    }
+
+    let req = new $OpenApi.OpenApiRequest({
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApi.Params({
+      action: "GetAggregateAdvancedSearchFile",
+      version: "2020-09-07",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $tea.cast<GetAggregateAdvancedSearchFileResponse>(await this.callApi(params, req, runtime), new GetAggregateAdvancedSearchFileResponse({}));
+  }
+
+  async getAggregateAdvancedSearchFile(request: GetAggregateAdvancedSearchFileRequest): Promise<GetAggregateAdvancedSearchFileResponse> {
+    let runtime = new $Util.RuntimeOptions({ });
+    return await this.getAggregateAdvancedSearchFileWithOptions(request, runtime);
   }
 
   /**
@@ -18814,7 +20116,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-    * This topic provides an example on how to query the statistics on the resources in an account group whose ID is `ca-a260626622af0005****` by resource type. The returned result shows that a total of `seven` resources of the `ACS::RAM::Role` resource type exist.
+    * This topic provides an example on how to query the statistics on the resources in an account group whose ID is `ca-a260626622af0005****` by resource type. The returned result shows that the account group has a total of `seven` resources of the `ACS::RAM::Role` resource type.
     *
     * @param request GetAggregateResourceCountsGroupByResourceTypeRequest
     * @param runtime runtime options for this request RuntimeOptions
@@ -18861,7 +20163,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-    * This topic provides an example on how to query the statistics on the resources in an account group whose ID is `ca-a260626622af0005****` by resource type. The returned result shows that a total of `seven` resources of the `ACS::RAM::Role` resource type exist.
+    * This topic provides an example on how to query the statistics on the resources in an account group whose ID is `ca-a260626622af0005****` by resource type. The returned result shows that the account group has a total of `seven` resources of the `ACS::RAM::Role` resource type.
     *
     * @param request GetAggregateResourceCountsGroupByResourceTypeRequest
     * @return GetAggregateResourceCountsGroupByResourceTypeResponse
@@ -18869,6 +20171,35 @@ export default class Client extends OpenApi {
   async getAggregateResourceCountsGroupByResourceType(request: GetAggregateResourceCountsGroupByResourceTypeRequest): Promise<GetAggregateResourceCountsGroupByResourceTypeResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.getAggregateResourceCountsGroupByResourceTypeWithOptions(request, runtime);
+  }
+
+  async getAggregateResourceInventoryWithOptions(request: GetAggregateResourceInventoryRequest, runtime: $Util.RuntimeOptions): Promise<GetAggregateResourceInventoryResponse> {
+    Util.validateModel(request);
+    let query = { };
+    if (!Util.isUnset(request.aggregatorId)) {
+      query["AggregatorId"] = request.aggregatorId;
+    }
+
+    let req = new $OpenApi.OpenApiRequest({
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApi.Params({
+      action: "GetAggregateResourceInventory",
+      version: "2020-09-07",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $tea.cast<GetAggregateResourceInventoryResponse>(await this.callApi(params, req, runtime), new GetAggregateResourceInventoryResponse({}));
+  }
+
+  async getAggregateResourceInventory(request: GetAggregateResourceInventoryRequest): Promise<GetAggregateResourceInventoryResponse> {
+    let runtime = new $Util.RuntimeOptions({ });
+    return await this.getAggregateResourceInventoryWithOptions(request, runtime);
   }
 
   /**
@@ -19647,6 +20978,27 @@ export default class Client extends OpenApi {
     return await this.getResourceConfigurationTimelineWithOptions(request, runtime);
   }
 
+  async getResourceInventoryWithOptions(runtime: $Util.RuntimeOptions): Promise<GetResourceInventoryResponse> {
+    let req = new $OpenApi.OpenApiRequest({ });
+    let params = new $OpenApi.Params({
+      action: "GetResourceInventory",
+      version: "2020-09-07",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $tea.cast<GetResourceInventoryResponse>(await this.callApi(params, req, runtime), new GetResourceInventoryResponse({}));
+  }
+
+  async getResourceInventory(): Promise<GetResourceInventoryResponse> {
+    let runtime = new $Util.RuntimeOptions({ });
+    return await this.getResourceInventoryWithOptions(runtime);
+  }
+
   /**
     * This topic provides an example to show how to query the resource relationships that are supported by the ACS::ECS::Instance resource type.
     *
@@ -19986,6 +21338,35 @@ export default class Client extends OpenApi {
     return await this.listAggregateConfigRuleEvaluationResultsWithOptions(request, runtime);
   }
 
+  async listAggregateConfigRuleEvaluationStatisticsWithOptions(request: ListAggregateConfigRuleEvaluationStatisticsRequest, runtime: $Util.RuntimeOptions): Promise<ListAggregateConfigRuleEvaluationStatisticsResponse> {
+    Util.validateModel(request);
+    let query = { };
+    if (!Util.isUnset(request.aggregatorId)) {
+      query["AggregatorId"] = request.aggregatorId;
+    }
+
+    let req = new $OpenApi.OpenApiRequest({
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApi.Params({
+      action: "ListAggregateConfigRuleEvaluationStatistics",
+      version: "2020-09-07",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $tea.cast<ListAggregateConfigRuleEvaluationStatisticsResponse>(await this.callApi(params, req, runtime), new ListAggregateConfigRuleEvaluationStatisticsResponse({}));
+  }
+
+  async listAggregateConfigRuleEvaluationStatistics(request: ListAggregateConfigRuleEvaluationStatisticsRequest): Promise<ListAggregateConfigRuleEvaluationStatisticsResponse> {
+    let runtime = new $Util.RuntimeOptions({ });
+    return await this.listAggregateConfigRuleEvaluationStatisticsWithOptions(request, runtime);
+  }
+
   /**
     * This topic provides an example on how to query the rules in an account group whose ID is `ca-f632626622af0079****`. The returned result shows a total of one rule and two evaluated resources. The resources are both evaluated as `COMPLIANT`.
     *
@@ -20132,6 +21513,55 @@ export default class Client extends OpenApi {
   async listAggregateDiscoveredResources(request: ListAggregateDiscoveredResourcesRequest): Promise<ListAggregateDiscoveredResourcesResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.listAggregateDiscoveredResourcesWithOptions(request, runtime);
+  }
+
+  async listAggregateRemediationExecutionsWithOptions(request: ListAggregateRemediationExecutionsRequest, runtime: $Util.RuntimeOptions): Promise<ListAggregateRemediationExecutionsResponse> {
+    Util.validateModel(request);
+    let query = { };
+    if (!Util.isUnset(request.aggregatorId)) {
+      query["AggregatorId"] = request.aggregatorId;
+    }
+
+    if (!Util.isUnset(request.configRuleId)) {
+      query["ConfigRuleId"] = request.configRuleId;
+    }
+
+    if (!Util.isUnset(request.executionStatus)) {
+      query["ExecutionStatus"] = request.executionStatus;
+    }
+
+    if (!Util.isUnset(request.maxResults)) {
+      query["MaxResults"] = request.maxResults;
+    }
+
+    if (!Util.isUnset(request.nextToken)) {
+      query["NextToken"] = request.nextToken;
+    }
+
+    if (!Util.isUnset(request.resourceAccountId)) {
+      query["ResourceAccountId"] = request.resourceAccountId;
+    }
+
+    let req = new $OpenApi.OpenApiRequest({
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApi.Params({
+      action: "ListAggregateRemediationExecutions",
+      version: "2020-09-07",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $tea.cast<ListAggregateRemediationExecutionsResponse>(await this.callApi(params, req, runtime), new ListAggregateRemediationExecutionsResponse({}));
+  }
+
+  async listAggregateRemediationExecutions(request: ListAggregateRemediationExecutionsRequest): Promise<ListAggregateRemediationExecutionsResponse> {
+    let runtime = new $Util.RuntimeOptions({ });
+    return await this.listAggregateRemediationExecutionsWithOptions(request, runtime);
   }
 
   /**
@@ -20322,6 +21752,39 @@ export default class Client extends OpenApi {
   async listAggregateResourceRelations(request: ListAggregateResourceRelationsRequest): Promise<ListAggregateResourceRelationsResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.listAggregateResourceRelationsWithOptions(request, runtime);
+  }
+
+  async listAggregateResourcesByAdvancedSearchWithOptions(request: ListAggregateResourcesByAdvancedSearchRequest, runtime: $Util.RuntimeOptions): Promise<ListAggregateResourcesByAdvancedSearchResponse> {
+    Util.validateModel(request);
+    let query = { };
+    if (!Util.isUnset(request.aggregatorId)) {
+      query["AggregatorId"] = request.aggregatorId;
+    }
+
+    if (!Util.isUnset(request.sql)) {
+      query["Sql"] = request.sql;
+    }
+
+    let req = new $OpenApi.OpenApiRequest({
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApi.Params({
+      action: "ListAggregateResourcesByAdvancedSearch",
+      version: "2020-09-07",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $tea.cast<ListAggregateResourcesByAdvancedSearchResponse>(await this.callApi(params, req, runtime), new ListAggregateResourcesByAdvancedSearchResponse({}));
+  }
+
+  async listAggregateResourcesByAdvancedSearch(request: ListAggregateResourcesByAdvancedSearchRequest): Promise<ListAggregateResourcesByAdvancedSearchResponse> {
+    let runtime = new $Util.RuntimeOptions({ });
+    return await this.listAggregateResourcesByAdvancedSearchWithOptions(request, runtime);
   }
 
   /**
@@ -20541,6 +22004,34 @@ export default class Client extends OpenApi {
     return await this.listConfigRuleEvaluationResultsWithOptions(request, runtime);
   }
 
+  async listConfigRuleEvaluationStatisticsWithOptions(runtime: $Util.RuntimeOptions): Promise<ListConfigRuleEvaluationStatisticsResponse> {
+    let req = new $OpenApi.OpenApiRequest({ });
+    let params = new $OpenApi.Params({
+      action: "ListConfigRuleEvaluationStatistics",
+      version: "2020-09-07",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $tea.cast<ListConfigRuleEvaluationStatisticsResponse>(await this.callApi(params, req, runtime), new ListConfigRuleEvaluationStatisticsResponse({}));
+  }
+
+  async listConfigRuleEvaluationStatistics(): Promise<ListConfigRuleEvaluationStatisticsResponse> {
+    let runtime = new $Util.RuntimeOptions({ });
+    return await this.listConfigRuleEvaluationStatisticsWithOptions(runtime);
+  }
+
+  /**
+    * This topic provides an example on how to query the rules of the current account. The response shows that the current account has a total of one rule and three evaluated resources. The resources are evaluated as compliant.
+    *
+    * @param request ListConfigRulesRequest
+    * @param runtime runtime options for this request RuntimeOptions
+    * @return ListConfigRulesResponse
+   */
   async listConfigRulesWithOptions(request: ListConfigRulesRequest, runtime: $Util.RuntimeOptions): Promise<ListConfigRulesResponse> {
     Util.validateModel(request);
     let query = { };
@@ -20593,6 +22084,12 @@ export default class Client extends OpenApi {
     return $tea.cast<ListConfigRulesResponse>(await this.callApi(params, req, runtime), new ListConfigRulesResponse({}));
   }
 
+  /**
+    * This topic provides an example on how to query the rules of the current account. The response shows that the current account has a total of one rule and three evaluated resources. The resources are evaluated as compliant.
+    *
+    * @param request ListConfigRulesRequest
+    * @return ListConfigRulesResponse
+   */
   async listConfigRules(request: ListConfigRulesRequest): Promise<ListConfigRulesResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.listConfigRulesWithOptions(request, runtime);
@@ -20658,6 +22155,27 @@ export default class Client extends OpenApi {
   async listDiscoveredResources(request: ListDiscoveredResourcesRequest): Promise<ListDiscoveredResourcesResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.listDiscoveredResourcesWithOptions(request, runtime);
+  }
+
+  async listIntegratedServiceWithOptions(runtime: $Util.RuntimeOptions): Promise<ListIntegratedServiceResponse> {
+    let req = new $OpenApi.OpenApiRequest({ });
+    let params = new $OpenApi.Params({
+      action: "ListIntegratedService",
+      version: "2020-09-07",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $tea.cast<ListIntegratedServiceResponse>(await this.callApi(params, req, runtime), new ListIntegratedServiceResponse({}));
+  }
+
+  async listIntegratedService(): Promise<ListIntegratedServiceResponse> {
+    let runtime = new $Util.RuntimeOptions({ });
+    return await this.listIntegratedServiceWithOptions(runtime);
   }
 
   /**
@@ -21038,6 +22556,68 @@ export default class Client extends OpenApi {
     return await this.listResourceRelationsWithOptions(request, runtime);
   }
 
+  async listResourcesByAdvancedSearchWithOptions(request: ListResourcesByAdvancedSearchRequest, runtime: $Util.RuntimeOptions): Promise<ListResourcesByAdvancedSearchResponse> {
+    Util.validateModel(request);
+    let query = { };
+    if (!Util.isUnset(request.sql)) {
+      query["Sql"] = request.sql;
+    }
+
+    let req = new $OpenApi.OpenApiRequest({
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApi.Params({
+      action: "ListResourcesByAdvancedSearch",
+      version: "2020-09-07",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $tea.cast<ListResourcesByAdvancedSearchResponse>(await this.callApi(params, req, runtime), new ListResourcesByAdvancedSearchResponse({}));
+  }
+
+  async listResourcesByAdvancedSearch(request: ListResourcesByAdvancedSearchRequest): Promise<ListResourcesByAdvancedSearchResponse> {
+    let runtime = new $Util.RuntimeOptions({ });
+    return await this.listResourcesByAdvancedSearchWithOptions(request, runtime);
+  }
+
+  async listSupportedProductsWithOptions(request: ListSupportedProductsRequest, runtime: $Util.RuntimeOptions): Promise<ListSupportedProductsResponse> {
+    Util.validateModel(request);
+    let query = { };
+    if (!Util.isUnset(request.maxResults)) {
+      query["MaxResults"] = request.maxResults;
+    }
+
+    if (!Util.isUnset(request.nextToken)) {
+      query["NextToken"] = request.nextToken;
+    }
+
+    let req = new $OpenApi.OpenApiRequest({
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApi.Params({
+      action: "ListSupportedProducts",
+      version: "2020-09-07",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $tea.cast<ListSupportedProductsResponse>(await this.callApi(params, req, runtime), new ListSupportedProductsResponse({}));
+  }
+
+  async listSupportedProducts(request: ListSupportedProductsRequest): Promise<ListSupportedProductsResponse> {
+    let runtime = new $Util.RuntimeOptions({ });
+    return await this.listSupportedProductsWithOptions(request, runtime);
+  }
+
   async listTagResourcesWithOptions(tmpReq: ListTagResourcesRequest, runtime: $Util.RuntimeOptions): Promise<ListTagResourcesResponse> {
     Util.validateModel(tmpReq);
     let request = new ListTagResourcesShrinkRequest({ });
@@ -21303,7 +22883,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-    * This topic provides an example on how to manually perform a remediation operation by using the rule whose ID is `cr-6b7c626622af00b4****` in the account group whose ID is `ca-6b4a626622af0012****`. The returned result shows that the manual execution is successful.
+    * This topic provides an example on how to manually perform a remediation operation by using the rule whose ID is `cr-6b7c626622af00b4****` in the account group whose ID is `ca-6b4a626622af0012****`. The return result shows that the manual execution is successful.
     *
     * @param request StartAggregateRemediationRequest
     * @param runtime runtime options for this request RuntimeOptions
@@ -21342,7 +22922,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-    * This topic provides an example on how to manually perform a remediation operation by using the rule whose ID is `cr-6b7c626622af00b4****` in the account group whose ID is `ca-6b4a626622af0012****`. The returned result shows that the manual execution is successful.
+    * This topic provides an example on how to manually perform a remediation operation by using the rule whose ID is `cr-6b7c626622af00b4****` in the account group whose ID is `ca-6b4a626622af0012****`. The return result shows that the manual execution is successful.
     *
     * @param request StartAggregateRemediationRequest
     * @return StartAggregateRemediationResponse
