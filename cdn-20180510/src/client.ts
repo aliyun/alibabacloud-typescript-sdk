@@ -12,7 +12,6 @@ export class AddCdnDomainRequest extends $tea.Model {
   cdnType?: string;
   checkUrl?: string;
   domainName?: string;
-  globalResourcePlan?: string;
   ownerAccount?: string;
   ownerId?: number;
   resourceGroupId?: string;
@@ -26,7 +25,6 @@ export class AddCdnDomainRequest extends $tea.Model {
       cdnType: 'CdnType',
       checkUrl: 'CheckUrl',
       domainName: 'DomainName',
-      globalResourcePlan: 'GlobalResourcePlan',
       ownerAccount: 'OwnerAccount',
       ownerId: 'OwnerId',
       resourceGroupId: 'ResourceGroupId',
@@ -43,7 +41,6 @@ export class AddCdnDomainRequest extends $tea.Model {
       cdnType: 'string',
       checkUrl: 'string',
       domainName: 'string',
-      globalResourcePlan: 'string',
       ownerAccount: 'string',
       ownerId: 'number',
       resourceGroupId: 'string',
@@ -4828,96 +4825,6 @@ export class DescribeDomainDetailDataByLayerResponse extends $tea.Model {
       headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
       statusCode: 'number',
       body: DescribeDomainDetailDataByLayerResponseBody,
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class DescribeDomainFileSizeProportionDataRequest extends $tea.Model {
-  domainName?: string;
-  endTime?: string;
-  ownerId?: number;
-  securityToken?: string;
-  startTime?: string;
-  static names(): { [key: string]: string } {
-    return {
-      domainName: 'DomainName',
-      endTime: 'EndTime',
-      ownerId: 'OwnerId',
-      securityToken: 'SecurityToken',
-      startTime: 'StartTime',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      domainName: 'string',
-      endTime: 'string',
-      ownerId: 'number',
-      securityToken: 'string',
-      startTime: 'string',
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class DescribeDomainFileSizeProportionDataResponseBody extends $tea.Model {
-  dataInterval?: string;
-  domainName?: string;
-  endTime?: string;
-  fileSizeProportionDataInterval?: DescribeDomainFileSizeProportionDataResponseBodyFileSizeProportionDataInterval;
-  requestId?: string;
-  startTime?: string;
-  static names(): { [key: string]: string } {
-    return {
-      dataInterval: 'DataInterval',
-      domainName: 'DomainName',
-      endTime: 'EndTime',
-      fileSizeProportionDataInterval: 'FileSizeProportionDataInterval',
-      requestId: 'RequestId',
-      startTime: 'StartTime',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      dataInterval: 'string',
-      domainName: 'string',
-      endTime: 'string',
-      fileSizeProportionDataInterval: DescribeDomainFileSizeProportionDataResponseBodyFileSizeProportionDataInterval,
-      requestId: 'string',
-      startTime: 'string',
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class DescribeDomainFileSizeProportionDataResponse extends $tea.Model {
-  headers: { [key: string]: string };
-  statusCode: number;
-  body: DescribeDomainFileSizeProportionDataResponseBody;
-  static names(): { [key: string]: string } {
-    return {
-      headers: 'headers',
-      statusCode: 'statusCode',
-      body: 'body',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
-      statusCode: 'number',
-      body: DescribeDomainFileSizeProportionDataResponseBody,
     };
   }
 
@@ -11946,12 +11853,10 @@ export class UpdateFCTriggerResponse extends $tea.Model {
 
 export class VerifyDomainOwnerRequest extends $tea.Model {
   domainName?: string;
-  globalResourcePlan?: string;
   verifyType?: string;
   static names(): { [key: string]: string } {
     return {
       domainName: 'DomainName',
-      globalResourcePlan: 'GlobalResourcePlan',
       verifyType: 'VerifyType',
     };
   }
@@ -11959,7 +11864,6 @@ export class VerifyDomainOwnerRequest extends $tea.Model {
   static types(): { [key: string]: any } {
     return {
       domainName: 'string',
-      globalResourcePlan: 'string',
       verifyType: 'string',
     };
   }
@@ -13837,88 +13741,6 @@ export class DescribeDomainDetailDataByLayerResponseBodyData extends $tea.Model 
   static types(): { [key: string]: any } {
     return {
       dataModule: { 'type': 'array', 'itemType': DescribeDomainDetailDataByLayerResponseBodyDataDataModule },
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class DescribeDomainFileSizeProportionDataResponseBodyFileSizeProportionDataIntervalUsageDataValueFileSizeProportionData extends $tea.Model {
-  fileSize?: string;
-  proportion?: string;
-  static names(): { [key: string]: string } {
-    return {
-      fileSize: 'FileSize',
-      proportion: 'Proportion',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      fileSize: 'string',
-      proportion: 'string',
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class DescribeDomainFileSizeProportionDataResponseBodyFileSizeProportionDataIntervalUsageDataValue extends $tea.Model {
-  fileSizeProportionData?: DescribeDomainFileSizeProportionDataResponseBodyFileSizeProportionDataIntervalUsageDataValueFileSizeProportionData[];
-  static names(): { [key: string]: string } {
-    return {
-      fileSizeProportionData: 'FileSizeProportionData',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      fileSizeProportionData: { 'type': 'array', 'itemType': DescribeDomainFileSizeProportionDataResponseBodyFileSizeProportionDataIntervalUsageDataValueFileSizeProportionData },
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class DescribeDomainFileSizeProportionDataResponseBodyFileSizeProportionDataIntervalUsageData extends $tea.Model {
-  timeStamp?: string;
-  value?: DescribeDomainFileSizeProportionDataResponseBodyFileSizeProportionDataIntervalUsageDataValue;
-  static names(): { [key: string]: string } {
-    return {
-      timeStamp: 'TimeStamp',
-      value: 'Value',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      timeStamp: 'string',
-      value: DescribeDomainFileSizeProportionDataResponseBodyFileSizeProportionDataIntervalUsageDataValue,
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class DescribeDomainFileSizeProportionDataResponseBodyFileSizeProportionDataInterval extends $tea.Model {
-  usageData?: DescribeDomainFileSizeProportionDataResponseBodyFileSizeProportionDataIntervalUsageData[];
-  static names(): { [key: string]: string } {
-    return {
-      usageData: 'UsageData',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      usageData: { 'type': 'array', 'itemType': DescribeDomainFileSizeProportionDataResponseBodyFileSizeProportionDataIntervalUsageData },
     };
   }
 
@@ -17552,10 +17374,6 @@ export default class Client extends OpenApi {
       query["DomainName"] = request.domainName;
     }
 
-    if (!Util.isUnset(request.globalResourcePlan)) {
-      query["GlobalResourcePlan"] = request.globalResourcePlan;
-    }
-
     if (!Util.isUnset(request.ownerAccount)) {
       query["OwnerAccount"] = request.ownerAccount;
     }
@@ -20843,68 +20661,6 @@ export default class Client extends OpenApi {
   async describeDomainDetailDataByLayer(request: DescribeDomainDetailDataByLayerRequest): Promise<DescribeDomainDetailDataByLayerResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.describeDomainDetailDataByLayerWithOptions(request, runtime);
-  }
-
-  /**
-    * > 
-    * *   If you do not specify StartTime or EndTime, the request returns the data collected in the last 24 hours. If you specify both StartTime and EndTime, the request returns the data collected within the specified time range.
-    * *   You can call this operation up to 10 times per second per account.
-    *
-    * @param request DescribeDomainFileSizeProportionDataRequest
-    * @param runtime runtime options for this request RuntimeOptions
-    * @return DescribeDomainFileSizeProportionDataResponse
-   */
-  async describeDomainFileSizeProportionDataWithOptions(request: DescribeDomainFileSizeProportionDataRequest, runtime: $Util.RuntimeOptions): Promise<DescribeDomainFileSizeProportionDataResponse> {
-    Util.validateModel(request);
-    let query = { };
-    if (!Util.isUnset(request.domainName)) {
-      query["DomainName"] = request.domainName;
-    }
-
-    if (!Util.isUnset(request.endTime)) {
-      query["EndTime"] = request.endTime;
-    }
-
-    if (!Util.isUnset(request.ownerId)) {
-      query["OwnerId"] = request.ownerId;
-    }
-
-    if (!Util.isUnset(request.securityToken)) {
-      query["SecurityToken"] = request.securityToken;
-    }
-
-    if (!Util.isUnset(request.startTime)) {
-      query["StartTime"] = request.startTime;
-    }
-
-    let req = new $OpenApi.OpenApiRequest({
-      query: OpenApiUtil.query(query),
-    });
-    let params = new $OpenApi.Params({
-      action: "DescribeDomainFileSizeProportionData",
-      version: "2018-05-10",
-      protocol: "HTTPS",
-      pathname: "/",
-      method: "POST",
-      authType: "AK",
-      style: "RPC",
-      reqBodyType: "formData",
-      bodyType: "json",
-    });
-    return $tea.cast<DescribeDomainFileSizeProportionDataResponse>(await this.callApi(params, req, runtime), new DescribeDomainFileSizeProportionDataResponse({}));
-  }
-
-  /**
-    * > 
-    * *   If you do not specify StartTime or EndTime, the request returns the data collected in the last 24 hours. If you specify both StartTime and EndTime, the request returns the data collected within the specified time range.
-    * *   You can call this operation up to 10 times per second per account.
-    *
-    * @param request DescribeDomainFileSizeProportionDataRequest
-    * @return DescribeDomainFileSizeProportionDataResponse
-   */
-  async describeDomainFileSizeProportionData(request: DescribeDomainFileSizeProportionDataRequest): Promise<DescribeDomainFileSizeProportionDataResponse> {
-    let runtime = new $Util.RuntimeOptions({ });
-    return await this.describeDomainFileSizeProportionDataWithOptions(request, runtime);
   }
 
   /**
@@ -25922,10 +25678,6 @@ export default class Client extends OpenApi {
     let query = { };
     if (!Util.isUnset(request.domainName)) {
       query["DomainName"] = request.domainName;
-    }
-
-    if (!Util.isUnset(request.globalResourcePlan)) {
-      query["GlobalResourcePlan"] = request.globalResourcePlan;
     }
 
     if (!Util.isUnset(request.verifyType)) {
