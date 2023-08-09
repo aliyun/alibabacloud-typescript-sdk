@@ -50762,6 +50762,7 @@ export class DescribeVulDetailsResponseBodyCves extends $tea.Model {
   instanceName?: string;
   internetIp?: string;
   intranetIp?: string;
+  otherId?: string;
   poc?: string;
   pocCreateTime?: number;
   pocDisclosureTime?: number;
@@ -50788,6 +50789,7 @@ export class DescribeVulDetailsResponseBodyCves extends $tea.Model {
       instanceName: 'InstanceName',
       internetIp: 'InternetIp',
       intranetIp: 'IntranetIp',
+      otherId: 'OtherId',
       poc: 'Poc',
       pocCreateTime: 'PocCreateTime',
       pocDisclosureTime: 'PocDisclosureTime',
@@ -50817,6 +50819,7 @@ export class DescribeVulDetailsResponseBodyCves extends $tea.Model {
       instanceName: 'string',
       internetIp: 'string',
       intranetIp: 'string',
+      otherId: 'string',
       poc: 'string',
       pocCreateTime: 'number',
       pocDisclosureTime: 'number',
