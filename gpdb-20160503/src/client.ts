@@ -244,12 +244,15 @@ export class CreateCollectionRequest extends $tea.Model {
   DBInstanceId?: string;
   dimension?: number;
   fullTextRetrievalFields?: string;
+  hnswM?: number;
   managerAccount?: string;
   managerAccountPassword?: string;
   metadata?: string;
+  metrics?: string;
   namespace?: string;
   ownerId?: number;
   parser?: string;
+  pqEnable?: number;
   regionId?: string;
   static names(): { [key: string]: string } {
     return {
@@ -257,12 +260,15 @@ export class CreateCollectionRequest extends $tea.Model {
       DBInstanceId: 'DBInstanceId',
       dimension: 'Dimension',
       fullTextRetrievalFields: 'FullTextRetrievalFields',
+      hnswM: 'HnswM',
       managerAccount: 'ManagerAccount',
       managerAccountPassword: 'ManagerAccountPassword',
       metadata: 'Metadata',
+      metrics: 'Metrics',
       namespace: 'Namespace',
       ownerId: 'OwnerId',
       parser: 'Parser',
+      pqEnable: 'PqEnable',
       regionId: 'RegionId',
     };
   }
@@ -273,12 +279,15 @@ export class CreateCollectionRequest extends $tea.Model {
       DBInstanceId: 'string',
       dimension: 'number',
       fullTextRetrievalFields: 'string',
+      hnswM: 'number',
       managerAccount: 'string',
       managerAccountPassword: 'string',
       metadata: 'string',
+      metrics: 'string',
       namespace: 'string',
       ownerId: 'number',
       parser: 'string',
+      pqEnable: 'number',
       regionId: 'string',
     };
   }
@@ -846,22 +855,26 @@ export class CreateVectorIndexRequest extends $tea.Model {
   collection?: string;
   DBInstanceId?: string;
   dimension?: number;
+  hnswM?: number;
   managerAccount?: string;
   managerAccountPassword?: string;
   metrics?: string;
   namespace?: string;
   ownerId?: number;
+  pqEnable?: number;
   regionId?: string;
   static names(): { [key: string]: string } {
     return {
       collection: 'Collection',
       DBInstanceId: 'DBInstanceId',
       dimension: 'Dimension',
+      hnswM: 'HnswM',
       managerAccount: 'ManagerAccount',
       managerAccountPassword: 'ManagerAccountPassword',
       metrics: 'Metrics',
       namespace: 'Namespace',
       ownerId: 'OwnerId',
+      pqEnable: 'PqEnable',
       regionId: 'RegionId',
     };
   }
@@ -871,11 +884,13 @@ export class CreateVectorIndexRequest extends $tea.Model {
       collection: 'string',
       DBInstanceId: 'string',
       dimension: 'number',
+      hnswM: 'number',
       managerAccount: 'string',
       managerAccountPassword: 'string',
       metrics: 'string',
       namespace: 'string',
       ownerId: 'number',
+      pqEnable: 'number',
       regionId: 'string',
     };
   }
@@ -10882,13 +10897,13 @@ export class QueryCollectionDataResponseBodyMatchesMatchValues extends $tea.Mode
 export class QueryCollectionDataResponseBodyMatchesMatch extends $tea.Model {
   id?: string;
   metadata?: { [key: string]: string };
-  similarity?: number;
+  score?: number;
   values?: QueryCollectionDataResponseBodyMatchesMatchValues;
   static names(): { [key: string]: string } {
     return {
       id: 'Id',
       metadata: 'Metadata',
-      similarity: 'Similarity',
+      score: 'Score',
       values: 'Values',
     };
   }
@@ -10897,7 +10912,7 @@ export class QueryCollectionDataResponseBodyMatchesMatch extends $tea.Model {
     return {
       id: 'string',
       metadata: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
-      similarity: 'number',
+      score: 'number',
       values: QueryCollectionDataResponseBodyMatchesMatchValues,
     };
   }
@@ -11201,6 +11216,10 @@ export default class Client extends OpenApi {
       query["FullTextRetrievalFields"] = request.fullTextRetrievalFields;
     }
 
+    if (!Util.isUnset(request.hnswM)) {
+      query["HnswM"] = request.hnswM;
+    }
+
     if (!Util.isUnset(request.managerAccount)) {
       query["ManagerAccount"] = request.managerAccount;
     }
@@ -11213,6 +11232,10 @@ export default class Client extends OpenApi {
       query["Metadata"] = request.metadata;
     }
 
+    if (!Util.isUnset(request.metrics)) {
+      query["Metrics"] = request.metrics;
+    }
+
     if (!Util.isUnset(request.namespace)) {
       query["Namespace"] = request.namespace;
     }
@@ -11223,6 +11246,10 @@ export default class Client extends OpenApi {
 
     if (!Util.isUnset(request.parser)) {
       query["Parser"] = request.parser;
+    }
+
+    if (!Util.isUnset(request.pqEnable)) {
+      query["PqEnable"] = request.pqEnable;
     }
 
     if (!Util.isUnset(request.regionId)) {
@@ -11676,6 +11703,10 @@ export default class Client extends OpenApi {
       query["Dimension"] = request.dimension;
     }
 
+    if (!Util.isUnset(request.hnswM)) {
+      query["HnswM"] = request.hnswM;
+    }
+
     if (!Util.isUnset(request.managerAccount)) {
       query["ManagerAccount"] = request.managerAccount;
     }
@@ -11694,6 +11725,10 @@ export default class Client extends OpenApi {
 
     if (!Util.isUnset(request.ownerId)) {
       query["OwnerId"] = request.ownerId;
+    }
+
+    if (!Util.isUnset(request.pqEnable)) {
+      query["PqEnable"] = request.pqEnable;
     }
 
     if (!Util.isUnset(request.regionId)) {
