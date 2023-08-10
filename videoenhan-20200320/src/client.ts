@@ -1552,10 +1552,12 @@ export class InterpolateVideoFrameResponse extends $tea.Model {
 }
 
 export class MergeVideoFaceRequest extends $tea.Model {
+  addWatermark?: boolean;
   referenceURL?: string;
   videoURL?: string;
   static names(): { [key: string]: string } {
     return {
+      addWatermark: 'AddWatermark',
       referenceURL: 'ReferenceURL',
       videoURL: 'VideoURL',
     };
@@ -1563,6 +1565,7 @@ export class MergeVideoFaceRequest extends $tea.Model {
 
   static types(): { [key: string]: any } {
     return {
+      addWatermark: 'boolean',
       referenceURL: 'string',
       videoURL: 'string',
     };
@@ -1574,10 +1577,12 @@ export class MergeVideoFaceRequest extends $tea.Model {
 }
 
 export class MergeVideoFaceAdvanceRequest extends $tea.Model {
+  addWatermark?: boolean;
   referenceURLObject?: Readable;
   videoURLObject?: Readable;
   static names(): { [key: string]: string } {
     return {
+      addWatermark: 'AddWatermark',
       referenceURLObject: 'ReferenceURL',
       videoURLObject: 'VideoURL',
     };
@@ -1585,6 +1590,7 @@ export class MergeVideoFaceAdvanceRequest extends $tea.Model {
 
   static types(): { [key: string]: any } {
     return {
+      addWatermark: 'boolean',
       referenceURLObject: 'Readable',
       videoURLObject: 'Readable',
     };
@@ -1646,11 +1652,13 @@ export class MergeVideoFaceResponse extends $tea.Model {
 }
 
 export class MergeVideoModelFaceRequest extends $tea.Model {
+  addWatermark?: boolean;
   faceImageURL?: string;
   mergeInfos?: MergeVideoModelFaceRequestMergeInfos[];
   templateId?: string;
   static names(): { [key: string]: string } {
     return {
+      addWatermark: 'AddWatermark',
       faceImageURL: 'FaceImageURL',
       mergeInfos: 'MergeInfos',
       templateId: 'TemplateId',
@@ -1659,6 +1667,7 @@ export class MergeVideoModelFaceRequest extends $tea.Model {
 
   static types(): { [key: string]: any } {
     return {
+      addWatermark: 'boolean',
       faceImageURL: 'string',
       mergeInfos: { 'type': 'array', 'itemType': MergeVideoModelFaceRequestMergeInfos },
       templateId: 'string',
@@ -1671,11 +1680,13 @@ export class MergeVideoModelFaceRequest extends $tea.Model {
 }
 
 export class MergeVideoModelFaceAdvanceRequest extends $tea.Model {
+  addWatermark?: boolean;
   faceImageURLObject?: Readable;
   mergeInfos?: MergeVideoModelFaceAdvanceRequestMergeInfos[];
   templateId?: string;
   static names(): { [key: string]: string } {
     return {
+      addWatermark: 'AddWatermark',
       faceImageURLObject: 'FaceImageURL',
       mergeInfos: 'MergeInfos',
       templateId: 'TemplateId',
@@ -1684,6 +1695,7 @@ export class MergeVideoModelFaceAdvanceRequest extends $tea.Model {
 
   static types(): { [key: string]: any } {
     return {
+      addWatermark: 'boolean',
       faceImageURLObject: 'Readable',
       mergeInfos: { 'type': 'array', 'itemType': MergeVideoModelFaceAdvanceRequestMergeInfos },
       templateId: 'string',
@@ -4339,6 +4351,10 @@ export default class Client extends OpenApi {
   async mergeVideoFaceWithOptions(request: MergeVideoFaceRequest, runtime: $Util.RuntimeOptions): Promise<MergeVideoFaceResponse> {
     Util.validateModel(request);
     let body : {[key: string ]: any} = { };
+    if (!Util.isUnset(request.addWatermark)) {
+      body["AddWatermark"] = request.addWatermark;
+    }
+
     if (!Util.isUnset(request.referenceURL)) {
       body["ReferenceURL"] = request.referenceURL;
     }
@@ -4472,6 +4488,10 @@ export default class Client extends OpenApi {
   async mergeVideoModelFaceWithOptions(request: MergeVideoModelFaceRequest, runtime: $Util.RuntimeOptions): Promise<MergeVideoModelFaceResponse> {
     Util.validateModel(request);
     let body : {[key: string ]: any} = { };
+    if (!Util.isUnset(request.addWatermark)) {
+      body["AddWatermark"] = request.addWatermark;
+    }
+
     if (!Util.isUnset(request.faceImageURL)) {
       body["FaceImageURL"] = request.faceImageURL;
     }
