@@ -824,6 +824,7 @@ export class JobSettings extends $tea.Model {
   advancedSettings?: { [key: string]: any };
   businessUserId?: string;
   caller?: string;
+  driver?: string;
   enableErrorMonitoringInAIMaster?: boolean;
   enableOssAppend?: boolean;
   enableRDMA?: boolean;
@@ -837,6 +838,7 @@ export class JobSettings extends $tea.Model {
       advancedSettings: 'AdvancedSettings',
       businessUserId: 'BusinessUserId',
       caller: 'Caller',
+      driver: 'Driver',
       enableErrorMonitoringInAIMaster: 'EnableErrorMonitoringInAIMaster',
       enableOssAppend: 'EnableOssAppend',
       enableRDMA: 'EnableRDMA',
@@ -853,6 +855,7 @@ export class JobSettings extends $tea.Model {
       advancedSettings: { 'type': 'map', 'keyType': 'string', 'valueType': 'any' },
       businessUserId: 'string',
       caller: 'string',
+      driver: 'string',
       enableErrorMonitoringInAIMaster: 'boolean',
       enableOssAppend: 'boolean',
       enableRDMA: 'boolean',
@@ -2696,6 +2699,7 @@ export class ListTensorboardsRequest extends $tea.Model {
   order?: string;
   pageNumber?: number;
   pageSize?: number;
+  showOwn?: boolean;
   sortBy?: string;
   sourceId?: string;
   sourceType?: string;
@@ -2712,6 +2716,7 @@ export class ListTensorboardsRequest extends $tea.Model {
       order: 'Order',
       pageNumber: 'PageNumber',
       pageSize: 'PageSize',
+      showOwn: 'ShowOwn',
       sortBy: 'SortBy',
       sourceId: 'SourceId',
       sourceType: 'SourceType',
@@ -2731,6 +2736,7 @@ export class ListTensorboardsRequest extends $tea.Model {
       order: 'string',
       pageNumber: 'number',
       pageSize: 'number',
+      showOwn: 'boolean',
       sortBy: 'string',
       sourceId: 'string',
       sourceType: 'string',
@@ -4193,6 +4199,10 @@ export default class Client extends OpenApi {
 
     if (!Util.isUnset(request.pageSize)) {
       query["PageSize"] = request.pageSize;
+    }
+
+    if (!Util.isUnset(request.showOwn)) {
+      query["ShowOwn"] = request.showOwn;
     }
 
     if (!Util.isUnset(request.sortBy)) {
