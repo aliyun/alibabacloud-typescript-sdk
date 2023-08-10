@@ -1575,31 +1575,37 @@ export class GrantUserPermissionsResponse extends $tea.Model {
 }
 
 export class UpdateHubClusterFeatureRequest extends $tea.Model {
+  accessControlList?: string[];
   apiServerEipId?: string;
   argoCDEnabled?: boolean;
+  argoCDHAEnabled?: boolean;
   argoServerEnabled?: boolean;
-  armsEnabled?: boolean;
   auditLogEnabled?: boolean;
   clusterId?: string;
   deletionProtection?: boolean;
   enableMesh?: boolean;
+  monitorEnabled?: boolean;
   name?: string;
   priceLimit?: string;
+  publicAccessEnabled?: boolean;
   publicApiServerEnabled?: boolean;
   vSwitches?: string[];
   workflowScheduleMode?: string;
   static names(): { [key: string]: string } {
     return {
+      accessControlList: 'AccessControlList',
       apiServerEipId: 'ApiServerEipId',
       argoCDEnabled: 'ArgoCDEnabled',
+      argoCDHAEnabled: 'ArgoCDHAEnabled',
       argoServerEnabled: 'ArgoServerEnabled',
-      armsEnabled: 'ArmsEnabled',
       auditLogEnabled: 'AuditLogEnabled',
       clusterId: 'ClusterId',
       deletionProtection: 'DeletionProtection',
       enableMesh: 'EnableMesh',
+      monitorEnabled: 'MonitorEnabled',
       name: 'Name',
       priceLimit: 'PriceLimit',
+      publicAccessEnabled: 'PublicAccessEnabled',
       publicApiServerEnabled: 'PublicApiServerEnabled',
       vSwitches: 'VSwitches',
       workflowScheduleMode: 'WorkflowScheduleMode',
@@ -1608,16 +1614,19 @@ export class UpdateHubClusterFeatureRequest extends $tea.Model {
 
   static types(): { [key: string]: any } {
     return {
+      accessControlList: { 'type': 'array', 'itemType': 'string' },
       apiServerEipId: 'string',
       argoCDEnabled: 'boolean',
+      argoCDHAEnabled: 'boolean',
       argoServerEnabled: 'boolean',
-      armsEnabled: 'boolean',
       auditLogEnabled: 'boolean',
       clusterId: 'string',
       deletionProtection: 'boolean',
       enableMesh: 'boolean',
+      monitorEnabled: 'boolean',
       name: 'string',
       priceLimit: 'string',
+      publicAccessEnabled: 'boolean',
       publicApiServerEnabled: 'boolean',
       vSwitches: { 'type': 'array', 'itemType': 'string' },
       workflowScheduleMode: 'string',
@@ -1630,31 +1639,37 @@ export class UpdateHubClusterFeatureRequest extends $tea.Model {
 }
 
 export class UpdateHubClusterFeatureShrinkRequest extends $tea.Model {
+  accessControlListShrink?: string;
   apiServerEipId?: string;
   argoCDEnabled?: boolean;
+  argoCDHAEnabled?: boolean;
   argoServerEnabled?: boolean;
-  armsEnabled?: boolean;
   auditLogEnabled?: boolean;
   clusterId?: string;
   deletionProtection?: boolean;
   enableMesh?: boolean;
+  monitorEnabled?: boolean;
   name?: string;
   priceLimit?: string;
+  publicAccessEnabled?: boolean;
   publicApiServerEnabled?: boolean;
   vSwitchesShrink?: string;
   workflowScheduleMode?: string;
   static names(): { [key: string]: string } {
     return {
+      accessControlListShrink: 'AccessControlList',
       apiServerEipId: 'ApiServerEipId',
       argoCDEnabled: 'ArgoCDEnabled',
+      argoCDHAEnabled: 'ArgoCDHAEnabled',
       argoServerEnabled: 'ArgoServerEnabled',
-      armsEnabled: 'ArmsEnabled',
       auditLogEnabled: 'AuditLogEnabled',
       clusterId: 'ClusterId',
       deletionProtection: 'DeletionProtection',
       enableMesh: 'EnableMesh',
+      monitorEnabled: 'MonitorEnabled',
       name: 'Name',
       priceLimit: 'PriceLimit',
+      publicAccessEnabled: 'PublicAccessEnabled',
       publicApiServerEnabled: 'PublicApiServerEnabled',
       vSwitchesShrink: 'VSwitches',
       workflowScheduleMode: 'WorkflowScheduleMode',
@@ -1663,16 +1678,19 @@ export class UpdateHubClusterFeatureShrinkRequest extends $tea.Model {
 
   static types(): { [key: string]: any } {
     return {
+      accessControlListShrink: 'string',
       apiServerEipId: 'string',
       argoCDEnabled: 'boolean',
+      argoCDHAEnabled: 'boolean',
       argoServerEnabled: 'boolean',
-      armsEnabled: 'boolean',
       auditLogEnabled: 'boolean',
       clusterId: 'string',
       deletionProtection: 'boolean',
       enableMesh: 'boolean',
+      monitorEnabled: 'boolean',
       name: 'string',
       priceLimit: 'string',
+      publicAccessEnabled: 'boolean',
       publicApiServerEnabled: 'boolean',
       vSwitchesShrink: 'string',
       workflowScheduleMode: 'string',
@@ -3906,11 +3924,19 @@ export default class Client extends OpenApi {
     Util.validateModel(tmpReq);
     let request = new UpdateHubClusterFeatureShrinkRequest({ });
     OpenApiUtil.convert(tmpReq, request);
+    if (!Util.isUnset(tmpReq.accessControlList)) {
+      request.accessControlListShrink = OpenApiUtil.arrayToStringWithSpecifiedStyle(tmpReq.accessControlList, "AccessControlList", "json");
+    }
+
     if (!Util.isUnset(tmpReq.vSwitches)) {
       request.vSwitchesShrink = OpenApiUtil.arrayToStringWithSpecifiedStyle(tmpReq.vSwitches, "VSwitches", "json");
     }
 
     let query = { };
+    if (!Util.isUnset(request.accessControlListShrink)) {
+      query["AccessControlList"] = request.accessControlListShrink;
+    }
+
     if (!Util.isUnset(request.apiServerEipId)) {
       query["ApiServerEipId"] = request.apiServerEipId;
     }
@@ -3919,12 +3945,12 @@ export default class Client extends OpenApi {
       query["ArgoCDEnabled"] = request.argoCDEnabled;
     }
 
-    if (!Util.isUnset(request.argoServerEnabled)) {
-      query["ArgoServerEnabled"] = request.argoServerEnabled;
+    if (!Util.isUnset(request.argoCDHAEnabled)) {
+      query["ArgoCDHAEnabled"] = request.argoCDHAEnabled;
     }
 
-    if (!Util.isUnset(request.armsEnabled)) {
-      query["ArmsEnabled"] = request.armsEnabled;
+    if (!Util.isUnset(request.argoServerEnabled)) {
+      query["ArgoServerEnabled"] = request.argoServerEnabled;
     }
 
     if (!Util.isUnset(request.auditLogEnabled)) {
@@ -3943,12 +3969,20 @@ export default class Client extends OpenApi {
       query["EnableMesh"] = request.enableMesh;
     }
 
+    if (!Util.isUnset(request.monitorEnabled)) {
+      query["MonitorEnabled"] = request.monitorEnabled;
+    }
+
     if (!Util.isUnset(request.name)) {
       query["Name"] = request.name;
     }
 
     if (!Util.isUnset(request.priceLimit)) {
       query["PriceLimit"] = request.priceLimit;
+    }
+
+    if (!Util.isUnset(request.publicAccessEnabled)) {
+      query["PublicAccessEnabled"] = request.publicAccessEnabled;
     }
 
     if (!Util.isUnset(request.publicApiServerEnabled)) {
