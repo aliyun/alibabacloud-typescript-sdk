@@ -36,7 +36,7 @@ export class Alert extends $tea.Model {
 export class AndroidPayload extends $tea.Model {
   body?: Body;
   displayType?: string;
-  extra?: { [key: string]: any };
+  extra?: { [key: string]: string };
   static names(): { [key: string]: string } {
     return {
       body: 'body',
@@ -49,7 +49,7 @@ export class AndroidPayload extends $tea.Model {
     return {
       body: Body,
       displayType: 'string',
-      extra: { 'type': 'map', 'keyType': 'string', 'valueType': 'any' },
+      extra: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
     };
   }
 
@@ -94,8 +94,8 @@ export class Aps extends $tea.Model {
 
 export class Body extends $tea.Model {
   activity?: string;
+  addBadge?: number;
   afterOpen?: string;
-  badge?: number;
   builderId?: number;
   custom?: string;
   expandImage?: string;
@@ -105,6 +105,8 @@ export class Body extends $tea.Model {
   playLights?: boolean;
   playSound?: boolean;
   playVibrate?: boolean;
+  rePop?: number;
+  setBadge?: number;
   sound?: string;
   text?: string;
   title?: string;
@@ -112,8 +114,8 @@ export class Body extends $tea.Model {
   static names(): { [key: string]: string } {
     return {
       activity: 'activity',
+      addBadge: 'addBadge',
       afterOpen: 'afterOpen',
-      badge: 'badge',
       builderId: 'builderId',
       custom: 'custom',
       expandImage: 'expandImage',
@@ -123,6 +125,8 @@ export class Body extends $tea.Model {
       playLights: 'playLights',
       playSound: 'playSound',
       playVibrate: 'playVibrate',
+      rePop: 'rePop',
+      setBadge: 'setBadge',
       sound: 'sound',
       text: 'text',
       title: 'title',
@@ -133,8 +137,8 @@ export class Body extends $tea.Model {
   static types(): { [key: string]: any } {
     return {
       activity: 'string',
+      addBadge: 'number',
       afterOpen: 'string',
-      badge: 'number',
       builderId: 'number',
       custom: 'string',
       expandImage: 'string',
@@ -144,6 +148,8 @@ export class Body extends $tea.Model {
       playLights: 'boolean',
       playSound: 'boolean',
       playVibrate: 'boolean',
+      rePop: 'number',
+      setBadge: 'number',
       sound: 'string',
       text: 'string',
       title: 'string',
@@ -158,16 +164,22 @@ export class Body extends $tea.Model {
 
 export class ChannelProperties extends $tea.Model {
   channelActivity?: string;
+  channelFcm?: string;
+  huaweiChannelCategory?: string;
+  huaweiChannelImportance?: string;
   mainActivity?: string;
   oppoChannelId?: string;
-  vivoClassification?: string;
+  vivoCategory?: string;
   xiaomiChannelId?: string;
   static names(): { [key: string]: string } {
     return {
       channelActivity: 'channelActivity',
+      channelFcm: 'channelFcm',
+      huaweiChannelCategory: 'huaweiChannelCategory',
+      huaweiChannelImportance: 'huaweiChannelImportance',
       mainActivity: 'mainActivity',
       oppoChannelId: 'oppoChannelId',
-      vivoClassification: 'vivoClassification',
+      vivoCategory: 'vivoCategory',
       xiaomiChannelId: 'xiaomiChannelId',
     };
   }
@@ -175,9 +187,12 @@ export class ChannelProperties extends $tea.Model {
   static types(): { [key: string]: any } {
     return {
       channelActivity: 'string',
+      channelFcm: 'string',
+      huaweiChannelCategory: 'string',
+      huaweiChannelImportance: 'string',
       mainActivity: 'string',
       oppoChannelId: 'string',
-      vivoClassification: 'string',
+      vivoCategory: 'string',
       xiaomiChannelId: 'string',
     };
   }
@@ -189,7 +204,7 @@ export class ChannelProperties extends $tea.Model {
 
 export class IosPayload extends $tea.Model {
   aps?: Aps;
-  extra?: { [key: string]: any };
+  extra?: { [key: string]: string };
   static names(): { [key: string]: string } {
     return {
       aps: 'aps',
@@ -200,7 +215,7 @@ export class IosPayload extends $tea.Model {
   static types(): { [key: string]: any } {
     return {
       aps: Aps,
-      extra: { 'type': 'map', 'keyType': 'string', 'valueType': 'any' },
+      extra: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
     };
   }
 
