@@ -14063,6 +14063,7 @@ export class DescribeEipAddressesRequest extends $tea.Model {
   securityProtectionEnabled?: boolean;
   segmentInstanceId?: string;
   status?: string;
+  tag?: DescribeEipAddressesRequestTag[];
   static names(): { [key: string]: string } {
     return {
       filter: 'Filter',
@@ -14088,6 +14089,7 @@ export class DescribeEipAddressesRequest extends $tea.Model {
       securityProtectionEnabled: 'SecurityProtectionEnabled',
       segmentInstanceId: 'SegmentInstanceId',
       status: 'Status',
+      tag: 'Tag',
     };
   }
 
@@ -14116,6 +14118,7 @@ export class DescribeEipAddressesRequest extends $tea.Model {
       securityProtectionEnabled: 'boolean',
       segmentInstanceId: 'string',
       status: 'string',
+      tag: { 'type': 'array', 'itemType': DescribeEipAddressesRequestTag },
     };
   }
 
@@ -28481,6 +28484,129 @@ export class ModifySslVpnServerResponse extends $tea.Model {
   }
 }
 
+export class ModifyTunnelAttributeRequest extends $tea.Model {
+  clientToken?: string;
+  ownerAccount?: string;
+  ownerId?: number;
+  regionId?: string;
+  resourceOwnerAccount?: string;
+  resourceOwnerId?: number;
+  tunnelId?: string;
+  tunnelOptionsSpecification?: ModifyTunnelAttributeRequestTunnelOptionsSpecification;
+  vpnConnectionId?: string;
+  static names(): { [key: string]: string } {
+    return {
+      clientToken: 'ClientToken',
+      ownerAccount: 'OwnerAccount',
+      ownerId: 'OwnerId',
+      regionId: 'RegionId',
+      resourceOwnerAccount: 'ResourceOwnerAccount',
+      resourceOwnerId: 'ResourceOwnerId',
+      tunnelId: 'TunnelId',
+      tunnelOptionsSpecification: 'TunnelOptionsSpecification',
+      vpnConnectionId: 'VpnConnectionId',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      clientToken: 'string',
+      ownerAccount: 'string',
+      ownerId: 'number',
+      regionId: 'string',
+      resourceOwnerAccount: 'string',
+      resourceOwnerId: 'number',
+      tunnelId: 'string',
+      tunnelOptionsSpecification: ModifyTunnelAttributeRequestTunnelOptionsSpecification,
+      vpnConnectionId: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class ModifyTunnelAttributeResponseBody extends $tea.Model {
+  customerGatewayId?: string;
+  enableDpd?: boolean;
+  enableNatTraversal?: boolean;
+  internetIp?: string;
+  remoteCaCertificate?: string;
+  requestId?: string;
+  role?: string;
+  state?: string;
+  tunnelBgpConfig?: ModifyTunnelAttributeResponseBodyTunnelBgpConfig;
+  tunnelId?: string;
+  tunnelIkeConfig?: ModifyTunnelAttributeResponseBodyTunnelIkeConfig;
+  tunnelIpsecConfig?: ModifyTunnelAttributeResponseBodyTunnelIpsecConfig;
+  zoneNo?: string;
+  static names(): { [key: string]: string } {
+    return {
+      customerGatewayId: 'CustomerGatewayId',
+      enableDpd: 'EnableDpd',
+      enableNatTraversal: 'EnableNatTraversal',
+      internetIp: 'InternetIp',
+      remoteCaCertificate: 'RemoteCaCertificate',
+      requestId: 'RequestId',
+      role: 'Role',
+      state: 'State',
+      tunnelBgpConfig: 'TunnelBgpConfig',
+      tunnelId: 'TunnelId',
+      tunnelIkeConfig: 'TunnelIkeConfig',
+      tunnelIpsecConfig: 'TunnelIpsecConfig',
+      zoneNo: 'ZoneNo',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      customerGatewayId: 'string',
+      enableDpd: 'boolean',
+      enableNatTraversal: 'boolean',
+      internetIp: 'string',
+      remoteCaCertificate: 'string',
+      requestId: 'string',
+      role: 'string',
+      state: 'string',
+      tunnelBgpConfig: ModifyTunnelAttributeResponseBodyTunnelBgpConfig,
+      tunnelId: 'string',
+      tunnelIkeConfig: ModifyTunnelAttributeResponseBodyTunnelIkeConfig,
+      tunnelIpsecConfig: ModifyTunnelAttributeResponseBodyTunnelIpsecConfig,
+      zoneNo: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class ModifyTunnelAttributeResponse extends $tea.Model {
+  headers: { [key: string]: string };
+  statusCode: number;
+  body: ModifyTunnelAttributeResponseBody;
+  static names(): { [key: string]: string } {
+    return {
+      headers: 'headers',
+      statusCode: 'statusCode',
+      body: 'body',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
+      body: ModifyTunnelAttributeResponseBody,
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
 export class ModifyVRouterAttributeRequest extends $tea.Model {
   description?: string;
   ownerAccount?: string;
@@ -36166,6 +36292,28 @@ export class DescribeEipAddressesRequestFilter extends $tea.Model {
   }
 }
 
+export class DescribeEipAddressesRequestTag extends $tea.Model {
+  key?: string;
+  value?: string;
+  static names(): { [key: string]: string } {
+    return {
+      key: 'Key',
+      value: 'Value',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      key: 'string',
+      value: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
 export class DescribeEipAddressesResponseBodyEipAddressesEipAddressOperationLocksLockReason extends $tea.Model {
   lockReason?: string;
   static names(): { [key: string]: string } {
@@ -36758,6 +36906,7 @@ export class DescribeForwardTableEntriesResponseBodyForwardTableEntriesForwardTa
   internalIp?: string;
   internalPort?: string;
   ipProtocol?: string;
+  natGatewayId?: string;
   status?: string;
   static names(): { [key: string]: string } {
     return {
@@ -36769,6 +36918,7 @@ export class DescribeForwardTableEntriesResponseBodyForwardTableEntriesForwardTa
       internalIp: 'InternalIp',
       internalPort: 'InternalPort',
       ipProtocol: 'IpProtocol',
+      natGatewayId: 'NatGatewayId',
       status: 'Status',
     };
   }
@@ -36783,6 +36933,7 @@ export class DescribeForwardTableEntriesResponseBodyForwardTableEntriesForwardTa
       internalIp: 'string',
       internalPort: 'string',
       ipProtocol: 'string',
+      natGatewayId: 'string',
       status: 'string',
     };
   }
@@ -39935,6 +40086,7 @@ export class DescribeServerRelatedGlobalAccelerationInstancesResponseBodyGlobalA
 }
 
 export class DescribeSnatTableEntriesResponseBodySnatTableEntriesSnatTableEntry extends $tea.Model {
+  natGatewayId?: string;
   snatEntryId?: string;
   snatEntryName?: string;
   snatIp?: string;
@@ -39944,6 +40096,7 @@ export class DescribeSnatTableEntriesResponseBodySnatTableEntriesSnatTableEntry 
   status?: string;
   static names(): { [key: string]: string } {
     return {
+      natGatewayId: 'NatGatewayId',
       snatEntryId: 'SnatEntryId',
       snatEntryName: 'SnatEntryName',
       snatIp: 'SnatIp',
@@ -39956,6 +40109,7 @@ export class DescribeSnatTableEntriesResponseBodySnatTableEntriesSnatTableEntry 
 
   static types(): { [key: string]: any } {
     return {
+      natGatewayId: 'string',
       snatEntryId: 'string',
       snatEntryName: 'string',
       snatIp: 'string',
@@ -45372,6 +45526,241 @@ export class ListVpnCertificateAssociationsResponseBodyVpnCertificateRelations e
       certificateType: 'string',
       regionId: 'string',
       vpnGatewayId: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class ModifyTunnelAttributeRequestTunnelOptionsSpecificationTunnelBgpConfig extends $tea.Model {
+  localAsn?: number;
+  localBgpIp?: string;
+  tunnelCidr?: string;
+  static names(): { [key: string]: string } {
+    return {
+      localAsn: 'LocalAsn',
+      localBgpIp: 'LocalBgpIp',
+      tunnelCidr: 'TunnelCidr',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      localAsn: 'number',
+      localBgpIp: 'string',
+      tunnelCidr: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class ModifyTunnelAttributeRequestTunnelOptionsSpecificationTunnelIkeConfig extends $tea.Model {
+  ikeAuthAlg?: string;
+  ikeEncAlg?: string;
+  ikeLifetime?: number;
+  ikeMode?: string;
+  ikePfs?: string;
+  ikeVersion?: string;
+  localId?: string;
+  psk?: string;
+  remoteId?: string;
+  static names(): { [key: string]: string } {
+    return {
+      ikeAuthAlg: 'IkeAuthAlg',
+      ikeEncAlg: 'IkeEncAlg',
+      ikeLifetime: 'IkeLifetime',
+      ikeMode: 'IkeMode',
+      ikePfs: 'IkePfs',
+      ikeVersion: 'IkeVersion',
+      localId: 'LocalId',
+      psk: 'Psk',
+      remoteId: 'RemoteId',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      ikeAuthAlg: 'string',
+      ikeEncAlg: 'string',
+      ikeLifetime: 'number',
+      ikeMode: 'string',
+      ikePfs: 'string',
+      ikeVersion: 'string',
+      localId: 'string',
+      psk: 'string',
+      remoteId: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class ModifyTunnelAttributeRequestTunnelOptionsSpecificationTunnelIpsecConfig extends $tea.Model {
+  ipsecAuthAlg?: string;
+  ipsecEncAlg?: string;
+  ipsecLifetime?: number;
+  ipsecPfs?: string;
+  static names(): { [key: string]: string } {
+    return {
+      ipsecAuthAlg: 'IpsecAuthAlg',
+      ipsecEncAlg: 'IpsecEncAlg',
+      ipsecLifetime: 'IpsecLifetime',
+      ipsecPfs: 'IpsecPfs',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      ipsecAuthAlg: 'string',
+      ipsecEncAlg: 'string',
+      ipsecLifetime: 'number',
+      ipsecPfs: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class ModifyTunnelAttributeRequestTunnelOptionsSpecification extends $tea.Model {
+  enableDpd?: boolean;
+  enableNatTraversal?: boolean;
+  remoteCaCertificate?: string;
+  tunnelBgpConfig?: ModifyTunnelAttributeRequestTunnelOptionsSpecificationTunnelBgpConfig;
+  tunnelIkeConfig?: ModifyTunnelAttributeRequestTunnelOptionsSpecificationTunnelIkeConfig;
+  tunnelIpsecConfig?: ModifyTunnelAttributeRequestTunnelOptionsSpecificationTunnelIpsecConfig;
+  static names(): { [key: string]: string } {
+    return {
+      enableDpd: 'EnableDpd',
+      enableNatTraversal: 'EnableNatTraversal',
+      remoteCaCertificate: 'RemoteCaCertificate',
+      tunnelBgpConfig: 'TunnelBgpConfig',
+      tunnelIkeConfig: 'TunnelIkeConfig',
+      tunnelIpsecConfig: 'TunnelIpsecConfig',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      enableDpd: 'boolean',
+      enableNatTraversal: 'boolean',
+      remoteCaCertificate: 'string',
+      tunnelBgpConfig: ModifyTunnelAttributeRequestTunnelOptionsSpecificationTunnelBgpConfig,
+      tunnelIkeConfig: ModifyTunnelAttributeRequestTunnelOptionsSpecificationTunnelIkeConfig,
+      tunnelIpsecConfig: ModifyTunnelAttributeRequestTunnelOptionsSpecificationTunnelIpsecConfig,
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class ModifyTunnelAttributeResponseBodyTunnelBgpConfig extends $tea.Model {
+  enableBgp?: boolean;
+  localAsn?: number;
+  localBgpIp?: string;
+  peerAsn?: number;
+  peerBgpIp?: string;
+  tunnelCidr?: string;
+  static names(): { [key: string]: string } {
+    return {
+      enableBgp: 'EnableBgp',
+      localAsn: 'LocalAsn',
+      localBgpIp: 'LocalBgpIp',
+      peerAsn: 'PeerAsn',
+      peerBgpIp: 'PeerBgpIp',
+      tunnelCidr: 'TunnelCidr',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      enableBgp: 'boolean',
+      localAsn: 'number',
+      localBgpIp: 'string',
+      peerAsn: 'number',
+      peerBgpIp: 'string',
+      tunnelCidr: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class ModifyTunnelAttributeResponseBodyTunnelIkeConfig extends $tea.Model {
+  ikeAuthAlg?: string;
+  ikeEncAlg?: string;
+  ikeLifetime?: number;
+  ikeMode?: string;
+  ikePfs?: string;
+  ikeVersion?: string;
+  localId?: string;
+  psk?: string;
+  remoteId?: string;
+  static names(): { [key: string]: string } {
+    return {
+      ikeAuthAlg: 'IkeAuthAlg',
+      ikeEncAlg: 'IkeEncAlg',
+      ikeLifetime: 'IkeLifetime',
+      ikeMode: 'IkeMode',
+      ikePfs: 'IkePfs',
+      ikeVersion: 'IkeVersion',
+      localId: 'LocalId',
+      psk: 'Psk',
+      remoteId: 'RemoteId',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      ikeAuthAlg: 'string',
+      ikeEncAlg: 'string',
+      ikeLifetime: 'number',
+      ikeMode: 'string',
+      ikePfs: 'string',
+      ikeVersion: 'string',
+      localId: 'string',
+      psk: 'string',
+      remoteId: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class ModifyTunnelAttributeResponseBodyTunnelIpsecConfig extends $tea.Model {
+  ipsecAuthAlg?: string;
+  ipsecEncAlg?: string;
+  ipsecLifetime?: number;
+  ipsecPfs?: string;
+  static names(): { [key: string]: string } {
+    return {
+      ipsecAuthAlg: 'IpsecAuthAlg',
+      ipsecEncAlg: 'IpsecEncAlg',
+      ipsecLifetime: 'IpsecLifetime',
+      ipsecPfs: 'IpsecPfs',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      ipsecAuthAlg: 'string',
+      ipsecEncAlg: 'string',
+      ipsecLifetime: 'number',
+      ipsecPfs: 'string',
     };
   }
 
@@ -58540,6 +58929,10 @@ export default class Client extends OpenApi {
       query["Status"] = request.status;
     }
 
+    if (!Util.isUnset(request.tag)) {
+      query["Tag"] = request.tag;
+    }
+
     if (!Util.isUnset(request.filter)) {
       query["Filter"] = request.filter;
     }
@@ -68509,6 +68902,67 @@ export default class Client extends OpenApi {
   async modifySslVpnServer(request: ModifySslVpnServerRequest): Promise<ModifySslVpnServerResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.modifySslVpnServerWithOptions(request, runtime);
+  }
+
+  async modifyTunnelAttributeWithOptions(request: ModifyTunnelAttributeRequest, runtime: $Util.RuntimeOptions): Promise<ModifyTunnelAttributeResponse> {
+    Util.validateModel(request);
+    let query = { };
+    if (!Util.isUnset(request.clientToken)) {
+      query["ClientToken"] = request.clientToken;
+    }
+
+    if (!Util.isUnset(request.ownerAccount)) {
+      query["OwnerAccount"] = request.ownerAccount;
+    }
+
+    if (!Util.isUnset(request.ownerId)) {
+      query["OwnerId"] = request.ownerId;
+    }
+
+    if (!Util.isUnset(request.regionId)) {
+      query["RegionId"] = request.regionId;
+    }
+
+    if (!Util.isUnset(request.resourceOwnerAccount)) {
+      query["ResourceOwnerAccount"] = request.resourceOwnerAccount;
+    }
+
+    if (!Util.isUnset(request.resourceOwnerId)) {
+      query["ResourceOwnerId"] = request.resourceOwnerId;
+    }
+
+    if (!Util.isUnset(request.tunnelId)) {
+      query["TunnelId"] = request.tunnelId;
+    }
+
+    if (!Util.isUnset(request.tunnelOptionsSpecification)) {
+      query["TunnelOptionsSpecification"] = request.tunnelOptionsSpecification;
+    }
+
+    if (!Util.isUnset(request.vpnConnectionId)) {
+      query["VpnConnectionId"] = request.vpnConnectionId;
+    }
+
+    let req = new $OpenApi.OpenApiRequest({
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApi.Params({
+      action: "ModifyTunnelAttribute",
+      version: "2016-04-28",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $tea.cast<ModifyTunnelAttributeResponse>(await this.callApi(params, req, runtime), new ModifyTunnelAttributeResponse({}));
+  }
+
+  async modifyTunnelAttribute(request: ModifyTunnelAttributeRequest): Promise<ModifyTunnelAttributeResponse> {
+    let runtime = new $Util.RuntimeOptions({ });
+    return await this.modifyTunnelAttributeWithOptions(request, runtime);
   }
 
   /**
