@@ -1643,6 +1643,72 @@ export class DisableApplicationProvisioningResponse extends $tea.Model {
   }
 }
 
+export class DisableApplicationSsoRequest extends $tea.Model {
+  applicationId?: string;
+  instanceId?: string;
+  static names(): { [key: string]: string } {
+    return {
+      applicationId: 'ApplicationId',
+      instanceId: 'InstanceId',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      applicationId: 'string',
+      instanceId: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class DisableApplicationSsoResponseBody extends $tea.Model {
+  requestId?: string;
+  static names(): { [key: string]: string } {
+    return {
+      requestId: 'RequestId',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      requestId: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class DisableApplicationSsoResponse extends $tea.Model {
+  headers: { [key: string]: string };
+  statusCode: number;
+  body: DisableApplicationSsoResponseBody;
+  static names(): { [key: string]: string } {
+    return {
+      headers: 'headers',
+      statusCode: 'statusCode',
+      body: 'body',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
+      body: DisableApplicationSsoResponseBody,
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
 export class DisableUserRequest extends $tea.Model {
   instanceId?: string;
   userId?: string;
@@ -1968,6 +2034,72 @@ export class EnableApplicationProvisioningResponse extends $tea.Model {
       headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
       statusCode: 'number',
       body: EnableApplicationProvisioningResponseBody,
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class EnableApplicationSsoRequest extends $tea.Model {
+  applicationId?: string;
+  instanceId?: string;
+  static names(): { [key: string]: string } {
+    return {
+      applicationId: 'ApplicationId',
+      instanceId: 'InstanceId',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      applicationId: 'string',
+      instanceId: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class EnableApplicationSsoResponseBody extends $tea.Model {
+  requestId?: string;
+  static names(): { [key: string]: string } {
+    return {
+      requestId: 'RequestId',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      requestId: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class EnableApplicationSsoResponse extends $tea.Model {
+  headers: { [key: string]: string };
+  statusCode: number;
+  body: EnableApplicationSsoResponseBody;
+  static names(): { [key: string]: string } {
+    return {
+      headers: 'headers',
+      statusCode: 'statusCode',
+      body: 'body',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
+      body: EnableApplicationSsoResponseBody,
     };
   }
 
@@ -2379,6 +2511,72 @@ export class GetApplicationSsoConfigResponse extends $tea.Model {
       headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
       statusCode: 'number',
       body: GetApplicationSsoConfigResponseBody,
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class GetForgetPasswordConfigurationRequest extends $tea.Model {
+  instanceId?: string;
+  static names(): { [key: string]: string } {
+    return {
+      instanceId: 'InstanceId',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      instanceId: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class GetForgetPasswordConfigurationResponseBody extends $tea.Model {
+  openForgetPasswordConfiguration?: GetForgetPasswordConfigurationResponseBodyOpenForgetPasswordConfiguration;
+  requestId?: string;
+  static names(): { [key: string]: string } {
+    return {
+      openForgetPasswordConfiguration: 'OpenForgetPasswordConfiguration',
+      requestId: 'RequestId',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      openForgetPasswordConfiguration: GetForgetPasswordConfigurationResponseBodyOpenForgetPasswordConfiguration,
+      requestId: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class GetForgetPasswordConfigurationResponse extends $tea.Model {
+  headers: { [key: string]: string };
+  statusCode: number;
+  body: GetForgetPasswordConfigurationResponseBody;
+  static names(): { [key: string]: string } {
+    return {
+      headers: 'headers',
+      statusCode: 'statusCode',
+      body: 'body',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
+      body: GetForgetPasswordConfigurationResponseBody,
     };
   }
 
@@ -5244,6 +5442,75 @@ export class SetApplicationSsoConfigResponse extends $tea.Model {
   }
 }
 
+export class SetForgetPasswordConfigurationRequest extends $tea.Model {
+  authenticationChannels?: string[];
+  forgetPasswordStatus?: string;
+  instanceId?: string;
+  static names(): { [key: string]: string } {
+    return {
+      authenticationChannels: 'AuthenticationChannels',
+      forgetPasswordStatus: 'ForgetPasswordStatus',
+      instanceId: 'InstanceId',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      authenticationChannels: { 'type': 'array', 'itemType': 'string' },
+      forgetPasswordStatus: 'string',
+      instanceId: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class SetForgetPasswordConfigurationResponseBody extends $tea.Model {
+  requestId?: string;
+  static names(): { [key: string]: string } {
+    return {
+      requestId: 'RequestId',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      requestId: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class SetForgetPasswordConfigurationResponse extends $tea.Model {
+  headers: { [key: string]: string };
+  statusCode: number;
+  body: SetForgetPasswordConfigurationResponseBody;
+  static names(): { [key: string]: string } {
+    return {
+      headers: 'headers',
+      statusCode: 'statusCode',
+      body: 'body',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
+      body: SetForgetPasswordConfigurationResponseBody,
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
 export class SetPasswordComplexityConfigurationRequest extends $tea.Model {
   instanceId?: string;
   passwordComplexityRules?: SetPasswordComplexityConfigurationRequestPasswordComplexityRules[];
@@ -7086,6 +7353,37 @@ export class GetApplicationSsoConfigResponseBodyApplicationSsoConfig extends $te
       protocolEndpointDomain: GetApplicationSsoConfigResponseBodyApplicationSsoConfigProtocolEndpointDomain,
       samlSsoConfig: GetApplicationSsoConfigResponseBodyApplicationSsoConfigSamlSsoConfig,
       ssoStatus: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class GetForgetPasswordConfigurationResponseBodyOpenForgetPasswordConfiguration extends $tea.Model {
+  authenticationChannels?: string[];
+  enable?: boolean;
+  enableEmail?: boolean;
+  enableSms?: boolean;
+  forgetPasswordStatus?: string;
+  static names(): { [key: string]: string } {
+    return {
+      authenticationChannels: 'AuthenticationChannels',
+      enable: 'Enable',
+      enableEmail: 'EnableEmail',
+      enableSms: 'EnableSms',
+      forgetPasswordStatus: 'ForgetPasswordStatus',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      authenticationChannels: { 'type': 'array', 'itemType': 'string' },
+      enable: 'boolean',
+      enableEmail: 'boolean',
+      enableSms: 'boolean',
+      forgetPasswordStatus: 'string',
     };
   }
 
@@ -9566,6 +9864,39 @@ export default class Client extends OpenApi {
     return await this.disableApplicationProvisioningWithOptions(request, runtime);
   }
 
+  async disableApplicationSsoWithOptions(request: DisableApplicationSsoRequest, runtime: $Util.RuntimeOptions): Promise<DisableApplicationSsoResponse> {
+    Util.validateModel(request);
+    let query = { };
+    if (!Util.isUnset(request.applicationId)) {
+      query["ApplicationId"] = request.applicationId;
+    }
+
+    if (!Util.isUnset(request.instanceId)) {
+      query["InstanceId"] = request.instanceId;
+    }
+
+    let req = new $OpenApi.OpenApiRequest({
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApi.Params({
+      action: "DisableApplicationSso",
+      version: "2021-12-01",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $tea.cast<DisableApplicationSsoResponse>(await this.callApi(params, req, runtime), new DisableApplicationSsoResponse({}));
+  }
+
+  async disableApplicationSso(request: DisableApplicationSsoRequest): Promise<DisableApplicationSsoResponse> {
+    let runtime = new $Util.RuntimeOptions({ });
+    return await this.disableApplicationSsoWithOptions(request, runtime);
+  }
+
   async disableUserWithOptions(request: DisableUserRequest, runtime: $Util.RuntimeOptions): Promise<DisableUserResponse> {
     Util.validateModel(request);
     let query = { };
@@ -9733,6 +10064,39 @@ export default class Client extends OpenApi {
   async enableApplicationProvisioning(request: EnableApplicationProvisioningRequest): Promise<EnableApplicationProvisioningResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.enableApplicationProvisioningWithOptions(request, runtime);
+  }
+
+  async enableApplicationSsoWithOptions(request: EnableApplicationSsoRequest, runtime: $Util.RuntimeOptions): Promise<EnableApplicationSsoResponse> {
+    Util.validateModel(request);
+    let query = { };
+    if (!Util.isUnset(request.applicationId)) {
+      query["ApplicationId"] = request.applicationId;
+    }
+
+    if (!Util.isUnset(request.instanceId)) {
+      query["InstanceId"] = request.instanceId;
+    }
+
+    let req = new $OpenApi.OpenApiRequest({
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApi.Params({
+      action: "EnableApplicationSso",
+      version: "2021-12-01",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $tea.cast<EnableApplicationSsoResponse>(await this.callApi(params, req, runtime), new EnableApplicationSsoResponse({}));
+  }
+
+  async enableApplicationSso(request: EnableApplicationSsoRequest): Promise<EnableApplicationSsoResponse> {
+    let runtime = new $Util.RuntimeOptions({ });
+    return await this.enableApplicationSsoWithOptions(request, runtime);
   }
 
   async enableUserWithOptions(request: EnableUserRequest, runtime: $Util.RuntimeOptions): Promise<EnableUserResponse> {
@@ -9931,6 +10295,35 @@ export default class Client extends OpenApi {
   async getApplicationSsoConfig(request: GetApplicationSsoConfigRequest): Promise<GetApplicationSsoConfigResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.getApplicationSsoConfigWithOptions(request, runtime);
+  }
+
+  async getForgetPasswordConfigurationWithOptions(request: GetForgetPasswordConfigurationRequest, runtime: $Util.RuntimeOptions): Promise<GetForgetPasswordConfigurationResponse> {
+    Util.validateModel(request);
+    let query = { };
+    if (!Util.isUnset(request.instanceId)) {
+      query["InstanceId"] = request.instanceId;
+    }
+
+    let req = new $OpenApi.OpenApiRequest({
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApi.Params({
+      action: "GetForgetPasswordConfiguration",
+      version: "2021-12-01",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $tea.cast<GetForgetPasswordConfigurationResponse>(await this.callApi(params, req, runtime), new GetForgetPasswordConfigurationResponse({}));
+  }
+
+  async getForgetPasswordConfiguration(request: GetForgetPasswordConfigurationRequest): Promise<GetForgetPasswordConfigurationResponse> {
+    let runtime = new $Util.RuntimeOptions({ });
+    return await this.getForgetPasswordConfigurationWithOptions(request, runtime);
   }
 
   async getGroupWithOptions(request: GetGroupRequest, runtime: $Util.RuntimeOptions): Promise<GetGroupResponse> {
@@ -11476,6 +11869,43 @@ export default class Client extends OpenApi {
   async setApplicationSsoConfig(request: SetApplicationSsoConfigRequest): Promise<SetApplicationSsoConfigResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.setApplicationSsoConfigWithOptions(request, runtime);
+  }
+
+  async setForgetPasswordConfigurationWithOptions(request: SetForgetPasswordConfigurationRequest, runtime: $Util.RuntimeOptions): Promise<SetForgetPasswordConfigurationResponse> {
+    Util.validateModel(request);
+    let query = { };
+    if (!Util.isUnset(request.authenticationChannels)) {
+      query["AuthenticationChannels"] = request.authenticationChannels;
+    }
+
+    if (!Util.isUnset(request.forgetPasswordStatus)) {
+      query["ForgetPasswordStatus"] = request.forgetPasswordStatus;
+    }
+
+    if (!Util.isUnset(request.instanceId)) {
+      query["InstanceId"] = request.instanceId;
+    }
+
+    let req = new $OpenApi.OpenApiRequest({
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApi.Params({
+      action: "SetForgetPasswordConfiguration",
+      version: "2021-12-01",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $tea.cast<SetForgetPasswordConfigurationResponse>(await this.callApi(params, req, runtime), new SetForgetPasswordConfigurationResponse({}));
+  }
+
+  async setForgetPasswordConfiguration(request: SetForgetPasswordConfigurationRequest): Promise<SetForgetPasswordConfigurationResponse> {
+    let runtime = new $Util.RuntimeOptions({ });
+    return await this.setForgetPasswordConfigurationWithOptions(request, runtime);
   }
 
   async setPasswordComplexityConfigurationWithOptions(request: SetPasswordComplexityConfigurationRequest, runtime: $Util.RuntimeOptions): Promise<SetPasswordComplexityConfigurationResponse> {
