@@ -156,6 +156,28 @@ export class RelationshipVO extends $tea.Model {
   }
 }
 
+export class UserEntityTag extends $tea.Model {
+  tagKey?: string;
+  tagValue?: string;
+  static names(): { [key: string]: string } {
+    return {
+      tagKey: 'TagKey',
+      tagValue: 'TagValue',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      tagKey: 'string',
+      tagValue: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
 export class AbolishDataServiceApiRequest extends $tea.Model {
   apiId?: number;
   projectId?: number;
@@ -243,10 +265,12 @@ export class AbolishDataServiceApiResponse extends $tea.Model {
 export class AddMetaCollectionEntityRequest extends $tea.Model {
   collectionQualifiedName?: string;
   entityQualifiedName?: string;
+  remark?: string;
   static names(): { [key: string]: string } {
     return {
       collectionQualifiedName: 'CollectionQualifiedName',
       entityQualifiedName: 'EntityQualifiedName',
+      remark: 'Remark',
     };
   }
 
@@ -254,6 +278,7 @@ export class AddMetaCollectionEntityRequest extends $tea.Model {
     return {
       collectionQualifiedName: 'string',
       entityQualifiedName: 'string',
+      remark: 'string',
     };
   }
 
@@ -13698,6 +13723,199 @@ export class ListEnabledExtensionsForProjectResponse extends $tea.Model {
   }
 }
 
+export class ListEntitiesByTagsRequest extends $tea.Model {
+  entityType?: string;
+  nextToken?: string;
+  pageSize?: number;
+  tags?: UserEntityTag[];
+  static names(): { [key: string]: string } {
+    return {
+      entityType: 'EntityType',
+      nextToken: 'NextToken',
+      pageSize: 'PageSize',
+      tags: 'Tags',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      entityType: 'string',
+      nextToken: 'string',
+      pageSize: 'number',
+      tags: { 'type': 'array', 'itemType': UserEntityTag },
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class ListEntitiesByTagsShrinkRequest extends $tea.Model {
+  entityType?: string;
+  nextToken?: string;
+  pageSize?: number;
+  tagsShrink?: string;
+  static names(): { [key: string]: string } {
+    return {
+      entityType: 'EntityType',
+      nextToken: 'NextToken',
+      pageSize: 'PageSize',
+      tagsShrink: 'Tags',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      entityType: 'string',
+      nextToken: 'string',
+      pageSize: 'number',
+      tagsShrink: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class ListEntitiesByTagsResponseBody extends $tea.Model {
+  data?: ListEntitiesByTagsResponseBodyData;
+  errorCode?: string;
+  errorMessage?: string;
+  httpStatusCode?: number;
+  requestId?: string;
+  success?: boolean;
+  static names(): { [key: string]: string } {
+    return {
+      data: 'Data',
+      errorCode: 'ErrorCode',
+      errorMessage: 'ErrorMessage',
+      httpStatusCode: 'HttpStatusCode',
+      requestId: 'RequestId',
+      success: 'Success',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      data: ListEntitiesByTagsResponseBodyData,
+      errorCode: 'string',
+      errorMessage: 'string',
+      httpStatusCode: 'number',
+      requestId: 'string',
+      success: 'boolean',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class ListEntitiesByTagsResponse extends $tea.Model {
+  headers: { [key: string]: string };
+  statusCode: number;
+  body: ListEntitiesByTagsResponseBody;
+  static names(): { [key: string]: string } {
+    return {
+      headers: 'headers',
+      statusCode: 'statusCode',
+      body: 'body',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
+      body: ListEntitiesByTagsResponseBody,
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class ListEntityTagsRequest extends $tea.Model {
+  qualifiedName?: string;
+  static names(): { [key: string]: string } {
+    return {
+      qualifiedName: 'QualifiedName',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      qualifiedName: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class ListEntityTagsResponseBody extends $tea.Model {
+  data?: UserEntityTag[];
+  errorCode?: string;
+  errorMessage?: string;
+  httpStatusCode?: number;
+  requestId?: string;
+  success?: boolean;
+  static names(): { [key: string]: string } {
+    return {
+      data: 'Data',
+      errorCode: 'ErrorCode',
+      errorMessage: 'ErrorMessage',
+      httpStatusCode: 'HttpStatusCode',
+      requestId: 'RequestId',
+      success: 'Success',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      data: { 'type': 'array', 'itemType': UserEntityTag },
+      errorCode: 'string',
+      errorMessage: 'string',
+      httpStatusCode: 'number',
+      requestId: 'string',
+      success: 'boolean',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class ListEntityTagsResponse extends $tea.Model {
+  headers: { [key: string]: string };
+  statusCode: number;
+  body: ListEntityTagsResponseBody;
+  static names(): { [key: string]: string } {
+    return {
+      headers: 'headers',
+      statusCode: 'statusCode',
+      body: 'body',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
+      body: ListEntityTagsResponseBody,
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
 export class ListExtensionsRequest extends $tea.Model {
   pageNumber?: number;
   pageSize?: number;
@@ -17454,6 +17672,109 @@ export class RegisterLineageRelationResponse extends $tea.Model {
   }
 }
 
+export class RemoveEntityTagsRequest extends $tea.Model {
+  qualifiedName?: string;
+  tagKeys?: string[];
+  static names(): { [key: string]: string } {
+    return {
+      qualifiedName: 'QualifiedName',
+      tagKeys: 'TagKeys',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      qualifiedName: 'string',
+      tagKeys: { 'type': 'array', 'itemType': 'string' },
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class RemoveEntityTagsShrinkRequest extends $tea.Model {
+  qualifiedName?: string;
+  tagKeysShrink?: string;
+  static names(): { [key: string]: string } {
+    return {
+      qualifiedName: 'QualifiedName',
+      tagKeysShrink: 'TagKeys',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      qualifiedName: 'string',
+      tagKeysShrink: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class RemoveEntityTagsResponseBody extends $tea.Model {
+  data?: boolean;
+  errorCode?: string;
+  errorMessage?: string;
+  httpStatusCode?: number;
+  requestId?: string;
+  success?: boolean;
+  static names(): { [key: string]: string } {
+    return {
+      data: 'Data',
+      errorCode: 'ErrorCode',
+      errorMessage: 'ErrorMessage',
+      httpStatusCode: 'HttpStatusCode',
+      requestId: 'RequestId',
+      success: 'Success',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      data: 'boolean',
+      errorCode: 'string',
+      errorMessage: 'string',
+      httpStatusCode: 'number',
+      requestId: 'string',
+      success: 'boolean',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class RemoveEntityTagsResponse extends $tea.Model {
+  headers: { [key: string]: string };
+  statusCode: number;
+  body: RemoveEntityTagsResponseBody;
+  static names(): { [key: string]: string } {
+    return {
+      headers: 'headers',
+      statusCode: 'statusCode',
+      body: 'body',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
+      body: RemoveEntityTagsResponseBody,
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
 export class RemoveProjectMemberFromRoleRequest extends $tea.Model {
   projectId?: number;
   roleCode?: string;
@@ -18622,6 +18943,109 @@ export class SetDataSourceShareResponse extends $tea.Model {
       headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
       statusCode: 'number',
       body: SetDataSourceShareResponseBody,
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class SetEntityTagsRequest extends $tea.Model {
+  qualifiedName?: string;
+  tags?: UserEntityTag[];
+  static names(): { [key: string]: string } {
+    return {
+      qualifiedName: 'QualifiedName',
+      tags: 'Tags',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      qualifiedName: 'string',
+      tags: { 'type': 'array', 'itemType': UserEntityTag },
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class SetEntityTagsShrinkRequest extends $tea.Model {
+  qualifiedName?: string;
+  tagsShrink?: string;
+  static names(): { [key: string]: string } {
+    return {
+      qualifiedName: 'QualifiedName',
+      tagsShrink: 'Tags',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      qualifiedName: 'string',
+      tagsShrink: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class SetEntityTagsResponseBody extends $tea.Model {
+  data?: boolean;
+  errorCode?: string;
+  errorMessage?: string;
+  httpStatusCode?: number;
+  requestId?: string;
+  success?: boolean;
+  static names(): { [key: string]: string } {
+    return {
+      data: 'Data',
+      errorCode: 'ErrorCode',
+      errorMessage: 'ErrorMessage',
+      httpStatusCode: 'HttpStatusCode',
+      requestId: 'RequestId',
+      success: 'Success',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      data: 'boolean',
+      errorCode: 'string',
+      errorMessage: 'string',
+      httpStatusCode: 'number',
+      requestId: 'string',
+      success: 'boolean',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class SetEntityTagsResponse extends $tea.Model {
+  headers: { [key: string]: string };
+  statusCode: number;
+  body: SetEntityTagsResponseBody;
+  static names(): { [key: string]: string } {
+    return {
+      headers: 'headers',
+      statusCode: 'statusCode',
+      body: 'body',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
+      body: SetEntityTagsResponseBody,
     };
   }
 
@@ -30605,6 +31029,28 @@ export class ListEnabledExtensionsForProjectResponseBodyExtensions extends $tea.
   }
 }
 
+export class ListEntitiesByTagsResponseBodyData extends $tea.Model {
+  entityList?: Entity[];
+  nextToken?: string;
+  static names(): { [key: string]: string } {
+    return {
+      entityList: 'EntityList',
+      nextToken: 'NextToken',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      entityList: { 'type': 'array', 'itemType': Entity },
+      nextToken: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
 export class ListExtensionsResponseBodyPagingInfoExtensionsBindEventList extends $tea.Model {
   eventCode?: string;
   eventName?: string;
@@ -34353,6 +34799,10 @@ export default class Client extends OpenApi {
 
     if (!Util.isUnset(request.entityQualifiedName)) {
       query["EntityQualifiedName"] = request.entityQualifiedName;
+    }
+
+    if (!Util.isUnset(request.remark)) {
+      query["Remark"] = request.remark;
     }
 
     let req = new $OpenApi.OpenApiRequest({
@@ -41581,6 +42031,62 @@ export default class Client extends OpenApi {
     return await this.listEnabledExtensionsForProjectWithOptions(request, runtime);
   }
 
+  async listEntitiesByTagsWithOptions(tmpReq: ListEntitiesByTagsRequest, runtime: $Util.RuntimeOptions): Promise<ListEntitiesByTagsResponse> {
+    Util.validateModel(tmpReq);
+    let request = new ListEntitiesByTagsShrinkRequest({ });
+    OpenApiUtil.convert(tmpReq, request);
+    if (!Util.isUnset(tmpReq.tags)) {
+      request.tagsShrink = OpenApiUtil.arrayToStringWithSpecifiedStyle(tmpReq.tags, "Tags", "json");
+    }
+
+    let query = OpenApiUtil.query(Util.toMap(request));
+    let req = new $OpenApi.OpenApiRequest({
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApi.Params({
+      action: "ListEntitiesByTags",
+      version: "2020-05-18",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "GET",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $tea.cast<ListEntitiesByTagsResponse>(await this.callApi(params, req, runtime), new ListEntitiesByTagsResponse({}));
+  }
+
+  async listEntitiesByTags(request: ListEntitiesByTagsRequest): Promise<ListEntitiesByTagsResponse> {
+    let runtime = new $Util.RuntimeOptions({ });
+    return await this.listEntitiesByTagsWithOptions(request, runtime);
+  }
+
+  async listEntityTagsWithOptions(request: ListEntityTagsRequest, runtime: $Util.RuntimeOptions): Promise<ListEntityTagsResponse> {
+    Util.validateModel(request);
+    let query = OpenApiUtil.query(Util.toMap(request));
+    let req = new $OpenApi.OpenApiRequest({
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApi.Params({
+      action: "ListEntityTags",
+      version: "2020-05-18",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "GET",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $tea.cast<ListEntityTagsResponse>(await this.callApi(params, req, runtime), new ListEntityTagsResponse({}));
+  }
+
+  async listEntityTags(request: ListEntityTagsRequest): Promise<ListEntityTagsResponse> {
+    let runtime = new $Util.RuntimeOptions({ });
+    return await this.listEntityTagsWithOptions(request, runtime);
+  }
+
   async listExtensionsWithOptions(request: ListExtensionsRequest, runtime: $Util.RuntimeOptions): Promise<ListExtensionsResponse> {
     Util.validateModel(request);
     let query = { };
@@ -43557,6 +44063,47 @@ export default class Client extends OpenApi {
     return await this.registerLineageRelationWithOptions(request, runtime);
   }
 
+  async removeEntityTagsWithOptions(tmpReq: RemoveEntityTagsRequest, runtime: $Util.RuntimeOptions): Promise<RemoveEntityTagsResponse> {
+    Util.validateModel(tmpReq);
+    let request = new RemoveEntityTagsShrinkRequest({ });
+    OpenApiUtil.convert(tmpReq, request);
+    if (!Util.isUnset(tmpReq.tagKeys)) {
+      request.tagKeysShrink = OpenApiUtil.arrayToStringWithSpecifiedStyle(tmpReq.tagKeys, "TagKeys", "json");
+    }
+
+    let query = { };
+    if (!Util.isUnset(request.qualifiedName)) {
+      query["QualifiedName"] = request.qualifiedName;
+    }
+
+    let body : {[key: string ]: any} = { };
+    if (!Util.isUnset(request.tagKeysShrink)) {
+      body["TagKeys"] = request.tagKeysShrink;
+    }
+
+    let req = new $OpenApi.OpenApiRequest({
+      query: OpenApiUtil.query(query),
+      body: OpenApiUtil.parseToMap(body),
+    });
+    let params = new $OpenApi.Params({
+      action: "RemoveEntityTags",
+      version: "2020-05-18",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $tea.cast<RemoveEntityTagsResponse>(await this.callApi(params, req, runtime), new RemoveEntityTagsResponse({}));
+  }
+
+  async removeEntityTags(request: RemoveEntityTagsRequest): Promise<RemoveEntityTagsResponse> {
+    let runtime = new $Util.RuntimeOptions({ });
+    return await this.removeEntityTagsWithOptions(request, runtime);
+  }
+
   async removeProjectMemberFromRoleWithOptions(request: RemoveProjectMemberFromRoleRequest, runtime: $Util.RuntimeOptions): Promise<RemoveProjectMemberFromRoleResponse> {
     Util.validateModel(request);
     let query = { };
@@ -44245,6 +44792,47 @@ export default class Client extends OpenApi {
   async setDataSourceShare(request: SetDataSourceShareRequest): Promise<SetDataSourceShareResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.setDataSourceShareWithOptions(request, runtime);
+  }
+
+  async setEntityTagsWithOptions(tmpReq: SetEntityTagsRequest, runtime: $Util.RuntimeOptions): Promise<SetEntityTagsResponse> {
+    Util.validateModel(tmpReq);
+    let request = new SetEntityTagsShrinkRequest({ });
+    OpenApiUtil.convert(tmpReq, request);
+    if (!Util.isUnset(tmpReq.tags)) {
+      request.tagsShrink = OpenApiUtil.arrayToStringWithSpecifiedStyle(tmpReq.tags, "Tags", "json");
+    }
+
+    let query = { };
+    if (!Util.isUnset(request.qualifiedName)) {
+      query["QualifiedName"] = request.qualifiedName;
+    }
+
+    let body : {[key: string ]: any} = { };
+    if (!Util.isUnset(request.tagsShrink)) {
+      body["Tags"] = request.tagsShrink;
+    }
+
+    let req = new $OpenApi.OpenApiRequest({
+      query: OpenApiUtil.query(query),
+      body: OpenApiUtil.parseToMap(body),
+    });
+    let params = new $OpenApi.Params({
+      action: "SetEntityTags",
+      version: "2020-05-18",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $tea.cast<SetEntityTagsResponse>(await this.callApi(params, req, runtime), new SetEntityTagsResponse({}));
+  }
+
+  async setEntityTags(request: SetEntityTagsRequest): Promise<SetEntityTagsResponse> {
+    let runtime = new $Util.RuntimeOptions({ });
+    return await this.setEntityTagsWithOptions(request, runtime);
   }
 
   async setSuccessInstanceWithOptions(request: SetSuccessInstanceRequest, runtime: $Util.RuntimeOptions): Promise<SetSuccessInstanceResponse> {
