@@ -3,9 +3,14 @@
  *
  */
 import Util, * as $Util from '@alicloud/tea-util';
+import OSS, * as $OSS from '@alicloud/oss-client';
+import OpenPlatform, * as $OpenPlatform from '@alicloud/openplatform20191219';
+import OSSUtil, * as $OSSUtil from '@alicloud/oss-util';
+import FileForm, * as $FileForm from '@alicloud/tea-fileform';
 import OpenApi, * as $OpenApi from '@alicloud/openapi-client';
 import OpenApiUtil from '@alicloud/openapi-util';
 import EndpointUtil from '@alicloud/endpoint-util';
+import { Readable } from 'stream';
 import * as $tea from '@alicloud/tea-typescript';
 
 export class GetH5PageTrendRequest extends $tea.Model {
@@ -433,12 +438,14 @@ export class GetSymUploadParamRequest extends $tea.Model {
   dataSourceId?: string;
   fileName?: string;
   fileType?: number;
+  flutterName?: string;
   static names(): { [key: string]: string } {
     return {
       appVersion: 'appVersion',
       dataSourceId: 'dataSourceId',
       fileName: 'fileName',
       fileType: 'fileType',
+      flutterName: 'flutterName',
     };
   }
 
@@ -448,6 +455,7 @@ export class GetSymUploadParamRequest extends $tea.Model {
       dataSourceId: 'string',
       fileName: 'string',
       fileType: 'number',
+      flutterName: 'string',
     };
   }
 
@@ -657,6 +665,130 @@ export class UpdateAlertPlanResponse extends $tea.Model {
       headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
       statusCode: 'number',
       body: UpdateAlertPlanResponseBody,
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class UploadSymbolFileRequest extends $tea.Model {
+  appVersion?: string;
+  dataSourceId?: string;
+  fileName?: string;
+  fileType?: number;
+  flutterName?: string;
+  ossUrl?: string;
+  static names(): { [key: string]: string } {
+    return {
+      appVersion: 'appVersion',
+      dataSourceId: 'dataSourceId',
+      fileName: 'fileName',
+      fileType: 'fileType',
+      flutterName: 'flutterName',
+      ossUrl: 'ossUrl',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      appVersion: 'string',
+      dataSourceId: 'string',
+      fileName: 'string',
+      fileType: 'number',
+      flutterName: 'string',
+      ossUrl: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class UploadSymbolFileAdvanceRequest extends $tea.Model {
+  appVersion?: string;
+  dataSourceId?: string;
+  fileName?: string;
+  fileType?: number;
+  flutterName?: string;
+  ossUrlObject?: Readable;
+  static names(): { [key: string]: string } {
+    return {
+      appVersion: 'appVersion',
+      dataSourceId: 'dataSourceId',
+      fileName: 'fileName',
+      fileType: 'fileType',
+      flutterName: 'flutterName',
+      ossUrlObject: 'ossUrl',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      appVersion: 'string',
+      dataSourceId: 'string',
+      fileName: 'string',
+      fileType: 'number',
+      flutterName: 'string',
+      ossUrlObject: 'Readable',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class UploadSymbolFileResponseBody extends $tea.Model {
+  code?: number;
+  msg?: string;
+  requestId?: string;
+  success?: boolean;
+  traceId?: string;
+  static names(): { [key: string]: string } {
+    return {
+      code: 'code',
+      msg: 'msg',
+      requestId: 'requestId',
+      success: 'success',
+      traceId: 'traceId',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      code: 'number',
+      msg: 'string',
+      requestId: 'string',
+      success: 'boolean',
+      traceId: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class UploadSymbolFileResponse extends $tea.Model {
+  headers: { [key: string]: string };
+  statusCode: number;
+  body: UploadSymbolFileResponseBody;
+  static names(): { [key: string]: string } {
+    return {
+      headers: 'headers',
+      statusCode: 'statusCode',
+      body: 'body',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
+      body: UploadSymbolFileResponseBody,
     };
   }
 
@@ -1219,6 +1351,10 @@ export default class Client extends OpenApi {
       query["fileType"] = request.fileType;
     }
 
+    if (!Util.isUnset(request.flutterName)) {
+      query["flutterName"] = request.flutterName;
+    }
+
     let req = new $OpenApi.OpenApiRequest({
       headers: headers,
       query: OpenApiUtil.query(query),
@@ -1319,6 +1455,131 @@ export default class Client extends OpenApi {
     let runtime = new $Util.RuntimeOptions({ });
     let headers : {[key: string ]: string} = { };
     return await this.updateAlertPlanWithOptions(request, headers, runtime);
+  }
+
+  async uploadSymbolFileWithOptions(request: UploadSymbolFileRequest, headers: {[key: string ]: string}, runtime: $Util.RuntimeOptions): Promise<UploadSymbolFileResponse> {
+    Util.validateModel(request);
+    let query : {[key: string ]: any} = { };
+    if (!Util.isUnset(request.appVersion)) {
+      query["appVersion"] = request.appVersion;
+    }
+
+    if (!Util.isUnset(request.dataSourceId)) {
+      query["dataSourceId"] = request.dataSourceId;
+    }
+
+    if (!Util.isUnset(request.fileName)) {
+      query["fileName"] = request.fileName;
+    }
+
+    if (!Util.isUnset(request.fileType)) {
+      query["fileType"] = request.fileType;
+    }
+
+    if (!Util.isUnset(request.flutterName)) {
+      query["flutterName"] = request.flutterName;
+    }
+
+    if (!Util.isUnset(request.ossUrl)) {
+      query["ossUrl"] = request.ossUrl;
+    }
+
+    let req = new $OpenApi.OpenApiRequest({
+      headers: headers,
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApi.Params({
+      action: "UploadSymbolFile",
+      version: "2022-02-14",
+      protocol: "HTTPS",
+      pathname: `/uploadSymbolFile`,
+      method: "POST",
+      authType: "AK",
+      style: "ROA",
+      reqBodyType: "json",
+      bodyType: "json",
+    });
+    return $tea.cast<UploadSymbolFileResponse>(await this.callApi(params, req, runtime), new UploadSymbolFileResponse({}));
+  }
+
+  async uploadSymbolFile(request: UploadSymbolFileRequest): Promise<UploadSymbolFileResponse> {
+    let runtime = new $Util.RuntimeOptions({ });
+    let headers : {[key: string ]: string} = { };
+    return await this.uploadSymbolFileWithOptions(request, headers, runtime);
+  }
+
+  async uploadSymbolFileAdvance(request: UploadSymbolFileAdvanceRequest, headers: {[key: string ]: string}, runtime: $Util.RuntimeOptions): Promise<UploadSymbolFileResponse> {
+    // Step 0: init client
+    let accessKeyId = await this._credential.getAccessKeyId();
+    let accessKeySecret = await this._credential.getAccessKeySecret();
+    let securityToken = await this._credential.getSecurityToken();
+    let credentialType = this._credential.getType();
+    let openPlatformEndpoint = this._openPlatformEndpoint;
+    if (Util.isUnset(openPlatformEndpoint)) {
+      openPlatformEndpoint = "openplatform.aliyuncs.com";
+    }
+
+    if (Util.isUnset(credentialType)) {
+      credentialType = "access_key";
+    }
+
+    let authConfig = new $OpenApi.Config({
+      accessKeyId: accessKeyId,
+      accessKeySecret: accessKeySecret,
+      securityToken: securityToken,
+      type: credentialType,
+      endpoint: openPlatformEndpoint,
+      protocol: this._protocol,
+      regionId: this._regionId,
+    });
+    let authClient = new OpenPlatform(authConfig);
+    let authRequest = new $OpenPlatform.AuthorizeFileUploadRequest({
+      product: "umeng-apm",
+      regionId: this._regionId,
+    });
+    let authResponse = new $OpenPlatform.AuthorizeFileUploadResponse({ });
+    let ossConfig = new $OSS.Config({
+      accessKeySecret: accessKeySecret,
+      type: "access_key",
+      protocol: this._protocol,
+      regionId: this._regionId,
+    });
+    let ossClient : OSS = null;
+    let fileObj = new $FileForm.FileField({ });
+    let ossHeader = new $OSS.PostObjectRequestHeader({ });
+    let uploadRequest = new $OSS.PostObjectRequest({ });
+    let ossRuntime = new $OSSUtil.RuntimeOptions({ });
+    OpenApiUtil.convert(runtime, ossRuntime);
+    let uploadSymbolFileReq = new UploadSymbolFileRequest({ });
+    OpenApiUtil.convert(request, uploadSymbolFileReq);
+    if (!Util.isUnset(request.ossUrlObject)) {
+      authResponse = await authClient.authorizeFileUploadWithOptions(authRequest, runtime);
+      ossConfig.accessKeyId = authResponse.body.accessKeyId;
+      ossConfig.endpoint = OpenApiUtil.getEndpoint(authResponse.body.endpoint, authResponse.body.useAccelerate, this._endpointType);
+      ossClient = new OSS(ossConfig);
+      fileObj = new $FileForm.FileField({
+        filename: authResponse.body.objectKey,
+        content: request.ossUrlObject,
+        contentType: "",
+      });
+      ossHeader = new $OSS.PostObjectRequestHeader({
+        accessKeyId: authResponse.body.accessKeyId,
+        policy: authResponse.body.encodedPolicy,
+        signature: authResponse.body.signature,
+        key: authResponse.body.objectKey,
+        file: fileObj,
+        successActionStatus: "201",
+      });
+      uploadRequest = new $OSS.PostObjectRequest({
+        bucketName: authResponse.body.bucket,
+        header: ossHeader,
+      });
+      await ossClient.postObject(uploadRequest, ossRuntime);
+      uploadSymbolFileReq.ossUrl = `http://${authResponse.body.bucket}.${authResponse.body.endpoint}/${authResponse.body.objectKey}`;
+    }
+
+    let uploadSymbolFileResp = await this.uploadSymbolFileWithOptions(uploadSymbolFileReq, headers, runtime);
+    return uploadSymbolFileResp;
   }
 
 }
