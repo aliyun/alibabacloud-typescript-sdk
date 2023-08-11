@@ -8,6 +8,1128 @@ import OpenApiUtil from '@alicloud/openapi-util';
 import EndpointUtil from '@alicloud/endpoint-util';
 import * as $tea from '@alicloud/tea-typescript';
 
+export class ModuleFlightItemListBestPriceItemFlightRuleInfosValue extends $tea.Model {
+  refundChangeRuleDesc?: string;
+  baggageDesc?: string;
+  static names(): { [key: string]: string } {
+    return {
+      refundChangeRuleDesc: 'refund_change_rule_desc',
+      baggageDesc: 'baggage_desc',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      refundChangeRuleDesc: 'string',
+      baggageDesc: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class ModuleFlightItemListBestPriceItemShoppingItemMapValue extends $tea.Model {
+  id?: string;
+  cabinQuantity?: { [key: string]: ModuleFlightItemListBestPriceItemShoppingItemMapValueCabinQuantityValue };
+  searchPrice?: ModuleFlightItemListBestPriceItemShoppingItemMapValueSearchPrice;
+  segmentPrice?: { [key: string]: ModuleFlightItemListBestPriceItemShoppingItemMapValueSegmentPriceValue };
+  static names(): { [key: string]: string } {
+    return {
+      id: 'id',
+      cabinQuantity: 'cabin_quantity',
+      searchPrice: 'search_price',
+      segmentPrice: 'segment_price',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      id: 'string',
+      cabinQuantity: { 'type': 'map', 'keyType': 'string', 'valueType': ModuleFlightItemListBestPriceItemShoppingItemMapValueCabinQuantityValue },
+      searchPrice: ModuleFlightItemListBestPriceItemShoppingItemMapValueSearchPrice,
+      segmentPrice: { 'type': 'map', 'keyType': 'string', 'valueType': ModuleFlightItemListBestPriceItemShoppingItemMapValueSegmentPriceValue },
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class ModuleFlightItemListBestPriceItemSubItemPositionMapValue extends $tea.Model {
+  journeyIndex?: number;
+  segmentIndex?: number;
+  static names(): { [key: string]: string } {
+    return {
+      journeyIndex: 'journey_index',
+      segmentIndex: 'segment_index',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      journeyIndex: 'number',
+      segmentIndex: 'number',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class ModuleFlightItemListBestPriceItemSubItemsShoppingItemMapValue extends $tea.Model {
+  id?: string;
+  cabinQuantity?: { [key: string]: ModuleFlightItemListBestPriceItemSubItemsShoppingItemMapValueCabinQuantityValue };
+  searchPrice?: ModuleFlightItemListBestPriceItemSubItemsShoppingItemMapValueSearchPrice;
+  segmentPrice?: { [key: string]: ModuleFlightItemListBestPriceItemSubItemsShoppingItemMapValueSegmentPriceValue };
+  static names(): { [key: string]: string } {
+    return {
+      id: 'id',
+      cabinQuantity: 'cabin_quantity',
+      searchPrice: 'search_price',
+      segmentPrice: 'segment_price',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      id: 'string',
+      cabinQuantity: { 'type': 'map', 'keyType': 'string', 'valueType': ModuleFlightItemListBestPriceItemSubItemsShoppingItemMapValueCabinQuantityValue },
+      searchPrice: ModuleFlightItemListBestPriceItemSubItemsShoppingItemMapValueSearchPrice,
+      segmentPrice: { 'type': 'map', 'keyType': 'string', 'valueType': ModuleFlightItemListBestPriceItemSubItemsShoppingItemMapValueSegmentPriceValue },
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class ModuleFlightItemListItemListFlightRuleInfosValue extends $tea.Model {
+  refundChangeRuleDesc?: string;
+  baggageDesc?: string;
+  static names(): { [key: string]: string } {
+    return {
+      refundChangeRuleDesc: 'refund_change_rule_desc',
+      baggageDesc: 'baggage_desc',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      refundChangeRuleDesc: 'string',
+      baggageDesc: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class ModuleFlightItemListItemListShoppingItemMapValue extends $tea.Model {
+  id?: string;
+  cabinQuantity?: { [key: string]: ModuleFlightItemListItemListShoppingItemMapValueCabinQuantityValue };
+  searchPrice?: ModuleFlightItemListItemListShoppingItemMapValueSearchPrice;
+  segmentPrice?: { [key: string]: ModuleFlightItemListItemListShoppingItemMapValueSegmentPriceValue };
+  static names(): { [key: string]: string } {
+    return {
+      id: 'id',
+      cabinQuantity: 'cabin_quantity',
+      searchPrice: 'search_price',
+      segmentPrice: 'segment_price',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      id: 'string',
+      cabinQuantity: { 'type': 'map', 'keyType': 'string', 'valueType': ModuleFlightItemListItemListShoppingItemMapValueCabinQuantityValue },
+      searchPrice: ModuleFlightItemListItemListShoppingItemMapValueSearchPrice,
+      segmentPrice: { 'type': 'map', 'keyType': 'string', 'valueType': ModuleFlightItemListItemListShoppingItemMapValueSegmentPriceValue },
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class ModuleFlightItemListItemListSubItemPositionMapValue extends $tea.Model {
+  journeyIndex?: number;
+  segmentIndex?: number;
+  static names(): { [key: string]: string } {
+    return {
+      journeyIndex: 'journey_index',
+      segmentIndex: 'segment_index',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      journeyIndex: 'number',
+      segmentIndex: 'number',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class ModuleFlightItemListItemListSubItemsShoppingItemMapValue extends $tea.Model {
+  id?: string;
+  cabinQuantity?: { [key: string]: ModuleFlightItemListItemListSubItemsShoppingItemMapValueCabinQuantityValue };
+  searchPrice?: ModuleFlightItemListItemListSubItemsShoppingItemMapValueSearchPrice;
+  segmentPrice?: { [key: string]: ModuleFlightItemListItemListSubItemsShoppingItemMapValueSegmentPriceValue };
+  static names(): { [key: string]: string } {
+    return {
+      id: 'id',
+      cabinQuantity: 'cabin_quantity',
+      searchPrice: 'search_price',
+      segmentPrice: 'segment_price',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      id: 'string',
+      cabinQuantity: { 'type': 'map', 'keyType': 'string', 'valueType': ModuleFlightItemListItemListSubItemsShoppingItemMapValueCabinQuantityValue },
+      searchPrice: ModuleFlightItemListItemListSubItemsShoppingItemMapValueSearchPrice,
+      segmentPrice: { 'type': 'map', 'keyType': 'string', 'valueType': ModuleFlightItemListItemListSubItemsShoppingItemMapValueSegmentPriceValue },
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class ModuleItemListFlightRuleInfosValue extends $tea.Model {
+  refundChangeRuleDesc?: string;
+  baggageDesc?: string;
+  static names(): { [key: string]: string } {
+    return {
+      refundChangeRuleDesc: 'refund_change_rule_desc',
+      baggageDesc: 'baggage_desc',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      refundChangeRuleDesc: 'string',
+      baggageDesc: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class ModuleItemListShoppingItemMapValue extends $tea.Model {
+  id?: string;
+  cabinQuantity?: { [key: string]: ModuleItemListShoppingItemMapValueCabinQuantityValue };
+  searchPrice?: ModuleItemListShoppingItemMapValueSearchPrice;
+  segmentPrice?: { [key: string]: ModuleItemListShoppingItemMapValueSegmentPriceValue };
+  static names(): { [key: string]: string } {
+    return {
+      id: 'id',
+      cabinQuantity: 'cabin_quantity',
+      searchPrice: 'search_price',
+      segmentPrice: 'segment_price',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      id: 'string',
+      cabinQuantity: { 'type': 'map', 'keyType': 'string', 'valueType': ModuleItemListShoppingItemMapValueCabinQuantityValue },
+      searchPrice: ModuleItemListShoppingItemMapValueSearchPrice,
+      segmentPrice: { 'type': 'map', 'keyType': 'string', 'valueType': ModuleItemListShoppingItemMapValueSegmentPriceValue },
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class ModuleItemListSubItemPositionMapValue extends $tea.Model {
+  journeyIndex?: number;
+  segmentIndex?: number;
+  static names(): { [key: string]: string } {
+    return {
+      journeyIndex: 'journey_index',
+      segmentIndex: 'segment_index',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      journeyIndex: 'number',
+      segmentIndex: 'number',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class ModuleItemListSubItemsShoppingItemMapValue extends $tea.Model {
+  id?: string;
+  cabinQuantity?: { [key: string]: ModuleItemListSubItemsShoppingItemMapValueCabinQuantityValue };
+  searchPrice?: ModuleItemListSubItemsShoppingItemMapValueSearchPrice;
+  segmentPrice?: { [key: string]: ModuleItemListSubItemsShoppingItemMapValueSegmentPriceValue };
+  static names(): { [key: string]: string } {
+    return {
+      id: 'id',
+      cabinQuantity: 'cabin_quantity',
+      searchPrice: 'search_price',
+      segmentPrice: 'segment_price',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      id: 'string',
+      cabinQuantity: { 'type': 'map', 'keyType': 'string', 'valueType': ModuleItemListSubItemsShoppingItemMapValueCabinQuantityValue },
+      searchPrice: ModuleItemListSubItemsShoppingItemMapValueSearchPrice,
+      segmentPrice: { 'type': 'map', 'keyType': 'string', 'valueType': ModuleItemListSubItemsShoppingItemMapValueSegmentPriceValue },
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class ModuleFlightItemListBestPriceItemShoppingItemMapValueCabinQuantityValue extends $tea.Model {
+  cabin?: string;
+  cabinClass?: string;
+  cabinClassName?: string;
+  cabinClassMemo?: string;
+  specification?: string;
+  quantity?: string;
+  linkCabins?: string[];
+  reshopChangeCabin?: boolean;
+  childCabinType?: number;
+  infantBasicCabin?: string;
+  innerCabinClass?: number;
+  static names(): { [key: string]: string } {
+    return {
+      cabin: 'cabin',
+      cabinClass: 'cabin_class',
+      cabinClassName: 'cabin_class_name',
+      cabinClassMemo: 'cabin_class_memo',
+      specification: 'specification',
+      quantity: 'quantity',
+      linkCabins: 'link_cabins',
+      reshopChangeCabin: 'reshop_change_cabin',
+      childCabinType: 'child_cabin_type',
+      infantBasicCabin: 'infant_basic_cabin',
+      innerCabinClass: 'inner_cabin_class',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      cabin: 'string',
+      cabinClass: 'string',
+      cabinClassName: 'string',
+      cabinClassMemo: 'string',
+      specification: 'string',
+      quantity: 'string',
+      linkCabins: { 'type': 'array', 'itemType': 'string' },
+      reshopChangeCabin: 'boolean',
+      childCabinType: 'number',
+      infantBasicCabin: 'string',
+      innerCabinClass: 'number',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class ModuleFlightItemListBestPriceItemShoppingItemMapValueSegmentPriceValue extends $tea.Model {
+  floorPrice?: number;
+  ticketPrice?: number;
+  sellPrice?: number;
+  originalSellPrice?: number;
+  baseTotalPrice?: number;
+  beforeControlPrice?: number;
+  tax?: number;
+  supplyPrice?: number;
+  basicCabinPrice?: number;
+  buildPrice?: number;
+  oilPrice?: number;
+  firstStandardPrice?: number;
+  businessStandardPrice?: number;
+  commonStandardPrice?: number;
+  interTicketPrice?: number;
+  subtractedPrice?: number;
+  originCommonPrice?: number;
+  dynamicPromotionPrice?: number;
+  installmentNum?: number;
+  installmentPrice?: number;
+  competitionDynamicPrice?: number;
+  competitionPromotionPrice?: number;
+  minBeforeControlPriceOfNormal?: number;
+  priceShowInfo?: ModuleFlightItemListBestPriceItemShoppingItemMapValueSegmentPriceValuePriceShowInfo;
+  static names(): { [key: string]: string } {
+    return {
+      floorPrice: 'floor_price',
+      ticketPrice: 'ticket_price',
+      sellPrice: 'sell_price',
+      originalSellPrice: 'original_sell_price',
+      baseTotalPrice: 'base_total_price',
+      beforeControlPrice: 'before_control_price',
+      tax: 'tax',
+      supplyPrice: 'supply_price',
+      basicCabinPrice: 'basic_cabin_price',
+      buildPrice: 'build_price',
+      oilPrice: 'oil_price',
+      firstStandardPrice: 'first_standard_price',
+      businessStandardPrice: 'business_standard_price',
+      commonStandardPrice: 'common_standard_price',
+      interTicketPrice: 'inter_ticket_price',
+      subtractedPrice: 'subtracted_price',
+      originCommonPrice: 'origin_common_price',
+      dynamicPromotionPrice: 'dynamic_promotion_price',
+      installmentNum: 'installment_num',
+      installmentPrice: 'installment_price',
+      competitionDynamicPrice: 'competition_dynamic_price',
+      competitionPromotionPrice: 'competition_promotion_price',
+      minBeforeControlPriceOfNormal: 'min_before_control_price_of_normal',
+      priceShowInfo: 'price_show_info',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      floorPrice: 'number',
+      ticketPrice: 'number',
+      sellPrice: 'number',
+      originalSellPrice: 'number',
+      baseTotalPrice: 'number',
+      beforeControlPrice: 'number',
+      tax: 'number',
+      supplyPrice: 'number',
+      basicCabinPrice: 'number',
+      buildPrice: 'number',
+      oilPrice: 'number',
+      firstStandardPrice: 'number',
+      businessStandardPrice: 'number',
+      commonStandardPrice: 'number',
+      interTicketPrice: 'number',
+      subtractedPrice: 'number',
+      originCommonPrice: 'number',
+      dynamicPromotionPrice: 'number',
+      installmentNum: 'number',
+      installmentPrice: 'number',
+      competitionDynamicPrice: 'number',
+      competitionPromotionPrice: 'number',
+      minBeforeControlPriceOfNormal: 'number',
+      priceShowInfo: ModuleFlightItemListBestPriceItemShoppingItemMapValueSegmentPriceValuePriceShowInfo,
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class ModuleFlightItemListBestPriceItemSubItemsShoppingItemMapValueCabinQuantityValue extends $tea.Model {
+  cabin?: string;
+  cabinClass?: string;
+  cabinClassName?: string;
+  cabinClassMemo?: string;
+  specification?: string;
+  quantity?: string;
+  linkCabins?: string[];
+  reshopChangeCabin?: boolean;
+  childCabinType?: number;
+  infantBasicCabin?: string;
+  innerCabinClass?: number;
+  static names(): { [key: string]: string } {
+    return {
+      cabin: 'cabin',
+      cabinClass: 'cabin_class',
+      cabinClassName: 'cabin_class_name',
+      cabinClassMemo: 'cabin_class_memo',
+      specification: 'specification',
+      quantity: 'quantity',
+      linkCabins: 'link_cabins',
+      reshopChangeCabin: 'reshop_change_cabin',
+      childCabinType: 'child_cabin_type',
+      infantBasicCabin: 'infant_basic_cabin',
+      innerCabinClass: 'inner_cabin_class',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      cabin: 'string',
+      cabinClass: 'string',
+      cabinClassName: 'string',
+      cabinClassMemo: 'string',
+      specification: 'string',
+      quantity: 'string',
+      linkCabins: { 'type': 'array', 'itemType': 'string' },
+      reshopChangeCabin: 'boolean',
+      childCabinType: 'number',
+      infantBasicCabin: 'string',
+      innerCabinClass: 'number',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class ModuleFlightItemListBestPriceItemSubItemsShoppingItemMapValueSegmentPriceValue extends $tea.Model {
+  floorPrice?: number;
+  ticketPrice?: number;
+  sellPrice?: number;
+  originalSellPrice?: number;
+  baseTotalPrice?: number;
+  beforeControlPrice?: number;
+  tax?: number;
+  supplyPrice?: number;
+  basicCabinPrice?: number;
+  buildPrice?: number;
+  oilPrice?: number;
+  firstStandardPrice?: number;
+  businessStandardPrice?: number;
+  commonStandardPrice?: number;
+  interTicketPrice?: number;
+  subtractedPrice?: number;
+  originCommonPrice?: number;
+  dynamicPromotionPrice?: number;
+  installmentNum?: number;
+  installmentPrice?: number;
+  competitionDynamicPrice?: number;
+  competitionPromotionPrice?: number;
+  minBeforeControlPriceOfNormal?: number;
+  priceShowInfo?: ModuleFlightItemListBestPriceItemSubItemsShoppingItemMapValueSegmentPriceValuePriceShowInfo;
+  static names(): { [key: string]: string } {
+    return {
+      floorPrice: 'floor_price',
+      ticketPrice: 'ticket_price',
+      sellPrice: 'sell_price',
+      originalSellPrice: 'original_sell_price',
+      baseTotalPrice: 'base_total_price',
+      beforeControlPrice: 'before_control_price',
+      tax: 'tax',
+      supplyPrice: 'supply_price',
+      basicCabinPrice: 'basic_cabin_price',
+      buildPrice: 'build_price',
+      oilPrice: 'oil_price',
+      firstStandardPrice: 'first_standard_price',
+      businessStandardPrice: 'business_standard_price',
+      commonStandardPrice: 'common_standard_price',
+      interTicketPrice: 'inter_ticket_price',
+      subtractedPrice: 'subtracted_price',
+      originCommonPrice: 'origin_common_price',
+      dynamicPromotionPrice: 'dynamic_promotion_price',
+      installmentNum: 'installment_num',
+      installmentPrice: 'installment_price',
+      competitionDynamicPrice: 'competition_dynamic_price',
+      competitionPromotionPrice: 'competition_promotion_price',
+      minBeforeControlPriceOfNormal: 'min_before_control_price_of_normal',
+      priceShowInfo: 'price_show_info',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      floorPrice: 'number',
+      ticketPrice: 'number',
+      sellPrice: 'number',
+      originalSellPrice: 'number',
+      baseTotalPrice: 'number',
+      beforeControlPrice: 'number',
+      tax: 'number',
+      supplyPrice: 'number',
+      basicCabinPrice: 'number',
+      buildPrice: 'number',
+      oilPrice: 'number',
+      firstStandardPrice: 'number',
+      businessStandardPrice: 'number',
+      commonStandardPrice: 'number',
+      interTicketPrice: 'number',
+      subtractedPrice: 'number',
+      originCommonPrice: 'number',
+      dynamicPromotionPrice: 'number',
+      installmentNum: 'number',
+      installmentPrice: 'number',
+      competitionDynamicPrice: 'number',
+      competitionPromotionPrice: 'number',
+      minBeforeControlPriceOfNormal: 'number',
+      priceShowInfo: ModuleFlightItemListBestPriceItemSubItemsShoppingItemMapValueSegmentPriceValuePriceShowInfo,
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class ModuleFlightItemListItemListShoppingItemMapValueCabinQuantityValue extends $tea.Model {
+  cabin?: string;
+  cabinClass?: string;
+  cabinClassName?: string;
+  cabinClassMemo?: string;
+  specification?: string;
+  quantity?: string;
+  linkCabins?: string[];
+  reshopChangeCabin?: boolean;
+  childCabinType?: number;
+  infantBasicCabin?: string;
+  innerCabinClass?: number;
+  static names(): { [key: string]: string } {
+    return {
+      cabin: 'cabin',
+      cabinClass: 'cabin_class',
+      cabinClassName: 'cabin_class_name',
+      cabinClassMemo: 'cabin_class_memo',
+      specification: 'specification',
+      quantity: 'quantity',
+      linkCabins: 'link_cabins',
+      reshopChangeCabin: 'reshop_change_cabin',
+      childCabinType: 'child_cabin_type',
+      infantBasicCabin: 'infant_basic_cabin',
+      innerCabinClass: 'inner_cabin_class',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      cabin: 'string',
+      cabinClass: 'string',
+      cabinClassName: 'string',
+      cabinClassMemo: 'string',
+      specification: 'string',
+      quantity: 'string',
+      linkCabins: { 'type': 'array', 'itemType': 'string' },
+      reshopChangeCabin: 'boolean',
+      childCabinType: 'number',
+      infantBasicCabin: 'string',
+      innerCabinClass: 'number',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class ModuleFlightItemListItemListShoppingItemMapValueSegmentPriceValue extends $tea.Model {
+  floorPrice?: number;
+  ticketPrice?: number;
+  sellPrice?: number;
+  originalSellPrice?: number;
+  baseTotalPrice?: number;
+  beforeControlPrice?: number;
+  tax?: number;
+  supplyPrice?: number;
+  basicCabinPrice?: number;
+  buildPrice?: number;
+  oilPrice?: number;
+  firstStandardPrice?: number;
+  businessStandardPrice?: number;
+  commonStandardPrice?: number;
+  interTicketPrice?: number;
+  subtractedPrice?: number;
+  originCommonPrice?: number;
+  dynamicPromotionPrice?: number;
+  installmentNum?: number;
+  installmentPrice?: number;
+  competitionDynamicPrice?: number;
+  competitionPromotionPrice?: number;
+  minBeforeControlPriceOfNormal?: number;
+  priceShowInfo?: ModuleFlightItemListItemListShoppingItemMapValueSegmentPriceValuePriceShowInfo;
+  static names(): { [key: string]: string } {
+    return {
+      floorPrice: 'floor_price',
+      ticketPrice: 'ticket_price',
+      sellPrice: 'sell_price',
+      originalSellPrice: 'original_sell_price',
+      baseTotalPrice: 'base_total_price',
+      beforeControlPrice: 'before_control_price',
+      tax: 'tax',
+      supplyPrice: 'supply_price',
+      basicCabinPrice: 'basic_cabin_price',
+      buildPrice: 'build_price',
+      oilPrice: 'oil_price',
+      firstStandardPrice: 'first_standard_price',
+      businessStandardPrice: 'business_standard_price',
+      commonStandardPrice: 'common_standard_price',
+      interTicketPrice: 'inter_ticket_price',
+      subtractedPrice: 'subtracted_price',
+      originCommonPrice: 'origin_common_price',
+      dynamicPromotionPrice: 'dynamic_promotion_price',
+      installmentNum: 'installment_num',
+      installmentPrice: 'installment_price',
+      competitionDynamicPrice: 'competition_dynamic_price',
+      competitionPromotionPrice: 'competition_promotion_price',
+      minBeforeControlPriceOfNormal: 'min_before_control_price_of_normal',
+      priceShowInfo: 'price_show_info',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      floorPrice: 'number',
+      ticketPrice: 'number',
+      sellPrice: 'number',
+      originalSellPrice: 'number',
+      baseTotalPrice: 'number',
+      beforeControlPrice: 'number',
+      tax: 'number',
+      supplyPrice: 'number',
+      basicCabinPrice: 'number',
+      buildPrice: 'number',
+      oilPrice: 'number',
+      firstStandardPrice: 'number',
+      businessStandardPrice: 'number',
+      commonStandardPrice: 'number',
+      interTicketPrice: 'number',
+      subtractedPrice: 'number',
+      originCommonPrice: 'number',
+      dynamicPromotionPrice: 'number',
+      installmentNum: 'number',
+      installmentPrice: 'number',
+      competitionDynamicPrice: 'number',
+      competitionPromotionPrice: 'number',
+      minBeforeControlPriceOfNormal: 'number',
+      priceShowInfo: ModuleFlightItemListItemListShoppingItemMapValueSegmentPriceValuePriceShowInfo,
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class ModuleFlightItemListItemListSubItemsShoppingItemMapValueCabinQuantityValue extends $tea.Model {
+  cabin?: string;
+  cabinClass?: string;
+  cabinClassName?: string;
+  cabinClassMemo?: string;
+  specification?: string;
+  quantity?: string;
+  linkCabins?: string[];
+  reshopChangeCabin?: boolean;
+  childCabinType?: number;
+  infantBasicCabin?: string;
+  innerCabinClass?: number;
+  static names(): { [key: string]: string } {
+    return {
+      cabin: 'cabin',
+      cabinClass: 'cabin_class',
+      cabinClassName: 'cabin_class_name',
+      cabinClassMemo: 'cabin_class_memo',
+      specification: 'specification',
+      quantity: 'quantity',
+      linkCabins: 'link_cabins',
+      reshopChangeCabin: 'reshop_change_cabin',
+      childCabinType: 'child_cabin_type',
+      infantBasicCabin: 'infant_basic_cabin',
+      innerCabinClass: 'inner_cabin_class',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      cabin: 'string',
+      cabinClass: 'string',
+      cabinClassName: 'string',
+      cabinClassMemo: 'string',
+      specification: 'string',
+      quantity: 'string',
+      linkCabins: { 'type': 'array', 'itemType': 'string' },
+      reshopChangeCabin: 'boolean',
+      childCabinType: 'number',
+      infantBasicCabin: 'string',
+      innerCabinClass: 'number',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class ModuleFlightItemListItemListSubItemsShoppingItemMapValueSegmentPriceValue extends $tea.Model {
+  floorPrice?: number;
+  ticketPrice?: number;
+  sellPrice?: number;
+  originalSellPrice?: number;
+  baseTotalPrice?: number;
+  beforeControlPrice?: number;
+  tax?: number;
+  supplyPrice?: number;
+  basicCabinPrice?: number;
+  buildPrice?: number;
+  oilPrice?: number;
+  firstStandardPrice?: number;
+  businessStandardPrice?: number;
+  commonStandardPrice?: number;
+  interTicketPrice?: number;
+  subtractedPrice?: number;
+  originCommonPrice?: number;
+  dynamicPromotionPrice?: number;
+  installmentNum?: number;
+  installmentPrice?: number;
+  competitionDynamicPrice?: number;
+  competitionPromotionPrice?: number;
+  minBeforeControlPriceOfNormal?: number;
+  priceShowInfo?: ModuleFlightItemListItemListSubItemsShoppingItemMapValueSegmentPriceValuePriceShowInfo;
+  static names(): { [key: string]: string } {
+    return {
+      floorPrice: 'floor_price',
+      ticketPrice: 'ticket_price',
+      sellPrice: 'sell_price',
+      originalSellPrice: 'original_sell_price',
+      baseTotalPrice: 'base_total_price',
+      beforeControlPrice: 'before_control_price',
+      tax: 'tax',
+      supplyPrice: 'supply_price',
+      basicCabinPrice: 'basic_cabin_price',
+      buildPrice: 'build_price',
+      oilPrice: 'oil_price',
+      firstStandardPrice: 'first_standard_price',
+      businessStandardPrice: 'business_standard_price',
+      commonStandardPrice: 'common_standard_price',
+      interTicketPrice: 'inter_ticket_price',
+      subtractedPrice: 'subtracted_price',
+      originCommonPrice: 'origin_common_price',
+      dynamicPromotionPrice: 'dynamic_promotion_price',
+      installmentNum: 'installment_num',
+      installmentPrice: 'installment_price',
+      competitionDynamicPrice: 'competition_dynamic_price',
+      competitionPromotionPrice: 'competition_promotion_price',
+      minBeforeControlPriceOfNormal: 'min_before_control_price_of_normal',
+      priceShowInfo: 'price_show_info',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      floorPrice: 'number',
+      ticketPrice: 'number',
+      sellPrice: 'number',
+      originalSellPrice: 'number',
+      baseTotalPrice: 'number',
+      beforeControlPrice: 'number',
+      tax: 'number',
+      supplyPrice: 'number',
+      basicCabinPrice: 'number',
+      buildPrice: 'number',
+      oilPrice: 'number',
+      firstStandardPrice: 'number',
+      businessStandardPrice: 'number',
+      commonStandardPrice: 'number',
+      interTicketPrice: 'number',
+      subtractedPrice: 'number',
+      originCommonPrice: 'number',
+      dynamicPromotionPrice: 'number',
+      installmentNum: 'number',
+      installmentPrice: 'number',
+      competitionDynamicPrice: 'number',
+      competitionPromotionPrice: 'number',
+      minBeforeControlPriceOfNormal: 'number',
+      priceShowInfo: ModuleFlightItemListItemListSubItemsShoppingItemMapValueSegmentPriceValuePriceShowInfo,
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class ModuleItemListShoppingItemMapValueCabinQuantityValue extends $tea.Model {
+  cabin?: string;
+  cabinClass?: string;
+  cabinClassName?: string;
+  cabinClassMemo?: string;
+  specification?: string;
+  quantity?: string;
+  linkCabins?: string[];
+  reshopChangeCabin?: boolean;
+  childCabinType?: number;
+  infantBasicCabin?: string;
+  innerCabinClass?: number;
+  static names(): { [key: string]: string } {
+    return {
+      cabin: 'cabin',
+      cabinClass: 'cabin_class',
+      cabinClassName: 'cabin_class_name',
+      cabinClassMemo: 'cabin_class_memo',
+      specification: 'specification',
+      quantity: 'quantity',
+      linkCabins: 'link_cabins',
+      reshopChangeCabin: 'reshop_change_cabin',
+      childCabinType: 'child_cabin_type',
+      infantBasicCabin: 'infant_basic_cabin',
+      innerCabinClass: 'inner_cabin_class',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      cabin: 'string',
+      cabinClass: 'string',
+      cabinClassName: 'string',
+      cabinClassMemo: 'string',
+      specification: 'string',
+      quantity: 'string',
+      linkCabins: { 'type': 'array', 'itemType': 'string' },
+      reshopChangeCabin: 'boolean',
+      childCabinType: 'number',
+      infantBasicCabin: 'string',
+      innerCabinClass: 'number',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class ModuleItemListShoppingItemMapValueSegmentPriceValue extends $tea.Model {
+  floorPrice?: number;
+  ticketPrice?: number;
+  sellPrice?: number;
+  originalSellPrice?: number;
+  baseTotalPrice?: number;
+  beforeControlPrice?: number;
+  tax?: number;
+  supplyPrice?: number;
+  basicCabinPrice?: number;
+  buildPrice?: number;
+  oilPrice?: number;
+  firstStandardPrice?: number;
+  businessStandardPrice?: number;
+  commonStandardPrice?: number;
+  interTicketPrice?: number;
+  subtractedPrice?: number;
+  originCommonPrice?: number;
+  dynamicPromotionPrice?: number;
+  installmentNum?: number;
+  installmentPrice?: number;
+  competitionDynamicPrice?: number;
+  competitionPromotionPrice?: number;
+  minBeforeControlPriceOfNormal?: number;
+  priceShowInfo?: ModuleItemListShoppingItemMapValueSegmentPriceValuePriceShowInfo;
+  static names(): { [key: string]: string } {
+    return {
+      floorPrice: 'floor_price',
+      ticketPrice: 'ticket_price',
+      sellPrice: 'sell_price',
+      originalSellPrice: 'original_sell_price',
+      baseTotalPrice: 'base_total_price',
+      beforeControlPrice: 'before_control_price',
+      tax: 'tax',
+      supplyPrice: 'supply_price',
+      basicCabinPrice: 'basic_cabin_price',
+      buildPrice: 'build_price',
+      oilPrice: 'oil_price',
+      firstStandardPrice: 'first_standard_price',
+      businessStandardPrice: 'business_standard_price',
+      commonStandardPrice: 'common_standard_price',
+      interTicketPrice: 'inter_ticket_price',
+      subtractedPrice: 'subtracted_price',
+      originCommonPrice: 'origin_common_price',
+      dynamicPromotionPrice: 'dynamic_promotion_price',
+      installmentNum: 'installment_num',
+      installmentPrice: 'installment_price',
+      competitionDynamicPrice: 'competition_dynamic_price',
+      competitionPromotionPrice: 'competition_promotion_price',
+      minBeforeControlPriceOfNormal: 'min_before_control_price_of_normal',
+      priceShowInfo: 'price_show_info',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      floorPrice: 'number',
+      ticketPrice: 'number',
+      sellPrice: 'number',
+      originalSellPrice: 'number',
+      baseTotalPrice: 'number',
+      beforeControlPrice: 'number',
+      tax: 'number',
+      supplyPrice: 'number',
+      basicCabinPrice: 'number',
+      buildPrice: 'number',
+      oilPrice: 'number',
+      firstStandardPrice: 'number',
+      businessStandardPrice: 'number',
+      commonStandardPrice: 'number',
+      interTicketPrice: 'number',
+      subtractedPrice: 'number',
+      originCommonPrice: 'number',
+      dynamicPromotionPrice: 'number',
+      installmentNum: 'number',
+      installmentPrice: 'number',
+      competitionDynamicPrice: 'number',
+      competitionPromotionPrice: 'number',
+      minBeforeControlPriceOfNormal: 'number',
+      priceShowInfo: ModuleItemListShoppingItemMapValueSegmentPriceValuePriceShowInfo,
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class ModuleItemListSubItemsShoppingItemMapValueCabinQuantityValue extends $tea.Model {
+  cabin?: string;
+  cabinClass?: string;
+  cabinClassName?: string;
+  cabinClassMemo?: string;
+  specification?: string;
+  quantity?: string;
+  linkCabins?: string[];
+  reshopChangeCabin?: boolean;
+  childCabinType?: number;
+  infantBasicCabin?: string;
+  innerCabinClass?: number;
+  static names(): { [key: string]: string } {
+    return {
+      cabin: 'cabin',
+      cabinClass: 'cabin_class',
+      cabinClassName: 'cabin_class_name',
+      cabinClassMemo: 'cabin_class_memo',
+      specification: 'specification',
+      quantity: 'quantity',
+      linkCabins: 'link_cabins',
+      reshopChangeCabin: 'reshop_change_cabin',
+      childCabinType: 'child_cabin_type',
+      infantBasicCabin: 'infant_basic_cabin',
+      innerCabinClass: 'inner_cabin_class',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      cabin: 'string',
+      cabinClass: 'string',
+      cabinClassName: 'string',
+      cabinClassMemo: 'string',
+      specification: 'string',
+      quantity: 'string',
+      linkCabins: { 'type': 'array', 'itemType': 'string' },
+      reshopChangeCabin: 'boolean',
+      childCabinType: 'number',
+      infantBasicCabin: 'string',
+      innerCabinClass: 'number',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class ModuleItemListSubItemsShoppingItemMapValueSegmentPriceValue extends $tea.Model {
+  floorPrice?: number;
+  ticketPrice?: number;
+  sellPrice?: number;
+  originalSellPrice?: number;
+  baseTotalPrice?: number;
+  beforeControlPrice?: number;
+  tax?: number;
+  supplyPrice?: number;
+  basicCabinPrice?: number;
+  buildPrice?: number;
+  oilPrice?: number;
+  firstStandardPrice?: number;
+  businessStandardPrice?: number;
+  commonStandardPrice?: number;
+  interTicketPrice?: number;
+  subtractedPrice?: number;
+  originCommonPrice?: number;
+  dynamicPromotionPrice?: number;
+  installmentNum?: number;
+  installmentPrice?: number;
+  competitionDynamicPrice?: number;
+  competitionPromotionPrice?: number;
+  minBeforeControlPriceOfNormal?: number;
+  priceShowInfo?: ModuleItemListSubItemsShoppingItemMapValueSegmentPriceValuePriceShowInfo;
+  static names(): { [key: string]: string } {
+    return {
+      floorPrice: 'floor_price',
+      ticketPrice: 'ticket_price',
+      sellPrice: 'sell_price',
+      originalSellPrice: 'original_sell_price',
+      baseTotalPrice: 'base_total_price',
+      beforeControlPrice: 'before_control_price',
+      tax: 'tax',
+      supplyPrice: 'supply_price',
+      basicCabinPrice: 'basic_cabin_price',
+      buildPrice: 'build_price',
+      oilPrice: 'oil_price',
+      firstStandardPrice: 'first_standard_price',
+      businessStandardPrice: 'business_standard_price',
+      commonStandardPrice: 'common_standard_price',
+      interTicketPrice: 'inter_ticket_price',
+      subtractedPrice: 'subtracted_price',
+      originCommonPrice: 'origin_common_price',
+      dynamicPromotionPrice: 'dynamic_promotion_price',
+      installmentNum: 'installment_num',
+      installmentPrice: 'installment_price',
+      competitionDynamicPrice: 'competition_dynamic_price',
+      competitionPromotionPrice: 'competition_promotion_price',
+      minBeforeControlPriceOfNormal: 'min_before_control_price_of_normal',
+      priceShowInfo: 'price_show_info',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      floorPrice: 'number',
+      ticketPrice: 'number',
+      sellPrice: 'number',
+      originalSellPrice: 'number',
+      baseTotalPrice: 'number',
+      beforeControlPrice: 'number',
+      tax: 'number',
+      supplyPrice: 'number',
+      basicCabinPrice: 'number',
+      buildPrice: 'number',
+      oilPrice: 'number',
+      firstStandardPrice: 'number',
+      businessStandardPrice: 'number',
+      commonStandardPrice: 'number',
+      interTicketPrice: 'number',
+      subtractedPrice: 'number',
+      originCommonPrice: 'number',
+      dynamicPromotionPrice: 'number',
+      installmentNum: 'number',
+      installmentPrice: 'number',
+      competitionDynamicPrice: 'number',
+      competitionPromotionPrice: 'number',
+      minBeforeControlPriceOfNormal: 'number',
+      priceShowInfo: ModuleItemListSubItemsShoppingItemMapValueSegmentPriceValuePriceShowInfo,
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
 export class AccessTokenRequest extends $tea.Model {
   appSecret?: string;
   static names(): { [key: string]: string } {
@@ -5179,6 +6301,185 @@ export class FlightListingSearchResponse extends $tea.Model {
   }
 }
 
+export class FlightListingSearchV2Headers extends $tea.Model {
+  commonHeaders?: { [key: string]: string };
+  xAcsBtripCorpToken?: string;
+  static names(): { [key: string]: string } {
+    return {
+      commonHeaders: 'commonHeaders',
+      xAcsBtripCorpToken: 'x-acs-btrip-corp-token',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      commonHeaders: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      xAcsBtripCorpToken: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class FlightListingSearchV2Request extends $tea.Model {
+  airlineCode?: string;
+  cabinTypeList?: number[];
+  directOnly?: boolean;
+  isvName?: string;
+  needMultiClassPrice?: boolean;
+  needQueryServiceFee?: boolean;
+  needShareFlight?: boolean;
+  needYCBestPrice?: boolean;
+  searchJourneys?: FlightListingSearchV2RequestSearchJourneys[];
+  searchMode?: number;
+  tripType?: number;
+  static names(): { [key: string]: string } {
+    return {
+      airlineCode: 'airline_code',
+      cabinTypeList: 'cabin_type_list',
+      directOnly: 'direct_only',
+      isvName: 'isv_name',
+      needMultiClassPrice: 'need_multi_class_price',
+      needQueryServiceFee: 'need_query_service_fee',
+      needShareFlight: 'need_share_flight',
+      needYCBestPrice: 'need_y_c_best_price',
+      searchJourneys: 'search_journeys',
+      searchMode: 'search_mode',
+      tripType: 'trip_type',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      airlineCode: 'string',
+      cabinTypeList: { 'type': 'array', 'itemType': 'number' },
+      directOnly: 'boolean',
+      isvName: 'string',
+      needMultiClassPrice: 'boolean',
+      needQueryServiceFee: 'boolean',
+      needShareFlight: 'boolean',
+      needYCBestPrice: 'boolean',
+      searchJourneys: { 'type': 'array', 'itemType': FlightListingSearchV2RequestSearchJourneys },
+      searchMode: 'number',
+      tripType: 'number',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class FlightListingSearchV2ShrinkRequest extends $tea.Model {
+  airlineCode?: string;
+  cabinTypeListShrink?: string;
+  directOnly?: boolean;
+  isvName?: string;
+  needMultiClassPrice?: boolean;
+  needQueryServiceFee?: boolean;
+  needShareFlight?: boolean;
+  needYCBestPrice?: boolean;
+  searchJourneysShrink?: string;
+  searchMode?: number;
+  tripType?: number;
+  static names(): { [key: string]: string } {
+    return {
+      airlineCode: 'airline_code',
+      cabinTypeListShrink: 'cabin_type_list',
+      directOnly: 'direct_only',
+      isvName: 'isv_name',
+      needMultiClassPrice: 'need_multi_class_price',
+      needQueryServiceFee: 'need_query_service_fee',
+      needShareFlight: 'need_share_flight',
+      needYCBestPrice: 'need_y_c_best_price',
+      searchJourneysShrink: 'search_journeys',
+      searchMode: 'search_mode',
+      tripType: 'trip_type',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      airlineCode: 'string',
+      cabinTypeListShrink: 'string',
+      directOnly: 'boolean',
+      isvName: 'string',
+      needMultiClassPrice: 'boolean',
+      needQueryServiceFee: 'boolean',
+      needShareFlight: 'boolean',
+      needYCBestPrice: 'boolean',
+      searchJourneysShrink: 'string',
+      searchMode: 'number',
+      tripType: 'number',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class FlightListingSearchV2ResponseBody extends $tea.Model {
+  code?: string;
+  message?: string;
+  module?: FlightListingSearchV2ResponseBodyModule;
+  requestId?: string;
+  success?: boolean;
+  traceId?: string;
+  static names(): { [key: string]: string } {
+    return {
+      code: 'code',
+      message: 'message',
+      module: 'module',
+      requestId: 'requestId',
+      success: 'success',
+      traceId: 'traceId',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      code: 'string',
+      message: 'string',
+      module: FlightListingSearchV2ResponseBodyModule,
+      requestId: 'string',
+      success: 'boolean',
+      traceId: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class FlightListingSearchV2Response extends $tea.Model {
+  headers: { [key: string]: string };
+  statusCode: number;
+  body: FlightListingSearchV2ResponseBody;
+  static names(): { [key: string]: string } {
+    return {
+      headers: 'headers',
+      statusCode: 'statusCode',
+      body: 'body',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
+      body: FlightListingSearchV2ResponseBody,
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
 export class FlightOrderDetailInfoHeaders extends $tea.Model {
   commonHeaders?: { [key: string]: string };
   xAcsBtripCorpToken?: string;
@@ -5515,6 +6816,109 @@ export class FlightOrderQueryResponse extends $tea.Model {
   }
 }
 
+export class FlightOtaItemDetailHeaders extends $tea.Model {
+  commonHeaders?: { [key: string]: string };
+  xAcsBtripCorpToken?: string;
+  static names(): { [key: string]: string } {
+    return {
+      commonHeaders: 'commonHeaders',
+      xAcsBtripCorpToken: 'x-acs-btrip-corp-token',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      commonHeaders: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      xAcsBtripCorpToken: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class FlightOtaItemDetailRequest extends $tea.Model {
+  isvName?: string;
+  otaItemId?: string;
+  static names(): { [key: string]: string } {
+    return {
+      isvName: 'isv_name',
+      otaItemId: 'ota_item_id',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      isvName: 'string',
+      otaItemId: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class FlightOtaItemDetailResponseBody extends $tea.Model {
+  code?: string;
+  message?: string;
+  module?: FlightOtaItemDetailResponseBodyModule;
+  requestId?: string;
+  success?: boolean;
+  traceId?: string;
+  static names(): { [key: string]: string } {
+    return {
+      code: 'code',
+      message: 'message',
+      module: 'module',
+      requestId: 'requestId',
+      success: 'success',
+      traceId: 'traceId',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      code: 'string',
+      message: 'string',
+      module: FlightOtaItemDetailResponseBodyModule,
+      requestId: 'string',
+      success: 'boolean',
+      traceId: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class FlightOtaItemDetailResponse extends $tea.Model {
+  headers: { [key: string]: string };
+  statusCode: number;
+  body: FlightOtaItemDetailResponseBody;
+  static names(): { [key: string]: string } {
+    return {
+      headers: 'headers',
+      statusCode: 'statusCode',
+      body: 'body',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
+      body: FlightOtaItemDetailResponseBody,
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
 export class FlightOtaSearchHeaders extends $tea.Model {
   commonHeaders?: { [key: string]: string };
   xAcsBtripCorpToken?: string;
@@ -5625,6 +7029,161 @@ export class FlightOtaSearchResponse extends $tea.Model {
       headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
       statusCode: 'number',
       body: FlightOtaSearchResponseBody,
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class FlightOtaSearchV2Headers extends $tea.Model {
+  commonHeaders?: { [key: string]: string };
+  xAcsBtripCorpToken?: string;
+  static names(): { [key: string]: string } {
+    return {
+      commonHeaders: 'commonHeaders',
+      xAcsBtripCorpToken: 'x-acs-btrip-corp-token',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      commonHeaders: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      xAcsBtripCorpToken: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class FlightOtaSearchV2Request extends $tea.Model {
+  cabinTypeList?: number[];
+  directOnly?: boolean;
+  isvName?: string;
+  needShareFlight?: boolean;
+  searchJourneys?: FlightOtaSearchV2RequestSearchJourneys[];
+  searchMode?: number;
+  tripType?: number;
+  static names(): { [key: string]: string } {
+    return {
+      cabinTypeList: 'cabin_type_list',
+      directOnly: 'direct_only',
+      isvName: 'isv_name',
+      needShareFlight: 'need_share_flight',
+      searchJourneys: 'search_journeys',
+      searchMode: 'search_mode',
+      tripType: 'trip_type',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      cabinTypeList: { 'type': 'array', 'itemType': 'number' },
+      directOnly: 'boolean',
+      isvName: 'string',
+      needShareFlight: 'boolean',
+      searchJourneys: { 'type': 'array', 'itemType': FlightOtaSearchV2RequestSearchJourneys },
+      searchMode: 'number',
+      tripType: 'number',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class FlightOtaSearchV2ShrinkRequest extends $tea.Model {
+  cabinTypeListShrink?: string;
+  directOnly?: boolean;
+  isvName?: string;
+  needShareFlight?: boolean;
+  searchJourneysShrink?: string;
+  searchMode?: number;
+  tripType?: number;
+  static names(): { [key: string]: string } {
+    return {
+      cabinTypeListShrink: 'cabin_type_list',
+      directOnly: 'direct_only',
+      isvName: 'isv_name',
+      needShareFlight: 'need_share_flight',
+      searchJourneysShrink: 'search_journeys',
+      searchMode: 'search_mode',
+      tripType: 'trip_type',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      cabinTypeListShrink: 'string',
+      directOnly: 'boolean',
+      isvName: 'string',
+      needShareFlight: 'boolean',
+      searchJourneysShrink: 'string',
+      searchMode: 'number',
+      tripType: 'number',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class FlightOtaSearchV2ResponseBody extends $tea.Model {
+  code?: string;
+  message?: string;
+  module?: FlightOtaSearchV2ResponseBodyModule;
+  requestId?: string;
+  success?: boolean;
+  traceId?: string;
+  static names(): { [key: string]: string } {
+    return {
+      code: 'code',
+      message: 'message',
+      module: 'module',
+      requestId: 'requestId',
+      success: 'success',
+      traceId: 'traceId',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      code: 'string',
+      message: 'string',
+      module: FlightOtaSearchV2ResponseBodyModule,
+      requestId: 'string',
+      success: 'boolean',
+      traceId: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class FlightOtaSearchV2Response extends $tea.Model {
+  headers: { [key: string]: string };
+  statusCode: number;
+  body: FlightOtaSearchV2ResponseBody;
+  static names(): { [key: string]: string } {
+    return {
+      headers: 'headers',
+      statusCode: 'statusCode',
+      body: 'body',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
+      body: FlightOtaSearchV2ResponseBody,
     };
   }
 
@@ -13203,6 +14762,834 @@ export class WaitApplyInvoiceTaskDetailQueryResponse extends $tea.Model {
   }
 }
 
+export class ModuleFlightItemListBestPriceItemShoppingItemMapValueSearchPricePriceShowInfo extends $tea.Model {
+  discountInfo?: string;
+  discountNum?: number;
+  showTicketPrice?: boolean;
+  static names(): { [key: string]: string } {
+    return {
+      discountInfo: 'discount_info',
+      discountNum: 'discount_num',
+      showTicketPrice: 'show_ticket_price',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      discountInfo: 'string',
+      discountNum: 'number',
+      showTicketPrice: 'boolean',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class ModuleFlightItemListBestPriceItemShoppingItemMapValueSearchPrice extends $tea.Model {
+  floorPrice?: number;
+  ticketPrice?: number;
+  sellPrice?: number;
+  originalSellPrice?: number;
+  baseTotalPrice?: number;
+  beforeControlPrice?: number;
+  tax?: number;
+  supplyPrice?: number;
+  basicCabinPrice?: number;
+  buildPrice?: number;
+  oilPrice?: number;
+  firstStandardPrice?: number;
+  businessStandardPrice?: number;
+  commonStandardPrice?: number;
+  interTicketPrice?: number;
+  subtractedPrice?: number;
+  originCommonPrice?: number;
+  dynamicPromotionPrice?: number;
+  installmentNum?: number;
+  installmentPrice?: number;
+  competitionDynamicPrice?: number;
+  competitionPromotionPrice?: number;
+  minBeforeControlPriceOfNormal?: number;
+  priceShowInfo?: ModuleFlightItemListBestPriceItemShoppingItemMapValueSearchPricePriceShowInfo;
+  static names(): { [key: string]: string } {
+    return {
+      floorPrice: 'floor_price',
+      ticketPrice: 'ticket_price',
+      sellPrice: 'sell_price',
+      originalSellPrice: 'original_sell_price',
+      baseTotalPrice: 'base_total_price',
+      beforeControlPrice: 'before_control_price',
+      tax: 'tax',
+      supplyPrice: 'supply_price',
+      basicCabinPrice: 'basic_cabin_price',
+      buildPrice: 'build_price',
+      oilPrice: 'oil_price',
+      firstStandardPrice: 'first_standard_price',
+      businessStandardPrice: 'business_standard_price',
+      commonStandardPrice: 'common_standard_price',
+      interTicketPrice: 'inter_ticket_price',
+      subtractedPrice: 'subtracted_price',
+      originCommonPrice: 'origin_common_price',
+      dynamicPromotionPrice: 'dynamic_promotion_price',
+      installmentNum: 'installment_num',
+      installmentPrice: 'installment_price',
+      competitionDynamicPrice: 'competition_dynamic_price',
+      competitionPromotionPrice: 'competition_promotion_price',
+      minBeforeControlPriceOfNormal: 'min_before_control_price_of_normal',
+      priceShowInfo: 'price_show_info',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      floorPrice: 'number',
+      ticketPrice: 'number',
+      sellPrice: 'number',
+      originalSellPrice: 'number',
+      baseTotalPrice: 'number',
+      beforeControlPrice: 'number',
+      tax: 'number',
+      supplyPrice: 'number',
+      basicCabinPrice: 'number',
+      buildPrice: 'number',
+      oilPrice: 'number',
+      firstStandardPrice: 'number',
+      businessStandardPrice: 'number',
+      commonStandardPrice: 'number',
+      interTicketPrice: 'number',
+      subtractedPrice: 'number',
+      originCommonPrice: 'number',
+      dynamicPromotionPrice: 'number',
+      installmentNum: 'number',
+      installmentPrice: 'number',
+      competitionDynamicPrice: 'number',
+      competitionPromotionPrice: 'number',
+      minBeforeControlPriceOfNormal: 'number',
+      priceShowInfo: ModuleFlightItemListBestPriceItemShoppingItemMapValueSearchPricePriceShowInfo,
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class ModuleFlightItemListBestPriceItemSubItemsShoppingItemMapValueSearchPricePriceShowInfo extends $tea.Model {
+  discountInfo?: string;
+  discountNum?: number;
+  showTicketPrice?: boolean;
+  static names(): { [key: string]: string } {
+    return {
+      discountInfo: 'discount_info',
+      discountNum: 'discount_num',
+      showTicketPrice: 'show_ticket_price',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      discountInfo: 'string',
+      discountNum: 'number',
+      showTicketPrice: 'boolean',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class ModuleFlightItemListBestPriceItemSubItemsShoppingItemMapValueSearchPrice extends $tea.Model {
+  floorPrice?: number;
+  ticketPrice?: number;
+  sellPrice?: number;
+  originalSellPrice?: number;
+  baseTotalPrice?: number;
+  beforeControlPrice?: number;
+  tax?: number;
+  supplyPrice?: number;
+  basicCabinPrice?: number;
+  buildPrice?: number;
+  oilPrice?: number;
+  firstStandardPrice?: number;
+  businessStandardPrice?: number;
+  commonStandardPrice?: number;
+  interTicketPrice?: number;
+  subtractedPrice?: number;
+  originCommonPrice?: number;
+  dynamicPromotionPrice?: number;
+  installmentNum?: number;
+  installmentPrice?: number;
+  competitionDynamicPrice?: number;
+  competitionPromotionPrice?: number;
+  minBeforeControlPriceOfNormal?: number;
+  priceShowInfo?: ModuleFlightItemListBestPriceItemSubItemsShoppingItemMapValueSearchPricePriceShowInfo;
+  static names(): { [key: string]: string } {
+    return {
+      floorPrice: 'floor_price',
+      ticketPrice: 'ticket_price',
+      sellPrice: 'sell_price',
+      originalSellPrice: 'original_sell_price',
+      baseTotalPrice: 'base_total_price',
+      beforeControlPrice: 'before_control_price',
+      tax: 'tax',
+      supplyPrice: 'supply_price',
+      basicCabinPrice: 'basic_cabin_price',
+      buildPrice: 'build_price',
+      oilPrice: 'oil_price',
+      firstStandardPrice: 'first_standard_price',
+      businessStandardPrice: 'business_standard_price',
+      commonStandardPrice: 'common_standard_price',
+      interTicketPrice: 'inter_ticket_price',
+      subtractedPrice: 'subtracted_price',
+      originCommonPrice: 'origin_common_price',
+      dynamicPromotionPrice: 'dynamic_promotion_price',
+      installmentNum: 'installment_num',
+      installmentPrice: 'installment_price',
+      competitionDynamicPrice: 'competition_dynamic_price',
+      competitionPromotionPrice: 'competition_promotion_price',
+      minBeforeControlPriceOfNormal: 'min_before_control_price_of_normal',
+      priceShowInfo: 'price_show_info',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      floorPrice: 'number',
+      ticketPrice: 'number',
+      sellPrice: 'number',
+      originalSellPrice: 'number',
+      baseTotalPrice: 'number',
+      beforeControlPrice: 'number',
+      tax: 'number',
+      supplyPrice: 'number',
+      basicCabinPrice: 'number',
+      buildPrice: 'number',
+      oilPrice: 'number',
+      firstStandardPrice: 'number',
+      businessStandardPrice: 'number',
+      commonStandardPrice: 'number',
+      interTicketPrice: 'number',
+      subtractedPrice: 'number',
+      originCommonPrice: 'number',
+      dynamicPromotionPrice: 'number',
+      installmentNum: 'number',
+      installmentPrice: 'number',
+      competitionDynamicPrice: 'number',
+      competitionPromotionPrice: 'number',
+      minBeforeControlPriceOfNormal: 'number',
+      priceShowInfo: ModuleFlightItemListBestPriceItemSubItemsShoppingItemMapValueSearchPricePriceShowInfo,
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class ModuleFlightItemListItemListShoppingItemMapValueSearchPricePriceShowInfo extends $tea.Model {
+  discountInfo?: string;
+  discountNum?: number;
+  showTicketPrice?: boolean;
+  static names(): { [key: string]: string } {
+    return {
+      discountInfo: 'discount_info',
+      discountNum: 'discount_num',
+      showTicketPrice: 'show_ticket_price',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      discountInfo: 'string',
+      discountNum: 'number',
+      showTicketPrice: 'boolean',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class ModuleFlightItemListItemListShoppingItemMapValueSearchPrice extends $tea.Model {
+  floorPrice?: number;
+  ticketPrice?: number;
+  sellPrice?: number;
+  originalSellPrice?: number;
+  baseTotalPrice?: number;
+  beforeControlPrice?: number;
+  tax?: number;
+  supplyPrice?: number;
+  basicCabinPrice?: number;
+  buildPrice?: number;
+  oilPrice?: number;
+  firstStandardPrice?: number;
+  businessStandardPrice?: number;
+  commonStandardPrice?: number;
+  interTicketPrice?: number;
+  subtractedPrice?: number;
+  originCommonPrice?: number;
+  dynamicPromotionPrice?: number;
+  installmentNum?: number;
+  installmentPrice?: number;
+  competitionDynamicPrice?: number;
+  competitionPromotionPrice?: number;
+  minBeforeControlPriceOfNormal?: number;
+  priceShowInfo?: ModuleFlightItemListItemListShoppingItemMapValueSearchPricePriceShowInfo;
+  static names(): { [key: string]: string } {
+    return {
+      floorPrice: 'floor_price',
+      ticketPrice: 'ticket_price',
+      sellPrice: 'sell_price',
+      originalSellPrice: 'original_sell_price',
+      baseTotalPrice: 'base_total_price',
+      beforeControlPrice: 'before_control_price',
+      tax: 'tax',
+      supplyPrice: 'supply_price',
+      basicCabinPrice: 'basic_cabin_price',
+      buildPrice: 'build_price',
+      oilPrice: 'oil_price',
+      firstStandardPrice: 'first_standard_price',
+      businessStandardPrice: 'business_standard_price',
+      commonStandardPrice: 'common_standard_price',
+      interTicketPrice: 'inter_ticket_price',
+      subtractedPrice: 'subtracted_price',
+      originCommonPrice: 'origin_common_price',
+      dynamicPromotionPrice: 'dynamic_promotion_price',
+      installmentNum: 'installment_num',
+      installmentPrice: 'installment_price',
+      competitionDynamicPrice: 'competition_dynamic_price',
+      competitionPromotionPrice: 'competition_promotion_price',
+      minBeforeControlPriceOfNormal: 'min_before_control_price_of_normal',
+      priceShowInfo: 'price_show_info',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      floorPrice: 'number',
+      ticketPrice: 'number',
+      sellPrice: 'number',
+      originalSellPrice: 'number',
+      baseTotalPrice: 'number',
+      beforeControlPrice: 'number',
+      tax: 'number',
+      supplyPrice: 'number',
+      basicCabinPrice: 'number',
+      buildPrice: 'number',
+      oilPrice: 'number',
+      firstStandardPrice: 'number',
+      businessStandardPrice: 'number',
+      commonStandardPrice: 'number',
+      interTicketPrice: 'number',
+      subtractedPrice: 'number',
+      originCommonPrice: 'number',
+      dynamicPromotionPrice: 'number',
+      installmentNum: 'number',
+      installmentPrice: 'number',
+      competitionDynamicPrice: 'number',
+      competitionPromotionPrice: 'number',
+      minBeforeControlPriceOfNormal: 'number',
+      priceShowInfo: ModuleFlightItemListItemListShoppingItemMapValueSearchPricePriceShowInfo,
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class ModuleFlightItemListItemListSubItemsShoppingItemMapValueSearchPricePriceShowInfo extends $tea.Model {
+  discountInfo?: string;
+  discountNum?: number;
+  showTicketPrice?: boolean;
+  static names(): { [key: string]: string } {
+    return {
+      discountInfo: 'discount_info',
+      discountNum: 'discount_num',
+      showTicketPrice: 'show_ticket_price',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      discountInfo: 'string',
+      discountNum: 'number',
+      showTicketPrice: 'boolean',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class ModuleFlightItemListItemListSubItemsShoppingItemMapValueSearchPrice extends $tea.Model {
+  floorPrice?: number;
+  ticketPrice?: number;
+  sellPrice?: number;
+  originalSellPrice?: number;
+  baseTotalPrice?: number;
+  beforeControlPrice?: number;
+  tax?: number;
+  supplyPrice?: number;
+  basicCabinPrice?: number;
+  buildPrice?: number;
+  oilPrice?: number;
+  firstStandardPrice?: number;
+  businessStandardPrice?: number;
+  commonStandardPrice?: number;
+  interTicketPrice?: number;
+  subtractedPrice?: number;
+  originCommonPrice?: number;
+  dynamicPromotionPrice?: number;
+  installmentNum?: number;
+  installmentPrice?: number;
+  competitionDynamicPrice?: number;
+  competitionPromotionPrice?: number;
+  minBeforeControlPriceOfNormal?: number;
+  priceShowInfo?: ModuleFlightItemListItemListSubItemsShoppingItemMapValueSearchPricePriceShowInfo;
+  static names(): { [key: string]: string } {
+    return {
+      floorPrice: 'floor_price',
+      ticketPrice: 'ticket_price',
+      sellPrice: 'sell_price',
+      originalSellPrice: 'original_sell_price',
+      baseTotalPrice: 'base_total_price',
+      beforeControlPrice: 'before_control_price',
+      tax: 'tax',
+      supplyPrice: 'supply_price',
+      basicCabinPrice: 'basic_cabin_price',
+      buildPrice: 'build_price',
+      oilPrice: 'oil_price',
+      firstStandardPrice: 'first_standard_price',
+      businessStandardPrice: 'business_standard_price',
+      commonStandardPrice: 'common_standard_price',
+      interTicketPrice: 'inter_ticket_price',
+      subtractedPrice: 'subtracted_price',
+      originCommonPrice: 'origin_common_price',
+      dynamicPromotionPrice: 'dynamic_promotion_price',
+      installmentNum: 'installment_num',
+      installmentPrice: 'installment_price',
+      competitionDynamicPrice: 'competition_dynamic_price',
+      competitionPromotionPrice: 'competition_promotion_price',
+      minBeforeControlPriceOfNormal: 'min_before_control_price_of_normal',
+      priceShowInfo: 'price_show_info',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      floorPrice: 'number',
+      ticketPrice: 'number',
+      sellPrice: 'number',
+      originalSellPrice: 'number',
+      baseTotalPrice: 'number',
+      beforeControlPrice: 'number',
+      tax: 'number',
+      supplyPrice: 'number',
+      basicCabinPrice: 'number',
+      buildPrice: 'number',
+      oilPrice: 'number',
+      firstStandardPrice: 'number',
+      businessStandardPrice: 'number',
+      commonStandardPrice: 'number',
+      interTicketPrice: 'number',
+      subtractedPrice: 'number',
+      originCommonPrice: 'number',
+      dynamicPromotionPrice: 'number',
+      installmentNum: 'number',
+      installmentPrice: 'number',
+      competitionDynamicPrice: 'number',
+      competitionPromotionPrice: 'number',
+      minBeforeControlPriceOfNormal: 'number',
+      priceShowInfo: ModuleFlightItemListItemListSubItemsShoppingItemMapValueSearchPricePriceShowInfo,
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class ModuleItemListShoppingItemMapValueSearchPricePriceShowInfo extends $tea.Model {
+  discountInfo?: string;
+  discountNum?: number;
+  showTicketPrice?: boolean;
+  static names(): { [key: string]: string } {
+    return {
+      discountInfo: 'discount_info',
+      discountNum: 'discount_num',
+      showTicketPrice: 'show_ticket_price',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      discountInfo: 'string',
+      discountNum: 'number',
+      showTicketPrice: 'boolean',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class ModuleItemListShoppingItemMapValueSearchPrice extends $tea.Model {
+  floorPrice?: number;
+  ticketPrice?: number;
+  sellPrice?: number;
+  originalSellPrice?: number;
+  baseTotalPrice?: number;
+  beforeControlPrice?: number;
+  tax?: number;
+  supplyPrice?: number;
+  basicCabinPrice?: number;
+  buildPrice?: number;
+  oilPrice?: number;
+  firstStandardPrice?: number;
+  businessStandardPrice?: number;
+  commonStandardPrice?: number;
+  interTicketPrice?: number;
+  subtractedPrice?: number;
+  originCommonPrice?: number;
+  dynamicPromotionPrice?: number;
+  installmentNum?: number;
+  installmentPrice?: number;
+  competitionDynamicPrice?: number;
+  competitionPromotionPrice?: number;
+  minBeforeControlPriceOfNormal?: number;
+  priceShowInfo?: ModuleItemListShoppingItemMapValueSearchPricePriceShowInfo;
+  static names(): { [key: string]: string } {
+    return {
+      floorPrice: 'floor_price',
+      ticketPrice: 'ticket_price',
+      sellPrice: 'sell_price',
+      originalSellPrice: 'original_sell_price',
+      baseTotalPrice: 'base_total_price',
+      beforeControlPrice: 'before_control_price',
+      tax: 'tax',
+      supplyPrice: 'supply_price',
+      basicCabinPrice: 'basic_cabin_price',
+      buildPrice: 'build_price',
+      oilPrice: 'oil_price',
+      firstStandardPrice: 'first_standard_price',
+      businessStandardPrice: 'business_standard_price',
+      commonStandardPrice: 'common_standard_price',
+      interTicketPrice: 'inter_ticket_price',
+      subtractedPrice: 'subtracted_price',
+      originCommonPrice: 'origin_common_price',
+      dynamicPromotionPrice: 'dynamic_promotion_price',
+      installmentNum: 'installment_num',
+      installmentPrice: 'installment_price',
+      competitionDynamicPrice: 'competition_dynamic_price',
+      competitionPromotionPrice: 'competition_promotion_price',
+      minBeforeControlPriceOfNormal: 'min_before_control_price_of_normal',
+      priceShowInfo: 'price_show_info',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      floorPrice: 'number',
+      ticketPrice: 'number',
+      sellPrice: 'number',
+      originalSellPrice: 'number',
+      baseTotalPrice: 'number',
+      beforeControlPrice: 'number',
+      tax: 'number',
+      supplyPrice: 'number',
+      basicCabinPrice: 'number',
+      buildPrice: 'number',
+      oilPrice: 'number',
+      firstStandardPrice: 'number',
+      businessStandardPrice: 'number',
+      commonStandardPrice: 'number',
+      interTicketPrice: 'number',
+      subtractedPrice: 'number',
+      originCommonPrice: 'number',
+      dynamicPromotionPrice: 'number',
+      installmentNum: 'number',
+      installmentPrice: 'number',
+      competitionDynamicPrice: 'number',
+      competitionPromotionPrice: 'number',
+      minBeforeControlPriceOfNormal: 'number',
+      priceShowInfo: ModuleItemListShoppingItemMapValueSearchPricePriceShowInfo,
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class ModuleItemListSubItemsShoppingItemMapValueSearchPricePriceShowInfo extends $tea.Model {
+  discountInfo?: string;
+  discountNum?: number;
+  showTicketPrice?: boolean;
+  static names(): { [key: string]: string } {
+    return {
+      discountInfo: 'discount_info',
+      discountNum: 'discount_num',
+      showTicketPrice: 'show_ticket_price',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      discountInfo: 'string',
+      discountNum: 'number',
+      showTicketPrice: 'boolean',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class ModuleItemListSubItemsShoppingItemMapValueSearchPrice extends $tea.Model {
+  floorPrice?: number;
+  ticketPrice?: number;
+  sellPrice?: number;
+  originalSellPrice?: number;
+  baseTotalPrice?: number;
+  beforeControlPrice?: number;
+  tax?: number;
+  supplyPrice?: number;
+  basicCabinPrice?: number;
+  buildPrice?: number;
+  oilPrice?: number;
+  firstStandardPrice?: number;
+  businessStandardPrice?: number;
+  commonStandardPrice?: number;
+  interTicketPrice?: number;
+  subtractedPrice?: number;
+  originCommonPrice?: number;
+  dynamicPromotionPrice?: number;
+  installmentNum?: number;
+  installmentPrice?: number;
+  competitionDynamicPrice?: number;
+  competitionPromotionPrice?: number;
+  minBeforeControlPriceOfNormal?: number;
+  priceShowInfo?: ModuleItemListSubItemsShoppingItemMapValueSearchPricePriceShowInfo;
+  static names(): { [key: string]: string } {
+    return {
+      floorPrice: 'floor_price',
+      ticketPrice: 'ticket_price',
+      sellPrice: 'sell_price',
+      originalSellPrice: 'original_sell_price',
+      baseTotalPrice: 'base_total_price',
+      beforeControlPrice: 'before_control_price',
+      tax: 'tax',
+      supplyPrice: 'supply_price',
+      basicCabinPrice: 'basic_cabin_price',
+      buildPrice: 'build_price',
+      oilPrice: 'oil_price',
+      firstStandardPrice: 'first_standard_price',
+      businessStandardPrice: 'business_standard_price',
+      commonStandardPrice: 'common_standard_price',
+      interTicketPrice: 'inter_ticket_price',
+      subtractedPrice: 'subtracted_price',
+      originCommonPrice: 'origin_common_price',
+      dynamicPromotionPrice: 'dynamic_promotion_price',
+      installmentNum: 'installment_num',
+      installmentPrice: 'installment_price',
+      competitionDynamicPrice: 'competition_dynamic_price',
+      competitionPromotionPrice: 'competition_promotion_price',
+      minBeforeControlPriceOfNormal: 'min_before_control_price_of_normal',
+      priceShowInfo: 'price_show_info',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      floorPrice: 'number',
+      ticketPrice: 'number',
+      sellPrice: 'number',
+      originalSellPrice: 'number',
+      baseTotalPrice: 'number',
+      beforeControlPrice: 'number',
+      tax: 'number',
+      supplyPrice: 'number',
+      basicCabinPrice: 'number',
+      buildPrice: 'number',
+      oilPrice: 'number',
+      firstStandardPrice: 'number',
+      businessStandardPrice: 'number',
+      commonStandardPrice: 'number',
+      interTicketPrice: 'number',
+      subtractedPrice: 'number',
+      originCommonPrice: 'number',
+      dynamicPromotionPrice: 'number',
+      installmentNum: 'number',
+      installmentPrice: 'number',
+      competitionDynamicPrice: 'number',
+      competitionPromotionPrice: 'number',
+      minBeforeControlPriceOfNormal: 'number',
+      priceShowInfo: ModuleItemListSubItemsShoppingItemMapValueSearchPricePriceShowInfo,
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class ModuleFlightItemListBestPriceItemShoppingItemMapValueSegmentPriceValuePriceShowInfo extends $tea.Model {
+  discountInfo?: string;
+  discountNum?: number;
+  showTicketPrice?: boolean;
+  static names(): { [key: string]: string } {
+    return {
+      discountInfo: 'discount_info',
+      discountNum: 'discount_num',
+      showTicketPrice: 'show_ticket_price',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      discountInfo: 'string',
+      discountNum: 'number',
+      showTicketPrice: 'boolean',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class ModuleFlightItemListBestPriceItemSubItemsShoppingItemMapValueSegmentPriceValuePriceShowInfo extends $tea.Model {
+  discountInfo?: string;
+  discountNum?: number;
+  showTicketPrice?: boolean;
+  static names(): { [key: string]: string } {
+    return {
+      discountInfo: 'discount_info',
+      discountNum: 'discount_num',
+      showTicketPrice: 'show_ticket_price',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      discountInfo: 'string',
+      discountNum: 'number',
+      showTicketPrice: 'boolean',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class ModuleFlightItemListItemListShoppingItemMapValueSegmentPriceValuePriceShowInfo extends $tea.Model {
+  discountInfo?: string;
+  discountNum?: number;
+  showTicketPrice?: boolean;
+  static names(): { [key: string]: string } {
+    return {
+      discountInfo: 'discount_info',
+      discountNum: 'discount_num',
+      showTicketPrice: 'show_ticket_price',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      discountInfo: 'string',
+      discountNum: 'number',
+      showTicketPrice: 'boolean',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class ModuleFlightItemListItemListSubItemsShoppingItemMapValueSegmentPriceValuePriceShowInfo extends $tea.Model {
+  discountInfo?: string;
+  discountNum?: number;
+  showTicketPrice?: boolean;
+  static names(): { [key: string]: string } {
+    return {
+      discountInfo: 'discount_info',
+      discountNum: 'discount_num',
+      showTicketPrice: 'show_ticket_price',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      discountInfo: 'string',
+      discountNum: 'number',
+      showTicketPrice: 'boolean',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class ModuleItemListShoppingItemMapValueSegmentPriceValuePriceShowInfo extends $tea.Model {
+  discountInfo?: string;
+  discountNum?: number;
+  showTicketPrice?: boolean;
+  static names(): { [key: string]: string } {
+    return {
+      discountInfo: 'discount_info',
+      discountNum: 'discount_num',
+      showTicketPrice: 'show_ticket_price',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      discountInfo: 'string',
+      discountNum: 'number',
+      showTicketPrice: 'boolean',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class ModuleItemListSubItemsShoppingItemMapValueSegmentPriceValuePriceShowInfo extends $tea.Model {
+  discountInfo?: string;
+  discountNum?: number;
+  showTicketPrice?: boolean;
+  static names(): { [key: string]: string } {
+    return {
+      discountInfo: 'discount_info',
+      discountNum: 'discount_num',
+      showTicketPrice: 'show_ticket_price',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      discountInfo: 'string',
+      discountNum: 'number',
+      showTicketPrice: 'boolean',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
 export class AccessTokenResponseBodyData extends $tea.Model {
   expire?: number;
   token?: string;
@@ -18223,6 +20610,574 @@ export class FlightListingSearchResponseBodyModule extends $tea.Model {
   }
 }
 
+export class FlightListingSearchV2RequestSearchJourneysSelectedFlights extends $tea.Model {
+  arrAirportCode?: string;
+  arrCityCode?: string;
+  depAirportCode?: string;
+  depCityCode?: string;
+  flightTime?: string;
+  marketFlightNo?: string;
+  operateFlightNo?: string;
+  static names(): { [key: string]: string } {
+    return {
+      arrAirportCode: 'arr_airport_code',
+      arrCityCode: 'arr_city_code',
+      depAirportCode: 'dep_airport_code',
+      depCityCode: 'dep_city_code',
+      flightTime: 'flight_time',
+      marketFlightNo: 'market_flight_no',
+      operateFlightNo: 'operate_flight_no',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      arrAirportCode: 'string',
+      arrCityCode: 'string',
+      depAirportCode: 'string',
+      depCityCode: 'string',
+      flightTime: 'string',
+      marketFlightNo: 'string',
+      operateFlightNo: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class FlightListingSearchV2RequestSearchJourneys extends $tea.Model {
+  arrCityCode?: string;
+  depCityCode?: string;
+  depDate?: string;
+  selectedFlights?: FlightListingSearchV2RequestSearchJourneysSelectedFlights[];
+  static names(): { [key: string]: string } {
+    return {
+      arrCityCode: 'arr_city_code',
+      depCityCode: 'dep_city_code',
+      depDate: 'dep_date',
+      selectedFlights: 'selected_flights',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      arrCityCode: 'string',
+      depCityCode: 'string',
+      depDate: 'string',
+      selectedFlights: { 'type': 'array', 'itemType': FlightListingSearchV2RequestSearchJourneysSelectedFlights },
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class FlightListingSearchV2ResponseBodyModuleFlightItemListBestPriceItemSubItems extends $tea.Model {
+  shoppingItemMap?: { [key: string]: ModuleFlightItemListBestPriceItemSubItemsShoppingItemMapValue };
+  uniqKey?: string;
+  static names(): { [key: string]: string } {
+    return {
+      shoppingItemMap: 'shopping_item_map',
+      uniqKey: 'uniq_key',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      shoppingItemMap: { 'type': 'map', 'keyType': 'string', 'valueType': ModuleFlightItemListBestPriceItemSubItemsShoppingItemMapValue },
+      uniqKey: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class FlightListingSearchV2ResponseBodyModuleFlightItemListBestPriceItem extends $tea.Model {
+  flightRuleInfos?: { [key: string]: ModuleFlightItemListBestPriceItemFlightRuleInfosValue };
+  itemId?: string;
+  shoppingItemMap?: { [key: string]: ModuleFlightItemListBestPriceItemShoppingItemMapValue };
+  subItemPositionMap?: { [key: string]: ModuleFlightItemListBestPriceItemSubItemPositionMapValue[] };
+  subItems?: FlightListingSearchV2ResponseBodyModuleFlightItemListBestPriceItemSubItems[];
+  static names(): { [key: string]: string } {
+    return {
+      flightRuleInfos: 'flight_rule_infos',
+      itemId: 'item_id',
+      shoppingItemMap: 'shopping_item_map',
+      subItemPositionMap: 'sub_item_position_map',
+      subItems: 'sub_items',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      flightRuleInfos: { 'type': 'map', 'keyType': 'string', 'valueType': ModuleFlightItemListBestPriceItemFlightRuleInfosValue },
+      itemId: 'string',
+      shoppingItemMap: { 'type': 'map', 'keyType': 'string', 'valueType': ModuleFlightItemListBestPriceItemShoppingItemMapValue },
+      subItemPositionMap: { 'type': 'map', 'keyType': 'string', 'valueType': { 'type': 'array', 'itemType': ModuleFlightItemListBestPriceItemSubItemPositionMapValue } },
+      subItems: { 'type': 'array', 'itemType': FlightListingSearchV2ResponseBodyModuleFlightItemListBestPriceItemSubItems },
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class FlightListingSearchV2ResponseBodyModuleFlightItemListFlightJourneyInfosFlightSegmentInfosAirlineInfo extends $tea.Model {
+  airlineChineseName?: string;
+  airlineChineseShortName?: string;
+  airlineCode?: string;
+  airlineIcon?: string;
+  cheapFlight?: boolean;
+  static names(): { [key: string]: string } {
+    return {
+      airlineChineseName: 'airline_chinese_name',
+      airlineChineseShortName: 'airline_chinese_short_name',
+      airlineCode: 'airline_code',
+      airlineIcon: 'airline_icon',
+      cheapFlight: 'cheap_flight',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      airlineChineseName: 'string',
+      airlineChineseShortName: 'string',
+      airlineCode: 'string',
+      airlineIcon: 'string',
+      cheapFlight: 'boolean',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class FlightListingSearchV2ResponseBodyModuleFlightItemListFlightJourneyInfosFlightSegmentInfosArrAirportInfo extends $tea.Model {
+  airportCode?: string;
+  airportName?: string;
+  airportNameColor?: string;
+  airportShortName?: string;
+  terminal?: string;
+  static names(): { [key: string]: string } {
+    return {
+      airportCode: 'airport_code',
+      airportName: 'airport_name',
+      airportNameColor: 'airport_name_color',
+      airportShortName: 'airport_short_name',
+      terminal: 'terminal',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      airportCode: 'string',
+      airportName: 'string',
+      airportNameColor: 'string',
+      airportShortName: 'string',
+      terminal: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class FlightListingSearchV2ResponseBodyModuleFlightItemListFlightJourneyInfosFlightSegmentInfosDepAirportInfo extends $tea.Model {
+  airportCode?: string;
+  airportName?: string;
+  airportNameColor?: string;
+  airportShortName?: string;
+  terminal?: string;
+  static names(): { [key: string]: string } {
+    return {
+      airportCode: 'airport_code',
+      airportName: 'airport_name',
+      airportNameColor: 'airport_name_color',
+      airportShortName: 'airport_short_name',
+      terminal: 'terminal',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      airportCode: 'string',
+      airportName: 'string',
+      airportNameColor: 'string',
+      airportShortName: 'string',
+      terminal: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class FlightListingSearchV2ResponseBodyModuleFlightItemListFlightJourneyInfosFlightSegmentInfosFlightShareInfoOperatingAirlineInfo extends $tea.Model {
+  airlineChineseName?: string;
+  airlineChineseShortName?: string;
+  airlineCode?: string;
+  airlineIcon?: string;
+  cheapFlight?: boolean;
+  static names(): { [key: string]: string } {
+    return {
+      airlineChineseName: 'airline_chinese_name',
+      airlineChineseShortName: 'airline_chinese_short_name',
+      airlineCode: 'airline_code',
+      airlineIcon: 'airline_icon',
+      cheapFlight: 'cheap_flight',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      airlineChineseName: 'string',
+      airlineChineseShortName: 'string',
+      airlineCode: 'string',
+      airlineIcon: 'string',
+      cheapFlight: 'boolean',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class FlightListingSearchV2ResponseBodyModuleFlightItemListFlightJourneyInfosFlightSegmentInfosFlightShareInfo extends $tea.Model {
+  operatingAirlineInfo?: FlightListingSearchV2ResponseBodyModuleFlightItemListFlightJourneyInfosFlightSegmentInfosFlightShareInfoOperatingAirlineInfo;
+  operatingFlightNo?: string;
+  static names(): { [key: string]: string } {
+    return {
+      operatingAirlineInfo: 'operating_airline_info',
+      operatingFlightNo: 'operating_flight_no',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      operatingAirlineInfo: FlightListingSearchV2ResponseBodyModuleFlightItemListFlightJourneyInfosFlightSegmentInfosFlightShareInfoOperatingAirlineInfo,
+      operatingFlightNo: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class FlightListingSearchV2ResponseBodyModuleFlightItemListFlightJourneyInfosFlightSegmentInfosFlightStopInfo extends $tea.Model {
+  stopAirport?: string;
+  stopAirportName?: string;
+  stopArrTerm?: string;
+  stopArrTime?: string;
+  stopCityCode?: string;
+  stopCityName?: string;
+  stopCityNames?: string[];
+  stopDepTerm?: string;
+  stopDepTime?: string;
+  stopTime?: string;
+  static names(): { [key: string]: string } {
+    return {
+      stopAirport: 'stop_airport',
+      stopAirportName: 'stop_airport_name',
+      stopArrTerm: 'stop_arr_term',
+      stopArrTime: 'stop_arr_time',
+      stopCityCode: 'stop_city_code',
+      stopCityName: 'stop_city_name',
+      stopCityNames: 'stop_city_names',
+      stopDepTerm: 'stop_dep_term',
+      stopDepTime: 'stop_dep_time',
+      stopTime: 'stop_time',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      stopAirport: 'string',
+      stopAirportName: 'string',
+      stopArrTerm: 'string',
+      stopArrTime: 'string',
+      stopCityCode: 'string',
+      stopCityName: 'string',
+      stopCityNames: { 'type': 'array', 'itemType': 'string' },
+      stopDepTerm: 'string',
+      stopDepTime: 'string',
+      stopTime: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class FlightListingSearchV2ResponseBodyModuleFlightItemListFlightJourneyInfosFlightSegmentInfos extends $tea.Model {
+  airlineInfo?: FlightListingSearchV2ResponseBodyModuleFlightItemListFlightJourneyInfosFlightSegmentInfosAirlineInfo;
+  arrAirportInfo?: FlightListingSearchV2ResponseBodyModuleFlightItemListFlightJourneyInfosFlightSegmentInfosArrAirportInfo;
+  arrCityCode?: string;
+  arrCityName?: string;
+  arrTime?: string;
+  baggageDesc?: string;
+  depAirportInfo?: FlightListingSearchV2ResponseBodyModuleFlightItemListFlightJourneyInfosFlightSegmentInfosDepAirportInfo;
+  depCityCode?: string;
+  depCityName?: string;
+  depTime?: string;
+  duration?: number;
+  extraInfo?: { [key: string]: any };
+  flightNo?: string;
+  flightShareInfo?: FlightListingSearchV2ResponseBodyModuleFlightItemListFlightJourneyInfosFlightSegmentInfosFlightShareInfo;
+  flightSize?: string;
+  flightStopInfo?: FlightListingSearchV2ResponseBodyModuleFlightItemListFlightJourneyInfosFlightSegmentInfosFlightStopInfo;
+  flightType?: string;
+  manufacturer?: string;
+  mealDesc?: string;
+  miles?: number;
+  onTimeRate?: string;
+  oneMore?: number;
+  oneMoreShow?: string;
+  segmentIndex?: number;
+  share?: boolean;
+  shortFlightSize?: string;
+  stop?: boolean;
+  totalTime?: string;
+  transferTime?: string;
+  transferTimeNumber?: number;
+  static names(): { [key: string]: string } {
+    return {
+      airlineInfo: 'airline_info',
+      arrAirportInfo: 'arr_airport_info',
+      arrCityCode: 'arr_city_code',
+      arrCityName: 'arr_city_name',
+      arrTime: 'arr_time',
+      baggageDesc: 'baggage_desc',
+      depAirportInfo: 'dep_airport_info',
+      depCityCode: 'dep_city_code',
+      depCityName: 'dep_city_name',
+      depTime: 'dep_time',
+      duration: 'duration',
+      extraInfo: 'extra_info',
+      flightNo: 'flight_no',
+      flightShareInfo: 'flight_share_info',
+      flightSize: 'flight_size',
+      flightStopInfo: 'flight_stop_info',
+      flightType: 'flight_type',
+      manufacturer: 'manufacturer',
+      mealDesc: 'meal_desc',
+      miles: 'miles',
+      onTimeRate: 'on_time_rate',
+      oneMore: 'one_more',
+      oneMoreShow: 'one_more_show',
+      segmentIndex: 'segment_index',
+      share: 'share',
+      shortFlightSize: 'short_flight_size',
+      stop: 'stop',
+      totalTime: 'total_time',
+      transferTime: 'transfer_time',
+      transferTimeNumber: 'transfer_time_number',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      airlineInfo: FlightListingSearchV2ResponseBodyModuleFlightItemListFlightJourneyInfosFlightSegmentInfosAirlineInfo,
+      arrAirportInfo: FlightListingSearchV2ResponseBodyModuleFlightItemListFlightJourneyInfosFlightSegmentInfosArrAirportInfo,
+      arrCityCode: 'string',
+      arrCityName: 'string',
+      arrTime: 'string',
+      baggageDesc: 'string',
+      depAirportInfo: FlightListingSearchV2ResponseBodyModuleFlightItemListFlightJourneyInfosFlightSegmentInfosDepAirportInfo,
+      depCityCode: 'string',
+      depCityName: 'string',
+      depTime: 'string',
+      duration: 'number',
+      extraInfo: { 'type': 'map', 'keyType': 'string', 'valueType': 'any' },
+      flightNo: 'string',
+      flightShareInfo: FlightListingSearchV2ResponseBodyModuleFlightItemListFlightJourneyInfosFlightSegmentInfosFlightShareInfo,
+      flightSize: 'string',
+      flightStopInfo: FlightListingSearchV2ResponseBodyModuleFlightItemListFlightJourneyInfosFlightSegmentInfosFlightStopInfo,
+      flightType: 'string',
+      manufacturer: 'string',
+      mealDesc: 'string',
+      miles: 'number',
+      onTimeRate: 'string',
+      oneMore: 'number',
+      oneMoreShow: 'string',
+      segmentIndex: 'number',
+      share: 'boolean',
+      shortFlightSize: 'string',
+      stop: 'boolean',
+      totalTime: 'string',
+      transferTime: 'string',
+      transferTimeNumber: 'number',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class FlightListingSearchV2ResponseBodyModuleFlightItemListFlightJourneyInfos extends $tea.Model {
+  arrCityCode?: string;
+  arrCityName?: string;
+  arrTime?: string;
+  depCityCode?: string;
+  depCityName?: string;
+  depTime?: string;
+  duration?: number;
+  extensions?: { [key: string]: string };
+  flightSegmentInfos?: FlightListingSearchV2ResponseBodyModuleFlightItemListFlightJourneyInfosFlightSegmentInfos[];
+  journeyIndex?: number;
+  transferTime?: number;
+  static names(): { [key: string]: string } {
+    return {
+      arrCityCode: 'arr_city_code',
+      arrCityName: 'arr_city_name',
+      arrTime: 'arr_time',
+      depCityCode: 'dep_city_code',
+      depCityName: 'dep_city_name',
+      depTime: 'dep_time',
+      duration: 'duration',
+      extensions: 'extensions',
+      flightSegmentInfos: 'flight_segment_infos',
+      journeyIndex: 'journey_index',
+      transferTime: 'transfer_time',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      arrCityCode: 'string',
+      arrCityName: 'string',
+      arrTime: 'string',
+      depCityCode: 'string',
+      depCityName: 'string',
+      depTime: 'string',
+      duration: 'number',
+      extensions: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      flightSegmentInfos: { 'type': 'array', 'itemType': FlightListingSearchV2ResponseBodyModuleFlightItemListFlightJourneyInfosFlightSegmentInfos },
+      journeyIndex: 'number',
+      transferTime: 'number',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class FlightListingSearchV2ResponseBodyModuleFlightItemListItemListSubItems extends $tea.Model {
+  shoppingItemMap?: { [key: string]: ModuleFlightItemListItemListSubItemsShoppingItemMapValue };
+  uniqKey?: string;
+  static names(): { [key: string]: string } {
+    return {
+      shoppingItemMap: 'shopping_item_map',
+      uniqKey: 'uniq_key',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      shoppingItemMap: { 'type': 'map', 'keyType': 'string', 'valueType': ModuleFlightItemListItemListSubItemsShoppingItemMapValue },
+      uniqKey: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class FlightListingSearchV2ResponseBodyModuleFlightItemListItemList extends $tea.Model {
+  flightRuleInfos?: { [key: string]: ModuleFlightItemListItemListFlightRuleInfosValue };
+  itemId?: string;
+  shoppingItemMap?: { [key: string]: ModuleFlightItemListItemListShoppingItemMapValue };
+  subItemPositionMap?: { [key: string]: ModuleFlightItemListItemListSubItemPositionMapValue[] };
+  subItems?: FlightListingSearchV2ResponseBodyModuleFlightItemListItemListSubItems[];
+  static names(): { [key: string]: string } {
+    return {
+      flightRuleInfos: 'flight_rule_infos',
+      itemId: 'item_id',
+      shoppingItemMap: 'shopping_item_map',
+      subItemPositionMap: 'sub_item_position_map',
+      subItems: 'sub_items',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      flightRuleInfos: { 'type': 'map', 'keyType': 'string', 'valueType': ModuleFlightItemListItemListFlightRuleInfosValue },
+      itemId: 'string',
+      shoppingItemMap: { 'type': 'map', 'keyType': 'string', 'valueType': ModuleFlightItemListItemListShoppingItemMapValue },
+      subItemPositionMap: { 'type': 'map', 'keyType': 'string', 'valueType': { 'type': 'array', 'itemType': ModuleFlightItemListItemListSubItemPositionMapValue } },
+      subItems: { 'type': 'array', 'itemType': FlightListingSearchV2ResponseBodyModuleFlightItemListItemListSubItems },
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class FlightListingSearchV2ResponseBodyModuleFlightItemList extends $tea.Model {
+  bestPriceItem?: FlightListingSearchV2ResponseBodyModuleFlightItemListBestPriceItem;
+  flightJourneyInfos?: FlightListingSearchV2ResponseBodyModuleFlightItemListFlightJourneyInfos[];
+  itemList?: FlightListingSearchV2ResponseBodyModuleFlightItemListItemList[];
+  static names(): { [key: string]: string } {
+    return {
+      bestPriceItem: 'best_price_item',
+      flightJourneyInfos: 'flight_journey_infos',
+      itemList: 'item_list',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      bestPriceItem: FlightListingSearchV2ResponseBodyModuleFlightItemListBestPriceItem,
+      flightJourneyInfos: { 'type': 'array', 'itemType': FlightListingSearchV2ResponseBodyModuleFlightItemListFlightJourneyInfos },
+      itemList: { 'type': 'array', 'itemType': FlightListingSearchV2ResponseBodyModuleFlightItemListItemList },
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class FlightListingSearchV2ResponseBodyModule extends $tea.Model {
+  flightItemList?: FlightListingSearchV2ResponseBodyModuleFlightItemList[];
+  searchMode?: number;
+  tripType?: number;
+  static names(): { [key: string]: string } {
+    return {
+      flightItemList: 'flight_item_list',
+      searchMode: 'search_mode',
+      tripType: 'trip_type',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      flightItemList: { 'type': 'array', 'itemType': FlightListingSearchV2ResponseBodyModuleFlightItemList },
+      searchMode: 'number',
+      tripType: 'number',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
 export class FlightOrderDetailInfoResponseBodyModuleFlightInfoList extends $tea.Model {
   airlineCode?: string;
   airlineName?: string;
@@ -19250,6 +22205,462 @@ export class FlightOrderQueryResponseBodyModule extends $tea.Model {
       orderBaseInfo: FlightOrderQueryResponseBodyModuleOrderBaseInfo,
       passengerInfoList: { 'type': 'array', 'itemType': FlightOrderQueryResponseBodyModulePassengerInfoList },
       priceInfoList: { 'type': 'array', 'itemType': FlightOrderQueryResponseBodyModulePriceInfoList },
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class FlightOtaItemDetailResponseBodyModuleBaggageRuleBaggageSubItemsBaggageSubContentVisualizesDescription extends $tea.Model {
+  desc?: string;
+  icon?: string;
+  image?: string;
+  title?: string;
+  static names(): { [key: string]: string } {
+    return {
+      desc: 'desc',
+      icon: 'icon',
+      image: 'image',
+      title: 'title',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      desc: 'string',
+      icon: 'string',
+      image: 'string',
+      title: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class FlightOtaItemDetailResponseBodyModuleBaggageRuleBaggageSubItemsBaggageSubContentVisualizesImageDO extends $tea.Model {
+  image?: string;
+  largest?: string;
+  middle?: string;
+  smallest?: string;
+  static names(): { [key: string]: string } {
+    return {
+      image: 'image',
+      largest: 'largest',
+      middle: 'middle',
+      smallest: 'smallest',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      image: 'string',
+      largest: 'string',
+      middle: 'string',
+      smallest: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class FlightOtaItemDetailResponseBodyModuleBaggageRuleBaggageSubItemsBaggageSubContentVisualizes extends $tea.Model {
+  baggageDesc?: string[];
+  baggageSubContentType?: number;
+  description?: FlightOtaItemDetailResponseBodyModuleBaggageRuleBaggageSubItemsBaggageSubContentVisualizesDescription;
+  imageDO?: FlightOtaItemDetailResponseBodyModuleBaggageRuleBaggageSubItemsBaggageSubContentVisualizesImageDO;
+  isHighlight?: boolean;
+  subTitle?: string;
+  static names(): { [key: string]: string } {
+    return {
+      baggageDesc: 'baggage_desc',
+      baggageSubContentType: 'baggage_sub_content_type',
+      description: 'description',
+      imageDO: 'image_d_o',
+      isHighlight: 'is_highlight',
+      subTitle: 'sub_title',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      baggageDesc: { 'type': 'array', 'itemType': 'string' },
+      baggageSubContentType: 'number',
+      description: FlightOtaItemDetailResponseBodyModuleBaggageRuleBaggageSubItemsBaggageSubContentVisualizesDescription,
+      imageDO: FlightOtaItemDetailResponseBodyModuleBaggageRuleBaggageSubItemsBaggageSubContentVisualizesImageDO,
+      isHighlight: 'boolean',
+      subTitle: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class FlightOtaItemDetailResponseBodyModuleBaggageRuleBaggageSubItems extends $tea.Model {
+  baggageSubContentVisualizes?: FlightOtaItemDetailResponseBodyModuleBaggageRuleBaggageSubItemsBaggageSubContentVisualizes[];
+  extraContentVisualizes?: any[];
+  isStruct?: boolean;
+  ptc?: string;
+  title?: string;
+  static names(): { [key: string]: string } {
+    return {
+      baggageSubContentVisualizes: 'baggage_sub_content_visualizes',
+      extraContentVisualizes: 'extra_content_visualizes',
+      isStruct: 'is_struct',
+      ptc: 'ptc',
+      title: 'title',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      baggageSubContentVisualizes: { 'type': 'array', 'itemType': FlightOtaItemDetailResponseBodyModuleBaggageRuleBaggageSubItemsBaggageSubContentVisualizes },
+      extraContentVisualizes: { 'type': 'array', 'itemType': 'any' },
+      isStruct: 'boolean',
+      ptc: 'string',
+      title: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class FlightOtaItemDetailResponseBodyModuleBaggageRuleTips extends $tea.Model {
+  logo?: string;
+  tipsDesc?: string;
+  tipsImage?: string;
+  static names(): { [key: string]: string } {
+    return {
+      logo: 'logo',
+      tipsDesc: 'tips_desc',
+      tipsImage: 'tips_image',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      logo: 'string',
+      tipsDesc: 'string',
+      tipsImage: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class FlightOtaItemDetailResponseBodyModuleBaggageRule extends $tea.Model {
+  baggageSubItems?: FlightOtaItemDetailResponseBodyModuleBaggageRuleBaggageSubItems[];
+  index?: number;
+  tableHead?: string;
+  tips?: FlightOtaItemDetailResponseBodyModuleBaggageRuleTips;
+  title?: string;
+  type?: number;
+  static names(): { [key: string]: string } {
+    return {
+      baggageSubItems: 'baggage_sub_items',
+      index: 'index',
+      tableHead: 'table_head',
+      tips: 'tips',
+      title: 'title',
+      type: 'type',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      baggageSubItems: { 'type': 'array', 'itemType': FlightOtaItemDetailResponseBodyModuleBaggageRuleBaggageSubItems },
+      index: 'number',
+      tableHead: 'string',
+      tips: FlightOtaItemDetailResponseBodyModuleBaggageRuleTips,
+      title: 'string',
+      type: 'number',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class FlightOtaItemDetailResponseBodyModuleChangeRuleExtraContents extends $tea.Model {
+  content?: string;
+  title?: string;
+  static names(): { [key: string]: string } {
+    return {
+      content: 'content',
+      title: 'title',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      content: 'string',
+      title: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class FlightOtaItemDetailResponseBodyModuleChangeRuleRefundSubItemsRefundSubContents extends $tea.Model {
+  feeDesc?: string;
+  feeRange?: string;
+  style?: number;
+  static names(): { [key: string]: string } {
+    return {
+      feeDesc: 'fee_desc',
+      feeRange: 'fee_range',
+      style: 'style',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      feeDesc: 'string',
+      feeRange: 'string',
+      style: 'number',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class FlightOtaItemDetailResponseBodyModuleChangeRuleRefundSubItems extends $tea.Model {
+  isStruct?: boolean;
+  ptc?: string;
+  refundSubContents?: FlightOtaItemDetailResponseBodyModuleChangeRuleRefundSubItemsRefundSubContents[];
+  title?: string;
+  static names(): { [key: string]: string } {
+    return {
+      isStruct: 'is_struct',
+      ptc: 'ptc',
+      refundSubContents: 'refund_sub_contents',
+      title: 'title',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      isStruct: 'boolean',
+      ptc: 'string',
+      refundSubContents: { 'type': 'array', 'itemType': FlightOtaItemDetailResponseBodyModuleChangeRuleRefundSubItemsRefundSubContents },
+      title: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class FlightOtaItemDetailResponseBodyModuleChangeRule extends $tea.Model {
+  extraContents?: FlightOtaItemDetailResponseBodyModuleChangeRuleExtraContents[];
+  flightNo?: string;
+  freeBaggage?: number;
+  index?: number;
+  level?: number;
+  refundSubItems?: FlightOtaItemDetailResponseBodyModuleChangeRuleRefundSubItems[];
+  subTableHead?: string[];
+  tableHead?: string;
+  title?: string;
+  type?: number;
+  static names(): { [key: string]: string } {
+    return {
+      extraContents: 'extra_contents',
+      flightNo: 'flight_no',
+      freeBaggage: 'free_baggage',
+      index: 'index',
+      level: 'level',
+      refundSubItems: 'refund_sub_items',
+      subTableHead: 'sub_table_head',
+      tableHead: 'table_head',
+      title: 'title',
+      type: 'type',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      extraContents: { 'type': 'array', 'itemType': FlightOtaItemDetailResponseBodyModuleChangeRuleExtraContents },
+      flightNo: 'string',
+      freeBaggage: 'number',
+      index: 'number',
+      level: 'number',
+      refundSubItems: { 'type': 'array', 'itemType': FlightOtaItemDetailResponseBodyModuleChangeRuleRefundSubItems },
+      subTableHead: { 'type': 'array', 'itemType': 'string' },
+      tableHead: 'string',
+      title: 'string',
+      type: 'number',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class FlightOtaItemDetailResponseBodyModuleRefundRuleExtraContents extends $tea.Model {
+  content?: string;
+  title?: string;
+  static names(): { [key: string]: string } {
+    return {
+      content: 'content',
+      title: 'title',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      content: 'string',
+      title: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class FlightOtaItemDetailResponseBodyModuleRefundRuleRefundSubItemsRefundSubContents extends $tea.Model {
+  feeDesc?: string;
+  feeRange?: string;
+  style?: number;
+  static names(): { [key: string]: string } {
+    return {
+      feeDesc: 'fee_desc',
+      feeRange: 'fee_range',
+      style: 'style',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      feeDesc: 'string',
+      feeRange: 'string',
+      style: 'number',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class FlightOtaItemDetailResponseBodyModuleRefundRuleRefundSubItems extends $tea.Model {
+  isStruct?: boolean;
+  ptc?: string;
+  refundSubContents?: FlightOtaItemDetailResponseBodyModuleRefundRuleRefundSubItemsRefundSubContents[];
+  title?: string;
+  static names(): { [key: string]: string } {
+    return {
+      isStruct: 'is_struct',
+      ptc: 'ptc',
+      refundSubContents: 'refund_sub_contents',
+      title: 'title',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      isStruct: 'boolean',
+      ptc: 'string',
+      refundSubContents: { 'type': 'array', 'itemType': FlightOtaItemDetailResponseBodyModuleRefundRuleRefundSubItemsRefundSubContents },
+      title: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class FlightOtaItemDetailResponseBodyModuleRefundRule extends $tea.Model {
+  extraContents?: FlightOtaItemDetailResponseBodyModuleRefundRuleExtraContents[];
+  flightNo?: string;
+  freeBaggage?: number;
+  index?: number;
+  level?: number;
+  refundSubItems?: FlightOtaItemDetailResponseBodyModuleRefundRuleRefundSubItems[];
+  subTableHead?: string[];
+  tableHead?: string;
+  title?: string;
+  type?: number;
+  static names(): { [key: string]: string } {
+    return {
+      extraContents: 'extra_contents',
+      flightNo: 'flight_no',
+      freeBaggage: 'free_baggage',
+      index: 'index',
+      level: 'level',
+      refundSubItems: 'refund_sub_items',
+      subTableHead: 'sub_table_head',
+      tableHead: 'table_head',
+      title: 'title',
+      type: 'type',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      extraContents: { 'type': 'array', 'itemType': FlightOtaItemDetailResponseBodyModuleRefundRuleExtraContents },
+      flightNo: 'string',
+      freeBaggage: 'number',
+      index: 'number',
+      level: 'number',
+      refundSubItems: { 'type': 'array', 'itemType': FlightOtaItemDetailResponseBodyModuleRefundRuleRefundSubItems },
+      subTableHead: { 'type': 'array', 'itemType': 'string' },
+      tableHead: 'string',
+      title: 'string',
+      type: 'number',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class FlightOtaItemDetailResponseBodyModule extends $tea.Model {
+  baggageRule?: FlightOtaItemDetailResponseBodyModuleBaggageRule[];
+  changeRule?: FlightOtaItemDetailResponseBodyModuleChangeRule[];
+  refundRule?: FlightOtaItemDetailResponseBodyModuleRefundRule[];
+  sellPrice?: number;
+  sellPriceList?: number[];
+  tripType?: number;
+  static names(): { [key: string]: string } {
+    return {
+      baggageRule: 'baggage_rule',
+      changeRule: 'change_rule',
+      refundRule: 'refund_rule',
+      sellPrice: 'sell_price',
+      sellPriceList: 'sell_price_list',
+      tripType: 'trip_type',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      baggageRule: { 'type': 'array', 'itemType': FlightOtaItemDetailResponseBodyModuleBaggageRule },
+      changeRule: { 'type': 'array', 'itemType': FlightOtaItemDetailResponseBodyModuleChangeRule },
+      refundRule: { 'type': 'array', 'itemType': FlightOtaItemDetailResponseBodyModuleRefundRule },
+      sellPrice: 'number',
+      sellPriceList: { 'type': 'array', 'itemType': 'number' },
+      tripType: 'number',
     };
   }
 
@@ -20925,6 +24336,499 @@ export class FlightOtaSearchResponseBodyModule extends $tea.Model {
   static types(): { [key: string]: any } {
     return {
       flightList: { 'type': 'array', 'itemType': FlightOtaSearchResponseBodyModuleFlightList },
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class FlightOtaSearchV2RequestSearchJourneysSelectedFlights extends $tea.Model {
+  arrAirportCode?: string;
+  arrCityCode?: string;
+  depAirportCode?: string;
+  depCityCode?: string;
+  flightTime?: string;
+  marketFlightNo?: string;
+  operateFlightNo?: string;
+  static names(): { [key: string]: string } {
+    return {
+      arrAirportCode: 'arr_airport_code',
+      arrCityCode: 'arr_city_code',
+      depAirportCode: 'dep_airport_code',
+      depCityCode: 'dep_city_code',
+      flightTime: 'flight_time',
+      marketFlightNo: 'market_flight_no',
+      operateFlightNo: 'operate_flight_no',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      arrAirportCode: 'string',
+      arrCityCode: 'string',
+      depAirportCode: 'string',
+      depCityCode: 'string',
+      flightTime: 'string',
+      marketFlightNo: 'string',
+      operateFlightNo: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class FlightOtaSearchV2RequestSearchJourneys extends $tea.Model {
+  arrCityCode?: string;
+  depCityCode?: string;
+  depDate?: string;
+  selectedFlights?: FlightOtaSearchV2RequestSearchJourneysSelectedFlights[];
+  static names(): { [key: string]: string } {
+    return {
+      arrCityCode: 'arr_city_code',
+      depCityCode: 'dep_city_code',
+      depDate: 'dep_date',
+      selectedFlights: 'selected_flights',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      arrCityCode: 'string',
+      depCityCode: 'string',
+      depDate: 'string',
+      selectedFlights: { 'type': 'array', 'itemType': FlightOtaSearchV2RequestSearchJourneysSelectedFlights },
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class FlightOtaSearchV2ResponseBodyModuleFlightJourneyInfosFlightSegmentInfosAirlineInfo extends $tea.Model {
+  airlineChineseName?: string;
+  airlineChineseShortName?: string;
+  airlineCode?: string;
+  airlineIcon?: string;
+  cheapFlight?: boolean;
+  static names(): { [key: string]: string } {
+    return {
+      airlineChineseName: 'airline_chinese_name',
+      airlineChineseShortName: 'airline_chinese_short_name',
+      airlineCode: 'airline_code',
+      airlineIcon: 'airline_icon',
+      cheapFlight: 'cheap_flight',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      airlineChineseName: 'string',
+      airlineChineseShortName: 'string',
+      airlineCode: 'string',
+      airlineIcon: 'string',
+      cheapFlight: 'boolean',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class FlightOtaSearchV2ResponseBodyModuleFlightJourneyInfosFlightSegmentInfosArrAirportInfo extends $tea.Model {
+  airportCode?: string;
+  airportName?: string;
+  airportNameColor?: string;
+  airportShortName?: string;
+  terminal?: string;
+  static names(): { [key: string]: string } {
+    return {
+      airportCode: 'airport_code',
+      airportName: 'airport_name',
+      airportNameColor: 'airport_name_color',
+      airportShortName: 'airport_short_name',
+      terminal: 'terminal',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      airportCode: 'string',
+      airportName: 'string',
+      airportNameColor: 'string',
+      airportShortName: 'string',
+      terminal: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class FlightOtaSearchV2ResponseBodyModuleFlightJourneyInfosFlightSegmentInfosDepAirportInfo extends $tea.Model {
+  airportCode?: string;
+  airportName?: string;
+  airportNameColor?: string;
+  airportShortName?: string;
+  terminal?: string;
+  static names(): { [key: string]: string } {
+    return {
+      airportCode: 'airport_code',
+      airportName: 'airport_name',
+      airportNameColor: 'airport_name_color',
+      airportShortName: 'airport_short_name',
+      terminal: 'terminal',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      airportCode: 'string',
+      airportName: 'string',
+      airportNameColor: 'string',
+      airportShortName: 'string',
+      terminal: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class FlightOtaSearchV2ResponseBodyModuleFlightJourneyInfosFlightSegmentInfosFlightShareInfoOperatingAirlineInfo extends $tea.Model {
+  airlineChineseName?: string;
+  airlineChineseShortName?: string;
+  airlineCode?: string;
+  airlineIcon?: string;
+  cheapFlight?: boolean;
+  static names(): { [key: string]: string } {
+    return {
+      airlineChineseName: 'airline_chinese_name',
+      airlineChineseShortName: 'airline_chinese_short_name',
+      airlineCode: 'airline_code',
+      airlineIcon: 'airline_icon',
+      cheapFlight: 'cheap_flight',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      airlineChineseName: 'string',
+      airlineChineseShortName: 'string',
+      airlineCode: 'string',
+      airlineIcon: 'string',
+      cheapFlight: 'boolean',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class FlightOtaSearchV2ResponseBodyModuleFlightJourneyInfosFlightSegmentInfosFlightShareInfo extends $tea.Model {
+  operatingAirlineInfo?: FlightOtaSearchV2ResponseBodyModuleFlightJourneyInfosFlightSegmentInfosFlightShareInfoOperatingAirlineInfo;
+  operatingFlightNo?: string;
+  static names(): { [key: string]: string } {
+    return {
+      operatingAirlineInfo: 'operating_airline_info',
+      operatingFlightNo: 'operating_flight_no',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      operatingAirlineInfo: FlightOtaSearchV2ResponseBodyModuleFlightJourneyInfosFlightSegmentInfosFlightShareInfoOperatingAirlineInfo,
+      operatingFlightNo: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class FlightOtaSearchV2ResponseBodyModuleFlightJourneyInfosFlightSegmentInfosFlightStopInfo extends $tea.Model {
+  stopAirport?: string;
+  stopAirportName?: string;
+  stopArrTerm?: string;
+  stopArrTime?: string;
+  stopCityCode?: string;
+  stopCityName?: string;
+  stopCityNames?: string[];
+  stopDepTerm?: string;
+  stopDepTime?: string;
+  stopTime?: string;
+  static names(): { [key: string]: string } {
+    return {
+      stopAirport: 'stop_airport',
+      stopAirportName: 'stop_airport_name',
+      stopArrTerm: 'stop_arr_term',
+      stopArrTime: 'stop_arr_time',
+      stopCityCode: 'stop_city_code',
+      stopCityName: 'stop_city_name',
+      stopCityNames: 'stop_city_names',
+      stopDepTerm: 'stop_dep_term',
+      stopDepTime: 'stop_dep_time',
+      stopTime: 'stop_time',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      stopAirport: 'string',
+      stopAirportName: 'string',
+      stopArrTerm: 'string',
+      stopArrTime: 'string',
+      stopCityCode: 'string',
+      stopCityName: 'string',
+      stopCityNames: { 'type': 'array', 'itemType': 'string' },
+      stopDepTerm: 'string',
+      stopDepTime: 'string',
+      stopTime: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class FlightOtaSearchV2ResponseBodyModuleFlightJourneyInfosFlightSegmentInfos extends $tea.Model {
+  airlineInfo?: FlightOtaSearchV2ResponseBodyModuleFlightJourneyInfosFlightSegmentInfosAirlineInfo;
+  arrAirportInfo?: FlightOtaSearchV2ResponseBodyModuleFlightJourneyInfosFlightSegmentInfosArrAirportInfo;
+  arrCityCode?: string;
+  arrCityName?: string;
+  arrTime?: string;
+  baggageDesc?: string;
+  depAirportInfo?: FlightOtaSearchV2ResponseBodyModuleFlightJourneyInfosFlightSegmentInfosDepAirportInfo;
+  depCityCode?: string;
+  depCityName?: string;
+  depTime?: string;
+  duration?: number;
+  extraInfo?: { [key: string]: any };
+  flightNo?: string;
+  flightShareInfo?: FlightOtaSearchV2ResponseBodyModuleFlightJourneyInfosFlightSegmentInfosFlightShareInfo;
+  flightSize?: string;
+  flightStopInfo?: FlightOtaSearchV2ResponseBodyModuleFlightJourneyInfosFlightSegmentInfosFlightStopInfo;
+  flightType?: string;
+  manufacturer?: string;
+  mealDesc?: string;
+  miles?: number;
+  onTimeRate?: string;
+  oneMore?: number;
+  oneMoreShow?: string;
+  segmentIndex?: number;
+  share?: boolean;
+  shortFlightSize?: string;
+  stop?: boolean;
+  totalTime?: string;
+  transferTime?: string;
+  transferTimeNumber?: number;
+  static names(): { [key: string]: string } {
+    return {
+      airlineInfo: 'airline_info',
+      arrAirportInfo: 'arr_airport_info',
+      arrCityCode: 'arr_city_code',
+      arrCityName: 'arr_city_name',
+      arrTime: 'arr_time',
+      baggageDesc: 'baggage_desc',
+      depAirportInfo: 'dep_airport_info',
+      depCityCode: 'dep_city_code',
+      depCityName: 'dep_city_name',
+      depTime: 'dep_time',
+      duration: 'duration',
+      extraInfo: 'extra_info',
+      flightNo: 'flight_no',
+      flightShareInfo: 'flight_share_info',
+      flightSize: 'flight_size',
+      flightStopInfo: 'flight_stop_info',
+      flightType: 'flight_type',
+      manufacturer: 'manufacturer',
+      mealDesc: 'meal_desc',
+      miles: 'miles',
+      onTimeRate: 'on_time_rate',
+      oneMore: 'one_more',
+      oneMoreShow: 'one_more_show',
+      segmentIndex: 'segment_index',
+      share: 'share',
+      shortFlightSize: 'short_flight_size',
+      stop: 'stop',
+      totalTime: 'total_time',
+      transferTime: 'transfer_time',
+      transferTimeNumber: 'transfer_time_number',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      airlineInfo: FlightOtaSearchV2ResponseBodyModuleFlightJourneyInfosFlightSegmentInfosAirlineInfo,
+      arrAirportInfo: FlightOtaSearchV2ResponseBodyModuleFlightJourneyInfosFlightSegmentInfosArrAirportInfo,
+      arrCityCode: 'string',
+      arrCityName: 'string',
+      arrTime: 'string',
+      baggageDesc: 'string',
+      depAirportInfo: FlightOtaSearchV2ResponseBodyModuleFlightJourneyInfosFlightSegmentInfosDepAirportInfo,
+      depCityCode: 'string',
+      depCityName: 'string',
+      depTime: 'string',
+      duration: 'number',
+      extraInfo: { 'type': 'map', 'keyType': 'string', 'valueType': 'any' },
+      flightNo: 'string',
+      flightShareInfo: FlightOtaSearchV2ResponseBodyModuleFlightJourneyInfosFlightSegmentInfosFlightShareInfo,
+      flightSize: 'string',
+      flightStopInfo: FlightOtaSearchV2ResponseBodyModuleFlightJourneyInfosFlightSegmentInfosFlightStopInfo,
+      flightType: 'string',
+      manufacturer: 'string',
+      mealDesc: 'string',
+      miles: 'number',
+      onTimeRate: 'string',
+      oneMore: 'number',
+      oneMoreShow: 'string',
+      segmentIndex: 'number',
+      share: 'boolean',
+      shortFlightSize: 'string',
+      stop: 'boolean',
+      totalTime: 'string',
+      transferTime: 'string',
+      transferTimeNumber: 'number',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class FlightOtaSearchV2ResponseBodyModuleFlightJourneyInfos extends $tea.Model {
+  arrCityCode?: string;
+  arrCityName?: string;
+  arrTime?: string;
+  depCityCode?: string;
+  depCityName?: string;
+  depTime?: string;
+  duration?: number;
+  extensions?: { [key: string]: string };
+  flightSegmentInfos?: FlightOtaSearchV2ResponseBodyModuleFlightJourneyInfosFlightSegmentInfos[];
+  journeyIndex?: number;
+  transferTime?: number;
+  static names(): { [key: string]: string } {
+    return {
+      arrCityCode: 'arr_city_code',
+      arrCityName: 'arr_city_name',
+      arrTime: 'arr_time',
+      depCityCode: 'dep_city_code',
+      depCityName: 'dep_city_name',
+      depTime: 'dep_time',
+      duration: 'duration',
+      extensions: 'extensions',
+      flightSegmentInfos: 'flight_segment_infos',
+      journeyIndex: 'journey_index',
+      transferTime: 'transfer_time',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      arrCityCode: 'string',
+      arrCityName: 'string',
+      arrTime: 'string',
+      depCityCode: 'string',
+      depCityName: 'string',
+      depTime: 'string',
+      duration: 'number',
+      extensions: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      flightSegmentInfos: { 'type': 'array', 'itemType': FlightOtaSearchV2ResponseBodyModuleFlightJourneyInfosFlightSegmentInfos },
+      journeyIndex: 'number',
+      transferTime: 'number',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class FlightOtaSearchV2ResponseBodyModuleItemListSubItems extends $tea.Model {
+  shoppingItemMap?: { [key: string]: ModuleItemListSubItemsShoppingItemMapValue };
+  uniqKey?: string;
+  static names(): { [key: string]: string } {
+    return {
+      shoppingItemMap: 'shopping_item_map',
+      uniqKey: 'uniq_key',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      shoppingItemMap: { 'type': 'map', 'keyType': 'string', 'valueType': ModuleItemListSubItemsShoppingItemMapValue },
+      uniqKey: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class FlightOtaSearchV2ResponseBodyModuleItemList extends $tea.Model {
+  flightRuleInfos?: { [key: string]: ModuleItemListFlightRuleInfosValue };
+  itemId?: string;
+  shoppingItemMap?: { [key: string]: ModuleItemListShoppingItemMapValue };
+  subItemPositionMap?: { [key: string]: ModuleItemListSubItemPositionMapValue[] };
+  subItems?: FlightOtaSearchV2ResponseBodyModuleItemListSubItems[];
+  static names(): { [key: string]: string } {
+    return {
+      flightRuleInfos: 'flight_rule_infos',
+      itemId: 'item_id',
+      shoppingItemMap: 'shopping_item_map',
+      subItemPositionMap: 'sub_item_position_map',
+      subItems: 'sub_items',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      flightRuleInfos: { 'type': 'map', 'keyType': 'string', 'valueType': ModuleItemListFlightRuleInfosValue },
+      itemId: 'string',
+      shoppingItemMap: { 'type': 'map', 'keyType': 'string', 'valueType': ModuleItemListShoppingItemMapValue },
+      subItemPositionMap: { 'type': 'map', 'keyType': 'string', 'valueType': { 'type': 'array', 'itemType': ModuleItemListSubItemPositionMapValue } },
+      subItems: { 'type': 'array', 'itemType': FlightOtaSearchV2ResponseBodyModuleItemListSubItems },
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class FlightOtaSearchV2ResponseBodyModule extends $tea.Model {
+  flightJourneyInfos?: FlightOtaSearchV2ResponseBodyModuleFlightJourneyInfos[];
+  itemList?: FlightOtaSearchV2ResponseBodyModuleItemList[];
+  searchMode?: number;
+  tripType?: number;
+  static names(): { [key: string]: string } {
+    return {
+      flightJourneyInfos: 'flight_journey_infos',
+      itemList: 'item_list',
+      searchMode: 'search_mode',
+      tripType: 'trip_type',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      flightJourneyInfos: { 'type': 'array', 'itemType': FlightOtaSearchV2ResponseBodyModuleFlightJourneyInfos },
+      itemList: { 'type': 'array', 'itemType': FlightOtaSearchV2ResponseBodyModuleItemList },
+      searchMode: 'number',
+      tripType: 'number',
     };
   }
 
@@ -33894,6 +37798,96 @@ export default class Client extends OpenApi {
     return await this.flightListingSearchWithOptions(request, headers, runtime);
   }
 
+  async flightListingSearchV2WithOptions(tmpReq: FlightListingSearchV2Request, headers: FlightListingSearchV2Headers, runtime: $Util.RuntimeOptions): Promise<FlightListingSearchV2Response> {
+    Util.validateModel(tmpReq);
+    let request = new FlightListingSearchV2ShrinkRequest({ });
+    OpenApiUtil.convert(tmpReq, request);
+    if (!Util.isUnset(tmpReq.cabinTypeList)) {
+      request.cabinTypeListShrink = OpenApiUtil.arrayToStringWithSpecifiedStyle(tmpReq.cabinTypeList, "cabin_type_list", "json");
+    }
+
+    if (!Util.isUnset(tmpReq.searchJourneys)) {
+      request.searchJourneysShrink = OpenApiUtil.arrayToStringWithSpecifiedStyle(tmpReq.searchJourneys, "search_journeys", "json");
+    }
+
+    let query : {[key: string ]: any} = { };
+    if (!Util.isUnset(request.airlineCode)) {
+      query["airline_code"] = request.airlineCode;
+    }
+
+    if (!Util.isUnset(request.cabinTypeListShrink)) {
+      query["cabin_type_list"] = request.cabinTypeListShrink;
+    }
+
+    if (!Util.isUnset(request.directOnly)) {
+      query["direct_only"] = request.directOnly;
+    }
+
+    if (!Util.isUnset(request.isvName)) {
+      query["isv_name"] = request.isvName;
+    }
+
+    if (!Util.isUnset(request.needMultiClassPrice)) {
+      query["need_multi_class_price"] = request.needMultiClassPrice;
+    }
+
+    if (!Util.isUnset(request.needQueryServiceFee)) {
+      query["need_query_service_fee"] = request.needQueryServiceFee;
+    }
+
+    if (!Util.isUnset(request.needShareFlight)) {
+      query["need_share_flight"] = request.needShareFlight;
+    }
+
+    if (!Util.isUnset(request.needYCBestPrice)) {
+      query["need_y_c_best_price"] = request.needYCBestPrice;
+    }
+
+    if (!Util.isUnset(request.searchJourneysShrink)) {
+      query["search_journeys"] = request.searchJourneysShrink;
+    }
+
+    if (!Util.isUnset(request.searchMode)) {
+      query["search_mode"] = request.searchMode;
+    }
+
+    if (!Util.isUnset(request.tripType)) {
+      query["trip_type"] = request.tripType;
+    }
+
+    let realHeaders : {[key: string ]: string} = { };
+    if (!Util.isUnset(headers.commonHeaders)) {
+      realHeaders = headers.commonHeaders;
+    }
+
+    if (!Util.isUnset(headers.xAcsBtripCorpToken)) {
+      realHeaders["x-acs-btrip-corp-token"] = Util.toJSONString(headers.xAcsBtripCorpToken);
+    }
+
+    let req = new $OpenApi.OpenApiRequest({
+      headers: realHeaders,
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApi.Params({
+      action: "FlightListingSearchV2",
+      version: "2022-05-20",
+      protocol: "HTTPS",
+      pathname: `/dtb-flight/v2/flight/action/listing-search`,
+      method: "GET",
+      authType: "AK",
+      style: "ROA",
+      reqBodyType: "json",
+      bodyType: "json",
+    });
+    return $tea.cast<FlightListingSearchV2Response>(await this.callApi(params, req, runtime), new FlightListingSearchV2Response({}));
+  }
+
+  async flightListingSearchV2(request: FlightListingSearchV2Request): Promise<FlightListingSearchV2Response> {
+    let runtime = new $Util.RuntimeOptions({ });
+    let headers = new FlightListingSearchV2Headers({ });
+    return await this.flightListingSearchV2WithOptions(request, headers, runtime);
+  }
+
   async flightOrderDetailInfoWithOptions(request: FlightOrderDetailInfoRequest, headers: FlightOrderDetailInfoHeaders, runtime: $Util.RuntimeOptions): Promise<FlightOrderDetailInfoResponse> {
     Util.validateModel(request);
     let query : {[key: string ]: any} = { };
@@ -34058,6 +38052,50 @@ export default class Client extends OpenApi {
     return await this.flightOrderQueryWithOptions(request, headers, runtime);
   }
 
+  async flightOtaItemDetailWithOptions(request: FlightOtaItemDetailRequest, headers: FlightOtaItemDetailHeaders, runtime: $Util.RuntimeOptions): Promise<FlightOtaItemDetailResponse> {
+    Util.validateModel(request);
+    let query : {[key: string ]: any} = { };
+    if (!Util.isUnset(request.isvName)) {
+      query["isv_name"] = request.isvName;
+    }
+
+    if (!Util.isUnset(request.otaItemId)) {
+      query["ota_item_id"] = request.otaItemId;
+    }
+
+    let realHeaders : {[key: string ]: string} = { };
+    if (!Util.isUnset(headers.commonHeaders)) {
+      realHeaders = headers.commonHeaders;
+    }
+
+    if (!Util.isUnset(headers.xAcsBtripCorpToken)) {
+      realHeaders["x-acs-btrip-corp-token"] = Util.toJSONString(headers.xAcsBtripCorpToken);
+    }
+
+    let req = new $OpenApi.OpenApiRequest({
+      headers: realHeaders,
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApi.Params({
+      action: "FlightOtaItemDetail",
+      version: "2022-05-20",
+      protocol: "HTTPS",
+      pathname: `/dtb-flight/v1/flight/action/ota-item-detail`,
+      method: "GET",
+      authType: "AK",
+      style: "ROA",
+      reqBodyType: "json",
+      bodyType: "json",
+    });
+    return $tea.cast<FlightOtaItemDetailResponse>(await this.callApi(params, req, runtime), new FlightOtaItemDetailResponse({}));
+  }
+
+  async flightOtaItemDetail(request: FlightOtaItemDetailRequest): Promise<FlightOtaItemDetailResponse> {
+    let runtime = new $Util.RuntimeOptions({ });
+    let headers = new FlightOtaItemDetailHeaders({ });
+    return await this.flightOtaItemDetailWithOptions(request, headers, runtime);
+  }
+
   async flightOtaSearchWithOptions(request: FlightOtaSearchRequest, headers: FlightOtaSearchHeaders, runtime: $Util.RuntimeOptions): Promise<FlightOtaSearchResponse> {
     Util.validateModel(request);
     let query : {[key: string ]: any} = { };
@@ -34120,6 +38158,80 @@ export default class Client extends OpenApi {
     let runtime = new $Util.RuntimeOptions({ });
     let headers = new FlightOtaSearchHeaders({ });
     return await this.flightOtaSearchWithOptions(request, headers, runtime);
+  }
+
+  async flightOtaSearchV2WithOptions(tmpReq: FlightOtaSearchV2Request, headers: FlightOtaSearchV2Headers, runtime: $Util.RuntimeOptions): Promise<FlightOtaSearchV2Response> {
+    Util.validateModel(tmpReq);
+    let request = new FlightOtaSearchV2ShrinkRequest({ });
+    OpenApiUtil.convert(tmpReq, request);
+    if (!Util.isUnset(tmpReq.cabinTypeList)) {
+      request.cabinTypeListShrink = OpenApiUtil.arrayToStringWithSpecifiedStyle(tmpReq.cabinTypeList, "cabin_type_list", "json");
+    }
+
+    if (!Util.isUnset(tmpReq.searchJourneys)) {
+      request.searchJourneysShrink = OpenApiUtil.arrayToStringWithSpecifiedStyle(tmpReq.searchJourneys, "search_journeys", "json");
+    }
+
+    let query : {[key: string ]: any} = { };
+    if (!Util.isUnset(request.cabinTypeListShrink)) {
+      query["cabin_type_list"] = request.cabinTypeListShrink;
+    }
+
+    if (!Util.isUnset(request.directOnly)) {
+      query["direct_only"] = request.directOnly;
+    }
+
+    if (!Util.isUnset(request.isvName)) {
+      query["isv_name"] = request.isvName;
+    }
+
+    if (!Util.isUnset(request.needShareFlight)) {
+      query["need_share_flight"] = request.needShareFlight;
+    }
+
+    if (!Util.isUnset(request.searchJourneysShrink)) {
+      query["search_journeys"] = request.searchJourneysShrink;
+    }
+
+    if (!Util.isUnset(request.searchMode)) {
+      query["search_mode"] = request.searchMode;
+    }
+
+    if (!Util.isUnset(request.tripType)) {
+      query["trip_type"] = request.tripType;
+    }
+
+    let realHeaders : {[key: string ]: string} = { };
+    if (!Util.isUnset(headers.commonHeaders)) {
+      realHeaders = headers.commonHeaders;
+    }
+
+    if (!Util.isUnset(headers.xAcsBtripCorpToken)) {
+      realHeaders["x-acs-btrip-corp-token"] = Util.toJSONString(headers.xAcsBtripCorpToken);
+    }
+
+    let req = new $OpenApi.OpenApiRequest({
+      headers: realHeaders,
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApi.Params({
+      action: "FlightOtaSearchV2",
+      version: "2022-05-20",
+      protocol: "HTTPS",
+      pathname: `/dtb-flight/v2/flight/action/ota-search`,
+      method: "GET",
+      authType: "AK",
+      style: "ROA",
+      reqBodyType: "json",
+      bodyType: "json",
+    });
+    return $tea.cast<FlightOtaSearchV2Response>(await this.callApi(params, req, runtime), new FlightOtaSearchV2Response({}));
+  }
+
+  async flightOtaSearchV2(request: FlightOtaSearchV2Request): Promise<FlightOtaSearchV2Response> {
+    let runtime = new $Util.RuntimeOptions({ });
+    let headers = new FlightOtaSearchV2Headers({ });
+    return await this.flightOtaSearchV2WithOptions(request, headers, runtime);
   }
 
   async flightPayOrderWithOptions(tmpReq: FlightPayOrderRequest, headers: FlightPayOrderHeaders, runtime: $Util.RuntimeOptions): Promise<FlightPayOrderResponse> {
