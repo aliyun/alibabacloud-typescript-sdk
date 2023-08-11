@@ -1607,6 +1607,255 @@ export class CreateResourceMemberResponse extends $tea.Model {
   }
 }
 
+export class CreateServiceAuthRequest extends $tea.Model {
+  serviceAuthType?: string;
+  static names(): { [key: string]: string } {
+    return {
+      serviceAuthType: 'serviceAuthType',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      serviceAuthType: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class CreateServiceAuthResponseBody extends $tea.Model {
+  errorCode?: string;
+  errorMessage?: string;
+  id?: string;
+  requestId?: string;
+  success?: boolean;
+  static names(): { [key: string]: string } {
+    return {
+      errorCode: 'errorCode',
+      errorMessage: 'errorMessage',
+      id: 'id',
+      requestId: 'requestId',
+      success: 'success',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      errorCode: 'string',
+      errorMessage: 'string',
+      id: 'string',
+      requestId: 'string',
+      success: 'boolean',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class CreateServiceAuthResponse extends $tea.Model {
+  headers: { [key: string]: string };
+  statusCode: number;
+  body: CreateServiceAuthResponseBody;
+  static names(): { [key: string]: string } {
+    return {
+      headers: 'headers',
+      statusCode: 'statusCode',
+      body: 'body',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
+      body: CreateServiceAuthResponseBody,
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class CreateServiceConnectionRequest extends $tea.Model {
+  authType?: string;
+  connectionName?: string;
+  connectionType?: string;
+  scope?: string;
+  serviceAuthId?: number;
+  static names(): { [key: string]: string } {
+    return {
+      authType: 'authType',
+      connectionName: 'connectionName',
+      connectionType: 'connectionType',
+      scope: 'scope',
+      serviceAuthId: 'serviceAuthId',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      authType: 'string',
+      connectionName: 'string',
+      connectionType: 'string',
+      scope: 'string',
+      serviceAuthId: 'number',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class CreateServiceConnectionResponseBody extends $tea.Model {
+  errorCode?: string;
+  errorMessage?: string;
+  id?: number;
+  requestId?: string;
+  success?: boolean;
+  static names(): { [key: string]: string } {
+    return {
+      errorCode: 'errorCode',
+      errorMessage: 'errorMessage',
+      id: 'id',
+      requestId: 'requestId',
+      success: 'success',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      errorCode: 'string',
+      errorMessage: 'string',
+      id: 'number',
+      requestId: 'string',
+      success: 'boolean',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class CreateServiceConnectionResponse extends $tea.Model {
+  headers: { [key: string]: string };
+  statusCode: number;
+  body: CreateServiceConnectionResponseBody;
+  static names(): { [key: string]: string } {
+    return {
+      headers: 'headers',
+      statusCode: 'statusCode',
+      body: 'body',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
+      body: CreateServiceConnectionResponseBody,
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class CreateServiceCredentialRequest extends $tea.Model {
+  name?: string;
+  password?: string;
+  scope?: string;
+  type?: string;
+  username?: string;
+  static names(): { [key: string]: string } {
+    return {
+      name: 'name',
+      password: 'password',
+      scope: 'scope',
+      type: 'type',
+      username: 'username',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      name: 'string',
+      password: 'string',
+      scope: 'string',
+      type: 'string',
+      username: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class CreateServiceCredentialResponseBody extends $tea.Model {
+  errorCode?: string;
+  errorMessage?: string;
+  id?: number;
+  requestId?: string;
+  success?: boolean;
+  static names(): { [key: string]: string } {
+    return {
+      errorCode: 'errorCode',
+      errorMessage: 'errorMessage',
+      id: 'id',
+      requestId: 'requestId',
+      success: 'success',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      errorCode: 'string',
+      errorMessage: 'string',
+      id: 'number',
+      requestId: 'string',
+      success: 'boolean',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class CreateServiceCredentialResponse extends $tea.Model {
+  headers: { [key: string]: string };
+  statusCode: number;
+  body: CreateServiceCredentialResponseBody;
+  static names(): { [key: string]: string } {
+    return {
+      headers: 'headers',
+      statusCode: 'statusCode',
+      body: 'body',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
+      body: CreateServiceCredentialResponseBody,
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
 export class CreateSprintRequest extends $tea.Model {
   endDate?: string;
   name?: string;
@@ -9738,6 +9987,81 @@ export class ListSearchSourceCodeResponse extends $tea.Model {
   }
 }
 
+export class ListServiceAuthsRequest extends $tea.Model {
+  serviceAuthType?: string;
+  static names(): { [key: string]: string } {
+    return {
+      serviceAuthType: 'serviceAuthType',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      serviceAuthType: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class ListServiceAuthsResponseBody extends $tea.Model {
+  errorCode?: string;
+  errorMessage?: string;
+  requestId?: string;
+  serviceAuths?: ListServiceAuthsResponseBodyServiceAuths[];
+  success?: boolean;
+  static names(): { [key: string]: string } {
+    return {
+      errorCode: 'errorCode',
+      errorMessage: 'errorMessage',
+      requestId: 'requestId',
+      serviceAuths: 'serviceAuths',
+      success: 'success',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      errorCode: 'string',
+      errorMessage: 'string',
+      requestId: 'string',
+      serviceAuths: { 'type': 'array', 'itemType': ListServiceAuthsResponseBodyServiceAuths },
+      success: 'boolean',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class ListServiceAuthsResponse extends $tea.Model {
+  headers: { [key: string]: string };
+  statusCode: number;
+  body: ListServiceAuthsResponseBody;
+  static names(): { [key: string]: string } {
+    return {
+      headers: 'headers',
+      statusCode: 'statusCode',
+      body: 'body',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
+      body: ListServiceAuthsResponseBody,
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
 export class ListServiceConnectionsRequest extends $tea.Model {
   sericeConnectionType?: string;
   static names(): { [key: string]: string } {
@@ -9805,6 +10129,81 @@ export class ListServiceConnectionsResponse extends $tea.Model {
       headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
       statusCode: 'number',
       body: ListServiceConnectionsResponseBody,
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class ListServiceCredentialsRequest extends $tea.Model {
+  serviceCredentialType?: string;
+  static names(): { [key: string]: string } {
+    return {
+      serviceCredentialType: 'serviceCredentialType',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      serviceCredentialType: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class ListServiceCredentialsResponseBody extends $tea.Model {
+  errorCode?: string;
+  errorMessage?: string;
+  requestId?: string;
+  serviceCredentials?: ListServiceCredentialsResponseBodyServiceCredentials[];
+  success?: boolean;
+  static names(): { [key: string]: string } {
+    return {
+      errorCode: 'errorCode',
+      errorMessage: 'errorMessage',
+      requestId: 'requestId',
+      serviceCredentials: 'serviceCredentials',
+      success: 'success',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      errorCode: 'string',
+      errorMessage: 'string',
+      requestId: 'string',
+      serviceCredentials: { 'type': 'array', 'itemType': ListServiceCredentialsResponseBodyServiceCredentials },
+      success: 'boolean',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class ListServiceCredentialsResponse extends $tea.Model {
+  headers: { [key: string]: string };
+  statusCode: number;
+  body: ListServiceCredentialsResponseBody;
+  static names(): { [key: string]: string } {
+    return {
+      headers: 'headers',
+      statusCode: 'statusCode',
+      body: 'body',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
+      body: ListServiceCredentialsResponseBody,
     };
   }
 
@@ -10408,6 +10807,65 @@ export class ListWorkItemWorkFlowStatusResponse extends $tea.Model {
       headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
       statusCode: 'number',
       body: ListWorkItemWorkFlowStatusResponseBody,
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class ListWorkitemEstimateResponseBody extends $tea.Model {
+  code?: number;
+  errorCode?: string;
+  errorMsg?: string;
+  requestId?: string;
+  success?: boolean;
+  workitemTimeEstimate?: ListWorkitemEstimateResponseBodyWorkitemTimeEstimate[];
+  static names(): { [key: string]: string } {
+    return {
+      code: 'code',
+      errorCode: 'errorCode',
+      errorMsg: 'errorMsg',
+      requestId: 'requestId',
+      success: 'success',
+      workitemTimeEstimate: 'workitemTimeEstimate',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      code: 'number',
+      errorCode: 'string',
+      errorMsg: 'string',
+      requestId: 'string',
+      success: 'boolean',
+      workitemTimeEstimate: { 'type': 'array', 'itemType': ListWorkitemEstimateResponseBodyWorkitemTimeEstimate },
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class ListWorkitemEstimateResponse extends $tea.Model {
+  headers: { [key: string]: string };
+  statusCode: number;
+  body: ListWorkitemEstimateResponseBody;
+  static names(): { [key: string]: string } {
+    return {
+      headers: 'headers',
+      statusCode: 'statusCode',
+      body: 'body',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
+      body: ListWorkitemEstimateResponseBody,
     };
   }
 
@@ -12449,6 +12907,87 @@ export class UpdatePipelineGroupResponse extends $tea.Model {
       headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
       statusCode: 'number',
       body: UpdatePipelineGroupResponseBody,
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class UpdateProjectFieldRequest extends $tea.Model {
+  statusIdentifier?: string;
+  updateBasicFieldRequestList?: UpdateProjectFieldRequestUpdateBasicFieldRequestList[];
+  updateForOpenApiList?: UpdateProjectFieldRequestUpdateForOpenApiList[];
+  static names(): { [key: string]: string } {
+    return {
+      statusIdentifier: 'statusIdentifier',
+      updateBasicFieldRequestList: 'updateBasicFieldRequestList',
+      updateForOpenApiList: 'updateForOpenApiList',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      statusIdentifier: 'string',
+      updateBasicFieldRequestList: { 'type': 'array', 'itemType': UpdateProjectFieldRequestUpdateBasicFieldRequestList },
+      updateForOpenApiList: { 'type': 'array', 'itemType': UpdateProjectFieldRequestUpdateForOpenApiList },
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class UpdateProjectFieldResponseBody extends $tea.Model {
+  errorCode?: string;
+  errorMessage?: string;
+  project?: UpdateProjectFieldResponseBodyProject;
+  requestId?: string;
+  success?: boolean;
+  static names(): { [key: string]: string } {
+    return {
+      errorCode: 'errorCode',
+      errorMessage: 'errorMessage',
+      project: 'project',
+      requestId: 'requestId',
+      success: 'success',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      errorCode: 'string',
+      errorMessage: 'string',
+      project: UpdateProjectFieldResponseBodyProject,
+      requestId: 'string',
+      success: 'boolean',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class UpdateProjectFieldResponse extends $tea.Model {
+  headers: { [key: string]: string };
+  statusCode: number;
+  body: UpdateProjectFieldResponseBody;
+  static names(): { [key: string]: string } {
+    return {
+      headers: 'headers',
+      statusCode: 'statusCode',
+      body: 'body',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
+      body: UpdateProjectFieldResponseBody,
     };
   }
 
@@ -21198,6 +21737,34 @@ export class ListSearchSourceCodeResponseBodyResult extends $tea.Model {
   }
 }
 
+export class ListServiceAuthsResponseBodyServiceAuths extends $tea.Model {
+  id?: number;
+  ownerName?: string;
+  ownerStaffId?: string;
+  type?: string;
+  static names(): { [key: string]: string } {
+    return {
+      id: 'id',
+      ownerName: 'ownerName',
+      ownerStaffId: 'ownerStaffId',
+      type: 'type',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      id: 'number',
+      ownerName: 'string',
+      ownerStaffId: 'string',
+      type: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
 export class ListServiceConnectionsResponseBodyServiceConnections extends $tea.Model {
   createTime?: number;
   id?: number;
@@ -21220,6 +21787,34 @@ export class ListServiceConnectionsResponseBodyServiceConnections extends $tea.M
       id: 'number',
       name: 'string',
       ownerAccountId: 'number',
+      type: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class ListServiceCredentialsResponseBodyServiceCredentials extends $tea.Model {
+  id?: number;
+  ownerName?: string;
+  ownerStaffId?: string;
+  type?: string;
+  static names(): { [key: string]: string } {
+    return {
+      id: 'id',
+      ownerName: 'ownerName',
+      ownerStaffId: 'ownerStaffId',
+      type: 'type',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      id: 'number',
+      ownerName: 'string',
+      ownerStaffId: 'string',
       type: 'string',
     };
   }
@@ -21943,6 +22538,74 @@ export class ListWorkItemWorkFlowStatusResponseBodyStatuses extends $tea.Model {
   }
 }
 
+export class ListWorkitemEstimateResponseBodyWorkitemTimeEstimateRecordUser extends $tea.Model {
+  identifier?: string;
+  name?: string;
+  static names(): { [key: string]: string } {
+    return {
+      identifier: 'identifier',
+      name: 'name',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      identifier: 'string',
+      name: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class ListWorkitemEstimateResponseBodyWorkitemTimeEstimate extends $tea.Model {
+  description?: string;
+  gmtCreate?: number;
+  gmtEnd?: number;
+  gmtModified?: number;
+  gmtStart?: number;
+  identifier?: string;
+  recordUser?: ListWorkitemEstimateResponseBodyWorkitemTimeEstimateRecordUser;
+  spentTime?: number;
+  type?: string;
+  workitemIdentifier?: string;
+  static names(): { [key: string]: string } {
+    return {
+      description: 'description',
+      gmtCreate: 'gmtCreate',
+      gmtEnd: 'gmtEnd',
+      gmtModified: 'gmtModified',
+      gmtStart: 'gmtStart',
+      identifier: 'identifier',
+      recordUser: 'recordUser',
+      spentTime: 'spentTime',
+      type: 'type',
+      workitemIdentifier: 'workitemIdentifier',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      description: 'string',
+      gmtCreate: 'number',
+      gmtEnd: 'number',
+      gmtModified: 'number',
+      gmtStart: 'number',
+      identifier: 'string',
+      recordUser: ListWorkitemEstimateResponseBodyWorkitemTimeEstimateRecordUser,
+      spentTime: 'number',
+      type: 'string',
+      workitemIdentifier: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
 export class ListWorkitemTimeResponseBodyWorkitemTime extends $tea.Model {
   actualTime?: number;
   description?: string;
@@ -22387,6 +23050,172 @@ export class UpdateGroupMemberResponseBodyResult extends $tea.Model {
       sourceId: 'number',
       state: 'string',
       username: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class UpdateProjectFieldRequestUpdateBasicFieldRequestList extends $tea.Model {
+  propertyKey?: string;
+  propertyValue?: string;
+  static names(): { [key: string]: string } {
+    return {
+      propertyKey: 'propertyKey',
+      propertyValue: 'propertyValue',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      propertyKey: 'string',
+      propertyValue: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class UpdateProjectFieldRequestUpdateForOpenApiList extends $tea.Model {
+  fieldIdentifier?: string;
+  value?: string;
+  static names(): { [key: string]: string } {
+    return {
+      fieldIdentifier: 'fieldIdentifier',
+      value: 'value',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      fieldIdentifier: 'string',
+      value: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class UpdateProjectFieldResponseBodyProjectFieldList extends $tea.Model {
+  displayName?: string;
+  identifier?: string;
+  value?: string;
+  valueType?: string;
+  static names(): { [key: string]: string } {
+    return {
+      displayName: 'displayName',
+      identifier: 'identifier',
+      value: 'value',
+      valueType: 'valueType',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      displayName: 'string',
+      identifier: 'string',
+      value: 'string',
+      valueType: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class UpdateProjectFieldResponseBodyProject extends $tea.Model {
+  category?: string;
+  categoryIdentifier?: string;
+  creator?: string;
+  customCode?: string;
+  description?: string;
+  fieldList?: UpdateProjectFieldResponseBodyProjectFieldList[];
+  gmtCreate?: number;
+  gmtModified?: number;
+  icon?: string;
+  iconBig?: string;
+  iconGroup?: string;
+  iconSmall?: string;
+  id?: string;
+  identifier?: string;
+  identifierPath?: string;
+  logicalStatus?: string;
+  modifier?: string;
+  name?: string;
+  organizationIdentifier?: string;
+  parentIdentifier?: string;
+  scope?: string;
+  statusIdentifier?: string;
+  statusName?: string;
+  statusStageIdentifier?: string;
+  subType?: string;
+  typeIdentifier?: string;
+  static names(): { [key: string]: string } {
+    return {
+      category: 'category',
+      categoryIdentifier: 'categoryIdentifier',
+      creator: 'creator',
+      customCode: 'customCode',
+      description: 'description',
+      fieldList: 'fieldList',
+      gmtCreate: 'gmtCreate',
+      gmtModified: 'gmtModified',
+      icon: 'icon',
+      iconBig: 'iconBig',
+      iconGroup: 'iconGroup',
+      iconSmall: 'iconSmall',
+      id: 'id',
+      identifier: 'identifier',
+      identifierPath: 'identifierPath',
+      logicalStatus: 'logicalStatus',
+      modifier: 'modifier',
+      name: 'name',
+      organizationIdentifier: 'organizationIdentifier',
+      parentIdentifier: 'parentIdentifier',
+      scope: 'scope',
+      statusIdentifier: 'statusIdentifier',
+      statusName: 'statusName',
+      statusStageIdentifier: 'statusStageIdentifier',
+      subType: 'subType',
+      typeIdentifier: 'typeIdentifier',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      category: 'string',
+      categoryIdentifier: 'string',
+      creator: 'string',
+      customCode: 'string',
+      description: 'string',
+      fieldList: { 'type': 'array', 'itemType': UpdateProjectFieldResponseBodyProjectFieldList },
+      gmtCreate: 'number',
+      gmtModified: 'number',
+      icon: 'string',
+      iconBig: 'string',
+      iconGroup: 'string',
+      iconSmall: 'string',
+      id: 'string',
+      identifier: 'string',
+      identifierPath: 'string',
+      logicalStatus: 'string',
+      modifier: 'string',
+      name: 'string',
+      organizationIdentifier: 'string',
+      parentIdentifier: 'string',
+      scope: 'string',
+      statusIdentifier: 'string',
+      statusName: 'string',
+      statusStageIdentifier: 'string',
+      subType: 'string',
+      typeIdentifier: 'string',
     };
   }
 
@@ -24585,6 +25414,131 @@ export default class Client extends OpenApi {
     let runtime = new $Util.RuntimeOptions({ });
     let headers : {[key: string ]: string} = { };
     return await this.createResourceMemberWithOptions(organizationId, resourceType, resourceId, request, headers, runtime);
+  }
+
+  async createServiceAuthWithOptions(organizationId: string, request: CreateServiceAuthRequest, headers: {[key: string ]: string}, runtime: $Util.RuntimeOptions): Promise<CreateServiceAuthResponse> {
+    Util.validateModel(request);
+    let query : {[key: string ]: any} = { };
+    if (!Util.isUnset(request.serviceAuthType)) {
+      query["serviceAuthType"] = request.serviceAuthType;
+    }
+
+    let req = new $OpenApi.OpenApiRequest({
+      headers: headers,
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApi.Params({
+      action: "CreateServiceAuth",
+      version: "2021-06-25",
+      protocol: "HTTPS",
+      pathname: `/organization/${OpenApiUtil.getEncodeParam(organizationId)}/serviceAuths`,
+      method: "POST",
+      authType: "AK",
+      style: "ROA",
+      reqBodyType: "json",
+      bodyType: "json",
+    });
+    return $tea.cast<CreateServiceAuthResponse>(await this.callApi(params, req, runtime), new CreateServiceAuthResponse({}));
+  }
+
+  async createServiceAuth(organizationId: string, request: CreateServiceAuthRequest): Promise<CreateServiceAuthResponse> {
+    let runtime = new $Util.RuntimeOptions({ });
+    let headers : {[key: string ]: string} = { };
+    return await this.createServiceAuthWithOptions(organizationId, request, headers, runtime);
+  }
+
+  async createServiceConnectionWithOptions(organizationId: string, request: CreateServiceConnectionRequest, headers: {[key: string ]: string}, runtime: $Util.RuntimeOptions): Promise<CreateServiceConnectionResponse> {
+    Util.validateModel(request);
+    let body : {[key: string ]: any} = { };
+    if (!Util.isUnset(request.authType)) {
+      body["authType"] = request.authType;
+    }
+
+    if (!Util.isUnset(request.connectionName)) {
+      body["connectionName"] = request.connectionName;
+    }
+
+    if (!Util.isUnset(request.connectionType)) {
+      body["connectionType"] = request.connectionType;
+    }
+
+    if (!Util.isUnset(request.scope)) {
+      body["scope"] = request.scope;
+    }
+
+    if (!Util.isUnset(request.serviceAuthId)) {
+      body["serviceAuthId"] = request.serviceAuthId;
+    }
+
+    let req = new $OpenApi.OpenApiRequest({
+      headers: headers,
+      body: OpenApiUtil.parseToMap(body),
+    });
+    let params = new $OpenApi.Params({
+      action: "CreateServiceConnection",
+      version: "2021-06-25",
+      protocol: "HTTPS",
+      pathname: `/organization/${OpenApiUtil.getEncodeParam(organizationId)}/createServiceConnection`,
+      method: "POST",
+      authType: "AK",
+      style: "ROA",
+      reqBodyType: "json",
+      bodyType: "json",
+    });
+    return $tea.cast<CreateServiceConnectionResponse>(await this.callApi(params, req, runtime), new CreateServiceConnectionResponse({}));
+  }
+
+  async createServiceConnection(organizationId: string, request: CreateServiceConnectionRequest): Promise<CreateServiceConnectionResponse> {
+    let runtime = new $Util.RuntimeOptions({ });
+    let headers : {[key: string ]: string} = { };
+    return await this.createServiceConnectionWithOptions(organizationId, request, headers, runtime);
+  }
+
+  async createServiceCredentialWithOptions(organizationId: string, request: CreateServiceCredentialRequest, headers: {[key: string ]: string}, runtime: $Util.RuntimeOptions): Promise<CreateServiceCredentialResponse> {
+    Util.validateModel(request);
+    let body : {[key: string ]: any} = { };
+    if (!Util.isUnset(request.name)) {
+      body["name"] = request.name;
+    }
+
+    if (!Util.isUnset(request.password)) {
+      body["password"] = request.password;
+    }
+
+    if (!Util.isUnset(request.scope)) {
+      body["scope"] = request.scope;
+    }
+
+    if (!Util.isUnset(request.type)) {
+      body["type"] = request.type;
+    }
+
+    if (!Util.isUnset(request.username)) {
+      body["username"] = request.username;
+    }
+
+    let req = new $OpenApi.OpenApiRequest({
+      headers: headers,
+      body: OpenApiUtil.parseToMap(body),
+    });
+    let params = new $OpenApi.Params({
+      action: "CreateServiceCredential",
+      version: "2021-06-25",
+      protocol: "HTTPS",
+      pathname: `/organization/${OpenApiUtil.getEncodeParam(organizationId)}/serviceCredentials`,
+      method: "POST",
+      authType: "AK",
+      style: "ROA",
+      reqBodyType: "json",
+      bodyType: "json",
+    });
+    return $tea.cast<CreateServiceCredentialResponse>(await this.callApi(params, req, runtime), new CreateServiceCredentialResponse({}));
+  }
+
+  async createServiceCredential(organizationId: string, request: CreateServiceCredentialRequest): Promise<CreateServiceCredentialResponse> {
+    let runtime = new $Util.RuntimeOptions({ });
+    let headers : {[key: string ]: string} = { };
+    return await this.createServiceCredentialWithOptions(organizationId, request, headers, runtime);
   }
 
   async createSprintWithOptions(organizationId: string, request: CreateSprintRequest, headers: {[key: string ]: string}, runtime: $Util.RuntimeOptions): Promise<CreateSprintResponse> {
@@ -28663,6 +29617,37 @@ export default class Client extends OpenApi {
     return await this.listSearchSourceCodeWithOptions(request, headers, runtime);
   }
 
+  async listServiceAuthsWithOptions(organizationId: string, request: ListServiceAuthsRequest, headers: {[key: string ]: string}, runtime: $Util.RuntimeOptions): Promise<ListServiceAuthsResponse> {
+    Util.validateModel(request);
+    let query : {[key: string ]: any} = { };
+    if (!Util.isUnset(request.serviceAuthType)) {
+      query["serviceAuthType"] = request.serviceAuthType;
+    }
+
+    let req = new $OpenApi.OpenApiRequest({
+      headers: headers,
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApi.Params({
+      action: "ListServiceAuths",
+      version: "2021-06-25",
+      protocol: "HTTPS",
+      pathname: `/organization/${OpenApiUtil.getEncodeParam(organizationId)}/serviceAuths`,
+      method: "GET",
+      authType: "AK",
+      style: "ROA",
+      reqBodyType: "json",
+      bodyType: "json",
+    });
+    return $tea.cast<ListServiceAuthsResponse>(await this.callApi(params, req, runtime), new ListServiceAuthsResponse({}));
+  }
+
+  async listServiceAuths(organizationId: string, request: ListServiceAuthsRequest): Promise<ListServiceAuthsResponse> {
+    let runtime = new $Util.RuntimeOptions({ });
+    let headers : {[key: string ]: string} = { };
+    return await this.listServiceAuthsWithOptions(organizationId, request, headers, runtime);
+  }
+
   async listServiceConnectionsWithOptions(organizationId: string, request: ListServiceConnectionsRequest, headers: {[key: string ]: string}, runtime: $Util.RuntimeOptions): Promise<ListServiceConnectionsResponse> {
     Util.validateModel(request);
     let query : {[key: string ]: any} = { };
@@ -28692,6 +29677,37 @@ export default class Client extends OpenApi {
     let runtime = new $Util.RuntimeOptions({ });
     let headers : {[key: string ]: string} = { };
     return await this.listServiceConnectionsWithOptions(organizationId, request, headers, runtime);
+  }
+
+  async listServiceCredentialsWithOptions(organizationId: string, request: ListServiceCredentialsRequest, headers: {[key: string ]: string}, runtime: $Util.RuntimeOptions): Promise<ListServiceCredentialsResponse> {
+    Util.validateModel(request);
+    let query : {[key: string ]: any} = { };
+    if (!Util.isUnset(request.serviceCredentialType)) {
+      query["serviceCredentialType"] = request.serviceCredentialType;
+    }
+
+    let req = new $OpenApi.OpenApiRequest({
+      headers: headers,
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApi.Params({
+      action: "ListServiceCredentials",
+      version: "2021-06-25",
+      protocol: "HTTPS",
+      pathname: `/organization/${OpenApiUtil.getEncodeParam(organizationId)}/serviceCredentials`,
+      method: "GET",
+      authType: "AK",
+      style: "ROA",
+      reqBodyType: "json",
+      bodyType: "json",
+    });
+    return $tea.cast<ListServiceCredentialsResponse>(await this.callApi(params, req, runtime), new ListServiceCredentialsResponse({}));
+  }
+
+  async listServiceCredentials(organizationId: string, request: ListServiceCredentialsRequest): Promise<ListServiceCredentialsResponse> {
+    let runtime = new $Util.RuntimeOptions({ });
+    let headers : {[key: string ]: string} = { };
+    return await this.listServiceCredentialsWithOptions(organizationId, request, headers, runtime);
   }
 
   async listSprintsWithOptions(organizationId: string, request: ListSprintsRequest, headers: {[key: string ]: string}, runtime: $Util.RuntimeOptions): Promise<ListSprintsResponse> {
@@ -28989,6 +30005,30 @@ export default class Client extends OpenApi {
     let runtime = new $Util.RuntimeOptions({ });
     let headers : {[key: string ]: string} = { };
     return await this.listWorkItemWorkFlowStatusWithOptions(organizationId, request, headers, runtime);
+  }
+
+  async listWorkitemEstimateWithOptions(organizationId: string, workitemId: string, headers: {[key: string ]: string}, runtime: $Util.RuntimeOptions): Promise<ListWorkitemEstimateResponse> {
+    let req = new $OpenApi.OpenApiRequest({
+      headers: headers,
+    });
+    let params = new $OpenApi.Params({
+      action: "ListWorkitemEstimate",
+      version: "2021-06-25",
+      protocol: "HTTPS",
+      pathname: `/organization/${OpenApiUtil.getEncodeParam(organizationId)}/workitems/${OpenApiUtil.getEncodeParam(workitemId)}/estimate/list`,
+      method: "GET",
+      authType: "AK",
+      style: "ROA",
+      reqBodyType: "json",
+      bodyType: "json",
+    });
+    return $tea.cast<ListWorkitemEstimateResponse>(await this.callApi(params, req, runtime), new ListWorkitemEstimateResponse({}));
+  }
+
+  async listWorkitemEstimate(organizationId: string, workitemId: string): Promise<ListWorkitemEstimateResponse> {
+    let runtime = new $Util.RuntimeOptions({ });
+    let headers : {[key: string ]: string} = { };
+    return await this.listWorkitemEstimateWithOptions(organizationId, workitemId, headers, runtime);
   }
 
   async listWorkitemTimeWithOptions(organizationId: string, workitemId: string, headers: {[key: string ]: string}, runtime: $Util.RuntimeOptions): Promise<ListWorkitemTimeResponse> {
@@ -30003,6 +31043,45 @@ export default class Client extends OpenApi {
     let runtime = new $Util.RuntimeOptions({ });
     let headers : {[key: string ]: string} = { };
     return await this.updatePipelineGroupWithOptions(organizationId, groupId, request, headers, runtime);
+  }
+
+  async updateProjectFieldWithOptions(organizationId: string, identifier: string, request: UpdateProjectFieldRequest, headers: {[key: string ]: string}, runtime: $Util.RuntimeOptions): Promise<UpdateProjectFieldResponse> {
+    Util.validateModel(request);
+    let body : {[key: string ]: any} = { };
+    if (!Util.isUnset(request.statusIdentifier)) {
+      body["statusIdentifier"] = request.statusIdentifier;
+    }
+
+    if (!Util.isUnset(request.updateBasicFieldRequestList)) {
+      body["updateBasicFieldRequestList"] = request.updateBasicFieldRequestList;
+    }
+
+    if (!Util.isUnset(request.updateForOpenApiList)) {
+      body["updateForOpenApiList"] = request.updateForOpenApiList;
+    }
+
+    let req = new $OpenApi.OpenApiRequest({
+      headers: headers,
+      body: OpenApiUtil.parseToMap(body),
+    });
+    let params = new $OpenApi.Params({
+      action: "UpdateProjectField",
+      version: "2021-06-25",
+      protocol: "HTTPS",
+      pathname: `/organization/${OpenApiUtil.getEncodeParam(organizationId)}/project/${OpenApiUtil.getEncodeParam(identifier)}`,
+      method: "POST",
+      authType: "AK",
+      style: "ROA",
+      reqBodyType: "json",
+      bodyType: "json",
+    });
+    return $tea.cast<UpdateProjectFieldResponse>(await this.callApi(params, req, runtime), new UpdateProjectFieldResponse({}));
+  }
+
+  async updateProjectField(organizationId: string, identifier: string, request: UpdateProjectFieldRequest): Promise<UpdateProjectFieldResponse> {
+    let runtime = new $Util.RuntimeOptions({ });
+    let headers : {[key: string ]: string} = { };
+    return await this.updateProjectFieldWithOptions(organizationId, identifier, request, headers, runtime);
   }
 
   async updateProjectMemberWithOptions(organizationId: string, projectId: string, request: UpdateProjectMemberRequest, headers: {[key: string ]: string}, runtime: $Util.RuntimeOptions): Promise<UpdateProjectMemberResponse> {
