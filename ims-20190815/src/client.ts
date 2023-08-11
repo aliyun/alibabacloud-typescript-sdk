@@ -726,6 +726,7 @@ export class CreateOIDCProviderRequest extends $tea.Model {
   clientIds?: string;
   description?: string;
   fingerprints?: string;
+  issuanceLimitTime?: number;
   issuerUrl?: string;
   OIDCProviderName?: string;
   static names(): { [key: string]: string } {
@@ -733,6 +734,7 @@ export class CreateOIDCProviderRequest extends $tea.Model {
       clientIds: 'ClientIds',
       description: 'Description',
       fingerprints: 'Fingerprints',
+      issuanceLimitTime: 'IssuanceLimitTime',
       issuerUrl: 'IssuerUrl',
       OIDCProviderName: 'OIDCProviderName',
     };
@@ -743,6 +745,7 @@ export class CreateOIDCProviderRequest extends $tea.Model {
       clientIds: 'string',
       description: 'string',
       fingerprints: 'string',
+      issuanceLimitTime: 'number',
       issuerUrl: 'string',
       OIDCProviderName: 'string',
     };
@@ -4726,11 +4729,13 @@ export class UpdateLoginProfileResponse extends $tea.Model {
 
 export class UpdateOIDCProviderRequest extends $tea.Model {
   clientIds?: string;
+  issuanceLimitTime?: number;
   newDescription?: string;
   OIDCProviderName?: string;
   static names(): { [key: string]: string } {
     return {
       clientIds: 'ClientIds',
+      issuanceLimitTime: 'IssuanceLimitTime',
       newDescription: 'NewDescription',
       OIDCProviderName: 'OIDCProviderName',
     };
@@ -4739,6 +4744,7 @@ export class UpdateOIDCProviderRequest extends $tea.Model {
   static types(): { [key: string]: any } {
     return {
       clientIds: 'string',
+      issuanceLimitTime: 'number',
       newDescription: 'string',
       OIDCProviderName: 'string',
     };
@@ -4960,6 +4966,7 @@ export class AddClientIdToOIDCProviderResponseBodyOIDCProvider extends $tea.Mode
   fingerprints?: string;
   gmtCreate?: string;
   gmtModified?: string;
+  issuanceLimitTime?: number;
   issuerUrl?: string;
   OIDCProviderName?: string;
   updateDate?: string;
@@ -4972,6 +4979,7 @@ export class AddClientIdToOIDCProviderResponseBodyOIDCProvider extends $tea.Mode
       fingerprints: 'Fingerprints',
       gmtCreate: 'GmtCreate',
       gmtModified: 'GmtModified',
+      issuanceLimitTime: 'IssuanceLimitTime',
       issuerUrl: 'IssuerUrl',
       OIDCProviderName: 'OIDCProviderName',
       updateDate: 'UpdateDate',
@@ -4987,6 +4995,7 @@ export class AddClientIdToOIDCProviderResponseBodyOIDCProvider extends $tea.Mode
       fingerprints: 'string',
       gmtCreate: 'string',
       gmtModified: 'string',
+      issuanceLimitTime: 'number',
       issuerUrl: 'string',
       OIDCProviderName: 'string',
       updateDate: 'string',
@@ -5006,6 +5015,7 @@ export class AddFingerprintToOIDCProviderResponseBodyOIDCProvider extends $tea.M
   fingerprints?: string;
   gmtCreate?: string;
   gmtModified?: string;
+  issuanceLimitTime?: number;
   issuerUrl?: string;
   OIDCProviderName?: string;
   updateDate?: string;
@@ -5018,6 +5028,7 @@ export class AddFingerprintToOIDCProviderResponseBodyOIDCProvider extends $tea.M
       fingerprints: 'Fingerprints',
       gmtCreate: 'GmtCreate',
       gmtModified: 'GmtModified',
+      issuanceLimitTime: 'IssuanceLimitTime',
       issuerUrl: 'IssuerUrl',
       OIDCProviderName: 'OIDCProviderName',
       updateDate: 'UpdateDate',
@@ -5033,6 +5044,7 @@ export class AddFingerprintToOIDCProviderResponseBodyOIDCProvider extends $tea.M
       fingerprints: 'string',
       gmtCreate: 'string',
       gmtModified: 'string',
+      issuanceLimitTime: 'number',
       issuerUrl: 'string',
       OIDCProviderName: 'string',
       updateDate: 'string',
@@ -5307,6 +5319,7 @@ export class CreateOIDCProviderResponseBodyOIDCProvider extends $tea.Model {
   fingerprints?: string;
   gmtCreate?: string;
   gmtModified?: string;
+  issuanceLimitTime?: number;
   issuerUrl?: string;
   OIDCProviderName?: string;
   updateDate?: string;
@@ -5319,6 +5332,7 @@ export class CreateOIDCProviderResponseBodyOIDCProvider extends $tea.Model {
       fingerprints: 'Fingerprints',
       gmtCreate: 'GmtCreate',
       gmtModified: 'GmtModified',
+      issuanceLimitTime: 'IssuanceLimitTime',
       issuerUrl: 'IssuerUrl',
       OIDCProviderName: 'OIDCProviderName',
       updateDate: 'UpdateDate',
@@ -5334,6 +5348,7 @@ export class CreateOIDCProviderResponseBodyOIDCProvider extends $tea.Model {
       fingerprints: 'string',
       gmtCreate: 'string',
       gmtModified: 'string',
+      issuanceLimitTime: 'number',
       issuerUrl: 'string',
       OIDCProviderName: 'string',
       updateDate: 'string',
@@ -5917,6 +5932,7 @@ export class GetOIDCProviderResponseBodyOIDCProvider extends $tea.Model {
   fingerprints?: string;
   gmtCreate?: string;
   gmtModified?: string;
+  issuanceLimitTime?: number;
   issuerUrl?: string;
   OIDCProviderName?: string;
   updateDate?: string;
@@ -5929,6 +5945,7 @@ export class GetOIDCProviderResponseBodyOIDCProvider extends $tea.Model {
       fingerprints: 'Fingerprints',
       gmtCreate: 'GmtCreate',
       gmtModified: 'GmtModified',
+      issuanceLimitTime: 'IssuanceLimitTime',
       issuerUrl: 'IssuerUrl',
       OIDCProviderName: 'OIDCProviderName',
       updateDate: 'UpdateDate',
@@ -5944,6 +5961,7 @@ export class GetOIDCProviderResponseBodyOIDCProvider extends $tea.Model {
       fingerprints: 'string',
       gmtCreate: 'string',
       gmtModified: 'string',
+      issuanceLimitTime: 'number',
       issuerUrl: 'string',
       OIDCProviderName: 'string',
       updateDate: 'string',
@@ -6671,6 +6689,7 @@ export class ListOIDCProvidersResponseBodyOIDCProvidersOIDCProvider extends $tea
   fingerprints?: string;
   gmtCreate?: string;
   gmtModified?: string;
+  issuanceLimitTime?: number;
   issuerUrl?: string;
   OIDCProviderName?: string;
   updateDate?: string;
@@ -6683,6 +6702,7 @@ export class ListOIDCProvidersResponseBodyOIDCProvidersOIDCProvider extends $tea
       fingerprints: 'Fingerprints',
       gmtCreate: 'GmtCreate',
       gmtModified: 'GmtModified',
+      issuanceLimitTime: 'IssuanceLimitTime',
       issuerUrl: 'IssuerUrl',
       OIDCProviderName: 'OIDCProviderName',
       updateDate: 'UpdateDate',
@@ -6698,6 +6718,7 @@ export class ListOIDCProvidersResponseBodyOIDCProvidersOIDCProvider extends $tea
       fingerprints: 'string',
       gmtCreate: 'string',
       gmtModified: 'string',
+      issuanceLimitTime: 'number',
       issuerUrl: 'string',
       OIDCProviderName: 'string',
       updateDate: 'string',
@@ -7209,6 +7230,7 @@ export class RemoveClientIdFromOIDCProviderResponseBodyOIDCProvider extends $tea
   fingerprints?: string;
   gmtCreate?: string;
   gmtModified?: string;
+  issuanceLimitTime?: number;
   issuerUrl?: string;
   OIDCProviderName?: string;
   updateDate?: string;
@@ -7221,6 +7243,7 @@ export class RemoveClientIdFromOIDCProviderResponseBodyOIDCProvider extends $tea
       fingerprints: 'Fingerprints',
       gmtCreate: 'GmtCreate',
       gmtModified: 'GmtModified',
+      issuanceLimitTime: 'IssuanceLimitTime',
       issuerUrl: 'IssuerUrl',
       OIDCProviderName: 'OIDCProviderName',
       updateDate: 'UpdateDate',
@@ -7236,6 +7259,7 @@ export class RemoveClientIdFromOIDCProviderResponseBodyOIDCProvider extends $tea
       fingerprints: 'string',
       gmtCreate: 'string',
       gmtModified: 'string',
+      issuanceLimitTime: 'number',
       issuerUrl: 'string',
       OIDCProviderName: 'string',
       updateDate: 'string',
@@ -7255,6 +7279,7 @@ export class RemoveFingerprintFromOIDCProviderResponseBodyOIDCProvider extends $
   fingerprints?: string;
   gmtCreate?: string;
   gmtModified?: string;
+  issuanceLimitTime?: number;
   issuerUrl?: string;
   OIDCProviderName?: string;
   updateDate?: string;
@@ -7267,6 +7292,7 @@ export class RemoveFingerprintFromOIDCProviderResponseBodyOIDCProvider extends $
       fingerprints: 'Fingerprints',
       gmtCreate: 'GmtCreate',
       gmtModified: 'GmtModified',
+      issuanceLimitTime: 'IssuanceLimitTime',
       issuerUrl: 'IssuerUrl',
       OIDCProviderName: 'OIDCProviderName',
       updateDate: 'UpdateDate',
@@ -7282,6 +7308,7 @@ export class RemoveFingerprintFromOIDCProviderResponseBodyOIDCProvider extends $
       fingerprints: 'string',
       gmtCreate: 'string',
       gmtModified: 'string',
+      issuanceLimitTime: 'number',
       issuerUrl: 'string',
       OIDCProviderName: 'string',
       updateDate: 'string',
@@ -7756,6 +7783,7 @@ export class UpdateOIDCProviderResponseBodyOIDCProvider extends $tea.Model {
   fingerprints?: string;
   gmtCreate?: string;
   gmtModified?: string;
+  issuanceLimitTime?: number;
   issuerUrl?: string;
   OIDCProviderName?: string;
   updateDate?: string;
@@ -7768,6 +7796,7 @@ export class UpdateOIDCProviderResponseBodyOIDCProvider extends $tea.Model {
       fingerprints: 'Fingerprints',
       gmtCreate: 'GmtCreate',
       gmtModified: 'GmtModified',
+      issuanceLimitTime: 'IssuanceLimitTime',
       issuerUrl: 'IssuerUrl',
       OIDCProviderName: 'OIDCProviderName',
       updateDate: 'UpdateDate',
@@ -7783,6 +7812,7 @@ export class UpdateOIDCProviderResponseBodyOIDCProvider extends $tea.Model {
       fingerprints: 'string',
       gmtCreate: 'string',
       gmtModified: 'string',
+      issuanceLimitTime: 'number',
       issuerUrl: 'string',
       OIDCProviderName: 'string',
       updateDate: 'string',
@@ -7895,6 +7925,7 @@ export default class Client extends OpenApi {
   }
 
   /**
+    * ###
     * This topic provides an example on how to add the client ID `598469743454717****` to the OIDC IdP named `TestOIDCProvider`.
     *
     * @param request AddClientIdToOIDCProviderRequest
@@ -7930,6 +7961,7 @@ export default class Client extends OpenApi {
   }
 
   /**
+    * ###
     * This topic provides an example on how to add the client ID `598469743454717****` to the OIDC IdP named `TestOIDCProvider`.
     *
     * @param request AddClientIdToOIDCProviderRequest
@@ -7941,6 +7973,7 @@ export default class Client extends OpenApi {
   }
 
   /**
+    * ###
     * This topic provides an example on how to add the fingerprint `902ef2deeb3c5b13ea4c3d5193629309e231****` to the OIDC IdP named `TestOIDCProvider`.
     *
     * @param request AddFingerprintToOIDCProviderRequest
@@ -7976,6 +8009,7 @@ export default class Client extends OpenApi {
   }
 
   /**
+    * ###
     * This topic provides an example on how to add the fingerprint `902ef2deeb3c5b13ea4c3d5193629309e231****` to the OIDC IdP named `TestOIDCProvider`.
     *
     * @param request AddFingerprintToOIDCProviderRequest
@@ -8308,13 +8342,14 @@ export default class Client extends OpenApi {
   }
 
   /**
-    * This topic provides an example on how to create an IdP named `TestOIDCProvider` to configure a trust relationship between the external IdP Okta and Alibaba Cloud.
-    * ## Prerequisites
+    * ### Prerequisites
     * Before you call this operation, make sure that the information such as the URL of the issuer, the fingerprints of HTTPS certificates, and the client IDs are obtained from an external IdP, such as Google G Suite or Okta.
-    * ## Limits
-    * - You can create a maximum of 100 OIDC IdPs in an Alibaba Cloud account.
-    * - You can add a maximum of 20 client IDs to an OIDC IdP.
-    * - You can add a maximum of five fingerprints to an OIDC IdP.
+    * ### Limits
+    * *   You can create a maximum of 100 OIDC IdPs in an Alibaba Cloud account.
+    * *   You can add a maximum of 20 client IDs to an OIDC IdP.
+    * *   You can add a maximum of five fingerprints to an OIDC IdP.
+    * ###
+    * ``
     *
     * @param request CreateOIDCProviderRequest
     * @param runtime runtime options for this request RuntimeOptions
@@ -8333,6 +8368,10 @@ export default class Client extends OpenApi {
 
     if (!Util.isUnset(request.fingerprints)) {
       query["Fingerprints"] = request.fingerprints;
+    }
+
+    if (!Util.isUnset(request.issuanceLimitTime)) {
+      query["IssuanceLimitTime"] = request.issuanceLimitTime;
     }
 
     if (!Util.isUnset(request.issuerUrl)) {
@@ -8361,13 +8400,14 @@ export default class Client extends OpenApi {
   }
 
   /**
-    * This topic provides an example on how to create an IdP named `TestOIDCProvider` to configure a trust relationship between the external IdP Okta and Alibaba Cloud.
-    * ## Prerequisites
+    * ### Prerequisites
     * Before you call this operation, make sure that the information such as the URL of the issuer, the fingerprints of HTTPS certificates, and the client IDs are obtained from an external IdP, such as Google G Suite or Okta.
-    * ## Limits
-    * - You can create a maximum of 100 OIDC IdPs in an Alibaba Cloud account.
-    * - You can add a maximum of 20 client IDs to an OIDC IdP.
-    * - You can add a maximum of five fingerprints to an OIDC IdP.
+    * ### Limits
+    * *   You can create a maximum of 100 OIDC IdPs in an Alibaba Cloud account.
+    * *   You can add a maximum of 20 client IDs to an OIDC IdP.
+    * *   You can add a maximum of five fingerprints to an OIDC IdP.
+    * ###
+    * ``
     *
     * @param request CreateOIDCProviderRequest
     * @return CreateOIDCProviderResponse
@@ -8672,6 +8712,7 @@ export default class Client extends OpenApi {
   }
 
   /**
+    * ###
     * This topic provides an example on how to remove the OIDC IdP named `TestOIDCProvider`.
     *
     * @param request DeleteOIDCProviderRequest
@@ -8703,6 +8744,7 @@ export default class Client extends OpenApi {
   }
 
   /**
+    * ###
     * This topic provides an example on how to remove the OIDC IdP named `TestOIDCProvider`.
     *
     * @param request DeleteOIDCProviderRequest
@@ -8983,6 +9025,13 @@ export default class Client extends OpenApi {
     return await this.getAppSecretWithOptions(request, runtime);
   }
 
+  /**
+    * This topic provides an example on how to query the configurations of an application named `472457090344041****`.
+    *
+    * @param request GetApplicationRequest
+    * @param runtime runtime options for this request RuntimeOptions
+    * @return GetApplicationResponse
+   */
   async getApplicationWithOptions(request: GetApplicationRequest, runtime: $Util.RuntimeOptions): Promise<GetApplicationResponse> {
     Util.validateModel(request);
     let query = { };
@@ -9007,6 +9056,12 @@ export default class Client extends OpenApi {
     return $tea.cast<GetApplicationResponse>(await this.callApi(params, req, runtime), new GetApplicationResponse({}));
   }
 
+  /**
+    * This topic provides an example on how to query the configurations of an application named `472457090344041****`.
+    *
+    * @param request GetApplicationRequest
+    * @return GetApplicationResponse
+   */
   async getApplication(request: GetApplicationRequest): Promise<GetApplicationResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.getApplicationWithOptions(request, runtime);
@@ -9113,7 +9168,8 @@ export default class Client extends OpenApi {
   }
 
   /**
-    * This topic provides an example on how to query the information about an OIDC IdP named `TestOIDCProvider`.
+    * ###
+    * This topic provides an example on how to query the information about an OpenID Connect (OIDC) identity provider (IdP) named `TestOIDCProvider`.
     *
     * @param request GetOIDCProviderRequest
     * @param runtime runtime options for this request RuntimeOptions
@@ -9144,7 +9200,8 @@ export default class Client extends OpenApi {
   }
 
   /**
-    * This topic provides an example on how to query the information about an OIDC IdP named `TestOIDCProvider`.
+    * ###
+    * This topic provides an example on how to query the information about an OpenID Connect (OIDC) identity provider (IdP) named `TestOIDCProvider`.
     *
     * @param request GetOIDCProviderRequest
     * @return GetOIDCProviderResponse
@@ -9383,6 +9440,13 @@ export default class Client extends OpenApi {
     return await this.listAppSecretIdsWithOptions(request, runtime);
   }
 
+  /**
+    * This topic provides an example on how to query the applications within the current account. The returned result shows that only one application named `myapp` belongs to the current account.
+    *
+    * @param request ListApplicationsRequest
+    * @param runtime runtime options for this request RuntimeOptions
+    * @return ListApplicationsResponse
+   */
   async listApplicationsWithOptions(runtime: $Util.RuntimeOptions): Promise<ListApplicationsResponse> {
     let req = new $OpenApi.OpenApiRequest({ });
     let params = new $OpenApi.Params({
@@ -9399,6 +9463,11 @@ export default class Client extends OpenApi {
     return $tea.cast<ListApplicationsResponse>(await this.callApi(params, req, runtime), new ListApplicationsResponse({}));
   }
 
+  /**
+    * This topic provides an example on how to query the applications within the current account. The returned result shows that only one application named `myapp` belongs to the current account.
+    *
+    * @return ListApplicationsResponse
+   */
   async listApplications(): Promise<ListApplicationsResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.listApplicationsWithOptions(runtime);
@@ -9467,7 +9536,8 @@ export default class Client extends OpenApi {
   }
 
   /**
-    * This topic provides an example on how to query all OIDC IdPs within your Alibaba Cloud account. The response shows that your Alibaba Cloud account has only one OIDC IdP named `TestOIDCProvider`.
+    * ###
+    * This topic provides an example on how to query all OpenID Connect (OIDC) identity providers (IdPs) within your Alibaba Cloud account. The response shows that your Alibaba Cloud account has only one OIDC IdP named `TestOIDCProvider`.
     *
     * @param request ListOIDCProvidersRequest
     * @param runtime runtime options for this request RuntimeOptions
@@ -9502,7 +9572,8 @@ export default class Client extends OpenApi {
   }
 
   /**
-    * This topic provides an example on how to query all OIDC IdPs within your Alibaba Cloud account. The response shows that your Alibaba Cloud account has only one OIDC IdP named `TestOIDCProvider`.
+    * ###
+    * This topic provides an example on how to query all OpenID Connect (OIDC) identity providers (IdPs) within your Alibaba Cloud account. The response shows that your Alibaba Cloud account has only one OIDC IdP named `TestOIDCProvider`.
     *
     * @param request ListOIDCProvidersRequest
     * @return ListOIDCProvidersResponse
@@ -9575,6 +9646,7 @@ export default class Client extends OpenApi {
   }
 
   /**
+    * ###
     * You must specify at least one of the following parameters or parameter pairs in a request to determine a query object:
     * *   `ResourceId.N`
     * *   `Tag.N.Key`
@@ -9629,6 +9701,7 @@ export default class Client extends OpenApi {
   }
 
   /**
+    * ###
     * You must specify at least one of the following parameters or parameter pairs in a request to determine a query object:
     * *   `ResourceId.N`
     * *   `Tag.N.Key`
@@ -9697,6 +9770,7 @@ export default class Client extends OpenApi {
   }
 
   /**
+    * ## Description
     * You can call the following API operations to query the information about all RAM users:
     * *   ListUsers: queries the details of all RAM users.
     * *   ListUserBasicInfos: queries the basic information about all RAM users. The basic information includes only the logon names (`UserPrincipalName`), display names (`DisplayName`), and user IDs (`UserId`).
@@ -9738,6 +9812,7 @@ export default class Client extends OpenApi {
   }
 
   /**
+    * ## Description
     * You can call the following API operations to query the information about all RAM users:
     * *   ListUsers: queries the details of all RAM users.
     * *   ListUserBasicInfos: queries the basic information about all RAM users. The basic information includes only the logon names (`UserPrincipalName`), display names (`DisplayName`), and user IDs (`UserId`).
@@ -9821,6 +9896,7 @@ export default class Client extends OpenApi {
   }
 
   /**
+    * ###
     * This topic provides an example on how to remove the client ID `498469743454717****` from the OIDC IdP named `TestOIDCProvider`.
     *
     * @param request RemoveClientIdFromOIDCProviderRequest
@@ -9856,6 +9932,7 @@ export default class Client extends OpenApi {
   }
 
   /**
+    * ###
     * This topic provides an example on how to remove the client ID `498469743454717****` from the OIDC IdP named `TestOIDCProvider`.
     *
     * @param request RemoveClientIdFromOIDCProviderRequest
@@ -9867,6 +9944,7 @@ export default class Client extends OpenApi {
   }
 
   /**
+    * ###
     * This topic provides an example on how to remove the fingerprint `6938fd4d98bab03faadb97b34396831e3780****` from the OIDC IdP named `TestOIDCProvider`.
     *
     * @param request RemoveFingerprintFromOIDCProviderRequest
@@ -9902,6 +9980,7 @@ export default class Client extends OpenApi {
   }
 
   /**
+    * ###
     * This topic provides an example on how to remove the fingerprint `6938fd4d98bab03faadb97b34396831e3780****` from the OIDC IdP named `TestOIDCProvider`.
     *
     * @param request RemoveFingerprintFromOIDCProviderRequest
@@ -10044,6 +10123,7 @@ export default class Client extends OpenApi {
   }
 
   /**
+    * ###
     * This topic provides an example on how to enable multi-factor authentication (MFA) only for RAM users who initiated unusual logons.
     *
     * @param tmpReq SetSecurityPreferenceRequest
@@ -10117,6 +10197,7 @@ export default class Client extends OpenApi {
   }
 
   /**
+    * ###
     * This topic provides an example on how to enable multi-factor authentication (MFA) only for RAM users who initiated unusual logons.
     *
     * @param request SetSecurityPreferenceRequest
@@ -10460,6 +10541,7 @@ export default class Client extends OpenApi {
   }
 
   /**
+    * ###
     * This topic provides an example on how to change the description of the OIDC IdP named `TestOIDCProvider` to `This is a new OIDC Provider.`
     *
     * @param request UpdateOIDCProviderRequest
@@ -10471,6 +10553,10 @@ export default class Client extends OpenApi {
     let query = { };
     if (!Util.isUnset(request.clientIds)) {
       query["ClientIds"] = request.clientIds;
+    }
+
+    if (!Util.isUnset(request.issuanceLimitTime)) {
+      query["IssuanceLimitTime"] = request.issuanceLimitTime;
     }
 
     if (!Util.isUnset(request.newDescription)) {
@@ -10499,6 +10585,7 @@ export default class Client extends OpenApi {
   }
 
   /**
+    * ###
     * This topic provides an example on how to change the description of the OIDC IdP named `TestOIDCProvider` to `This is a new OIDC Provider.`
     *
     * @param request UpdateOIDCProviderRequest
