@@ -25476,6 +25476,75 @@ export class GetCheckSummaryResponse extends $tea.Model {
   }
 }
 
+export class GetClientInstallationStatisticRequest extends $tea.Model {
+  timeEnd?: number;
+  timeStart?: number;
+  static names(): { [key: string]: string } {
+    return {
+      timeEnd: 'TimeEnd',
+      timeStart: 'TimeStart',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      timeEnd: 'number',
+      timeStart: 'number',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class GetClientInstallationStatisticResponseBody extends $tea.Model {
+  clientInstallRatio?: GetClientInstallationStatisticResponseBodyClientInstallRatio;
+  requestId?: string;
+  static names(): { [key: string]: string } {
+    return {
+      clientInstallRatio: 'ClientInstallRatio',
+      requestId: 'RequestId',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      clientInstallRatio: GetClientInstallationStatisticResponseBodyClientInstallRatio,
+      requestId: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class GetClientInstallationStatisticResponse extends $tea.Model {
+  headers: { [key: string]: string };
+  statusCode: number;
+  body: GetClientInstallationStatisticResponseBody;
+  static names(): { [key: string]: string } {
+    return {
+      headers: 'headers',
+      statusCode: 'statusCode',
+      body: 'body',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
+      body: GetClientInstallationStatisticResponseBody,
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
 export class GetClientRatioStatisticRequest extends $tea.Model {
   resourceDirectoryAccountId?: number;
   statisticTypes?: string[];
@@ -28796,6 +28865,81 @@ export class ListCheckInstanceResultResponse extends $tea.Model {
       headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
       statusCode: 'number',
       body: ListCheckInstanceResultResponseBody,
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class ListCheckItemRequest extends $tea.Model {
+  currentPage?: number;
+  lang?: string;
+  pageSize?: number;
+  static names(): { [key: string]: string } {
+    return {
+      currentPage: 'CurrentPage',
+      lang: 'Lang',
+      pageSize: 'PageSize',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      currentPage: 'number',
+      lang: 'string',
+      pageSize: 'number',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class ListCheckItemResponseBody extends $tea.Model {
+  checkItems?: ListCheckItemResponseBodyCheckItems[];
+  pageInfo?: ListCheckItemResponseBodyPageInfo;
+  requestId?: string;
+  static names(): { [key: string]: string } {
+    return {
+      checkItems: 'CheckItems',
+      pageInfo: 'PageInfo',
+      requestId: 'RequestId',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      checkItems: { 'type': 'array', 'itemType': ListCheckItemResponseBodyCheckItems },
+      pageInfo: ListCheckItemResponseBodyPageInfo,
+      requestId: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class ListCheckItemResponse extends $tea.Model {
+  headers: { [key: string]: string };
+  statusCode: number;
+  body: ListCheckItemResponseBody;
+  static names(): { [key: string]: string } {
+    return {
+      headers: 'headers',
+      statusCode: 'statusCode',
+      body: 'body',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
+      body: ListCheckItemResponseBody,
     };
   }
 
@@ -49658,6 +49802,7 @@ export class DescribeSuspEventsResponseBodySuspEvents extends $tea.Model {
   k8sNodeId?: string;
   k8sNodeName?: string;
   k8sPodName?: string;
+  largeModel?: boolean;
   lastTime?: string;
   lastTimeStamp?: number;
   level?: string;
@@ -49712,6 +49857,7 @@ export class DescribeSuspEventsResponseBodySuspEvents extends $tea.Model {
       k8sNodeId: 'K8sNodeId',
       k8sNodeName: 'K8sNodeName',
       k8sPodName: 'K8sPodName',
+      largeModel: 'LargeModel',
       lastTime: 'LastTime',
       lastTimeStamp: 'LastTimeStamp',
       level: 'Level',
@@ -49769,6 +49915,7 @@ export class DescribeSuspEventsResponseBodySuspEvents extends $tea.Model {
       k8sNodeId: 'string',
       k8sNodeName: 'string',
       k8sPodName: 'string',
+      largeModel: 'boolean',
       lastTime: 'string',
       lastTimeStamp: 'number',
       level: 'string',
@@ -52683,6 +52830,131 @@ export class GetCheckSummaryResponseBodySummarys extends $tea.Model {
   }
 }
 
+export class GetClientInstallationStatisticResponseBodyClientInstallRatioCurrentItemsItems extends $tea.Model {
+  assetTotalCount?: number;
+  calculateTime?: number;
+  installRatio?: number;
+  installedAssetCount?: number;
+  static names(): { [key: string]: string } {
+    return {
+      assetTotalCount: 'AssetTotalCount',
+      calculateTime: 'CalculateTime',
+      installRatio: 'InstallRatio',
+      installedAssetCount: 'InstalledAssetCount',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      assetTotalCount: 'number',
+      calculateTime: 'number',
+      installRatio: 'number',
+      installedAssetCount: 'number',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class GetClientInstallationStatisticResponseBodyClientInstallRatioCurrentItems extends $tea.Model {
+  items?: GetClientInstallationStatisticResponseBodyClientInstallRatioCurrentItemsItems[];
+  vendor?: number;
+  static names(): { [key: string]: string } {
+    return {
+      items: 'Items',
+      vendor: 'Vendor',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      items: { 'type': 'array', 'itemType': GetClientInstallationStatisticResponseBodyClientInstallRatioCurrentItemsItems },
+      vendor: 'number',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class GetClientInstallationStatisticResponseBodyClientInstallRatioHistoryItemsItems extends $tea.Model {
+  assetTotalCount?: number;
+  calculateTime?: number;
+  installRatio?: number;
+  installedAssetCount?: number;
+  static names(): { [key: string]: string } {
+    return {
+      assetTotalCount: 'AssetTotalCount',
+      calculateTime: 'CalculateTime',
+      installRatio: 'InstallRatio',
+      installedAssetCount: 'InstalledAssetCount',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      assetTotalCount: 'number',
+      calculateTime: 'number',
+      installRatio: 'number',
+      installedAssetCount: 'number',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class GetClientInstallationStatisticResponseBodyClientInstallRatioHistoryItems extends $tea.Model {
+  items?: GetClientInstallationStatisticResponseBodyClientInstallRatioHistoryItemsItems[];
+  vendor?: number;
+  static names(): { [key: string]: string } {
+    return {
+      items: 'Items',
+      vendor: 'Vendor',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      items: { 'type': 'array', 'itemType': GetClientInstallationStatisticResponseBodyClientInstallRatioHistoryItemsItems },
+      vendor: 'number',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class GetClientInstallationStatisticResponseBodyClientInstallRatio extends $tea.Model {
+  currentItems?: GetClientInstallationStatisticResponseBodyClientInstallRatioCurrentItems[];
+  dates?: number[];
+  historyItems?: GetClientInstallationStatisticResponseBodyClientInstallRatioHistoryItems[];
+  static names(): { [key: string]: string } {
+    return {
+      currentItems: 'CurrentItems',
+      dates: 'Dates',
+      historyItems: 'HistoryItems',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      currentItems: { 'type': 'array', 'itemType': GetClientInstallationStatisticResponseBodyClientInstallRatioCurrentItems },
+      dates: { 'type': 'array', 'itemType': 'number' },
+      historyItems: { 'type': 'array', 'itemType': GetClientInstallationStatisticResponseBodyClientInstallRatioHistoryItems },
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
 export class GetClientRatioStatisticResponseBodyClientInstallRatioCurrentItemsItems extends $tea.Model {
   assetTotalCount?: number;
   calculateTime?: number;
@@ -54654,6 +54926,130 @@ export class ListCheckInstanceResultResponseBodyPageInfo extends $tea.Model {
   static types(): { [key: string]: any } {
     return {
       count: 'string',
+      currentPage: 'number',
+      pageSize: 'number',
+      totalCount: 'number',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class ListCheckItemResponseBodyCheckItemsCustomConfigs extends $tea.Model {
+  defaultValue?: string;
+  name?: string;
+  showName?: string;
+  typeDefine?: string;
+  value?: string;
+  static names(): { [key: string]: string } {
+    return {
+      defaultValue: 'DefaultValue',
+      name: 'Name',
+      showName: 'ShowName',
+      typeDefine: 'TypeDefine',
+      value: 'Value',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      defaultValue: 'string',
+      name: 'string',
+      showName: 'string',
+      typeDefine: 'string',
+      value: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class ListCheckItemResponseBodyCheckItemsDescription extends $tea.Model {
+  type?: string;
+  value?: string;
+  static names(): { [key: string]: string } {
+    return {
+      type: 'Type',
+      value: 'Value',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      type: 'string',
+      value: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class ListCheckItemResponseBodyCheckItems extends $tea.Model {
+  checkId?: number;
+  checkShowName?: string;
+  customConfigs?: ListCheckItemResponseBodyCheckItemsCustomConfigs[];
+  description?: ListCheckItemResponseBodyCheckItemsDescription;
+  instanceSubType?: string;
+  instanceType?: string;
+  riskLevel?: string;
+  sectionIds?: number[];
+  vendor?: string;
+  static names(): { [key: string]: string } {
+    return {
+      checkId: 'CheckId',
+      checkShowName: 'CheckShowName',
+      customConfigs: 'CustomConfigs',
+      description: 'Description',
+      instanceSubType: 'InstanceSubType',
+      instanceType: 'InstanceType',
+      riskLevel: 'RiskLevel',
+      sectionIds: 'SectionIds',
+      vendor: 'Vendor',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      checkId: 'number',
+      checkShowName: 'string',
+      customConfigs: { 'type': 'array', 'itemType': ListCheckItemResponseBodyCheckItemsCustomConfigs },
+      description: ListCheckItemResponseBodyCheckItemsDescription,
+      instanceSubType: 'string',
+      instanceType: 'string',
+      riskLevel: 'string',
+      sectionIds: { 'type': 'array', 'itemType': 'number' },
+      vendor: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class ListCheckItemResponseBodyPageInfo extends $tea.Model {
+  count?: number;
+  currentPage?: number;
+  pageSize?: number;
+  totalCount?: number;
+  static names(): { [key: string]: string } {
+    return {
+      count: 'Count',
+      currentPage: 'CurrentPage',
+      pageSize: 'PageSize',
+      totalCount: 'TotalCount',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      count: 'number',
       currentPage: 'number',
       pageSize: 'number',
       totalCount: 'number',
@@ -71266,6 +71662,54 @@ export default class Client extends OpenApi {
     return await this.getCheckSummaryWithOptions(request, runtime);
   }
 
+  /**
+    * @deprecated : GetClientInstallationStatistic is deprecated, please use Sas::2018-12-03::GetClientRatioStatistic instead.
+    *
+    * @param request GetClientInstallationStatisticRequest
+    * @param runtime runtime options for this request RuntimeOptions
+    * @return GetClientInstallationStatisticResponse
+   */
+  // Deprecated
+  async getClientInstallationStatisticWithOptions(request: GetClientInstallationStatisticRequest, runtime: $Util.RuntimeOptions): Promise<GetClientInstallationStatisticResponse> {
+    Util.validateModel(request);
+    let query = { };
+    if (!Util.isUnset(request.timeEnd)) {
+      query["TimeEnd"] = request.timeEnd;
+    }
+
+    if (!Util.isUnset(request.timeStart)) {
+      query["TimeStart"] = request.timeStart;
+    }
+
+    let req = new $OpenApi.OpenApiRequest({
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApi.Params({
+      action: "GetClientInstallationStatistic",
+      version: "2018-12-03",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $tea.cast<GetClientInstallationStatisticResponse>(await this.callApi(params, req, runtime), new GetClientInstallationStatisticResponse({}));
+  }
+
+  /**
+    * @deprecated : GetClientInstallationStatistic is deprecated, please use Sas::2018-12-03::GetClientRatioStatistic instead.
+    *
+    * @param request GetClientInstallationStatisticRequest
+    * @return GetClientInstallationStatisticResponse
+   */
+  // Deprecated
+  async getClientInstallationStatistic(request: GetClientInstallationStatisticRequest): Promise<GetClientInstallationStatisticResponse> {
+    let runtime = new $Util.RuntimeOptions({ });
+    return await this.getClientInstallationStatisticWithOptions(request, runtime);
+  }
+
   async getClientRatioStatisticWithOptions(request: GetClientRatioStatisticRequest, runtime: $Util.RuntimeOptions): Promise<GetClientRatioStatisticResponse> {
     Util.validateModel(request);
     let query = { };
@@ -72940,6 +73384,43 @@ export default class Client extends OpenApi {
   async listCheckInstanceResult(request: ListCheckInstanceResultRequest): Promise<ListCheckInstanceResultResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.listCheckInstanceResultWithOptions(request, runtime);
+  }
+
+  async listCheckItemWithOptions(request: ListCheckItemRequest, runtime: $Util.RuntimeOptions): Promise<ListCheckItemResponse> {
+    Util.validateModel(request);
+    let query = { };
+    if (!Util.isUnset(request.currentPage)) {
+      query["CurrentPage"] = request.currentPage;
+    }
+
+    if (!Util.isUnset(request.lang)) {
+      query["Lang"] = request.lang;
+    }
+
+    if (!Util.isUnset(request.pageSize)) {
+      query["PageSize"] = request.pageSize;
+    }
+
+    let req = new $OpenApi.OpenApiRequest({
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApi.Params({
+      action: "ListCheckItem",
+      version: "2018-12-03",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $tea.cast<ListCheckItemResponse>(await this.callApi(params, req, runtime), new ListCheckItemResponse({}));
+  }
+
+  async listCheckItem(request: ListCheckItemRequest): Promise<ListCheckItemResponse> {
+    let runtime = new $Util.RuntimeOptions({ });
+    return await this.listCheckItemWithOptions(request, runtime);
   }
 
   async listCheckItemWarningMachineWithOptions(request: ListCheckItemWarningMachineRequest, runtime: $Util.RuntimeOptions): Promise<ListCheckItemWarningMachineResponse> {

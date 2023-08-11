@@ -1,6 +1,6 @@
 {
   "name": "@alicloud/sas20181203",
-  "version": "2.2.3",
+  "version": "2.3.0",
   "description": "",
   "main": "dist/client.js",
   "scripts": {
