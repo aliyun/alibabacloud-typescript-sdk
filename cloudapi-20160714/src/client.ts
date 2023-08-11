@@ -4141,6 +4141,7 @@ export class DescribeApiGroupResponseBody extends $tea.Model {
   dedicatedInstanceType?: string;
   defaultDomain?: string;
   description?: string;
+  disableInnerDomain?: boolean;
   groupId?: string;
   groupName?: string;
   httpsPolicy?: string;
@@ -4175,6 +4176,7 @@ export class DescribeApiGroupResponseBody extends $tea.Model {
       dedicatedInstanceType: 'DedicatedInstanceType',
       defaultDomain: 'DefaultDomain',
       description: 'Description',
+      disableInnerDomain: 'DisableInnerDomain',
       groupId: 'GroupId',
       groupName: 'GroupName',
       httpsPolicy: 'HttpsPolicy',
@@ -4212,6 +4214,7 @@ export class DescribeApiGroupResponseBody extends $tea.Model {
       dedicatedInstanceType: 'string',
       defaultDomain: 'string',
       description: 'string',
+      disableInnerDomain: 'boolean',
       groupId: 'string',
       groupName: 'string',
       httpsPolicy: 'string',
