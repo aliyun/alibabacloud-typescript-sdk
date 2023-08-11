@@ -2238,10 +2238,12 @@ export class GetPodLogsResponse extends $tea.Model {
 
 export class GetTensorboardRequest extends $tea.Model {
   jodId?: string;
+  token?: string;
   workspaceId?: string;
   static names(): { [key: string]: string } {
     return {
       jodId: 'JodId',
+      token: 'Token',
       workspaceId: 'WorkspaceId',
     };
   }
@@ -2249,6 +2251,7 @@ export class GetTensorboardRequest extends $tea.Model {
   static types(): { [key: string]: any } {
     return {
       jodId: 'string',
+      token: 'string',
       workspaceId: 'string',
     };
   }
@@ -2275,6 +2278,72 @@ export class GetTensorboardResponse extends $tea.Model {
       headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
       statusCode: 'number',
       body: Tensorboard,
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class GetTensorboardSharedUrlRequest extends $tea.Model {
+  expireTimeSeconds?: string;
+  static names(): { [key: string]: string } {
+    return {
+      expireTimeSeconds: 'ExpireTimeSeconds',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      expireTimeSeconds: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class GetTensorboardSharedUrlResponseBody extends $tea.Model {
+  requestId?: string;
+  tensorboardSharedUrl?: string;
+  static names(): { [key: string]: string } {
+    return {
+      requestId: 'RequestId',
+      tensorboardSharedUrl: 'TensorboardSharedUrl',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      requestId: 'string',
+      tensorboardSharedUrl: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class GetTensorboardSharedUrlResponse extends $tea.Model {
+  headers: { [key: string]: string };
+  statusCode: number;
+  body: GetTensorboardSharedUrlResponseBody;
+  static names(): { [key: string]: string } {
+    return {
+      headers: 'headers',
+      statusCode: 'statusCode',
+      body: 'body',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
+      body: GetTensorboardSharedUrlResponseBody,
     };
   }
 
@@ -3924,6 +3993,10 @@ export default class Client extends OpenApi {
       query["JodId"] = request.jodId;
     }
 
+    if (!Util.isUnset(request.token)) {
+      query["Token"] = request.token;
+    }
+
     if (!Util.isUnset(request.workspaceId)) {
       query["WorkspaceId"] = request.workspaceId;
     }
@@ -3950,6 +4023,37 @@ export default class Client extends OpenApi {
     let runtime = new $Util.RuntimeOptions({ });
     let headers : {[key: string ]: string} = { };
     return await this.getTensorboardWithOptions(TensorboardId, request, headers, runtime);
+  }
+
+  async getTensorboardSharedUrlWithOptions(TensorboardId: string, request: GetTensorboardSharedUrlRequest, headers: {[key: string ]: string}, runtime: $Util.RuntimeOptions): Promise<GetTensorboardSharedUrlResponse> {
+    Util.validateModel(request);
+    let query : {[key: string ]: any} = { };
+    if (!Util.isUnset(request.expireTimeSeconds)) {
+      query["ExpireTimeSeconds"] = request.expireTimeSeconds;
+    }
+
+    let req = new $OpenApi.OpenApiRequest({
+      headers: headers,
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApi.Params({
+      action: "GetTensorboardSharedUrl",
+      version: "2020-12-03",
+      protocol: "HTTPS",
+      pathname: `/api/v1/tensorboards/${OpenApiUtil.getEncodeParam(TensorboardId)}/sharedurl`,
+      method: "GET",
+      authType: "AK",
+      style: "ROA",
+      reqBodyType: "json",
+      bodyType: "json",
+    });
+    return $tea.cast<GetTensorboardSharedUrlResponse>(await this.callApi(params, req, runtime), new GetTensorboardSharedUrlResponse({}));
+  }
+
+  async getTensorboardSharedUrl(TensorboardId: string, request: GetTensorboardSharedUrlRequest): Promise<GetTensorboardSharedUrlResponse> {
+    let runtime = new $Util.RuntimeOptions({ });
+    let headers : {[key: string ]: string} = { };
+    return await this.getTensorboardSharedUrlWithOptions(TensorboardId, request, headers, runtime);
   }
 
   async getTokenWithOptions(request: GetTokenRequest, headers: {[key: string ]: string}, runtime: $Util.RuntimeOptions): Promise<GetTokenResponse> {
