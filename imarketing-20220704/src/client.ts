@@ -8,6 +8,258 @@ import OpenApiUtil from '@alicloud/openapi-util';
 import EndpointUtil from '@alicloud/endpoint-util';
 import * as $tea from '@alicloud/tea-typescript';
 
+export class CancelOrderRequest extends $tea.Model {
+  channelId?: string;
+  tradeId?: string;
+  static names(): { [key: string]: string } {
+    return {
+      channelId: 'ChannelId',
+      tradeId: 'TradeId',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      channelId: 'string',
+      tradeId: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class CancelOrderResponseBody extends $tea.Model {
+  errorCode?: string;
+  errorMsg?: string;
+  ext?: { [key: string]: any };
+  header?: CancelOrderResponseBodyHeader;
+  result?: CancelOrderResponseBodyResult;
+  success?: boolean;
+  static names(): { [key: string]: string } {
+    return {
+      errorCode: 'ErrorCode',
+      errorMsg: 'ErrorMsg',
+      ext: 'Ext',
+      header: 'Header',
+      result: 'Result',
+      success: 'Success',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      errorCode: 'string',
+      errorMsg: 'string',
+      ext: { 'type': 'map', 'keyType': 'string', 'valueType': 'any' },
+      header: CancelOrderResponseBodyHeader,
+      result: CancelOrderResponseBodyResult,
+      success: 'boolean',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class CancelOrderResponse extends $tea.Model {
+  headers: { [key: string]: string };
+  statusCode: number;
+  body: CancelOrderResponseBody;
+  static names(): { [key: string]: string } {
+    return {
+      headers: 'headers',
+      statusCode: 'statusCode',
+      body: 'body',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
+      body: CancelOrderResponseBody,
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class ConfirmSampleReceivedRequest extends $tea.Model {
+  channelId?: string;
+  tradeId?: string;
+  static names(): { [key: string]: string } {
+    return {
+      channelId: 'ChannelId',
+      tradeId: 'TradeId',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      channelId: 'string',
+      tradeId: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class ConfirmSampleReceivedResponseBody extends $tea.Model {
+  errorCode?: string;
+  errorMsg?: string;
+  ext?: { [key: string]: any };
+  header?: ConfirmSampleReceivedResponseBodyHeader;
+  result?: ConfirmSampleReceivedResponseBodyResult;
+  success?: boolean;
+  static names(): { [key: string]: string } {
+    return {
+      errorCode: 'ErrorCode',
+      errorMsg: 'ErrorMsg',
+      ext: 'Ext',
+      header: 'Header',
+      result: 'Result',
+      success: 'Success',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      errorCode: 'string',
+      errorMsg: 'string',
+      ext: { 'type': 'map', 'keyType': 'string', 'valueType': 'any' },
+      header: ConfirmSampleReceivedResponseBodyHeader,
+      result: ConfirmSampleReceivedResponseBodyResult,
+      success: 'boolean',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class ConfirmSampleReceivedResponse extends $tea.Model {
+  headers: { [key: string]: string };
+  statusCode: number;
+  body: ConfirmSampleReceivedResponseBody;
+  static names(): { [key: string]: string } {
+    return {
+      headers: 'headers',
+      statusCode: 'statusCode',
+      body: 'body',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
+      body: ConfirmSampleReceivedResponseBody,
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class ConfirmSampleShippedRequest extends $tea.Model {
+  buyerAddress?: string;
+  buyerName?: string;
+  buyerPhoneNumber?: string;
+  channelId?: string;
+  tradeId?: string;
+  static names(): { [key: string]: string } {
+    return {
+      buyerAddress: 'BuyerAddress',
+      buyerName: 'BuyerName',
+      buyerPhoneNumber: 'BuyerPhoneNumber',
+      channelId: 'ChannelId',
+      tradeId: 'TradeId',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      buyerAddress: 'string',
+      buyerName: 'string',
+      buyerPhoneNumber: 'string',
+      channelId: 'string',
+      tradeId: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class ConfirmSampleShippedResponseBody extends $tea.Model {
+  errorCode?: string;
+  errorMsg?: string;
+  ext?: { [key: string]: any };
+  header?: ConfirmSampleShippedResponseBodyHeader;
+  result?: ConfirmSampleShippedResponseBodyResult;
+  success?: boolean;
+  static names(): { [key: string]: string } {
+    return {
+      errorCode: 'ErrorCode',
+      errorMsg: 'ErrorMsg',
+      ext: 'Ext',
+      header: 'Header',
+      result: 'Result',
+      success: 'Success',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      errorCode: 'string',
+      errorMsg: 'string',
+      ext: { 'type': 'map', 'keyType': 'string', 'valueType': 'any' },
+      header: ConfirmSampleShippedResponseBodyHeader,
+      result: ConfirmSampleShippedResponseBodyResult,
+      success: 'boolean',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class ConfirmSampleShippedResponse extends $tea.Model {
+  headers: { [key: string]: string };
+  statusCode: number;
+  body: ConfirmSampleShippedResponseBody;
+  static names(): { [key: string]: string } {
+    return {
+      headers: 'headers',
+      statusCode: 'statusCode',
+      body: 'body',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
+      body: ConfirmSampleShippedResponseBody,
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
 export class CreateDeviceRequest extends $tea.Model {
   channelId?: string;
   city?: string;
@@ -1081,6 +1333,136 @@ export class ListAdvertisingResponse extends $tea.Model {
   }
 }
 
+export class ListSpecificAdRequest extends $tea.Model {
+  app?: ListSpecificAdRequestApp;
+  ext?: { [key: string]: any };
+  id?: string;
+  imp?: ListSpecificAdRequestImp[];
+  user?: ListSpecificAdRequestUser;
+  verifyad?: ListSpecificAdRequestVerifyad[];
+  static names(): { [key: string]: string } {
+    return {
+      app: 'App',
+      ext: 'Ext',
+      id: 'Id',
+      imp: 'Imp',
+      user: 'User',
+      verifyad: 'Verifyad',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      app: ListSpecificAdRequestApp,
+      ext: { 'type': 'map', 'keyType': 'string', 'valueType': 'any' },
+      id: 'string',
+      imp: { 'type': 'array', 'itemType': ListSpecificAdRequestImp },
+      user: ListSpecificAdRequestUser,
+      verifyad: { 'type': 'array', 'itemType': ListSpecificAdRequestVerifyad },
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class ListSpecificAdShrinkRequest extends $tea.Model {
+  appShrink?: string;
+  extShrink?: string;
+  id?: string;
+  impShrink?: string;
+  userShrink?: string;
+  verifyadShrink?: string;
+  static names(): { [key: string]: string } {
+    return {
+      appShrink: 'App',
+      extShrink: 'Ext',
+      id: 'Id',
+      impShrink: 'Imp',
+      userShrink: 'User',
+      verifyadShrink: 'Verifyad',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      appShrink: 'string',
+      extShrink: 'string',
+      id: 'string',
+      impShrink: 'string',
+      userShrink: 'string',
+      verifyadShrink: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class ListSpecificAdResponseBody extends $tea.Model {
+  errorcode?: string;
+  errormsg?: string;
+  ext?: { [key: string]: string };
+  header?: ListSpecificAdResponseBodyHeader;
+  requestId?: string;
+  result?: ListSpecificAdResponseBodyResult;
+  success?: boolean;
+  static names(): { [key: string]: string } {
+    return {
+      errorcode: 'Errorcode',
+      errormsg: 'Errormsg',
+      ext: 'Ext',
+      header: 'Header',
+      requestId: 'RequestId',
+      result: 'Result',
+      success: 'Success',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      errorcode: 'string',
+      errormsg: 'string',
+      ext: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      header: ListSpecificAdResponseBodyHeader,
+      requestId: 'string',
+      result: ListSpecificAdResponseBodyResult,
+      success: 'boolean',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class ListSpecificAdResponse extends $tea.Model {
+  headers: { [key: string]: string };
+  statusCode: number;
+  body: ListSpecificAdResponseBody;
+  static names(): { [key: string]: string } {
+    return {
+      headers: 'headers',
+      statusCode: 'statusCode',
+      body: 'body',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
+      body: ListSpecificAdResponseBody,
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
 export class QueryAuditResultRequest extends $tea.Model {
   dspId?: string;
   ids?: string[];
@@ -1151,6 +1533,90 @@ export class QueryAuditResultResponse extends $tea.Model {
       headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
       statusCode: 'number',
       body: QueryAuditResultResponseBody,
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class QueryOrderRequest extends $tea.Model {
+  channelId?: string;
+  channelTradeId?: string;
+  tradeId?: string;
+  static names(): { [key: string]: string } {
+    return {
+      channelId: 'ChannelId',
+      channelTradeId: 'ChannelTradeId',
+      tradeId: 'TradeId',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      channelId: 'string',
+      channelTradeId: 'string',
+      tradeId: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class QueryOrderResponseBody extends $tea.Model {
+  errorCode?: string;
+  errorMsg?: string;
+  ext?: { [key: string]: any };
+  header?: QueryOrderResponseBodyHeader;
+  result?: QueryOrderResponseBodyResult;
+  success?: boolean;
+  static names(): { [key: string]: string } {
+    return {
+      errorCode: 'ErrorCode',
+      errorMsg: 'ErrorMsg',
+      ext: 'Ext',
+      header: 'Header',
+      result: 'Result',
+      success: 'Success',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      errorCode: 'string',
+      errorMsg: 'string',
+      ext: { 'type': 'map', 'keyType': 'string', 'valueType': 'any' },
+      header: QueryOrderResponseBodyHeader,
+      result: QueryOrderResponseBodyResult,
+      success: 'boolean',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class QueryOrderResponse extends $tea.Model {
+  headers: { [key: string]: string };
+  statusCode: number;
+  body: QueryOrderResponseBody;
+  static names(): { [key: string]: string } {
+    return {
+      headers: 'headers',
+      statusCode: 'statusCode',
+      body: 'body',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
+      body: QueryOrderResponseBody,
     };
   }
 
@@ -1232,6 +1698,84 @@ export class ReportImpressionResponse extends $tea.Model {
       headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
       statusCode: 'number',
       body: ReportImpressionResponseBody,
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class ReportTranslateRequest extends $tea.Model {
+  impressionlink?: string;
+  static names(): { [key: string]: string } {
+    return {
+      impressionlink: 'Impressionlink',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      impressionlink: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class ReportTranslateResponseBody extends $tea.Model {
+  errorCode?: string;
+  errorMsg?: string;
+  header?: ReportTranslateResponseBodyHeader;
+  requestId?: string;
+  result?: ReportTranslateResponseBodyResult;
+  success?: boolean;
+  static names(): { [key: string]: string } {
+    return {
+      errorCode: 'ErrorCode',
+      errorMsg: 'ErrorMsg',
+      header: 'Header',
+      requestId: 'RequestId',
+      result: 'Result',
+      success: 'Success',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      errorCode: 'string',
+      errorMsg: 'string',
+      header: ReportTranslateResponseBodyHeader,
+      requestId: 'string',
+      result: ReportTranslateResponseBodyResult,
+      success: 'boolean',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class ReportTranslateResponse extends $tea.Model {
+  headers: { [key: string]: string };
+  statusCode: number;
+  body: ReportTranslateResponseBody;
+  static names(): { [key: string]: string } {
+    return {
+      headers: 'headers',
+      statusCode: 'statusCode',
+      body: 'body',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
+      body: ReportTranslateResponseBody,
     };
   }
 
@@ -1737,6 +2281,174 @@ export class VerifySmsCodeResponse extends $tea.Model {
       headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
       statusCode: 'number',
       body: VerifySmsCodeResponseBody,
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class CancelOrderResponseBodyHeader extends $tea.Model {
+  costTime?: number;
+  innerErrorCode?: string;
+  innerErrorMsg?: string;
+  rpcId?: string;
+  traceId?: string;
+  version?: string;
+  static names(): { [key: string]: string } {
+    return {
+      costTime: 'CostTime',
+      innerErrorCode: 'InnerErrorCode',
+      innerErrorMsg: 'InnerErrorMsg',
+      rpcId: 'RpcId',
+      traceId: 'TraceId',
+      version: 'Version',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      costTime: 'number',
+      innerErrorCode: 'string',
+      innerErrorMsg: 'string',
+      rpcId: 'string',
+      traceId: 'string',
+      version: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class CancelOrderResponseBodyResult extends $tea.Model {
+  requestId?: string;
+  success?: boolean;
+  static names(): { [key: string]: string } {
+    return {
+      requestId: 'RequestId',
+      success: 'Success',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      requestId: 'string',
+      success: 'boolean',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class ConfirmSampleReceivedResponseBodyHeader extends $tea.Model {
+  costTime?: number;
+  innerErrorCode?: string;
+  innerErrorMsg?: string;
+  rpcId?: string;
+  traceId?: string;
+  version?: string;
+  static names(): { [key: string]: string } {
+    return {
+      costTime: 'CostTime',
+      innerErrorCode: 'InnerErrorCode',
+      innerErrorMsg: 'InnerErrorMsg',
+      rpcId: 'RpcId',
+      traceId: 'TraceId',
+      version: 'Version',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      costTime: 'number',
+      innerErrorCode: 'string',
+      innerErrorMsg: 'string',
+      rpcId: 'string',
+      traceId: 'string',
+      version: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class ConfirmSampleReceivedResponseBodyResult extends $tea.Model {
+  requestId?: string;
+  success?: boolean;
+  static names(): { [key: string]: string } {
+    return {
+      requestId: 'RequestId',
+      success: 'Success',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      requestId: 'string',
+      success: 'boolean',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class ConfirmSampleShippedResponseBodyHeader extends $tea.Model {
+  costTime?: number;
+  innerErrorCode?: string;
+  innerErrorMsg?: string;
+  rpcId?: string;
+  traceId?: string;
+  version?: string;
+  static names(): { [key: string]: string } {
+    return {
+      costTime: 'CostTime',
+      innerErrorCode: 'InnerErrorCode',
+      innerErrorMsg: 'InnerErrorMsg',
+      rpcId: 'RpcId',
+      traceId: 'TraceId',
+      version: 'Version',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      costTime: 'number',
+      innerErrorCode: 'string',
+      innerErrorMsg: 'string',
+      rpcId: 'string',
+      traceId: 'string',
+      version: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class ConfirmSampleShippedResponseBodyResult extends $tea.Model {
+  requestId?: string;
+  success?: boolean;
+  static names(): { [key: string]: string } {
+    return {
+      requestId: 'RequestId',
+      success: 'Success',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      requestId: 'string',
+      success: 'boolean',
     };
   }
 
@@ -2577,6 +3289,293 @@ export class ListAdvertisingResponseBodyResult extends $tea.Model {
   }
 }
 
+export class ListSpecificAdRequestApp extends $tea.Model {
+  ext?: { [key: string]: any };
+  mediaid?: string;
+  sn?: string;
+  static names(): { [key: string]: string } {
+    return {
+      ext: 'Ext',
+      mediaid: 'Mediaid',
+      sn: 'Sn',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      ext: { 'type': 'map', 'keyType': 'string', 'valueType': 'any' },
+      mediaid: 'string',
+      sn: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class ListSpecificAdRequestImp extends $tea.Model {
+  id?: string;
+  tagid?: string;
+  static names(): { [key: string]: string } {
+    return {
+      id: 'Id',
+      tagid: 'Tagid',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      id: 'string',
+      tagid: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class ListSpecificAdRequestUser extends $tea.Model {
+  id?: string;
+  usertype?: string;
+  static names(): { [key: string]: string } {
+    return {
+      id: 'Id',
+      usertype: 'Usertype',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      id: 'string',
+      usertype: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class ListSpecificAdRequestVerifyad extends $tea.Model {
+  id?: string;
+  itemid?: string;
+  marketingtype?: string;
+  seat?: string;
+  static names(): { [key: string]: string } {
+    return {
+      id: 'Id',
+      itemid: 'Itemid',
+      marketingtype: 'Marketingtype',
+      seat: 'Seat',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      id: 'string',
+      itemid: 'string',
+      marketingtype: 'string',
+      seat: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class ListSpecificAdResponseBodyHeader extends $tea.Model {
+  costTime?: number;
+  rpcId?: string;
+  traceId?: string;
+  version?: string;
+  static names(): { [key: string]: string } {
+    return {
+      costTime: 'CostTime',
+      rpcId: 'RpcId',
+      traceId: 'TraceId',
+      version: 'Version',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      costTime: 'number',
+      rpcId: 'string',
+      traceId: 'string',
+      version: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class ListSpecificAdResponseBodyResultSeatbidBidAdsIcon extends $tea.Model {
+  url?: string;
+  static names(): { [key: string]: string } {
+    return {
+      url: 'Url',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      url: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class ListSpecificAdResponseBodyResultSeatbidBidAdsTrackers extends $tea.Model {
+  imps?: string[];
+  static names(): { [key: string]: string } {
+    return {
+      imps: 'Imps',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      imps: { 'type': 'array', 'itemType': 'string' },
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class ListSpecificAdResponseBodyResultSeatbidBidAds extends $tea.Model {
+  crid?: string;
+  crurl?: string;
+  icon?: ListSpecificAdResponseBodyResultSeatbidBidAdsIcon;
+  id?: string;
+  interacttype?: number;
+  itemid?: string;
+  labeltype?: string;
+  landingurls?: string[];
+  marketingtype?: string;
+  objective?: string;
+  price?: string;
+  seat?: string;
+  title?: string;
+  trackers?: ListSpecificAdResponseBodyResultSeatbidBidAdsTrackers;
+  static names(): { [key: string]: string } {
+    return {
+      crid: 'Crid',
+      crurl: 'Crurl',
+      icon: 'Icon',
+      id: 'Id',
+      interacttype: 'Interacttype',
+      itemid: 'Itemid',
+      labeltype: 'Labeltype',
+      landingurls: 'Landingurls',
+      marketingtype: 'Marketingtype',
+      objective: 'Objective',
+      price: 'Price',
+      seat: 'Seat',
+      title: 'Title',
+      trackers: 'Trackers',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      crid: 'string',
+      crurl: 'string',
+      icon: ListSpecificAdResponseBodyResultSeatbidBidAdsIcon,
+      id: 'string',
+      interacttype: 'number',
+      itemid: 'string',
+      labeltype: 'string',
+      landingurls: { 'type': 'array', 'itemType': 'string' },
+      marketingtype: 'string',
+      objective: 'string',
+      price: 'string',
+      seat: 'string',
+      title: 'string',
+      trackers: ListSpecificAdResponseBodyResultSeatbidBidAdsTrackers,
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class ListSpecificAdResponseBodyResultSeatbidBid extends $tea.Model {
+  ads?: ListSpecificAdResponseBodyResultSeatbidBidAds[];
+  impid?: string;
+  static names(): { [key: string]: string } {
+    return {
+      ads: 'Ads',
+      impid: 'Impid',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      ads: { 'type': 'array', 'itemType': ListSpecificAdResponseBodyResultSeatbidBidAds },
+      impid: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class ListSpecificAdResponseBodyResultSeatbid extends $tea.Model {
+  bid?: ListSpecificAdResponseBodyResultSeatbidBid[];
+  static names(): { [key: string]: string } {
+    return {
+      bid: 'Bid',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      bid: { 'type': 'array', 'itemType': ListSpecificAdResponseBodyResultSeatbidBid },
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class ListSpecificAdResponseBodyResult extends $tea.Model {
+  bidid?: string;
+  id?: string;
+  seatbid?: ListSpecificAdResponseBodyResultSeatbid[];
+  static names(): { [key: string]: string } {
+    return {
+      bidid: 'Bidid',
+      id: 'Id',
+      seatbid: 'Seatbid',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      bidid: 'string',
+      id: 'string',
+      seatbid: { 'type': 'array', 'itemType': ListSpecificAdResponseBodyResultSeatbid },
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
 export class QueryAuditResultResponseBodyRecords extends $tea.Model {
   crid?: string;
   reason?: string;
@@ -2594,6 +3593,86 @@ export class QueryAuditResultResponseBodyRecords extends $tea.Model {
       crid: 'string',
       reason: 'string',
       state: 'number',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class QueryOrderResponseBodyHeader extends $tea.Model {
+  costTime?: number;
+  innerErrorCode?: string;
+  innerErrorMsg?: string;
+  rpcId?: string;
+  traceId?: string;
+  version?: string;
+  static names(): { [key: string]: string } {
+    return {
+      costTime: 'CostTime',
+      innerErrorCode: 'InnerErrorCode',
+      innerErrorMsg: 'InnerErrorMsg',
+      rpcId: 'RpcId',
+      traceId: 'TraceId',
+      version: 'Version',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      costTime: 'number',
+      innerErrorCode: 'string',
+      innerErrorMsg: 'string',
+      rpcId: 'string',
+      traceId: 'string',
+      version: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class QueryOrderResponseBodyResult extends $tea.Model {
+  alipayTradeId?: string;
+  channelTradeId?: string;
+  itemId?: number;
+  modifiedTime?: number;
+  orderStatus?: number;
+  price?: number;
+  requestId?: string;
+  success?: boolean;
+  taobaoTradeId?: string;
+  tradeId?: string;
+  static names(): { [key: string]: string } {
+    return {
+      alipayTradeId: 'AlipayTradeId',
+      channelTradeId: 'ChannelTradeId',
+      itemId: 'ItemId',
+      modifiedTime: 'ModifiedTime',
+      orderStatus: 'OrderStatus',
+      price: 'Price',
+      requestId: 'RequestId',
+      success: 'Success',
+      taobaoTradeId: 'TaobaoTradeId',
+      tradeId: 'TradeId',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      alipayTradeId: 'string',
+      channelTradeId: 'string',
+      itemId: 'number',
+      modifiedTime: 'number',
+      orderStatus: 'number',
+      price: 'number',
+      requestId: 'string',
+      success: 'boolean',
+      taobaoTradeId: 'string',
+      tradeId: 'string',
     };
   }
 
@@ -2644,6 +3723,62 @@ export class ReportImpressionResponseBodyResult extends $tea.Model {
     return {
       bidid: 'string',
       success: 'boolean',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class ReportTranslateResponseBodyHeader extends $tea.Model {
+  costTime?: number;
+  innerErrorCode?: string;
+  innerErrorMsg?: string;
+  rpcId?: string;
+  traceId?: string;
+  version?: string;
+  static names(): { [key: string]: string } {
+    return {
+      costTime: 'CostTime',
+      innerErrorCode: 'InnerErrorCode',
+      innerErrorMsg: 'InnerErrorMsg',
+      rpcId: 'RpcId',
+      traceId: 'TraceId',
+      version: 'Version',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      costTime: 'number',
+      innerErrorCode: 'string',
+      innerErrorMsg: 'string',
+      rpcId: 'string',
+      traceId: 'string',
+      version: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class ReportTranslateResponseBodyResult extends $tea.Model {
+  bidid?: string;
+  success?: string;
+  static names(): { [key: string]: string } {
+    return {
+      bidid: 'Bidid',
+      success: 'Success',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      bidid: 'string',
+      success: 'string',
     };
   }
 
@@ -3208,6 +4343,117 @@ export default class Client extends OpenApi {
     return EndpointUtil.getEndpointRules(productId, regionId, endpointRule, network, suffix);
   }
 
+  async cancelOrderWithOptions(request: CancelOrderRequest, runtime: $Util.RuntimeOptions): Promise<CancelOrderResponse> {
+    Util.validateModel(request);
+    let body : {[key: string ]: any} = { };
+    if (!Util.isUnset(request.channelId)) {
+      body["ChannelId"] = request.channelId;
+    }
+
+    if (!Util.isUnset(request.tradeId)) {
+      body["TradeId"] = request.tradeId;
+    }
+
+    let req = new $OpenApi.OpenApiRequest({
+      body: OpenApiUtil.parseToMap(body),
+    });
+    let params = new $OpenApi.Params({
+      action: "CancelOrder",
+      version: "2022-07-04",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $tea.cast<CancelOrderResponse>(await this.callApi(params, req, runtime), new CancelOrderResponse({}));
+  }
+
+  async cancelOrder(request: CancelOrderRequest): Promise<CancelOrderResponse> {
+    let runtime = new $Util.RuntimeOptions({ });
+    return await this.cancelOrderWithOptions(request, runtime);
+  }
+
+  async confirmSampleReceivedWithOptions(request: ConfirmSampleReceivedRequest, runtime: $Util.RuntimeOptions): Promise<ConfirmSampleReceivedResponse> {
+    Util.validateModel(request);
+    let body : {[key: string ]: any} = { };
+    if (!Util.isUnset(request.channelId)) {
+      body["ChannelId"] = request.channelId;
+    }
+
+    if (!Util.isUnset(request.tradeId)) {
+      body["TradeId"] = request.tradeId;
+    }
+
+    let req = new $OpenApi.OpenApiRequest({
+      body: OpenApiUtil.parseToMap(body),
+    });
+    let params = new $OpenApi.Params({
+      action: "ConfirmSampleReceived",
+      version: "2022-07-04",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $tea.cast<ConfirmSampleReceivedResponse>(await this.callApi(params, req, runtime), new ConfirmSampleReceivedResponse({}));
+  }
+
+  async confirmSampleReceived(request: ConfirmSampleReceivedRequest): Promise<ConfirmSampleReceivedResponse> {
+    let runtime = new $Util.RuntimeOptions({ });
+    return await this.confirmSampleReceivedWithOptions(request, runtime);
+  }
+
+  async confirmSampleShippedWithOptions(request: ConfirmSampleShippedRequest, runtime: $Util.RuntimeOptions): Promise<ConfirmSampleShippedResponse> {
+    Util.validateModel(request);
+    let body : {[key: string ]: any} = { };
+    if (!Util.isUnset(request.buyerAddress)) {
+      body["BuyerAddress"] = request.buyerAddress;
+    }
+
+    if (!Util.isUnset(request.buyerName)) {
+      body["BuyerName"] = request.buyerName;
+    }
+
+    if (!Util.isUnset(request.buyerPhoneNumber)) {
+      body["BuyerPhoneNumber"] = request.buyerPhoneNumber;
+    }
+
+    if (!Util.isUnset(request.channelId)) {
+      body["ChannelId"] = request.channelId;
+    }
+
+    if (!Util.isUnset(request.tradeId)) {
+      body["TradeId"] = request.tradeId;
+    }
+
+    let req = new $OpenApi.OpenApiRequest({
+      body: OpenApiUtil.parseToMap(body),
+    });
+    let params = new $OpenApi.Params({
+      action: "ConfirmSampleShipped",
+      version: "2022-07-04",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $tea.cast<ConfirmSampleShippedResponse>(await this.callApi(params, req, runtime), new ConfirmSampleShippedResponse({}));
+  }
+
+  async confirmSampleShipped(request: ConfirmSampleShippedRequest): Promise<ConfirmSampleShippedResponse> {
+    let runtime = new $Util.RuntimeOptions({ });
+    return await this.confirmSampleShippedWithOptions(request, runtime);
+  }
+
   async createDeviceWithOptions(tmpReq: CreateDeviceRequest, runtime: $Util.RuntimeOptions): Promise<CreateDeviceResponse> {
     Util.validateModel(tmpReq);
     let request = new CreateDeviceShrinkRequest({ });
@@ -3683,6 +4929,77 @@ export default class Client extends OpenApi {
     return await this.listAdvertisingWithOptions(request, runtime);
   }
 
+  async listSpecificAdWithOptions(tmpReq: ListSpecificAdRequest, runtime: $Util.RuntimeOptions): Promise<ListSpecificAdResponse> {
+    Util.validateModel(tmpReq);
+    let request = new ListSpecificAdShrinkRequest({ });
+    OpenApiUtil.convert(tmpReq, request);
+    if (!Util.isUnset(tmpReq.app)) {
+      request.appShrink = OpenApiUtil.arrayToStringWithSpecifiedStyle(tmpReq.app, "App", "json");
+    }
+
+    if (!Util.isUnset(tmpReq.ext)) {
+      request.extShrink = OpenApiUtil.arrayToStringWithSpecifiedStyle(tmpReq.ext, "Ext", "json");
+    }
+
+    if (!Util.isUnset(tmpReq.imp)) {
+      request.impShrink = OpenApiUtil.arrayToStringWithSpecifiedStyle(tmpReq.imp, "Imp", "json");
+    }
+
+    if (!Util.isUnset(tmpReq.user)) {
+      request.userShrink = OpenApiUtil.arrayToStringWithSpecifiedStyle(tmpReq.user, "User", "json");
+    }
+
+    if (!Util.isUnset(tmpReq.verifyad)) {
+      request.verifyadShrink = OpenApiUtil.arrayToStringWithSpecifiedStyle(tmpReq.verifyad, "Verifyad", "json");
+    }
+
+    let query = { };
+    if (!Util.isUnset(request.appShrink)) {
+      query["App"] = request.appShrink;
+    }
+
+    if (!Util.isUnset(request.extShrink)) {
+      query["Ext"] = request.extShrink;
+    }
+
+    if (!Util.isUnset(request.id)) {
+      query["Id"] = request.id;
+    }
+
+    if (!Util.isUnset(request.impShrink)) {
+      query["Imp"] = request.impShrink;
+    }
+
+    if (!Util.isUnset(request.userShrink)) {
+      query["User"] = request.userShrink;
+    }
+
+    if (!Util.isUnset(request.verifyadShrink)) {
+      query["Verifyad"] = request.verifyadShrink;
+    }
+
+    let req = new $OpenApi.OpenApiRequest({
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApi.Params({
+      action: "ListSpecificAd",
+      version: "2022-07-04",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $tea.cast<ListSpecificAdResponse>(await this.callApi(params, req, runtime), new ListSpecificAdResponse({}));
+  }
+
+  async listSpecificAd(request: ListSpecificAdRequest): Promise<ListSpecificAdResponse> {
+    let runtime = new $Util.RuntimeOptions({ });
+    return await this.listSpecificAdWithOptions(request, runtime);
+  }
+
   async queryAuditResultWithOptions(request: QueryAuditResultRequest, runtime: $Util.RuntimeOptions): Promise<QueryAuditResultResponse> {
     Util.validateModel(request);
     let query = { };
@@ -3716,6 +5033,43 @@ export default class Client extends OpenApi {
     return await this.queryAuditResultWithOptions(request, runtime);
   }
 
+  async queryOrderWithOptions(request: QueryOrderRequest, runtime: $Util.RuntimeOptions): Promise<QueryOrderResponse> {
+    Util.validateModel(request);
+    let body : {[key: string ]: any} = { };
+    if (!Util.isUnset(request.channelId)) {
+      body["ChannelId"] = request.channelId;
+    }
+
+    if (!Util.isUnset(request.channelTradeId)) {
+      body["ChannelTradeId"] = request.channelTradeId;
+    }
+
+    if (!Util.isUnset(request.tradeId)) {
+      body["TradeId"] = request.tradeId;
+    }
+
+    let req = new $OpenApi.OpenApiRequest({
+      body: OpenApiUtil.parseToMap(body),
+    });
+    let params = new $OpenApi.Params({
+      action: "QueryOrder",
+      version: "2022-07-04",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $tea.cast<QueryOrderResponse>(await this.callApi(params, req, runtime), new QueryOrderResponse({}));
+  }
+
+  async queryOrder(request: QueryOrderRequest): Promise<QueryOrderResponse> {
+    let runtime = new $Util.RuntimeOptions({ });
+    return await this.queryOrderWithOptions(request, runtime);
+  }
+
   async reportImpressionWithOptions(request: ReportImpressionRequest, runtime: $Util.RuntimeOptions): Promise<ReportImpressionResponse> {
     Util.validateModel(request);
     let query = { };
@@ -3743,6 +5097,31 @@ export default class Client extends OpenApi {
   async reportImpression(request: ReportImpressionRequest): Promise<ReportImpressionResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.reportImpressionWithOptions(request, runtime);
+  }
+
+  async reportTranslateWithOptions(request: ReportTranslateRequest, runtime: $Util.RuntimeOptions): Promise<ReportTranslateResponse> {
+    Util.validateModel(request);
+    let query = OpenApiUtil.query(Util.toMap(request));
+    let req = new $OpenApi.OpenApiRequest({
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApi.Params({
+      action: "ReportTranslate",
+      version: "2022-07-04",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "GET",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $tea.cast<ReportTranslateResponse>(await this.callApi(params, req, runtime), new ReportTranslateResponse({}));
+  }
+
+  async reportTranslate(request: ReportTranslateRequest): Promise<ReportTranslateResponse> {
+    let runtime = new $Util.RuntimeOptions({ });
+    return await this.reportTranslateWithOptions(request, runtime);
   }
 
   async sendSmsWithOptions(request: SendSmsRequest, runtime: $Util.RuntimeOptions): Promise<SendSmsResponse> {
