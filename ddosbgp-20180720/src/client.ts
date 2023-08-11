@@ -1,341 +1,22 @@
 // This file is auto-generated, don't edit it
+/**
+ *
+ */
 import Util, * as $Util from '@alicloud/tea-util';
-import RPC, * as $RPC from '@alicloud/rpc-client';
+import OpenApi, * as $OpenApi from '@alicloud/openapi-client';
+import OpenApiUtil from '@alicloud/openapi-util';
 import EndpointUtil from '@alicloud/endpoint-util';
 import * as $tea from '@alicloud/tea-typescript';
 
-export class DescribeOnDemandInstanceStatusRequest extends $tea.Model {
-  instanceIdList: string[];
-  regionId?: string;
-  static names(): { [key: string]: string } {
-    return {
-      instanceIdList: 'InstanceIdList',
-      regionId: 'RegionId',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      instanceIdList: { 'type': 'array', 'itemType': 'string' },
-      regionId: 'string',
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class DescribeOnDemandInstanceStatusResponse extends $tea.Model {
-  requestId: string;
-  instances: DescribeOnDemandInstanceStatusResponseInstances[];
-  static names(): { [key: string]: string } {
-    return {
-      requestId: 'RequestId',
-      instances: 'Instances',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      requestId: 'string',
-      instances: { 'type': 'array', 'itemType': DescribeOnDemandInstanceStatusResponseInstances },
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class SetInstanceModeOnDemandRequest extends $tea.Model {
-  instanceIdList: string[];
-  mode: string;
-  regionId?: string;
-  static names(): { [key: string]: string } {
-    return {
-      instanceIdList: 'InstanceIdList',
-      mode: 'Mode',
-      regionId: 'RegionId',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      instanceIdList: { 'type': 'array', 'itemType': 'string' },
-      mode: 'string',
-      regionId: 'string',
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class SetInstanceModeOnDemandResponse extends $tea.Model {
-  requestId: string;
-  static names(): { [key: string]: string } {
-    return {
-      requestId: 'RequestId',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      requestId: 'string',
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class QuerySchedruleOnDemandRequest extends $tea.Model {
-  instanceId: string;
-  regionId?: string;
-  static names(): { [key: string]: string } {
-    return {
-      instanceId: 'InstanceId',
-      regionId: 'RegionId',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      instanceId: 'string',
-      regionId: 'string',
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class QuerySchedruleOnDemandResponse extends $tea.Model {
-  requestId: string;
-  userId: string;
-  instanceId: string;
-  ruleConfig: QuerySchedruleOnDemandResponseRuleConfig[];
-  ruleStatus: QuerySchedruleOnDemandResponseRuleStatus[];
-  static names(): { [key: string]: string } {
-    return {
-      requestId: 'RequestId',
-      userId: 'UserId',
-      instanceId: 'InstanceId',
-      ruleConfig: 'RuleConfig',
-      ruleStatus: 'RuleStatus',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      requestId: 'string',
-      userId: 'string',
-      instanceId: 'string',
-      ruleConfig: { 'type': 'array', 'itemType': QuerySchedruleOnDemandResponseRuleConfig },
-      ruleStatus: { 'type': 'array', 'itemType': QuerySchedruleOnDemandResponseRuleStatus },
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class DeleteSchedruleOnDemandRequest extends $tea.Model {
-  instanceId: string;
-  ruleName: string;
-  regionId?: string;
-  static names(): { [key: string]: string } {
-    return {
-      instanceId: 'InstanceId',
-      ruleName: 'RuleName',
-      regionId: 'RegionId',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      instanceId: 'string',
-      ruleName: 'string',
-      regionId: 'string',
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class DeleteSchedruleOnDemandResponse extends $tea.Model {
-  requestId: string;
-  static names(): { [key: string]: string } {
-    return {
-      requestId: 'RequestId',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      requestId: 'string',
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class ConfigSchedruleOnDemandRequest extends $tea.Model {
-  instanceId: string;
-  ruleName: string;
-  ruleConditionMbps: string;
-  ruleConditionKpps: string;
-  ruleConditionCnt: string;
-  ruleAction: string;
-  ruleSwitch: string;
-  ruleUndoMode: string;
-  ruleUndoBeginTime: string;
-  ruleUndoEndTime?: string;
-  timeZone: string;
-  regionId?: string;
-  static names(): { [key: string]: string } {
-    return {
-      instanceId: 'InstanceId',
-      ruleName: 'RuleName',
-      ruleConditionMbps: 'RuleConditionMbps',
-      ruleConditionKpps: 'RuleConditionKpps',
-      ruleConditionCnt: 'RuleConditionCnt',
-      ruleAction: 'RuleAction',
-      ruleSwitch: 'RuleSwitch',
-      ruleUndoMode: 'RuleUndoMode',
-      ruleUndoBeginTime: 'RuleUndoBeginTime',
-      ruleUndoEndTime: 'RuleUndoEndTime',
-      timeZone: 'TimeZone',
-      regionId: 'RegionId',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      instanceId: 'string',
-      ruleName: 'string',
-      ruleConditionMbps: 'string',
-      ruleConditionKpps: 'string',
-      ruleConditionCnt: 'string',
-      ruleAction: 'string',
-      ruleSwitch: 'string',
-      ruleUndoMode: 'string',
-      ruleUndoBeginTime: 'string',
-      ruleUndoEndTime: 'string',
-      timeZone: 'string',
-      regionId: 'string',
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class ConfigSchedruleOnDemandResponse extends $tea.Model {
-  requestId: string;
-  static names(): { [key: string]: string } {
-    return {
-      requestId: 'RequestId',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      requestId: 'string',
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class CreateSchedruleOnDemandRequest extends $tea.Model {
-  instanceId: string;
-  ruleName: string;
-  ruleConditionMbps: string;
-  ruleConditionKpps: string;
-  ruleConditionCnt: string;
-  ruleAction: string;
-  ruleSwitch: string;
-  ruleUndoMode: string;
-  ruleUndoBeginTime: string;
-  ruleUndoEndTime?: string;
-  timeZone: string;
-  regionId?: string;
-  static names(): { [key: string]: string } {
-    return {
-      instanceId: 'InstanceId',
-      ruleName: 'RuleName',
-      ruleConditionMbps: 'RuleConditionMbps',
-      ruleConditionKpps: 'RuleConditionKpps',
-      ruleConditionCnt: 'RuleConditionCnt',
-      ruleAction: 'RuleAction',
-      ruleSwitch: 'RuleSwitch',
-      ruleUndoMode: 'RuleUndoMode',
-      ruleUndoBeginTime: 'RuleUndoBeginTime',
-      ruleUndoEndTime: 'RuleUndoEndTime',
-      timeZone: 'TimeZone',
-      regionId: 'RegionId',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      instanceId: 'string',
-      ruleName: 'string',
-      ruleConditionMbps: 'string',
-      ruleConditionKpps: 'string',
-      ruleConditionCnt: 'string',
-      ruleAction: 'string',
-      ruleSwitch: 'string',
-      ruleUndoMode: 'string',
-      ruleUndoBeginTime: 'string',
-      ruleUndoEndTime: 'string',
-      timeZone: 'string',
-      regionId: 'string',
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class CreateSchedruleOnDemandResponse extends $tea.Model {
-  requestId: string;
-  static names(): { [key: string]: string } {
-    return {
-      requestId: 'RequestId',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      requestId: 'string',
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class GetSlsOpenStatusRequest extends $tea.Model {
+export class AddIpRequest extends $tea.Model {
+  instanceId?: string;
+  ipList?: string;
   regionId?: string;
   resourceGroupId?: string;
   static names(): { [key: string]: string } {
     return {
+      instanceId: 'InstanceId',
+      ipList: 'IpList',
       regionId: 'RegionId',
       resourceGroupId: 'ResourceGroupId',
     };
@@ -343,6 +24,8 @@ export class GetSlsOpenStatusRequest extends $tea.Model {
 
   static types(): { [key: string]: any } {
     return {
+      instanceId: 'string',
+      ipList: 'string',
       regionId: 'string',
       resourceGroupId: 'string',
     };
@@ -353,20 +36,42 @@ export class GetSlsOpenStatusRequest extends $tea.Model {
   }
 }
 
-export class GetSlsOpenStatusResponse extends $tea.Model {
-  requestId: string;
-  slsOpenStatus: boolean;
+export class AddIpResponseBody extends $tea.Model {
+  requestId?: string;
   static names(): { [key: string]: string } {
     return {
       requestId: 'RequestId',
-      slsOpenStatus: 'SlsOpenStatus',
     };
   }
 
   static types(): { [key: string]: any } {
     return {
       requestId: 'string',
-      slsOpenStatus: 'boolean',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class AddIpResponse extends $tea.Model {
+  headers: { [key: string]: string };
+  statusCode: number;
+  body: AddIpResponseBody;
+  static names(): { [key: string]: string } {
+    return {
+      headers: 'headers',
+      statusCode: 'statusCode',
+      body: 'body',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
+      body: AddIpResponseBody,
     };
   }
 
@@ -397,308 +102,19 @@ export class CheckAccessLogAuthRequest extends $tea.Model {
   }
 }
 
-export class CheckAccessLogAuthResponse extends $tea.Model {
-  requestId: string;
-  accessLogAuth: boolean;
+export class CheckAccessLogAuthResponseBody extends $tea.Model {
+  accessLogAuth?: boolean;
+  requestId?: string;
   static names(): { [key: string]: string } {
     return {
-      requestId: 'RequestId',
       accessLogAuth: 'AccessLogAuth',
+      requestId: 'RequestId',
     };
   }
 
   static types(): { [key: string]: any } {
     return {
-      requestId: 'string',
       accessLogAuth: 'boolean',
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class ListOpenedAccessLogInstancesRequest extends $tea.Model {
-  resourceGroupId?: string;
-  pageNumber?: number;
-  pageSize?: number;
-  static names(): { [key: string]: string } {
-    return {
-      resourceGroupId: 'ResourceGroupId',
-      pageNumber: 'PageNumber',
-      pageSize: 'PageSize',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      resourceGroupId: 'string',
-      pageNumber: 'number',
-      pageSize: 'number',
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class ListOpenedAccessLogInstancesResponse extends $tea.Model {
-  requestId: string;
-  totalCount: number;
-  slsConfigStatus: ListOpenedAccessLogInstancesResponseSlsConfigStatus[];
-  static names(): { [key: string]: string } {
-    return {
-      requestId: 'RequestId',
-      totalCount: 'TotalCount',
-      slsConfigStatus: 'SlsConfigStatus',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      requestId: 'string',
-      totalCount: 'number',
-      slsConfigStatus: { 'type': 'array', 'itemType': ListOpenedAccessLogInstancesResponseSlsConfigStatus },
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class DescribeOnDemandDdosEventRequest extends $tea.Model {
-  startTime: number;
-  endTime: number;
-  pageSize: number;
-  pageNo: number;
-  instanceId: string;
-  ip?: string;
-  resourceGroupId?: string;
-  regionId?: string;
-  static names(): { [key: string]: string } {
-    return {
-      startTime: 'StartTime',
-      endTime: 'EndTime',
-      pageSize: 'PageSize',
-      pageNo: 'PageNo',
-      instanceId: 'InstanceId',
-      ip: 'Ip',
-      resourceGroupId: 'ResourceGroupId',
-      regionId: 'RegionId',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      startTime: 'number',
-      endTime: 'number',
-      pageSize: 'number',
-      pageNo: 'number',
-      instanceId: 'string',
-      ip: 'string',
-      resourceGroupId: 'string',
-      regionId: 'string',
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class DescribeOnDemandDdosEventResponse extends $tea.Model {
-  requestId: string;
-  total: number;
-  events: DescribeOnDemandDdosEventResponseEvents[];
-  static names(): { [key: string]: string } {
-    return {
-      requestId: 'RequestId',
-      total: 'Total',
-      events: 'Events',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      requestId: 'string',
-      total: 'number',
-      events: { 'type': 'array', 'itemType': DescribeOnDemandDdosEventResponseEvents },
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class ListTagKeysRequest extends $tea.Model {
-  regionId: string;
-  resourceType: string;
-  pageSize?: number;
-  currentPage?: number;
-  resourceGroupId?: string;
-  static names(): { [key: string]: string } {
-    return {
-      regionId: 'RegionId',
-      resourceType: 'ResourceType',
-      pageSize: 'PageSize',
-      currentPage: 'CurrentPage',
-      resourceGroupId: 'ResourceGroupId',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      regionId: 'string',
-      resourceType: 'string',
-      pageSize: 'number',
-      currentPage: 'number',
-      resourceGroupId: 'string',
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class ListTagKeysResponse extends $tea.Model {
-  requestId: string;
-  currentPage: number;
-  pageSize: number;
-  totalCount: number;
-  tagKeys: ListTagKeysResponseTagKeys[];
-  static names(): { [key: string]: string } {
-    return {
-      requestId: 'RequestId',
-      currentPage: 'CurrentPage',
-      pageSize: 'PageSize',
-      totalCount: 'TotalCount',
-      tagKeys: 'TagKeys',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      requestId: 'string',
-      currentPage: 'number',
-      pageSize: 'number',
-      totalCount: 'number',
-      tagKeys: { 'type': 'array', 'itemType': ListTagKeysResponseTagKeys },
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class ListTagResourcesRequest extends $tea.Model {
-  resourceGroupId?: string;
-  regionId: string;
-  resourceType: string;
-  resourceId?: string[];
-  tag?: ListTagResourcesRequestTag[];
-  nextToken?: string;
-  static names(): { [key: string]: string } {
-    return {
-      resourceGroupId: 'ResourceGroupId',
-      regionId: 'RegionId',
-      resourceType: 'ResourceType',
-      resourceId: 'ResourceId',
-      tag: 'Tag',
-      nextToken: 'NextToken',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      resourceGroupId: 'string',
-      regionId: 'string',
-      resourceType: 'string',
-      resourceId: { 'type': 'array', 'itemType': 'string' },
-      tag: { 'type': 'array', 'itemType': ListTagResourcesRequestTag },
-      nextToken: 'string',
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class ListTagResourcesResponse extends $tea.Model {
-  requestId: string;
-  nextToken: string;
-  tagResources: ListTagResourcesResponseTagResources;
-  static names(): { [key: string]: string } {
-    return {
-      requestId: 'RequestId',
-      nextToken: 'NextToken',
-      tagResources: 'TagResources',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      requestId: 'string',
-      nextToken: 'string',
-      tagResources: ListTagResourcesResponseTagResources,
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class UntagResourcesRequest extends $tea.Model {
-  resourceGroupId?: string;
-  regionId: string;
-  resourceType: string;
-  resourceId: string[];
-  tagKey?: string[];
-  all?: boolean;
-  static names(): { [key: string]: string } {
-    return {
-      resourceGroupId: 'ResourceGroupId',
-      regionId: 'RegionId',
-      resourceType: 'ResourceType',
-      resourceId: 'ResourceId',
-      tagKey: 'TagKey',
-      all: 'All',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      resourceGroupId: 'string',
-      regionId: 'string',
-      resourceType: 'string',
-      resourceId: { 'type': 'array', 'itemType': 'string' },
-      tagKey: { 'type': 'array', 'itemType': 'string' },
-      all: 'boolean',
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class UntagResourcesResponse extends $tea.Model {
-  requestId: string;
-  static names(): { [key: string]: string } {
-    return {
-      requestId: 'RequestId',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
       requestId: 'string',
     };
   }
@@ -708,912 +124,23 @@ export class UntagResourcesResponse extends $tea.Model {
   }
 }
 
-export class TagResourcesRequest extends $tea.Model {
-  resourceGroupId?: string;
-  regionId: string;
-  resourceType: string;
-  resourceId: string[];
-  tag?: TagResourcesRequestTag[];
+export class CheckAccessLogAuthResponse extends $tea.Model {
+  headers: { [key: string]: string };
+  statusCode: number;
+  body: CheckAccessLogAuthResponseBody;
   static names(): { [key: string]: string } {
     return {
-      resourceGroupId: 'ResourceGroupId',
-      regionId: 'RegionId',
-      resourceType: 'ResourceType',
-      resourceId: 'ResourceId',
-      tag: 'Tag',
+      headers: 'headers',
+      statusCode: 'statusCode',
+      body: 'body',
     };
   }
 
   static types(): { [key: string]: any } {
     return {
-      resourceGroupId: 'string',
-      regionId: 'string',
-      resourceType: 'string',
-      resourceId: { 'type': 'array', 'itemType': 'string' },
-      tag: { 'type': 'array', 'itemType': TagResourcesRequestTag },
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class TagResourcesResponse extends $tea.Model {
-  requestId: string;
-  static names(): { [key: string]: string } {
-    return {
-      requestId: 'RequestId',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      requestId: 'string',
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class DescribeExcpetionCountRequest extends $tea.Model {
-  resourceGroupId?: string;
-  regionId?: string;
-  static names(): { [key: string]: string } {
-    return {
-      resourceGroupId: 'ResourceGroupId',
-      regionId: 'RegionId',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      resourceGroupId: 'string',
-      regionId: 'string',
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class DescribeExcpetionCountResponse extends $tea.Model {
-  requestId: string;
-  exceptionIpCount: number;
-  expireTimeCount: number;
-  static names(): { [key: string]: string } {
-    return {
-      requestId: 'RequestId',
-      exceptionIpCount: 'ExceptionIpCount',
-      expireTimeCount: 'ExpireTimeCount',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      requestId: 'string',
-      exceptionIpCount: 'number',
-      expireTimeCount: 'number',
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class DescribePackIpListRequest extends $tea.Model {
-  pageNo: number;
-  pageSize: number;
-  instanceId: string;
-  ip?: string;
-  productName?: string;
-  resourceGroupId?: string;
-  regionId?: string;
-  static names(): { [key: string]: string } {
-    return {
-      pageNo: 'PageNo',
-      pageSize: 'PageSize',
-      instanceId: 'InstanceId',
-      ip: 'Ip',
-      productName: 'ProductName',
-      resourceGroupId: 'ResourceGroupId',
-      regionId: 'RegionId',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      pageNo: 'number',
-      pageSize: 'number',
-      instanceId: 'string',
-      ip: 'string',
-      productName: 'string',
-      resourceGroupId: 'string',
-      regionId: 'string',
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class DescribePackIpListResponse extends $tea.Model {
-  requestId: string;
-  success: boolean;
-  code: string;
-  total: number;
-  ipList: DescribePackIpListResponseIpList[];
-  static names(): { [key: string]: string } {
-    return {
-      requestId: 'RequestId',
-      success: 'Success',
-      code: 'Code',
-      total: 'Total',
-      ipList: 'IpList',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      requestId: 'string',
-      success: 'boolean',
-      code: 'string',
-      total: 'number',
-      ipList: { 'type': 'array', 'itemType': DescribePackIpListResponseIpList },
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class DescribeRegionsRequest extends $tea.Model {
-  resourceGroupId?: string;
-  regionId?: string;
-  static names(): { [key: string]: string } {
-    return {
-      resourceGroupId: 'ResourceGroupId',
-      regionId: 'RegionId',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      resourceGroupId: 'string',
-      regionId: 'string',
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class DescribeRegionsResponse extends $tea.Model {
-  requestId: string;
-  success: boolean;
-  code: string;
-  regions: DescribeRegionsResponseRegions[];
-  static names(): { [key: string]: string } {
-    return {
-      requestId: 'RequestId',
-      success: 'Success',
-      code: 'Code',
-      regions: 'Regions',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      requestId: 'string',
-      success: 'boolean',
-      code: 'string',
-      regions: { 'type': 'array', 'itemType': DescribeRegionsResponseRegions },
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class ModifyRemarkRequest extends $tea.Model {
-  instanceId: string;
-  remark: string;
-  resourceGroupId?: string;
-  regionId?: string;
-  static names(): { [key: string]: string } {
-    return {
-      instanceId: 'InstanceId',
-      remark: 'Remark',
-      resourceGroupId: 'ResourceGroupId',
-      regionId: 'RegionId',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      instanceId: 'string',
-      remark: 'string',
-      resourceGroupId: 'string',
-      regionId: 'string',
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class ModifyRemarkResponse extends $tea.Model {
-  requestId: string;
-  static names(): { [key: string]: string } {
-    return {
-      requestId: 'RequestId',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      requestId: 'string',
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class DescribeTrafficRequest extends $tea.Model {
-  instanceId?: string;
-  ipnet?: string;
-  ip?: string;
-  startTime: number;
-  endTime?: number;
-  interval?: number;
-  flowType?: string;
-  resourceGroupId?: string;
-  regionId?: string;
-  static names(): { [key: string]: string } {
-    return {
-      instanceId: 'InstanceId',
-      ipnet: 'Ipnet',
-      ip: 'Ip',
-      startTime: 'StartTime',
-      endTime: 'EndTime',
-      interval: 'Interval',
-      flowType: 'FlowType',
-      resourceGroupId: 'ResourceGroupId',
-      regionId: 'RegionId',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      instanceId: 'string',
-      ipnet: 'string',
-      ip: 'string',
-      startTime: 'number',
-      endTime: 'number',
-      interval: 'number',
-      flowType: 'string',
-      resourceGroupId: 'string',
-      regionId: 'string',
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class DescribeTrafficResponse extends $tea.Model {
-  requestId: string;
-  flowList: DescribeTrafficResponseFlowList[];
-  static names(): { [key: string]: string } {
-    return {
-      requestId: 'RequestId',
-      flowList: 'FlowList',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      requestId: 'string',
-      flowList: { 'type': 'array', 'itemType': DescribeTrafficResponseFlowList },
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class DescribeResourcePackUsageRequest extends $tea.Model {
-  sourceIp?: string;
-  endTime: number;
-  startTime: number;
-  instanceId?: string;
-  resourceGroupId?: string;
-  static names(): { [key: string]: string } {
-    return {
-      sourceIp: 'SourceIp',
-      endTime: 'EndTime',
-      startTime: 'StartTime',
-      instanceId: 'InstanceId',
-      resourceGroupId: 'ResourceGroupId',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      sourceIp: 'string',
-      endTime: 'number',
-      startTime: 'number',
-      instanceId: 'string',
-      resourceGroupId: 'string',
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class DescribeResourcePackUsageResponse extends $tea.Model {
-  requestId: string;
-  interval: number;
-  startTime: number;
-  endTime: number;
-  packUsages: DescribeResourcePackUsageResponsePackUsages[];
-  static names(): { [key: string]: string } {
-    return {
-      requestId: 'RequestId',
-      interval: 'Interval',
-      startTime: 'StartTime',
-      endTime: 'EndTime',
-      packUsages: 'PackUsages',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      requestId: 'string',
-      interval: 'number',
-      startTime: 'number',
-      endTime: 'number',
-      packUsages: { 'type': 'array', 'itemType': DescribeResourcePackUsageResponsePackUsages },
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class DescribeResourcePackStatisticsRequest extends $tea.Model {
-  sourceIp?: string;
-  ddosRegionId?: string;
-  instanceId?: string;
-  resourceGroupId?: string;
-  static names(): { [key: string]: string } {
-    return {
-      sourceIp: 'SourceIp',
-      ddosRegionId: 'DdosRegionId',
-      instanceId: 'InstanceId',
-      resourceGroupId: 'ResourceGroupId',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      sourceIp: 'string',
-      ddosRegionId: 'string',
-      instanceId: 'string',
-      resourceGroupId: 'string',
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class DescribeResourcePackStatisticsResponse extends $tea.Model {
-  requestId: string;
-  availablePackNum: number;
-  totalCurrCapacity: number;
-  totalUsedCapacity: number;
-  totalInitCapacity: number;
-  static names(): { [key: string]: string } {
-    return {
-      requestId: 'RequestId',
-      availablePackNum: 'AvailablePackNum',
-      totalCurrCapacity: 'TotalCurrCapacity',
-      totalUsedCapacity: 'TotalUsedCapacity',
-      totalInitCapacity: 'TotalInitCapacity',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      requestId: 'string',
-      availablePackNum: 'number',
-      totalCurrCapacity: 'number',
-      totalUsedCapacity: 'number',
-      totalInitCapacity: 'number',
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class DescribeResourcePackInstancesRequest extends $tea.Model {
-  sourceIp?: string;
-  pageSize: number;
-  currentPage: number;
-  resourceGroupId?: string;
-  static names(): { [key: string]: string } {
-    return {
-      sourceIp: 'SourceIp',
-      pageSize: 'PageSize',
-      currentPage: 'CurrentPage',
-      resourceGroupId: 'ResourceGroupId',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      sourceIp: 'string',
-      pageSize: 'number',
-      currentPage: 'number',
-      resourceGroupId: 'string',
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class DescribeResourcePackInstancesResponse extends $tea.Model {
-  requestId: string;
-  totalCount: number;
-  resourcePacks: DescribeResourcePackInstancesResponseResourcePacks[];
-  static names(): { [key: string]: string } {
-    return {
-      requestId: 'RequestId',
-      totalCount: 'TotalCount',
-      resourcePacks: 'ResourcePacks',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      requestId: 'string',
-      totalCount: 'number',
-      resourcePacks: { 'type': 'array', 'itemType': DescribeResourcePackInstancesResponseResourcePacks },
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class DescribePackPaidTrafficRequest extends $tea.Model {
-  sourceIp?: string;
-  instanceId?: string;
-  currentPage: number;
-  pageSize: number;
-  startTime: number;
-  endTime: number;
-  resourceGroupId?: string;
-  static names(): { [key: string]: string } {
-    return {
-      sourceIp: 'SourceIp',
-      instanceId: 'InstanceId',
-      currentPage: 'CurrentPage',
-      pageSize: 'PageSize',
-      startTime: 'StartTime',
-      endTime: 'EndTime',
-      resourceGroupId: 'ResourceGroupId',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      sourceIp: 'string',
-      instanceId: 'string',
-      currentPage: 'number',
-      pageSize: 'number',
-      startTime: 'number',
-      endTime: 'number',
-      resourceGroupId: 'string',
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class DescribePackPaidTrafficResponse extends $tea.Model {
-  requestId: string;
-  totalCount: number;
-  packPaidTraffics: DescribePackPaidTrafficResponsePackPaidTraffics[];
-  static names(): { [key: string]: string } {
-    return {
-      requestId: 'RequestId',
-      totalCount: 'TotalCount',
-      packPaidTraffics: 'PackPaidTraffics',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      requestId: 'string',
-      totalCount: 'number',
-      packPaidTraffics: { 'type': 'array', 'itemType': DescribePackPaidTrafficResponsePackPaidTraffics },
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class DescribeOpEntitiesRequest extends $tea.Model {
-  currentPage: number;
-  pageSize: number;
-  startTime: number;
-  endTime: number;
-  orderBy?: string;
-  orderDir?: string;
-  instanceId?: string;
-  resourceGroupId?: string;
-  regionId?: string;
-  static names(): { [key: string]: string } {
-    return {
-      currentPage: 'CurrentPage',
-      pageSize: 'PageSize',
-      startTime: 'StartTime',
-      endTime: 'EndTime',
-      orderBy: 'OrderBy',
-      orderDir: 'OrderDir',
-      instanceId: 'InstanceId',
-      resourceGroupId: 'ResourceGroupId',
-      regionId: 'RegionId',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      currentPage: 'number',
-      pageSize: 'number',
-      startTime: 'number',
-      endTime: 'number',
-      orderBy: 'string',
-      orderDir: 'string',
-      instanceId: 'string',
-      resourceGroupId: 'string',
-      regionId: 'string',
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class DescribeOpEntitiesResponse extends $tea.Model {
-  requestId: string;
-  totalCount: number;
-  opEntities: DescribeOpEntitiesResponseOpEntities[];
-  static names(): { [key: string]: string } {
-    return {
-      requestId: 'RequestId',
-      totalCount: 'TotalCount',
-      opEntities: 'OpEntities',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      requestId: 'string',
-      totalCount: 'number',
-      opEntities: { 'type': 'array', 'itemType': DescribeOpEntitiesResponseOpEntities },
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class DescribeInstanceSpecsRequest extends $tea.Model {
-  instanceIdList: string;
-  regionId?: string;
-  resourceGroupId?: string;
-  static names(): { [key: string]: string } {
-    return {
-      instanceIdList: 'InstanceIdList',
-      regionId: 'RegionId',
-      resourceGroupId: 'ResourceGroupId',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      instanceIdList: 'string',
-      regionId: 'string',
-      resourceGroupId: 'string',
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class DescribeInstanceSpecsResponse extends $tea.Model {
-  requestId: string;
-  instanceSpecs: DescribeInstanceSpecsResponseInstanceSpecs[];
-  static names(): { [key: string]: string } {
-    return {
-      requestId: 'RequestId',
-      instanceSpecs: 'InstanceSpecs',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      requestId: 'string',
-      instanceSpecs: { 'type': 'array', 'itemType': DescribeInstanceSpecsResponseInstanceSpecs },
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class DescribeInstanceListRequest extends $tea.Model {
-  resourceGroupId?: string;
-  instanceIdList?: string;
-  remark?: string;
-  pageNo: number;
-  pageSize: number;
-  ipVersion?: string;
-  instanceType?: string;
-  ip?: string;
-  orderby?: string;
-  orderdire?: string;
-  regionId?: string;
-  tag?: DescribeInstanceListRequestTag[];
-  static names(): { [key: string]: string } {
-    return {
-      resourceGroupId: 'ResourceGroupId',
-      instanceIdList: 'InstanceIdList',
-      remark: 'Remark',
-      pageNo: 'PageNo',
-      pageSize: 'PageSize',
-      ipVersion: 'IpVersion',
-      instanceType: 'InstanceType',
-      ip: 'Ip',
-      orderby: 'Orderby',
-      orderdire: 'Orderdire',
-      regionId: 'RegionId',
-      tag: 'Tag',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      resourceGroupId: 'string',
-      instanceIdList: 'string',
-      remark: 'string',
-      pageNo: 'number',
-      pageSize: 'number',
-      ipVersion: 'string',
-      instanceType: 'string',
-      ip: 'string',
-      orderby: 'string',
-      orderdire: 'string',
-      regionId: 'string',
-      tag: { 'type': 'array', 'itemType': DescribeInstanceListRequestTag },
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class DescribeInstanceListResponse extends $tea.Model {
-  requestId: string;
-  total: number;
-  instanceList: DescribeInstanceListResponseInstanceList[];
-  static names(): { [key: string]: string } {
-    return {
-      requestId: 'RequestId',
-      total: 'Total',
-      instanceList: 'InstanceList',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      requestId: 'string',
-      total: 'number',
-      instanceList: { 'type': 'array', 'itemType': DescribeInstanceListResponseInstanceList },
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class DescribeDdosEventRequest extends $tea.Model {
-  startTime: number;
-  endTime: number;
-  pageSize: number;
-  pageNo: number;
-  instanceId: string;
-  ip?: string;
-  resourceGroupId?: string;
-  regionId?: string;
-  static names(): { [key: string]: string } {
-    return {
-      startTime: 'StartTime',
-      endTime: 'EndTime',
-      pageSize: 'PageSize',
-      pageNo: 'PageNo',
-      instanceId: 'InstanceId',
-      ip: 'Ip',
-      resourceGroupId: 'ResourceGroupId',
-      regionId: 'RegionId',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      startTime: 'number',
-      endTime: 'number',
-      pageSize: 'number',
-      pageNo: 'number',
-      instanceId: 'string',
-      ip: 'string',
-      resourceGroupId: 'string',
-      regionId: 'string',
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class DescribeDdosEventResponse extends $tea.Model {
-  requestId: string;
-  total: number;
-  events: DescribeDdosEventResponseEvents[];
-  static names(): { [key: string]: string } {
-    return {
-      requestId: 'RequestId',
-      total: 'Total',
-      events: 'Events',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      requestId: 'string',
-      total: 'number',
-      events: { 'type': 'array', 'itemType': DescribeDdosEventResponseEvents },
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class DeleteIpRequest extends $tea.Model {
-  ipList: string;
-  instanceId: string;
-  resourceGroupId?: string;
-  regionId?: string;
-  static names(): { [key: string]: string } {
-    return {
-      ipList: 'IpList',
-      instanceId: 'InstanceId',
-      resourceGroupId: 'ResourceGroupId',
-      regionId: 'RegionId',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      ipList: 'string',
-      instanceId: 'string',
-      resourceGroupId: 'string',
-      regionId: 'string',
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class DeleteIpResponse extends $tea.Model {
-  requestId: string;
-  static names(): { [key: string]: string } {
-    return {
-      requestId: 'RequestId',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      requestId: 'string',
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class DeleteBlackholeRequest extends $tea.Model {
-  ip: string;
-  instanceId: string;
-  resourceGroupId?: string;
-  regionId?: string;
-  static names(): { [key: string]: string } {
-    return {
-      ip: 'Ip',
-      instanceId: 'InstanceId',
-      resourceGroupId: 'ResourceGroupId',
-      regionId: 'RegionId',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      ip: 'string',
-      instanceId: 'string',
-      resourceGroupId: 'string',
-      regionId: 'string',
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class DeleteBlackholeResponse extends $tea.Model {
-  requestId: string;
-  static names(): { [key: string]: string } {
-    return {
-      requestId: 'RequestId',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      requestId: 'string',
+      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
+      body: CheckAccessLogAuthResponseBody,
     };
   }
 
@@ -1623,19 +150,22 @@ export class DeleteBlackholeResponse extends $tea.Model {
 }
 
 export class CheckGrantRequest extends $tea.Model {
-  resourceGroupId?: string;
+  isSlr?: boolean;
   regionId?: string;
+  resourceGroupId?: string;
   static names(): { [key: string]: string } {
     return {
-      resourceGroupId: 'ResourceGroupId',
+      isSlr: 'IsSlr',
       regionId: 'RegionId',
+      resourceGroupId: 'ResourceGroupId',
     };
   }
 
   static types(): { [key: string]: any } {
     return {
-      resourceGroupId: 'string',
+      isSlr: 'boolean',
       regionId: 'string',
+      resourceGroupId: 'string',
     };
   }
 
@@ -1644,9 +174,9 @@ export class CheckGrantRequest extends $tea.Model {
   }
 }
 
-export class CheckGrantResponse extends $tea.Model {
-  requestId: string;
-  status: number;
+export class CheckGrantResponseBody extends $tea.Model {
+  requestId?: string;
+  status?: number;
   static names(): { [key: string]: string } {
     return {
       requestId: 'RequestId',
@@ -1666,26 +196,23 @@ export class CheckGrantResponse extends $tea.Model {
   }
 }
 
-export class AddIpRequest extends $tea.Model {
-  ipList: string;
-  instanceId: string;
-  regionId?: string;
-  resourceGroupId?: string;
+export class CheckGrantResponse extends $tea.Model {
+  headers: { [key: string]: string };
+  statusCode: number;
+  body: CheckGrantResponseBody;
   static names(): { [key: string]: string } {
     return {
-      ipList: 'IpList',
-      instanceId: 'InstanceId',
-      regionId: 'RegionId',
-      resourceGroupId: 'ResourceGroupId',
+      headers: 'headers',
+      statusCode: 'statusCode',
+      body: 'body',
     };
   }
 
   static types(): { [key: string]: any } {
     return {
-      ipList: 'string',
-      instanceId: 'string',
-      regionId: 'string',
-      resourceGroupId: 'string',
+      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
+      body: CheckGrantResponseBody,
     };
   }
 
@@ -1694,8 +221,60 @@ export class AddIpRequest extends $tea.Model {
   }
 }
 
-export class AddIpResponse extends $tea.Model {
-  requestId: string;
+export class ConfigSchedruleOnDemandRequest extends $tea.Model {
+  instanceId?: string;
+  regionId?: string;
+  ruleAction?: string;
+  ruleConditionCnt?: string;
+  ruleConditionKpps?: string;
+  ruleConditionMbps?: string;
+  ruleName?: string;
+  ruleSwitch?: string;
+  ruleUndoBeginTime?: string;
+  ruleUndoEndTime?: string;
+  ruleUndoMode?: string;
+  timeZone?: string;
+  static names(): { [key: string]: string } {
+    return {
+      instanceId: 'InstanceId',
+      regionId: 'RegionId',
+      ruleAction: 'RuleAction',
+      ruleConditionCnt: 'RuleConditionCnt',
+      ruleConditionKpps: 'RuleConditionKpps',
+      ruleConditionMbps: 'RuleConditionMbps',
+      ruleName: 'RuleName',
+      ruleSwitch: 'RuleSwitch',
+      ruleUndoBeginTime: 'RuleUndoBeginTime',
+      ruleUndoEndTime: 'RuleUndoEndTime',
+      ruleUndoMode: 'RuleUndoMode',
+      timeZone: 'TimeZone',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      instanceId: 'string',
+      regionId: 'string',
+      ruleAction: 'string',
+      ruleConditionCnt: 'string',
+      ruleConditionKpps: 'string',
+      ruleConditionMbps: 'string',
+      ruleName: 'string',
+      ruleSwitch: 'string',
+      ruleUndoBeginTime: 'string',
+      ruleUndoEndTime: 'string',
+      ruleUndoMode: 'string',
+      timeZone: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class ConfigSchedruleOnDemandResponseBody extends $tea.Model {
+  requestId?: string;
   static names(): { [key: string]: string } {
     return {
       requestId: 'RequestId',
@@ -1713,35 +292,23 @@ export class AddIpResponse extends $tea.Model {
   }
 }
 
-export class DescribeOnDemandInstanceStatusResponseInstances extends $tea.Model {
-  userId: string;
-  net: string;
-  instanceId: string;
-  registedAs: string;
-  desc: string;
-  declared: string;
-  mode: string;
+export class ConfigSchedruleOnDemandResponse extends $tea.Model {
+  headers: { [key: string]: string };
+  statusCode: number;
+  body: ConfigSchedruleOnDemandResponseBody;
   static names(): { [key: string]: string } {
     return {
-      userId: 'UserId',
-      net: 'Net',
-      instanceId: 'InstanceId',
-      registedAs: 'RegistedAs',
-      desc: 'Desc',
-      declared: 'Declared',
-      mode: 'Mode',
+      headers: 'headers',
+      statusCode: 'statusCode',
+      body: 'body',
     };
   }
 
   static types(): { [key: string]: any } {
     return {
-      userId: 'string',
-      net: 'string',
-      instanceId: 'string',
-      registedAs: 'string',
-      desc: 'string',
-      declared: 'string',
-      mode: 'string',
+      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
+      body: ConfigSchedruleOnDemandResponseBody,
     };
   }
 
@@ -1750,43 +317,49 @@ export class DescribeOnDemandInstanceStatusResponseInstances extends $tea.Model 
   }
 }
 
-export class QuerySchedruleOnDemandResponseRuleConfig extends $tea.Model {
-  ruleName: string;
-  ruleConditionCnt: string;
-  ruleUndoBeginTime: string;
-  ruleUndoMode: string;
-  ruleUndoEndTime: string;
-  ruleConditionMbps: string;
-  ruleConditionKpps: string;
-  ruleSwitch: string;
-  ruleAction: string;
-  timeZone: string;
+export class CreateSchedruleOnDemandRequest extends $tea.Model {
+  instanceId?: string;
+  regionId?: string;
+  ruleAction?: string;
+  ruleConditionCnt?: string;
+  ruleConditionKpps?: string;
+  ruleConditionMbps?: string;
+  ruleName?: string;
+  ruleSwitch?: string;
+  ruleUndoBeginTime?: string;
+  ruleUndoEndTime?: string;
+  ruleUndoMode?: string;
+  timeZone?: string;
   static names(): { [key: string]: string } {
     return {
-      ruleName: 'RuleName',
-      ruleConditionCnt: 'RuleConditionCnt',
-      ruleUndoBeginTime: 'RuleUndoBeginTime',
-      ruleUndoMode: 'RuleUndoMode',
-      ruleUndoEndTime: 'RuleUndoEndTime',
-      ruleConditionMbps: 'RuleConditionMbps',
-      ruleConditionKpps: 'RuleConditionKpps',
-      ruleSwitch: 'RuleSwitch',
+      instanceId: 'InstanceId',
+      regionId: 'RegionId',
       ruleAction: 'RuleAction',
+      ruleConditionCnt: 'RuleConditionCnt',
+      ruleConditionKpps: 'RuleConditionKpps',
+      ruleConditionMbps: 'RuleConditionMbps',
+      ruleName: 'RuleName',
+      ruleSwitch: 'RuleSwitch',
+      ruleUndoBeginTime: 'RuleUndoBeginTime',
+      ruleUndoEndTime: 'RuleUndoEndTime',
+      ruleUndoMode: 'RuleUndoMode',
       timeZone: 'TimeZone',
     };
   }
 
   static types(): { [key: string]: any } {
     return {
-      ruleName: 'string',
-      ruleConditionCnt: 'string',
-      ruleUndoBeginTime: 'string',
-      ruleUndoMode: 'string',
-      ruleUndoEndTime: 'string',
-      ruleConditionMbps: 'string',
-      ruleConditionKpps: 'string',
-      ruleSwitch: 'string',
+      instanceId: 'string',
+      regionId: 'string',
       ruleAction: 'string',
+      ruleConditionCnt: 'string',
+      ruleConditionKpps: 'string',
+      ruleConditionMbps: 'string',
+      ruleName: 'string',
+      ruleSwitch: 'string',
+      ruleUndoBeginTime: 'string',
+      ruleUndoEndTime: 'string',
+      ruleUndoMode: 'string',
       timeZone: 'string',
     };
   }
@@ -1796,20 +369,17 @@ export class QuerySchedruleOnDemandResponseRuleConfig extends $tea.Model {
   }
 }
 
-export class QuerySchedruleOnDemandResponseRuleStatus extends $tea.Model {
-  net: string;
-  ruleSchedStatus: string;
+export class CreateSchedruleOnDemandResponseBody extends $tea.Model {
+  requestId?: string;
   static names(): { [key: string]: string } {
     return {
-      net: 'Net',
-      ruleSchedStatus: 'RuleSchedStatus',
+      requestId: 'RequestId',
     };
   }
 
   static types(): { [key: string]: any } {
     return {
-      net: 'string',
-      ruleSchedStatus: 'string',
+      requestId: 'string',
     };
   }
 
@@ -1818,20 +388,51 @@ export class QuerySchedruleOnDemandResponseRuleStatus extends $tea.Model {
   }
 }
 
-export class ListOpenedAccessLogInstancesResponseSlsConfigStatus extends $tea.Model {
-  enable: boolean;
-  instanceId: string;
+export class CreateSchedruleOnDemandResponse extends $tea.Model {
+  headers: { [key: string]: string };
+  statusCode: number;
+  body: CreateSchedruleOnDemandResponseBody;
   static names(): { [key: string]: string } {
     return {
-      enable: 'Enable',
+      headers: 'headers',
+      statusCode: 'statusCode',
+      body: 'body',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
+      body: CreateSchedruleOnDemandResponseBody,
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class DeleteBlackholeRequest extends $tea.Model {
+  instanceId?: string;
+  ip?: string;
+  regionId?: string;
+  resourceGroupId?: string;
+  static names(): { [key: string]: string } {
+    return {
       instanceId: 'InstanceId',
+      ip: 'Ip',
+      regionId: 'RegionId',
+      resourceGroupId: 'ResourceGroupId',
     };
   }
 
   static types(): { [key: string]: any } {
     return {
-      enable: 'boolean',
       instanceId: 'string',
+      ip: 'string',
+      regionId: 'string',
+      resourceGroupId: 'string',
     };
   }
 
@@ -1840,32 +441,223 @@ export class ListOpenedAccessLogInstancesResponseSlsConfigStatus extends $tea.Mo
   }
 }
 
-export class DescribeOnDemandDdosEventResponseEvents extends $tea.Model {
-  startTime: number;
-  endTime: number;
-  pps: number;
-  ip: string;
-  mbps: number;
-  status: string;
+export class DeleteBlackholeResponseBody extends $tea.Model {
+  requestId?: string;
   static names(): { [key: string]: string } {
     return {
-      startTime: 'StartTime',
+      requestId: 'RequestId',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      requestId: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class DeleteBlackholeResponse extends $tea.Model {
+  headers: { [key: string]: string };
+  statusCode: number;
+  body: DeleteBlackholeResponseBody;
+  static names(): { [key: string]: string } {
+    return {
+      headers: 'headers',
+      statusCode: 'statusCode',
+      body: 'body',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
+      body: DeleteBlackholeResponseBody,
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class DeleteIpRequest extends $tea.Model {
+  instanceId?: string;
+  ipList?: string;
+  regionId?: string;
+  resourceGroupId?: string;
+  static names(): { [key: string]: string } {
+    return {
+      instanceId: 'InstanceId',
+      ipList: 'IpList',
+      regionId: 'RegionId',
+      resourceGroupId: 'ResourceGroupId',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      instanceId: 'string',
+      ipList: 'string',
+      regionId: 'string',
+      resourceGroupId: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class DeleteIpResponseBody extends $tea.Model {
+  requestId?: string;
+  static names(): { [key: string]: string } {
+    return {
+      requestId: 'RequestId',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      requestId: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class DeleteIpResponse extends $tea.Model {
+  headers: { [key: string]: string };
+  statusCode: number;
+  body: DeleteIpResponseBody;
+  static names(): { [key: string]: string } {
+    return {
+      headers: 'headers',
+      statusCode: 'statusCode',
+      body: 'body',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
+      body: DeleteIpResponseBody,
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class DeleteSchedruleOnDemandRequest extends $tea.Model {
+  instanceId?: string;
+  regionId?: string;
+  ruleName?: string;
+  static names(): { [key: string]: string } {
+    return {
+      instanceId: 'InstanceId',
+      regionId: 'RegionId',
+      ruleName: 'RuleName',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      instanceId: 'string',
+      regionId: 'string',
+      ruleName: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class DeleteSchedruleOnDemandResponseBody extends $tea.Model {
+  requestId?: string;
+  static names(): { [key: string]: string } {
+    return {
+      requestId: 'RequestId',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      requestId: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class DeleteSchedruleOnDemandResponse extends $tea.Model {
+  headers: { [key: string]: string };
+  statusCode: number;
+  body: DeleteSchedruleOnDemandResponseBody;
+  static names(): { [key: string]: string } {
+    return {
+      headers: 'headers',
+      statusCode: 'statusCode',
+      body: 'body',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
+      body: DeleteSchedruleOnDemandResponseBody,
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class DescribeDdosEventRequest extends $tea.Model {
+  endTime?: number;
+  instanceId?: string;
+  ip?: string;
+  pageNo?: number;
+  pageSize?: number;
+  regionId?: string;
+  resourceGroupId?: string;
+  startTime?: number;
+  static names(): { [key: string]: string } {
+    return {
       endTime: 'EndTime',
-      pps: 'Pps',
+      instanceId: 'InstanceId',
       ip: 'Ip',
-      mbps: 'Mbps',
-      status: 'Status',
+      pageNo: 'PageNo',
+      pageSize: 'PageSize',
+      regionId: 'RegionId',
+      resourceGroupId: 'ResourceGroupId',
+      startTime: 'StartTime',
     };
   }
 
   static types(): { [key: string]: any } {
     return {
-      startTime: 'number',
       endTime: 'number',
-      pps: 'number',
+      instanceId: 'string',
       ip: 'string',
-      mbps: 'number',
-      status: 'string',
+      pageNo: 'number',
+      pageSize: 'number',
+      regionId: 'string',
+      resourceGroupId: 'string',
+      startTime: 'number',
     };
   }
 
@@ -1874,20 +666,23 @@ export class DescribeOnDemandDdosEventResponseEvents extends $tea.Model {
   }
 }
 
-export class ListTagKeysResponseTagKeys extends $tea.Model {
-  tagKey: string;
-  tagCount: number;
+export class DescribeDdosEventResponseBody extends $tea.Model {
+  events?: DescribeDdosEventResponseBodyEvents[];
+  requestId?: string;
+  total?: number;
   static names(): { [key: string]: string } {
     return {
-      tagKey: 'TagKey',
-      tagCount: 'TagCount',
+      events: 'Events',
+      requestId: 'RequestId',
+      total: 'Total',
     };
   }
 
   static types(): { [key: string]: any } {
     return {
-      tagKey: 'string',
-      tagCount: 'number',
+      events: { 'type': 'array', 'itemType': DescribeDdosEventResponseBodyEvents },
+      requestId: 'string',
+      total: 'number',
     };
   }
 
@@ -1896,20 +691,23 @@ export class ListTagKeysResponseTagKeys extends $tea.Model {
   }
 }
 
-export class ListTagResourcesRequestTag extends $tea.Model {
-  key?: string;
-  value?: string;
+export class DescribeDdosEventResponse extends $tea.Model {
+  headers: { [key: string]: string };
+  statusCode: number;
+  body: DescribeDdosEventResponseBody;
   static names(): { [key: string]: string } {
     return {
-      key: 'Key',
-      value: 'Value',
+      headers: 'headers',
+      statusCode: 'statusCode',
+      body: 'body',
     };
   }
 
   static types(): { [key: string]: any } {
     return {
-      key: 'string',
-      value: 'string',
+      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
+      body: DescribeDdosEventResponseBody,
     };
   }
 
@@ -1918,26 +716,20 @@ export class ListTagResourcesRequestTag extends $tea.Model {
   }
 }
 
-export class ListTagResourcesResponseTagResourcesTagResource extends $tea.Model {
-  resourceType: string;
-  resourceId: string;
-  tagKey: string;
-  tagValue: string;
+export class DescribeExcpetionCountRequest extends $tea.Model {
+  regionId?: string;
+  resourceGroupId?: string;
   static names(): { [key: string]: string } {
     return {
-      resourceType: 'ResourceType',
-      resourceId: 'ResourceId',
-      tagKey: 'TagKey',
-      tagValue: 'TagValue',
+      regionId: 'RegionId',
+      resourceGroupId: 'ResourceGroupId',
     };
   }
 
   static types(): { [key: string]: any } {
     return {
-      resourceType: 'string',
-      resourceId: 'string',
-      tagKey: 'string',
-      tagValue: 'string',
+      regionId: 'string',
+      resourceGroupId: 'string',
     };
   }
 
@@ -1946,17 +738,23 @@ export class ListTagResourcesResponseTagResourcesTagResource extends $tea.Model 
   }
 }
 
-export class ListTagResourcesResponseTagResources extends $tea.Model {
-  tagResource: ListTagResourcesResponseTagResourcesTagResource[];
+export class DescribeExcpetionCountResponseBody extends $tea.Model {
+  exceptionIpCount?: number;
+  expireTimeCount?: number;
+  requestId?: string;
   static names(): { [key: string]: string } {
     return {
-      tagResource: 'TagResource',
+      exceptionIpCount: 'ExceptionIpCount',
+      expireTimeCount: 'ExpireTimeCount',
+      requestId: 'RequestId',
     };
   }
 
   static types(): { [key: string]: any } {
     return {
-      tagResource: { 'type': 'array', 'itemType': ListTagResourcesResponseTagResourcesTagResource },
+      exceptionIpCount: 'number',
+      expireTimeCount: 'number',
+      requestId: 'string',
     };
   }
 
@@ -1965,20 +763,23 @@ export class ListTagResourcesResponseTagResources extends $tea.Model {
   }
 }
 
-export class TagResourcesRequestTag extends $tea.Model {
-  key?: string;
-  value?: string;
+export class DescribeExcpetionCountResponse extends $tea.Model {
+  headers: { [key: string]: string };
+  statusCode: number;
+  body: DescribeExcpetionCountResponseBody;
   static names(): { [key: string]: string } {
     return {
-      key: 'Key',
-      value: 'Value',
+      headers: 'headers',
+      statusCode: 'statusCode',
+      body: 'body',
     };
   }
 
   static types(): { [key: string]: any } {
     return {
-      key: 'string',
-      value: 'string',
+      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
+      body: DescribeExcpetionCountResponseBody,
     };
   }
 
@@ -1987,26 +788,53 @@ export class TagResourcesRequestTag extends $tea.Model {
   }
 }
 
-export class DescribePackIpListResponseIpList extends $tea.Model {
-  ip: string;
-  product: string;
-  status: string;
-  remark: string;
+export class DescribeInstanceListRequest extends $tea.Model {
+  instanceIdList?: string;
+  instanceType?: string;
+  instanceTypeList?: string[];
+  ip?: string;
+  ipVersion?: string;
+  orderby?: string;
+  orderdire?: string;
+  pageNo?: number;
+  pageSize?: number;
+  regionId?: string;
+  remark?: string;
+  resourceGroupId?: string;
+  tag?: DescribeInstanceListRequestTag[];
   static names(): { [key: string]: string } {
     return {
+      instanceIdList: 'InstanceIdList',
+      instanceType: 'InstanceType',
+      instanceTypeList: 'InstanceTypeList',
       ip: 'Ip',
-      product: 'Product',
-      status: 'Status',
+      ipVersion: 'IpVersion',
+      orderby: 'Orderby',
+      orderdire: 'Orderdire',
+      pageNo: 'PageNo',
+      pageSize: 'PageSize',
+      regionId: 'RegionId',
       remark: 'Remark',
+      resourceGroupId: 'ResourceGroupId',
+      tag: 'Tag',
     };
   }
 
   static types(): { [key: string]: any } {
     return {
+      instanceIdList: 'string',
+      instanceType: 'string',
+      instanceTypeList: { 'type': 'array', 'itemType': 'string' },
       ip: 'string',
-      product: 'string',
-      status: 'string',
+      ipVersion: 'string',
+      orderby: 'string',
+      orderdire: 'string',
+      pageNo: 'number',
+      pageSize: 'number',
+      regionId: 'string',
       remark: 'string',
+      resourceGroupId: 'string',
+      tag: { 'type': 'array', 'itemType': DescribeInstanceListRequestTag },
     };
   }
 
@@ -2015,22 +843,231 @@ export class DescribePackIpListResponseIpList extends $tea.Model {
   }
 }
 
-export class DescribeRegionsResponseRegions extends $tea.Model {
-  regionEnName: string;
-  regionName: string;
-  regionId: string;
+export class DescribeInstanceListResponseBody extends $tea.Model {
+  instanceList?: DescribeInstanceListResponseBodyInstanceList[];
+  requestId?: string;
+  total?: number;
   static names(): { [key: string]: string } {
     return {
-      regionEnName: 'RegionEnName',
-      regionName: 'RegionName',
+      instanceList: 'InstanceList',
+      requestId: 'RequestId',
+      total: 'Total',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      instanceList: { 'type': 'array', 'itemType': DescribeInstanceListResponseBodyInstanceList },
+      requestId: 'string',
+      total: 'number',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class DescribeInstanceListResponse extends $tea.Model {
+  headers: { [key: string]: string };
+  statusCode: number;
+  body: DescribeInstanceListResponseBody;
+  static names(): { [key: string]: string } {
+    return {
+      headers: 'headers',
+      statusCode: 'statusCode',
+      body: 'body',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
+      body: DescribeInstanceListResponseBody,
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class DescribeInstanceSpecsRequest extends $tea.Model {
+  instanceIdList?: string;
+  regionId?: string;
+  resourceGroupId?: string;
+  static names(): { [key: string]: string } {
+    return {
+      instanceIdList: 'InstanceIdList',
+      regionId: 'RegionId',
+      resourceGroupId: 'ResourceGroupId',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      instanceIdList: 'string',
+      regionId: 'string',
+      resourceGroupId: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class DescribeInstanceSpecsResponseBody extends $tea.Model {
+  instanceSpecs?: DescribeInstanceSpecsResponseBodyInstanceSpecs[];
+  requestId?: string;
+  static names(): { [key: string]: string } {
+    return {
+      instanceSpecs: 'InstanceSpecs',
+      requestId: 'RequestId',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      instanceSpecs: { 'type': 'array', 'itemType': DescribeInstanceSpecsResponseBodyInstanceSpecs },
+      requestId: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class DescribeInstanceSpecsResponse extends $tea.Model {
+  headers: { [key: string]: string };
+  statusCode: number;
+  body: DescribeInstanceSpecsResponseBody;
+  static names(): { [key: string]: string } {
+    return {
+      headers: 'headers',
+      statusCode: 'statusCode',
+      body: 'body',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
+      body: DescribeInstanceSpecsResponseBody,
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class DescribeOnDemandDdosEventRequest extends $tea.Model {
+  endTime?: number;
+  instanceId?: string;
+  ip?: string;
+  pageNo?: number;
+  pageSize?: number;
+  regionId?: string;
+  resourceGroupId?: string;
+  startTime?: number;
+  static names(): { [key: string]: string } {
+    return {
+      endTime: 'EndTime',
+      instanceId: 'InstanceId',
+      ip: 'Ip',
+      pageNo: 'PageNo',
+      pageSize: 'PageSize',
+      regionId: 'RegionId',
+      resourceGroupId: 'ResourceGroupId',
+      startTime: 'StartTime',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      endTime: 'number',
+      instanceId: 'string',
+      ip: 'string',
+      pageNo: 'number',
+      pageSize: 'number',
+      regionId: 'string',
+      resourceGroupId: 'string',
+      startTime: 'number',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class DescribeOnDemandDdosEventResponseBody extends $tea.Model {
+  events?: DescribeOnDemandDdosEventResponseBodyEvents[];
+  requestId?: string;
+  total?: number;
+  static names(): { [key: string]: string } {
+    return {
+      events: 'Events',
+      requestId: 'RequestId',
+      total: 'Total',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      events: { 'type': 'array', 'itemType': DescribeOnDemandDdosEventResponseBodyEvents },
+      requestId: 'string',
+      total: 'number',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class DescribeOnDemandDdosEventResponse extends $tea.Model {
+  headers: { [key: string]: string };
+  statusCode: number;
+  body: DescribeOnDemandDdosEventResponseBody;
+  static names(): { [key: string]: string } {
+    return {
+      headers: 'headers',
+      statusCode: 'statusCode',
+      body: 'body',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
+      body: DescribeOnDemandDdosEventResponseBody,
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class DescribeOnDemandInstanceStatusRequest extends $tea.Model {
+  instanceIdList?: string[];
+  regionId?: string;
+  static names(): { [key: string]: string } {
+    return {
+      instanceIdList: 'InstanceIdList',
       regionId: 'RegionId',
     };
   }
 
   static types(): { [key: string]: any } {
     return {
-      regionEnName: 'string',
-      regionName: 'string',
+      instanceIdList: { 'type': 'array', 'itemType': 'string' },
       regionId: 'string',
     };
   }
@@ -2040,35 +1077,20 @@ export class DescribeRegionsResponseRegions extends $tea.Model {
   }
 }
 
-export class DescribeTrafficResponseFlowList extends $tea.Model {
-  pps: number;
-  flowType: string;
-  kbps: number;
-  name: string;
-  attackBps: number;
-  attackPps: number;
-  time: number;
+export class DescribeOnDemandInstanceStatusResponseBody extends $tea.Model {
+  instances?: DescribeOnDemandInstanceStatusResponseBodyInstances[];
+  requestId?: string;
   static names(): { [key: string]: string } {
     return {
-      pps: 'Pps',
-      flowType: 'FlowType',
-      kbps: 'Kbps',
-      name: 'Name',
-      attackBps: 'AttackBps',
-      attackPps: 'AttackPps',
-      time: 'Time',
+      instances: 'Instances',
+      requestId: 'RequestId',
     };
   }
 
   static types(): { [key: string]: any } {
     return {
-      pps: 'number',
-      flowType: 'string',
-      kbps: 'number',
-      name: 'string',
-      attackBps: 'number',
-      attackPps: 'number',
-      time: 'number',
+      instances: { 'type': 'array', 'itemType': DescribeOnDemandInstanceStatusResponseBodyInstances },
+      requestId: 'string',
     };
   }
 
@@ -2077,20 +1099,23 @@ export class DescribeTrafficResponseFlowList extends $tea.Model {
   }
 }
 
-export class DescribeResourcePackUsageResponsePackUsages extends $tea.Model {
-  traffic: number;
-  time: number;
+export class DescribeOnDemandInstanceStatusResponse extends $tea.Model {
+  headers: { [key: string]: string };
+  statusCode: number;
+  body: DescribeOnDemandInstanceStatusResponseBody;
   static names(): { [key: string]: string } {
     return {
-      traffic: 'Traffic',
-      time: 'Time',
+      headers: 'headers',
+      statusCode: 'statusCode',
+      body: 'body',
     };
   }
 
   static types(): { [key: string]: any } {
     return {
-      traffic: 'number',
-      time: 'number',
+      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
+      body: DescribeOnDemandInstanceStatusResponseBody,
     };
   }
 
@@ -2099,177 +1124,1073 @@ export class DescribeResourcePackUsageResponsePackUsages extends $tea.Model {
   }
 }
 
-export class DescribeResourcePackInstancesResponseResourcePacks extends $tea.Model {
-  resourcePackId: string;
-  initCapacity: number;
-  currCapacity: number;
-  startTime: number;
-  endTime: number;
-  status: string;
+export class DescribeOpEntitiesRequest extends $tea.Model {
+  currentPage?: number;
+  endTime?: number;
+  instanceId?: string;
+  orderBy?: string;
+  orderDir?: string;
+  pageSize?: number;
+  regionId?: string;
+  resourceGroupId?: string;
+  startTime?: number;
   static names(): { [key: string]: string } {
     return {
-      resourcePackId: 'ResourcePackId',
-      initCapacity: 'InitCapacity',
-      currCapacity: 'CurrCapacity',
-      startTime: 'StartTime',
+      currentPage: 'CurrentPage',
       endTime: 'EndTime',
+      instanceId: 'InstanceId',
+      orderBy: 'OrderBy',
+      orderDir: 'OrderDir',
+      pageSize: 'PageSize',
+      regionId: 'RegionId',
+      resourceGroupId: 'ResourceGroupId',
+      startTime: 'StartTime',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      currentPage: 'number',
+      endTime: 'number',
+      instanceId: 'string',
+      orderBy: 'string',
+      orderDir: 'string',
+      pageSize: 'number',
+      regionId: 'string',
+      resourceGroupId: 'string',
+      startTime: 'number',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class DescribeOpEntitiesResponseBody extends $tea.Model {
+  opEntities?: DescribeOpEntitiesResponseBodyOpEntities[];
+  requestId?: string;
+  totalCount?: number;
+  static names(): { [key: string]: string } {
+    return {
+      opEntities: 'OpEntities',
+      requestId: 'RequestId',
+      totalCount: 'TotalCount',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      opEntities: { 'type': 'array', 'itemType': DescribeOpEntitiesResponseBodyOpEntities },
+      requestId: 'string',
+      totalCount: 'number',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class DescribeOpEntitiesResponse extends $tea.Model {
+  headers: { [key: string]: string };
+  statusCode: number;
+  body: DescribeOpEntitiesResponseBody;
+  static names(): { [key: string]: string } {
+    return {
+      headers: 'headers',
+      statusCode: 'statusCode',
+      body: 'body',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
+      body: DescribeOpEntitiesResponseBody,
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class DescribePackIpListRequest extends $tea.Model {
+  instanceId?: string;
+  ip?: string;
+  memberUid?: string;
+  pageNo?: number;
+  pageSize?: number;
+  productName?: string;
+  regionId?: string;
+  resourceGroupId?: string;
+  static names(): { [key: string]: string } {
+    return {
+      instanceId: 'InstanceId',
+      ip: 'Ip',
+      memberUid: 'MemberUid',
+      pageNo: 'PageNo',
+      pageSize: 'PageSize',
+      productName: 'ProductName',
+      regionId: 'RegionId',
+      resourceGroupId: 'ResourceGroupId',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      instanceId: 'string',
+      ip: 'string',
+      memberUid: 'string',
+      pageNo: 'number',
+      pageSize: 'number',
+      productName: 'string',
+      regionId: 'string',
+      resourceGroupId: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class DescribePackIpListResponseBody extends $tea.Model {
+  code?: string;
+  ipList?: DescribePackIpListResponseBodyIpList[];
+  requestId?: string;
+  success?: boolean;
+  total?: number;
+  static names(): { [key: string]: string } {
+    return {
+      code: 'Code',
+      ipList: 'IpList',
+      requestId: 'RequestId',
+      success: 'Success',
+      total: 'Total',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      code: 'string',
+      ipList: { 'type': 'array', 'itemType': DescribePackIpListResponseBodyIpList },
+      requestId: 'string',
+      success: 'boolean',
+      total: 'number',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class DescribePackIpListResponse extends $tea.Model {
+  headers: { [key: string]: string };
+  statusCode: number;
+  body: DescribePackIpListResponseBody;
+  static names(): { [key: string]: string } {
+    return {
+      headers: 'headers',
+      statusCode: 'statusCode',
+      body: 'body',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
+      body: DescribePackIpListResponseBody,
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class DescribeRegionsRequest extends $tea.Model {
+  regionId?: string;
+  resourceGroupId?: string;
+  static names(): { [key: string]: string } {
+    return {
+      regionId: 'RegionId',
+      resourceGroupId: 'ResourceGroupId',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      regionId: 'string',
+      resourceGroupId: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class DescribeRegionsResponseBody extends $tea.Model {
+  code?: string;
+  regions?: DescribeRegionsResponseBodyRegions[];
+  requestId?: string;
+  success?: boolean;
+  static names(): { [key: string]: string } {
+    return {
+      code: 'Code',
+      regions: 'Regions',
+      requestId: 'RequestId',
+      success: 'Success',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      code: 'string',
+      regions: { 'type': 'array', 'itemType': DescribeRegionsResponseBodyRegions },
+      requestId: 'string',
+      success: 'boolean',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class DescribeRegionsResponse extends $tea.Model {
+  headers: { [key: string]: string };
+  statusCode: number;
+  body: DescribeRegionsResponseBody;
+  static names(): { [key: string]: string } {
+    return {
+      headers: 'headers',
+      statusCode: 'statusCode',
+      body: 'body',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
+      body: DescribeRegionsResponseBody,
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class DescribeTrafficRequest extends $tea.Model {
+  endTime?: number;
+  flowType?: string;
+  instanceId?: string;
+  interval?: number;
+  ip?: string;
+  ipnet?: string;
+  regionId?: string;
+  resourceGroupId?: string;
+  startTime?: number;
+  static names(): { [key: string]: string } {
+    return {
+      endTime: 'EndTime',
+      flowType: 'FlowType',
+      instanceId: 'InstanceId',
+      interval: 'Interval',
+      ip: 'Ip',
+      ipnet: 'Ipnet',
+      regionId: 'RegionId',
+      resourceGroupId: 'ResourceGroupId',
+      startTime: 'StartTime',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      endTime: 'number',
+      flowType: 'string',
+      instanceId: 'string',
+      interval: 'number',
+      ip: 'string',
+      ipnet: 'string',
+      regionId: 'string',
+      resourceGroupId: 'string',
+      startTime: 'number',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class DescribeTrafficResponseBody extends $tea.Model {
+  flowList?: DescribeTrafficResponseBodyFlowList[];
+  requestId?: string;
+  static names(): { [key: string]: string } {
+    return {
+      flowList: 'FlowList',
+      requestId: 'RequestId',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      flowList: { 'type': 'array', 'itemType': DescribeTrafficResponseBodyFlowList },
+      requestId: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class DescribeTrafficResponse extends $tea.Model {
+  headers: { [key: string]: string };
+  statusCode: number;
+  body: DescribeTrafficResponseBody;
+  static names(): { [key: string]: string } {
+    return {
+      headers: 'headers',
+      statusCode: 'statusCode',
+      body: 'body',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
+      body: DescribeTrafficResponseBody,
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class GetSlsOpenStatusRequest extends $tea.Model {
+  regionId?: string;
+  resourceGroupId?: string;
+  static names(): { [key: string]: string } {
+    return {
+      regionId: 'RegionId',
+      resourceGroupId: 'ResourceGroupId',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      regionId: 'string',
+      resourceGroupId: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class GetSlsOpenStatusResponseBody extends $tea.Model {
+  requestId?: string;
+  slsOpenStatus?: boolean;
+  static names(): { [key: string]: string } {
+    return {
+      requestId: 'RequestId',
+      slsOpenStatus: 'SlsOpenStatus',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      requestId: 'string',
+      slsOpenStatus: 'boolean',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class GetSlsOpenStatusResponse extends $tea.Model {
+  headers: { [key: string]: string };
+  statusCode: number;
+  body: GetSlsOpenStatusResponseBody;
+  static names(): { [key: string]: string } {
+    return {
+      headers: 'headers',
+      statusCode: 'statusCode',
+      body: 'body',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
+      body: GetSlsOpenStatusResponseBody,
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class ListOpenedAccessLogInstancesRequest extends $tea.Model {
+  pageNumber?: number;
+  pageSize?: number;
+  resourceGroupId?: string;
+  static names(): { [key: string]: string } {
+    return {
+      pageNumber: 'PageNumber',
+      pageSize: 'PageSize',
+      resourceGroupId: 'ResourceGroupId',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      pageNumber: 'number',
+      pageSize: 'number',
+      resourceGroupId: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class ListOpenedAccessLogInstancesResponseBody extends $tea.Model {
+  requestId?: string;
+  slsConfigStatus?: ListOpenedAccessLogInstancesResponseBodySlsConfigStatus[];
+  totalCount?: number;
+  static names(): { [key: string]: string } {
+    return {
+      requestId: 'RequestId',
+      slsConfigStatus: 'SlsConfigStatus',
+      totalCount: 'TotalCount',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      requestId: 'string',
+      slsConfigStatus: { 'type': 'array', 'itemType': ListOpenedAccessLogInstancesResponseBodySlsConfigStatus },
+      totalCount: 'number',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class ListOpenedAccessLogInstancesResponse extends $tea.Model {
+  headers: { [key: string]: string };
+  statusCode: number;
+  body: ListOpenedAccessLogInstancesResponseBody;
+  static names(): { [key: string]: string } {
+    return {
+      headers: 'headers',
+      statusCode: 'statusCode',
+      body: 'body',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
+      body: ListOpenedAccessLogInstancesResponseBody,
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class ListTagKeysRequest extends $tea.Model {
+  currentPage?: number;
+  pageSize?: number;
+  regionId?: string;
+  resourceGroupId?: string;
+  resourceType?: string;
+  static names(): { [key: string]: string } {
+    return {
+      currentPage: 'CurrentPage',
+      pageSize: 'PageSize',
+      regionId: 'RegionId',
+      resourceGroupId: 'ResourceGroupId',
+      resourceType: 'ResourceType',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      currentPage: 'number',
+      pageSize: 'number',
+      regionId: 'string',
+      resourceGroupId: 'string',
+      resourceType: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class ListTagKeysResponseBody extends $tea.Model {
+  currentPage?: number;
+  pageSize?: number;
+  requestId?: string;
+  tagKeys?: ListTagKeysResponseBodyTagKeys[];
+  totalCount?: number;
+  static names(): { [key: string]: string } {
+    return {
+      currentPage: 'CurrentPage',
+      pageSize: 'PageSize',
+      requestId: 'RequestId',
+      tagKeys: 'TagKeys',
+      totalCount: 'TotalCount',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      currentPage: 'number',
+      pageSize: 'number',
+      requestId: 'string',
+      tagKeys: { 'type': 'array', 'itemType': ListTagKeysResponseBodyTagKeys },
+      totalCount: 'number',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class ListTagKeysResponse extends $tea.Model {
+  headers: { [key: string]: string };
+  statusCode: number;
+  body: ListTagKeysResponseBody;
+  static names(): { [key: string]: string } {
+    return {
+      headers: 'headers',
+      statusCode: 'statusCode',
+      body: 'body',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
+      body: ListTagKeysResponseBody,
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class ListTagResourcesRequest extends $tea.Model {
+  nextToken?: string;
+  regionId?: string;
+  resourceGroupId?: string;
+  resourceId?: string[];
+  resourceType?: string;
+  tag?: ListTagResourcesRequestTag[];
+  static names(): { [key: string]: string } {
+    return {
+      nextToken: 'NextToken',
+      regionId: 'RegionId',
+      resourceGroupId: 'ResourceGroupId',
+      resourceId: 'ResourceId',
+      resourceType: 'ResourceType',
+      tag: 'Tag',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      nextToken: 'string',
+      regionId: 'string',
+      resourceGroupId: 'string',
+      resourceId: { 'type': 'array', 'itemType': 'string' },
+      resourceType: 'string',
+      tag: { 'type': 'array', 'itemType': ListTagResourcesRequestTag },
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class ListTagResourcesResponseBody extends $tea.Model {
+  nextToken?: string;
+  requestId?: string;
+  tagResources?: ListTagResourcesResponseBodyTagResources;
+  static names(): { [key: string]: string } {
+    return {
+      nextToken: 'NextToken',
+      requestId: 'RequestId',
+      tagResources: 'TagResources',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      nextToken: 'string',
+      requestId: 'string',
+      tagResources: ListTagResourcesResponseBodyTagResources,
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class ListTagResourcesResponse extends $tea.Model {
+  headers: { [key: string]: string };
+  statusCode: number;
+  body: ListTagResourcesResponseBody;
+  static names(): { [key: string]: string } {
+    return {
+      headers: 'headers',
+      statusCode: 'statusCode',
+      body: 'body',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
+      body: ListTagResourcesResponseBody,
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class ModifyRemarkRequest extends $tea.Model {
+  instanceId?: string;
+  regionId?: string;
+  remark?: string;
+  resourceGroupId?: string;
+  static names(): { [key: string]: string } {
+    return {
+      instanceId: 'InstanceId',
+      regionId: 'RegionId',
+      remark: 'Remark',
+      resourceGroupId: 'ResourceGroupId',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      instanceId: 'string',
+      regionId: 'string',
+      remark: 'string',
+      resourceGroupId: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class ModifyRemarkResponseBody extends $tea.Model {
+  requestId?: string;
+  static names(): { [key: string]: string } {
+    return {
+      requestId: 'RequestId',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      requestId: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class ModifyRemarkResponse extends $tea.Model {
+  headers: { [key: string]: string };
+  statusCode: number;
+  body: ModifyRemarkResponseBody;
+  static names(): { [key: string]: string } {
+    return {
+      headers: 'headers',
+      statusCode: 'statusCode',
+      body: 'body',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
+      body: ModifyRemarkResponseBody,
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class QuerySchedruleOnDemandRequest extends $tea.Model {
+  instanceId?: string;
+  regionId?: string;
+  static names(): { [key: string]: string } {
+    return {
+      instanceId: 'InstanceId',
+      regionId: 'RegionId',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      instanceId: 'string',
+      regionId: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class QuerySchedruleOnDemandResponseBody extends $tea.Model {
+  instanceId?: string;
+  requestId?: string;
+  ruleConfig?: QuerySchedruleOnDemandResponseBodyRuleConfig[];
+  ruleStatus?: QuerySchedruleOnDemandResponseBodyRuleStatus[];
+  userId?: string;
+  static names(): { [key: string]: string } {
+    return {
+      instanceId: 'InstanceId',
+      requestId: 'RequestId',
+      ruleConfig: 'RuleConfig',
+      ruleStatus: 'RuleStatus',
+      userId: 'UserId',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      instanceId: 'string',
+      requestId: 'string',
+      ruleConfig: { 'type': 'array', 'itemType': QuerySchedruleOnDemandResponseBodyRuleConfig },
+      ruleStatus: { 'type': 'array', 'itemType': QuerySchedruleOnDemandResponseBodyRuleStatus },
+      userId: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class QuerySchedruleOnDemandResponse extends $tea.Model {
+  headers: { [key: string]: string };
+  statusCode: number;
+  body: QuerySchedruleOnDemandResponseBody;
+  static names(): { [key: string]: string } {
+    return {
+      headers: 'headers',
+      statusCode: 'statusCode',
+      body: 'body',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
+      body: QuerySchedruleOnDemandResponseBody,
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class SetInstanceModeOnDemandRequest extends $tea.Model {
+  instanceIdList?: string[];
+  mode?: string;
+  regionId?: string;
+  static names(): { [key: string]: string } {
+    return {
+      instanceIdList: 'InstanceIdList',
+      mode: 'Mode',
+      regionId: 'RegionId',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      instanceIdList: { 'type': 'array', 'itemType': 'string' },
+      mode: 'string',
+      regionId: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class SetInstanceModeOnDemandResponseBody extends $tea.Model {
+  requestId?: string;
+  static names(): { [key: string]: string } {
+    return {
+      requestId: 'RequestId',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      requestId: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class SetInstanceModeOnDemandResponse extends $tea.Model {
+  headers: { [key: string]: string };
+  statusCode: number;
+  body: SetInstanceModeOnDemandResponseBody;
+  static names(): { [key: string]: string } {
+    return {
+      headers: 'headers',
+      statusCode: 'statusCode',
+      body: 'body',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
+      body: SetInstanceModeOnDemandResponseBody,
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class TagResourcesRequest extends $tea.Model {
+  regionId?: string;
+  resourceGroupId?: string;
+  resourceId?: string[];
+  resourceType?: string;
+  tag?: TagResourcesRequestTag[];
+  static names(): { [key: string]: string } {
+    return {
+      regionId: 'RegionId',
+      resourceGroupId: 'ResourceGroupId',
+      resourceId: 'ResourceId',
+      resourceType: 'ResourceType',
+      tag: 'Tag',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      regionId: 'string',
+      resourceGroupId: 'string',
+      resourceId: { 'type': 'array', 'itemType': 'string' },
+      resourceType: 'string',
+      tag: { 'type': 'array', 'itemType': TagResourcesRequestTag },
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class TagResourcesResponseBody extends $tea.Model {
+  requestId?: string;
+  static names(): { [key: string]: string } {
+    return {
+      requestId: 'RequestId',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      requestId: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class TagResourcesResponse extends $tea.Model {
+  headers: { [key: string]: string };
+  statusCode: number;
+  body: TagResourcesResponseBody;
+  static names(): { [key: string]: string } {
+    return {
+      headers: 'headers',
+      statusCode: 'statusCode',
+      body: 'body',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
+      body: TagResourcesResponseBody,
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class UntagResourcesRequest extends $tea.Model {
+  all?: boolean;
+  regionId?: string;
+  resourceGroupId?: string;
+  resourceId?: string[];
+  resourceType?: string;
+  tagKey?: string[];
+  static names(): { [key: string]: string } {
+    return {
+      all: 'All',
+      regionId: 'RegionId',
+      resourceGroupId: 'ResourceGroupId',
+      resourceId: 'ResourceId',
+      resourceType: 'ResourceType',
+      tagKey: 'TagKey',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      all: 'boolean',
+      regionId: 'string',
+      resourceGroupId: 'string',
+      resourceId: { 'type': 'array', 'itemType': 'string' },
+      resourceType: 'string',
+      tagKey: { 'type': 'array', 'itemType': 'string' },
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class UntagResourcesResponseBody extends $tea.Model {
+  requestId?: string;
+  static names(): { [key: string]: string } {
+    return {
+      requestId: 'RequestId',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      requestId: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class UntagResourcesResponse extends $tea.Model {
+  headers: { [key: string]: string };
+  statusCode: number;
+  body: UntagResourcesResponseBody;
+  static names(): { [key: string]: string } {
+    return {
+      headers: 'headers',
+      statusCode: 'statusCode',
+      body: 'body',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
+      body: UntagResourcesResponseBody,
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class DescribeDdosEventResponseBodyEvents extends $tea.Model {
+  endTime?: number;
+  ip?: string;
+  mbps?: number;
+  pps?: number;
+  startTime?: number;
+  status?: string;
+  static names(): { [key: string]: string } {
+    return {
+      endTime: 'EndTime',
+      ip: 'Ip',
+      mbps: 'Mbps',
+      pps: 'Pps',
+      startTime: 'StartTime',
       status: 'Status',
     };
   }
 
   static types(): { [key: string]: any } {
     return {
-      resourcePackId: 'string',
-      initCapacity: 'number',
-      currCapacity: 'number',
-      startTime: 'number',
       endTime: 'number',
-      status: 'string',
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class DescribePackPaidTrafficResponsePackPaidTraffics extends $tea.Model {
-  instanceId: string;
-  startTime: number;
-  baseBandwidth: number;
-  elasticBandwidth: number;
-  paidCapacity: number;
-  totalCapacity: number;
-  maxAttack: number;
-  static names(): { [key: string]: string } {
-    return {
-      instanceId: 'InstanceId',
-      startTime: 'StartTime',
-      baseBandwidth: 'BaseBandwidth',
-      elasticBandwidth: 'ElasticBandwidth',
-      paidCapacity: 'PaidCapacity',
-      totalCapacity: 'TotalCapacity',
-      maxAttack: 'MaxAttack',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      instanceId: 'string',
+      ip: 'string',
+      mbps: 'number',
+      pps: 'number',
       startTime: 'number',
-      baseBandwidth: 'number',
-      elasticBandwidth: 'number',
-      paidCapacity: 'number',
-      totalCapacity: 'number',
-      maxAttack: 'number',
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class DescribeOpEntitiesResponseOpEntities extends $tea.Model {
-  entityObject: string;
-  entityType: number;
-  opDesc: string;
-  opAccount: string;
-  opAction: number;
-  gmtCreate: number;
-  static names(): { [key: string]: string } {
-    return {
-      entityObject: 'EntityObject',
-      entityType: 'EntityType',
-      opDesc: 'OpDesc',
-      opAccount: 'OpAccount',
-      opAction: 'OpAction',
-      gmtCreate: 'GmtCreate',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      entityObject: 'string',
-      entityType: 'number',
-      opDesc: 'string',
-      opAccount: 'string',
-      opAction: 'number',
-      gmtCreate: 'number',
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class DescribeInstanceSpecsResponseInstanceSpecsPackConfig extends $tea.Model {
-  packAdvThre: number;
-  ipAdvanceThre: number;
-  ipBasicThre: number;
-  packBasicThre: number;
-  ipSpec: number;
-  bindIpCount: number;
-  normalBandwidth: number;
-  static names(): { [key: string]: string } {
-    return {
-      packAdvThre: 'PackAdvThre',
-      ipAdvanceThre: 'IpAdvanceThre',
-      ipBasicThre: 'IpBasicThre',
-      packBasicThre: 'PackBasicThre',
-      ipSpec: 'IpSpec',
-      bindIpCount: 'BindIpCount',
-      normalBandwidth: 'NormalBandwidth',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      packAdvThre: 'number',
-      ipAdvanceThre: 'number',
-      ipBasicThre: 'number',
-      packBasicThre: 'number',
-      ipSpec: 'number',
-      bindIpCount: 'number',
-      normalBandwidth: 'number',
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class DescribeInstanceSpecsResponseInstanceSpecs extends $tea.Model {
-  region: string;
-  availableDeleteBlackholeCount: string;
-  instanceId: string;
-  availableDefenseTimes: number;
-  totalDefenseTimes: number;
-  isFullDefenseMode: number;
-  packConfig: DescribeInstanceSpecsResponseInstanceSpecsPackConfig;
-  static names(): { [key: string]: string } {
-    return {
-      region: 'Region',
-      availableDeleteBlackholeCount: 'AvailableDeleteBlackholeCount',
-      instanceId: 'InstanceId',
-      availableDefenseTimes: 'AvailableDefenseTimes',
-      totalDefenseTimes: 'TotalDefenseTimes',
-      isFullDefenseMode: 'IsFullDefenseMode',
-      packConfig: 'PackConfig',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      region: 'string',
-      availableDeleteBlackholeCount: 'string',
-      instanceId: 'string',
-      availableDefenseTimes: 'number',
-      totalDefenseTimes: 'number',
-      isFullDefenseMode: 'number',
-      packConfig: DescribeInstanceSpecsResponseInstanceSpecsPackConfig,
+      status: 'string',
     };
   }
 
@@ -2300,44 +2221,47 @@ export class DescribeInstanceListRequestTag extends $tea.Model {
   }
 }
 
-export class DescribeInstanceListResponseInstanceList extends $tea.Model {
-  expireTime: number;
-  instanceId: string;
-  product: string;
-  remark: string;
-  status: string;
-  ipType: string;
-  autoRenewal: boolean;
-  blackholdingCount: string;
-  gmtCreate: number;
-  instanceType: string;
+export class DescribeInstanceListResponseBodyInstanceList extends $tea.Model {
+  autoRenewal?: boolean;
+  blackholdingCount?: string;
+  coverageType?: number;
+  expireTime?: number;
+  gmtCreate?: number;
+  instanceId?: string;
+  instanceType?: string;
+  ipType?: string;
+  product?: string;
+  remark?: string;
+  status?: string;
   static names(): { [key: string]: string } {
     return {
+      autoRenewal: 'AutoRenewal',
+      blackholdingCount: 'BlackholdingCount',
+      coverageType: 'CoverageType',
       expireTime: 'ExpireTime',
+      gmtCreate: 'GmtCreate',
       instanceId: 'InstanceId',
+      instanceType: 'InstanceType',
+      ipType: 'IpType',
       product: 'Product',
       remark: 'Remark',
       status: 'Status',
-      ipType: 'IpType',
-      autoRenewal: 'AutoRenewal',
-      blackholdingCount: 'BlackholdingCount',
-      gmtCreate: 'GmtCreate',
-      instanceType: 'InstanceType',
     };
   }
 
   static types(): { [key: string]: any } {
     return {
+      autoRenewal: 'boolean',
+      blackholdingCount: 'string',
+      coverageType: 'number',
       expireTime: 'number',
+      gmtCreate: 'number',
       instanceId: 'string',
+      instanceType: 'string',
+      ipType: 'string',
       product: 'string',
       remark: 'string',
       status: 'string',
-      ipType: 'string',
-      autoRenewal: 'boolean',
-      blackholdingCount: 'string',
-      gmtCreate: 'number',
-      instanceType: 'string',
     };
   }
 
@@ -2346,31 +2270,108 @@ export class DescribeInstanceListResponseInstanceList extends $tea.Model {
   }
 }
 
-export class DescribeDdosEventResponseEvents extends $tea.Model {
-  startTime: number;
-  endTime: number;
-  pps: number;
-  ip: string;
-  mbps: number;
-  status: string;
+export class DescribeInstanceSpecsResponseBodyInstanceSpecsPackConfig extends $tea.Model {
+  bandwidth?: number;
+  bindIpCount?: number;
+  ipAdvanceThre?: number;
+  ipBasicThre?: number;
+  ipSpec?: number;
+  normalBandwidth?: number;
+  packAdvThre?: number;
+  packBasicThre?: number;
   static names(): { [key: string]: string } {
     return {
-      startTime: 'StartTime',
+      bandwidth: 'Bandwidth',
+      bindIpCount: 'BindIpCount',
+      ipAdvanceThre: 'IpAdvanceThre',
+      ipBasicThre: 'IpBasicThre',
+      ipSpec: 'IpSpec',
+      normalBandwidth: 'NormalBandwidth',
+      packAdvThre: 'PackAdvThre',
+      packBasicThre: 'PackBasicThre',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      bandwidth: 'number',
+      bindIpCount: 'number',
+      ipAdvanceThre: 'number',
+      ipBasicThre: 'number',
+      ipSpec: 'number',
+      normalBandwidth: 'number',
+      packAdvThre: 'number',
+      packBasicThre: 'number',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class DescribeInstanceSpecsResponseBodyInstanceSpecs extends $tea.Model {
+  availableDefenseTimes?: number;
+  availableDeleteBlackholeCount?: string;
+  instanceId?: string;
+  isFullDefenseMode?: number;
+  packConfig?: DescribeInstanceSpecsResponseBodyInstanceSpecsPackConfig;
+  region?: string;
+  totalDefenseTimes?: number;
+  static names(): { [key: string]: string } {
+    return {
+      availableDefenseTimes: 'AvailableDefenseTimes',
+      availableDeleteBlackholeCount: 'AvailableDeleteBlackholeCount',
+      instanceId: 'InstanceId',
+      isFullDefenseMode: 'IsFullDefenseMode',
+      packConfig: 'PackConfig',
+      region: 'Region',
+      totalDefenseTimes: 'TotalDefenseTimes',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      availableDefenseTimes: 'number',
+      availableDeleteBlackholeCount: 'string',
+      instanceId: 'string',
+      isFullDefenseMode: 'number',
+      packConfig: DescribeInstanceSpecsResponseBodyInstanceSpecsPackConfig,
+      region: 'string',
+      totalDefenseTimes: 'number',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class DescribeOnDemandDdosEventResponseBodyEvents extends $tea.Model {
+  endTime?: number;
+  ip?: string;
+  mbps?: number;
+  pps?: number;
+  startTime?: number;
+  status?: string;
+  static names(): { [key: string]: string } {
+    return {
       endTime: 'EndTime',
-      pps: 'Pps',
       ip: 'Ip',
       mbps: 'Mbps',
+      pps: 'Pps',
+      startTime: 'StartTime',
       status: 'Status',
     };
   }
 
   static types(): { [key: string]: any } {
     return {
-      startTime: 'number',
       endTime: 'number',
-      pps: 'number',
       ip: 'string',
       mbps: 'number',
+      pps: 'number',
+      startTime: 'number',
       status: 'string',
     };
   }
@@ -2380,10 +2381,380 @@ export class DescribeDdosEventResponseEvents extends $tea.Model {
   }
 }
 
+export class DescribeOnDemandInstanceStatusResponseBodyInstances extends $tea.Model {
+  declared?: string;
+  desc?: string;
+  instanceId?: string;
+  mode?: string;
+  net?: string;
+  registedAs?: string;
+  userId?: string;
+  static names(): { [key: string]: string } {
+    return {
+      declared: 'Declared',
+      desc: 'Desc',
+      instanceId: 'InstanceId',
+      mode: 'Mode',
+      net: 'Net',
+      registedAs: 'RegistedAs',
+      userId: 'UserId',
+    };
+  }
 
-export default class Client extends RPC {
+  static types(): { [key: string]: any } {
+    return {
+      declared: 'string',
+      desc: 'string',
+      instanceId: 'string',
+      mode: 'string',
+      net: 'string',
+      registedAs: 'string',
+      userId: 'string',
+    };
+  }
 
-  constructor(config: $RPC.Config) {
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class DescribeOpEntitiesResponseBodyOpEntities extends $tea.Model {
+  entityObject?: string;
+  entityType?: number;
+  gmtCreate?: number;
+  opAccount?: string;
+  opAction?: number;
+  opDesc?: string;
+  static names(): { [key: string]: string } {
+    return {
+      entityObject: 'EntityObject',
+      entityType: 'EntityType',
+      gmtCreate: 'GmtCreate',
+      opAccount: 'OpAccount',
+      opAction: 'OpAction',
+      opDesc: 'OpDesc',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      entityObject: 'string',
+      entityType: 'number',
+      gmtCreate: 'number',
+      opAccount: 'string',
+      opAction: 'number',
+      opDesc: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class DescribePackIpListResponseBodyIpList extends $tea.Model {
+  ip?: string;
+  memberUid?: string;
+  product?: string;
+  region?: string;
+  remark?: string;
+  status?: string;
+  static names(): { [key: string]: string } {
+    return {
+      ip: 'Ip',
+      memberUid: 'MemberUid',
+      product: 'Product',
+      region: 'Region',
+      remark: 'Remark',
+      status: 'Status',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      ip: 'string',
+      memberUid: 'string',
+      product: 'string',
+      region: 'string',
+      remark: 'string',
+      status: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class DescribeRegionsResponseBodyRegions extends $tea.Model {
+  regionEnName?: string;
+  regionId?: string;
+  regionName?: string;
+  static names(): { [key: string]: string } {
+    return {
+      regionEnName: 'RegionEnName',
+      regionId: 'RegionId',
+      regionName: 'RegionName',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      regionEnName: 'string',
+      regionId: 'string',
+      regionName: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class DescribeTrafficResponseBodyFlowList extends $tea.Model {
+  attackBps?: number;
+  attackPps?: number;
+  flowType?: string;
+  kbps?: number;
+  name?: string;
+  pps?: number;
+  time?: number;
+  static names(): { [key: string]: string } {
+    return {
+      attackBps: 'AttackBps',
+      attackPps: 'AttackPps',
+      flowType: 'FlowType',
+      kbps: 'Kbps',
+      name: 'Name',
+      pps: 'Pps',
+      time: 'Time',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      attackBps: 'number',
+      attackPps: 'number',
+      flowType: 'string',
+      kbps: 'number',
+      name: 'string',
+      pps: 'number',
+      time: 'number',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class ListOpenedAccessLogInstancesResponseBodySlsConfigStatus extends $tea.Model {
+  enable?: boolean;
+  instanceId?: string;
+  static names(): { [key: string]: string } {
+    return {
+      enable: 'Enable',
+      instanceId: 'InstanceId',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      enable: 'boolean',
+      instanceId: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class ListTagKeysResponseBodyTagKeys extends $tea.Model {
+  tagCount?: number;
+  tagKey?: string;
+  static names(): { [key: string]: string } {
+    return {
+      tagCount: 'TagCount',
+      tagKey: 'TagKey',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      tagCount: 'number',
+      tagKey: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class ListTagResourcesRequestTag extends $tea.Model {
+  key?: string;
+  value?: string;
+  static names(): { [key: string]: string } {
+    return {
+      key: 'Key',
+      value: 'Value',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      key: 'string',
+      value: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class ListTagResourcesResponseBodyTagResourcesTagResource extends $tea.Model {
+  resourceId?: string;
+  resourceType?: string;
+  tagKey?: string;
+  tagValue?: string;
+  static names(): { [key: string]: string } {
+    return {
+      resourceId: 'ResourceId',
+      resourceType: 'ResourceType',
+      tagKey: 'TagKey',
+      tagValue: 'TagValue',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      resourceId: 'string',
+      resourceType: 'string',
+      tagKey: 'string',
+      tagValue: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class ListTagResourcesResponseBodyTagResources extends $tea.Model {
+  tagResource?: ListTagResourcesResponseBodyTagResourcesTagResource[];
+  static names(): { [key: string]: string } {
+    return {
+      tagResource: 'TagResource',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      tagResource: { 'type': 'array', 'itemType': ListTagResourcesResponseBodyTagResourcesTagResource },
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class QuerySchedruleOnDemandResponseBodyRuleConfig extends $tea.Model {
+  ruleAction?: string;
+  ruleConditionCnt?: string;
+  ruleConditionKpps?: string;
+  ruleConditionMbps?: string;
+  ruleName?: string;
+  ruleSwitch?: string;
+  ruleUndoBeginTime?: string;
+  ruleUndoEndTime?: string;
+  ruleUndoMode?: string;
+  timeZone?: string;
+  static names(): { [key: string]: string } {
+    return {
+      ruleAction: 'RuleAction',
+      ruleConditionCnt: 'RuleConditionCnt',
+      ruleConditionKpps: 'RuleConditionKpps',
+      ruleConditionMbps: 'RuleConditionMbps',
+      ruleName: 'RuleName',
+      ruleSwitch: 'RuleSwitch',
+      ruleUndoBeginTime: 'RuleUndoBeginTime',
+      ruleUndoEndTime: 'RuleUndoEndTime',
+      ruleUndoMode: 'RuleUndoMode',
+      timeZone: 'TimeZone',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      ruleAction: 'string',
+      ruleConditionCnt: 'string',
+      ruleConditionKpps: 'string',
+      ruleConditionMbps: 'string',
+      ruleName: 'string',
+      ruleSwitch: 'string',
+      ruleUndoBeginTime: 'string',
+      ruleUndoEndTime: 'string',
+      ruleUndoMode: 'string',
+      timeZone: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class QuerySchedruleOnDemandResponseBodyRuleStatus extends $tea.Model {
+  net?: string;
+  ruleSchedStatus?: string;
+  static names(): { [key: string]: string } {
+    return {
+      net: 'Net',
+      ruleSchedStatus: 'RuleSchedStatus',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      net: 'string',
+      ruleSchedStatus: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class TagResourcesRequestTag extends $tea.Model {
+  key?: string;
+  value?: string;
+  static names(): { [key: string]: string } {
+    return {
+      key: 'Key',
+      value: 'Value',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      key: 'string',
+      value: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+
+export default class Client extends OpenApi {
+
+  constructor(config: $OpenApi.Config) {
     super(config);
     this._endpointRule = "regional";
     this._endpointMap = {
@@ -2413,316 +2784,6 @@ export default class Client extends RPC {
   }
 
 
-  async describeOnDemandInstanceStatusWithOptions(request: DescribeOnDemandInstanceStatusRequest, runtime: $Util.RuntimeOptions): Promise<DescribeOnDemandInstanceStatusResponse> {
-    Util.validateModel(request);
-    return $tea.cast<DescribeOnDemandInstanceStatusResponse>(await this.doRequest("DescribeOnDemandInstanceStatus", "HTTPS", "POST", "2018-07-20", "AK", null, $tea.toMap(request), runtime), new DescribeOnDemandInstanceStatusResponse({}));
-  }
-
-  async describeOnDemandInstanceStatus(request: DescribeOnDemandInstanceStatusRequest): Promise<DescribeOnDemandInstanceStatusResponse> {
-    let runtime = new $Util.RuntimeOptions({ });
-    return await this.describeOnDemandInstanceStatusWithOptions(request, runtime);
-  }
-
-  async setInstanceModeOnDemandWithOptions(request: SetInstanceModeOnDemandRequest, runtime: $Util.RuntimeOptions): Promise<SetInstanceModeOnDemandResponse> {
-    Util.validateModel(request);
-    return $tea.cast<SetInstanceModeOnDemandResponse>(await this.doRequest("SetInstanceModeOnDemand", "HTTPS", "POST", "2018-07-20", "AK", null, $tea.toMap(request), runtime), new SetInstanceModeOnDemandResponse({}));
-  }
-
-  async setInstanceModeOnDemand(request: SetInstanceModeOnDemandRequest): Promise<SetInstanceModeOnDemandResponse> {
-    let runtime = new $Util.RuntimeOptions({ });
-    return await this.setInstanceModeOnDemandWithOptions(request, runtime);
-  }
-
-  async querySchedruleOnDemandWithOptions(request: QuerySchedruleOnDemandRequest, runtime: $Util.RuntimeOptions): Promise<QuerySchedruleOnDemandResponse> {
-    Util.validateModel(request);
-    return $tea.cast<QuerySchedruleOnDemandResponse>(await this.doRequest("QuerySchedruleOnDemand", "HTTPS", "POST", "2018-07-20", "AK", null, $tea.toMap(request), runtime), new QuerySchedruleOnDemandResponse({}));
-  }
-
-  async querySchedruleOnDemand(request: QuerySchedruleOnDemandRequest): Promise<QuerySchedruleOnDemandResponse> {
-    let runtime = new $Util.RuntimeOptions({ });
-    return await this.querySchedruleOnDemandWithOptions(request, runtime);
-  }
-
-  async deleteSchedruleOnDemandWithOptions(request: DeleteSchedruleOnDemandRequest, runtime: $Util.RuntimeOptions): Promise<DeleteSchedruleOnDemandResponse> {
-    Util.validateModel(request);
-    return $tea.cast<DeleteSchedruleOnDemandResponse>(await this.doRequest("DeleteSchedruleOnDemand", "HTTPS", "POST", "2018-07-20", "AK", null, $tea.toMap(request), runtime), new DeleteSchedruleOnDemandResponse({}));
-  }
-
-  async deleteSchedruleOnDemand(request: DeleteSchedruleOnDemandRequest): Promise<DeleteSchedruleOnDemandResponse> {
-    let runtime = new $Util.RuntimeOptions({ });
-    return await this.deleteSchedruleOnDemandWithOptions(request, runtime);
-  }
-
-  async configSchedruleOnDemandWithOptions(request: ConfigSchedruleOnDemandRequest, runtime: $Util.RuntimeOptions): Promise<ConfigSchedruleOnDemandResponse> {
-    Util.validateModel(request);
-    return $tea.cast<ConfigSchedruleOnDemandResponse>(await this.doRequest("ConfigSchedruleOnDemand", "HTTPS", "POST", "2018-07-20", "AK", null, $tea.toMap(request), runtime), new ConfigSchedruleOnDemandResponse({}));
-  }
-
-  async configSchedruleOnDemand(request: ConfigSchedruleOnDemandRequest): Promise<ConfigSchedruleOnDemandResponse> {
-    let runtime = new $Util.RuntimeOptions({ });
-    return await this.configSchedruleOnDemandWithOptions(request, runtime);
-  }
-
-  async createSchedruleOnDemandWithOptions(request: CreateSchedruleOnDemandRequest, runtime: $Util.RuntimeOptions): Promise<CreateSchedruleOnDemandResponse> {
-    Util.validateModel(request);
-    return $tea.cast<CreateSchedruleOnDemandResponse>(await this.doRequest("CreateSchedruleOnDemand", "HTTPS", "POST", "2018-07-20", "AK", null, $tea.toMap(request), runtime), new CreateSchedruleOnDemandResponse({}));
-  }
-
-  async createSchedruleOnDemand(request: CreateSchedruleOnDemandRequest): Promise<CreateSchedruleOnDemandResponse> {
-    let runtime = new $Util.RuntimeOptions({ });
-    return await this.createSchedruleOnDemandWithOptions(request, runtime);
-  }
-
-  async getSlsOpenStatusWithOptions(request: GetSlsOpenStatusRequest, runtime: $Util.RuntimeOptions): Promise<GetSlsOpenStatusResponse> {
-    Util.validateModel(request);
-    return $tea.cast<GetSlsOpenStatusResponse>(await this.doRequest("GetSlsOpenStatus", "HTTPS", "POST", "2018-07-20", "AK", null, $tea.toMap(request), runtime), new GetSlsOpenStatusResponse({}));
-  }
-
-  async getSlsOpenStatus(request: GetSlsOpenStatusRequest): Promise<GetSlsOpenStatusResponse> {
-    let runtime = new $Util.RuntimeOptions({ });
-    return await this.getSlsOpenStatusWithOptions(request, runtime);
-  }
-
-  async checkAccessLogAuthWithOptions(request: CheckAccessLogAuthRequest, runtime: $Util.RuntimeOptions): Promise<CheckAccessLogAuthResponse> {
-    Util.validateModel(request);
-    return $tea.cast<CheckAccessLogAuthResponse>(await this.doRequest("CheckAccessLogAuth", "HTTPS", "POST", "2018-07-20", "AK", null, $tea.toMap(request), runtime), new CheckAccessLogAuthResponse({}));
-  }
-
-  async checkAccessLogAuth(request: CheckAccessLogAuthRequest): Promise<CheckAccessLogAuthResponse> {
-    let runtime = new $Util.RuntimeOptions({ });
-    return await this.checkAccessLogAuthWithOptions(request, runtime);
-  }
-
-  async listOpenedAccessLogInstancesWithOptions(request: ListOpenedAccessLogInstancesRequest, runtime: $Util.RuntimeOptions): Promise<ListOpenedAccessLogInstancesResponse> {
-    Util.validateModel(request);
-    return $tea.cast<ListOpenedAccessLogInstancesResponse>(await this.doRequest("ListOpenedAccessLogInstances", "HTTPS", "POST", "2018-07-20", "AK", null, $tea.toMap(request), runtime), new ListOpenedAccessLogInstancesResponse({}));
-  }
-
-  async listOpenedAccessLogInstances(request: ListOpenedAccessLogInstancesRequest): Promise<ListOpenedAccessLogInstancesResponse> {
-    let runtime = new $Util.RuntimeOptions({ });
-    return await this.listOpenedAccessLogInstancesWithOptions(request, runtime);
-  }
-
-  async describeOnDemandDdosEventWithOptions(request: DescribeOnDemandDdosEventRequest, runtime: $Util.RuntimeOptions): Promise<DescribeOnDemandDdosEventResponse> {
-    Util.validateModel(request);
-    return $tea.cast<DescribeOnDemandDdosEventResponse>(await this.doRequest("DescribeOnDemandDdosEvent", "HTTPS", "POST", "2018-07-20", "AK", null, $tea.toMap(request), runtime), new DescribeOnDemandDdosEventResponse({}));
-  }
-
-  async describeOnDemandDdosEvent(request: DescribeOnDemandDdosEventRequest): Promise<DescribeOnDemandDdosEventResponse> {
-    let runtime = new $Util.RuntimeOptions({ });
-    return await this.describeOnDemandDdosEventWithOptions(request, runtime);
-  }
-
-  async listTagKeysWithOptions(request: ListTagKeysRequest, runtime: $Util.RuntimeOptions): Promise<ListTagKeysResponse> {
-    Util.validateModel(request);
-    return $tea.cast<ListTagKeysResponse>(await this.doRequest("ListTagKeys", "HTTPS", "POST", "2018-07-20", "AK", null, $tea.toMap(request), runtime), new ListTagKeysResponse({}));
-  }
-
-  async listTagKeys(request: ListTagKeysRequest): Promise<ListTagKeysResponse> {
-    let runtime = new $Util.RuntimeOptions({ });
-    return await this.listTagKeysWithOptions(request, runtime);
-  }
-
-  async listTagResourcesWithOptions(request: ListTagResourcesRequest, runtime: $Util.RuntimeOptions): Promise<ListTagResourcesResponse> {
-    Util.validateModel(request);
-    return $tea.cast<ListTagResourcesResponse>(await this.doRequest("ListTagResources", "HTTPS", "POST", "2018-07-20", "AK", null, $tea.toMap(request), runtime), new ListTagResourcesResponse({}));
-  }
-
-  async listTagResources(request: ListTagResourcesRequest): Promise<ListTagResourcesResponse> {
-    let runtime = new $Util.RuntimeOptions({ });
-    return await this.listTagResourcesWithOptions(request, runtime);
-  }
-
-  async untagResourcesWithOptions(request: UntagResourcesRequest, runtime: $Util.RuntimeOptions): Promise<UntagResourcesResponse> {
-    Util.validateModel(request);
-    return $tea.cast<UntagResourcesResponse>(await this.doRequest("UntagResources", "HTTPS", "POST", "2018-07-20", "AK", null, $tea.toMap(request), runtime), new UntagResourcesResponse({}));
-  }
-
-  async untagResources(request: UntagResourcesRequest): Promise<UntagResourcesResponse> {
-    let runtime = new $Util.RuntimeOptions({ });
-    return await this.untagResourcesWithOptions(request, runtime);
-  }
-
-  async tagResourcesWithOptions(request: TagResourcesRequest, runtime: $Util.RuntimeOptions): Promise<TagResourcesResponse> {
-    Util.validateModel(request);
-    return $tea.cast<TagResourcesResponse>(await this.doRequest("TagResources", "HTTPS", "POST", "2018-07-20", "AK", null, $tea.toMap(request), runtime), new TagResourcesResponse({}));
-  }
-
-  async tagResources(request: TagResourcesRequest): Promise<TagResourcesResponse> {
-    let runtime = new $Util.RuntimeOptions({ });
-    return await this.tagResourcesWithOptions(request, runtime);
-  }
-
-  async describeExcpetionCountWithOptions(request: DescribeExcpetionCountRequest, runtime: $Util.RuntimeOptions): Promise<DescribeExcpetionCountResponse> {
-    Util.validateModel(request);
-    return $tea.cast<DescribeExcpetionCountResponse>(await this.doRequest("DescribeExcpetionCount", "HTTPS", "POST", "2018-07-20", "AK", null, $tea.toMap(request), runtime), new DescribeExcpetionCountResponse({}));
-  }
-
-  async describeExcpetionCount(request: DescribeExcpetionCountRequest): Promise<DescribeExcpetionCountResponse> {
-    let runtime = new $Util.RuntimeOptions({ });
-    return await this.describeExcpetionCountWithOptions(request, runtime);
-  }
-
-  async describePackIpListWithOptions(request: DescribePackIpListRequest, runtime: $Util.RuntimeOptions): Promise<DescribePackIpListResponse> {
-    Util.validateModel(request);
-    return $tea.cast<DescribePackIpListResponse>(await this.doRequest("DescribePackIpList", "HTTPS", "POST", "2018-07-20", "AK", null, $tea.toMap(request), runtime), new DescribePackIpListResponse({}));
-  }
-
-  async describePackIpList(request: DescribePackIpListRequest): Promise<DescribePackIpListResponse> {
-    let runtime = new $Util.RuntimeOptions({ });
-    return await this.describePackIpListWithOptions(request, runtime);
-  }
-
-  async describeRegionsWithOptions(request: DescribeRegionsRequest, runtime: $Util.RuntimeOptions): Promise<DescribeRegionsResponse> {
-    Util.validateModel(request);
-    return $tea.cast<DescribeRegionsResponse>(await this.doRequest("DescribeRegions", "HTTPS", "POST", "2018-07-20", "AK", null, $tea.toMap(request), runtime), new DescribeRegionsResponse({}));
-  }
-
-  async describeRegions(request: DescribeRegionsRequest): Promise<DescribeRegionsResponse> {
-    let runtime = new $Util.RuntimeOptions({ });
-    return await this.describeRegionsWithOptions(request, runtime);
-  }
-
-  async modifyRemarkWithOptions(request: ModifyRemarkRequest, runtime: $Util.RuntimeOptions): Promise<ModifyRemarkResponse> {
-    Util.validateModel(request);
-    return $tea.cast<ModifyRemarkResponse>(await this.doRequest("ModifyRemark", "HTTPS", "POST", "2018-07-20", "AK", null, $tea.toMap(request), runtime), new ModifyRemarkResponse({}));
-  }
-
-  async modifyRemark(request: ModifyRemarkRequest): Promise<ModifyRemarkResponse> {
-    let runtime = new $Util.RuntimeOptions({ });
-    return await this.modifyRemarkWithOptions(request, runtime);
-  }
-
-  async describeTrafficWithOptions(request: DescribeTrafficRequest, runtime: $Util.RuntimeOptions): Promise<DescribeTrafficResponse> {
-    Util.validateModel(request);
-    return $tea.cast<DescribeTrafficResponse>(await this.doRequest("DescribeTraffic", "HTTPS", "POST", "2018-07-20", "AK", null, $tea.toMap(request), runtime), new DescribeTrafficResponse({}));
-  }
-
-  async describeTraffic(request: DescribeTrafficRequest): Promise<DescribeTrafficResponse> {
-    let runtime = new $Util.RuntimeOptions({ });
-    return await this.describeTrafficWithOptions(request, runtime);
-  }
-
-  async describeResourcePackUsageWithOptions(request: DescribeResourcePackUsageRequest, runtime: $Util.RuntimeOptions): Promise<DescribeResourcePackUsageResponse> {
-    Util.validateModel(request);
-    return $tea.cast<DescribeResourcePackUsageResponse>(await this.doRequest("DescribeResourcePackUsage", "HTTPS", "POST", "2018-07-20", "AK", null, $tea.toMap(request), runtime), new DescribeResourcePackUsageResponse({}));
-  }
-
-  async describeResourcePackUsage(request: DescribeResourcePackUsageRequest): Promise<DescribeResourcePackUsageResponse> {
-    let runtime = new $Util.RuntimeOptions({ });
-    return await this.describeResourcePackUsageWithOptions(request, runtime);
-  }
-
-  async describeResourcePackStatisticsWithOptions(request: DescribeResourcePackStatisticsRequest, runtime: $Util.RuntimeOptions): Promise<DescribeResourcePackStatisticsResponse> {
-    Util.validateModel(request);
-    return $tea.cast<DescribeResourcePackStatisticsResponse>(await this.doRequest("DescribeResourcePackStatistics", "HTTPS", "POST", "2018-07-20", "AK", null, $tea.toMap(request), runtime), new DescribeResourcePackStatisticsResponse({}));
-  }
-
-  async describeResourcePackStatistics(request: DescribeResourcePackStatisticsRequest): Promise<DescribeResourcePackStatisticsResponse> {
-    let runtime = new $Util.RuntimeOptions({ });
-    return await this.describeResourcePackStatisticsWithOptions(request, runtime);
-  }
-
-  async describeResourcePackInstancesWithOptions(request: DescribeResourcePackInstancesRequest, runtime: $Util.RuntimeOptions): Promise<DescribeResourcePackInstancesResponse> {
-    Util.validateModel(request);
-    return $tea.cast<DescribeResourcePackInstancesResponse>(await this.doRequest("DescribeResourcePackInstances", "HTTPS", "POST", "2018-07-20", "AK", null, $tea.toMap(request), runtime), new DescribeResourcePackInstancesResponse({}));
-  }
-
-  async describeResourcePackInstances(request: DescribeResourcePackInstancesRequest): Promise<DescribeResourcePackInstancesResponse> {
-    let runtime = new $Util.RuntimeOptions({ });
-    return await this.describeResourcePackInstancesWithOptions(request, runtime);
-  }
-
-  async describePackPaidTrafficWithOptions(request: DescribePackPaidTrafficRequest, runtime: $Util.RuntimeOptions): Promise<DescribePackPaidTrafficResponse> {
-    Util.validateModel(request);
-    return $tea.cast<DescribePackPaidTrafficResponse>(await this.doRequest("DescribePackPaidTraffic", "HTTPS", "POST", "2018-07-20", "AK", null, $tea.toMap(request), runtime), new DescribePackPaidTrafficResponse({}));
-  }
-
-  async describePackPaidTraffic(request: DescribePackPaidTrafficRequest): Promise<DescribePackPaidTrafficResponse> {
-    let runtime = new $Util.RuntimeOptions({ });
-    return await this.describePackPaidTrafficWithOptions(request, runtime);
-  }
-
-  async describeOpEntitiesWithOptions(request: DescribeOpEntitiesRequest, runtime: $Util.RuntimeOptions): Promise<DescribeOpEntitiesResponse> {
-    Util.validateModel(request);
-    return $tea.cast<DescribeOpEntitiesResponse>(await this.doRequest("DescribeOpEntities", "HTTPS", "POST", "2018-07-20", "AK", null, $tea.toMap(request), runtime), new DescribeOpEntitiesResponse({}));
-  }
-
-  async describeOpEntities(request: DescribeOpEntitiesRequest): Promise<DescribeOpEntitiesResponse> {
-    let runtime = new $Util.RuntimeOptions({ });
-    return await this.describeOpEntitiesWithOptions(request, runtime);
-  }
-
-  async describeInstanceSpecsWithOptions(request: DescribeInstanceSpecsRequest, runtime: $Util.RuntimeOptions): Promise<DescribeInstanceSpecsResponse> {
-    Util.validateModel(request);
-    return $tea.cast<DescribeInstanceSpecsResponse>(await this.doRequest("DescribeInstanceSpecs", "HTTPS", "POST", "2018-07-20", "AK", null, $tea.toMap(request), runtime), new DescribeInstanceSpecsResponse({}));
-  }
-
-  async describeInstanceSpecs(request: DescribeInstanceSpecsRequest): Promise<DescribeInstanceSpecsResponse> {
-    let runtime = new $Util.RuntimeOptions({ });
-    return await this.describeInstanceSpecsWithOptions(request, runtime);
-  }
-
-  async describeInstanceListWithOptions(request: DescribeInstanceListRequest, runtime: $Util.RuntimeOptions): Promise<DescribeInstanceListResponse> {
-    Util.validateModel(request);
-    return $tea.cast<DescribeInstanceListResponse>(await this.doRequest("DescribeInstanceList", "HTTPS", "POST", "2018-07-20", "AK", null, $tea.toMap(request), runtime), new DescribeInstanceListResponse({}));
-  }
-
-  async describeInstanceList(request: DescribeInstanceListRequest): Promise<DescribeInstanceListResponse> {
-    let runtime = new $Util.RuntimeOptions({ });
-    return await this.describeInstanceListWithOptions(request, runtime);
-  }
-
-  async describeDdosEventWithOptions(request: DescribeDdosEventRequest, runtime: $Util.RuntimeOptions): Promise<DescribeDdosEventResponse> {
-    Util.validateModel(request);
-    return $tea.cast<DescribeDdosEventResponse>(await this.doRequest("DescribeDdosEvent", "HTTPS", "POST", "2018-07-20", "AK", null, $tea.toMap(request), runtime), new DescribeDdosEventResponse({}));
-  }
-
-  async describeDdosEvent(request: DescribeDdosEventRequest): Promise<DescribeDdosEventResponse> {
-    let runtime = new $Util.RuntimeOptions({ });
-    return await this.describeDdosEventWithOptions(request, runtime);
-  }
-
-  async deleteIpWithOptions(request: DeleteIpRequest, runtime: $Util.RuntimeOptions): Promise<DeleteIpResponse> {
-    Util.validateModel(request);
-    return $tea.cast<DeleteIpResponse>(await this.doRequest("DeleteIp", "HTTPS", "POST", "2018-07-20", "AK", null, $tea.toMap(request), runtime), new DeleteIpResponse({}));
-  }
-
-  async deleteIp(request: DeleteIpRequest): Promise<DeleteIpResponse> {
-    let runtime = new $Util.RuntimeOptions({ });
-    return await this.deleteIpWithOptions(request, runtime);
-  }
-
-  async deleteBlackholeWithOptions(request: DeleteBlackholeRequest, runtime: $Util.RuntimeOptions): Promise<DeleteBlackholeResponse> {
-    Util.validateModel(request);
-    return $tea.cast<DeleteBlackholeResponse>(await this.doRequest("DeleteBlackhole", "HTTPS", "POST", "2018-07-20", "AK", null, $tea.toMap(request), runtime), new DeleteBlackholeResponse({}));
-  }
-
-  async deleteBlackhole(request: DeleteBlackholeRequest): Promise<DeleteBlackholeResponse> {
-    let runtime = new $Util.RuntimeOptions({ });
-    return await this.deleteBlackholeWithOptions(request, runtime);
-  }
-
-  async checkGrantWithOptions(request: CheckGrantRequest, runtime: $Util.RuntimeOptions): Promise<CheckGrantResponse> {
-    Util.validateModel(request);
-    return $tea.cast<CheckGrantResponse>(await this.doRequest("CheckGrant", "HTTPS", "GET", "2018-07-20", "AK", $tea.toMap(request), null, runtime), new CheckGrantResponse({}));
-  }
-
-  async checkGrant(request: CheckGrantRequest): Promise<CheckGrantResponse> {
-    let runtime = new $Util.RuntimeOptions({ });
-    return await this.checkGrantWithOptions(request, runtime);
-  }
-
-  async addIpWithOptions(request: AddIpRequest, runtime: $Util.RuntimeOptions): Promise<AddIpResponse> {
-    Util.validateModel(request);
-    return $tea.cast<AddIpResponse>(await this.doRequest("AddIp", "HTTPS", "POST", "2018-07-20", "AK", null, $tea.toMap(request), runtime), new AddIpResponse({}));
-  }
-
-  async addIp(request: AddIpRequest): Promise<AddIpResponse> {
-    let runtime = new $Util.RuntimeOptions({ });
-    return await this.addIpWithOptions(request, runtime);
-  }
-
   getEndpoint(productId: string, regionId: string, endpointRule: string, network: string, suffix: string, endpointMap: {[key: string ]: string}, endpoint: string): string {
     if (!Util.empty(endpoint)) {
       return endpoint;
@@ -2733,6 +2794,1438 @@ export default class Client extends RPC {
     }
 
     return EndpointUtil.getEndpointRules(productId, regionId, endpointRule, network, suffix);
+  }
+
+  async addIpWithOptions(request: AddIpRequest, runtime: $Util.RuntimeOptions): Promise<AddIpResponse> {
+    Util.validateModel(request);
+    let query = { };
+    if (!Util.isUnset(request.instanceId)) {
+      query["InstanceId"] = request.instanceId;
+    }
+
+    if (!Util.isUnset(request.ipList)) {
+      query["IpList"] = request.ipList;
+    }
+
+    if (!Util.isUnset(request.regionId)) {
+      query["RegionId"] = request.regionId;
+    }
+
+    if (!Util.isUnset(request.resourceGroupId)) {
+      query["ResourceGroupId"] = request.resourceGroupId;
+    }
+
+    let req = new $OpenApi.OpenApiRequest({
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApi.Params({
+      action: "AddIp",
+      version: "2018-07-20",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $tea.cast<AddIpResponse>(await this.callApi(params, req, runtime), new AddIpResponse({}));
+  }
+
+  async addIp(request: AddIpRequest): Promise<AddIpResponse> {
+    let runtime = new $Util.RuntimeOptions({ });
+    return await this.addIpWithOptions(request, runtime);
+  }
+
+  async checkAccessLogAuthWithOptions(request: CheckAccessLogAuthRequest, runtime: $Util.RuntimeOptions): Promise<CheckAccessLogAuthResponse> {
+    Util.validateModel(request);
+    let query = { };
+    if (!Util.isUnset(request.regionId)) {
+      query["RegionId"] = request.regionId;
+    }
+
+    if (!Util.isUnset(request.resourceGroupId)) {
+      query["ResourceGroupId"] = request.resourceGroupId;
+    }
+
+    let req = new $OpenApi.OpenApiRequest({
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApi.Params({
+      action: "CheckAccessLogAuth",
+      version: "2018-07-20",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $tea.cast<CheckAccessLogAuthResponse>(await this.callApi(params, req, runtime), new CheckAccessLogAuthResponse({}));
+  }
+
+  async checkAccessLogAuth(request: CheckAccessLogAuthRequest): Promise<CheckAccessLogAuthResponse> {
+    let runtime = new $Util.RuntimeOptions({ });
+    return await this.checkAccessLogAuthWithOptions(request, runtime);
+  }
+
+  /**
+    * Indicates whether Anti-DDoS Origin is authorized to obtain information about the assets within the current Alibaba Cloud account. Valid values:
+    * *   **1**: Anti-DDoS Origin is authorized to obtain information about the assets within the current Alibaba Cloud account.
+    * *   **0**: Anti-DDoS Origin is not authorized to obtain information about the assets within the current Alibaba Cloud account.
+    *
+    * @param request CheckGrantRequest
+    * @param runtime runtime options for this request RuntimeOptions
+    * @return CheckGrantResponse
+   */
+  async checkGrantWithOptions(request: CheckGrantRequest, runtime: $Util.RuntimeOptions): Promise<CheckGrantResponse> {
+    Util.validateModel(request);
+    let query = OpenApiUtil.query(Util.toMap(request));
+    let req = new $OpenApi.OpenApiRequest({
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApi.Params({
+      action: "CheckGrant",
+      version: "2018-07-20",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "GET",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $tea.cast<CheckGrantResponse>(await this.callApi(params, req, runtime), new CheckGrantResponse({}));
+  }
+
+  /**
+    * Indicates whether Anti-DDoS Origin is authorized to obtain information about the assets within the current Alibaba Cloud account. Valid values:
+    * *   **1**: Anti-DDoS Origin is authorized to obtain information about the assets within the current Alibaba Cloud account.
+    * *   **0**: Anti-DDoS Origin is not authorized to obtain information about the assets within the current Alibaba Cloud account.
+    *
+    * @param request CheckGrantRequest
+    * @return CheckGrantResponse
+   */
+  async checkGrant(request: CheckGrantRequest): Promise<CheckGrantResponse> {
+    let runtime = new $Util.RuntimeOptions({ });
+    return await this.checkGrantWithOptions(request, runtime);
+  }
+
+  async configSchedruleOnDemandWithOptions(request: ConfigSchedruleOnDemandRequest, runtime: $Util.RuntimeOptions): Promise<ConfigSchedruleOnDemandResponse> {
+    Util.validateModel(request);
+    let query = { };
+    if (!Util.isUnset(request.instanceId)) {
+      query["InstanceId"] = request.instanceId;
+    }
+
+    if (!Util.isUnset(request.regionId)) {
+      query["RegionId"] = request.regionId;
+    }
+
+    if (!Util.isUnset(request.ruleAction)) {
+      query["RuleAction"] = request.ruleAction;
+    }
+
+    if (!Util.isUnset(request.ruleConditionCnt)) {
+      query["RuleConditionCnt"] = request.ruleConditionCnt;
+    }
+
+    if (!Util.isUnset(request.ruleConditionKpps)) {
+      query["RuleConditionKpps"] = request.ruleConditionKpps;
+    }
+
+    if (!Util.isUnset(request.ruleConditionMbps)) {
+      query["RuleConditionMbps"] = request.ruleConditionMbps;
+    }
+
+    if (!Util.isUnset(request.ruleName)) {
+      query["RuleName"] = request.ruleName;
+    }
+
+    if (!Util.isUnset(request.ruleSwitch)) {
+      query["RuleSwitch"] = request.ruleSwitch;
+    }
+
+    if (!Util.isUnset(request.ruleUndoBeginTime)) {
+      query["RuleUndoBeginTime"] = request.ruleUndoBeginTime;
+    }
+
+    if (!Util.isUnset(request.ruleUndoEndTime)) {
+      query["RuleUndoEndTime"] = request.ruleUndoEndTime;
+    }
+
+    if (!Util.isUnset(request.ruleUndoMode)) {
+      query["RuleUndoMode"] = request.ruleUndoMode;
+    }
+
+    if (!Util.isUnset(request.timeZone)) {
+      query["TimeZone"] = request.timeZone;
+    }
+
+    let req = new $OpenApi.OpenApiRequest({
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApi.Params({
+      action: "ConfigSchedruleOnDemand",
+      version: "2018-07-20",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $tea.cast<ConfigSchedruleOnDemandResponse>(await this.callApi(params, req, runtime), new ConfigSchedruleOnDemandResponse({}));
+  }
+
+  async configSchedruleOnDemand(request: ConfigSchedruleOnDemandRequest): Promise<ConfigSchedruleOnDemandResponse> {
+    let runtime = new $Util.RuntimeOptions({ });
+    return await this.configSchedruleOnDemandWithOptions(request, runtime);
+  }
+
+  async createSchedruleOnDemandWithOptions(request: CreateSchedruleOnDemandRequest, runtime: $Util.RuntimeOptions): Promise<CreateSchedruleOnDemandResponse> {
+    Util.validateModel(request);
+    let query = { };
+    if (!Util.isUnset(request.instanceId)) {
+      query["InstanceId"] = request.instanceId;
+    }
+
+    if (!Util.isUnset(request.regionId)) {
+      query["RegionId"] = request.regionId;
+    }
+
+    if (!Util.isUnset(request.ruleAction)) {
+      query["RuleAction"] = request.ruleAction;
+    }
+
+    if (!Util.isUnset(request.ruleConditionCnt)) {
+      query["RuleConditionCnt"] = request.ruleConditionCnt;
+    }
+
+    if (!Util.isUnset(request.ruleConditionKpps)) {
+      query["RuleConditionKpps"] = request.ruleConditionKpps;
+    }
+
+    if (!Util.isUnset(request.ruleConditionMbps)) {
+      query["RuleConditionMbps"] = request.ruleConditionMbps;
+    }
+
+    if (!Util.isUnset(request.ruleName)) {
+      query["RuleName"] = request.ruleName;
+    }
+
+    if (!Util.isUnset(request.ruleSwitch)) {
+      query["RuleSwitch"] = request.ruleSwitch;
+    }
+
+    if (!Util.isUnset(request.ruleUndoBeginTime)) {
+      query["RuleUndoBeginTime"] = request.ruleUndoBeginTime;
+    }
+
+    if (!Util.isUnset(request.ruleUndoEndTime)) {
+      query["RuleUndoEndTime"] = request.ruleUndoEndTime;
+    }
+
+    if (!Util.isUnset(request.ruleUndoMode)) {
+      query["RuleUndoMode"] = request.ruleUndoMode;
+    }
+
+    if (!Util.isUnset(request.timeZone)) {
+      query["TimeZone"] = request.timeZone;
+    }
+
+    let req = new $OpenApi.OpenApiRequest({
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApi.Params({
+      action: "CreateSchedruleOnDemand",
+      version: "2018-07-20",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $tea.cast<CreateSchedruleOnDemandResponse>(await this.callApi(params, req, runtime), new CreateSchedruleOnDemandResponse({}));
+  }
+
+  async createSchedruleOnDemand(request: CreateSchedruleOnDemandRequest): Promise<CreateSchedruleOnDemandResponse> {
+    let runtime = new $Util.RuntimeOptions({ });
+    return await this.createSchedruleOnDemandWithOptions(request, runtime);
+  }
+
+  /**
+    * You can call the DeleteBlackhole operation to deactivate blackhole filtering for a protected IP address.
+    * Before you call this operation, you can call the [DescribePackIpList](~~118701~~) operation to query the protection status of the IP addresses that are protected by your Anti-DDoS Origin instance. For example, you can query whether blackhole filtering is triggered for an IP address.
+    * ### Limits
+    * You can call this operation up to 10 times per second per account. If the number of the calls per second exceeds the limit, throttling is triggered. As a result, your business may be affected. We recommend that you take note of the limit when you call this operation.
+    *
+    * @param request DeleteBlackholeRequest
+    * @param runtime runtime options for this request RuntimeOptions
+    * @return DeleteBlackholeResponse
+   */
+  async deleteBlackholeWithOptions(request: DeleteBlackholeRequest, runtime: $Util.RuntimeOptions): Promise<DeleteBlackholeResponse> {
+    Util.validateModel(request);
+    let query = { };
+    if (!Util.isUnset(request.instanceId)) {
+      query["InstanceId"] = request.instanceId;
+    }
+
+    if (!Util.isUnset(request.ip)) {
+      query["Ip"] = request.ip;
+    }
+
+    if (!Util.isUnset(request.regionId)) {
+      query["RegionId"] = request.regionId;
+    }
+
+    if (!Util.isUnset(request.resourceGroupId)) {
+      query["ResourceGroupId"] = request.resourceGroupId;
+    }
+
+    let req = new $OpenApi.OpenApiRequest({
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApi.Params({
+      action: "DeleteBlackhole",
+      version: "2018-07-20",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $tea.cast<DeleteBlackholeResponse>(await this.callApi(params, req, runtime), new DeleteBlackholeResponse({}));
+  }
+
+  /**
+    * You can call the DeleteBlackhole operation to deactivate blackhole filtering for a protected IP address.
+    * Before you call this operation, you can call the [DescribePackIpList](~~118701~~) operation to query the protection status of the IP addresses that are protected by your Anti-DDoS Origin instance. For example, you can query whether blackhole filtering is triggered for an IP address.
+    * ### Limits
+    * You can call this operation up to 10 times per second per account. If the number of the calls per second exceeds the limit, throttling is triggered. As a result, your business may be affected. We recommend that you take note of the limit when you call this operation.
+    *
+    * @param request DeleteBlackholeRequest
+    * @return DeleteBlackholeResponse
+   */
+  async deleteBlackhole(request: DeleteBlackholeRequest): Promise<DeleteBlackholeResponse> {
+    let runtime = new $Util.RuntimeOptions({ });
+    return await this.deleteBlackholeWithOptions(request, runtime);
+  }
+
+  /**
+    * The ID of the Anti-DDoS Origin Enterprise instance.
+    * >  You can call the [DescribeInstanceList](~~118698~~) operation to query the IDs of all Anti-DDoS Origin Enterprise instances.
+    *
+    * @param request DeleteIpRequest
+    * @param runtime runtime options for this request RuntimeOptions
+    * @return DeleteIpResponse
+   */
+  async deleteIpWithOptions(request: DeleteIpRequest, runtime: $Util.RuntimeOptions): Promise<DeleteIpResponse> {
+    Util.validateModel(request);
+    let query = { };
+    if (!Util.isUnset(request.instanceId)) {
+      query["InstanceId"] = request.instanceId;
+    }
+
+    if (!Util.isUnset(request.ipList)) {
+      query["IpList"] = request.ipList;
+    }
+
+    if (!Util.isUnset(request.regionId)) {
+      query["RegionId"] = request.regionId;
+    }
+
+    if (!Util.isUnset(request.resourceGroupId)) {
+      query["ResourceGroupId"] = request.resourceGroupId;
+    }
+
+    let req = new $OpenApi.OpenApiRequest({
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApi.Params({
+      action: "DeleteIp",
+      version: "2018-07-20",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $tea.cast<DeleteIpResponse>(await this.callApi(params, req, runtime), new DeleteIpResponse({}));
+  }
+
+  /**
+    * The ID of the Anti-DDoS Origin Enterprise instance.
+    * >  You can call the [DescribeInstanceList](~~118698~~) operation to query the IDs of all Anti-DDoS Origin Enterprise instances.
+    *
+    * @param request DeleteIpRequest
+    * @return DeleteIpResponse
+   */
+  async deleteIp(request: DeleteIpRequest): Promise<DeleteIpResponse> {
+    let runtime = new $Util.RuntimeOptions({ });
+    return await this.deleteIpWithOptions(request, runtime);
+  }
+
+  async deleteSchedruleOnDemandWithOptions(request: DeleteSchedruleOnDemandRequest, runtime: $Util.RuntimeOptions): Promise<DeleteSchedruleOnDemandResponse> {
+    Util.validateModel(request);
+    let query = { };
+    if (!Util.isUnset(request.instanceId)) {
+      query["InstanceId"] = request.instanceId;
+    }
+
+    if (!Util.isUnset(request.regionId)) {
+      query["RegionId"] = request.regionId;
+    }
+
+    if (!Util.isUnset(request.ruleName)) {
+      query["RuleName"] = request.ruleName;
+    }
+
+    let req = new $OpenApi.OpenApiRequest({
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApi.Params({
+      action: "DeleteSchedruleOnDemand",
+      version: "2018-07-20",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $tea.cast<DeleteSchedruleOnDemandResponse>(await this.callApi(params, req, runtime), new DeleteSchedruleOnDemandResponse({}));
+  }
+
+  async deleteSchedruleOnDemand(request: DeleteSchedruleOnDemandRequest): Promise<DeleteSchedruleOnDemandResponse> {
+    let runtime = new $Util.RuntimeOptions({ });
+    return await this.deleteSchedruleOnDemandWithOptions(request, runtime);
+  }
+
+  /**
+    * The number of entries to return on each page.
+    *
+    * @param request DescribeDdosEventRequest
+    * @param runtime runtime options for this request RuntimeOptions
+    * @return DescribeDdosEventResponse
+   */
+  async describeDdosEventWithOptions(request: DescribeDdosEventRequest, runtime: $Util.RuntimeOptions): Promise<DescribeDdosEventResponse> {
+    Util.validateModel(request);
+    let query = { };
+    if (!Util.isUnset(request.endTime)) {
+      query["EndTime"] = request.endTime;
+    }
+
+    if (!Util.isUnset(request.instanceId)) {
+      query["InstanceId"] = request.instanceId;
+    }
+
+    if (!Util.isUnset(request.ip)) {
+      query["Ip"] = request.ip;
+    }
+
+    if (!Util.isUnset(request.pageNo)) {
+      query["PageNo"] = request.pageNo;
+    }
+
+    if (!Util.isUnset(request.pageSize)) {
+      query["PageSize"] = request.pageSize;
+    }
+
+    if (!Util.isUnset(request.regionId)) {
+      query["RegionId"] = request.regionId;
+    }
+
+    if (!Util.isUnset(request.resourceGroupId)) {
+      query["ResourceGroupId"] = request.resourceGroupId;
+    }
+
+    if (!Util.isUnset(request.startTime)) {
+      query["StartTime"] = request.startTime;
+    }
+
+    let req = new $OpenApi.OpenApiRequest({
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApi.Params({
+      action: "DescribeDdosEvent",
+      version: "2018-07-20",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $tea.cast<DescribeDdosEventResponse>(await this.callApi(params, req, runtime), new DescribeDdosEventResponse({}));
+  }
+
+  /**
+    * The number of entries to return on each page.
+    *
+    * @param request DescribeDdosEventRequest
+    * @return DescribeDdosEventResponse
+   */
+  async describeDdosEvent(request: DescribeDdosEventRequest): Promise<DescribeDdosEventResponse> {
+    let runtime = new $Util.RuntimeOptions({ });
+    return await this.describeDdosEventWithOptions(request, runtime);
+  }
+
+  /**
+    * The operation that you want to perform. Set the value to **DescribeExcpetionCount**.
+    *
+    * @param request DescribeExcpetionCountRequest
+    * @param runtime runtime options for this request RuntimeOptions
+    * @return DescribeExcpetionCountResponse
+   */
+  async describeExcpetionCountWithOptions(request: DescribeExcpetionCountRequest, runtime: $Util.RuntimeOptions): Promise<DescribeExcpetionCountResponse> {
+    Util.validateModel(request);
+    let query = { };
+    if (!Util.isUnset(request.regionId)) {
+      query["RegionId"] = request.regionId;
+    }
+
+    if (!Util.isUnset(request.resourceGroupId)) {
+      query["ResourceGroupId"] = request.resourceGroupId;
+    }
+
+    let req = new $OpenApi.OpenApiRequest({
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApi.Params({
+      action: "DescribeExcpetionCount",
+      version: "2018-07-20",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $tea.cast<DescribeExcpetionCountResponse>(await this.callApi(params, req, runtime), new DescribeExcpetionCountResponse({}));
+  }
+
+  /**
+    * The operation that you want to perform. Set the value to **DescribeExcpetionCount**.
+    *
+    * @param request DescribeExcpetionCountRequest
+    * @return DescribeExcpetionCountResponse
+   */
+  async describeExcpetionCount(request: DescribeExcpetionCountRequest): Promise<DescribeExcpetionCountResponse> {
+    let runtime = new $Util.RuntimeOptions({ });
+    return await this.describeExcpetionCountWithOptions(request, runtime);
+  }
+
+  /**
+    * The status of the instance. Valid values:
+    * *   **1**: normal
+    * *   **2**: expired
+    * *   **3**: released
+    *
+    * @param request DescribeInstanceListRequest
+    * @param runtime runtime options for this request RuntimeOptions
+    * @return DescribeInstanceListResponse
+   */
+  async describeInstanceListWithOptions(request: DescribeInstanceListRequest, runtime: $Util.RuntimeOptions): Promise<DescribeInstanceListResponse> {
+    Util.validateModel(request);
+    let query = { };
+    if (!Util.isUnset(request.instanceIdList)) {
+      query["InstanceIdList"] = request.instanceIdList;
+    }
+
+    if (!Util.isUnset(request.instanceType)) {
+      query["InstanceType"] = request.instanceType;
+    }
+
+    if (!Util.isUnset(request.instanceTypeList)) {
+      query["InstanceTypeList"] = request.instanceTypeList;
+    }
+
+    if (!Util.isUnset(request.ip)) {
+      query["Ip"] = request.ip;
+    }
+
+    if (!Util.isUnset(request.ipVersion)) {
+      query["IpVersion"] = request.ipVersion;
+    }
+
+    if (!Util.isUnset(request.orderby)) {
+      query["Orderby"] = request.orderby;
+    }
+
+    if (!Util.isUnset(request.orderdire)) {
+      query["Orderdire"] = request.orderdire;
+    }
+
+    if (!Util.isUnset(request.pageNo)) {
+      query["PageNo"] = request.pageNo;
+    }
+
+    if (!Util.isUnset(request.pageSize)) {
+      query["PageSize"] = request.pageSize;
+    }
+
+    if (!Util.isUnset(request.regionId)) {
+      query["RegionId"] = request.regionId;
+    }
+
+    if (!Util.isUnset(request.remark)) {
+      query["Remark"] = request.remark;
+    }
+
+    if (!Util.isUnset(request.resourceGroupId)) {
+      query["ResourceGroupId"] = request.resourceGroupId;
+    }
+
+    if (!Util.isUnset(request.tag)) {
+      query["Tag"] = request.tag;
+    }
+
+    let req = new $OpenApi.OpenApiRequest({
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApi.Params({
+      action: "DescribeInstanceList",
+      version: "2018-07-20",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $tea.cast<DescribeInstanceListResponse>(await this.callApi(params, req, runtime), new DescribeInstanceListResponse({}));
+  }
+
+  /**
+    * The status of the instance. Valid values:
+    * *   **1**: normal
+    * *   **2**: expired
+    * *   **3**: released
+    *
+    * @param request DescribeInstanceListRequest
+    * @return DescribeInstanceListResponse
+   */
+  async describeInstanceList(request: DescribeInstanceListRequest): Promise<DescribeInstanceListResponse> {
+    let runtime = new $Util.RuntimeOptions({ });
+    return await this.describeInstanceListWithOptions(request, runtime);
+  }
+
+  async describeInstanceSpecsWithOptions(request: DescribeInstanceSpecsRequest, runtime: $Util.RuntimeOptions): Promise<DescribeInstanceSpecsResponse> {
+    Util.validateModel(request);
+    let query = { };
+    if (!Util.isUnset(request.instanceIdList)) {
+      query["InstanceIdList"] = request.instanceIdList;
+    }
+
+    if (!Util.isUnset(request.regionId)) {
+      query["RegionId"] = request.regionId;
+    }
+
+    if (!Util.isUnset(request.resourceGroupId)) {
+      query["ResourceGroupId"] = request.resourceGroupId;
+    }
+
+    let req = new $OpenApi.OpenApiRequest({
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApi.Params({
+      action: "DescribeInstanceSpecs",
+      version: "2018-07-20",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $tea.cast<DescribeInstanceSpecsResponse>(await this.callApi(params, req, runtime), new DescribeInstanceSpecsResponse({}));
+  }
+
+  async describeInstanceSpecs(request: DescribeInstanceSpecsRequest): Promise<DescribeInstanceSpecsResponse> {
+    let runtime = new $Util.RuntimeOptions({ });
+    return await this.describeInstanceSpecsWithOptions(request, runtime);
+  }
+
+  /**
+    * The ID of the resource group.
+    *
+    * @param request DescribeOnDemandDdosEventRequest
+    * @param runtime runtime options for this request RuntimeOptions
+    * @return DescribeOnDemandDdosEventResponse
+   */
+  async describeOnDemandDdosEventWithOptions(request: DescribeOnDemandDdosEventRequest, runtime: $Util.RuntimeOptions): Promise<DescribeOnDemandDdosEventResponse> {
+    Util.validateModel(request);
+    let query = { };
+    if (!Util.isUnset(request.endTime)) {
+      query["EndTime"] = request.endTime;
+    }
+
+    if (!Util.isUnset(request.instanceId)) {
+      query["InstanceId"] = request.instanceId;
+    }
+
+    if (!Util.isUnset(request.ip)) {
+      query["Ip"] = request.ip;
+    }
+
+    if (!Util.isUnset(request.pageNo)) {
+      query["PageNo"] = request.pageNo;
+    }
+
+    if (!Util.isUnset(request.pageSize)) {
+      query["PageSize"] = request.pageSize;
+    }
+
+    if (!Util.isUnset(request.regionId)) {
+      query["RegionId"] = request.regionId;
+    }
+
+    if (!Util.isUnset(request.resourceGroupId)) {
+      query["ResourceGroupId"] = request.resourceGroupId;
+    }
+
+    if (!Util.isUnset(request.startTime)) {
+      query["StartTime"] = request.startTime;
+    }
+
+    let req = new $OpenApi.OpenApiRequest({
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApi.Params({
+      action: "DescribeOnDemandDdosEvent",
+      version: "2018-07-20",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $tea.cast<DescribeOnDemandDdosEventResponse>(await this.callApi(params, req, runtime), new DescribeOnDemandDdosEventResponse({}));
+  }
+
+  /**
+    * The ID of the resource group.
+    *
+    * @param request DescribeOnDemandDdosEventRequest
+    * @return DescribeOnDemandDdosEventResponse
+   */
+  async describeOnDemandDdosEvent(request: DescribeOnDemandDdosEventRequest): Promise<DescribeOnDemandDdosEventResponse> {
+    let runtime = new $Util.RuntimeOptions({ });
+    return await this.describeOnDemandDdosEventWithOptions(request, runtime);
+  }
+
+  async describeOnDemandInstanceStatusWithOptions(request: DescribeOnDemandInstanceStatusRequest, runtime: $Util.RuntimeOptions): Promise<DescribeOnDemandInstanceStatusResponse> {
+    Util.validateModel(request);
+    let query = { };
+    if (!Util.isUnset(request.instanceIdList)) {
+      query["InstanceIdList"] = request.instanceIdList;
+    }
+
+    if (!Util.isUnset(request.regionId)) {
+      query["RegionId"] = request.regionId;
+    }
+
+    let req = new $OpenApi.OpenApiRequest({
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApi.Params({
+      action: "DescribeOnDemandInstanceStatus",
+      version: "2018-07-20",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $tea.cast<DescribeOnDemandInstanceStatusResponse>(await this.callApi(params, req, runtime), new DescribeOnDemandInstanceStatusResponse({}));
+  }
+
+  async describeOnDemandInstanceStatus(request: DescribeOnDemandInstanceStatusRequest): Promise<DescribeOnDemandInstanceStatusResponse> {
+    let runtime = new $Util.RuntimeOptions({ });
+    return await this.describeOnDemandInstanceStatusWithOptions(request, runtime);
+  }
+
+  /**
+    * The start time. Operation logs that were generated after this time are queried.**** This value is a UNIX timestamp. Unit: milliseconds.
+    *
+    * @param request DescribeOpEntitiesRequest
+    * @param runtime runtime options for this request RuntimeOptions
+    * @return DescribeOpEntitiesResponse
+   */
+  async describeOpEntitiesWithOptions(request: DescribeOpEntitiesRequest, runtime: $Util.RuntimeOptions): Promise<DescribeOpEntitiesResponse> {
+    Util.validateModel(request);
+    let query = { };
+    if (!Util.isUnset(request.currentPage)) {
+      query["CurrentPage"] = request.currentPage;
+    }
+
+    if (!Util.isUnset(request.endTime)) {
+      query["EndTime"] = request.endTime;
+    }
+
+    if (!Util.isUnset(request.instanceId)) {
+      query["InstanceId"] = request.instanceId;
+    }
+
+    if (!Util.isUnset(request.orderBy)) {
+      query["OrderBy"] = request.orderBy;
+    }
+
+    if (!Util.isUnset(request.orderDir)) {
+      query["OrderDir"] = request.orderDir;
+    }
+
+    if (!Util.isUnset(request.pageSize)) {
+      query["PageSize"] = request.pageSize;
+    }
+
+    if (!Util.isUnset(request.regionId)) {
+      query["RegionId"] = request.regionId;
+    }
+
+    if (!Util.isUnset(request.resourceGroupId)) {
+      query["ResourceGroupId"] = request.resourceGroupId;
+    }
+
+    if (!Util.isUnset(request.startTime)) {
+      query["StartTime"] = request.startTime;
+    }
+
+    let req = new $OpenApi.OpenApiRequest({
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApi.Params({
+      action: "DescribeOpEntities",
+      version: "2018-07-20",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $tea.cast<DescribeOpEntitiesResponse>(await this.callApi(params, req, runtime), new DescribeOpEntitiesResponse({}));
+  }
+
+  /**
+    * The start time. Operation logs that were generated after this time are queried.**** This value is a UNIX timestamp. Unit: milliseconds.
+    *
+    * @param request DescribeOpEntitiesRequest
+    * @return DescribeOpEntitiesResponse
+   */
+  async describeOpEntities(request: DescribeOpEntitiesRequest): Promise<DescribeOpEntitiesResponse> {
+    let runtime = new $Util.RuntimeOptions({ });
+    return await this.describeOpEntitiesWithOptions(request, runtime);
+  }
+
+  /**
+    * The number of entries to return on each page.
+    *
+    * @param request DescribePackIpListRequest
+    * @param runtime runtime options for this request RuntimeOptions
+    * @return DescribePackIpListResponse
+   */
+  async describePackIpListWithOptions(request: DescribePackIpListRequest, runtime: $Util.RuntimeOptions): Promise<DescribePackIpListResponse> {
+    Util.validateModel(request);
+    let query = { };
+    if (!Util.isUnset(request.instanceId)) {
+      query["InstanceId"] = request.instanceId;
+    }
+
+    if (!Util.isUnset(request.ip)) {
+      query["Ip"] = request.ip;
+    }
+
+    if (!Util.isUnset(request.memberUid)) {
+      query["MemberUid"] = request.memberUid;
+    }
+
+    if (!Util.isUnset(request.pageNo)) {
+      query["PageNo"] = request.pageNo;
+    }
+
+    if (!Util.isUnset(request.pageSize)) {
+      query["PageSize"] = request.pageSize;
+    }
+
+    if (!Util.isUnset(request.productName)) {
+      query["ProductName"] = request.productName;
+    }
+
+    if (!Util.isUnset(request.regionId)) {
+      query["RegionId"] = request.regionId;
+    }
+
+    if (!Util.isUnset(request.resourceGroupId)) {
+      query["ResourceGroupId"] = request.resourceGroupId;
+    }
+
+    let req = new $OpenApi.OpenApiRequest({
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApi.Params({
+      action: "DescribePackIpList",
+      version: "2018-07-20",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $tea.cast<DescribePackIpListResponse>(await this.callApi(params, req, runtime), new DescribePackIpListResponse({}));
+  }
+
+  /**
+    * The number of entries to return on each page.
+    *
+    * @param request DescribePackIpListRequest
+    * @return DescribePackIpListResponse
+   */
+  async describePackIpList(request: DescribePackIpListRequest): Promise<DescribePackIpListResponse> {
+    let runtime = new $Util.RuntimeOptions({ });
+    return await this.describePackIpListWithOptions(request, runtime);
+  }
+
+  async describeRegionsWithOptions(request: DescribeRegionsRequest, runtime: $Util.RuntimeOptions): Promise<DescribeRegionsResponse> {
+    Util.validateModel(request);
+    let query = { };
+    if (!Util.isUnset(request.regionId)) {
+      query["RegionId"] = request.regionId;
+    }
+
+    if (!Util.isUnset(request.resourceGroupId)) {
+      query["ResourceGroupId"] = request.resourceGroupId;
+    }
+
+    let req = new $OpenApi.OpenApiRequest({
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApi.Params({
+      action: "DescribeRegions",
+      version: "2018-07-20",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $tea.cast<DescribeRegionsResponse>(await this.callApi(params, req, runtime), new DescribeRegionsResponse({}));
+  }
+
+  async describeRegions(request: DescribeRegionsRequest): Promise<DescribeRegionsResponse> {
+    let runtime = new $Util.RuntimeOptions({ });
+    return await this.describeRegionsWithOptions(request, runtime);
+  }
+
+  /**
+    * The bandwidth of attack traffic. Unit: bit/s.
+    * >  This parameter is returned only if attack traffic exists.
+    *
+    * @param request DescribeTrafficRequest
+    * @param runtime runtime options for this request RuntimeOptions
+    * @return DescribeTrafficResponse
+   */
+  async describeTrafficWithOptions(request: DescribeTrafficRequest, runtime: $Util.RuntimeOptions): Promise<DescribeTrafficResponse> {
+    Util.validateModel(request);
+    let query = { };
+    if (!Util.isUnset(request.endTime)) {
+      query["EndTime"] = request.endTime;
+    }
+
+    if (!Util.isUnset(request.flowType)) {
+      query["FlowType"] = request.flowType;
+    }
+
+    if (!Util.isUnset(request.instanceId)) {
+      query["InstanceId"] = request.instanceId;
+    }
+
+    if (!Util.isUnset(request.interval)) {
+      query["Interval"] = request.interval;
+    }
+
+    if (!Util.isUnset(request.ip)) {
+      query["Ip"] = request.ip;
+    }
+
+    if (!Util.isUnset(request.ipnet)) {
+      query["Ipnet"] = request.ipnet;
+    }
+
+    if (!Util.isUnset(request.regionId)) {
+      query["RegionId"] = request.regionId;
+    }
+
+    if (!Util.isUnset(request.resourceGroupId)) {
+      query["ResourceGroupId"] = request.resourceGroupId;
+    }
+
+    if (!Util.isUnset(request.startTime)) {
+      query["StartTime"] = request.startTime;
+    }
+
+    let req = new $OpenApi.OpenApiRequest({
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApi.Params({
+      action: "DescribeTraffic",
+      version: "2018-07-20",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $tea.cast<DescribeTrafficResponse>(await this.callApi(params, req, runtime), new DescribeTrafficResponse({}));
+  }
+
+  /**
+    * The bandwidth of attack traffic. Unit: bit/s.
+    * >  This parameter is returned only if attack traffic exists.
+    *
+    * @param request DescribeTrafficRequest
+    * @return DescribeTrafficResponse
+   */
+  async describeTraffic(request: DescribeTrafficRequest): Promise<DescribeTrafficResponse> {
+    let runtime = new $Util.RuntimeOptions({ });
+    return await this.describeTrafficWithOptions(request, runtime);
+  }
+
+  async getSlsOpenStatusWithOptions(request: GetSlsOpenStatusRequest, runtime: $Util.RuntimeOptions): Promise<GetSlsOpenStatusResponse> {
+    Util.validateModel(request);
+    let query = { };
+    if (!Util.isUnset(request.regionId)) {
+      query["RegionId"] = request.regionId;
+    }
+
+    if (!Util.isUnset(request.resourceGroupId)) {
+      query["ResourceGroupId"] = request.resourceGroupId;
+    }
+
+    let req = new $OpenApi.OpenApiRequest({
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApi.Params({
+      action: "GetSlsOpenStatus",
+      version: "2018-07-20",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $tea.cast<GetSlsOpenStatusResponse>(await this.callApi(params, req, runtime), new GetSlsOpenStatusResponse({}));
+  }
+
+  async getSlsOpenStatus(request: GetSlsOpenStatusRequest): Promise<GetSlsOpenStatusResponse> {
+    let runtime = new $Util.RuntimeOptions({ });
+    return await this.getSlsOpenStatusWithOptions(request, runtime);
+  }
+
+  async listOpenedAccessLogInstancesWithOptions(request: ListOpenedAccessLogInstancesRequest, runtime: $Util.RuntimeOptions): Promise<ListOpenedAccessLogInstancesResponse> {
+    Util.validateModel(request);
+    let query = { };
+    if (!Util.isUnset(request.pageNumber)) {
+      query["PageNumber"] = request.pageNumber;
+    }
+
+    if (!Util.isUnset(request.pageSize)) {
+      query["PageSize"] = request.pageSize;
+    }
+
+    if (!Util.isUnset(request.resourceGroupId)) {
+      query["ResourceGroupId"] = request.resourceGroupId;
+    }
+
+    let req = new $OpenApi.OpenApiRequest({
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApi.Params({
+      action: "ListOpenedAccessLogInstances",
+      version: "2018-07-20",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $tea.cast<ListOpenedAccessLogInstancesResponse>(await this.callApi(params, req, runtime), new ListOpenedAccessLogInstancesResponse({}));
+  }
+
+  async listOpenedAccessLogInstances(request: ListOpenedAccessLogInstancesRequest): Promise<ListOpenedAccessLogInstancesResponse> {
+    let runtime = new $Util.RuntimeOptions({ });
+    return await this.listOpenedAccessLogInstancesWithOptions(request, runtime);
+  }
+
+  async listTagKeysWithOptions(request: ListTagKeysRequest, runtime: $Util.RuntimeOptions): Promise<ListTagKeysResponse> {
+    Util.validateModel(request);
+    let query = { };
+    if (!Util.isUnset(request.currentPage)) {
+      query["CurrentPage"] = request.currentPage;
+    }
+
+    if (!Util.isUnset(request.pageSize)) {
+      query["PageSize"] = request.pageSize;
+    }
+
+    if (!Util.isUnset(request.regionId)) {
+      query["RegionId"] = request.regionId;
+    }
+
+    if (!Util.isUnset(request.resourceGroupId)) {
+      query["ResourceGroupId"] = request.resourceGroupId;
+    }
+
+    if (!Util.isUnset(request.resourceType)) {
+      query["ResourceType"] = request.resourceType;
+    }
+
+    let req = new $OpenApi.OpenApiRequest({
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApi.Params({
+      action: "ListTagKeys",
+      version: "2018-07-20",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $tea.cast<ListTagKeysResponse>(await this.callApi(params, req, runtime), new ListTagKeysResponse({}));
+  }
+
+  async listTagKeys(request: ListTagKeysRequest): Promise<ListTagKeysResponse> {
+    let runtime = new $Util.RuntimeOptions({ });
+    return await this.listTagKeysWithOptions(request, runtime);
+  }
+
+  /**
+    * The ID of the region where the Anti-DDoS Origin instance resides.
+    * >  You can call the [DescribeRegions](~~118703~~) operation to query the most recent region list.
+    *
+    * @param request ListTagResourcesRequest
+    * @param runtime runtime options for this request RuntimeOptions
+    * @return ListTagResourcesResponse
+   */
+  async listTagResourcesWithOptions(request: ListTagResourcesRequest, runtime: $Util.RuntimeOptions): Promise<ListTagResourcesResponse> {
+    Util.validateModel(request);
+    let query = { };
+    if (!Util.isUnset(request.nextToken)) {
+      query["NextToken"] = request.nextToken;
+    }
+
+    if (!Util.isUnset(request.regionId)) {
+      query["RegionId"] = request.regionId;
+    }
+
+    if (!Util.isUnset(request.resourceGroupId)) {
+      query["ResourceGroupId"] = request.resourceGroupId;
+    }
+
+    if (!Util.isUnset(request.resourceId)) {
+      query["ResourceId"] = request.resourceId;
+    }
+
+    if (!Util.isUnset(request.resourceType)) {
+      query["ResourceType"] = request.resourceType;
+    }
+
+    if (!Util.isUnset(request.tag)) {
+      query["Tag"] = request.tag;
+    }
+
+    let req = new $OpenApi.OpenApiRequest({
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApi.Params({
+      action: "ListTagResources",
+      version: "2018-07-20",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $tea.cast<ListTagResourcesResponse>(await this.callApi(params, req, runtime), new ListTagResourcesResponse({}));
+  }
+
+  /**
+    * The ID of the region where the Anti-DDoS Origin instance resides.
+    * >  You can call the [DescribeRegions](~~118703~~) operation to query the most recent region list.
+    *
+    * @param request ListTagResourcesRequest
+    * @return ListTagResourcesResponse
+   */
+  async listTagResources(request: ListTagResourcesRequest): Promise<ListTagResourcesResponse> {
+    let runtime = new $Util.RuntimeOptions({ });
+    return await this.listTagResourcesWithOptions(request, runtime);
+  }
+
+  /**
+    * The operation that you want to perform. Set the value to **ModifyRemark**.
+    *
+    * @param request ModifyRemarkRequest
+    * @param runtime runtime options for this request RuntimeOptions
+    * @return ModifyRemarkResponse
+   */
+  async modifyRemarkWithOptions(request: ModifyRemarkRequest, runtime: $Util.RuntimeOptions): Promise<ModifyRemarkResponse> {
+    Util.validateModel(request);
+    let query = { };
+    if (!Util.isUnset(request.instanceId)) {
+      query["InstanceId"] = request.instanceId;
+    }
+
+    if (!Util.isUnset(request.regionId)) {
+      query["RegionId"] = request.regionId;
+    }
+
+    if (!Util.isUnset(request.remark)) {
+      query["Remark"] = request.remark;
+    }
+
+    if (!Util.isUnset(request.resourceGroupId)) {
+      query["ResourceGroupId"] = request.resourceGroupId;
+    }
+
+    let req = new $OpenApi.OpenApiRequest({
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApi.Params({
+      action: "ModifyRemark",
+      version: "2018-07-20",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $tea.cast<ModifyRemarkResponse>(await this.callApi(params, req, runtime), new ModifyRemarkResponse({}));
+  }
+
+  /**
+    * The operation that you want to perform. Set the value to **ModifyRemark**.
+    *
+    * @param request ModifyRemarkRequest
+    * @return ModifyRemarkResponse
+   */
+  async modifyRemark(request: ModifyRemarkRequest): Promise<ModifyRemarkResponse> {
+    let runtime = new $Util.RuntimeOptions({ });
+    return await this.modifyRemarkWithOptions(request, runtime);
+  }
+
+  async querySchedruleOnDemandWithOptions(request: QuerySchedruleOnDemandRequest, runtime: $Util.RuntimeOptions): Promise<QuerySchedruleOnDemandResponse> {
+    Util.validateModel(request);
+    let query = { };
+    if (!Util.isUnset(request.instanceId)) {
+      query["InstanceId"] = request.instanceId;
+    }
+
+    if (!Util.isUnset(request.regionId)) {
+      query["RegionId"] = request.regionId;
+    }
+
+    let req = new $OpenApi.OpenApiRequest({
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApi.Params({
+      action: "QuerySchedruleOnDemand",
+      version: "2018-07-20",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $tea.cast<QuerySchedruleOnDemandResponse>(await this.callApi(params, req, runtime), new QuerySchedruleOnDemandResponse({}));
+  }
+
+  async querySchedruleOnDemand(request: QuerySchedruleOnDemandRequest): Promise<QuerySchedruleOnDemandResponse> {
+    let runtime = new $Util.RuntimeOptions({ });
+    return await this.querySchedruleOnDemandWithOptions(request, runtime);
+  }
+
+  async setInstanceModeOnDemandWithOptions(request: SetInstanceModeOnDemandRequest, runtime: $Util.RuntimeOptions): Promise<SetInstanceModeOnDemandResponse> {
+    Util.validateModel(request);
+    let query = { };
+    if (!Util.isUnset(request.instanceIdList)) {
+      query["InstanceIdList"] = request.instanceIdList;
+    }
+
+    if (!Util.isUnset(request.mode)) {
+      query["Mode"] = request.mode;
+    }
+
+    if (!Util.isUnset(request.regionId)) {
+      query["RegionId"] = request.regionId;
+    }
+
+    let req = new $OpenApi.OpenApiRequest({
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApi.Params({
+      action: "SetInstanceModeOnDemand",
+      version: "2018-07-20",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $tea.cast<SetInstanceModeOnDemandResponse>(await this.callApi(params, req, runtime), new SetInstanceModeOnDemandResponse({}));
+  }
+
+  async setInstanceModeOnDemand(request: SetInstanceModeOnDemandRequest): Promise<SetInstanceModeOnDemandResponse> {
+    let runtime = new $Util.RuntimeOptions({ });
+    return await this.setInstanceModeOnDemandWithOptions(request, runtime);
+  }
+
+  /**
+    * The ID of Anti-DDoS Origin Instance N to which you want to add tags.
+    * >  You can call the [DescribeInstanceList](~~118698~~) operation to query the IDs of all Anti-DDoS Origin instances.
+    *
+    * @param request TagResourcesRequest
+    * @param runtime runtime options for this request RuntimeOptions
+    * @return TagResourcesResponse
+   */
+  async tagResourcesWithOptions(request: TagResourcesRequest, runtime: $Util.RuntimeOptions): Promise<TagResourcesResponse> {
+    Util.validateModel(request);
+    let query = { };
+    if (!Util.isUnset(request.regionId)) {
+      query["RegionId"] = request.regionId;
+    }
+
+    if (!Util.isUnset(request.resourceGroupId)) {
+      query["ResourceGroupId"] = request.resourceGroupId;
+    }
+
+    if (!Util.isUnset(request.resourceId)) {
+      query["ResourceId"] = request.resourceId;
+    }
+
+    if (!Util.isUnset(request.resourceType)) {
+      query["ResourceType"] = request.resourceType;
+    }
+
+    if (!Util.isUnset(request.tag)) {
+      query["Tag"] = request.tag;
+    }
+
+    let req = new $OpenApi.OpenApiRequest({
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApi.Params({
+      action: "TagResources",
+      version: "2018-07-20",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $tea.cast<TagResourcesResponse>(await this.callApi(params, req, runtime), new TagResourcesResponse({}));
+  }
+
+  /**
+    * The ID of Anti-DDoS Origin Instance N to which you want to add tags.
+    * >  You can call the [DescribeInstanceList](~~118698~~) operation to query the IDs of all Anti-DDoS Origin instances.
+    *
+    * @param request TagResourcesRequest
+    * @return TagResourcesResponse
+   */
+  async tagResources(request: TagResourcesRequest): Promise<TagResourcesResponse> {
+    let runtime = new $Util.RuntimeOptions({ });
+    return await this.tagResourcesWithOptions(request, runtime);
+  }
+
+  async untagResourcesWithOptions(request: UntagResourcesRequest, runtime: $Util.RuntimeOptions): Promise<UntagResourcesResponse> {
+    Util.validateModel(request);
+    let query = { };
+    if (!Util.isUnset(request.all)) {
+      query["All"] = request.all;
+    }
+
+    if (!Util.isUnset(request.regionId)) {
+      query["RegionId"] = request.regionId;
+    }
+
+    if (!Util.isUnset(request.resourceGroupId)) {
+      query["ResourceGroupId"] = request.resourceGroupId;
+    }
+
+    if (!Util.isUnset(request.resourceId)) {
+      query["ResourceId"] = request.resourceId;
+    }
+
+    if (!Util.isUnset(request.resourceType)) {
+      query["ResourceType"] = request.resourceType;
+    }
+
+    if (!Util.isUnset(request.tagKey)) {
+      query["TagKey"] = request.tagKey;
+    }
+
+    let req = new $OpenApi.OpenApiRequest({
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApi.Params({
+      action: "UntagResources",
+      version: "2018-07-20",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $tea.cast<UntagResourcesResponse>(await this.callApi(params, req, runtime), new UntagResourcesResponse({}));
+  }
+
+  async untagResources(request: UntagResourcesRequest): Promise<UntagResourcesResponse> {
+    let runtime = new $Util.RuntimeOptions({ });
+    return await this.untagResourcesWithOptions(request, runtime);
   }
 
 }
