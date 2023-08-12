@@ -326,6 +326,10 @@ export class CreateMyBaseRequest extends $tea.Model {
   dedicatedHostGroupDescription?: string;
   dedicatedHostGroupId?: string;
   ECSClassList?: CreateMyBaseRequestECSClassList[];
+  ecsDeploymentSetId?: string;
+  ecsHostName?: string;
+  ecsInstanceName?: string;
+  ecsUniqueSuffix?: string;
   engine?: string;
   imageId?: string;
   keyPairName?: string;
@@ -349,6 +353,10 @@ export class CreateMyBaseRequest extends $tea.Model {
       dedicatedHostGroupDescription: 'DedicatedHostGroupDescription',
       dedicatedHostGroupId: 'DedicatedHostGroupId',
       ECSClassList: 'ECSClassList',
+      ecsDeploymentSetId: 'EcsDeploymentSetId',
+      ecsHostName: 'EcsHostName',
+      ecsInstanceName: 'EcsInstanceName',
+      ecsUniqueSuffix: 'EcsUniqueSuffix',
       engine: 'Engine',
       imageId: 'ImageId',
       keyPairName: 'KeyPairName',
@@ -375,6 +383,10 @@ export class CreateMyBaseRequest extends $tea.Model {
       dedicatedHostGroupDescription: 'string',
       dedicatedHostGroupId: 'string',
       ECSClassList: { 'type': 'array', 'itemType': CreateMyBaseRequestECSClassList },
+      ecsDeploymentSetId: 'string',
+      ecsHostName: 'string',
+      ecsInstanceName: 'string',
+      ecsUniqueSuffix: 'string',
       engine: 'string',
       imageId: 'string',
       keyPairName: 'string',
@@ -405,6 +417,10 @@ export class CreateMyBaseShrinkRequest extends $tea.Model {
   dedicatedHostGroupDescription?: string;
   dedicatedHostGroupId?: string;
   ECSClassListShrink?: string;
+  ecsDeploymentSetId?: string;
+  ecsHostName?: string;
+  ecsInstanceName?: string;
+  ecsUniqueSuffix?: string;
   engine?: string;
   imageId?: string;
   keyPairName?: string;
@@ -428,6 +444,10 @@ export class CreateMyBaseShrinkRequest extends $tea.Model {
       dedicatedHostGroupDescription: 'DedicatedHostGroupDescription',
       dedicatedHostGroupId: 'DedicatedHostGroupId',
       ECSClassListShrink: 'ECSClassList',
+      ecsDeploymentSetId: 'EcsDeploymentSetId',
+      ecsHostName: 'EcsHostName',
+      ecsInstanceName: 'EcsInstanceName',
+      ecsUniqueSuffix: 'EcsUniqueSuffix',
       engine: 'Engine',
       imageId: 'ImageId',
       keyPairName: 'KeyPairName',
@@ -454,6 +474,10 @@ export class CreateMyBaseShrinkRequest extends $tea.Model {
       dedicatedHostGroupDescription: 'string',
       dedicatedHostGroupId: 'string',
       ECSClassListShrink: 'string',
+      ecsDeploymentSetId: 'string',
+      ecsHostName: 'string',
+      ecsInstanceName: 'string',
+      ecsUniqueSuffix: 'string',
       engine: 'string',
       imageId: 'string',
       keyPairName: 'string',
@@ -2468,11 +2492,13 @@ export class CreateMyBaseRequestECSClassList extends $tea.Model {
 
 export class CreateMyBaseResponseBodyOrderListOrderList extends $tea.Model {
   createTimestamp?: number;
+  dedicatedHostGroupName?: string;
   ECSInstanceIds?: string;
   orderId?: string;
   static names(): { [key: string]: string } {
     return {
       createTimestamp: 'CreateTimestamp',
+      dedicatedHostGroupName: 'DedicatedHostGroupName',
       ECSInstanceIds: 'ECSInstanceIds',
       orderId: 'OrderId',
     };
@@ -2481,6 +2507,7 @@ export class CreateMyBaseResponseBodyOrderListOrderList extends $tea.Model {
   static types(): { [key: string]: any } {
     return {
       createTimestamp: 'number',
+      dedicatedHostGroupName: 'string',
       ECSInstanceIds: 'string',
       orderId: 'string',
     };
@@ -3469,6 +3496,22 @@ export default class Client extends OpenApi {
 
     if (!Util.isUnset(request.ECSClassListShrink)) {
       query["ECSClassList"] = request.ECSClassListShrink;
+    }
+
+    if (!Util.isUnset(request.ecsDeploymentSetId)) {
+      query["EcsDeploymentSetId"] = request.ecsDeploymentSetId;
+    }
+
+    if (!Util.isUnset(request.ecsHostName)) {
+      query["EcsHostName"] = request.ecsHostName;
+    }
+
+    if (!Util.isUnset(request.ecsInstanceName)) {
+      query["EcsInstanceName"] = request.ecsInstanceName;
+    }
+
+    if (!Util.isUnset(request.ecsUniqueSuffix)) {
+      query["EcsUniqueSuffix"] = request.ecsUniqueSuffix;
     }
 
     if (!Util.isUnset(request.engine)) {
