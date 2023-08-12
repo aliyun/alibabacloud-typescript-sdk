@@ -730,6 +730,7 @@ export class CreatePatchBaselineRequest extends $tea.Model {
   regionId?: string;
   rejectedPatches?: string[];
   rejectedPatchesAction?: string;
+  resourceGroupId?: string;
   sources?: string[];
   tags?: CreatePatchBaselineRequestTags[];
   static names(): { [key: string]: string } {
@@ -744,6 +745,7 @@ export class CreatePatchBaselineRequest extends $tea.Model {
       regionId: 'RegionId',
       rejectedPatches: 'RejectedPatches',
       rejectedPatchesAction: 'RejectedPatchesAction',
+      resourceGroupId: 'ResourceGroupId',
       sources: 'Sources',
       tags: 'Tags',
     };
@@ -761,6 +763,7 @@ export class CreatePatchBaselineRequest extends $tea.Model {
       regionId: 'string',
       rejectedPatches: { 'type': 'array', 'itemType': 'string' },
       rejectedPatchesAction: 'string',
+      resourceGroupId: 'string',
       sources: { 'type': 'array', 'itemType': 'string' },
       tags: { 'type': 'array', 'itemType': CreatePatchBaselineRequestTags },
     };
@@ -782,6 +785,7 @@ export class CreatePatchBaselineShrinkRequest extends $tea.Model {
   regionId?: string;
   rejectedPatchesShrink?: string;
   rejectedPatchesAction?: string;
+  resourceGroupId?: string;
   sourcesShrink?: string;
   tagsShrink?: string;
   static names(): { [key: string]: string } {
@@ -796,6 +800,7 @@ export class CreatePatchBaselineShrinkRequest extends $tea.Model {
       regionId: 'RegionId',
       rejectedPatchesShrink: 'RejectedPatches',
       rejectedPatchesAction: 'RejectedPatchesAction',
+      resourceGroupId: 'ResourceGroupId',
       sourcesShrink: 'Sources',
       tagsShrink: 'Tags',
     };
@@ -813,6 +818,7 @@ export class CreatePatchBaselineShrinkRequest extends $tea.Model {
       regionId: 'string',
       rejectedPatchesShrink: 'string',
       rejectedPatchesAction: 'string',
+      resourceGroupId: 'string',
       sourcesShrink: 'string',
       tagsShrink: 'string',
     };
@@ -7068,6 +7074,7 @@ export class UpdatePatchBaselineRequest extends $tea.Model {
   regionId?: string;
   rejectedPatches?: string[];
   rejectedPatchesAction?: string;
+  resourceGroupId?: string;
   sources?: string[];
   tags?: UpdatePatchBaselineRequestTags[];
   static names(): { [key: string]: string } {
@@ -7081,6 +7088,7 @@ export class UpdatePatchBaselineRequest extends $tea.Model {
       regionId: 'RegionId',
       rejectedPatches: 'RejectedPatches',
       rejectedPatchesAction: 'RejectedPatchesAction',
+      resourceGroupId: 'ResourceGroupId',
       sources: 'Sources',
       tags: 'Tags',
     };
@@ -7097,6 +7105,7 @@ export class UpdatePatchBaselineRequest extends $tea.Model {
       regionId: 'string',
       rejectedPatches: { 'type': 'array', 'itemType': 'string' },
       rejectedPatchesAction: 'string',
+      resourceGroupId: 'string',
       sources: { 'type': 'array', 'itemType': 'string' },
       tags: { 'type': 'array', 'itemType': UpdatePatchBaselineRequestTags },
     };
@@ -7117,6 +7126,7 @@ export class UpdatePatchBaselineShrinkRequest extends $tea.Model {
   regionId?: string;
   rejectedPatchesShrink?: string;
   rejectedPatchesAction?: string;
+  resourceGroupId?: string;
   sourcesShrink?: string;
   tagsShrink?: string;
   static names(): { [key: string]: string } {
@@ -7130,6 +7140,7 @@ export class UpdatePatchBaselineShrinkRequest extends $tea.Model {
       regionId: 'RegionId',
       rejectedPatchesShrink: 'RejectedPatches',
       rejectedPatchesAction: 'RejectedPatchesAction',
+      resourceGroupId: 'ResourceGroupId',
       sourcesShrink: 'Sources',
       tagsShrink: 'Tags',
     };
@@ -7146,6 +7157,7 @@ export class UpdatePatchBaselineShrinkRequest extends $tea.Model {
       regionId: 'string',
       rejectedPatchesShrink: 'string',
       rejectedPatchesAction: 'string',
+      resourceGroupId: 'string',
       sourcesShrink: 'string',
       tagsShrink: 'string',
     };
@@ -7936,6 +7948,7 @@ export class CreatePatchBaselineResponseBodyPatchBaseline extends $tea.Model {
   operationSystem?: string;
   rejectedPatches?: string[];
   rejectedPatchesAction?: string;
+  resourceGroupId?: string;
   shareType?: string;
   sources?: string[];
   tags?: CreatePatchBaselineResponseBodyPatchBaselineTags[];
@@ -7954,6 +7967,7 @@ export class CreatePatchBaselineResponseBodyPatchBaseline extends $tea.Model {
       operationSystem: 'OperationSystem',
       rejectedPatches: 'RejectedPatches',
       rejectedPatchesAction: 'RejectedPatchesAction',
+      resourceGroupId: 'ResourceGroupId',
       shareType: 'ShareType',
       sources: 'Sources',
       tags: 'Tags',
@@ -7975,6 +7989,7 @@ export class CreatePatchBaselineResponseBodyPatchBaseline extends $tea.Model {
       operationSystem: 'string',
       rejectedPatches: { 'type': 'array', 'itemType': 'string' },
       rejectedPatchesAction: 'string',
+      resourceGroupId: 'string',
       shareType: 'string',
       sources: { 'type': 'array', 'itemType': 'string' },
       tags: { 'type': 'array', 'itemType': CreatePatchBaselineResponseBodyPatchBaselineTags },
@@ -8682,6 +8697,7 @@ export class GetPatchBaselineResponseBodyPatchBaseline extends $tea.Model {
   operationSystem?: string;
   rejectedPatches?: string[];
   rejectedPatchesAction?: string;
+  resourceGroupId?: string;
   shareType?: string;
   sources?: string[];
   tags?: GetPatchBaselineResponseBodyPatchBaselineTags[];
@@ -8701,6 +8717,7 @@ export class GetPatchBaselineResponseBodyPatchBaseline extends $tea.Model {
       operationSystem: 'OperationSystem',
       rejectedPatches: 'RejectedPatches',
       rejectedPatchesAction: 'RejectedPatchesAction',
+      resourceGroupId: 'ResourceGroupId',
       shareType: 'ShareType',
       sources: 'Sources',
       tags: 'Tags',
@@ -8723,6 +8740,7 @@ export class GetPatchBaselineResponseBodyPatchBaseline extends $tea.Model {
       operationSystem: 'string',
       rejectedPatches: { 'type': 'array', 'itemType': 'string' },
       rejectedPatchesAction: 'string',
+      resourceGroupId: 'string',
       shareType: 'string',
       sources: { 'type': 'array', 'itemType': 'string' },
       tags: { 'type': 'array', 'itemType': GetPatchBaselineResponseBodyPatchBaselineTags },
@@ -10132,6 +10150,7 @@ export class RegisterDefaultPatchBaselineResponseBodyPatchBaseline extends $tea.
   id?: string;
   name?: string;
   operationSystem?: string;
+  resourceGroupId?: string;
   shareType?: string;
   updatedBy?: string;
   updatedDate?: string;
@@ -10144,6 +10163,7 @@ export class RegisterDefaultPatchBaselineResponseBodyPatchBaseline extends $tea.
       id: 'Id',
       name: 'Name',
       operationSystem: 'OperationSystem',
+      resourceGroupId: 'ResourceGroupId',
       shareType: 'ShareType',
       updatedBy: 'UpdatedBy',
       updatedDate: 'UpdatedDate',
@@ -10159,6 +10179,7 @@ export class RegisterDefaultPatchBaselineResponseBodyPatchBaseline extends $tea.
       id: 'string',
       name: 'string',
       operationSystem: 'string',
+      resourceGroupId: 'string',
       shareType: 'string',
       updatedBy: 'string',
       updatedDate: 'string',
@@ -10619,6 +10640,7 @@ export class UpdatePatchBaselineResponseBodyPatchBaseline extends $tea.Model {
   operationSystem?: string;
   rejectedPatches?: string[];
   rejectedPatchesAction?: string;
+  resourceGroupId?: string;
   shareType?: string;
   sources?: string[];
   tags?: UpdatePatchBaselineResponseBodyPatchBaselineTags[];
@@ -10637,6 +10659,7 @@ export class UpdatePatchBaselineResponseBodyPatchBaseline extends $tea.Model {
       operationSystem: 'OperationSystem',
       rejectedPatches: 'RejectedPatches',
       rejectedPatchesAction: 'RejectedPatchesAction',
+      resourceGroupId: 'ResourceGroupId',
       shareType: 'ShareType',
       sources: 'Sources',
       tags: 'Tags',
@@ -10658,6 +10681,7 @@ export class UpdatePatchBaselineResponseBodyPatchBaseline extends $tea.Model {
       operationSystem: 'string',
       rejectedPatches: { 'type': 'array', 'itemType': 'string' },
       rejectedPatchesAction: 'string',
+      resourceGroupId: 'string',
       shareType: 'string',
       sources: { 'type': 'array', 'itemType': 'string' },
       tags: { 'type': 'array', 'itemType': UpdatePatchBaselineResponseBodyPatchBaselineTags },
@@ -11347,6 +11371,10 @@ export default class Client extends OpenApi {
 
     if (!Util.isUnset(request.rejectedPatchesAction)) {
       query["RejectedPatchesAction"] = request.rejectedPatchesAction;
+    }
+
+    if (!Util.isUnset(request.resourceGroupId)) {
+      query["ResourceGroupId"] = request.resourceGroupId;
     }
 
     if (!Util.isUnset(request.sourcesShrink)) {
@@ -14722,6 +14750,10 @@ export default class Client extends OpenApi {
 
     if (!Util.isUnset(request.rejectedPatchesAction)) {
       query["RejectedPatchesAction"] = request.rejectedPatchesAction;
+    }
+
+    if (!Util.isUnset(request.resourceGroupId)) {
+      query["ResourceGroupId"] = request.resourceGroupId;
     }
 
     if (!Util.isUnset(request.sourcesShrink)) {
