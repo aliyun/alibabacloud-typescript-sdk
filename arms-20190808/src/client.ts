@@ -3450,6 +3450,7 @@ export class CreatePrometheusInstanceRequest extends $tea.Model {
   clusterName?: string;
   clusterType?: string;
   grafanaInstanceId?: string;
+  paramJson?: string;
   regionId?: string;
   resourceGroupId?: string;
   securityGroupId?: string;
@@ -3464,6 +3465,7 @@ export class CreatePrometheusInstanceRequest extends $tea.Model {
       clusterName: 'ClusterName',
       clusterType: 'ClusterType',
       grafanaInstanceId: 'GrafanaInstanceId',
+      paramJson: 'ParamJson',
       regionId: 'RegionId',
       resourceGroupId: 'ResourceGroupId',
       securityGroupId: 'SecurityGroupId',
@@ -3481,6 +3483,7 @@ export class CreatePrometheusInstanceRequest extends $tea.Model {
       clusterName: 'string',
       clusterType: 'string',
       grafanaInstanceId: 'string',
+      paramJson: 'string',
       regionId: 'string',
       resourceGroupId: 'string',
       securityGroupId: 'string',
@@ -3890,6 +3893,166 @@ export class CreateSyntheticTaskResponse extends $tea.Model {
       headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
       statusCode: 'number',
       body: CreateSyntheticTaskResponseBody,
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class CreateTimingSyntheticTaskRequest extends $tea.Model {
+  availableAssertions?: CreateTimingSyntheticTaskRequestAvailableAssertions[];
+  commonSetting?: CreateTimingSyntheticTaskRequestCommonSetting;
+  customPeriod?: CreateTimingSyntheticTaskRequestCustomPeriod;
+  frequency?: string;
+  monitorCategory?: number;
+  monitorConf?: CreateTimingSyntheticTaskRequestMonitorConf;
+  monitors?: CreateTimingSyntheticTaskRequestMonitors[];
+  name?: string;
+  regionId?: string;
+  resourceGroupId?: string;
+  tags?: CreateTimingSyntheticTaskRequestTags[];
+  taskType?: number;
+  static names(): { [key: string]: string } {
+    return {
+      availableAssertions: 'AvailableAssertions',
+      commonSetting: 'CommonSetting',
+      customPeriod: 'CustomPeriod',
+      frequency: 'Frequency',
+      monitorCategory: 'MonitorCategory',
+      monitorConf: 'MonitorConf',
+      monitors: 'Monitors',
+      name: 'Name',
+      regionId: 'RegionId',
+      resourceGroupId: 'ResourceGroupId',
+      tags: 'Tags',
+      taskType: 'TaskType',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      availableAssertions: { 'type': 'array', 'itemType': CreateTimingSyntheticTaskRequestAvailableAssertions },
+      commonSetting: CreateTimingSyntheticTaskRequestCommonSetting,
+      customPeriod: CreateTimingSyntheticTaskRequestCustomPeriod,
+      frequency: 'string',
+      monitorCategory: 'number',
+      monitorConf: CreateTimingSyntheticTaskRequestMonitorConf,
+      monitors: { 'type': 'array', 'itemType': CreateTimingSyntheticTaskRequestMonitors },
+      name: 'string',
+      regionId: 'string',
+      resourceGroupId: 'string',
+      tags: { 'type': 'array', 'itemType': CreateTimingSyntheticTaskRequestTags },
+      taskType: 'number',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class CreateTimingSyntheticTaskShrinkRequest extends $tea.Model {
+  availableAssertionsShrink?: string;
+  commonSettingShrink?: string;
+  customPeriodShrink?: string;
+  frequency?: string;
+  monitorCategory?: number;
+  monitorConfShrink?: string;
+  monitorsShrink?: string;
+  name?: string;
+  regionId?: string;
+  resourceGroupId?: string;
+  tagsShrink?: string;
+  taskType?: number;
+  static names(): { [key: string]: string } {
+    return {
+      availableAssertionsShrink: 'AvailableAssertions',
+      commonSettingShrink: 'CommonSetting',
+      customPeriodShrink: 'CustomPeriod',
+      frequency: 'Frequency',
+      monitorCategory: 'MonitorCategory',
+      monitorConfShrink: 'MonitorConf',
+      monitorsShrink: 'Monitors',
+      name: 'Name',
+      regionId: 'RegionId',
+      resourceGroupId: 'ResourceGroupId',
+      tagsShrink: 'Tags',
+      taskType: 'TaskType',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      availableAssertionsShrink: 'string',
+      commonSettingShrink: 'string',
+      customPeriodShrink: 'string',
+      frequency: 'string',
+      monitorCategory: 'number',
+      monitorConfShrink: 'string',
+      monitorsShrink: 'string',
+      name: 'string',
+      regionId: 'string',
+      resourceGroupId: 'string',
+      tagsShrink: 'string',
+      taskType: 'number',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class CreateTimingSyntheticTaskResponseBody extends $tea.Model {
+  code?: number;
+  data?: CreateTimingSyntheticTaskResponseBodyData;
+  message?: string;
+  requestId?: string;
+  success?: boolean;
+  static names(): { [key: string]: string } {
+    return {
+      code: 'Code',
+      data: 'Data',
+      message: 'Message',
+      requestId: 'RequestId',
+      success: 'Success',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      code: 'number',
+      data: CreateTimingSyntheticTaskResponseBodyData,
+      message: 'string',
+      requestId: 'string',
+      success: 'boolean',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class CreateTimingSyntheticTaskResponse extends $tea.Model {
+  headers: { [key: string]: string };
+  statusCode: number;
+  body: CreateTimingSyntheticTaskResponseBody;
+  static names(): { [key: string]: string } {
+    return {
+      headers: 'headers',
+      statusCode: 'statusCode',
+      body: 'body',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
+      body: CreateTimingSyntheticTaskResponseBody,
     };
   }
 
@@ -5787,6 +5950,81 @@ export class DeleteSyntheticTaskResponse extends $tea.Model {
       headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
       statusCode: 'number',
       body: DeleteSyntheticTaskResponseBody,
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class DeleteTimingSyntheticTaskRequest extends $tea.Model {
+  regionId?: string;
+  taskId?: string;
+  static names(): { [key: string]: string } {
+    return {
+      regionId: 'RegionId',
+      taskId: 'TaskId',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      regionId: 'string',
+      taskId: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class DeleteTimingSyntheticTaskResponseBody extends $tea.Model {
+  code?: number;
+  data?: boolean;
+  message?: string;
+  requestId?: string;
+  static names(): { [key: string]: string } {
+    return {
+      code: 'Code',
+      data: 'Data',
+      message: 'Message',
+      requestId: 'RequestId',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      code: 'number',
+      data: 'boolean',
+      message: 'string',
+      requestId: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class DeleteTimingSyntheticTaskResponse extends $tea.Model {
+  headers: { [key: string]: string };
+  statusCode: number;
+  body: DeleteTimingSyntheticTaskResponseBody;
+  static names(): { [key: string]: string } {
+    return {
+      headers: 'headers',
+      statusCode: 'statusCode',
+      body: 'body',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
+      body: DeleteTimingSyntheticTaskResponseBody,
     };
   }
 
@@ -8463,6 +8701,103 @@ export class GetStackResponse extends $tea.Model {
   }
 }
 
+export class GetSyntheticMonitorsRequest extends $tea.Model {
+  filter?: GetSyntheticMonitorsRequestFilter;
+  regionId?: string;
+  static names(): { [key: string]: string } {
+    return {
+      filter: 'Filter',
+      regionId: 'RegionId',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      filter: GetSyntheticMonitorsRequestFilter,
+      regionId: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class GetSyntheticMonitorsShrinkRequest extends $tea.Model {
+  filterShrink?: string;
+  regionId?: string;
+  static names(): { [key: string]: string } {
+    return {
+      filterShrink: 'Filter',
+      regionId: 'RegionId',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      filterShrink: 'string',
+      regionId: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class GetSyntheticMonitorsResponseBody extends $tea.Model {
+  code?: number;
+  data?: GetSyntheticMonitorsResponseBodyData[];
+  message?: string;
+  requestId?: string;
+  static names(): { [key: string]: string } {
+    return {
+      code: 'Code',
+      data: 'Data',
+      message: 'Message',
+      requestId: 'RequestId',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      code: 'number',
+      data: { 'type': 'array', 'itemType': GetSyntheticMonitorsResponseBodyData },
+      message: 'string',
+      requestId: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class GetSyntheticMonitorsResponse extends $tea.Model {
+  headers: { [key: string]: string };
+  statusCode: number;
+  body: GetSyntheticMonitorsResponseBody;
+  static names(): { [key: string]: string } {
+    return {
+      headers: 'headers',
+      statusCode: 'statusCode',
+      body: 'body',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
+      body: GetSyntheticMonitorsResponseBody,
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
 export class GetSyntheticTaskDetailRequest extends $tea.Model {
   regionId?: string;
   taskId?: string;
@@ -8686,6 +9021,81 @@ export class GetSyntheticTaskMonitorsResponse extends $tea.Model {
       headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
       statusCode: 'number',
       body: GetSyntheticTaskMonitorsResponseBody,
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class GetTimingSyntheticTaskRequest extends $tea.Model {
+  regionId?: string;
+  taskId?: string;
+  static names(): { [key: string]: string } {
+    return {
+      regionId: 'RegionId',
+      taskId: 'TaskId',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      regionId: 'string',
+      taskId: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class GetTimingSyntheticTaskResponseBody extends $tea.Model {
+  code?: number;
+  data?: GetTimingSyntheticTaskResponseBodyData;
+  message?: string;
+  requestId?: string;
+  static names(): { [key: string]: string } {
+    return {
+      code: 'Code',
+      data: 'Data',
+      message: 'Message',
+      requestId: 'RequestId',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      code: 'number',
+      data: GetTimingSyntheticTaskResponseBodyData,
+      message: 'string',
+      requestId: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class GetTimingSyntheticTaskResponse extends $tea.Model {
+  headers: { [key: string]: string };
+  statusCode: number;
+  body: GetTimingSyntheticTaskResponseBody;
+  static names(): { [key: string]: string } {
+    return {
+      headers: 'headers',
+      statusCode: 'statusCode',
+      body: 'body',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
+      body: GetTimingSyntheticTaskResponseBody,
     };
   }
 
@@ -11058,12 +11468,123 @@ export class ListSilencePoliciesResponse extends $tea.Model {
   }
 }
 
+export class ListTimingSyntheticTasksRequest extends $tea.Model {
+  regionId?: string;
+  resourceGroupId?: string;
+  search?: ListTimingSyntheticTasksRequestSearch;
+  tags?: ListTimingSyntheticTasksRequestTags[];
+  static names(): { [key: string]: string } {
+    return {
+      regionId: 'RegionId',
+      resourceGroupId: 'ResourceGroupId',
+      search: 'Search',
+      tags: 'Tags',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      regionId: 'string',
+      resourceGroupId: 'string',
+      search: ListTimingSyntheticTasksRequestSearch,
+      tags: { 'type': 'array', 'itemType': ListTimingSyntheticTasksRequestTags },
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class ListTimingSyntheticTasksShrinkRequest extends $tea.Model {
+  regionId?: string;
+  resourceGroupId?: string;
+  searchShrink?: string;
+  tagsShrink?: string;
+  static names(): { [key: string]: string } {
+    return {
+      regionId: 'RegionId',
+      resourceGroupId: 'ResourceGroupId',
+      searchShrink: 'Search',
+      tagsShrink: 'Tags',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      regionId: 'string',
+      resourceGroupId: 'string',
+      searchShrink: 'string',
+      tagsShrink: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class ListTimingSyntheticTasksResponseBody extends $tea.Model {
+  code?: number;
+  data?: ListTimingSyntheticTasksResponseBodyData;
+  message?: string;
+  requestId?: string;
+  static names(): { [key: string]: string } {
+    return {
+      code: 'Code',
+      data: 'Data',
+      message: 'Message',
+      requestId: 'RequestId',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      code: 'number',
+      data: ListTimingSyntheticTasksResponseBodyData,
+      message: 'string',
+      requestId: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class ListTimingSyntheticTasksResponse extends $tea.Model {
+  headers: { [key: string]: string };
+  statusCode: number;
+  body: ListTimingSyntheticTasksResponseBody;
+  static names(): { [key: string]: string } {
+    return {
+      headers: 'headers',
+      statusCode: 'statusCode',
+      body: 'body',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
+      body: ListTimingSyntheticTasksResponseBody,
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
 export class ListTraceAppsRequest extends $tea.Model {
+  region?: string;
   regionId?: string;
   resourceGroupId?: string;
   tags?: ListTraceAppsRequestTags[];
   static names(): { [key: string]: string } {
     return {
+      region: 'Region',
       regionId: 'RegionId',
       resourceGroupId: 'ResourceGroupId',
       tags: 'Tags',
@@ -11072,6 +11593,7 @@ export class ListTraceAppsRequest extends $tea.Model {
 
   static types(): { [key: string]: any } {
     return {
+      region: 'string',
       regionId: 'string',
       resourceGroupId: 'string',
       tags: { 'type': 'array', 'itemType': ListTraceAppsRequestTags },
@@ -13170,6 +13692,103 @@ export class StartAlertResponse extends $tea.Model {
   }
 }
 
+export class StartTimingSyntheticTaskRequest extends $tea.Model {
+  regionId?: string;
+  taskIds?: string[];
+  static names(): { [key: string]: string } {
+    return {
+      regionId: 'RegionId',
+      taskIds: 'TaskIds',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      regionId: 'string',
+      taskIds: { 'type': 'array', 'itemType': 'string' },
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class StartTimingSyntheticTaskShrinkRequest extends $tea.Model {
+  regionId?: string;
+  taskIdsShrink?: string;
+  static names(): { [key: string]: string } {
+    return {
+      regionId: 'RegionId',
+      taskIdsShrink: 'TaskIds',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      regionId: 'string',
+      taskIdsShrink: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class StartTimingSyntheticTaskResponseBody extends $tea.Model {
+  code?: number;
+  data?: boolean;
+  message?: string;
+  requestId?: string;
+  static names(): { [key: string]: string } {
+    return {
+      code: 'Code',
+      data: 'Data',
+      message: 'Message',
+      requestId: 'RequestId',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      code: 'number',
+      data: 'boolean',
+      message: 'string',
+      requestId: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class StartTimingSyntheticTaskResponse extends $tea.Model {
+  headers: { [key: string]: string };
+  statusCode: number;
+  body: StartTimingSyntheticTaskResponseBody;
+  static names(): { [key: string]: string } {
+    return {
+      headers: 'headers',
+      statusCode: 'statusCode',
+      body: 'body',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
+      body: StartTimingSyntheticTaskResponseBody,
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
 export class StopAlertRequest extends $tea.Model {
   alertId?: string;
   regionId?: string;
@@ -13231,6 +13850,103 @@ export class StopAlertResponse extends $tea.Model {
       headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
       statusCode: 'number',
       body: StopAlertResponseBody,
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class StopTimingSyntheticTaskRequest extends $tea.Model {
+  regionId?: string;
+  taskIds?: string[];
+  static names(): { [key: string]: string } {
+    return {
+      regionId: 'RegionId',
+      taskIds: 'TaskIds',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      regionId: 'string',
+      taskIds: { 'type': 'array', 'itemType': 'string' },
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class StopTimingSyntheticTaskShrinkRequest extends $tea.Model {
+  regionId?: string;
+  taskIdsShrink?: string;
+  static names(): { [key: string]: string } {
+    return {
+      regionId: 'RegionId',
+      taskIdsShrink: 'TaskIds',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      regionId: 'string',
+      taskIdsShrink: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class StopTimingSyntheticTaskResponseBody extends $tea.Model {
+  code?: number;
+  data?: boolean;
+  message?: string;
+  requestId?: string;
+  static names(): { [key: string]: string } {
+    return {
+      code: 'Code',
+      data: 'Data',
+      message: 'Message',
+      requestId: 'RequestId',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      code: 'number',
+      data: 'boolean',
+      message: 'string',
+      requestId: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class StopTimingSyntheticTaskResponse extends $tea.Model {
+  headers: { [key: string]: string };
+  statusCode: number;
+  body: StopTimingSyntheticTaskResponseBody;
+  static names(): { [key: string]: string } {
+    return {
+      headers: 'headers',
+      statusCode: 'statusCode',
+      body: 'body',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
+      body: StopTimingSyntheticTaskResponseBody,
     };
   }
 
@@ -14228,6 +14944,7 @@ export class UpdatePrometheusGlobalViewRequest extends $tea.Model {
   clusterId?: string;
   groupName?: string;
   mostRegionId?: string;
+  paramJson?: string;
   regionId?: string;
   resourceGroupId?: string;
   subClustersJson?: string;
@@ -14237,6 +14954,7 @@ export class UpdatePrometheusGlobalViewRequest extends $tea.Model {
       clusterId: 'ClusterId',
       groupName: 'GroupName',
       mostRegionId: 'MostRegionId',
+      paramJson: 'ParamJson',
       regionId: 'RegionId',
       resourceGroupId: 'ResourceGroupId',
       subClustersJson: 'SubClustersJson',
@@ -14249,6 +14967,7 @@ export class UpdatePrometheusGlobalViewRequest extends $tea.Model {
       clusterId: 'string',
       groupName: 'string',
       mostRegionId: 'string',
+      paramJson: 'string',
       regionId: 'string',
       resourceGroupId: 'string',
       subClustersJson: 'string',
@@ -14641,6 +15360,172 @@ export class UpdatePrometheusRemoteWriteResponse extends $tea.Model {
       headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
       statusCode: 'number',
       body: UpdatePrometheusRemoteWriteResponseBody,
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class UpdateTimingSyntheticTaskRequest extends $tea.Model {
+  availableAssertions?: UpdateTimingSyntheticTaskRequestAvailableAssertions[];
+  commonSetting?: UpdateTimingSyntheticTaskRequestCommonSetting;
+  customPeriod?: UpdateTimingSyntheticTaskRequestCustomPeriod;
+  frequency?: string;
+  monitorCategory?: number;
+  monitorConf?: UpdateTimingSyntheticTaskRequestMonitorConf;
+  monitors?: UpdateTimingSyntheticTaskRequestMonitors[];
+  name?: string;
+  regionId?: string;
+  resourceGroupId?: string;
+  tags?: UpdateTimingSyntheticTaskRequestTags[];
+  taskId?: string;
+  taskType?: number;
+  static names(): { [key: string]: string } {
+    return {
+      availableAssertions: 'AvailableAssertions',
+      commonSetting: 'CommonSetting',
+      customPeriod: 'CustomPeriod',
+      frequency: 'Frequency',
+      monitorCategory: 'MonitorCategory',
+      monitorConf: 'MonitorConf',
+      monitors: 'Monitors',
+      name: 'Name',
+      regionId: 'RegionId',
+      resourceGroupId: 'ResourceGroupId',
+      tags: 'Tags',
+      taskId: 'TaskId',
+      taskType: 'TaskType',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      availableAssertions: { 'type': 'array', 'itemType': UpdateTimingSyntheticTaskRequestAvailableAssertions },
+      commonSetting: UpdateTimingSyntheticTaskRequestCommonSetting,
+      customPeriod: UpdateTimingSyntheticTaskRequestCustomPeriod,
+      frequency: 'string',
+      monitorCategory: 'number',
+      monitorConf: UpdateTimingSyntheticTaskRequestMonitorConf,
+      monitors: { 'type': 'array', 'itemType': UpdateTimingSyntheticTaskRequestMonitors },
+      name: 'string',
+      regionId: 'string',
+      resourceGroupId: 'string',
+      tags: { 'type': 'array', 'itemType': UpdateTimingSyntheticTaskRequestTags },
+      taskId: 'string',
+      taskType: 'number',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class UpdateTimingSyntheticTaskShrinkRequest extends $tea.Model {
+  availableAssertionsShrink?: string;
+  commonSettingShrink?: string;
+  customPeriodShrink?: string;
+  frequency?: string;
+  monitorCategory?: number;
+  monitorConfShrink?: string;
+  monitorsShrink?: string;
+  name?: string;
+  regionId?: string;
+  resourceGroupId?: string;
+  tagsShrink?: string;
+  taskId?: string;
+  taskType?: number;
+  static names(): { [key: string]: string } {
+    return {
+      availableAssertionsShrink: 'AvailableAssertions',
+      commonSettingShrink: 'CommonSetting',
+      customPeriodShrink: 'CustomPeriod',
+      frequency: 'Frequency',
+      monitorCategory: 'MonitorCategory',
+      monitorConfShrink: 'MonitorConf',
+      monitorsShrink: 'Monitors',
+      name: 'Name',
+      regionId: 'RegionId',
+      resourceGroupId: 'ResourceGroupId',
+      tagsShrink: 'Tags',
+      taskId: 'TaskId',
+      taskType: 'TaskType',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      availableAssertionsShrink: 'string',
+      commonSettingShrink: 'string',
+      customPeriodShrink: 'string',
+      frequency: 'string',
+      monitorCategory: 'number',
+      monitorConfShrink: 'string',
+      monitorsShrink: 'string',
+      name: 'string',
+      regionId: 'string',
+      resourceGroupId: 'string',
+      tagsShrink: 'string',
+      taskId: 'string',
+      taskType: 'number',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class UpdateTimingSyntheticTaskResponseBody extends $tea.Model {
+  code?: number;
+  data?: UpdateTimingSyntheticTaskResponseBodyData;
+  message?: string;
+  requestId?: string;
+  success?: boolean;
+  static names(): { [key: string]: string } {
+    return {
+      code: 'Code',
+      data: 'Data',
+      message: 'Message',
+      requestId: 'RequestId',
+      success: 'Success',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      code: 'number',
+      data: UpdateTimingSyntheticTaskResponseBodyData,
+      message: 'string',
+      requestId: 'string',
+      success: 'boolean',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class UpdateTimingSyntheticTaskResponse extends $tea.Model {
+  headers: { [key: string]: string };
+  statusCode: number;
+  body: UpdateTimingSyntheticTaskResponseBody;
+  static names(): { [key: string]: string } {
+    return {
+      headers: 'headers',
+      statusCode: 'statusCode',
+      body: 'body',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
+      body: UpdateTimingSyntheticTaskResponseBody,
     };
   }
 
@@ -16640,6 +17525,511 @@ export class CreateSyntheticTaskResponseBodyData extends $tea.Model {
   }
 }
 
+export class CreateTimingSyntheticTaskRequestAvailableAssertions extends $tea.Model {
+  expect?: string;
+  operator?: string;
+  target?: string;
+  type?: string;
+  static names(): { [key: string]: string } {
+    return {
+      expect: 'Expect',
+      operator: 'Operator',
+      target: 'Target',
+      type: 'Type',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      expect: 'string',
+      operator: 'string',
+      target: 'string',
+      type: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class CreateTimingSyntheticTaskRequestCommonSettingCustomHostHosts extends $tea.Model {
+  domain?: string;
+  ipType?: number;
+  ips?: string[];
+  static names(): { [key: string]: string } {
+    return {
+      domain: 'Domain',
+      ipType: 'IpType',
+      ips: 'Ips',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      domain: 'string',
+      ipType: 'number',
+      ips: { 'type': 'array', 'itemType': 'string' },
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class CreateTimingSyntheticTaskRequestCommonSettingCustomHost extends $tea.Model {
+  hosts?: CreateTimingSyntheticTaskRequestCommonSettingCustomHostHosts[];
+  selectType?: number;
+  static names(): { [key: string]: string } {
+    return {
+      hosts: 'Hosts',
+      selectType: 'SelectType',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      hosts: { 'type': 'array', 'itemType': CreateTimingSyntheticTaskRequestCommonSettingCustomHostHosts },
+      selectType: 'number',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class CreateTimingSyntheticTaskRequestCommonSetting extends $tea.Model {
+  customHost?: CreateTimingSyntheticTaskRequestCommonSettingCustomHost;
+  ipType?: number;
+  monitorSamples?: number;
+  static names(): { [key: string]: string } {
+    return {
+      customHost: 'CustomHost',
+      ipType: 'IpType',
+      monitorSamples: 'MonitorSamples',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      customHost: CreateTimingSyntheticTaskRequestCommonSettingCustomHost,
+      ipType: 'number',
+      monitorSamples: 'number',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class CreateTimingSyntheticTaskRequestCustomPeriod extends $tea.Model {
+  endHour?: number;
+  startHour?: number;
+  static names(): { [key: string]: string } {
+    return {
+      endHour: 'EndHour',
+      startHour: 'StartHour',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      endHour: 'number',
+      startHour: 'number',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class CreateTimingSyntheticTaskRequestMonitorConfApiHTTPRequestBody extends $tea.Model {
+  content?: string;
+  type?: string;
+  static names(): { [key: string]: string } {
+    return {
+      content: 'Content',
+      type: 'Type',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      content: 'string',
+      type: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class CreateTimingSyntheticTaskRequestMonitorConfApiHTTP extends $tea.Model {
+  connectTimeout?: number;
+  method?: string;
+  requestBody?: CreateTimingSyntheticTaskRequestMonitorConfApiHTTPRequestBody;
+  requestHeaders?: { [key: string]: string };
+  targetUrl?: string;
+  timeout?: number;
+  static names(): { [key: string]: string } {
+    return {
+      connectTimeout: 'ConnectTimeout',
+      method: 'Method',
+      requestBody: 'RequestBody',
+      requestHeaders: 'RequestHeaders',
+      targetUrl: 'TargetUrl',
+      timeout: 'Timeout',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      connectTimeout: 'number',
+      method: 'string',
+      requestBody: CreateTimingSyntheticTaskRequestMonitorConfApiHTTPRequestBody,
+      requestHeaders: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      targetUrl: 'string',
+      timeout: 'number',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class CreateTimingSyntheticTaskRequestMonitorConfFileDownload extends $tea.Model {
+  connectionTimeout?: number;
+  customHeaderContent?: { [key: string]: string };
+  downloadKernel?: number;
+  ignoreCertificateAuthError?: number;
+  ignoreCertificateCanceledError?: number;
+  ignoreCertificateOutOfDateError?: number;
+  ignoreCertificateStatusError?: number;
+  ignoreCertificateUntrustworthyError?: number;
+  ignoreCertificateUsingError?: number;
+  ignoreInvalidHostError?: number;
+  monitorTimeout?: number;
+  quickProtocol?: number;
+  redirection?: number;
+  targetUrl?: string;
+  transmissionSize?: number;
+  static names(): { [key: string]: string } {
+    return {
+      connectionTimeout: 'ConnectionTimeout',
+      customHeaderContent: 'CustomHeaderContent',
+      downloadKernel: 'DownloadKernel',
+      ignoreCertificateAuthError: 'IgnoreCertificateAuthError',
+      ignoreCertificateCanceledError: 'IgnoreCertificateCanceledError',
+      ignoreCertificateOutOfDateError: 'IgnoreCertificateOutOfDateError',
+      ignoreCertificateStatusError: 'IgnoreCertificateStatusError',
+      ignoreCertificateUntrustworthyError: 'IgnoreCertificateUntrustworthyError',
+      ignoreCertificateUsingError: 'IgnoreCertificateUsingError',
+      ignoreInvalidHostError: 'IgnoreInvalidHostError',
+      monitorTimeout: 'MonitorTimeout',
+      quickProtocol: 'QuickProtocol',
+      redirection: 'Redirection',
+      targetUrl: 'TargetUrl',
+      transmissionSize: 'TransmissionSize',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      connectionTimeout: 'number',
+      customHeaderContent: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      downloadKernel: 'number',
+      ignoreCertificateAuthError: 'number',
+      ignoreCertificateCanceledError: 'number',
+      ignoreCertificateOutOfDateError: 'number',
+      ignoreCertificateStatusError: 'number',
+      ignoreCertificateUntrustworthyError: 'number',
+      ignoreCertificateUsingError: 'number',
+      ignoreInvalidHostError: 'number',
+      monitorTimeout: 'number',
+      quickProtocol: 'number',
+      redirection: 'number',
+      targetUrl: 'string',
+      transmissionSize: 'number',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class CreateTimingSyntheticTaskRequestMonitorConfNetDNS extends $tea.Model {
+  dnsServerIpType?: number;
+  nsServer?: string;
+  queryMethod?: number;
+  targetUrl?: string;
+  timeout?: number;
+  static names(): { [key: string]: string } {
+    return {
+      dnsServerIpType: 'DnsServerIpType',
+      nsServer: 'NsServer',
+      queryMethod: 'QueryMethod',
+      targetUrl: 'TargetUrl',
+      timeout: 'Timeout',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      dnsServerIpType: 'number',
+      nsServer: 'string',
+      queryMethod: 'number',
+      targetUrl: 'string',
+      timeout: 'number',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class CreateTimingSyntheticTaskRequestMonitorConfNetICMP extends $tea.Model {
+  interval?: number;
+  packageNum?: number;
+  packageSize?: number;
+  splitPackage?: boolean;
+  targetUrl?: string;
+  timeout?: number;
+  tracertEnable?: boolean;
+  tracertNumMax?: number;
+  tracertTimeout?: number;
+  static names(): { [key: string]: string } {
+    return {
+      interval: 'Interval',
+      packageNum: 'PackageNum',
+      packageSize: 'PackageSize',
+      splitPackage: 'SplitPackage',
+      targetUrl: 'TargetUrl',
+      timeout: 'Timeout',
+      tracertEnable: 'TracertEnable',
+      tracertNumMax: 'TracertNumMax',
+      tracertTimeout: 'TracertTimeout',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      interval: 'number',
+      packageNum: 'number',
+      packageSize: 'number',
+      splitPackage: 'boolean',
+      targetUrl: 'string',
+      timeout: 'number',
+      tracertEnable: 'boolean',
+      tracertNumMax: 'number',
+      tracertTimeout: 'number',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class CreateTimingSyntheticTaskRequestMonitorConfNetTCP extends $tea.Model {
+  connectTimes?: number;
+  interval?: number;
+  targetUrl?: string;
+  timeout?: number;
+  tracertEnable?: boolean;
+  tracertNumMax?: number;
+  tracertTimeout?: number;
+  static names(): { [key: string]: string } {
+    return {
+      connectTimes: 'ConnectTimes',
+      interval: 'Interval',
+      targetUrl: 'TargetUrl',
+      timeout: 'Timeout',
+      tracertEnable: 'TracertEnable',
+      tracertNumMax: 'TracertNumMax',
+      tracertTimeout: 'TracertTimeout',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      connectTimes: 'number',
+      interval: 'number',
+      targetUrl: 'string',
+      timeout: 'number',
+      tracertEnable: 'boolean',
+      tracertNumMax: 'number',
+      tracertTimeout: 'number',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class CreateTimingSyntheticTaskRequestMonitorConfWebsite extends $tea.Model {
+  automaticScrolling?: number;
+  customHeader?: number;
+  customHeaderContent?: { [key: string]: string };
+  disableCache?: number;
+  disableCompression?: number;
+  filterInvalidIP?: number;
+  ignoreCertificateError?: number;
+  monitorTimeout?: number;
+  redirection?: number;
+  slowElementThreshold?: number;
+  targetUrl?: string;
+  waitCompletionTime?: number;
+  static names(): { [key: string]: string } {
+    return {
+      automaticScrolling: 'AutomaticScrolling',
+      customHeader: 'CustomHeader',
+      customHeaderContent: 'CustomHeaderContent',
+      disableCache: 'DisableCache',
+      disableCompression: 'DisableCompression',
+      filterInvalidIP: 'FilterInvalidIP',
+      ignoreCertificateError: 'IgnoreCertificateError',
+      monitorTimeout: 'MonitorTimeout',
+      redirection: 'Redirection',
+      slowElementThreshold: 'SlowElementThreshold',
+      targetUrl: 'TargetUrl',
+      waitCompletionTime: 'WaitCompletionTime',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      automaticScrolling: 'number',
+      customHeader: 'number',
+      customHeaderContent: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      disableCache: 'number',
+      disableCompression: 'number',
+      filterInvalidIP: 'number',
+      ignoreCertificateError: 'number',
+      monitorTimeout: 'number',
+      redirection: 'number',
+      slowElementThreshold: 'number',
+      targetUrl: 'string',
+      waitCompletionTime: 'number',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class CreateTimingSyntheticTaskRequestMonitorConf extends $tea.Model {
+  apiHTTP?: CreateTimingSyntheticTaskRequestMonitorConfApiHTTP;
+  fileDownload?: CreateTimingSyntheticTaskRequestMonitorConfFileDownload;
+  netDNS?: CreateTimingSyntheticTaskRequestMonitorConfNetDNS;
+  netICMP?: CreateTimingSyntheticTaskRequestMonitorConfNetICMP;
+  netTCP?: CreateTimingSyntheticTaskRequestMonitorConfNetTCP;
+  website?: CreateTimingSyntheticTaskRequestMonitorConfWebsite;
+  static names(): { [key: string]: string } {
+    return {
+      apiHTTP: 'ApiHTTP',
+      fileDownload: 'FileDownload',
+      netDNS: 'NetDNS',
+      netICMP: 'NetICMP',
+      netTCP: 'NetTCP',
+      website: 'Website',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      apiHTTP: CreateTimingSyntheticTaskRequestMonitorConfApiHTTP,
+      fileDownload: CreateTimingSyntheticTaskRequestMonitorConfFileDownload,
+      netDNS: CreateTimingSyntheticTaskRequestMonitorConfNetDNS,
+      netICMP: CreateTimingSyntheticTaskRequestMonitorConfNetICMP,
+      netTCP: CreateTimingSyntheticTaskRequestMonitorConfNetTCP,
+      website: CreateTimingSyntheticTaskRequestMonitorConfWebsite,
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class CreateTimingSyntheticTaskRequestMonitors extends $tea.Model {
+  cityCode?: string;
+  clientType?: number;
+  operatorCode?: string;
+  static names(): { [key: string]: string } {
+    return {
+      cityCode: 'CityCode',
+      clientType: 'ClientType',
+      operatorCode: 'OperatorCode',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      cityCode: 'string',
+      clientType: 'number',
+      operatorCode: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class CreateTimingSyntheticTaskRequestTags extends $tea.Model {
+  key?: string;
+  value?: string;
+  static names(): { [key: string]: string } {
+    return {
+      key: 'Key',
+      value: 'Value',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      key: 'string',
+      value: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class CreateTimingSyntheticTaskResponseBodyData extends $tea.Model {
+  status?: string;
+  taskId?: string;
+  static names(): { [key: string]: string } {
+    return {
+      status: 'Status',
+      taskId: 'TaskId',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      status: 'string',
+      taskId: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
 export class DeleteTraceAppRequestDeleteReasonReasonIds extends $tea.Model {
   id?: number;
   name?: string;
@@ -18549,6 +19939,77 @@ export class GetStackResponseBodyStackInfo extends $tea.Model {
   }
 }
 
+export class GetSyntheticMonitorsRequestFilter extends $tea.Model {
+  monitorCategory?: number;
+  network?: number;
+  taskType?: number;
+  static names(): { [key: string]: string } {
+    return {
+      monitorCategory: 'MonitorCategory',
+      network: 'Network',
+      taskType: 'TaskType',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      monitorCategory: 'number',
+      network: 'number',
+      taskType: 'number',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class GetSyntheticMonitorsResponseBodyData extends $tea.Model {
+  available?: string;
+  canBeSelected?: boolean;
+  city?: string;
+  cityCode?: string;
+  clientType?: number;
+  country?: string;
+  ipv6?: number;
+  operator?: string;
+  operatorCode?: string;
+  region?: string;
+  static names(): { [key: string]: string } {
+    return {
+      available: 'Available',
+      canBeSelected: 'CanBeSelected',
+      city: 'City',
+      cityCode: 'CityCode',
+      clientType: 'ClientType',
+      country: 'Country',
+      ipv6: 'Ipv6',
+      operator: 'Operator',
+      operatorCode: 'OperatorCode',
+      region: 'Region',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      available: 'string',
+      canBeSelected: 'boolean',
+      city: 'string',
+      cityCode: 'string',
+      clientType: 'number',
+      country: 'string',
+      ipv6: 'number',
+      operator: 'string',
+      operatorCode: 'string',
+      region: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
 export class GetSyntheticTaskDetailResponseBodyTaskDetailCommonParamAlertList extends $tea.Model {
   generalAlert?: string;
   isCritical?: string;
@@ -19251,6 +20712,547 @@ export class GetSyntheticTaskMonitorsResponseBodyData extends $tea.Model {
       district: 'string',
       netServiceId: 'number',
       netServiceName: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class GetTimingSyntheticTaskResponseBodyDataAvailableAssertions extends $tea.Model {
+  expect?: string;
+  operator?: string;
+  target?: string;
+  type?: string;
+  static names(): { [key: string]: string } {
+    return {
+      expect: 'Expect',
+      operator: 'Operator',
+      target: 'Target',
+      type: 'Type',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      expect: 'string',
+      operator: 'string',
+      target: 'string',
+      type: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class GetTimingSyntheticTaskResponseBodyDataCommonSettingCustomHostHosts extends $tea.Model {
+  domain?: string;
+  ipType?: number;
+  ips?: string[];
+  static names(): { [key: string]: string } {
+    return {
+      domain: 'Domain',
+      ipType: 'IpType',
+      ips: 'Ips',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      domain: 'string',
+      ipType: 'number',
+      ips: { 'type': 'array', 'itemType': 'string' },
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class GetTimingSyntheticTaskResponseBodyDataCommonSettingCustomHost extends $tea.Model {
+  hosts?: GetTimingSyntheticTaskResponseBodyDataCommonSettingCustomHostHosts[];
+  selectType?: number;
+  static names(): { [key: string]: string } {
+    return {
+      hosts: 'Hosts',
+      selectType: 'SelectType',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      hosts: { 'type': 'array', 'itemType': GetTimingSyntheticTaskResponseBodyDataCommonSettingCustomHostHosts },
+      selectType: 'number',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class GetTimingSyntheticTaskResponseBodyDataCommonSetting extends $tea.Model {
+  customHost?: GetTimingSyntheticTaskResponseBodyDataCommonSettingCustomHost;
+  ipType?: number;
+  monitorSamples?: number;
+  static names(): { [key: string]: string } {
+    return {
+      customHost: 'CustomHost',
+      ipType: 'IpType',
+      monitorSamples: 'MonitorSamples',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      customHost: GetTimingSyntheticTaskResponseBodyDataCommonSettingCustomHost,
+      ipType: 'number',
+      monitorSamples: 'number',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class GetTimingSyntheticTaskResponseBodyDataCustomPeriod extends $tea.Model {
+  endHour?: number;
+  startHour?: number;
+  static names(): { [key: string]: string } {
+    return {
+      endHour: 'EndHour',
+      startHour: 'StartHour',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      endHour: 'number',
+      startHour: 'number',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class GetTimingSyntheticTaskResponseBodyDataMonitorConfApiHTTPRequestBody extends $tea.Model {
+  content?: string;
+  type?: string;
+  static names(): { [key: string]: string } {
+    return {
+      content: 'Content',
+      type: 'Type',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      content: 'string',
+      type: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class GetTimingSyntheticTaskResponseBodyDataMonitorConfApiHTTP extends $tea.Model {
+  connectTimeout?: number;
+  method?: string;
+  requestBody?: GetTimingSyntheticTaskResponseBodyDataMonitorConfApiHTTPRequestBody;
+  requestHeaders?: { [key: string]: string };
+  targetUrl?: string;
+  timeout?: number;
+  static names(): { [key: string]: string } {
+    return {
+      connectTimeout: 'ConnectTimeout',
+      method: 'Method',
+      requestBody: 'RequestBody',
+      requestHeaders: 'RequestHeaders',
+      targetUrl: 'TargetUrl',
+      timeout: 'Timeout',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      connectTimeout: 'number',
+      method: 'string',
+      requestBody: GetTimingSyntheticTaskResponseBodyDataMonitorConfApiHTTPRequestBody,
+      requestHeaders: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      targetUrl: 'string',
+      timeout: 'number',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class GetTimingSyntheticTaskResponseBodyDataMonitorConfFileDownload extends $tea.Model {
+  connectionTimeout?: number;
+  customHeaderContent?: { [key: string]: string };
+  downloadKernel?: number;
+  ignoreCertificateAuthError?: number;
+  ignoreCertificateCanceledError?: number;
+  ignoreCertificateOutOfDateError?: number;
+  ignoreCertificateStatusError?: number;
+  ignoreCertificateUntrustworthyError?: number;
+  ignoreCertificateUsingError?: number;
+  ignoreInvalidHostError?: number;
+  monitorTimeout?: number;
+  quickProtocol?: number;
+  redirection?: number;
+  targetUrl?: string;
+  transmissionSize?: number;
+  static names(): { [key: string]: string } {
+    return {
+      connectionTimeout: 'ConnectionTimeout',
+      customHeaderContent: 'CustomHeaderContent',
+      downloadKernel: 'DownloadKernel',
+      ignoreCertificateAuthError: 'IgnoreCertificateAuthError',
+      ignoreCertificateCanceledError: 'IgnoreCertificateCanceledError',
+      ignoreCertificateOutOfDateError: 'IgnoreCertificateOutOfDateError',
+      ignoreCertificateStatusError: 'IgnoreCertificateStatusError',
+      ignoreCertificateUntrustworthyError: 'IgnoreCertificateUntrustworthyError',
+      ignoreCertificateUsingError: 'IgnoreCertificateUsingError',
+      ignoreInvalidHostError: 'IgnoreInvalidHostError',
+      monitorTimeout: 'MonitorTimeout',
+      quickProtocol: 'QuickProtocol',
+      redirection: 'Redirection',
+      targetUrl: 'TargetUrl',
+      transmissionSize: 'TransmissionSize',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      connectionTimeout: 'number',
+      customHeaderContent: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      downloadKernel: 'number',
+      ignoreCertificateAuthError: 'number',
+      ignoreCertificateCanceledError: 'number',
+      ignoreCertificateOutOfDateError: 'number',
+      ignoreCertificateStatusError: 'number',
+      ignoreCertificateUntrustworthyError: 'number',
+      ignoreCertificateUsingError: 'number',
+      ignoreInvalidHostError: 'number',
+      monitorTimeout: 'number',
+      quickProtocol: 'number',
+      redirection: 'number',
+      targetUrl: 'string',
+      transmissionSize: 'number',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class GetTimingSyntheticTaskResponseBodyDataMonitorConfNetDNS extends $tea.Model {
+  dnsServerIpType?: number;
+  nsServer?: string;
+  queryMethod?: number;
+  targetUrl?: string;
+  timeout?: number;
+  static names(): { [key: string]: string } {
+    return {
+      dnsServerIpType: 'DnsServerIpType',
+      nsServer: 'NsServer',
+      queryMethod: 'QueryMethod',
+      targetUrl: 'TargetUrl',
+      timeout: 'Timeout',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      dnsServerIpType: 'number',
+      nsServer: 'string',
+      queryMethod: 'number',
+      targetUrl: 'string',
+      timeout: 'number',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class GetTimingSyntheticTaskResponseBodyDataMonitorConfNetICMP extends $tea.Model {
+  interval?: number;
+  packageNum?: number;
+  packageSize?: number;
+  splitPackage?: boolean;
+  targetUrl?: string;
+  timeout?: number;
+  tracertEnable?: boolean;
+  tracertNumMax?: number;
+  tracertTimeout?: number;
+  static names(): { [key: string]: string } {
+    return {
+      interval: 'Interval',
+      packageNum: 'PackageNum',
+      packageSize: 'PackageSize',
+      splitPackage: 'SplitPackage',
+      targetUrl: 'TargetUrl',
+      timeout: 'Timeout',
+      tracertEnable: 'TracertEnable',
+      tracertNumMax: 'TracertNumMax',
+      tracertTimeout: 'TracertTimeout',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      interval: 'number',
+      packageNum: 'number',
+      packageSize: 'number',
+      splitPackage: 'boolean',
+      targetUrl: 'string',
+      timeout: 'number',
+      tracertEnable: 'boolean',
+      tracertNumMax: 'number',
+      tracertTimeout: 'number',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class GetTimingSyntheticTaskResponseBodyDataMonitorConfNetTCP extends $tea.Model {
+  connectTimes?: number;
+  interval?: number;
+  targetUrl?: string;
+  timeout?: number;
+  tracertEnable?: boolean;
+  tracertNumMax?: number;
+  tracertTimeout?: number;
+  static names(): { [key: string]: string } {
+    return {
+      connectTimes: 'ConnectTimes',
+      interval: 'Interval',
+      targetUrl: 'TargetUrl',
+      timeout: 'Timeout',
+      tracertEnable: 'TracertEnable',
+      tracertNumMax: 'TracertNumMax',
+      tracertTimeout: 'TracertTimeout',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      connectTimes: 'number',
+      interval: 'number',
+      targetUrl: 'string',
+      timeout: 'number',
+      tracertEnable: 'boolean',
+      tracertNumMax: 'number',
+      tracertTimeout: 'number',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class GetTimingSyntheticTaskResponseBodyDataMonitorConfWebsite extends $tea.Model {
+  automaticScrolling?: number;
+  customHeader?: number;
+  customHeaderContent?: { [key: string]: string };
+  disableCache?: number;
+  disableCompression?: number;
+  filterInvalidIP?: number;
+  ignoreCertificateError?: number;
+  monitorTimeout?: number;
+  redirection?: number;
+  slowElementThreshold?: number;
+  targetUrl?: string;
+  waitCompletionTime?: number;
+  static names(): { [key: string]: string } {
+    return {
+      automaticScrolling: 'AutomaticScrolling',
+      customHeader: 'CustomHeader',
+      customHeaderContent: 'CustomHeaderContent',
+      disableCache: 'DisableCache',
+      disableCompression: 'DisableCompression',
+      filterInvalidIP: 'FilterInvalidIP',
+      ignoreCertificateError: 'IgnoreCertificateError',
+      monitorTimeout: 'MonitorTimeout',
+      redirection: 'Redirection',
+      slowElementThreshold: 'SlowElementThreshold',
+      targetUrl: 'TargetUrl',
+      waitCompletionTime: 'WaitCompletionTime',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      automaticScrolling: 'number',
+      customHeader: 'number',
+      customHeaderContent: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      disableCache: 'number',
+      disableCompression: 'number',
+      filterInvalidIP: 'number',
+      ignoreCertificateError: 'number',
+      monitorTimeout: 'number',
+      redirection: 'number',
+      slowElementThreshold: 'number',
+      targetUrl: 'string',
+      waitCompletionTime: 'number',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class GetTimingSyntheticTaskResponseBodyDataMonitorConf extends $tea.Model {
+  apiHTTP?: GetTimingSyntheticTaskResponseBodyDataMonitorConfApiHTTP;
+  fileDownload?: GetTimingSyntheticTaskResponseBodyDataMonitorConfFileDownload;
+  netDNS?: GetTimingSyntheticTaskResponseBodyDataMonitorConfNetDNS;
+  netICMP?: GetTimingSyntheticTaskResponseBodyDataMonitorConfNetICMP;
+  netTCP?: GetTimingSyntheticTaskResponseBodyDataMonitorConfNetTCP;
+  website?: GetTimingSyntheticTaskResponseBodyDataMonitorConfWebsite;
+  static names(): { [key: string]: string } {
+    return {
+      apiHTTP: 'ApiHTTP',
+      fileDownload: 'FileDownload',
+      netDNS: 'NetDNS',
+      netICMP: 'NetICMP',
+      netTCP: 'NetTCP',
+      website: 'Website',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      apiHTTP: GetTimingSyntheticTaskResponseBodyDataMonitorConfApiHTTP,
+      fileDownload: GetTimingSyntheticTaskResponseBodyDataMonitorConfFileDownload,
+      netDNS: GetTimingSyntheticTaskResponseBodyDataMonitorConfNetDNS,
+      netICMP: GetTimingSyntheticTaskResponseBodyDataMonitorConfNetICMP,
+      netTCP: GetTimingSyntheticTaskResponseBodyDataMonitorConfNetTCP,
+      website: GetTimingSyntheticTaskResponseBodyDataMonitorConfWebsite,
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class GetTimingSyntheticTaskResponseBodyDataMonitors extends $tea.Model {
+  cityCode?: string;
+  clientType?: number;
+  operatorCode?: string;
+  static names(): { [key: string]: string } {
+    return {
+      cityCode: 'CityCode',
+      clientType: 'ClientType',
+      operatorCode: 'OperatorCode',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      cityCode: 'string',
+      clientType: 'number',
+      operatorCode: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class GetTimingSyntheticTaskResponseBodyDataTags extends $tea.Model {
+  key?: string;
+  value?: string;
+  static names(): { [key: string]: string } {
+    return {
+      key: 'Key',
+      value: 'Value',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      key: 'string',
+      value: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class GetTimingSyntheticTaskResponseBodyData extends $tea.Model {
+  availableAssertions?: GetTimingSyntheticTaskResponseBodyDataAvailableAssertions[];
+  commonSetting?: GetTimingSyntheticTaskResponseBodyDataCommonSetting;
+  customPeriod?: GetTimingSyntheticTaskResponseBodyDataCustomPeriod;
+  frequency?: string;
+  monitorCategory?: number;
+  monitorConf?: GetTimingSyntheticTaskResponseBodyDataMonitorConf;
+  monitors?: GetTimingSyntheticTaskResponseBodyDataMonitors[];
+  name?: string;
+  regionId?: string;
+  resourceGroupId?: string;
+  status?: string;
+  tags?: GetTimingSyntheticTaskResponseBodyDataTags[];
+  taskId?: string;
+  taskType?: number;
+  static names(): { [key: string]: string } {
+    return {
+      availableAssertions: 'AvailableAssertions',
+      commonSetting: 'CommonSetting',
+      customPeriod: 'CustomPeriod',
+      frequency: 'Frequency',
+      monitorCategory: 'MonitorCategory',
+      monitorConf: 'MonitorConf',
+      monitors: 'Monitors',
+      name: 'Name',
+      regionId: 'RegionId',
+      resourceGroupId: 'ResourceGroupId',
+      status: 'Status',
+      tags: 'Tags',
+      taskId: 'TaskId',
+      taskType: 'TaskType',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      availableAssertions: { 'type': 'array', 'itemType': GetTimingSyntheticTaskResponseBodyDataAvailableAssertions },
+      commonSetting: GetTimingSyntheticTaskResponseBodyDataCommonSetting,
+      customPeriod: GetTimingSyntheticTaskResponseBodyDataCustomPeriod,
+      frequency: 'string',
+      monitorCategory: 'number',
+      monitorConf: GetTimingSyntheticTaskResponseBodyDataMonitorConf,
+      monitors: { 'type': 'array', 'itemType': GetTimingSyntheticTaskResponseBodyDataMonitors },
+      name: 'string',
+      regionId: 'string',
+      resourceGroupId: 'string',
+      status: 'string',
+      tags: { 'type': 'array', 'itemType': GetTimingSyntheticTaskResponseBodyDataTags },
+      taskId: 'string',
+      taskType: 'number',
     };
   }
 
@@ -21436,6 +23438,173 @@ export class ListSilencePoliciesResponseBodyPageBean extends $tea.Model {
   }
 }
 
+export class ListTimingSyntheticTasksRequestSearch extends $tea.Model {
+  name?: string;
+  order?: number;
+  orderField?: string;
+  page?: number;
+  pageSize?: number;
+  status?: string;
+  taskIds?: string[];
+  taskTypes?: number[];
+  static names(): { [key: string]: string } {
+    return {
+      name: 'Name',
+      order: 'Order',
+      orderField: 'OrderField',
+      page: 'Page',
+      pageSize: 'PageSize',
+      status: 'Status',
+      taskIds: 'TaskIds',
+      taskTypes: 'TaskTypes',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      name: 'string',
+      order: 'number',
+      orderField: 'string',
+      page: 'number',
+      pageSize: 'number',
+      status: 'string',
+      taskIds: { 'type': 'array', 'itemType': 'string' },
+      taskTypes: { 'type': 'array', 'itemType': 'number' },
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class ListTimingSyntheticTasksRequestTags extends $tea.Model {
+  key?: string;
+  value?: string;
+  static names(): { [key: string]: string } {
+    return {
+      key: 'Key',
+      value: 'Value',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      key: 'string',
+      value: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class ListTimingSyntheticTasksResponseBodyDataItemsTags extends $tea.Model {
+  key?: string;
+  value?: string;
+  static names(): { [key: string]: string } {
+    return {
+      key: 'Key',
+      value: 'Value',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      key: 'string',
+      value: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class ListTimingSyntheticTasksResponseBodyDataItems extends $tea.Model {
+  frequency?: string;
+  gmtCreate?: string;
+  gmtModified?: string;
+  monitorCategory?: number;
+  monitorNum?: string;
+  name?: string;
+  regionId?: string;
+  resourceGroupId?: string;
+  status?: string;
+  tags?: ListTimingSyntheticTasksResponseBodyDataItemsTags[];
+  taskId?: string;
+  taskType?: number;
+  url?: string;
+  static names(): { [key: string]: string } {
+    return {
+      frequency: 'Frequency',
+      gmtCreate: 'GmtCreate',
+      gmtModified: 'GmtModified',
+      monitorCategory: 'MonitorCategory',
+      monitorNum: 'MonitorNum',
+      name: 'Name',
+      regionId: 'RegionId',
+      resourceGroupId: 'ResourceGroupId',
+      status: 'Status',
+      tags: 'Tags',
+      taskId: 'TaskId',
+      taskType: 'TaskType',
+      url: 'Url',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      frequency: 'string',
+      gmtCreate: 'string',
+      gmtModified: 'string',
+      monitorCategory: 'number',
+      monitorNum: 'string',
+      name: 'string',
+      regionId: 'string',
+      resourceGroupId: 'string',
+      status: 'string',
+      tags: { 'type': 'array', 'itemType': ListTimingSyntheticTasksResponseBodyDataItemsTags },
+      taskId: 'string',
+      taskType: 'number',
+      url: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class ListTimingSyntheticTasksResponseBodyData extends $tea.Model {
+  items?: ListTimingSyntheticTasksResponseBodyDataItems[];
+  page?: number;
+  pageSize?: number;
+  total?: number;
+  static names(): { [key: string]: string } {
+    return {
+      items: 'Items',
+      page: 'Page',
+      pageSize: 'PageSize',
+      total: 'Total',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      items: { 'type': 'array', 'itemType': ListTimingSyntheticTasksResponseBodyDataItems },
+      page: 'number',
+      pageSize: 'number',
+      total: 'number',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
 export class ListTraceAppsRequestTags extends $tea.Model {
   key?: string;
   value?: string;
@@ -23113,6 +25282,511 @@ export class UpdatePrometheusIntegrationResponseBodyData extends $tea.Model {
   }
 }
 
+export class UpdateTimingSyntheticTaskRequestAvailableAssertions extends $tea.Model {
+  expect?: string;
+  operator?: string;
+  target?: string;
+  type?: string;
+  static names(): { [key: string]: string } {
+    return {
+      expect: 'Expect',
+      operator: 'Operator',
+      target: 'Target',
+      type: 'Type',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      expect: 'string',
+      operator: 'string',
+      target: 'string',
+      type: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class UpdateTimingSyntheticTaskRequestCommonSettingCustomHostHosts extends $tea.Model {
+  domain?: string;
+  ipType?: number;
+  ips?: string[];
+  static names(): { [key: string]: string } {
+    return {
+      domain: 'Domain',
+      ipType: 'IpType',
+      ips: 'Ips',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      domain: 'string',
+      ipType: 'number',
+      ips: { 'type': 'array', 'itemType': 'string' },
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class UpdateTimingSyntheticTaskRequestCommonSettingCustomHost extends $tea.Model {
+  hosts?: UpdateTimingSyntheticTaskRequestCommonSettingCustomHostHosts[];
+  selectType?: number;
+  static names(): { [key: string]: string } {
+    return {
+      hosts: 'Hosts',
+      selectType: 'SelectType',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      hosts: { 'type': 'array', 'itemType': UpdateTimingSyntheticTaskRequestCommonSettingCustomHostHosts },
+      selectType: 'number',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class UpdateTimingSyntheticTaskRequestCommonSetting extends $tea.Model {
+  customHost?: UpdateTimingSyntheticTaskRequestCommonSettingCustomHost;
+  ipType?: number;
+  monitorSamples?: number;
+  static names(): { [key: string]: string } {
+    return {
+      customHost: 'CustomHost',
+      ipType: 'IpType',
+      monitorSamples: 'MonitorSamples',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      customHost: UpdateTimingSyntheticTaskRequestCommonSettingCustomHost,
+      ipType: 'number',
+      monitorSamples: 'number',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class UpdateTimingSyntheticTaskRequestCustomPeriod extends $tea.Model {
+  endHour?: number;
+  startHour?: number;
+  static names(): { [key: string]: string } {
+    return {
+      endHour: 'EndHour',
+      startHour: 'StartHour',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      endHour: 'number',
+      startHour: 'number',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class UpdateTimingSyntheticTaskRequestMonitorConfApiHTTPRequestBody extends $tea.Model {
+  content?: string;
+  type?: string;
+  static names(): { [key: string]: string } {
+    return {
+      content: 'Content',
+      type: 'Type',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      content: 'string',
+      type: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class UpdateTimingSyntheticTaskRequestMonitorConfApiHTTP extends $tea.Model {
+  connectTimeout?: number;
+  method?: string;
+  requestBody?: UpdateTimingSyntheticTaskRequestMonitorConfApiHTTPRequestBody;
+  requestHeaders?: { [key: string]: string };
+  targetUrl?: string;
+  timeout?: number;
+  static names(): { [key: string]: string } {
+    return {
+      connectTimeout: 'ConnectTimeout',
+      method: 'Method',
+      requestBody: 'RequestBody',
+      requestHeaders: 'RequestHeaders',
+      targetUrl: 'TargetUrl',
+      timeout: 'Timeout',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      connectTimeout: 'number',
+      method: 'string',
+      requestBody: UpdateTimingSyntheticTaskRequestMonitorConfApiHTTPRequestBody,
+      requestHeaders: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      targetUrl: 'string',
+      timeout: 'number',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class UpdateTimingSyntheticTaskRequestMonitorConfFileDownload extends $tea.Model {
+  connectionTimeout?: number;
+  customHeaderContent?: { [key: string]: string };
+  downloadKernel?: number;
+  ignoreCertificateAuthError?: number;
+  ignoreCertificateCanceledError?: number;
+  ignoreCertificateOutOfDateError?: number;
+  ignoreCertificateStatusError?: number;
+  ignoreCertificateUntrustworthyError?: number;
+  ignoreCertificateUsingError?: number;
+  ignoreInvalidHostError?: number;
+  monitorTimeout?: number;
+  quickProtocol?: number;
+  redirection?: number;
+  targetUrl?: string;
+  transmissionSize?: number;
+  static names(): { [key: string]: string } {
+    return {
+      connectionTimeout: 'ConnectionTimeout',
+      customHeaderContent: 'CustomHeaderContent',
+      downloadKernel: 'DownloadKernel',
+      ignoreCertificateAuthError: 'IgnoreCertificateAuthError',
+      ignoreCertificateCanceledError: 'IgnoreCertificateCanceledError',
+      ignoreCertificateOutOfDateError: 'IgnoreCertificateOutOfDateError',
+      ignoreCertificateStatusError: 'IgnoreCertificateStatusError',
+      ignoreCertificateUntrustworthyError: 'IgnoreCertificateUntrustworthyError',
+      ignoreCertificateUsingError: 'IgnoreCertificateUsingError',
+      ignoreInvalidHostError: 'IgnoreInvalidHostError',
+      monitorTimeout: 'MonitorTimeout',
+      quickProtocol: 'QuickProtocol',
+      redirection: 'Redirection',
+      targetUrl: 'TargetUrl',
+      transmissionSize: 'TransmissionSize',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      connectionTimeout: 'number',
+      customHeaderContent: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      downloadKernel: 'number',
+      ignoreCertificateAuthError: 'number',
+      ignoreCertificateCanceledError: 'number',
+      ignoreCertificateOutOfDateError: 'number',
+      ignoreCertificateStatusError: 'number',
+      ignoreCertificateUntrustworthyError: 'number',
+      ignoreCertificateUsingError: 'number',
+      ignoreInvalidHostError: 'number',
+      monitorTimeout: 'number',
+      quickProtocol: 'number',
+      redirection: 'number',
+      targetUrl: 'string',
+      transmissionSize: 'number',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class UpdateTimingSyntheticTaskRequestMonitorConfNetDNS extends $tea.Model {
+  dig?: number;
+  dnsServerIpType?: number;
+  nsServer?: string;
+  queryMethod?: number;
+  targetUrl?: string;
+  timeout?: number;
+  static names(): { [key: string]: string } {
+    return {
+      dig: 'Dig',
+      dnsServerIpType: 'DnsServerIpType',
+      nsServer: 'NsServer',
+      queryMethod: 'QueryMethod',
+      targetUrl: 'TargetUrl',
+      timeout: 'Timeout',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      dig: 'number',
+      dnsServerIpType: 'number',
+      nsServer: 'string',
+      queryMethod: 'number',
+      targetUrl: 'string',
+      timeout: 'number',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class UpdateTimingSyntheticTaskRequestMonitorConfNetICMP extends $tea.Model {
+  interval?: number;
+  packageNum?: number;
+  packageSize?: number;
+  splitPackage?: boolean;
+  targetUrl?: string;
+  timeout?: number;
+  tracertEnable?: boolean;
+  tracertNumMax?: number;
+  tracertTimeout?: number;
+  static names(): { [key: string]: string } {
+    return {
+      interval: 'Interval',
+      packageNum: 'PackageNum',
+      packageSize: 'PackageSize',
+      splitPackage: 'SplitPackage',
+      targetUrl: 'TargetUrl',
+      timeout: 'Timeout',
+      tracertEnable: 'TracertEnable',
+      tracertNumMax: 'TracertNumMax',
+      tracertTimeout: 'TracertTimeout',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      interval: 'number',
+      packageNum: 'number',
+      packageSize: 'number',
+      splitPackage: 'boolean',
+      targetUrl: 'string',
+      timeout: 'number',
+      tracertEnable: 'boolean',
+      tracertNumMax: 'number',
+      tracertTimeout: 'number',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class UpdateTimingSyntheticTaskRequestMonitorConfNetTCP extends $tea.Model {
+  connectTimes?: number;
+  interval?: number;
+  targetUrl?: string;
+  timeout?: number;
+  tracertEnable?: boolean;
+  tracertNumMax?: number;
+  tracertTimeout?: number;
+  static names(): { [key: string]: string } {
+    return {
+      connectTimes: 'ConnectTimes',
+      interval: 'Interval',
+      targetUrl: 'TargetUrl',
+      timeout: 'Timeout',
+      tracertEnable: 'TracertEnable',
+      tracertNumMax: 'TracertNumMax',
+      tracertTimeout: 'TracertTimeout',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      connectTimes: 'number',
+      interval: 'number',
+      targetUrl: 'string',
+      timeout: 'number',
+      tracertEnable: 'boolean',
+      tracertNumMax: 'number',
+      tracertTimeout: 'number',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class UpdateTimingSyntheticTaskRequestMonitorConfWebsite extends $tea.Model {
+  automaticScrolling?: number;
+  customHeader?: number;
+  customHeaderContent?: { [key: string]: string };
+  disableCache?: number;
+  disableCompression?: number;
+  filterInvalidIP?: number;
+  ignoreCertificateError?: number;
+  monitorTimeout?: number;
+  redirection?: number;
+  slowElementThreshold?: number;
+  targetUrl?: string;
+  waitCompletionTime?: number;
+  static names(): { [key: string]: string } {
+    return {
+      automaticScrolling: 'AutomaticScrolling',
+      customHeader: 'CustomHeader',
+      customHeaderContent: 'CustomHeaderContent',
+      disableCache: 'DisableCache',
+      disableCompression: 'DisableCompression',
+      filterInvalidIP: 'FilterInvalidIP',
+      ignoreCertificateError: 'IgnoreCertificateError',
+      monitorTimeout: 'MonitorTimeout',
+      redirection: 'Redirection',
+      slowElementThreshold: 'SlowElementThreshold',
+      targetUrl: 'TargetUrl',
+      waitCompletionTime: 'WaitCompletionTime',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      automaticScrolling: 'number',
+      customHeader: 'number',
+      customHeaderContent: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      disableCache: 'number',
+      disableCompression: 'number',
+      filterInvalidIP: 'number',
+      ignoreCertificateError: 'number',
+      monitorTimeout: 'number',
+      redirection: 'number',
+      slowElementThreshold: 'number',
+      targetUrl: 'string',
+      waitCompletionTime: 'number',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class UpdateTimingSyntheticTaskRequestMonitorConf extends $tea.Model {
+  apiHTTP?: UpdateTimingSyntheticTaskRequestMonitorConfApiHTTP;
+  fileDownload?: UpdateTimingSyntheticTaskRequestMonitorConfFileDownload;
+  netDNS?: UpdateTimingSyntheticTaskRequestMonitorConfNetDNS;
+  netICMP?: UpdateTimingSyntheticTaskRequestMonitorConfNetICMP;
+  netTCP?: UpdateTimingSyntheticTaskRequestMonitorConfNetTCP;
+  website?: UpdateTimingSyntheticTaskRequestMonitorConfWebsite;
+  static names(): { [key: string]: string } {
+    return {
+      apiHTTP: 'ApiHTTP',
+      fileDownload: 'FileDownload',
+      netDNS: 'NetDNS',
+      netICMP: 'NetICMP',
+      netTCP: 'NetTCP',
+      website: 'Website',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      apiHTTP: UpdateTimingSyntheticTaskRequestMonitorConfApiHTTP,
+      fileDownload: UpdateTimingSyntheticTaskRequestMonitorConfFileDownload,
+      netDNS: UpdateTimingSyntheticTaskRequestMonitorConfNetDNS,
+      netICMP: UpdateTimingSyntheticTaskRequestMonitorConfNetICMP,
+      netTCP: UpdateTimingSyntheticTaskRequestMonitorConfNetTCP,
+      website: UpdateTimingSyntheticTaskRequestMonitorConfWebsite,
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class UpdateTimingSyntheticTaskRequestMonitors extends $tea.Model {
+  cityCode?: string;
+  clientType?: number;
+  operatorCode?: string;
+  static names(): { [key: string]: string } {
+    return {
+      cityCode: 'CityCode',
+      clientType: 'ClientType',
+      operatorCode: 'OperatorCode',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      cityCode: 'string',
+      clientType: 'number',
+      operatorCode: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class UpdateTimingSyntheticTaskRequestTags extends $tea.Model {
+  key?: string;
+  value?: string;
+  static names(): { [key: string]: string } {
+    return {
+      key: 'Key',
+      value: 'Value',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      key: 'string',
+      value: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class UpdateTimingSyntheticTaskResponseBodyData extends $tea.Model {
+  taskId?: string;
+  static names(): { [key: string]: string } {
+    return {
+      taskId: 'TaskId',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      taskId: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
 export class UploadResponseBodyUploadResult extends $tea.Model {
   fid?: string;
   fileName?: string;
@@ -24620,6 +27294,10 @@ export default class Client extends OpenApi {
       query["GrafanaInstanceId"] = request.grafanaInstanceId;
     }
 
+    if (!Util.isUnset(request.paramJson)) {
+      query["ParamJson"] = request.paramJson;
+    }
+
     if (!Util.isUnset(request.regionId)) {
       query["RegionId"] = request.regionId;
     }
@@ -24875,6 +27553,105 @@ export default class Client extends OpenApi {
   async createSyntheticTask(request: CreateSyntheticTaskRequest): Promise<CreateSyntheticTaskResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.createSyntheticTaskWithOptions(request, runtime);
+  }
+
+  async createTimingSyntheticTaskWithOptions(tmpReq: CreateTimingSyntheticTaskRequest, runtime: $Util.RuntimeOptions): Promise<CreateTimingSyntheticTaskResponse> {
+    Util.validateModel(tmpReq);
+    let request = new CreateTimingSyntheticTaskShrinkRequest({ });
+    OpenApiUtil.convert(tmpReq, request);
+    if (!Util.isUnset(tmpReq.availableAssertions)) {
+      request.availableAssertionsShrink = OpenApiUtil.arrayToStringWithSpecifiedStyle(tmpReq.availableAssertions, "AvailableAssertions", "json");
+    }
+
+    if (!Util.isUnset(tmpReq.commonSetting)) {
+      request.commonSettingShrink = OpenApiUtil.arrayToStringWithSpecifiedStyle(tmpReq.commonSetting, "CommonSetting", "json");
+    }
+
+    if (!Util.isUnset(tmpReq.customPeriod)) {
+      request.customPeriodShrink = OpenApiUtil.arrayToStringWithSpecifiedStyle(tmpReq.customPeriod, "CustomPeriod", "json");
+    }
+
+    if (!Util.isUnset(tmpReq.monitorConf)) {
+      request.monitorConfShrink = OpenApiUtil.arrayToStringWithSpecifiedStyle(tmpReq.monitorConf, "MonitorConf", "json");
+    }
+
+    if (!Util.isUnset(tmpReq.monitors)) {
+      request.monitorsShrink = OpenApiUtil.arrayToStringWithSpecifiedStyle(tmpReq.monitors, "Monitors", "json");
+    }
+
+    if (!Util.isUnset(tmpReq.tags)) {
+      request.tagsShrink = OpenApiUtil.arrayToStringWithSpecifiedStyle(tmpReq.tags, "Tags", "json");
+    }
+
+    let query = { };
+    if (!Util.isUnset(request.availableAssertionsShrink)) {
+      query["AvailableAssertions"] = request.availableAssertionsShrink;
+    }
+
+    if (!Util.isUnset(request.commonSettingShrink)) {
+      query["CommonSetting"] = request.commonSettingShrink;
+    }
+
+    if (!Util.isUnset(request.customPeriodShrink)) {
+      query["CustomPeriod"] = request.customPeriodShrink;
+    }
+
+    if (!Util.isUnset(request.frequency)) {
+      query["Frequency"] = request.frequency;
+    }
+
+    if (!Util.isUnset(request.monitorCategory)) {
+      query["MonitorCategory"] = request.monitorCategory;
+    }
+
+    if (!Util.isUnset(request.monitorConfShrink)) {
+      query["MonitorConf"] = request.monitorConfShrink;
+    }
+
+    if (!Util.isUnset(request.monitorsShrink)) {
+      query["Monitors"] = request.monitorsShrink;
+    }
+
+    if (!Util.isUnset(request.name)) {
+      query["Name"] = request.name;
+    }
+
+    if (!Util.isUnset(request.regionId)) {
+      query["RegionId"] = request.regionId;
+    }
+
+    if (!Util.isUnset(request.resourceGroupId)) {
+      query["ResourceGroupId"] = request.resourceGroupId;
+    }
+
+    if (!Util.isUnset(request.tagsShrink)) {
+      query["Tags"] = request.tagsShrink;
+    }
+
+    if (!Util.isUnset(request.taskType)) {
+      query["TaskType"] = request.taskType;
+    }
+
+    let req = new $OpenApi.OpenApiRequest({
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApi.Params({
+      action: "CreateTimingSyntheticTask",
+      version: "2019-08-08",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $tea.cast<CreateTimingSyntheticTaskResponse>(await this.callApi(params, req, runtime), new CreateTimingSyntheticTaskResponse({}));
+  }
+
+  async createTimingSyntheticTask(request: CreateTimingSyntheticTaskRequest): Promise<CreateTimingSyntheticTaskResponse> {
+    let runtime = new $Util.RuntimeOptions({ });
+    return await this.createTimingSyntheticTaskWithOptions(request, runtime);
   }
 
   async createWebhookWithOptions(request: CreateWebhookRequest, runtime: $Util.RuntimeOptions): Promise<CreateWebhookResponse> {
@@ -25769,6 +28546,39 @@ export default class Client extends OpenApi {
   async deleteSyntheticTask(request: DeleteSyntheticTaskRequest): Promise<DeleteSyntheticTaskResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.deleteSyntheticTaskWithOptions(request, runtime);
+  }
+
+  async deleteTimingSyntheticTaskWithOptions(request: DeleteTimingSyntheticTaskRequest, runtime: $Util.RuntimeOptions): Promise<DeleteTimingSyntheticTaskResponse> {
+    Util.validateModel(request);
+    let query = { };
+    if (!Util.isUnset(request.regionId)) {
+      query["RegionId"] = request.regionId;
+    }
+
+    if (!Util.isUnset(request.taskId)) {
+      query["TaskId"] = request.taskId;
+    }
+
+    let req = new $OpenApi.OpenApiRequest({
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApi.Params({
+      action: "DeleteTimingSyntheticTask",
+      version: "2019-08-08",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $tea.cast<DeleteTimingSyntheticTaskResponse>(await this.callApi(params, req, runtime), new DeleteTimingSyntheticTaskResponse({}));
+  }
+
+  async deleteTimingSyntheticTask(request: DeleteTimingSyntheticTaskRequest): Promise<DeleteTimingSyntheticTaskResponse> {
+    let runtime = new $Util.RuntimeOptions({ });
+    return await this.deleteTimingSyntheticTaskWithOptions(request, runtime);
   }
 
   async deleteTraceAppWithOptions(tmpReq: DeleteTraceAppRequest, runtime: $Util.RuntimeOptions): Promise<DeleteTraceAppResponse> {
@@ -27076,6 +29886,37 @@ export default class Client extends OpenApi {
     return await this.getStackWithOptions(request, runtime);
   }
 
+  async getSyntheticMonitorsWithOptions(tmpReq: GetSyntheticMonitorsRequest, runtime: $Util.RuntimeOptions): Promise<GetSyntheticMonitorsResponse> {
+    Util.validateModel(tmpReq);
+    let request = new GetSyntheticMonitorsShrinkRequest({ });
+    OpenApiUtil.convert(tmpReq, request);
+    if (!Util.isUnset(tmpReq.filter)) {
+      request.filterShrink = OpenApiUtil.arrayToStringWithSpecifiedStyle(tmpReq.filter, "Filter", "json");
+    }
+
+    let query = OpenApiUtil.query(Util.toMap(request));
+    let req = new $OpenApi.OpenApiRequest({
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApi.Params({
+      action: "GetSyntheticMonitors",
+      version: "2019-08-08",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "GET",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $tea.cast<GetSyntheticMonitorsResponse>(await this.callApi(params, req, runtime), new GetSyntheticMonitorsResponse({}));
+  }
+
+  async getSyntheticMonitors(request: GetSyntheticMonitorsRequest): Promise<GetSyntheticMonitorsResponse> {
+    let runtime = new $Util.RuntimeOptions({ });
+    return await this.getSyntheticMonitorsWithOptions(request, runtime);
+  }
+
   async getSyntheticTaskDetailWithOptions(request: GetSyntheticTaskDetailRequest, runtime: $Util.RuntimeOptions): Promise<GetSyntheticTaskDetailResponse> {
     Util.validateModel(request);
     let query = { };
@@ -27197,6 +30038,31 @@ export default class Client extends OpenApi {
   async getSyntheticTaskMonitors(request: GetSyntheticTaskMonitorsRequest): Promise<GetSyntheticTaskMonitorsResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.getSyntheticTaskMonitorsWithOptions(request, runtime);
+  }
+
+  async getTimingSyntheticTaskWithOptions(request: GetTimingSyntheticTaskRequest, runtime: $Util.RuntimeOptions): Promise<GetTimingSyntheticTaskResponse> {
+    Util.validateModel(request);
+    let query = OpenApiUtil.query(Util.toMap(request));
+    let req = new $OpenApi.OpenApiRequest({
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApi.Params({
+      action: "GetTimingSyntheticTask",
+      version: "2019-08-08",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "GET",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $tea.cast<GetTimingSyntheticTaskResponse>(await this.callApi(params, req, runtime), new GetTimingSyntheticTaskResponse({}));
+  }
+
+  async getTimingSyntheticTask(request: GetTimingSyntheticTaskRequest): Promise<GetTimingSyntheticTaskResponse> {
+    let runtime = new $Util.RuntimeOptions({ });
+    return await this.getTimingSyntheticTaskWithOptions(request, runtime);
   }
 
   /**
@@ -28506,9 +31372,48 @@ export default class Client extends OpenApi {
     return await this.listSilencePoliciesWithOptions(request, runtime);
   }
 
+  async listTimingSyntheticTasksWithOptions(tmpReq: ListTimingSyntheticTasksRequest, runtime: $Util.RuntimeOptions): Promise<ListTimingSyntheticTasksResponse> {
+    Util.validateModel(tmpReq);
+    let request = new ListTimingSyntheticTasksShrinkRequest({ });
+    OpenApiUtil.convert(tmpReq, request);
+    if (!Util.isUnset(tmpReq.search)) {
+      request.searchShrink = OpenApiUtil.arrayToStringWithSpecifiedStyle(tmpReq.search, "Search", "json");
+    }
+
+    if (!Util.isUnset(tmpReq.tags)) {
+      request.tagsShrink = OpenApiUtil.arrayToStringWithSpecifiedStyle(tmpReq.tags, "Tags", "json");
+    }
+
+    let query = OpenApiUtil.query(Util.toMap(request));
+    let req = new $OpenApi.OpenApiRequest({
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApi.Params({
+      action: "ListTimingSyntheticTasks",
+      version: "2019-08-08",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "GET",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $tea.cast<ListTimingSyntheticTasksResponse>(await this.callApi(params, req, runtime), new ListTimingSyntheticTasksResponse({}));
+  }
+
+  async listTimingSyntheticTasks(request: ListTimingSyntheticTasksRequest): Promise<ListTimingSyntheticTasksResponse> {
+    let runtime = new $Util.RuntimeOptions({ });
+    return await this.listTimingSyntheticTasksWithOptions(request, runtime);
+  }
+
   async listTraceAppsWithOptions(request: ListTraceAppsRequest, runtime: $Util.RuntimeOptions): Promise<ListTraceAppsResponse> {
     Util.validateModel(request);
     let query = { };
+    if (!Util.isUnset(request.region)) {
+      query["Region"] = request.region;
+    }
+
     if (!Util.isUnset(request.regionId)) {
       query["RegionId"] = request.regionId;
     }
@@ -29820,6 +32725,45 @@ export default class Client extends OpenApi {
     return await this.startAlertWithOptions(request, runtime);
   }
 
+  async startTimingSyntheticTaskWithOptions(tmpReq: StartTimingSyntheticTaskRequest, runtime: $Util.RuntimeOptions): Promise<StartTimingSyntheticTaskResponse> {
+    Util.validateModel(tmpReq);
+    let request = new StartTimingSyntheticTaskShrinkRequest({ });
+    OpenApiUtil.convert(tmpReq, request);
+    if (!Util.isUnset(tmpReq.taskIds)) {
+      request.taskIdsShrink = OpenApiUtil.arrayToStringWithSpecifiedStyle(tmpReq.taskIds, "TaskIds", "json");
+    }
+
+    let query = { };
+    if (!Util.isUnset(request.regionId)) {
+      query["RegionId"] = request.regionId;
+    }
+
+    if (!Util.isUnset(request.taskIdsShrink)) {
+      query["TaskIds"] = request.taskIdsShrink;
+    }
+
+    let req = new $OpenApi.OpenApiRequest({
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApi.Params({
+      action: "StartTimingSyntheticTask",
+      version: "2019-08-08",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $tea.cast<StartTimingSyntheticTaskResponse>(await this.callApi(params, req, runtime), new StartTimingSyntheticTaskResponse({}));
+  }
+
+  async startTimingSyntheticTask(request: StartTimingSyntheticTaskRequest): Promise<StartTimingSyntheticTaskResponse> {
+    let runtime = new $Util.RuntimeOptions({ });
+    return await this.startTimingSyntheticTaskWithOptions(request, runtime);
+  }
+
   async stopAlertWithOptions(request: StopAlertRequest, runtime: $Util.RuntimeOptions): Promise<StopAlertResponse> {
     Util.validateModel(request);
     let query = { };
@@ -29851,6 +32795,45 @@ export default class Client extends OpenApi {
   async stopAlert(request: StopAlertRequest): Promise<StopAlertResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.stopAlertWithOptions(request, runtime);
+  }
+
+  async stopTimingSyntheticTaskWithOptions(tmpReq: StopTimingSyntheticTaskRequest, runtime: $Util.RuntimeOptions): Promise<StopTimingSyntheticTaskResponse> {
+    Util.validateModel(tmpReq);
+    let request = new StopTimingSyntheticTaskShrinkRequest({ });
+    OpenApiUtil.convert(tmpReq, request);
+    if (!Util.isUnset(tmpReq.taskIds)) {
+      request.taskIdsShrink = OpenApiUtil.arrayToStringWithSpecifiedStyle(tmpReq.taskIds, "TaskIds", "json");
+    }
+
+    let query = { };
+    if (!Util.isUnset(request.regionId)) {
+      query["RegionId"] = request.regionId;
+    }
+
+    if (!Util.isUnset(request.taskIdsShrink)) {
+      query["TaskIds"] = request.taskIdsShrink;
+    }
+
+    let req = new $OpenApi.OpenApiRequest({
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApi.Params({
+      action: "StopTimingSyntheticTask",
+      version: "2019-08-08",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $tea.cast<StopTimingSyntheticTaskResponse>(await this.callApi(params, req, runtime), new StopTimingSyntheticTaskResponse({}));
+  }
+
+  async stopTimingSyntheticTask(request: StopTimingSyntheticTaskRequest): Promise<StopTimingSyntheticTaskResponse> {
+    let runtime = new $Util.RuntimeOptions({ });
+    return await this.stopTimingSyntheticTaskWithOptions(request, runtime);
   }
 
   async switchSyntheticTaskStatusWithOptions(request: SwitchSyntheticTaskStatusRequest, runtime: $Util.RuntimeOptions): Promise<SwitchSyntheticTaskStatusResponse> {
@@ -30458,6 +33441,10 @@ export default class Client extends OpenApi {
       query["MostRegionId"] = request.mostRegionId;
     }
 
+    if (!Util.isUnset(request.paramJson)) {
+      query["ParamJson"] = request.paramJson;
+    }
+
     if (!Util.isUnset(request.regionId)) {
       query["RegionId"] = request.regionId;
     }
@@ -30670,6 +33657,109 @@ export default class Client extends OpenApi {
   async updatePrometheusRemoteWrite(request: UpdatePrometheusRemoteWriteRequest): Promise<UpdatePrometheusRemoteWriteResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.updatePrometheusRemoteWriteWithOptions(request, runtime);
+  }
+
+  async updateTimingSyntheticTaskWithOptions(tmpReq: UpdateTimingSyntheticTaskRequest, runtime: $Util.RuntimeOptions): Promise<UpdateTimingSyntheticTaskResponse> {
+    Util.validateModel(tmpReq);
+    let request = new UpdateTimingSyntheticTaskShrinkRequest({ });
+    OpenApiUtil.convert(tmpReq, request);
+    if (!Util.isUnset(tmpReq.availableAssertions)) {
+      request.availableAssertionsShrink = OpenApiUtil.arrayToStringWithSpecifiedStyle(tmpReq.availableAssertions, "AvailableAssertions", "json");
+    }
+
+    if (!Util.isUnset(tmpReq.commonSetting)) {
+      request.commonSettingShrink = OpenApiUtil.arrayToStringWithSpecifiedStyle(tmpReq.commonSetting, "CommonSetting", "json");
+    }
+
+    if (!Util.isUnset(tmpReq.customPeriod)) {
+      request.customPeriodShrink = OpenApiUtil.arrayToStringWithSpecifiedStyle(tmpReq.customPeriod, "CustomPeriod", "json");
+    }
+
+    if (!Util.isUnset(tmpReq.monitorConf)) {
+      request.monitorConfShrink = OpenApiUtil.arrayToStringWithSpecifiedStyle(tmpReq.monitorConf, "MonitorConf", "json");
+    }
+
+    if (!Util.isUnset(tmpReq.monitors)) {
+      request.monitorsShrink = OpenApiUtil.arrayToStringWithSpecifiedStyle(tmpReq.monitors, "Monitors", "json");
+    }
+
+    if (!Util.isUnset(tmpReq.tags)) {
+      request.tagsShrink = OpenApiUtil.arrayToStringWithSpecifiedStyle(tmpReq.tags, "Tags", "json");
+    }
+
+    let query = { };
+    if (!Util.isUnset(request.availableAssertionsShrink)) {
+      query["AvailableAssertions"] = request.availableAssertionsShrink;
+    }
+
+    if (!Util.isUnset(request.commonSettingShrink)) {
+      query["CommonSetting"] = request.commonSettingShrink;
+    }
+
+    if (!Util.isUnset(request.customPeriodShrink)) {
+      query["CustomPeriod"] = request.customPeriodShrink;
+    }
+
+    if (!Util.isUnset(request.frequency)) {
+      query["Frequency"] = request.frequency;
+    }
+
+    if (!Util.isUnset(request.monitorCategory)) {
+      query["MonitorCategory"] = request.monitorCategory;
+    }
+
+    if (!Util.isUnset(request.monitorConfShrink)) {
+      query["MonitorConf"] = request.monitorConfShrink;
+    }
+
+    if (!Util.isUnset(request.monitorsShrink)) {
+      query["Monitors"] = request.monitorsShrink;
+    }
+
+    if (!Util.isUnset(request.name)) {
+      query["Name"] = request.name;
+    }
+
+    if (!Util.isUnset(request.regionId)) {
+      query["RegionId"] = request.regionId;
+    }
+
+    if (!Util.isUnset(request.resourceGroupId)) {
+      query["ResourceGroupId"] = request.resourceGroupId;
+    }
+
+    if (!Util.isUnset(request.tagsShrink)) {
+      query["Tags"] = request.tagsShrink;
+    }
+
+    if (!Util.isUnset(request.taskId)) {
+      query["TaskId"] = request.taskId;
+    }
+
+    if (!Util.isUnset(request.taskType)) {
+      query["TaskType"] = request.taskType;
+    }
+
+    let req = new $OpenApi.OpenApiRequest({
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApi.Params({
+      action: "UpdateTimingSyntheticTask",
+      version: "2019-08-08",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $tea.cast<UpdateTimingSyntheticTaskResponse>(await this.callApi(params, req, runtime), new UpdateTimingSyntheticTaskResponse({}));
+  }
+
+  async updateTimingSyntheticTask(request: UpdateTimingSyntheticTaskRequest): Promise<UpdateTimingSyntheticTaskResponse> {
+    let runtime = new $Util.RuntimeOptions({ });
+    return await this.updateTimingSyntheticTaskWithOptions(request, runtime);
   }
 
   /**
