@@ -13,6 +13,93 @@ import EndpointUtil from '@alicloud/endpoint-util';
 import { Readable } from 'stream';
 import * as $tea from '@alicloud/tea-typescript';
 
+export class CreateAsyncTranslateRequest extends $tea.Model {
+  apiType?: string;
+  formatType?: string;
+  scene?: string;
+  sourceLanguage?: string;
+  sourceText?: string;
+  targetLanguage?: string;
+  static names(): { [key: string]: string } {
+    return {
+      apiType: 'ApiType',
+      formatType: 'FormatType',
+      scene: 'Scene',
+      sourceLanguage: 'SourceLanguage',
+      sourceText: 'SourceText',
+      targetLanguage: 'TargetLanguage',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      apiType: 'string',
+      formatType: 'string',
+      scene: 'string',
+      sourceLanguage: 'string',
+      sourceText: 'string',
+      targetLanguage: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class CreateAsyncTranslateResponseBody extends $tea.Model {
+  code?: number;
+  data?: CreateAsyncTranslateResponseBodyData;
+  message?: string;
+  requestId?: string;
+  static names(): { [key: string]: string } {
+    return {
+      code: 'Code',
+      data: 'Data',
+      message: 'Message',
+      requestId: 'RequestId',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      code: 'number',
+      data: CreateAsyncTranslateResponseBodyData,
+      message: 'string',
+      requestId: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class CreateAsyncTranslateResponse extends $tea.Model {
+  headers: { [key: string]: string };
+  statusCode: number;
+  body: CreateAsyncTranslateResponseBody;
+  static names(): { [key: string]: string } {
+    return {
+      headers: 'headers',
+      statusCode: 'statusCode',
+      body: 'body',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
+      body: CreateAsyncTranslateResponseBody,
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
 export class CreateDocTranslateTaskRequest extends $tea.Model {
   callbackUrl?: string;
   clientToken?: string;
@@ -207,6 +294,78 @@ export class CreateImageTranslateTaskResponse extends $tea.Model {
       headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
       statusCode: 'number',
       body: CreateImageTranslateTaskResponseBody,
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class GetAsyncTranslateRequest extends $tea.Model {
+  jobId?: string;
+  static names(): { [key: string]: string } {
+    return {
+      jobId: 'JobId',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      jobId: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class GetAsyncTranslateResponseBody extends $tea.Model {
+  code?: number;
+  data?: GetAsyncTranslateResponseBodyData;
+  message?: string;
+  requestId?: string;
+  static names(): { [key: string]: string } {
+    return {
+      code: 'Code',
+      data: 'Data',
+      message: 'Message',
+      requestId: 'RequestId',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      code: 'number',
+      data: GetAsyncTranslateResponseBodyData,
+      message: 'string',
+      requestId: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class GetAsyncTranslateResponse extends $tea.Model {
+  headers: { [key: string]: string };
+  statusCode: number;
+  body: GetAsyncTranslateResponseBody;
+  static names(): { [key: string]: string } {
+    return {
+      headers: 'headers',
+      statusCode: 'statusCode',
+      body: 'body',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
+      body: GetAsyncTranslateResponseBody,
     };
   }
 
@@ -1701,6 +1860,28 @@ export class TranslateImageBatchResponse extends $tea.Model {
   }
 }
 
+export class CreateAsyncTranslateResponseBodyData extends $tea.Model {
+  jobId?: string;
+  status?: string;
+  static names(): { [key: string]: string } {
+    return {
+      jobId: 'JobId',
+      status: 'Status',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      jobId: 'string',
+      status: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
 export class CreateImageTranslateTaskResponseBodyData extends $tea.Model {
   taskId?: string;
   static names(): { [key: string]: string } {
@@ -1712,6 +1893,34 @@ export class CreateImageTranslateTaskResponseBodyData extends $tea.Model {
   static types(): { [key: string]: any } {
     return {
       taskId: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class GetAsyncTranslateResponseBodyData extends $tea.Model {
+  detectedLanguage?: string;
+  status?: string;
+  translatedText?: string;
+  wordCount?: string;
+  static names(): { [key: string]: string } {
+    return {
+      detectedLanguage: 'DetectedLanguage',
+      status: 'Status',
+      translatedText: 'TranslatedText',
+      wordCount: 'WordCount',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      detectedLanguage: 'string',
+      status: 'string',
+      translatedText: 'string',
+      wordCount: 'string',
     };
   }
 
@@ -2169,6 +2378,55 @@ export default class Client extends OpenApi {
     return EndpointUtil.getEndpointRules(productId, regionId, endpointRule, network, suffix);
   }
 
+  async createAsyncTranslateWithOptions(request: CreateAsyncTranslateRequest, runtime: $Util.RuntimeOptions): Promise<CreateAsyncTranslateResponse> {
+    Util.validateModel(request);
+    let body : {[key: string ]: any} = { };
+    if (!Util.isUnset(request.apiType)) {
+      body["ApiType"] = request.apiType;
+    }
+
+    if (!Util.isUnset(request.formatType)) {
+      body["FormatType"] = request.formatType;
+    }
+
+    if (!Util.isUnset(request.scene)) {
+      body["Scene"] = request.scene;
+    }
+
+    if (!Util.isUnset(request.sourceLanguage)) {
+      body["SourceLanguage"] = request.sourceLanguage;
+    }
+
+    if (!Util.isUnset(request.sourceText)) {
+      body["SourceText"] = request.sourceText;
+    }
+
+    if (!Util.isUnset(request.targetLanguage)) {
+      body["TargetLanguage"] = request.targetLanguage;
+    }
+
+    let req = new $OpenApi.OpenApiRequest({
+      body: OpenApiUtil.parseToMap(body),
+    });
+    let params = new $OpenApi.Params({
+      action: "CreateAsyncTranslate",
+      version: "2018-10-12",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $tea.cast<CreateAsyncTranslateResponse>(await this.callApi(params, req, runtime), new CreateAsyncTranslateResponse({}));
+  }
+
+  async createAsyncTranslate(request: CreateAsyncTranslateRequest): Promise<CreateAsyncTranslateResponse> {
+    let runtime = new $Util.RuntimeOptions({ });
+    return await this.createAsyncTranslateWithOptions(request, runtime);
+  }
+
   async createDocTranslateTaskWithOptions(request: CreateDocTranslateTaskRequest, runtime: $Util.RuntimeOptions): Promise<CreateDocTranslateTaskResponse> {
     Util.validateModel(request);
     let body : {[key: string ]: any} = { };
@@ -2335,6 +2593,35 @@ export default class Client extends OpenApi {
   async createImageTranslateTask(request: CreateImageTranslateTaskRequest): Promise<CreateImageTranslateTaskResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.createImageTranslateTaskWithOptions(request, runtime);
+  }
+
+  async getAsyncTranslateWithOptions(request: GetAsyncTranslateRequest, runtime: $Util.RuntimeOptions): Promise<GetAsyncTranslateResponse> {
+    Util.validateModel(request);
+    let body : {[key: string ]: any} = { };
+    if (!Util.isUnset(request.jobId)) {
+      body["JobId"] = request.jobId;
+    }
+
+    let req = new $OpenApi.OpenApiRequest({
+      body: OpenApiUtil.parseToMap(body),
+    });
+    let params = new $OpenApi.Params({
+      action: "GetAsyncTranslate",
+      version: "2018-10-12",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $tea.cast<GetAsyncTranslateResponse>(await this.callApi(params, req, runtime), new GetAsyncTranslateResponse({}));
+  }
+
+  async getAsyncTranslate(request: GetAsyncTranslateRequest): Promise<GetAsyncTranslateResponse> {
+    let runtime = new $Util.RuntimeOptions({ });
+    return await this.getAsyncTranslateWithOptions(request, runtime);
   }
 
   async getBatchTranslateWithOptions(request: GetBatchTranslateRequest, runtime: $Util.RuntimeOptions): Promise<GetBatchTranslateResponse> {
