@@ -1475,15 +1475,6 @@ export default class Client extends OpenApi {
     return await this.cancelTaskWithOptions(taskId, headers, runtime);
   }
 
-  /**
-    * POST /api/v1/providers/{provider}/products/{product}/resources/{parentResourcePath}/{resourceTypeCode}。
-    *
-    * @param requestPath the whole path of resource string
-    * @param request CreateResourceRequest
-    * @param headers map
-    * @param runtime runtime options for this request RuntimeOptions
-    * @return CreateResourceResponse
-   */
   async createResourceWithOptions(requestPath: string, request: CreateResourceRequest, headers: {[key: string ]: string}, runtime: $Util.RuntimeOptions): Promise<CreateResourceResponse> {
     Util.validateModel(request);
     let query : {[key: string ]: any} = { };
@@ -1514,28 +1505,12 @@ export default class Client extends OpenApi {
     return $tea.cast<CreateResourceResponse>(await this.callApi(params, req, runtime), new CreateResourceResponse({}));
   }
 
-  /**
-    * POST /api/v1/providers/{provider}/products/{product}/resources/{parentResourcePath}/{resourceTypeCode}。
-    *
-    * @param requestPath the whole path of resource string
-    * @param request CreateResourceRequest
-    * @return CreateResourceResponse
-   */
   async createResource(requestPath: string, request: CreateResourceRequest): Promise<CreateResourceResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     let headers : {[key: string ]: string} = { };
     return await this.createResourceWithOptions(requestPath, request, headers, runtime);
   }
 
-  /**
-    * DELETE /api/v1/providers/{provider}/products/{product}/resources/{parentResourcePath}/{resourceTypeCode}/{resourceId}。
-    *
-    * @param requestPath the whole path of resource string
-    * @param request DeleteResourceRequest
-    * @param headers map
-    * @param runtime runtime options for this request RuntimeOptions
-    * @return DeleteResourceResponse
-   */
   async deleteResourceWithOptions(requestPath: string, request: DeleteResourceRequest, headers: {[key: string ]: string}, runtime: $Util.RuntimeOptions): Promise<DeleteResourceResponse> {
     Util.validateModel(request);
     let query : {[key: string ]: any} = { };
@@ -1565,13 +1540,6 @@ export default class Client extends OpenApi {
     return $tea.cast<DeleteResourceResponse>(await this.callApi(params, req, runtime), new DeleteResourceResponse({}));
   }
 
-  /**
-    * DELETE /api/v1/providers/{provider}/products/{product}/resources/{parentResourcePath}/{resourceTypeCode}/{resourceId}。
-    *
-    * @param requestPath the whole path of resource string
-    * @param request DeleteResourceRequest
-    * @return DeleteResourceResponse
-   */
   async deleteResource(requestPath: string, request: DeleteResourceRequest): Promise<DeleteResourceResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     let headers : {[key: string ]: string} = { };
@@ -1696,15 +1664,6 @@ export default class Client extends OpenApi {
     return await this.getTaskWithOptions(taskId, headers, runtime);
   }
 
-  /**
-    * GET /api/v1/providers/{provider}/products/{product}/dataSources/{resourceType}。
-    *
-    * @param requestPath the whole path of resource string
-    * @param tmpReq ListDataSourcesRequest
-    * @param headers map
-    * @param runtime runtime options for this request RuntimeOptions
-    * @return ListDataSourcesResponse
-   */
   async listDataSourcesWithOptions(requestPath: string, tmpReq: ListDataSourcesRequest, headers: {[key: string ]: string}, runtime: $Util.RuntimeOptions): Promise<ListDataSourcesResponse> {
     Util.validateModel(tmpReq);
     let request = new ListDataSourcesShrinkRequest({ });
@@ -1740,13 +1699,6 @@ export default class Client extends OpenApi {
     return $tea.cast<ListDataSourcesResponse>(await this.callApi(params, req, runtime), new ListDataSourcesResponse({}));
   }
 
-  /**
-    * GET /api/v1/providers/{provider}/products/{product}/dataSources/{resourceType}。
-    *
-    * @param requestPath the whole path of resource string
-    * @param request ListDataSourcesRequest
-    * @return ListDataSourcesResponse
-   */
   async listDataSources(requestPath: string, request: ListDataSourcesRequest): Promise<ListDataSourcesResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     let headers : {[key: string ]: string} = { };
