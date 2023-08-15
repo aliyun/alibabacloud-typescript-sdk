@@ -39390,13 +39390,19 @@ export class DescribeRouteEntryListResponseBodyRouteEntrys extends $tea.Model {
 }
 
 export class DescribeRouteTableListRequestTag extends $tea.Model {
+  key?: string;
+  value?: string;
   static names(): { [key: string]: string } {
     return {
+      key: 'Key',
+      value: 'Value',
     };
   }
 
   static types(): { [key: string]: any } {
     return {
+      key: 'string',
+      value: 'string',
     };
   }
 
@@ -54374,7 +54380,6 @@ export default class Client extends OpenApi {
   }
 
   /**
-    * ## Usage notes
     * *   Before you create a VPN gateway, we recommend that you understand its limits. For more information, see [Limits on VPN gateways](~~65290~~).
     * *   The **CreateVpnGateway** operation is asynchronous. After you send the request, the system returns a request ID. However, the operation is still being performed in the system background. You can call [DescribeVpnGateway](~~73720~~) to query the status of a VPN gateway.
     *     *   If the VPN gateway is in the **provisioning** state, the VPN gateway is being created.
@@ -54481,7 +54486,6 @@ export default class Client extends OpenApi {
   }
 
   /**
-    * ## Usage notes
     * *   Before you create a VPN gateway, we recommend that you understand its limits. For more information, see [Limits on VPN gateways](~~65290~~).
     * *   The **CreateVpnGateway** operation is asynchronous. After you send the request, the system returns a request ID. However, the operation is still being performed in the system background. You can call [DescribeVpnGateway](~~73720~~) to query the status of a VPN gateway.
     *     *   If the VPN gateway is in the **provisioning** state, the VPN gateway is being created.
@@ -55956,7 +55960,8 @@ export default class Client extends OpenApi {
   }
 
   /**
-    * - The **DeleteIpv6Gateway** operation is asynchronous. After you send the request, the system returns a request ID. However, the operation is still being performed in the system background. You can call the [DescribeIpv6GatewayAttribute](/help/en/virtual-private-cloud/latest/describeipv6gatewayattribute) operation to query the status of an IPv6 gateway:   - If the IPv6 gateway is in the **Deleting** state, the IPv6 gateway is being deleted.
+    * - The **DeleteIpv6Gateway** operation is asynchronous. After you send the request, the system returns a request ID. However, the operation is still being performed in the system background. You can call the [DescribeIpv6GatewayAttribute](/help/en/virtual-private-cloud/latest/describeipv6gatewayattribute) operation to query the status of an IPv6 gateway:   
+    *   - If the IPv6 gateway is in the **Deleting** state, the IPv6 gateway is being deleted.
     *   - If you cannot query the IPv6 gateway, the IPv6 gateway is deleted.
     * - After you call the **DeleteIpv6Gateway** operation to delete an IPv6 gateway, you cannot call the operation again to delete the IPv6 gateway until the deletion task is complete.
     * ## Prerequisites
@@ -56015,7 +56020,8 @@ export default class Client extends OpenApi {
   }
 
   /**
-    * - The **DeleteIpv6Gateway** operation is asynchronous. After you send the request, the system returns a request ID. However, the operation is still being performed in the system background. You can call the [DescribeIpv6GatewayAttribute](/help/en/virtual-private-cloud/latest/describeipv6gatewayattribute) operation to query the status of an IPv6 gateway:   - If the IPv6 gateway is in the **Deleting** state, the IPv6 gateway is being deleted.
+    * - The **DeleteIpv6Gateway** operation is asynchronous. After you send the request, the system returns a request ID. However, the operation is still being performed in the system background. You can call the [DescribeIpv6GatewayAttribute](/help/en/virtual-private-cloud/latest/describeipv6gatewayattribute) operation to query the status of an IPv6 gateway:   
+    *   - If the IPv6 gateway is in the **Deleting** state, the IPv6 gateway is being deleted.
     *   - If you cannot query the IPv6 gateway, the IPv6 gateway is deleted.
     * - After you call the **DeleteIpv6Gateway** operation to delete an IPv6 gateway, you cannot call the operation again to delete the IPv6 gateway until the deletion task is complete.
     * ## Prerequisites
@@ -61430,6 +61436,13 @@ export default class Client extends OpenApi {
     return await this.describeSslVpnClientCertsWithOptions(request, runtime);
   }
 
+  /**
+    * If your VPN gateway was created before December 10, 2022, you must upgrade your VPN gateway to the latest version before you can view connection information about SSL clients. For more information, see Upgrade a VPN gateway. If your VPN gateway was created after December 10, 2022, you can view connection information about SSL clients by default.
+    *
+    * @param request DescribeSslVpnClientsRequest
+    * @param runtime runtime options for this request RuntimeOptions
+    * @return DescribeSslVpnClientsResponse
+   */
   async describeSslVpnClientsWithOptions(request: DescribeSslVpnClientsRequest, runtime: $Util.RuntimeOptions): Promise<DescribeSslVpnClientsResponse> {
     Util.validateModel(request);
     let query = { };
@@ -61482,6 +61495,12 @@ export default class Client extends OpenApi {
     return $tea.cast<DescribeSslVpnClientsResponse>(await this.callApi(params, req, runtime), new DescribeSslVpnClientsResponse({}));
   }
 
+  /**
+    * If your VPN gateway was created before December 10, 2022, you must upgrade your VPN gateway to the latest version before you can view connection information about SSL clients. For more information, see Upgrade a VPN gateway. If your VPN gateway was created after December 10, 2022, you can view connection information about SSL clients by default.
+    *
+    * @param request DescribeSslVpnClientsRequest
+    * @return DescribeSslVpnClientsResponse
+   */
   async describeSslVpnClients(request: DescribeSslVpnClientsRequest): Promise<DescribeSslVpnClientsResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.describeSslVpnClientsWithOptions(request, runtime);
