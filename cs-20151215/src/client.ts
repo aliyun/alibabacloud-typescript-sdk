@@ -3491,15 +3491,18 @@ export class DescribeEventsResponse extends $tea.Model {
 }
 
 export class DescribeExternalAgentRequest extends $tea.Model {
+  agentMode?: string;
   privateIpAddress?: string;
   static names(): { [key: string]: string } {
     return {
+      agentMode: 'AgentMode',
       privateIpAddress: 'PrivateIpAddress',
     };
   }
 
   static types(): { [key: string]: any } {
     return {
+      agentMode: 'string',
       privateIpAddress: 'string',
     };
   }
@@ -13394,6 +13397,10 @@ export default class Client extends OpenApi {
   async describeExternalAgentWithOptions(ClusterId: string, request: DescribeExternalAgentRequest, headers: {[key: string ]: string}, runtime: $Util.RuntimeOptions): Promise<DescribeExternalAgentResponse> {
     Util.validateModel(request);
     let query : {[key: string ]: any} = { };
+    if (!Util.isUnset(request.agentMode)) {
+      query["AgentMode"] = request.agentMode;
+    }
+
     if (!Util.isUnset(request.privateIpAddress)) {
       query["PrivateIpAddress"] = request.privateIpAddress;
     }
