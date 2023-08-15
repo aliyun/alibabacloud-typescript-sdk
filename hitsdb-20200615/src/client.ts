@@ -43,6 +43,8 @@ export class CreateLindormInstanceRequest extends $tea.Model {
   solrSpec?: string;
   standbyVSwitchId?: string;
   standbyZoneId?: string;
+  streamNum?: number;
+  streamSpec?: string;
   tsdbNum?: number;
   tsdbSpec?: string;
   VPCId?: string;
@@ -84,6 +86,8 @@ export class CreateLindormInstanceRequest extends $tea.Model {
       solrSpec: 'SolrSpec',
       standbyVSwitchId: 'StandbyVSwitchId',
       standbyZoneId: 'StandbyZoneId',
+      streamNum: 'StreamNum',
+      streamSpec: 'StreamSpec',
       tsdbNum: 'TsdbNum',
       tsdbSpec: 'TsdbSpec',
       VPCId: 'VPCId',
@@ -128,6 +132,8 @@ export class CreateLindormInstanceRequest extends $tea.Model {
       solrSpec: 'string',
       standbyVSwitchId: 'string',
       standbyZoneId: 'string',
+      streamNum: 'number',
+      streamSpec: 'string',
       tsdbNum: 'number',
       tsdbSpec: 'string',
       VPCId: 'string',
@@ -359,6 +365,111 @@ export class GetInstanceIpWhiteListResponse extends $tea.Model {
   }
 }
 
+export class GetLdpsResourceCostRequest extends $tea.Model {
+  endTime?: number;
+  instanceId?: string;
+  jobId?: string;
+  ownerAccount?: string;
+  ownerId?: number;
+  regionId?: string;
+  resourceOwnerAccount?: string;
+  resourceOwnerId?: number;
+  securityToken?: string;
+  startTime?: number;
+  static names(): { [key: string]: string } {
+    return {
+      endTime: 'EndTime',
+      instanceId: 'InstanceId',
+      jobId: 'JobId',
+      ownerAccount: 'OwnerAccount',
+      ownerId: 'OwnerId',
+      regionId: 'RegionId',
+      resourceOwnerAccount: 'ResourceOwnerAccount',
+      resourceOwnerId: 'ResourceOwnerId',
+      securityToken: 'SecurityToken',
+      startTime: 'StartTime',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      endTime: 'number',
+      instanceId: 'string',
+      jobId: 'string',
+      ownerAccount: 'string',
+      ownerId: 'number',
+      regionId: 'string',
+      resourceOwnerAccount: 'string',
+      resourceOwnerId: 'number',
+      securityToken: 'string',
+      startTime: 'number',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class GetLdpsResourceCostResponseBody extends $tea.Model {
+  endTime?: number;
+  instanceId?: string;
+  jobId?: string;
+  requestId?: string;
+  startTime?: number;
+  totalResource?: number;
+  static names(): { [key: string]: string } {
+    return {
+      endTime: 'EndTime',
+      instanceId: 'InstanceId',
+      jobId: 'JobId',
+      requestId: 'RequestId',
+      startTime: 'StartTime',
+      totalResource: 'TotalResource',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      endTime: 'number',
+      instanceId: 'string',
+      jobId: 'string',
+      requestId: 'string',
+      startTime: 'number',
+      totalResource: 'number',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class GetLdpsResourceCostResponse extends $tea.Model {
+  headers: { [key: string]: string };
+  statusCode: number;
+  body: GetLdpsResourceCostResponseBody;
+  static names(): { [key: string]: string } {
+    return {
+      headers: 'headers',
+      statusCode: 'statusCode',
+      body: 'body',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
+      body: GetLdpsResourceCostResponseBody,
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
 export class GetLindormInstanceRequest extends $tea.Model {
   instanceId?: string;
   ownerAccount?: string;
@@ -397,6 +508,7 @@ export class GetLindormInstanceResponseBody extends $tea.Model {
   aliUid?: number;
   arbiterVSwitchId?: string;
   arbiterZoneId?: string;
+  archVersion?: string;
   autoRenew?: boolean;
   coldStorage?: number;
   coreDiskCategory?: string;
@@ -409,9 +521,12 @@ export class GetLindormInstanceResponseBody extends $tea.Model {
   diskCategory?: string;
   diskThreshold?: string;
   diskUsage?: string;
+  enableBlob?: boolean;
   enableCdc?: boolean;
   enableCompute?: boolean;
   enableKms?: boolean;
+  enableLTS?: boolean;
+  enableMLCtrl?: boolean;
   enableSSL?: boolean;
   enableShs?: boolean;
   enableStream?: boolean;
@@ -448,6 +563,7 @@ export class GetLindormInstanceResponseBody extends $tea.Model {
       aliUid: 'AliUid',
       arbiterVSwitchId: 'ArbiterVSwitchId',
       arbiterZoneId: 'ArbiterZoneId',
+      archVersion: 'ArchVersion',
       autoRenew: 'AutoRenew',
       coldStorage: 'ColdStorage',
       coreDiskCategory: 'CoreDiskCategory',
@@ -460,9 +576,12 @@ export class GetLindormInstanceResponseBody extends $tea.Model {
       diskCategory: 'DiskCategory',
       diskThreshold: 'DiskThreshold',
       diskUsage: 'DiskUsage',
+      enableBlob: 'EnableBlob',
       enableCdc: 'EnableCdc',
       enableCompute: 'EnableCompute',
       enableKms: 'EnableKms',
+      enableLTS: 'EnableLTS',
+      enableMLCtrl: 'EnableMLCtrl',
       enableSSL: 'EnableSSL',
       enableShs: 'EnableShs',
       enableStream: 'EnableStream',
@@ -502,6 +621,7 @@ export class GetLindormInstanceResponseBody extends $tea.Model {
       aliUid: 'number',
       arbiterVSwitchId: 'string',
       arbiterZoneId: 'string',
+      archVersion: 'string',
       autoRenew: 'boolean',
       coldStorage: 'number',
       coreDiskCategory: 'string',
@@ -514,9 +634,12 @@ export class GetLindormInstanceResponseBody extends $tea.Model {
       diskCategory: 'string',
       diskThreshold: 'string',
       diskUsage: 'string',
+      enableBlob: 'boolean',
       enableCdc: 'boolean',
       enableCompute: 'boolean',
       enableKms: 'boolean',
+      enableLTS: 'boolean',
+      enableMLCtrl: 'boolean',
       enableSSL: 'boolean',
       enableShs: 'boolean',
       enableStream: 'boolean',
@@ -969,6 +1092,7 @@ export class ModifyInstancePayTypeResponse extends $tea.Model {
 }
 
 export class ReleaseLindormInstanceRequest extends $tea.Model {
+  immediately?: boolean;
   instanceId?: string;
   ownerAccount?: string;
   ownerId?: number;
@@ -977,6 +1101,7 @@ export class ReleaseLindormInstanceRequest extends $tea.Model {
   securityToken?: string;
   static names(): { [key: string]: string } {
     return {
+      immediately: 'Immediately',
       instanceId: 'InstanceId',
       ownerAccount: 'OwnerAccount',
       ownerId: 'OwnerId',
@@ -988,6 +1113,7 @@ export class ReleaseLindormInstanceRequest extends $tea.Model {
 
   static types(): { [key: string]: any } {
     return {
+      immediately: 'boolean',
       instanceId: 'string',
       ownerAccount: 'string',
       ownerId: 'number',
@@ -1421,6 +1547,8 @@ export class UpgradeLindormInstanceRequest extends $tea.Model {
   securityToken?: string;
   solrNum?: number;
   solrSpec?: string;
+  streamNum?: number;
+  streamSpec?: string;
   tsdbNum?: number;
   tsdbSpec?: string;
   upgradeType?: string;
@@ -1450,6 +1578,8 @@ export class UpgradeLindormInstanceRequest extends $tea.Model {
       securityToken: 'SecurityToken',
       solrNum: 'SolrNum',
       solrSpec: 'SolrSpec',
+      streamNum: 'StreamNum',
+      streamSpec: 'StreamSpec',
       tsdbNum: 'TsdbNum',
       tsdbSpec: 'TsdbSpec',
       upgradeType: 'UpgradeType',
@@ -1482,6 +1612,8 @@ export class UpgradeLindormInstanceRequest extends $tea.Model {
       securityToken: 'string',
       solrNum: 'number',
       solrSpec: 'string',
+      streamNum: 'number',
+      streamSpec: 'string',
       tsdbNum: 'number',
       tsdbSpec: 'string',
       upgradeType: 'string',
@@ -1851,55 +1983,6 @@ export default class Client extends OpenApi {
   constructor(config: $OpenApi.Config) {
     super(config);
     this._endpointRule = "regional";
-    this._endpointMap = {
-      'cn-qingdao': "hitsdb.aliyuncs.com",
-      'cn-beijing': "hitsdb.aliyuncs.com",
-      'cn-hangzhou': "hitsdb.aliyuncs.com",
-      'cn-shanghai': "hitsdb.aliyuncs.com",
-      'cn-shenzhen': "hitsdb.aliyuncs.com",
-      'cn-hongkong': "hitsdb.aliyuncs.com",
-      'ap-southeast-1': "hitsdb.aliyuncs.com",
-      'us-west-1': "hitsdb.aliyuncs.com",
-      'us-east-1': "hitsdb.aliyuncs.com",
-      'cn-shanghai-finance-1': "hitsdb.aliyuncs.com",
-      'cn-shenzhen-finance-1': "hitsdb.aliyuncs.com",
-      'ap-northeast-2-pop': "hitsdb.aliyuncs.com",
-      'cn-beijing-finance-1': "hitsdb.aliyuncs.com",
-      'cn-beijing-finance-pop': "hitsdb.aliyuncs.com",
-      'cn-beijing-gov-1': "hitsdb.aliyuncs.com",
-      'cn-beijing-nu16-b01': "hitsdb.aliyuncs.com",
-      'cn-chengdu': "hitsdb.aliyuncs.com",
-      'cn-edge-1': "hitsdb.aliyuncs.com",
-      'cn-fujian': "hitsdb.aliyuncs.com",
-      'cn-haidian-cm12-c01': "hitsdb.aliyuncs.com",
-      'cn-hangzhou-bj-b01': "hitsdb.aliyuncs.com",
-      'cn-hangzhou-finance': "hitsdb.aliyuncs.com",
-      'cn-hangzhou-internal-prod-1': "hitsdb.aliyuncs.com",
-      'cn-hangzhou-internal-test-1': "hitsdb.aliyuncs.com",
-      'cn-hangzhou-internal-test-2': "hitsdb.aliyuncs.com",
-      'cn-hangzhou-internal-test-3': "hitsdb.aliyuncs.com",
-      'cn-hangzhou-test-306': "hitsdb.aliyuncs.com",
-      'cn-hongkong-finance-pop': "hitsdb.aliyuncs.com",
-      'cn-huhehaote-nebula-1': "hitsdb.aliyuncs.com",
-      'cn-qingdao-nebula': "hitsdb.aliyuncs.com",
-      'cn-shanghai-et15-b01': "hitsdb.aliyuncs.com",
-      'cn-shanghai-et2-b01': "hitsdb.aliyuncs.com",
-      'cn-shanghai-inner': "hitsdb.aliyuncs.com",
-      'cn-shanghai-internal-test-1': "hitsdb.aliyuncs.com",
-      'cn-shenzhen-inner': "hitsdb.aliyuncs.com",
-      'cn-shenzhen-st4-d01': "hitsdb.aliyuncs.com",
-      'cn-shenzhen-su18-b01': "hitsdb.aliyuncs.com",
-      'cn-wuhan': "hitsdb.aliyuncs.com",
-      'cn-wulanchabu': "hitsdb.aliyuncs.com",
-      'cn-yushanfang': "hitsdb.aliyuncs.com",
-      'cn-zhangbei': "hitsdb.aliyuncs.com",
-      'cn-zhangbei-na61-b01': "hitsdb.aliyuncs.com",
-      'cn-zhangjiakou-na62-a01': "hitsdb.aliyuncs.com",
-      'cn-zhengzhou-nebula-1': "hitsdb.aliyuncs.com",
-      'eu-west-1-oxs': "hitsdb.aliyuncs.com",
-      'me-east-1': "hitsdb.aliyuncs.com",
-      'rus-west-1-pop': "hitsdb.aliyuncs.com",
-    };
     this.checkConfig(config);
     this._endpoint = this.getEndpoint("hitsdb", this._regionId, this._endpointRule, this._network, this._suffix, this._endpointMap, this._endpoint);
   }
@@ -2056,6 +2139,14 @@ export default class Client extends OpenApi {
       query["StandbyZoneId"] = request.standbyZoneId;
     }
 
+    if (!Util.isUnset(request.streamNum)) {
+      query["StreamNum"] = request.streamNum;
+    }
+
+    if (!Util.isUnset(request.streamSpec)) {
+      query["StreamSpec"] = request.streamSpec;
+    }
+
     if (!Util.isUnset(request.tsdbNum)) {
       query["TsdbNum"] = request.tsdbNum;
     }
@@ -2198,6 +2289,71 @@ export default class Client extends OpenApi {
   async getInstanceIpWhiteList(request: GetInstanceIpWhiteListRequest): Promise<GetInstanceIpWhiteListResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.getInstanceIpWhiteListWithOptions(request, runtime);
+  }
+
+  async getLdpsResourceCostWithOptions(request: GetLdpsResourceCostRequest, runtime: $Util.RuntimeOptions): Promise<GetLdpsResourceCostResponse> {
+    Util.validateModel(request);
+    let query = { };
+    if (!Util.isUnset(request.endTime)) {
+      query["EndTime"] = request.endTime;
+    }
+
+    if (!Util.isUnset(request.instanceId)) {
+      query["InstanceId"] = request.instanceId;
+    }
+
+    if (!Util.isUnset(request.jobId)) {
+      query["JobId"] = request.jobId;
+    }
+
+    if (!Util.isUnset(request.ownerAccount)) {
+      query["OwnerAccount"] = request.ownerAccount;
+    }
+
+    if (!Util.isUnset(request.ownerId)) {
+      query["OwnerId"] = request.ownerId;
+    }
+
+    if (!Util.isUnset(request.regionId)) {
+      query["RegionId"] = request.regionId;
+    }
+
+    if (!Util.isUnset(request.resourceOwnerAccount)) {
+      query["ResourceOwnerAccount"] = request.resourceOwnerAccount;
+    }
+
+    if (!Util.isUnset(request.resourceOwnerId)) {
+      query["ResourceOwnerId"] = request.resourceOwnerId;
+    }
+
+    if (!Util.isUnset(request.securityToken)) {
+      query["SecurityToken"] = request.securityToken;
+    }
+
+    if (!Util.isUnset(request.startTime)) {
+      query["StartTime"] = request.startTime;
+    }
+
+    let req = new $OpenApi.OpenApiRequest({
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApi.Params({
+      action: "GetLdpsResourceCost",
+      version: "2020-06-15",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $tea.cast<GetLdpsResourceCostResponse>(await this.callApi(params, req, runtime), new GetLdpsResourceCostResponse({}));
+  }
+
+  async getLdpsResourceCost(request: GetLdpsResourceCostRequest): Promise<GetLdpsResourceCostResponse> {
+    let runtime = new $Util.RuntimeOptions({ });
+    return await this.getLdpsResourceCostWithOptions(request, runtime);
   }
 
   async getLindormInstanceWithOptions(request: GetLindormInstanceRequest, runtime: $Util.RuntimeOptions): Promise<GetLindormInstanceResponse> {
@@ -2444,6 +2600,14 @@ export default class Client extends OpenApi {
     return await this.listTagResourcesWithOptions(request, runtime);
   }
 
+  /**
+    * You can call this operation to change the billing method of an instance to subscription or pay-as-you-go.
+    * Before you call this operation, make sure that you fully understand the billing methods and [pricing](https://www.aliyun.com/price/product?spm=openapi-amp.newDocPublishment.0.0.6345281fu63xJ3#/hitsdb/detail/hitsdb_lindormpre_public_cn) of Lindorm.
+    *
+    * @param request ModifyInstancePayTypeRequest
+    * @param runtime runtime options for this request RuntimeOptions
+    * @return ModifyInstancePayTypeResponse
+   */
   async modifyInstancePayTypeWithOptions(request: ModifyInstancePayTypeRequest, runtime: $Util.RuntimeOptions): Promise<ModifyInstancePayTypeResponse> {
     Util.validateModel(request);
     let query = { };
@@ -2500,6 +2664,13 @@ export default class Client extends OpenApi {
     return $tea.cast<ModifyInstancePayTypeResponse>(await this.callApi(params, req, runtime), new ModifyInstancePayTypeResponse({}));
   }
 
+  /**
+    * You can call this operation to change the billing method of an instance to subscription or pay-as-you-go.
+    * Before you call this operation, make sure that you fully understand the billing methods and [pricing](https://www.aliyun.com/price/product?spm=openapi-amp.newDocPublishment.0.0.6345281fu63xJ3#/hitsdb/detail/hitsdb_lindormpre_public_cn) of Lindorm.
+    *
+    * @param request ModifyInstancePayTypeRequest
+    * @return ModifyInstancePayTypeResponse
+   */
   async modifyInstancePayType(request: ModifyInstancePayTypeRequest): Promise<ModifyInstancePayTypeResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.modifyInstancePayTypeWithOptions(request, runtime);
@@ -2508,6 +2679,10 @@ export default class Client extends OpenApi {
   async releaseLindormInstanceWithOptions(request: ReleaseLindormInstanceRequest, runtime: $Util.RuntimeOptions): Promise<ReleaseLindormInstanceResponse> {
     Util.validateModel(request);
     let query = { };
+    if (!Util.isUnset(request.immediately)) {
+      query["Immediately"] = request.immediately;
+    }
+
     if (!Util.isUnset(request.instanceId)) {
       query["InstanceId"] = request.instanceId;
     }
@@ -2554,6 +2729,13 @@ export default class Client extends OpenApi {
     return await this.releaseLindormInstanceWithOptions(request, runtime);
   }
 
+  /**
+    * The ID of the order. You can obtain an order ID on the Orders page in Alibaba Cloud User Center.
+    *
+    * @param request RenewLindormInstanceRequest
+    * @param runtime runtime options for this request RuntimeOptions
+    * @return RenewLindormInstanceResponse
+   */
   async renewLindormInstanceWithOptions(request: RenewLindormInstanceRequest, runtime: $Util.RuntimeOptions): Promise<RenewLindormInstanceResponse> {
     Util.validateModel(request);
     let query = { };
@@ -2610,6 +2792,12 @@ export default class Client extends OpenApi {
     return $tea.cast<RenewLindormInstanceResponse>(await this.callApi(params, req, runtime), new RenewLindormInstanceResponse({}));
   }
 
+  /**
+    * The ID of the order. You can obtain an order ID on the Orders page in Alibaba Cloud User Center.
+    *
+    * @param request RenewLindormInstanceRequest
+    * @return RenewLindormInstanceResponse
+   */
   async renewLindormInstance(request: RenewLindormInstanceRequest): Promise<RenewLindormInstanceResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.renewLindormInstanceWithOptions(request, runtime);
@@ -2737,6 +2925,13 @@ export default class Client extends OpenApi {
     return await this.untagResourcesWithOptions(request, runtime);
   }
 
+  /**
+    * ***
+    *
+    * @param request UpdateInstanceIpWhiteListRequest
+    * @param runtime runtime options for this request RuntimeOptions
+    * @return UpdateInstanceIpWhiteListResponse
+   */
   async updateInstanceIpWhiteListWithOptions(request: UpdateInstanceIpWhiteListRequest, runtime: $Util.RuntimeOptions): Promise<UpdateInstanceIpWhiteListResponse> {
     Util.validateModel(request);
     let query = { };
@@ -2789,11 +2984,24 @@ export default class Client extends OpenApi {
     return $tea.cast<UpdateInstanceIpWhiteListResponse>(await this.callApi(params, req, runtime), new UpdateInstanceIpWhiteListResponse({}));
   }
 
+  /**
+    * ***
+    *
+    * @param request UpdateInstanceIpWhiteListRequest
+    * @return UpdateInstanceIpWhiteListResponse
+   */
   async updateInstanceIpWhiteList(request: UpdateInstanceIpWhiteListRequest): Promise<UpdateInstanceIpWhiteListResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.updateInstanceIpWhiteListWithOptions(request, runtime);
   }
 
+  /**
+    * Upgrades, scales up, or enable cold storage for a Lindorm instance.
+    *
+    * @param request UpgradeLindormInstanceRequest
+    * @param runtime runtime options for this request RuntimeOptions
+    * @return UpgradeLindormInstanceResponse
+   */
   async upgradeLindormInstanceWithOptions(request: UpgradeLindormInstanceRequest, runtime: $Util.RuntimeOptions): Promise<UpgradeLindormInstanceResponse> {
     Util.validateModel(request);
     let query = { };
@@ -2889,6 +3097,14 @@ export default class Client extends OpenApi {
       query["SolrSpec"] = request.solrSpec;
     }
 
+    if (!Util.isUnset(request.streamNum)) {
+      query["StreamNum"] = request.streamNum;
+    }
+
+    if (!Util.isUnset(request.streamSpec)) {
+      query["StreamSpec"] = request.streamSpec;
+    }
+
     if (!Util.isUnset(request.tsdbNum)) {
       query["TsdbNum"] = request.tsdbNum;
     }
@@ -2922,6 +3138,12 @@ export default class Client extends OpenApi {
     return $tea.cast<UpgradeLindormInstanceResponse>(await this.callApi(params, req, runtime), new UpgradeLindormInstanceResponse({}));
   }
 
+  /**
+    * Upgrades, scales up, or enable cold storage for a Lindorm instance.
+    *
+    * @param request UpgradeLindormInstanceRequest
+    * @return UpgradeLindormInstanceResponse
+   */
   async upgradeLindormInstance(request: UpgradeLindormInstanceRequest): Promise<UpgradeLindormInstanceResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.upgradeLindormInstanceWithOptions(request, runtime);
