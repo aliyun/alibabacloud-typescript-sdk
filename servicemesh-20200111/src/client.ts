@@ -670,6 +670,7 @@ export class CreateServiceMeshRequest extends $tea.Model {
   proxyRequestMemory?: string;
   redisFilterEnabled?: boolean;
   regionId?: string;
+  tag?: CreateServiceMeshRequestTag[];
   telemetry?: boolean;
   thriftFilterEnabled?: boolean;
   traceSampling?: number;
@@ -745,6 +746,7 @@ export class CreateServiceMeshRequest extends $tea.Model {
       proxyRequestMemory: 'ProxyRequestMemory',
       redisFilterEnabled: 'RedisFilterEnabled',
       regionId: 'RegionId',
+      tag: 'Tag',
       telemetry: 'Telemetry',
       thriftFilterEnabled: 'ThriftFilterEnabled',
       traceSampling: 'TraceSampling',
@@ -823,6 +825,7 @@ export class CreateServiceMeshRequest extends $tea.Model {
       proxyRequestMemory: 'string',
       redisFilterEnabled: 'boolean',
       regionId: 'string',
+      tag: { 'type': 'array', 'itemType': CreateServiceMeshRequestTag },
       telemetry: 'boolean',
       thriftFilterEnabled: 'boolean',
       traceSampling: 'number',
@@ -3411,6 +3414,25 @@ export class DescribeServiceMeshVMsResponse extends $tea.Model {
   }
 }
 
+export class DescribeServiceMeshesRequest extends $tea.Model {
+  tag?: DescribeServiceMeshesRequestTag[];
+  static names(): { [key: string]: string } {
+    return {
+      tag: 'Tag',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      tag: { 'type': 'array', 'itemType': DescribeServiceMeshesRequestTag },
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
 export class DescribeServiceMeshesResponseBody extends $tea.Model {
   requestId?: string;
   serviceMeshes?: DescribeServiceMeshesResponseBodyServiceMeshes[];
@@ -4779,6 +4801,87 @@ export class GrantUserPermissionsResponse extends $tea.Model {
   }
 }
 
+export class ListTagResourcesRequest extends $tea.Model {
+  nextToken?: string;
+  regionId?: string;
+  resourceId?: string[];
+  resourceType?: string;
+  tag?: ListTagResourcesRequestTag[];
+  static names(): { [key: string]: string } {
+    return {
+      nextToken: 'NextToken',
+      regionId: 'RegionId',
+      resourceId: 'ResourceId',
+      resourceType: 'ResourceType',
+      tag: 'Tag',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      nextToken: 'string',
+      regionId: 'string',
+      resourceId: { 'type': 'array', 'itemType': 'string' },
+      resourceType: 'string',
+      tag: { 'type': 'array', 'itemType': ListTagResourcesRequestTag },
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class ListTagResourcesResponseBody extends $tea.Model {
+  nextToken?: string;
+  requestId?: string;
+  tagResources?: ListTagResourcesResponseBodyTagResources[];
+  static names(): { [key: string]: string } {
+    return {
+      nextToken: 'NextToken',
+      requestId: 'RequestId',
+      tagResources: 'TagResources',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      nextToken: 'string',
+      requestId: 'string',
+      tagResources: { 'type': 'array', 'itemType': ListTagResourcesResponseBodyTagResources },
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class ListTagResourcesResponse extends $tea.Model {
+  headers: { [key: string]: string };
+  statusCode: number;
+  body: ListTagResourcesResponseBody;
+  static names(): { [key: string]: string } {
+    return {
+      headers: 'headers',
+      statusCode: 'statusCode',
+      body: 'body',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
+      body: ListTagResourcesResponseBody,
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
 export class ModifyApiServerEipResourceRequest extends $tea.Model {
   apiServerEipId?: string;
   operation?: string;
@@ -5185,6 +5288,153 @@ export class RevokeKubeconfigResponse extends $tea.Model {
       headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
       statusCode: 'number',
       body: RevokeKubeconfigResponseBody,
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class TagResourcesRequest extends $tea.Model {
+  regionId?: string;
+  resourceId?: string[];
+  resourceType?: string;
+  tag?: TagResourcesRequestTag[];
+  static names(): { [key: string]: string } {
+    return {
+      regionId: 'RegionId',
+      resourceId: 'ResourceId',
+      resourceType: 'ResourceType',
+      tag: 'Tag',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      regionId: 'string',
+      resourceId: { 'type': 'array', 'itemType': 'string' },
+      resourceType: 'string',
+      tag: { 'type': 'array', 'itemType': TagResourcesRequestTag },
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class TagResourcesResponseBody extends $tea.Model {
+  requestId?: string;
+  static names(): { [key: string]: string } {
+    return {
+      requestId: 'RequestId',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      requestId: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class TagResourcesResponse extends $tea.Model {
+  headers: { [key: string]: string };
+  statusCode: number;
+  body: TagResourcesResponseBody;
+  static names(): { [key: string]: string } {
+    return {
+      headers: 'headers',
+      statusCode: 'statusCode',
+      body: 'body',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
+      body: TagResourcesResponseBody,
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class UntagResourcesRequest extends $tea.Model {
+  all?: boolean;
+  regionId?: string;
+  resourceId?: string[];
+  resourceType?: string;
+  tagKey?: string[];
+  static names(): { [key: string]: string } {
+    return {
+      all: 'All',
+      regionId: 'RegionId',
+      resourceId: 'ResourceId',
+      resourceType: 'ResourceType',
+      tagKey: 'TagKey',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      all: 'boolean',
+      regionId: 'string',
+      resourceId: { 'type': 'array', 'itemType': 'string' },
+      resourceType: 'string',
+      tagKey: { 'type': 'array', 'itemType': 'string' },
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class UntagResourcesResponseBody extends $tea.Model {
+  requestId?: string;
+  static names(): { [key: string]: string } {
+    return {
+      requestId: 'RequestId',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      requestId: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class UntagResourcesResponse extends $tea.Model {
+  headers: { [key: string]: string };
+  statusCode: number;
+  body: UntagResourcesResponseBody;
+  static names(): { [key: string]: string } {
+    return {
+      headers: 'headers',
+      statusCode: 'statusCode',
+      body: 'body',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
+      body: UntagResourcesResponseBody,
     };
   }
 
@@ -7055,6 +7305,28 @@ export class CreateIstioGatewayRoutesRequestGatewayRoute extends $tea.Model {
       routeDestinations: { 'type': 'array', 'itemType': CreateIstioGatewayRoutesRequestGatewayRouteRouteDestinations },
       routeName: 'string',
       routeType: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class CreateServiceMeshRequestTag extends $tea.Model {
+  key?: string;
+  value?: string;
+  static names(): { [key: string]: string } {
+    return {
+      key: 'Key',
+      value: 'Value',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      key: 'string',
+      value: 'string',
     };
   }
 
@@ -10103,6 +10375,28 @@ export class DescribeServiceMeshVMsResponseBodyVMs extends $tea.Model {
   }
 }
 
+export class DescribeServiceMeshesRequestTag extends $tea.Model {
+  key?: string;
+  value?: string;
+  static names(): { [key: string]: string } {
+    return {
+      key: 'Key',
+      value: 'Value',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      key: 'string',
+      value: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
 export class DescribeServiceMeshesResponseBodyServiceMeshesEndpoints extends $tea.Model {
   intranetApiServerEndpoint?: string;
   intranetPilotEndpoint?: string;
@@ -10361,6 +10655,28 @@ export class DescribeServiceMeshesResponseBodyServiceMeshesSpec extends $tea.Mod
   }
 }
 
+export class DescribeServiceMeshesResponseBodyServiceMeshesTag extends $tea.Model {
+  key?: string;
+  value?: string;
+  static names(): { [key: string]: string } {
+    return {
+      key: 'Key',
+      value: 'Value',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      key: 'string',
+      value: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
 export class DescribeServiceMeshesResponseBodyServiceMeshes extends $tea.Model {
   clusterSpec?: string;
   clusters?: string[];
@@ -10369,6 +10685,7 @@ export class DescribeServiceMeshesResponseBodyServiceMeshes extends $tea.Model {
   ownerType?: string;
   serviceMeshInfo?: DescribeServiceMeshesResponseBodyServiceMeshesServiceMeshInfo;
   spec?: DescribeServiceMeshesResponseBodyServiceMeshesSpec;
+  tag?: DescribeServiceMeshesResponseBodyServiceMeshesTag[];
   static names(): { [key: string]: string } {
     return {
       clusterSpec: 'ClusterSpec',
@@ -10378,6 +10695,7 @@ export class DescribeServiceMeshesResponseBodyServiceMeshes extends $tea.Model {
       ownerType: 'OwnerType',
       serviceMeshInfo: 'ServiceMeshInfo',
       spec: 'Spec',
+      tag: 'Tag',
     };
   }
 
@@ -10390,6 +10708,7 @@ export class DescribeServiceMeshesResponseBodyServiceMeshes extends $tea.Model {
       ownerType: 'string',
       serviceMeshInfo: DescribeServiceMeshesResponseBodyServiceMeshesServiceMeshInfo,
       spec: DescribeServiceMeshesResponseBodyServiceMeshesSpec,
+      tag: { 'type': 'array', 'itemType': DescribeServiceMeshesResponseBodyServiceMeshesTag },
     };
   }
 
@@ -10766,6 +11085,78 @@ export class GetVmMetaResponseBodyVmMetaInfo extends $tea.Model {
       envoyEnvContent: 'string',
       hostsContent: 'string',
       tokenContent: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class ListTagResourcesRequestTag extends $tea.Model {
+  key?: string;
+  value?: string;
+  static names(): { [key: string]: string } {
+    return {
+      key: 'Key',
+      value: 'Value',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      key: 'string',
+      value: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class ListTagResourcesResponseBodyTagResources extends $tea.Model {
+  resourceId?: string;
+  resourceType?: string;
+  tagKey?: string;
+  tagValue?: string;
+  static names(): { [key: string]: string } {
+    return {
+      resourceId: 'ResourceId',
+      resourceType: 'ResourceType',
+      tagKey: 'TagKey',
+      tagValue: 'TagValue',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      resourceId: 'string',
+      resourceType: 'string',
+      tagKey: 'string',
+      tagValue: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class TagResourcesRequestTag extends $tea.Model {
+  key?: string;
+  value?: string;
+  static names(): { [key: string]: string } {
+    return {
+      key: 'Key',
+      value: 'Value',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      key: 'string',
+      value: 'string',
     };
   }
 
@@ -11591,6 +11982,11 @@ export default class Client extends OpenApi {
 
   async createServiceMeshWithOptions(request: CreateServiceMeshRequest, runtime: $Util.RuntimeOptions): Promise<CreateServiceMeshResponse> {
     Util.validateModel(request);
+    let query = { };
+    if (!Util.isUnset(request.tag)) {
+      query["Tag"] = request.tag;
+    }
+
     let body : {[key: string ]: any} = { };
     if (!Util.isUnset(request.accessLogEnabled)) {
       body["AccessLogEnabled"] = request.accessLogEnabled;
@@ -11885,6 +12281,7 @@ export default class Client extends OpenApi {
     }
 
     let req = new $OpenApi.OpenApiRequest({
+      query: OpenApiUtil.query(query),
       body: OpenApiUtil.parseToMap(body),
     });
     let params = new $OpenApi.Params({
@@ -13169,8 +13566,12 @@ export default class Client extends OpenApi {
     return await this.describeServiceMeshVMsWithOptions(request, runtime);
   }
 
-  async describeServiceMeshesWithOptions(runtime: $Util.RuntimeOptions): Promise<DescribeServiceMeshesResponse> {
-    let req = new $OpenApi.OpenApiRequest({ });
+  async describeServiceMeshesWithOptions(request: DescribeServiceMeshesRequest, runtime: $Util.RuntimeOptions): Promise<DescribeServiceMeshesResponse> {
+    Util.validateModel(request);
+    let query = OpenApiUtil.query(Util.toMap(request));
+    let req = new $OpenApi.OpenApiRequest({
+      query: OpenApiUtil.query(query),
+    });
     let params = new $OpenApi.Params({
       action: "DescribeServiceMeshes",
       version: "2020-01-11",
@@ -13185,9 +13586,9 @@ export default class Client extends OpenApi {
     return $tea.cast<DescribeServiceMeshesResponse>(await this.callApi(params, req, runtime), new DescribeServiceMeshesResponse({}));
   }
 
-  async describeServiceMeshes(): Promise<DescribeServiceMeshesResponse> {
+  async describeServiceMeshes(request: DescribeServiceMeshesRequest): Promise<DescribeServiceMeshesResponse> {
     let runtime = new $Util.RuntimeOptions({ });
-    return await this.describeServiceMeshesWithOptions(runtime);
+    return await this.describeServiceMeshesWithOptions(request, runtime);
   }
 
   async describeUpgradeVersionWithOptions(request: DescribeUpgradeVersionRequest, runtime: $Util.RuntimeOptions): Promise<DescribeUpgradeVersionResponse> {
@@ -13821,6 +14222,51 @@ export default class Client extends OpenApi {
     return await this.grantUserPermissionsWithOptions(request, runtime);
   }
 
+  async listTagResourcesWithOptions(request: ListTagResourcesRequest, runtime: $Util.RuntimeOptions): Promise<ListTagResourcesResponse> {
+    Util.validateModel(request);
+    let query = { };
+    if (!Util.isUnset(request.nextToken)) {
+      query["NextToken"] = request.nextToken;
+    }
+
+    if (!Util.isUnset(request.regionId)) {
+      query["RegionId"] = request.regionId;
+    }
+
+    if (!Util.isUnset(request.resourceId)) {
+      query["ResourceId"] = request.resourceId;
+    }
+
+    if (!Util.isUnset(request.resourceType)) {
+      query["ResourceType"] = request.resourceType;
+    }
+
+    if (!Util.isUnset(request.tag)) {
+      query["Tag"] = request.tag;
+    }
+
+    let req = new $OpenApi.OpenApiRequest({
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApi.Params({
+      action: "ListTagResources",
+      version: "2020-01-11",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $tea.cast<ListTagResourcesResponse>(await this.callApi(params, req, runtime), new ListTagResourcesResponse({}));
+  }
+
+  async listTagResources(request: ListTagResourcesRequest): Promise<ListTagResourcesResponse> {
+    let runtime = new $Util.RuntimeOptions({ });
+    return await this.listTagResourcesWithOptions(request, runtime);
+  }
+
   async modifyApiServerEipResourceWithOptions(request: ModifyApiServerEipResourceRequest, runtime: $Util.RuntimeOptions): Promise<ModifyApiServerEipResourceResponse> {
     Util.validateModel(request);
     let body : {[key: string ]: any} = { };
@@ -14053,6 +14499,92 @@ export default class Client extends OpenApi {
   async revokeKubeconfig(request: RevokeKubeconfigRequest): Promise<RevokeKubeconfigResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.revokeKubeconfigWithOptions(request, runtime);
+  }
+
+  async tagResourcesWithOptions(request: TagResourcesRequest, runtime: $Util.RuntimeOptions): Promise<TagResourcesResponse> {
+    Util.validateModel(request);
+    let query = { };
+    if (!Util.isUnset(request.regionId)) {
+      query["RegionId"] = request.regionId;
+    }
+
+    if (!Util.isUnset(request.resourceId)) {
+      query["ResourceId"] = request.resourceId;
+    }
+
+    if (!Util.isUnset(request.resourceType)) {
+      query["ResourceType"] = request.resourceType;
+    }
+
+    if (!Util.isUnset(request.tag)) {
+      query["Tag"] = request.tag;
+    }
+
+    let req = new $OpenApi.OpenApiRequest({
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApi.Params({
+      action: "TagResources",
+      version: "2020-01-11",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $tea.cast<TagResourcesResponse>(await this.callApi(params, req, runtime), new TagResourcesResponse({}));
+  }
+
+  async tagResources(request: TagResourcesRequest): Promise<TagResourcesResponse> {
+    let runtime = new $Util.RuntimeOptions({ });
+    return await this.tagResourcesWithOptions(request, runtime);
+  }
+
+  async untagResourcesWithOptions(request: UntagResourcesRequest, runtime: $Util.RuntimeOptions): Promise<UntagResourcesResponse> {
+    Util.validateModel(request);
+    let query = { };
+    if (!Util.isUnset(request.all)) {
+      query["All"] = request.all;
+    }
+
+    if (!Util.isUnset(request.regionId)) {
+      query["RegionId"] = request.regionId;
+    }
+
+    if (!Util.isUnset(request.resourceId)) {
+      query["ResourceId"] = request.resourceId;
+    }
+
+    if (!Util.isUnset(request.resourceType)) {
+      query["ResourceType"] = request.resourceType;
+    }
+
+    if (!Util.isUnset(request.tagKey)) {
+      query["TagKey"] = request.tagKey;
+    }
+
+    let req = new $OpenApi.OpenApiRequest({
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApi.Params({
+      action: "UntagResources",
+      version: "2020-01-11",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $tea.cast<UntagResourcesResponse>(await this.callApi(params, req, runtime), new UntagResourcesResponse({}));
+  }
+
+  async untagResources(request: UntagResourcesRequest): Promise<UntagResourcesResponse> {
+    let runtime = new $Util.RuntimeOptions({ });
+    return await this.untagResourcesWithOptions(request, runtime);
   }
 
   async updateASMGatewayWithOptions(request: UpdateASMGatewayRequest, runtime: $Util.RuntimeOptions): Promise<UpdateASMGatewayResponse> {
