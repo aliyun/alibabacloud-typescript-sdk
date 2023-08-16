@@ -1227,11 +1227,13 @@ export class ReimageNodesRequest extends $tea.Model {
   clusterId?: string;
   ignoreFailedNodeTasks?: boolean;
   nodes?: ReimageNodesRequestNodes[];
+  userData?: string;
   static names(): { [key: string]: string } {
     return {
       clusterId: 'ClusterId',
       ignoreFailedNodeTasks: 'IgnoreFailedNodeTasks',
       nodes: 'Nodes',
+      userData: 'UserData',
     };
   }
 
@@ -1240,6 +1242,7 @@ export class ReimageNodesRequest extends $tea.Model {
       clusterId: 'string',
       ignoreFailedNodeTasks: 'boolean',
       nodes: { 'type': 'array', 'itemType': ReimageNodesRequestNodes },
+      userData: 'string',
     };
   }
 
@@ -1252,11 +1255,13 @@ export class ReimageNodesShrinkRequest extends $tea.Model {
   clusterId?: string;
   ignoreFailedNodeTasks?: boolean;
   nodesShrink?: string;
+  userData?: string;
   static names(): { [key: string]: string } {
     return {
       clusterId: 'ClusterId',
       ignoreFailedNodeTasks: 'IgnoreFailedNodeTasks',
       nodesShrink: 'Nodes',
+      userData: 'UserData',
     };
   }
 
@@ -1265,6 +1270,7 @@ export class ReimageNodesShrinkRequest extends $tea.Model {
       clusterId: 'string',
       ignoreFailedNodeTasks: 'boolean',
       nodesShrink: 'string',
+      userData: 'string',
     };
   }
 
@@ -1905,6 +1911,7 @@ export class CreateClusterRequestNodeGroups extends $tea.Model {
   nodeGroupDescription?: string;
   nodeGroupName?: string;
   nodes?: CreateClusterRequestNodeGroupsNodes[];
+  userData?: string;
   zoneId?: string;
   static names(): { [key: string]: string } {
     return {
@@ -1913,6 +1920,7 @@ export class CreateClusterRequestNodeGroups extends $tea.Model {
       nodeGroupDescription: 'NodeGroupDescription',
       nodeGroupName: 'NodeGroupName',
       nodes: 'Nodes',
+      userData: 'UserData',
       zoneId: 'ZoneId',
     };
   }
@@ -1924,6 +1932,7 @@ export class CreateClusterRequestNodeGroups extends $tea.Model {
       nodeGroupDescription: 'string',
       nodeGroupName: 'string',
       nodes: { 'type': 'array', 'itemType': CreateClusterRequestNodeGroupsNodes },
+      userData: 'string',
       zoneId: 'string',
     };
   }
@@ -2349,10 +2358,12 @@ export class ExtendClusterRequestNodeGroupsNodes extends $tea.Model {
 export class ExtendClusterRequestNodeGroups extends $tea.Model {
   nodeGroupId?: string;
   nodes?: ExtendClusterRequestNodeGroupsNodes[];
+  userData?: string;
   static names(): { [key: string]: string } {
     return {
       nodeGroupId: 'NodeGroupId',
       nodes: 'Nodes',
+      userData: 'UserData',
     };
   }
 
@@ -2360,6 +2371,7 @@ export class ExtendClusterRequestNodeGroups extends $tea.Model {
     return {
       nodeGroupId: 'string',
       nodes: { 'type': 'array', 'itemType': ExtendClusterRequestNodeGroupsNodes },
+      userData: 'string',
     };
   }
 
@@ -3286,6 +3298,10 @@ export default class Client extends OpenApi {
 
     if (!Util.isUnset(request.nodesShrink)) {
       body["Nodes"] = request.nodesShrink;
+    }
+
+    if (!Util.isUnset(request.userData)) {
+      body["UserData"] = request.userData;
     }
 
     let req = new $OpenApi.OpenApiRequest({
