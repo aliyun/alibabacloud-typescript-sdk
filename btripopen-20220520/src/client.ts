@@ -32642,9 +32642,43 @@ export class IsvRuleSaveRequestBookuserList extends $tea.Model {
   }
 }
 
+export class IsvUserSaveRequestUserListCertList extends $tea.Model {
+  certExpiredTime?: string;
+  certNation?: string;
+  certNo?: string;
+  certType?: number;
+  nationality?: string;
+  static names(): { [key: string]: string } {
+    return {
+      certExpiredTime: 'cert_expired_time',
+      certNation: 'cert_nation',
+      certNo: 'cert_no',
+      certType: 'cert_type',
+      nationality: 'nationality',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      certExpiredTime: 'string',
+      certNation: 'string',
+      certNo: 'string',
+      certType: 'number',
+      nationality: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
 export class IsvUserSaveRequestUserList extends $tea.Model {
+  birthday?: string;
+  certList?: IsvUserSaveRequestUserListCertList[];
   departId?: number;
   email?: string;
+  gender?: string;
   jobNo?: string;
   leaveStatus?: number;
   managerUserId?: string;
@@ -32658,8 +32692,11 @@ export class IsvUserSaveRequestUserList extends $tea.Model {
   userName?: string;
   static names(): { [key: string]: string } {
     return {
+      birthday: 'birthday',
+      certList: 'cert_list',
       departId: 'depart_id',
       email: 'email',
+      gender: 'gender',
       jobNo: 'job_no',
       leaveStatus: 'leave_status',
       managerUserId: 'manager_user_id',
@@ -32676,8 +32713,11 @@ export class IsvUserSaveRequestUserList extends $tea.Model {
 
   static types(): { [key: string]: any } {
     return {
+      birthday: 'string',
+      certList: { 'type': 'array', 'itemType': IsvUserSaveRequestUserListCertList },
       departId: 'number',
       email: 'string',
+      gender: 'string',
       jobNo: 'string',
       leaveStatus: 'number',
       managerUserId: 'string',
