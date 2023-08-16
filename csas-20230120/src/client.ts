@@ -96,6 +96,99 @@ export class AttachApplication2ConnectorResponse extends $tea.Model {
   }
 }
 
+export class CreateDynamicRouteRequest extends $tea.Model {
+  applicationIds?: string[];
+  applicationType?: string;
+  description?: string;
+  dynamicRouteType?: string;
+  name?: string;
+  nextHop?: string;
+  priority?: number;
+  regionIds?: string[];
+  status?: string;
+  tagIds?: string[];
+  static names(): { [key: string]: string } {
+    return {
+      applicationIds: 'ApplicationIds',
+      applicationType: 'ApplicationType',
+      description: 'Description',
+      dynamicRouteType: 'DynamicRouteType',
+      name: 'Name',
+      nextHop: 'NextHop',
+      priority: 'Priority',
+      regionIds: 'RegionIds',
+      status: 'Status',
+      tagIds: 'TagIds',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      applicationIds: { 'type': 'array', 'itemType': 'string' },
+      applicationType: 'string',
+      description: 'string',
+      dynamicRouteType: 'string',
+      name: 'string',
+      nextHop: 'string',
+      priority: 'number',
+      regionIds: { 'type': 'array', 'itemType': 'string' },
+      status: 'string',
+      tagIds: { 'type': 'array', 'itemType': 'string' },
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class CreateDynamicRouteResponseBody extends $tea.Model {
+  dynamicRouteId?: string;
+  requestId?: string;
+  static names(): { [key: string]: string } {
+    return {
+      dynamicRouteId: 'DynamicRouteId',
+      requestId: 'RequestId',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      dynamicRouteId: 'string',
+      requestId: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class CreateDynamicRouteResponse extends $tea.Model {
+  headers: { [key: string]: string };
+  statusCode: number;
+  body: CreateDynamicRouteResponseBody;
+  static names(): { [key: string]: string } {
+    return {
+      headers: 'headers',
+      statusCode: 'statusCode',
+      body: 'body',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
+      body: CreateDynamicRouteResponseBody,
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
 export class CreatePrivateAccessApplicationRequest extends $tea.Model {
   addresses?: string[];
   description?: string;
@@ -503,6 +596,69 @@ export class CreateUserGroupResponse extends $tea.Model {
   }
 }
 
+export class DeleteDynamicRouteRequest extends $tea.Model {
+  dynamicRouteId?: string;
+  static names(): { [key: string]: string } {
+    return {
+      dynamicRouteId: 'DynamicRouteId',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      dynamicRouteId: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class DeleteDynamicRouteResponseBody extends $tea.Model {
+  requestId?: string;
+  static names(): { [key: string]: string } {
+    return {
+      requestId: 'RequestId',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      requestId: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class DeleteDynamicRouteResponse extends $tea.Model {
+  headers: { [key: string]: string };
+  statusCode: number;
+  body: DeleteDynamicRouteResponseBody;
+  static names(): { [key: string]: string } {
+    return {
+      headers: 'headers',
+      statusCode: 'statusCode',
+      body: 'body',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
+      body: DeleteDynamicRouteResponseBody,
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
 export class DeletePrivateAccessApplicationRequest extends $tea.Model {
   applicationId?: string;
   static names(): { [key: string]: string } {
@@ -835,6 +991,72 @@ export class DetachApplication2ConnectorResponse extends $tea.Model {
       headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
       statusCode: 'number',
       body: DetachApplication2ConnectorResponseBody,
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class GetDynamicRouteRequest extends $tea.Model {
+  dynamicRouteId?: string;
+  static names(): { [key: string]: string } {
+    return {
+      dynamicRouteId: 'DynamicRouteId',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      dynamicRouteId: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class GetDynamicRouteResponseBody extends $tea.Model {
+  dynamicRoute?: GetDynamicRouteResponseBodyDynamicRoute;
+  requestId?: string;
+  static names(): { [key: string]: string } {
+    return {
+      dynamicRoute: 'DynamicRoute',
+      requestId: 'RequestId',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      dynamicRoute: GetDynamicRouteResponseBodyDynamicRoute,
+      requestId: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class GetDynamicRouteResponse extends $tea.Model {
+  headers: { [key: string]: string };
+  statusCode: number;
+  body: GetDynamicRouteResponseBody;
+  static names(): { [key: string]: string } {
+    return {
+      headers: 'headers',
+      statusCode: 'statusCode',
+      body: 'body',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
+      body: GetDynamicRouteResponseBody,
     };
   }
 
@@ -1257,6 +1479,149 @@ export class ListConnectorsResponse extends $tea.Model {
   }
 }
 
+export class ListDynamicRouteRegionsResponseBody extends $tea.Model {
+  regions?: string[];
+  requestId?: string;
+  totalNum?: number;
+  static names(): { [key: string]: string } {
+    return {
+      regions: 'Regions',
+      requestId: 'RequestId',
+      totalNum: 'TotalNum',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      regions: { 'type': 'array', 'itemType': 'string' },
+      requestId: 'string',
+      totalNum: 'number',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class ListDynamicRouteRegionsResponse extends $tea.Model {
+  headers: { [key: string]: string };
+  statusCode: number;
+  body: ListDynamicRouteRegionsResponseBody;
+  static names(): { [key: string]: string } {
+    return {
+      headers: 'headers',
+      statusCode: 'statusCode',
+      body: 'body',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
+      body: ListDynamicRouteRegionsResponseBody,
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class ListDynamicRoutesRequest extends $tea.Model {
+  applicationId?: string;
+  currentPage?: number;
+  dynamicRouteIds?: string[];
+  name?: string;
+  nextHop?: string;
+  pageSize?: number;
+  regionIds?: string[];
+  status?: string;
+  tagId?: string;
+  static names(): { [key: string]: string } {
+    return {
+      applicationId: 'ApplicationId',
+      currentPage: 'CurrentPage',
+      dynamicRouteIds: 'DynamicRouteIds',
+      name: 'Name',
+      nextHop: 'NextHop',
+      pageSize: 'PageSize',
+      regionIds: 'RegionIds',
+      status: 'Status',
+      tagId: 'TagId',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      applicationId: 'string',
+      currentPage: 'number',
+      dynamicRouteIds: { 'type': 'array', 'itemType': 'string' },
+      name: 'string',
+      nextHop: 'string',
+      pageSize: 'number',
+      regionIds: { 'type': 'array', 'itemType': 'string' },
+      status: 'string',
+      tagId: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class ListDynamicRoutesResponseBody extends $tea.Model {
+  dynamicRoutes?: ListDynamicRoutesResponseBodyDynamicRoutes[];
+  requestId?: string;
+  totalNum?: number;
+  static names(): { [key: string]: string } {
+    return {
+      dynamicRoutes: 'DynamicRoutes',
+      requestId: 'RequestId',
+      totalNum: 'TotalNum',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      dynamicRoutes: { 'type': 'array', 'itemType': ListDynamicRoutesResponseBodyDynamicRoutes },
+      requestId: 'string',
+      totalNum: 'number',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class ListDynamicRoutesResponse extends $tea.Model {
+  headers: { [key: string]: string };
+  statusCode: number;
+  body: ListDynamicRoutesResponseBody;
+  static names(): { [key: string]: string } {
+    return {
+      headers: 'headers',
+      statusCode: 'statusCode',
+      body: 'body',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
+      body: ListDynamicRoutesResponseBody,
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
 export class ListPolicesForPrivateAccessApplicationRequest extends $tea.Model {
   applicationIds?: string[];
   static names(): { [key: string]: string } {
@@ -1545,6 +1910,72 @@ export class ListPrivateAccessApplicationsResponse extends $tea.Model {
   }
 }
 
+export class ListPrivateAccessApplicationsForDynamicRouteRequest extends $tea.Model {
+  dynamicRouteIds?: string[];
+  static names(): { [key: string]: string } {
+    return {
+      dynamicRouteIds: 'DynamicRouteIds',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      dynamicRouteIds: { 'type': 'array', 'itemType': 'string' },
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class ListPrivateAccessApplicationsForDynamicRouteResponseBody extends $tea.Model {
+  dynamicRoutes?: ListPrivateAccessApplicationsForDynamicRouteResponseBodyDynamicRoutes[];
+  requestId?: string;
+  static names(): { [key: string]: string } {
+    return {
+      dynamicRoutes: 'DynamicRoutes',
+      requestId: 'RequestId',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      dynamicRoutes: { 'type': 'array', 'itemType': ListPrivateAccessApplicationsForDynamicRouteResponseBodyDynamicRoutes },
+      requestId: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class ListPrivateAccessApplicationsForDynamicRouteResponse extends $tea.Model {
+  headers: { [key: string]: string };
+  statusCode: number;
+  body: ListPrivateAccessApplicationsForDynamicRouteResponseBody;
+  static names(): { [key: string]: string } {
+    return {
+      headers: 'headers',
+      statusCode: 'statusCode',
+      body: 'body',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
+      body: ListPrivateAccessApplicationsForDynamicRouteResponseBody,
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
 export class ListPrivateAccessPolicesRequest extends $tea.Model {
   applicationId?: string;
   currentPage?: number;
@@ -1714,6 +2145,72 @@ export class ListPrivateAccessTagsResponse extends $tea.Model {
       headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
       statusCode: 'number',
       body: ListPrivateAccessTagsResponseBody,
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class ListPrivateAccessTagsForDynamicRouteRequest extends $tea.Model {
+  dynamicRouteIds?: string[];
+  static names(): { [key: string]: string } {
+    return {
+      dynamicRouteIds: 'DynamicRouteIds',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      dynamicRouteIds: { 'type': 'array', 'itemType': 'string' },
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class ListPrivateAccessTagsForDynamicRouteResponseBody extends $tea.Model {
+  dynamicRoutes?: ListPrivateAccessTagsForDynamicRouteResponseBodyDynamicRoutes[];
+  requestId?: string;
+  static names(): { [key: string]: string } {
+    return {
+      dynamicRoutes: 'DynamicRoutes',
+      requestId: 'RequestId',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      dynamicRoutes: { 'type': 'array', 'itemType': ListPrivateAccessTagsForDynamicRouteResponseBodyDynamicRoutes },
+      requestId: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class ListPrivateAccessTagsForDynamicRouteResponse extends $tea.Model {
+  headers: { [key: string]: string };
+  statusCode: number;
+  body: ListPrivateAccessTagsForDynamicRouteResponseBody;
+  static names(): { [key: string]: string } {
+    return {
+      headers: 'headers',
+      statusCode: 'statusCode',
+      body: 'body',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
+      body: ListPrivateAccessTagsForDynamicRouteResponseBody,
     };
   }
 
@@ -1996,6 +2493,102 @@ export class ListUserGroupsForPrivateAccessPolicyResponse extends $tea.Model {
       headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
       statusCode: 'number',
       body: ListUserGroupsForPrivateAccessPolicyResponseBody,
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class UpdateDynamicRouteRequest extends $tea.Model {
+  applicationIds?: string[];
+  applicationType?: string;
+  description?: string;
+  dynamicRouteId?: string;
+  dynamicRouteType?: string;
+  modifyType?: string;
+  name?: string;
+  nextHop?: string;
+  priority?: number;
+  regionIds?: string[];
+  status?: string;
+  tagIds?: string[];
+  static names(): { [key: string]: string } {
+    return {
+      applicationIds: 'ApplicationIds',
+      applicationType: 'ApplicationType',
+      description: 'Description',
+      dynamicRouteId: 'DynamicRouteId',
+      dynamicRouteType: 'DynamicRouteType',
+      modifyType: 'ModifyType',
+      name: 'Name',
+      nextHop: 'NextHop',
+      priority: 'Priority',
+      regionIds: 'RegionIds',
+      status: 'Status',
+      tagIds: 'TagIds',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      applicationIds: { 'type': 'array', 'itemType': 'string' },
+      applicationType: 'string',
+      description: 'string',
+      dynamicRouteId: 'string',
+      dynamicRouteType: 'string',
+      modifyType: 'string',
+      name: 'string',
+      nextHop: 'string',
+      priority: 'number',
+      regionIds: { 'type': 'array', 'itemType': 'string' },
+      status: 'string',
+      tagIds: { 'type': 'array', 'itemType': 'string' },
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class UpdateDynamicRouteResponseBody extends $tea.Model {
+  requestId?: string;
+  static names(): { [key: string]: string } {
+    return {
+      requestId: 'RequestId',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      requestId: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class UpdateDynamicRouteResponse extends $tea.Model {
+  headers: { [key: string]: string };
+  statusCode: number;
+  body: UpdateDynamicRouteResponseBody;
+  static names(): { [key: string]: string } {
+    return {
+      headers: 'headers',
+      statusCode: 'statusCode',
+      body: 'body',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
+      body: UpdateDynamicRouteResponseBody,
     };
   }
 
@@ -2418,6 +3011,58 @@ export class CreateUserGroupRequestAttributes extends $tea.Model {
       relation: 'string',
       userGroupType: 'string',
       value: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class GetDynamicRouteResponseBodyDynamicRoute extends $tea.Model {
+  applicationIds?: string[];
+  applicationType?: string;
+  createTime?: string;
+  description?: string;
+  dynamicRouteId?: string;
+  dynamicRouteType?: string;
+  name?: string;
+  nextHop?: string;
+  priority?: number;
+  regionIds?: string[];
+  status?: string;
+  tagIds?: string[];
+  static names(): { [key: string]: string } {
+    return {
+      applicationIds: 'ApplicationIds',
+      applicationType: 'ApplicationType',
+      createTime: 'CreateTime',
+      description: 'Description',
+      dynamicRouteId: 'DynamicRouteId',
+      dynamicRouteType: 'DynamicRouteType',
+      name: 'Name',
+      nextHop: 'NextHop',
+      priority: 'Priority',
+      regionIds: 'RegionIds',
+      status: 'Status',
+      tagIds: 'TagIds',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      applicationIds: { 'type': 'array', 'itemType': 'string' },
+      applicationType: 'string',
+      createTime: 'string',
+      description: 'string',
+      dynamicRouteId: 'string',
+      dynamicRouteType: 'string',
+      name: 'string',
+      nextHop: 'string',
+      priority: 'number',
+      regionIds: { 'type': 'array', 'itemType': 'string' },
+      status: 'string',
+      tagIds: { 'type': 'array', 'itemType': 'string' },
     };
   }
 
@@ -2888,6 +3533,58 @@ export class ListConnectorsResponseBodyConnectors extends $tea.Model {
   }
 }
 
+export class ListDynamicRoutesResponseBodyDynamicRoutes extends $tea.Model {
+  applicationIds?: string[];
+  applicationType?: string;
+  createTime?: string;
+  description?: string;
+  dynamicRouteId?: string;
+  dynamicRouteType?: string;
+  name?: string;
+  nextHop?: string;
+  priority?: number;
+  regionIds?: string[];
+  status?: string;
+  tagIds?: string[];
+  static names(): { [key: string]: string } {
+    return {
+      applicationIds: 'ApplicationIds',
+      applicationType: 'ApplicationType',
+      createTime: 'CreateTime',
+      description: 'Description',
+      dynamicRouteId: 'DynamicRouteId',
+      dynamicRouteType: 'DynamicRouteType',
+      name: 'Name',
+      nextHop: 'NextHop',
+      priority: 'Priority',
+      regionIds: 'RegionIds',
+      status: 'Status',
+      tagIds: 'TagIds',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      applicationIds: { 'type': 'array', 'itemType': 'string' },
+      applicationType: 'string',
+      createTime: 'string',
+      description: 'string',
+      dynamicRouteId: 'string',
+      dynamicRouteType: 'string',
+      name: 'string',
+      nextHop: 'string',
+      priority: 'number',
+      regionIds: { 'type': 'array', 'itemType': 'string' },
+      status: 'string',
+      tagIds: { 'type': 'array', 'itemType': 'string' },
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
 export class ListPolicesForPrivateAccessApplicationResponseBodyApplicationsPoliciesCustomUserAttributes extends $tea.Model {
   idpId?: number;
   relation?: string;
@@ -3195,6 +3892,90 @@ export class ListPrivateAccessApplicationsResponseBodyApplications extends $tea.
   }
 }
 
+export class ListPrivateAccessApplicationsForDynamicRouteResponseBodyDynamicRoutesApplicationsPortRanges extends $tea.Model {
+  begin?: number;
+  end?: number;
+  static names(): { [key: string]: string } {
+    return {
+      begin: 'Begin',
+      end: 'End',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      begin: 'number',
+      end: 'number',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class ListPrivateAccessApplicationsForDynamicRouteResponseBodyDynamicRoutesApplications extends $tea.Model {
+  addresses?: string[];
+  applicationId?: string;
+  createTime?: string;
+  description?: string;
+  name?: string;
+  portRanges?: ListPrivateAccessApplicationsForDynamicRouteResponseBodyDynamicRoutesApplicationsPortRanges[];
+  protocol?: string;
+  status?: string;
+  static names(): { [key: string]: string } {
+    return {
+      addresses: 'Addresses',
+      applicationId: 'ApplicationId',
+      createTime: 'CreateTime',
+      description: 'Description',
+      name: 'Name',
+      portRanges: 'PortRanges',
+      protocol: 'Protocol',
+      status: 'Status',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      addresses: { 'type': 'array', 'itemType': 'string' },
+      applicationId: 'string',
+      createTime: 'string',
+      description: 'string',
+      name: 'string',
+      portRanges: { 'type': 'array', 'itemType': ListPrivateAccessApplicationsForDynamicRouteResponseBodyDynamicRoutesApplicationsPortRanges },
+      protocol: 'string',
+      status: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class ListPrivateAccessApplicationsForDynamicRouteResponseBodyDynamicRoutes extends $tea.Model {
+  applications?: ListPrivateAccessApplicationsForDynamicRouteResponseBodyDynamicRoutesApplications[];
+  dynamicRouteId?: string;
+  static names(): { [key: string]: string } {
+    return {
+      applications: 'Applications',
+      dynamicRouteId: 'DynamicRouteId',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      applications: { 'type': 'array', 'itemType': ListPrivateAccessApplicationsForDynamicRouteResponseBodyDynamicRoutesApplications },
+      dynamicRouteId: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
 export class ListPrivateAccessPolicesResponseBodyPolicesCustomUserAttributes extends $tea.Model {
   idpId?: number;
   relation?: string;
@@ -3307,6 +4088,59 @@ export class ListPrivateAccessTagsResponseBodyTags extends $tea.Model {
       policyIds: { 'type': 'array', 'itemType': 'string' },
       tagId: 'string',
       tagType: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class ListPrivateAccessTagsForDynamicRouteResponseBodyDynamicRoutesTags extends $tea.Model {
+  createTime?: string;
+  description?: string;
+  name?: string;
+  tagId?: string;
+  tagType?: string;
+  static names(): { [key: string]: string } {
+    return {
+      createTime: 'CreateTime',
+      description: 'Description',
+      name: 'Name',
+      tagId: 'TagId',
+      tagType: 'TagType',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      createTime: 'string',
+      description: 'string',
+      name: 'string',
+      tagId: 'string',
+      tagType: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class ListPrivateAccessTagsForDynamicRouteResponseBodyDynamicRoutes extends $tea.Model {
+  dynamicRouteId?: string;
+  tags?: ListPrivateAccessTagsForDynamicRouteResponseBodyDynamicRoutesTags[];
+  static names(): { [key: string]: string } {
+    return {
+      dynamicRouteId: 'DynamicRouteId',
+      tags: 'Tags',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      dynamicRouteId: 'string',
+      tags: { 'type': 'array', 'itemType': ListPrivateAccessTagsForDynamicRouteResponseBodyDynamicRoutesTags },
     };
   }
 
@@ -3701,6 +4535,76 @@ export default class Client extends OpenApi {
     return await this.attachApplication2ConnectorWithOptions(request, runtime);
   }
 
+  async createDynamicRouteWithOptions(request: CreateDynamicRouteRequest, runtime: $Util.RuntimeOptions): Promise<CreateDynamicRouteResponse> {
+    Util.validateModel(request);
+    let body : {[key: string ]: any} = { };
+    let bodyFlat : {[key: string ]: any} = { };
+    if (!Util.isUnset(request.applicationIds)) {
+      bodyFlat["ApplicationIds"] = request.applicationIds;
+    }
+
+    if (!Util.isUnset(request.applicationType)) {
+      body["ApplicationType"] = request.applicationType;
+    }
+
+    if (!Util.isUnset(request.description)) {
+      body["Description"] = request.description;
+    }
+
+    if (!Util.isUnset(request.dynamicRouteType)) {
+      body["DynamicRouteType"] = request.dynamicRouteType;
+    }
+
+    if (!Util.isUnset(request.name)) {
+      body["Name"] = request.name;
+    }
+
+    if (!Util.isUnset(request.nextHop)) {
+      body["NextHop"] = request.nextHop;
+    }
+
+    if (!Util.isUnset(request.priority)) {
+      body["Priority"] = request.priority;
+    }
+
+    if (!Util.isUnset(request.regionIds)) {
+      bodyFlat["RegionIds"] = request.regionIds;
+    }
+
+    if (!Util.isUnset(request.status)) {
+      body["Status"] = request.status;
+    }
+
+    if (!Util.isUnset(request.tagIds)) {
+      bodyFlat["TagIds"] = request.tagIds;
+    }
+
+    body = {
+      ...body,
+      ...OpenApiUtil.query(bodyFlat),
+    };
+    let req = new $OpenApi.OpenApiRequest({
+      body: OpenApiUtil.parseToMap(body),
+    });
+    let params = new $OpenApi.Params({
+      action: "CreateDynamicRoute",
+      version: "2023-01-20",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $tea.cast<CreateDynamicRouteResponse>(await this.callApi(params, req, runtime), new CreateDynamicRouteResponse({}));
+  }
+
+  async createDynamicRoute(request: CreateDynamicRouteRequest): Promise<CreateDynamicRouteResponse> {
+    let runtime = new $Util.RuntimeOptions({ });
+    return await this.createDynamicRouteWithOptions(request, runtime);
+  }
+
   async createPrivateAccessApplicationWithOptions(tmpReq: CreatePrivateAccessApplicationRequest, runtime: $Util.RuntimeOptions): Promise<CreatePrivateAccessApplicationResponse> {
     Util.validateModel(tmpReq);
     let request = new CreatePrivateAccessApplicationShrinkRequest({ });
@@ -3930,6 +4834,35 @@ export default class Client extends OpenApi {
     return await this.createUserGroupWithOptions(request, runtime);
   }
 
+  async deleteDynamicRouteWithOptions(request: DeleteDynamicRouteRequest, runtime: $Util.RuntimeOptions): Promise<DeleteDynamicRouteResponse> {
+    Util.validateModel(request);
+    let query = { };
+    if (!Util.isUnset(request.dynamicRouteId)) {
+      query["DynamicRouteId"] = request.dynamicRouteId;
+    }
+
+    let req = new $OpenApi.OpenApiRequest({
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApi.Params({
+      action: "DeleteDynamicRoute",
+      version: "2023-01-20",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $tea.cast<DeleteDynamicRouteResponse>(await this.callApi(params, req, runtime), new DeleteDynamicRouteResponse({}));
+  }
+
+  async deleteDynamicRoute(request: DeleteDynamicRouteRequest): Promise<DeleteDynamicRouteResponse> {
+    let runtime = new $Util.RuntimeOptions({ });
+    return await this.deleteDynamicRouteWithOptions(request, runtime);
+  }
+
   async deletePrivateAccessApplicationWithOptions(request: DeletePrivateAccessApplicationRequest, runtime: $Util.RuntimeOptions): Promise<DeletePrivateAccessApplicationResponse> {
     Util.validateModel(request);
     let body : {[key: string ]: any} = { };
@@ -4085,6 +5018,31 @@ export default class Client extends OpenApi {
     return await this.detachApplication2ConnectorWithOptions(request, runtime);
   }
 
+  async getDynamicRouteWithOptions(request: GetDynamicRouteRequest, runtime: $Util.RuntimeOptions): Promise<GetDynamicRouteResponse> {
+    Util.validateModel(request);
+    let query = OpenApiUtil.query(Util.toMap(request));
+    let req = new $OpenApi.OpenApiRequest({
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApi.Params({
+      action: "GetDynamicRoute",
+      version: "2023-01-20",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "GET",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $tea.cast<GetDynamicRouteResponse>(await this.callApi(params, req, runtime), new GetDynamicRouteResponse({}));
+  }
+
+  async getDynamicRoute(request: GetDynamicRouteRequest): Promise<GetDynamicRouteResponse> {
+    let runtime = new $Util.RuntimeOptions({ });
+    return await this.getDynamicRouteWithOptions(request, runtime);
+  }
+
   async getPrivateAccessApplicationWithOptions(request: GetPrivateAccessApplicationRequest, runtime: $Util.RuntimeOptions): Promise<GetPrivateAccessApplicationResponse> {
     Util.validateModel(request);
     let query = OpenApiUtil.query(Util.toMap(request));
@@ -4235,6 +5193,52 @@ export default class Client extends OpenApi {
     return await this.listConnectorsWithOptions(request, runtime);
   }
 
+  async listDynamicRouteRegionsWithOptions(runtime: $Util.RuntimeOptions): Promise<ListDynamicRouteRegionsResponse> {
+    let req = new $OpenApi.OpenApiRequest({ });
+    let params = new $OpenApi.Params({
+      action: "ListDynamicRouteRegions",
+      version: "2023-01-20",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "GET",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $tea.cast<ListDynamicRouteRegionsResponse>(await this.callApi(params, req, runtime), new ListDynamicRouteRegionsResponse({}));
+  }
+
+  async listDynamicRouteRegions(): Promise<ListDynamicRouteRegionsResponse> {
+    let runtime = new $Util.RuntimeOptions({ });
+    return await this.listDynamicRouteRegionsWithOptions(runtime);
+  }
+
+  async listDynamicRoutesWithOptions(request: ListDynamicRoutesRequest, runtime: $Util.RuntimeOptions): Promise<ListDynamicRoutesResponse> {
+    Util.validateModel(request);
+    let query = OpenApiUtil.query(Util.toMap(request));
+    let req = new $OpenApi.OpenApiRequest({
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApi.Params({
+      action: "ListDynamicRoutes",
+      version: "2023-01-20",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "GET",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $tea.cast<ListDynamicRoutesResponse>(await this.callApi(params, req, runtime), new ListDynamicRoutesResponse({}));
+  }
+
+  async listDynamicRoutes(request: ListDynamicRoutesRequest): Promise<ListDynamicRoutesResponse> {
+    let runtime = new $Util.RuntimeOptions({ });
+    return await this.listDynamicRoutesWithOptions(request, runtime);
+  }
+
   async listPolicesForPrivateAccessApplicationWithOptions(request: ListPolicesForPrivateAccessApplicationRequest, runtime: $Util.RuntimeOptions): Promise<ListPolicesForPrivateAccessApplicationResponse> {
     Util.validateModel(request);
     let query = OpenApiUtil.query(Util.toMap(request));
@@ -4335,6 +5339,31 @@ export default class Client extends OpenApi {
     return await this.listPrivateAccessApplicationsWithOptions(request, runtime);
   }
 
+  async listPrivateAccessApplicationsForDynamicRouteWithOptions(request: ListPrivateAccessApplicationsForDynamicRouteRequest, runtime: $Util.RuntimeOptions): Promise<ListPrivateAccessApplicationsForDynamicRouteResponse> {
+    Util.validateModel(request);
+    let query = OpenApiUtil.query(Util.toMap(request));
+    let req = new $OpenApi.OpenApiRequest({
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApi.Params({
+      action: "ListPrivateAccessApplicationsForDynamicRoute",
+      version: "2023-01-20",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "GET",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $tea.cast<ListPrivateAccessApplicationsForDynamicRouteResponse>(await this.callApi(params, req, runtime), new ListPrivateAccessApplicationsForDynamicRouteResponse({}));
+  }
+
+  async listPrivateAccessApplicationsForDynamicRoute(request: ListPrivateAccessApplicationsForDynamicRouteRequest): Promise<ListPrivateAccessApplicationsForDynamicRouteResponse> {
+    let runtime = new $Util.RuntimeOptions({ });
+    return await this.listPrivateAccessApplicationsForDynamicRouteWithOptions(request, runtime);
+  }
+
   async listPrivateAccessPolicesWithOptions(request: ListPrivateAccessPolicesRequest, runtime: $Util.RuntimeOptions): Promise<ListPrivateAccessPolicesResponse> {
     Util.validateModel(request);
     let query = OpenApiUtil.query(Util.toMap(request));
@@ -4383,6 +5412,31 @@ export default class Client extends OpenApi {
   async listPrivateAccessTags(request: ListPrivateAccessTagsRequest): Promise<ListPrivateAccessTagsResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.listPrivateAccessTagsWithOptions(request, runtime);
+  }
+
+  async listPrivateAccessTagsForDynamicRouteWithOptions(request: ListPrivateAccessTagsForDynamicRouteRequest, runtime: $Util.RuntimeOptions): Promise<ListPrivateAccessTagsForDynamicRouteResponse> {
+    Util.validateModel(request);
+    let query = OpenApiUtil.query(Util.toMap(request));
+    let req = new $OpenApi.OpenApiRequest({
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApi.Params({
+      action: "ListPrivateAccessTagsForDynamicRoute",
+      version: "2023-01-20",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "GET",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $tea.cast<ListPrivateAccessTagsForDynamicRouteResponse>(await this.callApi(params, req, runtime), new ListPrivateAccessTagsForDynamicRouteResponse({}));
+  }
+
+  async listPrivateAccessTagsForDynamicRoute(request: ListPrivateAccessTagsForDynamicRouteRequest): Promise<ListPrivateAccessTagsForDynamicRouteResponse> {
+    let runtime = new $Util.RuntimeOptions({ });
+    return await this.listPrivateAccessTagsForDynamicRouteWithOptions(request, runtime);
   }
 
   async listTagsForPrivateAccessApplicationWithOptions(request: ListTagsForPrivateAccessApplicationRequest, runtime: $Util.RuntimeOptions): Promise<ListTagsForPrivateAccessApplicationResponse> {
@@ -4483,6 +5537,84 @@ export default class Client extends OpenApi {
   async listUserGroupsForPrivateAccessPolicy(request: ListUserGroupsForPrivateAccessPolicyRequest): Promise<ListUserGroupsForPrivateAccessPolicyResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.listUserGroupsForPrivateAccessPolicyWithOptions(request, runtime);
+  }
+
+  async updateDynamicRouteWithOptions(request: UpdateDynamicRouteRequest, runtime: $Util.RuntimeOptions): Promise<UpdateDynamicRouteResponse> {
+    Util.validateModel(request);
+    let body : {[key: string ]: any} = { };
+    let bodyFlat : {[key: string ]: any} = { };
+    if (!Util.isUnset(request.applicationIds)) {
+      bodyFlat["ApplicationIds"] = request.applicationIds;
+    }
+
+    if (!Util.isUnset(request.applicationType)) {
+      body["ApplicationType"] = request.applicationType;
+    }
+
+    if (!Util.isUnset(request.description)) {
+      body["Description"] = request.description;
+    }
+
+    if (!Util.isUnset(request.dynamicRouteId)) {
+      body["DynamicRouteId"] = request.dynamicRouteId;
+    }
+
+    if (!Util.isUnset(request.dynamicRouteType)) {
+      body["DynamicRouteType"] = request.dynamicRouteType;
+    }
+
+    if (!Util.isUnset(request.modifyType)) {
+      body["ModifyType"] = request.modifyType;
+    }
+
+    if (!Util.isUnset(request.name)) {
+      body["Name"] = request.name;
+    }
+
+    if (!Util.isUnset(request.nextHop)) {
+      body["NextHop"] = request.nextHop;
+    }
+
+    if (!Util.isUnset(request.priority)) {
+      body["Priority"] = request.priority;
+    }
+
+    if (!Util.isUnset(request.regionIds)) {
+      bodyFlat["RegionIds"] = request.regionIds;
+    }
+
+    if (!Util.isUnset(request.status)) {
+      body["Status"] = request.status;
+    }
+
+    if (!Util.isUnset(request.tagIds)) {
+      bodyFlat["TagIds"] = request.tagIds;
+    }
+
+    body = {
+      ...body,
+      ...OpenApiUtil.query(bodyFlat),
+    };
+    let req = new $OpenApi.OpenApiRequest({
+      body: OpenApiUtil.parseToMap(body),
+    });
+    let params = new $OpenApi.Params({
+      action: "UpdateDynamicRoute",
+      version: "2023-01-20",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $tea.cast<UpdateDynamicRouteResponse>(await this.callApi(params, req, runtime), new UpdateDynamicRouteResponse({}));
+  }
+
+  async updateDynamicRoute(request: UpdateDynamicRouteRequest): Promise<UpdateDynamicRouteResponse> {
+    let runtime = new $Util.RuntimeOptions({ });
+    return await this.updateDynamicRouteWithOptions(request, runtime);
   }
 
   async updatePrivateAccessApplicationWithOptions(tmpReq: UpdatePrivateAccessApplicationRequest, runtime: $Util.RuntimeOptions): Promise<UpdatePrivateAccessApplicationResponse> {
