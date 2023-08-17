@@ -83,12 +83,14 @@ export class BeeBotAssociateShrinkRequest extends $tea.Model {
 }
 
 export class BeeBotAssociateResponseBody extends $tea.Model {
+  accessDeniedDetail?: string;
   code?: string;
   data?: BeeBotAssociateResponseBodyData;
   message?: string;
   requestId?: string;
   static names(): { [key: string]: string } {
     return {
+      accessDeniedDetail: 'AccessDeniedDetail',
       code: 'Code',
       data: 'Data',
       message: 'Message',
@@ -98,6 +100,7 @@ export class BeeBotAssociateResponseBody extends $tea.Model {
 
   static types(): { [key: string]: any } {
     return {
+      accessDeniedDetail: 'string',
       code: 'string',
       data: BeeBotAssociateResponseBodyData,
       message: 'string',
@@ -234,12 +237,14 @@ export class BeeBotChatShrinkRequest extends $tea.Model {
 }
 
 export class BeeBotChatResponseBody extends $tea.Model {
+  accessDeniedDetail?: string;
   code?: string;
   data?: BeeBotChatResponseBodyData;
   message?: string;
   requestId?: string;
   static names(): { [key: string]: string } {
     return {
+      accessDeniedDetail: 'AccessDeniedDetail',
       code: 'Code',
       data: 'Data',
       message: 'Message',
@@ -249,6 +254,7 @@ export class BeeBotChatResponseBody extends $tea.Model {
 
   static types(): { [key: string]: any } {
     return {
+      accessDeniedDetail: 'string',
       code: 'string',
       data: BeeBotChatResponseBodyData,
       message: 'string',
@@ -306,12 +312,14 @@ export class ChatappBindWabaRequest extends $tea.Model {
 }
 
 export class ChatappBindWabaResponseBody extends $tea.Model {
+  accessDeniedDetail?: string;
   code?: string;
   data?: ChatappBindWabaResponseBodyData;
   message?: string;
   requestId?: string;
   static names(): { [key: string]: string } {
     return {
+      accessDeniedDetail: 'AccessDeniedDetail',
       code: 'Code',
       data: 'Data',
       message: 'Message',
@@ -321,6 +329,7 @@ export class ChatappBindWabaResponseBody extends $tea.Model {
 
   static types(): { [key: string]: any } {
     return {
+      accessDeniedDetail: 'string',
       code: 'string',
       data: ChatappBindWabaResponseBodyData,
       message: 'string',
@@ -378,12 +387,14 @@ export class ChatappEmbedSignUpRequest extends $tea.Model {
 }
 
 export class ChatappEmbedSignUpResponseBody extends $tea.Model {
+  accessDeniedDetail?: string;
   code?: string;
   message?: string;
   requestId?: string;
   wabas?: ChatappEmbedSignUpResponseBodyWabas[];
   static names(): { [key: string]: string } {
     return {
+      accessDeniedDetail: 'AccessDeniedDetail',
       code: 'Code',
       message: 'Message',
       requestId: 'RequestId',
@@ -393,6 +404,7 @@ export class ChatappEmbedSignUpResponseBody extends $tea.Model {
 
   static types(): { [key: string]: any } {
     return {
+      accessDeniedDetail: 'string',
       code: 'string',
       message: 'string',
       requestId: 'string',
@@ -453,11 +465,13 @@ export class ChatappMigrationRegisterRequest extends $tea.Model {
 }
 
 export class ChatappMigrationRegisterResponseBody extends $tea.Model {
+  accessDeniedDetail?: string;
   code?: string;
   message?: string;
   requestId?: string;
   static names(): { [key: string]: string } {
     return {
+      accessDeniedDetail: 'AccessDeniedDetail',
       code: 'Code',
       message: 'Message',
       requestId: 'RequestId',
@@ -466,6 +480,7 @@ export class ChatappMigrationRegisterResponseBody extends $tea.Model {
 
   static types(): { [key: string]: any } {
     return {
+      accessDeniedDetail: 'string',
       code: 'string',
       message: 'string',
       requestId: 'string',
@@ -528,12 +543,14 @@ export class ChatappMigrationVerifiedRequest extends $tea.Model {
 }
 
 export class ChatappMigrationVerifiedResponseBody extends $tea.Model {
+  accessDeniedDetail?: string;
   code?: string;
   data?: ChatappMigrationVerifiedResponseBodyData;
   message?: string;
   requestId?: string;
   static names(): { [key: string]: string } {
     return {
+      accessDeniedDetail: 'AccessDeniedDetail',
       code: 'Code',
       data: 'Data',
       message: 'Message',
@@ -543,6 +560,7 @@ export class ChatappMigrationVerifiedResponseBody extends $tea.Model {
 
   static types(): { [key: string]: any } {
     return {
+      accessDeniedDetail: 'string',
       code: 'string',
       data: ChatappMigrationVerifiedResponseBodyData,
       message: 'string',
@@ -603,11 +621,13 @@ export class ChatappPhoneNumberRegisterRequest extends $tea.Model {
 }
 
 export class ChatappPhoneNumberRegisterResponseBody extends $tea.Model {
+  accessDeniedDetail?: string;
   code?: string;
   message?: string;
   requestId?: string;
   static names(): { [key: string]: string } {
     return {
+      accessDeniedDetail: 'AccessDeniedDetail',
       code: 'Code',
       message: 'Message',
       requestId: 'RequestId',
@@ -616,6 +636,7 @@ export class ChatappPhoneNumberRegisterResponseBody extends $tea.Model {
 
   static types(): { [key: string]: any } {
     return {
+      accessDeniedDetail: 'string',
       code: 'string',
       message: 'string',
       requestId: 'string',
@@ -672,12 +693,14 @@ export class ChatappSyncPhoneNumberRequest extends $tea.Model {
 }
 
 export class ChatappSyncPhoneNumberResponseBody extends $tea.Model {
+  accessDeniedDetail?: string;
   code?: string;
   message?: string;
   phoneNumbers?: ChatappSyncPhoneNumberResponseBodyPhoneNumbers[];
   requestId?: string;
   static names(): { [key: string]: string } {
     return {
+      accessDeniedDetail: 'AccessDeniedDetail',
       code: 'Code',
       message: 'Message',
       phoneNumbers: 'PhoneNumbers',
@@ -687,6 +710,7 @@ export class ChatappSyncPhoneNumberResponseBody extends $tea.Model {
 
   static types(): { [key: string]: any } {
     return {
+      accessDeniedDetail: 'string',
       code: 'string',
       message: 'string',
       phoneNumbers: { 'type': 'array', 'itemType': ChatappSyncPhoneNumberResponseBodyPhoneNumbers },
@@ -750,11 +774,13 @@ export class ChatappVerifyAndRegisterRequest extends $tea.Model {
 }
 
 export class ChatappVerifyAndRegisterResponseBody extends $tea.Model {
+  accessDeniedDetail?: string;
   code?: string;
   message?: string;
   requestId?: string;
   static names(): { [key: string]: string } {
     return {
+      accessDeniedDetail: 'AccessDeniedDetail',
       code: 'Code',
       message: 'Message',
       requestId: 'RequestId',
@@ -763,6 +789,7 @@ export class ChatappVerifyAndRegisterResponseBody extends $tea.Model {
 
   static types(): { [key: string]: any } {
     return {
+      accessDeniedDetail: 'string',
       code: 'string',
       message: 'string',
       requestId: 'string',
@@ -825,12 +852,14 @@ export class CreateChatappMigrationInitiateRequest extends $tea.Model {
 }
 
 export class CreateChatappMigrationInitiateResponseBody extends $tea.Model {
+  accessDeniedDetail?: string;
   code?: string;
   data?: CreateChatappMigrationInitiateResponseBodyData;
   message?: string;
   requestId?: string;
   static names(): { [key: string]: string } {
     return {
+      accessDeniedDetail: 'AccessDeniedDetail',
       code: 'Code',
       data: 'Data',
       message: 'Message',
@@ -840,6 +869,7 @@ export class CreateChatappMigrationInitiateResponseBody extends $tea.Model {
 
   static types(): { [key: string]: any } {
     return {
+      accessDeniedDetail: 'string',
       code: 'string',
       data: CreateChatappMigrationInitiateResponseBodyData,
       message: 'string',
@@ -886,6 +916,7 @@ export class CreateChatappTemplateRequest extends $tea.Model {
   example?: { [key: string]: string };
   isvCode?: string;
   language?: string;
+  messageSendTtlSeconds?: number;
   name?: string;
   templateType?: string;
   static names(): { [key: string]: string } {
@@ -898,6 +929,7 @@ export class CreateChatappTemplateRequest extends $tea.Model {
       example: 'Example',
       isvCode: 'IsvCode',
       language: 'Language',
+      messageSendTtlSeconds: 'MessageSendTtlSeconds',
       name: 'Name',
       templateType: 'TemplateType',
     };
@@ -913,6 +945,7 @@ export class CreateChatappTemplateRequest extends $tea.Model {
       example: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
       isvCode: 'string',
       language: 'string',
+      messageSendTtlSeconds: 'number',
       name: 'string',
       templateType: 'string',
     };
@@ -932,6 +965,7 @@ export class CreateChatappTemplateShrinkRequest extends $tea.Model {
   exampleShrink?: string;
   isvCode?: string;
   language?: string;
+  messageSendTtlSeconds?: number;
   name?: string;
   templateType?: string;
   static names(): { [key: string]: string } {
@@ -944,6 +978,7 @@ export class CreateChatappTemplateShrinkRequest extends $tea.Model {
       exampleShrink: 'Example',
       isvCode: 'IsvCode',
       language: 'Language',
+      messageSendTtlSeconds: 'MessageSendTtlSeconds',
       name: 'Name',
       templateType: 'TemplateType',
     };
@@ -959,6 +994,7 @@ export class CreateChatappTemplateShrinkRequest extends $tea.Model {
       exampleShrink: 'string',
       isvCode: 'string',
       language: 'string',
+      messageSendTtlSeconds: 'number',
       name: 'string',
       templateType: 'string',
     };
@@ -970,12 +1006,14 @@ export class CreateChatappTemplateShrinkRequest extends $tea.Model {
 }
 
 export class CreateChatappTemplateResponseBody extends $tea.Model {
+  accessDeniedDetail?: string;
   code?: string;
   data?: CreateChatappTemplateResponseBodyData;
   message?: string;
   requestId?: string;
   static names(): { [key: string]: string } {
     return {
+      accessDeniedDetail: 'AccessDeniedDetail',
       code: 'Code',
       data: 'Data',
       message: 'Message',
@@ -985,6 +1023,7 @@ export class CreateChatappTemplateResponseBody extends $tea.Model {
 
   static types(): { [key: string]: any } {
     return {
+      accessDeniedDetail: 'string',
       code: 'string',
       data: CreateChatappTemplateResponseBodyData,
       message: 'string',
@@ -1051,11 +1090,13 @@ export class DeleteChatappTemplateRequest extends $tea.Model {
 }
 
 export class DeleteChatappTemplateResponseBody extends $tea.Model {
+  accessDeniedDetail?: string;
   code?: string;
   message?: string;
   requestId?: string;
   static names(): { [key: string]: string } {
     return {
+      accessDeniedDetail: 'AccessDeniedDetail',
       code: 'Code',
       message: 'Message',
       requestId: 'RequestId',
@@ -1064,6 +1105,7 @@ export class DeleteChatappTemplateResponseBody extends $tea.Model {
 
   static types(): { [key: string]: any } {
     return {
+      accessDeniedDetail: 'string',
       code: 'string',
       message: 'string',
       requestId: 'string',
@@ -1135,12 +1177,14 @@ export class GetChatappTemplateDetailRequest extends $tea.Model {
 }
 
 export class GetChatappTemplateDetailResponseBody extends $tea.Model {
+  accessDeniedDetail?: string;
   code?: string;
   data?: GetChatappTemplateDetailResponseBodyData;
   message?: string;
   requestId?: string;
   static names(): { [key: string]: string } {
     return {
+      accessDeniedDetail: 'AccessDeniedDetail',
       code: 'Code',
       data: 'Data',
       message: 'Message',
@@ -1150,6 +1194,7 @@ export class GetChatappTemplateDetailResponseBody extends $tea.Model {
 
   static types(): { [key: string]: any } {
     return {
+      accessDeniedDetail: 'string',
       code: 'string',
       data: GetChatappTemplateDetailResponseBodyData,
       message: 'string',
@@ -1207,12 +1252,14 @@ export class GetChatappUploadAuthorizationRequest extends $tea.Model {
 }
 
 export class GetChatappUploadAuthorizationResponseBody extends $tea.Model {
+  accessDeniedDetail?: string;
   code?: string;
   data?: GetChatappUploadAuthorizationResponseBodyData;
   message?: string;
   requestId?: string;
   static names(): { [key: string]: string } {
     return {
+      accessDeniedDetail: 'AccessDeniedDetail',
       code: 'Code',
       data: 'Data',
       message: 'Message',
@@ -1222,6 +1269,7 @@ export class GetChatappUploadAuthorizationResponseBody extends $tea.Model {
 
   static types(): { [key: string]: any } {
     return {
+      accessDeniedDetail: 'string',
       code: 'string',
       data: GetChatappUploadAuthorizationResponseBodyData,
       message: 'string',
@@ -1288,11 +1336,13 @@ export class GetChatappVerifyCodeRequest extends $tea.Model {
 }
 
 export class GetChatappVerifyCodeResponseBody extends $tea.Model {
+  accessDeniedDetail?: string;
   code?: string;
   message?: string;
   requestId?: string;
   static names(): { [key: string]: string } {
     return {
+      accessDeniedDetail: 'AccessDeniedDetail',
       code: 'Code',
       message: 'Message',
       requestId: 'RequestId',
@@ -1301,6 +1351,7 @@ export class GetChatappVerifyCodeResponseBody extends $tea.Model {
 
   static types(): { [key: string]: any } {
     return {
+      accessDeniedDetail: 'string',
       code: 'string',
       message: 'string',
       requestId: 'string',
@@ -1366,12 +1417,14 @@ export class GetMigrationVerifyCodeRequest extends $tea.Model {
 }
 
 export class GetMigrationVerifyCodeResponseBody extends $tea.Model {
+  accessDeniedDetail?: string;
   code?: string;
   data?: GetMigrationVerifyCodeResponseBodyData;
   message?: string;
   requestId?: string;
   static names(): { [key: string]: string } {
     return {
+      accessDeniedDetail: 'AccessDeniedDetail',
       code: 'Code',
       data: 'Data',
       message: 'Message',
@@ -1381,6 +1434,7 @@ export class GetMigrationVerifyCodeResponseBody extends $tea.Model {
 
   static types(): { [key: string]: any } {
     return {
+      accessDeniedDetail: 'string',
       code: 'string',
       data: GetMigrationVerifyCodeResponseBodyData,
       message: 'string',
@@ -1493,6 +1547,81 @@ export class GetPhoneNumberVerificationStatusResponse extends $tea.Model {
   }
 }
 
+export class GetPreValidatePhoneIdRequest extends $tea.Model {
+  phoneNumber?: string;
+  verifyCode?: string;
+  static names(): { [key: string]: string } {
+    return {
+      phoneNumber: 'PhoneNumber',
+      verifyCode: 'VerifyCode',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      phoneNumber: 'string',
+      verifyCode: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class GetPreValidatePhoneIdResponseBody extends $tea.Model {
+  code?: string;
+  data?: GetPreValidatePhoneIdResponseBodyData;
+  message?: string;
+  requestId?: string;
+  static names(): { [key: string]: string } {
+    return {
+      code: 'Code',
+      data: 'Data',
+      message: 'Message',
+      requestId: 'RequestId',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      code: 'string',
+      data: GetPreValidatePhoneIdResponseBodyData,
+      message: 'string',
+      requestId: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class GetPreValidatePhoneIdResponse extends $tea.Model {
+  headers: { [key: string]: string };
+  statusCode: number;
+  body: GetPreValidatePhoneIdResponseBody;
+  static names(): { [key: string]: string } {
+    return {
+      headers: 'headers',
+      statusCode: 'statusCode',
+      body: 'body',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
+      body: GetPreValidatePhoneIdResponseBody,
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
 export class IsvGetAppIdRequest extends $tea.Model {
   type?: string;
   static names(): { [key: string]: string } {
@@ -1513,12 +1642,14 @@ export class IsvGetAppIdRequest extends $tea.Model {
 }
 
 export class IsvGetAppIdResponseBody extends $tea.Model {
+  accessDeniedDetail?: string;
   appId?: string;
   code?: string;
   message?: string;
   requestId?: string;
   static names(): { [key: string]: string } {
     return {
+      accessDeniedDetail: 'AccessDeniedDetail',
       appId: 'AppId',
       code: 'Code',
       message: 'Message',
@@ -1528,6 +1659,7 @@ export class IsvGetAppIdResponseBody extends $tea.Model {
 
   static types(): { [key: string]: any } {
     return {
+      accessDeniedDetail: 'string',
       appId: 'string',
       code: 'string',
       message: 'string',
@@ -1646,6 +1778,7 @@ export class ListChatappTemplateShrinkRequest extends $tea.Model {
 }
 
 export class ListChatappTemplateResponseBody extends $tea.Model {
+  accessDeniedDetail?: string;
   code?: string;
   listTemplate?: ListChatappTemplateResponseBodyListTemplate[];
   message?: string;
@@ -1653,6 +1786,7 @@ export class ListChatappTemplateResponseBody extends $tea.Model {
   total?: number;
   static names(): { [key: string]: string } {
     return {
+      accessDeniedDetail: 'AccessDeniedDetail',
       code: 'Code',
       listTemplate: 'ListTemplate',
       message: 'Message',
@@ -1663,6 +1797,7 @@ export class ListChatappTemplateResponseBody extends $tea.Model {
 
   static types(): { [key: string]: any } {
     return {
+      accessDeniedDetail: 'string',
       code: 'string',
       listTemplate: { 'type': 'array', 'itemType': ListChatappTemplateResponseBodyListTemplate },
       message: 'string',
@@ -1709,6 +1844,7 @@ export class ModifyChatappTemplateRequest extends $tea.Model {
   example?: { [key: string]: string };
   isvCode?: string;
   language?: string;
+  messageSendTtlSeconds?: number;
   templateCode?: string;
   templateType?: string;
   static names(): { [key: string]: string } {
@@ -1720,6 +1856,7 @@ export class ModifyChatappTemplateRequest extends $tea.Model {
       example: 'Example',
       isvCode: 'IsvCode',
       language: 'Language',
+      messageSendTtlSeconds: 'MessageSendTtlSeconds',
       templateCode: 'TemplateCode',
       templateType: 'TemplateType',
     };
@@ -1734,6 +1871,7 @@ export class ModifyChatappTemplateRequest extends $tea.Model {
       example: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
       isvCode: 'string',
       language: 'string',
+      messageSendTtlSeconds: 'number',
       templateCode: 'string',
       templateType: 'string',
     };
@@ -1752,6 +1890,7 @@ export class ModifyChatappTemplateShrinkRequest extends $tea.Model {
   exampleShrink?: string;
   isvCode?: string;
   language?: string;
+  messageSendTtlSeconds?: number;
   templateCode?: string;
   templateType?: string;
   static names(): { [key: string]: string } {
@@ -1763,6 +1902,7 @@ export class ModifyChatappTemplateShrinkRequest extends $tea.Model {
       exampleShrink: 'Example',
       isvCode: 'IsvCode',
       language: 'Language',
+      messageSendTtlSeconds: 'MessageSendTtlSeconds',
       templateCode: 'TemplateCode',
       templateType: 'TemplateType',
     };
@@ -1777,6 +1917,7 @@ export class ModifyChatappTemplateShrinkRequest extends $tea.Model {
       exampleShrink: 'string',
       isvCode: 'string',
       language: 'string',
+      messageSendTtlSeconds: 'number',
       templateCode: 'string',
       templateType: 'string',
     };
@@ -1788,12 +1929,14 @@ export class ModifyChatappTemplateShrinkRequest extends $tea.Model {
 }
 
 export class ModifyChatappTemplateResponseBody extends $tea.Model {
+  accessDeniedDetail?: string;
   code?: string;
   data?: ModifyChatappTemplateResponseBodyData;
   message?: string;
   requestId?: string;
   static names(): { [key: string]: string } {
     return {
+      accessDeniedDetail: 'AccessDeniedDetail',
       code: 'Code',
       data: 'Data',
       message: 'Message',
@@ -1803,6 +1946,7 @@ export class ModifyChatappTemplateResponseBody extends $tea.Model {
 
   static types(): { [key: string]: any } {
     return {
+      accessDeniedDetail: 'string',
       code: 'string',
       data: ModifyChatappTemplateResponseBodyData,
       message: 'string',
@@ -1921,11 +2065,13 @@ export class ModifyPhoneBusinessProfileShrinkRequest extends $tea.Model {
 }
 
 export class ModifyPhoneBusinessProfileResponseBody extends $tea.Model {
+  accessDeniedDetail?: string;
   code?: string;
   message?: string;
   requestId?: string;
   static names(): { [key: string]: string } {
     return {
+      accessDeniedDetail: 'AccessDeniedDetail',
       code: 'Code',
       message: 'Message',
       requestId: 'RequestId',
@@ -1934,6 +2080,7 @@ export class ModifyPhoneBusinessProfileResponseBody extends $tea.Model {
 
   static types(): { [key: string]: any } {
     return {
+      accessDeniedDetail: 'string',
       code: 'string',
       message: 'string',
       requestId: 'string',
@@ -1993,12 +2140,14 @@ export class QueryChatappBindWabaRequest extends $tea.Model {
 }
 
 export class QueryChatappBindWabaResponseBody extends $tea.Model {
+  accessDeniedDetail?: string;
   code?: string;
   data?: QueryChatappBindWabaResponseBodyData;
   message?: string;
   requestId?: string;
   static names(): { [key: string]: string } {
     return {
+      accessDeniedDetail: 'AccessDeniedDetail',
       code: 'Code',
       data: 'Data',
       message: 'Message',
@@ -2008,6 +2157,7 @@ export class QueryChatappBindWabaResponseBody extends $tea.Model {
 
   static types(): { [key: string]: any } {
     return {
+      accessDeniedDetail: 'string',
       code: 'string',
       data: QueryChatappBindWabaResponseBodyData,
       message: 'string',
@@ -2068,12 +2218,14 @@ export class QueryChatappPhoneNumbersRequest extends $tea.Model {
 }
 
 export class QueryChatappPhoneNumbersResponseBody extends $tea.Model {
+  accessDeniedDetail?: string;
   code?: string;
   message?: string;
   phoneNumbers?: QueryChatappPhoneNumbersResponseBodyPhoneNumbers[];
   requestId?: string;
   static names(): { [key: string]: string } {
     return {
+      accessDeniedDetail: 'AccessDeniedDetail',
       code: 'Code',
       message: 'Message',
       phoneNumbers: 'PhoneNumbers',
@@ -2083,6 +2235,7 @@ export class QueryChatappPhoneNumbersResponseBody extends $tea.Model {
 
   static types(): { [key: string]: any } {
     return {
+      accessDeniedDetail: 'string',
       code: 'string',
       message: 'string',
       phoneNumbers: { 'type': 'array', 'itemType': QueryChatappPhoneNumbersResponseBodyPhoneNumbers },
@@ -2143,12 +2296,14 @@ export class QueryPhoneBusinessProfileRequest extends $tea.Model {
 }
 
 export class QueryPhoneBusinessProfileResponseBody extends $tea.Model {
+  accessDeniedDetail?: string;
   code?: string;
   data?: QueryPhoneBusinessProfileResponseBodyData;
   message?: string;
   requestId?: string;
   static names(): { [key: string]: string } {
     return {
+      accessDeniedDetail: 'AccessDeniedDetail',
       code: 'Code',
       data: 'Data',
       message: 'Message',
@@ -2158,6 +2313,7 @@ export class QueryPhoneBusinessProfileResponseBody extends $tea.Model {
 
   static types(): { [key: string]: any } {
     return {
+      accessDeniedDetail: 'string',
       code: 'string',
       data: QueryPhoneBusinessProfileResponseBodyData,
       message: 'string',
@@ -2218,12 +2374,14 @@ export class QueryWabaBusinessInfoRequest extends $tea.Model {
 }
 
 export class QueryWabaBusinessInfoResponseBody extends $tea.Model {
+  accessDeniedDetail?: string;
   code?: string;
   data?: QueryWabaBusinessInfoResponseBodyData;
   message?: string;
   requestId?: string;
   static names(): { [key: string]: string } {
     return {
+      accessDeniedDetail: 'AccessDeniedDetail',
       code: 'Code',
       data: 'Data',
       message: 'Message',
@@ -2233,6 +2391,7 @@ export class QueryWabaBusinessInfoResponseBody extends $tea.Model {
 
   static types(): { [key: string]: any } {
     return {
+      accessDeniedDetail: 'string',
       code: 'string',
       data: QueryWabaBusinessInfoResponseBodyData,
       message: 'string',
@@ -2393,12 +2552,14 @@ export class SendChatappMassMessageShrinkRequest extends $tea.Model {
 }
 
 export class SendChatappMassMessageResponseBody extends $tea.Model {
+  accessDeniedDetail?: string;
   code?: string;
   groupMessageId?: string;
   message?: string;
   requestId?: string;
   static names(): { [key: string]: string } {
     return {
+      accessDeniedDetail: 'AccessDeniedDetail',
       code: 'Code',
       groupMessageId: 'GroupMessageId',
       message: 'Message',
@@ -2408,6 +2569,7 @@ export class SendChatappMassMessageResponseBody extends $tea.Model {
 
   static types(): { [key: string]: any } {
     return {
+      accessDeniedDetail: 'string',
       code: 'string',
       groupMessageId: 'string',
       message: 'string',
@@ -2460,6 +2622,7 @@ export class SendChatappMessageRequest extends $tea.Model {
   language?: string;
   messageType?: string;
   payload?: string[];
+  productAction?: SendChatappMessageRequestProductAction;
   tag?: string;
   taskId?: string;
   templateCode?: string;
@@ -2484,6 +2647,7 @@ export class SendChatappMessageRequest extends $tea.Model {
       language: 'Language',
       messageType: 'MessageType',
       payload: 'Payload',
+      productAction: 'ProductAction',
       tag: 'Tag',
       taskId: 'TaskId',
       templateCode: 'TemplateCode',
@@ -2511,6 +2675,7 @@ export class SendChatappMessageRequest extends $tea.Model {
       language: 'string',
       messageType: 'string',
       payload: { 'type': 'array', 'itemType': 'string' },
+      productAction: SendChatappMessageRequestProductAction,
       tag: 'string',
       taskId: 'string',
       templateCode: 'string',
@@ -2542,6 +2707,7 @@ export class SendChatappMessageShrinkRequest extends $tea.Model {
   language?: string;
   messageType?: string;
   payloadShrink?: string;
+  productActionShrink?: string;
   tag?: string;
   taskId?: string;
   templateCode?: string;
@@ -2566,6 +2732,7 @@ export class SendChatappMessageShrinkRequest extends $tea.Model {
       language: 'Language',
       messageType: 'MessageType',
       payloadShrink: 'Payload',
+      productActionShrink: 'ProductAction',
       tag: 'Tag',
       taskId: 'TaskId',
       templateCode: 'TemplateCode',
@@ -2593,6 +2760,7 @@ export class SendChatappMessageShrinkRequest extends $tea.Model {
       language: 'string',
       messageType: 'string',
       payloadShrink: 'string',
+      productActionShrink: 'string',
       tag: 'string',
       taskId: 'string',
       templateCode: 'string',
@@ -2700,11 +2868,13 @@ export class SubmitIsvCustomerTermsRequest extends $tea.Model {
 }
 
 export class SubmitIsvCustomerTermsResponseBody extends $tea.Model {
+  accessDeniedDetail?: string;
   code?: string;
   message?: string;
   requestId?: string;
   static names(): { [key: string]: string } {
     return {
+      accessDeniedDetail: 'AccessDeniedDetail',
       code: 'Code',
       message: 'Message',
       requestId: 'RequestId',
@@ -2713,6 +2883,7 @@ export class SubmitIsvCustomerTermsResponseBody extends $tea.Model {
 
   static types(): { [key: string]: any } {
     return {
+      accessDeniedDetail: 'string',
       code: 'string',
       message: 'string',
       requestId: 'string',
@@ -2778,11 +2949,13 @@ export class UpdateAccountWebhookRequest extends $tea.Model {
 }
 
 export class UpdateAccountWebhookResponseBody extends $tea.Model {
+  accessDeniedDetail?: string;
   code?: string;
   message?: string;
   requestId?: string;
   static names(): { [key: string]: string } {
     return {
+      accessDeniedDetail: 'AccessDeniedDetail',
       code: 'Code',
       message: 'Message',
       requestId: 'RequestId',
@@ -2791,6 +2964,7 @@ export class UpdateAccountWebhookResponseBody extends $tea.Model {
 
   static types(): { [key: string]: any } {
     return {
+      accessDeniedDetail: 'string',
       code: 'string',
       message: 'string',
       requestId: 'string',
@@ -2862,11 +3036,13 @@ export class UpdatePhoneWebhookRequest extends $tea.Model {
 }
 
 export class UpdatePhoneWebhookResponseBody extends $tea.Model {
+  accessDeniedDetail?: string;
   code?: string;
   message?: string;
   requestId?: string;
   static names(): { [key: string]: string } {
     return {
+      accessDeniedDetail: 'AccessDeniedDetail',
       code: 'Code',
       message: 'Message',
       requestId: 'RequestId',
@@ -2875,6 +3051,7 @@ export class UpdatePhoneWebhookResponseBody extends $tea.Model {
 
   static types(): { [key: string]: any } {
     return {
+      accessDeniedDetail: 'string',
       code: 'string',
       message: 'string',
       requestId: 'string',
@@ -3603,7 +3780,9 @@ export class GetChatappTemplateDetailResponseBodyData extends $tea.Model {
   components?: GetChatappTemplateDetailResponseBodyDataComponents[];
   example?: { [key: string]: string };
   language?: string;
+  messageSendTtlSeconds?: number;
   name?: string;
+  qualityScore?: string;
   templateCode?: string;
   templateType?: string;
   static names(): { [key: string]: string } {
@@ -3613,7 +3792,9 @@ export class GetChatappTemplateDetailResponseBodyData extends $tea.Model {
       components: 'Components',
       example: 'Example',
       language: 'Language',
+      messageSendTtlSeconds: 'MessageSendTtlSeconds',
       name: 'Name',
+      qualityScore: 'QualityScore',
       templateCode: 'TemplateCode',
       templateType: 'TemplateType',
     };
@@ -3626,7 +3807,9 @@ export class GetChatappTemplateDetailResponseBodyData extends $tea.Model {
       components: { 'type': 'array', 'itemType': GetChatappTemplateDetailResponseBodyDataComponents },
       example: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
       language: 'string',
+      messageSendTtlSeconds: 'number',
       name: 'string',
+      qualityScore: 'string',
       templateCode: 'string',
       templateType: 'string',
     };
@@ -3713,6 +3896,28 @@ export class GetPhoneNumberVerificationStatusResponseBodyData extends $tea.Model
       codeVerificationStatus: 'string',
       id: 'string',
       phoneNumber: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class GetPreValidatePhoneIdResponseBodyData extends $tea.Model {
+  phoneNumber?: string;
+  phoneNumberId?: string;
+  static names(): { [key: string]: string } {
+    return {
+      phoneNumber: 'PhoneNumber',
+      phoneNumberId: 'PhoneNumberId',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      phoneNumber: 'string',
+      phoneNumberId: 'string',
     };
   }
 
@@ -4039,13 +4244,78 @@ export class QueryWabaBusinessInfoResponseBodyData extends $tea.Model {
   }
 }
 
+export class SendChatappMassMessageRequestSenderListProductActionSectionsProductItems extends $tea.Model {
+  productRetailerId?: string;
+  static names(): { [key: string]: string } {
+    return {
+      productRetailerId: 'ProductRetailerId',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      productRetailerId: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class SendChatappMassMessageRequestSenderListProductActionSections extends $tea.Model {
+  productItems?: SendChatappMassMessageRequestSenderListProductActionSectionsProductItems[];
+  title?: string;
+  static names(): { [key: string]: string } {
+    return {
+      productItems: 'ProductItems',
+      title: 'Title',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      productItems: { 'type': 'array', 'itemType': SendChatappMassMessageRequestSenderListProductActionSectionsProductItems },
+      title: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class SendChatappMassMessageRequestSenderListProductAction extends $tea.Model {
+  sections?: SendChatappMassMessageRequestSenderListProductActionSections[];
+  thumbnailProductRetailerId?: string;
+  static names(): { [key: string]: string } {
+    return {
+      sections: 'Sections',
+      thumbnailProductRetailerId: 'ThumbnailProductRetailerId',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      sections: { 'type': 'array', 'itemType': SendChatappMassMessageRequestSenderListProductActionSections },
+      thumbnailProductRetailerId: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
 export class SendChatappMassMessageRequestSenderList extends $tea.Model {
   payload?: string[];
+  productAction?: SendChatappMassMessageRequestSenderListProductAction;
   templateParams?: { [key: string]: string };
   to?: string;
   static names(): { [key: string]: string } {
     return {
       payload: 'Payload',
+      productAction: 'ProductAction',
       templateParams: 'TemplateParams',
       to: 'To',
     };
@@ -4054,8 +4324,72 @@ export class SendChatappMassMessageRequestSenderList extends $tea.Model {
   static types(): { [key: string]: any } {
     return {
       payload: { 'type': 'array', 'itemType': 'string' },
+      productAction: SendChatappMassMessageRequestSenderListProductAction,
       templateParams: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
       to: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class SendChatappMessageRequestProductActionSectionsProductItems extends $tea.Model {
+  productRetailerId?: string;
+  static names(): { [key: string]: string } {
+    return {
+      productRetailerId: 'ProductRetailerId',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      productRetailerId: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class SendChatappMessageRequestProductActionSections extends $tea.Model {
+  productItems?: SendChatappMessageRequestProductActionSectionsProductItems[];
+  title?: string;
+  static names(): { [key: string]: string } {
+    return {
+      productItems: 'ProductItems',
+      title: 'Title',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      productItems: { 'type': 'array', 'itemType': SendChatappMessageRequestProductActionSectionsProductItems },
+      title: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class SendChatappMessageRequestProductAction extends $tea.Model {
+  sections?: SendChatappMessageRequestProductActionSections[];
+  thumbnailProductRetailerId?: string;
+  static names(): { [key: string]: string } {
+    return {
+      sections: 'Sections',
+      thumbnailProductRetailerId: 'ThumbnailProductRetailerId',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      sections: { 'type': 'array', 'itemType': SendChatappMessageRequestProductActionSections },
+      thumbnailProductRetailerId: 'string',
     };
   }
 
@@ -4671,6 +5005,10 @@ export default class Client extends OpenApi {
       body["Language"] = request.language;
     }
 
+    if (!Util.isUnset(request.messageSendTtlSeconds)) {
+      body["MessageSendTtlSeconds"] = request.messageSendTtlSeconds;
+    }
+
     if (!Util.isUnset(request.name)) {
       body["Name"] = request.name;
     }
@@ -5021,8 +5359,41 @@ export default class Client extends OpenApi {
     return await this.getPhoneNumberVerificationStatusWithOptions(request, runtime);
   }
 
+  async getPreValidatePhoneIdWithOptions(request: GetPreValidatePhoneIdRequest, runtime: $Util.RuntimeOptions): Promise<GetPreValidatePhoneIdResponse> {
+    Util.validateModel(request);
+    let body : {[key: string ]: any} = { };
+    if (!Util.isUnset(request.phoneNumber)) {
+      body["PhoneNumber"] = request.phoneNumber;
+    }
+
+    if (!Util.isUnset(request.verifyCode)) {
+      body["VerifyCode"] = request.verifyCode;
+    }
+
+    let req = new $OpenApi.OpenApiRequest({
+      body: OpenApiUtil.parseToMap(body),
+    });
+    let params = new $OpenApi.Params({
+      action: "GetPreValidatePhoneId",
+      version: "2020-06-06",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $tea.cast<GetPreValidatePhoneIdResponse>(await this.callApi(params, req, runtime), new GetPreValidatePhoneIdResponse({}));
+  }
+
+  async getPreValidatePhoneId(request: GetPreValidatePhoneIdRequest): Promise<GetPreValidatePhoneIdResponse> {
+    let runtime = new $Util.RuntimeOptions({ });
+    return await this.getPreValidatePhoneIdWithOptions(request, runtime);
+  }
+
   /**
-    * The message ID.
+    * You can call this operation up to 10 times per second per account. If the number of calls per second exceeds the limit, throttling is triggered. As a result, your business may be affected. We recommend that you take note of the limit when you call this operation.
     *
     * @param request IsvGetAppIdRequest
     * @param runtime runtime options for this request RuntimeOptions
@@ -5053,7 +5424,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-    * The message ID.
+    * You can call this operation up to 10 times per second per account. If the number of calls per second exceeds the limit, throttling is triggered. As a result, your business may be affected. We recommend that you take note of the limit when you call this operation.
     *
     * @param request IsvGetAppIdRequest
     * @return IsvGetAppIdResponse
@@ -5189,6 +5560,10 @@ export default class Client extends OpenApi {
       body["Language"] = request.language;
     }
 
+    if (!Util.isUnset(request.messageSendTtlSeconds)) {
+      body["MessageSendTtlSeconds"] = request.messageSendTtlSeconds;
+    }
+
     if (!Util.isUnset(request.templateCode)) {
       body["TemplateCode"] = request.templateCode;
     }
@@ -5226,7 +5601,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-    * You can call this operation up to 10 times per second per account. If the number of calls per second exceeds the limit, throttling is triggered. As a result, your business may be affected. We recommend that you take note of the limit when you call this operation.
+    * ModifyPhoneBusinessProfile
     *
     * @param tmpReq ModifyPhoneBusinessProfileRequest
     * @param runtime runtime options for this request RuntimeOptions
@@ -5291,7 +5666,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-    * You can call this operation up to 10 times per second per account. If the number of calls per second exceeds the limit, throttling is triggered. As a result, your business may be affected. We recommend that you take note of the limit when you call this operation.
+    * ModifyPhoneBusinessProfile
     *
     * @param request ModifyPhoneBusinessProfileRequest
     * @return ModifyPhoneBusinessProfileResponse
@@ -5606,6 +5981,10 @@ export default class Client extends OpenApi {
       request.payloadShrink = OpenApiUtil.arrayToStringWithSpecifiedStyle(tmpReq.payload, "Payload", "json");
     }
 
+    if (!Util.isUnset(tmpReq.productAction)) {
+      request.productActionShrink = OpenApiUtil.arrayToStringWithSpecifiedStyle(tmpReq.productAction, "ProductAction", "json");
+    }
+
     if (!Util.isUnset(tmpReq.templateParams)) {
       request.templateParamsShrink = OpenApiUtil.arrayToStringWithSpecifiedStyle(tmpReq.templateParams, "TemplateParams", "json");
     }
@@ -5666,6 +6045,10 @@ export default class Client extends OpenApi {
 
     if (!Util.isUnset(request.messageType)) {
       body["MessageType"] = request.messageType;
+    }
+
+    if (!Util.isUnset(request.productActionShrink)) {
+      body["ProductAction"] = request.productActionShrink;
     }
 
     if (!Util.isUnset(request.tag)) {
