@@ -13,6 +13,97 @@ import EndpointUtil from '@alicloud/endpoint-util';
 import { Readable } from 'stream';
 import * as $tea from '@alicloud/tea-typescript';
 
+export class ExtractFeedbackRequest extends $tea.Model {
+  feedbackUrl?: string;
+  static names(): { [key: string]: string } {
+    return {
+      feedbackUrl: 'FeedbackUrl',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      feedbackUrl: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class ExtractFeedbackAdvanceRequest extends $tea.Model {
+  feedbackUrlObject?: Readable;
+  static names(): { [key: string]: string } {
+    return {
+      feedbackUrlObject: 'FeedbackUrl',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      feedbackUrlObject: 'Readable',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class ExtractFeedbackResponseBody extends $tea.Model {
+  code?: string;
+  data?: ExtractFeedbackResponseBodyData;
+  message?: string;
+  requestId?: string;
+  static names(): { [key: string]: string } {
+    return {
+      code: 'Code',
+      data: 'Data',
+      message: 'Message',
+      requestId: 'RequestId',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      code: 'string',
+      data: ExtractFeedbackResponseBodyData,
+      message: 'string',
+      requestId: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class ExtractFeedbackResponse extends $tea.Model {
+  headers: { [key: string]: string };
+  statusCode: number;
+  body: ExtractFeedbackResponseBody;
+  static names(): { [key: string]: string } {
+    return {
+      headers: 'headers',
+      statusCode: 'statusCode',
+      body: 'body',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
+      body: ExtractFeedbackResponseBody,
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
 export class GetSingleDocumentExtractResultRequest extends $tea.Model {
   id?: string;
   static names(): { [key: string]: string } {
@@ -91,15 +182,186 @@ export class GetSingleDocumentExtractResultResponse extends $tea.Model {
   }
 }
 
+export class ReClassifyTradeDocumentExtractRequest extends $tea.Model {
+  bizId?: string;
+  pageUpdateInfoModels?: ReClassifyTradeDocumentExtractRequestPageUpdateInfoModels[];
+  static names(): { [key: string]: string } {
+    return {
+      bizId: 'BizId',
+      pageUpdateInfoModels: 'PageUpdateInfoModels',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      bizId: 'string',
+      pageUpdateInfoModels: { 'type': 'array', 'itemType': ReClassifyTradeDocumentExtractRequestPageUpdateInfoModels },
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class ReClassifyTradeDocumentExtractShrinkRequest extends $tea.Model {
+  bizId?: string;
+  pageUpdateInfoModelsShrink?: string;
+  static names(): { [key: string]: string } {
+    return {
+      bizId: 'BizId',
+      pageUpdateInfoModelsShrink: 'PageUpdateInfoModels',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      bizId: 'string',
+      pageUpdateInfoModelsShrink: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class ReClassifyTradeDocumentExtractResponseBody extends $tea.Model {
+  code?: string;
+  data?: ReClassifyTradeDocumentExtractResponseBodyData;
+  message?: string;
+  requestId?: string;
+  static names(): { [key: string]: string } {
+    return {
+      code: 'Code',
+      data: 'Data',
+      message: 'Message',
+      requestId: 'RequestId',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      code: 'string',
+      data: ReClassifyTradeDocumentExtractResponseBodyData,
+      message: 'string',
+      requestId: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class ReClassifyTradeDocumentExtractResponse extends $tea.Model {
+  headers: { [key: string]: string };
+  statusCode: number;
+  body: ReClassifyTradeDocumentExtractResponseBody;
+  static names(): { [key: string]: string } {
+    return {
+      headers: 'headers',
+      statusCode: 'statusCode',
+      body: 'body',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
+      body: ReClassifyTradeDocumentExtractResponseBody,
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class RetryTradeDocumentExtractRequest extends $tea.Model {
+  bizId?: string;
+  static names(): { [key: string]: string } {
+    return {
+      bizId: 'BizId',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      bizId: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class RetryTradeDocumentExtractResponseBody extends $tea.Model {
+  code?: string;
+  data?: RetryTradeDocumentExtractResponseBodyData;
+  message?: string;
+  requestId?: string;
+  static names(): { [key: string]: string } {
+    return {
+      code: 'Code',
+      data: 'Data',
+      message: 'Message',
+      requestId: 'RequestId',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      code: 'string',
+      data: RetryTradeDocumentExtractResponseBodyData,
+      message: 'string',
+      requestId: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class RetryTradeDocumentExtractResponse extends $tea.Model {
+  headers: { [key: string]: string };
+  statusCode: number;
+  body: RetryTradeDocumentExtractResponseBody;
+  static names(): { [key: string]: string } {
+    return {
+      headers: 'headers',
+      statusCode: 'statusCode',
+      body: 'body',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
+      body: RetryTradeDocumentExtractResponseBody,
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
 export class SubmitAirWaybillExtractJobRequest extends $tea.Model {
   fileName?: string;
   fileNameExtension?: string;
   fileUrl?: string;
+  parserConfigId?: number;
   static names(): { [key: string]: string } {
     return {
       fileName: 'FileName',
       fileNameExtension: 'FileNameExtension',
       fileUrl: 'FileUrl',
+      parserConfigId: 'ParserConfigId',
     };
   }
 
@@ -108,6 +370,7 @@ export class SubmitAirWaybillExtractJobRequest extends $tea.Model {
       fileName: 'string',
       fileNameExtension: 'string',
       fileUrl: 'string',
+      parserConfigId: 'number',
     };
   }
 
@@ -120,11 +383,13 @@ export class SubmitAirWaybillExtractJobAdvanceRequest extends $tea.Model {
   fileName?: string;
   fileNameExtension?: string;
   fileUrlObject?: Readable;
+  parserConfigId?: number;
   static names(): { [key: string]: string } {
     return {
       fileName: 'FileName',
       fileNameExtension: 'FileNameExtension',
       fileUrlObject: 'FileUrl',
+      parserConfigId: 'ParserConfigId',
     };
   }
 
@@ -133,6 +398,7 @@ export class SubmitAirWaybillExtractJobAdvanceRequest extends $tea.Model {
       fileName: 'string',
       fileNameExtension: 'string',
       fileUrlObject: 'Readable',
+      parserConfigId: 'number',
     };
   }
 
@@ -198,11 +464,13 @@ export class SubmitBillOfLadingExtractJobRequest extends $tea.Model {
   fileName?: string;
   fileNameExtension?: string;
   fileUrl?: string;
+  parserConfigId?: number;
   static names(): { [key: string]: string } {
     return {
       fileName: 'FileName',
       fileNameExtension: 'FileNameExtension',
       fileUrl: 'FileUrl',
+      parserConfigId: 'ParserConfigId',
     };
   }
 
@@ -211,6 +479,7 @@ export class SubmitBillOfLadingExtractJobRequest extends $tea.Model {
       fileName: 'string',
       fileNameExtension: 'string',
       fileUrl: 'string',
+      parserConfigId: 'number',
     };
   }
 
@@ -223,11 +492,13 @@ export class SubmitBillOfLadingExtractJobAdvanceRequest extends $tea.Model {
   fileName?: string;
   fileNameExtension?: string;
   fileUrlObject?: Readable;
+  parserConfigId?: number;
   static names(): { [key: string]: string } {
     return {
       fileName: 'FileName',
       fileNameExtension: 'FileNameExtension',
       fileUrlObject: 'FileUrl',
+      parserConfigId: 'ParserConfigId',
     };
   }
 
@@ -236,6 +507,7 @@ export class SubmitBillOfLadingExtractJobAdvanceRequest extends $tea.Model {
       fileName: 'string',
       fileNameExtension: 'string',
       fileUrlObject: 'Readable',
+      parserConfigId: 'number',
     };
   }
 
@@ -301,11 +573,13 @@ export class SubmitBookingNoteExtractJobRequest extends $tea.Model {
   fileName?: string;
   fileNameExtension?: string;
   fileUrl?: string;
+  parserConfigId?: number;
   static names(): { [key: string]: string } {
     return {
       fileName: 'FileName',
       fileNameExtension: 'FileNameExtension',
       fileUrl: 'FileUrl',
+      parserConfigId: 'ParserConfigId',
     };
   }
 
@@ -314,6 +588,7 @@ export class SubmitBookingNoteExtractJobRequest extends $tea.Model {
       fileName: 'string',
       fileNameExtension: 'string',
       fileUrl: 'string',
+      parserConfigId: 'number',
     };
   }
 
@@ -326,11 +601,13 @@ export class SubmitBookingNoteExtractJobAdvanceRequest extends $tea.Model {
   fileName?: string;
   fileNameExtension?: string;
   fileUrlObject?: Readable;
+  parserConfigId?: number;
   static names(): { [key: string]: string } {
     return {
       fileName: 'FileName',
       fileNameExtension: 'FileNameExtension',
       fileUrlObject: 'FileUrl',
+      parserConfigId: 'ParserConfigId',
     };
   }
 
@@ -339,6 +616,7 @@ export class SubmitBookingNoteExtractJobAdvanceRequest extends $tea.Model {
       fileName: 'string',
       fileNameExtension: 'string',
       fileUrlObject: 'Readable',
+      parserConfigId: 'number',
     };
   }
 
@@ -404,11 +682,13 @@ export class SubmitCertificateOfOriginExtractJobRequest extends $tea.Model {
   fileName?: string;
   fileNameExtension?: string;
   fileUrl?: string;
+  parserConfigId?: number;
   static names(): { [key: string]: string } {
     return {
       fileName: 'FileName',
       fileNameExtension: 'FileNameExtension',
       fileUrl: 'FileUrl',
+      parserConfigId: 'ParserConfigId',
     };
   }
 
@@ -417,6 +697,7 @@ export class SubmitCertificateOfOriginExtractJobRequest extends $tea.Model {
       fileName: 'string',
       fileNameExtension: 'string',
       fileUrl: 'string',
+      parserConfigId: 'number',
     };
   }
 
@@ -429,11 +710,13 @@ export class SubmitCertificateOfOriginExtractJobAdvanceRequest extends $tea.Mode
   fileName?: string;
   fileNameExtension?: string;
   fileUrlObject?: Readable;
+  parserConfigId?: number;
   static names(): { [key: string]: string } {
     return {
       fileName: 'FileName',
       fileNameExtension: 'FileNameExtension',
       fileUrlObject: 'FileUrl',
+      parserConfigId: 'ParserConfigId',
     };
   }
 
@@ -442,6 +725,7 @@ export class SubmitCertificateOfOriginExtractJobAdvanceRequest extends $tea.Mode
       fileName: 'string',
       fileNameExtension: 'string',
       fileUrlObject: 'Readable',
+      parserConfigId: 'number',
     };
   }
 
@@ -507,11 +791,13 @@ export class SubmitContainerLoadPlanExtractJobRequest extends $tea.Model {
   fileName?: string;
   fileNameExtension?: string;
   fileUrl?: string;
+  parserConfigId?: number;
   static names(): { [key: string]: string } {
     return {
       fileName: 'FileName',
       fileNameExtension: 'FileNameExtension',
       fileUrl: 'FileUrl',
+      parserConfigId: 'ParserConfigId',
     };
   }
 
@@ -520,6 +806,7 @@ export class SubmitContainerLoadPlanExtractJobRequest extends $tea.Model {
       fileName: 'string',
       fileNameExtension: 'string',
       fileUrl: 'string',
+      parserConfigId: 'number',
     };
   }
 
@@ -532,11 +819,13 @@ export class SubmitContainerLoadPlanExtractJobAdvanceRequest extends $tea.Model 
   fileName?: string;
   fileNameExtension?: string;
   fileUrlObject?: Readable;
+  parserConfigId?: number;
   static names(): { [key: string]: string } {
     return {
       fileName: 'FileName',
       fileNameExtension: 'FileNameExtension',
       fileUrlObject: 'FileUrl',
+      parserConfigId: 'ParserConfigId',
     };
   }
 
@@ -545,6 +834,7 @@ export class SubmitContainerLoadPlanExtractJobAdvanceRequest extends $tea.Model 
       fileName: 'string',
       fileNameExtension: 'string',
       fileUrlObject: 'Readable',
+      parserConfigId: 'number',
     };
   }
 
@@ -610,11 +900,13 @@ export class SubmitExportDeclarationSheetExtractJobRequest extends $tea.Model {
   fileName?: string;
   fileNameExtension?: string;
   fileUrl?: string;
+  parserConfigId?: number;
   static names(): { [key: string]: string } {
     return {
       fileName: 'FileName',
       fileNameExtension: 'FileNameExtension',
       fileUrl: 'FileUrl',
+      parserConfigId: 'ParserConfigId',
     };
   }
 
@@ -623,6 +915,7 @@ export class SubmitExportDeclarationSheetExtractJobRequest extends $tea.Model {
       fileName: 'string',
       fileNameExtension: 'string',
       fileUrl: 'string',
+      parserConfigId: 'number',
     };
   }
 
@@ -635,11 +928,13 @@ export class SubmitExportDeclarationSheetExtractJobAdvanceRequest extends $tea.M
   fileName?: string;
   fileNameExtension?: string;
   fileUrlObject?: Readable;
+  parserConfigId?: number;
   static names(): { [key: string]: string } {
     return {
       fileName: 'FileName',
       fileNameExtension: 'FileNameExtension',
       fileUrlObject: 'FileUrl',
+      parserConfigId: 'ParserConfigId',
     };
   }
 
@@ -648,6 +943,7 @@ export class SubmitExportDeclarationSheetExtractJobAdvanceRequest extends $tea.M
       fileName: 'string',
       fileNameExtension: 'string',
       fileUrlObject: 'Readable',
+      parserConfigId: 'number',
     };
   }
 
@@ -713,11 +1009,13 @@ export class SubmitImportDeclarationSheetExtractJobRequest extends $tea.Model {
   fileName?: string;
   fileNameExtension?: string;
   fileUrl?: string;
+  parserConfigId?: number;
   static names(): { [key: string]: string } {
     return {
       fileName: 'FileName',
       fileNameExtension: 'FileNameExtension',
       fileUrl: 'FileUrl',
+      parserConfigId: 'ParserConfigId',
     };
   }
 
@@ -726,6 +1024,7 @@ export class SubmitImportDeclarationSheetExtractJobRequest extends $tea.Model {
       fileName: 'string',
       fileNameExtension: 'string',
       fileUrl: 'string',
+      parserConfigId: 'number',
     };
   }
 
@@ -738,11 +1037,13 @@ export class SubmitImportDeclarationSheetExtractJobAdvanceRequest extends $tea.M
   fileName?: string;
   fileNameExtension?: string;
   fileUrlObject?: Readable;
+  parserConfigId?: number;
   static names(): { [key: string]: string } {
     return {
       fileName: 'FileName',
       fileNameExtension: 'FileNameExtension',
       fileUrlObject: 'FileUrl',
+      parserConfigId: 'ParserConfigId',
     };
   }
 
@@ -751,6 +1052,7 @@ export class SubmitImportDeclarationSheetExtractJobAdvanceRequest extends $tea.M
       fileName: 'string',
       fileNameExtension: 'string',
       fileUrlObject: 'Readable',
+      parserConfigId: 'number',
     };
   }
 
@@ -816,11 +1118,13 @@ export class SubmitInvoiceExtractJobRequest extends $tea.Model {
   fileName?: string;
   fileNameExtension?: string;
   fileUrl?: string;
+  parserConfigId?: number;
   static names(): { [key: string]: string } {
     return {
       fileName: 'FileName',
       fileNameExtension: 'FileNameExtension',
       fileUrl: 'FileUrl',
+      parserConfigId: 'ParserConfigId',
     };
   }
 
@@ -829,6 +1133,7 @@ export class SubmitInvoiceExtractJobRequest extends $tea.Model {
       fileName: 'string',
       fileNameExtension: 'string',
       fileUrl: 'string',
+      parserConfigId: 'number',
     };
   }
 
@@ -841,11 +1146,13 @@ export class SubmitInvoiceExtractJobAdvanceRequest extends $tea.Model {
   fileName?: string;
   fileNameExtension?: string;
   fileUrlObject?: Readable;
+  parserConfigId?: number;
   static names(): { [key: string]: string } {
     return {
       fileName: 'FileName',
       fileNameExtension: 'FileNameExtension',
       fileUrlObject: 'FileUrl',
+      parserConfigId: 'ParserConfigId',
     };
   }
 
@@ -854,6 +1161,7 @@ export class SubmitInvoiceExtractJobAdvanceRequest extends $tea.Model {
       fileName: 'string',
       fileNameExtension: 'string',
       fileUrlObject: 'Readable',
+      parserConfigId: 'number',
     };
   }
 
@@ -919,11 +1227,13 @@ export class SubmitPackingListExtractJobRequest extends $tea.Model {
   fileName?: string;
   fileNameExtension?: string;
   fileUrl?: string;
+  parserConfigId?: number;
   static names(): { [key: string]: string } {
     return {
       fileName: 'FileName',
       fileNameExtension: 'FileNameExtension',
       fileUrl: 'FileUrl',
+      parserConfigId: 'ParserConfigId',
     };
   }
 
@@ -932,6 +1242,7 @@ export class SubmitPackingListExtractJobRequest extends $tea.Model {
       fileName: 'string',
       fileNameExtension: 'string',
       fileUrl: 'string',
+      parserConfigId: 'number',
     };
   }
 
@@ -944,11 +1255,13 @@ export class SubmitPackingListExtractJobAdvanceRequest extends $tea.Model {
   fileName?: string;
   fileNameExtension?: string;
   fileUrlObject?: Readable;
+  parserConfigId?: number;
   static names(): { [key: string]: string } {
     return {
       fileName: 'FileName',
       fileNameExtension: 'FileNameExtension',
       fileUrlObject: 'FileUrl',
+      parserConfigId: 'ParserConfigId',
     };
   }
 
@@ -957,6 +1270,7 @@ export class SubmitPackingListExtractJobAdvanceRequest extends $tea.Model {
       fileName: 'string',
       fileNameExtension: 'string',
       fileUrlObject: 'Readable',
+      parserConfigId: 'number',
     };
   }
 
@@ -1022,11 +1336,13 @@ export class SubmitSalesConfirmationExtractJobRequest extends $tea.Model {
   fileName?: string;
   fileNameExtension?: string;
   fileUrl?: string;
+  parserConfigId?: number;
   static names(): { [key: string]: string } {
     return {
       fileName: 'FileName',
       fileNameExtension: 'FileNameExtension',
       fileUrl: 'FileUrl',
+      parserConfigId: 'ParserConfigId',
     };
   }
 
@@ -1035,6 +1351,7 @@ export class SubmitSalesConfirmationExtractJobRequest extends $tea.Model {
       fileName: 'string',
       fileNameExtension: 'string',
       fileUrl: 'string',
+      parserConfigId: 'number',
     };
   }
 
@@ -1047,11 +1364,13 @@ export class SubmitSalesConfirmationExtractJobAdvanceRequest extends $tea.Model 
   fileName?: string;
   fileNameExtension?: string;
   fileUrlObject?: Readable;
+  parserConfigId?: number;
   static names(): { [key: string]: string } {
     return {
       fileName: 'FileName',
       fileNameExtension: 'FileNameExtension',
       fileUrlObject: 'FileUrl',
+      parserConfigId: 'ParserConfigId',
     };
   }
 
@@ -1060,6 +1379,7 @@ export class SubmitSalesConfirmationExtractJobAdvanceRequest extends $tea.Model 
       fileName: 'string',
       fileNameExtension: 'string',
       fileUrlObject: 'Readable',
+      parserConfigId: 'number',
     };
   }
 
@@ -1125,11 +1445,13 @@ export class SubmitSeaWaybillExtractJobRequest extends $tea.Model {
   fileName?: string;
   fileNameExtension?: string;
   fileUrl?: string;
+  parserConfigId?: number;
   static names(): { [key: string]: string } {
     return {
       fileName: 'FileName',
       fileNameExtension: 'FileNameExtension',
       fileUrl: 'FileUrl',
+      parserConfigId: 'ParserConfigId',
     };
   }
 
@@ -1138,6 +1460,7 @@ export class SubmitSeaWaybillExtractJobRequest extends $tea.Model {
       fileName: 'string',
       fileNameExtension: 'string',
       fileUrl: 'string',
+      parserConfigId: 'number',
     };
   }
 
@@ -1150,11 +1473,13 @@ export class SubmitSeaWaybillExtractJobAdvanceRequest extends $tea.Model {
   fileName?: string;
   fileNameExtension?: string;
   fileUrlObject?: Readable;
+  parserConfigId?: number;
   static names(): { [key: string]: string } {
     return {
       fileName: 'FileName',
       fileNameExtension: 'FileNameExtension',
       fileUrlObject: 'FileUrl',
+      parserConfigId: 'ParserConfigId',
     };
   }
 
@@ -1163,6 +1488,7 @@ export class SubmitSeaWaybillExtractJobAdvanceRequest extends $tea.Model {
       fileName: 'string',
       fileNameExtension: 'string',
       fileUrlObject: 'Readable',
+      parserConfigId: 'number',
     };
   }
 
@@ -1216,6 +1542,222 @@ export class SubmitSeaWaybillExtractJobResponse extends $tea.Model {
       headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
       statusCode: 'number',
       body: SubmitSeaWaybillExtractJobResponseBody,
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class SubmitTradeDocumentPackageExtractJobRequest extends $tea.Model {
+  customExtractionRange?: string[];
+  fileName?: string;
+  fileNameExtension?: string;
+  fileUrl?: string;
+  static names(): { [key: string]: string } {
+    return {
+      customExtractionRange: 'CustomExtractionRange',
+      fileName: 'FileName',
+      fileNameExtension: 'FileNameExtension',
+      fileUrl: 'FileUrl',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      customExtractionRange: { 'type': 'array', 'itemType': 'string' },
+      fileName: 'string',
+      fileNameExtension: 'string',
+      fileUrl: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class SubmitTradeDocumentPackageExtractJobAdvanceRequest extends $tea.Model {
+  customExtractionRange?: string[];
+  fileName?: string;
+  fileNameExtension?: string;
+  fileUrlObject?: Readable;
+  static names(): { [key: string]: string } {
+    return {
+      customExtractionRange: 'CustomExtractionRange',
+      fileName: 'FileName',
+      fileNameExtension: 'FileNameExtension',
+      fileUrlObject: 'FileUrl',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      customExtractionRange: { 'type': 'array', 'itemType': 'string' },
+      fileName: 'string',
+      fileNameExtension: 'string',
+      fileUrlObject: 'Readable',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class SubmitTradeDocumentPackageExtractJobShrinkRequest extends $tea.Model {
+  customExtractionRangeShrink?: string;
+  fileName?: string;
+  fileNameExtension?: string;
+  fileUrl?: string;
+  static names(): { [key: string]: string } {
+    return {
+      customExtractionRangeShrink: 'CustomExtractionRange',
+      fileName: 'FileName',
+      fileNameExtension: 'FileNameExtension',
+      fileUrl: 'FileUrl',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      customExtractionRangeShrink: 'string',
+      fileName: 'string',
+      fileNameExtension: 'string',
+      fileUrl: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class SubmitTradeDocumentPackageExtractJobResponseBody extends $tea.Model {
+  code?: string;
+  data?: SubmitTradeDocumentPackageExtractJobResponseBodyData;
+  message?: string;
+  requestId?: string;
+  static names(): { [key: string]: string } {
+    return {
+      code: 'Code',
+      data: 'Data',
+      message: 'Message',
+      requestId: 'RequestId',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      code: 'string',
+      data: SubmitTradeDocumentPackageExtractJobResponseBodyData,
+      message: 'string',
+      requestId: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class SubmitTradeDocumentPackageExtractJobResponse extends $tea.Model {
+  headers: { [key: string]: string };
+  statusCode: number;
+  body: SubmitTradeDocumentPackageExtractJobResponseBody;
+  static names(): { [key: string]: string } {
+    return {
+      headers: 'headers',
+      statusCode: 'statusCode',
+      body: 'body',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
+      body: SubmitTradeDocumentPackageExtractJobResponseBody,
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class ExtractFeedbackResponseBodyData extends $tea.Model {
+  id?: string;
+  static names(): { [key: string]: string } {
+    return {
+      id: 'Id',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      id: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class ReClassifyTradeDocumentExtractRequestPageUpdateInfoModels extends $tea.Model {
+  attTypeCode?: string;
+  pageId?: string;
+  static names(): { [key: string]: string } {
+    return {
+      attTypeCode: 'AttTypeCode',
+      pageId: 'PageId',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      attTypeCode: 'string',
+      pageId: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class ReClassifyTradeDocumentExtractResponseBodyData extends $tea.Model {
+  id?: string;
+  static names(): { [key: string]: string } {
+    return {
+      id: 'Id',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      id: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class RetryTradeDocumentExtractResponseBodyData extends $tea.Model {
+  id?: string;
+  static names(): { [key: string]: string } {
+    return {
+      id: 'Id',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      id: 'string',
     };
   }
 
@@ -1433,6 +1975,25 @@ export class SubmitSeaWaybillExtractJobResponseBodyData extends $tea.Model {
   }
 }
 
+export class SubmitTradeDocumentPackageExtractJobResponseBodyData extends $tea.Model {
+  id?: string;
+  static names(): { [key: string]: string } {
+    return {
+      id: 'Id',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      id: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
 
 export default class Client extends OpenApi {
 
@@ -1514,6 +2075,109 @@ export default class Client extends OpenApi {
     return EndpointUtil.getEndpointRules(productId, regionId, endpointRule, network, suffix);
   }
 
+  async extractFeedbackWithOptions(request: ExtractFeedbackRequest, runtime: $Util.RuntimeOptions): Promise<ExtractFeedbackResponse> {
+    Util.validateModel(request);
+    let query = { };
+    if (!Util.isUnset(request.feedbackUrl)) {
+      query["FeedbackUrl"] = request.feedbackUrl;
+    }
+
+    let req = new $OpenApi.OpenApiRequest({
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApi.Params({
+      action: "ExtractFeedback",
+      version: "2022-07-29",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $tea.cast<ExtractFeedbackResponse>(await this.callApi(params, req, runtime), new ExtractFeedbackResponse({}));
+  }
+
+  async extractFeedback(request: ExtractFeedbackRequest): Promise<ExtractFeedbackResponse> {
+    let runtime = new $Util.RuntimeOptions({ });
+    return await this.extractFeedbackWithOptions(request, runtime);
+  }
+
+  async extractFeedbackAdvance(request: ExtractFeedbackAdvanceRequest, runtime: $Util.RuntimeOptions): Promise<ExtractFeedbackResponse> {
+    // Step 0: init client
+    let accessKeyId = await this._credential.getAccessKeyId();
+    let accessKeySecret = await this._credential.getAccessKeySecret();
+    let securityToken = await this._credential.getSecurityToken();
+    let credentialType = this._credential.getType();
+    let openPlatformEndpoint = this._openPlatformEndpoint;
+    if (Util.isUnset(openPlatformEndpoint)) {
+      openPlatformEndpoint = "openplatform.aliyuncs.com";
+    }
+
+    if (Util.isUnset(credentialType)) {
+      credentialType = "access_key";
+    }
+
+    let authConfig = new $OpenApi.Config({
+      accessKeyId: accessKeyId,
+      accessKeySecret: accessKeySecret,
+      securityToken: securityToken,
+      type: credentialType,
+      endpoint: openPlatformEndpoint,
+      protocol: this._protocol,
+      regionId: this._regionId,
+    });
+    let authClient = new OpenPlatform(authConfig);
+    let authRequest = new $OpenPlatform.AuthorizeFileUploadRequest({
+      product: "docmind-api",
+      regionId: this._regionId,
+    });
+    let authResponse = new $OpenPlatform.AuthorizeFileUploadResponse({ });
+    let ossConfig = new $OSS.Config({
+      accessKeySecret: accessKeySecret,
+      type: "access_key",
+      protocol: this._protocol,
+      regionId: this._regionId,
+    });
+    let ossClient : OSS = null;
+    let fileObj = new $FileForm.FileField({ });
+    let ossHeader = new $OSS.PostObjectRequestHeader({ });
+    let uploadRequest = new $OSS.PostObjectRequest({ });
+    let ossRuntime = new $OSSUtil.RuntimeOptions({ });
+    OpenApiUtil.convert(runtime, ossRuntime);
+    let extractFeedbackReq = new ExtractFeedbackRequest({ });
+    OpenApiUtil.convert(request, extractFeedbackReq);
+    if (!Util.isUnset(request.feedbackUrlObject)) {
+      authResponse = await authClient.authorizeFileUploadWithOptions(authRequest, runtime);
+      ossConfig.accessKeyId = authResponse.body.accessKeyId;
+      ossConfig.endpoint = OpenApiUtil.getEndpoint(authResponse.body.endpoint, authResponse.body.useAccelerate, this._endpointType);
+      ossClient = new OSS(ossConfig);
+      fileObj = new $FileForm.FileField({
+        filename: authResponse.body.objectKey,
+        content: request.feedbackUrlObject,
+        contentType: "",
+      });
+      ossHeader = new $OSS.PostObjectRequestHeader({
+        accessKeyId: authResponse.body.accessKeyId,
+        policy: authResponse.body.encodedPolicy,
+        signature: authResponse.body.signature,
+        key: authResponse.body.objectKey,
+        file: fileObj,
+        successActionStatus: "201",
+      });
+      uploadRequest = new $OSS.PostObjectRequest({
+        bucketName: authResponse.body.bucket,
+        header: ossHeader,
+      });
+      await ossClient.postObject(uploadRequest, ossRuntime);
+      extractFeedbackReq.feedbackUrl = `http://${authResponse.body.bucket}.${authResponse.body.endpoint}/${authResponse.body.objectKey}`;
+    }
+
+    let extractFeedbackResp = await this.extractFeedbackWithOptions(extractFeedbackReq, runtime);
+    return extractFeedbackResp;
+  }
+
   async getSingleDocumentExtractResultWithOptions(request: GetSingleDocumentExtractResultRequest, runtime: $Util.RuntimeOptions): Promise<GetSingleDocumentExtractResultResponse> {
     Util.validateModel(request);
     let query = { };
@@ -1543,6 +2207,74 @@ export default class Client extends OpenApi {
     return await this.getSingleDocumentExtractResultWithOptions(request, runtime);
   }
 
+  async reClassifyTradeDocumentExtractWithOptions(tmpReq: ReClassifyTradeDocumentExtractRequest, runtime: $Util.RuntimeOptions): Promise<ReClassifyTradeDocumentExtractResponse> {
+    Util.validateModel(tmpReq);
+    let request = new ReClassifyTradeDocumentExtractShrinkRequest({ });
+    OpenApiUtil.convert(tmpReq, request);
+    if (!Util.isUnset(tmpReq.pageUpdateInfoModels)) {
+      request.pageUpdateInfoModelsShrink = OpenApiUtil.arrayToStringWithSpecifiedStyle(tmpReq.pageUpdateInfoModels, "PageUpdateInfoModels", "json");
+    }
+
+    let query = { };
+    if (!Util.isUnset(request.bizId)) {
+      query["BizId"] = request.bizId;
+    }
+
+    if (!Util.isUnset(request.pageUpdateInfoModelsShrink)) {
+      query["PageUpdateInfoModels"] = request.pageUpdateInfoModelsShrink;
+    }
+
+    let req = new $OpenApi.OpenApiRequest({
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApi.Params({
+      action: "ReClassifyTradeDocumentExtract",
+      version: "2022-07-29",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $tea.cast<ReClassifyTradeDocumentExtractResponse>(await this.callApi(params, req, runtime), new ReClassifyTradeDocumentExtractResponse({}));
+  }
+
+  async reClassifyTradeDocumentExtract(request: ReClassifyTradeDocumentExtractRequest): Promise<ReClassifyTradeDocumentExtractResponse> {
+    let runtime = new $Util.RuntimeOptions({ });
+    return await this.reClassifyTradeDocumentExtractWithOptions(request, runtime);
+  }
+
+  async retryTradeDocumentExtractWithOptions(request: RetryTradeDocumentExtractRequest, runtime: $Util.RuntimeOptions): Promise<RetryTradeDocumentExtractResponse> {
+    Util.validateModel(request);
+    let query = { };
+    if (!Util.isUnset(request.bizId)) {
+      query["BizId"] = request.bizId;
+    }
+
+    let req = new $OpenApi.OpenApiRequest({
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApi.Params({
+      action: "RetryTradeDocumentExtract",
+      version: "2022-07-29",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $tea.cast<RetryTradeDocumentExtractResponse>(await this.callApi(params, req, runtime), new RetryTradeDocumentExtractResponse({}));
+  }
+
+  async retryTradeDocumentExtract(request: RetryTradeDocumentExtractRequest): Promise<RetryTradeDocumentExtractResponse> {
+    let runtime = new $Util.RuntimeOptions({ });
+    return await this.retryTradeDocumentExtractWithOptions(request, runtime);
+  }
+
   async submitAirWaybillExtractJobWithOptions(request: SubmitAirWaybillExtractJobRequest, runtime: $Util.RuntimeOptions): Promise<SubmitAirWaybillExtractJobResponse> {
     Util.validateModel(request);
     let query = { };
@@ -1556,6 +2288,10 @@ export default class Client extends OpenApi {
 
     if (!Util.isUnset(request.fileUrl)) {
       query["FileUrl"] = request.fileUrl;
+    }
+
+    if (!Util.isUnset(request.parserConfigId)) {
+      query["ParserConfigId"] = request.parserConfigId;
     }
 
     let req = new $OpenApi.OpenApiRequest({
@@ -1669,6 +2405,10 @@ export default class Client extends OpenApi {
       query["FileUrl"] = request.fileUrl;
     }
 
+    if (!Util.isUnset(request.parserConfigId)) {
+      query["ParserConfigId"] = request.parserConfigId;
+    }
+
     let req = new $OpenApi.OpenApiRequest({
       query: OpenApiUtil.query(query),
     });
@@ -1778,6 +2518,10 @@ export default class Client extends OpenApi {
 
     if (!Util.isUnset(request.fileUrl)) {
       query["FileUrl"] = request.fileUrl;
+    }
+
+    if (!Util.isUnset(request.parserConfigId)) {
+      query["ParserConfigId"] = request.parserConfigId;
     }
 
     let req = new $OpenApi.OpenApiRequest({
@@ -1891,6 +2635,10 @@ export default class Client extends OpenApi {
       query["FileUrl"] = request.fileUrl;
     }
 
+    if (!Util.isUnset(request.parserConfigId)) {
+      query["ParserConfigId"] = request.parserConfigId;
+    }
+
     let req = new $OpenApi.OpenApiRequest({
       query: OpenApiUtil.query(query),
     });
@@ -2000,6 +2748,10 @@ export default class Client extends OpenApi {
 
     if (!Util.isUnset(request.fileUrl)) {
       query["FileUrl"] = request.fileUrl;
+    }
+
+    if (!Util.isUnset(request.parserConfigId)) {
+      query["ParserConfigId"] = request.parserConfigId;
     }
 
     let req = new $OpenApi.OpenApiRequest({
@@ -2113,6 +2865,10 @@ export default class Client extends OpenApi {
       query["FileUrl"] = request.fileUrl;
     }
 
+    if (!Util.isUnset(request.parserConfigId)) {
+      query["ParserConfigId"] = request.parserConfigId;
+    }
+
     let req = new $OpenApi.OpenApiRequest({
       query: OpenApiUtil.query(query),
     });
@@ -2222,6 +2978,10 @@ export default class Client extends OpenApi {
 
     if (!Util.isUnset(request.fileUrl)) {
       query["FileUrl"] = request.fileUrl;
+    }
+
+    if (!Util.isUnset(request.parserConfigId)) {
+      query["ParserConfigId"] = request.parserConfigId;
     }
 
     let req = new $OpenApi.OpenApiRequest({
@@ -2335,6 +3095,10 @@ export default class Client extends OpenApi {
       query["FileUrl"] = request.fileUrl;
     }
 
+    if (!Util.isUnset(request.parserConfigId)) {
+      query["ParserConfigId"] = request.parserConfigId;
+    }
+
     let req = new $OpenApi.OpenApiRequest({
       query: OpenApiUtil.query(query),
     });
@@ -2444,6 +3208,10 @@ export default class Client extends OpenApi {
 
     if (!Util.isUnset(request.fileUrl)) {
       query["FileUrl"] = request.fileUrl;
+    }
+
+    if (!Util.isUnset(request.parserConfigId)) {
+      query["ParserConfigId"] = request.parserConfigId;
     }
 
     let req = new $OpenApi.OpenApiRequest({
@@ -2557,6 +3325,10 @@ export default class Client extends OpenApi {
       query["FileUrl"] = request.fileUrl;
     }
 
+    if (!Util.isUnset(request.parserConfigId)) {
+      query["ParserConfigId"] = request.parserConfigId;
+    }
+
     let req = new $OpenApi.OpenApiRequest({
       query: OpenApiUtil.query(query),
     });
@@ -2668,6 +3440,10 @@ export default class Client extends OpenApi {
       query["FileUrl"] = request.fileUrl;
     }
 
+    if (!Util.isUnset(request.parserConfigId)) {
+      query["ParserConfigId"] = request.parserConfigId;
+    }
+
     let req = new $OpenApi.OpenApiRequest({
       query: OpenApiUtil.query(query),
     });
@@ -2762,6 +3538,127 @@ export default class Client extends OpenApi {
 
     let submitSeaWaybillExtractJobResp = await this.submitSeaWaybillExtractJobWithOptions(submitSeaWaybillExtractJobReq, runtime);
     return submitSeaWaybillExtractJobResp;
+  }
+
+  async submitTradeDocumentPackageExtractJobWithOptions(tmpReq: SubmitTradeDocumentPackageExtractJobRequest, runtime: $Util.RuntimeOptions): Promise<SubmitTradeDocumentPackageExtractJobResponse> {
+    Util.validateModel(tmpReq);
+    let request = new SubmitTradeDocumentPackageExtractJobShrinkRequest({ });
+    OpenApiUtil.convert(tmpReq, request);
+    if (!Util.isUnset(tmpReq.customExtractionRange)) {
+      request.customExtractionRangeShrink = OpenApiUtil.arrayToStringWithSpecifiedStyle(tmpReq.customExtractionRange, "CustomExtractionRange", "json");
+    }
+
+    let query = { };
+    if (!Util.isUnset(request.customExtractionRangeShrink)) {
+      query["CustomExtractionRange"] = request.customExtractionRangeShrink;
+    }
+
+    if (!Util.isUnset(request.fileName)) {
+      query["FileName"] = request.fileName;
+    }
+
+    if (!Util.isUnset(request.fileNameExtension)) {
+      query["FileNameExtension"] = request.fileNameExtension;
+    }
+
+    if (!Util.isUnset(request.fileUrl)) {
+      query["FileUrl"] = request.fileUrl;
+    }
+
+    let req = new $OpenApi.OpenApiRequest({
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApi.Params({
+      action: "SubmitTradeDocumentPackageExtractJob",
+      version: "2022-07-29",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $tea.cast<SubmitTradeDocumentPackageExtractJobResponse>(await this.callApi(params, req, runtime), new SubmitTradeDocumentPackageExtractJobResponse({}));
+  }
+
+  async submitTradeDocumentPackageExtractJob(request: SubmitTradeDocumentPackageExtractJobRequest): Promise<SubmitTradeDocumentPackageExtractJobResponse> {
+    let runtime = new $Util.RuntimeOptions({ });
+    return await this.submitTradeDocumentPackageExtractJobWithOptions(request, runtime);
+  }
+
+  async submitTradeDocumentPackageExtractJobAdvance(request: SubmitTradeDocumentPackageExtractJobAdvanceRequest, runtime: $Util.RuntimeOptions): Promise<SubmitTradeDocumentPackageExtractJobResponse> {
+    // Step 0: init client
+    let accessKeyId = await this._credential.getAccessKeyId();
+    let accessKeySecret = await this._credential.getAccessKeySecret();
+    let securityToken = await this._credential.getSecurityToken();
+    let credentialType = this._credential.getType();
+    let openPlatformEndpoint = this._openPlatformEndpoint;
+    if (Util.isUnset(openPlatformEndpoint)) {
+      openPlatformEndpoint = "openplatform.aliyuncs.com";
+    }
+
+    if (Util.isUnset(credentialType)) {
+      credentialType = "access_key";
+    }
+
+    let authConfig = new $OpenApi.Config({
+      accessKeyId: accessKeyId,
+      accessKeySecret: accessKeySecret,
+      securityToken: securityToken,
+      type: credentialType,
+      endpoint: openPlatformEndpoint,
+      protocol: this._protocol,
+      regionId: this._regionId,
+    });
+    let authClient = new OpenPlatform(authConfig);
+    let authRequest = new $OpenPlatform.AuthorizeFileUploadRequest({
+      product: "docmind-api",
+      regionId: this._regionId,
+    });
+    let authResponse = new $OpenPlatform.AuthorizeFileUploadResponse({ });
+    let ossConfig = new $OSS.Config({
+      accessKeySecret: accessKeySecret,
+      type: "access_key",
+      protocol: this._protocol,
+      regionId: this._regionId,
+    });
+    let ossClient : OSS = null;
+    let fileObj = new $FileForm.FileField({ });
+    let ossHeader = new $OSS.PostObjectRequestHeader({ });
+    let uploadRequest = new $OSS.PostObjectRequest({ });
+    let ossRuntime = new $OSSUtil.RuntimeOptions({ });
+    OpenApiUtil.convert(runtime, ossRuntime);
+    let submitTradeDocumentPackageExtractJobReq = new SubmitTradeDocumentPackageExtractJobRequest({ });
+    OpenApiUtil.convert(request, submitTradeDocumentPackageExtractJobReq);
+    if (!Util.isUnset(request.fileUrlObject)) {
+      authResponse = await authClient.authorizeFileUploadWithOptions(authRequest, runtime);
+      ossConfig.accessKeyId = authResponse.body.accessKeyId;
+      ossConfig.endpoint = OpenApiUtil.getEndpoint(authResponse.body.endpoint, authResponse.body.useAccelerate, this._endpointType);
+      ossClient = new OSS(ossConfig);
+      fileObj = new $FileForm.FileField({
+        filename: authResponse.body.objectKey,
+        content: request.fileUrlObject,
+        contentType: "",
+      });
+      ossHeader = new $OSS.PostObjectRequestHeader({
+        accessKeyId: authResponse.body.accessKeyId,
+        policy: authResponse.body.encodedPolicy,
+        signature: authResponse.body.signature,
+        key: authResponse.body.objectKey,
+        file: fileObj,
+        successActionStatus: "201",
+      });
+      uploadRequest = new $OSS.PostObjectRequest({
+        bucketName: authResponse.body.bucket,
+        header: ossHeader,
+      });
+      await ossClient.postObject(uploadRequest, ossRuntime);
+      submitTradeDocumentPackageExtractJobReq.fileUrl = `http://${authResponse.body.bucket}.${authResponse.body.endpoint}/${authResponse.body.objectKey}`;
+    }
+
+    let submitTradeDocumentPackageExtractJobResp = await this.submitTradeDocumentPackageExtractJobWithOptions(submitTradeDocumentPackageExtractJobReq, runtime);
+    return submitTradeDocumentPackageExtractJobResp;
   }
 
 }
