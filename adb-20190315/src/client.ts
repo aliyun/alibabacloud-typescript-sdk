@@ -86,6 +86,231 @@ export class AllocateClusterPublicConnectionResponse extends $tea.Model {
   }
 }
 
+export class ApplyAdviceByIdRequest extends $tea.Model {
+  adviceDate?: number;
+  adviceId?: string;
+  DBClusterId?: string;
+  regionId?: string;
+  static names(): { [key: string]: string } {
+    return {
+      adviceDate: 'AdviceDate',
+      adviceId: 'AdviceId',
+      DBClusterId: 'DBClusterId',
+      regionId: 'RegionId',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      adviceDate: 'number',
+      adviceId: 'string',
+      DBClusterId: 'string',
+      regionId: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class ApplyAdviceByIdResponseBody extends $tea.Model {
+  message?: string;
+  requestId?: string;
+  static names(): { [key: string]: string } {
+    return {
+      message: 'Message',
+      requestId: 'RequestId',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      message: 'string',
+      requestId: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class ApplyAdviceByIdResponse extends $tea.Model {
+  headers: { [key: string]: string };
+  statusCode: number;
+  body: ApplyAdviceByIdResponseBody;
+  static names(): { [key: string]: string } {
+    return {
+      headers: 'headers',
+      statusCode: 'statusCode',
+      body: 'body',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
+      body: ApplyAdviceByIdResponseBody,
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class AttachUserENIRequest extends $tea.Model {
+  DBClusterId?: string;
+  ownerAccount?: string;
+  ownerId?: number;
+  resourceOwnerAccount?: string;
+  resourceOwnerId?: number;
+  static names(): { [key: string]: string } {
+    return {
+      DBClusterId: 'DBClusterId',
+      ownerAccount: 'OwnerAccount',
+      ownerId: 'OwnerId',
+      resourceOwnerAccount: 'ResourceOwnerAccount',
+      resourceOwnerId: 'ResourceOwnerId',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      DBClusterId: 'string',
+      ownerAccount: 'string',
+      ownerId: 'number',
+      resourceOwnerAccount: 'string',
+      resourceOwnerId: 'number',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class AttachUserENIResponseBody extends $tea.Model {
+  requestId?: string;
+  static names(): { [key: string]: string } {
+    return {
+      requestId: 'RequestId',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      requestId: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class AttachUserENIResponse extends $tea.Model {
+  headers: { [key: string]: string };
+  statusCode: number;
+  body: AttachUserENIResponseBody;
+  static names(): { [key: string]: string } {
+    return {
+      headers: 'headers',
+      statusCode: 'statusCode',
+      body: 'body',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
+      body: AttachUserENIResponseBody,
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class BatchApplyAdviceByIdListRequest extends $tea.Model {
+  adviceDate?: number;
+  adviceIdList?: string;
+  DBClusterId?: string;
+  regionId?: string;
+  static names(): { [key: string]: string } {
+    return {
+      adviceDate: 'AdviceDate',
+      adviceIdList: 'AdviceIdList',
+      DBClusterId: 'DBClusterId',
+      regionId: 'RegionId',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      adviceDate: 'number',
+      adviceIdList: 'string',
+      DBClusterId: 'string',
+      regionId: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class BatchApplyAdviceByIdListResponseBody extends $tea.Model {
+  message?: string;
+  requestId?: string;
+  static names(): { [key: string]: string } {
+    return {
+      message: 'Message',
+      requestId: 'RequestId',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      message: 'string',
+      requestId: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class BatchApplyAdviceByIdListResponse extends $tea.Model {
+  headers: { [key: string]: string };
+  statusCode: number;
+  body: BatchApplyAdviceByIdListResponseBody;
+  static names(): { [key: string]: string } {
+    return {
+      headers: 'headers',
+      statusCode: 'statusCode',
+      body: 'body',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
+      body: BatchApplyAdviceByIdListResponseBody,
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
 export class BindDBResourceGroupWithUserRequest extends $tea.Model {
   DBClusterId?: string;
   groupName?: string;
@@ -368,6 +593,7 @@ export class CreateDBClusterRequest extends $tea.Model {
   sourceDBInstanceName?: string;
   storageResource?: string;
   storageType?: string;
+  tag?: CreateDBClusterRequestTag[];
   usedTime?: string;
   VPCId?: string;
   vSwitchId?: string;
@@ -400,6 +626,7 @@ export class CreateDBClusterRequest extends $tea.Model {
       sourceDBInstanceName: 'SourceDBInstanceName',
       storageResource: 'StorageResource',
       storageType: 'StorageType',
+      tag: 'Tag',
       usedTime: 'UsedTime',
       VPCId: 'VPCId',
       vSwitchId: 'VSwitchId',
@@ -435,6 +662,7 @@ export class CreateDBClusterRequest extends $tea.Model {
       sourceDBInstanceName: 'string',
       storageResource: 'string',
       storageType: 'string',
+      tag: { 'type': 'array', 'itemType': CreateDBClusterRequestTag },
       usedTime: 'string',
       VPCId: 'string',
       vSwitchId: 'string',
@@ -677,7 +905,9 @@ export class CreateElasticPlanRequest extends $tea.Model {
   elasticPlanStartDay?: string;
   elasticPlanTimeEnd?: string;
   elasticPlanTimeStart?: string;
+  elasticPlanType?: string;
   elasticPlanWeeklyRepeat?: string;
+  elasticPlanWorkerSpec?: string;
   ownerAccount?: string;
   ownerId?: number;
   resourceOwnerAccount?: string;
@@ -693,7 +923,9 @@ export class CreateElasticPlanRequest extends $tea.Model {
       elasticPlanStartDay: 'ElasticPlanStartDay',
       elasticPlanTimeEnd: 'ElasticPlanTimeEnd',
       elasticPlanTimeStart: 'ElasticPlanTimeStart',
+      elasticPlanType: 'ElasticPlanType',
       elasticPlanWeeklyRepeat: 'ElasticPlanWeeklyRepeat',
+      elasticPlanWorkerSpec: 'ElasticPlanWorkerSpec',
       ownerAccount: 'OwnerAccount',
       ownerId: 'OwnerId',
       resourceOwnerAccount: 'ResourceOwnerAccount',
@@ -712,7 +944,9 @@ export class CreateElasticPlanRequest extends $tea.Model {
       elasticPlanStartDay: 'string',
       elasticPlanTimeEnd: 'string',
       elasticPlanTimeStart: 'string',
+      elasticPlanType: 'string',
       elasticPlanWeeklyRepeat: 'string',
+      elasticPlanWorkerSpec: 'string',
       ownerAccount: 'string',
       ownerId: 'number',
       resourceOwnerAccount: 'string',
@@ -1250,6 +1484,78 @@ export class DescribeAccountsResponse extends $tea.Model {
   }
 }
 
+export class DescribeAdviceServiceEnabledRequest extends $tea.Model {
+  DBClusterId?: string;
+  regionId?: string;
+  static names(): { [key: string]: string } {
+    return {
+      DBClusterId: 'DBClusterId',
+      regionId: 'RegionId',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      DBClusterId: 'string',
+      regionId: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class DescribeAdviceServiceEnabledResponseBody extends $tea.Model {
+  message?: string;
+  requestId?: string;
+  result?: boolean;
+  static names(): { [key: string]: string } {
+    return {
+      message: 'Message',
+      requestId: 'RequestId',
+      result: 'Result',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      message: 'string',
+      requestId: 'string',
+      result: 'boolean',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class DescribeAdviceServiceEnabledResponse extends $tea.Model {
+  headers: { [key: string]: string };
+  statusCode: number;
+  body: DescribeAdviceServiceEnabledResponseBody;
+  static names(): { [key: string]: string } {
+    return {
+      headers: 'headers',
+      statusCode: 'statusCode',
+      body: 'body',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
+      body: DescribeAdviceServiceEnabledResponseBody,
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
 export class DescribeAllAccountsRequest extends $tea.Model {
   DBClusterId?: string;
   ownerAccount?: string;
@@ -1410,6 +1716,99 @@ export class DescribeAllDataSourceResponse extends $tea.Model {
       headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
       statusCode: 'number',
       body: DescribeAllDataSourceResponseBody,
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class DescribeAppliedAdvicesRequest extends $tea.Model {
+  DBClusterId?: string;
+  endTime?: number;
+  lang?: string;
+  pageNumber?: number;
+  pageSize?: number;
+  regionId?: string;
+  startTime?: number;
+  static names(): { [key: string]: string } {
+    return {
+      DBClusterId: 'DBClusterId',
+      endTime: 'EndTime',
+      lang: 'Lang',
+      pageNumber: 'PageNumber',
+      pageSize: 'PageSize',
+      regionId: 'RegionId',
+      startTime: 'StartTime',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      DBClusterId: 'string',
+      endTime: 'number',
+      lang: 'string',
+      pageNumber: 'number',
+      pageSize: 'number',
+      regionId: 'string',
+      startTime: 'number',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class DescribeAppliedAdvicesResponseBody extends $tea.Model {
+  items?: DescribeAppliedAdvicesResponseBodyItems[];
+  pageNumber?: number;
+  pageSize?: number;
+  requestId?: string;
+  totalCount?: number;
+  static names(): { [key: string]: string } {
+    return {
+      items: 'Items',
+      pageNumber: 'PageNumber',
+      pageSize: 'PageSize',
+      requestId: 'RequestId',
+      totalCount: 'TotalCount',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      items: { 'type': 'array', 'itemType': DescribeAppliedAdvicesResponseBodyItems },
+      pageNumber: 'number',
+      pageSize: 'number',
+      requestId: 'string',
+      totalCount: 'number',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class DescribeAppliedAdvicesResponse extends $tea.Model {
+  headers: { [key: string]: string };
+  statusCode: number;
+  body: DescribeAppliedAdvicesResponseBody;
+  static names(): { [key: string]: string } {
+    return {
+      headers: 'headers',
+      statusCode: 'statusCode',
+      body: 'body',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
+      body: DescribeAppliedAdvicesResponseBody,
     };
   }
 
@@ -1730,9 +2129,100 @@ export class DescribeAutoRenewAttributeResponse extends $tea.Model {
   }
 }
 
+export class DescribeAvailableAdvicesRequest extends $tea.Model {
+  adviceDate?: number;
+  DBClusterId?: string;
+  lang?: string;
+  pageNumber?: number;
+  pageSize?: number;
+  regionId?: string;
+  static names(): { [key: string]: string } {
+    return {
+      adviceDate: 'AdviceDate',
+      DBClusterId: 'DBClusterId',
+      lang: 'Lang',
+      pageNumber: 'PageNumber',
+      pageSize: 'PageSize',
+      regionId: 'RegionId',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      adviceDate: 'number',
+      DBClusterId: 'string',
+      lang: 'string',
+      pageNumber: 'number',
+      pageSize: 'number',
+      regionId: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class DescribeAvailableAdvicesResponseBody extends $tea.Model {
+  items?: DescribeAvailableAdvicesResponseBodyItems[];
+  pageNumber?: number;
+  pageSize?: number;
+  requestId?: string;
+  totalCount?: number;
+  static names(): { [key: string]: string } {
+    return {
+      items: 'Items',
+      pageNumber: 'PageNumber',
+      pageSize: 'PageSize',
+      requestId: 'RequestId',
+      totalCount: 'TotalCount',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      items: { 'type': 'array', 'itemType': DescribeAvailableAdvicesResponseBodyItems },
+      pageNumber: 'number',
+      pageSize: 'number',
+      requestId: 'string',
+      totalCount: 'number',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class DescribeAvailableAdvicesResponse extends $tea.Model {
+  headers: { [key: string]: string };
+  statusCode: number;
+  body: DescribeAvailableAdvicesResponseBody;
+  static names(): { [key: string]: string } {
+    return {
+      headers: 'headers',
+      statusCode: 'statusCode',
+      body: 'body',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
+      body: DescribeAvailableAdvicesResponseBody,
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
 export class DescribeAvailableResourceRequest extends $tea.Model {
   acceptLanguage?: string;
   chargeType?: string;
+  DBClusterVersion?: string;
   ownerAccount?: string;
   ownerId?: number;
   regionId?: string;
@@ -1743,6 +2233,7 @@ export class DescribeAvailableResourceRequest extends $tea.Model {
     return {
       acceptLanguage: 'AcceptLanguage',
       chargeType: 'ChargeType',
+      DBClusterVersion: 'DBClusterVersion',
       ownerAccount: 'OwnerAccount',
       ownerId: 'OwnerId',
       regionId: 'RegionId',
@@ -1756,6 +2247,7 @@ export class DescribeAvailableResourceRequest extends $tea.Model {
     return {
       acceptLanguage: 'string',
       chargeType: 'string',
+      DBClusterVersion: 'string',
       ownerAccount: 'string',
       ownerId: 'number',
       regionId: 'string',
@@ -2096,6 +2588,96 @@ export class DescribeColumnsResponse extends $tea.Model {
   }
 }
 
+export class DescribeComputeResourceRequest extends $tea.Model {
+  DBClusterId?: string;
+  DBClusterVersion?: string;
+  migrate?: boolean;
+  ownerAccount?: string;
+  ownerId?: number;
+  regionId?: string;
+  resourceOwnerAccount?: string;
+  resourceOwnerId?: number;
+  zoneId?: string;
+  static names(): { [key: string]: string } {
+    return {
+      DBClusterId: 'DBClusterId',
+      DBClusterVersion: 'DBClusterVersion',
+      migrate: 'Migrate',
+      ownerAccount: 'OwnerAccount',
+      ownerId: 'OwnerId',
+      regionId: 'RegionId',
+      resourceOwnerAccount: 'ResourceOwnerAccount',
+      resourceOwnerId: 'ResourceOwnerId',
+      zoneId: 'ZoneId',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      DBClusterId: 'string',
+      DBClusterVersion: 'string',
+      migrate: 'boolean',
+      ownerAccount: 'string',
+      ownerId: 'number',
+      regionId: 'string',
+      resourceOwnerAccount: 'string',
+      resourceOwnerId: 'number',
+      zoneId: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class DescribeComputeResourceResponseBody extends $tea.Model {
+  computeResource?: DescribeComputeResourceResponseBodyComputeResource[];
+  requestId?: string;
+  static names(): { [key: string]: string } {
+    return {
+      computeResource: 'ComputeResource',
+      requestId: 'RequestId',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      computeResource: { 'type': 'array', 'itemType': DescribeComputeResourceResponseBodyComputeResource },
+      requestId: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class DescribeComputeResourceResponse extends $tea.Model {
+  headers: { [key: string]: string };
+  statusCode: number;
+  body: DescribeComputeResourceResponseBody;
+  static names(): { [key: string]: string } {
+    return {
+      headers: 'headers',
+      statusCode: 'statusCode',
+      body: 'body',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
+      body: DescribeComputeResourceResponseBody,
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
 export class DescribeConnectionCountRecordsRequest extends $tea.Model {
   DBClusterId?: string;
   ownerAccount?: string;
@@ -2336,26 +2918,20 @@ export class DescribeDBClusterAttributeResponse extends $tea.Model {
   }
 }
 
-export class DescribeDBClusterForecastRequest extends $tea.Model {
+export class DescribeDBClusterHealthStatusRequest extends $tea.Model {
   DBClusterId?: string;
-  metricType?: string;
   regionId?: string;
-  startTime?: string;
   static names(): { [key: string]: string } {
     return {
       DBClusterId: 'DBClusterId',
-      metricType: 'MetricType',
       regionId: 'RegionId',
-      startTime: 'StartTime',
     };
   }
 
   static types(): { [key: string]: any } {
     return {
       DBClusterId: 'string',
-      metricType: 'string',
       regionId: 'string',
-      startTime: 'string',
     };
   }
 
@@ -2364,20 +2940,29 @@ export class DescribeDBClusterForecastRequest extends $tea.Model {
   }
 }
 
-export class DescribeDBClusterForecastResponseBody extends $tea.Model {
-  performances?: DescribeDBClusterForecastResponseBodyPerformances[];
+export class DescribeDBClusterHealthStatusResponseBody extends $tea.Model {
+  CS?: DescribeDBClusterHealthStatusResponseBodyCS;
+  executor?: DescribeDBClusterHealthStatusResponseBodyExecutor;
+  instanceStatus?: string;
   requestId?: string;
+  worker?: DescribeDBClusterHealthStatusResponseBodyWorker;
   static names(): { [key: string]: string } {
     return {
-      performances: 'Performances',
+      CS: 'CS',
+      executor: 'Executor',
+      instanceStatus: 'InstanceStatus',
       requestId: 'RequestId',
+      worker: 'Worker',
     };
   }
 
   static types(): { [key: string]: any } {
     return {
-      performances: { 'type': 'array', 'itemType': DescribeDBClusterForecastResponseBodyPerformances },
+      CS: DescribeDBClusterHealthStatusResponseBodyCS,
+      executor: DescribeDBClusterHealthStatusResponseBodyExecutor,
+      instanceStatus: 'string',
       requestId: 'string',
+      worker: DescribeDBClusterHealthStatusResponseBodyWorker,
     };
   }
 
@@ -2386,10 +2971,10 @@ export class DescribeDBClusterForecastResponseBody extends $tea.Model {
   }
 }
 
-export class DescribeDBClusterForecastResponse extends $tea.Model {
+export class DescribeDBClusterHealthStatusResponse extends $tea.Model {
   headers: { [key: string]: string };
   statusCode: number;
-  body: DescribeDBClusterForecastResponseBody;
+  body: DescribeDBClusterHealthStatusResponseBody;
   static names(): { [key: string]: string } {
     return {
       headers: 'headers',
@@ -2402,79 +2987,7 @@ export class DescribeDBClusterForecastResponse extends $tea.Model {
     return {
       headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
       statusCode: 'number',
-      body: DescribeDBClusterForecastResponseBody,
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class DescribeDBClusterHealthReportRequest extends $tea.Model {
-  DBClusterId?: string;
-  regionId?: string;
-  startTime?: string;
-  static names(): { [key: string]: string } {
-    return {
-      DBClusterId: 'DBClusterId',
-      regionId: 'RegionId',
-      startTime: 'StartTime',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      DBClusterId: 'string',
-      regionId: 'string',
-      startTime: 'string',
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class DescribeDBClusterHealthReportResponseBody extends $tea.Model {
-  items?: DescribeDBClusterHealthReportResponseBodyItems[];
-  requestId?: string;
-  static names(): { [key: string]: string } {
-    return {
-      items: 'Items',
-      requestId: 'RequestId',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      items: { 'type': 'array', 'itemType': DescribeDBClusterHealthReportResponseBodyItems },
-      requestId: 'string',
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class DescribeDBClusterHealthReportResponse extends $tea.Model {
-  headers: { [key: string]: string };
-  statusCode: number;
-  body: DescribeDBClusterHealthReportResponseBody;
-  static names(): { [key: string]: string } {
-    return {
-      headers: 'headers',
-      statusCode: 'statusCode',
-      body: 'body',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
-      statusCode: 'number',
-      body: DescribeDBClusterHealthReportResponseBody,
+      body: DescribeDBClusterHealthStatusResponseBody,
     };
   }
 
@@ -2759,10 +3272,89 @@ export class DescribeDBClusterResourcePoolPerformanceResponse extends $tea.Model
   }
 }
 
+export class DescribeDBClusterStatusRequest extends $tea.Model {
+  ownerAccount?: string;
+  ownerId?: number;
+  regionId?: string;
+  resourceOwnerAccount?: string;
+  resourceOwnerId?: number;
+  static names(): { [key: string]: string } {
+    return {
+      ownerAccount: 'OwnerAccount',
+      ownerId: 'OwnerId',
+      regionId: 'RegionId',
+      resourceOwnerAccount: 'ResourceOwnerAccount',
+      resourceOwnerId: 'ResourceOwnerId',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      ownerAccount: 'string',
+      ownerId: 'number',
+      regionId: 'string',
+      resourceOwnerAccount: 'string',
+      resourceOwnerId: 'number',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class DescribeDBClusterStatusResponseBody extends $tea.Model {
+  requestId?: string;
+  status?: string[];
+  static names(): { [key: string]: string } {
+    return {
+      requestId: 'RequestId',
+      status: 'Status',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      requestId: 'string',
+      status: { 'type': 'array', 'itemType': 'string' },
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class DescribeDBClusterStatusResponse extends $tea.Model {
+  headers: { [key: string]: string };
+  statusCode: number;
+  body: DescribeDBClusterStatusResponseBody;
+  static names(): { [key: string]: string } {
+    return {
+      headers: 'headers',
+      statusCode: 'statusCode',
+      body: 'body',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
+      body: DescribeDBClusterStatusResponseBody,
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
 export class DescribeDBClustersRequest extends $tea.Model {
   DBClusterDescription?: string;
   DBClusterIds?: string;
   DBClusterStatus?: string;
+  DBVersion?: string;
   ownerAccount?: string;
   ownerId?: number;
   pageNumber?: number;
@@ -2777,6 +3369,7 @@ export class DescribeDBClustersRequest extends $tea.Model {
       DBClusterDescription: 'DBClusterDescription',
       DBClusterIds: 'DBClusterIds',
       DBClusterStatus: 'DBClusterStatus',
+      DBVersion: 'DBVersion',
       ownerAccount: 'OwnerAccount',
       ownerId: 'OwnerId',
       pageNumber: 'PageNumber',
@@ -2794,6 +3387,7 @@ export class DescribeDBClustersRequest extends $tea.Model {
       DBClusterDescription: 'string',
       DBClusterIds: 'string',
       DBClusterStatus: 'string',
+      DBVersion: 'string',
       ownerAccount: 'string',
       ownerId: 'number',
       pageNumber: 'number',
@@ -2902,10 +3496,12 @@ export class DescribeDBResourceGroupRequest extends $tea.Model {
 }
 
 export class DescribeDBResourceGroupResponseBody extends $tea.Model {
+  DBClusterId?: string;
   groupsInfo?: DescribeDBResourceGroupResponseBodyGroupsInfo[];
   requestId?: string;
   static names(): { [key: string]: string } {
     return {
+      DBClusterId: 'DBClusterId',
       groupsInfo: 'GroupsInfo',
       requestId: 'RequestId',
     };
@@ -2913,6 +3509,7 @@ export class DescribeDBResourceGroupResponseBody extends $tea.Model {
 
   static types(): { [key: string]: any } {
     return {
+      DBClusterId: 'string',
       groupsInfo: { 'type': 'array', 'itemType': DescribeDBResourceGroupResponseBodyGroupsInfo },
       requestId: 'string',
     };
@@ -2983,10 +3580,12 @@ export class DescribeDBResourcePoolRequest extends $tea.Model {
 }
 
 export class DescribeDBResourcePoolResponseBody extends $tea.Model {
+  DBClusterId?: string;
   poolsInfo?: DescribeDBResourcePoolResponseBodyPoolsInfo[];
   requestId?: string;
   static names(): { [key: string]: string } {
     return {
+      DBClusterId: 'DBClusterId',
       poolsInfo: 'PoolsInfo',
       requestId: 'RequestId',
     };
@@ -2994,6 +3593,7 @@ export class DescribeDBResourcePoolResponseBody extends $tea.Model {
 
   static types(): { [key: string]: any } {
     return {
+      DBClusterId: 'string',
       poolsInfo: { 'type': 'array', 'itemType': DescribeDBResourcePoolResponseBodyPoolsInfo },
       requestId: 'string',
     };
@@ -3119,6 +3719,93 @@ export class DescribeDiagnosisDimensionsResponse extends $tea.Model {
   }
 }
 
+export class DescribeDiagnosisMonitorPerformanceRequest extends $tea.Model {
+  DBClusterId?: string;
+  endTime?: string;
+  lang?: string;
+  queryCondition?: string;
+  regionId?: string;
+  startTime?: string;
+  static names(): { [key: string]: string } {
+    return {
+      DBClusterId: 'DBClusterId',
+      endTime: 'EndTime',
+      lang: 'Lang',
+      queryCondition: 'QueryCondition',
+      regionId: 'RegionId',
+      startTime: 'StartTime',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      DBClusterId: 'string',
+      endTime: 'string',
+      lang: 'string',
+      queryCondition: 'string',
+      regionId: 'string',
+      startTime: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class DescribeDiagnosisMonitorPerformanceResponseBody extends $tea.Model {
+  performances?: DescribeDiagnosisMonitorPerformanceResponseBodyPerformances[];
+  performancesThreshold?: number;
+  performancesTruncated?: boolean;
+  requestId?: string;
+  static names(): { [key: string]: string } {
+    return {
+      performances: 'Performances',
+      performancesThreshold: 'PerformancesThreshold',
+      performancesTruncated: 'PerformancesTruncated',
+      requestId: 'RequestId',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      performances: { 'type': 'array', 'itemType': DescribeDiagnosisMonitorPerformanceResponseBodyPerformances },
+      performancesThreshold: 'number',
+      performancesTruncated: 'boolean',
+      requestId: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class DescribeDiagnosisMonitorPerformanceResponse extends $tea.Model {
+  headers: { [key: string]: string };
+  statusCode: number;
+  body: DescribeDiagnosisMonitorPerformanceResponseBody;
+  static names(): { [key: string]: string } {
+    return {
+      headers: 'headers',
+      statusCode: 'statusCode',
+      body: 'body',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
+      body: DescribeDiagnosisMonitorPerformanceResponseBody,
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
 export class DescribeDiagnosisRecordsRequest extends $tea.Model {
   clientIp?: string;
   DBClusterId?: string;
@@ -3133,7 +3820,7 @@ export class DescribeDiagnosisRecordsRequest extends $tea.Model {
   order?: string;
   pageNumber?: number;
   pageSize?: number;
-  patternId?: number;
+  patternId?: string;
   queryCondition?: string;
   regionId?: string;
   resourceGroup?: string;
@@ -3178,7 +3865,7 @@ export class DescribeDiagnosisRecordsRequest extends $tea.Model {
       order: 'string',
       pageNumber: 'number',
       pageSize: 'number',
-      patternId: 'number',
+      patternId: 'string',
       queryCondition: 'string',
       regionId: 'string',
       resourceGroup: 'string',
@@ -3240,6 +3927,186 @@ export class DescribeDiagnosisRecordsResponse extends $tea.Model {
       headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
       statusCode: 'number',
       body: DescribeDiagnosisRecordsResponseBody,
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class DescribeDiagnosisSQLInfoRequest extends $tea.Model {
+  DBClusterId?: string;
+  lang?: string;
+  processId?: string;
+  processRcHost?: string;
+  processStartTime?: number;
+  processState?: string;
+  regionId?: string;
+  static names(): { [key: string]: string } {
+    return {
+      DBClusterId: 'DBClusterId',
+      lang: 'Lang',
+      processId: 'ProcessId',
+      processRcHost: 'ProcessRcHost',
+      processStartTime: 'ProcessStartTime',
+      processState: 'ProcessState',
+      regionId: 'RegionId',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      DBClusterId: 'string',
+      lang: 'string',
+      processId: 'string',
+      processRcHost: 'string',
+      processStartTime: 'number',
+      processState: 'string',
+      regionId: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class DescribeDiagnosisSQLInfoResponseBody extends $tea.Model {
+  diagnosisSQLInfo?: string;
+  requestId?: string;
+  stageInfos?: DescribeDiagnosisSQLInfoResponseBodyStageInfos[];
+  static names(): { [key: string]: string } {
+    return {
+      diagnosisSQLInfo: 'DiagnosisSQLInfo',
+      requestId: 'RequestId',
+      stageInfos: 'StageInfos',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      diagnosisSQLInfo: 'string',
+      requestId: 'string',
+      stageInfos: { 'type': 'array', 'itemType': DescribeDiagnosisSQLInfoResponseBodyStageInfos },
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class DescribeDiagnosisSQLInfoResponse extends $tea.Model {
+  headers: { [key: string]: string };
+  statusCode: number;
+  body: DescribeDiagnosisSQLInfoResponseBody;
+  static names(): { [key: string]: string } {
+    return {
+      headers: 'headers',
+      statusCode: 'statusCode',
+      body: 'body',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
+      body: DescribeDiagnosisSQLInfoResponseBody,
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class DescribeDiagnosisTasksRequest extends $tea.Model {
+  DBClusterId?: string;
+  host?: string;
+  order?: string;
+  pageNumber?: number;
+  pageSize?: number;
+  processId?: string;
+  regionId?: string;
+  stageId?: string;
+  state?: string;
+  static names(): { [key: string]: string } {
+    return {
+      DBClusterId: 'DBClusterId',
+      host: 'Host',
+      order: 'Order',
+      pageNumber: 'PageNumber',
+      pageSize: 'PageSize',
+      processId: 'ProcessId',
+      regionId: 'RegionId',
+      stageId: 'StageId',
+      state: 'State',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      DBClusterId: 'string',
+      host: 'string',
+      order: 'string',
+      pageNumber: 'number',
+      pageSize: 'number',
+      processId: 'string',
+      regionId: 'string',
+      stageId: 'string',
+      state: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class DescribeDiagnosisTasksResponseBody extends $tea.Model {
+  requestId?: string;
+  taskList?: DescribeDiagnosisTasksResponseBodyTaskList[];
+  totalCount?: number;
+  static names(): { [key: string]: string } {
+    return {
+      requestId: 'RequestId',
+      taskList: 'TaskList',
+      totalCount: 'TotalCount',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      requestId: 'string',
+      taskList: { 'type': 'array', 'itemType': DescribeDiagnosisTasksResponseBodyTaskList },
+      totalCount: 'number',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class DescribeDiagnosisTasksResponse extends $tea.Model {
+  headers: { [key: string]: string };
+  statusCode: number;
+  body: DescribeDiagnosisTasksResponseBody;
+  static names(): { [key: string]: string } {
+    return {
+      headers: 'headers',
+      statusCode: 'statusCode',
+      body: 'body',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
+      body: DescribeDiagnosisTasksResponseBody,
     };
   }
 
@@ -3312,6 +4179,102 @@ export class DescribeDownloadRecordsResponse extends $tea.Model {
       headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
       statusCode: 'number',
       body: DescribeDownloadRecordsResponseBody,
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class DescribeEIURangeRequest extends $tea.Model {
+  computeResource?: string;
+  DBClusterId?: string;
+  DBClusterVersion?: string;
+  operation?: string;
+  ownerAccount?: string;
+  ownerId?: number;
+  regionId?: string;
+  resourceGroupId?: string;
+  resourceOwnerAccount?: string;
+  resourceOwnerId?: number;
+  zoneId?: string;
+  static names(): { [key: string]: string } {
+    return {
+      computeResource: 'ComputeResource',
+      DBClusterId: 'DBClusterId',
+      DBClusterVersion: 'DBClusterVersion',
+      operation: 'Operation',
+      ownerAccount: 'OwnerAccount',
+      ownerId: 'OwnerId',
+      regionId: 'RegionId',
+      resourceGroupId: 'ResourceGroupId',
+      resourceOwnerAccount: 'ResourceOwnerAccount',
+      resourceOwnerId: 'ResourceOwnerId',
+      zoneId: 'ZoneId',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      computeResource: 'string',
+      DBClusterId: 'string',
+      DBClusterVersion: 'string',
+      operation: 'string',
+      ownerAccount: 'string',
+      ownerId: 'number',
+      regionId: 'string',
+      resourceGroupId: 'string',
+      resourceOwnerAccount: 'string',
+      resourceOwnerId: 'number',
+      zoneId: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class DescribeEIURangeResponseBody extends $tea.Model {
+  EIUInfo?: DescribeEIURangeResponseBodyEIUInfo;
+  requestId?: string;
+  static names(): { [key: string]: string } {
+    return {
+      EIUInfo: 'EIUInfo',
+      requestId: 'RequestId',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      EIUInfo: DescribeEIURangeResponseBodyEIUInfo,
+      requestId: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class DescribeEIURangeResponse extends $tea.Model {
+  headers: { [key: string]: string };
+  statusCode: number;
+  body: DescribeEIURangeResponseBody;
+  static names(): { [key: string]: string } {
+    return {
+      headers: 'headers',
+      statusCode: 'statusCode',
+      body: 'body',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
+      body: DescribeEIURangeResponseBody,
     };
   }
 
@@ -3605,6 +4568,7 @@ export class DescribeLoadTasksRecordsRequest extends $tea.Model {
   ownerId?: number;
   pageNumber?: number;
   pageSize?: number;
+  regionId?: string;
   resourceOwnerAccount?: string;
   resourceOwnerId?: number;
   startTime?: string;
@@ -3619,6 +4583,7 @@ export class DescribeLoadTasksRecordsRequest extends $tea.Model {
       ownerId: 'OwnerId',
       pageNumber: 'PageNumber',
       pageSize: 'PageSize',
+      regionId: 'RegionId',
       resourceOwnerAccount: 'ResourceOwnerAccount',
       resourceOwnerId: 'ResourceOwnerId',
       startTime: 'StartTime',
@@ -3636,6 +4601,7 @@ export class DescribeLoadTasksRecordsRequest extends $tea.Model {
       ownerId: 'number',
       pageNumber: 'number',
       pageSize: 'number',
+      regionId: 'string',
       resourceOwnerAccount: 'string',
       resourceOwnerId: 'number',
       startTime: 'string',
@@ -5373,6 +6339,7 @@ export class DescribeTaskInfoRequest extends $tea.Model {
   DBClusterId?: string;
   ownerAccount?: string;
   ownerId?: number;
+  regionId?: string;
   resourceOwnerAccount?: string;
   resourceOwnerId?: number;
   taskId?: number;
@@ -5381,6 +6348,7 @@ export class DescribeTaskInfoRequest extends $tea.Model {
       DBClusterId: 'DBClusterId',
       ownerAccount: 'OwnerAccount',
       ownerId: 'OwnerId',
+      regionId: 'RegionId',
       resourceOwnerAccount: 'ResourceOwnerAccount',
       resourceOwnerId: 'ResourceOwnerId',
       taskId: 'TaskId',
@@ -5392,6 +6360,7 @@ export class DescribeTaskInfoRequest extends $tea.Model {
       DBClusterId: 'string',
       ownerAccount: 'string',
       ownerId: 'number',
+      regionId: 'string',
       resourceOwnerAccount: 'string',
       resourceOwnerId: 'number',
       taskId: 'number',
@@ -5442,6 +6411,150 @@ export class DescribeTaskInfoResponse extends $tea.Model {
       headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
       statusCode: 'number',
       body: DescribeTaskInfoResponseBody,
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class DetachUserENIRequest extends $tea.Model {
+  DBClusterId?: string;
+  ownerAccount?: string;
+  ownerId?: number;
+  resourceOwnerAccount?: string;
+  resourceOwnerId?: number;
+  static names(): { [key: string]: string } {
+    return {
+      DBClusterId: 'DBClusterId',
+      ownerAccount: 'OwnerAccount',
+      ownerId: 'OwnerId',
+      resourceOwnerAccount: 'ResourceOwnerAccount',
+      resourceOwnerId: 'ResourceOwnerId',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      DBClusterId: 'string',
+      ownerAccount: 'string',
+      ownerId: 'number',
+      resourceOwnerAccount: 'string',
+      resourceOwnerId: 'number',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class DetachUserENIResponseBody extends $tea.Model {
+  requestId?: string;
+  static names(): { [key: string]: string } {
+    return {
+      requestId: 'RequestId',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      requestId: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class DetachUserENIResponse extends $tea.Model {
+  headers: { [key: string]: string };
+  statusCode: number;
+  body: DetachUserENIResponseBody;
+  static names(): { [key: string]: string } {
+    return {
+      headers: 'headers',
+      statusCode: 'statusCode',
+      body: 'body',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
+      body: DetachUserENIResponseBody,
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class DisableAdviceServiceRequest extends $tea.Model {
+  DBClusterId?: string;
+  regionId?: string;
+  static names(): { [key: string]: string } {
+    return {
+      DBClusterId: 'DBClusterId',
+      regionId: 'RegionId',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      DBClusterId: 'string',
+      regionId: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class DisableAdviceServiceResponseBody extends $tea.Model {
+  message?: string;
+  requestId?: string;
+  static names(): { [key: string]: string } {
+    return {
+      message: 'Message',
+      requestId: 'RequestId',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      message: 'string',
+      requestId: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class DisableAdviceServiceResponse extends $tea.Model {
+  headers: { [key: string]: string };
+  statusCode: number;
+  body: DisableAdviceServiceResponseBody;
+  static names(): { [key: string]: string } {
+    return {
+      headers: 'headers',
+      statusCode: 'statusCode',
+      body: 'body',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
+      body: DisableAdviceServiceResponseBody,
     };
   }
 
@@ -5550,6 +6663,183 @@ export class DownloadDiagnosisRecordsResponse extends $tea.Model {
       headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
       statusCode: 'number',
       body: DownloadDiagnosisRecordsResponseBody,
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class DryRunClusterRequest extends $tea.Model {
+  computeResource?: string;
+  DBClusterDescription?: string;
+  DBClusterId?: string;
+  DBClusterNetworkType?: string;
+  DBClusterVersion?: string;
+  enableDefaultResourcePool?: boolean;
+  operation?: string;
+  payType?: string;
+  period?: string;
+  regionId?: string;
+  storageResource?: string;
+  usedTime?: string;
+  VPCId?: string;
+  vSwitchId?: string;
+  zoneId?: string;
+  static names(): { [key: string]: string } {
+    return {
+      computeResource: 'ComputeResource',
+      DBClusterDescription: 'DBClusterDescription',
+      DBClusterId: 'DBClusterId',
+      DBClusterNetworkType: 'DBClusterNetworkType',
+      DBClusterVersion: 'DBClusterVersion',
+      enableDefaultResourcePool: 'EnableDefaultResourcePool',
+      operation: 'Operation',
+      payType: 'PayType',
+      period: 'Period',
+      regionId: 'RegionId',
+      storageResource: 'StorageResource',
+      usedTime: 'UsedTime',
+      VPCId: 'VPCId',
+      vSwitchId: 'VSwitchId',
+      zoneId: 'ZoneId',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      computeResource: 'string',
+      DBClusterDescription: 'string',
+      DBClusterId: 'string',
+      DBClusterNetworkType: 'string',
+      DBClusterVersion: 'string',
+      enableDefaultResourcePool: 'boolean',
+      operation: 'string',
+      payType: 'string',
+      period: 'string',
+      regionId: 'string',
+      storageResource: 'string',
+      usedTime: 'string',
+      VPCId: 'string',
+      vSwitchId: 'string',
+      zoneId: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class DryRunClusterResponseBody extends $tea.Model {
+  requestId?: string;
+  success?: boolean;
+  static names(): { [key: string]: string } {
+    return {
+      requestId: 'RequestId',
+      success: 'Success',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      requestId: 'string',
+      success: 'boolean',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class DryRunClusterResponse extends $tea.Model {
+  headers: { [key: string]: string };
+  statusCode: number;
+  body: DryRunClusterResponseBody;
+  static names(): { [key: string]: string } {
+    return {
+      headers: 'headers',
+      statusCode: 'statusCode',
+      body: 'body',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
+      body: DryRunClusterResponseBody,
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class EnableAdviceServiceRequest extends $tea.Model {
+  DBClusterId?: string;
+  regionId?: string;
+  static names(): { [key: string]: string } {
+    return {
+      DBClusterId: 'DBClusterId',
+      regionId: 'RegionId',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      DBClusterId: 'string',
+      regionId: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class EnableAdviceServiceResponseBody extends $tea.Model {
+  message?: string;
+  requestId?: string;
+  static names(): { [key: string]: string } {
+    return {
+      message: 'Message',
+      requestId: 'RequestId',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      message: 'string',
+      requestId: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class EnableAdviceServiceResponse extends $tea.Model {
+  headers: { [key: string]: string };
+  statusCode: number;
+  body: EnableAdviceServiceResponseBody;
+  static names(): { [key: string]: string } {
+    return {
+      headers: 'headers',
+      statusCode: 'statusCode',
+      body: 'body',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
+      body: EnableAdviceServiceResponseBody,
     };
   }
 
@@ -5802,6 +7092,81 @@ export class ListTagResourcesResponse extends $tea.Model {
       headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
       statusCode: 'number',
       body: ListTagResourcesResponseBody,
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class MigrateDBClusterRequest extends $tea.Model {
+  DBClusterId?: string;
+  ownerAccount?: string;
+  ownerId?: number;
+  resourceOwnerAccount?: string;
+  resourceOwnerId?: number;
+  static names(): { [key: string]: string } {
+    return {
+      DBClusterId: 'DBClusterId',
+      ownerAccount: 'OwnerAccount',
+      ownerId: 'OwnerId',
+      resourceOwnerAccount: 'ResourceOwnerAccount',
+      resourceOwnerId: 'ResourceOwnerId',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      DBClusterId: 'string',
+      ownerAccount: 'string',
+      ownerId: 'number',
+      resourceOwnerAccount: 'string',
+      resourceOwnerId: 'number',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class MigrateDBClusterResponseBody extends $tea.Model {
+  requestId?: string;
+  static names(): { [key: string]: string } {
+    return {
+      requestId: 'RequestId',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      requestId: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class MigrateDBClusterResponse extends $tea.Model {
+  headers: { [key: string]: string };
+  statusCode: number;
+  body: MigrateDBClusterResponseBody;
+  static names(): { [key: string]: string } {
+    return {
+      headers: 'headers',
+      statusCode: 'statusCode',
+      body: 'body',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
+      body: MigrateDBClusterResponseBody,
     };
   }
 
@@ -6243,7 +7608,9 @@ export class ModifyDBClusterRequest extends $tea.Model {
   DBNodeClass?: string;
   DBNodeGroupCount?: string;
   DBNodeStorage?: string;
+  diskPerformanceLevel?: string;
   elasticIOResource?: number;
+  elasticIOResourceSize?: string;
   executorCount?: string;
   mode?: string;
   modifyType?: string;
@@ -6261,7 +7628,9 @@ export class ModifyDBClusterRequest extends $tea.Model {
       DBNodeClass: 'DBNodeClass',
       DBNodeGroupCount: 'DBNodeGroupCount',
       DBNodeStorage: 'DBNodeStorage',
+      diskPerformanceLevel: 'DiskPerformanceLevel',
       elasticIOResource: 'ElasticIOResource',
+      elasticIOResourceSize: 'ElasticIOResourceSize',
       executorCount: 'ExecutorCount',
       mode: 'Mode',
       modifyType: 'ModifyType',
@@ -6282,7 +7651,9 @@ export class ModifyDBClusterRequest extends $tea.Model {
       DBNodeClass: 'string',
       DBNodeGroupCount: 'string',
       DBNodeStorage: 'string',
+      diskPerformanceLevel: 'string',
       elasticIOResource: 'number',
+      elasticIOResourceSize: 'string',
       executorCount: 'string',
       mode: 'string',
       modifyType: 'string',
@@ -6935,7 +8306,9 @@ export class ModifyElasticPlanRequest extends $tea.Model {
   elasticPlanStartDay?: string;
   elasticPlanTimeEnd?: string;
   elasticPlanTimeStart?: string;
+  elasticPlanType?: string;
   elasticPlanWeeklyRepeat?: string;
+  elasticPlanWorkerSpec?: string;
   ownerAccount?: string;
   ownerId?: number;
   resourceOwnerAccount?: string;
@@ -6951,7 +8324,9 @@ export class ModifyElasticPlanRequest extends $tea.Model {
       elasticPlanStartDay: 'ElasticPlanStartDay',
       elasticPlanTimeEnd: 'ElasticPlanTimeEnd',
       elasticPlanTimeStart: 'ElasticPlanTimeStart',
+      elasticPlanType: 'ElasticPlanType',
       elasticPlanWeeklyRepeat: 'ElasticPlanWeeklyRepeat',
+      elasticPlanWorkerSpec: 'ElasticPlanWorkerSpec',
       ownerAccount: 'OwnerAccount',
       ownerId: 'OwnerId',
       resourceOwnerAccount: 'ResourceOwnerAccount',
@@ -6970,7 +8345,9 @@ export class ModifyElasticPlanRequest extends $tea.Model {
       elasticPlanStartDay: 'string',
       elasticPlanTimeEnd: 'string',
       elasticPlanTimeStart: 'string',
+      elasticPlanType: 'string',
       elasticPlanWeeklyRepeat: 'string',
+      elasticPlanWorkerSpec: 'string',
       ownerAccount: 'string',
       ownerId: 'number',
       resourceOwnerAccount: 'string',
@@ -7034,6 +8411,7 @@ export class ModifyLogBackupPolicyRequest extends $tea.Model {
   logBackupRetentionPeriod?: string;
   ownerAccount?: string;
   ownerId?: number;
+  resourceGroupId?: string;
   resourceOwnerAccount?: string;
   resourceOwnerId?: number;
   static names(): { [key: string]: string } {
@@ -7043,6 +8421,7 @@ export class ModifyLogBackupPolicyRequest extends $tea.Model {
       logBackupRetentionPeriod: 'LogBackupRetentionPeriod',
       ownerAccount: 'OwnerAccount',
       ownerId: 'OwnerId',
+      resourceGroupId: 'ResourceGroupId',
       resourceOwnerAccount: 'ResourceOwnerAccount',
       resourceOwnerId: 'ResourceOwnerId',
     };
@@ -7055,6 +8434,7 @@ export class ModifyLogBackupPolicyRequest extends $tea.Model {
       logBackupRetentionPeriod: 'string',
       ownerAccount: 'string',
       ownerId: 'number',
+      resourceGroupId: 'string',
       resourceOwnerAccount: 'string',
       resourceOwnerId: 'number',
     };
@@ -7114,6 +8494,7 @@ export class ModifyMaintenanceActionRequest extends $tea.Model {
   ownerAccount?: string;
   ownerId?: number;
   regionId?: string;
+  resourceGroupId?: string;
   resourceOwnerAccount?: string;
   resourceOwnerId?: number;
   switchTime?: string;
@@ -7123,6 +8504,7 @@ export class ModifyMaintenanceActionRequest extends $tea.Model {
       ownerAccount: 'OwnerAccount',
       ownerId: 'OwnerId',
       regionId: 'RegionId',
+      resourceGroupId: 'ResourceGroupId',
       resourceOwnerAccount: 'ResourceOwnerAccount',
       resourceOwnerId: 'ResourceOwnerId',
       switchTime: 'SwitchTime',
@@ -7135,6 +8517,7 @@ export class ModifyMaintenanceActionRequest extends $tea.Model {
       ownerAccount: 'string',
       ownerId: 'number',
       regionId: 'string',
+      resourceGroupId: 'string',
       resourceOwnerAccount: 'string',
       resourceOwnerId: 'number',
       switchTime: 'string',
@@ -7766,6 +9149,28 @@ export class UntagResourcesResponse extends $tea.Model {
   }
 }
 
+export class CreateDBClusterRequestTag extends $tea.Model {
+  key?: string;
+  value?: string;
+  static names(): { [key: string]: string } {
+    return {
+      key: 'Key',
+      value: 'Value',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      key: 'string',
+      value: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
 export class DescribeAccountsResponseBodyAccountListDBAccount extends $tea.Model {
   accountDescription?: string;
   accountName?: string;
@@ -7973,6 +9378,55 @@ export class DescribeAllDataSourceResponseBodyTables extends $tea.Model {
   }
 }
 
+export class DescribeAppliedAdvicesResponseBodyItems extends $tea.Model {
+  adviceId?: string;
+  benefit?: string;
+  buildSQL?: string;
+  jobStatus?: string;
+  pageNumber?: number;
+  pageSize?: number;
+  rollbackSQL?: string;
+  SQL?: string;
+  submitStatus?: string;
+  submitTime?: string;
+  totalCount?: number;
+  static names(): { [key: string]: string } {
+    return {
+      adviceId: 'AdviceId',
+      benefit: 'Benefit',
+      buildSQL: 'BuildSQL',
+      jobStatus: 'JobStatus',
+      pageNumber: 'PageNumber',
+      pageSize: 'PageSize',
+      rollbackSQL: 'RollbackSQL',
+      SQL: 'SQL',
+      submitStatus: 'SubmitStatus',
+      submitTime: 'SubmitTime',
+      totalCount: 'TotalCount',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      adviceId: 'string',
+      benefit: 'string',
+      buildSQL: 'string',
+      jobStatus: 'string',
+      pageNumber: 'number',
+      pageSize: 'number',
+      rollbackSQL: 'string',
+      SQL: 'string',
+      submitStatus: 'string',
+      submitTime: 'string',
+      totalCount: 'number',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
 export class DescribeAuditLogRecordsResponseBodyItems extends $tea.Model {
   connId?: string;
   DBName?: string;
@@ -8064,6 +9518,49 @@ export class DescribeAutoRenewAttributeResponseBodyItems extends $tea.Model {
   static types(): { [key: string]: any } {
     return {
       autoRenewAttribute: { 'type': 'array', 'itemType': DescribeAutoRenewAttributeResponseBodyItemsAutoRenewAttribute },
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class DescribeAvailableAdvicesResponseBodyItems extends $tea.Model {
+  adviceDate?: string;
+  adviceId?: string;
+  adviceType?: string;
+  benefit?: string;
+  pageNumber?: number;
+  pageSize?: number;
+  reason?: string;
+  SQL?: string;
+  totalCount?: number;
+  static names(): { [key: string]: string } {
+    return {
+      adviceDate: 'AdviceDate',
+      adviceId: 'AdviceId',
+      adviceType: 'AdviceType',
+      benefit: 'Benefit',
+      pageNumber: 'PageNumber',
+      pageSize: 'PageSize',
+      reason: 'Reason',
+      SQL: 'SQL',
+      totalCount: 'TotalCount',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      adviceDate: 'string',
+      adviceId: 'string',
+      adviceType: 'string',
+      benefit: 'string',
+      pageNumber: 'number',
+      pageSize: 'number',
+      reason: 'string',
+      SQL: 'string',
+      totalCount: 'number',
     };
   }
 
@@ -8292,18 +9789,24 @@ export class DescribeAvailableResourceResponseBodyAvailableZoneListSupportedMode
 }
 
 export class DescribeAvailableResourceResponseBodyAvailableZoneList extends $tea.Model {
+  supportedComputeResource?: string[];
   supportedMode?: DescribeAvailableResourceResponseBodyAvailableZoneListSupportedMode[];
+  supportedStorageResource?: string[];
   zoneId?: string;
   static names(): { [key: string]: string } {
     return {
+      supportedComputeResource: 'SupportedComputeResource',
       supportedMode: 'SupportedMode',
+      supportedStorageResource: 'SupportedStorageResource',
       zoneId: 'ZoneId',
     };
   }
 
   static types(): { [key: string]: any } {
     return {
+      supportedComputeResource: { 'type': 'array', 'itemType': 'string' },
       supportedMode: { 'type': 'array', 'itemType': DescribeAvailableResourceResponseBodyAvailableZoneListSupportedMode },
+      supportedStorageResource: { 'type': 'array', 'itemType': 'string' },
       zoneId: 'string',
     };
   }
@@ -8417,6 +9920,28 @@ export class DescribeColumnsResponseBodyItems extends $tea.Model {
   static types(): { [key: string]: any } {
     return {
       column: { 'type': 'array', 'itemType': DescribeColumnsResponseBodyItemsColumn },
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class DescribeComputeResourceResponseBodyComputeResource extends $tea.Model {
+  displayValue?: string;
+  realValue?: string;
+  static names(): { [key: string]: string } {
+    return {
+      displayValue: 'DisplayValue',
+      realValue: 'RealValue',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      displayValue: 'string',
+      realValue: 'string',
     };
   }
 
@@ -8569,9 +10094,11 @@ export class DescribeDBClusterAttributeResponseBodyItemsDBCluster extends $tea.M
   DBNodeCount?: number;
   DBNodeStorage?: number;
   DBVersion?: string;
+  diskPerformanceLevel?: string;
   diskType?: string;
   dtsJobId?: string;
   elasticIOResource?: number;
+  elasticIOResourceSize?: string;
   enableAirflow?: boolean;
   enableSpark?: boolean;
   engine?: string;
@@ -8579,6 +10106,8 @@ export class DescribeDBClusterAttributeResponseBodyItemsDBCluster extends $tea.M
   executorCount?: string;
   expireTime?: string;
   expired?: string;
+  innerIp?: string;
+  innerPort?: string;
   kmsId?: string;
   lockMode?: string;
   lockReason?: string;
@@ -8612,9 +10141,11 @@ export class DescribeDBClusterAttributeResponseBodyItemsDBCluster extends $tea.M
       DBNodeCount: 'DBNodeCount',
       DBNodeStorage: 'DBNodeStorage',
       DBVersion: 'DBVersion',
+      diskPerformanceLevel: 'DiskPerformanceLevel',
       diskType: 'DiskType',
       dtsJobId: 'DtsJobId',
       elasticIOResource: 'ElasticIOResource',
+      elasticIOResourceSize: 'ElasticIOResourceSize',
       enableAirflow: 'EnableAirflow',
       enableSpark: 'EnableSpark',
       engine: 'Engine',
@@ -8622,6 +10153,8 @@ export class DescribeDBClusterAttributeResponseBodyItemsDBCluster extends $tea.M
       executorCount: 'ExecutorCount',
       expireTime: 'ExpireTime',
       expired: 'Expired',
+      innerIp: 'InnerIp',
+      innerPort: 'InnerPort',
       kmsId: 'KmsId',
       lockMode: 'LockMode',
       lockReason: 'LockReason',
@@ -8658,9 +10191,11 @@ export class DescribeDBClusterAttributeResponseBodyItemsDBCluster extends $tea.M
       DBNodeCount: 'number',
       DBNodeStorage: 'number',
       DBVersion: 'string',
+      diskPerformanceLevel: 'string',
       diskType: 'string',
       dtsJobId: 'string',
       elasticIOResource: 'number',
+      elasticIOResourceSize: 'string',
       enableAirflow: 'boolean',
       enableSpark: 'boolean',
       engine: 'string',
@@ -8668,6 +10203,8 @@ export class DescribeDBClusterAttributeResponseBodyItemsDBCluster extends $tea.M
       executorCount: 'string',
       expireTime: 'string',
       expired: 'string',
+      innerIp: 'string',
+      innerPort: 'string',
       kmsId: 'string',
       lockMode: 'string',
       lockReason: 'string',
@@ -8712,20 +10249,29 @@ export class DescribeDBClusterAttributeResponseBodyItems extends $tea.Model {
   }
 }
 
-export class DescribeDBClusterForecastResponseBodyPerformancesSeries extends $tea.Model {
-  name?: string;
-  values?: string;
+export class DescribeDBClusterHealthStatusResponseBodyCS extends $tea.Model {
+  activeCount?: number;
+  expectedCount?: number;
+  riskCount?: number;
+  status?: string;
+  unavailableCount?: number;
   static names(): { [key: string]: string } {
     return {
-      name: 'Name',
-      values: 'Values',
+      activeCount: 'ActiveCount',
+      expectedCount: 'ExpectedCount',
+      riskCount: 'RiskCount',
+      status: 'Status',
+      unavailableCount: 'UnavailableCount',
     };
   }
 
   static types(): { [key: string]: any } {
     return {
-      name: 'string',
-      values: 'string',
+      activeCount: 'number',
+      expectedCount: 'number',
+      riskCount: 'number',
+      status: 'string',
+      unavailableCount: 'number',
     };
   }
 
@@ -8734,23 +10280,29 @@ export class DescribeDBClusterForecastResponseBodyPerformancesSeries extends $te
   }
 }
 
-export class DescribeDBClusterForecastResponseBodyPerformances extends $tea.Model {
-  key?: string;
-  series?: DescribeDBClusterForecastResponseBodyPerformancesSeries[];
-  unit?: string;
+export class DescribeDBClusterHealthStatusResponseBodyExecutor extends $tea.Model {
+  activeCount?: number;
+  expectedCount?: number;
+  riskCount?: number;
+  status?: string;
+  unavailableCount?: number;
   static names(): { [key: string]: string } {
     return {
-      key: 'Key',
-      series: 'Series',
-      unit: 'Unit',
+      activeCount: 'ActiveCount',
+      expectedCount: 'ExpectedCount',
+      riskCount: 'RiskCount',
+      status: 'Status',
+      unavailableCount: 'UnavailableCount',
     };
   }
 
   static types(): { [key: string]: any } {
     return {
-      key: 'string',
-      series: { 'type': 'array', 'itemType': DescribeDBClusterForecastResponseBodyPerformancesSeries },
-      unit: 'string',
+      activeCount: 'number',
+      expectedCount: 'number',
+      riskCount: 'number',
+      status: 'string',
+      unavailableCount: 'number',
     };
   }
 
@@ -8759,26 +10311,29 @@ export class DescribeDBClusterForecastResponseBodyPerformances extends $tea.Mode
   }
 }
 
-export class DescribeDBClusterHealthReportResponseBodyItems extends $tea.Model {
-  avg?: string;
-  key?: string;
-  max?: string;
-  name?: string;
+export class DescribeDBClusterHealthStatusResponseBodyWorker extends $tea.Model {
+  activeCount?: number;
+  expectedCount?: number;
+  riskCount?: number;
+  status?: string;
+  unavailableCount?: number;
   static names(): { [key: string]: string } {
     return {
-      avg: 'Avg',
-      key: 'Key',
-      max: 'Max',
-      name: 'Name',
+      activeCount: 'ActiveCount',
+      expectedCount: 'ExpectedCount',
+      riskCount: 'RiskCount',
+      status: 'Status',
+      unavailableCount: 'UnavailableCount',
     };
   }
 
   static types(): { [key: string]: any } {
     return {
-      avg: 'string',
-      key: 'string',
-      max: 'string',
-      name: 'string',
+      activeCount: 'number',
+      expectedCount: 'number',
+      riskCount: 'number',
+      status: 'string',
+      unavailableCount: 'number',
     };
   }
 
@@ -9044,6 +10599,8 @@ export class DescribeDBClustersResponseBodyItemsDBCluster extends $tea.Model {
   executorCount?: string;
   expireTime?: string;
   expired?: string;
+  innerIp?: string;
+  innerPort?: string;
   lockMode?: string;
   lockReason?: string;
   mode?: string;
@@ -9081,6 +10638,8 @@ export class DescribeDBClustersResponseBodyItemsDBCluster extends $tea.Model {
       executorCount: 'ExecutorCount',
       expireTime: 'ExpireTime',
       expired: 'Expired',
+      innerIp: 'InnerIp',
+      innerPort: 'InnerPort',
       lockMode: 'LockMode',
       lockReason: 'LockReason',
       mode: 'Mode',
@@ -9121,6 +10680,8 @@ export class DescribeDBClustersResponseBodyItemsDBCluster extends $tea.Model {
       executorCount: 'string',
       expireTime: 'string',
       expired: 'string',
+      innerIp: 'string',
+      innerPort: 'string',
       lockMode: 'string',
       lockReason: 'string',
       mode: 'string',
@@ -9230,6 +10791,49 @@ export class DescribeDBResourcePoolResponseBodyPoolsInfo extends $tea.Model {
   }
 }
 
+export class DescribeDiagnosisMonitorPerformanceResponseBodyPerformances extends $tea.Model {
+  cost?: number;
+  peakMemory?: number;
+  processId?: string;
+  rcHost?: string;
+  scanRows?: number;
+  scanSize?: number;
+  startTime?: number;
+  status?: string;
+  userName?: string;
+  static names(): { [key: string]: string } {
+    return {
+      cost: 'Cost',
+      peakMemory: 'PeakMemory',
+      processId: 'ProcessId',
+      rcHost: 'RcHost',
+      scanRows: 'ScanRows',
+      scanSize: 'ScanSize',
+      startTime: 'StartTime',
+      status: 'Status',
+      userName: 'UserName',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      cost: 'number',
+      peakMemory: 'number',
+      processId: 'string',
+      rcHost: 'string',
+      scanRows: 'number',
+      scanSize: 'number',
+      startTime: 'number',
+      status: 'string',
+      userName: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
 export class DescribeDiagnosisRecordsResponseBodyQuerys extends $tea.Model {
   clientIp?: string;
   cost?: number;
@@ -9315,6 +10919,119 @@ export class DescribeDiagnosisRecordsResponseBodyQuerys extends $tea.Model {
   }
 }
 
+export class DescribeDiagnosisSQLInfoResponseBodyStageInfos extends $tea.Model {
+  inputDataSize?: number;
+  inputRows?: number;
+  operatorCost?: number;
+  outputDataSize?: number;
+  outputRows?: number;
+  peakMemory?: number;
+  progress?: number;
+  stageId?: string;
+  state?: string;
+  static names(): { [key: string]: string } {
+    return {
+      inputDataSize: 'InputDataSize',
+      inputRows: 'InputRows',
+      operatorCost: 'OperatorCost',
+      outputDataSize: 'OutputDataSize',
+      outputRows: 'OutputRows',
+      peakMemory: 'PeakMemory',
+      progress: 'Progress',
+      stageId: 'StageId',
+      state: 'State',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      inputDataSize: 'number',
+      inputRows: 'number',
+      operatorCost: 'number',
+      outputDataSize: 'number',
+      outputRows: 'number',
+      peakMemory: 'number',
+      progress: 'number',
+      stageId: 'string',
+      state: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class DescribeDiagnosisTasksResponseBodyTaskList extends $tea.Model {
+  computeTimeRatio?: string;
+  drivers?: string;
+  elapsedTime?: number;
+  inputDataSize?: number;
+  inputRows?: number;
+  operatorCost?: number;
+  outputDataSize?: number;
+  outputRows?: number;
+  peakMemory?: number;
+  queuedTime?: string;
+  scanCost?: number;
+  scanDataSize?: number;
+  scanRows?: number;
+  state?: string;
+  taskCreateTime?: number;
+  taskEndTime?: number;
+  taskHost?: string;
+  taskId?: string;
+  static names(): { [key: string]: string } {
+    return {
+      computeTimeRatio: 'ComputeTimeRatio',
+      drivers: 'Drivers',
+      elapsedTime: 'ElapsedTime',
+      inputDataSize: 'InputDataSize',
+      inputRows: 'InputRows',
+      operatorCost: 'OperatorCost',
+      outputDataSize: 'OutputDataSize',
+      outputRows: 'OutputRows',
+      peakMemory: 'PeakMemory',
+      queuedTime: 'QueuedTime',
+      scanCost: 'ScanCost',
+      scanDataSize: 'ScanDataSize',
+      scanRows: 'ScanRows',
+      state: 'State',
+      taskCreateTime: 'TaskCreateTime',
+      taskEndTime: 'TaskEndTime',
+      taskHost: 'TaskHost',
+      taskId: 'TaskId',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      computeTimeRatio: 'string',
+      drivers: 'string',
+      elapsedTime: 'number',
+      inputDataSize: 'number',
+      inputRows: 'number',
+      operatorCost: 'number',
+      outputDataSize: 'number',
+      outputRows: 'number',
+      peakMemory: 'number',
+      queuedTime: 'string',
+      scanCost: 'number',
+      scanDataSize: 'number',
+      scanRows: 'number',
+      state: 'string',
+      taskCreateTime: 'number',
+      taskEndTime: 'number',
+      taskHost: 'string',
+      taskId: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
 export class DescribeDownloadRecordsResponseBodyRecords extends $tea.Model {
   downloadId?: number;
   exceptionMsg?: string;
@@ -9346,9 +11063,36 @@ export class DescribeDownloadRecordsResponseBodyRecords extends $tea.Model {
   }
 }
 
+export class DescribeEIURangeResponseBodyEIUInfo extends $tea.Model {
+  defaultValue?: string;
+  EIURange?: number[];
+  storageResourceRange?: string[];
+  static names(): { [key: string]: string } {
+    return {
+      defaultValue: 'DefaultValue',
+      EIURange: 'EIURange',
+      storageResourceRange: 'StorageResourceRange',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      defaultValue: 'string',
+      EIURange: { 'type': 'array', 'itemType': 'number' },
+      storageResourceRange: { 'type': 'array', 'itemType': 'string' },
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
 export class DescribeElasticDailyPlanResponseBodyElasticDailyPlanList extends $tea.Model {
   day?: string;
   elasticNodeNum?: number;
+  elasticPlanType?: string;
+  elasticPlanWorkerSpec?: string;
   endTs?: string;
   planEndTs?: string;
   planName?: string;
@@ -9360,6 +11104,8 @@ export class DescribeElasticDailyPlanResponseBodyElasticDailyPlanList extends $t
     return {
       day: 'Day',
       elasticNodeNum: 'ElasticNodeNum',
+      elasticPlanType: 'ElasticPlanType',
+      elasticPlanWorkerSpec: 'ElasticPlanWorkerSpec',
       endTs: 'EndTs',
       planEndTs: 'PlanEndTs',
       planName: 'PlanName',
@@ -9374,6 +11120,8 @@ export class DescribeElasticDailyPlanResponseBodyElasticDailyPlanList extends $t
     return {
       day: 'string',
       elasticNodeNum: 'number',
+      elasticPlanType: 'string',
+      elasticPlanWorkerSpec: 'string',
       endTs: 'string',
       planEndTs: 'string',
       planName: 'string',
@@ -9391,6 +11139,8 @@ export class DescribeElasticDailyPlanResponseBodyElasticDailyPlanList extends $t
 
 export class DescribeElasticPlanResponseBodyElasticPlanList extends $tea.Model {
   elasticNodeNum?: number;
+  elasticPlanType?: string;
+  elasticPlanWorkerSpec?: string;
   enable?: boolean;
   endDay?: string;
   endTime?: string;
@@ -9402,6 +11152,8 @@ export class DescribeElasticPlanResponseBodyElasticPlanList extends $tea.Model {
   static names(): { [key: string]: string } {
     return {
       elasticNodeNum: 'ElasticNodeNum',
+      elasticPlanType: 'ElasticPlanType',
+      elasticPlanWorkerSpec: 'ElasticPlanWorkerSpec',
       enable: 'Enable',
       endDay: 'EndDay',
       endTime: 'EndTime',
@@ -9416,6 +11168,8 @@ export class DescribeElasticPlanResponseBodyElasticPlanList extends $tea.Model {
   static types(): { [key: string]: any } {
     return {
       elasticNodeNum: 'number',
+      elasticPlanType: 'string',
+      elasticPlanWorkerSpec: 'string',
       enable: 'boolean',
       endDay: 'string',
       endTime: 'string',
@@ -10777,6 +12531,155 @@ export default class Client extends OpenApi {
     return await this.allocateClusterPublicConnectionWithOptions(request, runtime);
   }
 
+  async applyAdviceByIdWithOptions(request: ApplyAdviceByIdRequest, runtime: $Util.RuntimeOptions): Promise<ApplyAdviceByIdResponse> {
+    Util.validateModel(request);
+    let query = { };
+    if (!Util.isUnset(request.adviceDate)) {
+      query["AdviceDate"] = request.adviceDate;
+    }
+
+    if (!Util.isUnset(request.adviceId)) {
+      query["AdviceId"] = request.adviceId;
+    }
+
+    if (!Util.isUnset(request.DBClusterId)) {
+      query["DBClusterId"] = request.DBClusterId;
+    }
+
+    if (!Util.isUnset(request.regionId)) {
+      query["RegionId"] = request.regionId;
+    }
+
+    let req = new $OpenApi.OpenApiRequest({
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApi.Params({
+      action: "ApplyAdviceById",
+      version: "2019-03-15",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $tea.cast<ApplyAdviceByIdResponse>(await this.callApi(params, req, runtime), new ApplyAdviceByIdResponse({}));
+  }
+
+  async applyAdviceById(request: ApplyAdviceByIdRequest): Promise<ApplyAdviceByIdResponse> {
+    let runtime = new $Util.RuntimeOptions({ });
+    return await this.applyAdviceByIdWithOptions(request, runtime);
+  }
+
+  /**
+    * You can call this operation only for AnalyticDB for MySQL Data Warehouse Edition (V3.0) clusters in elastic mode for Cluster Edition.
+    *
+    * @param request AttachUserENIRequest
+    * @param runtime runtime options for this request RuntimeOptions
+    * @return AttachUserENIResponse
+   */
+  async attachUserENIWithOptions(request: AttachUserENIRequest, runtime: $Util.RuntimeOptions): Promise<AttachUserENIResponse> {
+    Util.validateModel(request);
+    let query = { };
+    if (!Util.isUnset(request.DBClusterId)) {
+      query["DBClusterId"] = request.DBClusterId;
+    }
+
+    if (!Util.isUnset(request.ownerAccount)) {
+      query["OwnerAccount"] = request.ownerAccount;
+    }
+
+    if (!Util.isUnset(request.ownerId)) {
+      query["OwnerId"] = request.ownerId;
+    }
+
+    if (!Util.isUnset(request.resourceOwnerAccount)) {
+      query["ResourceOwnerAccount"] = request.resourceOwnerAccount;
+    }
+
+    if (!Util.isUnset(request.resourceOwnerId)) {
+      query["ResourceOwnerId"] = request.resourceOwnerId;
+    }
+
+    let req = new $OpenApi.OpenApiRequest({
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApi.Params({
+      action: "AttachUserENI",
+      version: "2019-03-15",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $tea.cast<AttachUserENIResponse>(await this.callApi(params, req, runtime), new AttachUserENIResponse({}));
+  }
+
+  /**
+    * You can call this operation only for AnalyticDB for MySQL Data Warehouse Edition (V3.0) clusters in elastic mode for Cluster Edition.
+    *
+    * @param request AttachUserENIRequest
+    * @return AttachUserENIResponse
+   */
+  async attachUserENI(request: AttachUserENIRequest): Promise<AttachUserENIResponse> {
+    let runtime = new $Util.RuntimeOptions({ });
+    return await this.attachUserENIWithOptions(request, runtime);
+  }
+
+  async batchApplyAdviceByIdListWithOptions(request: BatchApplyAdviceByIdListRequest, runtime: $Util.RuntimeOptions): Promise<BatchApplyAdviceByIdListResponse> {
+    Util.validateModel(request);
+    let query = { };
+    if (!Util.isUnset(request.adviceDate)) {
+      query["AdviceDate"] = request.adviceDate;
+    }
+
+    if (!Util.isUnset(request.adviceIdList)) {
+      query["AdviceIdList"] = request.adviceIdList;
+    }
+
+    if (!Util.isUnset(request.DBClusterId)) {
+      query["DBClusterId"] = request.DBClusterId;
+    }
+
+    if (!Util.isUnset(request.regionId)) {
+      query["RegionId"] = request.regionId;
+    }
+
+    let req = new $OpenApi.OpenApiRequest({
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApi.Params({
+      action: "BatchApplyAdviceByIdList",
+      version: "2019-03-15",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $tea.cast<BatchApplyAdviceByIdListResponse>(await this.callApi(params, req, runtime), new BatchApplyAdviceByIdListResponse({}));
+  }
+
+  async batchApplyAdviceByIdList(request: BatchApplyAdviceByIdListRequest): Promise<BatchApplyAdviceByIdListResponse> {
+    let runtime = new $Util.RuntimeOptions({ });
+    return await this.batchApplyAdviceByIdListWithOptions(request, runtime);
+  }
+
+  /**
+    * ## Precautions
+    * *   This operation is applicable only for elastic clusters of 32 cores or more.
+    * *   The default resource group USER_DEFAULT cannot be associated with a database account.
+    *
+    * @param request BindDBResourceGroupWithUserRequest
+    * @param runtime runtime options for this request RuntimeOptions
+    * @return BindDBResourceGroupWithUserResponse
+   */
   async bindDBResourceGroupWithUserWithOptions(request: BindDBResourceGroupWithUserRequest, runtime: $Util.RuntimeOptions): Promise<BindDBResourceGroupWithUserResponse> {
     Util.validateModel(request);
     let query = { };
@@ -10825,11 +12728,27 @@ export default class Client extends OpenApi {
     return $tea.cast<BindDBResourceGroupWithUserResponse>(await this.callApi(params, req, runtime), new BindDBResourceGroupWithUserResponse({}));
   }
 
+  /**
+    * ## Precautions
+    * *   This operation is applicable only for elastic clusters of 32 cores or more.
+    * *   The default resource group USER_DEFAULT cannot be associated with a database account.
+    *
+    * @param request BindDBResourceGroupWithUserRequest
+    * @return BindDBResourceGroupWithUserResponse
+   */
   async bindDBResourceGroupWithUser(request: BindDBResourceGroupWithUserRequest): Promise<BindDBResourceGroupWithUserResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.bindDBResourceGroupWithUserWithOptions(request, runtime);
   }
 
+  /**
+    * *   This operation is available only for AnalyticDB for MySQL clusters in elastic mode for Cluster Edition that have 32 cores or more.
+    * *   The default resource group USER_DEFAULT cannot be associated with a database account.
+    *
+    * @param request BindDBResourcePoolWithUserRequest
+    * @param runtime runtime options for this request RuntimeOptions
+    * @return BindDBResourcePoolWithUserResponse
+   */
   async bindDBResourcePoolWithUserWithOptions(request: BindDBResourcePoolWithUserRequest, runtime: $Util.RuntimeOptions): Promise<BindDBResourcePoolWithUserResponse> {
     Util.validateModel(request);
     let query = { };
@@ -10878,6 +12797,13 @@ export default class Client extends OpenApi {
     return $tea.cast<BindDBResourcePoolWithUserResponse>(await this.callApi(params, req, runtime), new BindDBResourcePoolWithUserResponse({}));
   }
 
+  /**
+    * *   This operation is available only for AnalyticDB for MySQL clusters in elastic mode for Cluster Edition that have 32 cores or more.
+    * *   The default resource group USER_DEFAULT cannot be associated with a database account.
+    *
+    * @param request BindDBResourcePoolWithUserRequest
+    * @return BindDBResourcePoolWithUserResponse
+   */
   async bindDBResourcePoolWithUser(request: BindDBResourcePoolWithUserRequest): Promise<BindDBResourcePoolWithUserResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.bindDBResourcePoolWithUserWithOptions(request, runtime);
@@ -10944,6 +12870,13 @@ export default class Client extends OpenApi {
     return await this.createAccountWithOptions(request, runtime);
   }
 
+  /**
+    * After you create a cluster, you are billed for the cluster specifications that you select. For more information about the billable items and pricing for Data Warehouse Edition (V3.0) clusters, see [Billable items of Data Warehouse Edition (V3.0)](~~303131~~) and [Pricing for Data Warehouse Edition (V3.0)](~~135229~~).
+    *
+    * @param request CreateDBClusterRequest
+    * @param runtime runtime options for this request RuntimeOptions
+    * @return CreateDBClusterResponse
+   */
   async createDBClusterWithOptions(request: CreateDBClusterRequest, runtime: $Util.RuntimeOptions): Promise<CreateDBClusterResponse> {
     Util.validateModel(request);
     let query = { };
@@ -11051,6 +12984,10 @@ export default class Client extends OpenApi {
       query["StorageType"] = request.storageType;
     }
 
+    if (!Util.isUnset(request.tag)) {
+      query["Tag"] = request.tag;
+    }
+
     if (!Util.isUnset(request.usedTime)) {
       query["UsedTime"] = request.usedTime;
     }
@@ -11084,11 +13021,25 @@ export default class Client extends OpenApi {
     return $tea.cast<CreateDBClusterResponse>(await this.callApi(params, req, runtime), new CreateDBClusterResponse({}));
   }
 
+  /**
+    * After you create a cluster, you are billed for the cluster specifications that you select. For more information about the billable items and pricing for Data Warehouse Edition (V3.0) clusters, see [Billable items of Data Warehouse Edition (V3.0)](~~303131~~) and [Pricing for Data Warehouse Edition (V3.0)](~~135229~~).
+    *
+    * @param request CreateDBClusterRequest
+    * @return CreateDBClusterResponse
+   */
   async createDBCluster(request: CreateDBClusterRequest): Promise<CreateDBClusterResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.createDBClusterWithOptions(request, runtime);
   }
 
+  /**
+    * ## Precautions
+    * This operation is applicable only for elastic clusters of 32 cores or more.
+    *
+    * @param request CreateDBResourceGroupRequest
+    * @param runtime runtime options for this request RuntimeOptions
+    * @return CreateDBResourceGroupResponse
+   */
   async createDBResourceGroupWithOptions(request: CreateDBResourceGroupRequest, runtime: $Util.RuntimeOptions): Promise<CreateDBResourceGroupResponse> {
     Util.validateModel(request);
     let query = { };
@@ -11141,11 +13092,25 @@ export default class Client extends OpenApi {
     return $tea.cast<CreateDBResourceGroupResponse>(await this.callApi(params, req, runtime), new CreateDBResourceGroupResponse({}));
   }
 
+  /**
+    * ## Precautions
+    * This operation is applicable only for elastic clusters of 32 cores or more.
+    *
+    * @param request CreateDBResourceGroupRequest
+    * @return CreateDBResourceGroupResponse
+   */
   async createDBResourceGroup(request: CreateDBResourceGroupRequest): Promise<CreateDBResourceGroupResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.createDBResourceGroupWithOptions(request, runtime);
   }
 
+  /**
+    * This operation is applicable only for elastic clusters of 32 cores or more.
+    *
+    * @param request CreateDBResourcePoolRequest
+    * @param runtime runtime options for this request RuntimeOptions
+    * @return CreateDBResourcePoolResponse
+   */
   async createDBResourcePoolWithOptions(request: CreateDBResourcePoolRequest, runtime: $Util.RuntimeOptions): Promise<CreateDBResourcePoolResponse> {
     Util.validateModel(request);
     let query = { };
@@ -11198,11 +13163,25 @@ export default class Client extends OpenApi {
     return $tea.cast<CreateDBResourcePoolResponse>(await this.callApi(params, req, runtime), new CreateDBResourcePoolResponse({}));
   }
 
+  /**
+    * This operation is applicable only for elastic clusters of 32 cores or more.
+    *
+    * @param request CreateDBResourcePoolRequest
+    * @return CreateDBResourcePoolResponse
+   */
   async createDBResourcePool(request: CreateDBResourcePoolRequest): Promise<CreateDBResourcePoolResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.createDBResourcePoolWithOptions(request, runtime);
   }
 
+  /**
+    * ###
+    * You can call this operation only for AnalyticDB for MySQL Data Warehouse Edition (V3.0) clusters in elastic mode for Cluster Edition that have 32 cores or more.
+    *
+    * @param request CreateElasticPlanRequest
+    * @param runtime runtime options for this request RuntimeOptions
+    * @return CreateElasticPlanResponse
+   */
   async createElasticPlanWithOptions(request: CreateElasticPlanRequest, runtime: $Util.RuntimeOptions): Promise<CreateElasticPlanResponse> {
     Util.validateModel(request);
     let query = { };
@@ -11238,8 +13217,16 @@ export default class Client extends OpenApi {
       query["ElasticPlanTimeStart"] = request.elasticPlanTimeStart;
     }
 
+    if (!Util.isUnset(request.elasticPlanType)) {
+      query["ElasticPlanType"] = request.elasticPlanType;
+    }
+
     if (!Util.isUnset(request.elasticPlanWeeklyRepeat)) {
       query["ElasticPlanWeeklyRepeat"] = request.elasticPlanWeeklyRepeat;
+    }
+
+    if (!Util.isUnset(request.elasticPlanWorkerSpec)) {
+      query["ElasticPlanWorkerSpec"] = request.elasticPlanWorkerSpec;
     }
 
     if (!Util.isUnset(request.ownerAccount)) {
@@ -11279,6 +13266,13 @@ export default class Client extends OpenApi {
     return $tea.cast<CreateElasticPlanResponse>(await this.callApi(params, req, runtime), new CreateElasticPlanResponse({}));
   }
 
+  /**
+    * ###
+    * You can call this operation only for AnalyticDB for MySQL Data Warehouse Edition (V3.0) clusters in elastic mode for Cluster Edition that have 32 cores or more.
+    *
+    * @param request CreateElasticPlanRequest
+    * @return CreateElasticPlanResponse
+   */
   async createElasticPlan(request: CreateElasticPlanRequest): Promise<CreateElasticPlanResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.createElasticPlanWithOptions(request, runtime);
@@ -11337,6 +13331,14 @@ export default class Client extends OpenApi {
     return await this.deleteAccountWithOptions(request, runtime);
   }
 
+  /**
+    * *   Subscription clusters cannot be deleted by using API operations. After expiration, subscription clusters are automatically released. If you no longer need a cluster, you can submit a request to unsubscribe from the cluster in the Billing Management console. For more information about cluster refunds, see [Refund policy](~~471477~~).
+    * *   After you delete a cluster, resources of the cluster are immediately released, and data of the cluster is no longer retained and cannot be recovered. Proceed with caution.
+    *
+    * @param request DeleteDBClusterRequest
+    * @param runtime runtime options for this request RuntimeOptions
+    * @return DeleteDBClusterResponse
+   */
   async deleteDBClusterWithOptions(request: DeleteDBClusterRequest, runtime: $Util.RuntimeOptions): Promise<DeleteDBClusterResponse> {
     Util.validateModel(request);
     let query = { };
@@ -11377,11 +13379,27 @@ export default class Client extends OpenApi {
     return $tea.cast<DeleteDBClusterResponse>(await this.callApi(params, req, runtime), new DeleteDBClusterResponse({}));
   }
 
+  /**
+    * *   Subscription clusters cannot be deleted by using API operations. After expiration, subscription clusters are automatically released. If you no longer need a cluster, you can submit a request to unsubscribe from the cluster in the Billing Management console. For more information about cluster refunds, see [Refund policy](~~471477~~).
+    * *   After you delete a cluster, resources of the cluster are immediately released, and data of the cluster is no longer retained and cannot be recovered. Proceed with caution.
+    *
+    * @param request DeleteDBClusterRequest
+    * @return DeleteDBClusterResponse
+   */
   async deleteDBCluster(request: DeleteDBClusterRequest): Promise<DeleteDBClusterResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.deleteDBClusterWithOptions(request, runtime);
   }
 
+  /**
+    * ## Precautions
+    * *   This operation is applicable only for elastic clusters of 32 cores or more.
+    * *   The default resource group USER_DEFAULT cannot be deleted.
+    *
+    * @param request DeleteDBResourceGroupRequest
+    * @param runtime runtime options for this request RuntimeOptions
+    * @return DeleteDBResourceGroupResponse
+   */
   async deleteDBResourceGroupWithOptions(request: DeleteDBResourceGroupRequest, runtime: $Util.RuntimeOptions): Promise<DeleteDBResourceGroupResponse> {
     Util.validateModel(request);
     let query = { };
@@ -11426,11 +13444,28 @@ export default class Client extends OpenApi {
     return $tea.cast<DeleteDBResourceGroupResponse>(await this.callApi(params, req, runtime), new DeleteDBResourceGroupResponse({}));
   }
 
+  /**
+    * ## Precautions
+    * *   This operation is applicable only for elastic clusters of 32 cores or more.
+    * *   The default resource group USER_DEFAULT cannot be deleted.
+    *
+    * @param request DeleteDBResourceGroupRequest
+    * @return DeleteDBResourceGroupResponse
+   */
   async deleteDBResourceGroup(request: DeleteDBResourceGroupRequest): Promise<DeleteDBResourceGroupResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.deleteDBResourceGroupWithOptions(request, runtime);
   }
 
+  /**
+    * **Precautions**
+    * *   This operation is available only for AnalyticDB for MySQL clusters in elastic mode for Cluster Edition that have 32 cores or more.
+    * *   The default resource group USER_DEFAULT cannot be deleted.
+    *
+    * @param request DeleteDBResourcePoolRequest
+    * @param runtime runtime options for this request RuntimeOptions
+    * @return DeleteDBResourcePoolResponse
+   */
   async deleteDBResourcePoolWithOptions(request: DeleteDBResourcePoolRequest, runtime: $Util.RuntimeOptions): Promise<DeleteDBResourcePoolResponse> {
     Util.validateModel(request);
     let query = { };
@@ -11475,6 +13510,14 @@ export default class Client extends OpenApi {
     return $tea.cast<DeleteDBResourcePoolResponse>(await this.callApi(params, req, runtime), new DeleteDBResourcePoolResponse({}));
   }
 
+  /**
+    * **Precautions**
+    * *   This operation is available only for AnalyticDB for MySQL clusters in elastic mode for Cluster Edition that have 32 cores or more.
+    * *   The default resource group USER_DEFAULT cannot be deleted.
+    *
+    * @param request DeleteDBResourcePoolRequest
+    * @return DeleteDBResourcePoolResponse
+   */
   async deleteDBResourcePool(request: DeleteDBResourcePoolRequest): Promise<DeleteDBResourcePoolResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.deleteDBResourcePoolWithOptions(request, runtime);
@@ -11582,6 +13625,39 @@ export default class Client extends OpenApi {
     return await this.describeAccountsWithOptions(request, runtime);
   }
 
+  async describeAdviceServiceEnabledWithOptions(request: DescribeAdviceServiceEnabledRequest, runtime: $Util.RuntimeOptions): Promise<DescribeAdviceServiceEnabledResponse> {
+    Util.validateModel(request);
+    let query = { };
+    if (!Util.isUnset(request.DBClusterId)) {
+      query["DBClusterId"] = request.DBClusterId;
+    }
+
+    if (!Util.isUnset(request.regionId)) {
+      query["RegionId"] = request.regionId;
+    }
+
+    let req = new $OpenApi.OpenApiRequest({
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApi.Params({
+      action: "DescribeAdviceServiceEnabled",
+      version: "2019-03-15",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $tea.cast<DescribeAdviceServiceEnabledResponse>(await this.callApi(params, req, runtime), new DescribeAdviceServiceEnabledResponse({}));
+  }
+
+  async describeAdviceServiceEnabled(request: DescribeAdviceServiceEnabledRequest): Promise<DescribeAdviceServiceEnabledResponse> {
+    let runtime = new $Util.RuntimeOptions({ });
+    return await this.describeAdviceServiceEnabledWithOptions(request, runtime);
+  }
+
   async describeAllAccountsWithOptions(request: DescribeAllAccountsRequest, runtime: $Util.RuntimeOptions): Promise<DescribeAllAccountsResponse> {
     Util.validateModel(request);
     let query = { };
@@ -11680,6 +13756,59 @@ export default class Client extends OpenApi {
     return await this.describeAllDataSourceWithOptions(request, runtime);
   }
 
+  async describeAppliedAdvicesWithOptions(request: DescribeAppliedAdvicesRequest, runtime: $Util.RuntimeOptions): Promise<DescribeAppliedAdvicesResponse> {
+    Util.validateModel(request);
+    let query = { };
+    if (!Util.isUnset(request.DBClusterId)) {
+      query["DBClusterId"] = request.DBClusterId;
+    }
+
+    if (!Util.isUnset(request.endTime)) {
+      query["EndTime"] = request.endTime;
+    }
+
+    if (!Util.isUnset(request.lang)) {
+      query["Lang"] = request.lang;
+    }
+
+    if (!Util.isUnset(request.pageNumber)) {
+      query["PageNumber"] = request.pageNumber;
+    }
+
+    if (!Util.isUnset(request.pageSize)) {
+      query["PageSize"] = request.pageSize;
+    }
+
+    if (!Util.isUnset(request.regionId)) {
+      query["RegionId"] = request.regionId;
+    }
+
+    if (!Util.isUnset(request.startTime)) {
+      query["StartTime"] = request.startTime;
+    }
+
+    let req = new $OpenApi.OpenApiRequest({
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApi.Params({
+      action: "DescribeAppliedAdvices",
+      version: "2019-03-15",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $tea.cast<DescribeAppliedAdvicesResponse>(await this.callApi(params, req, runtime), new DescribeAppliedAdvicesResponse({}));
+  }
+
+  async describeAppliedAdvices(request: DescribeAppliedAdvicesRequest): Promise<DescribeAppliedAdvicesResponse> {
+    let runtime = new $Util.RuntimeOptions({ });
+    return await this.describeAppliedAdvicesWithOptions(request, runtime);
+  }
+
   async describeAuditLogConfigWithOptions(request: DescribeAuditLogConfigRequest, runtime: $Util.RuntimeOptions): Promise<DescribeAuditLogConfigResponse> {
     Util.validateModel(request);
     let query = { };
@@ -11729,6 +13858,14 @@ export default class Client extends OpenApi {
     return await this.describeAuditLogConfigWithOptions(request, runtime);
   }
 
+  /**
+    * Before you call the DescribeAuditLogRecords operation to query the SQL audit logs of an AnalyticDB for MySQL cluster, you must enable SQL audit for the cluster. You can call the [DescribeAuditLogConfig](~~190628~~) operation to query the status of SQL audit. If SQL audit is disabled, you can call the [ModifyAuditLogConfig](~~190629~~) operation to enable SQL audit.
+    * SQL audit logs can be queried only when SQL audit is enabled. Only SQL audit logs within the last 30 days can be queried. If SQL audit was disabled and re-enabled, only SQL audit logs from the time when SQL audit was re-enabled can be queried.
+    *
+    * @param request DescribeAuditLogRecordsRequest
+    * @param runtime runtime options for this request RuntimeOptions
+    * @return DescribeAuditLogRecordsResponse
+   */
   async describeAuditLogRecordsWithOptions(request: DescribeAuditLogRecordsRequest, runtime: $Util.RuntimeOptions): Promise<DescribeAuditLogRecordsResponse> {
     Util.validateModel(request);
     let query = { };
@@ -11821,6 +13958,13 @@ export default class Client extends OpenApi {
     return $tea.cast<DescribeAuditLogRecordsResponse>(await this.callApi(params, req, runtime), new DescribeAuditLogRecordsResponse({}));
   }
 
+  /**
+    * Before you call the DescribeAuditLogRecords operation to query the SQL audit logs of an AnalyticDB for MySQL cluster, you must enable SQL audit for the cluster. You can call the [DescribeAuditLogConfig](~~190628~~) operation to query the status of SQL audit. If SQL audit is disabled, you can call the [ModifyAuditLogConfig](~~190629~~) operation to enable SQL audit.
+    * SQL audit logs can be queried only when SQL audit is enabled. Only SQL audit logs within the last 30 days can be queried. If SQL audit was disabled and re-enabled, only SQL audit logs from the time when SQL audit was re-enabled can be queried.
+    *
+    * @param request DescribeAuditLogRecordsRequest
+    * @return DescribeAuditLogRecordsResponse
+   */
   async describeAuditLogRecords(request: DescribeAuditLogRecordsRequest): Promise<DescribeAuditLogRecordsResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.describeAuditLogRecordsWithOptions(request, runtime);
@@ -11887,6 +14031,55 @@ export default class Client extends OpenApi {
     return await this.describeAutoRenewAttributeWithOptions(request, runtime);
   }
 
+  async describeAvailableAdvicesWithOptions(request: DescribeAvailableAdvicesRequest, runtime: $Util.RuntimeOptions): Promise<DescribeAvailableAdvicesResponse> {
+    Util.validateModel(request);
+    let query = { };
+    if (!Util.isUnset(request.adviceDate)) {
+      query["AdviceDate"] = request.adviceDate;
+    }
+
+    if (!Util.isUnset(request.DBClusterId)) {
+      query["DBClusterId"] = request.DBClusterId;
+    }
+
+    if (!Util.isUnset(request.lang)) {
+      query["Lang"] = request.lang;
+    }
+
+    if (!Util.isUnset(request.pageNumber)) {
+      query["PageNumber"] = request.pageNumber;
+    }
+
+    if (!Util.isUnset(request.pageSize)) {
+      query["PageSize"] = request.pageSize;
+    }
+
+    if (!Util.isUnset(request.regionId)) {
+      query["RegionId"] = request.regionId;
+    }
+
+    let req = new $OpenApi.OpenApiRequest({
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApi.Params({
+      action: "DescribeAvailableAdvices",
+      version: "2019-03-15",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $tea.cast<DescribeAvailableAdvicesResponse>(await this.callApi(params, req, runtime), new DescribeAvailableAdvicesResponse({}));
+  }
+
+  async describeAvailableAdvices(request: DescribeAvailableAdvicesRequest): Promise<DescribeAvailableAdvicesResponse> {
+    let runtime = new $Util.RuntimeOptions({ });
+    return await this.describeAvailableAdvicesWithOptions(request, runtime);
+  }
+
   async describeAvailableResourceWithOptions(request: DescribeAvailableResourceRequest, runtime: $Util.RuntimeOptions): Promise<DescribeAvailableResourceResponse> {
     Util.validateModel(request);
     let query = { };
@@ -11896,6 +14089,10 @@ export default class Client extends OpenApi {
 
     if (!Util.isUnset(request.chargeType)) {
       query["ChargeType"] = request.chargeType;
+    }
+
+    if (!Util.isUnset(request.DBClusterVersion)) {
+      query["DBClusterVersion"] = request.DBClusterVersion;
     }
 
     if (!Util.isUnset(request.ownerAccount)) {
@@ -12107,6 +14304,67 @@ export default class Client extends OpenApi {
     return await this.describeColumnsWithOptions(request, runtime);
   }
 
+  async describeComputeResourceWithOptions(request: DescribeComputeResourceRequest, runtime: $Util.RuntimeOptions): Promise<DescribeComputeResourceResponse> {
+    Util.validateModel(request);
+    let query = { };
+    if (!Util.isUnset(request.DBClusterId)) {
+      query["DBClusterId"] = request.DBClusterId;
+    }
+
+    if (!Util.isUnset(request.DBClusterVersion)) {
+      query["DBClusterVersion"] = request.DBClusterVersion;
+    }
+
+    if (!Util.isUnset(request.migrate)) {
+      query["Migrate"] = request.migrate;
+    }
+
+    if (!Util.isUnset(request.ownerAccount)) {
+      query["OwnerAccount"] = request.ownerAccount;
+    }
+
+    if (!Util.isUnset(request.ownerId)) {
+      query["OwnerId"] = request.ownerId;
+    }
+
+    if (!Util.isUnset(request.regionId)) {
+      query["RegionId"] = request.regionId;
+    }
+
+    if (!Util.isUnset(request.resourceOwnerAccount)) {
+      query["ResourceOwnerAccount"] = request.resourceOwnerAccount;
+    }
+
+    if (!Util.isUnset(request.resourceOwnerId)) {
+      query["ResourceOwnerId"] = request.resourceOwnerId;
+    }
+
+    if (!Util.isUnset(request.zoneId)) {
+      query["ZoneId"] = request.zoneId;
+    }
+
+    let req = new $OpenApi.OpenApiRequest({
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApi.Params({
+      action: "DescribeComputeResource",
+      version: "2019-03-15",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $tea.cast<DescribeComputeResourceResponse>(await this.callApi(params, req, runtime), new DescribeComputeResourceResponse({}));
+  }
+
+  async describeComputeResource(request: DescribeComputeResourceRequest): Promise<DescribeComputeResourceResponse> {
+    let runtime = new $Util.RuntimeOptions({ });
+    return await this.describeComputeResourceWithOptions(request, runtime);
+  }
+
   async describeConnectionCountRecordsWithOptions(request: DescribeConnectionCountRecordsRequest, runtime: $Util.RuntimeOptions): Promise<DescribeConnectionCountRecordsResponse> {
     Util.validateModel(request);
     let query = { };
@@ -12242,48 +14500,7 @@ export default class Client extends OpenApi {
     return await this.describeDBClusterAttributeWithOptions(request, runtime);
   }
 
-  async describeDBClusterForecastWithOptions(request: DescribeDBClusterForecastRequest, runtime: $Util.RuntimeOptions): Promise<DescribeDBClusterForecastResponse> {
-    Util.validateModel(request);
-    let query = { };
-    if (!Util.isUnset(request.DBClusterId)) {
-      query["DBClusterId"] = request.DBClusterId;
-    }
-
-    if (!Util.isUnset(request.metricType)) {
-      query["MetricType"] = request.metricType;
-    }
-
-    if (!Util.isUnset(request.regionId)) {
-      query["RegionId"] = request.regionId;
-    }
-
-    if (!Util.isUnset(request.startTime)) {
-      query["StartTime"] = request.startTime;
-    }
-
-    let req = new $OpenApi.OpenApiRequest({
-      query: OpenApiUtil.query(query),
-    });
-    let params = new $OpenApi.Params({
-      action: "DescribeDBClusterForecast",
-      version: "2019-03-15",
-      protocol: "HTTPS",
-      pathname: "/",
-      method: "POST",
-      authType: "AK",
-      style: "RPC",
-      reqBodyType: "formData",
-      bodyType: "json",
-    });
-    return $tea.cast<DescribeDBClusterForecastResponse>(await this.callApi(params, req, runtime), new DescribeDBClusterForecastResponse({}));
-  }
-
-  async describeDBClusterForecast(request: DescribeDBClusterForecastRequest): Promise<DescribeDBClusterForecastResponse> {
-    let runtime = new $Util.RuntimeOptions({ });
-    return await this.describeDBClusterForecastWithOptions(request, runtime);
-  }
-
-  async describeDBClusterHealthReportWithOptions(request: DescribeDBClusterHealthReportRequest, runtime: $Util.RuntimeOptions): Promise<DescribeDBClusterHealthReportResponse> {
+  async describeDBClusterHealthStatusWithOptions(request: DescribeDBClusterHealthStatusRequest, runtime: $Util.RuntimeOptions): Promise<DescribeDBClusterHealthStatusResponse> {
     Util.validateModel(request);
     let query = { };
     if (!Util.isUnset(request.DBClusterId)) {
@@ -12294,15 +14511,11 @@ export default class Client extends OpenApi {
       query["RegionId"] = request.regionId;
     }
 
-    if (!Util.isUnset(request.startTime)) {
-      query["StartTime"] = request.startTime;
-    }
-
     let req = new $OpenApi.OpenApiRequest({
       query: OpenApiUtil.query(query),
     });
     let params = new $OpenApi.Params({
-      action: "DescribeDBClusterHealthReport",
+      action: "DescribeDBClusterHealthStatus",
       version: "2019-03-15",
       protocol: "HTTPS",
       pathname: "/",
@@ -12312,12 +14525,12 @@ export default class Client extends OpenApi {
       reqBodyType: "formData",
       bodyType: "json",
     });
-    return $tea.cast<DescribeDBClusterHealthReportResponse>(await this.callApi(params, req, runtime), new DescribeDBClusterHealthReportResponse({}));
+    return $tea.cast<DescribeDBClusterHealthStatusResponse>(await this.callApi(params, req, runtime), new DescribeDBClusterHealthStatusResponse({}));
   }
 
-  async describeDBClusterHealthReport(request: DescribeDBClusterHealthReportRequest): Promise<DescribeDBClusterHealthReportResponse> {
+  async describeDBClusterHealthStatus(request: DescribeDBClusterHealthStatusRequest): Promise<DescribeDBClusterHealthStatusResponse> {
     let runtime = new $Util.RuntimeOptions({ });
-    return await this.describeDBClusterHealthReportWithOptions(request, runtime);
+    return await this.describeDBClusterHealthStatusWithOptions(request, runtime);
   }
 
   async describeDBClusterNetInfoWithOptions(request: DescribeDBClusterNetInfoRequest, runtime: $Util.RuntimeOptions): Promise<DescribeDBClusterNetInfoResponse> {
@@ -12365,6 +14578,13 @@ export default class Client extends OpenApi {
     return await this.describeDBClusterNetInfoWithOptions(request, runtime);
   }
 
+  /**
+    * You can call this operation to query the performance data of a cluster over a time range based on its performance metrics. The data is collected every 30 seconds. This operation allows you to query information about slow queries, such as the SQL query duration, number of scanned rows, and amount of scanned data.
+    *
+    * @param request DescribeDBClusterPerformanceRequest
+    * @param runtime runtime options for this request RuntimeOptions
+    * @return DescribeDBClusterPerformanceResponse
+   */
   async describeDBClusterPerformanceWithOptions(request: DescribeDBClusterPerformanceRequest, runtime: $Util.RuntimeOptions): Promise<DescribeDBClusterPerformanceResponse> {
     Util.validateModel(request);
     let query = { };
@@ -12417,11 +14637,24 @@ export default class Client extends OpenApi {
     return $tea.cast<DescribeDBClusterPerformanceResponse>(await this.callApi(params, req, runtime), new DescribeDBClusterPerformanceResponse({}));
   }
 
+  /**
+    * You can call this operation to query the performance data of a cluster over a time range based on its performance metrics. The data is collected every 30 seconds. This operation allows you to query information about slow queries, such as the SQL query duration, number of scanned rows, and amount of scanned data.
+    *
+    * @param request DescribeDBClusterPerformanceRequest
+    * @return DescribeDBClusterPerformanceResponse
+   */
   async describeDBClusterPerformance(request: DescribeDBClusterPerformanceRequest): Promise<DescribeDBClusterPerformanceResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.describeDBClusterPerformanceWithOptions(request, runtime);
   }
 
+  /**
+    * > You can also view the monitoring information about resource groups within an AnalyticDB for MySQL cluster in elastic mode for Cluster Edition in the form of graphs in the console. For more information, see [View monitoring information](~~188721~~).
+    *
+    * @param request DescribeDBClusterResourcePoolPerformanceRequest
+    * @param runtime runtime options for this request RuntimeOptions
+    * @return DescribeDBClusterResourcePoolPerformanceResponse
+   */
   async describeDBClusterResourcePoolPerformanceWithOptions(request: DescribeDBClusterResourcePoolPerformanceRequest, runtime: $Util.RuntimeOptions): Promise<DescribeDBClusterResourcePoolPerformanceResponse> {
     Util.validateModel(request);
     let query = { };
@@ -12478,9 +14711,60 @@ export default class Client extends OpenApi {
     return $tea.cast<DescribeDBClusterResourcePoolPerformanceResponse>(await this.callApi(params, req, runtime), new DescribeDBClusterResourcePoolPerformanceResponse({}));
   }
 
+  /**
+    * > You can also view the monitoring information about resource groups within an AnalyticDB for MySQL cluster in elastic mode for Cluster Edition in the form of graphs in the console. For more information, see [View monitoring information](~~188721~~).
+    *
+    * @param request DescribeDBClusterResourcePoolPerformanceRequest
+    * @return DescribeDBClusterResourcePoolPerformanceResponse
+   */
   async describeDBClusterResourcePoolPerformance(request: DescribeDBClusterResourcePoolPerformanceRequest): Promise<DescribeDBClusterResourcePoolPerformanceResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.describeDBClusterResourcePoolPerformanceWithOptions(request, runtime);
+  }
+
+  async describeDBClusterStatusWithOptions(request: DescribeDBClusterStatusRequest, runtime: $Util.RuntimeOptions): Promise<DescribeDBClusterStatusResponse> {
+    Util.validateModel(request);
+    let query = { };
+    if (!Util.isUnset(request.ownerAccount)) {
+      query["OwnerAccount"] = request.ownerAccount;
+    }
+
+    if (!Util.isUnset(request.ownerId)) {
+      query["OwnerId"] = request.ownerId;
+    }
+
+    if (!Util.isUnset(request.regionId)) {
+      query["RegionId"] = request.regionId;
+    }
+
+    if (!Util.isUnset(request.resourceOwnerAccount)) {
+      query["ResourceOwnerAccount"] = request.resourceOwnerAccount;
+    }
+
+    if (!Util.isUnset(request.resourceOwnerId)) {
+      query["ResourceOwnerId"] = request.resourceOwnerId;
+    }
+
+    let req = new $OpenApi.OpenApiRequest({
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApi.Params({
+      action: "DescribeDBClusterStatus",
+      version: "2019-03-15",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $tea.cast<DescribeDBClusterStatusResponse>(await this.callApi(params, req, runtime), new DescribeDBClusterStatusResponse({}));
+  }
+
+  async describeDBClusterStatus(request: DescribeDBClusterStatusRequest): Promise<DescribeDBClusterStatusResponse> {
+    let runtime = new $Util.RuntimeOptions({ });
+    return await this.describeDBClusterStatusWithOptions(request, runtime);
   }
 
   async describeDBClustersWithOptions(request: DescribeDBClustersRequest, runtime: $Util.RuntimeOptions): Promise<DescribeDBClustersResponse> {
@@ -12496,6 +14780,10 @@ export default class Client extends OpenApi {
 
     if (!Util.isUnset(request.DBClusterStatus)) {
       query["DBClusterStatus"] = request.DBClusterStatus;
+    }
+
+    if (!Util.isUnset(request.DBVersion)) {
+      query["DBVersion"] = request.DBVersion;
     }
 
     if (!Util.isUnset(request.ownerAccount)) {
@@ -12556,6 +14844,14 @@ export default class Client extends OpenApi {
     return await this.describeDBClustersWithOptions(request, runtime);
   }
 
+  /**
+    * ## Precautions
+    * This operation is available only for AnalyticDB for MySQL clusters in elastic mode for Cluster Edition that have 32 cores or more.
+    *
+    * @param request DescribeDBResourceGroupRequest
+    * @param runtime runtime options for this request RuntimeOptions
+    * @return DescribeDBResourceGroupResponse
+   */
   async describeDBResourceGroupWithOptions(request: DescribeDBResourceGroupRequest, runtime: $Util.RuntimeOptions): Promise<DescribeDBResourceGroupResponse> {
     Util.validateModel(request);
     let query = { };
@@ -12600,11 +14896,25 @@ export default class Client extends OpenApi {
     return $tea.cast<DescribeDBResourceGroupResponse>(await this.callApi(params, req, runtime), new DescribeDBResourceGroupResponse({}));
   }
 
+  /**
+    * ## Precautions
+    * This operation is available only for AnalyticDB for MySQL clusters in elastic mode for Cluster Edition that have 32 cores or more.
+    *
+    * @param request DescribeDBResourceGroupRequest
+    * @return DescribeDBResourceGroupResponse
+   */
   async describeDBResourceGroup(request: DescribeDBResourceGroupRequest): Promise<DescribeDBResourceGroupResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.describeDBResourceGroupWithOptions(request, runtime);
   }
 
+  /**
+    * This operation is applicable only for elastic clusters of 32 cores or more.
+    *
+    * @param request DescribeDBResourcePoolRequest
+    * @param runtime runtime options for this request RuntimeOptions
+    * @return DescribeDBResourcePoolResponse
+   */
   async describeDBResourcePoolWithOptions(request: DescribeDBResourcePoolRequest, runtime: $Util.RuntimeOptions): Promise<DescribeDBResourcePoolResponse> {
     Util.validateModel(request);
     let query = { };
@@ -12649,6 +14959,12 @@ export default class Client extends OpenApi {
     return $tea.cast<DescribeDBResourcePoolResponse>(await this.callApi(params, req, runtime), new DescribeDBResourcePoolResponse({}));
   }
 
+  /**
+    * This operation is applicable only for elastic clusters of 32 cores or more.
+    *
+    * @param request DescribeDBResourcePoolRequest
+    * @return DescribeDBResourcePoolResponse
+   */
   async describeDBResourcePool(request: DescribeDBResourcePoolRequest): Promise<DescribeDBResourcePoolResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.describeDBResourcePoolWithOptions(request, runtime);
@@ -12701,6 +15017,55 @@ export default class Client extends OpenApi {
   async describeDiagnosisDimensions(request: DescribeDiagnosisDimensionsRequest): Promise<DescribeDiagnosisDimensionsResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.describeDiagnosisDimensionsWithOptions(request, runtime);
+  }
+
+  async describeDiagnosisMonitorPerformanceWithOptions(request: DescribeDiagnosisMonitorPerformanceRequest, runtime: $Util.RuntimeOptions): Promise<DescribeDiagnosisMonitorPerformanceResponse> {
+    Util.validateModel(request);
+    let query = { };
+    if (!Util.isUnset(request.DBClusterId)) {
+      query["DBClusterId"] = request.DBClusterId;
+    }
+
+    if (!Util.isUnset(request.endTime)) {
+      query["EndTime"] = request.endTime;
+    }
+
+    if (!Util.isUnset(request.lang)) {
+      query["Lang"] = request.lang;
+    }
+
+    if (!Util.isUnset(request.queryCondition)) {
+      query["QueryCondition"] = request.queryCondition;
+    }
+
+    if (!Util.isUnset(request.regionId)) {
+      query["RegionId"] = request.regionId;
+    }
+
+    if (!Util.isUnset(request.startTime)) {
+      query["StartTime"] = request.startTime;
+    }
+
+    let req = new $OpenApi.OpenApiRequest({
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApi.Params({
+      action: "DescribeDiagnosisMonitorPerformance",
+      version: "2019-03-15",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $tea.cast<DescribeDiagnosisMonitorPerformanceResponse>(await this.callApi(params, req, runtime), new DescribeDiagnosisMonitorPerformanceResponse({}));
+  }
+
+  async describeDiagnosisMonitorPerformance(request: DescribeDiagnosisMonitorPerformanceRequest): Promise<DescribeDiagnosisMonitorPerformanceResponse> {
+    let runtime = new $Util.RuntimeOptions({ });
+    return await this.describeDiagnosisMonitorPerformanceWithOptions(request, runtime);
   }
 
   async describeDiagnosisRecordsWithOptions(request: DescribeDiagnosisRecordsRequest, runtime: $Util.RuntimeOptions): Promise<DescribeDiagnosisRecordsResponse> {
@@ -12804,6 +15169,56 @@ export default class Client extends OpenApi {
     return await this.describeDiagnosisRecordsWithOptions(request, runtime);
   }
 
+  async describeDiagnosisSQLInfoWithOptions(request: DescribeDiagnosisSQLInfoRequest, runtime: $Util.RuntimeOptions): Promise<DescribeDiagnosisSQLInfoResponse> {
+    Util.validateModel(request);
+    let query = OpenApiUtil.query(Util.toMap(request));
+    let req = new $OpenApi.OpenApiRequest({
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApi.Params({
+      action: "DescribeDiagnosisSQLInfo",
+      version: "2019-03-15",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "GET",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $tea.cast<DescribeDiagnosisSQLInfoResponse>(await this.callApi(params, req, runtime), new DescribeDiagnosisSQLInfoResponse({}));
+  }
+
+  async describeDiagnosisSQLInfo(request: DescribeDiagnosisSQLInfoRequest): Promise<DescribeDiagnosisSQLInfoResponse> {
+    let runtime = new $Util.RuntimeOptions({ });
+    return await this.describeDiagnosisSQLInfoWithOptions(request, runtime);
+  }
+
+  async describeDiagnosisTasksWithOptions(request: DescribeDiagnosisTasksRequest, runtime: $Util.RuntimeOptions): Promise<DescribeDiagnosisTasksResponse> {
+    Util.validateModel(request);
+    let query = OpenApiUtil.query(Util.toMap(request));
+    let req = new $OpenApi.OpenApiRequest({
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApi.Params({
+      action: "DescribeDiagnosisTasks",
+      version: "2019-03-15",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "GET",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $tea.cast<DescribeDiagnosisTasksResponse>(await this.callApi(params, req, runtime), new DescribeDiagnosisTasksResponse({}));
+  }
+
+  async describeDiagnosisTasks(request: DescribeDiagnosisTasksRequest): Promise<DescribeDiagnosisTasksResponse> {
+    let runtime = new $Util.RuntimeOptions({ });
+    return await this.describeDiagnosisTasksWithOptions(request, runtime);
+  }
+
   async describeDownloadRecordsWithOptions(request: DescribeDownloadRecordsRequest, runtime: $Util.RuntimeOptions): Promise<DescribeDownloadRecordsResponse> {
     Util.validateModel(request);
     let query = { };
@@ -12841,6 +15256,82 @@ export default class Client extends OpenApi {
     return await this.describeDownloadRecordsWithOptions(request, runtime);
   }
 
+  async describeEIURangeWithOptions(request: DescribeEIURangeRequest, runtime: $Util.RuntimeOptions): Promise<DescribeEIURangeResponse> {
+    Util.validateModel(request);
+    let query = { };
+    if (!Util.isUnset(request.computeResource)) {
+      query["ComputeResource"] = request.computeResource;
+    }
+
+    if (!Util.isUnset(request.DBClusterId)) {
+      query["DBClusterId"] = request.DBClusterId;
+    }
+
+    if (!Util.isUnset(request.DBClusterVersion)) {
+      query["DBClusterVersion"] = request.DBClusterVersion;
+    }
+
+    if (!Util.isUnset(request.operation)) {
+      query["Operation"] = request.operation;
+    }
+
+    if (!Util.isUnset(request.ownerAccount)) {
+      query["OwnerAccount"] = request.ownerAccount;
+    }
+
+    if (!Util.isUnset(request.ownerId)) {
+      query["OwnerId"] = request.ownerId;
+    }
+
+    if (!Util.isUnset(request.regionId)) {
+      query["RegionId"] = request.regionId;
+    }
+
+    if (!Util.isUnset(request.resourceGroupId)) {
+      query["ResourceGroupId"] = request.resourceGroupId;
+    }
+
+    if (!Util.isUnset(request.resourceOwnerAccount)) {
+      query["ResourceOwnerAccount"] = request.resourceOwnerAccount;
+    }
+
+    if (!Util.isUnset(request.resourceOwnerId)) {
+      query["ResourceOwnerId"] = request.resourceOwnerId;
+    }
+
+    if (!Util.isUnset(request.zoneId)) {
+      query["ZoneId"] = request.zoneId;
+    }
+
+    let req = new $OpenApi.OpenApiRequest({
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApi.Params({
+      action: "DescribeEIURange",
+      version: "2019-03-15",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $tea.cast<DescribeEIURangeResponse>(await this.callApi(params, req, runtime), new DescribeEIURangeResponse({}));
+  }
+
+  async describeEIURange(request: DescribeEIURangeRequest): Promise<DescribeEIURangeResponse> {
+    let runtime = new $Util.RuntimeOptions({ });
+    return await this.describeEIURangeWithOptions(request, runtime);
+  }
+
+  /**
+    * This operation is available only for AnalyticDB for MySQL Data Warehouse Edition (V3.0) clusters in elastic mode for Cluster Edition that have 32 cores or more.
+    *
+    * @param request DescribeElasticDailyPlanRequest
+    * @param runtime runtime options for this request RuntimeOptions
+    * @return DescribeElasticDailyPlanResponse
+   */
   async describeElasticDailyPlanWithOptions(request: DescribeElasticDailyPlanRequest, runtime: $Util.RuntimeOptions): Promise<DescribeElasticDailyPlanResponse> {
     Util.validateModel(request);
     let query = { };
@@ -12897,11 +15388,24 @@ export default class Client extends OpenApi {
     return $tea.cast<DescribeElasticDailyPlanResponse>(await this.callApi(params, req, runtime), new DescribeElasticDailyPlanResponse({}));
   }
 
+  /**
+    * This operation is available only for AnalyticDB for MySQL Data Warehouse Edition (V3.0) clusters in elastic mode for Cluster Edition that have 32 cores or more.
+    *
+    * @param request DescribeElasticDailyPlanRequest
+    * @return DescribeElasticDailyPlanResponse
+   */
   async describeElasticDailyPlan(request: DescribeElasticDailyPlanRequest): Promise<DescribeElasticDailyPlanResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.describeElasticDailyPlanWithOptions(request, runtime);
   }
 
+  /**
+    * This operation is available only for AnalyticDB for MySQL Data Warehouse Edition (V3.0) clusters in elastic mode for Cluster Edition that have 32 cores or more.
+    *
+    * @param request DescribeElasticPlanRequest
+    * @param runtime runtime options for this request RuntimeOptions
+    * @return DescribeElasticPlanResponse
+   */
   async describeElasticPlanWithOptions(request: DescribeElasticPlanRequest, runtime: $Util.RuntimeOptions): Promise<DescribeElasticPlanResponse> {
     Util.validateModel(request);
     let query = { };
@@ -12954,6 +15458,12 @@ export default class Client extends OpenApi {
     return $tea.cast<DescribeElasticPlanResponse>(await this.callApi(params, req, runtime), new DescribeElasticPlanResponse({}));
   }
 
+  /**
+    * This operation is available only for AnalyticDB for MySQL Data Warehouse Edition (V3.0) clusters in elastic mode for Cluster Edition that have 32 cores or more.
+    *
+    * @param request DescribeElasticPlanRequest
+    * @return DescribeElasticPlanResponse
+   */
   async describeElasticPlan(request: DescribeElasticPlanRequest): Promise<DescribeElasticPlanResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.describeElasticPlanWithOptions(request, runtime);
@@ -13020,6 +15530,13 @@ export default class Client extends OpenApi {
     return await this.describeInclinedTablesWithOptions(request, runtime);
   }
 
+  /**
+    * For information about how to asynchronously submit import and export tasks, see [Asynchronously submit an import or export task](~~160291~~).
+    *
+    * @param request DescribeLoadTasksRecordsRequest
+    * @param runtime runtime options for this request RuntimeOptions
+    * @return DescribeLoadTasksRecordsResponse
+   */
   async describeLoadTasksRecordsWithOptions(request: DescribeLoadTasksRecordsRequest, runtime: $Util.RuntimeOptions): Promise<DescribeLoadTasksRecordsResponse> {
     Util.validateModel(request);
     let query = { };
@@ -13055,6 +15572,10 @@ export default class Client extends OpenApi {
       query["PageSize"] = request.pageSize;
     }
 
+    if (!Util.isUnset(request.regionId)) {
+      query["RegionId"] = request.regionId;
+    }
+
     if (!Util.isUnset(request.resourceOwnerAccount)) {
       query["ResourceOwnerAccount"] = request.resourceOwnerAccount;
     }
@@ -13088,6 +15609,12 @@ export default class Client extends OpenApi {
     return $tea.cast<DescribeLoadTasksRecordsResponse>(await this.callApi(params, req, runtime), new DescribeLoadTasksRecordsResponse({}));
   }
 
+  /**
+    * For information about how to asynchronously submit import and export tasks, see [Asynchronously submit an import or export task](~~160291~~).
+    *
+    * @param request DescribeLoadTasksRecordsRequest
+    * @return DescribeLoadTasksRecordsResponse
+   */
   async describeLoadTasksRecords(request: DescribeLoadTasksRecordsRequest): Promise<DescribeLoadTasksRecordsResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.describeLoadTasksRecordsWithOptions(request, runtime);
@@ -13981,6 +16508,13 @@ export default class Client extends OpenApi {
     return await this.describeTablePartitionDiagnoseWithOptions(request, runtime);
   }
 
+  /**
+    * >  For more information about table statistics, see [View monitoring information of resource pools](~~188721~~).
+    *
+    * @param request DescribeTableStatisticsRequest
+    * @param runtime runtime options for this request RuntimeOptions
+    * @return DescribeTableStatisticsResponse
+   */
   async describeTableStatisticsWithOptions(request: DescribeTableStatisticsRequest, runtime: $Util.RuntimeOptions): Promise<DescribeTableStatisticsResponse> {
     Util.validateModel(request);
     let query = { };
@@ -14033,6 +16567,12 @@ export default class Client extends OpenApi {
     return $tea.cast<DescribeTableStatisticsResponse>(await this.callApi(params, req, runtime), new DescribeTableStatisticsResponse({}));
   }
 
+  /**
+    * >  For more information about table statistics, see [View monitoring information of resource pools](~~188721~~).
+    *
+    * @param request DescribeTableStatisticsRequest
+    * @return DescribeTableStatisticsResponse
+   */
   async describeTableStatistics(request: DescribeTableStatisticsRequest): Promise<DescribeTableStatisticsResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.describeTableStatisticsWithOptions(request, runtime);
@@ -14102,6 +16642,10 @@ export default class Client extends OpenApi {
       query["OwnerId"] = request.ownerId;
     }
 
+    if (!Util.isUnset(request.regionId)) {
+      query["RegionId"] = request.regionId;
+    }
+
     if (!Util.isUnset(request.resourceOwnerAccount)) {
       query["ResourceOwnerAccount"] = request.resourceOwnerAccount;
     }
@@ -14134,6 +16678,97 @@ export default class Client extends OpenApi {
   async describeTaskInfo(request: DescribeTaskInfoRequest): Promise<DescribeTaskInfoResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.describeTaskInfoWithOptions(request, runtime);
+  }
+
+  /**
+    * You can call this operation only for AnalyticDB for MySQL Data Warehouse Edition (V3.0) clusters in elastic mode for Cluster Edition.
+    *
+    * @param request DetachUserENIRequest
+    * @param runtime runtime options for this request RuntimeOptions
+    * @return DetachUserENIResponse
+   */
+  async detachUserENIWithOptions(request: DetachUserENIRequest, runtime: $Util.RuntimeOptions): Promise<DetachUserENIResponse> {
+    Util.validateModel(request);
+    let query = { };
+    if (!Util.isUnset(request.DBClusterId)) {
+      query["DBClusterId"] = request.DBClusterId;
+    }
+
+    if (!Util.isUnset(request.ownerAccount)) {
+      query["OwnerAccount"] = request.ownerAccount;
+    }
+
+    if (!Util.isUnset(request.ownerId)) {
+      query["OwnerId"] = request.ownerId;
+    }
+
+    if (!Util.isUnset(request.resourceOwnerAccount)) {
+      query["ResourceOwnerAccount"] = request.resourceOwnerAccount;
+    }
+
+    if (!Util.isUnset(request.resourceOwnerId)) {
+      query["ResourceOwnerId"] = request.resourceOwnerId;
+    }
+
+    let req = new $OpenApi.OpenApiRequest({
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApi.Params({
+      action: "DetachUserENI",
+      version: "2019-03-15",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $tea.cast<DetachUserENIResponse>(await this.callApi(params, req, runtime), new DetachUserENIResponse({}));
+  }
+
+  /**
+    * You can call this operation only for AnalyticDB for MySQL Data Warehouse Edition (V3.0) clusters in elastic mode for Cluster Edition.
+    *
+    * @param request DetachUserENIRequest
+    * @return DetachUserENIResponse
+   */
+  async detachUserENI(request: DetachUserENIRequest): Promise<DetachUserENIResponse> {
+    let runtime = new $Util.RuntimeOptions({ });
+    return await this.detachUserENIWithOptions(request, runtime);
+  }
+
+  async disableAdviceServiceWithOptions(request: DisableAdviceServiceRequest, runtime: $Util.RuntimeOptions): Promise<DisableAdviceServiceResponse> {
+    Util.validateModel(request);
+    let query = { };
+    if (!Util.isUnset(request.DBClusterId)) {
+      query["DBClusterId"] = request.DBClusterId;
+    }
+
+    if (!Util.isUnset(request.regionId)) {
+      query["RegionId"] = request.regionId;
+    }
+
+    let req = new $OpenApi.OpenApiRequest({
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApi.Params({
+      action: "DisableAdviceService",
+      version: "2019-03-15",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $tea.cast<DisableAdviceServiceResponse>(await this.callApi(params, req, runtime), new DisableAdviceServiceResponse({}));
+  }
+
+  async disableAdviceService(request: DisableAdviceServiceRequest): Promise<DisableAdviceServiceResponse> {
+    let runtime = new $Util.RuntimeOptions({ });
+    return await this.disableAdviceServiceWithOptions(request, runtime);
   }
 
   async downloadDiagnosisRecordsWithOptions(request: DownloadDiagnosisRecordsRequest, runtime: $Util.RuntimeOptions): Promise<DownloadDiagnosisRecordsResponse> {
@@ -14221,6 +16856,131 @@ export default class Client extends OpenApi {
     return await this.downloadDiagnosisRecordsWithOptions(request, runtime);
   }
 
+  async dryRunClusterWithOptions(request: DryRunClusterRequest, runtime: $Util.RuntimeOptions): Promise<DryRunClusterResponse> {
+    Util.validateModel(request);
+    let query = { };
+    if (!Util.isUnset(request.computeResource)) {
+      query["ComputeResource"] = request.computeResource;
+    }
+
+    if (!Util.isUnset(request.DBClusterDescription)) {
+      query["DBClusterDescription"] = request.DBClusterDescription;
+    }
+
+    if (!Util.isUnset(request.DBClusterId)) {
+      query["DBClusterId"] = request.DBClusterId;
+    }
+
+    if (!Util.isUnset(request.DBClusterNetworkType)) {
+      query["DBClusterNetworkType"] = request.DBClusterNetworkType;
+    }
+
+    if (!Util.isUnset(request.DBClusterVersion)) {
+      query["DBClusterVersion"] = request.DBClusterVersion;
+    }
+
+    if (!Util.isUnset(request.enableDefaultResourcePool)) {
+      query["EnableDefaultResourcePool"] = request.enableDefaultResourcePool;
+    }
+
+    if (!Util.isUnset(request.operation)) {
+      query["Operation"] = request.operation;
+    }
+
+    if (!Util.isUnset(request.payType)) {
+      query["PayType"] = request.payType;
+    }
+
+    if (!Util.isUnset(request.period)) {
+      query["Period"] = request.period;
+    }
+
+    if (!Util.isUnset(request.regionId)) {
+      query["RegionId"] = request.regionId;
+    }
+
+    if (!Util.isUnset(request.storageResource)) {
+      query["StorageResource"] = request.storageResource;
+    }
+
+    if (!Util.isUnset(request.usedTime)) {
+      query["UsedTime"] = request.usedTime;
+    }
+
+    if (!Util.isUnset(request.VPCId)) {
+      query["VPCId"] = request.VPCId;
+    }
+
+    if (!Util.isUnset(request.vSwitchId)) {
+      query["VSwitchId"] = request.vSwitchId;
+    }
+
+    if (!Util.isUnset(request.zoneId)) {
+      query["ZoneId"] = request.zoneId;
+    }
+
+    let req = new $OpenApi.OpenApiRequest({
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApi.Params({
+      action: "DryRunCluster",
+      version: "2019-03-15",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $tea.cast<DryRunClusterResponse>(await this.callApi(params, req, runtime), new DryRunClusterResponse({}));
+  }
+
+  async dryRunCluster(request: DryRunClusterRequest): Promise<DryRunClusterResponse> {
+    let runtime = new $Util.RuntimeOptions({ });
+    return await this.dryRunClusterWithOptions(request, runtime);
+  }
+
+  async enableAdviceServiceWithOptions(request: EnableAdviceServiceRequest, runtime: $Util.RuntimeOptions): Promise<EnableAdviceServiceResponse> {
+    Util.validateModel(request);
+    let query = { };
+    if (!Util.isUnset(request.DBClusterId)) {
+      query["DBClusterId"] = request.DBClusterId;
+    }
+
+    if (!Util.isUnset(request.regionId)) {
+      query["RegionId"] = request.regionId;
+    }
+
+    let req = new $OpenApi.OpenApiRequest({
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApi.Params({
+      action: "EnableAdviceService",
+      version: "2019-03-15",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $tea.cast<EnableAdviceServiceResponse>(await this.callApi(params, req, runtime), new EnableAdviceServiceResponse({}));
+  }
+
+  async enableAdviceService(request: EnableAdviceServiceRequest): Promise<EnableAdviceServiceResponse> {
+    let runtime = new $Util.RuntimeOptions({ });
+    return await this.enableAdviceServiceWithOptions(request, runtime);
+  }
+
+  /**
+    * If you need Alibaba Cloud technical support to perform operations on your AnalyticDB for MySQL cluster, you must grant permissions to the service account of your cluster. When the validity period of the authorization ends, the granted permissions are automatically revoked.
+    *
+    * @param request GrantOperatorPermissionRequest
+    * @param runtime runtime options for this request RuntimeOptions
+    * @return GrantOperatorPermissionResponse
+   */
   async grantOperatorPermissionWithOptions(request: GrantOperatorPermissionRequest, runtime: $Util.RuntimeOptions): Promise<GrantOperatorPermissionResponse> {
     Util.validateModel(request);
     let query = { };
@@ -14269,6 +17029,12 @@ export default class Client extends OpenApi {
     return $tea.cast<GrantOperatorPermissionResponse>(await this.callApi(params, req, runtime), new GrantOperatorPermissionResponse({}));
   }
 
+  /**
+    * If you need Alibaba Cloud technical support to perform operations on your AnalyticDB for MySQL cluster, you must grant permissions to the service account of your cluster. When the validity period of the authorization ends, the granted permissions are automatically revoked.
+    *
+    * @param request GrantOperatorPermissionRequest
+    * @return GrantOperatorPermissionResponse
+   */
   async grantOperatorPermission(request: GrantOperatorPermissionRequest): Promise<GrantOperatorPermissionResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.grantOperatorPermissionWithOptions(request, runtime);
@@ -14382,6 +17148,51 @@ export default class Client extends OpenApi {
   async listTagResources(request: ListTagResourcesRequest): Promise<ListTagResourcesResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.listTagResourcesWithOptions(request, runtime);
+  }
+
+  async migrateDBClusterWithOptions(request: MigrateDBClusterRequest, runtime: $Util.RuntimeOptions): Promise<MigrateDBClusterResponse> {
+    Util.validateModel(request);
+    let query = { };
+    if (!Util.isUnset(request.DBClusterId)) {
+      query["DBClusterId"] = request.DBClusterId;
+    }
+
+    if (!Util.isUnset(request.ownerAccount)) {
+      query["OwnerAccount"] = request.ownerAccount;
+    }
+
+    if (!Util.isUnset(request.ownerId)) {
+      query["OwnerId"] = request.ownerId;
+    }
+
+    if (!Util.isUnset(request.resourceOwnerAccount)) {
+      query["ResourceOwnerAccount"] = request.resourceOwnerAccount;
+    }
+
+    if (!Util.isUnset(request.resourceOwnerId)) {
+      query["ResourceOwnerId"] = request.resourceOwnerId;
+    }
+
+    let req = new $OpenApi.OpenApiRequest({
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApi.Params({
+      action: "MigrateDBCluster",
+      version: "2019-03-15",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $tea.cast<MigrateDBClusterResponse>(await this.callApi(params, req, runtime), new MigrateDBClusterResponse({}));
+  }
+
+  async migrateDBCluster(request: MigrateDBClusterRequest): Promise<MigrateDBClusterResponse> {
+    let runtime = new $Util.RuntimeOptions({ });
+    return await this.migrateDBClusterWithOptions(request, runtime);
   }
 
   async modifyAccountDescriptionWithOptions(request: ModifyAccountDescriptionRequest, runtime: $Util.RuntimeOptions): Promise<ModifyAccountDescriptionResponse> {
@@ -14700,8 +17511,16 @@ export default class Client extends OpenApi {
       query["DBNodeStorage"] = request.DBNodeStorage;
     }
 
+    if (!Util.isUnset(request.diskPerformanceLevel)) {
+      query["DiskPerformanceLevel"] = request.diskPerformanceLevel;
+    }
+
     if (!Util.isUnset(request.elasticIOResource)) {
       query["ElasticIOResource"] = request.elasticIOResource;
+    }
+
+    if (!Util.isUnset(request.elasticIOResourceSize)) {
+      query["ElasticIOResourceSize"] = request.elasticIOResourceSize;
     }
 
     if (!Util.isUnset(request.executorCount)) {
@@ -14962,6 +17781,13 @@ export default class Client extends OpenApi {
     return await this.modifyDBClusterPayTypeWithOptions(request, runtime);
   }
 
+  /**
+    * Resource Management enables you to build an organizational structure for resources based on your business needs. You can use a resource directory, folders, accounts, and resource groups to hierarchically organize and manage resources. For more information, see [What is Resource Management?](~~94475#concept-zyn-3p1-dhb~~ "Resource Management provides a collection of resource management services that support enterprise IT administration. The services include Resource Directory, Resource Group, and Tag. Resource Directory allows you to build an organizational structure for resources based on your business requirements. Resource Group and Tag allow you to hierarchically manage the resources. Resource Sharing allows you to share the resources among your accounts.")
+    *
+    * @param request ModifyDBClusterResourceGroupRequest
+    * @param runtime runtime options for this request RuntimeOptions
+    * @return ModifyDBClusterResourceGroupResponse
+   */
   async modifyDBClusterResourceGroupWithOptions(request: ModifyDBClusterResourceGroupRequest, runtime: $Util.RuntimeOptions): Promise<ModifyDBClusterResourceGroupResponse> {
     Util.validateModel(request);
     let query = { };
@@ -15006,11 +17832,26 @@ export default class Client extends OpenApi {
     return $tea.cast<ModifyDBClusterResourceGroupResponse>(await this.callApi(params, req, runtime), new ModifyDBClusterResourceGroupResponse({}));
   }
 
+  /**
+    * Resource Management enables you to build an organizational structure for resources based on your business needs. You can use a resource directory, folders, accounts, and resource groups to hierarchically organize and manage resources. For more information, see [What is Resource Management?](~~94475#concept-zyn-3p1-dhb~~ "Resource Management provides a collection of resource management services that support enterprise IT administration. The services include Resource Directory, Resource Group, and Tag. Resource Directory allows you to build an organizational structure for resources based on your business requirements. Resource Group and Tag allow you to hierarchically manage the resources. Resource Sharing allows you to share the resources among your accounts.")
+    *
+    * @param request ModifyDBClusterResourceGroupRequest
+    * @return ModifyDBClusterResourceGroupResponse
+   */
   async modifyDBClusterResourceGroup(request: ModifyDBClusterResourceGroupRequest): Promise<ModifyDBClusterResourceGroupResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.modifyDBClusterResourceGroupWithOptions(request, runtime);
   }
 
+  /**
+    * ## Precautions
+    * *   This operation is applicable only for elastic clusters of 32 cores or more.
+    * *   The number of nodes cannot be changed for the default resource group USER_DEFAULT.
+    *
+    * @param request ModifyDBResourceGroupRequest
+    * @param runtime runtime options for this request RuntimeOptions
+    * @return ModifyDBResourceGroupResponse
+   */
   async modifyDBResourceGroupWithOptions(request: ModifyDBResourceGroupRequest, runtime: $Util.RuntimeOptions): Promise<ModifyDBResourceGroupResponse> {
     Util.validateModel(request);
     let query = { };
@@ -15063,11 +17904,28 @@ export default class Client extends OpenApi {
     return $tea.cast<ModifyDBResourceGroupResponse>(await this.callApi(params, req, runtime), new ModifyDBResourceGroupResponse({}));
   }
 
+  /**
+    * ## Precautions
+    * *   This operation is applicable only for elastic clusters of 32 cores or more.
+    * *   The number of nodes cannot be changed for the default resource group USER_DEFAULT.
+    *
+    * @param request ModifyDBResourceGroupRequest
+    * @return ModifyDBResourceGroupResponse
+   */
   async modifyDBResourceGroup(request: ModifyDBResourceGroupRequest): Promise<ModifyDBResourceGroupResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.modifyDBResourceGroupWithOptions(request, runtime);
   }
 
+  /**
+    * ###
+    * *   You can call this operation only for elastic clusters of 32 cores or more.
+    * *   You cannot change the number of nodes for the USER_DEFAULT resource group.
+    *
+    * @param request ModifyDBResourcePoolRequest
+    * @param runtime runtime options for this request RuntimeOptions
+    * @return ModifyDBResourcePoolResponse
+   */
   async modifyDBResourcePoolWithOptions(request: ModifyDBResourcePoolRequest, runtime: $Util.RuntimeOptions): Promise<ModifyDBResourcePoolResponse> {
     Util.validateModel(request);
     let query = { };
@@ -15120,11 +17978,26 @@ export default class Client extends OpenApi {
     return $tea.cast<ModifyDBResourcePoolResponse>(await this.callApi(params, req, runtime), new ModifyDBResourcePoolResponse({}));
   }
 
+  /**
+    * ###
+    * *   You can call this operation only for elastic clusters of 32 cores or more.
+    * *   You cannot change the number of nodes for the USER_DEFAULT resource group.
+    *
+    * @param request ModifyDBResourcePoolRequest
+    * @return ModifyDBResourcePoolResponse
+   */
   async modifyDBResourcePool(request: ModifyDBResourcePoolRequest): Promise<ModifyDBResourcePoolResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.modifyDBResourcePoolWithOptions(request, runtime);
   }
 
+  /**
+    * You can call this operation only for AnalyticDB for MySQL Data Warehouse Edition (V3.0) clusters in elastic mode for Cluster Edition that have 32 cores or more.
+    *
+    * @param request ModifyElasticPlanRequest
+    * @param runtime runtime options for this request RuntimeOptions
+    * @return ModifyElasticPlanResponse
+   */
   async modifyElasticPlanWithOptions(request: ModifyElasticPlanRequest, runtime: $Util.RuntimeOptions): Promise<ModifyElasticPlanResponse> {
     Util.validateModel(request);
     let query = { };
@@ -15160,8 +18033,16 @@ export default class Client extends OpenApi {
       query["ElasticPlanTimeStart"] = request.elasticPlanTimeStart;
     }
 
+    if (!Util.isUnset(request.elasticPlanType)) {
+      query["ElasticPlanType"] = request.elasticPlanType;
+    }
+
     if (!Util.isUnset(request.elasticPlanWeeklyRepeat)) {
       query["ElasticPlanWeeklyRepeat"] = request.elasticPlanWeeklyRepeat;
+    }
+
+    if (!Util.isUnset(request.elasticPlanWorkerSpec)) {
+      query["ElasticPlanWorkerSpec"] = request.elasticPlanWorkerSpec;
     }
 
     if (!Util.isUnset(request.ownerAccount)) {
@@ -15201,6 +18082,12 @@ export default class Client extends OpenApi {
     return $tea.cast<ModifyElasticPlanResponse>(await this.callApi(params, req, runtime), new ModifyElasticPlanResponse({}));
   }
 
+  /**
+    * You can call this operation only for AnalyticDB for MySQL Data Warehouse Edition (V3.0) clusters in elastic mode for Cluster Edition that have 32 cores or more.
+    *
+    * @param request ModifyElasticPlanRequest
+    * @return ModifyElasticPlanResponse
+   */
   async modifyElasticPlan(request: ModifyElasticPlanRequest): Promise<ModifyElasticPlanResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.modifyElasticPlanWithOptions(request, runtime);
@@ -15227,6 +18114,10 @@ export default class Client extends OpenApi {
 
     if (!Util.isUnset(request.ownerId)) {
       query["OwnerId"] = request.ownerId;
+    }
+
+    if (!Util.isUnset(request.resourceGroupId)) {
+      query["ResourceGroupId"] = request.resourceGroupId;
     }
 
     if (!Util.isUnset(request.resourceOwnerAccount)) {
@@ -15276,6 +18167,10 @@ export default class Client extends OpenApi {
 
     if (!Util.isUnset(request.regionId)) {
       query["RegionId"] = request.regionId;
+    }
+
+    if (!Util.isUnset(request.resourceGroupId)) {
+      query["ResourceGroupId"] = request.resourceGroupId;
     }
 
     if (!Util.isUnset(request.resourceOwnerAccount)) {
