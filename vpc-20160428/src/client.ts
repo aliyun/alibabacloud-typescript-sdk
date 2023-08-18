@@ -21968,93 +21968,6 @@ export class GetNatGatewayAttributeResponse extends $tea.Model {
   }
 }
 
-export class GetNatGatewayConvertStatusRequest extends $tea.Model {
-  natGatewayId?: string;
-  ownerAccount?: string;
-  ownerId?: number;
-  regionId?: string;
-  resourceOwnerAccount?: string;
-  resourceOwnerId?: number;
-  static names(): { [key: string]: string } {
-    return {
-      natGatewayId: 'NatGatewayId',
-      ownerAccount: 'OwnerAccount',
-      ownerId: 'OwnerId',
-      regionId: 'RegionId',
-      resourceOwnerAccount: 'ResourceOwnerAccount',
-      resourceOwnerId: 'ResourceOwnerId',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      natGatewayId: 'string',
-      ownerAccount: 'string',
-      ownerId: 'number',
-      regionId: 'string',
-      resourceOwnerAccount: 'string',
-      resourceOwnerId: 'number',
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class GetNatGatewayConvertStatusResponseBody extends $tea.Model {
-  convertSteps?: GetNatGatewayConvertStatusResponseBodyConvertSteps[];
-  dstNatType?: string;
-  natGatewayId?: string;
-  requestId?: string;
-  static names(): { [key: string]: string } {
-    return {
-      convertSteps: 'ConvertSteps',
-      dstNatType: 'DstNatType',
-      natGatewayId: 'NatGatewayId',
-      requestId: 'RequestId',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      convertSteps: { 'type': 'array', 'itemType': GetNatGatewayConvertStatusResponseBodyConvertSteps },
-      dstNatType: 'string',
-      natGatewayId: 'string',
-      requestId: 'string',
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class GetNatGatewayConvertStatusResponse extends $tea.Model {
-  headers: { [key: string]: string };
-  statusCode: number;
-  body: GetNatGatewayConvertStatusResponseBody;
-  static names(): { [key: string]: string } {
-    return {
-      headers: 'headers',
-      statusCode: 'statusCode',
-      body: 'body',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
-      statusCode: 'number',
-      body: GetNatGatewayConvertStatusResponseBody,
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
 export class GetPhysicalConnectionServiceStatusRequest extends $tea.Model {
   ownerAccount?: string;
   ownerId?: number;
@@ -43777,31 +43690,6 @@ export class GetNatGatewayAttributeResponseBodySnatTable extends $tea.Model {
   }
 }
 
-export class GetNatGatewayConvertStatusResponseBodyConvertSteps extends $tea.Model {
-  stepName?: string;
-  stepStartTime?: string;
-  stepStatus?: string;
-  static names(): { [key: string]: string } {
-    return {
-      stepName: 'StepName',
-      stepStartTime: 'StepStartTime',
-      stepStatus: 'StepStatus',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      stepName: 'string',
-      stepStartTime: 'string',
-      stepStatus: 'string',
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
 export class GetVpcGatewayEndpointAttributeResponseBodyTags extends $tea.Model {
   key?: string;
   value?: string;
@@ -64009,59 +63897,6 @@ export default class Client extends OpenApi {
   async getNatGatewayAttribute(request: GetNatGatewayAttributeRequest): Promise<GetNatGatewayAttributeResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.getNatGatewayAttributeWithOptions(request, runtime);
-  }
-
-  async getNatGatewayConvertStatusWithOptions(request: GetNatGatewayConvertStatusRequest, runtime: $Util.RuntimeOptions): Promise<GetNatGatewayConvertStatusResponse> {
-    Util.validateModel(request);
-    let query = { };
-    if (!Util.isUnset(request.natGatewayId)) {
-      query["NatGatewayId"] = request.natGatewayId;
-    }
-
-    if (!Util.isUnset(request.ownerAccount)) {
-      query["OwnerAccount"] = request.ownerAccount;
-    }
-
-    if (!Util.isUnset(request.ownerId)) {
-      query["OwnerId"] = request.ownerId;
-    }
-
-    if (!Util.isUnset(request.regionId)) {
-      query["RegionId"] = request.regionId;
-    }
-
-    if (!Util.isUnset(request.regionId)) {
-      query["RegionId"] = request.regionId;
-    }
-
-    if (!Util.isUnset(request.resourceOwnerAccount)) {
-      query["ResourceOwnerAccount"] = request.resourceOwnerAccount;
-    }
-
-    if (!Util.isUnset(request.resourceOwnerId)) {
-      query["ResourceOwnerId"] = request.resourceOwnerId;
-    }
-
-    let req = new $OpenApi.OpenApiRequest({
-      query: OpenApiUtil.query(query),
-    });
-    let params = new $OpenApi.Params({
-      action: "GetNatGatewayConvertStatus",
-      version: "2016-04-28",
-      protocol: "HTTPS",
-      pathname: "/",
-      method: "POST",
-      authType: "AK",
-      style: "RPC",
-      reqBodyType: "formData",
-      bodyType: "json",
-    });
-    return $tea.cast<GetNatGatewayConvertStatusResponse>(await this.callApi(params, req, runtime), new GetNatGatewayConvertStatusResponse({}));
-  }
-
-  async getNatGatewayConvertStatus(request: GetNatGatewayConvertStatusRequest): Promise<GetNatGatewayConvertStatusResponse> {
-    let runtime = new $Util.RuntimeOptions({ });
-    return await this.getNatGatewayConvertStatusWithOptions(request, runtime);
   }
 
   /**
