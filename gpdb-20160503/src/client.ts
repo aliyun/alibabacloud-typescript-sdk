@@ -348,6 +348,7 @@ export class CreateCollectionResponse extends $tea.Model {
 }
 
 export class CreateDBInstanceRequest extends $tea.Model {
+  backupId?: string;
   clientToken?: string;
   createSampleData?: boolean;
   DBInstanceCategory?: string;
@@ -362,6 +363,7 @@ export class CreateDBInstanceRequest extends $tea.Model {
   idleTime?: number;
   instanceNetworkType?: string;
   instanceSpec?: string;
+  masterCU?: number;
   masterNodeNum?: string;
   ownerId?: number;
   payType?: string;
@@ -375,6 +377,7 @@ export class CreateDBInstanceRequest extends $tea.Model {
   segStorageType?: string;
   serverlessMode?: string;
   serverlessResource?: number;
+  srcDbInstanceName?: string;
   storageSize?: number;
   storageType?: string;
   tag?: CreateDBInstanceRequestTag[];
@@ -385,6 +388,7 @@ export class CreateDBInstanceRequest extends $tea.Model {
   zoneId?: string;
   static names(): { [key: string]: string } {
     return {
+      backupId: 'BackupId',
       clientToken: 'ClientToken',
       createSampleData: 'CreateSampleData',
       DBInstanceCategory: 'DBInstanceCategory',
@@ -399,6 +403,7 @@ export class CreateDBInstanceRequest extends $tea.Model {
       idleTime: 'IdleTime',
       instanceNetworkType: 'InstanceNetworkType',
       instanceSpec: 'InstanceSpec',
+      masterCU: 'MasterCU',
       masterNodeNum: 'MasterNodeNum',
       ownerId: 'OwnerId',
       payType: 'PayType',
@@ -412,6 +417,7 @@ export class CreateDBInstanceRequest extends $tea.Model {
       segStorageType: 'SegStorageType',
       serverlessMode: 'ServerlessMode',
       serverlessResource: 'ServerlessResource',
+      srcDbInstanceName: 'SrcDbInstanceName',
       storageSize: 'StorageSize',
       storageType: 'StorageType',
       tag: 'Tag',
@@ -425,6 +431,7 @@ export class CreateDBInstanceRequest extends $tea.Model {
 
   static types(): { [key: string]: any } {
     return {
+      backupId: 'string',
       clientToken: 'string',
       createSampleData: 'boolean',
       DBInstanceCategory: 'string',
@@ -439,6 +446,7 @@ export class CreateDBInstanceRequest extends $tea.Model {
       idleTime: 'number',
       instanceNetworkType: 'string',
       instanceSpec: 'string',
+      masterCU: 'number',
       masterNodeNum: 'string',
       ownerId: 'number',
       payType: 'string',
@@ -452,6 +460,7 @@ export class CreateDBInstanceRequest extends $tea.Model {
       segStorageType: 'string',
       serverlessMode: 'string',
       serverlessResource: 'number',
+      srcDbInstanceName: 'string',
       storageSize: 'number',
       storageType: 'string',
       tag: { 'type': 'array', 'itemType': CreateDBInstanceRequestTag },
@@ -3063,6 +3072,7 @@ export class DescribeDataBackupsResponseBody extends $tea.Model {
   pageNumber?: number;
   pageSize?: number;
   requestId?: string;
+  totalBackupSize?: number;
   totalCount?: number;
   static names(): { [key: string]: string } {
     return {
@@ -3070,6 +3080,7 @@ export class DescribeDataBackupsResponseBody extends $tea.Model {
       pageNumber: 'PageNumber',
       pageSize: 'PageSize',
       requestId: 'RequestId',
+      totalBackupSize: 'TotalBackupSize',
       totalCount: 'TotalCount',
     };
   }
@@ -3080,6 +3091,7 @@ export class DescribeDataBackupsResponseBody extends $tea.Model {
       pageNumber: 'number',
       pageSize: 'number',
       requestId: 'string',
+      totalBackupSize: 'number',
       totalCount: 'number',
     };
   }
@@ -6821,6 +6833,8 @@ export class QueryCollectionDataRequest extends $tea.Model {
   content?: string;
   DBInstanceId?: string;
   filter?: string;
+  includeValues?: boolean;
+  metrics?: string;
   namespace?: string;
   namespacePassword?: string;
   ownerId?: number;
@@ -6833,6 +6847,8 @@ export class QueryCollectionDataRequest extends $tea.Model {
       content: 'Content',
       DBInstanceId: 'DBInstanceId',
       filter: 'Filter',
+      includeValues: 'IncludeValues',
+      metrics: 'Metrics',
       namespace: 'Namespace',
       namespacePassword: 'NamespacePassword',
       ownerId: 'OwnerId',
@@ -6848,6 +6864,8 @@ export class QueryCollectionDataRequest extends $tea.Model {
       content: 'string',
       DBInstanceId: 'string',
       filter: 'string',
+      includeValues: 'boolean',
+      metrics: 'string',
       namespace: 'string',
       namespacePassword: 'string',
       ownerId: 'number',
@@ -6867,6 +6885,8 @@ export class QueryCollectionDataShrinkRequest extends $tea.Model {
   content?: string;
   DBInstanceId?: string;
   filter?: string;
+  includeValues?: boolean;
+  metrics?: string;
   namespace?: string;
   namespacePassword?: string;
   ownerId?: number;
@@ -6879,6 +6899,8 @@ export class QueryCollectionDataShrinkRequest extends $tea.Model {
       content: 'Content',
       DBInstanceId: 'DBInstanceId',
       filter: 'Filter',
+      includeValues: 'IncludeValues',
+      metrics: 'Metrics',
       namespace: 'Namespace',
       namespacePassword: 'NamespacePassword',
       ownerId: 'OwnerId',
@@ -6894,6 +6916,8 @@ export class QueryCollectionDataShrinkRequest extends $tea.Model {
       content: 'string',
       DBInstanceId: 'string',
       filter: 'string',
+      includeValues: 'boolean',
+      metrics: 'string',
       namespace: 'string',
       namespacePassword: 'string',
       ownerId: 'number',
@@ -7808,6 +7832,145 @@ export class UntagResourcesResponse extends $tea.Model {
   }
 }
 
+export class UpdateCollectionDataMetadataRequest extends $tea.Model {
+  collection?: string;
+  DBInstanceId?: string;
+  filter?: string;
+  ids?: string[];
+  metadata?: { [key: string]: any };
+  namespace?: string;
+  namespacePassword?: string;
+  ownerId?: number;
+  regionId?: string;
+  static names(): { [key: string]: string } {
+    return {
+      collection: 'Collection',
+      DBInstanceId: 'DBInstanceId',
+      filter: 'Filter',
+      ids: 'Ids',
+      metadata: 'Metadata',
+      namespace: 'Namespace',
+      namespacePassword: 'NamespacePassword',
+      ownerId: 'OwnerId',
+      regionId: 'RegionId',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      collection: 'string',
+      DBInstanceId: 'string',
+      filter: 'string',
+      ids: { 'type': 'array', 'itemType': 'string' },
+      metadata: { 'type': 'map', 'keyType': 'string', 'valueType': 'any' },
+      namespace: 'string',
+      namespacePassword: 'string',
+      ownerId: 'number',
+      regionId: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class UpdateCollectionDataMetadataShrinkRequest extends $tea.Model {
+  collection?: string;
+  DBInstanceId?: string;
+  filter?: string;
+  idsShrink?: string;
+  metadataShrink?: string;
+  namespace?: string;
+  namespacePassword?: string;
+  ownerId?: number;
+  regionId?: string;
+  static names(): { [key: string]: string } {
+    return {
+      collection: 'Collection',
+      DBInstanceId: 'DBInstanceId',
+      filter: 'Filter',
+      idsShrink: 'Ids',
+      metadataShrink: 'Metadata',
+      namespace: 'Namespace',
+      namespacePassword: 'NamespacePassword',
+      ownerId: 'OwnerId',
+      regionId: 'RegionId',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      collection: 'string',
+      DBInstanceId: 'string',
+      filter: 'string',
+      idsShrink: 'string',
+      metadataShrink: 'string',
+      namespace: 'string',
+      namespacePassword: 'string',
+      ownerId: 'number',
+      regionId: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class UpdateCollectionDataMetadataResponseBody extends $tea.Model {
+  appliedRows?: number;
+  message?: string;
+  requestId?: string;
+  status?: string;
+  static names(): { [key: string]: string } {
+    return {
+      appliedRows: 'AppliedRows',
+      message: 'Message',
+      requestId: 'RequestId',
+      status: 'Status',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      appliedRows: 'number',
+      message: 'string',
+      requestId: 'string',
+      status: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class UpdateCollectionDataMetadataResponse extends $tea.Model {
+  headers: { [key: string]: string };
+  statusCode: number;
+  body: UpdateCollectionDataMetadataResponseBody;
+  static names(): { [key: string]: string } {
+    return {
+      headers: 'headers',
+      statusCode: 'statusCode',
+      body: 'body',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
+      body: UpdateCollectionDataMetadataResponseBody,
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
 export class UpdateDBInstancePlanRequest extends $tea.Model {
   DBInstanceId?: string;
   ownerId?: number;
@@ -8591,6 +8754,7 @@ export class DescribeDBInstanceAttributeResponseBodyItemsDBInstanceAttribute ext
   lockReason?: string;
   maintainEndTime?: string;
   maintainStartTime?: string;
+  masterCU?: number;
   masterNodeNum?: number;
   maxConnections?: number;
   memoryPerNode?: number;
@@ -8654,6 +8818,7 @@ export class DescribeDBInstanceAttributeResponseBodyItemsDBInstanceAttribute ext
       lockReason: 'LockReason',
       maintainEndTime: 'MaintainEndTime',
       maintainStartTime: 'MaintainStartTime',
+      masterCU: 'MasterCU',
       masterNodeNum: 'MasterNodeNum',
       maxConnections: 'MaxConnections',
       memoryPerNode: 'MemoryPerNode',
@@ -8720,6 +8885,7 @@ export class DescribeDBInstanceAttributeResponseBodyItemsDBInstanceAttribute ext
       lockReason: 'string',
       maintainEndTime: 'string',
       maintainStartTime: 'string',
+      masterCU: 'number',
       masterNodeNum: 'number',
       maxConnections: 'number',
       memoryPerNode: 'number',
@@ -9440,6 +9606,7 @@ export class DescribeDBInstancesResponseBodyItems extends $tea.Model {
 export class DescribeDataBackupsResponseBodyItems extends $tea.Model {
   backupEndTime?: string;
   backupEndTimeLocal?: string;
+  backupMethod?: string;
   backupMode?: string;
   backupSetId?: string;
   backupSize?: number;
@@ -9454,6 +9621,7 @@ export class DescribeDataBackupsResponseBodyItems extends $tea.Model {
     return {
       backupEndTime: 'BackupEndTime',
       backupEndTimeLocal: 'BackupEndTimeLocal',
+      backupMethod: 'BackupMethod',
       backupMode: 'BackupMode',
       backupSetId: 'BackupSetId',
       backupSize: 'BackupSize',
@@ -9471,6 +9639,7 @@ export class DescribeDataBackupsResponseBodyItems extends $tea.Model {
     return {
       backupEndTime: 'string',
       backupEndTimeLocal: 'string',
+      backupMethod: 'string',
       backupMode: 'string',
       backupSetId: 'string',
       backupSize: 'number',
@@ -11291,6 +11460,10 @@ export default class Client extends OpenApi {
   async createDBInstanceWithOptions(request: CreateDBInstanceRequest, runtime: $Util.RuntimeOptions): Promise<CreateDBInstanceResponse> {
     Util.validateModel(request);
     let query = { };
+    if (!Util.isUnset(request.backupId)) {
+      query["BackupId"] = request.backupId;
+    }
+
     if (!Util.isUnset(request.clientToken)) {
       query["ClientToken"] = request.clientToken;
     }
@@ -11347,6 +11520,10 @@ export default class Client extends OpenApi {
       query["InstanceSpec"] = request.instanceSpec;
     }
 
+    if (!Util.isUnset(request.masterCU)) {
+      query["MasterCU"] = request.masterCU;
+    }
+
     if (!Util.isUnset(request.masterNodeNum)) {
       query["MasterNodeNum"] = request.masterNodeNum;
     }
@@ -11397,6 +11574,10 @@ export default class Client extends OpenApi {
 
     if (!Util.isUnset(request.serverlessResource)) {
       query["ServerlessResource"] = request.serverlessResource;
+    }
+
+    if (!Util.isUnset(request.srcDbInstanceName)) {
+      query["SrcDbInstanceName"] = request.srcDbInstanceName;
     }
 
     if (!Util.isUnset(request.storageSize)) {
@@ -15645,6 +15826,14 @@ export default class Client extends OpenApi {
       query["Filter"] = request.filter;
     }
 
+    if (!Util.isUnset(request.includeValues)) {
+      query["IncludeValues"] = request.includeValues;
+    }
+
+    if (!Util.isUnset(request.metrics)) {
+      query["Metrics"] = request.metrics;
+    }
+
     if (!Util.isUnset(request.namespace)) {
       query["Namespace"] = request.namespace;
     }
@@ -16227,6 +16416,77 @@ export default class Client extends OpenApi {
   async untagResources(request: UntagResourcesRequest): Promise<UntagResourcesResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.untagResourcesWithOptions(request, runtime);
+  }
+
+  async updateCollectionDataMetadataWithOptions(tmpReq: UpdateCollectionDataMetadataRequest, runtime: $Util.RuntimeOptions): Promise<UpdateCollectionDataMetadataResponse> {
+    Util.validateModel(tmpReq);
+    let request = new UpdateCollectionDataMetadataShrinkRequest({ });
+    OpenApiUtil.convert(tmpReq, request);
+    if (!Util.isUnset(tmpReq.ids)) {
+      request.idsShrink = OpenApiUtil.arrayToStringWithSpecifiedStyle(tmpReq.ids, "Ids", "json");
+    }
+
+    if (!Util.isUnset(tmpReq.metadata)) {
+      request.metadataShrink = OpenApiUtil.arrayToStringWithSpecifiedStyle(tmpReq.metadata, "Metadata", "json");
+    }
+
+    let query = { };
+    if (!Util.isUnset(request.collection)) {
+      query["Collection"] = request.collection;
+    }
+
+    if (!Util.isUnset(request.DBInstanceId)) {
+      query["DBInstanceId"] = request.DBInstanceId;
+    }
+
+    if (!Util.isUnset(request.filter)) {
+      query["Filter"] = request.filter;
+    }
+
+    if (!Util.isUnset(request.idsShrink)) {
+      query["Ids"] = request.idsShrink;
+    }
+
+    if (!Util.isUnset(request.metadataShrink)) {
+      query["Metadata"] = request.metadataShrink;
+    }
+
+    if (!Util.isUnset(request.namespace)) {
+      query["Namespace"] = request.namespace;
+    }
+
+    if (!Util.isUnset(request.namespacePassword)) {
+      query["NamespacePassword"] = request.namespacePassword;
+    }
+
+    if (!Util.isUnset(request.ownerId)) {
+      query["OwnerId"] = request.ownerId;
+    }
+
+    if (!Util.isUnset(request.regionId)) {
+      query["RegionId"] = request.regionId;
+    }
+
+    let req = new $OpenApi.OpenApiRequest({
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApi.Params({
+      action: "UpdateCollectionDataMetadata",
+      version: "2016-05-03",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $tea.cast<UpdateCollectionDataMetadataResponse>(await this.callApi(params, req, runtime), new UpdateCollectionDataMetadataResponse({}));
+  }
+
+  async updateCollectionDataMetadata(request: UpdateCollectionDataMetadataRequest): Promise<UpdateCollectionDataMetadataResponse> {
+    let runtime = new $Util.RuntimeOptions({ });
+    return await this.updateCollectionDataMetadataWithOptions(request, runtime);
   }
 
   /**
