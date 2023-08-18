@@ -1017,97 +1017,6 @@ export class CompareFaceWithMaskResponse extends $tea.Model {
   }
 }
 
-export class CountCrowdRequest extends $tea.Model {
-  imageURL?: string;
-  isShow?: boolean;
-  static names(): { [key: string]: string } {
-    return {
-      imageURL: 'ImageURL',
-      isShow: 'IsShow',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      imageURL: 'string',
-      isShow: 'boolean',
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class CountCrowdAdvanceRequest extends $tea.Model {
-  imageURLObject?: Readable;
-  isShow?: boolean;
-  static names(): { [key: string]: string } {
-    return {
-      imageURLObject: 'ImageURL',
-      isShow: 'IsShow',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      imageURLObject: 'Readable',
-      isShow: 'boolean',
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class CountCrowdResponseBody extends $tea.Model {
-  data?: CountCrowdResponseBodyData;
-  requestId?: string;
-  static names(): { [key: string]: string } {
-    return {
-      data: 'Data',
-      requestId: 'RequestId',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      data: CountCrowdResponseBodyData,
-      requestId: 'string',
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class CountCrowdResponse extends $tea.Model {
-  headers: { [key: string]: string };
-  statusCode: number;
-  body: CountCrowdResponseBody;
-  static names(): { [key: string]: string } {
-    return {
-      headers: 'headers',
-      statusCode: 'statusCode',
-      body: 'body',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
-      statusCode: 'number',
-      body: CountCrowdResponseBody,
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
 export class CreateFaceDbRequest extends $tea.Model {
   name?: string;
   static names(): { [key: string]: string } {
@@ -1785,109 +1694,6 @@ export class DetectFaceResponse extends $tea.Model {
       headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
       statusCode: 'number',
       body: DetectFaceResponseBody,
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class DetectIPCPedestrianRequest extends $tea.Model {
-  height?: number;
-  imageData?: string;
-  imageURL?: string;
-  width?: number;
-  static names(): { [key: string]: string } {
-    return {
-      height: 'Height',
-      imageData: 'ImageData',
-      imageURL: 'ImageURL',
-      width: 'Width',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      height: 'number',
-      imageData: 'string',
-      imageURL: 'string',
-      width: 'number',
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class DetectIPCPedestrianAdvanceRequest extends $tea.Model {
-  height?: number;
-  imageData?: string;
-  imageURLObject?: Readable;
-  width?: number;
-  static names(): { [key: string]: string } {
-    return {
-      height: 'Height',
-      imageData: 'ImageData',
-      imageURLObject: 'ImageURL',
-      width: 'Width',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      height: 'number',
-      imageData: 'string',
-      imageURLObject: 'Readable',
-      width: 'number',
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class DetectIPCPedestrianResponseBody extends $tea.Model {
-  data?: DetectIPCPedestrianResponseBodyData;
-  requestId?: string;
-  static names(): { [key: string]: string } {
-    return {
-      data: 'Data',
-      requestId: 'RequestId',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      data: DetectIPCPedestrianResponseBodyData,
-      requestId: 'string',
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class DetectIPCPedestrianResponse extends $tea.Model {
-  headers: { [key: string]: string };
-  statusCode: number;
-  body: DetectIPCPedestrianResponseBody;
-  static names(): { [key: string]: string } {
-    return {
-      headers: 'headers',
-      statusCode: 'statusCode',
-      body: 'body',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
-      statusCode: 'number',
-      body: DetectIPCPedestrianResponseBody,
     };
   }
 
@@ -4918,115 +4724,6 @@ export class SearchFaceResponse extends $tea.Model {
   }
 }
 
-export class SwapFacialFeaturesRequest extends $tea.Model {
-  editPart?: string;
-  sourceImageData?: Buffer;
-  sourceImageURL?: string;
-  targetImageData?: Buffer;
-  targetImageURL?: string;
-  static names(): { [key: string]: string } {
-    return {
-      editPart: 'EditPart',
-      sourceImageData: 'SourceImageData',
-      sourceImageURL: 'SourceImageURL',
-      targetImageData: 'TargetImageData',
-      targetImageURL: 'TargetImageURL',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      editPart: 'string',
-      sourceImageData: 'Buffer',
-      sourceImageURL: 'string',
-      targetImageData: 'Buffer',
-      targetImageURL: 'string',
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class SwapFacialFeaturesAdvanceRequest extends $tea.Model {
-  editPart?: string;
-  sourceImageData?: Buffer;
-  sourceImageURLObject?: Readable;
-  targetImageData?: Buffer;
-  targetImageURLObject?: Readable;
-  static names(): { [key: string]: string } {
-    return {
-      editPart: 'EditPart',
-      sourceImageData: 'SourceImageData',
-      sourceImageURLObject: 'SourceImageURL',
-      targetImageData: 'TargetImageData',
-      targetImageURLObject: 'TargetImageURL',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      editPart: 'string',
-      sourceImageData: 'Buffer',
-      sourceImageURLObject: 'Readable',
-      targetImageData: 'Buffer',
-      targetImageURLObject: 'Readable',
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class SwapFacialFeaturesResponseBody extends $tea.Model {
-  data?: SwapFacialFeaturesResponseBodyData;
-  requestId?: string;
-  static names(): { [key: string]: string } {
-    return {
-      data: 'Data',
-      requestId: 'RequestId',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      data: SwapFacialFeaturesResponseBodyData,
-      requestId: 'string',
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class SwapFacialFeaturesResponse extends $tea.Model {
-  headers: { [key: string]: string };
-  statusCode: number;
-  body: SwapFacialFeaturesResponseBody;
-  static names(): { [key: string]: string } {
-    return {
-      headers: 'headers',
-      statusCode: 'statusCode',
-      body: 'body',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
-      statusCode: 'number',
-      body: SwapFacialFeaturesResponseBody,
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
 export class UpdateFaceEntityRequest extends $tea.Model {
   dbName?: string;
   entityId?: string;
@@ -5730,15 +5427,18 @@ export class BeautifyBodyResponseBodyData extends $tea.Model {
 
 export class BlurFaceResponseBodyData extends $tea.Model {
   imageURL?: string;
+  maskURL?: string;
   static names(): { [key: string]: string } {
     return {
       imageURL: 'ImageURL',
+      maskURL: 'MaskURL',
     };
   }
 
   static types(): { [key: string]: any } {
     return {
       imageURL: 'string',
+      maskURL: 'string',
     };
   }
 
@@ -5974,28 +5674,6 @@ export class CompareFaceWithMaskResponseBodyData extends $tea.Model {
   }
 }
 
-export class CountCrowdResponseBodyData extends $tea.Model {
-  hotMap?: string;
-  peopleNumber?: number;
-  static names(): { [key: string]: string } {
-    return {
-      hotMap: 'HotMap',
-      peopleNumber: 'PeopleNumber',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      hotMap: 'string',
-      peopleNumber: 'number',
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
 export class DetectBodyCountResponseBodyData extends $tea.Model {
   personNumber?: number;
   static names(): { [key: string]: string } {
@@ -6178,66 +5856,6 @@ export class DetectFaceResponseBodyData extends $tea.Model {
       poseList: { 'type': 'array', 'itemType': 'number' },
       pupils: { 'type': 'array', 'itemType': 'number' },
       qualities: DetectFaceResponseBodyDataQualities,
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class DetectIPCPedestrianResponseBodyDataImageInfoListElements extends $tea.Model {
-  boxes?: number[];
-  score?: number;
-  static names(): { [key: string]: string } {
-    return {
-      boxes: 'Boxes',
-      score: 'Score',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      boxes: { 'type': 'array', 'itemType': 'number' },
-      score: 'number',
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class DetectIPCPedestrianResponseBodyDataImageInfoList extends $tea.Model {
-  elements?: DetectIPCPedestrianResponseBodyDataImageInfoListElements[];
-  static names(): { [key: string]: string } {
-    return {
-      elements: 'Elements',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      elements: { 'type': 'array', 'itemType': DetectIPCPedestrianResponseBodyDataImageInfoListElements },
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class DetectIPCPedestrianResponseBodyData extends $tea.Model {
-  imageInfoList?: DetectIPCPedestrianResponseBodyDataImageInfoList[];
-  static names(): { [key: string]: string } {
-    return {
-      imageInfoList: 'ImageInfoList',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      imageInfoList: { 'type': 'array', 'itemType': DetectIPCPedestrianResponseBodyDataImageInfoList },
     };
   }
 
@@ -6916,7 +6534,7 @@ export class EnhanceFaceResponseBodyData extends $tea.Model {
 }
 
 export class ExtractFingerPrintResponseBodyData extends $tea.Model {
-  fingerPrint?: Buffer;
+  fingerPrint?: string;
   static names(): { [key: string]: string } {
     return {
       fingerPrint: 'FingerPrint',
@@ -6925,7 +6543,7 @@ export class ExtractFingerPrintResponseBodyData extends $tea.Model {
 
   static types(): { [key: string]: any } {
     return {
-      fingerPrint: 'Buffer',
+      fingerPrint: 'string',
     };
   }
 
@@ -8847,25 +8465,6 @@ export class SearchFaceResponseBodyData extends $tea.Model {
   }
 }
 
-export class SwapFacialFeaturesResponseBodyData extends $tea.Model {
-  imageURL?: string;
-  static names(): { [key: string]: string } {
-    return {
-      imageURL: 'ImageURL',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      imageURL: 'string',
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
 export class VerifyFaceMaskResponseBodyData extends $tea.Model {
   confidence?: number;
   mask?: number;
@@ -9981,113 +9580,6 @@ export default class Client extends OpenApi {
     return compareFaceWithMaskResp;
   }
 
-  async countCrowdWithOptions(request: CountCrowdRequest, runtime: $Util.RuntimeOptions): Promise<CountCrowdResponse> {
-    Util.validateModel(request);
-    let body : {[key: string ]: any} = { };
-    if (!Util.isUnset(request.imageURL)) {
-      body["ImageURL"] = request.imageURL;
-    }
-
-    if (!Util.isUnset(request.isShow)) {
-      body["IsShow"] = request.isShow;
-    }
-
-    let req = new $OpenApi.OpenApiRequest({
-      body: OpenApiUtil.parseToMap(body),
-    });
-    let params = new $OpenApi.Params({
-      action: "CountCrowd",
-      version: "2019-12-30",
-      protocol: "HTTPS",
-      pathname: "/",
-      method: "POST",
-      authType: "AK",
-      style: "RPC",
-      reqBodyType: "formData",
-      bodyType: "json",
-    });
-    return $tea.cast<CountCrowdResponse>(await this.callApi(params, req, runtime), new CountCrowdResponse({}));
-  }
-
-  async countCrowd(request: CountCrowdRequest): Promise<CountCrowdResponse> {
-    let runtime = new $Util.RuntimeOptions({ });
-    return await this.countCrowdWithOptions(request, runtime);
-  }
-
-  async countCrowdAdvance(request: CountCrowdAdvanceRequest, runtime: $Util.RuntimeOptions): Promise<CountCrowdResponse> {
-    // Step 0: init client
-    let accessKeyId = await this._credential.getAccessKeyId();
-    let accessKeySecret = await this._credential.getAccessKeySecret();
-    let securityToken = await this._credential.getSecurityToken();
-    let credentialType = this._credential.getType();
-    let openPlatformEndpoint = this._openPlatformEndpoint;
-    if (Util.isUnset(openPlatformEndpoint)) {
-      openPlatformEndpoint = "openplatform.aliyuncs.com";
-    }
-
-    if (Util.isUnset(credentialType)) {
-      credentialType = "access_key";
-    }
-
-    let authConfig = new $OpenApi.Config({
-      accessKeyId: accessKeyId,
-      accessKeySecret: accessKeySecret,
-      securityToken: securityToken,
-      type: credentialType,
-      endpoint: openPlatformEndpoint,
-      protocol: this._protocol,
-      regionId: this._regionId,
-    });
-    let authClient = new OpenPlatform(authConfig);
-    let authRequest = new $OpenPlatform.AuthorizeFileUploadRequest({
-      product: "facebody",
-      regionId: this._regionId,
-    });
-    let authResponse = new $OpenPlatform.AuthorizeFileUploadResponse({ });
-    let ossConfig = new $OSS.Config({
-      accessKeySecret: accessKeySecret,
-      type: "access_key",
-      protocol: this._protocol,
-      regionId: this._regionId,
-    });
-    let ossClient : OSS = null;
-    let fileObj = new $FileForm.FileField({ });
-    let ossHeader = new $OSS.PostObjectRequestHeader({ });
-    let uploadRequest = new $OSS.PostObjectRequest({ });
-    let ossRuntime = new $OSSUtil.RuntimeOptions({ });
-    OpenApiUtil.convert(runtime, ossRuntime);
-    let countCrowdReq = new CountCrowdRequest({ });
-    OpenApiUtil.convert(request, countCrowdReq);
-    if (!Util.isUnset(request.imageURLObject)) {
-      authResponse = await authClient.authorizeFileUploadWithOptions(authRequest, runtime);
-      ossConfig.accessKeyId = authResponse.body.accessKeyId;
-      ossConfig.endpoint = OpenApiUtil.getEndpoint(authResponse.body.endpoint, authResponse.body.useAccelerate, this._endpointType);
-      ossClient = new OSS(ossConfig);
-      fileObj = new $FileForm.FileField({
-        filename: authResponse.body.objectKey,
-        content: request.imageURLObject,
-        contentType: "",
-      });
-      ossHeader = new $OSS.PostObjectRequestHeader({
-        accessKeyId: authResponse.body.accessKeyId,
-        policy: authResponse.body.encodedPolicy,
-        signature: authResponse.body.signature,
-        key: authResponse.body.objectKey,
-        file: fileObj,
-        successActionStatus: "201",
-      });
-      uploadRequest = new $OSS.PostObjectRequest({
-        bucketName: authResponse.body.bucket,
-        header: ossHeader,
-      });
-      await ossClient.postObject(uploadRequest, ossRuntime);
-      countCrowdReq.imageURL = `http://${authResponse.body.bucket}.${authResponse.body.endpoint}/${authResponse.body.objectKey}`;
-    }
-
-    let countCrowdResp = await this.countCrowdWithOptions(countCrowdReq, runtime);
-    return countCrowdResp;
-  }
-
   async createFaceDbWithOptions(request: CreateFaceDbRequest, runtime: $Util.RuntimeOptions): Promise<CreateFaceDbResponse> {
     Util.validateModel(request);
     let body : {[key: string ]: any} = { };
@@ -10667,121 +10159,6 @@ export default class Client extends OpenApi {
 
     let detectFaceResp = await this.detectFaceWithOptions(detectFaceReq, runtime);
     return detectFaceResp;
-  }
-
-  async detectIPCPedestrianWithOptions(request: DetectIPCPedestrianRequest, runtime: $Util.RuntimeOptions): Promise<DetectIPCPedestrianResponse> {
-    Util.validateModel(request);
-    let body : {[key: string ]: any} = { };
-    if (!Util.isUnset(request.height)) {
-      body["Height"] = request.height;
-    }
-
-    if (!Util.isUnset(request.imageData)) {
-      body["ImageData"] = request.imageData;
-    }
-
-    if (!Util.isUnset(request.imageURL)) {
-      body["ImageURL"] = request.imageURL;
-    }
-
-    if (!Util.isUnset(request.width)) {
-      body["Width"] = request.width;
-    }
-
-    let req = new $OpenApi.OpenApiRequest({
-      body: OpenApiUtil.parseToMap(body),
-    });
-    let params = new $OpenApi.Params({
-      action: "DetectIPCPedestrian",
-      version: "2019-12-30",
-      protocol: "HTTPS",
-      pathname: "/",
-      method: "POST",
-      authType: "AK",
-      style: "RPC",
-      reqBodyType: "formData",
-      bodyType: "json",
-    });
-    return $tea.cast<DetectIPCPedestrianResponse>(await this.callApi(params, req, runtime), new DetectIPCPedestrianResponse({}));
-  }
-
-  async detectIPCPedestrian(request: DetectIPCPedestrianRequest): Promise<DetectIPCPedestrianResponse> {
-    let runtime = new $Util.RuntimeOptions({ });
-    return await this.detectIPCPedestrianWithOptions(request, runtime);
-  }
-
-  async detectIPCPedestrianAdvance(request: DetectIPCPedestrianAdvanceRequest, runtime: $Util.RuntimeOptions): Promise<DetectIPCPedestrianResponse> {
-    // Step 0: init client
-    let accessKeyId = await this._credential.getAccessKeyId();
-    let accessKeySecret = await this._credential.getAccessKeySecret();
-    let securityToken = await this._credential.getSecurityToken();
-    let credentialType = this._credential.getType();
-    let openPlatformEndpoint = this._openPlatformEndpoint;
-    if (Util.isUnset(openPlatformEndpoint)) {
-      openPlatformEndpoint = "openplatform.aliyuncs.com";
-    }
-
-    if (Util.isUnset(credentialType)) {
-      credentialType = "access_key";
-    }
-
-    let authConfig = new $OpenApi.Config({
-      accessKeyId: accessKeyId,
-      accessKeySecret: accessKeySecret,
-      securityToken: securityToken,
-      type: credentialType,
-      endpoint: openPlatformEndpoint,
-      protocol: this._protocol,
-      regionId: this._regionId,
-    });
-    let authClient = new OpenPlatform(authConfig);
-    let authRequest = new $OpenPlatform.AuthorizeFileUploadRequest({
-      product: "facebody",
-      regionId: this._regionId,
-    });
-    let authResponse = new $OpenPlatform.AuthorizeFileUploadResponse({ });
-    let ossConfig = new $OSS.Config({
-      accessKeySecret: accessKeySecret,
-      type: "access_key",
-      protocol: this._protocol,
-      regionId: this._regionId,
-    });
-    let ossClient : OSS = null;
-    let fileObj = new $FileForm.FileField({ });
-    let ossHeader = new $OSS.PostObjectRequestHeader({ });
-    let uploadRequest = new $OSS.PostObjectRequest({ });
-    let ossRuntime = new $OSSUtil.RuntimeOptions({ });
-    OpenApiUtil.convert(runtime, ossRuntime);
-    let detectIPCPedestrianReq = new DetectIPCPedestrianRequest({ });
-    OpenApiUtil.convert(request, detectIPCPedestrianReq);
-    if (!Util.isUnset(request.imageURLObject)) {
-      authResponse = await authClient.authorizeFileUploadWithOptions(authRequest, runtime);
-      ossConfig.accessKeyId = authResponse.body.accessKeyId;
-      ossConfig.endpoint = OpenApiUtil.getEndpoint(authResponse.body.endpoint, authResponse.body.useAccelerate, this._endpointType);
-      ossClient = new OSS(ossConfig);
-      fileObj = new $FileForm.FileField({
-        filename: authResponse.body.objectKey,
-        content: request.imageURLObject,
-        contentType: "",
-      });
-      ossHeader = new $OSS.PostObjectRequestHeader({
-        accessKeyId: authResponse.body.accessKeyId,
-        policy: authResponse.body.encodedPolicy,
-        signature: authResponse.body.signature,
-        key: authResponse.body.objectKey,
-        file: fileObj,
-        successActionStatus: "201",
-      });
-      uploadRequest = new $OSS.PostObjectRequest({
-        bucketName: authResponse.body.bucket,
-        header: ossHeader,
-      });
-      await ossClient.postObject(uploadRequest, ossRuntime);
-      detectIPCPedestrianReq.imageURL = `http://${authResponse.body.bucket}.${authResponse.body.endpoint}/${authResponse.body.objectKey}`;
-    }
-
-    let detectIPCPedestrianResp = await this.detectIPCPedestrianWithOptions(detectIPCPedestrianReq, runtime);
-    return detectIPCPedestrianResp;
   }
 
   async detectInfraredLivingFaceWithOptions(request: DetectInfraredLivingFaceRequest, runtime: $Util.RuntimeOptions): Promise<DetectInfraredLivingFaceResponse> {
@@ -14025,151 +13402,6 @@ export default class Client extends OpenApi {
 
     let searchFaceResp = await this.searchFaceWithOptions(searchFaceReq, runtime);
     return searchFaceResp;
-  }
-
-  async swapFacialFeaturesWithOptions(request: SwapFacialFeaturesRequest, runtime: $Util.RuntimeOptions): Promise<SwapFacialFeaturesResponse> {
-    Util.validateModel(request);
-    let body : {[key: string ]: any} = { };
-    if (!Util.isUnset(request.editPart)) {
-      body["EditPart"] = request.editPart;
-    }
-
-    if (!Util.isUnset(request.sourceImageData)) {
-      body["SourceImageData"] = request.sourceImageData;
-    }
-
-    if (!Util.isUnset(request.sourceImageURL)) {
-      body["SourceImageURL"] = request.sourceImageURL;
-    }
-
-    if (!Util.isUnset(request.targetImageData)) {
-      body["TargetImageData"] = request.targetImageData;
-    }
-
-    if (!Util.isUnset(request.targetImageURL)) {
-      body["TargetImageURL"] = request.targetImageURL;
-    }
-
-    let req = new $OpenApi.OpenApiRequest({
-      body: OpenApiUtil.parseToMap(body),
-    });
-    let params = new $OpenApi.Params({
-      action: "SwapFacialFeatures",
-      version: "2019-12-30",
-      protocol: "HTTPS",
-      pathname: "/",
-      method: "POST",
-      authType: "AK",
-      style: "RPC",
-      reqBodyType: "formData",
-      bodyType: "json",
-    });
-    return $tea.cast<SwapFacialFeaturesResponse>(await this.callApi(params, req, runtime), new SwapFacialFeaturesResponse({}));
-  }
-
-  async swapFacialFeatures(request: SwapFacialFeaturesRequest): Promise<SwapFacialFeaturesResponse> {
-    let runtime = new $Util.RuntimeOptions({ });
-    return await this.swapFacialFeaturesWithOptions(request, runtime);
-  }
-
-  async swapFacialFeaturesAdvance(request: SwapFacialFeaturesAdvanceRequest, runtime: $Util.RuntimeOptions): Promise<SwapFacialFeaturesResponse> {
-    // Step 0: init client
-    let accessKeyId = await this._credential.getAccessKeyId();
-    let accessKeySecret = await this._credential.getAccessKeySecret();
-    let securityToken = await this._credential.getSecurityToken();
-    let credentialType = this._credential.getType();
-    let openPlatformEndpoint = this._openPlatformEndpoint;
-    if (Util.isUnset(openPlatformEndpoint)) {
-      openPlatformEndpoint = "openplatform.aliyuncs.com";
-    }
-
-    if (Util.isUnset(credentialType)) {
-      credentialType = "access_key";
-    }
-
-    let authConfig = new $OpenApi.Config({
-      accessKeyId: accessKeyId,
-      accessKeySecret: accessKeySecret,
-      securityToken: securityToken,
-      type: credentialType,
-      endpoint: openPlatformEndpoint,
-      protocol: this._protocol,
-      regionId: this._regionId,
-    });
-    let authClient = new OpenPlatform(authConfig);
-    let authRequest = new $OpenPlatform.AuthorizeFileUploadRequest({
-      product: "facebody",
-      regionId: this._regionId,
-    });
-    let authResponse = new $OpenPlatform.AuthorizeFileUploadResponse({ });
-    let ossConfig = new $OSS.Config({
-      accessKeySecret: accessKeySecret,
-      type: "access_key",
-      protocol: this._protocol,
-      regionId: this._regionId,
-    });
-    let ossClient : OSS = null;
-    let fileObj = new $FileForm.FileField({ });
-    let ossHeader = new $OSS.PostObjectRequestHeader({ });
-    let uploadRequest = new $OSS.PostObjectRequest({ });
-    let ossRuntime = new $OSSUtil.RuntimeOptions({ });
-    OpenApiUtil.convert(runtime, ossRuntime);
-    let swapFacialFeaturesReq = new SwapFacialFeaturesRequest({ });
-    OpenApiUtil.convert(request, swapFacialFeaturesReq);
-    if (!Util.isUnset(request.sourceImageURLObject)) {
-      authResponse = await authClient.authorizeFileUploadWithOptions(authRequest, runtime);
-      ossConfig.accessKeyId = authResponse.body.accessKeyId;
-      ossConfig.endpoint = OpenApiUtil.getEndpoint(authResponse.body.endpoint, authResponse.body.useAccelerate, this._endpointType);
-      ossClient = new OSS(ossConfig);
-      fileObj = new $FileForm.FileField({
-        filename: authResponse.body.objectKey,
-        content: request.sourceImageURLObject,
-        contentType: "",
-      });
-      ossHeader = new $OSS.PostObjectRequestHeader({
-        accessKeyId: authResponse.body.accessKeyId,
-        policy: authResponse.body.encodedPolicy,
-        signature: authResponse.body.signature,
-        key: authResponse.body.objectKey,
-        file: fileObj,
-        successActionStatus: "201",
-      });
-      uploadRequest = new $OSS.PostObjectRequest({
-        bucketName: authResponse.body.bucket,
-        header: ossHeader,
-      });
-      await ossClient.postObject(uploadRequest, ossRuntime);
-      swapFacialFeaturesReq.sourceImageURL = `http://${authResponse.body.bucket}.${authResponse.body.endpoint}/${authResponse.body.objectKey}`;
-    }
-
-    if (!Util.isUnset(request.targetImageURLObject)) {
-      authResponse = await authClient.authorizeFileUploadWithOptions(authRequest, runtime);
-      ossConfig.accessKeyId = authResponse.body.accessKeyId;
-      ossConfig.endpoint = OpenApiUtil.getEndpoint(authResponse.body.endpoint, authResponse.body.useAccelerate, this._endpointType);
-      ossClient = new OSS(ossConfig);
-      fileObj = new $FileForm.FileField({
-        filename: authResponse.body.objectKey,
-        content: request.targetImageURLObject,
-        contentType: "",
-      });
-      ossHeader = new $OSS.PostObjectRequestHeader({
-        accessKeyId: authResponse.body.accessKeyId,
-        policy: authResponse.body.encodedPolicy,
-        signature: authResponse.body.signature,
-        key: authResponse.body.objectKey,
-        file: fileObj,
-        successActionStatus: "201",
-      });
-      uploadRequest = new $OSS.PostObjectRequest({
-        bucketName: authResponse.body.bucket,
-        header: ossHeader,
-      });
-      await ossClient.postObject(uploadRequest, ossRuntime);
-      swapFacialFeaturesReq.targetImageURL = `http://${authResponse.body.bucket}.${authResponse.body.endpoint}/${authResponse.body.objectKey}`;
-    }
-
-    let swapFacialFeaturesResp = await this.swapFacialFeaturesWithOptions(swapFacialFeaturesReq, runtime);
-    return swapFacialFeaturesResp;
   }
 
   async updateFaceEntityWithOptions(request: UpdateFaceEntityRequest, runtime: $Util.RuntimeOptions): Promise<UpdateFaceEntityResponse> {
