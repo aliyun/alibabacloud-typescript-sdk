@@ -731,6 +731,84 @@ export class BatchUpdateCdnDomainResponse extends $tea.Model {
   }
 }
 
+export class ChangeCdnDomainToDcdnRequest extends $tea.Model {
+  domainName?: string;
+  operation?: string;
+  ownerAccount?: string;
+  ownerId?: number;
+  securityToken?: string;
+  static names(): { [key: string]: string } {
+    return {
+      domainName: 'DomainName',
+      operation: 'Operation',
+      ownerAccount: 'OwnerAccount',
+      ownerId: 'OwnerId',
+      securityToken: 'SecurityToken',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      domainName: 'string',
+      operation: 'string',
+      ownerAccount: 'string',
+      ownerId: 'number',
+      securityToken: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class ChangeCdnDomainToDcdnResponseBody extends $tea.Model {
+  content?: { [key: string]: any };
+  requestId?: string;
+  static names(): { [key: string]: string } {
+    return {
+      content: 'Content',
+      requestId: 'RequestId',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      content: { 'type': 'map', 'keyType': 'string', 'valueType': 'any' },
+      requestId: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class ChangeCdnDomainToDcdnResponse extends $tea.Model {
+  headers: { [key: string]: string };
+  statusCode: number;
+  body: ChangeCdnDomainToDcdnResponseBody;
+  static names(): { [key: string]: string } {
+    return {
+      headers: 'headers',
+      statusCode: 'statusCode',
+      body: 'body',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
+      body: ChangeCdnDomainToDcdnResponseBody,
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
 export class CreateCdnCertificateSigningRequestRequest extends $tea.Model {
   city?: string;
   commonName?: string;
@@ -2008,6 +2086,90 @@ export class DescribeCdnCertificateDetailResponse extends $tea.Model {
   }
 }
 
+export class DescribeCdnCertificateDetailByIdRequest extends $tea.Model {
+  certId?: string;
+  certRegion?: string;
+  ownerId?: number;
+  securityToken?: string;
+  static names(): { [key: string]: string } {
+    return {
+      certId: 'CertId',
+      certRegion: 'CertRegion',
+      ownerId: 'OwnerId',
+      securityToken: 'SecurityToken',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      certId: 'string',
+      certRegion: 'string',
+      ownerId: 'number',
+      securityToken: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class DescribeCdnCertificateDetailByIdResponseBody extends $tea.Model {
+  cert?: string;
+  certId?: number;
+  certName?: string;
+  key?: string;
+  requestId?: string;
+  static names(): { [key: string]: string } {
+    return {
+      cert: 'Cert',
+      certId: 'CertId',
+      certName: 'CertName',
+      key: 'Key',
+      requestId: 'RequestId',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      cert: 'string',
+      certId: 'number',
+      certName: 'string',
+      key: 'string',
+      requestId: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class DescribeCdnCertificateDetailByIdResponse extends $tea.Model {
+  headers: { [key: string]: string };
+  statusCode: number;
+  body: DescribeCdnCertificateDetailByIdResponseBody;
+  static names(): { [key: string]: string } {
+    return {
+      headers: 'headers',
+      statusCode: 'statusCode',
+      body: 'body',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
+      body: DescribeCdnCertificateDetailByIdResponseBody,
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
 export class DescribeCdnCertificateListRequest extends $tea.Model {
   domainName?: string;
   ownerId?: number;
@@ -3185,6 +3347,87 @@ export class DescribeCdnSMCertificateListResponse extends $tea.Model {
       headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
       statusCode: 'number',
       body: DescribeCdnSMCertificateListResponseBody,
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class DescribeCdnSSLCertificateListRequest extends $tea.Model {
+  domainName?: string;
+  ownerId?: number;
+  pageNumber?: number;
+  pageSize?: number;
+  searchKeyword?: string;
+  securityToken?: string;
+  static names(): { [key: string]: string } {
+    return {
+      domainName: 'DomainName',
+      ownerId: 'OwnerId',
+      pageNumber: 'PageNumber',
+      pageSize: 'PageSize',
+      searchKeyword: 'SearchKeyword',
+      securityToken: 'SecurityToken',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      domainName: 'string',
+      ownerId: 'number',
+      pageNumber: 'number',
+      pageSize: 'number',
+      searchKeyword: 'string',
+      securityToken: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class DescribeCdnSSLCertificateListResponseBody extends $tea.Model {
+  certificateListModel?: DescribeCdnSSLCertificateListResponseBodyCertificateListModel;
+  requestId?: string;
+  static names(): { [key: string]: string } {
+    return {
+      certificateListModel: 'CertificateListModel',
+      requestId: 'RequestId',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      certificateListModel: DescribeCdnSSLCertificateListResponseBodyCertificateListModel,
+      requestId: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class DescribeCdnSSLCertificateListResponse extends $tea.Model {
+  headers: { [key: string]: string };
+  statusCode: number;
+  body: DescribeCdnSSLCertificateListResponseBody;
+  static names(): { [key: string]: string } {
+    return {
+      headers: 'headers',
+      statusCode: 'statusCode',
+      body: 'body',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
+      body: DescribeCdnSSLCertificateListResponseBody,
     };
   }
 
@@ -12811,6 +13054,90 @@ export class DescribeCdnSMCertificateListResponseBodyCertificateListModel extend
   }
 }
 
+export class DescribeCdnSSLCertificateListResponseBodyCertificateListModelCertListCert extends $tea.Model {
+  certId?: number;
+  certName?: string;
+  certRegion?: string;
+  common?: string;
+  fingerprint?: string;
+  issuer?: string;
+  lastTime?: number;
+  static names(): { [key: string]: string } {
+    return {
+      certId: 'CertId',
+      certName: 'CertName',
+      certRegion: 'CertRegion',
+      common: 'Common',
+      fingerprint: 'Fingerprint',
+      issuer: 'Issuer',
+      lastTime: 'LastTime',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      certId: 'number',
+      certName: 'string',
+      certRegion: 'string',
+      common: 'string',
+      fingerprint: 'string',
+      issuer: 'string',
+      lastTime: 'number',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class DescribeCdnSSLCertificateListResponseBodyCertificateListModelCertList extends $tea.Model {
+  cert?: DescribeCdnSSLCertificateListResponseBodyCertificateListModelCertListCert[];
+  static names(): { [key: string]: string } {
+    return {
+      cert: 'Cert',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      cert: { 'type': 'array', 'itemType': DescribeCdnSSLCertificateListResponseBodyCertificateListModelCertListCert },
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class DescribeCdnSSLCertificateListResponseBodyCertificateListModel extends $tea.Model {
+  certList?: DescribeCdnSSLCertificateListResponseBodyCertificateListModelCertList;
+  count?: number;
+  pageNumber?: number;
+  pageSize?: number;
+  static names(): { [key: string]: string } {
+    return {
+      certList: 'CertList',
+      count: 'Count',
+      pageNumber: 'PageNumber',
+      pageSize: 'PageSize',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      certList: DescribeCdnSSLCertificateListResponseBodyCertificateListModelCertList,
+      count: 'number',
+      pageNumber: 'number',
+      pageSize: 'number',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
 export class DescribeCdnServiceResponseBodyOperationLocksLockReason extends $tea.Model {
   lockReason?: string;
   static names(): { [key: string]: string } {
@@ -17955,6 +18282,51 @@ export default class Client extends OpenApi {
     return await this.batchUpdateCdnDomainWithOptions(request, runtime);
   }
 
+  async changeCdnDomainToDcdnWithOptions(request: ChangeCdnDomainToDcdnRequest, runtime: $Util.RuntimeOptions): Promise<ChangeCdnDomainToDcdnResponse> {
+    Util.validateModel(request);
+    let query = { };
+    if (!Util.isUnset(request.domainName)) {
+      query["DomainName"] = request.domainName;
+    }
+
+    if (!Util.isUnset(request.operation)) {
+      query["Operation"] = request.operation;
+    }
+
+    if (!Util.isUnset(request.ownerAccount)) {
+      query["OwnerAccount"] = request.ownerAccount;
+    }
+
+    if (!Util.isUnset(request.ownerId)) {
+      query["OwnerId"] = request.ownerId;
+    }
+
+    if (!Util.isUnset(request.securityToken)) {
+      query["SecurityToken"] = request.securityToken;
+    }
+
+    let req = new $OpenApi.OpenApiRequest({
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApi.Params({
+      action: "ChangeCdnDomainToDcdn",
+      version: "2018-05-10",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $tea.cast<ChangeCdnDomainToDcdnResponse>(await this.callApi(params, req, runtime), new ChangeCdnDomainToDcdnResponse({}));
+  }
+
+  async changeCdnDomainToDcdn(request: ChangeCdnDomainToDcdnRequest): Promise<ChangeCdnDomainToDcdnResponse> {
+    let runtime = new $Util.RuntimeOptions({ });
+    return await this.changeCdnDomainToDcdnWithOptions(request, runtime);
+  }
+
   /**
     * > You can call this operation up to 100 times per second per account.
     *
@@ -18807,6 +19179,47 @@ export default class Client extends OpenApi {
     return await this.describeCdnCertificateDetailWithOptions(request, runtime);
   }
 
+  async describeCdnCertificateDetailByIdWithOptions(request: DescribeCdnCertificateDetailByIdRequest, runtime: $Util.RuntimeOptions): Promise<DescribeCdnCertificateDetailByIdResponse> {
+    Util.validateModel(request);
+    let query = { };
+    if (!Util.isUnset(request.certId)) {
+      query["CertId"] = request.certId;
+    }
+
+    if (!Util.isUnset(request.certRegion)) {
+      query["CertRegion"] = request.certRegion;
+    }
+
+    if (!Util.isUnset(request.ownerId)) {
+      query["OwnerId"] = request.ownerId;
+    }
+
+    if (!Util.isUnset(request.securityToken)) {
+      query["SecurityToken"] = request.securityToken;
+    }
+
+    let req = new $OpenApi.OpenApiRequest({
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApi.Params({
+      action: "DescribeCdnCertificateDetailById",
+      version: "2018-05-10",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $tea.cast<DescribeCdnCertificateDetailByIdResponse>(await this.callApi(params, req, runtime), new DescribeCdnCertificateDetailByIdResponse({}));
+  }
+
+  async describeCdnCertificateDetailById(request: DescribeCdnCertificateDetailByIdRequest): Promise<DescribeCdnCertificateDetailByIdResponse> {
+    let runtime = new $Util.RuntimeOptions({ });
+    return await this.describeCdnCertificateDetailByIdWithOptions(request, runtime);
+  }
+
   /**
     * > You can call this operation up to 30 times per second per account.
     *
@@ -19581,6 +19994,55 @@ export default class Client extends OpenApi {
   async describeCdnSMCertificateList(request: DescribeCdnSMCertificateListRequest): Promise<DescribeCdnSMCertificateListResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.describeCdnSMCertificateListWithOptions(request, runtime);
+  }
+
+  async describeCdnSSLCertificateListWithOptions(request: DescribeCdnSSLCertificateListRequest, runtime: $Util.RuntimeOptions): Promise<DescribeCdnSSLCertificateListResponse> {
+    Util.validateModel(request);
+    let query = { };
+    if (!Util.isUnset(request.domainName)) {
+      query["DomainName"] = request.domainName;
+    }
+
+    if (!Util.isUnset(request.ownerId)) {
+      query["OwnerId"] = request.ownerId;
+    }
+
+    if (!Util.isUnset(request.pageNumber)) {
+      query["PageNumber"] = request.pageNumber;
+    }
+
+    if (!Util.isUnset(request.pageSize)) {
+      query["PageSize"] = request.pageSize;
+    }
+
+    if (!Util.isUnset(request.searchKeyword)) {
+      query["SearchKeyword"] = request.searchKeyword;
+    }
+
+    if (!Util.isUnset(request.securityToken)) {
+      query["SecurityToken"] = request.securityToken;
+    }
+
+    let req = new $OpenApi.OpenApiRequest({
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApi.Params({
+      action: "DescribeCdnSSLCertificateList",
+      version: "2018-05-10",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $tea.cast<DescribeCdnSSLCertificateListResponse>(await this.callApi(params, req, runtime), new DescribeCdnSSLCertificateListResponse({}));
+  }
+
+  async describeCdnSSLCertificateList(request: DescribeCdnSSLCertificateListRequest): Promise<DescribeCdnSSLCertificateListResponse> {
+    let runtime = new $Util.RuntimeOptions({ });
+    return await this.describeCdnSSLCertificateListWithOptions(request, runtime);
   }
 
   /**
