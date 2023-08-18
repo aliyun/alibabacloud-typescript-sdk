@@ -353,6 +353,84 @@ export class AddWebhookResponse extends $tea.Model {
   }
 }
 
+export class CloseMergeRequestRequest extends $tea.Model {
+  accessToken?: string;
+  organizationId?: string;
+  static names(): { [key: string]: string } {
+    return {
+      accessToken: 'accessToken',
+      organizationId: 'organizationId',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      accessToken: 'string',
+      organizationId: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class CloseMergeRequestResponseBody extends $tea.Model {
+  errorCode?: string;
+  errorMessage?: string;
+  requestId?: string;
+  result?: CloseMergeRequestResponseBodyResult;
+  success?: boolean;
+  static names(): { [key: string]: string } {
+    return {
+      errorCode: 'errorCode',
+      errorMessage: 'errorMessage',
+      requestId: 'requestId',
+      result: 'result',
+      success: 'success',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      errorCode: 'string',
+      errorMessage: 'string',
+      requestId: 'string',
+      result: CloseMergeRequestResponseBodyResult,
+      success: 'boolean',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class CloseMergeRequestResponse extends $tea.Model {
+  headers: { [key: string]: string };
+  statusCode: number;
+  body: CloseMergeRequestResponseBody;
+  static names(): { [key: string]: string } {
+    return {
+      headers: 'headers',
+      statusCode: 'statusCode',
+      body: 'body',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
+      body: CloseMergeRequestResponseBody,
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
 export class CreateBranchRequest extends $tea.Model {
   accessToken?: string;
   branchName?: string;
@@ -864,6 +942,111 @@ export class CreateHostGroupResponse extends $tea.Model {
       headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
       statusCode: 'number',
       body: CreateHostGroupResponseBody,
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class CreateMergeRequestRequest extends $tea.Model {
+  accessToken?: string;
+  createFrom?: string;
+  description?: string;
+  reviewerIds?: string[];
+  sourceBranch?: string;
+  sourceProjectId?: number;
+  targetBranch?: string;
+  targetProjectId?: number;
+  title?: string;
+  workItemIds?: string;
+  organizationId?: string;
+  static names(): { [key: string]: string } {
+    return {
+      accessToken: 'accessToken',
+      createFrom: 'createFrom',
+      description: 'description',
+      reviewerIds: 'reviewerIds',
+      sourceBranch: 'sourceBranch',
+      sourceProjectId: 'sourceProjectId',
+      targetBranch: 'targetBranch',
+      targetProjectId: 'targetProjectId',
+      title: 'title',
+      workItemIds: 'workItemIds',
+      organizationId: 'organizationId',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      accessToken: 'string',
+      createFrom: 'string',
+      description: 'string',
+      reviewerIds: { 'type': 'array', 'itemType': 'string' },
+      sourceBranch: 'string',
+      sourceProjectId: 'number',
+      targetBranch: 'string',
+      targetProjectId: 'number',
+      title: 'string',
+      workItemIds: 'string',
+      organizationId: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class CreateMergeRequestResponseBody extends $tea.Model {
+  errorCode?: string;
+  errorMessage?: string;
+  requestId?: string;
+  result?: CreateMergeRequestResponseBodyResult;
+  success?: boolean;
+  static names(): { [key: string]: string } {
+    return {
+      errorCode: 'errorCode',
+      errorMessage: 'errorMessage',
+      requestId: 'requestId',
+      result: 'result',
+      success: 'success',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      errorCode: 'string',
+      errorMessage: 'string',
+      requestId: 'string',
+      result: CreateMergeRequestResponseBodyResult,
+      success: 'boolean',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class CreateMergeRequestResponse extends $tea.Model {
+  headers: { [key: string]: string };
+  statusCode: number;
+  body: CreateMergeRequestResponseBody;
+  static names(): { [key: string]: string } {
+    return {
+      headers: 'headers',
+      statusCode: 'statusCode',
+      body: 'body',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
+      body: CreateMergeRequestResponseBody,
     };
   }
 
@@ -5331,6 +5514,84 @@ export class GetHostGroupResponse extends $tea.Model {
   }
 }
 
+export class GetMergeRequestRequest extends $tea.Model {
+  accessToken?: string;
+  organizationId?: string;
+  static names(): { [key: string]: string } {
+    return {
+      accessToken: 'accessToken',
+      organizationId: 'organizationId',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      accessToken: 'string',
+      organizationId: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class GetMergeRequestResponseBody extends $tea.Model {
+  errorCode?: string;
+  errorMessage?: string;
+  requestId?: string;
+  result?: GetMergeRequestResponseBodyResult;
+  success?: boolean;
+  static names(): { [key: string]: string } {
+    return {
+      errorCode: 'errorCode',
+      errorMessage: 'errorMessage',
+      requestId: 'requestId',
+      result: 'result',
+      success: 'success',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      errorCode: 'string',
+      errorMessage: 'string',
+      requestId: 'string',
+      result: GetMergeRequestResponseBodyResult,
+      success: 'boolean',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class GetMergeRequestResponse extends $tea.Model {
+  headers: { [key: string]: string };
+  statusCode: number;
+  body: GetMergeRequestResponseBody;
+  static names(): { [key: string]: string } {
+    return {
+      headers: 'headers',
+      statusCode: 'statusCode',
+      body: 'body',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
+      body: GetMergeRequestResponseBody,
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
 export class GetOrganizationMemberResponseBody extends $tea.Model {
   errorCode?: string;
   errorMessage?: string;
@@ -7562,6 +7823,120 @@ export class ListHostGroupsResponse extends $tea.Model {
       headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
       statusCode: 'number',
       body: ListHostGroupsResponseBody,
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class ListMergeRequestsRequest extends $tea.Model {
+  accessToken?: string;
+  authorIds?: string;
+  filter?: string;
+  groupIds?: string;
+  orderBy?: string;
+  organizationId?: string;
+  page?: number;
+  pageSize?: number;
+  projectIds?: string;
+  reviewerIds?: string;
+  search?: string;
+  sort?: string;
+  state?: string;
+  static names(): { [key: string]: string } {
+    return {
+      accessToken: 'accessToken',
+      authorIds: 'authorIds',
+      filter: 'filter',
+      groupIds: 'groupIds',
+      orderBy: 'orderBy',
+      organizationId: 'organizationId',
+      page: 'page',
+      pageSize: 'pageSize',
+      projectIds: 'projectIds',
+      reviewerIds: 'reviewerIds',
+      search: 'search',
+      sort: 'sort',
+      state: 'state',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      accessToken: 'string',
+      authorIds: 'string',
+      filter: 'string',
+      groupIds: 'string',
+      orderBy: 'string',
+      organizationId: 'string',
+      page: 'number',
+      pageSize: 'number',
+      projectIds: 'string',
+      reviewerIds: 'string',
+      search: 'string',
+      sort: 'string',
+      state: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class ListMergeRequestsResponseBody extends $tea.Model {
+  errorCode?: string;
+  errorMessage?: string;
+  requestId?: string;
+  result?: ListMergeRequestsResponseBodyResult[];
+  success?: boolean;
+  total?: number;
+  static names(): { [key: string]: string } {
+    return {
+      errorCode: 'errorCode',
+      errorMessage: 'errorMessage',
+      requestId: 'requestId',
+      result: 'result',
+      success: 'success',
+      total: 'total',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      errorCode: 'string',
+      errorMessage: 'string',
+      requestId: 'string',
+      result: { 'type': 'array', 'itemType': ListMergeRequestsResponseBodyResult },
+      success: 'boolean',
+      total: 'number',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class ListMergeRequestsResponse extends $tea.Model {
+  headers: { [key: string]: string };
+  statusCode: number;
+  body: ListMergeRequestsResponseBody;
+  static names(): { [key: string]: string } {
+    return {
+      headers: 'headers',
+      statusCode: 'statusCode',
+      body: 'body',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
+      body: ListMergeRequestsResponseBody,
     };
   }
 
@@ -11277,6 +11652,93 @@ export class LogVMDeployMachineResponse extends $tea.Model {
   }
 }
 
+export class MergeMergeRequestRequest extends $tea.Model {
+  accessToken?: string;
+  mergeMessage?: string;
+  mergeType?: string;
+  removeSourceBranch?: boolean;
+  organizationId?: string;
+  static names(): { [key: string]: string } {
+    return {
+      accessToken: 'accessToken',
+      mergeMessage: 'mergeMessage',
+      mergeType: 'mergeType',
+      removeSourceBranch: 'removeSourceBranch',
+      organizationId: 'organizationId',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      accessToken: 'string',
+      mergeMessage: 'string',
+      mergeType: 'string',
+      removeSourceBranch: 'boolean',
+      organizationId: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class MergeMergeRequestResponseBody extends $tea.Model {
+  errorCode?: string;
+  errorMessage?: string;
+  requestId?: string;
+  result?: MergeMergeRequestResponseBodyResult;
+  success?: boolean;
+  static names(): { [key: string]: string } {
+    return {
+      errorCode: 'errorCode',
+      errorMessage: 'errorMessage',
+      requestId: 'requestId',
+      result: 'result',
+      success: 'success',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      errorCode: 'string',
+      errorMessage: 'string',
+      requestId: 'string',
+      result: MergeMergeRequestResponseBodyResult,
+      success: 'boolean',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class MergeMergeRequestResponse extends $tea.Model {
+  headers: { [key: string]: string };
+  statusCode: number;
+  body: MergeMergeRequestResponseBody;
+  static names(): { [key: string]: string } {
+    return {
+      headers: 'headers',
+      statusCode: 'statusCode',
+      body: 'body',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
+      body: MergeMergeRequestResponseBody,
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
 export class PassPipelineValidateResponseBody extends $tea.Model {
   errorCode?: string;
   errorMessage?: string;
@@ -11428,6 +11890,84 @@ export class ReleaseWorkspaceResponse extends $tea.Model {
       headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
       statusCode: 'number',
       body: ReleaseWorkspaceResponseBody,
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class ReopenMergeRequestRequest extends $tea.Model {
+  accessToken?: string;
+  organizationId?: string;
+  static names(): { [key: string]: string } {
+    return {
+      accessToken: 'accessToken',
+      organizationId: 'organizationId',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      accessToken: 'string',
+      organizationId: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class ReopenMergeRequestResponseBody extends $tea.Model {
+  errorCode?: string;
+  errorMessage?: string;
+  requestId?: string;
+  result?: ReopenMergeRequestResponseBodyResult;
+  success?: boolean;
+  static names(): { [key: string]: string } {
+    return {
+      errorCode: 'errorCode',
+      errorMessage: 'errorMessage',
+      requestId: 'requestId',
+      result: 'result',
+      success: 'success',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      errorCode: 'string',
+      errorMessage: 'string',
+      requestId: 'string',
+      result: ReopenMergeRequestResponseBodyResult,
+      success: 'boolean',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class ReopenMergeRequestResponse extends $tea.Model {
+  headers: { [key: string]: string };
+  statusCode: number;
+  body: ReopenMergeRequestResponseBody;
+  static names(): { [key: string]: string } {
+    return {
+      headers: 'headers',
+      statusCode: 'statusCode',
+      body: 'body',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
+      body: ReopenMergeRequestResponseBody,
     };
   }
 
@@ -11643,6 +12183,93 @@ export class RetryVMDeployMachineResponse extends $tea.Model {
       headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
       statusCode: 'number',
       body: RetryVMDeployMachineResponseBody,
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class ReviewMergeRequestRequest extends $tea.Model {
+  accessToken?: string;
+  draftCommentIds?: string[];
+  reviewComment?: string;
+  reviewOpinion?: string;
+  organizationId?: string;
+  static names(): { [key: string]: string } {
+    return {
+      accessToken: 'accessToken',
+      draftCommentIds: 'draftCommentIds',
+      reviewComment: 'reviewComment',
+      reviewOpinion: 'reviewOpinion',
+      organizationId: 'organizationId',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      accessToken: 'string',
+      draftCommentIds: { 'type': 'array', 'itemType': 'string' },
+      reviewComment: 'string',
+      reviewOpinion: 'string',
+      organizationId: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class ReviewMergeRequestResponseBody extends $tea.Model {
+  errorCode?: string;
+  errorMessage?: string;
+  requestId?: string;
+  result?: ReviewMergeRequestResponseBodyResult;
+  success?: boolean;
+  static names(): { [key: string]: string } {
+    return {
+      errorCode: 'errorCode',
+      errorMessage: 'errorMessage',
+      requestId: 'requestId',
+      result: 'result',
+      success: 'success',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      errorCode: 'string',
+      errorMessage: 'string',
+      requestId: 'string',
+      result: ReviewMergeRequestResponseBodyResult,
+      success: 'boolean',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class ReviewMergeRequestResponse extends $tea.Model {
+  headers: { [key: string]: string };
+  statusCode: number;
+  body: ReviewMergeRequestResponseBody;
+  static names(): { [key: string]: string } {
+    return {
+      headers: 'headers',
+      statusCode: 'statusCode',
+      body: 'body',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
+      body: ReviewMergeRequestResponseBody,
     };
   }
 
@@ -12679,6 +13306,171 @@ export class UpdateHostGroupResponse extends $tea.Model {
       headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
       statusCode: 'number',
       body: UpdateHostGroupResponseBody,
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class UpdateMergeRequestRequest extends $tea.Model {
+  accessToken?: string;
+  description?: string;
+  title?: string;
+  organizationId?: string;
+  static names(): { [key: string]: string } {
+    return {
+      accessToken: 'accessToken',
+      description: 'description',
+      title: 'title',
+      organizationId: 'organizationId',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      accessToken: 'string',
+      description: 'string',
+      title: 'string',
+      organizationId: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class UpdateMergeRequestResponseBody extends $tea.Model {
+  errorCode?: string;
+  errorMessage?: string;
+  requestId?: string;
+  result?: UpdateMergeRequestResponseBodyResult;
+  success?: boolean;
+  static names(): { [key: string]: string } {
+    return {
+      errorCode: 'errorCode',
+      errorMessage: 'errorMessage',
+      requestId: 'requestId',
+      result: 'result',
+      success: 'success',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      errorCode: 'string',
+      errorMessage: 'string',
+      requestId: 'string',
+      result: UpdateMergeRequestResponseBodyResult,
+      success: 'boolean',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class UpdateMergeRequestResponse extends $tea.Model {
+  headers: { [key: string]: string };
+  statusCode: number;
+  body: UpdateMergeRequestResponseBody;
+  static names(): { [key: string]: string } {
+    return {
+      headers: 'headers',
+      statusCode: 'statusCode',
+      body: 'body',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
+      body: UpdateMergeRequestResponseBody,
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class UpdateMergeRequestPersonnelRequest extends $tea.Model {
+  accessToken?: string;
+  newUserIdList?: string[];
+  organizationId?: string;
+  static names(): { [key: string]: string } {
+    return {
+      accessToken: 'accessToken',
+      newUserIdList: 'newUserIdList',
+      organizationId: 'organizationId',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      accessToken: 'string',
+      newUserIdList: { 'type': 'array', 'itemType': 'string' },
+      organizationId: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class UpdateMergeRequestPersonnelResponseBody extends $tea.Model {
+  errorCode?: string;
+  errorMessage?: string;
+  requestId?: string;
+  result?: UpdateMergeRequestPersonnelResponseBodyResult;
+  success?: boolean;
+  static names(): { [key: string]: string } {
+    return {
+      errorCode: 'errorCode',
+      errorMessage: 'errorMessage',
+      requestId: 'requestId',
+      result: 'result',
+      success: 'success',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      errorCode: 'string',
+      errorMessage: 'string',
+      requestId: 'string',
+      result: UpdateMergeRequestPersonnelResponseBodyResult,
+      success: 'boolean',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class UpdateMergeRequestPersonnelResponse extends $tea.Model {
+  headers: { [key: string]: string };
+  statusCode: number;
+  body: UpdateMergeRequestPersonnelResponseBody;
+  static names(): { [key: string]: string } {
+    return {
+      headers: 'headers',
+      statusCode: 'statusCode',
+      body: 'body',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
+      body: UpdateMergeRequestPersonnelResponseBody,
     };
   }
 
@@ -14229,6 +15021,25 @@ export class AddWebhookResponseBodyResult extends $tea.Model {
   }
 }
 
+export class CloseMergeRequestResponseBodyResult extends $tea.Model {
+  result?: boolean;
+  static names(): { [key: string]: string } {
+    return {
+      result: 'result',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      result: 'boolean',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
 export class CreateBranchResponseBodyResultCommit extends $tea.Model {
   authorEmail?: string;
   authorName?: string;
@@ -14351,6 +15162,199 @@ export class CreateFileResponseBodyResult extends $tea.Model {
     return {
       branchName: 'string',
       filePath: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class CreateMergeRequestResponseBodyResultAuthor extends $tea.Model {
+  avatarUrl?: string;
+  email?: string;
+  id?: number;
+  name?: string;
+  state?: string;
+  username?: string;
+  static names(): { [key: string]: string } {
+    return {
+      avatarUrl: 'avatarUrl',
+      email: 'email',
+      id: 'id',
+      name: 'name',
+      state: 'state',
+      username: 'username',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      avatarUrl: 'string',
+      email: 'string',
+      id: 'number',
+      name: 'string',
+      state: 'string',
+      username: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class CreateMergeRequestResponseBodyResultReviewers extends $tea.Model {
+  avatarUrl?: string;
+  email?: string;
+  hasReviewed?: boolean;
+  id?: number;
+  name?: string;
+  reviewOpinionStatus?: string;
+  state?: string;
+  username?: string;
+  static names(): { [key: string]: string } {
+    return {
+      avatarUrl: 'avatarUrl',
+      email: 'email',
+      hasReviewed: 'hasReviewed',
+      id: 'id',
+      name: 'name',
+      reviewOpinionStatus: 'reviewOpinionStatus',
+      state: 'state',
+      username: 'username',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      avatarUrl: 'string',
+      email: 'string',
+      hasReviewed: 'boolean',
+      id: 'number',
+      name: 'string',
+      reviewOpinionStatus: 'string',
+      state: 'string',
+      username: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class CreateMergeRequestResponseBodyResultSubscribers extends $tea.Model {
+  avatarUrl?: string;
+  email?: string;
+  id?: number;
+  name?: string;
+  state?: string;
+  username?: string;
+  static names(): { [key: string]: string } {
+    return {
+      avatarUrl: 'avatarUrl',
+      email: 'email',
+      id: 'id',
+      name: 'name',
+      state: 'state',
+      username: 'username',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      avatarUrl: 'string',
+      email: 'string',
+      id: 'number',
+      name: 'string',
+      state: 'string',
+      username: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class CreateMergeRequestResponseBodyResult extends $tea.Model {
+  ahead?: number;
+  allRequirementsPass?: boolean;
+  author?: CreateMergeRequestResponseBodyResultAuthor;
+  behind?: number;
+  createFrom?: string;
+  createTime?: string;
+  description?: string;
+  detailUrl?: string;
+  localId?: number;
+  mrBizId?: string;
+  mrType?: string;
+  projectId?: number;
+  reviewers?: CreateMergeRequestResponseBodyResultReviewers[];
+  sourceBranch?: string;
+  sourceProjectId?: number;
+  status?: string;
+  subscribers?: CreateMergeRequestResponseBodyResultSubscribers[];
+  supportMergeFastForwardOnly?: boolean;
+  targetBranch?: string;
+  targetProjectId?: number;
+  title?: string;
+  updateTime?: string;
+  webUrl?: string;
+  static names(): { [key: string]: string } {
+    return {
+      ahead: 'ahead',
+      allRequirementsPass: 'allRequirementsPass',
+      author: 'author',
+      behind: 'behind',
+      createFrom: 'createFrom',
+      createTime: 'createTime',
+      description: 'description',
+      detailUrl: 'detailUrl',
+      localId: 'localId',
+      mrBizId: 'mrBizId',
+      mrType: 'mrType',
+      projectId: 'projectId',
+      reviewers: 'reviewers',
+      sourceBranch: 'sourceBranch',
+      sourceProjectId: 'sourceProjectId',
+      status: 'status',
+      subscribers: 'subscribers',
+      supportMergeFastForwardOnly: 'supportMergeFastForwardOnly',
+      targetBranch: 'targetBranch',
+      targetProjectId: 'targetProjectId',
+      title: 'title',
+      updateTime: 'updateTime',
+      webUrl: 'webUrl',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      ahead: 'number',
+      allRequirementsPass: 'boolean',
+      author: CreateMergeRequestResponseBodyResultAuthor,
+      behind: 'number',
+      createFrom: 'string',
+      createTime: 'string',
+      description: 'string',
+      detailUrl: 'string',
+      localId: 'number',
+      mrBizId: 'string',
+      mrType: 'string',
+      projectId: 'number',
+      reviewers: { 'type': 'array', 'itemType': CreateMergeRequestResponseBodyResultReviewers },
+      sourceBranch: 'string',
+      sourceProjectId: 'number',
+      status: 'string',
+      subscribers: { 'type': 'array', 'itemType': CreateMergeRequestResponseBodyResultSubscribers },
+      supportMergeFastForwardOnly: 'boolean',
+      targetBranch: 'string',
+      targetProjectId: 'number',
+      title: 'string',
+      updateTime: 'string',
+      webUrl: 'string',
     };
   }
 
@@ -17129,6 +18133,249 @@ export class GetHostGroupResponseBodyHostGroup extends $tea.Model {
   }
 }
 
+export class GetMergeRequestResponseBodyResultAuthor extends $tea.Model {
+  avatarUrl?: string;
+  email?: string;
+  id?: number;
+  name?: string;
+  state?: string;
+  username?: string;
+  static names(): { [key: string]: string } {
+    return {
+      avatarUrl: 'avatarUrl',
+      email: 'email',
+      id: 'id',
+      name: 'name',
+      state: 'state',
+      username: 'username',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      avatarUrl: 'string',
+      email: 'string',
+      id: 'number',
+      name: 'string',
+      state: 'string',
+      username: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class GetMergeRequestResponseBodyResultReviewers extends $tea.Model {
+  avatarUrl?: string;
+  email?: string;
+  hasReviewed?: boolean;
+  id?: number;
+  name?: string;
+  reviewOpinionStatus?: string;
+  state?: string;
+  username?: string;
+  static names(): { [key: string]: string } {
+    return {
+      avatarUrl: 'avatarUrl',
+      email: 'email',
+      hasReviewed: 'hasReviewed',
+      id: 'id',
+      name: 'name',
+      reviewOpinionStatus: 'reviewOpinionStatus',
+      state: 'state',
+      username: 'username',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      avatarUrl: 'string',
+      email: 'string',
+      hasReviewed: 'boolean',
+      id: 'number',
+      name: 'string',
+      reviewOpinionStatus: 'string',
+      state: 'string',
+      username: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class GetMergeRequestResponseBodyResultSubscribers extends $tea.Model {
+  avatarUrl?: string;
+  email?: string;
+  id?: number;
+  name?: string;
+  state?: string;
+  username?: string;
+  static names(): { [key: string]: string } {
+    return {
+      avatarUrl: 'avatarUrl',
+      email: 'email',
+      id: 'id',
+      name: 'name',
+      state: 'state',
+      username: 'username',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      avatarUrl: 'string',
+      email: 'string',
+      id: 'number',
+      name: 'string',
+      state: 'string',
+      username: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class GetMergeRequestResponseBodyResultTodoListRequirementCheckItems extends $tea.Model {
+  itemType?: string;
+  pass?: boolean;
+  static names(): { [key: string]: string } {
+    return {
+      itemType: 'itemType',
+      pass: 'pass',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      itemType: 'string',
+      pass: 'boolean',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class GetMergeRequestResponseBodyResultTodoList extends $tea.Model {
+  requirementCheckItems?: GetMergeRequestResponseBodyResultTodoListRequirementCheckItems[];
+  static names(): { [key: string]: string } {
+    return {
+      requirementCheckItems: 'requirementCheckItems',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      requirementCheckItems: { 'type': 'array', 'itemType': GetMergeRequestResponseBodyResultTodoListRequirementCheckItems },
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class GetMergeRequestResponseBodyResult extends $tea.Model {
+  ahead?: number;
+  allRequirementsPass?: boolean;
+  author?: GetMergeRequestResponseBodyResultAuthor;
+  behind?: number;
+  createFrom?: string;
+  createTime?: string;
+  description?: string;
+  detailUrl?: string;
+  localId?: number;
+  mrBizId?: string;
+  mrType?: string;
+  projectId?: number;
+  reviewers?: GetMergeRequestResponseBodyResultReviewers[];
+  sourceBranch?: string;
+  sourceProjectId?: number;
+  status?: string;
+  subscribers?: GetMergeRequestResponseBodyResultSubscribers[];
+  supportMergeFastForwardOnly?: boolean;
+  targetBranch?: string;
+  targetProjectId?: number;
+  targetProjectNameWithNamespace?: string;
+  targetProjectPathWithNamespace?: string;
+  title?: string;
+  todoList?: GetMergeRequestResponseBodyResultTodoList;
+  updateTime?: string;
+  webUrl?: string;
+  static names(): { [key: string]: string } {
+    return {
+      ahead: 'ahead',
+      allRequirementsPass: 'allRequirementsPass',
+      author: 'author',
+      behind: 'behind',
+      createFrom: 'createFrom',
+      createTime: 'createTime',
+      description: 'description',
+      detailUrl: 'detailUrl',
+      localId: 'localId',
+      mrBizId: 'mrBizId',
+      mrType: 'mrType',
+      projectId: 'projectId',
+      reviewers: 'reviewers',
+      sourceBranch: 'sourceBranch',
+      sourceProjectId: 'sourceProjectId',
+      status: 'status',
+      subscribers: 'subscribers',
+      supportMergeFastForwardOnly: 'supportMergeFastForwardOnly',
+      targetBranch: 'targetBranch',
+      targetProjectId: 'targetProjectId',
+      targetProjectNameWithNamespace: 'targetProjectNameWithNamespace',
+      targetProjectPathWithNamespace: 'targetProjectPathWithNamespace',
+      title: 'title',
+      todoList: 'todoList',
+      updateTime: 'updateTime',
+      webUrl: 'webUrl',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      ahead: 'number',
+      allRequirementsPass: 'boolean',
+      author: GetMergeRequestResponseBodyResultAuthor,
+      behind: 'number',
+      createFrom: 'string',
+      createTime: 'string',
+      description: 'string',
+      detailUrl: 'string',
+      localId: 'number',
+      mrBizId: 'string',
+      mrType: 'string',
+      projectId: 'number',
+      reviewers: { 'type': 'array', 'itemType': GetMergeRequestResponseBodyResultReviewers },
+      sourceBranch: 'string',
+      sourceProjectId: 'number',
+      status: 'string',
+      subscribers: { 'type': 'array', 'itemType': GetMergeRequestResponseBodyResultSubscribers },
+      supportMergeFastForwardOnly: 'boolean',
+      targetBranch: 'string',
+      targetProjectId: 'number',
+      targetProjectNameWithNamespace: 'string',
+      targetProjectPathWithNamespace: 'string',
+      title: 'string',
+      todoList: GetMergeRequestResponseBodyResultTodoList,
+      updateTime: 'string',
+      webUrl: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
 export class GetOrganizationMemberResponseBodyMemberIdentities extends $tea.Model {
   externUid?: string;
   provider?: string;
@@ -19673,6 +20920,211 @@ export class ListHostGroupsResponseBodyHostGroups extends $tea.Model {
       serviceConnectionId: 'number',
       type: 'string',
       updateTime: 'number',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class ListMergeRequestsResponseBodyResultAuthor extends $tea.Model {
+  avatarUrl?: string;
+  email?: string;
+  id?: number;
+  name?: string;
+  state?: string;
+  username?: string;
+  static names(): { [key: string]: string } {
+    return {
+      avatarUrl: 'avatarUrl',
+      email: 'email',
+      id: 'id',
+      name: 'name',
+      state: 'state',
+      username: 'username',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      avatarUrl: 'string',
+      email: 'string',
+      id: 'number',
+      name: 'string',
+      state: 'string',
+      username: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class ListMergeRequestsResponseBodyResultReviewers extends $tea.Model {
+  avatarUrl?: string;
+  email?: string;
+  id?: number;
+  name?: string;
+  state?: string;
+  status?: string;
+  username?: string;
+  static names(): { [key: string]: string } {
+    return {
+      avatarUrl: 'avatarUrl',
+      email: 'email',
+      id: 'id',
+      name: 'name',
+      state: 'state',
+      status: 'status',
+      username: 'username',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      avatarUrl: 'string',
+      email: 'string',
+      id: 'number',
+      name: 'string',
+      state: 'string',
+      status: 'string',
+      username: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class ListMergeRequestsResponseBodyResultSubscribers extends $tea.Model {
+  avatarUrl?: string;
+  email?: string;
+  id?: number;
+  name?: string;
+  state?: string;
+  username?: string;
+  static names(): { [key: string]: string } {
+    return {
+      avatarUrl: 'avatarUrl',
+      email: 'email',
+      id: 'id',
+      name: 'name',
+      state: 'state',
+      username: 'username',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      avatarUrl: 'string',
+      email: 'string',
+      id: 'number',
+      name: 'string',
+      state: 'string',
+      username: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class ListMergeRequestsResponseBodyResult extends $tea.Model {
+  author?: ListMergeRequestsResponseBodyResultAuthor;
+  createdAt?: string;
+  creationMethod?: string;
+  description?: string;
+  detailUrl?: string;
+  id?: number;
+  iid?: number;
+  localId?: number;
+  mrBizId?: string;
+  nameWithNamespace?: string;
+  newMergeRequestIdentifier?: boolean;
+  newVersionState?: string;
+  projectId?: number;
+  reviewers?: ListMergeRequestsResponseBodyResultReviewers[];
+  sourceBranch?: string;
+  sourceProjectId?: number;
+  sourceType?: string;
+  sshUrl?: string;
+  state?: string;
+  subscribers?: ListMergeRequestsResponseBodyResultSubscribers[];
+  supportMergeFFOnly?: boolean;
+  targetBranch?: string;
+  targetProjectId?: number;
+  targetType?: string;
+  title?: string;
+  updatedAt?: string;
+  webUrl?: string;
+  workInProgress?: boolean;
+  static names(): { [key: string]: string } {
+    return {
+      author: 'author',
+      createdAt: 'createdAt',
+      creationMethod: 'creationMethod',
+      description: 'description',
+      detailUrl: 'detailUrl',
+      id: 'id',
+      iid: 'iid',
+      localId: 'localId',
+      mrBizId: 'mrBizId',
+      nameWithNamespace: 'nameWithNamespace',
+      newMergeRequestIdentifier: 'newMergeRequestIdentifier',
+      newVersionState: 'newVersionState',
+      projectId: 'projectId',
+      reviewers: 'reviewers',
+      sourceBranch: 'sourceBranch',
+      sourceProjectId: 'sourceProjectId',
+      sourceType: 'sourceType',
+      sshUrl: 'sshUrl',
+      state: 'state',
+      subscribers: 'subscribers',
+      supportMergeFFOnly: 'supportMergeFFOnly',
+      targetBranch: 'targetBranch',
+      targetProjectId: 'targetProjectId',
+      targetType: 'targetType',
+      title: 'title',
+      updatedAt: 'updatedAt',
+      webUrl: 'webUrl',
+      workInProgress: 'workInProgress',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      author: ListMergeRequestsResponseBodyResultAuthor,
+      createdAt: 'string',
+      creationMethod: 'string',
+      description: 'string',
+      detailUrl: 'string',
+      id: 'number',
+      iid: 'number',
+      localId: 'number',
+      mrBizId: 'string',
+      nameWithNamespace: 'string',
+      newMergeRequestIdentifier: 'boolean',
+      newVersionState: 'string',
+      projectId: 'number',
+      reviewers: { 'type': 'array', 'itemType': ListMergeRequestsResponseBodyResultReviewers },
+      sourceBranch: 'string',
+      sourceProjectId: 'number',
+      sourceType: 'string',
+      sshUrl: 'string',
+      state: 'string',
+      subscribers: { 'type': 'array', 'itemType': ListMergeRequestsResponseBodyResultSubscribers },
+      supportMergeFFOnly: 'boolean',
+      targetBranch: 'string',
+      targetProjectId: 'number',
+      targetType: 'string',
+      title: 'string',
+      updatedAt: 'string',
+      webUrl: 'string',
+      workInProgress: 'boolean',
     };
   }
 
@@ -22827,6 +24279,44 @@ export class LogVMDeployMachineResponseBodyDeployMachineLog extends $tea.Model {
   }
 }
 
+export class MergeMergeRequestResponseBodyResult extends $tea.Model {
+  result?: boolean;
+  static names(): { [key: string]: string } {
+    return {
+      result: 'result',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      result: 'boolean',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class ReopenMergeRequestResponseBodyResult extends $tea.Model {
+  result?: boolean;
+  static names(): { [key: string]: string } {
+    return {
+      result: 'result',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      result: 'boolean',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
 export class ResetSshKeyResponseBodySshKey extends $tea.Model {
   id?: number;
   publicKey?: string;
@@ -22841,6 +24331,25 @@ export class ResetSshKeyResponseBodySshKey extends $tea.Model {
     return {
       id: 'number',
       publicKey: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class ReviewMergeRequestResponseBodyResult extends $tea.Model {
+  result?: boolean;
+  static names(): { [key: string]: string } {
+    return {
+      result: 'result',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      result: 'boolean',
     };
   }
 
@@ -23050,6 +24559,44 @@ export class UpdateGroupMemberResponseBodyResult extends $tea.Model {
       sourceId: 'number',
       state: 'string',
       username: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class UpdateMergeRequestResponseBodyResult extends $tea.Model {
+  result?: boolean;
+  static names(): { [key: string]: string } {
+    return {
+      result: 'result',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      result: 'boolean',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class UpdateMergeRequestPersonnelResponseBodyResult extends $tea.Model {
+  result?: boolean;
+  static names(): { [key: string]: string } {
+    return {
+      result: 'result',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      result: 'boolean',
     };
   }
 
@@ -24694,6 +26241,41 @@ export default class Client extends OpenApi {
     return await this.addWebhookWithOptions(repositoryId, request, headers, runtime);
   }
 
+  async closeMergeRequestWithOptions(repositoryId: string, localId: string, request: CloseMergeRequestRequest, headers: {[key: string ]: string}, runtime: $Util.RuntimeOptions): Promise<CloseMergeRequestResponse> {
+    Util.validateModel(request);
+    let query : {[key: string ]: any} = { };
+    if (!Util.isUnset(request.accessToken)) {
+      query["accessToken"] = request.accessToken;
+    }
+
+    if (!Util.isUnset(request.organizationId)) {
+      query["organizationId"] = request.organizationId;
+    }
+
+    let req = new $OpenApi.OpenApiRequest({
+      headers: headers,
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApi.Params({
+      action: "CloseMergeRequest",
+      version: "2021-06-25",
+      protocol: "HTTPS",
+      pathname: `/api/v4/projects/${OpenApiUtil.getEncodeParam(repositoryId)}/merge_requests/${OpenApiUtil.getEncodeParam(localId)}/close`,
+      method: "POST",
+      authType: "AK",
+      style: "ROA",
+      reqBodyType: "json",
+      bodyType: "json",
+    });
+    return $tea.cast<CloseMergeRequestResponse>(await this.callApi(params, req, runtime), new CloseMergeRequestResponse({}));
+  }
+
+  async closeMergeRequest(repositoryId: string, localId: string, request: CloseMergeRequestRequest): Promise<CloseMergeRequestResponse> {
+    let runtime = new $Util.RuntimeOptions({ });
+    let headers : {[key: string ]: string} = { };
+    return await this.closeMergeRequestWithOptions(repositoryId, localId, request, headers, runtime);
+  }
+
   async createBranchWithOptions(repositoryId: string, request: CreateBranchRequest, headers: {[key: string ]: string}, runtime: $Util.RuntimeOptions): Promise<CreateBranchResponse> {
     Util.validateModel(request);
     let query : {[key: string ]: any} = { };
@@ -24976,6 +26558,79 @@ export default class Client extends OpenApi {
     let runtime = new $Util.RuntimeOptions({ });
     let headers : {[key: string ]: string} = { };
     return await this.createHostGroupWithOptions(organizationId, request, headers, runtime);
+  }
+
+  async createMergeRequestWithOptions(repositoryId: string, request: CreateMergeRequestRequest, headers: {[key: string ]: string}, runtime: $Util.RuntimeOptions): Promise<CreateMergeRequestResponse> {
+    Util.validateModel(request);
+    let query : {[key: string ]: any} = { };
+    if (!Util.isUnset(request.accessToken)) {
+      query["accessToken"] = request.accessToken;
+    }
+
+    if (!Util.isUnset(request.organizationId)) {
+      query["organizationId"] = request.organizationId;
+    }
+
+    let body : {[key: string ]: any} = { };
+    if (!Util.isUnset(request.createFrom)) {
+      body["createFrom"] = request.createFrom;
+    }
+
+    if (!Util.isUnset(request.description)) {
+      body["description"] = request.description;
+    }
+
+    if (!Util.isUnset(request.reviewerIds)) {
+      body["reviewerIds"] = request.reviewerIds;
+    }
+
+    if (!Util.isUnset(request.sourceBranch)) {
+      body["sourceBranch"] = request.sourceBranch;
+    }
+
+    if (!Util.isUnset(request.sourceProjectId)) {
+      body["sourceProjectId"] = request.sourceProjectId;
+    }
+
+    if (!Util.isUnset(request.targetBranch)) {
+      body["targetBranch"] = request.targetBranch;
+    }
+
+    if (!Util.isUnset(request.targetProjectId)) {
+      body["targetProjectId"] = request.targetProjectId;
+    }
+
+    if (!Util.isUnset(request.title)) {
+      body["title"] = request.title;
+    }
+
+    if (!Util.isUnset(request.workItemIds)) {
+      body["workItemIds"] = request.workItemIds;
+    }
+
+    let req = new $OpenApi.OpenApiRequest({
+      headers: headers,
+      query: OpenApiUtil.query(query),
+      body: OpenApiUtil.parseToMap(body),
+    });
+    let params = new $OpenApi.Params({
+      action: "CreateMergeRequest",
+      version: "2021-06-25",
+      protocol: "HTTPS",
+      pathname: `/api/v4/projects/${OpenApiUtil.getEncodeParam(repositoryId)}/merge_requests`,
+      method: "POST",
+      authType: "AK",
+      style: "ROA",
+      reqBodyType: "json",
+      bodyType: "json",
+    });
+    return $tea.cast<CreateMergeRequestResponse>(await this.callApi(params, req, runtime), new CreateMergeRequestResponse({}));
+  }
+
+  async createMergeRequest(repositoryId: string, request: CreateMergeRequestRequest): Promise<CreateMergeRequestResponse> {
+    let runtime = new $Util.RuntimeOptions({ });
+    let headers : {[key: string ]: string} = { };
+    return await this.createMergeRequestWithOptions(repositoryId, request, headers, runtime);
   }
 
   async createOAuthTokenWithOptions(request: CreateOAuthTokenRequest, headers: {[key: string ]: string}, runtime: $Util.RuntimeOptions): Promise<CreateOAuthTokenResponse> {
@@ -27319,6 +28974,41 @@ export default class Client extends OpenApi {
     return await this.getHostGroupWithOptions(organizationId, id, headers, runtime);
   }
 
+  async getMergeRequestWithOptions(repositoryId: string, localId: string, request: GetMergeRequestRequest, headers: {[key: string ]: string}, runtime: $Util.RuntimeOptions): Promise<GetMergeRequestResponse> {
+    Util.validateModel(request);
+    let query : {[key: string ]: any} = { };
+    if (!Util.isUnset(request.accessToken)) {
+      query["accessToken"] = request.accessToken;
+    }
+
+    if (!Util.isUnset(request.organizationId)) {
+      query["organizationId"] = request.organizationId;
+    }
+
+    let req = new $OpenApi.OpenApiRequest({
+      headers: headers,
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApi.Params({
+      action: "GetMergeRequest",
+      version: "2021-06-25",
+      protocol: "HTTPS",
+      pathname: `/api/v4/projects/${OpenApiUtil.getEncodeParam(repositoryId)}/merge_requests/${OpenApiUtil.getEncodeParam(localId)}/detail`,
+      method: "GET",
+      authType: "AK",
+      style: "ROA",
+      reqBodyType: "json",
+      bodyType: "json",
+    });
+    return $tea.cast<GetMergeRequestResponse>(await this.callApi(params, req, runtime), new GetMergeRequestResponse({}));
+  }
+
+  async getMergeRequest(repositoryId: string, localId: string, request: GetMergeRequestRequest): Promise<GetMergeRequestResponse> {
+    let runtime = new $Util.RuntimeOptions({ });
+    let headers : {[key: string ]: string} = { };
+    return await this.getMergeRequestWithOptions(repositoryId, localId, request, headers, runtime);
+  }
+
   async getOrganizationMemberWithOptions(organizationId: string, accountId: string, headers: {[key: string ]: string}, runtime: $Util.RuntimeOptions): Promise<GetOrganizationMemberResponse> {
     let req = new $OpenApi.OpenApiRequest({
       headers: headers,
@@ -28331,6 +30021,85 @@ export default class Client extends OpenApi {
     let runtime = new $Util.RuntimeOptions({ });
     let headers : {[key: string ]: string} = { };
     return await this.listHostGroupsWithOptions(organizationId, request, headers, runtime);
+  }
+
+  async listMergeRequestsWithOptions(request: ListMergeRequestsRequest, headers: {[key: string ]: string}, runtime: $Util.RuntimeOptions): Promise<ListMergeRequestsResponse> {
+    Util.validateModel(request);
+    let query : {[key: string ]: any} = { };
+    if (!Util.isUnset(request.accessToken)) {
+      query["accessToken"] = request.accessToken;
+    }
+
+    if (!Util.isUnset(request.authorIds)) {
+      query["authorIds"] = request.authorIds;
+    }
+
+    if (!Util.isUnset(request.filter)) {
+      query["filter"] = request.filter;
+    }
+
+    if (!Util.isUnset(request.groupIds)) {
+      query["groupIds"] = request.groupIds;
+    }
+
+    if (!Util.isUnset(request.orderBy)) {
+      query["orderBy"] = request.orderBy;
+    }
+
+    if (!Util.isUnset(request.organizationId)) {
+      query["organizationId"] = request.organizationId;
+    }
+
+    if (!Util.isUnset(request.page)) {
+      query["page"] = request.page;
+    }
+
+    if (!Util.isUnset(request.pageSize)) {
+      query["pageSize"] = request.pageSize;
+    }
+
+    if (!Util.isUnset(request.projectIds)) {
+      query["projectIds"] = request.projectIds;
+    }
+
+    if (!Util.isUnset(request.reviewerIds)) {
+      query["reviewerIds"] = request.reviewerIds;
+    }
+
+    if (!Util.isUnset(request.search)) {
+      query["search"] = request.search;
+    }
+
+    if (!Util.isUnset(request.sort)) {
+      query["sort"] = request.sort;
+    }
+
+    if (!Util.isUnset(request.state)) {
+      query["state"] = request.state;
+    }
+
+    let req = new $OpenApi.OpenApiRequest({
+      headers: headers,
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApi.Params({
+      action: "ListMergeRequests",
+      version: "2021-06-25",
+      protocol: "HTTPS",
+      pathname: `/api/v4/projects/merge_requests/advanced_search`,
+      method: "GET",
+      authType: "AK",
+      style: "ROA",
+      reqBodyType: "json",
+      bodyType: "json",
+    });
+    return $tea.cast<ListMergeRequestsResponse>(await this.callApi(params, req, runtime), new ListMergeRequestsResponse({}));
+  }
+
+  async listMergeRequests(request: ListMergeRequestsRequest): Promise<ListMergeRequestsResponse> {
+    let runtime = new $Util.RuntimeOptions({ });
+    let headers : {[key: string ]: string} = { };
+    return await this.listMergeRequestsWithOptions(request, headers, runtime);
   }
 
   async listOrganizationMembersWithOptions(organizationId: string, request: ListOrganizationMembersRequest, headers: {[key: string ]: string}, runtime: $Util.RuntimeOptions): Promise<ListOrganizationMembersResponse> {
@@ -30223,6 +31992,55 @@ export default class Client extends OpenApi {
     return await this.logVMDeployMachineWithOptions(organizationId, pipelineId, deployOrderId, machineSn, headers, runtime);
   }
 
+  async mergeMergeRequestWithOptions(repositoryId: string, localId: string, request: MergeMergeRequestRequest, headers: {[key: string ]: string}, runtime: $Util.RuntimeOptions): Promise<MergeMergeRequestResponse> {
+    Util.validateModel(request);
+    let query : {[key: string ]: any} = { };
+    if (!Util.isUnset(request.accessToken)) {
+      query["accessToken"] = request.accessToken;
+    }
+
+    if (!Util.isUnset(request.organizationId)) {
+      query["organizationId"] = request.organizationId;
+    }
+
+    let body : {[key: string ]: any} = { };
+    if (!Util.isUnset(request.mergeMessage)) {
+      body["mergeMessage"] = request.mergeMessage;
+    }
+
+    if (!Util.isUnset(request.mergeType)) {
+      body["mergeType"] = request.mergeType;
+    }
+
+    if (!Util.isUnset(request.removeSourceBranch)) {
+      body["removeSourceBranch"] = request.removeSourceBranch;
+    }
+
+    let req = new $OpenApi.OpenApiRequest({
+      headers: headers,
+      query: OpenApiUtil.query(query),
+      body: OpenApiUtil.parseToMap(body),
+    });
+    let params = new $OpenApi.Params({
+      action: "MergeMergeRequest",
+      version: "2021-06-25",
+      protocol: "HTTPS",
+      pathname: `/api/v4/projects/${OpenApiUtil.getEncodeParam(repositoryId)}/merge_requests/${OpenApiUtil.getEncodeParam(localId)}/merge`,
+      method: "POST",
+      authType: "AK",
+      style: "ROA",
+      reqBodyType: "json",
+      bodyType: "json",
+    });
+    return $tea.cast<MergeMergeRequestResponse>(await this.callApi(params, req, runtime), new MergeMergeRequestResponse({}));
+  }
+
+  async mergeMergeRequest(repositoryId: string, localId: string, request: MergeMergeRequestRequest): Promise<MergeMergeRequestResponse> {
+    let runtime = new $Util.RuntimeOptions({ });
+    let headers : {[key: string ]: string} = { };
+    return await this.mergeMergeRequestWithOptions(repositoryId, localId, request, headers, runtime);
+  }
+
   async passPipelineValidateWithOptions(organizationId: string, pipelineId: string, pipelineRunId: string, jobId: string, headers: {[key: string ]: string}, runtime: $Util.RuntimeOptions): Promise<PassPipelineValidateResponse> {
     let req = new $OpenApi.OpenApiRequest({
       headers: headers,
@@ -30293,6 +32111,41 @@ export default class Client extends OpenApi {
     let runtime = new $Util.RuntimeOptions({ });
     let headers : {[key: string ]: string} = { };
     return await this.releaseWorkspaceWithOptions(workspaceId, headers, runtime);
+  }
+
+  async reopenMergeRequestWithOptions(repositoryId: string, localId: string, request: ReopenMergeRequestRequest, headers: {[key: string ]: string}, runtime: $Util.RuntimeOptions): Promise<ReopenMergeRequestResponse> {
+    Util.validateModel(request);
+    let query : {[key: string ]: any} = { };
+    if (!Util.isUnset(request.accessToken)) {
+      query["accessToken"] = request.accessToken;
+    }
+
+    if (!Util.isUnset(request.organizationId)) {
+      query["organizationId"] = request.organizationId;
+    }
+
+    let req = new $OpenApi.OpenApiRequest({
+      headers: headers,
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApi.Params({
+      action: "ReopenMergeRequest",
+      version: "2021-06-25",
+      protocol: "HTTPS",
+      pathname: `/api/v4/projects/${OpenApiUtil.getEncodeParam(repositoryId)}/merge_requests/${OpenApiUtil.getEncodeParam(localId)}/reopen`,
+      method: "POST",
+      authType: "AK",
+      style: "ROA",
+      reqBodyType: "json",
+      bodyType: "json",
+    });
+    return $tea.cast<ReopenMergeRequestResponse>(await this.callApi(params, req, runtime), new ReopenMergeRequestResponse({}));
+  }
+
+  async reopenMergeRequest(repositoryId: string, localId: string, request: ReopenMergeRequestRequest): Promise<ReopenMergeRequestResponse> {
+    let runtime = new $Util.RuntimeOptions({ });
+    let headers : {[key: string ]: string} = { };
+    return await this.reopenMergeRequestWithOptions(repositoryId, localId, request, headers, runtime);
   }
 
   async resetSshKeyWithOptions(organizationId: string, headers: {[key: string ]: string}, runtime: $Util.RuntimeOptions): Promise<ResetSshKeyResponse> {
@@ -30389,6 +32242,55 @@ export default class Client extends OpenApi {
     let runtime = new $Util.RuntimeOptions({ });
     let headers : {[key: string ]: string} = { };
     return await this.retryVMDeployMachineWithOptions(organizationId, pipelineId, deployOrderId, machineSn, headers, runtime);
+  }
+
+  async reviewMergeRequestWithOptions(repositoryId: string, localId: string, request: ReviewMergeRequestRequest, headers: {[key: string ]: string}, runtime: $Util.RuntimeOptions): Promise<ReviewMergeRequestResponse> {
+    Util.validateModel(request);
+    let query : {[key: string ]: any} = { };
+    if (!Util.isUnset(request.accessToken)) {
+      query["accessToken"] = request.accessToken;
+    }
+
+    if (!Util.isUnset(request.organizationId)) {
+      query["organizationId"] = request.organizationId;
+    }
+
+    let body : {[key: string ]: any} = { };
+    if (!Util.isUnset(request.draftCommentIds)) {
+      body["draftCommentIds"] = request.draftCommentIds;
+    }
+
+    if (!Util.isUnset(request.reviewComment)) {
+      body["reviewComment"] = request.reviewComment;
+    }
+
+    if (!Util.isUnset(request.reviewOpinion)) {
+      body["reviewOpinion"] = request.reviewOpinion;
+    }
+
+    let req = new $OpenApi.OpenApiRequest({
+      headers: headers,
+      query: OpenApiUtil.query(query),
+      body: OpenApiUtil.parseToMap(body),
+    });
+    let params = new $OpenApi.Params({
+      action: "ReviewMergeRequest",
+      version: "2021-06-25",
+      protocol: "HTTPS",
+      pathname: `/api/v4/projects/${OpenApiUtil.getEncodeParam(repositoryId)}/merge_requests/${OpenApiUtil.getEncodeParam(localId)}/submit_review_opinion`,
+      method: "POST",
+      authType: "AK",
+      style: "ROA",
+      reqBodyType: "json",
+      bodyType: "json",
+    });
+    return $tea.cast<ReviewMergeRequestResponse>(await this.callApi(params, req, runtime), new ReviewMergeRequestResponse({}));
+  }
+
+  async reviewMergeRequest(repositoryId: string, localId: string, request: ReviewMergeRequestRequest): Promise<ReviewMergeRequestResponse> {
+    let runtime = new $Util.RuntimeOptions({ });
+    let headers : {[key: string ]: string} = { };
+    return await this.reviewMergeRequestWithOptions(repositoryId, localId, request, headers, runtime);
   }
 
   async skipPipelineJobRunWithOptions(organizationId: string, pipelineId: string, pipelineRunId: string, jobId: string, headers: {[key: string ]: string}, runtime: $Util.RuntimeOptions): Promise<SkipPipelineJobRunResponse> {
@@ -30934,6 +32836,92 @@ export default class Client extends OpenApi {
     let runtime = new $Util.RuntimeOptions({ });
     let headers : {[key: string ]: string} = { };
     return await this.updateHostGroupWithOptions(organizationId, id, request, headers, runtime);
+  }
+
+  async updateMergeRequestWithOptions(repositoryId: string, localId: string, request: UpdateMergeRequestRequest, headers: {[key: string ]: string}, runtime: $Util.RuntimeOptions): Promise<UpdateMergeRequestResponse> {
+    Util.validateModel(request);
+    let query : {[key: string ]: any} = { };
+    if (!Util.isUnset(request.accessToken)) {
+      query["accessToken"] = request.accessToken;
+    }
+
+    if (!Util.isUnset(request.organizationId)) {
+      query["organizationId"] = request.organizationId;
+    }
+
+    let body : {[key: string ]: any} = { };
+    if (!Util.isUnset(request.description)) {
+      body["description"] = request.description;
+    }
+
+    if (!Util.isUnset(request.title)) {
+      body["title"] = request.title;
+    }
+
+    let req = new $OpenApi.OpenApiRequest({
+      headers: headers,
+      query: OpenApiUtil.query(query),
+      body: OpenApiUtil.parseToMap(body),
+    });
+    let params = new $OpenApi.Params({
+      action: "UpdateMergeRequest",
+      version: "2021-06-25",
+      protocol: "HTTPS",
+      pathname: `/api/v4/projects/${OpenApiUtil.getEncodeParam(repositoryId)}/merge_requests/${OpenApiUtil.getEncodeParam(localId)}`,
+      method: "PUT",
+      authType: "AK",
+      style: "ROA",
+      reqBodyType: "json",
+      bodyType: "json",
+    });
+    return $tea.cast<UpdateMergeRequestResponse>(await this.callApi(params, req, runtime), new UpdateMergeRequestResponse({}));
+  }
+
+  async updateMergeRequest(repositoryId: string, localId: string, request: UpdateMergeRequestRequest): Promise<UpdateMergeRequestResponse> {
+    let runtime = new $Util.RuntimeOptions({ });
+    let headers : {[key: string ]: string} = { };
+    return await this.updateMergeRequestWithOptions(repositoryId, localId, request, headers, runtime);
+  }
+
+  async updateMergeRequestPersonnelWithOptions(repositoryId: string, localId: string, personType: string, request: UpdateMergeRequestPersonnelRequest, headers: {[key: string ]: string}, runtime: $Util.RuntimeOptions): Promise<UpdateMergeRequestPersonnelResponse> {
+    Util.validateModel(request);
+    let query : {[key: string ]: any} = { };
+    if (!Util.isUnset(request.accessToken)) {
+      query["accessToken"] = request.accessToken;
+    }
+
+    if (!Util.isUnset(request.organizationId)) {
+      query["organizationId"] = request.organizationId;
+    }
+
+    let body : {[key: string ]: any} = { };
+    if (!Util.isUnset(request.newUserIdList)) {
+      body["newUserIdList"] = request.newUserIdList;
+    }
+
+    let req = new $OpenApi.OpenApiRequest({
+      headers: headers,
+      query: OpenApiUtil.query(query),
+      body: OpenApiUtil.parseToMap(body),
+    });
+    let params = new $OpenApi.Params({
+      action: "UpdateMergeRequestPersonnel",
+      version: "2021-06-25",
+      protocol: "HTTPS",
+      pathname: `/api/v4/projects/${OpenApiUtil.getEncodeParam(repositoryId)}/merge_requests/${OpenApiUtil.getEncodeParam(localId)}/person/${OpenApiUtil.getEncodeParam(personType)}`,
+      method: "POST",
+      authType: "AK",
+      style: "ROA",
+      reqBodyType: "json",
+      bodyType: "json",
+    });
+    return $tea.cast<UpdateMergeRequestPersonnelResponse>(await this.callApi(params, req, runtime), new UpdateMergeRequestPersonnelResponse({}));
+  }
+
+  async updateMergeRequestPersonnel(repositoryId: string, localId: string, personType: string, request: UpdateMergeRequestPersonnelRequest): Promise<UpdateMergeRequestPersonnelResponse> {
+    let runtime = new $Util.RuntimeOptions({ });
+    let headers : {[key: string ]: string} = { };
+    return await this.updateMergeRequestPersonnelWithOptions(repositoryId, localId, personType, request, headers, runtime);
   }
 
   async updatePipelineWithOptions(organizationId: string, request: UpdatePipelineRequest, headers: {[key: string ]: string}, runtime: $Util.RuntimeOptions): Promise<UpdatePipelineResponse> {
