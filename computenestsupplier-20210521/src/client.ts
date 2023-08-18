@@ -742,6 +742,75 @@ export class DeleteServiceInstancesResponse extends $tea.Model {
   }
 }
 
+export class DeployServiceInstanceRequest extends $tea.Model {
+  clientToken?: string;
+  regionId?: string;
+  serviceInstanceId?: string;
+  static names(): { [key: string]: string } {
+    return {
+      clientToken: 'ClientToken',
+      regionId: 'RegionId',
+      serviceInstanceId: 'ServiceInstanceId',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      clientToken: 'string',
+      regionId: 'string',
+      serviceInstanceId: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class DeployServiceInstanceResponseBody extends $tea.Model {
+  requestId?: string;
+  static names(): { [key: string]: string } {
+    return {
+      requestId: 'RequestId',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      requestId: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class DeployServiceInstanceResponse extends $tea.Model {
+  headers: { [key: string]: string };
+  statusCode: number;
+  body: DeployServiceInstanceResponseBody;
+  static names(): { [key: string]: string } {
+    return {
+      headers: 'headers',
+      statusCode: 'statusCode',
+      body: 'body',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
+      body: DeployServiceInstanceResponseBody,
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
 export class GetArtifactRequest extends $tea.Model {
   artifactId?: string;
   artifactName?: string;
@@ -1983,6 +2052,72 @@ export class ModifyServiceInstanceResourcesResponse extends $tea.Model {
       headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
       statusCode: 'number',
       body: ModifyServiceInstanceResourcesResponseBody,
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class PushMeteringDataRequest extends $tea.Model {
+  metering?: string;
+  serviceInstanceId?: string;
+  static names(): { [key: string]: string } {
+    return {
+      metering: 'Metering',
+      serviceInstanceId: 'ServiceInstanceId',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      metering: 'string',
+      serviceInstanceId: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class PushMeteringDataResponseBody extends $tea.Model {
+  requestId?: string;
+  static names(): { [key: string]: string } {
+    return {
+      requestId: 'RequestId',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      requestId: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class PushMeteringDataResponse extends $tea.Model {
+  headers: { [key: string]: string };
+  statusCode: number;
+  body: PushMeteringDataResponseBody;
+  static names(): { [key: string]: string } {
+    return {
+      headers: 'headers',
+      statusCode: 'statusCode',
+      body: 'body',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
+      body: PushMeteringDataResponseBody,
     };
   }
 
@@ -4114,6 +4249,43 @@ export default class Client extends OpenApi {
     return await this.deleteServiceInstancesWithOptions(request, runtime);
   }
 
+  async deployServiceInstanceWithOptions(request: DeployServiceInstanceRequest, runtime: $Util.RuntimeOptions): Promise<DeployServiceInstanceResponse> {
+    Util.validateModel(request);
+    let query = { };
+    if (!Util.isUnset(request.clientToken)) {
+      query["ClientToken"] = request.clientToken;
+    }
+
+    if (!Util.isUnset(request.regionId)) {
+      query["RegionId"] = request.regionId;
+    }
+
+    if (!Util.isUnset(request.serviceInstanceId)) {
+      query["ServiceInstanceId"] = request.serviceInstanceId;
+    }
+
+    let req = new $OpenApi.OpenApiRequest({
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApi.Params({
+      action: "DeployServiceInstance",
+      version: "2021-05-21",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $tea.cast<DeployServiceInstanceResponse>(await this.callApi(params, req, runtime), new DeployServiceInstanceResponse({}));
+  }
+
+  async deployServiceInstance(request: DeployServiceInstanceRequest): Promise<DeployServiceInstanceResponse> {
+    let runtime = new $Util.RuntimeOptions({ });
+    return await this.deployServiceInstanceWithOptions(request, runtime);
+  }
+
   async getArtifactWithOptions(request: GetArtifactRequest, runtime: $Util.RuntimeOptions): Promise<GetArtifactResponse> {
     Util.validateModel(request);
     let query = { };
@@ -4606,6 +4778,39 @@ export default class Client extends OpenApi {
   async modifyServiceInstanceResources(request: ModifyServiceInstanceResourcesRequest): Promise<ModifyServiceInstanceResourcesResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.modifyServiceInstanceResourcesWithOptions(request, runtime);
+  }
+
+  async pushMeteringDataWithOptions(request: PushMeteringDataRequest, runtime: $Util.RuntimeOptions): Promise<PushMeteringDataResponse> {
+    Util.validateModel(request);
+    let query = { };
+    if (!Util.isUnset(request.metering)) {
+      query["Metering"] = request.metering;
+    }
+
+    if (!Util.isUnset(request.serviceInstanceId)) {
+      query["ServiceInstanceId"] = request.serviceInstanceId;
+    }
+
+    let req = new $OpenApi.OpenApiRequest({
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApi.Params({
+      action: "PushMeteringData",
+      version: "2021-05-21",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $tea.cast<PushMeteringDataResponse>(await this.callApi(params, req, runtime), new PushMeteringDataResponse({}));
+  }
+
+  async pushMeteringData(request: PushMeteringDataRequest): Promise<PushMeteringDataResponse> {
+    let runtime = new $Util.RuntimeOptions({ });
+    return await this.pushMeteringDataWithOptions(request, runtime);
   }
 
   async releaseArtifactWithOptions(request: ReleaseArtifactRequest, runtime: $Util.RuntimeOptions): Promise<ReleaseArtifactResponse> {
