@@ -351,6 +351,7 @@ export class AddClientUserDefineRuleResponse extends $tea.Model {
 export class AddImageVulWhiteListRequest extends $tea.Model {
   lang?: string;
   reason?: string;
+  source?: string;
   target?: string;
   type?: string;
   whitelist?: string;
@@ -358,6 +359,7 @@ export class AddImageVulWhiteListRequest extends $tea.Model {
     return {
       lang: 'Lang',
       reason: 'Reason',
+      source: 'Source',
       target: 'Target',
       type: 'Type',
       whitelist: 'Whitelist',
@@ -368,6 +370,7 @@ export class AddImageVulWhiteListRequest extends $tea.Model {
     return {
       lang: 'string',
       reason: 'string',
+      source: 'string',
       target: 'string',
       type: 'string',
       whitelist: 'string',
@@ -8192,6 +8195,7 @@ export class DescribeCheckWarningsRequest extends $tea.Model {
   pageSize?: number;
   riskId?: number;
   riskStatus?: number;
+  source?: string;
   sourceIp?: string;
   uuid?: string;
   static names(): { [key: string]: string } {
@@ -8204,6 +8208,7 @@ export class DescribeCheckWarningsRequest extends $tea.Model {
       pageSize: 'PageSize',
       riskId: 'RiskId',
       riskStatus: 'RiskStatus',
+      source: 'Source',
       sourceIp: 'SourceIp',
       uuid: 'Uuid',
     };
@@ -8219,6 +8224,7 @@ export class DescribeCheckWarningsRequest extends $tea.Model {
       pageSize: 'number',
       riskId: 'number',
       riskStatus: 'number',
+      source: 'string',
       sourceIp: 'string',
       uuid: 'string',
     };
@@ -12416,10 +12422,12 @@ export class DescribeImageBaselineItemListResponse extends $tea.Model {
 
 export class DescribeImageBaselineStrategyRequest extends $tea.Model {
   lang?: string;
+  source?: string;
   strategyId?: number;
   static names(): { [key: string]: string } {
     return {
       lang: 'Lang',
+      source: 'Source',
       strategyId: 'StrategyId',
     };
   }
@@ -12427,6 +12435,7 @@ export class DescribeImageBaselineStrategyRequest extends $tea.Model {
   static types(): { [key: string]: any } {
     return {
       lang: 'string',
+      source: 'string',
       strategyId: 'number',
     };
   }
@@ -14069,12 +14078,14 @@ export class DescribeImageVulWhiteListRequest extends $tea.Model {
   currentPage?: number;
   lang?: string;
   pageSize?: number;
+  source?: string;
   static names(): { [key: string]: string } {
     return {
       aliasName: 'AliasName',
       currentPage: 'CurrentPage',
       lang: 'Lang',
       pageSize: 'PageSize',
+      source: 'Source',
     };
   }
 
@@ -14084,6 +14095,7 @@ export class DescribeImageVulWhiteListRequest extends $tea.Model {
       currentPage: 'number',
       lang: 'string',
       pageSize: 'number',
+      source: 'string',
     };
   }
 
@@ -17675,10 +17687,12 @@ export class DescribeRiskListCheckResultResponse extends $tea.Model {
 
 export class DescribeRiskTypeRequest extends $tea.Model {
   lang?: string;
+  source?: string;
   sourceIp?: string;
   static names(): { [key: string]: string } {
     return {
       lang: 'Lang',
+      source: 'Source',
       sourceIp: 'SourceIp',
     };
   }
@@ -17686,6 +17700,7 @@ export class DescribeRiskTypeRequest extends $tea.Model {
   static types(): { [key: string]: any } {
     return {
       lang: 'string',
+      source: 'string',
       sourceIp: 'string',
     };
   }
@@ -24558,6 +24573,7 @@ export class GetAgentlessTaskCountResponseBody extends $tea.Model {
   riskMachine?: number;
   scaVulCount?: number;
   scanMachine?: number;
+  sysVulCount?: string;
   vulnerability?: number;
   static names(): { [key: string]: string } {
     return {
@@ -24569,6 +24585,7 @@ export class GetAgentlessTaskCountResponseBody extends $tea.Model {
       riskMachine: 'RiskMachine',
       scaVulCount: 'ScaVulCount',
       scanMachine: 'ScanMachine',
+      sysVulCount: 'SysVulCount',
       vulnerability: 'Vulnerability',
     };
   }
@@ -24583,6 +24600,7 @@ export class GetAgentlessTaskCountResponseBody extends $tea.Model {
       riskMachine: 'number',
       scaVulCount: 'number',
       scanMachine: 'number',
+      sysVulCount: 'string',
       vulnerability: 'number',
     };
   }
@@ -27538,6 +27556,7 @@ export class IgnoreCheckItemsRequest extends $tea.Model {
   checkAndRiskTypeList?: IgnoreCheckItemsRequestCheckAndRiskTypeList[];
   lang?: string;
   reason?: string;
+  source?: string;
   type?: number;
   uuidList?: string[];
   static names(): { [key: string]: string } {
@@ -27545,6 +27564,7 @@ export class IgnoreCheckItemsRequest extends $tea.Model {
       checkAndRiskTypeList: 'CheckAndRiskTypeList',
       lang: 'Lang',
       reason: 'Reason',
+      source: 'Source',
       type: 'Type',
       uuidList: 'UuidList',
     };
@@ -27555,6 +27575,7 @@ export class IgnoreCheckItemsRequest extends $tea.Model {
       checkAndRiskTypeList: { 'type': 'array', 'itemType': IgnoreCheckItemsRequestCheckAndRiskTypeList },
       lang: 'string',
       reason: 'string',
+      source: 'string',
       type: 'number',
       uuidList: { 'type': 'array', 'itemType': 'string' },
     };
@@ -27614,6 +27635,7 @@ export class IgnoreHcCheckWarningsRequest extends $tea.Model {
   checkWarningIds?: string;
   reason?: string;
   riskId?: string;
+  source?: string;
   sourceIp?: string;
   type?: number;
   static names(): { [key: string]: string } {
@@ -27622,6 +27644,7 @@ export class IgnoreHcCheckWarningsRequest extends $tea.Model {
       checkWarningIds: 'CheckWarningIds',
       reason: 'Reason',
       riskId: 'RiskId',
+      source: 'Source',
       sourceIp: 'SourceIp',
       type: 'Type',
     };
@@ -27633,6 +27656,7 @@ export class IgnoreHcCheckWarningsRequest extends $tea.Model {
       checkWarningIds: 'string',
       reason: 'string',
       riskId: 'string',
+      source: 'string',
       sourceIp: 'string',
       type: 'number',
     };
@@ -28958,6 +28982,7 @@ export class ListCheckItemWarningMachineRequest extends $tea.Model {
   pageSize?: number;
   remark?: string;
   riskType?: string;
+  source?: string;
   status?: number;
   static names(): { [key: string]: string } {
     return {
@@ -28970,6 +28995,7 @@ export class ListCheckItemWarningMachineRequest extends $tea.Model {
       pageSize: 'PageSize',
       remark: 'Remark',
       riskType: 'RiskType',
+      source: 'Source',
       status: 'Status',
     };
   }
@@ -28985,6 +29011,7 @@ export class ListCheckItemWarningMachineRequest extends $tea.Model {
       pageSize: 'number',
       remark: 'string',
       riskType: 'string',
+      source: 'string',
       status: 'number',
     };
   }
@@ -29056,6 +29083,7 @@ export class ListCheckItemWarningSummaryRequest extends $tea.Model {
   lang?: string;
   pageSize?: number;
   riskType?: string;
+  source?: string;
   static names(): { [key: string]: string } {
     return {
       checkItemFuzzy: 'CheckItemFuzzy',
@@ -29069,6 +29097,7 @@ export class ListCheckItemWarningSummaryRequest extends $tea.Model {
       lang: 'Lang',
       pageSize: 'PageSize',
       riskType: 'RiskType',
+      source: 'Source',
     };
   }
 
@@ -29085,6 +29114,7 @@ export class ListCheckItemWarningSummaryRequest extends $tea.Model {
       lang: 'string',
       pageSize: 'number',
       riskType: 'string',
+      source: 'string',
     };
   }
 
@@ -37322,6 +37352,90 @@ export class PublicSyncAndCreateImageScanTaskResponse extends $tea.Model {
   }
 }
 
+export class QueryAttackCountRequest extends $tea.Model {
+  from?: string;
+  lang?: string;
+  sourceIp?: string;
+  static names(): { [key: string]: string } {
+    return {
+      from: 'From',
+      lang: 'Lang',
+      sourceIp: 'SourceIp',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      from: 'string',
+      lang: 'string',
+      sourceIp: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class QueryAttackCountResponseBody extends $tea.Model {
+  code?: string;
+  count?: number;
+  data?: QueryAttackCountResponseBodyData[];
+  message?: string;
+  requestId?: string;
+  success?: boolean;
+  static names(): { [key: string]: string } {
+    return {
+      code: 'Code',
+      count: 'Count',
+      data: 'Data',
+      message: 'Message',
+      requestId: 'RequestId',
+      success: 'Success',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      code: 'string',
+      count: 'number',
+      data: { 'type': 'array', 'itemType': QueryAttackCountResponseBodyData },
+      message: 'string',
+      requestId: 'string',
+      success: 'boolean',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class QueryAttackCountResponse extends $tea.Model {
+  headers: { [key: string]: string };
+  statusCode: number;
+  body: QueryAttackCountResponseBody;
+  static names(): { [key: string]: string } {
+    return {
+      headers: 'headers',
+      statusCode: 'statusCode',
+      body: 'body',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
+      body: QueryAttackCountResponseBody,
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
 export class QueryDiscoverDatabaseRequest extends $tea.Model {
   createMark?: string;
   static names(): { [key: string]: string } {
@@ -38192,12 +38306,14 @@ export class SasInstallCodeResponse extends $tea.Model {
 export class SaveImageBaselineStrategyRequest extends $tea.Model {
   baselineItemList?: string;
   lang?: string;
+  source?: string;
   strategyId?: number;
   strategyName?: string;
   static names(): { [key: string]: string } {
     return {
       baselineItemList: 'BaselineItemList',
       lang: 'Lang',
+      source: 'Source',
       strategyId: 'StrategyId',
       strategyName: 'StrategyName',
     };
@@ -38207,6 +38323,7 @@ export class SaveImageBaselineStrategyRequest extends $tea.Model {
     return {
       baselineItemList: 'string',
       lang: 'string',
+      source: 'string',
       strategyId: 'number',
       strategyName: 'string',
     };
@@ -44818,6 +44935,7 @@ export class DescribeImageBaselineStrategyResponseBodyStrategyBaselineItemList e
 }
 
 export class DescribeImageBaselineStrategyResponseBodyStrategy extends $tea.Model {
+  baselineItem?: string;
   baselineItemList?: DescribeImageBaselineStrategyResponseBodyStrategyBaselineItemList[];
   selectedItemCount?: number;
   strategyId?: number;
@@ -44826,6 +44944,7 @@ export class DescribeImageBaselineStrategyResponseBodyStrategy extends $tea.Mode
   type?: string;
   static names(): { [key: string]: string } {
     return {
+      baselineItem: 'BaselineItem',
       baselineItemList: 'BaselineItemList',
       selectedItemCount: 'SelectedItemCount',
       strategyId: 'StrategyId',
@@ -44837,6 +44956,7 @@ export class DescribeImageBaselineStrategyResponseBodyStrategy extends $tea.Mode
 
   static types(): { [key: string]: any } {
     return {
+      baselineItem: 'string',
       baselineItemList: { 'type': 'array', 'itemType': DescribeImageBaselineStrategyResponseBodyStrategyBaselineItemList },
       selectedItemCount: 'number',
       strategyId: 'number',
@@ -55115,10 +55235,14 @@ export class ListCheckItemWarningMachineResponseBodyList extends $tea.Model {
   instanceName?: string;
   internetIp?: string;
   intranetIp?: string;
+  lastScanTime?: number;
   portOpen?: boolean;
   prompt?: string;
   regionId?: string;
   status?: number;
+  targetId?: string;
+  targetName?: string;
+  targetType?: string;
   uuid?: string;
   warningRiskList?: ListCheckItemWarningMachineResponseBodyListWarningRiskList[];
   static names(): { [key: string]: string } {
@@ -55132,10 +55256,14 @@ export class ListCheckItemWarningMachineResponseBodyList extends $tea.Model {
       instanceName: 'InstanceName',
       internetIp: 'InternetIp',
       intranetIp: 'IntranetIp',
+      lastScanTime: 'LastScanTime',
       portOpen: 'PortOpen',
       prompt: 'Prompt',
       regionId: 'RegionId',
       status: 'Status',
+      targetId: 'TargetId',
+      targetName: 'TargetName',
+      targetType: 'TargetType',
       uuid: 'Uuid',
       warningRiskList: 'WarningRiskList',
     };
@@ -55152,10 +55280,14 @@ export class ListCheckItemWarningMachineResponseBodyList extends $tea.Model {
       instanceName: 'string',
       internetIp: 'string',
       intranetIp: 'string',
+      lastScanTime: 'number',
       portOpen: 'boolean',
       prompt: 'string',
       regionId: 'string',
       status: 'number',
+      targetId: 'string',
+      targetName: 'string',
+      targetType: 'string',
       uuid: 'string',
       warningRiskList: { 'type': 'array', 'itemType': ListCheckItemWarningMachineResponseBodyListWarningRiskList },
     };
@@ -57728,6 +57860,31 @@ export class PublicSyncAndCreateImageScanTaskResponseBodyData extends $tea.Model
   }
 }
 
+export class QueryAttackCountResponseBodyData extends $tea.Model {
+  eventCount?: number;
+  tacticId?: string;
+  tacticType?: string;
+  static names(): { [key: string]: string } {
+    return {
+      eventCount: 'EventCount',
+      tacticId: 'TacticId',
+      tacticType: 'TacticType',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      eventCount: 'number',
+      tacticId: 'string',
+      tacticType: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
 export class QueryGroupedSecurityEventMarkMissListResponseBodyList extends $tea.Model {
   aliUid?: number;
   disposalWay?: string;
@@ -58189,6 +58346,10 @@ export default class Client extends OpenApi {
 
     if (!Util.isUnset(request.reason)) {
       query["Reason"] = request.reason;
+    }
+
+    if (!Util.isUnset(request.source)) {
+      query["Source"] = request.source;
     }
 
     if (!Util.isUnset(request.target)) {
@@ -62446,6 +62607,10 @@ export default class Client extends OpenApi {
       query["RiskStatus"] = request.riskStatus;
     }
 
+    if (!Util.isUnset(request.source)) {
+      query["Source"] = request.source;
+    }
+
     if (!Util.isUnset(request.sourceIp)) {
       query["SourceIp"] = request.sourceIp;
     }
@@ -64647,6 +64812,10 @@ export default class Client extends OpenApi {
       query["Lang"] = request.lang;
     }
 
+    if (!Util.isUnset(request.source)) {
+      query["Source"] = request.source;
+    }
+
     if (!Util.isUnset(request.strategyId)) {
       query["StrategyId"] = request.strategyId;
     }
@@ -65620,6 +65789,10 @@ export default class Client extends OpenApi {
 
     if (!Util.isUnset(request.pageSize)) {
       query["PageSize"] = request.pageSize;
+    }
+
+    if (!Util.isUnset(request.source)) {
+      query["Source"] = request.source;
     }
 
     let req = new $OpenApi.OpenApiRequest({
@@ -67391,7 +67564,7 @@ export default class Client extends OpenApi {
 
   /**
     * @deprecated
-    * This operation is phased out. You can use the ListCheckResult operation.
+    * This operation is phased out. You can use the [ListCheckResult](~~ListCheckResult~~) operation.
     *
     * @param request DescribeRiskCheckResultRequest
     * @param runtime runtime options for this request RuntimeOptions
@@ -67468,7 +67641,7 @@ export default class Client extends OpenApi {
 
   /**
     * @deprecated
-    * This operation is phased out. You can use the ListCheckResult operation.
+    * This operation is phased out. You can use the [ListCheckResult](~~ListCheckResult~~) operation.
     *
     * @param request DescribeRiskCheckResultRequest
     * @return DescribeRiskCheckResultResponse
@@ -67662,6 +67835,10 @@ export default class Client extends OpenApi {
     let query = { };
     if (!Util.isUnset(request.lang)) {
       query["Lang"] = request.lang;
+    }
+
+    if (!Util.isUnset(request.source)) {
+      query["Source"] = request.source;
     }
 
     if (!Util.isUnset(request.sourceIp)) {
@@ -72666,6 +72843,10 @@ export default class Client extends OpenApi {
       query["Reason"] = request.reason;
     }
 
+    if (!Util.isUnset(request.source)) {
+      query["Source"] = request.source;
+    }
+
     if (!Util.isUnset(request.type)) {
       query["Type"] = request.type;
     }
@@ -72713,6 +72894,10 @@ export default class Client extends OpenApi {
 
     if (!Util.isUnset(request.riskId)) {
       query["RiskId"] = request.riskId;
+    }
+
+    if (!Util.isUnset(request.source)) {
+      query["Source"] = request.source;
     }
 
     if (!Util.isUnset(request.sourceIp)) {
@@ -73462,6 +73647,10 @@ export default class Client extends OpenApi {
       query["RiskType"] = request.riskType;
     }
 
+    if (!Util.isUnset(request.source)) {
+      query["Source"] = request.source;
+    }
+
     if (!Util.isUnset(request.status)) {
       query["Status"] = request.status;
     }
@@ -73533,6 +73722,10 @@ export default class Client extends OpenApi {
 
     if (!Util.isUnset(request.riskType)) {
       query["RiskType"] = request.riskType;
+    }
+
+    if (!Util.isUnset(request.source)) {
+      query["Source"] = request.source;
     }
 
     let req = new $OpenApi.OpenApiRequest({
@@ -78149,6 +78342,45 @@ export default class Client extends OpenApi {
     return await this.publicSyncAndCreateImageScanTaskWithOptions(request, runtime);
   }
 
+  async queryAttackCountWithOptions(request: QueryAttackCountRequest, runtime: $Util.RuntimeOptions): Promise<QueryAttackCountResponse> {
+    Util.validateModel(request);
+    let query = { };
+    if (!Util.isUnset(request.sourceIp)) {
+      query["SourceIp"] = request.sourceIp;
+    }
+
+    let body : {[key: string ]: any} = { };
+    if (!Util.isUnset(request.from)) {
+      body["From"] = request.from;
+    }
+
+    if (!Util.isUnset(request.lang)) {
+      body["Lang"] = request.lang;
+    }
+
+    let req = new $OpenApi.OpenApiRequest({
+      query: OpenApiUtil.query(query),
+      body: OpenApiUtil.parseToMap(body),
+    });
+    let params = new $OpenApi.Params({
+      action: "QueryAttackCount",
+      version: "2018-12-03",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $tea.cast<QueryAttackCountResponse>(await this.callApi(params, req, runtime), new QueryAttackCountResponse({}));
+  }
+
+  async queryAttackCount(request: QueryAttackCountRequest): Promise<QueryAttackCountResponse> {
+    let runtime = new $Util.RuntimeOptions({ });
+    return await this.queryAttackCountWithOptions(request, runtime);
+  }
+
   async queryDiscoverDatabaseWithOptions(request: QueryDiscoverDatabaseRequest, runtime: $Util.RuntimeOptions): Promise<QueryDiscoverDatabaseResponse> {
     Util.validateModel(request);
     let query = { };
@@ -78593,6 +78825,10 @@ export default class Client extends OpenApi {
 
     if (!Util.isUnset(request.lang)) {
       query["Lang"] = request.lang;
+    }
+
+    if (!Util.isUnset(request.source)) {
+      query["Source"] = request.source;
     }
 
     if (!Util.isUnset(request.strategyId)) {
