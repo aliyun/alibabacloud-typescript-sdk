@@ -1,6 +1,6 @@
 {
   "name": "@alicloud/sasti20200512",
-  "version": "1.0.0",
+  "version": "1.0.1",
   "description": "",
   "main": "dist/client.js",
   "scripts": {
@@ -20,9 +20,9 @@
   },
   "dependencies": {
     "@alicloud/tea-typescript": "^1.7.1",
-    "@alicloud/tea-util": "^1.4.5",
+    "@alicloud/tea-util": "^1.4.7",
     "@alicloud/openapi-client": "^0.4.4",
-    "@alicloud/openapi-util": "^0.3.0",
+    "@alicloud/openapi-util": "^0.3.2",
     "@alicloud/endpoint-util": "^0.0.1"
   },
   "files": [
