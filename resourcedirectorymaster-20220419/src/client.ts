@@ -1191,6 +1191,69 @@ export class DeleteFolderResponse extends $tea.Model {
   }
 }
 
+export class DeleteInvalidCloudAccountRecordRequest extends $tea.Model {
+  recordId?: string;
+  static names(): { [key: string]: string } {
+    return {
+      recordId: 'RecordId',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      recordId: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class DeleteInvalidCloudAccountRecordResponseBody extends $tea.Model {
+  requestId?: string;
+  static names(): { [key: string]: string } {
+    return {
+      requestId: 'RequestId',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      requestId: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class DeleteInvalidCloudAccountRecordResponse extends $tea.Model {
+  headers: { [key: string]: string };
+  statusCode: number;
+  body: DeleteInvalidCloudAccountRecordResponseBody;
+  static names(): { [key: string]: string } {
+    return {
+      headers: 'headers',
+      statusCode: 'statusCode',
+      body: 'body',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
+      body: DeleteInvalidCloudAccountRecordResponseBody,
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
 export class DeleteMessageContactRequest extends $tea.Model {
   contactId?: string;
   retainContactInMembers?: boolean;
@@ -3857,6 +3920,75 @@ export class MoveAccountResponse extends $tea.Model {
       headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
       statusCode: 'number',
       body: MoveAccountResponseBody,
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class PrecheckForConsolidatedBillingAccountRequest extends $tea.Model {
+  billingAccountId?: string;
+  static names(): { [key: string]: string } {
+    return {
+      billingAccountId: 'BillingAccountId',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      billingAccountId: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class PrecheckForConsolidatedBillingAccountResponseBody extends $tea.Model {
+  reasons?: PrecheckForConsolidatedBillingAccountResponseBodyReasons[];
+  requestId?: string;
+  result?: boolean;
+  static names(): { [key: string]: string } {
+    return {
+      reasons: 'Reasons',
+      requestId: 'RequestId',
+      result: 'Result',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      reasons: { 'type': 'array', 'itemType': PrecheckForConsolidatedBillingAccountResponseBodyReasons },
+      requestId: 'string',
+      result: 'boolean',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class PrecheckForConsolidatedBillingAccountResponse extends $tea.Model {
+  headers: { [key: string]: string };
+  statusCode: number;
+  body: PrecheckForConsolidatedBillingAccountResponseBody;
+  static names(): { [key: string]: string } {
+    return {
+      headers: 'headers',
+      statusCode: 'statusCode',
+      body: 'body',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
+      body: PrecheckForConsolidatedBillingAccountResponseBody,
     };
   }
 
@@ -6700,6 +6832,28 @@ export class ListTrustedServiceStatusResponseBodyEnabledServicePrincipals extend
   }
 }
 
+export class PrecheckForConsolidatedBillingAccountResponseBodyReasons extends $tea.Model {
+  code?: string;
+  message?: string;
+  static names(): { [key: string]: string } {
+    return {
+      code: 'Code',
+      message: 'Message',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      code: 'string',
+      message: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
 export class TagResourcesRequestTag extends $tea.Model {
   key?: string;
   value?: string;
@@ -7569,6 +7723,35 @@ export default class Client extends OpenApi {
   async deleteFolder(request: DeleteFolderRequest): Promise<DeleteFolderResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.deleteFolderWithOptions(request, runtime);
+  }
+
+  async deleteInvalidCloudAccountRecordWithOptions(request: DeleteInvalidCloudAccountRecordRequest, runtime: $Util.RuntimeOptions): Promise<DeleteInvalidCloudAccountRecordResponse> {
+    Util.validateModel(request);
+    let query = { };
+    if (!Util.isUnset(request.recordId)) {
+      query["RecordId"] = request.recordId;
+    }
+
+    let req = new $OpenApi.OpenApiRequest({
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApi.Params({
+      action: "DeleteInvalidCloudAccountRecord",
+      version: "2022-04-19",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $tea.cast<DeleteInvalidCloudAccountRecordResponse>(await this.callApi(params, req, runtime), new DeleteInvalidCloudAccountRecordResponse({}));
+  }
+
+  async deleteInvalidCloudAccountRecord(request: DeleteInvalidCloudAccountRecordRequest): Promise<DeleteInvalidCloudAccountRecordResponse> {
+    let runtime = new $Util.RuntimeOptions({ });
+    return await this.deleteInvalidCloudAccountRecordWithOptions(request, runtime);
   }
 
   async deleteMessageContactWithOptions(request: DeleteMessageContactRequest, runtime: $Util.RuntimeOptions): Promise<DeleteMessageContactResponse> {
@@ -8976,6 +9159,35 @@ export default class Client extends OpenApi {
   async moveAccount(request: MoveAccountRequest): Promise<MoveAccountResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.moveAccountWithOptions(request, runtime);
+  }
+
+  async precheckForConsolidatedBillingAccountWithOptions(request: PrecheckForConsolidatedBillingAccountRequest, runtime: $Util.RuntimeOptions): Promise<PrecheckForConsolidatedBillingAccountResponse> {
+    Util.validateModel(request);
+    let query = { };
+    if (!Util.isUnset(request.billingAccountId)) {
+      query["BillingAccountId"] = request.billingAccountId;
+    }
+
+    let req = new $OpenApi.OpenApiRequest({
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApi.Params({
+      action: "PrecheckForConsolidatedBillingAccount",
+      version: "2022-04-19",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $tea.cast<PrecheckForConsolidatedBillingAccountResponse>(await this.callApi(params, req, runtime), new PrecheckForConsolidatedBillingAccountResponse({}));
+  }
+
+  async precheckForConsolidatedBillingAccount(request: PrecheckForConsolidatedBillingAccountRequest): Promise<PrecheckForConsolidatedBillingAccountResponse> {
+    let runtime = new $Util.RuntimeOptions({ });
+    return await this.precheckForConsolidatedBillingAccountWithOptions(request, runtime);
   }
 
   /**
