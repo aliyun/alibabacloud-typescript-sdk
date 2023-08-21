@@ -310,6 +310,7 @@ export class DescribeClusterResponseBody extends $tea.Model {
   resourceGroupId?: string;
   taskId?: string;
   updateTime?: string;
+  vpcId?: string;
   static names(): { [key: string]: string } {
     return {
       clusterDescription: 'ClusterDescription',
@@ -326,6 +327,7 @@ export class DescribeClusterResponseBody extends $tea.Model {
       resourceGroupId: 'ResourceGroupId',
       taskId: 'TaskId',
       updateTime: 'UpdateTime',
+      vpcId: 'VpcId',
     };
   }
 
@@ -345,6 +347,7 @@ export class DescribeClusterResponseBody extends $tea.Model {
       resourceGroupId: 'string',
       taskId: 'string',
       updateTime: 'string',
+      vpcId: 'string',
     };
   }
 
@@ -1884,11 +1887,15 @@ export class CreateClusterRequestNodeGroupsNodes extends $tea.Model {
   hostname?: string;
   loginPassword?: string;
   nodeId?: string;
+  vSwitchId?: string;
+  vpcId?: string;
   static names(): { [key: string]: string } {
     return {
       hostname: 'Hostname',
       loginPassword: 'LoginPassword',
       nodeId: 'NodeId',
+      vSwitchId: 'VSwitchId',
+      vpcId: 'VpcId',
     };
   }
 
@@ -1897,6 +1904,8 @@ export class CreateClusterRequestNodeGroupsNodes extends $tea.Model {
       hostname: 'string',
       loginPassword: 'string',
       nodeId: 'string',
+      vSwitchId: 'string',
+      vpcId: 'string',
     };
   }
 
@@ -2473,6 +2482,7 @@ export class ListClustersResponseBodyClusters extends $tea.Model {
   resourceGroupId?: string;
   taskId?: string;
   updateTime?: string;
+  vpcId?: string;
   static names(): { [key: string]: string } {
     return {
       clusterDescription: 'ClusterDescription',
@@ -2487,6 +2497,7 @@ export class ListClustersResponseBodyClusters extends $tea.Model {
       resourceGroupId: 'ResourceGroupId',
       taskId: 'TaskId',
       updateTime: 'UpdateTime',
+      vpcId: 'VpcId',
     };
   }
 
@@ -2504,6 +2515,7 @@ export class ListClustersResponseBodyClusters extends $tea.Model {
       resourceGroupId: 'string',
       taskId: 'string',
       updateTime: 'string',
+      vpcId: 'string',
     };
   }
 
