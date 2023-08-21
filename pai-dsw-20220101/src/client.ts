@@ -119,6 +119,7 @@ export class CreateIdleInstanceCullerResponse extends $tea.Model {
 
 export class CreateInstanceRequest extends $tea.Model {
   accessibility?: string;
+  cloudDisks?: CreateInstanceRequestCloudDisks[];
   datasets?: CreateInstanceRequestDatasets[];
   ecsSpec?: string;
   environmentVariables?: { [key: string]: string };
@@ -129,11 +130,14 @@ export class CreateInstanceRequest extends $tea.Model {
   priority?: number;
   requestedResource?: CreateInstanceRequestRequestedResource;
   resourceId?: string;
+  userId?: string;
   userVpc?: CreateInstanceRequestUserVpc;
   workspaceId?: string;
+  workspaceSource?: string;
   static names(): { [key: string]: string } {
     return {
       accessibility: 'Accessibility',
+      cloudDisks: 'CloudDisks',
       datasets: 'Datasets',
       ecsSpec: 'EcsSpec',
       environmentVariables: 'EnvironmentVariables',
@@ -144,14 +148,17 @@ export class CreateInstanceRequest extends $tea.Model {
       priority: 'Priority',
       requestedResource: 'RequestedResource',
       resourceId: 'ResourceId',
+      userId: 'UserId',
       userVpc: 'UserVpc',
       workspaceId: 'WorkspaceId',
+      workspaceSource: 'WorkspaceSource',
     };
   }
 
   static types(): { [key: string]: any } {
     return {
       accessibility: 'string',
+      cloudDisks: { 'type': 'array', 'itemType': CreateInstanceRequestCloudDisks },
       datasets: { 'type': 'array', 'itemType': CreateInstanceRequestDatasets },
       ecsSpec: 'string',
       environmentVariables: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
@@ -162,8 +169,10 @@ export class CreateInstanceRequest extends $tea.Model {
       priority: 'number',
       requestedResource: CreateInstanceRequestRequestedResource,
       resourceId: 'string',
+      userId: 'string',
       userVpc: CreateInstanceRequestUserVpc,
       workspaceId: 'string',
+      workspaceSource: 'string',
     };
   }
 
@@ -710,6 +719,7 @@ export class GetInstanceResponseBody extends $tea.Model {
   acceleratorType?: string;
   accessibility?: string;
   accumulatedRunningTimeInMs?: number;
+  cloudDisks?: GetInstanceResponseBodyCloudDisks[];
   code?: string;
   datasets?: GetInstanceResponseBodyDatasets[];
   ecsSpec?: string;
@@ -747,11 +757,13 @@ export class GetInstanceResponseBody extends $tea.Model {
   webIDEUrl?: string;
   workspaceId?: string;
   workspaceName?: string;
+  workspaceSource?: string;
   static names(): { [key: string]: string } {
     return {
       acceleratorType: 'AcceleratorType',
       accessibility: 'Accessibility',
       accumulatedRunningTimeInMs: 'AccumulatedRunningTimeInMs',
+      cloudDisks: 'CloudDisks',
       code: 'Code',
       datasets: 'Datasets',
       ecsSpec: 'EcsSpec',
@@ -789,6 +801,7 @@ export class GetInstanceResponseBody extends $tea.Model {
       webIDEUrl: 'WebIDEUrl',
       workspaceId: 'WorkspaceId',
       workspaceName: 'WorkspaceName',
+      workspaceSource: 'WorkspaceSource',
     };
   }
 
@@ -797,6 +810,7 @@ export class GetInstanceResponseBody extends $tea.Model {
       acceleratorType: 'string',
       accessibility: 'string',
       accumulatedRunningTimeInMs: 'number',
+      cloudDisks: { 'type': 'array', 'itemType': GetInstanceResponseBodyCloudDisks },
       code: 'string',
       datasets: { 'type': 'array', 'itemType': GetInstanceResponseBodyDatasets },
       ecsSpec: 'string',
@@ -834,6 +848,7 @@ export class GetInstanceResponseBody extends $tea.Model {
       webIDEUrl: 'string',
       workspaceId: 'string',
       workspaceName: 'string',
+      workspaceSource: 'string',
     };
   }
 
@@ -1372,6 +1387,9 @@ export class GetTokenResponse extends $tea.Model {
 export class GetUserConfigResponseBody extends $tea.Model {
   accountSufficient?: boolean;
   code?: string;
+  enableEciDisk?: boolean;
+  freeTier?: GetUserConfigResponseBodyFreeTier;
+  freeTierSpecAvailable?: boolean;
   httpStatusCode?: number;
   message?: string;
   requestId?: string;
@@ -1380,6 +1398,9 @@ export class GetUserConfigResponseBody extends $tea.Model {
     return {
       accountSufficient: 'AccountSufficient',
       code: 'Code',
+      enableEciDisk: 'EnableEciDisk',
+      freeTier: 'FreeTier',
+      freeTierSpecAvailable: 'FreeTierSpecAvailable',
       httpStatusCode: 'HttpStatusCode',
       message: 'Message',
       requestId: 'RequestId',
@@ -1391,6 +1412,9 @@ export class GetUserConfigResponseBody extends $tea.Model {
     return {
       accountSufficient: 'boolean',
       code: 'string',
+      enableEciDisk: 'boolean',
+      freeTier: GetUserConfigResponseBodyFreeTier,
+      freeTierSpecAvailable: 'boolean',
       httpStatusCode: 'number',
       message: 'string',
       requestId: 'string',
@@ -1420,131 +1444,6 @@ export class GetUserConfigResponse extends $tea.Model {
       headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
       statusCode: 'number',
       body: GetUserConfigResponseBody,
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class ListDemoCategoriesResponseBody extends $tea.Model {
-  categories?: DemoCategory[];
-  requestId?: string;
-  static names(): { [key: string]: string } {
-    return {
-      categories: 'Categories',
-      requestId: 'RequestId',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      categories: { 'type': 'array', 'itemType': DemoCategory },
-      requestId: 'string',
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class ListDemoCategoriesResponse extends $tea.Model {
-  headers: { [key: string]: string };
-  statusCode: number;
-  body: ListDemoCategoriesResponseBody;
-  static names(): { [key: string]: string } {
-    return {
-      headers: 'headers',
-      statusCode: 'statusCode',
-      body: 'body',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
-      statusCode: 'number',
-      body: ListDemoCategoriesResponseBody,
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class ListDemosRequest extends $tea.Model {
-  category?: string;
-  demoName?: string;
-  pageNumber?: number;
-  pageSize?: number;
-  static names(): { [key: string]: string } {
-    return {
-      category: 'Category',
-      demoName: 'DemoName',
-      pageNumber: 'PageNumber',
-      pageSize: 'PageSize',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      category: 'string',
-      demoName: 'string',
-      pageNumber: 'number',
-      pageSize: 'number',
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class ListDemosResponseBody extends $tea.Model {
-  demos?: ListDemosResponseBodyDemos[];
-  requestId?: string;
-  totalCount?: number;
-  static names(): { [key: string]: string } {
-    return {
-      demos: 'Demos',
-      requestId: 'RequestId',
-      totalCount: 'TotalCount',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      demos: { 'type': 'array', 'itemType': ListDemosResponseBodyDemos },
-      requestId: 'string',
-      totalCount: 'number',
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class ListDemosResponse extends $tea.Model {
-  headers: { [key: string]: string };
-  statusCode: number;
-  body: ListDemosResponseBody;
-  static names(): { [key: string]: string } {
-    return {
-      headers: 'headers',
-      statusCode: 'statusCode',
-      body: 'body',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
-      statusCode: 'number',
-      body: ListDemosResponseBody,
     };
   }
 
@@ -2075,7 +1974,9 @@ export class UpdateInstanceRequest extends $tea.Model {
   imageUrl?: string;
   instanceName?: string;
   requestedResource?: UpdateInstanceRequestRequestedResource;
+  userId?: string;
   userVpc?: UpdateInstanceRequestUserVpc;
+  workspaceSource?: string;
   static names(): { [key: string]: string } {
     return {
       accessibility: 'Accessibility',
@@ -2087,7 +1988,9 @@ export class UpdateInstanceRequest extends $tea.Model {
       imageUrl: 'ImageUrl',
       instanceName: 'InstanceName',
       requestedResource: 'RequestedResource',
+      userId: 'UserId',
       userVpc: 'UserVpc',
+      workspaceSource: 'WorkspaceSource',
     };
   }
 
@@ -2102,7 +2005,9 @@ export class UpdateInstanceRequest extends $tea.Model {
       imageUrl: 'string',
       instanceName: 'string',
       requestedResource: UpdateInstanceRequestRequestedResource,
+      userId: 'string',
       userVpc: UpdateInstanceRequestUserVpc,
+      workspaceSource: 'string',
     };
   }
 
@@ -2162,6 +2067,34 @@ export class UpdateInstanceResponse extends $tea.Model {
       headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
       statusCode: 'number',
       body: UpdateInstanceResponseBody,
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class CreateInstanceRequestCloudDisks extends $tea.Model {
+  capacity?: string;
+  mountPath?: string;
+  path?: string;
+  subType?: string;
+  static names(): { [key: string]: string } {
+    return {
+      capacity: 'Capacity',
+      mountPath: 'MountPath',
+      path: 'Path',
+      subType: 'SubType',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      capacity: 'string',
+      mountPath: 'string',
+      path: 'string',
+      subType: 'string',
     };
   }
 
@@ -2246,11 +2179,15 @@ export class CreateInstanceRequestRequestedResource extends $tea.Model {
 }
 
 export class CreateInstanceRequestUserVpc extends $tea.Model {
+  defaultRoute?: string;
+  extendedCIDRs?: string[];
   securityGroupId?: string;
   vSwitchId?: string;
   vpcId?: string;
   static names(): { [key: string]: string } {
     return {
+      defaultRoute: 'DefaultRoute',
+      extendedCIDRs: 'ExtendedCIDRs',
       securityGroupId: 'SecurityGroupId',
       vSwitchId: 'VSwitchId',
       vpcId: 'VpcId',
@@ -2259,6 +2196,8 @@ export class CreateInstanceRequestUserVpc extends $tea.Model {
 
   static types(): { [key: string]: any } {
     return {
+      defaultRoute: 'string',
+      extendedCIDRs: { 'type': 'array', 'itemType': 'string' },
       securityGroupId: 'string',
       vSwitchId: 'string',
       vpcId: 'string',
@@ -2284,6 +2223,34 @@ export class CreateInstanceSnapshotRequestLabels extends $tea.Model {
     return {
       key: 'string',
       value: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class GetInstanceResponseBodyCloudDisks extends $tea.Model {
+  capacity?: string;
+  mountPath?: string;
+  path?: string;
+  subType?: string;
+  static names(): { [key: string]: string } {
+    return {
+      capacity: 'Capacity',
+      mountPath: 'MountPath',
+      path: 'Path',
+      subType: 'SubType',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      capacity: 'string',
+      mountPath: 'string',
+      path: 'string',
+      subType: 'string',
     };
   }
 
@@ -2516,11 +2483,15 @@ export class GetInstanceResponseBodyRequestedResource extends $tea.Model {
 }
 
 export class GetInstanceResponseBodyUserVpc extends $tea.Model {
+  defaultRoute?: string;
+  extendedCIDRs?: string[];
   securityGroupId?: string;
   vSwitchId?: string;
   vpcId?: string;
   static names(): { [key: string]: string } {
     return {
+      defaultRoute: 'DefaultRoute',
+      extendedCIDRs: 'ExtendedCIDRs',
       securityGroupId: 'SecurityGroupId',
       vSwitchId: 'VSwitchId',
       vpcId: 'VpcId',
@@ -2529,6 +2500,8 @@ export class GetInstanceResponseBodyUserVpc extends $tea.Model {
 
   static types(): { [key: string]: any } {
     return {
+      defaultRoute: 'string',
+      extendedCIDRs: { 'type': 'array', 'itemType': 'string' },
       securityGroupId: 'string',
       vSwitchId: 'string',
       vpcId: 'string',
@@ -2612,32 +2585,72 @@ export class GetLifecycleResponseBodyLifecycle extends $tea.Model {
   }
 }
 
-export class ListDemosResponseBodyDemos extends $tea.Model {
-  categories?: string[];
-  demoDescription?: string;
-  demoName?: string;
-  demoUrl?: string;
-  order?: number;
-  size?: number;
+export class GetUserConfigResponseBodyFreeTier extends $tea.Model {
+  endTime?: string;
+  initBaseUnit?: string;
+  initBaseValue?: number;
+  initShowUnit?: string;
+  initShowValue?: string;
+  isFreeTierUser?: boolean;
+  periodBaseUnit?: string;
+  periodBaseValue?: number;
+  periodShowUnit?: string;
+  periodShowValue?: string;
+  startTime?: string;
+  status?: string;
   static names(): { [key: string]: string } {
     return {
-      categories: 'Categories',
-      demoDescription: 'DemoDescription',
-      demoName: 'DemoName',
-      demoUrl: 'DemoUrl',
-      order: 'Order',
-      size: 'Size',
+      endTime: 'EndTime',
+      initBaseUnit: 'InitBaseUnit',
+      initBaseValue: 'InitBaseValue',
+      initShowUnit: 'InitShowUnit',
+      initShowValue: 'InitShowValue',
+      isFreeTierUser: 'IsFreeTierUser',
+      periodBaseUnit: 'PeriodBaseUnit',
+      periodBaseValue: 'PeriodBaseValue',
+      periodShowUnit: 'PeriodShowUnit',
+      periodShowValue: 'PeriodShowValue',
+      startTime: 'StartTime',
+      status: 'Status',
     };
   }
 
   static types(): { [key: string]: any } {
     return {
-      categories: { 'type': 'array', 'itemType': 'string' },
-      demoDescription: 'string',
-      demoName: 'string',
-      demoUrl: 'string',
-      order: 'number',
-      size: 'number',
+      endTime: 'string',
+      initBaseUnit: 'string',
+      initBaseValue: 'number',
+      initShowUnit: 'string',
+      initShowValue: 'string',
+      isFreeTierUser: 'boolean',
+      periodBaseUnit: 'string',
+      periodBaseValue: 'number',
+      periodShowUnit: 'string',
+      periodShowValue: 'string',
+      startTime: 'string',
+      status: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class ListEcsSpecsResponseBodyEcsSpecsLabels extends $tea.Model {
+  key?: string;
+  value?: string;
+  static names(): { [key: string]: string } {
+    return {
+      key: 'Key',
+      value: 'Value',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      key: 'string',
+      value: 'string',
     };
   }
 
@@ -2654,6 +2667,8 @@ export class ListEcsSpecsResponseBodyEcsSpecs extends $tea.Model {
   GPUType?: string;
   instanceBandwidthRx?: number;
   instanceType?: string;
+  isAvailable?: boolean;
+  labels?: ListEcsSpecsResponseBodyEcsSpecsLabels[];
   memory?: number;
   price?: number;
   systemDiskCapacity?: number;
@@ -2666,6 +2681,8 @@ export class ListEcsSpecsResponseBodyEcsSpecs extends $tea.Model {
       GPUType: 'GPUType',
       instanceBandwidthRx: 'InstanceBandwidthRx',
       instanceType: 'InstanceType',
+      isAvailable: 'IsAvailable',
+      labels: 'Labels',
       memory: 'Memory',
       price: 'Price',
       systemDiskCapacity: 'SystemDiskCapacity',
@@ -2681,6 +2698,8 @@ export class ListEcsSpecsResponseBodyEcsSpecs extends $tea.Model {
       GPUType: 'string',
       instanceBandwidthRx: 'number',
       instanceType: 'string',
+      isAvailable: 'boolean',
+      labels: { 'type': 'array', 'itemType': ListEcsSpecsResponseBodyEcsSpecsLabels },
       memory: 'number',
       price: 'number',
       systemDiskCapacity: 'number',
@@ -2755,6 +2774,34 @@ export class ListInstanceSnapshotResponseBodySnapshots extends $tea.Model {
       snapshotId: 'string',
       snapshotName: 'string',
       status: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class ListInstancesResponseBodyInstancesCloudDisks extends $tea.Model {
+  capacity?: string;
+  mountPath?: string;
+  path?: string;
+  subType?: string;
+  static names(): { [key: string]: string } {
+    return {
+      capacity: 'Capacity',
+      mountPath: 'MountPath',
+      path: 'Path',
+      subType: 'SubType',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      capacity: 'string',
+      mountPath: 'string',
+      path: 'string',
+      subType: 'string',
     };
   }
 
@@ -2987,11 +3034,15 @@ export class ListInstancesResponseBodyInstancesRequestedResource extends $tea.Mo
 }
 
 export class ListInstancesResponseBodyInstancesUserVpc extends $tea.Model {
+  defaultRoute?: string;
+  extendedCIDRs?: string[];
   securityGroupId?: string;
   vSwitchId?: string;
   vpcId?: string;
   static names(): { [key: string]: string } {
     return {
+      defaultRoute: 'DefaultRoute',
+      extendedCIDRs: 'ExtendedCIDRs',
       securityGroupId: 'SecurityGroupId',
       vSwitchId: 'VSwitchId',
       vpcId: 'VpcId',
@@ -3000,6 +3051,8 @@ export class ListInstancesResponseBodyInstancesUserVpc extends $tea.Model {
 
   static types(): { [key: string]: any } {
     return {
+      defaultRoute: 'string',
+      extendedCIDRs: { 'type': 'array', 'itemType': 'string' },
       securityGroupId: 'string',
       vSwitchId: 'string',
       vpcId: 'string',
@@ -3015,6 +3068,7 @@ export class ListInstancesResponseBodyInstances extends $tea.Model {
   acceleratorType?: string;
   accessibility?: string;
   accumulatedRunningTimeInMs?: number;
+  cloudDisks?: ListInstancesResponseBodyInstancesCloudDisks[];
   datasets?: ListInstancesResponseBodyInstancesDatasets[];
   ecsSpec?: string;
   environmentVariables?: { [key: string]: string };
@@ -3047,11 +3101,13 @@ export class ListInstancesResponseBodyInstances extends $tea.Model {
   webIDEUrl?: string;
   workspaceId?: string;
   workspaceName?: string;
+  workspaceSource?: string;
   static names(): { [key: string]: string } {
     return {
       acceleratorType: 'AcceleratorType',
       accessibility: 'Accessibility',
       accumulatedRunningTimeInMs: 'AccumulatedRunningTimeInMs',
+      cloudDisks: 'CloudDisks',
       datasets: 'Datasets',
       ecsSpec: 'EcsSpec',
       environmentVariables: 'EnvironmentVariables',
@@ -3084,6 +3140,7 @@ export class ListInstancesResponseBodyInstances extends $tea.Model {
       webIDEUrl: 'WebIDEUrl',
       workspaceId: 'WorkspaceId',
       workspaceName: 'WorkspaceName',
+      workspaceSource: 'WorkspaceSource',
     };
   }
 
@@ -3092,6 +3149,7 @@ export class ListInstancesResponseBodyInstances extends $tea.Model {
       acceleratorType: 'string',
       accessibility: 'string',
       accumulatedRunningTimeInMs: 'number',
+      cloudDisks: { 'type': 'array', 'itemType': ListInstancesResponseBodyInstancesCloudDisks },
       datasets: { 'type': 'array', 'itemType': ListInstancesResponseBodyInstancesDatasets },
       ecsSpec: 'string',
       environmentVariables: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
@@ -3124,6 +3182,7 @@ export class ListInstancesResponseBodyInstances extends $tea.Model {
       webIDEUrl: 'string',
       workspaceId: 'string',
       workspaceName: 'string',
+      workspaceSource: 'string',
     };
   }
 
@@ -3186,11 +3245,15 @@ export class UpdateInstanceRequestRequestedResource extends $tea.Model {
 }
 
 export class UpdateInstanceRequestUserVpc extends $tea.Model {
+  defaultRoute?: string;
+  extendedCIDRs?: string[];
   securityGroupId?: string;
   vSwitchId?: string;
   vpcId?: string;
   static names(): { [key: string]: string } {
     return {
+      defaultRoute: 'DefaultRoute',
+      extendedCIDRs: 'ExtendedCIDRs',
       securityGroupId: 'SecurityGroupId',
       vSwitchId: 'VSwitchId',
       vpcId: 'VpcId',
@@ -3199,6 +3262,8 @@ export class UpdateInstanceRequestUserVpc extends $tea.Model {
 
   static types(): { [key: string]: any } {
     return {
+      defaultRoute: 'string',
+      extendedCIDRs: { 'type': 'array', 'itemType': 'string' },
       securityGroupId: 'string',
       vSwitchId: 'string',
       vpcId: 'string',
@@ -3279,6 +3344,10 @@ export default class Client extends OpenApi {
       body["Accessibility"] = request.accessibility;
     }
 
+    if (!Util.isUnset(request.cloudDisks)) {
+      body["CloudDisks"] = request.cloudDisks;
+    }
+
     if (!Util.isUnset(request.datasets)) {
       body["Datasets"] = request.datasets;
     }
@@ -3319,12 +3388,20 @@ export default class Client extends OpenApi {
       body["ResourceId"] = request.resourceId;
     }
 
+    if (!Util.isUnset(request.userId)) {
+      body["UserId"] = request.userId;
+    }
+
     if (!Util.isUnset(request.userVpc)) {
       body["UserVpc"] = request.userVpc;
     }
 
     if (!Util.isUnset(request.workspaceId)) {
       body["WorkspaceId"] = request.workspaceId;
+    }
+
+    if (!Util.isUnset(request.workspaceSource)) {
+      body["WorkspaceSource"] = request.workspaceSource;
     }
 
     let req = new $OpenApi.OpenApiRequest({
@@ -3813,73 +3890,6 @@ export default class Client extends OpenApi {
     return await this.getUserConfigWithOptions(headers, runtime);
   }
 
-  async listDemoCategoriesWithOptions(headers: {[key: string ]: string}, runtime: $Util.RuntimeOptions): Promise<ListDemoCategoriesResponse> {
-    let req = new $OpenApi.OpenApiRequest({
-      headers: headers,
-    });
-    let params = new $OpenApi.Params({
-      action: "ListDemoCategories",
-      version: "2022-01-01",
-      protocol: "HTTPS",
-      pathname: `/api/v2/democategories`,
-      method: "GET",
-      authType: "AK",
-      style: "ROA",
-      reqBodyType: "json",
-      bodyType: "json",
-    });
-    return $tea.cast<ListDemoCategoriesResponse>(await this.callApi(params, req, runtime), new ListDemoCategoriesResponse({}));
-  }
-
-  async listDemoCategories(): Promise<ListDemoCategoriesResponse> {
-    let runtime = new $Util.RuntimeOptions({ });
-    let headers : {[key: string ]: string} = { };
-    return await this.listDemoCategoriesWithOptions(headers, runtime);
-  }
-
-  async listDemosWithOptions(request: ListDemosRequest, headers: {[key: string ]: string}, runtime: $Util.RuntimeOptions): Promise<ListDemosResponse> {
-    Util.validateModel(request);
-    let query : {[key: string ]: any} = { };
-    if (!Util.isUnset(request.category)) {
-      query["Category"] = request.category;
-    }
-
-    if (!Util.isUnset(request.demoName)) {
-      query["DemoName"] = request.demoName;
-    }
-
-    if (!Util.isUnset(request.pageNumber)) {
-      query["PageNumber"] = request.pageNumber;
-    }
-
-    if (!Util.isUnset(request.pageSize)) {
-      query["PageSize"] = request.pageSize;
-    }
-
-    let req = new $OpenApi.OpenApiRequest({
-      headers: headers,
-      query: OpenApiUtil.query(query),
-    });
-    let params = new $OpenApi.Params({
-      action: "ListDemos",
-      version: "2022-01-01",
-      protocol: "HTTPS",
-      pathname: `/api/v2/demos`,
-      method: "GET",
-      authType: "AK",
-      style: "ROA",
-      reqBodyType: "json",
-      bodyType: "json",
-    });
-    return $tea.cast<ListDemosResponse>(await this.callApi(params, req, runtime), new ListDemosResponse({}));
-  }
-
-  async listDemos(request: ListDemosRequest): Promise<ListDemosResponse> {
-    let runtime = new $Util.RuntimeOptions({ });
-    let headers : {[key: string ]: string} = { };
-    return await this.listDemosWithOptions(request, headers, runtime);
-  }
-
   async listEcsSpecsWithOptions(request: ListEcsSpecsRequest, headers: {[key: string ]: string}, runtime: $Util.RuntimeOptions): Promise<ListEcsSpecsResponse> {
     Util.validateModel(request);
     let query : {[key: string ]: any} = { };
@@ -4170,8 +4180,16 @@ export default class Client extends OpenApi {
       body["RequestedResource"] = request.requestedResource;
     }
 
+    if (!Util.isUnset(request.userId)) {
+      body["UserId"] = request.userId;
+    }
+
     if (!Util.isUnset(request.userVpc)) {
       body["UserVpc"] = request.userVpc;
+    }
+
+    if (!Util.isUnset(request.workspaceSource)) {
+      body["WorkspaceSource"] = request.workspaceSource;
     }
 
     let req = new $OpenApi.OpenApiRequest({
