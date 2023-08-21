@@ -220,6 +220,7 @@ export class CreateSandboxInstanceRequest extends $tea.Model {
   sandboxUser?: string;
   vpcId?: string;
   vpcSwitchId?: string;
+  zoneId?: string;
   static names(): { [key: string]: string } {
     return {
       backupPlanId: 'BackupPlanId',
@@ -232,6 +233,7 @@ export class CreateSandboxInstanceRequest extends $tea.Model {
       sandboxUser: 'SandboxUser',
       vpcId: 'VpcId',
       vpcSwitchId: 'VpcSwitchId',
+      zoneId: 'ZoneId',
     };
   }
 
@@ -247,6 +249,7 @@ export class CreateSandboxInstanceRequest extends $tea.Model {
       sandboxUser: 'string',
       vpcId: 'string',
       vpcSwitchId: 'string',
+      zoneId: 'string',
     };
   }
 
@@ -320,10 +323,12 @@ export class CreateSandboxInstanceResponse extends $tea.Model {
 export class DeleteSandboxInstanceRequest extends $tea.Model {
   backupPlanId?: string;
   instanceId?: string;
+  zoneId?: string;
   static names(): { [key: string]: string } {
     return {
       backupPlanId: 'BackupPlanId',
       instanceId: 'InstanceId',
+      zoneId: 'ZoneId',
     };
   }
 
@@ -331,6 +336,7 @@ export class DeleteSandboxInstanceRequest extends $tea.Model {
     return {
       backupPlanId: 'string',
       instanceId: 'string',
+      zoneId: 'string',
     };
   }
 
@@ -1835,6 +1841,10 @@ export default class Client extends OpenApi {
       query["VpcSwitchId"] = request.vpcSwitchId;
     }
 
+    if (!Util.isUnset(request.zoneId)) {
+      query["ZoneId"] = request.zoneId;
+    }
+
     let req = new $OpenApi.OpenApiRequest({
       query: OpenApiUtil.query(query),
     });
@@ -1879,6 +1889,10 @@ export default class Client extends OpenApi {
 
     if (!Util.isUnset(request.instanceId)) {
       query["InstanceId"] = request.instanceId;
+    }
+
+    if (!Util.isUnset(request.zoneId)) {
+      query["ZoneId"] = request.zoneId;
     }
 
     let req = new $OpenApi.OpenApiRequest({
