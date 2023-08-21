@@ -2600,6 +2600,75 @@ export class DeleteRemediationsResponse extends $tea.Model {
   }
 }
 
+export class DescribeRemediationRequest extends $tea.Model {
+  configRuleId?: string;
+  remediationId?: string;
+  static names(): { [key: string]: string } {
+    return {
+      configRuleId: 'ConfigRuleId',
+      remediationId: 'RemediationId',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      configRuleId: 'string',
+      remediationId: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class DescribeRemediationResponseBody extends $tea.Model {
+  remediation?: DescribeRemediationResponseBodyRemediation;
+  requestId?: string;
+  static names(): { [key: string]: string } {
+    return {
+      remediation: 'Remediation',
+      requestId: 'RequestId',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      remediation: DescribeRemediationResponseBodyRemediation,
+      requestId: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class DescribeRemediationResponse extends $tea.Model {
+  headers: { [key: string]: string };
+  statusCode: number;
+  body: DescribeRemediationResponseBody;
+  static names(): { [key: string]: string } {
+    return {
+      headers: 'headers',
+      statusCode: 'statusCode',
+      body: 'body',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
+      body: DescribeRemediationResponseBody,
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
 export class DetachAggregateConfigRuleToCompliancePackRequest extends $tea.Model {
   aggregatorId?: string;
   compliancePackId?: string;
@@ -11717,6 +11786,55 @@ export class DeleteRemediationsResponseBodyRemediationDeleteResults extends $tea
   }
 }
 
+export class DescribeRemediationResponseBodyRemediation extends $tea.Model {
+  accountId?: number;
+  configRuleId?: string;
+  invokeType?: string;
+  lastSuccessfulInvocationId?: string;
+  lastSuccessfulInvocationTime?: number;
+  lastSuccessfulInvocationType?: string;
+  remediationId?: string;
+  remediationOriginParams?: string;
+  remediationSourceType?: string;
+  remediationTemplateId?: string;
+  remediationType?: string;
+  static names(): { [key: string]: string } {
+    return {
+      accountId: 'AccountId',
+      configRuleId: 'ConfigRuleId',
+      invokeType: 'InvokeType',
+      lastSuccessfulInvocationId: 'LastSuccessfulInvocationId',
+      lastSuccessfulInvocationTime: 'LastSuccessfulInvocationTime',
+      lastSuccessfulInvocationType: 'LastSuccessfulInvocationType',
+      remediationId: 'RemediationId',
+      remediationOriginParams: 'RemediationOriginParams',
+      remediationSourceType: 'RemediationSourceType',
+      remediationTemplateId: 'RemediationTemplateId',
+      remediationType: 'RemediationType',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      accountId: 'number',
+      configRuleId: 'string',
+      invokeType: 'string',
+      lastSuccessfulInvocationId: 'string',
+      lastSuccessfulInvocationTime: 'number',
+      lastSuccessfulInvocationType: 'string',
+      remediationId: 'string',
+      remediationOriginParams: 'string',
+      remediationSourceType: 'string',
+      remediationTemplateId: 'string',
+      remediationType: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
 export class DetachAggregateConfigRuleToCompliancePackResponseBodyOperateRuleResultOperateRuleItemList extends $tea.Model {
   configRuleId?: string;
   errorCode?: string;
@@ -18189,9 +18307,10 @@ export default class Client extends OpenApi {
   }
 
   /**
+    * ### Limits
+    * You can use an ordinary account to create up to 200 rules.
+    * ### Usage notes
     * This topic provides an example on how to create a managed rule named required-tags. The returned result indicates that the rule is created and the ID of the rule is `cr-5772ba41209e007b****`.
-    * ## Limits
-    * You can use a common account to create up to 200 rules.
     *
     * @param tmpReq CreateConfigRuleRequest
     * @param runtime runtime options for this request RuntimeOptions
@@ -18292,9 +18411,10 @@ export default class Client extends OpenApi {
   }
 
   /**
+    * ### Limits
+    * You can use an ordinary account to create up to 200 rules.
+    * ### Usage notes
     * This topic provides an example on how to create a managed rule named required-tags. The returned result indicates that the rule is created and the ID of the rule is `cr-5772ba41209e007b****`.
-    * ## Limits
-    * You can use a common account to create up to 200 rules.
     *
     * @param request CreateConfigRuleRequest
     * @return CreateConfigRuleResponse
@@ -18962,6 +19082,31 @@ export default class Client extends OpenApi {
   async deleteRemediations(request: DeleteRemediationsRequest): Promise<DeleteRemediationsResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.deleteRemediationsWithOptions(request, runtime);
+  }
+
+  async describeRemediationWithOptions(request: DescribeRemediationRequest, runtime: $Util.RuntimeOptions): Promise<DescribeRemediationResponse> {
+    Util.validateModel(request);
+    let query = OpenApiUtil.query(Util.toMap(request));
+    let req = new $OpenApi.OpenApiRequest({
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApi.Params({
+      action: "DescribeRemediation",
+      version: "2020-09-07",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "GET",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $tea.cast<DescribeRemediationResponse>(await this.callApi(params, req, runtime), new DescribeRemediationResponse({}));
+  }
+
+  async describeRemediation(request: DescribeRemediationRequest): Promise<DescribeRemediationResponse> {
+    let runtime = new $Util.RuntimeOptions({ });
+    return await this.describeRemediationWithOptions(request, runtime);
   }
 
   /**
