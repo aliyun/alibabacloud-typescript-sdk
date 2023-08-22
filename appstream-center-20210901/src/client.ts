@@ -762,6 +762,7 @@ export class GetConnectionTicketResponseBody extends $tea.Model {
   requestId?: string;
   taskId?: string;
   taskStatus?: string;
+  tenantId?: number;
   ticket?: string;
   static names(): { [key: string]: string } {
     return {
@@ -772,6 +773,7 @@ export class GetConnectionTicketResponseBody extends $tea.Model {
       requestId: 'RequestId',
       taskId: 'TaskId',
       taskStatus: 'TaskStatus',
+      tenantId: 'TenantId',
       ticket: 'Ticket',
     };
   }
@@ -785,6 +787,7 @@ export class GetConnectionTicketResponseBody extends $tea.Model {
       requestId: 'string',
       taskId: 'string',
       taskStatus: 'string',
+      tenantId: 'number',
       ticket: 'string',
     };
   }
@@ -983,6 +986,7 @@ export class GetOtaTaskByTaskIdResponse extends $tea.Model {
 
 export class GetResourcePriceRequest extends $tea.Model {
   amount?: number;
+  appInstanceType?: string;
   bizRegionId?: string;
   chargeType?: string;
   nodeInstanceType?: string;
@@ -992,6 +996,7 @@ export class GetResourcePriceRequest extends $tea.Model {
   static names(): { [key: string]: string } {
     return {
       amount: 'Amount',
+      appInstanceType: 'AppInstanceType',
       bizRegionId: 'BizRegionId',
       chargeType: 'ChargeType',
       nodeInstanceType: 'NodeInstanceType',
@@ -1004,6 +1009,7 @@ export class GetResourcePriceRequest extends $tea.Model {
   static types(): { [key: string]: any } {
     return {
       amount: 'number',
+      appInstanceType: 'string',
       bizRegionId: 'string',
       chargeType: 'string',
       nodeInstanceType: 'string',
@@ -1021,12 +1027,14 @@ export class GetResourcePriceRequest extends $tea.Model {
 export class GetResourcePriceResponseBody extends $tea.Model {
   code?: string;
   message?: string;
+  priceList?: GetResourcePriceResponseBodyPriceList[];
   priceModel?: GetResourcePriceResponseBodyPriceModel;
   requestId?: string;
   static names(): { [key: string]: string } {
     return {
       code: 'Code',
       message: 'Message',
+      priceList: 'PriceList',
       priceModel: 'PriceModel',
       requestId: 'RequestId',
     };
@@ -1036,6 +1044,7 @@ export class GetResourcePriceResponseBody extends $tea.Model {
     return {
       code: 'string',
       message: 'string',
+      priceList: { 'type': 'array', 'itemType': GetResourcePriceResponseBodyPriceList },
       priceModel: GetResourcePriceResponseBodyPriceModel,
       requestId: 'string',
     };
@@ -1684,7 +1693,10 @@ export class LogOffAllSessionsInAppInstanceGroupResponse extends $tea.Model {
 export class ModifyAppInstanceGroupAttributeRequest extends $tea.Model {
   appInstanceGroupId?: string;
   appInstanceGroupName?: string;
+  network?: ModifyAppInstanceGroupAttributeRequestNetwork;
   nodePool?: ModifyAppInstanceGroupAttributeRequestNodePool;
+  preOpenAppId?: string;
+  preOpenMode?: string;
   productType?: string;
   securityPolicy?: ModifyAppInstanceGroupAttributeRequestSecurityPolicy;
   sessionTimeout?: number;
@@ -1693,7 +1705,10 @@ export class ModifyAppInstanceGroupAttributeRequest extends $tea.Model {
     return {
       appInstanceGroupId: 'AppInstanceGroupId',
       appInstanceGroupName: 'AppInstanceGroupName',
+      network: 'Network',
       nodePool: 'NodePool',
+      preOpenAppId: 'PreOpenAppId',
+      preOpenMode: 'PreOpenMode',
       productType: 'ProductType',
       securityPolicy: 'SecurityPolicy',
       sessionTimeout: 'SessionTimeout',
@@ -1705,7 +1720,10 @@ export class ModifyAppInstanceGroupAttributeRequest extends $tea.Model {
     return {
       appInstanceGroupId: 'string',
       appInstanceGroupName: 'string',
+      network: ModifyAppInstanceGroupAttributeRequestNetwork,
       nodePool: ModifyAppInstanceGroupAttributeRequestNodePool,
+      preOpenAppId: 'string',
+      preOpenMode: 'string',
       productType: 'string',
       securityPolicy: ModifyAppInstanceGroupAttributeRequestSecurityPolicy,
       sessionTimeout: 'number',
@@ -1721,7 +1739,10 @@ export class ModifyAppInstanceGroupAttributeRequest extends $tea.Model {
 export class ModifyAppInstanceGroupAttributeShrinkRequest extends $tea.Model {
   appInstanceGroupId?: string;
   appInstanceGroupName?: string;
+  networkShrink?: string;
   nodePoolShrink?: string;
+  preOpenAppId?: string;
+  preOpenMode?: string;
   productType?: string;
   securityPolicyShrink?: string;
   sessionTimeout?: number;
@@ -1730,7 +1751,10 @@ export class ModifyAppInstanceGroupAttributeShrinkRequest extends $tea.Model {
     return {
       appInstanceGroupId: 'AppInstanceGroupId',
       appInstanceGroupName: 'AppInstanceGroupName',
+      networkShrink: 'Network',
       nodePoolShrink: 'NodePool',
+      preOpenAppId: 'PreOpenAppId',
+      preOpenMode: 'PreOpenMode',
       productType: 'ProductType',
       securityPolicyShrink: 'SecurityPolicy',
       sessionTimeout: 'SessionTimeout',
@@ -1742,7 +1766,10 @@ export class ModifyAppInstanceGroupAttributeShrinkRequest extends $tea.Model {
     return {
       appInstanceGroupId: 'string',
       appInstanceGroupName: 'string',
+      networkShrink: 'string',
       nodePoolShrink: 'string',
+      preOpenAppId: 'string',
+      preOpenMode: 'string',
       productType: 'string',
       securityPolicyShrink: 'string',
       sessionTimeout: 'number',
@@ -2292,6 +2319,28 @@ export class UpdateAppInstanceGroupImageResponse extends $tea.Model {
   }
 }
 
+export class CreateAppInstanceGroupRequestNetworkDomainRules extends $tea.Model {
+  domain?: string;
+  policy?: string;
+  static names(): { [key: string]: string } {
+    return {
+      domain: 'Domain',
+      policy: 'Policy',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      domain: 'string',
+      policy: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
 export class CreateAppInstanceGroupRequestNetworkRoutes extends $tea.Model {
   destination?: string;
   mode?: string;
@@ -2315,11 +2364,13 @@ export class CreateAppInstanceGroupRequestNetworkRoutes extends $tea.Model {
 }
 
 export class CreateAppInstanceGroupRequestNetwork extends $tea.Model {
+  domainRules?: CreateAppInstanceGroupRequestNetworkDomainRules[];
   ipExpireMinutes?: number;
   routes?: CreateAppInstanceGroupRequestNetworkRoutes[];
   strategyType?: string;
   static names(): { [key: string]: string } {
     return {
+      domainRules: 'DomainRules',
       ipExpireMinutes: 'IpExpireMinutes',
       routes: 'Routes',
       strategyType: 'StrategyType',
@@ -2328,6 +2379,7 @@ export class CreateAppInstanceGroupRequestNetwork extends $tea.Model {
 
   static types(): { [key: string]: any } {
     return {
+      domainRules: { 'type': 'array', 'itemType': CreateAppInstanceGroupRequestNetworkDomainRules },
       ipExpireMinutes: 'number',
       routes: { 'type': 'array', 'itemType': CreateAppInstanceGroupRequestNetworkRoutes },
       strategyType: 'string',
@@ -2750,17 +2802,27 @@ export class GetAppInstanceGroupResponseBodyAppInstanceGroupModels extends $tea.
   appInstanceGroupId?: string;
   appInstanceGroupName?: string;
   appInstanceType?: string;
+  appInstanceTypeName?: string;
   appPolicyId?: string;
   apps?: GetAppInstanceGroupResponseBodyAppInstanceGroupModelsApps[];
+  chargeResourceMode?: string;
   chargeType?: string;
   expiredTime?: string;
   gmtCreate?: string;
+  maxAmount?: number;
+  minAmount?: number;
   nodePool?: GetAppInstanceGroupResponseBodyAppInstanceGroupModelsNodePool[];
   osType?: string;
   otaInfo?: GetAppInstanceGroupResponseBodyAppInstanceGroupModelsOtaInfo;
   productType?: string;
   regionId?: string;
+  reserveAmountRatio?: string;
+  reserveMaxAmount?: number;
+  reserveMinAmount?: number;
   resourceStatus?: string;
+  scalingDownAfterIdleMinutes?: number;
+  scalingStep?: number;
+  scalingUsageThreshold?: string;
   sessionTimeout?: string;
   skipUserAuthCheck?: boolean;
   specId?: string;
@@ -2773,17 +2835,27 @@ export class GetAppInstanceGroupResponseBodyAppInstanceGroupModels extends $tea.
       appInstanceGroupId: 'AppInstanceGroupId',
       appInstanceGroupName: 'AppInstanceGroupName',
       appInstanceType: 'AppInstanceType',
+      appInstanceTypeName: 'AppInstanceTypeName',
       appPolicyId: 'AppPolicyId',
       apps: 'Apps',
+      chargeResourceMode: 'ChargeResourceMode',
       chargeType: 'ChargeType',
       expiredTime: 'ExpiredTime',
       gmtCreate: 'GmtCreate',
+      maxAmount: 'MaxAmount',
+      minAmount: 'MinAmount',
       nodePool: 'NodePool',
       osType: 'OsType',
       otaInfo: 'OtaInfo',
       productType: 'ProductType',
       regionId: 'RegionId',
+      reserveAmountRatio: 'ReserveAmountRatio',
+      reserveMaxAmount: 'ReserveMaxAmount',
+      reserveMinAmount: 'ReserveMinAmount',
       resourceStatus: 'ResourceStatus',
+      scalingDownAfterIdleMinutes: 'ScalingDownAfterIdleMinutes',
+      scalingStep: 'ScalingStep',
+      scalingUsageThreshold: 'ScalingUsageThreshold',
       sessionTimeout: 'SessionTimeout',
       skipUserAuthCheck: 'SkipUserAuthCheck',
       specId: 'SpecId',
@@ -2799,21 +2871,140 @@ export class GetAppInstanceGroupResponseBodyAppInstanceGroupModels extends $tea.
       appInstanceGroupId: 'string',
       appInstanceGroupName: 'string',
       appInstanceType: 'string',
+      appInstanceTypeName: 'string',
       appPolicyId: 'string',
       apps: { 'type': 'array', 'itemType': GetAppInstanceGroupResponseBodyAppInstanceGroupModelsApps },
+      chargeResourceMode: 'string',
       chargeType: 'string',
       expiredTime: 'string',
       gmtCreate: 'string',
+      maxAmount: 'number',
+      minAmount: 'number',
       nodePool: { 'type': 'array', 'itemType': GetAppInstanceGroupResponseBodyAppInstanceGroupModelsNodePool },
       osType: 'string',
       otaInfo: GetAppInstanceGroupResponseBodyAppInstanceGroupModelsOtaInfo,
       productType: 'string',
       regionId: 'string',
+      reserveAmountRatio: 'string',
+      reserveMaxAmount: 'number',
+      reserveMinAmount: 'number',
       resourceStatus: 'string',
+      scalingDownAfterIdleMinutes: 'number',
+      scalingStep: 'number',
+      scalingUsageThreshold: 'string',
       sessionTimeout: 'string',
       skipUserAuthCheck: 'boolean',
       specId: 'string',
       status: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class GetResourcePriceResponseBodyPriceListPricePromotions extends $tea.Model {
+  optionCode?: string;
+  promotionDesc?: string;
+  promotionId?: string;
+  promotionName?: string;
+  selected?: boolean;
+  static names(): { [key: string]: string } {
+    return {
+      optionCode: 'OptionCode',
+      promotionDesc: 'PromotionDesc',
+      promotionId: 'PromotionId',
+      promotionName: 'PromotionName',
+      selected: 'Selected',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      optionCode: 'string',
+      promotionDesc: 'string',
+      promotionId: 'string',
+      promotionName: 'string',
+      selected: 'boolean',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class GetResourcePriceResponseBodyPriceListPrice extends $tea.Model {
+  currency?: string;
+  discountPrice?: string;
+  originalPrice?: string;
+  promotions?: GetResourcePriceResponseBodyPriceListPricePromotions[];
+  tradePrice?: string;
+  static names(): { [key: string]: string } {
+    return {
+      currency: 'Currency',
+      discountPrice: 'DiscountPrice',
+      originalPrice: 'OriginalPrice',
+      promotions: 'Promotions',
+      tradePrice: 'TradePrice',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      currency: 'string',
+      discountPrice: 'string',
+      originalPrice: 'string',
+      promotions: { 'type': 'array', 'itemType': GetResourcePriceResponseBodyPriceListPricePromotions },
+      tradePrice: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class GetResourcePriceResponseBodyPriceListRules extends $tea.Model {
+  description?: string;
+  ruleId?: number;
+  static names(): { [key: string]: string } {
+    return {
+      description: 'Description',
+      ruleId: 'RuleId',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      description: 'string',
+      ruleId: 'number',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class GetResourcePriceResponseBodyPriceList extends $tea.Model {
+  price?: GetResourcePriceResponseBodyPriceListPrice;
+  priceType?: string;
+  rules?: GetResourcePriceResponseBodyPriceListRules[];
+  static names(): { [key: string]: string } {
+    return {
+      price: 'Price',
+      priceType: 'PriceType',
+      rules: 'Rules',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      price: GetResourcePriceResponseBodyPriceListPrice,
+      priceType: 'string',
+      rules: { 'type': 'array', 'itemType': GetResourcePriceResponseBodyPriceListRules },
     };
   }
 
@@ -3222,12 +3413,20 @@ export class ListAppInstanceGroupResponseBodyAppInstanceGroupModels extends $tea
   chargeType?: string;
   expiredTime?: string;
   gmtCreate?: string;
+  maxAmount?: number;
+  minAmount?: number;
   nodePool?: ListAppInstanceGroupResponseBodyAppInstanceGroupModelsNodePool[];
   osType?: string;
   otaInfo?: ListAppInstanceGroupResponseBodyAppInstanceGroupModelsOtaInfo;
   productType?: string;
   regionId?: string;
+  reserveAmountRatio?: string;
+  reserveMaxAmount?: number;
+  reserveMinAmount?: number;
   resourceStatus?: string;
+  scalingDownAfterIdleMinutes?: number;
+  scalingStep?: number;
+  scalingUsageThreshold?: string;
   sessionTimeout?: string;
   skipUserAuthCheck?: boolean;
   specId?: string;
@@ -3245,12 +3444,20 @@ export class ListAppInstanceGroupResponseBodyAppInstanceGroupModels extends $tea
       chargeType: 'ChargeType',
       expiredTime: 'ExpiredTime',
       gmtCreate: 'GmtCreate',
+      maxAmount: 'MaxAmount',
+      minAmount: 'MinAmount',
       nodePool: 'NodePool',
       osType: 'OsType',
       otaInfo: 'OtaInfo',
       productType: 'ProductType',
       regionId: 'RegionId',
+      reserveAmountRatio: 'ReserveAmountRatio',
+      reserveMaxAmount: 'ReserveMaxAmount',
+      reserveMinAmount: 'ReserveMinAmount',
       resourceStatus: 'ResourceStatus',
+      scalingDownAfterIdleMinutes: 'ScalingDownAfterIdleMinutes',
+      scalingStep: 'ScalingStep',
+      scalingUsageThreshold: 'ScalingUsageThreshold',
       sessionTimeout: 'SessionTimeout',
       skipUserAuthCheck: 'SkipUserAuthCheck',
       specId: 'SpecId',
@@ -3271,12 +3478,20 @@ export class ListAppInstanceGroupResponseBodyAppInstanceGroupModels extends $tea
       chargeType: 'string',
       expiredTime: 'string',
       gmtCreate: 'string',
+      maxAmount: 'number',
+      minAmount: 'number',
       nodePool: { 'type': 'array', 'itemType': ListAppInstanceGroupResponseBodyAppInstanceGroupModelsNodePool },
       osType: 'string',
       otaInfo: ListAppInstanceGroupResponseBodyAppInstanceGroupModelsOtaInfo,
       productType: 'string',
       regionId: 'string',
+      reserveAmountRatio: 'string',
+      reserveMaxAmount: 'number',
+      reserveMinAmount: 'number',
       resourceStatus: 'string',
+      scalingDownAfterIdleMinutes: 'number',
+      scalingStep: 'number',
+      scalingUsageThreshold: 'string',
       sessionTimeout: 'string',
       skipUserAuthCheck: 'boolean',
       specId: 'string',
@@ -3449,6 +3664,47 @@ export class ListTenantConfigResponseBodyTenantConfigModel extends $tea.Model {
   static types(): { [key: string]: any } {
     return {
       appInstanceGroupExpireRemind: 'boolean',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class ModifyAppInstanceGroupAttributeRequestNetworkDomainRules extends $tea.Model {
+  domain?: string;
+  policy?: string;
+  static names(): { [key: string]: string } {
+    return {
+      domain: 'Domain',
+      policy: 'Policy',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      domain: 'string',
+      policy: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class ModifyAppInstanceGroupAttributeRequestNetwork extends $tea.Model {
+  domainRules?: ModifyAppInstanceGroupAttributeRequestNetworkDomainRules[];
+  static names(): { [key: string]: string } {
+    return {
+      domainRules: 'DomainRules',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      domainRules: { 'type': 'array', 'itemType': ModifyAppInstanceGroupAttributeRequestNetworkDomainRules },
     };
   }
 
@@ -4159,6 +4415,10 @@ export default class Client extends OpenApi {
       query["Amount"] = request.amount;
     }
 
+    if (!Util.isUnset(request.appInstanceType)) {
+      query["AppInstanceType"] = request.appInstanceType;
+    }
+
     if (!Util.isUnset(request.bizRegionId)) {
       query["BizRegionId"] = request.bizRegionId;
     }
@@ -4537,6 +4797,10 @@ export default class Client extends OpenApi {
     Util.validateModel(tmpReq);
     let request = new ModifyAppInstanceGroupAttributeShrinkRequest({ });
     OpenApiUtil.convert(tmpReq, request);
+    if (!Util.isUnset(tmpReq.network)) {
+      request.networkShrink = OpenApiUtil.arrayToStringWithSpecifiedStyle(tmpReq.network, "Network", "json");
+    }
+
     if (!Util.isUnset(tmpReq.nodePool)) {
       request.nodePoolShrink = OpenApiUtil.arrayToStringWithSpecifiedStyle(tmpReq.nodePool, "NodePool", "json");
     }
@@ -4571,6 +4835,18 @@ export default class Client extends OpenApi {
     }
 
     let body : {[key: string ]: any} = { };
+    if (!Util.isUnset(request.networkShrink)) {
+      body["Network"] = request.networkShrink;
+    }
+
+    if (!Util.isUnset(request.preOpenAppId)) {
+      body["PreOpenAppId"] = request.preOpenAppId;
+    }
+
+    if (!Util.isUnset(request.preOpenMode)) {
+      body["PreOpenMode"] = request.preOpenMode;
+    }
+
     if (!Util.isUnset(request.securityPolicyShrink)) {
       body["SecurityPolicy"] = request.securityPolicyShrink;
     }
