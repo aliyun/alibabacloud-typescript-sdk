@@ -3089,10 +3089,12 @@ export class DescribeServiceMeshKubeconfigRequest extends $tea.Model {
 }
 
 export class DescribeServiceMeshKubeconfigResponseBody extends $tea.Model {
+  expireTime?: string;
   kubeconfig?: string;
   requestId?: string;
   static names(): { [key: string]: string } {
     return {
+      expireTime: 'ExpireTime',
       kubeconfig: 'Kubeconfig',
       requestId: 'RequestId',
     };
@@ -3100,6 +3102,7 @@ export class DescribeServiceMeshKubeconfigResponseBody extends $tea.Model {
 
   static types(): { [key: string]: any } {
     return {
+      expireTime: 'string',
       kubeconfig: 'string',
       requestId: 'string',
     };
