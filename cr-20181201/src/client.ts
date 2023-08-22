@@ -224,6 +224,87 @@ export class ChangeResourceGroupResponse extends $tea.Model {
   }
 }
 
+export class CreateArtifactBuildRuleRequest extends $tea.Model {
+  artifactType?: string;
+  instanceId?: string;
+  scopeId?: string;
+  scopeType?: string;
+  static names(): { [key: string]: string } {
+    return {
+      artifactType: 'ArtifactType',
+      instanceId: 'InstanceId',
+      scopeId: 'ScopeId',
+      scopeType: 'ScopeType',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      artifactType: 'string',
+      instanceId: 'string',
+      scopeId: 'string',
+      scopeType: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class CreateArtifactBuildRuleResponseBody extends $tea.Model {
+  buildRuleId?: string;
+  code?: string;
+  isSuccess?: boolean;
+  requestId?: string;
+  static names(): { [key: string]: string } {
+    return {
+      buildRuleId: 'BuildRuleId',
+      code: 'Code',
+      isSuccess: 'IsSuccess',
+      requestId: 'RequestId',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      buildRuleId: 'string',
+      code: 'string',
+      isSuccess: 'boolean',
+      requestId: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class CreateArtifactBuildRuleResponse extends $tea.Model {
+  headers: { [key: string]: string };
+  statusCode: number;
+  body: CreateArtifactBuildRuleResponseBody;
+  static names(): { [key: string]: string } {
+    return {
+      headers: 'headers',
+      statusCode: 'statusCode',
+      body: 'body',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
+      body: CreateArtifactBuildRuleResponseBody,
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
 export class CreateBuildRecordByRuleRequest extends $tea.Model {
   buildRuleId?: string;
   instanceId?: string;
@@ -3073,6 +3154,7 @@ export class GetInstanceResponseBody extends $tea.Model {
   code?: string;
   createTime?: number;
   instanceId?: string;
+  instanceIssue?: string;
   instanceName?: string;
   instanceSpecification?: string;
   instanceStatus?: string;
@@ -3085,6 +3167,7 @@ export class GetInstanceResponseBody extends $tea.Model {
       code: 'Code',
       createTime: 'CreateTime',
       instanceId: 'InstanceId',
+      instanceIssue: 'InstanceIssue',
       instanceName: 'InstanceName',
       instanceSpecification: 'InstanceSpecification',
       instanceStatus: 'InstanceStatus',
@@ -3100,6 +3183,7 @@ export class GetInstanceResponseBody extends $tea.Model {
       code: 'string',
       createTime: 'number',
       instanceId: 'string',
+      instanceIssue: 'string',
       instanceName: 'string',
       instanceSpecification: 'string',
       instanceStatus: 'string',
@@ -3404,6 +3488,7 @@ export class GetInstanceVpcEndpointResponseBody extends $tea.Model {
   enable?: boolean;
   isSuccess?: boolean;
   linkedVpcs?: GetInstanceVpcEndpointResponseBodyLinkedVpcs[];
+  moduleName?: string;
   requestId?: string;
   static names(): { [key: string]: string } {
     return {
@@ -3412,6 +3497,7 @@ export class GetInstanceVpcEndpointResponseBody extends $tea.Model {
       enable: 'Enable',
       isSuccess: 'IsSuccess',
       linkedVpcs: 'LinkedVpcs',
+      moduleName: 'ModuleName',
       requestId: 'RequestId',
     };
   }
@@ -3423,6 +3509,7 @@ export class GetInstanceVpcEndpointResponseBody extends $tea.Model {
       enable: 'boolean',
       isSuccess: 'boolean',
       linkedVpcs: { 'type': 'array', 'itemType': GetInstanceVpcEndpointResponseBodyLinkedVpcs },
+      moduleName: 'string',
       requestId: 'string',
     };
   }
@@ -8305,6 +8392,7 @@ export class ListEventCenterRuleNameResponseBodyRuleNames extends $tea.Model {
 export class ListInstanceResponseBodyInstances extends $tea.Model {
   createTime?: string;
   instanceId?: string;
+  instanceIssue?: string;
   instanceName?: string;
   instanceSpecification?: string;
   instanceStatus?: string;
@@ -8315,6 +8403,7 @@ export class ListInstanceResponseBodyInstances extends $tea.Model {
     return {
       createTime: 'CreateTime',
       instanceId: 'InstanceId',
+      instanceIssue: 'InstanceIssue',
       instanceName: 'InstanceName',
       instanceSpecification: 'InstanceSpecification',
       instanceStatus: 'InstanceStatus',
@@ -8328,6 +8417,7 @@ export class ListInstanceResponseBodyInstances extends $tea.Model {
     return {
       createTime: 'string',
       instanceId: 'string',
+      instanceIssue: 'string',
       instanceName: 'string',
       instanceSpecification: 'string',
       instanceStatus: 'string',
@@ -9111,6 +9201,60 @@ export default class Client extends OpenApi {
     return await this.changeResourceGroupWithOptions(request, runtime);
   }
 
+  /**
+    * The ID of the rule.
+    *
+    * @param request CreateArtifactBuildRuleRequest
+    * @param runtime runtime options for this request RuntimeOptions
+    * @return CreateArtifactBuildRuleResponse
+   */
+  async createArtifactBuildRuleWithOptions(request: CreateArtifactBuildRuleRequest, runtime: $Util.RuntimeOptions): Promise<CreateArtifactBuildRuleResponse> {
+    Util.validateModel(request);
+    let query = { };
+    if (!Util.isUnset(request.artifactType)) {
+      query["ArtifactType"] = request.artifactType;
+    }
+
+    if (!Util.isUnset(request.instanceId)) {
+      query["InstanceId"] = request.instanceId;
+    }
+
+    if (!Util.isUnset(request.scopeId)) {
+      query["ScopeId"] = request.scopeId;
+    }
+
+    if (!Util.isUnset(request.scopeType)) {
+      query["ScopeType"] = request.scopeType;
+    }
+
+    let req = new $OpenApi.OpenApiRequest({
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApi.Params({
+      action: "CreateArtifactBuildRule",
+      version: "2018-12-01",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $tea.cast<CreateArtifactBuildRuleResponse>(await this.callApi(params, req, runtime), new CreateArtifactBuildRuleResponse({}));
+  }
+
+  /**
+    * The ID of the rule.
+    *
+    * @param request CreateArtifactBuildRuleRequest
+    * @return CreateArtifactBuildRuleResponse
+   */
+  async createArtifactBuildRule(request: CreateArtifactBuildRuleRequest): Promise<CreateArtifactBuildRuleResponse> {
+    let runtime = new $Util.RuntimeOptions({ });
+    return await this.createArtifactBuildRuleWithOptions(request, runtime);
+  }
+
   async createBuildRecordByRuleWithOptions(request: CreateBuildRecordByRuleRequest, runtime: $Util.RuntimeOptions): Promise<CreateBuildRecordByRuleResponse> {
     Util.validateModel(request);
     let query = { };
@@ -9332,6 +9476,13 @@ export default class Client extends OpenApi {
     return await this.createInstanceEndpointAclPolicyWithOptions(request, runtime);
   }
 
+  /**
+    * The ID of the request.
+    *
+    * @param request CreateInstanceVpcEndpointLinkedVpcRequest
+    * @param runtime runtime options for this request RuntimeOptions
+    * @return CreateInstanceVpcEndpointLinkedVpcResponse
+   */
   async createInstanceVpcEndpointLinkedVpcWithOptions(request: CreateInstanceVpcEndpointLinkedVpcRequest, runtime: $Util.RuntimeOptions): Promise<CreateInstanceVpcEndpointLinkedVpcResponse> {
     Util.validateModel(request);
     let query = { };
@@ -9372,6 +9523,12 @@ export default class Client extends OpenApi {
     return $tea.cast<CreateInstanceVpcEndpointLinkedVpcResponse>(await this.callApi(params, req, runtime), new CreateInstanceVpcEndpointLinkedVpcResponse({}));
   }
 
+  /**
+    * The ID of the request.
+    *
+    * @param request CreateInstanceVpcEndpointLinkedVpcRequest
+    * @return CreateInstanceVpcEndpointLinkedVpcResponse
+   */
   async createInstanceVpcEndpointLinkedVpc(request: CreateInstanceVpcEndpointLinkedVpcRequest): Promise<CreateInstanceVpcEndpointLinkedVpcResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.createInstanceVpcEndpointLinkedVpcWithOptions(request, runtime);
@@ -9940,6 +10097,13 @@ export default class Client extends OpenApi {
     return await this.deleteChainWithOptions(request, runtime);
   }
 
+  /**
+    * >  If you delete a chart namespace, all repositories in the namespace and the charts in all repositories are deleted.
+    *
+    * @param request DeleteChartNamespaceRequest
+    * @param runtime runtime options for this request RuntimeOptions
+    * @return DeleteChartNamespaceResponse
+   */
   async deleteChartNamespaceWithOptions(request: DeleteChartNamespaceRequest, runtime: $Util.RuntimeOptions): Promise<DeleteChartNamespaceResponse> {
     Util.validateModel(request);
     let query = { };
@@ -9968,6 +10132,12 @@ export default class Client extends OpenApi {
     return $tea.cast<DeleteChartNamespaceResponse>(await this.callApi(params, req, runtime), new DeleteChartNamespaceResponse({}));
   }
 
+  /**
+    * >  If you delete a chart namespace, all repositories in the namespace and the charts in all repositories are deleted.
+    *
+    * @param request DeleteChartNamespaceRequest
+    * @return DeleteChartNamespaceResponse
+   */
   async deleteChartNamespace(request: DeleteChartNamespaceRequest): Promise<DeleteChartNamespaceResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.deleteChartNamespaceWithOptions(request, runtime);
@@ -10170,6 +10340,13 @@ export default class Client extends OpenApi {
     return await this.deleteInstanceVpcEndpointLinkedVpcWithOptions(request, runtime);
   }
 
+  /**
+    * > After you delete a namespace, all repositories in the namespace and all images in these repositories are deleted as well.
+    *
+    * @param request DeleteNamespaceRequest
+    * @param runtime runtime options for this request RuntimeOptions
+    * @return DeleteNamespaceResponse
+   */
   async deleteNamespaceWithOptions(request: DeleteNamespaceRequest, runtime: $Util.RuntimeOptions): Promise<DeleteNamespaceResponse> {
     Util.validateModel(request);
     let query = { };
@@ -10198,6 +10375,12 @@ export default class Client extends OpenApi {
     return $tea.cast<DeleteNamespaceResponse>(await this.callApi(params, req, runtime), new DeleteNamespaceResponse({}));
   }
 
+  /**
+    * > After you delete a namespace, all repositories in the namespace and all images in these repositories are deleted as well.
+    *
+    * @param request DeleteNamespaceRequest
+    * @return DeleteNamespaceResponse
+   */
   async deleteNamespace(request: DeleteNamespaceRequest): Promise<DeleteNamespaceResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.deleteNamespaceWithOptions(request, runtime);
@@ -10347,6 +10530,13 @@ export default class Client extends OpenApi {
     return await this.deleteRepoTriggerWithOptions(request, runtime);
   }
 
+  /**
+    * If you delete a repository, all images in the repository are also deleted.
+    *
+    * @param request DeleteRepositoryRequest
+    * @param runtime runtime options for this request RuntimeOptions
+    * @return DeleteRepositoryResponse
+   */
   async deleteRepositoryWithOptions(request: DeleteRepositoryRequest, runtime: $Util.RuntimeOptions): Promise<DeleteRepositoryResponse> {
     Util.validateModel(request);
     let query = { };
@@ -10383,6 +10573,12 @@ export default class Client extends OpenApi {
     return $tea.cast<DeleteRepositoryResponse>(await this.callApi(params, req, runtime), new DeleteRepositoryResponse({}));
   }
 
+  /**
+    * If you delete a repository, all images in the repository are also deleted.
+    *
+    * @param request DeleteRepositoryRequest
+    * @return DeleteRepositoryResponse
+   */
   async deleteRepository(request: DeleteRepositoryRequest): Promise<DeleteRepositoryResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.deleteRepositoryWithOptions(request, runtime);
@@ -10413,6 +10609,13 @@ export default class Client extends OpenApi {
     return await this.getArtifactBuildTaskWithOptions(request, runtime);
   }
 
+  /**
+    * The ID of the Container Registry instance.
+    *
+    * @param request GetAuthorizationTokenRequest
+    * @param runtime runtime options for this request RuntimeOptions
+    * @return GetAuthorizationTokenResponse
+   */
   async getAuthorizationTokenWithOptions(request: GetAuthorizationTokenRequest, runtime: $Util.RuntimeOptions): Promise<GetAuthorizationTokenResponse> {
     Util.validateModel(request);
     let query = { };
@@ -10437,6 +10640,12 @@ export default class Client extends OpenApi {
     return $tea.cast<GetAuthorizationTokenResponse>(await this.callApi(params, req, runtime), new GetAuthorizationTokenResponse({}));
   }
 
+  /**
+    * The ID of the Container Registry instance.
+    *
+    * @param request GetAuthorizationTokenRequest
+    * @return GetAuthorizationTokenResponse
+   */
   async getAuthorizationToken(request: GetAuthorizationTokenRequest): Promise<GetAuthorizationTokenResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.getAuthorizationTokenWithOptions(request, runtime);
@@ -10731,6 +10940,13 @@ export default class Client extends OpenApi {
     return await this.getNamespaceWithOptions(request, runtime);
   }
 
+  /**
+    * ****
+    *
+    * @param request GetRepoBuildRecordRequest
+    * @param runtime runtime options for this request RuntimeOptions
+    * @return GetRepoBuildRecordResponse
+   */
   async getRepoBuildRecordWithOptions(request: GetRepoBuildRecordRequest, runtime: $Util.RuntimeOptions): Promise<GetRepoBuildRecordResponse> {
     Util.validateModel(request);
     let query = { };
@@ -10759,6 +10975,12 @@ export default class Client extends OpenApi {
     return $tea.cast<GetRepoBuildRecordResponse>(await this.callApi(params, req, runtime), new GetRepoBuildRecordResponse({}));
   }
 
+  /**
+    * ****
+    *
+    * @param request GetRepoBuildRecordRequest
+    * @return GetRepoBuildRecordResponse
+   */
   async getRepoBuildRecord(request: GetRepoBuildRecordRequest): Promise<GetRepoBuildRecordResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.getRepoBuildRecordWithOptions(request, runtime);
