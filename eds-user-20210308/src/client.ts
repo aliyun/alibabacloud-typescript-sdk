@@ -8,6 +8,37 @@ import OpenApiUtil from '@alicloud/openapi-util';
 import EndpointUtil from '@alicloud/endpoint-util';
 import * as $tea from '@alicloud/tea-typescript';
 
+export class WaIdPermissions extends $tea.Model {
+  code?: string;
+  isBasicChild?: boolean;
+  name?: string;
+  subPermissions?: WaIdPermissions[];
+  type?: string;
+  static names(): { [key: string]: string } {
+    return {
+      code: 'Code',
+      isBasicChild: 'IsBasicChild',
+      name: 'Name',
+      subPermissions: 'SubPermissions',
+      type: 'Type',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      code: 'string',
+      isBasicChild: 'boolean',
+      name: 'string',
+      subPermissions: { 'type': 'array', 'itemType': WaIdPermissions },
+      type: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
 export class CheckUsedPropertyRequest extends $tea.Model {
   propertyId?: number;
   static names(): { [key: string]: string } {
@@ -351,12 +382,14 @@ export class DeleteUserPropertyValueResponse extends $tea.Model {
 }
 
 export class DescribeMfaDevicesRequest extends $tea.Model {
+  adDomain?: string;
   endUserIds?: string[];
   maxResults?: number;
   nextToken?: string;
   serialNumbers?: string[];
   static names(): { [key: string]: string } {
     return {
+      adDomain: 'AdDomain',
       endUserIds: 'EndUserIds',
       maxResults: 'MaxResults',
       nextToken: 'NextToken',
@@ -366,6 +399,7 @@ export class DescribeMfaDevicesRequest extends $tea.Model {
 
   static types(): { [key: string]: any } {
     return {
+      adDomain: 'string',
       endUserIds: { 'type': 'array', 'itemType': 'string' },
       maxResults: 'number',
       nextToken: 'string',
@@ -777,15 +811,18 @@ export class ListPropertyValueResponse extends $tea.Model {
 }
 
 export class LockMfaDeviceRequest extends $tea.Model {
+  adDomain?: string;
   serialNumber?: string;
   static names(): { [key: string]: string } {
     return {
+      adDomain: 'AdDomain',
       serialNumber: 'SerialNumber',
     };
   }
 
   static types(): { [key: string]: any } {
     return {
+      adDomain: 'string',
       serialNumber: 'string',
     };
   }
@@ -1034,15 +1071,18 @@ export class QuerySyncStatusByAliUidResponse extends $tea.Model {
 }
 
 export class RemoveMfaDeviceRequest extends $tea.Model {
+  adDomain?: string;
   serialNumber?: string;
   static names(): { [key: string]: string } {
     return {
+      adDomain: 'AdDomain',
       serialNumber: 'SerialNumber',
     };
   }
 
   static types(): { [key: string]: any } {
     return {
+      adDomain: 'string',
       serialNumber: 'string',
     };
   }
@@ -1423,15 +1463,18 @@ export class SyncAllEduInfoResponse extends $tea.Model {
 }
 
 export class UnlockMfaDeviceRequest extends $tea.Model {
+  adDomain?: string;
   serialNumber?: string;
   static names(): { [key: string]: string } {
     return {
+      adDomain: 'AdDomain',
       serialNumber: 'SerialNumber',
     };
   }
 
   static types(): { [key: string]: any } {
     return {
+      adDomain: 'string',
       serialNumber: 'string',
     };
   }
@@ -1886,6 +1929,7 @@ export class DescribeUsersResponseBodyUsers extends $tea.Model {
   endUserId?: string;
   id?: number;
   isTenantManager?: boolean;
+  nickName?: string;
   orgId?: string;
   ownerType?: string;
   phone?: string;
@@ -1898,6 +1942,7 @@ export class DescribeUsersResponseBodyUsers extends $tea.Model {
       endUserId: 'EndUserId',
       id: 'Id',
       isTenantManager: 'IsTenantManager',
+      nickName: 'NickName',
       orgId: 'OrgId',
       ownerType: 'OwnerType',
       phone: 'Phone',
@@ -1913,6 +1958,7 @@ export class DescribeUsersResponseBodyUsers extends $tea.Model {
       endUserId: 'string',
       id: 'number',
       isTenantManager: 'boolean',
+      nickName: 'string',
       orgId: 'string',
       ownerType: 'string',
       phone: 'string',
@@ -2721,7 +2767,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-    * The mobile number of the end user.
+    * Convenience users are dedicated Elastic Desktop Service (EDS) user accounts and are suitable for scenarios in which you do not need to connect to enterprise Active Directory (AD) systems. The information about a convenience user includes the username, email address, and mobile number. You must specify the username or email address.
     *
     * @param request CreateUsersRequest
     * @param runtime runtime options for this request RuntimeOptions
@@ -2756,7 +2802,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-    * The mobile number of the end user.
+    * Convenience users are dedicated Elastic Desktop Service (EDS) user accounts and are suitable for scenarios in which you do not need to connect to enterprise Active Directory (AD) systems. The information about a convenience user includes the username, email address, and mobile number. You must specify the username or email address.
     *
     * @param request CreateUsersRequest
     * @return CreateUsersResponse
@@ -2819,6 +2865,10 @@ export default class Client extends OpenApi {
   async describeMfaDevicesWithOptions(request: DescribeMfaDevicesRequest, runtime: $Util.RuntimeOptions): Promise<DescribeMfaDevicesResponse> {
     Util.validateModel(request);
     let query = { };
+    if (!Util.isUnset(request.adDomain)) {
+      query["AdDomain"] = request.adDomain;
+    }
+
     if (!Util.isUnset(request.endUserIds)) {
       query["EndUserIds"] = request.endUserIds;
     }
@@ -3043,6 +3093,10 @@ export default class Client extends OpenApi {
   async lockMfaDeviceWithOptions(request: LockMfaDeviceRequest, runtime: $Util.RuntimeOptions): Promise<LockMfaDeviceResponse> {
     Util.validateModel(request);
     let query = { };
+    if (!Util.isUnset(request.adDomain)) {
+      query["AdDomain"] = request.adDomain;
+    }
+
     if (!Util.isUnset(request.serialNumber)) {
       query["SerialNumber"] = request.serialNumber;
     }
@@ -3165,6 +3219,10 @@ export default class Client extends OpenApi {
   async removeMfaDeviceWithOptions(request: RemoveMfaDeviceRequest, runtime: $Util.RuntimeOptions): Promise<RemoveMfaDeviceResponse> {
     Util.validateModel(request);
     let query = { };
+    if (!Util.isUnset(request.adDomain)) {
+      query["AdDomain"] = request.adDomain;
+    }
+
     if (!Util.isUnset(request.serialNumber)) {
       query["SerialNumber"] = request.serialNumber;
     }
@@ -3360,6 +3418,10 @@ export default class Client extends OpenApi {
   async unlockMfaDeviceWithOptions(request: UnlockMfaDeviceRequest, runtime: $Util.RuntimeOptions): Promise<UnlockMfaDeviceResponse> {
     Util.validateModel(request);
     let query = { };
+    if (!Util.isUnset(request.adDomain)) {
+      query["AdDomain"] = request.adDomain;
+    }
+
     if (!Util.isUnset(request.serialNumber)) {
       query["SerialNumber"] = request.serialNumber;
     }
