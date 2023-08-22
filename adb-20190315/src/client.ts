@@ -6258,6 +6258,7 @@ export class DescribeTablesRequest extends $tea.Model {
   DBClusterId?: string;
   ownerAccount?: string;
   ownerId?: number;
+  regionId?: string;
   resourceOwnerAccount?: string;
   resourceOwnerId?: number;
   schemaName?: string;
@@ -6266,6 +6267,7 @@ export class DescribeTablesRequest extends $tea.Model {
       DBClusterId: 'DBClusterId',
       ownerAccount: 'OwnerAccount',
       ownerId: 'OwnerId',
+      regionId: 'RegionId',
       resourceOwnerAccount: 'ResourceOwnerAccount',
       resourceOwnerId: 'ResourceOwnerId',
       schemaName: 'SchemaName',
@@ -6277,6 +6279,7 @@ export class DescribeTablesRequest extends $tea.Model {
       DBClusterId: 'string',
       ownerAccount: 'string',
       ownerId: 'number',
+      regionId: 'string',
       resourceOwnerAccount: 'string',
       resourceOwnerId: 'number',
       schemaName: 'string',
@@ -16591,6 +16594,10 @@ export default class Client extends OpenApi {
 
     if (!Util.isUnset(request.ownerId)) {
       query["OwnerId"] = request.ownerId;
+    }
+
+    if (!Util.isUnset(request.regionId)) {
+      query["RegionId"] = request.regionId;
     }
 
     if (!Util.isUnset(request.resourceOwnerAccount)) {
