@@ -246,6 +246,49 @@ export class LogtailConfig extends $tea.Model {
   }
 }
 
+export class LogtailPipelineConfig extends $tea.Model {
+  aggregators?: { [key: string]: any }[];
+  configName?: string;
+  createTime?: number;
+  flushers?: { [key: string]: any }[];
+  global?: { [key: string]: any };
+  inputs?: { [key: string]: any }[];
+  lastModifyTime?: number;
+  logSample?: string;
+  processors?: { [key: string]: any }[];
+  static names(): { [key: string]: string } {
+    return {
+      aggregators: 'aggregators',
+      configName: 'configName',
+      createTime: 'createTime',
+      flushers: 'flushers',
+      global: 'global',
+      inputs: 'inputs',
+      lastModifyTime: 'lastModifyTime',
+      logSample: 'logSample',
+      processors: 'processors',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      aggregators: { 'type': 'array', 'itemType': { 'type': 'map', 'keyType': 'string', 'valueType': 'any' } },
+      configName: 'string',
+      createTime: 'number',
+      flushers: { 'type': 'array', 'itemType': { 'type': 'map', 'keyType': 'string', 'valueType': 'any' } },
+      global: { 'type': 'map', 'keyType': 'string', 'valueType': 'any' },
+      inputs: { 'type': 'array', 'itemType': { 'type': 'map', 'keyType': 'string', 'valueType': 'any' } },
+      lastModifyTime: 'number',
+      logSample: 'string',
+      processors: { 'type': 'array', 'itemType': { 'type': 'map', 'keyType': 'string', 'valueType': 'any' } },
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
 export class SavedSearch extends $tea.Model {
   displayName?: string;
   logstore?: string;
@@ -1405,11 +1448,13 @@ export class CreateOssShipperResponse extends $tea.Model {
 }
 
 export class CreateProjectRequest extends $tea.Model {
+  dataRedundancyType?: string;
   description?: string;
   projectName?: string;
   resourceGroupId?: string;
   static names(): { [key: string]: string } {
     return {
+      dataRedundancyType: 'dataRedundancyType',
       description: 'description',
       projectName: 'projectName',
       resourceGroupId: 'resourceGroupId',
@@ -1418,6 +1463,7 @@ export class CreateProjectRequest extends $tea.Model {
 
   static types(): { [key: string]: any } {
     return {
+      dataRedundancyType: 'string',
       description: 'string',
       projectName: 'string',
       resourceGroupId: 'string',
@@ -6388,6 +6434,10 @@ export default class Client extends OpenApi {
   async createProjectWithOptions(request: CreateProjectRequest, headers: {[key: string ]: string}, runtime: $Util.RuntimeOptions): Promise<CreateProjectResponse> {
     Util.validateModel(request);
     let body : {[key: string ]: any} = { };
+    if (!Util.isUnset(request.dataRedundancyType)) {
+      body["dataRedundancyType"] = request.dataRedundancyType;
+    }
+
     if (!Util.isUnset(request.description)) {
       body["description"] = request.description;
     }
@@ -6413,7 +6463,7 @@ export default class Client extends OpenApi {
       authType: "AK",
       style: "ROA",
       reqBodyType: "json",
-      bodyType: "json",
+      bodyType: "none",
     });
     return $tea.cast<CreateProjectResponse>(await this.execute(params, req, runtime), new CreateProjectResponse({}));
   }
