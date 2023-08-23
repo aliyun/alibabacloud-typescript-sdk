@@ -350,6 +350,123 @@ export class BatchCopyVpcFirewallControlPolicyResponse extends $tea.Model {
   }
 }
 
+export class CreateNatFirewallControlPolicyRequest extends $tea.Model {
+  aclAction?: string;
+  applicationNameList?: string[];
+  description?: string;
+  destPort?: string;
+  destPortGroup?: string;
+  destPortType?: string;
+  destination?: string;
+  destinationType?: string;
+  direction?: string;
+  domainResolveType?: number;
+  ipVersion?: string;
+  lang?: string;
+  natGatewayId?: string;
+  newOrder?: string;
+  proto?: string;
+  release?: string;
+  source?: string;
+  sourceType?: string;
+  static names(): { [key: string]: string } {
+    return {
+      aclAction: 'AclAction',
+      applicationNameList: 'ApplicationNameList',
+      description: 'Description',
+      destPort: 'DestPort',
+      destPortGroup: 'DestPortGroup',
+      destPortType: 'DestPortType',
+      destination: 'Destination',
+      destinationType: 'DestinationType',
+      direction: 'Direction',
+      domainResolveType: 'DomainResolveType',
+      ipVersion: 'IpVersion',
+      lang: 'Lang',
+      natGatewayId: 'NatGatewayId',
+      newOrder: 'NewOrder',
+      proto: 'Proto',
+      release: 'Release',
+      source: 'Source',
+      sourceType: 'SourceType',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      aclAction: 'string',
+      applicationNameList: { 'type': 'array', 'itemType': 'string' },
+      description: 'string',
+      destPort: 'string',
+      destPortGroup: 'string',
+      destPortType: 'string',
+      destination: 'string',
+      destinationType: 'string',
+      direction: 'string',
+      domainResolveType: 'number',
+      ipVersion: 'string',
+      lang: 'string',
+      natGatewayId: 'string',
+      newOrder: 'string',
+      proto: 'string',
+      release: 'string',
+      source: 'string',
+      sourceType: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class CreateNatFirewallControlPolicyResponseBody extends $tea.Model {
+  aclUuid?: string;
+  requestId?: string;
+  static names(): { [key: string]: string } {
+    return {
+      aclUuid: 'AclUuid',
+      requestId: 'RequestId',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      aclUuid: 'string',
+      requestId: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class CreateNatFirewallControlPolicyResponse extends $tea.Model {
+  headers: { [key: string]: string };
+  statusCode: number;
+  body: CreateNatFirewallControlPolicyResponseBody;
+  static names(): { [key: string]: string } {
+    return {
+      headers: 'headers',
+      statusCode: 'statusCode',
+      body: 'body',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
+      body: CreateNatFirewallControlPolicyResponseBody,
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
 export class CreateTrFirewallV2Request extends $tea.Model {
   cenId?: string;
   firewallDescription?: string;
@@ -1138,6 +1255,78 @@ export class DeleteInstanceMembersResponse extends $tea.Model {
       headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
       statusCode: 'number',
       body: DeleteInstanceMembersResponseBody,
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class DeleteNatFirewallControlPolicyRequest extends $tea.Model {
+  aclUuid?: string;
+  direction?: string;
+  lang?: string;
+  natGatewayId?: string;
+  static names(): { [key: string]: string } {
+    return {
+      aclUuid: 'AclUuid',
+      direction: 'Direction',
+      lang: 'Lang',
+      natGatewayId: 'NatGatewayId',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      aclUuid: 'string',
+      direction: 'string',
+      lang: 'string',
+      natGatewayId: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class DeleteNatFirewallControlPolicyResponseBody extends $tea.Model {
+  requestId?: string;
+  static names(): { [key: string]: string } {
+    return {
+      requestId: 'RequestId',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      requestId: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class DeleteNatFirewallControlPolicyResponse extends $tea.Model {
+  headers: { [key: string]: string };
+  statusCode: number;
+  body: DeleteNatFirewallControlPolicyResponseBody;
+  static names(): { [key: string]: string } {
+    return {
+      headers: 'headers',
+      statusCode: 'statusCode',
+      body: 'body',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
+      body: DeleteNatFirewallControlPolicyResponseBody,
     };
   }
 
@@ -2220,6 +2409,186 @@ export class DescribeInvadeEventListResponse extends $tea.Model {
   }
 }
 
+export class DescribeNatFirewallControlPolicyRequest extends $tea.Model {
+  aclAction?: string;
+  aclUuid?: string;
+  currentPage?: string;
+  description?: string;
+  destination?: string;
+  direction?: string;
+  lang?: string;
+  natGatewayId?: string;
+  pageSize?: string;
+  proto?: string;
+  release?: string;
+  source?: string;
+  static names(): { [key: string]: string } {
+    return {
+      aclAction: 'AclAction',
+      aclUuid: 'AclUuid',
+      currentPage: 'CurrentPage',
+      description: 'Description',
+      destination: 'Destination',
+      direction: 'Direction',
+      lang: 'Lang',
+      natGatewayId: 'NatGatewayId',
+      pageSize: 'PageSize',
+      proto: 'Proto',
+      release: 'Release',
+      source: 'Source',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      aclAction: 'string',
+      aclUuid: 'string',
+      currentPage: 'string',
+      description: 'string',
+      destination: 'string',
+      direction: 'string',
+      lang: 'string',
+      natGatewayId: 'string',
+      pageSize: 'string',
+      proto: 'string',
+      release: 'string',
+      source: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class DescribeNatFirewallControlPolicyResponseBody extends $tea.Model {
+  policys?: DescribeNatFirewallControlPolicyResponseBodyPolicys[];
+  requestId?: string;
+  totalCount?: string;
+  static names(): { [key: string]: string } {
+    return {
+      policys: 'Policys',
+      requestId: 'RequestId',
+      totalCount: 'TotalCount',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      policys: { 'type': 'array', 'itemType': DescribeNatFirewallControlPolicyResponseBodyPolicys },
+      requestId: 'string',
+      totalCount: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class DescribeNatFirewallControlPolicyResponse extends $tea.Model {
+  headers: { [key: string]: string };
+  statusCode: number;
+  body: DescribeNatFirewallControlPolicyResponseBody;
+  static names(): { [key: string]: string } {
+    return {
+      headers: 'headers',
+      statusCode: 'statusCode',
+      body: 'body',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
+      body: DescribeNatFirewallControlPolicyResponseBody,
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class DescribeNatFirewallPolicyPriorUsedRequest extends $tea.Model {
+  direction?: string;
+  ipVersion?: string;
+  lang?: string;
+  natGatewayId?: string;
+  static names(): { [key: string]: string } {
+    return {
+      direction: 'Direction',
+      ipVersion: 'IpVersion',
+      lang: 'Lang',
+      natGatewayId: 'NatGatewayId',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      direction: 'string',
+      ipVersion: 'string',
+      lang: 'string',
+      natGatewayId: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class DescribeNatFirewallPolicyPriorUsedResponseBody extends $tea.Model {
+  end?: number;
+  requestId?: string;
+  start?: number;
+  static names(): { [key: string]: string } {
+    return {
+      end: 'End',
+      requestId: 'RequestId',
+      start: 'Start',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      end: 'number',
+      requestId: 'string',
+      start: 'number',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class DescribeNatFirewallPolicyPriorUsedResponse extends $tea.Model {
+  headers: { [key: string]: string };
+  statusCode: number;
+  body: DescribeNatFirewallPolicyPriorUsedResponseBody;
+  static names(): { [key: string]: string } {
+    return {
+      headers: 'headers',
+      statusCode: 'statusCode',
+      body: 'body',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
+      body: DescribeNatFirewallPolicyPriorUsedResponseBody,
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
 export class DescribeOutgoingDestinationIPRequest extends $tea.Model {
   applicationName?: string;
   categoryId?: string;
@@ -2698,6 +3067,126 @@ export class DescribeRiskEventGroupResponse extends $tea.Model {
       headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
       statusCode: 'number',
       body: DescribeRiskEventGroupResponseBody,
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class DescribeRiskEventPayloadRequest extends $tea.Model {
+  dstIP?: string;
+  dstVpcId?: string;
+  endTime?: string;
+  firewallType?: string;
+  publicIP?: string;
+  srcIP?: string;
+  srcVpcId?: string;
+  startTime?: string;
+  UUID?: string;
+  static names(): { [key: string]: string } {
+    return {
+      dstIP: 'DstIP',
+      dstVpcId: 'DstVpcId',
+      endTime: 'EndTime',
+      firewallType: 'FirewallType',
+      publicIP: 'PublicIP',
+      srcIP: 'SrcIP',
+      srcVpcId: 'SrcVpcId',
+      startTime: 'StartTime',
+      UUID: 'UUID',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      dstIP: 'string',
+      dstVpcId: 'string',
+      endTime: 'string',
+      firewallType: 'string',
+      publicIP: 'string',
+      srcIP: 'string',
+      srcVpcId: 'string',
+      startTime: 'string',
+      UUID: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class DescribeRiskEventPayloadResponseBody extends $tea.Model {
+  dstIP?: string;
+  dstPort?: number;
+  dstVpcId?: string;
+  payload?: string;
+  payloadLen?: number;
+  proto?: string;
+  realIp?: string;
+  requestId?: string;
+  srcIP?: string;
+  srcPort?: number;
+  srcVpcId?: string;
+  XForwardFor?: string;
+  static names(): { [key: string]: string } {
+    return {
+      dstIP: 'DstIP',
+      dstPort: 'DstPort',
+      dstVpcId: 'DstVpcId',
+      payload: 'Payload',
+      payloadLen: 'PayloadLen',
+      proto: 'Proto',
+      realIp: 'RealIp',
+      requestId: 'RequestId',
+      srcIP: 'SrcIP',
+      srcPort: 'SrcPort',
+      srcVpcId: 'SrcVpcId',
+      XForwardFor: 'XForwardFor',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      dstIP: 'string',
+      dstPort: 'number',
+      dstVpcId: 'string',
+      payload: 'string',
+      payloadLen: 'number',
+      proto: 'string',
+      realIp: 'string',
+      requestId: 'string',
+      srcIP: 'string',
+      srcPort: 'number',
+      srcVpcId: 'string',
+      XForwardFor: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class DescribeRiskEventPayloadResponse extends $tea.Model {
+  headers: { [key: string]: string };
+  statusCode: number;
+  body: DescribeRiskEventPayloadResponseBody;
+  static names(): { [key: string]: string } {
+    return {
+      headers: 'headers',
+      statusCode: 'statusCode',
+      body: 'body',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
+      body: DescribeRiskEventPayloadResponseBody,
     };
   }
 
@@ -4647,6 +5136,186 @@ export class ModifyInstanceMemberAttributesResponse extends $tea.Model {
   }
 }
 
+export class ModifyNatFirewallControlPolicyRequest extends $tea.Model {
+  aclAction?: string;
+  aclUuid?: string;
+  applicationNameList?: string[];
+  description?: string;
+  destPort?: string;
+  destPortGroup?: string;
+  destPortType?: string;
+  destination?: string;
+  destinationType?: string;
+  domainResolveType?: string;
+  lang?: string;
+  natGatewayId?: string;
+  proto?: string;
+  release?: string;
+  source?: string;
+  sourceType?: string;
+  static names(): { [key: string]: string } {
+    return {
+      aclAction: 'AclAction',
+      aclUuid: 'AclUuid',
+      applicationNameList: 'ApplicationNameList',
+      description: 'Description',
+      destPort: 'DestPort',
+      destPortGroup: 'DestPortGroup',
+      destPortType: 'DestPortType',
+      destination: 'Destination',
+      destinationType: 'DestinationType',
+      domainResolveType: 'DomainResolveType',
+      lang: 'Lang',
+      natGatewayId: 'NatGatewayId',
+      proto: 'Proto',
+      release: 'Release',
+      source: 'Source',
+      sourceType: 'SourceType',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      aclAction: 'string',
+      aclUuid: 'string',
+      applicationNameList: { 'type': 'array', 'itemType': 'string' },
+      description: 'string',
+      destPort: 'string',
+      destPortGroup: 'string',
+      destPortType: 'string',
+      destination: 'string',
+      destinationType: 'string',
+      domainResolveType: 'string',
+      lang: 'string',
+      natGatewayId: 'string',
+      proto: 'string',
+      release: 'string',
+      source: 'string',
+      sourceType: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class ModifyNatFirewallControlPolicyResponseBody extends $tea.Model {
+  requestId?: string;
+  static names(): { [key: string]: string } {
+    return {
+      requestId: 'RequestId',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      requestId: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class ModifyNatFirewallControlPolicyResponse extends $tea.Model {
+  headers: { [key: string]: string };
+  statusCode: number;
+  body: ModifyNatFirewallControlPolicyResponseBody;
+  static names(): { [key: string]: string } {
+    return {
+      headers: 'headers',
+      statusCode: 'statusCode',
+      body: 'body',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
+      body: ModifyNatFirewallControlPolicyResponseBody,
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class ModifyNatFirewallControlPolicyPositionRequest extends $tea.Model {
+  aclUuid?: string;
+  lang?: string;
+  natGatewayId?: string;
+  newOrder?: number;
+  static names(): { [key: string]: string } {
+    return {
+      aclUuid: 'AclUuid',
+      lang: 'Lang',
+      natGatewayId: 'NatGatewayId',
+      newOrder: 'NewOrder',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      aclUuid: 'string',
+      lang: 'string',
+      natGatewayId: 'string',
+      newOrder: 'number',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class ModifyNatFirewallControlPolicyPositionResponseBody extends $tea.Model {
+  requestId?: string;
+  static names(): { [key: string]: string } {
+    return {
+      requestId: 'RequestId',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      requestId: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class ModifyNatFirewallControlPolicyPositionResponse extends $tea.Model {
+  headers: { [key: string]: string };
+  statusCode: number;
+  body: ModifyNatFirewallControlPolicyPositionResponseBody;
+  static names(): { [key: string]: string } {
+    return {
+      headers: 'headers',
+      statusCode: 'statusCode',
+      body: 'body',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
+      body: ModifyNatFirewallControlPolicyPositionResponseBody,
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
 export class ModifyPolicyAdvancedConfigRequest extends $tea.Model {
   internetSwitch?: string;
   lang?: string;
@@ -6430,6 +7099,106 @@ export class DescribeInvadeEventListResponseBodyPageInfo extends $tea.Model {
       currentPage: 'number',
       pageSize: 'number',
       totalCount: 'number',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class DescribeNatFirewallControlPolicyResponseBodyPolicys extends $tea.Model {
+  aclAction?: string;
+  aclUuid?: string;
+  applicationNameList?: string[];
+  createTime?: number;
+  description?: string;
+  destPort?: string;
+  destPortGroup?: string;
+  destPortGroupPorts?: string[];
+  destPortType?: string;
+  destination?: string;
+  destinationGroupCidrs?: string[];
+  destinationGroupType?: string;
+  destinationType?: string;
+  dnsResult?: string;
+  dnsResultTime?: number;
+  domainResolveType?: number;
+  hitLastTime?: number;
+  hitTimes?: number;
+  modifyTime?: number;
+  natGatewayId?: string;
+  order?: number;
+  proto?: string;
+  release?: string;
+  source?: string;
+  sourceGroupCidrs?: string[];
+  sourceGroupType?: string;
+  sourceType?: string;
+  spreadCnt?: string;
+  static names(): { [key: string]: string } {
+    return {
+      aclAction: 'AclAction',
+      aclUuid: 'AclUuid',
+      applicationNameList: 'ApplicationNameList',
+      createTime: 'CreateTime',
+      description: 'Description',
+      destPort: 'DestPort',
+      destPortGroup: 'DestPortGroup',
+      destPortGroupPorts: 'DestPortGroupPorts',
+      destPortType: 'DestPortType',
+      destination: 'Destination',
+      destinationGroupCidrs: 'DestinationGroupCidrs',
+      destinationGroupType: 'DestinationGroupType',
+      destinationType: 'DestinationType',
+      dnsResult: 'DnsResult',
+      dnsResultTime: 'DnsResultTime',
+      domainResolveType: 'DomainResolveType',
+      hitLastTime: 'HitLastTime',
+      hitTimes: 'HitTimes',
+      modifyTime: 'ModifyTime',
+      natGatewayId: 'NatGatewayId',
+      order: 'Order',
+      proto: 'Proto',
+      release: 'Release',
+      source: 'Source',
+      sourceGroupCidrs: 'SourceGroupCidrs',
+      sourceGroupType: 'SourceGroupType',
+      sourceType: 'SourceType',
+      spreadCnt: 'SpreadCnt',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      aclAction: 'string',
+      aclUuid: 'string',
+      applicationNameList: { 'type': 'array', 'itemType': 'string' },
+      createTime: 'number',
+      description: 'string',
+      destPort: 'string',
+      destPortGroup: 'string',
+      destPortGroupPorts: { 'type': 'array', 'itemType': 'string' },
+      destPortType: 'string',
+      destination: 'string',
+      destinationGroupCidrs: { 'type': 'array', 'itemType': 'string' },
+      destinationGroupType: 'string',
+      destinationType: 'string',
+      dnsResult: 'string',
+      dnsResultTime: 'number',
+      domainResolveType: 'number',
+      hitLastTime: 'number',
+      hitTimes: 'number',
+      modifyTime: 'number',
+      natGatewayId: 'string',
+      order: 'number',
+      proto: 'string',
+      release: 'string',
+      source: 'string',
+      sourceGroupCidrs: { 'type': 'array', 'itemType': 'string' },
+      sourceGroupType: 'string',
+      sourceType: 'string',
+      spreadCnt: 'string',
     };
   }
 
@@ -8657,6 +9426,103 @@ export default class Client extends OpenApi {
     return await this.batchCopyVpcFirewallControlPolicyWithOptions(request, runtime);
   }
 
+  async createNatFirewallControlPolicyWithOptions(request: CreateNatFirewallControlPolicyRequest, runtime: $Util.RuntimeOptions): Promise<CreateNatFirewallControlPolicyResponse> {
+    Util.validateModel(request);
+    let query = { };
+    if (!Util.isUnset(request.aclAction)) {
+      query["AclAction"] = request.aclAction;
+    }
+
+    if (!Util.isUnset(request.applicationNameList)) {
+      query["ApplicationNameList"] = request.applicationNameList;
+    }
+
+    if (!Util.isUnset(request.description)) {
+      query["Description"] = request.description;
+    }
+
+    if (!Util.isUnset(request.destPort)) {
+      query["DestPort"] = request.destPort;
+    }
+
+    if (!Util.isUnset(request.destPortGroup)) {
+      query["DestPortGroup"] = request.destPortGroup;
+    }
+
+    if (!Util.isUnset(request.destPortType)) {
+      query["DestPortType"] = request.destPortType;
+    }
+
+    if (!Util.isUnset(request.destination)) {
+      query["Destination"] = request.destination;
+    }
+
+    if (!Util.isUnset(request.destinationType)) {
+      query["DestinationType"] = request.destinationType;
+    }
+
+    if (!Util.isUnset(request.direction)) {
+      query["Direction"] = request.direction;
+    }
+
+    if (!Util.isUnset(request.domainResolveType)) {
+      query["DomainResolveType"] = request.domainResolveType;
+    }
+
+    if (!Util.isUnset(request.ipVersion)) {
+      query["IpVersion"] = request.ipVersion;
+    }
+
+    if (!Util.isUnset(request.lang)) {
+      query["Lang"] = request.lang;
+    }
+
+    if (!Util.isUnset(request.natGatewayId)) {
+      query["NatGatewayId"] = request.natGatewayId;
+    }
+
+    if (!Util.isUnset(request.newOrder)) {
+      query["NewOrder"] = request.newOrder;
+    }
+
+    if (!Util.isUnset(request.proto)) {
+      query["Proto"] = request.proto;
+    }
+
+    if (!Util.isUnset(request.release)) {
+      query["Release"] = request.release;
+    }
+
+    if (!Util.isUnset(request.source)) {
+      query["Source"] = request.source;
+    }
+
+    if (!Util.isUnset(request.sourceType)) {
+      query["SourceType"] = request.sourceType;
+    }
+
+    let req = new $OpenApi.OpenApiRequest({
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApi.Params({
+      action: "CreateNatFirewallControlPolicy",
+      version: "2017-12-07",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $tea.cast<CreateNatFirewallControlPolicyResponse>(await this.callApi(params, req, runtime), new CreateNatFirewallControlPolicyResponse({}));
+  }
+
+  async createNatFirewallControlPolicy(request: CreateNatFirewallControlPolicyRequest): Promise<CreateNatFirewallControlPolicyResponse> {
+    let runtime = new $Util.RuntimeOptions({ });
+    return await this.createNatFirewallControlPolicyWithOptions(request, runtime);
+  }
+
   async createTrFirewallV2WithOptions(request: CreateTrFirewallV2Request, runtime: $Util.RuntimeOptions): Promise<CreateTrFirewallV2Response> {
     Util.validateModel(request);
     let query = { };
@@ -9264,6 +10130,47 @@ export default class Client extends OpenApi {
   async deleteInstanceMembers(request: DeleteInstanceMembersRequest): Promise<DeleteInstanceMembersResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.deleteInstanceMembersWithOptions(request, runtime);
+  }
+
+  async deleteNatFirewallControlPolicyWithOptions(request: DeleteNatFirewallControlPolicyRequest, runtime: $Util.RuntimeOptions): Promise<DeleteNatFirewallControlPolicyResponse> {
+    Util.validateModel(request);
+    let query = { };
+    if (!Util.isUnset(request.aclUuid)) {
+      query["AclUuid"] = request.aclUuid;
+    }
+
+    if (!Util.isUnset(request.direction)) {
+      query["Direction"] = request.direction;
+    }
+
+    if (!Util.isUnset(request.lang)) {
+      query["Lang"] = request.lang;
+    }
+
+    if (!Util.isUnset(request.natGatewayId)) {
+      query["NatGatewayId"] = request.natGatewayId;
+    }
+
+    let req = new $OpenApi.OpenApiRequest({
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApi.Params({
+      action: "DeleteNatFirewallControlPolicy",
+      version: "2017-12-07",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $tea.cast<DeleteNatFirewallControlPolicyResponse>(await this.callApi(params, req, runtime), new DeleteNatFirewallControlPolicyResponse({}));
+  }
+
+  async deleteNatFirewallControlPolicy(request: DeleteNatFirewallControlPolicyRequest): Promise<DeleteNatFirewallControlPolicyResponse> {
+    let runtime = new $Util.RuntimeOptions({ });
+    return await this.deleteNatFirewallControlPolicyWithOptions(request, runtime);
   }
 
   async deleteTrFirewallV2WithOptions(request: DeleteTrFirewallV2Request, runtime: $Util.RuntimeOptions): Promise<DeleteTrFirewallV2Response> {
@@ -10026,6 +10933,120 @@ export default class Client extends OpenApi {
     return await this.describeInvadeEventListWithOptions(request, runtime);
   }
 
+  async describeNatFirewallControlPolicyWithOptions(request: DescribeNatFirewallControlPolicyRequest, runtime: $Util.RuntimeOptions): Promise<DescribeNatFirewallControlPolicyResponse> {
+    Util.validateModel(request);
+    let query = { };
+    if (!Util.isUnset(request.aclAction)) {
+      query["AclAction"] = request.aclAction;
+    }
+
+    if (!Util.isUnset(request.aclUuid)) {
+      query["AclUuid"] = request.aclUuid;
+    }
+
+    if (!Util.isUnset(request.currentPage)) {
+      query["CurrentPage"] = request.currentPage;
+    }
+
+    if (!Util.isUnset(request.description)) {
+      query["Description"] = request.description;
+    }
+
+    if (!Util.isUnset(request.destination)) {
+      query["Destination"] = request.destination;
+    }
+
+    if (!Util.isUnset(request.direction)) {
+      query["Direction"] = request.direction;
+    }
+
+    if (!Util.isUnset(request.lang)) {
+      query["Lang"] = request.lang;
+    }
+
+    if (!Util.isUnset(request.natGatewayId)) {
+      query["NatGatewayId"] = request.natGatewayId;
+    }
+
+    if (!Util.isUnset(request.pageSize)) {
+      query["PageSize"] = request.pageSize;
+    }
+
+    if (!Util.isUnset(request.proto)) {
+      query["Proto"] = request.proto;
+    }
+
+    if (!Util.isUnset(request.release)) {
+      query["Release"] = request.release;
+    }
+
+    if (!Util.isUnset(request.source)) {
+      query["Source"] = request.source;
+    }
+
+    let req = new $OpenApi.OpenApiRequest({
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApi.Params({
+      action: "DescribeNatFirewallControlPolicy",
+      version: "2017-12-07",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $tea.cast<DescribeNatFirewallControlPolicyResponse>(await this.callApi(params, req, runtime), new DescribeNatFirewallControlPolicyResponse({}));
+  }
+
+  async describeNatFirewallControlPolicy(request: DescribeNatFirewallControlPolicyRequest): Promise<DescribeNatFirewallControlPolicyResponse> {
+    let runtime = new $Util.RuntimeOptions({ });
+    return await this.describeNatFirewallControlPolicyWithOptions(request, runtime);
+  }
+
+  async describeNatFirewallPolicyPriorUsedWithOptions(request: DescribeNatFirewallPolicyPriorUsedRequest, runtime: $Util.RuntimeOptions): Promise<DescribeNatFirewallPolicyPriorUsedResponse> {
+    Util.validateModel(request);
+    let query = { };
+    if (!Util.isUnset(request.direction)) {
+      query["Direction"] = request.direction;
+    }
+
+    if (!Util.isUnset(request.ipVersion)) {
+      query["IpVersion"] = request.ipVersion;
+    }
+
+    if (!Util.isUnset(request.lang)) {
+      query["Lang"] = request.lang;
+    }
+
+    if (!Util.isUnset(request.natGatewayId)) {
+      query["NatGatewayId"] = request.natGatewayId;
+    }
+
+    let req = new $OpenApi.OpenApiRequest({
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApi.Params({
+      action: "DescribeNatFirewallPolicyPriorUsed",
+      version: "2017-12-07",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $tea.cast<DescribeNatFirewallPolicyPriorUsedResponse>(await this.callApi(params, req, runtime), new DescribeNatFirewallPolicyPriorUsedResponse({}));
+  }
+
+  async describeNatFirewallPolicyPriorUsed(request: DescribeNatFirewallPolicyPriorUsedRequest): Promise<DescribeNatFirewallPolicyPriorUsedResponse> {
+    let runtime = new $Util.RuntimeOptions({ });
+    return await this.describeNatFirewallPolicyPriorUsedWithOptions(request, runtime);
+  }
+
   async describeOutgoingDestinationIPWithOptions(request: DescribeOutgoingDestinationIPRequest, runtime: $Util.RuntimeOptions): Promise<DescribeOutgoingDestinationIPResponse> {
     Util.validateModel(request);
     let query = { };
@@ -10420,6 +11441,67 @@ export default class Client extends OpenApi {
   async describeRiskEventGroup(request: DescribeRiskEventGroupRequest): Promise<DescribeRiskEventGroupResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.describeRiskEventGroupWithOptions(request, runtime);
+  }
+
+  async describeRiskEventPayloadWithOptions(request: DescribeRiskEventPayloadRequest, runtime: $Util.RuntimeOptions): Promise<DescribeRiskEventPayloadResponse> {
+    Util.validateModel(request);
+    let query = { };
+    if (!Util.isUnset(request.dstIP)) {
+      query["DstIP"] = request.dstIP;
+    }
+
+    if (!Util.isUnset(request.dstVpcId)) {
+      query["DstVpcId"] = request.dstVpcId;
+    }
+
+    if (!Util.isUnset(request.endTime)) {
+      query["EndTime"] = request.endTime;
+    }
+
+    if (!Util.isUnset(request.firewallType)) {
+      query["FirewallType"] = request.firewallType;
+    }
+
+    if (!Util.isUnset(request.publicIP)) {
+      query["PublicIP"] = request.publicIP;
+    }
+
+    if (!Util.isUnset(request.srcIP)) {
+      query["SrcIP"] = request.srcIP;
+    }
+
+    if (!Util.isUnset(request.srcVpcId)) {
+      query["SrcVpcId"] = request.srcVpcId;
+    }
+
+    if (!Util.isUnset(request.startTime)) {
+      query["StartTime"] = request.startTime;
+    }
+
+    if (!Util.isUnset(request.UUID)) {
+      query["UUID"] = request.UUID;
+    }
+
+    let req = new $OpenApi.OpenApiRequest({
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApi.Params({
+      action: "DescribeRiskEventPayload",
+      version: "2017-12-07",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $tea.cast<DescribeRiskEventPayloadResponse>(await this.callApi(params, req, runtime), new DescribeRiskEventPayloadResponse({}));
+  }
+
+  async describeRiskEventPayload(request: DescribeRiskEventPayloadRequest): Promise<DescribeRiskEventPayloadResponse> {
+    let runtime = new $Util.RuntimeOptions({ });
+    return await this.describeRiskEventPayloadWithOptions(request, runtime);
   }
 
   async describeTrFirewallPolicyBackUpAssociationListWithOptions(request: DescribeTrFirewallPolicyBackUpAssociationListRequest, runtime: $Util.RuntimeOptions): Promise<DescribeTrFirewallPolicyBackUpAssociationListResponse> {
@@ -11772,6 +12854,136 @@ export default class Client extends OpenApi {
   async modifyInstanceMemberAttributes(request: ModifyInstanceMemberAttributesRequest): Promise<ModifyInstanceMemberAttributesResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.modifyInstanceMemberAttributesWithOptions(request, runtime);
+  }
+
+  async modifyNatFirewallControlPolicyWithOptions(request: ModifyNatFirewallControlPolicyRequest, runtime: $Util.RuntimeOptions): Promise<ModifyNatFirewallControlPolicyResponse> {
+    Util.validateModel(request);
+    let query = { };
+    if (!Util.isUnset(request.aclAction)) {
+      query["AclAction"] = request.aclAction;
+    }
+
+    if (!Util.isUnset(request.aclUuid)) {
+      query["AclUuid"] = request.aclUuid;
+    }
+
+    if (!Util.isUnset(request.applicationNameList)) {
+      query["ApplicationNameList"] = request.applicationNameList;
+    }
+
+    if (!Util.isUnset(request.description)) {
+      query["Description"] = request.description;
+    }
+
+    if (!Util.isUnset(request.destPort)) {
+      query["DestPort"] = request.destPort;
+    }
+
+    if (!Util.isUnset(request.destPortGroup)) {
+      query["DestPortGroup"] = request.destPortGroup;
+    }
+
+    if (!Util.isUnset(request.destPortType)) {
+      query["DestPortType"] = request.destPortType;
+    }
+
+    if (!Util.isUnset(request.destination)) {
+      query["Destination"] = request.destination;
+    }
+
+    if (!Util.isUnset(request.destinationType)) {
+      query["DestinationType"] = request.destinationType;
+    }
+
+    if (!Util.isUnset(request.domainResolveType)) {
+      query["DomainResolveType"] = request.domainResolveType;
+    }
+
+    if (!Util.isUnset(request.lang)) {
+      query["Lang"] = request.lang;
+    }
+
+    if (!Util.isUnset(request.natGatewayId)) {
+      query["NatGatewayId"] = request.natGatewayId;
+    }
+
+    if (!Util.isUnset(request.proto)) {
+      query["Proto"] = request.proto;
+    }
+
+    if (!Util.isUnset(request.release)) {
+      query["Release"] = request.release;
+    }
+
+    if (!Util.isUnset(request.source)) {
+      query["Source"] = request.source;
+    }
+
+    if (!Util.isUnset(request.sourceType)) {
+      query["SourceType"] = request.sourceType;
+    }
+
+    let req = new $OpenApi.OpenApiRequest({
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApi.Params({
+      action: "ModifyNatFirewallControlPolicy",
+      version: "2017-12-07",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $tea.cast<ModifyNatFirewallControlPolicyResponse>(await this.callApi(params, req, runtime), new ModifyNatFirewallControlPolicyResponse({}));
+  }
+
+  async modifyNatFirewallControlPolicy(request: ModifyNatFirewallControlPolicyRequest): Promise<ModifyNatFirewallControlPolicyResponse> {
+    let runtime = new $Util.RuntimeOptions({ });
+    return await this.modifyNatFirewallControlPolicyWithOptions(request, runtime);
+  }
+
+  async modifyNatFirewallControlPolicyPositionWithOptions(request: ModifyNatFirewallControlPolicyPositionRequest, runtime: $Util.RuntimeOptions): Promise<ModifyNatFirewallControlPolicyPositionResponse> {
+    Util.validateModel(request);
+    let query = { };
+    if (!Util.isUnset(request.aclUuid)) {
+      query["AclUuid"] = request.aclUuid;
+    }
+
+    if (!Util.isUnset(request.lang)) {
+      query["Lang"] = request.lang;
+    }
+
+    if (!Util.isUnset(request.natGatewayId)) {
+      query["NatGatewayId"] = request.natGatewayId;
+    }
+
+    if (!Util.isUnset(request.newOrder)) {
+      query["NewOrder"] = request.newOrder;
+    }
+
+    let req = new $OpenApi.OpenApiRequest({
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApi.Params({
+      action: "ModifyNatFirewallControlPolicyPosition",
+      version: "2017-12-07",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $tea.cast<ModifyNatFirewallControlPolicyPositionResponse>(await this.callApi(params, req, runtime), new ModifyNatFirewallControlPolicyPositionResponse({}));
+  }
+
+  async modifyNatFirewallControlPolicyPosition(request: ModifyNatFirewallControlPolicyPositionRequest): Promise<ModifyNatFirewallControlPolicyPositionResponse> {
+    let runtime = new $Util.RuntimeOptions({ });
+    return await this.modifyNatFirewallControlPolicyPositionWithOptions(request, runtime);
   }
 
   /**
