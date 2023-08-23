@@ -1191,69 +1191,6 @@ export class DeleteFolderResponse extends $tea.Model {
   }
 }
 
-export class DeleteInvalidCloudAccountRecordRequest extends $tea.Model {
-  recordId?: string;
-  static names(): { [key: string]: string } {
-    return {
-      recordId: 'RecordId',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      recordId: 'string',
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class DeleteInvalidCloudAccountRecordResponseBody extends $tea.Model {
-  requestId?: string;
-  static names(): { [key: string]: string } {
-    return {
-      requestId: 'RequestId',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      requestId: 'string',
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class DeleteInvalidCloudAccountRecordResponse extends $tea.Model {
-  headers: { [key: string]: string };
-  statusCode: number;
-  body: DeleteInvalidCloudAccountRecordResponseBody;
-  static names(): { [key: string]: string } {
-    return {
-      headers: 'headers',
-      statusCode: 'statusCode',
-      body: 'body',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
-      statusCode: 'number',
-      body: DeleteInvalidCloudAccountRecordResponseBody,
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
 export class DeleteMessageContactRequest extends $tea.Model {
   contactId?: string;
   retainContactInMembers?: boolean;
@@ -7723,35 +7660,6 @@ export default class Client extends OpenApi {
   async deleteFolder(request: DeleteFolderRequest): Promise<DeleteFolderResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.deleteFolderWithOptions(request, runtime);
-  }
-
-  async deleteInvalidCloudAccountRecordWithOptions(request: DeleteInvalidCloudAccountRecordRequest, runtime: $Util.RuntimeOptions): Promise<DeleteInvalidCloudAccountRecordResponse> {
-    Util.validateModel(request);
-    let query = { };
-    if (!Util.isUnset(request.recordId)) {
-      query["RecordId"] = request.recordId;
-    }
-
-    let req = new $OpenApi.OpenApiRequest({
-      query: OpenApiUtil.query(query),
-    });
-    let params = new $OpenApi.Params({
-      action: "DeleteInvalidCloudAccountRecord",
-      version: "2022-04-19",
-      protocol: "HTTPS",
-      pathname: "/",
-      method: "POST",
-      authType: "AK",
-      style: "RPC",
-      reqBodyType: "formData",
-      bodyType: "json",
-    });
-    return $tea.cast<DeleteInvalidCloudAccountRecordResponse>(await this.callApi(params, req, runtime), new DeleteInvalidCloudAccountRecordResponse({}));
-  }
-
-  async deleteInvalidCloudAccountRecord(request: DeleteInvalidCloudAccountRecordRequest): Promise<DeleteInvalidCloudAccountRecordResponse> {
-    let runtime = new $Util.RuntimeOptions({ });
-    return await this.deleteInvalidCloudAccountRecordWithOptions(request, runtime);
   }
 
   async deleteMessageContactWithOptions(request: DeleteMessageContactRequest, runtime: $Util.RuntimeOptions): Promise<DeleteMessageContactResponse> {
