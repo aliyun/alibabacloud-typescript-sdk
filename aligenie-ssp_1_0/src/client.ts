@@ -1049,6 +1049,158 @@ export class CheckAuthCodeBindForExtResponse extends $tea.Model {
   }
 }
 
+export class CloudPlayerHeaders extends $tea.Model {
+  commonHeaders?: { [key: string]: string };
+  xAcsAligenieAccessToken?: string;
+  authorization?: string;
+  static names(): { [key: string]: string } {
+    return {
+      commonHeaders: 'commonHeaders',
+      xAcsAligenieAccessToken: 'x-acs-aligenie-access-token',
+      authorization: 'Authorization',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      commonHeaders: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      xAcsAligenieAccessToken: 'string',
+      authorization: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class CloudPlayerRequest extends $tea.Model {
+  curPlayIndex?: number;
+  deviceInfo?: CloudPlayerRequestDeviceInfo;
+  playMode?: string;
+  songId?: string;
+  songIdList?: string[];
+  source?: string;
+  userInfo?: CloudPlayerRequestUserInfo;
+  static names(): { [key: string]: string } {
+    return {
+      curPlayIndex: 'CurPlayIndex',
+      deviceInfo: 'DeviceInfo',
+      playMode: 'PlayMode',
+      songId: 'SongId',
+      songIdList: 'SongIdList',
+      source: 'Source',
+      userInfo: 'UserInfo',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      curPlayIndex: 'number',
+      deviceInfo: CloudPlayerRequestDeviceInfo,
+      playMode: 'string',
+      songId: 'string',
+      songIdList: { 'type': 'array', 'itemType': 'string' },
+      source: 'string',
+      userInfo: CloudPlayerRequestUserInfo,
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class CloudPlayerShrinkRequest extends $tea.Model {
+  curPlayIndex?: number;
+  deviceInfoShrink?: string;
+  playMode?: string;
+  songId?: string;
+  songIdListShrink?: string;
+  source?: string;
+  userInfoShrink?: string;
+  static names(): { [key: string]: string } {
+    return {
+      curPlayIndex: 'CurPlayIndex',
+      deviceInfoShrink: 'DeviceInfo',
+      playMode: 'PlayMode',
+      songId: 'SongId',
+      songIdListShrink: 'SongIdList',
+      source: 'Source',
+      userInfoShrink: 'UserInfo',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      curPlayIndex: 'number',
+      deviceInfoShrink: 'string',
+      playMode: 'string',
+      songId: 'string',
+      songIdListShrink: 'string',
+      source: 'string',
+      userInfoShrink: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class CloudPlayerResponseBody extends $tea.Model {
+  code?: number;
+  message?: string;
+  requestId?: string;
+  result?: boolean;
+  static names(): { [key: string]: string } {
+    return {
+      code: 'Code',
+      message: 'Message',
+      requestId: 'RequestId',
+      result: 'Result',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      code: 'number',
+      message: 'string',
+      requestId: 'string',
+      result: 'boolean',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class CloudPlayerResponse extends $tea.Model {
+  headers: { [key: string]: string };
+  statusCode: number;
+  body: CloudPlayerResponseBody;
+  static names(): { [key: string]: string } {
+    return {
+      headers: 'headers',
+      statusCode: 'statusCode',
+      body: 'body',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
+      body: CloudPlayerResponseBody,
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
 export class CreateAlarmHeaders extends $tea.Model {
   commonHeaders?: { [key: string]: string };
   xAcsAligenieAccessToken?: string;
@@ -7238,6 +7390,109 @@ export class QueryMusicTypeResponse extends $tea.Model {
   }
 }
 
+export class QueryUserDeviceListByTmeUserIdHeaders extends $tea.Model {
+  commonHeaders?: { [key: string]: string };
+  xAcsAligenieAccessToken?: string;
+  authorization?: string;
+  static names(): { [key: string]: string } {
+    return {
+      commonHeaders: 'commonHeaders',
+      xAcsAligenieAccessToken: 'x-acs-aligenie-access-token',
+      authorization: 'Authorization',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      commonHeaders: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      xAcsAligenieAccessToken: 'string',
+      authorization: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class QueryUserDeviceListByTmeUserIdRequest extends $tea.Model {
+  sp?: string;
+  tmeUserId?: string;
+  static names(): { [key: string]: string } {
+    return {
+      sp: 'Sp',
+      tmeUserId: 'TmeUserId',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      sp: 'string',
+      tmeUserId: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class QueryUserDeviceListByTmeUserIdResponseBody extends $tea.Model {
+  code?: number;
+  message?: string;
+  requestId?: string;
+  result?: QueryUserDeviceListByTmeUserIdResponseBodyResult;
+  success?: boolean;
+  static names(): { [key: string]: string } {
+    return {
+      code: 'Code',
+      message: 'Message',
+      requestId: 'RequestId',
+      result: 'Result',
+      success: 'Success',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      code: 'number',
+      message: 'string',
+      requestId: 'string',
+      result: QueryUserDeviceListByTmeUserIdResponseBodyResult,
+      success: 'boolean',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class QueryUserDeviceListByTmeUserIdResponse extends $tea.Model {
+  headers: { [key: string]: string };
+  statusCode: number;
+  body: QueryUserDeviceListByTmeUserIdResponseBody;
+  static names(): { [key: string]: string } {
+    return {
+      headers: 'headers',
+      statusCode: 'statusCode',
+      body: 'body',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
+      body: QueryUserDeviceListByTmeUserIdResponseBody,
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
 export class ReadMessageHeaders extends $tea.Model {
   commonHeaders?: { [key: string]: string };
   xAcsAligenieAccessToken?: string;
@@ -9013,6 +9268,68 @@ export class CheckAuthCodeBindForExtResponseBodyResult extends $tea.Model {
     return {
       deviceOpenInfo: CheckAuthCodeBindForExtResponseBodyResultDeviceOpenInfo,
       userOpenInfo: CheckAuthCodeBindForExtResponseBodyResultUserOpenInfo,
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class CloudPlayerRequestDeviceInfo extends $tea.Model {
+  encodeKey?: string;
+  encodeType?: string;
+  id?: string;
+  idType?: string;
+  organizationId?: string;
+  static names(): { [key: string]: string } {
+    return {
+      encodeKey: 'EncodeKey',
+      encodeType: 'EncodeType',
+      id: 'Id',
+      idType: 'IdType',
+      organizationId: 'OrganizationId',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      encodeKey: 'string',
+      encodeType: 'string',
+      id: 'string',
+      idType: 'string',
+      organizationId: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class CloudPlayerRequestUserInfo extends $tea.Model {
+  encodeKey?: string;
+  encodeType?: string;
+  id?: string;
+  idType?: string;
+  organizationId?: string;
+  static names(): { [key: string]: string } {
+    return {
+      encodeKey: 'EncodeKey',
+      encodeType: 'EncodeType',
+      id: 'Id',
+      idType: 'IdType',
+      organizationId: 'OrganizationId',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      encodeKey: 'string',
+      encodeType: 'string',
+      id: 'string',
+      idType: 'string',
+      organizationId: 'string',
     };
   }
 
@@ -14886,6 +15203,84 @@ export class QueryMusicTypeResponseBodyResult extends $tea.Model {
   }
 }
 
+export class QueryUserDeviceListByTmeUserIdResponseBodyResultAligenieUserInfoListAuthorizedDeviceList extends $tea.Model {
+  deviceName?: string;
+  online?: boolean;
+  openDeviceId?: string;
+  static names(): { [key: string]: string } {
+    return {
+      deviceName: 'DeviceName',
+      online: 'Online',
+      openDeviceId: 'OpenDeviceId',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      deviceName: 'string',
+      online: 'boolean',
+      openDeviceId: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class QueryUserDeviceListByTmeUserIdResponseBodyResultAligenieUserInfoList extends $tea.Model {
+  authorizedDeviceList?: QueryUserDeviceListByTmeUserIdResponseBodyResultAligenieUserInfoListAuthorizedDeviceList[];
+  openUserId?: string;
+  userNickname?: string;
+  static names(): { [key: string]: string } {
+    return {
+      authorizedDeviceList: 'AuthorizedDeviceList',
+      openUserId: 'OpenUserId',
+      userNickname: 'UserNickname',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      authorizedDeviceList: { 'type': 'array', 'itemType': QueryUserDeviceListByTmeUserIdResponseBodyResultAligenieUserInfoListAuthorizedDeviceList },
+      openUserId: 'string',
+      userNickname: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class QueryUserDeviceListByTmeUserIdResponseBodyResult extends $tea.Model {
+  aligenieUserInfoList?: QueryUserDeviceListByTmeUserIdResponseBodyResultAligenieUserInfoList[];
+  encodeKey?: string;
+  encodeType?: string;
+  sp?: string;
+  static names(): { [key: string]: string } {
+    return {
+      aligenieUserInfoList: 'AligenieUserInfoList',
+      encodeKey: 'EncodeKey',
+      encodeType: 'EncodeType',
+      sp: 'Sp',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      aligenieUserInfoList: { 'type': 'array', 'itemType': QueryUserDeviceListByTmeUserIdResponseBodyResultAligenieUserInfoList },
+      encodeKey: 'string',
+      encodeType: 'string',
+      sp: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
 export class ReadMessageRequestUserInfo extends $tea.Model {
   encodeKey?: string;
   encodeType?: string;
@@ -16319,6 +16714,88 @@ export default class Client extends OpenApi {
     let runtime = new $Util.RuntimeOptions({ });
     let headers = new CheckAuthCodeBindForExtHeaders({ });
     return await this.checkAuthCodeBindForExtWithOptions(request, headers, runtime);
+  }
+
+  async cloudPlayerWithOptions(tmpReq: CloudPlayerRequest, headers: CloudPlayerHeaders, runtime: $Util.RuntimeOptions): Promise<CloudPlayerResponse> {
+    Util.validateModel(tmpReq);
+    let request = new CloudPlayerShrinkRequest({ });
+    OpenApiUtil.convert(tmpReq, request);
+    if (!Util.isUnset(tmpReq.deviceInfo)) {
+      request.deviceInfoShrink = OpenApiUtil.arrayToStringWithSpecifiedStyle(tmpReq.deviceInfo, "DeviceInfo", "json");
+    }
+
+    if (!Util.isUnset(tmpReq.songIdList)) {
+      request.songIdListShrink = OpenApiUtil.arrayToStringWithSpecifiedStyle(tmpReq.songIdList, "SongIdList", "json");
+    }
+
+    if (!Util.isUnset(tmpReq.userInfo)) {
+      request.userInfoShrink = OpenApiUtil.arrayToStringWithSpecifiedStyle(tmpReq.userInfo, "UserInfo", "json");
+    }
+
+    let query : {[key: string ]: any} = { };
+    if (!Util.isUnset(request.curPlayIndex)) {
+      query["CurPlayIndex"] = request.curPlayIndex;
+    }
+
+    if (!Util.isUnset(request.deviceInfoShrink)) {
+      query["DeviceInfo"] = request.deviceInfoShrink;
+    }
+
+    if (!Util.isUnset(request.playMode)) {
+      query["PlayMode"] = request.playMode;
+    }
+
+    if (!Util.isUnset(request.songId)) {
+      query["SongId"] = request.songId;
+    }
+
+    if (!Util.isUnset(request.songIdListShrink)) {
+      query["SongIdList"] = request.songIdListShrink;
+    }
+
+    if (!Util.isUnset(request.source)) {
+      query["Source"] = request.source;
+    }
+
+    if (!Util.isUnset(request.userInfoShrink)) {
+      query["UserInfo"] = request.userInfoShrink;
+    }
+
+    let realHeaders : {[key: string ]: string} = { };
+    if (!Util.isUnset(headers.commonHeaders)) {
+      realHeaders = headers.commonHeaders;
+    }
+
+    if (!Util.isUnset(headers.xAcsAligenieAccessToken)) {
+      realHeaders["x-acs-aligenie-access-token"] = Util.toJSONString(headers.xAcsAligenieAccessToken);
+    }
+
+    if (!Util.isUnset(headers.authorization)) {
+      realHeaders["Authorization"] = Util.toJSONString(headers.authorization);
+    }
+
+    let req = new $OpenApi.OpenApiRequest({
+      headers: realHeaders,
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApi.Params({
+      action: "CloudPlayer",
+      version: "ssp_1.0",
+      protocol: "HTTPS",
+      pathname: `/v1.0/ssp/cloud/player`,
+      method: "POST",
+      authType: "AK",
+      style: "ROA",
+      reqBodyType: "json",
+      bodyType: "json",
+    });
+    return $tea.cast<CloudPlayerResponse>(await this.callApi(params, req, runtime), new CloudPlayerResponse({}));
+  }
+
+  async cloudPlayer(request: CloudPlayerRequest): Promise<CloudPlayerResponse> {
+    let runtime = new $Util.RuntimeOptions({ });
+    let headers = new CloudPlayerHeaders({ });
+    return await this.cloudPlayerWithOptions(request, headers, runtime);
   }
 
   async createAlarmWithOptions(tmpReq: CreateAlarmRequest, headers: CreateAlarmHeaders, runtime: $Util.RuntimeOptions): Promise<CreateAlarmResponse> {
@@ -19357,6 +19834,54 @@ export default class Client extends OpenApi {
     let runtime = new $Util.RuntimeOptions({ });
     let headers = new QueryMusicTypeHeaders({ });
     return await this.queryMusicTypeWithOptions(request, headers, runtime);
+  }
+
+  async queryUserDeviceListByTmeUserIdWithOptions(request: QueryUserDeviceListByTmeUserIdRequest, headers: QueryUserDeviceListByTmeUserIdHeaders, runtime: $Util.RuntimeOptions): Promise<QueryUserDeviceListByTmeUserIdResponse> {
+    Util.validateModel(request);
+    let query : {[key: string ]: any} = { };
+    if (!Util.isUnset(request.sp)) {
+      query["Sp"] = request.sp;
+    }
+
+    if (!Util.isUnset(request.tmeUserId)) {
+      query["TmeUserId"] = request.tmeUserId;
+    }
+
+    let realHeaders : {[key: string ]: string} = { };
+    if (!Util.isUnset(headers.commonHeaders)) {
+      realHeaders = headers.commonHeaders;
+    }
+
+    if (!Util.isUnset(headers.xAcsAligenieAccessToken)) {
+      realHeaders["x-acs-aligenie-access-token"] = Util.toJSONString(headers.xAcsAligenieAccessToken);
+    }
+
+    if (!Util.isUnset(headers.authorization)) {
+      realHeaders["Authorization"] = Util.toJSONString(headers.authorization);
+    }
+
+    let req = new $OpenApi.OpenApiRequest({
+      headers: realHeaders,
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApi.Params({
+      action: "QueryUserDeviceListByTmeUserId",
+      version: "ssp_1.0",
+      protocol: "HTTPS",
+      pathname: `/v1.0/ssp/queryUserDeviceListByTmeUserId`,
+      method: "GET",
+      authType: "AK",
+      style: "ROA",
+      reqBodyType: "json",
+      bodyType: "json",
+    });
+    return $tea.cast<QueryUserDeviceListByTmeUserIdResponse>(await this.callApi(params, req, runtime), new QueryUserDeviceListByTmeUserIdResponse({}));
+  }
+
+  async queryUserDeviceListByTmeUserId(request: QueryUserDeviceListByTmeUserIdRequest): Promise<QueryUserDeviceListByTmeUserIdResponse> {
+    let runtime = new $Util.RuntimeOptions({ });
+    let headers = new QueryUserDeviceListByTmeUserIdHeaders({ });
+    return await this.queryUserDeviceListByTmeUserIdWithOptions(request, headers, runtime);
   }
 
   async readMessageWithOptions(tmpReq: ReadMessageRequest, headers: ReadMessageHeaders, runtime: $Util.RuntimeOptions): Promise<ReadMessageResponse> {
