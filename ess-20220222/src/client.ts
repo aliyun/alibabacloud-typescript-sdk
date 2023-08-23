@@ -1176,6 +1176,7 @@ export class CreateScalingConfigurationRequest extends $tea.Model {
   creditSpecification?: string;
   dataDisks?: CreateScalingConfigurationRequestDataDisks[];
   dedicatedHostId?: string;
+  deletionProtection?: boolean;
   deploymentSetId?: string;
   hostName?: string;
   hpcClusterId?: string;
@@ -1229,6 +1230,7 @@ export class CreateScalingConfigurationRequest extends $tea.Model {
       creditSpecification: 'CreditSpecification',
       dataDisks: 'DataDisks',
       dedicatedHostId: 'DedicatedHostId',
+      deletionProtection: 'DeletionProtection',
       deploymentSetId: 'DeploymentSetId',
       hostName: 'HostName',
       hpcClusterId: 'HpcClusterId',
@@ -1285,6 +1287,7 @@ export class CreateScalingConfigurationRequest extends $tea.Model {
       creditSpecification: 'string',
       dataDisks: { 'type': 'array', 'itemType': CreateScalingConfigurationRequestDataDisks },
       dedicatedHostId: 'string',
+      deletionProtection: 'boolean',
       deploymentSetId: 'string',
       hostName: 'string',
       hpcClusterId: 'string',
@@ -1345,6 +1348,7 @@ export class CreateScalingConfigurationShrinkRequest extends $tea.Model {
   creditSpecification?: string;
   dataDisks?: CreateScalingConfigurationShrinkRequestDataDisks[];
   dedicatedHostId?: string;
+  deletionProtection?: boolean;
   deploymentSetId?: string;
   hostName?: string;
   hpcClusterId?: string;
@@ -1398,6 +1402,7 @@ export class CreateScalingConfigurationShrinkRequest extends $tea.Model {
       creditSpecification: 'CreditSpecification',
       dataDisks: 'DataDisks',
       dedicatedHostId: 'DedicatedHostId',
+      deletionProtection: 'DeletionProtection',
       deploymentSetId: 'DeploymentSetId',
       hostName: 'HostName',
       hpcClusterId: 'HpcClusterId',
@@ -1454,6 +1459,7 @@ export class CreateScalingConfigurationShrinkRequest extends $tea.Model {
       creditSpecification: 'string',
       dataDisks: { 'type': 'array', 'itemType': CreateScalingConfigurationShrinkRequestDataDisks },
       dedicatedHostId: 'string',
+      deletionProtection: 'boolean',
       deploymentSetId: 'string',
       hostName: 'string',
       hpcClusterId: 'string',
@@ -5967,6 +5973,7 @@ export class ModifyScalingConfigurationRequest extends $tea.Model {
   creditSpecification?: string;
   dataDisks?: ModifyScalingConfigurationRequestDataDisks[];
   dedicatedHostId?: string;
+  deletionProtection?: boolean;
   deploymentSetId?: string;
   hostName?: string;
   hpcClusterId?: string;
@@ -6016,6 +6023,7 @@ export class ModifyScalingConfigurationRequest extends $tea.Model {
       creditSpecification: 'CreditSpecification',
       dataDisks: 'DataDisks',
       dedicatedHostId: 'DedicatedHostId',
+      deletionProtection: 'DeletionProtection',
       deploymentSetId: 'DeploymentSetId',
       hostName: 'HostName',
       hpcClusterId: 'HpcClusterId',
@@ -6068,6 +6076,7 @@ export class ModifyScalingConfigurationRequest extends $tea.Model {
       creditSpecification: 'string',
       dataDisks: { 'type': 'array', 'itemType': ModifyScalingConfigurationRequestDataDisks },
       dedicatedHostId: 'string',
+      deletionProtection: 'boolean',
       deploymentSetId: 'string',
       hostName: 'string',
       hpcClusterId: 'string',
@@ -6124,6 +6133,7 @@ export class ModifyScalingConfigurationShrinkRequest extends $tea.Model {
   creditSpecification?: string;
   dataDisks?: ModifyScalingConfigurationShrinkRequestDataDisks[];
   dedicatedHostId?: string;
+  deletionProtection?: boolean;
   deploymentSetId?: string;
   hostName?: string;
   hpcClusterId?: string;
@@ -6173,6 +6183,7 @@ export class ModifyScalingConfigurationShrinkRequest extends $tea.Model {
       creditSpecification: 'CreditSpecification',
       dataDisks: 'DataDisks',
       dedicatedHostId: 'DedicatedHostId',
+      deletionProtection: 'DeletionProtection',
       deploymentSetId: 'DeploymentSetId',
       hostName: 'HostName',
       hpcClusterId: 'HpcClusterId',
@@ -6225,6 +6236,7 @@ export class ModifyScalingConfigurationShrinkRequest extends $tea.Model {
       creditSpecification: 'string',
       dataDisks: { 'type': 'array', 'itemType': ModifyScalingConfigurationShrinkRequestDataDisks },
       dedicatedHostId: 'string',
+      deletionProtection: 'boolean',
       deploymentSetId: 'string',
       hostName: 'string',
       hpcClusterId: 'string',
@@ -10775,6 +10787,7 @@ export class DescribeScalingConfigurationsResponseBodyScalingConfigurations exte
   creditSpecification?: string;
   dataDisks?: DescribeScalingConfigurationsResponseBodyScalingConfigurationsDataDisks[];
   dedicatedHostId?: string;
+  deletionProtection?: boolean;
   deploymentSetId?: string;
   hostName?: string;
   hpcClusterId?: string;
@@ -10838,6 +10851,7 @@ export class DescribeScalingConfigurationsResponseBodyScalingConfigurations exte
       creditSpecification: 'CreditSpecification',
       dataDisks: 'DataDisks',
       dedicatedHostId: 'DedicatedHostId',
+      deletionProtection: 'DeletionProtection',
       deploymentSetId: 'DeploymentSetId',
       hostName: 'HostName',
       hpcClusterId: 'HpcClusterId',
@@ -10904,6 +10918,7 @@ export class DescribeScalingConfigurationsResponseBodyScalingConfigurations exte
       creditSpecification: 'string',
       dataDisks: { 'type': 'array', 'itemType': DescribeScalingConfigurationsResponseBodyScalingConfigurationsDataDisks },
       dedicatedHostId: 'string',
+      deletionProtection: 'boolean',
       deploymentSetId: 'string',
       hostName: 'string',
       hpcClusterId: 'string',
@@ -14361,6 +14376,10 @@ export default class Client extends OpenApi {
       query["DedicatedHostId"] = request.dedicatedHostId;
     }
 
+    if (!Util.isUnset(request.deletionProtection)) {
+      query["DeletionProtection"] = request.deletionProtection;
+    }
+
     if (!Util.isUnset(request.deploymentSetId)) {
       query["DeploymentSetId"] = request.deploymentSetId;
     }
@@ -17043,13 +17062,6 @@ export default class Client extends OpenApi {
     return await this.executeScalingRuleWithOptions(request, runtime);
   }
 
-  /**
-    * The IDs of the ECS instances. The value of this parameter can be a JSON array that consists of up to 20 instance IDs. Separate multiple instance IDs with commas (,).
-    *
-    * @param request ExitStandbyRequest
-    * @param runtime runtime options for this request RuntimeOptions
-    * @return ExitStandbyResponse
-   */
   async exitStandbyWithOptions(request: ExitStandbyRequest, runtime: $Util.RuntimeOptions): Promise<ExitStandbyResponse> {
     Util.validateModel(request);
     let query = { };
@@ -17098,12 +17110,6 @@ export default class Client extends OpenApi {
     return $tea.cast<ExitStandbyResponse>(await this.callApi(params, req, runtime), new ExitStandbyResponse({}));
   }
 
-  /**
-    * The IDs of the ECS instances. The value of this parameter can be a JSON array that consists of up to 20 instance IDs. Separate multiple instance IDs with commas (,).
-    *
-    * @param request ExitStandbyRequest
-    * @return ExitStandbyResponse
-   */
   async exitStandby(request: ExitStandbyRequest): Promise<ExitStandbyResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.exitStandbyWithOptions(request, runtime);
@@ -17781,6 +17787,10 @@ export default class Client extends OpenApi {
 
     if (!Util.isUnset(request.dedicatedHostId)) {
       query["DedicatedHostId"] = request.dedicatedHostId;
+    }
+
+    if (!Util.isUnset(request.deletionProtection)) {
+      query["DeletionProtection"] = request.deletionProtection;
     }
 
     if (!Util.isUnset(request.deploymentSetId)) {
@@ -18661,6 +18671,13 @@ export default class Client extends OpenApi {
     return await this.setGroupDeletionProtectionWithOptions(request, runtime);
   }
 
+  /**
+    * Configures the health check feature for Elastic Compute Service (ECS) instances.
+    *
+    * @param request SetInstanceHealthRequest
+    * @param runtime runtime options for this request RuntimeOptions
+    * @return SetInstanceHealthResponse
+   */
   async setInstanceHealthWithOptions(request: SetInstanceHealthRequest, runtime: $Util.RuntimeOptions): Promise<SetInstanceHealthResponse> {
     Util.validateModel(request);
     let query = { };
@@ -18697,11 +18714,24 @@ export default class Client extends OpenApi {
     return $tea.cast<SetInstanceHealthResponse>(await this.callApi(params, req, runtime), new SetInstanceHealthResponse({}));
   }
 
+  /**
+    * Configures the health check feature for Elastic Compute Service (ECS) instances.
+    *
+    * @param request SetInstanceHealthRequest
+    * @return SetInstanceHealthResponse
+   */
   async setInstanceHealth(request: SetInstanceHealthRequest): Promise<SetInstanceHealthResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.setInstanceHealthWithOptions(request, runtime);
   }
 
+  /**
+    * Puts one or more Elastic Compute Service (ECS) instances into the Protected state.
+    *
+    * @param request SetInstancesProtectionRequest
+    * @param runtime runtime options for this request RuntimeOptions
+    * @return SetInstancesProtectionResponse
+   */
   async setInstancesProtectionWithOptions(request: SetInstancesProtectionRequest, runtime: $Util.RuntimeOptions): Promise<SetInstancesProtectionResponse> {
     Util.validateModel(request);
     let query = { };
@@ -18742,6 +18772,12 @@ export default class Client extends OpenApi {
     return $tea.cast<SetInstancesProtectionResponse>(await this.callApi(params, req, runtime), new SetInstancesProtectionResponse({}));
   }
 
+  /**
+    * Puts one or more Elastic Compute Service (ECS) instances into the Protected state.
+    *
+    * @param request SetInstancesProtectionRequest
+    * @return SetInstancesProtectionResponse
+   */
   async setInstancesProtection(request: SetInstancesProtectionRequest): Promise<SetInstancesProtectionResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.setInstancesProtectionWithOptions(request, runtime);
