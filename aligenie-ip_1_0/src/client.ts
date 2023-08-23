@@ -9225,12 +9225,14 @@ export class SubmitHotelOrderResponseBody extends $tea.Model {
   message?: string;
   requestId?: string;
   result?: string;
+  statusCode?: number;
   static names(): { [key: string]: string } {
     return {
       code: 'Code',
       message: 'Message',
       requestId: 'RequestId',
       result: 'Result',
+      statusCode: 'StatusCode',
     };
   }
 
@@ -9240,6 +9242,7 @@ export class SubmitHotelOrderResponseBody extends $tea.Model {
       message: 'string',
       requestId: 'string',
       result: 'string',
+      statusCode: 'number',
     };
   }
 
@@ -12139,12 +12142,14 @@ export class ImportHotelConfigRequestImportHotelConfig extends $tea.Model {
 }
 
 export class ImportRoomControlDevicesRequestLocationDevicesDevicesMultiKeySwitchExtSwitchList extends $tea.Model {
+  aliasList?: string[];
   category?: string;
   deviceIndex?: number;
   deviceName?: string;
   location?: string;
   static names(): { [key: string]: string } {
     return {
+      aliasList: 'AliasList',
       category: 'Category',
       deviceIndex: 'DeviceIndex',
       deviceName: 'DeviceName',
@@ -12154,6 +12159,7 @@ export class ImportRoomControlDevicesRequestLocationDevicesDevicesMultiKeySwitch
 
   static types(): { [key: string]: any } {
     return {
+      aliasList: { 'type': 'array', 'itemType': 'string' },
       category: 'string',
       deviceIndex: 'number',
       deviceName: 'string',
@@ -12186,6 +12192,7 @@ export class ImportRoomControlDevicesRequestLocationDevicesDevicesMultiKeySwitch
 }
 
 export class ImportRoomControlDevicesRequestLocationDevicesDevices extends $tea.Model {
+  aliasList?: string[];
   brand?: string;
   city?: string;
   connectType?: string;
@@ -12202,6 +12209,7 @@ export class ImportRoomControlDevicesRequestLocationDevicesDevices extends $tea.
   serviceProvider?: string;
   static names(): { [key: string]: string } {
     return {
+      aliasList: 'AliasList',
       brand: 'Brand',
       city: 'City',
       connectType: 'ConnectType',
@@ -12221,6 +12229,7 @@ export class ImportRoomControlDevicesRequestLocationDevicesDevices extends $tea.
 
   static types(): { [key: string]: any } {
     return {
+      aliasList: { 'type': 'array', 'itemType': 'string' },
       brand: 'string',
       city: 'string',
       connectType: 'string',
@@ -13258,6 +13267,7 @@ export class ListHotelSceneItemResponseBodyResultSecondCategoryListItemList exte
   id?: string;
   name?: string;
   price?: number;
+  residueLimit?: number;
   status?: string;
   type?: string;
   static names(): { [key: string]: string } {
@@ -13267,6 +13277,7 @@ export class ListHotelSceneItemResponseBodyResultSecondCategoryListItemList exte
       id: 'Id',
       name: 'Name',
       price: 'Price',
+      residueLimit: 'ResidueLimit',
       status: 'Status',
       type: 'Type',
     };
@@ -13279,6 +13290,7 @@ export class ListHotelSceneItemResponseBodyResultSecondCategoryListItemList exte
       id: 'string',
       name: 'string',
       price: 'number',
+      residueLimit: 'number',
       status: 'string',
       type: 'string',
     };
@@ -13415,10 +13427,13 @@ export class ListHotelSceneItemsResponseBodyResultPage extends $tea.Model {
 }
 
 export class ListHotelSceneItemsResponseBodyResultSceneItemList extends $tea.Model {
+  beyondLimitReply?: string;
   category?: string;
   deliveryMethod?: string;
   icon?: string;
   id?: number;
+  limitNumber?: number;
+  limitSwitch?: number;
   name?: string;
   paymentMethod?: string;
   price?: number;
@@ -13428,10 +13443,13 @@ export class ListHotelSceneItemsResponseBodyResultSceneItemList extends $tea.Mod
   updateTime?: number;
   static names(): { [key: string]: string } {
     return {
+      beyondLimitReply: 'BeyondLimitReply',
       category: 'Category',
       deliveryMethod: 'DeliveryMethod',
       icon: 'Icon',
       id: 'Id',
+      limitNumber: 'LimitNumber',
+      limitSwitch: 'LimitSwitch',
       name: 'Name',
       paymentMethod: 'PaymentMethod',
       price: 'Price',
@@ -13444,10 +13462,13 @@ export class ListHotelSceneItemsResponseBodyResultSceneItemList extends $tea.Mod
 
   static types(): { [key: string]: any } {
     return {
+      beyondLimitReply: 'string',
       category: 'string',
       deliveryMethod: 'string',
       icon: 'string',
       id: 'number',
+      limitNumber: 'number',
+      limitSwitch: 'number',
       name: 'string',
       paymentMethod: 'string',
       price: 'number',
@@ -14323,6 +14344,7 @@ export class QueryHotelRoomDetailResponseBodyResult extends $tea.Model {
 }
 
 export class QueryRoomControlDevicesResponseBodyResultDevicesMultiKeySwitchExtSwitchList extends $tea.Model {
+  aliasList?: string[];
   category?: string;
   deviceIndex?: number;
   deviceName?: string;
@@ -14331,6 +14353,7 @@ export class QueryRoomControlDevicesResponseBodyResultDevicesMultiKeySwitchExtSw
   location?: string;
   static names(): { [key: string]: string } {
     return {
+      aliasList: 'AliasList',
       category: 'Category',
       deviceIndex: 'DeviceIndex',
       deviceName: 'DeviceName',
@@ -14342,6 +14365,7 @@ export class QueryRoomControlDevicesResponseBodyResultDevicesMultiKeySwitchExtSw
 
   static types(): { [key: string]: any } {
     return {
+      aliasList: { 'type': 'array', 'itemType': 'string' },
       category: 'string',
       deviceIndex: 'number',
       deviceName: 'string',
@@ -14376,6 +14400,7 @@ export class QueryRoomControlDevicesResponseBodyResultDevicesMultiKeySwitchExt e
 }
 
 export class QueryRoomControlDevicesResponseBodyResultDevices extends $tea.Model {
+  aliasList?: string[];
   connectType?: string;
   DN?: string;
   deviceName?: string;
@@ -14386,6 +14411,7 @@ export class QueryRoomControlDevicesResponseBodyResultDevices extends $tea.Model
   PK?: string;
   static names(): { [key: string]: string } {
     return {
+      aliasList: 'AliasList',
       connectType: 'ConnectType',
       DN: 'DN',
       deviceName: 'DeviceName',
@@ -14399,6 +14425,7 @@ export class QueryRoomControlDevicesResponseBodyResultDevices extends $tea.Model
 
   static types(): { [key: string]: any } {
     return {
+      aliasList: { 'type': 'array', 'itemType': 'string' },
       connectType: 'string',
       DN: 'string',
       deviceName: 'string',
@@ -14842,10 +14869,13 @@ export class UpdateHotelSceneItemRequestUpdateHotelSceneReqDialogueList extends 
 }
 
 export class UpdateHotelSceneItemRequestUpdateHotelSceneReq extends $tea.Model {
+  beyondLimitReply?: string;
   deliveryMethod?: string;
   dialogueList?: UpdateHotelSceneItemRequestUpdateHotelSceneReqDialogueList[];
   icon?: string;
   id?: number;
+  limitNumber?: number;
+  limitSwitch?: number;
   name?: string;
   paymentMethod?: string;
   price?: number;
@@ -14853,10 +14883,13 @@ export class UpdateHotelSceneItemRequestUpdateHotelSceneReq extends $tea.Model {
   status?: string;
   static names(): { [key: string]: string } {
     return {
+      beyondLimitReply: 'BeyondLimitReply',
       deliveryMethod: 'DeliveryMethod',
       dialogueList: 'DialogueList',
       icon: 'Icon',
       id: 'Id',
+      limitNumber: 'LimitNumber',
+      limitSwitch: 'LimitSwitch',
       name: 'Name',
       paymentMethod: 'PaymentMethod',
       price: 'Price',
@@ -14867,10 +14900,13 @@ export class UpdateHotelSceneItemRequestUpdateHotelSceneReq extends $tea.Model {
 
   static types(): { [key: string]: any } {
     return {
+      beyondLimitReply: 'string',
       deliveryMethod: 'string',
       dialogueList: { 'type': 'array', 'itemType': UpdateHotelSceneItemRequestUpdateHotelSceneReqDialogueList },
       icon: 'string',
       id: 'number',
+      limitNumber: 'number',
+      limitSwitch: 'number',
       name: 'string',
       paymentMethod: 'string',
       price: 'number',
