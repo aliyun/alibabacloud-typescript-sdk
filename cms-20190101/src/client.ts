@@ -10324,7 +10324,10 @@ export class DescribeSiteMonitorListResponse extends $tea.Model {
 }
 
 export class DescribeSiteMonitorLogRequest extends $tea.Model {
+  browser?: string;
+  browserInfo?: string;
   city?: string;
+  device?: string;
   endTime?: string;
   filter?: string;
   isp?: string;
@@ -10336,7 +10339,10 @@ export class DescribeSiteMonitorLogRequest extends $tea.Model {
   taskIds?: string;
   static names(): { [key: string]: string } {
     return {
+      browser: 'Browser',
+      browserInfo: 'BrowserInfo',
       city: 'City',
+      device: 'Device',
       endTime: 'EndTime',
       filter: 'Filter',
       isp: 'Isp',
@@ -10351,7 +10357,10 @@ export class DescribeSiteMonitorLogRequest extends $tea.Model {
 
   static types(): { [key: string]: any } {
     return {
+      browser: 'string',
+      browserInfo: 'string',
       city: 'string',
+      device: 'string',
       endTime: 'string',
       filter: 'string',
       isp: 'string',
@@ -15404,11 +15413,13 @@ export class NotificationStrategyGroupingSetting extends $tea.Model {
 }
 
 export class NotificationStrategyPushingSetting extends $tea.Model {
+  pushingDataFormat?: string;
   range?: string;
   targetUuids?: string[];
   templateUuid?: string;
   static names(): { [key: string]: string } {
     return {
+      pushingDataFormat: 'PushingDataFormat',
       range: 'Range',
       targetUuids: 'TargetUuids',
       templateUuid: 'TemplateUuid',
@@ -15417,6 +15428,7 @@ export class NotificationStrategyPushingSetting extends $tea.Model {
 
   static types(): { [key: string]: any } {
     return {
+      pushingDataFormat: 'string',
       range: 'string',
       targetUuids: { 'type': 'array', 'itemType': 'string' },
       templateUuid: 'string',
@@ -22955,10 +22967,190 @@ export class DescribeSiteMonitorAttributeResponseBodySiteMonitorsOptionJsonAsser
   }
 }
 
+export class DescribeSiteMonitorAttributeResponseBodySiteMonitorsOptionJsonBlockedUrlList extends $tea.Model {
+  blockedUrlList?: string[];
+  static names(): { [key: string]: string } {
+    return {
+      blockedUrlList: 'blocked_url_list',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      blockedUrlList: { 'type': 'array', 'itemType': 'string' },
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class DescribeSiteMonitorAttributeResponseBodySiteMonitorsOptionJsonBrowserHeaders extends $tea.Model {
+  browserHeaders?: { [key: string]: any }[];
+  static names(): { [key: string]: string } {
+    return {
+      browserHeaders: 'browser_headers',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      browserHeaders: { 'type': 'array', 'itemType': { 'type': 'map', 'keyType': 'string', 'valueType': 'any' } },
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class DescribeSiteMonitorAttributeResponseBodySiteMonitorsOptionJsonBrowserHosts extends $tea.Model {
+  browserHosts?: string[];
+  static names(): { [key: string]: string } {
+    return {
+      browserHosts: 'browser_hosts',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      browserHosts: { 'type': 'array', 'itemType': 'string' },
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class DescribeSiteMonitorAttributeResponseBodySiteMonitorsOptionJsonBrowserInfoBrowserInfo extends $tea.Model {
+  browser?: string;
+  device?: string;
+  static names(): { [key: string]: string } {
+    return {
+      browser: 'browser',
+      device: 'device',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      browser: 'string',
+      device: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class DescribeSiteMonitorAttributeResponseBodySiteMonitorsOptionJsonBrowserInfo extends $tea.Model {
+  browserInfo?: DescribeSiteMonitorAttributeResponseBodySiteMonitorsOptionJsonBrowserInfoBrowserInfo[];
+  static names(): { [key: string]: string } {
+    return {
+      browserInfo: 'browser_info',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      browserInfo: { 'type': 'array', 'itemType': DescribeSiteMonitorAttributeResponseBodySiteMonitorsOptionJsonBrowserInfoBrowserInfo },
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class DescribeSiteMonitorAttributeResponseBodySiteMonitorsOptionJsonExpectExistString extends $tea.Model {
+  expectExistString?: string[];
+  static names(): { [key: string]: string } {
+    return {
+      expectExistString: 'expect_exist_string',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      expectExistString: { 'type': 'array', 'itemType': 'string' },
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class DescribeSiteMonitorAttributeResponseBodySiteMonitorsOptionJsonExpectNonExistString extends $tea.Model {
+  expectNonExistString?: string[];
+  static names(): { [key: string]: string } {
+    return {
+      expectNonExistString: 'expect_non_exist_string',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      expectNonExistString: { 'type': 'array', 'itemType': 'string' },
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class DescribeSiteMonitorAttributeResponseBodySiteMonitorsOptionJsonTrafficHijackElementBlacklist extends $tea.Model {
+  trafficHijackElementBlacklist?: string[];
+  static names(): { [key: string]: string } {
+    return {
+      trafficHijackElementBlacklist: 'traffic_hijack_element_blacklist',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      trafficHijackElementBlacklist: { 'type': 'array', 'itemType': 'string' },
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class DescribeSiteMonitorAttributeResponseBodySiteMonitorsOptionJsonTrafficHijackElementWhitelist extends $tea.Model {
+  trafficHijackElementWhitelist?: string[];
+  static names(): { [key: string]: string } {
+    return {
+      trafficHijackElementWhitelist: 'traffic_hijack_element_whitelist',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      trafficHijackElementWhitelist: { 'type': 'array', 'itemType': 'string' },
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
 export class DescribeSiteMonitorAttributeResponseBodySiteMonitorsOptionJson extends $tea.Model {
   assertions?: DescribeSiteMonitorAttributeResponseBodySiteMonitorsOptionJsonAssertions;
   attempts?: number;
   authentication?: number;
+  blockedUrlList?: DescribeSiteMonitorAttributeResponseBodySiteMonitorsOptionJsonBlockedUrlList;
+  browserHeaders?: DescribeSiteMonitorAttributeResponseBodySiteMonitorsOptionJsonBrowserHeaders;
+  browserHosts?: DescribeSiteMonitorAttributeResponseBodySiteMonitorsOptionJsonBrowserHosts;
+  browserInfo?: DescribeSiteMonitorAttributeResponseBodySiteMonitorsOptionJsonBrowserInfo;
+  browserInsecure?: boolean;
+  browserTaskVersion?: string;
   cookie?: string;
   diagnosisMtr?: boolean;
   diagnosisPing?: boolean;
@@ -22966,6 +23158,8 @@ export class DescribeSiteMonitorAttributeResponseBodySiteMonitorsOptionJson exte
   dnsMatchRule?: string;
   dnsServer?: string;
   dnsType?: string;
+  expectExistString?: DescribeSiteMonitorAttributeResponseBodySiteMonitorsOptionJsonExpectExistString;
+  expectNonExistString?: DescribeSiteMonitorAttributeResponseBodySiteMonitorsOptionJsonExpectNonExistString;
   expectValue?: string;
   failureRate?: number;
   header?: string;
@@ -22975,6 +23169,8 @@ export class DescribeSiteMonitorAttributeResponseBodySiteMonitorsOptionJson exte
   minTlsVersion?: string;
   password?: string;
   pingNum?: number;
+  pingPort?: number;
+  pingType?: string;
   port?: number;
   protocol?: string;
   requestContent?: string;
@@ -22982,13 +23178,23 @@ export class DescribeSiteMonitorAttributeResponseBodySiteMonitorsOptionJson exte
   responseContent?: string;
   responseFormat?: string;
   retryDelay?: number;
+  strictMode?: boolean;
   timeOut?: number;
+  trafficHijackElementBlacklist?: DescribeSiteMonitorAttributeResponseBodySiteMonitorsOptionJsonTrafficHijackElementBlacklist;
+  trafficHijackElementCount?: number;
+  trafficHijackElementWhitelist?: DescribeSiteMonitorAttributeResponseBodySiteMonitorsOptionJsonTrafficHijackElementWhitelist;
   username?: string;
   static names(): { [key: string]: string } {
     return {
       assertions: 'assertions',
       attempts: 'attempts',
       authentication: 'authentication',
+      blockedUrlList: 'blocked_url_list',
+      browserHeaders: 'browser_headers',
+      browserHosts: 'browser_hosts',
+      browserInfo: 'browser_info',
+      browserInsecure: 'browser_insecure',
+      browserTaskVersion: 'browser_task_version',
       cookie: 'cookie',
       diagnosisMtr: 'diagnosis_mtr',
       diagnosisPing: 'diagnosis_ping',
@@ -22996,6 +23202,8 @@ export class DescribeSiteMonitorAttributeResponseBodySiteMonitorsOptionJson exte
       dnsMatchRule: 'dns_match_rule',
       dnsServer: 'dns_server',
       dnsType: 'dns_type',
+      expectExistString: 'expect_exist_string',
+      expectNonExistString: 'expect_non_exist_string',
       expectValue: 'expect_value',
       failureRate: 'failure_rate',
       header: 'header',
@@ -23005,6 +23213,8 @@ export class DescribeSiteMonitorAttributeResponseBodySiteMonitorsOptionJson exte
       minTlsVersion: 'min_tls_version',
       password: 'password',
       pingNum: 'ping_num',
+      pingPort: 'ping_port',
+      pingType: 'ping_type',
       port: 'port',
       protocol: 'protocol',
       requestContent: 'request_content',
@@ -23012,7 +23222,11 @@ export class DescribeSiteMonitorAttributeResponseBodySiteMonitorsOptionJson exte
       responseContent: 'response_content',
       responseFormat: 'response_format',
       retryDelay: 'retry_delay',
+      strictMode: 'strict_mode',
       timeOut: 'time_out',
+      trafficHijackElementBlacklist: 'traffic_hijack_element_blacklist',
+      trafficHijackElementCount: 'traffic_hijack_element_count',
+      trafficHijackElementWhitelist: 'traffic_hijack_element_whitelist',
       username: 'username',
     };
   }
@@ -23022,6 +23236,12 @@ export class DescribeSiteMonitorAttributeResponseBodySiteMonitorsOptionJson exte
       assertions: DescribeSiteMonitorAttributeResponseBodySiteMonitorsOptionJsonAssertions,
       attempts: 'number',
       authentication: 'number',
+      blockedUrlList: DescribeSiteMonitorAttributeResponseBodySiteMonitorsOptionJsonBlockedUrlList,
+      browserHeaders: DescribeSiteMonitorAttributeResponseBodySiteMonitorsOptionJsonBrowserHeaders,
+      browserHosts: DescribeSiteMonitorAttributeResponseBodySiteMonitorsOptionJsonBrowserHosts,
+      browserInfo: DescribeSiteMonitorAttributeResponseBodySiteMonitorsOptionJsonBrowserInfo,
+      browserInsecure: 'boolean',
+      browserTaskVersion: 'string',
       cookie: 'string',
       diagnosisMtr: 'boolean',
       diagnosisPing: 'boolean',
@@ -23029,6 +23249,8 @@ export class DescribeSiteMonitorAttributeResponseBodySiteMonitorsOptionJson exte
       dnsMatchRule: 'string',
       dnsServer: 'string',
       dnsType: 'string',
+      expectExistString: DescribeSiteMonitorAttributeResponseBodySiteMonitorsOptionJsonExpectExistString,
+      expectNonExistString: DescribeSiteMonitorAttributeResponseBodySiteMonitorsOptionJsonExpectNonExistString,
       expectValue: 'string',
       failureRate: 'number',
       header: 'string',
@@ -23038,6 +23260,8 @@ export class DescribeSiteMonitorAttributeResponseBodySiteMonitorsOptionJson exte
       minTlsVersion: 'string',
       password: 'string',
       pingNum: 'number',
+      pingPort: 'number',
+      pingType: 'string',
       port: 'number',
       protocol: 'string',
       requestContent: 'string',
@@ -23045,7 +23269,11 @@ export class DescribeSiteMonitorAttributeResponseBodySiteMonitorsOptionJson exte
       responseContent: 'string',
       responseFormat: 'string',
       retryDelay: 'number',
+      strictMode: 'boolean',
       timeOut: 'number',
+      trafficHijackElementBlacklist: DescribeSiteMonitorAttributeResponseBodySiteMonitorsOptionJsonTrafficHijackElementBlacklist,
+      trafficHijackElementCount: 'number',
+      trafficHijackElementWhitelist: DescribeSiteMonitorAttributeResponseBodySiteMonitorsOptionJsonTrafficHijackElementWhitelist,
       username: 'string',
     };
   }
@@ -26940,7 +27168,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-    * You can create an instant test task only by using the Alibaba Cloud account that you used to enable Network Analysis and Monitoring. For more information, see [Billing of Network Analysis and Monitoring](~~341649~~).
+    * You can create an instant test task only by using the Alibaba Cloud account that you used to enable Network Analysis and Monitoring. 
     * This topic provides an example to show how to create an instant test task. The name of the task is `task1`. The tested address is `http://www.aliyun.com`. The test type is `HTTP`. The number of detection points is `1`.
     *
     * @param request CreateInstantSiteMonitorRequest
@@ -26992,7 +27220,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-    * You can create an instant test task only by using the Alibaba Cloud account that you used to enable Network Analysis and Monitoring. For more information, see [Billing of Network Analysis and Monitoring](~~341649~~).
+    * You can create an instant test task only by using the Alibaba Cloud account that you used to enable Network Analysis and Monitoring. 
     * This topic provides an example to show how to create an instant test task. The name of the task is `task1`. The tested address is `http://www.aliyun.com`. The test type is `HTTP`. The number of detection points is `1`.
     *
     * @param request CreateInstantSiteMonitorRequest
@@ -31515,7 +31743,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-    * You can create an instant test task only by using the Alibaba Cloud account that you used to enable Network Analysis and Monitoring. For more information, see [Billing of Network Analysis and Monitoring](~~341649~~).
+    * You can create an instant test task only by using the Alibaba Cloud account that you used to enable Network Analysis and Monitoring. 
     * This topic provides an example to show how to query the logs of an instant test task whose ID is `afa5c3ce-f944-4363-9edb-ce919a29****`.
     *
     * @param request DescribeSiteMonitorLogRequest
@@ -31525,8 +31753,20 @@ export default class Client extends OpenApi {
   async describeSiteMonitorLogWithOptions(request: DescribeSiteMonitorLogRequest, runtime: $Util.RuntimeOptions): Promise<DescribeSiteMonitorLogResponse> {
     Util.validateModel(request);
     let query = { };
+    if (!Util.isUnset(request.browser)) {
+      query["Browser"] = request.browser;
+    }
+
+    if (!Util.isUnset(request.browserInfo)) {
+      query["BrowserInfo"] = request.browserInfo;
+    }
+
     if (!Util.isUnset(request.city)) {
       query["City"] = request.city;
+    }
+
+    if (!Util.isUnset(request.device)) {
+      query["Device"] = request.device;
     }
 
     if (!Util.isUnset(request.endTime)) {
@@ -31579,7 +31819,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-    * You can create an instant test task only by using the Alibaba Cloud account that you used to enable Network Analysis and Monitoring. For more information, see [Billing of Network Analysis and Monitoring](~~341649~~).
+    * You can create an instant test task only by using the Alibaba Cloud account that you used to enable Network Analysis and Monitoring. 
     * This topic provides an example to show how to query the logs of an instant test task whose ID is `afa5c3ce-f944-4363-9edb-ce919a29****`.
     *
     * @param request DescribeSiteMonitorLogRequest
