@@ -3076,6 +3076,7 @@ export class CreateOrUpdateIMRobotResponse extends $tea.Model {
 }
 
 export class CreateOrUpdateNotificationPolicyRequest extends $tea.Model {
+  directedMode?: boolean;
   escalationPolicyId?: number;
   groupRule?: string;
   id?: number;
@@ -3090,6 +3091,7 @@ export class CreateOrUpdateNotificationPolicyRequest extends $tea.Model {
   sendRecoverMessage?: boolean;
   static names(): { [key: string]: string } {
     return {
+      directedMode: 'DirectedMode',
       escalationPolicyId: 'EscalationPolicyId',
       groupRule: 'GroupRule',
       id: 'Id',
@@ -3107,6 +3109,7 @@ export class CreateOrUpdateNotificationPolicyRequest extends $tea.Model {
 
   static types(): { [key: string]: any } {
     return {
+      directedMode: 'boolean',
       escalationPolicyId: 'number',
       groupRule: 'string',
       id: 'number',
@@ -3450,7 +3453,6 @@ export class CreatePrometheusInstanceRequest extends $tea.Model {
   clusterName?: string;
   clusterType?: string;
   grafanaInstanceId?: string;
-  paramJson?: string;
   regionId?: string;
   resourceGroupId?: string;
   securityGroupId?: string;
@@ -3465,7 +3467,6 @@ export class CreatePrometheusInstanceRequest extends $tea.Model {
       clusterName: 'ClusterName',
       clusterType: 'ClusterType',
       grafanaInstanceId: 'GrafanaInstanceId',
-      paramJson: 'ParamJson',
       regionId: 'RegionId',
       resourceGroupId: 'ResourceGroupId',
       securityGroupId: 'SecurityGroupId',
@@ -3483,7 +3484,6 @@ export class CreatePrometheusInstanceRequest extends $tea.Model {
       clusterName: 'string',
       clusterType: 'string',
       grafanaInstanceId: 'string',
-      paramJson: 'string',
       regionId: 'string',
       resourceGroupId: 'string',
       securityGroupId: 'string',
@@ -9680,6 +9680,7 @@ export class ListAlertsRequest extends $tea.Model {
   endTime?: string;
   integrationType?: string;
   page?: number;
+  regionId?: string;
   severity?: string;
   showActivities?: boolean;
   showEvents?: boolean;
@@ -9693,6 +9694,7 @@ export class ListAlertsRequest extends $tea.Model {
       endTime: 'EndTime',
       integrationType: 'IntegrationType',
       page: 'Page',
+      regionId: 'RegionId',
       severity: 'Severity',
       showActivities: 'ShowActivities',
       showEvents: 'ShowEvents',
@@ -9709,6 +9711,7 @@ export class ListAlertsRequest extends $tea.Model {
       endTime: 'string',
       integrationType: 'string',
       page: 'number',
+      regionId: 'string',
       severity: 'string',
       showActivities: 'boolean',
       showEvents: 'boolean',
@@ -10464,6 +10467,7 @@ export class ListIntegrationResponse extends $tea.Model {
 }
 
 export class ListNotificationPoliciesRequest extends $tea.Model {
+  directedMode?: boolean;
   ids?: string;
   isDetail?: boolean;
   name?: string;
@@ -10472,6 +10476,7 @@ export class ListNotificationPoliciesRequest extends $tea.Model {
   size?: number;
   static names(): { [key: string]: string } {
     return {
+      directedMode: 'DirectedMode',
       ids: 'Ids',
       isDetail: 'IsDetail',
       name: 'Name',
@@ -10483,6 +10488,7 @@ export class ListNotificationPoliciesRequest extends $tea.Model {
 
   static types(): { [key: string]: any } {
     return {
+      directedMode: 'boolean',
       ids: 'string',
       isDetail: 'boolean',
       name: 'string',
@@ -14944,7 +14950,6 @@ export class UpdatePrometheusGlobalViewRequest extends $tea.Model {
   clusterId?: string;
   groupName?: string;
   mostRegionId?: string;
-  paramJson?: string;
   regionId?: string;
   resourceGroupId?: string;
   subClustersJson?: string;
@@ -14954,7 +14959,6 @@ export class UpdatePrometheusGlobalViewRequest extends $tea.Model {
       clusterId: 'ClusterId',
       groupName: 'GroupName',
       mostRegionId: 'MostRegionId',
-      paramJson: 'ParamJson',
       regionId: 'RegionId',
       resourceGroupId: 'ResourceGroupId',
       subClustersJson: 'SubClustersJson',
@@ -14967,7 +14971,6 @@ export class UpdatePrometheusGlobalViewRequest extends $tea.Model {
       clusterId: 'string',
       groupName: 'string',
       mostRegionId: 'string',
-      paramJson: 'string',
       regionId: 'string',
       resourceGroupId: 'string',
       subClustersJson: 'string',
@@ -16588,6 +16591,7 @@ export class CreateOrUpdateNotificationPolicyResponseBodyNotificationPolicyNotif
 }
 
 export class CreateOrUpdateNotificationPolicyResponseBodyNotificationPolicy extends $tea.Model {
+  directedMode?: boolean;
   escalationPolicyId?: number;
   groupRule?: CreateOrUpdateNotificationPolicyResponseBodyNotificationPolicyGroupRule;
   id?: number;
@@ -16601,6 +16605,7 @@ export class CreateOrUpdateNotificationPolicyResponseBodyNotificationPolicy exte
   sendRecoverMessage?: boolean;
   static names(): { [key: string]: string } {
     return {
+      directedMode: 'DirectedMode',
       escalationPolicyId: 'EscalationPolicyId',
       groupRule: 'GroupRule',
       id: 'Id',
@@ -16617,6 +16622,7 @@ export class CreateOrUpdateNotificationPolicyResponseBodyNotificationPolicy exte
 
   static types(): { [key: string]: any } {
     return {
+      directedMode: 'boolean',
       escalationPolicyId: 'number',
       groupRule: CreateOrUpdateNotificationPolicyResponseBodyNotificationPolicyGroupRule,
       id: 'number',
@@ -22614,6 +22620,7 @@ export class ListNotificationPoliciesResponseBodyPageBeanNotificationPoliciesNot
 }
 
 export class ListNotificationPoliciesResponseBodyPageBeanNotificationPolicies extends $tea.Model {
+  directedMode?: boolean;
   escalationPolicyId?: number;
   groupRule?: ListNotificationPoliciesResponseBodyPageBeanNotificationPoliciesGroupRule;
   id?: number;
@@ -22627,6 +22634,7 @@ export class ListNotificationPoliciesResponseBodyPageBeanNotificationPolicies ex
   sendRecoverMessage?: boolean;
   static names(): { [key: string]: string } {
     return {
+      directedMode: 'DirectedMode',
       escalationPolicyId: 'EscalationPolicyId',
       groupRule: 'GroupRule',
       id: 'Id',
@@ -22643,6 +22651,7 @@ export class ListNotificationPoliciesResponseBodyPageBeanNotificationPolicies ex
 
   static types(): { [key: string]: any } {
     return {
+      directedMode: 'boolean',
       escalationPolicyId: 'number',
       groupRule: ListNotificationPoliciesResponseBodyPageBeanNotificationPoliciesGroupRule,
       id: 'number',
@@ -27030,6 +27039,10 @@ export default class Client extends OpenApi {
   async createOrUpdateNotificationPolicyWithOptions(request: CreateOrUpdateNotificationPolicyRequest, runtime: $Util.RuntimeOptions): Promise<CreateOrUpdateNotificationPolicyResponse> {
     Util.validateModel(request);
     let body : {[key: string ]: any} = { };
+    if (!Util.isUnset(request.directedMode)) {
+      body["DirectedMode"] = request.directedMode;
+    }
+
     if (!Util.isUnset(request.escalationPolicyId)) {
       body["EscalationPolicyId"] = request.escalationPolicyId;
     }
@@ -27292,10 +27305,6 @@ export default class Client extends OpenApi {
 
     if (!Util.isUnset(request.grafanaInstanceId)) {
       query["GrafanaInstanceId"] = request.grafanaInstanceId;
-    }
-
-    if (!Util.isUnset(request.paramJson)) {
-      query["ParamJson"] = request.paramJson;
     }
 
     if (!Util.isUnset(request.regionId)) {
@@ -29397,7 +29406,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-    * The ID of the request.
+    * None.
     *
     * @param request GetPrometheusApiTokenRequest
     * @param runtime runtime options for this request RuntimeOptions
@@ -29428,7 +29437,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-    * The ID of the request.
+    * None.
     *
     * @param request GetPrometheusApiTokenRequest
     * @return GetPrometheusApiTokenResponse
@@ -30268,7 +30277,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-    * $.parameters[5].schema.example
+    * If you call the operation to monitor an ASK cluster or an ECS instance, a Prometheus agent is installed in the ASK cluster or ECS instance. Make sure that the ASK cluster or ECS instance has no Prometheus agent installed in advance.
     *
     * @param request InstallManagedPrometheusRequest
     * @param runtime runtime options for this request RuntimeOptions
@@ -30335,7 +30344,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-    * $.parameters[5].schema.example
+    * If you call the operation to monitor an ASK cluster or an ECS instance, a Prometheus agent is installed in the ASK cluster or ECS instance. Make sure that the ASK cluster or ECS instance has no Prometheus agent installed in advance.
     *
     * @param request InstallManagedPrometheusRequest
     * @return InstallManagedPrometheusResponse
@@ -30460,6 +30469,10 @@ export default class Client extends OpenApi {
 
     if (!Util.isUnset(request.page)) {
       query["Page"] = request.page;
+    }
+
+    if (!Util.isUnset(request.regionId)) {
+      query["RegionId"] = request.regionId;
     }
 
     if (!Util.isUnset(request.severity)) {
@@ -30865,6 +30878,10 @@ export default class Client extends OpenApi {
   async listNotificationPoliciesWithOptions(request: ListNotificationPoliciesRequest, runtime: $Util.RuntimeOptions): Promise<ListNotificationPoliciesResponse> {
     Util.validateModel(request);
     let query = { };
+    if (!Util.isUnset(request.directedMode)) {
+      query["DirectedMode"] = request.directedMode;
+    }
+
     if (!Util.isUnset(request.ids)) {
       query["Ids"] = request.ids;
     }
@@ -31555,6 +31572,17 @@ export default class Client extends OpenApi {
     return await this.openArmsDefaultSLRWithOptions(request, runtime);
   }
 
+  /**
+    * The **OpenArmsServiceSecondVersion** operation supports the following sub-service editions:
+    * *   Application Monitoring: Basic Edition
+    * *   Browser Monitoring: Basic Edition
+    * *   Synthetic Monitoring: Pro Edition (pay-as-you-go)
+    * *   Prometheus Service: Pro Edition
+    *
+    * @param request OpenArmsServiceSecondVersionRequest
+    * @param runtime runtime options for this request RuntimeOptions
+    * @return OpenArmsServiceSecondVersionResponse
+   */
   async openArmsServiceSecondVersionWithOptions(request: OpenArmsServiceSecondVersionRequest, runtime: $Util.RuntimeOptions): Promise<OpenArmsServiceSecondVersionResponse> {
     Util.validateModel(request);
     let query = { };
@@ -31583,6 +31611,16 @@ export default class Client extends OpenApi {
     return $tea.cast<OpenArmsServiceSecondVersionResponse>(await this.callApi(params, req, runtime), new OpenArmsServiceSecondVersionResponse({}));
   }
 
+  /**
+    * The **OpenArmsServiceSecondVersion** operation supports the following sub-service editions:
+    * *   Application Monitoring: Basic Edition
+    * *   Browser Monitoring: Basic Edition
+    * *   Synthetic Monitoring: Pro Edition (pay-as-you-go)
+    * *   Prometheus Service: Pro Edition
+    *
+    * @param request OpenArmsServiceSecondVersionRequest
+    * @return OpenArmsServiceSecondVersionResponse
+   */
   async openArmsServiceSecondVersion(request: OpenArmsServiceSecondVersionRequest): Promise<OpenArmsServiceSecondVersionResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.openArmsServiceSecondVersionWithOptions(request, runtime);
@@ -32944,7 +32982,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-    * The status code. The status code 200 indicates that the request was successful. If another status code is returned, the request failed.
+    * Make sure that the ASK cluster or ECS instance is monitored in Managed Service for Prometheus.
     *
     * @param request UninstallManagedPrometheusRequest
     * @param runtime runtime options for this request RuntimeOptions
@@ -32991,7 +33029,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-    * The status code. The status code 200 indicates that the request was successful. If another status code is returned, the request failed.
+    * Make sure that the ASK cluster or ECS instance is monitored in Managed Service for Prometheus.
     *
     * @param request UninstallManagedPrometheusRequest
     * @return UninstallManagedPrometheusResponse
@@ -33439,10 +33477,6 @@ export default class Client extends OpenApi {
 
     if (!Util.isUnset(request.mostRegionId)) {
       query["MostRegionId"] = request.mostRegionId;
-    }
-
-    if (!Util.isUnset(request.paramJson)) {
-      query["ParamJson"] = request.paramJson;
     }
 
     if (!Util.isUnset(request.regionId)) {
