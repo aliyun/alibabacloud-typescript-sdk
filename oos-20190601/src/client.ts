@@ -4518,6 +4518,7 @@ export class ListPatchBaselinesRequest extends $tea.Model {
   nextToken?: string;
   operationSystem?: string;
   regionId?: string;
+  resourceGroupld?: string;
   shareType?: string;
   sources?: string[];
   tags?: ListPatchBaselinesRequestTags[];
@@ -4530,6 +4531,7 @@ export class ListPatchBaselinesRequest extends $tea.Model {
       nextToken: 'NextToken',
       operationSystem: 'OperationSystem',
       regionId: 'RegionId',
+      resourceGroupld: 'ResourceGroupld',
       shareType: 'ShareType',
       sources: 'Sources',
       tags: 'Tags',
@@ -4545,6 +4547,7 @@ export class ListPatchBaselinesRequest extends $tea.Model {
       nextToken: 'string',
       operationSystem: 'string',
       regionId: 'string',
+      resourceGroupld: 'string',
       shareType: 'string',
       sources: { 'type': 'array', 'itemType': 'string' },
       tags: { 'type': 'array', 'itemType': ListPatchBaselinesRequestTags },
@@ -4564,6 +4567,7 @@ export class ListPatchBaselinesShrinkRequest extends $tea.Model {
   nextToken?: string;
   operationSystem?: string;
   regionId?: string;
+  resourceGroupld?: string;
   shareType?: string;
   sourcesShrink?: string;
   tagsShrink?: string;
@@ -4576,6 +4580,7 @@ export class ListPatchBaselinesShrinkRequest extends $tea.Model {
       nextToken: 'NextToken',
       operationSystem: 'OperationSystem',
       regionId: 'RegionId',
+      resourceGroupld: 'ResourceGroupld',
       shareType: 'ShareType',
       sourcesShrink: 'Sources',
       tagsShrink: 'Tags',
@@ -4591,6 +4596,7 @@ export class ListPatchBaselinesShrinkRequest extends $tea.Model {
       nextToken: 'string',
       operationSystem: 'string',
       regionId: 'string',
+      resourceGroupld: 'string',
       shareType: 'string',
       sourcesShrink: 'string',
       tagsShrink: 'string',
@@ -9698,6 +9704,7 @@ export class ListPatchBaselinesResponseBodyPatchBaselines extends $tea.Model {
   isDefault?: boolean;
   name?: string;
   operationSystem?: string;
+  resourceGroupld?: string;
   shareType?: string;
   sources?: string[];
   tags?: ListPatchBaselinesResponseBodyPatchBaselinesTags[];
@@ -9714,6 +9721,7 @@ export class ListPatchBaselinesResponseBodyPatchBaselines extends $tea.Model {
       isDefault: 'IsDefault',
       name: 'Name',
       operationSystem: 'OperationSystem',
+      resourceGroupld: 'ResourceGroupld',
       shareType: 'ShareType',
       sources: 'Sources',
       tags: 'Tags',
@@ -9733,6 +9741,7 @@ export class ListPatchBaselinesResponseBodyPatchBaselines extends $tea.Model {
       isDefault: 'boolean',
       name: 'string',
       operationSystem: 'string',
+      resourceGroupld: 'string',
       shareType: 'string',
       sources: { 'type': 'array', 'itemType': 'string' },
       tags: { 'type': 'array', 'itemType': ListPatchBaselinesResponseBodyPatchBaselinesTags },
@@ -13314,6 +13323,10 @@ export default class Client extends OpenApi {
 
     if (!Util.isUnset(request.regionId)) {
       query["RegionId"] = request.regionId;
+    }
+
+    if (!Util.isUnset(request.resourceGroupld)) {
+      query["ResourceGroupld"] = request.resourceGroupld;
     }
 
     if (!Util.isUnset(request.shareType)) {
