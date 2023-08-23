@@ -2453,10 +2453,12 @@ export class DescribeCdnDeliverListResponse extends $tea.Model {
 }
 
 export class DescribeCdnDomainByCertificateRequest extends $tea.Model {
+  exact?: boolean;
   SSLPub?: string;
   SSLStatus?: boolean;
   static names(): { [key: string]: string } {
     return {
+      exact: 'Exact',
       SSLPub: 'SSLPub',
       SSLStatus: 'SSLStatus',
     };
@@ -2464,6 +2466,7 @@ export class DescribeCdnDomainByCertificateRequest extends $tea.Model {
 
   static types(): { [key: string]: any } {
     return {
+      exact: 'boolean',
       SSLPub: 'string',
       SSLStatus: 'boolean',
     };
@@ -12620,7 +12623,6 @@ export class DescribeCdnDomainDetailResponseBodyGetDomainDetailModel extends $te
   description?: string;
   domainName?: string;
   domainStatus?: string;
-  globalResourcePlan?: string;
   gmtCreated?: string;
   gmtModified?: string;
   httpsCname?: string;
@@ -12635,7 +12637,6 @@ export class DescribeCdnDomainDetailResponseBodyGetDomainDetailModel extends $te
       description: 'Description',
       domainName: 'DomainName',
       domainStatus: 'DomainStatus',
-      globalResourcePlan: 'GlobalResourcePlan',
       gmtCreated: 'GmtCreated',
       gmtModified: 'GmtModified',
       httpsCname: 'HttpsCname',
@@ -12653,7 +12654,6 @@ export class DescribeCdnDomainDetailResponseBodyGetDomainDetailModel extends $te
       description: 'string',
       domainName: 'string',
       domainStatus: 'string',
-      globalResourcePlan: 'string',
       gmtCreated: 'string',
       gmtModified: 'string',
       httpsCname: 'string',
@@ -17044,7 +17044,6 @@ export class DescribeUserDomainsResponseBodyDomainsPageData extends $tea.Model {
   domainId?: number;
   domainName?: string;
   domainStatus?: string;
-  globalResourcePlan?: string;
   gmtCreated?: string;
   gmtModified?: string;
   resourceGroupId?: string;
@@ -17060,7 +17059,6 @@ export class DescribeUserDomainsResponseBodyDomainsPageData extends $tea.Model {
       domainId: 'DomainId',
       domainName: 'DomainName',
       domainStatus: 'DomainStatus',
-      globalResourcePlan: 'GlobalResourcePlan',
       gmtCreated: 'GmtCreated',
       gmtModified: 'GmtModified',
       resourceGroupId: 'ResourceGroupId',
@@ -17079,7 +17077,6 @@ export class DescribeUserDomainsResponseBodyDomainsPageData extends $tea.Model {
       domainId: 'number',
       domainName: 'string',
       domainStatus: 'string',
-      globalResourcePlan: 'string',
       gmtCreated: 'string',
       gmtModified: 'string',
       resourceGroupId: 'string',
@@ -19397,6 +19394,10 @@ export default class Client extends OpenApi {
   async describeCdnDomainByCertificateWithOptions(request: DescribeCdnDomainByCertificateRequest, runtime: $Util.RuntimeOptions): Promise<DescribeCdnDomainByCertificateResponse> {
     Util.validateModel(request);
     let query = { };
+    if (!Util.isUnset(request.exact)) {
+      query["Exact"] = request.exact;
+    }
+
     if (!Util.isUnset(request.SSLPub)) {
       query["SSLPub"] = request.SSLPub;
     }
@@ -23554,13 +23555,6 @@ export default class Client extends OpenApi {
     return await this.describeFCTriggerWithOptions(request, runtime);
   }
 
-  /**
-    * > You can call this operation up to 50 times per second per account.
-    *
-    * @param request DescribeIpInfoRequest
-    * @param runtime runtime options for this request RuntimeOptions
-    * @return DescribeIpInfoResponse
-   */
   async describeIpInfoWithOptions(request: DescribeIpInfoRequest, runtime: $Util.RuntimeOptions): Promise<DescribeIpInfoResponse> {
     Util.validateModel(request);
     let query = { };
@@ -23585,12 +23579,6 @@ export default class Client extends OpenApi {
     return $tea.cast<DescribeIpInfoResponse>(await this.callApi(params, req, runtime), new DescribeIpInfoResponse({}));
   }
 
-  /**
-    * > You can call this operation up to 50 times per second per account.
-    *
-    * @param request DescribeIpInfoRequest
-    * @return DescribeIpInfoResponse
-   */
   async describeIpInfo(request: DescribeIpInfoRequest): Promise<DescribeIpInfoResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.describeIpInfoWithOptions(request, runtime);
