@@ -14567,6 +14567,7 @@ export class ModifyDataCorrectExecSQLResponse extends $tea.Model {
 export class ModifyDesensitizationStrategyRequest extends $tea.Model {
   columnName?: string;
   dbId?: number;
+  isDefault?: boolean;
   isLogic?: boolean;
   isReset?: boolean;
   ruleId?: number;
@@ -14577,6 +14578,7 @@ export class ModifyDesensitizationStrategyRequest extends $tea.Model {
     return {
       columnName: 'ColumnName',
       dbId: 'DbId',
+      isDefault: 'IsDefault',
       isLogic: 'IsLogic',
       isReset: 'IsReset',
       ruleId: 'RuleId',
@@ -14590,6 +14592,7 @@ export class ModifyDesensitizationStrategyRequest extends $tea.Model {
     return {
       columnName: 'string',
       dbId: 'number',
+      isDefault: 'boolean',
       isLogic: 'boolean',
       isReset: 'boolean',
       ruleId: 'number',
@@ -35154,6 +35157,10 @@ export default class Client extends OpenApi {
 
     if (!Util.isUnset(request.dbId)) {
       query["DbId"] = request.dbId;
+    }
+
+    if (!Util.isUnset(request.isDefault)) {
+      query["IsDefault"] = request.isDefault;
     }
 
     if (!Util.isUnset(request.isLogic)) {
