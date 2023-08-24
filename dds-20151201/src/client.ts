@@ -469,6 +469,7 @@ export class CreateDBInstanceRequest extends $tea.Model {
   ownerAccount?: string;
   ownerId?: number;
   period?: number;
+  provisionedIops?: number;
   readonlyReplicas?: string;
   regionId?: string;
   replicationFactor?: string;
@@ -510,6 +511,7 @@ export class CreateDBInstanceRequest extends $tea.Model {
       ownerAccount: 'OwnerAccount',
       ownerId: 'OwnerId',
       period: 'Period',
+      provisionedIops: 'ProvisionedIops',
       readonlyReplicas: 'ReadonlyReplicas',
       regionId: 'RegionId',
       replicationFactor: 'ReplicationFactor',
@@ -554,6 +556,7 @@ export class CreateDBInstanceRequest extends $tea.Model {
       ownerAccount: 'string',
       ownerId: 'number',
       period: 'number',
+      provisionedIops: 'number',
       readonlyReplicas: 'string',
       regionId: 'string',
       replicationFactor: 'string',
@@ -963,6 +966,7 @@ export class CreateShardingDBInstanceRequest extends $tea.Model {
   ownerId?: number;
   period?: number;
   protocolType?: string;
+  provisionedIops?: number;
   regionId?: string;
   replicaSet?: CreateShardingDBInstanceRequestReplicaSet[];
   resourceGroupId?: string;
@@ -999,6 +1003,7 @@ export class CreateShardingDBInstanceRequest extends $tea.Model {
       ownerId: 'OwnerId',
       period: 'Period',
       protocolType: 'ProtocolType',
+      provisionedIops: 'ProvisionedIops',
       regionId: 'RegionId',
       replicaSet: 'ReplicaSet',
       resourceGroupId: 'ResourceGroupId',
@@ -1038,6 +1043,7 @@ export class CreateShardingDBInstanceRequest extends $tea.Model {
       ownerId: 'number',
       period: 'number',
       protocolType: 'string',
+      provisionedIops: 'number',
       regionId: 'string',
       replicaSet: { 'type': 'array', 'itemType': CreateShardingDBInstanceRequestReplicaSet },
       resourceGroupId: 'string',
@@ -10063,6 +10069,7 @@ export class DescribeDBInstanceAttributeResponseBodyDBInstancesDBInstanceTags ex
 }
 
 export class DescribeDBInstanceAttributeResponseBodyDBInstancesDBInstance extends $tea.Model {
+  burstingEnabled?: boolean;
   capacityUnit?: string;
   chargeType?: string;
   configserverList?: DescribeDBInstanceAttributeResponseBodyDBInstancesDBInstanceConfigserverList;
@@ -10093,6 +10100,7 @@ export class DescribeDBInstanceAttributeResponseBodyDBInstancesDBInstance extend
   mongosList?: DescribeDBInstanceAttributeResponseBodyDBInstancesDBInstanceMongosList;
   networkType?: string;
   protocolType?: string;
+  provisionedIops?: number;
   readonlyReplicas?: string;
   regionId?: string;
   replacateId?: string;
@@ -10113,6 +10121,7 @@ export class DescribeDBInstanceAttributeResponseBodyDBInstancesDBInstance extend
   zoneId?: string;
   static names(): { [key: string]: string } {
     return {
+      burstingEnabled: 'BurstingEnabled',
       capacityUnit: 'CapacityUnit',
       chargeType: 'ChargeType',
       configserverList: 'ConfigserverList',
@@ -10143,6 +10152,7 @@ export class DescribeDBInstanceAttributeResponseBodyDBInstancesDBInstance extend
       mongosList: 'MongosList',
       networkType: 'NetworkType',
       protocolType: 'ProtocolType',
+      provisionedIops: 'ProvisionedIops',
       readonlyReplicas: 'ReadonlyReplicas',
       regionId: 'RegionId',
       replacateId: 'ReplacateId',
@@ -10166,6 +10176,7 @@ export class DescribeDBInstanceAttributeResponseBodyDBInstancesDBInstance extend
 
   static types(): { [key: string]: any } {
     return {
+      burstingEnabled: 'boolean',
       capacityUnit: 'string',
       chargeType: 'string',
       configserverList: DescribeDBInstanceAttributeResponseBodyDBInstancesDBInstanceConfigserverList,
@@ -10196,6 +10207,7 @@ export class DescribeDBInstanceAttributeResponseBodyDBInstancesDBInstance extend
       mongosList: DescribeDBInstanceAttributeResponseBodyDBInstancesDBInstanceMongosList,
       networkType: 'string',
       protocolType: 'string',
+      provisionedIops: 'number',
       readonlyReplicas: 'string',
       regionId: 'string',
       replacateId: 'string',
@@ -12778,6 +12790,10 @@ export default class Client extends OpenApi {
       query["Period"] = request.period;
     }
 
+    if (!Util.isUnset(request.provisionedIops)) {
+      query["ProvisionedIops"] = request.provisionedIops;
+    }
+
     if (!Util.isUnset(request.readonlyReplicas)) {
       query["ReadonlyReplicas"] = request.readonlyReplicas;
     }
@@ -13221,6 +13237,10 @@ export default class Client extends OpenApi {
       query["ProtocolType"] = request.protocolType;
     }
 
+    if (!Util.isUnset(request.provisionedIops)) {
+      query["ProvisionedIops"] = request.provisionedIops;
+    }
+
     if (!Util.isUnset(request.regionId)) {
       query["RegionId"] = request.regionId;
     }
@@ -13523,7 +13543,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-    * >  This operation can query only the information of the root account.
+    * >  You can call this operation to query only the information of the root account.
     *
     * @param request DescribeAccountsRequest
     * @param runtime runtime options for this request RuntimeOptions
@@ -13578,7 +13598,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-    * >  This operation can query only the information of the root account.
+    * >  You can call this operation to query only the information of the root account.
     *
     * @param request DescribeAccountsRequest
     * @return DescribeAccountsResponse
@@ -13691,9 +13711,9 @@ export default class Client extends OpenApi {
   }
 
   /**
-    * The role of the node in the instance. Valid values:
-    * *   **primary**
-    * *   **secondary**
+    * *   The instance must be in the running state when you call this operation.
+    * *   This operation is applicable only to **general-purpose local-disk** and **dedicated local-disk** instances.
+    * *   You can call this operation up to 30 times per minute. To call this operation at a higher frequency, use a Logstore. For more information, see [Manage a Logstore](~~48990~~).
     *
     * @param request DescribeAuditLogFilterRequest
     * @param runtime runtime options for this request RuntimeOptions
@@ -13748,9 +13768,9 @@ export default class Client extends OpenApi {
   }
 
   /**
-    * The role of the node in the instance. Valid values:
-    * *   **primary**
-    * *   **secondary**
+    * *   The instance must be in the running state when you call this operation.
+    * *   This operation is applicable only to **general-purpose local-disk** and **dedicated local-disk** instances.
+    * *   You can call this operation up to 30 times per minute. To call this operation at a higher frequency, use a Logstore. For more information, see [Manage a Logstore](~~48990~~).
     *
     * @param request DescribeAuditLogFilterRequest
     * @return DescribeAuditLogFilterResponse
@@ -17212,10 +17232,10 @@ export default class Client extends OpenApi {
   }
 
   /**
-    * >  operation is currently unavailable.
+    * >  This operation is applicable only to the ApsaraDB for MongoDB console of the previous version due to the change in the frequency at which the monitoring data of an ApsaraDB for MongoDB instance is collected.
     * Before you call this operation, make sure that the following requirements are met:
-    * *   A replica set or sharded cluster instance is used.
-    * *   MongoDB 3.4 (the latest minor version) or 4.0 must be selected.
+    * *   The instance is a replica set or sharded cluster instance.
+    * *   The instance runs MongoDB 3.4 (the latest minor version) or 4.0.
     *
     * @param request ModifyDBInstanceMonitorRequest
     * @param runtime runtime options for this request RuntimeOptions
@@ -17270,10 +17290,10 @@ export default class Client extends OpenApi {
   }
 
   /**
-    * >  operation is currently unavailable.
+    * >  This operation is applicable only to the ApsaraDB for MongoDB console of the previous version due to the change in the frequency at which the monitoring data of an ApsaraDB for MongoDB instance is collected.
     * Before you call this operation, make sure that the following requirements are met:
-    * *   A replica set or sharded cluster instance is used.
-    * *   MongoDB 3.4 (the latest minor version) or 4.0 must be selected.
+    * *   The instance is a replica set or sharded cluster instance.
+    * *   The instance runs MongoDB 3.4 (the latest minor version) or 4.0.
     *
     * @param request ModifyDBInstanceMonitorRequest
     * @return ModifyDBInstanceMonitorResponse
