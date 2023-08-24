@@ -2619,6 +2619,7 @@ export class CreateOrUpdateAlertRuleRequest extends $tea.Model {
   filters?: string;
   labels?: string;
   level?: string;
+  markTags?: CreateOrUpdateAlertRuleRequestMarkTags[];
   message?: string;
   metricsKey?: string;
   metricsType?: string;
@@ -2643,6 +2644,7 @@ export class CreateOrUpdateAlertRuleRequest extends $tea.Model {
       filters: 'Filters',
       labels: 'Labels',
       level: 'Level',
+      markTags: 'MarkTags',
       message: 'Message',
       metricsKey: 'MetricsKey',
       metricsType: 'MetricsType',
@@ -2670,6 +2672,7 @@ export class CreateOrUpdateAlertRuleRequest extends $tea.Model {
       filters: 'string',
       labels: 'string',
       level: 'string',
+      markTags: { 'type': 'array', 'itemType': CreateOrUpdateAlertRuleRequestMarkTags },
       message: 'string',
       metricsKey: 'string',
       metricsType: 'string',
@@ -5960,10 +5963,12 @@ export class DeleteSyntheticTaskResponse extends $tea.Model {
 
 export class DeleteTimingSyntheticTaskRequest extends $tea.Model {
   regionId?: string;
+  resourceGroupId?: string;
   taskId?: string;
   static names(): { [key: string]: string } {
     return {
       regionId: 'RegionId',
+      resourceGroupId: 'ResourceGroupId',
       taskId: 'TaskId',
     };
   }
@@ -5971,6 +5976,7 @@ export class DeleteTimingSyntheticTaskRequest extends $tea.Model {
   static types(): { [key: string]: any } {
     return {
       regionId: 'string',
+      resourceGroupId: 'string',
       taskId: 'string',
     };
   }
@@ -15947,6 +15953,28 @@ export class CreateIntegrationResponseBodyIntegration extends $tea.Model {
       integrationName: 'string',
       integrationProductType: 'string',
       recoverTime: 'number',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class CreateOrUpdateAlertRuleRequestMarkTags extends $tea.Model {
+  key?: string;
+  value?: string;
+  static names(): { [key: string]: string } {
+    return {
+      key: 'Key',
+      value: 'Value',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      key: 'string',
+      value: 'string',
     };
   }
 
@@ -26760,6 +26788,10 @@ export default class Client extends OpenApi {
       body["Level"] = request.level;
     }
 
+    if (!Util.isUnset(request.markTags)) {
+      body["MarkTags"] = request.markTags;
+    }
+
     if (!Util.isUnset(request.message)) {
       body["Message"] = request.message;
     }
@@ -28562,6 +28594,10 @@ export default class Client extends OpenApi {
     let query = { };
     if (!Util.isUnset(request.regionId)) {
       query["RegionId"] = request.regionId;
+    }
+
+    if (!Util.isUnset(request.resourceGroupId)) {
+      query["ResourceGroupId"] = request.resourceGroupId;
     }
 
     if (!Util.isUnset(request.taskId)) {
