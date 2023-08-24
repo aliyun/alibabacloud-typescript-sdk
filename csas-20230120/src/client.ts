@@ -226,43 +226,6 @@ export class CreatePrivateAccessApplicationRequest extends $tea.Model {
   }
 }
 
-export class CreatePrivateAccessApplicationShrinkRequest extends $tea.Model {
-  addressesShrink?: string;
-  description?: string;
-  name?: string;
-  portRangesShrink?: string;
-  protocol?: string;
-  status?: string;
-  tagIdsShrink?: string;
-  static names(): { [key: string]: string } {
-    return {
-      addressesShrink: 'Addresses',
-      description: 'Description',
-      name: 'Name',
-      portRangesShrink: 'PortRanges',
-      protocol: 'Protocol',
-      status: 'Status',
-      tagIdsShrink: 'TagIds',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      addressesShrink: 'string',
-      description: 'string',
-      name: 'string',
-      portRangesShrink: 'string',
-      protocol: 'string',
-      status: 'string',
-      tagIdsShrink: 'string',
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
 export class CreatePrivateAccessApplicationResponseBody extends $tea.Model {
   applicationId?: string;
   requestId?: string;
@@ -350,55 +313,6 @@ export class CreatePrivateAccessPolicyRequest extends $tea.Model {
       status: 'string',
       tagIds: { 'type': 'array', 'itemType': 'string' },
       userGroupIds: { 'type': 'array', 'itemType': 'string' },
-      userGroupMode: 'string',
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class CreatePrivateAccessPolicyShrinkRequest extends $tea.Model {
-  applicationIdsShrink?: string;
-  applicationType?: string;
-  customUserAttributesShrink?: string;
-  description?: string;
-  name?: string;
-  policyAction?: string;
-  priority?: number;
-  status?: string;
-  tagIdsShrink?: string;
-  userGroupIdsShrink?: string;
-  userGroupMode?: string;
-  static names(): { [key: string]: string } {
-    return {
-      applicationIdsShrink: 'ApplicationIds',
-      applicationType: 'ApplicationType',
-      customUserAttributesShrink: 'CustomUserAttributes',
-      description: 'Description',
-      name: 'Name',
-      policyAction: 'PolicyAction',
-      priority: 'Priority',
-      status: 'Status',
-      tagIdsShrink: 'TagIds',
-      userGroupIdsShrink: 'UserGroupIds',
-      userGroupMode: 'UserGroupMode',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      applicationIdsShrink: 'string',
-      applicationType: 'string',
-      customUserAttributesShrink: 'string',
-      description: 'string',
-      name: 'string',
-      policyAction: 'string',
-      priority: 'number',
-      status: 'string',
-      tagIdsShrink: 'string',
-      userGroupIdsShrink: 'string',
       userGroupMode: 'string',
     };
   }
@@ -2637,46 +2551,6 @@ export class UpdatePrivateAccessApplicationRequest extends $tea.Model {
   }
 }
 
-export class UpdatePrivateAccessApplicationShrinkRequest extends $tea.Model {
-  addressesShrink?: string;
-  applicationId?: string;
-  description?: string;
-  modifyType?: string;
-  portRangesShrink?: string;
-  protocol?: string;
-  status?: string;
-  tagIdsShrink?: string;
-  static names(): { [key: string]: string } {
-    return {
-      addressesShrink: 'Addresses',
-      applicationId: 'ApplicationId',
-      description: 'Description',
-      modifyType: 'ModifyType',
-      portRangesShrink: 'PortRanges',
-      protocol: 'Protocol',
-      status: 'Status',
-      tagIdsShrink: 'TagIds',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      addressesShrink: 'string',
-      applicationId: 'string',
-      description: 'string',
-      modifyType: 'string',
-      portRangesShrink: 'string',
-      protocol: 'string',
-      status: 'string',
-      tagIdsShrink: 'string',
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
 export class UpdatePrivateAccessApplicationResponseBody extends $tea.Model {
   requestId?: string;
   static names(): { [key: string]: string } {
@@ -2764,58 +2638,6 @@ export class UpdatePrivateAccessPolicyRequest extends $tea.Model {
       status: 'string',
       tagIds: { 'type': 'array', 'itemType': 'string' },
       userGroupIds: { 'type': 'array', 'itemType': 'string' },
-      userGroupMode: 'string',
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class UpdatePrivateAccessPolicyShrinkRequest extends $tea.Model {
-  applicationIdsShrink?: string;
-  applicationType?: string;
-  customUserAttributesShrink?: string;
-  description?: string;
-  modifyType?: string;
-  policyAction?: string;
-  policyId?: string;
-  priority?: number;
-  status?: string;
-  tagIdsShrink?: string;
-  userGroupIdsShrink?: string;
-  userGroupMode?: string;
-  static names(): { [key: string]: string } {
-    return {
-      applicationIdsShrink: 'ApplicationIds',
-      applicationType: 'ApplicationType',
-      customUserAttributesShrink: 'CustomUserAttributes',
-      description: 'Description',
-      modifyType: 'ModifyType',
-      policyAction: 'PolicyAction',
-      policyId: 'PolicyId',
-      priority: 'Priority',
-      status: 'Status',
-      tagIdsShrink: 'TagIds',
-      userGroupIdsShrink: 'UserGroupIds',
-      userGroupMode: 'UserGroupMode',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      applicationIdsShrink: 'string',
-      applicationType: 'string',
-      customUserAttributesShrink: 'string',
-      description: 'string',
-      modifyType: 'string',
-      policyAction: 'string',
-      policyId: 'string',
-      priority: 'number',
-      status: 'string',
-      tagIdsShrink: 'string',
-      userGroupIdsShrink: 'string',
       userGroupMode: 'string',
     };
   }
@@ -4605,25 +4427,12 @@ export default class Client extends OpenApi {
     return await this.createDynamicRouteWithOptions(request, runtime);
   }
 
-  async createPrivateAccessApplicationWithOptions(tmpReq: CreatePrivateAccessApplicationRequest, runtime: $Util.RuntimeOptions): Promise<CreatePrivateAccessApplicationResponse> {
-    Util.validateModel(tmpReq);
-    let request = new CreatePrivateAccessApplicationShrinkRequest({ });
-    OpenApiUtil.convert(tmpReq, request);
-    if (!Util.isUnset(tmpReq.addresses)) {
-      request.addressesShrink = OpenApiUtil.arrayToStringWithSpecifiedStyle(tmpReq.addresses, "Addresses", "json");
-    }
-
-    if (!Util.isUnset(tmpReq.portRanges)) {
-      request.portRangesShrink = OpenApiUtil.arrayToStringWithSpecifiedStyle(tmpReq.portRanges, "PortRanges", "json");
-    }
-
-    if (!Util.isUnset(tmpReq.tagIds)) {
-      request.tagIdsShrink = OpenApiUtil.arrayToStringWithSpecifiedStyle(tmpReq.tagIds, "TagIds", "json");
-    }
-
+  async createPrivateAccessApplicationWithOptions(request: CreatePrivateAccessApplicationRequest, runtime: $Util.RuntimeOptions): Promise<CreatePrivateAccessApplicationResponse> {
+    Util.validateModel(request);
     let body : {[key: string ]: any} = { };
-    if (!Util.isUnset(request.addressesShrink)) {
-      body["Addresses"] = request.addressesShrink;
+    let bodyFlat : {[key: string ]: any} = { };
+    if (!Util.isUnset(request.addresses)) {
+      bodyFlat["Addresses"] = request.addresses;
     }
 
     if (!Util.isUnset(request.description)) {
@@ -4634,8 +4443,8 @@ export default class Client extends OpenApi {
       body["Name"] = request.name;
     }
 
-    if (!Util.isUnset(request.portRangesShrink)) {
-      body["PortRanges"] = request.portRangesShrink;
+    if (!Util.isUnset(request.portRanges)) {
+      bodyFlat["PortRanges"] = request.portRanges;
     }
 
     if (!Util.isUnset(request.protocol)) {
@@ -4646,10 +4455,14 @@ export default class Client extends OpenApi {
       body["Status"] = request.status;
     }
 
-    if (!Util.isUnset(request.tagIdsShrink)) {
-      body["TagIds"] = request.tagIdsShrink;
+    if (!Util.isUnset(request.tagIds)) {
+      bodyFlat["TagIds"] = request.tagIds;
     }
 
+    body = {
+      ...body,
+      ...OpenApiUtil.query(bodyFlat),
+    };
     let req = new $OpenApi.OpenApiRequest({
       body: OpenApiUtil.parseToMap(body),
     });
@@ -4672,37 +4485,20 @@ export default class Client extends OpenApi {
     return await this.createPrivateAccessApplicationWithOptions(request, runtime);
   }
 
-  async createPrivateAccessPolicyWithOptions(tmpReq: CreatePrivateAccessPolicyRequest, runtime: $Util.RuntimeOptions): Promise<CreatePrivateAccessPolicyResponse> {
-    Util.validateModel(tmpReq);
-    let request = new CreatePrivateAccessPolicyShrinkRequest({ });
-    OpenApiUtil.convert(tmpReq, request);
-    if (!Util.isUnset(tmpReq.applicationIds)) {
-      request.applicationIdsShrink = OpenApiUtil.arrayToStringWithSpecifiedStyle(tmpReq.applicationIds, "ApplicationIds", "json");
-    }
-
-    if (!Util.isUnset(tmpReq.customUserAttributes)) {
-      request.customUserAttributesShrink = OpenApiUtil.arrayToStringWithSpecifiedStyle(tmpReq.customUserAttributes, "CustomUserAttributes", "json");
-    }
-
-    if (!Util.isUnset(tmpReq.tagIds)) {
-      request.tagIdsShrink = OpenApiUtil.arrayToStringWithSpecifiedStyle(tmpReq.tagIds, "TagIds", "json");
-    }
-
-    if (!Util.isUnset(tmpReq.userGroupIds)) {
-      request.userGroupIdsShrink = OpenApiUtil.arrayToStringWithSpecifiedStyle(tmpReq.userGroupIds, "UserGroupIds", "json");
-    }
-
+  async createPrivateAccessPolicyWithOptions(request: CreatePrivateAccessPolicyRequest, runtime: $Util.RuntimeOptions): Promise<CreatePrivateAccessPolicyResponse> {
+    Util.validateModel(request);
     let body : {[key: string ]: any} = { };
-    if (!Util.isUnset(request.applicationIdsShrink)) {
-      body["ApplicationIds"] = request.applicationIdsShrink;
+    let bodyFlat : {[key: string ]: any} = { };
+    if (!Util.isUnset(request.applicationIds)) {
+      bodyFlat["ApplicationIds"] = request.applicationIds;
     }
 
     if (!Util.isUnset(request.applicationType)) {
       body["ApplicationType"] = request.applicationType;
     }
 
-    if (!Util.isUnset(request.customUserAttributesShrink)) {
-      body["CustomUserAttributes"] = request.customUserAttributesShrink;
+    if (!Util.isUnset(request.customUserAttributes)) {
+      bodyFlat["CustomUserAttributes"] = request.customUserAttributes;
     }
 
     if (!Util.isUnset(request.description)) {
@@ -4725,18 +4521,22 @@ export default class Client extends OpenApi {
       body["Status"] = request.status;
     }
 
-    if (!Util.isUnset(request.tagIdsShrink)) {
-      body["TagIds"] = request.tagIdsShrink;
+    if (!Util.isUnset(request.tagIds)) {
+      bodyFlat["TagIds"] = request.tagIds;
     }
 
-    if (!Util.isUnset(request.userGroupIdsShrink)) {
-      body["UserGroupIds"] = request.userGroupIdsShrink;
+    if (!Util.isUnset(request.userGroupIds)) {
+      bodyFlat["UserGroupIds"] = request.userGroupIds;
     }
 
     if (!Util.isUnset(request.userGroupMode)) {
       body["UserGroupMode"] = request.userGroupMode;
     }
 
+    body = {
+      ...body,
+      ...OpenApiUtil.query(bodyFlat),
+    };
     let req = new $OpenApi.OpenApiRequest({
       body: OpenApiUtil.parseToMap(body),
     });
@@ -5617,25 +5417,12 @@ export default class Client extends OpenApi {
     return await this.updateDynamicRouteWithOptions(request, runtime);
   }
 
-  async updatePrivateAccessApplicationWithOptions(tmpReq: UpdatePrivateAccessApplicationRequest, runtime: $Util.RuntimeOptions): Promise<UpdatePrivateAccessApplicationResponse> {
-    Util.validateModel(tmpReq);
-    let request = new UpdatePrivateAccessApplicationShrinkRequest({ });
-    OpenApiUtil.convert(tmpReq, request);
-    if (!Util.isUnset(tmpReq.addresses)) {
-      request.addressesShrink = OpenApiUtil.arrayToStringWithSpecifiedStyle(tmpReq.addresses, "Addresses", "json");
-    }
-
-    if (!Util.isUnset(tmpReq.portRanges)) {
-      request.portRangesShrink = OpenApiUtil.arrayToStringWithSpecifiedStyle(tmpReq.portRanges, "PortRanges", "json");
-    }
-
-    if (!Util.isUnset(tmpReq.tagIds)) {
-      request.tagIdsShrink = OpenApiUtil.arrayToStringWithSpecifiedStyle(tmpReq.tagIds, "TagIds", "json");
-    }
-
+  async updatePrivateAccessApplicationWithOptions(request: UpdatePrivateAccessApplicationRequest, runtime: $Util.RuntimeOptions): Promise<UpdatePrivateAccessApplicationResponse> {
+    Util.validateModel(request);
     let body : {[key: string ]: any} = { };
-    if (!Util.isUnset(request.addressesShrink)) {
-      body["Addresses"] = request.addressesShrink;
+    let bodyFlat : {[key: string ]: any} = { };
+    if (!Util.isUnset(request.addresses)) {
+      bodyFlat["Addresses"] = request.addresses;
     }
 
     if (!Util.isUnset(request.applicationId)) {
@@ -5650,8 +5437,8 @@ export default class Client extends OpenApi {
       body["ModifyType"] = request.modifyType;
     }
 
-    if (!Util.isUnset(request.portRangesShrink)) {
-      body["PortRanges"] = request.portRangesShrink;
+    if (!Util.isUnset(request.portRanges)) {
+      bodyFlat["PortRanges"] = request.portRanges;
     }
 
     if (!Util.isUnset(request.protocol)) {
@@ -5662,10 +5449,14 @@ export default class Client extends OpenApi {
       body["Status"] = request.status;
     }
 
-    if (!Util.isUnset(request.tagIdsShrink)) {
-      body["TagIds"] = request.tagIdsShrink;
+    if (!Util.isUnset(request.tagIds)) {
+      bodyFlat["TagIds"] = request.tagIds;
     }
 
+    body = {
+      ...body,
+      ...OpenApiUtil.query(bodyFlat),
+    };
     let req = new $OpenApi.OpenApiRequest({
       body: OpenApiUtil.parseToMap(body),
     });
@@ -5688,37 +5479,20 @@ export default class Client extends OpenApi {
     return await this.updatePrivateAccessApplicationWithOptions(request, runtime);
   }
 
-  async updatePrivateAccessPolicyWithOptions(tmpReq: UpdatePrivateAccessPolicyRequest, runtime: $Util.RuntimeOptions): Promise<UpdatePrivateAccessPolicyResponse> {
-    Util.validateModel(tmpReq);
-    let request = new UpdatePrivateAccessPolicyShrinkRequest({ });
-    OpenApiUtil.convert(tmpReq, request);
-    if (!Util.isUnset(tmpReq.applicationIds)) {
-      request.applicationIdsShrink = OpenApiUtil.arrayToStringWithSpecifiedStyle(tmpReq.applicationIds, "ApplicationIds", "json");
-    }
-
-    if (!Util.isUnset(tmpReq.customUserAttributes)) {
-      request.customUserAttributesShrink = OpenApiUtil.arrayToStringWithSpecifiedStyle(tmpReq.customUserAttributes, "CustomUserAttributes", "json");
-    }
-
-    if (!Util.isUnset(tmpReq.tagIds)) {
-      request.tagIdsShrink = OpenApiUtil.arrayToStringWithSpecifiedStyle(tmpReq.tagIds, "TagIds", "json");
-    }
-
-    if (!Util.isUnset(tmpReq.userGroupIds)) {
-      request.userGroupIdsShrink = OpenApiUtil.arrayToStringWithSpecifiedStyle(tmpReq.userGroupIds, "UserGroupIds", "json");
-    }
-
+  async updatePrivateAccessPolicyWithOptions(request: UpdatePrivateAccessPolicyRequest, runtime: $Util.RuntimeOptions): Promise<UpdatePrivateAccessPolicyResponse> {
+    Util.validateModel(request);
     let body : {[key: string ]: any} = { };
-    if (!Util.isUnset(request.applicationIdsShrink)) {
-      body["ApplicationIds"] = request.applicationIdsShrink;
+    let bodyFlat : {[key: string ]: any} = { };
+    if (!Util.isUnset(request.applicationIds)) {
+      bodyFlat["ApplicationIds"] = request.applicationIds;
     }
 
     if (!Util.isUnset(request.applicationType)) {
       body["ApplicationType"] = request.applicationType;
     }
 
-    if (!Util.isUnset(request.customUserAttributesShrink)) {
-      body["CustomUserAttributes"] = request.customUserAttributesShrink;
+    if (!Util.isUnset(request.customUserAttributes)) {
+      bodyFlat["CustomUserAttributes"] = request.customUserAttributes;
     }
 
     if (!Util.isUnset(request.description)) {
@@ -5745,18 +5519,22 @@ export default class Client extends OpenApi {
       body["Status"] = request.status;
     }
 
-    if (!Util.isUnset(request.tagIdsShrink)) {
-      body["TagIds"] = request.tagIdsShrink;
+    if (!Util.isUnset(request.tagIds)) {
+      bodyFlat["TagIds"] = request.tagIds;
     }
 
-    if (!Util.isUnset(request.userGroupIdsShrink)) {
-      body["UserGroupIds"] = request.userGroupIdsShrink;
+    if (!Util.isUnset(request.userGroupIds)) {
+      bodyFlat["UserGroupIds"] = request.userGroupIds;
     }
 
     if (!Util.isUnset(request.userGroupMode)) {
       body["UserGroupMode"] = request.userGroupMode;
     }
 
+    body = {
+      ...body,
+      ...OpenApiUtil.query(bodyFlat),
+    };
     let req = new $OpenApi.OpenApiRequest({
       body: OpenApiUtil.parseToMap(body),
     });
