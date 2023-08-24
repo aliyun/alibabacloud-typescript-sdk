@@ -185,6 +185,7 @@ export class Resource extends $tea.Model {
   prePaidInstanceCount?: number;
   resourceId?: string;
   resourceName?: string;
+  resourceType?: string;
   status?: string;
   updateTime?: string;
   static names(): { [key: string]: string } {
@@ -200,6 +201,7 @@ export class Resource extends $tea.Model {
       prePaidInstanceCount: 'PrePaidInstanceCount',
       resourceId: 'ResourceId',
       resourceName: 'ResourceName',
+      resourceType: 'ResourceType',
       status: 'Status',
       updateTime: 'UpdateTime',
     };
@@ -218,6 +220,7 @@ export class Resource extends $tea.Model {
       prePaidInstanceCount: 'number',
       resourceId: 'string',
       resourceName: 'string',
+      resourceType: 'string',
       status: 'string',
       updateTime: 'string',
     };
@@ -619,6 +622,11 @@ export class CreateResourceRequest extends $tea.Model {
   chargeType?: string;
   ecsInstanceCount?: number;
   ecsInstanceType?: string;
+  externalClusterId?: string;
+  nodeMatchLabels?: { [key: string]: string };
+  nodeTolerations?: CreateResourceRequestNodeTolerations[];
+  resourceType?: string;
+  roleName?: string;
   systemDiskSize?: number;
   zone?: string;
   static names(): { [key: string]: string } {
@@ -627,6 +635,11 @@ export class CreateResourceRequest extends $tea.Model {
       chargeType: 'ChargeType',
       ecsInstanceCount: 'EcsInstanceCount',
       ecsInstanceType: 'EcsInstanceType',
+      externalClusterId: 'ExternalClusterId',
+      nodeMatchLabels: 'NodeMatchLabels',
+      nodeTolerations: 'NodeTolerations',
+      resourceType: 'ResourceType',
+      roleName: 'RoleName',
       systemDiskSize: 'SystemDiskSize',
       zone: 'Zone',
     };
@@ -638,6 +651,11 @@ export class CreateResourceRequest extends $tea.Model {
       chargeType: 'string',
       ecsInstanceCount: 'number',
       ecsInstanceType: 'string',
+      externalClusterId: 'string',
+      nodeMatchLabels: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      nodeTolerations: { 'type': 'array', 'itemType': CreateResourceRequestNodeTolerations },
+      resourceType: 'string',
+      roleName: 'string',
       systemDiskSize: 'number',
       zone: 'string',
     };
@@ -1978,6 +1996,7 @@ export class DescribeResourceResponseBody extends $tea.Model {
   requestId?: string;
   resourceId?: string;
   resourceName?: string;
+  resourceType?: string;
   status?: string;
   updateTime?: string;
   static names(): { [key: string]: string } {
@@ -1995,6 +2014,7 @@ export class DescribeResourceResponseBody extends $tea.Model {
       requestId: 'RequestId',
       resourceId: 'ResourceId',
       resourceName: 'ResourceName',
+      resourceType: 'ResourceType',
       status: 'Status',
       updateTime: 'UpdateTime',
     };
@@ -2015,6 +2035,7 @@ export class DescribeResourceResponseBody extends $tea.Model {
       requestId: 'string',
       resourceId: 'string',
       resourceName: 'string',
+      resourceType: 'string',
       status: 'string',
       updateTime: 'string',
     };
@@ -3135,12 +3156,14 @@ export class ListResourcesRequest extends $tea.Model {
   pageSize?: number;
   resourceId?: string;
   resourceName?: string;
+  resourceType?: string;
   static names(): { [key: string]: string } {
     return {
       pageNumber: 'PageNumber',
       pageSize: 'PageSize',
       resourceId: 'ResourceId',
       resourceName: 'ResourceName',
+      resourceType: 'ResourceType',
     };
   }
 
@@ -3150,6 +3173,7 @@ export class ListResourcesRequest extends $tea.Model {
       pageSize: 'number',
       resourceId: 'string',
       resourceName: 'string',
+      resourceType: 'string',
     };
   }
 
@@ -3990,15 +4014,21 @@ export class UpdateBenchmarkTaskResponse extends $tea.Model {
 }
 
 export class UpdateResourceRequest extends $tea.Model {
+  nodeMatchLabels?: { [key: string]: string };
+  nodeTolerations?: UpdateResourceRequestNodeTolerations[];
   resourceName?: string;
   static names(): { [key: string]: string } {
     return {
+      nodeMatchLabels: 'NodeMatchLabels',
+      nodeTolerations: 'NodeTolerations',
       resourceName: 'ResourceName',
     };
   }
 
   static types(): { [key: string]: any } {
     return {
+      nodeMatchLabels: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      nodeTolerations: { 'type': 'array', 'itemType': UpdateResourceRequestNodeTolerations },
       resourceName: 'string',
     };
   }
@@ -4701,6 +4731,34 @@ export class ServiceLabels extends $tea.Model {
   }
 }
 
+export class CreateResourceRequestNodeTolerations extends $tea.Model {
+  effect?: string;
+  key?: string;
+  operator?: string;
+  value?: string;
+  static names(): { [key: string]: string } {
+    return {
+      effect: 'effect',
+      key: 'key',
+      operator: 'operator',
+      value: 'value',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      effect: 'string',
+      key: 'string',
+      operator: 'string',
+      value: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
 export class CreateServiceAutoScalerRequestBehaviorOnZero extends $tea.Model {
   scaleDownGracePeriodSeconds?: number;
   scaleUpActivationReplicas?: number;
@@ -5075,6 +5133,34 @@ export class ListServiceVersionsResponseBodyVersions extends $tea.Model {
   }
 }
 
+export class UpdateResourceRequestNodeTolerations extends $tea.Model {
+  effect?: string;
+  key?: string;
+  operator?: string;
+  value?: string;
+  static names(): { [key: string]: string } {
+    return {
+      effect: 'effect',
+      key: 'key',
+      operator: 'operator',
+      value: 'value',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      effect: 'string',
+      key: 'string',
+      operator: 'string',
+      value: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
 export class UpdateServiceAutoScalerRequestBehaviorOnZero extends $tea.Model {
   scaleDownGracePeriodSeconds?: number;
   scaleUpActivationReplicas?: number;
@@ -5317,6 +5403,26 @@ export default class Client extends OpenApi {
 
     if (!Util.isUnset(request.ecsInstanceType)) {
       body["EcsInstanceType"] = request.ecsInstanceType;
+    }
+
+    if (!Util.isUnset(request.externalClusterId)) {
+      body["ExternalClusterId"] = request.externalClusterId;
+    }
+
+    if (!Util.isUnset(request.nodeMatchLabels)) {
+      body["NodeMatchLabels"] = request.nodeMatchLabels;
+    }
+
+    if (!Util.isUnset(request.nodeTolerations)) {
+      body["NodeTolerations"] = request.nodeTolerations;
+    }
+
+    if (!Util.isUnset(request.resourceType)) {
+      body["ResourceType"] = request.resourceType;
+    }
+
+    if (!Util.isUnset(request.roleName)) {
+      body["RoleName"] = request.roleName;
     }
 
     if (!Util.isUnset(request.systemDiskSize)) {
@@ -6577,6 +6683,10 @@ export default class Client extends OpenApi {
       query["ResourceName"] = request.resourceName;
     }
 
+    if (!Util.isUnset(request.resourceType)) {
+      query["ResourceType"] = request.resourceType;
+    }
+
     let req = new $OpenApi.OpenApiRequest({
       headers: headers,
       query: OpenApiUtil.query(query),
@@ -7008,6 +7118,14 @@ export default class Client extends OpenApi {
   async updateResourceWithOptions(ClusterId: string, ResourceId: string, request: UpdateResourceRequest, headers: {[key: string ]: string}, runtime: $Util.RuntimeOptions): Promise<UpdateResourceResponse> {
     Util.validateModel(request);
     let body : {[key: string ]: any} = { };
+    if (!Util.isUnset(request.nodeMatchLabels)) {
+      body["NodeMatchLabels"] = request.nodeMatchLabels;
+    }
+
+    if (!Util.isUnset(request.nodeTolerations)) {
+      body["NodeTolerations"] = request.nodeTolerations;
+    }
+
     if (!Util.isUnset(request.resourceName)) {
       body["ResourceName"] = request.resourceName;
     }
