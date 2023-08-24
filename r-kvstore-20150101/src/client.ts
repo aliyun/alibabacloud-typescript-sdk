@@ -12,14 +12,13 @@ export class AddShardingNodeRequest extends $tea.Model {
   autoPay?: boolean;
   businessInfo?: string;
   couponNo?: string;
+  forceTrans?: boolean;
   instanceId?: string;
   ownerAccount?: string;
   ownerId?: number;
-  readOnlyCount?: number;
   resourceOwnerAccount?: string;
   resourceOwnerId?: number;
   securityToken?: string;
-  shardClass?: string;
   shardCount?: number;
   sourceBiz?: string;
   static names(): { [key: string]: string } {
@@ -27,14 +26,13 @@ export class AddShardingNodeRequest extends $tea.Model {
       autoPay: 'AutoPay',
       businessInfo: 'BusinessInfo',
       couponNo: 'CouponNo',
+      forceTrans: 'ForceTrans',
       instanceId: 'InstanceId',
       ownerAccount: 'OwnerAccount',
       ownerId: 'OwnerId',
-      readOnlyCount: 'ReadOnlyCount',
       resourceOwnerAccount: 'ResourceOwnerAccount',
       resourceOwnerId: 'ResourceOwnerId',
       securityToken: 'SecurityToken',
-      shardClass: 'ShardClass',
       shardCount: 'ShardCount',
       sourceBiz: 'SourceBiz',
     };
@@ -45,14 +43,13 @@ export class AddShardingNodeRequest extends $tea.Model {
       autoPay: 'boolean',
       businessInfo: 'string',
       couponNo: 'string',
+      forceTrans: 'boolean',
       instanceId: 'string',
       ownerAccount: 'string',
       ownerId: 'number',
-      readOnlyCount: 'number',
       resourceOwnerAccount: 'string',
       resourceOwnerId: 'number',
       securityToken: 'string',
-      shardClass: 'string',
       shardCount: 'number',
       sourceBiz: 'string',
     };
@@ -626,6 +623,7 @@ export class CreateCacheAnalysisTaskResponse extends $tea.Model {
 export class CreateGlobalDistributeCacheRequest extends $tea.Model {
   ownerAccount?: string;
   ownerId?: number;
+  resourceGroupId?: string;
   resourceOwnerAccount?: string;
   resourceOwnerId?: number;
   securityToken?: string;
@@ -634,6 +632,7 @@ export class CreateGlobalDistributeCacheRequest extends $tea.Model {
     return {
       ownerAccount: 'OwnerAccount',
       ownerId: 'OwnerId',
+      resourceGroupId: 'ResourceGroupId',
       resourceOwnerAccount: 'ResourceOwnerAccount',
       resourceOwnerId: 'ResourceOwnerId',
       securityToken: 'SecurityToken',
@@ -645,6 +644,7 @@ export class CreateGlobalDistributeCacheRequest extends $tea.Model {
     return {
       ownerAccount: 'string',
       ownerId: 'number',
+      resourceGroupId: 'string',
       resourceOwnerAccount: 'string',
       resourceOwnerId: 'number',
       securityToken: 'string',
@@ -658,18 +658,15 @@ export class CreateGlobalDistributeCacheRequest extends $tea.Model {
 }
 
 export class CreateGlobalDistributeCacheResponseBody extends $tea.Model {
-  globalInstanceId?: string;
   requestId?: string;
   static names(): { [key: string]: string } {
     return {
-      globalInstanceId: 'GlobalInstanceId',
       requestId: 'RequestId',
     };
   }
 
   static types(): { [key: string]: any } {
     return {
-      globalInstanceId: 'string',
       requestId: 'string',
     };
   }
@@ -704,7 +701,98 @@ export class CreateGlobalDistributeCacheResponse extends $tea.Model {
   }
 }
 
+export class CreateGlobalSecurityIPGroupRequest extends $tea.Model {
+  GIpList?: string;
+  globalIgName?: string;
+  ownerAccount?: string;
+  ownerId?: number;
+  regionId?: string;
+  resourceGroupId?: string;
+  resourceOwnerAccount?: string;
+  resourceOwnerId?: number;
+  securityToken?: string;
+  static names(): { [key: string]: string } {
+    return {
+      GIpList: 'GIpList',
+      globalIgName: 'GlobalIgName',
+      ownerAccount: 'OwnerAccount',
+      ownerId: 'OwnerId',
+      regionId: 'RegionId',
+      resourceGroupId: 'ResourceGroupId',
+      resourceOwnerAccount: 'ResourceOwnerAccount',
+      resourceOwnerId: 'ResourceOwnerId',
+      securityToken: 'SecurityToken',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      GIpList: 'string',
+      globalIgName: 'string',
+      ownerAccount: 'string',
+      ownerId: 'number',
+      regionId: 'string',
+      resourceGroupId: 'string',
+      resourceOwnerAccount: 'string',
+      resourceOwnerId: 'number',
+      securityToken: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class CreateGlobalSecurityIPGroupResponseBody extends $tea.Model {
+  globalSecurityIPGroup?: CreateGlobalSecurityIPGroupResponseBodyGlobalSecurityIPGroup[];
+  requestId?: string;
+  static names(): { [key: string]: string } {
+    return {
+      globalSecurityIPGroup: 'GlobalSecurityIPGroup',
+      requestId: 'RequestId',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      globalSecurityIPGroup: { 'type': 'array', 'itemType': CreateGlobalSecurityIPGroupResponseBodyGlobalSecurityIPGroup },
+      requestId: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class CreateGlobalSecurityIPGroupResponse extends $tea.Model {
+  headers: { [key: string]: string };
+  statusCode: number;
+  body: CreateGlobalSecurityIPGroupResponseBody;
+  static names(): { [key: string]: string } {
+    return {
+      headers: 'headers',
+      statusCode: 'statusCode',
+      body: 'body',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
+      body: CreateGlobalSecurityIPGroupResponseBody,
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
 export class CreateInstanceRequest extends $tea.Model {
+  appendonly?: string;
   autoRenew?: string;
   autoRenewPeriod?: string;
   autoUseCoupon?: string;
@@ -712,22 +800,26 @@ export class CreateInstanceRequest extends $tea.Model {
   businessInfo?: string;
   capacity?: number;
   chargeType?: string;
+  connectionStringPrefix?: string;
   couponNo?: string;
   dedicatedHostGroupId?: string;
   dryRun?: boolean;
   engineVersion?: string;
   globalInstance?: boolean;
   globalInstanceId?: string;
+  globalSecurityGroupIds?: string;
   instanceClass?: string;
   instanceName?: string;
   instanceType?: string;
   networkType?: string;
+  nodeType?: string;
   ownerAccount?: string;
   ownerId?: number;
   password?: string;
   period?: string;
   port?: string;
   privateIpAddress?: string;
+  readOnlyCount?: number;
   regionId?: string;
   resourceGroupId?: string;
   resourceOwnerAccount?: string;
@@ -744,6 +836,7 @@ export class CreateInstanceRequest extends $tea.Model {
   zoneId?: string;
   static names(): { [key: string]: string } {
     return {
+      appendonly: 'Appendonly',
       autoRenew: 'AutoRenew',
       autoRenewPeriod: 'AutoRenewPeriod',
       autoUseCoupon: 'AutoUseCoupon',
@@ -751,22 +844,26 @@ export class CreateInstanceRequest extends $tea.Model {
       businessInfo: 'BusinessInfo',
       capacity: 'Capacity',
       chargeType: 'ChargeType',
+      connectionStringPrefix: 'ConnectionStringPrefix',
       couponNo: 'CouponNo',
       dedicatedHostGroupId: 'DedicatedHostGroupId',
       dryRun: 'DryRun',
       engineVersion: 'EngineVersion',
       globalInstance: 'GlobalInstance',
       globalInstanceId: 'GlobalInstanceId',
+      globalSecurityGroupIds: 'GlobalSecurityGroupIds',
       instanceClass: 'InstanceClass',
       instanceName: 'InstanceName',
       instanceType: 'InstanceType',
       networkType: 'NetworkType',
+      nodeType: 'NodeType',
       ownerAccount: 'OwnerAccount',
       ownerId: 'OwnerId',
       password: 'Password',
       period: 'Period',
       port: 'Port',
       privateIpAddress: 'PrivateIpAddress',
+      readOnlyCount: 'ReadOnlyCount',
       regionId: 'RegionId',
       resourceGroupId: 'ResourceGroupId',
       resourceOwnerAccount: 'ResourceOwnerAccount',
@@ -786,6 +883,7 @@ export class CreateInstanceRequest extends $tea.Model {
 
   static types(): { [key: string]: any } {
     return {
+      appendonly: 'string',
       autoRenew: 'string',
       autoRenewPeriod: 'string',
       autoUseCoupon: 'string',
@@ -793,22 +891,26 @@ export class CreateInstanceRequest extends $tea.Model {
       businessInfo: 'string',
       capacity: 'number',
       chargeType: 'string',
+      connectionStringPrefix: 'string',
       couponNo: 'string',
       dedicatedHostGroupId: 'string',
       dryRun: 'boolean',
       engineVersion: 'string',
       globalInstance: 'boolean',
       globalInstanceId: 'string',
+      globalSecurityGroupIds: 'string',
       instanceClass: 'string',
       instanceName: 'string',
       instanceType: 'string',
       networkType: 'string',
+      nodeType: 'string',
       ownerAccount: 'string',
       ownerId: 'number',
       password: 'string',
       period: 'string',
       port: 'string',
       privateIpAddress: 'string',
+      readOnlyCount: 'number',
       regionId: 'string',
       resourceGroupId: 'string',
       resourceOwnerAccount: 'string',
@@ -1056,16 +1158,21 @@ export class CreateTairInstanceRequest extends $tea.Model {
   chargeType?: string;
   clientToken?: string;
   couponNo?: string;
+  dryRun?: boolean;
   engineVersion?: string;
   globalInstanceId?: string;
+  globalSecurityGroupIds?: string;
   instanceClass?: string;
   instanceName?: string;
   instanceType?: string;
   ownerAccount?: string;
   ownerId?: number;
+  paramGroupId?: string;
   password?: string;
   period?: number;
+  port?: number;
   privateIpAddress?: string;
+  readOnlyCount?: number;
   regionId?: string;
   resourceGroupId?: string;
   resourceOwnerAccount?: string;
@@ -1077,6 +1184,7 @@ export class CreateTairInstanceRequest extends $tea.Model {
   srcDBInstanceId?: string;
   storage?: number;
   storageType?: string;
+  tag?: CreateTairInstanceRequestTag[];
   vSwitchId?: string;
   vpcId?: string;
   zoneId?: string;
@@ -1091,16 +1199,21 @@ export class CreateTairInstanceRequest extends $tea.Model {
       chargeType: 'ChargeType',
       clientToken: 'ClientToken',
       couponNo: 'CouponNo',
+      dryRun: 'DryRun',
       engineVersion: 'EngineVersion',
       globalInstanceId: 'GlobalInstanceId',
+      globalSecurityGroupIds: 'GlobalSecurityGroupIds',
       instanceClass: 'InstanceClass',
       instanceName: 'InstanceName',
       instanceType: 'InstanceType',
       ownerAccount: 'OwnerAccount',
       ownerId: 'OwnerId',
+      paramGroupId: 'ParamGroupId',
       password: 'Password',
       period: 'Period',
+      port: 'Port',
       privateIpAddress: 'PrivateIpAddress',
+      readOnlyCount: 'ReadOnlyCount',
       regionId: 'RegionId',
       resourceGroupId: 'ResourceGroupId',
       resourceOwnerAccount: 'ResourceOwnerAccount',
@@ -1112,6 +1225,7 @@ export class CreateTairInstanceRequest extends $tea.Model {
       srcDBInstanceId: 'SrcDBInstanceId',
       storage: 'Storage',
       storageType: 'StorageType',
+      tag: 'Tag',
       vSwitchId: 'VSwitchId',
       vpcId: 'VpcId',
       zoneId: 'ZoneId',
@@ -1129,16 +1243,21 @@ export class CreateTairInstanceRequest extends $tea.Model {
       chargeType: 'string',
       clientToken: 'string',
       couponNo: 'string',
+      dryRun: 'boolean',
       engineVersion: 'string',
       globalInstanceId: 'string',
+      globalSecurityGroupIds: 'string',
       instanceClass: 'string',
       instanceName: 'string',
       instanceType: 'string',
       ownerAccount: 'string',
       ownerId: 'number',
+      paramGroupId: 'string',
       password: 'string',
       period: 'number',
+      port: 'number',
       privateIpAddress: 'string',
+      readOnlyCount: 'number',
       regionId: 'string',
       resourceGroupId: 'string',
       resourceOwnerAccount: 'string',
@@ -1150,6 +1269,7 @@ export class CreateTairInstanceRequest extends $tea.Model {
       srcDBInstanceId: 'string',
       storage: 'number',
       storageType: 'string',
+      tag: { 'type': 'array', 'itemType': CreateTairInstanceRequestTag },
       vSwitchId: 'string',
       vpcId: 'string',
       zoneId: 'string',
@@ -1410,22 +1530,22 @@ export class DeleteInstanceResponse extends $tea.Model {
 }
 
 export class DeleteShardingNodeRequest extends $tea.Model {
+  forceTrans?: boolean;
   instanceId?: string;
   nodeId?: string;
   ownerAccount?: string;
   ownerId?: number;
-  readOnlyCount?: number;
   resourceOwnerAccount?: string;
   resourceOwnerId?: number;
   securityToken?: string;
   shardCount?: number;
   static names(): { [key: string]: string } {
     return {
+      forceTrans: 'ForceTrans',
       instanceId: 'InstanceId',
       nodeId: 'NodeId',
       ownerAccount: 'OwnerAccount',
       ownerId: 'OwnerId',
-      readOnlyCount: 'ReadOnlyCount',
       resourceOwnerAccount: 'ResourceOwnerAccount',
       resourceOwnerId: 'ResourceOwnerId',
       securityToken: 'SecurityToken',
@@ -1435,11 +1555,11 @@ export class DeleteShardingNodeRequest extends $tea.Model {
 
   static types(): { [key: string]: any } {
     return {
+      forceTrans: 'boolean',
       instanceId: 'string',
       nodeId: 'string',
       ownerAccount: 'string',
       ownerId: 'number',
-      readOnlyCount: 'number',
       resourceOwnerAccount: 'string',
       resourceOwnerId: 'number',
       securityToken: 'string',
@@ -1453,15 +1573,18 @@ export class DeleteShardingNodeRequest extends $tea.Model {
 }
 
 export class DeleteShardingNodeResponseBody extends $tea.Model {
+  orderId?: string;
   requestId?: string;
   static names(): { [key: string]: string } {
     return {
+      orderId: 'OrderId',
       requestId: 'RequestId',
     };
   }
 
   static types(): { [key: string]: any } {
     return {
+      orderId: 'string',
       requestId: 'string',
     };
   }
@@ -1580,58 +1703,43 @@ export class DescribeAccountsResponse extends $tea.Model {
   }
 }
 
-export class DescribeActiveOperationTasksRequest extends $tea.Model {
-  allowCancel?: number;
-  allowChange?: number;
-  changeLevel?: string;
-  dbType?: string;
-  insName?: string;
+export class DescribeActiveOperationTaskRequest extends $tea.Model {
+  isHistory?: number;
   ownerAccount?: string;
   ownerId?: number;
   pageNumber?: number;
   pageSize?: number;
-  productId?: string;
+  region?: string;
   resourceOwnerAccount?: string;
   resourceOwnerId?: number;
   securityToken?: string;
-  status?: number;
   taskType?: string;
   static names(): { [key: string]: string } {
     return {
-      allowCancel: 'AllowCancel',
-      allowChange: 'AllowChange',
-      changeLevel: 'ChangeLevel',
-      dbType: 'DbType',
-      insName: 'InsName',
+      isHistory: 'IsHistory',
       ownerAccount: 'OwnerAccount',
       ownerId: 'OwnerId',
       pageNumber: 'PageNumber',
       pageSize: 'PageSize',
-      productId: 'ProductId',
+      region: 'Region',
       resourceOwnerAccount: 'ResourceOwnerAccount',
       resourceOwnerId: 'ResourceOwnerId',
       securityToken: 'SecurityToken',
-      status: 'Status',
       taskType: 'TaskType',
     };
   }
 
   static types(): { [key: string]: any } {
     return {
-      allowCancel: 'number',
-      allowChange: 'number',
-      changeLevel: 'string',
-      dbType: 'string',
-      insName: 'string',
+      isHistory: 'number',
       ownerAccount: 'string',
       ownerId: 'number',
       pageNumber: 'number',
       pageSize: 'number',
-      productId: 'string',
+      region: 'string',
       resourceOwnerAccount: 'string',
       resourceOwnerId: 'number',
       securityToken: 'string',
-      status: 'number',
       taskType: 'string',
     };
   }
@@ -1641,8 +1749,8 @@ export class DescribeActiveOperationTasksRequest extends $tea.Model {
   }
 }
 
-export class DescribeActiveOperationTasksResponseBody extends $tea.Model {
-  items?: DescribeActiveOperationTasksResponseBodyItems[];
+export class DescribeActiveOperationTaskResponseBody extends $tea.Model {
+  items?: DescribeActiveOperationTaskResponseBodyItems[];
   pageNumber?: number;
   pageSize?: number;
   requestId?: string;
@@ -1659,7 +1767,7 @@ export class DescribeActiveOperationTasksResponseBody extends $tea.Model {
 
   static types(): { [key: string]: any } {
     return {
-      items: { 'type': 'array', 'itemType': DescribeActiveOperationTasksResponseBodyItems },
+      items: { 'type': 'array', 'itemType': DescribeActiveOperationTaskResponseBodyItems },
       pageNumber: 'number',
       pageSize: 'number',
       requestId: 'string',
@@ -1672,10 +1780,10 @@ export class DescribeActiveOperationTasksResponseBody extends $tea.Model {
   }
 }
 
-export class DescribeActiveOperationTasksResponse extends $tea.Model {
+export class DescribeActiveOperationTaskResponse extends $tea.Model {
   headers: { [key: string]: string };
   statusCode: number;
-  body: DescribeActiveOperationTasksResponseBody;
+  body: DescribeActiveOperationTaskResponseBody;
   static names(): { [key: string]: string } {
     return {
       headers: 'headers',
@@ -1688,7 +1796,7 @@ export class DescribeActiveOperationTasksResponse extends $tea.Model {
     return {
       headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
       statusCode: 'number',
-      body: DescribeActiveOperationTasksResponseBody,
+      body: DescribeActiveOperationTaskResponseBody,
     };
   }
 
@@ -1915,6 +2023,7 @@ export class DescribeAvailableResourceRequest extends $tea.Model {
   engine?: string;
   instanceChargeType?: string;
   instanceId?: string;
+  instanceScene?: string;
   nodeId?: string;
   orderType?: string;
   ownerAccount?: string;
@@ -1932,6 +2041,7 @@ export class DescribeAvailableResourceRequest extends $tea.Model {
       engine: 'Engine',
       instanceChargeType: 'InstanceChargeType',
       instanceId: 'InstanceId',
+      instanceScene: 'InstanceScene',
       nodeId: 'NodeId',
       orderType: 'OrderType',
       ownerAccount: 'OwnerAccount',
@@ -1952,6 +2062,7 @@ export class DescribeAvailableResourceRequest extends $tea.Model {
       engine: 'string',
       instanceChargeType: 'string',
       instanceId: 'string',
+      instanceScene: 'string',
       nodeId: 'string',
       orderType: 'string',
       ownerAccount: 'string',
@@ -2053,6 +2164,7 @@ export class DescribeBackupPolicyRequest extends $tea.Model {
 }
 
 export class DescribeBackupPolicyResponseBody extends $tea.Model {
+  accessDeniedDetail?: DescribeBackupPolicyResponseBodyAccessDeniedDetail;
   backupRetentionPeriod?: string;
   enableBackupLog?: number;
   preferredBackupPeriod?: string;
@@ -2061,6 +2173,7 @@ export class DescribeBackupPolicyResponseBody extends $tea.Model {
   requestId?: string;
   static names(): { [key: string]: string } {
     return {
+      accessDeniedDetail: 'AccessDeniedDetail',
       backupRetentionPeriod: 'BackupRetentionPeriod',
       enableBackupLog: 'EnableBackupLog',
       preferredBackupPeriod: 'PreferredBackupPeriod',
@@ -2072,6 +2185,7 @@ export class DescribeBackupPolicyResponseBody extends $tea.Model {
 
   static types(): { [key: string]: any } {
     return {
+      accessDeniedDetail: DescribeBackupPolicyResponseBodyAccessDeniedDetail,
       backupRetentionPeriod: 'string',
       enableBackupLog: 'number',
       preferredBackupPeriod: 'string',
@@ -2152,11 +2266,13 @@ export class DescribeBackupTasksRequest extends $tea.Model {
 }
 
 export class DescribeBackupTasksResponseBody extends $tea.Model {
+  accessDeniedDetail?: DescribeBackupTasksResponseBodyAccessDeniedDetail;
   backupJobs?: DescribeBackupTasksResponseBodyBackupJobs[];
   instanceId?: string;
   requestId?: string;
   static names(): { [key: string]: string } {
     return {
+      accessDeniedDetail: 'AccessDeniedDetail',
       backupJobs: 'BackupJobs',
       instanceId: 'InstanceId',
       requestId: 'RequestId',
@@ -2165,6 +2281,7 @@ export class DescribeBackupTasksResponseBody extends $tea.Model {
 
   static types(): { [key: string]: any } {
     return {
+      accessDeniedDetail: DescribeBackupTasksResponseBodyAccessDeniedDetail,
       backupJobs: { 'type': 'array', 'itemType': DescribeBackupTasksResponseBodyBackupJobs },
       instanceId: 'string',
       requestId: 'string',
@@ -2254,6 +2371,7 @@ export class DescribeBackupsRequest extends $tea.Model {
 }
 
 export class DescribeBackupsResponseBody extends $tea.Model {
+  accessDeniedDetail?: DescribeBackupsResponseBodyAccessDeniedDetail;
   backups?: DescribeBackupsResponseBodyBackups;
   pageNumber?: number;
   pageSize?: number;
@@ -2261,6 +2379,7 @@ export class DescribeBackupsResponseBody extends $tea.Model {
   totalCount?: number;
   static names(): { [key: string]: string } {
     return {
+      accessDeniedDetail: 'AccessDeniedDetail',
       backups: 'Backups',
       pageNumber: 'PageNumber',
       pageSize: 'PageSize',
@@ -2271,6 +2390,7 @@ export class DescribeBackupsResponseBody extends $tea.Model {
 
   static types(): { [key: string]: any } {
     return {
+      accessDeniedDetail: DescribeBackupsResponseBodyAccessDeniedDetail,
       backups: DescribeBackupsResponseBodyBackups,
       pageNumber: 'number',
       pageSize: 'number',
@@ -2850,10 +2970,12 @@ export class DescribeEncryptionKeyResponseBody extends $tea.Model {
   description?: string;
   encryptionKey?: string;
   encryptionKeyStatus?: string;
+  encryptionName?: string;
   keyUsage?: string;
   materialExpireTime?: string;
   origin?: string;
   requestId?: string;
+  roleArn?: string;
   static names(): { [key: string]: string } {
     return {
       creator: 'Creator',
@@ -2861,10 +2983,12 @@ export class DescribeEncryptionKeyResponseBody extends $tea.Model {
       description: 'Description',
       encryptionKey: 'EncryptionKey',
       encryptionKeyStatus: 'EncryptionKeyStatus',
+      encryptionName: 'EncryptionName',
       keyUsage: 'KeyUsage',
       materialExpireTime: 'MaterialExpireTime',
       origin: 'Origin',
       requestId: 'RequestId',
+      roleArn: 'RoleArn',
     };
   }
 
@@ -2875,10 +2999,12 @@ export class DescribeEncryptionKeyResponseBody extends $tea.Model {
       description: 'string',
       encryptionKey: 'string',
       encryptionKeyStatus: 'string',
+      encryptionName: 'string',
       keyUsage: 'string',
       materialExpireTime: 'string',
       origin: 'string',
       requestId: 'string',
+      roleArn: 'string',
     };
   }
 
@@ -3033,6 +3159,9 @@ export class DescribeEngineVersionResponseBody extends $tea.Model {
   enableUpgradeMinorVersion?: boolean;
   engine?: string;
   isLatestVersion?: boolean;
+  isNewSSLMode?: string;
+  isRedisCompatibleVersion?: string;
+  isSSLEnable?: string;
   majorVersion?: string;
   minorVersion?: string;
   proxyMinorVersion?: string;
@@ -3045,6 +3174,9 @@ export class DescribeEngineVersionResponseBody extends $tea.Model {
       enableUpgradeMinorVersion: 'EnableUpgradeMinorVersion',
       engine: 'Engine',
       isLatestVersion: 'IsLatestVersion',
+      isNewSSLMode: 'IsNewSSLMode',
+      isRedisCompatibleVersion: 'IsRedisCompatibleVersion',
+      isSSLEnable: 'IsSSLEnable',
       majorVersion: 'MajorVersion',
       minorVersion: 'MinorVersion',
       proxyMinorVersion: 'ProxyMinorVersion',
@@ -3060,6 +3192,9 @@ export class DescribeEngineVersionResponseBody extends $tea.Model {
       enableUpgradeMinorVersion: 'boolean',
       engine: 'string',
       isLatestVersion: 'boolean',
+      isNewSSLMode: 'string',
+      isRedisCompatibleVersion: 'string',
+      isSSLEnable: 'string',
       majorVersion: 'string',
       minorVersion: 'string',
       proxyMinorVersion: 'string',
@@ -3197,6 +3332,93 @@ export class DescribeGlobalDistributeCacheResponse extends $tea.Model {
   }
 }
 
+export class DescribeGlobalSecurityIPGroupRequest extends $tea.Model {
+  globalSecurityGroupId?: string;
+  ownerAccount?: string;
+  ownerId?: number;
+  regionId?: string;
+  resourceGroupId?: string;
+  resourceOwnerAccount?: string;
+  resourceOwnerId?: number;
+  securityToken?: string;
+  static names(): { [key: string]: string } {
+    return {
+      globalSecurityGroupId: 'GlobalSecurityGroupId',
+      ownerAccount: 'OwnerAccount',
+      ownerId: 'OwnerId',
+      regionId: 'RegionId',
+      resourceGroupId: 'ResourceGroupId',
+      resourceOwnerAccount: 'ResourceOwnerAccount',
+      resourceOwnerId: 'ResourceOwnerId',
+      securityToken: 'SecurityToken',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      globalSecurityGroupId: 'string',
+      ownerAccount: 'string',
+      ownerId: 'number',
+      regionId: 'string',
+      resourceGroupId: 'string',
+      resourceOwnerAccount: 'string',
+      resourceOwnerId: 'number',
+      securityToken: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class DescribeGlobalSecurityIPGroupResponseBody extends $tea.Model {
+  globalSecurityIPGroup?: DescribeGlobalSecurityIPGroupResponseBodyGlobalSecurityIPGroup[];
+  requestId?: string;
+  static names(): { [key: string]: string } {
+    return {
+      globalSecurityIPGroup: 'GlobalSecurityIPGroup',
+      requestId: 'RequestId',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      globalSecurityIPGroup: { 'type': 'array', 'itemType': DescribeGlobalSecurityIPGroupResponseBodyGlobalSecurityIPGroup },
+      requestId: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class DescribeGlobalSecurityIPGroupResponse extends $tea.Model {
+  headers: { [key: string]: string };
+  statusCode: number;
+  body: DescribeGlobalSecurityIPGroupResponseBody;
+  static names(): { [key: string]: string } {
+    return {
+      headers: 'headers',
+      statusCode: 'statusCode',
+      body: 'body',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
+      body: DescribeGlobalSecurityIPGroupResponseBody,
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
 export class DescribeHistoryMonitorValuesRequest extends $tea.Model {
   endTime?: string;
   instanceId?: string;
@@ -3285,6 +3507,123 @@ export class DescribeHistoryMonitorValuesResponse extends $tea.Model {
       headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
       statusCode: 'number',
       body: DescribeHistoryMonitorValuesResponseBody,
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class DescribeHistoryTasksRequest extends $tea.Model {
+  fromExecTime?: number;
+  fromStartTime?: string;
+  instanceId?: string;
+  instanceType?: string;
+  pageNumber?: number;
+  pageSize?: number;
+  regionId?: string;
+  resourceOwnerAccount?: number;
+  resourceOwnerId?: number;
+  securityToken?: string;
+  status?: string;
+  taskId?: string;
+  taskType?: string;
+  toExecTime?: number;
+  toStartTime?: string;
+  static names(): { [key: string]: string } {
+    return {
+      fromExecTime: 'FromExecTime',
+      fromStartTime: 'FromStartTime',
+      instanceId: 'InstanceId',
+      instanceType: 'InstanceType',
+      pageNumber: 'PageNumber',
+      pageSize: 'PageSize',
+      regionId: 'RegionId',
+      resourceOwnerAccount: 'ResourceOwnerAccount',
+      resourceOwnerId: 'ResourceOwnerId',
+      securityToken: 'SecurityToken',
+      status: 'Status',
+      taskId: 'TaskId',
+      taskType: 'TaskType',
+      toExecTime: 'ToExecTime',
+      toStartTime: 'ToStartTime',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      fromExecTime: 'number',
+      fromStartTime: 'string',
+      instanceId: 'string',
+      instanceType: 'string',
+      pageNumber: 'number',
+      pageSize: 'number',
+      regionId: 'string',
+      resourceOwnerAccount: 'number',
+      resourceOwnerId: 'number',
+      securityToken: 'string',
+      status: 'string',
+      taskId: 'string',
+      taskType: 'string',
+      toExecTime: 'number',
+      toStartTime: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class DescribeHistoryTasksResponseBody extends $tea.Model {
+  items?: DescribeHistoryTasksResponseBodyItems[];
+  pageNumber?: number;
+  pageSize?: number;
+  requestId?: string;
+  totalCount?: number;
+  static names(): { [key: string]: string } {
+    return {
+      items: 'Items',
+      pageNumber: 'PageNumber',
+      pageSize: 'PageSize',
+      requestId: 'RequestId',
+      totalCount: 'TotalCount',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      items: { 'type': 'array', 'itemType': DescribeHistoryTasksResponseBodyItems },
+      pageNumber: 'number',
+      pageSize: 'number',
+      requestId: 'string',
+      totalCount: 'number',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class DescribeHistoryTasksResponse extends $tea.Model {
+  headers: { [key: string]: string };
+  statusCode: number;
+  body: DescribeHistoryTasksResponseBody;
+  static names(): { [key: string]: string } {
+    return {
+      headers: 'headers',
+      statusCode: 'statusCode',
+      body: 'body',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
+      body: DescribeHistoryTasksResponseBody,
     };
   }
 
@@ -3590,6 +3929,7 @@ export class DescribeInstanceSSLRequest extends $tea.Model {
 
 export class DescribeInstanceSSLResponseBody extends $tea.Model {
   certCommonName?: string;
+  certDownloadURL?: string;
   instanceId?: string;
   requestId?: string;
   SSLEnabled?: string;
@@ -3597,6 +3937,7 @@ export class DescribeInstanceSSLResponseBody extends $tea.Model {
   static names(): { [key: string]: string } {
     return {
       certCommonName: 'CertCommonName',
+      certDownloadURL: 'CertDownloadURL',
       instanceId: 'InstanceId',
       requestId: 'RequestId',
       SSLEnabled: 'SSLEnabled',
@@ -3607,6 +3948,7 @@ export class DescribeInstanceSSLResponseBody extends $tea.Model {
   static types(): { [key: string]: any } {
     return {
       certCommonName: 'string',
+      certDownloadURL: 'string',
       instanceId: 'string',
       requestId: 'string',
       SSLEnabled: 'string',
@@ -4044,14 +4386,18 @@ export class DescribeIntranetAttributeRequest extends $tea.Model {
 export class DescribeIntranetAttributeResponseBody extends $tea.Model {
   autoRenewal?: boolean;
   bandwidthExpireTime?: string;
+  bandwidthPrePaid?: string;
   expireTime?: string;
+  hasPrePaidBandWidthOrderRunning?: boolean;
   intranetBandwidth?: number;
   requestId?: string;
   static names(): { [key: string]: string } {
     return {
       autoRenewal: 'AutoRenewal',
       bandwidthExpireTime: 'BandwidthExpireTime',
+      bandwidthPrePaid: 'BandwidthPrePaid',
       expireTime: 'ExpireTime',
+      hasPrePaidBandWidthOrderRunning: 'HasPrePaidBandWidthOrderRunning',
       intranetBandwidth: 'IntranetBandwidth',
       requestId: 'RequestId',
     };
@@ -4061,7 +4407,9 @@ export class DescribeIntranetAttributeResponseBody extends $tea.Model {
     return {
       autoRenewal: 'boolean',
       bandwidthExpireTime: 'string',
+      bandwidthPrePaid: 'string',
       expireTime: 'string',
+      hasPrePaidBandWidthOrderRunning: 'boolean',
       intranetBandwidth: 'number',
       requestId: 'string',
     };
@@ -4254,6 +4602,99 @@ export class DescribeMonitorItemsResponse extends $tea.Model {
       headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
       statusCode: 'number',
       body: DescribeMonitorItemsResponseBody,
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class DescribeParameterModificationHistoryRequest extends $tea.Model {
+  endTime?: string;
+  instanceId?: string;
+  nodeId?: string;
+  ownerAccount?: string;
+  ownerId?: number;
+  parameterName?: string;
+  resourceOwnerAccount?: string;
+  resourceOwnerId?: number;
+  securityToken?: string;
+  startTime?: string;
+  static names(): { [key: string]: string } {
+    return {
+      endTime: 'EndTime',
+      instanceId: 'InstanceId',
+      nodeId: 'NodeId',
+      ownerAccount: 'OwnerAccount',
+      ownerId: 'OwnerId',
+      parameterName: 'ParameterName',
+      resourceOwnerAccount: 'ResourceOwnerAccount',
+      resourceOwnerId: 'ResourceOwnerId',
+      securityToken: 'SecurityToken',
+      startTime: 'StartTime',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      endTime: 'string',
+      instanceId: 'string',
+      nodeId: 'string',
+      ownerAccount: 'string',
+      ownerId: 'number',
+      parameterName: 'string',
+      resourceOwnerAccount: 'string',
+      resourceOwnerId: 'number',
+      securityToken: 'string',
+      startTime: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class DescribeParameterModificationHistoryResponseBody extends $tea.Model {
+  historicalParameters?: DescribeParameterModificationHistoryResponseBodyHistoricalParameters;
+  requestId?: string;
+  static names(): { [key: string]: string } {
+    return {
+      historicalParameters: 'HistoricalParameters',
+      requestId: 'RequestId',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      historicalParameters: DescribeParameterModificationHistoryResponseBodyHistoricalParameters,
+      requestId: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class DescribeParameterModificationHistoryResponse extends $tea.Model {
+  headers: { [key: string]: string };
+  statusCode: number;
+  body: DescribeParameterModificationHistoryResponseBody;
+  static names(): { [key: string]: string } {
+    return {
+      headers: 'headers',
+      statusCode: 'statusCode',
+      body: 'body',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
+      body: DescribeParameterModificationHistoryResponseBody,
     };
   }
 
@@ -5395,6 +5836,7 @@ export class EnableAdditionalBandwidthRequest extends $tea.Model {
   autoRenew?: boolean;
   autoRenewPeriod?: number;
   bandwidth?: string;
+  chargeType?: string;
   couponNo?: string;
   instanceId?: string;
   nodeId?: string;
@@ -5411,6 +5853,7 @@ export class EnableAdditionalBandwidthRequest extends $tea.Model {
       autoRenew: 'AutoRenew',
       autoRenewPeriod: 'AutoRenewPeriod',
       bandwidth: 'Bandwidth',
+      chargeType: 'ChargeType',
       couponNo: 'CouponNo',
       instanceId: 'InstanceId',
       nodeId: 'NodeId',
@@ -5430,6 +5873,7 @@ export class EnableAdditionalBandwidthRequest extends $tea.Model {
       autoRenew: 'boolean',
       autoRenewPeriod: 'number',
       bandwidth: 'string',
+      chargeType: 'string',
       couponNo: 'string',
       instanceId: 'string',
       nodeId: 'string',
@@ -5652,6 +6096,87 @@ export class FlushInstanceResponse extends $tea.Model {
       headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
       statusCode: 'number',
       body: FlushInstanceResponseBody,
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class FlushInstanceForDBRequest extends $tea.Model {
+  dbIndex?: number;
+  instanceId?: string;
+  ownerAccount?: string;
+  ownerId?: number;
+  resourceOwnerAccount?: string;
+  resourceOwnerId?: number;
+  securityToken?: string;
+  static names(): { [key: string]: string } {
+    return {
+      dbIndex: 'DbIndex',
+      instanceId: 'InstanceId',
+      ownerAccount: 'OwnerAccount',
+      ownerId: 'OwnerId',
+      resourceOwnerAccount: 'ResourceOwnerAccount',
+      resourceOwnerId: 'ResourceOwnerId',
+      securityToken: 'SecurityToken',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      dbIndex: 'number',
+      instanceId: 'string',
+      ownerAccount: 'string',
+      ownerId: 'number',
+      resourceOwnerAccount: 'string',
+      resourceOwnerId: 'number',
+      securityToken: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class FlushInstanceForDBResponseBody extends $tea.Model {
+  requestId?: string;
+  static names(): { [key: string]: string } {
+    return {
+      requestId: 'RequestId',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      requestId: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class FlushInstanceForDBResponse extends $tea.Model {
+  headers: { [key: string]: string };
+  statusCode: number;
+  body: FlushInstanceForDBResponseBody;
+  static names(): { [key: string]: string } {
+    return {
+      headers: 'headers',
+      statusCode: 'statusCode',
+      body: 'body',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
+      body: FlushInstanceForDBResponseBody,
     };
   }
 
@@ -6176,9 +6701,8 @@ export class ModifyAccountPasswordResponse extends $tea.Model {
   }
 }
 
-export class ModifyActiveOperationTasksRequest extends $tea.Model {
+export class ModifyActiveOperationTaskRequest extends $tea.Model {
   ids?: string;
-  immediateStart?: number;
   ownerAccount?: string;
   ownerId?: number;
   resourceOwnerAccount?: string;
@@ -6188,7 +6712,6 @@ export class ModifyActiveOperationTasksRequest extends $tea.Model {
   static names(): { [key: string]: string } {
     return {
       ids: 'Ids',
-      immediateStart: 'ImmediateStart',
       ownerAccount: 'OwnerAccount',
       ownerId: 'OwnerId',
       resourceOwnerAccount: 'ResourceOwnerAccount',
@@ -6201,7 +6724,6 @@ export class ModifyActiveOperationTasksRequest extends $tea.Model {
   static types(): { [key: string]: any } {
     return {
       ids: 'string',
-      immediateStart: 'number',
       ownerAccount: 'string',
       ownerId: 'number',
       resourceOwnerAccount: 'string',
@@ -6216,7 +6738,7 @@ export class ModifyActiveOperationTasksRequest extends $tea.Model {
   }
 }
 
-export class ModifyActiveOperationTasksResponseBody extends $tea.Model {
+export class ModifyActiveOperationTaskResponseBody extends $tea.Model {
   ids?: string;
   requestId?: string;
   static names(): { [key: string]: string } {
@@ -6238,10 +6760,10 @@ export class ModifyActiveOperationTasksResponseBody extends $tea.Model {
   }
 }
 
-export class ModifyActiveOperationTasksResponse extends $tea.Model {
+export class ModifyActiveOperationTaskResponse extends $tea.Model {
   headers: { [key: string]: string };
   statusCode: number;
-  body: ModifyActiveOperationTasksResponseBody;
+  body: ModifyActiveOperationTaskResponseBody;
   static names(): { [key: string]: string } {
     return {
       headers: 'headers',
@@ -6254,7 +6776,7 @@ export class ModifyActiveOperationTasksResponse extends $tea.Model {
     return {
       headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
       statusCode: 'number',
-      body: ModifyActiveOperationTasksResponseBody,
+      body: ModifyActiveOperationTaskResponseBody,
     };
   }
 
@@ -7118,6 +7640,96 @@ export class ModifyInstanceNetExpireTimeResponse extends $tea.Model {
   }
 }
 
+export class ModifyInstanceParameterRequest extends $tea.Model {
+  instanceId?: string;
+  ownerAccount?: string;
+  ownerId?: number;
+  parameterGroupId?: string;
+  parameters?: string;
+  resourceOwnerAccount?: string;
+  resourceOwnerId?: number;
+  securityToken?: string;
+  static names(): { [key: string]: string } {
+    return {
+      instanceId: 'InstanceId',
+      ownerAccount: 'OwnerAccount',
+      ownerId: 'OwnerId',
+      parameterGroupId: 'ParameterGroupId',
+      parameters: 'Parameters',
+      resourceOwnerAccount: 'ResourceOwnerAccount',
+      resourceOwnerId: 'ResourceOwnerId',
+      securityToken: 'SecurityToken',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      instanceId: 'string',
+      ownerAccount: 'string',
+      ownerId: 'number',
+      parameterGroupId: 'string',
+      parameters: 'string',
+      resourceOwnerAccount: 'string',
+      resourceOwnerId: 'number',
+      securityToken: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class ModifyInstanceParameterResponseBody extends $tea.Model {
+  instanceId?: string;
+  requestId?: string;
+  taskId?: number;
+  static names(): { [key: string]: string } {
+    return {
+      instanceId: 'InstanceId',
+      requestId: 'RequestId',
+      taskId: 'TaskId',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      instanceId: 'string',
+      requestId: 'string',
+      taskId: 'number',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class ModifyInstanceParameterResponse extends $tea.Model {
+  headers: { [key: string]: string };
+  statusCode: number;
+  body: ModifyInstanceParameterResponseBody;
+  static names(): { [key: string]: string } {
+    return {
+      headers: 'headers',
+      statusCode: 'statusCode',
+      body: 'body',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
+      body: ModifyInstanceParameterResponseBody,
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
 export class ModifyInstanceSSLRequest extends $tea.Model {
   instanceId?: string;
   ownerAccount?: string;
@@ -7211,6 +7823,7 @@ export class ModifyInstanceSpecRequest extends $tea.Model {
   clientToken?: string;
   couponNo?: string;
   effectiveTime?: string;
+  forceTrans?: boolean;
   forceUpgrade?: boolean;
   instanceClass?: string;
   instanceId?: string;
@@ -7223,6 +7836,7 @@ export class ModifyInstanceSpecRequest extends $tea.Model {
   resourceOwnerAccount?: string;
   resourceOwnerId?: number;
   securityToken?: string;
+  shardCount?: number;
   sourceBiz?: string;
   static names(): { [key: string]: string } {
     return {
@@ -7231,6 +7845,7 @@ export class ModifyInstanceSpecRequest extends $tea.Model {
       clientToken: 'ClientToken',
       couponNo: 'CouponNo',
       effectiveTime: 'EffectiveTime',
+      forceTrans: 'ForceTrans',
       forceUpgrade: 'ForceUpgrade',
       instanceClass: 'InstanceClass',
       instanceId: 'InstanceId',
@@ -7243,6 +7858,7 @@ export class ModifyInstanceSpecRequest extends $tea.Model {
       resourceOwnerAccount: 'ResourceOwnerAccount',
       resourceOwnerId: 'ResourceOwnerId',
       securityToken: 'SecurityToken',
+      shardCount: 'ShardCount',
       sourceBiz: 'SourceBiz',
     };
   }
@@ -7254,6 +7870,7 @@ export class ModifyInstanceSpecRequest extends $tea.Model {
       clientToken: 'string',
       couponNo: 'string',
       effectiveTime: 'string',
+      forceTrans: 'boolean',
       forceUpgrade: 'boolean',
       instanceClass: 'string',
       instanceId: 'string',
@@ -7266,6 +7883,7 @@ export class ModifyInstanceSpecRequest extends $tea.Model {
       resourceOwnerAccount: 'string',
       resourceOwnerId: 'number',
       securityToken: 'string',
+      shardCount: 'number',
       sourceBiz: 'string',
     };
   }
@@ -7569,108 +8187,6 @@ export class ModifyIntranetAttributeResponse extends $tea.Model {
       headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
       statusCode: 'number',
       body: ModifyIntranetAttributeResponseBody,
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class ModifyNodeSpecRequest extends $tea.Model {
-  autoPay?: boolean;
-  businessInfo?: string;
-  couponNo?: string;
-  instanceClass?: string;
-  instanceId?: string;
-  nodeId?: string;
-  orderType?: string;
-  ownerAccount?: string;
-  ownerId?: number;
-  resourceOwnerAccount?: string;
-  resourceOwnerId?: number;
-  securityToken?: string;
-  switchTimeMode?: string;
-  static names(): { [key: string]: string } {
-    return {
-      autoPay: 'AutoPay',
-      businessInfo: 'BusinessInfo',
-      couponNo: 'CouponNo',
-      instanceClass: 'InstanceClass',
-      instanceId: 'InstanceId',
-      nodeId: 'NodeId',
-      orderType: 'OrderType',
-      ownerAccount: 'OwnerAccount',
-      ownerId: 'OwnerId',
-      resourceOwnerAccount: 'ResourceOwnerAccount',
-      resourceOwnerId: 'ResourceOwnerId',
-      securityToken: 'SecurityToken',
-      switchTimeMode: 'SwitchTimeMode',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      autoPay: 'boolean',
-      businessInfo: 'string',
-      couponNo: 'string',
-      instanceClass: 'string',
-      instanceId: 'string',
-      nodeId: 'string',
-      orderType: 'string',
-      ownerAccount: 'string',
-      ownerId: 'number',
-      resourceOwnerAccount: 'string',
-      resourceOwnerId: 'number',
-      securityToken: 'string',
-      switchTimeMode: 'string',
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class ModifyNodeSpecResponseBody extends $tea.Model {
-  orderId?: number;
-  requestId?: string;
-  static names(): { [key: string]: string } {
-    return {
-      orderId: 'OrderId',
-      requestId: 'RequestId',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      orderId: 'number',
-      requestId: 'string',
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class ModifyNodeSpecResponse extends $tea.Model {
-  headers: { [key: string]: string };
-  statusCode: number;
-  body: ModifyNodeSpecResponseBody;
-  static names(): { [key: string]: string } {
-    return {
-      headers: 'headers',
-      statusCode: 'statusCode',
-      body: 'body',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
-      statusCode: 'number',
-      body: ModifyNodeSpecResponseBody,
     };
   }
 
@@ -8557,6 +9073,7 @@ export class RestoreInstanceRequest extends $tea.Model {
   restoreTime?: string;
   restoreType?: string;
   securityToken?: string;
+  timeShift?: string;
   static names(): { [key: string]: string } {
     return {
       backupId: 'BackupId',
@@ -8569,6 +9086,7 @@ export class RestoreInstanceRequest extends $tea.Model {
       restoreTime: 'RestoreTime',
       restoreType: 'RestoreType',
       securityToken: 'SecurityToken',
+      timeShift: 'TimeShift',
     };
   }
 
@@ -8584,6 +9102,7 @@ export class RestoreInstanceRequest extends $tea.Model {
       restoreTime: 'string',
       restoreType: 'string',
       securityToken: 'string',
+      timeShift: 'string',
     };
   }
 
@@ -9070,9 +9589,7 @@ export class TagResourcesResponse extends $tea.Model {
 
 export class TransformInstanceChargeTypeRequest extends $tea.Model {
   autoPay?: boolean;
-  businessInfo?: string;
   chargeType?: string;
-  couponNo?: string;
   instanceId?: string;
   ownerAccount?: string;
   ownerId?: number;
@@ -9083,9 +9600,7 @@ export class TransformInstanceChargeTypeRequest extends $tea.Model {
   static names(): { [key: string]: string } {
     return {
       autoPay: 'AutoPay',
-      businessInfo: 'BusinessInfo',
       chargeType: 'ChargeType',
-      couponNo: 'CouponNo',
       instanceId: 'InstanceId',
       ownerAccount: 'OwnerAccount',
       ownerId: 'OwnerId',
@@ -9099,9 +9614,7 @@ export class TransformInstanceChargeTypeRequest extends $tea.Model {
   static types(): { [key: string]: any } {
     return {
       autoPay: 'boolean',
-      businessInfo: 'string',
       chargeType: 'string',
-      couponNo: 'string',
       instanceId: 'string',
       ownerAccount: 'string',
       ownerId: 'number',
@@ -9344,6 +9857,34 @@ export class UntagResourcesResponse extends $tea.Model {
   }
 }
 
+export class CreateGlobalSecurityIPGroupResponseBodyGlobalSecurityIPGroup extends $tea.Model {
+  GIpList?: string;
+  globalIgName?: string;
+  globalSecurityGroupId?: string;
+  regionId?: string;
+  static names(): { [key: string]: string } {
+    return {
+      GIpList: 'GIpList',
+      globalIgName: 'GlobalIgName',
+      globalSecurityGroupId: 'GlobalSecurityGroupId',
+      regionId: 'RegionId',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      GIpList: 'string',
+      globalIgName: 'string',
+      globalSecurityGroupId: 'string',
+      regionId: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
 export class CreateInstanceRequestTag extends $tea.Model {
   key?: string;
   value?: string;
@@ -9377,6 +9918,28 @@ export class CreateInstancesResponseBodyInstanceIds extends $tea.Model {
   static types(): { [key: string]: any } {
     return {
       instanceId: { 'type': 'array', 'itemType': 'string' },
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class CreateTairInstanceRequestTag extends $tea.Model {
+  key?: string;
+  value?: string;
+  static names(): { [key: string]: string } {
+    return {
+      key: 'Key',
+      value: 'Value',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      key: 'string',
+      value: 'string',
     };
   }
 
@@ -9476,92 +10039,50 @@ export class DescribeAccountsResponseBodyAccounts extends $tea.Model {
   }
 }
 
-export class DescribeActiveOperationTasksResponseBodyItems extends $tea.Model {
-  allowCancel?: string;
-  allowChange?: string;
-  changeLevel?: string;
-  changeLevelEn?: string;
-  changeLevelZh?: string;
+export class DescribeActiveOperationTaskResponseBodyItems extends $tea.Model {
   createdTime?: string;
-  currentAVZ?: string;
   dbType?: string;
-  dbVersion?: string;
   deadline?: string;
   id?: number;
-  impactEn?: string;
-  impactZh?: string;
-  insComment?: string;
   insName?: string;
   modifiedTime?: string;
   prepareInterval?: string;
   region?: string;
-  resultInfo?: string;
   startTime?: string;
   status?: number;
-  subInsNames?: string[];
   switchTime?: string;
   taskType?: string;
-  taskTypeEn?: string;
-  taskTypeZh?: string;
   static names(): { [key: string]: string } {
     return {
-      allowCancel: 'AllowCancel',
-      allowChange: 'AllowChange',
-      changeLevel: 'ChangeLevel',
-      changeLevelEn: 'ChangeLevelEn',
-      changeLevelZh: 'ChangeLevelZh',
       createdTime: 'CreatedTime',
-      currentAVZ: 'CurrentAVZ',
       dbType: 'DbType',
-      dbVersion: 'DbVersion',
       deadline: 'Deadline',
       id: 'Id',
-      impactEn: 'ImpactEn',
-      impactZh: 'ImpactZh',
-      insComment: 'InsComment',
       insName: 'InsName',
       modifiedTime: 'ModifiedTime',
       prepareInterval: 'PrepareInterval',
       region: 'Region',
-      resultInfo: 'ResultInfo',
       startTime: 'StartTime',
       status: 'Status',
-      subInsNames: 'SubInsNames',
       switchTime: 'SwitchTime',
       taskType: 'TaskType',
-      taskTypeEn: 'TaskTypeEn',
-      taskTypeZh: 'TaskTypeZh',
     };
   }
 
   static types(): { [key: string]: any } {
     return {
-      allowCancel: 'string',
-      allowChange: 'string',
-      changeLevel: 'string',
-      changeLevelEn: 'string',
-      changeLevelZh: 'string',
       createdTime: 'string',
-      currentAVZ: 'string',
       dbType: 'string',
-      dbVersion: 'string',
       deadline: 'string',
       id: 'number',
-      impactEn: 'string',
-      impactZh: 'string',
-      insComment: 'string',
       insName: 'string',
       modifiedTime: 'string',
       prepareInterval: 'string',
       region: 'string',
-      resultInfo: 'string',
       startTime: 'string',
       status: 'number',
-      subInsNames: { 'type': 'array', 'itemType': 'string' },
       switchTime: 'string',
       taskType: 'string',
-      taskTypeEn: 'string',
-      taskTypeZh: 'string',
     };
   }
 
@@ -10010,6 +10531,80 @@ export class DescribeAvailableResourceResponseBodyAvailableZones extends $tea.Mo
   }
 }
 
+export class DescribeBackupPolicyResponseBodyAccessDeniedDetail extends $tea.Model {
+  authAction?: string;
+  authPrincipalDisplayName?: string;
+  authPrincipalOwnerId?: string;
+  authPrincipalType?: string;
+  encodedDiagnosticMessage?: string;
+  noPermissionType?: string;
+  policyType?: string;
+  static names(): { [key: string]: string } {
+    return {
+      authAction: 'AuthAction',
+      authPrincipalDisplayName: 'AuthPrincipalDisplayName',
+      authPrincipalOwnerId: 'AuthPrincipalOwnerId',
+      authPrincipalType: 'AuthPrincipalType',
+      encodedDiagnosticMessage: 'EncodedDiagnosticMessage',
+      noPermissionType: 'NoPermissionType',
+      policyType: 'PolicyType',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      authAction: 'string',
+      authPrincipalDisplayName: 'string',
+      authPrincipalOwnerId: 'string',
+      authPrincipalType: 'string',
+      encodedDiagnosticMessage: 'string',
+      noPermissionType: 'string',
+      policyType: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class DescribeBackupTasksResponseBodyAccessDeniedDetail extends $tea.Model {
+  authAction?: string;
+  authPrincipalDisplayName?: string;
+  authPrincipalOwnerId?: string;
+  authPrincipalType?: string;
+  encodedDiagnosticMessage?: string;
+  noPermissionType?: string;
+  policyType?: string;
+  static names(): { [key: string]: string } {
+    return {
+      authAction: 'AuthAction',
+      authPrincipalDisplayName: 'AuthPrincipalDisplayName',
+      authPrincipalOwnerId: 'AuthPrincipalOwnerId',
+      authPrincipalType: 'AuthPrincipalType',
+      encodedDiagnosticMessage: 'EncodedDiagnosticMessage',
+      noPermissionType: 'NoPermissionType',
+      policyType: 'PolicyType',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      authAction: 'string',
+      authPrincipalDisplayName: 'string',
+      authPrincipalOwnerId: 'string',
+      authPrincipalType: 'string',
+      encodedDiagnosticMessage: 'string',
+      noPermissionType: 'string',
+      policyType: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
 export class DescribeBackupTasksResponseBodyBackupJobs extends $tea.Model {
   backupJobID?: number;
   backupProgressStatus?: string;
@@ -10047,12 +10642,50 @@ export class DescribeBackupTasksResponseBodyBackupJobs extends $tea.Model {
   }
 }
 
+export class DescribeBackupsResponseBodyAccessDeniedDetail extends $tea.Model {
+  authAction?: string;
+  authPrincipalDisplayName?: string;
+  authPrincipalOwnerId?: string;
+  authPrincipalType?: string;
+  encodedDiagnosticMessage?: string;
+  noPermissionType?: string;
+  policyType?: string;
+  static names(): { [key: string]: string } {
+    return {
+      authAction: 'AuthAction',
+      authPrincipalDisplayName: 'AuthPrincipalDisplayName',
+      authPrincipalOwnerId: 'AuthPrincipalOwnerId',
+      authPrincipalType: 'AuthPrincipalType',
+      encodedDiagnosticMessage: 'EncodedDiagnosticMessage',
+      noPermissionType: 'NoPermissionType',
+      policyType: 'PolicyType',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      authAction: 'string',
+      authPrincipalDisplayName: 'string',
+      authPrincipalOwnerId: 'string',
+      authPrincipalType: 'string',
+      encodedDiagnosticMessage: 'string',
+      noPermissionType: 'string',
+      policyType: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
 export class DescribeBackupsResponseBodyBackupsBackup extends $tea.Model {
   backupDBNames?: string;
   backupDownloadURL?: string;
   backupEndTime?: string;
   backupId?: number;
   backupIntranetDownloadURL?: string;
+  backupJobID?: number;
   backupMethod?: string;
   backupMode?: string;
   backupSize?: number;
@@ -10068,6 +10701,7 @@ export class DescribeBackupsResponseBodyBackupsBackup extends $tea.Model {
       backupEndTime: 'BackupEndTime',
       backupId: 'BackupId',
       backupIntranetDownloadURL: 'BackupIntranetDownloadURL',
+      backupJobID: 'BackupJobID',
       backupMethod: 'BackupMethod',
       backupMode: 'BackupMode',
       backupSize: 'BackupSize',
@@ -10086,6 +10720,7 @@ export class DescribeBackupsResponseBodyBackupsBackup extends $tea.Model {
       backupEndTime: 'string',
       backupId: 'number',
       backupIntranetDownloadURL: 'string',
+      backupJobID: 'number',
       backupMethod: 'string',
       backupMode: 'string',
       backupSize: 'number',
@@ -10541,6 +11176,113 @@ export class DescribeGlobalDistributeCacheResponseBodyGlobalDistributeCaches ext
   }
 }
 
+export class DescribeGlobalSecurityIPGroupResponseBodyGlobalSecurityIPGroup extends $tea.Model {
+  DBInstances?: string[];
+  GIpList?: string;
+  globalIgName?: string;
+  globalSecurityGroupId?: string;
+  regionId?: string;
+  static names(): { [key: string]: string } {
+    return {
+      DBInstances: 'DBInstances',
+      GIpList: 'GIpList',
+      globalIgName: 'GlobalIgName',
+      globalSecurityGroupId: 'GlobalSecurityGroupId',
+      regionId: 'RegionId',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      DBInstances: { 'type': 'array', 'itemType': 'string' },
+      GIpList: 'string',
+      globalIgName: 'string',
+      globalSecurityGroupId: 'string',
+      regionId: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class DescribeHistoryTasksResponseBodyItems extends $tea.Model {
+  actionInfo?: string;
+  callerSource?: string;
+  callerUid?: string;
+  currentStepName?: string;
+  dbType?: string;
+  endTime?: string;
+  instanceId?: string;
+  instanceName?: string;
+  instanceType?: string;
+  product?: string;
+  progress?: number;
+  reasonCode?: string;
+  regionId?: string;
+  remainTime?: number;
+  startTime?: string;
+  status?: number;
+  taskDetail?: string;
+  taskId?: string;
+  taskType?: string;
+  uid?: string;
+  static names(): { [key: string]: string } {
+    return {
+      actionInfo: 'ActionInfo',
+      callerSource: 'CallerSource',
+      callerUid: 'CallerUid',
+      currentStepName: 'CurrentStepName',
+      dbType: 'DbType',
+      endTime: 'EndTime',
+      instanceId: 'InstanceId',
+      instanceName: 'InstanceName',
+      instanceType: 'InstanceType',
+      product: 'Product',
+      progress: 'Progress',
+      reasonCode: 'ReasonCode',
+      regionId: 'RegionId',
+      remainTime: 'RemainTime',
+      startTime: 'StartTime',
+      status: 'Status',
+      taskDetail: 'TaskDetail',
+      taskId: 'TaskId',
+      taskType: 'TaskType',
+      uid: 'Uid',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      actionInfo: 'string',
+      callerSource: 'string',
+      callerUid: 'string',
+      currentStepName: 'string',
+      dbType: 'string',
+      endTime: 'string',
+      instanceId: 'string',
+      instanceName: 'string',
+      instanceType: 'string',
+      product: 'string',
+      progress: 'number',
+      reasonCode: 'string',
+      regionId: 'string',
+      remainTime: 'number',
+      startTime: 'string',
+      status: 'number',
+      taskDetail: 'string',
+      taskId: 'string',
+      taskType: 'string',
+      uid: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
 export class DescribeInstanceAttributeResponseBodyInstancesDBInstanceAttributeTagsTag extends $tea.Model {
   key?: string;
   value?: string;
@@ -10606,7 +11348,9 @@ export class DescribeInstanceAttributeResponseBodyInstancesDBInstanceAttribute e
   instanceReleaseProtection?: boolean;
   instanceStatus?: string;
   instanceType?: string;
+  isOrderCompleted?: boolean;
   isRds?: boolean;
+  isSupportTDE?: boolean;
   maintainEndTime?: string;
   maintainStartTime?: string;
   networkType?: string;
@@ -10616,6 +11360,7 @@ export class DescribeInstanceAttributeResponseBodyInstancesDBInstanceAttribute e
   privateIp?: string;
   QPS?: number;
   readOnlyCount?: number;
+  realInstanceClass?: string;
   regionId?: string;
   replicaId?: string;
   replicationMode?: string;
@@ -10655,7 +11400,9 @@ export class DescribeInstanceAttributeResponseBodyInstancesDBInstanceAttribute e
       instanceReleaseProtection: 'InstanceReleaseProtection',
       instanceStatus: 'InstanceStatus',
       instanceType: 'InstanceType',
+      isOrderCompleted: 'IsOrderCompleted',
       isRds: 'IsRds',
+      isSupportTDE: 'IsSupportTDE',
       maintainEndTime: 'MaintainEndTime',
       maintainStartTime: 'MaintainStartTime',
       networkType: 'NetworkType',
@@ -10665,6 +11412,7 @@ export class DescribeInstanceAttributeResponseBodyInstancesDBInstanceAttribute e
       privateIp: 'PrivateIp',
       QPS: 'QPS',
       readOnlyCount: 'ReadOnlyCount',
+      realInstanceClass: 'RealInstanceClass',
       regionId: 'RegionId',
       replicaId: 'ReplicaId',
       replicationMode: 'ReplicationMode',
@@ -10707,7 +11455,9 @@ export class DescribeInstanceAttributeResponseBodyInstancesDBInstanceAttribute e
       instanceReleaseProtection: 'boolean',
       instanceStatus: 'string',
       instanceType: 'string',
+      isOrderCompleted: 'boolean',
       isRds: 'boolean',
+      isSupportTDE: 'boolean',
       maintainEndTime: 'string',
       maintainStartTime: 'string',
       networkType: 'string',
@@ -10717,6 +11467,7 @@ export class DescribeInstanceAttributeResponseBodyInstancesDBInstanceAttribute e
       privateIp: 'string',
       QPS: 'number',
       readOnlyCount: 'number',
+      realInstanceClass: 'string',
       regionId: 'string',
       replicaId: 'string',
       replicationMode: 'string',
@@ -10901,6 +11652,7 @@ export class DescribeInstancesResponseBodyInstancesKVStoreInstance extends $tea.
   replacateId?: string;
   resourceGroupId?: string;
   secondaryZoneId?: string;
+  shardClass?: string;
   shardCount?: number;
   tags?: DescribeInstancesResponseBodyInstancesKVStoreInstanceTags;
   userName?: string;
@@ -10941,6 +11693,7 @@ export class DescribeInstancesResponseBodyInstancesKVStoreInstance extends $tea.
       replacateId: 'ReplacateId',
       resourceGroupId: 'ResourceGroupId',
       secondaryZoneId: 'SecondaryZoneId',
+      shardClass: 'ShardClass',
       shardCount: 'ShardCount',
       tags: 'Tags',
       userName: 'UserName',
@@ -10984,6 +11737,7 @@ export class DescribeInstancesResponseBodyInstancesKVStoreInstance extends $tea.
       replacateId: 'string',
       resourceGroupId: 'string',
       secondaryZoneId: 'string',
+      shardClass: 'string',
       shardCount: 'number',
       tags: DescribeInstancesResponseBodyInstancesKVStoreInstanceTags,
       userName: 'string',
@@ -11035,6 +11789,7 @@ export class DescribeInstancesOverviewResponseBodyInstances extends $tea.Model {
   privateIp?: string;
   regionId?: string;
   resourceGroupId?: string;
+  secondaryZoneId?: string;
   vSwitchId?: string;
   vpcId?: string;
   zoneId?: string;
@@ -11057,6 +11812,7 @@ export class DescribeInstancesOverviewResponseBodyInstances extends $tea.Model {
       privateIp: 'PrivateIp',
       regionId: 'RegionId',
       resourceGroupId: 'ResourceGroupId',
+      secondaryZoneId: 'SecondaryZoneId',
       vSwitchId: 'VSwitchId',
       vpcId: 'VpcId',
       zoneId: 'ZoneId',
@@ -11082,6 +11838,7 @@ export class DescribeInstancesOverviewResponseBodyInstances extends $tea.Model {
       privateIp: 'string',
       regionId: 'string',
       resourceGroupId: 'string',
+      secondaryZoneId: 'string',
       vSwitchId: 'string',
       vpcId: 'string',
       zoneId: 'string',
@@ -11149,6 +11906,7 @@ export class DescribeLogicInstanceTopologyResponseBodyRedisShardListNodeInfo ext
   connection?: string;
   nodeId?: string;
   nodeType?: string;
+  subInstanceType?: string;
   static names(): { [key: string]: string } {
     return {
       bandwidth: 'Bandwidth',
@@ -11156,6 +11914,7 @@ export class DescribeLogicInstanceTopologyResponseBodyRedisShardListNodeInfo ext
       connection: 'Connection',
       nodeId: 'NodeId',
       nodeType: 'NodeType',
+      subInstanceType: 'SubInstanceType',
     };
   }
 
@@ -11166,6 +11925,7 @@ export class DescribeLogicInstanceTopologyResponseBodyRedisShardListNodeInfo ext
       connection: 'string',
       nodeId: 'string',
       nodeType: 'string',
+      subInstanceType: 'string',
     };
   }
 
@@ -11226,6 +11986,53 @@ export class DescribeMonitorItemsResponseBodyMonitorItems extends $tea.Model {
   static types(): { [key: string]: any } {
     return {
       KVStoreMonitorItem: { 'type': 'array', 'itemType': DescribeMonitorItemsResponseBodyMonitorItemsKVStoreMonitorItem },
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class DescribeParameterModificationHistoryResponseBodyHistoricalParametersHistoricalParameter extends $tea.Model {
+  modifyTime?: string;
+  newParameterValue?: string;
+  oldParameterValue?: string;
+  parameterName?: string;
+  static names(): { [key: string]: string } {
+    return {
+      modifyTime: 'ModifyTime',
+      newParameterValue: 'NewParameterValue',
+      oldParameterValue: 'OldParameterValue',
+      parameterName: 'ParameterName',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      modifyTime: 'string',
+      newParameterValue: 'string',
+      oldParameterValue: 'string',
+      parameterName: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class DescribeParameterModificationHistoryResponseBodyHistoricalParameters extends $tea.Model {
+  historicalParameter?: DescribeParameterModificationHistoryResponseBodyHistoricalParametersHistoricalParameter[];
+  static names(): { [key: string]: string } {
+    return {
+      historicalParameter: 'HistoricalParameter',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      historicalParameter: { 'type': 'array', 'itemType': DescribeParameterModificationHistoryResponseBodyHistoricalParametersHistoricalParameter },
     };
   }
 
@@ -12256,6 +13063,13 @@ export default class Client extends OpenApi {
     return EndpointUtil.getEndpointRules(productId, regionId, endpointRule, network, suffix);
   }
 
+  /**
+    * This operation is available only for cluster instances that use cloud disks.
+    *
+    * @param request AddShardingNodeRequest
+    * @param runtime runtime options for this request RuntimeOptions
+    * @return AddShardingNodeResponse
+   */
   async addShardingNodeWithOptions(request: AddShardingNodeRequest, runtime: $Util.RuntimeOptions): Promise<AddShardingNodeResponse> {
     Util.validateModel(request);
     let query = { };
@@ -12271,6 +13085,10 @@ export default class Client extends OpenApi {
       query["CouponNo"] = request.couponNo;
     }
 
+    if (!Util.isUnset(request.forceTrans)) {
+      query["ForceTrans"] = request.forceTrans;
+    }
+
     if (!Util.isUnset(request.instanceId)) {
       query["InstanceId"] = request.instanceId;
     }
@@ -12283,10 +13101,6 @@ export default class Client extends OpenApi {
       query["OwnerId"] = request.ownerId;
     }
 
-    if (!Util.isUnset(request.readOnlyCount)) {
-      query["ReadOnlyCount"] = request.readOnlyCount;
-    }
-
     if (!Util.isUnset(request.resourceOwnerAccount)) {
       query["ResourceOwnerAccount"] = request.resourceOwnerAccount;
     }
@@ -12297,10 +13111,6 @@ export default class Client extends OpenApi {
 
     if (!Util.isUnset(request.securityToken)) {
       query["SecurityToken"] = request.securityToken;
-    }
-
-    if (!Util.isUnset(request.shardClass)) {
-      query["ShardClass"] = request.shardClass;
     }
 
     if (!Util.isUnset(request.shardCount)) {
@@ -12328,11 +13138,24 @@ export default class Client extends OpenApi {
     return $tea.cast<AddShardingNodeResponse>(await this.callApi(params, req, runtime), new AddShardingNodeResponse({}));
   }
 
+  /**
+    * This operation is available only for cluster instances that use cloud disks.
+    *
+    * @param request AddShardingNodeRequest
+    * @return AddShardingNodeResponse
+   */
   async addShardingNode(request: AddShardingNodeRequest): Promise<AddShardingNodeResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.addShardingNodeWithOptions(request, runtime);
   }
 
+  /**
+    * The ID of the instance.
+    *
+    * @param request AllocateDirectConnectionRequest
+    * @param runtime runtime options for this request RuntimeOptions
+    * @return AllocateDirectConnectionResponse
+   */
   async allocateDirectConnectionWithOptions(request: AllocateDirectConnectionRequest, runtime: $Util.RuntimeOptions): Promise<AllocateDirectConnectionResponse> {
     Util.validateModel(request);
     let query = { };
@@ -12385,11 +13208,24 @@ export default class Client extends OpenApi {
     return $tea.cast<AllocateDirectConnectionResponse>(await this.callApi(params, req, runtime), new AllocateDirectConnectionResponse({}));
   }
 
+  /**
+    * The ID of the instance.
+    *
+    * @param request AllocateDirectConnectionRequest
+    * @return AllocateDirectConnectionResponse
+   */
   async allocateDirectConnection(request: AllocateDirectConnectionRequest): Promise<AllocateDirectConnectionResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.allocateDirectConnectionWithOptions(request, runtime);
   }
 
+  /**
+    * r-bp1zxszhcgatnx****
+    *
+    * @param request AllocateInstancePublicConnectionRequest
+    * @param runtime runtime options for this request RuntimeOptions
+    * @return AllocateInstancePublicConnectionResponse
+   */
   async allocateInstancePublicConnectionWithOptions(request: AllocateInstancePublicConnectionRequest, runtime: $Util.RuntimeOptions): Promise<AllocateInstancePublicConnectionResponse> {
     Util.validateModel(request);
     let query = { };
@@ -12442,11 +13278,24 @@ export default class Client extends OpenApi {
     return $tea.cast<AllocateInstancePublicConnectionResponse>(await this.callApi(params, req, runtime), new AllocateInstancePublicConnectionResponse({}));
   }
 
+  /**
+    * r-bp1zxszhcgatnx****
+    *
+    * @param request AllocateInstancePublicConnectionRequest
+    * @return AllocateInstancePublicConnectionResponse
+   */
   async allocateInstancePublicConnection(request: AllocateInstancePublicConnectionRequest): Promise<AllocateInstancePublicConnectionResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.allocateInstancePublicConnectionWithOptions(request, runtime);
   }
 
+  /**
+    * The operation that you want to perform. Set the value to **CheckCloudResourceAuthorized**.
+    *
+    * @param request CheckCloudResourceAuthorizedRequest
+    * @param runtime runtime options for this request RuntimeOptions
+    * @return CheckCloudResourceAuthorizedResponse
+   */
   async checkCloudResourceAuthorizedWithOptions(request: CheckCloudResourceAuthorizedRequest, runtime: $Util.RuntimeOptions): Promise<CheckCloudResourceAuthorizedResponse> {
     Util.validateModel(request);
     let query = { };
@@ -12495,11 +13344,24 @@ export default class Client extends OpenApi {
     return $tea.cast<CheckCloudResourceAuthorizedResponse>(await this.callApi(params, req, runtime), new CheckCloudResourceAuthorizedResponse({}));
   }
 
+  /**
+    * The operation that you want to perform. Set the value to **CheckCloudResourceAuthorized**.
+    *
+    * @param request CheckCloudResourceAuthorizedRequest
+    * @return CheckCloudResourceAuthorizedResponse
+   */
   async checkCloudResourceAuthorized(request: CheckCloudResourceAuthorizedRequest): Promise<CheckCloudResourceAuthorizedResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.checkCloudResourceAuthorizedWithOptions(request, runtime);
   }
 
+  /**
+    * The name of the account.
+    *
+    * @param request CreateAccountRequest
+    * @param runtime runtime options for this request RuntimeOptions
+    * @return CreateAccountResponse
+   */
   async createAccountWithOptions(request: CreateAccountRequest, runtime: $Util.RuntimeOptions): Promise<CreateAccountResponse> {
     Util.validateModel(request);
     let query = { };
@@ -12564,11 +13426,24 @@ export default class Client extends OpenApi {
     return $tea.cast<CreateAccountResponse>(await this.callApi(params, req, runtime), new CreateAccountResponse({}));
   }
 
+  /**
+    * The name of the account.
+    *
+    * @param request CreateAccountRequest
+    * @return CreateAccountResponse
+   */
   async createAccount(request: CreateAccountRequest): Promise<CreateAccountResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.createAccountWithOptions(request, runtime);
   }
 
+  /**
+    * The ID of the backup job.
+    *
+    * @param request CreateBackupRequest
+    * @param runtime runtime options for this request RuntimeOptions
+    * @return CreateBackupResponse
+   */
   async createBackupWithOptions(request: CreateBackupRequest, runtime: $Util.RuntimeOptions): Promise<CreateBackupResponse> {
     Util.validateModel(request);
     let query = { };
@@ -12613,11 +13488,24 @@ export default class Client extends OpenApi {
     return $tea.cast<CreateBackupResponse>(await this.callApi(params, req, runtime), new CreateBackupResponse({}));
   }
 
+  /**
+    * The ID of the backup job.
+    *
+    * @param request CreateBackupRequest
+    * @return CreateBackupResponse
+   */
   async createBackup(request: CreateBackupRequest): Promise<CreateBackupResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.createBackupWithOptions(request, runtime);
   }
 
+  /**
+    * The operation that you want to perform. Set the value to **CreateCacheAnalysisTask**.
+    *
+    * @param request CreateCacheAnalysisTaskRequest
+    * @param runtime runtime options for this request RuntimeOptions
+    * @return CreateCacheAnalysisTaskResponse
+   */
   async createCacheAnalysisTaskWithOptions(request: CreateCacheAnalysisTaskRequest, runtime: $Util.RuntimeOptions): Promise<CreateCacheAnalysisTaskResponse> {
     Util.validateModel(request);
     let query = { };
@@ -12662,11 +13550,27 @@ export default class Client extends OpenApi {
     return $tea.cast<CreateCacheAnalysisTaskResponse>(await this.callApi(params, req, runtime), new CreateCacheAnalysisTaskResponse({}));
   }
 
+  /**
+    * The operation that you want to perform. Set the value to **CreateCacheAnalysisTask**.
+    *
+    * @param request CreateCacheAnalysisTaskRequest
+    * @return CreateCacheAnalysisTaskResponse
+   */
   async createCacheAnalysisTask(request: CreateCacheAnalysisTaskRequest): Promise<CreateCacheAnalysisTaskResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.createCacheAnalysisTaskWithOptions(request, runtime);
   }
 
+  /**
+    * You cannot directly create a distributed instance. If you require a distributed instance, you must call this operation to convert an existing instance to the first child instance of the distributed instance. After the instance is converted, the distributed instance is created. Before you call this operation, make sure that the following requirements are met:
+    * *   A [DRAM-based instance](~~126164~~) of Enhanced Edition is used.
+    * *   If the existing instance is a cluster instance, the direct connection mode must be disabled for the instance. For more information, see [Release a private endpoint](~~150047~~).
+    * > You can also call the [CreateInstance](~~60873~~) operation to create an instance that is specified as the first child instance of a distributed instance. After the child instance is created, the distributed instance to which the child instance belongs is created.
+    *
+    * @param request CreateGlobalDistributeCacheRequest
+    * @param runtime runtime options for this request RuntimeOptions
+    * @return CreateGlobalDistributeCacheResponse
+   */
   async createGlobalDistributeCacheWithOptions(request: CreateGlobalDistributeCacheRequest, runtime: $Util.RuntimeOptions): Promise<CreateGlobalDistributeCacheResponse> {
     Util.validateModel(request);
     let query = { };
@@ -12676,6 +13580,10 @@ export default class Client extends OpenApi {
 
     if (!Util.isUnset(request.ownerId)) {
       query["OwnerId"] = request.ownerId;
+    }
+
+    if (!Util.isUnset(request.resourceGroupId)) {
+      query["ResourceGroupId"] = request.resourceGroupId;
     }
 
     if (!Util.isUnset(request.resourceOwnerAccount)) {
@@ -12711,14 +13619,97 @@ export default class Client extends OpenApi {
     return $tea.cast<CreateGlobalDistributeCacheResponse>(await this.callApi(params, req, runtime), new CreateGlobalDistributeCacheResponse({}));
   }
 
+  /**
+    * You cannot directly create a distributed instance. If you require a distributed instance, you must call this operation to convert an existing instance to the first child instance of the distributed instance. After the instance is converted, the distributed instance is created. Before you call this operation, make sure that the following requirements are met:
+    * *   A [DRAM-based instance](~~126164~~) of Enhanced Edition is used.
+    * *   If the existing instance is a cluster instance, the direct connection mode must be disabled for the instance. For more information, see [Release a private endpoint](~~150047~~).
+    * > You can also call the [CreateInstance](~~60873~~) operation to create an instance that is specified as the first child instance of a distributed instance. After the child instance is created, the distributed instance to which the child instance belongs is created.
+    *
+    * @param request CreateGlobalDistributeCacheRequest
+    * @return CreateGlobalDistributeCacheResponse
+   */
   async createGlobalDistributeCache(request: CreateGlobalDistributeCacheRequest): Promise<CreateGlobalDistributeCacheResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.createGlobalDistributeCacheWithOptions(request, runtime);
   }
 
+  async createGlobalSecurityIPGroupWithOptions(request: CreateGlobalSecurityIPGroupRequest, runtime: $Util.RuntimeOptions): Promise<CreateGlobalSecurityIPGroupResponse> {
+    Util.validateModel(request);
+    let query = { };
+    if (!Util.isUnset(request.GIpList)) {
+      query["GIpList"] = request.GIpList;
+    }
+
+    if (!Util.isUnset(request.globalIgName)) {
+      query["GlobalIgName"] = request.globalIgName;
+    }
+
+    if (!Util.isUnset(request.ownerAccount)) {
+      query["OwnerAccount"] = request.ownerAccount;
+    }
+
+    if (!Util.isUnset(request.ownerId)) {
+      query["OwnerId"] = request.ownerId;
+    }
+
+    if (!Util.isUnset(request.regionId)) {
+      query["RegionId"] = request.regionId;
+    }
+
+    if (!Util.isUnset(request.resourceGroupId)) {
+      query["ResourceGroupId"] = request.resourceGroupId;
+    }
+
+    if (!Util.isUnset(request.resourceOwnerAccount)) {
+      query["ResourceOwnerAccount"] = request.resourceOwnerAccount;
+    }
+
+    if (!Util.isUnset(request.resourceOwnerId)) {
+      query["ResourceOwnerId"] = request.resourceOwnerId;
+    }
+
+    if (!Util.isUnset(request.securityToken)) {
+      query["SecurityToken"] = request.securityToken;
+    }
+
+    let req = new $OpenApi.OpenApiRequest({
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApi.Params({
+      action: "CreateGlobalSecurityIPGroup",
+      version: "2015-01-01",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $tea.cast<CreateGlobalSecurityIPGroupResponse>(await this.callApi(params, req, runtime), new CreateGlobalSecurityIPGroupResponse({}));
+  }
+
+  async createGlobalSecurityIPGroup(request: CreateGlobalSecurityIPGroupRequest): Promise<CreateGlobalSecurityIPGroupResponse> {
+    let runtime = new $Util.RuntimeOptions({ });
+    return await this.createGlobalSecurityIPGroupWithOptions(request, runtime);
+  }
+
+  /**
+    * Before you call this operation, make sure that you are familiar with the billing methods and [pricing](~~54532~~) of ApsaraDB for Redis.
+    * You can call this operation to create an ApsaraDB for Redis instance that uses local or cloud disks or an ApsaraDB for Redis Enhanced Edition (Tair) DRAM-based instance that uses local disks. To create a Tair instance that uses cloud disks, call the [CreateTairInstance](~~208271~~) operation.
+    * > You can also create an instance in the ApsaraDB for Redis console. For more information, see [Create an instance](~~26351~~).
+    *
+    * @param request CreateInstanceRequest
+    * @param runtime runtime options for this request RuntimeOptions
+    * @return CreateInstanceResponse
+   */
   async createInstanceWithOptions(request: CreateInstanceRequest, runtime: $Util.RuntimeOptions): Promise<CreateInstanceResponse> {
     Util.validateModel(request);
     let query = { };
+    if (!Util.isUnset(request.appendonly)) {
+      query["Appendonly"] = request.appendonly;
+    }
+
     if (!Util.isUnset(request.autoRenew)) {
       query["AutoRenew"] = request.autoRenew;
     }
@@ -12747,6 +13738,10 @@ export default class Client extends OpenApi {
       query["ChargeType"] = request.chargeType;
     }
 
+    if (!Util.isUnset(request.connectionStringPrefix)) {
+      query["ConnectionStringPrefix"] = request.connectionStringPrefix;
+    }
+
     if (!Util.isUnset(request.couponNo)) {
       query["CouponNo"] = request.couponNo;
     }
@@ -12771,6 +13766,10 @@ export default class Client extends OpenApi {
       query["GlobalInstanceId"] = request.globalInstanceId;
     }
 
+    if (!Util.isUnset(request.globalSecurityGroupIds)) {
+      query["GlobalSecurityGroupIds"] = request.globalSecurityGroupIds;
+    }
+
     if (!Util.isUnset(request.instanceClass)) {
       query["InstanceClass"] = request.instanceClass;
     }
@@ -12785,6 +13784,10 @@ export default class Client extends OpenApi {
 
     if (!Util.isUnset(request.networkType)) {
       query["NetworkType"] = request.networkType;
+    }
+
+    if (!Util.isUnset(request.nodeType)) {
+      query["NodeType"] = request.nodeType;
     }
 
     if (!Util.isUnset(request.ownerAccount)) {
@@ -12809,6 +13812,10 @@ export default class Client extends OpenApi {
 
     if (!Util.isUnset(request.privateIpAddress)) {
       query["PrivateIpAddress"] = request.privateIpAddress;
+    }
+
+    if (!Util.isUnset(request.readOnlyCount)) {
+      query["ReadOnlyCount"] = request.readOnlyCount;
     }
 
     if (!Util.isUnset(request.regionId)) {
@@ -12884,11 +13891,28 @@ export default class Client extends OpenApi {
     return $tea.cast<CreateInstanceResponse>(await this.callApi(params, req, runtime), new CreateInstanceResponse({}));
   }
 
+  /**
+    * Before you call this operation, make sure that you are familiar with the billing methods and [pricing](~~54532~~) of ApsaraDB for Redis.
+    * You can call this operation to create an ApsaraDB for Redis instance that uses local or cloud disks or an ApsaraDB for Redis Enhanced Edition (Tair) DRAM-based instance that uses local disks. To create a Tair instance that uses cloud disks, call the [CreateTairInstance](~~208271~~) operation.
+    * > You can also create an instance in the ApsaraDB for Redis console. For more information, see [Create an instance](~~26351~~).
+    *
+    * @param request CreateInstanceRequest
+    * @return CreateInstanceResponse
+   */
   async createInstance(request: CreateInstanceRequest): Promise<CreateInstanceResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.createInstanceWithOptions(request, runtime);
   }
 
+  /**
+    * Before you call this operation, make sure that you understand the billing methods and [pricing](~~54532~~) of ApsaraDB for Redis.
+    * >  For more information about how to create an instance that meets your requirements in the ApsaraDB for Redis console, see [Step 1: Create an ApsaraDB for Redis instance](~~26351~~).
+    * To create an ApsaraDB for Redis Enhanced Edition (Tair) instance that uses cloud disks, call [CreateTairInstance](~~208271~~).
+    *
+    * @param request CreateInstancesRequest
+    * @param runtime runtime options for this request RuntimeOptions
+    * @return CreateInstancesResponse
+   */
   async createInstancesWithOptions(request: CreateInstancesRequest, runtime: $Util.RuntimeOptions): Promise<CreateInstancesResponse> {
     Util.validateModel(request);
     let query = { };
@@ -12965,11 +13989,30 @@ export default class Client extends OpenApi {
     return $tea.cast<CreateInstancesResponse>(await this.callApi(params, req, runtime), new CreateInstancesResponse({}));
   }
 
+  /**
+    * Before you call this operation, make sure that you understand the billing methods and [pricing](~~54532~~) of ApsaraDB for Redis.
+    * >  For more information about how to create an instance that meets your requirements in the ApsaraDB for Redis console, see [Step 1: Create an ApsaraDB for Redis instance](~~26351~~).
+    * To create an ApsaraDB for Redis Enhanced Edition (Tair) instance that uses cloud disks, call [CreateTairInstance](~~208271~~).
+    *
+    * @param request CreateInstancesRequest
+    * @return CreateInstancesResponse
+   */
   async createInstances(request: CreateInstancesRequest): Promise<CreateInstancesResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.createInstancesWithOptions(request, runtime);
   }
 
+  /**
+    * For more information about instance selection, see [Select an ApsaraDB for Redis instance](~~223808~~).
+    * Before you call this operation, make sure that you are familiar with the billing methods and [pricing](~~54532~~) of ApsaraDB for Redis.
+    * > 
+    * *   For more information about how to create an ApsaraDB for Redis Enhanced Edition (Tair) instance that uses cloud disks in the ApsaraDB for Redis console, see [Create an ApsaraDB for Redis instance](~~443863~~).
+    * *   To create an instance of another edition or series such as a Community Edition instance or Tair [DRAM-based instance](~~126164~~) that uses local disks, call [CreateInstance](~~60873~~).
+    *
+    * @param request CreateTairInstanceRequest
+    * @param runtime runtime options for this request RuntimeOptions
+    * @return CreateTairInstanceResponse
+   */
   async createTairInstanceWithOptions(request: CreateTairInstanceRequest, runtime: $Util.RuntimeOptions): Promise<CreateTairInstanceResponse> {
     Util.validateModel(request);
     let query = { };
@@ -13009,12 +14052,20 @@ export default class Client extends OpenApi {
       query["CouponNo"] = request.couponNo;
     }
 
+    if (!Util.isUnset(request.dryRun)) {
+      query["DryRun"] = request.dryRun;
+    }
+
     if (!Util.isUnset(request.engineVersion)) {
       query["EngineVersion"] = request.engineVersion;
     }
 
     if (!Util.isUnset(request.globalInstanceId)) {
       query["GlobalInstanceId"] = request.globalInstanceId;
+    }
+
+    if (!Util.isUnset(request.globalSecurityGroupIds)) {
+      query["GlobalSecurityGroupIds"] = request.globalSecurityGroupIds;
     }
 
     if (!Util.isUnset(request.instanceClass)) {
@@ -13037,6 +14088,10 @@ export default class Client extends OpenApi {
       query["OwnerId"] = request.ownerId;
     }
 
+    if (!Util.isUnset(request.paramGroupId)) {
+      query["ParamGroupId"] = request.paramGroupId;
+    }
+
     if (!Util.isUnset(request.password)) {
       query["Password"] = request.password;
     }
@@ -13045,8 +14100,16 @@ export default class Client extends OpenApi {
       query["Period"] = request.period;
     }
 
+    if (!Util.isUnset(request.port)) {
+      query["Port"] = request.port;
+    }
+
     if (!Util.isUnset(request.privateIpAddress)) {
       query["PrivateIpAddress"] = request.privateIpAddress;
+    }
+
+    if (!Util.isUnset(request.readOnlyCount)) {
+      query["ReadOnlyCount"] = request.readOnlyCount;
     }
 
     if (!Util.isUnset(request.regionId)) {
@@ -13093,6 +14156,10 @@ export default class Client extends OpenApi {
       query["StorageType"] = request.storageType;
     }
 
+    if (!Util.isUnset(request.tag)) {
+      query["Tag"] = request.tag;
+    }
+
     if (!Util.isUnset(request.vSwitchId)) {
       query["VSwitchId"] = request.vSwitchId;
     }
@@ -13122,11 +14189,29 @@ export default class Client extends OpenApi {
     return $tea.cast<CreateTairInstanceResponse>(await this.callApi(params, req, runtime), new CreateTairInstanceResponse({}));
   }
 
+  /**
+    * For more information about instance selection, see [Select an ApsaraDB for Redis instance](~~223808~~).
+    * Before you call this operation, make sure that you are familiar with the billing methods and [pricing](~~54532~~) of ApsaraDB for Redis.
+    * > 
+    * *   For more information about how to create an ApsaraDB for Redis Enhanced Edition (Tair) instance that uses cloud disks in the ApsaraDB for Redis console, see [Create an ApsaraDB for Redis instance](~~443863~~).
+    * *   To create an instance of another edition or series such as a Community Edition instance or Tair [DRAM-based instance](~~126164~~) that uses local disks, call [CreateInstance](~~60873~~).
+    *
+    * @param request CreateTairInstanceRequest
+    * @return CreateTairInstanceResponse
+   */
   async createTairInstance(request: CreateTairInstanceRequest): Promise<CreateTairInstanceResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.createTairInstanceWithOptions(request, runtime);
   }
 
+  /**
+    * *   This operation is supported only for ApsaraDB for Redis instances that run Redis 4.0.
+    * *   The ApsaraDB for Redis instance must be in the Running state.
+    *
+    * @param request DeleteAccountRequest
+    * @param runtime runtime options for this request RuntimeOptions
+    * @return DeleteAccountResponse
+   */
   async deleteAccountWithOptions(request: DeleteAccountRequest, runtime: $Util.RuntimeOptions): Promise<DeleteAccountResponse> {
     Util.validateModel(request);
     let query = { };
@@ -13175,11 +14260,29 @@ export default class Client extends OpenApi {
     return $tea.cast<DeleteAccountResponse>(await this.callApi(params, req, runtime), new DeleteAccountResponse({}));
   }
 
+  /**
+    * *   This operation is supported only for ApsaraDB for Redis instances that run Redis 4.0.
+    * *   The ApsaraDB for Redis instance must be in the Running state.
+    *
+    * @param request DeleteAccountRequest
+    * @return DeleteAccountResponse
+   */
   async deleteAccount(request: DeleteAccountRequest): Promise<DeleteAccountResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.deleteAccountWithOptions(request, runtime);
   }
 
+  /**
+    * For more information about how to perform the corresponding operation in the console, see [Release an instance](~~43882~~).
+    * Before you call this operation, make sure that the following requirements are met:
+    * *   The instance is in the running state.
+    * *   The instance is charged on a pay-as-you-go basis.
+    * >  You cannot call this operation to release a subscription instance, which is automatically released when it expires. To release a subscription instance before it expires, submit a ticket.
+    *
+    * @param request DeleteInstanceRequest
+    * @param runtime runtime options for this request RuntimeOptions
+    * @return DeleteInstanceResponse
+   */
   async deleteInstanceWithOptions(request: DeleteInstanceRequest, runtime: $Util.RuntimeOptions): Promise<DeleteInstanceResponse> {
     Util.validateModel(request);
     let query = { };
@@ -13228,14 +14331,38 @@ export default class Client extends OpenApi {
     return $tea.cast<DeleteInstanceResponse>(await this.callApi(params, req, runtime), new DeleteInstanceResponse({}));
   }
 
+  /**
+    * For more information about how to perform the corresponding operation in the console, see [Release an instance](~~43882~~).
+    * Before you call this operation, make sure that the following requirements are met:
+    * *   The instance is in the running state.
+    * *   The instance is charged on a pay-as-you-go basis.
+    * >  You cannot call this operation to release a subscription instance, which is automatically released when it expires. To release a subscription instance before it expires, submit a ticket.
+    *
+    * @param request DeleteInstanceRequest
+    * @return DeleteInstanceResponse
+   */
   async deleteInstance(request: DeleteInstanceRequest): Promise<DeleteInstanceResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.deleteInstanceWithOptions(request, runtime);
   }
 
+  /**
+    * You can also remove data shards from an instance in the ApsaraDB for Redis console. For more information, see [Adjust the number of shards for an ApsaraDB for Redis instance with cloud disks](~~198082~~).\\
+    * Before you call this operation, make sure that the instance meets the following requirements:
+    * *   The instance is a persistent memory-optimized instance in the cluster architecture. For more information about persistent memory-optimized instances, see [Persistent memory-optimized instances](~~183956~~).
+    * *   The instance has more than one data shard.
+    *
+    * @param request DeleteShardingNodeRequest
+    * @param runtime runtime options for this request RuntimeOptions
+    * @return DeleteShardingNodeResponse
+   */
   async deleteShardingNodeWithOptions(request: DeleteShardingNodeRequest, runtime: $Util.RuntimeOptions): Promise<DeleteShardingNodeResponse> {
     Util.validateModel(request);
     let query = { };
+    if (!Util.isUnset(request.forceTrans)) {
+      query["ForceTrans"] = request.forceTrans;
+    }
+
     if (!Util.isUnset(request.instanceId)) {
       query["InstanceId"] = request.instanceId;
     }
@@ -13250,10 +14377,6 @@ export default class Client extends OpenApi {
 
     if (!Util.isUnset(request.ownerId)) {
       query["OwnerId"] = request.ownerId;
-    }
-
-    if (!Util.isUnset(request.readOnlyCount)) {
-      query["ReadOnlyCount"] = request.readOnlyCount;
     }
 
     if (!Util.isUnset(request.resourceOwnerAccount)) {
@@ -13289,11 +14412,27 @@ export default class Client extends OpenApi {
     return $tea.cast<DeleteShardingNodeResponse>(await this.callApi(params, req, runtime), new DeleteShardingNodeResponse({}));
   }
 
+  /**
+    * You can also remove data shards from an instance in the ApsaraDB for Redis console. For more information, see [Adjust the number of shards for an ApsaraDB for Redis instance with cloud disks](~~198082~~).\\
+    * Before you call this operation, make sure that the instance meets the following requirements:
+    * *   The instance is a persistent memory-optimized instance in the cluster architecture. For more information about persistent memory-optimized instances, see [Persistent memory-optimized instances](~~183956~~).
+    * *   The instance has more than one data shard.
+    *
+    * @param request DeleteShardingNodeRequest
+    * @return DeleteShardingNodeResponse
+   */
   async deleteShardingNode(request: DeleteShardingNodeRequest): Promise<DeleteShardingNodeResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.deleteShardingNodeWithOptions(request, runtime);
   }
 
+  /**
+    * Details about returned accounts of the instance.
+    *
+    * @param request DescribeAccountsRequest
+    * @param runtime runtime options for this request RuntimeOptions
+    * @return DescribeAccountsResponse
+   */
   async describeAccountsWithOptions(request: DescribeAccountsRequest, runtime: $Util.RuntimeOptions): Promise<DescribeAccountsResponse> {
     Util.validateModel(request);
     let query = { };
@@ -13342,32 +14481,31 @@ export default class Client extends OpenApi {
     return $tea.cast<DescribeAccountsResponse>(await this.callApi(params, req, runtime), new DescribeAccountsResponse({}));
   }
 
+  /**
+    * Details about returned accounts of the instance.
+    *
+    * @param request DescribeAccountsRequest
+    * @return DescribeAccountsResponse
+   */
   async describeAccounts(request: DescribeAccountsRequest): Promise<DescribeAccountsResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.describeAccountsWithOptions(request, runtime);
   }
 
-  async describeActiveOperationTasksWithOptions(request: DescribeActiveOperationTasksRequest, runtime: $Util.RuntimeOptions): Promise<DescribeActiveOperationTasksResponse> {
+  /**
+    * Specifies whether to return the historical tasks. Valid values:
+    * *   **0**: returns the current task. This is the default value.
+    * *   **1**: returns the historical tasks.
+    *
+    * @param request DescribeActiveOperationTaskRequest
+    * @param runtime runtime options for this request RuntimeOptions
+    * @return DescribeActiveOperationTaskResponse
+   */
+  async describeActiveOperationTaskWithOptions(request: DescribeActiveOperationTaskRequest, runtime: $Util.RuntimeOptions): Promise<DescribeActiveOperationTaskResponse> {
     Util.validateModel(request);
     let query = { };
-    if (!Util.isUnset(request.allowCancel)) {
-      query["AllowCancel"] = request.allowCancel;
-    }
-
-    if (!Util.isUnset(request.allowChange)) {
-      query["AllowChange"] = request.allowChange;
-    }
-
-    if (!Util.isUnset(request.changeLevel)) {
-      query["ChangeLevel"] = request.changeLevel;
-    }
-
-    if (!Util.isUnset(request.dbType)) {
-      query["DbType"] = request.dbType;
-    }
-
-    if (!Util.isUnset(request.insName)) {
-      query["InsName"] = request.insName;
+    if (!Util.isUnset(request.isHistory)) {
+      query["IsHistory"] = request.isHistory;
     }
 
     if (!Util.isUnset(request.ownerAccount)) {
@@ -13386,8 +14524,8 @@ export default class Client extends OpenApi {
       query["PageSize"] = request.pageSize;
     }
 
-    if (!Util.isUnset(request.productId)) {
-      query["ProductId"] = request.productId;
+    if (!Util.isUnset(request.region)) {
+      query["Region"] = request.region;
     }
 
     if (!Util.isUnset(request.resourceOwnerAccount)) {
@@ -13402,10 +14540,6 @@ export default class Client extends OpenApi {
       query["SecurityToken"] = request.securityToken;
     }
 
-    if (!Util.isUnset(request.status)) {
-      query["Status"] = request.status;
-    }
-
     if (!Util.isUnset(request.taskType)) {
       query["TaskType"] = request.taskType;
     }
@@ -13414,7 +14548,7 @@ export default class Client extends OpenApi {
       query: OpenApiUtil.query(query),
     });
     let params = new $OpenApi.Params({
-      action: "DescribeActiveOperationTasks",
+      action: "DescribeActiveOperationTask",
       version: "2015-01-01",
       protocol: "HTTPS",
       pathname: "/",
@@ -13424,14 +14558,33 @@ export default class Client extends OpenApi {
       reqBodyType: "formData",
       bodyType: "json",
     });
-    return $tea.cast<DescribeActiveOperationTasksResponse>(await this.callApi(params, req, runtime), new DescribeActiveOperationTasksResponse({}));
+    return $tea.cast<DescribeActiveOperationTaskResponse>(await this.callApi(params, req, runtime), new DescribeActiveOperationTaskResponse({}));
   }
 
-  async describeActiveOperationTasks(request: DescribeActiveOperationTasksRequest): Promise<DescribeActiveOperationTasksResponse> {
+  /**
+    * Specifies whether to return the historical tasks. Valid values:
+    * *   **0**: returns the current task. This is the default value.
+    * *   **1**: returns the historical tasks.
+    *
+    * @param request DescribeActiveOperationTaskRequest
+    * @return DescribeActiveOperationTaskResponse
+   */
+  async describeActiveOperationTask(request: DescribeActiveOperationTaskRequest): Promise<DescribeActiveOperationTaskResponse> {
     let runtime = new $Util.RuntimeOptions({ });
-    return await this.describeActiveOperationTasksWithOptions(request, runtime);
+    return await this.describeActiveOperationTaskWithOptions(request, runtime);
   }
 
+  /**
+    * >  You can call the [ModifyAuditLogConfig](~~130206~~) operation to enable or disable the audit log feature for an ApsaraDB for Redis instance. For more information, see [Enable the new audit log feature](~~102015~~).
+    * Before you call this API operation, make sure that the ApsaraDB for Redis instance meets the following requirements:
+    * *   The instance is an instance of the ApsaraDB for Redis Community Edition or a performance-enhanced instance of the ApsaraDB for Redis Enhanced Edition (Tair). For more information, see [Performance-enhanced instances](~~126164~~).
+    * *   The engine version of the instance is Redis 4.0 or later, and the latest minor version is used. You can call the [DescribeEngineVersion](~~95268~~) operation to check whether the instance uses the latest major version and minor version.
+    * *   The audit log feature is enabled for the instance. For more information, see [ModifyAuditLogConfig](~~130206~~).
+    *
+    * @param request DescribeAuditLogConfigRequest
+    * @param runtime runtime options for this request RuntimeOptions
+    * @return DescribeAuditLogConfigResponse
+   */
   async describeAuditLogConfigWithOptions(request: DescribeAuditLogConfigRequest, runtime: $Util.RuntimeOptions): Promise<DescribeAuditLogConfigResponse> {
     Util.validateModel(request);
     let query = { };
@@ -13480,11 +14633,32 @@ export default class Client extends OpenApi {
     return $tea.cast<DescribeAuditLogConfigResponse>(await this.callApi(params, req, runtime), new DescribeAuditLogConfigResponse({}));
   }
 
+  /**
+    * >  You can call the [ModifyAuditLogConfig](~~130206~~) operation to enable or disable the audit log feature for an ApsaraDB for Redis instance. For more information, see [Enable the new audit log feature](~~102015~~).
+    * Before you call this API operation, make sure that the ApsaraDB for Redis instance meets the following requirements:
+    * *   The instance is an instance of the ApsaraDB for Redis Community Edition or a performance-enhanced instance of the ApsaraDB for Redis Enhanced Edition (Tair). For more information, see [Performance-enhanced instances](~~126164~~).
+    * *   The engine version of the instance is Redis 4.0 or later, and the latest minor version is used. You can call the [DescribeEngineVersion](~~95268~~) operation to check whether the instance uses the latest major version and minor version.
+    * *   The audit log feature is enabled for the instance. For more information, see [ModifyAuditLogConfig](~~130206~~).
+    *
+    * @param request DescribeAuditLogConfigRequest
+    * @return DescribeAuditLogConfigResponse
+   */
   async describeAuditLogConfig(request: DescribeAuditLogConfigRequest): Promise<DescribeAuditLogConfigResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.describeAuditLogConfigWithOptions(request, runtime);
   }
 
+  /**
+    * This operation can be called up to 100 times per minute. You can also query audit logs in the ApsaraDB for Redis console. For more information, see [Query audit logs of an instance](~~101937~~).
+    * Before you call this operation, make sure that the instance meets the following requirements:
+    * *   The instance is an ApsaraDB for Redis Community Edition instance or an ApsaraDB for Redis Enhanced Edition (Tair) DRAM-based instance.
+    * *   The engine version of the instance is Redis 4.0 or later.
+    * *   The audit log feature is enabled for the instance. For more information, see [ModifyAuditLogConfig](~~130206~~).
+    *
+    * @param request DescribeAuditRecordsRequest
+    * @param runtime runtime options for this request RuntimeOptions
+    * @return DescribeAuditRecordsResponse
+   */
   async describeAuditRecordsWithOptions(request: DescribeAuditRecordsRequest, runtime: $Util.RuntimeOptions): Promise<DescribeAuditRecordsResponse> {
     Util.validateModel(request);
     let query = { };
@@ -13565,6 +14739,16 @@ export default class Client extends OpenApi {
     return $tea.cast<DescribeAuditRecordsResponse>(await this.callApi(params, req, runtime), new DescribeAuditRecordsResponse({}));
   }
 
+  /**
+    * This operation can be called up to 100 times per minute. You can also query audit logs in the ApsaraDB for Redis console. For more information, see [Query audit logs of an instance](~~101937~~).
+    * Before you call this operation, make sure that the instance meets the following requirements:
+    * *   The instance is an ApsaraDB for Redis Community Edition instance or an ApsaraDB for Redis Enhanced Edition (Tair) DRAM-based instance.
+    * *   The engine version of the instance is Redis 4.0 or later.
+    * *   The audit log feature is enabled for the instance. For more information, see [ModifyAuditLogConfig](~~130206~~).
+    *
+    * @param request DescribeAuditRecordsRequest
+    * @return DescribeAuditRecordsResponse
+   */
   async describeAuditRecords(request: DescribeAuditRecordsRequest): Promise<DescribeAuditRecordsResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.describeAuditRecordsWithOptions(request, runtime);
@@ -13587,6 +14771,10 @@ export default class Client extends OpenApi {
 
     if (!Util.isUnset(request.instanceId)) {
       query["InstanceId"] = request.instanceId;
+    }
+
+    if (!Util.isUnset(request.instanceScene)) {
+      query["InstanceScene"] = request.instanceScene;
     }
 
     if (!Util.isUnset(request.nodeId)) {
@@ -13834,6 +15022,13 @@ export default class Client extends OpenApi {
     return await this.describeBackupsWithOptions(request, runtime);
   }
 
+  /**
+    * The number of entries returned on the current page.
+    *
+    * @param request DescribeCacheAnalysisReportRequest
+    * @param runtime runtime options for this request RuntimeOptions
+    * @return DescribeCacheAnalysisReportResponse
+   */
   async describeCacheAnalysisReportWithOptions(request: DescribeCacheAnalysisReportRequest, runtime: $Util.RuntimeOptions): Promise<DescribeCacheAnalysisReportResponse> {
     Util.validateModel(request);
     let query = { };
@@ -13898,11 +15093,24 @@ export default class Client extends OpenApi {
     return $tea.cast<DescribeCacheAnalysisReportResponse>(await this.callApi(params, req, runtime), new DescribeCacheAnalysisReportResponse({}));
   }
 
+  /**
+    * The number of entries returned on the current page.
+    *
+    * @param request DescribeCacheAnalysisReportRequest
+    * @return DescribeCacheAnalysisReportResponse
+   */
   async describeCacheAnalysisReport(request: DescribeCacheAnalysisReportRequest): Promise<DescribeCacheAnalysisReportResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.describeCacheAnalysisReportWithOptions(request, runtime);
   }
 
+  /**
+    * The operation that you want to perform. Set the value to **DescribeCacheAnalysisReportList**.
+    *
+    * @param request DescribeCacheAnalysisReportListRequest
+    * @param runtime runtime options for this request RuntimeOptions
+    * @return DescribeCacheAnalysisReportListResponse
+   */
   async describeCacheAnalysisReportListWithOptions(request: DescribeCacheAnalysisReportListRequest, runtime: $Util.RuntimeOptions): Promise<DescribeCacheAnalysisReportListResponse> {
     Util.validateModel(request);
     let query = { };
@@ -13963,11 +15171,24 @@ export default class Client extends OpenApi {
     return $tea.cast<DescribeCacheAnalysisReportListResponse>(await this.callApi(params, req, runtime), new DescribeCacheAnalysisReportListResponse({}));
   }
 
+  /**
+    * The operation that you want to perform. Set the value to **DescribeCacheAnalysisReportList**.
+    *
+    * @param request DescribeCacheAnalysisReportListRequest
+    * @return DescribeCacheAnalysisReportListResponse
+   */
   async describeCacheAnalysisReportList(request: DescribeCacheAnalysisReportListRequest): Promise<DescribeCacheAnalysisReportListResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.describeCacheAnalysisReportListWithOptions(request, runtime);
   }
 
+  /**
+    * > This API operation is applicable only to ApsaraDB for Redis instances that use [cloud disks](~~188068~~) and the [cluster architecture](~~52228~~).
+    *
+    * @param request DescribeClusterMemberInfoRequest
+    * @param runtime runtime options for this request RuntimeOptions
+    * @return DescribeClusterMemberInfoResponse
+   */
   async describeClusterMemberInfoWithOptions(request: DescribeClusterMemberInfoRequest, runtime: $Util.RuntimeOptions): Promise<DescribeClusterMemberInfoResponse> {
     Util.validateModel(request);
     let query = { };
@@ -14020,6 +15241,12 @@ export default class Client extends OpenApi {
     return $tea.cast<DescribeClusterMemberInfoResponse>(await this.callApi(params, req, runtime), new DescribeClusterMemberInfoResponse({}));
   }
 
+  /**
+    * > This API operation is applicable only to ApsaraDB for Redis instances that use [cloud disks](~~188068~~) and the [cluster architecture](~~52228~~).
+    *
+    * @param request DescribeClusterMemberInfoRequest
+    * @return DescribeClusterMemberInfoResponse
+   */
   async describeClusterMemberInfo(request: DescribeClusterMemberInfoRequest): Promise<DescribeClusterMemberInfoResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.describeClusterMemberInfoWithOptions(request, runtime);
@@ -14074,6 +15301,13 @@ export default class Client extends OpenApi {
     return await this.describeDBInstanceNetInfoWithOptions(request, runtime);
   }
 
+  /**
+    * > If you want to query the information about ApsaraDB for Redis instances that are not deployed in a dedicated cluster, call the [DescribeInstanceAttribute](~~60996~~) operation.
+    *
+    * @param request DescribeDedicatedClusterInstanceListRequest
+    * @param runtime runtime options for this request RuntimeOptions
+    * @return DescribeDedicatedClusterInstanceListResponse
+   */
   async describeDedicatedClusterInstanceListWithOptions(request: DescribeDedicatedClusterInstanceListRequest, runtime: $Util.RuntimeOptions): Promise<DescribeDedicatedClusterInstanceListResponse> {
     Util.validateModel(request);
     let query = { };
@@ -14158,11 +15392,25 @@ export default class Client extends OpenApi {
     return $tea.cast<DescribeDedicatedClusterInstanceListResponse>(await this.callApi(params, req, runtime), new DescribeDedicatedClusterInstanceListResponse({}));
   }
 
+  /**
+    * > If you want to query the information about ApsaraDB for Redis instances that are not deployed in a dedicated cluster, call the [DescribeInstanceAttribute](~~60996~~) operation.
+    *
+    * @param request DescribeDedicatedClusterInstanceListRequest
+    * @return DescribeDedicatedClusterInstanceListResponse
+   */
   async describeDedicatedClusterInstanceList(request: DescribeDedicatedClusterInstanceListRequest): Promise<DescribeDedicatedClusterInstanceListResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.describeDedicatedClusterInstanceListWithOptions(request, runtime);
   }
 
+  /**
+    * Before you call this operation, TDE must be enabled for the ApsaraDB for Redis instance by using a custom key. For more information, see [ModifyInstanceTDE](~~302337~~).
+    * > For more information about TDE, see [Enable TDE](~~265913~~).
+    *
+    * @param request DescribeEncryptionKeyRequest
+    * @param runtime runtime options for this request RuntimeOptions
+    * @return DescribeEncryptionKeyResponse
+   */
   async describeEncryptionKeyWithOptions(request: DescribeEncryptionKeyRequest, runtime: $Util.RuntimeOptions): Promise<DescribeEncryptionKeyResponse> {
     Util.validateModel(request);
     let query = { };
@@ -14211,11 +15459,25 @@ export default class Client extends OpenApi {
     return $tea.cast<DescribeEncryptionKeyResponse>(await this.callApi(params, req, runtime), new DescribeEncryptionKeyResponse({}));
   }
 
+  /**
+    * Before you call this operation, TDE must be enabled for the ApsaraDB for Redis instance by using a custom key. For more information, see [ModifyInstanceTDE](~~302337~~).
+    * > For more information about TDE, see [Enable TDE](~~265913~~).
+    *
+    * @param request DescribeEncryptionKeyRequest
+    * @return DescribeEncryptionKeyResponse
+   */
   async describeEncryptionKey(request: DescribeEncryptionKeyRequest): Promise<DescribeEncryptionKeyResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.describeEncryptionKeyWithOptions(request, runtime);
   }
 
+  /**
+    * The ID of the request.
+    *
+    * @param request DescribeEncryptionKeyListRequest
+    * @param runtime runtime options for this request RuntimeOptions
+    * @return DescribeEncryptionKeyListResponse
+   */
   async describeEncryptionKeyListWithOptions(request: DescribeEncryptionKeyListRequest, runtime: $Util.RuntimeOptions): Promise<DescribeEncryptionKeyListResponse> {
     Util.validateModel(request);
     let query = { };
@@ -14260,6 +15522,12 @@ export default class Client extends OpenApi {
     return $tea.cast<DescribeEncryptionKeyListResponse>(await this.callApi(params, req, runtime), new DescribeEncryptionKeyListResponse({}));
   }
 
+  /**
+    * The ID of the request.
+    *
+    * @param request DescribeEncryptionKeyListRequest
+    * @return DescribeEncryptionKeyListResponse
+   */
   async describeEncryptionKeyList(request: DescribeEncryptionKeyListRequest): Promise<DescribeEncryptionKeyListResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.describeEncryptionKeyListWithOptions(request, runtime);
@@ -14375,6 +15643,38 @@ export default class Client extends OpenApi {
     return await this.describeGlobalDistributeCacheWithOptions(request, runtime);
   }
 
+  async describeGlobalSecurityIPGroupWithOptions(request: DescribeGlobalSecurityIPGroupRequest, runtime: $Util.RuntimeOptions): Promise<DescribeGlobalSecurityIPGroupResponse> {
+    Util.validateModel(request);
+    let query = OpenApiUtil.query(Util.toMap(request));
+    let req = new $OpenApi.OpenApiRequest({
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApi.Params({
+      action: "DescribeGlobalSecurityIPGroup",
+      version: "2015-01-01",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "GET",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $tea.cast<DescribeGlobalSecurityIPGroupResponse>(await this.callApi(params, req, runtime), new DescribeGlobalSecurityIPGroupResponse({}));
+  }
+
+  async describeGlobalSecurityIPGroup(request: DescribeGlobalSecurityIPGroupRequest): Promise<DescribeGlobalSecurityIPGroupResponse> {
+    let runtime = new $Util.RuntimeOptions({ });
+    return await this.describeGlobalSecurityIPGroupWithOptions(request, runtime);
+  }
+
+  /**
+    * You can also query the performance monitoring data of an instance in the ApsaraDB for Redis console. For more information, see [Metrics](~~43887~~).
+    *
+    * @param request DescribeHistoryMonitorValuesRequest
+    * @param runtime runtime options for this request RuntimeOptions
+    * @return DescribeHistoryMonitorValuesResponse
+   */
   async describeHistoryMonitorValuesWithOptions(request: DescribeHistoryMonitorValuesRequest, runtime: $Util.RuntimeOptions): Promise<DescribeHistoryMonitorValuesResponse> {
     Util.validateModel(request);
     let query = { };
@@ -14439,9 +15739,100 @@ export default class Client extends OpenApi {
     return $tea.cast<DescribeHistoryMonitorValuesResponse>(await this.callApi(params, req, runtime), new DescribeHistoryMonitorValuesResponse({}));
   }
 
+  /**
+    * You can also query the performance monitoring data of an instance in the ApsaraDB for Redis console. For more information, see [Metrics](~~43887~~).
+    *
+    * @param request DescribeHistoryMonitorValuesRequest
+    * @return DescribeHistoryMonitorValuesResponse
+   */
   async describeHistoryMonitorValues(request: DescribeHistoryMonitorValuesRequest): Promise<DescribeHistoryMonitorValuesResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.describeHistoryMonitorValuesWithOptions(request, runtime);
+  }
+
+  async describeHistoryTasksWithOptions(request: DescribeHistoryTasksRequest, runtime: $Util.RuntimeOptions): Promise<DescribeHistoryTasksResponse> {
+    Util.validateModel(request);
+    let query = { };
+    if (!Util.isUnset(request.fromExecTime)) {
+      query["FromExecTime"] = request.fromExecTime;
+    }
+
+    if (!Util.isUnset(request.fromStartTime)) {
+      query["FromStartTime"] = request.fromStartTime;
+    }
+
+    if (!Util.isUnset(request.instanceId)) {
+      query["InstanceId"] = request.instanceId;
+    }
+
+    if (!Util.isUnset(request.instanceType)) {
+      query["InstanceType"] = request.instanceType;
+    }
+
+    if (!Util.isUnset(request.pageNumber)) {
+      query["PageNumber"] = request.pageNumber;
+    }
+
+    if (!Util.isUnset(request.pageSize)) {
+      query["PageSize"] = request.pageSize;
+    }
+
+    if (!Util.isUnset(request.regionId)) {
+      query["RegionId"] = request.regionId;
+    }
+
+    if (!Util.isUnset(request.resourceOwnerAccount)) {
+      query["ResourceOwnerAccount"] = request.resourceOwnerAccount;
+    }
+
+    if (!Util.isUnset(request.resourceOwnerId)) {
+      query["ResourceOwnerId"] = request.resourceOwnerId;
+    }
+
+    if (!Util.isUnset(request.securityToken)) {
+      query["SecurityToken"] = request.securityToken;
+    }
+
+    if (!Util.isUnset(request.status)) {
+      query["Status"] = request.status;
+    }
+
+    if (!Util.isUnset(request.taskId)) {
+      query["TaskId"] = request.taskId;
+    }
+
+    if (!Util.isUnset(request.taskType)) {
+      query["TaskType"] = request.taskType;
+    }
+
+    if (!Util.isUnset(request.toExecTime)) {
+      query["ToExecTime"] = request.toExecTime;
+    }
+
+    if (!Util.isUnset(request.toStartTime)) {
+      query["ToStartTime"] = request.toStartTime;
+    }
+
+    let req = new $OpenApi.OpenApiRequest({
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApi.Params({
+      action: "DescribeHistoryTasks",
+      version: "2015-01-01",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $tea.cast<DescribeHistoryTasksResponse>(await this.callApi(params, req, runtime), new DescribeHistoryTasksResponse({}));
+  }
+
+  async describeHistoryTasks(request: DescribeHistoryTasksRequest): Promise<DescribeHistoryTasksResponse> {
+    let runtime = new $Util.RuntimeOptions({ });
+    return await this.describeHistoryTasksWithOptions(request, runtime);
   }
 
   async describeInstanceAttributeWithOptions(request: DescribeInstanceAttributeRequest, runtime: $Util.RuntimeOptions): Promise<DescribeInstanceAttributeResponse> {
@@ -14554,6 +15945,14 @@ export default class Client extends OpenApi {
     return await this.describeInstanceAutoRenewalAttributeWithOptions(request, runtime);
   }
 
+  /**
+    * This operation is available only for instances that use cloud disks.
+    * > You can call the [DescribeParameters](~~473847~~) operation to query the parameter settings of instances that use local disks.
+    *
+    * @param request DescribeInstanceConfigRequest
+    * @param runtime runtime options for this request RuntimeOptions
+    * @return DescribeInstanceConfigResponse
+   */
   async describeInstanceConfigWithOptions(request: DescribeInstanceConfigRequest, runtime: $Util.RuntimeOptions): Promise<DescribeInstanceConfigResponse> {
     Util.validateModel(request);
     let query = { };
@@ -14598,11 +15997,29 @@ export default class Client extends OpenApi {
     return $tea.cast<DescribeInstanceConfigResponse>(await this.callApi(params, req, runtime), new DescribeInstanceConfigResponse({}));
   }
 
+  /**
+    * This operation is available only for instances that use cloud disks.
+    * > You can call the [DescribeParameters](~~473847~~) operation to query the parameter settings of instances that use local disks.
+    *
+    * @param request DescribeInstanceConfigRequest
+    * @return DescribeInstanceConfigResponse
+   */
   async describeInstanceConfig(request: DescribeInstanceConfigRequest): Promise<DescribeInstanceConfigResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.describeInstanceConfigWithOptions(request, runtime);
   }
 
+  /**
+    * SSL encryption is supported for ApsaraDB for Redis 2.8 standard master-replica instances, ApsaraDB for Redis 2.8 master-replica cluster instances, and ApsaraDB for Redis 4.0 master-replica cluster instances. You can enable SSL encryption to enhance data transmission security.
+    * You can use one of the following methods to enable or disable SSL encryption or update the SSL certificate for an ApsaraDB for Redis instance:
+    * *   Call the [ModifyInstanceSSL](~~96194~~) operation.
+    * *   Enable or disable SSL encryption or update the SSL certificate in the ApsaraDB for Redis console. For more information, see [Configure SSL encryption](~~84898~~).
+    * > After SSL encryption is enabled, the instance may respond slower.
+    *
+    * @param request DescribeInstanceSSLRequest
+    * @param runtime runtime options for this request RuntimeOptions
+    * @return DescribeInstanceSSLResponse
+   */
   async describeInstanceSSLWithOptions(request: DescribeInstanceSSLRequest, runtime: $Util.RuntimeOptions): Promise<DescribeInstanceSSLResponse> {
     Util.validateModel(request);
     let query = { };
@@ -14647,11 +16064,28 @@ export default class Client extends OpenApi {
     return $tea.cast<DescribeInstanceSSLResponse>(await this.callApi(params, req, runtime), new DescribeInstanceSSLResponse({}));
   }
 
+  /**
+    * SSL encryption is supported for ApsaraDB for Redis 2.8 standard master-replica instances, ApsaraDB for Redis 2.8 master-replica cluster instances, and ApsaraDB for Redis 4.0 master-replica cluster instances. You can enable SSL encryption to enhance data transmission security.
+    * You can use one of the following methods to enable or disable SSL encryption or update the SSL certificate for an ApsaraDB for Redis instance:
+    * *   Call the [ModifyInstanceSSL](~~96194~~) operation.
+    * *   Enable or disable SSL encryption or update the SSL certificate in the ApsaraDB for Redis console. For more information, see [Configure SSL encryption](~~84898~~).
+    * > After SSL encryption is enabled, the instance may respond slower.
+    *
+    * @param request DescribeInstanceSSLRequest
+    * @return DescribeInstanceSSLResponse
+   */
   async describeInstanceSSL(request: DescribeInstanceSSLRequest): Promise<DescribeInstanceSSLResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.describeInstanceSSLWithOptions(request, runtime);
   }
 
+  /**
+    * r-bp1zxszhcgatnx****
+    *
+    * @param request DescribeInstanceTDEStatusRequest
+    * @param runtime runtime options for this request RuntimeOptions
+    * @return DescribeInstanceTDEStatusResponse
+   */
   async describeInstanceTDEStatusWithOptions(request: DescribeInstanceTDEStatusRequest, runtime: $Util.RuntimeOptions): Promise<DescribeInstanceTDEStatusResponse> {
     Util.validateModel(request);
     let query = { };
@@ -14696,6 +16130,12 @@ export default class Client extends OpenApi {
     return $tea.cast<DescribeInstanceTDEStatusResponse>(await this.callApi(params, req, runtime), new DescribeInstanceTDEStatusResponse({}));
   }
 
+  /**
+    * r-bp1zxszhcgatnx****
+    *
+    * @param request DescribeInstanceTDEStatusRequest
+    * @return DescribeInstanceTDEStatusResponse
+   */
   async describeInstanceTDEStatus(request: DescribeInstanceTDEStatusRequest): Promise<DescribeInstanceTDEStatusResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.describeInstanceTDEStatusWithOptions(request, runtime);
@@ -14830,6 +16270,14 @@ export default class Client extends OpenApi {
     return await this.describeInstancesWithOptions(request, runtime);
   }
 
+  /**
+    * If you do not specify the InstanceIds parameter when you call this operation, the overview information of all instances is returned.
+    * > This operation returns non-paged results.
+    *
+    * @param request DescribeInstancesOverviewRequest
+    * @param runtime runtime options for this request RuntimeOptions
+    * @return DescribeInstancesOverviewResponse
+   */
   async describeInstancesOverviewWithOptions(request: DescribeInstancesOverviewRequest, runtime: $Util.RuntimeOptions): Promise<DescribeInstancesOverviewResponse> {
     Util.validateModel(request);
     let query = { };
@@ -14934,11 +16382,25 @@ export default class Client extends OpenApi {
     return $tea.cast<DescribeInstancesOverviewResponse>(await this.callApi(params, req, runtime), new DescribeInstancesOverviewResponse({}));
   }
 
+  /**
+    * If you do not specify the InstanceIds parameter when you call this operation, the overview information of all instances is returned.
+    * > This operation returns non-paged results.
+    *
+    * @param request DescribeInstancesOverviewRequest
+    * @return DescribeInstancesOverviewResponse
+   */
   async describeInstancesOverview(request: DescribeInstancesOverviewRequest): Promise<DescribeInstancesOverviewResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.describeInstancesOverviewWithOptions(request, runtime);
   }
 
+  /**
+    * You can call the [EnableAdditionalBandwidth](~~206173~~) operation to increase the internal bandwidth of an instance.
+    *
+    * @param request DescribeIntranetAttributeRequest
+    * @param runtime runtime options for this request RuntimeOptions
+    * @return DescribeIntranetAttributeResponse
+   */
   async describeIntranetAttributeWithOptions(request: DescribeIntranetAttributeRequest, runtime: $Util.RuntimeOptions): Promise<DescribeIntranetAttributeResponse> {
     Util.validateModel(request);
     let query = { };
@@ -14987,11 +16449,24 @@ export default class Client extends OpenApi {
     return $tea.cast<DescribeIntranetAttributeResponse>(await this.callApi(params, req, runtime), new DescribeIntranetAttributeResponse({}));
   }
 
+  /**
+    * You can call the [EnableAdditionalBandwidth](~~206173~~) operation to increase the internal bandwidth of an instance.
+    *
+    * @param request DescribeIntranetAttributeRequest
+    * @return DescribeIntranetAttributeResponse
+   */
   async describeIntranetAttribute(request: DescribeIntranetAttributeRequest): Promise<DescribeIntranetAttributeResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.describeIntranetAttributeWithOptions(request, runtime);
   }
 
+  /**
+    * The maximum number of connections.
+    *
+    * @param request DescribeLogicInstanceTopologyRequest
+    * @param runtime runtime options for this request RuntimeOptions
+    * @return DescribeLogicInstanceTopologyResponse
+   */
   async describeLogicInstanceTopologyWithOptions(request: DescribeLogicInstanceTopologyRequest, runtime: $Util.RuntimeOptions): Promise<DescribeLogicInstanceTopologyResponse> {
     Util.validateModel(request);
     let query = { };
@@ -15036,11 +16511,25 @@ export default class Client extends OpenApi {
     return $tea.cast<DescribeLogicInstanceTopologyResponse>(await this.callApi(params, req, runtime), new DescribeLogicInstanceTopologyResponse({}));
   }
 
+  /**
+    * The maximum number of connections.
+    *
+    * @param request DescribeLogicInstanceTopologyRequest
+    * @return DescribeLogicInstanceTopologyResponse
+   */
   async describeLogicInstanceTopology(request: DescribeLogicInstanceTopologyRequest): Promise<DescribeLogicInstanceTopologyResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.describeLogicInstanceTopologyWithOptions(request, runtime);
   }
 
+  /**
+    * >  ApsaraDB for Redis has upgraded the monitoring metrics. The DescribeMonitorItems operation is phased out. For more information, see [The DescribeMonitorItems operation supported by ApsaraDB for Redis is phased out](~~189893~~).
+    * After you call this operation to retrieve a list of metrics for a specified ApsaraDB for Redis instance, you can call the [DescribeHistoryMonitorValues](~~61107~~) operation to query monitoring history of the instance.
+    *
+    * @param request DescribeMonitorItemsRequest
+    * @param runtime runtime options for this request RuntimeOptions
+    * @return DescribeMonitorItemsResponse
+   */
   async describeMonitorItemsWithOptions(request: DescribeMonitorItemsRequest, runtime: $Util.RuntimeOptions): Promise<DescribeMonitorItemsResponse> {
     Util.validateModel(request);
     let query = { };
@@ -15081,11 +16570,90 @@ export default class Client extends OpenApi {
     return $tea.cast<DescribeMonitorItemsResponse>(await this.callApi(params, req, runtime), new DescribeMonitorItemsResponse({}));
   }
 
+  /**
+    * >  ApsaraDB for Redis has upgraded the monitoring metrics. The DescribeMonitorItems operation is phased out. For more information, see [The DescribeMonitorItems operation supported by ApsaraDB for Redis is phased out](~~189893~~).
+    * After you call this operation to retrieve a list of metrics for a specified ApsaraDB for Redis instance, you can call the [DescribeHistoryMonitorValues](~~61107~~) operation to query monitoring history of the instance.
+    *
+    * @param request DescribeMonitorItemsRequest
+    * @return DescribeMonitorItemsResponse
+   */
   async describeMonitorItems(request: DescribeMonitorItemsRequest): Promise<DescribeMonitorItemsResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.describeMonitorItemsWithOptions(request, runtime);
   }
 
+  async describeParameterModificationHistoryWithOptions(request: DescribeParameterModificationHistoryRequest, runtime: $Util.RuntimeOptions): Promise<DescribeParameterModificationHistoryResponse> {
+    Util.validateModel(request);
+    let query = { };
+    if (!Util.isUnset(request.endTime)) {
+      query["EndTime"] = request.endTime;
+    }
+
+    if (!Util.isUnset(request.instanceId)) {
+      query["InstanceId"] = request.instanceId;
+    }
+
+    if (!Util.isUnset(request.nodeId)) {
+      query["NodeId"] = request.nodeId;
+    }
+
+    if (!Util.isUnset(request.ownerAccount)) {
+      query["OwnerAccount"] = request.ownerAccount;
+    }
+
+    if (!Util.isUnset(request.ownerId)) {
+      query["OwnerId"] = request.ownerId;
+    }
+
+    if (!Util.isUnset(request.parameterName)) {
+      query["ParameterName"] = request.parameterName;
+    }
+
+    if (!Util.isUnset(request.resourceOwnerAccount)) {
+      query["ResourceOwnerAccount"] = request.resourceOwnerAccount;
+    }
+
+    if (!Util.isUnset(request.resourceOwnerId)) {
+      query["ResourceOwnerId"] = request.resourceOwnerId;
+    }
+
+    if (!Util.isUnset(request.securityToken)) {
+      query["SecurityToken"] = request.securityToken;
+    }
+
+    if (!Util.isUnset(request.startTime)) {
+      query["StartTime"] = request.startTime;
+    }
+
+    let req = new $OpenApi.OpenApiRequest({
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApi.Params({
+      action: "DescribeParameterModificationHistory",
+      version: "2015-01-01",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $tea.cast<DescribeParameterModificationHistoryResponse>(await this.callApi(params, req, runtime), new DescribeParameterModificationHistoryResponse({}));
+  }
+
+  async describeParameterModificationHistory(request: DescribeParameterModificationHistoryRequest): Promise<DescribeParameterModificationHistoryResponse> {
+    let runtime = new $Util.RuntimeOptions({ });
+    return await this.describeParameterModificationHistoryWithOptions(request, runtime);
+  }
+
+  /**
+    * An array that consists of the details about the parameters returned.
+    *
+    * @param request DescribeParameterTemplatesRequest
+    * @param runtime runtime options for this request RuntimeOptions
+    * @return DescribeParameterTemplatesResponse
+   */
   async describeParameterTemplatesWithOptions(request: DescribeParameterTemplatesRequest, runtime: $Util.RuntimeOptions): Promise<DescribeParameterTemplatesResponse> {
     Util.validateModel(request);
     let query = { };
@@ -15146,11 +16714,25 @@ export default class Client extends OpenApi {
     return $tea.cast<DescribeParameterTemplatesResponse>(await this.callApi(params, req, runtime), new DescribeParameterTemplatesResponse({}));
   }
 
+  /**
+    * An array that consists of the details about the parameters returned.
+    *
+    * @param request DescribeParameterTemplatesRequest
+    * @return DescribeParameterTemplatesResponse
+   */
   async describeParameterTemplates(request: DescribeParameterTemplatesRequest): Promise<DescribeParameterTemplatesResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.describeParameterTemplatesWithOptions(request, runtime);
   }
 
+  /**
+    * This operation is available only for instances that use local disks.
+    * > You can call the [DescribeInstanceConfig](~~473846~~) operation to query the parameter settings of instances that use cloud disks.
+    *
+    * @param request DescribeParametersRequest
+    * @param runtime runtime options for this request RuntimeOptions
+    * @return DescribeParametersResponse
+   */
   async describeParametersWithOptions(request: DescribeParametersRequest, runtime: $Util.RuntimeOptions): Promise<DescribeParametersResponse> {
     Util.validateModel(request);
     let query = { };
@@ -15203,6 +16785,13 @@ export default class Client extends OpenApi {
     return $tea.cast<DescribeParametersResponse>(await this.callApi(params, req, runtime), new DescribeParametersResponse({}));
   }
 
+  /**
+    * This operation is available only for instances that use local disks.
+    * > You can call the [DescribeInstanceConfig](~~473846~~) operation to query the parameter settings of instances that use cloud disks.
+    *
+    * @param request DescribeParametersRequest
+    * @return DescribeParametersResponse
+   */
   async describeParameters(request: DescribeParametersRequest): Promise<DescribeParametersResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.describeParametersWithOptions(request, runtime);
@@ -15423,6 +17012,14 @@ export default class Client extends OpenApi {
     return await this.describeRoleZoneInfoWithOptions(request, runtime);
   }
 
+  /**
+    * For more information about how to view the operational logs of an instance in the ApsaraDB for Redis console, see [View active logs](~~101713~~).
+    * This operation can be called up to 100 times per minute.
+    *
+    * @param request DescribeRunningLogRecordsRequest
+    * @param runtime runtime options for this request RuntimeOptions
+    * @return DescribeRunningLogRecordsResponse
+   */
   async describeRunningLogRecordsWithOptions(request: DescribeRunningLogRecordsRequest, runtime: $Util.RuntimeOptions): Promise<DescribeRunningLogRecordsResponse> {
     Util.validateModel(request);
     let query = { };
@@ -15511,6 +17108,13 @@ export default class Client extends OpenApi {
     return $tea.cast<DescribeRunningLogRecordsResponse>(await this.callApi(params, req, runtime), new DescribeRunningLogRecordsResponse({}));
   }
 
+  /**
+    * For more information about how to view the operational logs of an instance in the ApsaraDB for Redis console, see [View active logs](~~101713~~).
+    * This operation can be called up to 100 times per minute.
+    *
+    * @param request DescribeRunningLogRecordsRequest
+    * @return DescribeRunningLogRecordsResponse
+   */
   async describeRunningLogRecords(request: DescribeRunningLogRecordsRequest): Promise<DescribeRunningLogRecordsResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.describeRunningLogRecordsWithOptions(request, runtime);
@@ -15614,6 +17218,13 @@ export default class Client extends OpenApi {
     return await this.describeSecurityIpsWithOptions(request, runtime);
   }
 
+  /**
+    * You can also query slow logs in the ApsaraDB for Redis console. For more information, see [Query slow logs of an instance](~~95874~~). This operation can be called up to 100 times per minute.
+    *
+    * @param request DescribeSlowLogRecordsRequest
+    * @param runtime runtime options for this request RuntimeOptions
+    * @return DescribeSlowLogRecordsResponse
+   */
   async describeSlowLogRecordsWithOptions(request: DescribeSlowLogRecordsRequest, runtime: $Util.RuntimeOptions): Promise<DescribeSlowLogRecordsResponse> {
     Util.validateModel(request);
     let query = { };
@@ -15698,11 +17309,24 @@ export default class Client extends OpenApi {
     return $tea.cast<DescribeSlowLogRecordsResponse>(await this.callApi(params, req, runtime), new DescribeSlowLogRecordsResponse({}));
   }
 
+  /**
+    * You can also query slow logs in the ApsaraDB for Redis console. For more information, see [Query slow logs of an instance](~~95874~~). This operation can be called up to 100 times per minute.
+    *
+    * @param request DescribeSlowLogRecordsRequest
+    * @return DescribeSlowLogRecordsResponse
+   */
   async describeSlowLogRecords(request: DescribeSlowLogRecordsRequest): Promise<DescribeSlowLogRecordsResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.describeSlowLogRecordsWithOptions(request, runtime);
   }
 
+  /**
+    * The progress of the task. Unit: %.
+    *
+    * @param request DescribeTasksRequest
+    * @param runtime runtime options for this request RuntimeOptions
+    * @return DescribeTasksResponse
+   */
   async describeTasksWithOptions(request: DescribeTasksRequest, runtime: $Util.RuntimeOptions): Promise<DescribeTasksResponse> {
     Util.validateModel(request);
     let query = { };
@@ -15767,6 +17391,12 @@ export default class Client extends OpenApi {
     return $tea.cast<DescribeTasksResponse>(await this.callApi(params, req, runtime), new DescribeTasksResponse({}));
   }
 
+  /**
+    * The progress of the task. Unit: %.
+    *
+    * @param request DescribeTasksRequest
+    * @return DescribeTasksResponse
+   */
   async describeTasks(request: DescribeTasksRequest): Promise<DescribeTasksResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.describeTasksWithOptions(request, runtime);
@@ -15825,6 +17455,14 @@ export default class Client extends OpenApi {
     return await this.describeZonesWithOptions(request, runtime);
   }
 
+  /**
+    * For more information about the fees, limits, and answers to some frequently asked questions about bandwidth adjustments, see [Adjust the bandwidth of an ApsaraDB for Redis instance](~~102588~~).
+    * >  Before you call this operation, you can call the [DescribeRoleZoneInfo](~~190794~~) operation to query the bandwidth of each data shard in the instance.
+    *
+    * @param request EnableAdditionalBandwidthRequest
+    * @param runtime runtime options for this request RuntimeOptions
+    * @return EnableAdditionalBandwidthResponse
+   */
   async enableAdditionalBandwidthWithOptions(request: EnableAdditionalBandwidthRequest, runtime: $Util.RuntimeOptions): Promise<EnableAdditionalBandwidthResponse> {
     Util.validateModel(request);
     let query = { };
@@ -15842,6 +17480,10 @@ export default class Client extends OpenApi {
 
     if (!Util.isUnset(request.bandwidth)) {
       query["Bandwidth"] = request.bandwidth;
+    }
+
+    if (!Util.isUnset(request.chargeType)) {
+      query["ChargeType"] = request.chargeType;
     }
 
     if (!Util.isUnset(request.couponNo)) {
@@ -15901,11 +17543,28 @@ export default class Client extends OpenApi {
     return $tea.cast<EnableAdditionalBandwidthResponse>(await this.callApi(params, req, runtime), new EnableAdditionalBandwidthResponse({}));
   }
 
+  /**
+    * For more information about the fees, limits, and answers to some frequently asked questions about bandwidth adjustments, see [Adjust the bandwidth of an ApsaraDB for Redis instance](~~102588~~).
+    * >  Before you call this operation, you can call the [DescribeRoleZoneInfo](~~190794~~) operation to query the bandwidth of each data shard in the instance.
+    *
+    * @param request EnableAdditionalBandwidthRequest
+    * @return EnableAdditionalBandwidthResponse
+   */
   async enableAdditionalBandwidth(request: EnableAdditionalBandwidthRequest): Promise<EnableAdditionalBandwidthResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.enableAdditionalBandwidthWithOptions(request, runtime);
   }
 
+  /**
+    * The time when the minor version is upgraded. Valid values:
+    * *   **Immediately**: immediately deletes expired keys.
+    * *   **MaintainTime:**deletes expired key in the maintenance window.
+    * >  You can call the [ModifyInstanceMaintainTime](~~61000~~) operation to modify the maintenance window of an ApsaraDB for Redis instance.
+    *
+    * @param request FlushExpireKeysRequest
+    * @param runtime runtime options for this request RuntimeOptions
+    * @return FlushExpireKeysResponse
+   */
   async flushExpireKeysWithOptions(request: FlushExpireKeysRequest, runtime: $Util.RuntimeOptions): Promise<FlushExpireKeysResponse> {
     Util.validateModel(request);
     let query = { };
@@ -15954,11 +17613,27 @@ export default class Client extends OpenApi {
     return $tea.cast<FlushExpireKeysResponse>(await this.callApi(params, req, runtime), new FlushExpireKeysResponse({}));
   }
 
+  /**
+    * The time when the minor version is upgraded. Valid values:
+    * *   **Immediately**: immediately deletes expired keys.
+    * *   **MaintainTime:**deletes expired key in the maintenance window.
+    * >  You can call the [ModifyInstanceMaintainTime](~~61000~~) operation to modify the maintenance window of an ApsaraDB for Redis instance.
+    *
+    * @param request FlushExpireKeysRequest
+    * @return FlushExpireKeysResponse
+   */
   async flushExpireKeys(request: FlushExpireKeysRequest): Promise<FlushExpireKeysResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.flushExpireKeysWithOptions(request, runtime);
   }
 
+  /**
+    * The ID of the instance.
+    *
+    * @param request FlushInstanceRequest
+    * @param runtime runtime options for this request RuntimeOptions
+    * @return FlushInstanceResponse
+   */
   async flushInstanceWithOptions(request: FlushInstanceRequest, runtime: $Util.RuntimeOptions): Promise<FlushInstanceResponse> {
     Util.validateModel(request);
     let query = { };
@@ -16003,11 +17678,77 @@ export default class Client extends OpenApi {
     return $tea.cast<FlushInstanceResponse>(await this.callApi(params, req, runtime), new FlushInstanceResponse({}));
   }
 
+  /**
+    * The ID of the instance.
+    *
+    * @param request FlushInstanceRequest
+    * @return FlushInstanceResponse
+   */
   async flushInstance(request: FlushInstanceRequest): Promise<FlushInstanceResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.flushInstanceWithOptions(request, runtime);
   }
 
+  async flushInstanceForDBWithOptions(request: FlushInstanceForDBRequest, runtime: $Util.RuntimeOptions): Promise<FlushInstanceForDBResponse> {
+    Util.validateModel(request);
+    let query = { };
+    if (!Util.isUnset(request.dbIndex)) {
+      query["DbIndex"] = request.dbIndex;
+    }
+
+    if (!Util.isUnset(request.instanceId)) {
+      query["InstanceId"] = request.instanceId;
+    }
+
+    if (!Util.isUnset(request.ownerAccount)) {
+      query["OwnerAccount"] = request.ownerAccount;
+    }
+
+    if (!Util.isUnset(request.ownerId)) {
+      query["OwnerId"] = request.ownerId;
+    }
+
+    if (!Util.isUnset(request.resourceOwnerAccount)) {
+      query["ResourceOwnerAccount"] = request.resourceOwnerAccount;
+    }
+
+    if (!Util.isUnset(request.resourceOwnerId)) {
+      query["ResourceOwnerId"] = request.resourceOwnerId;
+    }
+
+    if (!Util.isUnset(request.securityToken)) {
+      query["SecurityToken"] = request.securityToken;
+    }
+
+    let req = new $OpenApi.OpenApiRequest({
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApi.Params({
+      action: "FlushInstanceForDB",
+      version: "2015-01-01",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $tea.cast<FlushInstanceForDBResponse>(await this.callApi(params, req, runtime), new FlushInstanceForDBResponse({}));
+  }
+
+  async flushInstanceForDB(request: FlushInstanceForDBRequest): Promise<FlushInstanceForDBResponse> {
+    let runtime = new $Util.RuntimeOptions({ });
+    return await this.flushInstanceForDBWithOptions(request, runtime);
+  }
+
+  /**
+    * The name of the account. You can call the [DescribeAccounts](~~95802~~) operation to obtain the name of the account.
+    *
+    * @param request GrantAccountPrivilegeRequest
+    * @param runtime runtime options for this request RuntimeOptions
+    * @return GrantAccountPrivilegeResponse
+   */
   async grantAccountPrivilegeWithOptions(request: GrantAccountPrivilegeRequest, runtime: $Util.RuntimeOptions): Promise<GrantAccountPrivilegeResponse> {
     Util.validateModel(request);
     let query = { };
@@ -16060,11 +17801,24 @@ export default class Client extends OpenApi {
     return $tea.cast<GrantAccountPrivilegeResponse>(await this.callApi(params, req, runtime), new GrantAccountPrivilegeResponse({}));
   }
 
+  /**
+    * The name of the account. You can call the [DescribeAccounts](~~95802~~) operation to obtain the name of the account.
+    *
+    * @param request GrantAccountPrivilegeRequest
+    * @return GrantAccountPrivilegeResponse
+   */
   async grantAccountPrivilege(request: GrantAccountPrivilegeRequest): Promise<GrantAccountPrivilegeResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.grantAccountPrivilegeWithOptions(request, runtime);
   }
 
+  /**
+    * The ID of the request.
+    *
+    * @param request InitializeKvstorePermissionRequest
+    * @param runtime runtime options for this request RuntimeOptions
+    * @return InitializeKvstorePermissionResponse
+   */
   async initializeKvstorePermissionWithOptions(request: InitializeKvstorePermissionRequest, runtime: $Util.RuntimeOptions): Promise<InitializeKvstorePermissionResponse> {
     Util.validateModel(request);
     let query = { };
@@ -16109,11 +17863,24 @@ export default class Client extends OpenApi {
     return $tea.cast<InitializeKvstorePermissionResponse>(await this.callApi(params, req, runtime), new InitializeKvstorePermissionResponse({}));
   }
 
+  /**
+    * The ID of the request.
+    *
+    * @param request InitializeKvstorePermissionRequest
+    * @return InitializeKvstorePermissionResponse
+   */
   async initializeKvstorePermission(request: InitializeKvstorePermissionRequest): Promise<InitializeKvstorePermissionResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.initializeKvstorePermissionWithOptions(request, runtime);
   }
 
+  /**
+    * You can also query the relationships between instances and tags in the ApsaraDB for Redis console. For more information, see [Filter ApsaraDB for Redis instances by tag](~~119160~~) and [View tags bound to an instance](~~134038~~).
+    *
+    * @param request ListTagResourcesRequest
+    * @param runtime runtime options for this request RuntimeOptions
+    * @return ListTagResourcesResponse
+   */
   async listTagResourcesWithOptions(request: ListTagResourcesRequest, runtime: $Util.RuntimeOptions): Promise<ListTagResourcesResponse> {
     Util.validateModel(request);
     let query = { };
@@ -16170,11 +17937,24 @@ export default class Client extends OpenApi {
     return $tea.cast<ListTagResourcesResponse>(await this.callApi(params, req, runtime), new ListTagResourcesResponse({}));
   }
 
+  /**
+    * You can also query the relationships between instances and tags in the ApsaraDB for Redis console. For more information, see [Filter ApsaraDB for Redis instances by tag](~~119160~~) and [View tags bound to an instance](~~134038~~).
+    *
+    * @param request ListTagResourcesRequest
+    * @return ListTagResourcesResponse
+   */
   async listTagResources(request: ListTagResourcesRequest): Promise<ListTagResourcesResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.listTagResourcesWithOptions(request, runtime);
   }
 
+  /**
+    * The ID of the request.
+    *
+    * @param request MigrateToOtherZoneRequest
+    * @param runtime runtime options for this request RuntimeOptions
+    * @return MigrateToOtherZoneResponse
+   */
   async migrateToOtherZoneWithOptions(request: MigrateToOtherZoneRequest, runtime: $Util.RuntimeOptions): Promise<MigrateToOtherZoneResponse> {
     Util.validateModel(request);
     let query = { };
@@ -16235,11 +18015,24 @@ export default class Client extends OpenApi {
     return $tea.cast<MigrateToOtherZoneResponse>(await this.callApi(params, req, runtime), new MigrateToOtherZoneResponse({}));
   }
 
+  /**
+    * The ID of the request.
+    *
+    * @param request MigrateToOtherZoneRequest
+    * @return MigrateToOtherZoneResponse
+   */
   async migrateToOtherZone(request: MigrateToOtherZoneRequest): Promise<MigrateToOtherZoneResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.migrateToOtherZoneWithOptions(request, runtime);
   }
 
+  /**
+    * > This operation is supported only for instances that run Redis 4.0 or later.
+    *
+    * @param request ModifyAccountDescriptionRequest
+    * @param runtime runtime options for this request RuntimeOptions
+    * @return ModifyAccountDescriptionResponse
+   */
   async modifyAccountDescriptionWithOptions(request: ModifyAccountDescriptionRequest, runtime: $Util.RuntimeOptions): Promise<ModifyAccountDescriptionResponse> {
     Util.validateModel(request);
     let query = { };
@@ -16292,6 +18085,12 @@ export default class Client extends OpenApi {
     return $tea.cast<ModifyAccountDescriptionResponse>(await this.callApi(params, req, runtime), new ModifyAccountDescriptionResponse({}));
   }
 
+  /**
+    * > This operation is supported only for instances that run Redis 4.0 or later.
+    *
+    * @param request ModifyAccountDescriptionRequest
+    * @return ModifyAccountDescriptionResponse
+   */
   async modifyAccountDescription(request: ModifyAccountDescriptionRequest): Promise<ModifyAccountDescriptionResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.modifyAccountDescriptionWithOptions(request, runtime);
@@ -16358,15 +18157,18 @@ export default class Client extends OpenApi {
     return await this.modifyAccountPasswordWithOptions(request, runtime);
   }
 
-  async modifyActiveOperationTasksWithOptions(request: ModifyActiveOperationTasksRequest, runtime: $Util.RuntimeOptions): Promise<ModifyActiveOperationTasksResponse> {
+  /**
+    * 11111,22222
+    *
+    * @param request ModifyActiveOperationTaskRequest
+    * @param runtime runtime options for this request RuntimeOptions
+    * @return ModifyActiveOperationTaskResponse
+   */
+  async modifyActiveOperationTaskWithOptions(request: ModifyActiveOperationTaskRequest, runtime: $Util.RuntimeOptions): Promise<ModifyActiveOperationTaskResponse> {
     Util.validateModel(request);
     let query = { };
     if (!Util.isUnset(request.ids)) {
       query["Ids"] = request.ids;
-    }
-
-    if (!Util.isUnset(request.immediateStart)) {
-      query["ImmediateStart"] = request.immediateStart;
     }
 
     if (!Util.isUnset(request.ownerAccount)) {
@@ -16397,7 +18199,7 @@ export default class Client extends OpenApi {
       query: OpenApiUtil.query(query),
     });
     let params = new $OpenApi.Params({
-      action: "ModifyActiveOperationTasks",
+      action: "ModifyActiveOperationTask",
       version: "2015-01-01",
       protocol: "HTTPS",
       pathname: "/",
@@ -16407,14 +18209,30 @@ export default class Client extends OpenApi {
       reqBodyType: "formData",
       bodyType: "json",
     });
-    return $tea.cast<ModifyActiveOperationTasksResponse>(await this.callApi(params, req, runtime), new ModifyActiveOperationTasksResponse({}));
+    return $tea.cast<ModifyActiveOperationTaskResponse>(await this.callApi(params, req, runtime), new ModifyActiveOperationTaskResponse({}));
   }
 
-  async modifyActiveOperationTasks(request: ModifyActiveOperationTasksRequest): Promise<ModifyActiveOperationTasksResponse> {
+  /**
+    * 11111,22222
+    *
+    * @param request ModifyActiveOperationTaskRequest
+    * @return ModifyActiveOperationTaskResponse
+   */
+  async modifyActiveOperationTask(request: ModifyActiveOperationTaskRequest): Promise<ModifyActiveOperationTaskResponse> {
     let runtime = new $Util.RuntimeOptions({ });
-    return await this.modifyActiveOperationTasksWithOptions(request, runtime);
+    return await this.modifyActiveOperationTaskWithOptions(request, runtime);
   }
 
+  /**
+    * Specifies whether to enable the audit log feature. Default value: true. Valid values:
+    * *   **true**: enables the audit log feature.
+    * *   **false**: disables the audit log feature.
+    * > If the instance uses the [cluster architecture](~~52228~~) or [read/write splitting architecture](~~62870~~), the audit log feature is enabled or disabled for both the data nodes and proxy nodes. You cannot separately enable the audit log feature for the data nodes or proxy nodes.
+    *
+    * @param request ModifyAuditLogConfigRequest
+    * @param runtime runtime options for this request RuntimeOptions
+    * @return ModifyAuditLogConfigResponse
+   */
   async modifyAuditLogConfigWithOptions(request: ModifyAuditLogConfigRequest, runtime: $Util.RuntimeOptions): Promise<ModifyAuditLogConfigResponse> {
     Util.validateModel(request);
     let query = { };
@@ -16467,6 +18285,15 @@ export default class Client extends OpenApi {
     return $tea.cast<ModifyAuditLogConfigResponse>(await this.callApi(params, req, runtime), new ModifyAuditLogConfigResponse({}));
   }
 
+  /**
+    * Specifies whether to enable the audit log feature. Default value: true. Valid values:
+    * *   **true**: enables the audit log feature.
+    * *   **false**: disables the audit log feature.
+    * > If the instance uses the [cluster architecture](~~52228~~) or [read/write splitting architecture](~~62870~~), the audit log feature is enabled or disabled for both the data nodes and proxy nodes. You cannot separately enable the audit log feature for the data nodes or proxy nodes.
+    *
+    * @param request ModifyAuditLogConfigRequest
+    * @return ModifyAuditLogConfigResponse
+   */
   async modifyAuditLogConfig(request: ModifyAuditLogConfigRequest): Promise<ModifyAuditLogConfigResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.modifyAuditLogConfigWithOptions(request, runtime);
@@ -16533,6 +18360,13 @@ export default class Client extends OpenApi {
     return await this.modifyBackupPolicyWithOptions(request, runtime);
   }
 
+  /**
+    * You can also modify the endpoint or port number of an instance in the ApsaraDB for Redis console. For more information, see [Change the endpoint or port number of an instance](~~85683~~).
+    *
+    * @param request ModifyDBInstanceConnectionStringRequest
+    * @param runtime runtime options for this request RuntimeOptions
+    * @return ModifyDBInstanceConnectionStringResponse
+   */
   async modifyDBInstanceConnectionStringWithOptions(request: ModifyDBInstanceConnectionStringRequest, runtime: $Util.RuntimeOptions): Promise<ModifyDBInstanceConnectionStringResponse> {
     Util.validateModel(request);
     let query = { };
@@ -16593,11 +18427,24 @@ export default class Client extends OpenApi {
     return $tea.cast<ModifyDBInstanceConnectionStringResponse>(await this.callApi(params, req, runtime), new ModifyDBInstanceConnectionStringResponse({}));
   }
 
+  /**
+    * You can also modify the endpoint or port number of an instance in the ApsaraDB for Redis console. For more information, see [Change the endpoint or port number of an instance](~~85683~~).
+    *
+    * @param request ModifyDBInstanceConnectionStringRequest
+    * @return ModifyDBInstanceConnectionStringResponse
+   */
   async modifyDBInstanceConnectionString(request: ModifyDBInstanceConnectionStringRequest): Promise<ModifyDBInstanceConnectionStringResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.modifyDBInstanceConnectionStringWithOptions(request, runtime);
   }
 
+  /**
+    * uW8+nsrp
+    *
+    * @param request ModifyInstanceAttributeRequest
+    * @param runtime runtime options for this request RuntimeOptions
+    * @return ModifyInstanceAttributeResponse
+   */
   async modifyInstanceAttributeWithOptions(request: ModifyInstanceAttributeRequest, runtime: $Util.RuntimeOptions): Promise<ModifyInstanceAttributeResponse> {
     Util.validateModel(request);
     let query = { };
@@ -16654,11 +18501,24 @@ export default class Client extends OpenApi {
     return $tea.cast<ModifyInstanceAttributeResponse>(await this.callApi(params, req, runtime), new ModifyInstanceAttributeResponse({}));
   }
 
+  /**
+    * uW8+nsrp
+    *
+    * @param request ModifyInstanceAttributeRequest
+    * @return ModifyInstanceAttributeResponse
+   */
   async modifyInstanceAttribute(request: ModifyInstanceAttributeRequest): Promise<ModifyInstanceAttributeResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.modifyInstanceAttributeWithOptions(request, runtime);
   }
 
+  /**
+    * > Auto-renewal is triggered seven days before the expiration date of the instance.
+    *
+    * @param request ModifyInstanceAutoRenewalAttributeRequest
+    * @param runtime runtime options for this request RuntimeOptions
+    * @return ModifyInstanceAutoRenewalAttributeResponse
+   */
   async modifyInstanceAutoRenewalAttributeWithOptions(request: ModifyInstanceAutoRenewalAttributeRequest, runtime: $Util.RuntimeOptions): Promise<ModifyInstanceAutoRenewalAttributeResponse> {
     Util.validateModel(request);
     let query = { };
@@ -16711,6 +18571,12 @@ export default class Client extends OpenApi {
     return $tea.cast<ModifyInstanceAutoRenewalAttributeResponse>(await this.callApi(params, req, runtime), new ModifyInstanceAutoRenewalAttributeResponse({}));
   }
 
+  /**
+    * > Auto-renewal is triggered seven days before the expiration date of the instance.
+    *
+    * @param request ModifyInstanceAutoRenewalAttributeRequest
+    * @return ModifyInstanceAutoRenewalAttributeResponse
+   */
   async modifyInstanceAutoRenewalAttribute(request: ModifyInstanceAutoRenewalAttributeRequest): Promise<ModifyInstanceAutoRenewalAttributeResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.modifyInstanceAutoRenewalAttributeWithOptions(request, runtime);
@@ -16826,6 +18692,13 @@ export default class Client extends OpenApi {
     return await this.modifyInstanceMaintainTimeWithOptions(request, runtime);
   }
 
+  /**
+    * r-bp1zxszhcgatnx****
+    *
+    * @param request ModifyInstanceMajorVersionRequest
+    * @param runtime runtime options for this request RuntimeOptions
+    * @return ModifyInstanceMajorVersionResponse
+   */
   async modifyInstanceMajorVersionWithOptions(request: ModifyInstanceMajorVersionRequest, runtime: $Util.RuntimeOptions): Promise<ModifyInstanceMajorVersionResponse> {
     Util.validateModel(request);
     let query = { };
@@ -16878,11 +18751,24 @@ export default class Client extends OpenApi {
     return $tea.cast<ModifyInstanceMajorVersionResponse>(await this.callApi(params, req, runtime), new ModifyInstanceMajorVersionResponse({}));
   }
 
+  /**
+    * r-bp1zxszhcgatnx****
+    *
+    * @param request ModifyInstanceMajorVersionRequest
+    * @return ModifyInstanceMajorVersionResponse
+   */
   async modifyInstanceMajorVersion(request: ModifyInstanceMajorVersionRequest): Promise<ModifyInstanceMajorVersionResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.modifyInstanceMajorVersionWithOptions(request, runtime);
   }
 
+  /**
+    * The ID of the instance.
+    *
+    * @param request ModifyInstanceMinorVersionRequest
+    * @param runtime runtime options for this request RuntimeOptions
+    * @return ModifyInstanceMinorVersionResponse
+   */
   async modifyInstanceMinorVersionWithOptions(request: ModifyInstanceMinorVersionRequest, runtime: $Util.RuntimeOptions): Promise<ModifyInstanceMinorVersionResponse> {
     Util.validateModel(request);
     let query = { };
@@ -16935,11 +18821,25 @@ export default class Client extends OpenApi {
     return $tea.cast<ModifyInstanceMinorVersionResponse>(await this.callApi(params, req, runtime), new ModifyInstanceMinorVersionResponse({}));
   }
 
+  /**
+    * The ID of the instance.
+    *
+    * @param request ModifyInstanceMinorVersionRequest
+    * @return ModifyInstanceMinorVersionResponse
+   */
   async modifyInstanceMinorVersion(request: ModifyInstanceMinorVersionRequest): Promise<ModifyInstanceMinorVersionResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.modifyInstanceMinorVersionWithOptions(request, runtime);
   }
 
+  /**
+    * You can also perform this operation in the ApsaraDB for Redis console. For more information, see [Change the expiration time for the endpoint of the classic network](~~60062~~).
+    * > For more information about how to switch the network type of an ApsaraDB for Redis instance from classic network to VPC, see [SwitchNetwork](~~61005~~).
+    *
+    * @param request ModifyInstanceNetExpireTimeRequest
+    * @param runtime runtime options for this request RuntimeOptions
+    * @return ModifyInstanceNetExpireTimeResponse
+   */
   async modifyInstanceNetExpireTimeWithOptions(request: ModifyInstanceNetExpireTimeRequest, runtime: $Util.RuntimeOptions): Promise<ModifyInstanceNetExpireTimeResponse> {
     Util.validateModel(request);
     let query = { };
@@ -16992,11 +18892,85 @@ export default class Client extends OpenApi {
     return $tea.cast<ModifyInstanceNetExpireTimeResponse>(await this.callApi(params, req, runtime), new ModifyInstanceNetExpireTimeResponse({}));
   }
 
+  /**
+    * You can also perform this operation in the ApsaraDB for Redis console. For more information, see [Change the expiration time for the endpoint of the classic network](~~60062~~).
+    * > For more information about how to switch the network type of an ApsaraDB for Redis instance from classic network to VPC, see [SwitchNetwork](~~61005~~).
+    *
+    * @param request ModifyInstanceNetExpireTimeRequest
+    * @return ModifyInstanceNetExpireTimeResponse
+   */
   async modifyInstanceNetExpireTime(request: ModifyInstanceNetExpireTimeRequest): Promise<ModifyInstanceNetExpireTimeResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.modifyInstanceNetExpireTimeWithOptions(request, runtime);
   }
 
+  async modifyInstanceParameterWithOptions(request: ModifyInstanceParameterRequest, runtime: $Util.RuntimeOptions): Promise<ModifyInstanceParameterResponse> {
+    Util.validateModel(request);
+    let query = { };
+    if (!Util.isUnset(request.instanceId)) {
+      query["InstanceId"] = request.instanceId;
+    }
+
+    if (!Util.isUnset(request.ownerAccount)) {
+      query["OwnerAccount"] = request.ownerAccount;
+    }
+
+    if (!Util.isUnset(request.ownerId)) {
+      query["OwnerId"] = request.ownerId;
+    }
+
+    if (!Util.isUnset(request.parameterGroupId)) {
+      query["ParameterGroupId"] = request.parameterGroupId;
+    }
+
+    if (!Util.isUnset(request.parameters)) {
+      query["Parameters"] = request.parameters;
+    }
+
+    if (!Util.isUnset(request.resourceOwnerAccount)) {
+      query["ResourceOwnerAccount"] = request.resourceOwnerAccount;
+    }
+
+    if (!Util.isUnset(request.resourceOwnerId)) {
+      query["ResourceOwnerId"] = request.resourceOwnerId;
+    }
+
+    if (!Util.isUnset(request.securityToken)) {
+      query["SecurityToken"] = request.securityToken;
+    }
+
+    let req = new $OpenApi.OpenApiRequest({
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApi.Params({
+      action: "ModifyInstanceParameter",
+      version: "2015-01-01",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $tea.cast<ModifyInstanceParameterResponse>(await this.callApi(params, req, runtime), new ModifyInstanceParameterResponse({}));
+  }
+
+  async modifyInstanceParameter(request: ModifyInstanceParameterRequest): Promise<ModifyInstanceParameterResponse> {
+    let runtime = new $Util.RuntimeOptions({ });
+    return await this.modifyInstanceParameterWithOptions(request, runtime);
+  }
+
+  /**
+    * Modifies SSL encryption configurations. Valid values:
+    * *   **Disable**: The SSL encryption is disabled.
+    * *   **Enable**: The SSL encryption is enabled.
+    * *   **Update**: The SSL certificate is updated.
+    *
+    * @param request ModifyInstanceSSLRequest
+    * @param runtime runtime options for this request RuntimeOptions
+    * @return ModifyInstanceSSLResponse
+   */
   async modifyInstanceSSLWithOptions(request: ModifyInstanceSSLRequest, runtime: $Util.RuntimeOptions): Promise<ModifyInstanceSSLResponse> {
     Util.validateModel(request);
     let query = { };
@@ -17045,11 +19019,27 @@ export default class Client extends OpenApi {
     return $tea.cast<ModifyInstanceSSLResponse>(await this.callApi(params, req, runtime), new ModifyInstanceSSLResponse({}));
   }
 
+  /**
+    * Modifies SSL encryption configurations. Valid values:
+    * *   **Disable**: The SSL encryption is disabled.
+    * *   **Enable**: The SSL encryption is enabled.
+    * *   **Update**: The SSL certificate is updated.
+    *
+    * @param request ModifyInstanceSSLRequest
+    * @return ModifyInstanceSSLResponse
+   */
   async modifyInstanceSSL(request: ModifyInstanceSSLRequest): Promise<ModifyInstanceSSLResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.modifyInstanceSSLWithOptions(request, runtime);
   }
 
+  /**
+    * The ID of the promotional event or business information.
+    *
+    * @param request ModifyInstanceSpecRequest
+    * @param runtime runtime options for this request RuntimeOptions
+    * @return ModifyInstanceSpecResponse
+   */
   async modifyInstanceSpecWithOptions(request: ModifyInstanceSpecRequest, runtime: $Util.RuntimeOptions): Promise<ModifyInstanceSpecResponse> {
     Util.validateModel(request);
     let query = { };
@@ -17071,6 +19061,10 @@ export default class Client extends OpenApi {
 
     if (!Util.isUnset(request.effectiveTime)) {
       query["EffectiveTime"] = request.effectiveTime;
+    }
+
+    if (!Util.isUnset(request.forceTrans)) {
+      query["ForceTrans"] = request.forceTrans;
     }
 
     if (!Util.isUnset(request.forceUpgrade)) {
@@ -17121,6 +19115,10 @@ export default class Client extends OpenApi {
       query["SecurityToken"] = request.securityToken;
     }
 
+    if (!Util.isUnset(request.shardCount)) {
+      query["ShardCount"] = request.shardCount;
+    }
+
     if (!Util.isUnset(request.sourceBiz)) {
       query["SourceBiz"] = request.sourceBiz;
     }
@@ -17142,11 +19140,24 @@ export default class Client extends OpenApi {
     return $tea.cast<ModifyInstanceSpecResponse>(await this.callApi(params, req, runtime), new ModifyInstanceSpecResponse({}));
   }
 
+  /**
+    * The ID of the promotional event or business information.
+    *
+    * @param request ModifyInstanceSpecRequest
+    * @return ModifyInstanceSpecResponse
+   */
   async modifyInstanceSpec(request: ModifyInstanceSpecRequest): Promise<ModifyInstanceSpecResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.modifyInstanceSpecWithOptions(request, runtime);
   }
 
+  /**
+    * > For more information about TDE and the impact of TDE, see [Enable TDE](~~265913~~).
+    *
+    * @param request ModifyInstanceTDERequest
+    * @param runtime runtime options for this request RuntimeOptions
+    * @return ModifyInstanceTDEResponse
+   */
   async modifyInstanceTDEWithOptions(request: ModifyInstanceTDERequest, runtime: $Util.RuntimeOptions): Promise<ModifyInstanceTDEResponse> {
     Util.validateModel(request);
     let query = { };
@@ -17207,11 +19218,24 @@ export default class Client extends OpenApi {
     return $tea.cast<ModifyInstanceTDEResponse>(await this.callApi(params, req, runtime), new ModifyInstanceTDEResponse({}));
   }
 
+  /**
+    * > For more information about TDE and the impact of TDE, see [Enable TDE](~~265913~~).
+    *
+    * @param request ModifyInstanceTDERequest
+    * @return ModifyInstanceTDEResponse
+   */
   async modifyInstanceTDE(request: ModifyInstanceTDERequest): Promise<ModifyInstanceTDEResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.modifyInstanceTDEWithOptions(request, runtime);
   }
 
+  /**
+    * The ID of the request.
+    *
+    * @param request ModifyInstanceVpcAuthModeRequest
+    * @param runtime runtime options for this request RuntimeOptions
+    * @return ModifyInstanceVpcAuthModeResponse
+   */
   async modifyInstanceVpcAuthModeWithOptions(request: ModifyInstanceVpcAuthModeRequest, runtime: $Util.RuntimeOptions): Promise<ModifyInstanceVpcAuthModeResponse> {
     Util.validateModel(request);
     let query = { };
@@ -17260,11 +19284,25 @@ export default class Client extends OpenApi {
     return $tea.cast<ModifyInstanceVpcAuthModeResponse>(await this.callApi(params, req, runtime), new ModifyInstanceVpcAuthModeResponse({}));
   }
 
+  /**
+    * The ID of the request.
+    *
+    * @param request ModifyInstanceVpcAuthModeRequest
+    * @return ModifyInstanceVpcAuthModeResponse
+   */
   async modifyInstanceVpcAuthMode(request: ModifyInstanceVpcAuthModeRequest): Promise<ModifyInstanceVpcAuthModeResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.modifyInstanceVpcAuthModeWithOptions(request, runtime);
   }
 
+  /**
+    * > 
+    * *   This operation is applicable only to an ApsaraDB for Redis instance that is deployed in a dedicated cluster. To adjust the bandwidth of a standard ApsaraDB for Redis instance, call the [EnableAdditionalBandwidth](~~206173~~) operation.
+    *
+    * @param request ModifyIntranetAttributeRequest
+    * @param runtime runtime options for this request RuntimeOptions
+    * @return ModifyIntranetAttributeResponse
+   */
   async modifyIntranetAttributeWithOptions(request: ModifyIntranetAttributeRequest, runtime: $Util.RuntimeOptions): Promise<ModifyIntranetAttributeResponse> {
     Util.validateModel(request);
     let query = { };
@@ -17317,88 +19355,26 @@ export default class Client extends OpenApi {
     return $tea.cast<ModifyIntranetAttributeResponse>(await this.callApi(params, req, runtime), new ModifyIntranetAttributeResponse({}));
   }
 
+  /**
+    * > 
+    * *   This operation is applicable only to an ApsaraDB for Redis instance that is deployed in a dedicated cluster. To adjust the bandwidth of a standard ApsaraDB for Redis instance, call the [EnableAdditionalBandwidth](~~206173~~) operation.
+    *
+    * @param request ModifyIntranetAttributeRequest
+    * @return ModifyIntranetAttributeResponse
+   */
   async modifyIntranetAttribute(request: ModifyIntranetAttributeRequest): Promise<ModifyIntranetAttributeResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.modifyIntranetAttributeWithOptions(request, runtime);
   }
 
-  async modifyNodeSpecWithOptions(request: ModifyNodeSpecRequest, runtime: $Util.RuntimeOptions): Promise<ModifyNodeSpecResponse> {
-    Util.validateModel(request);
-    let query = { };
-    if (!Util.isUnset(request.autoPay)) {
-      query["AutoPay"] = request.autoPay;
-    }
-
-    if (!Util.isUnset(request.businessInfo)) {
-      query["BusinessInfo"] = request.businessInfo;
-    }
-
-    if (!Util.isUnset(request.couponNo)) {
-      query["CouponNo"] = request.couponNo;
-    }
-
-    if (!Util.isUnset(request.instanceClass)) {
-      query["InstanceClass"] = request.instanceClass;
-    }
-
-    if (!Util.isUnset(request.instanceId)) {
-      query["InstanceId"] = request.instanceId;
-    }
-
-    if (!Util.isUnset(request.nodeId)) {
-      query["NodeId"] = request.nodeId;
-    }
-
-    if (!Util.isUnset(request.orderType)) {
-      query["OrderType"] = request.orderType;
-    }
-
-    if (!Util.isUnset(request.ownerAccount)) {
-      query["OwnerAccount"] = request.ownerAccount;
-    }
-
-    if (!Util.isUnset(request.ownerId)) {
-      query["OwnerId"] = request.ownerId;
-    }
-
-    if (!Util.isUnset(request.resourceOwnerAccount)) {
-      query["ResourceOwnerAccount"] = request.resourceOwnerAccount;
-    }
-
-    if (!Util.isUnset(request.resourceOwnerId)) {
-      query["ResourceOwnerId"] = request.resourceOwnerId;
-    }
-
-    if (!Util.isUnset(request.securityToken)) {
-      query["SecurityToken"] = request.securityToken;
-    }
-
-    if (!Util.isUnset(request.switchTimeMode)) {
-      query["SwitchTimeMode"] = request.switchTimeMode;
-    }
-
-    let req = new $OpenApi.OpenApiRequest({
-      query: OpenApiUtil.query(query),
-    });
-    let params = new $OpenApi.Params({
-      action: "ModifyNodeSpec",
-      version: "2015-01-01",
-      protocol: "HTTPS",
-      pathname: "/",
-      method: "POST",
-      authType: "AK",
-      style: "RPC",
-      reqBodyType: "formData",
-      bodyType: "json",
-    });
-    return $tea.cast<ModifyNodeSpecResponse>(await this.callApi(params, req, runtime), new ModifyNodeSpecResponse({}));
-  }
-
-  async modifyNodeSpec(request: ModifyNodeSpecRequest): Promise<ModifyNodeSpecResponse> {
-    let runtime = new $Util.RuntimeOptions({ });
-    return await this.modifyNodeSpecWithOptions(request, runtime);
-  }
-
+  /**
+    * Resource groups allow you to sort resources owned by your Alibaba Cloud account into groups. This simplifies resource and permission management within your Alibaba Cloud account. For more information, see [What is Resource Management?](~~94475~~)
+    * > For more information about resource group API operations, see [Resource Management API overview](~~160024~~).
+    *
+    * @param request ModifyResourceGroupRequest
+    * @param runtime runtime options for this request RuntimeOptions
+    * @return ModifyResourceGroupResponse
+   */
   async modifyResourceGroupWithOptions(request: ModifyResourceGroupRequest, runtime: $Util.RuntimeOptions): Promise<ModifyResourceGroupResponse> {
     Util.validateModel(request);
     let query = { };
@@ -17451,11 +19427,25 @@ export default class Client extends OpenApi {
     return $tea.cast<ModifyResourceGroupResponse>(await this.callApi(params, req, runtime), new ModifyResourceGroupResponse({}));
   }
 
+  /**
+    * Resource groups allow you to sort resources owned by your Alibaba Cloud account into groups. This simplifies resource and permission management within your Alibaba Cloud account. For more information, see [What is Resource Management?](~~94475~~)
+    * > For more information about resource group API operations, see [Resource Management API overview](~~160024~~).
+    *
+    * @param request ModifyResourceGroupRequest
+    * @return ModifyResourceGroupResponse
+   */
   async modifyResourceGroup(request: ModifyResourceGroupRequest): Promise<ModifyResourceGroupResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.modifyResourceGroupWithOptions(request, runtime);
   }
 
+  /**
+    * The ID of the request.
+    *
+    * @param request ModifySecurityGroupConfigurationRequest
+    * @param runtime runtime options for this request RuntimeOptions
+    * @return ModifySecurityGroupConfigurationResponse
+   */
   async modifySecurityGroupConfigurationWithOptions(request: ModifySecurityGroupConfigurationRequest, runtime: $Util.RuntimeOptions): Promise<ModifySecurityGroupConfigurationResponse> {
     Util.validateModel(request);
     let query = { };
@@ -17504,11 +19494,24 @@ export default class Client extends OpenApi {
     return $tea.cast<ModifySecurityGroupConfigurationResponse>(await this.callApi(params, req, runtime), new ModifySecurityGroupConfigurationResponse({}));
   }
 
+  /**
+    * The ID of the request.
+    *
+    * @param request ModifySecurityGroupConfigurationRequest
+    * @return ModifySecurityGroupConfigurationResponse
+   */
   async modifySecurityGroupConfiguration(request: ModifySecurityGroupConfigurationRequest): Promise<ModifySecurityGroupConfigurationResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.modifySecurityGroupConfigurationWithOptions(request, runtime);
   }
 
+  /**
+    * The IP addresses in the whitelist group. Up to 1,000 IP addresses can be specified in each whitelist. Separate multiple IP addresses with a comma (,). You can add 0.0.0.0/0, IP addresses such as 10.23.12.24, and Classless Inter-Domain Routing (CIDR) blocks such as 10.23.12.24/24 to the whitelist group. In CIDR block 10.23.12.24/24, /24 specifies the length of the prefix in the IP addresses. The prefix length ranges from 1 to 32.
+    *
+    * @param request ModifySecurityIpsRequest
+    * @param runtime runtime options for this request RuntimeOptions
+    * @return ModifySecurityIpsResponse
+   */
   async modifySecurityIpsWithOptions(request: ModifySecurityIpsRequest, runtime: $Util.RuntimeOptions): Promise<ModifySecurityIpsResponse> {
     Util.validateModel(request);
     let query = { };
@@ -17569,11 +19572,24 @@ export default class Client extends OpenApi {
     return $tea.cast<ModifySecurityIpsResponse>(await this.callApi(params, req, runtime), new ModifySecurityIpsResponse({}));
   }
 
+  /**
+    * The IP addresses in the whitelist group. Up to 1,000 IP addresses can be specified in each whitelist. Separate multiple IP addresses with a comma (,). You can add 0.0.0.0/0, IP addresses such as 10.23.12.24, and Classless Inter-Domain Routing (CIDR) blocks such as 10.23.12.24/24 to the whitelist group. In CIDR block 10.23.12.24/24, /24 specifies the length of the prefix in the IP addresses. The prefix length ranges from 1 to 32.
+    *
+    * @param request ModifySecurityIpsRequest
+    * @return ModifySecurityIpsResponse
+   */
   async modifySecurityIps(request: ModifySecurityIpsRequest): Promise<ModifySecurityIpsResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.modifySecurityIpsWithOptions(request, runtime);
   }
 
+  /**
+    * In direct connection mode, clients can bypass proxy nodes and use private endpoints to connect to ApsaraDB for Redis instances. This is similar to the connection to a native Redis cluster. The direct connection mode can reduce communication overheads and the response time of ApsaraDB for Redis. For more information, see [Enable the direct connection mode](~~146901~~).
+    *
+    * @param request ReleaseDirectConnectionRequest
+    * @param runtime runtime options for this request RuntimeOptions
+    * @return ReleaseDirectConnectionResponse
+   */
   async releaseDirectConnectionWithOptions(request: ReleaseDirectConnectionRequest, runtime: $Util.RuntimeOptions): Promise<ReleaseDirectConnectionResponse> {
     Util.validateModel(request);
     let query = { };
@@ -17618,11 +19634,24 @@ export default class Client extends OpenApi {
     return $tea.cast<ReleaseDirectConnectionResponse>(await this.callApi(params, req, runtime), new ReleaseDirectConnectionResponse({}));
   }
 
+  /**
+    * In direct connection mode, clients can bypass proxy nodes and use private endpoints to connect to ApsaraDB for Redis instances. This is similar to the connection to a native Redis cluster. The direct connection mode can reduce communication overheads and the response time of ApsaraDB for Redis. For more information, see [Enable the direct connection mode](~~146901~~).
+    *
+    * @param request ReleaseDirectConnectionRequest
+    * @return ReleaseDirectConnectionResponse
+   */
   async releaseDirectConnection(request: ReleaseDirectConnectionRequest): Promise<ReleaseDirectConnectionResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.releaseDirectConnectionWithOptions(request, runtime);
   }
 
+  /**
+    * The ID of the request.
+    *
+    * @param request ReleaseInstancePublicConnectionRequest
+    * @param runtime runtime options for this request RuntimeOptions
+    * @return ReleaseInstancePublicConnectionResponse
+   */
   async releaseInstancePublicConnectionWithOptions(request: ReleaseInstancePublicConnectionRequest, runtime: $Util.RuntimeOptions): Promise<ReleaseInstancePublicConnectionResponse> {
     Util.validateModel(request);
     let query = { };
@@ -17671,11 +19700,24 @@ export default class Client extends OpenApi {
     return $tea.cast<ReleaseInstancePublicConnectionResponse>(await this.callApi(params, req, runtime), new ReleaseInstancePublicConnectionResponse({}));
   }
 
+  /**
+    * The ID of the request.
+    *
+    * @param request ReleaseInstancePublicConnectionRequest
+    * @return ReleaseInstancePublicConnectionResponse
+   */
   async releaseInstancePublicConnection(request: ReleaseInstancePublicConnectionRequest): Promise<ReleaseInstancePublicConnectionResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.releaseInstancePublicConnectionWithOptions(request, runtime);
   }
 
+  /**
+    * The operation that you want to perform. Set the value to **RemoveSubInstance**.
+    *
+    * @param request RemoveSubInstanceRequest
+    * @param runtime runtime options for this request RuntimeOptions
+    * @return RemoveSubInstanceResponse
+   */
   async removeSubInstanceWithOptions(request: RemoveSubInstanceRequest, runtime: $Util.RuntimeOptions): Promise<RemoveSubInstanceResponse> {
     Util.validateModel(request);
     let query = { };
@@ -17720,11 +19762,26 @@ export default class Client extends OpenApi {
     return $tea.cast<RemoveSubInstanceResponse>(await this.callApi(params, req, runtime), new RemoveSubInstanceResponse({}));
   }
 
+  /**
+    * The operation that you want to perform. Set the value to **RemoveSubInstance**.
+    *
+    * @param request RemoveSubInstanceRequest
+    * @return RemoveSubInstanceResponse
+   */
   async removeSubInstance(request: RemoveSubInstanceRequest): Promise<RemoveSubInstanceResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.removeSubInstanceWithOptions(request, runtime);
   }
 
+  /**
+    * Before you call this operation, make sure that you understand the billing methods and [pricing](~~54532~~) of ApsaraDB for Redis.
+    * You can adjust the bandwidth of an instance in the ApsaraDB for Redis console. For more information, see [Adjust the bandwidth of an ApsaraDB for Redis instance](~~102588~~). You can also call the [EnableAdditionalBandwidth](~~206173~~) operation to adjust the bandwidth of an instance. If you want to continue using the bandwidth that you purchase after the validity period of the bandwidth, you must call the RenewAdditionalBandwidth operation to renew the bandwidth before the bandwidth expires.
+    * > Before you call this operation, you can call the [DescribeIntranetAttribute](~~128715~~) operation, which returns the expiration time of the purchased bandwidth in the **BandwidthExpireTime** parameter.
+    *
+    * @param request RenewAdditionalBandwidthRequest
+    * @param runtime runtime options for this request RuntimeOptions
+    * @return RenewAdditionalBandwidthResponse
+   */
   async renewAdditionalBandwidthWithOptions(request: RenewAdditionalBandwidthRequest, runtime: $Util.RuntimeOptions): Promise<RenewAdditionalBandwidthResponse> {
     Util.validateModel(request);
     let query = { };
@@ -17785,11 +19842,26 @@ export default class Client extends OpenApi {
     return $tea.cast<RenewAdditionalBandwidthResponse>(await this.callApi(params, req, runtime), new RenewAdditionalBandwidthResponse({}));
   }
 
+  /**
+    * Before you call this operation, make sure that you understand the billing methods and [pricing](~~54532~~) of ApsaraDB for Redis.
+    * You can adjust the bandwidth of an instance in the ApsaraDB for Redis console. For more information, see [Adjust the bandwidth of an ApsaraDB for Redis instance](~~102588~~). You can also call the [EnableAdditionalBandwidth](~~206173~~) operation to adjust the bandwidth of an instance. If you want to continue using the bandwidth that you purchase after the validity period of the bandwidth, you must call the RenewAdditionalBandwidth operation to renew the bandwidth before the bandwidth expires.
+    * > Before you call this operation, you can call the [DescribeIntranetAttribute](~~128715~~) operation, which returns the expiration time of the purchased bandwidth in the **BandwidthExpireTime** parameter.
+    *
+    * @param request RenewAdditionalBandwidthRequest
+    * @return RenewAdditionalBandwidthResponse
+   */
   async renewAdditionalBandwidth(request: RenewAdditionalBandwidthRequest): Promise<RenewAdditionalBandwidthResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.renewAdditionalBandwidthWithOptions(request, runtime);
   }
 
+  /**
+    * This operation is applicable only to subscription instances.
+    *
+    * @param request RenewInstanceRequest
+    * @param runtime runtime options for this request RuntimeOptions
+    * @return RenewInstanceResponse
+   */
   async renewInstanceWithOptions(request: RenewInstanceRequest, runtime: $Util.RuntimeOptions): Promise<RenewInstanceResponse> {
     Util.validateModel(request);
     let query = { };
@@ -17866,11 +19938,24 @@ export default class Client extends OpenApi {
     return $tea.cast<RenewInstanceResponse>(await this.callApi(params, req, runtime), new RenewInstanceResponse({}));
   }
 
+  /**
+    * This operation is applicable only to subscription instances.
+    *
+    * @param request RenewInstanceRequest
+    * @return RenewInstanceResponse
+   */
   async renewInstance(request: RenewInstanceRequest): Promise<RenewInstanceResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.renewInstanceWithOptions(request, runtime);
   }
 
+  /**
+    * r-bp1zxszhcgatnx****
+    *
+    * @param request ResetAccountPasswordRequest
+    * @param runtime runtime options for this request RuntimeOptions
+    * @return ResetAccountPasswordResponse
+   */
   async resetAccountPasswordWithOptions(request: ResetAccountPasswordRequest, runtime: $Util.RuntimeOptions): Promise<ResetAccountPasswordResponse> {
     Util.validateModel(request);
     let query = { };
@@ -17923,6 +20008,12 @@ export default class Client extends OpenApi {
     return $tea.cast<ResetAccountPasswordResponse>(await this.callApi(params, req, runtime), new ResetAccountPasswordResponse({}));
   }
 
+  /**
+    * r-bp1zxszhcgatnx****
+    *
+    * @param request ResetAccountPasswordRequest
+    * @return ResetAccountPasswordResponse
+   */
   async resetAccountPassword(request: ResetAccountPasswordRequest): Promise<ResetAccountPasswordResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.resetAccountPasswordWithOptions(request, runtime);
@@ -17985,6 +20076,14 @@ export default class Client extends OpenApi {
     return await this.restartInstanceWithOptions(request, runtime);
   }
 
+  /**
+    * *   If your instance is a [persistent memory-optimized instance](~~443828~~) or [DRAM-based instance](~~443827~~) that is compatible with Redis 5.0 and the [data flashback](~~443784~~) feature is enabled, you can call this operation to restore the data of a specified key to a specified point in time that is accurate to the second. Other keys are not affected. This way, you can achieve more fine-grained data restoration.
+    * *   For other instance series, this operation overwrites the existing data of your instance with the backup data. Proceed with caution. We recommend that you call the [CreateInstance](~~60873~~) operation to create an instance. Then, you can restore data to the new instance.
+    *
+    * @param request RestoreInstanceRequest
+    * @param runtime runtime options for this request RuntimeOptions
+    * @return RestoreInstanceResponse
+   */
   async restoreInstanceWithOptions(request: RestoreInstanceRequest, runtime: $Util.RuntimeOptions): Promise<RestoreInstanceResponse> {
     Util.validateModel(request);
     let query = { };
@@ -18028,6 +20127,10 @@ export default class Client extends OpenApi {
       query["SecurityToken"] = request.securityToken;
     }
 
+    if (!Util.isUnset(request.timeShift)) {
+      query["TimeShift"] = request.timeShift;
+    }
+
     let req = new $OpenApi.OpenApiRequest({
       query: OpenApiUtil.query(query),
     });
@@ -18045,11 +20148,29 @@ export default class Client extends OpenApi {
     return $tea.cast<RestoreInstanceResponse>(await this.callApi(params, req, runtime), new RestoreInstanceResponse({}));
   }
 
+  /**
+    * *   If your instance is a [persistent memory-optimized instance](~~443828~~) or [DRAM-based instance](~~443827~~) that is compatible with Redis 5.0 and the [data flashback](~~443784~~) feature is enabled, you can call this operation to restore the data of a specified key to a specified point in time that is accurate to the second. Other keys are not affected. This way, you can achieve more fine-grained data restoration.
+    * *   For other instance series, this operation overwrites the existing data of your instance with the backup data. Proceed with caution. We recommend that you call the [CreateInstance](~~60873~~) operation to create an instance. Then, you can restore data to the new instance.
+    *
+    * @param request RestoreInstanceRequest
+    * @return RestoreInstanceResponse
+   */
   async restoreInstance(request: RestoreInstanceRequest): Promise<RestoreInstanceResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.restoreInstanceWithOptions(request, runtime);
   }
 
+  /**
+    * > For more information about nearby access to applications that are deployed across zones, see [Switch node roles](~~164222~~).
+    * The instance must be an ApsaraDB for Redis Community Edition instance or Enhanced Edition (Tair) [DRAM-based](~~126164~~) instance that uses local disks.
+    * A call to this operation has the following impacts on your instance:
+    * *   The data shards in the instance may change to the read-only state and experience transient connections within seconds. Make sure that your application is configured to automatically reconnect to the instance.
+    * *   If the instance enters the switching state, you cannot manage this instance. For example, you cannot modify the instance configurations or migrate the instance to another zone.
+    *
+    * @param request SwitchInstanceHARequest
+    * @param runtime runtime options for this request RuntimeOptions
+    * @return SwitchInstanceHAResponse
+   */
   async switchInstanceHAWithOptions(request: SwitchInstanceHARequest, runtime: $Util.RuntimeOptions): Promise<SwitchInstanceHAResponse> {
     Util.validateModel(request);
     let query = { };
@@ -18106,11 +20227,31 @@ export default class Client extends OpenApi {
     return $tea.cast<SwitchInstanceHAResponse>(await this.callApi(params, req, runtime), new SwitchInstanceHAResponse({}));
   }
 
+  /**
+    * > For more information about nearby access to applications that are deployed across zones, see [Switch node roles](~~164222~~).
+    * The instance must be an ApsaraDB for Redis Community Edition instance or Enhanced Edition (Tair) [DRAM-based](~~126164~~) instance that uses local disks.
+    * A call to this operation has the following impacts on your instance:
+    * *   The data shards in the instance may change to the read-only state and experience transient connections within seconds. Make sure that your application is configured to automatically reconnect to the instance.
+    * *   If the instance enters the switching state, you cannot manage this instance. For example, you cannot modify the instance configurations or migrate the instance to another zone.
+    *
+    * @param request SwitchInstanceHARequest
+    * @return SwitchInstanceHAResponse
+   */
   async switchInstanceHA(request: SwitchInstanceHARequest): Promise<SwitchInstanceHAResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.switchInstanceHAWithOptions(request, runtime);
   }
 
+  /**
+    * For more information about the proxy mode, see [Features of proxy nodes](~~142959~~). Before you call this operation, make sure that the following requirements are met:
+    * *   Your ApsaraDB for Redis instance is created by using a dedicated cluster. For more information, see [What is ApsaraDB MyBase?](~~141455~~)
+    * *   The instance uses the cluster architecture. For more information about the cluster architecture, see [Cluster master-replica instances](~~52228~~).
+    * > Before you call the SwitchInstanceProxy operation, you must call the [DescribeDedicatedClusterInstanceList](~~229522~~) operation and view the value of the **ProxyCount** response parameter to check whether the proxy mode is enabled. A value of 0 indicates that the proxy mode is disabled. A value that is greater than 0 indicates that the proxy mode is enabled.
+    *
+    * @param request SwitchInstanceProxyRequest
+    * @param runtime runtime options for this request RuntimeOptions
+    * @return SwitchInstanceProxyResponse
+   */
   async switchInstanceProxyWithOptions(request: SwitchInstanceProxyRequest, runtime: $Util.RuntimeOptions): Promise<SwitchInstanceProxyResponse> {
     Util.validateModel(request);
     let query = { };
@@ -18155,6 +20296,15 @@ export default class Client extends OpenApi {
     return $tea.cast<SwitchInstanceProxyResponse>(await this.callApi(params, req, runtime), new SwitchInstanceProxyResponse({}));
   }
 
+  /**
+    * For more information about the proxy mode, see [Features of proxy nodes](~~142959~~). Before you call this operation, make sure that the following requirements are met:
+    * *   Your ApsaraDB for Redis instance is created by using a dedicated cluster. For more information, see [What is ApsaraDB MyBase?](~~141455~~)
+    * *   The instance uses the cluster architecture. For more information about the cluster architecture, see [Cluster master-replica instances](~~52228~~).
+    * > Before you call the SwitchInstanceProxy operation, you must call the [DescribeDedicatedClusterInstanceList](~~229522~~) operation and view the value of the **ProxyCount** response parameter to check whether the proxy mode is enabled. A value of 0 indicates that the proxy mode is disabled. A value that is greater than 0 indicates that the proxy mode is enabled.
+    *
+    * @param request SwitchInstanceProxyRequest
+    * @return SwitchInstanceProxyResponse
+   */
   async switchInstanceProxy(request: SwitchInstanceProxyRequest): Promise<SwitchInstanceProxyResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.switchInstanceProxyWithOptions(request, runtime);
@@ -18290,6 +20440,19 @@ export default class Client extends OpenApi {
     return await this.syncDtsStatusWithOptions(request, runtime);
   }
 
+  /**
+    * If you have a large number of instances, you can create multiple tags and add these tags to the instances. Then, you can filter instances by tag.
+    * *   A tag consists of a key and a value. Each key must be unique in a region for an Alibaba Cloud account. Different keys can be mapped to the same value.
+    * *   If the tag that you specify does not exist, this tag is automatically created and added to the specified instance.
+    * *   If the key of the specified tag is the same as that of an existing tag, the specified tag overwrites the existing tag.
+    * *   You can add up to 20 tags to each instance.
+    * *   You can add tags to up to 50 instances in each request.
+    * You can also add tags to instances in the ApsaraDB for Redis console. For more information, see [Create a tag](~~118779~~).
+    *
+    * @param request TagResourcesRequest
+    * @param runtime runtime options for this request RuntimeOptions
+    * @return TagResourcesResponse
+   */
   async tagResourcesWithOptions(request: TagResourcesRequest, runtime: $Util.RuntimeOptions): Promise<TagResourcesResponse> {
     Util.validateModel(request);
     let query = { };
@@ -18342,11 +20505,30 @@ export default class Client extends OpenApi {
     return $tea.cast<TagResourcesResponse>(await this.callApi(params, req, runtime), new TagResourcesResponse({}));
   }
 
+  /**
+    * If you have a large number of instances, you can create multiple tags and add these tags to the instances. Then, you can filter instances by tag.
+    * *   A tag consists of a key and a value. Each key must be unique in a region for an Alibaba Cloud account. Different keys can be mapped to the same value.
+    * *   If the tag that you specify does not exist, this tag is automatically created and added to the specified instance.
+    * *   If the key of the specified tag is the same as that of an existing tag, the specified tag overwrites the existing tag.
+    * *   You can add up to 20 tags to each instance.
+    * *   You can add tags to up to 50 instances in each request.
+    * You can also add tags to instances in the ApsaraDB for Redis console. For more information, see [Create a tag](~~118779~~).
+    *
+    * @param request TagResourcesRequest
+    * @return TagResourcesResponse
+   */
   async tagResources(request: TagResourcesRequest): Promise<TagResourcesResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.tagResourcesWithOptions(request, runtime);
   }
 
+  /**
+    * 1
+    *
+    * @param request TransformInstanceChargeTypeRequest
+    * @param runtime runtime options for this request RuntimeOptions
+    * @return TransformInstanceChargeTypeResponse
+   */
   async transformInstanceChargeTypeWithOptions(request: TransformInstanceChargeTypeRequest, runtime: $Util.RuntimeOptions): Promise<TransformInstanceChargeTypeResponse> {
     Util.validateModel(request);
     let query = { };
@@ -18354,16 +20536,8 @@ export default class Client extends OpenApi {
       query["AutoPay"] = request.autoPay;
     }
 
-    if (!Util.isUnset(request.businessInfo)) {
-      query["BusinessInfo"] = request.businessInfo;
-    }
-
     if (!Util.isUnset(request.chargeType)) {
       query["ChargeType"] = request.chargeType;
-    }
-
-    if (!Util.isUnset(request.couponNo)) {
-      query["CouponNo"] = request.couponNo;
     }
 
     if (!Util.isUnset(request.instanceId)) {
@@ -18411,11 +20585,24 @@ export default class Client extends OpenApi {
     return $tea.cast<TransformInstanceChargeTypeResponse>(await this.callApi(params, req, runtime), new TransformInstanceChargeTypeResponse({}));
   }
 
+  /**
+    * 1
+    *
+    * @param request TransformInstanceChargeTypeRequest
+    * @return TransformInstanceChargeTypeResponse
+   */
   async transformInstanceChargeType(request: TransformInstanceChargeTypeRequest): Promise<TransformInstanceChargeTypeResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.transformInstanceChargeTypeWithOptions(request, runtime);
   }
 
+  /**
+    * The ID of the instance. You can call the [DescribeInstances](~~60933~~) operation to query the ID of the instance.
+    *
+    * @param request TransformToPrePaidRequest
+    * @param runtime runtime options for this request RuntimeOptions
+    * @return TransformToPrePaidResponse
+   */
   async transformToPrePaidWithOptions(request: TransformToPrePaidRequest, runtime: $Util.RuntimeOptions): Promise<TransformToPrePaidResponse> {
     Util.validateModel(request);
     let query = { };
@@ -18468,11 +20655,26 @@ export default class Client extends OpenApi {
     return $tea.cast<TransformToPrePaidResponse>(await this.callApi(params, req, runtime), new TransformToPrePaidResponse({}));
   }
 
+  /**
+    * The ID of the instance. You can call the [DescribeInstances](~~60933~~) operation to query the ID of the instance.
+    *
+    * @param request TransformToPrePaidRequest
+    * @return TransformToPrePaidResponse
+   */
   async transformToPrePaid(request: TransformToPrePaidRequest): Promise<TransformToPrePaidResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.transformToPrePaidWithOptions(request, runtime);
   }
 
+  /**
+    * *   You can remove up to 20 tags at a time.
+    * *   If a tag is removed from an instance and is not added to other instances, the tag is deleted.
+    * You can also remove tags from instances in the ApsaraDB for Redis console. For more information, see [Remove a tag](~~119157~~).
+    *
+    * @param request UntagResourcesRequest
+    * @param runtime runtime options for this request RuntimeOptions
+    * @return UntagResourcesResponse
+   */
   async untagResourcesWithOptions(request: UntagResourcesRequest, runtime: $Util.RuntimeOptions): Promise<UntagResourcesResponse> {
     Util.validateModel(request);
     let query = { };
@@ -18529,6 +20731,14 @@ export default class Client extends OpenApi {
     return $tea.cast<UntagResourcesResponse>(await this.callApi(params, req, runtime), new UntagResourcesResponse({}));
   }
 
+  /**
+    * *   You can remove up to 20 tags at a time.
+    * *   If a tag is removed from an instance and is not added to other instances, the tag is deleted.
+    * You can also remove tags from instances in the ApsaraDB for Redis console. For more information, see [Remove a tag](~~119157~~).
+    *
+    * @param request UntagResourcesRequest
+    * @return UntagResourcesResponse
+   */
   async untagResources(request: UntagResourcesRequest): Promise<UntagResourcesResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.untagResourcesWithOptions(request, runtime);
