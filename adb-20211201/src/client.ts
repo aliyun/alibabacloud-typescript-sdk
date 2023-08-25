@@ -2684,6 +2684,87 @@ export class DescribeAdbMySqlTablesResponse extends $tea.Model {
   }
 }
 
+export class DescribeAllDataSourceRequest extends $tea.Model {
+  DBClusterId?: string;
+  regionId?: string;
+  schemaName?: string;
+  tableName?: string;
+  static names(): { [key: string]: string } {
+    return {
+      DBClusterId: 'DBClusterId',
+      regionId: 'RegionId',
+      schemaName: 'SchemaName',
+      tableName: 'TableName',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      DBClusterId: 'string',
+      regionId: 'string',
+      schemaName: 'string',
+      tableName: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class DescribeAllDataSourceResponseBody extends $tea.Model {
+  columns?: DescribeAllDataSourceResponseBodyColumns;
+  requestId?: string;
+  schemas?: DescribeAllDataSourceResponseBodySchemas;
+  tables?: DescribeAllDataSourceResponseBodyTables;
+  static names(): { [key: string]: string } {
+    return {
+      columns: 'Columns',
+      requestId: 'RequestId',
+      schemas: 'Schemas',
+      tables: 'Tables',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      columns: DescribeAllDataSourceResponseBodyColumns,
+      requestId: 'string',
+      schemas: DescribeAllDataSourceResponseBodySchemas,
+      tables: DescribeAllDataSourceResponseBodyTables,
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class DescribeAllDataSourceResponse extends $tea.Model {
+  headers: { [key: string]: string };
+  statusCode: number;
+  body: DescribeAllDataSourceResponseBody;
+  static names(): { [key: string]: string } {
+    return {
+      headers: 'headers',
+      statusCode: 'statusCode',
+      body: 'body',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
+      body: DescribeAllDataSourceResponseBody,
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
 export class DescribeApsActionLogsRequest extends $tea.Model {
   DBClusterId?: string;
   endTime?: string;
@@ -3141,6 +3222,81 @@ export class DescribeClusterNetInfoResponse extends $tea.Model {
       headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
       statusCode: 'number',
       body: DescribeClusterNetInfoResponseBody,
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class DescribeColumnsRequest extends $tea.Model {
+  DBClusterId?: string;
+  regionId?: string;
+  schemaName?: string;
+  tableName?: string;
+  static names(): { [key: string]: string } {
+    return {
+      DBClusterId: 'DBClusterId',
+      regionId: 'RegionId',
+      schemaName: 'SchemaName',
+      tableName: 'TableName',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      DBClusterId: 'string',
+      regionId: 'string',
+      schemaName: 'string',
+      tableName: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class DescribeColumnsResponseBody extends $tea.Model {
+  items?: DescribeColumnsResponseBodyItems;
+  requestId?: string;
+  static names(): { [key: string]: string } {
+    return {
+      items: 'Items',
+      requestId: 'RequestId',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      items: DescribeColumnsResponseBodyItems,
+      requestId: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class DescribeColumnsResponse extends $tea.Model {
+  headers: { [key: string]: string };
+  statusCode: number;
+  body: DescribeColumnsResponseBody;
+  static names(): { [key: string]: string } {
+    return {
+      headers: 'headers',
+      statusCode: 'statusCode',
+      body: 'body',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
+      body: DescribeColumnsResponseBody,
     };
   }
 
@@ -4598,6 +4754,75 @@ export class DescribeSQLPatternsResponse extends $tea.Model {
   }
 }
 
+export class DescribeSchemasRequest extends $tea.Model {
+  DBClusterId?: string;
+  regionId?: string;
+  static names(): { [key: string]: string } {
+    return {
+      DBClusterId: 'DBClusterId',
+      regionId: 'RegionId',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      DBClusterId: 'string',
+      regionId: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class DescribeSchemasResponseBody extends $tea.Model {
+  items?: DescribeSchemasResponseBodyItems;
+  requestId?: string;
+  static names(): { [key: string]: string } {
+    return {
+      items: 'Items',
+      requestId: 'RequestId',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      items: DescribeSchemasResponseBodyItems,
+      requestId: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class DescribeSchemasResponse extends $tea.Model {
+  headers: { [key: string]: string };
+  statusCode: number;
+  body: DescribeSchemasResponseBody;
+  static names(): { [key: string]: string } {
+    return {
+      headers: 'headers',
+      statusCode: 'statusCode',
+      body: 'body',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
+      body: DescribeSchemasResponseBody,
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
 export class DescribeSparkCodeLogRequest extends $tea.Model {
   DBClusterId?: string;
   jobId?: number;
@@ -5013,6 +5238,78 @@ export class DescribeTableAccessCountResponse extends $tea.Model {
       headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
       statusCode: 'number',
       body: DescribeTableAccessCountResponseBody,
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class DescribeTablesRequest extends $tea.Model {
+  DBClusterId?: string;
+  regionId?: string;
+  schemaName?: string;
+  static names(): { [key: string]: string } {
+    return {
+      DBClusterId: 'DBClusterId',
+      regionId: 'RegionId',
+      schemaName: 'SchemaName',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      DBClusterId: 'string',
+      regionId: 'string',
+      schemaName: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class DescribeTablesResponseBody extends $tea.Model {
+  items?: DescribeTablesResponseBodyItems;
+  requestId?: string;
+  static names(): { [key: string]: string } {
+    return {
+      items: 'Items',
+      requestId: 'RequestId',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      items: DescribeTablesResponseBodyItems,
+      requestId: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class DescribeTablesResponse extends $tea.Model {
+  headers: { [key: string]: string };
+  statusCode: number;
+  body: DescribeTablesResponseBody;
+  static names(): { [key: string]: string } {
+    return {
+      headers: 'headers',
+      statusCode: 'statusCode',
+      body: 'body',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
+      body: DescribeTablesResponseBody,
     };
   }
 
@@ -9086,6 +9383,147 @@ export class DescribeAdbMySqlColumnsResponseBodyColumns extends $tea.Model {
   }
 }
 
+export class DescribeAllDataSourceResponseBodyColumnsColumn extends $tea.Model {
+  autoIncrementColumn?: boolean;
+  columnName?: string;
+  DBClusterId?: string;
+  primaryKey?: boolean;
+  schemaName?: string;
+  tableName?: string;
+  type?: string;
+  static names(): { [key: string]: string } {
+    return {
+      autoIncrementColumn: 'AutoIncrementColumn',
+      columnName: 'ColumnName',
+      DBClusterId: 'DBClusterId',
+      primaryKey: 'PrimaryKey',
+      schemaName: 'SchemaName',
+      tableName: 'TableName',
+      type: 'Type',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      autoIncrementColumn: 'boolean',
+      columnName: 'string',
+      DBClusterId: 'string',
+      primaryKey: 'boolean',
+      schemaName: 'string',
+      tableName: 'string',
+      type: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class DescribeAllDataSourceResponseBodyColumns extends $tea.Model {
+  column?: DescribeAllDataSourceResponseBodyColumnsColumn[];
+  static names(): { [key: string]: string } {
+    return {
+      column: 'Column',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      column: { 'type': 'array', 'itemType': DescribeAllDataSourceResponseBodyColumnsColumn },
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class DescribeAllDataSourceResponseBodySchemasSchema extends $tea.Model {
+  DBClusterId?: string;
+  schemaName?: string;
+  static names(): { [key: string]: string } {
+    return {
+      DBClusterId: 'DBClusterId',
+      schemaName: 'SchemaName',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      DBClusterId: 'string',
+      schemaName: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class DescribeAllDataSourceResponseBodySchemas extends $tea.Model {
+  schema?: DescribeAllDataSourceResponseBodySchemasSchema[];
+  static names(): { [key: string]: string } {
+    return {
+      schema: 'Schema',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      schema: { 'type': 'array', 'itemType': DescribeAllDataSourceResponseBodySchemasSchema },
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class DescribeAllDataSourceResponseBodyTablesTable extends $tea.Model {
+  DBClusterId?: string;
+  schemaName?: string;
+  tableName?: string;
+  static names(): { [key: string]: string } {
+    return {
+      DBClusterId: 'DBClusterId',
+      schemaName: 'SchemaName',
+      tableName: 'TableName',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      DBClusterId: 'string',
+      schemaName: 'string',
+      tableName: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class DescribeAllDataSourceResponseBodyTables extends $tea.Model {
+  table?: DescribeAllDataSourceResponseBodyTablesTable[];
+  static names(): { [key: string]: string } {
+    return {
+      table: 'Table',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      table: { 'type': 'array', 'itemType': DescribeAllDataSourceResponseBodyTablesTable },
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
 export class DescribeApsActionLogsResponseBodyActionLogs extends $tea.Model {
   context?: string;
   stage?: string;
@@ -9311,6 +9749,62 @@ export class DescribeClusterNetInfoResponseBodyItems extends $tea.Model {
   static types(): { [key: string]: any } {
     return {
       address: { 'type': 'array', 'itemType': DescribeClusterNetInfoResponseBodyItemsAddress },
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class DescribeColumnsResponseBodyItemsColumn extends $tea.Model {
+  autoIncrementColumn?: boolean;
+  columnName?: string;
+  DBClusterId?: string;
+  primaryKey?: boolean;
+  schemaName?: string;
+  tableName?: string;
+  type?: string;
+  static names(): { [key: string]: string } {
+    return {
+      autoIncrementColumn: 'AutoIncrementColumn',
+      columnName: 'ColumnName',
+      DBClusterId: 'DBClusterId',
+      primaryKey: 'PrimaryKey',
+      schemaName: 'SchemaName',
+      tableName: 'TableName',
+      type: 'Type',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      autoIncrementColumn: 'boolean',
+      columnName: 'string',
+      DBClusterId: 'string',
+      primaryKey: 'boolean',
+      schemaName: 'string',
+      tableName: 'string',
+      type: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class DescribeColumnsResponseBodyItems extends $tea.Model {
+  column?: DescribeColumnsResponseBodyItemsColumn[];
+  static names(): { [key: string]: string } {
+    return {
+      column: 'Column',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      column: { 'type': 'array', 'itemType': DescribeColumnsResponseBodyItemsColumn },
     };
   }
 
@@ -10390,6 +10884,47 @@ export class DescribeSQLPatternsResponseBodyPatternDetails extends $tea.Model {
   }
 }
 
+export class DescribeSchemasResponseBodyItemsSchema extends $tea.Model {
+  DBClusterId?: string;
+  schemaName?: string;
+  static names(): { [key: string]: string } {
+    return {
+      DBClusterId: 'DBClusterId',
+      schemaName: 'SchemaName',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      DBClusterId: 'string',
+      schemaName: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class DescribeSchemasResponseBodyItems extends $tea.Model {
+  schema?: DescribeSchemasResponseBodyItemsSchema[];
+  static names(): { [key: string]: string } {
+    return {
+      schema: 'Schema',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      schema: { 'type': 'array', 'itemType': DescribeSchemasResponseBodyItemsSchema },
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
 export class DescribeSqlPatternResponseBodyItems extends $tea.Model {
   accessIP?: string;
   avgCpuTime?: string;
@@ -10477,6 +11012,50 @@ export class DescribeTableAccessCountResponseBodyItems extends $tea.Model {
       reportDate: 'string',
       tableName: 'string',
       tableSchema: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class DescribeTablesResponseBodyItemsTable extends $tea.Model {
+  DBClusterId?: string;
+  schemaName?: string;
+  tableName?: string;
+  static names(): { [key: string]: string } {
+    return {
+      DBClusterId: 'DBClusterId',
+      schemaName: 'SchemaName',
+      tableName: 'TableName',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      DBClusterId: 'string',
+      schemaName: 'string',
+      tableName: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class DescribeTablesResponseBodyItems extends $tea.Model {
+  table?: DescribeTablesResponseBodyItemsTable[];
+  static names(): { [key: string]: string } {
+    return {
+      table: 'Table',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      table: { 'type': 'array', 'itemType': DescribeTablesResponseBodyItemsTable },
     };
   }
 
@@ -12233,6 +12812,47 @@ export default class Client extends OpenApi {
     return await this.describeAdbMySqlTablesWithOptions(request, runtime);
   }
 
+  async describeAllDataSourceWithOptions(request: DescribeAllDataSourceRequest, runtime: $Util.RuntimeOptions): Promise<DescribeAllDataSourceResponse> {
+    Util.validateModel(request);
+    let query = { };
+    if (!Util.isUnset(request.DBClusterId)) {
+      query["DBClusterId"] = request.DBClusterId;
+    }
+
+    if (!Util.isUnset(request.regionId)) {
+      query["RegionId"] = request.regionId;
+    }
+
+    if (!Util.isUnset(request.schemaName)) {
+      query["SchemaName"] = request.schemaName;
+    }
+
+    if (!Util.isUnset(request.tableName)) {
+      query["TableName"] = request.tableName;
+    }
+
+    let req = new $OpenApi.OpenApiRequest({
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApi.Params({
+      action: "DescribeAllDataSource",
+      version: "2021-12-01",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $tea.cast<DescribeAllDataSourceResponse>(await this.callApi(params, req, runtime), new DescribeAllDataSourceResponse({}));
+  }
+
+  async describeAllDataSource(request: DescribeAllDataSourceRequest): Promise<DescribeAllDataSourceResponse> {
+    let runtime = new $Util.RuntimeOptions({ });
+    return await this.describeAllDataSourceWithOptions(request, runtime);
+  }
+
   async describeApsActionLogsWithOptions(request: DescribeApsActionLogsRequest, runtime: $Util.RuntimeOptions): Promise<DescribeApsActionLogsResponse> {
     Util.validateModel(request);
     let query = { };
@@ -12504,6 +13124,47 @@ export default class Client extends OpenApi {
   async describeClusterNetInfo(request: DescribeClusterNetInfoRequest): Promise<DescribeClusterNetInfoResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.describeClusterNetInfoWithOptions(request, runtime);
+  }
+
+  async describeColumnsWithOptions(request: DescribeColumnsRequest, runtime: $Util.RuntimeOptions): Promise<DescribeColumnsResponse> {
+    Util.validateModel(request);
+    let query = { };
+    if (!Util.isUnset(request.DBClusterId)) {
+      query["DBClusterId"] = request.DBClusterId;
+    }
+
+    if (!Util.isUnset(request.regionId)) {
+      query["RegionId"] = request.regionId;
+    }
+
+    if (!Util.isUnset(request.schemaName)) {
+      query["SchemaName"] = request.schemaName;
+    }
+
+    if (!Util.isUnset(request.tableName)) {
+      query["TableName"] = request.tableName;
+    }
+
+    let req = new $OpenApi.OpenApiRequest({
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApi.Params({
+      action: "DescribeColumns",
+      version: "2021-12-01",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $tea.cast<DescribeColumnsResponse>(await this.callApi(params, req, runtime), new DescribeColumnsResponse({}));
+  }
+
+  async describeColumns(request: DescribeColumnsRequest): Promise<DescribeColumnsResponse> {
+    let runtime = new $Util.RuntimeOptions({ });
+    return await this.describeColumnsWithOptions(request, runtime);
   }
 
   async describeDBClusterAttributeWithOptions(request: DescribeDBClusterAttributeRequest, runtime: $Util.RuntimeOptions): Promise<DescribeDBClusterAttributeResponse> {
@@ -13279,6 +13940,39 @@ export default class Client extends OpenApi {
     return await this.describeSQLPatternsWithOptions(request, runtime);
   }
 
+  async describeSchemasWithOptions(request: DescribeSchemasRequest, runtime: $Util.RuntimeOptions): Promise<DescribeSchemasResponse> {
+    Util.validateModel(request);
+    let query = { };
+    if (!Util.isUnset(request.DBClusterId)) {
+      query["DBClusterId"] = request.DBClusterId;
+    }
+
+    if (!Util.isUnset(request.regionId)) {
+      query["RegionId"] = request.regionId;
+    }
+
+    let req = new $OpenApi.OpenApiRequest({
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApi.Params({
+      action: "DescribeSchemas",
+      version: "2021-12-01",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $tea.cast<DescribeSchemasResponse>(await this.callApi(params, req, runtime), new DescribeSchemasResponse({}));
+  }
+
+  async describeSchemas(request: DescribeSchemasRequest): Promise<DescribeSchemasResponse> {
+    let runtime = new $Util.RuntimeOptions({ });
+    return await this.describeSchemasWithOptions(request, runtime);
+  }
+
   async describeSparkCodeLogWithOptions(request: DescribeSparkCodeLogRequest, runtime: $Util.RuntimeOptions): Promise<DescribeSparkCodeLogResponse> {
     Util.validateModel(request);
     let query = { };
@@ -13498,6 +14192,43 @@ export default class Client extends OpenApi {
   async describeTableAccessCount(request: DescribeTableAccessCountRequest): Promise<DescribeTableAccessCountResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.describeTableAccessCountWithOptions(request, runtime);
+  }
+
+  async describeTablesWithOptions(request: DescribeTablesRequest, runtime: $Util.RuntimeOptions): Promise<DescribeTablesResponse> {
+    Util.validateModel(request);
+    let query = { };
+    if (!Util.isUnset(request.DBClusterId)) {
+      query["DBClusterId"] = request.DBClusterId;
+    }
+
+    if (!Util.isUnset(request.regionId)) {
+      query["RegionId"] = request.regionId;
+    }
+
+    if (!Util.isUnset(request.schemaName)) {
+      query["SchemaName"] = request.schemaName;
+    }
+
+    let req = new $OpenApi.OpenApiRequest({
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApi.Params({
+      action: "DescribeTables",
+      version: "2021-12-01",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $tea.cast<DescribeTablesResponse>(await this.callApi(params, req, runtime), new DescribeTablesResponse({}));
+  }
+
+  async describeTables(request: DescribeTablesRequest): Promise<DescribeTablesResponse> {
+    let runtime = new $Util.RuntimeOptions({ });
+    return await this.describeTablesWithOptions(request, runtime);
   }
 
   async disableElasticPlanWithOptions(request: DisableElasticPlanRequest, runtime: $Util.RuntimeOptions): Promise<DisableElasticPlanResponse> {
