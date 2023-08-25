@@ -15,6 +15,7 @@ export class AllocateAnycastEipAddressRequest extends $tea.Model {
   instanceChargeType?: string;
   internetChargeType?: string;
   name?: string;
+  resourceGroupId?: string;
   serviceLocation?: string;
   static names(): { [key: string]: string } {
     return {
@@ -24,6 +25,7 @@ export class AllocateAnycastEipAddressRequest extends $tea.Model {
       instanceChargeType: 'InstanceChargeType',
       internetChargeType: 'InternetChargeType',
       name: 'Name',
+      resourceGroupId: 'ResourceGroupId',
       serviceLocation: 'ServiceLocation',
     };
   }
@@ -36,6 +38,7 @@ export class AllocateAnycastEipAddressRequest extends $tea.Model {
       instanceChargeType: 'string',
       internetChargeType: 'string',
       name: 'string',
+      resourceGroupId: 'string',
       serviceLocation: 'string',
     };
   }
@@ -221,8 +224,10 @@ export class DescribeAnycastEipAddressResponseBody extends $tea.Model {
   ipAddress?: string;
   name?: string;
   requestId?: string;
+  resourceGroupId?: string;
   serviceLocation?: string;
   status?: string;
+  tags?: DescribeAnycastEipAddressResponseBodyTags[];
   static names(): { [key: string]: string } {
     return {
       aliUid: 'AliUid',
@@ -238,8 +243,10 @@ export class DescribeAnycastEipAddressResponseBody extends $tea.Model {
       ipAddress: 'IpAddress',
       name: 'Name',
       requestId: 'RequestId',
+      resourceGroupId: 'ResourceGroupId',
       serviceLocation: 'ServiceLocation',
       status: 'Status',
+      tags: 'Tags',
     };
   }
 
@@ -258,8 +265,10 @@ export class DescribeAnycastEipAddressResponseBody extends $tea.Model {
       ipAddress: 'string',
       name: 'string',
       requestId: 'string',
+      resourceGroupId: 'string',
       serviceLocation: 'string',
       status: 'string',
+      tags: { 'type': 'array', 'itemType': DescribeAnycastEipAddressResponseBodyTags },
     };
   }
 
@@ -442,8 +451,10 @@ export class ListAnycastEipAddressesRequest extends $tea.Model {
   maxResults?: number;
   name?: string;
   nextToken?: string;
+  resourceGroupId?: string;
   serviceLocation?: string;
   status?: string;
+  tags?: ListAnycastEipAddressesRequestTags[];
   static names(): { [key: string]: string } {
     return {
       anycastEipAddress: 'AnycastEipAddress',
@@ -456,8 +467,10 @@ export class ListAnycastEipAddressesRequest extends $tea.Model {
       maxResults: 'MaxResults',
       name: 'Name',
       nextToken: 'NextToken',
+      resourceGroupId: 'ResourceGroupId',
       serviceLocation: 'ServiceLocation',
       status: 'Status',
+      tags: 'Tags',
     };
   }
 
@@ -473,8 +486,10 @@ export class ListAnycastEipAddressesRequest extends $tea.Model {
       maxResults: 'number',
       name: 'string',
       nextToken: 'string',
+      resourceGroupId: 'string',
       serviceLocation: 'string',
       status: 'string',
+      tags: { 'type': 'array', 'itemType': ListAnycastEipAddressesRequestTags },
     };
   }
 
@@ -528,6 +543,87 @@ export class ListAnycastEipAddressesResponse extends $tea.Model {
       headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
       statusCode: 'number',
       body: ListAnycastEipAddressesResponseBody,
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class ListTagResourcesRequest extends $tea.Model {
+  maxResults?: string;
+  nextToken?: string;
+  resourceId?: string[];
+  resourceType?: string;
+  tag?: ListTagResourcesRequestTag[];
+  static names(): { [key: string]: string } {
+    return {
+      maxResults: 'MaxResults',
+      nextToken: 'NextToken',
+      resourceId: 'ResourceId',
+      resourceType: 'ResourceType',
+      tag: 'Tag',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      maxResults: 'string',
+      nextToken: 'string',
+      resourceId: { 'type': 'array', 'itemType': 'string' },
+      resourceType: 'string',
+      tag: { 'type': 'array', 'itemType': ListTagResourcesRequestTag },
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class ListTagResourcesResponseBody extends $tea.Model {
+  nextToken?: string;
+  requestId?: string;
+  tagResources?: ListTagResourcesResponseBodyTagResources[];
+  static names(): { [key: string]: string } {
+    return {
+      nextToken: 'NextToken',
+      requestId: 'RequestId',
+      tagResources: 'TagResources',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      nextToken: 'string',
+      requestId: 'string',
+      tagResources: { 'type': 'array', 'itemType': ListTagResourcesResponseBodyTagResources },
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class ListTagResourcesResponse extends $tea.Model {
+  headers: { [key: string]: string };
+  statusCode: number;
+  body: ListTagResourcesResponseBody;
+  static names(): { [key: string]: string } {
+    return {
+      headers: 'headers',
+      statusCode: 'statusCode',
+      body: 'body',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
+      body: ListTagResourcesResponseBody,
     };
   }
 
@@ -737,6 +833,78 @@ export class ReleaseAnycastEipAddressResponse extends $tea.Model {
   }
 }
 
+export class TagResourcesRequest extends $tea.Model {
+  resourceId?: string[];
+  resourceType?: string;
+  tag?: TagResourcesRequestTag[];
+  static names(): { [key: string]: string } {
+    return {
+      resourceId: 'ResourceId',
+      resourceType: 'ResourceType',
+      tag: 'Tag',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      resourceId: { 'type': 'array', 'itemType': 'string' },
+      resourceType: 'string',
+      tag: { 'type': 'array', 'itemType': TagResourcesRequestTag },
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class TagResourcesResponseBody extends $tea.Model {
+  requestId?: string;
+  success?: boolean;
+  static names(): { [key: string]: string } {
+    return {
+      requestId: 'RequestId',
+      success: 'Success',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      requestId: 'string',
+      success: 'boolean',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class TagResourcesResponse extends $tea.Model {
+  headers: { [key: string]: string };
+  statusCode: number;
+  body: TagResourcesResponseBody;
+  static names(): { [key: string]: string } {
+    return {
+      headers: 'headers',
+      statusCode: 'statusCode',
+      body: 'body',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
+      body: TagResourcesResponseBody,
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
 export class UnassociateAnycastEipAddressRequest extends $tea.Model {
   anycastId?: string;
   bindInstanceId?: string;
@@ -810,6 +978,78 @@ export class UnassociateAnycastEipAddressResponse extends $tea.Model {
       headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
       statusCode: 'number',
       body: UnassociateAnycastEipAddressResponseBody,
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class UntagResourcesRequest extends $tea.Model {
+  resourceId?: string[];
+  resourceType?: string;
+  tagKey?: string[];
+  static names(): { [key: string]: string } {
+    return {
+      resourceId: 'ResourceId',
+      resourceType: 'ResourceType',
+      tagKey: 'TagKey',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      resourceId: { 'type': 'array', 'itemType': 'string' },
+      resourceType: 'string',
+      tagKey: { 'type': 'array', 'itemType': 'string' },
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class UntagResourcesResponseBody extends $tea.Model {
+  requestId?: string;
+  success?: boolean;
+  static names(): { [key: string]: string } {
+    return {
+      requestId: 'RequestId',
+      success: 'Success',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      requestId: 'string',
+      success: 'boolean',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class UntagResourcesResponse extends $tea.Model {
+  headers: { [key: string]: string };
+  statusCode: number;
+  body: UntagResourcesResponseBody;
+  static names(): { [key: string]: string } {
+    return {
+      headers: 'headers',
+      statusCode: 'statusCode',
+      body: 'body',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
+      body: UntagResourcesResponseBody,
     };
   }
 
@@ -977,6 +1217,28 @@ export class DescribeAnycastEipAddressResponseBodyAnycastEipBindInfoList extends
   }
 }
 
+export class DescribeAnycastEipAddressResponseBodyTags extends $tea.Model {
+  key?: string;
+  value?: string;
+  static names(): { [key: string]: string } {
+    return {
+      key: 'Key',
+      value: 'Value',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      key: 'string',
+      value: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
 export class DescribeAnycastPopLocationsResponseBodyAnycastPopLocationList extends $tea.Model {
   regionId?: string;
   regionName?: string;
@@ -1021,6 +1283,28 @@ export class DescribeAnycastServerRegionsResponseBodyAnycastServerRegionList ext
   }
 }
 
+export class ListAnycastEipAddressesRequestTags extends $tea.Model {
+  key?: string;
+  value?: string;
+  static names(): { [key: string]: string } {
+    return {
+      key: 'Key',
+      value: 'Value',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      key: 'string',
+      value: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
 export class ListAnycastEipAddressesResponseBodyAnycastListAnycastEipBindInfoList extends $tea.Model {
   bindInstanceId?: string;
   bindInstanceRegionId?: string;
@@ -1049,6 +1333,28 @@ export class ListAnycastEipAddressesResponseBodyAnycastListAnycastEipBindInfoLis
   }
 }
 
+export class ListAnycastEipAddressesResponseBodyAnycastListTags extends $tea.Model {
+  key?: string;
+  value?: string;
+  static names(): { [key: string]: string } {
+    return {
+      key: 'Key',
+      value: 'Value',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      key: 'string',
+      value: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
 export class ListAnycastEipAddressesResponseBodyAnycastList extends $tea.Model {
   aliUid?: number;
   anycastEipBindInfoList?: ListAnycastEipAddressesResponseBodyAnycastListAnycastEipBindInfoList[];
@@ -1061,9 +1367,11 @@ export class ListAnycastEipAddressesResponseBodyAnycastList extends $tea.Model {
   internetChargeType?: string;
   ipAddress?: string;
   name?: string;
+  resourceGroupId?: string;
   serviceLocation?: string;
   serviceManaged?: number;
   status?: string;
+  tags?: ListAnycastEipAddressesResponseBodyAnycastListTags[];
   static names(): { [key: string]: string } {
     return {
       aliUid: 'AliUid',
@@ -1077,9 +1385,11 @@ export class ListAnycastEipAddressesResponseBodyAnycastList extends $tea.Model {
       internetChargeType: 'InternetChargeType',
       ipAddress: 'IpAddress',
       name: 'Name',
+      resourceGroupId: 'ResourceGroupId',
       serviceLocation: 'ServiceLocation',
       serviceManaged: 'ServiceManaged',
       status: 'Status',
+      tags: 'Tags',
     };
   }
 
@@ -1096,9 +1406,83 @@ export class ListAnycastEipAddressesResponseBodyAnycastList extends $tea.Model {
       internetChargeType: 'string',
       ipAddress: 'string',
       name: 'string',
+      resourceGroupId: 'string',
       serviceLocation: 'string',
       serviceManaged: 'number',
       status: 'string',
+      tags: { 'type': 'array', 'itemType': ListAnycastEipAddressesResponseBodyAnycastListTags },
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class ListTagResourcesRequestTag extends $tea.Model {
+  key?: string;
+  value?: string;
+  static names(): { [key: string]: string } {
+    return {
+      key: 'Key',
+      value: 'Value',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      key: 'string',
+      value: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class ListTagResourcesResponseBodyTagResources extends $tea.Model {
+  resourceId?: string;
+  resourceType?: string;
+  tagKey?: string;
+  tagValue?: string;
+  static names(): { [key: string]: string } {
+    return {
+      resourceId: 'ResourceId',
+      resourceType: 'ResourceType',
+      tagKey: 'TagKey',
+      tagValue: 'TagValue',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      resourceId: 'string',
+      resourceType: 'string',
+      tagKey: 'string',
+      tagValue: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class TagResourcesRequestTag extends $tea.Model {
+  key?: string;
+  value?: string;
+  static names(): { [key: string]: string } {
+    return {
+      key: 'Key',
+      value: 'Value',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      key: 'string',
+      value: 'string',
     };
   }
 
@@ -1193,6 +1577,10 @@ export default class Client extends OpenApi {
 
     if (!Util.isUnset(request.name)) {
       query["Name"] = request.name;
+    }
+
+    if (!Util.isUnset(request.resourceGroupId)) {
+      query["ResourceGroupId"] = request.resourceGroupId;
     }
 
     if (!Util.isUnset(request.serviceLocation)) {
@@ -1420,12 +1808,20 @@ export default class Client extends OpenApi {
       query["NextToken"] = request.nextToken;
     }
 
+    if (!Util.isUnset(request.resourceGroupId)) {
+      query["ResourceGroupId"] = request.resourceGroupId;
+    }
+
     if (!Util.isUnset(request.serviceLocation)) {
       query["ServiceLocation"] = request.serviceLocation;
     }
 
     if (!Util.isUnset(request.status)) {
       query["Status"] = request.status;
+    }
+
+    if (!Util.isUnset(request.tags)) {
+      query["Tags"] = request.tags;
     }
 
     let req = new $OpenApi.OpenApiRequest({
@@ -1448,6 +1844,51 @@ export default class Client extends OpenApi {
   async listAnycastEipAddresses(request: ListAnycastEipAddressesRequest): Promise<ListAnycastEipAddressesResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.listAnycastEipAddressesWithOptions(request, runtime);
+  }
+
+  async listTagResourcesWithOptions(request: ListTagResourcesRequest, runtime: $Util.RuntimeOptions): Promise<ListTagResourcesResponse> {
+    Util.validateModel(request);
+    let query = { };
+    if (!Util.isUnset(request.maxResults)) {
+      query["MaxResults"] = request.maxResults;
+    }
+
+    if (!Util.isUnset(request.nextToken)) {
+      query["NextToken"] = request.nextToken;
+    }
+
+    if (!Util.isUnset(request.resourceId)) {
+      query["ResourceId"] = request.resourceId;
+    }
+
+    if (!Util.isUnset(request.resourceType)) {
+      query["ResourceType"] = request.resourceType;
+    }
+
+    if (!Util.isUnset(request.tag)) {
+      query["Tag"] = request.tag;
+    }
+
+    let req = new $OpenApi.OpenApiRequest({
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApi.Params({
+      action: "ListTagResources",
+      version: "2020-03-09",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $tea.cast<ListTagResourcesResponse>(await this.callApi(params, req, runtime), new ListTagResourcesResponse({}));
+  }
+
+  async listTagResources(request: ListTagResourcesRequest): Promise<ListTagResourcesResponse> {
+    let runtime = new $Util.RuntimeOptions({ });
+    return await this.listTagResourcesWithOptions(request, runtime);
   }
 
   async modifyAnycastEipAddressAttributeWithOptions(request: ModifyAnycastEipAddressAttributeRequest, runtime: $Util.RuntimeOptions): Promise<ModifyAnycastEipAddressAttributeResponse> {
@@ -1553,6 +1994,43 @@ export default class Client extends OpenApi {
     return await this.releaseAnycastEipAddressWithOptions(request, runtime);
   }
 
+  async tagResourcesWithOptions(request: TagResourcesRequest, runtime: $Util.RuntimeOptions): Promise<TagResourcesResponse> {
+    Util.validateModel(request);
+    let query = { };
+    if (!Util.isUnset(request.resourceId)) {
+      query["ResourceId"] = request.resourceId;
+    }
+
+    if (!Util.isUnset(request.resourceType)) {
+      query["ResourceType"] = request.resourceType;
+    }
+
+    if (!Util.isUnset(request.tag)) {
+      query["Tag"] = request.tag;
+    }
+
+    let req = new $OpenApi.OpenApiRequest({
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApi.Params({
+      action: "TagResources",
+      version: "2020-03-09",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $tea.cast<TagResourcesResponse>(await this.callApi(params, req, runtime), new TagResourcesResponse({}));
+  }
+
+  async tagResources(request: TagResourcesRequest): Promise<TagResourcesResponse> {
+    let runtime = new $Util.RuntimeOptions({ });
+    return await this.tagResourcesWithOptions(request, runtime);
+  }
+
   async unassociateAnycastEipAddressWithOptions(request: UnassociateAnycastEipAddressRequest, runtime: $Util.RuntimeOptions): Promise<UnassociateAnycastEipAddressResponse> {
     Util.validateModel(request);
     let query = { };
@@ -1604,6 +2082,43 @@ export default class Client extends OpenApi {
   async unassociateAnycastEipAddress(request: UnassociateAnycastEipAddressRequest): Promise<UnassociateAnycastEipAddressResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.unassociateAnycastEipAddressWithOptions(request, runtime);
+  }
+
+  async untagResourcesWithOptions(request: UntagResourcesRequest, runtime: $Util.RuntimeOptions): Promise<UntagResourcesResponse> {
+    Util.validateModel(request);
+    let query = { };
+    if (!Util.isUnset(request.resourceId)) {
+      query["ResourceId"] = request.resourceId;
+    }
+
+    if (!Util.isUnset(request.resourceType)) {
+      query["ResourceType"] = request.resourceType;
+    }
+
+    if (!Util.isUnset(request.tagKey)) {
+      query["TagKey"] = request.tagKey;
+    }
+
+    let req = new $OpenApi.OpenApiRequest({
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApi.Params({
+      action: "UntagResources",
+      version: "2020-03-09",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $tea.cast<UntagResourcesResponse>(await this.callApi(params, req, runtime), new UntagResourcesResponse({}));
+  }
+
+  async untagResources(request: UntagResourcesRequest): Promise<UntagResourcesResponse> {
+    let runtime = new $Util.RuntimeOptions({ });
+    return await this.untagResourcesWithOptions(request, runtime);
   }
 
   async updateAnycastEipAddressAssociationsWithOptions(request: UpdateAnycastEipAddressAssociationsRequest, runtime: $Util.RuntimeOptions): Promise<UpdateAnycastEipAddressAssociationsResponse> {
