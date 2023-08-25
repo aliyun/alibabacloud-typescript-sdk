@@ -8634,6 +8634,7 @@ export class TransformInstanceChargeTypeRequest extends $tea.Model {
   ownerAccount?: string;
   ownerId?: number;
   period?: number;
+  pricingCycle?: string;
   resourceOwnerAccount?: string;
   resourceOwnerId?: number;
   securityToken?: string;
@@ -8648,6 +8649,7 @@ export class TransformInstanceChargeTypeRequest extends $tea.Model {
       ownerAccount: 'OwnerAccount',
       ownerId: 'OwnerId',
       period: 'Period',
+      pricingCycle: 'PricingCycle',
       resourceOwnerAccount: 'ResourceOwnerAccount',
       resourceOwnerId: 'ResourceOwnerId',
       securityToken: 'SecurityToken',
@@ -8665,6 +8667,7 @@ export class TransformInstanceChargeTypeRequest extends $tea.Model {
       ownerAccount: 'string',
       ownerId: 'number',
       period: 'number',
+      pricingCycle: 'string',
       resourceOwnerAccount: 'string',
       resourceOwnerId: 'number',
       securityToken: 'string',
@@ -19177,6 +19180,10 @@ export default class Client extends OpenApi {
 
     if (!Util.isUnset(request.period)) {
       query["Period"] = request.period;
+    }
+
+    if (!Util.isUnset(request.pricingCycle)) {
+      query["PricingCycle"] = request.pricingCycle;
     }
 
     if (!Util.isUnset(request.resourceOwnerAccount)) {
