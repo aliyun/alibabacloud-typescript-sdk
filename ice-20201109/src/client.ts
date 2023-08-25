@@ -662,6 +662,93 @@ export class CreateAuditResponse extends $tea.Model {
   }
 }
 
+export class CreateAvatarTrainingJobRequest extends $tea.Model {
+  avatarDescription?: string;
+  avatarName?: string;
+  avatarType?: string;
+  portrait?: string;
+  thumbnail?: string;
+  transparent?: boolean;
+  video?: string;
+  static names(): { [key: string]: string } {
+    return {
+      avatarDescription: 'AvatarDescription',
+      avatarName: 'AvatarName',
+      avatarType: 'AvatarType',
+      portrait: 'Portrait',
+      thumbnail: 'Thumbnail',
+      transparent: 'Transparent',
+      video: 'Video',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      avatarDescription: 'string',
+      avatarName: 'string',
+      avatarType: 'string',
+      portrait: 'string',
+      thumbnail: 'string',
+      transparent: 'boolean',
+      video: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class CreateAvatarTrainingJobResponseBody extends $tea.Model {
+  data?: CreateAvatarTrainingJobResponseBodyData;
+  requestId?: string;
+  success?: boolean;
+  static names(): { [key: string]: string } {
+    return {
+      data: 'Data',
+      requestId: 'RequestId',
+      success: 'Success',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      data: CreateAvatarTrainingJobResponseBodyData,
+      requestId: 'string',
+      success: 'boolean',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class CreateAvatarTrainingJobResponse extends $tea.Model {
+  headers: { [key: string]: string };
+  statusCode: number;
+  body: CreateAvatarTrainingJobResponseBody;
+  static names(): { [key: string]: string } {
+    return {
+      headers: 'headers',
+      statusCode: 'statusCode',
+      body: 'body',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
+      body: CreateAvatarTrainingJobResponseBody,
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
 export class CreateCustomTemplateRequest extends $tea.Model {
   name?: string;
   subtype?: number;
@@ -729,6 +816,87 @@ export class CreateCustomTemplateResponse extends $tea.Model {
       headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
       statusCode: 'number',
       body: CreateCustomTemplateResponseBody,
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class CreateCustomizedVoiceJobRequest extends $tea.Model {
+  gender?: string;
+  scenario?: string;
+  voiceDesc?: string;
+  voiceId?: string;
+  voiceName?: string;
+  static names(): { [key: string]: string } {
+    return {
+      gender: 'Gender',
+      scenario: 'Scenario',
+      voiceDesc: 'VoiceDesc',
+      voiceId: 'VoiceId',
+      voiceName: 'VoiceName',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      gender: 'string',
+      scenario: 'string',
+      voiceDesc: 'string',
+      voiceId: 'string',
+      voiceName: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class CreateCustomizedVoiceJobResponseBody extends $tea.Model {
+  data?: CreateCustomizedVoiceJobResponseBodyData;
+  requestId?: string;
+  success?: boolean;
+  static names(): { [key: string]: string } {
+    return {
+      data: 'Data',
+      requestId: 'RequestId',
+      success: 'Success',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      data: CreateCustomizedVoiceJobResponseBodyData,
+      requestId: 'string',
+      success: 'boolean',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class CreateCustomizedVoiceJobResponse extends $tea.Model {
+  headers: { [key: string]: string };
+  statusCode: number;
+  body: CreateCustomizedVoiceJobResponseBody;
+  static names(): { [key: string]: string } {
+    return {
+      headers: 'headers',
+      statusCode: 'statusCode',
+      body: 'body',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
+      body: CreateCustomizedVoiceJobResponseBody,
     };
   }
 
@@ -1498,6 +1666,75 @@ export class DecryptKMSDataKeyResponse extends $tea.Model {
   }
 }
 
+export class DeleteAvatarTrainingJobRequest extends $tea.Model {
+  jobId?: string;
+  static names(): { [key: string]: string } {
+    return {
+      jobId: 'JobId',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      jobId: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class DeleteAvatarTrainingJobResponseBody extends $tea.Model {
+  data?: DeleteAvatarTrainingJobResponseBodyData;
+  requestId?: string;
+  success?: boolean;
+  static names(): { [key: string]: string } {
+    return {
+      data: 'Data',
+      requestId: 'RequestId',
+      success: 'Success',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      data: DeleteAvatarTrainingJobResponseBodyData,
+      requestId: 'string',
+      success: 'boolean',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class DeleteAvatarTrainingJobResponse extends $tea.Model {
+  headers: { [key: string]: string };
+  statusCode: number;
+  body: DeleteAvatarTrainingJobResponseBody;
+  static names(): { [key: string]: string } {
+    return {
+      headers: 'headers',
+      statusCode: 'statusCode',
+      body: 'body',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
+      body: DeleteAvatarTrainingJobResponseBody,
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
 export class DeleteCategoryRequest extends $tea.Model {
   cateId?: number;
   static names(): { [key: string]: string } {
@@ -1619,6 +1856,72 @@ export class DeleteCustomTemplateResponse extends $tea.Model {
       headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
       statusCode: 'number',
       body: DeleteCustomTemplateResponseBody,
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class DeleteCustomizedVoiceJobRequest extends $tea.Model {
+  jobId?: string;
+  static names(): { [key: string]: string } {
+    return {
+      jobId: 'JobId',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      jobId: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class DeleteCustomizedVoiceJobResponseBody extends $tea.Model {
+  requestId?: string;
+  success?: boolean;
+  static names(): { [key: string]: string } {
+    return {
+      requestId: 'RequestId',
+      success: 'Success',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      requestId: 'string',
+      success: 'boolean',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class DeleteCustomizedVoiceJobResponse extends $tea.Model {
+  headers: { [key: string]: string };
+  statusCode: number;
+  body: DeleteCustomizedVoiceJobResponseBody;
+  static names(): { [key: string]: string } {
+    return {
+      headers: 'headers',
+      statusCode: 'statusCode',
+      body: 'body',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
+      body: DeleteCustomizedVoiceJobResponseBody,
     };
   }
 
@@ -4681,6 +4984,81 @@ export class DescribeQueryConfigsResponse extends $tea.Model {
   }
 }
 
+export class DetectAudioForCustomizedVoiceJobRequest extends $tea.Model {
+  audioRecordId?: number;
+  recordUrl?: string;
+  voiceId?: string;
+  static names(): { [key: string]: string } {
+    return {
+      audioRecordId: 'AudioRecordId',
+      recordUrl: 'RecordUrl',
+      voiceId: 'VoiceId',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      audioRecordId: 'number',
+      recordUrl: 'string',
+      voiceId: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class DetectAudioForCustomizedVoiceJobResponseBody extends $tea.Model {
+  data?: DetectAudioForCustomizedVoiceJobResponseBodyData;
+  requestId?: string;
+  success?: boolean;
+  static names(): { [key: string]: string } {
+    return {
+      data: 'Data',
+      requestId: 'RequestId',
+      success: 'Success',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      data: DetectAudioForCustomizedVoiceJobResponseBodyData,
+      requestId: 'string',
+      success: 'boolean',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class DetectAudioForCustomizedVoiceJobResponse extends $tea.Model {
+  headers: { [key: string]: string };
+  statusCode: number;
+  body: DetectAudioForCustomizedVoiceJobResponseBody;
+  static names(): { [key: string]: string } {
+    return {
+      headers: 'headers',
+      statusCode: 'statusCode',
+      body: 'body',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
+      body: DetectAudioForCustomizedVoiceJobResponseBody,
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
 export class GenerateKMSDataKeyResponseBody extends $tea.Model {
   dataKey?: GenerateKMSDataKeyResponseBodyDataKey;
   requestId?: string;
@@ -4720,6 +5098,144 @@ export class GenerateKMSDataKeyResponse extends $tea.Model {
       headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
       statusCode: 'number',
       body: GenerateKMSDataKeyResponseBody,
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class GetAvatarRequest extends $tea.Model {
+  avatarId?: string;
+  static names(): { [key: string]: string } {
+    return {
+      avatarId: 'AvatarId',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      avatarId: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class GetAvatarResponseBody extends $tea.Model {
+  data?: GetAvatarResponseBodyData;
+  requestId?: string;
+  success?: boolean;
+  static names(): { [key: string]: string } {
+    return {
+      data: 'Data',
+      requestId: 'RequestId',
+      success: 'Success',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      data: GetAvatarResponseBodyData,
+      requestId: 'string',
+      success: 'boolean',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class GetAvatarResponse extends $tea.Model {
+  headers: { [key: string]: string };
+  statusCode: number;
+  body: GetAvatarResponseBody;
+  static names(): { [key: string]: string } {
+    return {
+      headers: 'headers',
+      statusCode: 'statusCode',
+      body: 'body',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
+      body: GetAvatarResponseBody,
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class GetAvatarTrainingJobRequest extends $tea.Model {
+  jobId?: string;
+  static names(): { [key: string]: string } {
+    return {
+      jobId: 'JobId',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      jobId: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class GetAvatarTrainingJobResponseBody extends $tea.Model {
+  data?: GetAvatarTrainingJobResponseBodyData;
+  requestId?: string;
+  success?: boolean;
+  static names(): { [key: string]: string } {
+    return {
+      data: 'Data',
+      requestId: 'RequestId',
+      success: 'Success',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      data: GetAvatarTrainingJobResponseBodyData,
+      requestId: 'string',
+      success: 'boolean',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class GetAvatarTrainingJobResponse extends $tea.Model {
+  headers: { [key: string]: string };
+  statusCode: number;
+  body: GetAvatarTrainingJobResponseBody;
+  static names(): { [key: string]: string } {
+    return {
+      headers: 'headers',
+      statusCode: 'statusCode',
+      body: 'body',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
+      body: GetAvatarTrainingJobResponseBody,
     };
   }
 
@@ -4931,6 +5447,144 @@ export class GetCustomTemplateResponse extends $tea.Model {
   }
 }
 
+export class GetCustomizedVoiceRequest extends $tea.Model {
+  voiceId?: string;
+  static names(): { [key: string]: string } {
+    return {
+      voiceId: 'VoiceId',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      voiceId: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class GetCustomizedVoiceResponseBody extends $tea.Model {
+  data?: GetCustomizedVoiceResponseBodyData;
+  requestId?: string;
+  success?: boolean;
+  static names(): { [key: string]: string } {
+    return {
+      data: 'Data',
+      requestId: 'RequestId',
+      success: 'Success',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      data: GetCustomizedVoiceResponseBodyData,
+      requestId: 'string',
+      success: 'boolean',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class GetCustomizedVoiceResponse extends $tea.Model {
+  headers: { [key: string]: string };
+  statusCode: number;
+  body: GetCustomizedVoiceResponseBody;
+  static names(): { [key: string]: string } {
+    return {
+      headers: 'headers',
+      statusCode: 'statusCode',
+      body: 'body',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
+      body: GetCustomizedVoiceResponseBody,
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class GetCustomizedVoiceJobRequest extends $tea.Model {
+  jobId?: string;
+  static names(): { [key: string]: string } {
+    return {
+      jobId: 'JobId',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      jobId: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class GetCustomizedVoiceJobResponseBody extends $tea.Model {
+  data?: GetCustomizedVoiceJobResponseBodyData;
+  requestId?: string;
+  success?: boolean;
+  static names(): { [key: string]: string } {
+    return {
+      data: 'Data',
+      requestId: 'RequestId',
+      success: 'Success',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      data: GetCustomizedVoiceJobResponseBodyData,
+      requestId: 'string',
+      success: 'boolean',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class GetCustomizedVoiceJobResponse extends $tea.Model {
+  headers: { [key: string]: string };
+  statusCode: number;
+  body: GetCustomizedVoiceJobResponseBody;
+  static names(): { [key: string]: string } {
+    return {
+      headers: 'headers',
+      statusCode: 'statusCode',
+      body: 'body',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
+      body: GetCustomizedVoiceJobResponseBody,
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
 export class GetDefaultStorageLocationResponseBody extends $tea.Model {
   bucket?: string;
   path?: string;
@@ -4979,6 +5633,75 @@ export class GetDefaultStorageLocationResponse extends $tea.Model {
       headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
       statusCode: 'number',
       body: GetDefaultStorageLocationResponseBody,
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class GetDemonstrationForCustomizedVoiceJobRequest extends $tea.Model {
+  scenario?: string;
+  static names(): { [key: string]: string } {
+    return {
+      scenario: 'Scenario',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      scenario: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class GetDemonstrationForCustomizedVoiceJobResponseBody extends $tea.Model {
+  data?: GetDemonstrationForCustomizedVoiceJobResponseBodyData;
+  requestId?: string;
+  success?: boolean;
+  static names(): { [key: string]: string } {
+    return {
+      data: 'Data',
+      requestId: 'RequestId',
+      success: 'Success',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      data: GetDemonstrationForCustomizedVoiceJobResponseBodyData,
+      requestId: 'string',
+      success: 'boolean',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class GetDemonstrationForCustomizedVoiceJobResponse extends $tea.Model {
+  headers: { [key: string]: string };
+  statusCode: number;
+  body: GetDemonstrationForCustomizedVoiceJobResponseBody;
+  static names(): { [key: string]: string } {
+    return {
+      headers: 'headers',
+      statusCode: 'statusCode',
+      body: 'body',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
+      body: GetDemonstrationForCustomizedVoiceJobResponseBody,
     };
   }
 
@@ -7179,6 +7902,156 @@ export class ListAllPublicMediaTagsResponse extends $tea.Model {
   }
 }
 
+export class ListAvatarTrainingJobsRequest extends $tea.Model {
+  pageNo?: number;
+  pageSize?: number;
+  status?: string;
+  static names(): { [key: string]: string } {
+    return {
+      pageNo: 'PageNo',
+      pageSize: 'PageSize',
+      status: 'Status',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      pageNo: 'number',
+      pageSize: 'number',
+      status: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class ListAvatarTrainingJobsResponseBody extends $tea.Model {
+  data?: ListAvatarTrainingJobsResponseBodyData;
+  requestId?: string;
+  success?: boolean;
+  static names(): { [key: string]: string } {
+    return {
+      data: 'Data',
+      requestId: 'RequestId',
+      success: 'Success',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      data: ListAvatarTrainingJobsResponseBodyData,
+      requestId: 'string',
+      success: 'boolean',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class ListAvatarTrainingJobsResponse extends $tea.Model {
+  headers: { [key: string]: string };
+  statusCode: number;
+  body: ListAvatarTrainingJobsResponseBody;
+  static names(): { [key: string]: string } {
+    return {
+      headers: 'headers',
+      statusCode: 'statusCode',
+      body: 'body',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
+      body: ListAvatarTrainingJobsResponseBody,
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class ListAvatarsRequest extends $tea.Model {
+  avatarType?: string;
+  pageNo?: number;
+  pageSize?: number;
+  static names(): { [key: string]: string } {
+    return {
+      avatarType: 'AvatarType',
+      pageNo: 'PageNo',
+      pageSize: 'PageSize',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      avatarType: 'string',
+      pageNo: 'number',
+      pageSize: 'number',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class ListAvatarsResponseBody extends $tea.Model {
+  data?: ListAvatarsResponseBodyData;
+  requestId?: string;
+  success?: boolean;
+  static names(): { [key: string]: string } {
+    return {
+      data: 'Data',
+      requestId: 'RequestId',
+      success: 'Success',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      data: ListAvatarsResponseBodyData,
+      requestId: 'string',
+      success: 'boolean',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class ListAvatarsResponse extends $tea.Model {
+  headers: { [key: string]: string };
+  statusCode: number;
+  body: ListAvatarsResponseBody;
+  static names(): { [key: string]: string } {
+    return {
+      headers: 'headers',
+      statusCode: 'statusCode',
+      body: 'body',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
+      body: ListAvatarsResponseBody,
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
 export class ListCustomTemplatesRequest extends $tea.Model {
   name?: string;
   orderBy?: string;
@@ -7258,6 +8131,150 @@ export class ListCustomTemplatesResponse extends $tea.Model {
       headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
       statusCode: 'number',
       body: ListCustomTemplatesResponseBody,
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class ListCustomizedVoiceJobsRequest extends $tea.Model {
+  pageNo?: number;
+  pageSize?: number;
+  static names(): { [key: string]: string } {
+    return {
+      pageNo: 'PageNo',
+      pageSize: 'PageSize',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      pageNo: 'number',
+      pageSize: 'number',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class ListCustomizedVoiceJobsResponseBody extends $tea.Model {
+  data?: ListCustomizedVoiceJobsResponseBodyData;
+  requestId?: string;
+  success?: boolean;
+  static names(): { [key: string]: string } {
+    return {
+      data: 'Data',
+      requestId: 'RequestId',
+      success: 'Success',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      data: ListCustomizedVoiceJobsResponseBodyData,
+      requestId: 'string',
+      success: 'boolean',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class ListCustomizedVoiceJobsResponse extends $tea.Model {
+  headers: { [key: string]: string };
+  statusCode: number;
+  body: ListCustomizedVoiceJobsResponseBody;
+  static names(): { [key: string]: string } {
+    return {
+      headers: 'headers',
+      statusCode: 'statusCode',
+      body: 'body',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
+      body: ListCustomizedVoiceJobsResponseBody,
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class ListCustomizedVoicesRequest extends $tea.Model {
+  pageNo?: number;
+  pageSize?: number;
+  static names(): { [key: string]: string } {
+    return {
+      pageNo: 'PageNo',
+      pageSize: 'PageSize',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      pageNo: 'number',
+      pageSize: 'number',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class ListCustomizedVoicesResponseBody extends $tea.Model {
+  data?: ListCustomizedVoicesResponseBodyData;
+  requestId?: string;
+  success?: boolean;
+  static names(): { [key: string]: string } {
+    return {
+      data: 'Data',
+      requestId: 'RequestId',
+      success: 'Success',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      data: ListCustomizedVoicesResponseBodyData,
+      requestId: 'string',
+      success: 'boolean',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class ListCustomizedVoicesResponse extends $tea.Model {
+  headers: { [key: string]: string };
+  statusCode: number;
+  body: ListCustomizedVoicesResponseBody;
+  static names(): { [key: string]: string } {
+    return {
+      headers: 'headers',
+      statusCode: 'statusCode',
+      body: 'body',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
+      body: ListCustomizedVoicesResponseBody,
     };
   }
 
@@ -10067,6 +11084,7 @@ export class SearchMediaRequest extends $tea.Model {
   match?: string;
   pageNo?: number;
   pageSize?: number;
+  scrollToken?: string;
   sortBy?: string;
   static names(): { [key: string]: string } {
     return {
@@ -10074,6 +11092,7 @@ export class SearchMediaRequest extends $tea.Model {
       match: 'Match',
       pageNo: 'PageNo',
       pageSize: 'PageSize',
+      scrollToken: 'ScrollToken',
       sortBy: 'SortBy',
     };
   }
@@ -10084,6 +11103,7 @@ export class SearchMediaRequest extends $tea.Model {
       match: 'string',
       pageNo: 'number',
       pageSize: 'number',
+      scrollToken: 'string',
       sortBy: 'string',
     };
   }
@@ -10097,6 +11117,7 @@ export class SearchMediaResponseBody extends $tea.Model {
   code?: string;
   mediaInfoList?: SearchMediaResponseBodyMediaInfoList[];
   requestId?: string;
+  scrollToken?: string;
   success?: string;
   total?: number;
   static names(): { [key: string]: string } {
@@ -10104,6 +11125,7 @@ export class SearchMediaResponseBody extends $tea.Model {
       code: 'Code',
       mediaInfoList: 'MediaInfoList',
       requestId: 'RequestId',
+      scrollToken: 'ScrollToken',
       success: 'Success',
       total: 'Total',
     };
@@ -10114,6 +11136,7 @@ export class SearchMediaResponseBody extends $tea.Model {
       code: 'string',
       mediaInfoList: { 'type': 'array', 'itemType': SearchMediaResponseBodyMediaInfoList },
       requestId: 'string',
+      scrollToken: 'string',
       success: 'string',
       total: 'number',
     };
@@ -11079,6 +12102,75 @@ export class SubmitAudioProduceJobResponse extends $tea.Model {
   }
 }
 
+export class SubmitAvatarTrainingJobRequest extends $tea.Model {
+  jobId?: string;
+  static names(): { [key: string]: string } {
+    return {
+      jobId: 'JobId',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      jobId: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class SubmitAvatarTrainingJobResponseBody extends $tea.Model {
+  data?: SubmitAvatarTrainingJobResponseBodyData;
+  requestId?: string;
+  success?: boolean;
+  static names(): { [key: string]: string } {
+    return {
+      data: 'Data',
+      requestId: 'RequestId',
+      success: 'Success',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      data: SubmitAvatarTrainingJobResponseBodyData,
+      requestId: 'string',
+      success: 'boolean',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class SubmitAvatarTrainingJobResponse extends $tea.Model {
+  headers: { [key: string]: string };
+  statusCode: number;
+  body: SubmitAvatarTrainingJobResponseBody;
+  static names(): { [key: string]: string } {
+    return {
+      headers: 'headers',
+      statusCode: 'statusCode',
+      body: 'body',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
+      body: SubmitAvatarTrainingJobResponseBody,
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
 export class SubmitAvatarVideoJobRequest extends $tea.Model {
   description?: string;
   editingConfig?: string;
@@ -11155,6 +12247,78 @@ export class SubmitAvatarVideoJobResponse extends $tea.Model {
       headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
       statusCode: 'number',
       body: SubmitAvatarVideoJobResponseBody,
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class SubmitCustomizedVoiceJobRequest extends $tea.Model {
+  demoAudioMediaURL?: string;
+  voiceId?: string;
+  static names(): { [key: string]: string } {
+    return {
+      demoAudioMediaURL: 'DemoAudioMediaURL',
+      voiceId: 'VoiceId',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      demoAudioMediaURL: 'string',
+      voiceId: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class SubmitCustomizedVoiceJobResponseBody extends $tea.Model {
+  data?: SubmitCustomizedVoiceJobResponseBodyData;
+  requestId?: string;
+  success?: boolean;
+  static names(): { [key: string]: string } {
+    return {
+      data: 'Data',
+      requestId: 'RequestId',
+      success: 'Success',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      data: SubmitCustomizedVoiceJobResponseBodyData,
+      requestId: 'string',
+      success: 'boolean',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class SubmitCustomizedVoiceJobResponse extends $tea.Model {
+  headers: { [key: string]: string };
+  statusCode: number;
+  body: SubmitCustomizedVoiceJobResponseBody;
+  static names(): { [key: string]: string } {
+    return {
+      headers: 'headers',
+      statusCode: 'statusCode',
+      body: 'body',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
+      body: SubmitCustomizedVoiceJobResponseBody,
     };
   }
 
@@ -13093,6 +14257,93 @@ export class SubmitTranscodeJobResponse extends $tea.Model {
   }
 }
 
+export class UpdateAvatarTrainingJobRequest extends $tea.Model {
+  avatarDescription?: string;
+  avatarName?: string;
+  jobId?: string;
+  portrait?: string;
+  thumbnail?: string;
+  transparent?: boolean;
+  video?: string;
+  static names(): { [key: string]: string } {
+    return {
+      avatarDescription: 'AvatarDescription',
+      avatarName: 'AvatarName',
+      jobId: 'JobId',
+      portrait: 'Portrait',
+      thumbnail: 'Thumbnail',
+      transparent: 'Transparent',
+      video: 'Video',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      avatarDescription: 'string',
+      avatarName: 'string',
+      jobId: 'string',
+      portrait: 'string',
+      thumbnail: 'string',
+      transparent: 'boolean',
+      video: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class UpdateAvatarTrainingJobResponseBody extends $tea.Model {
+  data?: UpdateAvatarTrainingJobResponseBodyData;
+  requestId?: string;
+  success?: boolean;
+  static names(): { [key: string]: string } {
+    return {
+      data: 'Data',
+      requestId: 'RequestId',
+      success: 'Success',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      data: UpdateAvatarTrainingJobResponseBodyData,
+      requestId: 'string',
+      success: 'boolean',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class UpdateAvatarTrainingJobResponse extends $tea.Model {
+  headers: { [key: string]: string };
+  statusCode: number;
+  body: UpdateAvatarTrainingJobResponseBody;
+  static names(): { [key: string]: string } {
+    return {
+      headers: 'headers',
+      statusCode: 'statusCode',
+      body: 'body',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
+      body: UpdateAvatarTrainingJobResponseBody,
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
 export class UpdateCategoryRequest extends $tea.Model {
   cateId?: number;
   cateName?: string;
@@ -13223,6 +14474,75 @@ export class UpdateCustomTemplateResponse extends $tea.Model {
       headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
       statusCode: 'number',
       body: UpdateCustomTemplateResponseBody,
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class UpdateCustomizedVoiceRequest extends $tea.Model {
+  demoAudioMediaId?: string;
+  voiceId?: string;
+  static names(): { [key: string]: string } {
+    return {
+      demoAudioMediaId: 'DemoAudioMediaId',
+      voiceId: 'VoiceId',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      demoAudioMediaId: 'string',
+      voiceId: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class UpdateCustomizedVoiceResponseBody extends $tea.Model {
+  requestId?: string;
+  success?: boolean;
+  static names(): { [key: string]: string } {
+    return {
+      requestId: 'RequestId',
+      success: 'Success',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      requestId: 'string',
+      success: 'boolean',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class UpdateCustomizedVoiceResponse extends $tea.Model {
+  headers: { [key: string]: string };
+  statusCode: number;
+  body: UpdateCustomizedVoiceResponseBody;
+  static names(): { [key: string]: string } {
+    return {
+      headers: 'headers',
+      statusCode: 'statusCode',
+      body: 'body',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
+      body: UpdateCustomizedVoiceResponseBody,
     };
   }
 
@@ -14688,6 +16008,25 @@ export class BatchGetMediaInfosResponseBodyMediaInfos extends $tea.Model {
   }
 }
 
+export class CreateAvatarTrainingJobResponseBodyData extends $tea.Model {
+  jobId?: string;
+  static names(): { [key: string]: string } {
+    return {
+      jobId: 'JobId',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      jobId: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
 export class CreateCustomTemplateResponseBodyCustomTemplate extends $tea.Model {
   createTime?: string;
   isDefault?: boolean;
@@ -14726,6 +16065,28 @@ export class CreateCustomTemplateResponseBodyCustomTemplate extends $tea.Model {
       templateName: 'string',
       type: 'number',
       typeName: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class CreateCustomizedVoiceJobResponseBodyData extends $tea.Model {
+  jobId?: string;
+  voiceId?: string;
+  static names(): { [key: string]: string } {
+    return {
+      jobId: 'JobId',
+      voiceId: 'VoiceId',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      jobId: 'string',
+      voiceId: 'string',
     };
   }
 
@@ -15007,6 +16368,25 @@ export class DecryptKMSDataKeyResponseBodyDataKey extends $tea.Model {
     return {
       keyId: 'string',
       plaintext: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class DeleteAvatarTrainingJobResponseBodyData extends $tea.Model {
+  jobId?: string;
+  static names(): { [key: string]: string } {
+    return {
+      jobId: 'JobId',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      jobId: 'string',
     };
   }
 
@@ -15766,6 +17146,28 @@ export class DescribeQueryConfigsResponseBodyConfigs extends $tea.Model {
   }
 }
 
+export class DetectAudioForCustomizedVoiceJobResponseBodyData extends $tea.Model {
+  pass?: boolean;
+  reason?: string;
+  static names(): { [key: string]: string } {
+    return {
+      pass: 'Pass',
+      reason: 'Reason',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      pass: 'boolean',
+      reason: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
 export class GenerateKMSDataKeyResponseBodyDataKey extends $tea.Model {
   ciphertextBlob?: string;
   keyId?: string;
@@ -15783,6 +17185,136 @@ export class GenerateKMSDataKeyResponseBodyDataKey extends $tea.Model {
       ciphertextBlob: 'string',
       keyId: 'string',
       plaintext: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class GetAvatarResponseBodyDataAvatar extends $tea.Model {
+  avatarDescription?: string;
+  avatarId?: string;
+  avatarName?: string;
+  avatarType?: string;
+  portrait?: string;
+  thumbnail?: string;
+  transparent?: boolean;
+  static names(): { [key: string]: string } {
+    return {
+      avatarDescription: 'AvatarDescription',
+      avatarId: 'AvatarId',
+      avatarName: 'AvatarName',
+      avatarType: 'AvatarType',
+      portrait: 'Portrait',
+      thumbnail: 'Thumbnail',
+      transparent: 'Transparent',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      avatarDescription: 'string',
+      avatarId: 'string',
+      avatarName: 'string',
+      avatarType: 'string',
+      portrait: 'string',
+      thumbnail: 'string',
+      transparent: 'boolean',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class GetAvatarResponseBodyData extends $tea.Model {
+  avatar?: GetAvatarResponseBodyDataAvatar;
+  static names(): { [key: string]: string } {
+    return {
+      avatar: 'Avatar',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      avatar: GetAvatarResponseBodyDataAvatar,
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class GetAvatarTrainingJobResponseBodyDataAvatarTrainingJob extends $tea.Model {
+  avatarDescription?: string;
+  avatarId?: string;
+  avatarName?: string;
+  avatarType?: string;
+  firstTrainingTime?: string;
+  jobId?: string;
+  lastTrainingTime?: string;
+  message?: string;
+  portrait?: string;
+  status?: string;
+  thumbnail?: string;
+  transparent?: boolean;
+  video?: string;
+  static names(): { [key: string]: string } {
+    return {
+      avatarDescription: 'AvatarDescription',
+      avatarId: 'AvatarId',
+      avatarName: 'AvatarName',
+      avatarType: 'AvatarType',
+      firstTrainingTime: 'FirstTrainingTime',
+      jobId: 'JobId',
+      lastTrainingTime: 'LastTrainingTime',
+      message: 'Message',
+      portrait: 'Portrait',
+      status: 'Status',
+      thumbnail: 'Thumbnail',
+      transparent: 'Transparent',
+      video: 'Video',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      avatarDescription: 'string',
+      avatarId: 'string',
+      avatarName: 'string',
+      avatarType: 'string',
+      firstTrainingTime: 'string',
+      jobId: 'string',
+      lastTrainingTime: 'string',
+      message: 'string',
+      portrait: 'string',
+      status: 'string',
+      thumbnail: 'string',
+      transparent: 'boolean',
+      video: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class GetAvatarTrainingJobResponseBodyData extends $tea.Model {
+  avatarTrainingJob?: GetAvatarTrainingJobResponseBodyDataAvatarTrainingJob;
+  static names(): { [key: string]: string } {
+    return {
+      avatarTrainingJob: 'AvatarTrainingJob',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      avatarTrainingJob: GetAvatarTrainingJobResponseBodyDataAvatarTrainingJob,
     };
   }
 
@@ -15941,6 +17473,150 @@ export class GetCustomTemplateResponseBodyCustomTemplate extends $tea.Model {
       templateName: 'string',
       type: 'number',
       typeName: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class GetCustomizedVoiceResponseBodyDataCustomizedVoice extends $tea.Model {
+  demoAudioMediaId?: string;
+  gender?: string;
+  scenario?: string;
+  voiceDesc?: string;
+  voiceId?: string;
+  voiceName?: string;
+  static names(): { [key: string]: string } {
+    return {
+      demoAudioMediaId: 'DemoAudioMediaId',
+      gender: 'Gender',
+      scenario: 'Scenario',
+      voiceDesc: 'VoiceDesc',
+      voiceId: 'VoiceId',
+      voiceName: 'VoiceName',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      demoAudioMediaId: 'string',
+      gender: 'string',
+      scenario: 'string',
+      voiceDesc: 'string',
+      voiceId: 'string',
+      voiceName: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class GetCustomizedVoiceResponseBodyData extends $tea.Model {
+  customizedVoice?: GetCustomizedVoiceResponseBodyDataCustomizedVoice;
+  static names(): { [key: string]: string } {
+    return {
+      customizedVoice: 'CustomizedVoice',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      customizedVoice: GetCustomizedVoiceResponseBodyDataCustomizedVoice,
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class GetCustomizedVoiceJobResponseBodyDataCustomizedVoiceJob extends $tea.Model {
+  jobId?: string;
+  message?: string;
+  status?: string;
+  voiceId?: string;
+  static names(): { [key: string]: string } {
+    return {
+      jobId: 'JobId',
+      message: 'Message',
+      status: 'Status',
+      voiceId: 'VoiceId',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      jobId: 'string',
+      message: 'string',
+      status: 'string',
+      voiceId: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class GetCustomizedVoiceJobResponseBodyData extends $tea.Model {
+  customizedVoiceJob?: GetCustomizedVoiceJobResponseBodyDataCustomizedVoiceJob;
+  static names(): { [key: string]: string } {
+    return {
+      customizedVoiceJob: 'CustomizedVoiceJob',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      customizedVoiceJob: GetCustomizedVoiceJobResponseBodyDataCustomizedVoiceJob,
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class GetDemonstrationForCustomizedVoiceJobResponseBodyDataDemonstrationList extends $tea.Model {
+  audioId?: number;
+  demoAudio?: string;
+  text?: string;
+  static names(): { [key: string]: string } {
+    return {
+      audioId: 'AudioId',
+      demoAudio: 'DemoAudio',
+      text: 'Text',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      audioId: 'number',
+      demoAudio: 'string',
+      text: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class GetDemonstrationForCustomizedVoiceJobResponseBodyData extends $tea.Model {
+  demonstrationList?: GetDemonstrationForCustomizedVoiceJobResponseBodyDataDemonstrationList[];
+  static names(): { [key: string]: string } {
+    return {
+      demonstrationList: 'DemonstrationList',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      demonstrationList: { 'type': 'array', 'itemType': GetDemonstrationForCustomizedVoiceJobResponseBodyDataDemonstrationList },
     };
   }
 
@@ -17930,17 +19606,23 @@ export class GetPipelineResponseBodyPipeline extends $tea.Model {
 }
 
 export class GetPlayInfoResponseBodyMediaBase extends $tea.Model {
+  cateId?: number;
   coverURL?: string;
   creationTime?: string;
+  description?: string;
   mediaId?: string;
+  mediaTags?: string;
   mediaType?: string;
   status?: string;
   title?: string;
   static names(): { [key: string]: string } {
     return {
+      cateId: 'CateId',
       coverURL: 'CoverURL',
       creationTime: 'CreationTime',
+      description: 'Description',
       mediaId: 'MediaId',
+      mediaTags: 'MediaTags',
       mediaType: 'MediaType',
       status: 'Status',
       title: 'Title',
@@ -17949,9 +19631,12 @@ export class GetPlayInfoResponseBodyMediaBase extends $tea.Model {
 
   static types(): { [key: string]: any } {
     return {
+      cateId: 'number',
       coverURL: 'string',
       creationTime: 'string',
+      description: 'string',
       mediaId: 'string',
+      mediaTags: 'string',
       mediaType: 'string',
       status: 'string',
       title: 'string',
@@ -20771,6 +22456,136 @@ export class ListAllPublicMediaTagsResponseBodyMediaTagList extends $tea.Model {
   }
 }
 
+export class ListAvatarTrainingJobsResponseBodyDataAvatarTrainingJobList extends $tea.Model {
+  avatarDescription?: string;
+  avatarId?: string;
+  avatarName?: string;
+  avatarType?: string;
+  createTime?: string;
+  firstTrainingTime?: string;
+  jobId?: string;
+  lastTrainingTime?: string;
+  message?: string;
+  portrait?: string;
+  status?: string;
+  static names(): { [key: string]: string } {
+    return {
+      avatarDescription: 'AvatarDescription',
+      avatarId: 'AvatarId',
+      avatarName: 'AvatarName',
+      avatarType: 'AvatarType',
+      createTime: 'CreateTime',
+      firstTrainingTime: 'FirstTrainingTime',
+      jobId: 'JobId',
+      lastTrainingTime: 'LastTrainingTime',
+      message: 'Message',
+      portrait: 'Portrait',
+      status: 'Status',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      avatarDescription: 'string',
+      avatarId: 'string',
+      avatarName: 'string',
+      avatarType: 'string',
+      createTime: 'string',
+      firstTrainingTime: 'string',
+      jobId: 'string',
+      lastTrainingTime: 'string',
+      message: 'string',
+      portrait: 'string',
+      status: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class ListAvatarTrainingJobsResponseBodyData extends $tea.Model {
+  avatarTrainingJobList?: ListAvatarTrainingJobsResponseBodyDataAvatarTrainingJobList[];
+  totalCount?: number;
+  static names(): { [key: string]: string } {
+    return {
+      avatarTrainingJobList: 'AvatarTrainingJobList',
+      totalCount: 'TotalCount',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      avatarTrainingJobList: { 'type': 'array', 'itemType': ListAvatarTrainingJobsResponseBodyDataAvatarTrainingJobList },
+      totalCount: 'number',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class ListAvatarsResponseBodyDataAvatarList extends $tea.Model {
+  avatarDescription?: string;
+  avatarId?: string;
+  avatarName?: string;
+  avatarType?: string;
+  portrait?: string;
+  thumbnail?: string;
+  transparent?: boolean;
+  static names(): { [key: string]: string } {
+    return {
+      avatarDescription: 'AvatarDescription',
+      avatarId: 'AvatarId',
+      avatarName: 'AvatarName',
+      avatarType: 'AvatarType',
+      portrait: 'Portrait',
+      thumbnail: 'Thumbnail',
+      transparent: 'Transparent',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      avatarDescription: 'string',
+      avatarId: 'string',
+      avatarName: 'string',
+      avatarType: 'string',
+      portrait: 'string',
+      thumbnail: 'string',
+      transparent: 'boolean',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class ListAvatarsResponseBodyData extends $tea.Model {
+  avatarList?: ListAvatarsResponseBodyDataAvatarList[];
+  totalCount?: number;
+  static names(): { [key: string]: string } {
+    return {
+      avatarList: 'AvatarList',
+      totalCount: 'TotalCount',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      avatarList: { 'type': 'array', 'itemType': ListAvatarsResponseBodyDataAvatarList },
+      totalCount: 'number',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
 export class ListCustomTemplatesResponseBodyCustomTemplateList extends $tea.Model {
   createTime?: string;
   isDefault?: boolean;
@@ -20812,6 +22627,127 @@ export class ListCustomTemplatesResponseBodyCustomTemplateList extends $tea.Mode
       templateName: 'string',
       type: 'number',
       typeName: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class ListCustomizedVoiceJobsResponseBodyDataCustomizedVoiceJobList extends $tea.Model {
+  gender?: string;
+  gmtCreate?: string;
+  jobId?: string;
+  message?: string;
+  scenario?: string;
+  status?: string;
+  voiceDesc?: string;
+  voiceId?: string;
+  voiceName?: string;
+  static names(): { [key: string]: string } {
+    return {
+      gender: 'Gender',
+      gmtCreate: 'GmtCreate',
+      jobId: 'JobId',
+      message: 'Message',
+      scenario: 'Scenario',
+      status: 'Status',
+      voiceDesc: 'VoiceDesc',
+      voiceId: 'VoiceId',
+      voiceName: 'VoiceName',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      gender: 'string',
+      gmtCreate: 'string',
+      jobId: 'string',
+      message: 'string',
+      scenario: 'string',
+      status: 'string',
+      voiceDesc: 'string',
+      voiceId: 'string',
+      voiceName: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class ListCustomizedVoiceJobsResponseBodyData extends $tea.Model {
+  customizedVoiceJobList?: ListCustomizedVoiceJobsResponseBodyDataCustomizedVoiceJobList[];
+  totalCount?: number;
+  static names(): { [key: string]: string } {
+    return {
+      customizedVoiceJobList: 'CustomizedVoiceJobList',
+      totalCount: 'TotalCount',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      customizedVoiceJobList: { 'type': 'array', 'itemType': ListCustomizedVoiceJobsResponseBodyDataCustomizedVoiceJobList },
+      totalCount: 'number',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class ListCustomizedVoicesResponseBodyDataCustomizedVoiceList extends $tea.Model {
+  demoAudioMediaId?: string;
+  gender?: string;
+  scenario?: string;
+  voiceDesc?: string;
+  voiceId?: string;
+  voiceName?: string;
+  static names(): { [key: string]: string } {
+    return {
+      demoAudioMediaId: 'DemoAudioMediaId',
+      gender: 'Gender',
+      scenario: 'Scenario',
+      voiceDesc: 'VoiceDesc',
+      voiceId: 'VoiceId',
+      voiceName: 'VoiceName',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      demoAudioMediaId: 'string',
+      gender: 'string',
+      scenario: 'string',
+      voiceDesc: 'string',
+      voiceId: 'string',
+      voiceName: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class ListCustomizedVoicesResponseBodyData extends $tea.Model {
+  customizedVoiceList?: ListCustomizedVoicesResponseBodyDataCustomizedVoiceList[];
+  totalCount?: number;
+  static names(): { [key: string]: string } {
+    return {
+      customizedVoiceList: 'CustomizedVoiceList',
+      totalCount: 'TotalCount',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      customizedVoiceList: { 'type': 'array', 'itemType': ListCustomizedVoicesResponseBodyDataCustomizedVoiceList },
+      totalCount: 'number',
     };
   }
 
@@ -22512,14 +24448,22 @@ export class ListSmartJobsResponseBodySmartJobList extends $tea.Model {
 export class ListSmartSysAvatarModelsResponseBodySmartSysAvatarModelList extends $tea.Model {
   avatarId?: string;
   avatarName?: string;
+  bitrate?: number;
   coverUrl?: string;
+  height?: number;
+  outputMask?: boolean;
   videoUrl?: string;
+  width?: number;
   static names(): { [key: string]: string } {
     return {
       avatarId: 'AvatarId',
       avatarName: 'AvatarName',
+      bitrate: 'Bitrate',
       coverUrl: 'CoverUrl',
+      height: 'Height',
+      outputMask: 'OutputMask',
       videoUrl: 'VideoUrl',
+      width: 'Width',
     };
   }
 
@@ -22527,8 +24471,12 @@ export class ListSmartSysAvatarModelsResponseBodySmartSysAvatarModelList extends
     return {
       avatarId: 'string',
       avatarName: 'string',
+      bitrate: 'number',
       coverUrl: 'string',
+      height: 'number',
+      outputMask: 'boolean',
       videoUrl: 'string',
+      width: 'number',
     };
   }
 
@@ -25382,6 +27330,47 @@ export class SearchPublicMediaInfoResponseBodyPublicMediaInfos extends $tea.Mode
       favorite: 'boolean',
       mediaInfo: SearchPublicMediaInfoResponseBodyPublicMediaInfosMediaInfo,
       remainingAuthTime: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class SubmitAvatarTrainingJobResponseBodyData extends $tea.Model {
+  jobId?: string;
+  static names(): { [key: string]: string } {
+    return {
+      jobId: 'JobId',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      jobId: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class SubmitCustomizedVoiceJobResponseBodyData extends $tea.Model {
+  jobId?: string;
+  voiceId?: string;
+  static names(): { [key: string]: string } {
+    return {
+      jobId: 'JobId',
+      voiceId: 'VoiceId',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      jobId: 'string',
+      voiceId: 'string',
     };
   }
 
@@ -29332,6 +31321,25 @@ export class SubmitTranscodeJobResponseBodyTranscodeParentJob extends $tea.Model
   }
 }
 
+export class UpdateAvatarTrainingJobResponseBodyData extends $tea.Model {
+  jobId?: string;
+  static names(): { [key: string]: string } {
+    return {
+      jobId: 'JobId',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      jobId: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
 export class UpdateLiveRecordTemplateRequestRecordFormat extends $tea.Model {
   cycleDuration?: number;
   format?: string;
@@ -29955,6 +31963,59 @@ export default class Client extends OpenApi {
     return await this.createAuditWithOptions(request, runtime);
   }
 
+  async createAvatarTrainingJobWithOptions(request: CreateAvatarTrainingJobRequest, runtime: $Util.RuntimeOptions): Promise<CreateAvatarTrainingJobResponse> {
+    Util.validateModel(request);
+    let query = { };
+    if (!Util.isUnset(request.avatarDescription)) {
+      query["AvatarDescription"] = request.avatarDescription;
+    }
+
+    if (!Util.isUnset(request.avatarName)) {
+      query["AvatarName"] = request.avatarName;
+    }
+
+    if (!Util.isUnset(request.avatarType)) {
+      query["AvatarType"] = request.avatarType;
+    }
+
+    if (!Util.isUnset(request.portrait)) {
+      query["Portrait"] = request.portrait;
+    }
+
+    if (!Util.isUnset(request.thumbnail)) {
+      query["Thumbnail"] = request.thumbnail;
+    }
+
+    if (!Util.isUnset(request.transparent)) {
+      query["Transparent"] = request.transparent;
+    }
+
+    if (!Util.isUnset(request.video)) {
+      query["Video"] = request.video;
+    }
+
+    let req = new $OpenApi.OpenApiRequest({
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApi.Params({
+      action: "CreateAvatarTrainingJob",
+      version: "2020-11-09",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $tea.cast<CreateAvatarTrainingJobResponse>(await this.callApi(params, req, runtime), new CreateAvatarTrainingJobResponse({}));
+  }
+
+  async createAvatarTrainingJob(request: CreateAvatarTrainingJobRequest): Promise<CreateAvatarTrainingJobResponse> {
+    let runtime = new $Util.RuntimeOptions({ });
+    return await this.createAvatarTrainingJobWithOptions(request, runtime);
+  }
+
   async createCustomTemplateWithOptions(request: CreateCustomTemplateRequest, runtime: $Util.RuntimeOptions): Promise<CreateCustomTemplateResponse> {
     Util.validateModel(request);
     let query = { };
@@ -29994,6 +32055,51 @@ export default class Client extends OpenApi {
   async createCustomTemplate(request: CreateCustomTemplateRequest): Promise<CreateCustomTemplateResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.createCustomTemplateWithOptions(request, runtime);
+  }
+
+  async createCustomizedVoiceJobWithOptions(request: CreateCustomizedVoiceJobRequest, runtime: $Util.RuntimeOptions): Promise<CreateCustomizedVoiceJobResponse> {
+    Util.validateModel(request);
+    let query = { };
+    if (!Util.isUnset(request.gender)) {
+      query["Gender"] = request.gender;
+    }
+
+    if (!Util.isUnset(request.scenario)) {
+      query["Scenario"] = request.scenario;
+    }
+
+    if (!Util.isUnset(request.voiceDesc)) {
+      query["VoiceDesc"] = request.voiceDesc;
+    }
+
+    if (!Util.isUnset(request.voiceId)) {
+      query["VoiceId"] = request.voiceId;
+    }
+
+    if (!Util.isUnset(request.voiceName)) {
+      query["VoiceName"] = request.voiceName;
+    }
+
+    let req = new $OpenApi.OpenApiRequest({
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApi.Params({
+      action: "CreateCustomizedVoiceJob",
+      version: "2020-11-09",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $tea.cast<CreateCustomizedVoiceJobResponse>(await this.callApi(params, req, runtime), new CreateCustomizedVoiceJobResponse({}));
+  }
+
+  async createCustomizedVoiceJob(request: CreateCustomizedVoiceJobRequest): Promise<CreateCustomizedVoiceJobResponse> {
+    let runtime = new $Util.RuntimeOptions({ });
+    return await this.createCustomizedVoiceJobWithOptions(request, runtime);
   }
 
   async createDNADBWithOptions(request: CreateDNADBRequest, runtime: $Util.RuntimeOptions): Promise<CreateDNADBResponse> {
@@ -30401,6 +32507,35 @@ export default class Client extends OpenApi {
     return await this.decryptKMSDataKeyWithOptions(request, runtime);
   }
 
+  async deleteAvatarTrainingJobWithOptions(request: DeleteAvatarTrainingJobRequest, runtime: $Util.RuntimeOptions): Promise<DeleteAvatarTrainingJobResponse> {
+    Util.validateModel(request);
+    let query = { };
+    if (!Util.isUnset(request.jobId)) {
+      query["JobId"] = request.jobId;
+    }
+
+    let req = new $OpenApi.OpenApiRequest({
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApi.Params({
+      action: "DeleteAvatarTrainingJob",
+      version: "2020-11-09",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $tea.cast<DeleteAvatarTrainingJobResponse>(await this.callApi(params, req, runtime), new DeleteAvatarTrainingJobResponse({}));
+  }
+
+  async deleteAvatarTrainingJob(request: DeleteAvatarTrainingJobRequest): Promise<DeleteAvatarTrainingJobResponse> {
+    let runtime = new $Util.RuntimeOptions({ });
+    return await this.deleteAvatarTrainingJobWithOptions(request, runtime);
+  }
+
   async deleteCategoryWithOptions(request: DeleteCategoryRequest, runtime: $Util.RuntimeOptions): Promise<DeleteCategoryResponse> {
     Util.validateModel(request);
     let query = { };
@@ -30457,6 +32592,35 @@ export default class Client extends OpenApi {
   async deleteCustomTemplate(request: DeleteCustomTemplateRequest): Promise<DeleteCustomTemplateResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.deleteCustomTemplateWithOptions(request, runtime);
+  }
+
+  async deleteCustomizedVoiceJobWithOptions(request: DeleteCustomizedVoiceJobRequest, runtime: $Util.RuntimeOptions): Promise<DeleteCustomizedVoiceJobResponse> {
+    Util.validateModel(request);
+    let query = { };
+    if (!Util.isUnset(request.jobId)) {
+      query["JobId"] = request.jobId;
+    }
+
+    let req = new $OpenApi.OpenApiRequest({
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApi.Params({
+      action: "DeleteCustomizedVoiceJob",
+      version: "2020-11-09",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $tea.cast<DeleteCustomizedVoiceJobResponse>(await this.callApi(params, req, runtime), new DeleteCustomizedVoiceJobResponse({}));
+  }
+
+  async deleteCustomizedVoiceJob(request: DeleteCustomizedVoiceJobRequest): Promise<DeleteCustomizedVoiceJobResponse> {
+    let runtime = new $Util.RuntimeOptions({ });
+    return await this.deleteCustomizedVoiceJobWithOptions(request, runtime);
   }
 
   async deleteDNADBWithOptions(request: DeleteDNADBRequest, runtime: $Util.RuntimeOptions): Promise<DeleteDNADBResponse> {
@@ -32036,6 +34200,43 @@ export default class Client extends OpenApi {
     return await this.describeQueryConfigsWithOptions(request, runtime);
   }
 
+  async detectAudioForCustomizedVoiceJobWithOptions(request: DetectAudioForCustomizedVoiceJobRequest, runtime: $Util.RuntimeOptions): Promise<DetectAudioForCustomizedVoiceJobResponse> {
+    Util.validateModel(request);
+    let query = { };
+    if (!Util.isUnset(request.audioRecordId)) {
+      query["AudioRecordId"] = request.audioRecordId;
+    }
+
+    if (!Util.isUnset(request.recordUrl)) {
+      query["RecordUrl"] = request.recordUrl;
+    }
+
+    if (!Util.isUnset(request.voiceId)) {
+      query["VoiceId"] = request.voiceId;
+    }
+
+    let req = new $OpenApi.OpenApiRequest({
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApi.Params({
+      action: "DetectAudioForCustomizedVoiceJob",
+      version: "2020-11-09",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $tea.cast<DetectAudioForCustomizedVoiceJobResponse>(await this.callApi(params, req, runtime), new DetectAudioForCustomizedVoiceJobResponse({}));
+  }
+
+  async detectAudioForCustomizedVoiceJob(request: DetectAudioForCustomizedVoiceJobRequest): Promise<DetectAudioForCustomizedVoiceJobResponse> {
+    let runtime = new $Util.RuntimeOptions({ });
+    return await this.detectAudioForCustomizedVoiceJobWithOptions(request, runtime);
+  }
+
   async generateKMSDataKeyWithOptions(runtime: $Util.RuntimeOptions): Promise<GenerateKMSDataKeyResponse> {
     let req = new $OpenApi.OpenApiRequest({ });
     let params = new $OpenApi.Params({
@@ -32055,6 +34256,64 @@ export default class Client extends OpenApi {
   async generateKMSDataKey(): Promise<GenerateKMSDataKeyResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.generateKMSDataKeyWithOptions(runtime);
+  }
+
+  async getAvatarWithOptions(request: GetAvatarRequest, runtime: $Util.RuntimeOptions): Promise<GetAvatarResponse> {
+    Util.validateModel(request);
+    let query = { };
+    if (!Util.isUnset(request.avatarId)) {
+      query["AvatarId"] = request.avatarId;
+    }
+
+    let req = new $OpenApi.OpenApiRequest({
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApi.Params({
+      action: "GetAvatar",
+      version: "2020-11-09",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $tea.cast<GetAvatarResponse>(await this.callApi(params, req, runtime), new GetAvatarResponse({}));
+  }
+
+  async getAvatar(request: GetAvatarRequest): Promise<GetAvatarResponse> {
+    let runtime = new $Util.RuntimeOptions({ });
+    return await this.getAvatarWithOptions(request, runtime);
+  }
+
+  async getAvatarTrainingJobWithOptions(request: GetAvatarTrainingJobRequest, runtime: $Util.RuntimeOptions): Promise<GetAvatarTrainingJobResponse> {
+    Util.validateModel(request);
+    let query = { };
+    if (!Util.isUnset(request.jobId)) {
+      query["JobId"] = request.jobId;
+    }
+
+    let req = new $OpenApi.OpenApiRequest({
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApi.Params({
+      action: "GetAvatarTrainingJob",
+      version: "2020-11-09",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $tea.cast<GetAvatarTrainingJobResponse>(await this.callApi(params, req, runtime), new GetAvatarTrainingJobResponse({}));
+  }
+
+  async getAvatarTrainingJob(request: GetAvatarTrainingJobRequest): Promise<GetAvatarTrainingJobResponse> {
+    let runtime = new $Util.RuntimeOptions({ });
+    return await this.getAvatarTrainingJobWithOptions(request, runtime);
   }
 
   async getCategoriesWithOptions(request: GetCategoriesRequest, runtime: $Util.RuntimeOptions): Promise<GetCategoriesResponse> {
@@ -32160,6 +34419,64 @@ export default class Client extends OpenApi {
     return await this.getCustomTemplateWithOptions(request, runtime);
   }
 
+  async getCustomizedVoiceWithOptions(request: GetCustomizedVoiceRequest, runtime: $Util.RuntimeOptions): Promise<GetCustomizedVoiceResponse> {
+    Util.validateModel(request);
+    let query = { };
+    if (!Util.isUnset(request.voiceId)) {
+      query["VoiceId"] = request.voiceId;
+    }
+
+    let req = new $OpenApi.OpenApiRequest({
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApi.Params({
+      action: "GetCustomizedVoice",
+      version: "2020-11-09",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $tea.cast<GetCustomizedVoiceResponse>(await this.callApi(params, req, runtime), new GetCustomizedVoiceResponse({}));
+  }
+
+  async getCustomizedVoice(request: GetCustomizedVoiceRequest): Promise<GetCustomizedVoiceResponse> {
+    let runtime = new $Util.RuntimeOptions({ });
+    return await this.getCustomizedVoiceWithOptions(request, runtime);
+  }
+
+  async getCustomizedVoiceJobWithOptions(request: GetCustomizedVoiceJobRequest, runtime: $Util.RuntimeOptions): Promise<GetCustomizedVoiceJobResponse> {
+    Util.validateModel(request);
+    let query = { };
+    if (!Util.isUnset(request.jobId)) {
+      query["JobId"] = request.jobId;
+    }
+
+    let req = new $OpenApi.OpenApiRequest({
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApi.Params({
+      action: "GetCustomizedVoiceJob",
+      version: "2020-11-09",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $tea.cast<GetCustomizedVoiceJobResponse>(await this.callApi(params, req, runtime), new GetCustomizedVoiceJobResponse({}));
+  }
+
+  async getCustomizedVoiceJob(request: GetCustomizedVoiceJobRequest): Promise<GetCustomizedVoiceJobResponse> {
+    let runtime = new $Util.RuntimeOptions({ });
+    return await this.getCustomizedVoiceJobWithOptions(request, runtime);
+  }
+
   async getDefaultStorageLocationWithOptions(runtime: $Util.RuntimeOptions): Promise<GetDefaultStorageLocationResponse> {
     let req = new $OpenApi.OpenApiRequest({ });
     let params = new $OpenApi.Params({
@@ -32179,6 +34496,35 @@ export default class Client extends OpenApi {
   async getDefaultStorageLocation(): Promise<GetDefaultStorageLocationResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.getDefaultStorageLocationWithOptions(runtime);
+  }
+
+  async getDemonstrationForCustomizedVoiceJobWithOptions(request: GetDemonstrationForCustomizedVoiceJobRequest, runtime: $Util.RuntimeOptions): Promise<GetDemonstrationForCustomizedVoiceJobResponse> {
+    Util.validateModel(request);
+    let query = { };
+    if (!Util.isUnset(request.scenario)) {
+      query["Scenario"] = request.scenario;
+    }
+
+    let req = new $OpenApi.OpenApiRequest({
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApi.Params({
+      action: "GetDemonstrationForCustomizedVoiceJob",
+      version: "2020-11-09",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $tea.cast<GetDemonstrationForCustomizedVoiceJobResponse>(await this.callApi(params, req, runtime), new GetDemonstrationForCustomizedVoiceJobResponse({}));
+  }
+
+  async getDemonstrationForCustomizedVoiceJob(request: GetDemonstrationForCustomizedVoiceJobRequest): Promise<GetDemonstrationForCustomizedVoiceJobResponse> {
+    let runtime = new $Util.RuntimeOptions({ });
+    return await this.getDemonstrationForCustomizedVoiceJobWithOptions(request, runtime);
   }
 
   async getDynamicImageJobWithOptions(request: GetDynamicImageJobRequest, runtime: $Util.RuntimeOptions): Promise<GetDynamicImageJobResponse> {
@@ -33108,6 +35454,80 @@ export default class Client extends OpenApi {
     return await this.listAllPublicMediaTagsWithOptions(request, runtime);
   }
 
+  async listAvatarTrainingJobsWithOptions(request: ListAvatarTrainingJobsRequest, runtime: $Util.RuntimeOptions): Promise<ListAvatarTrainingJobsResponse> {
+    Util.validateModel(request);
+    let query = { };
+    if (!Util.isUnset(request.pageNo)) {
+      query["PageNo"] = request.pageNo;
+    }
+
+    if (!Util.isUnset(request.pageSize)) {
+      query["PageSize"] = request.pageSize;
+    }
+
+    if (!Util.isUnset(request.status)) {
+      query["Status"] = request.status;
+    }
+
+    let req = new $OpenApi.OpenApiRequest({
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApi.Params({
+      action: "ListAvatarTrainingJobs",
+      version: "2020-11-09",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $tea.cast<ListAvatarTrainingJobsResponse>(await this.callApi(params, req, runtime), new ListAvatarTrainingJobsResponse({}));
+  }
+
+  async listAvatarTrainingJobs(request: ListAvatarTrainingJobsRequest): Promise<ListAvatarTrainingJobsResponse> {
+    let runtime = new $Util.RuntimeOptions({ });
+    return await this.listAvatarTrainingJobsWithOptions(request, runtime);
+  }
+
+  async listAvatarsWithOptions(request: ListAvatarsRequest, runtime: $Util.RuntimeOptions): Promise<ListAvatarsResponse> {
+    Util.validateModel(request);
+    let query = { };
+    if (!Util.isUnset(request.avatarType)) {
+      query["AvatarType"] = request.avatarType;
+    }
+
+    if (!Util.isUnset(request.pageNo)) {
+      query["PageNo"] = request.pageNo;
+    }
+
+    if (!Util.isUnset(request.pageSize)) {
+      query["PageSize"] = request.pageSize;
+    }
+
+    let req = new $OpenApi.OpenApiRequest({
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApi.Params({
+      action: "ListAvatars",
+      version: "2020-11-09",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $tea.cast<ListAvatarsResponse>(await this.callApi(params, req, runtime), new ListAvatarsResponse({}));
+  }
+
+  async listAvatars(request: ListAvatarsRequest): Promise<ListAvatarsResponse> {
+    let runtime = new $Util.RuntimeOptions({ });
+    return await this.listAvatarsWithOptions(request, runtime);
+  }
+
   async listCustomTemplatesWithOptions(request: ListCustomTemplatesRequest, runtime: $Util.RuntimeOptions): Promise<ListCustomTemplatesResponse> {
     Util.validateModel(request);
     let query = { };
@@ -33159,6 +35579,72 @@ export default class Client extends OpenApi {
   async listCustomTemplates(request: ListCustomTemplatesRequest): Promise<ListCustomTemplatesResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.listCustomTemplatesWithOptions(request, runtime);
+  }
+
+  async listCustomizedVoiceJobsWithOptions(request: ListCustomizedVoiceJobsRequest, runtime: $Util.RuntimeOptions): Promise<ListCustomizedVoiceJobsResponse> {
+    Util.validateModel(request);
+    let query = { };
+    if (!Util.isUnset(request.pageNo)) {
+      query["PageNo"] = request.pageNo;
+    }
+
+    if (!Util.isUnset(request.pageSize)) {
+      query["PageSize"] = request.pageSize;
+    }
+
+    let req = new $OpenApi.OpenApiRequest({
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApi.Params({
+      action: "ListCustomizedVoiceJobs",
+      version: "2020-11-09",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $tea.cast<ListCustomizedVoiceJobsResponse>(await this.callApi(params, req, runtime), new ListCustomizedVoiceJobsResponse({}));
+  }
+
+  async listCustomizedVoiceJobs(request: ListCustomizedVoiceJobsRequest): Promise<ListCustomizedVoiceJobsResponse> {
+    let runtime = new $Util.RuntimeOptions({ });
+    return await this.listCustomizedVoiceJobsWithOptions(request, runtime);
+  }
+
+  async listCustomizedVoicesWithOptions(request: ListCustomizedVoicesRequest, runtime: $Util.RuntimeOptions): Promise<ListCustomizedVoicesResponse> {
+    Util.validateModel(request);
+    let query = { };
+    if (!Util.isUnset(request.pageNo)) {
+      query["PageNo"] = request.pageNo;
+    }
+
+    if (!Util.isUnset(request.pageSize)) {
+      query["PageSize"] = request.pageSize;
+    }
+
+    let req = new $OpenApi.OpenApiRequest({
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApi.Params({
+      action: "ListCustomizedVoices",
+      version: "2020-11-09",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $tea.cast<ListCustomizedVoicesResponse>(await this.callApi(params, req, runtime), new ListCustomizedVoicesResponse({}));
+  }
+
+  async listCustomizedVoices(request: ListCustomizedVoicesRequest): Promise<ListCustomizedVoicesResponse> {
+    let runtime = new $Util.RuntimeOptions({ });
+    return await this.listCustomizedVoicesWithOptions(request, runtime);
   }
 
   async listDNADBWithOptions(request: ListDNADBRequest, runtime: $Util.RuntimeOptions): Promise<ListDNADBResponse> {
@@ -34576,6 +37062,10 @@ export default class Client extends OpenApi {
       query["PageSize"] = request.pageSize;
     }
 
+    if (!Util.isUnset(request.scrollToken)) {
+      query["ScrollToken"] = request.scrollToken;
+    }
+
     if (!Util.isUnset(request.sortBy)) {
       query["SortBy"] = request.sortBy;
     }
@@ -35106,6 +37596,35 @@ export default class Client extends OpenApi {
     return await this.submitAudioProduceJobWithOptions(request, runtime);
   }
 
+  async submitAvatarTrainingJobWithOptions(request: SubmitAvatarTrainingJobRequest, runtime: $Util.RuntimeOptions): Promise<SubmitAvatarTrainingJobResponse> {
+    Util.validateModel(request);
+    let query = { };
+    if (!Util.isUnset(request.jobId)) {
+      query["JobId"] = request.jobId;
+    }
+
+    let req = new $OpenApi.OpenApiRequest({
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApi.Params({
+      action: "SubmitAvatarTrainingJob",
+      version: "2020-11-09",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $tea.cast<SubmitAvatarTrainingJobResponse>(await this.callApi(params, req, runtime), new SubmitAvatarTrainingJobResponse({}));
+  }
+
+  async submitAvatarTrainingJob(request: SubmitAvatarTrainingJobRequest): Promise<SubmitAvatarTrainingJobResponse> {
+    let runtime = new $Util.RuntimeOptions({ });
+    return await this.submitAvatarTrainingJobWithOptions(request, runtime);
+  }
+
   async submitAvatarVideoJobWithOptions(request: SubmitAvatarVideoJobRequest, runtime: $Util.RuntimeOptions): Promise<SubmitAvatarVideoJobResponse> {
     Util.validateModel(request);
     let query = { };
@@ -35153,6 +37672,39 @@ export default class Client extends OpenApi {
   async submitAvatarVideoJob(request: SubmitAvatarVideoJobRequest): Promise<SubmitAvatarVideoJobResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.submitAvatarVideoJobWithOptions(request, runtime);
+  }
+
+  async submitCustomizedVoiceJobWithOptions(request: SubmitCustomizedVoiceJobRequest, runtime: $Util.RuntimeOptions): Promise<SubmitCustomizedVoiceJobResponse> {
+    Util.validateModel(request);
+    let query = { };
+    if (!Util.isUnset(request.demoAudioMediaURL)) {
+      query["DemoAudioMediaURL"] = request.demoAudioMediaURL;
+    }
+
+    if (!Util.isUnset(request.voiceId)) {
+      query["VoiceId"] = request.voiceId;
+    }
+
+    let req = new $OpenApi.OpenApiRequest({
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApi.Params({
+      action: "SubmitCustomizedVoiceJob",
+      version: "2020-11-09",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $tea.cast<SubmitCustomizedVoiceJobResponse>(await this.callApi(params, req, runtime), new SubmitCustomizedVoiceJobResponse({}));
+  }
+
+  async submitCustomizedVoiceJob(request: SubmitCustomizedVoiceJobRequest): Promise<SubmitCustomizedVoiceJobResponse> {
+    let runtime = new $Util.RuntimeOptions({ });
+    return await this.submitCustomizedVoiceJobWithOptions(request, runtime);
   }
 
   async submitDNAJobWithOptions(tmpReq: SubmitDNAJobRequest, runtime: $Util.RuntimeOptions): Promise<SubmitDNAJobResponse> {
@@ -36253,6 +38805,59 @@ export default class Client extends OpenApi {
     return await this.submitTranscodeJobWithOptions(request, runtime);
   }
 
+  async updateAvatarTrainingJobWithOptions(request: UpdateAvatarTrainingJobRequest, runtime: $Util.RuntimeOptions): Promise<UpdateAvatarTrainingJobResponse> {
+    Util.validateModel(request);
+    let query = { };
+    if (!Util.isUnset(request.avatarDescription)) {
+      query["AvatarDescription"] = request.avatarDescription;
+    }
+
+    if (!Util.isUnset(request.avatarName)) {
+      query["AvatarName"] = request.avatarName;
+    }
+
+    if (!Util.isUnset(request.jobId)) {
+      query["JobId"] = request.jobId;
+    }
+
+    if (!Util.isUnset(request.portrait)) {
+      query["Portrait"] = request.portrait;
+    }
+
+    if (!Util.isUnset(request.thumbnail)) {
+      query["Thumbnail"] = request.thumbnail;
+    }
+
+    if (!Util.isUnset(request.transparent)) {
+      query["Transparent"] = request.transparent;
+    }
+
+    if (!Util.isUnset(request.video)) {
+      query["Video"] = request.video;
+    }
+
+    let req = new $OpenApi.OpenApiRequest({
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApi.Params({
+      action: "UpdateAvatarTrainingJob",
+      version: "2020-11-09",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $tea.cast<UpdateAvatarTrainingJobResponse>(await this.callApi(params, req, runtime), new UpdateAvatarTrainingJobResponse({}));
+  }
+
+  async updateAvatarTrainingJob(request: UpdateAvatarTrainingJobRequest): Promise<UpdateAvatarTrainingJobResponse> {
+    let runtime = new $Util.RuntimeOptions({ });
+    return await this.updateAvatarTrainingJobWithOptions(request, runtime);
+  }
+
   async updateCategoryWithOptions(request: UpdateCategoryRequest, runtime: $Util.RuntimeOptions): Promise<UpdateCategoryResponse> {
     Util.validateModel(request);
     let query = { };
@@ -36321,6 +38926,39 @@ export default class Client extends OpenApi {
   async updateCustomTemplate(request: UpdateCustomTemplateRequest): Promise<UpdateCustomTemplateResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.updateCustomTemplateWithOptions(request, runtime);
+  }
+
+  async updateCustomizedVoiceWithOptions(request: UpdateCustomizedVoiceRequest, runtime: $Util.RuntimeOptions): Promise<UpdateCustomizedVoiceResponse> {
+    Util.validateModel(request);
+    let query = { };
+    if (!Util.isUnset(request.demoAudioMediaId)) {
+      query["DemoAudioMediaId"] = request.demoAudioMediaId;
+    }
+
+    if (!Util.isUnset(request.voiceId)) {
+      query["VoiceId"] = request.voiceId;
+    }
+
+    let req = new $OpenApi.OpenApiRequest({
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApi.Params({
+      action: "UpdateCustomizedVoice",
+      version: "2020-11-09",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $tea.cast<UpdateCustomizedVoiceResponse>(await this.callApi(params, req, runtime), new UpdateCustomizedVoiceResponse({}));
+  }
+
+  async updateCustomizedVoice(request: UpdateCustomizedVoiceRequest): Promise<UpdateCustomizedVoiceResponse> {
+    let runtime = new $Util.RuntimeOptions({ });
+    return await this.updateCustomizedVoiceWithOptions(request, runtime);
   }
 
   async updateEditingProjectWithOptions(request: UpdateEditingProjectRequest, runtime: $Util.RuntimeOptions): Promise<UpdateEditingProjectResponse> {
