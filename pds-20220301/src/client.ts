@@ -154,6 +154,102 @@ export class AddressGroup extends $tea.Model {
   }
 }
 
+export class App extends $tea.Model {
+  appId?: string;
+  appName?: string;
+  appSecret?: string;
+  createdAt?: string;
+  description?: string;
+  logo?: string;
+  provider?: string;
+  redirectUri?: string;
+  scope?: string[];
+  stage?: string;
+  type?: string;
+  updatedAt?: string;
+  static names(): { [key: string]: string } {
+    return {
+      appId: 'app_id',
+      appName: 'app_name',
+      appSecret: 'app_secret',
+      createdAt: 'created_at',
+      description: 'description',
+      logo: 'logo',
+      provider: 'provider',
+      redirectUri: 'redirect_uri',
+      scope: 'scope',
+      stage: 'stage',
+      type: 'type',
+      updatedAt: 'updated_at',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      appId: 'string',
+      appName: 'string',
+      appSecret: 'string',
+      createdAt: 'string',
+      description: 'string',
+      logo: 'string',
+      provider: 'string',
+      redirectUri: 'string',
+      scope: { 'type': 'array', 'itemType': 'string' },
+      stage: 'string',
+      type: 'string',
+      updatedAt: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class AppAccessStrategy extends $tea.Model {
+  effect?: string;
+  exceptAppIdList?: string[];
+  static names(): { [key: string]: string } {
+    return {
+      effect: 'effect',
+      exceptAppIdList: 'except_app_id_list',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      effect: 'string',
+      exceptAppIdList: { 'type': 'array', 'itemType': 'string' },
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class AudioPreviewPlayInfo extends $tea.Model {
+  meta?: AudioPreviewPlayInfoMeta;
+  offlineAudioList?: AudioPreviewPlayInfoOfflineAudioList[];
+  static names(): { [key: string]: string } {
+    return {
+      meta: 'meta',
+      offlineAudioList: 'offline_audio_list',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      meta: AudioPreviewPlayInfoMeta,
+      offlineAudioList: { 'type': 'array', 'itemType': AudioPreviewPlayInfoOfflineAudioList },
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
 export class BenefitPkgDeliveryInfo extends $tea.Model {
   amount?: number;
   createdAt?: string;
@@ -182,6 +278,93 @@ export class BenefitPkgDeliveryInfo extends $tea.Model {
   }
 }
 
+export class CdnFileDownloadCallbackInfo extends $tea.Model {
+  bucket?: string;
+  domainId?: string;
+  driveId?: string;
+  expire?: number;
+  fileId?: string;
+  object?: string;
+  token?: string;
+  userId?: string;
+  static names(): { [key: string]: string } {
+    return {
+      bucket: 'bucket',
+      domainId: 'domain_id',
+      driveId: 'drive_id',
+      expire: 'expire',
+      fileId: 'file_id',
+      object: 'object',
+      token: 'token',
+      userId: 'user_id',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      bucket: 'string',
+      domainId: 'string',
+      driveId: 'string',
+      expire: 'number',
+      fileId: 'string',
+      object: 'string',
+      token: 'string',
+      userId: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class Condition extends $tea.Model {
+  intEquals?: number[];
+  intNotEquals?: number[];
+  stringEquals?: string[];
+  stringNotEquals?: string[];
+  static names(): { [key: string]: string } {
+    return {
+      intEquals: 'int_equals',
+      intNotEquals: 'int_not_equals',
+      stringEquals: 'string_equals',
+      stringNotEquals: 'string_not_equals',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      intEquals: { 'type': 'array', 'itemType': 'number' },
+      intNotEquals: { 'type': 'array', 'itemType': 'number' },
+      stringEquals: { 'type': 'array', 'itemType': 'string' },
+      stringNotEquals: { 'type': 'array', 'itemType': 'string' },
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class CsiCondition extends $tea.Model {
+  fileDataPunish?: Condition;
+  static names(): { [key: string]: string } {
+    return {
+      fileDataPunish: 'file_data_punish',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      fileDataPunish: Condition,
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
 export class Domain extends $tea.Model {
   createdAt?: string;
   description?: string;
@@ -190,6 +373,7 @@ export class Domain extends $tea.Model {
   initDriveEnable?: boolean;
   initDriveSize?: number;
   parentDomainId?: string;
+  publishedAppAccessStrategy?: AppAccessStrategy;
   sizeQuota?: number;
   sizeQuotaUsed?: number;
   status?: number;
@@ -205,6 +389,7 @@ export class Domain extends $tea.Model {
       initDriveEnable: 'init_drive_enable',
       initDriveSize: 'init_drive_size',
       parentDomainId: 'parent_domain_id',
+      publishedAppAccessStrategy: 'published_app_access_strategy',
       sizeQuota: 'size_quota',
       sizeQuotaUsed: 'size_quota_used',
       status: 'status',
@@ -223,6 +408,7 @@ export class Domain extends $tea.Model {
       initDriveEnable: 'boolean',
       initDriveSize: 'number',
       parentDomainId: 'string',
+      publishedAppAccessStrategy: AppAccessStrategy,
       sizeQuota: 'number',
       sizeQuotaUsed: 'number',
       status: 'number',
@@ -377,7 +563,6 @@ export class File extends $tea.Model {
   fileExtension?: string;
   fileId?: string;
   hidden?: boolean;
-  imageMediaMetadata?: ImageMediaMetadata;
   investigationInfo?: FileInvestigationInfo;
   labels?: string[];
   localCreatedAt?: string;
@@ -394,6 +579,7 @@ export class File extends $tea.Model {
   type?: string;
   updatedAt?: string;
   uploadId?: string;
+  userTags?: { [key: string]: string };
   static names(): { [key: string]: string } {
     return {
       category: 'category',
@@ -409,7 +595,6 @@ export class File extends $tea.Model {
       fileExtension: 'file_extension',
       fileId: 'file_id',
       hidden: 'hidden',
-      imageMediaMetadata: 'image_media_metadata',
       investigationInfo: 'investigation_info',
       labels: 'labels',
       localCreatedAt: 'local_created_at',
@@ -426,6 +611,7 @@ export class File extends $tea.Model {
       type: 'type',
       updatedAt: 'updated_at',
       uploadId: 'upload_id',
+      userTags: 'user_tags',
     };
   }
 
@@ -444,7 +630,6 @@ export class File extends $tea.Model {
       fileExtension: 'string',
       fileId: 'string',
       hidden: 'boolean',
-      imageMediaMetadata: ImageMediaMetadata,
       investigationInfo: FileInvestigationInfo,
       labels: { 'type': 'array', 'itemType': 'string' },
       localCreatedAt: 'string',
@@ -461,6 +646,41 @@ export class File extends $tea.Model {
       type: 'string',
       updatedAt: 'string',
       uploadId: 'string',
+      userTags: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class FileDownloadCallbackInfo extends $tea.Model {
+  bucket?: string;
+  domainId?: string;
+  driveId?: string;
+  fileId?: string;
+  object?: string;
+  userId?: string;
+  static names(): { [key: string]: string } {
+    return {
+      bucket: 'bucket',
+      domainId: 'domain_id',
+      driveId: 'drive_id',
+      fileId: 'file_id',
+      object: 'object',
+      userId: 'user_id',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      bucket: 'string',
+      domainId: 'string',
+      driveId: 'string',
+      fileId: 'string',
+      object: 'string',
+      userId: 'string',
     };
   }
 
@@ -532,6 +752,90 @@ export class FileStreamInfo extends $tea.Model {
       proofCode: 'string',
       proofVersion: 'string',
       size: 'number',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class GetOfficeEditUrlOption extends $tea.Model {
+  copy?: boolean;
+  print?: boolean;
+  readonly?: boolean;
+  static names(): { [key: string]: string } {
+    return {
+      copy: 'copy',
+      print: 'print',
+      readonly: 'readonly',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      copy: 'boolean',
+      print: 'boolean',
+      readonly: 'boolean',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class GetOfficeEditUrlWatermark extends $tea.Model {
+  fillstyle?: string;
+  font?: string;
+  horizontal?: number;
+  rotate?: number;
+  type?: number;
+  value?: string;
+  vertical?: number;
+  static names(): { [key: string]: string } {
+    return {
+      fillstyle: 'fillstyle',
+      font: 'font',
+      horizontal: 'horizontal',
+      rotate: 'rotate',
+      type: 'type',
+      value: 'value',
+      vertical: 'vertical',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      fillstyle: 'string',
+      font: 'string',
+      horizontal: 'number',
+      rotate: 'number',
+      type: 'number',
+      value: 'string',
+      vertical: 'number',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class GetOfficePreviewUrlOption extends $tea.Model {
+  copy?: boolean;
+  print?: boolean;
+  static names(): { [key: string]: string } {
+    return {
+      copy: 'copy',
+      print: 'print',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      copy: 'boolean',
+      print: 'boolean',
     };
   }
 
@@ -858,6 +1162,74 @@ export class JWTPayload extends $tea.Model {
   }
 }
 
+export class LocationDateCluster extends $tea.Model {
+  address?: Address;
+  clusterId?: string;
+  createdAt?: string;
+  customLabels?: { [key: string]: string };
+  driveId?: string;
+  endTime?: string;
+  level?: string;
+  startTime?: string;
+  title?: string;
+  updatedAt?: string;
+  static names(): { [key: string]: string } {
+    return {
+      address: 'address',
+      clusterId: 'cluster_id',
+      createdAt: 'created_at',
+      customLabels: 'custom_labels',
+      driveId: 'drive_id',
+      endTime: 'end_time',
+      level: 'level',
+      startTime: 'start_time',
+      title: 'title',
+      updatedAt: 'updated_at',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      address: Address,
+      clusterId: 'string',
+      createdAt: 'string',
+      customLabels: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      driveId: 'string',
+      endTime: 'string',
+      level: 'string',
+      startTime: 'string',
+      title: 'string',
+      updatedAt: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class NameCheckResult extends $tea.Model {
+  existFileId?: string;
+  existFileType?: string;
+  static names(): { [key: string]: string } {
+    return {
+      existFileId: 'exist_file_id',
+      existFileType: 'exist_file_type',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      existFileId: 'string',
+      existFileType: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
 export class Revision extends $tea.Model {
   contentHash?: string;
   contentHashName?: string;
@@ -1022,6 +1394,43 @@ export class ShareLink extends $tea.Model {
   }
 }
 
+export class SimpleStreamInfo extends $tea.Model {
+  contentHash?: string;
+  contentHashName?: string;
+  crc64Hash?: string;
+  downloadUrl?: string;
+  size?: number;
+  thumbnail?: string;
+  url?: string;
+  static names(): { [key: string]: string } {
+    return {
+      contentHash: 'content_hash',
+      contentHashName: 'content_hash_name',
+      crc64Hash: 'crc64_hash',
+      downloadUrl: 'download_url',
+      size: 'size',
+      thumbnail: 'thumbnail',
+      url: 'url',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      contentHash: 'string',
+      contentHashName: 'string',
+      crc64Hash: 'string',
+      downloadUrl: 'string',
+      size: 'number',
+      thumbnail: 'string',
+      url: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
 export class Story extends $tea.Model {
   coverFileId?: string;
   coverFileThumbnailUrl?: string;
@@ -1077,12 +1486,42 @@ export class Story extends $tea.Model {
   }
 }
 
+export class StreamUploadInfo extends $tea.Model {
+  location?: string;
+  partInfoList?: UploadPartInfo[];
+  preRapidUpload?: boolean;
+  rapidUpload?: boolean;
+  uploadId?: string;
+  static names(): { [key: string]: string } {
+    return {
+      location: 'location',
+      partInfoList: 'part_info_list',
+      preRapidUpload: 'pre_rapid_upload',
+      rapidUpload: 'rapid_upload',
+      uploadId: 'upload_id',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      location: 'string',
+      partInfoList: { 'type': 'array', 'itemType': UploadPartInfo },
+      preRapidUpload: 'boolean',
+      rapidUpload: 'boolean',
+      uploadId: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
 export class SystemTag extends $tea.Model {
   centricScore?: number;
   confidence?: number;
   name?: string;
   parentName?: string;
-  source?: string;
   tagLevel?: number;
   static names(): { [key: string]: string } {
     return {
@@ -1090,7 +1529,6 @@ export class SystemTag extends $tea.Model {
       confidence: 'confidence',
       name: 'name',
       parentName: 'parent_name',
-      source: 'source',
       tagLevel: 'tag_level',
     };
   }
@@ -1101,8 +1539,29 @@ export class SystemTag extends $tea.Model {
       confidence: 'number',
       name: 'string',
       parentName: 'string',
-      source: 'string',
       tagLevel: 'number',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class TimeRange extends $tea.Model {
+  end?: string;
+  start?: string;
+  static names(): { [key: string]: string } {
+    return {
+      end: 'end',
+      start: 'start',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      end: 'string',
+      start: 'string',
     };
   }
 
@@ -1167,6 +1626,80 @@ export class Token extends $tea.Model {
       tokenType: 'string',
       userId: 'string',
       userName: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class UncompressedFileInfo extends $tea.Model {
+  driveId?: string;
+  fileId?: string;
+  isFolder?: boolean;
+  items?: UncompressedFileInfo[];
+  name?: string;
+  size?: number;
+  updatedAt?: number;
+  static names(): { [key: string]: string } {
+    return {
+      driveId: 'drive_id',
+      fileId: 'file_id',
+      isFolder: 'is_folder',
+      items: 'items',
+      name: 'name',
+      size: 'size',
+      updatedAt: 'updated_at',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      driveId: 'string',
+      fileId: 'string',
+      isFolder: 'boolean',
+      items: { 'type': 'array', 'itemType': UncompressedFileInfo },
+      name: 'string',
+      size: 'number',
+      updatedAt: 'number',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class UploadFormInfo extends $tea.Model {
+  bucketName?: string;
+  objectKey?: string;
+  ossAccessKeyId?: string;
+  ossEndPoint?: string;
+  ossSecurityToken?: string;
+  policy?: string;
+  signature?: string;
+  static names(): { [key: string]: string } {
+    return {
+      bucketName: 'bucket_name',
+      objectKey: 'object_key',
+      ossAccessKeyId: 'oss_access_key_id',
+      ossEndPoint: 'oss_end_point',
+      ossSecurityToken: 'oss_security_token',
+      policy: 'policy',
+      signature: 'signature',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      bucketName: 'string',
+      objectKey: 'string',
+      ossAccessKeyId: 'string',
+      ossEndPoint: 'string',
+      ossSecurityToken: 'string',
+      policy: 'string',
+      signature: 'string',
     };
   }
 
@@ -1364,6 +1897,164 @@ export class VideoPreviewPlayMeta extends $tea.Model {
   }
 }
 
+export class View extends $tea.Model {
+  category?: string;
+  createdAt?: string;
+  description?: string;
+  exFieldsInfo?: { [key: string]: any };
+  fileCount?: number;
+  name?: string;
+  owner?: string;
+  updatedAt?: string;
+  viewId?: string;
+  static names(): { [key: string]: string } {
+    return {
+      category: 'category',
+      createdAt: 'created_at',
+      description: 'description',
+      exFieldsInfo: 'ex_fields_info',
+      fileCount: 'file_count',
+      name: 'name',
+      owner: 'owner',
+      updatedAt: 'updated_at',
+      viewId: 'view_id',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      category: 'string',
+      createdAt: 'string',
+      description: 'string',
+      exFieldsInfo: { 'type': 'map', 'keyType': 'string', 'valueType': 'any' },
+      fileCount: 'number',
+      name: 'string',
+      owner: 'string',
+      updatedAt: 'string',
+      viewId: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class ViewFile extends $tea.Model {
+  category?: string;
+  contentHash?: string;
+  contentHashName?: string;
+  contentType?: string;
+  crc64Hash?: string;
+  createdAt?: string;
+  description?: string;
+  domainId?: string;
+  downloadUrl?: string;
+  driveId?: string;
+  fields?: { [key: string]: any };
+  fileExtension?: string;
+  fileId?: string;
+  fileRevisionId?: string;
+  hidden?: boolean;
+  investigationInfo?: ViewFileInvestigationInfo;
+  joinedAt?: number;
+  labels?: string[];
+  localCreatedAt?: string;
+  localModifiedAt?: string;
+  name?: string;
+  parentFileId?: string;
+  revisionId?: string;
+  size?: number;
+  starred?: boolean;
+  status?: string;
+  thumbnail?: string;
+  thumbnailUrls?: { [key: string]: string };
+  trashedAt?: string;
+  type?: string;
+  updatedAt?: string;
+  uploadId?: string;
+  viewId?: string;
+  static names(): { [key: string]: string } {
+    return {
+      category: 'category',
+      contentHash: 'content_hash',
+      contentHashName: 'content_hash_name',
+      contentType: 'content_type',
+      crc64Hash: 'crc64_hash',
+      createdAt: 'created_at',
+      description: 'description',
+      domainId: 'domain_id',
+      downloadUrl: 'download_url',
+      driveId: 'drive_id',
+      fields: 'fields',
+      fileExtension: 'file_extension',
+      fileId: 'file_id',
+      fileRevisionId: 'file_revision_id',
+      hidden: 'hidden',
+      investigationInfo: 'investigation_info',
+      joinedAt: 'joined_at',
+      labels: 'labels',
+      localCreatedAt: 'local_created_at',
+      localModifiedAt: 'local_modified_at',
+      name: 'name',
+      parentFileId: 'parent_file_id',
+      revisionId: 'revision_id',
+      size: 'size',
+      starred: 'starred',
+      status: 'status',
+      thumbnail: 'thumbnail',
+      thumbnailUrls: 'thumbnail_urls',
+      trashedAt: 'trashed_at',
+      type: 'type',
+      updatedAt: 'updated_at',
+      uploadId: 'upload_id',
+      viewId: 'view_id',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      category: 'string',
+      contentHash: 'string',
+      contentHashName: 'string',
+      contentType: 'string',
+      crc64Hash: 'string',
+      createdAt: 'string',
+      description: 'string',
+      domainId: 'string',
+      downloadUrl: 'string',
+      driveId: 'string',
+      fields: { 'type': 'map', 'keyType': 'string', 'valueType': 'any' },
+      fileExtension: 'string',
+      fileId: 'string',
+      fileRevisionId: 'string',
+      hidden: 'boolean',
+      investigationInfo: ViewFileInvestigationInfo,
+      joinedAt: 'number',
+      labels: { 'type': 'array', 'itemType': 'string' },
+      localCreatedAt: 'string',
+      localModifiedAt: 'string',
+      name: 'string',
+      parentFileId: 'string',
+      revisionId: 'string',
+      size: 'number',
+      starred: 'boolean',
+      status: 'string',
+      thumbnail: 'string',
+      thumbnailUrls: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      trashedAt: 'string',
+      type: 'string',
+      updatedAt: 'string',
+      uploadId: 'string',
+      viewId: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
 export class AddGroupMemberRequest extends $tea.Model {
   groupId?: string;
   memberId?: string;
@@ -1475,6 +2166,56 @@ export class AddStoryFilesResponse extends $tea.Model {
       headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
       statusCode: 'number',
       body: AddStoryFilesResponseBody,
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class AssignRoleRequest extends $tea.Model {
+  identity?: Identity;
+  manageResourceId?: string;
+  manageResourceType?: string;
+  roleId?: string;
+  static names(): { [key: string]: string } {
+    return {
+      identity: 'identity',
+      manageResourceId: 'manage_resource_id',
+      manageResourceType: 'manage_resource_type',
+      roleId: 'role_id',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      identity: Identity,
+      manageResourceId: 'string',
+      manageResourceType: 'string',
+      roleId: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class AssignRoleResponse extends $tea.Model {
+  headers: { [key: string]: string };
+  statusCode: number;
+  static names(): { [key: string]: string } {
+    return {
+      headers: 'headers',
+      statusCode: 'statusCode',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
     };
   }
 
@@ -1637,6 +2378,56 @@ export class BatchResponse extends $tea.Model {
       headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
       statusCode: 'number',
       body: BatchResponseBody,
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class CancelAssignRoleRequest extends $tea.Model {
+  identity?: Identity;
+  manageResourceId?: string;
+  manageResourceType?: string;
+  roleId?: string;
+  static names(): { [key: string]: string } {
+    return {
+      identity: 'identity',
+      manageResourceId: 'manage_resource_id',
+      manageResourceType: 'manage_resource_type',
+      roleId: 'role_id',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      identity: Identity,
+      manageResourceId: 'string',
+      manageResourceType: 'string',
+      roleId: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class CancelAssignRoleResponse extends $tea.Model {
+  headers: { [key: string]: string };
+  statusCode: number;
+  static names(): { [key: string]: string } {
+    return {
+      headers: 'headers',
+      statusCode: 'statusCode',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
     };
   }
 
@@ -2393,6 +3184,7 @@ export class CreateShareLinkRequest extends $tea.Model {
   driveId?: string;
   expiration?: string;
   fileIdList?: string[];
+  officeEditable?: boolean;
   previewLimit?: number;
   saveLimit?: number;
   shareAllFiles?: boolean;
@@ -2409,6 +3201,7 @@ export class CreateShareLinkRequest extends $tea.Model {
       driveId: 'drive_id',
       expiration: 'expiration',
       fileIdList: 'file_id_list',
+      officeEditable: 'office_editable',
       previewLimit: 'preview_limit',
       saveLimit: 'save_limit',
       shareAllFiles: 'share_all_files',
@@ -2428,6 +3221,7 @@ export class CreateShareLinkRequest extends $tea.Model {
       driveId: 'string',
       expiration: 'string',
       fileIdList: { 'type': 'array', 'itemType': 'string' },
+      officeEditable: 'boolean',
       previewLimit: 'number',
       saveLimit: 'number',
       shareAllFiles: 'boolean',
@@ -3582,20 +4376,36 @@ export class GetAsyncTaskRequest extends $tea.Model {
 
 export class GetAsyncTaskResponseBody extends $tea.Model {
   asyncTaskId?: string;
+  category?: string;
   consumedProcess?: number;
+  createdAt?: string;
   errCode?: number;
+  errorCode?: string;
+  errorMessage?: string;
+  finishedAt?: string;
   message?: string;
+  startedAt?: string;
+  state?: string;
   status?: string;
   totalProcess?: number;
+  uncompressFileList?: UncompressedFileInfo[];
   url?: string;
   static names(): { [key: string]: string } {
     return {
       asyncTaskId: 'async_task_id',
+      category: 'category',
       consumedProcess: 'consumed_process',
+      createdAt: 'created_at',
       errCode: 'err_code',
+      errorCode: 'error_code',
+      errorMessage: 'error_message',
+      finishedAt: 'finished_at',
       message: 'message',
+      startedAt: 'started_at',
+      state: 'state',
       status: 'status',
       totalProcess: 'total_process',
+      uncompressFileList: 'uncompress_file_list',
       url: 'url',
     };
   }
@@ -3603,11 +4413,19 @@ export class GetAsyncTaskResponseBody extends $tea.Model {
   static types(): { [key: string]: any } {
     return {
       asyncTaskId: 'string',
+      category: 'string',
       consumedProcess: 'number',
+      createdAt: 'string',
       errCode: 'number',
+      errorCode: 'string',
+      errorMessage: 'string',
+      finishedAt: 'string',
       message: 'string',
+      startedAt: 'string',
+      state: 'string',
       status: 'string',
       totalProcess: 'number',
+      uncompressFileList: { 'type': 'array', 'itemType': UncompressedFileInfo },
       url: 'string',
     };
   }
@@ -4731,16 +5549,20 @@ export class GetVideoPreviewPlayInfoRequest extends $tea.Model {
 }
 
 export class GetVideoPreviewPlayInfoResponseBody extends $tea.Model {
+  code?: string;
   domainId?: string;
   driveId?: string;
   fileId?: string;
+  message?: string;
   shareId?: string;
   videoPreviewPlayInfo?: VideoPreviewPlayInfo;
   static names(): { [key: string]: string } {
     return {
+      code: 'code',
       domainId: 'domain_id',
       driveId: 'drive_id',
       fileId: 'file_id',
+      message: 'message',
       shareId: 'share_id',
       videoPreviewPlayInfo: 'video_preview_play_info',
     };
@@ -4748,9 +5570,11 @@ export class GetVideoPreviewPlayInfoResponseBody extends $tea.Model {
 
   static types(): { [key: string]: any } {
     return {
+      code: 'string',
       domainId: 'string',
       driveId: 'string',
       fileId: 'string',
+      message: 'string',
       shareId: 'string',
       videoPreviewPlayInfo: VideoPreviewPlayInfo,
     };
@@ -5412,12 +6236,14 @@ export class ListFacegroupsRequest extends $tea.Model {
   limit?: number;
   marker?: string;
   remarks?: string;
+  returnTotalCount?: boolean;
   static names(): { [key: string]: string } {
     return {
       driveId: 'drive_id',
       limit: 'limit',
       marker: 'marker',
       remarks: 'remarks',
+      returnTotalCount: 'return_total_count',
     };
   }
 
@@ -5427,6 +6253,7 @@ export class ListFacegroupsRequest extends $tea.Model {
       limit: 'number',
       marker: 'string',
       remarks: 'string',
+      returnTotalCount: 'boolean',
     };
   }
 
@@ -5438,10 +6265,12 @@ export class ListFacegroupsRequest extends $tea.Model {
 export class ListFacegroupsResponseBody extends $tea.Model {
   items?: FaceGroup[];
   nextMarker?: string;
+  totalCount?: number;
   static names(): { [key: string]: string } {
     return {
       items: 'items',
       nextMarker: 'next_marker',
+      totalCount: 'total_count',
     };
   }
 
@@ -5449,6 +6278,7 @@ export class ListFacegroupsResponseBody extends $tea.Model {
     return {
       items: { 'type': 'array', 'itemType': FaceGroup },
       nextMarker: 'string',
+      totalCount: 'number',
     };
   }
 
@@ -6542,75 +7372,6 @@ export class MoveFileResponse extends $tea.Model {
       headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
       statusCode: 'number',
       body: MoveFileResponseBody,
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class ParseKeywordsRequest extends $tea.Model {
-  keywords?: string;
-  static names(): { [key: string]: string } {
-    return {
-      keywords: 'keywords',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      keywords: 'string',
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class ParseKeywordsResponseBody extends $tea.Model {
-  addressLine?: string;
-  tags?: SystemTag[];
-  timeRange?: ParseKeywordsResponseBodyTimeRange;
-  static names(): { [key: string]: string } {
-    return {
-      addressLine: 'address_line',
-      tags: 'tags',
-      timeRange: 'time_range',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      addressLine: 'string',
-      tags: { 'type': 'array', 'itemType': SystemTag },
-      timeRange: ParseKeywordsResponseBodyTimeRange,
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class ParseKeywordsResponse extends $tea.Model {
-  headers: { [key: string]: string };
-  statusCode: number;
-  body: ParseKeywordsResponseBody;
-  static names(): { [key: string]: string } {
-    return {
-      headers: 'headers',
-      statusCode: 'statusCode',
-      body: 'body',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
-      statusCode: 'number',
-      body: ParseKeywordsResponseBody,
     };
   }
 
@@ -7809,12 +8570,63 @@ export class TrashFileResponse extends $tea.Model {
   }
 }
 
+export class UnLinkAcountRequest extends $tea.Model {
+  extra?: string;
+  identity?: string;
+  type?: string;
+  userId?: string;
+  static names(): { [key: string]: string } {
+    return {
+      extra: 'extra',
+      identity: 'identity',
+      type: 'type',
+      userId: 'user_id',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      extra: 'string',
+      identity: 'string',
+      type: 'string',
+      userId: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class UnLinkAcountResponse extends $tea.Model {
+  headers: { [key: string]: string };
+  statusCode: number;
+  static names(): { [key: string]: string } {
+    return {
+      headers: 'headers',
+      statusCode: 'statusCode',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
 export class UpdateDomainRequest extends $tea.Model {
   description?: string;
   domainId?: string;
   domainName?: string;
   initDriveEnable?: boolean;
   initDriveSize?: number;
+  publishedAppAccessStrategy?: AppAccessStrategy;
   sizeQuota?: number;
   userCountQuota?: number;
   static names(): { [key: string]: string } {
@@ -7824,6 +8636,7 @@ export class UpdateDomainRequest extends $tea.Model {
       domainName: 'domain_name',
       initDriveEnable: 'init_drive_enable',
       initDriveSize: 'init_drive_size',
+      publishedAppAccessStrategy: 'published_app_access_strategy',
       sizeQuota: 'size_quota',
       userCountQuota: 'user_count_quota',
     };
@@ -7836,6 +8649,7 @@ export class UpdateDomainRequest extends $tea.Model {
       domainName: 'string',
       initDriveEnable: 'boolean',
       initDriveSize: 'number',
+      publishedAppAccessStrategy: AppAccessStrategy,
       sizeQuota: 'number',
       userCountQuota: 'number',
     };
@@ -8476,6 +9290,50 @@ export class UpdateUserResponse extends $tea.Model {
   }
 }
 
+export class AudioPreviewPlayInfoMeta extends $tea.Model {
+  duration?: number;
+  static names(): { [key: string]: string } {
+    return {
+      duration: 'duration',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      duration: 'number',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class AudioPreviewPlayInfoOfflineAudioList extends $tea.Model {
+  status?: string;
+  templateId?: string;
+  url?: string;
+  static names(): { [key: string]: string } {
+    return {
+      status: 'status',
+      templateId: 'template_id',
+      url: 'url',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      status: 'string',
+      templateId: 'string',
+      url: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
 export class FaceGroupGroupCoverFaceBoundary extends $tea.Model {
   height?: number;
   left?: number;
@@ -8695,6 +9553,28 @@ export class VideoPreviewPlayMetaMeta extends $tea.Model {
   }
 }
 
+export class ViewFileInvestigationInfo extends $tea.Model {
+  status?: number;
+  suggestion?: string;
+  static names(): { [key: string]: string } {
+    return {
+      status: 'status',
+      suggestion: 'suggestion',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      status: 'number',
+      suggestion: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
 export class AddStoryFilesRequestFiles extends $tea.Model {
   fileId?: string;
   revisionId?: string;
@@ -8818,15 +9698,18 @@ export class CreateCustomizedStoryRequestStoryFiles extends $tea.Model {
 }
 
 export class CreateFileRequestPartInfoList extends $tea.Model {
+  contentMd5?: string;
   partNumber?: number;
   static names(): { [key: string]: string } {
     return {
+      contentMd5: 'content_md5',
       partNumber: 'part_number',
     };
   }
 
   static types(): { [key: string]: any } {
     return {
+      contentMd5: 'string',
       partNumber: 'number',
     };
   }
@@ -8922,10 +9805,14 @@ export class GetUploadUrlRequestPartInfoListParallelSha1Ctx extends $tea.Model {
 }
 
 export class GetUploadUrlRequestPartInfoList extends $tea.Model {
+  contentMd5?: string;
+  contentType?: string;
   parallelSha1Ctx?: GetUploadUrlRequestPartInfoListParallelSha1Ctx;
   partNumber?: number;
   static names(): { [key: string]: string } {
     return {
+      contentMd5: 'content_md5',
+      contentType: 'content_type',
       parallelSha1Ctx: 'parallel_sha1_ctx',
       partNumber: 'part_number',
     };
@@ -8933,6 +9820,8 @@ export class GetUploadUrlRequestPartInfoList extends $tea.Model {
 
   static types(): { [key: string]: any } {
     return {
+      contentMd5: 'string',
+      contentType: 'string',
       parallelSha1Ctx: GetUploadUrlRequestPartInfoListParallelSha1Ctx,
       partNumber: 'number',
     };
@@ -9019,28 +9908,6 @@ export class ListDeltaResponseBodyItems extends $tea.Model {
       file: File,
       fileId: 'string',
       op: 'string',
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class ParseKeywordsResponseBodyTimeRange extends $tea.Model {
-  end?: string;
-  start?: string;
-  static names(): { [key: string]: string } {
-    return {
-      end: 'end',
-      start: 'start',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      end: 'string',
-      start: 'string',
     };
   }
 
@@ -9210,10 +10077,8 @@ export default class Client extends OpenApi {
   }
 
 
-  async addGroupMemberWithOptions(domainId: string, request: AddGroupMemberRequest, headers: {[key: string ]: string}, runtime: $Util.RuntimeOptions): Promise<AddGroupMemberResponse> {
+  async addGroupMemberWithOptions(request: AddGroupMemberRequest, headers: {[key: string ]: string}, runtime: $Util.RuntimeOptions): Promise<AddGroupMemberResponse> {
     Util.validateModel(request);
-    let hostMap : {[key: string ]: string} = { };
-    hostMap["domain_id"] = domainId;
     let body : {[key: string ]: any} = { };
     if (!Util.isUnset(request.groupId)) {
       body["group_id"] = request.groupId;
@@ -9228,7 +10093,6 @@ export default class Client extends OpenApi {
     }
 
     let req = new $OpenApi.OpenApiRequest({
-      hostMap: hostMap,
       headers: headers,
       body: OpenApiUtil.parseToMap(body),
     });
@@ -9246,10 +10110,10 @@ export default class Client extends OpenApi {
     return $tea.cast<AddGroupMemberResponse>(await this.execute(params, req, runtime), new AddGroupMemberResponse({}));
   }
 
-  async addGroupMember(domainId: string, request: AddGroupMemberRequest): Promise<AddGroupMemberResponse> {
+  async addGroupMember(request: AddGroupMemberRequest): Promise<AddGroupMemberResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     let headers : {[key: string ]: string} = { };
-    return await this.addGroupMemberWithOptions(domainId, request, headers, runtime);
+    return await this.addGroupMemberWithOptions(request, headers, runtime);
   }
 
   async addStoryFilesWithOptions(request: AddStoryFilesRequest, headers: {[key: string ]: string}, runtime: $Util.RuntimeOptions): Promise<AddStoryFilesResponse> {
@@ -9289,6 +10153,49 @@ export default class Client extends OpenApi {
     let runtime = new $Util.RuntimeOptions({ });
     let headers : {[key: string ]: string} = { };
     return await this.addStoryFilesWithOptions(request, headers, runtime);
+  }
+
+  async assignRoleWithOptions(request: AssignRoleRequest, headers: {[key: string ]: string}, runtime: $Util.RuntimeOptions): Promise<AssignRoleResponse> {
+    Util.validateModel(request);
+    let body : {[key: string ]: any} = { };
+    if (!Util.isUnset(request.identity)) {
+      body["identity"] = request.identity;
+    }
+
+    if (!Util.isUnset(request.manageResourceId)) {
+      body["manage_resource_id"] = request.manageResourceId;
+    }
+
+    if (!Util.isUnset(request.manageResourceType)) {
+      body["manage_resource_type"] = request.manageResourceType;
+    }
+
+    if (!Util.isUnset(request.roleId)) {
+      body["role_id"] = request.roleId;
+    }
+
+    let req = new $OpenApi.OpenApiRequest({
+      headers: headers,
+      body: OpenApiUtil.parseToMap(body),
+    });
+    let params = new $OpenApi.Params({
+      action: "AssignRole",
+      version: "2022-03-01",
+      protocol: "HTTPS",
+      pathname: `/v2/role/assign`,
+      method: "POST",
+      authType: "AK",
+      style: "ROA",
+      reqBodyType: "json",
+      bodyType: "json",
+    });
+    return $tea.cast<AssignRoleResponse>(await this.execute(params, req, runtime), new AssignRoleResponse({}));
+  }
+
+  async assignRole(request: AssignRoleRequest): Promise<AssignRoleResponse> {
+    let runtime = new $Util.RuntimeOptions({ });
+    let headers : {[key: string ]: string} = { };
+    return await this.assignRoleWithOptions(request, headers, runtime);
   }
 
   async authorizeWithOptions(tmpReq: AuthorizeRequest, headers: {[key: string ]: string}, runtime: $Util.RuntimeOptions): Promise<AuthorizeResponse> {
@@ -9385,6 +10292,49 @@ export default class Client extends OpenApi {
     let runtime = new $Util.RuntimeOptions({ });
     let headers : {[key: string ]: string} = { };
     return await this.batchWithOptions(request, headers, runtime);
+  }
+
+  async cancelAssignRoleWithOptions(request: CancelAssignRoleRequest, headers: {[key: string ]: string}, runtime: $Util.RuntimeOptions): Promise<CancelAssignRoleResponse> {
+    Util.validateModel(request);
+    let body : {[key: string ]: any} = { };
+    if (!Util.isUnset(request.identity)) {
+      body["identity"] = request.identity;
+    }
+
+    if (!Util.isUnset(request.manageResourceId)) {
+      body["manage_resource_id"] = request.manageResourceId;
+    }
+
+    if (!Util.isUnset(request.manageResourceType)) {
+      body["manage_resource_type"] = request.manageResourceType;
+    }
+
+    if (!Util.isUnset(request.roleId)) {
+      body["role_id"] = request.roleId;
+    }
+
+    let req = new $OpenApi.OpenApiRequest({
+      headers: headers,
+      body: OpenApiUtil.parseToMap(body),
+    });
+    let params = new $OpenApi.Params({
+      action: "CancelAssignRole",
+      version: "2022-03-01",
+      protocol: "HTTPS",
+      pathname: `/v2/role/cancel_assign`,
+      method: "POST",
+      authType: "AK",
+      style: "ROA",
+      reqBodyType: "json",
+      bodyType: "json",
+    });
+    return $tea.cast<CancelAssignRoleResponse>(await this.execute(params, req, runtime), new CancelAssignRoleResponse({}));
+  }
+
+  async cancelAssignRole(request: CancelAssignRoleRequest): Promise<CancelAssignRoleResponse> {
+    let runtime = new $Util.RuntimeOptions({ });
+    let headers : {[key: string ]: string} = { };
+    return await this.cancelAssignRoleWithOptions(request, headers, runtime);
   }
 
   async cancelShareLinkWithOptions(request: CancelShareLinkRequest, headers: {[key: string ]: string}, runtime: $Util.RuntimeOptions): Promise<CancelShareLinkResponse> {
@@ -9944,6 +10894,10 @@ export default class Client extends OpenApi {
       body["file_id_list"] = request.fileIdList;
     }
 
+    if (!Util.isUnset(request.officeEditable)) {
+      body["office_editable"] = request.officeEditable;
+    }
+
     if (!Util.isUnset(request.previewLimit)) {
       body["preview_limit"] = request.previewLimit;
     }
@@ -10474,34 +11428,34 @@ export default class Client extends OpenApi {
 
   async downloadFileWithOptions(request: DownloadFileRequest, headers: {[key: string ]: string}, runtime: $Util.RuntimeOptions): Promise<DownloadFileResponse> {
     Util.validateModel(request);
-    let body : {[key: string ]: any} = { };
+    let query : {[key: string ]: any} = { };
     if (!Util.isUnset(request.driveId)) {
-      body["drive_id"] = request.driveId;
+      query["drive_id"] = request.driveId;
     }
 
     if (!Util.isUnset(request.fileId)) {
-      body["file_id"] = request.fileId;
+      query["file_id"] = request.fileId;
     }
 
     if (!Util.isUnset(request.imageThumbnailProcess)) {
-      body["image_thumbnail_process"] = request.imageThumbnailProcess;
+      query["image_thumbnail_process"] = request.imageThumbnailProcess;
     }
 
     if (!Util.isUnset(request.officeThumbnailProcess)) {
-      body["office_thumbnail_process"] = request.officeThumbnailProcess;
+      query["office_thumbnail_process"] = request.officeThumbnailProcess;
     }
 
     if (!Util.isUnset(request.shareId)) {
-      body["share_id"] = request.shareId;
+      query["share_id"] = request.shareId;
     }
 
     if (!Util.isUnset(request.videoThumbnailProcess)) {
-      body["video_thumbnail_process"] = request.videoThumbnailProcess;
+      query["video_thumbnail_process"] = request.videoThumbnailProcess;
     }
 
     let req = new $OpenApi.OpenApiRequest({
       headers: headers,
-      body: OpenApiUtil.parseToMap(body),
+      query: OpenApiUtil.query(query),
     });
     let params = new $OpenApi.Params({
       action: "DownloadFile",
@@ -10512,7 +11466,7 @@ export default class Client extends OpenApi {
       authType: "AK",
       style: "ROA",
       reqBodyType: "formData",
-      bodyType: "json",
+      bodyType: "binary",
     });
     return $tea.cast<DownloadFileResponse>(await this.execute(params, req, runtime), new DownloadFileResponse({}));
   }
@@ -11674,10 +12628,8 @@ export default class Client extends OpenApi {
     return await this.listAddressGroupsWithOptions(request, headers, runtime);
   }
 
-  async listAssignmentWithOptions(domainId: string, request: ListAssignmentRequest, headers: {[key: string ]: string}, runtime: $Util.RuntimeOptions): Promise<ListAssignmentResponse> {
+  async listAssignmentWithOptions(request: ListAssignmentRequest, headers: {[key: string ]: string}, runtime: $Util.RuntimeOptions): Promise<ListAssignmentResponse> {
     Util.validateModel(request);
-    let hostMap : {[key: string ]: string} = { };
-    hostMap["domain_id"] = domainId;
     let body : {[key: string ]: any} = { };
     if (!Util.isUnset(request.limit)) {
       body["limit"] = request.limit;
@@ -11696,7 +12648,6 @@ export default class Client extends OpenApi {
     }
 
     let req = new $OpenApi.OpenApiRequest({
-      hostMap: hostMap,
       headers: headers,
       body: OpenApiUtil.parseToMap(body),
     });
@@ -11714,10 +12665,10 @@ export default class Client extends OpenApi {
     return $tea.cast<ListAssignmentResponse>(await this.execute(params, req, runtime), new ListAssignmentResponse({}));
   }
 
-  async listAssignment(domainId: string, request: ListAssignmentRequest): Promise<ListAssignmentResponse> {
+  async listAssignment(request: ListAssignmentRequest): Promise<ListAssignmentResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     let headers : {[key: string ]: string} = { };
-    return await this.listAssignmentWithOptions(domainId, request, headers, runtime);
+    return await this.listAssignmentWithOptions(request, headers, runtime);
   }
 
   async listDeltaWithOptions(request: ListDeltaRequest, headers: {[key: string ]: string}, runtime: $Util.RuntimeOptions): Promise<ListDeltaResponse> {
@@ -11864,6 +12815,10 @@ export default class Client extends OpenApi {
       body["remarks"] = request.remarks;
     }
 
+    if (!Util.isUnset(request.returnTotalCount)) {
+      body["return_total_count"] = request.returnTotalCount;
+    }
+
     let req = new $OpenApi.OpenApiRequest({
       headers: headers,
       body: OpenApiUtil.parseToMap(body),
@@ -11998,10 +12953,8 @@ export default class Client extends OpenApi {
     return await this.listGroupWithOptions(request, headers, runtime);
   }
 
-  async listGroupMemberWithOptions(domainId: string, request: ListGroupMemberRequest, headers: {[key: string ]: string}, runtime: $Util.RuntimeOptions): Promise<ListGroupMemberResponse> {
+  async listGroupMemberWithOptions(request: ListGroupMemberRequest, headers: {[key: string ]: string}, runtime: $Util.RuntimeOptions): Promise<ListGroupMemberResponse> {
     Util.validateModel(request);
-    let hostMap : {[key: string ]: string} = { };
-    hostMap["domain_id"] = domainId;
     let body : {[key: string ]: any} = { };
     if (!Util.isUnset(request.groupId)) {
       body["group_id"] = request.groupId;
@@ -12020,7 +12973,6 @@ export default class Client extends OpenApi {
     }
 
     let req = new $OpenApi.OpenApiRequest({
-      hostMap: hostMap,
       headers: headers,
       body: OpenApiUtil.parseToMap(body),
     });
@@ -12038,10 +12990,10 @@ export default class Client extends OpenApi {
     return $tea.cast<ListGroupMemberResponse>(await this.execute(params, req, runtime), new ListGroupMemberResponse({}));
   }
 
-  async listGroupMember(domainId: string, request: ListGroupMemberRequest): Promise<ListGroupMemberResponse> {
+  async listGroupMember(request: ListGroupMemberRequest): Promise<ListGroupMemberResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     let headers : {[key: string ]: string} = { };
-    return await this.listGroupMemberWithOptions(domainId, request, headers, runtime);
+    return await this.listGroupMemberWithOptions(request, headers, runtime);
   }
 
   async listIdentityToBenefitPkgMappingWithOptions(request: ListIdentityToBenefitPkgMappingRequest, headers: {[key: string ]: string}, runtime: $Util.RuntimeOptions): Promise<ListIdentityToBenefitPkgMappingResponse> {
@@ -12118,10 +13070,8 @@ export default class Client extends OpenApi {
     return await this.listMyDrivesWithOptions(request, headers, runtime);
   }
 
-  async listMyGroupDriveWithOptions(domainId: string, request: ListMyGroupDriveRequest, headers: {[key: string ]: string}, runtime: $Util.RuntimeOptions): Promise<ListMyGroupDriveResponse> {
+  async listMyGroupDriveWithOptions(request: ListMyGroupDriveRequest, headers: {[key: string ]: string}, runtime: $Util.RuntimeOptions): Promise<ListMyGroupDriveResponse> {
     Util.validateModel(request);
-    let hostMap : {[key: string ]: string} = { };
-    hostMap["domain_id"] = domainId;
     let body : {[key: string ]: any} = { };
     if (!Util.isUnset(request.limit)) {
       body["limit"] = request.limit;
@@ -12132,7 +13082,6 @@ export default class Client extends OpenApi {
     }
 
     let req = new $OpenApi.OpenApiRequest({
-      hostMap: hostMap,
       headers: headers,
       body: OpenApiUtil.parseToMap(body),
     });
@@ -12150,10 +13099,10 @@ export default class Client extends OpenApi {
     return $tea.cast<ListMyGroupDriveResponse>(await this.execute(params, req, runtime), new ListMyGroupDriveResponse({}));
   }
 
-  async listMyGroupDrive(domainId: string, request: ListMyGroupDriveRequest): Promise<ListMyGroupDriveResponse> {
+  async listMyGroupDrive(request: ListMyGroupDriveRequest): Promise<ListMyGroupDriveResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     let headers : {[key: string ]: string} = { };
-    return await this.listMyGroupDriveWithOptions(domainId, request, headers, runtime);
+    return await this.listMyGroupDriveWithOptions(request, headers, runtime);
   }
 
   async listReceivedFileWithOptions(request: ListReceivedFileRequest, headers: {[key: string ]: string}, runtime: $Util.RuntimeOptions): Promise<ListReceivedFileResponse> {
@@ -12500,37 +13449,6 @@ export default class Client extends OpenApi {
     return await this.moveFileWithOptions(request, headers, runtime);
   }
 
-  async parseKeywordsWithOptions(request: ParseKeywordsRequest, headers: {[key: string ]: string}, runtime: $Util.RuntimeOptions): Promise<ParseKeywordsResponse> {
-    Util.validateModel(request);
-    let body : {[key: string ]: any} = { };
-    if (!Util.isUnset(request.keywords)) {
-      body["keywords"] = request.keywords;
-    }
-
-    let req = new $OpenApi.OpenApiRequest({
-      headers: headers,
-      body: OpenApiUtil.parseToMap(body),
-    });
-    let params = new $OpenApi.Params({
-      action: "ParseKeywords",
-      version: "2022-03-01",
-      protocol: "HTTPS",
-      pathname: `/v2/image/parse_keywords`,
-      method: "POST",
-      authType: "AK",
-      style: "ROA",
-      reqBodyType: "json",
-      bodyType: "json",
-    });
-    return $tea.cast<ParseKeywordsResponse>(await this.execute(params, req, runtime), new ParseKeywordsResponse({}));
-  }
-
-  async parseKeywords(request: ParseKeywordsRequest): Promise<ParseKeywordsResponse> {
-    let runtime = new $Util.RuntimeOptions({ });
-    let headers : {[key: string ]: string} = { };
-    return await this.parseKeywordsWithOptions(request, headers, runtime);
-  }
-
   async removeFaceGroupFileWithOptions(request: RemoveFaceGroupFileRequest, headers: {[key: string ]: string}, runtime: $Util.RuntimeOptions): Promise<RemoveFaceGroupFileResponse> {
     Util.validateModel(request);
     let body : {[key: string ]: any} = { };
@@ -12570,10 +13488,8 @@ export default class Client extends OpenApi {
     return await this.removeFaceGroupFileWithOptions(request, headers, runtime);
   }
 
-  async removeGroupMemberWithOptions(domainId: string, request: RemoveGroupMemberRequest, headers: {[key: string ]: string}, runtime: $Util.RuntimeOptions): Promise<RemoveGroupMemberResponse> {
+  async removeGroupMemberWithOptions(request: RemoveGroupMemberRequest, headers: {[key: string ]: string}, runtime: $Util.RuntimeOptions): Promise<RemoveGroupMemberResponse> {
     Util.validateModel(request);
-    let hostMap : {[key: string ]: string} = { };
-    hostMap["domain_id"] = domainId;
     let body : {[key: string ]: any} = { };
     if (!Util.isUnset(request.groupId)) {
       body["group_id"] = request.groupId;
@@ -12588,7 +13504,6 @@ export default class Client extends OpenApi {
     }
 
     let req = new $OpenApi.OpenApiRequest({
-      hostMap: hostMap,
       headers: headers,
       body: OpenApiUtil.parseToMap(body),
     });
@@ -12606,10 +13521,10 @@ export default class Client extends OpenApi {
     return $tea.cast<RemoveGroupMemberResponse>(await this.execute(params, req, runtime), new RemoveGroupMemberResponse({}));
   }
 
-  async removeGroupMember(domainId: string, request: RemoveGroupMemberRequest): Promise<RemoveGroupMemberResponse> {
+  async removeGroupMember(request: RemoveGroupMemberRequest): Promise<RemoveGroupMemberResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     let headers : {[key: string ]: string} = { };
-    return await this.removeGroupMemberWithOptions(domainId, request, headers, runtime);
+    return await this.removeGroupMemberWithOptions(request, headers, runtime);
   }
 
   async removeStoryFilesWithOptions(request: RemoveStoryFilesRequest, headers: {[key: string ]: string}, runtime: $Util.RuntimeOptions): Promise<RemoveStoryFilesResponse> {
@@ -13314,6 +14229,49 @@ export default class Client extends OpenApi {
     return await this.trashFileWithOptions(request, headers, runtime);
   }
 
+  async unLinkAcountWithOptions(request: UnLinkAcountRequest, headers: {[key: string ]: string}, runtime: $Util.RuntimeOptions): Promise<UnLinkAcountResponse> {
+    Util.validateModel(request);
+    let body : {[key: string ]: any} = { };
+    if (!Util.isUnset(request.extra)) {
+      body["extra"] = request.extra;
+    }
+
+    if (!Util.isUnset(request.identity)) {
+      body["identity"] = request.identity;
+    }
+
+    if (!Util.isUnset(request.type)) {
+      body["type"] = request.type;
+    }
+
+    if (!Util.isUnset(request.userId)) {
+      body["user_id"] = request.userId;
+    }
+
+    let req = new $OpenApi.OpenApiRequest({
+      headers: headers,
+      body: OpenApiUtil.parseToMap(body),
+    });
+    let params = new $OpenApi.Params({
+      action: "UnLinkAcount",
+      version: "2022-03-01",
+      protocol: "HTTPS",
+      pathname: `/v2/account/unlink`,
+      method: "POST",
+      authType: "AK",
+      style: "ROA",
+      reqBodyType: "json",
+      bodyType: "json",
+    });
+    return $tea.cast<UnLinkAcountResponse>(await this.execute(params, req, runtime), new UnLinkAcountResponse({}));
+  }
+
+  async unLinkAcount(request: UnLinkAcountRequest): Promise<UnLinkAcountResponse> {
+    let runtime = new $Util.RuntimeOptions({ });
+    let headers : {[key: string ]: string} = { };
+    return await this.unLinkAcountWithOptions(request, headers, runtime);
+  }
+
   async updateDomainWithOptions(request: UpdateDomainRequest, headers: {[key: string ]: string}, runtime: $Util.RuntimeOptions): Promise<UpdateDomainResponse> {
     Util.validateModel(request);
     let body : {[key: string ]: any} = { };
@@ -13335,6 +14293,10 @@ export default class Client extends OpenApi {
 
     if (!Util.isUnset(request.initDriveSize)) {
       body["init_drive_size"] = request.initDriveSize;
+    }
+
+    if (!Util.isUnset(request.publishedAppAccessStrategy)) {
+      body["published_app_access_strategy"] = request.publishedAppAccessStrategy;
     }
 
     if (!Util.isUnset(request.sizeQuota)) {
