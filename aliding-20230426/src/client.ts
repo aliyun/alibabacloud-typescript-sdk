@@ -440,6 +440,273 @@ export class CreateSheetResponse extends $tea.Model {
   }
 }
 
+export class CreateTodoTaskHeaders extends $tea.Model {
+  commonHeaders?: { [key: string]: string };
+  accountContext?: CreateTodoTaskHeadersAccountContext;
+  static names(): { [key: string]: string } {
+    return {
+      commonHeaders: 'commonHeaders',
+      accountContext: 'AccountContext',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      commonHeaders: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      accountContext: CreateTodoTaskHeadersAccountContext,
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class CreateTodoTaskShrinkHeaders extends $tea.Model {
+  commonHeaders?: { [key: string]: string };
+  accountContextShrink?: string;
+  static names(): { [key: string]: string } {
+    return {
+      commonHeaders: 'commonHeaders',
+      accountContextShrink: 'AccountContext',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      commonHeaders: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      accountContextShrink: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class CreateTodoTaskRequest extends $tea.Model {
+  tenantContext?: CreateTodoTaskRequestTenantContext;
+  contentFieldList?: CreateTodoTaskRequestContentFieldList[];
+  creatorId?: string;
+  description?: string;
+  detailUrl?: CreateTodoTaskRequestDetailUrl;
+  dueTime?: number;
+  executorIds?: string[];
+  isOnlyShowExecutor?: boolean;
+  notifyConfigs?: CreateTodoTaskRequestNotifyConfigs;
+  operatorId?: string;
+  participantIds?: string[];
+  priority?: number;
+  sourceId?: string;
+  subject?: string;
+  static names(): { [key: string]: string } {
+    return {
+      tenantContext: 'TenantContext',
+      contentFieldList: 'contentFieldList',
+      creatorId: 'creatorId',
+      description: 'description',
+      detailUrl: 'detailUrl',
+      dueTime: 'dueTime',
+      executorIds: 'executorIds',
+      isOnlyShowExecutor: 'isOnlyShowExecutor',
+      notifyConfigs: 'notifyConfigs',
+      operatorId: 'operatorId',
+      participantIds: 'participantIds',
+      priority: 'priority',
+      sourceId: 'sourceId',
+      subject: 'subject',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      tenantContext: CreateTodoTaskRequestTenantContext,
+      contentFieldList: { 'type': 'array', 'itemType': CreateTodoTaskRequestContentFieldList },
+      creatorId: 'string',
+      description: 'string',
+      detailUrl: CreateTodoTaskRequestDetailUrl,
+      dueTime: 'number',
+      executorIds: { 'type': 'array', 'itemType': 'string' },
+      isOnlyShowExecutor: 'boolean',
+      notifyConfigs: CreateTodoTaskRequestNotifyConfigs,
+      operatorId: 'string',
+      participantIds: { 'type': 'array', 'itemType': 'string' },
+      priority: 'number',
+      sourceId: 'string',
+      subject: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class CreateTodoTaskShrinkRequest extends $tea.Model {
+  tenantContextShrink?: string;
+  contentFieldListShrink?: string;
+  creatorId?: string;
+  description?: string;
+  detailUrlShrink?: string;
+  dueTime?: number;
+  executorIdsShrink?: string;
+  isOnlyShowExecutor?: boolean;
+  notifyConfigsShrink?: string;
+  operatorId?: string;
+  participantIdsShrink?: string;
+  priority?: number;
+  sourceId?: string;
+  subject?: string;
+  static names(): { [key: string]: string } {
+    return {
+      tenantContextShrink: 'TenantContext',
+      contentFieldListShrink: 'contentFieldList',
+      creatorId: 'creatorId',
+      description: 'description',
+      detailUrlShrink: 'detailUrl',
+      dueTime: 'dueTime',
+      executorIdsShrink: 'executorIds',
+      isOnlyShowExecutor: 'isOnlyShowExecutor',
+      notifyConfigsShrink: 'notifyConfigs',
+      operatorId: 'operatorId',
+      participantIdsShrink: 'participantIds',
+      priority: 'priority',
+      sourceId: 'sourceId',
+      subject: 'subject',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      tenantContextShrink: 'string',
+      contentFieldListShrink: 'string',
+      creatorId: 'string',
+      description: 'string',
+      detailUrlShrink: 'string',
+      dueTime: 'number',
+      executorIdsShrink: 'string',
+      isOnlyShowExecutor: 'boolean',
+      notifyConfigsShrink: 'string',
+      operatorId: 'string',
+      participantIdsShrink: 'string',
+      priority: 'number',
+      sourceId: 'string',
+      subject: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class CreateTodoTaskResponseBody extends $tea.Model {
+  bizTag?: string;
+  contentFieldList?: CreateTodoTaskResponseBodyContentFieldList[];
+  createdTime?: number;
+  creatorId?: string;
+  description?: string;
+  detailUrl?: CreateTodoTaskResponseBodyDetailUrl;
+  done?: boolean;
+  dueTime?: number;
+  executorIds?: string[];
+  finishTime?: number;
+  id?: string;
+  isOnlyShowExecutor?: boolean;
+  modifiedTime?: number;
+  modifierId?: string;
+  notifyConfigs?: CreateTodoTaskResponseBodyNotifyConfigs;
+  participantIds?: string[];
+  priority?: number;
+  requestId?: string;
+  source?: string;
+  sourceId?: string;
+  startTime?: number;
+  subject?: string;
+  static names(): { [key: string]: string } {
+    return {
+      bizTag: 'bizTag',
+      contentFieldList: 'contentFieldList',
+      createdTime: 'createdTime',
+      creatorId: 'creatorId',
+      description: 'description',
+      detailUrl: 'detailUrl',
+      done: 'done',
+      dueTime: 'dueTime',
+      executorIds: 'executorIds',
+      finishTime: 'finishTime',
+      id: 'id',
+      isOnlyShowExecutor: 'isOnlyShowExecutor',
+      modifiedTime: 'modifiedTime',
+      modifierId: 'modifierId',
+      notifyConfigs: 'notifyConfigs',
+      participantIds: 'participantIds',
+      priority: 'priority',
+      requestId: 'requestId',
+      source: 'source',
+      sourceId: 'sourceId',
+      startTime: 'startTime',
+      subject: 'subject',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      bizTag: 'string',
+      contentFieldList: { 'type': 'array', 'itemType': CreateTodoTaskResponseBodyContentFieldList },
+      createdTime: 'number',
+      creatorId: 'string',
+      description: 'string',
+      detailUrl: CreateTodoTaskResponseBodyDetailUrl,
+      done: 'boolean',
+      dueTime: 'number',
+      executorIds: { 'type': 'array', 'itemType': 'string' },
+      finishTime: 'number',
+      id: 'string',
+      isOnlyShowExecutor: 'boolean',
+      modifiedTime: 'number',
+      modifierId: 'string',
+      notifyConfigs: CreateTodoTaskResponseBodyNotifyConfigs,
+      participantIds: { 'type': 'array', 'itemType': 'string' },
+      priority: 'number',
+      requestId: 'string',
+      source: 'string',
+      sourceId: 'string',
+      startTime: 'number',
+      subject: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class CreateTodoTaskResponse extends $tea.Model {
+  headers: { [key: string]: string };
+  statusCode: number;
+  body: CreateTodoTaskResponseBody;
+  static names(): { [key: string]: string } {
+    return {
+      headers: 'headers',
+      statusCode: 'statusCode',
+      body: 'body',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
+      body: CreateTodoTaskResponseBody,
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
 export class CreateWorkspaceHeaders extends $tea.Model {
   commonHeaders?: { [key: string]: string };
   accountContext?: CreateWorkspaceHeadersAccountContext;
@@ -756,6 +1023,147 @@ export class CreateWorkspaceDocResponse extends $tea.Model {
       headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
       statusCode: 'number',
       body: CreateWorkspaceDocResponseBody,
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class DeleteTodoTaskHeaders extends $tea.Model {
+  commonHeaders?: { [key: string]: string };
+  accountContext?: DeleteTodoTaskHeadersAccountContext;
+  static names(): { [key: string]: string } {
+    return {
+      commonHeaders: 'commonHeaders',
+      accountContext: 'AccountContext',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      commonHeaders: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      accountContext: DeleteTodoTaskHeadersAccountContext,
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class DeleteTodoTaskShrinkHeaders extends $tea.Model {
+  commonHeaders?: { [key: string]: string };
+  accountContextShrink?: string;
+  static names(): { [key: string]: string } {
+    return {
+      commonHeaders: 'commonHeaders',
+      accountContextShrink: 'AccountContext',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      commonHeaders: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      accountContextShrink: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class DeleteTodoTaskRequest extends $tea.Model {
+  tenantContext?: DeleteTodoTaskRequestTenantContext;
+  operatorId?: string;
+  taskId?: string;
+  static names(): { [key: string]: string } {
+    return {
+      tenantContext: 'TenantContext',
+      operatorId: 'operatorId',
+      taskId: 'taskId',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      tenantContext: DeleteTodoTaskRequestTenantContext,
+      operatorId: 'string',
+      taskId: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class DeleteTodoTaskShrinkRequest extends $tea.Model {
+  tenantContextShrink?: string;
+  operatorId?: string;
+  taskId?: string;
+  static names(): { [key: string]: string } {
+    return {
+      tenantContextShrink: 'TenantContext',
+      operatorId: 'operatorId',
+      taskId: 'taskId',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      tenantContextShrink: 'string',
+      operatorId: 'string',
+      taskId: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class DeleteTodoTaskResponseBody extends $tea.Model {
+  requestId?: string;
+  result?: boolean;
+  static names(): { [key: string]: string } {
+    return {
+      requestId: 'requestId',
+      result: 'result',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      requestId: 'string',
+      result: 'boolean',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class DeleteTodoTaskResponse extends $tea.Model {
+  headers: { [key: string]: string };
+  statusCode: number;
+  body: DeleteTodoTaskResponseBody;
+  static names(): { [key: string]: string } {
+    return {
+      headers: 'headers',
+      statusCode: 'statusCode',
+      body: 'body',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
+      body: DeleteTodoTaskResponseBody,
     };
   }
 
@@ -1427,6 +1835,468 @@ export class InsertRowsBeforeResponse extends $tea.Model {
   }
 }
 
+export class QueryOrgTodoTasksHeaders extends $tea.Model {
+  commonHeaders?: { [key: string]: string };
+  accountContext?: QueryOrgTodoTasksHeadersAccountContext;
+  static names(): { [key: string]: string } {
+    return {
+      commonHeaders: 'commonHeaders',
+      accountContext: 'AccountContext',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      commonHeaders: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      accountContext: QueryOrgTodoTasksHeadersAccountContext,
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class QueryOrgTodoTasksShrinkHeaders extends $tea.Model {
+  commonHeaders?: { [key: string]: string };
+  accountContextShrink?: string;
+  static names(): { [key: string]: string } {
+    return {
+      commonHeaders: 'commonHeaders',
+      accountContextShrink: 'AccountContext',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      commonHeaders: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      accountContextShrink: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class QueryOrgTodoTasksRequest extends $tea.Model {
+  tenantContext?: QueryOrgTodoTasksRequestTenantContext;
+  isDone?: boolean;
+  nextToken?: string;
+  static names(): { [key: string]: string } {
+    return {
+      tenantContext: 'TenantContext',
+      isDone: 'isDone',
+      nextToken: 'nextToken',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      tenantContext: QueryOrgTodoTasksRequestTenantContext,
+      isDone: 'boolean',
+      nextToken: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class QueryOrgTodoTasksShrinkRequest extends $tea.Model {
+  tenantContextShrink?: string;
+  isDone?: boolean;
+  nextToken?: string;
+  static names(): { [key: string]: string } {
+    return {
+      tenantContextShrink: 'TenantContext',
+      isDone: 'isDone',
+      nextToken: 'nextToken',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      tenantContextShrink: 'string',
+      isDone: 'boolean',
+      nextToken: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class QueryOrgTodoTasksResponseBody extends $tea.Model {
+  nextToken?: string;
+  requestId?: string;
+  todoCards?: QueryOrgTodoTasksResponseBodyTodoCards[];
+  static names(): { [key: string]: string } {
+    return {
+      nextToken: 'nextToken',
+      requestId: 'requestId',
+      todoCards: 'todoCards',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      nextToken: 'string',
+      requestId: 'string',
+      todoCards: { 'type': 'array', 'itemType': QueryOrgTodoTasksResponseBodyTodoCards },
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class QueryOrgTodoTasksResponse extends $tea.Model {
+  headers: { [key: string]: string };
+  statusCode: number;
+  body: QueryOrgTodoTasksResponseBody;
+  static names(): { [key: string]: string } {
+    return {
+      headers: 'headers',
+      statusCode: 'statusCode',
+      body: 'body',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
+      body: QueryOrgTodoTasksResponseBody,
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class UpdateTodoTaskHeaders extends $tea.Model {
+  commonHeaders?: { [key: string]: string };
+  accountContext?: UpdateTodoTaskHeadersAccountContext;
+  static names(): { [key: string]: string } {
+    return {
+      commonHeaders: 'commonHeaders',
+      accountContext: 'AccountContext',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      commonHeaders: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      accountContext: UpdateTodoTaskHeadersAccountContext,
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class UpdateTodoTaskShrinkHeaders extends $tea.Model {
+  commonHeaders?: { [key: string]: string };
+  accountContextShrink?: string;
+  static names(): { [key: string]: string } {
+    return {
+      commonHeaders: 'commonHeaders',
+      accountContextShrink: 'AccountContext',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      commonHeaders: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      accountContextShrink: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class UpdateTodoTaskRequest extends $tea.Model {
+  tenantContext?: UpdateTodoTaskRequestTenantContext;
+  description?: string;
+  done?: boolean;
+  dueTime?: number;
+  executorIds?: string[];
+  participantIds?: string[];
+  subject?: string;
+  taskId?: string;
+  static names(): { [key: string]: string } {
+    return {
+      tenantContext: 'TenantContext',
+      description: 'description',
+      done: 'done',
+      dueTime: 'dueTime',
+      executorIds: 'executorIds',
+      participantIds: 'participantIds',
+      subject: 'subject',
+      taskId: 'taskId',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      tenantContext: UpdateTodoTaskRequestTenantContext,
+      description: 'string',
+      done: 'boolean',
+      dueTime: 'number',
+      executorIds: { 'type': 'array', 'itemType': 'string' },
+      participantIds: { 'type': 'array', 'itemType': 'string' },
+      subject: 'string',
+      taskId: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class UpdateTodoTaskShrinkRequest extends $tea.Model {
+  tenantContextShrink?: string;
+  description?: string;
+  done?: boolean;
+  dueTime?: number;
+  executorIdsShrink?: string;
+  participantIdsShrink?: string;
+  subject?: string;
+  taskId?: string;
+  static names(): { [key: string]: string } {
+    return {
+      tenantContextShrink: 'TenantContext',
+      description: 'description',
+      done: 'done',
+      dueTime: 'dueTime',
+      executorIdsShrink: 'executorIds',
+      participantIdsShrink: 'participantIds',
+      subject: 'subject',
+      taskId: 'taskId',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      tenantContextShrink: 'string',
+      description: 'string',
+      done: 'boolean',
+      dueTime: 'number',
+      executorIdsShrink: 'string',
+      participantIdsShrink: 'string',
+      subject: 'string',
+      taskId: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class UpdateTodoTaskResponseBody extends $tea.Model {
+  requestId?: string;
+  result?: boolean;
+  static names(): { [key: string]: string } {
+    return {
+      requestId: 'requestId',
+      result: 'result',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      requestId: 'string',
+      result: 'boolean',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class UpdateTodoTaskResponse extends $tea.Model {
+  headers: { [key: string]: string };
+  statusCode: number;
+  body: UpdateTodoTaskResponseBody;
+  static names(): { [key: string]: string } {
+    return {
+      headers: 'headers',
+      statusCode: 'statusCode',
+      body: 'body',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
+      body: UpdateTodoTaskResponseBody,
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class UpdateTodoTaskExecutorStatusHeaders extends $tea.Model {
+  commonHeaders?: { [key: string]: string };
+  accountContext?: UpdateTodoTaskExecutorStatusHeadersAccountContext;
+  static names(): { [key: string]: string } {
+    return {
+      commonHeaders: 'commonHeaders',
+      accountContext: 'AccountContext',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      commonHeaders: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      accountContext: UpdateTodoTaskExecutorStatusHeadersAccountContext,
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class UpdateTodoTaskExecutorStatusShrinkHeaders extends $tea.Model {
+  commonHeaders?: { [key: string]: string };
+  accountContextShrink?: string;
+  static names(): { [key: string]: string } {
+    return {
+      commonHeaders: 'commonHeaders',
+      accountContextShrink: 'AccountContext',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      commonHeaders: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      accountContextShrink: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class UpdateTodoTaskExecutorStatusRequest extends $tea.Model {
+  tenantContext?: UpdateTodoTaskExecutorStatusRequestTenantContext;
+  executorStatusList?: UpdateTodoTaskExecutorStatusRequestExecutorStatusList[];
+  operatorId?: string;
+  taskId?: string;
+  static names(): { [key: string]: string } {
+    return {
+      tenantContext: 'TenantContext',
+      executorStatusList: 'executorStatusList',
+      operatorId: 'operatorId',
+      taskId: 'taskId',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      tenantContext: UpdateTodoTaskExecutorStatusRequestTenantContext,
+      executorStatusList: { 'type': 'array', 'itemType': UpdateTodoTaskExecutorStatusRequestExecutorStatusList },
+      operatorId: 'string',
+      taskId: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class UpdateTodoTaskExecutorStatusShrinkRequest extends $tea.Model {
+  tenantContextShrink?: string;
+  executorStatusListShrink?: string;
+  operatorId?: string;
+  taskId?: string;
+  static names(): { [key: string]: string } {
+    return {
+      tenantContextShrink: 'TenantContext',
+      executorStatusListShrink: 'executorStatusList',
+      operatorId: 'operatorId',
+      taskId: 'taskId',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      tenantContextShrink: 'string',
+      executorStatusListShrink: 'string',
+      operatorId: 'string',
+      taskId: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class UpdateTodoTaskExecutorStatusResponseBody extends $tea.Model {
+  requestId?: string;
+  result?: boolean;
+  static names(): { [key: string]: string } {
+    return {
+      requestId: 'requestId',
+      result: 'result',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      requestId: 'string',
+      result: 'boolean',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class UpdateTodoTaskExecutorStatusResponse extends $tea.Model {
+  headers: { [key: string]: string };
+  statusCode: number;
+  body: UpdateTodoTaskExecutorStatusResponseBody;
+  static names(): { [key: string]: string } {
+    return {
+      headers: 'headers',
+      statusCode: 'statusCode',
+      body: 'body',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
+      body: UpdateTodoTaskExecutorStatusResponseBody,
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
 export class UpdateWorkspaceDocMembersHeaders extends $tea.Model {
   commonHeaders?: { [key: string]: string };
   accountContext?: UpdateWorkspaceDocMembersHeadersAccountContext;
@@ -1873,6 +2743,170 @@ export class CreateSheetRequestTenantContext extends $tea.Model {
   }
 }
 
+export class CreateTodoTaskHeadersAccountContext extends $tea.Model {
+  accountId?: string;
+  static names(): { [key: string]: string } {
+    return {
+      accountId: 'accountId',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      accountId: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class CreateTodoTaskRequestTenantContext extends $tea.Model {
+  tenantId?: string;
+  static names(): { [key: string]: string } {
+    return {
+      tenantId: 'tenantId',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      tenantId: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class CreateTodoTaskRequestContentFieldList extends $tea.Model {
+  fieldKey?: string;
+  fieldValue?: string;
+  static names(): { [key: string]: string } {
+    return {
+      fieldKey: 'fieldKey',
+      fieldValue: 'fieldValue',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      fieldKey: 'string',
+      fieldValue: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class CreateTodoTaskRequestDetailUrl extends $tea.Model {
+  appUrl?: string;
+  pcUrl?: string;
+  static names(): { [key: string]: string } {
+    return {
+      appUrl: 'appUrl',
+      pcUrl: 'pcUrl',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      appUrl: 'string',
+      pcUrl: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class CreateTodoTaskRequestNotifyConfigs extends $tea.Model {
+  dingNotify?: string;
+  static names(): { [key: string]: string } {
+    return {
+      dingNotify: 'dingNotify',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      dingNotify: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class CreateTodoTaskResponseBodyContentFieldList extends $tea.Model {
+  fieldKey?: string;
+  fieldValue?: string;
+  static names(): { [key: string]: string } {
+    return {
+      fieldKey: 'fieldKey',
+      fieldValue: 'fieldValue',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      fieldKey: 'string',
+      fieldValue: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class CreateTodoTaskResponseBodyDetailUrl extends $tea.Model {
+  appUrl?: string;
+  pcUrl?: string;
+  static names(): { [key: string]: string } {
+    return {
+      appUrl: 'appUrl',
+      pcUrl: 'pcUrl',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      appUrl: 'string',
+      pcUrl: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class CreateTodoTaskResponseBodyNotifyConfigs extends $tea.Model {
+  dingNotify?: string;
+  static names(): { [key: string]: string } {
+    return {
+      dingNotify: 'dingNotify',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      dingNotify: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
 export class CreateWorkspaceHeadersAccountContext extends $tea.Model {
   accountId?: string;
   static names(): { [key: string]: string } {
@@ -1931,6 +2965,44 @@ export class CreateWorkspaceDocHeadersAccountContext extends $tea.Model {
 }
 
 export class CreateWorkspaceDocRequestTenantContext extends $tea.Model {
+  tenantId?: string;
+  static names(): { [key: string]: string } {
+    return {
+      tenantId: 'tenantId',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      tenantId: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class DeleteTodoTaskHeadersAccountContext extends $tea.Model {
+  accountId?: string;
+  static names(): { [key: string]: string } {
+    return {
+      accountId: 'accountId',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      accountId: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class DeleteTodoTaskRequestTenantContext extends $tea.Model {
   tenantId?: string;
   static names(): { [key: string]: string } {
     return {
@@ -2253,6 +3325,213 @@ export class InsertRowsBeforeRequestTenantContext extends $tea.Model {
   static types(): { [key: string]: any } {
     return {
       tenantId: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class QueryOrgTodoTasksHeadersAccountContext extends $tea.Model {
+  accountId?: string;
+  static names(): { [key: string]: string } {
+    return {
+      accountId: 'accountId',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      accountId: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class QueryOrgTodoTasksRequestTenantContext extends $tea.Model {
+  tenantId?: string;
+  static names(): { [key: string]: string } {
+    return {
+      tenantId: 'tenantId',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      tenantId: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class QueryOrgTodoTasksResponseBodyTodoCardsDetailUrl extends $tea.Model {
+  appUrl?: string;
+  pcUrl?: string;
+  static names(): { [key: string]: string } {
+    return {
+      appUrl: 'appUrl',
+      pcUrl: 'pcUrl',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      appUrl: 'string',
+      pcUrl: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class QueryOrgTodoTasksResponseBodyTodoCards extends $tea.Model {
+  bizTag?: string;
+  createdTime?: number;
+  creatorId?: string;
+  detailUrl?: QueryOrgTodoTasksResponseBodyTodoCardsDetailUrl;
+  dueTime?: number;
+  isDone?: boolean;
+  modifiedTime?: number;
+  priority?: number;
+  sourceId?: string;
+  subject?: string;
+  taskId?: string;
+  static names(): { [key: string]: string } {
+    return {
+      bizTag: 'bizTag',
+      createdTime: 'createdTime',
+      creatorId: 'creatorId',
+      detailUrl: 'detailUrl',
+      dueTime: 'dueTime',
+      isDone: 'isDone',
+      modifiedTime: 'modifiedTime',
+      priority: 'priority',
+      sourceId: 'sourceId',
+      subject: 'subject',
+      taskId: 'taskId',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      bizTag: 'string',
+      createdTime: 'number',
+      creatorId: 'string',
+      detailUrl: QueryOrgTodoTasksResponseBodyTodoCardsDetailUrl,
+      dueTime: 'number',
+      isDone: 'boolean',
+      modifiedTime: 'number',
+      priority: 'number',
+      sourceId: 'string',
+      subject: 'string',
+      taskId: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class UpdateTodoTaskHeadersAccountContext extends $tea.Model {
+  accountId?: string;
+  static names(): { [key: string]: string } {
+    return {
+      accountId: 'accountId',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      accountId: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class UpdateTodoTaskRequestTenantContext extends $tea.Model {
+  tenantId?: string;
+  static names(): { [key: string]: string } {
+    return {
+      tenantId: 'tenantId',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      tenantId: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class UpdateTodoTaskExecutorStatusHeadersAccountContext extends $tea.Model {
+  accountId?: string;
+  static names(): { [key: string]: string } {
+    return {
+      accountId: 'accountId',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      accountId: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class UpdateTodoTaskExecutorStatusRequestTenantContext extends $tea.Model {
+  tenantId?: string;
+  static names(): { [key: string]: string } {
+    return {
+      tenantId: 'tenantId',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      tenantId: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class UpdateTodoTaskExecutorStatusRequestExecutorStatusList extends $tea.Model {
+  id?: string;
+  isDone?: boolean;
+  static names(): { [key: string]: string } {
+    return {
+      id: 'id',
+      isDone: 'isDone',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      id: 'string',
+      isDone: 'boolean',
     };
   }
 
@@ -2602,6 +3881,132 @@ export default class Client extends OpenApi {
     return await this.createSheetWithOptions(request, headers, runtime);
   }
 
+  async createTodoTaskWithOptions(tmpReq: CreateTodoTaskRequest, tmpHeader: CreateTodoTaskHeaders, runtime: $Util.RuntimeOptions): Promise<CreateTodoTaskResponse> {
+    Util.validateModel(tmpReq);
+    let request = new CreateTodoTaskShrinkRequest({ });
+    OpenApiUtil.convert(tmpReq, request);
+    let headers = new CreateTodoTaskShrinkHeaders({ });
+    OpenApiUtil.convert(tmpHeader, headers);
+    if (!Util.isUnset(tmpHeader.accountContext)) {
+      headers.accountContextShrink = OpenApiUtil.arrayToStringWithSpecifiedStyle(tmpHeader.accountContext, "AccountContext", "json");
+    }
+
+    if (!Util.isUnset(tmpReq.tenantContext)) {
+      request.tenantContextShrink = OpenApiUtil.arrayToStringWithSpecifiedStyle(tmpReq.tenantContext, "TenantContext", "json");
+    }
+
+    if (!Util.isUnset(tmpReq.contentFieldList)) {
+      request.contentFieldListShrink = OpenApiUtil.arrayToStringWithSpecifiedStyle(tmpReq.contentFieldList, "contentFieldList", "json");
+    }
+
+    if (!Util.isUnset(tmpReq.detailUrl)) {
+      request.detailUrlShrink = OpenApiUtil.arrayToStringWithSpecifiedStyle(tmpReq.detailUrl, "detailUrl", "json");
+    }
+
+    if (!Util.isUnset(tmpReq.executorIds)) {
+      request.executorIdsShrink = OpenApiUtil.arrayToStringWithSpecifiedStyle(tmpReq.executorIds, "executorIds", "json");
+    }
+
+    if (!Util.isUnset(tmpReq.notifyConfigs)) {
+      request.notifyConfigsShrink = OpenApiUtil.arrayToStringWithSpecifiedStyle(tmpReq.notifyConfigs, "notifyConfigs", "json");
+    }
+
+    if (!Util.isUnset(tmpReq.participantIds)) {
+      request.participantIdsShrink = OpenApiUtil.arrayToStringWithSpecifiedStyle(tmpReq.participantIds, "participantIds", "json");
+    }
+
+    let query : {[key: string ]: any} = { };
+    if (!Util.isUnset(request.operatorId)) {
+      query["operatorId"] = request.operatorId;
+    }
+
+    let body : {[key: string ]: any} = { };
+    if (!Util.isUnset(request.tenantContextShrink)) {
+      body["TenantContext"] = request.tenantContextShrink;
+    }
+
+    if (!Util.isUnset(request.contentFieldListShrink)) {
+      body["contentFieldList"] = request.contentFieldListShrink;
+    }
+
+    if (!Util.isUnset(request.creatorId)) {
+      body["creatorId"] = request.creatorId;
+    }
+
+    if (!Util.isUnset(request.description)) {
+      body["description"] = request.description;
+    }
+
+    if (!Util.isUnset(request.detailUrlShrink)) {
+      body["detailUrl"] = request.detailUrlShrink;
+    }
+
+    if (!Util.isUnset(request.dueTime)) {
+      body["dueTime"] = request.dueTime;
+    }
+
+    if (!Util.isUnset(request.executorIdsShrink)) {
+      body["executorIds"] = request.executorIdsShrink;
+    }
+
+    if (!Util.isUnset(request.isOnlyShowExecutor)) {
+      body["isOnlyShowExecutor"] = request.isOnlyShowExecutor;
+    }
+
+    if (!Util.isUnset(request.notifyConfigsShrink)) {
+      body["notifyConfigs"] = request.notifyConfigsShrink;
+    }
+
+    if (!Util.isUnset(request.participantIdsShrink)) {
+      body["participantIds"] = request.participantIdsShrink;
+    }
+
+    if (!Util.isUnset(request.priority)) {
+      body["priority"] = request.priority;
+    }
+
+    if (!Util.isUnset(request.sourceId)) {
+      body["sourceId"] = request.sourceId;
+    }
+
+    if (!Util.isUnset(request.subject)) {
+      body["subject"] = request.subject;
+    }
+
+    let realHeaders : {[key: string ]: string} = { };
+    if (!Util.isUnset(headers.commonHeaders)) {
+      realHeaders = headers.commonHeaders;
+    }
+
+    if (!Util.isUnset(headers.accountContextShrink)) {
+      realHeaders["AccountContext"] = Util.toJSONString(headers.accountContextShrink);
+    }
+
+    let req = new $OpenApi.OpenApiRequest({
+      headers: realHeaders,
+      query: OpenApiUtil.query(query),
+      body: OpenApiUtil.parseToMap(body),
+    });
+    let params = new $OpenApi.Params({
+      action: "CreateTodoTask",
+      version: "2023-04-26",
+      protocol: "HTTPS",
+      pathname: `/dingtalk/v1/task/createTodoTask`,
+      method: "POST",
+      authType: "AK",
+      style: "ROA",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $tea.cast<CreateTodoTaskResponse>(await this.callApi(params, req, runtime), new CreateTodoTaskResponse({}));
+  }
+
+  async createTodoTask(request: CreateTodoTaskRequest): Promise<CreateTodoTaskResponse> {
+    let runtime = new $Util.RuntimeOptions({ });
+    let headers = new CreateTodoTaskHeaders({ });
+    return await this.createTodoTaskWithOptions(request, headers, runtime);
+  }
+
   async createWorkspaceWithOptions(tmpReq: CreateWorkspaceRequest, tmpHeader: CreateWorkspaceHeaders, runtime: $Util.RuntimeOptions): Promise<CreateWorkspaceResponse> {
     Util.validateModel(tmpReq);
     let request = new CreateWorkspaceShrinkRequest({ });
@@ -2736,6 +4141,66 @@ export default class Client extends OpenApi {
     let runtime = new $Util.RuntimeOptions({ });
     let headers = new CreateWorkspaceDocHeaders({ });
     return await this.createWorkspaceDocWithOptions(request, headers, runtime);
+  }
+
+  async deleteTodoTaskWithOptions(tmpReq: DeleteTodoTaskRequest, tmpHeader: DeleteTodoTaskHeaders, runtime: $Util.RuntimeOptions): Promise<DeleteTodoTaskResponse> {
+    Util.validateModel(tmpReq);
+    let request = new DeleteTodoTaskShrinkRequest({ });
+    OpenApiUtil.convert(tmpReq, request);
+    let headers = new DeleteTodoTaskShrinkHeaders({ });
+    OpenApiUtil.convert(tmpHeader, headers);
+    if (!Util.isUnset(tmpHeader.accountContext)) {
+      headers.accountContextShrink = OpenApiUtil.arrayToStringWithSpecifiedStyle(tmpHeader.accountContext, "AccountContext", "json");
+    }
+
+    if (!Util.isUnset(tmpReq.tenantContext)) {
+      request.tenantContextShrink = OpenApiUtil.arrayToStringWithSpecifiedStyle(tmpReq.tenantContext, "TenantContext", "json");
+    }
+
+    let body : {[key: string ]: any} = { };
+    if (!Util.isUnset(request.tenantContextShrink)) {
+      body["TenantContext"] = request.tenantContextShrink;
+    }
+
+    if (!Util.isUnset(request.operatorId)) {
+      body["operatorId"] = request.operatorId;
+    }
+
+    if (!Util.isUnset(request.taskId)) {
+      body["taskId"] = request.taskId;
+    }
+
+    let realHeaders : {[key: string ]: string} = { };
+    if (!Util.isUnset(headers.commonHeaders)) {
+      realHeaders = headers.commonHeaders;
+    }
+
+    if (!Util.isUnset(headers.accountContextShrink)) {
+      realHeaders["AccountContext"] = Util.toJSONString(headers.accountContextShrink);
+    }
+
+    let req = new $OpenApi.OpenApiRequest({
+      headers: realHeaders,
+      body: OpenApiUtil.parseToMap(body),
+    });
+    let params = new $OpenApi.Params({
+      action: "DeleteTodoTask",
+      version: "2023-04-26",
+      protocol: "HTTPS",
+      pathname: `/dingtalk/v1/task/deleteTodoTask`,
+      method: "POST",
+      authType: "AK",
+      style: "ROA",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $tea.cast<DeleteTodoTaskResponse>(await this.callApi(params, req, runtime), new DeleteTodoTaskResponse({}));
+  }
+
+  async deleteTodoTask(request: DeleteTodoTaskRequest): Promise<DeleteTodoTaskResponse> {
+    let runtime = new $Util.RuntimeOptions({ });
+    let headers = new DeleteTodoTaskHeaders({ });
+    return await this.deleteTodoTaskWithOptions(request, headers, runtime);
   }
 
   async deleteWorkspaceDocMembersWithOptions(tmpReq: DeleteWorkspaceDocMembersRequest, tmpHeader: DeleteWorkspaceDocMembersHeaders, runtime: $Util.RuntimeOptions): Promise<DeleteWorkspaceDocMembersResponse> {
@@ -2992,6 +4457,222 @@ export default class Client extends OpenApi {
     let runtime = new $Util.RuntimeOptions({ });
     let headers = new InsertRowsBeforeHeaders({ });
     return await this.insertRowsBeforeWithOptions(request, headers, runtime);
+  }
+
+  async queryOrgTodoTasksWithOptions(tmpReq: QueryOrgTodoTasksRequest, tmpHeader: QueryOrgTodoTasksHeaders, runtime: $Util.RuntimeOptions): Promise<QueryOrgTodoTasksResponse> {
+    Util.validateModel(tmpReq);
+    let request = new QueryOrgTodoTasksShrinkRequest({ });
+    OpenApiUtil.convert(tmpReq, request);
+    let headers = new QueryOrgTodoTasksShrinkHeaders({ });
+    OpenApiUtil.convert(tmpHeader, headers);
+    if (!Util.isUnset(tmpHeader.accountContext)) {
+      headers.accountContextShrink = OpenApiUtil.arrayToStringWithSpecifiedStyle(tmpHeader.accountContext, "AccountContext", "json");
+    }
+
+    if (!Util.isUnset(tmpReq.tenantContext)) {
+      request.tenantContextShrink = OpenApiUtil.arrayToStringWithSpecifiedStyle(tmpReq.tenantContext, "TenantContext", "json");
+    }
+
+    let body : {[key: string ]: any} = { };
+    if (!Util.isUnset(request.tenantContextShrink)) {
+      body["TenantContext"] = request.tenantContextShrink;
+    }
+
+    if (!Util.isUnset(request.isDone)) {
+      body["isDone"] = request.isDone;
+    }
+
+    if (!Util.isUnset(request.nextToken)) {
+      body["nextToken"] = request.nextToken;
+    }
+
+    let realHeaders : {[key: string ]: string} = { };
+    if (!Util.isUnset(headers.commonHeaders)) {
+      realHeaders = headers.commonHeaders;
+    }
+
+    if (!Util.isUnset(headers.accountContextShrink)) {
+      realHeaders["AccountContext"] = Util.toJSONString(headers.accountContextShrink);
+    }
+
+    let req = new $OpenApi.OpenApiRequest({
+      headers: realHeaders,
+      body: OpenApiUtil.parseToMap(body),
+    });
+    let params = new $OpenApi.Params({
+      action: "QueryOrgTodoTasks",
+      version: "2023-04-26",
+      protocol: "HTTPS",
+      pathname: `/dingtalk/v1/task/queryOrgTodoTasks`,
+      method: "POST",
+      authType: "AK",
+      style: "ROA",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $tea.cast<QueryOrgTodoTasksResponse>(await this.callApi(params, req, runtime), new QueryOrgTodoTasksResponse({}));
+  }
+
+  async queryOrgTodoTasks(request: QueryOrgTodoTasksRequest): Promise<QueryOrgTodoTasksResponse> {
+    let runtime = new $Util.RuntimeOptions({ });
+    let headers = new QueryOrgTodoTasksHeaders({ });
+    return await this.queryOrgTodoTasksWithOptions(request, headers, runtime);
+  }
+
+  async updateTodoTaskWithOptions(tmpReq: UpdateTodoTaskRequest, tmpHeader: UpdateTodoTaskHeaders, runtime: $Util.RuntimeOptions): Promise<UpdateTodoTaskResponse> {
+    Util.validateModel(tmpReq);
+    let request = new UpdateTodoTaskShrinkRequest({ });
+    OpenApiUtil.convert(tmpReq, request);
+    let headers = new UpdateTodoTaskShrinkHeaders({ });
+    OpenApiUtil.convert(tmpHeader, headers);
+    if (!Util.isUnset(tmpHeader.accountContext)) {
+      headers.accountContextShrink = OpenApiUtil.arrayToStringWithSpecifiedStyle(tmpHeader.accountContext, "AccountContext", "json");
+    }
+
+    if (!Util.isUnset(tmpReq.tenantContext)) {
+      request.tenantContextShrink = OpenApiUtil.arrayToStringWithSpecifiedStyle(tmpReq.tenantContext, "TenantContext", "json");
+    }
+
+    if (!Util.isUnset(tmpReq.executorIds)) {
+      request.executorIdsShrink = OpenApiUtil.arrayToStringWithSpecifiedStyle(tmpReq.executorIds, "executorIds", "json");
+    }
+
+    if (!Util.isUnset(tmpReq.participantIds)) {
+      request.participantIdsShrink = OpenApiUtil.arrayToStringWithSpecifiedStyle(tmpReq.participantIds, "participantIds", "json");
+    }
+
+    let body : {[key: string ]: any} = { };
+    if (!Util.isUnset(request.tenantContextShrink)) {
+      body["TenantContext"] = request.tenantContextShrink;
+    }
+
+    if (!Util.isUnset(request.description)) {
+      body["description"] = request.description;
+    }
+
+    if (!Util.isUnset(request.done)) {
+      body["done"] = request.done;
+    }
+
+    if (!Util.isUnset(request.dueTime)) {
+      body["dueTime"] = request.dueTime;
+    }
+
+    if (!Util.isUnset(request.executorIdsShrink)) {
+      body["executorIds"] = request.executorIdsShrink;
+    }
+
+    if (!Util.isUnset(request.participantIdsShrink)) {
+      body["participantIds"] = request.participantIdsShrink;
+    }
+
+    if (!Util.isUnset(request.subject)) {
+      body["subject"] = request.subject;
+    }
+
+    if (!Util.isUnset(request.taskId)) {
+      body["taskId"] = request.taskId;
+    }
+
+    let realHeaders : {[key: string ]: string} = { };
+    if (!Util.isUnset(headers.commonHeaders)) {
+      realHeaders = headers.commonHeaders;
+    }
+
+    if (!Util.isUnset(headers.accountContextShrink)) {
+      realHeaders["AccountContext"] = Util.toJSONString(headers.accountContextShrink);
+    }
+
+    let req = new $OpenApi.OpenApiRequest({
+      headers: realHeaders,
+      body: OpenApiUtil.parseToMap(body),
+    });
+    let params = new $OpenApi.Params({
+      action: "UpdateTodoTask",
+      version: "2023-04-26",
+      protocol: "HTTPS",
+      pathname: `/dingtalk/v1/task/updateTodoTask`,
+      method: "POST",
+      authType: "AK",
+      style: "ROA",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $tea.cast<UpdateTodoTaskResponse>(await this.callApi(params, req, runtime), new UpdateTodoTaskResponse({}));
+  }
+
+  async updateTodoTask(request: UpdateTodoTaskRequest): Promise<UpdateTodoTaskResponse> {
+    let runtime = new $Util.RuntimeOptions({ });
+    let headers = new UpdateTodoTaskHeaders({ });
+    return await this.updateTodoTaskWithOptions(request, headers, runtime);
+  }
+
+  async updateTodoTaskExecutorStatusWithOptions(tmpReq: UpdateTodoTaskExecutorStatusRequest, tmpHeader: UpdateTodoTaskExecutorStatusHeaders, runtime: $Util.RuntimeOptions): Promise<UpdateTodoTaskExecutorStatusResponse> {
+    Util.validateModel(tmpReq);
+    let request = new UpdateTodoTaskExecutorStatusShrinkRequest({ });
+    OpenApiUtil.convert(tmpReq, request);
+    let headers = new UpdateTodoTaskExecutorStatusShrinkHeaders({ });
+    OpenApiUtil.convert(tmpHeader, headers);
+    if (!Util.isUnset(tmpHeader.accountContext)) {
+      headers.accountContextShrink = OpenApiUtil.arrayToStringWithSpecifiedStyle(tmpHeader.accountContext, "AccountContext", "json");
+    }
+
+    if (!Util.isUnset(tmpReq.tenantContext)) {
+      request.tenantContextShrink = OpenApiUtil.arrayToStringWithSpecifiedStyle(tmpReq.tenantContext, "TenantContext", "json");
+    }
+
+    if (!Util.isUnset(tmpReq.executorStatusList)) {
+      request.executorStatusListShrink = OpenApiUtil.arrayToStringWithSpecifiedStyle(tmpReq.executorStatusList, "executorStatusList", "json");
+    }
+
+    let body : {[key: string ]: any} = { };
+    if (!Util.isUnset(request.tenantContextShrink)) {
+      body["TenantContext"] = request.tenantContextShrink;
+    }
+
+    if (!Util.isUnset(request.executorStatusListShrink)) {
+      body["executorStatusList"] = request.executorStatusListShrink;
+    }
+
+    if (!Util.isUnset(request.operatorId)) {
+      body["operatorId"] = request.operatorId;
+    }
+
+    if (!Util.isUnset(request.taskId)) {
+      body["taskId"] = request.taskId;
+    }
+
+    let realHeaders : {[key: string ]: string} = { };
+    if (!Util.isUnset(headers.commonHeaders)) {
+      realHeaders = headers.commonHeaders;
+    }
+
+    if (!Util.isUnset(headers.accountContextShrink)) {
+      realHeaders["AccountContext"] = Util.toJSONString(headers.accountContextShrink);
+    }
+
+    let req = new $OpenApi.OpenApiRequest({
+      headers: realHeaders,
+      body: OpenApiUtil.parseToMap(body),
+    });
+    let params = new $OpenApi.Params({
+      action: "UpdateTodoTaskExecutorStatus",
+      version: "2023-04-26",
+      protocol: "HTTPS",
+      pathname: `/dingtalk/v1/task/updateTodoTaskExecutorStatus`,
+      method: "POST",
+      authType: "AK",
+      style: "ROA",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $tea.cast<UpdateTodoTaskExecutorStatusResponse>(await this.callApi(params, req, runtime), new UpdateTodoTaskExecutorStatusResponse({}));
+  }
+
+  async updateTodoTaskExecutorStatus(request: UpdateTodoTaskExecutorStatusRequest): Promise<UpdateTodoTaskExecutorStatusResponse> {
+    let runtime = new $Util.RuntimeOptions({ });
+    let headers = new UpdateTodoTaskExecutorStatusHeaders({ });
+    return await this.updateTodoTaskExecutorStatusWithOptions(request, headers, runtime);
   }
 
   async updateWorkspaceDocMembersWithOptions(tmpReq: UpdateWorkspaceDocMembersRequest, tmpHeader: UpdateWorkspaceDocMembersHeaders, runtime: $Util.RuntimeOptions): Promise<UpdateWorkspaceDocMembersResponse> {
