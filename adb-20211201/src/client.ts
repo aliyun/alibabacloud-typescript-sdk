@@ -1176,6 +1176,7 @@ export class CreateAccountResponse extends $tea.Model {
 }
 
 export class CreateDBClusterRequest extends $tea.Model {
+  backupSetId?: string;
   computeResource?: string;
   DBClusterDescription?: string;
   DBClusterNetworkType?: string;
@@ -1185,6 +1186,9 @@ export class CreateDBClusterRequest extends $tea.Model {
   period?: string;
   regionId?: string;
   resourceGroupId?: string;
+  restoreToTime?: string;
+  restoreType?: string;
+  sourceDbClusterId?: string;
   storageResource?: string;
   tag?: CreateDBClusterRequestTag[];
   usedTime?: string;
@@ -1193,6 +1197,7 @@ export class CreateDBClusterRequest extends $tea.Model {
   zoneId?: string;
   static names(): { [key: string]: string } {
     return {
+      backupSetId: 'BackupSetId',
       computeResource: 'ComputeResource',
       DBClusterDescription: 'DBClusterDescription',
       DBClusterNetworkType: 'DBClusterNetworkType',
@@ -1202,6 +1207,9 @@ export class CreateDBClusterRequest extends $tea.Model {
       period: 'Period',
       regionId: 'RegionId',
       resourceGroupId: 'ResourceGroupId',
+      restoreToTime: 'RestoreToTime',
+      restoreType: 'RestoreType',
+      sourceDbClusterId: 'SourceDbClusterId',
       storageResource: 'StorageResource',
       tag: 'Tag',
       usedTime: 'UsedTime',
@@ -1213,6 +1221,7 @@ export class CreateDBClusterRequest extends $tea.Model {
 
   static types(): { [key: string]: any } {
     return {
+      backupSetId: 'string',
       computeResource: 'string',
       DBClusterDescription: 'string',
       DBClusterNetworkType: 'string',
@@ -1222,6 +1231,9 @@ export class CreateDBClusterRequest extends $tea.Model {
       period: 'string',
       regionId: 'string',
       resourceGroupId: 'string',
+      restoreToTime: 'string',
+      restoreType: 'string',
+      sourceDbClusterId: 'string',
       storageResource: 'string',
       tag: { 'type': 'array', 'itemType': CreateDBClusterRequestTag },
       usedTime: 'string',
@@ -11981,6 +11993,10 @@ export default class Client extends OpenApi {
   async createDBClusterWithOptions(request: CreateDBClusterRequest, runtime: $Util.RuntimeOptions): Promise<CreateDBClusterResponse> {
     Util.validateModel(request);
     let query = { };
+    if (!Util.isUnset(request.backupSetId)) {
+      query["BackupSetId"] = request.backupSetId;
+    }
+
     if (!Util.isUnset(request.computeResource)) {
       query["ComputeResource"] = request.computeResource;
     }
@@ -12015,6 +12031,18 @@ export default class Client extends OpenApi {
 
     if (!Util.isUnset(request.resourceGroupId)) {
       query["ResourceGroupId"] = request.resourceGroupId;
+    }
+
+    if (!Util.isUnset(request.restoreToTime)) {
+      query["RestoreToTime"] = request.restoreToTime;
+    }
+
+    if (!Util.isUnset(request.restoreType)) {
+      query["RestoreType"] = request.restoreType;
+    }
+
+    if (!Util.isUnset(request.sourceDbClusterId)) {
+      query["SourceDbClusterId"] = request.sourceDbClusterId;
     }
 
     if (!Util.isUnset(request.storageResource)) {
