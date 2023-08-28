@@ -8121,6 +8121,112 @@ export class PushHotelMessageResponse extends $tea.Model {
   }
 }
 
+export class PushWelcomeHeaders extends $tea.Model {
+  commonHeaders?: { [key: string]: string };
+  xAcsAligenieAccessToken?: string;
+  authorization?: string;
+  static names(): { [key: string]: string } {
+    return {
+      commonHeaders: 'commonHeaders',
+      xAcsAligenieAccessToken: 'x-acs-aligenie-access-token',
+      authorization: 'Authorization',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      commonHeaders: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      xAcsAligenieAccessToken: 'string',
+      authorization: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class PushWelcomeRequest extends $tea.Model {
+  hotelId?: string;
+  roomNo?: string;
+  welcomeMusicUrl?: string;
+  welcomeText?: string;
+  static names(): { [key: string]: string } {
+    return {
+      hotelId: 'HotelId',
+      roomNo: 'RoomNo',
+      welcomeMusicUrl: 'WelcomeMusicUrl',
+      welcomeText: 'WelcomeText',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      hotelId: 'string',
+      roomNo: 'string',
+      welcomeMusicUrl: 'string',
+      welcomeText: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class PushWelcomeResponseBody extends $tea.Model {
+  message?: string;
+  requestId?: string;
+  result?: boolean;
+  statusCode?: number;
+  static names(): { [key: string]: string } {
+    return {
+      message: 'Message',
+      requestId: 'RequestId',
+      result: 'Result',
+      statusCode: 'StatusCode',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      message: 'string',
+      requestId: 'string',
+      result: 'boolean',
+      statusCode: 'number',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class PushWelcomeResponse extends $tea.Model {
+  headers: { [key: string]: string };
+  statusCode: number;
+  body: PushWelcomeResponseBody;
+  static names(): { [key: string]: string } {
+    return {
+      headers: 'headers',
+      statusCode: 'statusCode',
+      body: 'body',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
+      body: PushWelcomeResponseBody,
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
 export class PushWelcomeTextAndMusicHeaders extends $tea.Model {
   commonHeaders?: { [key: string]: string };
   xAcsAligenieAccessToken?: string;
@@ -18757,6 +18863,62 @@ export default class Client extends OpenApi {
     let runtime = new $Util.RuntimeOptions({ });
     let headers = new PushHotelMessageHeaders({ });
     return await this.pushHotelMessageWithOptions(request, headers, runtime);
+  }
+
+  async pushWelcomeWithOptions(request: PushWelcomeRequest, headers: PushWelcomeHeaders, runtime: $Util.RuntimeOptions): Promise<PushWelcomeResponse> {
+    Util.validateModel(request);
+    let body : {[key: string ]: any} = { };
+    if (!Util.isUnset(request.hotelId)) {
+      body["HotelId"] = request.hotelId;
+    }
+
+    if (!Util.isUnset(request.roomNo)) {
+      body["RoomNo"] = request.roomNo;
+    }
+
+    if (!Util.isUnset(request.welcomeMusicUrl)) {
+      body["WelcomeMusicUrl"] = request.welcomeMusicUrl;
+    }
+
+    if (!Util.isUnset(request.welcomeText)) {
+      body["WelcomeText"] = request.welcomeText;
+    }
+
+    let realHeaders : {[key: string ]: string} = { };
+    if (!Util.isUnset(headers.commonHeaders)) {
+      realHeaders = headers.commonHeaders;
+    }
+
+    if (!Util.isUnset(headers.xAcsAligenieAccessToken)) {
+      realHeaders["x-acs-aligenie-access-token"] = Util.toJSONString(headers.xAcsAligenieAccessToken);
+    }
+
+    if (!Util.isUnset(headers.authorization)) {
+      realHeaders["Authorization"] = Util.toJSONString(headers.authorization);
+    }
+
+    let req = new $OpenApi.OpenApiRequest({
+      headers: realHeaders,
+      body: OpenApiUtil.parseToMap(body),
+    });
+    let params = new $OpenApi.Params({
+      action: "PushWelcome",
+      version: "ip_1.0",
+      protocol: "HTTPS",
+      pathname: `/v1.0/ip/pushWelcome`,
+      method: "POST",
+      authType: "AK",
+      style: "ROA",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $tea.cast<PushWelcomeResponse>(await this.callApi(params, req, runtime), new PushWelcomeResponse({}));
+  }
+
+  async pushWelcome(request: PushWelcomeRequest): Promise<PushWelcomeResponse> {
+    let runtime = new $Util.RuntimeOptions({ });
+    let headers = new PushWelcomeHeaders({ });
+    return await this.pushWelcomeWithOptions(request, headers, runtime);
   }
 
   async pushWelcomeTextAndMusicWithOptions(tmpReq: PushWelcomeTextAndMusicRequest, headers: PushWelcomeTextAndMusicHeaders, runtime: $Util.RuntimeOptions): Promise<PushWelcomeTextAndMusicResponse> {
