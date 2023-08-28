@@ -1047,6 +1047,148 @@ export class QueryTimedResetOperateStatusResponse extends $tea.Model {
   }
 }
 
+export class QueryVideoTaskInfoRequest extends $tea.Model {
+  app?: QueryVideoTaskInfoRequestApp;
+  orderById?: string;
+  pageNo?: number;
+  pageSize?: number;
+  status?: number;
+  taskUuid?: string;
+  tenantId?: number;
+  title?: string;
+  type?: number;
+  static names(): { [key: string]: string } {
+    return {
+      app: 'App',
+      orderById: 'OrderById',
+      pageNo: 'PageNo',
+      pageSize: 'PageSize',
+      status: 'Status',
+      taskUuid: 'TaskUuid',
+      tenantId: 'TenantId',
+      title: 'Title',
+      type: 'Type',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      app: QueryVideoTaskInfoRequestApp,
+      orderById: 'string',
+      pageNo: 'number',
+      pageSize: 'number',
+      status: 'number',
+      taskUuid: 'string',
+      tenantId: 'number',
+      title: 'string',
+      type: 'number',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class QueryVideoTaskInfoShrinkRequest extends $tea.Model {
+  appShrink?: string;
+  orderById?: string;
+  pageNo?: number;
+  pageSize?: number;
+  status?: number;
+  taskUuid?: string;
+  tenantId?: number;
+  title?: string;
+  type?: number;
+  static names(): { [key: string]: string } {
+    return {
+      appShrink: 'App',
+      orderById: 'OrderById',
+      pageNo: 'PageNo',
+      pageSize: 'PageSize',
+      status: 'Status',
+      taskUuid: 'TaskUuid',
+      tenantId: 'TenantId',
+      title: 'Title',
+      type: 'Type',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      appShrink: 'string',
+      orderById: 'string',
+      pageNo: 'number',
+      pageSize: 'number',
+      status: 'number',
+      taskUuid: 'string',
+      tenantId: 'number',
+      title: 'string',
+      type: 'number',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class QueryVideoTaskInfoResponseBody extends $tea.Model {
+  code?: string;
+  data?: QueryVideoTaskInfoResponseBodyData;
+  message?: string;
+  requestId?: string;
+  success?: boolean;
+  static names(): { [key: string]: string } {
+    return {
+      code: 'Code',
+      data: 'Data',
+      message: 'Message',
+      requestId: 'RequestId',
+      success: 'Success',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      code: 'string',
+      data: QueryVideoTaskInfoResponseBodyData,
+      message: 'string',
+      requestId: 'string',
+      success: 'boolean',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class QueryVideoTaskInfoResponse extends $tea.Model {
+  headers: { [key: string]: string };
+  statusCode: number;
+  body: QueryVideoTaskInfoResponseBody;
+  static names(): { [key: string]: string } {
+    return {
+      headers: 'headers',
+      statusCode: 'statusCode',
+      body: 'body',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
+      body: QueryVideoTaskInfoResponseBody,
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
 export class SendCommandRequest extends $tea.Model {
   code?: string;
   content?: { [key: string]: any };
@@ -2630,6 +2772,7 @@ export class GetVideoTaskInfoResponseBodyDataTaskResult extends $tea.Model {
   alphaUrl?: string;
   failCode?: string;
   failReason?: string;
+  previewPic?: string;
   subtitlesUrl?: string;
   videoDuration?: number;
   videoUrl?: string;
@@ -2639,6 +2782,7 @@ export class GetVideoTaskInfoResponseBodyDataTaskResult extends $tea.Model {
       alphaUrl: 'AlphaUrl',
       failCode: 'FailCode',
       failReason: 'FailReason',
+      previewPic: 'PreviewPic',
       subtitlesUrl: 'SubtitlesUrl',
       videoDuration: 'VideoDuration',
       videoUrl: 'VideoUrl',
@@ -2651,6 +2795,7 @@ export class GetVideoTaskInfoResponseBodyDataTaskResult extends $tea.Model {
       alphaUrl: 'string',
       failCode: 'string',
       failReason: 'string',
+      previewPic: 'string',
       subtitlesUrl: 'string',
       videoDuration: 'number',
       videoUrl: 'string',
@@ -2786,10 +2931,12 @@ export class QueryAvatarResponseBodyDataSupportedResolutions extends $tea.Model 
 }
 
 export class QueryAvatarResponseBodyData extends $tea.Model {
+  allLocateImages?: { [key: string]: any };
   avatarType?: string;
   description?: string;
   image?: string;
   makeFailReason?: string;
+  makeStage?: string;
   makeStatus?: string;
   modelType?: string;
   name?: string;
@@ -2797,10 +2944,12 @@ export class QueryAvatarResponseBodyData extends $tea.Model {
   supportedResolutions?: QueryAvatarResponseBodyDataSupportedResolutions;
   static names(): { [key: string]: string } {
     return {
+      allLocateImages: 'AllLocateImages',
       avatarType: 'AvatarType',
       description: 'Description',
       image: 'Image',
       makeFailReason: 'MakeFailReason',
+      makeStage: 'MakeStage',
       makeStatus: 'MakeStatus',
       modelType: 'ModelType',
       name: 'Name',
@@ -2811,10 +2960,12 @@ export class QueryAvatarResponseBodyData extends $tea.Model {
 
   static types(): { [key: string]: any } {
     return {
+      allLocateImages: { 'type': 'map', 'keyType': 'string', 'valueType': 'any' },
       avatarType: 'string',
       description: 'string',
       image: 'string',
       makeFailReason: 'string',
+      makeStage: 'string',
       makeStatus: 'string',
       modelType: 'string',
       name: 'string',
@@ -2906,6 +3057,7 @@ export class QueryAvatarListResponseBodyDataList extends $tea.Model {
   description?: string;
   image?: string;
   makeFailReason?: string;
+  makeStage?: string;
   makeStatus?: string;
   modelType?: string;
   name?: string;
@@ -2918,6 +3070,7 @@ export class QueryAvatarListResponseBodyDataList extends $tea.Model {
       description: 'Description',
       image: 'Image',
       makeFailReason: 'MakeFailReason',
+      makeStage: 'MakeStage',
       makeStatus: 'MakeStatus',
       modelType: 'ModelType',
       name: 'Name',
@@ -2933,6 +3086,7 @@ export class QueryAvatarListResponseBodyDataList extends $tea.Model {
       description: 'string',
       image: 'string',
       makeFailReason: 'string',
+      makeStage: 'string',
       makeStatus: 'string',
       modelType: 'string',
       name: 'string',
@@ -3106,6 +3260,124 @@ export class QueryTimedResetOperateStatusResponseBodyData extends $tea.Model {
       status: 'number',
       statusStr: 'string',
       tenantId: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class QueryVideoTaskInfoRequestApp extends $tea.Model {
+  appId?: string;
+  static names(): { [key: string]: string } {
+    return {
+      appId: 'AppId',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      appId: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class QueryVideoTaskInfoResponseBodyDataListTaskResult extends $tea.Model {
+  alphaUrl?: string;
+  failCode?: string;
+  failReason?: string;
+  previewPic?: string;
+  subtitlesUrl?: string;
+  videoDuration?: number;
+  videoUrl?: string;
+  wordSubtitlesUrl?: string;
+  static names(): { [key: string]: string } {
+    return {
+      alphaUrl: 'AlphaUrl',
+      failCode: 'FailCode',
+      failReason: 'FailReason',
+      previewPic: 'PreviewPic',
+      subtitlesUrl: 'SubtitlesUrl',
+      videoDuration: 'VideoDuration',
+      videoUrl: 'VideoUrl',
+      wordSubtitlesUrl: 'WordSubtitlesUrl',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      alphaUrl: 'string',
+      failCode: 'string',
+      failReason: 'string',
+      previewPic: 'string',
+      subtitlesUrl: 'string',
+      videoDuration: 'number',
+      videoUrl: 'string',
+      wordSubtitlesUrl: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class QueryVideoTaskInfoResponseBodyDataList extends $tea.Model {
+  status?: number;
+  taskResult?: QueryVideoTaskInfoResponseBodyDataListTaskResult;
+  taskUuid?: string;
+  title?: string;
+  type?: number;
+  static names(): { [key: string]: string } {
+    return {
+      status: 'Status',
+      taskResult: 'TaskResult',
+      taskUuid: 'TaskUuid',
+      title: 'Title',
+      type: 'Type',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      status: 'number',
+      taskResult: QueryVideoTaskInfoResponseBodyDataListTaskResult,
+      taskUuid: 'string',
+      title: 'string',
+      type: 'number',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class QueryVideoTaskInfoResponseBodyData extends $tea.Model {
+  list?: QueryVideoTaskInfoResponseBodyDataList[];
+  pageNo?: number;
+  pageSize?: number;
+  totalCount?: number;
+  static names(): { [key: string]: string } {
+    return {
+      list: 'List',
+      pageNo: 'PageNo',
+      pageSize: 'PageSize',
+      totalCount: 'TotalCount',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      list: { 'type': 'array', 'itemType': QueryVideoTaskInfoResponseBodyDataList },
+      pageNo: 'number',
+      pageSize: 'number',
+      totalCount: 'number',
     };
   }
 
@@ -4428,6 +4700,73 @@ export default class Client extends OpenApi {
   async queryTimedResetOperateStatus(request: QueryTimedResetOperateStatusRequest): Promise<QueryTimedResetOperateStatusResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.queryTimedResetOperateStatusWithOptions(request, runtime);
+  }
+
+  async queryVideoTaskInfoWithOptions(tmpReq: QueryVideoTaskInfoRequest, runtime: $Util.RuntimeOptions): Promise<QueryVideoTaskInfoResponse> {
+    Util.validateModel(tmpReq);
+    let request = new QueryVideoTaskInfoShrinkRequest({ });
+    OpenApiUtil.convert(tmpReq, request);
+    if (!Util.isUnset(tmpReq.app)) {
+      request.appShrink = OpenApiUtil.arrayToStringWithSpecifiedStyle(tmpReq.app, "App", "json");
+    }
+
+    let query = { };
+    if (!Util.isUnset(request.appShrink)) {
+      query["App"] = request.appShrink;
+    }
+
+    if (!Util.isUnset(request.orderById)) {
+      query["OrderById"] = request.orderById;
+    }
+
+    if (!Util.isUnset(request.pageNo)) {
+      query["PageNo"] = request.pageNo;
+    }
+
+    if (!Util.isUnset(request.pageSize)) {
+      query["PageSize"] = request.pageSize;
+    }
+
+    if (!Util.isUnset(request.status)) {
+      query["Status"] = request.status;
+    }
+
+    if (!Util.isUnset(request.taskUuid)) {
+      query["TaskUuid"] = request.taskUuid;
+    }
+
+    if (!Util.isUnset(request.tenantId)) {
+      query["TenantId"] = request.tenantId;
+    }
+
+    if (!Util.isUnset(request.title)) {
+      query["Title"] = request.title;
+    }
+
+    if (!Util.isUnset(request.type)) {
+      query["Type"] = request.type;
+    }
+
+    let req = new $OpenApi.OpenApiRequest({
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApi.Params({
+      action: "QueryVideoTaskInfo",
+      version: "2022-01-30",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $tea.cast<QueryVideoTaskInfoResponse>(await this.callApi(params, req, runtime), new QueryVideoTaskInfoResponse({}));
+  }
+
+  async queryVideoTaskInfo(request: QueryVideoTaskInfoRequest): Promise<QueryVideoTaskInfoResponse> {
+    let runtime = new $Util.RuntimeOptions({ });
+    return await this.queryVideoTaskInfoWithOptions(request, runtime);
   }
 
   async sendCommandWithOptions(tmpReq: SendCommandRequest, runtime: $Util.RuntimeOptions): Promise<SendCommandResponse> {
