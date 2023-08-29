@@ -6444,15 +6444,18 @@ export class PutEnableFwSwitchRequest extends $tea.Model {
 }
 
 export class PutEnableFwSwitchResponseBody extends $tea.Model {
+  abnormalResourceStatusList?: PutEnableFwSwitchResponseBodyAbnormalResourceStatusList[];
   requestId?: string;
   static names(): { [key: string]: string } {
     return {
+      abnormalResourceStatusList: 'AbnormalResourceStatusList',
       requestId: 'RequestId',
     };
   }
 
   static types(): { [key: string]: any } {
     return {
+      abnormalResourceStatusList: { 'type': 'array', 'itemType': PutEnableFwSwitchResponseBodyAbnormalResourceStatusList },
       requestId: 'string',
     };
   }
@@ -9089,6 +9092,31 @@ export class ModifyTrFirewallV2RoutePolicyScopeRequestSrcCandidateList extends $
     return {
       candidateId: 'string',
       candidateType: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class PutEnableFwSwitchResponseBodyAbnormalResourceStatusList extends $tea.Model {
+  msg?: string;
+  resource?: string;
+  status?: string;
+  static names(): { [key: string]: string } {
+    return {
+      msg: 'Msg',
+      resource: 'Resource',
+      status: 'Status',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      msg: 'string',
+      resource: 'string',
+      status: 'string',
     };
   }
 
