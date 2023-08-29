@@ -9,34 +9,37 @@ import EndpointUtil from '@alicloud/endpoint-util';
 import * as $tea from '@alicloud/tea-typescript';
 
 export class CreateFlowRequest extends $tea.Model {
-  requestId?: string;
-  name?: string;
   definition?: string;
   description?: string;
-  type?: string;
-  roleArn?: string;
+  executionMode?: string;
   externalStorageLocation?: string;
+  name?: string;
+  requestId?: string;
+  roleArn?: string;
+  type?: string;
   static names(): { [key: string]: string } {
     return {
-      requestId: 'RequestId',
-      name: 'Name',
       definition: 'Definition',
       description: 'Description',
-      type: 'Type',
-      roleArn: 'RoleArn',
+      executionMode: 'ExecutionMode',
       externalStorageLocation: 'ExternalStorageLocation',
+      name: 'Name',
+      requestId: 'RequestId',
+      roleArn: 'RoleArn',
+      type: 'Type',
     };
   }
 
   static types(): { [key: string]: any } {
     return {
-      requestId: 'string',
-      name: 'string',
       definition: 'string',
       description: 'string',
-      type: 'string',
-      roleArn: 'string',
+      executionMode: 'string',
       externalStorageLocation: 'string',
+      name: 'string',
+      requestId: 'string',
+      roleArn: 'string',
+      type: 'string',
     };
   }
 
@@ -46,43 +49,43 @@ export class CreateFlowRequest extends $tea.Model {
 }
 
 export class CreateFlowResponseBody extends $tea.Model {
-  type?: string;
-  description?: string;
   createdTime?: string;
-  requestId?: string;
   definition?: string;
-  lastModifiedTime?: string;
+  description?: string;
+  executionMode?: string;
   id?: string;
-  externalStorageLocation?: string;
-  roleArn?: string;
+  lastModifiedTime?: string;
   name?: string;
+  requestId?: string;
+  roleArn?: string;
+  type?: string;
   static names(): { [key: string]: string } {
     return {
-      type: 'Type',
-      description: 'Description',
       createdTime: 'CreatedTime',
-      requestId: 'RequestId',
       definition: 'Definition',
-      lastModifiedTime: 'LastModifiedTime',
+      description: 'Description',
+      executionMode: 'ExecutionMode',
       id: 'Id',
-      externalStorageLocation: 'ExternalStorageLocation',
-      roleArn: 'RoleArn',
+      lastModifiedTime: 'LastModifiedTime',
       name: 'Name',
+      requestId: 'RequestId',
+      roleArn: 'RoleArn',
+      type: 'Type',
     };
   }
 
   static types(): { [key: string]: any } {
     return {
-      type: 'string',
-      description: 'string',
       createdTime: 'string',
-      requestId: 'string',
       definition: 'string',
-      lastModifiedTime: 'string',
+      description: 'string',
+      executionMode: 'string',
       id: 'string',
-      externalStorageLocation: 'string',
-      roleArn: 'string',
+      lastModifiedTime: 'string',
       name: 'string',
+      requestId: 'string',
+      roleArn: 'string',
+      type: 'string',
     };
   }
 
@@ -93,10 +96,12 @@ export class CreateFlowResponseBody extends $tea.Model {
 
 export class CreateFlowResponse extends $tea.Model {
   headers: { [key: string]: string };
+  statusCode: number;
   body: CreateFlowResponseBody;
   static names(): { [key: string]: string } {
     return {
       headers: 'headers',
+      statusCode: 'statusCode',
       body: 'body',
     };
   }
@@ -104,6 +109,7 @@ export class CreateFlowResponse extends $tea.Model {
   static types(): { [key: string]: any } {
     return {
       headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
       body: CreateFlowResponseBody,
     };
   }
@@ -114,34 +120,34 @@ export class CreateFlowResponse extends $tea.Model {
 }
 
 export class CreateScheduleRequest extends $tea.Model {
-  requestId?: string;
-  flowName?: string;
-  scheduleName?: string;
-  description?: string;
-  payload?: string;
   cronExpression?: string;
+  description?: string;
   enable?: boolean;
+  flowName?: string;
+  payload?: string;
+  requestId?: string;
+  scheduleName?: string;
   static names(): { [key: string]: string } {
     return {
-      requestId: 'RequestId',
-      flowName: 'FlowName',
-      scheduleName: 'ScheduleName',
-      description: 'Description',
-      payload: 'Payload',
       cronExpression: 'CronExpression',
+      description: 'Description',
       enable: 'Enable',
+      flowName: 'FlowName',
+      payload: 'Payload',
+      requestId: 'RequestId',
+      scheduleName: 'ScheduleName',
     };
   }
 
   static types(): { [key: string]: any } {
     return {
-      requestId: 'string',
-      flowName: 'string',
-      scheduleName: 'string',
-      description: 'string',
-      payload: 'string',
       cronExpression: 'string',
+      description: 'string',
       enable: 'boolean',
+      flowName: 'string',
+      payload: 'string',
+      requestId: 'string',
+      scheduleName: 'string',
     };
   }
 
@@ -151,24 +157,24 @@ export class CreateScheduleRequest extends $tea.Model {
 }
 
 export class CreateScheduleResponseBody extends $tea.Model {
-  description?: string;
   createdTime?: string;
-  requestId?: string;
-  lastModifiedTime?: string;
-  enable?: boolean;
-  payload?: string;
   cronExpression?: string;
+  description?: string;
+  enable?: boolean;
+  lastModifiedTime?: string;
+  payload?: string;
+  requestId?: string;
   scheduleId?: string;
   scheduleName?: string;
   static names(): { [key: string]: string } {
     return {
-      description: 'Description',
       createdTime: 'CreatedTime',
-      requestId: 'RequestId',
-      lastModifiedTime: 'LastModifiedTime',
-      enable: 'Enable',
-      payload: 'Payload',
       cronExpression: 'CronExpression',
+      description: 'Description',
+      enable: 'Enable',
+      lastModifiedTime: 'LastModifiedTime',
+      payload: 'Payload',
+      requestId: 'RequestId',
       scheduleId: 'ScheduleId',
       scheduleName: 'ScheduleName',
     };
@@ -176,13 +182,13 @@ export class CreateScheduleResponseBody extends $tea.Model {
 
   static types(): { [key: string]: any } {
     return {
-      description: 'string',
       createdTime: 'string',
-      requestId: 'string',
-      lastModifiedTime: 'string',
-      enable: 'boolean',
-      payload: 'string',
       cronExpression: 'string',
+      description: 'string',
+      enable: 'boolean',
+      lastModifiedTime: 'string',
+      payload: 'string',
+      requestId: 'string',
       scheduleId: 'string',
       scheduleName: 'string',
     };
@@ -195,10 +201,12 @@ export class CreateScheduleResponseBody extends $tea.Model {
 
 export class CreateScheduleResponse extends $tea.Model {
   headers: { [key: string]: string };
+  statusCode: number;
   body: CreateScheduleResponseBody;
   static names(): { [key: string]: string } {
     return {
       headers: 'headers',
+      statusCode: 'statusCode',
       body: 'body',
     };
   }
@@ -206,6 +214,7 @@ export class CreateScheduleResponse extends $tea.Model {
   static types(): { [key: string]: any } {
     return {
       headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
       body: CreateScheduleResponseBody,
     };
   }
@@ -216,19 +225,19 @@ export class CreateScheduleResponse extends $tea.Model {
 }
 
 export class DeleteFlowRequest extends $tea.Model {
-  requestId?: string;
   name?: string;
+  requestId?: string;
   static names(): { [key: string]: string } {
     return {
-      requestId: 'RequestId',
       name: 'Name',
+      requestId: 'RequestId',
     };
   }
 
   static types(): { [key: string]: any } {
     return {
-      requestId: 'string',
       name: 'string',
+      requestId: 'string',
     };
   }
 
@@ -258,10 +267,12 @@ export class DeleteFlowResponseBody extends $tea.Model {
 
 export class DeleteFlowResponse extends $tea.Model {
   headers: { [key: string]: string };
+  statusCode: number;
   body: DeleteFlowResponseBody;
   static names(): { [key: string]: string } {
     return {
       headers: 'headers',
+      statusCode: 'statusCode',
       body: 'body',
     };
   }
@@ -269,6 +280,7 @@ export class DeleteFlowResponse extends $tea.Model {
   static types(): { [key: string]: any } {
     return {
       headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
       body: DeleteFlowResponseBody,
     };
   }
@@ -279,21 +291,21 @@ export class DeleteFlowResponse extends $tea.Model {
 }
 
 export class DeleteScheduleRequest extends $tea.Model {
-  requestId?: string;
   flowName?: string;
+  requestId?: string;
   scheduleName?: string;
   static names(): { [key: string]: string } {
     return {
-      requestId: 'RequestId',
       flowName: 'FlowName',
+      requestId: 'RequestId',
       scheduleName: 'ScheduleName',
     };
   }
 
   static types(): { [key: string]: any } {
     return {
-      requestId: 'string',
       flowName: 'string',
+      requestId: 'string',
       scheduleName: 'string',
     };
   }
@@ -324,10 +336,12 @@ export class DeleteScheduleResponseBody extends $tea.Model {
 
 export class DeleteScheduleResponse extends $tea.Model {
   headers: { [key: string]: string };
+  statusCode: number;
   body: DeleteScheduleResponseBody;
   static names(): { [key: string]: string } {
     return {
       headers: 'headers',
+      statusCode: 'statusCode',
       body: 'body',
     };
   }
@@ -335,6 +349,7 @@ export class DeleteScheduleResponse extends $tea.Model {
   static types(): { [key: string]: any } {
     return {
       headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
       body: DeleteScheduleResponseBody,
     };
   }
@@ -345,24 +360,24 @@ export class DeleteScheduleResponse extends $tea.Model {
 }
 
 export class DescribeExecutionRequest extends $tea.Model {
-  requestId?: string;
-  flowName?: string;
   executionName?: string;
+  flowName?: string;
+  requestId?: string;
   waitTimeSeconds?: number;
   static names(): { [key: string]: string } {
     return {
-      requestId: 'RequestId',
-      flowName: 'FlowName',
       executionName: 'ExecutionName',
+      flowName: 'FlowName',
+      requestId: 'RequestId',
       waitTimeSeconds: 'WaitTimeSeconds',
     };
   }
 
   static types(): { [key: string]: any } {
     return {
-      requestId: 'string',
-      flowName: 'string',
       executionName: 'string',
+      flowName: 'string',
+      requestId: 'string',
       waitTimeSeconds: 'number',
     };
   }
@@ -373,46 +388,40 @@ export class DescribeExecutionRequest extends $tea.Model {
 }
 
 export class DescribeExecutionResponseBody extends $tea.Model {
-  status?: string;
-  input?: string;
-  stoppedTime?: string;
-  requestId?: string;
-  flowName?: string;
-  output?: string;
-  externalOutputUri?: string;
-  startedTime?: string;
-  externalInputUri?: string;
   flowDefinition?: string;
+  flowName?: string;
+  input?: string;
   name?: string;
+  output?: string;
+  requestId?: string;
+  startedTime?: string;
+  status?: string;
+  stoppedTime?: string;
   static names(): { [key: string]: string } {
     return {
-      status: 'Status',
-      input: 'Input',
-      stoppedTime: 'StoppedTime',
-      requestId: 'RequestId',
-      flowName: 'FlowName',
-      output: 'Output',
-      externalOutputUri: 'ExternalOutputUri',
-      startedTime: 'StartedTime',
-      externalInputUri: 'ExternalInputUri',
       flowDefinition: 'FlowDefinition',
+      flowName: 'FlowName',
+      input: 'Input',
       name: 'Name',
+      output: 'Output',
+      requestId: 'RequestId',
+      startedTime: 'StartedTime',
+      status: 'Status',
+      stoppedTime: 'StoppedTime',
     };
   }
 
   static types(): { [key: string]: any } {
     return {
-      status: 'string',
-      input: 'string',
-      stoppedTime: 'string',
-      requestId: 'string',
-      flowName: 'string',
-      output: 'string',
-      externalOutputUri: 'string',
-      startedTime: 'string',
-      externalInputUri: 'string',
       flowDefinition: 'string',
+      flowName: 'string',
+      input: 'string',
       name: 'string',
+      output: 'string',
+      requestId: 'string',
+      startedTime: 'string',
+      status: 'string',
+      stoppedTime: 'string',
     };
   }
 
@@ -423,10 +432,12 @@ export class DescribeExecutionResponseBody extends $tea.Model {
 
 export class DescribeExecutionResponse extends $tea.Model {
   headers: { [key: string]: string };
+  statusCode: number;
   body: DescribeExecutionResponseBody;
   static names(): { [key: string]: string } {
     return {
       headers: 'headers',
+      statusCode: 'statusCode',
       body: 'body',
     };
   }
@@ -434,6 +445,7 @@ export class DescribeExecutionResponse extends $tea.Model {
   static types(): { [key: string]: any } {
     return {
       headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
       body: DescribeExecutionResponseBody,
     };
   }
@@ -444,19 +456,19 @@ export class DescribeExecutionResponse extends $tea.Model {
 }
 
 export class DescribeFlowRequest extends $tea.Model {
-  requestId?: string;
   name?: string;
+  requestId?: string;
   static names(): { [key: string]: string } {
     return {
-      requestId: 'RequestId',
       name: 'Name',
+      requestId: 'RequestId',
     };
   }
 
   static types(): { [key: string]: any } {
     return {
-      requestId: 'string',
       name: 'string',
+      requestId: 'string',
     };
   }
 
@@ -466,43 +478,43 @@ export class DescribeFlowRequest extends $tea.Model {
 }
 
 export class DescribeFlowResponseBody extends $tea.Model {
-  type?: string;
-  description?: string;
   createdTime?: string;
-  requestId?: string;
   definition?: string;
-  lastModifiedTime?: string;
+  description?: string;
+  executionMode?: string;
   id?: string;
-  externalStorageLocation?: string;
-  roleArn?: string;
+  lastModifiedTime?: string;
   name?: string;
+  requestId?: string;
+  roleArn?: string;
+  type?: string;
   static names(): { [key: string]: string } {
     return {
-      type: 'Type',
-      description: 'Description',
       createdTime: 'CreatedTime',
-      requestId: 'RequestId',
       definition: 'Definition',
-      lastModifiedTime: 'LastModifiedTime',
+      description: 'Description',
+      executionMode: 'ExecutionMode',
       id: 'Id',
-      externalStorageLocation: 'ExternalStorageLocation',
-      roleArn: 'RoleArn',
+      lastModifiedTime: 'LastModifiedTime',
       name: 'Name',
+      requestId: 'RequestId',
+      roleArn: 'RoleArn',
+      type: 'Type',
     };
   }
 
   static types(): { [key: string]: any } {
     return {
-      type: 'string',
-      description: 'string',
       createdTime: 'string',
-      requestId: 'string',
       definition: 'string',
-      lastModifiedTime: 'string',
+      description: 'string',
+      executionMode: 'string',
       id: 'string',
-      externalStorageLocation: 'string',
-      roleArn: 'string',
+      lastModifiedTime: 'string',
       name: 'string',
+      requestId: 'string',
+      roleArn: 'string',
+      type: 'string',
     };
   }
 
@@ -513,10 +525,12 @@ export class DescribeFlowResponseBody extends $tea.Model {
 
 export class DescribeFlowResponse extends $tea.Model {
   headers: { [key: string]: string };
+  statusCode: number;
   body: DescribeFlowResponseBody;
   static names(): { [key: string]: string } {
     return {
       headers: 'headers',
+      statusCode: 'statusCode',
       body: 'body',
     };
   }
@@ -524,6 +538,7 @@ export class DescribeFlowResponse extends $tea.Model {
   static types(): { [key: string]: any } {
     return {
       headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
       body: DescribeFlowResponseBody,
     };
   }
@@ -534,21 +549,21 @@ export class DescribeFlowResponse extends $tea.Model {
 }
 
 export class DescribeScheduleRequest extends $tea.Model {
-  requestId?: string;
   flowName?: string;
+  requestId?: string;
   scheduleName?: string;
   static names(): { [key: string]: string } {
     return {
-      requestId: 'RequestId',
       flowName: 'FlowName',
+      requestId: 'RequestId',
       scheduleName: 'ScheduleName',
     };
   }
 
   static types(): { [key: string]: any } {
     return {
-      requestId: 'string',
       flowName: 'string',
+      requestId: 'string',
       scheduleName: 'string',
     };
   }
@@ -559,24 +574,24 @@ export class DescribeScheduleRequest extends $tea.Model {
 }
 
 export class DescribeScheduleResponseBody extends $tea.Model {
-  description?: string;
   createdTime?: string;
-  requestId?: string;
-  lastModifiedTime?: string;
-  enable?: boolean;
-  payload?: string;
   cronExpression?: string;
+  description?: string;
+  enable?: boolean;
+  lastModifiedTime?: string;
+  payload?: string;
+  requestId?: string;
   scheduleId?: string;
   scheduleName?: string;
   static names(): { [key: string]: string } {
     return {
-      description: 'Description',
       createdTime: 'CreatedTime',
-      requestId: 'RequestId',
-      lastModifiedTime: 'LastModifiedTime',
-      enable: 'Enable',
-      payload: 'Payload',
       cronExpression: 'CronExpression',
+      description: 'Description',
+      enable: 'Enable',
+      lastModifiedTime: 'LastModifiedTime',
+      payload: 'Payload',
+      requestId: 'RequestId',
       scheduleId: 'ScheduleId',
       scheduleName: 'ScheduleName',
     };
@@ -584,13 +599,13 @@ export class DescribeScheduleResponseBody extends $tea.Model {
 
   static types(): { [key: string]: any } {
     return {
-      description: 'string',
       createdTime: 'string',
-      requestId: 'string',
-      lastModifiedTime: 'string',
-      enable: 'boolean',
-      payload: 'string',
       cronExpression: 'string',
+      description: 'string',
+      enable: 'boolean',
+      lastModifiedTime: 'string',
+      payload: 'string',
+      requestId: 'string',
       scheduleId: 'string',
       scheduleName: 'string',
     };
@@ -603,10 +618,12 @@ export class DescribeScheduleResponseBody extends $tea.Model {
 
 export class DescribeScheduleResponse extends $tea.Model {
   headers: { [key: string]: string };
+  statusCode: number;
   body: DescribeScheduleResponseBody;
   static names(): { [key: string]: string } {
     return {
       headers: 'headers',
+      statusCode: 'statusCode',
       body: 'body',
     };
   }
@@ -614,6 +631,7 @@ export class DescribeScheduleResponse extends $tea.Model {
   static types(): { [key: string]: any } {
     return {
       headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
       body: DescribeScheduleResponseBody,
     };
   }
@@ -624,28 +642,28 @@ export class DescribeScheduleResponse extends $tea.Model {
 }
 
 export class GetExecutionHistoryRequest extends $tea.Model {
-  requestId?: string;
-  flowName?: string;
   executionName?: string;
-  nextToken?: string;
+  flowName?: string;
   limit?: number;
+  nextToken?: string;
+  requestId?: string;
   static names(): { [key: string]: string } {
     return {
-      requestId: 'RequestId',
-      flowName: 'FlowName',
       executionName: 'ExecutionName',
-      nextToken: 'NextToken',
+      flowName: 'FlowName',
       limit: 'Limit',
+      nextToken: 'NextToken',
+      requestId: 'RequestId',
     };
   }
 
   static types(): { [key: string]: any } {
     return {
-      requestId: 'string',
-      flowName: 'string',
       executionName: 'string',
-      nextToken: 'string',
+      flowName: 'string',
       limit: 'number',
+      nextToken: 'string',
+      requestId: 'string',
     };
   }
 
@@ -655,22 +673,22 @@ export class GetExecutionHistoryRequest extends $tea.Model {
 }
 
 export class GetExecutionHistoryResponseBody extends $tea.Model {
+  events?: GetExecutionHistoryResponseBodyEvents[];
   nextToken?: string;
   requestId?: string;
-  events?: GetExecutionHistoryResponseBodyEvents[];
   static names(): { [key: string]: string } {
     return {
+      events: 'Events',
       nextToken: 'NextToken',
       requestId: 'RequestId',
-      events: 'Events',
     };
   }
 
   static types(): { [key: string]: any } {
     return {
+      events: { 'type': 'array', 'itemType': GetExecutionHistoryResponseBodyEvents },
       nextToken: 'string',
       requestId: 'string',
-      events: { 'type': 'array', 'itemType': GetExecutionHistoryResponseBodyEvents },
     };
   }
 
@@ -681,10 +699,12 @@ export class GetExecutionHistoryResponseBody extends $tea.Model {
 
 export class GetExecutionHistoryResponse extends $tea.Model {
   headers: { [key: string]: string };
+  statusCode: number;
   body: GetExecutionHistoryResponseBody;
   static names(): { [key: string]: string } {
     return {
       headers: 'headers',
+      statusCode: 'statusCode',
       body: 'body',
     };
   }
@@ -692,6 +712,7 @@ export class GetExecutionHistoryResponse extends $tea.Model {
   static types(): { [key: string]: any } {
     return {
       headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
       body: GetExecutionHistoryResponseBody,
     };
   }
@@ -702,37 +723,37 @@ export class GetExecutionHistoryResponse extends $tea.Model {
 }
 
 export class ListExecutionsRequest extends $tea.Model {
-  requestId?: string;
+  executionNamePrefix?: string;
   flowName?: string;
-  nextToken?: string;
   limit?: number;
-  status?: string;
+  nextToken?: string;
+  requestId?: string;
   startedTimeBegin?: string;
   startedTimeEnd?: string;
-  executionNamePrefix?: string;
+  status?: string;
   static names(): { [key: string]: string } {
     return {
-      requestId: 'RequestId',
+      executionNamePrefix: 'ExecutionNamePrefix',
       flowName: 'FlowName',
-      nextToken: 'NextToken',
       limit: 'Limit',
-      status: 'Status',
+      nextToken: 'NextToken',
+      requestId: 'RequestId',
       startedTimeBegin: 'StartedTimeBegin',
       startedTimeEnd: 'StartedTimeEnd',
-      executionNamePrefix: 'ExecutionNamePrefix',
+      status: 'Status',
     };
   }
 
   static types(): { [key: string]: any } {
     return {
-      requestId: 'string',
+      executionNamePrefix: 'string',
       flowName: 'string',
-      nextToken: 'string',
       limit: 'number',
-      status: 'string',
+      nextToken: 'string',
+      requestId: 'string',
       startedTimeBegin: 'string',
       startedTimeEnd: 'string',
-      executionNamePrefix: 'string',
+      status: 'string',
     };
   }
 
@@ -768,10 +789,12 @@ export class ListExecutionsResponseBody extends $tea.Model {
 
 export class ListExecutionsResponse extends $tea.Model {
   headers: { [key: string]: string };
+  statusCode: number;
   body: ListExecutionsResponseBody;
   static names(): { [key: string]: string } {
     return {
       headers: 'headers',
+      statusCode: 'statusCode',
       body: 'body',
     };
   }
@@ -779,6 +802,7 @@ export class ListExecutionsResponse extends $tea.Model {
   static types(): { [key: string]: any } {
     return {
       headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
       body: ListExecutionsResponseBody,
     };
   }
@@ -789,22 +813,22 @@ export class ListExecutionsResponse extends $tea.Model {
 }
 
 export class ListFlowsRequest extends $tea.Model {
-  requestId?: string;
-  nextToken?: string;
   limit?: number;
+  nextToken?: string;
+  requestId?: string;
   static names(): { [key: string]: string } {
     return {
-      requestId: 'RequestId',
-      nextToken: 'NextToken',
       limit: 'Limit',
+      nextToken: 'NextToken',
+      requestId: 'RequestId',
     };
   }
 
   static types(): { [key: string]: any } {
     return {
-      requestId: 'string',
-      nextToken: 'string',
       limit: 'number',
+      nextToken: 'string',
+      requestId: 'string',
     };
   }
 
@@ -814,22 +838,22 @@ export class ListFlowsRequest extends $tea.Model {
 }
 
 export class ListFlowsResponseBody extends $tea.Model {
+  flows?: ListFlowsResponseBodyFlows[];
   nextToken?: string;
   requestId?: string;
-  flows?: ListFlowsResponseBodyFlows[];
   static names(): { [key: string]: string } {
     return {
+      flows: 'Flows',
       nextToken: 'NextToken',
       requestId: 'RequestId',
-      flows: 'Flows',
     };
   }
 
   static types(): { [key: string]: any } {
     return {
+      flows: { 'type': 'array', 'itemType': ListFlowsResponseBodyFlows },
       nextToken: 'string',
       requestId: 'string',
-      flows: { 'type': 'array', 'itemType': ListFlowsResponseBodyFlows },
     };
   }
 
@@ -840,10 +864,12 @@ export class ListFlowsResponseBody extends $tea.Model {
 
 export class ListFlowsResponse extends $tea.Model {
   headers: { [key: string]: string };
+  statusCode: number;
   body: ListFlowsResponseBody;
   static names(): { [key: string]: string } {
     return {
       headers: 'headers',
+      statusCode: 'statusCode',
       body: 'body',
     };
   }
@@ -851,6 +877,7 @@ export class ListFlowsResponse extends $tea.Model {
   static types(): { [key: string]: any } {
     return {
       headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
       body: ListFlowsResponseBody,
     };
   }
@@ -861,25 +888,25 @@ export class ListFlowsResponse extends $tea.Model {
 }
 
 export class ListSchedulesRequest extends $tea.Model {
-  requestId?: string;
   flowName?: string;
-  nextToken?: string;
   limit?: number;
+  nextToken?: string;
+  requestId?: string;
   static names(): { [key: string]: string } {
     return {
-      requestId: 'RequestId',
       flowName: 'FlowName',
-      nextToken: 'NextToken',
       limit: 'Limit',
+      nextToken: 'NextToken',
+      requestId: 'RequestId',
     };
   }
 
   static types(): { [key: string]: any } {
     return {
-      requestId: 'string',
       flowName: 'string',
-      nextToken: 'string',
       limit: 'number',
+      nextToken: 'string',
+      requestId: 'string',
     };
   }
 
@@ -889,22 +916,22 @@ export class ListSchedulesRequest extends $tea.Model {
 }
 
 export class ListSchedulesResponseBody extends $tea.Model {
-  schedules?: ListSchedulesResponseBodySchedules[];
   nextToken?: string;
   requestId?: string;
+  schedules?: ListSchedulesResponseBodySchedules[];
   static names(): { [key: string]: string } {
     return {
-      schedules: 'Schedules',
       nextToken: 'NextToken',
       requestId: 'RequestId',
+      schedules: 'Schedules',
     };
   }
 
   static types(): { [key: string]: any } {
     return {
-      schedules: { 'type': 'array', 'itemType': ListSchedulesResponseBodySchedules },
       nextToken: 'string',
       requestId: 'string',
+      schedules: { 'type': 'array', 'itemType': ListSchedulesResponseBodySchedules },
     };
   }
 
@@ -915,10 +942,12 @@ export class ListSchedulesResponseBody extends $tea.Model {
 
 export class ListSchedulesResponse extends $tea.Model {
   headers: { [key: string]: string };
+  statusCode: number;
   body: ListSchedulesResponseBody;
   static names(): { [key: string]: string } {
     return {
       headers: 'headers',
+      statusCode: 'statusCode',
       body: 'body',
     };
   }
@@ -926,6 +955,7 @@ export class ListSchedulesResponse extends $tea.Model {
   static types(): { [key: string]: any } {
     return {
       headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
       body: ListSchedulesResponseBody,
     };
   }
@@ -936,25 +966,25 @@ export class ListSchedulesResponse extends $tea.Model {
 }
 
 export class ReportTaskFailedRequest extends $tea.Model {
+  cause?: string;
+  error?: string;
   requestId?: string;
   taskToken?: string;
-  error?: string;
-  cause?: string;
   static names(): { [key: string]: string } {
     return {
+      cause: 'Cause',
+      error: 'Error',
       requestId: 'RequestId',
       taskToken: 'TaskToken',
-      error: 'Error',
-      cause: 'Cause',
     };
   }
 
   static types(): { [key: string]: any } {
     return {
+      cause: 'string',
+      error: 'string',
       requestId: 'string',
       taskToken: 'string',
-      error: 'string',
-      cause: 'string',
     };
   }
 
@@ -964,19 +994,19 @@ export class ReportTaskFailedRequest extends $tea.Model {
 }
 
 export class ReportTaskFailedResponseBody extends $tea.Model {
-  requestId?: string;
   eventId?: number;
+  requestId?: string;
   static names(): { [key: string]: string } {
     return {
-      requestId: 'RequestId',
       eventId: 'EventId',
+      requestId: 'RequestId',
     };
   }
 
   static types(): { [key: string]: any } {
     return {
-      requestId: 'string',
       eventId: 'number',
+      requestId: 'string',
     };
   }
 
@@ -987,10 +1017,12 @@ export class ReportTaskFailedResponseBody extends $tea.Model {
 
 export class ReportTaskFailedResponse extends $tea.Model {
   headers: { [key: string]: string };
+  statusCode: number;
   body: ReportTaskFailedResponseBody;
   static names(): { [key: string]: string } {
     return {
       headers: 'headers',
+      statusCode: 'statusCode',
       body: 'body',
     };
   }
@@ -998,6 +1030,7 @@ export class ReportTaskFailedResponse extends $tea.Model {
   static types(): { [key: string]: any } {
     return {
       headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
       body: ReportTaskFailedResponseBody,
     };
   }
@@ -1008,22 +1041,22 @@ export class ReportTaskFailedResponse extends $tea.Model {
 }
 
 export class ReportTaskSucceededRequest extends $tea.Model {
+  output?: string;
   requestId?: string;
   taskToken?: string;
-  output?: string;
   static names(): { [key: string]: string } {
     return {
+      output: 'Output',
       requestId: 'RequestId',
       taskToken: 'TaskToken',
-      output: 'Output',
     };
   }
 
   static types(): { [key: string]: any } {
     return {
+      output: 'string',
       requestId: 'string',
       taskToken: 'string',
-      output: 'string',
     };
   }
 
@@ -1033,19 +1066,19 @@ export class ReportTaskSucceededRequest extends $tea.Model {
 }
 
 export class ReportTaskSucceededResponseBody extends $tea.Model {
-  requestId?: string;
   eventId?: number;
+  requestId?: string;
   static names(): { [key: string]: string } {
     return {
-      requestId: 'RequestId',
       eventId: 'EventId',
+      requestId: 'RequestId',
     };
   }
 
   static types(): { [key: string]: any } {
     return {
-      requestId: 'string',
       eventId: 'number',
+      requestId: 'string',
     };
   }
 
@@ -1056,10 +1089,12 @@ export class ReportTaskSucceededResponseBody extends $tea.Model {
 
 export class ReportTaskSucceededResponse extends $tea.Model {
   headers: { [key: string]: string };
+  statusCode: number;
   body: ReportTaskSucceededResponseBody;
   static names(): { [key: string]: string } {
     return {
       headers: 'headers',
+      statusCode: 'statusCode',
       body: 'body',
     };
   }
@@ -1067,6 +1102,7 @@ export class ReportTaskSucceededResponse extends $tea.Model {
   static types(): { [key: string]: any } {
     return {
       headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
       body: ReportTaskSucceededResponseBody,
     };
   }
@@ -1077,28 +1113,28 @@ export class ReportTaskSucceededResponse extends $tea.Model {
 }
 
 export class StartExecutionRequest extends $tea.Model {
-  requestId?: string;
-  flowName?: string;
-  executionName?: string;
-  input?: string;
   callbackFnFTaskToken?: string;
+  executionName?: string;
+  flowName?: string;
+  input?: string;
+  requestId?: string;
   static names(): { [key: string]: string } {
     return {
-      requestId: 'RequestId',
-      flowName: 'FlowName',
-      executionName: 'ExecutionName',
-      input: 'Input',
       callbackFnFTaskToken: 'CallbackFnFTaskToken',
+      executionName: 'ExecutionName',
+      flowName: 'FlowName',
+      input: 'Input',
+      requestId: 'RequestId',
     };
   }
 
   static types(): { [key: string]: any } {
     return {
-      requestId: 'string',
-      flowName: 'string',
-      executionName: 'string',
-      input: 'string',
       callbackFnFTaskToken: 'string',
+      executionName: 'string',
+      flowName: 'string',
+      input: 'string',
+      requestId: 'string',
     };
   }
 
@@ -1108,46 +1144,40 @@ export class StartExecutionRequest extends $tea.Model {
 }
 
 export class StartExecutionResponseBody extends $tea.Model {
-  status?: string;
-  input?: string;
-  stoppedTime?: string;
-  requestId?: string;
-  flowName?: string;
-  output?: string;
-  externalOutputUri?: string;
-  startedTime?: string;
-  externalInputUri?: string;
   flowDefinition?: string;
+  flowName?: string;
+  input?: string;
   name?: string;
+  output?: string;
+  requestId?: string;
+  startedTime?: string;
+  status?: string;
+  stoppedTime?: string;
   static names(): { [key: string]: string } {
     return {
-      status: 'Status',
-      input: 'Input',
-      stoppedTime: 'StoppedTime',
-      requestId: 'RequestId',
-      flowName: 'FlowName',
-      output: 'Output',
-      externalOutputUri: 'ExternalOutputUri',
-      startedTime: 'StartedTime',
-      externalInputUri: 'ExternalInputUri',
       flowDefinition: 'FlowDefinition',
+      flowName: 'FlowName',
+      input: 'Input',
       name: 'Name',
+      output: 'Output',
+      requestId: 'RequestId',
+      startedTime: 'StartedTime',
+      status: 'Status',
+      stoppedTime: 'StoppedTime',
     };
   }
 
   static types(): { [key: string]: any } {
     return {
-      status: 'string',
-      input: 'string',
-      stoppedTime: 'string',
-      requestId: 'string',
-      flowName: 'string',
-      output: 'string',
-      externalOutputUri: 'string',
-      startedTime: 'string',
-      externalInputUri: 'string',
       flowDefinition: 'string',
+      flowName: 'string',
+      input: 'string',
       name: 'string',
+      output: 'string',
+      requestId: 'string',
+      startedTime: 'string',
+      status: 'string',
+      stoppedTime: 'string',
     };
   }
 
@@ -1158,10 +1188,12 @@ export class StartExecutionResponseBody extends $tea.Model {
 
 export class StartExecutionResponse extends $tea.Model {
   headers: { [key: string]: string };
+  statusCode: number;
   body: StartExecutionResponseBody;
   static names(): { [key: string]: string } {
     return {
       headers: 'headers',
+      statusCode: 'statusCode',
       body: 'body',
     };
   }
@@ -1169,6 +1201,7 @@ export class StartExecutionResponse extends $tea.Model {
   static types(): { [key: string]: any } {
     return {
       headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
       body: StartExecutionResponseBody,
     };
   }
@@ -1179,28 +1212,28 @@ export class StartExecutionResponse extends $tea.Model {
 }
 
 export class StopExecutionRequest extends $tea.Model {
-  requestId?: string;
-  flowName?: string;
-  executionName?: string;
   cause?: string;
   error?: string;
+  executionName?: string;
+  flowName?: string;
+  requestId?: string;
   static names(): { [key: string]: string } {
     return {
-      requestId: 'RequestId',
-      flowName: 'FlowName',
-      executionName: 'ExecutionName',
       cause: 'Cause',
       error: 'Error',
+      executionName: 'ExecutionName',
+      flowName: 'FlowName',
+      requestId: 'RequestId',
     };
   }
 
   static types(): { [key: string]: any } {
     return {
-      requestId: 'string',
-      flowName: 'string',
-      executionName: 'string',
       cause: 'string',
       error: 'string',
+      executionName: 'string',
+      flowName: 'string',
+      requestId: 'string',
     };
   }
 
@@ -1210,46 +1243,40 @@ export class StopExecutionRequest extends $tea.Model {
 }
 
 export class StopExecutionResponseBody extends $tea.Model {
-  status?: string;
-  input?: string;
-  stoppedTime?: string;
-  requestId?: string;
-  flowName?: string;
-  output?: string;
-  externalOutputUri?: string;
-  startedTime?: string;
-  externalInputUri?: string;
   flowDefinition?: string;
+  flowName?: string;
+  input?: string;
   name?: string;
+  output?: string;
+  requestId?: string;
+  startedTime?: string;
+  status?: string;
+  stoppedTime?: string;
   static names(): { [key: string]: string } {
     return {
-      status: 'Status',
-      input: 'Input',
-      stoppedTime: 'StoppedTime',
-      requestId: 'RequestId',
-      flowName: 'FlowName',
-      output: 'Output',
-      externalOutputUri: 'ExternalOutputUri',
-      startedTime: 'StartedTime',
-      externalInputUri: 'ExternalInputUri',
       flowDefinition: 'FlowDefinition',
+      flowName: 'FlowName',
+      input: 'Input',
       name: 'Name',
+      output: 'Output',
+      requestId: 'RequestId',
+      startedTime: 'StartedTime',
+      status: 'Status',
+      stoppedTime: 'StoppedTime',
     };
   }
 
   static types(): { [key: string]: any } {
     return {
-      status: 'string',
-      input: 'string',
-      stoppedTime: 'string',
-      requestId: 'string',
-      flowName: 'string',
-      output: 'string',
-      externalOutputUri: 'string',
-      startedTime: 'string',
-      externalInputUri: 'string',
       flowDefinition: 'string',
+      flowName: 'string',
+      input: 'string',
       name: 'string',
+      output: 'string',
+      requestId: 'string',
+      startedTime: 'string',
+      status: 'string',
+      stoppedTime: 'string',
     };
   }
 
@@ -1260,10 +1287,12 @@ export class StopExecutionResponseBody extends $tea.Model {
 
 export class StopExecutionResponse extends $tea.Model {
   headers: { [key: string]: string };
+  statusCode: number;
   body: StopExecutionResponseBody;
   static names(): { [key: string]: string } {
     return {
       headers: 'headers',
+      statusCode: 'statusCode',
       body: 'body',
     };
   }
@@ -1271,6 +1300,7 @@ export class StopExecutionResponse extends $tea.Model {
   static types(): { [key: string]: any } {
     return {
       headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
       body: StopExecutionResponseBody,
     };
   }
@@ -1281,34 +1311,31 @@ export class StopExecutionResponse extends $tea.Model {
 }
 
 export class UpdateFlowRequest extends $tea.Model {
-  requestId?: string;
-  name?: string;
   definition?: string;
   description?: string;
-  type?: string;
+  name?: string;
+  requestId?: string;
   roleArn?: string;
-  externalStorageLocation?: string;
+  type?: string;
   static names(): { [key: string]: string } {
     return {
-      requestId: 'RequestId',
-      name: 'Name',
       definition: 'Definition',
       description: 'Description',
-      type: 'Type',
+      name: 'Name',
+      requestId: 'RequestId',
       roleArn: 'RoleArn',
-      externalStorageLocation: 'ExternalStorageLocation',
+      type: 'Type',
     };
   }
 
   static types(): { [key: string]: any } {
     return {
-      requestId: 'string',
-      name: 'string',
       definition: 'string',
       description: 'string',
-      type: 'string',
+      name: 'string',
+      requestId: 'string',
       roleArn: 'string',
-      externalStorageLocation: 'string',
+      type: 'string',
     };
   }
 
@@ -1318,43 +1345,43 @@ export class UpdateFlowRequest extends $tea.Model {
 }
 
 export class UpdateFlowResponseBody extends $tea.Model {
-  type?: string;
-  description?: string;
   createdTime?: string;
-  requestId?: string;
   definition?: string;
-  lastModifiedTime?: string;
-  id?: string;
+  description?: string;
   externalStorageLocation?: string;
-  roleArn?: string;
+  id?: string;
+  lastModifiedTime?: string;
   name?: string;
+  requestId?: string;
+  roleArn?: string;
+  type?: string;
   static names(): { [key: string]: string } {
     return {
-      type: 'Type',
-      description: 'Description',
       createdTime: 'CreatedTime',
-      requestId: 'RequestId',
       definition: 'Definition',
-      lastModifiedTime: 'LastModifiedTime',
-      id: 'Id',
+      description: 'Description',
       externalStorageLocation: 'ExternalStorageLocation',
-      roleArn: 'RoleArn',
+      id: 'Id',
+      lastModifiedTime: 'LastModifiedTime',
       name: 'Name',
+      requestId: 'RequestId',
+      roleArn: 'RoleArn',
+      type: 'Type',
     };
   }
 
   static types(): { [key: string]: any } {
     return {
-      type: 'string',
-      description: 'string',
       createdTime: 'string',
-      requestId: 'string',
       definition: 'string',
-      lastModifiedTime: 'string',
-      id: 'string',
+      description: 'string',
       externalStorageLocation: 'string',
-      roleArn: 'string',
+      id: 'string',
+      lastModifiedTime: 'string',
       name: 'string',
+      requestId: 'string',
+      roleArn: 'string',
+      type: 'string',
     };
   }
 
@@ -1365,10 +1392,12 @@ export class UpdateFlowResponseBody extends $tea.Model {
 
 export class UpdateFlowResponse extends $tea.Model {
   headers: { [key: string]: string };
+  statusCode: number;
   body: UpdateFlowResponseBody;
   static names(): { [key: string]: string } {
     return {
       headers: 'headers',
+      statusCode: 'statusCode',
       body: 'body',
     };
   }
@@ -1376,6 +1405,7 @@ export class UpdateFlowResponse extends $tea.Model {
   static types(): { [key: string]: any } {
     return {
       headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
       body: UpdateFlowResponseBody,
     };
   }
@@ -1386,34 +1416,34 @@ export class UpdateFlowResponse extends $tea.Model {
 }
 
 export class UpdateScheduleRequest extends $tea.Model {
-  requestId?: string;
-  flowName?: string;
-  scheduleName?: string;
-  description?: string;
-  payload?: string;
   cronExpression?: string;
+  description?: string;
   enable?: boolean;
+  flowName?: string;
+  payload?: string;
+  requestId?: string;
+  scheduleName?: string;
   static names(): { [key: string]: string } {
     return {
-      requestId: 'RequestId',
-      flowName: 'FlowName',
-      scheduleName: 'ScheduleName',
-      description: 'Description',
-      payload: 'Payload',
       cronExpression: 'CronExpression',
+      description: 'Description',
       enable: 'Enable',
+      flowName: 'FlowName',
+      payload: 'Payload',
+      requestId: 'RequestId',
+      scheduleName: 'ScheduleName',
     };
   }
 
   static types(): { [key: string]: any } {
     return {
-      requestId: 'string',
-      flowName: 'string',
-      scheduleName: 'string',
-      description: 'string',
-      payload: 'string',
       cronExpression: 'string',
+      description: 'string',
       enable: 'boolean',
+      flowName: 'string',
+      payload: 'string',
+      requestId: 'string',
+      scheduleName: 'string',
     };
   }
 
@@ -1423,24 +1453,24 @@ export class UpdateScheduleRequest extends $tea.Model {
 }
 
 export class UpdateScheduleResponseBody extends $tea.Model {
-  description?: string;
   createdTime?: string;
-  requestId?: string;
-  lastModifiedTime?: string;
-  enable?: boolean;
-  payload?: string;
   cronExpression?: string;
+  description?: string;
+  enable?: boolean;
+  lastModifiedTime?: string;
+  payload?: string;
+  requestId?: string;
   scheduleId?: string;
   scheduleName?: string;
   static names(): { [key: string]: string } {
     return {
-      description: 'Description',
       createdTime: 'CreatedTime',
-      requestId: 'RequestId',
-      lastModifiedTime: 'LastModifiedTime',
-      enable: 'Enable',
-      payload: 'Payload',
       cronExpression: 'CronExpression',
+      description: 'Description',
+      enable: 'Enable',
+      lastModifiedTime: 'LastModifiedTime',
+      payload: 'Payload',
+      requestId: 'RequestId',
       scheduleId: 'ScheduleId',
       scheduleName: 'ScheduleName',
     };
@@ -1448,13 +1478,13 @@ export class UpdateScheduleResponseBody extends $tea.Model {
 
   static types(): { [key: string]: any } {
     return {
-      description: 'string',
       createdTime: 'string',
-      requestId: 'string',
-      lastModifiedTime: 'string',
-      enable: 'boolean',
-      payload: 'string',
       cronExpression: 'string',
+      description: 'string',
+      enable: 'boolean',
+      lastModifiedTime: 'string',
+      payload: 'string',
+      requestId: 'string',
       scheduleId: 'string',
       scheduleName: 'string',
     };
@@ -1467,10 +1497,12 @@ export class UpdateScheduleResponseBody extends $tea.Model {
 
 export class UpdateScheduleResponse extends $tea.Model {
   headers: { [key: string]: string };
+  statusCode: number;
   body: UpdateScheduleResponseBody;
   static names(): { [key: string]: string } {
     return {
       headers: 'headers',
+      statusCode: 'statusCode',
       body: 'body',
     };
   }
@@ -1478,6 +1510,7 @@ export class UpdateScheduleResponse extends $tea.Model {
   static types(): { [key: string]: any } {
     return {
       headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
       body: UpdateScheduleResponseBody,
     };
   }
@@ -1488,31 +1521,31 @@ export class UpdateScheduleResponse extends $tea.Model {
 }
 
 export class GetExecutionHistoryResponseBodyEvents extends $tea.Model {
-  type?: string;
-  eventId?: number;
-  time?: string;
-  scheduleEventId?: number;
   eventDetail?: string;
+  eventId?: number;
+  scheduleEventId?: number;
   stepName?: string;
+  time?: string;
+  type?: string;
   static names(): { [key: string]: string } {
     return {
-      type: 'Type',
-      eventId: 'EventId',
-      time: 'Time',
-      scheduleEventId: 'ScheduleEventId',
       eventDetail: 'EventDetail',
+      eventId: 'EventId',
+      scheduleEventId: 'ScheduleEventId',
       stepName: 'StepName',
+      time: 'Time',
+      type: 'Type',
     };
   }
 
   static types(): { [key: string]: any } {
     return {
-      type: 'string',
-      eventId: 'number',
-      time: 'string',
-      scheduleEventId: 'number',
       eventDetail: 'string',
+      eventId: 'number',
+      scheduleEventId: 'number',
       stepName: 'string',
+      time: 'string',
+      type: 'string',
     };
   }
 
@@ -1522,43 +1555,37 @@ export class GetExecutionHistoryResponseBodyEvents extends $tea.Model {
 }
 
 export class ListExecutionsResponseBodyExecutions extends $tea.Model {
+  flowDefinition?: string;
+  flowName?: string;
+  input?: string;
+  name?: string;
+  output?: string;
+  startedTime?: string;
   status?: string;
   stoppedTime?: string;
-  startedTime?: string;
-  flowDefinition?: string;
-  externalInputUri?: string;
-  output?: string;
-  flowName?: string;
-  externalOutputUri?: string;
-  name?: string;
-  input?: string;
   static names(): { [key: string]: string } {
     return {
+      flowDefinition: 'FlowDefinition',
+      flowName: 'FlowName',
+      input: 'Input',
+      name: 'Name',
+      output: 'Output',
+      startedTime: 'StartedTime',
       status: 'Status',
       stoppedTime: 'StoppedTime',
-      startedTime: 'StartedTime',
-      flowDefinition: 'FlowDefinition',
-      externalInputUri: 'ExternalInputUri',
-      output: 'Output',
-      flowName: 'FlowName',
-      externalOutputUri: 'ExternalOutputUri',
-      name: 'Name',
-      input: 'Input',
     };
   }
 
   static types(): { [key: string]: any } {
     return {
+      flowDefinition: 'string',
+      flowName: 'string',
+      input: 'string',
+      name: 'string',
+      output: 'string',
+      startedTime: 'string',
       status: 'string',
       stoppedTime: 'string',
-      startedTime: 'string',
-      flowDefinition: 'string',
-      externalInputUri: 'string',
-      output: 'string',
-      flowName: 'string',
-      externalOutputUri: 'string',
-      name: 'string',
-      input: 'string',
     };
   }
 
@@ -1568,40 +1595,40 @@ export class ListExecutionsResponseBodyExecutions extends $tea.Model {
 }
 
 export class ListFlowsResponseBodyFlows extends $tea.Model {
-  type?: string;
-  definition?: string;
-  roleArn?: string;
-  description?: string;
-  externalStorageLocation?: string;
-  name?: string;
   createdTime?: string;
-  lastModifiedTime?: string;
+  definition?: string;
+  description?: string;
+  executionMode?: string;
   id?: string;
+  lastModifiedTime?: string;
+  name?: string;
+  roleArn?: string;
+  type?: string;
   static names(): { [key: string]: string } {
     return {
-      type: 'Type',
-      definition: 'Definition',
-      roleArn: 'RoleArn',
-      description: 'Description',
-      externalStorageLocation: 'ExternalStorageLocation',
-      name: 'Name',
       createdTime: 'CreatedTime',
-      lastModifiedTime: 'LastModifiedTime',
+      definition: 'Definition',
+      description: 'Description',
+      executionMode: 'ExecutionMode',
       id: 'Id',
+      lastModifiedTime: 'LastModifiedTime',
+      name: 'Name',
+      roleArn: 'RoleArn',
+      type: 'Type',
     };
   }
 
   static types(): { [key: string]: any } {
     return {
-      type: 'string',
-      definition: 'string',
-      roleArn: 'string',
-      description: 'string',
-      externalStorageLocation: 'string',
-      name: 'string',
       createdTime: 'string',
-      lastModifiedTime: 'string',
+      definition: 'string',
+      description: 'string',
+      executionMode: 'string',
       id: 'string',
+      lastModifiedTime: 'string',
+      name: 'string',
+      roleArn: 'string',
+      type: 'string',
     };
   }
 
@@ -1611,37 +1638,37 @@ export class ListFlowsResponseBodyFlows extends $tea.Model {
 }
 
 export class ListSchedulesResponseBodySchedules extends $tea.Model {
-  description?: string;
-  scheduleId?: string;
-  payload?: string;
-  scheduleName?: string;
   createdTime?: string;
-  lastModifiedTime?: string;
   cronExpression?: string;
+  description?: string;
   enable?: boolean;
+  lastModifiedTime?: string;
+  payload?: string;
+  scheduleId?: string;
+  scheduleName?: string;
   static names(): { [key: string]: string } {
     return {
-      description: 'Description',
-      scheduleId: 'ScheduleId',
-      payload: 'Payload',
-      scheduleName: 'ScheduleName',
       createdTime: 'CreatedTime',
-      lastModifiedTime: 'LastModifiedTime',
       cronExpression: 'CronExpression',
+      description: 'Description',
       enable: 'Enable',
+      lastModifiedTime: 'LastModifiedTime',
+      payload: 'Payload',
+      scheduleId: 'ScheduleId',
+      scheduleName: 'ScheduleName',
     };
   }
 
   static types(): { [key: string]: any } {
     return {
-      description: 'string',
-      scheduleId: 'string',
-      payload: 'string',
-      scheduleName: 'string',
       createdTime: 'string',
-      lastModifiedTime: 'string',
       cronExpression: 'string',
+      description: 'string',
       enable: 'boolean',
+      lastModifiedTime: 'string',
+      payload: 'string',
+      scheduleId: 'string',
+      scheduleName: 'string',
     };
   }
 
@@ -1681,10 +1708,56 @@ export default class Client extends OpenApi {
 
   async createFlowWithOptions(request: CreateFlowRequest, runtime: $Util.RuntimeOptions): Promise<CreateFlowResponse> {
     Util.validateModel(request);
+    let query = { };
+    if (!Util.isUnset(request.requestId)) {
+      query["RequestId"] = request.requestId;
+    }
+
+    let body : {[key: string ]: any} = { };
+    if (!Util.isUnset(request.definition)) {
+      body["Definition"] = request.definition;
+    }
+
+    if (!Util.isUnset(request.description)) {
+      body["Description"] = request.description;
+    }
+
+    if (!Util.isUnset(request.executionMode)) {
+      body["ExecutionMode"] = request.executionMode;
+    }
+
+    if (!Util.isUnset(request.externalStorageLocation)) {
+      body["ExternalStorageLocation"] = request.externalStorageLocation;
+    }
+
+    if (!Util.isUnset(request.name)) {
+      body["Name"] = request.name;
+    }
+
+    if (!Util.isUnset(request.roleArn)) {
+      body["RoleArn"] = request.roleArn;
+    }
+
+    if (!Util.isUnset(request.type)) {
+      body["Type"] = request.type;
+    }
+
     let req = new $OpenApi.OpenApiRequest({
-      body: Util.toMap(request),
+      query: OpenApiUtil.query(query),
+      body: OpenApiUtil.parseToMap(body),
     });
-    return $tea.cast<CreateFlowResponse>(await this.doRPCRequest("CreateFlow", "2019-03-15", "HTTPS", "POST", "AK", "json", req, runtime), new CreateFlowResponse({}));
+    let params = new $OpenApi.Params({
+      action: "CreateFlow",
+      version: "2019-03-15",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $tea.cast<CreateFlowResponse>(await this.callApi(params, req, runtime), new CreateFlowResponse({}));
   }
 
   async createFlow(request: CreateFlowRequest): Promise<CreateFlowResponse> {
@@ -1694,10 +1767,52 @@ export default class Client extends OpenApi {
 
   async createScheduleWithOptions(request: CreateScheduleRequest, runtime: $Util.RuntimeOptions): Promise<CreateScheduleResponse> {
     Util.validateModel(request);
+    let query = { };
+    if (!Util.isUnset(request.requestId)) {
+      query["RequestId"] = request.requestId;
+    }
+
+    let body : {[key: string ]: any} = { };
+    if (!Util.isUnset(request.cronExpression)) {
+      body["CronExpression"] = request.cronExpression;
+    }
+
+    if (!Util.isUnset(request.description)) {
+      body["Description"] = request.description;
+    }
+
+    if (!Util.isUnset(request.enable)) {
+      body["Enable"] = request.enable;
+    }
+
+    if (!Util.isUnset(request.flowName)) {
+      body["FlowName"] = request.flowName;
+    }
+
+    if (!Util.isUnset(request.payload)) {
+      body["Payload"] = request.payload;
+    }
+
+    if (!Util.isUnset(request.scheduleName)) {
+      body["ScheduleName"] = request.scheduleName;
+    }
+
     let req = new $OpenApi.OpenApiRequest({
-      body: Util.toMap(request),
+      query: OpenApiUtil.query(query),
+      body: OpenApiUtil.parseToMap(body),
     });
-    return $tea.cast<CreateScheduleResponse>(await this.doRPCRequest("CreateSchedule", "2019-03-15", "HTTPS", "POST", "AK", "json", req, runtime), new CreateScheduleResponse({}));
+    let params = new $OpenApi.Params({
+      action: "CreateSchedule",
+      version: "2019-03-15",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $tea.cast<CreateScheduleResponse>(await this.callApi(params, req, runtime), new CreateScheduleResponse({}));
   }
 
   async createSchedule(request: CreateScheduleRequest): Promise<CreateScheduleResponse> {
@@ -1709,9 +1824,20 @@ export default class Client extends OpenApi {
     Util.validateModel(request);
     let query = OpenApiUtil.query(Util.toMap(request));
     let req = new $OpenApi.OpenApiRequest({
-      query: query,
+      query: OpenApiUtil.query(query),
     });
-    return $tea.cast<DeleteFlowResponse>(await this.doRPCRequest("DeleteFlow", "2019-03-15", "HTTPS", "GET", "AK", "json", req, runtime), new DeleteFlowResponse({}));
+    let params = new $OpenApi.Params({
+      action: "DeleteFlow",
+      version: "2019-03-15",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "GET",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $tea.cast<DeleteFlowResponse>(await this.callApi(params, req, runtime), new DeleteFlowResponse({}));
   }
 
   async deleteFlow(request: DeleteFlowRequest): Promise<DeleteFlowResponse> {
@@ -1723,9 +1849,20 @@ export default class Client extends OpenApi {
     Util.validateModel(request);
     let query = OpenApiUtil.query(Util.toMap(request));
     let req = new $OpenApi.OpenApiRequest({
-      query: query,
+      query: OpenApiUtil.query(query),
     });
-    return $tea.cast<DeleteScheduleResponse>(await this.doRPCRequest("DeleteSchedule", "2019-03-15", "HTTPS", "GET", "AK", "json", req, runtime), new DeleteScheduleResponse({}));
+    let params = new $OpenApi.Params({
+      action: "DeleteSchedule",
+      version: "2019-03-15",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "GET",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $tea.cast<DeleteScheduleResponse>(await this.callApi(params, req, runtime), new DeleteScheduleResponse({}));
   }
 
   async deleteSchedule(request: DeleteScheduleRequest): Promise<DeleteScheduleResponse> {
@@ -1737,9 +1874,20 @@ export default class Client extends OpenApi {
     Util.validateModel(request);
     let query = OpenApiUtil.query(Util.toMap(request));
     let req = new $OpenApi.OpenApiRequest({
-      query: query,
+      query: OpenApiUtil.query(query),
     });
-    return $tea.cast<DescribeExecutionResponse>(await this.doRPCRequest("DescribeExecution", "2019-03-15", "HTTPS", "GET", "AK", "json", req, runtime), new DescribeExecutionResponse({}));
+    let params = new $OpenApi.Params({
+      action: "DescribeExecution",
+      version: "2019-03-15",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "GET",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $tea.cast<DescribeExecutionResponse>(await this.callApi(params, req, runtime), new DescribeExecutionResponse({}));
   }
 
   async describeExecution(request: DescribeExecutionRequest): Promise<DescribeExecutionResponse> {
@@ -1751,9 +1899,20 @@ export default class Client extends OpenApi {
     Util.validateModel(request);
     let query = OpenApiUtil.query(Util.toMap(request));
     let req = new $OpenApi.OpenApiRequest({
-      query: query,
+      query: OpenApiUtil.query(query),
     });
-    return $tea.cast<DescribeFlowResponse>(await this.doRPCRequest("DescribeFlow", "2019-03-15", "HTTPS", "GET", "AK", "json", req, runtime), new DescribeFlowResponse({}));
+    let params = new $OpenApi.Params({
+      action: "DescribeFlow",
+      version: "2019-03-15",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "GET",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $tea.cast<DescribeFlowResponse>(await this.callApi(params, req, runtime), new DescribeFlowResponse({}));
   }
 
   async describeFlow(request: DescribeFlowRequest): Promise<DescribeFlowResponse> {
@@ -1765,9 +1924,20 @@ export default class Client extends OpenApi {
     Util.validateModel(request);
     let query = OpenApiUtil.query(Util.toMap(request));
     let req = new $OpenApi.OpenApiRequest({
-      query: query,
+      query: OpenApiUtil.query(query),
     });
-    return $tea.cast<DescribeScheduleResponse>(await this.doRPCRequest("DescribeSchedule", "2019-03-15", "HTTPS", "GET", "AK", "json", req, runtime), new DescribeScheduleResponse({}));
+    let params = new $OpenApi.Params({
+      action: "DescribeSchedule",
+      version: "2019-03-15",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "GET",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $tea.cast<DescribeScheduleResponse>(await this.callApi(params, req, runtime), new DescribeScheduleResponse({}));
   }
 
   async describeSchedule(request: DescribeScheduleRequest): Promise<DescribeScheduleResponse> {
@@ -1779,9 +1949,20 @@ export default class Client extends OpenApi {
     Util.validateModel(request);
     let query = OpenApiUtil.query(Util.toMap(request));
     let req = new $OpenApi.OpenApiRequest({
-      query: query,
+      query: OpenApiUtil.query(query),
     });
-    return $tea.cast<GetExecutionHistoryResponse>(await this.doRPCRequest("GetExecutionHistory", "2019-03-15", "HTTPS", "GET", "AK", "json", req, runtime), new GetExecutionHistoryResponse({}));
+    let params = new $OpenApi.Params({
+      action: "GetExecutionHistory",
+      version: "2019-03-15",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "GET",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $tea.cast<GetExecutionHistoryResponse>(await this.callApi(params, req, runtime), new GetExecutionHistoryResponse({}));
   }
 
   async getExecutionHistory(request: GetExecutionHistoryRequest): Promise<GetExecutionHistoryResponse> {
@@ -1793,9 +1974,20 @@ export default class Client extends OpenApi {
     Util.validateModel(request);
     let query = OpenApiUtil.query(Util.toMap(request));
     let req = new $OpenApi.OpenApiRequest({
-      query: query,
+      query: OpenApiUtil.query(query),
     });
-    return $tea.cast<ListExecutionsResponse>(await this.doRPCRequest("ListExecutions", "2019-03-15", "HTTPS", "GET", "AK", "json", req, runtime), new ListExecutionsResponse({}));
+    let params = new $OpenApi.Params({
+      action: "ListExecutions",
+      version: "2019-03-15",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "GET",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $tea.cast<ListExecutionsResponse>(await this.callApi(params, req, runtime), new ListExecutionsResponse({}));
   }
 
   async listExecutions(request: ListExecutionsRequest): Promise<ListExecutionsResponse> {
@@ -1807,9 +1999,20 @@ export default class Client extends OpenApi {
     Util.validateModel(request);
     let query = OpenApiUtil.query(Util.toMap(request));
     let req = new $OpenApi.OpenApiRequest({
-      query: query,
+      query: OpenApiUtil.query(query),
     });
-    return $tea.cast<ListFlowsResponse>(await this.doRPCRequest("ListFlows", "2019-03-15", "HTTPS", "GET", "AK", "json", req, runtime), new ListFlowsResponse({}));
+    let params = new $OpenApi.Params({
+      action: "ListFlows",
+      version: "2019-03-15",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "GET",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $tea.cast<ListFlowsResponse>(await this.callApi(params, req, runtime), new ListFlowsResponse({}));
   }
 
   async listFlows(request: ListFlowsRequest): Promise<ListFlowsResponse> {
@@ -1821,9 +2024,20 @@ export default class Client extends OpenApi {
     Util.validateModel(request);
     let query = OpenApiUtil.query(Util.toMap(request));
     let req = new $OpenApi.OpenApiRequest({
-      query: query,
+      query: OpenApiUtil.query(query),
     });
-    return $tea.cast<ListSchedulesResponse>(await this.doRPCRequest("ListSchedules", "2019-03-15", "HTTPS", "GET", "AK", "json", req, runtime), new ListSchedulesResponse({}));
+    let params = new $OpenApi.Params({
+      action: "ListSchedules",
+      version: "2019-03-15",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "GET",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $tea.cast<ListSchedulesResponse>(await this.callApi(params, req, runtime), new ListSchedulesResponse({}));
   }
 
   async listSchedules(request: ListSchedulesRequest): Promise<ListSchedulesResponse> {
@@ -1833,10 +2047,40 @@ export default class Client extends OpenApi {
 
   async reportTaskFailedWithOptions(request: ReportTaskFailedRequest, runtime: $Util.RuntimeOptions): Promise<ReportTaskFailedResponse> {
     Util.validateModel(request);
+    let query = { };
+    if (!Util.isUnset(request.requestId)) {
+      query["RequestId"] = request.requestId;
+    }
+
+    if (!Util.isUnset(request.taskToken)) {
+      query["TaskToken"] = request.taskToken;
+    }
+
+    let body : {[key: string ]: any} = { };
+    if (!Util.isUnset(request.cause)) {
+      body["Cause"] = request.cause;
+    }
+
+    if (!Util.isUnset(request.error)) {
+      body["Error"] = request.error;
+    }
+
     let req = new $OpenApi.OpenApiRequest({
-      body: Util.toMap(request),
+      query: OpenApiUtil.query(query),
+      body: OpenApiUtil.parseToMap(body),
     });
-    return $tea.cast<ReportTaskFailedResponse>(await this.doRPCRequest("ReportTaskFailed", "2019-03-15", "HTTPS", "POST", "AK", "json", req, runtime), new ReportTaskFailedResponse({}));
+    let params = new $OpenApi.Params({
+      action: "ReportTaskFailed",
+      version: "2019-03-15",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $tea.cast<ReportTaskFailedResponse>(await this.callApi(params, req, runtime), new ReportTaskFailedResponse({}));
   }
 
   async reportTaskFailed(request: ReportTaskFailedRequest): Promise<ReportTaskFailedResponse> {
@@ -1846,10 +2090,36 @@ export default class Client extends OpenApi {
 
   async reportTaskSucceededWithOptions(request: ReportTaskSucceededRequest, runtime: $Util.RuntimeOptions): Promise<ReportTaskSucceededResponse> {
     Util.validateModel(request);
+    let query = { };
+    if (!Util.isUnset(request.requestId)) {
+      query["RequestId"] = request.requestId;
+    }
+
+    if (!Util.isUnset(request.taskToken)) {
+      query["TaskToken"] = request.taskToken;
+    }
+
+    let body : {[key: string ]: any} = { };
+    if (!Util.isUnset(request.output)) {
+      body["Output"] = request.output;
+    }
+
     let req = new $OpenApi.OpenApiRequest({
-      body: Util.toMap(request),
+      query: OpenApiUtil.query(query),
+      body: OpenApiUtil.parseToMap(body),
     });
-    return $tea.cast<ReportTaskSucceededResponse>(await this.doRPCRequest("ReportTaskSucceeded", "2019-03-15", "HTTPS", "POST", "AK", "json", req, runtime), new ReportTaskSucceededResponse({}));
+    let params = new $OpenApi.Params({
+      action: "ReportTaskSucceeded",
+      version: "2019-03-15",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $tea.cast<ReportTaskSucceededResponse>(await this.callApi(params, req, runtime), new ReportTaskSucceededResponse({}));
   }
 
   async reportTaskSucceeded(request: ReportTaskSucceededRequest): Promise<ReportTaskSucceededResponse> {
@@ -1859,10 +2129,44 @@ export default class Client extends OpenApi {
 
   async startExecutionWithOptions(request: StartExecutionRequest, runtime: $Util.RuntimeOptions): Promise<StartExecutionResponse> {
     Util.validateModel(request);
+    let query = { };
+    if (!Util.isUnset(request.requestId)) {
+      query["RequestId"] = request.requestId;
+    }
+
+    let body : {[key: string ]: any} = { };
+    if (!Util.isUnset(request.callbackFnFTaskToken)) {
+      body["CallbackFnFTaskToken"] = request.callbackFnFTaskToken;
+    }
+
+    if (!Util.isUnset(request.executionName)) {
+      body["ExecutionName"] = request.executionName;
+    }
+
+    if (!Util.isUnset(request.flowName)) {
+      body["FlowName"] = request.flowName;
+    }
+
+    if (!Util.isUnset(request.input)) {
+      body["Input"] = request.input;
+    }
+
     let req = new $OpenApi.OpenApiRequest({
-      body: Util.toMap(request),
+      query: OpenApiUtil.query(query),
+      body: OpenApiUtil.parseToMap(body),
     });
-    return $tea.cast<StartExecutionResponse>(await this.doRPCRequest("StartExecution", "2019-03-15", "HTTPS", "POST", "AK", "json", req, runtime), new StartExecutionResponse({}));
+    let params = new $OpenApi.Params({
+      action: "StartExecution",
+      version: "2019-03-15",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $tea.cast<StartExecutionResponse>(await this.callApi(params, req, runtime), new StartExecutionResponse({}));
   }
 
   async startExecution(request: StartExecutionRequest): Promise<StartExecutionResponse> {
@@ -1872,10 +2176,44 @@ export default class Client extends OpenApi {
 
   async stopExecutionWithOptions(request: StopExecutionRequest, runtime: $Util.RuntimeOptions): Promise<StopExecutionResponse> {
     Util.validateModel(request);
+    let query = { };
+    if (!Util.isUnset(request.requestId)) {
+      query["RequestId"] = request.requestId;
+    }
+
+    let body : {[key: string ]: any} = { };
+    if (!Util.isUnset(request.cause)) {
+      body["Cause"] = request.cause;
+    }
+
+    if (!Util.isUnset(request.error)) {
+      body["Error"] = request.error;
+    }
+
+    if (!Util.isUnset(request.executionName)) {
+      body["ExecutionName"] = request.executionName;
+    }
+
+    if (!Util.isUnset(request.flowName)) {
+      body["FlowName"] = request.flowName;
+    }
+
     let req = new $OpenApi.OpenApiRequest({
-      body: Util.toMap(request),
+      query: OpenApiUtil.query(query),
+      body: OpenApiUtil.parseToMap(body),
     });
-    return $tea.cast<StopExecutionResponse>(await this.doRPCRequest("StopExecution", "2019-03-15", "HTTPS", "POST", "AK", "json", req, runtime), new StopExecutionResponse({}));
+    let params = new $OpenApi.Params({
+      action: "StopExecution",
+      version: "2019-03-15",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $tea.cast<StopExecutionResponse>(await this.callApi(params, req, runtime), new StopExecutionResponse({}));
   }
 
   async stopExecution(request: StopExecutionRequest): Promise<StopExecutionResponse> {
@@ -1885,10 +2223,48 @@ export default class Client extends OpenApi {
 
   async updateFlowWithOptions(request: UpdateFlowRequest, runtime: $Util.RuntimeOptions): Promise<UpdateFlowResponse> {
     Util.validateModel(request);
+    let query = { };
+    if (!Util.isUnset(request.requestId)) {
+      query["RequestId"] = request.requestId;
+    }
+
+    let body : {[key: string ]: any} = { };
+    if (!Util.isUnset(request.definition)) {
+      body["Definition"] = request.definition;
+    }
+
+    if (!Util.isUnset(request.description)) {
+      body["Description"] = request.description;
+    }
+
+    if (!Util.isUnset(request.name)) {
+      body["Name"] = request.name;
+    }
+
+    if (!Util.isUnset(request.roleArn)) {
+      body["RoleArn"] = request.roleArn;
+    }
+
+    if (!Util.isUnset(request.type)) {
+      body["Type"] = request.type;
+    }
+
     let req = new $OpenApi.OpenApiRequest({
-      body: Util.toMap(request),
+      query: OpenApiUtil.query(query),
+      body: OpenApiUtil.parseToMap(body),
     });
-    return $tea.cast<UpdateFlowResponse>(await this.doRPCRequest("UpdateFlow", "2019-03-15", "HTTPS", "POST", "AK", "json", req, runtime), new UpdateFlowResponse({}));
+    let params = new $OpenApi.Params({
+      action: "UpdateFlow",
+      version: "2019-03-15",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $tea.cast<UpdateFlowResponse>(await this.callApi(params, req, runtime), new UpdateFlowResponse({}));
   }
 
   async updateFlow(request: UpdateFlowRequest): Promise<UpdateFlowResponse> {
@@ -1898,10 +2274,52 @@ export default class Client extends OpenApi {
 
   async updateScheduleWithOptions(request: UpdateScheduleRequest, runtime: $Util.RuntimeOptions): Promise<UpdateScheduleResponse> {
     Util.validateModel(request);
+    let query = { };
+    if (!Util.isUnset(request.requestId)) {
+      query["RequestId"] = request.requestId;
+    }
+
+    let body : {[key: string ]: any} = { };
+    if (!Util.isUnset(request.cronExpression)) {
+      body["CronExpression"] = request.cronExpression;
+    }
+
+    if (!Util.isUnset(request.description)) {
+      body["Description"] = request.description;
+    }
+
+    if (!Util.isUnset(request.enable)) {
+      body["Enable"] = request.enable;
+    }
+
+    if (!Util.isUnset(request.flowName)) {
+      body["FlowName"] = request.flowName;
+    }
+
+    if (!Util.isUnset(request.payload)) {
+      body["Payload"] = request.payload;
+    }
+
+    if (!Util.isUnset(request.scheduleName)) {
+      body["ScheduleName"] = request.scheduleName;
+    }
+
     let req = new $OpenApi.OpenApiRequest({
-      body: Util.toMap(request),
+      query: OpenApiUtil.query(query),
+      body: OpenApiUtil.parseToMap(body),
     });
-    return $tea.cast<UpdateScheduleResponse>(await this.doRPCRequest("UpdateSchedule", "2019-03-15", "HTTPS", "POST", "AK", "json", req, runtime), new UpdateScheduleResponse({}));
+    let params = new $OpenApi.Params({
+      action: "UpdateSchedule",
+      version: "2019-03-15",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $tea.cast<UpdateScheduleResponse>(await this.callApi(params, req, runtime), new UpdateScheduleResponse({}));
   }
 
   async updateSchedule(request: UpdateScheduleRequest): Promise<UpdateScheduleResponse> {
