@@ -1384,6 +1384,7 @@ export class DescDomainResponseBody extends $tea.Model {
   domainName?: string;
   domainStatus?: string;
   domainType?: string;
+  hostRecord?: string;
   icpStatus?: string;
   mxAuthStatus?: string;
   mxRecord?: string;
@@ -1410,6 +1411,7 @@ export class DescDomainResponseBody extends $tea.Model {
       domainName: 'DomainName',
       domainStatus: 'DomainStatus',
       domainType: 'DomainType',
+      hostRecord: 'HostRecord',
       icpStatus: 'IcpStatus',
       mxAuthStatus: 'MxAuthStatus',
       mxRecord: 'MxRecord',
@@ -1439,6 +1441,7 @@ export class DescDomainResponseBody extends $tea.Model {
       domainName: 'string',
       domainStatus: 'string',
       domainType: 'string',
+      hostRecord: 'string',
       icpStatus: 'string',
       mxAuthStatus: 'string',
       mxRecord: 'string',
