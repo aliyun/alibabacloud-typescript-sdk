@@ -1787,7 +1787,10 @@ export class DescribeDataObjectColumnDetailV2Response extends $tea.Model {
 export class DescribeDataObjectsRequest extends $tea.Model {
   currentPage?: number;
   domainId?: number;
+  fileType?: number;
+  instanceId?: string;
   lang?: string;
+  modelIds?: string;
   modelTagIds?: string;
   pageSize?: number;
   parentCategoryIds?: string;
@@ -1800,7 +1803,10 @@ export class DescribeDataObjectsRequest extends $tea.Model {
     return {
       currentPage: 'CurrentPage',
       domainId: 'DomainId',
+      fileType: 'FileType',
+      instanceId: 'InstanceId',
       lang: 'Lang',
+      modelIds: 'ModelIds',
       modelTagIds: 'ModelTagIds',
       pageSize: 'PageSize',
       parentCategoryIds: 'ParentCategoryIds',
@@ -1816,7 +1822,10 @@ export class DescribeDataObjectsRequest extends $tea.Model {
     return {
       currentPage: 'number',
       domainId: 'number',
+      fileType: 'number',
+      instanceId: 'string',
       lang: 'string',
+      modelIds: 'string',
       modelTagIds: 'string',
       pageSize: 'number',
       parentCategoryIds: 'string',
@@ -1881,6 +1890,72 @@ export class DescribeDataObjectsResponse extends $tea.Model {
       headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
       statusCode: 'number',
       body: DescribeDataObjectsResponseBody,
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class DescribeDocTypesRequest extends $tea.Model {
+  lang?: string;
+  static names(): { [key: string]: string } {
+    return {
+      lang: 'Lang',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      lang: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class DescribeDocTypesResponseBody extends $tea.Model {
+  docTypeList?: DescribeDocTypesResponseBodyDocTypeList[];
+  requestId?: string;
+  static names(): { [key: string]: string } {
+    return {
+      docTypeList: 'DocTypeList',
+      requestId: 'RequestId',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      docTypeList: { 'type': 'array', 'itemType': DescribeDocTypesResponseBodyDocTypeList },
+      requestId: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class DescribeDocTypesResponse extends $tea.Model {
+  headers: { [key: string]: string };
+  statusCode: number;
+  body: DescribeDocTypesResponseBody;
+  static names(): { [key: string]: string } {
+    return {
+      headers: 'headers',
+      statusCode: 'statusCode',
+      body: 'body',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
+      body: DescribeDocTypesResponseBody,
     };
   }
 
@@ -2784,6 +2859,7 @@ export class DescribeRulesRequest extends $tea.Model {
   riskLevelId?: number;
   ruleType?: number;
   status?: number;
+  supportForm?: number;
   warnLevel?: number;
   static names(): { [key: string]: string } {
     return {
@@ -2802,6 +2878,7 @@ export class DescribeRulesRequest extends $tea.Model {
       riskLevelId: 'RiskLevelId',
       ruleType: 'RuleType',
       status: 'Status',
+      supportForm: 'SupportForm',
       warnLevel: 'WarnLevel',
     };
   }
@@ -2823,6 +2900,7 @@ export class DescribeRulesRequest extends $tea.Model {
       riskLevelId: 'number',
       ruleType: 'number',
       status: 'number',
+      supportForm: 'number',
       warnLevel: 'number',
     };
   }
@@ -2988,6 +3066,75 @@ export class DescribeTablesResponse extends $tea.Model {
       headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
       statusCode: 'number',
       body: DescribeTablesResponseBody,
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class DescribeTemplateAllRulesRequest extends $tea.Model {
+  lang?: string;
+  templateId?: number;
+  static names(): { [key: string]: string } {
+    return {
+      lang: 'Lang',
+      templateId: 'TemplateId',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      lang: 'string',
+      templateId: 'number',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class DescribeTemplateAllRulesResponseBody extends $tea.Model {
+  requestId?: string;
+  ruleList?: DescribeTemplateAllRulesResponseBodyRuleList[];
+  static names(): { [key: string]: string } {
+    return {
+      requestId: 'RequestId',
+      ruleList: 'RuleList',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      requestId: 'string',
+      ruleList: { 'type': 'array', 'itemType': DescribeTemplateAllRulesResponseBodyRuleList },
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class DescribeTemplateAllRulesResponse extends $tea.Model {
+  headers: { [key: string]: string };
+  statusCode: number;
+  body: DescribeTemplateAllRulesResponseBody;
+  static names(): { [key: string]: string } {
+    return {
+      headers: 'headers',
+      statusCode: 'statusCode',
+      body: 'body',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
+      body: DescribeTemplateAllRulesResponseBody,
     };
   }
 
@@ -4975,6 +5122,31 @@ export class DescribeDataObjectsResponseBodyItems extends $tea.Model {
   }
 }
 
+export class DescribeDocTypesResponseBodyDocTypeList extends $tea.Model {
+  code?: number;
+  id?: number;
+  name?: string;
+  static names(): { [key: string]: string } {
+    return {
+      code: 'Code',
+      id: 'Id',
+      name: 'Name',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      code: 'number',
+      id: 'number',
+      name: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
 export class DescribeEventDetailResponseBodyEventDetailChartData extends $tea.Model {
   x?: string[];
   y?: string[];
@@ -6082,6 +6254,28 @@ export class DescribeTablesResponseBodyItems extends $tea.Model {
       sensitiveRatio: 'string',
       tenantName: 'string',
       totalCount: 'number',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class DescribeTemplateAllRulesResponseBodyRuleList extends $tea.Model {
+  id?: number;
+  name?: string;
+  static names(): { [key: string]: string } {
+    return {
+      id: 'Id',
+      name: 'Name',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      id: 'number',
+      name: 'string',
     };
   }
 
@@ -7443,8 +7637,20 @@ export default class Client extends OpenApi {
       query["DomainId"] = request.domainId;
     }
 
+    if (!Util.isUnset(request.fileType)) {
+      query["FileType"] = request.fileType;
+    }
+
+    if (!Util.isUnset(request.instanceId)) {
+      query["InstanceId"] = request.instanceId;
+    }
+
     if (!Util.isUnset(request.lang)) {
       query["Lang"] = request.lang;
+    }
+
+    if (!Util.isUnset(request.modelIds)) {
+      query["ModelIds"] = request.modelIds;
     }
 
     if (!Util.isUnset(request.modelTagIds)) {
@@ -7499,6 +7705,35 @@ export default class Client extends OpenApi {
   async describeDataObjects(request: DescribeDataObjectsRequest): Promise<DescribeDataObjectsResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.describeDataObjectsWithOptions(request, runtime);
+  }
+
+  async describeDocTypesWithOptions(request: DescribeDocTypesRequest, runtime: $Util.RuntimeOptions): Promise<DescribeDocTypesResponse> {
+    Util.validateModel(request);
+    let query = { };
+    if (!Util.isUnset(request.lang)) {
+      query["Lang"] = request.lang;
+    }
+
+    let req = new $OpenApi.OpenApiRequest({
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApi.Params({
+      action: "DescribeDocTypes",
+      version: "2019-01-03",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $tea.cast<DescribeDocTypesResponse>(await this.callApi(params, req, runtime), new DescribeDocTypesResponse({}));
+  }
+
+  async describeDocTypes(request: DescribeDocTypesRequest): Promise<DescribeDocTypesResponse> {
+    let runtime = new $Util.RuntimeOptions({ });
+    return await this.describeDocTypesWithOptions(request, runtime);
   }
 
   async describeEventDetailWithOptions(request: DescribeEventDetailRequest, runtime: $Util.RuntimeOptions): Promise<DescribeEventDetailResponse> {
@@ -8188,6 +8423,10 @@ export default class Client extends OpenApi {
       query["Status"] = request.status;
     }
 
+    if (!Util.isUnset(request.supportForm)) {
+      query["SupportForm"] = request.supportForm;
+    }
+
     if (!Util.isUnset(request.warnLevel)) {
       query["WarnLevel"] = request.warnLevel;
     }
@@ -8302,6 +8541,39 @@ export default class Client extends OpenApi {
   async describeTables(request: DescribeTablesRequest): Promise<DescribeTablesResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.describeTablesWithOptions(request, runtime);
+  }
+
+  async describeTemplateAllRulesWithOptions(request: DescribeTemplateAllRulesRequest, runtime: $Util.RuntimeOptions): Promise<DescribeTemplateAllRulesResponse> {
+    Util.validateModel(request);
+    let query = { };
+    if (!Util.isUnset(request.lang)) {
+      query["Lang"] = request.lang;
+    }
+
+    if (!Util.isUnset(request.templateId)) {
+      query["TemplateId"] = request.templateId;
+    }
+
+    let req = new $OpenApi.OpenApiRequest({
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApi.Params({
+      action: "DescribeTemplateAllRules",
+      version: "2019-01-03",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $tea.cast<DescribeTemplateAllRulesResponse>(await this.callApi(params, req, runtime), new DescribeTemplateAllRulesResponse({}));
+  }
+
+  async describeTemplateAllRules(request: DescribeTemplateAllRulesRequest): Promise<DescribeTemplateAllRulesResponse> {
+    let runtime = new $Util.RuntimeOptions({ });
+    return await this.describeTemplateAllRulesWithOptions(request, runtime);
   }
 
   /**
