@@ -1737,6 +1737,7 @@ export class ListPolicesForUserGroupResponse extends $tea.Model {
 export class ListPrivateAccessApplicationsRequest extends $tea.Model {
   address?: string;
   applicationIds?: string[];
+  connectorId?: string;
   currentPage?: number;
   name?: string;
   pageSize?: number;
@@ -1747,6 +1748,7 @@ export class ListPrivateAccessApplicationsRequest extends $tea.Model {
     return {
       address: 'Address',
       applicationIds: 'ApplicationIds',
+      connectorId: 'ConnectorId',
       currentPage: 'CurrentPage',
       name: 'Name',
       pageSize: 'PageSize',
@@ -1760,6 +1762,7 @@ export class ListPrivateAccessApplicationsRequest extends $tea.Model {
     return {
       address: 'string',
       applicationIds: { 'type': 'array', 'itemType': 'string' },
+      connectorId: 'string',
       currentPage: 'number',
       name: 'string',
       pageSize: 'number',
@@ -2918,6 +2921,7 @@ export class GetPrivateAccessApplicationResponseBodyApplicationPortRanges extend
 export class GetPrivateAccessApplicationResponseBodyApplication extends $tea.Model {
   addresses?: string[];
   applicationId?: string;
+  connectorIds?: string[];
   createTime?: string;
   description?: string;
   name?: string;
@@ -2930,6 +2934,7 @@ export class GetPrivateAccessApplicationResponseBodyApplication extends $tea.Mod
     return {
       addresses: 'Addresses',
       applicationId: 'ApplicationId',
+      connectorIds: 'ConnectorIds',
       createTime: 'CreateTime',
       description: 'Description',
       name: 'Name',
@@ -2945,6 +2950,7 @@ export class GetPrivateAccessApplicationResponseBodyApplication extends $tea.Mod
     return {
       addresses: { 'type': 'array', 'itemType': 'string' },
       applicationId: 'string',
+      connectorIds: { 'type': 'array', 'itemType': 'string' },
       createTime: 'string',
       description: 'string',
       name: 'string',
@@ -3293,6 +3299,34 @@ export class ListConnectorsResponseBodyConnectorsApplications extends $tea.Model
   }
 }
 
+export class ListConnectorsResponseBodyConnectorsConnectorClients extends $tea.Model {
+  connectionStatus?: string;
+  devTag?: string;
+  hostname?: string;
+  publicIp?: string;
+  static names(): { [key: string]: string } {
+    return {
+      connectionStatus: 'ConnectionStatus',
+      devTag: 'DevTag',
+      hostname: 'Hostname',
+      publicIp: 'PublicIp',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      connectionStatus: 'string',
+      devTag: 'string',
+      hostname: 'string',
+      publicIp: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
 export class ListConnectorsResponseBodyConnectorsUpgradeTime extends $tea.Model {
   end?: string;
   start?: string;
@@ -3317,6 +3351,7 @@ export class ListConnectorsResponseBodyConnectorsUpgradeTime extends $tea.Model 
 
 export class ListConnectorsResponseBodyConnectors extends $tea.Model {
   applications?: ListConnectorsResponseBodyConnectorsApplications[];
+  connectorClients?: ListConnectorsResponseBodyConnectorsConnectorClients[];
   connectorId?: string;
   createTime?: string;
   name?: string;
@@ -3327,6 +3362,7 @@ export class ListConnectorsResponseBodyConnectors extends $tea.Model {
   static names(): { [key: string]: string } {
     return {
       applications: 'Applications',
+      connectorClients: 'ConnectorClients',
       connectorId: 'ConnectorId',
       createTime: 'CreateTime',
       name: 'Name',
@@ -3340,6 +3376,7 @@ export class ListConnectorsResponseBodyConnectors extends $tea.Model {
   static types(): { [key: string]: any } {
     return {
       applications: { 'type': 'array', 'itemType': ListConnectorsResponseBodyConnectorsApplications },
+      connectorClients: { 'type': 'array', 'itemType': ListConnectorsResponseBodyConnectorsConnectorClients },
       connectorId: 'string',
       createTime: 'string',
       name: 'string',
@@ -3671,6 +3708,7 @@ export class ListPrivateAccessApplicationsResponseBodyApplicationsPortRanges ext
 export class ListPrivateAccessApplicationsResponseBodyApplications extends $tea.Model {
   addresses?: string[];
   applicationId?: string;
+  connectorIds?: string[];
   createTime?: string;
   description?: string;
   name?: string;
@@ -3683,6 +3721,7 @@ export class ListPrivateAccessApplicationsResponseBodyApplications extends $tea.
     return {
       addresses: 'Addresses',
       applicationId: 'ApplicationId',
+      connectorIds: 'ConnectorIds',
       createTime: 'CreateTime',
       description: 'Description',
       name: 'Name',
@@ -3698,6 +3737,7 @@ export class ListPrivateAccessApplicationsResponseBodyApplications extends $tea.
     return {
       addresses: { 'type': 'array', 'itemType': 'string' },
       applicationId: 'string',
+      connectorIds: { 'type': 'array', 'itemType': 'string' },
       createTime: 'string',
       description: 'string',
       name: 'string',
