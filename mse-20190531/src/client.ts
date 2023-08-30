@@ -147,6 +147,145 @@ export class TrafficPolicy extends $tea.Model {
   }
 }
 
+export class DataValue extends $tea.Model {
+  userId?: string;
+  regionId?: string;
+  namespace?: string;
+  appName?: string;
+  appId?: string;
+  static names(): { [key: string]: string } {
+    return {
+      userId: 'UserId',
+      regionId: 'RegionId',
+      namespace: 'Namespace',
+      appName: 'AppName',
+      appId: 'AppId',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      userId: 'string',
+      regionId: 'string',
+      namespace: 'string',
+      appName: 'string',
+      appId: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class AddAuthPolicyRequest extends $tea.Model {
+  acceptLanguage?: string;
+  appId?: string;
+  authRule?: string;
+  authType?: number;
+  enable?: string;
+  k8sNamespace?: string;
+  name?: string;
+  namespace?: string;
+  protocol?: string;
+  region?: string;
+  source?: string;
+  static names(): { [key: string]: string } {
+    return {
+      acceptLanguage: 'AcceptLanguage',
+      appId: 'AppId',
+      authRule: 'AuthRule',
+      authType: 'AuthType',
+      enable: 'Enable',
+      k8sNamespace: 'K8sNamespace',
+      name: 'Name',
+      namespace: 'Namespace',
+      protocol: 'Protocol',
+      region: 'Region',
+      source: 'Source',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      acceptLanguage: 'string',
+      appId: 'string',
+      authRule: 'string',
+      authType: 'number',
+      enable: 'string',
+      k8sNamespace: 'string',
+      name: 'string',
+      namespace: 'string',
+      protocol: 'string',
+      region: 'string',
+      source: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class AddAuthPolicyResponseBody extends $tea.Model {
+  code?: number;
+  data?: string;
+  httpStatusCode?: number;
+  message?: string;
+  requestId?: string;
+  success?: boolean;
+  static names(): { [key: string]: string } {
+    return {
+      code: 'Code',
+      data: 'Data',
+      httpStatusCode: 'HttpStatusCode',
+      message: 'Message',
+      requestId: 'RequestId',
+      success: 'Success',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      code: 'number',
+      data: 'string',
+      httpStatusCode: 'number',
+      message: 'string',
+      requestId: 'string',
+      success: 'boolean',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class AddAuthPolicyResponse extends $tea.Model {
+  headers: { [key: string]: string };
+  statusCode: number;
+  body: AddAuthPolicyResponseBody;
+  static names(): { [key: string]: string } {
+    return {
+      headers: 'headers',
+      statusCode: 'statusCode',
+      body: 'body',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
+      body: AddAuthPolicyResponseBody,
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
 export class AddAuthResourceRequest extends $tea.Model {
   acceptLanguage?: string;
   authId?: number;
@@ -393,6 +532,7 @@ export class AddBlackWhiteListResponse extends $tea.Model {
 
 export class AddGatewayRequest extends $tea.Model {
   acceptLanguage?: string;
+  chargeType?: string;
   enableHardwareAcceleration?: boolean;
   enableSls?: boolean;
   enableXtrace?: boolean;
@@ -410,9 +550,11 @@ export class AddGatewayRequest extends $tea.Model {
   vSwitchId2?: string;
   vpc?: string;
   xtraceRatio?: string;
+  zoneInfo?: AddGatewayRequestZoneInfo[];
   static names(): { [key: string]: string } {
     return {
       acceptLanguage: 'AcceptLanguage',
+      chargeType: 'ChargeType',
       enableHardwareAcceleration: 'EnableHardwareAcceleration',
       enableSls: 'EnableSls',
       enableXtrace: 'EnableXtrace',
@@ -430,12 +572,14 @@ export class AddGatewayRequest extends $tea.Model {
       vSwitchId2: 'VSwitchId2',
       vpc: 'Vpc',
       xtraceRatio: 'XtraceRatio',
+      zoneInfo: 'ZoneInfo',
     };
   }
 
   static types(): { [key: string]: any } {
     return {
       acceptLanguage: 'string',
+      chargeType: 'string',
       enableHardwareAcceleration: 'boolean',
       enableSls: 'boolean',
       enableXtrace: 'boolean',
@@ -453,6 +597,83 @@ export class AddGatewayRequest extends $tea.Model {
       vSwitchId2: 'string',
       vpc: 'string',
       xtraceRatio: 'string',
+      zoneInfo: { 'type': 'array', 'itemType': AddGatewayRequestZoneInfo },
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class AddGatewayShrinkRequest extends $tea.Model {
+  acceptLanguage?: string;
+  chargeType?: string;
+  enableHardwareAcceleration?: boolean;
+  enableSls?: boolean;
+  enableXtrace?: boolean;
+  enterpriseSecurityGroup?: boolean;
+  internetSlbSpec?: string;
+  name?: string;
+  region?: string;
+  replica?: number;
+  requestPars?: string;
+  resourceGroupId?: string;
+  slbSpec?: string;
+  spec?: string;
+  tag?: AddGatewayShrinkRequestTag[];
+  vSwitchId?: string;
+  vSwitchId2?: string;
+  vpc?: string;
+  xtraceRatio?: string;
+  zoneInfoShrink?: string;
+  static names(): { [key: string]: string } {
+    return {
+      acceptLanguage: 'AcceptLanguage',
+      chargeType: 'ChargeType',
+      enableHardwareAcceleration: 'EnableHardwareAcceleration',
+      enableSls: 'EnableSls',
+      enableXtrace: 'EnableXtrace',
+      enterpriseSecurityGroup: 'EnterpriseSecurityGroup',
+      internetSlbSpec: 'InternetSlbSpec',
+      name: 'Name',
+      region: 'Region',
+      replica: 'Replica',
+      requestPars: 'RequestPars',
+      resourceGroupId: 'ResourceGroupId',
+      slbSpec: 'SlbSpec',
+      spec: 'Spec',
+      tag: 'Tag',
+      vSwitchId: 'VSwitchId',
+      vSwitchId2: 'VSwitchId2',
+      vpc: 'Vpc',
+      xtraceRatio: 'XtraceRatio',
+      zoneInfoShrink: 'ZoneInfo',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      acceptLanguage: 'string',
+      chargeType: 'string',
+      enableHardwareAcceleration: 'boolean',
+      enableSls: 'boolean',
+      enableXtrace: 'boolean',
+      enterpriseSecurityGroup: 'boolean',
+      internetSlbSpec: 'string',
+      name: 'string',
+      region: 'string',
+      replica: 'number',
+      requestPars: 'string',
+      resourceGroupId: 'string',
+      slbSpec: 'string',
+      spec: 'string',
+      tag: { 'type': 'array', 'itemType': AddGatewayShrinkRequestTag },
+      vSwitchId: 'string',
+      vSwitchId2: 'string',
+      vpc: 'string',
+      xtraceRatio: 'string',
+      zoneInfoShrink: 'string',
     };
   }
 
@@ -1038,6 +1259,7 @@ export class AddGatewaySlbRequest extends $tea.Model {
   slbId?: string;
   type?: string;
   VServerGroupId?: string;
+  VServiceList?: AddGatewaySlbRequestVServiceList[];
   static names(): { [key: string]: string } {
     return {
       acceptLanguage: 'AcceptLanguage',
@@ -1049,6 +1271,7 @@ export class AddGatewaySlbRequest extends $tea.Model {
       slbId: 'SlbId',
       type: 'Type',
       VServerGroupId: 'VServerGroupId',
+      VServiceList: 'VServiceList',
     };
   }
 
@@ -1063,6 +1286,53 @@ export class AddGatewaySlbRequest extends $tea.Model {
       slbId: 'string',
       type: 'string',
       VServerGroupId: 'string',
+      VServiceList: { 'type': 'array', 'itemType': AddGatewaySlbRequestVServiceList },
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class AddGatewaySlbShrinkRequest extends $tea.Model {
+  acceptLanguage?: string;
+  gatewayUniqueId?: string;
+  httpPort?: number;
+  httpsPort?: number;
+  httpsVServerGroupId?: string;
+  serviceWeight?: number;
+  slbId?: string;
+  type?: string;
+  VServerGroupId?: string;
+  VServiceListShrink?: string;
+  static names(): { [key: string]: string } {
+    return {
+      acceptLanguage: 'AcceptLanguage',
+      gatewayUniqueId: 'GatewayUniqueId',
+      httpPort: 'HttpPort',
+      httpsPort: 'HttpsPort',
+      httpsVServerGroupId: 'HttpsVServerGroupId',
+      serviceWeight: 'ServiceWeight',
+      slbId: 'SlbId',
+      type: 'Type',
+      VServerGroupId: 'VServerGroupId',
+      VServiceListShrink: 'VServiceList',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      acceptLanguage: 'string',
+      gatewayUniqueId: 'string',
+      httpPort: 'number',
+      httpsPort: 'number',
+      httpsVServerGroupId: 'string',
+      serviceWeight: 'number',
+      slbId: 'string',
+      type: 'string',
+      VServerGroupId: 'string',
+      VServiceListShrink: 'string',
     };
   }
 
@@ -1758,7 +2028,6 @@ export class ApplyTagPoliciesRequest extends $tea.Model {
   namespaceId?: string;
   region?: string;
   rules?: string;
-  source?: string;
   static names(): { [key: string]: string } {
     return {
       acceptLanguage: 'AcceptLanguage',
@@ -1769,7 +2038,6 @@ export class ApplyTagPoliciesRequest extends $tea.Model {
       namespaceId: 'NamespaceId',
       region: 'Region',
       rules: 'Rules',
-      source: 'Source',
     };
   }
 
@@ -1783,7 +2051,6 @@ export class ApplyTagPoliciesRequest extends $tea.Model {
       namespaceId: 'string',
       region: 'string',
       rules: 'string',
-      source: 'string',
     };
   }
 
@@ -1793,17 +2060,13 @@ export class ApplyTagPoliciesRequest extends $tea.Model {
 }
 
 export class ApplyTagPoliciesResponseBody extends $tea.Model {
-  code?: number;
   data?: ApplyTagPoliciesResponseBodyData[];
-  httpStatusCode?: number;
   message?: string;
   requestId?: string;
   success?: boolean;
   static names(): { [key: string]: string } {
     return {
-      code: 'Code',
       data: 'Data',
-      httpStatusCode: 'HttpStatusCode',
       message: 'Message',
       requestId: 'RequestId',
       success: 'Success',
@@ -1812,9 +2075,7 @@ export class ApplyTagPoliciesResponseBody extends $tea.Model {
 
   static types(): { [key: string]: any } {
     return {
-      code: 'number',
       data: { 'type': 'array', 'itemType': ApplyTagPoliciesResponseBodyData },
-      httpStatusCode: 'number',
       message: 'string',
       requestId: 'string',
       success: 'boolean',
@@ -2049,13 +2310,132 @@ export class CreateApplicationResponse extends $tea.Model {
   }
 }
 
+export class CreateCircuitBreakerRuleRequest extends $tea.Model {
+  acceptLanguage?: string;
+  appId?: string;
+  appName?: string;
+  enable?: boolean;
+  halfOpenBaseAmountPerStep?: number;
+  halfOpenRecoveryStepNum?: number;
+  maxAllowedRtMs?: number;
+  minRequestAmount?: number;
+  namespace?: string;
+  regionId?: string;
+  resource?: string;
+  retryTimeoutMs?: number;
+  statIntervalMs?: number;
+  strategy?: number;
+  threshold?: number;
+  static names(): { [key: string]: string } {
+    return {
+      acceptLanguage: 'AcceptLanguage',
+      appId: 'AppId',
+      appName: 'AppName',
+      enable: 'Enable',
+      halfOpenBaseAmountPerStep: 'HalfOpenBaseAmountPerStep',
+      halfOpenRecoveryStepNum: 'HalfOpenRecoveryStepNum',
+      maxAllowedRtMs: 'MaxAllowedRtMs',
+      minRequestAmount: 'MinRequestAmount',
+      namespace: 'Namespace',
+      regionId: 'RegionId',
+      resource: 'Resource',
+      retryTimeoutMs: 'RetryTimeoutMs',
+      statIntervalMs: 'StatIntervalMs',
+      strategy: 'Strategy',
+      threshold: 'Threshold',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      acceptLanguage: 'string',
+      appId: 'string',
+      appName: 'string',
+      enable: 'boolean',
+      halfOpenBaseAmountPerStep: 'number',
+      halfOpenRecoveryStepNum: 'number',
+      maxAllowedRtMs: 'number',
+      minRequestAmount: 'number',
+      namespace: 'string',
+      regionId: 'string',
+      resource: 'string',
+      retryTimeoutMs: 'number',
+      statIntervalMs: 'number',
+      strategy: 'number',
+      threshold: 'number',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class CreateCircuitBreakerRuleResponseBody extends $tea.Model {
+  code?: string;
+  data?: CreateCircuitBreakerRuleResponseBodyData;
+  message?: string;
+  requestId?: string;
+  success?: boolean;
+  static names(): { [key: string]: string } {
+    return {
+      code: 'Code',
+      data: 'Data',
+      message: 'Message',
+      requestId: 'RequestId',
+      success: 'Success',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      code: 'string',
+      data: CreateCircuitBreakerRuleResponseBodyData,
+      message: 'string',
+      requestId: 'string',
+      success: 'boolean',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class CreateCircuitBreakerRuleResponse extends $tea.Model {
+  headers: { [key: string]: string };
+  statusCode: number;
+  body: CreateCircuitBreakerRuleResponseBody;
+  static names(): { [key: string]: string } {
+    return {
+      headers: 'headers',
+      statusCode: 'statusCode',
+      body: 'body',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
+      body: CreateCircuitBreakerRuleResponseBody,
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
 export class CreateClusterRequest extends $tea.Model {
   acceptLanguage?: string;
+  chargeType?: string;
   clusterSpecification?: string;
   clusterType?: string;
   clusterVersion?: string;
   connectionType?: string;
   diskType?: string;
+  eipEnabled?: boolean;
   instanceCount?: number;
   instanceName?: string;
   mseVersion?: string;
@@ -2066,17 +2446,20 @@ export class CreateClusterRequest extends $tea.Model {
   region?: string;
   requestPars?: string;
   resourceGroupId?: string;
+  securityGroupType?: string;
   tag?: CreateClusterRequestTag[];
   vSwitchId?: string;
   vpcId?: string;
   static names(): { [key: string]: string } {
     return {
       acceptLanguage: 'AcceptLanguage',
+      chargeType: 'ChargeType',
       clusterSpecification: 'ClusterSpecification',
       clusterType: 'ClusterType',
       clusterVersion: 'ClusterVersion',
       connectionType: 'ConnectionType',
       diskType: 'DiskType',
+      eipEnabled: 'EipEnabled',
       instanceCount: 'InstanceCount',
       instanceName: 'InstanceName',
       mseVersion: 'MseVersion',
@@ -2087,6 +2470,7 @@ export class CreateClusterRequest extends $tea.Model {
       region: 'Region',
       requestPars: 'RequestPars',
       resourceGroupId: 'ResourceGroupId',
+      securityGroupType: 'SecurityGroupType',
       tag: 'Tag',
       vSwitchId: 'VSwitchId',
       vpcId: 'VpcId',
@@ -2096,11 +2480,13 @@ export class CreateClusterRequest extends $tea.Model {
   static types(): { [key: string]: any } {
     return {
       acceptLanguage: 'string',
+      chargeType: 'string',
       clusterSpecification: 'string',
       clusterType: 'string',
       clusterVersion: 'string',
       connectionType: 'string',
       diskType: 'string',
+      eipEnabled: 'boolean',
       instanceCount: 'number',
       instanceName: 'string',
       mseVersion: 'string',
@@ -2111,6 +2497,7 @@ export class CreateClusterRequest extends $tea.Model {
       region: 'string',
       requestPars: 'string',
       resourceGroupId: 'string',
+      securityGroupType: 'string',
       tag: { 'type': 'array', 'itemType': CreateClusterRequestTag },
       vSwitchId: 'string',
       vpcId: 'string',
@@ -2277,6 +2664,108 @@ export class CreateEngineNamespaceResponse extends $tea.Model {
   }
 }
 
+export class CreateFlowRuleRequest extends $tea.Model {
+  acceptLanguage?: string;
+  appId?: string;
+  appName?: string;
+  controlBehavior?: number;
+  enable?: boolean;
+  maxQueueingTimeMs?: number;
+  namespace?: string;
+  regionId?: string;
+  resource?: string;
+  threshold?: number;
+  static names(): { [key: string]: string } {
+    return {
+      acceptLanguage: 'AcceptLanguage',
+      appId: 'AppId',
+      appName: 'AppName',
+      controlBehavior: 'ControlBehavior',
+      enable: 'Enable',
+      maxQueueingTimeMs: 'MaxQueueingTimeMs',
+      namespace: 'Namespace',
+      regionId: 'RegionId',
+      resource: 'Resource',
+      threshold: 'Threshold',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      acceptLanguage: 'string',
+      appId: 'string',
+      appName: 'string',
+      controlBehavior: 'number',
+      enable: 'boolean',
+      maxQueueingTimeMs: 'number',
+      namespace: 'string',
+      regionId: 'string',
+      resource: 'string',
+      threshold: 'number',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class CreateFlowRuleResponseBody extends $tea.Model {
+  code?: string;
+  data?: CreateFlowRuleResponseBodyData;
+  message?: string;
+  requestId?: string;
+  success?: boolean;
+  static names(): { [key: string]: string } {
+    return {
+      code: 'Code',
+      data: 'Data',
+      message: 'Message',
+      requestId: 'RequestId',
+      success: 'Success',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      code: 'string',
+      data: CreateFlowRuleResponseBodyData,
+      message: 'string',
+      requestId: 'string',
+      success: 'boolean',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class CreateFlowRuleResponse extends $tea.Model {
+  headers: { [key: string]: string };
+  statusCode: number;
+  body: CreateFlowRuleResponseBody;
+  static names(): { [key: string]: string } {
+    return {
+      headers: 'headers',
+      statusCode: 'statusCode',
+      body: 'body',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
+      body: CreateFlowRuleResponseBody,
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
 export class CreateMseServiceApplicationRequest extends $tea.Model {
   acceptLanguage?: string;
   appName?: string;
@@ -2321,17 +2810,13 @@ export class CreateMseServiceApplicationRequest extends $tea.Model {
 }
 
 export class CreateMseServiceApplicationResponseBody extends $tea.Model {
-  code?: number;
   data?: CreateMseServiceApplicationResponseBodyData;
-  httpStatusCode?: number;
   message?: string;
   requestId?: string;
   success?: string;
   static names(): { [key: string]: string } {
     return {
-      code: 'Code',
       data: 'Data',
-      httpStatusCode: 'HttpStatusCode',
       message: 'Message',
       requestId: 'RequestId',
       success: 'Success',
@@ -2340,9 +2825,7 @@ export class CreateMseServiceApplicationResponseBody extends $tea.Model {
 
   static types(): { [key: string]: any } {
     return {
-      code: 'number',
       data: CreateMseServiceApplicationResponseBodyData,
-      httpStatusCode: 'number',
       message: 'string',
       requestId: 'string',
       success: 'string',
@@ -2704,18 +3187,12 @@ export class CreateOrUpdateSwimmingLaneRequest extends $tea.Model {
   entryRule?: string;
   entryRules?: CreateOrUpdateSwimmingLaneRequestEntryRules[];
   gatewaySwimmingLaneRouteJson?: CreateOrUpdateSwimmingLaneRequestGatewaySwimmingLaneRouteJson;
-  gmtCreate?: string;
-  gmtModified?: string;
   groupId?: number;
   id?: number;
-  licenseKey?: string;
   name?: string;
   namespace?: string;
   regionId?: string;
-  source?: string;
-  status?: number;
   tag?: string;
-  userId?: string;
   static names(): { [key: string]: string } {
     return {
       acceptLanguage: 'AcceptLanguage',
@@ -2724,18 +3201,12 @@ export class CreateOrUpdateSwimmingLaneRequest extends $tea.Model {
       entryRule: 'EntryRule',
       entryRules: 'EntryRules',
       gatewaySwimmingLaneRouteJson: 'GatewaySwimmingLaneRouteJson',
-      gmtCreate: 'GmtCreate',
-      gmtModified: 'GmtModified',
       groupId: 'GroupId',
       id: 'Id',
-      licenseKey: 'LicenseKey',
       name: 'Name',
       namespace: 'Namespace',
       regionId: 'RegionId',
-      source: 'Source',
-      status: 'Status',
       tag: 'Tag',
-      userId: 'UserId',
     };
   }
 
@@ -2747,18 +3218,12 @@ export class CreateOrUpdateSwimmingLaneRequest extends $tea.Model {
       entryRule: 'string',
       entryRules: { 'type': 'array', 'itemType': CreateOrUpdateSwimmingLaneRequestEntryRules },
       gatewaySwimmingLaneRouteJson: CreateOrUpdateSwimmingLaneRequestGatewaySwimmingLaneRouteJson,
-      gmtCreate: 'string',
-      gmtModified: 'string',
       groupId: 'number',
       id: 'number',
-      licenseKey: 'string',
       name: 'string',
       namespace: 'string',
       regionId: 'string',
-      source: 'string',
-      status: 'number',
       tag: 'string',
-      userId: 'string',
     };
   }
 
@@ -2774,18 +3239,12 @@ export class CreateOrUpdateSwimmingLaneShrinkRequest extends $tea.Model {
   entryRule?: string;
   entryRules?: CreateOrUpdateSwimmingLaneShrinkRequestEntryRules[];
   gatewaySwimmingLaneRouteJsonShrink?: string;
-  gmtCreate?: string;
-  gmtModified?: string;
   groupId?: number;
   id?: number;
-  licenseKey?: string;
   name?: string;
   namespace?: string;
   regionId?: string;
-  source?: string;
-  status?: number;
   tag?: string;
-  userId?: string;
   static names(): { [key: string]: string } {
     return {
       acceptLanguage: 'AcceptLanguage',
@@ -2794,18 +3253,12 @@ export class CreateOrUpdateSwimmingLaneShrinkRequest extends $tea.Model {
       entryRule: 'EntryRule',
       entryRules: 'EntryRules',
       gatewaySwimmingLaneRouteJsonShrink: 'GatewaySwimmingLaneRouteJson',
-      gmtCreate: 'GmtCreate',
-      gmtModified: 'GmtModified',
       groupId: 'GroupId',
       id: 'Id',
-      licenseKey: 'LicenseKey',
       name: 'Name',
       namespace: 'Namespace',
       regionId: 'RegionId',
-      source: 'Source',
-      status: 'Status',
       tag: 'Tag',
-      userId: 'UserId',
     };
   }
 
@@ -2817,18 +3270,12 @@ export class CreateOrUpdateSwimmingLaneShrinkRequest extends $tea.Model {
       entryRule: 'string',
       entryRules: { 'type': 'array', 'itemType': CreateOrUpdateSwimmingLaneShrinkRequestEntryRules },
       gatewaySwimmingLaneRouteJsonShrink: 'string',
-      gmtCreate: 'string',
-      gmtModified: 'string',
       groupId: 'number',
       id: 'number',
-      licenseKey: 'string',
       name: 'string',
       namespace: 'string',
       regionId: 'string',
-      source: 'string',
-      status: 'number',
       tag: 'string',
-      userId: 'string',
     };
   }
 
@@ -2839,8 +3286,7 @@ export class CreateOrUpdateSwimmingLaneShrinkRequest extends $tea.Model {
 
 export class CreateOrUpdateSwimmingLaneResponseBody extends $tea.Model {
   code?: number;
-  data?: any;
-  dynamicMessage?: string;
+  data?: CreateOrUpdateSwimmingLaneResponseBodyData;
   errorCode?: string;
   httpStatusCode?: number;
   message?: string;
@@ -2850,7 +3296,6 @@ export class CreateOrUpdateSwimmingLaneResponseBody extends $tea.Model {
     return {
       code: 'Code',
       data: 'Data',
-      dynamicMessage: 'DynamicMessage',
       errorCode: 'ErrorCode',
       httpStatusCode: 'HttpStatusCode',
       message: 'Message',
@@ -2862,8 +3307,7 @@ export class CreateOrUpdateSwimmingLaneResponseBody extends $tea.Model {
   static types(): { [key: string]: any } {
     return {
       code: 'number',
-      data: 'any',
-      dynamicMessage: 'string',
+      data: CreateOrUpdateSwimmingLaneResponseBodyData,
       errorCode: 'string',
       httpStatusCode: 'number',
       message: 'string',
@@ -2906,41 +3350,29 @@ export class CreateOrUpdateSwimmingLaneGroupRequest extends $tea.Model {
   acceptLanguage?: string;
   appIds?: string;
   dbGrayEnable?: boolean;
-  enable?: boolean;
   entryApp?: string;
-  gmtCreate?: string;
-  gmtModified?: string;
   id?: number;
-  licenseKey?: string;
   messageQueueFilterSide?: string;
   messageQueueGrayEnable?: boolean;
   name?: string;
   namespace?: string;
   recordCanaryDetail?: boolean;
   region?: string;
-  source?: string;
   status?: number;
-  userId?: string;
   static names(): { [key: string]: string } {
     return {
       acceptLanguage: 'AcceptLanguage',
       appIds: 'AppIds',
       dbGrayEnable: 'DbGrayEnable',
-      enable: 'Enable',
       entryApp: 'EntryApp',
-      gmtCreate: 'GmtCreate',
-      gmtModified: 'GmtModified',
       id: 'Id',
-      licenseKey: 'LicenseKey',
       messageQueueFilterSide: 'MessageQueueFilterSide',
       messageQueueGrayEnable: 'MessageQueueGrayEnable',
       name: 'Name',
       namespace: 'Namespace',
       recordCanaryDetail: 'RecordCanaryDetail',
       region: 'Region',
-      source: 'Source',
       status: 'Status',
-      userId: 'UserId',
     };
   }
 
@@ -2949,21 +3381,15 @@ export class CreateOrUpdateSwimmingLaneGroupRequest extends $tea.Model {
       acceptLanguage: 'string',
       appIds: 'string',
       dbGrayEnable: 'boolean',
-      enable: 'boolean',
       entryApp: 'string',
-      gmtCreate: 'string',
-      gmtModified: 'string',
       id: 'number',
-      licenseKey: 'string',
       messageQueueFilterSide: 'string',
       messageQueueGrayEnable: 'boolean',
       name: 'string',
       namespace: 'string',
       recordCanaryDetail: 'boolean',
       region: 'string',
-      source: 'string',
       status: 'number',
-      userId: 'string',
     };
   }
 
@@ -2973,21 +3399,15 @@ export class CreateOrUpdateSwimmingLaneGroupRequest extends $tea.Model {
 }
 
 export class CreateOrUpdateSwimmingLaneGroupResponseBody extends $tea.Model {
-  code?: number;
   data?: CreateOrUpdateSwimmingLaneGroupResponseBodyData;
-  dynamicMessage?: string;
   errorCode?: string;
-  httpStatusCode?: number;
   message?: string;
   requestId?: string;
   success?: boolean;
   static names(): { [key: string]: string } {
     return {
-      code: 'Code',
       data: 'Data',
-      dynamicMessage: 'DynamicMessage',
       errorCode: 'ErrorCode',
-      httpStatusCode: 'HttpStatusCode',
       message: 'Message',
       requestId: 'RequestId',
       success: 'Success',
@@ -2996,11 +3416,8 @@ export class CreateOrUpdateSwimmingLaneGroupResponseBody extends $tea.Model {
 
   static types(): { [key: string]: any } {
     return {
-      code: 'number',
       data: CreateOrUpdateSwimmingLaneGroupResponseBodyData,
-      dynamicMessage: 'string',
       errorCode: 'string',
-      httpStatusCode: 'number',
       message: 'string',
       requestId: 'string',
       success: 'boolean',
@@ -3208,6 +3625,121 @@ export class DeleteAuthResourceResponse extends $tea.Model {
   }
 }
 
+export class DeleteCircuitBreakerRulesRequest extends $tea.Model {
+  acceptLanguage?: string;
+  appName?: string;
+  ids?: number[];
+  namespace?: string;
+  static names(): { [key: string]: string } {
+    return {
+      acceptLanguage: 'AcceptLanguage',
+      appName: 'AppName',
+      ids: 'Ids',
+      namespace: 'Namespace',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      acceptLanguage: 'string',
+      appName: 'string',
+      ids: { 'type': 'array', 'itemType': 'number' },
+      namespace: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class DeleteCircuitBreakerRulesShrinkRequest extends $tea.Model {
+  acceptLanguage?: string;
+  appName?: string;
+  idsShrink?: string;
+  namespace?: string;
+  static names(): { [key: string]: string } {
+    return {
+      acceptLanguage: 'AcceptLanguage',
+      appName: 'AppName',
+      idsShrink: 'Ids',
+      namespace: 'Namespace',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      acceptLanguage: 'string',
+      appName: 'string',
+      idsShrink: 'string',
+      namespace: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class DeleteCircuitBreakerRulesResponseBody extends $tea.Model {
+  code?: number;
+  data?: number[];
+  httpStatusCode?: number;
+  message?: string;
+  requestId?: string;
+  success?: boolean;
+  static names(): { [key: string]: string } {
+    return {
+      code: 'Code',
+      data: 'Data',
+      httpStatusCode: 'HttpStatusCode',
+      message: 'Message',
+      requestId: 'RequestId',
+      success: 'Success',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      code: 'number',
+      data: { 'type': 'array', 'itemType': 'number' },
+      httpStatusCode: 'number',
+      message: 'string',
+      requestId: 'string',
+      success: 'boolean',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class DeleteCircuitBreakerRulesResponse extends $tea.Model {
+  headers: { [key: string]: string };
+  statusCode: number;
+  body: DeleteCircuitBreakerRulesResponseBody;
+  static names(): { [key: string]: string } {
+    return {
+      headers: 'headers',
+      statusCode: 'statusCode',
+      body: 'body',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
+      body: DeleteCircuitBreakerRulesResponseBody,
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
 export class DeleteClusterRequest extends $tea.Model {
   acceptLanguage?: string;
   instanceId?: string;
@@ -3362,6 +3894,121 @@ export class DeleteEngineNamespaceResponse extends $tea.Model {
       headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
       statusCode: 'number',
       body: DeleteEngineNamespaceResponseBody,
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class DeleteFlowRulesRequest extends $tea.Model {
+  acceptLanguage?: string;
+  appName?: string;
+  ids?: number[];
+  namespace?: string;
+  static names(): { [key: string]: string } {
+    return {
+      acceptLanguage: 'AcceptLanguage',
+      appName: 'AppName',
+      ids: 'Ids',
+      namespace: 'Namespace',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      acceptLanguage: 'string',
+      appName: 'string',
+      ids: { 'type': 'array', 'itemType': 'number' },
+      namespace: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class DeleteFlowRulesShrinkRequest extends $tea.Model {
+  acceptLanguage?: string;
+  appName?: string;
+  idsShrink?: string;
+  namespace?: string;
+  static names(): { [key: string]: string } {
+    return {
+      acceptLanguage: 'AcceptLanguage',
+      appName: 'AppName',
+      idsShrink: 'Ids',
+      namespace: 'Namespace',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      acceptLanguage: 'string',
+      appName: 'string',
+      idsShrink: 'string',
+      namespace: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class DeleteFlowRulesResponseBody extends $tea.Model {
+  code?: number;
+  data?: number[];
+  httpStatusCode?: number;
+  message?: string;
+  requestId?: string;
+  success?: boolean;
+  static names(): { [key: string]: string } {
+    return {
+      code: 'Code',
+      data: 'Data',
+      httpStatusCode: 'HttpStatusCode',
+      message: 'Message',
+      requestId: 'RequestId',
+      success: 'Success',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      code: 'number',
+      data: { 'type': 'array', 'itemType': 'number' },
+      httpStatusCode: 'number',
+      message: 'string',
+      requestId: 'string',
+      success: 'boolean',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class DeleteFlowRulesResponse extends $tea.Model {
+  headers: { [key: string]: string };
+  statusCode: number;
+  body: DeleteFlowRulesResponseBody;
+  static names(): { [key: string]: string } {
+    return {
+      headers: 'headers',
+      statusCode: 'statusCode',
+      body: 'body',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
+      body: DeleteFlowRulesResponseBody,
     };
   }
 
@@ -3990,12 +4637,14 @@ export class DeleteGatewaySlbRequest extends $tea.Model {
   deleteSlb?: boolean;
   gatewayUniqueId?: string;
   id?: string;
+  slbId?: string;
   static names(): { [key: string]: string } {
     return {
       acceptLanguage: 'AcceptLanguage',
       deleteSlb: 'DeleteSlb',
       gatewayUniqueId: 'GatewayUniqueId',
       id: 'Id',
+      slbId: 'SlbId',
     };
   }
 
@@ -4005,6 +4654,7 @@ export class DeleteGatewaySlbRequest extends $tea.Model {
       deleteSlb: 'boolean',
       gatewayUniqueId: 'string',
       id: 'string',
+      slbId: 'string',
     };
   }
 
@@ -4560,12 +5210,14 @@ export class DeleteNamespaceRequest extends $tea.Model {
 }
 
 export class DeleteNamespaceResponseBody extends $tea.Model {
+  errorCode?: string;
   httpStatusCode?: number;
   message?: string;
   requestId?: string;
   success?: boolean;
   static names(): { [key: string]: string } {
     return {
+      errorCode: 'ErrorCode',
       httpStatusCode: 'HttpStatusCode',
       message: 'Message',
       requestId: 'RequestId',
@@ -4575,6 +5227,7 @@ export class DeleteNamespaceResponseBody extends $tea.Model {
 
   static types(): { [key: string]: any } {
     return {
+      errorCode: 'string',
       httpStatusCode: 'number',
       message: 'string',
       requestId: 'string',
@@ -4803,21 +5456,13 @@ export class DeleteSwimmingLaneRequest extends $tea.Model {
 }
 
 export class DeleteSwimmingLaneResponseBody extends $tea.Model {
-  code?: number;
-  data?: any;
-  dynamicMessage?: string;
   errorCode?: string;
-  httpStatusCode?: number;
   message?: string;
   requestId?: string;
   success?: boolean;
   static names(): { [key: string]: string } {
     return {
-      code: 'Code',
-      data: 'Data',
-      dynamicMessage: 'DynamicMessage',
       errorCode: 'ErrorCode',
-      httpStatusCode: 'HttpStatusCode',
       message: 'Message',
       requestId: 'RequestId',
       success: 'Success',
@@ -4826,11 +5471,7 @@ export class DeleteSwimmingLaneResponseBody extends $tea.Model {
 
   static types(): { [key: string]: any } {
     return {
-      code: 'number',
-      data: 'any',
-      dynamicMessage: 'string',
       errorCode: 'string',
-      httpStatusCode: 'number',
       message: 'string',
       requestId: 'string',
       success: 'boolean',
@@ -4870,16 +5511,14 @@ export class DeleteSwimmingLaneResponse extends $tea.Model {
 export class DeleteSwimmingLaneGroupRequest extends $tea.Model {
   acceptLanguage?: string;
   groupId?: number;
-  namespace?: string;
-  region?: string;
   name?: string;
+  namespace?: string;
   static names(): { [key: string]: string } {
     return {
       acceptLanguage: 'AcceptLanguage',
       groupId: 'GroupId',
+      name: 'Name',
       namespace: 'Namespace',
-      region: 'Region',
-      name: 'name',
     };
   }
 
@@ -4887,9 +5526,8 @@ export class DeleteSwimmingLaneGroupRequest extends $tea.Model {
     return {
       acceptLanguage: 'string',
       groupId: 'number',
-      namespace: 'string',
-      region: 'string',
       name: 'string',
+      namespace: 'string',
     };
   }
 
@@ -4899,21 +5537,15 @@ export class DeleteSwimmingLaneGroupRequest extends $tea.Model {
 }
 
 export class DeleteSwimmingLaneGroupResponseBody extends $tea.Model {
-  code?: number;
   data?: any;
-  dynamicMessage?: string;
   errorCode?: string;
-  httpStatusCode?: number;
   message?: string;
   requestId?: string;
   success?: boolean;
   static names(): { [key: string]: string } {
     return {
-      code: 'Code',
       data: 'Data',
-      dynamicMessage: 'DynamicMessage',
       errorCode: 'ErrorCode',
-      httpStatusCode: 'HttpStatusCode',
       message: 'Message',
       requestId: 'RequestId',
       success: 'Success',
@@ -4922,11 +5554,8 @@ export class DeleteSwimmingLaneGroupResponseBody extends $tea.Model {
 
   static types(): { [key: string]: any } {
     return {
-      code: 'number',
       data: 'any',
-      dynamicMessage: 'string',
       errorCode: 'string',
-      httpStatusCode: 'number',
       message: 'string',
       requestId: 'string',
       success: 'boolean',
@@ -5054,6 +5683,7 @@ export class ExportNacosConfigRequest extends $tea.Model {
   acceptLanguage?: string;
   appName?: string;
   dataId?: string;
+  dataIds?: string;
   group?: string;
   ids?: string;
   instanceId?: string;
@@ -5063,6 +5693,7 @@ export class ExportNacosConfigRequest extends $tea.Model {
       acceptLanguage: 'AcceptLanguage',
       appName: 'AppName',
       dataId: 'DataId',
+      dataIds: 'DataIds',
       group: 'Group',
       ids: 'Ids',
       instanceId: 'InstanceId',
@@ -5075,6 +5706,7 @@ export class ExportNacosConfigRequest extends $tea.Model {
       acceptLanguage: 'string',
       appName: 'string',
       dataId: 'string',
+      dataIds: 'string',
       group: 'string',
       ids: 'string',
       instanceId: 'string',
@@ -5484,17 +6116,15 @@ export class GetApplicationListRequest extends $tea.Model {
 }
 
 export class GetApplicationListResponseBody extends $tea.Model {
-  code?: number;
   data?: GetApplicationListResponseBodyData;
-  httpStatusCode?: number;
+  errorCode?: string;
   message?: string;
   requestId?: string;
   success?: boolean;
   static names(): { [key: string]: string } {
     return {
-      code: 'Code',
       data: 'Data',
-      httpStatusCode: 'HttpStatusCode',
+      errorCode: 'ErrorCode',
       message: 'Message',
       requestId: 'RequestId',
       success: 'Success',
@@ -5503,9 +6133,8 @@ export class GetApplicationListResponseBody extends $tea.Model {
 
   static types(): { [key: string]: any } {
     return {
-      code: 'number',
       data: GetApplicationListResponseBodyData,
-      httpStatusCode: 'number',
+      errorCode: 'string',
       message: 'string',
       requestId: 'string',
       success: 'boolean',
@@ -5583,17 +6212,13 @@ export class GetApplicationListWithMetircsRequest extends $tea.Model {
 }
 
 export class GetApplicationListWithMetircsResponseBody extends $tea.Model {
-  code?: number;
   data?: GetApplicationListWithMetircsResponseBodyData;
-  httpStatusCode?: number;
   message?: string;
   requestId?: string;
   success?: boolean;
   static names(): { [key: string]: string } {
     return {
-      code: 'Code',
       data: 'Data',
-      httpStatusCode: 'HttpStatusCode',
       message: 'Message',
       requestId: 'RequestId',
       success: 'Success',
@@ -5602,9 +6227,7 @@ export class GetApplicationListWithMetircsResponseBody extends $tea.Model {
 
   static types(): { [key: string]: any } {
     return {
-      code: 'number',
       data: GetApplicationListWithMetircsResponseBodyData,
-      httpStatusCode: 'number',
       message: 'string',
       requestId: 'string',
       success: 'boolean',
@@ -6369,17 +6992,13 @@ export class GetGovernanceKubernetesClusterRequest extends $tea.Model {
 }
 
 export class GetGovernanceKubernetesClusterResponseBody extends $tea.Model {
-  code?: number;
   data?: GetGovernanceKubernetesClusterResponseBodyData;
-  httpStatusCode?: number;
   message?: string;
   requestId?: string;
   success?: boolean;
   static names(): { [key: string]: string } {
     return {
-      code: 'Code',
       data: 'Data',
-      httpStatusCode: 'HttpStatusCode',
       message: 'Message',
       requestId: 'RequestId',
       success: 'Success',
@@ -6388,9 +7007,7 @@ export class GetGovernanceKubernetesClusterResponseBody extends $tea.Model {
 
   static types(): { [key: string]: any } {
     return {
-      code: 'number',
       data: GetGovernanceKubernetesClusterResponseBodyData,
-      httpStatusCode: 'number',
       message: 'string',
       requestId: 'string',
       success: 'boolean',
@@ -6604,11 +7221,13 @@ export class GetImportFileUrlResponse extends $tea.Model {
 export class GetKubernetesSourceRequest extends $tea.Model {
   acceptLanguage?: string;
   gatewayUniqueId?: string;
+  isAll?: boolean;
   vpcId?: string;
   static names(): { [key: string]: string } {
     return {
       acceptLanguage: 'AcceptLanguage',
       gatewayUniqueId: 'GatewayUniqueId',
+      isAll: 'IsAll',
       vpcId: 'VpcId',
     };
   }
@@ -6617,6 +7236,7 @@ export class GetKubernetesSourceRequest extends $tea.Model {
     return {
       acceptLanguage: 'string',
       gatewayUniqueId: 'string',
+      isAll: 'boolean',
       vpcId: 'string',
     };
   }
@@ -6677,6 +7297,99 @@ export class GetKubernetesSourceResponse extends $tea.Model {
       headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
       statusCode: 'number',
       body: GetKubernetesSourceResponseBody,
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class GetLosslessRuleByAppRequest extends $tea.Model {
+  acceptLanguage?: string;
+  appId?: string;
+  appName?: string;
+  namespace?: string;
+  regionId?: string;
+  static names(): { [key: string]: string } {
+    return {
+      acceptLanguage: 'AcceptLanguage',
+      appId: 'AppId',
+      appName: 'AppName',
+      namespace: 'Namespace',
+      regionId: 'RegionId',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      acceptLanguage: 'string',
+      appId: 'string',
+      appName: 'string',
+      namespace: 'string',
+      regionId: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class GetLosslessRuleByAppResponseBody extends $tea.Model {
+  code?: number;
+  data?: GetLosslessRuleByAppResponseBodyData;
+  errorCode?: string;
+  httpStatusCode?: number;
+  message?: string;
+  requestId?: string;
+  success?: boolean;
+  static names(): { [key: string]: string } {
+    return {
+      code: 'Code',
+      data: 'Data',
+      errorCode: 'ErrorCode',
+      httpStatusCode: 'HttpStatusCode',
+      message: 'Message',
+      requestId: 'RequestId',
+      success: 'Success',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      code: 'number',
+      data: GetLosslessRuleByAppResponseBodyData,
+      errorCode: 'string',
+      httpStatusCode: 'number',
+      message: 'string',
+      requestId: 'string',
+      success: 'boolean',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class GetLosslessRuleByAppResponse extends $tea.Model {
+  headers: { [key: string]: string };
+  statusCode: number;
+  body: GetLosslessRuleByAppResponseBody;
+  static names(): { [key: string]: string } {
+    return {
+      headers: 'headers',
+      statusCode: 'statusCode',
+      body: 'body',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
+      body: GetLosslessRuleByAppResponseBody,
     };
   }
 
@@ -7393,6 +8106,102 @@ export class GetServiceListResponse extends $tea.Model {
   }
 }
 
+export class GetServiceListPageRequest extends $tea.Model {
+  acceptLanguage?: string;
+  appId?: string;
+  ip?: string;
+  namespace?: string;
+  pageNumber?: number;
+  pageSize?: number;
+  region?: string;
+  serviceName?: string;
+  serviceType?: string;
+  static names(): { [key: string]: string } {
+    return {
+      acceptLanguage: 'AcceptLanguage',
+      appId: 'AppId',
+      ip: 'Ip',
+      namespace: 'Namespace',
+      pageNumber: 'PageNumber',
+      pageSize: 'PageSize',
+      region: 'Region',
+      serviceName: 'ServiceName',
+      serviceType: 'ServiceType',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      acceptLanguage: 'string',
+      appId: 'string',
+      ip: 'string',
+      namespace: 'string',
+      pageNumber: 'number',
+      pageSize: 'number',
+      region: 'string',
+      serviceName: 'string',
+      serviceType: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class GetServiceListPageResponseBody extends $tea.Model {
+  data?: GetServiceListPageResponseBodyData;
+  message?: string;
+  requestId?: string;
+  success?: boolean;
+  static names(): { [key: string]: string } {
+    return {
+      data: 'Data',
+      message: 'Message',
+      requestId: 'RequestId',
+      success: 'Success',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      data: GetServiceListPageResponseBodyData,
+      message: 'string',
+      requestId: 'string',
+      success: 'boolean',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class GetServiceListPageResponse extends $tea.Model {
+  headers: { [key: string]: string };
+  statusCode: number;
+  body: GetServiceListPageResponseBody;
+  static names(): { [key: string]: string } {
+    return {
+      headers: 'headers',
+      statusCode: 'statusCode',
+      body: 'body',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
+      body: GetServiceListPageResponseBody,
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
 export class GetServiceListenersRequest extends $tea.Model {
   acceptLanguage?: string;
   clusterId?: string;
@@ -7513,6 +8322,117 @@ export class GetServiceListenersResponse extends $tea.Model {
   }
 }
 
+export class GetServiceMethodPageRequest extends $tea.Model {
+  acceptLanguage?: string;
+  appId?: string;
+  appName?: string;
+  ip?: string;
+  methodController?: string;
+  name?: string;
+  pageNumber?: number;
+  pageSize?: number;
+  path?: string;
+  region?: string;
+  serviceGroup?: string;
+  serviceName?: string;
+  serviceType?: string;
+  serviceVersion?: string;
+  static names(): { [key: string]: string } {
+    return {
+      acceptLanguage: 'AcceptLanguage',
+      appId: 'AppId',
+      appName: 'AppName',
+      ip: 'Ip',
+      methodController: 'MethodController',
+      name: 'Name',
+      pageNumber: 'PageNumber',
+      pageSize: 'PageSize',
+      path: 'Path',
+      region: 'Region',
+      serviceGroup: 'ServiceGroup',
+      serviceName: 'ServiceName',
+      serviceType: 'ServiceType',
+      serviceVersion: 'ServiceVersion',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      acceptLanguage: 'string',
+      appId: 'string',
+      appName: 'string',
+      ip: 'string',
+      methodController: 'string',
+      name: 'string',
+      pageNumber: 'number',
+      pageSize: 'number',
+      path: 'string',
+      region: 'string',
+      serviceGroup: 'string',
+      serviceName: 'string',
+      serviceType: 'string',
+      serviceVersion: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class GetServiceMethodPageResponseBody extends $tea.Model {
+  data?: GetServiceMethodPageResponseBodyData;
+  message?: string;
+  requestId?: string;
+  success?: boolean;
+  static names(): { [key: string]: string } {
+    return {
+      data: 'Data',
+      message: 'Message',
+      requestId: 'RequestId',
+      success: 'Success',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      data: GetServiceMethodPageResponseBodyData,
+      message: 'string',
+      requestId: 'string',
+      success: 'boolean',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class GetServiceMethodPageResponse extends $tea.Model {
+  headers: { [key: string]: string };
+  statusCode: number;
+  body: GetServiceMethodPageResponseBody;
+  static names(): { [key: string]: string } {
+    return {
+      headers: 'headers',
+      statusCode: 'statusCode',
+      body: 'body',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
+      body: GetServiceMethodPageResponseBody,
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
 export class GetTagsBySwimmingLaneGroupIdRequest extends $tea.Model {
   acceptLanguage?: string;
   groupId?: number;
@@ -7539,21 +8459,15 @@ export class GetTagsBySwimmingLaneGroupIdRequest extends $tea.Model {
 }
 
 export class GetTagsBySwimmingLaneGroupIdResponseBody extends $tea.Model {
-  code?: number;
-  data?: any;
-  dynamicMessage?: string;
+  data?: string[];
   errorCode?: string;
-  httpStatusCode?: number;
   message?: string;
   requestId?: string;
   success?: boolean;
   static names(): { [key: string]: string } {
     return {
-      code: 'Code',
       data: 'Data',
-      dynamicMessage: 'DynamicMessage',
       errorCode: 'ErrorCode',
-      httpStatusCode: 'HttpStatusCode',
       message: 'Message',
       requestId: 'RequestId',
       success: 'Success',
@@ -7562,11 +8476,8 @@ export class GetTagsBySwimmingLaneGroupIdResponseBody extends $tea.Model {
 
   static types(): { [key: string]: any } {
     return {
-      code: 'number',
-      data: 'any',
-      dynamicMessage: 'string',
+      data: { 'type': 'array', 'itemType': 'string' },
       errorCode: 'string',
-      httpStatusCode: 'number',
       message: 'string',
       requestId: 'string',
       success: 'boolean',
@@ -8141,7 +9052,6 @@ export class ListAnsServiceClustersRequest extends $tea.Model {
   namespaceId?: string;
   pageNum?: number;
   pageSize?: number;
-  requestPars?: string;
   serviceName?: string;
   static names(): { [key: string]: string } {
     return {
@@ -8153,7 +9063,6 @@ export class ListAnsServiceClustersRequest extends $tea.Model {
       namespaceId: 'NamespaceId',
       pageNum: 'PageNum',
       pageSize: 'PageSize',
-      requestPars: 'RequestPars',
       serviceName: 'ServiceName',
     };
   }
@@ -8168,7 +9077,6 @@ export class ListAnsServiceClustersRequest extends $tea.Model {
       namespaceId: 'string',
       pageNum: 'number',
       pageSize: 'number',
-      requestPars: 'string',
       serviceName: 'string',
     };
   }
@@ -8181,6 +9089,7 @@ export class ListAnsServiceClustersRequest extends $tea.Model {
 export class ListAnsServiceClustersResponseBody extends $tea.Model {
   data?: ListAnsServiceClustersResponseBodyData;
   errorCode?: string;
+  httpCode?: string;
   message?: string;
   requestId?: string;
   success?: boolean;
@@ -8188,6 +9097,7 @@ export class ListAnsServiceClustersResponseBody extends $tea.Model {
     return {
       data: 'Data',
       errorCode: 'ErrorCode',
+      httpCode: 'HttpCode',
       message: 'Message',
       requestId: 'RequestId',
       success: 'Success',
@@ -8198,6 +9108,7 @@ export class ListAnsServiceClustersResponseBody extends $tea.Model {
     return {
       data: ListAnsServiceClustersResponseBodyData,
       errorCode: 'string',
+      httpCode: 'string',
       message: 'string',
       requestId: 'string',
       success: 'boolean',
@@ -8237,24 +9148,28 @@ export class ListAnsServiceClustersResponse extends $tea.Model {
 export class ListAnsServicesRequest extends $tea.Model {
   acceptLanguage?: string;
   clusterId?: string;
+  clusterName?: string;
   groupName?: string;
   hasIpCount?: string;
   instanceId?: string;
   namespaceId?: string;
   pageNum?: number;
   pageSize?: number;
+  regionId?: string;
   requestPars?: string;
   serviceName?: string;
   static names(): { [key: string]: string } {
     return {
       acceptLanguage: 'AcceptLanguage',
       clusterId: 'ClusterId',
+      clusterName: 'ClusterName',
       groupName: 'GroupName',
       hasIpCount: 'HasIpCount',
       instanceId: 'InstanceId',
       namespaceId: 'NamespaceId',
       pageNum: 'PageNum',
       pageSize: 'PageSize',
+      regionId: 'RegionId',
       requestPars: 'RequestPars',
       serviceName: 'ServiceName',
     };
@@ -8264,12 +9179,14 @@ export class ListAnsServicesRequest extends $tea.Model {
     return {
       acceptLanguage: 'string',
       clusterId: 'string',
+      clusterName: 'string',
       groupName: 'string',
       hasIpCount: 'string',
       instanceId: 'string',
       namespaceId: 'string',
       pageNum: 'number',
       pageSize: 'number',
+      regionId: 'string',
       requestPars: 'string',
       serviceName: 'string',
     };
@@ -8377,21 +9294,15 @@ export class ListAppBySwimmingLaneGroupTagRequest extends $tea.Model {
 }
 
 export class ListAppBySwimmingLaneGroupTagResponseBody extends $tea.Model {
-  code?: number;
   data?: any;
-  dynamicMessage?: string;
   errorCode?: string;
-  httpStatusCode?: number;
   message?: string;
   requestId?: string;
   success?: boolean;
   static names(): { [key: string]: string } {
     return {
-      code: 'Code',
       data: 'Data',
-      dynamicMessage: 'DynamicMessage',
       errorCode: 'ErrorCode',
-      httpStatusCode: 'HttpStatusCode',
       message: 'Message',
       requestId: 'RequestId',
       success: 'Success',
@@ -8400,11 +9311,8 @@ export class ListAppBySwimmingLaneGroupTagResponseBody extends $tea.Model {
 
   static types(): { [key: string]: any } {
     return {
-      code: 'number',
       data: 'any',
-      dynamicMessage: 'string',
       errorCode: 'string',
-      httpStatusCode: 'number',
       message: 'string',
       requestId: 'string',
       success: 'boolean',
@@ -8433,6 +9341,118 @@ export class ListAppBySwimmingLaneGroupTagResponse extends $tea.Model {
       headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
       statusCode: 'number',
       body: ListAppBySwimmingLaneGroupTagResponseBody,
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class ListAppBySwimmingLaneGroupTagsRequest extends $tea.Model {
+  acceptLanguage?: string;
+  groupId?: number;
+  namespace?: string;
+  tags?: string[];
+  static names(): { [key: string]: string } {
+    return {
+      acceptLanguage: 'AcceptLanguage',
+      groupId: 'GroupId',
+      namespace: 'Namespace',
+      tags: 'Tags',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      acceptLanguage: 'string',
+      groupId: 'number',
+      namespace: 'string',
+      tags: { 'type': 'array', 'itemType': 'string' },
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class ListAppBySwimmingLaneGroupTagsShrinkRequest extends $tea.Model {
+  acceptLanguage?: string;
+  groupId?: number;
+  namespace?: string;
+  tagsShrink?: string;
+  static names(): { [key: string]: string } {
+    return {
+      acceptLanguage: 'AcceptLanguage',
+      groupId: 'GroupId',
+      namespace: 'Namespace',
+      tagsShrink: 'Tags',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      acceptLanguage: 'string',
+      groupId: 'number',
+      namespace: 'string',
+      tagsShrink: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class ListAppBySwimmingLaneGroupTagsResponseBody extends $tea.Model {
+  data?: { [key: string]: DataValue[] };
+  errorCode?: string;
+  message?: string;
+  requestId?: string;
+  success?: boolean;
+  static names(): { [key: string]: string } {
+    return {
+      data: 'Data',
+      errorCode: 'ErrorCode',
+      message: 'Message',
+      requestId: 'RequestId',
+      success: 'Success',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      data: { 'type': 'map', 'keyType': 'string', 'valueType': { 'type': 'array', 'itemType': DataValue } },
+      errorCode: 'string',
+      message: 'string',
+      requestId: 'string',
+      success: 'boolean',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class ListAppBySwimmingLaneGroupTagsResponse extends $tea.Model {
+  headers: { [key: string]: string };
+  statusCode: number;
+  body: ListAppBySwimmingLaneGroupTagsResponseBody;
+  static names(): { [key: string]: string } {
+    return {
+      headers: 'headers',
+      statusCode: 'statusCode',
+      body: 'body',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
+      body: ListAppBySwimmingLaneGroupTagsResponseBody,
     };
   }
 
@@ -8482,7 +9502,6 @@ export class ListApplicationsWithTagRulesRequest extends $tea.Model {
 }
 
 export class ListApplicationsWithTagRulesResponseBody extends $tea.Model {
-  code?: number;
   data?: ListApplicationsWithTagRulesResponseBodyData;
   httpStatusCode?: number;
   message?: string;
@@ -8490,7 +9509,6 @@ export class ListApplicationsWithTagRulesResponseBody extends $tea.Model {
   success?: boolean;
   static names(): { [key: string]: string } {
     return {
-      code: 'Code',
       data: 'Data',
       httpStatusCode: 'HttpStatusCode',
       message: 'Message',
@@ -8501,7 +9519,6 @@ export class ListApplicationsWithTagRulesResponseBody extends $tea.Model {
 
   static types(): { [key: string]: any } {
     return {
-      code: 'number',
       data: ListApplicationsWithTagRulesResponseBodyData,
       httpStatusCode: 'number',
       message: 'string',
@@ -8532,6 +9549,207 @@ export class ListApplicationsWithTagRulesResponse extends $tea.Model {
       headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
       statusCode: 'number',
       body: ListApplicationsWithTagRulesResponseBody,
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class ListAuthPolicyRequest extends $tea.Model {
+  acceptLanguage?: string;
+  appId?: string;
+  name?: string;
+  namespace?: string;
+  pageNumber?: string;
+  pageSize?: string;
+  protocol?: string;
+  region?: string;
+  source?: string;
+  static names(): { [key: string]: string } {
+    return {
+      acceptLanguage: 'AcceptLanguage',
+      appId: 'AppId',
+      name: 'Name',
+      namespace: 'Namespace',
+      pageNumber: 'PageNumber',
+      pageSize: 'PageSize',
+      protocol: 'Protocol',
+      region: 'Region',
+      source: 'Source',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      acceptLanguage: 'string',
+      appId: 'string',
+      name: 'string',
+      namespace: 'string',
+      pageNumber: 'string',
+      pageSize: 'string',
+      protocol: 'string',
+      region: 'string',
+      source: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class ListAuthPolicyResponseBody extends $tea.Model {
+  code?: number;
+  data?: ListAuthPolicyResponseBodyData;
+  httpStatusCode?: number;
+  message?: string;
+  requestId?: string;
+  success?: boolean;
+  static names(): { [key: string]: string } {
+    return {
+      code: 'Code',
+      data: 'Data',
+      httpStatusCode: 'HttpStatusCode',
+      message: 'Message',
+      requestId: 'RequestId',
+      success: 'Success',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      code: 'number',
+      data: ListAuthPolicyResponseBodyData,
+      httpStatusCode: 'number',
+      message: 'string',
+      requestId: 'string',
+      success: 'boolean',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class ListAuthPolicyResponse extends $tea.Model {
+  headers: { [key: string]: string };
+  statusCode: number;
+  body: ListAuthPolicyResponseBody;
+  static names(): { [key: string]: string } {
+    return {
+      headers: 'headers',
+      statusCode: 'statusCode',
+      body: 'body',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
+      body: ListAuthPolicyResponseBody,
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class ListCircuitBreakerRulesRequest extends $tea.Model {
+  acceptLanguage?: string;
+  appId?: string;
+  appName?: string;
+  namespace?: string;
+  pageIndex?: number;
+  pageSize?: number;
+  resource?: string;
+  resourceSearchKey?: string;
+  static names(): { [key: string]: string } {
+    return {
+      acceptLanguage: 'AcceptLanguage',
+      appId: 'AppId',
+      appName: 'AppName',
+      namespace: 'Namespace',
+      pageIndex: 'PageIndex',
+      pageSize: 'PageSize',
+      resource: 'Resource',
+      resourceSearchKey: 'ResourceSearchKey',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      acceptLanguage: 'string',
+      appId: 'string',
+      appName: 'string',
+      namespace: 'string',
+      pageIndex: 'number',
+      pageSize: 'number',
+      resource: 'string',
+      resourceSearchKey: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class ListCircuitBreakerRulesResponseBody extends $tea.Model {
+  code?: number;
+  data?: ListCircuitBreakerRulesResponseBodyData;
+  httpStatusCode?: number;
+  message?: string;
+  requestId?: string;
+  success?: boolean;
+  static names(): { [key: string]: string } {
+    return {
+      code: 'Code',
+      data: 'Data',
+      httpStatusCode: 'HttpStatusCode',
+      message: 'Message',
+      requestId: 'RequestId',
+      success: 'Success',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      code: 'number',
+      data: ListCircuitBreakerRulesResponseBodyData,
+      httpStatusCode: 'number',
+      message: 'string',
+      requestId: 'string',
+      success: 'boolean',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class ListCircuitBreakerRulesResponse extends $tea.Model {
+  headers: { [key: string]: string };
+  statusCode: number;
+  body: ListCircuitBreakerRulesResponseBody;
+  static names(): { [key: string]: string } {
+    return {
+      headers: 'headers',
+      statusCode: 'statusCode',
+      body: 'body',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
+      body: ListCircuitBreakerRulesResponseBody,
     };
   }
 
@@ -9513,6 +10731,105 @@ export class ListExportZookeeperDataResponse extends $tea.Model {
       headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
       statusCode: 'number',
       body: ListExportZookeeperDataResponseBody,
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class ListFlowRulesRequest extends $tea.Model {
+  acceptLanguage?: string;
+  appId?: string;
+  appName?: string;
+  namespace?: string;
+  pageIndex?: number;
+  pageSize?: number;
+  resource?: string;
+  resourceSearchKey?: string;
+  static names(): { [key: string]: string } {
+    return {
+      acceptLanguage: 'AcceptLanguage',
+      appId: 'AppId',
+      appName: 'AppName',
+      namespace: 'Namespace',
+      pageIndex: 'PageIndex',
+      pageSize: 'PageSize',
+      resource: 'Resource',
+      resourceSearchKey: 'ResourceSearchKey',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      acceptLanguage: 'string',
+      appId: 'string',
+      appName: 'string',
+      namespace: 'string',
+      pageIndex: 'number',
+      pageSize: 'number',
+      resource: 'string',
+      resourceSearchKey: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class ListFlowRulesResponseBody extends $tea.Model {
+  code?: number;
+  data?: ListFlowRulesResponseBodyData;
+  httpStatusCode?: number;
+  message?: string;
+  requestId?: string;
+  success?: boolean;
+  static names(): { [key: string]: string } {
+    return {
+      code: 'Code',
+      data: 'Data',
+      httpStatusCode: 'HttpStatusCode',
+      message: 'Message',
+      requestId: 'RequestId',
+      success: 'Success',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      code: 'number',
+      data: ListFlowRulesResponseBodyData,
+      httpStatusCode: 'number',
+      message: 'string',
+      requestId: 'string',
+      success: 'boolean',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class ListFlowRulesResponse extends $tea.Model {
+  headers: { [key: string]: string };
+  statusCode: number;
+  body: ListFlowRulesResponseBody;
+  static names(): { [key: string]: string } {
+    return {
+      headers: 'headers',
+      statusCode: 'statusCode',
+      body: 'body',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
+      body: ListFlowRulesResponseBody,
     };
   }
 
@@ -11726,7 +13043,7 @@ export class ListZnodeChildrenResponse extends $tea.Model {
 export class ModifyGovernanceKubernetesClusterRequest extends $tea.Model {
   acceptLanguage?: string;
   clusterId?: string;
-  namespaceInfos?: string;
+  namespaceInfos?: ModifyGovernanceKubernetesClusterRequestNamespaceInfos[];
   regionId?: string;
   static names(): { [key: string]: string } {
     return {
@@ -11741,7 +13058,35 @@ export class ModifyGovernanceKubernetesClusterRequest extends $tea.Model {
     return {
       acceptLanguage: 'string',
       clusterId: 'string',
-      namespaceInfos: 'string',
+      namespaceInfos: { 'type': 'array', 'itemType': ModifyGovernanceKubernetesClusterRequestNamespaceInfos },
+      regionId: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class ModifyGovernanceKubernetesClusterShrinkRequest extends $tea.Model {
+  acceptLanguage?: string;
+  clusterId?: string;
+  namespaceInfosShrink?: string;
+  regionId?: string;
+  static names(): { [key: string]: string } {
+    return {
+      acceptLanguage: 'AcceptLanguage',
+      clusterId: 'ClusterId',
+      namespaceInfosShrink: 'NamespaceInfos',
+      regionId: 'RegionId',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      acceptLanguage: 'string',
+      clusterId: 'string',
+      namespaceInfosShrink: 'string',
       regionId: 'string',
     };
   }
@@ -12319,21 +13664,15 @@ export class QueryAllSwimmingLaneRequest extends $tea.Model {
 }
 
 export class QueryAllSwimmingLaneResponseBody extends $tea.Model {
-  code?: number;
-  data?: any;
-  dynamicMessage?: string;
+  data?: QueryAllSwimmingLaneResponseBodyData[];
   errorCode?: string;
-  httpStatusCode?: number;
   message?: string;
   requestId?: string;
   success?: boolean;
   static names(): { [key: string]: string } {
     return {
-      code: 'Code',
       data: 'Data',
-      dynamicMessage: 'DynamicMessage',
       errorCode: 'ErrorCode',
-      httpStatusCode: 'HttpStatusCode',
       message: 'Message',
       requestId: 'RequestId',
       success: 'Success',
@@ -12342,11 +13681,8 @@ export class QueryAllSwimmingLaneResponseBody extends $tea.Model {
 
   static types(): { [key: string]: any } {
     return {
-      code: 'number',
-      data: 'any',
-      dynamicMessage: 'string',
+      data: { 'type': 'array', 'itemType': QueryAllSwimmingLaneResponseBodyData },
       errorCode: 'string',
-      httpStatusCode: 'number',
       message: 'string',
       requestId: 'string',
       success: 'boolean',
@@ -13177,17 +14513,13 @@ export class QueryGovernanceKubernetesClusterRequest extends $tea.Model {
 }
 
 export class QueryGovernanceKubernetesClusterResponseBody extends $tea.Model {
-  code?: number;
   data?: QueryGovernanceKubernetesClusterResponseBodyData;
-  httpStatusCode?: number;
   message?: string;
   requestId?: string;
   success?: boolean;
   static names(): { [key: string]: string } {
     return {
-      code: 'Code',
       data: 'Data',
-      httpStatusCode: 'HttpStatusCode',
       message: 'Message',
       requestId: 'RequestId',
       success: 'Success',
@@ -13196,9 +14528,7 @@ export class QueryGovernanceKubernetesClusterResponseBody extends $tea.Model {
 
   static types(): { [key: string]: any } {
     return {
-      code: 'number',
       data: QueryGovernanceKubernetesClusterResponseBodyData,
-      httpStatusCode: 'number',
       message: 'string',
       requestId: 'string',
       success: 'boolean',
@@ -13448,14 +14778,14 @@ export class QueryNamespaceRequest extends $tea.Model {
 
 export class QueryNamespaceResponseBody extends $tea.Model {
   data?: QueryNamespaceResponseBodyData[];
-  httpStatusCode?: number;
+  errorCode?: string;
   message?: string;
   requestId?: string;
   success?: boolean;
   static names(): { [key: string]: string } {
     return {
       data: 'Data',
-      httpStatusCode: 'HttpStatusCode',
+      errorCode: 'ErrorCode',
       message: 'Message',
       requestId: 'RequestId',
       success: 'Success',
@@ -13465,7 +14795,7 @@ export class QueryNamespaceResponseBody extends $tea.Model {
   static types(): { [key: string]: any } {
     return {
       data: { 'type': 'array', 'itemType': QueryNamespaceResponseBodyData },
-      httpStatusCode: 'number',
+      errorCode: 'string',
       message: 'string',
       requestId: 'string',
       success: 'boolean',
@@ -13606,21 +14936,15 @@ export class QuerySwimmingLaneByIdRequest extends $tea.Model {
 }
 
 export class QuerySwimmingLaneByIdResponseBody extends $tea.Model {
-  code?: number;
-  data?: any;
-  dynamicMessage?: string;
+  data?: QuerySwimmingLaneByIdResponseBodyData;
   errorCode?: string;
-  httpStatusCode?: number;
   message?: string;
   requestId?: string;
   success?: boolean;
   static names(): { [key: string]: string } {
     return {
-      code: 'Code',
       data: 'Data',
-      dynamicMessage: 'DynamicMessage',
       errorCode: 'ErrorCode',
-      httpStatusCode: 'HttpStatusCode',
       message: 'Message',
       requestId: 'RequestId',
       success: 'Success',
@@ -13629,11 +14953,8 @@ export class QuerySwimmingLaneByIdResponseBody extends $tea.Model {
 
   static types(): { [key: string]: any } {
     return {
-      code: 'number',
-      data: 'any',
-      dynamicMessage: 'string',
+      data: QuerySwimmingLaneByIdResponseBodyData,
       errorCode: 'string',
-      httpStatusCode: 'number',
       message: 'string',
       requestId: 'string',
       success: 'boolean',
@@ -13749,6 +15070,174 @@ export class QueryZnodeDetailResponse extends $tea.Model {
       headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
       statusCode: 'number',
       body: QueryZnodeDetailResponseBody,
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class RemoveApplicationRequest extends $tea.Model {
+  acceptLanguage?: string;
+  appId?: string;
+  appName?: string;
+  namespace?: string;
+  region?: string;
+  static names(): { [key: string]: string } {
+    return {
+      acceptLanguage: 'AcceptLanguage',
+      appId: 'AppId',
+      appName: 'AppName',
+      namespace: 'Namespace',
+      region: 'Region',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      acceptLanguage: 'string',
+      appId: 'string',
+      appName: 'string',
+      namespace: 'string',
+      region: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class RemoveApplicationResponseBody extends $tea.Model {
+  data?: string;
+  errorCode?: string;
+  message?: string;
+  requestId?: string;
+  success?: boolean;
+  static names(): { [key: string]: string } {
+    return {
+      data: 'Data',
+      errorCode: 'ErrorCode',
+      message: 'Message',
+      requestId: 'RequestId',
+      success: 'Success',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      data: 'string',
+      errorCode: 'string',
+      message: 'string',
+      requestId: 'string',
+      success: 'boolean',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class RemoveApplicationResponse extends $tea.Model {
+  headers: { [key: string]: string };
+  statusCode: number;
+  body: RemoveApplicationResponseBody;
+  static names(): { [key: string]: string } {
+    return {
+      headers: 'headers',
+      statusCode: 'statusCode',
+      body: 'body',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
+      body: RemoveApplicationResponseBody,
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class RemoveAuthPolicyRequest extends $tea.Model {
+  acceptLanguage?: string;
+  policyId?: string;
+  static names(): { [key: string]: string } {
+    return {
+      acceptLanguage: 'AcceptLanguage',
+      policyId: 'PolicyId',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      acceptLanguage: 'string',
+      policyId: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class RemoveAuthPolicyResponseBody extends $tea.Model {
+  code?: number;
+  data?: string;
+  httpStatusCode?: number;
+  message?: string;
+  requestId?: string;
+  success?: boolean;
+  static names(): { [key: string]: string } {
+    return {
+      code: 'Code',
+      data: 'Data',
+      httpStatusCode: 'HttpStatusCode',
+      message: 'Message',
+      requestId: 'RequestId',
+      success: 'Success',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      code: 'number',
+      data: 'string',
+      httpStatusCode: 'number',
+      message: 'string',
+      requestId: 'string',
+      success: 'boolean',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class RemoveAuthPolicyResponse extends $tea.Model {
+  headers: { [key: string]: string };
+  statusCode: number;
+  body: RemoveAuthPolicyResponseBody;
+  static names(): { [key: string]: string } {
+    return {
+      headers: 'headers',
+      statusCode: 'statusCode',
+      body: 'body',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
+      body: RemoveAuthPolicyResponseBody,
     };
   }
 
@@ -14255,6 +15744,111 @@ export class UpdateAclResponse extends $tea.Model {
   }
 }
 
+export class UpdateAuthPolicyRequest extends $tea.Model {
+  acceptLanguage?: string;
+  appId?: string;
+  authRule?: string;
+  enable?: string;
+  id?: string;
+  k8sNamespace?: string;
+  name?: string;
+  protocol?: string;
+  region?: string;
+  source?: string;
+  static names(): { [key: string]: string } {
+    return {
+      acceptLanguage: 'AcceptLanguage',
+      appId: 'AppId',
+      authRule: 'AuthRule',
+      enable: 'Enable',
+      id: 'Id',
+      k8sNamespace: 'K8sNamespace',
+      name: 'Name',
+      protocol: 'Protocol',
+      region: 'Region',
+      source: 'Source',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      acceptLanguage: 'string',
+      appId: 'string',
+      authRule: 'string',
+      enable: 'string',
+      id: 'string',
+      k8sNamespace: 'string',
+      name: 'string',
+      protocol: 'string',
+      region: 'string',
+      source: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class UpdateAuthPolicyResponseBody extends $tea.Model {
+  code?: number;
+  data?: string;
+  httpStatusCode?: number;
+  message?: string;
+  requestId?: string;
+  success?: boolean;
+  static names(): { [key: string]: string } {
+    return {
+      code: 'Code',
+      data: 'Data',
+      httpStatusCode: 'HttpStatusCode',
+      message: 'Message',
+      requestId: 'RequestId',
+      success: 'Success',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      code: 'number',
+      data: 'string',
+      httpStatusCode: 'number',
+      message: 'string',
+      requestId: 'string',
+      success: 'boolean',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class UpdateAuthPolicyResponse extends $tea.Model {
+  headers: { [key: string]: string };
+  statusCode: number;
+  body: UpdateAuthPolicyResponseBody;
+  static names(): { [key: string]: string } {
+    return {
+      headers: 'headers',
+      statusCode: 'statusCode',
+      body: 'body',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
+      body: UpdateAuthPolicyResponseBody,
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
 export class UpdateBlackWhiteListRequest extends $tea.Model {
   acceptLanguage?: string;
   content?: string;
@@ -14355,6 +15949,120 @@ export class UpdateBlackWhiteListResponse extends $tea.Model {
       headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
       statusCode: 'number',
       body: UpdateBlackWhiteListResponseBody,
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class UpdateCircuitBreakerRuleRequest extends $tea.Model {
+  acceptLanguage?: string;
+  appId?: string;
+  appName?: string;
+  enable?: boolean;
+  halfOpenBaseAmountPerStep?: number;
+  halfOpenRecoveryStepNum?: number;
+  maxAllowedRtMs?: number;
+  minRequestAmount?: number;
+  namespace?: string;
+  retryTimeoutMs?: number;
+  ruleId?: number;
+  statIntervalMs?: number;
+  strategy?: number;
+  threshold?: number;
+  static names(): { [key: string]: string } {
+    return {
+      acceptLanguage: 'AcceptLanguage',
+      appId: 'AppId',
+      appName: 'AppName',
+      enable: 'Enable',
+      halfOpenBaseAmountPerStep: 'HalfOpenBaseAmountPerStep',
+      halfOpenRecoveryStepNum: 'HalfOpenRecoveryStepNum',
+      maxAllowedRtMs: 'MaxAllowedRtMs',
+      minRequestAmount: 'MinRequestAmount',
+      namespace: 'Namespace',
+      retryTimeoutMs: 'RetryTimeoutMs',
+      ruleId: 'RuleId',
+      statIntervalMs: 'StatIntervalMs',
+      strategy: 'Strategy',
+      threshold: 'Threshold',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      acceptLanguage: 'string',
+      appId: 'string',
+      appName: 'string',
+      enable: 'boolean',
+      halfOpenBaseAmountPerStep: 'number',
+      halfOpenRecoveryStepNum: 'number',
+      maxAllowedRtMs: 'number',
+      minRequestAmount: 'number',
+      namespace: 'string',
+      retryTimeoutMs: 'number',
+      ruleId: 'number',
+      statIntervalMs: 'number',
+      strategy: 'number',
+      threshold: 'number',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class UpdateCircuitBreakerRuleResponseBody extends $tea.Model {
+  code?: string;
+  data?: UpdateCircuitBreakerRuleResponseBodyData;
+  message?: string;
+  requestId?: string;
+  success?: boolean;
+  static names(): { [key: string]: string } {
+    return {
+      code: 'Code',
+      data: 'Data',
+      message: 'Message',
+      requestId: 'RequestId',
+      success: 'Success',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      code: 'string',
+      data: UpdateCircuitBreakerRuleResponseBodyData,
+      message: 'string',
+      requestId: 'string',
+      success: 'boolean',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class UpdateCircuitBreakerRuleResponse extends $tea.Model {
+  headers: { [key: string]: string };
+  statusCode: number;
+  body: UpdateCircuitBreakerRuleResponseBody;
+  static names(): { [key: string]: string } {
+    return {
+      headers: 'headers',
+      statusCode: 'statusCode',
+      body: 'body',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
+      body: UpdateCircuitBreakerRuleResponseBody,
     };
   }
 
@@ -14566,6 +16274,7 @@ export class UpdateConfigRequest extends $tea.Model {
   requestPars?: string;
   snapshotCount?: string;
   syncLimit?: string;
+  TLSEnabled?: boolean;
   tickTime?: string;
   userName?: string;
   static names(): { [key: string]: string } {
@@ -14592,6 +16301,7 @@ export class UpdateConfigRequest extends $tea.Model {
       requestPars: 'RequestPars',
       snapshotCount: 'SnapshotCount',
       syncLimit: 'SyncLimit',
+      TLSEnabled: 'TLSEnabled',
       tickTime: 'TickTime',
       userName: 'UserName',
     };
@@ -14621,6 +16331,7 @@ export class UpdateConfigRequest extends $tea.Model {
       requestPars: 'string',
       snapshotCount: 'string',
       syncLimit: 'string',
+      TLSEnabled: 'boolean',
       tickTime: 'string',
       userName: 'string',
     };
@@ -14772,6 +16483,105 @@ export class UpdateEngineNamespaceResponse extends $tea.Model {
       headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
       statusCode: 'number',
       body: UpdateEngineNamespaceResponseBody,
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class UpdateFlowRuleRequest extends $tea.Model {
+  acceptLanguage?: string;
+  appId?: string;
+  appName?: string;
+  controlBehavior?: number;
+  enable?: boolean;
+  maxQueueingTimeMs?: number;
+  namespace?: string;
+  ruleId?: number;
+  threshold?: number;
+  static names(): { [key: string]: string } {
+    return {
+      acceptLanguage: 'AcceptLanguage',
+      appId: 'AppId',
+      appName: 'AppName',
+      controlBehavior: 'ControlBehavior',
+      enable: 'Enable',
+      maxQueueingTimeMs: 'MaxQueueingTimeMs',
+      namespace: 'Namespace',
+      ruleId: 'RuleId',
+      threshold: 'Threshold',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      acceptLanguage: 'string',
+      appId: 'string',
+      appName: 'string',
+      controlBehavior: 'number',
+      enable: 'boolean',
+      maxQueueingTimeMs: 'number',
+      namespace: 'string',
+      ruleId: 'number',
+      threshold: 'number',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class UpdateFlowRuleResponseBody extends $tea.Model {
+  code?: string;
+  data?: UpdateFlowRuleResponseBodyData;
+  message?: string;
+  requestId?: string;
+  success?: boolean;
+  static names(): { [key: string]: string } {
+    return {
+      code: 'Code',
+      data: 'Data',
+      message: 'Message',
+      requestId: 'RequestId',
+      success: 'Success',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      code: 'string',
+      data: UpdateFlowRuleResponseBodyData,
+      message: 'string',
+      requestId: 'string',
+      success: 'boolean',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class UpdateFlowRuleResponse extends $tea.Model {
+  headers: { [key: string]: string };
+  statusCode: number;
+  body: UpdateFlowRuleResponseBody;
+  static names(): { [key: string]: string } {
+    return {
+      headers: 'headers',
+      statusCode: 'statusCode',
+      body: 'body',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
+      body: UpdateFlowRuleResponseBody,
     };
   }
 
@@ -18218,6 +20028,50 @@ export class AddGatewayRequestTag extends $tea.Model {
   }
 }
 
+export class AddGatewayRequestZoneInfo extends $tea.Model {
+  vSwitchId?: string;
+  zoneId?: string;
+  static names(): { [key: string]: string } {
+    return {
+      vSwitchId: 'VSwitchId',
+      zoneId: 'ZoneId',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      vSwitchId: 'string',
+      zoneId: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class AddGatewayShrinkRequestTag extends $tea.Model {
+  key?: string;
+  value?: string;
+  static names(): { [key: string]: string } {
+    return {
+      key: 'Key',
+      value: 'Value',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      key: 'string',
+      value: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
 export class AddGatewayResponseBodyData extends $tea.Model {
   gatewayUniqueId?: string;
   static names(): { [key: string]: string } {
@@ -18563,6 +20417,34 @@ export class AddGatewayRouteRequestServices extends $tea.Model {
   }
 }
 
+export class AddGatewaySlbRequestVServiceList extends $tea.Model {
+  port?: number;
+  protocol?: string;
+  VServerGroupId?: string;
+  VServerGroupName?: string;
+  static names(): { [key: string]: string } {
+    return {
+      port: 'Port',
+      protocol: 'Protocol',
+      VServerGroupId: 'VServerGroupId',
+      VServerGroupName: 'VServerGroupName',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      port: 'number',
+      protocol: 'string',
+      VServerGroupId: 'string',
+      VServerGroupName: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
 export class AddMigrationTaskResponseBodyData extends $tea.Model {
   clusterType?: string;
   id?: string;
@@ -18868,6 +20750,67 @@ export class CreateApplicationResponseBodyData extends $tea.Model {
   }
 }
 
+export class CreateCircuitBreakerRuleResponseBodyData extends $tea.Model {
+  appId?: string;
+  appName?: string;
+  enable?: boolean;
+  halfOpenBaseAmountPerStep?: number;
+  halfOpenRecoveryStepNum?: number;
+  id?: number;
+  maxAllowedRtMs?: number;
+  minRequestAmount?: number;
+  namespace?: string;
+  regionId?: string;
+  resource?: string;
+  retryTimeoutMs?: number;
+  statIntervalMs?: number;
+  strategy?: number;
+  threshold?: number;
+  static names(): { [key: string]: string } {
+    return {
+      appId: 'AppId',
+      appName: 'AppName',
+      enable: 'Enable',
+      halfOpenBaseAmountPerStep: 'HalfOpenBaseAmountPerStep',
+      halfOpenRecoveryStepNum: 'HalfOpenRecoveryStepNum',
+      id: 'Id',
+      maxAllowedRtMs: 'MaxAllowedRtMs',
+      minRequestAmount: 'MinRequestAmount',
+      namespace: 'Namespace',
+      regionId: 'RegionId',
+      resource: 'Resource',
+      retryTimeoutMs: 'RetryTimeoutMs',
+      statIntervalMs: 'StatIntervalMs',
+      strategy: 'Strategy',
+      threshold: 'Threshold',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      appId: 'string',
+      appName: 'string',
+      enable: 'boolean',
+      halfOpenBaseAmountPerStep: 'number',
+      halfOpenRecoveryStepNum: 'number',
+      id: 'number',
+      maxAllowedRtMs: 'number',
+      minRequestAmount: 'number',
+      namespace: 'string',
+      regionId: 'string',
+      resource: 'string',
+      retryTimeoutMs: 'number',
+      statIntervalMs: 'number',
+      strategy: 'number',
+      threshold: 'number',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
 export class CreateClusterRequestTag extends $tea.Model {
   key?: string;
   value?: string;
@@ -18919,6 +20862,52 @@ export class CreateEngineNamespaceResponseBodyData extends $tea.Model {
       quota: 'number',
       serviceCount: 'number',
       type: 'number',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class CreateFlowRuleResponseBodyData extends $tea.Model {
+  appId?: string;
+  appName?: string;
+  controlBehavior?: number;
+  enable?: boolean;
+  id?: number;
+  maxQueueingTimeMs?: number;
+  namespace?: string;
+  regionId?: string;
+  resource?: string;
+  threshold?: number;
+  static names(): { [key: string]: string } {
+    return {
+      appId: 'AppId',
+      appName: 'AppName',
+      controlBehavior: 'ControlBehavior',
+      enable: 'Enable',
+      id: 'Id',
+      maxQueueingTimeMs: 'MaxQueueingTimeMs',
+      namespace: 'Namespace',
+      regionId: 'RegionId',
+      resource: 'Resource',
+      threshold: 'Threshold',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      appId: 'string',
+      appName: 'string',
+      controlBehavior: 'number',
+      enable: 'boolean',
+      id: 'number',
+      maxQueueingTimeMs: 'number',
+      namespace: 'string',
+      regionId: 'string',
+      resource: 'string',
+      threshold: 'number',
     };
   }
 
@@ -19027,16 +21016,12 @@ export class CreateOrUpdateSwimmingLaneRequestEntryRulesRestItems extends $tea.M
 
 export class CreateOrUpdateSwimmingLaneRequestEntryRules extends $tea.Model {
   condition?: string;
-  enable?: boolean;
-  path?: string;
   paths?: string[];
   priority?: number;
   restItems?: CreateOrUpdateSwimmingLaneRequestEntryRulesRestItems[];
   static names(): { [key: string]: string } {
     return {
       condition: 'Condition',
-      enable: 'Enable',
-      path: 'Path',
       paths: 'Paths',
       priority: 'Priority',
       restItems: 'RestItems',
@@ -19046,8 +21031,6 @@ export class CreateOrUpdateSwimmingLaneRequestEntryRules extends $tea.Model {
   static types(): { [key: string]: any } {
     return {
       condition: 'string',
-      enable: 'boolean',
-      path: 'string',
       paths: { 'type': 'array', 'itemType': 'string' },
       priority: 'number',
       restItems: { 'type': 'array', 'itemType': CreateOrUpdateSwimmingLaneRequestEntryRulesRestItems },
@@ -19163,16 +21146,12 @@ export class CreateOrUpdateSwimmingLaneShrinkRequestEntryRulesRestItems extends 
 
 export class CreateOrUpdateSwimmingLaneShrinkRequestEntryRules extends $tea.Model {
   condition?: string;
-  enable?: boolean;
-  path?: string;
   paths?: string[];
   priority?: number;
   restItems?: CreateOrUpdateSwimmingLaneShrinkRequestEntryRulesRestItems[];
   static names(): { [key: string]: string } {
     return {
       condition: 'Condition',
-      enable: 'Enable',
-      path: 'Path',
       paths: 'Paths',
       priority: 'Priority',
       restItems: 'RestItems',
@@ -19182,8 +21161,6 @@ export class CreateOrUpdateSwimmingLaneShrinkRequestEntryRules extends $tea.Mode
   static types(): { [key: string]: any } {
     return {
       condition: 'string',
-      enable: 'boolean',
-      path: 'string',
       paths: { 'type': 'array', 'itemType': 'string' },
       priority: 'number',
       restItems: { 'type': 'array', 'itemType': CreateOrUpdateSwimmingLaneShrinkRequestEntryRulesRestItems },
@@ -19195,10 +21172,138 @@ export class CreateOrUpdateSwimmingLaneShrinkRequestEntryRules extends $tea.Mode
   }
 }
 
+export class CreateOrUpdateSwimmingLaneResponseBodyDataEntryRulesRestItems extends $tea.Model {
+  cond?: string;
+  datum?: string;
+  divisor?: number;
+  name?: string;
+  nameList?: string[];
+  operator?: string;
+  rate?: number;
+  remainder?: number;
+  type?: string;
+  value?: string;
+  static names(): { [key: string]: string } {
+    return {
+      cond: 'cond',
+      datum: 'datum',
+      divisor: 'divisor',
+      name: 'name',
+      nameList: 'nameList',
+      operator: 'operator',
+      rate: 'rate',
+      remainder: 'remainder',
+      type: 'type',
+      value: 'value',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      cond: 'string',
+      datum: 'string',
+      divisor: 'number',
+      name: 'string',
+      nameList: { 'type': 'array', 'itemType': 'string' },
+      operator: 'string',
+      rate: 'number',
+      remainder: 'number',
+      type: 'string',
+      value: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class CreateOrUpdateSwimmingLaneResponseBodyDataEntryRules extends $tea.Model {
+  condition?: string;
+  path?: string;
+  paths?: string[];
+  restItems?: CreateOrUpdateSwimmingLaneResponseBodyDataEntryRulesRestItems[];
+  static names(): { [key: string]: string } {
+    return {
+      condition: 'condition',
+      path: 'path',
+      paths: 'paths',
+      restItems: 'restItems',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      condition: 'string',
+      path: 'string',
+      paths: { 'type': 'array', 'itemType': 'string' },
+      restItems: { 'type': 'array', 'itemType': CreateOrUpdateSwimmingLaneResponseBodyDataEntryRulesRestItems },
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class CreateOrUpdateSwimmingLaneResponseBodyData extends $tea.Model {
+  enable?: boolean;
+  enableRules?: boolean;
+  entryRule?: string;
+  entryRules?: CreateOrUpdateSwimmingLaneResponseBodyDataEntryRules[];
+  gatewaySwimmingLaneRouteJson?: string;
+  gmtCreate?: string;
+  gmtModified?: string;
+  groupId?: number;
+  id?: number;
+  name?: string;
+  regionId?: string;
+  status?: number;
+  tag?: string;
+  static names(): { [key: string]: string } {
+    return {
+      enable: 'enable',
+      enableRules: 'enableRules',
+      entryRule: 'entryRule',
+      entryRules: 'entryRules',
+      gatewaySwimmingLaneRouteJson: 'gatewaySwimmingLaneRouteJson',
+      gmtCreate: 'gmtCreate',
+      gmtModified: 'gmtModified',
+      groupId: 'groupId',
+      id: 'id',
+      name: 'name',
+      regionId: 'regionId',
+      status: 'status',
+      tag: 'tag',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      enable: 'boolean',
+      enableRules: 'boolean',
+      entryRule: 'string',
+      entryRules: { 'type': 'array', 'itemType': CreateOrUpdateSwimmingLaneResponseBodyDataEntryRules },
+      gatewaySwimmingLaneRouteJson: 'string',
+      gmtCreate: 'string',
+      gmtModified: 'string',
+      groupId: 'number',
+      id: 'number',
+      name: 'string',
+      regionId: 'string',
+      status: 'number',
+      tag: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
 export class CreateOrUpdateSwimmingLaneGroupResponseBodyData extends $tea.Model {
   appIds?: string;
   dbGrayEnable?: string;
-  enable?: string;
   entryApp?: string;
   id?: number;
   messageQueueFilterSide?: string;
@@ -19207,14 +21312,11 @@ export class CreateOrUpdateSwimmingLaneGroupResponseBodyData extends $tea.Model 
   namespace?: string;
   recordCanaryDetail?: boolean;
   region?: string;
-  source?: string;
-  status?: number;
   userId?: string;
   static names(): { [key: string]: string } {
     return {
       appIds: 'AppIds',
       dbGrayEnable: 'DbGrayEnable',
-      enable: 'Enable',
       entryApp: 'EntryApp',
       id: 'Id',
       messageQueueFilterSide: 'MessageQueueFilterSide',
@@ -19223,8 +21325,6 @@ export class CreateOrUpdateSwimmingLaneGroupResponseBodyData extends $tea.Model 
       namespace: 'Namespace',
       recordCanaryDetail: 'RecordCanaryDetail',
       region: 'Region',
-      source: 'Source',
-      status: 'Status',
       userId: 'UserId',
     };
   }
@@ -19233,7 +21333,6 @@ export class CreateOrUpdateSwimmingLaneGroupResponseBodyData extends $tea.Model 
     return {
       appIds: 'string',
       dbGrayEnable: 'string',
-      enable: 'string',
       entryApp: 'string',
       id: 'number',
       messageQueueFilterSide: 'string',
@@ -19242,8 +21341,6 @@ export class CreateOrUpdateSwimmingLaneGroupResponseBodyData extends $tea.Model 
       namespace: 'string',
       recordCanaryDetail: 'boolean',
       region: 'string',
-      source: 'string',
-      status: 'number',
       userId: 'string',
     };
   }
@@ -19773,11 +21870,11 @@ export class GetApplicationListResponseBodyDataResult extends $tea.Model {
   extraInfo?: string;
   instancesNumber?: number;
   language?: string;
-  licenseKey?: string;
   namespace?: string;
   regionId?: string;
   source?: string;
   status?: number;
+  tagCount?: number;
   userId?: string;
   static names(): { [key: string]: string } {
     return {
@@ -19786,11 +21883,11 @@ export class GetApplicationListResponseBodyDataResult extends $tea.Model {
       extraInfo: 'ExtraInfo',
       instancesNumber: 'InstancesNumber',
       language: 'Language',
-      licenseKey: 'LicenseKey',
       namespace: 'Namespace',
       regionId: 'RegionId',
       source: 'Source',
       status: 'Status',
+      tagCount: 'TagCount',
       userId: 'UserId',
     };
   }
@@ -19802,11 +21899,11 @@ export class GetApplicationListResponseBodyDataResult extends $tea.Model {
       extraInfo: 'string',
       instancesNumber: 'number',
       language: 'string',
-      licenseKey: 'string',
       namespace: 'string',
       regionId: 'string',
       source: 'string',
       status: 'number',
+      tagCount: 'number',
       userId: 'string',
     };
   }
@@ -19921,34 +22018,34 @@ export class GetApplicationListWithMetircsResponseBodyDataResultCurMetricsFm ext
 export class GetApplicationListWithMetircsResponseBodyDataResult extends $tea.Model {
   appId?: string;
   appName?: string;
+  appType?: number;
   curMetrics?: GetApplicationListWithMetircsResponseBodyDataResultCurMetrics[];
   curMetricsFm?: GetApplicationListWithMetircsResponseBodyDataResultCurMetricsFm;
   extraInfo?: string;
   instancesNumber?: number;
   language?: string;
-  licenseKey?: string;
   namespace?: string;
   regionId?: string;
   source?: string;
   status?: number;
+  tagCount?: number;
   tags?: string[];
-  userId?: string;
   static names(): { [key: string]: string } {
     return {
       appId: 'AppId',
       appName: 'AppName',
+      appType: 'AppType',
       curMetrics: 'CurMetrics',
       curMetricsFm: 'CurMetricsFm',
       extraInfo: 'ExtraInfo',
       instancesNumber: 'InstancesNumber',
       language: 'Language',
-      licenseKey: 'LicenseKey',
       namespace: 'Namespace',
       regionId: 'RegionId',
       source: 'Source',
       status: 'Status',
+      tagCount: 'TagCount',
       tags: 'Tags',
-      userId: 'UserId',
     };
   }
 
@@ -19956,18 +22053,18 @@ export class GetApplicationListWithMetircsResponseBodyDataResult extends $tea.Mo
     return {
       appId: 'string',
       appName: 'string',
+      appType: 'number',
       curMetrics: { 'type': 'array', 'itemType': GetApplicationListWithMetircsResponseBodyDataResultCurMetrics },
       curMetricsFm: GetApplicationListWithMetircsResponseBodyDataResultCurMetricsFm,
       extraInfo: 'string',
       instancesNumber: 'number',
       language: 'string',
-      licenseKey: 'string',
       namespace: 'string',
       regionId: 'string',
       source: 'string',
       status: 'number',
+      tagCount: 'number',
       tags: { 'type': 'array', 'itemType': 'string' },
-      userId: 'string',
     };
   }
 
@@ -20053,6 +22150,56 @@ export class GetBlackWhiteListResponseBodyData extends $tea.Model {
   }
 }
 
+export class GetGatewayResponseBodyDataElasticPolicyTimePolicyList extends $tea.Model {
+  desiredReplica?: number;
+  endTime?: string;
+  startTime?: string;
+  static names(): { [key: string]: string } {
+    return {
+      desiredReplica: 'DesiredReplica',
+      endTime: 'EndTime',
+      startTime: 'StartTime',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      desiredReplica: 'number',
+      endTime: 'string',
+      startTime: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class GetGatewayResponseBodyDataElasticPolicy extends $tea.Model {
+  elasticType?: string;
+  maxReplica?: number;
+  timePolicyList?: GetGatewayResponseBodyDataElasticPolicyTimePolicyList[];
+  static names(): { [key: string]: string } {
+    return {
+      elasticType: 'ElasticType',
+      maxReplica: 'MaxReplica',
+      timePolicyList: 'TimePolicyList',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      elasticType: 'string',
+      maxReplica: 'number',
+      timePolicyList: { 'type': 'array', 'itemType': GetGatewayResponseBodyDataElasticPolicyTimePolicyList },
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
 export class GetGatewayResponseBodyDataLogConfigDetails extends $tea.Model {
   logEnabled?: boolean;
   logStoreName?: string;
@@ -20102,6 +22249,10 @@ export class GetGatewayResponseBodyDataXtraceDetails extends $tea.Model {
 
 export class GetGatewayResponseBodyData extends $tea.Model {
   chargeType?: string;
+  elastic?: boolean;
+  elasticPolicy?: GetGatewayResponseBodyDataElasticPolicy;
+  elasticReplica?: number;
+  elasticType?: string;
   endDate?: string;
   gatewayUniqueId?: string;
   gmtCreate?: string;
@@ -20119,6 +22270,7 @@ export class GetGatewayResponseBodyData extends $tea.Model {
   spec?: string;
   status?: number;
   statusDesc?: string;
+  totalReplica?: number;
   vpc?: string;
   vswitch?: string;
   vswitch2?: string;
@@ -20126,6 +22278,10 @@ export class GetGatewayResponseBodyData extends $tea.Model {
   static names(): { [key: string]: string } {
     return {
       chargeType: 'ChargeType',
+      elastic: 'Elastic',
+      elasticPolicy: 'ElasticPolicy',
+      elasticReplica: 'ElasticReplica',
+      elasticType: 'ElasticType',
       endDate: 'EndDate',
       gatewayUniqueId: 'GatewayUniqueId',
       gmtCreate: 'GmtCreate',
@@ -20143,6 +22299,7 @@ export class GetGatewayResponseBodyData extends $tea.Model {
       spec: 'Spec',
       status: 'Status',
       statusDesc: 'StatusDesc',
+      totalReplica: 'TotalReplica',
       vpc: 'Vpc',
       vswitch: 'Vswitch',
       vswitch2: 'Vswitch2',
@@ -20153,6 +22310,10 @@ export class GetGatewayResponseBodyData extends $tea.Model {
   static types(): { [key: string]: any } {
     return {
       chargeType: 'string',
+      elastic: 'boolean',
+      elasticPolicy: GetGatewayResponseBodyDataElasticPolicy,
+      elasticReplica: 'number',
+      elasticType: 'string',
       endDate: 'string',
       gatewayUniqueId: 'string',
       gmtCreate: 'string',
@@ -20170,6 +22331,7 @@ export class GetGatewayResponseBodyData extends $tea.Model {
       spec: 'string',
       status: 'number',
       statusDesc: 'string',
+      totalReplica: 'number',
       vpc: 'string',
       vswitch: 'string',
       vswitch2: 'string',
@@ -20471,6 +22633,37 @@ export class GetGatewayRouteDetailResponseBodyDataFallbackServices extends $tea.
       servicePort: 'number',
       sourceType: 'string',
       version: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class GetGatewayRouteDetailResponseBodyDataFlowMirror extends $tea.Model {
+  percentage?: number;
+  port?: number;
+  status?: string;
+  targetServiceId?: number;
+  targetServiceName?: string;
+  static names(): { [key: string]: string } {
+    return {
+      percentage: 'Percentage',
+      port: 'Port',
+      status: 'Status',
+      targetServiceId: 'TargetServiceId',
+      targetServiceName: 'TargetServiceName',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      percentage: 'number',
+      port: 'number',
+      status: 'string',
+      targetServiceId: 'number',
+      targetServiceName: 'string',
     };
   }
 
@@ -20804,6 +22997,7 @@ export class GetGatewayRouteDetailResponseBodyData extends $tea.Model {
   enableWaf?: boolean;
   fallback?: boolean;
   fallbackServices?: GetGatewayRouteDetailResponseBodyDataFallbackServices[];
+  flowMirror?: GetGatewayRouteDetailResponseBodyDataFlowMirror;
   gatewayId?: number;
   gatewayUniqueId?: string;
   gmtCreate?: string;
@@ -20837,6 +23031,7 @@ export class GetGatewayRouteDetailResponseBodyData extends $tea.Model {
       enableWaf: 'EnableWaf',
       fallback: 'Fallback',
       fallbackServices: 'FallbackServices',
+      flowMirror: 'FlowMirror',
       gatewayId: 'GatewayId',
       gatewayUniqueId: 'GatewayUniqueId',
       gmtCreate: 'GmtCreate',
@@ -20873,6 +23068,7 @@ export class GetGatewayRouteDetailResponseBodyData extends $tea.Model {
       enableWaf: 'boolean',
       fallback: 'boolean',
       fallbackServices: { 'type': 'array', 'itemType': GetGatewayRouteDetailResponseBodyDataFallbackServices },
+      flowMirror: GetGatewayRouteDetailResponseBodyDataFlowMirror,
       gatewayId: 'number',
       gatewayUniqueId: 'string',
       gmtCreate: 'string',
@@ -21135,19 +23331,22 @@ export class GetGatewayServiceDetailResponseBodyData extends $tea.Model {
 }
 
 export class GetGovernanceKubernetesClusterResponseBodyDataNamespaces extends $tea.Model {
+  labels?: { [key: string]: string };
+  mseNamespace?: string;
   name?: string;
-  tags?: string;
   static names(): { [key: string]: string } {
     return {
+      labels: 'Labels',
+      mseNamespace: 'MseNamespace',
       name: 'Name',
-      tags: 'Tags',
     };
   }
 
   static types(): { [key: string]: any } {
     return {
+      labels: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      mseNamespace: 'string',
       name: 'string',
-      tags: 'string',
     };
   }
 
@@ -21257,6 +23456,55 @@ export class GetKubernetesSourceResponseBodyData extends $tea.Model {
     return {
       cluster: 'string',
       name: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class GetLosslessRuleByAppResponseBodyData extends $tea.Model {
+  aligned?: boolean;
+  appId?: string;
+  appName?: string;
+  count?: number;
+  delayTime?: number;
+  enable?: boolean;
+  funcType?: number;
+  lossLessDetail?: boolean;
+  notice?: boolean;
+  related?: boolean;
+  warmupTime?: number;
+  static names(): { [key: string]: string } {
+    return {
+      aligned: 'Aligned',
+      appId: 'AppId',
+      appName: 'AppName',
+      count: 'Count',
+      delayTime: 'DelayTime',
+      enable: 'Enable',
+      funcType: 'FuncType',
+      lossLessDetail: 'LossLessDetail',
+      notice: 'Notice',
+      related: 'Related',
+      warmupTime: 'WarmupTime',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      aligned: 'boolean',
+      appId: 'string',
+      appName: 'string',
+      count: 'number',
+      delayTime: 'number',
+      enable: 'boolean',
+      funcType: 'number',
+      lossLessDetail: 'boolean',
+      notice: 'boolean',
+      related: 'boolean',
+      warmupTime: 'number',
     };
   }
 
@@ -21639,6 +23887,71 @@ export class GetServiceListResponseBodyData extends $tea.Model {
   }
 }
 
+export class GetServiceListPageResponseBodyDataResult extends $tea.Model {
+  appId?: string;
+  appName?: string;
+  gmtModifyTime?: string;
+  group?: string;
+  instanceNum?: number;
+  serviceName?: string;
+  version?: string;
+  static names(): { [key: string]: string } {
+    return {
+      appId: 'AppId',
+      appName: 'AppName',
+      gmtModifyTime: 'GmtModifyTime',
+      group: 'Group',
+      instanceNum: 'InstanceNum',
+      serviceName: 'ServiceName',
+      version: 'Version',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      appId: 'string',
+      appName: 'string',
+      gmtModifyTime: 'string',
+      group: 'string',
+      instanceNum: 'number',
+      serviceName: 'string',
+      version: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class GetServiceListPageResponseBodyData extends $tea.Model {
+  pageNumber?: string;
+  pageSize?: string;
+  result?: GetServiceListPageResponseBodyDataResult[];
+  totalSize?: string;
+  static names(): { [key: string]: string } {
+    return {
+      pageNumber: 'PageNumber',
+      pageSize: 'PageSize',
+      result: 'Result',
+      totalSize: 'TotalSize',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      pageNumber: 'string',
+      pageSize: 'string',
+      result: { 'type': 'array', 'itemType': GetServiceListPageResponseBodyDataResult },
+      totalSize: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
 export class GetServiceListenersResponseBodyData extends $tea.Model {
   addr?: string;
   agent?: string;
@@ -21671,6 +23984,105 @@ export class GetServiceListenersResponseBodyData extends $tea.Model {
       namespaceId: 'string',
       port: 'string',
       serviceName: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class GetServiceMethodPageResponseBodyDataResultParameterDefinitions extends $tea.Model {
+  description?: string;
+  name?: string;
+  type?: string;
+  static names(): { [key: string]: string } {
+    return {
+      description: 'Description',
+      name: 'Name',
+      type: 'Type',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      description: 'string',
+      name: 'string',
+      type: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class GetServiceMethodPageResponseBodyDataResult extends $tea.Model {
+  methodController?: string;
+  name?: string;
+  nameDetail?: string;
+  parameterDefinitions?: GetServiceMethodPageResponseBodyDataResultParameterDefinitions[];
+  parameterDetails?: string[];
+  parameterTypes?: string[];
+  paths?: string[];
+  requestMethods?: string[];
+  returnDetails?: string;
+  returnType?: string;
+  static names(): { [key: string]: string } {
+    return {
+      methodController: 'MethodController',
+      name: 'Name',
+      nameDetail: 'NameDetail',
+      parameterDefinitions: 'ParameterDefinitions',
+      parameterDetails: 'ParameterDetails',
+      parameterTypes: 'ParameterTypes',
+      paths: 'Paths',
+      requestMethods: 'RequestMethods',
+      returnDetails: 'ReturnDetails',
+      returnType: 'ReturnType',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      methodController: 'string',
+      name: 'string',
+      nameDetail: 'string',
+      parameterDefinitions: { 'type': 'array', 'itemType': GetServiceMethodPageResponseBodyDataResultParameterDefinitions },
+      parameterDetails: { 'type': 'array', 'itemType': 'string' },
+      parameterTypes: { 'type': 'array', 'itemType': 'string' },
+      paths: { 'type': 'array', 'itemType': 'string' },
+      requestMethods: { 'type': 'array', 'itemType': 'string' },
+      returnDetails: 'string',
+      returnType: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class GetServiceMethodPageResponseBodyData extends $tea.Model {
+  pageNumber?: number;
+  pageSize?: number;
+  result?: GetServiceMethodPageResponseBodyDataResult[];
+  totalSize?: number;
+  static names(): { [key: string]: string } {
+    return {
+      pageNumber: 'PageNumber',
+      pageSize: 'PageSize',
+      result: 'Result',
+      totalSize: 'TotalSize',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      pageNumber: 'number',
+      pageSize: 'number',
+      result: { 'type': 'array', 'itemType': GetServiceMethodPageResponseBodyDataResult },
+      totalSize: 'number',
     };
   }
 
@@ -21883,6 +24295,49 @@ export class ListAnsInstancesResponseBodyData extends $tea.Model {
   }
 }
 
+export class ListAnsServiceClustersResponseBodyDataAppDetail extends $tea.Model {
+  appId?: string;
+  appName?: string;
+  checkInternal?: number;
+  checkPath?: string;
+  checkTimeout?: number;
+  checkType?: string;
+  healthyCheckTimes?: number;
+  port?: number;
+  unhealthyCheckTimes?: number;
+  static names(): { [key: string]: string } {
+    return {
+      appId: 'AppId',
+      appName: 'AppName',
+      checkInternal: 'CheckInternal',
+      checkPath: 'CheckPath',
+      checkTimeout: 'CheckTimeout',
+      checkType: 'CheckType',
+      healthyCheckTimes: 'HealthyCheckTimes',
+      port: 'Port',
+      unhealthyCheckTimes: 'UnhealthyCheckTimes',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      appId: 'string',
+      appName: 'string',
+      checkInternal: 'number',
+      checkPath: 'string',
+      checkTimeout: 'number',
+      checkType: 'string',
+      healthyCheckTimes: 'number',
+      port: 'number',
+      unhealthyCheckTimes: 'number',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
 export class ListAnsServiceClustersResponseBodyDataClusters extends $tea.Model {
   defaultCheckPort?: number;
   defaultPort?: number;
@@ -21921,6 +24376,7 @@ export class ListAnsServiceClustersResponseBodyDataClusters extends $tea.Model {
 }
 
 export class ListAnsServiceClustersResponseBodyData extends $tea.Model {
+  appDetail?: ListAnsServiceClustersResponseBodyDataAppDetail;
   clusters?: ListAnsServiceClustersResponseBodyDataClusters[];
   ephemeral?: boolean;
   groupName?: string;
@@ -21928,8 +24384,10 @@ export class ListAnsServiceClustersResponseBodyData extends $tea.Model {
   name?: string;
   protectThreshold?: number;
   selectorType?: string;
+  source?: string;
   static names(): { [key: string]: string } {
     return {
+      appDetail: 'AppDetail',
       clusters: 'Clusters',
       ephemeral: 'Ephemeral',
       groupName: 'GroupName',
@@ -21937,11 +24395,13 @@ export class ListAnsServiceClustersResponseBodyData extends $tea.Model {
       name: 'Name',
       protectThreshold: 'ProtectThreshold',
       selectorType: 'SelectorType',
+      source: 'Source',
     };
   }
 
   static types(): { [key: string]: any } {
     return {
+      appDetail: ListAnsServiceClustersResponseBodyDataAppDetail,
       clusters: { 'type': 'array', 'itemType': ListAnsServiceClustersResponseBodyDataClusters },
       ephemeral: 'boolean',
       groupName: 'string',
@@ -21949,6 +24409,7 @@ export class ListAnsServiceClustersResponseBodyData extends $tea.Model {
       name: 'string',
       protectThreshold: 'number',
       selectorType: 'string',
+      source: 'string',
     };
   }
 
@@ -21963,6 +24424,7 @@ export class ListAnsServicesResponseBodyData extends $tea.Model {
   healthyInstanceCount?: number;
   ipCount?: number;
   name?: string;
+  source?: string;
   static names(): { [key: string]: string } {
     return {
       clusterCount: 'ClusterCount',
@@ -21970,6 +24432,7 @@ export class ListAnsServicesResponseBodyData extends $tea.Model {
       healthyInstanceCount: 'HealthyInstanceCount',
       ipCount: 'IpCount',
       name: 'Name',
+      source: 'Source',
     };
   }
 
@@ -21980,6 +24443,7 @@ export class ListAnsServicesResponseBodyData extends $tea.Model {
       healthyInstanceCount: 'number',
       ipCount: 'number',
       name: 'string',
+      source: 'string',
     };
   }
 
@@ -22087,6 +24551,252 @@ export class ListApplicationsWithTagRulesResponseBodyData extends $tea.Model {
       pageNumber: 'number',
       pageSize: 'number',
       result: { 'type': 'array', 'itemType': ListApplicationsWithTagRulesResponseBodyDataResult },
+      totalSize: 'number',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class ListAuthPolicyResponseBodyDataResultAuthRuleMethod extends $tea.Model {
+  group?: string;
+  name?: string;
+  parameterTypes?: string[];
+  returnType?: string;
+  serviceName?: string;
+  version?: string;
+  static names(): { [key: string]: string } {
+    return {
+      group: 'Group',
+      name: 'Name',
+      parameterTypes: 'ParameterTypes',
+      returnType: 'ReturnType',
+      serviceName: 'ServiceName',
+      version: 'Version',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      group: 'string',
+      name: 'string',
+      parameterTypes: { 'type': 'array', 'itemType': 'string' },
+      returnType: 'string',
+      serviceName: 'string',
+      version: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class ListAuthPolicyResponseBodyDataResultAuthRule extends $tea.Model {
+  appIds?: string[];
+  authType?: number;
+  black?: boolean;
+  k8sNamespaces?: string[];
+  method?: ListAuthPolicyResponseBodyDataResultAuthRuleMethod;
+  path?: string;
+  static names(): { [key: string]: string } {
+    return {
+      appIds: 'AppIds',
+      authType: 'AuthType',
+      black: 'Black',
+      k8sNamespaces: 'K8sNamespaces',
+      method: 'Method',
+      path: 'Path',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      appIds: { 'type': 'array', 'itemType': 'string' },
+      authType: 'number',
+      black: 'boolean',
+      k8sNamespaces: { 'type': 'array', 'itemType': 'string' },
+      method: ListAuthPolicyResponseBodyDataResultAuthRuleMethod,
+      path: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class ListAuthPolicyResponseBodyDataResult extends $tea.Model {
+  accountId?: string;
+  appId?: string;
+  appName?: string;
+  authRule?: ListAuthPolicyResponseBodyDataResultAuthRule[];
+  authType?: number;
+  enable?: boolean;
+  id?: number;
+  k8sNamespace?: string;
+  name?: string;
+  namespaceId?: string;
+  protocol?: string;
+  regionId?: string;
+  source?: string;
+  status?: number;
+  static names(): { [key: string]: string } {
+    return {
+      accountId: 'AccountId',
+      appId: 'AppId',
+      appName: 'AppName',
+      authRule: 'AuthRule',
+      authType: 'AuthType',
+      enable: 'Enable',
+      id: 'Id',
+      k8sNamespace: 'K8sNamespace',
+      name: 'Name',
+      namespaceId: 'NamespaceId',
+      protocol: 'Protocol',
+      regionId: 'RegionId',
+      source: 'Source',
+      status: 'Status',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      accountId: 'string',
+      appId: 'string',
+      appName: 'string',
+      authRule: { 'type': 'array', 'itemType': ListAuthPolicyResponseBodyDataResultAuthRule },
+      authType: 'number',
+      enable: 'boolean',
+      id: 'number',
+      k8sNamespace: 'string',
+      name: 'string',
+      namespaceId: 'string',
+      protocol: 'string',
+      regionId: 'string',
+      source: 'string',
+      status: 'number',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class ListAuthPolicyResponseBodyData extends $tea.Model {
+  pageNumber?: number;
+  pageSize?: number;
+  result?: ListAuthPolicyResponseBodyDataResult[];
+  totalSize?: number;
+  static names(): { [key: string]: string } {
+    return {
+      pageNumber: 'PageNumber',
+      pageSize: 'PageSize',
+      result: 'Result',
+      totalSize: 'TotalSize',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      pageNumber: 'number',
+      pageSize: 'number',
+      result: { 'type': 'array', 'itemType': ListAuthPolicyResponseBodyDataResult },
+      totalSize: 'number',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class ListCircuitBreakerRulesResponseBodyDataResult extends $tea.Model {
+  appId?: string;
+  appName?: string;
+  enable?: boolean;
+  fallbackObject?: string;
+  halfOpenBaseAmountPerStep?: number;
+  halfOpenRecoveryStepNum?: number;
+  maxAllowedRtMs?: number;
+  minRequestAmount?: number;
+  namespace?: string;
+  regionId?: string;
+  resource?: string;
+  retryTimeoutMs?: number;
+  ruleId?: number;
+  statIntervalMs?: number;
+  strategy?: number;
+  threshold?: number;
+  static names(): { [key: string]: string } {
+    return {
+      appId: 'AppId',
+      appName: 'AppName',
+      enable: 'Enable',
+      fallbackObject: 'FallbackObject',
+      halfOpenBaseAmountPerStep: 'HalfOpenBaseAmountPerStep',
+      halfOpenRecoveryStepNum: 'HalfOpenRecoveryStepNum',
+      maxAllowedRtMs: 'MaxAllowedRtMs',
+      minRequestAmount: 'MinRequestAmount',
+      namespace: 'Namespace',
+      regionId: 'RegionId',
+      resource: 'Resource',
+      retryTimeoutMs: 'RetryTimeoutMs',
+      ruleId: 'RuleId',
+      statIntervalMs: 'StatIntervalMs',
+      strategy: 'Strategy',
+      threshold: 'Threshold',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      appId: 'string',
+      appName: 'string',
+      enable: 'boolean',
+      fallbackObject: 'string',
+      halfOpenBaseAmountPerStep: 'number',
+      halfOpenRecoveryStepNum: 'number',
+      maxAllowedRtMs: 'number',
+      minRequestAmount: 'number',
+      namespace: 'string',
+      regionId: 'string',
+      resource: 'string',
+      retryTimeoutMs: 'number',
+      ruleId: 'number',
+      statIntervalMs: 'number',
+      strategy: 'number',
+      threshold: 'number',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class ListCircuitBreakerRulesResponseBodyData extends $tea.Model {
+  pageNumber?: number;
+  pageSize?: number;
+  result?: ListCircuitBreakerRulesResponseBodyDataResult[];
+  totalSize?: number;
+  static names(): { [key: string]: string } {
+    return {
+      pageNumber: 'PageNumber',
+      pageSize: 'PageSize',
+      result: 'Result',
+      totalSize: 'TotalSize',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      pageNumber: 'number',
+      pageSize: 'number',
+      result: { 'type': 'array', 'itemType': ListCircuitBreakerRulesResponseBodyDataResult },
       totalSize: 'number',
     };
   }
@@ -22360,6 +25070,7 @@ export class ListClustersResponseBodyData extends $tea.Model {
   resourceGroupId?: string;
   tags?: { [key: string]: any };
   versionCode?: string;
+  vpcId?: string;
   static names(): { [key: string]: string } {
     return {
       appVersion: 'AppVersion',
@@ -22381,6 +25092,7 @@ export class ListClustersResponseBodyData extends $tea.Model {
       resourceGroupId: 'ResourceGroupId',
       tags: 'Tags',
       versionCode: 'VersionCode',
+      vpcId: 'VpcId',
     };
   }
 
@@ -22405,6 +25117,7 @@ export class ListClustersResponseBodyData extends $tea.Model {
       resourceGroupId: 'string',
       tags: { 'type': 'map', 'keyType': 'string', 'valueType': 'any' },
       versionCode: 'string',
+      vpcId: 'string',
     };
   }
 
@@ -22634,6 +25347,89 @@ export class ListExportZookeeperDataResponseBodyData extends $tea.Model {
   }
 }
 
+export class ListFlowRulesResponseBodyDataResult extends $tea.Model {
+  appId?: string;
+  appName?: string;
+  controlBehavior?: number;
+  enable?: boolean;
+  fallbackObject?: string;
+  maxQueueingTimeMs?: number;
+  metricType?: number;
+  namespace?: string;
+  regionId?: string;
+  resource?: string;
+  ruleId?: number;
+  threshold?: number;
+  trafficTags?: { [key: string]: any };
+  static names(): { [key: string]: string } {
+    return {
+      appId: 'AppId',
+      appName: 'AppName',
+      controlBehavior: 'ControlBehavior',
+      enable: 'Enable',
+      fallbackObject: 'FallbackObject',
+      maxQueueingTimeMs: 'MaxQueueingTimeMs',
+      metricType: 'MetricType',
+      namespace: 'Namespace',
+      regionId: 'RegionId',
+      resource: 'Resource',
+      ruleId: 'RuleId',
+      threshold: 'Threshold',
+      trafficTags: 'TrafficTags',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      appId: 'string',
+      appName: 'string',
+      controlBehavior: 'number',
+      enable: 'boolean',
+      fallbackObject: 'string',
+      maxQueueingTimeMs: 'number',
+      metricType: 'number',
+      namespace: 'string',
+      regionId: 'string',
+      resource: 'string',
+      ruleId: 'number',
+      threshold: 'number',
+      trafficTags: { 'type': 'map', 'keyType': 'string', 'valueType': 'any' },
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class ListFlowRulesResponseBodyData extends $tea.Model {
+  pageNumber?: number;
+  pageSize?: number;
+  result?: ListFlowRulesResponseBodyDataResult[];
+  totalSize?: number;
+  static names(): { [key: string]: string } {
+    return {
+      pageNumber: 'PageNumber',
+      pageSize: 'PageSize',
+      result: 'Result',
+      totalSize: 'TotalSize',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      pageNumber: 'number',
+      pageSize: 'number',
+      result: { 'type': 'array', 'itemType': ListFlowRulesResponseBodyDataResult },
+      totalSize: 'number',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
 export class ListGatewayRequestFilterParams extends $tea.Model {
   gatewayType?: string;
   gatewayUniqueId?: string;
@@ -22663,6 +25459,59 @@ export class ListGatewayRequestFilterParams extends $tea.Model {
       name: 'string',
       resourceGroupId: 'string',
       vpc: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class ListGatewayResponseBodyDataResultElasticPolicyTimePolicyList extends $tea.Model {
+  desiredReplica?: number;
+  endTime?: string;
+  startTime?: string;
+  static names(): { [key: string]: string } {
+    return {
+      desiredReplica: 'DesiredReplica',
+      endTime: 'EndTime',
+      startTime: 'StartTime',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      desiredReplica: 'number',
+      endTime: 'string',
+      startTime: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class ListGatewayResponseBodyDataResultElasticPolicy extends $tea.Model {
+  elastic?: boolean;
+  elasticType?: string;
+  maxReplica?: number;
+  timePolicyList?: ListGatewayResponseBodyDataResultElasticPolicyTimePolicyList[];
+  static names(): { [key: string]: string } {
+    return {
+      elastic: 'Elastic',
+      elasticType: 'ElasticType',
+      maxReplica: 'MaxReplica',
+      timePolicyList: 'TimePolicyList',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      elastic: 'boolean',
+      elasticType: 'string',
+      maxReplica: 'number',
+      timePolicyList: { 'type': 'array', 'itemType': ListGatewayResponseBodyDataResultElasticPolicyTimePolicyList },
     };
   }
 
@@ -22782,6 +25631,11 @@ export class ListGatewayResponseBodyDataResult extends $tea.Model {
   armsOn?: boolean;
   chargeType?: string;
   currentVersion?: string;
+  elastic?: boolean;
+  elasticInstanceId?: string;
+  elasticPolicy?: ListGatewayResponseBodyDataResultElasticPolicy;
+  elasticReplica?: number;
+  elasticType?: string;
   endDate?: string;
   gatewayType?: string;
   gatewayUniqueId?: string;
@@ -22807,7 +25661,9 @@ export class ListGatewayResponseBodyDataResult extends $tea.Model {
   statusDesc?: string;
   supportWasm?: boolean;
   tag?: string;
+  totalReplica?: number;
   upgrade?: boolean;
+  vpcId?: string;
   vswitch2?: string;
   static names(): { [key: string]: string } {
     return {
@@ -22816,6 +25672,11 @@ export class ListGatewayResponseBodyDataResult extends $tea.Model {
       armsOn: 'ArmsOn',
       chargeType: 'ChargeType',
       currentVersion: 'CurrentVersion',
+      elastic: 'Elastic',
+      elasticInstanceId: 'ElasticInstanceId',
+      elasticPolicy: 'ElasticPolicy',
+      elasticReplica: 'ElasticReplica',
+      elasticType: 'ElasticType',
       endDate: 'EndDate',
       gatewayType: 'GatewayType',
       gatewayUniqueId: 'GatewayUniqueId',
@@ -22841,7 +25702,9 @@ export class ListGatewayResponseBodyDataResult extends $tea.Model {
       statusDesc: 'StatusDesc',
       supportWasm: 'SupportWasm',
       tag: 'Tag',
+      totalReplica: 'TotalReplica',
       upgrade: 'Upgrade',
+      vpcId: 'VpcId',
       vswitch2: 'Vswitch2',
     };
   }
@@ -22853,6 +25716,11 @@ export class ListGatewayResponseBodyDataResult extends $tea.Model {
       armsOn: 'boolean',
       chargeType: 'string',
       currentVersion: 'string',
+      elastic: 'boolean',
+      elasticInstanceId: 'string',
+      elasticPolicy: ListGatewayResponseBodyDataResultElasticPolicy,
+      elasticReplica: 'number',
+      elasticType: 'string',
       endDate: 'string',
       gatewayType: 'string',
       gatewayUniqueId: 'string',
@@ -22878,7 +25746,9 @@ export class ListGatewayResponseBodyDataResult extends $tea.Model {
       statusDesc: 'string',
       supportWasm: 'boolean',
       tag: 'string',
+      totalReplica: 'number',
       upgrade: 'boolean',
+      vpcId: 'string',
       vswitch2: 'string',
     };
   }
@@ -24075,6 +26945,34 @@ export class ListGatewayServiceResponseBodyData extends $tea.Model {
   }
 }
 
+export class ListGatewaySlbResponseBodyDataVServiceList extends $tea.Model {
+  port?: string;
+  protocol?: string;
+  VServerGroupId?: string;
+  VServerGroupName?: string;
+  static names(): { [key: string]: string } {
+    return {
+      port: 'Port',
+      protocol: 'Protocol',
+      VServerGroupId: 'VServerGroupId',
+      VServerGroupName: 'VServerGroupName',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      port: 'string',
+      protocol: 'string',
+      VServerGroupId: 'string',
+      VServerGroupName: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
 export class ListGatewaySlbResponseBodyData extends $tea.Model {
   editEnable?: boolean;
   gatewayId?: string;
@@ -24092,6 +26990,8 @@ export class ListGatewaySlbResponseBodyData extends $tea.Model {
   statusDesc?: string;
   type?: string;
   VServerGroupId?: string;
+  VServiceList?: ListGatewaySlbResponseBodyDataVServiceList[];
+  vsMetaInfo?: string;
   static names(): { [key: string]: string } {
     return {
       editEnable: 'EditEnable',
@@ -24110,6 +27010,8 @@ export class ListGatewaySlbResponseBodyData extends $tea.Model {
       statusDesc: 'StatusDesc',
       type: 'Type',
       VServerGroupId: 'VServerGroupId',
+      VServiceList: 'VServiceList',
+      vsMetaInfo: 'VsMetaInfo',
     };
   }
 
@@ -24131,6 +27033,8 @@ export class ListGatewaySlbResponseBodyData extends $tea.Model {
       statusDesc: 'string',
       type: 'string',
       VServerGroupId: 'string',
+      VServiceList: { 'type': 'array', 'itemType': ListGatewaySlbResponseBodyDataVServiceList },
+      vsMetaInfo: 'string',
     };
   }
 
@@ -24704,6 +27608,31 @@ export class ListZnodeChildrenResponseBodyData extends $tea.Model {
   }
 }
 
+export class ModifyGovernanceKubernetesClusterRequestNamespaceInfos extends $tea.Model {
+  labels?: { [key: string]: string };
+  mseNamespace?: string;
+  name?: string;
+  static names(): { [key: string]: string } {
+    return {
+      labels: 'labels',
+      mseNamespace: 'mseNamespace',
+      name: 'name',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      labels: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      mseNamespace: 'string',
+      name: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
 export class PullServicesResponseBodyDataServices extends $tea.Model {
   groupName?: string;
   name?: string;
@@ -24755,6 +27684,138 @@ export class PullServicesResponseBodyData extends $tea.Model {
       namespace: 'string',
       namespaceShowName: 'string',
       services: { 'type': 'array', 'itemType': PullServicesResponseBodyDataServices },
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class QueryAllSwimmingLaneResponseBodyDataEntryRulesRestItems extends $tea.Model {
+  cond?: string;
+  datum?: string;
+  divisor?: number;
+  name?: string;
+  nameList?: string[];
+  operator?: string;
+  rate?: number;
+  remainder?: number;
+  type?: string;
+  value?: string;
+  static names(): { [key: string]: string } {
+    return {
+      cond: 'cond',
+      datum: 'datum',
+      divisor: 'divisor',
+      name: 'name',
+      nameList: 'nameList',
+      operator: 'operator',
+      rate: 'rate',
+      remainder: 'remainder',
+      type: 'type',
+      value: 'value',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      cond: 'string',
+      datum: 'string',
+      divisor: 'number',
+      name: 'string',
+      nameList: { 'type': 'array', 'itemType': 'string' },
+      operator: 'string',
+      rate: 'number',
+      remainder: 'number',
+      type: 'string',
+      value: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class QueryAllSwimmingLaneResponseBodyDataEntryRules extends $tea.Model {
+  condition?: string;
+  path?: string;
+  paths?: string[];
+  restItems?: QueryAllSwimmingLaneResponseBodyDataEntryRulesRestItems[];
+  static names(): { [key: string]: string } {
+    return {
+      condition: 'condition',
+      path: 'path',
+      paths: 'paths',
+      restItems: 'restItems',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      condition: 'string',
+      path: 'string',
+      paths: { 'type': 'array', 'itemType': 'string' },
+      restItems: { 'type': 'array', 'itemType': QueryAllSwimmingLaneResponseBodyDataEntryRulesRestItems },
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class QueryAllSwimmingLaneResponseBodyData extends $tea.Model {
+  entryRules?: QueryAllSwimmingLaneResponseBodyDataEntryRules[];
+  groupId?: string;
+  id?: number;
+  messageQueueFilterSide?: string;
+  messageQueueGrayEnable?: boolean;
+  name?: string;
+  namespace?: string;
+  recordCanaryDetail?: boolean;
+  regionId?: string;
+  tag?: string;
+  userId?: string;
+  enableRules?: boolean;
+  gmtCreate?: string;
+  gmtModified?: string;
+  static names(): { [key: string]: string } {
+    return {
+      entryRules: 'EntryRules',
+      groupId: 'GroupId',
+      id: 'Id',
+      messageQueueFilterSide: 'MessageQueueFilterSide',
+      messageQueueGrayEnable: 'MessageQueueGrayEnable',
+      name: 'Name',
+      namespace: 'Namespace',
+      recordCanaryDetail: 'RecordCanaryDetail',
+      regionId: 'RegionId',
+      tag: 'Tag',
+      userId: 'UserId',
+      enableRules: 'enableRules',
+      gmtCreate: 'gmtCreate',
+      gmtModified: 'gmtModified',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      entryRules: { 'type': 'array', 'itemType': QueryAllSwimmingLaneResponseBodyDataEntryRules },
+      groupId: 'string',
+      id: 'number',
+      messageQueueFilterSide: 'string',
+      messageQueueGrayEnable: 'boolean',
+      name: 'string',
+      namespace: 'string',
+      recordCanaryDetail: 'boolean',
+      regionId: 'string',
+      tag: 'string',
+      userId: 'string',
+      enableRules: 'boolean',
+      gmtCreate: 'string',
+      gmtModified: 'string',
     };
   }
 
@@ -25111,6 +28172,9 @@ export class QueryClusterInfoResponseBodyData extends $tea.Model {
   createTime?: string;
   diskCapacity?: number;
   diskType?: string;
+  eipInstanceId?: string;
+  endDate?: string;
+  expectZones?: string[];
   healthStatus?: string;
   initCostTime?: number;
   initStatus?: string;
@@ -25129,6 +28193,8 @@ export class QueryClusterInfoResponseBodyData extends $tea.Model {
   payInfo?: string;
   pubNetworkFlow?: string;
   regionId?: string;
+  securityGroupId?: string;
+  securityGroupType?: string;
   tags?: { [key: string]: any };
   vSwitchId?: string;
   vpcId?: string;
@@ -25148,6 +28214,9 @@ export class QueryClusterInfoResponseBodyData extends $tea.Model {
       createTime: 'CreateTime',
       diskCapacity: 'DiskCapacity',
       diskType: 'DiskType',
+      eipInstanceId: 'EipInstanceId',
+      endDate: 'EndDate',
+      expectZones: 'ExpectZones',
       healthStatus: 'HealthStatus',
       initCostTime: 'InitCostTime',
       initStatus: 'InitStatus',
@@ -25166,6 +28235,8 @@ export class QueryClusterInfoResponseBodyData extends $tea.Model {
       payInfo: 'PayInfo',
       pubNetworkFlow: 'PubNetworkFlow',
       regionId: 'RegionId',
+      securityGroupId: 'SecurityGroupId',
+      securityGroupType: 'SecurityGroupType',
       tags: 'Tags',
       vSwitchId: 'VSwitchId',
       vpcId: 'VpcId',
@@ -25188,6 +28259,9 @@ export class QueryClusterInfoResponseBodyData extends $tea.Model {
       createTime: 'string',
       diskCapacity: 'number',
       diskType: 'string',
+      eipInstanceId: 'string',
+      endDate: 'string',
+      expectZones: { 'type': 'array', 'itemType': 'string' },
       healthStatus: 'string',
       initCostTime: 'number',
       initStatus: 'string',
@@ -25206,6 +28280,8 @@ export class QueryClusterInfoResponseBodyData extends $tea.Model {
       payInfo: 'string',
       pubNetworkFlow: 'string',
       regionId: 'string',
+      securityGroupId: 'string',
+      securityGroupType: 'string',
       tags: { 'type': 'map', 'keyType': 'string', 'valueType': 'any' },
       vSwitchId: 'string',
       vpcId: 'string',
@@ -25289,6 +28365,7 @@ export class QueryConfigResponseBodyData extends $tea.Model {
   restartFlag?: boolean;
   snapshotCount?: string;
   syncLimit?: string;
+  TLSEnabled?: boolean;
   tickTime?: string;
   userName?: string;
   static names(): { [key: string]: string } {
@@ -25320,6 +28397,7 @@ export class QueryConfigResponseBodyData extends $tea.Model {
       restartFlag: 'RestartFlag',
       snapshotCount: 'SnapshotCount',
       syncLimit: 'SyncLimit',
+      TLSEnabled: 'TLSEnabled',
       tickTime: 'TickTime',
       userName: 'UserName',
     };
@@ -25354,6 +28432,7 @@ export class QueryConfigResponseBodyData extends $tea.Model {
       restartFlag: 'boolean',
       snapshotCount: 'string',
       syncLimit: 'string',
+      TLSEnabled: 'boolean',
       tickTime: 'string',
       userName: 'string',
     };
@@ -25436,6 +28515,7 @@ export class QueryInstancesInfoResponseBodyData extends $tea.Model {
   role?: string;
   singleTunnelVip?: string;
   zone?: string;
+  zoneDistributed?: boolean;
   static names(): { [key: string]: string } {
     return {
       clientPort: 'ClientPort',
@@ -25447,6 +28527,7 @@ export class QueryInstancesInfoResponseBodyData extends $tea.Model {
       role: 'Role',
       singleTunnelVip: 'SingleTunnelVip',
       zone: 'Zone',
+      zoneDistributed: 'ZoneDistributed',
     };
   }
 
@@ -25461,6 +28542,7 @@ export class QueryInstancesInfoResponseBodyData extends $tea.Model {
       role: 'string',
       singleTunnelVip: 'string',
       zone: 'string',
+      zoneDistributed: 'boolean',
     };
   }
 
@@ -25550,6 +28632,135 @@ export class QuerySlbSpecResponseBodyData extends $tea.Model {
   }
 }
 
+export class QuerySwimmingLaneByIdResponseBodyDataEntryRulesRestItems extends $tea.Model {
+  cond?: string;
+  datum?: string;
+  divisor?: number;
+  name?: string;
+  nameList?: string[];
+  operator?: string;
+  rate?: number;
+  remainder?: number;
+  type?: string;
+  value?: string;
+  static names(): { [key: string]: string } {
+    return {
+      cond: 'cond',
+      datum: 'datum',
+      divisor: 'divisor',
+      name: 'name',
+      nameList: 'nameList',
+      operator: 'operator',
+      rate: 'rate',
+      remainder: 'remainder',
+      type: 'type',
+      value: 'value',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      cond: 'string',
+      datum: 'string',
+      divisor: 'number',
+      name: 'string',
+      nameList: { 'type': 'array', 'itemType': 'string' },
+      operator: 'string',
+      rate: 'number',
+      remainder: 'number',
+      type: 'string',
+      value: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class QuerySwimmingLaneByIdResponseBodyDataEntryRules extends $tea.Model {
+  condition?: string;
+  path?: string;
+  paths?: string[];
+  restItems?: QuerySwimmingLaneByIdResponseBodyDataEntryRulesRestItems[];
+  static names(): { [key: string]: string } {
+    return {
+      condition: 'condition',
+      path: 'path',
+      paths: 'paths',
+      restItems: 'restItems',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      condition: 'string',
+      path: 'string',
+      paths: { 'type': 'array', 'itemType': 'string' },
+      restItems: { 'type': 'array', 'itemType': QuerySwimmingLaneByIdResponseBodyDataEntryRulesRestItems },
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class QuerySwimmingLaneByIdResponseBodyData extends $tea.Model {
+  enable?: boolean;
+  enableRules?: boolean;
+  entryRule?: string;
+  entryRules?: QuerySwimmingLaneByIdResponseBodyDataEntryRules[];
+  gatewaySwimmingLaneRouteJson?: string;
+  gmtCreate?: string;
+  gmtModified?: string;
+  groupId?: number;
+  id?: number;
+  name?: string;
+  regionId?: string;
+  status?: number;
+  tag?: string;
+  static names(): { [key: string]: string } {
+    return {
+      enable: 'enable',
+      enableRules: 'enableRules',
+      entryRule: 'entryRule',
+      entryRules: 'entryRules',
+      gatewaySwimmingLaneRouteJson: 'gatewaySwimmingLaneRouteJson',
+      gmtCreate: 'gmtCreate',
+      gmtModified: 'gmtModified',
+      groupId: 'groupId',
+      id: 'id',
+      name: 'name',
+      regionId: 'regionId',
+      status: 'status',
+      tag: 'tag',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      enable: 'boolean',
+      enableRules: 'boolean',
+      entryRule: 'string',
+      entryRules: { 'type': 'array', 'itemType': QuerySwimmingLaneByIdResponseBodyDataEntryRules },
+      gatewaySwimmingLaneRouteJson: 'string',
+      gmtCreate: 'string',
+      gmtModified: 'string',
+      groupId: 'number',
+      id: 'number',
+      name: 'string',
+      regionId: 'string',
+      status: 'number',
+      tag: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
 export class QueryZnodeDetailResponseBodyData extends $tea.Model {
   data?: string;
   dir?: boolean;
@@ -25622,6 +28833,64 @@ export class TagResourcesRequestTag extends $tea.Model {
   }
 }
 
+export class UpdateCircuitBreakerRuleResponseBodyData extends $tea.Model {
+  appId?: string;
+  appName?: string;
+  enable?: boolean;
+  halfOpenBaseAmountPerStep?: number;
+  halfOpenRecoveryStepNum?: number;
+  id?: number;
+  maxAllowedRtMs?: number;
+  minRequestAmount?: number;
+  namespace?: string;
+  resource?: string;
+  retryTimeoutMs?: number;
+  statIntervalMs?: number;
+  strategy?: number;
+  threshold?: number;
+  static names(): { [key: string]: string } {
+    return {
+      appId: 'AppId',
+      appName: 'AppName',
+      enable: 'Enable',
+      halfOpenBaseAmountPerStep: 'HalfOpenBaseAmountPerStep',
+      halfOpenRecoveryStepNum: 'HalfOpenRecoveryStepNum',
+      id: 'Id',
+      maxAllowedRtMs: 'MaxAllowedRtMs',
+      minRequestAmount: 'MinRequestAmount',
+      namespace: 'Namespace',
+      resource: 'Resource',
+      retryTimeoutMs: 'RetryTimeoutMs',
+      statIntervalMs: 'StatIntervalMs',
+      strategy: 'Strategy',
+      threshold: 'Threshold',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      appId: 'string',
+      appName: 'string',
+      enable: 'boolean',
+      halfOpenBaseAmountPerStep: 'number',
+      halfOpenRecoveryStepNum: 'number',
+      id: 'number',
+      maxAllowedRtMs: 'number',
+      minRequestAmount: 'number',
+      namespace: 'string',
+      resource: 'string',
+      retryTimeoutMs: 'number',
+      statIntervalMs: 'number',
+      strategy: 'number',
+      threshold: 'number',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
 export class UpdateEngineNamespaceResponseBodyData extends $tea.Model {
   configCount?: number;
   namespace?: string;
@@ -25648,6 +28917,49 @@ export class UpdateEngineNamespaceResponseBodyData extends $tea.Model {
       namespaceShowName: 'string',
       quota: 'number',
       type: 'number',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class UpdateFlowRuleResponseBodyData extends $tea.Model {
+  appId?: string;
+  appName?: string;
+  controlBehavior?: number;
+  enable?: boolean;
+  id?: number;
+  maxQueueingTimeMs?: number;
+  namespace?: string;
+  resource?: string;
+  threshold?: number;
+  static names(): { [key: string]: string } {
+    return {
+      appId: 'AppId',
+      appName: 'AppName',
+      controlBehavior: 'ControlBehavior',
+      enable: 'Enable',
+      id: 'Id',
+      maxQueueingTimeMs: 'MaxQueueingTimeMs',
+      namespace: 'Namespace',
+      resource: 'Resource',
+      threshold: 'Threshold',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      appId: 'string',
+      appName: 'string',
+      controlBehavior: 'number',
+      enable: 'boolean',
+      id: 'number',
+      maxQueueingTimeMs: 'number',
+      namespace: 'string',
+      resource: 'string',
+      threshold: 'number',
     };
   }
 
@@ -26684,6 +29996,75 @@ export default class Client extends OpenApi {
     return EndpointUtil.getEndpointRules(productId, regionId, endpointRule, network, suffix);
   }
 
+  async addAuthPolicyWithOptions(request: AddAuthPolicyRequest, runtime: $Util.RuntimeOptions): Promise<AddAuthPolicyResponse> {
+    Util.validateModel(request);
+    let query = { };
+    if (!Util.isUnset(request.acceptLanguage)) {
+      query["AcceptLanguage"] = request.acceptLanguage;
+    }
+
+    if (!Util.isUnset(request.appId)) {
+      query["AppId"] = request.appId;
+    }
+
+    if (!Util.isUnset(request.authRule)) {
+      query["AuthRule"] = request.authRule;
+    }
+
+    if (!Util.isUnset(request.authType)) {
+      query["AuthType"] = request.authType;
+    }
+
+    if (!Util.isUnset(request.enable)) {
+      query["Enable"] = request.enable;
+    }
+
+    if (!Util.isUnset(request.k8sNamespace)) {
+      query["K8sNamespace"] = request.k8sNamespace;
+    }
+
+    if (!Util.isUnset(request.name)) {
+      query["Name"] = request.name;
+    }
+
+    if (!Util.isUnset(request.namespace)) {
+      query["Namespace"] = request.namespace;
+    }
+
+    if (!Util.isUnset(request.protocol)) {
+      query["Protocol"] = request.protocol;
+    }
+
+    if (!Util.isUnset(request.region)) {
+      query["Region"] = request.region;
+    }
+
+    if (!Util.isUnset(request.source)) {
+      query["Source"] = request.source;
+    }
+
+    let req = new $OpenApi.OpenApiRequest({
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApi.Params({
+      action: "AddAuthPolicy",
+      version: "2019-05-31",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $tea.cast<AddAuthPolicyResponse>(await this.callApi(params, req, runtime), new AddAuthPolicyResponse({}));
+  }
+
+  async addAuthPolicy(request: AddAuthPolicyRequest): Promise<AddAuthPolicyResponse> {
+    let runtime = new $Util.RuntimeOptions({ });
+    return await this.addAuthPolicyWithOptions(request, runtime);
+  }
+
   async addAuthResourceWithOptions(tmpReq: AddAuthResourceRequest, runtime: $Util.RuntimeOptions): Promise<AddAuthResourceResponse> {
     Util.validateModel(tmpReq);
     let request = new AddAuthResourceShrinkRequest({ });
@@ -26812,11 +30193,21 @@ export default class Client extends OpenApi {
     return await this.addBlackWhiteListWithOptions(request, runtime);
   }
 
-  async addGatewayWithOptions(request: AddGatewayRequest, runtime: $Util.RuntimeOptions): Promise<AddGatewayResponse> {
-    Util.validateModel(request);
+  async addGatewayWithOptions(tmpReq: AddGatewayRequest, runtime: $Util.RuntimeOptions): Promise<AddGatewayResponse> {
+    Util.validateModel(tmpReq);
+    let request = new AddGatewayShrinkRequest({ });
+    OpenApiUtil.convert(tmpReq, request);
+    if (!Util.isUnset(tmpReq.zoneInfo)) {
+      request.zoneInfoShrink = OpenApiUtil.arrayToStringWithSpecifiedStyle(tmpReq.zoneInfo, "ZoneInfo", "json");
+    }
+
     let query = { };
     if (!Util.isUnset(request.acceptLanguage)) {
       query["AcceptLanguage"] = request.acceptLanguage;
+    }
+
+    if (!Util.isUnset(request.chargeType)) {
+      query["ChargeType"] = request.chargeType;
     }
 
     if (!Util.isUnset(request.enableHardwareAcceleration)) {
@@ -26885,6 +30276,10 @@ export default class Client extends OpenApi {
 
     if (!Util.isUnset(request.xtraceRatio)) {
       query["XtraceRatio"] = request.xtraceRatio;
+    }
+
+    if (!Util.isUnset(request.zoneInfoShrink)) {
+      query["ZoneInfo"] = request.zoneInfoShrink;
     }
 
     let req = new $OpenApi.OpenApiRequest({
@@ -27203,8 +30598,14 @@ export default class Client extends OpenApi {
     return await this.addGatewayServiceVersionWithOptions(request, runtime);
   }
 
-  async addGatewaySlbWithOptions(request: AddGatewaySlbRequest, runtime: $Util.RuntimeOptions): Promise<AddGatewaySlbResponse> {
-    Util.validateModel(request);
+  async addGatewaySlbWithOptions(tmpReq: AddGatewaySlbRequest, runtime: $Util.RuntimeOptions): Promise<AddGatewaySlbResponse> {
+    Util.validateModel(tmpReq);
+    let request = new AddGatewaySlbShrinkRequest({ });
+    OpenApiUtil.convert(tmpReq, request);
+    if (!Util.isUnset(tmpReq.VServiceList)) {
+      request.VServiceListShrink = OpenApiUtil.arrayToStringWithSpecifiedStyle(tmpReq.VServiceList, "VServiceList", "json");
+    }
+
     let query = { };
     if (!Util.isUnset(request.acceptLanguage)) {
       query["AcceptLanguage"] = request.acceptLanguage;
@@ -27240,6 +30641,10 @@ export default class Client extends OpenApi {
 
     if (!Util.isUnset(request.VServerGroupId)) {
       query["VServerGroupId"] = request.VServerGroupId;
+    }
+
+    if (!Util.isUnset(request.VServiceListShrink)) {
+      query["VServiceList"] = request.VServiceListShrink;
     }
 
     let req = new $OpenApi.OpenApiRequest({
@@ -27635,10 +31040,6 @@ export default class Client extends OpenApi {
       query["Rules"] = request.rules;
     }
 
-    if (!Util.isUnset(request.source)) {
-      query["Source"] = request.source;
-    }
-
     let req = new $OpenApi.OpenApiRequest({
       query: OpenApiUtil.query(query),
     });
@@ -27662,7 +31063,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-    * > The operation is not provided in Nacos SDKs. For information about Nacos SDKs, see the [official documentation](https://nacos.io/zh-cn/docs/sdk.html).
+    * mse-200-105
     *
     * @param request CloneNacosConfigRequest
     * @param runtime runtime options for this request RuntimeOptions
@@ -27713,7 +31114,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-    * > The operation is not provided in Nacos SDKs. For information about Nacos SDKs, see the [official documentation](https://nacos.io/zh-cn/docs/sdk.html).
+    * mse-200-105
     *
     * @param request CloneNacosConfigRequest
     * @return CloneNacosConfigResponse
@@ -27780,6 +31181,91 @@ export default class Client extends OpenApi {
     return await this.createApplicationWithOptions(request, runtime);
   }
 
+  async createCircuitBreakerRuleWithOptions(request: CreateCircuitBreakerRuleRequest, runtime: $Util.RuntimeOptions): Promise<CreateCircuitBreakerRuleResponse> {
+    Util.validateModel(request);
+    let query = { };
+    if (!Util.isUnset(request.acceptLanguage)) {
+      query["AcceptLanguage"] = request.acceptLanguage;
+    }
+
+    if (!Util.isUnset(request.appId)) {
+      query["AppId"] = request.appId;
+    }
+
+    if (!Util.isUnset(request.appName)) {
+      query["AppName"] = request.appName;
+    }
+
+    if (!Util.isUnset(request.enable)) {
+      query["Enable"] = request.enable;
+    }
+
+    if (!Util.isUnset(request.halfOpenBaseAmountPerStep)) {
+      query["HalfOpenBaseAmountPerStep"] = request.halfOpenBaseAmountPerStep;
+    }
+
+    if (!Util.isUnset(request.halfOpenRecoveryStepNum)) {
+      query["HalfOpenRecoveryStepNum"] = request.halfOpenRecoveryStepNum;
+    }
+
+    if (!Util.isUnset(request.maxAllowedRtMs)) {
+      query["MaxAllowedRtMs"] = request.maxAllowedRtMs;
+    }
+
+    if (!Util.isUnset(request.minRequestAmount)) {
+      query["MinRequestAmount"] = request.minRequestAmount;
+    }
+
+    if (!Util.isUnset(request.namespace)) {
+      query["Namespace"] = request.namespace;
+    }
+
+    if (!Util.isUnset(request.regionId)) {
+      query["RegionId"] = request.regionId;
+    }
+
+    if (!Util.isUnset(request.resource)) {
+      query["Resource"] = request.resource;
+    }
+
+    if (!Util.isUnset(request.retryTimeoutMs)) {
+      query["RetryTimeoutMs"] = request.retryTimeoutMs;
+    }
+
+    if (!Util.isUnset(request.statIntervalMs)) {
+      query["StatIntervalMs"] = request.statIntervalMs;
+    }
+
+    if (!Util.isUnset(request.strategy)) {
+      query["Strategy"] = request.strategy;
+    }
+
+    if (!Util.isUnset(request.threshold)) {
+      query["Threshold"] = request.threshold;
+    }
+
+    let req = new $OpenApi.OpenApiRequest({
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApi.Params({
+      action: "CreateCircuitBreakerRule",
+      version: "2019-05-31",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $tea.cast<CreateCircuitBreakerRuleResponse>(await this.callApi(params, req, runtime), new CreateCircuitBreakerRuleResponse({}));
+  }
+
+  async createCircuitBreakerRule(request: CreateCircuitBreakerRuleRequest): Promise<CreateCircuitBreakerRuleResponse> {
+    let runtime = new $Util.RuntimeOptions({ });
+    return await this.createCircuitBreakerRuleWithOptions(request, runtime);
+  }
+
   /**
     * Before you call this API operation, you must make sure that you fully understand the billing methods and pricing of MSE.
     *
@@ -27792,6 +31278,10 @@ export default class Client extends OpenApi {
     let query = { };
     if (!Util.isUnset(request.acceptLanguage)) {
       query["AcceptLanguage"] = request.acceptLanguage;
+    }
+
+    if (!Util.isUnset(request.chargeType)) {
+      query["ChargeType"] = request.chargeType;
     }
 
     if (!Util.isUnset(request.clusterSpecification)) {
@@ -27812,6 +31302,10 @@ export default class Client extends OpenApi {
 
     if (!Util.isUnset(request.diskType)) {
       query["DiskType"] = request.diskType;
+    }
+
+    if (!Util.isUnset(request.eipEnabled)) {
+      query["EipEnabled"] = request.eipEnabled;
     }
 
     if (!Util.isUnset(request.instanceCount)) {
@@ -27852,6 +31346,10 @@ export default class Client extends OpenApi {
 
     if (!Util.isUnset(request.resourceGroupId)) {
       query["ResourceGroupId"] = request.resourceGroupId;
+    }
+
+    if (!Util.isUnset(request.securityGroupType)) {
+      query["SecurityGroupType"] = request.securityGroupType;
     }
 
     if (!Util.isUnset(request.tag)) {
@@ -27945,6 +31443,71 @@ export default class Client extends OpenApi {
   async createEngineNamespace(request: CreateEngineNamespaceRequest): Promise<CreateEngineNamespaceResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.createEngineNamespaceWithOptions(request, runtime);
+  }
+
+  async createFlowRuleWithOptions(request: CreateFlowRuleRequest, runtime: $Util.RuntimeOptions): Promise<CreateFlowRuleResponse> {
+    Util.validateModel(request);
+    let query = { };
+    if (!Util.isUnset(request.acceptLanguage)) {
+      query["AcceptLanguage"] = request.acceptLanguage;
+    }
+
+    if (!Util.isUnset(request.appId)) {
+      query["AppId"] = request.appId;
+    }
+
+    if (!Util.isUnset(request.appName)) {
+      query["AppName"] = request.appName;
+    }
+
+    if (!Util.isUnset(request.controlBehavior)) {
+      query["ControlBehavior"] = request.controlBehavior;
+    }
+
+    if (!Util.isUnset(request.enable)) {
+      query["Enable"] = request.enable;
+    }
+
+    if (!Util.isUnset(request.maxQueueingTimeMs)) {
+      query["MaxQueueingTimeMs"] = request.maxQueueingTimeMs;
+    }
+
+    if (!Util.isUnset(request.namespace)) {
+      query["Namespace"] = request.namespace;
+    }
+
+    if (!Util.isUnset(request.regionId)) {
+      query["RegionId"] = request.regionId;
+    }
+
+    if (!Util.isUnset(request.resource)) {
+      query["Resource"] = request.resource;
+    }
+
+    if (!Util.isUnset(request.threshold)) {
+      query["Threshold"] = request.threshold;
+    }
+
+    let req = new $OpenApi.OpenApiRequest({
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApi.Params({
+      action: "CreateFlowRule",
+      version: "2019-05-31",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $tea.cast<CreateFlowRuleResponse>(await this.callApi(params, req, runtime), new CreateFlowRuleResponse({}));
+  }
+
+  async createFlowRule(request: CreateFlowRuleRequest): Promise<CreateFlowRuleResponse> {
+    let runtime = new $Util.RuntimeOptions({ });
+    return await this.createFlowRuleWithOptions(request, runtime);
   }
 
   /**
@@ -28106,7 +31669,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-    * > The operation is not provided in Nacos SDKs. For information about Nacos SDKs, see the [official documentation](https://nacos.io/zh-cn/docs/sdk.html).
+    * mse-200-105
     *
     * @param request CreateNacosInstanceRequest
     * @param runtime runtime options for this request RuntimeOptions
@@ -28183,7 +31746,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-    * > The operation is not provided in Nacos SDKs. For information about Nacos SDKs, see the [official documentation](https://nacos.io/zh-cn/docs/sdk.html).
+    * mse-200-105
     *
     * @param request CreateNacosInstanceRequest
     * @return CreateNacosInstanceResponse
@@ -28288,20 +31851,8 @@ export default class Client extends OpenApi {
       query["EntryRule"] = request.entryRule;
     }
 
-    if (!Util.isUnset(request.entryRules)) {
-      query["EntryRules"] = request.entryRules;
-    }
-
     if (!Util.isUnset(request.gatewaySwimmingLaneRouteJsonShrink)) {
       query["GatewaySwimmingLaneRouteJson"] = request.gatewaySwimmingLaneRouteJsonShrink;
-    }
-
-    if (!Util.isUnset(request.gmtCreate)) {
-      query["GmtCreate"] = request.gmtCreate;
-    }
-
-    if (!Util.isUnset(request.gmtModified)) {
-      query["GmtModified"] = request.gmtModified;
     }
 
     if (!Util.isUnset(request.groupId)) {
@@ -28310,10 +31861,6 @@ export default class Client extends OpenApi {
 
     if (!Util.isUnset(request.id)) {
       query["Id"] = request.id;
-    }
-
-    if (!Util.isUnset(request.licenseKey)) {
-      query["LicenseKey"] = request.licenseKey;
     }
 
     if (!Util.isUnset(request.name)) {
@@ -28328,24 +31875,18 @@ export default class Client extends OpenApi {
       query["RegionId"] = request.regionId;
     }
 
-    if (!Util.isUnset(request.source)) {
-      query["Source"] = request.source;
-    }
-
-    if (!Util.isUnset(request.status)) {
-      query["Status"] = request.status;
-    }
-
     if (!Util.isUnset(request.tag)) {
       query["Tag"] = request.tag;
     }
 
-    if (!Util.isUnset(request.userId)) {
-      query["UserId"] = request.userId;
+    let body : {[key: string ]: any} = { };
+    if (!Util.isUnset(request.entryRules)) {
+      body["EntryRules"] = request.entryRules;
     }
 
     let req = new $OpenApi.OpenApiRequest({
       query: OpenApiUtil.query(query),
+      body: OpenApiUtil.parseToMap(body),
     });
     let params = new $OpenApi.Params({
       action: "CreateOrUpdateSwimmingLane",
@@ -28381,28 +31922,12 @@ export default class Client extends OpenApi {
       query["DbGrayEnable"] = request.dbGrayEnable;
     }
 
-    if (!Util.isUnset(request.enable)) {
-      query["Enable"] = request.enable;
-    }
-
     if (!Util.isUnset(request.entryApp)) {
       query["EntryApp"] = request.entryApp;
     }
 
-    if (!Util.isUnset(request.gmtCreate)) {
-      query["GmtCreate"] = request.gmtCreate;
-    }
-
-    if (!Util.isUnset(request.gmtModified)) {
-      query["GmtModified"] = request.gmtModified;
-    }
-
     if (!Util.isUnset(request.id)) {
       query["Id"] = request.id;
-    }
-
-    if (!Util.isUnset(request.licenseKey)) {
-      query["LicenseKey"] = request.licenseKey;
     }
 
     if (!Util.isUnset(request.messageQueueFilterSide)) {
@@ -28429,16 +31954,8 @@ export default class Client extends OpenApi {
       query["Region"] = request.region;
     }
 
-    if (!Util.isUnset(request.source)) {
-      query["Source"] = request.source;
-    }
-
     if (!Util.isUnset(request.status)) {
       query["Status"] = request.status;
-    }
-
-    if (!Util.isUnset(request.userId)) {
-      query["UserId"] = request.userId;
     }
 
     let req = new $OpenApi.OpenApiRequest({
@@ -28541,6 +32058,53 @@ export default class Client extends OpenApi {
     return await this.deleteAuthResourceWithOptions(request, runtime);
   }
 
+  async deleteCircuitBreakerRulesWithOptions(tmpReq: DeleteCircuitBreakerRulesRequest, runtime: $Util.RuntimeOptions): Promise<DeleteCircuitBreakerRulesResponse> {
+    Util.validateModel(tmpReq);
+    let request = new DeleteCircuitBreakerRulesShrinkRequest({ });
+    OpenApiUtil.convert(tmpReq, request);
+    if (!Util.isUnset(tmpReq.ids)) {
+      request.idsShrink = OpenApiUtil.arrayToStringWithSpecifiedStyle(tmpReq.ids, "Ids", "json");
+    }
+
+    let query = { };
+    if (!Util.isUnset(request.acceptLanguage)) {
+      query["AcceptLanguage"] = request.acceptLanguage;
+    }
+
+    if (!Util.isUnset(request.appName)) {
+      query["AppName"] = request.appName;
+    }
+
+    if (!Util.isUnset(request.idsShrink)) {
+      query["Ids"] = request.idsShrink;
+    }
+
+    if (!Util.isUnset(request.namespace)) {
+      query["Namespace"] = request.namespace;
+    }
+
+    let req = new $OpenApi.OpenApiRequest({
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApi.Params({
+      action: "DeleteCircuitBreakerRules",
+      version: "2019-05-31",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $tea.cast<DeleteCircuitBreakerRulesResponse>(await this.callApi(params, req, runtime), new DeleteCircuitBreakerRulesResponse({}));
+  }
+
+  async deleteCircuitBreakerRules(request: DeleteCircuitBreakerRulesRequest): Promise<DeleteCircuitBreakerRulesResponse> {
+    let runtime = new $Util.RuntimeOptions({ });
+    return await this.deleteCircuitBreakerRulesWithOptions(request, runtime);
+  }
+
   async deleteClusterWithOptions(request: DeleteClusterRequest, runtime: $Util.RuntimeOptions): Promise<DeleteClusterResponse> {
     Util.validateModel(request);
     let query = { };
@@ -28613,6 +32177,53 @@ export default class Client extends OpenApi {
   async deleteEngineNamespace(request: DeleteEngineNamespaceRequest): Promise<DeleteEngineNamespaceResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.deleteEngineNamespaceWithOptions(request, runtime);
+  }
+
+  async deleteFlowRulesWithOptions(tmpReq: DeleteFlowRulesRequest, runtime: $Util.RuntimeOptions): Promise<DeleteFlowRulesResponse> {
+    Util.validateModel(tmpReq);
+    let request = new DeleteFlowRulesShrinkRequest({ });
+    OpenApiUtil.convert(tmpReq, request);
+    if (!Util.isUnset(tmpReq.ids)) {
+      request.idsShrink = OpenApiUtil.arrayToStringWithSpecifiedStyle(tmpReq.ids, "Ids", "json");
+    }
+
+    let query = { };
+    if (!Util.isUnset(request.acceptLanguage)) {
+      query["AcceptLanguage"] = request.acceptLanguage;
+    }
+
+    if (!Util.isUnset(request.appName)) {
+      query["AppName"] = request.appName;
+    }
+
+    if (!Util.isUnset(request.idsShrink)) {
+      query["Ids"] = request.idsShrink;
+    }
+
+    if (!Util.isUnset(request.namespace)) {
+      query["Namespace"] = request.namespace;
+    }
+
+    let req = new $OpenApi.OpenApiRequest({
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApi.Params({
+      action: "DeleteFlowRules",
+      version: "2019-05-31",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $tea.cast<DeleteFlowRulesResponse>(await this.callApi(params, req, runtime), new DeleteFlowRulesResponse({}));
+  }
+
+  async deleteFlowRules(request: DeleteFlowRulesRequest): Promise<DeleteFlowRulesResponse> {
+    let runtime = new $Util.RuntimeOptions({ });
+    return await this.deleteFlowRulesWithOptions(request, runtime);
   }
 
   async deleteGatewayWithOptions(request: DeleteGatewayRequest, runtime: $Util.RuntimeOptions): Promise<DeleteGatewayResponse> {
@@ -28905,6 +32516,10 @@ export default class Client extends OpenApi {
       query["Id"] = request.id;
     }
 
+    if (!Util.isUnset(request.slbId)) {
+      query["SlbId"] = request.slbId;
+    }
+
     let req = new $OpenApi.OpenApiRequest({
       query: OpenApiUtil.query(query),
     });
@@ -28964,13 +32579,6 @@ export default class Client extends OpenApi {
     return await this.deleteMigrationTaskWithOptions(request, runtime);
   }
 
-  /**
-    * > The operation is not provided in Nacos SDKs. For information about Nacos SDKs, see the [official documentation](https://nacos.io/zh-cn/docs/sdk.html).
-    *
-    * @param request DeleteNacosConfigRequest
-    * @param runtime runtime options for this request RuntimeOptions
-    * @return DeleteNacosConfigResponse
-   */
   async deleteNacosConfigWithOptions(request: DeleteNacosConfigRequest, runtime: $Util.RuntimeOptions): Promise<DeleteNacosConfigResponse> {
     Util.validateModel(request);
     let query = { };
@@ -29015,12 +32623,6 @@ export default class Client extends OpenApi {
     return $tea.cast<DeleteNacosConfigResponse>(await this.callApi(params, req, runtime), new DeleteNacosConfigResponse({}));
   }
 
-  /**
-    * > The operation is not provided in Nacos SDKs. For information about Nacos SDKs, see the [official documentation](https://nacos.io/zh-cn/docs/sdk.html).
-    *
-    * @param request DeleteNacosConfigRequest
-    * @return DeleteNacosConfigResponse
-   */
   async deleteNacosConfig(request: DeleteNacosConfigRequest): Promise<DeleteNacosConfigResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.deleteNacosConfigWithOptions(request, runtime);
@@ -29371,16 +32973,12 @@ export default class Client extends OpenApi {
       query["GroupId"] = request.groupId;
     }
 
+    if (!Util.isUnset(request.name)) {
+      query["Name"] = request.name;
+    }
+
     if (!Util.isUnset(request.namespace)) {
       query["Namespace"] = request.namespace;
-    }
-
-    if (!Util.isUnset(request.region)) {
-      query["Region"] = request.region;
-    }
-
-    if (!Util.isUnset(request.name)) {
-      query["name"] = request.name;
     }
 
     let req = new $OpenApi.OpenApiRequest({
@@ -29466,6 +33064,10 @@ export default class Client extends OpenApi {
 
     if (!Util.isUnset(request.dataId)) {
       query["DataId"] = request.dataId;
+    }
+
+    if (!Util.isUnset(request.dataIds)) {
+      query["DataIds"] = request.dataIds;
     }
 
     if (!Util.isUnset(request.group)) {
@@ -29750,6 +33352,14 @@ export default class Client extends OpenApi {
     return await this.getApplicationListWithOptions(request, runtime);
   }
 
+  /**
+    * @deprecated : GetApplicationListWithMetircs is deprecated, please use mse::2019-05-31::GetApplicationList instead.
+    *
+    * @param request GetApplicationListWithMetircsRequest
+    * @param runtime runtime options for this request RuntimeOptions
+    * @return GetApplicationListWithMetircsResponse
+   */
+  // Deprecated
   async getApplicationListWithMetircsWithOptions(request: GetApplicationListWithMetircsRequest, runtime: $Util.RuntimeOptions): Promise<GetApplicationListWithMetircsResponse> {
     Util.validateModel(request);
     let query = { };
@@ -29802,6 +33412,13 @@ export default class Client extends OpenApi {
     return $tea.cast<GetApplicationListWithMetircsResponse>(await this.callApi(params, req, runtime), new GetApplicationListWithMetircsResponse({}));
   }
 
+  /**
+    * @deprecated : GetApplicationListWithMetircs is deprecated, please use mse::2019-05-31::GetApplicationList instead.
+    *
+    * @param request GetApplicationListWithMetircsRequest
+    * @return GetApplicationListWithMetircsResponse
+   */
+  // Deprecated
   async getApplicationListWithMetircs(request: GetApplicationListWithMetircsRequest): Promise<GetApplicationListWithMetircsResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.getApplicationListWithMetircsWithOptions(request, runtime);
@@ -30182,7 +33799,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-    * > The operation is not provided in Nacos SDKs. For information about Nacos SDKs, see the [official documentation](https://nacos.io/zh-cn/docs/sdk.html).
+    * > The operation is not provided in Nacos SDKs. For information about Nacos SDKs, see the [official documentation](https://nacos.io/zh-cn/docs/sdk.html).\\n
     *
     * @param request GetImportFileUrlRequest
     * @param runtime runtime options for this request RuntimeOptions
@@ -30225,7 +33842,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-    * > The operation is not provided in Nacos SDKs. For information about Nacos SDKs, see the [official documentation](https://nacos.io/zh-cn/docs/sdk.html).
+    * > The operation is not provided in Nacos SDKs. For information about Nacos SDKs, see the [official documentation](https://nacos.io/zh-cn/docs/sdk.html).\\n
     *
     * @param request GetImportFileUrlRequest
     * @return GetImportFileUrlResponse
@@ -30244,6 +33861,10 @@ export default class Client extends OpenApi {
 
     if (!Util.isUnset(request.gatewayUniqueId)) {
       query["GatewayUniqueId"] = request.gatewayUniqueId;
+    }
+
+    if (!Util.isUnset(request.isAll)) {
+      query["IsAll"] = request.isAll;
     }
 
     if (!Util.isUnset(request.vpcId)) {
@@ -30270,6 +33891,68 @@ export default class Client extends OpenApi {
   async getKubernetesSource(request: GetKubernetesSourceRequest): Promise<GetKubernetesSourceResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.getKubernetesSourceWithOptions(request, runtime);
+  }
+
+  /**
+    * You can call this operation to query the rules for graceful start and shutdown of an application.
+    * You can query the rules for graceful start and shutdown of an application preferentially by using the AppId parameter.
+    * If the AppId parameter is left empty, you can use the RegionId, Namespace, and AppName parameters to query the rules for graceful start and shutdown of an application.
+    *
+    * @param request GetLosslessRuleByAppRequest
+    * @param runtime runtime options for this request RuntimeOptions
+    * @return GetLosslessRuleByAppResponse
+   */
+  async getLosslessRuleByAppWithOptions(request: GetLosslessRuleByAppRequest, runtime: $Util.RuntimeOptions): Promise<GetLosslessRuleByAppResponse> {
+    Util.validateModel(request);
+    let query = { };
+    if (!Util.isUnset(request.acceptLanguage)) {
+      query["AcceptLanguage"] = request.acceptLanguage;
+    }
+
+    if (!Util.isUnset(request.appId)) {
+      query["AppId"] = request.appId;
+    }
+
+    if (!Util.isUnset(request.appName)) {
+      query["AppName"] = request.appName;
+    }
+
+    if (!Util.isUnset(request.namespace)) {
+      query["Namespace"] = request.namespace;
+    }
+
+    if (!Util.isUnset(request.regionId)) {
+      query["RegionId"] = request.regionId;
+    }
+
+    let req = new $OpenApi.OpenApiRequest({
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApi.Params({
+      action: "GetLosslessRuleByApp",
+      version: "2019-05-31",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $tea.cast<GetLosslessRuleByAppResponse>(await this.callApi(params, req, runtime), new GetLosslessRuleByAppResponse({}));
+  }
+
+  /**
+    * You can call this operation to query the rules for graceful start and shutdown of an application.
+    * You can query the rules for graceful start and shutdown of an application preferentially by using the AppId parameter.
+    * If the AppId parameter is left empty, you can use the RegionId, Namespace, and AppName parameters to query the rules for graceful start and shutdown of an application.
+    *
+    * @param request GetLosslessRuleByAppRequest
+    * @return GetLosslessRuleByAppResponse
+   */
+  async getLosslessRuleByApp(request: GetLosslessRuleByAppRequest): Promise<GetLosslessRuleByAppResponse> {
+    let runtime = new $Util.RuntimeOptions({ });
+    return await this.getLosslessRuleByAppWithOptions(request, runtime);
   }
 
   async getMseFeatureSwitchWithOptions(request: GetMseFeatureSwitchRequest, runtime: $Util.RuntimeOptions): Promise<GetMseFeatureSwitchResponse> {
@@ -30463,7 +34146,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-    * You can call the GetOverview operation to query overview information about service governance.
+    * You can call this operation to query overview information about service governance.
     *
     * @param request GetOverviewRequest
     * @param runtime runtime options for this request RuntimeOptions
@@ -30502,7 +34185,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-    * You can call the GetOverview operation to query overview information about service governance.
+    * You can call this operation to query overview information about service governance.
     *
     * @param request GetOverviewRequest
     * @return GetOverviewResponse
@@ -30643,6 +34326,67 @@ export default class Client extends OpenApi {
     return await this.getServiceListWithOptions(request, runtime);
   }
 
+  async getServiceListPageWithOptions(request: GetServiceListPageRequest, runtime: $Util.RuntimeOptions): Promise<GetServiceListPageResponse> {
+    Util.validateModel(request);
+    let query = { };
+    if (!Util.isUnset(request.acceptLanguage)) {
+      query["AcceptLanguage"] = request.acceptLanguage;
+    }
+
+    if (!Util.isUnset(request.appId)) {
+      query["AppId"] = request.appId;
+    }
+
+    if (!Util.isUnset(request.ip)) {
+      query["Ip"] = request.ip;
+    }
+
+    if (!Util.isUnset(request.namespace)) {
+      query["Namespace"] = request.namespace;
+    }
+
+    if (!Util.isUnset(request.pageNumber)) {
+      query["PageNumber"] = request.pageNumber;
+    }
+
+    if (!Util.isUnset(request.pageSize)) {
+      query["PageSize"] = request.pageSize;
+    }
+
+    if (!Util.isUnset(request.region)) {
+      query["Region"] = request.region;
+    }
+
+    if (!Util.isUnset(request.serviceName)) {
+      query["ServiceName"] = request.serviceName;
+    }
+
+    if (!Util.isUnset(request.serviceType)) {
+      query["ServiceType"] = request.serviceType;
+    }
+
+    let req = new $OpenApi.OpenApiRequest({
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApi.Params({
+      action: "GetServiceListPage",
+      version: "2019-05-31",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $tea.cast<GetServiceListPageResponse>(await this.callApi(params, req, runtime), new GetServiceListPageResponse({}));
+  }
+
+  async getServiceListPage(request: GetServiceListPageRequest): Promise<GetServiceListPageResponse> {
+    let runtime = new $Util.RuntimeOptions({ });
+    return await this.getServiceListPageWithOptions(request, runtime);
+  }
+
   async getServiceListenersWithOptions(request: GetServiceListenersRequest, runtime: $Util.RuntimeOptions): Promise<GetServiceListenersResponse> {
     Util.validateModel(request);
     let query = { };
@@ -30714,6 +34458,87 @@ export default class Client extends OpenApi {
   async getServiceListeners(request: GetServiceListenersRequest): Promise<GetServiceListenersResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.getServiceListenersWithOptions(request, runtime);
+  }
+
+  async getServiceMethodPageWithOptions(request: GetServiceMethodPageRequest, runtime: $Util.RuntimeOptions): Promise<GetServiceMethodPageResponse> {
+    Util.validateModel(request);
+    let query = { };
+    if (!Util.isUnset(request.acceptLanguage)) {
+      query["AcceptLanguage"] = request.acceptLanguage;
+    }
+
+    if (!Util.isUnset(request.appId)) {
+      query["AppId"] = request.appId;
+    }
+
+    if (!Util.isUnset(request.appName)) {
+      query["AppName"] = request.appName;
+    }
+
+    if (!Util.isUnset(request.ip)) {
+      query["Ip"] = request.ip;
+    }
+
+    if (!Util.isUnset(request.methodController)) {
+      query["MethodController"] = request.methodController;
+    }
+
+    if (!Util.isUnset(request.name)) {
+      query["Name"] = request.name;
+    }
+
+    if (!Util.isUnset(request.pageNumber)) {
+      query["PageNumber"] = request.pageNumber;
+    }
+
+    if (!Util.isUnset(request.pageSize)) {
+      query["PageSize"] = request.pageSize;
+    }
+
+    if (!Util.isUnset(request.path)) {
+      query["Path"] = request.path;
+    }
+
+    if (!Util.isUnset(request.region)) {
+      query["Region"] = request.region;
+    }
+
+    if (!Util.isUnset(request.serviceGroup)) {
+      query["ServiceGroup"] = request.serviceGroup;
+    }
+
+    if (!Util.isUnset(request.serviceName)) {
+      query["ServiceName"] = request.serviceName;
+    }
+
+    if (!Util.isUnset(request.serviceType)) {
+      query["ServiceType"] = request.serviceType;
+    }
+
+    if (!Util.isUnset(request.serviceVersion)) {
+      query["ServiceVersion"] = request.serviceVersion;
+    }
+
+    let req = new $OpenApi.OpenApiRequest({
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApi.Params({
+      action: "GetServiceMethodPage",
+      version: "2019-05-31",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $tea.cast<GetServiceMethodPageResponse>(await this.callApi(params, req, runtime), new GetServiceMethodPageResponse({}));
+  }
+
+  async getServiceMethodPage(request: GetServiceMethodPageRequest): Promise<GetServiceMethodPageResponse> {
+    let runtime = new $Util.RuntimeOptions({ });
+    return await this.getServiceMethodPageWithOptions(request, runtime);
   }
 
   async getTagsBySwimmingLaneGroupIdWithOptions(request: GetTagsBySwimmingLaneGroupIdRequest, runtime: $Util.RuntimeOptions): Promise<GetTagsBySwimmingLaneGroupIdResponse> {
@@ -30908,7 +34733,6 @@ export default class Client extends OpenApi {
   }
 
   /**
-    * **
     * **Danger** This operation clears existing data. Exercise caution when you call this API operation.
     *
     * @param request ImportZookeeperDataRequest
@@ -30960,7 +34784,6 @@ export default class Client extends OpenApi {
   }
 
   /**
-    * **
     * **Danger** This operation clears existing data. Exercise caution when you call this API operation.
     *
     * @param request ImportZookeeperDataRequest
@@ -31018,7 +34841,43 @@ export default class Client extends OpenApi {
    */
   async listAnsServiceClustersWithOptions(request: ListAnsServiceClustersRequest, runtime: $Util.RuntimeOptions): Promise<ListAnsServiceClustersResponse> {
     Util.validateModel(request);
-    let query = OpenApiUtil.query(Util.toMap(request));
+    let query = { };
+    if (!Util.isUnset(request.acceptLanguage)) {
+      query["AcceptLanguage"] = request.acceptLanguage;
+    }
+
+    if (!Util.isUnset(request.clusterId)) {
+      query["ClusterId"] = request.clusterId;
+    }
+
+    if (!Util.isUnset(request.clusterName)) {
+      query["ClusterName"] = request.clusterName;
+    }
+
+    if (!Util.isUnset(request.groupName)) {
+      query["GroupName"] = request.groupName;
+    }
+
+    if (!Util.isUnset(request.instanceId)) {
+      query["InstanceId"] = request.instanceId;
+    }
+
+    if (!Util.isUnset(request.namespaceId)) {
+      query["NamespaceId"] = request.namespaceId;
+    }
+
+    if (!Util.isUnset(request.pageNum)) {
+      query["PageNum"] = request.pageNum;
+    }
+
+    if (!Util.isUnset(request.pageSize)) {
+      query["PageSize"] = request.pageSize;
+    }
+
+    if (!Util.isUnset(request.serviceName)) {
+      query["ServiceName"] = request.serviceName;
+    }
+
     let req = new $OpenApi.OpenApiRequest({
       query: OpenApiUtil.query(query),
     });
@@ -31027,7 +34886,7 @@ export default class Client extends OpenApi {
       version: "2019-05-31",
       protocol: "HTTPS",
       pathname: "/",
-      method: "GET",
+      method: "POST",
       authType: "AK",
       style: "RPC",
       reqBodyType: "formData",
@@ -31056,7 +34915,55 @@ export default class Client extends OpenApi {
    */
   async listAnsServicesWithOptions(request: ListAnsServicesRequest, runtime: $Util.RuntimeOptions): Promise<ListAnsServicesResponse> {
     Util.validateModel(request);
-    let query = OpenApiUtil.query(Util.toMap(request));
+    let query = { };
+    if (!Util.isUnset(request.acceptLanguage)) {
+      query["AcceptLanguage"] = request.acceptLanguage;
+    }
+
+    if (!Util.isUnset(request.clusterId)) {
+      query["ClusterId"] = request.clusterId;
+    }
+
+    if (!Util.isUnset(request.clusterName)) {
+      query["ClusterName"] = request.clusterName;
+    }
+
+    if (!Util.isUnset(request.groupName)) {
+      query["GroupName"] = request.groupName;
+    }
+
+    if (!Util.isUnset(request.hasIpCount)) {
+      query["HasIpCount"] = request.hasIpCount;
+    }
+
+    if (!Util.isUnset(request.instanceId)) {
+      query["InstanceId"] = request.instanceId;
+    }
+
+    if (!Util.isUnset(request.namespaceId)) {
+      query["NamespaceId"] = request.namespaceId;
+    }
+
+    if (!Util.isUnset(request.pageNum)) {
+      query["PageNum"] = request.pageNum;
+    }
+
+    if (!Util.isUnset(request.pageSize)) {
+      query["PageSize"] = request.pageSize;
+    }
+
+    if (!Util.isUnset(request.regionId)) {
+      query["RegionId"] = request.regionId;
+    }
+
+    if (!Util.isUnset(request.requestPars)) {
+      query["RequestPars"] = request.requestPars;
+    }
+
+    if (!Util.isUnset(request.serviceName)) {
+      query["ServiceName"] = request.serviceName;
+    }
+
     let req = new $OpenApi.OpenApiRequest({
       query: OpenApiUtil.query(query),
     });
@@ -31065,7 +34972,7 @@ export default class Client extends OpenApi {
       version: "2019-05-31",
       protocol: "HTTPS",
       pathname: "/",
-      method: "GET",
+      method: "POST",
       authType: "AK",
       style: "RPC",
       reqBodyType: "formData",
@@ -31085,6 +34992,14 @@ export default class Client extends OpenApi {
     return await this.listAnsServicesWithOptions(request, runtime);
   }
 
+  /**
+    * @deprecated : ListAppBySwimmingLaneGroupTag is deprecated, please use mse::2019-05-31::ListAppBySwimmingLaneGroupTags instead.
+    *
+    * @param request ListAppBySwimmingLaneGroupTagRequest
+    * @param runtime runtime options for this request RuntimeOptions
+    * @return ListAppBySwimmingLaneGroupTagResponse
+   */
+  // Deprecated
   async listAppBySwimmingLaneGroupTagWithOptions(request: ListAppBySwimmingLaneGroupTagRequest, runtime: $Util.RuntimeOptions): Promise<ListAppBySwimmingLaneGroupTagResponse> {
     Util.validateModel(request);
     let query = { };
@@ -31121,9 +35036,63 @@ export default class Client extends OpenApi {
     return $tea.cast<ListAppBySwimmingLaneGroupTagResponse>(await this.callApi(params, req, runtime), new ListAppBySwimmingLaneGroupTagResponse({}));
   }
 
+  /**
+    * @deprecated : ListAppBySwimmingLaneGroupTag is deprecated, please use mse::2019-05-31::ListAppBySwimmingLaneGroupTags instead.
+    *
+    * @param request ListAppBySwimmingLaneGroupTagRequest
+    * @return ListAppBySwimmingLaneGroupTagResponse
+   */
+  // Deprecated
   async listAppBySwimmingLaneGroupTag(request: ListAppBySwimmingLaneGroupTagRequest): Promise<ListAppBySwimmingLaneGroupTagResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.listAppBySwimmingLaneGroupTagWithOptions(request, runtime);
+  }
+
+  async listAppBySwimmingLaneGroupTagsWithOptions(tmpReq: ListAppBySwimmingLaneGroupTagsRequest, runtime: $Util.RuntimeOptions): Promise<ListAppBySwimmingLaneGroupTagsResponse> {
+    Util.validateModel(tmpReq);
+    let request = new ListAppBySwimmingLaneGroupTagsShrinkRequest({ });
+    OpenApiUtil.convert(tmpReq, request);
+    if (!Util.isUnset(tmpReq.tags)) {
+      request.tagsShrink = OpenApiUtil.arrayToStringWithSpecifiedStyle(tmpReq.tags, "Tags", "json");
+    }
+
+    let query = { };
+    if (!Util.isUnset(request.acceptLanguage)) {
+      query["AcceptLanguage"] = request.acceptLanguage;
+    }
+
+    if (!Util.isUnset(request.groupId)) {
+      query["GroupId"] = request.groupId;
+    }
+
+    if (!Util.isUnset(request.namespace)) {
+      query["Namespace"] = request.namespace;
+    }
+
+    if (!Util.isUnset(request.tagsShrink)) {
+      query["Tags"] = request.tagsShrink;
+    }
+
+    let req = new $OpenApi.OpenApiRequest({
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApi.Params({
+      action: "ListAppBySwimmingLaneGroupTags",
+      version: "2019-05-31",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $tea.cast<ListAppBySwimmingLaneGroupTagsResponse>(await this.callApi(params, req, runtime), new ListAppBySwimmingLaneGroupTagsResponse({}));
+  }
+
+  async listAppBySwimmingLaneGroupTags(request: ListAppBySwimmingLaneGroupTagsRequest): Promise<ListAppBySwimmingLaneGroupTagsResponse> {
+    let runtime = new $Util.RuntimeOptions({ });
+    return await this.listAppBySwimmingLaneGroupTagsWithOptions(request, runtime);
   }
 
   async listApplicationsWithTagRulesWithOptions(request: ListApplicationsWithTagRulesRequest, runtime: $Util.RuntimeOptions): Promise<ListApplicationsWithTagRulesResponse> {
@@ -31149,6 +35118,124 @@ export default class Client extends OpenApi {
   async listApplicationsWithTagRules(request: ListApplicationsWithTagRulesRequest): Promise<ListApplicationsWithTagRulesResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.listApplicationsWithTagRulesWithOptions(request, runtime);
+  }
+
+  async listAuthPolicyWithOptions(request: ListAuthPolicyRequest, runtime: $Util.RuntimeOptions): Promise<ListAuthPolicyResponse> {
+    Util.validateModel(request);
+    let query = { };
+    if (!Util.isUnset(request.acceptLanguage)) {
+      query["AcceptLanguage"] = request.acceptLanguage;
+    }
+
+    if (!Util.isUnset(request.appId)) {
+      query["AppId"] = request.appId;
+    }
+
+    if (!Util.isUnset(request.name)) {
+      query["Name"] = request.name;
+    }
+
+    if (!Util.isUnset(request.namespace)) {
+      query["Namespace"] = request.namespace;
+    }
+
+    if (!Util.isUnset(request.pageNumber)) {
+      query["PageNumber"] = request.pageNumber;
+    }
+
+    if (!Util.isUnset(request.pageSize)) {
+      query["PageSize"] = request.pageSize;
+    }
+
+    if (!Util.isUnset(request.protocol)) {
+      query["Protocol"] = request.protocol;
+    }
+
+    if (!Util.isUnset(request.region)) {
+      query["Region"] = request.region;
+    }
+
+    if (!Util.isUnset(request.source)) {
+      query["Source"] = request.source;
+    }
+
+    let req = new $OpenApi.OpenApiRequest({
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApi.Params({
+      action: "ListAuthPolicy",
+      version: "2019-05-31",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $tea.cast<ListAuthPolicyResponse>(await this.callApi(params, req, runtime), new ListAuthPolicyResponse({}));
+  }
+
+  async listAuthPolicy(request: ListAuthPolicyRequest): Promise<ListAuthPolicyResponse> {
+    let runtime = new $Util.RuntimeOptions({ });
+    return await this.listAuthPolicyWithOptions(request, runtime);
+  }
+
+  async listCircuitBreakerRulesWithOptions(request: ListCircuitBreakerRulesRequest, runtime: $Util.RuntimeOptions): Promise<ListCircuitBreakerRulesResponse> {
+    Util.validateModel(request);
+    let query = { };
+    if (!Util.isUnset(request.acceptLanguage)) {
+      query["AcceptLanguage"] = request.acceptLanguage;
+    }
+
+    if (!Util.isUnset(request.appId)) {
+      query["AppId"] = request.appId;
+    }
+
+    if (!Util.isUnset(request.appName)) {
+      query["AppName"] = request.appName;
+    }
+
+    if (!Util.isUnset(request.namespace)) {
+      query["Namespace"] = request.namespace;
+    }
+
+    if (!Util.isUnset(request.pageIndex)) {
+      query["PageIndex"] = request.pageIndex;
+    }
+
+    if (!Util.isUnset(request.pageSize)) {
+      query["PageSize"] = request.pageSize;
+    }
+
+    if (!Util.isUnset(request.resource)) {
+      query["Resource"] = request.resource;
+    }
+
+    if (!Util.isUnset(request.resourceSearchKey)) {
+      query["ResourceSearchKey"] = request.resourceSearchKey;
+    }
+
+    let req = new $OpenApi.OpenApiRequest({
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApi.Params({
+      action: "ListCircuitBreakerRules",
+      version: "2019-05-31",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $tea.cast<ListCircuitBreakerRulesResponse>(await this.callApi(params, req, runtime), new ListCircuitBreakerRulesResponse({}));
+  }
+
+  async listCircuitBreakerRules(request: ListCircuitBreakerRulesRequest): Promise<ListCircuitBreakerRulesResponse> {
+    let runtime = new $Util.RuntimeOptions({ });
+    return await this.listCircuitBreakerRulesWithOptions(request, runtime);
   }
 
   async listClusterConnectionTypesWithOptions(request: ListClusterConnectionTypesRequest, runtime: $Util.RuntimeOptions): Promise<ListClusterConnectionTypesResponse> {
@@ -31309,7 +35396,39 @@ export default class Client extends OpenApi {
 
   async listClustersWithOptions(request: ListClustersRequest, runtime: $Util.RuntimeOptions): Promise<ListClustersResponse> {
     Util.validateModel(request);
-    let query = OpenApiUtil.query(Util.toMap(request));
+    let query = { };
+    if (!Util.isUnset(request.acceptLanguage)) {
+      query["AcceptLanguage"] = request.acceptLanguage;
+    }
+
+    if (!Util.isUnset(request.clusterAliasName)) {
+      query["ClusterAliasName"] = request.clusterAliasName;
+    }
+
+    if (!Util.isUnset(request.pageNum)) {
+      query["PageNum"] = request.pageNum;
+    }
+
+    if (!Util.isUnset(request.pageSize)) {
+      query["PageSize"] = request.pageSize;
+    }
+
+    if (!Util.isUnset(request.regionId)) {
+      query["RegionId"] = request.regionId;
+    }
+
+    if (!Util.isUnset(request.requestPars)) {
+      query["RequestPars"] = request.requestPars;
+    }
+
+    if (!Util.isUnset(request.resourceGroupId)) {
+      query["ResourceGroupId"] = request.resourceGroupId;
+    }
+
+    if (!Util.isUnset(request.tag)) {
+      query["Tag"] = request.tag;
+    }
+
     let req = new $OpenApi.OpenApiRequest({
       query: OpenApiUtil.query(query),
     });
@@ -31318,7 +35437,7 @@ export default class Client extends OpenApi {
       version: "2019-05-31",
       protocol: "HTTPS",
       pathname: "/",
-      method: "GET",
+      method: "POST",
       authType: "AK",
       style: "RPC",
       reqBodyType: "formData",
@@ -31334,7 +35453,55 @@ export default class Client extends OpenApi {
 
   async listConfigTrackWithOptions(request: ListConfigTrackRequest, runtime: $Util.RuntimeOptions): Promise<ListConfigTrackResponse> {
     Util.validateModel(request);
-    let query = OpenApiUtil.query(Util.toMap(request));
+    let query = { };
+    if (!Util.isUnset(request.acceptLanguage)) {
+      query["AcceptLanguage"] = request.acceptLanguage;
+    }
+
+    if (!Util.isUnset(request.dataId)) {
+      query["DataId"] = request.dataId;
+    }
+
+    if (!Util.isUnset(request.endTs)) {
+      query["EndTs"] = request.endTs;
+    }
+
+    if (!Util.isUnset(request.group)) {
+      query["Group"] = request.group;
+    }
+
+    if (!Util.isUnset(request.instanceId)) {
+      query["InstanceId"] = request.instanceId;
+    }
+
+    if (!Util.isUnset(request.ip)) {
+      query["Ip"] = request.ip;
+    }
+
+    if (!Util.isUnset(request.namespaceId)) {
+      query["NamespaceId"] = request.namespaceId;
+    }
+
+    if (!Util.isUnset(request.pageNum)) {
+      query["PageNum"] = request.pageNum;
+    }
+
+    if (!Util.isUnset(request.pageSize)) {
+      query["PageSize"] = request.pageSize;
+    }
+
+    if (!Util.isUnset(request.requestPars)) {
+      query["RequestPars"] = request.requestPars;
+    }
+
+    if (!Util.isUnset(request.reverse)) {
+      query["Reverse"] = request.reverse;
+    }
+
+    if (!Util.isUnset(request.startTs)) {
+      query["StartTs"] = request.startTs;
+    }
+
     let req = new $OpenApi.OpenApiRequest({
       query: OpenApiUtil.query(query),
     });
@@ -31343,7 +35510,7 @@ export default class Client extends OpenApi {
       version: "2019-05-31",
       protocol: "HTTPS",
       pathname: "/",
-      method: "GET",
+      method: "POST",
       authType: "AK",
       style: "RPC",
       reqBodyType: "formData",
@@ -31359,7 +35526,15 @@ export default class Client extends OpenApi {
 
   async listEngineNamespacesWithOptions(request: ListEngineNamespacesRequest, runtime: $Util.RuntimeOptions): Promise<ListEngineNamespacesResponse> {
     Util.validateModel(request);
-    let query = OpenApiUtil.query(Util.toMap(request));
+    let query = { };
+    if (!Util.isUnset(request.acceptLanguage)) {
+      query["AcceptLanguage"] = request.acceptLanguage;
+    }
+
+    if (!Util.isUnset(request.instanceId)) {
+      query["InstanceId"] = request.instanceId;
+    }
+
     let req = new $OpenApi.OpenApiRequest({
       query: OpenApiUtil.query(query),
     });
@@ -31368,7 +35543,7 @@ export default class Client extends OpenApi {
       version: "2019-05-31",
       protocol: "HTTPS",
       pathname: "/",
-      method: "GET",
+      method: "POST",
       authType: "AK",
       style: "RPC",
       reqBodyType: "formData",
@@ -31471,6 +35646,63 @@ export default class Client extends OpenApi {
   async listExportZookeeperData(request: ListExportZookeeperDataRequest): Promise<ListExportZookeeperDataResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.listExportZookeeperDataWithOptions(request, runtime);
+  }
+
+  async listFlowRulesWithOptions(request: ListFlowRulesRequest, runtime: $Util.RuntimeOptions): Promise<ListFlowRulesResponse> {
+    Util.validateModel(request);
+    let query = { };
+    if (!Util.isUnset(request.acceptLanguage)) {
+      query["AcceptLanguage"] = request.acceptLanguage;
+    }
+
+    if (!Util.isUnset(request.appId)) {
+      query["AppId"] = request.appId;
+    }
+
+    if (!Util.isUnset(request.appName)) {
+      query["AppName"] = request.appName;
+    }
+
+    if (!Util.isUnset(request.namespace)) {
+      query["Namespace"] = request.namespace;
+    }
+
+    if (!Util.isUnset(request.pageIndex)) {
+      query["PageIndex"] = request.pageIndex;
+    }
+
+    if (!Util.isUnset(request.pageSize)) {
+      query["PageSize"] = request.pageSize;
+    }
+
+    if (!Util.isUnset(request.resource)) {
+      query["Resource"] = request.resource;
+    }
+
+    if (!Util.isUnset(request.resourceSearchKey)) {
+      query["ResourceSearchKey"] = request.resourceSearchKey;
+    }
+
+    let req = new $OpenApi.OpenApiRequest({
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApi.Params({
+      action: "ListFlowRules",
+      version: "2019-05-31",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $tea.cast<ListFlowRulesResponse>(await this.callApi(params, req, runtime), new ListFlowRulesResponse({}));
+  }
+
+  async listFlowRules(request: ListFlowRulesRequest): Promise<ListFlowRulesResponse> {
+    let runtime = new $Util.RuntimeOptions({ });
+    return await this.listFlowRulesWithOptions(request, runtime);
   }
 
   async listGatewayWithOptions(tmpReq: ListGatewayRequest, runtime: $Util.RuntimeOptions): Promise<ListGatewayResponse> {
@@ -32405,7 +36637,47 @@ export default class Client extends OpenApi {
 
   async listZkTrackWithOptions(request: ListZkTrackRequest, runtime: $Util.RuntimeOptions): Promise<ListZkTrackResponse> {
     Util.validateModel(request);
-    let query = OpenApiUtil.query(Util.toMap(request));
+    let query = { };
+    if (!Util.isUnset(request.acceptLanguage)) {
+      query["AcceptLanguage"] = request.acceptLanguage;
+    }
+
+    if (!Util.isUnset(request.endTs)) {
+      query["EndTs"] = request.endTs;
+    }
+
+    if (!Util.isUnset(request.instanceId)) {
+      query["InstanceId"] = request.instanceId;
+    }
+
+    if (!Util.isUnset(request.pageNum)) {
+      query["PageNum"] = request.pageNum;
+    }
+
+    if (!Util.isUnset(request.pageSize)) {
+      query["PageSize"] = request.pageSize;
+    }
+
+    if (!Util.isUnset(request.path)) {
+      query["Path"] = request.path;
+    }
+
+    if (!Util.isUnset(request.requestPars)) {
+      query["RequestPars"] = request.requestPars;
+    }
+
+    if (!Util.isUnset(request.reverse)) {
+      query["Reverse"] = request.reverse;
+    }
+
+    if (!Util.isUnset(request.sessionId)) {
+      query["SessionId"] = request.sessionId;
+    }
+
+    if (!Util.isUnset(request.startTs)) {
+      query["StartTs"] = request.startTs;
+    }
+
     let req = new $OpenApi.OpenApiRequest({
       query: OpenApiUtil.query(query),
     });
@@ -32414,7 +36686,7 @@ export default class Client extends OpenApi {
       version: "2019-05-31",
       protocol: "HTTPS",
       pathname: "/",
-      method: "GET",
+      method: "POST",
       authType: "AK",
       style: "RPC",
       reqBodyType: "formData",
@@ -32430,7 +36702,19 @@ export default class Client extends OpenApi {
 
   async listZnodeChildrenWithOptions(request: ListZnodeChildrenRequest, runtime: $Util.RuntimeOptions): Promise<ListZnodeChildrenResponse> {
     Util.validateModel(request);
-    let query = OpenApiUtil.query(Util.toMap(request));
+    let query = { };
+    if (!Util.isUnset(request.acceptLanguage)) {
+      query["AcceptLanguage"] = request.acceptLanguage;
+    }
+
+    if (!Util.isUnset(request.clusterId)) {
+      query["ClusterId"] = request.clusterId;
+    }
+
+    if (!Util.isUnset(request.path)) {
+      query["Path"] = request.path;
+    }
+
     let req = new $OpenApi.OpenApiRequest({
       query: OpenApiUtil.query(query),
     });
@@ -32439,7 +36723,7 @@ export default class Client extends OpenApi {
       version: "2019-05-31",
       protocol: "HTTPS",
       pathname: "/",
-      method: "GET",
+      method: "POST",
       authType: "AK",
       style: "RPC",
       reqBodyType: "formData",
@@ -32453,8 +36737,14 @@ export default class Client extends OpenApi {
     return await this.listZnodeChildrenWithOptions(request, runtime);
   }
 
-  async modifyGovernanceKubernetesClusterWithOptions(request: ModifyGovernanceKubernetesClusterRequest, runtime: $Util.RuntimeOptions): Promise<ModifyGovernanceKubernetesClusterResponse> {
-    Util.validateModel(request);
+  async modifyGovernanceKubernetesClusterWithOptions(tmpReq: ModifyGovernanceKubernetesClusterRequest, runtime: $Util.RuntimeOptions): Promise<ModifyGovernanceKubernetesClusterResponse> {
+    Util.validateModel(tmpReq);
+    let request = new ModifyGovernanceKubernetesClusterShrinkRequest({ });
+    OpenApiUtil.convert(tmpReq, request);
+    if (!Util.isUnset(tmpReq.namespaceInfos)) {
+      request.namespaceInfosShrink = OpenApiUtil.arrayToStringWithSpecifiedStyle(tmpReq.namespaceInfos, "NamespaceInfos", "json");
+    }
+
     let query = { };
     if (!Util.isUnset(request.acceptLanguage)) {
       query["AcceptLanguage"] = request.acceptLanguage;
@@ -32464,16 +36754,18 @@ export default class Client extends OpenApi {
       query["ClusterId"] = request.clusterId;
     }
 
-    if (!Util.isUnset(request.namespaceInfos)) {
-      query["NamespaceInfos"] = request.namespaceInfos;
-    }
-
     if (!Util.isUnset(request.regionId)) {
       query["RegionId"] = request.regionId;
     }
 
+    let body : {[key: string ]: any} = { };
+    if (!Util.isUnset(request.namespaceInfosShrink)) {
+      body["NamespaceInfos"] = request.namespaceInfosShrink;
+    }
+
     let req = new $OpenApi.OpenApiRequest({
       query: OpenApiUtil.query(query),
+      body: OpenApiUtil.parseToMap(body),
     });
     let params = new $OpenApi.Params({
       action: "ModifyGovernanceKubernetesCluster",
@@ -32996,7 +37288,31 @@ export default class Client extends OpenApi {
 
   async queryConfigWithOptions(request: QueryConfigRequest, runtime: $Util.RuntimeOptions): Promise<QueryConfigResponse> {
     Util.validateModel(request);
-    let query = OpenApiUtil.query(Util.toMap(request));
+    let query = { };
+    if (!Util.isUnset(request.acceptLanguage)) {
+      query["AcceptLanguage"] = request.acceptLanguage;
+    }
+
+    if (!Util.isUnset(request.clusterId)) {
+      query["ClusterId"] = request.clusterId;
+    }
+
+    if (!Util.isUnset(request.configType)) {
+      query["ConfigType"] = request.configType;
+    }
+
+    if (!Util.isUnset(request.instanceId)) {
+      query["InstanceId"] = request.instanceId;
+    }
+
+    if (!Util.isUnset(request.needRunningConf)) {
+      query["NeedRunningConf"] = request.needRunningConf;
+    }
+
+    if (!Util.isUnset(request.requestPars)) {
+      query["RequestPars"] = request.requestPars;
+    }
+
     let req = new $OpenApi.OpenApiRequest({
       query: OpenApiUtil.query(query),
     });
@@ -33005,7 +37321,7 @@ export default class Client extends OpenApi {
       version: "2019-05-31",
       protocol: "HTTPS",
       pathname: "/",
-      method: "GET",
+      method: "POST",
       authType: "AK",
       style: "RPC",
       reqBodyType: "formData",
@@ -33153,7 +37469,35 @@ export default class Client extends OpenApi {
 
   async queryMonitorWithOptions(request: QueryMonitorRequest, runtime: $Util.RuntimeOptions): Promise<QueryMonitorResponse> {
     Util.validateModel(request);
-    let query = OpenApiUtil.query(Util.toMap(request));
+    let query = { };
+    if (!Util.isUnset(request.acceptLanguage)) {
+      query["AcceptLanguage"] = request.acceptLanguage;
+    }
+
+    if (!Util.isUnset(request.endTime)) {
+      query["EndTime"] = request.endTime;
+    }
+
+    if (!Util.isUnset(request.instanceId)) {
+      query["InstanceId"] = request.instanceId;
+    }
+
+    if (!Util.isUnset(request.monitorType)) {
+      query["MonitorType"] = request.monitorType;
+    }
+
+    if (!Util.isUnset(request.requestPars)) {
+      query["RequestPars"] = request.requestPars;
+    }
+
+    if (!Util.isUnset(request.startTime)) {
+      query["StartTime"] = request.startTime;
+    }
+
+    if (!Util.isUnset(request.step)) {
+      query["Step"] = request.step;
+    }
+
     let req = new $OpenApi.OpenApiRequest({
       query: OpenApiUtil.query(query),
     });
@@ -33162,7 +37506,7 @@ export default class Client extends OpenApi {
       version: "2019-05-31",
       protocol: "HTTPS",
       pathname: "/",
-      method: "GET",
+      method: "POST",
       authType: "AK",
       style: "RPC",
       reqBodyType: "formData",
@@ -33298,6 +37642,84 @@ export default class Client extends OpenApi {
   async queryZnodeDetail(request: QueryZnodeDetailRequest): Promise<QueryZnodeDetailResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.queryZnodeDetailWithOptions(request, runtime);
+  }
+
+  async removeApplicationWithOptions(request: RemoveApplicationRequest, runtime: $Util.RuntimeOptions): Promise<RemoveApplicationResponse> {
+    Util.validateModel(request);
+    let query = { };
+    if (!Util.isUnset(request.acceptLanguage)) {
+      query["AcceptLanguage"] = request.acceptLanguage;
+    }
+
+    if (!Util.isUnset(request.appId)) {
+      query["AppId"] = request.appId;
+    }
+
+    if (!Util.isUnset(request.appName)) {
+      query["AppName"] = request.appName;
+    }
+
+    if (!Util.isUnset(request.namespace)) {
+      query["Namespace"] = request.namespace;
+    }
+
+    if (!Util.isUnset(request.region)) {
+      query["Region"] = request.region;
+    }
+
+    let req = new $OpenApi.OpenApiRequest({
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApi.Params({
+      action: "RemoveApplication",
+      version: "2019-05-31",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $tea.cast<RemoveApplicationResponse>(await this.callApi(params, req, runtime), new RemoveApplicationResponse({}));
+  }
+
+  async removeApplication(request: RemoveApplicationRequest): Promise<RemoveApplicationResponse> {
+    let runtime = new $Util.RuntimeOptions({ });
+    return await this.removeApplicationWithOptions(request, runtime);
+  }
+
+  async removeAuthPolicyWithOptions(request: RemoveAuthPolicyRequest, runtime: $Util.RuntimeOptions): Promise<RemoveAuthPolicyResponse> {
+    Util.validateModel(request);
+    let query = { };
+    if (!Util.isUnset(request.acceptLanguage)) {
+      query["AcceptLanguage"] = request.acceptLanguage;
+    }
+
+    if (!Util.isUnset(request.policyId)) {
+      query["PolicyId"] = request.policyId;
+    }
+
+    let req = new $OpenApi.OpenApiRequest({
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApi.Params({
+      action: "RemoveAuthPolicy",
+      version: "2019-05-31",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $tea.cast<RemoveAuthPolicyResponse>(await this.callApi(params, req, runtime), new RemoveAuthPolicyResponse({}));
+  }
+
+  async removeAuthPolicy(request: RemoveAuthPolicyRequest): Promise<RemoveAuthPolicyResponse> {
+    let runtime = new $Util.RuntimeOptions({ });
+    return await this.removeAuthPolicyWithOptions(request, runtime);
   }
 
   async restartClusterWithOptions(request: RestartClusterRequest, runtime: $Util.RuntimeOptions): Promise<RestartClusterResponse> {
@@ -33554,6 +37976,71 @@ export default class Client extends OpenApi {
     return await this.updateAclWithOptions(request, runtime);
   }
 
+  async updateAuthPolicyWithOptions(request: UpdateAuthPolicyRequest, runtime: $Util.RuntimeOptions): Promise<UpdateAuthPolicyResponse> {
+    Util.validateModel(request);
+    let query = { };
+    if (!Util.isUnset(request.acceptLanguage)) {
+      query["AcceptLanguage"] = request.acceptLanguage;
+    }
+
+    if (!Util.isUnset(request.appId)) {
+      query["AppId"] = request.appId;
+    }
+
+    if (!Util.isUnset(request.authRule)) {
+      query["AuthRule"] = request.authRule;
+    }
+
+    if (!Util.isUnset(request.enable)) {
+      query["Enable"] = request.enable;
+    }
+
+    if (!Util.isUnset(request.id)) {
+      query["Id"] = request.id;
+    }
+
+    if (!Util.isUnset(request.k8sNamespace)) {
+      query["K8sNamespace"] = request.k8sNamespace;
+    }
+
+    if (!Util.isUnset(request.name)) {
+      query["Name"] = request.name;
+    }
+
+    if (!Util.isUnset(request.protocol)) {
+      query["Protocol"] = request.protocol;
+    }
+
+    if (!Util.isUnset(request.region)) {
+      query["Region"] = request.region;
+    }
+
+    if (!Util.isUnset(request.source)) {
+      query["Source"] = request.source;
+    }
+
+    let req = new $OpenApi.OpenApiRequest({
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApi.Params({
+      action: "UpdateAuthPolicy",
+      version: "2019-05-31",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $tea.cast<UpdateAuthPolicyResponse>(await this.callApi(params, req, runtime), new UpdateAuthPolicyResponse({}));
+  }
+
+  async updateAuthPolicy(request: UpdateAuthPolicyRequest): Promise<UpdateAuthPolicyResponse> {
+    let runtime = new $Util.RuntimeOptions({ });
+    return await this.updateAuthPolicyWithOptions(request, runtime);
+  }
+
   async updateBlackWhiteListWithOptions(request: UpdateBlackWhiteListRequest, runtime: $Util.RuntimeOptions): Promise<UpdateBlackWhiteListResponse> {
     Util.validateModel(request);
     let query = { };
@@ -33621,6 +38108,87 @@ export default class Client extends OpenApi {
   async updateBlackWhiteList(request: UpdateBlackWhiteListRequest): Promise<UpdateBlackWhiteListResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.updateBlackWhiteListWithOptions(request, runtime);
+  }
+
+  async updateCircuitBreakerRuleWithOptions(request: UpdateCircuitBreakerRuleRequest, runtime: $Util.RuntimeOptions): Promise<UpdateCircuitBreakerRuleResponse> {
+    Util.validateModel(request);
+    let query = { };
+    if (!Util.isUnset(request.acceptLanguage)) {
+      query["AcceptLanguage"] = request.acceptLanguage;
+    }
+
+    if (!Util.isUnset(request.appId)) {
+      query["AppId"] = request.appId;
+    }
+
+    if (!Util.isUnset(request.appName)) {
+      query["AppName"] = request.appName;
+    }
+
+    if (!Util.isUnset(request.enable)) {
+      query["Enable"] = request.enable;
+    }
+
+    if (!Util.isUnset(request.halfOpenBaseAmountPerStep)) {
+      query["HalfOpenBaseAmountPerStep"] = request.halfOpenBaseAmountPerStep;
+    }
+
+    if (!Util.isUnset(request.halfOpenRecoveryStepNum)) {
+      query["HalfOpenRecoveryStepNum"] = request.halfOpenRecoveryStepNum;
+    }
+
+    if (!Util.isUnset(request.maxAllowedRtMs)) {
+      query["MaxAllowedRtMs"] = request.maxAllowedRtMs;
+    }
+
+    if (!Util.isUnset(request.minRequestAmount)) {
+      query["MinRequestAmount"] = request.minRequestAmount;
+    }
+
+    if (!Util.isUnset(request.namespace)) {
+      query["Namespace"] = request.namespace;
+    }
+
+    if (!Util.isUnset(request.retryTimeoutMs)) {
+      query["RetryTimeoutMs"] = request.retryTimeoutMs;
+    }
+
+    if (!Util.isUnset(request.ruleId)) {
+      query["RuleId"] = request.ruleId;
+    }
+
+    if (!Util.isUnset(request.statIntervalMs)) {
+      query["StatIntervalMs"] = request.statIntervalMs;
+    }
+
+    if (!Util.isUnset(request.strategy)) {
+      query["Strategy"] = request.strategy;
+    }
+
+    if (!Util.isUnset(request.threshold)) {
+      query["Threshold"] = request.threshold;
+    }
+
+    let req = new $OpenApi.OpenApiRequest({
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApi.Params({
+      action: "UpdateCircuitBreakerRule",
+      version: "2019-05-31",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $tea.cast<UpdateCircuitBreakerRuleResponse>(await this.callApi(params, req, runtime), new UpdateCircuitBreakerRuleResponse({}));
+  }
+
+  async updateCircuitBreakerRule(request: UpdateCircuitBreakerRuleRequest): Promise<UpdateCircuitBreakerRuleResponse> {
+    let runtime = new $Util.RuntimeOptions({ });
+    return await this.updateCircuitBreakerRuleWithOptions(request, runtime);
   }
 
   async updateClusterWithOptions(request: UpdateClusterRequest, runtime: $Util.RuntimeOptions): Promise<UpdateClusterResponse> {
@@ -33813,6 +38381,10 @@ export default class Client extends OpenApi {
       query["SyncLimit"] = request.syncLimit;
     }
 
+    if (!Util.isUnset(request.TLSEnabled)) {
+      query["TLSEnabled"] = request.TLSEnabled;
+    }
+
     if (!Util.isUnset(request.tickTime)) {
       query["TickTime"] = request.tickTime;
     }
@@ -33900,6 +38472,67 @@ export default class Client extends OpenApi {
   async updateEngineNamespace(request: UpdateEngineNamespaceRequest): Promise<UpdateEngineNamespaceResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.updateEngineNamespaceWithOptions(request, runtime);
+  }
+
+  async updateFlowRuleWithOptions(request: UpdateFlowRuleRequest, runtime: $Util.RuntimeOptions): Promise<UpdateFlowRuleResponse> {
+    Util.validateModel(request);
+    let query = { };
+    if (!Util.isUnset(request.acceptLanguage)) {
+      query["AcceptLanguage"] = request.acceptLanguage;
+    }
+
+    if (!Util.isUnset(request.appId)) {
+      query["AppId"] = request.appId;
+    }
+
+    if (!Util.isUnset(request.appName)) {
+      query["AppName"] = request.appName;
+    }
+
+    if (!Util.isUnset(request.controlBehavior)) {
+      query["ControlBehavior"] = request.controlBehavior;
+    }
+
+    if (!Util.isUnset(request.enable)) {
+      query["Enable"] = request.enable;
+    }
+
+    if (!Util.isUnset(request.maxQueueingTimeMs)) {
+      query["MaxQueueingTimeMs"] = request.maxQueueingTimeMs;
+    }
+
+    if (!Util.isUnset(request.namespace)) {
+      query["Namespace"] = request.namespace;
+    }
+
+    if (!Util.isUnset(request.ruleId)) {
+      query["RuleId"] = request.ruleId;
+    }
+
+    if (!Util.isUnset(request.threshold)) {
+      query["Threshold"] = request.threshold;
+    }
+
+    let req = new $OpenApi.OpenApiRequest({
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApi.Params({
+      action: "UpdateFlowRule",
+      version: "2019-05-31",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $tea.cast<UpdateFlowRuleResponse>(await this.callApi(params, req, runtime), new UpdateFlowRuleResponse({}));
+  }
+
+  async updateFlowRule(request: UpdateFlowRuleRequest): Promise<UpdateFlowRuleResponse> {
+    let runtime = new $Util.RuntimeOptions({ });
+    return await this.updateFlowRuleWithOptions(request, runtime);
   }
 
   async updateGatewayAuthConsumerWithOptions(request: UpdateGatewayAuthConsumerRequest, runtime: $Util.RuntimeOptions): Promise<UpdateGatewayAuthConsumerResponse> {
