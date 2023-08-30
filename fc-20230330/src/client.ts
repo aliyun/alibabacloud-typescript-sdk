@@ -65,20 +65,18 @@ export class Alias extends $tea.Model {
 export class AsyncConfig extends $tea.Model {
   createdTime?: string;
   destinationConfig?: DestinationConfig;
-  functionName?: string;
+  functionArn?: string;
   lastModifiedTime?: string;
   maxAsyncEventAgeInSeconds?: number;
   maxAsyncRetryAttempts?: number;
-  qualifier?: string;
   static names(): { [key: string]: string } {
     return {
       createdTime: 'createdTime',
       destinationConfig: 'destinationConfig',
-      functionName: 'functionName',
+      functionArn: 'functionArn',
       lastModifiedTime: 'lastModifiedTime',
       maxAsyncEventAgeInSeconds: 'maxAsyncEventAgeInSeconds',
       maxAsyncRetryAttempts: 'maxAsyncRetryAttempts',
-      qualifier: 'qualifier',
     };
   }
 
@@ -86,11 +84,32 @@ export class AsyncConfig extends $tea.Model {
     return {
       createdTime: 'string',
       destinationConfig: DestinationConfig,
-      functionName: 'string',
+      functionArn: 'string',
       lastModifiedTime: 'string',
       maxAsyncEventAgeInSeconds: 'number',
       maxAsyncRetryAttempts: 'number',
-      qualifier: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class AuthConfig extends $tea.Model {
+  authInfo?: string;
+  authType?: string;
+  static names(): { [key: string]: string } {
+    return {
+      authInfo: 'authInfo',
+      authType: 'authType',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      authInfo: 'string',
+      authType: 'string',
     };
   }
 
@@ -175,6 +194,7 @@ export class CreateAliasInput extends $tea.Model {
 }
 
 export class CreateCustomDomainInput extends $tea.Model {
+  authConfig?: AuthConfig;
   certConfig?: CertConfig;
   domainName?: string;
   protocol?: string;
@@ -183,6 +203,7 @@ export class CreateCustomDomainInput extends $tea.Model {
   wafConfig?: WAFConfig;
   static names(): { [key: string]: string } {
     return {
+      authConfig: 'authConfig',
       certConfig: 'certConfig',
       domainName: 'domainName',
       protocol: 'protocol',
@@ -194,6 +215,7 @@ export class CreateCustomDomainInput extends $tea.Model {
 
   static types(): { [key: string]: any } {
     return {
+      authConfig: AuthConfig,
       certConfig: CertConfig,
       domainName: 'string',
       protocol: 'string',
@@ -232,7 +254,6 @@ export class CreateFunctionInput extends $tea.Model {
   runtime?: string;
   timeout?: number;
   tracingConfig?: TracingConfig;
-  vpcBinding?: VPCBinding;
   vpcConfig?: VPCConfig;
   static names(): { [key: string]: string } {
     return {
@@ -259,7 +280,6 @@ export class CreateFunctionInput extends $tea.Model {
       runtime: 'runtime',
       timeout: 'timeout',
       tracingConfig: 'tracingConfig',
-      vpcBinding: 'vpcBinding',
       vpcConfig: 'vpcConfig',
     };
   }
@@ -289,7 +309,6 @@ export class CreateFunctionInput extends $tea.Model {
       runtime: 'string',
       timeout: 'number',
       tracingConfig: TracingConfig,
-      vpcBinding: VPCBinding,
       vpcConfig: VPCConfig,
     };
   }
@@ -364,10 +383,29 @@ export class CreateTriggerInput extends $tea.Model {
   }
 }
 
+export class CreateVpcBindingInput extends $tea.Model {
+  vpcId?: string;
+  static names(): { [key: string]: string } {
+    return {
+      vpcId: 'vpcId',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      vpcId: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
 export class CustomContainerConfig extends $tea.Model {
   accelerationInfo?: AccelerationInfo;
   accelerationType?: string;
-  acrInstanceID?: string;
+  acrInstanceId?: string;
   command?: string[];
   entrypoint?: string[];
   healthCheckConfig?: CustomHealthCheckConfig;
@@ -377,7 +415,7 @@ export class CustomContainerConfig extends $tea.Model {
     return {
       accelerationInfo: 'accelerationInfo',
       accelerationType: 'accelerationType',
-      acrInstanceID: 'acrInstanceID',
+      acrInstanceId: 'acrInstanceId',
       command: 'command',
       entrypoint: 'entrypoint',
       healthCheckConfig: 'healthCheckConfig',
@@ -390,7 +428,7 @@ export class CustomContainerConfig extends $tea.Model {
     return {
       accelerationInfo: AccelerationInfo,
       accelerationType: 'string',
-      acrInstanceID: 'string',
+      acrInstanceId: 'string',
       command: { 'type': 'array', 'itemType': 'string' },
       entrypoint: { 'type': 'array', 'itemType': 'string' },
       healthCheckConfig: CustomHealthCheckConfig,
@@ -432,6 +470,7 @@ export class CustomDNS extends $tea.Model {
 export class CustomDomain extends $tea.Model {
   accountId?: string;
   apiVersion?: string;
+  authConfig?: AuthConfig;
   certConfig?: CertConfig;
   createdTime?: string;
   domainName?: string;
@@ -445,6 +484,7 @@ export class CustomDomain extends $tea.Model {
     return {
       accountId: 'accountId',
       apiVersion: 'apiVersion',
+      authConfig: 'authConfig',
       certConfig: 'certConfig',
       createdTime: 'createdTime',
       domainName: 'domainName',
@@ -461,6 +501,7 @@ export class CustomDomain extends $tea.Model {
     return {
       accountId: 'string',
       apiVersion: 'string',
+      authConfig: AuthConfig,
       certConfig: CertConfig,
       createdTime: 'string',
       domainName: 'string',
@@ -631,9 +672,9 @@ export class Error extends $tea.Model {
   requestId?: string;
   static names(): { [key: string]: string } {
     return {
-      code: 'code',
-      message: 'message',
-      requestId: 'requestId',
+      code: 'Code',
+      message: 'Message',
+      requestId: 'RequestId',
     };
   }
 
@@ -679,7 +720,6 @@ export class Function extends $tea.Model {
   runtime?: string;
   timeout?: number;
   tracingConfig?: TracingConfig;
-  vpcBinding?: VPCBinding;
   vpcConfig?: VPCConfig;
   static names(): { [key: string]: string } {
     return {
@@ -711,7 +751,6 @@ export class Function extends $tea.Model {
       runtime: 'runtime',
       timeout: 'timeout',
       tracingConfig: 'tracingConfig',
-      vpcBinding: 'vpcBinding',
       vpcConfig: 'vpcConfig',
     };
   }
@@ -746,7 +785,6 @@ export class Function extends $tea.Model {
       runtime: 'string',
       timeout: 'number',
       tracingConfig: TracingConfig,
-      vpcBinding: VPCBinding,
       vpcConfig: VPCConfig,
     };
   }
@@ -836,59 +874,6 @@ export class HTTPTrigger extends $tea.Model {
     return {
       urlInternet: 'string',
       urlIntranet: 'string',
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class HealthCheckConfig extends $tea.Model {
-  failureThreshold?: number;
-  httpGetUrl?: string;
-  initialDelaySeconds?: number;
-  periodSeconds?: number;
-  successThreshold?: number;
-  timeoutSeconds?: number;
-  static names(): { [key: string]: string } {
-    return {
-      failureThreshold: 'failureThreshold',
-      httpGetUrl: 'httpGetUrl',
-      initialDelaySeconds: 'initialDelaySeconds',
-      periodSeconds: 'periodSeconds',
-      successThreshold: 'successThreshold',
-      timeoutSeconds: 'timeoutSeconds',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      failureThreshold: 'number',
-      httpGetUrl: 'string',
-      initialDelaySeconds: 'number',
-      periodSeconds: 'number',
-      successThreshold: 'number',
-      timeoutSeconds: 'number',
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class InnerRewriteConfig extends $tea.Model {
-  regexRules?: RewriteRegexRule[];
-  static names(): { [key: string]: string } {
-    return {
-      regexRules: 'regexRules',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      regexRules: { 'type': 'array', 'itemType': RewriteRegexRule },
     };
   }
 
@@ -1304,6 +1289,25 @@ export class ListVersionsOutput extends $tea.Model {
   }
 }
 
+export class ListVpcBindingsOutput extends $tea.Model {
+  vpcIds?: string[];
+  static names(): { [key: string]: string } {
+    return {
+      vpcIds: 'vpcIds',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      vpcIds: { 'type': 'array', 'itemType': 'string' },
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
 export class LogConfig extends $tea.Model {
   enableInstanceMetrics?: boolean;
   enableRequestMetrics?: boolean;
@@ -1480,65 +1484,28 @@ export class OutputFuncCode extends $tea.Model {
 }
 
 export class PathConfig extends $tea.Model {
-  accountId?: string;
   functionName?: string;
-  innerRewriteConfig?: InnerRewriteConfig;
   methods?: string[];
   path?: string;
   qualifier?: string;
   rewriteConfig?: RewriteConfig;
-  serviceName?: string;
   static names(): { [key: string]: string } {
     return {
-      accountId: 'accountId',
       functionName: 'functionName',
-      innerRewriteConfig: 'innerRewriteConfig',
       methods: 'methods',
       path: 'path',
       qualifier: 'qualifier',
       rewriteConfig: 'rewriteConfig',
-      serviceName: 'serviceName',
     };
   }
 
   static types(): { [key: string]: any } {
     return {
-      accountId: 'string',
       functionName: 'string',
-      innerRewriteConfig: InnerRewriteConfig,
       methods: { 'type': 'array', 'itemType': 'string' },
       path: 'string',
       qualifier: 'string',
       rewriteConfig: RewriteConfig,
-      serviceName: 'string',
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class PolicyItem extends $tea.Model {
-  key?: string;
-  operator?: string;
-  type?: string;
-  value?: string;
-  static names(): { [key: string]: string } {
-    return {
-      key: 'key',
-      operator: 'operator',
-      type: 'type',
-      value: 'value',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      key: 'string',
-      operator: 'string',
-      type: 'string',
-      value: 'string',
     };
   }
 
@@ -1744,28 +1711,6 @@ export class RewriteConfig extends $tea.Model {
   }
 }
 
-export class RewriteRegexRule extends $tea.Model {
-  regexStr?: string;
-  replacement?: string;
-  static names(): { [key: string]: string } {
-    return {
-      regexStr: 'regexStr',
-      replacement: 'replacement',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      regexStr: 'string',
-      replacement: 'string',
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
 export class RouteConfig extends $tea.Model {
   routes?: PathConfig[];
   static names(): { [key: string]: string } {
@@ -1777,28 +1722,6 @@ export class RouteConfig extends $tea.Model {
   static types(): { [key: string]: any } {
     return {
       routes: { 'type': 'array', 'itemType': PathConfig },
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class RoutePolicy extends $tea.Model {
-  condition?: string;
-  policyItems?: PolicyItem[];
-  static names(): { [key: string]: string } {
-    return {
-      condition: 'condition',
-      policyItems: 'policyItems',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      condition: 'string',
-      policyItems: { 'type': 'array', 'itemType': PolicyItem },
     };
   }
 
@@ -1863,36 +1786,12 @@ export class TLSConfig extends $tea.Model {
   }
 }
 
-export class Tag extends $tea.Model {
-  key?: string;
-  value?: string;
-  static names(): { [key: string]: string } {
-    return {
-      key: 'key',
-      value: 'value',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      key: 'string',
-      value: 'string',
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
 export class TagResourceInput extends $tea.Model {
   resourceArn?: string;
-  resourceType?: string;
   tags?: { [key: string]: string };
   static names(): { [key: string]: string } {
     return {
       resourceArn: 'resourceArn',
-      resourceType: 'resourceType',
       tags: 'tags',
     };
   }
@@ -1900,7 +1799,6 @@ export class TagResourceInput extends $tea.Model {
   static types(): { [key: string]: any } {
     return {
       resourceArn: 'string',
-      resourceType: 'string',
       tags: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
     };
   }
@@ -2050,6 +1948,7 @@ export class UpdateAliasInput extends $tea.Model {
 }
 
 export class UpdateCustomDomainInput extends $tea.Model {
+  authConfig?: AuthConfig;
   certConfig?: CertConfig;
   protocol?: string;
   routeConfig?: RouteConfig;
@@ -2057,6 +1956,7 @@ export class UpdateCustomDomainInput extends $tea.Model {
   wafConfig?: WAFConfig;
   static names(): { [key: string]: string } {
     return {
+      authConfig: 'authConfig',
       certConfig: 'certConfig',
       protocol: 'protocol',
       routeConfig: 'routeConfig',
@@ -2067,6 +1967,7 @@ export class UpdateCustomDomainInput extends $tea.Model {
 
   static types(): { [key: string]: any } {
     return {
+      authConfig: AuthConfig,
       certConfig: CertConfig,
       protocol: 'string',
       routeConfig: RouteConfig,
@@ -2103,7 +2004,6 @@ export class UpdateFunctionInput extends $tea.Model {
   runtime?: string;
   timeout?: number;
   tracingConfig?: TracingConfig;
-  vpcBinding?: VPCBinding;
   vpcConfig?: VPCConfig;
   static names(): { [key: string]: string } {
     return {
@@ -2129,7 +2029,6 @@ export class UpdateFunctionInput extends $tea.Model {
       runtime: 'runtime',
       timeout: 'timeout',
       tracingConfig: 'tracingConfig',
-      vpcBinding: 'vpcBinding',
       vpcConfig: 'vpcConfig',
     };
   }
@@ -2158,7 +2057,6 @@ export class UpdateFunctionInput extends $tea.Model {
       runtime: 'string',
       timeout: 'number',
       tracingConfig: TracingConfig,
-      vpcBinding: VPCBinding,
       vpcConfig: VPCConfig,
     };
   }
@@ -2196,25 +2094,6 @@ export class UpdateTriggerInput extends $tea.Model {
   }
 }
 
-export class VPCBinding extends $tea.Model {
-  vpcIds?: string[];
-  static names(): { [key: string]: string } {
-    return {
-      vpcIds: 'vpcIds',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      vpcIds: { 'type': 'array', 'itemType': 'string' },
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
 export class VPCConfig extends $tea.Model {
   securityGroupId?: string;
   vSwitchIds?: string[];
@@ -2243,14 +2122,12 @@ export class VPCConfig extends $tea.Model {
 export class Version extends $tea.Model {
   createdTime?: string;
   description?: string;
-  functionVersionArn?: string;
   lastModifiedTime?: string;
   versionId?: string;
   static names(): { [key: string]: string } {
     return {
       createdTime: 'createdTime',
       description: 'description',
-      functionVersionArn: 'functionVersionArn',
       lastModifiedTime: 'lastModifiedTime',
       versionId: 'versionId',
     };
@@ -2260,7 +2137,6 @@ export class Version extends $tea.Model {
     return {
       createdTime: 'string',
       description: 'string',
-      functionVersionArn: 'string',
       lastModifiedTime: 'string',
       versionId: 'string',
     };
@@ -2532,6 +2408,47 @@ export class CreateTriggerResponse extends $tea.Model {
   }
 }
 
+export class CreateVpcBindingRequest extends $tea.Model {
+  body?: CreateVpcBindingInput;
+  static names(): { [key: string]: string } {
+    return {
+      body: 'body',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      body: CreateVpcBindingInput,
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class CreateVpcBindingResponse extends $tea.Model {
+  headers: { [key: string]: string };
+  statusCode: number;
+  static names(): { [key: string]: string } {
+    return {
+      headers: 'headers',
+      statusCode: 'statusCode',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
 export class DeleteAliasResponse extends $tea.Model {
   headers: { [key: string]: string };
   statusCode: number;
@@ -2747,6 +2664,28 @@ export class DeleteProvisionConfigResponse extends $tea.Model {
 }
 
 export class DeleteTriggerResponse extends $tea.Model {
+  headers: { [key: string]: string };
+  statusCode: number;
+  static names(): { [key: string]: string } {
+    return {
+      headers: 'headers',
+      statusCode: 'statusCode',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class DeleteVpcBindingResponse extends $tea.Model {
   headers: { [key: string]: string };
   statusCode: number;
   static names(): { [key: string]: string } {
@@ -3807,6 +3746,31 @@ export class ListTriggersResponse extends $tea.Model {
   }
 }
 
+export class ListVpcBindingsResponse extends $tea.Model {
+  headers: { [key: string]: string };
+  statusCode: number;
+  body: ListVpcBindingsOutput;
+  static names(): { [key: string]: string } {
+    return {
+      headers: 'headers',
+      statusCode: 'statusCode',
+      body: 'body',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
+      body: ListVpcBindingsOutput,
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
 export class PublishFunctionVersionRequest extends $tea.Model {
   body?: PublishVersionInput;
   static names(): { [key: string]: string } {
@@ -4052,12 +4016,10 @@ export class TagResourceRequest extends $tea.Model {
 export class TagResourceResponse extends $tea.Model {
   headers: { [key: string]: string };
   statusCode: number;
-  body: Tag;
   static names(): { [key: string]: string } {
     return {
       headers: 'headers',
       statusCode: 'statusCode',
-      body: 'body',
     };
   }
 
@@ -4065,7 +4027,6 @@ export class TagResourceResponse extends $tea.Model {
     return {
       headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
       statusCode: 'number',
-      body: Tag,
     };
   }
 
@@ -4321,7 +4282,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-    * create function version
+    * 创建函数别名
     *
     * @param request CreateAliasRequest
     * @param headers map
@@ -4349,7 +4310,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-    * create function version
+    * 创建函数别名
     *
     * @param request CreateAliasRequest
     * @return CreateAliasResponse
@@ -4361,7 +4322,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-    * Create custom domain.
+    * 创建自定义域名
     *
     * @param request CreateCustomDomainRequest
     * @param headers map
@@ -4389,7 +4350,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-    * Create custom domain.
+    * 创建自定义域名
     *
     * @param request CreateCustomDomainRequest
     * @return CreateCustomDomainResponse
@@ -4401,7 +4362,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-    * Create function
+    * 创建函数
     *
     * @param request CreateFunctionRequest
     * @param headers map
@@ -4429,7 +4390,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-    * Create function
+    * 创建函数
     *
     * @param request CreateFunctionRequest
     * @return CreateFunctionResponse
@@ -4441,7 +4402,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-    * Create layer version
+    * 创建层版本
     *
     * @param request CreateLayerVersionRequest
     * @param headers map
@@ -4469,7 +4430,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-    * Create layer version
+    * 创建层版本
     *
     * @param request CreateLayerVersionRequest
     * @return CreateLayerVersionResponse
@@ -4481,7 +4442,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-    * Create trigger.
+    * 创建函数触发器
     *
     * @param request CreateTriggerRequest
     * @param headers map
@@ -4509,7 +4470,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-    * Create trigger.
+    * 创建函数触发器
     *
     * @param request CreateTriggerRequest
     * @return CreateTriggerResponse
@@ -4521,7 +4482,47 @@ export default class Client extends OpenApi {
   }
 
   /**
-    * Delete function alias
+    * 创建VPC绑定
+    *
+    * @param request CreateVpcBindingRequest
+    * @param headers map
+    * @param runtime runtime options for this request RuntimeOptions
+    * @return CreateVpcBindingResponse
+   */
+  async createVpcBindingWithOptions(functionName: string, request: CreateVpcBindingRequest, headers: {[key: string ]: string}, runtime: $Util.RuntimeOptions): Promise<CreateVpcBindingResponse> {
+    Util.validateModel(request);
+    let req = new $OpenApi.OpenApiRequest({
+      headers: headers,
+      body: OpenApiUtil.parseToMap(request.body),
+    });
+    let params = new $OpenApi.Params({
+      action: "CreateVpcBinding",
+      version: "2023-03-30",
+      protocol: "HTTPS",
+      pathname: `/2023-03-30/functions/${OpenApiUtil.getEncodeParam(functionName)}/vpc-bindings`,
+      method: "POST",
+      authType: "AK",
+      style: "ROA",
+      reqBodyType: "json",
+      bodyType: "none",
+    });
+    return $tea.cast<CreateVpcBindingResponse>(await this.callApi(params, req, runtime), new CreateVpcBindingResponse({}));
+  }
+
+  /**
+    * 创建VPC绑定
+    *
+    * @param request CreateVpcBindingRequest
+    * @return CreateVpcBindingResponse
+   */
+  async createVpcBinding(functionName: string, request: CreateVpcBindingRequest): Promise<CreateVpcBindingResponse> {
+    let runtime = new $Util.RuntimeOptions({ });
+    let headers : {[key: string ]: string} = { };
+    return await this.createVpcBindingWithOptions(functionName, request, headers, runtime);
+  }
+
+  /**
+    * 删除函数别名
     *
     * @param headers map
     * @param runtime runtime options for this request RuntimeOptions
@@ -4546,7 +4547,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-    * Delete function alias
+    * 删除函数别名
     *
     * @return DeleteAliasResponse
    */
@@ -4557,7 +4558,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-    * Delete function async invoke config
+    * 删除函数异步调用配置
     *
     * @param request DeleteAsyncInvokeConfigRequest
     * @param headers map
@@ -4590,7 +4591,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-    * Delete function async invoke config
+    * 删除函数异步调用配置
     *
     * @param request DeleteAsyncInvokeConfigRequest
     * @return DeleteAsyncInvokeConfigResponse
@@ -4602,7 +4603,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-    * deletes the concurrency config for a function
+    * 删除函数并发度配置
     *
     * @param headers map
     * @param runtime runtime options for this request RuntimeOptions
@@ -4627,7 +4628,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-    * deletes the concurrency config for a function
+    * 删除函数并发度配置
     *
     * @return DeleteConcurrencyConfigResponse
    */
@@ -4638,7 +4639,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-    * Delete custom domain.
+    * 删除自定义域名
     *
     * @param headers map
     * @param runtime runtime options for this request RuntimeOptions
@@ -4663,7 +4664,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-    * Delete custom domain.
+    * 删除自定义域名
     *
     * @return DeleteCustomDomainResponse
    */
@@ -4674,7 +4675,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-    * Delete function
+    * 删除函数
     *
     * @param headers map
     * @param runtime runtime options for this request RuntimeOptions
@@ -4699,7 +4700,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-    * Delete function
+    * 删除函数
     *
     * @return DeleteFunctionResponse
    */
@@ -4710,13 +4711,13 @@ export default class Client extends OpenApi {
   }
 
   /**
-    * Delete function version
+    * 删除函数版本
     *
     * @param headers map
     * @param runtime runtime options for this request RuntimeOptions
     * @return DeleteFunctionVersionResponse
    */
-  async deleteFunctionVersionWithOptions(functionName: string, versionID: string, headers: {[key: string ]: string}, runtime: $Util.RuntimeOptions): Promise<DeleteFunctionVersionResponse> {
+  async deleteFunctionVersionWithOptions(functionName: string, versionId: string, headers: {[key: string ]: string}, runtime: $Util.RuntimeOptions): Promise<DeleteFunctionVersionResponse> {
     let req = new $OpenApi.OpenApiRequest({
       headers: headers,
     });
@@ -4724,7 +4725,7 @@ export default class Client extends OpenApi {
       action: "DeleteFunctionVersion",
       version: "2023-03-30",
       protocol: "HTTPS",
-      pathname: `/2023-03-30/functions/${OpenApiUtil.getEncodeParam(functionName)}/versions/${OpenApiUtil.getEncodeParam(versionID)}`,
+      pathname: `/2023-03-30/functions/${OpenApiUtil.getEncodeParam(functionName)}/versions/${OpenApiUtil.getEncodeParam(versionId)}`,
       method: "DELETE",
       authType: "AK",
       style: "ROA",
@@ -4735,18 +4736,18 @@ export default class Client extends OpenApi {
   }
 
   /**
-    * Delete function version
+    * 删除函数版本
     *
     * @return DeleteFunctionVersionResponse
    */
-  async deleteFunctionVersion(functionName: string, versionID: string): Promise<DeleteFunctionVersionResponse> {
+  async deleteFunctionVersion(functionName: string, versionId: string): Promise<DeleteFunctionVersionResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     let headers : {[key: string ]: string} = { };
-    return await this.deleteFunctionVersionWithOptions(functionName, versionID, headers, runtime);
+    return await this.deleteFunctionVersionWithOptions(functionName, versionId, headers, runtime);
   }
 
   /**
-    * Delete layer version
+    * 删除层版本
     *
     * @param headers map
     * @param runtime runtime options for this request RuntimeOptions
@@ -4771,7 +4772,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-    * Delete layer version
+    * 删除层版本
     *
     * @return DeleteLayerVersionResponse
    */
@@ -4782,7 +4783,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-    * Delete provision config.
+    * 删除函数预留配置
     *
     * @param request DeleteProvisionConfigRequest
     * @param headers map
@@ -4815,7 +4816,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-    * Delete provision config.
+    * 删除函数预留配置
     *
     * @param request DeleteProvisionConfigRequest
     * @return DeleteProvisionConfigResponse
@@ -4827,7 +4828,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-    * Delete trigger.
+    * 删除函数触发器
     *
     * @param headers map
     * @param runtime runtime options for this request RuntimeOptions
@@ -4852,7 +4853,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-    * Delete trigger.
+    * 删除函数触发器
     *
     * @return DeleteTriggerResponse
    */
@@ -4863,7 +4864,43 @@ export default class Client extends OpenApi {
   }
 
   /**
-    * Get function alias
+    * 删除VPC绑定
+    *
+    * @param headers map
+    * @param runtime runtime options for this request RuntimeOptions
+    * @return DeleteVpcBindingResponse
+   */
+  async deleteVpcBindingWithOptions(functionName: string, vpcId: string, headers: {[key: string ]: string}, runtime: $Util.RuntimeOptions): Promise<DeleteVpcBindingResponse> {
+    let req = new $OpenApi.OpenApiRequest({
+      headers: headers,
+    });
+    let params = new $OpenApi.Params({
+      action: "DeleteVpcBinding",
+      version: "2023-03-30",
+      protocol: "HTTPS",
+      pathname: `/2023-03-30/functions/${OpenApiUtil.getEncodeParam(functionName)}/vpc-bindings/${OpenApiUtil.getEncodeParam(vpcId)}`,
+      method: "DELETE",
+      authType: "AK",
+      style: "ROA",
+      reqBodyType: "json",
+      bodyType: "none",
+    });
+    return $tea.cast<DeleteVpcBindingResponse>(await this.callApi(params, req, runtime), new DeleteVpcBindingResponse({}));
+  }
+
+  /**
+    * 删除VPC绑定
+    *
+    * @return DeleteVpcBindingResponse
+   */
+  async deleteVpcBinding(functionName: string, vpcId: string): Promise<DeleteVpcBindingResponse> {
+    let runtime = new $Util.RuntimeOptions({ });
+    let headers : {[key: string ]: string} = { };
+    return await this.deleteVpcBindingWithOptions(functionName, vpcId, headers, runtime);
+  }
+
+  /**
+    * 获取函数别名信息
     *
     * @param headers map
     * @param runtime runtime options for this request RuntimeOptions
@@ -4888,7 +4925,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-    * Get function alias
+    * 获取函数别名信息
     *
     * @return GetAliasResponse
    */
@@ -4899,7 +4936,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-    * Get function async invoke config
+    * 获取函数异步调用配置
     *
     * @param request GetAsyncInvokeConfigRequest
     * @param headers map
@@ -4932,7 +4969,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-    * Get function async invoke config
+    * 获取函数异步调用配置
     *
     * @param request GetAsyncInvokeConfigRequest
     * @return GetAsyncInvokeConfigResponse
@@ -4944,7 +4981,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-    * gets the concurrency config for a function
+    * 获取函数并发度配置
     *
     * @param headers map
     * @param runtime runtime options for this request RuntimeOptions
@@ -4969,7 +5006,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-    * gets the concurrency config for a function
+    * 获取函数并发度配置
     *
     * @return GetConcurrencyConfigResponse
    */
@@ -4980,7 +5017,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-    * Get custom domain.
+    * 获取自定义域名
     *
     * @param headers map
     * @param runtime runtime options for this request RuntimeOptions
@@ -5005,7 +5042,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-    * Get custom domain.
+    * 获取自定义域名
     *
     * @return GetCustomDomainResponse
    */
@@ -5016,7 +5053,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-    * Get function info by function name
+    * 获取函数信息
     *
     * @param request GetFunctionRequest
     * @param headers map
@@ -5049,7 +5086,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-    * Get function info by function name
+    * 获取函数信息
     *
     * @param request GetFunctionRequest
     * @return GetFunctionResponse
@@ -5061,7 +5098,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-    * Get function code by function name
+    * 获取函数代码
     *
     * @param request GetFunctionCodeRequest
     * @param headers map
@@ -5094,7 +5131,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-    * Get function code by function name
+    * 获取函数代码
     *
     * @param request GetFunctionCodeRequest
     * @return GetFunctionCodeResponse
@@ -5106,7 +5143,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-    * Get layer version.
+    * 获取层版本
     *
     * @param headers map
     * @param runtime runtime options for this request RuntimeOptions
@@ -5131,7 +5168,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-    * Get layer version.
+    * 获取层版本
     *
     * @return GetLayerVersionResponse
    */
@@ -5142,7 +5179,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-    * Get layer version by arn.
+    * 根据资源标识获取层版本
     *
     * @param headers map
     * @param runtime runtime options for this request RuntimeOptions
@@ -5167,7 +5204,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-    * Get layer version by arn.
+    * 根据资源标识获取层版本
     *
     * @return GetLayerVersionByArnResponse
    */
@@ -5178,7 +5215,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-    * Get provision config.
+    * 获取函数预留配置
     *
     * @param request GetProvisionConfigRequest
     * @param headers map
@@ -5211,7 +5248,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-    * Get provision config.
+    * 获取函数预留配置
     *
     * @param request GetProvisionConfigRequest
     * @return GetProvisionConfigResponse
@@ -5223,7 +5260,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-    * Get resource tag
+    * 获取资源标签
     *
     * @param request GetResourceTagsRequest
     * @param headers map
@@ -5256,7 +5293,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-    * Get resource tag
+    * 获取资源标签
     *
     * @param request GetResourceTagsRequest
     * @return GetResourceTagsResponse
@@ -5268,7 +5305,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-    * Get trigger.
+    * 获取函数触发器
     *
     * @param headers map
     * @param runtime runtime options for this request RuntimeOptions
@@ -5293,7 +5330,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-    * Get trigger.
+    * 获取函数触发器
     *
     * @return GetTriggerResponse
    */
@@ -5304,7 +5341,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-    * Invoke function
+    * 调用函数
     *
     * @param request InvokeFunctionRequest
     * @param headers InvokeFunctionHeaders
@@ -5369,7 +5406,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-    * Invoke function
+    * 调用函数
     *
     * @param request InvokeFunctionRequest
     * @return InvokeFunctionResponse
@@ -5381,7 +5418,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-    * List function aliases
+    * 列出函数别名
     *
     * @param request ListAliasesRequest
     * @param headers map
@@ -5422,7 +5459,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-    * List function aliases
+    * 列出函数别名
     *
     * @param request ListAliasesRequest
     * @return ListAliasesResponse
@@ -5434,7 +5471,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-    * List all functions async invoke config
+    * 列出函数异步调用配置
     *
     * @param request ListAsyncInvokeConfigsRequest
     * @param headers map
@@ -5475,7 +5512,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-    * List all functions async invoke config
+    * 列出函数异步调用配置
     *
     * @param request ListAsyncInvokeConfigsRequest
     * @return ListAsyncInvokeConfigsResponse
@@ -5487,7 +5524,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-    * List all functions concurrency configs
+    * 列出函数并发度配置
     *
     * @param request ListConcurrencyConfigsRequest
     * @param headers map
@@ -5528,7 +5565,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-    * List all functions concurrency configs
+    * 列出函数并发度配置
     *
     * @param request ListConcurrencyConfigsRequest
     * @return ListConcurrencyConfigsResponse
@@ -5540,7 +5577,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-    * List custom domains.
+    * 列出自定义域名
     *
     * @param request ListCustomDomainsRequest
     * @param headers map
@@ -5581,7 +5618,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-    * List custom domains.
+    * 列出自定义域名
     *
     * @param request ListCustomDomainsRequest
     * @return ListCustomDomainsResponse
@@ -5593,7 +5630,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-    * List function versions
+    * 列出函数版本
     *
     * @param request ListFunctionVersionsRequest
     * @param headers map
@@ -5634,7 +5671,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-    * List function versions
+    * 列出函数版本
     *
     * @param request ListFunctionVersionsRequest
     * @return ListFunctionVersionsResponse
@@ -5646,7 +5683,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-    * Lists existing functions.
+    * 列出函数
     *
     * @param request ListFunctionsRequest
     * @param headers map
@@ -5687,7 +5724,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-    * Lists existing functions.
+    * 列出函数
     *
     * @param request ListFunctionsRequest
     * @return ListFunctionsResponse
@@ -5699,7 +5736,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-    * List instances for function.
+    * 列出函数实例
     *
     * @param request ListInstancesRequest
     * @param headers map
@@ -5736,7 +5773,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-    * List instances for function.
+    * 列出函数实例
     *
     * @param request ListInstancesRequest
     * @return ListInstancesResponse
@@ -5748,7 +5785,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-    * List layer versions.
+    * 列出层版本
     *
     * @param request ListLayerVersionsRequest
     * @param headers map
@@ -5785,7 +5822,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-    * List layer versions.
+    * 列出层版本
     *
     * @param request ListLayerVersionsRequest
     * @return ListLayerVersionsResponse
@@ -5797,7 +5834,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-    * List layers .
+    * 列出层
     *
     * @param request ListLayersRequest
     * @param headers map
@@ -5846,7 +5883,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-    * List layers .
+    * 列出层
     *
     * @param request ListLayersRequest
     * @return ListLayersResponse
@@ -5858,7 +5895,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-    * List provision configs.
+    * 列出函数预留配置
     *
     * @param request ListProvisionConfigsRequest
     * @param headers map
@@ -5899,7 +5936,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-    * List provision configs.
+    * 列出函数预留配置
     *
     * @param request ListProvisionConfigsRequest
     * @return ListProvisionConfigsResponse
@@ -5911,7 +5948,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-    * List tagged resources
+    * 列出具有标签的资源
     *
     * @param request ListTaggedResourcesRequest
     * @param headers map
@@ -5948,7 +5985,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-    * List tagged resources
+    * 列出具有标签的资源
     *
     * @param request ListTaggedResourcesRequest
     * @return ListTaggedResourcesResponse
@@ -5960,7 +5997,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-    * List triggers.
+    * 列出函数触发器
     *
     * @param request ListTriggersRequest
     * @param headers map
@@ -6001,7 +6038,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-    * List triggers.
+    * 列出函数触发器
     *
     * @param request ListTriggersRequest
     * @return ListTriggersResponse
@@ -6013,7 +6050,43 @@ export default class Client extends OpenApi {
   }
 
   /**
-    * publish new function version
+    * 列出VPC绑定配置
+    *
+    * @param headers map
+    * @param runtime runtime options for this request RuntimeOptions
+    * @return ListVpcBindingsResponse
+   */
+  async listVpcBindingsWithOptions(functionName: string, headers: {[key: string ]: string}, runtime: $Util.RuntimeOptions): Promise<ListVpcBindingsResponse> {
+    let req = new $OpenApi.OpenApiRequest({
+      headers: headers,
+    });
+    let params = new $OpenApi.Params({
+      action: "ListVpcBindings",
+      version: "2023-03-30",
+      protocol: "HTTPS",
+      pathname: `/2023-03-30/functions/${OpenApiUtil.getEncodeParam(functionName)}/vpc-bindings`,
+      method: "GET",
+      authType: "AK",
+      style: "ROA",
+      reqBodyType: "json",
+      bodyType: "json",
+    });
+    return $tea.cast<ListVpcBindingsResponse>(await this.callApi(params, req, runtime), new ListVpcBindingsResponse({}));
+  }
+
+  /**
+    * 列出VPC绑定配置
+    *
+    * @return ListVpcBindingsResponse
+   */
+  async listVpcBindings(functionName: string): Promise<ListVpcBindingsResponse> {
+    let runtime = new $Util.RuntimeOptions({ });
+    let headers : {[key: string ]: string} = { };
+    return await this.listVpcBindingsWithOptions(functionName, headers, runtime);
+  }
+
+  /**
+    * 发布函数版本
     *
     * @param request PublishFunctionVersionRequest
     * @param headers map
@@ -6041,7 +6114,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-    * publish new function version
+    * 发布函数版本
     *
     * @param request PublishFunctionVersionRequest
     * @return PublishFunctionVersionResponse
@@ -6053,7 +6126,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-    * Put function async invoke config.
+    * 设置函数异步调用配置
     *
     * @param request PutAsyncInvokeConfigRequest
     * @param headers map
@@ -6087,7 +6160,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-    * Put function async invoke config.
+    * 设置函数异步调用配置
     *
     * @param request PutAsyncInvokeConfigRequest
     * @return PutAsyncInvokeConfigResponse
@@ -6099,7 +6172,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-    * sets the concurrency config for a function
+    * 设置函数并发度配置
     *
     * @param request PutConcurrencyConfigRequest
     * @param headers map
@@ -6127,7 +6200,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-    * sets the concurrency config for a function
+    * 设置函数并发度配置
     *
     * @param request PutConcurrencyConfigRequest
     * @return PutConcurrencyConfigResponse
@@ -6139,7 +6212,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-    * Update layer ACL.
+    * 设置层的访问权限
     *
     * @param request PutLayerACLRequest
     * @param headers map
@@ -6172,7 +6245,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-    * Update layer ACL.
+    * 设置层的访问权限
     *
     * @param request PutLayerACLRequest
     * @return PutLayerACLResponse
@@ -6184,7 +6257,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-    * Put provision config.
+    * 设置函数预留配置
     *
     * @param request PutProvisionConfigRequest
     * @param headers map
@@ -6218,7 +6291,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-    * Put provision config.
+    * 设置函数预留配置
     *
     * @param request PutProvisionConfigRequest
     * @return PutProvisionConfigResponse
@@ -6230,7 +6303,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-    * Tag resource
+    * 设置资源标签
     *
     * @param request TagResourceRequest
     * @param headers map
@@ -6252,13 +6325,13 @@ export default class Client extends OpenApi {
       authType: "AK",
       style: "ROA",
       reqBodyType: "json",
-      bodyType: "json",
+      bodyType: "none",
     });
     return $tea.cast<TagResourceResponse>(await this.callApi(params, req, runtime), new TagResourceResponse({}));
   }
 
   /**
-    * Tag resource
+    * 设置资源标签
     *
     * @param request TagResourceRequest
     * @return TagResourceResponse
@@ -6270,7 +6343,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-    * Untag resource tag, support resource type: function, service
+    * 删除资源标签
     *
     * @param request UntagResourceRequest
     * @param headers map
@@ -6311,7 +6384,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-    * Untag resource tag, support resource type: function, service
+    * 删除资源标签
     *
     * @param request UntagResourceRequest
     * @return UntagResourceResponse
@@ -6323,7 +6396,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-    * Update function alias
+    * 更新函数别名
     *
     * @param request UpdateAliasRequest
     * @param headers map
@@ -6351,7 +6424,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-    * Update function alias
+    * 更新函数别名
     *
     * @param request UpdateAliasRequest
     * @return UpdateAliasResponse
@@ -6363,7 +6436,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-    * Update custom domain.
+    * 更新自定义域名
     *
     * @param request UpdateCustomDomainRequest
     * @param headers map
@@ -6391,7 +6464,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-    * Update custom domain.
+    * 更新自定义域名
     *
     * @param request UpdateCustomDomainRequest
     * @return UpdateCustomDomainResponse
@@ -6403,7 +6476,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-    * Update function
+    * 更新函数
     *
     * @param request UpdateFunctionRequest
     * @param headers map
@@ -6431,7 +6504,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-    * Update function
+    * 更新函数
     *
     * @param request UpdateFunctionRequest
     * @return UpdateFunctionResponse
@@ -6443,7 +6516,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-    * Update trigger.
+    * 更新函数触发器
     *
     * @param request UpdateTriggerRequest
     * @param headers map
@@ -6471,7 +6544,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-    * Update trigger.
+    * 更新函数触发器
     *
     * @param request UpdateTriggerRequest
     * @return UpdateTriggerResponse
