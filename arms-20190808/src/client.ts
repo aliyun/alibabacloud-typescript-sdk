@@ -9959,10 +9959,12 @@ export class ListDashboardsRequest extends $tea.Model {
 
 export class ListDashboardsResponseBody extends $tea.Model {
   dashboardVos?: ListDashboardsResponseBodyDashboardVos[];
+  prometheusServiceOpened?: string;
   requestId?: string;
   static names(): { [key: string]: string } {
     return {
       dashboardVos: 'DashboardVos',
+      prometheusServiceOpened: 'PrometheusServiceOpened',
       requestId: 'RequestId',
     };
   }
@@ -9970,6 +9972,7 @@ export class ListDashboardsResponseBody extends $tea.Model {
   static types(): { [key: string]: any } {
     return {
       dashboardVos: { 'type': 'array', 'itemType': ListDashboardsResponseBodyDashboardVos },
+      prometheusServiceOpened: 'string',
       requestId: 'string',
     };
   }
@@ -12103,6 +12106,90 @@ export class OpenXtraceDefaultSLRResponse extends $tea.Model {
       headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
       statusCode: 'number',
       body: OpenXtraceDefaultSLRResponseBody,
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class QueryAppMetadataRequest extends $tea.Model {
+  metaIds?: string;
+  metaType?: string;
+  pid?: string;
+  regionId?: string;
+  static names(): { [key: string]: string } {
+    return {
+      metaIds: 'MetaIds',
+      metaType: 'MetaType',
+      pid: 'Pid',
+      regionId: 'RegionId',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      metaIds: 'string',
+      metaType: 'string',
+      pid: 'string',
+      regionId: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class QueryAppMetadataResponseBody extends $tea.Model {
+  code?: number;
+  data?: { [key: string]: any };
+  httpStatusCode?: number;
+  requestId?: string;
+  success?: boolean;
+  static names(): { [key: string]: string } {
+    return {
+      code: 'Code',
+      data: 'Data',
+      httpStatusCode: 'HttpStatusCode',
+      requestId: 'RequestId',
+      success: 'Success',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      code: 'number',
+      data: { 'type': 'map', 'keyType': 'string', 'valueType': 'any' },
+      httpStatusCode: 'number',
+      requestId: 'string',
+      success: 'boolean',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class QueryAppMetadataResponse extends $tea.Model {
+  headers: { [key: string]: string };
+  statusCode: number;
+  body: QueryAppMetadataResponseBody;
+  static names(): { [key: string]: string } {
+    return {
+      headers: 'headers',
+      statusCode: 'statusCode',
+      body: 'body',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
+      body: QueryAppMetadataResponseBody,
     };
   }
 
@@ -31734,6 +31821,31 @@ export default class Client extends OpenApi {
   async openXtraceDefaultSLR(request: OpenXtraceDefaultSLRRequest): Promise<OpenXtraceDefaultSLRResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.openXtraceDefaultSLRWithOptions(request, runtime);
+  }
+
+  async queryAppMetadataWithOptions(request: QueryAppMetadataRequest, runtime: $Util.RuntimeOptions): Promise<QueryAppMetadataResponse> {
+    Util.validateModel(request);
+    let query = OpenApiUtil.query(Util.toMap(request));
+    let req = new $OpenApi.OpenApiRequest({
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApi.Params({
+      action: "QueryAppMetadata",
+      version: "2019-08-08",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "GET",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $tea.cast<QueryAppMetadataResponse>(await this.callApi(params, req, runtime), new QueryAppMetadataResponse({}));
+  }
+
+  async queryAppMetadata(request: QueryAppMetadataRequest): Promise<QueryAppMetadataResponse> {
+    let runtime = new $Util.RuntimeOptions({ });
+    return await this.queryAppMetadataWithOptions(request, runtime);
   }
 
   async queryMetricByPageWithOptions(request: QueryMetricByPageRequest, runtime: $Util.RuntimeOptions): Promise<QueryMetricByPageResponse> {
