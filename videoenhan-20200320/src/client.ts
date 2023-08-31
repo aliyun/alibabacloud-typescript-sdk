@@ -1553,11 +1553,13 @@ export class InterpolateVideoFrameResponse extends $tea.Model {
 
 export class MergeVideoFaceRequest extends $tea.Model {
   addWatermark?: boolean;
+  enhance?: boolean;
   referenceURL?: string;
   videoURL?: string;
   static names(): { [key: string]: string } {
     return {
       addWatermark: 'AddWatermark',
+      enhance: 'Enhance',
       referenceURL: 'ReferenceURL',
       videoURL: 'VideoURL',
     };
@@ -1566,6 +1568,7 @@ export class MergeVideoFaceRequest extends $tea.Model {
   static types(): { [key: string]: any } {
     return {
       addWatermark: 'boolean',
+      enhance: 'boolean',
       referenceURL: 'string',
       videoURL: 'string',
     };
@@ -1578,11 +1581,13 @@ export class MergeVideoFaceRequest extends $tea.Model {
 
 export class MergeVideoFaceAdvanceRequest extends $tea.Model {
   addWatermark?: boolean;
+  enhance?: boolean;
   referenceURLObject?: Readable;
   videoURLObject?: Readable;
   static names(): { [key: string]: string } {
     return {
       addWatermark: 'AddWatermark',
+      enhance: 'Enhance',
       referenceURLObject: 'ReferenceURL',
       videoURLObject: 'VideoURL',
     };
@@ -1591,6 +1596,7 @@ export class MergeVideoFaceAdvanceRequest extends $tea.Model {
   static types(): { [key: string]: any } {
     return {
       addWatermark: 'boolean',
+      enhance: 'boolean',
       referenceURLObject: 'Readable',
       videoURLObject: 'Readable',
     };
@@ -4353,6 +4359,10 @@ export default class Client extends OpenApi {
     let body : {[key: string ]: any} = { };
     if (!Util.isUnset(request.addWatermark)) {
       body["AddWatermark"] = request.addWatermark;
+    }
+
+    if (!Util.isUnset(request.enhance)) {
+      body["Enhance"] = request.enhance;
     }
 
     if (!Util.isUnset(request.referenceURL)) {
