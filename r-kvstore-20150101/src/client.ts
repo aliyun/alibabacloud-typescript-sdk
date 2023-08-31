@@ -2172,6 +2172,7 @@ export class DescribeBackupPolicyRequest extends $tea.Model {
 export class DescribeBackupPolicyResponseBody extends $tea.Model {
   accessDeniedDetail?: DescribeBackupPolicyResponseBodyAccessDeniedDetail;
   backupRetentionPeriod?: string;
+  dbsInstance?: string;
   enableBackupLog?: number;
   preferredBackupPeriod?: string;
   preferredBackupTime?: string;
@@ -2181,6 +2182,7 @@ export class DescribeBackupPolicyResponseBody extends $tea.Model {
     return {
       accessDeniedDetail: 'AccessDeniedDetail',
       backupRetentionPeriod: 'BackupRetentionPeriod',
+      dbsInstance: 'DbsInstance',
       enableBackupLog: 'EnableBackupLog',
       preferredBackupPeriod: 'PreferredBackupPeriod',
       preferredBackupTime: 'PreferredBackupTime',
@@ -2193,6 +2195,7 @@ export class DescribeBackupPolicyResponseBody extends $tea.Model {
     return {
       accessDeniedDetail: DescribeBackupPolicyResponseBodyAccessDeniedDetail,
       backupRetentionPeriod: 'string',
+      dbsInstance: 'string',
       enableBackupLog: 'number',
       preferredBackupPeriod: 'string',
       preferredBackupTime: 'string',
