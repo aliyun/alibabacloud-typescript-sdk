@@ -251,6 +251,146 @@ export class AddCustomQAResponse extends $tea.Model {
   }
 }
 
+export class AddCustomQAV2Headers extends $tea.Model {
+  commonHeaders?: { [key: string]: string };
+  xAcsAligenieAccessToken?: string;
+  authorization?: string;
+  static names(): { [key: string]: string } {
+    return {
+      commonHeaders: 'commonHeaders',
+      xAcsAligenieAccessToken: 'x-acs-aligenie-access-token',
+      authorization: 'Authorization',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      commonHeaders: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      xAcsAligenieAccessToken: 'string',
+      authorization: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class AddCustomQAV2Request extends $tea.Model {
+  answers?: string[];
+  hotelId?: string;
+  keyWords?: string[];
+  majorQuestion?: string;
+  supplementaryQuestions?: string[];
+  static names(): { [key: string]: string } {
+    return {
+      answers: 'Answers',
+      hotelId: 'HotelId',
+      keyWords: 'KeyWords',
+      majorQuestion: 'MajorQuestion',
+      supplementaryQuestions: 'SupplementaryQuestions',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      answers: { 'type': 'array', 'itemType': 'string' },
+      hotelId: 'string',
+      keyWords: { 'type': 'array', 'itemType': 'string' },
+      majorQuestion: 'string',
+      supplementaryQuestions: { 'type': 'array', 'itemType': 'string' },
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class AddCustomQAV2ShrinkRequest extends $tea.Model {
+  answersShrink?: string;
+  hotelId?: string;
+  keyWordsShrink?: string;
+  majorQuestion?: string;
+  supplementaryQuestionsShrink?: string;
+  static names(): { [key: string]: string } {
+    return {
+      answersShrink: 'Answers',
+      hotelId: 'HotelId',
+      keyWordsShrink: 'KeyWords',
+      majorQuestion: 'MajorQuestion',
+      supplementaryQuestionsShrink: 'SupplementaryQuestions',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      answersShrink: 'string',
+      hotelId: 'string',
+      keyWordsShrink: 'string',
+      majorQuestion: 'string',
+      supplementaryQuestionsShrink: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class AddCustomQAV2ResponseBody extends $tea.Model {
+  message?: string;
+  requestId?: string;
+  result?: AddCustomQAV2ResponseBodyResult;
+  statusCode?: number;
+  static names(): { [key: string]: string } {
+    return {
+      message: 'Message',
+      requestId: 'RequestId',
+      result: 'Result',
+      statusCode: 'StatusCode',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      message: 'string',
+      requestId: 'string',
+      result: AddCustomQAV2ResponseBodyResult,
+      statusCode: 'number',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class AddCustomQAV2Response extends $tea.Model {
+  headers: { [key: string]: string };
+  statusCode: number;
+  body: AddCustomQAV2ResponseBody;
+  static names(): { [key: string]: string } {
+    return {
+      headers: 'headers',
+      statusCode: 'statusCode',
+      body: 'body',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
+      body: AddCustomQAV2ResponseBody,
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
 export class AddMessageTemplateHeaders extends $tea.Model {
   commonHeaders?: { [key: string]: string };
   xAcsAligenieAccessToken?: string;
@@ -6484,15 +6624,40 @@ export class ListHotelRoomsHeaders extends $tea.Model {
 }
 
 export class ListHotelRoomsRequest extends $tea.Model {
+  hotelAdminRoom?: ListHotelRoomsRequestHotelAdminRoom;
   hotelId?: string;
   static names(): { [key: string]: string } {
     return {
+      hotelAdminRoom: 'HotelAdminRoom',
       hotelId: 'HotelId',
     };
   }
 
   static types(): { [key: string]: any } {
     return {
+      hotelAdminRoom: ListHotelRoomsRequestHotelAdminRoom,
+      hotelId: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class ListHotelRoomsShrinkRequest extends $tea.Model {
+  hotelAdminRoomShrink?: string;
+  hotelId?: string;
+  static names(): { [key: string]: string } {
+    return {
+      hotelAdminRoomShrink: 'HotelAdminRoom',
+      hotelId: 'HotelId',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      hotelAdminRoomShrink: 'string',
       hotelId: 'string',
     };
   }
@@ -7072,10 +7237,12 @@ export class ListHotelsHeaders extends $tea.Model {
 }
 
 export class ListHotelsRequest extends $tea.Model {
+  hotelRequest?: ListHotelsRequestHotelRequest;
   page?: ListHotelsRequestPage;
   status?: number;
   static names(): { [key: string]: string } {
     return {
+      hotelRequest: 'HotelRequest',
       page: 'Page',
       status: 'Status',
     };
@@ -7083,6 +7250,7 @@ export class ListHotelsRequest extends $tea.Model {
 
   static types(): { [key: string]: any } {
     return {
+      hotelRequest: ListHotelsRequestHotelRequest,
       page: ListHotelsRequestPage,
       status: 'number',
     };
@@ -7094,10 +7262,12 @@ export class ListHotelsRequest extends $tea.Model {
 }
 
 export class ListHotelsShrinkRequest extends $tea.Model {
+  hotelRequestShrink?: string;
   pageShrink?: string;
   status?: number;
   static names(): { [key: string]: string } {
     return {
+      hotelRequestShrink: 'HotelRequest',
       pageShrink: 'Page',
       status: 'Status',
     };
@@ -7105,6 +7275,7 @@ export class ListHotelsShrinkRequest extends $tea.Model {
 
   static types(): { [key: string]: any } {
     return {
+      hotelRequestShrink: 'string',
       pageShrink: 'string',
       status: 'number',
     };
@@ -10794,6 +10965,52 @@ export class UpdateTicketResponse extends $tea.Model {
   }
 }
 
+export class AddCustomQAV2ResponseBodyResult extends $tea.Model {
+  answers?: string;
+  createTime?: string;
+  hotelId?: string;
+  keyWords?: string;
+  lastOperator?: string;
+  majorQuestion?: string;
+  qaId?: string;
+  status?: number;
+  supplementaryQuestion?: string;
+  updateTime?: string;
+  static names(): { [key: string]: string } {
+    return {
+      answers: 'Answers',
+      createTime: 'CreateTime',
+      hotelId: 'HotelId',
+      keyWords: 'KeyWords',
+      lastOperator: 'LastOperator',
+      majorQuestion: 'MajorQuestion',
+      qaId: 'QaId',
+      status: 'Status',
+      supplementaryQuestion: 'SupplementaryQuestion',
+      updateTime: 'UpdateTime',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      answers: 'string',
+      createTime: 'string',
+      hotelId: 'string',
+      keyWords: 'string',
+      lastOperator: 'string',
+      majorQuestion: 'string',
+      qaId: 'string',
+      status: 'number',
+      supplementaryQuestion: 'string',
+      updateTime: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
 export class AddOrUpdateHotelSettingRequestHotelScreenSaver extends $tea.Model {
   screenSaverPicUrl?: string;
   screenSaverStyle?: string;
@@ -13152,6 +13369,25 @@ export class ListHotelOrderResponseBodyResult extends $tea.Model {
   }
 }
 
+export class ListHotelRoomsRequestHotelAdminRoom extends $tea.Model {
+  roomNo?: string;
+  static names(): { [key: string]: string } {
+    return {
+      roomNo: 'RoomNo',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      roomNo: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
 export class ListHotelRoomsResponseBodyResult extends $tea.Model {
   hotelId?: string;
   roomNo?: string;
@@ -13654,6 +13890,25 @@ export class ListHotelServiceCategoryResponseBodyResult extends $tea.Model {
       icon: 'string',
       name: 'string',
       type: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class ListHotelsRequestHotelRequest extends $tea.Model {
+  hotelId?: string;
+  static names(): { [key: string]: string } {
+    return {
+      hotelId: 'HotelId',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      hotelId: 'string',
     };
   }
 
@@ -15201,6 +15456,80 @@ export default class Client extends OpenApi {
     let runtime = new $Util.RuntimeOptions({ });
     let headers = new AddCustomQAHeaders({ });
     return await this.addCustomQAWithOptions(request, headers, runtime);
+  }
+
+  async addCustomQAV2WithOptions(tmpReq: AddCustomQAV2Request, headers: AddCustomQAV2Headers, runtime: $Util.RuntimeOptions): Promise<AddCustomQAV2Response> {
+    Util.validateModel(tmpReq);
+    let request = new AddCustomQAV2ShrinkRequest({ });
+    OpenApiUtil.convert(tmpReq, request);
+    if (!Util.isUnset(tmpReq.answers)) {
+      request.answersShrink = OpenApiUtil.arrayToStringWithSpecifiedStyle(tmpReq.answers, "Answers", "json");
+    }
+
+    if (!Util.isUnset(tmpReq.keyWords)) {
+      request.keyWordsShrink = OpenApiUtil.arrayToStringWithSpecifiedStyle(tmpReq.keyWords, "KeyWords", "json");
+    }
+
+    if (!Util.isUnset(tmpReq.supplementaryQuestions)) {
+      request.supplementaryQuestionsShrink = OpenApiUtil.arrayToStringWithSpecifiedStyle(tmpReq.supplementaryQuestions, "SupplementaryQuestions", "json");
+    }
+
+    let body : {[key: string ]: any} = { };
+    if (!Util.isUnset(request.answersShrink)) {
+      body["Answers"] = request.answersShrink;
+    }
+
+    if (!Util.isUnset(request.hotelId)) {
+      body["HotelId"] = request.hotelId;
+    }
+
+    if (!Util.isUnset(request.keyWordsShrink)) {
+      body["KeyWords"] = request.keyWordsShrink;
+    }
+
+    if (!Util.isUnset(request.majorQuestion)) {
+      body["MajorQuestion"] = request.majorQuestion;
+    }
+
+    if (!Util.isUnset(request.supplementaryQuestionsShrink)) {
+      body["SupplementaryQuestions"] = request.supplementaryQuestionsShrink;
+    }
+
+    let realHeaders : {[key: string ]: string} = { };
+    if (!Util.isUnset(headers.commonHeaders)) {
+      realHeaders = headers.commonHeaders;
+    }
+
+    if (!Util.isUnset(headers.xAcsAligenieAccessToken)) {
+      realHeaders["x-acs-aligenie-access-token"] = Util.toJSONString(headers.xAcsAligenieAccessToken);
+    }
+
+    if (!Util.isUnset(headers.authorization)) {
+      realHeaders["Authorization"] = Util.toJSONString(headers.authorization);
+    }
+
+    let req = new $OpenApi.OpenApiRequest({
+      headers: realHeaders,
+      body: OpenApiUtil.parseToMap(body),
+    });
+    let params = new $OpenApi.Params({
+      action: "AddCustomQAV2",
+      version: "ip_1.0",
+      protocol: "HTTPS",
+      pathname: `/v1.0/ip/addQAV2`,
+      method: "POST",
+      authType: "AK",
+      style: "ROA",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $tea.cast<AddCustomQAV2Response>(await this.callApi(params, req, runtime), new AddCustomQAV2Response({}));
+  }
+
+  async addCustomQAV2(request: AddCustomQAV2Request): Promise<AddCustomQAV2Response> {
+    let runtime = new $Util.RuntimeOptions({ });
+    let headers = new AddCustomQAV2Headers({ });
+    return await this.addCustomQAV2WithOptions(request, headers, runtime);
   }
 
   async addMessageTemplateWithOptions(request: AddMessageTemplateRequest, headers: AddMessageTemplateHeaders, runtime: $Util.RuntimeOptions): Promise<AddMessageTemplateResponse> {
@@ -18079,9 +18408,19 @@ export default class Client extends OpenApi {
     return await this.listHotelOrderWithOptions(request, headers, runtime);
   }
 
-  async listHotelRoomsWithOptions(request: ListHotelRoomsRequest, headers: ListHotelRoomsHeaders, runtime: $Util.RuntimeOptions): Promise<ListHotelRoomsResponse> {
-    Util.validateModel(request);
+  async listHotelRoomsWithOptions(tmpReq: ListHotelRoomsRequest, headers: ListHotelRoomsHeaders, runtime: $Util.RuntimeOptions): Promise<ListHotelRoomsResponse> {
+    Util.validateModel(tmpReq);
+    let request = new ListHotelRoomsShrinkRequest({ });
+    OpenApiUtil.convert(tmpReq, request);
+    if (!Util.isUnset(tmpReq.hotelAdminRoom)) {
+      request.hotelAdminRoomShrink = OpenApiUtil.arrayToStringWithSpecifiedStyle(tmpReq.hotelAdminRoom, "HotelAdminRoom", "json");
+    }
+
     let body : {[key: string ]: any} = { };
+    if (!Util.isUnset(request.hotelAdminRoomShrink)) {
+      body["HotelAdminRoom"] = request.hotelAdminRoomShrink;
+    }
+
     if (!Util.isUnset(request.hotelId)) {
       body["HotelId"] = request.hotelId;
     }
@@ -18351,11 +18690,19 @@ export default class Client extends OpenApi {
     Util.validateModel(tmpReq);
     let request = new ListHotelsShrinkRequest({ });
     OpenApiUtil.convert(tmpReq, request);
+    if (!Util.isUnset(tmpReq.hotelRequest)) {
+      request.hotelRequestShrink = OpenApiUtil.arrayToStringWithSpecifiedStyle(tmpReq.hotelRequest, "HotelRequest", "json");
+    }
+
     if (!Util.isUnset(tmpReq.page)) {
       request.pageShrink = OpenApiUtil.arrayToStringWithSpecifiedStyle(tmpReq.page, "Page", "json");
     }
 
     let query : {[key: string ]: any} = { };
+    if (!Util.isUnset(request.hotelRequestShrink)) {
+      query["HotelRequest"] = request.hotelRequestShrink;
+    }
+
     if (!Util.isUnset(request.pageShrink)) {
       query["Page"] = request.pageShrink;
     }
