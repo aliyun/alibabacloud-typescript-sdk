@@ -5653,6 +5653,78 @@ export class UpdateASMNamespaceFromGuestClusterResponse extends $tea.Model {
   }
 }
 
+export class UpdateControlPlaneLogConfigRequest extends $tea.Model {
+  enabled?: boolean;
+  logTTLInDay?: number;
+  project?: string;
+  serviceMeshId?: string;
+  static names(): { [key: string]: string } {
+    return {
+      enabled: 'Enabled',
+      logTTLInDay: 'LogTTLInDay',
+      project: 'Project',
+      serviceMeshId: 'ServiceMeshId',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      enabled: 'boolean',
+      logTTLInDay: 'number',
+      project: 'string',
+      serviceMeshId: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class UpdateControlPlaneLogConfigResponseBody extends $tea.Model {
+  requestId?: string;
+  static names(): { [key: string]: string } {
+    return {
+      requestId: 'RequestId',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      requestId: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class UpdateControlPlaneLogConfigResponse extends $tea.Model {
+  headers: { [key: string]: string };
+  statusCode: number;
+  body: UpdateControlPlaneLogConfigResponseBody;
+  static names(): { [key: string]: string } {
+    return {
+      headers: 'headers',
+      statusCode: 'statusCode',
+      body: 'body',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
+      body: UpdateControlPlaneLogConfigResponseBody,
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
 export class UpdateIstioGatewayRoutesRequest extends $tea.Model {
   description?: string;
   gatewayRoute?: UpdateIstioGatewayRoutesRequestGatewayRoute;
@@ -6006,11 +6078,13 @@ export class UpdateMeshFeatureRequest extends $tea.Model {
   accessLogEnabled?: boolean;
   accessLogFile?: string;
   accessLogFormat?: string;
+  accessLogGatewayEnabled?: boolean;
   accessLogGatewayLifecycle?: number;
   accessLogProject?: string;
   accessLogServiceEnabled?: boolean;
   accessLogServiceHost?: string;
   accessLogServicePort?: number;
+  accessLogSidecarEnabled?: boolean;
   accessLogSidecarLifecycle?: number;
   auditProject?: string;
   autoInjectionPolicyEnabled?: boolean;
@@ -6105,11 +6179,13 @@ export class UpdateMeshFeatureRequest extends $tea.Model {
       accessLogEnabled: 'AccessLogEnabled',
       accessLogFile: 'AccessLogFile',
       accessLogFormat: 'AccessLogFormat',
+      accessLogGatewayEnabled: 'AccessLogGatewayEnabled',
       accessLogGatewayLifecycle: 'AccessLogGatewayLifecycle',
       accessLogProject: 'AccessLogProject',
       accessLogServiceEnabled: 'AccessLogServiceEnabled',
       accessLogServiceHost: 'AccessLogServiceHost',
       accessLogServicePort: 'AccessLogServicePort',
+      accessLogSidecarEnabled: 'AccessLogSidecarEnabled',
       accessLogSidecarLifecycle: 'AccessLogSidecarLifecycle',
       auditProject: 'AuditProject',
       autoInjectionPolicyEnabled: 'AutoInjectionPolicyEnabled',
@@ -6207,11 +6283,13 @@ export class UpdateMeshFeatureRequest extends $tea.Model {
       accessLogEnabled: 'boolean',
       accessLogFile: 'string',
       accessLogFormat: 'string',
+      accessLogGatewayEnabled: 'boolean',
       accessLogGatewayLifecycle: 'number',
       accessLogProject: 'string',
       accessLogServiceEnabled: 'boolean',
       accessLogServiceHost: 'string',
       accessLogServicePort: 'number',
+      accessLogSidecarEnabled: 'boolean',
       accessLogSidecarLifecycle: 'number',
       auditProject: 'string',
       autoInjectionPolicyEnabled: 'boolean',
@@ -6355,6 +6433,7 @@ export class UpdateMeshFeatureResponse extends $tea.Model {
 
 export class UpdateNamespaceScopeSidecarConfigRequest extends $tea.Model {
   concurrency?: number;
+  enableCoreDump?: boolean;
   excludeIPRanges?: string;
   excludeInboundPorts?: string;
   excludeOutboundPorts?: string;
@@ -6369,6 +6448,7 @@ export class UpdateNamespaceScopeSidecarConfigRequest extends $tea.Model {
   namespace?: string;
   postStart?: string;
   preStop?: string;
+  privileged?: boolean;
   proxyInitAckSloCPUResourceLimit?: string;
   proxyInitAckSloCPUResourceRequest?: string;
   proxyInitAckSloMemoryResourceLimit?: string;
@@ -6379,6 +6459,9 @@ export class UpdateNamespaceScopeSidecarConfigRequest extends $tea.Model {
   proxyInitMemoryResourceRequest?: string;
   proxyMetadata?: string;
   proxyStatsMatcher?: string;
+  readinessFailureThreshold?: number;
+  readinessInitialDelaySeconds?: number;
+  readinessPeriodSeconds?: number;
   serviceMeshId?: string;
   sidecarProxyAckSloCPUResourceLimit?: string;
   sidecarProxyAckSloCPUResourceRequest?: string;
@@ -6393,6 +6476,7 @@ export class UpdateNamespaceScopeSidecarConfigRequest extends $tea.Model {
   static names(): { [key: string]: string } {
     return {
       concurrency: 'Concurrency',
+      enableCoreDump: 'EnableCoreDump',
       excludeIPRanges: 'ExcludeIPRanges',
       excludeInboundPorts: 'ExcludeInboundPorts',
       excludeOutboundPorts: 'ExcludeOutboundPorts',
@@ -6407,6 +6491,7 @@ export class UpdateNamespaceScopeSidecarConfigRequest extends $tea.Model {
       namespace: 'Namespace',
       postStart: 'PostStart',
       preStop: 'PreStop',
+      privileged: 'Privileged',
       proxyInitAckSloCPUResourceLimit: 'ProxyInitAckSloCPUResourceLimit',
       proxyInitAckSloCPUResourceRequest: 'ProxyInitAckSloCPUResourceRequest',
       proxyInitAckSloMemoryResourceLimit: 'ProxyInitAckSloMemoryResourceLimit',
@@ -6417,6 +6502,9 @@ export class UpdateNamespaceScopeSidecarConfigRequest extends $tea.Model {
       proxyInitMemoryResourceRequest: 'ProxyInitMemoryResourceRequest',
       proxyMetadata: 'ProxyMetadata',
       proxyStatsMatcher: 'ProxyStatsMatcher',
+      readinessFailureThreshold: 'ReadinessFailureThreshold',
+      readinessInitialDelaySeconds: 'ReadinessInitialDelaySeconds',
+      readinessPeriodSeconds: 'ReadinessPeriodSeconds',
       serviceMeshId: 'ServiceMeshId',
       sidecarProxyAckSloCPUResourceLimit: 'SidecarProxyAckSloCPUResourceLimit',
       sidecarProxyAckSloCPUResourceRequest: 'SidecarProxyAckSloCPUResourceRequest',
@@ -6434,6 +6522,7 @@ export class UpdateNamespaceScopeSidecarConfigRequest extends $tea.Model {
   static types(): { [key: string]: any } {
     return {
       concurrency: 'number',
+      enableCoreDump: 'boolean',
       excludeIPRanges: 'string',
       excludeInboundPorts: 'string',
       excludeOutboundPorts: 'string',
@@ -6448,6 +6537,7 @@ export class UpdateNamespaceScopeSidecarConfigRequest extends $tea.Model {
       namespace: 'string',
       postStart: 'string',
       preStop: 'string',
+      privileged: 'boolean',
       proxyInitAckSloCPUResourceLimit: 'string',
       proxyInitAckSloCPUResourceRequest: 'string',
       proxyInitAckSloMemoryResourceLimit: 'string',
@@ -6458,6 +6548,9 @@ export class UpdateNamespaceScopeSidecarConfigRequest extends $tea.Model {
       proxyInitMemoryResourceRequest: 'string',
       proxyMetadata: 'string',
       proxyStatsMatcher: 'string',
+      readinessFailureThreshold: 'number',
+      readinessInitialDelaySeconds: 'number',
+      readinessPeriodSeconds: 'number',
       serviceMeshId: 'string',
       sidecarProxyAckSloCPUResourceLimit: 'string',
       sidecarProxyAckSloCPUResourceRequest: 'string',
@@ -8572,6 +8665,7 @@ export class DescribeNamespaceScopeSidecarConfigResponseBodyConfigPatchesTracing
 
 export class DescribeNamespaceScopeSidecarConfigResponseBodyConfigPatches extends $tea.Model {
   concurrency?: number;
+  enableCoreDump?: boolean;
   excludeInboundPorts?: string;
   excludeOutboundIPRanges?: string;
   excludeOutboundPorts?: string;
@@ -8583,8 +8677,12 @@ export class DescribeNamespaceScopeSidecarConfigResponseBodyConfigPatches extend
   istioDNSProxyEnabled?: boolean;
   lifecycleStr?: string;
   logLevel?: string;
+  privileged?: boolean;
   proxyMetadata?: { [key: string]: string };
   proxyStatsMatcher?: DescribeNamespaceScopeSidecarConfigResponseBodyConfigPatchesProxyStatsMatcher;
+  readinessFailureThreshold?: number;
+  readinessInitialDelaySeconds?: number;
+  readinessPeriodSeconds?: number;
   sidecarProxyAckSloResource?: DescribeNamespaceScopeSidecarConfigResponseBodyConfigPatchesSidecarProxyAckSloResource;
   sidecarProxyInitAckSloResource?: DescribeNamespaceScopeSidecarConfigResponseBodyConfigPatchesSidecarProxyInitAckSloResource;
   sidecarProxyInitResourceLimit?: DescribeNamespaceScopeSidecarConfigResponseBodyConfigPatchesSidecarProxyInitResourceLimit;
@@ -8596,6 +8694,7 @@ export class DescribeNamespaceScopeSidecarConfigResponseBodyConfigPatches extend
   static names(): { [key: string]: string } {
     return {
       concurrency: 'Concurrency',
+      enableCoreDump: 'EnableCoreDump',
       excludeInboundPorts: 'ExcludeInboundPorts',
       excludeOutboundIPRanges: 'ExcludeOutboundIPRanges',
       excludeOutboundPorts: 'ExcludeOutboundPorts',
@@ -8607,8 +8706,12 @@ export class DescribeNamespaceScopeSidecarConfigResponseBodyConfigPatches extend
       istioDNSProxyEnabled: 'IstioDNSProxyEnabled',
       lifecycleStr: 'LifecycleStr',
       logLevel: 'LogLevel',
+      privileged: 'Privileged',
       proxyMetadata: 'ProxyMetadata',
       proxyStatsMatcher: 'ProxyStatsMatcher',
+      readinessFailureThreshold: 'ReadinessFailureThreshold',
+      readinessInitialDelaySeconds: 'ReadinessInitialDelaySeconds',
+      readinessPeriodSeconds: 'ReadinessPeriodSeconds',
       sidecarProxyAckSloResource: 'SidecarProxyAckSloResource',
       sidecarProxyInitAckSloResource: 'SidecarProxyInitAckSloResource',
       sidecarProxyInitResourceLimit: 'SidecarProxyInitResourceLimit',
@@ -8623,6 +8726,7 @@ export class DescribeNamespaceScopeSidecarConfigResponseBodyConfigPatches extend
   static types(): { [key: string]: any } {
     return {
       concurrency: 'number',
+      enableCoreDump: 'boolean',
       excludeInboundPorts: 'string',
       excludeOutboundIPRanges: 'string',
       excludeOutboundPorts: 'string',
@@ -8634,8 +8738,12 @@ export class DescribeNamespaceScopeSidecarConfigResponseBodyConfigPatches extend
       istioDNSProxyEnabled: 'boolean',
       lifecycleStr: 'string',
       logLevel: 'string',
+      privileged: 'boolean',
       proxyMetadata: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
       proxyStatsMatcher: DescribeNamespaceScopeSidecarConfigResponseBodyConfigPatchesProxyStatsMatcher,
+      readinessFailureThreshold: 'number',
+      readinessInitialDelaySeconds: 'number',
+      readinessPeriodSeconds: 'number',
       sidecarProxyAckSloResource: DescribeNamespaceScopeSidecarConfigResponseBodyConfigPatchesSidecarProxyAckSloResource,
       sidecarProxyInitAckSloResource: DescribeNamespaceScopeSidecarConfigResponseBodyConfigPatchesSidecarProxyInitAckSloResource,
       sidecarProxyInitResourceLimit: DescribeNamespaceScopeSidecarConfigResponseBodyConfigPatchesSidecarProxyInitResourceLimit,
@@ -9050,10 +9158,12 @@ export class DescribeServiceMeshDetailResponseBodyServiceMeshSpecMeshConfigAudit
 
 export class DescribeServiceMeshDetailResponseBodyServiceMeshSpecMeshConfigControlPlaneLogInfo extends $tea.Model {
   enabled?: boolean;
+  logTTL?: number;
   project?: string;
   static names(): { [key: string]: string } {
     return {
       enabled: 'Enabled',
+      logTTL: 'LogTTL',
       project: 'Project',
     };
   }
@@ -9061,6 +9171,7 @@ export class DescribeServiceMeshDetailResponseBodyServiceMeshSpecMeshConfigContr
   static types(): { [key: string]: any } {
     return {
       enabled: 'boolean',
+      logTTL: 'number',
       project: 'string',
     };
   }
@@ -9096,18 +9207,24 @@ export class DescribeServiceMeshDetailResponseBodyServiceMeshSpecMeshConfigEditi
 }
 
 export class DescribeServiceMeshDetailResponseBodyServiceMeshSpecMeshConfigExtraConfigurationAccessLogExtraConf extends $tea.Model {
+  gatewayEnabled?: boolean;
   gatewayLifecycle?: number;
+  sidecarEnabled?: boolean;
   sidecarLifecycle?: number;
   static names(): { [key: string]: string } {
     return {
+      gatewayEnabled: 'GatewayEnabled',
       gatewayLifecycle: 'GatewayLifecycle',
+      sidecarEnabled: 'SidecarEnabled',
       sidecarLifecycle: 'SidecarLifecycle',
     };
   }
 
   static types(): { [key: string]: any } {
     return {
+      gatewayEnabled: 'boolean',
       gatewayLifecycle: 'number',
+      sidecarEnabled: 'boolean',
       sidecarLifecycle: 'number',
     };
   }
@@ -14701,6 +14818,47 @@ export default class Client extends OpenApi {
     return await this.updateASMNamespaceFromGuestClusterWithOptions(request, runtime);
   }
 
+  async updateControlPlaneLogConfigWithOptions(request: UpdateControlPlaneLogConfigRequest, runtime: $Util.RuntimeOptions): Promise<UpdateControlPlaneLogConfigResponse> {
+    Util.validateModel(request);
+    let body : {[key: string ]: any} = { };
+    if (!Util.isUnset(request.enabled)) {
+      body["Enabled"] = request.enabled;
+    }
+
+    if (!Util.isUnset(request.logTTLInDay)) {
+      body["LogTTLInDay"] = request.logTTLInDay;
+    }
+
+    if (!Util.isUnset(request.project)) {
+      body["Project"] = request.project;
+    }
+
+    if (!Util.isUnset(request.serviceMeshId)) {
+      body["ServiceMeshId"] = request.serviceMeshId;
+    }
+
+    let req = new $OpenApi.OpenApiRequest({
+      body: OpenApiUtil.parseToMap(body),
+    });
+    let params = new $OpenApi.Params({
+      action: "UpdateControlPlaneLogConfig",
+      version: "2020-01-11",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $tea.cast<UpdateControlPlaneLogConfigResponse>(await this.callApi(params, req, runtime), new UpdateControlPlaneLogConfigResponse({}));
+  }
+
+  async updateControlPlaneLogConfig(request: UpdateControlPlaneLogConfigRequest): Promise<UpdateControlPlaneLogConfigResponse> {
+    let runtime = new $Util.RuntimeOptions({ });
+    return await this.updateControlPlaneLogConfigWithOptions(request, runtime);
+  }
+
   async updateIstioGatewayRoutesWithOptions(tmpReq: UpdateIstioGatewayRoutesRequest, runtime: $Util.RuntimeOptions): Promise<UpdateIstioGatewayRoutesResponse> {
     Util.validateModel(tmpReq);
     let request = new UpdateIstioGatewayRoutesShrinkRequest({ });
@@ -14911,6 +15069,15 @@ export default class Client extends OpenApi {
 
   async updateMeshFeatureWithOptions(request: UpdateMeshFeatureRequest, runtime: $Util.RuntimeOptions): Promise<UpdateMeshFeatureResponse> {
     Util.validateModel(request);
+    let query = { };
+    if (!Util.isUnset(request.accessLogGatewayEnabled)) {
+      query["AccessLogGatewayEnabled"] = request.accessLogGatewayEnabled;
+    }
+
+    if (!Util.isUnset(request.accessLogSidecarEnabled)) {
+      query["AccessLogSidecarEnabled"] = request.accessLogSidecarEnabled;
+    }
+
     let body : {[key: string ]: any} = { };
     if (!Util.isUnset(request.accessLogEnabled)) {
       body["AccessLogEnabled"] = request.accessLogEnabled;
@@ -15301,6 +15468,7 @@ export default class Client extends OpenApi {
     }
 
     let req = new $OpenApi.OpenApiRequest({
+      query: OpenApiUtil.query(query),
       body: OpenApiUtil.parseToMap(body),
     });
     let params = new $OpenApi.Params({
@@ -15327,6 +15495,10 @@ export default class Client extends OpenApi {
     let body : {[key: string ]: any} = { };
     if (!Util.isUnset(request.concurrency)) {
       body["Concurrency"] = request.concurrency;
+    }
+
+    if (!Util.isUnset(request.enableCoreDump)) {
+      body["EnableCoreDump"] = request.enableCoreDump;
     }
 
     if (!Util.isUnset(request.excludeIPRanges)) {
@@ -15385,6 +15557,10 @@ export default class Client extends OpenApi {
       body["PreStop"] = request.preStop;
     }
 
+    if (!Util.isUnset(request.privileged)) {
+      body["Privileged"] = request.privileged;
+    }
+
     if (!Util.isUnset(request.proxyInitAckSloCPUResourceLimit)) {
       body["ProxyInitAckSloCPUResourceLimit"] = request.proxyInitAckSloCPUResourceLimit;
     }
@@ -15423,6 +15599,18 @@ export default class Client extends OpenApi {
 
     if (!Util.isUnset(request.proxyStatsMatcher)) {
       body["ProxyStatsMatcher"] = request.proxyStatsMatcher;
+    }
+
+    if (!Util.isUnset(request.readinessFailureThreshold)) {
+      body["ReadinessFailureThreshold"] = request.readinessFailureThreshold;
+    }
+
+    if (!Util.isUnset(request.readinessInitialDelaySeconds)) {
+      body["ReadinessInitialDelaySeconds"] = request.readinessInitialDelaySeconds;
+    }
+
+    if (!Util.isUnset(request.readinessPeriodSeconds)) {
+      body["ReadinessPeriodSeconds"] = request.readinessPeriodSeconds;
     }
 
     if (!Util.isUnset(request.serviceMeshId)) {
