@@ -1211,6 +1211,7 @@ export class GetServiceEstimateCostRequest extends $tea.Model {
   serviceId?: string;
   serviceInstanceId?: string;
   serviceVersion?: string;
+  specificationName?: string;
   templateName?: string;
   static names(): { [key: string]: string } {
     return {
@@ -1220,6 +1221,7 @@ export class GetServiceEstimateCostRequest extends $tea.Model {
       serviceId: 'ServiceId',
       serviceInstanceId: 'ServiceInstanceId',
       serviceVersion: 'ServiceVersion',
+      specificationName: 'SpecificationName',
       templateName: 'TemplateName',
     };
   }
@@ -1232,6 +1234,7 @@ export class GetServiceEstimateCostRequest extends $tea.Model {
       serviceId: 'string',
       serviceInstanceId: 'string',
       serviceVersion: 'string',
+      specificationName: 'string',
       templateName: 'string',
     };
   }
@@ -1248,6 +1251,7 @@ export class GetServiceEstimateCostShrinkRequest extends $tea.Model {
   serviceId?: string;
   serviceInstanceId?: string;
   serviceVersion?: string;
+  specificationName?: string;
   templateName?: string;
   static names(): { [key: string]: string } {
     return {
@@ -1257,6 +1261,7 @@ export class GetServiceEstimateCostShrinkRequest extends $tea.Model {
       serviceId: 'ServiceId',
       serviceInstanceId: 'ServiceInstanceId',
       serviceVersion: 'ServiceVersion',
+      specificationName: 'SpecificationName',
       templateName: 'TemplateName',
     };
   }
@@ -1269,6 +1274,7 @@ export class GetServiceEstimateCostShrinkRequest extends $tea.Model {
       serviceId: 'string',
       serviceInstanceId: 'string',
       serviceVersion: 'string',
+      specificationName: 'string',
       templateName: 'string',
     };
   }
@@ -1554,6 +1560,174 @@ export class GetUploadCredentialsResponse extends $tea.Model {
       headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
       statusCode: 'number',
       body: GetUploadCredentialsResponseBody,
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class ListAcrImageRepositoriesRequest extends $tea.Model {
+  artifactType?: string;
+  maxResults?: number;
+  nextToken?: string;
+  repoName?: string;
+  static names(): { [key: string]: string } {
+    return {
+      artifactType: 'ArtifactType',
+      maxResults: 'MaxResults',
+      nextToken: 'NextToken',
+      repoName: 'RepoName',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      artifactType: 'string',
+      maxResults: 'number',
+      nextToken: 'string',
+      repoName: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class ListAcrImageRepositoriesResponseBody extends $tea.Model {
+  maxResults?: number;
+  nextToken?: string;
+  repositories?: ListAcrImageRepositoriesResponseBodyRepositories[];
+  requestId?: string;
+  totalCount?: number;
+  static names(): { [key: string]: string } {
+    return {
+      maxResults: 'MaxResults',
+      nextToken: 'NextToken',
+      repositories: 'Repositories',
+      requestId: 'RequestId',
+      totalCount: 'TotalCount',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      maxResults: 'number',
+      nextToken: 'string',
+      repositories: { 'type': 'array', 'itemType': ListAcrImageRepositoriesResponseBodyRepositories },
+      requestId: 'string',
+      totalCount: 'number',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class ListAcrImageRepositoriesResponse extends $tea.Model {
+  headers: { [key: string]: string };
+  statusCode: number;
+  body: ListAcrImageRepositoriesResponseBody;
+  static names(): { [key: string]: string } {
+    return {
+      headers: 'headers',
+      statusCode: 'statusCode',
+      body: 'body',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
+      body: ListAcrImageRepositoriesResponseBody,
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class ListAcrImageTagsRequest extends $tea.Model {
+  artifactType?: string;
+  maxResults?: number;
+  nextToken?: string;
+  repoId?: string;
+  static names(): { [key: string]: string } {
+    return {
+      artifactType: 'ArtifactType',
+      maxResults: 'MaxResults',
+      nextToken: 'NextToken',
+      repoId: 'RepoId',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      artifactType: 'string',
+      maxResults: 'number',
+      nextToken: 'string',
+      repoId: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class ListAcrImageTagsResponseBody extends $tea.Model {
+  images?: ListAcrImageTagsResponseBodyImages[];
+  maxResults?: number;
+  nextToken?: string;
+  requestId?: string;
+  totalCount?: number;
+  static names(): { [key: string]: string } {
+    return {
+      images: 'Images',
+      maxResults: 'MaxResults',
+      nextToken: 'NextToken',
+      requestId: 'RequestId',
+      totalCount: 'TotalCount',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      images: { 'type': 'array', 'itemType': ListAcrImageTagsResponseBodyImages },
+      maxResults: 'number',
+      nextToken: 'string',
+      requestId: 'string',
+      totalCount: 'number',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class ListAcrImageTagsResponse extends $tea.Model {
+  headers: { [key: string]: string };
+  statusCode: number;
+  body: ListAcrImageTagsResponseBody;
+  static names(): { [key: string]: string } {
+    return {
+      headers: 'headers',
+      statusCode: 'statusCode',
+      body: 'body',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
+      body: ListAcrImageTagsResponseBody,
     };
   }
 
@@ -2118,6 +2292,78 @@ export class PushMeteringDataResponse extends $tea.Model {
       headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
       statusCode: 'number',
       body: PushMeteringDataResponseBody,
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class RegisterServiceRequest extends $tea.Model {
+  clientToken?: string;
+  regionId?: string;
+  serviceId?: string;
+  static names(): { [key: string]: string } {
+    return {
+      clientToken: 'ClientToken',
+      regionId: 'RegionId',
+      serviceId: 'ServiceId',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      clientToken: 'string',
+      regionId: 'string',
+      serviceId: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class RegisterServiceResponseBody extends $tea.Model {
+  registrationId?: string;
+  requestId?: string;
+  static names(): { [key: string]: string } {
+    return {
+      registrationId: 'RegistrationId',
+      requestId: 'RequestId',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      registrationId: 'string',
+      requestId: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class RegisterServiceResponse extends $tea.Model {
+  headers: { [key: string]: string };
+  statusCode: number;
+  body: RegisterServiceResponseBody;
+  static names(): { [key: string]: string } {
+    return {
+      headers: 'headers',
+      statusCode: 'statusCode',
+      body: 'body',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
+      body: RegisterServiceResponseBody,
     };
   }
 
@@ -3088,6 +3334,62 @@ export class GetUploadCredentialsResponseBodyData extends $tea.Model {
       key: 'string',
       regionId: 'string',
       securityToken: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class ListAcrImageRepositoriesResponseBodyRepositories extends $tea.Model {
+  createTime?: string;
+  modifiedTime?: string;
+  repoId?: string;
+  repoName?: string;
+  static names(): { [key: string]: string } {
+    return {
+      createTime: 'CreateTime',
+      modifiedTime: 'ModifiedTime',
+      repoId: 'RepoId',
+      repoName: 'RepoName',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      createTime: 'string',
+      modifiedTime: 'string',
+      repoId: 'string',
+      repoName: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class ListAcrImageTagsResponseBodyImages extends $tea.Model {
+  createTime?: string;
+  imageSize?: string;
+  modifiedTime?: string;
+  tag?: string;
+  static names(): { [key: string]: string } {
+    return {
+      createTime: 'CreateTime',
+      imageSize: 'ImageSize',
+      modifiedTime: 'ModifiedTime',
+      tag: 'Tag',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      createTime: 'string',
+      imageSize: 'string',
+      modifiedTime: 'string',
+      tag: 'string',
     };
   }
 
@@ -4438,6 +4740,10 @@ export default class Client extends OpenApi {
       query["ServiceVersion"] = request.serviceVersion;
     }
 
+    if (!Util.isUnset(request.specificationName)) {
+      query["SpecificationName"] = request.specificationName;
+    }
+
     if (!Util.isUnset(request.templateName)) {
       query["TemplateName"] = request.templateName;
     }
@@ -4524,6 +4830,88 @@ export default class Client extends OpenApi {
   async getUploadCredentials(request: GetUploadCredentialsRequest): Promise<GetUploadCredentialsResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.getUploadCredentialsWithOptions(request, runtime);
+  }
+
+  async listAcrImageRepositoriesWithOptions(request: ListAcrImageRepositoriesRequest, runtime: $Util.RuntimeOptions): Promise<ListAcrImageRepositoriesResponse> {
+    Util.validateModel(request);
+    let query = { };
+    if (!Util.isUnset(request.artifactType)) {
+      query["ArtifactType"] = request.artifactType;
+    }
+
+    if (!Util.isUnset(request.maxResults)) {
+      query["MaxResults"] = request.maxResults;
+    }
+
+    if (!Util.isUnset(request.nextToken)) {
+      query["NextToken"] = request.nextToken;
+    }
+
+    if (!Util.isUnset(request.repoName)) {
+      query["RepoName"] = request.repoName;
+    }
+
+    let req = new $OpenApi.OpenApiRequest({
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApi.Params({
+      action: "ListAcrImageRepositories",
+      version: "2021-05-21",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $tea.cast<ListAcrImageRepositoriesResponse>(await this.callApi(params, req, runtime), new ListAcrImageRepositoriesResponse({}));
+  }
+
+  async listAcrImageRepositories(request: ListAcrImageRepositoriesRequest): Promise<ListAcrImageRepositoriesResponse> {
+    let runtime = new $Util.RuntimeOptions({ });
+    return await this.listAcrImageRepositoriesWithOptions(request, runtime);
+  }
+
+  async listAcrImageTagsWithOptions(request: ListAcrImageTagsRequest, runtime: $Util.RuntimeOptions): Promise<ListAcrImageTagsResponse> {
+    Util.validateModel(request);
+    let query = { };
+    if (!Util.isUnset(request.artifactType)) {
+      query["ArtifactType"] = request.artifactType;
+    }
+
+    if (!Util.isUnset(request.maxResults)) {
+      query["MaxResults"] = request.maxResults;
+    }
+
+    if (!Util.isUnset(request.nextToken)) {
+      query["NextToken"] = request.nextToken;
+    }
+
+    if (!Util.isUnset(request.repoId)) {
+      query["RepoId"] = request.repoId;
+    }
+
+    let req = new $OpenApi.OpenApiRequest({
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApi.Params({
+      action: "ListAcrImageTags",
+      version: "2021-05-21",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $tea.cast<ListAcrImageTagsResponse>(await this.callApi(params, req, runtime), new ListAcrImageTagsResponse({}));
+  }
+
+  async listAcrImageTags(request: ListAcrImageTagsRequest): Promise<ListAcrImageTagsResponse> {
+    let runtime = new $Util.RuntimeOptions({ });
+    return await this.listAcrImageTagsWithOptions(request, runtime);
   }
 
   async listArtifactVersionsWithOptions(request: ListArtifactVersionsRequest, runtime: $Util.RuntimeOptions): Promise<ListArtifactVersionsResponse> {
@@ -4811,6 +5199,43 @@ export default class Client extends OpenApi {
   async pushMeteringData(request: PushMeteringDataRequest): Promise<PushMeteringDataResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.pushMeteringDataWithOptions(request, runtime);
+  }
+
+  async registerServiceWithOptions(request: RegisterServiceRequest, runtime: $Util.RuntimeOptions): Promise<RegisterServiceResponse> {
+    Util.validateModel(request);
+    let query = { };
+    if (!Util.isUnset(request.clientToken)) {
+      query["ClientToken"] = request.clientToken;
+    }
+
+    if (!Util.isUnset(request.regionId)) {
+      query["RegionId"] = request.regionId;
+    }
+
+    if (!Util.isUnset(request.serviceId)) {
+      query["ServiceId"] = request.serviceId;
+    }
+
+    let req = new $OpenApi.OpenApiRequest({
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApi.Params({
+      action: "RegisterService",
+      version: "2021-05-21",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $tea.cast<RegisterServiceResponse>(await this.callApi(params, req, runtime), new RegisterServiceResponse({}));
+  }
+
+  async registerService(request: RegisterServiceRequest): Promise<RegisterServiceResponse> {
+    let runtime = new $Util.RuntimeOptions({ });
+    return await this.registerServiceWithOptions(request, runtime);
   }
 
   async releaseArtifactWithOptions(request: ReleaseArtifactRequest, runtime: $Util.RuntimeOptions): Promise<ReleaseArtifactResponse> {
