@@ -9,6 +9,7 @@ import EndpointUtil from '@alicloud/endpoint-util';
 import * as $tea from '@alicloud/tea-typescript';
 
 export class CreateAndAnalyzeNetworkPathRequest extends $tea.Model {
+  auditParam?: string;
   protocol?: string;
   regionId?: string;
   sourceId?: string;
@@ -21,6 +22,7 @@ export class CreateAndAnalyzeNetworkPathRequest extends $tea.Model {
   targetType?: string;
   static names(): { [key: string]: string } {
     return {
+      auditParam: 'AuditParam',
       protocol: 'Protocol',
       regionId: 'RegionId',
       sourceId: 'SourceId',
@@ -36,6 +38,7 @@ export class CreateAndAnalyzeNetworkPathRequest extends $tea.Model {
 
   static types(): { [key: string]: any } {
     return {
+      auditParam: 'string',
       protocol: 'string',
       regionId: 'string',
       sourceId: 'string',
@@ -231,11 +234,13 @@ export class CreateNetworkPathResponse extends $tea.Model {
 }
 
 export class CreateNetworkReachableAnalysisRequest extends $tea.Model {
+  auditParam?: string;
   networkPathId?: string;
   regionId?: string;
   tag?: CreateNetworkReachableAnalysisRequestTag[];
   static names(): { [key: string]: string } {
     return {
+      auditParam: 'AuditParam',
       networkPathId: 'NetworkPathId',
       regionId: 'RegionId',
       tag: 'Tag',
@@ -244,6 +249,7 @@ export class CreateNetworkReachableAnalysisRequest extends $tea.Model {
 
   static types(): { [key: string]: any } {
     return {
+      auditParam: 'string',
       networkPathId: 'string',
       regionId: 'string',
       tag: { 'type': 'array', 'itemType': CreateNetworkReachableAnalysisRequestTag },
@@ -860,6 +866,380 @@ export class GetNetworkReachableAnalysisResponse extends $tea.Model {
   }
 }
 
+export class GetTransitRouterFlowTopNRequest extends $tea.Model {
+  accountIds?: string[];
+  bandwithPackageId?: string;
+  beginTime?: number;
+  cenId?: string;
+  direction?: string;
+  endTime?: number;
+  groupBy?: string;
+  orderBy?: string;
+  otherIp?: string;
+  otherPort?: string;
+  otherRegion?: string;
+  protocol?: string;
+  sort?: string;
+  thisIp?: string;
+  thisPort?: string;
+  thisRegion?: string;
+  topN?: number;
+  useMultiAccount?: boolean;
+  static names(): { [key: string]: string } {
+    return {
+      accountIds: 'AccountIds',
+      bandwithPackageId: 'BandwithPackageId',
+      beginTime: 'BeginTime',
+      cenId: 'CenId',
+      direction: 'Direction',
+      endTime: 'EndTime',
+      groupBy: 'GroupBy',
+      orderBy: 'OrderBy',
+      otherIp: 'OtherIp',
+      otherPort: 'OtherPort',
+      otherRegion: 'OtherRegion',
+      protocol: 'Protocol',
+      sort: 'Sort',
+      thisIp: 'ThisIp',
+      thisPort: 'ThisPort',
+      thisRegion: 'ThisRegion',
+      topN: 'TopN',
+      useMultiAccount: 'UseMultiAccount',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      accountIds: { 'type': 'array', 'itemType': 'string' },
+      bandwithPackageId: 'string',
+      beginTime: 'number',
+      cenId: 'string',
+      direction: 'string',
+      endTime: 'number',
+      groupBy: 'string',
+      orderBy: 'string',
+      otherIp: 'string',
+      otherPort: 'string',
+      otherRegion: 'string',
+      protocol: 'string',
+      sort: 'string',
+      thisIp: 'string',
+      thisPort: 'string',
+      thisRegion: 'string',
+      topN: 'number',
+      useMultiAccount: 'boolean',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class GetTransitRouterFlowTopNShrinkRequest extends $tea.Model {
+  accountIdsShrink?: string;
+  bandwithPackageId?: string;
+  beginTime?: number;
+  cenId?: string;
+  direction?: string;
+  endTime?: number;
+  groupBy?: string;
+  orderBy?: string;
+  otherIp?: string;
+  otherPort?: string;
+  otherRegion?: string;
+  protocol?: string;
+  sort?: string;
+  thisIp?: string;
+  thisPort?: string;
+  thisRegion?: string;
+  topN?: number;
+  useMultiAccount?: boolean;
+  static names(): { [key: string]: string } {
+    return {
+      accountIdsShrink: 'AccountIds',
+      bandwithPackageId: 'BandwithPackageId',
+      beginTime: 'BeginTime',
+      cenId: 'CenId',
+      direction: 'Direction',
+      endTime: 'EndTime',
+      groupBy: 'GroupBy',
+      orderBy: 'OrderBy',
+      otherIp: 'OtherIp',
+      otherPort: 'OtherPort',
+      otherRegion: 'OtherRegion',
+      protocol: 'Protocol',
+      sort: 'Sort',
+      thisIp: 'ThisIp',
+      thisPort: 'ThisPort',
+      thisRegion: 'ThisRegion',
+      topN: 'TopN',
+      useMultiAccount: 'UseMultiAccount',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      accountIdsShrink: 'string',
+      bandwithPackageId: 'string',
+      beginTime: 'number',
+      cenId: 'string',
+      direction: 'string',
+      endTime: 'number',
+      groupBy: 'string',
+      orderBy: 'string',
+      otherIp: 'string',
+      otherPort: 'string',
+      otherRegion: 'string',
+      protocol: 'string',
+      sort: 'string',
+      thisIp: 'string',
+      thisPort: 'string',
+      thisRegion: 'string',
+      topN: 'number',
+      useMultiAccount: 'boolean',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class GetTransitRouterFlowTopNResponseBody extends $tea.Model {
+  requestId?: string;
+  transitRouterFlowTopN?: GetTransitRouterFlowTopNResponseBodyTransitRouterFlowTopN[];
+  static names(): { [key: string]: string } {
+    return {
+      requestId: 'RequestId',
+      transitRouterFlowTopN: 'TransitRouterFlowTopN',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      requestId: 'string',
+      transitRouterFlowTopN: { 'type': 'array', 'itemType': GetTransitRouterFlowTopNResponseBodyTransitRouterFlowTopN },
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class GetTransitRouterFlowTopNResponse extends $tea.Model {
+  headers: { [key: string]: string };
+  statusCode: number;
+  body: GetTransitRouterFlowTopNResponseBody;
+  static names(): { [key: string]: string } {
+    return {
+      headers: 'headers',
+      statusCode: 'statusCode',
+      body: 'body',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
+      body: GetTransitRouterFlowTopNResponseBody,
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class GetVbrFlowTopNRequest extends $tea.Model {
+  accountIds?: string[];
+  attachmentId?: string;
+  beginTime?: number;
+  cenId?: string;
+  cloudIp?: string;
+  cloudPort?: string;
+  direction?: string;
+  endTime?: number;
+  groupBy?: string;
+  orderBy?: string;
+  otherIp?: string;
+  otherPort?: string;
+  protocol?: string;
+  regionId?: string;
+  sort?: string;
+  topN?: number;
+  useMultiAccount?: boolean;
+  virtualBorderRouterId?: string;
+  static names(): { [key: string]: string } {
+    return {
+      accountIds: 'AccountIds',
+      attachmentId: 'AttachmentId',
+      beginTime: 'BeginTime',
+      cenId: 'CenId',
+      cloudIp: 'CloudIp',
+      cloudPort: 'CloudPort',
+      direction: 'Direction',
+      endTime: 'EndTime',
+      groupBy: 'GroupBy',
+      orderBy: 'OrderBy',
+      otherIp: 'OtherIp',
+      otherPort: 'OtherPort',
+      protocol: 'Protocol',
+      regionId: 'RegionId',
+      sort: 'Sort',
+      topN: 'TopN',
+      useMultiAccount: 'UseMultiAccount',
+      virtualBorderRouterId: 'VirtualBorderRouterId',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      accountIds: { 'type': 'array', 'itemType': 'string' },
+      attachmentId: 'string',
+      beginTime: 'number',
+      cenId: 'string',
+      cloudIp: 'string',
+      cloudPort: 'string',
+      direction: 'string',
+      endTime: 'number',
+      groupBy: 'string',
+      orderBy: 'string',
+      otherIp: 'string',
+      otherPort: 'string',
+      protocol: 'string',
+      regionId: 'string',
+      sort: 'string',
+      topN: 'number',
+      useMultiAccount: 'boolean',
+      virtualBorderRouterId: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class GetVbrFlowTopNShrinkRequest extends $tea.Model {
+  accountIdsShrink?: string;
+  attachmentId?: string;
+  beginTime?: number;
+  cenId?: string;
+  cloudIp?: string;
+  cloudPort?: string;
+  direction?: string;
+  endTime?: number;
+  groupBy?: string;
+  orderBy?: string;
+  otherIp?: string;
+  otherPort?: string;
+  protocol?: string;
+  regionId?: string;
+  sort?: string;
+  topN?: number;
+  useMultiAccount?: boolean;
+  virtualBorderRouterId?: string;
+  static names(): { [key: string]: string } {
+    return {
+      accountIdsShrink: 'AccountIds',
+      attachmentId: 'AttachmentId',
+      beginTime: 'BeginTime',
+      cenId: 'CenId',
+      cloudIp: 'CloudIp',
+      cloudPort: 'CloudPort',
+      direction: 'Direction',
+      endTime: 'EndTime',
+      groupBy: 'GroupBy',
+      orderBy: 'OrderBy',
+      otherIp: 'OtherIp',
+      otherPort: 'OtherPort',
+      protocol: 'Protocol',
+      regionId: 'RegionId',
+      sort: 'Sort',
+      topN: 'TopN',
+      useMultiAccount: 'UseMultiAccount',
+      virtualBorderRouterId: 'VirtualBorderRouterId',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      accountIdsShrink: 'string',
+      attachmentId: 'string',
+      beginTime: 'number',
+      cenId: 'string',
+      cloudIp: 'string',
+      cloudPort: 'string',
+      direction: 'string',
+      endTime: 'number',
+      groupBy: 'string',
+      orderBy: 'string',
+      otherIp: 'string',
+      otherPort: 'string',
+      protocol: 'string',
+      regionId: 'string',
+      sort: 'string',
+      topN: 'number',
+      useMultiAccount: 'boolean',
+      virtualBorderRouterId: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class GetVbrFlowTopNResponseBody extends $tea.Model {
+  requestId?: string;
+  virtualBorderRouterFlowlogTopN?: GetVbrFlowTopNResponseBodyVirtualBorderRouterFlowlogTopN[];
+  static names(): { [key: string]: string } {
+    return {
+      requestId: 'RequestId',
+      virtualBorderRouterFlowlogTopN: 'VirtualBorderRouterFlowlogTopN',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      requestId: 'string',
+      virtualBorderRouterFlowlogTopN: { 'type': 'array', 'itemType': GetVbrFlowTopNResponseBodyVirtualBorderRouterFlowlogTopN },
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class GetVbrFlowTopNResponse extends $tea.Model {
+  headers: { [key: string]: string };
+  statusCode: number;
+  body: GetVbrFlowTopNResponseBody;
+  static names(): { [key: string]: string } {
+    return {
+      headers: 'headers',
+      statusCode: 'statusCode',
+      body: 'body',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
+      body: GetVbrFlowTopNResponseBody,
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
 export class CreateNetworkPathRequestTag extends $tea.Model {
   key?: string;
   value?: string;
@@ -1059,6 +1439,113 @@ export class GetNatTopNResponseBodyNatGatewayTopN extends $tea.Model {
   }
 }
 
+export class GetTransitRouterFlowTopNResponseBodyTransitRouterFlowTopN extends $tea.Model {
+  accountId?: string;
+  bandwithPackageId?: string;
+  bytes?: number;
+  cenId?: string;
+  endTime?: string;
+  otherIp?: string;
+  otherPort?: string;
+  otherRegion?: string;
+  packets?: number;
+  protocol?: string;
+  startTime?: string;
+  thisIp?: string;
+  thisPort?: string;
+  thisRegion?: string;
+  static names(): { [key: string]: string } {
+    return {
+      accountId: 'AccountId',
+      bandwithPackageId: 'BandwithPackageId',
+      bytes: 'Bytes',
+      cenId: 'CenId',
+      endTime: 'EndTime',
+      otherIp: 'OtherIp',
+      otherPort: 'OtherPort',
+      otherRegion: 'OtherRegion',
+      packets: 'Packets',
+      protocol: 'Protocol',
+      startTime: 'StartTime',
+      thisIp: 'ThisIp',
+      thisPort: 'ThisPort',
+      thisRegion: 'ThisRegion',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      accountId: 'string',
+      bandwithPackageId: 'string',
+      bytes: 'number',
+      cenId: 'string',
+      endTime: 'string',
+      otherIp: 'string',
+      otherPort: 'string',
+      otherRegion: 'string',
+      packets: 'number',
+      protocol: 'string',
+      startTime: 'string',
+      thisIp: 'string',
+      thisPort: 'string',
+      thisRegion: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class GetVbrFlowTopNResponseBodyVirtualBorderRouterFlowlogTopN extends $tea.Model {
+  accountId?: string;
+  attachmentId?: string;
+  bytes?: number;
+  cloudIp?: string;
+  cloudPort?: string;
+  cloudRegion?: string;
+  otherIp?: string;
+  otherPort?: string;
+  packets?: number;
+  protocol?: string;
+  virtualBorderRouterId?: string;
+  static names(): { [key: string]: string } {
+    return {
+      accountId: 'AccountId',
+      attachmentId: 'AttachmentId',
+      bytes: 'Bytes',
+      cloudIp: 'CloudIp',
+      cloudPort: 'CloudPort',
+      cloudRegion: 'CloudRegion',
+      otherIp: 'OtherIp',
+      otherPort: 'OtherPort',
+      packets: 'Packets',
+      protocol: 'Protocol',
+      virtualBorderRouterId: 'VirtualBorderRouterId',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      accountId: 'string',
+      attachmentId: 'string',
+      bytes: 'number',
+      cloudIp: 'string',
+      cloudPort: 'string',
+      cloudRegion: 'string',
+      otherIp: 'string',
+      otherPort: 'string',
+      packets: 'number',
+      protocol: 'string',
+      virtualBorderRouterId: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
 
 export default class Client extends OpenApi {
 
@@ -1224,6 +1711,10 @@ export default class Client extends OpenApi {
   async createNetworkReachableAnalysisWithOptions(request: CreateNetworkReachableAnalysisRequest, runtime: $Util.RuntimeOptions): Promise<CreateNetworkReachableAnalysisResponse> {
     Util.validateModel(request);
     let query = { };
+    if (!Util.isUnset(request.auditParam)) {
+      query["AuditParam"] = request.auditParam;
+    }
+
     if (!Util.isUnset(request.networkPathId)) {
       query["NetworkPathId"] = request.networkPathId;
     }
@@ -1560,6 +2051,212 @@ export default class Client extends OpenApi {
   async getNetworkReachableAnalysis(request: GetNetworkReachableAnalysisRequest): Promise<GetNetworkReachableAnalysisResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.getNetworkReachableAnalysisWithOptions(request, runtime);
+  }
+
+  async getTransitRouterFlowTopNWithOptions(tmpReq: GetTransitRouterFlowTopNRequest, runtime: $Util.RuntimeOptions): Promise<GetTransitRouterFlowTopNResponse> {
+    Util.validateModel(tmpReq);
+    let request = new GetTransitRouterFlowTopNShrinkRequest({ });
+    OpenApiUtil.convert(tmpReq, request);
+    if (!Util.isUnset(tmpReq.accountIds)) {
+      request.accountIdsShrink = OpenApiUtil.arrayToStringWithSpecifiedStyle(tmpReq.accountIds, "AccountIds", "json");
+    }
+
+    let query = { };
+    if (!Util.isUnset(request.accountIdsShrink)) {
+      query["AccountIds"] = request.accountIdsShrink;
+    }
+
+    if (!Util.isUnset(request.bandwithPackageId)) {
+      query["BandwithPackageId"] = request.bandwithPackageId;
+    }
+
+    if (!Util.isUnset(request.beginTime)) {
+      query["BeginTime"] = request.beginTime;
+    }
+
+    if (!Util.isUnset(request.cenId)) {
+      query["CenId"] = request.cenId;
+    }
+
+    if (!Util.isUnset(request.direction)) {
+      query["Direction"] = request.direction;
+    }
+
+    if (!Util.isUnset(request.endTime)) {
+      query["EndTime"] = request.endTime;
+    }
+
+    if (!Util.isUnset(request.groupBy)) {
+      query["GroupBy"] = request.groupBy;
+    }
+
+    if (!Util.isUnset(request.orderBy)) {
+      query["OrderBy"] = request.orderBy;
+    }
+
+    if (!Util.isUnset(request.otherIp)) {
+      query["OtherIp"] = request.otherIp;
+    }
+
+    if (!Util.isUnset(request.otherPort)) {
+      query["OtherPort"] = request.otherPort;
+    }
+
+    if (!Util.isUnset(request.otherRegion)) {
+      query["OtherRegion"] = request.otherRegion;
+    }
+
+    if (!Util.isUnset(request.protocol)) {
+      query["Protocol"] = request.protocol;
+    }
+
+    if (!Util.isUnset(request.sort)) {
+      query["Sort"] = request.sort;
+    }
+
+    if (!Util.isUnset(request.thisIp)) {
+      query["ThisIp"] = request.thisIp;
+    }
+
+    if (!Util.isUnset(request.thisPort)) {
+      query["ThisPort"] = request.thisPort;
+    }
+
+    if (!Util.isUnset(request.thisRegion)) {
+      query["ThisRegion"] = request.thisRegion;
+    }
+
+    if (!Util.isUnset(request.topN)) {
+      query["TopN"] = request.topN;
+    }
+
+    if (!Util.isUnset(request.useMultiAccount)) {
+      query["UseMultiAccount"] = request.useMultiAccount;
+    }
+
+    let req = new $OpenApi.OpenApiRequest({
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApi.Params({
+      action: "GetTransitRouterFlowTopN",
+      version: "2021-12-16",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $tea.cast<GetTransitRouterFlowTopNResponse>(await this.callApi(params, req, runtime), new GetTransitRouterFlowTopNResponse({}));
+  }
+
+  async getTransitRouterFlowTopN(request: GetTransitRouterFlowTopNRequest): Promise<GetTransitRouterFlowTopNResponse> {
+    let runtime = new $Util.RuntimeOptions({ });
+    return await this.getTransitRouterFlowTopNWithOptions(request, runtime);
+  }
+
+  async getVbrFlowTopNWithOptions(tmpReq: GetVbrFlowTopNRequest, runtime: $Util.RuntimeOptions): Promise<GetVbrFlowTopNResponse> {
+    Util.validateModel(tmpReq);
+    let request = new GetVbrFlowTopNShrinkRequest({ });
+    OpenApiUtil.convert(tmpReq, request);
+    if (!Util.isUnset(tmpReq.accountIds)) {
+      request.accountIdsShrink = OpenApiUtil.arrayToStringWithSpecifiedStyle(tmpReq.accountIds, "AccountIds", "json");
+    }
+
+    let query = { };
+    if (!Util.isUnset(request.accountIdsShrink)) {
+      query["AccountIds"] = request.accountIdsShrink;
+    }
+
+    if (!Util.isUnset(request.attachmentId)) {
+      query["AttachmentId"] = request.attachmentId;
+    }
+
+    if (!Util.isUnset(request.beginTime)) {
+      query["BeginTime"] = request.beginTime;
+    }
+
+    if (!Util.isUnset(request.cenId)) {
+      query["CenId"] = request.cenId;
+    }
+
+    if (!Util.isUnset(request.cloudIp)) {
+      query["CloudIp"] = request.cloudIp;
+    }
+
+    if (!Util.isUnset(request.cloudPort)) {
+      query["CloudPort"] = request.cloudPort;
+    }
+
+    if (!Util.isUnset(request.direction)) {
+      query["Direction"] = request.direction;
+    }
+
+    if (!Util.isUnset(request.endTime)) {
+      query["EndTime"] = request.endTime;
+    }
+
+    if (!Util.isUnset(request.groupBy)) {
+      query["GroupBy"] = request.groupBy;
+    }
+
+    if (!Util.isUnset(request.orderBy)) {
+      query["OrderBy"] = request.orderBy;
+    }
+
+    if (!Util.isUnset(request.otherIp)) {
+      query["OtherIp"] = request.otherIp;
+    }
+
+    if (!Util.isUnset(request.otherPort)) {
+      query["OtherPort"] = request.otherPort;
+    }
+
+    if (!Util.isUnset(request.protocol)) {
+      query["Protocol"] = request.protocol;
+    }
+
+    if (!Util.isUnset(request.regionId)) {
+      query["RegionId"] = request.regionId;
+    }
+
+    if (!Util.isUnset(request.sort)) {
+      query["Sort"] = request.sort;
+    }
+
+    if (!Util.isUnset(request.topN)) {
+      query["TopN"] = request.topN;
+    }
+
+    if (!Util.isUnset(request.useMultiAccount)) {
+      query["UseMultiAccount"] = request.useMultiAccount;
+    }
+
+    if (!Util.isUnset(request.virtualBorderRouterId)) {
+      query["VirtualBorderRouterId"] = request.virtualBorderRouterId;
+    }
+
+    let req = new $OpenApi.OpenApiRequest({
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApi.Params({
+      action: "GetVbrFlowTopN",
+      version: "2021-12-16",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $tea.cast<GetVbrFlowTopNResponse>(await this.callApi(params, req, runtime), new GetVbrFlowTopNResponse({}));
+  }
+
+  async getVbrFlowTopN(request: GetVbrFlowTopNRequest): Promise<GetVbrFlowTopNResponse> {
+    let runtime = new $Util.RuntimeOptions({ });
+    return await this.getVbrFlowTopNWithOptions(request, runtime);
   }
 
 }
