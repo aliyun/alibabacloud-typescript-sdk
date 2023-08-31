@@ -244,10 +244,12 @@ export class CreatePropertyResponse extends $tea.Model {
 }
 
 export class CreateUsersRequest extends $tea.Model {
+  autoLockTime?: string;
   password?: string;
   users?: CreateUsersRequestUsers[];
   static names(): { [key: string]: string } {
     return {
+      autoLockTime: 'AutoLockTime',
       password: 'Password',
       users: 'Users',
     };
@@ -255,6 +257,7 @@ export class CreateUsersRequest extends $tea.Model {
 
   static types(): { [key: string]: any } {
     return {
+      autoLockTime: 'string',
       password: 'string',
       users: { 'type': 'array', 'itemType': CreateUsersRequestUsers },
     };
@@ -1529,15 +1532,18 @@ export class UnlockMfaDeviceResponse extends $tea.Model {
 }
 
 export class UnlockUsersRequest extends $tea.Model {
+  autoLockTime?: string;
   users?: string[];
   static names(): { [key: string]: string } {
     return {
+      autoLockTime: 'AutoLockTime',
       users: 'Users',
     };
   }
 
   static types(): { [key: string]: any } {
     return {
+      autoLockTime: 'string',
       users: { 'type': 'array', 'itemType': 'string' },
     };
   }
@@ -2688,7 +2694,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-    * The operation that you want to perform. Set the value to **CheckUsedPropertyValue**.
+    * Before you call the operation, you can call the [ListProperty](~~410890~~) operation to query the existing user properties and their IDs (PropertyId) and values (PropertyValueId).
     *
     * @param request CheckUsedPropertyValueRequest
     * @param runtime runtime options for this request RuntimeOptions
@@ -2723,7 +2729,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-    * The operation that you want to perform. Set the value to **CheckUsedPropertyValue**.
+    * Before you call the operation, you can call the [ListProperty](~~410890~~) operation to query the existing user properties and their IDs (PropertyId) and values (PropertyValueId).
     *
     * @param request CheckUsedPropertyValueRequest
     * @return CheckUsedPropertyValueResponse
@@ -2775,6 +2781,11 @@ export default class Client extends OpenApi {
    */
   async createUsersWithOptions(request: CreateUsersRequest, runtime: $Util.RuntimeOptions): Promise<CreateUsersResponse> {
     Util.validateModel(request);
+    let query = { };
+    if (!Util.isUnset(request.autoLockTime)) {
+      query["AutoLockTime"] = request.autoLockTime;
+    }
+
     let body : {[key: string ]: any} = { };
     if (!Util.isUnset(request.password)) {
       body["Password"] = request.password;
@@ -2785,6 +2796,7 @@ export default class Client extends OpenApi {
     }
 
     let req = new $OpenApi.OpenApiRequest({
+      query: OpenApiUtil.query(query),
       body: OpenApiUtil.parseToMap(body),
     });
     let params = new $OpenApi.Params({
@@ -3084,7 +3096,8 @@ export default class Client extends OpenApi {
   }
 
   /**
-    * Locks a virtual MFA device that is bound to a convenience user.
+    * ## Description
+    * After a virtual MFA device is locked, the status of the virtual MFA device changes to LOCKED. The convenience user to which the MFA device is bound cannot log on to the cloud desktop that resides in the workspace with the MFA feature enabled because the convenience user will fail authentication based on the virtual MFA device. You can call the UnlockMfaDevice operation to unlock the virtual MFA device.
     *
     * @param request LockMfaDeviceRequest
     * @param runtime runtime options for this request RuntimeOptions
@@ -3119,7 +3132,8 @@ export default class Client extends OpenApi {
   }
 
   /**
-    * Locks a virtual MFA device that is bound to a convenience user.
+    * ## Description
+    * After a virtual MFA device is locked, the status of the virtual MFA device changes to LOCKED. The convenience user to which the MFA device is bound cannot log on to the cloud desktop that resides in the workspace with the MFA feature enabled because the convenience user will fail authentication based on the virtual MFA device. You can call the UnlockMfaDevice operation to unlock the virtual MFA device.
     *
     * @param request LockMfaDeviceRequest
     * @return LockMfaDeviceResponse
@@ -3450,12 +3464,18 @@ export default class Client extends OpenApi {
 
   async unlockUsersWithOptions(request: UnlockUsersRequest, runtime: $Util.RuntimeOptions): Promise<UnlockUsersResponse> {
     Util.validateModel(request);
+    let query = { };
+    if (!Util.isUnset(request.autoLockTime)) {
+      query["AutoLockTime"] = request.autoLockTime;
+    }
+
     let body : {[key: string ]: any} = { };
     if (!Util.isUnset(request.users)) {
       body["Users"] = request.users;
     }
 
     let req = new $OpenApi.OpenApiRequest({
+      query: OpenApiUtil.query(query),
       body: OpenApiUtil.parseToMap(body),
     });
     let params = new $OpenApi.Params({
