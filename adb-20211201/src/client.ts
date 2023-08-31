@@ -8,6 +8,34 @@ import OpenApiUtil from '@alicloud/openapi-util';
 import EndpointUtil from '@alicloud/endpoint-util';
 import * as $tea from '@alicloud/tea-typescript';
 
+export class Adb4MysqlSparkDiagnosisInfo extends $tea.Model {
+  diagnosisCode?: string;
+  diagnosisCodeLabel?: string;
+  diagnosisMsg?: string;
+  diagnosisType?: string;
+  static names(): { [key: string]: string } {
+    return {
+      diagnosisCode: 'DiagnosisCode',
+      diagnosisCodeLabel: 'DiagnosisCodeLabel',
+      diagnosisMsg: 'DiagnosisMsg',
+      diagnosisType: 'DiagnosisType',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      diagnosisCode: 'string',
+      diagnosisCodeLabel: 'string',
+      diagnosisMsg: 'string',
+      diagnosisType: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
 export class ColDetailModel extends $tea.Model {
   columnName?: string;
   createTime?: string;
@@ -5570,6 +5598,75 @@ export class EnableElasticPlanResponse extends $tea.Model {
   }
 }
 
+export class ExistRunningSQLEngineRequest extends $tea.Model {
+  DBClusterId?: string;
+  resourceGroupName?: string;
+  static names(): { [key: string]: string } {
+    return {
+      DBClusterId: 'DBClusterId',
+      resourceGroupName: 'ResourceGroupName',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      DBClusterId: 'string',
+      resourceGroupName: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class ExistRunningSQLEngineResponseBody extends $tea.Model {
+  data?: boolean;
+  requestId?: string;
+  static names(): { [key: string]: string } {
+    return {
+      data: 'Data',
+      requestId: 'RequestId',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      data: 'boolean',
+      requestId: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class ExistRunningSQLEngineResponse extends $tea.Model {
+  headers: { [key: string]: string };
+  statusCode: number;
+  body: ExistRunningSQLEngineResponseBody;
+  static names(): { [key: string]: string } {
+    return {
+      headers: 'headers',
+      statusCode: 'statusCode',
+      body: 'body',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
+      body: ExistRunningSQLEngineResponseBody,
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
 export class GetDatabaseObjectsRequest extends $tea.Model {
   DBClusterId?: string;
   filterOwner?: string;
@@ -8458,6 +8555,78 @@ export class ReleaseClusterPublicConnectionResponse extends $tea.Model {
       headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
       statusCode: 'number',
       body: ReleaseClusterPublicConnectionResponseBody,
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class RenameSparkTemplateFileRequest extends $tea.Model {
+  DBClusterId?: string;
+  id?: number;
+  name?: string;
+  static names(): { [key: string]: string } {
+    return {
+      DBClusterId: 'DBClusterId',
+      id: 'Id',
+      name: 'Name',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      DBClusterId: 'string',
+      id: 'number',
+      name: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class RenameSparkTemplateFileResponseBody extends $tea.Model {
+  data?: RenameSparkTemplateFileResponseBodyData;
+  requestId?: string;
+  static names(): { [key: string]: string } {
+    return {
+      data: 'Data',
+      requestId: 'RequestId',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      data: RenameSparkTemplateFileResponseBodyData,
+      requestId: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class RenameSparkTemplateFileResponse extends $tea.Model {
+  headers: { [key: string]: string };
+  statusCode: number;
+  body: RenameSparkTemplateFileResponseBody;
+  static names(): { [key: string]: string } {
+    return {
+      headers: 'headers',
+      statusCode: 'statusCode',
+      body: 'body',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
+      body: RenameSparkTemplateFileResponseBody,
     };
   }
 
@@ -11670,6 +11839,25 @@ export class PreloadSparkAppMetricsResponseBodyData extends $tea.Model {
   }
 }
 
+export class RenameSparkTemplateFileResponseBodyData extends $tea.Model {
+  succeeded?: boolean;
+  static names(): { [key: string]: string } {
+    return {
+      succeeded: 'Succeeded',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      succeeded: 'boolean',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
 export class SetSparkAppLogRootPathResponseBodyData extends $tea.Model {
   defaultLogPath?: string;
   isLogPathExists?: boolean;
@@ -14410,6 +14598,39 @@ export default class Client extends OpenApi {
     return await this.enableElasticPlanWithOptions(request, runtime);
   }
 
+  async existRunningSQLEngineWithOptions(request: ExistRunningSQLEngineRequest, runtime: $Util.RuntimeOptions): Promise<ExistRunningSQLEngineResponse> {
+    Util.validateModel(request);
+    let body : {[key: string ]: any} = { };
+    if (!Util.isUnset(request.DBClusterId)) {
+      body["DBClusterId"] = request.DBClusterId;
+    }
+
+    if (!Util.isUnset(request.resourceGroupName)) {
+      body["ResourceGroupName"] = request.resourceGroupName;
+    }
+
+    let req = new $OpenApi.OpenApiRequest({
+      body: OpenApiUtil.parseToMap(body),
+    });
+    let params = new $OpenApi.Params({
+      action: "ExistRunningSQLEngine",
+      version: "2021-12-01",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $tea.cast<ExistRunningSQLEngineResponse>(await this.callApi(params, req, runtime), new ExistRunningSQLEngineResponse({}));
+  }
+
+  async existRunningSQLEngine(request: ExistRunningSQLEngineRequest): Promise<ExistRunningSQLEngineResponse> {
+    let runtime = new $Util.RuntimeOptions({ });
+    return await this.existRunningSQLEngineWithOptions(request, runtime);
+  }
+
   async getDatabaseObjectsWithOptions(request: GetDatabaseObjectsRequest, runtime: $Util.RuntimeOptions): Promise<GetDatabaseObjectsResponse> {
     Util.validateModel(request);
     let query = { };
@@ -15919,6 +16140,43 @@ export default class Client extends OpenApi {
   async releaseClusterPublicConnection(request: ReleaseClusterPublicConnectionRequest): Promise<ReleaseClusterPublicConnectionResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.releaseClusterPublicConnectionWithOptions(request, runtime);
+  }
+
+  async renameSparkTemplateFileWithOptions(request: RenameSparkTemplateFileRequest, runtime: $Util.RuntimeOptions): Promise<RenameSparkTemplateFileResponse> {
+    Util.validateModel(request);
+    let query = { };
+    if (!Util.isUnset(request.DBClusterId)) {
+      query["DBClusterId"] = request.DBClusterId;
+    }
+
+    if (!Util.isUnset(request.id)) {
+      query["Id"] = request.id;
+    }
+
+    if (!Util.isUnset(request.name)) {
+      query["Name"] = request.name;
+    }
+
+    let req = new $OpenApi.OpenApiRequest({
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApi.Params({
+      action: "RenameSparkTemplateFile",
+      version: "2021-12-01",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $tea.cast<RenameSparkTemplateFileResponse>(await this.callApi(params, req, runtime), new RenameSparkTemplateFileResponse({}));
+  }
+
+  async renameSparkTemplateFile(request: RenameSparkTemplateFileRequest): Promise<RenameSparkTemplateFileResponse> {
+    let runtime = new $Util.RuntimeOptions({ });
+    return await this.renameSparkTemplateFileWithOptions(request, runtime);
   }
 
   async resetAccountPasswordWithOptions(request: ResetAccountPasswordRequest, runtime: $Util.RuntimeOptions): Promise<ResetAccountPasswordResponse> {
