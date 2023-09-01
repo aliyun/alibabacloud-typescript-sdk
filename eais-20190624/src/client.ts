@@ -1118,6 +1118,7 @@ export class DescribeEaisRequest extends $tea.Model {
   regionId?: string;
   resourceGroupId?: string;
   status?: string;
+  tag?: DescribeEaisRequestTag[];
   static names(): { [key: string]: string } {
     return {
       elasticAcceleratedInstanceIds: 'ElasticAcceleratedInstanceIds',
@@ -1128,6 +1129,7 @@ export class DescribeEaisRequest extends $tea.Model {
       regionId: 'RegionId',
       resourceGroupId: 'ResourceGroupId',
       status: 'Status',
+      tag: 'Tag',
     };
   }
 
@@ -1141,6 +1143,7 @@ export class DescribeEaisRequest extends $tea.Model {
       regionId: 'string',
       resourceGroupId: 'string',
       status: 'string',
+      tag: { 'type': 'array', 'itemType': DescribeEaisRequestTag },
     };
   }
 
@@ -1706,6 +1709,28 @@ export class CreateEaiEcsRequestEcs extends $tea.Model {
 }
 
 export class CreateEaiJupyterRequestEnvironmentVar extends $tea.Model {
+  key?: string;
+  value?: string;
+  static names(): { [key: string]: string } {
+    return {
+      key: 'Key',
+      value: 'Value',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      key: 'string',
+      value: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class DescribeEaisRequestTag extends $tea.Model {
   key?: string;
   value?: string;
   static names(): { [key: string]: string } {
@@ -2683,6 +2708,10 @@ export default class Client extends OpenApi {
 
     if (!Util.isUnset(request.status)) {
       query["Status"] = request.status;
+    }
+
+    if (!Util.isUnset(request.tag)) {
+      query["Tag"] = request.tag;
     }
 
     let req = new $OpenApi.OpenApiRequest({
