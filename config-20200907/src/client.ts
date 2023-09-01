@@ -19110,9 +19110,10 @@ export default class Client extends OpenApi {
   }
 
   /**
+    * ### Prerequisites
+    * One or more rules are added to a compliance package.
+    * ### Usage notes
     * The sample request in this topic shows you how to remove the `cr-6cc4626622af00e7****` rule in the `ca-75b4626622af00c3****` account group from the `cp-5bb1626622af00bd****` compliance package.
-    * ## Prerequisites
-    * One or more rules in an account group are added to a compliance package.
     *
     * @param request DetachAggregateConfigRuleToCompliancePackRequest
     * @param runtime runtime options for this request RuntimeOptions
@@ -19151,9 +19152,10 @@ export default class Client extends OpenApi {
   }
 
   /**
+    * ### Prerequisites
+    * One or more rules are added to a compliance package.
+    * ### Usage notes
     * The sample request in this topic shows you how to remove the `cr-6cc4626622af00e7****` rule in the `ca-75b4626622af00c3****` account group from the `cp-5bb1626622af00bd****` compliance package.
-    * ## Prerequisites
-    * One or more rules in an account group are added to a compliance package.
     *
     * @param request DetachAggregateConfigRuleToCompliancePackRequest
     * @return DetachAggregateConfigRuleToCompliancePackResponse
@@ -19358,6 +19360,13 @@ export default class Client extends OpenApi {
     return await this.generateAggregateConfigRulesReportWithOptions(request, runtime);
   }
 
+  /**
+    * This topic provides an example to show how to generate a downloadable inventory for global resources in the account group ca-a91d626622af0035\\*\\*\\*\\*.
+    *
+    * @param request GenerateAggregateResourceInventoryRequest
+    * @param runtime runtime options for this request RuntimeOptions
+    * @return GenerateAggregateResourceInventoryResponse
+   */
   async generateAggregateResourceInventoryWithOptions(request: GenerateAggregateResourceInventoryRequest, runtime: $Util.RuntimeOptions): Promise<GenerateAggregateResourceInventoryResponse> {
     Util.validateModel(request);
     let query = { };
@@ -19394,6 +19403,12 @@ export default class Client extends OpenApi {
     return $tea.cast<GenerateAggregateResourceInventoryResponse>(await this.callApi(params, req, runtime), new GenerateAggregateResourceInventoryResponse({}));
   }
 
+  /**
+    * This topic provides an example to show how to generate a downloadable inventory for global resources in the account group ca-a91d626622af0035\\*\\*\\*\\*.
+    *
+    * @param request GenerateAggregateResourceInventoryRequest
+    * @return GenerateAggregateResourceInventoryResponse
+   */
   async generateAggregateResourceInventory(request: GenerateAggregateResourceInventoryRequest): Promise<GenerateAggregateResourceInventoryResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.generateAggregateResourceInventoryWithOptions(request, runtime);
@@ -19495,6 +19510,13 @@ export default class Client extends OpenApi {
     return await this.generateConfigRulesReportWithOptions(request, runtime);
   }
 
+  /**
+    * This topic provides an example on how to generate a resource inventory for global resources of the current account.
+    *
+    * @param request GenerateResourceInventoryRequest
+    * @param runtime runtime options for this request RuntimeOptions
+    * @return GenerateResourceInventoryResponse
+   */
   async generateResourceInventoryWithOptions(request: GenerateResourceInventoryRequest, runtime: $Util.RuntimeOptions): Promise<GenerateResourceInventoryResponse> {
     Util.validateModel(request);
     let query = { };
@@ -19523,6 +19545,12 @@ export default class Client extends OpenApi {
     return $tea.cast<GenerateResourceInventoryResponse>(await this.callApi(params, req, runtime), new GenerateResourceInventoryResponse({}));
   }
 
+  /**
+    * This topic provides an example on how to generate a resource inventory for global resources of the current account.
+    *
+    * @param request GenerateResourceInventoryRequest
+    * @return GenerateResourceInventoryResponse
+   */
   async generateResourceInventory(request: GenerateResourceInventoryRequest): Promise<GenerateResourceInventoryResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.generateResourceInventoryWithOptions(request, runtime);
@@ -19694,6 +19722,13 @@ export default class Client extends OpenApi {
     return await this.getAggregateCompliancePackReportWithOptions(request, runtime);
   }
 
+  /**
+    * This topic provides an example on how to query the compliance statistics of resources and rules in the account group ca-a91d626622af0035\\*\\*\\*\\*.
+    *
+    * @param request GetAggregateComplianceSummaryRequest
+    * @param runtime runtime options for this request RuntimeOptions
+    * @return GetAggregateComplianceSummaryResponse
+   */
   async getAggregateComplianceSummaryWithOptions(request: GetAggregateComplianceSummaryRequest, runtime: $Util.RuntimeOptions): Promise<GetAggregateComplianceSummaryResponse> {
     Util.validateModel(request);
     let query = { };
@@ -19718,6 +19753,12 @@ export default class Client extends OpenApi {
     return $tea.cast<GetAggregateComplianceSummaryResponse>(await this.callApi(params, req, runtime), new GetAggregateComplianceSummaryResponse({}));
   }
 
+  /**
+    * This topic provides an example on how to query the compliance statistics of resources and rules in the account group ca-a91d626622af0035\\*\\*\\*\\*.
+    *
+    * @param request GetAggregateComplianceSummaryRequest
+    * @return GetAggregateComplianceSummaryResponse
+   */
   async getAggregateComplianceSummary(request: GetAggregateComplianceSummaryRequest): Promise<GetAggregateComplianceSummaryResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.getAggregateComplianceSummaryWithOptions(request, runtime);
@@ -19965,7 +20006,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-    * The sample request in this topic shows you how to query the compliance evaluation results based on the `cr-d369626622af008e****` rule in the `ca-a4e5626622af0079****` account group. The return result shows that a total of 10 resources are evaluated by the rule and five of them are evaluated as compliant.
+    * This topic provides an example on how to query the compliance evaluation results based on the `cr-d369626622af008e****` rule in the `ca-a4e5626622af0079****` account group. The returned result shows that a total of 10 resources are evaluated by the rule and five of them are evaluated as compliant.
     *
     * @param request GetAggregateResourceComplianceByConfigRuleRequest
     * @param runtime runtime options for this request RuntimeOptions
@@ -20012,7 +20053,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-    * The sample request in this topic shows you how to query the compliance evaluation results based on the `cr-d369626622af008e****` rule in the `ca-a4e5626622af0079****` account group. The return result shows that a total of 10 resources are evaluated by the rule and five of them are evaluated as compliant.
+    * This topic provides an example on how to query the compliance evaluation results based on the `cr-d369626622af008e****` rule in the `ca-a4e5626622af0079****` account group. The returned result shows that a total of 10 resources are evaluated by the rule and five of them are evaluated as compliant.
     *
     * @param request GetAggregateResourceComplianceByConfigRuleRequest
     * @return GetAggregateResourceComplianceByConfigRuleResponse
@@ -20463,6 +20504,13 @@ export default class Client extends OpenApi {
     return await this.getCompliancePackReportWithOptions(request, runtime);
   }
 
+  /**
+    * This topic provides an example on how to query the compliance statistics of resources and rules in the current account group.
+    *
+    * @param request GetComplianceSummaryRequest
+    * @param runtime runtime options for this request RuntimeOptions
+    * @return GetComplianceSummaryResponse
+   */
   async getComplianceSummaryWithOptions(runtime: $Util.RuntimeOptions): Promise<GetComplianceSummaryResponse> {
     let req = new $OpenApi.OpenApiRequest({ });
     let params = new $OpenApi.Params({
@@ -20479,6 +20527,11 @@ export default class Client extends OpenApi {
     return $tea.cast<GetComplianceSummaryResponse>(await this.callApi(params, req, runtime), new GetComplianceSummaryResponse({}));
   }
 
+  /**
+    * This topic provides an example on how to query the compliance statistics of resources and rules in the current account group.
+    *
+    * @return GetComplianceSummaryResponse
+   */
   async getComplianceSummary(): Promise<GetComplianceSummaryResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.getComplianceSummaryWithOptions(runtime);
@@ -20670,6 +20723,13 @@ export default class Client extends OpenApi {
     return await this.getConfigRulesReportWithOptions(request, runtime);
   }
 
+  /**
+    * This topic provides an example on how to query the activation status and resource monitoring scope of Cloud Config for the current account.
+    *
+    * @param request GetConfigurationRecorderRequest
+    * @param runtime runtime options for this request RuntimeOptions
+    * @return GetConfigurationRecorderResponse
+   */
   async getConfigurationRecorderWithOptions(runtime: $Util.RuntimeOptions): Promise<GetConfigurationRecorderResponse> {
     let req = new $OpenApi.OpenApiRequest({ });
     let params = new $OpenApi.Params({
@@ -20686,6 +20746,11 @@ export default class Client extends OpenApi {
     return $tea.cast<GetConfigurationRecorderResponse>(await this.callApi(params, req, runtime), new GetConfigurationRecorderResponse({}));
   }
 
+  /**
+    * This topic provides an example on how to query the activation status and resource monitoring scope of Cloud Config for the current account.
+    *
+    * @return GetConfigurationRecorderResponse
+   */
   async getConfigurationRecorder(): Promise<GetConfigurationRecorderResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.getConfigurationRecorderWithOptions(runtime);
@@ -20884,6 +20949,13 @@ export default class Client extends OpenApi {
     return await this.getManagedRuleWithOptions(request, runtime);
   }
 
+  /**
+    * This topic provides an example on how to query the details of the automatic remediation template ACS-ALB-BulkyEnableDeletionProtection.
+    *
+    * @param request GetRemediationTemplateRequest
+    * @param runtime runtime options for this request RuntimeOptions
+    * @return GetRemediationTemplateResponse
+   */
   async getRemediationTemplateWithOptions(request: GetRemediationTemplateRequest, runtime: $Util.RuntimeOptions): Promise<GetRemediationTemplateResponse> {
     Util.validateModel(request);
     let query = { };
@@ -20908,6 +20980,12 @@ export default class Client extends OpenApi {
     return $tea.cast<GetRemediationTemplateResponse>(await this.callApi(params, req, runtime), new GetRemediationTemplateResponse({}));
   }
 
+  /**
+    * This topic provides an example on how to query the details of the automatic remediation template ACS-ALB-BulkyEnableDeletionProtection.
+    *
+    * @param request GetRemediationTemplateRequest
+    * @return GetRemediationTemplateResponse
+   */
   async getRemediationTemplate(request: GetRemediationTemplateRequest): Promise<GetRemediationTemplateResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.getRemediationTemplateWithOptions(request, runtime);
@@ -22424,6 +22502,13 @@ export default class Client extends OpenApi {
     return await this.listPreManagedRulesWithOptions(request, runtime);
   }
 
+  /**
+    * This topic provides an example on how to query the remediation records of the rule cr-5392626622af0000\\*\\*\\*\\*.
+    *
+    * @param request ListRemediationExecutionsRequest
+    * @param runtime runtime options for this request RuntimeOptions
+    * @return ListRemediationExecutionsResponse
+   */
   async listRemediationExecutionsWithOptions(request: ListRemediationExecutionsRequest, runtime: $Util.RuntimeOptions): Promise<ListRemediationExecutionsResponse> {
     Util.validateModel(request);
     let query = { };
@@ -22460,6 +22545,12 @@ export default class Client extends OpenApi {
     return $tea.cast<ListRemediationExecutionsResponse>(await this.callApi(params, req, runtime), new ListRemediationExecutionsResponse({}));
   }
 
+  /**
+    * This topic provides an example on how to query the remediation records of the rule cr-5392626622af0000\\*\\*\\*\\*.
+    *
+    * @param request ListRemediationExecutionsRequest
+    * @return ListRemediationExecutionsResponse
+   */
   async listRemediationExecutions(request: ListRemediationExecutionsRequest): Promise<ListRemediationExecutionsResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.listRemediationExecutionsWithOptions(request, runtime);
@@ -23077,6 +23168,13 @@ export default class Client extends OpenApi {
     return await this.startAggregateRemediationWithOptions(request, runtime);
   }
 
+  /**
+    * In this example, the cr-9920626622af0035\\*\\*\\*\\* rule is used to re-evaluate the compliance of resources.
+    *
+    * @param request StartConfigRuleEvaluationRequest
+    * @param runtime runtime options for this request RuntimeOptions
+    * @return StartConfigRuleEvaluationResponse
+   */
   async startConfigRuleEvaluationWithOptions(request: StartConfigRuleEvaluationRequest, runtime: $Util.RuntimeOptions): Promise<StartConfigRuleEvaluationResponse> {
     Util.validateModel(request);
     let query = { };
@@ -23109,11 +23207,24 @@ export default class Client extends OpenApi {
     return $tea.cast<StartConfigRuleEvaluationResponse>(await this.callApi(params, req, runtime), new StartConfigRuleEvaluationResponse({}));
   }
 
+  /**
+    * In this example, the cr-9920626622af0035\\*\\*\\*\\* rule is used to re-evaluate the compliance of resources.
+    *
+    * @param request StartConfigRuleEvaluationRequest
+    * @return StartConfigRuleEvaluationResponse
+   */
   async startConfigRuleEvaluation(request: StartConfigRuleEvaluationRequest): Promise<StartConfigRuleEvaluationResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.startConfigRuleEvaluationWithOptions(request, runtime);
   }
 
+  /**
+    * This topic provides an example on how to enable Cloud Config to monitor the resources of your Alibaba Cloud account.
+    *
+    * @param request StartConfigurationRecorderRequest
+    * @param runtime runtime options for this request RuntimeOptions
+    * @return StartConfigurationRecorderResponse
+   */
   async startConfigurationRecorderWithOptions(runtime: $Util.RuntimeOptions): Promise<StartConfigurationRecorderResponse> {
     let req = new $OpenApi.OpenApiRequest({ });
     let params = new $OpenApi.Params({
@@ -23130,6 +23241,11 @@ export default class Client extends OpenApi {
     return $tea.cast<StartConfigurationRecorderResponse>(await this.callApi(params, req, runtime), new StartConfigurationRecorderResponse({}));
   }
 
+  /**
+    * This topic provides an example on how to enable Cloud Config to monitor the resources of your Alibaba Cloud account.
+    *
+    * @return StartConfigurationRecorderResponse
+   */
   async startConfigurationRecorder(): Promise<StartConfigurationRecorderResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.startConfigurationRecorderWithOptions(runtime);
@@ -24008,6 +24124,13 @@ export default class Client extends OpenApi {
     return await this.updateConfigRuleWithOptions(request, runtime);
   }
 
+  /**
+    * This topic provides an example on how to change the resource monitoring scope of the current account to ACS::ECS::Instance.
+    *
+    * @param request UpdateConfigurationRecorderRequest
+    * @param runtime runtime options for this request RuntimeOptions
+    * @return UpdateConfigurationRecorderResponse
+   */
   async updateConfigurationRecorderWithOptions(request: UpdateConfigurationRecorderRequest, runtime: $Util.RuntimeOptions): Promise<UpdateConfigurationRecorderResponse> {
     Util.validateModel(request);
     let body : {[key: string ]: any} = { };
@@ -24032,6 +24155,12 @@ export default class Client extends OpenApi {
     return $tea.cast<UpdateConfigurationRecorderResponse>(await this.callApi(params, req, runtime), new UpdateConfigurationRecorderResponse({}));
   }
 
+  /**
+    * This topic provides an example on how to change the resource monitoring scope of the current account to ACS::ECS::Instance.
+    *
+    * @param request UpdateConfigurationRecorderRequest
+    * @return UpdateConfigurationRecorderResponse
+   */
   async updateConfigurationRecorder(request: UpdateConfigurationRecorderRequest): Promise<UpdateConfigurationRecorderResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.updateConfigurationRecorderWithOptions(request, runtime);
