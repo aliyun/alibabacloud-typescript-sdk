@@ -2115,6 +2115,7 @@ export class DescribeAvailableResourceRequest extends $tea.Model {
   resourceOwnerAccount?: string;
   resourceOwnerId?: number;
   securityToken?: string;
+  storageType?: string;
   zoneId?: string;
   static names(): { [key: string]: string } {
     return {
@@ -2127,6 +2128,7 @@ export class DescribeAvailableResourceRequest extends $tea.Model {
       resourceOwnerAccount: 'ResourceOwnerAccount',
       resourceOwnerId: 'ResourceOwnerId',
       securityToken: 'SecurityToken',
+      storageType: 'StorageType',
       zoneId: 'ZoneId',
     };
   }
@@ -2142,6 +2144,7 @@ export class DescribeAvailableResourceRequest extends $tea.Model {
       resourceOwnerAccount: 'string',
       resourceOwnerId: 'number',
       securityToken: 'string',
+      storageType: 'string',
       zoneId: 'string',
     };
   }
@@ -11487,11 +11490,13 @@ export class DescribeRegionsResponseBodyRegionsDdsRegionZones extends $tea.Model
 }
 
 export class DescribeRegionsResponseBodyRegionsDdsRegion extends $tea.Model {
+  endPoint?: string;
   regionId?: string;
   regionName?: string;
   zones?: DescribeRegionsResponseBodyRegionsDdsRegionZones;
   static names(): { [key: string]: string } {
     return {
+      endPoint: 'EndPoint',
       regionId: 'RegionId',
       regionName: 'RegionName',
       zones: 'Zones',
@@ -11500,6 +11505,7 @@ export class DescribeRegionsResponseBodyRegionsDdsRegion extends $tea.Model {
 
   static types(): { [key: string]: any } {
     return {
+      endPoint: 'string',
       regionId: 'string',
       regionName: 'string',
       zones: DescribeRegionsResponseBodyRegionsDdsRegionZones,
@@ -14143,6 +14149,10 @@ export default class Client extends OpenApi {
 
     if (!Util.isUnset(request.securityToken)) {
       query["SecurityToken"] = request.securityToken;
+    }
+
+    if (!Util.isUnset(request.storageType)) {
+      query["StorageType"] = request.storageType;
     }
 
     if (!Util.isUnset(request.zoneId)) {
