@@ -8,6 +8,153 @@ import OpenApiUtil from '@alicloud/openapi-util';
 import EndpointUtil from '@alicloud/endpoint-util';
 import * as $tea from '@alicloud/tea-typescript';
 
+export class AlignStoragePrimaryAzoneRequest extends $tea.Model {
+  DBInstanceName?: string;
+  regionId?: string;
+  storageInstanceName?: string;
+  switchTime?: string;
+  switchTimeMode?: string;
+  static names(): { [key: string]: string } {
+    return {
+      DBInstanceName: 'DBInstanceName',
+      regionId: 'RegionId',
+      storageInstanceName: 'StorageInstanceName',
+      switchTime: 'SwitchTime',
+      switchTimeMode: 'SwitchTimeMode',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      DBInstanceName: 'string',
+      regionId: 'string',
+      storageInstanceName: 'string',
+      switchTime: 'string',
+      switchTimeMode: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class AlignStoragePrimaryAzoneResponseBody extends $tea.Model {
+  message?: string;
+  requestId?: string;
+  success?: boolean;
+  static names(): { [key: string]: string } {
+    return {
+      message: 'Message',
+      requestId: 'RequestId',
+      success: 'Success',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      message: 'string',
+      requestId: 'string',
+      success: 'boolean',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class AlignStoragePrimaryAzoneResponse extends $tea.Model {
+  headers: { [key: string]: string };
+  statusCode: number;
+  body: AlignStoragePrimaryAzoneResponseBody;
+  static names(): { [key: string]: string } {
+    return {
+      headers: 'headers',
+      statusCode: 'statusCode',
+      body: 'body',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
+      body: AlignStoragePrimaryAzoneResponseBody,
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class AllocateColdDataVolumeRequest extends $tea.Model {
+  DBInstanceName?: string;
+  regionId?: string;
+  static names(): { [key: string]: string } {
+    return {
+      DBInstanceName: 'DBInstanceName',
+      regionId: 'RegionId',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      DBInstanceName: 'string',
+      regionId: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class AllocateColdDataVolumeResponseBody extends $tea.Model {
+  requestId?: string;
+  static names(): { [key: string]: string } {
+    return {
+      requestId: 'RequestId',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      requestId: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class AllocateColdDataVolumeResponse extends $tea.Model {
+  headers: { [key: string]: string };
+  statusCode: number;
+  body: AllocateColdDataVolumeResponseBody;
+  static names(): { [key: string]: string } {
+    return {
+      headers: 'headers',
+      statusCode: 'statusCode',
+      body: 'body',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
+      body: AllocateColdDataVolumeResponseBody,
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
 export class AllocateInstancePublicConnectionRequest extends $tea.Model {
   connectionStringPrefix?: string;
   DBInstanceName?: string;
@@ -69,10 +216,12 @@ export class AllocateInstancePublicConnectionResponseBody extends $tea.Model {
 
 export class AllocateInstancePublicConnectionResponse extends $tea.Model {
   headers: { [key: string]: string };
+  statusCode: number;
   body: AllocateInstancePublicConnectionResponseBody;
   static names(): { [key: string]: string } {
     return {
       headers: 'headers',
+      statusCode: 'statusCode',
       body: 'body',
     };
   }
@@ -80,6 +229,7 @@ export class AllocateInstancePublicConnectionResponse extends $tea.Model {
   static types(): { [key: string]: any } {
     return {
       headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
       body: AllocateInstancePublicConnectionResponseBody,
     };
   }
@@ -135,10 +285,12 @@ export class CancelActiveOperationTasksResponseBody extends $tea.Model {
 
 export class CancelActiveOperationTasksResponse extends $tea.Model {
   headers: { [key: string]: string };
+  statusCode: number;
   body: CancelActiveOperationTasksResponseBody;
   static names(): { [key: string]: string } {
     return {
       headers: 'headers',
+      statusCode: 'statusCode',
       body: 'body',
     };
   }
@@ -146,6 +298,7 @@ export class CancelActiveOperationTasksResponse extends $tea.Model {
   static types(): { [key: string]: any } {
     return {
       headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
       body: CancelActiveOperationTasksResponseBody,
     };
   }
@@ -204,10 +357,12 @@ export class ChangeResourceGroupResponseBody extends $tea.Model {
 
 export class ChangeResourceGroupResponse extends $tea.Model {
   headers: { [key: string]: string };
+  statusCode: number;
   body: ChangeResourceGroupResponseBody;
   static names(): { [key: string]: string } {
     return {
       headers: 'headers',
+      statusCode: 'statusCode',
       body: 'body',
     };
   }
@@ -215,6 +370,7 @@ export class ChangeResourceGroupResponse extends $tea.Model {
   static types(): { [key: string]: any } {
     return {
       headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
       body: ChangeResourceGroupResponseBody,
     };
   }
@@ -273,10 +429,12 @@ export class CheckCloudResourceAuthorizedResponseBody extends $tea.Model {
 
 export class CheckCloudResourceAuthorizedResponse extends $tea.Model {
   headers: { [key: string]: string };
+  statusCode: number;
   body: CheckCloudResourceAuthorizedResponseBody;
   static names(): { [key: string]: string } {
     return {
       headers: 'headers',
+      statusCode: 'statusCode',
       body: 'body',
     };
   }
@@ -284,6 +442,7 @@ export class CheckCloudResourceAuthorizedResponse extends $tea.Model {
   static types(): { [key: string]: any } {
     return {
       headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
       body: CheckCloudResourceAuthorizedResponseBody,
     };
   }
@@ -363,10 +522,12 @@ export class CreateAccountResponseBody extends $tea.Model {
 
 export class CreateAccountResponse extends $tea.Model {
   headers: { [key: string]: string };
+  statusCode: number;
   body: CreateAccountResponseBody;
   static names(): { [key: string]: string } {
     return {
       headers: 'headers',
+      statusCode: 'statusCode',
       body: 'body',
     };
   }
@@ -374,6 +535,7 @@ export class CreateAccountResponse extends $tea.Model {
   static types(): { [key: string]: any } {
     return {
       headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
       body: CreateAccountResponseBody,
     };
   }
@@ -438,10 +600,12 @@ export class CreateBackupResponseBody extends $tea.Model {
 
 export class CreateBackupResponse extends $tea.Model {
   headers: { [key: string]: string };
+  statusCode: number;
   body: CreateBackupResponseBody;
   static names(): { [key: string]: string } {
     return {
       headers: 'headers',
+      statusCode: 'statusCode',
       body: 'body',
     };
   }
@@ -449,6 +613,7 @@ export class CreateBackupResponse extends $tea.Model {
   static types(): { [key: string]: any } {
     return {
       headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
       body: CreateBackupResponseBody,
     };
   }
@@ -531,10 +696,12 @@ export class CreateDBResponseBody extends $tea.Model {
 
 export class CreateDBResponse extends $tea.Model {
   headers: { [key: string]: string };
+  statusCode: number;
   body: CreateDBResponseBody;
   static names(): { [key: string]: string } {
     return {
       headers: 'headers',
+      statusCode: 'statusCode',
       body: 'body',
     };
   }
@@ -542,6 +709,7 @@ export class CreateDBResponse extends $tea.Model {
   static types(): { [key: string]: any } {
     return {
       headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
       body: CreateDBResponseBody,
     };
   }
@@ -553,9 +721,13 @@ export class CreateDBResponse extends $tea.Model {
 
 export class CreateDBInstanceRequest extends $tea.Model {
   autoRenew?: boolean;
+  CNNodeCount?: string;
   clientToken?: string;
+  cnClass?: string;
   DBNodeClass?: string;
   DBNodeCount?: number;
+  DNNodeCount?: string;
+  dnClass?: string;
   engineVersion?: string;
   isReadDBInstance?: boolean;
   networkType?: string;
@@ -575,9 +747,13 @@ export class CreateDBInstanceRequest extends $tea.Model {
   static names(): { [key: string]: string } {
     return {
       autoRenew: 'AutoRenew',
+      CNNodeCount: 'CNNodeCount',
       clientToken: 'ClientToken',
+      cnClass: 'CnClass',
       DBNodeClass: 'DBNodeClass',
       DBNodeCount: 'DBNodeCount',
+      DNNodeCount: 'DNNodeCount',
+      dnClass: 'DnClass',
       engineVersion: 'EngineVersion',
       isReadDBInstance: 'IsReadDBInstance',
       networkType: 'NetworkType',
@@ -600,9 +776,13 @@ export class CreateDBInstanceRequest extends $tea.Model {
   static types(): { [key: string]: any } {
     return {
       autoRenew: 'boolean',
+      CNNodeCount: 'string',
       clientToken: 'string',
+      cnClass: 'string',
       DBNodeClass: 'string',
       DBNodeCount: 'number',
+      DNNodeCount: 'string',
+      dnClass: 'string',
       engineVersion: 'string',
       isReadDBInstance: 'boolean',
       networkType: 'string',
@@ -654,10 +834,12 @@ export class CreateDBInstanceResponseBody extends $tea.Model {
 
 export class CreateDBInstanceResponse extends $tea.Model {
   headers: { [key: string]: string };
+  statusCode: number;
   body: CreateDBInstanceResponseBody;
   static names(): { [key: string]: string } {
     return {
       headers: 'headers',
+      statusCode: 'statusCode',
       body: 'body',
     };
   }
@@ -665,6 +847,7 @@ export class CreateDBInstanceResponse extends $tea.Model {
   static types(): { [key: string]: any } {
     return {
       headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
       body: CreateDBInstanceResponseBody,
     };
   }
@@ -732,10 +915,12 @@ export class CreateSuperAccountResponseBody extends $tea.Model {
 
 export class CreateSuperAccountResponse extends $tea.Model {
   headers: { [key: string]: string };
+  statusCode: number;
   body: CreateSuperAccountResponseBody;
   static names(): { [key: string]: string } {
     return {
       headers: 'headers',
+      statusCode: 'statusCode',
       body: 'body',
     };
   }
@@ -743,6 +928,7 @@ export class CreateSuperAccountResponse extends $tea.Model {
   static types(): { [key: string]: any } {
     return {
       headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
       body: CreateSuperAccountResponseBody,
     };
   }
@@ -810,10 +996,12 @@ export class DeleteAccountResponseBody extends $tea.Model {
 
 export class DeleteAccountResponse extends $tea.Model {
   headers: { [key: string]: string };
+  statusCode: number;
   body: DeleteAccountResponseBody;
   static names(): { [key: string]: string } {
     return {
       headers: 'headers',
+      statusCode: 'statusCode',
       body: 'body',
     };
   }
@@ -821,6 +1009,7 @@ export class DeleteAccountResponse extends $tea.Model {
   static types(): { [key: string]: any } {
     return {
       headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
       body: DeleteAccountResponseBody,
     };
   }
@@ -882,10 +1071,12 @@ export class DeleteDBResponseBody extends $tea.Model {
 
 export class DeleteDBResponse extends $tea.Model {
   headers: { [key: string]: string };
+  statusCode: number;
   body: DeleteDBResponseBody;
   static names(): { [key: string]: string } {
     return {
       headers: 'headers',
+      statusCode: 'statusCode',
       body: 'body',
     };
   }
@@ -893,6 +1084,7 @@ export class DeleteDBResponse extends $tea.Model {
   static types(): { [key: string]: any } {
     return {
       headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
       body: DeleteDBResponseBody,
     };
   }
@@ -945,10 +1137,12 @@ export class DeleteDBInstanceResponseBody extends $tea.Model {
 
 export class DeleteDBInstanceResponse extends $tea.Model {
   headers: { [key: string]: string };
+  statusCode: number;
   body: DeleteDBInstanceResponseBody;
   static names(): { [key: string]: string } {
     return {
       headers: 'headers',
+      statusCode: 'statusCode',
       body: 'body',
     };
   }
@@ -956,6 +1150,7 @@ export class DeleteDBInstanceResponse extends $tea.Model {
   static types(): { [key: string]: any } {
     return {
       headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
       body: DeleteDBInstanceResponseBody,
     };
   }
@@ -1023,10 +1218,12 @@ export class DescribeAccountListResponseBody extends $tea.Model {
 
 export class DescribeAccountListResponse extends $tea.Model {
   headers: { [key: string]: string };
+  statusCode: number;
   body: DescribeAccountListResponseBody;
   static names(): { [key: string]: string } {
     return {
       headers: 'headers',
+      statusCode: 'statusCode',
       body: 'body',
     };
   }
@@ -1034,6 +1231,7 @@ export class DescribeAccountListResponse extends $tea.Model {
   static types(): { [key: string]: any } {
     return {
       headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
       body: DescribeAccountListResponseBody,
     };
   }
@@ -1089,10 +1287,12 @@ export class DescribeActiveOperationMaintainConfResponseBody extends $tea.Model 
 
 export class DescribeActiveOperationMaintainConfResponse extends $tea.Model {
   headers: { [key: string]: string };
+  statusCode: number;
   body: DescribeActiveOperationMaintainConfResponseBody;
   static names(): { [key: string]: string } {
     return {
       headers: 'headers',
+      statusCode: 'statusCode',
       body: 'body',
     };
   }
@@ -1100,6 +1300,7 @@ export class DescribeActiveOperationMaintainConfResponse extends $tea.Model {
   static types(): { [key: string]: any } {
     return {
       headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
       body: DescribeActiveOperationMaintainConfResponseBody,
     };
   }
@@ -1161,10 +1362,12 @@ export class DescribeActiveOperationTaskCountResponseBody extends $tea.Model {
 
 export class DescribeActiveOperationTaskCountResponse extends $tea.Model {
   headers: { [key: string]: string };
+  statusCode: number;
   body: DescribeActiveOperationTaskCountResponseBody;
   static names(): { [key: string]: string } {
     return {
       headers: 'headers',
+      statusCode: 'statusCode',
       body: 'body',
     };
   }
@@ -1172,6 +1375,7 @@ export class DescribeActiveOperationTaskCountResponse extends $tea.Model {
   static types(): { [key: string]: any } {
     return {
       headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
       body: DescribeActiveOperationTaskCountResponseBody,
     };
   }
@@ -1266,10 +1470,12 @@ export class DescribeActiveOperationTasksResponseBody extends $tea.Model {
 
 export class DescribeActiveOperationTasksResponse extends $tea.Model {
   headers: { [key: string]: string };
+  statusCode: number;
   body: DescribeActiveOperationTasksResponseBody;
   static names(): { [key: string]: string } {
     return {
       headers: 'headers',
+      statusCode: 'statusCode',
       body: 'body',
     };
   }
@@ -1277,7 +1483,92 @@ export class DescribeActiveOperationTasksResponse extends $tea.Model {
   static types(): { [key: string]: any } {
     return {
       headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
       body: DescribeActiveOperationTasksResponseBody,
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class DescribeArchiveTableListRequest extends $tea.Model {
+  DBInstanceName?: string;
+  pageIndex?: number;
+  pageSize?: number;
+  regionId?: string;
+  schemaName?: string;
+  status?: string;
+  tableName?: string;
+  static names(): { [key: string]: string } {
+    return {
+      DBInstanceName: 'DBInstanceName',
+      pageIndex: 'PageIndex',
+      pageSize: 'PageSize',
+      regionId: 'RegionId',
+      schemaName: 'SchemaName',
+      status: 'Status',
+      tableName: 'TableName',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      DBInstanceName: 'string',
+      pageIndex: 'number',
+      pageSize: 'number',
+      regionId: 'string',
+      schemaName: 'string',
+      status: 'string',
+      tableName: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class DescribeArchiveTableListResponseBody extends $tea.Model {
+  data?: DescribeArchiveTableListResponseBodyData;
+  requestId?: string;
+  static names(): { [key: string]: string } {
+    return {
+      data: 'Data',
+      requestId: 'RequestId',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      data: DescribeArchiveTableListResponseBodyData,
+      requestId: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class DescribeArchiveTableListResponse extends $tea.Model {
+  headers: { [key: string]: string };
+  statusCode: number;
+  body: DescribeArchiveTableListResponseBody;
+  static names(): { [key: string]: string } {
+    return {
+      headers: 'headers',
+      statusCode: 'statusCode',
+      body: 'body',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
+      body: DescribeArchiveTableListResponseBody,
     };
   }
 
@@ -1338,10 +1629,12 @@ export class DescribeBackupPolicyResponseBody extends $tea.Model {
 
 export class DescribeBackupPolicyResponse extends $tea.Model {
   headers: { [key: string]: string };
+  statusCode: number;
   body: DescribeBackupPolicyResponseBody;
   static names(): { [key: string]: string } {
     return {
       headers: 'headers',
+      statusCode: 'statusCode',
       body: 'body',
     };
   }
@@ -1349,7 +1642,89 @@ export class DescribeBackupPolicyResponse extends $tea.Model {
   static types(): { [key: string]: any } {
     return {
       headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
       body: DescribeBackupPolicyResponseBody,
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class DescribeBackupSetRequest extends $tea.Model {
+  backupSetId?: string;
+  DBInstanceName?: string;
+  destCrossRegion?: string;
+  regionId?: string;
+  static names(): { [key: string]: string } {
+    return {
+      backupSetId: 'BackupSetId',
+      DBInstanceName: 'DBInstanceName',
+      destCrossRegion: 'DestCrossRegion',
+      regionId: 'RegionId',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      backupSetId: 'string',
+      DBInstanceName: 'string',
+      destCrossRegion: 'string',
+      regionId: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class DescribeBackupSetResponseBody extends $tea.Model {
+  data?: DescribeBackupSetResponseBodyData[];
+  message?: string;
+  requestId?: string;
+  success?: boolean;
+  static names(): { [key: string]: string } {
+    return {
+      data: 'Data',
+      message: 'Message',
+      requestId: 'RequestId',
+      success: 'Success',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      data: { 'type': 'array', 'itemType': DescribeBackupSetResponseBodyData },
+      message: 'string',
+      requestId: 'string',
+      success: 'boolean',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class DescribeBackupSetResponse extends $tea.Model {
+  headers: { [key: string]: string };
+  statusCode: number;
+  body: DescribeBackupSetResponseBody;
+  static names(): { [key: string]: string } {
+    return {
+      headers: 'headers',
+      statusCode: 'statusCode',
+      body: 'body',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
+      body: DescribeBackupSetResponseBody,
     };
   }
 
@@ -1360,6 +1735,7 @@ export class DescribeBackupPolicyResponse extends $tea.Model {
 
 export class DescribeBackupSetListRequest extends $tea.Model {
   DBInstanceName?: string;
+  destCrossRegion?: string;
   endTime?: number;
   pageNumber?: number;
   pageSize?: number;
@@ -1368,6 +1744,7 @@ export class DescribeBackupSetListRequest extends $tea.Model {
   static names(): { [key: string]: string } {
     return {
       DBInstanceName: 'DBInstanceName',
+      destCrossRegion: 'DestCrossRegion',
       endTime: 'EndTime',
       pageNumber: 'PageNumber',
       pageSize: 'PageSize',
@@ -1379,6 +1756,7 @@ export class DescribeBackupSetListRequest extends $tea.Model {
   static types(): { [key: string]: any } {
     return {
       DBInstanceName: 'string',
+      destCrossRegion: 'string',
       endTime: 'number',
       pageNumber: 'number',
       pageSize: 'number',
@@ -1422,10 +1800,12 @@ export class DescribeBackupSetListResponseBody extends $tea.Model {
 
 export class DescribeBackupSetListResponse extends $tea.Model {
   headers: { [key: string]: string };
+  statusCode: number;
   body: DescribeBackupSetListResponseBody;
   static names(): { [key: string]: string } {
     return {
       headers: 'headers',
+      statusCode: 'statusCode',
       body: 'body',
     };
   }
@@ -1433,6 +1813,7 @@ export class DescribeBackupSetListResponse extends $tea.Model {
   static types(): { [key: string]: any } {
     return {
       headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
       body: DescribeBackupSetListResponseBody,
     };
   }
@@ -1445,6 +1826,7 @@ export class DescribeBackupSetListResponse extends $tea.Model {
 export class DescribeBinaryLogListRequest extends $tea.Model {
   DBInstanceName?: string;
   endTime?: string;
+  instanceName?: string;
   pageNumber?: number;
   pageSize?: number;
   regionId?: string;
@@ -1453,6 +1835,7 @@ export class DescribeBinaryLogListRequest extends $tea.Model {
     return {
       DBInstanceName: 'DBInstanceName',
       endTime: 'EndTime',
+      instanceName: 'InstanceName',
       pageNumber: 'PageNumber',
       pageSize: 'PageSize',
       regionId: 'RegionId',
@@ -1464,6 +1847,7 @@ export class DescribeBinaryLogListRequest extends $tea.Model {
     return {
       DBInstanceName: 'string',
       endTime: 'string',
+      instanceName: 'string',
       pageNumber: 'number',
       pageSize: 'number',
       regionId: 'string',
@@ -1509,10 +1893,12 @@ export class DescribeBinaryLogListResponseBody extends $tea.Model {
 
 export class DescribeBinaryLogListResponse extends $tea.Model {
   headers: { [key: string]: string };
+  statusCode: number;
   body: DescribeBinaryLogListResponseBody;
   static names(): { [key: string]: string } {
     return {
       headers: 'headers',
+      statusCode: 'statusCode',
       body: 'body',
     };
   }
@@ -1520,6 +1906,7 @@ export class DescribeBinaryLogListResponse extends $tea.Model {
   static types(): { [key: string]: any } {
     return {
       headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
       body: DescribeBinaryLogListResponseBody,
     };
   }
@@ -1581,10 +1968,12 @@ export class DescribeCharacterSetResponseBody extends $tea.Model {
 
 export class DescribeCharacterSetResponse extends $tea.Model {
   headers: { [key: string]: string };
+  statusCode: number;
   body: DescribeCharacterSetResponseBody;
   static names(): { [key: string]: string } {
     return {
       headers: 'headers',
+      statusCode: 'statusCode',
       body: 'body',
     };
   }
@@ -1592,7 +1981,77 @@ export class DescribeCharacterSetResponse extends $tea.Model {
   static types(): { [key: string]: any } {
     return {
       headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
       body: DescribeCharacterSetResponseBody,
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class DescribeColdDataBasicInfoRequest extends $tea.Model {
+  DBInstanceName?: string;
+  regionId?: string;
+  static names(): { [key: string]: string } {
+    return {
+      DBInstanceName: 'DBInstanceName',
+      regionId: 'RegionId',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      DBInstanceName: 'string',
+      regionId: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class DescribeColdDataBasicInfoResponseBody extends $tea.Model {
+  data?: DescribeColdDataBasicInfoResponseBodyData;
+  requestId?: string;
+  static names(): { [key: string]: string } {
+    return {
+      data: 'Data',
+      requestId: 'RequestId',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      data: DescribeColdDataBasicInfoResponseBodyData,
+      requestId: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class DescribeColdDataBasicInfoResponse extends $tea.Model {
+  headers: { [key: string]: string };
+  statusCode: number;
+  body: DescribeColdDataBasicInfoResponseBody;
+  static names(): { [key: string]: string } {
+    return {
+      headers: 'headers',
+      statusCode: 'statusCode',
+      body: 'body',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
+      body: DescribeColdDataBasicInfoResponseBody,
     };
   }
 
@@ -1650,10 +2109,12 @@ export class DescribeDBInstanceAttributeResponseBody extends $tea.Model {
 
 export class DescribeDBInstanceAttributeResponse extends $tea.Model {
   headers: { [key: string]: string };
+  statusCode: number;
   body: DescribeDBInstanceAttributeResponseBody;
   static names(): { [key: string]: string } {
     return {
       headers: 'headers',
+      statusCode: 'statusCode',
       body: 'body',
     };
   }
@@ -1661,6 +2122,7 @@ export class DescribeDBInstanceAttributeResponse extends $tea.Model {
   static types(): { [key: string]: any } {
     return {
       headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
       body: DescribeDBInstanceAttributeResponseBody,
     };
   }
@@ -1719,10 +2181,12 @@ export class DescribeDBInstanceConfigResponseBody extends $tea.Model {
 
 export class DescribeDBInstanceConfigResponse extends $tea.Model {
   headers: { [key: string]: string };
+  statusCode: number;
   body: DescribeDBInstanceConfigResponseBody;
   static names(): { [key: string]: string } {
     return {
       headers: 'headers',
+      statusCode: 'statusCode',
       body: 'body',
     };
   }
@@ -1730,7 +2194,83 @@ export class DescribeDBInstanceConfigResponse extends $tea.Model {
   static types(): { [key: string]: any } {
     return {
       headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
       body: DescribeDBInstanceConfigResponseBody,
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class DescribeDBInstanceHARequest extends $tea.Model {
+  DBInstanceName?: string;
+  regionId?: string;
+  static names(): { [key: string]: string } {
+    return {
+      DBInstanceName: 'DBInstanceName',
+      regionId: 'RegionId',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      DBInstanceName: 'string',
+      regionId: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class DescribeDBInstanceHAResponseBody extends $tea.Model {
+  data?: DescribeDBInstanceHAResponseBodyData;
+  message?: string;
+  requestId?: string;
+  success?: boolean;
+  static names(): { [key: string]: string } {
+    return {
+      data: 'Data',
+      message: 'Message',
+      requestId: 'RequestId',
+      success: 'Success',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      data: DescribeDBInstanceHAResponseBodyData,
+      message: 'string',
+      requestId: 'string',
+      success: 'boolean',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class DescribeDBInstanceHAResponse extends $tea.Model {
+  headers: { [key: string]: string };
+  statusCode: number;
+  body: DescribeDBInstanceHAResponseBody;
+  static names(): { [key: string]: string } {
+    return {
+      headers: 'headers',
+      statusCode: 'statusCode',
+      body: 'body',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
+      body: DescribeDBInstanceHAResponseBody,
     };
   }
 
@@ -1785,10 +2325,12 @@ export class DescribeDBInstanceSSLResponseBody extends $tea.Model {
 
 export class DescribeDBInstanceSSLResponse extends $tea.Model {
   headers: { [key: string]: string };
+  statusCode: number;
   body: DescribeDBInstanceSSLResponseBody;
   static names(): { [key: string]: string } {
     return {
       headers: 'headers',
+      statusCode: 'statusCode',
       body: 'body',
     };
   }
@@ -1796,6 +2338,7 @@ export class DescribeDBInstanceSSLResponse extends $tea.Model {
   static types(): { [key: string]: any } {
     return {
       headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
       body: DescribeDBInstanceSSLResponseBody,
     };
   }
@@ -1851,10 +2394,12 @@ export class DescribeDBInstanceTDEResponseBody extends $tea.Model {
 
 export class DescribeDBInstanceTDEResponse extends $tea.Model {
   headers: { [key: string]: string };
+  statusCode: number;
   body: DescribeDBInstanceTDEResponseBody;
   static names(): { [key: string]: string } {
     return {
       headers: 'headers',
+      statusCode: 'statusCode',
       body: 'body',
     };
   }
@@ -1862,6 +2407,7 @@ export class DescribeDBInstanceTDEResponse extends $tea.Model {
   static types(): { [key: string]: any } {
     return {
       headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
       body: DescribeDBInstanceTDEResponseBody,
     };
   }
@@ -1873,18 +2419,24 @@ export class DescribeDBInstanceTDEResponse extends $tea.Model {
 
 export class DescribeDBInstanceTopologyRequest extends $tea.Model {
   DBInstanceName?: string;
+  endTime?: string;
   regionId?: string;
+  startTime?: string;
   static names(): { [key: string]: string } {
     return {
       DBInstanceName: 'DBInstanceName',
+      endTime: 'EndTime',
       regionId: 'RegionId',
+      startTime: 'StartTime',
     };
   }
 
   static types(): { [key: string]: any } {
     return {
       DBInstanceName: 'string',
+      endTime: 'string',
       regionId: 'string',
+      startTime: 'string',
     };
   }
 
@@ -1917,10 +2469,12 @@ export class DescribeDBInstanceTopologyResponseBody extends $tea.Model {
 
 export class DescribeDBInstanceTopologyResponse extends $tea.Model {
   headers: { [key: string]: string };
+  statusCode: number;
   body: DescribeDBInstanceTopologyResponseBody;
   static names(): { [key: string]: string } {
     return {
       headers: 'headers',
+      statusCode: 'statusCode',
       body: 'body',
     };
   }
@@ -1928,7 +2482,77 @@ export class DescribeDBInstanceTopologyResponse extends $tea.Model {
   static types(): { [key: string]: any } {
     return {
       headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
       body: DescribeDBInstanceTopologyResponseBody,
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class DescribeDBInstanceViaEndpointRequest extends $tea.Model {
+  endpoint?: string;
+  regionId?: string;
+  static names(): { [key: string]: string } {
+    return {
+      endpoint: 'Endpoint',
+      regionId: 'RegionId',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      endpoint: 'string',
+      regionId: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class DescribeDBInstanceViaEndpointResponseBody extends $tea.Model {
+  DBInstance?: DescribeDBInstanceViaEndpointResponseBodyDBInstance;
+  requestId?: string;
+  static names(): { [key: string]: string } {
+    return {
+      DBInstance: 'DBInstance',
+      requestId: 'RequestId',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      DBInstance: DescribeDBInstanceViaEndpointResponseBodyDBInstance,
+      requestId: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class DescribeDBInstanceViaEndpointResponse extends $tea.Model {
+  headers: { [key: string]: string };
+  statusCode: number;
+  body: DescribeDBInstanceViaEndpointResponseBody;
+  static names(): { [key: string]: string } {
+    return {
+      headers: 'headers',
+      statusCode: 'statusCode',
+      body: 'body',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
+      body: DescribeDBInstanceViaEndpointResponseBody,
     };
   }
 
@@ -1939,18 +2563,22 @@ export class DescribeDBInstanceTopologyResponse extends $tea.Model {
 
 export class DescribeDBInstancesRequest extends $tea.Model {
   instanceId?: string;
+  mustHasCdc?: boolean;
   pageNumber?: number;
   pageSize?: number;
   regionId?: string;
   resourceGroupId?: string;
+  series?: string;
   tags?: string;
   static names(): { [key: string]: string } {
     return {
       instanceId: 'InstanceId',
+      mustHasCdc: 'MustHasCdc',
       pageNumber: 'PageNumber',
       pageSize: 'PageSize',
       regionId: 'RegionId',
       resourceGroupId: 'ResourceGroupId',
+      series: 'Series',
       tags: 'Tags',
     };
   }
@@ -1958,10 +2586,12 @@ export class DescribeDBInstancesRequest extends $tea.Model {
   static types(): { [key: string]: any } {
     return {
       instanceId: 'string',
+      mustHasCdc: 'boolean',
       pageNumber: 'number',
       pageSize: 'number',
       regionId: 'string',
       resourceGroupId: 'string',
+      series: 'string',
       tags: 'string',
     };
   }
@@ -2004,10 +2634,12 @@ export class DescribeDBInstancesResponseBody extends $tea.Model {
 
 export class DescribeDBInstancesResponse extends $tea.Model {
   headers: { [key: string]: string };
+  statusCode: number;
   body: DescribeDBInstancesResponseBody;
   static names(): { [key: string]: string } {
     return {
       headers: 'headers',
+      statusCode: 'statusCode',
       body: 'body',
     };
   }
@@ -2015,6 +2647,7 @@ export class DescribeDBInstancesResponse extends $tea.Model {
   static types(): { [key: string]: any } {
     return {
       headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
       body: DescribeDBInstancesResponseBody,
     };
   }
@@ -2097,10 +2730,12 @@ export class DescribeDBNodePerformanceResponseBody extends $tea.Model {
 
 export class DescribeDBNodePerformanceResponse extends $tea.Model {
   headers: { [key: string]: string };
+  statusCode: number;
   body: DescribeDBNodePerformanceResponseBody;
   static names(): { [key: string]: string } {
     return {
       headers: 'headers',
+      statusCode: 'statusCode',
       body: 'body',
     };
   }
@@ -2108,6 +2743,7 @@ export class DescribeDBNodePerformanceResponse extends $tea.Model {
   static types(): { [key: string]: any } {
     return {
       headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
       body: DescribeDBNodePerformanceResponseBody,
     };
   }
@@ -2172,10 +2808,12 @@ export class DescribeDbListResponseBody extends $tea.Model {
 
 export class DescribeDbListResponse extends $tea.Model {
   headers: { [key: string]: string };
+  statusCode: number;
   body: DescribeDbListResponseBody;
   static names(): { [key: string]: string } {
     return {
       headers: 'headers',
+      statusCode: 'statusCode',
       body: 'body',
     };
   }
@@ -2183,6 +2821,7 @@ export class DescribeDbListResponse extends $tea.Model {
   static types(): { [key: string]: any } {
     return {
       headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
       body: DescribeDbListResponseBody,
     };
   }
@@ -2247,10 +2886,12 @@ export class DescribeDistributeTableListResponseBody extends $tea.Model {
 
 export class DescribeDistributeTableListResponse extends $tea.Model {
   headers: { [key: string]: string };
+  statusCode: number;
   body: DescribeDistributeTableListResponseBody;
   static names(): { [key: string]: string } {
     return {
       headers: 'headers',
+      statusCode: 'statusCode',
       body: 'body',
     };
   }
@@ -2258,6 +2899,7 @@ export class DescribeDistributeTableListResponse extends $tea.Model {
   static types(): { [key: string]: any } {
     return {
       headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
       body: DescribeDistributeTableListResponseBody,
     };
   }
@@ -2331,10 +2973,12 @@ export class DescribeEventsResponseBody extends $tea.Model {
 
 export class DescribeEventsResponse extends $tea.Model {
   headers: { [key: string]: string };
+  statusCode: number;
   body: DescribeEventsResponseBody;
   static names(): { [key: string]: string } {
     return {
       headers: 'headers',
+      statusCode: 'statusCode',
       body: 'body',
     };
   }
@@ -2342,6 +2986,7 @@ export class DescribeEventsResponse extends $tea.Model {
   static types(): { [key: string]: any } {
     return {
       headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
       body: DescribeEventsResponseBody,
     };
   }
@@ -2400,10 +3045,12 @@ export class DescribeParameterTemplatesResponseBody extends $tea.Model {
 
 export class DescribeParameterTemplatesResponse extends $tea.Model {
   headers: { [key: string]: string };
+  statusCode: number;
   body: DescribeParameterTemplatesResponseBody;
   static names(): { [key: string]: string } {
     return {
       headers: 'headers',
+      statusCode: 'statusCode',
       body: 'body',
     };
   }
@@ -2411,6 +3058,7 @@ export class DescribeParameterTemplatesResponse extends $tea.Model {
   static types(): { [key: string]: any } {
     return {
       headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
       body: DescribeParameterTemplatesResponseBody,
     };
   }
@@ -2469,10 +3117,12 @@ export class DescribeParametersResponseBody extends $tea.Model {
 
 export class DescribeParametersResponse extends $tea.Model {
   headers: { [key: string]: string };
+  statusCode: number;
   body: DescribeParametersResponseBody;
   static names(): { [key: string]: string } {
     return {
       headers: 'headers',
+      statusCode: 'statusCode',
       body: 'body',
     };
   }
@@ -2480,6 +3130,7 @@ export class DescribeParametersResponse extends $tea.Model {
   static types(): { [key: string]: any } {
     return {
       headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
       body: DescribeParametersResponseBody,
     };
   }
@@ -2525,10 +3176,12 @@ export class DescribeRegionsResponseBody extends $tea.Model {
 
 export class DescribeRegionsResponse extends $tea.Model {
   headers: { [key: string]: string };
+  statusCode: number;
   body: DescribeRegionsResponseBody;
   static names(): { [key: string]: string } {
     return {
       headers: 'headers',
+      statusCode: 'statusCode',
       body: 'body',
     };
   }
@@ -2536,6 +3189,7 @@ export class DescribeRegionsResponse extends $tea.Model {
   static types(): { [key: string]: any } {
     return {
       headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
       body: DescribeRegionsResponseBody,
     };
   }
@@ -2600,10 +3254,12 @@ export class DescribeScaleOutMigrateTaskListResponseBody extends $tea.Model {
 
 export class DescribeScaleOutMigrateTaskListResponse extends $tea.Model {
   headers: { [key: string]: string };
+  statusCode: number;
   body: DescribeScaleOutMigrateTaskListResponseBody;
   static names(): { [key: string]: string } {
     return {
       headers: 'headers',
+      statusCode: 'statusCode',
       body: 'body',
     };
   }
@@ -2611,6 +3267,7 @@ export class DescribeScaleOutMigrateTaskListResponse extends $tea.Model {
   static types(): { [key: string]: any } {
     return {
       headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
       body: DescribeScaleOutMigrateTaskListResponseBody,
     };
   }
@@ -2672,10 +3329,12 @@ export class DescribeSecurityIpsResponseBody extends $tea.Model {
 
 export class DescribeSecurityIpsResponse extends $tea.Model {
   headers: { [key: string]: string };
+  statusCode: number;
   body: DescribeSecurityIpsResponseBody;
   static names(): { [key: string]: string } {
     return {
       headers: 'headers',
+      statusCode: 'statusCode',
       body: 'body',
     };
   }
@@ -2683,91 +3342,8 @@ export class DescribeSecurityIpsResponse extends $tea.Model {
   static types(): { [key: string]: any } {
     return {
       headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
       body: DescribeSecurityIpsResponseBody,
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class DescribeSlinkTaskInfoRequest extends $tea.Model {
-  failPageNumber?: number;
-  failPageSize?: number;
-  regionId?: string;
-  slinkTaskId?: string;
-  successPageNumber?: number;
-  successPageSize?: number;
-  static names(): { [key: string]: string } {
-    return {
-      failPageNumber: 'FailPageNumber',
-      failPageSize: 'FailPageSize',
-      regionId: 'RegionId',
-      slinkTaskId: 'SlinkTaskId',
-      successPageNumber: 'SuccessPageNumber',
-      successPageSize: 'SuccessPageSize',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      failPageNumber: 'number',
-      failPageSize: 'number',
-      regionId: 'string',
-      slinkTaskId: 'string',
-      successPageNumber: 'number',
-      successPageSize: 'number',
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class DescribeSlinkTaskInfoResponseBody extends $tea.Model {
-  code?: number;
-  data?: DescribeSlinkTaskInfoResponseBodyData;
-  message?: string;
-  success?: string;
-  static names(): { [key: string]: string } {
-    return {
-      code: 'Code',
-      data: 'Data',
-      message: 'Message',
-      success: 'Success',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      code: 'number',
-      data: DescribeSlinkTaskInfoResponseBodyData,
-      message: 'string',
-      success: 'string',
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class DescribeSlinkTaskInfoResponse extends $tea.Model {
-  headers: { [key: string]: string };
-  body: DescribeSlinkTaskInfoResponseBody;
-  static names(): { [key: string]: string } {
-    return {
-      headers: 'headers',
-      body: 'body',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
-      body: DescribeSlinkTaskInfoResponseBody,
     };
   }
 
@@ -2825,10 +3401,12 @@ export class DescribeTagsResponseBody extends $tea.Model {
 
 export class DescribeTagsResponse extends $tea.Model {
   headers: { [key: string]: string };
+  statusCode: number;
   body: DescribeTagsResponseBody;
   static names(): { [key: string]: string } {
     return {
       headers: 'headers',
+      statusCode: 'statusCode',
       body: 'body',
     };
   }
@@ -2836,6 +3414,7 @@ export class DescribeTagsResponse extends $tea.Model {
   static types(): { [key: string]: any } {
     return {
       headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
       body: DescribeTagsResponseBody,
     };
   }
@@ -2924,10 +3503,12 @@ export class DescribeTasksResponseBody extends $tea.Model {
 
 export class DescribeTasksResponse extends $tea.Model {
   headers: { [key: string]: string };
+  statusCode: number;
   body: DescribeTasksResponseBody;
   static names(): { [key: string]: string } {
     return {
       headers: 'headers',
+      statusCode: 'statusCode',
       body: 'body',
     };
   }
@@ -2935,6 +3516,7 @@ export class DescribeTasksResponse extends $tea.Model {
   static types(): { [key: string]: any } {
     return {
       headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
       body: DescribeTasksResponseBody,
     };
   }
@@ -2990,10 +3572,12 @@ export class DescribeUserEncryptionKeyListResponseBody extends $tea.Model {
 
 export class DescribeUserEncryptionKeyListResponse extends $tea.Model {
   headers: { [key: string]: string };
+  statusCode: number;
   body: DescribeUserEncryptionKeyListResponseBody;
   static names(): { [key: string]: string } {
     return {
       headers: 'headers',
+      statusCode: 'statusCode',
       body: 'body',
     };
   }
@@ -3001,6 +3585,7 @@ export class DescribeUserEncryptionKeyListResponse extends $tea.Model {
   static types(): { [key: string]: any } {
     return {
       headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
       body: DescribeUserEncryptionKeyListResponseBody,
     };
   }
@@ -3010,12 +3595,16 @@ export class DescribeUserEncryptionKeyListResponse extends $tea.Model {
   }
 }
 
-export class InitDBInstanceResourceGroupIdRequest extends $tea.Model {
+export class DisableRightsSeparationRequest extends $tea.Model {
   DBInstanceName?: string;
+  dbaAccountName?: string;
+  dbaAccountPassword?: string;
   regionId?: string;
   static names(): { [key: string]: string } {
     return {
       DBInstanceName: 'DBInstanceName',
+      dbaAccountName: 'DbaAccountName',
+      dbaAccountPassword: 'DbaAccountPassword',
       regionId: 'RegionId',
     };
   }
@@ -3023,6 +3612,8 @@ export class InitDBInstanceResourceGroupIdRequest extends $tea.Model {
   static types(): { [key: string]: any } {
     return {
       DBInstanceName: 'string',
+      dbaAccountName: 'string',
+      dbaAccountPassword: 'string',
       regionId: 'string',
     };
   }
@@ -3032,17 +3623,23 @@ export class InitDBInstanceResourceGroupIdRequest extends $tea.Model {
   }
 }
 
-export class InitDBInstanceResourceGroupIdResponseBody extends $tea.Model {
+export class DisableRightsSeparationResponseBody extends $tea.Model {
+  message?: string;
   requestId?: string;
+  success?: boolean;
   static names(): { [key: string]: string } {
     return {
+      message: 'Message',
       requestId: 'RequestId',
+      success: 'Success',
     };
   }
 
   static types(): { [key: string]: any } {
     return {
+      message: 'string',
       requestId: 'string',
+      success: 'boolean',
     };
   }
 
@@ -3051,12 +3648,14 @@ export class InitDBInstanceResourceGroupIdResponseBody extends $tea.Model {
   }
 }
 
-export class InitDBInstanceResourceGroupIdResponse extends $tea.Model {
+export class DisableRightsSeparationResponse extends $tea.Model {
   headers: { [key: string]: string };
-  body: InitDBInstanceResourceGroupIdResponseBody;
+  statusCode: number;
+  body: DisableRightsSeparationResponseBody;
   static names(): { [key: string]: string } {
     return {
       headers: 'headers',
+      statusCode: 'statusCode',
       body: 'body',
     };
   }
@@ -3064,7 +3663,98 @@ export class InitDBInstanceResourceGroupIdResponse extends $tea.Model {
   static types(): { [key: string]: any } {
     return {
       headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
-      body: InitDBInstanceResourceGroupIdResponseBody,
+      statusCode: 'number',
+      body: DisableRightsSeparationResponseBody,
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class EnableRightsSeparationRequest extends $tea.Model {
+  auditAccountDescription?: string;
+  auditAccountName?: string;
+  auditAccountPassword?: string;
+  DBInstanceName?: string;
+  regionId?: string;
+  securityAccountDescription?: string;
+  securityAccountName?: string;
+  securityAccountPassword?: string;
+  static names(): { [key: string]: string } {
+    return {
+      auditAccountDescription: 'AuditAccountDescription',
+      auditAccountName: 'AuditAccountName',
+      auditAccountPassword: 'AuditAccountPassword',
+      DBInstanceName: 'DBInstanceName',
+      regionId: 'RegionId',
+      securityAccountDescription: 'SecurityAccountDescription',
+      securityAccountName: 'SecurityAccountName',
+      securityAccountPassword: 'SecurityAccountPassword',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      auditAccountDescription: 'string',
+      auditAccountName: 'string',
+      auditAccountPassword: 'string',
+      DBInstanceName: 'string',
+      regionId: 'string',
+      securityAccountDescription: 'string',
+      securityAccountName: 'string',
+      securityAccountPassword: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class EnableRightsSeparationResponseBody extends $tea.Model {
+  message?: string;
+  requestId?: string;
+  success?: boolean;
+  static names(): { [key: string]: string } {
+    return {
+      message: 'Message',
+      requestId: 'RequestId',
+      success: 'Success',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      message: 'string',
+      requestId: 'string',
+      success: 'boolean',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class EnableRightsSeparationResponse extends $tea.Model {
+  headers: { [key: string]: string };
+  statusCode: number;
+  body: EnableRightsSeparationResponseBody;
+  static names(): { [key: string]: string } {
+    return {
+      headers: 'headers',
+      statusCode: 'statusCode',
+      body: 'body',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
+      body: EnableRightsSeparationResponseBody,
     };
   }
 
@@ -3131,10 +3821,12 @@ export class ListTagResourcesResponseBody extends $tea.Model {
 
 export class ListTagResourcesResponse extends $tea.Model {
   headers: { [key: string]: string };
+  statusCode: number;
   body: ListTagResourcesResponseBody;
   static names(): { [key: string]: string } {
     return {
       headers: 'headers',
+      statusCode: 'statusCode',
       body: 'body',
     };
   }
@@ -3142,6 +3834,7 @@ export class ListTagResourcesResponse extends $tea.Model {
   static types(): { [key: string]: any } {
     return {
       headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
       body: ListTagResourcesResponseBody,
     };
   }
@@ -3206,10 +3899,12 @@ export class ModifyAccountDescriptionResponseBody extends $tea.Model {
 
 export class ModifyAccountDescriptionResponse extends $tea.Model {
   headers: { [key: string]: string };
+  statusCode: number;
   body: ModifyAccountDescriptionResponseBody;
   static names(): { [key: string]: string } {
     return {
       headers: 'headers',
+      statusCode: 'statusCode',
       body: 'body',
     };
   }
@@ -3217,7 +3912,95 @@ export class ModifyAccountDescriptionResponse extends $tea.Model {
   static types(): { [key: string]: any } {
     return {
       headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
       body: ModifyAccountDescriptionResponseBody,
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class ModifyAccountPrivilegeRequest extends $tea.Model {
+  accountName?: string;
+  accountPrivilege?: string;
+  DBInstanceName?: string;
+  dbName?: string;
+  regionId?: string;
+  securityAccountName?: string;
+  securityAccountPassword?: string;
+  static names(): { [key: string]: string } {
+    return {
+      accountName: 'AccountName',
+      accountPrivilege: 'AccountPrivilege',
+      DBInstanceName: 'DBInstanceName',
+      dbName: 'DbName',
+      regionId: 'RegionId',
+      securityAccountName: 'SecurityAccountName',
+      securityAccountPassword: 'SecurityAccountPassword',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      accountName: 'string',
+      accountPrivilege: 'string',
+      DBInstanceName: 'string',
+      dbName: 'string',
+      regionId: 'string',
+      securityAccountName: 'string',
+      securityAccountPassword: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class ModifyAccountPrivilegeResponseBody extends $tea.Model {
+  message?: string;
+  requestId?: string;
+  success?: boolean;
+  static names(): { [key: string]: string } {
+    return {
+      message: 'Message',
+      requestId: 'RequestId',
+      success: 'Success',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      message: 'string',
+      requestId: 'string',
+      success: 'boolean',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class ModifyAccountPrivilegeResponse extends $tea.Model {
+  headers: { [key: string]: string };
+  statusCode: number;
+  body: ModifyAccountPrivilegeResponseBody;
+  static names(): { [key: string]: string } {
+    return {
+      headers: 'headers',
+      statusCode: 'statusCode',
+      body: 'body',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
+      body: ModifyAccountPrivilegeResponseBody,
     };
   }
 
@@ -3281,10 +4064,12 @@ export class ModifyActiveOperationMaintainConfResponseBody extends $tea.Model {
 
 export class ModifyActiveOperationMaintainConfResponse extends $tea.Model {
   headers: { [key: string]: string };
+  statusCode: number;
   body: ModifyActiveOperationMaintainConfResponseBody;
   static names(): { [key: string]: string } {
     return {
       headers: 'headers',
+      statusCode: 'statusCode',
       body: 'body',
     };
   }
@@ -3292,6 +4077,7 @@ export class ModifyActiveOperationMaintainConfResponse extends $tea.Model {
   static types(): { [key: string]: any } {
     return {
       headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
       body: ModifyActiveOperationMaintainConfResponseBody,
     };
   }
@@ -3353,10 +4139,12 @@ export class ModifyActiveOperationTasksResponseBody extends $tea.Model {
 
 export class ModifyActiveOperationTasksResponse extends $tea.Model {
   headers: { [key: string]: string };
+  statusCode: number;
   body: ModifyActiveOperationTasksResponseBody;
   static names(): { [key: string]: string } {
     return {
       headers: 'headers',
+      statusCode: 'statusCode',
       body: 'body',
     };
   }
@@ -3364,6 +4152,7 @@ export class ModifyActiveOperationTasksResponse extends $tea.Model {
   static types(): { [key: string]: any } {
     return {
       headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
       body: ModifyActiveOperationTasksResponseBody,
     };
   }
@@ -3375,13 +4164,17 @@ export class ModifyActiveOperationTasksResponse extends $tea.Model {
 
 export class ModifyDBInstanceClassRequest extends $tea.Model {
   clientToken?: string;
+  cnClass?: string;
   DBInstanceName?: string;
+  dnClass?: string;
   regionId?: string;
   targetDBInstanceClass?: string;
   static names(): { [key: string]: string } {
     return {
       clientToken: 'ClientToken',
+      cnClass: 'CnClass',
       DBInstanceName: 'DBInstanceName',
+      dnClass: 'DnClass',
       regionId: 'RegionId',
       targetDBInstanceClass: 'TargetDBInstanceClass',
     };
@@ -3390,7 +4183,9 @@ export class ModifyDBInstanceClassRequest extends $tea.Model {
   static types(): { [key: string]: any } {
     return {
       clientToken: 'string',
+      cnClass: 'string',
       DBInstanceName: 'string',
+      dnClass: 'string',
       regionId: 'string',
       targetDBInstanceClass: 'string',
     };
@@ -3425,10 +4220,12 @@ export class ModifyDBInstanceClassResponseBody extends $tea.Model {
 
 export class ModifyDBInstanceClassResponse extends $tea.Model {
   headers: { [key: string]: string };
+  statusCode: number;
   body: ModifyDBInstanceClassResponseBody;
   static names(): { [key: string]: string } {
     return {
       headers: 'headers',
+      statusCode: 'statusCode',
       body: 'body',
     };
   }
@@ -3436,6 +4233,7 @@ export class ModifyDBInstanceClassResponse extends $tea.Model {
   static types(): { [key: string]: any } {
     return {
       headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
       body: ModifyDBInstanceClassResponseBody,
     };
   }
@@ -3494,10 +4292,12 @@ export class ModifyDBInstanceConfigResponseBody extends $tea.Model {
 
 export class ModifyDBInstanceConfigResponse extends $tea.Model {
   headers: { [key: string]: string };
+  statusCode: number;
   body: ModifyDBInstanceConfigResponseBody;
   static names(): { [key: string]: string } {
     return {
       headers: 'headers',
+      statusCode: 'statusCode',
       body: 'body',
     };
   }
@@ -3505,6 +4305,7 @@ export class ModifyDBInstanceConfigResponse extends $tea.Model {
   static types(): { [key: string]: any } {
     return {
       headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
       body: ModifyDBInstanceConfigResponseBody,
     };
   }
@@ -3575,10 +4376,12 @@ export class ModifyDBInstanceConnectionStringResponseBody extends $tea.Model {
 
 export class ModifyDBInstanceConnectionStringResponse extends $tea.Model {
   headers: { [key: string]: string };
+  statusCode: number;
   body: ModifyDBInstanceConnectionStringResponseBody;
   static names(): { [key: string]: string } {
     return {
       headers: 'headers',
+      statusCode: 'statusCode',
       body: 'body',
     };
   }
@@ -3586,6 +4389,7 @@ export class ModifyDBInstanceConnectionStringResponse extends $tea.Model {
   static types(): { [key: string]: any } {
     return {
       headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
       body: ModifyDBInstanceConnectionStringResponseBody,
     };
   }
@@ -3641,10 +4445,12 @@ export class ModifyDBInstanceDescriptionResponseBody extends $tea.Model {
 
 export class ModifyDBInstanceDescriptionResponse extends $tea.Model {
   headers: { [key: string]: string };
+  statusCode: number;
   body: ModifyDBInstanceDescriptionResponseBody;
   static names(): { [key: string]: string } {
     return {
       headers: 'headers',
+      statusCode: 'statusCode',
       body: 'body',
     };
   }
@@ -3652,6 +4458,7 @@ export class ModifyDBInstanceDescriptionResponse extends $tea.Model {
   static types(): { [key: string]: any } {
     return {
       headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
       body: ModifyDBInstanceDescriptionResponseBody,
     };
   }
@@ -3716,10 +4523,12 @@ export class ModifyDatabaseDescriptionResponseBody extends $tea.Model {
 
 export class ModifyDatabaseDescriptionResponse extends $tea.Model {
   headers: { [key: string]: string };
+  statusCode: number;
   body: ModifyDatabaseDescriptionResponseBody;
   static names(): { [key: string]: string } {
     return {
       headers: 'headers',
+      statusCode: 'statusCode',
       body: 'body',
     };
   }
@@ -3727,6 +4536,7 @@ export class ModifyDatabaseDescriptionResponse extends $tea.Model {
   static types(): { [key: string]: any } {
     return {
       headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
       body: ModifyDatabaseDescriptionResponseBody,
     };
   }
@@ -3788,10 +4598,12 @@ export class ModifyParameterResponseBody extends $tea.Model {
 
 export class ModifyParameterResponse extends $tea.Model {
   headers: { [key: string]: string };
+  statusCode: number;
   body: ModifyParameterResponseBody;
   static names(): { [key: string]: string } {
     return {
       headers: 'headers',
+      statusCode: 'statusCode',
       body: 'body',
     };
   }
@@ -3799,6 +4611,7 @@ export class ModifyParameterResponse extends $tea.Model {
   static types(): { [key: string]: any } {
     return {
       headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
       body: ModifyParameterResponseBody,
     };
   }
@@ -3866,10 +4679,12 @@ export class ModifySecurityIpsResponseBody extends $tea.Model {
 
 export class ModifySecurityIpsResponse extends $tea.Model {
   headers: { [key: string]: string };
+  statusCode: number;
   body: ModifySecurityIpsResponseBody;
   static names(): { [key: string]: string } {
     return {
       headers: 'headers',
+      statusCode: 'statusCode',
       body: 'body',
     };
   }
@@ -3877,7 +4692,74 @@ export class ModifySecurityIpsResponse extends $tea.Model {
   static types(): { [key: string]: any } {
     return {
       headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
       body: ModifySecurityIpsResponseBody,
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class ReleaseColdDataVolumeRequest extends $tea.Model {
+  DBInstanceName?: string;
+  regionId?: string;
+  static names(): { [key: string]: string } {
+    return {
+      DBInstanceName: 'DBInstanceName',
+      regionId: 'RegionId',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      DBInstanceName: 'string',
+      regionId: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class ReleaseColdDataVolumeResponseBody extends $tea.Model {
+  requestId?: string;
+  static names(): { [key: string]: string } {
+    return {
+      requestId: 'RequestId',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      requestId: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class ReleaseColdDataVolumeResponse extends $tea.Model {
+  headers: { [key: string]: string };
+  statusCode: number;
+  body: ReleaseColdDataVolumeResponseBody;
+  static names(): { [key: string]: string } {
+    return {
+      headers: 'headers',
+      statusCode: 'statusCode',
+      body: 'body',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
+      body: ReleaseColdDataVolumeResponseBody,
     };
   }
 
@@ -3944,10 +4826,12 @@ export class ReleaseInstancePublicConnectionResponseBody extends $tea.Model {
 
 export class ReleaseInstancePublicConnectionResponse extends $tea.Model {
   headers: { [key: string]: string };
+  statusCode: number;
   body: ReleaseInstancePublicConnectionResponseBody;
   static names(): { [key: string]: string } {
     return {
       headers: 'headers',
+      statusCode: 'statusCode',
       body: 'body',
     };
   }
@@ -3955,7 +4839,92 @@ export class ReleaseInstancePublicConnectionResponse extends $tea.Model {
   static types(): { [key: string]: any } {
     return {
       headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
       body: ReleaseInstancePublicConnectionResponseBody,
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class ResetAccountPasswordRequest extends $tea.Model {
+  accountName?: string;
+  accountPassword?: string;
+  DBInstanceName?: string;
+  regionId?: string;
+  securityAccountName?: string;
+  securityAccountPassword?: string;
+  static names(): { [key: string]: string } {
+    return {
+      accountName: 'AccountName',
+      accountPassword: 'AccountPassword',
+      DBInstanceName: 'DBInstanceName',
+      regionId: 'RegionId',
+      securityAccountName: 'SecurityAccountName',
+      securityAccountPassword: 'SecurityAccountPassword',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      accountName: 'string',
+      accountPassword: 'string',
+      DBInstanceName: 'string',
+      regionId: 'string',
+      securityAccountName: 'string',
+      securityAccountPassword: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class ResetAccountPasswordResponseBody extends $tea.Model {
+  message?: string;
+  requestId?: string;
+  success?: boolean;
+  static names(): { [key: string]: string } {
+    return {
+      message: 'Message',
+      requestId: 'RequestId',
+      success: 'Success',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      message: 'string',
+      requestId: 'string',
+      success: 'boolean',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class ResetAccountPasswordResponse extends $tea.Model {
+  headers: { [key: string]: string };
+  statusCode: number;
+  body: ResetAccountPasswordResponseBody;
+  static names(): { [key: string]: string } {
+    return {
+      headers: 'headers',
+      statusCode: 'statusCode',
+      body: 'body',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
+      body: ResetAccountPasswordResponseBody,
     };
   }
 
@@ -4007,10 +4976,12 @@ export class RestartDBInstanceResponseBody extends $tea.Model {
 
 export class RestartDBInstanceResponse extends $tea.Model {
   headers: { [key: string]: string };
+  statusCode: number;
   body: RestartDBInstanceResponseBody;
   static names(): { [key: string]: string } {
     return {
       headers: 'headers',
+      statusCode: 'statusCode',
       body: 'body',
     };
   }
@@ -4018,7 +4989,92 @@ export class RestartDBInstanceResponse extends $tea.Model {
   static types(): { [key: string]: any } {
     return {
       headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
       body: RestartDBInstanceResponseBody,
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class SwitchDBInstanceHARequest extends $tea.Model {
+  DBInstanceName?: string;
+  regionId?: string;
+  switchTime?: string;
+  switchTimeMode?: string;
+  targetPrimaryAzoneId?: string;
+  targetPrimaryRegionId?: string;
+  static names(): { [key: string]: string } {
+    return {
+      DBInstanceName: 'DBInstanceName',
+      regionId: 'RegionId',
+      switchTime: 'SwitchTime',
+      switchTimeMode: 'SwitchTimeMode',
+      targetPrimaryAzoneId: 'TargetPrimaryAzoneId',
+      targetPrimaryRegionId: 'TargetPrimaryRegionId',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      DBInstanceName: 'string',
+      regionId: 'string',
+      switchTime: 'string',
+      switchTimeMode: 'string',
+      targetPrimaryAzoneId: 'string',
+      targetPrimaryRegionId: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class SwitchDBInstanceHAResponseBody extends $tea.Model {
+  message?: string;
+  requestId?: string;
+  success?: boolean;
+  static names(): { [key: string]: string } {
+    return {
+      message: 'Message',
+      requestId: 'RequestId',
+      success: 'Success',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      message: 'string',
+      requestId: 'string',
+      success: 'boolean',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class SwitchDBInstanceHAResponse extends $tea.Model {
+  headers: { [key: string]: string };
+  statusCode: number;
+  body: SwitchDBInstanceHAResponseBody;
+  static names(): { [key: string]: string } {
+    return {
+      headers: 'headers',
+      statusCode: 'statusCode',
+      body: 'body',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
+      body: SwitchDBInstanceHAResponseBody,
     };
   }
 
@@ -4076,10 +5132,12 @@ export class TagResourcesResponseBody extends $tea.Model {
 
 export class TagResourcesResponse extends $tea.Model {
   headers: { [key: string]: string };
+  statusCode: number;
   body: TagResourcesResponseBody;
   static names(): { [key: string]: string } {
     return {
       headers: 'headers',
+      statusCode: 'statusCode',
       body: 'body',
     };
   }
@@ -4087,6 +5145,7 @@ export class TagResourcesResponse extends $tea.Model {
   static types(): { [key: string]: any } {
     return {
       headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
       body: TagResourcesResponseBody,
     };
   }
@@ -4148,10 +5207,12 @@ export class UntagResourcesResponseBody extends $tea.Model {
 
 export class UntagResourcesResponse extends $tea.Model {
   headers: { [key: string]: string };
+  statusCode: number;
   body: UntagResourcesResponseBody;
   static names(): { [key: string]: string } {
     return {
       headers: 'headers',
+      statusCode: 'statusCode',
       body: 'body',
     };
   }
@@ -4159,6 +5220,7 @@ export class UntagResourcesResponse extends $tea.Model {
   static types(): { [key: string]: any } {
     return {
       headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
       body: UntagResourcesResponseBody,
     };
   }
@@ -4174,10 +5236,18 @@ export class UpdateBackupPolicyRequest extends $tea.Model {
   backupSetRetention?: number;
   backupType?: string;
   backupWay?: string;
+  coldDataBackupInterval?: number;
+  coldDataBackupRetention?: number;
+  crossRegionDataBackupRetention?: number;
+  crossRegionLogBackupRetention?: number;
   DBInstanceName?: string;
+  destCrossRegion?: string;
   forceCleanOnHighSpaceUsage?: number;
+  isCrossRegionDataBackupEnabled?: boolean;
+  isCrossRegionLogBackupEnabled?: boolean;
   isEnabled?: number;
   localLogRetention?: number;
+  localLogRetentionNumber?: number;
   logLocalRetentionSpace?: number;
   regionId?: string;
   removeLogRetention?: number;
@@ -4188,10 +5258,18 @@ export class UpdateBackupPolicyRequest extends $tea.Model {
       backupSetRetention: 'BackupSetRetention',
       backupType: 'BackupType',
       backupWay: 'BackupWay',
+      coldDataBackupInterval: 'ColdDataBackupInterval',
+      coldDataBackupRetention: 'ColdDataBackupRetention',
+      crossRegionDataBackupRetention: 'CrossRegionDataBackupRetention',
+      crossRegionLogBackupRetention: 'CrossRegionLogBackupRetention',
       DBInstanceName: 'DBInstanceName',
+      destCrossRegion: 'DestCrossRegion',
       forceCleanOnHighSpaceUsage: 'ForceCleanOnHighSpaceUsage',
+      isCrossRegionDataBackupEnabled: 'IsCrossRegionDataBackupEnabled',
+      isCrossRegionLogBackupEnabled: 'IsCrossRegionLogBackupEnabled',
       isEnabled: 'IsEnabled',
       localLogRetention: 'LocalLogRetention',
+      localLogRetentionNumber: 'LocalLogRetentionNumber',
       logLocalRetentionSpace: 'LogLocalRetentionSpace',
       regionId: 'RegionId',
       removeLogRetention: 'RemoveLogRetention',
@@ -4205,10 +5283,18 @@ export class UpdateBackupPolicyRequest extends $tea.Model {
       backupSetRetention: 'number',
       backupType: 'string',
       backupWay: 'string',
+      coldDataBackupInterval: 'number',
+      coldDataBackupRetention: 'number',
+      crossRegionDataBackupRetention: 'number',
+      crossRegionLogBackupRetention: 'number',
       DBInstanceName: 'string',
+      destCrossRegion: 'string',
       forceCleanOnHighSpaceUsage: 'number',
+      isCrossRegionDataBackupEnabled: 'boolean',
+      isCrossRegionLogBackupEnabled: 'boolean',
       isEnabled: 'number',
       localLogRetention: 'number',
+      localLogRetentionNumber: 'number',
       logLocalRetentionSpace: 'number',
       regionId: 'string',
       removeLogRetention: 'number',
@@ -4250,10 +5336,12 @@ export class UpdateBackupPolicyResponseBody extends $tea.Model {
 
 export class UpdateBackupPolicyResponse extends $tea.Model {
   headers: { [key: string]: string };
+  statusCode: number;
   body: UpdateBackupPolicyResponseBody;
   static names(): { [key: string]: string } {
     return {
       headers: 'headers',
+      statusCode: 'statusCode',
       body: 'body',
     };
   }
@@ -4261,6 +5349,7 @@ export class UpdateBackupPolicyResponse extends $tea.Model {
   static types(): { [key: string]: any } {
     return {
       headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
       body: UpdateBackupPolicyResponseBody,
     };
   }
@@ -4322,10 +5411,12 @@ export class UpdateDBInstanceSSLResponseBody extends $tea.Model {
 
 export class UpdateDBInstanceSSLResponse extends $tea.Model {
   headers: { [key: string]: string };
+  statusCode: number;
   body: UpdateDBInstanceSSLResponseBody;
   static names(): { [key: string]: string } {
     return {
       headers: 'headers',
+      statusCode: 'statusCode',
       body: 'body',
     };
   }
@@ -4333,6 +5424,7 @@ export class UpdateDBInstanceSSLResponse extends $tea.Model {
   static types(): { [key: string]: any } {
     return {
       headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
       body: UpdateDBInstanceSSLResponseBody,
     };
   }
@@ -4397,10 +5489,12 @@ export class UpdateDBInstanceTDEResponseBody extends $tea.Model {
 
 export class UpdateDBInstanceTDEResponse extends $tea.Model {
   headers: { [key: string]: string };
+  statusCode: number;
   body: UpdateDBInstanceTDEResponseBody;
   static names(): { [key: string]: string } {
     return {
       headers: 'headers',
+      statusCode: 'statusCode',
       body: 'body',
     };
   }
@@ -4408,6 +5502,7 @@ export class UpdateDBInstanceTDEResponse extends $tea.Model {
   static types(): { [key: string]: any } {
     return {
       headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
       body: UpdateDBInstanceTDEResponseBody,
     };
   }
@@ -4418,14 +5513,18 @@ export class UpdateDBInstanceTDEResponse extends $tea.Model {
 }
 
 export class UpdatePolarDBXInstanceNodeRequest extends $tea.Model {
+  CNNodeCount?: string;
   clientToken?: string;
   DBInstanceName?: string;
+  DNNodeCount?: string;
   dbInstanceNodeCount?: string;
   regionId?: string;
   static names(): { [key: string]: string } {
     return {
+      CNNodeCount: 'CNNodeCount',
       clientToken: 'ClientToken',
       DBInstanceName: 'DBInstanceName',
+      DNNodeCount: 'DNNodeCount',
       dbInstanceNodeCount: 'DbInstanceNodeCount',
       regionId: 'RegionId',
     };
@@ -4433,8 +5532,10 @@ export class UpdatePolarDBXInstanceNodeRequest extends $tea.Model {
 
   static types(): { [key: string]: any } {
     return {
+      CNNodeCount: 'string',
       clientToken: 'string',
       DBInstanceName: 'string',
+      DNNodeCount: 'string',
       dbInstanceNodeCount: 'string',
       regionId: 'string',
     };
@@ -4469,10 +5570,12 @@ export class UpdatePolarDBXInstanceNodeResponseBody extends $tea.Model {
 
 export class UpdatePolarDBXInstanceNodeResponse extends $tea.Model {
   headers: { [key: string]: string };
+  statusCode: number;
   body: UpdatePolarDBXInstanceNodeResponseBody;
   static names(): { [key: string]: string } {
     return {
       headers: 'headers',
+      statusCode: 'statusCode',
       body: 'body',
     };
   }
@@ -4480,6 +5583,7 @@ export class UpdatePolarDBXInstanceNodeResponse extends $tea.Model {
   static types(): { [key: string]: any } {
     return {
       headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
       body: UpdatePolarDBXInstanceNodeResponseBody,
     };
   }
@@ -4491,11 +5595,13 @@ export class UpdatePolarDBXInstanceNodeResponse extends $tea.Model {
 
 export class UpgradeDBInstanceKernelVersionRequest extends $tea.Model {
   DBInstanceName?: string;
+  minorVersion?: string;
   regionId?: string;
   switchMode?: string;
   static names(): { [key: string]: string } {
     return {
       DBInstanceName: 'DBInstanceName',
+      minorVersion: 'MinorVersion',
       regionId: 'RegionId',
       switchMode: 'SwitchMode',
     };
@@ -4504,6 +5610,7 @@ export class UpgradeDBInstanceKernelVersionRequest extends $tea.Model {
   static types(): { [key: string]: any } {
     return {
       DBInstanceName: 'string',
+      minorVersion: 'string',
       regionId: 'string',
       switchMode: 'string',
     };
@@ -4544,10 +5651,12 @@ export class UpgradeDBInstanceKernelVersionResponseBody extends $tea.Model {
 
 export class UpgradeDBInstanceKernelVersionResponse extends $tea.Model {
   headers: { [key: string]: string };
+  statusCode: number;
   body: UpgradeDBInstanceKernelVersionResponseBody;
   static names(): { [key: string]: string } {
     return {
       headers: 'headers',
+      statusCode: 'statusCode',
       body: 'body',
     };
   }
@@ -4555,6 +5664,7 @@ export class UpgradeDBInstanceKernelVersionResponse extends $tea.Model {
   static types(): { [key: string]: any } {
     return {
       headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
       body: UpgradeDBInstanceKernelVersionResponseBody,
     };
   }
@@ -4776,16 +5886,101 @@ export class DescribeActiveOperationTasksResponseBodyItems extends $tea.Model {
   }
 }
 
+export class DescribeArchiveTableListResponseBodyDataTables extends $tea.Model {
+  archiveStatus?: string;
+  createdDate?: number;
+  fileCount?: number;
+  lastSuccessArchiveTime?: number;
+  schemaName?: string;
+  spaceSize?: number;
+  tableName?: string;
+  static names(): { [key: string]: string } {
+    return {
+      archiveStatus: 'ArchiveStatus',
+      createdDate: 'CreatedDate',
+      fileCount: 'FileCount',
+      lastSuccessArchiveTime: 'LastSuccessArchiveTime',
+      schemaName: 'SchemaName',
+      spaceSize: 'SpaceSize',
+      tableName: 'TableName',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      archiveStatus: 'string',
+      createdDate: 'number',
+      fileCount: 'number',
+      lastSuccessArchiveTime: 'number',
+      schemaName: 'string',
+      spaceSize: 'number',
+      tableName: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class DescribeArchiveTableListResponseBodyData extends $tea.Model {
+  pageIndex?: number;
+  pageSize?: number;
+  pausedCount?: number;
+  runningCount?: number;
+  successCount?: number;
+  tables?: DescribeArchiveTableListResponseBodyDataTables[];
+  tobeArchivedConut?: number;
+  total?: number;
+  static names(): { [key: string]: string } {
+    return {
+      pageIndex: 'PageIndex',
+      pageSize: 'PageSize',
+      pausedCount: 'PausedCount',
+      runningCount: 'RunningCount',
+      successCount: 'SuccessCount',
+      tables: 'Tables',
+      tobeArchivedConut: 'TobeArchivedConut',
+      total: 'Total',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      pageIndex: 'number',
+      pageSize: 'number',
+      pausedCount: 'number',
+      runningCount: 'number',
+      successCount: 'number',
+      tables: { 'type': 'array', 'itemType': DescribeArchiveTableListResponseBodyDataTables },
+      tobeArchivedConut: 'number',
+      total: 'number',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
 export class DescribeBackupPolicyResponseBodyData extends $tea.Model {
   backupPeriod?: string;
   backupPlanBegin?: string;
   backupSetRetention?: number;
   backupType?: string;
   backupWay?: string;
+  coldDataBackupInterval?: number;
+  coldDataBackupRetention?: number;
+  crossRegionDataBackupRetention?: number;
+  crossRegionLogBackupRetention?: number;
   DBInstanceName?: string;
+  destCrossRegion?: string;
   forceCleanOnHighSpaceUsage?: number;
+  isCrossRegionDataBackupEnabled?: boolean;
+  isCrossRegionLogBackupEnabled?: boolean;
   isEnabled?: number;
   localLogRetention?: number;
+  localLogRetentionNumber?: number;
   logLocalRetentionSpace?: number;
   removeLogRetention?: number;
   static names(): { [key: string]: string } {
@@ -4795,10 +5990,18 @@ export class DescribeBackupPolicyResponseBodyData extends $tea.Model {
       backupSetRetention: 'BackupSetRetention',
       backupType: 'BackupType',
       backupWay: 'BackupWay',
+      coldDataBackupInterval: 'ColdDataBackupInterval',
+      coldDataBackupRetention: 'ColdDataBackupRetention',
+      crossRegionDataBackupRetention: 'CrossRegionDataBackupRetention',
+      crossRegionLogBackupRetention: 'CrossRegionLogBackupRetention',
       DBInstanceName: 'DBInstanceName',
+      destCrossRegion: 'DestCrossRegion',
       forceCleanOnHighSpaceUsage: 'ForceCleanOnHighSpaceUsage',
+      isCrossRegionDataBackupEnabled: 'IsCrossRegionDataBackupEnabled',
+      isCrossRegionLogBackupEnabled: 'IsCrossRegionLogBackupEnabled',
       isEnabled: 'IsEnabled',
       localLogRetention: 'LocalLogRetention',
+      localLogRetentionNumber: 'LocalLogRetentionNumber',
       logLocalRetentionSpace: 'LogLocalRetentionSpace',
       removeLogRetention: 'RemoveLogRetention',
     };
@@ -4811,12 +6014,88 @@ export class DescribeBackupPolicyResponseBodyData extends $tea.Model {
       backupSetRetention: 'number',
       backupType: 'string',
       backupWay: 'string',
+      coldDataBackupInterval: 'number',
+      coldDataBackupRetention: 'number',
+      crossRegionDataBackupRetention: 'number',
+      crossRegionLogBackupRetention: 'number',
       DBInstanceName: 'string',
+      destCrossRegion: 'string',
       forceCleanOnHighSpaceUsage: 'number',
+      isCrossRegionDataBackupEnabled: 'boolean',
+      isCrossRegionLogBackupEnabled: 'boolean',
       isEnabled: 'number',
       localLogRetention: 'number',
+      localLogRetentionNumber: 'number',
       logLocalRetentionSpace: 'number',
       removeLogRetention: 'number',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class DescribeBackupSetResponseBodyDataOSSList extends $tea.Model {
+  backupSetFile?: string;
+  downloadLink?: string;
+  intranetDownloadLink?: string;
+  linkExpiredTime?: string;
+  static names(): { [key: string]: string } {
+    return {
+      backupSetFile: 'BackupSetFile',
+      downloadLink: 'DownloadLink',
+      intranetDownloadLink: 'IntranetDownloadLink',
+      linkExpiredTime: 'LinkExpiredTime',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      backupSetFile: 'string',
+      downloadLink: 'string',
+      intranetDownloadLink: 'string',
+      linkExpiredTime: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class DescribeBackupSetResponseBodyData extends $tea.Model {
+  backupModel?: number;
+  backupSetId?: number;
+  backupSetSize?: number;
+  backupType?: number;
+  beginTime?: number;
+  endTime?: number;
+  OSSList?: DescribeBackupSetResponseBodyDataOSSList[];
+  status?: number;
+  static names(): { [key: string]: string } {
+    return {
+      backupModel: 'BackupModel',
+      backupSetId: 'BackupSetId',
+      backupSetSize: 'BackupSetSize',
+      backupType: 'BackupType',
+      beginTime: 'BeginTime',
+      endTime: 'EndTime',
+      OSSList: 'OSSList',
+      status: 'Status',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      backupModel: 'number',
+      backupSetId: 'number',
+      backupSetSize: 'number',
+      backupType: 'number',
+      beginTime: 'number',
+      endTime: 'number',
+      OSSList: { 'type': 'array', 'itemType': DescribeBackupSetResponseBodyDataOSSList },
+      status: 'number',
     };
   }
 
@@ -4933,12 +6212,59 @@ export class DescribeCharacterSetResponseBodyData extends $tea.Model {
   }
 }
 
+export class DescribeColdDataBasicInfoResponseBodyData extends $tea.Model {
+  backupSetCount?: number;
+  backupSetSpaceSize?: number;
+  cloudProduct?: string;
+  currentSpaceSize?: number;
+  dataRedundancyType?: string;
+  enableStatus?: boolean;
+  readAccessNum?: number;
+  regionId?: string;
+  volumeName?: string;
+  writeAccessNum?: number;
+  static names(): { [key: string]: string } {
+    return {
+      backupSetCount: 'BackupSetCount',
+      backupSetSpaceSize: 'BackupSetSpaceSize',
+      cloudProduct: 'CloudProduct',
+      currentSpaceSize: 'CurrentSpaceSize',
+      dataRedundancyType: 'DataRedundancyType',
+      enableStatus: 'EnableStatus',
+      readAccessNum: 'ReadAccessNum',
+      regionId: 'RegionId',
+      volumeName: 'VolumeName',
+      writeAccessNum: 'WriteAccessNum',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      backupSetCount: 'number',
+      backupSetSpaceSize: 'number',
+      cloudProduct: 'string',
+      currentSpaceSize: 'number',
+      dataRedundancyType: 'string',
+      enableStatus: 'boolean',
+      readAccessNum: 'number',
+      regionId: 'string',
+      volumeName: 'string',
+      writeAccessNum: 'number',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
 export class DescribeDBInstanceAttributeResponseBodyDBInstanceConnAddrs extends $tea.Model {
   connectionString?: string;
   port?: number;
   type?: string;
   VPCId?: string;
   vSwitchId?: string;
+  vpcInstanceId?: string;
   static names(): { [key: string]: string } {
     return {
       connectionString: 'ConnectionString',
@@ -4946,6 +6272,7 @@ export class DescribeDBInstanceAttributeResponseBodyDBInstanceConnAddrs extends 
       type: 'Type',
       VPCId: 'VPCId',
       vSwitchId: 'VSwitchId',
+      vpcInstanceId: 'VpcInstanceId',
     };
   }
 
@@ -4956,6 +6283,7 @@ export class DescribeDBInstanceAttributeResponseBodyDBInstanceConnAddrs extends 
       type: 'string',
       VPCId: 'string',
       vSwitchId: 'string',
+      vpcInstanceId: 'string',
     };
   }
 
@@ -5021,6 +6349,8 @@ export class DescribeDBInstanceAttributeResponseBodyDBInstanceTagSet extends $te
 }
 
 export class DescribeDBInstanceAttributeResponseBodyDBInstance extends $tea.Model {
+  cnNodeClassCode?: string;
+  cnNodeCount?: number;
   commodityCode?: string;
   connAddrs?: DescribeDBInstanceAttributeResponseBodyDBInstanceConnAddrs[];
   connectionString?: string;
@@ -5032,11 +6362,14 @@ export class DescribeDBInstanceAttributeResponseBodyDBInstance extends $tea.Mode
   DBType?: string;
   DBVersion?: string;
   description?: string;
+  dnNodeClassCode?: string;
+  dnNodeCount?: number;
   engine?: string;
   expireDate?: string;
   expired?: string;
   id?: string;
   kindCode?: number;
+  LTSVersions?: string[];
   latestMinorVersion?: string;
   lockMode?: string;
   maintainEndTime?: string;
@@ -5050,6 +6383,7 @@ export class DescribeDBInstanceAttributeResponseBodyDBInstance extends $tea.Mode
   resourceGroupId?: string;
   rightsSeparationEnabled?: boolean;
   rightsSeparationStatus?: string;
+  series?: string;
   status?: string;
   storageUsed?: number;
   tagSet?: DescribeDBInstanceAttributeResponseBodyDBInstanceTagSet[];
@@ -5059,6 +6393,8 @@ export class DescribeDBInstanceAttributeResponseBodyDBInstance extends $tea.Mode
   zoneId?: string;
   static names(): { [key: string]: string } {
     return {
+      cnNodeClassCode: 'CnNodeClassCode',
+      cnNodeCount: 'CnNodeCount',
       commodityCode: 'CommodityCode',
       connAddrs: 'ConnAddrs',
       connectionString: 'ConnectionString',
@@ -5070,11 +6406,14 @@ export class DescribeDBInstanceAttributeResponseBodyDBInstance extends $tea.Mode
       DBType: 'DBType',
       DBVersion: 'DBVersion',
       description: 'Description',
+      dnNodeClassCode: 'DnNodeClassCode',
+      dnNodeCount: 'DnNodeCount',
       engine: 'Engine',
       expireDate: 'ExpireDate',
       expired: 'Expired',
       id: 'Id',
       kindCode: 'KindCode',
+      LTSVersions: 'LTSVersions',
       latestMinorVersion: 'LatestMinorVersion',
       lockMode: 'LockMode',
       maintainEndTime: 'MaintainEndTime',
@@ -5088,6 +6427,7 @@ export class DescribeDBInstanceAttributeResponseBodyDBInstance extends $tea.Mode
       resourceGroupId: 'ResourceGroupId',
       rightsSeparationEnabled: 'RightsSeparationEnabled',
       rightsSeparationStatus: 'RightsSeparationStatus',
+      series: 'Series',
       status: 'Status',
       storageUsed: 'StorageUsed',
       tagSet: 'TagSet',
@@ -5100,6 +6440,8 @@ export class DescribeDBInstanceAttributeResponseBodyDBInstance extends $tea.Mode
 
   static types(): { [key: string]: any } {
     return {
+      cnNodeClassCode: 'string',
+      cnNodeCount: 'number',
       commodityCode: 'string',
       connAddrs: { 'type': 'array', 'itemType': DescribeDBInstanceAttributeResponseBodyDBInstanceConnAddrs },
       connectionString: 'string',
@@ -5111,11 +6453,14 @@ export class DescribeDBInstanceAttributeResponseBodyDBInstance extends $tea.Mode
       DBType: 'string',
       DBVersion: 'string',
       description: 'string',
+      dnNodeClassCode: 'string',
+      dnNodeCount: 'number',
       engine: 'string',
       expireDate: 'string',
       expired: 'string',
       id: 'string',
       kindCode: 'number',
+      LTSVersions: { 'type': 'array', 'itemType': 'string' },
       latestMinorVersion: 'string',
       lockMode: 'string',
       maintainEndTime: 'string',
@@ -5129,6 +6474,7 @@ export class DescribeDBInstanceAttributeResponseBodyDBInstance extends $tea.Mode
       resourceGroupId: 'string',
       rightsSeparationEnabled: 'boolean',
       rightsSeparationStatus: 'string',
+      series: 'string',
       status: 'string',
       storageUsed: 'number',
       tagSet: { 'type': 'array', 'itemType': DescribeDBInstanceAttributeResponseBodyDBInstanceTagSet },
@@ -5161,6 +6507,37 @@ export class DescribeDBInstanceConfigResponseBodyData extends $tea.Model {
       configName: 'string',
       configValue: 'string',
       dbInstanceName: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class DescribeDBInstanceHAResponseBodyData extends $tea.Model {
+  primaryAzoneId?: string;
+  primaryRegionId?: string;
+  secondaryAzoneId?: string;
+  secondaryRegionId?: string;
+  topologyType?: string;
+  static names(): { [key: string]: string } {
+    return {
+      primaryAzoneId: 'PrimaryAzoneId',
+      primaryRegionId: 'PrimaryRegionId',
+      secondaryAzoneId: 'SecondaryAzoneId',
+      secondaryRegionId: 'SecondaryRegionId',
+      topologyType: 'TopologyType',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      primaryAzoneId: 'string',
+      primaryRegionId: 'string',
+      secondaryAzoneId: 'string',
+      secondaryRegionId: 'string',
+      topologyType: 'string',
     };
   }
 
@@ -5205,6 +6582,46 @@ export class DescribeDBInstanceTDEResponseBodyData extends $tea.Model {
   static types(): { [key: string]: any } {
     return {
       TDEStatus: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class DescribeDBInstanceTopologyResponseBodyDataLogicInstanceTopologyHistoryItems extends $tea.Model {
+  activated?: boolean;
+  azone?: string;
+  characterType?: string;
+  DBInstanceId?: string;
+  DBInstanceName?: string;
+  phyInstanceName?: string;
+  region?: string;
+  role?: string;
+  static names(): { [key: string]: string } {
+    return {
+      activated: 'Activated',
+      azone: 'Azone',
+      characterType: 'CharacterType',
+      DBInstanceId: 'DBInstanceId',
+      DBInstanceName: 'DBInstanceName',
+      phyInstanceName: 'PhyInstanceName',
+      region: 'Region',
+      role: 'Role',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      activated: 'boolean',
+      azone: 'string',
+      characterType: 'string',
+      DBInstanceId: 'string',
+      DBInstanceName: 'string',
+      phyInstanceName: 'string',
+      region: 'string',
+      role: 'string',
     };
   }
 
@@ -5282,8 +6699,12 @@ export class DescribeDBInstanceTopologyResponseBodyDataLogicInstanceTopologyItem
   maintainStartTime?: string;
   maxConnections?: number;
   maxIops?: number;
+  nodeClass?: string;
+  phyInstanceName?: string;
   region?: string;
   role?: string;
+  status?: string;
+  version?: string;
   static names(): { [key: string]: string } {
     return {
       activated: 'Activated',
@@ -5307,8 +6728,12 @@ export class DescribeDBInstanceTopologyResponseBodyDataLogicInstanceTopologyItem
       maintainStartTime: 'MaintainStartTime',
       maxConnections: 'MaxConnections',
       maxIops: 'MaxIops',
+      nodeClass: 'NodeClass',
+      phyInstanceName: 'PhyInstanceName',
       region: 'Region',
       role: 'Role',
+      status: 'Status',
+      version: 'Version',
     };
   }
 
@@ -5335,8 +6760,12 @@ export class DescribeDBInstanceTopologyResponseBodyDataLogicInstanceTopologyItem
       maintainStartTime: 'string',
       maxConnections: 'number',
       maxIops: 'number',
+      nodeClass: 'string',
+      phyInstanceName: 'string',
       region: 'string',
       role: 'string',
+      status: 'string',
+      version: 'string',
     };
   }
 
@@ -5356,6 +6785,7 @@ export class DescribeDBInstanceTopologyResponseBodyDataLogicInstanceTopology ext
   DBInstanceStorage?: number;
   engine?: string;
   engineVersion?: string;
+  historyItems?: DescribeDBInstanceTopologyResponseBodyDataLogicInstanceTopologyHistoryItems[];
   items?: DescribeDBInstanceTopologyResponseBodyDataLogicInstanceTopologyItems[];
   lockMode?: number;
   lockReason?: string;
@@ -5373,6 +6803,7 @@ export class DescribeDBInstanceTopologyResponseBodyDataLogicInstanceTopology ext
       DBInstanceStorage: 'DBInstanceStorage',
       engine: 'Engine',
       engineVersion: 'EngineVersion',
+      historyItems: 'HistoryItems',
       items: 'Items',
       lockMode: 'LockMode',
       lockReason: 'LockReason',
@@ -5393,6 +6824,7 @@ export class DescribeDBInstanceTopologyResponseBodyDataLogicInstanceTopology ext
       DBInstanceStorage: 'number',
       engine: 'string',
       engineVersion: 'string',
+      historyItems: { 'type': 'array', 'itemType': DescribeDBInstanceTopologyResponseBodyDataLogicInstanceTopologyHistoryItems },
       items: { 'type': 'array', 'itemType': DescribeDBInstanceTopologyResponseBodyDataLogicInstanceTopologyItems },
       lockMode: 'number',
       lockReason: 'string',
@@ -5417,6 +6849,238 @@ export class DescribeDBInstanceTopologyResponseBodyData extends $tea.Model {
   static types(): { [key: string]: any } {
     return {
       logicInstanceTopology: DescribeDBInstanceTopologyResponseBodyDataLogicInstanceTopology,
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class DescribeDBInstanceViaEndpointResponseBodyDBInstanceConnAddrs extends $tea.Model {
+  connectionString?: string;
+  port?: number;
+  type?: string;
+  VPCId?: string;
+  vSwitchId?: string;
+  vpcInstanceId?: string;
+  static names(): { [key: string]: string } {
+    return {
+      connectionString: 'ConnectionString',
+      port: 'Port',
+      type: 'Type',
+      VPCId: 'VPCId',
+      vSwitchId: 'VSwitchId',
+      vpcInstanceId: 'VpcInstanceId',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      connectionString: 'string',
+      port: 'number',
+      type: 'string',
+      VPCId: 'string',
+      vSwitchId: 'string',
+      vpcInstanceId: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class DescribeDBInstanceViaEndpointResponseBodyDBInstanceDBNodes extends $tea.Model {
+  computeNodeId?: string;
+  dataNodeId?: string;
+  id?: string;
+  nodeClass?: string;
+  regionId?: string;
+  zoneId?: string;
+  static names(): { [key: string]: string } {
+    return {
+      computeNodeId: 'ComputeNodeId',
+      dataNodeId: 'DataNodeId',
+      id: 'Id',
+      nodeClass: 'NodeClass',
+      regionId: 'RegionId',
+      zoneId: 'ZoneId',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      computeNodeId: 'string',
+      dataNodeId: 'string',
+      id: 'string',
+      nodeClass: 'string',
+      regionId: 'string',
+      zoneId: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class DescribeDBInstanceViaEndpointResponseBodyDBInstanceTagSet extends $tea.Model {
+  key?: string;
+  value?: string;
+  static names(): { [key: string]: string } {
+    return {
+      key: 'Key',
+      value: 'Value',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      key: 'string',
+      value: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class DescribeDBInstanceViaEndpointResponseBodyDBInstance extends $tea.Model {
+  cnNodeClassCode?: string;
+  cnNodeCount?: number;
+  commodityCode?: string;
+  connAddrs?: DescribeDBInstanceViaEndpointResponseBodyDBInstanceConnAddrs[];
+  connectionString?: string;
+  createTime?: string;
+  DBInstanceType?: string;
+  DBNodeClass?: string;
+  DBNodeCount?: number;
+  DBNodes?: DescribeDBInstanceViaEndpointResponseBodyDBInstanceDBNodes[];
+  DBType?: string;
+  DBVersion?: string;
+  description?: string;
+  dnNodeClassCode?: string;
+  dnNodeCount?: number;
+  engine?: string;
+  expireDate?: string;
+  expired?: string;
+  id?: string;
+  kindCode?: number;
+  LTSVersions?: string[];
+  latestMinorVersion?: string;
+  lockMode?: string;
+  maintainEndTime?: string;
+  maintainStartTime?: string;
+  minorVersion?: string;
+  network?: string;
+  payType?: string;
+  port?: string;
+  readDBInstances?: string[];
+  regionId?: string;
+  resourceGroupId?: string;
+  rightsSeparationEnabled?: boolean;
+  rightsSeparationStatus?: string;
+  series?: string;
+  status?: string;
+  storageUsed?: number;
+  tagSet?: DescribeDBInstanceViaEndpointResponseBodyDBInstanceTagSet[];
+  type?: string;
+  VPCId?: string;
+  vSwitchId?: string;
+  zoneId?: string;
+  static names(): { [key: string]: string } {
+    return {
+      cnNodeClassCode: 'CnNodeClassCode',
+      cnNodeCount: 'CnNodeCount',
+      commodityCode: 'CommodityCode',
+      connAddrs: 'ConnAddrs',
+      connectionString: 'ConnectionString',
+      createTime: 'CreateTime',
+      DBInstanceType: 'DBInstanceType',
+      DBNodeClass: 'DBNodeClass',
+      DBNodeCount: 'DBNodeCount',
+      DBNodes: 'DBNodes',
+      DBType: 'DBType',
+      DBVersion: 'DBVersion',
+      description: 'Description',
+      dnNodeClassCode: 'DnNodeClassCode',
+      dnNodeCount: 'DnNodeCount',
+      engine: 'Engine',
+      expireDate: 'ExpireDate',
+      expired: 'Expired',
+      id: 'Id',
+      kindCode: 'KindCode',
+      LTSVersions: 'LTSVersions',
+      latestMinorVersion: 'LatestMinorVersion',
+      lockMode: 'LockMode',
+      maintainEndTime: 'MaintainEndTime',
+      maintainStartTime: 'MaintainStartTime',
+      minorVersion: 'MinorVersion',
+      network: 'Network',
+      payType: 'PayType',
+      port: 'Port',
+      readDBInstances: 'ReadDBInstances',
+      regionId: 'RegionId',
+      resourceGroupId: 'ResourceGroupId',
+      rightsSeparationEnabled: 'RightsSeparationEnabled',
+      rightsSeparationStatus: 'RightsSeparationStatus',
+      series: 'Series',
+      status: 'Status',
+      storageUsed: 'StorageUsed',
+      tagSet: 'TagSet',
+      type: 'Type',
+      VPCId: 'VPCId',
+      vSwitchId: 'VSwitchId',
+      zoneId: 'ZoneId',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      cnNodeClassCode: 'string',
+      cnNodeCount: 'number',
+      commodityCode: 'string',
+      connAddrs: { 'type': 'array', 'itemType': DescribeDBInstanceViaEndpointResponseBodyDBInstanceConnAddrs },
+      connectionString: 'string',
+      createTime: 'string',
+      DBInstanceType: 'string',
+      DBNodeClass: 'string',
+      DBNodeCount: 'number',
+      DBNodes: { 'type': 'array', 'itemType': DescribeDBInstanceViaEndpointResponseBodyDBInstanceDBNodes },
+      DBType: 'string',
+      DBVersion: 'string',
+      description: 'string',
+      dnNodeClassCode: 'string',
+      dnNodeCount: 'number',
+      engine: 'string',
+      expireDate: 'string',
+      expired: 'string',
+      id: 'string',
+      kindCode: 'number',
+      LTSVersions: { 'type': 'array', 'itemType': 'string' },
+      latestMinorVersion: 'string',
+      lockMode: 'string',
+      maintainEndTime: 'string',
+      maintainStartTime: 'string',
+      minorVersion: 'string',
+      network: 'string',
+      payType: 'string',
+      port: 'string',
+      readDBInstances: { 'type': 'array', 'itemType': 'string' },
+      regionId: 'string',
+      resourceGroupId: 'string',
+      rightsSeparationEnabled: 'boolean',
+      rightsSeparationStatus: 'string',
+      series: 'string',
+      status: 'string',
+      storageUsed: 'number',
+      tagSet: { 'type': 'array', 'itemType': DescribeDBInstanceViaEndpointResponseBodyDBInstanceTagSet },
+      type: 'string',
+      VPCId: 'string',
+      vSwitchId: 'string',
+      zoneId: 'string',
     };
   }
 
@@ -5476,12 +7140,18 @@ export class DescribeDBInstancesResponseBodyDBInstancesTagSet extends $tea.Model
 }
 
 export class DescribeDBInstancesResponseBodyDBInstances extends $tea.Model {
+  cdcInstanceName?: string;
+  cnNodeClassCode?: string;
+  cnNodeCount?: number;
   commodityCode?: string;
+  containBinlogX?: boolean;
   createTime?: string;
   DBInstanceName?: string;
   DBType?: string;
   DBVersion?: string;
   description?: string;
+  dnNodeClassCode?: string;
+  dnNodeCount?: number;
   engine?: string;
   expireTime?: string;
   expired?: boolean;
@@ -5497,20 +7167,28 @@ export class DescribeDBInstancesResponseBodyDBInstances extends $tea.Model {
   readDBInstances?: string[];
   regionId?: string;
   resourceGroupId?: string;
+  series?: string;
   status?: string;
   storageUsed?: number;
+  supportBinlogX?: boolean;
   tagSet?: DescribeDBInstancesResponseBodyDBInstancesTagSet[];
   type?: string;
   VPCId?: string;
   zoneId?: string;
   static names(): { [key: string]: string } {
     return {
+      cdcInstanceName: 'CdcInstanceName',
+      cnNodeClassCode: 'CnNodeClassCode',
+      cnNodeCount: 'CnNodeCount',
       commodityCode: 'CommodityCode',
+      containBinlogX: 'ContainBinlogX',
       createTime: 'CreateTime',
       DBInstanceName: 'DBInstanceName',
       DBType: 'DBType',
       DBVersion: 'DBVersion',
       description: 'Description',
+      dnNodeClassCode: 'DnNodeClassCode',
+      dnNodeCount: 'DnNodeCount',
       engine: 'Engine',
       expireTime: 'ExpireTime',
       expired: 'Expired',
@@ -5526,8 +7204,10 @@ export class DescribeDBInstancesResponseBodyDBInstances extends $tea.Model {
       readDBInstances: 'ReadDBInstances',
       regionId: 'RegionId',
       resourceGroupId: 'ResourceGroupId',
+      series: 'Series',
       status: 'Status',
       storageUsed: 'StorageUsed',
+      supportBinlogX: 'SupportBinlogX',
       tagSet: 'TagSet',
       type: 'Type',
       VPCId: 'VPCId',
@@ -5537,12 +7217,18 @@ export class DescribeDBInstancesResponseBodyDBInstances extends $tea.Model {
 
   static types(): { [key: string]: any } {
     return {
+      cdcInstanceName: 'string',
+      cnNodeClassCode: 'string',
+      cnNodeCount: 'number',
       commodityCode: 'string',
+      containBinlogX: 'boolean',
       createTime: 'string',
       DBInstanceName: 'string',
       DBType: 'string',
       DBVersion: 'string',
       description: 'string',
+      dnNodeClassCode: 'string',
+      dnNodeCount: 'number',
       engine: 'string',
       expireTime: 'string',
       expired: 'boolean',
@@ -5558,8 +7244,10 @@ export class DescribeDBInstancesResponseBodyDBInstances extends $tea.Model {
       readDBInstances: { 'type': 'array', 'itemType': 'string' },
       regionId: 'string',
       resourceGroupId: 'string',
+      series: 'string',
       status: 'string',
       storageUsed: 'number',
+      supportBinlogX: 'boolean',
       tagSet: { 'type': 'array', 'itemType': DescribeDBInstancesResponseBodyDBInstancesTagSet },
       type: 'string',
       VPCId: 'string',
@@ -6081,121 +7769,6 @@ export class DescribeSecurityIpsResponseBodyData extends $tea.Model {
   }
 }
 
-export class DescribeSlinkTaskInfoResponseBodyDataDataImportTaskDetailInfoServiceDetailListTaskDetailList extends $tea.Model {
-  delay?: number;
-  lastError?: string;
-  physicalDbName?: string;
-  progress?: number;
-  statistics?: string;
-  status?: string;
-  taskId?: number;
-  type?: string;
-  static names(): { [key: string]: string } {
-    return {
-      delay: 'Delay',
-      lastError: 'LastError',
-      physicalDbName: 'PhysicalDbName',
-      progress: 'Progress',
-      statistics: 'Statistics',
-      status: 'Status',
-      taskId: 'TaskId',
-      type: 'Type',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      delay: 'number',
-      lastError: 'string',
-      physicalDbName: 'string',
-      progress: 'number',
-      statistics: 'string',
-      status: 'string',
-      taskId: 'number',
-      type: 'string',
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class DescribeSlinkTaskInfoResponseBodyDataDataImportTaskDetailInfoServiceDetailList extends $tea.Model {
-  id?: number;
-  status?: string;
-  taskDetailList?: DescribeSlinkTaskInfoResponseBodyDataDataImportTaskDetailInfoServiceDetailListTaskDetailList[];
-  type?: string;
-  static names(): { [key: string]: string } {
-    return {
-      id: 'Id',
-      status: 'Status',
-      taskDetailList: 'TaskDetailList',
-      type: 'Type',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      id: 'number',
-      status: 'string',
-      taskDetailList: { 'type': 'array', 'itemType': DescribeSlinkTaskInfoResponseBodyDataDataImportTaskDetailInfoServiceDetailListTaskDetailList },
-      type: 'string',
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class DescribeSlinkTaskInfoResponseBodyDataDataImportTaskDetailInfo extends $tea.Model {
-  fsmId?: number;
-  fsmState?: string;
-  fsmStatus?: string;
-  serviceDetailList?: DescribeSlinkTaskInfoResponseBodyDataDataImportTaskDetailInfoServiceDetailList[];
-  static names(): { [key: string]: string } {
-    return {
-      fsmId: 'FsmId',
-      fsmState: 'FsmState',
-      fsmStatus: 'FsmStatus',
-      serviceDetailList: 'ServiceDetailList',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      fsmId: 'number',
-      fsmState: 'string',
-      fsmStatus: 'string',
-      serviceDetailList: { 'type': 'array', 'itemType': DescribeSlinkTaskInfoResponseBodyDataDataImportTaskDetailInfoServiceDetailList },
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class DescribeSlinkTaskInfoResponseBodyData extends $tea.Model {
-  dataImportTaskDetailInfo?: DescribeSlinkTaskInfoResponseBodyDataDataImportTaskDetailInfo;
-  static names(): { [key: string]: string } {
-    return {
-      dataImportTaskDetailInfo: 'DataImportTaskDetailInfo',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      dataImportTaskDetailInfo: DescribeSlinkTaskInfoResponseBodyDataDataImportTaskDetailInfo,
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
 export class DescribeTagsResponseBodyTagInfos extends $tea.Model {
   DBInstanceIds?: string[];
   tagKey?: string;
@@ -6414,10 +7987,18 @@ export class UpdateBackupPolicyResponseBodyData extends $tea.Model {
   backupSetRetention?: number;
   backupType?: string;
   backupWay?: string;
+  coldDataBackupInterval?: number;
+  coldDataBackupRetention?: number;
+  crossRegionDataBackupRetention?: number;
+  crossRegionLogBackupRetention?: number;
   DBInstanceName?: string;
+  destCrossRegion?: string;
   forceCleanOnHighSpaceUsage?: number;
+  isCrossRegionDataBackupEnabled?: boolean;
+  isCrossRegionLogBackupEnabled?: boolean;
   isEnabled?: number;
   localLogRetention?: number;
+  localLogRetentionNumber?: number;
   logLocalRetentionSpace?: number;
   removeLogRetention?: number;
   static names(): { [key: string]: string } {
@@ -6427,10 +8008,18 @@ export class UpdateBackupPolicyResponseBodyData extends $tea.Model {
       backupSetRetention: 'BackupSetRetention',
       backupType: 'BackupType',
       backupWay: 'BackupWay',
+      coldDataBackupInterval: 'ColdDataBackupInterval',
+      coldDataBackupRetention: 'ColdDataBackupRetention',
+      crossRegionDataBackupRetention: 'CrossRegionDataBackupRetention',
+      crossRegionLogBackupRetention: 'CrossRegionLogBackupRetention',
       DBInstanceName: 'DBInstanceName',
+      destCrossRegion: 'DestCrossRegion',
       forceCleanOnHighSpaceUsage: 'ForceCleanOnHighSpaceUsage',
+      isCrossRegionDataBackupEnabled: 'IsCrossRegionDataBackupEnabled',
+      isCrossRegionLogBackupEnabled: 'IsCrossRegionLogBackupEnabled',
       isEnabled: 'IsEnabled',
       localLogRetention: 'LocalLogRetention',
+      localLogRetentionNumber: 'LocalLogRetentionNumber',
       logLocalRetentionSpace: 'LogLocalRetentionSpace',
       removeLogRetention: 'RemoveLogRetention',
     };
@@ -6443,10 +8032,18 @@ export class UpdateBackupPolicyResponseBodyData extends $tea.Model {
       backupSetRetention: 'number',
       backupType: 'string',
       backupWay: 'string',
+      coldDataBackupInterval: 'number',
+      coldDataBackupRetention: 'number',
+      crossRegionDataBackupRetention: 'number',
+      crossRegionLogBackupRetention: 'number',
       DBInstanceName: 'string',
+      destCrossRegion: 'string',
       forceCleanOnHighSpaceUsage: 'number',
+      isCrossRegionDataBackupEnabled: 'boolean',
+      isCrossRegionLogBackupEnabled: 'boolean',
       isEnabled: 'number',
       localLogRetention: 'number',
+      localLogRetentionNumber: 'number',
       logLocalRetentionSpace: 'number',
       removeLogRetention: 'number',
     };
@@ -6563,6 +8160,84 @@ export default class Client extends OpenApi {
     }
 
     return EndpointUtil.getEndpointRules(productId, regionId, endpointRule, network, suffix);
+  }
+
+  async alignStoragePrimaryAzoneWithOptions(request: AlignStoragePrimaryAzoneRequest, runtime: $Util.RuntimeOptions): Promise<AlignStoragePrimaryAzoneResponse> {
+    Util.validateModel(request);
+    let query = { };
+    if (!Util.isUnset(request.DBInstanceName)) {
+      query["DBInstanceName"] = request.DBInstanceName;
+    }
+
+    if (!Util.isUnset(request.regionId)) {
+      query["RegionId"] = request.regionId;
+    }
+
+    if (!Util.isUnset(request.storageInstanceName)) {
+      query["StorageInstanceName"] = request.storageInstanceName;
+    }
+
+    if (!Util.isUnset(request.switchTime)) {
+      query["SwitchTime"] = request.switchTime;
+    }
+
+    if (!Util.isUnset(request.switchTimeMode)) {
+      query["SwitchTimeMode"] = request.switchTimeMode;
+    }
+
+    let req = new $OpenApi.OpenApiRequest({
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApi.Params({
+      action: "AlignStoragePrimaryAzone",
+      version: "2020-02-02",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $tea.cast<AlignStoragePrimaryAzoneResponse>(await this.callApi(params, req, runtime), new AlignStoragePrimaryAzoneResponse({}));
+  }
+
+  async alignStoragePrimaryAzone(request: AlignStoragePrimaryAzoneRequest): Promise<AlignStoragePrimaryAzoneResponse> {
+    let runtime = new $Util.RuntimeOptions({ });
+    return await this.alignStoragePrimaryAzoneWithOptions(request, runtime);
+  }
+
+  async allocateColdDataVolumeWithOptions(request: AllocateColdDataVolumeRequest, runtime: $Util.RuntimeOptions): Promise<AllocateColdDataVolumeResponse> {
+    Util.validateModel(request);
+    let query = { };
+    if (!Util.isUnset(request.DBInstanceName)) {
+      query["DBInstanceName"] = request.DBInstanceName;
+    }
+
+    if (!Util.isUnset(request.regionId)) {
+      query["RegionId"] = request.regionId;
+    }
+
+    let req = new $OpenApi.OpenApiRequest({
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApi.Params({
+      action: "AllocateColdDataVolume",
+      version: "2020-02-02",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $tea.cast<AllocateColdDataVolumeResponse>(await this.callApi(params, req, runtime), new AllocateColdDataVolumeResponse({}));
+  }
+
+  async allocateColdDataVolume(request: AllocateColdDataVolumeRequest): Promise<AllocateColdDataVolumeResponse> {
+    let runtime = new $Util.RuntimeOptions({ });
+    return await this.allocateColdDataVolumeWithOptions(request, runtime);
   }
 
   async allocateInstancePublicConnectionWithOptions(request: AllocateInstancePublicConnectionRequest, runtime: $Util.RuntimeOptions): Promise<AllocateInstancePublicConnectionResponse> {
@@ -6895,8 +8570,16 @@ export default class Client extends OpenApi {
       query["AutoRenew"] = request.autoRenew;
     }
 
+    if (!Util.isUnset(request.CNNodeCount)) {
+      query["CNNodeCount"] = request.CNNodeCount;
+    }
+
     if (!Util.isUnset(request.clientToken)) {
       query["ClientToken"] = request.clientToken;
+    }
+
+    if (!Util.isUnset(request.cnClass)) {
+      query["CnClass"] = request.cnClass;
     }
 
     if (!Util.isUnset(request.DBNodeClass)) {
@@ -6905,6 +8588,14 @@ export default class Client extends OpenApi {
 
     if (!Util.isUnset(request.DBNodeCount)) {
       query["DBNodeCount"] = request.DBNodeCount;
+    }
+
+    if (!Util.isUnset(request.DNNodeCount)) {
+      query["DNNodeCount"] = request.DNNodeCount;
+    }
+
+    if (!Util.isUnset(request.dnClass)) {
+      query["DnClass"] = request.dnClass;
     }
 
     if (!Util.isUnset(request.engineVersion)) {
@@ -7273,6 +8964,59 @@ export default class Client extends OpenApi {
     return await this.describeActiveOperationTasksWithOptions(request, runtime);
   }
 
+  async describeArchiveTableListWithOptions(request: DescribeArchiveTableListRequest, runtime: $Util.RuntimeOptions): Promise<DescribeArchiveTableListResponse> {
+    Util.validateModel(request);
+    let query = { };
+    if (!Util.isUnset(request.DBInstanceName)) {
+      query["DBInstanceName"] = request.DBInstanceName;
+    }
+
+    if (!Util.isUnset(request.pageIndex)) {
+      query["PageIndex"] = request.pageIndex;
+    }
+
+    if (!Util.isUnset(request.pageSize)) {
+      query["PageSize"] = request.pageSize;
+    }
+
+    if (!Util.isUnset(request.regionId)) {
+      query["RegionId"] = request.regionId;
+    }
+
+    if (!Util.isUnset(request.schemaName)) {
+      query["SchemaName"] = request.schemaName;
+    }
+
+    if (!Util.isUnset(request.status)) {
+      query["Status"] = request.status;
+    }
+
+    if (!Util.isUnset(request.tableName)) {
+      query["TableName"] = request.tableName;
+    }
+
+    let req = new $OpenApi.OpenApiRequest({
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApi.Params({
+      action: "DescribeArchiveTableList",
+      version: "2020-02-02",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $tea.cast<DescribeArchiveTableListResponse>(await this.callApi(params, req, runtime), new DescribeArchiveTableListResponse({}));
+  }
+
+  async describeArchiveTableList(request: DescribeArchiveTableListRequest): Promise<DescribeArchiveTableListResponse> {
+    let runtime = new $Util.RuntimeOptions({ });
+    return await this.describeArchiveTableListWithOptions(request, runtime);
+  }
+
   async describeBackupPolicyWithOptions(request: DescribeBackupPolicyRequest, runtime: $Util.RuntimeOptions): Promise<DescribeBackupPolicyResponse> {
     Util.validateModel(request);
     let query = { };
@@ -7304,6 +9048,47 @@ export default class Client extends OpenApi {
   async describeBackupPolicy(request: DescribeBackupPolicyRequest): Promise<DescribeBackupPolicyResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.describeBackupPolicyWithOptions(request, runtime);
+  }
+
+  async describeBackupSetWithOptions(request: DescribeBackupSetRequest, runtime: $Util.RuntimeOptions): Promise<DescribeBackupSetResponse> {
+    Util.validateModel(request);
+    let query = { };
+    if (!Util.isUnset(request.backupSetId)) {
+      query["BackupSetId"] = request.backupSetId;
+    }
+
+    if (!Util.isUnset(request.DBInstanceName)) {
+      query["DBInstanceName"] = request.DBInstanceName;
+    }
+
+    if (!Util.isUnset(request.destCrossRegion)) {
+      query["DestCrossRegion"] = request.destCrossRegion;
+    }
+
+    if (!Util.isUnset(request.regionId)) {
+      query["RegionId"] = request.regionId;
+    }
+
+    let req = new $OpenApi.OpenApiRequest({
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApi.Params({
+      action: "DescribeBackupSet",
+      version: "2020-02-02",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $tea.cast<DescribeBackupSetResponse>(await this.callApi(params, req, runtime), new DescribeBackupSetResponse({}));
+  }
+
+  async describeBackupSet(request: DescribeBackupSetRequest): Promise<DescribeBackupSetResponse> {
+    let runtime = new $Util.RuntimeOptions({ });
+    return await this.describeBackupSetWithOptions(request, runtime);
   }
 
   async describeBackupSetListWithOptions(request: DescribeBackupSetListRequest, runtime: $Util.RuntimeOptions): Promise<DescribeBackupSetListResponse> {
@@ -7340,6 +9125,10 @@ export default class Client extends OpenApi {
 
     if (!Util.isUnset(request.endTime)) {
       query["EndTime"] = request.endTime;
+    }
+
+    if (!Util.isUnset(request.instanceName)) {
+      query["InstanceName"] = request.instanceName;
     }
 
     if (!Util.isUnset(request.pageNumber)) {
@@ -7411,6 +9200,31 @@ export default class Client extends OpenApi {
   async describeCharacterSet(request: DescribeCharacterSetRequest): Promise<DescribeCharacterSetResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.describeCharacterSetWithOptions(request, runtime);
+  }
+
+  async describeColdDataBasicInfoWithOptions(request: DescribeColdDataBasicInfoRequest, runtime: $Util.RuntimeOptions): Promise<DescribeColdDataBasicInfoResponse> {
+    Util.validateModel(request);
+    let query = OpenApiUtil.query(Util.toMap(request));
+    let req = new $OpenApi.OpenApiRequest({
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApi.Params({
+      action: "DescribeColdDataBasicInfo",
+      version: "2020-02-02",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "GET",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $tea.cast<DescribeColdDataBasicInfoResponse>(await this.callApi(params, req, runtime), new DescribeColdDataBasicInfoResponse({}));
+  }
+
+  async describeColdDataBasicInfo(request: DescribeColdDataBasicInfoRequest): Promise<DescribeColdDataBasicInfoResponse> {
+    let runtime = new $Util.RuntimeOptions({ });
+    return await this.describeColdDataBasicInfoWithOptions(request, runtime);
   }
 
   async describeDBInstanceAttributeWithOptions(request: DescribeDBInstanceAttributeRequest, runtime: $Util.RuntimeOptions): Promise<DescribeDBInstanceAttributeResponse> {
@@ -7487,6 +9301,39 @@ export default class Client extends OpenApi {
     return await this.describeDBInstanceConfigWithOptions(request, runtime);
   }
 
+  async describeDBInstanceHAWithOptions(request: DescribeDBInstanceHARequest, runtime: $Util.RuntimeOptions): Promise<DescribeDBInstanceHAResponse> {
+    Util.validateModel(request);
+    let query = { };
+    if (!Util.isUnset(request.DBInstanceName)) {
+      query["DBInstanceName"] = request.DBInstanceName;
+    }
+
+    if (!Util.isUnset(request.regionId)) {
+      query["RegionId"] = request.regionId;
+    }
+
+    let req = new $OpenApi.OpenApiRequest({
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApi.Params({
+      action: "DescribeDBInstanceHA",
+      version: "2020-02-02",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $tea.cast<DescribeDBInstanceHAResponse>(await this.callApi(params, req, runtime), new DescribeDBInstanceHAResponse({}));
+  }
+
+  async describeDBInstanceHA(request: DescribeDBInstanceHARequest): Promise<DescribeDBInstanceHAResponse> {
+    let runtime = new $Util.RuntimeOptions({ });
+    return await this.describeDBInstanceHAWithOptions(request, runtime);
+  }
+
   async describeDBInstanceSSLWithOptions(request: DescribeDBInstanceSSLRequest, runtime: $Util.RuntimeOptions): Promise<DescribeDBInstanceSSLResponse> {
     Util.validateModel(request);
     let query = { };
@@ -7560,8 +9407,16 @@ export default class Client extends OpenApi {
       query["DBInstanceName"] = request.DBInstanceName;
     }
 
+    if (!Util.isUnset(request.endTime)) {
+      query["EndTime"] = request.endTime;
+    }
+
     if (!Util.isUnset(request.regionId)) {
       query["RegionId"] = request.regionId;
+    }
+
+    if (!Util.isUnset(request.startTime)) {
+      query["StartTime"] = request.startTime;
     }
 
     let req = new $OpenApi.OpenApiRequest({
@@ -7586,11 +9441,48 @@ export default class Client extends OpenApi {
     return await this.describeDBInstanceTopologyWithOptions(request, runtime);
   }
 
+  async describeDBInstanceViaEndpointWithOptions(request: DescribeDBInstanceViaEndpointRequest, runtime: $Util.RuntimeOptions): Promise<DescribeDBInstanceViaEndpointResponse> {
+    Util.validateModel(request);
+    let query = { };
+    if (!Util.isUnset(request.endpoint)) {
+      query["Endpoint"] = request.endpoint;
+    }
+
+    if (!Util.isUnset(request.regionId)) {
+      query["RegionId"] = request.regionId;
+    }
+
+    let req = new $OpenApi.OpenApiRequest({
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApi.Params({
+      action: "DescribeDBInstanceViaEndpoint",
+      version: "2020-02-02",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $tea.cast<DescribeDBInstanceViaEndpointResponse>(await this.callApi(params, req, runtime), new DescribeDBInstanceViaEndpointResponse({}));
+  }
+
+  async describeDBInstanceViaEndpoint(request: DescribeDBInstanceViaEndpointRequest): Promise<DescribeDBInstanceViaEndpointResponse> {
+    let runtime = new $Util.RuntimeOptions({ });
+    return await this.describeDBInstanceViaEndpointWithOptions(request, runtime);
+  }
+
   async describeDBInstancesWithOptions(request: DescribeDBInstancesRequest, runtime: $Util.RuntimeOptions): Promise<DescribeDBInstancesResponse> {
     Util.validateModel(request);
     let query = { };
     if (!Util.isUnset(request.instanceId)) {
       query["InstanceId"] = request.instanceId;
+    }
+
+    if (!Util.isUnset(request.mustHasCdc)) {
+      query["MustHasCdc"] = request.mustHasCdc;
     }
 
     if (!Util.isUnset(request.pageNumber)) {
@@ -7607,6 +9499,10 @@ export default class Client extends OpenApi {
 
     if (!Util.isUnset(request.resourceGroupId)) {
       query["ResourceGroupId"] = request.resourceGroupId;
+    }
+
+    if (!Util.isUnset(request.series)) {
+      query["Series"] = request.series;
     }
 
     if (!Util.isUnset(request.tags)) {
@@ -7964,55 +9860,6 @@ export default class Client extends OpenApi {
     return await this.describeSecurityIpsWithOptions(request, runtime);
   }
 
-  async describeSlinkTaskInfoWithOptions(request: DescribeSlinkTaskInfoRequest, runtime: $Util.RuntimeOptions): Promise<DescribeSlinkTaskInfoResponse> {
-    Util.validateModel(request);
-    let query = { };
-    if (!Util.isUnset(request.failPageNumber)) {
-      query["FailPageNumber"] = request.failPageNumber;
-    }
-
-    if (!Util.isUnset(request.failPageSize)) {
-      query["FailPageSize"] = request.failPageSize;
-    }
-
-    if (!Util.isUnset(request.regionId)) {
-      query["RegionId"] = request.regionId;
-    }
-
-    if (!Util.isUnset(request.slinkTaskId)) {
-      query["SlinkTaskId"] = request.slinkTaskId;
-    }
-
-    if (!Util.isUnset(request.successPageNumber)) {
-      query["SuccessPageNumber"] = request.successPageNumber;
-    }
-
-    if (!Util.isUnset(request.successPageSize)) {
-      query["SuccessPageSize"] = request.successPageSize;
-    }
-
-    let req = new $OpenApi.OpenApiRequest({
-      query: OpenApiUtil.query(query),
-    });
-    let params = new $OpenApi.Params({
-      action: "DescribeSlinkTaskInfo",
-      version: "2020-02-02",
-      protocol: "HTTPS",
-      pathname: "/",
-      method: "POST",
-      authType: "AK",
-      style: "RPC",
-      reqBodyType: "formData",
-      bodyType: "json",
-    });
-    return $tea.cast<DescribeSlinkTaskInfoResponse>(await this.callApi(params, req, runtime), new DescribeSlinkTaskInfoResponse({}));
-  }
-
-  async describeSlinkTaskInfo(request: DescribeSlinkTaskInfoRequest): Promise<DescribeSlinkTaskInfoResponse> {
-    let runtime = new $Util.RuntimeOptions({ });
-    return await this.describeSlinkTaskInfoWithOptions(request, runtime);
-  }
-
   async describeTagsWithOptions(request: DescribeTagsRequest, runtime: $Util.RuntimeOptions): Promise<DescribeTagsResponse> {
     Util.validateModel(request);
     let query = { };
@@ -8148,11 +9995,19 @@ export default class Client extends OpenApi {
     return await this.describeUserEncryptionKeyListWithOptions(request, runtime);
   }
 
-  async initDBInstanceResourceGroupIdWithOptions(request: InitDBInstanceResourceGroupIdRequest, runtime: $Util.RuntimeOptions): Promise<InitDBInstanceResourceGroupIdResponse> {
+  async disableRightsSeparationWithOptions(request: DisableRightsSeparationRequest, runtime: $Util.RuntimeOptions): Promise<DisableRightsSeparationResponse> {
     Util.validateModel(request);
     let query = { };
     if (!Util.isUnset(request.DBInstanceName)) {
       query["DBInstanceName"] = request.DBInstanceName;
+    }
+
+    if (!Util.isUnset(request.dbaAccountName)) {
+      query["DbaAccountName"] = request.dbaAccountName;
+    }
+
+    if (!Util.isUnset(request.dbaAccountPassword)) {
+      query["DbaAccountPassword"] = request.dbaAccountPassword;
     }
 
     if (!Util.isUnset(request.regionId)) {
@@ -8163,7 +10018,7 @@ export default class Client extends OpenApi {
       query: OpenApiUtil.query(query),
     });
     let params = new $OpenApi.Params({
-      action: "InitDBInstanceResourceGroupId",
+      action: "DisableRightsSeparation",
       version: "2020-02-02",
       protocol: "HTTPS",
       pathname: "/",
@@ -8173,12 +10028,69 @@ export default class Client extends OpenApi {
       reqBodyType: "formData",
       bodyType: "json",
     });
-    return $tea.cast<InitDBInstanceResourceGroupIdResponse>(await this.callApi(params, req, runtime), new InitDBInstanceResourceGroupIdResponse({}));
+    return $tea.cast<DisableRightsSeparationResponse>(await this.callApi(params, req, runtime), new DisableRightsSeparationResponse({}));
   }
 
-  async initDBInstanceResourceGroupId(request: InitDBInstanceResourceGroupIdRequest): Promise<InitDBInstanceResourceGroupIdResponse> {
+  async disableRightsSeparation(request: DisableRightsSeparationRequest): Promise<DisableRightsSeparationResponse> {
     let runtime = new $Util.RuntimeOptions({ });
-    return await this.initDBInstanceResourceGroupIdWithOptions(request, runtime);
+    return await this.disableRightsSeparationWithOptions(request, runtime);
+  }
+
+  async enableRightsSeparationWithOptions(request: EnableRightsSeparationRequest, runtime: $Util.RuntimeOptions): Promise<EnableRightsSeparationResponse> {
+    Util.validateModel(request);
+    let query = { };
+    if (!Util.isUnset(request.auditAccountDescription)) {
+      query["AuditAccountDescription"] = request.auditAccountDescription;
+    }
+
+    if (!Util.isUnset(request.auditAccountName)) {
+      query["AuditAccountName"] = request.auditAccountName;
+    }
+
+    if (!Util.isUnset(request.auditAccountPassword)) {
+      query["AuditAccountPassword"] = request.auditAccountPassword;
+    }
+
+    if (!Util.isUnset(request.DBInstanceName)) {
+      query["DBInstanceName"] = request.DBInstanceName;
+    }
+
+    if (!Util.isUnset(request.regionId)) {
+      query["RegionId"] = request.regionId;
+    }
+
+    if (!Util.isUnset(request.securityAccountDescription)) {
+      query["SecurityAccountDescription"] = request.securityAccountDescription;
+    }
+
+    if (!Util.isUnset(request.securityAccountName)) {
+      query["SecurityAccountName"] = request.securityAccountName;
+    }
+
+    if (!Util.isUnset(request.securityAccountPassword)) {
+      query["SecurityAccountPassword"] = request.securityAccountPassword;
+    }
+
+    let req = new $OpenApi.OpenApiRequest({
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApi.Params({
+      action: "EnableRightsSeparation",
+      version: "2020-02-02",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $tea.cast<EnableRightsSeparationResponse>(await this.callApi(params, req, runtime), new EnableRightsSeparationResponse({}));
+  }
+
+  async enableRightsSeparation(request: EnableRightsSeparationRequest): Promise<EnableRightsSeparationResponse> {
+    let runtime = new $Util.RuntimeOptions({ });
+    return await this.enableRightsSeparationWithOptions(request, runtime);
   }
 
   async listTagResourcesWithOptions(request: ListTagResourcesRequest, runtime: $Util.RuntimeOptions): Promise<ListTagResourcesResponse> {
@@ -8267,6 +10179,59 @@ export default class Client extends OpenApi {
     return await this.modifyAccountDescriptionWithOptions(request, runtime);
   }
 
+  async modifyAccountPrivilegeWithOptions(request: ModifyAccountPrivilegeRequest, runtime: $Util.RuntimeOptions): Promise<ModifyAccountPrivilegeResponse> {
+    Util.validateModel(request);
+    let query = { };
+    if (!Util.isUnset(request.accountName)) {
+      query["AccountName"] = request.accountName;
+    }
+
+    if (!Util.isUnset(request.accountPrivilege)) {
+      query["AccountPrivilege"] = request.accountPrivilege;
+    }
+
+    if (!Util.isUnset(request.DBInstanceName)) {
+      query["DBInstanceName"] = request.DBInstanceName;
+    }
+
+    if (!Util.isUnset(request.dbName)) {
+      query["DbName"] = request.dbName;
+    }
+
+    if (!Util.isUnset(request.regionId)) {
+      query["RegionId"] = request.regionId;
+    }
+
+    if (!Util.isUnset(request.securityAccountName)) {
+      query["SecurityAccountName"] = request.securityAccountName;
+    }
+
+    if (!Util.isUnset(request.securityAccountPassword)) {
+      query["SecurityAccountPassword"] = request.securityAccountPassword;
+    }
+
+    let req = new $OpenApi.OpenApiRequest({
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApi.Params({
+      action: "ModifyAccountPrivilege",
+      version: "2020-02-02",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $tea.cast<ModifyAccountPrivilegeResponse>(await this.callApi(params, req, runtime), new ModifyAccountPrivilegeResponse({}));
+  }
+
+  async modifyAccountPrivilege(request: ModifyAccountPrivilegeRequest): Promise<ModifyAccountPrivilegeResponse> {
+    let runtime = new $Util.RuntimeOptions({ });
+    return await this.modifyAccountPrivilegeWithOptions(request, runtime);
+  }
+
   async modifyActiveOperationMaintainConfWithOptions(request: ModifyActiveOperationMaintainConfRequest, runtime: $Util.RuntimeOptions): Promise<ModifyActiveOperationMaintainConfResponse> {
     Util.validateModel(request);
     let query = OpenApiUtil.query(Util.toMap(request));
@@ -8340,8 +10305,16 @@ export default class Client extends OpenApi {
       query["ClientToken"] = request.clientToken;
     }
 
+    if (!Util.isUnset(request.cnClass)) {
+      query["CnClass"] = request.cnClass;
+    }
+
     if (!Util.isUnset(request.DBInstanceName)) {
       query["DBInstanceName"] = request.DBInstanceName;
+    }
+
+    if (!Util.isUnset(request.dnClass)) {
+      query["DnClass"] = request.dnClass;
     }
 
     if (!Util.isUnset(request.regionId)) {
@@ -8628,6 +10601,39 @@ export default class Client extends OpenApi {
     return await this.modifySecurityIpsWithOptions(request, runtime);
   }
 
+  async releaseColdDataVolumeWithOptions(request: ReleaseColdDataVolumeRequest, runtime: $Util.RuntimeOptions): Promise<ReleaseColdDataVolumeResponse> {
+    Util.validateModel(request);
+    let query = { };
+    if (!Util.isUnset(request.DBInstanceName)) {
+      query["DBInstanceName"] = request.DBInstanceName;
+    }
+
+    if (!Util.isUnset(request.regionId)) {
+      query["RegionId"] = request.regionId;
+    }
+
+    let req = new $OpenApi.OpenApiRequest({
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApi.Params({
+      action: "ReleaseColdDataVolume",
+      version: "2020-02-02",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $tea.cast<ReleaseColdDataVolumeResponse>(await this.callApi(params, req, runtime), new ReleaseColdDataVolumeResponse({}));
+  }
+
+  async releaseColdDataVolume(request: ReleaseColdDataVolumeRequest): Promise<ReleaseColdDataVolumeResponse> {
+    let runtime = new $Util.RuntimeOptions({ });
+    return await this.releaseColdDataVolumeWithOptions(request, runtime);
+  }
+
   async releaseInstancePublicConnectionWithOptions(request: ReleaseInstancePublicConnectionRequest, runtime: $Util.RuntimeOptions): Promise<ReleaseInstancePublicConnectionResponse> {
     Util.validateModel(request);
     let query = { };
@@ -8681,6 +10687,55 @@ export default class Client extends OpenApi {
     return await this.releaseInstancePublicConnectionWithOptions(request, runtime);
   }
 
+  async resetAccountPasswordWithOptions(request: ResetAccountPasswordRequest, runtime: $Util.RuntimeOptions): Promise<ResetAccountPasswordResponse> {
+    Util.validateModel(request);
+    let query = { };
+    if (!Util.isUnset(request.accountName)) {
+      query["AccountName"] = request.accountName;
+    }
+
+    if (!Util.isUnset(request.accountPassword)) {
+      query["AccountPassword"] = request.accountPassword;
+    }
+
+    if (!Util.isUnset(request.DBInstanceName)) {
+      query["DBInstanceName"] = request.DBInstanceName;
+    }
+
+    if (!Util.isUnset(request.regionId)) {
+      query["RegionId"] = request.regionId;
+    }
+
+    if (!Util.isUnset(request.securityAccountName)) {
+      query["SecurityAccountName"] = request.securityAccountName;
+    }
+
+    if (!Util.isUnset(request.securityAccountPassword)) {
+      query["SecurityAccountPassword"] = request.securityAccountPassword;
+    }
+
+    let req = new $OpenApi.OpenApiRequest({
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApi.Params({
+      action: "ResetAccountPassword",
+      version: "2020-02-02",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $tea.cast<ResetAccountPasswordResponse>(await this.callApi(params, req, runtime), new ResetAccountPasswordResponse({}));
+  }
+
+  async resetAccountPassword(request: ResetAccountPasswordRequest): Promise<ResetAccountPasswordResponse> {
+    let runtime = new $Util.RuntimeOptions({ });
+    return await this.resetAccountPasswordWithOptions(request, runtime);
+  }
+
   async restartDBInstanceWithOptions(request: RestartDBInstanceRequest, runtime: $Util.RuntimeOptions): Promise<RestartDBInstanceResponse> {
     Util.validateModel(request);
     let query = { };
@@ -8712,6 +10767,55 @@ export default class Client extends OpenApi {
   async restartDBInstance(request: RestartDBInstanceRequest): Promise<RestartDBInstanceResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.restartDBInstanceWithOptions(request, runtime);
+  }
+
+  async switchDBInstanceHAWithOptions(request: SwitchDBInstanceHARequest, runtime: $Util.RuntimeOptions): Promise<SwitchDBInstanceHAResponse> {
+    Util.validateModel(request);
+    let query = { };
+    if (!Util.isUnset(request.DBInstanceName)) {
+      query["DBInstanceName"] = request.DBInstanceName;
+    }
+
+    if (!Util.isUnset(request.regionId)) {
+      query["RegionId"] = request.regionId;
+    }
+
+    if (!Util.isUnset(request.switchTime)) {
+      query["SwitchTime"] = request.switchTime;
+    }
+
+    if (!Util.isUnset(request.switchTimeMode)) {
+      query["SwitchTimeMode"] = request.switchTimeMode;
+    }
+
+    if (!Util.isUnset(request.targetPrimaryAzoneId)) {
+      query["TargetPrimaryAzoneId"] = request.targetPrimaryAzoneId;
+    }
+
+    if (!Util.isUnset(request.targetPrimaryRegionId)) {
+      query["TargetPrimaryRegionId"] = request.targetPrimaryRegionId;
+    }
+
+    let req = new $OpenApi.OpenApiRequest({
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApi.Params({
+      action: "SwitchDBInstanceHA",
+      version: "2020-02-02",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $tea.cast<SwitchDBInstanceHAResponse>(await this.callApi(params, req, runtime), new SwitchDBInstanceHAResponse({}));
+  }
+
+  async switchDBInstanceHA(request: SwitchDBInstanceHARequest): Promise<SwitchDBInstanceHAResponse> {
+    let runtime = new $Util.RuntimeOptions({ });
+    return await this.switchDBInstanceHAWithOptions(request, runtime);
   }
 
   async tagResourcesWithOptions(request: TagResourcesRequest, runtime: $Util.RuntimeOptions): Promise<TagResourcesResponse> {
@@ -8823,12 +10927,40 @@ export default class Client extends OpenApi {
       query["BackupWay"] = request.backupWay;
     }
 
+    if (!Util.isUnset(request.coldDataBackupInterval)) {
+      query["ColdDataBackupInterval"] = request.coldDataBackupInterval;
+    }
+
+    if (!Util.isUnset(request.coldDataBackupRetention)) {
+      query["ColdDataBackupRetention"] = request.coldDataBackupRetention;
+    }
+
+    if (!Util.isUnset(request.crossRegionDataBackupRetention)) {
+      query["CrossRegionDataBackupRetention"] = request.crossRegionDataBackupRetention;
+    }
+
+    if (!Util.isUnset(request.crossRegionLogBackupRetention)) {
+      query["CrossRegionLogBackupRetention"] = request.crossRegionLogBackupRetention;
+    }
+
     if (!Util.isUnset(request.DBInstanceName)) {
       query["DBInstanceName"] = request.DBInstanceName;
     }
 
+    if (!Util.isUnset(request.destCrossRegion)) {
+      query["DestCrossRegion"] = request.destCrossRegion;
+    }
+
     if (!Util.isUnset(request.forceCleanOnHighSpaceUsage)) {
       query["ForceCleanOnHighSpaceUsage"] = request.forceCleanOnHighSpaceUsage;
+    }
+
+    if (!Util.isUnset(request.isCrossRegionDataBackupEnabled)) {
+      query["IsCrossRegionDataBackupEnabled"] = request.isCrossRegionDataBackupEnabled;
+    }
+
+    if (!Util.isUnset(request.isCrossRegionLogBackupEnabled)) {
+      query["IsCrossRegionLogBackupEnabled"] = request.isCrossRegionLogBackupEnabled;
     }
 
     if (!Util.isUnset(request.isEnabled)) {
@@ -8837,6 +10969,10 @@ export default class Client extends OpenApi {
 
     if (!Util.isUnset(request.localLogRetention)) {
       query["LocalLogRetention"] = request.localLogRetention;
+    }
+
+    if (!Util.isUnset(request.localLogRetentionNumber)) {
+      query["LocalLogRetentionNumber"] = request.localLogRetentionNumber;
     }
 
     if (!Util.isUnset(request.logLocalRetentionSpace)) {
@@ -8962,12 +11098,20 @@ export default class Client extends OpenApi {
   async updatePolarDBXInstanceNodeWithOptions(request: UpdatePolarDBXInstanceNodeRequest, runtime: $Util.RuntimeOptions): Promise<UpdatePolarDBXInstanceNodeResponse> {
     Util.validateModel(request);
     let query = { };
+    if (!Util.isUnset(request.CNNodeCount)) {
+      query["CNNodeCount"] = request.CNNodeCount;
+    }
+
     if (!Util.isUnset(request.clientToken)) {
       query["ClientToken"] = request.clientToken;
     }
 
     if (!Util.isUnset(request.DBInstanceName)) {
       query["DBInstanceName"] = request.DBInstanceName;
+    }
+
+    if (!Util.isUnset(request.DNNodeCount)) {
+      query["DNNodeCount"] = request.DNNodeCount;
     }
 
     if (!Util.isUnset(request.dbInstanceNodeCount)) {
@@ -9005,6 +11149,10 @@ export default class Client extends OpenApi {
     let query = { };
     if (!Util.isUnset(request.DBInstanceName)) {
       query["DBInstanceName"] = request.DBInstanceName;
+    }
+
+    if (!Util.isUnset(request.minorVersion)) {
+      query["MinorVersion"] = request.minorVersion;
     }
 
     if (!Util.isUnset(request.regionId)) {
