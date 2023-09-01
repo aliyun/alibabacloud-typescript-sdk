@@ -154,6 +154,56 @@ export class AddressGroup extends $tea.Model {
   }
 }
 
+export class Aggregation extends $tea.Model {
+  field?: Buffer;
+  groups?: AggregationsGroup[];
+  operation?: Buffer;
+  value?: number;
+  static names(): { [key: string]: string } {
+    return {
+      field: 'field',
+      groups: 'groups',
+      operation: 'operation',
+      value: 'value',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      field: 'Buffer',
+      groups: { 'type': 'array', 'itemType': AggregationsGroup },
+      operation: 'Buffer',
+      value: 'number',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class AggregationsGroup extends $tea.Model {
+  count?: number;
+  value?: Buffer;
+  static names(): { [key: string]: string } {
+    return {
+      count: 'count',
+      value: 'value',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      count: 'number',
+      value: 'Buffer',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
 export class App extends $tea.Model {
   appId?: string;
   appName?: string;
@@ -278,6 +328,31 @@ export class BenefitPkgDeliveryInfo extends $tea.Model {
   }
 }
 
+export class CNameStatus extends $tea.Model {
+  bingdingState?: string;
+  legalState?: string;
+  remark?: string;
+  static names(): { [key: string]: string } {
+    return {
+      bingdingState: 'bingding_state',
+      legalState: 'legal_state',
+      remark: 'remark',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      bingdingState: 'string',
+      legalState: 'string',
+      remark: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
 export class CdnFileDownloadCallbackInfo extends $tea.Model {
   bucket?: string;
   domainId?: string;
@@ -310,6 +385,31 @@ export class CdnFileDownloadCallbackInfo extends $tea.Model {
       object: 'string',
       token: 'string',
       userId: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class CertInfo extends $tea.Model {
+  certBody?: string;
+  certName?: string;
+  certPrivatekey?: string;
+  static names(): { [key: string]: string } {
+    return {
+      certBody: 'cert_body',
+      certName: 'cert_name',
+      certPrivatekey: 'cert_privatekey',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      certBody: 'string',
+      certName: 'string',
+      certPrivatekey: 'string',
     };
   }
 
@@ -357,6 +457,28 @@ export class CsiCondition extends $tea.Model {
   static types(): { [key: string]: any } {
     return {
       fileDataPunish: Condition,
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class DataCName extends $tea.Model {
+  dataCname?: string;
+  location?: string;
+  static names(): { [key: string]: string } {
+    return {
+      dataCname: 'data_cname',
+      location: 'location',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      dataCname: 'string',
+      location: 'string',
     };
   }
 
@@ -1230,11 +1352,41 @@ export class NameCheckResult extends $tea.Model {
   }
 }
 
+export class PermissionCondition extends $tea.Model {
+  ipEquals?: PermissionConditionIpEquals;
+  ipNotEquals?: PermissionConditionIpNotEquals;
+  stringLike?: PermissionConditionStringLike;
+  stringNotLike?: PermissionConditionStringNotLike;
+  static names(): { [key: string]: string } {
+    return {
+      ipEquals: 'ip_equals',
+      ipNotEquals: 'ip_not_equals',
+      stringLike: 'string_like',
+      stringNotLike: 'string_not_like',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      ipEquals: PermissionConditionIpEquals,
+      ipNotEquals: PermissionConditionIpNotEquals,
+      stringLike: PermissionConditionStringLike,
+      stringNotLike: PermissionConditionStringNotLike,
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
 export class Revision extends $tea.Model {
   contentHash?: string;
   contentHashName?: string;
   crc64Hash?: string;
   createdAt?: string;
+  creatorId?: string;
+  creatorName?: string;
   domainId?: string;
   downloadUrl?: string;
   driveId?: string;
@@ -1256,6 +1408,8 @@ export class Revision extends $tea.Model {
       contentHashName: 'content_hash_name',
       crc64Hash: 'crc64_hash',
       createdAt: 'created_at',
+      creatorId: 'creator_id',
+      creatorName: 'creator_name',
       domainId: 'domain_id',
       downloadUrl: 'download_url',
       driveId: 'drive_id',
@@ -1280,6 +1434,8 @@ export class Revision extends $tea.Model {
       contentHashName: 'string',
       crc64Hash: 'string',
       createdAt: 'string',
+      creatorId: 'string',
+      creatorName: 'string',
       domainId: 'string',
       downloadUrl: 'string',
       driveId: 'string',
@@ -1386,6 +1542,34 @@ export class ShareLink extends $tea.Model {
       status: 'string',
       updatedAt: 'string',
       videoPreviewCount: 'number',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class SimpleQuery extends $tea.Model {
+  field?: Buffer;
+  operation?: Buffer;
+  subQueries?: SimpleQuery[];
+  value?: Buffer;
+  static names(): { [key: string]: string } {
+    return {
+      field: 'field',
+      operation: 'operation',
+      subQueries: 'sub_queries',
+      value: 'value',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      field: 'Buffer',
+      operation: 'Buffer',
+      subQueries: { 'type': 'array', 'itemType': SimpleQuery },
+      value: 'Buffer',
     };
   }
 
@@ -9420,6 +9604,82 @@ export class InvestigationInfoVideoDetail extends $tea.Model {
   static types(): { [key: string]: any } {
     return {
       blockFrames: { 'type': 'array', 'itemType': InvestigationInfoVideoDetailBlockFrames },
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class PermissionConditionIpEquals extends $tea.Model {
+  clientIp?: string[];
+  static names(): { [key: string]: string } {
+    return {
+      clientIp: 'client_ip',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      clientIp: { 'type': 'array', 'itemType': 'string' },
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class PermissionConditionIpNotEquals extends $tea.Model {
+  clientIp?: string[];
+  static names(): { [key: string]: string } {
+    return {
+      clientIp: 'client_ip',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      clientIp: { 'type': 'array', 'itemType': 'string' },
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class PermissionConditionStringLike extends $tea.Model {
+  vpcId?: string[];
+  static names(): { [key: string]: string } {
+    return {
+      vpcId: 'vpc_id',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      vpcId: { 'type': 'array', 'itemType': 'string' },
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class PermissionConditionStringNotLike extends $tea.Model {
+  vpcId?: string[];
+  static names(): { [key: string]: string } {
+    return {
+      vpcId: 'vpc_id',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      vpcId: { 'type': 'array', 'itemType': 'string' },
     };
   }
 
