@@ -4,22 +4,29 @@
  */
 import Util, * as $Util from '@alicloud/tea-util';
 import OpenApi, * as $OpenApi from '@alicloud/openapi-client';
+import OpenApiUtil from '@alicloud/openapi-util';
 import EndpointUtil from '@alicloud/endpoint-util';
 import * as $tea from '@alicloud/tea-typescript';
 
 export class DescribeDBInstanceForDmsRequest extends $tea.Model {
+  DBInstanceId?: string;
   host?: string;
+  ownerId?: number;
   port?: number;
   static names(): { [key: string]: string } {
     return {
+      DBInstanceId: 'DBInstanceId',
       host: 'Host',
+      ownerId: 'OwnerId',
       port: 'Port',
     };
   }
 
   static types(): { [key: string]: any } {
     return {
+      DBInstanceId: 'string',
       host: 'string',
+      ownerId: 'number',
       port: 'number',
     };
   }
@@ -30,34 +37,34 @@ export class DescribeDBInstanceForDmsRequest extends $tea.Model {
 }
 
 export class DescribeDBInstanceForDmsResponseBody extends $tea.Model {
+  code?: string;
+  count?: number;
   httpStatusCode?: number;
+  instance?: DescribeDBInstanceForDmsResponseBodyInstance;
+  message?: string;
   requestId?: string;
   success?: boolean;
-  code?: string;
-  message?: string;
-  count?: number;
-  instance?: DescribeDBInstanceForDmsResponseBodyInstance;
   static names(): { [key: string]: string } {
     return {
+      code: 'Code',
+      count: 'Count',
       httpStatusCode: 'HttpStatusCode',
+      instance: 'Instance',
+      message: 'Message',
       requestId: 'RequestId',
       success: 'Success',
-      code: 'Code',
-      message: 'Message',
-      count: 'Count',
-      instance: 'Instance',
     };
   }
 
   static types(): { [key: string]: any } {
     return {
+      code: 'string',
+      count: 'number',
       httpStatusCode: 'number',
+      instance: DescribeDBInstanceForDmsResponseBodyInstance,
+      message: 'string',
       requestId: 'string',
       success: 'boolean',
-      code: 'string',
-      message: 'string',
-      count: 'number',
-      instance: DescribeDBInstanceForDmsResponseBodyInstance,
     };
   }
 
@@ -68,10 +75,12 @@ export class DescribeDBInstanceForDmsResponseBody extends $tea.Model {
 
 export class DescribeDBInstanceForDmsResponse extends $tea.Model {
   headers: { [key: string]: string };
+  statusCode: number;
   body: DescribeDBInstanceForDmsResponseBody;
   static names(): { [key: string]: string } {
     return {
       headers: 'headers',
+      statusCode: 'statusCode',
       body: 'body',
     };
   }
@@ -79,6 +88,7 @@ export class DescribeDBInstanceForDmsResponse extends $tea.Model {
   static types(): { [key: string]: any } {
     return {
       headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
       body: DescribeDBInstanceForDmsResponseBody,
     };
   }
@@ -90,15 +100,18 @@ export class DescribeDBInstanceForDmsResponse extends $tea.Model {
 
 export class DescribeDBInstanceSecurityIpsRequest extends $tea.Model {
   instanceId?: string;
+  ownerId?: number;
   static names(): { [key: string]: string } {
     return {
       instanceId: 'InstanceId',
+      ownerId: 'OwnerId',
     };
   }
 
   static types(): { [key: string]: any } {
     return {
       instanceId: 'string',
+      ownerId: 'number',
     };
   }
 
@@ -108,34 +121,34 @@ export class DescribeDBInstanceSecurityIpsRequest extends $tea.Model {
 }
 
 export class DescribeDBInstanceSecurityIpsResponseBody extends $tea.Model {
-  httpStatusCode?: number;
-  requestId?: string;
-  success?: boolean;
   code?: string;
-  message?: string;
   count?: number;
+  httpStatusCode?: number;
+  message?: string;
+  requestId?: string;
   result?: DescribeDBInstanceSecurityIpsResponseBodyResult[];
+  success?: boolean;
   static names(): { [key: string]: string } {
     return {
-      httpStatusCode: 'HttpStatusCode',
-      requestId: 'RequestId',
-      success: 'Success',
       code: 'Code',
-      message: 'Message',
       count: 'Count',
+      httpStatusCode: 'HttpStatusCode',
+      message: 'Message',
+      requestId: 'RequestId',
       result: 'Result',
+      success: 'Success',
     };
   }
 
   static types(): { [key: string]: any } {
     return {
-      httpStatusCode: 'number',
-      requestId: 'string',
-      success: 'boolean',
       code: 'string',
-      message: 'string',
       count: 'number',
+      httpStatusCode: 'number',
+      message: 'string',
+      requestId: 'string',
       result: { 'type': 'array', 'itemType': DescribeDBInstanceSecurityIpsResponseBodyResult },
+      success: 'boolean',
     };
   }
 
@@ -146,10 +159,12 @@ export class DescribeDBInstanceSecurityIpsResponseBody extends $tea.Model {
 
 export class DescribeDBInstanceSecurityIpsResponse extends $tea.Model {
   headers: { [key: string]: string };
+  statusCode: number;
   body: DescribeDBInstanceSecurityIpsResponseBody;
   static names(): { [key: string]: string } {
     return {
       headers: 'headers',
+      statusCode: 'statusCode',
       body: 'body',
     };
   }
@@ -157,6 +172,7 @@ export class DescribeDBInstanceSecurityIpsResponse extends $tea.Model {
   static types(): { [key: string]: any } {
     return {
       headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
       body: DescribeDBInstanceSecurityIpsResponseBody,
     };
   }
@@ -168,15 +184,18 @@ export class DescribeDBInstanceSecurityIpsResponse extends $tea.Model {
 
 export class DescribeDBInstancesForDmsRequest extends $tea.Model {
   aliUid?: number;
+  ownerId?: number;
   static names(): { [key: string]: string } {
     return {
       aliUid: 'AliUid',
+      ownerId: 'OwnerId',
     };
   }
 
   static types(): { [key: string]: any } {
     return {
       aliUid: 'number',
+      ownerId: 'number',
     };
   }
 
@@ -186,34 +205,34 @@ export class DescribeDBInstancesForDmsRequest extends $tea.Model {
 }
 
 export class DescribeDBInstancesForDmsResponseBody extends $tea.Model {
+  code?: string;
+  count?: number;
   httpStatusCode?: number;
+  instances?: DescribeDBInstancesForDmsResponseBodyInstances[];
+  message?: string;
   requestId?: string;
   success?: boolean;
-  code?: string;
-  message?: string;
-  count?: number;
-  instances?: DescribeDBInstancesForDmsResponseBodyInstances[];
   static names(): { [key: string]: string } {
     return {
+      code: 'Code',
+      count: 'Count',
       httpStatusCode: 'HttpStatusCode',
+      instances: 'Instances',
+      message: 'Message',
       requestId: 'RequestId',
       success: 'Success',
-      code: 'Code',
-      message: 'Message',
-      count: 'Count',
-      instances: 'Instances',
     };
   }
 
   static types(): { [key: string]: any } {
     return {
+      code: 'string',
+      count: 'number',
       httpStatusCode: 'number',
+      instances: { 'type': 'array', 'itemType': DescribeDBInstancesForDmsResponseBodyInstances },
+      message: 'string',
       requestId: 'string',
       success: 'boolean',
-      code: 'string',
-      message: 'string',
-      count: 'number',
-      instances: { 'type': 'array', 'itemType': DescribeDBInstancesForDmsResponseBodyInstances },
     };
   }
 
@@ -224,10 +243,12 @@ export class DescribeDBInstancesForDmsResponseBody extends $tea.Model {
 
 export class DescribeDBInstancesForDmsResponse extends $tea.Model {
   headers: { [key: string]: string };
+  statusCode: number;
   body: DescribeDBInstancesForDmsResponseBody;
   static names(): { [key: string]: string } {
     return {
       headers: 'headers',
+      statusCode: 'statusCode',
       body: 'body',
     };
   }
@@ -235,6 +256,7 @@ export class DescribeDBInstancesForDmsResponse extends $tea.Model {
   static types(): { [key: string]: any } {
     return {
       headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
       body: DescribeDBInstancesForDmsResponseBody,
     };
   }
@@ -246,14 +268,16 @@ export class DescribeDBInstancesForDmsResponse extends $tea.Model {
 
 export class ModifyDBInstanceSecurityIpsRequest extends $tea.Model {
   aliUid?: number;
-  instanceId?: string;
   groupName?: string;
+  instanceId?: string;
+  ownerId?: number;
   whileList?: string;
   static names(): { [key: string]: string } {
     return {
       aliUid: 'AliUid',
-      instanceId: 'InstanceId',
       groupName: 'GroupName',
+      instanceId: 'InstanceId',
+      ownerId: 'OwnerId',
       whileList: 'WhileList',
     };
   }
@@ -261,8 +285,9 @@ export class ModifyDBInstanceSecurityIpsRequest extends $tea.Model {
   static types(): { [key: string]: any } {
     return {
       aliUid: 'number',
-      instanceId: 'string',
       groupName: 'string',
+      instanceId: 'string',
+      ownerId: 'number',
       whileList: 'string',
     };
   }
@@ -305,10 +330,12 @@ export class ModifyDBInstanceSecurityIpsResponseBody extends $tea.Model {
 
 export class ModifyDBInstanceSecurityIpsResponse extends $tea.Model {
   headers: { [key: string]: string };
+  statusCode: number;
   body: ModifyDBInstanceSecurityIpsResponseBody;
   static names(): { [key: string]: string } {
     return {
       headers: 'headers',
+      statusCode: 'statusCode',
       body: 'body',
     };
   }
@@ -316,6 +343,7 @@ export class ModifyDBInstanceSecurityIpsResponse extends $tea.Model {
   static types(): { [key: string]: any } {
     return {
       headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
       body: ModifyDBInstanceSecurityIpsResponseBody,
     };
   }
@@ -326,54 +354,54 @@ export class ModifyDBInstanceSecurityIpsResponse extends $tea.Model {
 }
 
 export class DescribeDBInstanceForDmsResponseBodyInstance extends $tea.Model {
-  vpcId?: string;
   aliUid?: string;
-  port?: string;
   bid?: string;
-  vpcCloudInstanceId?: string;
-  vSwitchId?: string;
-  description?: string;
-  dbType?: string;
-  version?: string;
   connectionString?: string;
-  region?: string;
-  instanceNetworkType?: string;
   dbInstanceName?: string;
+  dbType?: string;
+  description?: string;
+  instanceNetworkType?: string;
+  port?: string;
+  region?: string;
+  vSwitchId?: string;
+  version?: string;
+  vpcCloudInstanceId?: string;
+  vpcId?: string;
   vpcIp?: string;
   static names(): { [key: string]: string } {
     return {
-      vpcId: 'VpcId',
       aliUid: 'AliUid',
-      port: 'Port',
       bid: 'Bid',
-      vpcCloudInstanceId: 'VpcCloudInstanceId',
-      vSwitchId: 'VSwitchId',
-      description: 'Description',
-      dbType: 'DbType',
-      version: 'Version',
       connectionString: 'ConnectionString',
-      region: 'Region',
-      instanceNetworkType: 'InstanceNetworkType',
       dbInstanceName: 'DbInstanceName',
+      dbType: 'DbType',
+      description: 'Description',
+      instanceNetworkType: 'InstanceNetworkType',
+      port: 'Port',
+      region: 'Region',
+      vSwitchId: 'VSwitchId',
+      version: 'Version',
+      vpcCloudInstanceId: 'VpcCloudInstanceId',
+      vpcId: 'VpcId',
       vpcIp: 'VpcIp',
     };
   }
 
   static types(): { [key: string]: any } {
     return {
-      vpcId: 'string',
       aliUid: 'string',
-      port: 'string',
       bid: 'string',
-      vpcCloudInstanceId: 'string',
-      vSwitchId: 'string',
-      description: 'string',
-      dbType: 'string',
-      version: 'string',
       connectionString: 'string',
-      region: 'string',
-      instanceNetworkType: 'string',
       dbInstanceName: 'string',
+      dbType: 'string',
+      description: 'string',
+      instanceNetworkType: 'string',
+      port: 'string',
+      region: 'string',
+      vSwitchId: 'string',
+      version: 'string',
+      vpcCloudInstanceId: 'string',
+      vpcId: 'string',
       vpcIp: 'string',
     };
   }
@@ -406,54 +434,54 @@ export class DescribeDBInstanceSecurityIpsResponseBodyResult extends $tea.Model 
 }
 
 export class DescribeDBInstancesForDmsResponseBodyInstances extends $tea.Model {
-  vpcId?: string;
   aliUid?: string;
-  port?: string;
   bid?: string;
-  vpcCloudInstanceId?: string;
-  vSwitchId?: string;
-  description?: string;
-  dbType?: string;
-  version?: string;
   connectionString?: string;
-  region?: string;
-  instanceNetworkType?: string;
   dbInstanceName?: string;
+  dbType?: string;
+  description?: string;
+  instanceNetworkType?: string;
+  port?: string;
+  region?: string;
+  vSwitchId?: string;
+  version?: string;
+  vpcCloudInstanceId?: string;
+  vpcId?: string;
   vpcIp?: string;
   static names(): { [key: string]: string } {
     return {
-      vpcId: 'VpcId',
       aliUid: 'AliUid',
-      port: 'Port',
       bid: 'Bid',
-      vpcCloudInstanceId: 'VpcCloudInstanceId',
-      vSwitchId: 'VSwitchId',
-      description: 'Description',
-      dbType: 'DbType',
-      version: 'Version',
       connectionString: 'ConnectionString',
-      region: 'Region',
-      instanceNetworkType: 'InstanceNetworkType',
       dbInstanceName: 'DbInstanceName',
+      dbType: 'DbType',
+      description: 'Description',
+      instanceNetworkType: 'InstanceNetworkType',
+      port: 'Port',
+      region: 'Region',
+      vSwitchId: 'VSwitchId',
+      version: 'Version',
+      vpcCloudInstanceId: 'VpcCloudInstanceId',
+      vpcId: 'VpcId',
       vpcIp: 'VpcIp',
     };
   }
 
   static types(): { [key: string]: any } {
     return {
-      vpcId: 'string',
       aliUid: 'string',
-      port: 'string',
       bid: 'string',
-      vpcCloudInstanceId: 'string',
-      vSwitchId: 'string',
-      description: 'string',
-      dbType: 'string',
-      version: 'string',
       connectionString: 'string',
-      region: 'string',
-      instanceNetworkType: 'string',
       dbInstanceName: 'string',
+      dbType: 'string',
+      description: 'string',
+      instanceNetworkType: 'string',
+      port: 'string',
+      region: 'string',
+      vSwitchId: 'string',
+      version: 'string',
+      vpcCloudInstanceId: 'string',
+      vpcId: 'string',
       vpcIp: 'string',
     };
   }
@@ -503,10 +531,38 @@ export default class Client extends OpenApi {
 
   async describeDBInstanceForDmsWithOptions(request: DescribeDBInstanceForDmsRequest, runtime: $Util.RuntimeOptions): Promise<DescribeDBInstanceForDmsResponse> {
     Util.validateModel(request);
+    let query = { };
+    if (!Util.isUnset(request.DBInstanceId)) {
+      query["DBInstanceId"] = request.DBInstanceId;
+    }
+
+    if (!Util.isUnset(request.host)) {
+      query["Host"] = request.host;
+    }
+
+    if (!Util.isUnset(request.ownerId)) {
+      query["OwnerId"] = request.ownerId;
+    }
+
+    if (!Util.isUnset(request.port)) {
+      query["Port"] = request.port;
+    }
+
     let req = new $OpenApi.OpenApiRequest({
-      body: Util.toMap(request),
+      query: OpenApiUtil.query(query),
     });
-    return $tea.cast<DescribeDBInstanceForDmsResponse>(await this.doRPCRequest("DescribeDBInstanceForDms", "2019-06-20", "HTTPS", "POST", "AK", "json", req, runtime), new DescribeDBInstanceForDmsResponse({}));
+    let params = new $OpenApi.Params({
+      action: "DescribeDBInstanceForDms",
+      version: "2019-06-20",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $tea.cast<DescribeDBInstanceForDmsResponse>(await this.callApi(params, req, runtime), new DescribeDBInstanceForDmsResponse({}));
   }
 
   async describeDBInstanceForDms(request: DescribeDBInstanceForDmsRequest): Promise<DescribeDBInstanceForDmsResponse> {
@@ -516,10 +572,30 @@ export default class Client extends OpenApi {
 
   async describeDBInstanceSecurityIpsWithOptions(request: DescribeDBInstanceSecurityIpsRequest, runtime: $Util.RuntimeOptions): Promise<DescribeDBInstanceSecurityIpsResponse> {
     Util.validateModel(request);
+    let query = { };
+    if (!Util.isUnset(request.instanceId)) {
+      query["InstanceId"] = request.instanceId;
+    }
+
+    if (!Util.isUnset(request.ownerId)) {
+      query["OwnerId"] = request.ownerId;
+    }
+
     let req = new $OpenApi.OpenApiRequest({
-      body: Util.toMap(request),
+      query: OpenApiUtil.query(query),
     });
-    return $tea.cast<DescribeDBInstanceSecurityIpsResponse>(await this.doRPCRequest("DescribeDBInstanceSecurityIps", "2019-06-20", "HTTPS", "POST", "AK", "json", req, runtime), new DescribeDBInstanceSecurityIpsResponse({}));
+    let params = new $OpenApi.Params({
+      action: "DescribeDBInstanceSecurityIps",
+      version: "2019-06-20",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $tea.cast<DescribeDBInstanceSecurityIpsResponse>(await this.callApi(params, req, runtime), new DescribeDBInstanceSecurityIpsResponse({}));
   }
 
   async describeDBInstanceSecurityIps(request: DescribeDBInstanceSecurityIpsRequest): Promise<DescribeDBInstanceSecurityIpsResponse> {
@@ -529,10 +605,30 @@ export default class Client extends OpenApi {
 
   async describeDBInstancesForDmsWithOptions(request: DescribeDBInstancesForDmsRequest, runtime: $Util.RuntimeOptions): Promise<DescribeDBInstancesForDmsResponse> {
     Util.validateModel(request);
+    let query = { };
+    if (!Util.isUnset(request.aliUid)) {
+      query["AliUid"] = request.aliUid;
+    }
+
+    if (!Util.isUnset(request.ownerId)) {
+      query["OwnerId"] = request.ownerId;
+    }
+
     let req = new $OpenApi.OpenApiRequest({
-      body: Util.toMap(request),
+      query: OpenApiUtil.query(query),
     });
-    return $tea.cast<DescribeDBInstancesForDmsResponse>(await this.doRPCRequest("DescribeDBInstancesForDms", "2019-06-20", "HTTPS", "POST", "AK", "json", req, runtime), new DescribeDBInstancesForDmsResponse({}));
+    let params = new $OpenApi.Params({
+      action: "DescribeDBInstancesForDms",
+      version: "2019-06-20",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $tea.cast<DescribeDBInstancesForDmsResponse>(await this.callApi(params, req, runtime), new DescribeDBInstancesForDmsResponse({}));
   }
 
   async describeDBInstancesForDms(request: DescribeDBInstancesForDmsRequest): Promise<DescribeDBInstancesForDmsResponse> {
@@ -542,10 +638,42 @@ export default class Client extends OpenApi {
 
   async modifyDBInstanceSecurityIpsWithOptions(request: ModifyDBInstanceSecurityIpsRequest, runtime: $Util.RuntimeOptions): Promise<ModifyDBInstanceSecurityIpsResponse> {
     Util.validateModel(request);
+    let query = { };
+    if (!Util.isUnset(request.aliUid)) {
+      query["AliUid"] = request.aliUid;
+    }
+
+    if (!Util.isUnset(request.groupName)) {
+      query["GroupName"] = request.groupName;
+    }
+
+    if (!Util.isUnset(request.instanceId)) {
+      query["InstanceId"] = request.instanceId;
+    }
+
+    if (!Util.isUnset(request.ownerId)) {
+      query["OwnerId"] = request.ownerId;
+    }
+
+    if (!Util.isUnset(request.whileList)) {
+      query["WhileList"] = request.whileList;
+    }
+
     let req = new $OpenApi.OpenApiRequest({
-      body: Util.toMap(request),
+      query: OpenApiUtil.query(query),
     });
-    return $tea.cast<ModifyDBInstanceSecurityIpsResponse>(await this.doRPCRequest("ModifyDBInstanceSecurityIps", "2019-06-20", "HTTPS", "POST", "AK", "json", req, runtime), new ModifyDBInstanceSecurityIpsResponse({}));
+    let params = new $OpenApi.Params({
+      action: "ModifyDBInstanceSecurityIps",
+      version: "2019-06-20",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $tea.cast<ModifyDBInstanceSecurityIpsResponse>(await this.callApi(params, req, runtime), new ModifyDBInstanceSecurityIpsResponse({}));
   }
 
   async modifyDBInstanceSecurityIps(request: ModifyDBInstanceSecurityIpsRequest): Promise<ModifyDBInstanceSecurityIpsResponse> {
