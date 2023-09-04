@@ -4846,15 +4846,18 @@ export class QueryCashCouponsResponse extends $tea.Model {
 }
 
 export class QueryCommodityListRequest extends $tea.Model {
+  lang?: string;
   productCode?: string;
   static names(): { [key: string]: string } {
     return {
+      lang: 'Lang',
       productCode: 'ProductCode',
     };
   }
 
   static types(): { [key: string]: any } {
     return {
+      lang: 'string',
       productCode: 'string',
     };
   }
@@ -6071,15 +6074,18 @@ export class QueryPrepaidCardsResponse extends $tea.Model {
 
 export class QueryPriceEntityListRequest extends $tea.Model {
   commodityCode?: string;
+  lang?: string;
   static names(): { [key: string]: string } {
     return {
       commodityCode: 'CommodityCode',
+      lang: 'Lang',
     };
   }
 
   static types(): { [key: string]: any } {
     return {
       commodityCode: 'string',
+      lang: 'string',
     };
   }
 
@@ -7154,6 +7160,7 @@ export class QuerySettleBillResponse extends $tea.Model {
 
 export class QuerySkuPriceListRequest extends $tea.Model {
   commodityCode?: string;
+  lang?: string;
   nextPageToken?: string;
   pageSize?: number;
   priceEntityCode?: string;
@@ -7161,6 +7168,7 @@ export class QuerySkuPriceListRequest extends $tea.Model {
   static names(): { [key: string]: string } {
     return {
       commodityCode: 'CommodityCode',
+      lang: 'Lang',
       nextPageToken: 'NextPageToken',
       pageSize: 'PageSize',
       priceEntityCode: 'PriceEntityCode',
@@ -7171,6 +7179,7 @@ export class QuerySkuPriceListRequest extends $tea.Model {
   static types(): { [key: string]: any } {
     return {
       commodityCode: 'string',
+      lang: 'string',
       nextPageToken: 'string',
       pageSize: 'number',
       priceEntityCode: 'string',
@@ -7185,6 +7194,7 @@ export class QuerySkuPriceListRequest extends $tea.Model {
 
 export class QuerySkuPriceListShrinkRequest extends $tea.Model {
   commodityCode?: string;
+  lang?: string;
   nextPageToken?: string;
   pageSize?: number;
   priceEntityCode?: string;
@@ -7192,6 +7202,7 @@ export class QuerySkuPriceListShrinkRequest extends $tea.Model {
   static names(): { [key: string]: string } {
     return {
       commodityCode: 'CommodityCode',
+      lang: 'Lang',
       nextPageToken: 'NextPageToken',
       pageSize: 'PageSize',
       priceEntityCode: 'PriceEntityCode',
@@ -7202,6 +7213,7 @@ export class QuerySkuPriceListShrinkRequest extends $tea.Model {
   static types(): { [key: string]: any } {
     return {
       commodityCode: 'string',
+      lang: 'string',
       nextPageToken: 'string',
       pageSize: 'number',
       priceEntityCode: 'string',
@@ -7718,6 +7730,96 @@ export class RelieveAccountRelationResponse extends $tea.Model {
       headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
       statusCode: 'number',
       body: RelieveAccountRelationResponseBody,
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class RenewChangeInstanceRequest extends $tea.Model {
+  clientToken?: string;
+  instanceId?: string;
+  parameter?: RenewChangeInstanceRequestParameter[];
+  productCode?: string;
+  productType?: string;
+  renewPeriod?: number;
+  static names(): { [key: string]: string } {
+    return {
+      clientToken: 'ClientToken',
+      instanceId: 'InstanceId',
+      parameter: 'Parameter',
+      productCode: 'ProductCode',
+      productType: 'ProductType',
+      renewPeriod: 'RenewPeriod',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      clientToken: 'string',
+      instanceId: 'string',
+      parameter: { 'type': 'array', 'itemType': RenewChangeInstanceRequestParameter },
+      productCode: 'string',
+      productType: 'string',
+      renewPeriod: 'number',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class RenewChangeInstanceResponseBody extends $tea.Model {
+  code?: string;
+  data?: RenewChangeInstanceResponseBodyData;
+  message?: string;
+  requestId?: string;
+  success?: boolean;
+  static names(): { [key: string]: string } {
+    return {
+      code: 'Code',
+      data: 'Data',
+      message: 'Message',
+      requestId: 'RequestId',
+      success: 'Success',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      code: 'string',
+      data: RenewChangeInstanceResponseBodyData,
+      message: 'string',
+      requestId: 'string',
+      success: 'boolean',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class RenewChangeInstanceResponse extends $tea.Model {
+  headers: { [key: string]: string };
+  statusCode: number;
+  body: RenewChangeInstanceResponseBody;
+  static names(): { [key: string]: string } {
+    return {
+      headers: 'headers',
+      statusCode: 'statusCode',
+      body: 'body',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
+      body: RenewChangeInstanceResponseBody,
     };
   }
 
@@ -13601,6 +13703,7 @@ export class QueryCashCouponsResponseBodyDataCashCoupon extends $tea.Model {
   balance?: string;
   cashCouponId?: number;
   cashCouponNo?: string;
+  description?: string;
   effectiveTime?: string;
   expiryTime?: string;
   grantedTime?: string;
@@ -13613,6 +13716,7 @@ export class QueryCashCouponsResponseBodyDataCashCoupon extends $tea.Model {
       balance: 'Balance',
       cashCouponId: 'CashCouponId',
       cashCouponNo: 'CashCouponNo',
+      description: 'Description',
       effectiveTime: 'EffectiveTime',
       expiryTime: 'ExpiryTime',
       grantedTime: 'GrantedTime',
@@ -13628,6 +13732,7 @@ export class QueryCashCouponsResponseBodyDataCashCoupon extends $tea.Model {
       balance: 'string',
       cashCouponId: 'number',
       cashCouponNo: 'string',
+      description: 'string',
       effectiveTime: 'string',
       expiryTime: 'string',
       grantedTime: 'string',
@@ -15769,6 +15874,7 @@ export class QuerySavingsPlansDiscountResponseBodyDataItems extends $tea.Model {
   moduleName?: string;
   payMode?: string;
   region?: string;
+  regionCode?: string;
   spec?: string;
   spnType?: string;
   static names(): { [key: string]: string } {
@@ -15780,6 +15886,7 @@ export class QuerySavingsPlansDiscountResponseBodyDataItems extends $tea.Model {
       moduleName: 'ModuleName',
       payMode: 'PayMode',
       region: 'Region',
+      regionCode: 'RegionCode',
       spec: 'Spec',
       spnType: 'SpnType',
     };
@@ -15794,6 +15901,7 @@ export class QuerySavingsPlansDiscountResponseBodyDataItems extends $tea.Model {
       moduleName: 'string',
       payMode: 'string',
       region: 'string',
+      regionCode: 'string',
       spec: 'string',
       spnType: 'string',
     };
@@ -15872,7 +15980,9 @@ export class QuerySavingsPlansInstanceResponseBodyDataItemsTags extends $tea.Mod
 
 export class QuerySavingsPlansInstanceResponseBodyDataItems extends $tea.Model {
   allocationStatus?: string;
+  commodityCode?: string;
   currency?: string;
+  currentPoolValue?: string;
   cycle?: string;
   deductCycleType?: string;
   endTime?: string;
@@ -15896,7 +16006,9 @@ export class QuerySavingsPlansInstanceResponseBodyDataItems extends $tea.Model {
   static names(): { [key: string]: string } {
     return {
       allocationStatus: 'AllocationStatus',
+      commodityCode: 'CommodityCode',
       currency: 'Currency',
+      currentPoolValue: 'CurrentPoolValue',
       cycle: 'Cycle',
       deductCycleType: 'DeductCycleType',
       endTime: 'EndTime',
@@ -15923,7 +16035,9 @@ export class QuerySavingsPlansInstanceResponseBodyDataItems extends $tea.Model {
   static types(): { [key: string]: any } {
     return {
       allocationStatus: 'string',
+      commodityCode: 'string',
       currency: 'string',
+      currentPoolValue: 'string',
       cycle: 'string',
       deductCycleType: 'string',
       endTime: 'string',
@@ -16590,6 +16704,50 @@ export class RelieveAccountRelationResponseBodyData extends $tea.Model {
   static types(): { [key: string]: any } {
     return {
       hostId: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class RenewChangeInstanceRequestParameter extends $tea.Model {
+  code?: string;
+  value?: string;
+  static names(): { [key: string]: string } {
+    return {
+      code: 'Code',
+      value: 'Value',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      code: 'string',
+      value: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class RenewChangeInstanceResponseBodyData extends $tea.Model {
+  hostId?: string;
+  orderId?: string;
+  static names(): { [key: string]: string } {
+    return {
+      hostId: 'HostId',
+      orderId: 'OrderId',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      hostId: 'string',
+      orderId: 'string',
     };
   }
 
@@ -18686,7 +18844,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-    * The ID of the customer.
+    * The system queries the IDs of customers of a VNO based on the AccessKey pair used in the request.
     *
     * @param request GetCustomerListRequest
     * @param runtime runtime options for this request RuntimeOptions
@@ -18709,7 +18867,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-    * The ID of the customer.
+    * The system queries the IDs of customers of a VNO based on the AccessKey pair used in the request.
     *
     * @return GetCustomerListResponse
    */
@@ -19797,7 +19955,8 @@ export default class Client extends OpenApi {
   }
 
   /**
-    * The UID of the deducted instance.
+    * Limits:
+    * *   Only the usage records within the past year can be queried.
     *
     * @param request QueryDPUtilizationDetailRequest
     * @param runtime runtime options for this request RuntimeOptions
@@ -19864,7 +20023,8 @@ export default class Client extends OpenApi {
   }
 
   /**
-    * The UID of the deducted instance.
+    * Limits:
+    * *   Only the usage records within the past year can be queried.
     *
     * @param request QueryDPUtilizationDetailRequest
     * @return QueryDPUtilizationDetailResponse
@@ -21203,6 +21363,55 @@ export default class Client extends OpenApi {
   async relieveAccountRelation(request: RelieveAccountRelationRequest): Promise<RelieveAccountRelationResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.relieveAccountRelationWithOptions(request, runtime);
+  }
+
+  async renewChangeInstanceWithOptions(request: RenewChangeInstanceRequest, runtime: $Util.RuntimeOptions): Promise<RenewChangeInstanceResponse> {
+    Util.validateModel(request);
+    let query = { };
+    if (!Util.isUnset(request.clientToken)) {
+      query["ClientToken"] = request.clientToken;
+    }
+
+    if (!Util.isUnset(request.instanceId)) {
+      query["InstanceId"] = request.instanceId;
+    }
+
+    if (!Util.isUnset(request.parameter)) {
+      query["Parameter"] = request.parameter;
+    }
+
+    if (!Util.isUnset(request.productCode)) {
+      query["ProductCode"] = request.productCode;
+    }
+
+    if (!Util.isUnset(request.productType)) {
+      query["ProductType"] = request.productType;
+    }
+
+    if (!Util.isUnset(request.renewPeriod)) {
+      query["RenewPeriod"] = request.renewPeriod;
+    }
+
+    let req = new $OpenApi.OpenApiRequest({
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApi.Params({
+      action: "RenewChangeInstance",
+      version: "2017-12-14",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $tea.cast<RenewChangeInstanceResponse>(await this.callApi(params, req, runtime), new RenewChangeInstanceResponse({}));
+  }
+
+  async renewChangeInstance(request: RenewChangeInstanceRequest): Promise<RenewChangeInstanceResponse> {
+    let runtime = new $Util.RuntimeOptions({ });
+    return await this.renewChangeInstanceWithOptions(request, runtime);
   }
 
   async renewInstanceWithOptions(request: RenewInstanceRequest, runtime: $Util.RuntimeOptions): Promise<RenewInstanceResponse> {
