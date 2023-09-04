@@ -11197,6 +11197,7 @@ export class SetCdnDomainSSLCertificateRequest extends $tea.Model {
   certRegion?: string;
   certType?: string;
   domainName?: string;
+  env?: string;
   ownerId?: number;
   SSLPri?: string;
   SSLProtocol?: string;
@@ -11209,6 +11210,7 @@ export class SetCdnDomainSSLCertificateRequest extends $tea.Model {
       certRegion: 'CertRegion',
       certType: 'CertType',
       domainName: 'DomainName',
+      env: 'Env',
       ownerId: 'OwnerId',
       SSLPri: 'SSLPri',
       SSLProtocol: 'SSLProtocol',
@@ -11224,6 +11226,7 @@ export class SetCdnDomainSSLCertificateRequest extends $tea.Model {
       certRegion: 'string',
       certType: 'string',
       domainName: 'string',
+      env: 'string',
       ownerId: 'number',
       SSLPri: 'string',
       SSLProtocol: 'string',
@@ -18026,8 +18029,9 @@ export default class Client extends OpenApi {
   }
 
   /**
-    * *   You can call this operation up to 10 times per second per account.
-    * *   You can specify up to 10 domain names in each request. Separate multiple domain names with commas (,)
+    * > *   You can call this operation up to 10 times per second per account.
+    * >*   You can specify up to 10 domain names in each request. Separate multiple domain names with commas (,)
+    * >*   If the service type of a domain name is live streaming, the service may be unavailable after you configure the certificate for the domain name. Therefore, you cannot use this operation to configure the certificate for a domain name that is used for live streaming.
     *
     * @param request BatchSetCdnDomainServerCertificateRequest
     * @param runtime runtime options for this request RuntimeOptions
@@ -18094,8 +18098,9 @@ export default class Client extends OpenApi {
   }
 
   /**
-    * *   You can call this operation up to 10 times per second per account.
-    * *   You can specify up to 10 domain names in each request. Separate multiple domain names with commas (,)
+    * > *   You can call this operation up to 10 times per second per account.
+    * >*   You can specify up to 10 domain names in each request. Separate multiple domain names with commas (,)
+    * >*   If the service type of a domain name is live streaming, the service may be unavailable after you configure the certificate for the domain name. Therefore, you cannot use this operation to configure the certificate for a domain name that is used for live streaming.
     *
     * @param request BatchSetCdnDomainServerCertificateRequest
     * @return BatchSetCdnDomainServerCertificateResponse
@@ -19385,7 +19390,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-    * > You can call this operation up to 100 times per second per account.
+    * >  You can call this operation up to 100 times per second per account.
     *
     * @param request DescribeCdnDomainByCertificateRequest
     * @param runtime runtime options for this request RuntimeOptions
@@ -19424,7 +19429,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-    * > You can call this operation up to 100 times per second per account.
+    * >  You can call this operation up to 100 times per second per account.
     *
     * @param request DescribeCdnDomainByCertificateRequest
     * @return DescribeCdnDomainByCertificateResponse
@@ -21413,11 +21418,16 @@ export default class Client extends OpenApi {
   }
 
   /**
-    * *   The unit of the bandwidth is bit/s.
-    * *   The time granularity of the queried data is 5 minutes.
-    * *   You can query data in the last 90 days.
-    * *   You can specify the StartTime and EndTime parameters, or the TimePoint and Cycle parameters to query the 95th percentile bandwidth data. If you specify the StartTime and EndTime parameters and the time range that is specified by these parameters is less than or equal to 24 hours, the 95th percentile bandwidth data on the day of the start time is returned. If the time range that is specified by these parameters is more than 24 hours, the 95th percentile bandwidth data in the month of the start time is returned. If you specify the TimePoint and Cycle parameters, the 95th percentile bandwidth data of the cycle is returned. If you do not specify parameters as previously mentioned, the 95th percentile bandwidth data in the last 24 hours is returned.
-    * *   You can call this operation up to 100 times per second per account.
+    * **You can use one of the following methods to query data:**
+    * *   If you specify the StartTime and EndTime parameters and the time range that is specified by these parameters is less than or equal to 24 hours, the 95th percentile bandwidth data on the day of the start time is returned. If the time range that is specified by these parameters is more than 24 hours, the 95th percentile bandwidth data in the month of the start time is returned.
+    * *   If you specify the TimePoint and Cycle parameters, the 95th percentile bandwidth data of the cycle is returned.
+    * *   If you specify the StartTime, EndTime, and Cycle parameters, the 95th percentile bandwidth data of the cycle is returned.
+    * If you do not use one of the methods, the 95th percentile bandwidth data of the previous 24 hours is returned by default.
+    * * Maximum time range to query: 90 days 
+    * * Minimum data granularity to query: 1 day 
+    * * Historical data available: 90 days
+    * - You can call this operation up to 100 times per second per account.
+    * - The unit of the bandwidth data returned is bit/s.
     *
     * @param request DescribeDomainMax95BpsDataRequest
     * @param runtime runtime options for this request RuntimeOptions
@@ -21464,11 +21474,16 @@ export default class Client extends OpenApi {
   }
 
   /**
-    * *   The unit of the bandwidth is bit/s.
-    * *   The time granularity of the queried data is 5 minutes.
-    * *   You can query data in the last 90 days.
-    * *   You can specify the StartTime and EndTime parameters, or the TimePoint and Cycle parameters to query the 95th percentile bandwidth data. If you specify the StartTime and EndTime parameters and the time range that is specified by these parameters is less than or equal to 24 hours, the 95th percentile bandwidth data on the day of the start time is returned. If the time range that is specified by these parameters is more than 24 hours, the 95th percentile bandwidth data in the month of the start time is returned. If you specify the TimePoint and Cycle parameters, the 95th percentile bandwidth data of the cycle is returned. If you do not specify parameters as previously mentioned, the 95th percentile bandwidth data in the last 24 hours is returned.
-    * *   You can call this operation up to 100 times per second per account.
+    * **You can use one of the following methods to query data:**
+    * *   If you specify the StartTime and EndTime parameters and the time range that is specified by these parameters is less than or equal to 24 hours, the 95th percentile bandwidth data on the day of the start time is returned. If the time range that is specified by these parameters is more than 24 hours, the 95th percentile bandwidth data in the month of the start time is returned.
+    * *   If you specify the TimePoint and Cycle parameters, the 95th percentile bandwidth data of the cycle is returned.
+    * *   If you specify the StartTime, EndTime, and Cycle parameters, the 95th percentile bandwidth data of the cycle is returned.
+    * If you do not use one of the methods, the 95th percentile bandwidth data of the previous 24 hours is returned by default.
+    * * Maximum time range to query: 90 days 
+    * * Minimum data granularity to query: 1 day 
+    * * Historical data available: 90 days
+    * - You can call this operation up to 100 times per second per account.
+    * - The unit of the bandwidth data returned is bit/s.
     *
     * @param request DescribeDomainMax95BpsDataRequest
     * @return DescribeDomainMax95BpsDataResponse
@@ -24903,6 +24918,15 @@ export default class Client extends OpenApi {
     return await this.modifyCdnDomainWithOptions(request, runtime);
   }
 
+  /**
+    * This operation is used in the following scenario:
+    * *   You have multiple Alibaba Cloud accounts and want to transfer domain names from Account A to Account B.
+    * *   You are prompted that a domain name has been added when you add the domain name to Alibaba Cloud CDN. You do not know which account does the domain name belong to, and you want to transfer the domain name to your current account.
+    *
+    * @param request ModifyCdnDomainOwnerRequest
+    * @param runtime runtime options for this request RuntimeOptions
+    * @return ModifyCdnDomainOwnerResponse
+   */
   async modifyCdnDomainOwnerWithOptions(request: ModifyCdnDomainOwnerRequest, runtime: $Util.RuntimeOptions): Promise<ModifyCdnDomainOwnerResponse> {
     Util.validateModel(request);
     let query = { };
@@ -24939,6 +24963,14 @@ export default class Client extends OpenApi {
     return $tea.cast<ModifyCdnDomainOwnerResponse>(await this.callApi(params, req, runtime), new ModifyCdnDomainOwnerResponse({}));
   }
 
+  /**
+    * This operation is used in the following scenario:
+    * *   You have multiple Alibaba Cloud accounts and want to transfer domain names from Account A to Account B.
+    * *   You are prompted that a domain name has been added when you add the domain name to Alibaba Cloud CDN. You do not know which account does the domain name belong to, and you want to transfer the domain name to your current account.
+    *
+    * @param request ModifyCdnDomainOwnerRequest
+    * @return ModifyCdnDomainOwnerResponse
+   */
   async modifyCdnDomainOwner(request: ModifyCdnDomainOwnerRequest): Promise<ModifyCdnDomainOwnerResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.modifyCdnDomainOwnerWithOptions(request, runtime);
@@ -25457,6 +25489,10 @@ export default class Client extends OpenApi {
 
     if (!Util.isUnset(request.domainName)) {
       query["DomainName"] = request.domainName;
+    }
+
+    if (!Util.isUnset(request.env)) {
+      query["Env"] = request.env;
     }
 
     if (!Util.isUnset(request.ownerId)) {
