@@ -14627,6 +14627,7 @@ export class SetDcdnDomainSSLCertificateRequest extends $tea.Model {
   certRegion?: string;
   certType?: string;
   domainName?: string;
+  env?: string;
   ownerId?: number;
   SSLPri?: string;
   SSLProtocol?: string;
@@ -14639,6 +14640,7 @@ export class SetDcdnDomainSSLCertificateRequest extends $tea.Model {
       certRegion: 'CertRegion',
       certType: 'CertType',
       domainName: 'DomainName',
+      env: 'Env',
       ownerId: 'OwnerId',
       SSLPri: 'SSLPri',
       SSLProtocol: 'SSLProtocol',
@@ -14654,6 +14656,7 @@ export class SetDcdnDomainSSLCertificateRequest extends $tea.Model {
       certRegion: 'string',
       certType: 'string',
       domainName: 'string',
+      env: 'string',
       ownerId: 'number',
       SSLPri: 'string',
       SSLProtocol: 'string',
@@ -32046,6 +32049,10 @@ export default class Client extends OpenApi {
 
     if (!Util.isUnset(request.domainName)) {
       query["DomainName"] = request.domainName;
+    }
+
+    if (!Util.isUnset(request.env)) {
+      query["Env"] = request.env;
     }
 
     if (!Util.isUnset(request.ownerId)) {
