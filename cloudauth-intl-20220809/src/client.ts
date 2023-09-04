@@ -857,6 +857,111 @@ export class DocOcrResponse extends $tea.Model {
   }
 }
 
+export class EkycVerifyRequest extends $tea.Model {
+  authorize?: string;
+  crop?: string;
+  docName?: string;
+  docNo?: string;
+  docType?: string;
+  facePictureBase64?: string;
+  facePictureUrl?: string;
+  idOcrPictureBase64?: string;
+  idOcrPictureUrl?: string;
+  merchantBizId?: string;
+  merchantUserId?: string;
+  productCode?: string;
+  static names(): { [key: string]: string } {
+    return {
+      authorize: 'Authorize',
+      crop: 'Crop',
+      docName: 'DocName',
+      docNo: 'DocNo',
+      docType: 'DocType',
+      facePictureBase64: 'FacePictureBase64',
+      facePictureUrl: 'FacePictureUrl',
+      idOcrPictureBase64: 'IdOcrPictureBase64',
+      idOcrPictureUrl: 'IdOcrPictureUrl',
+      merchantBizId: 'MerchantBizId',
+      merchantUserId: 'MerchantUserId',
+      productCode: 'ProductCode',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      authorize: 'string',
+      crop: 'string',
+      docName: 'string',
+      docNo: 'string',
+      docType: 'string',
+      facePictureBase64: 'string',
+      facePictureUrl: 'string',
+      idOcrPictureBase64: 'string',
+      idOcrPictureUrl: 'string',
+      merchantBizId: 'string',
+      merchantUserId: 'string',
+      productCode: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class EkycVerifyResponseBody extends $tea.Model {
+  code?: string;
+  message?: string;
+  requestId?: string;
+  result?: EkycVerifyResponseBodyResult;
+  static names(): { [key: string]: string } {
+    return {
+      code: 'Code',
+      message: 'Message',
+      requestId: 'RequestId',
+      result: 'Result',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      code: 'string',
+      message: 'string',
+      requestId: 'string',
+      result: EkycVerifyResponseBodyResult,
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class EkycVerifyResponse extends $tea.Model {
+  headers: { [key: string]: string };
+  statusCode: number;
+  body: EkycVerifyResponseBody;
+  static names(): { [key: string]: string } {
+    return {
+      headers: 'headers',
+      statusCode: 'statusCode',
+      body: 'body',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
+      body: EkycVerifyResponseBody,
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
 export class FaceCompareRequest extends $tea.Model {
   merchantBizId?: string;
   sourceFacePicture?: string;
@@ -1133,6 +1238,7 @@ export class InitializeRequest extends $tea.Model {
   pages?: string;
   productCode?: string;
   productConfig?: string;
+  productFlow?: string;
   returnUrl?: string;
   sceneCode?: string;
   serviceLevel?: string;
@@ -1155,6 +1261,7 @@ export class InitializeRequest extends $tea.Model {
       pages: 'Pages',
       productCode: 'ProductCode',
       productConfig: 'ProductConfig',
+      productFlow: 'ProductFlow',
       returnUrl: 'ReturnUrl',
       sceneCode: 'SceneCode',
       serviceLevel: 'ServiceLevel',
@@ -1180,6 +1287,7 @@ export class InitializeRequest extends $tea.Model {
       pages: 'string',
       productCode: 'string',
       productConfig: 'string',
+      productFlow: 'string',
       returnUrl: 'string',
       sceneCode: 'string',
       serviceLevel: 'string',
@@ -1583,6 +1691,37 @@ export class DocOcrResponseBodyResult extends $tea.Model {
 
   static types(): { [key: string]: any } {
     return {
+      extIdInfo: 'string',
+      passed: 'string',
+      subCode: 'string',
+      transactionId: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class EkycVerifyResponseBodyResult extends $tea.Model {
+  extFaceInfo?: string;
+  extIdInfo?: string;
+  passed?: string;
+  subCode?: string;
+  transactionId?: string;
+  static names(): { [key: string]: string } {
+    return {
+      extFaceInfo: 'ExtFaceInfo',
+      extIdInfo: 'ExtIdInfo',
+      passed: 'Passed',
+      subCode: 'SubCode',
+      transactionId: 'TransactionId',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      extFaceInfo: 'string',
       extIdInfo: 'string',
       passed: 'string',
       subCode: 'string',
@@ -2178,6 +2317,79 @@ export default class Client extends OpenApi {
     return await this.docOcrWithOptions(request, runtime);
   }
 
+  async ekycVerifyWithOptions(request: EkycVerifyRequest, runtime: $Util.RuntimeOptions): Promise<EkycVerifyResponse> {
+    Util.validateModel(request);
+    let query = { };
+    if (!Util.isUnset(request.authorize)) {
+      query["Authorize"] = request.authorize;
+    }
+
+    if (!Util.isUnset(request.crop)) {
+      query["Crop"] = request.crop;
+    }
+
+    if (!Util.isUnset(request.docName)) {
+      query["DocName"] = request.docName;
+    }
+
+    if (!Util.isUnset(request.docNo)) {
+      query["DocNo"] = request.docNo;
+    }
+
+    if (!Util.isUnset(request.docType)) {
+      query["DocType"] = request.docType;
+    }
+
+    if (!Util.isUnset(request.facePictureBase64)) {
+      query["FacePictureBase64"] = request.facePictureBase64;
+    }
+
+    if (!Util.isUnset(request.facePictureUrl)) {
+      query["FacePictureUrl"] = request.facePictureUrl;
+    }
+
+    if (!Util.isUnset(request.idOcrPictureBase64)) {
+      query["IdOcrPictureBase64"] = request.idOcrPictureBase64;
+    }
+
+    if (!Util.isUnset(request.idOcrPictureUrl)) {
+      query["IdOcrPictureUrl"] = request.idOcrPictureUrl;
+    }
+
+    if (!Util.isUnset(request.merchantBizId)) {
+      query["MerchantBizId"] = request.merchantBizId;
+    }
+
+    if (!Util.isUnset(request.merchantUserId)) {
+      query["MerchantUserId"] = request.merchantUserId;
+    }
+
+    if (!Util.isUnset(request.productCode)) {
+      query["ProductCode"] = request.productCode;
+    }
+
+    let req = new $OpenApi.OpenApiRequest({
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApi.Params({
+      action: "EkycVerify",
+      version: "2022-08-09",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $tea.cast<EkycVerifyResponse>(await this.callApi(params, req, runtime), new EkycVerifyResponse({}));
+  }
+
+  async ekycVerify(request: EkycVerifyRequest): Promise<EkycVerifyResponse> {
+    let runtime = new $Util.RuntimeOptions({ });
+    return await this.ekycVerifyWithOptions(request, runtime);
+  }
+
   async faceCompareWithOptions(request: FaceCompareRequest, runtime: $Util.RuntimeOptions): Promise<FaceCompareResponse> {
     Util.validateModel(request);
     let query = { };
@@ -2390,6 +2602,10 @@ export default class Client extends OpenApi {
 
     if (!Util.isUnset(request.productConfig)) {
       query["ProductConfig"] = request.productConfig;
+    }
+
+    if (!Util.isUnset(request.productFlow)) {
+      query["ProductFlow"] = request.productFlow;
     }
 
     if (!Util.isUnset(request.returnUrl)) {
