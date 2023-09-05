@@ -168,13 +168,91 @@ export class CancelLensServiceResponse extends $tea.Model {
   }
 }
 
+export class ChangeResourceGroupRequest extends $tea.Model {
+  clientToken?: string;
+  newResourceGroupId?: string;
+  regionId?: string;
+  resourceId?: string;
+  resourceType?: string;
+  static names(): { [key: string]: string } {
+    return {
+      clientToken: 'ClientToken',
+      newResourceGroupId: 'NewResourceGroupId',
+      regionId: 'RegionId',
+      resourceId: 'ResourceId',
+      resourceType: 'ResourceType',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      clientToken: 'string',
+      newResourceGroupId: 'string',
+      regionId: 'string',
+      resourceId: 'string',
+      resourceType: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class ChangeResourceGroupResponseBody extends $tea.Model {
+  requestId?: string;
+  static names(): { [key: string]: string } {
+    return {
+      requestId: 'RequestId',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      requestId: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class ChangeResourceGroupResponse extends $tea.Model {
+  headers: { [key: string]: string };
+  statusCode: number;
+  body: ChangeResourceGroupResponseBody;
+  static names(): { [key: string]: string } {
+    return {
+      headers: 'headers',
+      statusCode: 'statusCode',
+      body: 'body',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
+      body: ChangeResourceGroupResponseBody,
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
 export class CreateDedicatedBlockStorageClusterRequest extends $tea.Model {
   azone?: string;
   capacity?: number;
   dbscId?: string;
   dbscName?: string;
+  period?: number;
+  periodUnit?: string;
   regionId?: string;
   resourceGroupId?: string;
+  tag?: CreateDedicatedBlockStorageClusterRequestTag[];
   type?: string;
   static names(): { [key: string]: string } {
     return {
@@ -182,8 +260,11 @@ export class CreateDedicatedBlockStorageClusterRequest extends $tea.Model {
       capacity: 'Capacity',
       dbscId: 'DbscId',
       dbscName: 'DbscName',
+      period: 'Period',
+      periodUnit: 'PeriodUnit',
       regionId: 'RegionId',
       resourceGroupId: 'ResourceGroupId',
+      tag: 'Tag',
       type: 'Type',
     };
   }
@@ -194,8 +275,11 @@ export class CreateDedicatedBlockStorageClusterRequest extends $tea.Model {
       capacity: 'number',
       dbscId: 'string',
       dbscName: 'string',
+      period: 'number',
+      periodUnit: 'string',
       regionId: 'string',
       resourceGroupId: 'string',
+      tag: { 'type': 'array', 'itemType': CreateDedicatedBlockStorageClusterRequestTag },
       type: 'string',
     };
   }
@@ -264,7 +348,9 @@ export class CreateDiskReplicaGroupRequest extends $tea.Model {
   groupName?: string;
   RPO?: number;
   regionId?: string;
+  resourceGroupId?: string;
   sourceZoneId?: string;
+  tag?: CreateDiskReplicaGroupRequestTag[];
   static names(): { [key: string]: string } {
     return {
       bandwidth: 'Bandwidth',
@@ -275,7 +361,9 @@ export class CreateDiskReplicaGroupRequest extends $tea.Model {
       groupName: 'GroupName',
       RPO: 'RPO',
       regionId: 'RegionId',
+      resourceGroupId: 'ResourceGroupId',
       sourceZoneId: 'SourceZoneId',
+      tag: 'Tag',
     };
   }
 
@@ -289,7 +377,9 @@ export class CreateDiskReplicaGroupRequest extends $tea.Model {
       groupName: 'string',
       RPO: 'number',
       regionId: 'string',
+      resourceGroupId: 'string',
       sourceZoneId: 'string',
+      tag: { 'type': 'array', 'itemType': CreateDiskReplicaGroupRequestTag },
     };
   }
 
@@ -359,7 +449,9 @@ export class CreateDiskReplicaPairRequest extends $tea.Model {
   periodUnit?: string;
   RPO?: number;
   regionId?: string;
+  resourceGroupId?: string;
   sourceZoneId?: string;
+  tag?: CreateDiskReplicaPairRequestTag[];
   static names(): { [key: string]: string } {
     return {
       bandwidth: 'Bandwidth',
@@ -375,7 +467,9 @@ export class CreateDiskReplicaPairRequest extends $tea.Model {
       periodUnit: 'PeriodUnit',
       RPO: 'RPO',
       regionId: 'RegionId',
+      resourceGroupId: 'ResourceGroupId',
       sourceZoneId: 'SourceZoneId',
+      tag: 'Tag',
     };
   }
 
@@ -394,7 +488,9 @@ export class CreateDiskReplicaPairRequest extends $tea.Model {
       periodUnit: 'string',
       RPO: 'number',
       regionId: 'string',
+      resourceGroupId: 'string',
       sourceZoneId: 'string',
+      tag: { 'type': 'array', 'itemType': CreateDiskReplicaPairRequestTag },
     };
   }
 
@@ -1054,7 +1150,9 @@ export class DescribeDiskReplicaGroupsRequest extends $tea.Model {
   pageNumber?: number;
   pageSize?: number;
   regionId?: string;
+  resourceGroupId?: string;
   site?: string;
+  tag?: DescribeDiskReplicaGroupsRequestTag[];
   static names(): { [key: string]: string } {
     return {
       groupIds: 'GroupIds',
@@ -1063,7 +1161,9 @@ export class DescribeDiskReplicaGroupsRequest extends $tea.Model {
       pageNumber: 'PageNumber',
       pageSize: 'PageSize',
       regionId: 'RegionId',
+      resourceGroupId: 'ResourceGroupId',
       site: 'Site',
+      tag: 'Tag',
     };
   }
 
@@ -1075,7 +1175,9 @@ export class DescribeDiskReplicaGroupsRequest extends $tea.Model {
       pageNumber: 'number',
       pageSize: 'number',
       regionId: 'string',
+      resourceGroupId: 'string',
       site: 'string',
+      tag: { 'type': 'array', 'itemType': DescribeDiskReplicaGroupsRequestTag },
     };
   }
 
@@ -1223,7 +1325,9 @@ export class DescribeDiskReplicaPairsRequest extends $tea.Model {
   pairIds?: string;
   regionId?: string;
   replicaGroupId?: string;
+  resourceGroupId?: string;
   site?: string;
+  tag?: DescribeDiskReplicaPairsRequestTag[];
   static names(): { [key: string]: string } {
     return {
       maxResults: 'MaxResults',
@@ -1233,7 +1337,9 @@ export class DescribeDiskReplicaPairsRequest extends $tea.Model {
       pairIds: 'PairIds',
       regionId: 'RegionId',
       replicaGroupId: 'ReplicaGroupId',
+      resourceGroupId: 'ResourceGroupId',
       site: 'Site',
+      tag: 'Tag',
     };
   }
 
@@ -1246,7 +1352,9 @@ export class DescribeDiskReplicaPairsRequest extends $tea.Model {
       pairIds: 'string',
       regionId: 'string',
       replicaGroupId: 'string',
+      resourceGroupId: 'string',
       site: 'string',
+      tag: { 'type': 'array', 'itemType': DescribeDiskReplicaPairsRequestTag },
     };
   }
 
@@ -2713,6 +2821,72 @@ export class UntagResourcesResponse extends $tea.Model {
   }
 }
 
+export class CreateDedicatedBlockStorageClusterRequestTag extends $tea.Model {
+  key?: string;
+  value?: string;
+  static names(): { [key: string]: string } {
+    return {
+      key: 'Key',
+      value: 'Value',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      key: 'string',
+      value: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class CreateDiskReplicaGroupRequestTag extends $tea.Model {
+  key?: string;
+  value?: string;
+  static names(): { [key: string]: string } {
+    return {
+      key: 'Key',
+      value: 'Value',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      key: 'string',
+      value: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class CreateDiskReplicaPairRequestTag extends $tea.Model {
+  key?: string;
+  value?: string;
+  static names(): { [key: string]: string } {
+    return {
+      key: 'Key',
+      value: 'Value',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      key: 'string',
+      value: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
 export class DescribeDedicatedBlockStorageClusterDisksResponseBodyDisksDiskTags extends $tea.Model {
   tagKey?: string;
   tagValue?: string;
@@ -2738,6 +2912,7 @@ export class DescribeDedicatedBlockStorageClusterDisksResponseBodyDisksDiskTags 
 export class DescribeDedicatedBlockStorageClusterDisksResponseBodyDisksDisk extends $tea.Model {
   attachedTime?: string;
   bdfId?: string;
+  burstingEnabled?: boolean;
   category?: string;
   deleteAutoSnapshot?: boolean;
   deleteWithInstance?: boolean;
@@ -2757,6 +2932,7 @@ export class DescribeDedicatedBlockStorageClusterDisksResponseBodyDisksDisk exte
   multiAttach?: string;
   performanceLevel?: string;
   portable?: boolean;
+  provisionedIops?: number;
   regionId?: string;
   size?: number;
   sourceSnapshotId?: string;
@@ -2765,12 +2941,14 @@ export class DescribeDedicatedBlockStorageClusterDisksResponseBodyDisksDisk exte
   storageSetId?: string;
   storageSetPartitionNumber?: number;
   tags?: DescribeDedicatedBlockStorageClusterDisksResponseBodyDisksDiskTags[];
+  throughput?: number;
   type?: string;
   zoneId?: string;
   static names(): { [key: string]: string } {
     return {
       attachedTime: 'AttachedTime',
       bdfId: 'BdfId',
+      burstingEnabled: 'BurstingEnabled',
       category: 'Category',
       deleteAutoSnapshot: 'DeleteAutoSnapshot',
       deleteWithInstance: 'DeleteWithInstance',
@@ -2790,6 +2968,7 @@ export class DescribeDedicatedBlockStorageClusterDisksResponseBodyDisksDisk exte
       multiAttach: 'MultiAttach',
       performanceLevel: 'PerformanceLevel',
       portable: 'Portable',
+      provisionedIops: 'ProvisionedIops',
       regionId: 'RegionId',
       size: 'Size',
       sourceSnapshotId: 'SourceSnapshotId',
@@ -2798,6 +2977,7 @@ export class DescribeDedicatedBlockStorageClusterDisksResponseBodyDisksDisk exte
       storageSetId: 'StorageSetId',
       storageSetPartitionNumber: 'StorageSetPartitionNumber',
       tags: 'Tags',
+      throughput: 'Throughput',
       type: 'Type',
       zoneId: 'ZoneId',
     };
@@ -2807,6 +2987,7 @@ export class DescribeDedicatedBlockStorageClusterDisksResponseBodyDisksDisk exte
     return {
       attachedTime: 'string',
       bdfId: 'string',
+      burstingEnabled: 'boolean',
       category: 'string',
       deleteAutoSnapshot: 'boolean',
       deleteWithInstance: 'boolean',
@@ -2826,6 +3007,7 @@ export class DescribeDedicatedBlockStorageClusterDisksResponseBodyDisksDisk exte
       multiAttach: 'string',
       performanceLevel: 'string',
       portable: 'boolean',
+      provisionedIops: 'number',
       regionId: 'string',
       size: 'number',
       sourceSnapshotId: 'string',
@@ -2834,6 +3016,7 @@ export class DescribeDedicatedBlockStorageClusterDisksResponseBodyDisksDisk exte
       storageSetId: 'string',
       storageSetPartitionNumber: 'number',
       tags: { 'type': 'array', 'itemType': DescribeDedicatedBlockStorageClusterDisksResponseBodyDisksDiskTags },
+      throughput: 'number',
       type: 'string',
       zoneId: 'string',
     };
@@ -2887,24 +3070,48 @@ export class DescribeDedicatedBlockStorageClustersRequestTag extends $tea.Model 
 
 export class DescribeDedicatedBlockStorageClustersResponseBodyDedicatedBlockStorageClustersDedicatedBlockStorageClusterCapacity extends $tea.Model {
   availableCapacity?: number;
+  availableDeviceCapacity?: number;
+  availableSpaceCapacity?: number;
+  clusterAvailableCapacity?: number;
+  clusterDeliveryCapacity?: number;
   deliveryCapacity?: number;
   totalCapacity?: number;
+  totalDeviceCapacity?: number;
+  totalSpaceCapacity?: number;
   usedCapacity?: number;
+  usedDeviceCapacity?: number;
+  usedSpaceCapacity?: number;
   static names(): { [key: string]: string } {
     return {
       availableCapacity: 'AvailableCapacity',
+      availableDeviceCapacity: 'AvailableDeviceCapacity',
+      availableSpaceCapacity: 'AvailableSpaceCapacity',
+      clusterAvailableCapacity: 'ClusterAvailableCapacity',
+      clusterDeliveryCapacity: 'ClusterDeliveryCapacity',
       deliveryCapacity: 'DeliveryCapacity',
       totalCapacity: 'TotalCapacity',
+      totalDeviceCapacity: 'TotalDeviceCapacity',
+      totalSpaceCapacity: 'TotalSpaceCapacity',
       usedCapacity: 'UsedCapacity',
+      usedDeviceCapacity: 'UsedDeviceCapacity',
+      usedSpaceCapacity: 'UsedSpaceCapacity',
     };
   }
 
   static types(): { [key: string]: any } {
     return {
       availableCapacity: 'number',
+      availableDeviceCapacity: 'number',
+      availableSpaceCapacity: 'number',
+      clusterAvailableCapacity: 'number',
+      clusterDeliveryCapacity: 'number',
       deliveryCapacity: 'number',
       totalCapacity: 'number',
+      totalDeviceCapacity: 'number',
+      totalSpaceCapacity: 'number',
       usedCapacity: 'number',
+      usedDeviceCapacity: 'number',
+      usedSpaceCapacity: 'number',
     };
   }
 
@@ -2936,34 +3143,42 @@ export class DescribeDedicatedBlockStorageClustersResponseBodyDedicatedBlockStor
 }
 
 export class DescribeDedicatedBlockStorageClustersResponseBodyDedicatedBlockStorageClusters extends $tea.Model {
+  aliUid?: string;
   category?: string;
   createTime?: string;
   dedicatedBlockStorageClusterCapacity?: DescribeDedicatedBlockStorageClustersResponseBodyDedicatedBlockStorageClustersDedicatedBlockStorageClusterCapacity;
   dedicatedBlockStorageClusterId?: string;
   dedicatedBlockStorageClusterName?: string;
   description?: string;
+  enableThinProvision?: boolean;
   expiredTime?: string;
   performanceLevel?: string;
   regionId?: string;
   resourceGroupId?: string;
+  sizeOverSoldRatio?: number;
   status?: string;
+  storageDomain?: string;
   supportedCategory?: string;
   tags?: DescribeDedicatedBlockStorageClustersResponseBodyDedicatedBlockStorageClustersTags[];
   type?: string;
   zoneId?: string;
   static names(): { [key: string]: string } {
     return {
+      aliUid: 'AliUid',
       category: 'Category',
       createTime: 'CreateTime',
       dedicatedBlockStorageClusterCapacity: 'DedicatedBlockStorageClusterCapacity',
       dedicatedBlockStorageClusterId: 'DedicatedBlockStorageClusterId',
       dedicatedBlockStorageClusterName: 'DedicatedBlockStorageClusterName',
       description: 'Description',
+      enableThinProvision: 'EnableThinProvision',
       expiredTime: 'ExpiredTime',
       performanceLevel: 'PerformanceLevel',
       regionId: 'RegionId',
       resourceGroupId: 'ResourceGroupId',
+      sizeOverSoldRatio: 'SizeOverSoldRatio',
       status: 'Status',
+      storageDomain: 'StorageDomain',
       supportedCategory: 'SupportedCategory',
       tags: 'Tags',
       type: 'Type',
@@ -2973,17 +3188,21 @@ export class DescribeDedicatedBlockStorageClustersResponseBodyDedicatedBlockStor
 
   static types(): { [key: string]: any } {
     return {
+      aliUid: 'string',
       category: 'string',
       createTime: 'string',
       dedicatedBlockStorageClusterCapacity: DescribeDedicatedBlockStorageClustersResponseBodyDedicatedBlockStorageClustersDedicatedBlockStorageClusterCapacity,
       dedicatedBlockStorageClusterId: 'string',
       dedicatedBlockStorageClusterName: 'string',
       description: 'string',
+      enableThinProvision: 'boolean',
       expiredTime: 'string',
       performanceLevel: 'string',
       regionId: 'string',
       resourceGroupId: 'string',
+      sizeOverSoldRatio: 'number',
       status: 'string',
+      storageDomain: 'string',
       supportedCategory: 'string',
       tags: { 'type': 'array', 'itemType': DescribeDedicatedBlockStorageClustersResponseBodyDedicatedBlockStorageClustersTags },
       type: 'string',
@@ -3101,6 +3320,50 @@ export class DescribeDiskMonitorDataListResponseBodyMonitorData extends $tea.Mod
   }
 }
 
+export class DescribeDiskReplicaGroupsRequestTag extends $tea.Model {
+  key?: string;
+  value?: string;
+  static names(): { [key: string]: string } {
+    return {
+      key: 'Key',
+      value: 'Value',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      key: 'string',
+      value: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class DescribeDiskReplicaGroupsResponseBodyReplicaGroupsTags extends $tea.Model {
+  tagKey?: string;
+  tagValue?: string;
+  static names(): { [key: string]: string } {
+    return {
+      tagKey: 'TagKey',
+      tagValue: 'TagValue',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      tagKey: 'string',
+      tagValue: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
 export class DescribeDiskReplicaGroupsResponseBodyReplicaGroups extends $tea.Model {
   bandwidth?: number;
   description?: string;
@@ -3114,12 +3377,14 @@ export class DescribeDiskReplicaGroupsResponseBodyReplicaGroups extends $tea.Mod
   primaryZone?: string;
   RPO?: number;
   replicaGroupId?: string;
+  resourceGroupId?: string;
   site?: string;
   sourceRegionId?: string;
   sourceZoneId?: string;
   standbyRegion?: string;
   standbyZone?: string;
   status?: string;
+  tags?: DescribeDiskReplicaGroupsResponseBodyReplicaGroupsTags[];
   static names(): { [key: string]: string } {
     return {
       bandwidth: 'Bandwidth',
@@ -3134,12 +3399,14 @@ export class DescribeDiskReplicaGroupsResponseBodyReplicaGroups extends $tea.Mod
       primaryZone: 'PrimaryZone',
       RPO: 'RPO',
       replicaGroupId: 'ReplicaGroupId',
+      resourceGroupId: 'ResourceGroupId',
       site: 'Site',
       sourceRegionId: 'SourceRegionId',
       sourceZoneId: 'SourceZoneId',
       standbyRegion: 'StandbyRegion',
       standbyZone: 'StandbyZone',
       status: 'Status',
+      tags: 'Tags',
     };
   }
 
@@ -3157,12 +3424,58 @@ export class DescribeDiskReplicaGroupsResponseBodyReplicaGroups extends $tea.Mod
       primaryZone: 'string',
       RPO: 'number',
       replicaGroupId: 'string',
+      resourceGroupId: 'string',
       site: 'string',
       sourceRegionId: 'string',
       sourceZoneId: 'string',
       standbyRegion: 'string',
       standbyZone: 'string',
       status: 'string',
+      tags: { 'type': 'array', 'itemType': DescribeDiskReplicaGroupsResponseBodyReplicaGroupsTags },
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class DescribeDiskReplicaPairsRequestTag extends $tea.Model {
+  key?: string;
+  value?: string;
+  static names(): { [key: string]: string } {
+    return {
+      key: 'Key',
+      value: 'Value',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      key: 'string',
+      value: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class DescribeDiskReplicaPairsResponseBodyReplicaPairsTags extends $tea.Model {
+  tagKey?: string;
+  tagValue?: string;
+  static names(): { [key: string]: string } {
+    return {
+      tagKey: 'TagKey',
+      tagValue: 'TagValue',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      tagKey: 'string',
+      tagValue: 'string',
     };
   }
 
@@ -3188,6 +3501,7 @@ export class DescribeDiskReplicaPairsResponseBodyReplicaPairs extends $tea.Model
   replicaGroupId?: string;
   replicaGroupName?: string;
   replicaPairId?: string;
+  resourceGroupId?: string;
   site?: string;
   sourceDiskId?: string;
   sourceRegion?: string;
@@ -3196,6 +3510,7 @@ export class DescribeDiskReplicaPairsResponseBodyReplicaPairs extends $tea.Model
   standbyZone?: string;
   status?: string;
   statusMessage?: string;
+  tags?: DescribeDiskReplicaPairsResponseBodyReplicaPairsTags[];
   static names(): { [key: string]: string } {
     return {
       bandwidth: 'Bandwidth',
@@ -3214,6 +3529,7 @@ export class DescribeDiskReplicaPairsResponseBodyReplicaPairs extends $tea.Model
       replicaGroupId: 'ReplicaGroupId',
       replicaGroupName: 'ReplicaGroupName',
       replicaPairId: 'ReplicaPairId',
+      resourceGroupId: 'ResourceGroupId',
       site: 'Site',
       sourceDiskId: 'SourceDiskId',
       sourceRegion: 'SourceRegion',
@@ -3222,6 +3538,7 @@ export class DescribeDiskReplicaPairsResponseBodyReplicaPairs extends $tea.Model
       standbyZone: 'StandbyZone',
       status: 'Status',
       statusMessage: 'StatusMessage',
+      tags: 'Tags',
     };
   }
 
@@ -3243,6 +3560,7 @@ export class DescribeDiskReplicaPairsResponseBodyReplicaPairs extends $tea.Model
       replicaGroupId: 'string',
       replicaGroupName: 'string',
       replicaPairId: 'string',
+      resourceGroupId: 'string',
       site: 'string',
       sourceDiskId: 'string',
       sourceRegion: 'string',
@@ -3251,6 +3569,7 @@ export class DescribeDiskReplicaPairsResponseBodyReplicaPairs extends $tea.Model
       standbyZone: 'string',
       status: 'string',
       statusMessage: 'string',
+      tags: { 'type': 'array', 'itemType': DescribeDiskReplicaPairsResponseBodyReplicaPairsTags },
     };
   }
 
@@ -3407,6 +3726,13 @@ export default class Client extends OpenApi {
     return EndpointUtil.getEndpointRules(productId, regionId, endpointRule, network, suffix);
   }
 
+  /**
+    * The region ID of the replication pair-consistent group.
+    *
+    * @param request AddDiskReplicaPairRequest
+    * @param runtime runtime options for this request RuntimeOptions
+    * @return AddDiskReplicaPairResponse
+   */
   async addDiskReplicaPairWithOptions(request: AddDiskReplicaPairRequest, runtime: $Util.RuntimeOptions): Promise<AddDiskReplicaPairResponse> {
     Util.validateModel(request);
     let query = { };
@@ -3443,11 +3769,25 @@ export default class Client extends OpenApi {
     return $tea.cast<AddDiskReplicaPairResponse>(await this.callApi(params, req, runtime), new AddDiskReplicaPairResponse({}));
   }
 
+  /**
+    * The region ID of the replication pair-consistent group.
+    *
+    * @param request AddDiskReplicaPairRequest
+    * @return AddDiskReplicaPairResponse
+   */
   async addDiskReplicaPair(request: AddDiskReplicaPairRequest): Promise<AddDiskReplicaPairResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.addDiskReplicaPairWithOptions(request, runtime);
   }
 
+  /**
+    * ## Usage notes
+    * CloudLens for EBS is in invitational preview in the China (Hangzhou), China (Shanghai), China (Zhangjiakou), China (Shenzhen), and China (Hong Kong) regions. To use the feature, [submit a ticket](https://workorder-intl.console.aliyun.com/#/ticket/createIndex).
+    *
+    * @param request ApplyLensServiceRequest
+    * @param runtime runtime options for this request RuntimeOptions
+    * @return ApplyLensServiceResponse
+   */
   async applyLensServiceWithOptions(runtime: $Util.RuntimeOptions): Promise<ApplyLensServiceResponse> {
     let req = new $OpenApi.OpenApiRequest({ });
     let params = new $OpenApi.Params({
@@ -3464,11 +3804,25 @@ export default class Client extends OpenApi {
     return $tea.cast<ApplyLensServiceResponse>(await this.callApi(params, req, runtime), new ApplyLensServiceResponse({}));
   }
 
+  /**
+    * ## Usage notes
+    * CloudLens for EBS is in invitational preview in the China (Hangzhou), China (Shanghai), China (Zhangjiakou), China (Shenzhen), and China (Hong Kong) regions. To use the feature, [submit a ticket](https://workorder-intl.console.aliyun.com/#/ticket/createIndex).
+    *
+    * @return ApplyLensServiceResponse
+   */
   async applyLensService(): Promise<ApplyLensServiceResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.applyLensServiceWithOptions(runtime);
   }
 
+  /**
+    * ## Usage notes
+    * CloudLens for EBS is in invitational preview in the China (Hangzhou), China (Shanghai), China (Zhangjiakou), China (Shenzhen), and China (Hong Kong) regions. To use the feature, [submit a ticket](https://workorder-intl.console.aliyun.com/#/ticket/createIndex).
+    *
+    * @param request CancelLensServiceRequest
+    * @param runtime runtime options for this request RuntimeOptions
+    * @return CancelLensServiceResponse
+   */
   async cancelLensServiceWithOptions(runtime: $Util.RuntimeOptions): Promise<CancelLensServiceResponse> {
     let req = new $OpenApi.OpenApiRequest({ });
     let params = new $OpenApi.Params({
@@ -3485,11 +3839,72 @@ export default class Client extends OpenApi {
     return $tea.cast<CancelLensServiceResponse>(await this.callApi(params, req, runtime), new CancelLensServiceResponse({}));
   }
 
+  /**
+    * ## Usage notes
+    * CloudLens for EBS is in invitational preview in the China (Hangzhou), China (Shanghai), China (Zhangjiakou), China (Shenzhen), and China (Hong Kong) regions. To use the feature, [submit a ticket](https://workorder-intl.console.aliyun.com/#/ticket/createIndex).
+    *
+    * @return CancelLensServiceResponse
+   */
   async cancelLensService(): Promise<CancelLensServiceResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.cancelLensServiceWithOptions(runtime);
   }
 
+  async changeResourceGroupWithOptions(request: ChangeResourceGroupRequest, runtime: $Util.RuntimeOptions): Promise<ChangeResourceGroupResponse> {
+    Util.validateModel(request);
+    let query = { };
+    if (!Util.isUnset(request.clientToken)) {
+      query["ClientToken"] = request.clientToken;
+    }
+
+    if (!Util.isUnset(request.newResourceGroupId)) {
+      query["NewResourceGroupId"] = request.newResourceGroupId;
+    }
+
+    if (!Util.isUnset(request.regionId)) {
+      query["RegionId"] = request.regionId;
+    }
+
+    if (!Util.isUnset(request.resourceId)) {
+      query["ResourceId"] = request.resourceId;
+    }
+
+    if (!Util.isUnset(request.resourceType)) {
+      query["ResourceType"] = request.resourceType;
+    }
+
+    let req = new $OpenApi.OpenApiRequest({
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApi.Params({
+      action: "ChangeResourceGroup",
+      version: "2021-07-30",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $tea.cast<ChangeResourceGroupResponse>(await this.callApi(params, req, runtime), new ChangeResourceGroupResponse({}));
+  }
+
+  async changeResourceGroup(request: ChangeResourceGroupRequest): Promise<ChangeResourceGroupResponse> {
+    let runtime = new $Util.RuntimeOptions({ });
+    return await this.changeResourceGroupWithOptions(request, runtime);
+  }
+
+  /**
+    * Dedicated block storage clusters are physically isolated from public block storage clusters. The owner of each dedicated block storage cluster has exclusive access to all resources in the cluster. For more information, see [Overview](~~208883~~).
+    * Disks created in a dedicated block storage cluster can be attached only to Elastic Compute Service (ECS) instances that reside in the same zone as the cluster. Before you create a dedicated block storage cluster, decide the regions and zones in which to deploy your cloud resources.
+    * Dedicated block storage clusters are classified into basic and performance types. When you create a dedicated block storage cluster, select a cluster type based on your business requirements.
+    * You are charged for creating dedicated block storage clusters. For more information, see [~~208884~~](~~208884~~).
+    *
+    * @param request CreateDedicatedBlockStorageClusterRequest
+    * @param runtime runtime options for this request RuntimeOptions
+    * @return CreateDedicatedBlockStorageClusterResponse
+   */
   async createDedicatedBlockStorageClusterWithOptions(request: CreateDedicatedBlockStorageClusterRequest, runtime: $Util.RuntimeOptions): Promise<CreateDedicatedBlockStorageClusterResponse> {
     Util.validateModel(request);
     let query = { };
@@ -3509,12 +3924,24 @@ export default class Client extends OpenApi {
       query["DbscName"] = request.dbscName;
     }
 
+    if (!Util.isUnset(request.period)) {
+      query["Period"] = request.period;
+    }
+
+    if (!Util.isUnset(request.periodUnit)) {
+      query["PeriodUnit"] = request.periodUnit;
+    }
+
     if (!Util.isUnset(request.regionId)) {
       query["RegionId"] = request.regionId;
     }
 
     if (!Util.isUnset(request.resourceGroupId)) {
       query["ResourceGroupId"] = request.resourceGroupId;
+    }
+
+    if (!Util.isUnset(request.tag)) {
+      query["Tag"] = request.tag;
     }
 
     if (!Util.isUnset(request.type)) {
@@ -3538,11 +3965,32 @@ export default class Client extends OpenApi {
     return $tea.cast<CreateDedicatedBlockStorageClusterResponse>(await this.callApi(params, req, runtime), new CreateDedicatedBlockStorageClusterResponse({}));
   }
 
+  /**
+    * Dedicated block storage clusters are physically isolated from public block storage clusters. The owner of each dedicated block storage cluster has exclusive access to all resources in the cluster. For more information, see [Overview](~~208883~~).
+    * Disks created in a dedicated block storage cluster can be attached only to Elastic Compute Service (ECS) instances that reside in the same zone as the cluster. Before you create a dedicated block storage cluster, decide the regions and zones in which to deploy your cloud resources.
+    * Dedicated block storage clusters are classified into basic and performance types. When you create a dedicated block storage cluster, select a cluster type based on your business requirements.
+    * You are charged for creating dedicated block storage clusters. For more information, see [~~208884~~](~~208884~~).
+    *
+    * @param request CreateDedicatedBlockStorageClusterRequest
+    * @return CreateDedicatedBlockStorageClusterResponse
+   */
   async createDedicatedBlockStorageCluster(request: CreateDedicatedBlockStorageClusterRequest): Promise<CreateDedicatedBlockStorageClusterResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.createDedicatedBlockStorageClusterWithOptions(request, runtime);
   }
 
+  /**
+    * The replication pair-consistent group feature allows you to batch manage multiple disks in disaster recovery scenarios. You can restore the data of all disks in the same replication pair-consistent group to the same point in time to allow for disaster recovery of one or more instances.
+    * When you create a replication pair-consistent group, take note of the following items:
+    * *   The replication pair-consistent group feature is supported in the China (Hangzhou), China (Shanghai), China (Beijing), China (Shenzhen), China (Heyuan), China (Chengdu), China (Hong Kong), Singapore, US (Silicon Valley), and US (Virginia) regions.
+    * *   Replication pair-consistent groups support disaster recovery across zones within the same region and disaster recovery across regions.
+    * *   A replication pair and a replication pair-consistent group replicate in the same direction if they have the same primary region (production region), primary zone (production zone), secondary region (disaster recovery region), and secondary zone (disaster recovery zone). Replication pairs can be added only to a replication pair-consistent group that replicates in the same direction as them.
+    * *   After replication pairs are added to a replication pair-consistent group, the recovery point objective (RPO) of the group takes effect on the pairs in place of their original RPOs.
+    *
+    * @param request CreateDiskReplicaGroupRequest
+    * @param runtime runtime options for this request RuntimeOptions
+    * @return CreateDiskReplicaGroupResponse
+   */
   async createDiskReplicaGroupWithOptions(request: CreateDiskReplicaGroupRequest, runtime: $Util.RuntimeOptions): Promise<CreateDiskReplicaGroupResponse> {
     Util.validateModel(request);
     let query = { };
@@ -3578,8 +4026,16 @@ export default class Client extends OpenApi {
       query["RegionId"] = request.regionId;
     }
 
+    if (!Util.isUnset(request.resourceGroupId)) {
+      query["ResourceGroupId"] = request.resourceGroupId;
+    }
+
     if (!Util.isUnset(request.sourceZoneId)) {
       query["SourceZoneId"] = request.sourceZoneId;
+    }
+
+    if (!Util.isUnset(request.tag)) {
+      query["Tag"] = request.tag;
     }
 
     let req = new $OpenApi.OpenApiRequest({
@@ -3599,11 +4055,34 @@ export default class Client extends OpenApi {
     return $tea.cast<CreateDiskReplicaGroupResponse>(await this.callApi(params, req, runtime), new CreateDiskReplicaGroupResponse({}));
   }
 
+  /**
+    * The replication pair-consistent group feature allows you to batch manage multiple disks in disaster recovery scenarios. You can restore the data of all disks in the same replication pair-consistent group to the same point in time to allow for disaster recovery of one or more instances.
+    * When you create a replication pair-consistent group, take note of the following items:
+    * *   The replication pair-consistent group feature is supported in the China (Hangzhou), China (Shanghai), China (Beijing), China (Shenzhen), China (Heyuan), China (Chengdu), China (Hong Kong), Singapore, US (Silicon Valley), and US (Virginia) regions.
+    * *   Replication pair-consistent groups support disaster recovery across zones within the same region and disaster recovery across regions.
+    * *   A replication pair and a replication pair-consistent group replicate in the same direction if they have the same primary region (production region), primary zone (production zone), secondary region (disaster recovery region), and secondary zone (disaster recovery zone). Replication pairs can be added only to a replication pair-consistent group that replicates in the same direction as them.
+    * *   After replication pairs are added to a replication pair-consistent group, the recovery point objective (RPO) of the group takes effect on the pairs in place of their original RPOs.
+    *
+    * @param request CreateDiskReplicaGroupRequest
+    * @return CreateDiskReplicaGroupResponse
+   */
   async createDiskReplicaGroup(request: CreateDiskReplicaGroupRequest): Promise<CreateDiskReplicaGroupResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.createDiskReplicaGroupWithOptions(request, runtime);
   }
 
+  /**
+    * Async replication is a feature that protects data across regions by using the data replication capability of Elastic Block Storage (EBS). This feature can be used to asynchronously replicate data from a disk in one region to a disk in another region for disaster recovery purposes. You can use this feature to implement disaster recovery for critical business to protect data in your databases and improve business continuity.
+    * Currently, the async replication feature can asynchronously replicate data only between enhanced SSDs (ESSDs). The functionality of disks in replication pairs is limited. You are charged on a subscription basis for the bandwidth that is used by the async replication feature.
+    * Before you call this operation, take note of the following items:
+    * *   Make sure that the source disk (primary disk) from which to replicate data and the destination disk (secondary disk) to which to replicate data are created. You can call the [CreateDisk](~~25513~~) operation to create disks.
+    * *   The secondary disk cannot reside the same region as the primary disk. The async replication feature is supported in the China (Hangzhou), China (Shanghai), China (Beijing), China (Shenzhen), China (Heyuan), China (Chengdu), China (Hong Kong), Singapore, US (Silicon Valley), and US (Virginia) regions.
+    * *   After you call this operation to create a replication pair, you must call the [StartDiskReplicaPair](~~354205~~) operation to enable async replication to periodically replicate data from the primary disk to the secondary disk across regions.
+    *
+    * @param request CreateDiskReplicaPairRequest
+    * @param runtime runtime options for this request RuntimeOptions
+    * @return CreateDiskReplicaPairResponse
+   */
   async createDiskReplicaPairWithOptions(request: CreateDiskReplicaPairRequest, runtime: $Util.RuntimeOptions): Promise<CreateDiskReplicaPairResponse> {
     Util.validateModel(request);
     let query = { };
@@ -3659,8 +4138,16 @@ export default class Client extends OpenApi {
       query["RegionId"] = request.regionId;
     }
 
+    if (!Util.isUnset(request.resourceGroupId)) {
+      query["ResourceGroupId"] = request.resourceGroupId;
+    }
+
     if (!Util.isUnset(request.sourceZoneId)) {
       query["SourceZoneId"] = request.sourceZoneId;
+    }
+
+    if (!Util.isUnset(request.tag)) {
+      query["Tag"] = request.tag;
     }
 
     let req = new $OpenApi.OpenApiRequest({
@@ -3680,11 +4167,31 @@ export default class Client extends OpenApi {
     return $tea.cast<CreateDiskReplicaPairResponse>(await this.callApi(params, req, runtime), new CreateDiskReplicaPairResponse({}));
   }
 
+  /**
+    * Async replication is a feature that protects data across regions by using the data replication capability of Elastic Block Storage (EBS). This feature can be used to asynchronously replicate data from a disk in one region to a disk in another region for disaster recovery purposes. You can use this feature to implement disaster recovery for critical business to protect data in your databases and improve business continuity.
+    * Currently, the async replication feature can asynchronously replicate data only between enhanced SSDs (ESSDs). The functionality of disks in replication pairs is limited. You are charged on a subscription basis for the bandwidth that is used by the async replication feature.
+    * Before you call this operation, take note of the following items:
+    * *   Make sure that the source disk (primary disk) from which to replicate data and the destination disk (secondary disk) to which to replicate data are created. You can call the [CreateDisk](~~25513~~) operation to create disks.
+    * *   The secondary disk cannot reside the same region as the primary disk. The async replication feature is supported in the China (Hangzhou), China (Shanghai), China (Beijing), China (Shenzhen), China (Heyuan), China (Chengdu), China (Hong Kong), Singapore, US (Silicon Valley), and US (Virginia) regions.
+    * *   After you call this operation to create a replication pair, you must call the [StartDiskReplicaPair](~~354205~~) operation to enable async replication to periodically replicate data from the primary disk to the secondary disk across regions.
+    *
+    * @param request CreateDiskReplicaPairRequest
+    * @return CreateDiskReplicaPairResponse
+   */
   async createDiskReplicaPair(request: CreateDiskReplicaPairRequest): Promise<CreateDiskReplicaPairResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.createDiskReplicaPairWithOptions(request, runtime);
   }
 
+  /**
+    * *   The replication pair-consistent group feature is supported in the China (Hangzhou), China (Shanghai), China (Beijing), China (Shenzhen), China (Heyuan), China (Chengdu), China (Hong Kong), Singapore (Singapore), US (Silicon Valley), and US (Virginia) regions.
+    * *   Before you can delete a replication pair-consistent group, make sure that no replication pairs are present in the group.
+    * *   The replication pair-consistent group that you want to delete must be in the **Created** (`created`), **Creation Failed** (`create_failed`), **Stopped** (`stopped`), **Failover Failed** (`failovered`), **Deleting** (`deleting`), **Deletion Failed** (`delete_failed`), or **Invalid** (`invalid`) state.
+    *
+    * @param request DeleteDiskReplicaGroupRequest
+    * @param runtime runtime options for this request RuntimeOptions
+    * @return DeleteDiskReplicaGroupResponse
+   */
   async deleteDiskReplicaGroupWithOptions(request: DeleteDiskReplicaGroupRequest, runtime: $Util.RuntimeOptions): Promise<DeleteDiskReplicaGroupResponse> {
     Util.validateModel(request);
     let query = { };
@@ -3717,11 +4224,28 @@ export default class Client extends OpenApi {
     return $tea.cast<DeleteDiskReplicaGroupResponse>(await this.callApi(params, req, runtime), new DeleteDiskReplicaGroupResponse({}));
   }
 
+  /**
+    * *   The replication pair-consistent group feature is supported in the China (Hangzhou), China (Shanghai), China (Beijing), China (Shenzhen), China (Heyuan), China (Chengdu), China (Hong Kong), Singapore (Singapore), US (Silicon Valley), and US (Virginia) regions.
+    * *   Before you can delete a replication pair-consistent group, make sure that no replication pairs are present in the group.
+    * *   The replication pair-consistent group that you want to delete must be in the **Created** (`created`), **Creation Failed** (`create_failed`), **Stopped** (`stopped`), **Failover Failed** (`failovered`), **Deleting** (`deleting`), **Deletion Failed** (`delete_failed`), or **Invalid** (`invalid`) state.
+    *
+    * @param request DeleteDiskReplicaGroupRequest
+    * @return DeleteDiskReplicaGroupResponse
+   */
   async deleteDiskReplicaGroup(request: DeleteDiskReplicaGroupRequest): Promise<DeleteDiskReplicaGroupResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.deleteDiskReplicaGroupWithOptions(request, runtime);
   }
 
+  /**
+    * *   The async replication feature is supported in the China (Hangzhou), China (Shanghai), China (Beijing), China (Shenzhen), China (Heyuan), China (Chengdu), China (Hong Kong), Singapore (Singapore), US (Silicon Valley), and US (Virginia) regions.
+    * *   Only replication pairs that are in the **Stopped** (`stopped`), **Invalid** (`invalid`), or **Failed Over** (`failovered`) state can be deleted. This operation deletes only replication pairs. The primary and secondary disks in the deleted replication pairs are retained.
+    * *   To delete a replication pair, you must call this operation in the region where the primary disk is located. After the replication pair is deleted, the functionality limits are lifted from the primary and secondary disks. For example, you can attach the secondary disk, resize the disk, or read data from or write data to the disk.
+    *
+    * @param request DeleteDiskReplicaPairRequest
+    * @param runtime runtime options for this request RuntimeOptions
+    * @return DeleteDiskReplicaPairResponse
+   */
   async deleteDiskReplicaPairWithOptions(request: DeleteDiskReplicaPairRequest, runtime: $Util.RuntimeOptions): Promise<DeleteDiskReplicaPairResponse> {
     Util.validateModel(request);
     let query = { };
@@ -3754,11 +4278,31 @@ export default class Client extends OpenApi {
     return $tea.cast<DeleteDiskReplicaPairResponse>(await this.callApi(params, req, runtime), new DeleteDiskReplicaPairResponse({}));
   }
 
+  /**
+    * *   The async replication feature is supported in the China (Hangzhou), China (Shanghai), China (Beijing), China (Shenzhen), China (Heyuan), China (Chengdu), China (Hong Kong), Singapore (Singapore), US (Silicon Valley), and US (Virginia) regions.
+    * *   Only replication pairs that are in the **Stopped** (`stopped`), **Invalid** (`invalid`), or **Failed Over** (`failovered`) state can be deleted. This operation deletes only replication pairs. The primary and secondary disks in the deleted replication pairs are retained.
+    * *   To delete a replication pair, you must call this operation in the region where the primary disk is located. After the replication pair is deleted, the functionality limits are lifted from the primary and secondary disks. For example, you can attach the secondary disk, resize the disk, or read data from or write data to the disk.
+    *
+    * @param request DeleteDiskReplicaPairRequest
+    * @return DeleteDiskReplicaPairResponse
+   */
   async deleteDiskReplicaPair(request: DeleteDiskReplicaPairRequest): Promise<DeleteDiskReplicaPairResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.deleteDiskReplicaPairWithOptions(request, runtime);
   }
 
+  /**
+    * *   You can use one of the following methods to check the responses:
+    *     *   Method 1: Use `NextToken` to configure the query token. Set the value to the `NextToken` value that is returned in the last call to the DescribeDisks operation. Then, use `MaxResults` to specify the maximum number of entries to return on each page.
+    *     *   Method 2: Use `PageSize` to specify the number of entries to return on each page and then use `PageNumber` to specify the number of the page to return.
+    *         You can use only one of the preceding methods. If a large number of entries are to be returned, we recommend that you use method 1. When `NextToken` is specified, `PageSize` and `PageNumber` do not take effect and `TotalCount` in the response is invalid.
+    * *   A disk that has the multi-attach feature enabled can be attached to multiple instances. You can query the attachment information of the disk based on the `Attachment` values in the response.
+    * When you call an API operation by using Alibaba Cloud CLI, you must specify request parameter values of different data types in the required formats. For more information, see [Parameter format overview](~~110340~~).
+    *
+    * @param request DescribeDedicatedBlockStorageClusterDisksRequest
+    * @param runtime runtime options for this request RuntimeOptions
+    * @return DescribeDedicatedBlockStorageClusterDisksResponse
+   */
   async describeDedicatedBlockStorageClusterDisksWithOptions(request: DescribeDedicatedBlockStorageClusterDisksRequest, runtime: $Util.RuntimeOptions): Promise<DescribeDedicatedBlockStorageClusterDisksResponse> {
     Util.validateModel(request);
     let query = { };
@@ -3795,14 +4339,50 @@ export default class Client extends OpenApi {
     return $tea.cast<DescribeDedicatedBlockStorageClusterDisksResponse>(await this.callApi(params, req, runtime), new DescribeDedicatedBlockStorageClusterDisksResponse({}));
   }
 
+  /**
+    * *   You can use one of the following methods to check the responses:
+    *     *   Method 1: Use `NextToken` to configure the query token. Set the value to the `NextToken` value that is returned in the last call to the DescribeDisks operation. Then, use `MaxResults` to specify the maximum number of entries to return on each page.
+    *     *   Method 2: Use `PageSize` to specify the number of entries to return on each page and then use `PageNumber` to specify the number of the page to return.
+    *         You can use only one of the preceding methods. If a large number of entries are to be returned, we recommend that you use method 1. When `NextToken` is specified, `PageSize` and `PageNumber` do not take effect and `TotalCount` in the response is invalid.
+    * *   A disk that has the multi-attach feature enabled can be attached to multiple instances. You can query the attachment information of the disk based on the `Attachment` values in the response.
+    * When you call an API operation by using Alibaba Cloud CLI, you must specify request parameter values of different data types in the required formats. For more information, see [Parameter format overview](~~110340~~).
+    *
+    * @param request DescribeDedicatedBlockStorageClusterDisksRequest
+    * @return DescribeDedicatedBlockStorageClusterDisksResponse
+   */
   async describeDedicatedBlockStorageClusterDisks(request: DescribeDedicatedBlockStorageClusterDisksRequest): Promise<DescribeDedicatedBlockStorageClusterDisksResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.describeDedicatedBlockStorageClusterDisksWithOptions(request, runtime);
   }
 
+  /**
+    * >  Dedicated Block Storage Cluster is supported in the China (Heyuan), Indonesia (Jakarta), and China (Shenzhen) regions.
+    * *   You can specify multiple request parameters to be queried. Specified parameters have logical AND relations. Only the specified parameters are included in the filter conditions.
+    * *   We recommend that you use the NextToken and MaxResults parameters to perform a paged query. During a paged query, when you call the DescribeDedicatedBlockStorageClusters operation to retrieve the first page of results, set MaxResults to specify the maximum number of entries to return in the call. The return value of NextToken is a pagination token, which can be used in the next call to retrieve a new page of results. When you call the DescribeDedicatedBlockStorageClusters operation to retrieve a new page of results, set NextToken to the NextToken value returned in the previous call and set MaxResults to specify the maximum number of entries to return in this call.
+    *
+    * @param request DescribeDedicatedBlockStorageClustersRequest
+    * @param runtime runtime options for this request RuntimeOptions
+    * @return DescribeDedicatedBlockStorageClustersResponse
+   */
   async describeDedicatedBlockStorageClustersWithOptions(request: DescribeDedicatedBlockStorageClustersRequest, runtime: $Util.RuntimeOptions): Promise<DescribeDedicatedBlockStorageClustersResponse> {
     Util.validateModel(request);
     let query = { };
+    if (!Util.isUnset(request.clientToken)) {
+      query["ClientToken"] = request.clientToken;
+    }
+
+    if (!Util.isUnset(request.dedicatedBlockStorageClusterId)) {
+      query["DedicatedBlockStorageClusterId"] = request.dedicatedBlockStorageClusterId;
+    }
+
+    if (!Util.isUnset(request.maxResults)) {
+      query["MaxResults"] = request.maxResults;
+    }
+
+    if (!Util.isUnset(request.nextToken)) {
+      query["NextToken"] = request.nextToken;
+    }
+
     if (!Util.isUnset(request.pageNumber)) {
       query["PageNumber"] = request.pageNumber;
     }
@@ -3826,22 +4406,6 @@ export default class Client extends OpenApi {
 
     if (!Util.isUnset(request.category)) {
       body["Category"] = request.category;
-    }
-
-    if (!Util.isUnset(request.clientToken)) {
-      body["ClientToken"] = request.clientToken;
-    }
-
-    if (!Util.isUnset(request.dedicatedBlockStorageClusterId)) {
-      body["DedicatedBlockStorageClusterId"] = request.dedicatedBlockStorageClusterId;
-    }
-
-    if (!Util.isUnset(request.maxResults)) {
-      body["MaxResults"] = request.maxResults;
-    }
-
-    if (!Util.isUnset(request.nextToken)) {
-      body["NextToken"] = request.nextToken;
     }
 
     if (!Util.isUnset(request.regionId)) {
@@ -3870,11 +4434,27 @@ export default class Client extends OpenApi {
     return $tea.cast<DescribeDedicatedBlockStorageClustersResponse>(await this.callApi(params, req, runtime), new DescribeDedicatedBlockStorageClustersResponse({}));
   }
 
+  /**
+    * >  Dedicated Block Storage Cluster is supported in the China (Heyuan), Indonesia (Jakarta), and China (Shenzhen) regions.
+    * *   You can specify multiple request parameters to be queried. Specified parameters have logical AND relations. Only the specified parameters are included in the filter conditions.
+    * *   We recommend that you use the NextToken and MaxResults parameters to perform a paged query. During a paged query, when you call the DescribeDedicatedBlockStorageClusters operation to retrieve the first page of results, set MaxResults to specify the maximum number of entries to return in the call. The return value of NextToken is a pagination token, which can be used in the next call to retrieve a new page of results. When you call the DescribeDedicatedBlockStorageClusters operation to retrieve a new page of results, set NextToken to the NextToken value returned in the previous call and set MaxResults to specify the maximum number of entries to return in this call.
+    *
+    * @param request DescribeDedicatedBlockStorageClustersRequest
+    * @return DescribeDedicatedBlockStorageClustersResponse
+   */
   async describeDedicatedBlockStorageClusters(request: DescribeDedicatedBlockStorageClustersRequest): Promise<DescribeDedicatedBlockStorageClustersResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.describeDedicatedBlockStorageClustersWithOptions(request, runtime);
   }
 
+  /**
+    * ## Usage notes
+    * CloudLens for EBS is in invitational preview in the China (Hangzhou), China (Shanghai), China (Zhangjiakou), China (Shenzhen), and China (Hong Kong) regions. To use the feature, [submit a ticket](https://workorder-intl.console.aliyun.com/#/ticket/createIndex).
+    *
+    * @param request DescribeDiskEventsRequest
+    * @param runtime runtime options for this request RuntimeOptions
+    * @return DescribeDiskEventsResponse
+   */
   async describeDiskEventsWithOptions(request: DescribeDiskEventsRequest, runtime: $Util.RuntimeOptions): Promise<DescribeDiskEventsResponse> {
     Util.validateModel(request);
     let query = { };
@@ -3927,11 +4507,28 @@ export default class Client extends OpenApi {
     return $tea.cast<DescribeDiskEventsResponse>(await this.callApi(params, req, runtime), new DescribeDiskEventsResponse({}));
   }
 
+  /**
+    * ## Usage notes
+    * CloudLens for EBS is in invitational preview in the China (Hangzhou), China (Shanghai), China (Zhangjiakou), China (Shenzhen), and China (Hong Kong) regions. To use the feature, [submit a ticket](https://workorder-intl.console.aliyun.com/#/ticket/createIndex).
+    *
+    * @param request DescribeDiskEventsRequest
+    * @return DescribeDiskEventsResponse
+   */
   async describeDiskEvents(request: DescribeDiskEventsRequest): Promise<DescribeDiskEventsResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.describeDiskEventsWithOptions(request, runtime);
   }
 
+  /**
+    * ## Usage notes
+    * *   CloudLens for EBS is in invitational preview in the China (Hangzhou), China (Shanghai), China (Zhangjiakou), China (Shenzhen), and China (Hong Kong) regions. To use the feature, [submit a ticket](https://workorder-intl.console.aliyun.com/#/ticket/createIndex).
+    * *   Up to 400 monitoring data entries can be returned at a time. An error is returned if the value calculated based on the following formula is greater than 400: `(EndTime - StartTime)/Period`.
+    * *   You can query the monitoring data collected in the last three days. An error is returned if the time specified by `StartTime` is more than three days prior to the current time.
+    *
+    * @param request DescribeDiskMonitorDataRequest
+    * @param runtime runtime options for this request RuntimeOptions
+    * @return DescribeDiskMonitorDataResponse
+   */
   async describeDiskMonitorDataWithOptions(request: DescribeDiskMonitorDataRequest, runtime: $Util.RuntimeOptions): Promise<DescribeDiskMonitorDataResponse> {
     Util.validateModel(request);
     let query = { };
@@ -3976,11 +4573,28 @@ export default class Client extends OpenApi {
     return $tea.cast<DescribeDiskMonitorDataResponse>(await this.callApi(params, req, runtime), new DescribeDiskMonitorDataResponse({}));
   }
 
+  /**
+    * ## Usage notes
+    * *   CloudLens for EBS is in invitational preview in the China (Hangzhou), China (Shanghai), China (Zhangjiakou), China (Shenzhen), and China (Hong Kong) regions. To use the feature, [submit a ticket](https://workorder-intl.console.aliyun.com/#/ticket/createIndex).
+    * *   Up to 400 monitoring data entries can be returned at a time. An error is returned if the value calculated based on the following formula is greater than 400: `(EndTime - StartTime)/Period`.
+    * *   You can query the monitoring data collected in the last three days. An error is returned if the time specified by `StartTime` is more than three days prior to the current time.
+    *
+    * @param request DescribeDiskMonitorDataRequest
+    * @return DescribeDiskMonitorDataResponse
+   */
   async describeDiskMonitorData(request: DescribeDiskMonitorDataRequest): Promise<DescribeDiskMonitorDataResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.describeDiskMonitorDataWithOptions(request, runtime);
   }
 
+  /**
+    * ## Usage notes
+    * CloudLens for EBS is in invitational preview in the China (Hangzhou), China (Shanghai), China (Zhangjiakou), China (Shenzhen), and China (Hong Kong) regions. To use the feature, [submit a ticket](https://workorder-intl.console.aliyun.com/#/ticket/createIndex).
+    *
+    * @param request DescribeDiskMonitorDataListRequest
+    * @param runtime runtime options for this request RuntimeOptions
+    * @return DescribeDiskMonitorDataListResponse
+   */
   async describeDiskMonitorDataListWithOptions(request: DescribeDiskMonitorDataListRequest, runtime: $Util.RuntimeOptions): Promise<DescribeDiskMonitorDataListResponse> {
     Util.validateModel(request);
     let query = { };
@@ -4029,11 +4643,26 @@ export default class Client extends OpenApi {
     return $tea.cast<DescribeDiskMonitorDataListResponse>(await this.callApi(params, req, runtime), new DescribeDiskMonitorDataListResponse({}));
   }
 
+  /**
+    * ## Usage notes
+    * CloudLens for EBS is in invitational preview in the China (Hangzhou), China (Shanghai), China (Zhangjiakou), China (Shenzhen), and China (Hong Kong) regions. To use the feature, [submit a ticket](https://workorder-intl.console.aliyun.com/#/ticket/createIndex).
+    *
+    * @param request DescribeDiskMonitorDataListRequest
+    * @return DescribeDiskMonitorDataListResponse
+   */
   async describeDiskMonitorDataList(request: DescribeDiskMonitorDataListRequest): Promise<DescribeDiskMonitorDataListResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.describeDiskMonitorDataListWithOptions(request, runtime);
   }
 
+  /**
+    * To perform a paged query, set the MaxResults and NextToken parameters.
+    * During a paged query, when you call the DescribeDiskReplicaGroups operation to retrieve the first page of results, set `MaxResults` to specify the maximum number of entries to return in the call. The return value of `NextToken` is a pagination token, which can be used in the next call to retrieve a new page of results. When you call the DescribeDiskReplicaGroups operation to retrieve a new page of results, set `NextToken` to the `NextToken` value returned in the previous call and set MaxResults to specify the maximum number of entries to return in this call.
+    *
+    * @param request DescribeDiskReplicaGroupsRequest
+    * @param runtime runtime options for this request RuntimeOptions
+    * @return DescribeDiskReplicaGroupsResponse
+   */
   async describeDiskReplicaGroupsWithOptions(request: DescribeDiskReplicaGroupsRequest, runtime: $Util.RuntimeOptions): Promise<DescribeDiskReplicaGroupsResponse> {
     Util.validateModel(request);
     let query = { };
@@ -4061,8 +4690,16 @@ export default class Client extends OpenApi {
       query["RegionId"] = request.regionId;
     }
 
+    if (!Util.isUnset(request.resourceGroupId)) {
+      query["ResourceGroupId"] = request.resourceGroupId;
+    }
+
     if (!Util.isUnset(request.site)) {
       query["Site"] = request.site;
+    }
+
+    if (!Util.isUnset(request.tag)) {
+      query["Tag"] = request.tag;
     }
 
     let req = new $OpenApi.OpenApiRequest({
@@ -4082,6 +4719,13 @@ export default class Client extends OpenApi {
     return $tea.cast<DescribeDiskReplicaGroupsResponse>(await this.callApi(params, req, runtime), new DescribeDiskReplicaGroupsResponse({}));
   }
 
+  /**
+    * To perform a paged query, set the MaxResults and NextToken parameters.
+    * During a paged query, when you call the DescribeDiskReplicaGroups operation to retrieve the first page of results, set `MaxResults` to specify the maximum number of entries to return in the call. The return value of `NextToken` is a pagination token, which can be used in the next call to retrieve a new page of results. When you call the DescribeDiskReplicaGroups operation to retrieve a new page of results, set `NextToken` to the `NextToken` value returned in the previous call and set MaxResults to specify the maximum number of entries to return in this call.
+    *
+    * @param request DescribeDiskReplicaGroupsRequest
+    * @return DescribeDiskReplicaGroupsResponse
+   */
   async describeDiskReplicaGroups(request: DescribeDiskReplicaGroupsRequest): Promise<DescribeDiskReplicaGroupsResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.describeDiskReplicaGroupsWithOptions(request, runtime);
@@ -4120,6 +4764,15 @@ export default class Client extends OpenApi {
     return await this.describeDiskReplicaPairProgressWithOptions(request, runtime);
   }
 
+  /**
+    * *   The async replication feature is supported in the China (Hangzhou), China (Shanghai), China (Beijing), China (Shenzhen), China (Heyuan), China (Chengdu), China (Hong Kong), Singapore, US (Silicon Valley), and US (Virginia) regions.
+    * *   When you call this operation for a specific region, if the primary disk (source disk) or secondary disk (destination disk) of a replication pair resides within the region, the information of the replication pair is displayed in the response.
+    * *   If you want to perform a paged query, configure the `NextToken` and `MaxResults` parameters. During a paged query, when you call the DescribeDiskReplicaPairs operation to retrieve the first page of results, set `MaxResults` to limit the maximum number of entries to return in the call. The return value of NextToken is a pagination token, which can be used in the next call to retrieve a new page of results. When you call the DescribeDiskReplicaPairs operation to retrieve a new page of results, set NextToken to the NextToken value returned in the previous call and set MaxResults to specify the maximum number of entries to return in this call.
+    *
+    * @param request DescribeDiskReplicaPairsRequest
+    * @param runtime runtime options for this request RuntimeOptions
+    * @return DescribeDiskReplicaPairsResponse
+   */
   async describeDiskReplicaPairsWithOptions(request: DescribeDiskReplicaPairsRequest, runtime: $Util.RuntimeOptions): Promise<DescribeDiskReplicaPairsResponse> {
     Util.validateModel(request);
     let query = { };
@@ -4151,8 +4804,16 @@ export default class Client extends OpenApi {
       query["ReplicaGroupId"] = request.replicaGroupId;
     }
 
+    if (!Util.isUnset(request.resourceGroupId)) {
+      query["ResourceGroupId"] = request.resourceGroupId;
+    }
+
     if (!Util.isUnset(request.site)) {
       query["Site"] = request.site;
+    }
+
+    if (!Util.isUnset(request.tag)) {
+      query["Tag"] = request.tag;
     }
 
     let req = new $OpenApi.OpenApiRequest({
@@ -4172,11 +4833,27 @@ export default class Client extends OpenApi {
     return $tea.cast<DescribeDiskReplicaPairsResponse>(await this.callApi(params, req, runtime), new DescribeDiskReplicaPairsResponse({}));
   }
 
+  /**
+    * *   The async replication feature is supported in the China (Hangzhou), China (Shanghai), China (Beijing), China (Shenzhen), China (Heyuan), China (Chengdu), China (Hong Kong), Singapore, US (Silicon Valley), and US (Virginia) regions.
+    * *   When you call this operation for a specific region, if the primary disk (source disk) or secondary disk (destination disk) of a replication pair resides within the region, the information of the replication pair is displayed in the response.
+    * *   If you want to perform a paged query, configure the `NextToken` and `MaxResults` parameters. During a paged query, when you call the DescribeDiskReplicaPairs operation to retrieve the first page of results, set `MaxResults` to limit the maximum number of entries to return in the call. The return value of NextToken is a pagination token, which can be used in the next call to retrieve a new page of results. When you call the DescribeDiskReplicaPairs operation to retrieve a new page of results, set NextToken to the NextToken value returned in the previous call and set MaxResults to specify the maximum number of entries to return in this call.
+    *
+    * @param request DescribeDiskReplicaPairsRequest
+    * @return DescribeDiskReplicaPairsResponse
+   */
   async describeDiskReplicaPairs(request: DescribeDiskReplicaPairsRequest): Promise<DescribeDiskReplicaPairsResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.describeDiskReplicaPairsWithOptions(request, runtime);
   }
 
+  /**
+    * ## Usage notes
+    * CloudLens for EBS is in invitational preview in the China (Hangzhou), China (Shanghai), China (Zhangjiakou), China (Shenzhen), and China (Hong Kong) regions. To use the feature, [submit a ticket](https://workorder-intl.console.aliyun.com/#/ticket/createIndex).
+    *
+    * @param request DescribeLensServiceStatusRequest
+    * @param runtime runtime options for this request RuntimeOptions
+    * @return DescribeLensServiceStatusResponse
+   */
   async describeLensServiceStatusWithOptions(runtime: $Util.RuntimeOptions): Promise<DescribeLensServiceStatusResponse> {
     let req = new $OpenApi.OpenApiRequest({ });
     let params = new $OpenApi.Params({
@@ -4193,6 +4870,12 @@ export default class Client extends OpenApi {
     return $tea.cast<DescribeLensServiceStatusResponse>(await this.callApi(params, req, runtime), new DescribeLensServiceStatusResponse({}));
   }
 
+  /**
+    * ## Usage notes
+    * CloudLens for EBS is in invitational preview in the China (Hangzhou), China (Shanghai), China (Zhangjiakou), China (Shenzhen), and China (Hong Kong) regions. To use the feature, [submit a ticket](https://workorder-intl.console.aliyun.com/#/ticket/createIndex).
+    *
+    * @return DescribeLensServiceStatusResponse
+   */
   async describeLensServiceStatus(): Promise<DescribeLensServiceStatusResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.describeLensServiceStatusWithOptions(runtime);
@@ -4235,6 +4918,13 @@ export default class Client extends OpenApi {
     return await this.describeRegionsWithOptions(request, runtime);
   }
 
+  /**
+    * The operation that you want to perform. Set the value to **FailoverDiskReplicaGroup**.
+    *
+    * @param request FailoverDiskReplicaGroupRequest
+    * @param runtime runtime options for this request RuntimeOptions
+    * @return FailoverDiskReplicaGroupResponse
+   */
   async failoverDiskReplicaGroupWithOptions(request: FailoverDiskReplicaGroupRequest, runtime: $Util.RuntimeOptions): Promise<FailoverDiskReplicaGroupResponse> {
     Util.validateModel(request);
     let query = { };
@@ -4267,11 +4957,24 @@ export default class Client extends OpenApi {
     return $tea.cast<FailoverDiskReplicaGroupResponse>(await this.callApi(params, req, runtime), new FailoverDiskReplicaGroupResponse({}));
   }
 
+  /**
+    * The operation that you want to perform. Set the value to **FailoverDiskReplicaGroup**.
+    *
+    * @param request FailoverDiskReplicaGroupRequest
+    * @return FailoverDiskReplicaGroupResponse
+   */
   async failoverDiskReplicaGroup(request: FailoverDiskReplicaGroupRequest): Promise<FailoverDiskReplicaGroupResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.failoverDiskReplicaGroupWithOptions(request, runtime);
   }
 
+  /**
+    * The client token that is used to ensure the idempotence of the request. You can use the client to generate the value, but you must make sure that the value is unique among different requests. The ClientToken value can contain only ASCII characters and cannot exceed 64 characters in length. For more information, see [How to ensure idempotence](~~25693~~).
+    *
+    * @param request FailoverDiskReplicaPairRequest
+    * @param runtime runtime options for this request RuntimeOptions
+    * @return FailoverDiskReplicaPairResponse
+   */
   async failoverDiskReplicaPairWithOptions(request: FailoverDiskReplicaPairRequest, runtime: $Util.RuntimeOptions): Promise<FailoverDiskReplicaPairResponse> {
     Util.validateModel(request);
     let query = { };
@@ -4304,11 +5007,27 @@ export default class Client extends OpenApi {
     return $tea.cast<FailoverDiskReplicaPairResponse>(await this.callApi(params, req, runtime), new FailoverDiskReplicaPairResponse({}));
   }
 
+  /**
+    * The client token that is used to ensure the idempotence of the request. You can use the client to generate the value, but you must make sure that the value is unique among different requests. The ClientToken value can contain only ASCII characters and cannot exceed 64 characters in length. For more information, see [How to ensure idempotence](~~25693~~).
+    *
+    * @param request FailoverDiskReplicaPairRequest
+    * @return FailoverDiskReplicaPairResponse
+   */
   async failoverDiskReplicaPair(request: FailoverDiskReplicaPairRequest): Promise<FailoverDiskReplicaPairResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.failoverDiskReplicaPairWithOptions(request, runtime);
   }
 
+  /**
+    * Specify at least one of the following parameters or parameter pairs in a request to determine a query object:
+    * *   `ResourceId.N`
+    * *   `Tag.N` parameter pair (`Tag.N.Key` and `Tag.N.Value`)
+    * If you set `Tag.N` and `ResourceId.N` at the same time, the EBS resources that match both the parameters are returned.
+    *
+    * @param request ListTagResourcesRequest
+    * @param runtime runtime options for this request RuntimeOptions
+    * @return ListTagResourcesResponse
+   */
   async listTagResourcesWithOptions(request: ListTagResourcesRequest, runtime: $Util.RuntimeOptions): Promise<ListTagResourcesResponse> {
     Util.validateModel(request);
     let query = { };
@@ -4353,11 +5072,27 @@ export default class Client extends OpenApi {
     return $tea.cast<ListTagResourcesResponse>(await this.callApi(params, req, runtime), new ListTagResourcesResponse({}));
   }
 
+  /**
+    * Specify at least one of the following parameters or parameter pairs in a request to determine a query object:
+    * *   `ResourceId.N`
+    * *   `Tag.N` parameter pair (`Tag.N.Key` and `Tag.N.Value`)
+    * If you set `Tag.N` and `ResourceId.N` at the same time, the EBS resources that match both the parameters are returned.
+    *
+    * @param request ListTagResourcesRequest
+    * @return ListTagResourcesResponse
+   */
   async listTagResources(request: ListTagResourcesRequest): Promise<ListTagResourcesResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.listTagResourcesWithOptions(request, runtime);
   }
 
+  /**
+    * You can call this operation to modify the information of a dedicated block storage cluster. The information includes the name and description of the cluster.
+    *
+    * @param request ModifyDedicatedBlockStorageClusterAttributeRequest
+    * @param runtime runtime options for this request RuntimeOptions
+    * @return ModifyDedicatedBlockStorageClusterAttributeResponse
+   */
   async modifyDedicatedBlockStorageClusterAttributeWithOptions(request: ModifyDedicatedBlockStorageClusterAttributeRequest, runtime: $Util.RuntimeOptions): Promise<ModifyDedicatedBlockStorageClusterAttributeResponse> {
     Util.validateModel(request);
     let query = { };
@@ -4398,11 +5133,25 @@ export default class Client extends OpenApi {
     return $tea.cast<ModifyDedicatedBlockStorageClusterAttributeResponse>(await this.callApi(params, req, runtime), new ModifyDedicatedBlockStorageClusterAttributeResponse({}));
   }
 
+  /**
+    * You can call this operation to modify the information of a dedicated block storage cluster. The information includes the name and description of the cluster.
+    *
+    * @param request ModifyDedicatedBlockStorageClusterAttributeRequest
+    * @return ModifyDedicatedBlockStorageClusterAttributeResponse
+   */
   async modifyDedicatedBlockStorageClusterAttribute(request: ModifyDedicatedBlockStorageClusterAttributeRequest): Promise<ModifyDedicatedBlockStorageClusterAttributeResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.modifyDedicatedBlockStorageClusterAttributeWithOptions(request, runtime);
   }
 
+  /**
+    * *   The replication pair-consistent group feature is supported in the China (Hangzhou), China (Shanghai), China (Beijing), China (Shenzhen), China (Heyuan), China (Chengdu), China (Hong Kong), Singapore (Singapore), US (Silicon Valley), and US (Virginia) regions.
+    * *   The replication pair-consistent group must be in the **Created** (`created`) or **Stopped** (`stopped`) state.
+    *
+    * @param request ModifyDiskReplicaGroupRequest
+    * @param runtime runtime options for this request RuntimeOptions
+    * @return ModifyDiskReplicaGroupResponse
+   */
   async modifyDiskReplicaGroupWithOptions(request: ModifyDiskReplicaGroupRequest, runtime: $Util.RuntimeOptions): Promise<ModifyDiskReplicaGroupResponse> {
     Util.validateModel(request);
     let query = { };
@@ -4451,11 +5200,25 @@ export default class Client extends OpenApi {
     return $tea.cast<ModifyDiskReplicaGroupResponse>(await this.callApi(params, req, runtime), new ModifyDiskReplicaGroupResponse({}));
   }
 
+  /**
+    * *   The replication pair-consistent group feature is supported in the China (Hangzhou), China (Shanghai), China (Beijing), China (Shenzhen), China (Heyuan), China (Chengdu), China (Hong Kong), Singapore (Singapore), US (Silicon Valley), and US (Virginia) regions.
+    * *   The replication pair-consistent group must be in the **Created** (`created`) or **Stopped** (`stopped`) state.
+    *
+    * @param request ModifyDiskReplicaGroupRequest
+    * @return ModifyDiskReplicaGroupResponse
+   */
   async modifyDiskReplicaGroup(request: ModifyDiskReplicaGroupRequest): Promise<ModifyDiskReplicaGroupResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.modifyDiskReplicaGroupWithOptions(request, runtime);
   }
 
+  /**
+    * The name of the replication pair.
+    *
+    * @param request ModifyDiskReplicaPairRequest
+    * @param runtime runtime options for this request RuntimeOptions
+    * @return ModifyDiskReplicaPairResponse
+   */
   async modifyDiskReplicaPairWithOptions(request: ModifyDiskReplicaPairRequest, runtime: $Util.RuntimeOptions): Promise<ModifyDiskReplicaPairResponse> {
     Util.validateModel(request);
     let query = { };
@@ -4504,11 +5267,25 @@ export default class Client extends OpenApi {
     return $tea.cast<ModifyDiskReplicaPairResponse>(await this.callApi(params, req, runtime), new ModifyDiskReplicaPairResponse({}));
   }
 
+  /**
+    * The name of the replication pair.
+    *
+    * @param request ModifyDiskReplicaPairRequest
+    * @return ModifyDiskReplicaPairResponse
+   */
   async modifyDiskReplicaPair(request: ModifyDiskReplicaPairRequest): Promise<ModifyDiskReplicaPairResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.modifyDiskReplicaPairWithOptions(request, runtime);
   }
 
+  /**
+    * *   The replication pair-consistent group feature is supported in the China (Hangzhou), China (Shanghai), China (Beijing), China (Shenzhen), China (Heyuan), China (Chengdu), China (Hong Kong), Singapore (Singapore), US (Silicon Valley), and US (Virginia) regions.
+    * *   The replication pair-consistent group from which you want to remove a replication pair must be in the **Created** (`created`), **Stopped** (`stopped`), or **Invalid** (`invalid`) state.
+    *
+    * @param request RemoveDiskReplicaPairRequest
+    * @param runtime runtime options for this request RuntimeOptions
+    * @return RemoveDiskReplicaPairResponse
+   */
   async removeDiskReplicaPairWithOptions(request: RemoveDiskReplicaPairRequest, runtime: $Util.RuntimeOptions): Promise<RemoveDiskReplicaPairResponse> {
     Util.validateModel(request);
     let query = { };
@@ -4545,11 +5322,25 @@ export default class Client extends OpenApi {
     return $tea.cast<RemoveDiskReplicaPairResponse>(await this.callApi(params, req, runtime), new RemoveDiskReplicaPairResponse({}));
   }
 
+  /**
+    * *   The replication pair-consistent group feature is supported in the China (Hangzhou), China (Shanghai), China (Beijing), China (Shenzhen), China (Heyuan), China (Chengdu), China (Hong Kong), Singapore (Singapore), US (Silicon Valley), and US (Virginia) regions.
+    * *   The replication pair-consistent group from which you want to remove a replication pair must be in the **Created** (`created`), **Stopped** (`stopped`), or **Invalid** (`invalid`) state.
+    *
+    * @param request RemoveDiskReplicaPairRequest
+    * @return RemoveDiskReplicaPairResponse
+   */
   async removeDiskReplicaPair(request: RemoveDiskReplicaPairRequest): Promise<RemoveDiskReplicaPairResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.removeDiskReplicaPairWithOptions(request, runtime);
   }
 
+  /**
+    * The operation that you want to perform. Set the value to **ReprotectDiskReplicaGroup**.
+    *
+    * @param request ReprotectDiskReplicaGroupRequest
+    * @param runtime runtime options for this request RuntimeOptions
+    * @return ReprotectDiskReplicaGroupResponse
+   */
   async reprotectDiskReplicaGroupWithOptions(request: ReprotectDiskReplicaGroupRequest, runtime: $Util.RuntimeOptions): Promise<ReprotectDiskReplicaGroupResponse> {
     Util.validateModel(request);
     let query = { };
@@ -4582,11 +5373,24 @@ export default class Client extends OpenApi {
     return $tea.cast<ReprotectDiskReplicaGroupResponse>(await this.callApi(params, req, runtime), new ReprotectDiskReplicaGroupResponse({}));
   }
 
+  /**
+    * The operation that you want to perform. Set the value to **ReprotectDiskReplicaGroup**.
+    *
+    * @param request ReprotectDiskReplicaGroupRequest
+    * @return ReprotectDiskReplicaGroupResponse
+   */
   async reprotectDiskReplicaGroup(request: ReprotectDiskReplicaGroupRequest): Promise<ReprotectDiskReplicaGroupResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.reprotectDiskReplicaGroupWithOptions(request, runtime);
   }
 
+  /**
+    * The client token that is used to ensure the idempotence of the request. You can use the client to generate the value, but you must make sure that the value is unique among different requests. The ClientToken value can contain only ASCII characters and cannot exceed 64 characters in length. For more information, see [How to ensure idempotence](~~25693~~).
+    *
+    * @param request ReprotectDiskReplicaPairRequest
+    * @param runtime runtime options for this request RuntimeOptions
+    * @return ReprotectDiskReplicaPairResponse
+   */
   async reprotectDiskReplicaPairWithOptions(request: ReprotectDiskReplicaPairRequest, runtime: $Util.RuntimeOptions): Promise<ReprotectDiskReplicaPairResponse> {
     Util.validateModel(request);
     let query = { };
@@ -4619,11 +5423,26 @@ export default class Client extends OpenApi {
     return $tea.cast<ReprotectDiskReplicaPairResponse>(await this.callApi(params, req, runtime), new ReprotectDiskReplicaPairResponse({}));
   }
 
+  /**
+    * The client token that is used to ensure the idempotence of the request. You can use the client to generate the value, but you must make sure that the value is unique among different requests. The ClientToken value can contain only ASCII characters and cannot exceed 64 characters in length. For more information, see [How to ensure idempotence](~~25693~~).
+    *
+    * @param request ReprotectDiskReplicaPairRequest
+    * @return ReprotectDiskReplicaPairResponse
+   */
   async reprotectDiskReplicaPair(request: ReprotectDiskReplicaPairRequest): Promise<ReprotectDiskReplicaPairResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.reprotectDiskReplicaPairWithOptions(request, runtime);
   }
 
+  /**
+    * ## Usage notes
+    * *   CloudLens for EBS is in invitational preview in the China (Hangzhou), China (Shanghai), China (Zhangjiakou), China (Shenzhen), and China (Hong Kong) regions. To use the feature, [submit a ticket](https://workorder-intl.console.aliyun.com/#/ticket/createIndex).
+    * *   CloudLens for EBS can be used to monitor the performance of enhanced SSDs (ESSDs), standard SSDs, and ultra disks. After you enable CloudLens for EBS, you can enable the data collection feature to obtain the near real-time monitoring data. For more information, see [Enable near real-time monitoring for disks](~~354196~~).
+    *
+    * @param tmpReq StartDiskMonitorRequest
+    * @param runtime runtime options for this request RuntimeOptions
+    * @return StartDiskMonitorResponse
+   */
   async startDiskMonitorWithOptions(tmpReq: StartDiskMonitorRequest, runtime: $Util.RuntimeOptions): Promise<StartDiskMonitorResponse> {
     Util.validateModel(tmpReq);
     let request = new StartDiskMonitorShrinkRequest({ });
@@ -4658,11 +5477,26 @@ export default class Client extends OpenApi {
     return $tea.cast<StartDiskMonitorResponse>(await this.callApi(params, req, runtime), new StartDiskMonitorResponse({}));
   }
 
+  /**
+    * ## Usage notes
+    * *   CloudLens for EBS is in invitational preview in the China (Hangzhou), China (Shanghai), China (Zhangjiakou), China (Shenzhen), and China (Hong Kong) regions. To use the feature, [submit a ticket](https://workorder-intl.console.aliyun.com/#/ticket/createIndex).
+    * *   CloudLens for EBS can be used to monitor the performance of enhanced SSDs (ESSDs), standard SSDs, and ultra disks. After you enable CloudLens for EBS, you can enable the data collection feature to obtain the near real-time monitoring data. For more information, see [Enable near real-time monitoring for disks](~~354196~~).
+    *
+    * @param request StartDiskMonitorRequest
+    * @return StartDiskMonitorResponse
+   */
   async startDiskMonitor(request: StartDiskMonitorRequest): Promise<StartDiskMonitorResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.startDiskMonitorWithOptions(request, runtime);
   }
 
+  /**
+    * The operation that you want to perform. Set the value to **StartDiskReplicaGroup**.
+    *
+    * @param request StartDiskReplicaGroupRequest
+    * @param runtime runtime options for this request RuntimeOptions
+    * @return StartDiskReplicaGroupResponse
+   */
   async startDiskReplicaGroupWithOptions(request: StartDiskReplicaGroupRequest, runtime: $Util.RuntimeOptions): Promise<StartDiskReplicaGroupResponse> {
     Util.validateModel(request);
     let query = { };
@@ -4699,11 +5533,24 @@ export default class Client extends OpenApi {
     return $tea.cast<StartDiskReplicaGroupResponse>(await this.callApi(params, req, runtime), new StartDiskReplicaGroupResponse({}));
   }
 
+  /**
+    * The operation that you want to perform. Set the value to **StartDiskReplicaGroup**.
+    *
+    * @param request StartDiskReplicaGroupRequest
+    * @return StartDiskReplicaGroupResponse
+   */
   async startDiskReplicaGroup(request: StartDiskReplicaGroupRequest): Promise<StartDiskReplicaGroupResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.startDiskReplicaGroupWithOptions(request, runtime);
   }
 
+  /**
+    * The client token that is used to ensure the idempotence of the request. You can use the client to generate the value, but you must make sure that the value is unique among different requests. The ClientToken value can contain only ASCII characters and cannot exceed 64 characters in length. For more information, see [How to ensure idempotence](~~25693~~).
+    *
+    * @param request StartDiskReplicaPairRequest
+    * @param runtime runtime options for this request RuntimeOptions
+    * @return StartDiskReplicaPairResponse
+   */
   async startDiskReplicaPairWithOptions(request: StartDiskReplicaPairRequest, runtime: $Util.RuntimeOptions): Promise<StartDiskReplicaPairResponse> {
     Util.validateModel(request);
     let query = { };
@@ -4740,11 +5587,25 @@ export default class Client extends OpenApi {
     return $tea.cast<StartDiskReplicaPairResponse>(await this.callApi(params, req, runtime), new StartDiskReplicaPairResponse({}));
   }
 
+  /**
+    * The client token that is used to ensure the idempotence of the request. You can use the client to generate the value, but you must make sure that the value is unique among different requests. The ClientToken value can contain only ASCII characters and cannot exceed 64 characters in length. For more information, see [How to ensure idempotence](~~25693~~).
+    *
+    * @param request StartDiskReplicaPairRequest
+    * @return StartDiskReplicaPairResponse
+   */
   async startDiskReplicaPair(request: StartDiskReplicaPairRequest): Promise<StartDiskReplicaPairResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.startDiskReplicaPairWithOptions(request, runtime);
   }
 
+  /**
+    * ## Usage notes
+    * CloudLens for EBS is in invitational preview in the China (Hangzhou), China (Shanghai), China (Zhangjiakou), China (Shenzhen), and China (Hong Kong) regions. To use the feature, [submit a ticket](https://workorder-intl.console.aliyun.com/#/ticket/createIndex).
+    *
+    * @param tmpReq StopDiskMonitorRequest
+    * @param runtime runtime options for this request RuntimeOptions
+    * @return StopDiskMonitorResponse
+   */
   async stopDiskMonitorWithOptions(tmpReq: StopDiskMonitorRequest, runtime: $Util.RuntimeOptions): Promise<StopDiskMonitorResponse> {
     Util.validateModel(tmpReq);
     let request = new StopDiskMonitorShrinkRequest({ });
@@ -4779,11 +5640,27 @@ export default class Client extends OpenApi {
     return $tea.cast<StopDiskMonitorResponse>(await this.callApi(params, req, runtime), new StopDiskMonitorResponse({}));
   }
 
+  /**
+    * ## Usage notes
+    * CloudLens for EBS is in invitational preview in the China (Hangzhou), China (Shanghai), China (Zhangjiakou), China (Shenzhen), and China (Hong Kong) regions. To use the feature, [submit a ticket](https://workorder-intl.console.aliyun.com/#/ticket/createIndex).
+    *
+    * @param request StopDiskMonitorRequest
+    * @return StopDiskMonitorResponse
+   */
   async stopDiskMonitor(request: StopDiskMonitorRequest): Promise<StopDiskMonitorResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.stopDiskMonitorWithOptions(request, runtime);
   }
 
+  /**
+    * *   The replication pair-consistent group feature is supported in the China (Hangzhou), China (Shanghai), China (Beijing), China (Shenzhen), China (Heyuan), China (Chengdu), China (Hong Kong), Singapore (Singapore), US (Silicon Valley), and US (Virginia) regions.
+    * *   The replication pair-consistent group that you want to stop must be in the **One-time Syncing** (`manual_syncing`), **Syncing** (`syncing`), **Normal** (`normal`), **Stopping** (`stopping`), **Stop Failed** (`stop_failed`), or **Stopped** (`stopped`) state.
+    * *   When a replication pair-consistent group is stopped, it enters the **Stopped** (`stopped`) state. If a replication pair-consistent group cannot be stopped, the state of the group remains unchanged or changes to **Stop Failed** (`stop_failed`). In this case, try again later.
+    *
+    * @param request StopDiskReplicaGroupRequest
+    * @param runtime runtime options for this request RuntimeOptions
+    * @return StopDiskReplicaGroupResponse
+   */
   async stopDiskReplicaGroupWithOptions(request: StopDiskReplicaGroupRequest, runtime: $Util.RuntimeOptions): Promise<StopDiskReplicaGroupResponse> {
     Util.validateModel(request);
     let query = { };
@@ -4816,11 +5693,27 @@ export default class Client extends OpenApi {
     return $tea.cast<StopDiskReplicaGroupResponse>(await this.callApi(params, req, runtime), new StopDiskReplicaGroupResponse({}));
   }
 
+  /**
+    * *   The replication pair-consistent group feature is supported in the China (Hangzhou), China (Shanghai), China (Beijing), China (Shenzhen), China (Heyuan), China (Chengdu), China (Hong Kong), Singapore (Singapore), US (Silicon Valley), and US (Virginia) regions.
+    * *   The replication pair-consistent group that you want to stop must be in the **One-time Syncing** (`manual_syncing`), **Syncing** (`syncing`), **Normal** (`normal`), **Stopping** (`stopping`), **Stop Failed** (`stop_failed`), or **Stopped** (`stopped`) state.
+    * *   When a replication pair-consistent group is stopped, it enters the **Stopped** (`stopped`) state. If a replication pair-consistent group cannot be stopped, the state of the group remains unchanged or changes to **Stop Failed** (`stop_failed`). In this case, try again later.
+    *
+    * @param request StopDiskReplicaGroupRequest
+    * @return StopDiskReplicaGroupResponse
+   */
   async stopDiskReplicaGroup(request: StopDiskReplicaGroupRequest): Promise<StopDiskReplicaGroupResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.stopDiskReplicaGroupWithOptions(request, runtime);
   }
 
+  /**
+    * *   The async replication feature is supported in the China (Hangzhou), China (Shanghai), China (Beijing), China (Shenzhen), China (Heyuan), China (Chengdu), China (Hong Kong), Singapore (Singapore), US (Silicon Valley), and US (Virginia) regions.
+    * *   Only replication pairs that are in the **Initial Syncing** (`initial_syncing`), **Syncing** (`syncing`), **One-time Syncing** (`manual_syncing`), or **Normal** (`normal`) state can be stopped. When a replication pair is stopped, it enters the Stopped (`stopped`) state. The secondary disk rolls back to the point in time when the last asynchronous replication was complete and drops all the data that is being replicated from the primary disk.
+    *
+    * @param request StopDiskReplicaPairRequest
+    * @param runtime runtime options for this request RuntimeOptions
+    * @return StopDiskReplicaPairResponse
+   */
   async stopDiskReplicaPairWithOptions(request: StopDiskReplicaPairRequest, runtime: $Util.RuntimeOptions): Promise<StopDiskReplicaPairResponse> {
     Util.validateModel(request);
     let query = { };
@@ -4853,11 +5746,25 @@ export default class Client extends OpenApi {
     return $tea.cast<StopDiskReplicaPairResponse>(await this.callApi(params, req, runtime), new StopDiskReplicaPairResponse({}));
   }
 
+  /**
+    * *   The async replication feature is supported in the China (Hangzhou), China (Shanghai), China (Beijing), China (Shenzhen), China (Heyuan), China (Chengdu), China (Hong Kong), Singapore (Singapore), US (Silicon Valley), and US (Virginia) regions.
+    * *   Only replication pairs that are in the **Initial Syncing** (`initial_syncing`), **Syncing** (`syncing`), **One-time Syncing** (`manual_syncing`), or **Normal** (`normal`) state can be stopped. When a replication pair is stopped, it enters the Stopped (`stopped`) state. The secondary disk rolls back to the point in time when the last asynchronous replication was complete and drops all the data that is being replicated from the primary disk.
+    *
+    * @param request StopDiskReplicaPairRequest
+    * @return StopDiskReplicaPairResponse
+   */
   async stopDiskReplicaPair(request: StopDiskReplicaPairRequest): Promise<StopDiskReplicaPairResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.stopDiskReplicaPairWithOptions(request, runtime);
   }
 
+  /**
+    * Before you add tags to a resource, Alibaba Cloud checks the number of existing tags of the resource. If the maximum number of tags is reached, an error message is returned. For more information, see the "Tag limits" section in [Limits](~~25412~~).
+    *
+    * @param request TagResourcesRequest
+    * @param runtime runtime options for this request RuntimeOptions
+    * @return TagResourcesResponse
+   */
   async tagResourcesWithOptions(request: TagResourcesRequest, runtime: $Util.RuntimeOptions): Promise<TagResourcesResponse> {
     Util.validateModel(request);
     let query = { };
@@ -4898,11 +5805,25 @@ export default class Client extends OpenApi {
     return $tea.cast<TagResourcesResponse>(await this.callApi(params, req, runtime), new TagResourcesResponse({}));
   }
 
+  /**
+    * Before you add tags to a resource, Alibaba Cloud checks the number of existing tags of the resource. If the maximum number of tags is reached, an error message is returned. For more information, see the "Tag limits" section in [Limits](~~25412~~).
+    *
+    * @param request TagResourcesRequest
+    * @return TagResourcesResponse
+   */
   async tagResources(request: TagResourcesRequest): Promise<TagResourcesResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.tagResourcesWithOptions(request, runtime);
   }
 
+  /**
+    * *   You can remove up to 20 tags at a time.
+    * *   After a tag is removed from an EBS resource, the tag is automatically deleted if the tag is not added to any instance.
+    *
+    * @param request UntagResourcesRequest
+    * @param runtime runtime options for this request RuntimeOptions
+    * @return UntagResourcesResponse
+   */
   async untagResourcesWithOptions(request: UntagResourcesRequest, runtime: $Util.RuntimeOptions): Promise<UntagResourcesResponse> {
     Util.validateModel(request);
     let query = { };
@@ -4947,6 +5868,13 @@ export default class Client extends OpenApi {
     return $tea.cast<UntagResourcesResponse>(await this.callApi(params, req, runtime), new UntagResourcesResponse({}));
   }
 
+  /**
+    * *   You can remove up to 20 tags at a time.
+    * *   After a tag is removed from an EBS resource, the tag is automatically deleted if the tag is not added to any instance.
+    *
+    * @param request UntagResourcesRequest
+    * @return UntagResourcesResponse
+   */
   async untagResources(request: UntagResourcesRequest): Promise<UntagResourcesResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.untagResourcesWithOptions(request, runtime);
