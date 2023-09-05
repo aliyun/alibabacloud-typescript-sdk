@@ -4395,6 +4395,9 @@ export class DescribeAcceleratorResponseBody extends $tea.Model {
   requestId?: string;
   resourceGroupId?: string;
   secondDnsName?: string;
+  serviceId?: string;
+  serviceManaged?: boolean;
+  serviceManagedInfos?: DescribeAcceleratorResponseBodyServiceManagedInfos[];
   spec?: string;
   state?: string;
   tags?: DescribeAcceleratorResponseBodyTags[];
@@ -4421,6 +4424,9 @@ export class DescribeAcceleratorResponseBody extends $tea.Model {
       requestId: 'RequestId',
       resourceGroupId: 'ResourceGroupId',
       secondDnsName: 'SecondDnsName',
+      serviceId: 'ServiceId',
+      serviceManaged: 'ServiceManaged',
+      serviceManagedInfos: 'ServiceManagedInfos',
       spec: 'Spec',
       state: 'State',
       tags: 'Tags',
@@ -4450,6 +4456,9 @@ export class DescribeAcceleratorResponseBody extends $tea.Model {
       requestId: 'string',
       resourceGroupId: 'string',
       secondDnsName: 'string',
+      serviceId: 'string',
+      serviceManaged: 'boolean',
+      serviceManagedInfos: { 'type': 'array', 'itemType': DescribeAcceleratorResponseBodyServiceManagedInfos },
       spec: 'string',
       state: 'string',
       tags: { 'type': 'array', 'itemType': DescribeAcceleratorResponseBodyTags },
@@ -5146,6 +5155,9 @@ export class DescribeCustomRoutingEndPointTrafficPolicyResponseBody extends $tea
   policyId?: string;
   portRanges?: DescribeCustomRoutingEndPointTrafficPolicyResponseBodyPortRanges[];
   requestId?: string;
+  serviceId?: string;
+  serviceManaged?: boolean;
+  serviceManagedInfos?: DescribeCustomRoutingEndPointTrafficPolicyResponseBodyServiceManagedInfos[];
   state?: string;
   static names(): { [key: string]: string } {
     return {
@@ -5158,6 +5170,9 @@ export class DescribeCustomRoutingEndPointTrafficPolicyResponseBody extends $tea
       policyId: 'PolicyId',
       portRanges: 'PortRanges',
       requestId: 'RequestId',
+      serviceId: 'ServiceId',
+      serviceManaged: 'ServiceManaged',
+      serviceManagedInfos: 'ServiceManagedInfos',
       state: 'State',
     };
   }
@@ -5173,6 +5188,9 @@ export class DescribeCustomRoutingEndPointTrafficPolicyResponseBody extends $tea
       policyId: 'string',
       portRanges: { 'type': 'array', 'itemType': DescribeCustomRoutingEndPointTrafficPolicyResponseBodyPortRanges },
       requestId: 'string',
+      serviceId: 'string',
+      serviceManaged: 'boolean',
+      serviceManagedInfos: { 'type': 'array', 'itemType': DescribeCustomRoutingEndPointTrafficPolicyResponseBodyServiceManagedInfos },
       state: 'string',
     };
   }
@@ -5239,6 +5257,9 @@ export class DescribeCustomRoutingEndpointResponseBody extends $tea.Model {
   endpointId?: string;
   listenerId?: string;
   requestId?: string;
+  serviceId?: string;
+  serviceManaged?: boolean;
+  serviceManagedInfos?: DescribeCustomRoutingEndpointResponseBodyServiceManagedInfos[];
   state?: string;
   trafficToEndpointPolicy?: string;
   type?: string;
@@ -5250,6 +5271,9 @@ export class DescribeCustomRoutingEndpointResponseBody extends $tea.Model {
       endpointId: 'EndpointId',
       listenerId: 'ListenerId',
       requestId: 'RequestId',
+      serviceId: 'ServiceId',
+      serviceManaged: 'ServiceManaged',
+      serviceManagedInfos: 'ServiceManagedInfos',
       state: 'State',
       trafficToEndpointPolicy: 'TrafficToEndpointPolicy',
       type: 'Type',
@@ -5264,6 +5288,9 @@ export class DescribeCustomRoutingEndpointResponseBody extends $tea.Model {
       endpointId: 'string',
       listenerId: 'string',
       requestId: 'string',
+      serviceId: 'string',
+      serviceManaged: 'boolean',
+      serviceManagedInfos: { 'type': 'array', 'itemType': DescribeCustomRoutingEndpointResponseBodyServiceManagedInfos },
       state: 'string',
       trafficToEndpointPolicy: 'string',
       type: 'string',
@@ -5334,6 +5361,9 @@ export class DescribeCustomRoutingEndpointGroupResponseBody extends $tea.Model {
   listenerId?: string;
   name?: string;
   requestId?: string;
+  serviceId?: string;
+  serviceManaged?: boolean;
+  serviceManagedInfos?: DescribeCustomRoutingEndpointGroupResponseBodyServiceManagedInfos[];
   slsLogStoreName?: string;
   slsProjectName?: string;
   slsRegion?: string;
@@ -5351,6 +5381,9 @@ export class DescribeCustomRoutingEndpointGroupResponseBody extends $tea.Model {
       listenerId: 'ListenerId',
       name: 'Name',
       requestId: 'RequestId',
+      serviceId: 'ServiceId',
+      serviceManaged: 'ServiceManaged',
+      serviceManagedInfos: 'ServiceManagedInfos',
       slsLogStoreName: 'SlsLogStoreName',
       slsProjectName: 'SlsProjectName',
       slsRegion: 'SlsRegion',
@@ -5371,6 +5404,9 @@ export class DescribeCustomRoutingEndpointGroupResponseBody extends $tea.Model {
       listenerId: 'string',
       name: 'string',
       requestId: 'string',
+      serviceId: 'string',
+      serviceManaged: 'boolean',
+      serviceManagedInfos: { 'type': 'array', 'itemType': DescribeCustomRoutingEndpointGroupResponseBodyServiceManagedInfos },
       slsLogStoreName: 'string',
       slsProjectName: 'string',
       slsRegion: 'string',
@@ -5441,6 +5477,9 @@ export class DescribeCustomRoutingEndpointGroupDestinationsResponseBody extends 
   listenerId?: string;
   protocols?: string[];
   requestId?: string;
+  serviceId?: string;
+  serviceManaged?: boolean;
+  serviceManagedInfos?: DescribeCustomRoutingEndpointGroupDestinationsResponseBodyServiceManagedInfos[];
   state?: string;
   toPort?: number;
   static names(): { [key: string]: string } {
@@ -5452,6 +5491,9 @@ export class DescribeCustomRoutingEndpointGroupDestinationsResponseBody extends 
       listenerId: 'ListenerId',
       protocols: 'Protocols',
       requestId: 'RequestId',
+      serviceId: 'ServiceId',
+      serviceManaged: 'ServiceManaged',
+      serviceManagedInfos: 'ServiceManagedInfos',
       state: 'State',
       toPort: 'ToPort',
     };
@@ -5466,6 +5508,9 @@ export class DescribeCustomRoutingEndpointGroupDestinationsResponseBody extends 
       listenerId: 'string',
       protocols: { 'type': 'array', 'itemType': 'string' },
       requestId: 'string',
+      serviceId: 'string',
+      serviceManaged: 'boolean',
+      serviceManagedInfos: { 'type': 'array', 'itemType': DescribeCustomRoutingEndpointGroupDestinationsResponseBodyServiceManagedInfos },
       state: 'string',
       toPort: 'number',
     };
@@ -5545,6 +5590,9 @@ export class DescribeEndpointGroupResponseBody extends $tea.Model {
   name?: string;
   portOverrides?: DescribeEndpointGroupResponseBodyPortOverrides[];
   requestId?: string;
+  serviceId?: string;
+  serviceManaged?: boolean;
+  serviceManagedInfos?: DescribeEndpointGroupResponseBodyServiceManagedInfos[];
   slsLogStoreName?: string;
   slsProjectName?: string;
   slsRegion?: string;
@@ -5575,6 +5623,9 @@ export class DescribeEndpointGroupResponseBody extends $tea.Model {
       name: 'Name',
       portOverrides: 'PortOverrides',
       requestId: 'RequestId',
+      serviceId: 'ServiceId',
+      serviceManaged: 'ServiceManaged',
+      serviceManagedInfos: 'ServiceManagedInfos',
       slsLogStoreName: 'SlsLogStoreName',
       slsProjectName: 'SlsProjectName',
       slsRegion: 'SlsRegion',
@@ -5608,6 +5659,9 @@ export class DescribeEndpointGroupResponseBody extends $tea.Model {
       name: 'string',
       portOverrides: { 'type': 'array', 'itemType': DescribeEndpointGroupResponseBodyPortOverrides },
       requestId: 'string',
+      serviceId: 'string',
+      serviceManaged: 'boolean',
+      serviceManagedInfos: { 'type': 'array', 'itemType': DescribeEndpointGroupResponseBodyServiceManagedInfos },
       slsLogStoreName: 'string',
       slsProjectName: 'string',
       slsRegion: 'string',
@@ -5679,6 +5733,9 @@ export class DescribeIpSetResponseBody extends $tea.Model {
   ipVersion?: string;
   ispType?: string;
   requestId?: string;
+  serviceId?: string;
+  serviceManaged?: boolean;
+  serviceManagedInfos?: DescribeIpSetResponseBodyServiceManagedInfos[];
   state?: string;
   static names(): { [key: string]: string } {
     return {
@@ -5690,6 +5747,9 @@ export class DescribeIpSetResponseBody extends $tea.Model {
       ipVersion: 'IpVersion',
       ispType: 'IspType',
       requestId: 'RequestId',
+      serviceId: 'ServiceId',
+      serviceManaged: 'ServiceManaged',
+      serviceManagedInfos: 'ServiceManagedInfos',
       state: 'State',
     };
   }
@@ -5704,6 +5764,9 @@ export class DescribeIpSetResponseBody extends $tea.Model {
       ipVersion: 'string',
       ispType: 'string',
       requestId: 'string',
+      serviceId: 'string',
+      serviceManaged: 'boolean',
+      serviceManagedInfos: { 'type': 'array', 'itemType': DescribeIpSetResponseBodyServiceManagedInfos },
       state: 'string',
     };
   }
@@ -5776,6 +5839,9 @@ export class DescribeListenerResponseBody extends $tea.Model {
   relatedAcls?: DescribeListenerResponseBodyRelatedAcls[];
   requestId?: string;
   securityPolicyId?: string;
+  serviceId?: string;
+  serviceManaged?: boolean;
+  serviceManagedInfos?: DescribeListenerResponseBodyServiceManagedInfos[];
   state?: string;
   type?: string;
   XForwardedForConfig?: DescribeListenerResponseBodyXForwardedForConfig;
@@ -5796,6 +5862,9 @@ export class DescribeListenerResponseBody extends $tea.Model {
       relatedAcls: 'RelatedAcls',
       requestId: 'RequestId',
       securityPolicyId: 'SecurityPolicyId',
+      serviceId: 'ServiceId',
+      serviceManaged: 'ServiceManaged',
+      serviceManagedInfos: 'ServiceManagedInfos',
       state: 'State',
       type: 'Type',
       XForwardedForConfig: 'XForwardedForConfig',
@@ -5819,6 +5888,9 @@ export class DescribeListenerResponseBody extends $tea.Model {
       relatedAcls: { 'type': 'array', 'itemType': DescribeListenerResponseBodyRelatedAcls },
       requestId: 'string',
       securityPolicyId: 'string',
+      serviceId: 'string',
+      serviceManaged: 'boolean',
+      serviceManagedInfos: { 'type': 'array', 'itemType': DescribeListenerResponseBodyServiceManagedInfos },
       state: 'string',
       type: 'string',
       XForwardedForConfig: DescribeListenerResponseBodyXForwardedForConfig,
@@ -8752,8 +8824,8 @@ export class ListCustomRoutingEndpointGroupDestinationsRequest extends $tea.Mode
   endpointGroupId?: string;
   fromPort?: number;
   listenerId?: string;
-  pageNumber?: string;
-  pageSize?: string;
+  pageNumber?: number;
+  pageSize?: number;
   protocols?: string[];
   regionId?: string;
   toPort?: number;
@@ -8777,8 +8849,8 @@ export class ListCustomRoutingEndpointGroupDestinationsRequest extends $tea.Mode
       endpointGroupId: 'string',
       fromPort: 'number',
       listenerId: 'string',
-      pageNumber: 'string',
-      pageSize: 'string',
+      pageNumber: 'number',
+      pageSize: 'number',
       protocols: { 'type': 'array', 'itemType': 'string' },
       regionId: 'string',
       toPort: 'number',
@@ -8850,8 +8922,8 @@ export class ListCustomRoutingEndpointGroupsRequest extends $tea.Model {
   acceleratorId?: string;
   endpointGroupId?: string;
   listenerId?: string;
-  pageNumber?: string;
-  pageSize?: string;
+  pageNumber?: number;
+  pageSize?: number;
   regionId?: string;
   static names(): { [key: string]: string } {
     return {
@@ -8869,8 +8941,8 @@ export class ListCustomRoutingEndpointGroupsRequest extends $tea.Model {
       acceleratorId: 'string',
       endpointGroupId: 'string',
       listenerId: 'string',
-      pageNumber: 'string',
-      pageSize: 'string',
+      pageNumber: 'number',
+      pageSize: 'number',
       regionId: 'string',
     };
   }
@@ -8942,8 +9014,8 @@ export class ListCustomRoutingEndpointTrafficPoliciesRequest extends $tea.Model 
   endpointGroupId?: string;
   endpointId?: string;
   listenerId?: string;
-  pageNumber?: string;
-  pageSize?: string;
+  pageNumber?: number;
+  pageSize?: number;
   regionId?: string;
   static names(): { [key: string]: string } {
     return {
@@ -8965,8 +9037,8 @@ export class ListCustomRoutingEndpointTrafficPoliciesRequest extends $tea.Model 
       endpointGroupId: 'string',
       endpointId: 'string',
       listenerId: 'string',
-      pageNumber: 'string',
-      pageSize: 'string',
+      pageNumber: 'number',
+      pageSize: 'number',
       regionId: 'string',
     };
   }
@@ -9036,8 +9108,8 @@ export class ListCustomRoutingEndpointsRequest extends $tea.Model {
   acceleratorId?: string;
   endpointGroupId?: string;
   listenerId?: string;
-  pageNumber?: string;
-  pageSize?: string;
+  pageNumber?: number;
+  pageSize?: number;
   regionId?: string;
   static names(): { [key: string]: string } {
     return {
@@ -9055,8 +9127,8 @@ export class ListCustomRoutingEndpointsRequest extends $tea.Model {
       acceleratorId: 'string',
       endpointGroupId: 'string',
       listenerId: 'string',
-      pageNumber: 'string',
-      pageSize: 'string',
+      pageNumber: 'number',
+      pageSize: 'number',
       regionId: 'string',
     };
   }
@@ -9126,8 +9198,8 @@ export class ListCustomRoutingPortMappingsRequest extends $tea.Model {
   acceleratorId?: string;
   endpointGroupId?: string;
   listenerId?: string;
-  pageNumber?: string;
-  pageSize?: string;
+  pageNumber?: number;
+  pageSize?: number;
   regionId?: string;
   static names(): { [key: string]: string } {
     return {
@@ -9145,8 +9217,8 @@ export class ListCustomRoutingPortMappingsRequest extends $tea.Model {
       acceleratorId: 'string',
       endpointGroupId: 'string',
       listenerId: 'string',
-      pageNumber: 'string',
-      pageSize: 'string',
+      pageNumber: 'number',
+      pageSize: 'number',
       regionId: 'string',
     };
   }
@@ -9215,8 +9287,8 @@ export class ListCustomRoutingPortMappingsResponse extends $tea.Model {
 export class ListCustomRoutingPortMappingsByDestinationRequest extends $tea.Model {
   destinationAddress?: string;
   endpointId?: string;
-  pageNumber?: string;
-  pageSize?: string;
+  pageNumber?: number;
+  pageSize?: number;
   regionId?: string;
   static names(): { [key: string]: string } {
     return {
@@ -9232,8 +9304,8 @@ export class ListCustomRoutingPortMappingsByDestinationRequest extends $tea.Mode
     return {
       destinationAddress: 'string',
       endpointId: 'string',
-      pageNumber: 'string',
-      pageSize: 'string',
+      pageNumber: 'number',
+      pageSize: 'number',
       regionId: 'string',
     };
   }
@@ -10977,6 +11049,78 @@ export class UpdateAcceleratorCrossBorderModeResponse extends $tea.Model {
       headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
       statusCode: 'number',
       body: UpdateAcceleratorCrossBorderModeResponseBody,
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class UpdateAcceleratorCrossBorderStatusRequest extends $tea.Model {
+  acceleratorId?: string;
+  clientToken?: string;
+  crossBorderStatus?: boolean;
+  regionId?: string;
+  static names(): { [key: string]: string } {
+    return {
+      acceleratorId: 'AcceleratorId',
+      clientToken: 'ClientToken',
+      crossBorderStatus: 'CrossBorderStatus',
+      regionId: 'RegionId',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      acceleratorId: 'string',
+      clientToken: 'string',
+      crossBorderStatus: 'boolean',
+      regionId: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class UpdateAcceleratorCrossBorderStatusResponseBody extends $tea.Model {
+  requestId?: string;
+  static names(): { [key: string]: string } {
+    return {
+      requestId: 'RequestId',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      requestId: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class UpdateAcceleratorCrossBorderStatusResponse extends $tea.Model {
+  headers: { [key: string]: string };
+  statusCode: number;
+  body: UpdateAcceleratorCrossBorderStatusResponseBody;
+  static names(): { [key: string]: string } {
+    return {
+      headers: 'headers',
+      statusCode: 'statusCode',
+      body: 'body',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
+      body: UpdateAcceleratorCrossBorderStatusResponseBody,
     };
   }
 
@@ -12749,6 +12893,81 @@ export class UpdateListenerResponse extends $tea.Model {
   }
 }
 
+export class UpdateServiceManagedControlRequest extends $tea.Model {
+  clientToken?: string;
+  regionId?: string;
+  resourceId?: string;
+  resourceType?: string;
+  serviceManaged?: boolean;
+  static names(): { [key: string]: string } {
+    return {
+      clientToken: 'ClientToken',
+      regionId: 'RegionId',
+      resourceId: 'ResourceId',
+      resourceType: 'ResourceType',
+      serviceManaged: 'ServiceManaged',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      clientToken: 'string',
+      regionId: 'string',
+      resourceId: 'string',
+      resourceType: 'string',
+      serviceManaged: 'boolean',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class UpdateServiceManagedControlResponseBody extends $tea.Model {
+  requestId?: string;
+  static names(): { [key: string]: string } {
+    return {
+      requestId: 'RequestId',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      requestId: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class UpdateServiceManagedControlResponse extends $tea.Model {
+  headers: { [key: string]: string };
+  statusCode: number;
+  body: UpdateServiceManagedControlResponseBody;
+  static names(): { [key: string]: string } {
+    return {
+      headers: 'headers',
+      statusCode: 'statusCode',
+      body: 'body',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
+      body: UpdateServiceManagedControlResponseBody,
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
 export class AddEntriesToAclRequestAclEntries extends $tea.Model {
   entry?: string;
   entryDescription?: string;
@@ -14095,6 +14314,31 @@ export class DescribeAcceleratorResponseBodyIpSetConfig extends $tea.Model {
   }
 }
 
+export class DescribeAcceleratorResponseBodyServiceManagedInfos extends $tea.Model {
+  action?: string;
+  childType?: string;
+  isManaged?: boolean;
+  static names(): { [key: string]: string } {
+    return {
+      action: 'Action',
+      childType: 'ChildType',
+      isManaged: 'IsManaged',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      action: 'string',
+      childType: 'string',
+      isManaged: 'boolean',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
 export class DescribeAcceleratorResponseBodyTags extends $tea.Model {
   key?: string;
   value?: string;
@@ -14506,6 +14750,106 @@ export class DescribeCustomRoutingEndPointTrafficPolicyResponseBodyPortRanges ex
   }
 }
 
+export class DescribeCustomRoutingEndPointTrafficPolicyResponseBodyServiceManagedInfos extends $tea.Model {
+  action?: string;
+  childType?: string;
+  isManaged?: boolean;
+  static names(): { [key: string]: string } {
+    return {
+      action: 'Action',
+      childType: 'ChildType',
+      isManaged: 'IsManaged',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      action: 'string',
+      childType: 'string',
+      isManaged: 'boolean',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class DescribeCustomRoutingEndpointResponseBodyServiceManagedInfos extends $tea.Model {
+  action?: string;
+  childType?: string;
+  isManaged?: boolean;
+  static names(): { [key: string]: string } {
+    return {
+      action: 'Action',
+      childType: 'ChildType',
+      isManaged: 'IsManaged',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      action: 'string',
+      childType: 'string',
+      isManaged: 'boolean',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class DescribeCustomRoutingEndpointGroupResponseBodyServiceManagedInfos extends $tea.Model {
+  action?: string;
+  childType?: string;
+  isManaged?: boolean;
+  static names(): { [key: string]: string } {
+    return {
+      action: 'Action',
+      childType: 'ChildType',
+      isManaged: 'IsManaged',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      action: 'string',
+      childType: 'string',
+      isManaged: 'boolean',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class DescribeCustomRoutingEndpointGroupDestinationsResponseBodyServiceManagedInfos extends $tea.Model {
+  action?: string;
+  childType?: string;
+  isManaged?: boolean;
+  static names(): { [key: string]: string } {
+    return {
+      action: 'Action',
+      childType: 'ChildType',
+      isManaged: 'IsManaged',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      action: 'string',
+      childType: 'string',
+      isManaged: 'boolean',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
 export class DescribeEndpointGroupResponseBodyEndpointConfigurations extends $tea.Model {
   enableClientIPPreservation?: boolean;
   enableProxyProtocol?: boolean;
@@ -14565,6 +14909,31 @@ export class DescribeEndpointGroupResponseBodyPortOverrides extends $tea.Model {
   }
 }
 
+export class DescribeEndpointGroupResponseBodyServiceManagedInfos extends $tea.Model {
+  action?: string;
+  childType?: string;
+  isManaged?: boolean;
+  static names(): { [key: string]: string } {
+    return {
+      action: 'Action',
+      childType: 'ChildType',
+      isManaged: 'IsManaged',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      action: 'string',
+      childType: 'string',
+      isManaged: 'boolean',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
 export class DescribeEndpointGroupResponseBodyTags extends $tea.Model {
   key?: string;
   value?: string;
@@ -14579,6 +14948,31 @@ export class DescribeEndpointGroupResponseBodyTags extends $tea.Model {
     return {
       key: 'string',
       value: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class DescribeIpSetResponseBodyServiceManagedInfos extends $tea.Model {
+  action?: string;
+  childType?: string;
+  isManaged?: boolean;
+  static names(): { [key: string]: string } {
+    return {
+      action: 'Action',
+      childType: 'ChildType',
+      isManaged: 'IsManaged',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      action: 'string',
+      childType: 'string',
+      isManaged: 'boolean',
     };
   }
 
@@ -14667,6 +15061,31 @@ export class DescribeListenerResponseBodyRelatedAcls extends $tea.Model {
     return {
       aclId: 'string',
       status: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class DescribeListenerResponseBodyServiceManagedInfos extends $tea.Model {
+  action?: string;
+  childType?: string;
+  isManaged?: boolean;
+  static names(): { [key: string]: string } {
+    return {
+      action: 'Action',
+      childType: 'ChildType',
+      isManaged: 'IsManaged',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      action: 'string',
+      childType: 'string',
+      isManaged: 'boolean',
     };
   }
 
@@ -15066,6 +15485,31 @@ export class ListAcceleratorsResponseBodyAcceleratorsIpSetConfig extends $tea.Mo
   }
 }
 
+export class ListAcceleratorsResponseBodyAcceleratorsServiceManagedInfos extends $tea.Model {
+  action?: string;
+  childType?: string;
+  isManaged?: boolean;
+  static names(): { [key: string]: string } {
+    return {
+      action: 'Action',
+      childType: 'ChildType',
+      isManaged: 'IsManaged',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      action: 'string',
+      childType: 'string',
+      isManaged: 'boolean',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
 export class ListAcceleratorsResponseBodyAcceleratorsTags extends $tea.Model {
   key?: string;
   value?: string;
@@ -15108,6 +15552,9 @@ export class ListAcceleratorsResponseBodyAccelerators extends $tea.Model {
   regionId?: string;
   resourceGroupId?: string;
   secondDnsName?: string;
+  serviceId?: string;
+  serviceManaged?: boolean;
+  serviceManagedInfos?: ListAcceleratorsResponseBodyAcceleratorsServiceManagedInfos[];
   spec?: string;
   state?: string;
   tags?: ListAcceleratorsResponseBodyAcceleratorsTags[];
@@ -15134,6 +15581,9 @@ export class ListAcceleratorsResponseBodyAccelerators extends $tea.Model {
       regionId: 'RegionId',
       resourceGroupId: 'ResourceGroupId',
       secondDnsName: 'SecondDnsName',
+      serviceId: 'ServiceId',
+      serviceManaged: 'ServiceManaged',
+      serviceManagedInfos: 'ServiceManagedInfos',
       spec: 'Spec',
       state: 'State',
       tags: 'Tags',
@@ -15163,6 +15613,9 @@ export class ListAcceleratorsResponseBodyAccelerators extends $tea.Model {
       regionId: 'string',
       resourceGroupId: 'string',
       secondDnsName: 'string',
+      serviceId: 'string',
+      serviceManaged: 'boolean',
+      serviceManagedInfos: { 'type': 'array', 'itemType': ListAcceleratorsResponseBodyAcceleratorsServiceManagedInfos },
       spec: 'string',
       state: 'string',
       tags: { 'type': 'array', 'itemType': ListAcceleratorsResponseBodyAcceleratorsTags },
@@ -15974,6 +16427,31 @@ export class ListCommonAreasResponseBodyAreas extends $tea.Model {
   }
 }
 
+export class ListCustomRoutingEndpointGroupDestinationsResponseBodyDestinationsServiceManagedInfos extends $tea.Model {
+  action?: string;
+  childType?: string;
+  isManaged?: boolean;
+  static names(): { [key: string]: string } {
+    return {
+      action: 'Action',
+      childType: 'ChildType',
+      isManaged: 'IsManaged',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      action: 'string',
+      childType: 'string',
+      isManaged: 'boolean',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
 export class ListCustomRoutingEndpointGroupDestinationsResponseBodyDestinations extends $tea.Model {
   acceleratorId?: string;
   destinationId?: string;
@@ -15981,6 +16459,9 @@ export class ListCustomRoutingEndpointGroupDestinationsResponseBodyDestinations 
   fromPort?: number;
   listenerId?: string;
   protocols?: string[];
+  serviceId?: string;
+  serviceManaged?: boolean;
+  serviceManagedInfos?: ListCustomRoutingEndpointGroupDestinationsResponseBodyDestinationsServiceManagedInfos[];
   toPort?: number;
   static names(): { [key: string]: string } {
     return {
@@ -15990,6 +16471,9 @@ export class ListCustomRoutingEndpointGroupDestinationsResponseBodyDestinations 
       fromPort: 'FromPort',
       listenerId: 'ListenerId',
       protocols: 'Protocols',
+      serviceId: 'ServiceId',
+      serviceManaged: 'ServiceManaged',
+      serviceManagedInfos: 'ServiceManagedInfos',
       toPort: 'ToPort',
     };
   }
@@ -16002,7 +16486,35 @@ export class ListCustomRoutingEndpointGroupDestinationsResponseBodyDestinations 
       fromPort: 'number',
       listenerId: 'string',
       protocols: { 'type': 'array', 'itemType': 'string' },
+      serviceId: 'string',
+      serviceManaged: 'boolean',
+      serviceManagedInfos: { 'type': 'array', 'itemType': ListCustomRoutingEndpointGroupDestinationsResponseBodyDestinationsServiceManagedInfos },
       toPort: 'number',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class ListCustomRoutingEndpointGroupsResponseBodyEndpointGroupsServiceManagedInfos extends $tea.Model {
+  action?: string;
+  childType?: string;
+  isManaged?: boolean;
+  static names(): { [key: string]: string } {
+    return {
+      action: 'Action',
+      childType: 'ChildType',
+      isManaged: 'IsManaged',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      action: 'string',
+      childType: 'string',
+      isManaged: 'boolean',
     };
   }
 
@@ -16020,6 +16532,9 @@ export class ListCustomRoutingEndpointGroupsResponseBodyEndpointGroups extends $
   endpointGroupUnconfirmedIpList?: string[];
   listenerId?: string;
   name?: string;
+  serviceId?: string;
+  serviceManaged?: boolean;
+  serviceManagedInfos?: ListCustomRoutingEndpointGroupsResponseBodyEndpointGroupsServiceManagedInfos[];
   state?: string;
   static names(): { [key: string]: string } {
     return {
@@ -16031,6 +16546,9 @@ export class ListCustomRoutingEndpointGroupsResponseBodyEndpointGroups extends $
       endpointGroupUnconfirmedIpList: 'EndpointGroupUnconfirmedIpList',
       listenerId: 'ListenerId',
       name: 'Name',
+      serviceId: 'ServiceId',
+      serviceManaged: 'ServiceManaged',
+      serviceManagedInfos: 'ServiceManagedInfos',
       state: 'State',
     };
   }
@@ -16045,6 +16563,9 @@ export class ListCustomRoutingEndpointGroupsResponseBodyEndpointGroups extends $
       endpointGroupUnconfirmedIpList: { 'type': 'array', 'itemType': 'string' },
       listenerId: 'string',
       name: 'string',
+      serviceId: 'string',
+      serviceManaged: 'boolean',
+      serviceManagedInfos: { 'type': 'array', 'itemType': ListCustomRoutingEndpointGroupsResponseBodyEndpointGroupsServiceManagedInfos },
       state: 'string',
     };
   }
@@ -16076,6 +16597,31 @@ export class ListCustomRoutingEndpointTrafficPoliciesResponseBodyPoliciesPortRan
   }
 }
 
+export class ListCustomRoutingEndpointTrafficPoliciesResponseBodyPoliciesServiceManagedInfos extends $tea.Model {
+  action?: string;
+  childType?: string;
+  isManaged?: boolean;
+  static names(): { [key: string]: string } {
+    return {
+      action: 'Action',
+      childType: 'ChildType',
+      isManaged: 'IsManaged',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      action: 'string',
+      childType: 'string',
+      isManaged: 'boolean',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
 export class ListCustomRoutingEndpointTrafficPoliciesResponseBodyPolicies extends $tea.Model {
   acceleratorId?: string;
   address?: string;
@@ -16084,6 +16630,9 @@ export class ListCustomRoutingEndpointTrafficPoliciesResponseBodyPolicies extend
   listenerId?: string;
   policyId?: string;
   portRanges?: ListCustomRoutingEndpointTrafficPoliciesResponseBodyPoliciesPortRanges[];
+  serviceId?: string;
+  serviceManaged?: boolean;
+  serviceManagedInfos?: ListCustomRoutingEndpointTrafficPoliciesResponseBodyPoliciesServiceManagedInfos[];
   static names(): { [key: string]: string } {
     return {
       acceleratorId: 'AcceleratorId',
@@ -16093,6 +16642,9 @@ export class ListCustomRoutingEndpointTrafficPoliciesResponseBodyPolicies extend
       listenerId: 'ListenerId',
       policyId: 'PolicyId',
       portRanges: 'PortRanges',
+      serviceId: 'ServiceId',
+      serviceManaged: 'ServiceManaged',
+      serviceManagedInfos: 'ServiceManagedInfos',
     };
   }
 
@@ -16105,6 +16657,34 @@ export class ListCustomRoutingEndpointTrafficPoliciesResponseBodyPolicies extend
       listenerId: 'string',
       policyId: 'string',
       portRanges: { 'type': 'array', 'itemType': ListCustomRoutingEndpointTrafficPoliciesResponseBodyPoliciesPortRanges },
+      serviceId: 'string',
+      serviceManaged: 'boolean',
+      serviceManagedInfos: { 'type': 'array', 'itemType': ListCustomRoutingEndpointTrafficPoliciesResponseBodyPoliciesServiceManagedInfos },
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class ListCustomRoutingEndpointsResponseBodyEndpointsServiceManagedInfos extends $tea.Model {
+  action?: string;
+  childType?: string;
+  isManaged?: boolean;
+  static names(): { [key: string]: string } {
+    return {
+      action: 'Action',
+      childType: 'ChildType',
+      isManaged: 'IsManaged',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      action: 'string',
+      childType: 'string',
+      isManaged: 'boolean',
     };
   }
 
@@ -16119,6 +16699,9 @@ export class ListCustomRoutingEndpointsResponseBodyEndpoints extends $tea.Model 
   endpointGroupId?: string;
   endpointId?: string;
   listenerId?: string;
+  serviceId?: string;
+  serviceManaged?: boolean;
+  serviceManagedInfos?: ListCustomRoutingEndpointsResponseBodyEndpointsServiceManagedInfos[];
   trafficToEndpointPolicy?: string;
   type?: string;
   static names(): { [key: string]: string } {
@@ -16128,6 +16711,9 @@ export class ListCustomRoutingEndpointsResponseBodyEndpoints extends $tea.Model 
       endpointGroupId: 'EndpointGroupId',
       endpointId: 'EndpointId',
       listenerId: 'ListenerId',
+      serviceId: 'ServiceId',
+      serviceManaged: 'ServiceManaged',
+      serviceManagedInfos: 'ServiceManagedInfos',
       trafficToEndpointPolicy: 'TrafficToEndpointPolicy',
       type: 'Type',
     };
@@ -16140,6 +16726,9 @@ export class ListCustomRoutingEndpointsResponseBodyEndpoints extends $tea.Model 
       endpointGroupId: 'string',
       endpointId: 'string',
       listenerId: 'string',
+      serviceId: 'string',
+      serviceManaged: 'boolean',
+      serviceManagedInfos: { 'type': 'array', 'itemType': ListCustomRoutingEndpointsResponseBodyEndpointsServiceManagedInfos },
       trafficToEndpointPolicy: 'string',
       type: 'string',
     };
@@ -16286,13 +16875,44 @@ export class ListCustomRoutingPortMappingsByDestinationResponseBodyPortMappings 
   }
 }
 
+export class ListDomainsResponseBodyDomainsAcceleratorsServiceManagedInfos extends $tea.Model {
+  action?: string;
+  childType?: string;
+  isManaged?: boolean;
+  static names(): { [key: string]: string } {
+    return {
+      action: 'Action',
+      childType: 'ChildType',
+      isManaged: 'IsManaged',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      action: 'string',
+      childType: 'string',
+      isManaged: 'boolean',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
 export class ListDomainsResponseBodyDomainsAccelerators extends $tea.Model {
   acceleratorId?: string;
   name?: string;
+  serviceId?: string;
+  serviceManaged?: boolean;
+  serviceManagedInfos?: ListDomainsResponseBodyDomainsAcceleratorsServiceManagedInfos[];
   static names(): { [key: string]: string } {
     return {
       acceleratorId: 'AcceleratorId',
       name: 'Name',
+      serviceId: 'ServiceId',
+      serviceManaged: 'ServiceManaged',
+      serviceManagedInfos: 'ServiceManagedInfos',
     };
   }
 
@@ -16300,6 +16920,9 @@ export class ListDomainsResponseBodyDomainsAccelerators extends $tea.Model {
     return {
       acceleratorId: 'string',
       name: 'string',
+      serviceId: 'string',
+      serviceManaged: 'boolean',
+      serviceManagedInfos: { 'type': 'array', 'itemType': ListDomainsResponseBodyDomainsAcceleratorsServiceManagedInfos },
     };
   }
 
@@ -16414,6 +17037,31 @@ export class ListEndpointGroupsResponseBodyEndpointGroupsPortOverrides extends $
   }
 }
 
+export class ListEndpointGroupsResponseBodyEndpointGroupsServiceManagedInfos extends $tea.Model {
+  action?: string;
+  childType?: string;
+  isManaged?: boolean;
+  static names(): { [key: string]: string } {
+    return {
+      action: 'Action',
+      childType: 'ChildType',
+      isManaged: 'IsManaged',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      action: 'string',
+      childType: 'string',
+      isManaged: 'boolean',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
 export class ListEndpointGroupsResponseBodyEndpointGroupsTags extends $tea.Model {
   key?: string;
   value?: string;
@@ -16455,6 +17103,9 @@ export class ListEndpointGroupsResponseBodyEndpointGroups extends $tea.Model {
   listenerId?: string;
   name?: string;
   portOverrides?: ListEndpointGroupsResponseBodyEndpointGroupsPortOverrides[];
+  serviceId?: string;
+  serviceManaged?: boolean;
+  serviceManagedInfos?: ListEndpointGroupsResponseBodyEndpointGroupsServiceManagedInfos[];
   state?: string;
   tags?: ListEndpointGroupsResponseBodyEndpointGroupsTags[];
   thresholdCount?: number;
@@ -16479,6 +17130,9 @@ export class ListEndpointGroupsResponseBodyEndpointGroups extends $tea.Model {
       listenerId: 'ListenerId',
       name: 'Name',
       portOverrides: 'PortOverrides',
+      serviceId: 'ServiceId',
+      serviceManaged: 'ServiceManaged',
+      serviceManagedInfos: 'ServiceManagedInfos',
       state: 'State',
       tags: 'Tags',
       thresholdCount: 'ThresholdCount',
@@ -16506,6 +17160,9 @@ export class ListEndpointGroupsResponseBodyEndpointGroups extends $tea.Model {
       listenerId: 'string',
       name: 'string',
       portOverrides: { 'type': 'array', 'itemType': ListEndpointGroupsResponseBodyEndpointGroupsPortOverrides },
+      serviceId: 'string',
+      serviceManaged: 'boolean',
+      serviceManagedInfos: { 'type': 'array', 'itemType': ListEndpointGroupsResponseBodyEndpointGroupsServiceManagedInfos },
       state: 'string',
       tags: { 'type': 'array', 'itemType': ListEndpointGroupsResponseBodyEndpointGroupsTags },
       thresholdCount: 'number',
@@ -16650,6 +17307,31 @@ export class ListForwardingRulesResponseBodyForwardingRulesRuleConditions extend
   }
 }
 
+export class ListForwardingRulesResponseBodyForwardingRulesServiceManagedInfos extends $tea.Model {
+  action?: string;
+  childType?: string;
+  isManaged?: boolean;
+  static names(): { [key: string]: string } {
+    return {
+      action: 'Action',
+      childType: 'ChildType',
+      isManaged: 'IsManaged',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      action: 'string',
+      childType: 'string',
+      isManaged: 'boolean',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
 export class ListForwardingRulesResponseBodyForwardingRules extends $tea.Model {
   forwardingRuleDirection?: string;
   forwardingRuleId?: string;
@@ -16659,6 +17341,9 @@ export class ListForwardingRulesResponseBodyForwardingRules extends $tea.Model {
   priority?: number;
   ruleActions?: ListForwardingRulesResponseBodyForwardingRulesRuleActions[];
   ruleConditions?: ListForwardingRulesResponseBodyForwardingRulesRuleConditions[];
+  serviceId?: string;
+  serviceManaged?: boolean;
+  serviceManagedInfos?: ListForwardingRulesResponseBodyForwardingRulesServiceManagedInfos[];
   static names(): { [key: string]: string } {
     return {
       forwardingRuleDirection: 'ForwardingRuleDirection',
@@ -16669,6 +17354,9 @@ export class ListForwardingRulesResponseBodyForwardingRules extends $tea.Model {
       priority: 'Priority',
       ruleActions: 'RuleActions',
       ruleConditions: 'RuleConditions',
+      serviceId: 'ServiceId',
+      serviceManaged: 'ServiceManaged',
+      serviceManagedInfos: 'ServiceManagedInfos',
     };
   }
 
@@ -16682,6 +17370,34 @@ export class ListForwardingRulesResponseBodyForwardingRules extends $tea.Model {
       priority: 'number',
       ruleActions: { 'type': 'array', 'itemType': ListForwardingRulesResponseBodyForwardingRulesRuleActions },
       ruleConditions: { 'type': 'array', 'itemType': ListForwardingRulesResponseBodyForwardingRulesRuleConditions },
+      serviceId: 'string',
+      serviceManaged: 'boolean',
+      serviceManagedInfos: { 'type': 'array', 'itemType': ListForwardingRulesResponseBodyForwardingRulesServiceManagedInfos },
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class ListIpSetsResponseBodyIpSetsServiceManagedInfos extends $tea.Model {
+  action?: string;
+  childType?: string;
+  isManaged?: boolean;
+  static names(): { [key: string]: string } {
+    return {
+      action: 'Action',
+      childType: 'ChildType',
+      isManaged: 'IsManaged',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      action: 'string',
+      childType: 'string',
+      isManaged: 'boolean',
     };
   }
 
@@ -16697,6 +17413,9 @@ export class ListIpSetsResponseBodyIpSets extends $tea.Model {
   ipSetId?: string;
   ipVersion?: string;
   ispType?: string;
+  serviceId?: string;
+  serviceManaged?: boolean;
+  serviceManagedInfos?: ListIpSetsResponseBodyIpSetsServiceManagedInfos[];
   state?: string;
   static names(): { [key: string]: string } {
     return {
@@ -16706,6 +17425,9 @@ export class ListIpSetsResponseBodyIpSets extends $tea.Model {
       ipSetId: 'IpSetId',
       ipVersion: 'IpVersion',
       ispType: 'IspType',
+      serviceId: 'ServiceId',
+      serviceManaged: 'ServiceManaged',
+      serviceManagedInfos: 'ServiceManagedInfos',
       state: 'State',
     };
   }
@@ -16718,6 +17440,9 @@ export class ListIpSetsResponseBodyIpSets extends $tea.Model {
       ipSetId: 'string',
       ipVersion: 'string',
       ispType: 'string',
+      serviceId: 'string',
+      serviceManaged: 'boolean',
+      serviceManagedInfos: { 'type': 'array', 'itemType': ListIpSetsResponseBodyIpSetsServiceManagedInfos },
       state: 'string',
     };
   }
@@ -16821,6 +17546,31 @@ export class ListListenersResponseBodyListenersPortRanges extends $tea.Model {
   }
 }
 
+export class ListListenersResponseBodyListenersServiceManagedInfos extends $tea.Model {
+  action?: string;
+  childType?: string;
+  isManaged?: boolean;
+  static names(): { [key: string]: string } {
+    return {
+      action: 'Action',
+      childType: 'ChildType',
+      isManaged: 'IsManaged',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      action: 'string',
+      childType: 'string',
+      isManaged: 'boolean',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
 export class ListListenersResponseBodyListenersXForwardedForConfig extends $tea.Model {
   XForwardedForGaApEnabled?: boolean;
   XForwardedForGaIdEnabled?: boolean;
@@ -16865,6 +17615,9 @@ export class ListListenersResponseBodyListeners extends $tea.Model {
   protocol?: string;
   proxyProtocol?: boolean;
   securityPolicyId?: string;
+  serviceId?: string;
+  serviceManaged?: boolean;
+  serviceManagedInfos?: ListListenersResponseBodyListenersServiceManagedInfos[];
   state?: string;
   type?: string;
   XForwardedForConfig?: ListListenersResponseBodyListenersXForwardedForConfig;
@@ -16882,6 +17635,9 @@ export class ListListenersResponseBodyListeners extends $tea.Model {
       protocol: 'Protocol',
       proxyProtocol: 'ProxyProtocol',
       securityPolicyId: 'SecurityPolicyId',
+      serviceId: 'ServiceId',
+      serviceManaged: 'ServiceManaged',
+      serviceManagedInfos: 'ServiceManagedInfos',
       state: 'State',
       type: 'Type',
       XForwardedForConfig: 'XForwardedForConfig',
@@ -16902,6 +17658,9 @@ export class ListListenersResponseBodyListeners extends $tea.Model {
       protocol: 'string',
       proxyProtocol: 'boolean',
       securityPolicyId: 'string',
+      serviceId: 'string',
+      serviceManaged: 'boolean',
+      serviceManagedInfos: { 'type': 'array', 'itemType': ListListenersResponseBodyListenersServiceManagedInfos },
       state: 'string',
       type: 'string',
       XForwardedForConfig: ListListenersResponseBodyListenersXForwardedForConfig,
@@ -17700,10 +18459,10 @@ export default class Client extends OpenApi {
   }
 
   /**
-    * *   The **AddEntriesToAcl** operation is asynchronous. After you send a request, the system returns a request ID, but the operation is still being performed in the background. You can call the [GetAcl](~~258292~~) or [ListAcls](~~258291~~) operation to query the status of an ACL:
-    *     *   If an ACL is in the **configuring** state, the IP entries are being added. In this case, you can perform only query operations.
-    *     *   If an ACL is in the **active** state, the IP entries are added.
-    * *   You cannot repeatedly call the **AddEntriesToAcl** operation for the same Global Accelerator (GA) instance within the specified period of time.
+    * *   **AddEntriesToAcl** is an asynchronous operation. After a request is sent, the system returns a request ID and runs the task in the background. You can call the [GetAcl](~~258292~~) or [ListAcls](~~258291~~) operation to query the status of the ACL to which you want to add IP entries.
+    *     *   If the ACL is in the **configuring** state, it indicates that IP entries are added to the ACL. In this case, you can perform only query operations.
+    *     *   If the ACL is in the **active** state, it indicates that IP entries are added to the ACL.
+    * *   The **AddEntriesToAcl** operation holds an exclusive lock on the Global Accelerator (GA) instance. While the operation is in progress, you cannot call the same operation in the same Alibaba Cloud account.
     *
     * @param request AddEntriesToAclRequest
     * @param runtime runtime options for this request RuntimeOptions
@@ -17750,10 +18509,10 @@ export default class Client extends OpenApi {
   }
 
   /**
-    * *   The **AddEntriesToAcl** operation is asynchronous. After you send a request, the system returns a request ID, but the operation is still being performed in the background. You can call the [GetAcl](~~258292~~) or [ListAcls](~~258291~~) operation to query the status of an ACL:
-    *     *   If an ACL is in the **configuring** state, the IP entries are being added. In this case, you can perform only query operations.
-    *     *   If an ACL is in the **active** state, the IP entries are added.
-    * *   You cannot repeatedly call the **AddEntriesToAcl** operation for the same Global Accelerator (GA) instance within the specified period of time.
+    * *   **AddEntriesToAcl** is an asynchronous operation. After a request is sent, the system returns a request ID and runs the task in the background. You can call the [GetAcl](~~258292~~) or [ListAcls](~~258291~~) operation to query the status of the ACL to which you want to add IP entries.
+    *     *   If the ACL is in the **configuring** state, it indicates that IP entries are added to the ACL. In this case, you can perform only query operations.
+    *     *   If the ACL is in the **active** state, it indicates that IP entries are added to the ACL.
+    * *   The **AddEntriesToAcl** operation holds an exclusive lock on the Global Accelerator (GA) instance. While the operation is in progress, you cannot call the same operation in the same Alibaba Cloud account.
     *
     * @param request AddEntriesToAclRequest
     * @return AddEntriesToAclResponse
@@ -17764,6 +18523,7 @@ export default class Client extends OpenApi {
   }
 
   /**
+    * ## Description
     * *   **AssociateAclsWithListener** is an asynchronous operation. After you send a request, the system returns a request ID, but the operation is still being performed in the system background. You can call the [DescribeListener](~~153254~~) operation to query the state of the listener with which you attempt to associate an ACL.
     *     *   If the listener is in the **updating** state, it indicates that the ACL is being associated. In this case, you can perform only query operations.
     *     *   If the listener is in the **active** state, it indicates that the ACL is associated.
@@ -17818,6 +18578,7 @@ export default class Client extends OpenApi {
   }
 
   /**
+    * ## Description
     * *   **AssociateAclsWithListener** is an asynchronous operation. After you send a request, the system returns a request ID, but the operation is still being performed in the system background. You can call the [DescribeListener](~~153254~~) operation to query the state of the listener with which you attempt to associate an ACL.
     *     *   If the listener is in the **updating** state, it indicates that the ACL is being associated. In this case, you can perform only query operations.
     *     *   If the listener is in the **active** state, it indicates that the ACL is associated.
@@ -17832,11 +18593,11 @@ export default class Client extends OpenApi {
   }
 
   /**
-    * *   You can associate additional certificates with only HTTPS listeners.
-    * *   **AssociateAdditionalCertificatesWithListener** is an asynchronous operation. After you send a request, the system returns a request ID, but the operation is still being performed in the system background. You can call the [DescribeListener](~~153254~~) operation to query the state of the listener with which you attempt to associate an additional certificate.
+    * *   Only HTTPS listeners can be associated with additional certificates.
+    * *   **AssociateAdditionalCertificatesWithListener** is an asynchronous operation. After a request is sent, the system returns a request ID and runs the task in the background. You can call the [DescribeListener](~~153254~~) operation to query the status of the listener with which you want to associate an additional certificate.
     *     *   If the listener is in the **updating** state, it indicates that the additional certificate is being associated. In this case, you can perform only query operations.
     *     *   If the listener is in the **active** state, it indicates that the additional certificate is associated.
-    * *   The **AssociateAdditionalCertificatesWithListener** operation cannot be called repeatedly for the same Global Accelerator (GA) instance within a specific period of time.
+    * *   The **AssociateAdditionalCertificatesWithListener** operation holds an exclusive lock on the Global Accelerator (GA) instance. While the operation is in progress, you cannot call the same operation in the same Alibaba Cloud account.
     *
     * @param request AssociateAdditionalCertificatesWithListenerRequest
     * @param runtime runtime options for this request RuntimeOptions
@@ -17883,11 +18644,11 @@ export default class Client extends OpenApi {
   }
 
   /**
-    * *   You can associate additional certificates with only HTTPS listeners.
-    * *   **AssociateAdditionalCertificatesWithListener** is an asynchronous operation. After you send a request, the system returns a request ID, but the operation is still being performed in the system background. You can call the [DescribeListener](~~153254~~) operation to query the state of the listener with which you attempt to associate an additional certificate.
+    * *   Only HTTPS listeners can be associated with additional certificates.
+    * *   **AssociateAdditionalCertificatesWithListener** is an asynchronous operation. After a request is sent, the system returns a request ID and runs the task in the background. You can call the [DescribeListener](~~153254~~) operation to query the status of the listener with which you want to associate an additional certificate.
     *     *   If the listener is in the **updating** state, it indicates that the additional certificate is being associated. In this case, you can perform only query operations.
     *     *   If the listener is in the **active** state, it indicates that the additional certificate is associated.
-    * *   The **AssociateAdditionalCertificatesWithListener** operation cannot be called repeatedly for the same Global Accelerator (GA) instance within a specific period of time.
+    * *   The **AssociateAdditionalCertificatesWithListener** operation holds an exclusive lock on the Global Accelerator (GA) instance. While the operation is in progress, you cannot call the same operation in the same Alibaba Cloud account.
     *
     * @param request AssociateAdditionalCertificatesWithListenerRequest
     * @return AssociateAdditionalCertificatesWithListenerResponse
@@ -18036,10 +18797,10 @@ export default class Client extends OpenApi {
   }
 
   /**
-    * *   **BandwidthPackageAddAccelerator** is an asynchronous operation. After you send a request, the system returns a request ID, but the operation is still being performed in the system background. You can call the [DescribeBandwidthPackage](~~153241~~) operation to query the state of the bandwidth plan that you attempt to associate.
+    * *   **BandwidthPackageAddAccelerator** is an asynchronous operation. After a request is sent, the system returns a request ID and runs the task in the background. You can call the [DescribeBandwidthPackage](~~153241~~) operation to query the status of the bandwidth plan that you want to associate.
     *     *   If the bandwidth plan is in the **binding** state, it indicates that the bandwidth plan is being associated. In this case, you can perform only query operations.
     *     *   If the bandwidth plan is in the **active** state, it indicates that the bandwidth plan is associated.
-    * *   The **BandwidthPackageAddAccelerator** operation cannot be called repeatedly for the same GA instance.
+    * *   The **BandwidthPackageAddAccelerator** operation holds an exclusive lock on the GA instance. While the operation is in progress, you cannot call the same operation in the same Alibaba Cloud account.
     *
     * @param request BandwidthPackageAddAcceleratorRequest
     * @param runtime runtime options for this request RuntimeOptions
@@ -18078,10 +18839,10 @@ export default class Client extends OpenApi {
   }
 
   /**
-    * *   **BandwidthPackageAddAccelerator** is an asynchronous operation. After you send a request, the system returns a request ID, but the operation is still being performed in the system background. You can call the [DescribeBandwidthPackage](~~153241~~) operation to query the state of the bandwidth plan that you attempt to associate.
+    * *   **BandwidthPackageAddAccelerator** is an asynchronous operation. After a request is sent, the system returns a request ID and runs the task in the background. You can call the [DescribeBandwidthPackage](~~153241~~) operation to query the status of the bandwidth plan that you want to associate.
     *     *   If the bandwidth plan is in the **binding** state, it indicates that the bandwidth plan is being associated. In this case, you can perform only query operations.
     *     *   If the bandwidth plan is in the **active** state, it indicates that the bandwidth plan is associated.
-    * *   The **BandwidthPackageAddAccelerator** operation cannot be called repeatedly for the same GA instance.
+    * *   The **BandwidthPackageAddAccelerator** operation holds an exclusive lock on the GA instance. While the operation is in progress, you cannot call the same operation in the same Alibaba Cloud account.
     *
     * @param request BandwidthPackageAddAcceleratorRequest
     * @return BandwidthPackageAddAcceleratorResponse
@@ -18206,10 +18967,10 @@ export default class Client extends OpenApi {
   }
 
   /**
-    * *   **ConfigEndpointProbe** is an asynchronous operation. After you send a request, the system returns a request ID, but the operation is still being performed in the system background. You can call the [DescribeEndpointGroup](~~153260~~) operation to query the state of the endpoint group to which an endpoint belongs and determine whether latency monitoring is configured for the endpoint.
+    * *   **ConfigEndpointProbe** is an asynchronous operation. After a request is sent, the system returns a request ID and runs the task in the background. You can call the [DescribeEndpointGroup](~~153260~~) operation to query the status of the endpoint group to which an endpoint belongs and determine whether latency monitoring is configured for the endpoint.
     *     *   If the endpoint group is in the **updating** state, it indicates that latency monitoring is being configured for the endpoint. In this case, you can perform only query operations.
     *     *   If the endpoint group is in the **active** state, it indicates that latency monitoring is configured for the endpoint.
-    * *   The **ConfigEndpointProbe** operation cannot be called repeatedly for the same Global Accelerator (GA) instance within a specific period of time.
+    * *   The **ConfigEndpointProbe** operation holds an exclusive lock on the Global Accelerator (GA) instance. While the operation is in progress, you cannot call the same operation in the same Alibaba Cloud account.
     *
     * @param request ConfigEndpointProbeRequest
     * @param runtime runtime options for this request RuntimeOptions
@@ -18268,10 +19029,10 @@ export default class Client extends OpenApi {
   }
 
   /**
-    * *   **ConfigEndpointProbe** is an asynchronous operation. After you send a request, the system returns a request ID, but the operation is still being performed in the system background. You can call the [DescribeEndpointGroup](~~153260~~) operation to query the state of the endpoint group to which an endpoint belongs and determine whether latency monitoring is configured for the endpoint.
+    * *   **ConfigEndpointProbe** is an asynchronous operation. After a request is sent, the system returns a request ID and runs the task in the background. You can call the [DescribeEndpointGroup](~~153260~~) operation to query the status of the endpoint group to which an endpoint belongs and determine whether latency monitoring is configured for the endpoint.
     *     *   If the endpoint group is in the **updating** state, it indicates that latency monitoring is being configured for the endpoint. In this case, you can perform only query operations.
     *     *   If the endpoint group is in the **active** state, it indicates that latency monitoring is configured for the endpoint.
-    * *   The **ConfigEndpointProbe** operation cannot be called repeatedly for the same Global Accelerator (GA) instance within a specific period of time.
+    * *   The **ConfigEndpointProbe** operation holds an exclusive lock on the Global Accelerator (GA) instance. While the operation is in progress, you cannot call the same operation in the same Alibaba Cloud account.
     *
     * @param request ConfigEndpointProbeRequest
     * @return ConfigEndpointProbeResponse
@@ -18282,8 +19043,9 @@ export default class Client extends OpenApi {
   }
 
   /**
-    * **CreateAccelerator** is an asynchronous operation. After you send a request, the system returns a request ID and runs the task in the background. You can call the [DescribeAccelerator](~~153235~~) operation to query the status of a GA instance.
-    * *   If the GA instance is in the **init** state, it indicates that the GA instance is being created. In this case, you can continue to perform query operations on the GA instance.
+    * ## Description
+    * **CreateAccelerator** is an asynchronous operation. After you send a request, the system returns the ID of a GA instance, but the operation is still being performed in the system background. You can call the [DescribeAccelerator](~~153235~~) operation to query the state of a GA instance.
+    * *   If the GA instance is in the **init** state, it indicates that the GA instance is being created. In this case, you can perform only query operations.
     * *   If the GA instance is in the **active** state, it indicates that the GA instance is created.
     *
     * @param request CreateAcceleratorRequest
@@ -18379,8 +19141,9 @@ export default class Client extends OpenApi {
   }
 
   /**
-    * **CreateAccelerator** is an asynchronous operation. After you send a request, the system returns a request ID and runs the task in the background. You can call the [DescribeAccelerator](~~153235~~) operation to query the status of a GA instance.
-    * *   If the GA instance is in the **init** state, it indicates that the GA instance is being created. In this case, you can continue to perform query operations on the GA instance.
+    * ## Description
+    * **CreateAccelerator** is an asynchronous operation. After you send a request, the system returns the ID of a GA instance, but the operation is still being performed in the system background. You can call the [DescribeAccelerator](~~153235~~) operation to query the state of a GA instance.
+    * *   If the GA instance is in the **init** state, it indicates that the GA instance is being created. In this case, you can perform only query operations.
     * *   If the GA instance is in the **active** state, it indicates that the GA instance is created.
     *
     * @param request CreateAcceleratorRequest
@@ -20032,10 +20795,10 @@ export default class Client extends OpenApi {
   }
 
   /**
-    * *   **CreateSpareIps** is an asynchronous operation. After you send a request, the system returns a request ID, but this operation is still being performed in the system background. You can call the [DescribeAccelerator](~~153235~~) operation to query the state of a GA instance.
-    *     *   If the GA instance is in the **configuring** state, it indicates that spare IP addresses are being created for the CNAME that is assigned to the GA instance. In this case, you can only perform query operations.
-    *     *   If the GA instance is in the **active** state, it indicates that spare IP addresses are created for the CNAME that is assigned to the GA instance.
-    * *   The **CreateSpareIps** operation cannot be called repeatedly for the same GA instance within a specific period of time.
+    * *   **CreateSpareIps** is an asynchronous operation. After a request is sent, the system returns a request ID and runs the task in the background. You can call the [DescribeAccelerator](~~153235~~) operation to query the status of a GA instance.
+    *     *   If the GA instance is in the **configuring** state, it indicates that secondary IP addresses are being created for the CNAME that is assigned to the GA instance. In this case, you can only perform query operations.
+    *     *   If the GA instance is in the **active** state, it indicates that secondary IP addresses are created for the CNAME that is assigned to the GA instance.
+    * *   The **CreateSpareIps** operation holds an exclusive lock on the GA instance. While the operation is in progress, you cannot call the same operation in the same Alibaba Cloud account.
     *
     * @param request CreateSpareIpsRequest
     * @param runtime runtime options for this request RuntimeOptions
@@ -20082,10 +20845,10 @@ export default class Client extends OpenApi {
   }
 
   /**
-    * *   **CreateSpareIps** is an asynchronous operation. After you send a request, the system returns a request ID, but this operation is still being performed in the system background. You can call the [DescribeAccelerator](~~153235~~) operation to query the state of a GA instance.
-    *     *   If the GA instance is in the **configuring** state, it indicates that spare IP addresses are being created for the CNAME that is assigned to the GA instance. In this case, you can only perform query operations.
-    *     *   If the GA instance is in the **active** state, it indicates that spare IP addresses are created for the CNAME that is assigned to the GA instance.
-    * *   The **CreateSpareIps** operation cannot be called repeatedly for the same GA instance within a specific period of time.
+    * *   **CreateSpareIps** is an asynchronous operation. After a request is sent, the system returns a request ID and runs the task in the background. You can call the [DescribeAccelerator](~~153235~~) operation to query the status of a GA instance.
+    *     *   If the GA instance is in the **configuring** state, it indicates that secondary IP addresses are being created for the CNAME that is assigned to the GA instance. In this case, you can only perform query operations.
+    *     *   If the GA instance is in the **active** state, it indicates that secondary IP addresses are created for the CNAME that is assigned to the GA instance.
+    * *   The **CreateSpareIps** operation holds an exclusive lock on the GA instance. While the operation is in progress, you cannot call the same operation in the same Alibaba Cloud account.
     *
     * @param request CreateSpareIpsRequest
     * @return CreateSpareIpsResponse
@@ -20962,10 +21725,10 @@ export default class Client extends OpenApi {
   }
 
   /**
-    * *   **DeleteEndpointGroup** is an asynchronous operation. After you send a request, the system returns a request ID, but the operation is still being performed in the system background. You can call the [DescribeEndpointGroup](~~153260~~) operation to query the state of an endpoint group.
+    * *   **DeleteEndpointGroup** is an asynchronous operation. After a request is sent, the system returns a request ID and runs the task in the background. You can call the [DescribeEndpointGroup](~~153260~~) operation to query the status of the endpoint group.
     *     *   If the endpoint group is in the **deleting** state, it indicates that the endpoint group is being deleted. In this case, you can perform only query operations.
     *     *   If the endpoint group cannot be queried, it indicates that the endpoint group is deleted.
-    * *   The **DeleteEndpointGroup** operation cannot be repeatedly called for the same Global Accelerator (GA) instance within a specific period of time.
+    * *   The **DeleteEndpointGroup** operation holds an exclusive lock on the Global Accelerator (GA) instance. While the operation is in progress, you cannot call the same operation in the same Alibaba Cloud account.
     *
     * @param request DeleteEndpointGroupRequest
     * @param runtime runtime options for this request RuntimeOptions
@@ -21004,10 +21767,10 @@ export default class Client extends OpenApi {
   }
 
   /**
-    * *   **DeleteEndpointGroup** is an asynchronous operation. After you send a request, the system returns a request ID, but the operation is still being performed in the system background. You can call the [DescribeEndpointGroup](~~153260~~) operation to query the state of an endpoint group.
+    * *   **DeleteEndpointGroup** is an asynchronous operation. After a request is sent, the system returns a request ID and runs the task in the background. You can call the [DescribeEndpointGroup](~~153260~~) operation to query the status of the endpoint group.
     *     *   If the endpoint group is in the **deleting** state, it indicates that the endpoint group is being deleted. In this case, you can perform only query operations.
     *     *   If the endpoint group cannot be queried, it indicates that the endpoint group is deleted.
-    * *   The **DeleteEndpointGroup** operation cannot be repeatedly called for the same Global Accelerator (GA) instance within a specific period of time.
+    * *   The **DeleteEndpointGroup** operation holds an exclusive lock on the Global Accelerator (GA) instance. While the operation is in progress, you cannot call the same operation in the same Alibaba Cloud account.
     *
     * @param request DeleteEndpointGroupRequest
     * @return DeleteEndpointGroupResponse
@@ -21142,10 +21905,10 @@ export default class Client extends OpenApi {
   }
 
   /**
-    * *   **DeleteIpSet** is an asynchronous operation. After you send a request, the system returns a request ID, but the operation is still being performed in the system background. You can call the [DescribeIpSet](~~153246~~) operation to query the state of an acceleration region.
-    *     *   If the acceleration region is in the **deleting** state, the acceleration region is being deleted. In this case, you can perform only query operations.
-    *     *   If the acceleration region cannot be queried, the acceleration region is deleted.
-    * *   The **DeleteIpSet** operation cannot be repeatedly called for the same Global Accelerator (GA) instance within a specific period of time.
+    * *   **DeleteIpSet** is an asynchronous operation. After a request is sent, the system returns a request ID and runs the task in the background. You can call the [DescribeIpSet](~~153246~~) operation to query the status of an acceleration region.
+    *     *   If the acceleration region is in the **deleting** state, it indicates that the acceleration region is being deleted. In this case, you can perform only query operations.
+    *     *   If the acceleration region cannot be queried, it indicates that the acceleration region is deleted.
+    * *   The **DeleteIpSet** operation holds an exclusive lock on the Global Accelerator (GA) instance. While the operation is in progress, you cannot call the same operation in the same Alibaba Cloud account.
     *
     * @param request DeleteIpSetRequest
     * @param runtime runtime options for this request RuntimeOptions
@@ -21188,10 +21951,10 @@ export default class Client extends OpenApi {
   }
 
   /**
-    * *   **DeleteIpSet** is an asynchronous operation. After you send a request, the system returns a request ID, but the operation is still being performed in the system background. You can call the [DescribeIpSet](~~153246~~) operation to query the state of an acceleration region.
-    *     *   If the acceleration region is in the **deleting** state, the acceleration region is being deleted. In this case, you can perform only query operations.
-    *     *   If the acceleration region cannot be queried, the acceleration region is deleted.
-    * *   The **DeleteIpSet** operation cannot be repeatedly called for the same Global Accelerator (GA) instance within a specific period of time.
+    * *   **DeleteIpSet** is an asynchronous operation. After a request is sent, the system returns a request ID and runs the task in the background. You can call the [DescribeIpSet](~~153246~~) operation to query the status of an acceleration region.
+    *     *   If the acceleration region is in the **deleting** state, it indicates that the acceleration region is being deleted. In this case, you can perform only query operations.
+    *     *   If the acceleration region cannot be queried, it indicates that the acceleration region is deleted.
+    * *   The **DeleteIpSet** operation holds an exclusive lock on the Global Accelerator (GA) instance. While the operation is in progress, you cannot call the same operation in the same Alibaba Cloud account.
     *
     * @param request DeleteIpSetRequest
     * @return DeleteIpSetResponse
@@ -21310,10 +22073,10 @@ export default class Client extends OpenApi {
   }
 
   /**
-    * *   **DeleteSpareIps** is an asynchronous operation. After you send a request, the system returns a request ID, but the operation is still being performed in the system background. You can call the [DescribeAccelerator](~~153235~~) operation to query the state of a GA instance.
+    * *   **DeleteSpareIps** is an asynchronous operation. After a request is sent, the system returns a request ID and runs the task in the background. You can call the [DescribeAccelerator](~~153235~~) operation to query the status of a GA instance.
     *     *   If the GA instance is in the **configuring** state, it indicates that the secondary IP addresses for the CNAME are being deleted. In this case, you can perform only query operations.
     *     *   If the GA instance is in the **active** state and the secondary IP addresses for the CNAME cannot be queried by calling the [ListSpareIps](~~262121~~) operation, it indicates that the IP addresses are deleted.
-    * *   The **DeleteSpareIps** operation cannot be repeatedly called for the same GA instance within a specific period of time.
+    * *   The **DeleteSpareIps** operation holds an exclusive lock on the GA instance. While the operation is in progress, you cannot call the same operation in the same Alibaba Cloud account.
     *
     * @param request DeleteSpareIpsRequest
     * @param runtime runtime options for this request RuntimeOptions
@@ -21360,10 +22123,10 @@ export default class Client extends OpenApi {
   }
 
   /**
-    * *   **DeleteSpareIps** is an asynchronous operation. After you send a request, the system returns a request ID, but the operation is still being performed in the system background. You can call the [DescribeAccelerator](~~153235~~) operation to query the state of a GA instance.
+    * *   **DeleteSpareIps** is an asynchronous operation. After a request is sent, the system returns a request ID and runs the task in the background. You can call the [DescribeAccelerator](~~153235~~) operation to query the status of a GA instance.
     *     *   If the GA instance is in the **configuring** state, it indicates that the secondary IP addresses for the CNAME are being deleted. In this case, you can perform only query operations.
     *     *   If the GA instance is in the **active** state and the secondary IP addresses for the CNAME cannot be queried by calling the [ListSpareIps](~~262121~~) operation, it indicates that the IP addresses are deleted.
-    * *   The **DeleteSpareIps** operation cannot be repeatedly called for the same GA instance within a specific period of time.
+    * *   The **DeleteSpareIps** operation holds an exclusive lock on the GA instance. While the operation is in progress, you cannot call the same operation in the same Alibaba Cloud account.
     *
     * @param request DeleteSpareIpsRequest
     * @return DeleteSpareIpsResponse
@@ -24174,7 +24937,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-    * You can select a TLS security policy when you create and modify an HTTPS listener. This API operation is used to query the TLS security policies that are supported by HTTPS listeners.
+    * You can select a TLS security policy when you create an HTTPS listener. This API operation is used to query the TLS security policies that are supported by HTTPS listeners.
     *
     * @param request ListSystemSecurityPoliciesRequest
     * @param runtime runtime options for this request RuntimeOptions
@@ -24213,7 +24976,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-    * You can select a TLS security policy when you create and modify an HTTPS listener. This API operation is used to query the TLS security policies that are supported by HTTPS listeners.
+    * You can select a TLS security policy when you create an HTTPS listener. This API operation is used to query the TLS security policies that are supported by HTTPS listeners.
     *
     * @param request ListSystemSecurityPoliciesRequest
     * @return ListSystemSecurityPoliciesResponse
@@ -24354,7 +25117,10 @@ export default class Client extends OpenApi {
   }
 
   /**
-    * The operation that you want to perform. Set the value to **RemoveEntriesFromAcl**.
+    * *   **RemoveEntriesFromAcl** is an asynchronous operation. After a request is sent, the system returns a request ID and runs the task in the background. You can call the [GetAcl](~~258292~~) or [ListAcls](~~258291~~) operation to query the status of the ACL from which you want to delete IP entries.
+    *     *   If the ACL is in the **configuring** state, it indicates that the IP entries are being deleted. In this case, you can perform only query operations.
+    *     *   If the ACL is in the **active** state, it indicates that the IP entries are deleted.
+    * *   The **RemoveEntriesFromAcl** operation holds an exclusive lock on the Global Accelerator (GA) instance. While the operation is in progress, you cannot call the same operation in the same Alibaba Cloud account.
     *
     * @param request RemoveEntriesFromAclRequest
     * @param runtime runtime options for this request RuntimeOptions
@@ -24401,7 +25167,10 @@ export default class Client extends OpenApi {
   }
 
   /**
-    * The operation that you want to perform. Set the value to **RemoveEntriesFromAcl**.
+    * *   **RemoveEntriesFromAcl** is an asynchronous operation. After a request is sent, the system returns a request ID and runs the task in the background. You can call the [GetAcl](~~258292~~) or [ListAcls](~~258291~~) operation to query the status of the ACL from which you want to delete IP entries.
+    *     *   If the ACL is in the **configuring** state, it indicates that the IP entries are being deleted. In this case, you can perform only query operations.
+    *     *   If the ACL is in the **active** state, it indicates that the IP entries are deleted.
+    * *   The **RemoveEntriesFromAcl** operation holds an exclusive lock on the Global Accelerator (GA) instance. While the operation is in progress, you cannot call the same operation in the same Alibaba Cloud account.
     *
     * @param request RemoveEntriesFromAclRequest
     * @return RemoveEntriesFromAclResponse
@@ -24412,12 +25181,12 @@ export default class Client extends OpenApi {
   }
 
   /**
-    * When you call this operation to replace the bandwidth plan that is associated with a GA instance, take note of the following items:
+    * When you call this operation, take note of the following items:
     * *   The GA instance continues to forward network traffic.
-    * *   **ReplaceBandwidthPackage** is an asynchronous operation. After you send a request, the system returns a request ID, but the operation is still being performed in the system background. You can call the [DescribeAccelerator](~~153235~~) or [ListAccelerators](~~153236~~) operation to query the state of the GA instance.
+    * *   **ReplaceBandwidthPackage** is an asynchronous operation. After a request is sent, the system returns a request ID and runs the task in the background. You can call the [DescribeAccelerator](~~153235~~) or [ListAccelerators](~~153236~~) operation to query the status of the GA instance.
     *     *   If the GA instance is in the **configuring** state, it indicates that the associated bandwidth plan is being replaced. In this case, you can perform only query operations.
     *     *   If the GA instance is in the **active** state, it indicates that the associated bandwidth plan is replaced.
-    * *   The **ReplaceBandwidthPackage** operation cannot be called repeatedly for the same GA instance within a specific period of time.
+    * *   The **ReplaceBandwidthPackage** operation holds an exclusive lock on the GA instance. While the operation is in progress, you cannot call the same operation in the same Alibaba Cloud account.
     *
     * @param request ReplaceBandwidthPackageRequest
     * @param runtime runtime options for this request RuntimeOptions
@@ -24460,12 +25229,12 @@ export default class Client extends OpenApi {
   }
 
   /**
-    * When you call this operation to replace the bandwidth plan that is associated with a GA instance, take note of the following items:
+    * When you call this operation, take note of the following items:
     * *   The GA instance continues to forward network traffic.
-    * *   **ReplaceBandwidthPackage** is an asynchronous operation. After you send a request, the system returns a request ID, but the operation is still being performed in the system background. You can call the [DescribeAccelerator](~~153235~~) or [ListAccelerators](~~153236~~) operation to query the state of the GA instance.
+    * *   **ReplaceBandwidthPackage** is an asynchronous operation. After a request is sent, the system returns a request ID and runs the task in the background. You can call the [DescribeAccelerator](~~153235~~) or [ListAccelerators](~~153236~~) operation to query the status of the GA instance.
     *     *   If the GA instance is in the **configuring** state, it indicates that the associated bandwidth plan is being replaced. In this case, you can perform only query operations.
     *     *   If the GA instance is in the **active** state, it indicates that the associated bandwidth plan is replaced.
-    * *   The **ReplaceBandwidthPackage** operation cannot be called repeatedly for the same GA instance within a specific period of time.
+    * *   The **ReplaceBandwidthPackage** operation holds an exclusive lock on the GA instance. While the operation is in progress, you cannot call the same operation in the same Alibaba Cloud account.
     *
     * @param request ReplaceBandwidthPackageRequest
     * @return ReplaceBandwidthPackageResponse
@@ -24838,6 +25607,47 @@ export default class Client extends OpenApi {
   async updateAcceleratorCrossBorderMode(request: UpdateAcceleratorCrossBorderModeRequest): Promise<UpdateAcceleratorCrossBorderModeResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.updateAcceleratorCrossBorderModeWithOptions(request, runtime);
+  }
+
+  async updateAcceleratorCrossBorderStatusWithOptions(request: UpdateAcceleratorCrossBorderStatusRequest, runtime: $Util.RuntimeOptions): Promise<UpdateAcceleratorCrossBorderStatusResponse> {
+    Util.validateModel(request);
+    let query = { };
+    if (!Util.isUnset(request.acceleratorId)) {
+      query["AcceleratorId"] = request.acceleratorId;
+    }
+
+    if (!Util.isUnset(request.clientToken)) {
+      query["ClientToken"] = request.clientToken;
+    }
+
+    if (!Util.isUnset(request.crossBorderStatus)) {
+      query["CrossBorderStatus"] = request.crossBorderStatus;
+    }
+
+    if (!Util.isUnset(request.regionId)) {
+      query["RegionId"] = request.regionId;
+    }
+
+    let req = new $OpenApi.OpenApiRequest({
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApi.Params({
+      action: "UpdateAcceleratorCrossBorderStatus",
+      version: "2019-11-20",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $tea.cast<UpdateAcceleratorCrossBorderStatusResponse>(await this.callApi(params, req, runtime), new UpdateAcceleratorCrossBorderStatusResponse({}));
+  }
+
+  async updateAcceleratorCrossBorderStatus(request: UpdateAcceleratorCrossBorderStatusRequest): Promise<UpdateAcceleratorCrossBorderStatusResponse> {
+    let runtime = new $Util.RuntimeOptions({ });
+    return await this.updateAcceleratorCrossBorderStatusWithOptions(request, runtime);
   }
 
   async updateAclAttributeWithOptions(request: UpdateAclAttributeRequest, runtime: $Util.RuntimeOptions): Promise<UpdateAclAttributeResponse> {
@@ -26247,6 +27057,51 @@ export default class Client extends OpenApi {
   async updateListener(request: UpdateListenerRequest): Promise<UpdateListenerResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.updateListenerWithOptions(request, runtime);
+  }
+
+  async updateServiceManagedControlWithOptions(request: UpdateServiceManagedControlRequest, runtime: $Util.RuntimeOptions): Promise<UpdateServiceManagedControlResponse> {
+    Util.validateModel(request);
+    let query = { };
+    if (!Util.isUnset(request.clientToken)) {
+      query["ClientToken"] = request.clientToken;
+    }
+
+    if (!Util.isUnset(request.regionId)) {
+      query["RegionId"] = request.regionId;
+    }
+
+    if (!Util.isUnset(request.resourceId)) {
+      query["ResourceId"] = request.resourceId;
+    }
+
+    if (!Util.isUnset(request.resourceType)) {
+      query["ResourceType"] = request.resourceType;
+    }
+
+    if (!Util.isUnset(request.serviceManaged)) {
+      query["ServiceManaged"] = request.serviceManaged;
+    }
+
+    let req = new $OpenApi.OpenApiRequest({
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApi.Params({
+      action: "UpdateServiceManagedControl",
+      version: "2019-11-20",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $tea.cast<UpdateServiceManagedControlResponse>(await this.callApi(params, req, runtime), new UpdateServiceManagedControlResponse({}));
+  }
+
+  async updateServiceManagedControl(request: UpdateServiceManagedControlRequest): Promise<UpdateServiceManagedControlResponse> {
+    let runtime = new $Util.RuntimeOptions({ });
+    return await this.updateServiceManagedControlWithOptions(request, runtime);
   }
 
 }
