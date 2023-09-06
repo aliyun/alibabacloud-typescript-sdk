@@ -409,12 +409,14 @@ export class AddQueueRequest extends $tea.Model {
   deploymentSetId?: string;
   networkInterfaceTrafficMode?: string;
   queueName?: string;
+  useESS?: boolean;
   static names(): { [key: string]: string } {
     return {
       clusterId: 'ClusterId',
       deploymentSetId: 'DeploymentSetId',
       networkInterfaceTrafficMode: 'NetworkInterfaceTrafficMode',
       queueName: 'QueueName',
+      useESS: 'UseESS',
     };
   }
 
@@ -424,6 +426,7 @@ export class AddQueueRequest extends $tea.Model {
       deploymentSetId: 'string',
       networkInterfaceTrafficMode: 'string',
       queueName: 'string',
+      useESS: 'boolean',
     };
   }
 
@@ -10283,6 +10286,7 @@ export class SubmitServerlessJobRequest extends $tea.Model {
   jobPriority?: number;
   memory?: number;
   ramRoleName?: string;
+  retryStrategy?: SubmitServerlessJobRequestRetryStrategy;
   spotPriceLimit?: number;
   spotStrategy?: string;
   timeout?: number;
@@ -10300,6 +10304,7 @@ export class SubmitServerlessJobRequest extends $tea.Model {
       jobPriority: 'JobPriority',
       memory: 'Memory',
       ramRoleName: 'RamRoleName',
+      retryStrategy: 'RetryStrategy',
       spotPriceLimit: 'SpotPriceLimit',
       spotStrategy: 'SpotStrategy',
       timeout: 'Timeout',
@@ -10320,6 +10325,7 @@ export class SubmitServerlessJobRequest extends $tea.Model {
       jobPriority: 'number',
       memory: 'number',
       ramRoleName: 'string',
+      retryStrategy: SubmitServerlessJobRequestRetryStrategy,
       spotPriceLimit: 'number',
       spotStrategy: 'string',
       timeout: 'number',
@@ -10344,6 +10350,7 @@ export class SubmitServerlessJobShrinkRequest extends $tea.Model {
   jobPriority?: number;
   memory?: number;
   ramRoleName?: string;
+  retryStrategyShrink?: string;
   spotPriceLimit?: number;
   spotStrategy?: string;
   timeout?: number;
@@ -10361,6 +10368,7 @@ export class SubmitServerlessJobShrinkRequest extends $tea.Model {
       jobPriority: 'JobPriority',
       memory: 'Memory',
       ramRoleName: 'RamRoleName',
+      retryStrategyShrink: 'RetryStrategy',
       spotPriceLimit: 'SpotPriceLimit',
       spotStrategy: 'SpotStrategy',
       timeout: 'Timeout',
@@ -10381,6 +10389,7 @@ export class SubmitServerlessJobShrinkRequest extends $tea.Model {
       jobPriority: 'number',
       memory: 'number',
       ramRoleName: 'string',
+      retryStrategyShrink: 'string',
       spotPriceLimit: 'number',
       spotStrategy: 'string',
       timeout: 'number',
@@ -10930,6 +10939,7 @@ export class UpdateQueueConfigRequest extends $tea.Model {
   clusterId?: string;
   computeInstanceType?: string;
   deploymentSetId?: string;
+  networkInterfaceTrafficMode?: string;
   queueName?: string;
   resourceGroupId?: string;
   static names(): { [key: string]: string } {
@@ -10937,6 +10947,7 @@ export class UpdateQueueConfigRequest extends $tea.Model {
       clusterId: 'ClusterId',
       computeInstanceType: 'ComputeInstanceType',
       deploymentSetId: 'DeploymentSetId',
+      networkInterfaceTrafficMode: 'NetworkInterfaceTrafficMode',
       queueName: 'QueueName',
       resourceGroupId: 'ResourceGroupId',
     };
@@ -10947,6 +10958,7 @@ export class UpdateQueueConfigRequest extends $tea.Model {
       clusterId: 'string',
       computeInstanceType: 'string',
       deploymentSetId: 'string',
+      networkInterfaceTrafficMode: 'string',
       queueName: 'string',
       resourceGroupId: 'string',
     };
@@ -14315,6 +14327,7 @@ export class GetAutoScaleConfigResponseBodyQueuesQueueInfoInstanceTypes extends 
 }
 
 export class GetAutoScaleConfigResponseBodyQueuesQueueInfo extends $tea.Model {
+  autoMinNodesPerCycle?: boolean;
   dataDisks?: GetAutoScaleConfigResponseBodyQueuesQueueInfoDataDisks;
   enableAutoGrow?: boolean;
   enableAutoShrink?: boolean;
@@ -14337,6 +14350,7 @@ export class GetAutoScaleConfigResponseBodyQueuesQueueInfo extends $tea.Model {
   systemDiskSize?: number;
   static names(): { [key: string]: string } {
     return {
+      autoMinNodesPerCycle: 'AutoMinNodesPerCycle',
       dataDisks: 'DataDisks',
       enableAutoGrow: 'EnableAutoGrow',
       enableAutoShrink: 'EnableAutoShrink',
@@ -14362,6 +14376,7 @@ export class GetAutoScaleConfigResponseBodyQueuesQueueInfo extends $tea.Model {
 
   static types(): { [key: string]: any } {
     return {
+      autoMinNodesPerCycle: 'boolean',
       dataDisks: GetAutoScaleConfigResponseBodyQueuesQueueInfoDataDisks,
       enableAutoGrow: 'boolean',
       enableAutoShrink: 'boolean',
@@ -17127,11 +17142,13 @@ export class ListQueuesResponseBodyQueuesQueueInfo extends $tea.Model {
   hostNamePrefix?: string;
   hostNameSuffix?: string;
   imageId?: string;
+  networkInterfaceTrafficMode?: string;
   queueName?: string;
   resourceGroupId?: string;
   spotInstanceTypes?: ListQueuesResponseBodyQueuesQueueInfoSpotInstanceTypes;
   spotStrategy?: string;
   type?: string;
+  useESS?: boolean;
   static names(): { [key: string]: string } {
     return {
       computeInstanceType: 'ComputeInstanceType',
@@ -17140,11 +17157,13 @@ export class ListQueuesResponseBodyQueuesQueueInfo extends $tea.Model {
       hostNamePrefix: 'HostNamePrefix',
       hostNameSuffix: 'HostNameSuffix',
       imageId: 'ImageId',
+      networkInterfaceTrafficMode: 'NetworkInterfaceTrafficMode',
       queueName: 'QueueName',
       resourceGroupId: 'ResourceGroupId',
       spotInstanceTypes: 'SpotInstanceTypes',
       spotStrategy: 'SpotStrategy',
       type: 'Type',
+      useESS: 'UseESS',
     };
   }
 
@@ -17156,11 +17175,13 @@ export class ListQueuesResponseBodyQueuesQueueInfo extends $tea.Model {
       hostNamePrefix: 'string',
       hostNameSuffix: 'string',
       imageId: 'string',
+      networkInterfaceTrafficMode: 'string',
       queueName: 'string',
       resourceGroupId: 'string',
       spotInstanceTypes: ListQueuesResponseBodyQueuesQueueInfoSpotInstanceTypes,
       spotStrategy: 'string',
       type: 'string',
+      useESS: 'boolean',
     };
   }
 
@@ -17993,6 +18014,7 @@ export class SetAutoScaleConfigRequestQueuesInstanceTypes extends $tea.Model {
 }
 
 export class SetAutoScaleConfigRequestQueues extends $tea.Model {
+  autoMinNodesPerCycle?: boolean;
   dataDisks?: SetAutoScaleConfigRequestQueuesDataDisks[];
   enableAutoGrow?: boolean;
   enableAutoShrink?: boolean;
@@ -18014,6 +18036,7 @@ export class SetAutoScaleConfigRequestQueues extends $tea.Model {
   systemDiskSize?: number;
   static names(): { [key: string]: string } {
     return {
+      autoMinNodesPerCycle: 'AutoMinNodesPerCycle',
       dataDisks: 'DataDisks',
       enableAutoGrow: 'EnableAutoGrow',
       enableAutoShrink: 'EnableAutoShrink',
@@ -18038,6 +18061,7 @@ export class SetAutoScaleConfigRequestQueues extends $tea.Model {
 
   static types(): { [key: string]: any } {
     return {
+      autoMinNodesPerCycle: 'boolean',
       dataDisks: { 'type': 'array', 'itemType': SetAutoScaleConfigRequestQueuesDataDisks },
       enableAutoGrow: 'boolean',
       enableAutoShrink: 'boolean',
@@ -18431,6 +18455,50 @@ export class SubmitServerlessJobRequestDependsOn extends $tea.Model {
   }
 }
 
+export class SubmitServerlessJobRequestRetryStrategyEvaluateOnExit extends $tea.Model {
+  action?: string;
+  onExitCode?: string;
+  static names(): { [key: string]: string } {
+    return {
+      action: 'Action',
+      onExitCode: 'OnExitCode',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      action: 'string',
+      onExitCode: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class SubmitServerlessJobRequestRetryStrategy extends $tea.Model {
+  attempts?: number;
+  evaluateOnExit?: SubmitServerlessJobRequestRetryStrategyEvaluateOnExit[];
+  static names(): { [key: string]: string } {
+    return {
+      attempts: 'Attempts',
+      evaluateOnExit: 'EvaluateOnExit',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      attempts: 'number',
+      evaluateOnExit: { 'type': 'array', 'itemType': SubmitServerlessJobRequestRetryStrategyEvaluateOnExit },
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
 export class TagResourcesRequestTag extends $tea.Model {
   key?: string;
   value?: string;
@@ -18785,8 +18853,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-    * The ID of the zone.
-    * You can call the [ListRegions](~~188593~~) and [DescribeZones](~~25610~~) operations to query IDs of the zones where E-HPC is supported.
+    * After you create an Elastic High Performance Computing (E-HPC) cluster, you are charged for the cluster resources that you use. We recommend that you learn about the billing methods of E-HPC in advance. For more information, see [Billing overview](~~57844~~).
     *
     * @param request CreateClusterRequest
     * @param runtime runtime options for this request RuntimeOptions
@@ -18813,8 +18880,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-    * The ID of the zone.
-    * You can call the [ListRegions](~~188593~~) and [DescribeZones](~~25610~~) operations to query IDs of the zones where E-HPC is supported.
+    * After you create an Elastic High Performance Computing (E-HPC) cluster, you are charged for the cluster resources that you use. We recommend that you learn about the billing methods of E-HPC in advance. For more information, see [Billing overview](~~57844~~).
     *
     * @param request CreateClusterRequest
     * @return CreateClusterResponse
@@ -19012,6 +19078,13 @@ export default class Client extends OpenApi {
     return await this.deleteClusterWithOptions(request, runtime);
   }
 
+  /**
+    * Before you delete container applications, you can call the [ListContainerApps](~~87333~~) operation to query the container applications.
+    *
+    * @param request DeleteContainerAppsRequest
+    * @param runtime runtime options for this request RuntimeOptions
+    * @return DeleteContainerAppsResponse
+   */
   async deleteContainerAppsWithOptions(request: DeleteContainerAppsRequest, runtime: $Util.RuntimeOptions): Promise<DeleteContainerAppsResponse> {
     Util.validateModel(request);
     let query = OpenApiUtil.query(Util.toMap(request));
@@ -19032,6 +19105,12 @@ export default class Client extends OpenApi {
     return $tea.cast<DeleteContainerAppsResponse>(await this.callApi(params, req, runtime), new DeleteContainerAppsResponse({}));
   }
 
+  /**
+    * Before you delete container applications, you can call the [ListContainerApps](~~87333~~) operation to query the container applications.
+    *
+    * @param request DeleteContainerAppsRequest
+    * @return DeleteContainerAppsResponse
+   */
   async deleteContainerApps(request: DeleteContainerAppsRequest): Promise<DeleteContainerAppsResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.deleteContainerAppsWithOptions(request, runtime);
@@ -19276,7 +19355,6 @@ export default class Client extends OpenApi {
   }
 
   /**
-    * ## Description
     * If you delete a user, only its information is deleted. The files stored in the /home directory for the user are retained. For example, if you delete a user named user1, the files in the `/home/user1/` directory of the cluster are not deleted. However, a deleted user cannot be recovered. Even if you create another user that has the same name, the data retained for the deleted user is not reused.
     *
     * @param request DeleteUsersRequest
@@ -19304,7 +19382,6 @@ export default class Client extends OpenApi {
   }
 
   /**
-    * ## Description
     * If you delete a user, only its information is deleted. The files stored in the /home directory for the user are retained. For example, if you delete a user named user1, the files in the `/home/user1/` directory of the cluster are not deleted. However, a deleted user cannot be recovered. Even if you create another user that has the same name, the data retained for the deleted user is not reused.
     *
     * @param request DeleteUsersRequest
@@ -19760,6 +19837,14 @@ export default class Client extends OpenApi {
     return await this.getAccountingReportWithOptions(request, runtime);
   }
 
+  /**
+    * ## Debugging
+    * [OpenAPI Explorer automatically calculates the signature value. For your convenience, we recommend that you call this operation in OpenAPI Explorer. OpenAPI Explorer dynamically generates the sample code of the operation for different SDKs.](https://api.aliyun.com/#product=EHPC\\&api=GetAutoScaleConfig\\&type=RPC\\&version=2018-04-12)
+    *
+    * @param request GetAutoScaleConfigRequest
+    * @param runtime runtime options for this request RuntimeOptions
+    * @return GetAutoScaleConfigResponse
+   */
   async getAutoScaleConfigWithOptions(request: GetAutoScaleConfigRequest, runtime: $Util.RuntimeOptions): Promise<GetAutoScaleConfigResponse> {
     Util.validateModel(request);
     let query = OpenApiUtil.query(Util.toMap(request));
@@ -19780,6 +19865,13 @@ export default class Client extends OpenApi {
     return $tea.cast<GetAutoScaleConfigResponse>(await this.callApi(params, req, runtime), new GetAutoScaleConfigResponse({}));
   }
 
+  /**
+    * ## Debugging
+    * [OpenAPI Explorer automatically calculates the signature value. For your convenience, we recommend that you call this operation in OpenAPI Explorer. OpenAPI Explorer dynamically generates the sample code of the operation for different SDKs.](https://api.aliyun.com/#product=EHPC\\&api=GetAutoScaleConfig\\&type=RPC\\&version=2018-04-12)
+    *
+    * @param request GetAutoScaleConfigRequest
+    * @return GetAutoScaleConfigResponse
+   */
   async getAutoScaleConfig(request: GetAutoScaleConfigRequest): Promise<GetAutoScaleConfigResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.getAutoScaleConfigWithOptions(request, runtime);
@@ -21130,7 +21222,8 @@ export default class Client extends OpenApi {
   }
 
   /**
-    * The new cluster name.
+    * ## Usage notes
+    * Before you call this operation, you can call the [DescribeCluster](~~87126~~) operation to query details of the selected cluster.
     *
     * @param request ModifyClusterAttributesRequest
     * @param runtime runtime options for this request RuntimeOptions
@@ -21157,7 +21250,8 @@ export default class Client extends OpenApi {
   }
 
   /**
-    * The new cluster name.
+    * ## Usage notes
+    * Before you call this operation, you can call the [DescribeCluster](~~87126~~) operation to query details of the selected cluster.
     *
     * @param request ModifyClusterAttributesRequest
     * @return ModifyClusterAttributesResponse
@@ -21498,7 +21592,8 @@ export default class Client extends OpenApi {
   }
 
   /**
-    * Configures the auto scaling settings of a cluster.
+    * ## Usage notes
+    * If the settings in the Queue Configuration section are different from the settings in the Global Configurations section, the former prevails.
     *
     * @param request SetAutoScaleConfigRequest
     * @param runtime runtime options for this request RuntimeOptions
@@ -21525,7 +21620,8 @@ export default class Client extends OpenApi {
   }
 
   /**
-    * Configures the auto scaling settings of a cluster.
+    * ## Usage notes
+    * If the settings in the Queue Configuration section are different from the settings in the Global Configurations section, the former prevails.
     *
     * @param request SetAutoScaleConfigRequest
     * @return SetAutoScaleConfigResponse
@@ -22041,11 +22137,15 @@ export default class Client extends OpenApi {
     }
 
     if (!Util.isUnset(tmpReq.instanceType)) {
-      request.instanceTypeShrink = OpenApiUtil.arrayToStringWithSpecifiedStyle(tmpReq.instanceType, "InstanceType", "simple");
+      request.instanceTypeShrink = OpenApiUtil.arrayToStringWithSpecifiedStyle(tmpReq.instanceType, "InstanceType", "json");
+    }
+
+    if (!Util.isUnset(tmpReq.retryStrategy)) {
+      request.retryStrategyShrink = OpenApiUtil.arrayToStringWithSpecifiedStyle(tmpReq.retryStrategy, "RetryStrategy", "json");
     }
 
     if (!Util.isUnset(tmpReq.vSwitchId)) {
-      request.vSwitchIdShrink = OpenApiUtil.arrayToStringWithSpecifiedStyle(tmpReq.vSwitchId, "VSwitchId", "simple");
+      request.vSwitchIdShrink = OpenApiUtil.arrayToStringWithSpecifiedStyle(tmpReq.vSwitchId, "VSwitchId", "json");
     }
 
     let query = { };
@@ -22091,6 +22191,10 @@ export default class Client extends OpenApi {
 
     if (!Util.isUnset(request.ramRoleName)) {
       query["RamRoleName"] = request.ramRoleName;
+    }
+
+    if (!Util.isUnset(request.retryStrategyShrink)) {
+      query["RetryStrategy"] = request.retryStrategyShrink;
     }
 
     if (!Util.isUnset(request.spotPriceLimit)) {
@@ -22343,7 +22447,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-    * After you update the instance types of a resource group, the nodes that you add by scaling out the cluster are automatically included in the resource group.
+    * After you update the resource group, the nodes that you add by scaling out the cluster are automatically included in the resource group.
     *
     * @param request UpdateQueueConfigRequest
     * @param runtime runtime options for this request RuntimeOptions
@@ -22370,7 +22474,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-    * After you update the instance types of a resource group, the nodes that you add by scaling out the cluster are automatically included in the resource group.
+    * After you update the resource group, the nodes that you add by scaling out the cluster are automatically included in the resource group.
     *
     * @param request UpdateQueueConfigRequest
     * @return UpdateQueueConfigResponse
