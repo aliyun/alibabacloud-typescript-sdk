@@ -2977,9 +2977,12 @@ export class CheckVpnBgpEnabledResponse extends $tea.Model {
 
 export class CompletePhysicalConnectionLOARequest extends $tea.Model {
   clientToken?: string;
+  finishWork?: boolean;
   instanceId?: string;
   lineCode?: string;
   lineLabel?: string;
+  lineSPContactInfo?: string;
+  lineServiceProvider?: string;
   ownerAccount?: string;
   ownerId?: number;
   regionId?: string;
@@ -2988,9 +2991,12 @@ export class CompletePhysicalConnectionLOARequest extends $tea.Model {
   static names(): { [key: string]: string } {
     return {
       clientToken: 'ClientToken',
+      finishWork: 'FinishWork',
       instanceId: 'InstanceId',
       lineCode: 'LineCode',
       lineLabel: 'LineLabel',
+      lineSPContactInfo: 'LineSPContactInfo',
+      lineServiceProvider: 'LineServiceProvider',
       ownerAccount: 'OwnerAccount',
       ownerId: 'OwnerId',
       regionId: 'RegionId',
@@ -3002,9 +3008,12 @@ export class CompletePhysicalConnectionLOARequest extends $tea.Model {
   static types(): { [key: string]: any } {
     return {
       clientToken: 'string',
+      finishWork: 'boolean',
       instanceId: 'string',
       lineCode: 'string',
       lineLabel: 'string',
+      lineSPContactInfo: 'string',
+      lineServiceProvider: 'string',
       ownerAccount: 'string',
       ownerId: 'number',
       regionId: 'string',
@@ -38842,6 +38851,8 @@ export class DescribePhysicalConnectionLOAResponseBodyPhysicalConnectionLOAType 
   instanceId?: string;
   lineCode?: string;
   lineLabel?: string;
+  lineSPContactInfo?: string;
+  lineServiceProvider?: string;
   lineType?: string;
   loaUrl?: string;
   PMInfo?: DescribePhysicalConnectionLOAResponseBodyPhysicalConnectionLOATypePMInfo;
@@ -38855,6 +38866,8 @@ export class DescribePhysicalConnectionLOAResponseBodyPhysicalConnectionLOAType 
       instanceId: 'InstanceId',
       lineCode: 'LineCode',
       lineLabel: 'LineLabel',
+      lineSPContactInfo: 'LineSPContactInfo',
+      lineServiceProvider: 'LineServiceProvider',
       lineType: 'LineType',
       loaUrl: 'LoaUrl',
       PMInfo: 'PMInfo',
@@ -38871,6 +38884,8 @@ export class DescribePhysicalConnectionLOAResponseBodyPhysicalConnectionLOAType 
       instanceId: 'string',
       lineCode: 'string',
       lineLabel: 'string',
+      lineSPContactInfo: 'string',
+      lineServiceProvider: 'string',
       lineType: 'string',
       loaUrl: 'string',
       PMInfo: DescribePhysicalConnectionLOAResponseBodyPhysicalConnectionLOATypePMInfo,
@@ -49153,6 +49168,10 @@ export default class Client extends OpenApi {
       query["ClientToken"] = request.clientToken;
     }
 
+    if (!Util.isUnset(request.finishWork)) {
+      query["FinishWork"] = request.finishWork;
+    }
+
     if (!Util.isUnset(request.instanceId)) {
       query["InstanceId"] = request.instanceId;
     }
@@ -49163,6 +49182,14 @@ export default class Client extends OpenApi {
 
     if (!Util.isUnset(request.lineLabel)) {
       query["LineLabel"] = request.lineLabel;
+    }
+
+    if (!Util.isUnset(request.lineSPContactInfo)) {
+      query["LineSPContactInfo"] = request.lineSPContactInfo;
+    }
+
+    if (!Util.isUnset(request.lineServiceProvider)) {
+      query["LineServiceProvider"] = request.lineServiceProvider;
     }
 
     if (!Util.isUnset(request.ownerAccount)) {
@@ -53309,7 +53336,7 @@ export default class Client extends OpenApi {
 
   /**
     * *   You cannot create a destination-based route whose destination CIDR block is 0.0.0.0/0.
-    * *   When you create a destination-based route for an IPsec-VPN connection, do not create a route that meets the following conditions: The destination CIDR block is 100.64.0.0/10 or one of its subnets. The next hop is the IPsec-VPN connection. Such a route results in one of the following errors: The status of the IPsec-VPN connection cannot be displayed in the console. The negotiations of the IPsec-VPN connection fail.
+    * *   Do not add a route whose destination CIDR block is 100.64.0.0/10, a subset of 100.64.0.0/10, or a CIDR block that contains 100.64.0.0/10. If such a route is added, the status of the IPsec-VPN connection cannot be displayed in the console or IPsec negotiations fail. 
     * *   **CreateVcoRouteEntry** is an asynchronous operation. After you send a request, the system returns a request ID and runs the task in the background. You can call the [DescribeVpnConnection](~~53046~~) operation to query the status of a route based on the status of the associated IPsec-VPN connection.
     *     *   If the IPsec-VPN connection is in the **updating** state, the route is being created.
     *     *   If the IPsec-VPN connection is in the **attached** state, the route is created.
@@ -53385,7 +53412,7 @@ export default class Client extends OpenApi {
 
   /**
     * *   You cannot create a destination-based route whose destination CIDR block is 0.0.0.0/0.
-    * *   When you create a destination-based route for an IPsec-VPN connection, do not create a route that meets the following conditions: The destination CIDR block is 100.64.0.0/10 or one of its subnets. The next hop is the IPsec-VPN connection. Such a route results in one of the following errors: The status of the IPsec-VPN connection cannot be displayed in the console. The negotiations of the IPsec-VPN connection fail.
+    * *   Do not add a route whose destination CIDR block is 100.64.0.0/10, a subset of 100.64.0.0/10, or a CIDR block that contains 100.64.0.0/10. If such a route is added, the status of the IPsec-VPN connection cannot be displayed in the console or IPsec negotiations fail. 
     * *   **CreateVcoRouteEntry** is an asynchronous operation. After you send a request, the system returns a request ID and runs the task in the background. You can call the [DescribeVpnConnection](~~53046~~) operation to query the status of a route based on the status of the associated IPsec-VPN connection.
     *     *   If the IPsec-VPN connection is in the **updating** state, the route is being created.
     *     *   If the IPsec-VPN connection is in the **attached** state, the route is created.
