@@ -251,6 +251,171 @@ export class CheckDBNameResponse extends $tea.Model {
   }
 }
 
+export class CheckKMSAuthorizedRequest extends $tea.Model {
+  DBClusterId?: string;
+  ownerAccount?: string;
+  ownerId?: number;
+  regionId?: string;
+  resourceOwnerAccount?: string;
+  resourceOwnerId?: number;
+  TDERegion?: string;
+  static names(): { [key: string]: string } {
+    return {
+      DBClusterId: 'DBClusterId',
+      ownerAccount: 'OwnerAccount',
+      ownerId: 'OwnerId',
+      regionId: 'RegionId',
+      resourceOwnerAccount: 'ResourceOwnerAccount',
+      resourceOwnerId: 'ResourceOwnerId',
+      TDERegion: 'TDERegion',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      DBClusterId: 'string',
+      ownerAccount: 'string',
+      ownerId: 'number',
+      regionId: 'string',
+      resourceOwnerAccount: 'string',
+      resourceOwnerId: 'number',
+      TDERegion: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class CheckKMSAuthorizedResponseBody extends $tea.Model {
+  authorizationState?: number;
+  DBClusterId?: string;
+  requestId?: string;
+  roleArn?: string;
+  static names(): { [key: string]: string } {
+    return {
+      authorizationState: 'AuthorizationState',
+      DBClusterId: 'DBClusterId',
+      requestId: 'RequestId',
+      roleArn: 'RoleArn',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      authorizationState: 'number',
+      DBClusterId: 'string',
+      requestId: 'string',
+      roleArn: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class CheckKMSAuthorizedResponse extends $tea.Model {
+  headers: { [key: string]: string };
+  statusCode: number;
+  body: CheckKMSAuthorizedResponseBody;
+  static names(): { [key: string]: string } {
+    return {
+      headers: 'headers',
+      statusCode: 'statusCode',
+      body: 'body',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
+      body: CheckKMSAuthorizedResponseBody,
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class CheckServiceLinkedRoleRequest extends $tea.Model {
+  ownerAccount?: string;
+  ownerId?: number;
+  resourceOwnerAccount?: string;
+  resourceOwnerId?: number;
+  static names(): { [key: string]: string } {
+    return {
+      ownerAccount: 'OwnerAccount',
+      ownerId: 'OwnerId',
+      resourceOwnerAccount: 'ResourceOwnerAccount',
+      resourceOwnerId: 'ResourceOwnerId',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      ownerAccount: 'string',
+      ownerId: 'number',
+      resourceOwnerAccount: 'string',
+      resourceOwnerId: 'number',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class CheckServiceLinkedRoleResponseBody extends $tea.Model {
+  hasServiceLinkedRole?: boolean;
+  requestId?: string;
+  static names(): { [key: string]: string } {
+    return {
+      hasServiceLinkedRole: 'HasServiceLinkedRole',
+      requestId: 'RequestId',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      hasServiceLinkedRole: 'boolean',
+      requestId: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class CheckServiceLinkedRoleResponse extends $tea.Model {
+  headers: { [key: string]: string };
+  statusCode: number;
+  body: CheckServiceLinkedRoleResponseBody;
+  static names(): { [key: string]: string } {
+    return {
+      headers: 'headers',
+      statusCode: 'statusCode',
+      body: 'body',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
+      body: CheckServiceLinkedRoleResponseBody,
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
 export class CloseAITaskRequest extends $tea.Model {
   DBClusterId?: string;
   ownerAccount?: string;
@@ -421,6 +586,7 @@ export class CreateAccountRequest extends $tea.Model {
   DBName?: string;
   ownerAccount?: string;
   ownerId?: number;
+  privForAllDB?: string;
   resourceOwnerAccount?: string;
   resourceOwnerId?: number;
   static names(): { [key: string]: string } {
@@ -435,6 +601,7 @@ export class CreateAccountRequest extends $tea.Model {
       DBName: 'DBName',
       ownerAccount: 'OwnerAccount',
       ownerId: 'OwnerId',
+      privForAllDB: 'PrivForAllDB',
       resourceOwnerAccount: 'ResourceOwnerAccount',
       resourceOwnerId: 'ResourceOwnerId',
     };
@@ -452,6 +619,7 @@ export class CreateAccountRequest extends $tea.Model {
       DBName: 'string',
       ownerAccount: 'string',
       ownerId: 'number',
+      privForAllDB: 'string',
       resourceOwnerAccount: 'string',
       resourceOwnerId: 'number',
     };
@@ -589,6 +757,7 @@ export class CreateBackupResponse extends $tea.Model {
 
 export class CreateDBClusterRequest extends $tea.Model {
   allowShutDown?: string;
+  architecture?: string;
   autoRenew?: boolean;
   backupRetentionPolicyOnClusterDeletion?: string;
   clientToken?: string;
@@ -599,16 +768,23 @@ export class CreateDBClusterRequest extends $tea.Model {
   DBClusterDescription?: string;
   DBMinorVersion?: string;
   DBNodeClass?: string;
+  DBNodeNum?: number;
   DBType?: string;
   DBVersion?: string;
   defaultTimeZone?: string;
   GDNId?: string;
+  hotStandbyCluster?: string;
+  loosePolarLogBin?: string;
+  looseXEngine?: string;
+  looseXEngineUseMemoryPct?: string;
   lowerCaseTableNames?: string;
   ownerAccount?: string;
   ownerId?: number;
   parameterGroupId?: string;
   payType?: string;
   period?: string;
+  proxyClass?: string;
+  proxyType?: string;
   regionId?: string;
   resourceGroupId?: string;
   resourceOwnerAccount?: string;
@@ -620,7 +796,13 @@ export class CreateDBClusterRequest extends $tea.Model {
   securityIPList?: string;
   serverlessType?: string;
   sourceResourceId?: string;
+  standbyAZ?: string;
+  storageAutoScale?: string;
+  storagePayType?: string;
+  storageSpace?: number;
   storageType?: string;
+  storageUpperBound?: number;
+  strictConsistency?: string;
   TDEStatus?: boolean;
   tag?: CreateDBClusterRequestTag[];
   usedTime?: string;
@@ -630,6 +812,7 @@ export class CreateDBClusterRequest extends $tea.Model {
   static names(): { [key: string]: string } {
     return {
       allowShutDown: 'AllowShutDown',
+      architecture: 'Architecture',
       autoRenew: 'AutoRenew',
       backupRetentionPolicyOnClusterDeletion: 'BackupRetentionPolicyOnClusterDeletion',
       clientToken: 'ClientToken',
@@ -640,16 +823,23 @@ export class CreateDBClusterRequest extends $tea.Model {
       DBClusterDescription: 'DBClusterDescription',
       DBMinorVersion: 'DBMinorVersion',
       DBNodeClass: 'DBNodeClass',
+      DBNodeNum: 'DBNodeNum',
       DBType: 'DBType',
       DBVersion: 'DBVersion',
       defaultTimeZone: 'DefaultTimeZone',
       GDNId: 'GDNId',
+      hotStandbyCluster: 'HotStandbyCluster',
+      loosePolarLogBin: 'LoosePolarLogBin',
+      looseXEngine: 'LooseXEngine',
+      looseXEngineUseMemoryPct: 'LooseXEngineUseMemoryPct',
       lowerCaseTableNames: 'LowerCaseTableNames',
       ownerAccount: 'OwnerAccount',
       ownerId: 'OwnerId',
       parameterGroupId: 'ParameterGroupId',
       payType: 'PayType',
       period: 'Period',
+      proxyClass: 'ProxyClass',
+      proxyType: 'ProxyType',
       regionId: 'RegionId',
       resourceGroupId: 'ResourceGroupId',
       resourceOwnerAccount: 'ResourceOwnerAccount',
@@ -661,7 +851,13 @@ export class CreateDBClusterRequest extends $tea.Model {
       securityIPList: 'SecurityIPList',
       serverlessType: 'ServerlessType',
       sourceResourceId: 'SourceResourceId',
+      standbyAZ: 'StandbyAZ',
+      storageAutoScale: 'StorageAutoScale',
+      storagePayType: 'StoragePayType',
+      storageSpace: 'StorageSpace',
       storageType: 'StorageType',
+      storageUpperBound: 'StorageUpperBound',
+      strictConsistency: 'StrictConsistency',
       TDEStatus: 'TDEStatus',
       tag: 'Tag',
       usedTime: 'UsedTime',
@@ -674,6 +870,7 @@ export class CreateDBClusterRequest extends $tea.Model {
   static types(): { [key: string]: any } {
     return {
       allowShutDown: 'string',
+      architecture: 'string',
       autoRenew: 'boolean',
       backupRetentionPolicyOnClusterDeletion: 'string',
       clientToken: 'string',
@@ -684,16 +881,23 @@ export class CreateDBClusterRequest extends $tea.Model {
       DBClusterDescription: 'string',
       DBMinorVersion: 'string',
       DBNodeClass: 'string',
+      DBNodeNum: 'number',
       DBType: 'string',
       DBVersion: 'string',
       defaultTimeZone: 'string',
       GDNId: 'string',
+      hotStandbyCluster: 'string',
+      loosePolarLogBin: 'string',
+      looseXEngine: 'string',
+      looseXEngineUseMemoryPct: 'string',
       lowerCaseTableNames: 'string',
       ownerAccount: 'string',
       ownerId: 'number',
       parameterGroupId: 'string',
       payType: 'string',
       period: 'string',
+      proxyClass: 'string',
+      proxyType: 'string',
       regionId: 'string',
       resourceGroupId: 'string',
       resourceOwnerAccount: 'string',
@@ -705,7 +909,13 @@ export class CreateDBClusterRequest extends $tea.Model {
       securityIPList: 'string',
       serverlessType: 'string',
       sourceResourceId: 'string',
+      standbyAZ: 'string',
+      storageAutoScale: 'string',
+      storagePayType: 'string',
+      storageSpace: 'number',
       storageType: 'string',
+      storageUpperBound: 'number',
+      strictConsistency: 'string',
       TDEStatus: 'boolean',
       tag: { 'type': 'array', 'itemType': CreateDBClusterRequestTag },
       usedTime: 'string',
@@ -878,6 +1088,9 @@ export class CreateDBEndpointAddressRequest extends $tea.Model {
   ownerId?: number;
   resourceOwnerAccount?: string;
   resourceOwnerId?: number;
+  securityGroupId?: string;
+  VPCId?: string;
+  zoneInfo?: CreateDBEndpointAddressRequestZoneInfo[];
   static names(): { [key: string]: string } {
     return {
       connectionStringPrefix: 'ConnectionStringPrefix',
@@ -888,6 +1101,9 @@ export class CreateDBEndpointAddressRequest extends $tea.Model {
       ownerId: 'OwnerId',
       resourceOwnerAccount: 'ResourceOwnerAccount',
       resourceOwnerId: 'ResourceOwnerId',
+      securityGroupId: 'SecurityGroupId',
+      VPCId: 'VPCId',
+      zoneInfo: 'ZoneInfo',
     };
   }
 
@@ -901,6 +1117,9 @@ export class CreateDBEndpointAddressRequest extends $tea.Model {
       ownerId: 'number',
       resourceOwnerAccount: 'string',
       resourceOwnerId: 'number',
+      securityGroupId: 'string',
+      VPCId: 'string',
+      zoneInfo: { 'type': 'array', 'itemType': CreateDBEndpointAddressRequestZoneInfo },
     };
   }
 
@@ -1068,6 +1287,7 @@ export class CreateDBNodesRequest extends $tea.Model {
   clientToken?: string;
   DBClusterId?: string;
   DBNode?: CreateDBNodesRequestDBNode[];
+  DBNodeType?: string;
   endpointBindList?: string;
   imciSwitch?: string;
   ownerAccount?: string;
@@ -1082,6 +1302,7 @@ export class CreateDBNodesRequest extends $tea.Model {
       clientToken: 'ClientToken',
       DBClusterId: 'DBClusterId',
       DBNode: 'DBNode',
+      DBNodeType: 'DBNodeType',
       endpointBindList: 'EndpointBindList',
       imciSwitch: 'ImciSwitch',
       ownerAccount: 'OwnerAccount',
@@ -1099,6 +1320,7 @@ export class CreateDBNodesRequest extends $tea.Model {
       clientToken: 'string',
       DBClusterId: 'string',
       DBNode: { 'type': 'array', 'itemType': CreateDBNodesRequestDBNode },
+      DBNodeType: 'string',
       endpointBindList: 'string',
       imciSwitch: 'string',
       ownerAccount: 'string',
@@ -1530,6 +1752,78 @@ export class CreateParameterGroupResponse extends $tea.Model {
       headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
       statusCode: 'number',
       body: CreateParameterGroupResponseBody,
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class CreateServiceLinkedRoleRequest extends $tea.Model {
+  ownerAccount?: string;
+  ownerId?: number;
+  resourceOwnerAccount?: string;
+  resourceOwnerId?: number;
+  static names(): { [key: string]: string } {
+    return {
+      ownerAccount: 'OwnerAccount',
+      ownerId: 'OwnerId',
+      resourceOwnerAccount: 'ResourceOwnerAccount',
+      resourceOwnerId: 'ResourceOwnerId',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      ownerAccount: 'string',
+      ownerId: 'number',
+      resourceOwnerAccount: 'string',
+      resourceOwnerId: 'number',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class CreateServiceLinkedRoleResponseBody extends $tea.Model {
+  requestId?: string;
+  static names(): { [key: string]: string } {
+    return {
+      requestId: 'RequestId',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      requestId: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class CreateServiceLinkedRoleResponse extends $tea.Model {
+  headers: { [key: string]: string };
+  statusCode: number;
+  body: CreateServiceLinkedRoleResponseBody;
+  static names(): { [key: string]: string } {
+    return {
+      headers: 'headers',
+      statusCode: 'statusCode',
+      body: 'body',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
+      body: CreateServiceLinkedRoleResponseBody,
     };
   }
 
@@ -2106,6 +2400,7 @@ export class DeleteDBNodesRequest extends $tea.Model {
   clientToken?: string;
   DBClusterId?: string;
   DBNodeId?: string[];
+  DBNodeType?: string;
   ownerAccount?: string;
   ownerId?: number;
   resourceOwnerAccount?: string;
@@ -2115,6 +2410,7 @@ export class DeleteDBNodesRequest extends $tea.Model {
       clientToken: 'ClientToken',
       DBClusterId: 'DBClusterId',
       DBNodeId: 'DBNodeId',
+      DBNodeType: 'DBNodeType',
       ownerAccount: 'OwnerAccount',
       ownerId: 'OwnerId',
       resourceOwnerAccount: 'ResourceOwnerAccount',
@@ -2127,6 +2423,7 @@ export class DeleteDBNodesRequest extends $tea.Model {
       clientToken: 'string',
       DBClusterId: 'string',
       DBNodeId: { 'type': 'array', 'itemType': 'string' },
+      DBNodeType: 'string',
       ownerAccount: 'string',
       ownerId: 'number',
       resourceOwnerAccount: 'string',
@@ -3367,6 +3664,7 @@ export class DescribeCharacterSetNameResponse extends $tea.Model {
 
 export class DescribeClassListRequest extends $tea.Model {
   commodityCode?: string;
+  masterHa?: string;
   orderType?: string;
   ownerAccount?: string;
   ownerId?: number;
@@ -3377,6 +3675,7 @@ export class DescribeClassListRequest extends $tea.Model {
   static names(): { [key: string]: string } {
     return {
       commodityCode: 'CommodityCode',
+      masterHa: 'MasterHa',
       orderType: 'OrderType',
       ownerAccount: 'OwnerAccount',
       ownerId: 'OwnerId',
@@ -3390,6 +3689,7 @@ export class DescribeClassListRequest extends $tea.Model {
   static types(): { [key: string]: any } {
     return {
       commodityCode: 'string',
+      masterHa: 'string',
       orderType: 'string',
       ownerAccount: 'string',
       ownerId: 'number',
@@ -3538,6 +3838,7 @@ export class DescribeDBClusterAccessWhitelistResponse extends $tea.Model {
 
 export class DescribeDBClusterAttributeRequest extends $tea.Model {
   DBClusterId?: string;
+  describeType?: string;
   ownerAccount?: string;
   ownerId?: number;
   resourceOwnerAccount?: string;
@@ -3545,6 +3846,7 @@ export class DescribeDBClusterAttributeRequest extends $tea.Model {
   static names(): { [key: string]: string } {
     return {
       DBClusterId: 'DBClusterId',
+      describeType: 'DescribeType',
       ownerAccount: 'OwnerAccount',
       ownerId: 'OwnerId',
       resourceOwnerAccount: 'ResourceOwnerAccount',
@@ -3555,6 +3857,7 @@ export class DescribeDBClusterAttributeRequest extends $tea.Model {
   static types(): { [key: string]: any } {
     return {
       DBClusterId: 'string',
+      describeType: 'string',
       ownerAccount: 'string',
       ownerId: 'number',
       resourceOwnerAccount: 'string',
@@ -3568,9 +3871,11 @@ export class DescribeDBClusterAttributeRequest extends $tea.Model {
 }
 
 export class DescribeDBClusterAttributeResponseBody extends $tea.Model {
+  aiType?: string;
   blktagTotal?: number;
   blktagUsed?: number;
   category?: string;
+  compressStorageMode?: string;
   creationTime?: string;
   DBClusterDescription?: string;
   DBClusterId?: string;
@@ -3581,10 +3886,13 @@ export class DescribeDBClusterAttributeResponseBody extends $tea.Model {
   DBVersion?: string;
   DBVersionStatus?: string;
   dataLevel1BackupChainSize?: number;
+  dataSyncMode?: string;
   deletionLock?: number;
+  deployUnit?: string;
   engine?: string;
   expireTime?: string;
   expired?: string;
+  hasCompleteStandbyRes?: boolean;
   inodeTotal?: number;
   inodeUsed?: number;
   isLatestVersion?: boolean;
@@ -3593,6 +3901,7 @@ export class DescribeDBClusterAttributeResponseBody extends $tea.Model {
   maintainTime?: string;
   payType?: string;
   proxyCpuCores?: string;
+  proxyServerlessType?: string;
   proxyStandardCpuCores?: string;
   proxyStatus?: string;
   proxyType?: string;
@@ -3601,11 +3910,13 @@ export class DescribeDBClusterAttributeResponseBody extends $tea.Model {
   resourceGroupId?: string;
   SQLSize?: number;
   serverlessType?: string;
+  standbyHAMode?: string;
   storageMax?: number;
   storagePayType?: string;
   storageSpace?: number;
   storageType?: string;
   storageUsed?: number;
+  strictConsistency?: string;
   subCategory?: string;
   tags?: DescribeDBClusterAttributeResponseBodyTags[];
   VPCId?: string;
@@ -3613,9 +3924,11 @@ export class DescribeDBClusterAttributeResponseBody extends $tea.Model {
   zoneIds?: string;
   static names(): { [key: string]: string } {
     return {
+      aiType: 'AiType',
       blktagTotal: 'BlktagTotal',
       blktagUsed: 'BlktagUsed',
       category: 'Category',
+      compressStorageMode: 'CompressStorageMode',
       creationTime: 'CreationTime',
       DBClusterDescription: 'DBClusterDescription',
       DBClusterId: 'DBClusterId',
@@ -3626,10 +3939,13 @@ export class DescribeDBClusterAttributeResponseBody extends $tea.Model {
       DBVersion: 'DBVersion',
       DBVersionStatus: 'DBVersionStatus',
       dataLevel1BackupChainSize: 'DataLevel1BackupChainSize',
+      dataSyncMode: 'DataSyncMode',
       deletionLock: 'DeletionLock',
+      deployUnit: 'DeployUnit',
       engine: 'Engine',
       expireTime: 'ExpireTime',
       expired: 'Expired',
+      hasCompleteStandbyRes: 'HasCompleteStandbyRes',
       inodeTotal: 'InodeTotal',
       inodeUsed: 'InodeUsed',
       isLatestVersion: 'IsLatestVersion',
@@ -3638,6 +3954,7 @@ export class DescribeDBClusterAttributeResponseBody extends $tea.Model {
       maintainTime: 'MaintainTime',
       payType: 'PayType',
       proxyCpuCores: 'ProxyCpuCores',
+      proxyServerlessType: 'ProxyServerlessType',
       proxyStandardCpuCores: 'ProxyStandardCpuCores',
       proxyStatus: 'ProxyStatus',
       proxyType: 'ProxyType',
@@ -3646,11 +3963,13 @@ export class DescribeDBClusterAttributeResponseBody extends $tea.Model {
       resourceGroupId: 'ResourceGroupId',
       SQLSize: 'SQLSize',
       serverlessType: 'ServerlessType',
+      standbyHAMode: 'StandbyHAMode',
       storageMax: 'StorageMax',
       storagePayType: 'StoragePayType',
       storageSpace: 'StorageSpace',
       storageType: 'StorageType',
       storageUsed: 'StorageUsed',
+      strictConsistency: 'StrictConsistency',
       subCategory: 'SubCategory',
       tags: 'Tags',
       VPCId: 'VPCId',
@@ -3661,9 +3980,11 @@ export class DescribeDBClusterAttributeResponseBody extends $tea.Model {
 
   static types(): { [key: string]: any } {
     return {
+      aiType: 'string',
       blktagTotal: 'number',
       blktagUsed: 'number',
       category: 'string',
+      compressStorageMode: 'string',
       creationTime: 'string',
       DBClusterDescription: 'string',
       DBClusterId: 'string',
@@ -3674,10 +3995,13 @@ export class DescribeDBClusterAttributeResponseBody extends $tea.Model {
       DBVersion: 'string',
       DBVersionStatus: 'string',
       dataLevel1BackupChainSize: 'number',
+      dataSyncMode: 'string',
       deletionLock: 'number',
+      deployUnit: 'string',
       engine: 'string',
       expireTime: 'string',
       expired: 'string',
+      hasCompleteStandbyRes: 'boolean',
       inodeTotal: 'number',
       inodeUsed: 'number',
       isLatestVersion: 'boolean',
@@ -3686,6 +4010,7 @@ export class DescribeDBClusterAttributeResponseBody extends $tea.Model {
       maintainTime: 'string',
       payType: 'string',
       proxyCpuCores: 'string',
+      proxyServerlessType: 'string',
       proxyStandardCpuCores: 'string',
       proxyStatus: 'string',
       proxyType: 'string',
@@ -3694,11 +4019,13 @@ export class DescribeDBClusterAttributeResponseBody extends $tea.Model {
       resourceGroupId: 'string',
       SQLSize: 'number',
       serverlessType: 'string',
+      standbyHAMode: 'string',
       storageMax: 'number',
       storagePayType: 'string',
       storageSpace: 'number',
       storageType: 'string',
       storageUsed: 'number',
+      strictConsistency: 'string',
       subCategory: 'string',
       tags: { 'type': 'array', 'itemType': DescribeDBClusterAttributeResponseBodyTags },
       VPCId: 'string',
@@ -3908,9 +4235,106 @@ export class DescribeDBClusterAvailableResourcesResponse extends $tea.Model {
   }
 }
 
+export class DescribeDBClusterConnectivityRequest extends $tea.Model {
+  DBClusterId?: string;
+  ownerAccount?: string;
+  ownerId?: number;
+  resourceGroupId?: string;
+  resourceOwnerAccount?: string;
+  resourceOwnerId?: number;
+  securityToken?: string;
+  sourceIpAddress?: string;
+  static names(): { [key: string]: string } {
+    return {
+      DBClusterId: 'DBClusterId',
+      ownerAccount: 'OwnerAccount',
+      ownerId: 'OwnerId',
+      resourceGroupId: 'ResourceGroupId',
+      resourceOwnerAccount: 'ResourceOwnerAccount',
+      resourceOwnerId: 'ResourceOwnerId',
+      securityToken: 'SecurityToken',
+      sourceIpAddress: 'SourceIpAddress',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      DBClusterId: 'string',
+      ownerAccount: 'string',
+      ownerId: 'number',
+      resourceGroupId: 'string',
+      resourceOwnerAccount: 'string',
+      resourceOwnerId: 'number',
+      securityToken: 'string',
+      sourceIpAddress: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class DescribeDBClusterConnectivityResponseBody extends $tea.Model {
+  connCheckErrorCode?: string;
+  connCheckErrorMessage?: string;
+  connCheckResult?: string;
+  DBClusterId?: string;
+  requestId?: string;
+  static names(): { [key: string]: string } {
+    return {
+      connCheckErrorCode: 'ConnCheckErrorCode',
+      connCheckErrorMessage: 'ConnCheckErrorMessage',
+      connCheckResult: 'ConnCheckResult',
+      DBClusterId: 'DBClusterId',
+      requestId: 'RequestId',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      connCheckErrorCode: 'string',
+      connCheckErrorMessage: 'string',
+      connCheckResult: 'string',
+      DBClusterId: 'string',
+      requestId: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class DescribeDBClusterConnectivityResponse extends $tea.Model {
+  headers: { [key: string]: string };
+  statusCode: number;
+  body: DescribeDBClusterConnectivityResponseBody;
+  static names(): { [key: string]: string } {
+    return {
+      headers: 'headers',
+      statusCode: 'statusCode',
+      body: 'body',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
+      body: DescribeDBClusterConnectivityResponseBody,
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
 export class DescribeDBClusterEndpointsRequest extends $tea.Model {
   DBClusterId?: string;
   DBEndpointId?: string;
+  describeType?: string;
   ownerAccount?: string;
   ownerId?: number;
   resourceOwnerAccount?: string;
@@ -3919,6 +4343,7 @@ export class DescribeDBClusterEndpointsRequest extends $tea.Model {
     return {
       DBClusterId: 'DBClusterId',
       DBEndpointId: 'DBEndpointId',
+      describeType: 'DescribeType',
       ownerAccount: 'OwnerAccount',
       ownerId: 'OwnerId',
       resourceOwnerAccount: 'ResourceOwnerAccount',
@@ -3930,6 +4355,7 @@ export class DescribeDBClusterEndpointsRequest extends $tea.Model {
     return {
       DBClusterId: 'string',
       DBEndpointId: 'string',
+      describeType: 'string',
       ownerAccount: 'string',
       ownerId: 'number',
       resourceOwnerAccount: 'string',
@@ -4183,6 +4609,7 @@ export class DescribeDBClusterMonitorResponse extends $tea.Model {
 
 export class DescribeDBClusterParametersRequest extends $tea.Model {
   DBClusterId?: string;
+  describeType?: string;
   ownerAccount?: string;
   ownerId?: number;
   resourceOwnerAccount?: string;
@@ -4190,6 +4617,7 @@ export class DescribeDBClusterParametersRequest extends $tea.Model {
   static names(): { [key: string]: string } {
     return {
       DBClusterId: 'DBClusterId',
+      describeType: 'DescribeType',
       ownerAccount: 'OwnerAccount',
       ownerId: 'OwnerId',
       resourceOwnerAccount: 'ResourceOwnerAccount',
@@ -4200,6 +4628,7 @@ export class DescribeDBClusterParametersRequest extends $tea.Model {
   static types(): { [key: string]: any } {
     return {
       DBClusterId: 'string',
+      describeType: 'string',
       ownerAccount: 'string',
       ownerId: 'number',
       resourceOwnerAccount: 'string',
@@ -4213,16 +4642,22 @@ export class DescribeDBClusterParametersRequest extends $tea.Model {
 }
 
 export class DescribeDBClusterParametersResponseBody extends $tea.Model {
+  DBClusterId?: string;
   DBType?: string;
   DBVersion?: string;
   engine?: string;
+  parameterNumbers?: string;
+  parameters?: DescribeDBClusterParametersResponseBodyParameters;
   requestId?: string;
   runningParameters?: DescribeDBClusterParametersResponseBodyRunningParameters;
   static names(): { [key: string]: string } {
     return {
+      DBClusterId: 'DBClusterId',
       DBType: 'DBType',
       DBVersion: 'DBVersion',
       engine: 'Engine',
+      parameterNumbers: 'ParameterNumbers',
+      parameters: 'Parameters',
       requestId: 'RequestId',
       runningParameters: 'RunningParameters',
     };
@@ -4230,9 +4665,12 @@ export class DescribeDBClusterParametersResponseBody extends $tea.Model {
 
   static types(): { [key: string]: any } {
     return {
+      DBClusterId: 'string',
       DBType: 'string',
       DBVersion: 'string',
       engine: 'string',
+      parameterNumbers: 'string',
+      parameters: DescribeDBClusterParametersResponseBodyParameters,
       requestId: 'string',
       runningParameters: DescribeDBClusterParametersResponseBodyRunningParameters,
     };
@@ -4661,6 +5099,7 @@ export class DescribeDBClusterVersionResponseBody extends $tea.Model {
   DBLatestVersion?: string;
   DBMinorVersion?: string;
   DBRevisionVersion?: string;
+  DBRevisionVersionList?: DescribeDBClusterVersionResponseBodyDBRevisionVersionList[];
   DBVersion?: string;
   DBVersionStatus?: string;
   isLatestVersion?: string;
@@ -4675,6 +5114,7 @@ export class DescribeDBClusterVersionResponseBody extends $tea.Model {
       DBLatestVersion: 'DBLatestVersion',
       DBMinorVersion: 'DBMinorVersion',
       DBRevisionVersion: 'DBRevisionVersion',
+      DBRevisionVersionList: 'DBRevisionVersionList',
       DBVersion: 'DBVersion',
       DBVersionStatus: 'DBVersionStatus',
       isLatestVersion: 'IsLatestVersion',
@@ -4692,6 +5132,7 @@ export class DescribeDBClusterVersionResponseBody extends $tea.Model {
       DBLatestVersion: 'string',
       DBMinorVersion: 'string',
       DBRevisionVersion: 'string',
+      DBRevisionVersionList: { 'type': 'array', 'itemType': DescribeDBClusterVersionResponseBodyDBRevisionVersionList },
       DBVersion: 'string',
       DBVersionStatus: 'string',
       isLatestVersion: 'string',
@@ -5661,6 +6102,7 @@ export class DescribeGlobalDatabaseNetworkRequest extends $tea.Model {
 export class DescribeGlobalDatabaseNetworkResponseBody extends $tea.Model {
   connections?: DescribeGlobalDatabaseNetworkResponseBodyConnections[];
   createTime?: string;
+  DBClusterId?: string;
   DBClusters?: DescribeGlobalDatabaseNetworkResponseBodyDBClusters[];
   DBType?: string;
   DBVersion?: string;
@@ -5668,10 +6110,12 @@ export class DescribeGlobalDatabaseNetworkResponseBody extends $tea.Model {
   GDNId?: string;
   GDNStatus?: string;
   requestId?: string;
+  resourceGroupId?: string;
   static names(): { [key: string]: string } {
     return {
       connections: 'Connections',
       createTime: 'CreateTime',
+      DBClusterId: 'DBClusterId',
       DBClusters: 'DBClusters',
       DBType: 'DBType',
       DBVersion: 'DBVersion',
@@ -5679,6 +6123,7 @@ export class DescribeGlobalDatabaseNetworkResponseBody extends $tea.Model {
       GDNId: 'GDNId',
       GDNStatus: 'GDNStatus',
       requestId: 'RequestId',
+      resourceGroupId: 'ResourceGroupId',
     };
   }
 
@@ -5686,6 +6131,7 @@ export class DescribeGlobalDatabaseNetworkResponseBody extends $tea.Model {
     return {
       connections: { 'type': 'array', 'itemType': DescribeGlobalDatabaseNetworkResponseBodyConnections },
       createTime: 'string',
+      DBClusterId: 'string',
       DBClusters: { 'type': 'array', 'itemType': DescribeGlobalDatabaseNetworkResponseBodyDBClusters },
       DBType: 'string',
       DBVersion: 'string',
@@ -5693,6 +6139,7 @@ export class DescribeGlobalDatabaseNetworkResponseBody extends $tea.Model {
       GDNId: 'string',
       GDNStatus: 'string',
       requestId: 'string',
+      resourceGroupId: 'string',
     };
   }
 
@@ -5728,6 +6175,7 @@ export class DescribeGlobalDatabaseNetworkResponse extends $tea.Model {
 
 export class DescribeGlobalDatabaseNetworksRequest extends $tea.Model {
   DBClusterId?: string;
+  filterRegion?: string;
   GDNDescription?: string;
   GDNId?: string;
   ownerAccount?: string;
@@ -5741,6 +6189,7 @@ export class DescribeGlobalDatabaseNetworksRequest extends $tea.Model {
   static names(): { [key: string]: string } {
     return {
       DBClusterId: 'DBClusterId',
+      filterRegion: 'FilterRegion',
       GDNDescription: 'GDNDescription',
       GDNId: 'GDNId',
       ownerAccount: 'OwnerAccount',
@@ -5757,6 +6206,7 @@ export class DescribeGlobalDatabaseNetworksRequest extends $tea.Model {
   static types(): { [key: string]: any } {
     return {
       DBClusterId: 'string',
+      filterRegion: 'string',
       GDNDescription: 'string',
       GDNId: 'string',
       ownerAccount: 'string',
@@ -7247,99 +7697,6 @@ export class DescribeSlowLogsResponse extends $tea.Model {
   }
 }
 
-export class DescribeStoragePlanRequest extends $tea.Model {
-  ownerAccount?: string;
-  ownerId?: number;
-  pageNumber?: number;
-  pageSize?: number;
-  resourceGroupId?: string;
-  resourceOwnerAccount?: string;
-  resourceOwnerId?: number;
-  static names(): { [key: string]: string } {
-    return {
-      ownerAccount: 'OwnerAccount',
-      ownerId: 'OwnerId',
-      pageNumber: 'PageNumber',
-      pageSize: 'PageSize',
-      resourceGroupId: 'ResourceGroupId',
-      resourceOwnerAccount: 'ResourceOwnerAccount',
-      resourceOwnerId: 'ResourceOwnerId',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      ownerAccount: 'string',
-      ownerId: 'number',
-      pageNumber: 'number',
-      pageSize: 'number',
-      resourceGroupId: 'string',
-      resourceOwnerAccount: 'string',
-      resourceOwnerId: 'number',
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class DescribeStoragePlanResponseBody extends $tea.Model {
-  items?: DescribeStoragePlanResponseBodyItems[];
-  pageNumber?: number;
-  pageSize?: number;
-  requestId?: string;
-  totalRecordCount?: number;
-  static names(): { [key: string]: string } {
-    return {
-      items: 'Items',
-      pageNumber: 'PageNumber',
-      pageSize: 'PageSize',
-      requestId: 'RequestId',
-      totalRecordCount: 'TotalRecordCount',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      items: { 'type': 'array', 'itemType': DescribeStoragePlanResponseBodyItems },
-      pageNumber: 'number',
-      pageSize: 'number',
-      requestId: 'string',
-      totalRecordCount: 'number',
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class DescribeStoragePlanResponse extends $tea.Model {
-  headers: { [key: string]: string };
-  statusCode: number;
-  body: DescribeStoragePlanResponseBody;
-  static names(): { [key: string]: string } {
-    return {
-      headers: 'headers',
-      statusCode: 'statusCode',
-      body: 'body',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
-      statusCode: 'number',
-      body: DescribeStoragePlanResponseBody,
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
 export class DescribeTasksRequest extends $tea.Model {
   DBClusterId?: string;
   DBNodeId?: string;
@@ -7446,6 +7803,201 @@ export class DescribeTasksResponse extends $tea.Model {
       headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
       statusCode: 'number',
       body: DescribeTasksResponseBody,
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class DescribeUserEncryptionKeyListRequest extends $tea.Model {
+  DBClusterId?: string;
+  ownerAccount?: string;
+  ownerId?: number;
+  regionId?: string;
+  resourceOwnerAccount?: string;
+  resourceOwnerId?: number;
+  TDERegion?: string;
+  static names(): { [key: string]: string } {
+    return {
+      DBClusterId: 'DBClusterId',
+      ownerAccount: 'OwnerAccount',
+      ownerId: 'OwnerId',
+      regionId: 'RegionId',
+      resourceOwnerAccount: 'ResourceOwnerAccount',
+      resourceOwnerId: 'ResourceOwnerId',
+      TDERegion: 'TDERegion',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      DBClusterId: 'string',
+      ownerAccount: 'string',
+      ownerId: 'number',
+      regionId: 'string',
+      resourceOwnerAccount: 'string',
+      resourceOwnerId: 'number',
+      TDERegion: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class DescribeUserEncryptionKeyListResponseBody extends $tea.Model {
+  DBClusterId?: string;
+  keyList?: string[];
+  requestId?: string;
+  static names(): { [key: string]: string } {
+    return {
+      DBClusterId: 'DBClusterId',
+      keyList: 'KeyList',
+      requestId: 'RequestId',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      DBClusterId: 'string',
+      keyList: { 'type': 'array', 'itemType': 'string' },
+      requestId: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class DescribeUserEncryptionKeyListResponse extends $tea.Model {
+  headers: { [key: string]: string };
+  statusCode: number;
+  body: DescribeUserEncryptionKeyListResponseBody;
+  static names(): { [key: string]: string } {
+    return {
+      headers: 'headers',
+      statusCode: 'statusCode',
+      body: 'body',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
+      body: DescribeUserEncryptionKeyListResponseBody,
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class DescribeVSwitchesRequest extends $tea.Model {
+  dedicatedHostGroupId?: string;
+  ownerAccount?: string;
+  ownerId?: number;
+  pageNumber?: number;
+  pageSize?: number;
+  regionId?: string;
+  resourceGroupId?: string;
+  resourceOwnerAccount?: string;
+  resourceOwnerId?: number;
+  securityToken?: string;
+  vpcId?: string;
+  zoneId?: string;
+  static names(): { [key: string]: string } {
+    return {
+      dedicatedHostGroupId: 'DedicatedHostGroupId',
+      ownerAccount: 'OwnerAccount',
+      ownerId: 'OwnerId',
+      pageNumber: 'PageNumber',
+      pageSize: 'PageSize',
+      regionId: 'RegionId',
+      resourceGroupId: 'ResourceGroupId',
+      resourceOwnerAccount: 'ResourceOwnerAccount',
+      resourceOwnerId: 'ResourceOwnerId',
+      securityToken: 'SecurityToken',
+      vpcId: 'VpcId',
+      zoneId: 'ZoneId',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      dedicatedHostGroupId: 'string',
+      ownerAccount: 'string',
+      ownerId: 'number',
+      pageNumber: 'number',
+      pageSize: 'number',
+      regionId: 'string',
+      resourceGroupId: 'string',
+      resourceOwnerAccount: 'string',
+      resourceOwnerId: 'number',
+      securityToken: 'string',
+      vpcId: 'string',
+      zoneId: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class DescribeVSwitchesResponseBody extends $tea.Model {
+  pageNumber?: number;
+  pageSize?: number;
+  requestId?: string;
+  totalCount?: number;
+  vSwitchs?: DescribeVSwitchesResponseBodyVSwitchs[];
+  static names(): { [key: string]: string } {
+    return {
+      pageNumber: 'PageNumber',
+      pageSize: 'PageSize',
+      requestId: 'RequestId',
+      totalCount: 'TotalCount',
+      vSwitchs: 'VSwitchs',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      pageNumber: 'number',
+      pageSize: 'number',
+      requestId: 'string',
+      totalCount: 'number',
+      vSwitchs: { 'type': 'array', 'itemType': DescribeVSwitchesResponseBodyVSwitchs },
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class DescribeVSwitchesResponse extends $tea.Model {
+  headers: { [key: string]: string };
+  statusCode: number;
+  body: DescribeVSwitchesResponseBody;
+  static names(): { [key: string]: string } {
+    return {
+      headers: 'headers',
+      statusCode: 'statusCode',
+      body: 'body',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
+      body: DescribeVSwitchesResponseBody,
     };
   }
 
@@ -7910,6 +8462,84 @@ export class ListTagResourcesResponse extends $tea.Model {
   }
 }
 
+export class ManuallyStartDBClusterRequest extends $tea.Model {
+  DBClusterId?: string;
+  ownerAccount?: string;
+  ownerId?: number;
+  regionId?: string;
+  resourceOwnerAccount?: string;
+  resourceOwnerId?: number;
+  static names(): { [key: string]: string } {
+    return {
+      DBClusterId: 'DBClusterId',
+      ownerAccount: 'OwnerAccount',
+      ownerId: 'OwnerId',
+      regionId: 'RegionId',
+      resourceOwnerAccount: 'ResourceOwnerAccount',
+      resourceOwnerId: 'ResourceOwnerId',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      DBClusterId: 'string',
+      ownerAccount: 'string',
+      ownerId: 'number',
+      regionId: 'string',
+      resourceOwnerAccount: 'string',
+      resourceOwnerId: 'number',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class ManuallyStartDBClusterResponseBody extends $tea.Model {
+  requestId?: string;
+  static names(): { [key: string]: string } {
+    return {
+      requestId: 'RequestId',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      requestId: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class ManuallyStartDBClusterResponse extends $tea.Model {
+  headers: { [key: string]: string };
+  statusCode: number;
+  body: ManuallyStartDBClusterResponseBody;
+  static names(): { [key: string]: string } {
+    return {
+      headers: 'headers',
+      statusCode: 'statusCode',
+      body: 'body',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
+      body: ManuallyStartDBClusterResponseBody,
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
 export class ModifyAccountDescriptionRequest extends $tea.Model {
   accountDescription?: string;
   accountName?: string;
@@ -8265,6 +8895,102 @@ export class ModifyBackupPolicyResponse extends $tea.Model {
       headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
       statusCode: 'number',
       body: ModifyBackupPolicyResponseBody,
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class ModifyDBClusterRequest extends $tea.Model {
+  DBClusterId?: string;
+  dataSyncMode?: string;
+  faultSimulateMode?: string;
+  ownerAccount?: string;
+  ownerId?: number;
+  resourceOwnerAccount?: string;
+  resourceOwnerId?: number;
+  standbyHAMode?: string;
+  storageAutoScale?: string;
+  storageUpperBound?: number;
+  static names(): { [key: string]: string } {
+    return {
+      DBClusterId: 'DBClusterId',
+      dataSyncMode: 'DataSyncMode',
+      faultSimulateMode: 'FaultSimulateMode',
+      ownerAccount: 'OwnerAccount',
+      ownerId: 'OwnerId',
+      resourceOwnerAccount: 'ResourceOwnerAccount',
+      resourceOwnerId: 'ResourceOwnerId',
+      standbyHAMode: 'StandbyHAMode',
+      storageAutoScale: 'StorageAutoScale',
+      storageUpperBound: 'StorageUpperBound',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      DBClusterId: 'string',
+      dataSyncMode: 'string',
+      faultSimulateMode: 'string',
+      ownerAccount: 'string',
+      ownerId: 'number',
+      resourceOwnerAccount: 'string',
+      resourceOwnerId: 'number',
+      standbyHAMode: 'string',
+      storageAutoScale: 'string',
+      storageUpperBound: 'number',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class ModifyDBClusterResponseBody extends $tea.Model {
+  DBClusterId?: string;
+  orderId?: string;
+  requestId?: string;
+  static names(): { [key: string]: string } {
+    return {
+      DBClusterId: 'DBClusterId',
+      orderId: 'OrderId',
+      requestId: 'RequestId',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      DBClusterId: 'string',
+      orderId: 'string',
+      requestId: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class ModifyDBClusterResponse extends $tea.Model {
+  headers: { [key: string]: string };
+  statusCode: number;
+  body: ModifyDBClusterResponseBody;
+  static names(): { [key: string]: string } {
+    return {
+      headers: 'headers',
+      statusCode: 'statusCode',
+      body: 'body',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
+      body: ModifyDBClusterResponseBody,
     };
   }
 
@@ -9125,24 +9851,28 @@ export class ModifyDBClusterParametersResponse extends $tea.Model {
 export class ModifyDBClusterPrimaryZoneRequest extends $tea.Model {
   DBClusterId?: string;
   fromTimeService?: boolean;
+  isSwitchOverForDisaster?: string;
   ownerAccount?: string;
   ownerId?: number;
   plannedEndTime?: string;
   plannedStartTime?: string;
   resourceOwnerAccount?: string;
   resourceOwnerId?: number;
+  VPCId?: string;
   vSwitchId?: string;
   zoneId?: string;
   static names(): { [key: string]: string } {
     return {
       DBClusterId: 'DBClusterId',
       fromTimeService: 'FromTimeService',
+      isSwitchOverForDisaster: 'IsSwitchOverForDisaster',
       ownerAccount: 'OwnerAccount',
       ownerId: 'OwnerId',
       plannedEndTime: 'PlannedEndTime',
       plannedStartTime: 'PlannedStartTime',
       resourceOwnerAccount: 'ResourceOwnerAccount',
       resourceOwnerId: 'ResourceOwnerId',
+      VPCId: 'VPCId',
       vSwitchId: 'VSwitchId',
       zoneId: 'ZoneId',
     };
@@ -9152,12 +9882,14 @@ export class ModifyDBClusterPrimaryZoneRequest extends $tea.Model {
     return {
       DBClusterId: 'string',
       fromTimeService: 'boolean',
+      isSwitchOverForDisaster: 'string',
       ownerAccount: 'string',
       ownerId: 'number',
       plannedEndTime: 'string',
       plannedStartTime: 'string',
       resourceOwnerAccount: 'string',
       resourceOwnerId: 'number',
+      VPCId: 'string',
       vSwitchId: 'string',
       zoneId: 'string',
     };
@@ -9468,6 +10200,102 @@ export class ModifyDBClusterServerlessConfResponse extends $tea.Model {
       headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
       statusCode: 'number',
       body: ModifyDBClusterServerlessConfResponseBody,
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class ModifyDBClusterStorageSpaceRequest extends $tea.Model {
+  clientToken?: string;
+  DBClusterId?: string;
+  ownerAccount?: string;
+  ownerId?: number;
+  plannedEndTime?: string;
+  plannedStartTime?: string;
+  resourceOwnerAccount?: string;
+  resourceOwnerId?: number;
+  storageSpace?: number;
+  subCategory?: string;
+  static names(): { [key: string]: string } {
+    return {
+      clientToken: 'ClientToken',
+      DBClusterId: 'DBClusterId',
+      ownerAccount: 'OwnerAccount',
+      ownerId: 'OwnerId',
+      plannedEndTime: 'PlannedEndTime',
+      plannedStartTime: 'PlannedStartTime',
+      resourceOwnerAccount: 'ResourceOwnerAccount',
+      resourceOwnerId: 'ResourceOwnerId',
+      storageSpace: 'StorageSpace',
+      subCategory: 'SubCategory',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      clientToken: 'string',
+      DBClusterId: 'string',
+      ownerAccount: 'string',
+      ownerId: 'number',
+      plannedEndTime: 'string',
+      plannedStartTime: 'string',
+      resourceOwnerAccount: 'string',
+      resourceOwnerId: 'number',
+      storageSpace: 'number',
+      subCategory: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class ModifyDBClusterStorageSpaceResponseBody extends $tea.Model {
+  DBClusterId?: string;
+  orderId?: string;
+  requestId?: string;
+  static names(): { [key: string]: string } {
+    return {
+      DBClusterId: 'DBClusterId',
+      orderId: 'OrderId',
+      requestId: 'RequestId',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      DBClusterId: 'string',
+      orderId: 'string',
+      requestId: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class ModifyDBClusterStorageSpaceResponse extends $tea.Model {
+  headers: { [key: string]: string };
+  statusCode: number;
+  body: ModifyDBClusterStorageSpaceResponseBody;
+  static names(): { [key: string]: string } {
+    return {
+      headers: 'headers',
+      statusCode: 'statusCode',
+      body: 'body',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
+      body: ModifyDBClusterStorageSpaceResponseBody,
     };
   }
 
@@ -9828,6 +10656,93 @@ export class ModifyDBNodeClassResponse extends $tea.Model {
       headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
       statusCode: 'number',
       body: ModifyDBNodeClassResponseBody,
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class ModifyDBNodeHotReplicaModeRequest extends $tea.Model {
+  DBClusterId?: string;
+  DBNodeId?: string;
+  hotReplicaMode?: string;
+  ownerAccount?: string;
+  ownerId?: number;
+  resourceOwnerAccount?: string;
+  resourceOwnerId?: number;
+  static names(): { [key: string]: string } {
+    return {
+      DBClusterId: 'DBClusterId',
+      DBNodeId: 'DBNodeId',
+      hotReplicaMode: 'HotReplicaMode',
+      ownerAccount: 'OwnerAccount',
+      ownerId: 'OwnerId',
+      resourceOwnerAccount: 'ResourceOwnerAccount',
+      resourceOwnerId: 'ResourceOwnerId',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      DBClusterId: 'string',
+      DBNodeId: 'string',
+      hotReplicaMode: 'string',
+      ownerAccount: 'string',
+      ownerId: 'number',
+      resourceOwnerAccount: 'string',
+      resourceOwnerId: 'number',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class ModifyDBNodeHotReplicaModeResponseBody extends $tea.Model {
+  DBClusterId?: string;
+  orderId?: string;
+  requestId?: string;
+  static names(): { [key: string]: string } {
+    return {
+      DBClusterId: 'DBClusterId',
+      orderId: 'OrderId',
+      requestId: 'RequestId',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      DBClusterId: 'string',
+      orderId: 'string',
+      requestId: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class ModifyDBNodeHotReplicaModeResponse extends $tea.Model {
+  headers: { [key: string]: string };
+  statusCode: number;
+  body: ModifyDBNodeHotReplicaModeResponseBody;
+  static names(): { [key: string]: string } {
+    return {
+      headers: 'headers',
+      statusCode: 'statusCode',
+      body: 'body',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
+      body: ModifyDBNodeHotReplicaModeResponseBody,
     };
   }
 
@@ -10645,6 +11560,8 @@ export class ModifyPendingMaintenanceActionResponse extends $tea.Model {
 
 export class OpenAITaskRequest extends $tea.Model {
   DBClusterId?: string;
+  describeType?: string;
+  nodeType?: string;
   ownerAccount?: string;
   ownerId?: number;
   password?: string;
@@ -10656,6 +11573,8 @@ export class OpenAITaskRequest extends $tea.Model {
   static names(): { [key: string]: string } {
     return {
       DBClusterId: 'DBClusterId',
+      describeType: 'DescribeType',
+      nodeType: 'NodeType',
       ownerAccount: 'OwnerAccount',
       ownerId: 'OwnerId',
       password: 'Password',
@@ -10670,6 +11589,8 @@ export class OpenAITaskRequest extends $tea.Model {
   static types(): { [key: string]: any } {
     return {
       DBClusterId: 'string',
+      describeType: 'string',
+      nodeType: 'string',
       ownerAccount: 'string',
       ownerId: 'number',
       password: 'string',
@@ -10962,6 +11883,90 @@ export class ResetAccountResponse extends $tea.Model {
       headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
       statusCode: 'number',
       body: ResetAccountResponseBody,
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class ResetGlobalDatabaseNetworkRequest extends $tea.Model {
+  DBClusterId?: string;
+  GDNId?: string;
+  ownerAccount?: string;
+  ownerId?: number;
+  regionId?: string;
+  resourceOwnerAccount?: string;
+  resourceOwnerId?: number;
+  securityToken?: string;
+  static names(): { [key: string]: string } {
+    return {
+      DBClusterId: 'DBClusterId',
+      GDNId: 'GDNId',
+      ownerAccount: 'OwnerAccount',
+      ownerId: 'OwnerId',
+      regionId: 'RegionId',
+      resourceOwnerAccount: 'ResourceOwnerAccount',
+      resourceOwnerId: 'ResourceOwnerId',
+      securityToken: 'SecurityToken',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      DBClusterId: 'string',
+      GDNId: 'string',
+      ownerAccount: 'string',
+      ownerId: 'number',
+      regionId: 'string',
+      resourceOwnerAccount: 'string',
+      resourceOwnerId: 'number',
+      securityToken: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class ResetGlobalDatabaseNetworkResponseBody extends $tea.Model {
+  requestId?: string;
+  static names(): { [key: string]: string } {
+    return {
+      requestId: 'RequestId',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      requestId: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class ResetGlobalDatabaseNetworkResponse extends $tea.Model {
+  headers: { [key: string]: string };
+  statusCode: number;
+  body: ResetGlobalDatabaseNetworkResponseBody;
+  static names(): { [key: string]: string } {
+    return {
+      headers: 'headers',
+      statusCode: 'statusCode',
+      body: 'body',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
+      body: ResetGlobalDatabaseNetworkResponseBody,
     };
   }
 
@@ -11771,6 +12776,7 @@ export class UpgradeDBClusterVersionRequest extends $tea.Model {
   plannedStartTime?: string;
   resourceOwnerAccount?: string;
   resourceOwnerId?: number;
+  targetDBRevisionVersionCode?: string;
   upgradeLabel?: string;
   upgradePolicy?: string;
   upgradeType?: string;
@@ -11784,6 +12790,7 @@ export class UpgradeDBClusterVersionRequest extends $tea.Model {
       plannedStartTime: 'PlannedStartTime',
       resourceOwnerAccount: 'ResourceOwnerAccount',
       resourceOwnerId: 'ResourceOwnerId',
+      targetDBRevisionVersionCode: 'TargetDBRevisionVersionCode',
       upgradeLabel: 'UpgradeLabel',
       upgradePolicy: 'UpgradePolicy',
       upgradeType: 'UpgradeType',
@@ -11800,6 +12807,7 @@ export class UpgradeDBClusterVersionRequest extends $tea.Model {
       plannedStartTime: 'string',
       resourceOwnerAccount: 'string',
       resourceOwnerId: 'number',
+      targetDBRevisionVersionCode: 'string',
       upgradeLabel: 'string',
       upgradePolicy: 'string',
       upgradeType: 'string',
@@ -11869,6 +12877,28 @@ export class CreateDBClusterRequestTag extends $tea.Model {
     return {
       key: 'string',
       value: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class CreateDBEndpointAddressRequestZoneInfo extends $tea.Model {
+  vSwitchId?: string;
+  zoneId?: string;
+  static names(): { [key: string]: string } {
+    return {
+      vSwitchId: 'VSwitchId',
+      zoneId: 'ZoneId',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      vSwitchId: 'string',
+      zoneId: 'string',
     };
   }
 
@@ -12216,6 +13246,8 @@ export class DescribeBackupsResponseBodyItemsBackup extends $tea.Model {
   backupsLevel?: string;
   consistentTime?: string;
   DBClusterId?: string;
+  expectExpireTime?: string;
+  expectExpireType?: string;
   isAvail?: string;
   static names(): { [key: string]: string } {
     return {
@@ -12230,6 +13262,8 @@ export class DescribeBackupsResponseBodyItemsBackup extends $tea.Model {
       backupsLevel: 'BackupsLevel',
       consistentTime: 'ConsistentTime',
       DBClusterId: 'DBClusterId',
+      expectExpireTime: 'ExpectExpireTime',
+      expectExpireType: 'ExpectExpireType',
       isAvail: 'IsAvail',
     };
   }
@@ -12247,6 +13281,8 @@ export class DescribeBackupsResponseBodyItemsBackup extends $tea.Model {
       backupsLevel: 'string',
       consistentTime: 'string',
       DBClusterId: 'string',
+      expectExpireTime: 'string',
+      expectExpireType: 'string',
       isAvail: 'string',
     };
   }
@@ -12301,7 +13337,14 @@ export class DescribeClassListResponseBodyItems extends $tea.Model {
   cpu?: string;
   maxConnections?: string;
   maxIOPS?: string;
+  maxStorageCapacity?: string;
   memoryClass?: string;
+  pl1MaxIOPS?: string;
+  pl2MaxIOPS?: string;
+  pl3MaxIOPS?: string;
+  psl4MaxIOPS?: string;
+  psl5MaxIOPS?: string;
+  referenceExtPrice?: string;
   referencePrice?: string;
   static names(): { [key: string]: string } {
     return {
@@ -12311,7 +13354,14 @@ export class DescribeClassListResponseBodyItems extends $tea.Model {
       cpu: 'Cpu',
       maxConnections: 'MaxConnections',
       maxIOPS: 'MaxIOPS',
+      maxStorageCapacity: 'MaxStorageCapacity',
       memoryClass: 'MemoryClass',
+      pl1MaxIOPS: 'Pl1MaxIOPS',
+      pl2MaxIOPS: 'Pl2MaxIOPS',
+      pl3MaxIOPS: 'Pl3MaxIOPS',
+      psl4MaxIOPS: 'Psl4MaxIOPS',
+      psl5MaxIOPS: 'Psl5MaxIOPS',
+      referenceExtPrice: 'ReferenceExtPrice',
       referencePrice: 'ReferencePrice',
     };
   }
@@ -12324,7 +13374,14 @@ export class DescribeClassListResponseBodyItems extends $tea.Model {
       cpu: 'string',
       maxConnections: 'string',
       maxIOPS: 'string',
+      maxStorageCapacity: 'string',
       memoryClass: 'string',
+      pl1MaxIOPS: 'string',
+      pl2MaxIOPS: 'string',
+      pl3MaxIOPS: 'string',
+      psl4MaxIOPS: 'string',
+      psl5MaxIOPS: 'string',
+      referenceExtPrice: 'string',
       referencePrice: 'string',
     };
   }
@@ -12434,6 +13491,7 @@ export class DescribeDBClusterAttributeResponseBodyDBNodes extends $tea.Model {
   maxIOPS?: number;
   sccMode?: string;
   serverWeight?: string;
+  serverlessType?: string;
   zoneId?: string;
   static names(): { [key: string]: string } {
     return {
@@ -12451,6 +13509,7 @@ export class DescribeDBClusterAttributeResponseBodyDBNodes extends $tea.Model {
       maxIOPS: 'MaxIOPS',
       sccMode: 'SccMode',
       serverWeight: 'ServerWeight',
+      serverlessType: 'ServerlessType',
       zoneId: 'ZoneId',
     };
   }
@@ -12471,6 +13530,7 @@ export class DescribeDBClusterAttributeResponseBodyDBNodes extends $tea.Model {
       maxIOPS: 'number',
       sccMode: 'string',
       serverWeight: 'string',
+      serverlessType: 'string',
       zoneId: 'string',
     };
   }
@@ -12781,6 +13841,68 @@ export class DescribeDBClusterMigrationResponseBodyRdsEndpointList extends $tea.
   }
 }
 
+export class DescribeDBClusterParametersResponseBodyParametersParameters extends $tea.Model {
+  isEqual?: string;
+  distParameterDescription?: string;
+  distParameterName?: string;
+  distParameterOptional?: string;
+  distParameterValue?: string;
+  rdsParameterDescription?: string;
+  rdsParameterName?: string;
+  rdsParameterOptional?: string;
+  rdsParameterValue?: string;
+  static names(): { [key: string]: string } {
+    return {
+      isEqual: 'IsEqual',
+      distParameterDescription: 'distParameterDescription',
+      distParameterName: 'distParameterName',
+      distParameterOptional: 'distParameterOptional',
+      distParameterValue: 'distParameterValue',
+      rdsParameterDescription: 'rdsParameterDescription',
+      rdsParameterName: 'rdsParameterName',
+      rdsParameterOptional: 'rdsParameterOptional',
+      rdsParameterValue: 'rdsParameterValue',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      isEqual: 'string',
+      distParameterDescription: 'string',
+      distParameterName: 'string',
+      distParameterOptional: 'string',
+      distParameterValue: 'string',
+      rdsParameterDescription: 'string',
+      rdsParameterName: 'string',
+      rdsParameterOptional: 'string',
+      rdsParameterValue: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class DescribeDBClusterParametersResponseBodyParameters extends $tea.Model {
+  parameters?: DescribeDBClusterParametersResponseBodyParametersParameters[];
+  static names(): { [key: string]: string } {
+    return {
+      parameters: 'Parameters',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      parameters: { 'type': 'array', 'itemType': DescribeDBClusterParametersResponseBodyParametersParameters },
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
 export class DescribeDBClusterParametersResponseBodyRunningParametersParameter extends $tea.Model {
   checkingCode?: string;
   dataType?: string;
@@ -12968,6 +14090,34 @@ export class DescribeDBClusterSSLResponseBodyItems extends $tea.Model {
   }
 }
 
+export class DescribeDBClusterVersionResponseBodyDBRevisionVersionList extends $tea.Model {
+  releaseNote?: string;
+  releaseType?: string;
+  revisionVersionCode?: string;
+  revisionVersionName?: string;
+  static names(): { [key: string]: string } {
+    return {
+      releaseNote: 'ReleaseNote',
+      releaseType: 'ReleaseType',
+      revisionVersionCode: 'RevisionVersionCode',
+      revisionVersionName: 'RevisionVersionName',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      releaseNote: 'string',
+      releaseType: 'string',
+      revisionVersionCode: 'string',
+      revisionVersionName: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
 export class DescribeDBClustersRequestTag extends $tea.Model {
   key?: string;
   value?: string;
@@ -12994,14 +14144,20 @@ export class DescribeDBClustersResponseBodyItemsDBClusterDBNodesDBNode extends $
   DBNodeClass?: string;
   DBNodeId?: string;
   DBNodeRole?: string;
+  hotReplicaMode?: string;
+  imciSwitch?: string;
   regionId?: string;
+  serverless?: string;
   zoneId?: string;
   static names(): { [key: string]: string } {
     return {
       DBNodeClass: 'DBNodeClass',
       DBNodeId: 'DBNodeId',
       DBNodeRole: 'DBNodeRole',
+      hotReplicaMode: 'HotReplicaMode',
+      imciSwitch: 'ImciSwitch',
       regionId: 'RegionId',
+      serverless: 'Serverless',
       zoneId: 'ZoneId',
     };
   }
@@ -13011,7 +14167,10 @@ export class DescribeDBClustersResponseBodyItemsDBClusterDBNodesDBNode extends $
       DBNodeClass: 'string',
       DBNodeId: 'string',
       DBNodeRole: 'string',
+      hotReplicaMode: 'string',
+      imciSwitch: 'string',
       regionId: 'string',
+      serverless: 'string',
       zoneId: 'string',
     };
   }
@@ -13082,6 +14241,7 @@ export class DescribeDBClustersResponseBodyItemsDBClusterTags extends $tea.Model
 }
 
 export class DescribeDBClustersResponseBodyItemsDBCluster extends $tea.Model {
+  aiType?: string;
   category?: string;
   createTime?: string;
   DBClusterDescription?: string;
@@ -13105,11 +14265,14 @@ export class DescribeDBClustersResponseBodyItemsDBCluster extends $tea.Model {
   storagePayType?: string;
   storageSpace?: number;
   storageUsed?: number;
+  strictConsistency?: string;
   tags?: DescribeDBClustersResponseBodyItemsDBClusterTags;
   vpcId?: string;
+  vswitchId?: string;
   zoneId?: string;
   static names(): { [key: string]: string } {
     return {
+      aiType: 'AiType',
       category: 'Category',
       createTime: 'CreateTime',
       DBClusterDescription: 'DBClusterDescription',
@@ -13133,14 +14296,17 @@ export class DescribeDBClustersResponseBodyItemsDBCluster extends $tea.Model {
       storagePayType: 'StoragePayType',
       storageSpace: 'StorageSpace',
       storageUsed: 'StorageUsed',
+      strictConsistency: 'StrictConsistency',
       tags: 'Tags',
       vpcId: 'VpcId',
+      vswitchId: 'VswitchId',
       zoneId: 'ZoneId',
     };
   }
 
   static types(): { [key: string]: any } {
     return {
+      aiType: 'string',
       category: 'string',
       createTime: 'string',
       DBClusterDescription: 'string',
@@ -13164,8 +14330,10 @@ export class DescribeDBClustersResponseBodyItemsDBCluster extends $tea.Model {
       storagePayType: 'string',
       storageSpace: 'number',
       storageUsed: 'number',
+      strictConsistency: 'string',
       tags: DescribeDBClustersResponseBodyItemsDBClusterTags,
       vpcId: 'string',
+      vswitchId: 'string',
       zoneId: 'string',
     };
   }
@@ -13665,6 +14833,7 @@ export class DescribeDatabasesResponseBodyDatabasesDatabase extends $tea.Model {
   DBName?: string;
   DBStatus?: string;
   engine?: string;
+  masterID?: string;
   static names(): { [key: string]: string } {
     return {
       accounts: 'Accounts',
@@ -13673,6 +14842,7 @@ export class DescribeDatabasesResponseBodyDatabasesDatabase extends $tea.Model {
       DBName: 'DBName',
       DBStatus: 'DBStatus',
       engine: 'Engine',
+      masterID: 'MasterID',
     };
   }
 
@@ -13684,6 +14854,7 @@ export class DescribeDatabasesResponseBodyDatabasesDatabase extends $tea.Model {
       DBName: 'string',
       DBStatus: 'string',
       engine: 'string',
+      masterID: 'string',
     };
   }
 
@@ -14627,67 +15798,6 @@ export class DescribeSlowLogsResponseBodyItems extends $tea.Model {
   }
 }
 
-export class DescribeStoragePlanResponseBodyItems extends $tea.Model {
-  aliUid?: string;
-  commodityCode?: string;
-  endTimes?: string;
-  initCapaCityViewUnit?: string;
-  initCapacityViewValue?: string;
-  instanceId?: string;
-  periodCapaCityViewUnit?: string;
-  periodCapacityViewValue?: string;
-  periodTime?: string;
-  prodCode?: string;
-  purchaseTimes?: string;
-  startTimes?: string;
-  status?: string;
-  storageType?: string;
-  templateName?: string;
-  static names(): { [key: string]: string } {
-    return {
-      aliUid: 'AliUid',
-      commodityCode: 'CommodityCode',
-      endTimes: 'EndTimes',
-      initCapaCityViewUnit: 'InitCapaCityViewUnit',
-      initCapacityViewValue: 'InitCapacityViewValue',
-      instanceId: 'InstanceId',
-      periodCapaCityViewUnit: 'PeriodCapaCityViewUnit',
-      periodCapacityViewValue: 'PeriodCapacityViewValue',
-      periodTime: 'PeriodTime',
-      prodCode: 'ProdCode',
-      purchaseTimes: 'PurchaseTimes',
-      startTimes: 'StartTimes',
-      status: 'Status',
-      storageType: 'StorageType',
-      templateName: 'TemplateName',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      aliUid: 'string',
-      commodityCode: 'string',
-      endTimes: 'string',
-      initCapaCityViewUnit: 'string',
-      initCapacityViewValue: 'string',
-      instanceId: 'string',
-      periodCapaCityViewUnit: 'string',
-      periodCapacityViewValue: 'string',
-      periodTime: 'string',
-      prodCode: 'string',
-      purchaseTimes: 'string',
-      startTimes: 'string',
-      status: 'string',
-      storageType: 'string',
-      templateName: 'string',
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
 export class DescribeTasksResponseBodyTasksTask extends $tea.Model {
   beginTime?: string;
   currentStepName?: string;
@@ -14757,6 +15867,46 @@ export class DescribeTasksResponseBodyTasks extends $tea.Model {
   static types(): { [key: string]: any } {
     return {
       task: { 'type': 'array', 'itemType': DescribeTasksResponseBodyTasksTask },
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class DescribeVSwitchesResponseBodyVSwitchs extends $tea.Model {
+  availableIpAddressCount?: number;
+  cidrBlock?: string;
+  description?: string;
+  isDefault?: boolean;
+  izNo?: string;
+  status?: string;
+  vSwitchId?: string;
+  vSwitchName?: string;
+  static names(): { [key: string]: string } {
+    return {
+      availableIpAddressCount: 'AvailableIpAddressCount',
+      cidrBlock: 'CidrBlock',
+      description: 'Description',
+      isDefault: 'IsDefault',
+      izNo: 'IzNo',
+      status: 'Status',
+      vSwitchId: 'VSwitchId',
+      vSwitchName: 'VSwitchName',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      availableIpAddressCount: 'number',
+      cidrBlock: 'string',
+      description: 'string',
+      isDefault: 'boolean',
+      izNo: 'string',
+      status: 'string',
+      vSwitchId: 'string',
+      vSwitchName: 'string',
     };
   }
 
@@ -15209,6 +16359,100 @@ export default class Client extends OpenApi {
     return await this.checkDBNameWithOptions(request, runtime);
   }
 
+  async checkKMSAuthorizedWithOptions(request: CheckKMSAuthorizedRequest, runtime: $Util.RuntimeOptions): Promise<CheckKMSAuthorizedResponse> {
+    Util.validateModel(request);
+    let query = { };
+    if (!Util.isUnset(request.DBClusterId)) {
+      query["DBClusterId"] = request.DBClusterId;
+    }
+
+    if (!Util.isUnset(request.ownerAccount)) {
+      query["OwnerAccount"] = request.ownerAccount;
+    }
+
+    if (!Util.isUnset(request.ownerId)) {
+      query["OwnerId"] = request.ownerId;
+    }
+
+    if (!Util.isUnset(request.regionId)) {
+      query["RegionId"] = request.regionId;
+    }
+
+    if (!Util.isUnset(request.resourceOwnerAccount)) {
+      query["ResourceOwnerAccount"] = request.resourceOwnerAccount;
+    }
+
+    if (!Util.isUnset(request.resourceOwnerId)) {
+      query["ResourceOwnerId"] = request.resourceOwnerId;
+    }
+
+    if (!Util.isUnset(request.TDERegion)) {
+      query["TDERegion"] = request.TDERegion;
+    }
+
+    let req = new $OpenApi.OpenApiRequest({
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApi.Params({
+      action: "CheckKMSAuthorized",
+      version: "2017-08-01",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $tea.cast<CheckKMSAuthorizedResponse>(await this.callApi(params, req, runtime), new CheckKMSAuthorizedResponse({}));
+  }
+
+  async checkKMSAuthorized(request: CheckKMSAuthorizedRequest): Promise<CheckKMSAuthorizedResponse> {
+    let runtime = new $Util.RuntimeOptions({ });
+    return await this.checkKMSAuthorizedWithOptions(request, runtime);
+  }
+
+  async checkServiceLinkedRoleWithOptions(request: CheckServiceLinkedRoleRequest, runtime: $Util.RuntimeOptions): Promise<CheckServiceLinkedRoleResponse> {
+    Util.validateModel(request);
+    let query = { };
+    if (!Util.isUnset(request.ownerAccount)) {
+      query["OwnerAccount"] = request.ownerAccount;
+    }
+
+    if (!Util.isUnset(request.ownerId)) {
+      query["OwnerId"] = request.ownerId;
+    }
+
+    if (!Util.isUnset(request.resourceOwnerAccount)) {
+      query["ResourceOwnerAccount"] = request.resourceOwnerAccount;
+    }
+
+    if (!Util.isUnset(request.resourceOwnerId)) {
+      query["ResourceOwnerId"] = request.resourceOwnerId;
+    }
+
+    let req = new $OpenApi.OpenApiRequest({
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApi.Params({
+      action: "CheckServiceLinkedRole",
+      version: "2017-08-01",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $tea.cast<CheckServiceLinkedRoleResponse>(await this.callApi(params, req, runtime), new CheckServiceLinkedRoleResponse({}));
+  }
+
+  async checkServiceLinkedRole(request: CheckServiceLinkedRoleRequest): Promise<CheckServiceLinkedRoleResponse> {
+    let runtime = new $Util.RuntimeOptions({ });
+    return await this.checkServiceLinkedRoleWithOptions(request, runtime);
+  }
+
   async closeAITaskWithOptions(request: CloseAITaskRequest, runtime: $Util.RuntimeOptions): Promise<CloseAITaskResponse> {
     Util.validateModel(request);
     let query = { };
@@ -15258,6 +16502,15 @@ export default class Client extends OpenApi {
     return await this.closeAITaskWithOptions(request, runtime);
   }
 
+  /**
+    * *   You can call this operation to cancel the migration task before data migration.
+    * *   You can call this operation to perform the migration task after data migration.
+    * > Before you call this operation, ensure that a one-click upgrade task has been created for the cluster. You can call the [CreateDBCluster](~~98169~~) operation to create an upgrade task. Set the **CreationOption** parameter to **MigrationFromRDS**. For more information, see [Create a PolarDB for MySQL cluster by using the Migration from RDS method](~~121582~~).
+    *
+    * @param request CloseDBClusterMigrationRequest
+    * @param runtime runtime options for this request RuntimeOptions
+    * @return CloseDBClusterMigrationResponse
+   */
   async closeDBClusterMigrationWithOptions(request: CloseDBClusterMigrationRequest, runtime: $Util.RuntimeOptions): Promise<CloseDBClusterMigrationResponse> {
     Util.validateModel(request);
     let query = { };
@@ -15302,6 +16555,14 @@ export default class Client extends OpenApi {
     return $tea.cast<CloseDBClusterMigrationResponse>(await this.callApi(params, req, runtime), new CloseDBClusterMigrationResponse({}));
   }
 
+  /**
+    * *   You can call this operation to cancel the migration task before data migration.
+    * *   You can call this operation to perform the migration task after data migration.
+    * > Before you call this operation, ensure that a one-click upgrade task has been created for the cluster. You can call the [CreateDBCluster](~~98169~~) operation to create an upgrade task. Set the **CreationOption** parameter to **MigrationFromRDS**. For more information, see [Create a PolarDB for MySQL cluster by using the Migration from RDS method](~~121582~~).
+    *
+    * @param request CloseDBClusterMigrationRequest
+    * @return CloseDBClusterMigrationResponse
+   */
   async closeDBClusterMigration(request: CloseDBClusterMigrationRequest): Promise<CloseDBClusterMigrationResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.closeDBClusterMigrationWithOptions(request, runtime);
@@ -15350,6 +16611,10 @@ export default class Client extends OpenApi {
       query["OwnerId"] = request.ownerId;
     }
 
+    if (!Util.isUnset(request.privForAllDB)) {
+      query["PrivForAllDB"] = request.privForAllDB;
+    }
+
     if (!Util.isUnset(request.resourceOwnerAccount)) {
       query["ResourceOwnerAccount"] = request.resourceOwnerAccount;
     }
@@ -15380,6 +16645,16 @@ export default class Client extends OpenApi {
     return await this.createAccountWithOptions(request, runtime);
   }
 
+  /**
+    * > 
+    * *   You can manually create up to three backups for each cluster.
+    * *   The `Exceeding the daily backup times of this DB cluster` error message indicates that three manual backups already exist in your cluster. You must delete existing backups before you call this operation to manually create backups. For more information about how to delete backups, see [Delete backups](~~98101~~).
+    * *   After you call this operation, a backup task is created in the backend. The task may be time-consuming if you want to back up large amounts of data.
+    *
+    * @param request CreateBackupRequest
+    * @param runtime runtime options for this request RuntimeOptions
+    * @return CreateBackupResponse
+   */
   async createBackupWithOptions(request: CreateBackupRequest, runtime: $Util.RuntimeOptions): Promise<CreateBackupResponse> {
     Util.validateModel(request);
     let query = { };
@@ -15424,6 +16699,15 @@ export default class Client extends OpenApi {
     return $tea.cast<CreateBackupResponse>(await this.callApi(params, req, runtime), new CreateBackupResponse({}));
   }
 
+  /**
+    * > 
+    * *   You can manually create up to three backups for each cluster.
+    * *   The `Exceeding the daily backup times of this DB cluster` error message indicates that three manual backups already exist in your cluster. You must delete existing backups before you call this operation to manually create backups. For more information about how to delete backups, see [Delete backups](~~98101~~).
+    * *   After you call this operation, a backup task is created in the backend. The task may be time-consuming if you want to back up large amounts of data.
+    *
+    * @param request CreateBackupRequest
+    * @return CreateBackupResponse
+   */
   async createBackup(request: CreateBackupRequest): Promise<CreateBackupResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.createBackupWithOptions(request, runtime);
@@ -15434,6 +16718,10 @@ export default class Client extends OpenApi {
     let query = { };
     if (!Util.isUnset(request.allowShutDown)) {
       query["AllowShutDown"] = request.allowShutDown;
+    }
+
+    if (!Util.isUnset(request.architecture)) {
+      query["Architecture"] = request.architecture;
     }
 
     if (!Util.isUnset(request.autoRenew)) {
@@ -15476,6 +16764,10 @@ export default class Client extends OpenApi {
       query["DBNodeClass"] = request.DBNodeClass;
     }
 
+    if (!Util.isUnset(request.DBNodeNum)) {
+      query["DBNodeNum"] = request.DBNodeNum;
+    }
+
     if (!Util.isUnset(request.DBType)) {
       query["DBType"] = request.DBType;
     }
@@ -15490,6 +16782,22 @@ export default class Client extends OpenApi {
 
     if (!Util.isUnset(request.GDNId)) {
       query["GDNId"] = request.GDNId;
+    }
+
+    if (!Util.isUnset(request.hotStandbyCluster)) {
+      query["HotStandbyCluster"] = request.hotStandbyCluster;
+    }
+
+    if (!Util.isUnset(request.loosePolarLogBin)) {
+      query["LoosePolarLogBin"] = request.loosePolarLogBin;
+    }
+
+    if (!Util.isUnset(request.looseXEngine)) {
+      query["LooseXEngine"] = request.looseXEngine;
+    }
+
+    if (!Util.isUnset(request.looseXEngineUseMemoryPct)) {
+      query["LooseXEngineUseMemoryPct"] = request.looseXEngineUseMemoryPct;
     }
 
     if (!Util.isUnset(request.lowerCaseTableNames)) {
@@ -15514,6 +16822,14 @@ export default class Client extends OpenApi {
 
     if (!Util.isUnset(request.period)) {
       query["Period"] = request.period;
+    }
+
+    if (!Util.isUnset(request.proxyClass)) {
+      query["ProxyClass"] = request.proxyClass;
+    }
+
+    if (!Util.isUnset(request.proxyType)) {
+      query["ProxyType"] = request.proxyType;
     }
 
     if (!Util.isUnset(request.regionId)) {
@@ -15560,8 +16876,32 @@ export default class Client extends OpenApi {
       query["SourceResourceId"] = request.sourceResourceId;
     }
 
+    if (!Util.isUnset(request.standbyAZ)) {
+      query["StandbyAZ"] = request.standbyAZ;
+    }
+
+    if (!Util.isUnset(request.storageAutoScale)) {
+      query["StorageAutoScale"] = request.storageAutoScale;
+    }
+
+    if (!Util.isUnset(request.storagePayType)) {
+      query["StoragePayType"] = request.storagePayType;
+    }
+
+    if (!Util.isUnset(request.storageSpace)) {
+      query["StorageSpace"] = request.storageSpace;
+    }
+
     if (!Util.isUnset(request.storageType)) {
       query["StorageType"] = request.storageType;
+    }
+
+    if (!Util.isUnset(request.storageUpperBound)) {
+      query["StorageUpperBound"] = request.storageUpperBound;
+    }
+
+    if (!Util.isUnset(request.strictConsistency)) {
+      query["StrictConsistency"] = request.strictConsistency;
     }
 
     if (!Util.isUnset(request.TDEStatus)) {
@@ -15683,6 +17023,13 @@ export default class Client extends OpenApi {
     return await this.createDBClusterEndpointWithOptions(request, runtime);
   }
 
+  /**
+    * > You can create a public endpoint for the primary endpoint, the default cluster endpoint, or a custom cluster endpoint.
+    *
+    * @param request CreateDBEndpointAddressRequest
+    * @param runtime runtime options for this request RuntimeOptions
+    * @return CreateDBEndpointAddressResponse
+   */
   async createDBEndpointAddressWithOptions(request: CreateDBEndpointAddressRequest, runtime: $Util.RuntimeOptions): Promise<CreateDBEndpointAddressResponse> {
     Util.validateModel(request);
     let query = { };
@@ -15718,6 +17065,18 @@ export default class Client extends OpenApi {
       query["ResourceOwnerId"] = request.resourceOwnerId;
     }
 
+    if (!Util.isUnset(request.securityGroupId)) {
+      query["SecurityGroupId"] = request.securityGroupId;
+    }
+
+    if (!Util.isUnset(request.VPCId)) {
+      query["VPCId"] = request.VPCId;
+    }
+
+    if (!Util.isUnset(request.zoneInfo)) {
+      query["ZoneInfo"] = request.zoneInfo;
+    }
+
     let req = new $OpenApi.OpenApiRequest({
       query: OpenApiUtil.query(query),
     });
@@ -15735,11 +17094,27 @@ export default class Client extends OpenApi {
     return $tea.cast<CreateDBEndpointAddressResponse>(await this.callApi(params, req, runtime), new CreateDBEndpointAddressResponse({}));
   }
 
+  /**
+    * > You can create a public endpoint for the primary endpoint, the default cluster endpoint, or a custom cluster endpoint.
+    *
+    * @param request CreateDBEndpointAddressRequest
+    * @return CreateDBEndpointAddressResponse
+   */
   async createDBEndpointAddress(request: CreateDBEndpointAddressRequest): Promise<CreateDBEndpointAddressResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.createDBEndpointAddressWithOptions(request, runtime);
   }
 
+  /**
+    * A database link can be used to connect two PolarDB for PostgreSQL(Compatible with Oracle) clusters, or connect a PolarDB for PostgreSQL(Compatible with Oracle) cluster to a user-created PostgreSQL database that is hosted on an Elastic Compute Service (ECS) instance. You can use database links to query data across clusters.
+    * > *   You can create up to 10 database links for a cluster.
+    * > *   Each database link connects a source cluster and a destination cluster.
+    * > *   The source cluster and the destination cluster or the destination ECS instance must be located in the same region.
+    *
+    * @param request CreateDBLinkRequest
+    * @param runtime runtime options for this request RuntimeOptions
+    * @return CreateDBLinkResponse
+   */
   async createDBLinkWithOptions(request: CreateDBLinkRequest, runtime: $Util.RuntimeOptions): Promise<CreateDBLinkResponse> {
     Util.validateModel(request);
     let query = { };
@@ -15828,6 +17203,15 @@ export default class Client extends OpenApi {
     return $tea.cast<CreateDBLinkResponse>(await this.callApi(params, req, runtime), new CreateDBLinkResponse({}));
   }
 
+  /**
+    * A database link can be used to connect two PolarDB for PostgreSQL(Compatible with Oracle) clusters, or connect a PolarDB for PostgreSQL(Compatible with Oracle) cluster to a user-created PostgreSQL database that is hosted on an Elastic Compute Service (ECS) instance. You can use database links to query data across clusters.
+    * > *   You can create up to 10 database links for a cluster.
+    * > *   Each database link connects a source cluster and a destination cluster.
+    * > *   The source cluster and the destination cluster or the destination ECS instance must be located in the same region.
+    *
+    * @param request CreateDBLinkRequest
+    * @return CreateDBLinkResponse
+   */
   async createDBLink(request: CreateDBLinkRequest): Promise<CreateDBLinkResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.createDBLinkWithOptions(request, runtime);
@@ -15846,6 +17230,10 @@ export default class Client extends OpenApi {
 
     if (!Util.isUnset(request.DBNode)) {
       query["DBNode"] = request.DBNode;
+    }
+
+    if (!Util.isUnset(request.DBNodeType)) {
+      query["DBNodeType"] = request.DBNodeType;
     }
 
     if (!Util.isUnset(request.endpointBindList)) {
@@ -15906,6 +17294,15 @@ export default class Client extends OpenApi {
     return await this.createDBNodesWithOptions(request, runtime);
   }
 
+  /**
+    * Before you call this operation, make sure that the following requirements are met:
+    * *   The cluster is in the Running state.
+    * *   The cluster is unlocked.
+    *
+    * @param request CreateDatabaseRequest
+    * @param runtime runtime options for this request RuntimeOptions
+    * @return CreateDatabaseResponse
+   */
   async createDatabaseWithOptions(request: CreateDatabaseRequest, runtime: $Util.RuntimeOptions): Promise<CreateDatabaseResponse> {
     Util.validateModel(request);
     let query = { };
@@ -15974,11 +17371,26 @@ export default class Client extends OpenApi {
     return $tea.cast<CreateDatabaseResponse>(await this.callApi(params, req, runtime), new CreateDatabaseResponse({}));
   }
 
+  /**
+    * Before you call this operation, make sure that the following requirements are met:
+    * *   The cluster is in the Running state.
+    * *   The cluster is unlocked.
+    *
+    * @param request CreateDatabaseRequest
+    * @return CreateDatabaseResponse
+   */
   async createDatabase(request: CreateDatabaseRequest): Promise<CreateDatabaseResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.createDatabaseWithOptions(request, runtime);
   }
 
+  /**
+    * >  A cluster belongs to only one GDN.
+    *
+    * @param request CreateGlobalDatabaseNetworkRequest
+    * @param runtime runtime options for this request RuntimeOptions
+    * @return CreateGlobalDatabaseNetworkResponse
+   */
   async createGlobalDatabaseNetworkWithOptions(request: CreateGlobalDatabaseNetworkRequest, runtime: $Util.RuntimeOptions): Promise<CreateGlobalDatabaseNetworkResponse> {
     Util.validateModel(request);
     let query = { };
@@ -16031,6 +17443,12 @@ export default class Client extends OpenApi {
     return $tea.cast<CreateGlobalDatabaseNetworkResponse>(await this.callApi(params, req, runtime), new CreateGlobalDatabaseNetworkResponse({}));
   }
 
+  /**
+    * >  A cluster belongs to only one GDN.
+    *
+    * @param request CreateGlobalDatabaseNetworkRequest
+    * @return CreateGlobalDatabaseNetworkResponse
+   */
   async createGlobalDatabaseNetwork(request: CreateGlobalDatabaseNetworkRequest): Promise<CreateGlobalDatabaseNetworkResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.createGlobalDatabaseNetworkWithOptions(request, runtime);
@@ -16097,6 +17515,14 @@ export default class Client extends OpenApi {
     return await this.createGlobalSecurityIPGroupWithOptions(request, runtime);
   }
 
+  /**
+    * You can use parameter templates to manage multiple parameters at a time and apply existing parameters to a PolarDB cluster. For more information, see [Use a parameter template](~~207009~~).
+    * > You can call this operation only on a PolarDB for MySQL cluster.
+    *
+    * @param request CreateParameterGroupRequest
+    * @param runtime runtime options for this request RuntimeOptions
+    * @return CreateParameterGroupResponse
+   */
   async createParameterGroupWithOptions(request: CreateParameterGroupRequest, runtime: $Util.RuntimeOptions): Promise<CreateParameterGroupResponse> {
     Util.validateModel(request);
     let query = { };
@@ -16161,9 +17587,57 @@ export default class Client extends OpenApi {
     return $tea.cast<CreateParameterGroupResponse>(await this.callApi(params, req, runtime), new CreateParameterGroupResponse({}));
   }
 
+  /**
+    * You can use parameter templates to manage multiple parameters at a time and apply existing parameters to a PolarDB cluster. For more information, see [Use a parameter template](~~207009~~).
+    * > You can call this operation only on a PolarDB for MySQL cluster.
+    *
+    * @param request CreateParameterGroupRequest
+    * @return CreateParameterGroupResponse
+   */
   async createParameterGroup(request: CreateParameterGroupRequest): Promise<CreateParameterGroupResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.createParameterGroupWithOptions(request, runtime);
+  }
+
+  async createServiceLinkedRoleWithOptions(request: CreateServiceLinkedRoleRequest, runtime: $Util.RuntimeOptions): Promise<CreateServiceLinkedRoleResponse> {
+    Util.validateModel(request);
+    let query = { };
+    if (!Util.isUnset(request.ownerAccount)) {
+      query["OwnerAccount"] = request.ownerAccount;
+    }
+
+    if (!Util.isUnset(request.ownerId)) {
+      query["OwnerId"] = request.ownerId;
+    }
+
+    if (!Util.isUnset(request.resourceOwnerAccount)) {
+      query["ResourceOwnerAccount"] = request.resourceOwnerAccount;
+    }
+
+    if (!Util.isUnset(request.resourceOwnerId)) {
+      query["ResourceOwnerId"] = request.resourceOwnerId;
+    }
+
+    let req = new $OpenApi.OpenApiRequest({
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApi.Params({
+      action: "CreateServiceLinkedRole",
+      version: "2017-08-01",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $tea.cast<CreateServiceLinkedRoleResponse>(await this.callApi(params, req, runtime), new CreateServiceLinkedRoleResponse({}));
+  }
+
+  async createServiceLinkedRole(request: CreateServiceLinkedRoleRequest): Promise<CreateServiceLinkedRoleResponse> {
+    let runtime = new $Util.RuntimeOptions({ });
+    return await this.createServiceLinkedRoleWithOptions(request, runtime);
   }
 
   async createStoragePlanWithOptions(request: CreateStoragePlanRequest, runtime: $Util.RuntimeOptions): Promise<CreateStoragePlanResponse> {
@@ -16227,6 +17701,13 @@ export default class Client extends OpenApi {
     return await this.createStoragePlanWithOptions(request, runtime);
   }
 
+  /**
+    * > Before you call this operation, make sure that the cluster is in the Running state. Otherwise, the operation fails.
+    *
+    * @param request DeleteAccountRequest
+    * @param runtime runtime options for this request RuntimeOptions
+    * @return DeleteAccountResponse
+   */
   async deleteAccountWithOptions(request: DeleteAccountRequest, runtime: $Util.RuntimeOptions): Promise<DeleteAccountResponse> {
     Util.validateModel(request);
     let query = { };
@@ -16271,11 +17752,28 @@ export default class Client extends OpenApi {
     return $tea.cast<DeleteAccountResponse>(await this.callApi(params, req, runtime), new DeleteAccountResponse({}));
   }
 
+  /**
+    * > Before you call this operation, make sure that the cluster is in the Running state. Otherwise, the operation fails.
+    *
+    * @param request DeleteAccountRequest
+    * @return DeleteAccountResponse
+   */
   async deleteAccount(request: DeleteAccountRequest): Promise<DeleteAccountResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.deleteAccountWithOptions(request, runtime);
   }
 
+  /**
+    * Before you call this operation, make sure that the cluster meets the following requirements:
+    * *   The cluster is in the Running state.
+    * *   The backup sets are in the Success state.
+    * > *   You can call the [DescribeBackups](~~98102~~) operation to query the status of backup sets.
+    * >*   After you delete the backup set file, the storage space that is occupied by the file is released. The released storage space is smaller than the size of the file because your snapshots share some data blocks
+    *
+    * @param request DeleteBackupRequest
+    * @param runtime runtime options for this request RuntimeOptions
+    * @return DeleteBackupResponse
+   */
   async deleteBackupWithOptions(request: DeleteBackupRequest, runtime: $Util.RuntimeOptions): Promise<DeleteBackupResponse> {
     Util.validateModel(request);
     let query = { };
@@ -16320,6 +17818,16 @@ export default class Client extends OpenApi {
     return $tea.cast<DeleteBackupResponse>(await this.callApi(params, req, runtime), new DeleteBackupResponse({}));
   }
 
+  /**
+    * Before you call this operation, make sure that the cluster meets the following requirements:
+    * *   The cluster is in the Running state.
+    * *   The backup sets are in the Success state.
+    * > *   You can call the [DescribeBackups](~~98102~~) operation to query the status of backup sets.
+    * >*   After you delete the backup set file, the storage space that is occupied by the file is released. The released storage space is smaller than the size of the file because your snapshots share some data blocks
+    *
+    * @param request DeleteBackupRequest
+    * @return DeleteBackupResponse
+   */
   async deleteBackup(request: DeleteBackupRequest): Promise<DeleteBackupResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.deleteBackupWithOptions(request, runtime);
@@ -16423,6 +17931,14 @@ export default class Client extends OpenApi {
     return await this.deleteDBClusterEndpointWithOptions(request, runtime);
   }
 
+  /**
+    * > *   You can delete a public-facing or classic network endpoint of the primary endpoint, the default cluster endpoint, or a custom cluster endpoint.
+    * > *   Classic network endpoints are supported only on the China site (aliyun.com). Therefore, you do not need to delete classic network endpoints on the International site (alibabacloud.com).
+    *
+    * @param request DeleteDBEndpointAddressRequest
+    * @param runtime runtime options for this request RuntimeOptions
+    * @return DeleteDBEndpointAddressResponse
+   */
   async deleteDBEndpointAddressWithOptions(request: DeleteDBEndpointAddressRequest, runtime: $Util.RuntimeOptions): Promise<DeleteDBEndpointAddressResponse> {
     Util.validateModel(request);
     let query = { };
@@ -16471,6 +17987,13 @@ export default class Client extends OpenApi {
     return $tea.cast<DeleteDBEndpointAddressResponse>(await this.callApi(params, req, runtime), new DeleteDBEndpointAddressResponse({}));
   }
 
+  /**
+    * > *   You can delete a public-facing or classic network endpoint of the primary endpoint, the default cluster endpoint, or a custom cluster endpoint.
+    * > *   Classic network endpoints are supported only on the China site (aliyun.com). Therefore, you do not need to delete classic network endpoints on the International site (alibabacloud.com).
+    *
+    * @param request DeleteDBEndpointAddressRequest
+    * @return DeleteDBEndpointAddressResponse
+   */
   async deleteDBEndpointAddress(request: DeleteDBEndpointAddressRequest): Promise<DeleteDBEndpointAddressResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.deleteDBEndpointAddressWithOptions(request, runtime);
@@ -16540,6 +18063,10 @@ export default class Client extends OpenApi {
       query["DBNodeId"] = request.DBNodeId;
     }
 
+    if (!Util.isUnset(request.DBNodeType)) {
+      query["DBNodeType"] = request.DBNodeType;
+    }
+
     if (!Util.isUnset(request.ownerAccount)) {
       query["OwnerAccount"] = request.ownerAccount;
     }
@@ -16578,6 +18105,14 @@ export default class Client extends OpenApi {
     return await this.deleteDBNodesWithOptions(request, runtime);
   }
 
+  /**
+    * >- The cluster must be in the Running state and unlocked. Otherwise, the specified database cannot be deleted.
+    * >- The delete operation is performed in an asynchronous manner. A long period of time may be required to delete a large database. A success response for this operation only indicates that the request to delete the database is sent. You must query the database to check whether the database is deleted.
+    *
+    * @param request DeleteDatabaseRequest
+    * @param runtime runtime options for this request RuntimeOptions
+    * @return DeleteDatabaseResponse
+   */
   async deleteDatabaseWithOptions(request: DeleteDatabaseRequest, runtime: $Util.RuntimeOptions): Promise<DeleteDatabaseResponse> {
     Util.validateModel(request);
     let query = { };
@@ -16622,11 +18157,25 @@ export default class Client extends OpenApi {
     return $tea.cast<DeleteDatabaseResponse>(await this.callApi(params, req, runtime), new DeleteDatabaseResponse({}));
   }
 
+  /**
+    * >- The cluster must be in the Running state and unlocked. Otherwise, the specified database cannot be deleted.
+    * >- The delete operation is performed in an asynchronous manner. A long period of time may be required to delete a large database. A success response for this operation only indicates that the request to delete the database is sent. You must query the database to check whether the database is deleted.
+    *
+    * @param request DeleteDatabaseRequest
+    * @return DeleteDatabaseResponse
+   */
   async deleteDatabase(request: DeleteDatabaseRequest): Promise<DeleteDatabaseResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.deleteDatabaseWithOptions(request, runtime);
   }
 
+  /**
+    * >  You can delete a GDN only when the GDN includes only a primary cluster.
+    *
+    * @param request DeleteGlobalDatabaseNetworkRequest
+    * @param runtime runtime options for this request RuntimeOptions
+    * @return DeleteGlobalDatabaseNetworkResponse
+   */
   async deleteGlobalDatabaseNetworkWithOptions(request: DeleteGlobalDatabaseNetworkRequest, runtime: $Util.RuntimeOptions): Promise<DeleteGlobalDatabaseNetworkResponse> {
     Util.validateModel(request);
     let query = { };
@@ -16675,6 +18224,12 @@ export default class Client extends OpenApi {
     return $tea.cast<DeleteGlobalDatabaseNetworkResponse>(await this.callApi(params, req, runtime), new DeleteGlobalDatabaseNetworkResponse({}));
   }
 
+  /**
+    * >  You can delete a GDN only when the GDN includes only a primary cluster.
+    *
+    * @param request DeleteGlobalDatabaseNetworkRequest
+    * @return DeleteGlobalDatabaseNetworkResponse
+   */
   async deleteGlobalDatabaseNetwork(request: DeleteGlobalDatabaseNetworkRequest): Promise<DeleteGlobalDatabaseNetworkResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.deleteGlobalDatabaseNetworkWithOptions(request, runtime);
@@ -16774,6 +18329,14 @@ export default class Client extends OpenApi {
     return await this.deleteMaskingRulesWithOptions(request, runtime);
   }
 
+  /**
+    * You can use parameter templates to manage multiple parameters at a time and quickly apply existing parameters to a PolarDB cluster. For more information, see [Use a parameter template](~~207009~~).
+    * >  When you delete a parameter template, the parameter settings that are applied to PolarDB clusters are not affected.
+    *
+    * @param request DeleteParameterGroupRequest
+    * @param runtime runtime options for this request RuntimeOptions
+    * @return DeleteParameterGroupResponse
+   */
   async deleteParameterGroupWithOptions(request: DeleteParameterGroupRequest, runtime: $Util.RuntimeOptions): Promise<DeleteParameterGroupResponse> {
     Util.validateModel(request);
     let query = { };
@@ -16822,6 +18385,13 @@ export default class Client extends OpenApi {
     return $tea.cast<DeleteParameterGroupResponse>(await this.callApi(params, req, runtime), new DeleteParameterGroupResponse({}));
   }
 
+  /**
+    * You can use parameter templates to manage multiple parameters at a time and quickly apply existing parameters to a PolarDB cluster. For more information, see [Use a parameter template](~~207009~~).
+    * >  When you delete a parameter template, the parameter settings that are applied to PolarDB clusters are not affected.
+    *
+    * @param request DeleteParameterGroupRequest
+    * @return DeleteParameterGroupResponse
+   */
   async deleteParameterGroup(request: DeleteParameterGroupRequest): Promise<DeleteParameterGroupResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.deleteParameterGroupWithOptions(request, runtime);
@@ -17266,6 +18836,10 @@ export default class Client extends OpenApi {
       query["CommodityCode"] = request.commodityCode;
     }
 
+    if (!Util.isUnset(request.masterHa)) {
+      query["MasterHa"] = request.masterHa;
+    }
+
     if (!Util.isUnset(request.orderType)) {
       query["OrderType"] = request.orderType;
     }
@@ -17366,6 +18940,10 @@ export default class Client extends OpenApi {
     let query = { };
     if (!Util.isUnset(request.DBClusterId)) {
       query["DBClusterId"] = request.DBClusterId;
+    }
+
+    if (!Util.isUnset(request.describeType)) {
+      query["DescribeType"] = request.describeType;
     }
 
     if (!Util.isUnset(request.ownerAccount)) {
@@ -17516,6 +19094,63 @@ export default class Client extends OpenApi {
     return await this.describeDBClusterAvailableResourcesWithOptions(request, runtime);
   }
 
+  async describeDBClusterConnectivityWithOptions(request: DescribeDBClusterConnectivityRequest, runtime: $Util.RuntimeOptions): Promise<DescribeDBClusterConnectivityResponse> {
+    Util.validateModel(request);
+    let query = { };
+    if (!Util.isUnset(request.DBClusterId)) {
+      query["DBClusterId"] = request.DBClusterId;
+    }
+
+    if (!Util.isUnset(request.ownerAccount)) {
+      query["OwnerAccount"] = request.ownerAccount;
+    }
+
+    if (!Util.isUnset(request.ownerId)) {
+      query["OwnerId"] = request.ownerId;
+    }
+
+    if (!Util.isUnset(request.resourceGroupId)) {
+      query["ResourceGroupId"] = request.resourceGroupId;
+    }
+
+    if (!Util.isUnset(request.resourceOwnerAccount)) {
+      query["ResourceOwnerAccount"] = request.resourceOwnerAccount;
+    }
+
+    if (!Util.isUnset(request.resourceOwnerId)) {
+      query["ResourceOwnerId"] = request.resourceOwnerId;
+    }
+
+    if (!Util.isUnset(request.securityToken)) {
+      query["SecurityToken"] = request.securityToken;
+    }
+
+    if (!Util.isUnset(request.sourceIpAddress)) {
+      query["SourceIpAddress"] = request.sourceIpAddress;
+    }
+
+    let req = new $OpenApi.OpenApiRequest({
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApi.Params({
+      action: "DescribeDBClusterConnectivity",
+      version: "2017-08-01",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $tea.cast<DescribeDBClusterConnectivityResponse>(await this.callApi(params, req, runtime), new DescribeDBClusterConnectivityResponse({}));
+  }
+
+  async describeDBClusterConnectivity(request: DescribeDBClusterConnectivityRequest): Promise<DescribeDBClusterConnectivityResponse> {
+    let runtime = new $Util.RuntimeOptions({ });
+    return await this.describeDBClusterConnectivityWithOptions(request, runtime);
+  }
+
   async describeDBClusterEndpointsWithOptions(request: DescribeDBClusterEndpointsRequest, runtime: $Util.RuntimeOptions): Promise<DescribeDBClusterEndpointsResponse> {
     Util.validateModel(request);
     let query = { };
@@ -17525,6 +19160,10 @@ export default class Client extends OpenApi {
 
     if (!Util.isUnset(request.DBEndpointId)) {
       query["DBEndpointId"] = request.DBEndpointId;
+    }
+
+    if (!Util.isUnset(request.describeType)) {
+      query["DescribeType"] = request.describeType;
     }
 
     if (!Util.isUnset(request.ownerAccount)) {
@@ -17565,6 +19204,14 @@ export default class Client extends OpenApi {
     return await this.describeDBClusterEndpointsWithOptions(request, runtime);
   }
 
+  /**
+    * *   You can call this operation to query the status of data migration from an ApsaraDB RDS instance to a PolarDB cluster. For more information, see [Upgrade ApsaraDB RDS for MySQL to PolarDB for MySQL with one click](~~121582~~).
+    * *   Before you call this operation, make sure that a one-click upgrade task has been created for the cluster. You can call the [CreateDBCluster](~~98169~~) operation to create an upgrade task. Set the **CreationOption** parameter to **MigrationFromRDS**.
+    *
+    * @param request DescribeDBClusterMigrationRequest
+    * @param runtime runtime options for this request RuntimeOptions
+    * @return DescribeDBClusterMigrationResponse
+   */
   async describeDBClusterMigrationWithOptions(request: DescribeDBClusterMigrationRequest, runtime: $Util.RuntimeOptions): Promise<DescribeDBClusterMigrationResponse> {
     Util.validateModel(request);
     let query = { };
@@ -17605,6 +19252,13 @@ export default class Client extends OpenApi {
     return $tea.cast<DescribeDBClusterMigrationResponse>(await this.callApi(params, req, runtime), new DescribeDBClusterMigrationResponse({}));
   }
 
+  /**
+    * *   You can call this operation to query the status of data migration from an ApsaraDB RDS instance to a PolarDB cluster. For more information, see [Upgrade ApsaraDB RDS for MySQL to PolarDB for MySQL with one click](~~121582~~).
+    * *   Before you call this operation, make sure that a one-click upgrade task has been created for the cluster. You can call the [CreateDBCluster](~~98169~~) operation to create an upgrade task. Set the **CreationOption** parameter to **MigrationFromRDS**.
+    *
+    * @param request DescribeDBClusterMigrationRequest
+    * @return DescribeDBClusterMigrationResponse
+   */
   async describeDBClusterMigration(request: DescribeDBClusterMigrationRequest): Promise<DescribeDBClusterMigrationResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.describeDBClusterMigrationWithOptions(request, runtime);
@@ -17662,6 +19316,10 @@ export default class Client extends OpenApi {
       query["DBClusterId"] = request.DBClusterId;
     }
 
+    if (!Util.isUnset(request.describeType)) {
+      query["DescribeType"] = request.describeType;
+    }
+
     if (!Util.isUnset(request.ownerAccount)) {
       query["OwnerAccount"] = request.ownerAccount;
     }
@@ -17700,6 +19358,24 @@ export default class Client extends OpenApi {
     return await this.describeDBClusterParametersWithOptions(request, runtime);
   }
 
+  /**
+    * *   When the monitoring data is collected every 5 seconds:
+    *     *   If the query time range is less than or equal to 1 hour, the data is displayed at intervals of 5 seconds.
+    *     *   If the query time range is less than or equal to one day, the data is displayed at intervals of 1 minute.
+    *     *   If the query time range is less than or equal to seven days, the data is displayed at intervals of 10 minutes.
+    *     *   If the query time range is less than or equal to 30 days, the data is displayed at intervals of 1 hour.
+    *     *   When the query time range is greater than 30 days, the data is displayed at intervals of 1 day.
+    * *   When the monitoring data is collected every 60 seconds:
+    *     *   If the query time range is less than or equal to one day, the data is displayed at intervals of 1 minute.
+    *     *   If the query time range is less than or equal to seven days, the data is displayed at intervals of 10 minutes.
+    *     *   If the query time range is less than or equal to 30 days, the data is displayed at intervals of 1 hour.
+    *     *   When the query time range is greater than 30 days, the data is displayed at intervals of 1 day.
+    * >  By default, the monitoring data is collected once every 60 seconds. You can call the [ModifyDBClusterMonitor](~~159557~~) operation to set the data collection interval to every 5 seconds.
+    *
+    * @param request DescribeDBClusterPerformanceRequest
+    * @param runtime runtime options for this request RuntimeOptions
+    * @return DescribeDBClusterPerformanceResponse
+   */
   async describeDBClusterPerformanceWithOptions(request: DescribeDBClusterPerformanceRequest, runtime: $Util.RuntimeOptions): Promise<DescribeDBClusterPerformanceResponse> {
     Util.validateModel(request);
     let query = { };
@@ -17736,6 +19412,23 @@ export default class Client extends OpenApi {
     return $tea.cast<DescribeDBClusterPerformanceResponse>(await this.callApi(params, req, runtime), new DescribeDBClusterPerformanceResponse({}));
   }
 
+  /**
+    * *   When the monitoring data is collected every 5 seconds:
+    *     *   If the query time range is less than or equal to 1 hour, the data is displayed at intervals of 5 seconds.
+    *     *   If the query time range is less than or equal to one day, the data is displayed at intervals of 1 minute.
+    *     *   If the query time range is less than or equal to seven days, the data is displayed at intervals of 10 minutes.
+    *     *   If the query time range is less than or equal to 30 days, the data is displayed at intervals of 1 hour.
+    *     *   When the query time range is greater than 30 days, the data is displayed at intervals of 1 day.
+    * *   When the monitoring data is collected every 60 seconds:
+    *     *   If the query time range is less than or equal to one day, the data is displayed at intervals of 1 minute.
+    *     *   If the query time range is less than or equal to seven days, the data is displayed at intervals of 10 minutes.
+    *     *   If the query time range is less than or equal to 30 days, the data is displayed at intervals of 1 hour.
+    *     *   When the query time range is greater than 30 days, the data is displayed at intervals of 1 day.
+    * >  By default, the monitoring data is collected once every 60 seconds. You can call the [ModifyDBClusterMonitor](~~159557~~) operation to set the data collection interval to every 5 seconds.
+    *
+    * @param request DescribeDBClusterPerformanceRequest
+    * @return DescribeDBClusterPerformanceResponse
+   */
   async describeDBClusterPerformance(request: DescribeDBClusterPerformanceRequest): Promise<DescribeDBClusterPerformanceResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.describeDBClusterPerformanceWithOptions(request, runtime);
@@ -17876,6 +19569,13 @@ export default class Client extends OpenApi {
     return await this.describeDBClusterTDEWithOptions(request, runtime);
   }
 
+  /**
+    * > For more information, see [Engine versions](~~471239~~) and [PolarDB for MySQL](~~172561~~).
+    *
+    * @param request DescribeDBClusterVersionRequest
+    * @param runtime runtime options for this request RuntimeOptions
+    * @return DescribeDBClusterVersionResponse
+   */
   async describeDBClusterVersionWithOptions(request: DescribeDBClusterVersionRequest, runtime: $Util.RuntimeOptions): Promise<DescribeDBClusterVersionResponse> {
     Util.validateModel(request);
     let query = { };
@@ -17916,6 +19616,12 @@ export default class Client extends OpenApi {
     return $tea.cast<DescribeDBClusterVersionResponse>(await this.callApi(params, req, runtime), new DescribeDBClusterVersionResponse({}));
   }
 
+  /**
+    * > For more information, see [Engine versions](~~471239~~) and [PolarDB for MySQL](~~172561~~).
+    *
+    * @param request DescribeDBClusterVersionRequest
+    * @return DescribeDBClusterVersionResponse
+   */
   async describeDBClusterVersion(request: DescribeDBClusterVersionRequest): Promise<DescribeDBClusterVersionResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.describeDBClusterVersionWithOptions(request, runtime);
@@ -18148,6 +19854,13 @@ export default class Client extends OpenApi {
     return await this.describeDBInitializeVariableWithOptions(request, runtime);
   }
 
+  /**
+    * > You can query only the database links that use a PolarDB for Oracle cluster as the source.
+    *
+    * @param request DescribeDBLinksRequest
+    * @param runtime runtime options for this request RuntimeOptions
+    * @return DescribeDBLinksResponse
+   */
   async describeDBLinksWithOptions(request: DescribeDBLinksRequest, runtime: $Util.RuntimeOptions): Promise<DescribeDBLinksResponse> {
     Util.validateModel(request);
     let query = { };
@@ -18192,11 +19905,35 @@ export default class Client extends OpenApi {
     return $tea.cast<DescribeDBLinksResponse>(await this.callApi(params, req, runtime), new DescribeDBLinksResponse({}));
   }
 
+  /**
+    * > You can query only the database links that use a PolarDB for Oracle cluster as the source.
+    *
+    * @param request DescribeDBLinksRequest
+    * @return DescribeDBLinksResponse
+   */
   async describeDBLinks(request: DescribeDBLinksRequest): Promise<DescribeDBLinksResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.describeDBLinksWithOptions(request, runtime);
   }
 
+  /**
+    * *   When the monitoring data is collected every 5 seconds:
+    *     *   If the query time range is less than or equal to 1 hour, the data is displayed at intervals of 5 seconds.
+    *     *   If the query time range is less than or equal to one day, the data is displayed at intervals of 1 minute.
+    *     *   If the query time range is less than or equal to seven days, the data is displayed at intervals of 10 minutes.
+    *     *   If the query time range is less than or equal to 30 days, the data is displayed at intervals of 1 hour.
+    *     *   When the query time range is greater than 30 days, the data is displayed at intervals of 1 day.
+    * *   When the monitoring data is collected every 60 seconds:
+    *     *   If the query time range is less than or equal to one day, the data is displayed at intervals of 1 minute.
+    *     *   If the query time range is less than or equal to seven days, the data is displayed at intervals of 10 minutes.
+    *     *   If the query time range is less than or equal to 30 days, the data is displayed at intervals of 1 hour.
+    *     *   When the query time range is greater than 30 days, the data is displayed at intervals of 1 day.
+    * >  By default, the monitoring data is collected once every 60 seconds. You can call the [ModifyDBClusterMonitor](~~159557~~) operation to set the data collection interval to every 5 seconds.
+    *
+    * @param request DescribeDBNodePerformanceRequest
+    * @param runtime runtime options for this request RuntimeOptions
+    * @return DescribeDBNodePerformanceResponse
+   */
   async describeDBNodePerformanceWithOptions(request: DescribeDBNodePerformanceRequest, runtime: $Util.RuntimeOptions): Promise<DescribeDBNodePerformanceResponse> {
     Util.validateModel(request);
     let query = { };
@@ -18237,6 +19974,23 @@ export default class Client extends OpenApi {
     return $tea.cast<DescribeDBNodePerformanceResponse>(await this.callApi(params, req, runtime), new DescribeDBNodePerformanceResponse({}));
   }
 
+  /**
+    * *   When the monitoring data is collected every 5 seconds:
+    *     *   If the query time range is less than or equal to 1 hour, the data is displayed at intervals of 5 seconds.
+    *     *   If the query time range is less than or equal to one day, the data is displayed at intervals of 1 minute.
+    *     *   If the query time range is less than or equal to seven days, the data is displayed at intervals of 10 minutes.
+    *     *   If the query time range is less than or equal to 30 days, the data is displayed at intervals of 1 hour.
+    *     *   When the query time range is greater than 30 days, the data is displayed at intervals of 1 day.
+    * *   When the monitoring data is collected every 60 seconds:
+    *     *   If the query time range is less than or equal to one day, the data is displayed at intervals of 1 minute.
+    *     *   If the query time range is less than or equal to seven days, the data is displayed at intervals of 10 minutes.
+    *     *   If the query time range is less than or equal to 30 days, the data is displayed at intervals of 1 hour.
+    *     *   When the query time range is greater than 30 days, the data is displayed at intervals of 1 day.
+    * >  By default, the monitoring data is collected once every 60 seconds. You can call the [ModifyDBClusterMonitor](~~159557~~) operation to set the data collection interval to every 5 seconds.
+    *
+    * @param request DescribeDBNodePerformanceRequest
+    * @return DescribeDBNodePerformanceResponse
+   */
   async describeDBNodePerformance(request: DescribeDBNodePerformanceRequest): Promise<DescribeDBNodePerformanceResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.describeDBNodePerformanceWithOptions(request, runtime);
@@ -18291,6 +20045,13 @@ export default class Client extends OpenApi {
     return await this.describeDBNodesParametersWithOptions(request, runtime);
   }
 
+  /**
+    * > This operation is applicable only to PolarDB for MySQL clusters.
+    *
+    * @param request DescribeDBProxyPerformanceRequest
+    * @param runtime runtime options for this request RuntimeOptions
+    * @return DescribeDBProxyPerformanceResponse
+   */
   async describeDBProxyPerformanceWithOptions(request: DescribeDBProxyPerformanceRequest, runtime: $Util.RuntimeOptions): Promise<DescribeDBProxyPerformanceResponse> {
     Util.validateModel(request);
     let query = { };
@@ -18327,6 +20088,12 @@ export default class Client extends OpenApi {
     return $tea.cast<DescribeDBProxyPerformanceResponse>(await this.callApi(params, req, runtime), new DescribeDBProxyPerformanceResponse({}));
   }
 
+  /**
+    * > This operation is applicable only to PolarDB for MySQL clusters.
+    *
+    * @param request DescribeDBProxyPerformanceRequest
+    * @return DescribeDBProxyPerformanceResponse
+   */
   async describeDBProxyPerformance(request: DescribeDBProxyPerformanceRequest): Promise<DescribeDBProxyPerformanceResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.describeDBProxyPerformanceWithOptions(request, runtime);
@@ -18389,6 +20156,14 @@ export default class Client extends OpenApi {
     return await this.describeDatabasesWithOptions(request, runtime);
   }
 
+  /**
+    * Before you call this operation, make sure that the PolarDB cluster is in the **Released** state. You must also confirm that the **Retain All Backups Permanently** or **Retain Last Automatic Backup Permanently** backup retention policy takes effect after you release the cluster. If you delete all backup sets after the cluster is released, you cannot use this API operation to query the cluster.
+    * > You can call the [DescribeDBClusterAttribute](~~98181~~) operation to query the cluster status.
+    *
+    * @param request DescribeDetachedBackupsRequest
+    * @param runtime runtime options for this request RuntimeOptions
+    * @return DescribeDetachedBackupsResponse
+   */
   async describeDetachedBackupsWithOptions(request: DescribeDetachedBackupsRequest, runtime: $Util.RuntimeOptions): Promise<DescribeDetachedBackupsResponse> {
     Util.validateModel(request);
     let query = { };
@@ -18461,6 +20236,13 @@ export default class Client extends OpenApi {
     return $tea.cast<DescribeDetachedBackupsResponse>(await this.callApi(params, req, runtime), new DescribeDetachedBackupsResponse({}));
   }
 
+  /**
+    * Before you call this operation, make sure that the PolarDB cluster is in the **Released** state. You must also confirm that the **Retain All Backups Permanently** or **Retain Last Automatic Backup Permanently** backup retention policy takes effect after you release the cluster. If you delete all backup sets after the cluster is released, you cannot use this API operation to query the cluster.
+    * > You can call the [DescribeDBClusterAttribute](~~98181~~) operation to query the cluster status.
+    *
+    * @param request DescribeDetachedBackupsRequest
+    * @return DescribeDetachedBackupsResponse
+   */
   async describeDetachedBackups(request: DescribeDetachedBackupsRequest): Promise<DescribeDetachedBackupsResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.describeDetachedBackupsWithOptions(request, runtime);
@@ -18524,6 +20306,10 @@ export default class Client extends OpenApi {
     let query = { };
     if (!Util.isUnset(request.DBClusterId)) {
       query["DBClusterId"] = request.DBClusterId;
+    }
+
+    if (!Util.isUnset(request.filterRegion)) {
+      query["FilterRegion"] = request.filterRegion;
     }
 
     if (!Util.isUnset(request.GDNDescription)) {
@@ -18849,6 +20635,14 @@ export default class Client extends OpenApi {
     return await this.describeMetaListWithOptions(request, runtime);
   }
 
+  /**
+    * You can use parameter templates to manage multiple parameters at a time and apply existing parameters to a PolarDB cluster. For more information, see [Use a parameter template](~~207009~~).
+    * > This parameter is valid only for a PolarDB for MySQL cluster.
+    *
+    * @param request DescribeParameterGroupRequest
+    * @param runtime runtime options for this request RuntimeOptions
+    * @return DescribeParameterGroupResponse
+   */
   async describeParameterGroupWithOptions(request: DescribeParameterGroupRequest, runtime: $Util.RuntimeOptions): Promise<DescribeParameterGroupResponse> {
     Util.validateModel(request);
     let query = { };
@@ -18897,11 +20691,26 @@ export default class Client extends OpenApi {
     return $tea.cast<DescribeParameterGroupResponse>(await this.callApi(params, req, runtime), new DescribeParameterGroupResponse({}));
   }
 
+  /**
+    * You can use parameter templates to manage multiple parameters at a time and apply existing parameters to a PolarDB cluster. For more information, see [Use a parameter template](~~207009~~).
+    * > This parameter is valid only for a PolarDB for MySQL cluster.
+    *
+    * @param request DescribeParameterGroupRequest
+    * @return DescribeParameterGroupResponse
+   */
   async describeParameterGroup(request: DescribeParameterGroupRequest): Promise<DescribeParameterGroupResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.describeParameterGroupWithOptions(request, runtime);
   }
 
+  /**
+    * You can use parameter templates to manage multiple parameters at a time and apply existing parameters to a PolarDB cluster. For more information, see [Use a parameter template](~~207009~~).
+    * > This operation is applicable only to PolarDB for MySQL clusters.
+    *
+    * @param request DescribeParameterGroupsRequest
+    * @param runtime runtime options for this request RuntimeOptions
+    * @return DescribeParameterGroupsResponse
+   */
   async describeParameterGroupsWithOptions(request: DescribeParameterGroupsRequest, runtime: $Util.RuntimeOptions): Promise<DescribeParameterGroupsResponse> {
     Util.validateModel(request);
     let query = { };
@@ -18954,6 +20763,13 @@ export default class Client extends OpenApi {
     return $tea.cast<DescribeParameterGroupsResponse>(await this.callApi(params, req, runtime), new DescribeParameterGroupsResponse({}));
   }
 
+  /**
+    * You can use parameter templates to manage multiple parameters at a time and apply existing parameters to a PolarDB cluster. For more information, see [Use a parameter template](~~207009~~).
+    * > This operation is applicable only to PolarDB for MySQL clusters.
+    *
+    * @param request DescribeParameterGroupsRequest
+    * @return DescribeParameterGroupsResponse
+   */
   async describeParameterGroups(request: DescribeParameterGroupsRequest): Promise<DescribeParameterGroupsResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.describeParameterGroupsWithOptions(request, runtime);
@@ -19293,6 +21109,13 @@ export default class Client extends OpenApi {
     return await this.describeScheduleTasksWithOptions(request, runtime);
   }
 
+  /**
+    * > This operation is applicable only to PolarDB for MySQL clusters.
+    *
+    * @param request DescribeSlowLogRecordsRequest
+    * @param runtime runtime options for this request RuntimeOptions
+    * @return DescribeSlowLogRecordsResponse
+   */
   async describeSlowLogRecordsWithOptions(request: DescribeSlowLogRecordsRequest, runtime: $Util.RuntimeOptions): Promise<DescribeSlowLogRecordsResponse> {
     Util.validateModel(request);
     let query = { };
@@ -19361,11 +21184,24 @@ export default class Client extends OpenApi {
     return $tea.cast<DescribeSlowLogRecordsResponse>(await this.callApi(params, req, runtime), new DescribeSlowLogRecordsResponse({}));
   }
 
+  /**
+    * > This operation is applicable only to PolarDB for MySQL clusters.
+    *
+    * @param request DescribeSlowLogRecordsRequest
+    * @return DescribeSlowLogRecordsResponse
+   */
   async describeSlowLogRecords(request: DescribeSlowLogRecordsRequest): Promise<DescribeSlowLogRecordsResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.describeSlowLogRecordsWithOptions(request, runtime);
   }
 
+  /**
+    * > This operation is applicable only to PolarDB for MySQL clusters.
+    *
+    * @param request DescribeSlowLogsRequest
+    * @param runtime runtime options for this request RuntimeOptions
+    * @return DescribeSlowLogsResponse
+   */
   async describeSlowLogsWithOptions(request: DescribeSlowLogsRequest, runtime: $Util.RuntimeOptions): Promise<DescribeSlowLogsResponse> {
     Util.validateModel(request);
     let query = { };
@@ -19430,64 +21266,25 @@ export default class Client extends OpenApi {
     return $tea.cast<DescribeSlowLogsResponse>(await this.callApi(params, req, runtime), new DescribeSlowLogsResponse({}));
   }
 
+  /**
+    * > This operation is applicable only to PolarDB for MySQL clusters.
+    *
+    * @param request DescribeSlowLogsRequest
+    * @return DescribeSlowLogsResponse
+   */
   async describeSlowLogs(request: DescribeSlowLogsRequest): Promise<DescribeSlowLogsResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.describeSlowLogsWithOptions(request, runtime);
   }
 
-  async describeStoragePlanWithOptions(request: DescribeStoragePlanRequest, runtime: $Util.RuntimeOptions): Promise<DescribeStoragePlanResponse> {
-    Util.validateModel(request);
-    let query = { };
-    if (!Util.isUnset(request.ownerAccount)) {
-      query["OwnerAccount"] = request.ownerAccount;
-    }
-
-    if (!Util.isUnset(request.ownerId)) {
-      query["OwnerId"] = request.ownerId;
-    }
-
-    if (!Util.isUnset(request.pageNumber)) {
-      query["PageNumber"] = request.pageNumber;
-    }
-
-    if (!Util.isUnset(request.pageSize)) {
-      query["PageSize"] = request.pageSize;
-    }
-
-    if (!Util.isUnset(request.resourceGroupId)) {
-      query["ResourceGroupId"] = request.resourceGroupId;
-    }
-
-    if (!Util.isUnset(request.resourceOwnerAccount)) {
-      query["ResourceOwnerAccount"] = request.resourceOwnerAccount;
-    }
-
-    if (!Util.isUnset(request.resourceOwnerId)) {
-      query["ResourceOwnerId"] = request.resourceOwnerId;
-    }
-
-    let req = new $OpenApi.OpenApiRequest({
-      query: OpenApiUtil.query(query),
-    });
-    let params = new $OpenApi.Params({
-      action: "DescribeStoragePlan",
-      version: "2017-08-01",
-      protocol: "HTTPS",
-      pathname: "/",
-      method: "POST",
-      authType: "AK",
-      style: "RPC",
-      reqBodyType: "formData",
-      bodyType: "json",
-    });
-    return $tea.cast<DescribeStoragePlanResponse>(await this.callApi(params, req, runtime), new DescribeStoragePlanResponse({}));
-  }
-
-  async describeStoragePlan(request: DescribeStoragePlanRequest): Promise<DescribeStoragePlanResponse> {
-    let runtime = new $Util.RuntimeOptions({ });
-    return await this.describeStoragePlanWithOptions(request, runtime);
-  }
-
+  /**
+    * *   You can call this operation to view the details of a task that is generated by a specific API operation or in the console. The system calls the specific API operation when you perform an operation in the console. For example, you can view the details of the task when you call the [CreateDBCluster](~~98169~~) operation or [create a cluster](~~58769~~) in the console.
+    * *   You can view the details of tasks that are generated only when you call the [CreateDBCluster](~~98169~~) operation to create a cluster and `CreationOption` is not set to `CreateGdnStandby`.
+    *
+    * @param request DescribeTasksRequest
+    * @param runtime runtime options for this request RuntimeOptions
+    * @return DescribeTasksResponse
+   */
   async describeTasksWithOptions(request: DescribeTasksRequest, runtime: $Util.RuntimeOptions): Promise<DescribeTasksResponse> {
     Util.validateModel(request);
     let query = { };
@@ -19552,9 +21349,142 @@ export default class Client extends OpenApi {
     return $tea.cast<DescribeTasksResponse>(await this.callApi(params, req, runtime), new DescribeTasksResponse({}));
   }
 
+  /**
+    * *   You can call this operation to view the details of a task that is generated by a specific API operation or in the console. The system calls the specific API operation when you perform an operation in the console. For example, you can view the details of the task when you call the [CreateDBCluster](~~98169~~) operation or [create a cluster](~~58769~~) in the console.
+    * *   You can view the details of tasks that are generated only when you call the [CreateDBCluster](~~98169~~) operation to create a cluster and `CreationOption` is not set to `CreateGdnStandby`.
+    *
+    * @param request DescribeTasksRequest
+    * @return DescribeTasksResponse
+   */
   async describeTasks(request: DescribeTasksRequest): Promise<DescribeTasksResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.describeTasksWithOptions(request, runtime);
+  }
+
+  async describeUserEncryptionKeyListWithOptions(request: DescribeUserEncryptionKeyListRequest, runtime: $Util.RuntimeOptions): Promise<DescribeUserEncryptionKeyListResponse> {
+    Util.validateModel(request);
+    let query = { };
+    if (!Util.isUnset(request.DBClusterId)) {
+      query["DBClusterId"] = request.DBClusterId;
+    }
+
+    if (!Util.isUnset(request.ownerAccount)) {
+      query["OwnerAccount"] = request.ownerAccount;
+    }
+
+    if (!Util.isUnset(request.ownerId)) {
+      query["OwnerId"] = request.ownerId;
+    }
+
+    if (!Util.isUnset(request.regionId)) {
+      query["RegionId"] = request.regionId;
+    }
+
+    if (!Util.isUnset(request.resourceOwnerAccount)) {
+      query["ResourceOwnerAccount"] = request.resourceOwnerAccount;
+    }
+
+    if (!Util.isUnset(request.resourceOwnerId)) {
+      query["ResourceOwnerId"] = request.resourceOwnerId;
+    }
+
+    if (!Util.isUnset(request.TDERegion)) {
+      query["TDERegion"] = request.TDERegion;
+    }
+
+    let req = new $OpenApi.OpenApiRequest({
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApi.Params({
+      action: "DescribeUserEncryptionKeyList",
+      version: "2017-08-01",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $tea.cast<DescribeUserEncryptionKeyListResponse>(await this.callApi(params, req, runtime), new DescribeUserEncryptionKeyListResponse({}));
+  }
+
+  async describeUserEncryptionKeyList(request: DescribeUserEncryptionKeyListRequest): Promise<DescribeUserEncryptionKeyListResponse> {
+    let runtime = new $Util.RuntimeOptions({ });
+    return await this.describeUserEncryptionKeyListWithOptions(request, runtime);
+  }
+
+  async describeVSwitchesWithOptions(request: DescribeVSwitchesRequest, runtime: $Util.RuntimeOptions): Promise<DescribeVSwitchesResponse> {
+    Util.validateModel(request);
+    let query = { };
+    if (!Util.isUnset(request.dedicatedHostGroupId)) {
+      query["DedicatedHostGroupId"] = request.dedicatedHostGroupId;
+    }
+
+    if (!Util.isUnset(request.ownerAccount)) {
+      query["OwnerAccount"] = request.ownerAccount;
+    }
+
+    if (!Util.isUnset(request.ownerId)) {
+      query["OwnerId"] = request.ownerId;
+    }
+
+    if (!Util.isUnset(request.pageNumber)) {
+      query["PageNumber"] = request.pageNumber;
+    }
+
+    if (!Util.isUnset(request.pageSize)) {
+      query["PageSize"] = request.pageSize;
+    }
+
+    if (!Util.isUnset(request.regionId)) {
+      query["RegionId"] = request.regionId;
+    }
+
+    if (!Util.isUnset(request.resourceGroupId)) {
+      query["ResourceGroupId"] = request.resourceGroupId;
+    }
+
+    if (!Util.isUnset(request.resourceOwnerAccount)) {
+      query["ResourceOwnerAccount"] = request.resourceOwnerAccount;
+    }
+
+    if (!Util.isUnset(request.resourceOwnerId)) {
+      query["ResourceOwnerId"] = request.resourceOwnerId;
+    }
+
+    if (!Util.isUnset(request.securityToken)) {
+      query["SecurityToken"] = request.securityToken;
+    }
+
+    if (!Util.isUnset(request.vpcId)) {
+      query["VpcId"] = request.vpcId;
+    }
+
+    if (!Util.isUnset(request.zoneId)) {
+      query["ZoneId"] = request.zoneId;
+    }
+
+    let req = new $OpenApi.OpenApiRequest({
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApi.Params({
+      action: "DescribeVSwitches",
+      version: "2017-08-01",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $tea.cast<DescribeVSwitchesResponse>(await this.callApi(params, req, runtime), new DescribeVSwitchesResponse({}));
+  }
+
+  async describeVSwitches(request: DescribeVSwitchesRequest): Promise<DescribeVSwitchesResponse> {
+    let runtime = new $Util.RuntimeOptions({ });
+    return await this.describeVSwitchesWithOptions(request, runtime);
   }
 
   async enableFirewallRulesWithOptions(request: EnableFirewallRulesRequest, runtime: $Util.RuntimeOptions): Promise<EnableFirewallRulesResponse> {
@@ -19744,6 +21674,17 @@ export default class Client extends OpenApi {
     return await this.failoverDBClusterWithOptions(request, runtime);
   }
 
+  /**
+    * > *   An account can be authorized to access one or more databases.
+    * > *   If the specified account already has the access permissions on the specified databases, the operation returns a successful response.
+    * > *   Before you call this operation, make sure that the cluster is in the Running state. Otherwise, the operation fails.
+    * > *   You can call this operation only on a PolarDB for MySQL cluster.
+    * > *   By default, a privileged account for a cluster has all the permissions on the databases in the cluster.
+    *
+    * @param request GrantAccountPrivilegeRequest
+    * @param runtime runtime options for this request RuntimeOptions
+    * @return GrantAccountPrivilegeResponse
+   */
   async grantAccountPrivilegeWithOptions(request: GrantAccountPrivilegeRequest, runtime: $Util.RuntimeOptions): Promise<GrantAccountPrivilegeResponse> {
     Util.validateModel(request);
     let query = { };
@@ -19796,6 +21737,16 @@ export default class Client extends OpenApi {
     return $tea.cast<GrantAccountPrivilegeResponse>(await this.callApi(params, req, runtime), new GrantAccountPrivilegeResponse({}));
   }
 
+  /**
+    * > *   An account can be authorized to access one or more databases.
+    * > *   If the specified account already has the access permissions on the specified databases, the operation returns a successful response.
+    * > *   Before you call this operation, make sure that the cluster is in the Running state. Otherwise, the operation fails.
+    * > *   You can call this operation only on a PolarDB for MySQL cluster.
+    * > *   By default, a privileged account for a cluster has all the permissions on the databases in the cluster.
+    *
+    * @param request GrantAccountPrivilegeRequest
+    * @return GrantAccountPrivilegeResponse
+   */
   async grantAccountPrivilege(request: GrantAccountPrivilegeRequest): Promise<GrantAccountPrivilegeResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.grantAccountPrivilegeWithOptions(request, runtime);
@@ -19860,6 +21811,55 @@ export default class Client extends OpenApi {
   async listTagResources(request: ListTagResourcesRequest): Promise<ListTagResourcesResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.listTagResourcesWithOptions(request, runtime);
+  }
+
+  async manuallyStartDBClusterWithOptions(request: ManuallyStartDBClusterRequest, runtime: $Util.RuntimeOptions): Promise<ManuallyStartDBClusterResponse> {
+    Util.validateModel(request);
+    let query = { };
+    if (!Util.isUnset(request.DBClusterId)) {
+      query["DBClusterId"] = request.DBClusterId;
+    }
+
+    if (!Util.isUnset(request.ownerAccount)) {
+      query["OwnerAccount"] = request.ownerAccount;
+    }
+
+    if (!Util.isUnset(request.ownerId)) {
+      query["OwnerId"] = request.ownerId;
+    }
+
+    if (!Util.isUnset(request.regionId)) {
+      query["RegionId"] = request.regionId;
+    }
+
+    if (!Util.isUnset(request.resourceOwnerAccount)) {
+      query["ResourceOwnerAccount"] = request.resourceOwnerAccount;
+    }
+
+    if (!Util.isUnset(request.resourceOwnerId)) {
+      query["ResourceOwnerId"] = request.resourceOwnerId;
+    }
+
+    let req = new $OpenApi.OpenApiRequest({
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApi.Params({
+      action: "ManuallyStartDBCluster",
+      version: "2017-08-01",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $tea.cast<ManuallyStartDBClusterResponse>(await this.callApi(params, req, runtime), new ManuallyStartDBClusterResponse({}));
+  }
+
+  async manuallyStartDBCluster(request: ManuallyStartDBClusterRequest): Promise<ManuallyStartDBClusterResponse> {
+    let runtime = new $Util.RuntimeOptions({ });
+    return await this.manuallyStartDBClusterWithOptions(request, runtime);
   }
 
   async modifyAccountDescriptionWithOptions(request: ModifyAccountDescriptionRequest, runtime: $Util.RuntimeOptions): Promise<ModifyAccountDescriptionResponse> {
@@ -20033,6 +22033,13 @@ export default class Client extends OpenApi {
     return await this.modifyAutoRenewAttributeWithOptions(request, runtime);
   }
 
+  /**
+    * > You can also modify the automatic backup policy of a PolarDB cluster in the console. For more information, see [Backup settings](~~280422~~).
+    *
+    * @param request ModifyBackupPolicyRequest
+    * @param runtime runtime options for this request RuntimeOptions
+    * @return ModifyBackupPolicyResponse
+   */
   async modifyBackupPolicyWithOptions(request: ModifyBackupPolicyRequest, runtime: $Util.RuntimeOptions): Promise<ModifyBackupPolicyResponse> {
     Util.validateModel(request);
     let query = { };
@@ -20121,9 +22128,80 @@ export default class Client extends OpenApi {
     return $tea.cast<ModifyBackupPolicyResponse>(await this.callApi(params, req, runtime), new ModifyBackupPolicyResponse({}));
   }
 
+  /**
+    * > You can also modify the automatic backup policy of a PolarDB cluster in the console. For more information, see [Backup settings](~~280422~~).
+    *
+    * @param request ModifyBackupPolicyRequest
+    * @return ModifyBackupPolicyResponse
+   */
   async modifyBackupPolicy(request: ModifyBackupPolicyRequest): Promise<ModifyBackupPolicyResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.modifyBackupPolicyWithOptions(request, runtime);
+  }
+
+  async modifyDBClusterWithOptions(request: ModifyDBClusterRequest, runtime: $Util.RuntimeOptions): Promise<ModifyDBClusterResponse> {
+    Util.validateModel(request);
+    let query = { };
+    if (!Util.isUnset(request.DBClusterId)) {
+      query["DBClusterId"] = request.DBClusterId;
+    }
+
+    if (!Util.isUnset(request.dataSyncMode)) {
+      query["DataSyncMode"] = request.dataSyncMode;
+    }
+
+    if (!Util.isUnset(request.faultSimulateMode)) {
+      query["FaultSimulateMode"] = request.faultSimulateMode;
+    }
+
+    if (!Util.isUnset(request.ownerAccount)) {
+      query["OwnerAccount"] = request.ownerAccount;
+    }
+
+    if (!Util.isUnset(request.ownerId)) {
+      query["OwnerId"] = request.ownerId;
+    }
+
+    if (!Util.isUnset(request.resourceOwnerAccount)) {
+      query["ResourceOwnerAccount"] = request.resourceOwnerAccount;
+    }
+
+    if (!Util.isUnset(request.resourceOwnerId)) {
+      query["ResourceOwnerId"] = request.resourceOwnerId;
+    }
+
+    if (!Util.isUnset(request.standbyHAMode)) {
+      query["StandbyHAMode"] = request.standbyHAMode;
+    }
+
+    if (!Util.isUnset(request.storageAutoScale)) {
+      query["StorageAutoScale"] = request.storageAutoScale;
+    }
+
+    if (!Util.isUnset(request.storageUpperBound)) {
+      query["StorageUpperBound"] = request.storageUpperBound;
+    }
+
+    let req = new $OpenApi.OpenApiRequest({
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApi.Params({
+      action: "ModifyDBCluster",
+      version: "2017-08-01",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $tea.cast<ModifyDBClusterResponse>(await this.callApi(params, req, runtime), new ModifyDBClusterResponse({}));
+  }
+
+  async modifyDBCluster(request: ModifyDBClusterRequest): Promise<ModifyDBClusterResponse> {
+    let runtime = new $Util.RuntimeOptions({ });
+    return await this.modifyDBClusterWithOptions(request, runtime);
   }
 
   async modifyDBClusterAccessWhitelistWithOptions(request: ModifyDBClusterAccessWhitelistRequest, runtime: $Util.RuntimeOptions): Promise<ModifyDBClusterAccessWhitelistResponse> {
@@ -20480,6 +22558,13 @@ export default class Client extends OpenApi {
     return await this.modifyDBClusterEndpointWithOptions(request, runtime);
   }
 
+  /**
+    * >  We recommend that you set the routine maintenance window to off-peak hours. Alibaba Cloud maintains your cluster within the specified maintenance window to minimize the negative impacts on your business.
+    *
+    * @param request ModifyDBClusterMaintainTimeRequest
+    * @param runtime runtime options for this request RuntimeOptions
+    * @return ModifyDBClusterMaintainTimeResponse
+   */
   async modifyDBClusterMaintainTimeWithOptions(request: ModifyDBClusterMaintainTimeRequest, runtime: $Util.RuntimeOptions): Promise<ModifyDBClusterMaintainTimeResponse> {
     Util.validateModel(request);
     let query = { };
@@ -20524,11 +22609,26 @@ export default class Client extends OpenApi {
     return $tea.cast<ModifyDBClusterMaintainTimeResponse>(await this.callApi(params, req, runtime), new ModifyDBClusterMaintainTimeResponse({}));
   }
 
+  /**
+    * >  We recommend that you set the routine maintenance window to off-peak hours. Alibaba Cloud maintains your cluster within the specified maintenance window to minimize the negative impacts on your business.
+    *
+    * @param request ModifyDBClusterMaintainTimeRequest
+    * @return ModifyDBClusterMaintainTimeResponse
+   */
   async modifyDBClusterMaintainTime(request: ModifyDBClusterMaintainTimeRequest): Promise<ModifyDBClusterMaintainTimeResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.modifyDBClusterMaintainTimeWithOptions(request, runtime);
   }
 
+  /**
+    * *   You can call this operation to switch the task that migrates data from ApsaraDB for RDS to PolarDB.
+    * *   You can call this operation to roll back the task that migrates data from ApsaraDB for RDS to PolarDB.
+    * > Before you call this operation, ensure that a one-click upgrade task has been created for the cluster. You can call the [CreateDBCluster](~~98169~~) operation to create an upgrade task. Set the **CreationOption** parameter to **MigrationFromRDS**. For more information, see [Create a PolarDB for MySQL cluster by using the Migration from RDS method](~~121582~~).
+    *
+    * @param request ModifyDBClusterMigrationRequest
+    * @param runtime runtime options for this request RuntimeOptions
+    * @return ModifyDBClusterMigrationResponse
+   */
   async modifyDBClusterMigrationWithOptions(request: ModifyDBClusterMigrationRequest, runtime: $Util.RuntimeOptions): Promise<ModifyDBClusterMigrationResponse> {
     Util.validateModel(request);
     let query = { };
@@ -20589,11 +22689,36 @@ export default class Client extends OpenApi {
     return $tea.cast<ModifyDBClusterMigrationResponse>(await this.callApi(params, req, runtime), new ModifyDBClusterMigrationResponse({}));
   }
 
+  /**
+    * *   You can call this operation to switch the task that migrates data from ApsaraDB for RDS to PolarDB.
+    * *   You can call this operation to roll back the task that migrates data from ApsaraDB for RDS to PolarDB.
+    * > Before you call this operation, ensure that a one-click upgrade task has been created for the cluster. You can call the [CreateDBCluster](~~98169~~) operation to create an upgrade task. Set the **CreationOption** parameter to **MigrationFromRDS**. For more information, see [Create a PolarDB for MySQL cluster by using the Migration from RDS method](~~121582~~).
+    *
+    * @param request ModifyDBClusterMigrationRequest
+    * @return ModifyDBClusterMigrationResponse
+   */
   async modifyDBClusterMigration(request: ModifyDBClusterMigrationRequest): Promise<ModifyDBClusterMigrationResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.modifyDBClusterMigrationWithOptions(request, runtime);
   }
 
+  /**
+    * *   When the monitoring data is collected every 5 seconds:
+    *     *   If the query time range is less than or equal to 1 hour, the data is displayed at intervals of 5 seconds.
+    *     *   If the query time range is less than or equal to one day, the data is displayed at intervals of 1 minute.
+    *     *   If the query time range is less than or equal to seven days, the data is displayed at intervals of 10 minutes.
+    *     *   If the query time range is less than or equal to 30 days, the data is displayed at intervals of 1 hour.
+    *     *   When the query time range is greater than 30 days, the data is displayed at intervals of 1 day.
+    * *   When the monitoring data is collected every 60 seconds:
+    *     *   If the query time range is less than or equal to one day, the data is displayed at intervals of 1 minute.
+    *     *   If the query time range is less than or equal to seven days, the data is displayed at intervals of 10 minutes.
+    *     *   If the query time range is less than or equal to 30 days, the data is displayed at intervals of 1 hour.
+    *     *   When the query time range is greater than 30 days, the data is displayed at intervals of 1 day.
+    *
+    * @param request ModifyDBClusterMonitorRequest
+    * @param runtime runtime options for this request RuntimeOptions
+    * @return ModifyDBClusterMonitorResponse
+   */
   async modifyDBClusterMonitorWithOptions(request: ModifyDBClusterMonitorRequest, runtime: $Util.RuntimeOptions): Promise<ModifyDBClusterMonitorResponse> {
     Util.validateModel(request);
     let query = { };
@@ -20638,11 +22763,36 @@ export default class Client extends OpenApi {
     return $tea.cast<ModifyDBClusterMonitorResponse>(await this.callApi(params, req, runtime), new ModifyDBClusterMonitorResponse({}));
   }
 
+  /**
+    * *   When the monitoring data is collected every 5 seconds:
+    *     *   If the query time range is less than or equal to 1 hour, the data is displayed at intervals of 5 seconds.
+    *     *   If the query time range is less than or equal to one day, the data is displayed at intervals of 1 minute.
+    *     *   If the query time range is less than or equal to seven days, the data is displayed at intervals of 10 minutes.
+    *     *   If the query time range is less than or equal to 30 days, the data is displayed at intervals of 1 hour.
+    *     *   When the query time range is greater than 30 days, the data is displayed at intervals of 1 day.
+    * *   When the monitoring data is collected every 60 seconds:
+    *     *   If the query time range is less than or equal to one day, the data is displayed at intervals of 1 minute.
+    *     *   If the query time range is less than or equal to seven days, the data is displayed at intervals of 10 minutes.
+    *     *   If the query time range is less than or equal to 30 days, the data is displayed at intervals of 1 hour.
+    *     *   When the query time range is greater than 30 days, the data is displayed at intervals of 1 day.
+    *
+    * @param request ModifyDBClusterMonitorRequest
+    * @return ModifyDBClusterMonitorResponse
+   */
   async modifyDBClusterMonitor(request: ModifyDBClusterMonitorRequest): Promise<ModifyDBClusterMonitorResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.modifyDBClusterMonitorWithOptions(request, runtime);
   }
 
+  /**
+    * PolarDB supports the parameter template feature to centrally manage clusters. You can configure a number of parameters at a time by using a parameter template and apply the template to a PolarDB cluster. For more information, see [Use a parameter template](~~207009~~).
+    * **
+    * **Only PolarDB for MySQL clusters support parameter templates.
+    *
+    * @param request ModifyDBClusterParametersRequest
+    * @param runtime runtime options for this request RuntimeOptions
+    * @return ModifyDBClusterParametersResponse
+   */
   async modifyDBClusterParametersWithOptions(request: ModifyDBClusterParametersRequest, runtime: $Util.RuntimeOptions): Promise<ModifyDBClusterParametersResponse> {
     Util.validateModel(request);
     let query = { };
@@ -20703,6 +22853,14 @@ export default class Client extends OpenApi {
     return $tea.cast<ModifyDBClusterParametersResponse>(await this.callApi(params, req, runtime), new ModifyDBClusterParametersResponse({}));
   }
 
+  /**
+    * PolarDB supports the parameter template feature to centrally manage clusters. You can configure a number of parameters at a time by using a parameter template and apply the template to a PolarDB cluster. For more information, see [Use a parameter template](~~207009~~).
+    * **
+    * **Only PolarDB for MySQL clusters support parameter templates.
+    *
+    * @param request ModifyDBClusterParametersRequest
+    * @return ModifyDBClusterParametersResponse
+   */
   async modifyDBClusterParameters(request: ModifyDBClusterParametersRequest): Promise<ModifyDBClusterParametersResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.modifyDBClusterParametersWithOptions(request, runtime);
@@ -20717,6 +22875,10 @@ export default class Client extends OpenApi {
 
     if (!Util.isUnset(request.fromTimeService)) {
       query["FromTimeService"] = request.fromTimeService;
+    }
+
+    if (!Util.isUnset(request.isSwitchOverForDisaster)) {
+      query["IsSwitchOverForDisaster"] = request.isSwitchOverForDisaster;
     }
 
     if (!Util.isUnset(request.ownerAccount)) {
@@ -20741,6 +22903,10 @@ export default class Client extends OpenApi {
 
     if (!Util.isUnset(request.resourceOwnerId)) {
       query["ResourceOwnerId"] = request.resourceOwnerId;
+    }
+
+    if (!Util.isUnset(request.VPCId)) {
+      query["VPCId"] = request.VPCId;
     }
 
     if (!Util.isUnset(request.vSwitchId)) {
@@ -20956,6 +23122,79 @@ export default class Client extends OpenApi {
     return await this.modifyDBClusterServerlessConfWithOptions(request, runtime);
   }
 
+  async modifyDBClusterStorageSpaceWithOptions(request: ModifyDBClusterStorageSpaceRequest, runtime: $Util.RuntimeOptions): Promise<ModifyDBClusterStorageSpaceResponse> {
+    Util.validateModel(request);
+    let query = { };
+    if (!Util.isUnset(request.clientToken)) {
+      query["ClientToken"] = request.clientToken;
+    }
+
+    if (!Util.isUnset(request.DBClusterId)) {
+      query["DBClusterId"] = request.DBClusterId;
+    }
+
+    if (!Util.isUnset(request.ownerAccount)) {
+      query["OwnerAccount"] = request.ownerAccount;
+    }
+
+    if (!Util.isUnset(request.ownerId)) {
+      query["OwnerId"] = request.ownerId;
+    }
+
+    if (!Util.isUnset(request.plannedEndTime)) {
+      query["PlannedEndTime"] = request.plannedEndTime;
+    }
+
+    if (!Util.isUnset(request.plannedStartTime)) {
+      query["PlannedStartTime"] = request.plannedStartTime;
+    }
+
+    if (!Util.isUnset(request.resourceOwnerAccount)) {
+      query["ResourceOwnerAccount"] = request.resourceOwnerAccount;
+    }
+
+    if (!Util.isUnset(request.resourceOwnerId)) {
+      query["ResourceOwnerId"] = request.resourceOwnerId;
+    }
+
+    if (!Util.isUnset(request.storageSpace)) {
+      query["StorageSpace"] = request.storageSpace;
+    }
+
+    if (!Util.isUnset(request.subCategory)) {
+      query["SubCategory"] = request.subCategory;
+    }
+
+    let req = new $OpenApi.OpenApiRequest({
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApi.Params({
+      action: "ModifyDBClusterStorageSpace",
+      version: "2017-08-01",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $tea.cast<ModifyDBClusterStorageSpaceResponse>(await this.callApi(params, req, runtime), new ModifyDBClusterStorageSpaceResponse({}));
+  }
+
+  async modifyDBClusterStorageSpace(request: ModifyDBClusterStorageSpaceRequest): Promise<ModifyDBClusterStorageSpaceResponse> {
+    let runtime = new $Util.RuntimeOptions({ });
+    return await this.modifyDBClusterStorageSpaceWithOptions(request, runtime);
+  }
+
+  /**
+    * > *   To perform this operation, you must activate KMS first. For more information, see [Purchase a dedicated KMS instance](~~153781~~).
+    * > *   After TDE is enabled, you cannot disable TDE.
+    *
+    * @param request ModifyDBClusterTDERequest
+    * @param runtime runtime options for this request RuntimeOptions
+    * @return ModifyDBClusterTDEResponse
+   */
   async modifyDBClusterTDEWithOptions(request: ModifyDBClusterTDERequest, runtime: $Util.RuntimeOptions): Promise<ModifyDBClusterTDEResponse> {
     Util.validateModel(request);
     let query = { };
@@ -21012,6 +23251,13 @@ export default class Client extends OpenApi {
     return $tea.cast<ModifyDBClusterTDEResponse>(await this.callApi(params, req, runtime), new ModifyDBClusterTDEResponse({}));
   }
 
+  /**
+    * > *   To perform this operation, you must activate KMS first. For more information, see [Purchase a dedicated KMS instance](~~153781~~).
+    * > *   After TDE is enabled, you cannot disable TDE.
+    *
+    * @param request ModifyDBClusterTDERequest
+    * @return ModifyDBClusterTDEResponse
+   */
   async modifyDBClusterTDE(request: ModifyDBClusterTDERequest): Promise<ModifyDBClusterTDEResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.modifyDBClusterTDEWithOptions(request, runtime);
@@ -21206,6 +23452,59 @@ export default class Client extends OpenApi {
   async modifyDBNodeClass(request: ModifyDBNodeClassRequest): Promise<ModifyDBNodeClassResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.modifyDBNodeClassWithOptions(request, runtime);
+  }
+
+  async modifyDBNodeHotReplicaModeWithOptions(request: ModifyDBNodeHotReplicaModeRequest, runtime: $Util.RuntimeOptions): Promise<ModifyDBNodeHotReplicaModeResponse> {
+    Util.validateModel(request);
+    let query = { };
+    if (!Util.isUnset(request.DBClusterId)) {
+      query["DBClusterId"] = request.DBClusterId;
+    }
+
+    if (!Util.isUnset(request.DBNodeId)) {
+      query["DBNodeId"] = request.DBNodeId;
+    }
+
+    if (!Util.isUnset(request.hotReplicaMode)) {
+      query["HotReplicaMode"] = request.hotReplicaMode;
+    }
+
+    if (!Util.isUnset(request.ownerAccount)) {
+      query["OwnerAccount"] = request.ownerAccount;
+    }
+
+    if (!Util.isUnset(request.ownerId)) {
+      query["OwnerId"] = request.ownerId;
+    }
+
+    if (!Util.isUnset(request.resourceOwnerAccount)) {
+      query["ResourceOwnerAccount"] = request.resourceOwnerAccount;
+    }
+
+    if (!Util.isUnset(request.resourceOwnerId)) {
+      query["ResourceOwnerId"] = request.resourceOwnerId;
+    }
+
+    let req = new $OpenApi.OpenApiRequest({
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApi.Params({
+      action: "ModifyDBNodeHotReplicaMode",
+      version: "2017-08-01",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $tea.cast<ModifyDBNodeHotReplicaModeResponse>(await this.callApi(params, req, runtime), new ModifyDBNodeHotReplicaModeResponse({}));
+  }
+
+  async modifyDBNodeHotReplicaMode(request: ModifyDBNodeHotReplicaModeRequest): Promise<ModifyDBNodeHotReplicaModeResponse> {
+    let runtime = new $Util.RuntimeOptions({ });
+    return await this.modifyDBNodeHotReplicaModeWithOptions(request, runtime);
   }
 
   async modifyDBNodesClassWithOptions(request: ModifyDBNodesClassRequest, runtime: $Util.RuntimeOptions): Promise<ModifyDBNodesClassResponse> {
@@ -21760,6 +24059,14 @@ export default class Client extends OpenApi {
       query["DBClusterId"] = request.DBClusterId;
     }
 
+    if (!Util.isUnset(request.describeType)) {
+      query["DescribeType"] = request.describeType;
+    }
+
+    if (!Util.isUnset(request.nodeType)) {
+      query["NodeType"] = request.nodeType;
+    }
+
     if (!Util.isUnset(request.ownerAccount)) {
       query["OwnerAccount"] = request.ownerAccount;
     }
@@ -21859,6 +24166,13 @@ export default class Client extends OpenApi {
     return await this.refreshDBClusterStorageUsageWithOptions(request, runtime);
   }
 
+  /**
+    * >  You cannot remove the primary cluster from a GDN.
+    *
+    * @param request RemoveDBClusterFromGDNRequest
+    * @param runtime runtime options for this request RuntimeOptions
+    * @return RemoveDBClusterFromGDNResponse
+   */
   async removeDBClusterFromGDNWithOptions(request: RemoveDBClusterFromGDNRequest, runtime: $Util.RuntimeOptions): Promise<RemoveDBClusterFromGDNResponse> {
     Util.validateModel(request);
     let query = { };
@@ -21907,11 +24221,25 @@ export default class Client extends OpenApi {
     return $tea.cast<RemoveDBClusterFromGDNResponse>(await this.callApi(params, req, runtime), new RemoveDBClusterFromGDNResponse({}));
   }
 
+  /**
+    * >  You cannot remove the primary cluster from a GDN.
+    *
+    * @param request RemoveDBClusterFromGDNRequest
+    * @return RemoveDBClusterFromGDNResponse
+   */
   async removeDBClusterFromGDN(request: RemoveDBClusterFromGDNRequest): Promise<RemoveDBClusterFromGDNResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.removeDBClusterFromGDNWithOptions(request, runtime);
   }
 
+  /**
+    * >- Only PolarDB for MySQL clusters support this operation.
+    * >- If the privileged account of your cluster encounters exceptions, you can call this operation to reset the permissions. For example, the permissions are accidentally revoked.
+    *
+    * @param request ResetAccountRequest
+    * @param runtime runtime options for this request RuntimeOptions
+    * @return ResetAccountResponse
+   */
   async resetAccountWithOptions(request: ResetAccountRequest, runtime: $Util.RuntimeOptions): Promise<ResetAccountResponse> {
     Util.validateModel(request);
     let query = { };
@@ -21960,9 +24288,73 @@ export default class Client extends OpenApi {
     return $tea.cast<ResetAccountResponse>(await this.callApi(params, req, runtime), new ResetAccountResponse({}));
   }
 
+  /**
+    * >- Only PolarDB for MySQL clusters support this operation.
+    * >- If the privileged account of your cluster encounters exceptions, you can call this operation to reset the permissions. For example, the permissions are accidentally revoked.
+    *
+    * @param request ResetAccountRequest
+    * @return ResetAccountResponse
+   */
   async resetAccount(request: ResetAccountRequest): Promise<ResetAccountResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.resetAccountWithOptions(request, runtime);
+  }
+
+  async resetGlobalDatabaseNetworkWithOptions(request: ResetGlobalDatabaseNetworkRequest, runtime: $Util.RuntimeOptions): Promise<ResetGlobalDatabaseNetworkResponse> {
+    Util.validateModel(request);
+    let query = { };
+    if (!Util.isUnset(request.DBClusterId)) {
+      query["DBClusterId"] = request.DBClusterId;
+    }
+
+    if (!Util.isUnset(request.GDNId)) {
+      query["GDNId"] = request.GDNId;
+    }
+
+    if (!Util.isUnset(request.ownerAccount)) {
+      query["OwnerAccount"] = request.ownerAccount;
+    }
+
+    if (!Util.isUnset(request.ownerId)) {
+      query["OwnerId"] = request.ownerId;
+    }
+
+    if (!Util.isUnset(request.regionId)) {
+      query["RegionId"] = request.regionId;
+    }
+
+    if (!Util.isUnset(request.resourceOwnerAccount)) {
+      query["ResourceOwnerAccount"] = request.resourceOwnerAccount;
+    }
+
+    if (!Util.isUnset(request.resourceOwnerId)) {
+      query["ResourceOwnerId"] = request.resourceOwnerId;
+    }
+
+    if (!Util.isUnset(request.securityToken)) {
+      query["SecurityToken"] = request.securityToken;
+    }
+
+    let req = new $OpenApi.OpenApiRequest({
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApi.Params({
+      action: "ResetGlobalDatabaseNetwork",
+      version: "2017-08-01",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $tea.cast<ResetGlobalDatabaseNetworkResponse>(await this.callApi(params, req, runtime), new ResetGlobalDatabaseNetworkResponse({}));
+  }
+
+  async resetGlobalDatabaseNetwork(request: ResetGlobalDatabaseNetworkRequest): Promise<ResetGlobalDatabaseNetworkResponse> {
+    let runtime = new $Util.RuntimeOptions({ });
+    return await this.resetGlobalDatabaseNetworkWithOptions(request, runtime);
   }
 
   async restartDBNodeWithOptions(request: RestartDBNodeRequest, runtime: $Util.RuntimeOptions): Promise<RestartDBNodeResponse> {
@@ -22311,6 +24703,15 @@ export default class Client extends OpenApi {
     return await this.tempModifyDBNodeWithOptions(request, runtime);
   }
 
+  /**
+    * > *   PolarDB clusters support the subscription and pay-as-you-go billing methods. You can change the billing method from subscription to pay-as-you-go or from pay-as-you-go to subscription based on your business requirements. For more information, see [Change the billing method from subscription to pay-as-you-go](~~172886~~) and [Change the billing method from pay-as-you-go to subscription](~~84076~~).
+    * >*   You cannot change the billing method from pay-as-you-go to subscription if your account balance is insufficient.
+    * >*   If you change the billing method from subscription to pay-as-you-go, the system automatically refunds the balance of the prepaid subscription fees.
+    *
+    * @param request TransformDBClusterPayTypeRequest
+    * @param runtime runtime options for this request RuntimeOptions
+    * @return TransformDBClusterPayTypeResponse
+   */
   async transformDBClusterPayTypeWithOptions(request: TransformDBClusterPayTypeRequest, runtime: $Util.RuntimeOptions): Promise<TransformDBClusterPayTypeResponse> {
     Util.validateModel(request);
     let query = { };
@@ -22375,6 +24776,14 @@ export default class Client extends OpenApi {
     return $tea.cast<TransformDBClusterPayTypeResponse>(await this.callApi(params, req, runtime), new TransformDBClusterPayTypeResponse({}));
   }
 
+  /**
+    * > *   PolarDB clusters support the subscription and pay-as-you-go billing methods. You can change the billing method from subscription to pay-as-you-go or from pay-as-you-go to subscription based on your business requirements. For more information, see [Change the billing method from subscription to pay-as-you-go](~~172886~~) and [Change the billing method from pay-as-you-go to subscription](~~84076~~).
+    * >*   You cannot change the billing method from pay-as-you-go to subscription if your account balance is insufficient.
+    * >*   If you change the billing method from subscription to pay-as-you-go, the system automatically refunds the balance of the prepaid subscription fees.
+    *
+    * @param request TransformDBClusterPayTypeRequest
+    * @return TransformDBClusterPayTypeResponse
+   */
   async transformDBClusterPayType(request: TransformDBClusterPayTypeRequest): Promise<TransformDBClusterPayTypeResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.transformDBClusterPayTypeWithOptions(request, runtime);
@@ -22441,6 +24850,13 @@ export default class Client extends OpenApi {
     return await this.untagResourcesWithOptions(request, runtime);
   }
 
+  /**
+    * > You can upgrade only the revision version of a PolarDB for MySQL cluster. For example, you can upgrade the version 8.0.1.1.3 of a PolarDB for MySQL cluster to the version 8.0.1.1.4.
+    *
+    * @param request UpgradeDBClusterMinorVersionRequest
+    * @param runtime runtime options for this request RuntimeOptions
+    * @return UpgradeDBClusterMinorVersionResponse
+   */
   async upgradeDBClusterMinorVersionWithOptions(request: UpgradeDBClusterMinorVersionRequest, runtime: $Util.RuntimeOptions): Promise<UpgradeDBClusterMinorVersionResponse> {
     Util.validateModel(request);
     let query = { };
@@ -22493,11 +24909,26 @@ export default class Client extends OpenApi {
     return $tea.cast<UpgradeDBClusterMinorVersionResponse>(await this.callApi(params, req, runtime), new UpgradeDBClusterMinorVersionResponse({}));
   }
 
+  /**
+    * > You can upgrade only the revision version of a PolarDB for MySQL cluster. For example, you can upgrade the version 8.0.1.1.3 of a PolarDB for MySQL cluster to the version 8.0.1.1.4.
+    *
+    * @param request UpgradeDBClusterMinorVersionRequest
+    * @return UpgradeDBClusterMinorVersionResponse
+   */
   async upgradeDBClusterMinorVersion(request: UpgradeDBClusterMinorVersionRequest): Promise<UpgradeDBClusterMinorVersionResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.upgradeDBClusterMinorVersionWithOptions(request, runtime);
   }
 
+  /**
+    * > 
+    * *   You can update only the revision version of a PolarDB for MySQL cluster, for example, from 8.0.1.1.3 to 8.0.1.1.4.
+    * *   You can use only your Alibaba Cloud account to create scheduled tasks that update the kernel version of a PolarDB for MySQL cluster. RAM users are not authorized to update the kernel version of a PolarDB for MySQL cluster.
+    *
+    * @param request UpgradeDBClusterVersionRequest
+    * @param runtime runtime options for this request RuntimeOptions
+    * @return UpgradeDBClusterVersionResponse
+   */
   async upgradeDBClusterVersionWithOptions(request: UpgradeDBClusterVersionRequest, runtime: $Util.RuntimeOptions): Promise<UpgradeDBClusterVersionResponse> {
     Util.validateModel(request);
     let query = { };
@@ -22533,6 +24964,10 @@ export default class Client extends OpenApi {
       query["ResourceOwnerId"] = request.resourceOwnerId;
     }
 
+    if (!Util.isUnset(request.targetDBRevisionVersionCode)) {
+      query["TargetDBRevisionVersionCode"] = request.targetDBRevisionVersionCode;
+    }
+
     if (!Util.isUnset(request.upgradeLabel)) {
       query["UpgradeLabel"] = request.upgradeLabel;
     }
@@ -22562,6 +24997,14 @@ export default class Client extends OpenApi {
     return $tea.cast<UpgradeDBClusterVersionResponse>(await this.callApi(params, req, runtime), new UpgradeDBClusterVersionResponse({}));
   }
 
+  /**
+    * > 
+    * *   You can update only the revision version of a PolarDB for MySQL cluster, for example, from 8.0.1.1.3 to 8.0.1.1.4.
+    * *   You can use only your Alibaba Cloud account to create scheduled tasks that update the kernel version of a PolarDB for MySQL cluster. RAM users are not authorized to update the kernel version of a PolarDB for MySQL cluster.
+    *
+    * @param request UpgradeDBClusterVersionRequest
+    * @return UpgradeDBClusterVersionResponse
+   */
   async upgradeDBClusterVersion(request: UpgradeDBClusterVersionRequest): Promise<UpgradeDBClusterVersionResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.upgradeDBClusterVersionWithOptions(request, runtime);
