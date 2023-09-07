@@ -83,7 +83,101 @@ export class VerifyCaptchaResponse extends $tea.Model {
   }
 }
 
+export class VerifyIntelligentCaptchaRequest extends $tea.Model {
+  captchaVerifyParam?: string;
+  static names(): { [key: string]: string } {
+    return {
+      captchaVerifyParam: 'CaptchaVerifyParam',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      captchaVerifyParam: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class VerifyIntelligentCaptchaResponseBody extends $tea.Model {
+  code?: string;
+  message?: string;
+  requestId?: string;
+  result?: VerifyIntelligentCaptchaResponseBodyResult;
+  success?: boolean;
+  static names(): { [key: string]: string } {
+    return {
+      code: 'Code',
+      message: 'Message',
+      requestId: 'RequestId',
+      result: 'Result',
+      success: 'Success',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      code: 'string',
+      message: 'string',
+      requestId: 'string',
+      result: VerifyIntelligentCaptchaResponseBodyResult,
+      success: 'boolean',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class VerifyIntelligentCaptchaResponse extends $tea.Model {
+  headers: { [key: string]: string };
+  statusCode: number;
+  body: VerifyIntelligentCaptchaResponseBody;
+  static names(): { [key: string]: string } {
+    return {
+      headers: 'headers',
+      statusCode: 'statusCode',
+      body: 'body',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
+      body: VerifyIntelligentCaptchaResponseBody,
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
 export class VerifyCaptchaResponseBodyResult extends $tea.Model {
+  verifyResult?: boolean;
+  static names(): { [key: string]: string } {
+    return {
+      verifyResult: 'VerifyResult',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      verifyResult: 'boolean',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class VerifyIntelligentCaptchaResponseBodyResult extends $tea.Model {
   verifyResult?: boolean;
   static names(): { [key: string]: string } {
     return {
@@ -152,6 +246,35 @@ export default class Client extends OpenApi {
   async verifyCaptcha(request: VerifyCaptchaRequest): Promise<VerifyCaptchaResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.verifyCaptchaWithOptions(request, runtime);
+  }
+
+  async verifyIntelligentCaptchaWithOptions(request: VerifyIntelligentCaptchaRequest, runtime: $Util.RuntimeOptions): Promise<VerifyIntelligentCaptchaResponse> {
+    Util.validateModel(request);
+    let body : {[key: string ]: any} = { };
+    if (!Util.isUnset(request.captchaVerifyParam)) {
+      body["CaptchaVerifyParam"] = request.captchaVerifyParam;
+    }
+
+    let req = new $OpenApi.OpenApiRequest({
+      body: OpenApiUtil.parseToMap(body),
+    });
+    let params = new $OpenApi.Params({
+      action: "VerifyIntelligentCaptcha",
+      version: "2023-03-05",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $tea.cast<VerifyIntelligentCaptchaResponse>(await this.callApi(params, req, runtime), new VerifyIntelligentCaptchaResponse({}));
+  }
+
+  async verifyIntelligentCaptcha(request: VerifyIntelligentCaptchaRequest): Promise<VerifyIntelligentCaptchaResponse> {
+    let runtime = new $Util.RuntimeOptions({ });
+    return await this.verifyIntelligentCaptchaWithOptions(request, runtime);
   }
 
 }
