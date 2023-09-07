@@ -9,6 +9,65 @@ import EndpointUtil from '@alicloud/endpoint-util';
 import { Readable } from 'stream';
 import * as $tea from '@alicloud/tea-typescript';
 
+export class DataSubImagesFigureInfoValue extends $tea.Model {
+  figureCount?: number;
+  figureDetails?: DataSubImagesFigureInfoValueFigureDetails[];
+  static names(): { [key: string]: string } {
+    return {
+      figureCount: 'FigureCount',
+      figureDetails: 'FigureDetails',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      figureCount: 'number',
+      figureDetails: { 'type': 'array', 'itemType': DataSubImagesFigureInfoValueFigureDetails },
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class DataSubImagesKvInfoKvDetailsValue extends $tea.Model {
+  keyName?: string;
+  keyConfidence?: number;
+  value?: string;
+  valueConfidence?: number;
+  valuePoints?: DataSubImagesKvInfoKvDetailsValueValuePoints[];
+  valueRect?: DataSubImagesKvInfoKvDetailsValueValueRect;
+  valueAngle?: number;
+  static names(): { [key: string]: string } {
+    return {
+      keyName: 'KeyName',
+      keyConfidence: 'KeyConfidence',
+      value: 'Value',
+      valueConfidence: 'ValueConfidence',
+      valuePoints: 'ValuePoints',
+      valueRect: 'ValueRect',
+      valueAngle: 'ValueAngle',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      keyName: 'string',
+      keyConfidence: 'number',
+      value: 'string',
+      valueConfidence: 'number',
+      valuePoints: { 'type': 'array', 'itemType': DataSubImagesKvInfoKvDetailsValueValuePoints },
+      valueRect: DataSubImagesKvInfoKvDetailsValueValueRect,
+      valueAngle: 'number',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
 export class RecognizeAdvancedRequest extends $tea.Model {
   needRotate?: boolean;
   needSortPage?: boolean;
@@ -175,6 +234,181 @@ export class RecognizeAirItineraryResponse extends $tea.Model {
       headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
       statusCode: 'number',
       body: RecognizeAirItineraryResponseBody,
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class RecognizeAllTextRequest extends $tea.Model {
+  advancedConfig?: RecognizeAllTextRequestAdvancedConfig;
+  idCardConfig?: RecognizeAllTextRequestIdCardConfig;
+  internationalIdCardConfig?: RecognizeAllTextRequestInternationalIdCardConfig;
+  multiLanConfig?: RecognizeAllTextRequestMultiLanConfig;
+  outputBarCode?: boolean;
+  outputCoordinate?: Buffer;
+  outputFigure?: boolean;
+  outputKVExcel?: boolean;
+  outputOricoord?: boolean;
+  outputQrcode?: boolean;
+  outputStamp?: boolean;
+  pageNo?: number;
+  type?: string;
+  url?: string;
+  body?: Readable;
+  static names(): { [key: string]: string } {
+    return {
+      advancedConfig: 'AdvancedConfig',
+      idCardConfig: 'IdCardConfig',
+      internationalIdCardConfig: 'InternationalIdCardConfig',
+      multiLanConfig: 'MultiLanConfig',
+      outputBarCode: 'OutputBarCode',
+      outputCoordinate: 'OutputCoordinate',
+      outputFigure: 'OutputFigure',
+      outputKVExcel: 'OutputKVExcel',
+      outputOricoord: 'OutputOricoord',
+      outputQrcode: 'OutputQrcode',
+      outputStamp: 'OutputStamp',
+      pageNo: 'PageNo',
+      type: 'Type',
+      url: 'Url',
+      body: 'body',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      advancedConfig: RecognizeAllTextRequestAdvancedConfig,
+      idCardConfig: RecognizeAllTextRequestIdCardConfig,
+      internationalIdCardConfig: RecognizeAllTextRequestInternationalIdCardConfig,
+      multiLanConfig: RecognizeAllTextRequestMultiLanConfig,
+      outputBarCode: 'boolean',
+      outputCoordinate: 'Buffer',
+      outputFigure: 'boolean',
+      outputKVExcel: 'boolean',
+      outputOricoord: 'boolean',
+      outputQrcode: 'boolean',
+      outputStamp: 'boolean',
+      pageNo: 'number',
+      type: 'string',
+      url: 'string',
+      body: 'Readable',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class RecognizeAllTextShrinkRequest extends $tea.Model {
+  advancedConfigShrink?: string;
+  idCardConfigShrink?: string;
+  internationalIdCardConfigShrink?: string;
+  multiLanConfigShrink?: string;
+  outputBarCode?: boolean;
+  outputCoordinate?: Buffer;
+  outputFigure?: boolean;
+  outputKVExcel?: boolean;
+  outputOricoord?: boolean;
+  outputQrcode?: boolean;
+  outputStamp?: boolean;
+  pageNo?: number;
+  type?: string;
+  url?: string;
+  body?: Readable;
+  static names(): { [key: string]: string } {
+    return {
+      advancedConfigShrink: 'AdvancedConfig',
+      idCardConfigShrink: 'IdCardConfig',
+      internationalIdCardConfigShrink: 'InternationalIdCardConfig',
+      multiLanConfigShrink: 'MultiLanConfig',
+      outputBarCode: 'OutputBarCode',
+      outputCoordinate: 'OutputCoordinate',
+      outputFigure: 'OutputFigure',
+      outputKVExcel: 'OutputKVExcel',
+      outputOricoord: 'OutputOricoord',
+      outputQrcode: 'OutputQrcode',
+      outputStamp: 'OutputStamp',
+      pageNo: 'PageNo',
+      type: 'Type',
+      url: 'Url',
+      body: 'body',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      advancedConfigShrink: 'string',
+      idCardConfigShrink: 'string',
+      internationalIdCardConfigShrink: 'string',
+      multiLanConfigShrink: 'string',
+      outputBarCode: 'boolean',
+      outputCoordinate: 'Buffer',
+      outputFigure: 'boolean',
+      outputKVExcel: 'boolean',
+      outputOricoord: 'boolean',
+      outputQrcode: 'boolean',
+      outputStamp: 'boolean',
+      pageNo: 'number',
+      type: 'string',
+      url: 'string',
+      body: 'Readable',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class RecognizeAllTextResponseBody extends $tea.Model {
+  code?: string;
+  data?: RecognizeAllTextResponseBodyData;
+  message?: string;
+  requestId?: string;
+  static names(): { [key: string]: string } {
+    return {
+      code: 'Code',
+      data: 'Data',
+      message: 'Message',
+      requestId: 'RequestId',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      code: 'string',
+      data: RecognizeAllTextResponseBodyData,
+      message: 'string',
+      requestId: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class RecognizeAllTextResponse extends $tea.Model {
+  headers: { [key: string]: string };
+  statusCode: number;
+  body: RecognizeAllTextResponseBody;
+  static names(): { [key: string]: string } {
+    return {
+      headers: 'headers',
+      statusCode: 'statusCode',
+      body: 'body',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
+      body: RecognizeAllTextResponseBody,
     };
   }
 
@@ -5725,6 +5959,2763 @@ export class VerifyVATInvoiceResponse extends $tea.Model {
   }
 }
 
+export class DataSubImagesFigureInfoValueFigureDetailsFigurePoints extends $tea.Model {
+  x?: number;
+  y?: number;
+  static names(): { [key: string]: string } {
+    return {
+      x: 'X',
+      y: 'Y',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      x: 'number',
+      y: 'number',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class DataSubImagesFigureInfoValueFigureDetailsFigureRect extends $tea.Model {
+  centerX?: number;
+  centerY?: number;
+  width?: number;
+  height?: number;
+  static names(): { [key: string]: string } {
+    return {
+      centerX: 'CenterX',
+      centerY: 'CenterY',
+      width: 'Width',
+      height: 'Height',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      centerX: 'number',
+      centerY: 'number',
+      width: 'number',
+      height: 'number',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class DataSubImagesFigureInfoValueFigureDetails extends $tea.Model {
+  type?: string;
+  data?: any;
+  figurePoints?: DataSubImagesFigureInfoValueFigureDetailsFigurePoints[];
+  figureRect?: DataSubImagesFigureInfoValueFigureDetailsFigureRect;
+  figureAngle?: number;
+  static names(): { [key: string]: string } {
+    return {
+      type: 'Type',
+      data: 'Data',
+      figurePoints: 'FigurePoints',
+      figureRect: 'FigureRect',
+      figureAngle: 'FigureAngle',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      type: 'string',
+      data: 'any',
+      figurePoints: { 'type': 'array', 'itemType': DataSubImagesFigureInfoValueFigureDetailsFigurePoints },
+      figureRect: DataSubImagesFigureInfoValueFigureDetailsFigureRect,
+      figureAngle: 'number',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class DataSubImagesKvInfoKvDetailsValueValuePoints extends $tea.Model {
+  x?: number;
+  y?: number;
+  static names(): { [key: string]: string } {
+    return {
+      x: 'X',
+      y: 'Y',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      x: 'number',
+      y: 'number',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class DataSubImagesKvInfoKvDetailsValueValueRect extends $tea.Model {
+  centerX?: number;
+  centerY?: number;
+  width?: number;
+  height?: number;
+  static names(): { [key: string]: string } {
+    return {
+      centerX: 'CenterX',
+      centerY: 'CenterY',
+      width: 'Width',
+      height: 'Height',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      centerX: 'number',
+      centerY: 'number',
+      width: 'number',
+      height: 'number',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class RecognizeAllTextRequestAdvancedConfig extends $tea.Model {
+  isHandWritingTable?: boolean;
+  isLineLessTable?: boolean;
+  outputCharInfo?: boolean;
+  outputParagraph?: boolean;
+  outputRow?: boolean;
+  outputTable?: boolean;
+  outputTableExcel?: boolean;
+  outputTableHtml?: boolean;
+  static names(): { [key: string]: string } {
+    return {
+      isHandWritingTable: 'IsHandWritingTable',
+      isLineLessTable: 'IsLineLessTable',
+      outputCharInfo: 'OutputCharInfo',
+      outputParagraph: 'OutputParagraph',
+      outputRow: 'OutputRow',
+      outputTable: 'OutputTable',
+      outputTableExcel: 'OutputTableExcel',
+      outputTableHtml: 'OutputTableHtml',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      isHandWritingTable: 'boolean',
+      isLineLessTable: 'boolean',
+      outputCharInfo: 'boolean',
+      outputParagraph: 'boolean',
+      outputRow: 'boolean',
+      outputTable: 'boolean',
+      outputTableExcel: 'boolean',
+      outputTableHtml: 'boolean',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class RecognizeAllTextRequestIdCardConfig extends $tea.Model {
+  outputIdCardQuality?: boolean;
+  static names(): { [key: string]: string } {
+    return {
+      outputIdCardQuality: 'OutputIdCardQuality',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      outputIdCardQuality: 'boolean',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class RecognizeAllTextRequestInternationalIdCardConfig extends $tea.Model {
+  country?: string;
+  static names(): { [key: string]: string } {
+    return {
+      country: 'Country',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      country: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class RecognizeAllTextRequestMultiLanConfig extends $tea.Model {
+  languages?: string;
+  static names(): { [key: string]: string } {
+    return {
+      languages: 'Languages',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      languages: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class RecognizeAllTextResponseBodyDataSubImagesBarCodeInfoBarCodeDetailsBarCodePoints extends $tea.Model {
+  x?: number;
+  y?: number;
+  static names(): { [key: string]: string } {
+    return {
+      x: 'X',
+      y: 'Y',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      x: 'number',
+      y: 'number',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class RecognizeAllTextResponseBodyDataSubImagesBarCodeInfoBarCodeDetailsBarCodeRect extends $tea.Model {
+  centerX?: number;
+  centerY?: number;
+  height?: number;
+  width?: number;
+  static names(): { [key: string]: string } {
+    return {
+      centerX: 'CenterX',
+      centerY: 'CenterY',
+      height: 'Height',
+      width: 'Width',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      centerX: 'number',
+      centerY: 'number',
+      height: 'number',
+      width: 'number',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class RecognizeAllTextResponseBodyDataSubImagesBarCodeInfoBarCodeDetails extends $tea.Model {
+  barCodeAngle?: number;
+  barCodePoints?: RecognizeAllTextResponseBodyDataSubImagesBarCodeInfoBarCodeDetailsBarCodePoints[];
+  barCodeRect?: RecognizeAllTextResponseBodyDataSubImagesBarCodeInfoBarCodeDetailsBarCodeRect;
+  data?: Buffer;
+  type?: string;
+  static names(): { [key: string]: string } {
+    return {
+      barCodeAngle: 'BarCodeAngle',
+      barCodePoints: 'BarCodePoints',
+      barCodeRect: 'BarCodeRect',
+      data: 'Data',
+      type: 'Type',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      barCodeAngle: 'number',
+      barCodePoints: { 'type': 'array', 'itemType': RecognizeAllTextResponseBodyDataSubImagesBarCodeInfoBarCodeDetailsBarCodePoints },
+      barCodeRect: RecognizeAllTextResponseBodyDataSubImagesBarCodeInfoBarCodeDetailsBarCodeRect,
+      data: 'Buffer',
+      type: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class RecognizeAllTextResponseBodyDataSubImagesBarCodeInfo extends $tea.Model {
+  barCodeCount?: number;
+  barCodeDetails?: RecognizeAllTextResponseBodyDataSubImagesBarCodeInfoBarCodeDetails[];
+  static names(): { [key: string]: string } {
+    return {
+      barCodeCount: 'BarCodeCount',
+      barCodeDetails: 'BarCodeDetails',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      barCodeCount: 'number',
+      barCodeDetails: { 'type': 'array', 'itemType': RecognizeAllTextResponseBodyDataSubImagesBarCodeInfoBarCodeDetails },
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class RecognizeAllTextResponseBodyDataSubImagesBlockInfoBlockDetailsBlockPoints extends $tea.Model {
+  x?: number;
+  y?: number;
+  static names(): { [key: string]: string } {
+    return {
+      x: 'X',
+      y: 'Y',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      x: 'number',
+      y: 'number',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class RecognizeAllTextResponseBodyDataSubImagesBlockInfoBlockDetailsBlockRect extends $tea.Model {
+  centerX?: number;
+  centerY?: number;
+  height?: number;
+  width?: number;
+  static names(): { [key: string]: string } {
+    return {
+      centerX: 'CenterX',
+      centerY: 'CenterY',
+      height: 'Height',
+      width: 'Width',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      centerX: 'number',
+      centerY: 'number',
+      height: 'number',
+      width: 'number',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class RecognizeAllTextResponseBodyDataSubImagesBlockInfoBlockDetailsCharInfosCharPoints extends $tea.Model {
+  x?: number;
+  y?: number;
+  static names(): { [key: string]: string } {
+    return {
+      x: 'X',
+      y: 'Y',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      x: 'number',
+      y: 'number',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class RecognizeAllTextResponseBodyDataSubImagesBlockInfoBlockDetailsCharInfosCharRect extends $tea.Model {
+  centerX?: number;
+  centerY?: number;
+  height?: number;
+  width?: number;
+  static names(): { [key: string]: string } {
+    return {
+      centerX: 'CenterX',
+      centerY: 'CenterY',
+      height: 'Height',
+      width: 'Width',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      centerX: 'number',
+      centerY: 'number',
+      height: 'number',
+      width: 'number',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class RecognizeAllTextResponseBodyDataSubImagesBlockInfoBlockDetailsCharInfos extends $tea.Model {
+  charConfidence?: number;
+  charContent?: string;
+  charId?: number;
+  charPoints?: RecognizeAllTextResponseBodyDataSubImagesBlockInfoBlockDetailsCharInfosCharPoints[];
+  charRect?: RecognizeAllTextResponseBodyDataSubImagesBlockInfoBlockDetailsCharInfosCharRect;
+  static names(): { [key: string]: string } {
+    return {
+      charConfidence: 'CharConfidence',
+      charContent: 'CharContent',
+      charId: 'CharId',
+      charPoints: 'CharPoints',
+      charRect: 'CharRect',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      charConfidence: 'number',
+      charContent: 'string',
+      charId: 'number',
+      charPoints: { 'type': 'array', 'itemType': RecognizeAllTextResponseBodyDataSubImagesBlockInfoBlockDetailsCharInfosCharPoints },
+      charRect: RecognizeAllTextResponseBodyDataSubImagesBlockInfoBlockDetailsCharInfosCharRect,
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class RecognizeAllTextResponseBodyDataSubImagesBlockInfoBlockDetails extends $tea.Model {
+  blockAngle?: number;
+  blockConfidence?: number;
+  blockContent?: string;
+  blockId?: number;
+  blockPoints?: RecognizeAllTextResponseBodyDataSubImagesBlockInfoBlockDetailsBlockPoints[];
+  blockRect?: RecognizeAllTextResponseBodyDataSubImagesBlockInfoBlockDetailsBlockRect;
+  charInfos?: RecognizeAllTextResponseBodyDataSubImagesBlockInfoBlockDetailsCharInfos[];
+  static names(): { [key: string]: string } {
+    return {
+      blockAngle: 'BlockAngle',
+      blockConfidence: 'BlockConfidence',
+      blockContent: 'BlockContent',
+      blockId: 'BlockId',
+      blockPoints: 'BlockPoints',
+      blockRect: 'BlockRect',
+      charInfos: 'CharInfos',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      blockAngle: 'number',
+      blockConfidence: 'number',
+      blockContent: 'string',
+      blockId: 'number',
+      blockPoints: { 'type': 'array', 'itemType': RecognizeAllTextResponseBodyDataSubImagesBlockInfoBlockDetailsBlockPoints },
+      blockRect: RecognizeAllTextResponseBodyDataSubImagesBlockInfoBlockDetailsBlockRect,
+      charInfos: { 'type': 'array', 'itemType': RecognizeAllTextResponseBodyDataSubImagesBlockInfoBlockDetailsCharInfos },
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class RecognizeAllTextResponseBodyDataSubImagesBlockInfo extends $tea.Model {
+  blockCount?: number;
+  blockDetails?: RecognizeAllTextResponseBodyDataSubImagesBlockInfoBlockDetails[];
+  static names(): { [key: string]: string } {
+    return {
+      blockCount: 'BlockCount',
+      blockDetails: 'BlockDetails',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      blockCount: 'number',
+      blockDetails: { 'type': 'array', 'itemType': RecognizeAllTextResponseBodyDataSubImagesBlockInfoBlockDetails },
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class RecognizeAllTextResponseBodyDataSubImagesDocLayoutsLayoutPoints extends $tea.Model {
+  x?: number;
+  y?: number;
+  static names(): { [key: string]: string } {
+    return {
+      x: 'X',
+      y: 'Y',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      x: 'number',
+      y: 'number',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class RecognizeAllTextResponseBodyDataSubImagesDocLayoutsLayoutRect extends $tea.Model {
+  centerX?: number;
+  centerY?: number;
+  height?: number;
+  width?: number;
+  static names(): { [key: string]: string } {
+    return {
+      centerX: 'CenterX',
+      centerY: 'CenterY',
+      height: 'Height',
+      width: 'Width',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      centerX: 'number',
+      centerY: 'number',
+      height: 'number',
+      width: 'number',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class RecognizeAllTextResponseBodyDataSubImagesDocLayouts extends $tea.Model {
+  layoutPoints?: RecognizeAllTextResponseBodyDataSubImagesDocLayoutsLayoutPoints[];
+  layoutRect?: RecognizeAllTextResponseBodyDataSubImagesDocLayoutsLayoutRect;
+  layoutType?: string;
+  static names(): { [key: string]: string } {
+    return {
+      layoutPoints: 'LayoutPoints',
+      layoutRect: 'LayoutRect',
+      layoutType: 'LayoutType',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      layoutPoints: { 'type': 'array', 'itemType': RecognizeAllTextResponseBodyDataSubImagesDocLayoutsLayoutPoints },
+      layoutRect: RecognizeAllTextResponseBodyDataSubImagesDocLayoutsLayoutRect,
+      layoutType: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class RecognizeAllTextResponseBodyDataSubImagesDocSpecialTextsSpecialTextPos extends $tea.Model {
+  x?: number;
+  y?: number;
+  static names(): { [key: string]: string } {
+    return {
+      x: 'X',
+      y: 'Y',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      x: 'number',
+      y: 'number',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class RecognizeAllTextResponseBodyDataSubImagesDocSpecialTextsSpecialTextRect extends $tea.Model {
+  centerX?: number;
+  centerY?: number;
+  height?: number;
+  width?: number;
+  static names(): { [key: string]: string } {
+    return {
+      centerX: 'CenterX',
+      centerY: 'CenterY',
+      height: 'Height',
+      width: 'Width',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      centerX: 'number',
+      centerY: 'number',
+      height: 'number',
+      width: 'number',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class RecognizeAllTextResponseBodyDataSubImagesDocSpecialTexts extends $tea.Model {
+  specialTextPos?: RecognizeAllTextResponseBodyDataSubImagesDocSpecialTextsSpecialTextPos[];
+  specialTextRect?: RecognizeAllTextResponseBodyDataSubImagesDocSpecialTextsSpecialTextRect;
+  specialTextType?: string;
+  static names(): { [key: string]: string } {
+    return {
+      specialTextPos: 'SpecialTextPos',
+      specialTextRect: 'SpecialTextRect',
+      specialTextType: 'SpecialTextType',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      specialTextPos: { 'type': 'array', 'itemType': RecognizeAllTextResponseBodyDataSubImagesDocSpecialTextsSpecialTextPos },
+      specialTextRect: RecognizeAllTextResponseBodyDataSubImagesDocSpecialTextsSpecialTextRect,
+      specialTextType: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class RecognizeAllTextResponseBodyDataSubImagesDocSubFieldSubFieldPos extends $tea.Model {
+  x?: number;
+  y?: number;
+  static names(): { [key: string]: string } {
+    return {
+      x: 'X',
+      y: 'Y',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      x: 'number',
+      y: 'number',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class RecognizeAllTextResponseBodyDataSubImagesDocSubFieldSubFieldRect extends $tea.Model {
+  centerX?: number;
+  centerY?: number;
+  height?: number;
+  width?: number;
+  static names(): { [key: string]: string } {
+    return {
+      centerX: 'CenterX',
+      centerY: 'CenterY',
+      height: 'Height',
+      width: 'Width',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      centerX: 'number',
+      centerY: 'number',
+      height: 'number',
+      width: 'number',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class RecognizeAllTextResponseBodyDataSubImagesDocSubField extends $tea.Model {
+  subFieldPos?: RecognizeAllTextResponseBodyDataSubImagesDocSubFieldSubFieldPos[];
+  subFieldRect?: RecognizeAllTextResponseBodyDataSubImagesDocSubFieldSubFieldRect;
+  subFieldType?: string;
+  static names(): { [key: string]: string } {
+    return {
+      subFieldPos: 'SubFieldPos',
+      subFieldRect: 'SubFieldRect',
+      subFieldType: 'SubFieldType',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      subFieldPos: { 'type': 'array', 'itemType': RecognizeAllTextResponseBodyDataSubImagesDocSubFieldSubFieldPos },
+      subFieldRect: RecognizeAllTextResponseBodyDataSubImagesDocSubFieldSubFieldRect,
+      subFieldType: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class RecognizeAllTextResponseBodyDataSubImagesKvInfo extends $tea.Model {
+  data?: any;
+  kvCount?: number;
+  kvDetails?: { [key: string]: DataSubImagesKvInfoKvDetailsValue };
+  static names(): { [key: string]: string } {
+    return {
+      data: 'Data',
+      kvCount: 'KvCount',
+      kvDetails: 'KvDetails',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      data: 'any',
+      kvCount: 'number',
+      kvDetails: { 'type': 'map', 'keyType': 'string', 'valueType': DataSubImagesKvInfoKvDetailsValue },
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class RecognizeAllTextResponseBodyDataSubImagesMathInfosMathInfoPoints extends $tea.Model {
+  x?: number;
+  y?: number;
+  static names(): { [key: string]: string } {
+    return {
+      x: 'X',
+      y: 'Y',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      x: 'number',
+      y: 'number',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class RecognizeAllTextResponseBodyDataSubImagesMathInfosMathInfoRect extends $tea.Model {
+  centerX?: number;
+  centerY?: number;
+  height?: number;
+  width?: number;
+  static names(): { [key: string]: string } {
+    return {
+      centerX: 'CenterX',
+      centerY: 'CenterY',
+      height: 'Height',
+      width: 'Width',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      centerX: 'number',
+      centerY: 'number',
+      height: 'number',
+      width: 'number',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class RecognizeAllTextResponseBodyDataSubImagesMathInfos extends $tea.Model {
+  mathInfoPoints?: RecognizeAllTextResponseBodyDataSubImagesMathInfosMathInfoPoints[];
+  mathInfoRect?: RecognizeAllTextResponseBodyDataSubImagesMathInfosMathInfoRect;
+  result?: string;
+  title?: string;
+  static names(): { [key: string]: string } {
+    return {
+      mathInfoPoints: 'MathInfoPoints',
+      mathInfoRect: 'MathInfoRect',
+      result: 'Result',
+      title: 'Title',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      mathInfoPoints: { 'type': 'array', 'itemType': RecognizeAllTextResponseBodyDataSubImagesMathInfosMathInfoPoints },
+      mathInfoRect: RecognizeAllTextResponseBodyDataSubImagesMathInfosMathInfoRect,
+      result: 'string',
+      title: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class RecognizeAllTextResponseBodyDataSubImagesNewStyleDataDocInfoPages extends $tea.Model {
+  imageWidth?: number;
+  inageHeight?: number;
+  pageIdAllDocs?: number;
+  pageIdCurDoc?: number;
+  static names(): { [key: string]: string } {
+    return {
+      imageWidth: 'ImageWidth',
+      inageHeight: 'InageHeight',
+      pageIdAllDocs: 'PageIdAllDocs',
+      pageIdCurDoc: 'PageIdCurDoc',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      imageWidth: 'number',
+      inageHeight: 'number',
+      pageIdAllDocs: 'number',
+      pageIdCurDoc: 'number',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class RecognizeAllTextResponseBodyDataSubImagesNewStyleDataDocInfo extends $tea.Model {
+  pages?: RecognizeAllTextResponseBodyDataSubImagesNewStyleDataDocInfoPages[];
+  static names(): { [key: string]: string } {
+    return {
+      pages: 'Pages',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      pages: { 'type': 'array', 'itemType': RecognizeAllTextResponseBodyDataSubImagesNewStyleDataDocInfoPages },
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class RecognizeAllTextResponseBodyDataSubImagesNewStyleDataLayoutInfosLayoutPoints extends $tea.Model {
+  x?: number;
+  y?: number;
+  static names(): { [key: string]: string } {
+    return {
+      x: 'X',
+      y: 'Y',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      x: 'number',
+      y: 'number',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class RecognizeAllTextResponseBodyDataSubImagesNewStyleDataLayoutInfosLayoutRect extends $tea.Model {
+  centerX?: number;
+  centerY?: number;
+  height?: number;
+  width?: number;
+  static names(): { [key: string]: string } {
+    return {
+      centerX: 'CenterX',
+      centerY: 'CenterY',
+      height: 'Height',
+      width: 'Width',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      centerX: 'number',
+      centerY: 'number',
+      height: 'number',
+      width: 'number',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class RecognizeAllTextResponseBodyDataSubImagesNewStyleDataLayoutInfos extends $tea.Model {
+  alignment?: string;
+  index?: number;
+  layoutPoints?: RecognizeAllTextResponseBodyDataSubImagesNewStyleDataLayoutInfosLayoutPoints[];
+  layoutRect?: RecognizeAllTextResponseBodyDataSubImagesNewStyleDataLayoutInfosLayoutRect;
+  pageNum?: number[];
+  source?: string;
+  subType?: string;
+  text?: string;
+  type?: string;
+  uniqueID?: string;
+  static names(): { [key: string]: string } {
+    return {
+      alignment: 'Alignment',
+      index: 'Index',
+      layoutPoints: 'LayoutPoints',
+      layoutRect: 'LayoutRect',
+      pageNum: 'PageNum',
+      source: 'Source',
+      subType: 'SubType',
+      text: 'Text',
+      type: 'Type',
+      uniqueID: 'UniqueID',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      alignment: 'string',
+      index: 'number',
+      layoutPoints: { 'type': 'array', 'itemType': RecognizeAllTextResponseBodyDataSubImagesNewStyleDataLayoutInfosLayoutPoints },
+      layoutRect: RecognizeAllTextResponseBodyDataSubImagesNewStyleDataLayoutInfosLayoutRect,
+      pageNum: { 'type': 'array', 'itemType': 'number' },
+      source: 'string',
+      subType: 'string',
+      text: 'string',
+      type: 'string',
+      uniqueID: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class RecognizeAllTextResponseBodyDataSubImagesNewStyleDataStyles extends $tea.Model {
+  bold?: boolean;
+  charScale?: number;
+  color?: string;
+  deleteLine?: boolean;
+  fontName?: string;
+  fontSize?: number;
+  italic?: boolean;
+  styleId?: number;
+  underline?: boolean;
+  static names(): { [key: string]: string } {
+    return {
+      bold: 'Bold',
+      charScale: 'CharScale',
+      color: 'Color',
+      deleteLine: 'DeleteLine',
+      fontName: 'FontName',
+      fontSize: 'FontSize',
+      italic: 'Italic',
+      styleId: 'StyleId',
+      underline: 'Underline',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      bold: 'boolean',
+      charScale: 'number',
+      color: 'string',
+      deleteLine: 'boolean',
+      fontName: 'string',
+      fontSize: 'number',
+      italic: 'boolean',
+      styleId: 'number',
+      underline: 'boolean',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class RecognizeAllTextResponseBodyDataSubImagesNewStyleData extends $tea.Model {
+  docInfo?: RecognizeAllTextResponseBodyDataSubImagesNewStyleDataDocInfo;
+  layoutInfos?: RecognizeAllTextResponseBodyDataSubImagesNewStyleDataLayoutInfos[];
+  styles?: RecognizeAllTextResponseBodyDataSubImagesNewStyleDataStyles[];
+  static names(): { [key: string]: string } {
+    return {
+      docInfo: 'DocInfo',
+      layoutInfos: 'LayoutInfos',
+      styles: 'Styles',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      docInfo: RecognizeAllTextResponseBodyDataSubImagesNewStyleDataDocInfo,
+      layoutInfos: { 'type': 'array', 'itemType': RecognizeAllTextResponseBodyDataSubImagesNewStyleDataLayoutInfos },
+      styles: { 'type': 'array', 'itemType': RecognizeAllTextResponseBodyDataSubImagesNewStyleDataStyles },
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class RecognizeAllTextResponseBodyDataSubImagesPageInfosSubjectInfosBlockInfoBlockDetailsBlockPoints extends $tea.Model {
+  x?: number;
+  y?: number;
+  static names(): { [key: string]: string } {
+    return {
+      x: 'X',
+      y: 'Y',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      x: 'number',
+      y: 'number',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class RecognizeAllTextResponseBodyDataSubImagesPageInfosSubjectInfosBlockInfoBlockDetailsBlockRect extends $tea.Model {
+  centerX?: number;
+  centerY?: number;
+  height?: number;
+  width?: number;
+  static names(): { [key: string]: string } {
+    return {
+      centerX: 'CenterX',
+      centerY: 'CenterY',
+      height: 'Height',
+      width: 'Width',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      centerX: 'number',
+      centerY: 'number',
+      height: 'number',
+      width: 'number',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class RecognizeAllTextResponseBodyDataSubImagesPageInfosSubjectInfosBlockInfoBlockDetailsCharInfoCharPoints extends $tea.Model {
+  x?: number;
+  y?: number;
+  static names(): { [key: string]: string } {
+    return {
+      x: 'X',
+      y: 'Y',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      x: 'number',
+      y: 'number',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class RecognizeAllTextResponseBodyDataSubImagesPageInfosSubjectInfosBlockInfoBlockDetailsCharInfoCharRect extends $tea.Model {
+  centerX?: number;
+  centerY?: number;
+  height?: number;
+  width?: number;
+  static names(): { [key: string]: string } {
+    return {
+      centerX: 'CenterX',
+      centerY: 'CenterY',
+      height: 'Height',
+      width: 'Width',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      centerX: 'number',
+      centerY: 'number',
+      height: 'number',
+      width: 'number',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class RecognizeAllTextResponseBodyDataSubImagesPageInfosSubjectInfosBlockInfoBlockDetailsCharInfo extends $tea.Model {
+  charId?: number;
+  charPoints?: RecognizeAllTextResponseBodyDataSubImagesPageInfosSubjectInfosBlockInfoBlockDetailsCharInfoCharPoints[];
+  charRect?: RecognizeAllTextResponseBodyDataSubImagesPageInfosSubjectInfosBlockInfoBlockDetailsCharInfoCharRect;
+  confidence?: number;
+  content?: string;
+  static names(): { [key: string]: string } {
+    return {
+      charId: 'CharId',
+      charPoints: 'CharPoints',
+      charRect: 'CharRect',
+      confidence: 'Confidence',
+      content: 'Content',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      charId: 'number',
+      charPoints: { 'type': 'array', 'itemType': RecognizeAllTextResponseBodyDataSubImagesPageInfosSubjectInfosBlockInfoBlockDetailsCharInfoCharPoints },
+      charRect: RecognizeAllTextResponseBodyDataSubImagesPageInfosSubjectInfosBlockInfoBlockDetailsCharInfoCharRect,
+      confidence: 'number',
+      content: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class RecognizeAllTextResponseBodyDataSubImagesPageInfosSubjectInfosBlockInfoBlockDetails extends $tea.Model {
+  angle?: number;
+  blockId?: number;
+  blockPoints?: RecognizeAllTextResponseBodyDataSubImagesPageInfosSubjectInfosBlockInfoBlockDetailsBlockPoints[];
+  blockRect?: RecognizeAllTextResponseBodyDataSubImagesPageInfosSubjectInfosBlockInfoBlockDetailsBlockRect;
+  charInfo?: RecognizeAllTextResponseBodyDataSubImagesPageInfosSubjectInfosBlockInfoBlockDetailsCharInfo[];
+  confidence?: number;
+  content?: string;
+  static names(): { [key: string]: string } {
+    return {
+      angle: 'Angle',
+      blockId: 'BlockId',
+      blockPoints: 'BlockPoints',
+      blockRect: 'BlockRect',
+      charInfo: 'CharInfo',
+      confidence: 'Confidence',
+      content: 'Content',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      angle: 'number',
+      blockId: 'number',
+      blockPoints: { 'type': 'array', 'itemType': RecognizeAllTextResponseBodyDataSubImagesPageInfosSubjectInfosBlockInfoBlockDetailsBlockPoints },
+      blockRect: RecognizeAllTextResponseBodyDataSubImagesPageInfosSubjectInfosBlockInfoBlockDetailsBlockRect,
+      charInfo: { 'type': 'array', 'itemType': RecognizeAllTextResponseBodyDataSubImagesPageInfosSubjectInfosBlockInfoBlockDetailsCharInfo },
+      confidence: 'number',
+      content: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class RecognizeAllTextResponseBodyDataSubImagesPageInfosSubjectInfosBlockInfo extends $tea.Model {
+  blockCount?: number;
+  blockDetails?: RecognizeAllTextResponseBodyDataSubImagesPageInfosSubjectInfosBlockInfoBlockDetails[];
+  static names(): { [key: string]: string } {
+    return {
+      blockCount: 'BlockCount',
+      blockDetails: 'BlockDetails',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      blockCount: 'number',
+      blockDetails: { 'type': 'array', 'itemType': RecognizeAllTextResponseBodyDataSubImagesPageInfosSubjectInfosBlockInfoBlockDetails },
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class RecognizeAllTextResponseBodyDataSubImagesPageInfosSubjectInfosContentInfosContentPoints extends $tea.Model {
+  x?: number;
+  y?: number;
+  static names(): { [key: string]: string } {
+    return {
+      x: 'X',
+      y: 'Y',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      x: 'number',
+      y: 'number',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class RecognizeAllTextResponseBodyDataSubImagesPageInfosSubjectInfosContentInfosContentRect extends $tea.Model {
+  centerX?: number;
+  centerY?: number;
+  height?: number;
+  width?: number;
+  static names(): { [key: string]: string } {
+    return {
+      centerX: 'CenterX',
+      centerY: 'CenterY',
+      height: 'Height',
+      width: 'Width',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      centerX: 'number',
+      centerY: 'number',
+      height: 'number',
+      width: 'number',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class RecognizeAllTextResponseBodyDataSubImagesPageInfosSubjectInfosContentInfos extends $tea.Model {
+  contentPoints?: RecognizeAllTextResponseBodyDataSubImagesPageInfosSubjectInfosContentInfosContentPoints[];
+  contentRect?: RecognizeAllTextResponseBodyDataSubImagesPageInfosSubjectInfosContentInfosContentRect;
+  docIndex?: number;
+  static names(): { [key: string]: string } {
+    return {
+      contentPoints: 'ContentPoints',
+      contentRect: 'ContentRect',
+      docIndex: 'DocIndex',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      contentPoints: { 'type': 'array', 'itemType': RecognizeAllTextResponseBodyDataSubImagesPageInfosSubjectInfosContentInfosContentPoints },
+      contentRect: RecognizeAllTextResponseBodyDataSubImagesPageInfosSubjectInfosContentInfosContentRect,
+      docIndex: 'number',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class RecognizeAllTextResponseBodyDataSubImagesPageInfosSubjectInfos extends $tea.Model {
+  blockInfo?: RecognizeAllTextResponseBodyDataSubImagesPageInfosSubjectInfosBlockInfo;
+  content?: string;
+  contentInfos?: RecognizeAllTextResponseBodyDataSubImagesPageInfosSubjectInfosContentInfos[];
+  ids?: number[];
+  isMultiPage?: boolean;
+  static names(): { [key: string]: string } {
+    return {
+      blockInfo: 'BlockInfo',
+      content: 'Content',
+      contentInfos: 'ContentInfos',
+      ids: 'Ids',
+      isMultiPage: 'IsMultiPage',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      blockInfo: RecognizeAllTextResponseBodyDataSubImagesPageInfosSubjectInfosBlockInfo,
+      content: 'string',
+      contentInfos: { 'type': 'array', 'itemType': RecognizeAllTextResponseBodyDataSubImagesPageInfosSubjectInfosContentInfos },
+      ids: { 'type': 'array', 'itemType': 'number' },
+      isMultiPage: 'boolean',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class RecognizeAllTextResponseBodyDataSubImagesPageInfos extends $tea.Model {
+  angle?: number;
+  docIndex?: number;
+  height?: number;
+  pageId?: number;
+  subjectInfos?: RecognizeAllTextResponseBodyDataSubImagesPageInfosSubjectInfos[];
+  width?: number;
+  static names(): { [key: string]: string } {
+    return {
+      angle: 'Angle',
+      docIndex: 'DocIndex',
+      height: 'Height',
+      pageId: 'PageId',
+      subjectInfos: 'SubjectInfos',
+      width: 'Width',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      angle: 'number',
+      docIndex: 'number',
+      height: 'number',
+      pageId: 'number',
+      subjectInfos: { 'type': 'array', 'itemType': RecognizeAllTextResponseBodyDataSubImagesPageInfosSubjectInfos },
+      width: 'number',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class RecognizeAllTextResponseBodyDataSubImagesParagraphInfoParagraphDetails extends $tea.Model {
+  blockList?: number[];
+  paragraphContent?: string;
+  paragraphId?: number;
+  static names(): { [key: string]: string } {
+    return {
+      blockList: 'BlockList',
+      paragraphContent: 'ParagraphContent',
+      paragraphId: 'ParagraphId',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      blockList: { 'type': 'array', 'itemType': 'number' },
+      paragraphContent: 'string',
+      paragraphId: 'number',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class RecognizeAllTextResponseBodyDataSubImagesParagraphInfo extends $tea.Model {
+  paragraphCount?: number;
+  paragraphDetails?: RecognizeAllTextResponseBodyDataSubImagesParagraphInfoParagraphDetails[];
+  static names(): { [key: string]: string } {
+    return {
+      paragraphCount: 'ParagraphCount',
+      paragraphDetails: 'ParagraphDetails',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      paragraphCount: 'number',
+      paragraphDetails: { 'type': 'array', 'itemType': RecognizeAllTextResponseBodyDataSubImagesParagraphInfoParagraphDetails },
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class RecognizeAllTextResponseBodyDataSubImagesPartInfosPartInfoPointsList extends $tea.Model {
+  x?: number;
+  y?: number;
+  static names(): { [key: string]: string } {
+    return {
+      x: 'X',
+      y: 'Y',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      x: 'number',
+      y: 'number',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class RecognizeAllTextResponseBodyDataSubImagesPartInfosPartInfoRectList extends $tea.Model {
+  centerX?: number;
+  centerY?: number;
+  height?: number;
+  width?: number;
+  static names(): { [key: string]: string } {
+    return {
+      centerX: 'CenterX',
+      centerY: 'CenterY',
+      height: 'Height',
+      width: 'Width',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      centerX: 'number',
+      centerY: 'number',
+      height: 'number',
+      width: 'number',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class RecognizeAllTextResponseBodyDataSubImagesPartInfosSubjectListAnswerPointsList extends $tea.Model {
+  x?: number;
+  y?: number;
+  static names(): { [key: string]: string } {
+    return {
+      x: 'X',
+      y: 'Y',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      x: 'number',
+      y: 'number',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class RecognizeAllTextResponseBodyDataSubImagesPartInfosSubjectListAnswerRectList extends $tea.Model {
+  centerX?: number;
+  centerY?: number;
+  height?: number;
+  width?: number;
+  static names(): { [key: string]: string } {
+    return {
+      centerX: 'CenterX',
+      centerY: 'CenterY',
+      height: 'Height',
+      width: 'Width',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      centerX: 'number',
+      centerY: 'number',
+      height: 'number',
+      width: 'number',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class RecognizeAllTextResponseBodyDataSubImagesPartInfosSubjectListElementsContentsContentPoints extends $tea.Model {
+  x?: number;
+  y?: number;
+  static names(): { [key: string]: string } {
+    return {
+      x: 'X',
+      y: 'Y',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      x: 'number',
+      y: 'number',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class RecognizeAllTextResponseBodyDataSubImagesPartInfosSubjectListElementsContentsContentRect extends $tea.Model {
+  centerX?: number;
+  centerY?: number;
+  height?: number;
+  width?: number;
+  static names(): { [key: string]: string } {
+    return {
+      centerX: 'CenterX',
+      centerY: 'CenterY',
+      height: 'Height',
+      width: 'Width',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      centerX: 'number',
+      centerY: 'number',
+      height: 'number',
+      width: 'number',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class RecognizeAllTextResponseBodyDataSubImagesPartInfosSubjectListElementsContents extends $tea.Model {
+  confidence?: number;
+  contentPoints?: RecognizeAllTextResponseBodyDataSubImagesPartInfosSubjectListElementsContentsContentPoints[];
+  contentRect?: RecognizeAllTextResponseBodyDataSubImagesPartInfosSubjectListElementsContentsContentRect;
+  contentType?: number;
+  option?: string;
+  text?: string;
+  static names(): { [key: string]: string } {
+    return {
+      confidence: 'Confidence',
+      contentPoints: 'ContentPoints',
+      contentRect: 'ContentRect',
+      contentType: 'ContentType',
+      option: 'Option',
+      text: 'Text',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      confidence: 'number',
+      contentPoints: { 'type': 'array', 'itemType': RecognizeAllTextResponseBodyDataSubImagesPartInfosSubjectListElementsContentsContentPoints },
+      contentRect: RecognizeAllTextResponseBodyDataSubImagesPartInfosSubjectListElementsContentsContentRect,
+      contentType: 'number',
+      option: 'string',
+      text: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class RecognizeAllTextResponseBodyDataSubImagesPartInfosSubjectListElementsElementPointsList extends $tea.Model {
+  x?: number;
+  y?: number;
+  static names(): { [key: string]: string } {
+    return {
+      x: 'X',
+      y: 'Y',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      x: 'number',
+      y: 'number',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class RecognizeAllTextResponseBodyDataSubImagesPartInfosSubjectListElementsElementRectList extends $tea.Model {
+  centerX?: number;
+  centerY?: number;
+  height?: number;
+  width?: number;
+  static names(): { [key: string]: string } {
+    return {
+      centerX: 'CenterX',
+      centerY: 'CenterY',
+      height: 'Height',
+      width: 'Width',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      centerX: 'number',
+      centerY: 'number',
+      height: 'number',
+      width: 'number',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class RecognizeAllTextResponseBodyDataSubImagesPartInfosSubjectListElements extends $tea.Model {
+  contents?: RecognizeAllTextResponseBodyDataSubImagesPartInfosSubjectListElementsContents[];
+  elementPointsList?: RecognizeAllTextResponseBodyDataSubImagesPartInfosSubjectListElementsElementPointsList[][];
+  elementRectList?: RecognizeAllTextResponseBodyDataSubImagesPartInfosSubjectListElementsElementRectList[];
+  elementType?: number;
+  text?: string;
+  static names(): { [key: string]: string } {
+    return {
+      contents: 'Contents',
+      elementPointsList: 'ElementPointsList',
+      elementRectList: 'ElementRectList',
+      elementType: 'ElementType',
+      text: 'Text',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      contents: { 'type': 'array', 'itemType': RecognizeAllTextResponseBodyDataSubImagesPartInfosSubjectListElementsContents },
+      elementPointsList: { 'type': 'array', 'itemType': { 'type': 'array', 'itemType': RecognizeAllTextResponseBodyDataSubImagesPartInfosSubjectListElementsElementPointsList } },
+      elementRectList: { 'type': 'array', 'itemType': RecognizeAllTextResponseBodyDataSubImagesPartInfosSubjectListElementsElementRectList },
+      elementType: 'number',
+      text: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class RecognizeAllTextResponseBodyDataSubImagesPartInfosSubjectListFigurePointsList extends $tea.Model {
+  x?: number;
+  y?: number;
+  static names(): { [key: string]: string } {
+    return {
+      x: 'X',
+      y: 'Y',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      x: 'number',
+      y: 'number',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class RecognizeAllTextResponseBodyDataSubImagesPartInfosSubjectListFigureRectList extends $tea.Model {
+  centerX?: number;
+  centerY?: number;
+  height?: number;
+  width?: number;
+  static names(): { [key: string]: string } {
+    return {
+      centerX: 'CenterX',
+      centerY: 'CenterY',
+      height: 'Height',
+      width: 'Width',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      centerX: 'number',
+      centerY: 'number',
+      height: 'number',
+      width: 'number',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class RecognizeAllTextResponseBodyDataSubImagesPartInfosSubjectListSubjectPointsList extends $tea.Model {
+  x?: number;
+  y?: number;
+  static names(): { [key: string]: string } {
+    return {
+      x: 'X',
+      y: 'Y',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      x: 'number',
+      y: 'number',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class RecognizeAllTextResponseBodyDataSubImagesPartInfosSubjectListSubjectRectList extends $tea.Model {
+  centerX?: string;
+  centerY?: string;
+  height?: string;
+  width?: string;
+  static names(): { [key: string]: string } {
+    return {
+      centerX: 'CenterX',
+      centerY: 'CenterY',
+      height: 'Height',
+      width: 'Width',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      centerX: 'string',
+      centerY: 'string',
+      height: 'string',
+      width: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class RecognizeAllTextResponseBodyDataSubImagesPartInfosSubjectListTablePointsList extends $tea.Model {
+  x?: number;
+  y?: number;
+  static names(): { [key: string]: string } {
+    return {
+      x: 'X',
+      y: 'Y',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      x: 'number',
+      y: 'number',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class RecognizeAllTextResponseBodyDataSubImagesPartInfosSubjectListTableRectList extends $tea.Model {
+  centerX?: number;
+  centerY?: number;
+  height?: number;
+  width?: number;
+  static names(): { [key: string]: string } {
+    return {
+      centerX: 'CenterX',
+      centerY: 'CenterY',
+      height: 'Height',
+      width: 'Width',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      centerX: 'number',
+      centerY: 'number',
+      height: 'number',
+      width: 'number',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class RecognizeAllTextResponseBodyDataSubImagesPartInfosSubjectList extends $tea.Model {
+  answerPointsList?: RecognizeAllTextResponseBodyDataSubImagesPartInfosSubjectListAnswerPointsList[][];
+  answerRectList?: RecognizeAllTextResponseBodyDataSubImagesPartInfosSubjectListAnswerRectList[];
+  confidence?: number;
+  elements?: RecognizeAllTextResponseBodyDataSubImagesPartInfosSubjectListElements[];
+  figurePointsList?: RecognizeAllTextResponseBodyDataSubImagesPartInfosSubjectListFigurePointsList[][];
+  figureRectList?: RecognizeAllTextResponseBodyDataSubImagesPartInfosSubjectListFigureRectList[];
+  index?: number;
+  numChoices?: number;
+  subjectPointsList?: RecognizeAllTextResponseBodyDataSubImagesPartInfosSubjectListSubjectPointsList[][];
+  subjectRectList?: RecognizeAllTextResponseBodyDataSubImagesPartInfosSubjectListSubjectRectList[];
+  subjectType?: number;
+  tablePointsList?: RecognizeAllTextResponseBodyDataSubImagesPartInfosSubjectListTablePointsList[][];
+  tableRectList?: RecognizeAllTextResponseBodyDataSubImagesPartInfosSubjectListTableRectList[];
+  text?: string;
+  static names(): { [key: string]: string } {
+    return {
+      answerPointsList: 'AnswerPointsList',
+      answerRectList: 'AnswerRectList',
+      confidence: 'Confidence',
+      elements: 'Elements',
+      figurePointsList: 'FigurePointsList',
+      figureRectList: 'FigureRectList',
+      index: 'Index',
+      numChoices: 'NumChoices',
+      subjectPointsList: 'SubjectPointsList',
+      subjectRectList: 'SubjectRectList',
+      subjectType: 'SubjectType',
+      tablePointsList: 'TablePointsList',
+      tableRectList: 'TableRectList',
+      text: 'Text',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      answerPointsList: { 'type': 'array', 'itemType': { 'type': 'array', 'itemType': RecognizeAllTextResponseBodyDataSubImagesPartInfosSubjectListAnswerPointsList } },
+      answerRectList: { 'type': 'array', 'itemType': RecognizeAllTextResponseBodyDataSubImagesPartInfosSubjectListAnswerRectList },
+      confidence: 'number',
+      elements: { 'type': 'array', 'itemType': RecognizeAllTextResponseBodyDataSubImagesPartInfosSubjectListElements },
+      figurePointsList: { 'type': 'array', 'itemType': { 'type': 'array', 'itemType': RecognizeAllTextResponseBodyDataSubImagesPartInfosSubjectListFigurePointsList } },
+      figureRectList: { 'type': 'array', 'itemType': RecognizeAllTextResponseBodyDataSubImagesPartInfosSubjectListFigureRectList },
+      index: 'number',
+      numChoices: 'number',
+      subjectPointsList: { 'type': 'array', 'itemType': { 'type': 'array', 'itemType': RecognizeAllTextResponseBodyDataSubImagesPartInfosSubjectListSubjectPointsList } },
+      subjectRectList: { 'type': 'array', 'itemType': RecognizeAllTextResponseBodyDataSubImagesPartInfosSubjectListSubjectRectList },
+      subjectType: 'number',
+      tablePointsList: { 'type': 'array', 'itemType': { 'type': 'array', 'itemType': RecognizeAllTextResponseBodyDataSubImagesPartInfosSubjectListTablePointsList } },
+      tableRectList: { 'type': 'array', 'itemType': RecognizeAllTextResponseBodyDataSubImagesPartInfosSubjectListTableRectList },
+      text: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class RecognizeAllTextResponseBodyDataSubImagesPartInfos extends $tea.Model {
+  partInfoPointsList?: RecognizeAllTextResponseBodyDataSubImagesPartInfosPartInfoPointsList[][];
+  partInfoRectList?: RecognizeAllTextResponseBodyDataSubImagesPartInfosPartInfoRectList[];
+  partTitle?: string;
+  subjectList?: RecognizeAllTextResponseBodyDataSubImagesPartInfosSubjectList[];
+  static names(): { [key: string]: string } {
+    return {
+      partInfoPointsList: 'PartInfoPointsList',
+      partInfoRectList: 'PartInfoRectList',
+      partTitle: 'PartTitle',
+      subjectList: 'SubjectList',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      partInfoPointsList: { 'type': 'array', 'itemType': { 'type': 'array', 'itemType': RecognizeAllTextResponseBodyDataSubImagesPartInfosPartInfoPointsList } },
+      partInfoRectList: { 'type': 'array', 'itemType': RecognizeAllTextResponseBodyDataSubImagesPartInfosPartInfoRectList },
+      partTitle: 'string',
+      subjectList: { 'type': 'array', 'itemType': RecognizeAllTextResponseBodyDataSubImagesPartInfosSubjectList },
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class RecognizeAllTextResponseBodyDataSubImagesQrCodeInfoQrCodeDetailsQrCodePoints extends $tea.Model {
+  x?: number;
+  y?: number;
+  static names(): { [key: string]: string } {
+    return {
+      x: 'X',
+      y: 'Y',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      x: 'number',
+      y: 'number',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class RecognizeAllTextResponseBodyDataSubImagesQrCodeInfoQrCodeDetailsQrCodeRect extends $tea.Model {
+  centerX?: number;
+  centerY?: number;
+  height?: number;
+  width?: number;
+  static names(): { [key: string]: string } {
+    return {
+      centerX: 'CenterX',
+      centerY: 'CenterY',
+      height: 'Height',
+      width: 'Width',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      centerX: 'number',
+      centerY: 'number',
+      height: 'number',
+      width: 'number',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class RecognizeAllTextResponseBodyDataSubImagesQrCodeInfoQrCodeDetails extends $tea.Model {
+  angle?: number;
+  data?: Buffer;
+  qrCodePoints?: RecognizeAllTextResponseBodyDataSubImagesQrCodeInfoQrCodeDetailsQrCodePoints[];
+  qrCodeRect?: RecognizeAllTextResponseBodyDataSubImagesQrCodeInfoQrCodeDetailsQrCodeRect;
+  type?: string;
+  static names(): { [key: string]: string } {
+    return {
+      angle: 'Angle',
+      data: 'Data',
+      qrCodePoints: 'QrCodePoints',
+      qrCodeRect: 'QrCodeRect',
+      type: 'Type',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      angle: 'number',
+      data: 'Buffer',
+      qrCodePoints: { 'type': 'array', 'itemType': RecognizeAllTextResponseBodyDataSubImagesQrCodeInfoQrCodeDetailsQrCodePoints },
+      qrCodeRect: RecognizeAllTextResponseBodyDataSubImagesQrCodeInfoQrCodeDetailsQrCodeRect,
+      type: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class RecognizeAllTextResponseBodyDataSubImagesQrCodeInfo extends $tea.Model {
+  qrCodeCount?: number;
+  qrCodeDetails?: RecognizeAllTextResponseBodyDataSubImagesQrCodeInfoQrCodeDetails[];
+  static names(): { [key: string]: string } {
+    return {
+      qrCodeCount: 'QrCodeCount',
+      qrCodeDetails: 'QrCodeDetails',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      qrCodeCount: 'number',
+      qrCodeDetails: { 'type': 'array', 'itemType': RecognizeAllTextResponseBodyDataSubImagesQrCodeInfoQrCodeDetails },
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class RecognizeAllTextResponseBodyDataSubImagesQualityInfo extends $tea.Model {
+  completenessScore?: number;
+  isCopy?: boolean;
+  isReshoot?: boolean;
+  qualityScore?: number;
+  tamperScore?: number;
+  static names(): { [key: string]: string } {
+    return {
+      completenessScore: 'CompletenessScore',
+      isCopy: 'IsCopy',
+      isReshoot: 'IsReshoot',
+      qualityScore: 'QualityScore',
+      tamperScore: 'TamperScore',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      completenessScore: 'number',
+      isCopy: 'boolean',
+      isReshoot: 'boolean',
+      qualityScore: 'number',
+      tamperScore: 'number',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class RecognizeAllTextResponseBodyDataSubImagesRowInfoRowDetails extends $tea.Model {
+  blockList?: number[];
+  rowContent?: string;
+  rowId?: number;
+  static names(): { [key: string]: string } {
+    return {
+      blockList: 'BlockList',
+      rowContent: 'RowContent',
+      rowId: 'RowId',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      blockList: { 'type': 'array', 'itemType': 'number' },
+      rowContent: 'string',
+      rowId: 'number',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class RecognizeAllTextResponseBodyDataSubImagesRowInfo extends $tea.Model {
+  rowCount?: number;
+  rowDetails?: RecognizeAllTextResponseBodyDataSubImagesRowInfoRowDetails[];
+  static names(): { [key: string]: string } {
+    return {
+      rowCount: 'RowCount',
+      rowDetails: 'RowDetails',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      rowCount: 'number',
+      rowDetails: { 'type': 'array', 'itemType': RecognizeAllTextResponseBodyDataSubImagesRowInfoRowDetails },
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class RecognizeAllTextResponseBodyDataSubImagesStampInfoStampDetailsData extends $tea.Model {
+  antiFakeCode?: string;
+  companyId?: string;
+  organizationName?: string;
+  organizationNameEng?: string;
+  otherText?: string;
+  taxpayerId?: string;
+  topText?: string;
+  static names(): { [key: string]: string } {
+    return {
+      antiFakeCode: 'AntiFakeCode',
+      companyId: 'CompanyId',
+      organizationName: 'OrganizationName',
+      organizationNameEng: 'OrganizationNameEng',
+      otherText: 'OtherText',
+      taxpayerId: 'TaxpayerId',
+      topText: 'TopText',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      antiFakeCode: 'string',
+      companyId: 'string',
+      organizationName: 'string',
+      organizationNameEng: 'string',
+      otherText: 'string',
+      taxpayerId: 'string',
+      topText: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class RecognizeAllTextResponseBodyDataSubImagesStampInfoStampDetailsStampPoints extends $tea.Model {
+  x?: number;
+  y?: number;
+  static names(): { [key: string]: string } {
+    return {
+      x: 'X',
+      y: 'Y',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      x: 'number',
+      y: 'number',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class RecognizeAllTextResponseBodyDataSubImagesStampInfoStampDetailsStampRect extends $tea.Model {
+  centerX?: number;
+  centerY?: number;
+  height?: number;
+  width?: number;
+  static names(): { [key: string]: string } {
+    return {
+      centerX: 'CenterX',
+      centerY: 'CenterY',
+      height: 'Height',
+      width: 'Width',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      centerX: 'number',
+      centerY: 'number',
+      height: 'number',
+      width: 'number',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class RecognizeAllTextResponseBodyDataSubImagesStampInfoStampDetails extends $tea.Model {
+  data?: RecognizeAllTextResponseBodyDataSubImagesStampInfoStampDetailsData;
+  stampAngle?: number;
+  stampPoints?: RecognizeAllTextResponseBodyDataSubImagesStampInfoStampDetailsStampPoints[];
+  stampRect?: RecognizeAllTextResponseBodyDataSubImagesStampInfoStampDetailsStampRect;
+  static names(): { [key: string]: string } {
+    return {
+      data: 'Data',
+      stampAngle: 'StampAngle',
+      stampPoints: 'StampPoints',
+      stampRect: 'StampRect',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      data: RecognizeAllTextResponseBodyDataSubImagesStampInfoStampDetailsData,
+      stampAngle: 'number',
+      stampPoints: { 'type': 'array', 'itemType': RecognizeAllTextResponseBodyDataSubImagesStampInfoStampDetailsStampPoints },
+      stampRect: RecognizeAllTextResponseBodyDataSubImagesStampInfoStampDetailsStampRect,
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class RecognizeAllTextResponseBodyDataSubImagesStampInfo extends $tea.Model {
+  stampCount?: number;
+  stampDetails?: RecognizeAllTextResponseBodyDataSubImagesStampInfoStampDetails[];
+  static names(): { [key: string]: string } {
+    return {
+      stampCount: 'StampCount',
+      stampDetails: 'StampDetails',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      stampCount: 'number',
+      stampDetails: { 'type': 'array', 'itemType': RecognizeAllTextResponseBodyDataSubImagesStampInfoStampDetails },
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class RecognizeAllTextResponseBodyDataSubImagesSubImagePoints extends $tea.Model {
+  x?: number;
+  y?: number;
+  static names(): { [key: string]: string } {
+    return {
+      x: 'X',
+      y: 'Y',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      x: 'number',
+      y: 'number',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class RecognizeAllTextResponseBodyDataSubImagesSubImageRect extends $tea.Model {
+  centerX?: number;
+  centerY?: number;
+  height?: number;
+  width?: number;
+  static names(): { [key: string]: string } {
+    return {
+      centerX: 'CenterX',
+      centerY: 'CenterY',
+      height: 'Height',
+      width: 'Width',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      centerX: 'number',
+      centerY: 'number',
+      height: 'number',
+      width: 'number',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class RecognizeAllTextResponseBodyDataSubImagesTableInfoTableDetailsCellDetailsCellPoints extends $tea.Model {
+  x?: number;
+  y?: number;
+  static names(): { [key: string]: string } {
+    return {
+      x: 'X',
+      y: 'Y',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      x: 'number',
+      y: 'number',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class RecognizeAllTextResponseBodyDataSubImagesTableInfoTableDetailsCellDetailsCellRect extends $tea.Model {
+  centerX?: number;
+  centerY?: number;
+  height?: number;
+  width?: number;
+  static names(): { [key: string]: string } {
+    return {
+      centerX: 'CenterX',
+      centerY: 'CenterY',
+      height: 'Height',
+      width: 'Width',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      centerX: 'number',
+      centerY: 'number',
+      height: 'number',
+      width: 'number',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class RecognizeAllTextResponseBodyDataSubImagesTableInfoTableDetailsCellDetails extends $tea.Model {
+  blockList?: number[];
+  cellAngle?: number;
+  cellContent?: string;
+  cellId?: number;
+  cellPoints?: RecognizeAllTextResponseBodyDataSubImagesTableInfoTableDetailsCellDetailsCellPoints[];
+  cellRect?: RecognizeAllTextResponseBodyDataSubImagesTableInfoTableDetailsCellDetailsCellRect;
+  columnEnd?: number;
+  columnStart?: number;
+  rowEnd?: number;
+  rowStart?: number;
+  static names(): { [key: string]: string } {
+    return {
+      blockList: 'BlockList',
+      cellAngle: 'CellAngle',
+      cellContent: 'CellContent',
+      cellId: 'CellId',
+      cellPoints: 'CellPoints',
+      cellRect: 'CellRect',
+      columnEnd: 'ColumnEnd',
+      columnStart: 'ColumnStart',
+      rowEnd: 'RowEnd',
+      rowStart: 'RowStart',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      blockList: { 'type': 'array', 'itemType': 'number' },
+      cellAngle: 'number',
+      cellContent: 'string',
+      cellId: 'number',
+      cellPoints: { 'type': 'array', 'itemType': RecognizeAllTextResponseBodyDataSubImagesTableInfoTableDetailsCellDetailsCellPoints },
+      cellRect: RecognizeAllTextResponseBodyDataSubImagesTableInfoTableDetailsCellDetailsCellRect,
+      columnEnd: 'number',
+      columnStart: 'number',
+      rowEnd: 'number',
+      rowStart: 'number',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class RecognizeAllTextResponseBodyDataSubImagesTableInfoTableDetailsFooterPoints extends $tea.Model {
+  x?: number;
+  y?: number;
+  static names(): { [key: string]: string } {
+    return {
+      x: 'X',
+      y: 'Y',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      x: 'number',
+      y: 'number',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class RecognizeAllTextResponseBodyDataSubImagesTableInfoTableDetailsFooter extends $tea.Model {
+  blockId?: number;
+  contents?: string[];
+  points?: RecognizeAllTextResponseBodyDataSubImagesTableInfoTableDetailsFooterPoints[];
+  static names(): { [key: string]: string } {
+    return {
+      blockId: 'BlockId',
+      contents: 'Contents',
+      points: 'Points',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      blockId: 'number',
+      contents: { 'type': 'array', 'itemType': 'string' },
+      points: { 'type': 'array', 'itemType': RecognizeAllTextResponseBodyDataSubImagesTableInfoTableDetailsFooterPoints },
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class RecognizeAllTextResponseBodyDataSubImagesTableInfoTableDetailsHeaderPoints extends $tea.Model {
+  x?: number;
+  y?: number;
+  static names(): { [key: string]: string } {
+    return {
+      x: 'X',
+      y: 'Y',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      x: 'number',
+      y: 'number',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class RecognizeAllTextResponseBodyDataSubImagesTableInfoTableDetailsHeader extends $tea.Model {
+  blockId?: number;
+  contents?: string[];
+  points?: RecognizeAllTextResponseBodyDataSubImagesTableInfoTableDetailsHeaderPoints[];
+  static names(): { [key: string]: string } {
+    return {
+      blockId: 'BlockId',
+      contents: 'Contents',
+      points: 'Points',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      blockId: 'number',
+      contents: { 'type': 'array', 'itemType': 'string' },
+      points: { 'type': 'array', 'itemType': RecognizeAllTextResponseBodyDataSubImagesTableInfoTableDetailsHeaderPoints },
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class RecognizeAllTextResponseBodyDataSubImagesTableInfoTableDetailsTablePoints extends $tea.Model {
+  x?: number;
+  y?: number;
+  static names(): { [key: string]: string } {
+    return {
+      x: 'X',
+      y: 'Y',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      x: 'number',
+      y: 'number',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class RecognizeAllTextResponseBodyDataSubImagesTableInfoTableDetailsTableRect extends $tea.Model {
+  centerX?: number;
+  centerY?: number;
+  height?: number;
+  width?: number;
+  static names(): { [key: string]: string } {
+    return {
+      centerX: 'CenterX',
+      centerY: 'CenterY',
+      height: 'Height',
+      width: 'Width',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      centerX: 'number',
+      centerY: 'number',
+      height: 'number',
+      width: 'number',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class RecognizeAllTextResponseBodyDataSubImagesTableInfoTableDetails extends $tea.Model {
+  cellCount?: number;
+  cellDetails?: RecognizeAllTextResponseBodyDataSubImagesTableInfoTableDetailsCellDetails[];
+  columnCount?: number;
+  footer?: RecognizeAllTextResponseBodyDataSubImagesTableInfoTableDetailsFooter;
+  header?: RecognizeAllTextResponseBodyDataSubImagesTableInfoTableDetailsHeader;
+  rowCount?: number;
+  tableId?: number;
+  tablePoints?: RecognizeAllTextResponseBodyDataSubImagesTableInfoTableDetailsTablePoints[];
+  tableRect?: RecognizeAllTextResponseBodyDataSubImagesTableInfoTableDetailsTableRect;
+  static names(): { [key: string]: string } {
+    return {
+      cellCount: 'CellCount',
+      cellDetails: 'CellDetails',
+      columnCount: 'ColumnCount',
+      footer: 'Footer',
+      header: 'Header',
+      rowCount: 'RowCount',
+      tableId: 'TableId',
+      tablePoints: 'TablePoints',
+      tableRect: 'TableRect',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      cellCount: 'number',
+      cellDetails: { 'type': 'array', 'itemType': RecognizeAllTextResponseBodyDataSubImagesTableInfoTableDetailsCellDetails },
+      columnCount: 'number',
+      footer: RecognizeAllTextResponseBodyDataSubImagesTableInfoTableDetailsFooter,
+      header: RecognizeAllTextResponseBodyDataSubImagesTableInfoTableDetailsHeader,
+      rowCount: 'number',
+      tableId: 'number',
+      tablePoints: { 'type': 'array', 'itemType': RecognizeAllTextResponseBodyDataSubImagesTableInfoTableDetailsTablePoints },
+      tableRect: RecognizeAllTextResponseBodyDataSubImagesTableInfoTableDetailsTableRect,
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class RecognizeAllTextResponseBodyDataSubImagesTableInfo extends $tea.Model {
+  tableCount?: number;
+  tableDetails?: RecognizeAllTextResponseBodyDataSubImagesTableInfoTableDetails[];
+  tableExcel?: string;
+  tableHtml?: string;
+  static names(): { [key: string]: string } {
+    return {
+      tableCount: 'TableCount',
+      tableDetails: 'TableDetails',
+      tableExcel: 'TableExcel',
+      tableHtml: 'TableHtml',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      tableCount: 'number',
+      tableDetails: { 'type': 'array', 'itemType': RecognizeAllTextResponseBodyDataSubImagesTableInfoTableDetails },
+      tableExcel: 'string',
+      tableHtml: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class RecognizeAllTextResponseBodyDataSubImages extends $tea.Model {
+  angle?: number;
+  barCodeInfo?: RecognizeAllTextResponseBodyDataSubImagesBarCodeInfo;
+  blockInfo?: RecognizeAllTextResponseBodyDataSubImagesBlockInfo;
+  docLayouts?: RecognizeAllTextResponseBodyDataSubImagesDocLayouts[];
+  docSpecialTexts?: RecognizeAllTextResponseBodyDataSubImagesDocSpecialTexts[];
+  docSubField?: RecognizeAllTextResponseBodyDataSubImagesDocSubField[];
+  figureInfo?: { [key: string]: DataSubImagesFigureInfoValue };
+  kvInfo?: RecognizeAllTextResponseBodyDataSubImagesKvInfo;
+  mathInfos?: RecognizeAllTextResponseBodyDataSubImagesMathInfos[];
+  newStyleData?: RecognizeAllTextResponseBodyDataSubImagesNewStyleData;
+  pageId?: number;
+  pageInfos?: RecognizeAllTextResponseBodyDataSubImagesPageInfos[];
+  pageTitle?: string;
+  paragraphInfo?: RecognizeAllTextResponseBodyDataSubImagesParagraphInfo;
+  partInfos?: RecognizeAllTextResponseBodyDataSubImagesPartInfos[];
+  qrCodeInfo?: RecognizeAllTextResponseBodyDataSubImagesQrCodeInfo;
+  qualityInfo?: RecognizeAllTextResponseBodyDataSubImagesQualityInfo;
+  rowInfo?: RecognizeAllTextResponseBodyDataSubImagesRowInfo;
+  stampInfo?: RecognizeAllTextResponseBodyDataSubImagesStampInfo;
+  subImageId?: number;
+  subImagePoints?: RecognizeAllTextResponseBodyDataSubImagesSubImagePoints[];
+  subImageRect?: RecognizeAllTextResponseBodyDataSubImagesSubImageRect;
+  tableInfo?: RecognizeAllTextResponseBodyDataSubImagesTableInfo;
+  type?: string;
+  static names(): { [key: string]: string } {
+    return {
+      angle: 'Angle',
+      barCodeInfo: 'BarCodeInfo',
+      blockInfo: 'BlockInfo',
+      docLayouts: 'DocLayouts',
+      docSpecialTexts: 'DocSpecialTexts',
+      docSubField: 'DocSubField',
+      figureInfo: 'FigureInfo',
+      kvInfo: 'KvInfo',
+      mathInfos: 'MathInfos',
+      newStyleData: 'NewStyleData',
+      pageId: 'PageId',
+      pageInfos: 'PageInfos',
+      pageTitle: 'PageTitle',
+      paragraphInfo: 'ParagraphInfo',
+      partInfos: 'PartInfos',
+      qrCodeInfo: 'QrCodeInfo',
+      qualityInfo: 'QualityInfo',
+      rowInfo: 'RowInfo',
+      stampInfo: 'StampInfo',
+      subImageId: 'SubImageId',
+      subImagePoints: 'SubImagePoints',
+      subImageRect: 'SubImageRect',
+      tableInfo: 'TableInfo',
+      type: 'Type',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      angle: 'number',
+      barCodeInfo: RecognizeAllTextResponseBodyDataSubImagesBarCodeInfo,
+      blockInfo: RecognizeAllTextResponseBodyDataSubImagesBlockInfo,
+      docLayouts: { 'type': 'array', 'itemType': RecognizeAllTextResponseBodyDataSubImagesDocLayouts },
+      docSpecialTexts: { 'type': 'array', 'itemType': RecognizeAllTextResponseBodyDataSubImagesDocSpecialTexts },
+      docSubField: { 'type': 'array', 'itemType': RecognizeAllTextResponseBodyDataSubImagesDocSubField },
+      figureInfo: { 'type': 'map', 'keyType': 'string', 'valueType': DataSubImagesFigureInfoValue },
+      kvInfo: RecognizeAllTextResponseBodyDataSubImagesKvInfo,
+      mathInfos: { 'type': 'array', 'itemType': RecognizeAllTextResponseBodyDataSubImagesMathInfos },
+      newStyleData: RecognizeAllTextResponseBodyDataSubImagesNewStyleData,
+      pageId: 'number',
+      pageInfos: { 'type': 'array', 'itemType': RecognizeAllTextResponseBodyDataSubImagesPageInfos },
+      pageTitle: 'string',
+      paragraphInfo: RecognizeAllTextResponseBodyDataSubImagesParagraphInfo,
+      partInfos: { 'type': 'array', 'itemType': RecognizeAllTextResponseBodyDataSubImagesPartInfos },
+      qrCodeInfo: RecognizeAllTextResponseBodyDataSubImagesQrCodeInfo,
+      qualityInfo: RecognizeAllTextResponseBodyDataSubImagesQualityInfo,
+      rowInfo: RecognizeAllTextResponseBodyDataSubImagesRowInfo,
+      stampInfo: RecognizeAllTextResponseBodyDataSubImagesStampInfo,
+      subImageId: 'number',
+      subImagePoints: { 'type': 'array', 'itemType': RecognizeAllTextResponseBodyDataSubImagesSubImagePoints },
+      subImageRect: RecognizeAllTextResponseBodyDataSubImagesSubImageRect,
+      tableInfo: RecognizeAllTextResponseBodyDataSubImagesTableInfo,
+      type: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class RecognizeAllTextResponseBodyData extends $tea.Model {
+  algoServer?: string[];
+  algoVersion?: string;
+  content?: string;
+  debugInfo?: any;
+  height?: number;
+  isMixedMode?: boolean;
+  kvExcelUrl?: string;
+  pageNo?: number;
+  subImageCount?: number;
+  subImages?: RecognizeAllTextResponseBodyDataSubImages[];
+  width?: number;
+  xmlResult?: string;
+  static names(): { [key: string]: string } {
+    return {
+      algoServer: 'AlgoServer',
+      algoVersion: 'AlgoVersion',
+      content: 'Content',
+      debugInfo: 'DebugInfo',
+      height: 'Height',
+      isMixedMode: 'IsMixedMode',
+      kvExcelUrl: 'KvExcelUrl',
+      pageNo: 'PageNo',
+      subImageCount: 'SubImageCount',
+      subImages: 'SubImages',
+      width: 'Width',
+      xmlResult: 'XmlResult',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      algoServer: { 'type': 'array', 'itemType': 'string' },
+      algoVersion: 'string',
+      content: 'string',
+      debugInfo: 'any',
+      height: 'number',
+      isMixedMode: 'boolean',
+      kvExcelUrl: 'string',
+      pageNo: 'number',
+      subImageCount: 'number',
+      subImages: { 'type': 'array', 'itemType': RecognizeAllTextResponseBodyDataSubImages },
+      width: 'number',
+      xmlResult: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
 
 export default class Client extends OpenApi {
 
@@ -5840,6 +8831,107 @@ export default class Client extends OpenApi {
   async recognizeAirItinerary(request: RecognizeAirItineraryRequest): Promise<RecognizeAirItineraryResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.recognizeAirItineraryWithOptions(request, runtime);
+  }
+
+  async recognizeAllTextWithOptions(tmpReq: RecognizeAllTextRequest, runtime: $Util.RuntimeOptions): Promise<RecognizeAllTextResponse> {
+    Util.validateModel(tmpReq);
+    let request = new RecognizeAllTextShrinkRequest({ });
+    OpenApiUtil.convert(tmpReq, request);
+    if (!Util.isUnset(tmpReq.advancedConfig)) {
+      request.advancedConfigShrink = OpenApiUtil.arrayToStringWithSpecifiedStyle(tmpReq.advancedConfig, "AdvancedConfig", "json");
+    }
+
+    if (!Util.isUnset(tmpReq.idCardConfig)) {
+      request.idCardConfigShrink = OpenApiUtil.arrayToStringWithSpecifiedStyle(tmpReq.idCardConfig, "IdCardConfig", "json");
+    }
+
+    if (!Util.isUnset(tmpReq.internationalIdCardConfig)) {
+      request.internationalIdCardConfigShrink = OpenApiUtil.arrayToStringWithSpecifiedStyle(tmpReq.internationalIdCardConfig, "InternationalIdCardConfig", "json");
+    }
+
+    if (!Util.isUnset(tmpReq.multiLanConfig)) {
+      request.multiLanConfigShrink = OpenApiUtil.arrayToStringWithSpecifiedStyle(tmpReq.multiLanConfig, "MultiLanConfig", "json");
+    }
+
+    let query = { };
+    if (!Util.isUnset(request.advancedConfigShrink)) {
+      query["AdvancedConfig"] = request.advancedConfigShrink;
+    }
+
+    if (!Util.isUnset(request.idCardConfigShrink)) {
+      query["IdCardConfig"] = request.idCardConfigShrink;
+    }
+
+    if (!Util.isUnset(request.internationalIdCardConfigShrink)) {
+      query["InternationalIdCardConfig"] = request.internationalIdCardConfigShrink;
+    }
+
+    if (!Util.isUnset(request.multiLanConfigShrink)) {
+      query["MultiLanConfig"] = request.multiLanConfigShrink;
+    }
+
+    if (!Util.isUnset(request.outputBarCode)) {
+      query["OutputBarCode"] = request.outputBarCode;
+    }
+
+    if (!Util.isUnset(request.outputCoordinate)) {
+      query["OutputCoordinate"] = request.outputCoordinate;
+    }
+
+    if (!Util.isUnset(request.outputFigure)) {
+      query["OutputFigure"] = request.outputFigure;
+    }
+
+    if (!Util.isUnset(request.outputKVExcel)) {
+      query["OutputKVExcel"] = request.outputKVExcel;
+    }
+
+    if (!Util.isUnset(request.outputOricoord)) {
+      query["OutputOricoord"] = request.outputOricoord;
+    }
+
+    if (!Util.isUnset(request.outputQrcode)) {
+      query["OutputQrcode"] = request.outputQrcode;
+    }
+
+    if (!Util.isUnset(request.outputStamp)) {
+      query["OutputStamp"] = request.outputStamp;
+    }
+
+    if (!Util.isUnset(request.pageNo)) {
+      query["PageNo"] = request.pageNo;
+    }
+
+    if (!Util.isUnset(request.type)) {
+      query["Type"] = request.type;
+    }
+
+    if (!Util.isUnset(request.url)) {
+      query["Url"] = request.url;
+    }
+
+    let req = new $OpenApi.OpenApiRequest({
+      query: OpenApiUtil.query(query),
+      body: request.body,
+      stream: tmpReq.body,
+    });
+    let params = new $OpenApi.Params({
+      action: "RecognizeAllText",
+      version: "2021-07-07",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $tea.cast<RecognizeAllTextResponse>(await this.callApi(params, req, runtime), new RecognizeAllTextResponse({}));
+  }
+
+  async recognizeAllText(request: RecognizeAllTextRequest): Promise<RecognizeAllTextResponse> {
+    let runtime = new $Util.RuntimeOptions({ });
+    return await this.recognizeAllTextWithOptions(request, runtime);
   }
 
   async recognizeBankAcceptanceWithOptions(request: RecognizeBankAcceptanceRequest, runtime: $Util.RuntimeOptions): Promise<RecognizeBankAcceptanceResponse> {
