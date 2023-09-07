@@ -147,6 +147,46 @@ export class TrafficPolicy extends $tea.Model {
   }
 }
 
+export class RulesValue extends $tea.Model {
+  status?: number;
+  rate?: number;
+  enable?: boolean;
+  tag?: string;
+  name?: string;
+  id?: number;
+  instanceNum?: number;
+  rules?: RulesValueRules;
+  static names(): { [key: string]: string } {
+    return {
+      status: 'Status',
+      rate: 'Rate',
+      enable: 'Enable',
+      tag: 'Tag',
+      name: 'Name',
+      id: 'Id',
+      instanceNum: 'InstanceNum',
+      rules: 'Rules',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      status: 'number',
+      rate: 'number',
+      enable: 'boolean',
+      tag: 'string',
+      name: 'string',
+      id: 'number',
+      instanceNum: 'number',
+      rules: RulesValueRules,
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
 export class DataValue extends $tea.Model {
   userId?: string;
   regionId?: string;
@@ -2027,7 +2067,7 @@ export class ApplyTagPoliciesRequest extends $tea.Model {
   namespace?: string;
   namespaceId?: string;
   region?: string;
-  rules?: string;
+  rules?: { [key: string]: RulesValue };
   static names(): { [key: string]: string } {
     return {
       acceptLanguage: 'AcceptLanguage',
@@ -2050,7 +2090,47 @@ export class ApplyTagPoliciesRequest extends $tea.Model {
       namespace: 'string',
       namespaceId: 'string',
       region: 'string',
-      rules: 'string',
+      rules: { 'type': 'map', 'keyType': 'string', 'valueType': RulesValue },
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class ApplyTagPoliciesShrinkRequest extends $tea.Model {
+  acceptLanguage?: string;
+  appId?: string;
+  appName?: string;
+  enable?: boolean;
+  namespace?: string;
+  namespaceId?: string;
+  region?: string;
+  rulesShrink?: string;
+  static names(): { [key: string]: string } {
+    return {
+      acceptLanguage: 'AcceptLanguage',
+      appId: 'AppId',
+      appName: 'AppName',
+      enable: 'Enable',
+      namespace: 'Namespace',
+      namespaceId: 'NamespaceId',
+      region: 'Region',
+      rulesShrink: 'Rules',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      acceptLanguage: 'string',
+      appId: 'string',
+      appName: 'string',
+      enable: 'boolean',
+      namespace: 'string',
+      namespaceId: 'string',
+      region: 'string',
+      rulesShrink: 'string',
     };
   }
 
@@ -6117,14 +6197,12 @@ export class GetApplicationListRequest extends $tea.Model {
 
 export class GetApplicationListResponseBody extends $tea.Model {
   data?: GetApplicationListResponseBodyData;
-  errorCode?: string;
   message?: string;
   requestId?: string;
   success?: boolean;
   static names(): { [key: string]: string } {
     return {
       data: 'Data',
-      errorCode: 'ErrorCode',
       message: 'Message',
       requestId: 'RequestId',
       success: 'Success',
@@ -6134,7 +6212,6 @@ export class GetApplicationListResponseBody extends $tea.Model {
   static types(): { [key: string]: any } {
     return {
       data: GetApplicationListResponseBodyData,
-      errorCode: 'string',
       message: 'string',
       requestId: 'string',
       success: 'boolean',
@@ -19981,6 +20058,209 @@ export class TrafficPolicyTlsSetting extends $tea.Model {
   }
 }
 
+export class RulesValueRulesSpringcloudRestItems extends $tea.Model {
+  datum?: string;
+  operator?: string;
+  nameList?: string[];
+  cond?: string;
+  divisor?: number;
+  remainder?: number;
+  rate?: number;
+  type?: string;
+  name?: string;
+  value?: any;
+  static names(): { [key: string]: string } {
+    return {
+      datum: 'datum',
+      operator: 'operator',
+      nameList: 'nameList',
+      cond: 'cond',
+      divisor: 'divisor',
+      remainder: 'remainder',
+      rate: 'rate',
+      type: 'type',
+      name: 'name',
+      value: 'value',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      datum: 'string',
+      operator: 'string',
+      nameList: { 'type': 'array', 'itemType': 'string' },
+      cond: 'string',
+      divisor: 'number',
+      remainder: 'number',
+      rate: 'number',
+      type: 'string',
+      name: 'string',
+      value: 'any',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class RulesValueRulesSpringcloud extends $tea.Model {
+  condition?: string;
+  restItems?: RulesValueRulesSpringcloudRestItems[];
+  triggerPolicy?: string;
+  enable?: boolean;
+  appId?: string;
+  priority?: number;
+  tags?: string[];
+  paths?: string[];
+  path?: string;
+  static names(): { [key: string]: string } {
+    return {
+      condition: 'condition',
+      restItems: 'restItems',
+      triggerPolicy: 'triggerPolicy',
+      enable: 'enable',
+      appId: 'appId',
+      priority: 'priority',
+      tags: 'tags',
+      paths: 'paths',
+      path: 'path',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      condition: 'string',
+      restItems: { 'type': 'array', 'itemType': RulesValueRulesSpringcloudRestItems },
+      triggerPolicy: 'string',
+      enable: 'boolean',
+      appId: 'string',
+      priority: 'number',
+      tags: { 'type': 'array', 'itemType': 'string' },
+      paths: { 'type': 'array', 'itemType': 'string' },
+      path: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class RulesValueRulesDubboArgumentItems extends $tea.Model {
+  operator?: string;
+  nameList?: string[];
+  datum?: string;
+  cond?: string;
+  divisor?: number;
+  remainder?: number;
+  rate?: number;
+  index?: number;
+  expr?: string;
+  value?: any;
+  static names(): { [key: string]: string } {
+    return {
+      operator: 'operator',
+      nameList: 'nameList',
+      datum: 'datum',
+      cond: 'cond',
+      divisor: 'divisor',
+      remainder: 'remainder',
+      rate: 'rate',
+      index: 'index',
+      expr: 'expr',
+      value: 'value',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      operator: 'string',
+      nameList: { 'type': 'array', 'itemType': 'string' },
+      datum: 'string',
+      cond: 'string',
+      divisor: 'number',
+      remainder: 'number',
+      rate: 'number',
+      index: 'number',
+      expr: 'string',
+      value: 'any',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class RulesValueRulesDubbo extends $tea.Model {
+  appId?: string;
+  tags?: string[];
+  triggerPolicy?: string;
+  serviceName?: string;
+  group?: string;
+  version?: string;
+  methodName?: string;
+  paramTypes?: string[];
+  condition?: string;
+  argumentItems?: RulesValueRulesDubboArgumentItems[];
+  static names(): { [key: string]: string } {
+    return {
+      appId: 'appId',
+      tags: 'tags',
+      triggerPolicy: 'triggerPolicy',
+      serviceName: 'serviceName',
+      group: 'group',
+      version: 'version',
+      methodName: 'methodName',
+      paramTypes: 'paramTypes',
+      condition: 'condition',
+      argumentItems: 'argumentItems',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      appId: 'string',
+      tags: { 'type': 'array', 'itemType': 'string' },
+      triggerPolicy: 'string',
+      serviceName: 'string',
+      group: 'string',
+      version: 'string',
+      methodName: 'string',
+      paramTypes: { 'type': 'array', 'itemType': 'string' },
+      condition: 'string',
+      argumentItems: { 'type': 'array', 'itemType': RulesValueRulesDubboArgumentItems },
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class RulesValueRules extends $tea.Model {
+  springcloud?: RulesValueRulesSpringcloud[];
+  dubbo?: RulesValueRulesDubbo[];
+  static names(): { [key: string]: string } {
+    return {
+      springcloud: 'springcloud',
+      dubbo: 'dubbo',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      springcloud: { 'type': 'array', 'itemType': RulesValueRulesSpringcloud },
+      dubbo: { 'type': 'array', 'itemType': RulesValueRulesDubbo },
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
 export class AddAuthResourceRequestAuthResourceHeaderList extends $tea.Model {
   headerKey?: string;
   headerMethod?: string;
@@ -21874,7 +22154,6 @@ export class GetApplicationListResponseBodyDataResult extends $tea.Model {
   regionId?: string;
   source?: string;
   status?: number;
-  tagCount?: number;
   userId?: string;
   static names(): { [key: string]: string } {
     return {
@@ -21887,7 +22166,6 @@ export class GetApplicationListResponseBodyDataResult extends $tea.Model {
       regionId: 'RegionId',
       source: 'Source',
       status: 'Status',
-      tagCount: 'TagCount',
       userId: 'UserId',
     };
   }
@@ -21903,7 +22181,6 @@ export class GetApplicationListResponseBodyDataResult extends $tea.Model {
       regionId: 'string',
       source: 'string',
       status: 'number',
-      tagCount: 'number',
       userId: 'string',
     };
   }
@@ -23331,12 +23608,10 @@ export class GetGatewayServiceDetailResponseBodyData extends $tea.Model {
 }
 
 export class GetGovernanceKubernetesClusterResponseBodyDataNamespaces extends $tea.Model {
-  labels?: { [key: string]: string };
   mseNamespace?: string;
   name?: string;
   static names(): { [key: string]: string } {
     return {
-      labels: 'Labels',
       mseNamespace: 'MseNamespace',
       name: 'Name',
     };
@@ -23344,7 +23619,6 @@ export class GetGovernanceKubernetesClusterResponseBodyDataNamespaces extends $t
 
   static types(): { [key: string]: any } {
     return {
-      labels: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
       mseNamespace: 'string',
       name: 'string',
     };
@@ -24452,28 +24726,225 @@ export class ListAnsServicesResponseBodyData extends $tea.Model {
   }
 }
 
-export class ListApplicationsWithTagRulesResponseBodyDataResultRouteRules extends $tea.Model {
-  carryData?: boolean;
+export class ListApplicationsWithTagRulesResponseBodyDataResultRouteRulesRulesDubboArgumentItems extends $tea.Model {
+  cond?: string;
+  datum?: string;
+  divisor?: number;
+  expr?: string;
+  index?: number;
+  nameList?: string[];
+  operator?: string;
+  rate?: number;
+  remainder?: number;
+  value?: string;
+  static names(): { [key: string]: string } {
+    return {
+      cond: 'cond',
+      datum: 'datum',
+      divisor: 'divisor',
+      expr: 'expr',
+      index: 'index',
+      nameList: 'nameList',
+      operator: 'operator',
+      rate: 'rate',
+      remainder: 'remainder',
+      value: 'value',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      cond: 'string',
+      datum: 'string',
+      divisor: 'number',
+      expr: 'string',
+      index: 'number',
+      nameList: { 'type': 'array', 'itemType': 'string' },
+      operator: 'string',
+      rate: 'number',
+      remainder: 'number',
+      value: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class ListApplicationsWithTagRulesResponseBodyDataResultRouteRulesRulesDubbo extends $tea.Model {
+  appId?: string;
+  argumentItems?: ListApplicationsWithTagRulesResponseBodyDataResultRouteRulesRulesDubboArgumentItems[];
+  condition?: string;
+  group?: string;
+  methodName?: string;
+  paramTypes?: string[];
+  serviceName?: string;
+  tags?: string[];
+  triggerPolicy?: string;
+  version?: string;
+  static names(): { [key: string]: string } {
+    return {
+      appId: 'appId',
+      argumentItems: 'argumentItems',
+      condition: 'condition',
+      group: 'group',
+      methodName: 'methodName',
+      paramTypes: 'paramTypes',
+      serviceName: 'serviceName',
+      tags: 'tags',
+      triggerPolicy: 'triggerPolicy',
+      version: 'version',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      appId: 'string',
+      argumentItems: { 'type': 'array', 'itemType': ListApplicationsWithTagRulesResponseBodyDataResultRouteRulesRulesDubboArgumentItems },
+      condition: 'string',
+      group: 'string',
+      methodName: 'string',
+      paramTypes: { 'type': 'array', 'itemType': 'string' },
+      serviceName: 'string',
+      tags: { 'type': 'array', 'itemType': 'string' },
+      triggerPolicy: 'string',
+      version: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class ListApplicationsWithTagRulesResponseBodyDataResultRouteRulesRulesSpringcloudRestItems extends $tea.Model {
+  cond?: string;
+  datum?: string;
+  divisor?: number;
+  name?: string;
+  nameList?: string[];
+  operator?: string;
+  rate?: number;
+  remainder?: number;
+  type?: string;
+  value?: string;
+  static names(): { [key: string]: string } {
+    return {
+      cond: 'cond',
+      datum: 'datum',
+      divisor: 'divisor',
+      name: 'name',
+      nameList: 'nameList',
+      operator: 'operator',
+      rate: 'rate',
+      remainder: 'remainder',
+      type: 'type',
+      value: 'value',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      cond: 'string',
+      datum: 'string',
+      divisor: 'number',
+      name: 'string',
+      nameList: { 'type': 'array', 'itemType': 'string' },
+      operator: 'string',
+      rate: 'number',
+      remainder: 'number',
+      type: 'string',
+      value: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class ListApplicationsWithTagRulesResponseBodyDataResultRouteRulesRulesSpringcloud extends $tea.Model {
+  appId?: string;
+  condition?: string;
   enable?: boolean;
-  gmtModified?: string;
+  path?: string;
+  paths?: string[];
+  priority?: number;
+  restItems?: ListApplicationsWithTagRulesResponseBodyDataResultRouteRulesRulesSpringcloudRestItems[];
+  tags?: string[];
+  triggerPolicy?: string;
+  static names(): { [key: string]: string } {
+    return {
+      appId: 'appId',
+      condition: 'condition',
+      enable: 'enable',
+      path: 'path',
+      paths: 'paths',
+      priority: 'priority',
+      restItems: 'restItems',
+      tags: 'tags',
+      triggerPolicy: 'triggerPolicy',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      appId: 'string',
+      condition: 'string',
+      enable: 'boolean',
+      path: 'string',
+      paths: { 'type': 'array', 'itemType': 'string' },
+      priority: 'number',
+      restItems: { 'type': 'array', 'itemType': ListApplicationsWithTagRulesResponseBodyDataResultRouteRulesRulesSpringcloudRestItems },
+      tags: { 'type': 'array', 'itemType': 'string' },
+      triggerPolicy: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class ListApplicationsWithTagRulesResponseBodyDataResultRouteRulesRules extends $tea.Model {
+  dubbo?: ListApplicationsWithTagRulesResponseBodyDataResultRouteRulesRulesDubbo[];
+  springcloud?: ListApplicationsWithTagRulesResponseBodyDataResultRouteRulesRulesSpringcloud[];
+  static names(): { [key: string]: string } {
+    return {
+      dubbo: 'dubbo',
+      springcloud: 'springcloud',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      dubbo: { 'type': 'array', 'itemType': ListApplicationsWithTagRulesResponseBodyDataResultRouteRulesRulesDubbo },
+      springcloud: { 'type': 'array', 'itemType': ListApplicationsWithTagRulesResponseBodyDataResultRouteRulesRulesSpringcloud },
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class ListApplicationsWithTagRulesResponseBodyDataResultRouteRules extends $tea.Model {
+  enable?: boolean;
   id?: number;
   instanceNum?: number;
   name?: string;
   rate?: number;
-  remove?: boolean;
-  rules?: string;
+  rules?: ListApplicationsWithTagRulesResponseBodyDataResultRouteRulesRules;
   status?: number;
   tag?: string;
   static names(): { [key: string]: string } {
     return {
-      carryData: 'CarryData',
       enable: 'Enable',
-      gmtModified: 'GmtModified',
       id: 'Id',
       instanceNum: 'InstanceNum',
       name: 'Name',
       rate: 'Rate',
-      remove: 'Remove',
       rules: 'Rules',
       status: 'Status',
       tag: 'Tag',
@@ -24482,15 +24953,12 @@ export class ListApplicationsWithTagRulesResponseBodyDataResultRouteRules extend
 
   static types(): { [key: string]: any } {
     return {
-      carryData: 'boolean',
       enable: 'boolean',
-      gmtModified: 'string',
       id: 'number',
       instanceNum: 'number',
       name: 'string',
       rate: 'number',
-      remove: 'boolean',
-      rules: 'string',
+      rules: ListApplicationsWithTagRulesResponseBodyDataResultRouteRulesRules,
       status: 'number',
       tag: 'string',
     };
@@ -31005,8 +31473,14 @@ export default class Client extends OpenApi {
     return await this.applyGatewayRouteWithOptions(request, runtime);
   }
 
-  async applyTagPoliciesWithOptions(request: ApplyTagPoliciesRequest, runtime: $Util.RuntimeOptions): Promise<ApplyTagPoliciesResponse> {
-    Util.validateModel(request);
+  async applyTagPoliciesWithOptions(tmpReq: ApplyTagPoliciesRequest, runtime: $Util.RuntimeOptions): Promise<ApplyTagPoliciesResponse> {
+    Util.validateModel(tmpReq);
+    let request = new ApplyTagPoliciesShrinkRequest({ });
+    OpenApiUtil.convert(tmpReq, request);
+    if (!Util.isUnset(tmpReq.rules)) {
+      request.rulesShrink = OpenApiUtil.arrayToStringWithSpecifiedStyle(tmpReq.rules, "Rules", "json");
+    }
+
     let query = { };
     if (!Util.isUnset(request.acceptLanguage)) {
       query["AcceptLanguage"] = request.acceptLanguage;
@@ -31036,8 +31510,8 @@ export default class Client extends OpenApi {
       query["Region"] = request.region;
     }
 
-    if (!Util.isUnset(request.rules)) {
-      query["Rules"] = request.rules;
+    if (!Util.isUnset(request.rulesShrink)) {
+      query["Rules"] = request.rulesShrink;
     }
 
     let req = new $OpenApi.OpenApiRequest({
