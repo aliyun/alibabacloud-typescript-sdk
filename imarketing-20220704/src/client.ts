@@ -519,6 +519,65 @@ export class DeleteCreativeInfoResponse extends $tea.Model {
   }
 }
 
+export class GetAdvertisingForE2ResponseBody extends $tea.Model {
+  errorCode?: string;
+  errorMsg?: string;
+  header?: GetAdvertisingForE2ResponseBodyHeader;
+  requestId?: string;
+  result?: GetAdvertisingForE2ResponseBodyResult;
+  success?: boolean;
+  static names(): { [key: string]: string } {
+    return {
+      errorCode: 'ErrorCode',
+      errorMsg: 'ErrorMsg',
+      header: 'Header',
+      requestId: 'RequestId',
+      result: 'Result',
+      success: 'Success',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      errorCode: 'string',
+      errorMsg: 'string',
+      header: GetAdvertisingForE2ResponseBodyHeader,
+      requestId: 'string',
+      result: GetAdvertisingForE2ResponseBodyResult,
+      success: 'boolean',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class GetAdvertisingForE2Response extends $tea.Model {
+  headers: { [key: string]: string };
+  statusCode: number;
+  body: GetAdvertisingForE2ResponseBody;
+  static names(): { [key: string]: string } {
+    return {
+      headers: 'headers',
+      statusCode: 'statusCode',
+      body: 'body',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
+      body: GetAdvertisingForE2ResponseBody,
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
 export class GetBrandPageRequest extends $tea.Model {
   accountNo?: string;
   mainId?: number;
@@ -2449,6 +2508,62 @@ export class ConfirmSampleShippedResponseBodyResult extends $tea.Model {
     return {
       requestId: 'string',
       success: 'boolean',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class GetAdvertisingForE2ResponseBodyHeader extends $tea.Model {
+  costTime?: number;
+  innerErrorCode?: string;
+  innerErrorMsg?: string;
+  rpcId?: string;
+  traceId?: string;
+  version?: string;
+  static names(): { [key: string]: string } {
+    return {
+      costTime: 'CostTime',
+      innerErrorCode: 'InnerErrorCode',
+      innerErrorMsg: 'InnerErrorMsg',
+      rpcId: 'RpcId',
+      traceId: 'TraceId',
+      version: 'Version',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      costTime: 'number',
+      innerErrorCode: 'string',
+      innerErrorMsg: 'string',
+      rpcId: 'string',
+      traceId: 'string',
+      version: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class GetAdvertisingForE2ResponseBodyResult extends $tea.Model {
+  imgUrl?: string;
+  targetUrl?: string;
+  static names(): { [key: string]: string } {
+    return {
+      imgUrl: 'ImgUrl',
+      targetUrl: 'TargetUrl',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      imgUrl: 'string',
+      targetUrl: 'string',
     };
   }
 
@@ -4584,6 +4699,27 @@ export default class Client extends OpenApi {
   async deleteCreativeInfo(request: DeleteCreativeInfoRequest): Promise<DeleteCreativeInfoResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.deleteCreativeInfoWithOptions(request, runtime);
+  }
+
+  async getAdvertisingForE2WithOptions(runtime: $Util.RuntimeOptions): Promise<GetAdvertisingForE2Response> {
+    let req = new $OpenApi.OpenApiRequest({ });
+    let params = new $OpenApi.Params({
+      action: "GetAdvertisingForE2",
+      version: "2022-07-04",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $tea.cast<GetAdvertisingForE2Response>(await this.callApi(params, req, runtime), new GetAdvertisingForE2Response({}));
+  }
+
+  async getAdvertisingForE2(): Promise<GetAdvertisingForE2Response> {
+    let runtime = new $Util.RuntimeOptions({ });
+    return await this.getAdvertisingForE2WithOptions(runtime);
   }
 
   async getBrandPageWithOptions(request: GetBrandPageRequest, runtime: $Util.RuntimeOptions): Promise<GetBrandPageResponse> {
