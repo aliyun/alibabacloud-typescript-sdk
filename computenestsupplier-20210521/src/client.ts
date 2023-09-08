@@ -95,7 +95,9 @@ export class CreateArtifactRequest extends $tea.Model {
   artifactType?: string;
   description?: string;
   name?: string;
+  resourceGroupId?: string;
   supportRegionIds?: string[];
+  tag?: CreateArtifactRequestTag[];
   versionName?: string;
   static names(): { [key: string]: string } {
     return {
@@ -104,7 +106,9 @@ export class CreateArtifactRequest extends $tea.Model {
       artifactType: 'ArtifactType',
       description: 'Description',
       name: 'Name',
+      resourceGroupId: 'ResourceGroupId',
       supportRegionIds: 'SupportRegionIds',
+      tag: 'Tag',
       versionName: 'VersionName',
     };
   }
@@ -116,7 +120,9 @@ export class CreateArtifactRequest extends $tea.Model {
       artifactType: 'string',
       description: 'string',
       name: 'string',
+      resourceGroupId: 'string',
       supportRegionIds: { 'type': 'array', 'itemType': 'string' },
+      tag: { 'type': 'array', 'itemType': CreateArtifactRequestTag },
       versionName: 'string',
     };
   }
@@ -132,7 +138,9 @@ export class CreateArtifactShrinkRequest extends $tea.Model {
   artifactType?: string;
   description?: string;
   name?: string;
+  resourceGroupId?: string;
   supportRegionIds?: string[];
+  tag?: CreateArtifactShrinkRequestTag[];
   versionName?: string;
   static names(): { [key: string]: string } {
     return {
@@ -141,7 +149,9 @@ export class CreateArtifactShrinkRequest extends $tea.Model {
       artifactType: 'ArtifactType',
       description: 'Description',
       name: 'Name',
+      resourceGroupId: 'ResourceGroupId',
       supportRegionIds: 'SupportRegionIds',
+      tag: 'Tag',
       versionName: 'VersionName',
     };
   }
@@ -153,7 +163,9 @@ export class CreateArtifactShrinkRequest extends $tea.Model {
       artifactType: 'string',
       description: 'string',
       name: 'string',
+      resourceGroupId: 'string',
       supportRegionIds: { 'type': 'array', 'itemType': 'string' },
+      tag: { 'type': 'array', 'itemType': CreateArtifactShrinkRequestTag },
       versionName: 'string',
     };
   }
@@ -847,8 +859,10 @@ export class GetArtifactResponseBody extends $tea.Model {
   name?: string;
   progress?: string;
   requestId?: string;
+  resourceGroupId?: string;
   status?: string;
   supportRegionIds?: string;
+  tags?: GetArtifactResponseBodyTags[];
   versionName?: string;
   static names(): { [key: string]: string } {
     return {
@@ -862,8 +876,10 @@ export class GetArtifactResponseBody extends $tea.Model {
       name: 'Name',
       progress: 'Progress',
       requestId: 'RequestId',
+      resourceGroupId: 'ResourceGroupId',
       status: 'Status',
       supportRegionIds: 'SupportRegionIds',
+      tags: 'Tags',
       versionName: 'VersionName',
     };
   }
@@ -880,8 +896,10 @@ export class GetArtifactResponseBody extends $tea.Model {
       name: 'string',
       progress: 'string',
       requestId: 'string',
+      resourceGroupId: 'string',
       status: 'string',
       supportRegionIds: 'string',
+      tags: { 'type': 'array', 'itemType': GetArtifactResponseBodyTags },
       versionName: 'string',
     };
   }
@@ -1821,11 +1839,15 @@ export class ListArtifactsRequest extends $tea.Model {
   filter?: ListArtifactsRequestFilter[];
   maxResults?: number;
   nextToken?: string;
+  resourceGroupId?: string;
+  tag?: ListArtifactsRequestTag[];
   static names(): { [key: string]: string } {
     return {
       filter: 'Filter',
       maxResults: 'MaxResults',
       nextToken: 'NextToken',
+      resourceGroupId: 'ResourceGroupId',
+      tag: 'Tag',
     };
   }
 
@@ -1834,6 +1856,8 @@ export class ListArtifactsRequest extends $tea.Model {
       filter: { 'type': 'array', 'itemType': ListArtifactsRequestFilter },
       maxResults: 'number',
       nextToken: 'string',
+      resourceGroupId: 'string',
+      tag: { 'type': 'array', 'itemType': ListArtifactsRequestTag },
     };
   }
 
@@ -2780,6 +2804,50 @@ export class CreateArtifactRequestArtifactProperty extends $tea.Model {
   }
 }
 
+export class CreateArtifactRequestTag extends $tea.Model {
+  key?: string;
+  value?: string;
+  static names(): { [key: string]: string } {
+    return {
+      key: 'Key',
+      value: 'Value',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      key: 'string',
+      value: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class CreateArtifactShrinkRequestTag extends $tea.Model {
+  key?: string;
+  value?: string;
+  static names(): { [key: string]: string } {
+    return {
+      key: 'Key',
+      value: 'Value',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      key: 'string',
+      value: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
 export class CreateServiceRequestServiceInfo extends $tea.Model {
   image?: string;
   locale?: string;
@@ -2856,6 +2924,28 @@ export class CreateServiceInstanceRequestTag extends $tea.Model {
 }
 
 export class CreateServiceInstanceShrinkRequestTag extends $tea.Model {
+  key?: string;
+  value?: string;
+  static names(): { [key: string]: string } {
+    return {
+      key: 'Key',
+      value: 'Value',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      key: 'string',
+      value: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class GetArtifactResponseBodyTags extends $tea.Model {
   key?: string;
   value?: string;
   static names(): { [key: string]: string } {
@@ -3475,6 +3565,50 @@ export class ListArtifactsRequestFilter extends $tea.Model {
   }
 }
 
+export class ListArtifactsRequestTag extends $tea.Model {
+  key?: string;
+  value?: string;
+  static names(): { [key: string]: string } {
+    return {
+      key: 'Key',
+      value: 'Value',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      key: 'string',
+      value: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class ListArtifactsResponseBodyArtifactsTags extends $tea.Model {
+  key?: string;
+  value?: string;
+  static names(): { [key: string]: string } {
+    return {
+      key: 'Key',
+      value: 'Value',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      key: 'string',
+      value: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
 export class ListArtifactsResponseBodyArtifacts extends $tea.Model {
   artifactId?: string;
   artifactType?: string;
@@ -3482,7 +3616,9 @@ export class ListArtifactsResponseBodyArtifacts extends $tea.Model {
   gmtModified?: string;
   maxVersion?: string;
   name?: string;
+  resourceGroupId?: string;
   status?: string;
+  tags?: ListArtifactsResponseBodyArtifactsTags[];
   static names(): { [key: string]: string } {
     return {
       artifactId: 'ArtifactId',
@@ -3491,7 +3627,9 @@ export class ListArtifactsResponseBodyArtifacts extends $tea.Model {
       gmtModified: 'GmtModified',
       maxVersion: 'MaxVersion',
       name: 'Name',
+      resourceGroupId: 'ResourceGroupId',
       status: 'Status',
+      tags: 'Tags',
     };
   }
 
@@ -3503,7 +3641,9 @@ export class ListArtifactsResponseBodyArtifacts extends $tea.Model {
       gmtModified: 'string',
       maxVersion: 'string',
       name: 'string',
+      resourceGroupId: 'string',
       status: 'string',
+      tags: { 'type': 'array', 'itemType': ListArtifactsResponseBodyArtifactsTags },
     };
   }
 
@@ -4210,8 +4350,16 @@ export default class Client extends OpenApi {
       query["Name"] = request.name;
     }
 
+    if (!Util.isUnset(request.resourceGroupId)) {
+      query["ResourceGroupId"] = request.resourceGroupId;
+    }
+
     if (!Util.isUnset(request.supportRegionIds)) {
       query["SupportRegionIds"] = request.supportRegionIds;
+    }
+
+    if (!Util.isUnset(request.tag)) {
+      query["Tag"] = request.tag;
     }
 
     if (!Util.isUnset(request.versionName)) {
@@ -4964,6 +5112,14 @@ export default class Client extends OpenApi {
 
     if (!Util.isUnset(request.nextToken)) {
       query["NextToken"] = request.nextToken;
+    }
+
+    if (!Util.isUnset(request.resourceGroupId)) {
+      query["ResourceGroupId"] = request.resourceGroupId;
+    }
+
+    if (!Util.isUnset(request.tag)) {
+      query["Tag"] = request.tag;
     }
 
     let req = new $OpenApi.OpenApiRequest({
