@@ -707,6 +707,81 @@ export class CertificatePublicKeyVerifyResponse extends $tea.Model {
   }
 }
 
+export class ConnectKmsInstanceRequest extends $tea.Model {
+  KMProvider?: string;
+  kmsInstanceId?: string;
+  vSwitchIds?: string;
+  vpcId?: string;
+  zoneIds?: string;
+  static names(): { [key: string]: string } {
+    return {
+      KMProvider: 'KMProvider',
+      kmsInstanceId: 'KmsInstanceId',
+      vSwitchIds: 'VSwitchIds',
+      vpcId: 'VpcId',
+      zoneIds: 'ZoneIds',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      KMProvider: 'string',
+      kmsInstanceId: 'string',
+      vSwitchIds: 'string',
+      vpcId: 'string',
+      zoneIds: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class ConnectKmsInstanceResponseBody extends $tea.Model {
+  requestId?: string;
+  static names(): { [key: string]: string } {
+    return {
+      requestId: 'RequestId',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      requestId: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class ConnectKmsInstanceResponse extends $tea.Model {
+  headers: { [key: string]: string };
+  statusCode: number;
+  body: ConnectKmsInstanceResponseBody;
+  static names(): { [key: string]: string } {
+    return {
+      headers: 'headers',
+      statusCode: 'statusCode',
+      body: 'body',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
+      body: ConnectKmsInstanceResponseBody,
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
 export class CreateAliasRequest extends $tea.Model {
   aliasName?: string;
   keyId?: string;
@@ -765,6 +840,93 @@ export class CreateAliasResponse extends $tea.Model {
       headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
       statusCode: 'number',
       body: CreateAliasResponseBody,
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class CreateApplicationAccessPointRequest extends $tea.Model {
+  authenticationMethod?: string;
+  description?: string;
+  name?: string;
+  policies?: string;
+  static names(): { [key: string]: string } {
+    return {
+      authenticationMethod: 'AuthenticationMethod',
+      description: 'Description',
+      name: 'Name',
+      policies: 'Policies',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      authenticationMethod: 'string',
+      description: 'string',
+      name: 'string',
+      policies: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class CreateApplicationAccessPointResponseBody extends $tea.Model {
+  arn?: string;
+  authenticationMethod?: string;
+  description?: string;
+  name?: string;
+  policies?: string;
+  requestId?: string;
+  static names(): { [key: string]: string } {
+    return {
+      arn: 'Arn',
+      authenticationMethod: 'AuthenticationMethod',
+      description: 'Description',
+      name: 'Name',
+      policies: 'Policies',
+      requestId: 'RequestId',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      arn: 'string',
+      authenticationMethod: 'string',
+      description: 'string',
+      name: 'string',
+      policies: 'string',
+      requestId: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class CreateApplicationAccessPointResponse extends $tea.Model {
+  headers: { [key: string]: string };
+  statusCode: number;
+  body: CreateApplicationAccessPointResponseBody;
+  static names(): { [key: string]: string } {
+    return {
+      headers: 'headers',
+      statusCode: 'statusCode',
+      body: 'body',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
+      body: CreateApplicationAccessPointResponseBody,
     };
   }
 
@@ -874,6 +1036,93 @@ export class CreateCertificateResponse extends $tea.Model {
       headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
       statusCode: 'number',
       body: CreateCertificateResponseBody,
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class CreateClientKeyRequest extends $tea.Model {
+  aapName?: string;
+  notAfter?: string;
+  notBefore?: string;
+  password?: string;
+  static names(): { [key: string]: string } {
+    return {
+      aapName: 'AapName',
+      notAfter: 'NotAfter',
+      notBefore: 'NotBefore',
+      password: 'Password',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      aapName: 'string',
+      notAfter: 'string',
+      notBefore: 'string',
+      password: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class CreateClientKeyResponseBody extends $tea.Model {
+  clientKeyId?: string;
+  keyAlgorithm?: string;
+  notAfter?: string;
+  notBefore?: string;
+  privateKeyData?: string;
+  requestId?: string;
+  static names(): { [key: string]: string } {
+    return {
+      clientKeyId: 'ClientKeyId',
+      keyAlgorithm: 'KeyAlgorithm',
+      notAfter: 'NotAfter',
+      notBefore: 'NotBefore',
+      privateKeyData: 'PrivateKeyData',
+      requestId: 'RequestId',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      clientKeyId: 'string',
+      keyAlgorithm: 'string',
+      notAfter: 'string',
+      notBefore: 'string',
+      privateKeyData: 'string',
+      requestId: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class CreateClientKeyResponse extends $tea.Model {
+  headers: { [key: string]: string };
+  statusCode: number;
+  body: CreateClientKeyResponseBody;
+  static names(): { [key: string]: string } {
+    return {
+      headers: 'headers',
+      statusCode: 'statusCode',
+      body: 'body',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
+      body: CreateClientKeyResponseBody,
     };
   }
 
@@ -1030,6 +1279,192 @@ export class CreateKeyVersionResponse extends $tea.Model {
       headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
       statusCode: 'number',
       body: CreateKeyVersionResponseBody,
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class CreateNetworkRuleRequest extends $tea.Model {
+  description?: string;
+  name?: string;
+  sourcePrivateIp?: string;
+  type?: string;
+  static names(): { [key: string]: string } {
+    return {
+      description: 'Description',
+      name: 'Name',
+      sourcePrivateIp: 'SourcePrivateIp',
+      type: 'Type',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      description: 'string',
+      name: 'string',
+      sourcePrivateIp: 'string',
+      type: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class CreateNetworkRuleResponseBody extends $tea.Model {
+  arn?: string;
+  description?: string;
+  name?: string;
+  requestId?: string;
+  sourcePrivateIp?: string;
+  type?: string;
+  static names(): { [key: string]: string } {
+    return {
+      arn: 'Arn',
+      description: 'Description',
+      name: 'Name',
+      requestId: 'RequestId',
+      sourcePrivateIp: 'SourcePrivateIp',
+      type: 'Type',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      arn: 'string',
+      description: 'string',
+      name: 'string',
+      requestId: 'string',
+      sourcePrivateIp: 'string',
+      type: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class CreateNetworkRuleResponse extends $tea.Model {
+  headers: { [key: string]: string };
+  statusCode: number;
+  body: CreateNetworkRuleResponseBody;
+  static names(): { [key: string]: string } {
+    return {
+      headers: 'headers',
+      statusCode: 'statusCode',
+      body: 'body',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
+      body: CreateNetworkRuleResponseBody,
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class CreatePolicyRequest extends $tea.Model {
+  accessControlRules?: string;
+  description?: string;
+  kmsInstance?: string;
+  name?: string;
+  permissions?: string;
+  resources?: string;
+  static names(): { [key: string]: string } {
+    return {
+      accessControlRules: 'AccessControlRules',
+      description: 'Description',
+      kmsInstance: 'KmsInstance',
+      name: 'Name',
+      permissions: 'Permissions',
+      resources: 'Resources',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      accessControlRules: 'string',
+      description: 'string',
+      kmsInstance: 'string',
+      name: 'string',
+      permissions: 'string',
+      resources: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class CreatePolicyResponseBody extends $tea.Model {
+  accessControlRules?: string;
+  arn?: string;
+  description?: string;
+  kmsInstance?: string;
+  name?: string;
+  permissions?: string;
+  requestId?: string;
+  resources?: string;
+  static names(): { [key: string]: string } {
+    return {
+      accessControlRules: 'AccessControlRules',
+      arn: 'Arn',
+      description: 'Description',
+      kmsInstance: 'KmsInstance',
+      name: 'Name',
+      permissions: 'Permissions',
+      requestId: 'RequestId',
+      resources: 'Resources',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      accessControlRules: 'string',
+      arn: 'string',
+      description: 'string',
+      kmsInstance: 'string',
+      name: 'string',
+      permissions: 'string',
+      requestId: 'string',
+      resources: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class CreatePolicyResponse extends $tea.Model {
+  headers: { [key: string]: string };
+  statusCode: number;
+  body: CreatePolicyResponseBody;
+  static names(): { [key: string]: string } {
+    return {
+      headers: 'headers',
+      statusCode: 'statusCode',
+      body: 'body',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
+      body: CreatePolicyResponseBody,
     };
   }
 
@@ -1373,6 +1808,69 @@ export class DeleteAliasResponse extends $tea.Model {
   }
 }
 
+export class DeleteApplicationAccessPointRequest extends $tea.Model {
+  name?: string;
+  static names(): { [key: string]: string } {
+    return {
+      name: 'Name',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      name: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class DeleteApplicationAccessPointResponseBody extends $tea.Model {
+  requestId?: string;
+  static names(): { [key: string]: string } {
+    return {
+      requestId: 'RequestId',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      requestId: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class DeleteApplicationAccessPointResponse extends $tea.Model {
+  headers: { [key: string]: string };
+  statusCode: number;
+  body: DeleteApplicationAccessPointResponseBody;
+  static names(): { [key: string]: string } {
+    return {
+      headers: 'headers',
+      statusCode: 'statusCode',
+      body: 'body',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
+      body: DeleteApplicationAccessPointResponseBody,
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
 export class DeleteCertificateRequest extends $tea.Model {
   certificateId?: string;
   static names(): { [key: string]: string } {
@@ -1436,6 +1934,69 @@ export class DeleteCertificateResponse extends $tea.Model {
   }
 }
 
+export class DeleteClientKeyRequest extends $tea.Model {
+  clientKeyId?: string;
+  static names(): { [key: string]: string } {
+    return {
+      clientKeyId: 'ClientKeyId',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      clientKeyId: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class DeleteClientKeyResponseBody extends $tea.Model {
+  requestId?: string;
+  static names(): { [key: string]: string } {
+    return {
+      requestId: 'RequestId',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      requestId: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class DeleteClientKeyResponse extends $tea.Model {
+  headers: { [key: string]: string };
+  statusCode: number;
+  body: DeleteClientKeyResponseBody;
+  static names(): { [key: string]: string } {
+    return {
+      headers: 'headers',
+      statusCode: 'statusCode',
+      body: 'body',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
+      body: DeleteClientKeyResponseBody,
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
 export class DeleteKeyMaterialRequest extends $tea.Model {
   keyId?: string;
   static names(): { [key: string]: string } {
@@ -1491,6 +2052,132 @@ export class DeleteKeyMaterialResponse extends $tea.Model {
       headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
       statusCode: 'number',
       body: DeleteKeyMaterialResponseBody,
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class DeleteNetworkRuleRequest extends $tea.Model {
+  name?: string;
+  static names(): { [key: string]: string } {
+    return {
+      name: 'Name',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      name: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class DeleteNetworkRuleResponseBody extends $tea.Model {
+  requestId?: string;
+  static names(): { [key: string]: string } {
+    return {
+      requestId: 'RequestId',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      requestId: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class DeleteNetworkRuleResponse extends $tea.Model {
+  headers: { [key: string]: string };
+  statusCode: number;
+  body: DeleteNetworkRuleResponseBody;
+  static names(): { [key: string]: string } {
+    return {
+      headers: 'headers',
+      statusCode: 'statusCode',
+      body: 'body',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
+      body: DeleteNetworkRuleResponseBody,
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class DeletePolicyRequest extends $tea.Model {
+  name?: string;
+  static names(): { [key: string]: string } {
+    return {
+      name: 'Name',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      name: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class DeletePolicyResponseBody extends $tea.Model {
+  requestId?: string;
+  static names(): { [key: string]: string } {
+    return {
+      requestId: 'RequestId',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      requestId: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class DeletePolicyResponse extends $tea.Model {
+  headers: { [key: string]: string };
+  statusCode: number;
+  body: DeletePolicyResponseBody;
+  static names(): { [key: string]: string } {
+    return {
+      headers: 'headers',
+      statusCode: 'statusCode',
+      body: 'body',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
+      body: DeletePolicyResponseBody,
     };
   }
 
@@ -1613,6 +2300,84 @@ export class DescribeAccountKmsStatusResponse extends $tea.Model {
       headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
       statusCode: 'number',
       body: DescribeAccountKmsStatusResponseBody,
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class DescribeApplicationAccessPointRequest extends $tea.Model {
+  name?: string;
+  static names(): { [key: string]: string } {
+    return {
+      name: 'Name',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      name: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class DescribeApplicationAccessPointResponseBody extends $tea.Model {
+  arn?: string;
+  authenticationMethod?: string;
+  description?: string;
+  name?: string;
+  policies?: string;
+  requestId?: string;
+  static names(): { [key: string]: string } {
+    return {
+      arn: 'Arn',
+      authenticationMethod: 'AuthenticationMethod',
+      description: 'Description',
+      name: 'Name',
+      policies: 'Policies',
+      requestId: 'RequestId',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      arn: 'string',
+      authenticationMethod: 'string',
+      description: 'string',
+      name: 'string',
+      policies: 'string',
+      requestId: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class DescribeApplicationAccessPointResponse extends $tea.Model {
+  headers: { [key: string]: string };
+  statusCode: number;
+  body: DescribeApplicationAccessPointResponseBody;
+  static names(): { [key: string]: string } {
+    return {
+      headers: 'headers',
+      statusCode: 'statusCode',
+      body: 'body',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
+      body: DescribeApplicationAccessPointResponseBody,
     };
   }
 
@@ -1862,6 +2627,165 @@ export class DescribeKeyVersionResponse extends $tea.Model {
       headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
       statusCode: 'number',
       body: DescribeKeyVersionResponseBody,
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class DescribeNetworkRuleRequest extends $tea.Model {
+  name?: string;
+  static names(): { [key: string]: string } {
+    return {
+      name: 'Name',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      name: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class DescribeNetworkRuleResponseBody extends $tea.Model {
+  arn?: string;
+  description?: string;
+  requestId?: string;
+  sourcePrivateIp?: string;
+  type?: string;
+  static names(): { [key: string]: string } {
+    return {
+      arn: 'Arn',
+      description: 'Description',
+      requestId: 'RequestId',
+      sourcePrivateIp: 'SourcePrivateIp',
+      type: 'Type',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      arn: 'string',
+      description: 'string',
+      requestId: 'string',
+      sourcePrivateIp: 'string',
+      type: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class DescribeNetworkRuleResponse extends $tea.Model {
+  headers: { [key: string]: string };
+  statusCode: number;
+  body: DescribeNetworkRuleResponseBody;
+  static names(): { [key: string]: string } {
+    return {
+      headers: 'headers',
+      statusCode: 'statusCode',
+      body: 'body',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
+      body: DescribeNetworkRuleResponseBody,
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class DescribePolicyRequest extends $tea.Model {
+  name?: string;
+  static names(): { [key: string]: string } {
+    return {
+      name: 'Name',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      name: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class DescribePolicyResponseBody extends $tea.Model {
+  accessControlRules?: string;
+  arn?: string;
+  description?: string;
+  kmsInstance?: string;
+  name?: string;
+  permissions?: string[];
+  requestId?: string;
+  resources?: string[];
+  static names(): { [key: string]: string } {
+    return {
+      accessControlRules: 'AccessControlRules',
+      arn: 'Arn',
+      description: 'Description',
+      kmsInstance: 'KmsInstance',
+      name: 'Name',
+      permissions: 'Permissions',
+      requestId: 'RequestId',
+      resources: 'Resources',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      accessControlRules: 'string',
+      arn: 'string',
+      description: 'string',
+      kmsInstance: 'string',
+      name: 'string',
+      permissions: { 'type': 'array', 'itemType': 'string' },
+      requestId: 'string',
+      resources: { 'type': 'array', 'itemType': 'string' },
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class DescribePolicyResponse extends $tea.Model {
+  headers: { [key: string]: string };
+  statusCode: number;
+  body: DescribePolicyResponseBody;
+  static names(): { [key: string]: string } {
+    return {
+      headers: 'headers',
+      statusCode: 'statusCode',
+      body: 'body',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
+      body: DescribePolicyResponseBody,
     };
   }
 
@@ -2798,6 +3722,159 @@ export class GetCertificateResponse extends $tea.Model {
   }
 }
 
+export class GetClientKeyRequest extends $tea.Model {
+  clientKeyId?: string;
+  static names(): { [key: string]: string } {
+    return {
+      clientKeyId: 'ClientKeyId',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      clientKeyId: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class GetClientKeyResponseBody extends $tea.Model {
+  aapName?: string;
+  clientKeyId?: string;
+  createTime?: string;
+  keyAlgorithm?: string;
+  keyOrigin?: string;
+  notAfter?: string;
+  notBefore?: string;
+  publicKeyData?: string;
+  requestId?: string;
+  static names(): { [key: string]: string } {
+    return {
+      aapName: 'AapName',
+      clientKeyId: 'ClientKeyId',
+      createTime: 'CreateTime',
+      keyAlgorithm: 'KeyAlgorithm',
+      keyOrigin: 'KeyOrigin',
+      notAfter: 'NotAfter',
+      notBefore: 'NotBefore',
+      publicKeyData: 'PublicKeyData',
+      requestId: 'RequestId',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      aapName: 'string',
+      clientKeyId: 'string',
+      createTime: 'string',
+      keyAlgorithm: 'string',
+      keyOrigin: 'string',
+      notAfter: 'string',
+      notBefore: 'string',
+      publicKeyData: 'string',
+      requestId: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class GetClientKeyResponse extends $tea.Model {
+  headers: { [key: string]: string };
+  statusCode: number;
+  body: GetClientKeyResponseBody;
+  static names(): { [key: string]: string } {
+    return {
+      headers: 'headers',
+      statusCode: 'statusCode',
+      body: 'body',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
+      body: GetClientKeyResponseBody,
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class GetKmsInstanceRequest extends $tea.Model {
+  kmsInstanceId?: string;
+  static names(): { [key: string]: string } {
+    return {
+      kmsInstanceId: 'KmsInstanceId',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      kmsInstanceId: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class GetKmsInstanceResponseBody extends $tea.Model {
+  kmsInstance?: GetKmsInstanceResponseBodyKmsInstance;
+  requestId?: string;
+  static names(): { [key: string]: string } {
+    return {
+      kmsInstance: 'KmsInstance',
+      requestId: 'RequestId',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      kmsInstance: GetKmsInstanceResponseBodyKmsInstance,
+      requestId: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class GetKmsInstanceResponse extends $tea.Model {
+  headers: { [key: string]: string };
+  statusCode: number;
+  body: GetKmsInstanceResponseBody;
+  static names(): { [key: string]: string } {
+    return {
+      headers: 'headers',
+      statusCode: 'statusCode',
+      body: 'body',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
+      body: GetKmsInstanceResponseBody,
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
 export class GetParametersForImportRequest extends $tea.Model {
   keyId?: string;
   wrappingAlgorithm?: string;
@@ -3377,6 +4454,150 @@ export class ListAliasesByKeyIdResponse extends $tea.Model {
   }
 }
 
+export class ListApplicationAccessPointsRequest extends $tea.Model {
+  pageNumber?: number;
+  pageSize?: number;
+  static names(): { [key: string]: string } {
+    return {
+      pageNumber: 'PageNumber',
+      pageSize: 'PageSize',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      pageNumber: 'number',
+      pageSize: 'number',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class ListApplicationAccessPointsResponseBody extends $tea.Model {
+  applicationAccessPoints?: ListApplicationAccessPointsResponseBodyApplicationAccessPoints;
+  pageNumber?: number;
+  pageSize?: number;
+  requestId?: string;
+  totalCount?: number;
+  static names(): { [key: string]: string } {
+    return {
+      applicationAccessPoints: 'ApplicationAccessPoints',
+      pageNumber: 'PageNumber',
+      pageSize: 'PageSize',
+      requestId: 'RequestId',
+      totalCount: 'TotalCount',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      applicationAccessPoints: ListApplicationAccessPointsResponseBodyApplicationAccessPoints,
+      pageNumber: 'number',
+      pageSize: 'number',
+      requestId: 'string',
+      totalCount: 'number',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class ListApplicationAccessPointsResponse extends $tea.Model {
+  headers: { [key: string]: string };
+  statusCode: number;
+  body: ListApplicationAccessPointsResponseBody;
+  static names(): { [key: string]: string } {
+    return {
+      headers: 'headers',
+      statusCode: 'statusCode',
+      body: 'body',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
+      body: ListApplicationAccessPointsResponseBody,
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class ListClientKeysRequest extends $tea.Model {
+  aapName?: string;
+  static names(): { [key: string]: string } {
+    return {
+      aapName: 'AapName',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      aapName: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class ListClientKeysResponseBody extends $tea.Model {
+  clientKeys?: ListClientKeysResponseBodyClientKeys[];
+  requestId?: string;
+  static names(): { [key: string]: string } {
+    return {
+      clientKeys: 'ClientKeys',
+      requestId: 'RequestId',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      clientKeys: { 'type': 'array', 'itemType': ListClientKeysResponseBodyClientKeys },
+      requestId: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class ListClientKeysResponse extends $tea.Model {
+  headers: { [key: string]: string };
+  statusCode: number;
+  body: ListClientKeysResponseBody;
+  static names(): { [key: string]: string } {
+    return {
+      headers: 'headers',
+      statusCode: 'statusCode',
+      body: 'body',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
+      body: ListClientKeysResponseBody,
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
 export class ListKeyVersionsRequest extends $tea.Model {
   keyId?: string;
   pageNumber?: number;
@@ -3531,6 +4752,240 @@ export class ListKeysResponse extends $tea.Model {
       headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
       statusCode: 'number',
       body: ListKeysResponseBody,
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class ListKmsInstancesRequest extends $tea.Model {
+  pageNumber?: number;
+  pageSize?: number;
+  static names(): { [key: string]: string } {
+    return {
+      pageNumber: 'PageNumber',
+      pageSize: 'PageSize',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      pageNumber: 'number',
+      pageSize: 'number',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class ListKmsInstancesResponseBody extends $tea.Model {
+  kmsInstances?: ListKmsInstancesResponseBodyKmsInstances;
+  pageNumber?: number;
+  pageSize?: number;
+  requestId?: string;
+  totalCount?: number;
+  static names(): { [key: string]: string } {
+    return {
+      kmsInstances: 'KmsInstances',
+      pageNumber: 'PageNumber',
+      pageSize: 'PageSize',
+      requestId: 'RequestId',
+      totalCount: 'TotalCount',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      kmsInstances: ListKmsInstancesResponseBodyKmsInstances,
+      pageNumber: 'number',
+      pageSize: 'number',
+      requestId: 'string',
+      totalCount: 'number',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class ListKmsInstancesResponse extends $tea.Model {
+  headers: { [key: string]: string };
+  statusCode: number;
+  body: ListKmsInstancesResponseBody;
+  static names(): { [key: string]: string } {
+    return {
+      headers: 'headers',
+      statusCode: 'statusCode',
+      body: 'body',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
+      body: ListKmsInstancesResponseBody,
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class ListNetworkRulesRequest extends $tea.Model {
+  pageNumber?: number;
+  pageSize?: number;
+  static names(): { [key: string]: string } {
+    return {
+      pageNumber: 'PageNumber',
+      pageSize: 'PageSize',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      pageNumber: 'number',
+      pageSize: 'number',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class ListNetworkRulesResponseBody extends $tea.Model {
+  networkRules?: ListNetworkRulesResponseBodyNetworkRules;
+  pageNumber?: number;
+  pageSize?: number;
+  requestId?: string;
+  totalCount?: number;
+  static names(): { [key: string]: string } {
+    return {
+      networkRules: 'NetworkRules',
+      pageNumber: 'PageNumber',
+      pageSize: 'PageSize',
+      requestId: 'RequestId',
+      totalCount: 'TotalCount',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      networkRules: ListNetworkRulesResponseBodyNetworkRules,
+      pageNumber: 'number',
+      pageSize: 'number',
+      requestId: 'string',
+      totalCount: 'number',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class ListNetworkRulesResponse extends $tea.Model {
+  headers: { [key: string]: string };
+  statusCode: number;
+  body: ListNetworkRulesResponseBody;
+  static names(): { [key: string]: string } {
+    return {
+      headers: 'headers',
+      statusCode: 'statusCode',
+      body: 'body',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
+      body: ListNetworkRulesResponseBody,
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class ListPoliciesRequest extends $tea.Model {
+  pageNumber?: number;
+  pageSize?: number;
+  static names(): { [key: string]: string } {
+    return {
+      pageNumber: 'PageNumber',
+      pageSize: 'PageSize',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      pageNumber: 'number',
+      pageSize: 'number',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class ListPoliciesResponseBody extends $tea.Model {
+  pageNumber?: number;
+  pageSize?: number;
+  policies?: ListPoliciesResponseBodyPolicies;
+  requestId?: string;
+  totalCount?: number;
+  static names(): { [key: string]: string } {
+    return {
+      pageNumber: 'PageNumber',
+      pageSize: 'PageSize',
+      policies: 'Policies',
+      requestId: 'RequestId',
+      totalCount: 'TotalCount',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      pageNumber: 'number',
+      pageSize: 'number',
+      policies: ListPoliciesResponseBodyPolicies,
+      requestId: 'string',
+      totalCount: 'number',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class ListPoliciesResponse extends $tea.Model {
+  headers: { [key: string]: string };
+  statusCode: number;
+  body: ListPoliciesResponseBody;
+  static names(): { [key: string]: string } {
+    return {
+      headers: 'headers',
+      statusCode: 'statusCode',
+      body: 'body',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
+      body: ListPoliciesResponseBody,
     };
   }
 
@@ -4745,6 +6200,75 @@ export class UpdateAliasResponse extends $tea.Model {
   }
 }
 
+export class UpdateApplicationAccessPointRequest extends $tea.Model {
+  description?: string;
+  name?: string;
+  policies?: string;
+  static names(): { [key: string]: string } {
+    return {
+      description: 'Description',
+      name: 'Name',
+      policies: 'Policies',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      description: 'string',
+      name: 'string',
+      policies: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class UpdateApplicationAccessPointResponseBody extends $tea.Model {
+  requestId?: string;
+  static names(): { [key: string]: string } {
+    return {
+      requestId: 'RequestId',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      requestId: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class UpdateApplicationAccessPointResponse extends $tea.Model {
+  headers: { [key: string]: string };
+  statusCode: number;
+  body: UpdateApplicationAccessPointResponseBody;
+  static names(): { [key: string]: string } {
+    return {
+      headers: 'headers',
+      statusCode: 'statusCode',
+      body: 'body',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
+      body: UpdateApplicationAccessPointResponseBody,
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
 export class UpdateCertificateStatusRequest extends $tea.Model {
   certificateId?: string;
   status?: string;
@@ -4869,6 +6393,216 @@ export class UpdateKeyDescriptionResponse extends $tea.Model {
       headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
       statusCode: 'number',
       body: UpdateKeyDescriptionResponseBody,
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class UpdateKmsInstanceBindVpcRequest extends $tea.Model {
+  bindVpcs?: string;
+  kmsInstanceId?: string;
+  static names(): { [key: string]: string } {
+    return {
+      bindVpcs: 'BindVpcs',
+      kmsInstanceId: 'KmsInstanceId',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      bindVpcs: 'string',
+      kmsInstanceId: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class UpdateKmsInstanceBindVpcResponseBody extends $tea.Model {
+  requestId?: string;
+  static names(): { [key: string]: string } {
+    return {
+      requestId: 'RequestId',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      requestId: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class UpdateKmsInstanceBindVpcResponse extends $tea.Model {
+  headers: { [key: string]: string };
+  statusCode: number;
+  body: UpdateKmsInstanceBindVpcResponseBody;
+  static names(): { [key: string]: string } {
+    return {
+      headers: 'headers',
+      statusCode: 'statusCode',
+      body: 'body',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
+      body: UpdateKmsInstanceBindVpcResponseBody,
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class UpdateNetworkRuleRequest extends $tea.Model {
+  description?: string;
+  name?: string;
+  sourcePrivateIp?: string;
+  static names(): { [key: string]: string } {
+    return {
+      description: 'Description',
+      name: 'Name',
+      sourcePrivateIp: 'SourcePrivateIp',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      description: 'string',
+      name: 'string',
+      sourcePrivateIp: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class UpdateNetworkRuleResponseBody extends $tea.Model {
+  requestId?: string;
+  static names(): { [key: string]: string } {
+    return {
+      requestId: 'RequestId',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      requestId: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class UpdateNetworkRuleResponse extends $tea.Model {
+  headers: { [key: string]: string };
+  statusCode: number;
+  body: UpdateNetworkRuleResponseBody;
+  static names(): { [key: string]: string } {
+    return {
+      headers: 'headers',
+      statusCode: 'statusCode',
+      body: 'body',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
+      body: UpdateNetworkRuleResponseBody,
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class UpdatePolicyRequest extends $tea.Model {
+  accessControlRules?: string;
+  description?: string;
+  name?: string;
+  permissions?: string;
+  resources?: string;
+  static names(): { [key: string]: string } {
+    return {
+      accessControlRules: 'AccessControlRules',
+      description: 'Description',
+      name: 'Name',
+      permissions: 'Permissions',
+      resources: 'Resources',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      accessControlRules: 'string',
+      description: 'string',
+      name: 'string',
+      permissions: 'string',
+      resources: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class UpdatePolicyResponseBody extends $tea.Model {
+  requestId?: string;
+  static names(): { [key: string]: string } {
+    return {
+      requestId: 'RequestId',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      requestId: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class UpdatePolicyResponse extends $tea.Model {
+  headers: { [key: string]: string };
+  statusCode: number;
+  body: UpdatePolicyResponseBody;
+  static names(): { [key: string]: string } {
+    return {
+      headers: 'headers',
+      statusCode: 'statusCode',
+      body: 'body',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
+      body: UpdatePolicyResponseBody,
     };
   }
 
@@ -5534,6 +7268,114 @@ export class DescribeSecretResponseBodyTags extends $tea.Model {
   }
 }
 
+export class GetKmsInstanceResponseBodyKmsInstanceBindVpcsBindVpc extends $tea.Model {
+  regionId?: string;
+  vSwitchId?: string;
+  vpcId?: string;
+  vpcOwnerId?: string;
+  static names(): { [key: string]: string } {
+    return {
+      regionId: 'RegionId',
+      vSwitchId: 'VSwitchId',
+      vpcId: 'VpcId',
+      vpcOwnerId: 'VpcOwnerId',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      regionId: 'string',
+      vSwitchId: 'string',
+      vpcId: 'string',
+      vpcOwnerId: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class GetKmsInstanceResponseBodyKmsInstanceBindVpcs extends $tea.Model {
+  bindVpc?: GetKmsInstanceResponseBodyKmsInstanceBindVpcsBindVpc[];
+  static names(): { [key: string]: string } {
+    return {
+      bindVpc: 'BindVpc',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      bindVpc: { 'type': 'array', 'itemType': GetKmsInstanceResponseBodyKmsInstanceBindVpcsBindVpc },
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class GetKmsInstanceResponseBodyKmsInstance extends $tea.Model {
+  bindVpcs?: GetKmsInstanceResponseBodyKmsInstanceBindVpcs;
+  caCertificateChainPem?: string;
+  createTime?: string;
+  endDate?: string;
+  instanceId?: string;
+  instanceName?: string;
+  keyNum?: number;
+  secretNum?: string;
+  spec?: number;
+  startDate?: string;
+  status?: string;
+  vpcId?: string;
+  vpcNum?: number;
+  vswitchIds?: string;
+  zoneIds?: string;
+  static names(): { [key: string]: string } {
+    return {
+      bindVpcs: 'BindVpcs',
+      caCertificateChainPem: 'CaCertificateChainPem',
+      createTime: 'CreateTime',
+      endDate: 'EndDate',
+      instanceId: 'InstanceId',
+      instanceName: 'InstanceName',
+      keyNum: 'KeyNum',
+      secretNum: 'SecretNum',
+      spec: 'Spec',
+      startDate: 'StartDate',
+      status: 'Status',
+      vpcId: 'VpcId',
+      vpcNum: 'VpcNum',
+      vswitchIds: 'VswitchIds',
+      zoneIds: 'ZoneIds',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      bindVpcs: GetKmsInstanceResponseBodyKmsInstanceBindVpcs,
+      caCertificateChainPem: 'string',
+      createTime: 'string',
+      endDate: 'string',
+      instanceId: 'string',
+      instanceName: 'string',
+      keyNum: 'number',
+      secretNum: 'string',
+      spec: 'number',
+      startDate: 'string',
+      status: 'string',
+      vpcId: 'string',
+      vpcNum: 'number',
+      vswitchIds: 'string',
+      zoneIds: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
 export class GetSecretValueResponseBodyVersionStages extends $tea.Model {
   versionStage?: string[];
   static names(): { [key: string]: string } {
@@ -5641,6 +7483,87 @@ export class ListAliasesByKeyIdResponseBodyAliases extends $tea.Model {
   }
 }
 
+export class ListApplicationAccessPointsResponseBodyApplicationAccessPointsApplicationAccessPoint extends $tea.Model {
+  authenticationMethod?: string;
+  name?: string;
+  static names(): { [key: string]: string } {
+    return {
+      authenticationMethod: 'AuthenticationMethod',
+      name: 'Name',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      authenticationMethod: 'string',
+      name: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class ListApplicationAccessPointsResponseBodyApplicationAccessPoints extends $tea.Model {
+  applicationAccessPoint?: ListApplicationAccessPointsResponseBodyApplicationAccessPointsApplicationAccessPoint[];
+  static names(): { [key: string]: string } {
+    return {
+      applicationAccessPoint: 'ApplicationAccessPoint',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      applicationAccessPoint: { 'type': 'array', 'itemType': ListApplicationAccessPointsResponseBodyApplicationAccessPointsApplicationAccessPoint },
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class ListClientKeysResponseBodyClientKeys extends $tea.Model {
+  aapName?: string;
+  clientKeyId?: string;
+  createTime?: string;
+  keyAlgorithm?: string;
+  keyOrigin?: string;
+  notAfter?: string;
+  notBefore?: string;
+  publicKeyData?: string;
+  static names(): { [key: string]: string } {
+    return {
+      aapName: 'AapName',
+      clientKeyId: 'ClientKeyId',
+      createTime: 'CreateTime',
+      keyAlgorithm: 'KeyAlgorithm',
+      keyOrigin: 'KeyOrigin',
+      notAfter: 'NotAfter',
+      notBefore: 'NotBefore',
+      publicKeyData: 'PublicKeyData',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      aapName: 'string',
+      clientKeyId: 'string',
+      createTime: 'string',
+      keyAlgorithm: 'string',
+      keyOrigin: 'string',
+      notAfter: 'string',
+      notBefore: 'string',
+      publicKeyData: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
 export class ListKeyVersionsResponseBodyKeyVersionsKeyVersion extends $tea.Model {
   creationDate?: string;
   keyId?: string;
@@ -5718,6 +7641,126 @@ export class ListKeysResponseBodyKeys extends $tea.Model {
   static types(): { [key: string]: any } {
     return {
       key: { 'type': 'array', 'itemType': ListKeysResponseBodyKeysKey },
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class ListKmsInstancesResponseBodyKmsInstancesKmsInstance extends $tea.Model {
+  kmsInstanceArn?: string;
+  kmsInstanceId?: string;
+  static names(): { [key: string]: string } {
+    return {
+      kmsInstanceArn: 'KmsInstanceArn',
+      kmsInstanceId: 'KmsInstanceId',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      kmsInstanceArn: 'string',
+      kmsInstanceId: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class ListKmsInstancesResponseBodyKmsInstances extends $tea.Model {
+  kmsInstance?: ListKmsInstancesResponseBodyKmsInstancesKmsInstance[];
+  static names(): { [key: string]: string } {
+    return {
+      kmsInstance: 'KmsInstance',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      kmsInstance: { 'type': 'array', 'itemType': ListKmsInstancesResponseBodyKmsInstancesKmsInstance },
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class ListNetworkRulesResponseBodyNetworkRulesNetworkRule extends $tea.Model {
+  name?: string;
+  type?: string;
+  static names(): { [key: string]: string } {
+    return {
+      name: 'Name',
+      type: 'Type',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      name: 'string',
+      type: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class ListNetworkRulesResponseBodyNetworkRules extends $tea.Model {
+  networkRule?: ListNetworkRulesResponseBodyNetworkRulesNetworkRule[];
+  static names(): { [key: string]: string } {
+    return {
+      networkRule: 'NetworkRule',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      networkRule: { 'type': 'array', 'itemType': ListNetworkRulesResponseBodyNetworkRulesNetworkRule },
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class ListPoliciesResponseBodyPoliciesPolicy extends $tea.Model {
+  name?: string;
+  static names(): { [key: string]: string } {
+    return {
+      name: 'Name',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      name: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class ListPoliciesResponseBodyPolicies extends $tea.Model {
+  policy?: ListPoliciesResponseBodyPoliciesPolicy[];
+  static names(): { [key: string]: string } {
+    return {
+      policy: 'Policy',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      policy: { 'type': 'array', 'itemType': ListPoliciesResponseBodyPoliciesPolicy },
     };
   }
 
@@ -6680,6 +8723,51 @@ export default class Client extends OpenApi {
     return await this.certificatePublicKeyVerifyWithOptions(request, runtime);
   }
 
+  async connectKmsInstanceWithOptions(request: ConnectKmsInstanceRequest, runtime: $Util.RuntimeOptions): Promise<ConnectKmsInstanceResponse> {
+    Util.validateModel(request);
+    let query = { };
+    if (!Util.isUnset(request.KMProvider)) {
+      query["KMProvider"] = request.KMProvider;
+    }
+
+    if (!Util.isUnset(request.kmsInstanceId)) {
+      query["KmsInstanceId"] = request.kmsInstanceId;
+    }
+
+    if (!Util.isUnset(request.vSwitchIds)) {
+      query["VSwitchIds"] = request.vSwitchIds;
+    }
+
+    if (!Util.isUnset(request.vpcId)) {
+      query["VpcId"] = request.vpcId;
+    }
+
+    if (!Util.isUnset(request.zoneIds)) {
+      query["ZoneIds"] = request.zoneIds;
+    }
+
+    let req = new $OpenApi.OpenApiRequest({
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApi.Params({
+      action: "ConnectKmsInstance",
+      version: "2016-01-20",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $tea.cast<ConnectKmsInstanceResponse>(await this.callApi(params, req, runtime), new ConnectKmsInstanceResponse({}));
+  }
+
+  async connectKmsInstance(request: ConnectKmsInstanceRequest): Promise<ConnectKmsInstanceResponse> {
+    let runtime = new $Util.RuntimeOptions({ });
+    return await this.connectKmsInstanceWithOptions(request, runtime);
+  }
+
   /**
     * *   Each alias can be bound to only one CMK at a time.
     * *   The aliases of CMKs in the same region must be unique.
@@ -6728,6 +8816,47 @@ export default class Client extends OpenApi {
   async createAlias(request: CreateAliasRequest): Promise<CreateAliasResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.createAliasWithOptions(request, runtime);
+  }
+
+  async createApplicationAccessPointWithOptions(request: CreateApplicationAccessPointRequest, runtime: $Util.RuntimeOptions): Promise<CreateApplicationAccessPointResponse> {
+    Util.validateModel(request);
+    let query = { };
+    if (!Util.isUnset(request.authenticationMethod)) {
+      query["AuthenticationMethod"] = request.authenticationMethod;
+    }
+
+    if (!Util.isUnset(request.description)) {
+      query["Description"] = request.description;
+    }
+
+    if (!Util.isUnset(request.name)) {
+      query["Name"] = request.name;
+    }
+
+    if (!Util.isUnset(request.policies)) {
+      query["Policies"] = request.policies;
+    }
+
+    let req = new $OpenApi.OpenApiRequest({
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApi.Params({
+      action: "CreateApplicationAccessPoint",
+      version: "2016-01-20",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $tea.cast<CreateApplicationAccessPointResponse>(await this.callApi(params, req, runtime), new CreateApplicationAccessPointResponse({}));
+  }
+
+  async createApplicationAccessPoint(request: CreateApplicationAccessPointRequest): Promise<CreateApplicationAccessPointResponse> {
+    let runtime = new $Util.RuntimeOptions({ });
+    return await this.createApplicationAccessPointWithOptions(request, runtime);
   }
 
   /**
@@ -6790,6 +8919,47 @@ export default class Client extends OpenApi {
   async createCertificate(request: CreateCertificateRequest): Promise<CreateCertificateResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.createCertificateWithOptions(request, runtime);
+  }
+
+  async createClientKeyWithOptions(request: CreateClientKeyRequest, runtime: $Util.RuntimeOptions): Promise<CreateClientKeyResponse> {
+    Util.validateModel(request);
+    let query = { };
+    if (!Util.isUnset(request.aapName)) {
+      query["AapName"] = request.aapName;
+    }
+
+    if (!Util.isUnset(request.notAfter)) {
+      query["NotAfter"] = request.notAfter;
+    }
+
+    if (!Util.isUnset(request.notBefore)) {
+      query["NotBefore"] = request.notBefore;
+    }
+
+    if (!Util.isUnset(request.password)) {
+      query["Password"] = request.password;
+    }
+
+    let req = new $OpenApi.OpenApiRequest({
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApi.Params({
+      action: "CreateClientKey",
+      version: "2016-01-20",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $tea.cast<CreateClientKeyResponse>(await this.callApi(params, req, runtime), new CreateClientKeyResponse({}));
+  }
+
+  async createClientKey(request: CreateClientKeyRequest): Promise<CreateClientKeyResponse> {
+    let runtime = new $Util.RuntimeOptions({ });
+    return await this.createClientKeyWithOptions(request, runtime);
   }
 
   /**
@@ -6914,6 +9084,96 @@ export default class Client extends OpenApi {
   async createKeyVersion(request: CreateKeyVersionRequest): Promise<CreateKeyVersionResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.createKeyVersionWithOptions(request, runtime);
+  }
+
+  async createNetworkRuleWithOptions(request: CreateNetworkRuleRequest, runtime: $Util.RuntimeOptions): Promise<CreateNetworkRuleResponse> {
+    Util.validateModel(request);
+    let query = { };
+    if (!Util.isUnset(request.description)) {
+      query["Description"] = request.description;
+    }
+
+    if (!Util.isUnset(request.name)) {
+      query["Name"] = request.name;
+    }
+
+    if (!Util.isUnset(request.sourcePrivateIp)) {
+      query["SourcePrivateIp"] = request.sourcePrivateIp;
+    }
+
+    if (!Util.isUnset(request.type)) {
+      query["Type"] = request.type;
+    }
+
+    let req = new $OpenApi.OpenApiRequest({
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApi.Params({
+      action: "CreateNetworkRule",
+      version: "2016-01-20",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $tea.cast<CreateNetworkRuleResponse>(await this.callApi(params, req, runtime), new CreateNetworkRuleResponse({}));
+  }
+
+  async createNetworkRule(request: CreateNetworkRuleRequest): Promise<CreateNetworkRuleResponse> {
+    let runtime = new $Util.RuntimeOptions({ });
+    return await this.createNetworkRuleWithOptions(request, runtime);
+  }
+
+  async createPolicyWithOptions(request: CreatePolicyRequest, runtime: $Util.RuntimeOptions): Promise<CreatePolicyResponse> {
+    Util.validateModel(request);
+    let query = { };
+    if (!Util.isUnset(request.accessControlRules)) {
+      query["AccessControlRules"] = request.accessControlRules;
+    }
+
+    if (!Util.isUnset(request.description)) {
+      query["Description"] = request.description;
+    }
+
+    if (!Util.isUnset(request.kmsInstance)) {
+      query["KmsInstance"] = request.kmsInstance;
+    }
+
+    if (!Util.isUnset(request.name)) {
+      query["Name"] = request.name;
+    }
+
+    if (!Util.isUnset(request.permissions)) {
+      query["Permissions"] = request.permissions;
+    }
+
+    if (!Util.isUnset(request.resources)) {
+      query["Resources"] = request.resources;
+    }
+
+    let req = new $OpenApi.OpenApiRequest({
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApi.Params({
+      action: "CreatePolicy",
+      version: "2016-01-20",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $tea.cast<CreatePolicyResponse>(await this.callApi(params, req, runtime), new CreatePolicyResponse({}));
+  }
+
+  async createPolicy(request: CreatePolicyRequest): Promise<CreatePolicyResponse> {
+    let runtime = new $Util.RuntimeOptions({ });
+    return await this.createPolicyWithOptions(request, runtime);
   }
 
   /**
@@ -7084,6 +9344,35 @@ export default class Client extends OpenApi {
     return await this.deleteAliasWithOptions(request, runtime);
   }
 
+  async deleteApplicationAccessPointWithOptions(request: DeleteApplicationAccessPointRequest, runtime: $Util.RuntimeOptions): Promise<DeleteApplicationAccessPointResponse> {
+    Util.validateModel(request);
+    let query = { };
+    if (!Util.isUnset(request.name)) {
+      query["Name"] = request.name;
+    }
+
+    let req = new $OpenApi.OpenApiRequest({
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApi.Params({
+      action: "DeleteApplicationAccessPoint",
+      version: "2016-01-20",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $tea.cast<DeleteApplicationAccessPointResponse>(await this.callApi(params, req, runtime), new DeleteApplicationAccessPointResponse({}));
+  }
+
+  async deleteApplicationAccessPoint(request: DeleteApplicationAccessPointRequest): Promise<DeleteApplicationAccessPointResponse> {
+    let runtime = new $Util.RuntimeOptions({ });
+    return await this.deleteApplicationAccessPointWithOptions(request, runtime);
+  }
+
   /**
     * After the certificate and its private key and certificate chain are deleted, they cannot be restored. Proceed with caution.
     * In this example, the certificate whose ID is `9a28de48-8d8b-484d-a766-dec4****` and its private key and certificate chain are deleted.
@@ -7126,6 +9415,35 @@ export default class Client extends OpenApi {
   async deleteCertificate(request: DeleteCertificateRequest): Promise<DeleteCertificateResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.deleteCertificateWithOptions(request, runtime);
+  }
+
+  async deleteClientKeyWithOptions(request: DeleteClientKeyRequest, runtime: $Util.RuntimeOptions): Promise<DeleteClientKeyResponse> {
+    Util.validateModel(request);
+    let query = { };
+    if (!Util.isUnset(request.clientKeyId)) {
+      query["ClientKeyId"] = request.clientKeyId;
+    }
+
+    let req = new $OpenApi.OpenApiRequest({
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApi.Params({
+      action: "DeleteClientKey",
+      version: "2016-01-20",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $tea.cast<DeleteClientKeyResponse>(await this.callApi(params, req, runtime), new DeleteClientKeyResponse({}));
+  }
+
+  async deleteClientKey(request: DeleteClientKeyRequest): Promise<DeleteClientKeyResponse> {
+    let runtime = new $Util.RuntimeOptions({ });
+    return await this.deleteClientKeyWithOptions(request, runtime);
   }
 
   /**
@@ -7172,6 +9490,64 @@ export default class Client extends OpenApi {
   async deleteKeyMaterial(request: DeleteKeyMaterialRequest): Promise<DeleteKeyMaterialResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.deleteKeyMaterialWithOptions(request, runtime);
+  }
+
+  async deleteNetworkRuleWithOptions(request: DeleteNetworkRuleRequest, runtime: $Util.RuntimeOptions): Promise<DeleteNetworkRuleResponse> {
+    Util.validateModel(request);
+    let query = { };
+    if (!Util.isUnset(request.name)) {
+      query["Name"] = request.name;
+    }
+
+    let req = new $OpenApi.OpenApiRequest({
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApi.Params({
+      action: "DeleteNetworkRule",
+      version: "2016-01-20",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $tea.cast<DeleteNetworkRuleResponse>(await this.callApi(params, req, runtime), new DeleteNetworkRuleResponse({}));
+  }
+
+  async deleteNetworkRule(request: DeleteNetworkRuleRequest): Promise<DeleteNetworkRuleResponse> {
+    let runtime = new $Util.RuntimeOptions({ });
+    return await this.deleteNetworkRuleWithOptions(request, runtime);
+  }
+
+  async deletePolicyWithOptions(request: DeletePolicyRequest, runtime: $Util.RuntimeOptions): Promise<DeletePolicyResponse> {
+    Util.validateModel(request);
+    let query = { };
+    if (!Util.isUnset(request.name)) {
+      query["Name"] = request.name;
+    }
+
+    let req = new $OpenApi.OpenApiRequest({
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApi.Params({
+      action: "DeletePolicy",
+      version: "2016-01-20",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $tea.cast<DeletePolicyResponse>(await this.callApi(params, req, runtime), new DeletePolicyResponse({}));
+  }
+
+  async deletePolicy(request: DeletePolicyRequest): Promise<DeletePolicyResponse> {
+    let runtime = new $Util.RuntimeOptions({ });
+    return await this.deletePolicyWithOptions(request, runtime);
   }
 
   /**
@@ -7245,6 +9621,35 @@ export default class Client extends OpenApi {
   async describeAccountKmsStatus(): Promise<DescribeAccountKmsStatusResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.describeAccountKmsStatusWithOptions(runtime);
+  }
+
+  async describeApplicationAccessPointWithOptions(request: DescribeApplicationAccessPointRequest, runtime: $Util.RuntimeOptions): Promise<DescribeApplicationAccessPointResponse> {
+    Util.validateModel(request);
+    let query = { };
+    if (!Util.isUnset(request.name)) {
+      query["Name"] = request.name;
+    }
+
+    let req = new $OpenApi.OpenApiRequest({
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApi.Params({
+      action: "DescribeApplicationAccessPoint",
+      version: "2016-01-20",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $tea.cast<DescribeApplicationAccessPointResponse>(await this.callApi(params, req, runtime), new DescribeApplicationAccessPointResponse({}));
+  }
+
+  async describeApplicationAccessPoint(request: DescribeApplicationAccessPointRequest): Promise<DescribeApplicationAccessPointResponse> {
+    let runtime = new $Util.RuntimeOptions({ });
+    return await this.describeApplicationAccessPointWithOptions(request, runtime);
   }
 
   /**
@@ -7375,6 +9780,64 @@ export default class Client extends OpenApi {
   async describeKeyVersion(request: DescribeKeyVersionRequest): Promise<DescribeKeyVersionResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.describeKeyVersionWithOptions(request, runtime);
+  }
+
+  async describeNetworkRuleWithOptions(request: DescribeNetworkRuleRequest, runtime: $Util.RuntimeOptions): Promise<DescribeNetworkRuleResponse> {
+    Util.validateModel(request);
+    let query = { };
+    if (!Util.isUnset(request.name)) {
+      query["Name"] = request.name;
+    }
+
+    let req = new $OpenApi.OpenApiRequest({
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApi.Params({
+      action: "DescribeNetworkRule",
+      version: "2016-01-20",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $tea.cast<DescribeNetworkRuleResponse>(await this.callApi(params, req, runtime), new DescribeNetworkRuleResponse({}));
+  }
+
+  async describeNetworkRule(request: DescribeNetworkRuleRequest): Promise<DescribeNetworkRuleResponse> {
+    let runtime = new $Util.RuntimeOptions({ });
+    return await this.describeNetworkRuleWithOptions(request, runtime);
+  }
+
+  async describePolicyWithOptions(request: DescribePolicyRequest, runtime: $Util.RuntimeOptions): Promise<DescribePolicyResponse> {
+    Util.validateModel(request);
+    let query = { };
+    if (!Util.isUnset(request.name)) {
+      query["Name"] = request.name;
+    }
+
+    let req = new $OpenApi.OpenApiRequest({
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApi.Params({
+      action: "DescribePolicy",
+      version: "2016-01-20",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $tea.cast<DescribePolicyResponse>(await this.callApi(params, req, runtime), new DescribePolicyResponse({}));
+  }
+
+  async describePolicy(request: DescribePolicyRequest): Promise<DescribePolicyResponse> {
+    let runtime = new $Util.RuntimeOptions({ });
+    return await this.describePolicyWithOptions(request, runtime);
   }
 
   async describeRegionsWithOptions(runtime: $Util.RuntimeOptions): Promise<DescribeRegionsResponse> {
@@ -7911,6 +10374,60 @@ export default class Client extends OpenApi {
     return await this.getCertificateWithOptions(request, runtime);
   }
 
+  async getClientKeyWithOptions(request: GetClientKeyRequest, runtime: $Util.RuntimeOptions): Promise<GetClientKeyResponse> {
+    Util.validateModel(request);
+    let query = OpenApiUtil.query(Util.toMap(request));
+    let req = new $OpenApi.OpenApiRequest({
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApi.Params({
+      action: "GetClientKey",
+      version: "2016-01-20",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "GET",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $tea.cast<GetClientKeyResponse>(await this.callApi(params, req, runtime), new GetClientKeyResponse({}));
+  }
+
+  async getClientKey(request: GetClientKeyRequest): Promise<GetClientKeyResponse> {
+    let runtime = new $Util.RuntimeOptions({ });
+    return await this.getClientKeyWithOptions(request, runtime);
+  }
+
+  async getKmsInstanceWithOptions(request: GetKmsInstanceRequest, runtime: $Util.RuntimeOptions): Promise<GetKmsInstanceResponse> {
+    Util.validateModel(request);
+    let query = { };
+    if (!Util.isUnset(request.kmsInstanceId)) {
+      query["KmsInstanceId"] = request.kmsInstanceId;
+    }
+
+    let req = new $OpenApi.OpenApiRequest({
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApi.Params({
+      action: "GetKmsInstance",
+      version: "2016-01-20",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $tea.cast<GetKmsInstanceResponse>(await this.callApi(params, req, runtime), new GetKmsInstanceResponse({}));
+  }
+
+  async getKmsInstance(request: GetKmsInstanceRequest): Promise<GetKmsInstanceResponse> {
+    let runtime = new $Util.RuntimeOptions({ });
+    return await this.getKmsInstanceWithOptions(request, runtime);
+  }
+
   /**
     * The returned parameters can be used to call the [ImportKeyMaterial](https://www.alibabacloud.com/help/en/key-management-service/latest/importkeymaterial) operation.
     * - You can import key material only for CMKs whose Origin parameter is set to EXTERNAL.
@@ -8267,6 +10784,64 @@ export default class Client extends OpenApi {
     return await this.listAliasesByKeyIdWithOptions(request, runtime);
   }
 
+  async listApplicationAccessPointsWithOptions(request: ListApplicationAccessPointsRequest, runtime: $Util.RuntimeOptions): Promise<ListApplicationAccessPointsResponse> {
+    Util.validateModel(request);
+    let query = { };
+    if (!Util.isUnset(request.pageNumber)) {
+      query["PageNumber"] = request.pageNumber;
+    }
+
+    if (!Util.isUnset(request.pageSize)) {
+      query["PageSize"] = request.pageSize;
+    }
+
+    let req = new $OpenApi.OpenApiRequest({
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApi.Params({
+      action: "ListApplicationAccessPoints",
+      version: "2016-01-20",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $tea.cast<ListApplicationAccessPointsResponse>(await this.callApi(params, req, runtime), new ListApplicationAccessPointsResponse({}));
+  }
+
+  async listApplicationAccessPoints(request: ListApplicationAccessPointsRequest): Promise<ListApplicationAccessPointsResponse> {
+    let runtime = new $Util.RuntimeOptions({ });
+    return await this.listApplicationAccessPointsWithOptions(request, runtime);
+  }
+
+  async listClientKeysWithOptions(request: ListClientKeysRequest, runtime: $Util.RuntimeOptions): Promise<ListClientKeysResponse> {
+    Util.validateModel(request);
+    let query = OpenApiUtil.query(Util.toMap(request));
+    let req = new $OpenApi.OpenApiRequest({
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApi.Params({
+      action: "ListClientKeys",
+      version: "2016-01-20",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "GET",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $tea.cast<ListClientKeysResponse>(await this.callApi(params, req, runtime), new ListClientKeysResponse({}));
+  }
+
+  async listClientKeys(request: ListClientKeysRequest): Promise<ListClientKeysResponse> {
+    let runtime = new $Util.RuntimeOptions({ });
+    return await this.listClientKeysWithOptions(request, runtime);
+  }
+
   async listKeyVersionsWithOptions(request: ListKeyVersionsRequest, runtime: $Util.RuntimeOptions): Promise<ListKeyVersionsResponse> {
     Util.validateModel(request);
     let query = { };
@@ -8339,6 +10914,105 @@ export default class Client extends OpenApi {
   async listKeys(request: ListKeysRequest): Promise<ListKeysResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.listKeysWithOptions(request, runtime);
+  }
+
+  async listKmsInstancesWithOptions(request: ListKmsInstancesRequest, runtime: $Util.RuntimeOptions): Promise<ListKmsInstancesResponse> {
+    Util.validateModel(request);
+    let query = { };
+    if (!Util.isUnset(request.pageNumber)) {
+      query["PageNumber"] = request.pageNumber;
+    }
+
+    if (!Util.isUnset(request.pageSize)) {
+      query["PageSize"] = request.pageSize;
+    }
+
+    let req = new $OpenApi.OpenApiRequest({
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApi.Params({
+      action: "ListKmsInstances",
+      version: "2016-01-20",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $tea.cast<ListKmsInstancesResponse>(await this.callApi(params, req, runtime), new ListKmsInstancesResponse({}));
+  }
+
+  async listKmsInstances(request: ListKmsInstancesRequest): Promise<ListKmsInstancesResponse> {
+    let runtime = new $Util.RuntimeOptions({ });
+    return await this.listKmsInstancesWithOptions(request, runtime);
+  }
+
+  async listNetworkRulesWithOptions(request: ListNetworkRulesRequest, runtime: $Util.RuntimeOptions): Promise<ListNetworkRulesResponse> {
+    Util.validateModel(request);
+    let query = { };
+    if (!Util.isUnset(request.pageNumber)) {
+      query["PageNumber"] = request.pageNumber;
+    }
+
+    if (!Util.isUnset(request.pageSize)) {
+      query["PageSize"] = request.pageSize;
+    }
+
+    let req = new $OpenApi.OpenApiRequest({
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApi.Params({
+      action: "ListNetworkRules",
+      version: "2016-01-20",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $tea.cast<ListNetworkRulesResponse>(await this.callApi(params, req, runtime), new ListNetworkRulesResponse({}));
+  }
+
+  async listNetworkRules(request: ListNetworkRulesRequest): Promise<ListNetworkRulesResponse> {
+    let runtime = new $Util.RuntimeOptions({ });
+    return await this.listNetworkRulesWithOptions(request, runtime);
+  }
+
+  async listPoliciesWithOptions(request: ListPoliciesRequest, runtime: $Util.RuntimeOptions): Promise<ListPoliciesResponse> {
+    Util.validateModel(request);
+    let query = { };
+    if (!Util.isUnset(request.pageNumber)) {
+      query["PageNumber"] = request.pageNumber;
+    }
+
+    if (!Util.isUnset(request.pageSize)) {
+      query["PageSize"] = request.pageSize;
+    }
+
+    let req = new $OpenApi.OpenApiRequest({
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApi.Params({
+      action: "ListPolicies",
+      version: "2016-01-20",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $tea.cast<ListPoliciesResponse>(await this.callApi(params, req, runtime), new ListPoliciesResponse({}));
+  }
+
+  async listPolicies(request: ListPoliciesRequest): Promise<ListPoliciesResponse> {
+    let runtime = new $Util.RuntimeOptions({ });
+    return await this.listPoliciesWithOptions(request, runtime);
   }
 
   /**
@@ -9172,6 +11846,43 @@ export default class Client extends OpenApi {
     return await this.updateAliasWithOptions(request, runtime);
   }
 
+  async updateApplicationAccessPointWithOptions(request: UpdateApplicationAccessPointRequest, runtime: $Util.RuntimeOptions): Promise<UpdateApplicationAccessPointResponse> {
+    Util.validateModel(request);
+    let query = { };
+    if (!Util.isUnset(request.description)) {
+      query["Description"] = request.description;
+    }
+
+    if (!Util.isUnset(request.name)) {
+      query["Name"] = request.name;
+    }
+
+    if (!Util.isUnset(request.policies)) {
+      query["Policies"] = request.policies;
+    }
+
+    let req = new $OpenApi.OpenApiRequest({
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApi.Params({
+      action: "UpdateApplicationAccessPoint",
+      version: "2016-01-20",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $tea.cast<UpdateApplicationAccessPointResponse>(await this.callApi(params, req, runtime), new UpdateApplicationAccessPointResponse({}));
+  }
+
+  async updateApplicationAccessPoint(request: UpdateApplicationAccessPointRequest): Promise<UpdateApplicationAccessPointResponse> {
+    let runtime = new $Util.RuntimeOptions({ });
+    return await this.updateApplicationAccessPointWithOptions(request, runtime);
+  }
+
   /**
     * In this example, the status of the certificate whose ID is `9a28de48-8d8b-484d-a766-dec4****` is updated to INACTIVE.
     *
@@ -9262,6 +11973,113 @@ export default class Client extends OpenApi {
   async updateKeyDescription(request: UpdateKeyDescriptionRequest): Promise<UpdateKeyDescriptionResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.updateKeyDescriptionWithOptions(request, runtime);
+  }
+
+  async updateKmsInstanceBindVpcWithOptions(request: UpdateKmsInstanceBindVpcRequest, runtime: $Util.RuntimeOptions): Promise<UpdateKmsInstanceBindVpcResponse> {
+    Util.validateModel(request);
+    let query = OpenApiUtil.query(Util.toMap(request));
+    let req = new $OpenApi.OpenApiRequest({
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApi.Params({
+      action: "UpdateKmsInstanceBindVpc",
+      version: "2016-01-20",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "GET",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $tea.cast<UpdateKmsInstanceBindVpcResponse>(await this.callApi(params, req, runtime), new UpdateKmsInstanceBindVpcResponse({}));
+  }
+
+  async updateKmsInstanceBindVpc(request: UpdateKmsInstanceBindVpcRequest): Promise<UpdateKmsInstanceBindVpcResponse> {
+    let runtime = new $Util.RuntimeOptions({ });
+    return await this.updateKmsInstanceBindVpcWithOptions(request, runtime);
+  }
+
+  async updateNetworkRuleWithOptions(request: UpdateNetworkRuleRequest, runtime: $Util.RuntimeOptions): Promise<UpdateNetworkRuleResponse> {
+    Util.validateModel(request);
+    let query = { };
+    if (!Util.isUnset(request.description)) {
+      query["Description"] = request.description;
+    }
+
+    if (!Util.isUnset(request.name)) {
+      query["Name"] = request.name;
+    }
+
+    if (!Util.isUnset(request.sourcePrivateIp)) {
+      query["SourcePrivateIp"] = request.sourcePrivateIp;
+    }
+
+    let req = new $OpenApi.OpenApiRequest({
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApi.Params({
+      action: "UpdateNetworkRule",
+      version: "2016-01-20",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $tea.cast<UpdateNetworkRuleResponse>(await this.callApi(params, req, runtime), new UpdateNetworkRuleResponse({}));
+  }
+
+  async updateNetworkRule(request: UpdateNetworkRuleRequest): Promise<UpdateNetworkRuleResponse> {
+    let runtime = new $Util.RuntimeOptions({ });
+    return await this.updateNetworkRuleWithOptions(request, runtime);
+  }
+
+  async updatePolicyWithOptions(request: UpdatePolicyRequest, runtime: $Util.RuntimeOptions): Promise<UpdatePolicyResponse> {
+    Util.validateModel(request);
+    let query = { };
+    if (!Util.isUnset(request.accessControlRules)) {
+      query["AccessControlRules"] = request.accessControlRules;
+    }
+
+    if (!Util.isUnset(request.description)) {
+      query["Description"] = request.description;
+    }
+
+    if (!Util.isUnset(request.name)) {
+      query["Name"] = request.name;
+    }
+
+    if (!Util.isUnset(request.permissions)) {
+      query["Permissions"] = request.permissions;
+    }
+
+    if (!Util.isUnset(request.resources)) {
+      query["Resources"] = request.resources;
+    }
+
+    let req = new $OpenApi.OpenApiRequest({
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApi.Params({
+      action: "UpdatePolicy",
+      version: "2016-01-20",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $tea.cast<UpdatePolicyResponse>(await this.callApi(params, req, runtime), new UpdatePolicyResponse({}));
+  }
+
+  async updatePolicy(request: UpdatePolicyRequest): Promise<UpdatePolicyResponse> {
+    let runtime = new $Util.RuntimeOptions({ });
+    return await this.updatePolicyWithOptions(request, runtime);
   }
 
   /**
