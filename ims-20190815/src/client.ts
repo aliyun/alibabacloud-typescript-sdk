@@ -2053,14 +2053,40 @@ export class GetApplicationResponse extends $tea.Model {
   }
 }
 
+export class GetCredentialReportRequest extends $tea.Model {
+  maxItems?: string;
+  nextToken?: string;
+  static names(): { [key: string]: string } {
+    return {
+      maxItems: 'MaxItems',
+      nextToken: 'NextToken',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      maxItems: 'string',
+      nextToken: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
 export class GetCredentialReportResponseBody extends $tea.Model {
   content?: string;
   generatedTime?: string;
+  isTruncated?: string;
+  nextToken?: string;
   requestId?: string;
   static names(): { [key: string]: string } {
     return {
       content: 'Content',
       generatedTime: 'GeneratedTime',
+      isTruncated: 'IsTruncated',
+      nextToken: 'NextToken',
       requestId: 'RequestId',
     };
   }
@@ -2069,6 +2095,8 @@ export class GetCredentialReportResponseBody extends $tea.Model {
     return {
       content: 'string',
       generatedTime: 'string',
+      isTruncated: 'string',
+      nextToken: 'string',
       requestId: 'string',
     };
   }
@@ -8342,14 +8370,14 @@ export default class Client extends OpenApi {
   }
 
   /**
-    * ### Prerequisites
+    * ### [](#)Prerequisite
     * Before you call this operation, make sure that the information such as the URL of the issuer, the fingerprints of HTTPS certificates, and the client IDs are obtained from an external IdP, such as Google G Suite or Okta.
-    * ### Limits
+    * ### [](#)Limits
     * *   You can create a maximum of 100 OIDC IdPs in an Alibaba Cloud account.
     * *   You can add a maximum of 20 client IDs to an OIDC IdP.
     * *   You can add a maximum of five fingerprints to an OIDC IdP.
-    * ###
-    * ``
+    * ### [](#)
+    * This topic provides an example on how to create an IdP named `TestOIDCProvider` to configure a trust relationship between the external IdP and Alibaba Cloud.
     *
     * @param request CreateOIDCProviderRequest
     * @param runtime runtime options for this request RuntimeOptions
@@ -8400,14 +8428,14 @@ export default class Client extends OpenApi {
   }
 
   /**
-    * ### Prerequisites
+    * ### [](#)Prerequisite
     * Before you call this operation, make sure that the information such as the URL of the issuer, the fingerprints of HTTPS certificates, and the client IDs are obtained from an external IdP, such as Google G Suite or Okta.
-    * ### Limits
+    * ### [](#)Limits
     * *   You can create a maximum of 100 OIDC IdPs in an Alibaba Cloud account.
     * *   You can add a maximum of 20 client IDs to an OIDC IdP.
     * *   You can add a maximum of five fingerprints to an OIDC IdP.
-    * ###
-    * ``
+    * ### [](#)
+    * This topic provides an example on how to create an IdP named `TestOIDCProvider` to configure a trust relationship between the external IdP and Alibaba Cloud.
     *
     * @param request CreateOIDCProviderRequest
     * @return CreateOIDCProviderResponse
@@ -9067,8 +9095,20 @@ export default class Client extends OpenApi {
     return await this.getApplicationWithOptions(request, runtime);
   }
 
-  async getCredentialReportWithOptions(runtime: $Util.RuntimeOptions): Promise<GetCredentialReportResponse> {
-    let req = new $OpenApi.OpenApiRequest({ });
+  async getCredentialReportWithOptions(request: GetCredentialReportRequest, runtime: $Util.RuntimeOptions): Promise<GetCredentialReportResponse> {
+    Util.validateModel(request);
+    let query = { };
+    if (!Util.isUnset(request.maxItems)) {
+      query["MaxItems"] = request.maxItems;
+    }
+
+    if (!Util.isUnset(request.nextToken)) {
+      query["NextToken"] = request.nextToken;
+    }
+
+    let req = new $OpenApi.OpenApiRequest({
+      query: OpenApiUtil.query(query),
+    });
     let params = new $OpenApi.Params({
       action: "GetCredentialReport",
       version: "2019-08-15",
@@ -9083,9 +9123,9 @@ export default class Client extends OpenApi {
     return $tea.cast<GetCredentialReportResponse>(await this.callApi(params, req, runtime), new GetCredentialReportResponse({}));
   }
 
-  async getCredentialReport(): Promise<GetCredentialReportResponse> {
+  async getCredentialReport(request: GetCredentialReportRequest): Promise<GetCredentialReportResponse> {
     let runtime = new $Util.RuntimeOptions({ });
-    return await this.getCredentialReportWithOptions(runtime);
+    return await this.getCredentialReportWithOptions(request, runtime);
   }
 
   async getDefaultDomainWithOptions(runtime: $Util.RuntimeOptions): Promise<GetDefaultDomainResponse> {
