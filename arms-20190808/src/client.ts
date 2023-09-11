@@ -4493,6 +4493,84 @@ export class DeleteAlertRulesResponse extends $tea.Model {
   }
 }
 
+export class DeleteAppListRequest extends $tea.Model {
+  pids?: string[];
+  regionId?: string;
+  static names(): { [key: string]: string } {
+    return {
+      pids: 'Pids',
+      regionId: 'RegionId',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      pids: { 'type': 'array', 'itemType': 'string' },
+      regionId: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class DeleteAppListResponseBody extends $tea.Model {
+  code?: number;
+  data?: string;
+  message?: string;
+  requestId?: string;
+  success?: boolean;
+  static names(): { [key: string]: string } {
+    return {
+      code: 'Code',
+      data: 'Data',
+      message: 'Message',
+      requestId: 'RequestId',
+      success: 'Success',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      code: 'number',
+      data: 'string',
+      message: 'string',
+      requestId: 'string',
+      success: 'boolean',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class DeleteAppListResponse extends $tea.Model {
+  headers: { [key: string]: string };
+  statusCode: number;
+  body: DeleteAppListResponseBody;
+  static names(): { [key: string]: string } {
+    return {
+      headers: 'headers',
+      statusCode: 'statusCode',
+      body: 'body',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
+      body: DeleteAppListResponseBody,
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
 export class DeleteCmsExporterRequest extends $tea.Model {
   clusterId?: string;
   regionId?: string;
@@ -11593,12 +11671,14 @@ export class ListTimingSyntheticTasksResponse extends $tea.Model {
 }
 
 export class ListTraceAppsRequest extends $tea.Model {
+  appType?: string;
   region?: string;
   regionId?: string;
   resourceGroupId?: string;
   tags?: ListTraceAppsRequestTags[];
   static names(): { [key: string]: string } {
     return {
+      appType: 'AppType',
       region: 'Region',
       regionId: 'RegionId',
       resourceGroupId: 'ResourceGroupId',
@@ -11608,6 +11688,7 @@ export class ListTraceAppsRequest extends $tea.Model {
 
   static types(): { [key: string]: any } {
     return {
+      appType: 'string',
       region: 'string',
       regionId: 'string',
       resourceGroupId: 'string',
@@ -23776,8 +23857,10 @@ export class ListTraceAppsResponseBodyTraceAppsTags extends $tea.Model {
 export class ListTraceAppsResponseBodyTraceApps extends $tea.Model {
   appId?: number;
   appName?: string;
+  clusterId?: string;
   createTime?: number;
   labels?: string[];
+  namespace?: string;
   pid?: string;
   regionId?: string;
   resourceGroupId?: string;
@@ -23787,12 +23870,16 @@ export class ListTraceAppsResponseBodyTraceApps extends $tea.Model {
   type?: string;
   updateTime?: number;
   userId?: string;
+  workloadKind?: string;
+  workloadName?: string;
   static names(): { [key: string]: string } {
     return {
       appId: 'AppId',
       appName: 'AppName',
+      clusterId: 'ClusterId',
       createTime: 'CreateTime',
       labels: 'Labels',
+      namespace: 'Namespace',
       pid: 'Pid',
       regionId: 'RegionId',
       resourceGroupId: 'ResourceGroupId',
@@ -23802,6 +23889,8 @@ export class ListTraceAppsResponseBodyTraceApps extends $tea.Model {
       type: 'Type',
       updateTime: 'UpdateTime',
       userId: 'UserId',
+      workloadKind: 'WorkloadKind',
+      workloadName: 'WorkloadName',
     };
   }
 
@@ -23809,8 +23898,10 @@ export class ListTraceAppsResponseBodyTraceApps extends $tea.Model {
     return {
       appId: 'number',
       appName: 'string',
+      clusterId: 'string',
       createTime: 'number',
       labels: { 'type': 'array', 'itemType': 'string' },
+      namespace: 'string',
       pid: 'string',
       regionId: 'string',
       resourceGroupId: 'string',
@@ -23820,6 +23911,8 @@ export class ListTraceAppsResponseBodyTraceApps extends $tea.Model {
       type: 'string',
       updateTime: 'number',
       userId: 'string',
+      workloadKind: 'string',
+      workloadName: 'string',
     };
   }
 
@@ -26636,7 +26729,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-    * The ID of the request.
+    * This operation is no longer maintained. To create or modify an alert contact, call the CreateOrUpdateContact operation provided by the new version of the Alert Management module.
     *
     * @param request CreateAlertContactRequest
     * @param runtime runtime options for this request RuntimeOptions
@@ -26691,7 +26784,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-    * The ID of the request.
+    * This operation is no longer maintained. To create or modify an alert contact, call the CreateOrUpdateContact operation provided by the new version of the Alert Management module.
     *
     * @param request CreateAlertContactRequest
     * @return CreateAlertContactResponse
@@ -27872,6 +27965,13 @@ export default class Client extends OpenApi {
     return await this.delAuthTokenWithOptions(request, runtime);
   }
 
+  /**
+    * ********
+    *
+    * @param request DeleteAlertContactRequest
+    * @param runtime runtime options for this request RuntimeOptions
+    * @return DeleteAlertContactResponse
+   */
   async deleteAlertContactWithOptions(request: DeleteAlertContactRequest, runtime: $Util.RuntimeOptions): Promise<DeleteAlertContactResponse> {
     Util.validateModel(request);
     let query = { };
@@ -27900,6 +28000,12 @@ export default class Client extends OpenApi {
     return $tea.cast<DeleteAlertContactResponse>(await this.callApi(params, req, runtime), new DeleteAlertContactResponse({}));
   }
 
+  /**
+    * ********
+    *
+    * @param request DeleteAlertContactRequest
+    * @return DeleteAlertContactResponse
+   */
   async deleteAlertContact(request: DeleteAlertContactRequest): Promise<DeleteAlertContactResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.deleteAlertContactWithOptions(request, runtime);
@@ -27998,6 +28104,39 @@ export default class Client extends OpenApi {
   async deleteAlertRules(request: DeleteAlertRulesRequest): Promise<DeleteAlertRulesResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.deleteAlertRulesWithOptions(request, runtime);
+  }
+
+  async deleteAppListWithOptions(request: DeleteAppListRequest, runtime: $Util.RuntimeOptions): Promise<DeleteAppListResponse> {
+    Util.validateModel(request);
+    let query = { };
+    if (!Util.isUnset(request.pids)) {
+      query["Pids"] = request.pids;
+    }
+
+    if (!Util.isUnset(request.regionId)) {
+      query["RegionId"] = request.regionId;
+    }
+
+    let req = new $OpenApi.OpenApiRequest({
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApi.Params({
+      action: "DeleteAppList",
+      version: "2019-08-08",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $tea.cast<DeleteAppListResponse>(await this.callApi(params, req, runtime), new DeleteAppListResponse({}));
+  }
+
+  async deleteAppList(request: DeleteAppListRequest): Promise<DeleteAppListResponse> {
+    let runtime = new $Util.RuntimeOptions({ });
+    return await this.deleteAppListWithOptions(request, runtime);
   }
 
   async deleteCmsExporterWithOptions(request: DeleteCmsExporterRequest, runtime: $Util.RuntimeOptions): Promise<DeleteCmsExporterResponse> {
@@ -30289,7 +30428,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-    * The ID of the region where the associated applications reside.
+    * >  You can call the **ImportAppAlertRules** operation to import only the alert rules that are generated by Application Real-Time Monitoring Service (ARMS) for application monitoring and browser monitoring. This operation cannot be used to import custom alert rules, alert rules for Prometheus monitoring, or default emergency alert rules.
     *
     * @param request ImportAppAlertRulesRequest
     * @param runtime runtime options for this request RuntimeOptions
@@ -30344,7 +30483,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-    * The ID of the region where the associated applications reside.
+    * >  You can call the **ImportAppAlertRules** operation to import only the alert rules that are generated by Application Real-Time Monitoring Service (ARMS) for application monitoring and browser monitoring. This operation cannot be used to import custom alert rules, alert rules for Prometheus monitoring, or default emergency alert rules.
     *
     * @param request ImportAppAlertRulesRequest
     * @return ImportAppAlertRulesResponse
@@ -31550,6 +31689,10 @@ export default class Client extends OpenApi {
   async listTraceAppsWithOptions(request: ListTraceAppsRequest, runtime: $Util.RuntimeOptions): Promise<ListTraceAppsResponse> {
     Util.validateModel(request);
     let query = { };
+    if (!Util.isUnset(request.appType)) {
+      query["AppType"] = request.appType;
+    }
+
     if (!Util.isUnset(request.region)) {
       query["Region"] = request.region;
     }
@@ -32127,7 +32270,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-    * The ID of the resource group.
+    * This operation is no longer maintained. To query alert contacts, call the DescribeContacts operation provided by the new version of Alert Management.
     *
     * @param request SearchAlertContactRequest
     * @param runtime runtime options for this request RuntimeOptions
@@ -32182,7 +32325,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-    * The ID of the resource group.
+    * This operation is no longer maintained. To query alert contacts, call the DescribeContacts operation provided by the new version of Alert Management.
     *
     * @param request SearchAlertContactRequest
     * @return SearchAlertContactResponse
@@ -32193,7 +32336,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-    * The mobile number of the alert contact.
+    * The operation is no longer maintained. Call the DescribeContactGroups operation in the alert management module to query alert contact groups.
     *
     * @param request SearchAlertContactGroupRequest
     * @param runtime runtime options for this request RuntimeOptions
@@ -32244,7 +32387,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-    * The mobile number of the alert contact.
+    * The operation is no longer maintained. Call the DescribeContactGroups operation in the alert management module to query alert contact groups.
     *
     * @param request SearchAlertContactGroupRequest
     * @return SearchAlertContactGroupResponse
@@ -32403,7 +32546,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-    * The operation that you want to perform. Set the value to `SearchEvents`.
+    * Alert event records are different from alert notification records. Alert events are recorded every minute after an alert rule filters data. Alert events can be classified based on whether they are triggered or not. If a triggered event is not in the silence period, an alert notification is sent.
     *
     * @param request SearchEventsRequest
     * @param runtime runtime options for this request RuntimeOptions
@@ -32470,7 +32613,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-    * The operation that you want to perform. Set the value to `SearchEvents`.
+    * Alert event records are different from alert notification records. Alert events are recorded every minute after an alert rule filters data. Alert events can be classified based on whether they are triggered or not. If a triggered event is not in the silence period, an alert notification is sent.
     *
     * @param request SearchEventsRequest
     * @return SearchEventsResponse
@@ -32533,13 +32676,6 @@ export default class Client extends OpenApi {
     return await this.searchRetcodeAppByPageWithOptions(request, runtime);
   }
 
-  /**
-    * ***
-    *
-    * @param request SearchTraceAppByNameRequest
-    * @param runtime runtime options for this request RuntimeOptions
-    * @return SearchTraceAppByNameResponse
-   */
   async searchTraceAppByNameWithOptions(request: SearchTraceAppByNameRequest, runtime: $Util.RuntimeOptions): Promise<SearchTraceAppByNameResponse> {
     Util.validateModel(request);
     let query = { };
@@ -32572,12 +32708,6 @@ export default class Client extends OpenApi {
     return $tea.cast<SearchTraceAppByNameResponse>(await this.callApi(params, req, runtime), new SearchTraceAppByNameResponse({}));
   }
 
-  /**
-    * ***
-    *
-    * @param request SearchTraceAppByNameRequest
-    * @return SearchTraceAppByNameResponse
-   */
   async searchTraceAppByName(request: SearchTraceAppByNameRequest): Promise<SearchTraceAppByNameResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.searchTraceAppByNameWithOptions(request, runtime);
@@ -33266,7 +33396,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-    * The ID of the request.
+    * This operation is no longer maintained. To create or modify an alert contact, call the CreateOrUpdateContact operation provided by the new version of Alert Management.
     *
     * @param request UpdateAlertContactRequest
     * @param runtime runtime options for this request RuntimeOptions
@@ -33321,7 +33451,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-    * The ID of the request.
+    * This operation is no longer maintained. To create or modify an alert contact, call the CreateOrUpdateContact operation provided by the new version of Alert Management.
     *
     * @param request UpdateAlertContactRequest
     * @return UpdateAlertContactResponse
@@ -33945,7 +34075,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-    * The ID of the request.
+    * This operation is no longer maintained. Call the CreateOrUpdateWebhookContact operation in the new alter management module to create or modify a webhook alert contact.
     *
     * @param request UpdateWebhookRequest
     * @param runtime runtime options for this request RuntimeOptions
@@ -34008,7 +34138,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-    * The ID of the request.
+    * This operation is no longer maintained. Call the CreateOrUpdateWebhookContact operation in the new alter management module to create or modify a webhook alert contact.
     *
     * @param request UpdateWebhookRequest
     * @return UpdateWebhookResponse
