@@ -971,15 +971,21 @@ export class CreateSwimLaneGroupRequest extends $tea.Model {
   groupName?: string;
   ingressGatewayName?: string;
   ingressType?: string;
+  isPermissive?: boolean;
+  routeHeader?: string;
   serviceMeshId?: string;
   servicesList?: string;
+  traceHeader?: string;
   static names(): { [key: string]: string } {
     return {
       groupName: 'GroupName',
       ingressGatewayName: 'IngressGatewayName',
       ingressType: 'IngressType',
+      isPermissive: 'IsPermissive',
+      routeHeader: 'RouteHeader',
       serviceMeshId: 'ServiceMeshId',
       servicesList: 'ServicesList',
+      traceHeader: 'TraceHeader',
     };
   }
 
@@ -988,8 +994,11 @@ export class CreateSwimLaneGroupRequest extends $tea.Model {
       groupName: 'string',
       ingressGatewayName: 'string',
       ingressType: 'string',
+      isPermissive: 'boolean',
+      routeHeader: 'string',
       serviceMeshId: 'string',
       servicesList: 'string',
+      traceHeader: 'string',
     };
   }
 
@@ -6693,11 +6702,13 @@ export class UpdateSwimLaneResponse extends $tea.Model {
 }
 
 export class UpdateSwimLaneGroupRequest extends $tea.Model {
+  fallbackTarget?: string;
   groupName?: string;
   serviceMeshId?: string;
   servicesList?: string;
   static names(): { [key: string]: string } {
     return {
+      fallbackTarget: 'FallbackTarget',
       groupName: 'GroupName',
       serviceMeshId: 'ServiceMeshId',
       servicesList: 'ServicesList',
@@ -6706,6 +6717,7 @@ export class UpdateSwimLaneGroupRequest extends $tea.Model {
 
   static types(): { [key: string]: any } {
     return {
+      fallbackTarget: 'string',
       groupName: 'string',
       serviceMeshId: 'string',
       servicesList: 'string',
@@ -11124,25 +11136,40 @@ export class GetRegisteredServiceEndpointsResponseBodyServiceEndpoints extends $
 }
 
 export class GetSwimLaneGroupListResponseBodySwimLaneGroupList extends $tea.Model {
+  fallbackTarget?: string;
   groupName?: string;
   ingressGatewayName?: string;
   ingressType?: string;
+  isPermissive?: boolean;
+  routeHeader?: string;
   serviceList?: string;
+  swimLaneLabels?: string;
+  traceHeader?: string;
   static names(): { [key: string]: string } {
     return {
+      fallbackTarget: 'FallbackTarget',
       groupName: 'GroupName',
       ingressGatewayName: 'IngressGatewayName',
       ingressType: 'IngressType',
+      isPermissive: 'IsPermissive',
+      routeHeader: 'RouteHeader',
       serviceList: 'ServiceList',
+      swimLaneLabels: 'SwimLaneLabels',
+      traceHeader: 'TraceHeader',
     };
   }
 
   static types(): { [key: string]: any } {
     return {
+      fallbackTarget: 'string',
       groupName: 'string',
       ingressGatewayName: 'string',
       ingressType: 'string',
+      isPermissive: 'boolean',
+      routeHeader: 'string',
       serviceList: 'string',
+      swimLaneLabels: 'string',
+      traceHeader: 'string',
     };
   }
 
@@ -12487,12 +12514,24 @@ export default class Client extends OpenApi {
       body["IngressType"] = request.ingressType;
     }
 
+    if (!Util.isUnset(request.isPermissive)) {
+      body["IsPermissive"] = request.isPermissive;
+    }
+
+    if (!Util.isUnset(request.routeHeader)) {
+      body["RouteHeader"] = request.routeHeader;
+    }
+
     if (!Util.isUnset(request.serviceMeshId)) {
       body["ServiceMeshId"] = request.serviceMeshId;
     }
 
     if (!Util.isUnset(request.servicesList)) {
       body["ServicesList"] = request.servicesList;
+    }
+
+    if (!Util.isUnset(request.traceHeader)) {
+      body["TraceHeader"] = request.traceHeader;
     }
 
     let req = new $OpenApi.OpenApiRequest({
@@ -15731,6 +15770,10 @@ export default class Client extends OpenApi {
   async updateSwimLaneGroupWithOptions(request: UpdateSwimLaneGroupRequest, runtime: $Util.RuntimeOptions): Promise<UpdateSwimLaneGroupResponse> {
     Util.validateModel(request);
     let body : {[key: string ]: any} = { };
+    if (!Util.isUnset(request.fallbackTarget)) {
+      body["FallbackTarget"] = request.fallbackTarget;
+    }
+
     if (!Util.isUnset(request.groupName)) {
       body["GroupName"] = request.groupName;
     }
