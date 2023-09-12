@@ -76,6 +76,49 @@ export class AddressForStory extends $tea.Model {
   }
 }
 
+export class AlgorithmDefinition extends $tea.Model {
+  algorithmDefinitionId?: string;
+  createTime?: string;
+  customLabels?: { [key: string]: string }[];
+  description?: string;
+  name?: string;
+  ownerId?: string;
+  projectName?: string;
+  trainingSpecification?: TrainingSpecification;
+  updateTime?: string;
+  static names(): { [key: string]: string } {
+    return {
+      algorithmDefinitionId: 'AlgorithmDefinitionId',
+      createTime: 'CreateTime',
+      customLabels: 'CustomLabels',
+      description: 'Description',
+      name: 'Name',
+      ownerId: 'OwnerId',
+      projectName: 'ProjectName',
+      trainingSpecification: 'TrainingSpecification',
+      updateTime: 'UpdateTime',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      algorithmDefinitionId: 'string',
+      createTime: 'string',
+      customLabels: { 'type': 'array', 'itemType': { 'type': 'map', 'keyType': 'string', 'valueType': 'string' } },
+      description: 'string',
+      name: 'string',
+      ownerId: 'string',
+      projectName: 'string',
+      trainingSpecification: TrainingSpecification,
+      updateTime: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
 export class AssumeRoleChain extends $tea.Model {
   chain?: AssumeRoleChainNode[];
   policy?: string;
@@ -426,6 +469,28 @@ export class CroppingSuggestion extends $tea.Model {
   }
 }
 
+export class CustomParams extends $tea.Model {
+  name?: string;
+  properties?: Property[];
+  static names(): { [key: string]: string } {
+    return {
+      name: 'Name',
+      properties: 'Properties',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      name: 'string',
+      properties: { 'type': 'array', 'itemType': Property },
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
 export class DataIngestion extends $tea.Model {
   actions?: DataIngestionActions[];
   createTime?: string;
@@ -756,8 +821,6 @@ export class File extends $tea.Model {
   customId?: string;
   customLabels?: { [key: string]: any };
   datasetName?: string;
-  documentContent?: string;
-  documentLanguage?: string;
   duration?: number;
   ETag?: string;
   EXIF?: string;
@@ -837,8 +900,6 @@ export class File extends $tea.Model {
       customId: 'CustomId',
       customLabels: 'CustomLabels',
       datasetName: 'DatasetName',
-      documentContent: 'DocumentContent',
-      documentLanguage: 'DocumentLanguage',
       duration: 'Duration',
       ETag: 'ETag',
       EXIF: 'EXIF',
@@ -921,8 +982,6 @@ export class File extends $tea.Model {
       customId: 'string',
       customLabels: { 'type': 'map', 'keyType': 'string', 'valueType': 'any' },
       datasetName: 'string',
-      documentContent: 'string',
-      documentLanguage: 'string',
       duration: 'number',
       ETag: 'string',
       EXIF: 'string',
@@ -1004,6 +1063,46 @@ export class HeadPose extends $tea.Model {
       pitch: 'number',
       roll: 'number',
       yaw: 'number',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class Hyperparameters extends $tea.Model {
+  backupInterval?: number;
+  batchSize?: number;
+  dataLoaderWorkers?: number;
+  evaluator?: CustomParams;
+  inputSize?: number[];
+  maxEpoch?: number;
+  optimization?: Optimization;
+  schedule?: Schedule;
+  static names(): { [key: string]: string } {
+    return {
+      backupInterval: 'BackupInterval',
+      batchSize: 'BatchSize',
+      dataLoaderWorkers: 'DataLoaderWorkers',
+      evaluator: 'Evaluator',
+      inputSize: 'InputSize',
+      maxEpoch: 'MaxEpoch',
+      optimization: 'Optimization',
+      schedule: 'Schedule',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      backupInterval: 'number',
+      batchSize: 'number',
+      dataLoaderWorkers: 'number',
+      evaluator: CustomParams,
+      inputSize: { 'type': 'array', 'itemType': 'number' },
+      maxEpoch: 'number',
+      optimization: Optimization,
+      schedule: Schedule,
     };
   }
 
@@ -1320,11 +1419,60 @@ export class MNS extends $tea.Model {
   }
 }
 
+export class MetaData extends $tea.Model {
+  identifier?: string;
+  provider?: string;
+  version?: string;
+  static names(): { [key: string]: string } {
+    return {
+      identifier: 'Identifier',
+      provider: 'Provider',
+      version: 'Version',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      identifier: 'string',
+      provider: 'string',
+      version: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class ModelSpecification extends $tea.Model {
+  metaData?: MetaData;
+  spec?: Spec;
+  static names(): { [key: string]: string } {
+    return {
+      metaData: 'MetaData',
+      spec: 'Spec',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      metaData: MetaData,
+      spec: Spec,
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
 export class Notification extends $tea.Model {
+  extendedMessageURI?: string;
   MNS?: MNS;
   rocketMQ?: RocketMQ;
   static names(): { [key: string]: string } {
     return {
+      extendedMessageURI: 'ExtendedMessageURI',
       MNS: 'MNS',
       rocketMQ: 'RocketMQ',
     };
@@ -1332,6 +1480,7 @@ export class Notification extends $tea.Model {
 
   static types(): { [key: string]: any } {
     return {
+      extendedMessageURI: 'string',
       MNS: MNS,
       rocketMQ: RocketMQ,
     };
@@ -1390,6 +1539,28 @@ export class OctreeOption extends $tea.Model {
       libraryName: 'string',
       octreeResolution: 'number',
       pointResolution: 'number',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class Optimization extends $tea.Model {
+  learningRate?: number;
+  optimizer?: string;
+  static names(): { [key: string]: string } {
+    return {
+      learningRate: 'LearningRate',
+      optimizer: 'Optimizer',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      learningRate: 'number',
+      optimizer: 'string',
     };
   }
 
@@ -1487,6 +1658,34 @@ export class Project extends $tea.Model {
   }
 }
 
+export class Property extends $tea.Model {
+  itemsType?: string;
+  name?: string;
+  value?: string;
+  valueType?: string;
+  static names(): { [key: string]: string } {
+    return {
+      itemsType: 'ItemsType',
+      name: 'Name',
+      value: 'Value',
+      valueType: 'ValueType',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      itemsType: 'string',
+      name: 'string',
+      value: 'string',
+      valueType: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
 export class RegionType extends $tea.Model {
   localName?: string;
   regionId?: string;
@@ -1501,6 +1700,40 @@ export class RegionType extends $tea.Model {
     return {
       localName: 'string',
       regionId: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class Resource extends $tea.Model {
+  CPU?: number;
+  ECSInstance?: string;
+  GPUModel?: string;
+  GPUNum?: number;
+  name?: string;
+  RAM?: number;
+  static names(): { [key: string]: string } {
+    return {
+      CPU: 'CPU',
+      ECSInstance: 'ECSInstance',
+      GPUModel: 'GPUModel',
+      GPUNum: 'GPUNum',
+      name: 'Name',
+      RAM: 'RAM',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      CPU: 'number',
+      ECSInstance: 'string',
+      GPUModel: 'string',
+      GPUNum: 'number',
+      name: 'string',
+      RAM: 'number',
     };
   }
 
@@ -1545,6 +1778,53 @@ export class Row extends $tea.Model {
     return {
       customLabels: { 'type': 'array', 'itemType': KeyValuePair },
       URI: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class Runtime extends $tea.Model {
+  hyperparameters?: Hyperparameters;
+  resource?: Resource;
+  static names(): { [key: string]: string } {
+    return {
+      hyperparameters: 'Hyperparameters',
+      resource: 'Resource',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      hyperparameters: Hyperparameters,
+      resource: Resource,
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class Schedule extends $tea.Model {
+  gamma?: number;
+  LRScheduler?: string;
+  stepSize?: number;
+  static names(): { [key: string]: string } {
+    return {
+      gamma: 'Gamma',
+      LRScheduler: 'LRScheduler',
+      stepSize: 'StepSize',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      gamma: 'number',
+      LRScheduler: 'string',
+      stepSize: 'number',
     };
   }
 
@@ -1626,6 +1906,49 @@ export class SimpleQuery extends $tea.Model {
       operation: 'string',
       subQueries: { 'type': 'array', 'itemType': SimpleQuery },
       value: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class Spec extends $tea.Model {
+  backbone?: CustomParams;
+  classNum?: number;
+  head?: CustomParams;
+  inputChannel?: number;
+  loss?: CustomParams;
+  name?: string;
+  neck?: CustomParams;
+  numLandmarks?: number;
+  pretrainedPath?: string;
+  static names(): { [key: string]: string } {
+    return {
+      backbone: 'Backbone',
+      classNum: 'ClassNum',
+      head: 'Head',
+      inputChannel: 'InputChannel',
+      loss: 'Loss',
+      name: 'Name',
+      neck: 'Neck',
+      numLandmarks: 'NumLandmarks',
+      pretrainedPath: 'PretrainedPath',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      backbone: CustomParams,
+      classNum: 'number',
+      head: CustomParams,
+      inputChannel: 'number',
+      loss: CustomParams,
+      name: 'string',
+      neck: CustomParams,
+      numLandmarks: 'number',
+      pretrainedPath: 'string',
     };
   }
 
@@ -1925,6 +2248,49 @@ export class TimeRange extends $tea.Model {
     return {
       end: 'string',
       start: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class TrainingSpecification extends $tea.Model {
+  datasetName?: string;
+  endpoint?: string;
+  modelSpecification?: ModelSpecification;
+  runtime?: Runtime;
+  sourceURI?: string;
+  targetURI?: string;
+  transforms?: CustomParams[];
+  validationSourceURI?: string;
+  validationSplit?: number;
+  static names(): { [key: string]: string } {
+    return {
+      datasetName: 'DatasetName',
+      endpoint: 'Endpoint',
+      modelSpecification: 'ModelSpecification',
+      runtime: 'Runtime',
+      sourceURI: 'SourceURI',
+      targetURI: 'TargetURI',
+      transforms: 'Transforms',
+      validationSourceURI: 'ValidationSourceURI',
+      validationSplit: 'ValidationSplit',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      datasetName: 'string',
+      endpoint: 'string',
+      modelSpecification: ModelSpecification,
+      runtime: Runtime,
+      sourceURI: 'string',
+      targetURI: 'string',
+      transforms: { 'type': 'array', 'itemType': CustomParams },
+      validationSourceURI: 'string',
+      validationSplit: 'number',
     };
   }
 
@@ -3035,7 +3401,6 @@ export class CreateArchiveFileInspectionTaskRequest extends $tea.Model {
   password?: string;
   projectName?: string;
   sourceURI?: string;
-  targetURI?: string;
   userData?: string;
   static names(): { [key: string]: string } {
     return {
@@ -3044,7 +3409,6 @@ export class CreateArchiveFileInspectionTaskRequest extends $tea.Model {
       password: 'Password',
       projectName: 'ProjectName',
       sourceURI: 'SourceURI',
-      targetURI: 'TargetURI',
       userData: 'UserData',
     };
   }
@@ -3056,7 +3420,6 @@ export class CreateArchiveFileInspectionTaskRequest extends $tea.Model {
       password: 'string',
       projectName: 'string',
       sourceURI: 'string',
-      targetURI: 'string',
       userData: 'string',
     };
   }
@@ -3072,7 +3435,6 @@ export class CreateArchiveFileInspectionTaskShrinkRequest extends $tea.Model {
   password?: string;
   projectName?: string;
   sourceURI?: string;
-  targetURI?: string;
   userData?: string;
   static names(): { [key: string]: string } {
     return {
@@ -3081,7 +3443,6 @@ export class CreateArchiveFileInspectionTaskShrinkRequest extends $tea.Model {
       password: 'Password',
       projectName: 'ProjectName',
       sourceURI: 'SourceURI',
-      targetURI: 'TargetURI',
       userData: 'UserData',
     };
   }
@@ -3093,7 +3454,6 @@ export class CreateArchiveFileInspectionTaskShrinkRequest extends $tea.Model {
       password: 'string',
       projectName: 'string',
       sourceURI: 'string',
-      targetURI: 'string',
       userData: 'string',
     };
   }
@@ -3713,11 +4073,10 @@ export class CreateDatasetResponse extends $tea.Model {
 
 export class CreateFacesSearchingTaskRequest extends $tea.Model {
   datasetName?: string;
-  maxResult?: string;
+  maxResult?: number;
   notification?: Notification;
   projectName?: string;
   sources?: CreateFacesSearchingTaskRequestSources[];
-  topK?: number;
   userData?: string;
   static names(): { [key: string]: string } {
     return {
@@ -3726,7 +4085,6 @@ export class CreateFacesSearchingTaskRequest extends $tea.Model {
       notification: 'Notification',
       projectName: 'ProjectName',
       sources: 'Sources',
-      topK: 'TopK',
       userData: 'UserData',
     };
   }
@@ -3734,11 +4092,10 @@ export class CreateFacesSearchingTaskRequest extends $tea.Model {
   static types(): { [key: string]: any } {
     return {
       datasetName: 'string',
-      maxResult: 'string',
+      maxResult: 'number',
       notification: Notification,
       projectName: 'string',
       sources: { 'type': 'array', 'itemType': CreateFacesSearchingTaskRequestSources },
-      topK: 'number',
       userData: 'string',
     };
   }
@@ -3750,11 +4107,10 @@ export class CreateFacesSearchingTaskRequest extends $tea.Model {
 
 export class CreateFacesSearchingTaskShrinkRequest extends $tea.Model {
   datasetName?: string;
-  maxResult?: string;
+  maxResult?: number;
   notificationShrink?: string;
   projectName?: string;
   sourcesShrink?: string;
-  topK?: number;
   userData?: string;
   static names(): { [key: string]: string } {
     return {
@@ -3763,7 +4119,6 @@ export class CreateFacesSearchingTaskShrinkRequest extends $tea.Model {
       notificationShrink: 'Notification',
       projectName: 'ProjectName',
       sourcesShrink: 'Sources',
-      topK: 'TopK',
       userData: 'UserData',
     };
   }
@@ -3771,11 +4126,10 @@ export class CreateFacesSearchingTaskShrinkRequest extends $tea.Model {
   static types(): { [key: string]: any } {
     return {
       datasetName: 'string',
-      maxResult: 'string',
+      maxResult: 'number',
       notificationShrink: 'string',
       projectName: 'string',
       sourcesShrink: 'string',
-      topK: 'number',
       userData: 'string',
     };
   }
@@ -4081,7 +4435,6 @@ export class CreateFileCompressionTaskRequest extends $tea.Model {
   compressedFormat?: string;
   credentialConfig?: CredentialConfig;
   notification?: Notification;
-  password?: string;
   projectName?: string;
   sourceManifestURI?: string;
   sources?: CreateFileCompressionTaskRequestSources[];
@@ -4092,7 +4445,6 @@ export class CreateFileCompressionTaskRequest extends $tea.Model {
       compressedFormat: 'CompressedFormat',
       credentialConfig: 'CredentialConfig',
       notification: 'Notification',
-      password: 'Password',
       projectName: 'ProjectName',
       sourceManifestURI: 'SourceManifestURI',
       sources: 'Sources',
@@ -4106,7 +4458,6 @@ export class CreateFileCompressionTaskRequest extends $tea.Model {
       compressedFormat: 'string',
       credentialConfig: CredentialConfig,
       notification: Notification,
-      password: 'string',
       projectName: 'string',
       sourceManifestURI: 'string',
       sources: { 'type': 'array', 'itemType': CreateFileCompressionTaskRequestSources },
@@ -4124,7 +4475,6 @@ export class CreateFileCompressionTaskShrinkRequest extends $tea.Model {
   compressedFormat?: string;
   credentialConfigShrink?: string;
   notificationShrink?: string;
-  password?: string;
   projectName?: string;
   sourceManifestURI?: string;
   sourcesShrink?: string;
@@ -4135,7 +4485,6 @@ export class CreateFileCompressionTaskShrinkRequest extends $tea.Model {
       compressedFormat: 'CompressedFormat',
       credentialConfigShrink: 'CredentialConfig',
       notificationShrink: 'Notification',
-      password: 'Password',
       projectName: 'ProjectName',
       sourceManifestURI: 'SourceManifestURI',
       sourcesShrink: 'Sources',
@@ -4149,7 +4498,6 @@ export class CreateFileCompressionTaskShrinkRequest extends $tea.Model {
       compressedFormat: 'string',
       credentialConfigShrink: 'string',
       notificationShrink: 'string',
-      password: 'string',
       projectName: 'string',
       sourceManifestURI: 'string',
       sourcesShrink: 'string',
@@ -4220,7 +4568,7 @@ export class CreateFileUncompressionTaskRequest extends $tea.Model {
   projectName?: string;
   selectedFiles?: string[];
   sourceURI?: string;
-  target?: CreateFileUncompressionTaskRequestTarget;
+  targetURI?: string;
   userData?: string;
   static names(): { [key: string]: string } {
     return {
@@ -4230,7 +4578,7 @@ export class CreateFileUncompressionTaskRequest extends $tea.Model {
       projectName: 'ProjectName',
       selectedFiles: 'SelectedFiles',
       sourceURI: 'SourceURI',
-      target: 'Target',
+      targetURI: 'TargetURI',
       userData: 'UserData',
     };
   }
@@ -4243,7 +4591,7 @@ export class CreateFileUncompressionTaskRequest extends $tea.Model {
       projectName: 'string',
       selectedFiles: { 'type': 'array', 'itemType': 'string' },
       sourceURI: 'string',
-      target: CreateFileUncompressionTaskRequestTarget,
+      targetURI: 'string',
       userData: 'string',
     };
   }
@@ -4260,7 +4608,7 @@ export class CreateFileUncompressionTaskShrinkRequest extends $tea.Model {
   projectName?: string;
   selectedFilesShrink?: string;
   sourceURI?: string;
-  targetShrink?: string;
+  targetURI?: string;
   userData?: string;
   static names(): { [key: string]: string } {
     return {
@@ -4270,7 +4618,7 @@ export class CreateFileUncompressionTaskShrinkRequest extends $tea.Model {
       projectName: 'ProjectName',
       selectedFilesShrink: 'SelectedFiles',
       sourceURI: 'SourceURI',
-      targetShrink: 'Target',
+      targetURI: 'TargetURI',
       userData: 'UserData',
     };
   }
@@ -4283,7 +4631,7 @@ export class CreateFileUncompressionTaskShrinkRequest extends $tea.Model {
       projectName: 'string',
       selectedFilesShrink: 'string',
       sourceURI: 'string',
-      targetShrink: 'string',
+      targetURI: 'string',
       userData: 'string',
     };
   }
@@ -4349,7 +4697,6 @@ export class CreateImageModerationTaskRequest extends $tea.Model {
   maxFrames?: number;
   notification?: Notification;
   projectName?: string;
-  reviewer?: string;
   scenes?: string[];
   sourceURI?: string;
   tags?: { [key: string]: any };
@@ -4361,7 +4708,6 @@ export class CreateImageModerationTaskRequest extends $tea.Model {
       maxFrames: 'MaxFrames',
       notification: 'Notification',
       projectName: 'ProjectName',
-      reviewer: 'Reviewer',
       scenes: 'Scenes',
       sourceURI: 'SourceURI',
       tags: 'Tags',
@@ -4376,7 +4722,6 @@ export class CreateImageModerationTaskRequest extends $tea.Model {
       maxFrames: 'number',
       notification: Notification,
       projectName: 'string',
-      reviewer: 'string',
       scenes: { 'type': 'array', 'itemType': 'string' },
       sourceURI: 'string',
       tags: { 'type': 'map', 'keyType': 'string', 'valueType': 'any' },
@@ -4395,7 +4740,6 @@ export class CreateImageModerationTaskShrinkRequest extends $tea.Model {
   maxFrames?: number;
   notificationShrink?: string;
   projectName?: string;
-  reviewer?: string;
   scenesShrink?: string;
   sourceURI?: string;
   tagsShrink?: string;
@@ -4407,7 +4751,6 @@ export class CreateImageModerationTaskShrinkRequest extends $tea.Model {
       maxFrames: 'MaxFrames',
       notificationShrink: 'Notification',
       projectName: 'ProjectName',
-      reviewer: 'Reviewer',
       scenesShrink: 'Scenes',
       sourceURI: 'SourceURI',
       tagsShrink: 'Tags',
@@ -4422,7 +4765,6 @@ export class CreateImageModerationTaskShrinkRequest extends $tea.Model {
       maxFrames: 'number',
       notificationShrink: 'string',
       projectName: 'string',
-      reviewer: 'string',
       scenesShrink: 'string',
       sourceURI: 'string',
       tagsShrink: 'string',
@@ -5931,7 +6273,6 @@ export class CreateVideoModerationTaskRequest extends $tea.Model {
   maxFrames?: number;
   notification?: Notification;
   projectName?: string;
-  reviewer?: string;
   scenes?: string[];
   sourceURI?: string;
   tags?: { [key: string]: any };
@@ -5943,7 +6284,6 @@ export class CreateVideoModerationTaskRequest extends $tea.Model {
       maxFrames: 'MaxFrames',
       notification: 'Notification',
       projectName: 'ProjectName',
-      reviewer: 'Reviewer',
       scenes: 'Scenes',
       sourceURI: 'SourceURI',
       tags: 'Tags',
@@ -5958,7 +6298,6 @@ export class CreateVideoModerationTaskRequest extends $tea.Model {
       maxFrames: 'number',
       notification: Notification,
       projectName: 'string',
-      reviewer: 'string',
       scenes: { 'type': 'array', 'itemType': 'string' },
       sourceURI: 'string',
       tags: { 'type': 'map', 'keyType': 'string', 'valueType': 'any' },
@@ -5977,7 +6316,6 @@ export class CreateVideoModerationTaskShrinkRequest extends $tea.Model {
   maxFrames?: number;
   notificationShrink?: string;
   projectName?: string;
-  reviewer?: string;
   scenesShrink?: string;
   sourceURI?: string;
   tagsShrink?: string;
@@ -5989,7 +6327,6 @@ export class CreateVideoModerationTaskShrinkRequest extends $tea.Model {
       maxFrames: 'MaxFrames',
       notificationShrink: 'Notification',
       projectName: 'ProjectName',
-      reviewer: 'Reviewer',
       scenesShrink: 'Scenes',
       sourceURI: 'SourceURI',
       tagsShrink: 'Tags',
@@ -6004,7 +6341,6 @@ export class CreateVideoModerationTaskShrinkRequest extends $tea.Model {
       maxFrames: 'number',
       notificationShrink: 'string',
       projectName: 'string',
-      reviewer: 'string',
       scenesShrink: 'string',
       sourceURI: 'string',
       tagsShrink: 'string',
@@ -6134,13 +6470,11 @@ export class DeleteBatchResponse extends $tea.Model {
 }
 
 export class DeleteBindingRequest extends $tea.Model {
-  cleanup?: boolean;
   datasetName?: string;
   projectName?: string;
   URI?: string;
   static names(): { [key: string]: string } {
     return {
-      cleanup: 'Cleanup',
       datasetName: 'DatasetName',
       projectName: 'ProjectName',
       URI: 'URI',
@@ -6149,7 +6483,6 @@ export class DeleteBindingRequest extends $tea.Model {
 
   static types(): { [key: string]: any } {
     return {
-      cleanup: 'boolean',
       datasetName: 'string',
       projectName: 'string',
       URI: 'string',
@@ -7737,11 +8070,13 @@ export class FuzzyQueryResponseBody extends $tea.Model {
   files?: File[];
   nextToken?: string;
   requestId?: string;
+  totalHits?: number;
   static names(): { [key: string]: string } {
     return {
       files: 'Files',
       nextToken: 'NextToken',
       requestId: 'RequestId',
+      totalHits: 'TotalHits',
     };
   }
 
@@ -7750,6 +8085,7 @@ export class FuzzyQueryResponseBody extends $tea.Model {
       files: { 'type': 'array', 'itemType': File },
       nextToken: 'string',
       requestId: 'string',
+      totalHits: 'number',
     };
   }
 
@@ -7775,235 +8111,6 @@ export class FuzzyQueryResponse extends $tea.Model {
       headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
       statusCode: 'number',
       body: FuzzyQueryResponseBody,
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class GenerateDRMLicenseRequest extends $tea.Model {
-  keyId?: string;
-  notifyEndpoint?: string;
-  notifyTopicName?: string;
-  projectName?: string;
-  protectionSystem?: string;
-  static names(): { [key: string]: string } {
-    return {
-      keyId: 'KeyId',
-      notifyEndpoint: 'NotifyEndpoint',
-      notifyTopicName: 'NotifyTopicName',
-      projectName: 'ProjectName',
-      protectionSystem: 'ProtectionSystem',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      keyId: 'string',
-      notifyEndpoint: 'string',
-      notifyTopicName: 'string',
-      projectName: 'string',
-      protectionSystem: 'string',
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class GenerateDRMLicenseResponseBody extends $tea.Model {
-  deviceInfo?: string;
-  license?: string;
-  requestId?: string;
-  states?: number;
-  static names(): { [key: string]: string } {
-    return {
-      deviceInfo: 'DeviceInfo',
-      license: 'License',
-      requestId: 'RequestId',
-      states: 'States',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      deviceInfo: 'string',
-      license: 'string',
-      requestId: 'string',
-      states: 'number',
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class GenerateDRMLicenseResponse extends $tea.Model {
-  headers: { [key: string]: string };
-  statusCode: number;
-  body: GenerateDRMLicenseResponseBody;
-  static names(): { [key: string]: string } {
-    return {
-      headers: 'headers',
-      statusCode: 'statusCode',
-      body: 'body',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
-      statusCode: 'number',
-      body: GenerateDRMLicenseResponseBody,
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class GenerateVideoPlaylistRequest extends $tea.Model {
-  credentialConfig?: CredentialConfig;
-  masterURI?: string;
-  projectName?: string;
-  sourceDuration?: number;
-  sourceStartTime?: number;
-  sourceSubtitles?: GenerateVideoPlaylistRequestSourceSubtitles[];
-  sourceURI?: string;
-  tags?: { [key: string]: any };
-  targets?: GenerateVideoPlaylistRequestTargets[];
-  static names(): { [key: string]: string } {
-    return {
-      credentialConfig: 'CredentialConfig',
-      masterURI: 'MasterURI',
-      projectName: 'ProjectName',
-      sourceDuration: 'SourceDuration',
-      sourceStartTime: 'SourceStartTime',
-      sourceSubtitles: 'SourceSubtitles',
-      sourceURI: 'SourceURI',
-      tags: 'Tags',
-      targets: 'Targets',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      credentialConfig: CredentialConfig,
-      masterURI: 'string',
-      projectName: 'string',
-      sourceDuration: 'number',
-      sourceStartTime: 'number',
-      sourceSubtitles: { 'type': 'array', 'itemType': GenerateVideoPlaylistRequestSourceSubtitles },
-      sourceURI: 'string',
-      tags: { 'type': 'map', 'keyType': 'string', 'valueType': 'any' },
-      targets: { 'type': 'array', 'itemType': GenerateVideoPlaylistRequestTargets },
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class GenerateVideoPlaylistShrinkRequest extends $tea.Model {
-  credentialConfigShrink?: string;
-  masterURI?: string;
-  projectName?: string;
-  sourceDuration?: number;
-  sourceStartTime?: number;
-  sourceSubtitlesShrink?: string;
-  sourceURI?: string;
-  tagsShrink?: string;
-  targetsShrink?: string;
-  static names(): { [key: string]: string } {
-    return {
-      credentialConfigShrink: 'CredentialConfig',
-      masterURI: 'MasterURI',
-      projectName: 'ProjectName',
-      sourceDuration: 'SourceDuration',
-      sourceStartTime: 'SourceStartTime',
-      sourceSubtitlesShrink: 'SourceSubtitles',
-      sourceURI: 'SourceURI',
-      tagsShrink: 'Tags',
-      targetsShrink: 'Targets',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      credentialConfigShrink: 'string',
-      masterURI: 'string',
-      projectName: 'string',
-      sourceDuration: 'number',
-      sourceStartTime: 'number',
-      sourceSubtitlesShrink: 'string',
-      sourceURI: 'string',
-      tagsShrink: 'string',
-      targetsShrink: 'string',
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class GenerateVideoPlaylistResponseBody extends $tea.Model {
-  audioPlaylist?: GenerateVideoPlaylistResponseBodyAudioPlaylist[];
-  requestId?: string;
-  subtitlePlaylist?: GenerateVideoPlaylistResponseBodySubtitlePlaylist[];
-  token?: string;
-  URI?: string;
-  videoPlaylist?: GenerateVideoPlaylistResponseBodyVideoPlaylist[];
-  static names(): { [key: string]: string } {
-    return {
-      audioPlaylist: 'AudioPlaylist',
-      requestId: 'RequestId',
-      subtitlePlaylist: 'SubtitlePlaylist',
-      token: 'Token',
-      URI: 'URI',
-      videoPlaylist: 'VideoPlaylist',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      audioPlaylist: { 'type': 'array', 'itemType': GenerateVideoPlaylistResponseBodyAudioPlaylist },
-      requestId: 'string',
-      subtitlePlaylist: { 'type': 'array', 'itemType': GenerateVideoPlaylistResponseBodySubtitlePlaylist },
-      token: 'string',
-      URI: 'string',
-      videoPlaylist: { 'type': 'array', 'itemType': GenerateVideoPlaylistResponseBodyVideoPlaylist },
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class GenerateVideoPlaylistResponse extends $tea.Model {
-  headers: { [key: string]: string };
-  statusCode: number;
-  body: GenerateVideoPlaylistResponseBody;
-  static names(): { [key: string]: string } {
-    return {
-      headers: 'headers',
-      statusCode: 'statusCode',
-      body: 'body',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
-      statusCode: 'number',
-      body: GenerateVideoPlaylistResponseBody,
     };
   }
 
@@ -8332,90 +8439,6 @@ export class GetBindingResponse extends $tea.Model {
       headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
       statusCode: 'number',
       body: GetBindingResponseBody,
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class GetDRMLicenseRequest extends $tea.Model {
-  keyId?: string;
-  notifyEndpoint?: string;
-  notifyTopicName?: string;
-  projectName?: string;
-  protectionSystem?: string;
-  static names(): { [key: string]: string } {
-    return {
-      keyId: 'KeyId',
-      notifyEndpoint: 'NotifyEndpoint',
-      notifyTopicName: 'NotifyTopicName',
-      projectName: 'ProjectName',
-      protectionSystem: 'ProtectionSystem',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      keyId: 'string',
-      notifyEndpoint: 'string',
-      notifyTopicName: 'string',
-      projectName: 'string',
-      protectionSystem: 'string',
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class GetDRMLicenseResponseBody extends $tea.Model {
-  deviceInfo?: string;
-  license?: string;
-  requestId?: string;
-  states?: number;
-  static names(): { [key: string]: string } {
-    return {
-      deviceInfo: 'DeviceInfo',
-      license: 'License',
-      requestId: 'RequestId',
-      states: 'States',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      deviceInfo: 'string',
-      license: 'string',
-      requestId: 'string',
-      states: 'number',
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class GetDRMLicenseResponse extends $tea.Model {
-  headers: { [key: string]: string };
-  statusCode: number;
-  body: GetDRMLicenseResponseBody;
-  static names(): { [key: string]: string } {
-    return {
-      headers: 'headers',
-      statusCode: 'statusCode',
-      body: 'body',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
-      statusCode: 'number',
-      body: GetDRMLicenseResponseBody,
     };
   }
 
@@ -10061,103 +10084,6 @@ export class ListTriggersResponse extends $tea.Model {
   }
 }
 
-export class LiveTranscodingRequest extends $tea.Model {
-  credentialConfig?: CredentialConfig;
-  projectName?: string;
-  sourceURI?: string;
-  static names(): { [key: string]: string } {
-    return {
-      credentialConfig: 'CredentialConfig',
-      projectName: 'ProjectName',
-      sourceURI: 'SourceURI',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      credentialConfig: CredentialConfig,
-      projectName: 'string',
-      sourceURI: 'string',
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class LiveTranscodingShrinkRequest extends $tea.Model {
-  credentialConfigShrink?: string;
-  projectName?: string;
-  sourceURI?: string;
-  static names(): { [key: string]: string } {
-    return {
-      credentialConfigShrink: 'CredentialConfig',
-      projectName: 'ProjectName',
-      sourceURI: 'SourceURI',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      credentialConfigShrink: 'string',
-      projectName: 'string',
-      sourceURI: 'string',
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class LiveTranscodingResponseBody extends $tea.Model {
-  requestId?: string;
-  URI?: string;
-  static names(): { [key: string]: string } {
-    return {
-      requestId: 'RequestId',
-      URI: 'URI',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      requestId: 'string',
-      URI: 'string',
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class LiveTranscodingResponse extends $tea.Model {
-  headers: { [key: string]: string };
-  statusCode: number;
-  body: LiveTranscodingResponseBody;
-  static names(): { [key: string]: string } {
-    return {
-      headers: 'headers',
-      statusCode: 'statusCode',
-      body: 'body',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
-      statusCode: 'number',
-      body: LiveTranscodingResponseBody,
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
 export class QueryFigureClustersRequest extends $tea.Model {
   createTimeRange?: TimeRange;
   customLabels?: string;
@@ -11018,75 +10944,6 @@ export class ResumeBatchResponse extends $tea.Model {
   }
 }
 
-export class ResumeBindingRequest extends $tea.Model {
-  datasetName?: string;
-  projectName?: string;
-  URI?: string;
-  static names(): { [key: string]: string } {
-    return {
-      datasetName: 'DatasetName',
-      projectName: 'ProjectName',
-      URI: 'URI',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      datasetName: 'string',
-      projectName: 'string',
-      URI: 'string',
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class ResumeBindingResponseBody extends $tea.Model {
-  requestId?: string;
-  static names(): { [key: string]: string } {
-    return {
-      requestId: 'RequestId',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      requestId: 'string',
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class ResumeBindingResponse extends $tea.Model {
-  headers: { [key: string]: string };
-  statusCode: number;
-  body: ResumeBindingResponseBody;
-  static names(): { [key: string]: string } {
-    return {
-      headers: 'headers',
-      statusCode: 'statusCode',
-      body: 'body',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
-      statusCode: 'number',
-      body: ResumeBindingResponseBody,
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
 export class ResumeTriggerRequest extends $tea.Model {
   id?: string;
   projectName?: string;
@@ -11291,11 +11148,13 @@ export class SemanticQueryResponseBody extends $tea.Model {
   files?: File[];
   nextToken?: string;
   requestId?: string;
+  totalHits?: number;
   static names(): { [key: string]: string } {
     return {
       files: 'Files',
       nextToken: 'NextToken',
       requestId: 'RequestId',
+      totalHits: 'TotalHits',
     };
   }
 
@@ -11304,6 +11163,7 @@ export class SemanticQueryResponseBody extends $tea.Model {
       files: { 'type': 'array', 'itemType': File },
       nextToken: 'string',
       requestId: 'string',
+      totalHits: 'number',
     };
   }
 
@@ -11428,12 +11288,14 @@ export class SimpleQueryResponseBody extends $tea.Model {
   files?: File[];
   nextToken?: string;
   requestId?: string;
+  totalHits?: number;
   static names(): { [key: string]: string } {
     return {
       aggregations: 'Aggregations',
       files: 'Files',
       nextToken: 'NextToken',
       requestId: 'RequestId',
+      totalHits: 'TotalHits',
     };
   }
 
@@ -11443,6 +11305,7 @@ export class SimpleQueryResponseBody extends $tea.Model {
       files: { 'type': 'array', 'itemType': File },
       nextToken: 'string',
       requestId: 'string',
+      totalHits: 'number',
     };
   }
 
@@ -11468,78 +11331,6 @@ export class SimpleQueryResponse extends $tea.Model {
       headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
       statusCode: 'number',
       body: SimpleQueryResponseBody,
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class StopBindingRequest extends $tea.Model {
-  datasetName?: string;
-  projectName?: string;
-  reason?: string;
-  URI?: string;
-  static names(): { [key: string]: string } {
-    return {
-      datasetName: 'DatasetName',
-      projectName: 'ProjectName',
-      reason: 'Reason',
-      URI: 'URI',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      datasetName: 'string',
-      projectName: 'string',
-      reason: 'string',
-      URI: 'string',
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class StopBindingResponseBody extends $tea.Model {
-  requestId?: string;
-  static names(): { [key: string]: string } {
-    return {
-      requestId: 'RequestId',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      requestId: 'string',
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class StopBindingResponse extends $tea.Model {
-  headers: { [key: string]: string };
-  statusCode: number;
-  body: StopBindingResponseBody;
-  static names(): { [key: string]: string } {
-    return {
-      headers: 'headers',
-      statusCode: 'statusCode',
-      body: 'body',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
-      statusCode: 'number',
-      body: StopBindingResponseBody,
     };
   }
 
@@ -11684,7 +11475,6 @@ export class UpdateBatchRequest extends $tea.Model {
   actions?: UpdateBatchRequestActions[];
   id?: string;
   input?: Input;
-  notification?: UpdateBatchRequestNotification;
   projectName?: string;
   tags?: { [key: string]: any };
   static names(): { [key: string]: string } {
@@ -11692,7 +11482,6 @@ export class UpdateBatchRequest extends $tea.Model {
       actions: 'Actions',
       id: 'Id',
       input: 'Input',
-      notification: 'Notification',
       projectName: 'ProjectName',
       tags: 'Tags',
     };
@@ -11703,7 +11492,6 @@ export class UpdateBatchRequest extends $tea.Model {
       actions: { 'type': 'array', 'itemType': UpdateBatchRequestActions },
       id: 'string',
       input: Input,
-      notification: UpdateBatchRequestNotification,
       projectName: 'string',
       tags: { 'type': 'map', 'keyType': 'string', 'valueType': 'any' },
     };
@@ -11718,7 +11506,6 @@ export class UpdateBatchShrinkRequest extends $tea.Model {
   actionsShrink?: string;
   id?: string;
   inputShrink?: string;
-  notificationShrink?: string;
   projectName?: string;
   tagsShrink?: string;
   static names(): { [key: string]: string } {
@@ -11726,7 +11513,6 @@ export class UpdateBatchShrinkRequest extends $tea.Model {
       actionsShrink: 'Actions',
       id: 'Id',
       inputShrink: 'Input',
-      notificationShrink: 'Notification',
       projectName: 'ProjectName',
       tagsShrink: 'Tags',
     };
@@ -11737,7 +11523,6 @@ export class UpdateBatchShrinkRequest extends $tea.Model {
       actionsShrink: 'string',
       id: 'string',
       inputShrink: 'string',
-      notificationShrink: 'string',
       projectName: 'string',
       tagsShrink: 'string',
     };
@@ -12397,7 +12182,6 @@ export class UpdateTriggerRequest extends $tea.Model {
   actions?: UpdateTriggerRequestActions[];
   id?: string;
   input?: Input;
-  notification?: UpdateTriggerRequestNotification;
   projectName?: string;
   tags?: { [key: string]: any };
   static names(): { [key: string]: string } {
@@ -12405,7 +12189,6 @@ export class UpdateTriggerRequest extends $tea.Model {
       actions: 'Actions',
       id: 'Id',
       input: 'Input',
-      notification: 'Notification',
       projectName: 'ProjectName',
       tags: 'Tags',
     };
@@ -12416,7 +12199,6 @@ export class UpdateTriggerRequest extends $tea.Model {
       actions: { 'type': 'array', 'itemType': UpdateTriggerRequestActions },
       id: 'string',
       input: Input,
-      notification: UpdateTriggerRequestNotification,
       projectName: 'string',
       tags: { 'type': 'map', 'keyType': 'string', 'valueType': 'any' },
     };
@@ -12431,7 +12213,6 @@ export class UpdateTriggerShrinkRequest extends $tea.Model {
   actionsShrink?: string;
   id?: string;
   inputShrink?: string;
-  notificationShrink?: string;
   projectName?: string;
   tagsShrink?: string;
   static names(): { [key: string]: string } {
@@ -12439,7 +12220,6 @@ export class UpdateTriggerShrinkRequest extends $tea.Model {
       actionsShrink: 'Actions',
       id: 'Id',
       inputShrink: 'Input',
-      notificationShrink: 'Notification',
       projectName: 'ProjectName',
       tagsShrink: 'Tags',
     };
@@ -12450,7 +12230,6 @@ export class UpdateTriggerShrinkRequest extends $tea.Model {
       actionsShrink: 'string',
       id: 'string',
       inputShrink: 'string',
-      notificationShrink: 'string',
       projectName: 'string',
       tagsShrink: 'string',
     };
@@ -13279,19 +13058,16 @@ export class CreateBatchRequestActions extends $tea.Model {
 }
 
 export class CreateBatchRequestNotification extends $tea.Model {
-  endpoint?: string;
-  topic?: string;
+  MNS?: MNS;
   static names(): { [key: string]: string } {
     return {
-      endpoint: 'Endpoint',
-      topic: 'Topic',
+      MNS: 'MNS',
     };
   }
 
   static types(): { [key: string]: any } {
     return {
-      endpoint: 'string',
-      topic: 'string',
+      MNS: MNS,
     };
   }
 
@@ -13370,28 +13146,6 @@ export class CreateFileCompressionTaskRequestSources extends $tea.Model {
   static types(): { [key: string]: any } {
     return {
       alias: 'string',
-      URI: 'string',
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class CreateFileUncompressionTaskRequestTarget extends $tea.Model {
-  manifestURI?: string;
-  URI?: string;
-  static names(): { [key: string]: string } {
-    return {
-      manifestURI: 'ManifestURI',
-      URI: 'URI',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      manifestURI: 'string',
       URI: 'string',
     };
   }
@@ -13633,19 +13387,16 @@ export class CreateTriggerRequestActions extends $tea.Model {
 }
 
 export class CreateTriggerRequestNotification extends $tea.Model {
-  endpoint?: string;
-  topic?: string;
+  MNS?: MNS;
   static names(): { [key: string]: string } {
     return {
-      endpoint: 'Endpoint',
-      topic: 'Topic',
+      MNS: 'MNS',
     };
   }
 
   static types(): { [key: string]: any } {
     return {
-      endpoint: 'string',
-      topic: 'string',
+      MNS: MNS,
     };
   }
 
@@ -13665,143 +13416,6 @@ export class DetectImageScoreResponseBodyImageScore extends $tea.Model {
   static types(): { [key: string]: any } {
     return {
       overallQualityScore: 'number',
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class GenerateVideoPlaylistRequestSourceSubtitles extends $tea.Model {
-  language?: string;
-  URI?: string;
-  static names(): { [key: string]: string } {
-    return {
-      language: 'Language',
-      URI: 'URI',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      language: 'string',
-      URI: 'string',
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class GenerateVideoPlaylistRequestTargets extends $tea.Model {
-  audio?: TargetAudio;
-  duration?: number;
-  initialSegments?: number[];
-  initialTranscode?: number;
-  speed?: number;
-  subtitle?: TargetSubtitle;
-  transcodeAhead?: number;
-  URI?: string;
-  video?: TargetVideo;
-  static names(): { [key: string]: string } {
-    return {
-      audio: 'Audio',
-      duration: 'Duration',
-      initialSegments: 'InitialSegments',
-      initialTranscode: 'InitialTranscode',
-      speed: 'Speed',
-      subtitle: 'Subtitle',
-      transcodeAhead: 'TranscodeAhead',
-      URI: 'URI',
-      video: 'Video',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      audio: TargetAudio,
-      duration: 'number',
-      initialSegments: { 'type': 'array', 'itemType': 'number' },
-      initialTranscode: 'number',
-      speed: 'number',
-      subtitle: TargetSubtitle,
-      transcodeAhead: 'number',
-      URI: 'string',
-      video: TargetVideo,
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class GenerateVideoPlaylistResponseBodyAudioPlaylist extends $tea.Model {
-  token?: string;
-  URI?: string;
-  static names(): { [key: string]: string } {
-    return {
-      token: 'Token',
-      URI: 'URI',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      token: 'string',
-      URI: 'string',
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class GenerateVideoPlaylistResponseBodySubtitlePlaylist extends $tea.Model {
-  index?: number;
-  language?: string;
-  token?: string;
-  URI?: string;
-  static names(): { [key: string]: string } {
-    return {
-      index: 'Index',
-      language: 'Language',
-      token: 'Token',
-      URI: 'URI',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      index: 'number',
-      language: 'string',
-      token: 'string',
-      URI: 'string',
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class GenerateVideoPlaylistResponseBodyVideoPlaylist extends $tea.Model {
-  token?: string;
-  URI?: string;
-  static names(): { [key: string]: string } {
-    return {
-      token: 'Token',
-      URI: 'URI',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      token: 'string',
-      URI: 'string',
     };
   }
 
@@ -14098,28 +13712,6 @@ export class UpdateBatchRequestActions extends $tea.Model {
   }
 }
 
-export class UpdateBatchRequestNotification extends $tea.Model {
-  endpoint?: string;
-  topic?: string;
-  static names(): { [key: string]: string } {
-    return {
-      endpoint: 'Endpoint',
-      topic: 'Topic',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      endpoint: 'string',
-      topic: 'string',
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
 export class UpdateStoryRequestCover extends $tea.Model {
   URI?: string;
   static names(): { [key: string]: string } {
@@ -14153,28 +13745,6 @@ export class UpdateTriggerRequestActions extends $tea.Model {
     return {
       name: 'string',
       parameters: { 'type': 'array', 'itemType': 'string' },
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class UpdateTriggerRequestNotification extends $tea.Model {
-  endpoint?: string;
-  topic?: string;
-  static names(): { [key: string]: string } {
-    return {
-      endpoint: 'Endpoint',
-      topic: 'Topic',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      endpoint: 'string',
-      topic: 'string',
     };
   }
 
@@ -14655,10 +14225,6 @@ export default class Client extends OpenApi {
       query["SourceURI"] = request.sourceURI;
     }
 
-    if (!Util.isUnset(request.targetURI)) {
-      query["TargetURI"] = request.targetURI;
-    }
-
     if (!Util.isUnset(request.userData)) {
       query["UserData"] = request.userData;
     }
@@ -15053,10 +14619,6 @@ export default class Client extends OpenApi {
       query["Sources"] = request.sourcesShrink;
     }
 
-    if (!Util.isUnset(request.topK)) {
-      query["TopK"] = request.topK;
-    }
-
     if (!Util.isUnset(request.userData)) {
       query["UserData"] = request.userData;
     }
@@ -15238,10 +14800,6 @@ export default class Client extends OpenApi {
       query["Notification"] = request.notificationShrink;
     }
 
-    if (!Util.isUnset(request.password)) {
-      query["Password"] = request.password;
-    }
-
     if (!Util.isUnset(request.projectName)) {
       query["ProjectName"] = request.projectName;
     }
@@ -15300,10 +14858,6 @@ export default class Client extends OpenApi {
       request.selectedFilesShrink = OpenApiUtil.arrayToStringWithSpecifiedStyle(tmpReq.selectedFiles, "SelectedFiles", "json");
     }
 
-    if (!Util.isUnset(tmpReq.target)) {
-      request.targetShrink = OpenApiUtil.arrayToStringWithSpecifiedStyle(tmpReq.target, "Target", "json");
-    }
-
     let query = { };
     if (!Util.isUnset(request.credentialConfigShrink)) {
       query["CredentialConfig"] = request.credentialConfigShrink;
@@ -15329,8 +14883,8 @@ export default class Client extends OpenApi {
       query["SourceURI"] = request.sourceURI;
     }
 
-    if (!Util.isUnset(request.targetShrink)) {
-      query["Target"] = request.targetShrink;
+    if (!Util.isUnset(request.targetURI)) {
+      query["TargetURI"] = request.targetURI;
     }
 
     if (!Util.isUnset(request.userData)) {
@@ -15398,10 +14952,6 @@ export default class Client extends OpenApi {
 
     if (!Util.isUnset(request.projectName)) {
       query["ProjectName"] = request.projectName;
-    }
-
-    if (!Util.isUnset(request.reviewer)) {
-      query["Reviewer"] = request.reviewer;
     }
 
     if (!Util.isUnset(request.scenesShrink)) {
@@ -16337,10 +15887,6 @@ export default class Client extends OpenApi {
       query["ProjectName"] = request.projectName;
     }
 
-    if (!Util.isUnset(request.reviewer)) {
-      query["Reviewer"] = request.reviewer;
-    }
-
     if (!Util.isUnset(request.scenesShrink)) {
       query["Scenes"] = request.scenesShrink;
     }
@@ -16415,10 +15961,6 @@ export default class Client extends OpenApi {
   async deleteBindingWithOptions(request: DeleteBindingRequest, runtime: $Util.RuntimeOptions): Promise<DeleteBindingResponse> {
     Util.validateModel(request);
     let query = { };
-    if (!Util.isUnset(request.cleanup)) {
-      query["Cleanup"] = request.cleanup;
-    }
-
     if (!Util.isUnset(request.datasetName)) {
       query["DatasetName"] = request.datasetName;
     }
@@ -17175,130 +16717,6 @@ export default class Client extends OpenApi {
     return await this.fuzzyQueryWithOptions(request, runtime);
   }
 
-  async generateDRMLicenseWithOptions(request: GenerateDRMLicenseRequest, runtime: $Util.RuntimeOptions): Promise<GenerateDRMLicenseResponse> {
-    Util.validateModel(request);
-    let query = { };
-    if (!Util.isUnset(request.keyId)) {
-      query["KeyId"] = request.keyId;
-    }
-
-    if (!Util.isUnset(request.notifyEndpoint)) {
-      query["NotifyEndpoint"] = request.notifyEndpoint;
-    }
-
-    if (!Util.isUnset(request.notifyTopicName)) {
-      query["NotifyTopicName"] = request.notifyTopicName;
-    }
-
-    if (!Util.isUnset(request.projectName)) {
-      query["ProjectName"] = request.projectName;
-    }
-
-    if (!Util.isUnset(request.protectionSystem)) {
-      query["ProtectionSystem"] = request.protectionSystem;
-    }
-
-    let req = new $OpenApi.OpenApiRequest({
-      query: OpenApiUtil.query(query),
-    });
-    let params = new $OpenApi.Params({
-      action: "GenerateDRMLicense",
-      version: "2020-09-30",
-      protocol: "HTTPS",
-      pathname: "/",
-      method: "POST",
-      authType: "AK",
-      style: "RPC",
-      reqBodyType: "formData",
-      bodyType: "json",
-    });
-    return $tea.cast<GenerateDRMLicenseResponse>(await this.callApi(params, req, runtime), new GenerateDRMLicenseResponse({}));
-  }
-
-  async generateDRMLicense(request: GenerateDRMLicenseRequest): Promise<GenerateDRMLicenseResponse> {
-    let runtime = new $Util.RuntimeOptions({ });
-    return await this.generateDRMLicenseWithOptions(request, runtime);
-  }
-
-  async generateVideoPlaylistWithOptions(tmpReq: GenerateVideoPlaylistRequest, runtime: $Util.RuntimeOptions): Promise<GenerateVideoPlaylistResponse> {
-    Util.validateModel(tmpReq);
-    let request = new GenerateVideoPlaylistShrinkRequest({ });
-    OpenApiUtil.convert(tmpReq, request);
-    if (!Util.isUnset(tmpReq.credentialConfig)) {
-      request.credentialConfigShrink = OpenApiUtil.arrayToStringWithSpecifiedStyle(tmpReq.credentialConfig, "CredentialConfig", "json");
-    }
-
-    if (!Util.isUnset(tmpReq.sourceSubtitles)) {
-      request.sourceSubtitlesShrink = OpenApiUtil.arrayToStringWithSpecifiedStyle(tmpReq.sourceSubtitles, "SourceSubtitles", "json");
-    }
-
-    if (!Util.isUnset(tmpReq.tags)) {
-      request.tagsShrink = OpenApiUtil.arrayToStringWithSpecifiedStyle(tmpReq.tags, "Tags", "json");
-    }
-
-    if (!Util.isUnset(tmpReq.targets)) {
-      request.targetsShrink = OpenApiUtil.arrayToStringWithSpecifiedStyle(tmpReq.targets, "Targets", "json");
-    }
-
-    let query = { };
-    if (!Util.isUnset(request.credentialConfigShrink)) {
-      query["CredentialConfig"] = request.credentialConfigShrink;
-    }
-
-    if (!Util.isUnset(request.masterURI)) {
-      query["MasterURI"] = request.masterURI;
-    }
-
-    if (!Util.isUnset(request.projectName)) {
-      query["ProjectName"] = request.projectName;
-    }
-
-    if (!Util.isUnset(request.sourceDuration)) {
-      query["SourceDuration"] = request.sourceDuration;
-    }
-
-    if (!Util.isUnset(request.sourceStartTime)) {
-      query["SourceStartTime"] = request.sourceStartTime;
-    }
-
-    if (!Util.isUnset(request.sourceSubtitlesShrink)) {
-      query["SourceSubtitles"] = request.sourceSubtitlesShrink;
-    }
-
-    if (!Util.isUnset(request.sourceURI)) {
-      query["SourceURI"] = request.sourceURI;
-    }
-
-    if (!Util.isUnset(request.tagsShrink)) {
-      query["Tags"] = request.tagsShrink;
-    }
-
-    if (!Util.isUnset(request.targetsShrink)) {
-      query["Targets"] = request.targetsShrink;
-    }
-
-    let req = new $OpenApi.OpenApiRequest({
-      query: OpenApiUtil.query(query),
-    });
-    let params = new $OpenApi.Params({
-      action: "GenerateVideoPlaylist",
-      version: "2020-09-30",
-      protocol: "HTTPS",
-      pathname: "/",
-      method: "POST",
-      authType: "AK",
-      style: "RPC",
-      reqBodyType: "formData",
-      bodyType: "json",
-    });
-    return $tea.cast<GenerateVideoPlaylistResponse>(await this.callApi(params, req, runtime), new GenerateVideoPlaylistResponse({}));
-  }
-
-  async generateVideoPlaylist(request: GenerateVideoPlaylistRequest): Promise<GenerateVideoPlaylistResponse> {
-    let runtime = new $Util.RuntimeOptions({ });
-    return await this.generateVideoPlaylistWithOptions(request, runtime);
-  }
-
   async generateWebofficeTokenWithOptions(tmpReq: GenerateWebofficeTokenRequest, runtime: $Util.RuntimeOptions): Promise<GenerateWebofficeTokenResponse> {
     Util.validateModel(tmpReq);
     let request = new GenerateWebofficeTokenShrinkRequest({ });
@@ -17478,66 +16896,6 @@ export default class Client extends OpenApi {
   async getBinding(request: GetBindingRequest): Promise<GetBindingResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.getBindingWithOptions(request, runtime);
-  }
-
-  /**
-    * @deprecated
-    *
-    * @param request GetDRMLicenseRequest
-    * @param runtime runtime options for this request RuntimeOptions
-    * @return GetDRMLicenseResponse
-   */
-  // Deprecated
-  async getDRMLicenseWithOptions(request: GetDRMLicenseRequest, runtime: $Util.RuntimeOptions): Promise<GetDRMLicenseResponse> {
-    Util.validateModel(request);
-    let query = { };
-    if (!Util.isUnset(request.keyId)) {
-      query["KeyId"] = request.keyId;
-    }
-
-    if (!Util.isUnset(request.notifyEndpoint)) {
-      query["NotifyEndpoint"] = request.notifyEndpoint;
-    }
-
-    if (!Util.isUnset(request.notifyTopicName)) {
-      query["NotifyTopicName"] = request.notifyTopicName;
-    }
-
-    if (!Util.isUnset(request.projectName)) {
-      query["ProjectName"] = request.projectName;
-    }
-
-    if (!Util.isUnset(request.protectionSystem)) {
-      query["ProtectionSystem"] = request.protectionSystem;
-    }
-
-    let req = new $OpenApi.OpenApiRequest({
-      query: OpenApiUtil.query(query),
-    });
-    let params = new $OpenApi.Params({
-      action: "GetDRMLicense",
-      version: "2020-09-30",
-      protocol: "HTTPS",
-      pathname: "/",
-      method: "POST",
-      authType: "AK",
-      style: "RPC",
-      reqBodyType: "formData",
-      bodyType: "json",
-    });
-    return $tea.cast<GetDRMLicenseResponse>(await this.callApi(params, req, runtime), new GetDRMLicenseResponse({}));
-  }
-
-  /**
-    * @deprecated
-    *
-    * @param request GetDRMLicenseRequest
-    * @return GetDRMLicenseResponse
-   */
-  // Deprecated
-  async getDRMLicense(request: GetDRMLicenseRequest): Promise<GetDRMLicenseResponse> {
-    let runtime = new $Util.RuntimeOptions({ });
-    return await this.getDRMLicenseWithOptions(request, runtime);
   }
 
   async getDatasetWithOptions(request: GetDatasetRequest, runtime: $Util.RuntimeOptions): Promise<GetDatasetResponse> {
@@ -18323,49 +17681,6 @@ export default class Client extends OpenApi {
     return await this.listTriggersWithOptions(request, runtime);
   }
 
-  async liveTranscodingWithOptions(tmpReq: LiveTranscodingRequest, runtime: $Util.RuntimeOptions): Promise<LiveTranscodingResponse> {
-    Util.validateModel(tmpReq);
-    let request = new LiveTranscodingShrinkRequest({ });
-    OpenApiUtil.convert(tmpReq, request);
-    if (!Util.isUnset(tmpReq.credentialConfig)) {
-      request.credentialConfigShrink = OpenApiUtil.arrayToStringWithSpecifiedStyle(tmpReq.credentialConfig, "CredentialConfig", "json");
-    }
-
-    let query = { };
-    if (!Util.isUnset(request.credentialConfigShrink)) {
-      query["CredentialConfig"] = request.credentialConfigShrink;
-    }
-
-    if (!Util.isUnset(request.projectName)) {
-      query["ProjectName"] = request.projectName;
-    }
-
-    if (!Util.isUnset(request.sourceURI)) {
-      query["SourceURI"] = request.sourceURI;
-    }
-
-    let req = new $OpenApi.OpenApiRequest({
-      query: OpenApiUtil.query(query),
-    });
-    let params = new $OpenApi.Params({
-      action: "LiveTranscoding",
-      version: "2020-09-30",
-      protocol: "HTTPS",
-      pathname: "/",
-      method: "POST",
-      authType: "AK",
-      style: "RPC",
-      reqBodyType: "formData",
-      bodyType: "json",
-    });
-    return $tea.cast<LiveTranscodingResponse>(await this.callApi(params, req, runtime), new LiveTranscodingResponse({}));
-  }
-
-  async liveTranscoding(request: LiveTranscodingRequest): Promise<LiveTranscodingResponse> {
-    let runtime = new $Util.RuntimeOptions({ });
-    return await this.liveTranscodingWithOptions(request, runtime);
-  }
-
   async queryFigureClustersWithOptions(tmpReq: QueryFigureClustersRequest, runtime: $Util.RuntimeOptions): Promise<QueryFigureClustersResponse> {
     Util.validateModel(tmpReq);
     let request = new QueryFigureClustersShrinkRequest({ });
@@ -18839,58 +18154,6 @@ export default class Client extends OpenApi {
     return await this.resumeBatchWithOptions(request, runtime);
   }
 
-  /**
-    * @deprecated
-    *
-    * @param request ResumeBindingRequest
-    * @param runtime runtime options for this request RuntimeOptions
-    * @return ResumeBindingResponse
-   */
-  // Deprecated
-  async resumeBindingWithOptions(request: ResumeBindingRequest, runtime: $Util.RuntimeOptions): Promise<ResumeBindingResponse> {
-    Util.validateModel(request);
-    let query = { };
-    if (!Util.isUnset(request.datasetName)) {
-      query["DatasetName"] = request.datasetName;
-    }
-
-    if (!Util.isUnset(request.projectName)) {
-      query["ProjectName"] = request.projectName;
-    }
-
-    if (!Util.isUnset(request.URI)) {
-      query["URI"] = request.URI;
-    }
-
-    let req = new $OpenApi.OpenApiRequest({
-      query: OpenApiUtil.query(query),
-    });
-    let params = new $OpenApi.Params({
-      action: "ResumeBinding",
-      version: "2020-09-30",
-      protocol: "HTTPS",
-      pathname: "/",
-      method: "POST",
-      authType: "AK",
-      style: "RPC",
-      reqBodyType: "formData",
-      bodyType: "json",
-    });
-    return $tea.cast<ResumeBindingResponse>(await this.callApi(params, req, runtime), new ResumeBindingResponse({}));
-  }
-
-  /**
-    * @deprecated
-    *
-    * @param request ResumeBindingRequest
-    * @return ResumeBindingResponse
-   */
-  // Deprecated
-  async resumeBinding(request: ResumeBindingRequest): Promise<ResumeBindingResponse> {
-    let runtime = new $Util.RuntimeOptions({ });
-    return await this.resumeBindingWithOptions(request, runtime);
-  }
-
   async resumeTriggerWithOptions(request: ResumeTriggerRequest, runtime: $Util.RuntimeOptions): Promise<ResumeTriggerResponse> {
     Util.validateModel(request);
     let body : {[key: string ]: any} = { };
@@ -19091,62 +18354,6 @@ export default class Client extends OpenApi {
     return await this.simpleQueryWithOptions(request, runtime);
   }
 
-  /**
-    * @deprecated
-    *
-    * @param request StopBindingRequest
-    * @param runtime runtime options for this request RuntimeOptions
-    * @return StopBindingResponse
-   */
-  // Deprecated
-  async stopBindingWithOptions(request: StopBindingRequest, runtime: $Util.RuntimeOptions): Promise<StopBindingResponse> {
-    Util.validateModel(request);
-    let query = { };
-    if (!Util.isUnset(request.datasetName)) {
-      query["DatasetName"] = request.datasetName;
-    }
-
-    if (!Util.isUnset(request.projectName)) {
-      query["ProjectName"] = request.projectName;
-    }
-
-    if (!Util.isUnset(request.reason)) {
-      query["Reason"] = request.reason;
-    }
-
-    if (!Util.isUnset(request.URI)) {
-      query["URI"] = request.URI;
-    }
-
-    let req = new $OpenApi.OpenApiRequest({
-      query: OpenApiUtil.query(query),
-    });
-    let params = new $OpenApi.Params({
-      action: "StopBinding",
-      version: "2020-09-30",
-      protocol: "HTTPS",
-      pathname: "/",
-      method: "POST",
-      authType: "AK",
-      style: "RPC",
-      reqBodyType: "formData",
-      bodyType: "json",
-    });
-    return $tea.cast<StopBindingResponse>(await this.callApi(params, req, runtime), new StopBindingResponse({}));
-  }
-
-  /**
-    * @deprecated
-    *
-    * @param request StopBindingRequest
-    * @return StopBindingResponse
-   */
-  // Deprecated
-  async stopBinding(request: StopBindingRequest): Promise<StopBindingResponse> {
-    let runtime = new $Util.RuntimeOptions({ });
-    return await this.stopBindingWithOptions(request, runtime);
-  }
-
   async suspendBatchWithOptions(request: SuspendBatchRequest, runtime: $Util.RuntimeOptions): Promise<SuspendBatchResponse> {
     Util.validateModel(request);
     let body : {[key: string ]: any} = { };
@@ -19225,10 +18432,6 @@ export default class Client extends OpenApi {
       request.inputShrink = OpenApiUtil.arrayToStringWithSpecifiedStyle(tmpReq.input, "Input", "json");
     }
 
-    if (!Util.isUnset(tmpReq.notification)) {
-      request.notificationShrink = OpenApiUtil.arrayToStringWithSpecifiedStyle(tmpReq.notification, "Notification", "json");
-    }
-
     if (!Util.isUnset(tmpReq.tags)) {
       request.tagsShrink = OpenApiUtil.arrayToStringWithSpecifiedStyle(tmpReq.tags, "Tags", "json");
     }
@@ -19244,10 +18447,6 @@ export default class Client extends OpenApi {
 
     if (!Util.isUnset(request.inputShrink)) {
       body["Input"] = request.inputShrink;
-    }
-
-    if (!Util.isUnset(request.notificationShrink)) {
-      body["Notification"] = request.notificationShrink;
     }
 
     if (!Util.isUnset(request.projectName)) {
@@ -19622,10 +18821,6 @@ export default class Client extends OpenApi {
       request.inputShrink = OpenApiUtil.arrayToStringWithSpecifiedStyle(tmpReq.input, "Input", "json");
     }
 
-    if (!Util.isUnset(tmpReq.notification)) {
-      request.notificationShrink = OpenApiUtil.arrayToStringWithSpecifiedStyle(tmpReq.notification, "Notification", "json");
-    }
-
     if (!Util.isUnset(tmpReq.tags)) {
       request.tagsShrink = OpenApiUtil.arrayToStringWithSpecifiedStyle(tmpReq.tags, "Tags", "json");
     }
@@ -19641,10 +18836,6 @@ export default class Client extends OpenApi {
 
     if (!Util.isUnset(request.inputShrink)) {
       body["Input"] = request.inputShrink;
-    }
-
-    if (!Util.isUnset(request.notificationShrink)) {
-      body["Notification"] = request.notificationShrink;
     }
 
     if (!Util.isUnset(request.projectName)) {
