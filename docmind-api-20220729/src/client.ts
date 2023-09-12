@@ -1005,6 +1005,109 @@ export class SubmitExportDeclarationSheetExtractJobResponse extends $tea.Model {
   }
 }
 
+export class SubmitGeneralContractExtractJobRequest extends $tea.Model {
+  fileName?: string;
+  fileNameExtension?: string;
+  fileUrl?: string;
+  static names(): { [key: string]: string } {
+    return {
+      fileName: 'FileName',
+      fileNameExtension: 'FileNameExtension',
+      fileUrl: 'FileUrl',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      fileName: 'string',
+      fileNameExtension: 'string',
+      fileUrl: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class SubmitGeneralContractExtractJobAdvanceRequest extends $tea.Model {
+  fileName?: string;
+  fileNameExtension?: string;
+  fileUrlObject?: Readable;
+  static names(): { [key: string]: string } {
+    return {
+      fileName: 'FileName',
+      fileNameExtension: 'FileNameExtension',
+      fileUrlObject: 'FileUrl',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      fileName: 'string',
+      fileNameExtension: 'string',
+      fileUrlObject: 'Readable',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class SubmitGeneralContractExtractJobResponseBody extends $tea.Model {
+  code?: string;
+  data?: SubmitGeneralContractExtractJobResponseBodyData;
+  message?: string;
+  requestId?: string;
+  static names(): { [key: string]: string } {
+    return {
+      code: 'Code',
+      data: 'Data',
+      message: 'Message',
+      requestId: 'RequestId',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      code: 'string',
+      data: SubmitGeneralContractExtractJobResponseBodyData,
+      message: 'string',
+      requestId: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class SubmitGeneralContractExtractJobResponse extends $tea.Model {
+  headers: { [key: string]: string };
+  statusCode: number;
+  body: SubmitGeneralContractExtractJobResponseBody;
+  static names(): { [key: string]: string } {
+    return {
+      headers: 'headers',
+      statusCode: 'statusCode',
+      body: 'body',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
+      body: SubmitGeneralContractExtractJobResponseBody,
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
 export class SubmitImportDeclarationSheetExtractJobRequest extends $tea.Model {
   fileName?: string;
   fileNameExtension?: string;
@@ -1862,6 +1965,25 @@ export class SubmitContainerLoadPlanExtractJobResponseBodyData extends $tea.Mode
 }
 
 export class SubmitExportDeclarationSheetExtractJobResponseBodyData extends $tea.Model {
+  id?: string;
+  static names(): { [key: string]: string } {
+    return {
+      id: 'Id',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      id: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class SubmitGeneralContractExtractJobResponseBodyData extends $tea.Model {
   id?: string;
   static names(): { [key: string]: string } {
     return {
@@ -2963,6 +3085,117 @@ export default class Client extends OpenApi {
 
     let submitExportDeclarationSheetExtractJobResp = await this.submitExportDeclarationSheetExtractJobWithOptions(submitExportDeclarationSheetExtractJobReq, runtime);
     return submitExportDeclarationSheetExtractJobResp;
+  }
+
+  async submitGeneralContractExtractJobWithOptions(request: SubmitGeneralContractExtractJobRequest, runtime: $Util.RuntimeOptions): Promise<SubmitGeneralContractExtractJobResponse> {
+    Util.validateModel(request);
+    let query = { };
+    if (!Util.isUnset(request.fileName)) {
+      query["FileName"] = request.fileName;
+    }
+
+    if (!Util.isUnset(request.fileNameExtension)) {
+      query["FileNameExtension"] = request.fileNameExtension;
+    }
+
+    if (!Util.isUnset(request.fileUrl)) {
+      query["FileUrl"] = request.fileUrl;
+    }
+
+    let req = new $OpenApi.OpenApiRequest({
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApi.Params({
+      action: "SubmitGeneralContractExtractJob",
+      version: "2022-07-29",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $tea.cast<SubmitGeneralContractExtractJobResponse>(await this.callApi(params, req, runtime), new SubmitGeneralContractExtractJobResponse({}));
+  }
+
+  async submitGeneralContractExtractJob(request: SubmitGeneralContractExtractJobRequest): Promise<SubmitGeneralContractExtractJobResponse> {
+    let runtime = new $Util.RuntimeOptions({ });
+    return await this.submitGeneralContractExtractJobWithOptions(request, runtime);
+  }
+
+  async submitGeneralContractExtractJobAdvance(request: SubmitGeneralContractExtractJobAdvanceRequest, runtime: $Util.RuntimeOptions): Promise<SubmitGeneralContractExtractJobResponse> {
+    // Step 0: init client
+    let accessKeyId = await this._credential.getAccessKeyId();
+    let accessKeySecret = await this._credential.getAccessKeySecret();
+    let securityToken = await this._credential.getSecurityToken();
+    let credentialType = this._credential.getType();
+    let openPlatformEndpoint = this._openPlatformEndpoint;
+    if (Util.isUnset(openPlatformEndpoint)) {
+      openPlatformEndpoint = "openplatform.aliyuncs.com";
+    }
+
+    if (Util.isUnset(credentialType)) {
+      credentialType = "access_key";
+    }
+
+    let authConfig = new $OpenApi.Config({
+      accessKeyId: accessKeyId,
+      accessKeySecret: accessKeySecret,
+      securityToken: securityToken,
+      type: credentialType,
+      endpoint: openPlatformEndpoint,
+      protocol: this._protocol,
+      regionId: this._regionId,
+    });
+    let authClient = new OpenPlatform(authConfig);
+    let authRequest = new $OpenPlatform.AuthorizeFileUploadRequest({
+      product: "docmind-api",
+      regionId: this._regionId,
+    });
+    let authResponse = new $OpenPlatform.AuthorizeFileUploadResponse({ });
+    let ossConfig = new $OSS.Config({
+      accessKeySecret: accessKeySecret,
+      type: "access_key",
+      protocol: this._protocol,
+      regionId: this._regionId,
+    });
+    let ossClient : OSS = null;
+    let fileObj = new $FileForm.FileField({ });
+    let ossHeader = new $OSS.PostObjectRequestHeader({ });
+    let uploadRequest = new $OSS.PostObjectRequest({ });
+    let ossRuntime = new $OSSUtil.RuntimeOptions({ });
+    OpenApiUtil.convert(runtime, ossRuntime);
+    let submitGeneralContractExtractJobReq = new SubmitGeneralContractExtractJobRequest({ });
+    OpenApiUtil.convert(request, submitGeneralContractExtractJobReq);
+    if (!Util.isUnset(request.fileUrlObject)) {
+      authResponse = await authClient.authorizeFileUploadWithOptions(authRequest, runtime);
+      ossConfig.accessKeyId = authResponse.body.accessKeyId;
+      ossConfig.endpoint = OpenApiUtil.getEndpoint(authResponse.body.endpoint, authResponse.body.useAccelerate, this._endpointType);
+      ossClient = new OSS(ossConfig);
+      fileObj = new $FileForm.FileField({
+        filename: authResponse.body.objectKey,
+        content: request.fileUrlObject,
+        contentType: "",
+      });
+      ossHeader = new $OSS.PostObjectRequestHeader({
+        accessKeyId: authResponse.body.accessKeyId,
+        policy: authResponse.body.encodedPolicy,
+        signature: authResponse.body.signature,
+        key: authResponse.body.objectKey,
+        file: fileObj,
+        successActionStatus: "201",
+      });
+      uploadRequest = new $OSS.PostObjectRequest({
+        bucketName: authResponse.body.bucket,
+        header: ossHeader,
+      });
+      await ossClient.postObject(uploadRequest, ossRuntime);
+      submitGeneralContractExtractJobReq.fileUrl = `http://${authResponse.body.bucket}.${authResponse.body.endpoint}/${authResponse.body.objectKey}`;
+    }
+
+    let submitGeneralContractExtractJobResp = await this.submitGeneralContractExtractJobWithOptions(submitGeneralContractExtractJobReq, runtime);
+    return submitGeneralContractExtractJobResp;
   }
 
   async submitImportDeclarationSheetExtractJobWithOptions(request: SubmitImportDeclarationSheetExtractJobRequest, runtime: $Util.RuntimeOptions): Promise<SubmitImportDeclarationSheetExtractJobResponse> {
