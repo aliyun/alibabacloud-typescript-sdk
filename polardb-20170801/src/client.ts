@@ -3872,6 +3872,7 @@ export class DescribeDBClusterAttributeRequest extends $tea.Model {
 
 export class DescribeDBClusterAttributeResponseBody extends $tea.Model {
   aiType?: string;
+  architecture?: string;
   blktagTotal?: number;
   blktagUsed?: number;
   category?: string;
@@ -3893,6 +3894,7 @@ export class DescribeDBClusterAttributeResponseBody extends $tea.Model {
   expireTime?: string;
   expired?: string;
   hasCompleteStandbyRes?: boolean;
+  hotStandbyCluster?: string;
   inodeTotal?: number;
   inodeUsed?: number;
   isLatestVersion?: boolean;
@@ -3925,6 +3927,7 @@ export class DescribeDBClusterAttributeResponseBody extends $tea.Model {
   static names(): { [key: string]: string } {
     return {
       aiType: 'AiType',
+      architecture: 'Architecture',
       blktagTotal: 'BlktagTotal',
       blktagUsed: 'BlktagUsed',
       category: 'Category',
@@ -3946,6 +3949,7 @@ export class DescribeDBClusterAttributeResponseBody extends $tea.Model {
       expireTime: 'ExpireTime',
       expired: 'Expired',
       hasCompleteStandbyRes: 'HasCompleteStandbyRes',
+      hotStandbyCluster: 'HotStandbyCluster',
       inodeTotal: 'InodeTotal',
       inodeUsed: 'InodeUsed',
       isLatestVersion: 'IsLatestVersion',
@@ -3981,6 +3985,7 @@ export class DescribeDBClusterAttributeResponseBody extends $tea.Model {
   static types(): { [key: string]: any } {
     return {
       aiType: 'string',
+      architecture: 'string',
       blktagTotal: 'number',
       blktagUsed: 'number',
       category: 'string',
@@ -4002,6 +4007,7 @@ export class DescribeDBClusterAttributeResponseBody extends $tea.Model {
       expireTime: 'string',
       expired: 'string',
       hasCompleteStandbyRes: 'boolean',
+      hotStandbyCluster: 'string',
       inodeTotal: 'number',
       inodeUsed: 'number',
       isLatestVersion: 'boolean',
@@ -10569,6 +10575,7 @@ export class ModifyDBNodeClassRequest extends $tea.Model {
   clientToken?: string;
   DBClusterId?: string;
   DBNodeTargetClass?: string;
+  DBNodeType?: string;
   modifyType?: string;
   ownerAccount?: string;
   ownerId?: number;
@@ -10582,6 +10589,7 @@ export class ModifyDBNodeClassRequest extends $tea.Model {
       clientToken: 'ClientToken',
       DBClusterId: 'DBClusterId',
       DBNodeTargetClass: 'DBNodeTargetClass',
+      DBNodeType: 'DBNodeType',
       modifyType: 'ModifyType',
       ownerAccount: 'OwnerAccount',
       ownerId: 'OwnerId',
@@ -10598,6 +10606,7 @@ export class ModifyDBNodeClassRequest extends $tea.Model {
       clientToken: 'string',
       DBClusterId: 'string',
       DBNodeTargetClass: 'string',
+      DBNodeType: 'string',
       modifyType: 'string',
       ownerAccount: 'string',
       ownerId: 'number',
@@ -23398,6 +23407,10 @@ export default class Client extends OpenApi {
 
     if (!Util.isUnset(request.DBNodeTargetClass)) {
       query["DBNodeTargetClass"] = request.DBNodeTargetClass;
+    }
+
+    if (!Util.isUnset(request.DBNodeType)) {
+      query["DBNodeType"] = request.DBNodeType;
     }
 
     if (!Util.isUnset(request.modifyType)) {
