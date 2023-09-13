@@ -6146,6 +6146,90 @@ export class GetAppMessageQueueRouteResponse extends $tea.Model {
   }
 }
 
+export class GetApplicationInstanceListRequest extends $tea.Model {
+  acceptLanguage?: string;
+  appId?: string;
+  appName?: string;
+  namespace?: string;
+  pageNumber?: string;
+  pageSize?: string;
+  region?: string;
+  tag?: string;
+  static names(): { [key: string]: string } {
+    return {
+      acceptLanguage: 'AcceptLanguage',
+      appId: 'AppId',
+      appName: 'AppName',
+      namespace: 'Namespace',
+      pageNumber: 'PageNumber',
+      pageSize: 'PageSize',
+      region: 'Region',
+      tag: 'Tag',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      acceptLanguage: 'string',
+      appId: 'string',
+      appName: 'string',
+      namespace: 'string',
+      pageNumber: 'string',
+      pageSize: 'string',
+      region: 'string',
+      tag: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class GetApplicationInstanceListResponseBody extends $tea.Model {
+  data?: GetApplicationInstanceListResponseBodyData;
+  static names(): { [key: string]: string } {
+    return {
+      data: 'Data',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      data: GetApplicationInstanceListResponseBodyData,
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class GetApplicationInstanceListResponse extends $tea.Model {
+  headers: { [key: string]: string };
+  statusCode: number;
+  body: GetApplicationInstanceListResponseBody;
+  static names(): { [key: string]: string } {
+    return {
+      headers: 'headers',
+      statusCode: 'statusCode',
+      body: 'body',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
+      body: GetApplicationInstanceListResponseBody,
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
 export class GetApplicationListRequest extends $tea.Model {
   acceptLanguage?: string;
   appId?: string;
@@ -8186,6 +8270,7 @@ export class GetServiceListResponse extends $tea.Model {
 export class GetServiceListPageRequest extends $tea.Model {
   acceptLanguage?: string;
   appId?: string;
+  appName?: string;
   ip?: string;
   namespace?: string;
   pageNumber?: number;
@@ -8197,6 +8282,7 @@ export class GetServiceListPageRequest extends $tea.Model {
     return {
       acceptLanguage: 'AcceptLanguage',
       appId: 'AppId',
+      appName: 'AppName',
       ip: 'Ip',
       namespace: 'Namespace',
       pageNumber: 'PageNumber',
@@ -8211,6 +8297,7 @@ export class GetServiceListPageRequest extends $tea.Model {
     return {
       acceptLanguage: 'string',
       appId: 'string',
+      appName: 'string',
       ip: 'string',
       namespace: 'string',
       pageNumber: 'number',
@@ -8406,6 +8493,7 @@ export class GetServiceMethodPageRequest extends $tea.Model {
   ip?: string;
   methodController?: string;
   name?: string;
+  namespace?: string;
   pageNumber?: number;
   pageSize?: number;
   path?: string;
@@ -8422,6 +8510,7 @@ export class GetServiceMethodPageRequest extends $tea.Model {
       ip: 'Ip',
       methodController: 'MethodController',
       name: 'Name',
+      namespace: 'Namespace',
       pageNumber: 'PageNumber',
       pageSize: 'PageSize',
       path: 'Path',
@@ -8441,6 +8530,7 @@ export class GetServiceMethodPageRequest extends $tea.Model {
       ip: 'string',
       methodController: 'string',
       name: 'string',
+      namespace: 'string',
       pageNumber: 'number',
       pageSize: 'number',
       path: 'string',
@@ -22144,6 +22234,78 @@ export class GetAppMessageQueueRouteResponseBodyData extends $tea.Model {
   }
 }
 
+export class GetApplicationInstanceListResponseBodyDataResultTags extends $tea.Model {
+  tag?: string;
+  static names(): { [key: string]: string } {
+    return {
+      tag: 'Tag',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      tag: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class GetApplicationInstanceListResponseBodyDataResult extends $tea.Model {
+  ip?: string;
+  port?: string;
+  tags?: GetApplicationInstanceListResponseBodyDataResultTags[];
+  static names(): { [key: string]: string } {
+    return {
+      ip: 'Ip',
+      port: 'Port',
+      tags: 'Tags',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      ip: 'string',
+      port: 'string',
+      tags: { 'type': 'array', 'itemType': GetApplicationInstanceListResponseBodyDataResultTags },
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class GetApplicationInstanceListResponseBodyData extends $tea.Model {
+  pageNumber?: number;
+  pageSize?: number;
+  result?: GetApplicationInstanceListResponseBodyDataResult[];
+  totalSize?: number;
+  static names(): { [key: string]: string } {
+    return {
+      pageNumber: 'PageNumber',
+      pageSize: 'PageSize',
+      result: 'Result',
+      totalSize: 'TotalSize',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      pageNumber: 'number',
+      pageSize: 'number',
+      result: { 'type': 'array', 'itemType': GetApplicationInstanceListResponseBodyDataResult },
+      totalSize: 'number',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
 export class GetApplicationListResponseBodyDataResult extends $tea.Model {
   appId?: string;
   appName?: string;
@@ -33757,6 +33919,63 @@ export default class Client extends OpenApi {
     return await this.getAppMessageQueueRouteWithOptions(request, runtime);
   }
 
+  async getApplicationInstanceListWithOptions(request: GetApplicationInstanceListRequest, runtime: $Util.RuntimeOptions): Promise<GetApplicationInstanceListResponse> {
+    Util.validateModel(request);
+    let query = { };
+    if (!Util.isUnset(request.acceptLanguage)) {
+      query["AcceptLanguage"] = request.acceptLanguage;
+    }
+
+    if (!Util.isUnset(request.appId)) {
+      query["AppId"] = request.appId;
+    }
+
+    if (!Util.isUnset(request.appName)) {
+      query["AppName"] = request.appName;
+    }
+
+    if (!Util.isUnset(request.namespace)) {
+      query["Namespace"] = request.namespace;
+    }
+
+    if (!Util.isUnset(request.pageNumber)) {
+      query["PageNumber"] = request.pageNumber;
+    }
+
+    if (!Util.isUnset(request.pageSize)) {
+      query["PageSize"] = request.pageSize;
+    }
+
+    if (!Util.isUnset(request.region)) {
+      query["Region"] = request.region;
+    }
+
+    if (!Util.isUnset(request.tag)) {
+      query["Tag"] = request.tag;
+    }
+
+    let req = new $OpenApi.OpenApiRequest({
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApi.Params({
+      action: "GetApplicationInstanceList",
+      version: "2019-05-31",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $tea.cast<GetApplicationInstanceListResponse>(await this.callApi(params, req, runtime), new GetApplicationInstanceListResponse({}));
+  }
+
+  async getApplicationInstanceList(request: GetApplicationInstanceListRequest): Promise<GetApplicationInstanceListResponse> {
+    let runtime = new $Util.RuntimeOptions({ });
+    return await this.getApplicationInstanceListWithOptions(request, runtime);
+  }
+
   async getApplicationListWithOptions(request: GetApplicationListRequest, runtime: $Util.RuntimeOptions): Promise<GetApplicationListResponse> {
     Util.validateModel(request);
     let query = { };
@@ -34811,6 +35030,10 @@ export default class Client extends OpenApi {
       query["AppId"] = request.appId;
     }
 
+    if (!Util.isUnset(request.appName)) {
+      query["AppName"] = request.appName;
+    }
+
     if (!Util.isUnset(request.ip)) {
       query["Ip"] = request.ip;
     }
@@ -34959,6 +35182,10 @@ export default class Client extends OpenApi {
 
     if (!Util.isUnset(request.name)) {
       query["Name"] = request.name;
+    }
+
+    if (!Util.isUnset(request.namespace)) {
+      query["Namespace"] = request.namespace;
     }
 
     if (!Util.isUnset(request.pageNumber)) {
