@@ -1138,6 +1138,7 @@ export class DescAccountSummaryResponseBody extends $tea.Model {
   monthQuota?: number;
   quotaLevel?: number;
   receivers?: number;
+  remainFreeQuota?: number;
   requestId?: string;
   smsRecord?: number;
   smsSign?: number;
@@ -1156,6 +1157,7 @@ export class DescAccountSummaryResponseBody extends $tea.Model {
       monthQuota: 'MonthQuota',
       quotaLevel: 'QuotaLevel',
       receivers: 'Receivers',
+      remainFreeQuota: 'RemainFreeQuota',
       requestId: 'RequestId',
       smsRecord: 'SmsRecord',
       smsSign: 'SmsSign',
@@ -1177,6 +1179,7 @@ export class DescAccountSummaryResponseBody extends $tea.Model {
       monthQuota: 'number',
       quotaLevel: 'number',
       receivers: 'number',
+      remainFreeQuota: 'number',
       requestId: 'string',
       smsRecord: 'number',
       smsSign: 'number',
@@ -1251,6 +1254,9 @@ export class DescDomainResponseBody extends $tea.Model {
   cnameRecord?: string;
   createTime?: string;
   defaultDomain?: string;
+  dkimAuthStatus?: string;
+  dkimPublicKey?: string;
+  dkimRR?: string;
   dnsMx?: string;
   dnsSpf?: string;
   dnsTxt?: string;
@@ -1258,12 +1264,14 @@ export class DescDomainResponseBody extends $tea.Model {
   domainName?: string;
   domainStatus?: string;
   domainType?: string;
+  hostRecord?: string;
   icpStatus?: string;
   mxAuthStatus?: string;
   mxRecord?: string;
   requestId?: string;
   spfAuthStatus?: string;
   spfRecord?: string;
+  spfRecordV2?: string;
   tlDomainName?: string;
   tracefRecord?: string;
   static names(): { [key: string]: string } {
@@ -1273,6 +1281,9 @@ export class DescDomainResponseBody extends $tea.Model {
       cnameRecord: 'CnameRecord',
       createTime: 'CreateTime',
       defaultDomain: 'DefaultDomain',
+      dkimAuthStatus: 'DkimAuthStatus',
+      dkimPublicKey: 'DkimPublicKey',
+      dkimRR: 'DkimRR',
       dnsMx: 'DnsMx',
       dnsSpf: 'DnsSpf',
       dnsTxt: 'DnsTxt',
@@ -1280,12 +1291,14 @@ export class DescDomainResponseBody extends $tea.Model {
       domainName: 'DomainName',
       domainStatus: 'DomainStatus',
       domainType: 'DomainType',
+      hostRecord: 'HostRecord',
       icpStatus: 'IcpStatus',
       mxAuthStatus: 'MxAuthStatus',
       mxRecord: 'MxRecord',
       requestId: 'RequestId',
       spfAuthStatus: 'SpfAuthStatus',
       spfRecord: 'SpfRecord',
+      spfRecordV2: 'SpfRecordV2',
       tlDomainName: 'TlDomainName',
       tracefRecord: 'TracefRecord',
     };
@@ -1298,6 +1311,9 @@ export class DescDomainResponseBody extends $tea.Model {
       cnameRecord: 'string',
       createTime: 'string',
       defaultDomain: 'string',
+      dkimAuthStatus: 'string',
+      dkimPublicKey: 'string',
+      dkimRR: 'string',
       dnsMx: 'string',
       dnsSpf: 'string',
       dnsTxt: 'string',
@@ -1305,12 +1321,14 @@ export class DescDomainResponseBody extends $tea.Model {
       domainName: 'string',
       domainStatus: 'string',
       domainType: 'string',
+      hostRecord: 'string',
       icpStatus: 'string',
       mxAuthStatus: 'string',
       mxRecord: 'string',
       requestId: 'string',
       spfAuthStatus: 'string',
       spfRecord: 'string',
+      spfRecordV2: 'string',
       tlDomainName: 'string',
       tracefRecord: 'string',
     };
@@ -3233,16 +3251,16 @@ export class GetAccountListResponseBodyData extends $tea.Model {
 }
 
 export class GetTrackListResponseBodyDataStat extends $tea.Model {
-  createTime?: string;
-  rcptClickCount?: string;
+  createTime?: number;
+  rcptClickCount?: number;
   rcptClickRate?: string;
-  rcptOpenCount?: string;
+  rcptOpenCount?: number;
   rcptOpenRate?: string;
-  rcptUniqueClickCount?: string;
+  rcptUniqueClickCount?: number;
   rcptUniqueClickRate?: string;
-  rcptUniqueOpenCount?: string;
+  rcptUniqueOpenCount?: number;
   rcptUniqueOpenRate?: string;
-  totalNumber?: string;
+  totalNumber?: number;
   static names(): { [key: string]: string } {
     return {
       createTime: 'CreateTime',
@@ -3260,16 +3278,16 @@ export class GetTrackListResponseBodyDataStat extends $tea.Model {
 
   static types(): { [key: string]: any } {
     return {
-      createTime: 'string',
-      rcptClickCount: 'string',
+      createTime: 'number',
+      rcptClickCount: 'number',
       rcptClickRate: 'string',
-      rcptOpenCount: 'string',
+      rcptOpenCount: 'number',
       rcptOpenRate: 'string',
-      rcptUniqueClickCount: 'string',
+      rcptUniqueClickCount: 'number',
       rcptUniqueClickRate: 'string',
-      rcptUniqueOpenCount: 'string',
+      rcptUniqueOpenCount: 'number',
       rcptUniqueOpenRate: 'string',
-      totalNumber: 'string',
+      totalNumber: 'number',
     };
   }
 
@@ -4766,6 +4784,14 @@ export default class Client extends OpenApi {
     return await this.getAccountListWithOptions(request, runtime);
   }
 
+  /**
+    * @deprecated
+    *
+    * @param request GetMailAddressMsgCallBackUrlRequest
+    * @param runtime runtime options for this request RuntimeOptions
+    * @return GetMailAddressMsgCallBackUrlResponse
+   */
+  // Deprecated
   async getMailAddressMsgCallBackUrlWithOptions(request: GetMailAddressMsgCallBackUrlRequest, runtime: $Util.RuntimeOptions): Promise<GetMailAddressMsgCallBackUrlResponse> {
     Util.validateModel(request);
     let query = { };
@@ -4802,6 +4828,13 @@ export default class Client extends OpenApi {
     return $tea.cast<GetMailAddressMsgCallBackUrlResponse>(await this.callApi(params, req, runtime), new GetMailAddressMsgCallBackUrlResponse({}));
   }
 
+  /**
+    * @deprecated
+    *
+    * @param request GetMailAddressMsgCallBackUrlRequest
+    * @return GetMailAddressMsgCallBackUrlResponse
+   */
+  // Deprecated
   async getMailAddressMsgCallBackUrl(request: GetMailAddressMsgCallBackUrlRequest): Promise<GetMailAddressMsgCallBackUrlResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.getMailAddressMsgCallBackUrlWithOptions(request, runtime);
