@@ -2366,6 +2366,139 @@ export class ResumeSingleCardResponse extends $tea.Model {
   }
 }
 
+export class SendMessageRequest extends $tea.Model {
+  apiProduct?: string;
+  messageSendTime?: number;
+  messageTemplateId?: number;
+  messageVariableParam?: string;
+  msisdns?: string[];
+  taskName?: string;
+  static names(): { [key: string]: string } {
+    return {
+      apiProduct: 'ApiProduct',
+      messageSendTime: 'MessageSendTime',
+      messageTemplateId: 'MessageTemplateId',
+      messageVariableParam: 'MessageVariableParam',
+      msisdns: 'Msisdns',
+      taskName: 'TaskName',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      apiProduct: 'string',
+      messageSendTime: 'number',
+      messageTemplateId: 'number',
+      messageVariableParam: 'string',
+      msisdns: { 'type': 'array', 'itemType': 'string' },
+      taskName: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class SendMessageShrinkRequest extends $tea.Model {
+  apiProduct?: string;
+  messageSendTime?: number;
+  messageTemplateId?: number;
+  messageVariableParam?: string;
+  msisdnsShrink?: string;
+  taskName?: string;
+  static names(): { [key: string]: string } {
+    return {
+      apiProduct: 'ApiProduct',
+      messageSendTime: 'MessageSendTime',
+      messageTemplateId: 'MessageTemplateId',
+      messageVariableParam: 'MessageVariableParam',
+      msisdnsShrink: 'Msisdns',
+      taskName: 'TaskName',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      apiProduct: 'string',
+      messageSendTime: 'number',
+      messageTemplateId: 'number',
+      messageVariableParam: 'string',
+      msisdnsShrink: 'string',
+      taskName: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class SendMessageResponseBody extends $tea.Model {
+  code?: string;
+  data?: number;
+  dynamicCode?: string;
+  dynamicMessage?: string;
+  errorMessage?: string;
+  localizedMessage?: string;
+  requestId?: string;
+  success?: boolean;
+  static names(): { [key: string]: string } {
+    return {
+      code: 'Code',
+      data: 'Data',
+      dynamicCode: 'DynamicCode',
+      dynamicMessage: 'DynamicMessage',
+      errorMessage: 'ErrorMessage',
+      localizedMessage: 'LocalizedMessage',
+      requestId: 'RequestId',
+      success: 'Success',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      code: 'string',
+      data: 'number',
+      dynamicCode: 'string',
+      dynamicMessage: 'string',
+      errorMessage: 'string',
+      localizedMessage: 'string',
+      requestId: 'string',
+      success: 'boolean',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class SendMessageResponse extends $tea.Model {
+  headers: { [key: string]: string };
+  statusCode: number;
+  body: SendMessageResponseBody;
+  static names(): { [key: string]: string } {
+    return {
+      headers: 'headers',
+      statusCode: 'statusCode',
+      body: 'body',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
+      body: SendMessageResponseBody,
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
 export class SetCardStopRuleRequest extends $tea.Model {
   autoRestore?: boolean;
   flowLimit?: number;
@@ -5253,6 +5386,61 @@ export default class Client extends OpenApi {
   async resumeSingleCard(request: ResumeSingleCardRequest): Promise<ResumeSingleCardResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.resumeSingleCardWithOptions(request, runtime);
+  }
+
+  async sendMessageWithOptions(tmpReq: SendMessageRequest, runtime: $Util.RuntimeOptions): Promise<SendMessageResponse> {
+    Util.validateModel(tmpReq);
+    let request = new SendMessageShrinkRequest({ });
+    OpenApiUtil.convert(tmpReq, request);
+    if (!Util.isUnset(tmpReq.msisdns)) {
+      request.msisdnsShrink = OpenApiUtil.arrayToStringWithSpecifiedStyle(tmpReq.msisdns, "Msisdns", "json");
+    }
+
+    let body : {[key: string ]: any} = { };
+    if (!Util.isUnset(request.apiProduct)) {
+      body["ApiProduct"] = request.apiProduct;
+    }
+
+    if (!Util.isUnset(request.messageSendTime)) {
+      body["MessageSendTime"] = request.messageSendTime;
+    }
+
+    if (!Util.isUnset(request.messageTemplateId)) {
+      body["MessageTemplateId"] = request.messageTemplateId;
+    }
+
+    if (!Util.isUnset(request.messageVariableParam)) {
+      body["MessageVariableParam"] = request.messageVariableParam;
+    }
+
+    if (!Util.isUnset(request.msisdnsShrink)) {
+      body["Msisdns"] = request.msisdnsShrink;
+    }
+
+    if (!Util.isUnset(request.taskName)) {
+      body["TaskName"] = request.taskName;
+    }
+
+    let req = new $OpenApi.OpenApiRequest({
+      body: OpenApiUtil.parseToMap(body),
+    });
+    let params = new $OpenApi.Params({
+      action: "SendMessage",
+      version: "2021-05-20",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $tea.cast<SendMessageResponse>(await this.callApi(params, req, runtime), new SendMessageResponse({}));
+  }
+
+  async sendMessage(request: SendMessageRequest): Promise<SendMessageResponse> {
+    let runtime = new $Util.RuntimeOptions({ });
+    return await this.sendMessageWithOptions(request, runtime);
   }
 
   async setCardStopRuleWithOptions(request: SetCardStopRuleRequest, runtime: $Util.RuntimeOptions): Promise<SetCardStopRuleResponse> {
