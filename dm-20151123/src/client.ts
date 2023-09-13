@@ -1261,6 +1261,7 @@ export class DescAccountSummaryResponseBody extends $tea.Model {
   monthQuota?: number;
   quotaLevel?: number;
   receivers?: number;
+  remainFreeQuota?: number;
   requestId?: string;
   smsRecord?: number;
   smsSign?: number;
@@ -1279,6 +1280,7 @@ export class DescAccountSummaryResponseBody extends $tea.Model {
       monthQuota: 'MonthQuota',
       quotaLevel: 'QuotaLevel',
       receivers: 'Receivers',
+      remainFreeQuota: 'RemainFreeQuota',
       requestId: 'RequestId',
       smsRecord: 'SmsRecord',
       smsSign: 'SmsSign',
@@ -1300,6 +1302,7 @@ export class DescAccountSummaryResponseBody extends $tea.Model {
       monthQuota: 'number',
       quotaLevel: 'number',
       receivers: 'number',
+      remainFreeQuota: 'number',
       requestId: 'string',
       smsRecord: 'number',
       smsSign: 'number',
