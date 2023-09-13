@@ -506,6 +506,147 @@ export class CreateApplicationClientSecretResponse extends $tea.Model {
   }
 }
 
+export class CreateDomainRequest extends $tea.Model {
+  domain?: string;
+  filing?: CreateDomainRequestFiling;
+  instanceId?: string;
+  static names(): { [key: string]: string } {
+    return {
+      domain: 'Domain',
+      filing: 'Filing',
+      instanceId: 'InstanceId',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      domain: 'string',
+      filing: CreateDomainRequestFiling,
+      instanceId: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class CreateDomainResponseBody extends $tea.Model {
+  domainId?: string;
+  requestId?: string;
+  static names(): { [key: string]: string } {
+    return {
+      domainId: 'DomainId',
+      requestId: 'RequestId',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      domainId: 'string',
+      requestId: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class CreateDomainResponse extends $tea.Model {
+  headers: { [key: string]: string };
+  statusCode: number;
+  body: CreateDomainResponseBody;
+  static names(): { [key: string]: string } {
+    return {
+      headers: 'headers',
+      statusCode: 'statusCode',
+      body: 'body',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
+      body: CreateDomainResponseBody,
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class CreateDomainProxyTokenRequest extends $tea.Model {
+  domainId?: string;
+  instanceId?: string;
+  static names(): { [key: string]: string } {
+    return {
+      domainId: 'DomainId',
+      instanceId: 'InstanceId',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      domainId: 'string',
+      instanceId: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class CreateDomainProxyTokenResponseBody extends $tea.Model {
+  domainProxyTokenId?: string;
+  requestId?: string;
+  static names(): { [key: string]: string } {
+    return {
+      domainProxyTokenId: 'DomainProxyTokenId',
+      requestId: 'RequestId',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      domainProxyTokenId: 'string',
+      requestId: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class CreateDomainProxyTokenResponse extends $tea.Model {
+  headers: { [key: string]: string };
+  statusCode: number;
+  body: CreateDomainProxyTokenResponseBody;
+  static names(): { [key: string]: string } {
+    return {
+      headers: 'headers',
+      statusCode: 'statusCode',
+      body: 'body',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
+      body: CreateDomainProxyTokenResponseBody,
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
 export class CreateGroupRequest extends $tea.Model {
   description?: string;
   groupExternalId?: string;
@@ -1041,6 +1182,141 @@ export class DeleteApplicationClientSecretResponse extends $tea.Model {
       headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
       statusCode: 'number',
       body: DeleteApplicationClientSecretResponseBody,
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class DeleteDomainRequest extends $tea.Model {
+  domainId?: string;
+  instanceId?: string;
+  static names(): { [key: string]: string } {
+    return {
+      domainId: 'DomainId',
+      instanceId: 'InstanceId',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      domainId: 'string',
+      instanceId: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class DeleteDomainResponseBody extends $tea.Model {
+  requestId?: string;
+  static names(): { [key: string]: string } {
+    return {
+      requestId: 'RequestId',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      requestId: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class DeleteDomainResponse extends $tea.Model {
+  headers: { [key: string]: string };
+  statusCode: number;
+  body: DeleteDomainResponseBody;
+  static names(): { [key: string]: string } {
+    return {
+      headers: 'headers',
+      statusCode: 'statusCode',
+      body: 'body',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
+      body: DeleteDomainResponseBody,
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class DeleteDomainProxyTokenRequest extends $tea.Model {
+  domainId?: string;
+  domainProxyTokenId?: string;
+  instanceId?: string;
+  static names(): { [key: string]: string } {
+    return {
+      domainId: 'DomainId',
+      domainProxyTokenId: 'DomainProxyTokenId',
+      instanceId: 'InstanceId',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      domainId: 'string',
+      domainProxyTokenId: 'string',
+      instanceId: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class DeleteDomainProxyTokenResponseBody extends $tea.Model {
+  requestId?: string;
+  static names(): { [key: string]: string } {
+    return {
+      requestId: 'RequestId',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      requestId: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class DeleteDomainProxyTokenResponse extends $tea.Model {
+  headers: { [key: string]: string };
+  statusCode: number;
+  body: DeleteDomainProxyTokenResponseBody;
+  static names(): { [key: string]: string } {
+    return {
+      headers: 'headers',
+      statusCode: 'statusCode',
+      body: 'body',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
+      body: DeleteDomainProxyTokenResponseBody,
     };
   }
 
@@ -1709,6 +1985,138 @@ export class DisableApplicationSsoResponse extends $tea.Model {
   }
 }
 
+export class DisableDomainProxyTokenRequest extends $tea.Model {
+  domainId?: string;
+  domainProxyTokenId?: string;
+  instanceId?: string;
+  static names(): { [key: string]: string } {
+    return {
+      domainId: 'DomainId',
+      domainProxyTokenId: 'DomainProxyTokenId',
+      instanceId: 'InstanceId',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      domainId: 'string',
+      domainProxyTokenId: 'string',
+      instanceId: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class DisableDomainProxyTokenResponseBody extends $tea.Model {
+  requestId?: string;
+  static names(): { [key: string]: string } {
+    return {
+      requestId: 'RequestId',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      requestId: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class DisableDomainProxyTokenResponse extends $tea.Model {
+  headers: { [key: string]: string };
+  statusCode: number;
+  body: DisableDomainProxyTokenResponseBody;
+  static names(): { [key: string]: string } {
+    return {
+      headers: 'headers',
+      statusCode: 'statusCode',
+      body: 'body',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
+      body: DisableDomainProxyTokenResponseBody,
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class DisableInitDomainAutoRedirectRequest extends $tea.Model {
+  instanceId?: string;
+  static names(): { [key: string]: string } {
+    return {
+      instanceId: 'InstanceId',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      instanceId: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class DisableInitDomainAutoRedirectResponseBody extends $tea.Model {
+  requestId?: string;
+  static names(): { [key: string]: string } {
+    return {
+      requestId: 'RequestId',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      requestId: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class DisableInitDomainAutoRedirectResponse extends $tea.Model {
+  headers: { [key: string]: string };
+  statusCode: number;
+  body: DisableInitDomainAutoRedirectResponseBody;
+  static names(): { [key: string]: string } {
+    return {
+      headers: 'headers',
+      statusCode: 'statusCode',
+      body: 'body',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
+      body: DisableInitDomainAutoRedirectResponseBody,
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
 export class DisableUserRequest extends $tea.Model {
   instanceId?: string;
   userId?: string;
@@ -2100,6 +2508,138 @@ export class EnableApplicationSsoResponse extends $tea.Model {
       headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
       statusCode: 'number',
       body: EnableApplicationSsoResponseBody,
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class EnableDomainProxyTokenRequest extends $tea.Model {
+  domainId?: string;
+  domainProxyTokenId?: string;
+  instanceId?: string;
+  static names(): { [key: string]: string } {
+    return {
+      domainId: 'DomainId',
+      domainProxyTokenId: 'DomainProxyTokenId',
+      instanceId: 'InstanceId',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      domainId: 'string',
+      domainProxyTokenId: 'string',
+      instanceId: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class EnableDomainProxyTokenResponseBody extends $tea.Model {
+  requestId?: string;
+  static names(): { [key: string]: string } {
+    return {
+      requestId: 'RequestId',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      requestId: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class EnableDomainProxyTokenResponse extends $tea.Model {
+  headers: { [key: string]: string };
+  statusCode: number;
+  body: EnableDomainProxyTokenResponseBody;
+  static names(): { [key: string]: string } {
+    return {
+      headers: 'headers',
+      statusCode: 'statusCode',
+      body: 'body',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
+      body: EnableDomainProxyTokenResponseBody,
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class EnableInitDomainAutoRedirectRequest extends $tea.Model {
+  instanceId?: string;
+  static names(): { [key: string]: string } {
+    return {
+      instanceId: 'InstanceId',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      instanceId: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class EnableInitDomainAutoRedirectResponseBody extends $tea.Model {
+  requestId?: string;
+  static names(): { [key: string]: string } {
+    return {
+      requestId: 'RequestId',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      requestId: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class EnableInitDomainAutoRedirectResponse extends $tea.Model {
+  headers: { [key: string]: string };
+  statusCode: number;
+  body: EnableInitDomainAutoRedirectResponseBody;
+  static names(): { [key: string]: string } {
+    return {
+      headers: 'headers',
+      statusCode: 'statusCode',
+      body: 'body',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
+      body: EnableInitDomainAutoRedirectResponseBody,
     };
   }
 
@@ -2511,6 +3051,144 @@ export class GetApplicationSsoConfigResponse extends $tea.Model {
       headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
       statusCode: 'number',
       body: GetApplicationSsoConfigResponseBody,
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class GetDomainRequest extends $tea.Model {
+  domainId?: string;
+  instanceId?: string;
+  static names(): { [key: string]: string } {
+    return {
+      domainId: 'DomainId',
+      instanceId: 'InstanceId',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      domainId: 'string',
+      instanceId: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class GetDomainResponseBody extends $tea.Model {
+  domain?: GetDomainResponseBodyDomain;
+  requestId?: string;
+  static names(): { [key: string]: string } {
+    return {
+      domain: 'Domain',
+      requestId: 'RequestId',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      domain: GetDomainResponseBodyDomain,
+      requestId: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class GetDomainResponse extends $tea.Model {
+  headers: { [key: string]: string };
+  statusCode: number;
+  body: GetDomainResponseBody;
+  static names(): { [key: string]: string } {
+    return {
+      headers: 'headers',
+      statusCode: 'statusCode',
+      body: 'body',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
+      body: GetDomainResponseBody,
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class GetDomainDnsChallengeRequest extends $tea.Model {
+  domain?: string;
+  instanceId?: string;
+  static names(): { [key: string]: string } {
+    return {
+      domain: 'Domain',
+      instanceId: 'InstanceId',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      domain: 'string',
+      instanceId: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class GetDomainDnsChallengeResponseBody extends $tea.Model {
+  domainDnsChallenge?: GetDomainDnsChallengeResponseBodyDomainDnsChallenge;
+  requestId?: string;
+  static names(): { [key: string]: string } {
+    return {
+      domainDnsChallenge: 'DomainDnsChallenge',
+      requestId: 'RequestId',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      domainDnsChallenge: GetDomainDnsChallengeResponseBodyDomainDnsChallenge,
+      requestId: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class GetDomainDnsChallengeResponse extends $tea.Model {
+  headers: { [key: string]: string };
+  statusCode: number;
+  body: GetDomainDnsChallengeResponseBody;
+  static names(): { [key: string]: string } {
+    return {
+      headers: 'headers',
+      statusCode: 'statusCode',
+      body: 'body',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
+      body: GetDomainDnsChallengeResponseBody,
     };
   }
 
@@ -3573,6 +4251,141 @@ export class ListApplicationsForUserResponse extends $tea.Model {
       headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
       statusCode: 'number',
       body: ListApplicationsForUserResponseBody,
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class ListDomainProxyTokensRequest extends $tea.Model {
+  domainId?: string;
+  instanceId?: string;
+  static names(): { [key: string]: string } {
+    return {
+      domainId: 'DomainId',
+      instanceId: 'InstanceId',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      domainId: 'string',
+      instanceId: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class ListDomainProxyTokensResponseBody extends $tea.Model {
+  domainProxyTokens?: ListDomainProxyTokensResponseBodyDomainProxyTokens[];
+  requestId?: string;
+  static names(): { [key: string]: string } {
+    return {
+      domainProxyTokens: 'DomainProxyTokens',
+      requestId: 'RequestId',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      domainProxyTokens: { 'type': 'array', 'itemType': ListDomainProxyTokensResponseBodyDomainProxyTokens },
+      requestId: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class ListDomainProxyTokensResponse extends $tea.Model {
+  headers: { [key: string]: string };
+  statusCode: number;
+  body: ListDomainProxyTokensResponseBody;
+  static names(): { [key: string]: string } {
+    return {
+      headers: 'headers',
+      statusCode: 'statusCode',
+      body: 'body',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
+      body: ListDomainProxyTokensResponseBody,
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class ListDomainsRequest extends $tea.Model {
+  instanceId?: string;
+  static names(): { [key: string]: string } {
+    return {
+      instanceId: 'InstanceId',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      instanceId: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class ListDomainsResponseBody extends $tea.Model {
+  domains?: ListDomainsResponseBodyDomains[];
+  requestId?: string;
+  static names(): { [key: string]: string } {
+    return {
+      domains: 'Domains',
+      requestId: 'RequestId',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      domains: { 'type': 'array', 'itemType': ListDomainsResponseBodyDomains },
+      requestId: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class ListDomainsResponse extends $tea.Model {
+  headers: { [key: string]: string };
+  statusCode: number;
+  body: ListDomainsResponseBody;
+  static names(): { [key: string]: string } {
+    return {
+      headers: 'headers',
+      statusCode: 'statusCode',
+      body: 'body',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
+      body: ListDomainsResponseBody,
     };
   }
 
@@ -4803,6 +5616,78 @@ export class ObtainApplicationClientSecretResponse extends $tea.Model {
   }
 }
 
+export class ObtainDomainProxyTokenRequest extends $tea.Model {
+  domainId?: string;
+  domainProxyTokenId?: string;
+  instanceId?: string;
+  static names(): { [key: string]: string } {
+    return {
+      domainId: 'DomainId',
+      domainProxyTokenId: 'DomainProxyTokenId',
+      instanceId: 'InstanceId',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      domainId: 'string',
+      domainProxyTokenId: 'string',
+      instanceId: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class ObtainDomainProxyTokenResponseBody extends $tea.Model {
+  domainProxyToken?: ObtainDomainProxyTokenResponseBodyDomainProxyToken;
+  requestId?: string;
+  static names(): { [key: string]: string } {
+    return {
+      domainProxyToken: 'DomainProxyToken',
+      requestId: 'RequestId',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      domainProxyToken: ObtainDomainProxyTokenResponseBodyDomainProxyToken,
+      requestId: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class ObtainDomainProxyTokenResponse extends $tea.Model {
+  headers: { [key: string]: string };
+  statusCode: number;
+  body: ObtainDomainProxyTokenResponseBody;
+  static names(): { [key: string]: string } {
+    return {
+      headers: 'headers',
+      statusCode: 'statusCode',
+      body: 'body',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
+      body: ObtainDomainProxyTokenResponseBody,
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
 export class RemoveUserFromOrganizationalUnitsRequest extends $tea.Model {
   instanceId?: string;
   organizationalUnitIds?: string[];
@@ -5434,6 +6319,72 @@ export class SetApplicationSsoConfigResponse extends $tea.Model {
       headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
       statusCode: 'number',
       body: SetApplicationSsoConfigResponseBody,
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class SetDefaultDomainRequest extends $tea.Model {
+  domainId?: string;
+  instanceId?: string;
+  static names(): { [key: string]: string } {
+    return {
+      domainId: 'DomainId',
+      instanceId: 'InstanceId',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      domainId: 'string',
+      instanceId: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class SetDefaultDomainResponseBody extends $tea.Model {
+  requestId?: string;
+  static names(): { [key: string]: string } {
+    return {
+      requestId: 'RequestId',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      requestId: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class SetDefaultDomainResponse extends $tea.Model {
+  headers: { [key: string]: string };
+  statusCode: number;
+  body: SetDefaultDomainResponseBody;
+  static names(): { [key: string]: string } {
+    return {
+      headers: 'headers',
+      statusCode: 'statusCode',
+      body: 'body',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
+      body: SetDefaultDomainResponseBody,
     };
   }
 
@@ -6823,6 +7774,25 @@ export class CreateApplicationClientSecretResponseBodyApplicationClientSecret ex
   }
 }
 
+export class CreateDomainRequestFiling extends $tea.Model {
+  icpNumber?: string;
+  static names(): { [key: string]: string } {
+    return {
+      icpNumber: 'IcpNumber',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      icpNumber: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
 export class CreateUserRequestCustomFields extends $tea.Model {
   fieldName?: string;
   fieldValue?: string;
@@ -7361,6 +8331,93 @@ export class GetApplicationSsoConfigResponseBodyApplicationSsoConfig extends $te
   }
 }
 
+export class GetDomainResponseBodyDomainFiling extends $tea.Model {
+  icpNumber?: string;
+  static names(): { [key: string]: string } {
+    return {
+      icpNumber: 'IcpNumber',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      icpNumber: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class GetDomainResponseBodyDomain extends $tea.Model {
+  createTime?: number;
+  defaultDomain?: boolean;
+  domain?: string;
+  domainId?: string;
+  domainType?: string;
+  filing?: GetDomainResponseBodyDomainFiling;
+  instanceId?: string;
+  lockMode?: string;
+  updateTime?: number;
+  static names(): { [key: string]: string } {
+    return {
+      createTime: 'CreateTime',
+      defaultDomain: 'DefaultDomain',
+      domain: 'Domain',
+      domainId: 'DomainId',
+      domainType: 'DomainType',
+      filing: 'Filing',
+      instanceId: 'InstanceId',
+      lockMode: 'LockMode',
+      updateTime: 'UpdateTime',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      createTime: 'number',
+      defaultDomain: 'boolean',
+      domain: 'string',
+      domainId: 'string',
+      domainType: 'string',
+      filing: GetDomainResponseBodyDomainFiling,
+      instanceId: 'string',
+      lockMode: 'string',
+      updateTime: 'number',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class GetDomainDnsChallengeResponseBodyDomainDnsChallenge extends $tea.Model {
+  dnsChallengeName?: string;
+  dnsChallengeValue?: string;
+  dnsType?: string;
+  static names(): { [key: string]: string } {
+    return {
+      dnsChallengeName: 'DnsChallengeName',
+      dnsChallengeValue: 'DnsChallengeValue',
+      dnsType: 'DnsType',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      dnsChallengeName: 'string',
+      dnsChallengeValue: 'string',
+      dnsType: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
 export class GetForgetPasswordConfigurationResponseBodyOpenForgetPasswordConfiguration extends $tea.Model {
   authenticationChannels?: string[];
   enable?: boolean;
@@ -7457,10 +8514,36 @@ export class GetInstanceResponseBodyInstanceDefaultEndpoint extends $tea.Model {
   }
 }
 
+export class GetInstanceResponseBodyInstanceDomainConfig extends $tea.Model {
+  defaultDomain?: string;
+  initDomain?: string;
+  initDomainAutoRedirectStatus?: string;
+  static names(): { [key: string]: string } {
+    return {
+      defaultDomain: 'DefaultDomain',
+      initDomain: 'InitDomain',
+      initDomainAutoRedirectStatus: 'InitDomainAutoRedirectStatus',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      defaultDomain: 'string',
+      initDomain: 'string',
+      initDomainAutoRedirectStatus: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
 export class GetInstanceResponseBodyInstance extends $tea.Model {
   createTime?: number;
   defaultEndpoint?: GetInstanceResponseBodyInstanceDefaultEndpoint;
   description?: string;
+  domainConfig?: GetInstanceResponseBodyInstanceDomainConfig;
   egressAddresses?: string[];
   instanceId?: string;
   status?: string;
@@ -7469,6 +8552,7 @@ export class GetInstanceResponseBodyInstance extends $tea.Model {
       createTime: 'CreateTime',
       defaultEndpoint: 'DefaultEndpoint',
       description: 'Description',
+      domainConfig: 'DomainConfig',
       egressAddresses: 'EgressAddresses',
       instanceId: 'InstanceId',
       status: 'Status',
@@ -7480,6 +8564,7 @@ export class GetInstanceResponseBodyInstance extends $tea.Model {
       createTime: 'number',
       defaultEndpoint: GetInstanceResponseBodyInstanceDefaultEndpoint,
       description: 'string',
+      domainConfig: GetInstanceResponseBodyInstanceDomainConfig,
       egressAddresses: { 'type': 'array', 'itemType': 'string' },
       instanceId: 'string',
       status: 'string',
@@ -8059,6 +9144,108 @@ export class ListApplicationsForUserResponseBodyApplications extends $tea.Model 
   }
 }
 
+export class ListDomainProxyTokensResponseBodyDomainProxyTokens extends $tea.Model {
+  createTime?: number;
+  domainId?: string;
+  domainProxyToken?: string;
+  domainProxyTokenId?: string;
+  instanceId?: string;
+  lastUsedTime?: number;
+  status?: string;
+  updateTime?: number;
+  static names(): { [key: string]: string } {
+    return {
+      createTime: 'CreateTime',
+      domainId: 'DomainId',
+      domainProxyToken: 'DomainProxyToken',
+      domainProxyTokenId: 'DomainProxyTokenId',
+      instanceId: 'InstanceId',
+      lastUsedTime: 'LastUsedTime',
+      status: 'Status',
+      updateTime: 'UpdateTime',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      createTime: 'number',
+      domainId: 'string',
+      domainProxyToken: 'string',
+      domainProxyTokenId: 'string',
+      instanceId: 'string',
+      lastUsedTime: 'number',
+      status: 'string',
+      updateTime: 'number',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class ListDomainsResponseBodyDomainsFiling extends $tea.Model {
+  icpNumber?: string;
+  static names(): { [key: string]: string } {
+    return {
+      icpNumber: 'IcpNumber',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      icpNumber: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class ListDomainsResponseBodyDomains extends $tea.Model {
+  createTime?: number;
+  defaultDomain?: boolean;
+  domain?: string;
+  domainId?: string;
+  domainType?: string;
+  filing?: ListDomainsResponseBodyDomainsFiling;
+  instanceId?: string;
+  lockMode?: string;
+  updateTime?: number;
+  static names(): { [key: string]: string } {
+    return {
+      createTime: 'CreateTime',
+      defaultDomain: 'DefaultDomain',
+      domain: 'Domain',
+      domainId: 'DomainId',
+      domainType: 'DomainType',
+      filing: 'Filing',
+      instanceId: 'InstanceId',
+      lockMode: 'LockMode',
+      updateTime: 'UpdateTime',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      createTime: 'number',
+      defaultDomain: 'boolean',
+      domain: 'string',
+      domainId: 'string',
+      domainType: 'string',
+      filing: ListDomainsResponseBodyDomainsFiling,
+      instanceId: 'string',
+      lockMode: 'string',
+      updateTime: 'number',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
 export class ListGroupsResponseBodyGroups extends $tea.Model {
   createTime?: number;
   description?: string;
@@ -8590,6 +9777,46 @@ export class ObtainApplicationClientSecretResponseBodyApplicationClientSecret ex
       lastUsedTime: 'number',
       secretId: 'string',
       status: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class ObtainDomainProxyTokenResponseBodyDomainProxyToken extends $tea.Model {
+  createTime?: number;
+  domainId?: string;
+  domainProxyToken?: string;
+  domainProxyTokenId?: string;
+  instanceId?: string;
+  lastUsedTime?: number;
+  status?: string;
+  updateTime?: number;
+  static names(): { [key: string]: string } {
+    return {
+      createTime: 'CreateTime',
+      domainId: 'DomainId',
+      domainProxyToken: 'DomainProxyToken',
+      domainProxyTokenId: 'DomainProxyTokenId',
+      instanceId: 'InstanceId',
+      lastUsedTime: 'LastUsedTime',
+      status: 'Status',
+      updateTime: 'UpdateTime',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      createTime: 'number',
+      domainId: 'string',
+      domainProxyToken: 'string',
+      domainProxyTokenId: 'string',
+      instanceId: 'string',
+      lastUsedTime: 'number',
+      status: 'string',
+      updateTime: 'number',
     };
   }
 
@@ -9209,6 +10436,76 @@ export default class Client extends OpenApi {
     return await this.createApplicationClientSecretWithOptions(request, runtime);
   }
 
+  async createDomainWithOptions(request: CreateDomainRequest, runtime: $Util.RuntimeOptions): Promise<CreateDomainResponse> {
+    Util.validateModel(request);
+    let query = { };
+    if (!Util.isUnset(request.domain)) {
+      query["Domain"] = request.domain;
+    }
+
+    if (!Util.isUnset(request.filing)) {
+      query["Filing"] = request.filing;
+    }
+
+    if (!Util.isUnset(request.instanceId)) {
+      query["InstanceId"] = request.instanceId;
+    }
+
+    let req = new $OpenApi.OpenApiRequest({
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApi.Params({
+      action: "CreateDomain",
+      version: "2021-12-01",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $tea.cast<CreateDomainResponse>(await this.callApi(params, req, runtime), new CreateDomainResponse({}));
+  }
+
+  async createDomain(request: CreateDomainRequest): Promise<CreateDomainResponse> {
+    let runtime = new $Util.RuntimeOptions({ });
+    return await this.createDomainWithOptions(request, runtime);
+  }
+
+  async createDomainProxyTokenWithOptions(request: CreateDomainProxyTokenRequest, runtime: $Util.RuntimeOptions): Promise<CreateDomainProxyTokenResponse> {
+    Util.validateModel(request);
+    let query = { };
+    if (!Util.isUnset(request.domainId)) {
+      query["DomainId"] = request.domainId;
+    }
+
+    if (!Util.isUnset(request.instanceId)) {
+      query["InstanceId"] = request.instanceId;
+    }
+
+    let req = new $OpenApi.OpenApiRequest({
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApi.Params({
+      action: "CreateDomainProxyToken",
+      version: "2021-12-01",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $tea.cast<CreateDomainProxyTokenResponse>(await this.callApi(params, req, runtime), new CreateDomainProxyTokenResponse({}));
+  }
+
+  async createDomainProxyToken(request: CreateDomainProxyTokenRequest): Promise<CreateDomainProxyTokenResponse> {
+    let runtime = new $Util.RuntimeOptions({ });
+    return await this.createDomainProxyTokenWithOptions(request, runtime);
+  }
+
   async createGroupWithOptions(request: CreateGroupRequest, runtime: $Util.RuntimeOptions): Promise<CreateGroupResponse> {
     Util.validateModel(request);
     let query = { };
@@ -9539,6 +10836,76 @@ export default class Client extends OpenApi {
   async deleteApplicationClientSecret(request: DeleteApplicationClientSecretRequest): Promise<DeleteApplicationClientSecretResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.deleteApplicationClientSecretWithOptions(request, runtime);
+  }
+
+  async deleteDomainWithOptions(request: DeleteDomainRequest, runtime: $Util.RuntimeOptions): Promise<DeleteDomainResponse> {
+    Util.validateModel(request);
+    let query = { };
+    if (!Util.isUnset(request.domainId)) {
+      query["DomainId"] = request.domainId;
+    }
+
+    if (!Util.isUnset(request.instanceId)) {
+      query["InstanceId"] = request.instanceId;
+    }
+
+    let req = new $OpenApi.OpenApiRequest({
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApi.Params({
+      action: "DeleteDomain",
+      version: "2021-12-01",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $tea.cast<DeleteDomainResponse>(await this.callApi(params, req, runtime), new DeleteDomainResponse({}));
+  }
+
+  async deleteDomain(request: DeleteDomainRequest): Promise<DeleteDomainResponse> {
+    let runtime = new $Util.RuntimeOptions({ });
+    return await this.deleteDomainWithOptions(request, runtime);
+  }
+
+  async deleteDomainProxyTokenWithOptions(request: DeleteDomainProxyTokenRequest, runtime: $Util.RuntimeOptions): Promise<DeleteDomainProxyTokenResponse> {
+    Util.validateModel(request);
+    let query = { };
+    if (!Util.isUnset(request.domainId)) {
+      query["DomainId"] = request.domainId;
+    }
+
+    if (!Util.isUnset(request.domainProxyTokenId)) {
+      query["DomainProxyTokenId"] = request.domainProxyTokenId;
+    }
+
+    if (!Util.isUnset(request.instanceId)) {
+      query["InstanceId"] = request.instanceId;
+    }
+
+    let req = new $OpenApi.OpenApiRequest({
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApi.Params({
+      action: "DeleteDomainProxyToken",
+      version: "2021-12-01",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $tea.cast<DeleteDomainProxyTokenResponse>(await this.callApi(params, req, runtime), new DeleteDomainProxyTokenResponse({}));
+  }
+
+  async deleteDomainProxyToken(request: DeleteDomainProxyTokenRequest): Promise<DeleteDomainProxyTokenResponse> {
+    let runtime = new $Util.RuntimeOptions({ });
+    return await this.deleteDomainProxyTokenWithOptions(request, runtime);
   }
 
   async deleteGroupWithOptions(request: DeleteGroupRequest, runtime: $Util.RuntimeOptions): Promise<DeleteGroupResponse> {
@@ -9897,6 +11264,72 @@ export default class Client extends OpenApi {
     return await this.disableApplicationSsoWithOptions(request, runtime);
   }
 
+  async disableDomainProxyTokenWithOptions(request: DisableDomainProxyTokenRequest, runtime: $Util.RuntimeOptions): Promise<DisableDomainProxyTokenResponse> {
+    Util.validateModel(request);
+    let query = { };
+    if (!Util.isUnset(request.domainId)) {
+      query["DomainId"] = request.domainId;
+    }
+
+    if (!Util.isUnset(request.domainProxyTokenId)) {
+      query["DomainProxyTokenId"] = request.domainProxyTokenId;
+    }
+
+    if (!Util.isUnset(request.instanceId)) {
+      query["InstanceId"] = request.instanceId;
+    }
+
+    let req = new $OpenApi.OpenApiRequest({
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApi.Params({
+      action: "DisableDomainProxyToken",
+      version: "2021-12-01",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $tea.cast<DisableDomainProxyTokenResponse>(await this.callApi(params, req, runtime), new DisableDomainProxyTokenResponse({}));
+  }
+
+  async disableDomainProxyToken(request: DisableDomainProxyTokenRequest): Promise<DisableDomainProxyTokenResponse> {
+    let runtime = new $Util.RuntimeOptions({ });
+    return await this.disableDomainProxyTokenWithOptions(request, runtime);
+  }
+
+  async disableInitDomainAutoRedirectWithOptions(request: DisableInitDomainAutoRedirectRequest, runtime: $Util.RuntimeOptions): Promise<DisableInitDomainAutoRedirectResponse> {
+    Util.validateModel(request);
+    let query = { };
+    if (!Util.isUnset(request.instanceId)) {
+      query["InstanceId"] = request.instanceId;
+    }
+
+    let req = new $OpenApi.OpenApiRequest({
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApi.Params({
+      action: "DisableInitDomainAutoRedirect",
+      version: "2021-12-01",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $tea.cast<DisableInitDomainAutoRedirectResponse>(await this.callApi(params, req, runtime), new DisableInitDomainAutoRedirectResponse({}));
+  }
+
+  async disableInitDomainAutoRedirect(request: DisableInitDomainAutoRedirectRequest): Promise<DisableInitDomainAutoRedirectResponse> {
+    let runtime = new $Util.RuntimeOptions({ });
+    return await this.disableInitDomainAutoRedirectWithOptions(request, runtime);
+  }
+
   async disableUserWithOptions(request: DisableUserRequest, runtime: $Util.RuntimeOptions): Promise<DisableUserResponse> {
     Util.validateModel(request);
     let query = { };
@@ -10099,6 +11532,72 @@ export default class Client extends OpenApi {
     return await this.enableApplicationSsoWithOptions(request, runtime);
   }
 
+  async enableDomainProxyTokenWithOptions(request: EnableDomainProxyTokenRequest, runtime: $Util.RuntimeOptions): Promise<EnableDomainProxyTokenResponse> {
+    Util.validateModel(request);
+    let query = { };
+    if (!Util.isUnset(request.domainId)) {
+      query["DomainId"] = request.domainId;
+    }
+
+    if (!Util.isUnset(request.domainProxyTokenId)) {
+      query["DomainProxyTokenId"] = request.domainProxyTokenId;
+    }
+
+    if (!Util.isUnset(request.instanceId)) {
+      query["InstanceId"] = request.instanceId;
+    }
+
+    let req = new $OpenApi.OpenApiRequest({
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApi.Params({
+      action: "EnableDomainProxyToken",
+      version: "2021-12-01",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $tea.cast<EnableDomainProxyTokenResponse>(await this.callApi(params, req, runtime), new EnableDomainProxyTokenResponse({}));
+  }
+
+  async enableDomainProxyToken(request: EnableDomainProxyTokenRequest): Promise<EnableDomainProxyTokenResponse> {
+    let runtime = new $Util.RuntimeOptions({ });
+    return await this.enableDomainProxyTokenWithOptions(request, runtime);
+  }
+
+  async enableInitDomainAutoRedirectWithOptions(request: EnableInitDomainAutoRedirectRequest, runtime: $Util.RuntimeOptions): Promise<EnableInitDomainAutoRedirectResponse> {
+    Util.validateModel(request);
+    let query = { };
+    if (!Util.isUnset(request.instanceId)) {
+      query["InstanceId"] = request.instanceId;
+    }
+
+    let req = new $OpenApi.OpenApiRequest({
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApi.Params({
+      action: "EnableInitDomainAutoRedirect",
+      version: "2021-12-01",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $tea.cast<EnableInitDomainAutoRedirectResponse>(await this.callApi(params, req, runtime), new EnableInitDomainAutoRedirectResponse({}));
+  }
+
+  async enableInitDomainAutoRedirect(request: EnableInitDomainAutoRedirectRequest): Promise<EnableInitDomainAutoRedirectResponse> {
+    let runtime = new $Util.RuntimeOptions({ });
+    return await this.enableInitDomainAutoRedirectWithOptions(request, runtime);
+  }
+
   async enableUserWithOptions(request: EnableUserRequest, runtime: $Util.RuntimeOptions): Promise<EnableUserResponse> {
     Util.validateModel(request);
     let query = { };
@@ -10295,6 +11794,72 @@ export default class Client extends OpenApi {
   async getApplicationSsoConfig(request: GetApplicationSsoConfigRequest): Promise<GetApplicationSsoConfigResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.getApplicationSsoConfigWithOptions(request, runtime);
+  }
+
+  async getDomainWithOptions(request: GetDomainRequest, runtime: $Util.RuntimeOptions): Promise<GetDomainResponse> {
+    Util.validateModel(request);
+    let query = { };
+    if (!Util.isUnset(request.domainId)) {
+      query["DomainId"] = request.domainId;
+    }
+
+    if (!Util.isUnset(request.instanceId)) {
+      query["InstanceId"] = request.instanceId;
+    }
+
+    let req = new $OpenApi.OpenApiRequest({
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApi.Params({
+      action: "GetDomain",
+      version: "2021-12-01",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $tea.cast<GetDomainResponse>(await this.callApi(params, req, runtime), new GetDomainResponse({}));
+  }
+
+  async getDomain(request: GetDomainRequest): Promise<GetDomainResponse> {
+    let runtime = new $Util.RuntimeOptions({ });
+    return await this.getDomainWithOptions(request, runtime);
+  }
+
+  async getDomainDnsChallengeWithOptions(request: GetDomainDnsChallengeRequest, runtime: $Util.RuntimeOptions): Promise<GetDomainDnsChallengeResponse> {
+    Util.validateModel(request);
+    let query = { };
+    if (!Util.isUnset(request.domain)) {
+      query["Domain"] = request.domain;
+    }
+
+    if (!Util.isUnset(request.instanceId)) {
+      query["InstanceId"] = request.instanceId;
+    }
+
+    let req = new $OpenApi.OpenApiRequest({
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApi.Params({
+      action: "GetDomainDnsChallenge",
+      version: "2021-12-01",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $tea.cast<GetDomainDnsChallengeResponse>(await this.callApi(params, req, runtime), new GetDomainDnsChallengeResponse({}));
+  }
+
+  async getDomainDnsChallenge(request: GetDomainDnsChallengeRequest): Promise<GetDomainDnsChallengeResponse> {
+    let runtime = new $Util.RuntimeOptions({ });
+    return await this.getDomainDnsChallengeWithOptions(request, runtime);
   }
 
   async getForgetPasswordConfigurationWithOptions(request: GetForgetPasswordConfigurationRequest, runtime: $Util.RuntimeOptions): Promise<GetForgetPasswordConfigurationResponse> {
@@ -10823,6 +12388,68 @@ export default class Client extends OpenApi {
   async listApplicationsForUser(request: ListApplicationsForUserRequest): Promise<ListApplicationsForUserResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.listApplicationsForUserWithOptions(request, runtime);
+  }
+
+  async listDomainProxyTokensWithOptions(request: ListDomainProxyTokensRequest, runtime: $Util.RuntimeOptions): Promise<ListDomainProxyTokensResponse> {
+    Util.validateModel(request);
+    let query = { };
+    if (!Util.isUnset(request.domainId)) {
+      query["DomainId"] = request.domainId;
+    }
+
+    if (!Util.isUnset(request.instanceId)) {
+      query["InstanceId"] = request.instanceId;
+    }
+
+    let req = new $OpenApi.OpenApiRequest({
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApi.Params({
+      action: "ListDomainProxyTokens",
+      version: "2021-12-01",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $tea.cast<ListDomainProxyTokensResponse>(await this.callApi(params, req, runtime), new ListDomainProxyTokensResponse({}));
+  }
+
+  async listDomainProxyTokens(request: ListDomainProxyTokensRequest): Promise<ListDomainProxyTokensResponse> {
+    let runtime = new $Util.RuntimeOptions({ });
+    return await this.listDomainProxyTokensWithOptions(request, runtime);
+  }
+
+  async listDomainsWithOptions(request: ListDomainsRequest, runtime: $Util.RuntimeOptions): Promise<ListDomainsResponse> {
+    Util.validateModel(request);
+    let query = { };
+    if (!Util.isUnset(request.instanceId)) {
+      query["InstanceId"] = request.instanceId;
+    }
+
+    let req = new $OpenApi.OpenApiRequest({
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApi.Params({
+      action: "ListDomains",
+      version: "2021-12-01",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $tea.cast<ListDomainsResponse>(await this.callApi(params, req, runtime), new ListDomainsResponse({}));
+  }
+
+  async listDomains(request: ListDomainsRequest): Promise<ListDomainsResponse> {
+    let runtime = new $Util.RuntimeOptions({ });
+    return await this.listDomainsWithOptions(request, runtime);
   }
 
   async listGroupsWithOptions(request: ListGroupsRequest, runtime: $Util.RuntimeOptions): Promise<ListGroupsResponse> {
@@ -11501,6 +13128,43 @@ export default class Client extends OpenApi {
     return await this.obtainApplicationClientSecretWithOptions(request, runtime);
   }
 
+  async obtainDomainProxyTokenWithOptions(request: ObtainDomainProxyTokenRequest, runtime: $Util.RuntimeOptions): Promise<ObtainDomainProxyTokenResponse> {
+    Util.validateModel(request);
+    let query = { };
+    if (!Util.isUnset(request.domainId)) {
+      query["DomainId"] = request.domainId;
+    }
+
+    if (!Util.isUnset(request.domainProxyTokenId)) {
+      query["DomainProxyTokenId"] = request.domainProxyTokenId;
+    }
+
+    if (!Util.isUnset(request.instanceId)) {
+      query["InstanceId"] = request.instanceId;
+    }
+
+    let req = new $OpenApi.OpenApiRequest({
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApi.Params({
+      action: "ObtainDomainProxyToken",
+      version: "2021-12-01",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $tea.cast<ObtainDomainProxyTokenResponse>(await this.callApi(params, req, runtime), new ObtainDomainProxyTokenResponse({}));
+  }
+
+  async obtainDomainProxyToken(request: ObtainDomainProxyTokenRequest): Promise<ObtainDomainProxyTokenResponse> {
+    let runtime = new $Util.RuntimeOptions({ });
+    return await this.obtainDomainProxyTokenWithOptions(request, runtime);
+  }
+
   async removeUserFromOrganizationalUnitsWithOptions(request: RemoveUserFromOrganizationalUnitsRequest, runtime: $Util.RuntimeOptions): Promise<RemoveUserFromOrganizationalUnitsResponse> {
     Util.validateModel(request);
     let query = { };
@@ -11869,6 +13533,39 @@ export default class Client extends OpenApi {
   async setApplicationSsoConfig(request: SetApplicationSsoConfigRequest): Promise<SetApplicationSsoConfigResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.setApplicationSsoConfigWithOptions(request, runtime);
+  }
+
+  async setDefaultDomainWithOptions(request: SetDefaultDomainRequest, runtime: $Util.RuntimeOptions): Promise<SetDefaultDomainResponse> {
+    Util.validateModel(request);
+    let query = { };
+    if (!Util.isUnset(request.domainId)) {
+      query["DomainId"] = request.domainId;
+    }
+
+    if (!Util.isUnset(request.instanceId)) {
+      query["InstanceId"] = request.instanceId;
+    }
+
+    let req = new $OpenApi.OpenApiRequest({
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApi.Params({
+      action: "SetDefaultDomain",
+      version: "2021-12-01",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $tea.cast<SetDefaultDomainResponse>(await this.callApi(params, req, runtime), new SetDefaultDomainResponse({}));
+  }
+
+  async setDefaultDomain(request: SetDefaultDomainRequest): Promise<SetDefaultDomainResponse> {
+    let runtime = new $Util.RuntimeOptions({ });
+    return await this.setDefaultDomainWithOptions(request, runtime);
   }
 
   async setForgetPasswordConfigurationWithOptions(request: SetForgetPasswordConfigurationRequest, runtime: $Util.RuntimeOptions): Promise<SetForgetPasswordConfigurationResponse> {
