@@ -1579,6 +1579,7 @@ export class UpdateHubClusterFeatureRequest extends $tea.Model {
   apiServerEipId?: string;
   argoCDEnabled?: boolean;
   argoCDHAEnabled?: boolean;
+  argoEventsEnabled?: boolean;
   argoServerEnabled?: boolean;
   auditLogEnabled?: boolean;
   clusterId?: string;
@@ -1597,6 +1598,7 @@ export class UpdateHubClusterFeatureRequest extends $tea.Model {
       apiServerEipId: 'ApiServerEipId',
       argoCDEnabled: 'ArgoCDEnabled',
       argoCDHAEnabled: 'ArgoCDHAEnabled',
+      argoEventsEnabled: 'ArgoEventsEnabled',
       argoServerEnabled: 'ArgoServerEnabled',
       auditLogEnabled: 'AuditLogEnabled',
       clusterId: 'ClusterId',
@@ -1618,6 +1620,7 @@ export class UpdateHubClusterFeatureRequest extends $tea.Model {
       apiServerEipId: 'string',
       argoCDEnabled: 'boolean',
       argoCDHAEnabled: 'boolean',
+      argoEventsEnabled: 'boolean',
       argoServerEnabled: 'boolean',
       auditLogEnabled: 'boolean',
       clusterId: 'string',
@@ -1643,6 +1646,7 @@ export class UpdateHubClusterFeatureShrinkRequest extends $tea.Model {
   apiServerEipId?: string;
   argoCDEnabled?: boolean;
   argoCDHAEnabled?: boolean;
+  argoEventsEnabled?: boolean;
   argoServerEnabled?: boolean;
   auditLogEnabled?: boolean;
   clusterId?: string;
@@ -1661,6 +1665,7 @@ export class UpdateHubClusterFeatureShrinkRequest extends $tea.Model {
       apiServerEipId: 'ApiServerEipId',
       argoCDEnabled: 'ArgoCDEnabled',
       argoCDHAEnabled: 'ArgoCDHAEnabled',
+      argoEventsEnabled: 'ArgoEventsEnabled',
       argoServerEnabled: 'ArgoServerEnabled',
       auditLogEnabled: 'AuditLogEnabled',
       clusterId: 'ClusterId',
@@ -1682,6 +1687,7 @@ export class UpdateHubClusterFeatureShrinkRequest extends $tea.Model {
       apiServerEipId: 'string',
       argoCDEnabled: 'boolean',
       argoCDHAEnabled: 'boolean',
+      argoEventsEnabled: 'boolean',
       argoServerEnabled: 'boolean',
       auditLogEnabled: 'boolean',
       clusterId: 'string',
@@ -3947,6 +3953,10 @@ export default class Client extends OpenApi {
 
     if (!Util.isUnset(request.argoCDHAEnabled)) {
       query["ArgoCDHAEnabled"] = request.argoCDHAEnabled;
+    }
+
+    if (!Util.isUnset(request.argoEventsEnabled)) {
+      query["ArgoEventsEnabled"] = request.argoEventsEnabled;
     }
 
     if (!Util.isUnset(request.argoServerEnabled)) {
