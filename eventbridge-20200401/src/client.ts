@@ -1551,12 +1551,14 @@ export class GetConnectionRequest extends $tea.Model {
 export class GetConnectionResponseBody extends $tea.Model {
   code?: string;
   data?: GetConnectionResponseBodyData;
+  httpCode?: number;
   message?: string;
   requestId?: string;
   static names(): { [key: string]: string } {
     return {
       code: 'Code',
       data: 'Data',
+      httpCode: 'HttpCode',
       message: 'Message',
       requestId: 'RequestId',
     };
@@ -1566,6 +1568,7 @@ export class GetConnectionResponseBody extends $tea.Model {
     return {
       code: 'string',
       data: GetConnectionResponseBodyData,
+      httpCode: 'number',
       message: 'string',
       requestId: 'string',
     };
@@ -4834,6 +4837,134 @@ export class CreateEventStreamingRequestSinkSinkFcParameters extends $tea.Model 
   }
 }
 
+export class CreateEventStreamingRequestSinkSinkFnfParametersExecutionName extends $tea.Model {
+  form?: string;
+  template?: string;
+  value?: string;
+  static names(): { [key: string]: string } {
+    return {
+      form: 'Form',
+      template: 'Template',
+      value: 'Value',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      form: 'string',
+      template: 'string',
+      value: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class CreateEventStreamingRequestSinkSinkFnfParametersFlowName extends $tea.Model {
+  form?: string;
+  template?: string;
+  value?: string;
+  static names(): { [key: string]: string } {
+    return {
+      form: 'Form',
+      template: 'Template',
+      value: 'Value',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      form: 'string',
+      template: 'string',
+      value: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class CreateEventStreamingRequestSinkSinkFnfParametersInput extends $tea.Model {
+  form?: string;
+  template?: string;
+  value?: string;
+  static names(): { [key: string]: string } {
+    return {
+      form: 'Form',
+      template: 'Template',
+      value: 'Value',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      form: 'string',
+      template: 'string',
+      value: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class CreateEventStreamingRequestSinkSinkFnfParametersRoleName extends $tea.Model {
+  form?: string;
+  template?: string;
+  value?: string;
+  static names(): { [key: string]: string } {
+    return {
+      form: 'Form',
+      template: 'Template',
+      value: 'Value',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      form: 'string',
+      template: 'string',
+      value: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class CreateEventStreamingRequestSinkSinkFnfParameters extends $tea.Model {
+  executionName?: CreateEventStreamingRequestSinkSinkFnfParametersExecutionName;
+  flowName?: CreateEventStreamingRequestSinkSinkFnfParametersFlowName;
+  input?: CreateEventStreamingRequestSinkSinkFnfParametersInput;
+  roleName?: CreateEventStreamingRequestSinkSinkFnfParametersRoleName;
+  static names(): { [key: string]: string } {
+    return {
+      executionName: 'ExecutionName',
+      flowName: 'FlowName',
+      input: 'Input',
+      roleName: 'RoleName',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      executionName: CreateEventStreamingRequestSinkSinkFnfParametersExecutionName,
+      flowName: CreateEventStreamingRequestSinkSinkFnfParametersFlowName,
+      input: CreateEventStreamingRequestSinkSinkFnfParametersInput,
+      roleName: CreateEventStreamingRequestSinkSinkFnfParametersRoleName,
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
 export class CreateEventStreamingRequestSinkSinkKafkaParametersAcks extends $tea.Model {
   form?: string;
   template?: string;
@@ -5925,6 +6056,7 @@ export class CreateEventStreamingRequestSinkSinkSLSParameters extends $tea.Model
 export class CreateEventStreamingRequestSink extends $tea.Model {
   sinkDataHubParameters?: CreateEventStreamingRequestSinkSinkDataHubParameters;
   sinkFcParameters?: CreateEventStreamingRequestSinkSinkFcParameters;
+  sinkFnfParameters?: CreateEventStreamingRequestSinkSinkFnfParameters;
   sinkKafkaParameters?: CreateEventStreamingRequestSinkSinkKafkaParameters;
   sinkMNSParameters?: CreateEventStreamingRequestSinkSinkMNSParameters;
   sinkRabbitMQParameters?: CreateEventStreamingRequestSinkSinkRabbitMQParameters;
@@ -5934,6 +6066,7 @@ export class CreateEventStreamingRequestSink extends $tea.Model {
     return {
       sinkDataHubParameters: 'SinkDataHubParameters',
       sinkFcParameters: 'SinkFcParameters',
+      sinkFnfParameters: 'SinkFnfParameters',
       sinkKafkaParameters: 'SinkKafkaParameters',
       sinkMNSParameters: 'SinkMNSParameters',
       sinkRabbitMQParameters: 'SinkRabbitMQParameters',
@@ -5946,6 +6079,7 @@ export class CreateEventStreamingRequestSink extends $tea.Model {
     return {
       sinkDataHubParameters: CreateEventStreamingRequestSinkSinkDataHubParameters,
       sinkFcParameters: CreateEventStreamingRequestSinkSinkFcParameters,
+      sinkFnfParameters: CreateEventStreamingRequestSinkSinkFnfParameters,
       sinkKafkaParameters: CreateEventStreamingRequestSinkSinkKafkaParameters,
       sinkMNSParameters: CreateEventStreamingRequestSinkSinkMNSParameters,
       sinkRabbitMQParameters: CreateEventStreamingRequestSinkSinkRabbitMQParameters,
@@ -6530,97 +6664,6 @@ export class GetConnectionResponseBodyDataConnectionsAuthParametersBasicAuthPara
   }
 }
 
-export class GetConnectionResponseBodyDataConnectionsAuthParametersInvocationHttpParametersBodyParameters extends $tea.Model {
-  key?: string;
-  valuValuee?: string;
-  static names(): { [key: string]: string } {
-    return {
-      key: 'Key',
-      valuValuee: 'ValuValuee',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      key: 'string',
-      valuValuee: 'string',
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class GetConnectionResponseBodyDataConnectionsAuthParametersInvocationHttpParametersHeaderParameters extends $tea.Model {
-  key?: string;
-  value?: string;
-  static names(): { [key: string]: string } {
-    return {
-      key: 'Key',
-      value: 'Value',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      key: 'string',
-      value: 'string',
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class GetConnectionResponseBodyDataConnectionsAuthParametersInvocationHttpParametersQueryStringParameters extends $tea.Model {
-  key?: string;
-  value?: string;
-  static names(): { [key: string]: string } {
-    return {
-      key: 'Key',
-      value: 'Value',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      key: 'string',
-      value: 'string',
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class GetConnectionResponseBodyDataConnectionsAuthParametersInvocationHttpParameters extends $tea.Model {
-  bodyParameters?: GetConnectionResponseBodyDataConnectionsAuthParametersInvocationHttpParametersBodyParameters[];
-  headerParameters?: GetConnectionResponseBodyDataConnectionsAuthParametersInvocationHttpParametersHeaderParameters[];
-  queryStringParameters?: GetConnectionResponseBodyDataConnectionsAuthParametersInvocationHttpParametersQueryStringParameters[];
-  static names(): { [key: string]: string } {
-    return {
-      bodyParameters: 'BodyParameters',
-      headerParameters: 'HeaderParameters',
-      queryStringParameters: 'QueryStringParameters',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      bodyParameters: { 'type': 'array', 'itemType': GetConnectionResponseBodyDataConnectionsAuthParametersInvocationHttpParametersBodyParameters },
-      headerParameters: { 'type': 'array', 'itemType': GetConnectionResponseBodyDataConnectionsAuthParametersInvocationHttpParametersHeaderParameters },
-      queryStringParameters: { 'type': 'array', 'itemType': GetConnectionResponseBodyDataConnectionsAuthParametersInvocationHttpParametersQueryStringParameters },
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
 export class GetConnectionResponseBodyDataConnectionsAuthParametersOAuthParametersClientParameters extends $tea.Model {
   clientID?: string;
   clientSecret?: string;
@@ -6775,14 +6818,12 @@ export class GetConnectionResponseBodyDataConnectionsAuthParameters extends $tea
   apiKeyAuthParameters?: GetConnectionResponseBodyDataConnectionsAuthParametersApiKeyAuthParameters;
   authorizationType?: string;
   basicAuthParameters?: GetConnectionResponseBodyDataConnectionsAuthParametersBasicAuthParameters;
-  invocationHttpParameters?: GetConnectionResponseBodyDataConnectionsAuthParametersInvocationHttpParameters;
   OAuthParameters?: GetConnectionResponseBodyDataConnectionsAuthParametersOAuthParameters;
   static names(): { [key: string]: string } {
     return {
       apiKeyAuthParameters: 'ApiKeyAuthParameters',
       authorizationType: 'AuthorizationType',
       basicAuthParameters: 'BasicAuthParameters',
-      invocationHttpParameters: 'InvocationHttpParameters',
       OAuthParameters: 'OAuthParameters',
     };
   }
@@ -6792,7 +6833,6 @@ export class GetConnectionResponseBodyDataConnectionsAuthParameters extends $tea
       apiKeyAuthParameters: GetConnectionResponseBodyDataConnectionsAuthParametersApiKeyAuthParameters,
       authorizationType: 'string',
       basicAuthParameters: GetConnectionResponseBodyDataConnectionsAuthParametersBasicAuthParameters,
-      invocationHttpParameters: GetConnectionResponseBodyDataConnectionsAuthParametersInvocationHttpParameters,
       OAuthParameters: GetConnectionResponseBodyDataConnectionsAuthParametersOAuthParameters,
     };
   }
@@ -7184,6 +7224,134 @@ export class GetEventStreamingResponseBodyDataSinkSinkFcParameters extends $tea.
       invocationType: GetEventStreamingResponseBodyDataSinkSinkFcParametersInvocationType,
       qualifier: GetEventStreamingResponseBodyDataSinkSinkFcParametersQualifier,
       serviceName: GetEventStreamingResponseBodyDataSinkSinkFcParametersServiceName,
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class GetEventStreamingResponseBodyDataSinkSinkFnfParametersExecutionName extends $tea.Model {
+  form?: string;
+  template?: string;
+  value?: string;
+  static names(): { [key: string]: string } {
+    return {
+      form: 'Form',
+      template: 'Template',
+      value: 'Value',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      form: 'string',
+      template: 'string',
+      value: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class GetEventStreamingResponseBodyDataSinkSinkFnfParametersFlowName extends $tea.Model {
+  form?: string;
+  template?: string;
+  value?: string;
+  static names(): { [key: string]: string } {
+    return {
+      form: 'Form',
+      template: 'Template',
+      value: 'Value',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      form: 'string',
+      template: 'string',
+      value: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class GetEventStreamingResponseBodyDataSinkSinkFnfParametersInput extends $tea.Model {
+  form?: string;
+  template?: string;
+  value?: string;
+  static names(): { [key: string]: string } {
+    return {
+      form: 'Form',
+      template: 'Template',
+      value: 'Value',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      form: 'string',
+      template: 'string',
+      value: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class GetEventStreamingResponseBodyDataSinkSinkFnfParametersRoleName extends $tea.Model {
+  form?: string;
+  template?: string;
+  value?: string;
+  static names(): { [key: string]: string } {
+    return {
+      form: 'Form',
+      template: 'Template',
+      value: 'Value',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      form: 'string',
+      template: 'string',
+      value: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class GetEventStreamingResponseBodyDataSinkSinkFnfParameters extends $tea.Model {
+  executionName?: GetEventStreamingResponseBodyDataSinkSinkFnfParametersExecutionName;
+  flowName?: GetEventStreamingResponseBodyDataSinkSinkFnfParametersFlowName;
+  input?: GetEventStreamingResponseBodyDataSinkSinkFnfParametersInput;
+  roleName?: GetEventStreamingResponseBodyDataSinkSinkFnfParametersRoleName;
+  static names(): { [key: string]: string } {
+    return {
+      executionName: 'ExecutionName',
+      flowName: 'FlowName',
+      input: 'Input',
+      roleName: 'RoleName',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      executionName: GetEventStreamingResponseBodyDataSinkSinkFnfParametersExecutionName,
+      flowName: GetEventStreamingResponseBodyDataSinkSinkFnfParametersFlowName,
+      input: GetEventStreamingResponseBodyDataSinkSinkFnfParametersInput,
+      roleName: GetEventStreamingResponseBodyDataSinkSinkFnfParametersRoleName,
     };
   }
 
@@ -8058,6 +8226,7 @@ export class GetEventStreamingResponseBodyDataSinkSinkSLSParameters extends $tea
 
 export class GetEventStreamingResponseBodyDataSink extends $tea.Model {
   sinkFcParameters?: GetEventStreamingResponseBodyDataSinkSinkFcParameters;
+  sinkFnfParameters?: GetEventStreamingResponseBodyDataSinkSinkFnfParameters;
   sinkKafkaParameters?: GetEventStreamingResponseBodyDataSinkSinkKafkaParameters;
   sinkMNSParameters?: GetEventStreamingResponseBodyDataSinkSinkMNSParameters;
   sinkRabbitMQParameters?: GetEventStreamingResponseBodyDataSinkSinkRabbitMQParameters;
@@ -8066,6 +8235,7 @@ export class GetEventStreamingResponseBodyDataSink extends $tea.Model {
   static names(): { [key: string]: string } {
     return {
       sinkFcParameters: 'SinkFcParameters',
+      sinkFnfParameters: 'SinkFnfParameters',
       sinkKafkaParameters: 'SinkKafkaParameters',
       sinkMNSParameters: 'SinkMNSParameters',
       sinkRabbitMQParameters: 'SinkRabbitMQParameters',
@@ -8077,6 +8247,7 @@ export class GetEventStreamingResponseBodyDataSink extends $tea.Model {
   static types(): { [key: string]: any } {
     return {
       sinkFcParameters: GetEventStreamingResponseBodyDataSinkSinkFcParameters,
+      sinkFnfParameters: GetEventStreamingResponseBodyDataSinkSinkFnfParameters,
       sinkKafkaParameters: GetEventStreamingResponseBodyDataSinkSinkKafkaParameters,
       sinkMNSParameters: GetEventStreamingResponseBodyDataSinkSinkMNSParameters,
       sinkRabbitMQParameters: GetEventStreamingResponseBodyDataSinkSinkRabbitMQParameters,
@@ -8735,97 +8906,6 @@ export class ListConnectionsResponseBodyDataConnectionsAuthParametersBasicAuthPa
   }
 }
 
-export class ListConnectionsResponseBodyDataConnectionsAuthParametersInvocationHttpParametersBodyParameters extends $tea.Model {
-  key?: string;
-  value?: string;
-  static names(): { [key: string]: string } {
-    return {
-      key: 'Key',
-      value: 'Value',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      key: 'string',
-      value: 'string',
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class ListConnectionsResponseBodyDataConnectionsAuthParametersInvocationHttpParametersHeaderParameters extends $tea.Model {
-  key?: string;
-  value?: string;
-  static names(): { [key: string]: string } {
-    return {
-      key: 'Key',
-      value: 'Value',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      key: 'string',
-      value: 'string',
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class ListConnectionsResponseBodyDataConnectionsAuthParametersInvocationHttpParametersQueryStringParameters extends $tea.Model {
-  key?: string;
-  value?: string;
-  static names(): { [key: string]: string } {
-    return {
-      key: 'Key',
-      value: 'Value',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      key: 'string',
-      value: 'string',
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class ListConnectionsResponseBodyDataConnectionsAuthParametersInvocationHttpParameters extends $tea.Model {
-  bodyParameters?: ListConnectionsResponseBodyDataConnectionsAuthParametersInvocationHttpParametersBodyParameters[];
-  headerParameters?: ListConnectionsResponseBodyDataConnectionsAuthParametersInvocationHttpParametersHeaderParameters[];
-  queryStringParameters?: ListConnectionsResponseBodyDataConnectionsAuthParametersInvocationHttpParametersQueryStringParameters[];
-  static names(): { [key: string]: string } {
-    return {
-      bodyParameters: 'BodyParameters',
-      headerParameters: 'HeaderParameters',
-      queryStringParameters: 'QueryStringParameters',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      bodyParameters: { 'type': 'array', 'itemType': ListConnectionsResponseBodyDataConnectionsAuthParametersInvocationHttpParametersBodyParameters },
-      headerParameters: { 'type': 'array', 'itemType': ListConnectionsResponseBodyDataConnectionsAuthParametersInvocationHttpParametersHeaderParameters },
-      queryStringParameters: { 'type': 'array', 'itemType': ListConnectionsResponseBodyDataConnectionsAuthParametersInvocationHttpParametersQueryStringParameters },
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
 export class ListConnectionsResponseBodyDataConnectionsAuthParametersOAuthParametersClientParameters extends $tea.Model {
   clientID?: string;
   clientSecret?: string;
@@ -8980,14 +9060,12 @@ export class ListConnectionsResponseBodyDataConnectionsAuthParameters extends $t
   apiKeyAuthParameters?: ListConnectionsResponseBodyDataConnectionsAuthParametersApiKeyAuthParameters;
   authorizationType?: string;
   basicAuthParameters?: ListConnectionsResponseBodyDataConnectionsAuthParametersBasicAuthParameters;
-  invocationHttpParameters?: ListConnectionsResponseBodyDataConnectionsAuthParametersInvocationHttpParameters;
   OAuthParameters?: ListConnectionsResponseBodyDataConnectionsAuthParametersOAuthParameters;
   static names(): { [key: string]: string } {
     return {
       apiKeyAuthParameters: 'ApiKeyAuthParameters',
       authorizationType: 'AuthorizationType',
       basicAuthParameters: 'BasicAuthParameters',
-      invocationHttpParameters: 'InvocationHttpParameters',
       OAuthParameters: 'OAuthParameters',
     };
   }
@@ -8997,7 +9075,6 @@ export class ListConnectionsResponseBodyDataConnectionsAuthParameters extends $t
       apiKeyAuthParameters: ListConnectionsResponseBodyDataConnectionsAuthParametersApiKeyAuthParameters,
       authorizationType: 'string',
       basicAuthParameters: ListConnectionsResponseBodyDataConnectionsAuthParametersBasicAuthParameters,
-      invocationHttpParameters: ListConnectionsResponseBodyDataConnectionsAuthParametersInvocationHttpParameters,
       OAuthParameters: ListConnectionsResponseBodyDataConnectionsAuthParametersOAuthParameters,
     };
   }
@@ -9423,6 +9500,134 @@ export class ListEventStreamingsResponseBodyDataEventStreamingsSinkSinkFcParamet
       invocationType: ListEventStreamingsResponseBodyDataEventStreamingsSinkSinkFcParametersInvocationType,
       qualifier: ListEventStreamingsResponseBodyDataEventStreamingsSinkSinkFcParametersQualifier,
       serviceName: ListEventStreamingsResponseBodyDataEventStreamingsSinkSinkFcParametersServiceName,
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class ListEventStreamingsResponseBodyDataEventStreamingsSinkSinkFnfParametersExecutionName extends $tea.Model {
+  form?: string;
+  template?: string;
+  value?: string;
+  static names(): { [key: string]: string } {
+    return {
+      form: 'Form',
+      template: 'Template',
+      value: 'Value',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      form: 'string',
+      template: 'string',
+      value: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class ListEventStreamingsResponseBodyDataEventStreamingsSinkSinkFnfParametersFlowName extends $tea.Model {
+  form?: string;
+  template?: string;
+  value?: string;
+  static names(): { [key: string]: string } {
+    return {
+      form: 'Form',
+      template: 'Template',
+      value: 'Value',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      form: 'string',
+      template: 'string',
+      value: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class ListEventStreamingsResponseBodyDataEventStreamingsSinkSinkFnfParametersInput extends $tea.Model {
+  form?: string;
+  template?: string;
+  value?: string;
+  static names(): { [key: string]: string } {
+    return {
+      form: 'Form',
+      template: 'Template',
+      value: 'Value',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      form: 'string',
+      template: 'string',
+      value: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class ListEventStreamingsResponseBodyDataEventStreamingsSinkSinkFnfParametersRoleName extends $tea.Model {
+  form?: string;
+  template?: string;
+  value?: string;
+  static names(): { [key: string]: string } {
+    return {
+      form: 'Form',
+      template: 'Template',
+      value: 'Value',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      form: 'string',
+      template: 'string',
+      value: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class ListEventStreamingsResponseBodyDataEventStreamingsSinkSinkFnfParameters extends $tea.Model {
+  executionName?: ListEventStreamingsResponseBodyDataEventStreamingsSinkSinkFnfParametersExecutionName;
+  flowName?: ListEventStreamingsResponseBodyDataEventStreamingsSinkSinkFnfParametersFlowName;
+  input?: ListEventStreamingsResponseBodyDataEventStreamingsSinkSinkFnfParametersInput;
+  roleName?: ListEventStreamingsResponseBodyDataEventStreamingsSinkSinkFnfParametersRoleName;
+  static names(): { [key: string]: string } {
+    return {
+      executionName: 'ExecutionName',
+      flowName: 'FlowName',
+      input: 'Input',
+      roleName: 'RoleName',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      executionName: ListEventStreamingsResponseBodyDataEventStreamingsSinkSinkFnfParametersExecutionName,
+      flowName: ListEventStreamingsResponseBodyDataEventStreamingsSinkSinkFnfParametersFlowName,
+      input: ListEventStreamingsResponseBodyDataEventStreamingsSinkSinkFnfParametersInput,
+      roleName: ListEventStreamingsResponseBodyDataEventStreamingsSinkSinkFnfParametersRoleName,
     };
   }
 
@@ -10297,6 +10502,7 @@ export class ListEventStreamingsResponseBodyDataEventStreamingsSinkSinkSLSParame
 
 export class ListEventStreamingsResponseBodyDataEventStreamingsSink extends $tea.Model {
   sinkFcParameters?: ListEventStreamingsResponseBodyDataEventStreamingsSinkSinkFcParameters;
+  sinkFnfParameters?: ListEventStreamingsResponseBodyDataEventStreamingsSinkSinkFnfParameters;
   sinkKafkaParameters?: ListEventStreamingsResponseBodyDataEventStreamingsSinkSinkKafkaParameters;
   sinkMNSParameters?: ListEventStreamingsResponseBodyDataEventStreamingsSinkSinkMNSParameters;
   sinkRabbitMQParameters?: ListEventStreamingsResponseBodyDataEventStreamingsSinkSinkRabbitMQParameters;
@@ -10305,6 +10511,7 @@ export class ListEventStreamingsResponseBodyDataEventStreamingsSink extends $tea
   static names(): { [key: string]: string } {
     return {
       sinkFcParameters: 'SinkFcParameters',
+      sinkFnfParameters: 'SinkFnfParameters',
       sinkKafkaParameters: 'SinkKafkaParameters',
       sinkMNSParameters: 'SinkMNSParameters',
       sinkRabbitMQParameters: 'SinkRabbitMQParameters',
@@ -10316,6 +10523,7 @@ export class ListEventStreamingsResponseBodyDataEventStreamingsSink extends $tea
   static types(): { [key: string]: any } {
     return {
       sinkFcParameters: ListEventStreamingsResponseBodyDataEventStreamingsSinkSinkFcParameters,
+      sinkFnfParameters: ListEventStreamingsResponseBodyDataEventStreamingsSinkSinkFnfParameters,
       sinkKafkaParameters: ListEventStreamingsResponseBodyDataEventStreamingsSinkSinkKafkaParameters,
       sinkMNSParameters: ListEventStreamingsResponseBodyDataEventStreamingsSinkSinkMNSParameters,
       sinkRabbitMQParameters: ListEventStreamingsResponseBodyDataEventStreamingsSinkSinkRabbitMQParameters,
@@ -12281,6 +12489,134 @@ export class UpdateEventStreamingRequestSinkSinkFcParameters extends $tea.Model 
   }
 }
 
+export class UpdateEventStreamingRequestSinkSinkFnfParametersExecutionName extends $tea.Model {
+  form?: string;
+  template?: string;
+  value?: string;
+  static names(): { [key: string]: string } {
+    return {
+      form: 'Form',
+      template: 'Template',
+      value: 'Value',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      form: 'string',
+      template: 'string',
+      value: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class UpdateEventStreamingRequestSinkSinkFnfParametersFlowName extends $tea.Model {
+  form?: string;
+  template?: string;
+  value?: string;
+  static names(): { [key: string]: string } {
+    return {
+      form: 'Form',
+      template: 'Template',
+      value: 'Value',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      form: 'string',
+      template: 'string',
+      value: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class UpdateEventStreamingRequestSinkSinkFnfParametersInput extends $tea.Model {
+  form?: string;
+  template?: string;
+  value?: string;
+  static names(): { [key: string]: string } {
+    return {
+      form: 'Form',
+      template: 'Template',
+      value: 'Value',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      form: 'string',
+      template: 'string',
+      value: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class UpdateEventStreamingRequestSinkSinkFnfParametersRoleName extends $tea.Model {
+  form?: string;
+  template?: string;
+  value?: string;
+  static names(): { [key: string]: string } {
+    return {
+      form: 'Form',
+      template: 'Template',
+      value: 'Value',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      form: 'string',
+      template: 'string',
+      value: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class UpdateEventStreamingRequestSinkSinkFnfParameters extends $tea.Model {
+  executionName?: UpdateEventStreamingRequestSinkSinkFnfParametersExecutionName;
+  flowName?: UpdateEventStreamingRequestSinkSinkFnfParametersFlowName;
+  input?: UpdateEventStreamingRequestSinkSinkFnfParametersInput;
+  roleName?: UpdateEventStreamingRequestSinkSinkFnfParametersRoleName;
+  static names(): { [key: string]: string } {
+    return {
+      executionName: 'ExecutionName',
+      flowName: 'FlowName',
+      input: 'Input',
+      roleName: 'RoleName',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      executionName: UpdateEventStreamingRequestSinkSinkFnfParametersExecutionName,
+      flowName: UpdateEventStreamingRequestSinkSinkFnfParametersFlowName,
+      input: UpdateEventStreamingRequestSinkSinkFnfParametersInput,
+      roleName: UpdateEventStreamingRequestSinkSinkFnfParametersRoleName,
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
 export class UpdateEventStreamingRequestSinkSinkKafkaParametersAcks extends $tea.Model {
   form?: string;
   template?: string;
@@ -13147,6 +13483,7 @@ export class UpdateEventStreamingRequestSinkSinkSLSParameters extends $tea.Model
 
 export class UpdateEventStreamingRequestSink extends $tea.Model {
   sinkFcParameters?: UpdateEventStreamingRequestSinkSinkFcParameters;
+  sinkFnfParameters?: UpdateEventStreamingRequestSinkSinkFnfParameters;
   sinkKafkaParameters?: UpdateEventStreamingRequestSinkSinkKafkaParameters;
   sinkMNSParameters?: UpdateEventStreamingRequestSinkSinkMNSParameters;
   sinkRabbitMQParameters?: UpdateEventStreamingRequestSinkSinkRabbitMQParameters;
@@ -13155,6 +13492,7 @@ export class UpdateEventStreamingRequestSink extends $tea.Model {
   static names(): { [key: string]: string } {
     return {
       sinkFcParameters: 'SinkFcParameters',
+      sinkFnfParameters: 'SinkFnfParameters',
       sinkKafkaParameters: 'SinkKafkaParameters',
       sinkMNSParameters: 'SinkMNSParameters',
       sinkRabbitMQParameters: 'SinkRabbitMQParameters',
@@ -13166,6 +13504,7 @@ export class UpdateEventStreamingRequestSink extends $tea.Model {
   static types(): { [key: string]: any } {
     return {
       sinkFcParameters: UpdateEventStreamingRequestSinkSinkFcParameters,
+      sinkFnfParameters: UpdateEventStreamingRequestSinkSinkFnfParameters,
       sinkKafkaParameters: UpdateEventStreamingRequestSinkSinkKafkaParameters,
       sinkMNSParameters: UpdateEventStreamingRequestSinkSinkMNSParameters,
       sinkRabbitMQParameters: UpdateEventStreamingRequestSinkSinkRabbitMQParameters,
