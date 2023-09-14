@@ -1659,12 +1659,14 @@ export class MergeVideoFaceResponse extends $tea.Model {
 
 export class MergeVideoModelFaceRequest extends $tea.Model {
   addWatermark?: boolean;
+  enhance?: boolean;
   faceImageURL?: string;
   mergeInfos?: MergeVideoModelFaceRequestMergeInfos[];
   templateId?: string;
   static names(): { [key: string]: string } {
     return {
       addWatermark: 'AddWatermark',
+      enhance: 'Enhance',
       faceImageURL: 'FaceImageURL',
       mergeInfos: 'MergeInfos',
       templateId: 'TemplateId',
@@ -1674,6 +1676,7 @@ export class MergeVideoModelFaceRequest extends $tea.Model {
   static types(): { [key: string]: any } {
     return {
       addWatermark: 'boolean',
+      enhance: 'boolean',
       faceImageURL: 'string',
       mergeInfos: { 'type': 'array', 'itemType': MergeVideoModelFaceRequestMergeInfos },
       templateId: 'string',
@@ -1687,12 +1690,14 @@ export class MergeVideoModelFaceRequest extends $tea.Model {
 
 export class MergeVideoModelFaceAdvanceRequest extends $tea.Model {
   addWatermark?: boolean;
+  enhance?: boolean;
   faceImageURLObject?: Readable;
   mergeInfos?: MergeVideoModelFaceAdvanceRequestMergeInfos[];
   templateId?: string;
   static names(): { [key: string]: string } {
     return {
       addWatermark: 'AddWatermark',
+      enhance: 'Enhance',
       faceImageURLObject: 'FaceImageURL',
       mergeInfos: 'MergeInfos',
       templateId: 'TemplateId',
@@ -1702,6 +1707,7 @@ export class MergeVideoModelFaceAdvanceRequest extends $tea.Model {
   static types(): { [key: string]: any } {
     return {
       addWatermark: 'boolean',
+      enhance: 'boolean',
       faceImageURLObject: 'Readable',
       mergeInfos: { 'type': 'array', 'itemType': MergeVideoModelFaceAdvanceRequestMergeInfos },
       templateId: 'string',
@@ -4500,6 +4506,10 @@ export default class Client extends OpenApi {
     let body : {[key: string ]: any} = { };
     if (!Util.isUnset(request.addWatermark)) {
       body["AddWatermark"] = request.addWatermark;
+    }
+
+    if (!Util.isUnset(request.enhance)) {
+      body["Enhance"] = request.enhance;
     }
 
     if (!Util.isUnset(request.faceImageURL)) {
