@@ -239,6 +239,105 @@ export class CreateQuotaApplicationResponse extends $tea.Model {
   }
 }
 
+export class CreateQuotaApplicationsForTemplateRequest extends $tea.Model {
+  aliyunUids?: string[];
+  desireValue?: number;
+  dimensions?: CreateQuotaApplicationsForTemplateRequestDimensions[];
+  effectiveTime?: string;
+  envLanguage?: string;
+  expireTime?: string;
+  noticeType?: number;
+  productCode?: string;
+  quotaActionCode?: string;
+  quotaCategory?: string;
+  reason?: string;
+  static names(): { [key: string]: string } {
+    return {
+      aliyunUids: 'AliyunUids',
+      desireValue: 'DesireValue',
+      dimensions: 'Dimensions',
+      effectiveTime: 'EffectiveTime',
+      envLanguage: 'EnvLanguage',
+      expireTime: 'ExpireTime',
+      noticeType: 'NoticeType',
+      productCode: 'ProductCode',
+      quotaActionCode: 'QuotaActionCode',
+      quotaCategory: 'QuotaCategory',
+      reason: 'Reason',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      aliyunUids: { 'type': 'array', 'itemType': 'string' },
+      desireValue: 'number',
+      dimensions: { 'type': 'array', 'itemType': CreateQuotaApplicationsForTemplateRequestDimensions },
+      effectiveTime: 'string',
+      envLanguage: 'string',
+      expireTime: 'string',
+      noticeType: 'number',
+      productCode: 'string',
+      quotaActionCode: 'string',
+      quotaCategory: 'string',
+      reason: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class CreateQuotaApplicationsForTemplateResponseBody extends $tea.Model {
+  aliyunUids?: string[];
+  batchQuotaApplicationId?: string;
+  requestId?: string;
+  static names(): { [key: string]: string } {
+    return {
+      aliyunUids: 'AliyunUids',
+      batchQuotaApplicationId: 'BatchQuotaApplicationId',
+      requestId: 'RequestId',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      aliyunUids: { 'type': 'array', 'itemType': 'string' },
+      batchQuotaApplicationId: 'string',
+      requestId: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class CreateQuotaApplicationsForTemplateResponse extends $tea.Model {
+  headers: { [key: string]: string };
+  statusCode: number;
+  body: CreateQuotaApplicationsForTemplateResponseBody;
+  static names(): { [key: string]: string } {
+    return {
+      headers: 'headers',
+      statusCode: 'statusCode',
+      body: 'body',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
+      body: CreateQuotaApplicationsForTemplateResponseBody,
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
 export class CreateTemplateQuotaItemRequest extends $tea.Model {
   desireValue?: number;
   dimensions?: CreateTemplateQuotaItemRequestDimensions[];
@@ -1583,6 +1682,198 @@ export class ListQuotaApplicationsResponse extends $tea.Model {
   }
 }
 
+export class ListQuotaApplicationsDetailForTemplateRequest extends $tea.Model {
+  aliyunUid?: string;
+  batchQuotaApplicationId?: string;
+  maxResults?: number;
+  nextToken?: string;
+  productCode?: string;
+  quotaActionCode?: string;
+  quotaCategory?: string;
+  status?: string;
+  static names(): { [key: string]: string } {
+    return {
+      aliyunUid: 'AliyunUid',
+      batchQuotaApplicationId: 'BatchQuotaApplicationId',
+      maxResults: 'MaxResults',
+      nextToken: 'NextToken',
+      productCode: 'ProductCode',
+      quotaActionCode: 'QuotaActionCode',
+      quotaCategory: 'QuotaCategory',
+      status: 'Status',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      aliyunUid: 'string',
+      batchQuotaApplicationId: 'string',
+      maxResults: 'number',
+      nextToken: 'string',
+      productCode: 'string',
+      quotaActionCode: 'string',
+      quotaCategory: 'string',
+      status: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class ListQuotaApplicationsDetailForTemplateResponseBody extends $tea.Model {
+  maxResults?: number;
+  nextToken?: string;
+  quotaApplications?: ListQuotaApplicationsDetailForTemplateResponseBodyQuotaApplications[];
+  requestId?: string;
+  totalCount?: number;
+  static names(): { [key: string]: string } {
+    return {
+      maxResults: 'MaxResults',
+      nextToken: 'NextToken',
+      quotaApplications: 'QuotaApplications',
+      requestId: 'RequestId',
+      totalCount: 'TotalCount',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      maxResults: 'number',
+      nextToken: 'string',
+      quotaApplications: { 'type': 'array', 'itemType': ListQuotaApplicationsDetailForTemplateResponseBodyQuotaApplications },
+      requestId: 'string',
+      totalCount: 'number',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class ListQuotaApplicationsDetailForTemplateResponse extends $tea.Model {
+  headers: { [key: string]: string };
+  statusCode: number;
+  body: ListQuotaApplicationsDetailForTemplateResponseBody;
+  static names(): { [key: string]: string } {
+    return {
+      headers: 'headers',
+      statusCode: 'statusCode',
+      body: 'body',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
+      body: ListQuotaApplicationsDetailForTemplateResponseBody,
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class ListQuotaApplicationsForTemplateRequest extends $tea.Model {
+  applyEndTime?: string;
+  applyStartTime?: string;
+  batchQuotaApplicationId?: string;
+  maxResults?: number;
+  nextToken?: string;
+  productCode?: string;
+  quotaActionCode?: string;
+  quotaCategory?: string;
+  static names(): { [key: string]: string } {
+    return {
+      applyEndTime: 'ApplyEndTime',
+      applyStartTime: 'ApplyStartTime',
+      batchQuotaApplicationId: 'BatchQuotaApplicationId',
+      maxResults: 'MaxResults',
+      nextToken: 'NextToken',
+      productCode: 'ProductCode',
+      quotaActionCode: 'QuotaActionCode',
+      quotaCategory: 'QuotaCategory',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      applyEndTime: 'string',
+      applyStartTime: 'string',
+      batchQuotaApplicationId: 'string',
+      maxResults: 'number',
+      nextToken: 'string',
+      productCode: 'string',
+      quotaActionCode: 'string',
+      quotaCategory: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class ListQuotaApplicationsForTemplateResponseBody extends $tea.Model {
+  maxResults?: number;
+  nextToken?: string;
+  quotaBatchApplications?: ListQuotaApplicationsForTemplateResponseBodyQuotaBatchApplications[];
+  requestId?: string;
+  totalCount?: number;
+  static names(): { [key: string]: string } {
+    return {
+      maxResults: 'MaxResults',
+      nextToken: 'NextToken',
+      quotaBatchApplications: 'QuotaBatchApplications',
+      requestId: 'RequestId',
+      totalCount: 'TotalCount',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      maxResults: 'number',
+      nextToken: 'string',
+      quotaBatchApplications: { 'type': 'array', 'itemType': ListQuotaApplicationsForTemplateResponseBodyQuotaBatchApplications },
+      requestId: 'string',
+      totalCount: 'number',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class ListQuotaApplicationsForTemplateResponse extends $tea.Model {
+  headers: { [key: string]: string };
+  statusCode: number;
+  body: ListQuotaApplicationsForTemplateResponseBody;
+  static names(): { [key: string]: string } {
+    return {
+      headers: 'headers',
+      statusCode: 'statusCode',
+      body: 'body',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
+      body: ListQuotaApplicationsForTemplateResponseBody,
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
 export class ModifyQuotaTemplateServiceStatusRequest extends $tea.Model {
   serviceStatus?: number;
   static names(): { [key: string]: string } {
@@ -1864,6 +2155,28 @@ export class CreateQuotaApplicationRequestDimensions extends $tea.Model {
   }
 }
 
+export class CreateQuotaApplicationsForTemplateRequestDimensions extends $tea.Model {
+  key?: string;
+  value?: string;
+  static names(): { [key: string]: string } {
+    return {
+      key: 'Key',
+      value: 'Value',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      key: 'string',
+      value: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
 export class CreateTemplateQuotaItemRequestDimensions extends $tea.Model {
   key?: string;
   value?: string;
@@ -1962,6 +2275,7 @@ export class GetProductQuotaResponseBodyQuota extends $tea.Model {
   adjustable?: boolean;
   applicableRange?: number[];
   applicableType?: string;
+  applyReasonTips?: string;
   consumable?: boolean;
   dimensions?: { [key: string]: any };
   effectiveTime?: string;
@@ -1985,6 +2299,7 @@ export class GetProductQuotaResponseBodyQuota extends $tea.Model {
       adjustable: 'Adjustable',
       applicableRange: 'ApplicableRange',
       applicableType: 'ApplicableType',
+      applyReasonTips: 'ApplyReasonTips',
       consumable: 'Consumable',
       dimensions: 'Dimensions',
       effectiveTime: 'EffectiveTime',
@@ -2011,6 +2326,7 @@ export class GetProductQuotaResponseBodyQuota extends $tea.Model {
       adjustable: 'boolean',
       applicableRange: { 'type': 'array', 'itemType': 'number' },
       applicableType: 'string',
+      applyReasonTips: 'string',
       consumable: 'boolean',
       dimensions: { 'type': 'map', 'keyType': 'string', 'valueType': 'any' },
       effectiveTime: 'string',
@@ -2126,6 +2442,7 @@ export class GetQuotaAlarmResponseBodyQuotaAlarm extends $tea.Model {
   threshold?: number;
   thresholdPercent?: number;
   thresholdType?: string;
+  webhook?: string;
   static names(): { [key: string]: string } {
     return {
       alarmId: 'AlarmId',
@@ -2141,6 +2458,7 @@ export class GetQuotaAlarmResponseBodyQuotaAlarm extends $tea.Model {
       threshold: 'Threshold',
       thresholdPercent: 'ThresholdPercent',
       thresholdType: 'ThresholdType',
+      webhook: 'Webhook',
     };
   }
 
@@ -2159,6 +2477,7 @@ export class GetQuotaAlarmResponseBodyQuotaAlarm extends $tea.Model {
       threshold: 'number',
       thresholdPercent: 'number',
       thresholdType: 'string',
+      webhook: 'string',
     };
   }
 
@@ -2512,6 +2831,7 @@ export class ListProductQuotasResponseBodyQuotas extends $tea.Model {
   adjustable?: boolean;
   applicableRange?: number[];
   applicableType?: string;
+  applyReasonTips?: string;
   consumable?: boolean;
   dimensions?: { [key: string]: any };
   effectiveTime?: string;
@@ -2535,6 +2855,7 @@ export class ListProductQuotasResponseBodyQuotas extends $tea.Model {
       adjustable: 'Adjustable',
       applicableRange: 'ApplicableRange',
       applicableType: 'ApplicableType',
+      applyReasonTips: 'ApplyReasonTips',
       consumable: 'Consumable',
       dimensions: 'Dimensions',
       effectiveTime: 'EffectiveTime',
@@ -2561,6 +2882,7 @@ export class ListProductQuotasResponseBodyQuotas extends $tea.Model {
       adjustable: 'boolean',
       applicableRange: { 'type': 'array', 'itemType': 'number' },
       applicableType: 'string',
+      applyReasonTips: 'string',
       consumable: 'boolean',
       dimensions: { 'type': 'map', 'keyType': 'string', 'valueType': 'any' },
       effectiveTime: 'string',
@@ -2738,6 +3060,28 @@ export class ListQuotaApplicationTemplatesRequestDimensions extends $tea.Model {
   }
 }
 
+export class ListQuotaApplicationTemplatesResponseBodyQuotaApplicationTemplatesPeriod extends $tea.Model {
+  periodUnit?: string;
+  periodValue?: number;
+  static names(): { [key: string]: string } {
+    return {
+      periodUnit: 'PeriodUnit',
+      periodValue: 'PeriodValue',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      periodUnit: 'string',
+      periodValue: 'number',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
 export class ListQuotaApplicationTemplatesResponseBodyQuotaApplicationTemplates extends $tea.Model {
   applicableRange?: number[];
   applicableType?: string;
@@ -2748,6 +3092,7 @@ export class ListQuotaApplicationTemplatesResponseBodyQuotaApplicationTemplates 
   expireTime?: string;
   id?: string;
   noticeType?: number;
+  period?: ListQuotaApplicationTemplatesResponseBodyQuotaApplicationTemplatesPeriod;
   productCode?: string;
   quotaActionCode?: string;
   quotaCategory?: string;
@@ -2764,6 +3109,7 @@ export class ListQuotaApplicationTemplatesResponseBodyQuotaApplicationTemplates 
       expireTime: 'ExpireTime',
       id: 'Id',
       noticeType: 'NoticeType',
+      period: 'Period',
       productCode: 'ProductCode',
       quotaActionCode: 'QuotaActionCode',
       quotaCategory: 'QuotaCategory',
@@ -2783,6 +3129,7 @@ export class ListQuotaApplicationTemplatesResponseBodyQuotaApplicationTemplates 
       expireTime: 'string',
       id: 'string',
       noticeType: 'number',
+      period: ListQuotaApplicationTemplatesResponseBodyQuotaApplicationTemplatesPeriod,
       productCode: 'string',
       quotaActionCode: 'string',
       quotaCategory: 'string',
@@ -2913,6 +3260,178 @@ export class ListQuotaApplicationsResponseBodyQuotaApplications extends $tea.Mod
   }
 }
 
+export class ListQuotaApplicationsDetailForTemplateResponseBodyQuotaApplicationsPeriod extends $tea.Model {
+  periodUnit?: string;
+  periodValue?: number;
+  static names(): { [key: string]: string } {
+    return {
+      periodUnit: 'PeriodUnit',
+      periodValue: 'PeriodValue',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      periodUnit: 'string',
+      periodValue: 'number',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class ListQuotaApplicationsDetailForTemplateResponseBodyQuotaApplications extends $tea.Model {
+  aliyunUid?: string;
+  applicationId?: string;
+  applyTime?: string;
+  approveValue?: number;
+  auditReason?: string;
+  batchQuotaApplicationId?: string;
+  desireValue?: number;
+  effectiveTime?: string;
+  envLanguage?: string;
+  expireTime?: string;
+  noticeType?: number;
+  period?: ListQuotaApplicationsDetailForTemplateResponseBodyQuotaApplicationsPeriod;
+  productCode?: string;
+  quotaActionCode?: string;
+  quotaArn?: string;
+  quotaCategory?: string;
+  quotaDescription?: string;
+  quotaDimension?: { [key: string]: string };
+  quotaName?: string;
+  quotaUnit?: string;
+  reason?: string;
+  status?: string;
+  static names(): { [key: string]: string } {
+    return {
+      aliyunUid: 'AliyunUid',
+      applicationId: 'ApplicationId',
+      applyTime: 'ApplyTime',
+      approveValue: 'ApproveValue',
+      auditReason: 'AuditReason',
+      batchQuotaApplicationId: 'BatchQuotaApplicationId',
+      desireValue: 'DesireValue',
+      effectiveTime: 'EffectiveTime',
+      envLanguage: 'EnvLanguage',
+      expireTime: 'ExpireTime',
+      noticeType: 'NoticeType',
+      period: 'Period',
+      productCode: 'ProductCode',
+      quotaActionCode: 'QuotaActionCode',
+      quotaArn: 'QuotaArn',
+      quotaCategory: 'QuotaCategory',
+      quotaDescription: 'QuotaDescription',
+      quotaDimension: 'QuotaDimension',
+      quotaName: 'QuotaName',
+      quotaUnit: 'QuotaUnit',
+      reason: 'Reason',
+      status: 'Status',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      aliyunUid: 'string',
+      applicationId: 'string',
+      applyTime: 'string',
+      approveValue: 'number',
+      auditReason: 'string',
+      batchQuotaApplicationId: 'string',
+      desireValue: 'number',
+      effectiveTime: 'string',
+      envLanguage: 'string',
+      expireTime: 'string',
+      noticeType: 'number',
+      period: ListQuotaApplicationsDetailForTemplateResponseBodyQuotaApplicationsPeriod,
+      productCode: 'string',
+      quotaActionCode: 'string',
+      quotaArn: 'string',
+      quotaCategory: 'string',
+      quotaDescription: 'string',
+      quotaDimension: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      quotaName: 'string',
+      quotaUnit: 'string',
+      reason: 'string',
+      status: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class ListQuotaApplicationsForTemplateResponseBodyQuotaBatchApplicationsAuditStatusVos extends $tea.Model {
+  count?: number;
+  status?: string;
+  static names(): { [key: string]: string } {
+    return {
+      count: 'Count',
+      status: 'Status',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      count: 'number',
+      status: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class ListQuotaApplicationsForTemplateResponseBodyQuotaBatchApplications extends $tea.Model {
+  applyTime?: string;
+  auditStatusVos?: ListQuotaApplicationsForTemplateResponseBodyQuotaBatchApplicationsAuditStatusVos[];
+  batchQuotaApplicationId?: string;
+  desireValue?: number;
+  dimensions?: { [key: string]: any };
+  effectiveTime?: string;
+  expireTime?: string;
+  productCode?: string;
+  quotaActionCode?: string;
+  quotaCategory?: string;
+  static names(): { [key: string]: string } {
+    return {
+      applyTime: 'ApplyTime',
+      auditStatusVos: 'AuditStatusVos',
+      batchQuotaApplicationId: 'BatchQuotaApplicationId',
+      desireValue: 'DesireValue',
+      dimensions: 'Dimensions',
+      effectiveTime: 'EffectiveTime',
+      expireTime: 'ExpireTime',
+      productCode: 'ProductCode',
+      quotaActionCode: 'QuotaActionCode',
+      quotaCategory: 'QuotaCategory',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      applyTime: 'string',
+      auditStatusVos: { 'type': 'array', 'itemType': ListQuotaApplicationsForTemplateResponseBodyQuotaBatchApplicationsAuditStatusVos },
+      batchQuotaApplicationId: 'string',
+      desireValue: 'number',
+      dimensions: { 'type': 'map', 'keyType': 'string', 'valueType': 'any' },
+      effectiveTime: 'string',
+      expireTime: 'string',
+      productCode: 'string',
+      quotaActionCode: 'string',
+      quotaCategory: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
 export class ModifyQuotaTemplateServiceStatusResponseBodyTemplateServiceStatus extends $tea.Model {
   resourceDirectoryId?: string;
   serviceStatus?: number;
@@ -2981,7 +3500,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-    * In this example, the operation is called to create a quota alert for a quota whose ID is `q_hvnoqv`. This quota represents the maximum number of rules that can be created by a user. The quota belongs to Cloud Config whose service code is `config`.
+    * The ID of the alert.
     *
     * @param request CreateQuotaAlarmRequest
     * @param runtime runtime options for this request RuntimeOptions
@@ -3040,7 +3559,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-    * In this example, the operation is called to create a quota alert for a quota whose ID is `q_hvnoqv`. This quota represents the maximum number of rules that can be created by a user. The quota belongs to Cloud Config whose service code is `config`.
+    * The ID of the alert.
     *
     * @param request CreateQuotaAlarmRequest
     * @return CreateQuotaAlarmResponse
@@ -3051,7 +3570,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-    * In this example, the operation is called to submit an application to increase the value of a quota whose ID is `q_security-groups` and whose name is Maximum Number of Security Groups. This quota belongs to Elastic Compute Service (ECS). The requested value of the quota is `804`, the application reason is `Scale Out`, and the region of the quota is `cn-hangzhou`.
+    * In this example, the operation is called to submit an application to increase the value of a quota whose ID is `q_security-groups` and whose name is Maximum Number of Security Groups. The quota belongs to Elastic Compute Service (ECS). The expected value of the quota is `804`, the application reason is `Scale Out`, and the ID of the region to which the quota belongs is `cn-hangzhou`.
     *
     * @param request CreateQuotaApplicationRequest
     * @param runtime runtime options for this request RuntimeOptions
@@ -3122,7 +3641,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-    * In this example, the operation is called to submit an application to increase the value of a quota whose ID is `q_security-groups` and whose name is Maximum Number of Security Groups. This quota belongs to Elastic Compute Service (ECS). The requested value of the quota is `804`, the application reason is `Scale Out`, and the region of the quota is `cn-hangzhou`.
+    * In this example, the operation is called to submit an application to increase the value of a quota whose ID is `q_security-groups` and whose name is Maximum Number of Security Groups. The quota belongs to Elastic Compute Service (ECS). The expected value of the quota is `804`, the application reason is `Scale Out`, and the ID of the region to which the quota belongs is `cn-hangzhou`.
     *
     * @param request CreateQuotaApplicationRequest
     * @return CreateQuotaApplicationResponse
@@ -3130,6 +3649,75 @@ export default class Client extends OpenApi {
   async createQuotaApplication(request: CreateQuotaApplicationRequest): Promise<CreateQuotaApplicationResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.createQuotaApplicationWithOptions(request, runtime);
+  }
+
+  async createQuotaApplicationsForTemplateWithOptions(request: CreateQuotaApplicationsForTemplateRequest, runtime: $Util.RuntimeOptions): Promise<CreateQuotaApplicationsForTemplateResponse> {
+    Util.validateModel(request);
+    let body : {[key: string ]: any} = { };
+    if (!Util.isUnset(request.aliyunUids)) {
+      body["AliyunUids"] = request.aliyunUids;
+    }
+
+    if (!Util.isUnset(request.desireValue)) {
+      body["DesireValue"] = request.desireValue;
+    }
+
+    if (!Util.isUnset(request.dimensions)) {
+      body["Dimensions"] = request.dimensions;
+    }
+
+    if (!Util.isUnset(request.effectiveTime)) {
+      body["EffectiveTime"] = request.effectiveTime;
+    }
+
+    if (!Util.isUnset(request.envLanguage)) {
+      body["EnvLanguage"] = request.envLanguage;
+    }
+
+    if (!Util.isUnset(request.expireTime)) {
+      body["ExpireTime"] = request.expireTime;
+    }
+
+    if (!Util.isUnset(request.noticeType)) {
+      body["NoticeType"] = request.noticeType;
+    }
+
+    if (!Util.isUnset(request.productCode)) {
+      body["ProductCode"] = request.productCode;
+    }
+
+    if (!Util.isUnset(request.quotaActionCode)) {
+      body["QuotaActionCode"] = request.quotaActionCode;
+    }
+
+    if (!Util.isUnset(request.quotaCategory)) {
+      body["QuotaCategory"] = request.quotaCategory;
+    }
+
+    if (!Util.isUnset(request.reason)) {
+      body["Reason"] = request.reason;
+    }
+
+    let req = new $OpenApi.OpenApiRequest({
+      body: OpenApiUtil.parseToMap(body),
+    });
+    let params = new $OpenApi.Params({
+      action: "CreateQuotaApplicationsForTemplate",
+      version: "2020-05-10",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $tea.cast<CreateQuotaApplicationsForTemplateResponse>(await this.callApi(params, req, runtime), new CreateQuotaApplicationsForTemplateResponse({}));
+  }
+
+  async createQuotaApplicationsForTemplate(request: CreateQuotaApplicationsForTemplateRequest): Promise<CreateQuotaApplicationsForTemplateResponse> {
+    let runtime = new $Util.RuntimeOptions({ });
+    return await this.createQuotaApplicationsForTemplateWithOptions(request, runtime);
   }
 
   async createTemplateQuotaItemWithOptions(request: CreateTemplateQuotaItemRequest, runtime: $Util.RuntimeOptions): Promise<CreateTemplateQuotaItemResponse> {
@@ -3265,7 +3853,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-    * In this example, the operation is called to query the details about a quota whose ID is `q_security-groups` and whose name is Maximum Number of Security Groups. This quota belongs to Elastic Compute Service (ECS). The query result shows the details about the quota. The details include the name, ID, description, quota value, used quota, unit, and dimension of the quota. In this example, the quota name is `Maximum Number of Security Groups`. The quota ID is `q_security-groups`. The description is `The maximum number of security groups that can be created for the current account`. The quota value is `801`. The used quota is `26`. The quota unit is `security groups`. The quota dimension is `{"regionId":"cn-hangzhou"}`.
+    * In this example, the operation is called to query the details of a quota whose ID is `q_security-groups` and whose name is Maximum Number of Security Groups. This quota belongs to Elastic Compute Service (ECS). The query result shows the details of the quota. The details include the name, ID, description, quota value, used quota, unit, and dimension of the quota. In this example, the quota name is `Maximum Number of Security Groups`. The quota ID is `q_security-groups`. The description is `The maximum number of security groups that can be created for the current account`. The quota value is `801`. The used quota is `26`. The quota unit is `Number of security groups`. The quota dimension is `{"regionId":"cn-hangzhou"}`.
     *
     * @param request GetProductQuotaRequest
     * @param runtime runtime options for this request RuntimeOptions
@@ -3304,7 +3892,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-    * In this example, the operation is called to query the details about a quota whose ID is `q_security-groups` and whose name is Maximum Number of Security Groups. This quota belongs to Elastic Compute Service (ECS). The query result shows the details about the quota. The details include the name, ID, description, quota value, used quota, unit, and dimension of the quota. In this example, the quota name is `Maximum Number of Security Groups`. The quota ID is `q_security-groups`. The description is `The maximum number of security groups that can be created for the current account`. The quota value is `801`. The used quota is `26`. The quota unit is `security groups`. The quota dimension is `{"regionId":"cn-hangzhou"}`.
+    * In this example, the operation is called to query the details of a quota whose ID is `q_security-groups` and whose name is Maximum Number of Security Groups. This quota belongs to Elastic Compute Service (ECS). The query result shows the details of the quota. The details include the name, ID, description, quota value, used quota, unit, and dimension of the quota. In this example, the quota name is `Maximum Number of Security Groups`. The quota ID is `q_security-groups`. The description is `The maximum number of security groups that can be created for the current account`. The quota value is `801`. The used quota is `26`. The quota unit is `Number of security groups`. The quota dimension is `{"regionId":"cn-hangzhou"}`.
     *
     * @param request GetProductQuotaRequest
     * @return GetProductQuotaResponse
@@ -3315,7 +3903,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-    * In this example, the operation is called to query the details about a quota dimension whose key is `regionId`. The quota dimension belongs to ECS Quotas by Instance Type whose service code is ecs-spec. The following query result is returned:
+    * In this example, the operation is called to query the details of a quota dimension whose key is `regionId`. The quota dimension belongs to Elastic Compute Service (ECS) Quotas by Instance Type whose service code is ecs-spec. The following query results are returned:
     * *   The values of the quota dimension include `cn-shenzhen`, `cn-beijing`, and `cn-hangzhou`.
     * *   The name of the quota dimension is `region`.
     *
@@ -3356,7 +3944,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-    * In this example, the operation is called to query the details about a quota dimension whose key is `regionId`. The quota dimension belongs to ECS Quotas by Instance Type whose service code is ecs-spec. The following query result is returned:
+    * In this example, the operation is called to query the details of a quota dimension whose key is `regionId`. The quota dimension belongs to Elastic Compute Service (ECS) Quotas by Instance Type whose service code is ecs-spec. The following query results are returned:
     * *   The values of the quota dimension include `cn-shenzhen`, `cn-beijing`, and `cn-hangzhou`.
     * *   The name of the quota dimension is `region`.
     *
@@ -3369,7 +3957,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-    * In this example, the operation is called to query the details of a quota alert whose ID is `78d7e436-4b25-4897-84b5-d7b656bb****`. The details of the alert are returned. The query result includes the alert ID, alert name, alert contact, and the time when the quota alert was created.
+    * For more information about common request parameters, see [Common parameters](~~171299~~).
     *
     * @param request GetQuotaAlarmRequest
     * @param runtime runtime options for this request RuntimeOptions
@@ -3400,7 +3988,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-    * In this example, the operation is called to query the details of a quota alert whose ID is `78d7e436-4b25-4897-84b5-d7b656bb****`. The details of the alert are returned. The query result includes the alert ID, alert name, alert contact, and the time when the quota alert was created.
+    * For more information about common request parameters, see [Common parameters](~~171299~~).
     *
     * @param request GetQuotaAlarmRequest
     * @return GetQuotaAlarmResponse
@@ -3531,10 +4119,10 @@ export default class Client extends OpenApi {
   }
 
   /**
-    * In this example, the operation is called to query the list of quotas. A quota whose ID is `q_i5uzm3` depends on these quotas. The name of the quota is Maximum Number of Nodes. This quota belongs to Container Service for Kubernetes (ACK). The query result indicates that the specified quota depends on the following three quotas:
-    * *   An Elastic Compute Service (ECS) quota whose ID is `q_elastic-network-interfaces`. This quota is the maximum number of ENIs (Secondary ENIs) that can be owned by the current account. The regions of the quota dimension include `cn-shenzhen`, `cn-beijing`, `cn-hangzhou`.
+    * In this example, the operation is called to query the quotas on which a Container Service for Kubernetes (ACK) quota whose ID is `q_i5uzm3` depends. This quota is the maximum number of nodes that can be created in an ACK cluster. The query result indicates that the specified quota depends on the following three quotas:
+    * *   An Elastic Compute Service (ECS) quota whose ID is `q_elastic-network-interfaces`. This quota is the maximum number of ENIs (Secondary ENIs) that can be owned by an Alibaba Cloud account. The quota is available in the following regions: `cn-shenzhen`, `cn-beijing`, and `cn-hangzhou`.
     * *   A Server Load Balancer (SLB) quota whose ID is `q_fh20b0`. This quota is the number of servers that can be attached to the backend of an SLB instance.
-    * *   An SLB quota whose ID is `q_3mmbsp`. This quota is the number of SLB instances that can be owned by a user.
+    * *   An SLB quota whose ID is `q_3mmbsp`. This quota is the number of SLB instances that can be owned by an Alibaba Cloud account.
     *
     * @param request ListDependentQuotasRequest
     * @param runtime runtime options for this request RuntimeOptions
@@ -3569,10 +4157,10 @@ export default class Client extends OpenApi {
   }
 
   /**
-    * In this example, the operation is called to query the list of quotas. A quota whose ID is `q_i5uzm3` depends on these quotas. The name of the quota is Maximum Number of Nodes. This quota belongs to Container Service for Kubernetes (ACK). The query result indicates that the specified quota depends on the following three quotas:
-    * *   An Elastic Compute Service (ECS) quota whose ID is `q_elastic-network-interfaces`. This quota is the maximum number of ENIs (Secondary ENIs) that can be owned by the current account. The regions of the quota dimension include `cn-shenzhen`, `cn-beijing`, `cn-hangzhou`.
+    * In this example, the operation is called to query the quotas on which a Container Service for Kubernetes (ACK) quota whose ID is `q_i5uzm3` depends. This quota is the maximum number of nodes that can be created in an ACK cluster. The query result indicates that the specified quota depends on the following three quotas:
+    * *   An Elastic Compute Service (ECS) quota whose ID is `q_elastic-network-interfaces`. This quota is the maximum number of ENIs (Secondary ENIs) that can be owned by an Alibaba Cloud account. The quota is available in the following regions: `cn-shenzhen`, `cn-beijing`, and `cn-hangzhou`.
     * *   A Server Load Balancer (SLB) quota whose ID is `q_fh20b0`. This quota is the number of servers that can be attached to the backend of an SLB instance.
-    * *   An SLB quota whose ID is `q_3mmbsp`. This quota is the number of SLB instances that can be owned by a user.
+    * *   An SLB quota whose ID is `q_3mmbsp`. This quota is the number of SLB instances that can be owned by an Alibaba Cloud account.
     *
     * @param request ListDependentQuotasRequest
     * @return ListDependentQuotasResponse
@@ -3633,7 +4221,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-    * In this example, the operation is called to query the quota dimensions that are supported by Elastic Compute Service (ECS). The query result shows all the quota dimensions that are supported by ECS.
+    * In this example, the operation is called to query the quota dimensions that are supported by Elastic Compute Service (ECS). The query results show all the quota dimensions that are supported by ECS.
     *
     * @param request ListProductQuotaDimensionsRequest
     * @param runtime runtime options for this request RuntimeOptions
@@ -3676,7 +4264,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-    * In this example, the operation is called to query the quota dimensions that are supported by Elastic Compute Service (ECS). The query result shows all the quota dimensions that are supported by ECS.
+    * In this example, the operation is called to query the quota dimensions that are supported by Elastic Compute Service (ECS). The query results show all the quota dimensions that are supported by ECS.
     *
     * @param request ListProductQuotaDimensionsRequest
     * @return ListProductQuotaDimensionsResponse
@@ -3687,7 +4275,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-    * In this example, the operation is called to query the quotas whose instance type is `ecs.g5.2xlarge`. The quotas belong to ECS Quotas by Instance Type. The query result includes the name, ID, unit, dimensions, and cycle of each quota.
+    * In this example, the operation is called to query the quotas whose instance type is `ecs.g5.2xlarge`. The quotas belong to Elastic Compute Service (ECS) Quotas by Instance Type. The query result includes the name, ID, unit, dimensions, and cycle of each quota.
     *
     * @param request ListProductQuotasRequest
     * @param runtime runtime options for this request RuntimeOptions
@@ -3754,7 +4342,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-    * In this example, the operation is called to query the quotas whose instance type is `ecs.g5.2xlarge`. The quotas belong to ECS Quotas by Instance Type. The query result includes the name, ID, unit, dimensions, and cycle of each quota.
+    * In this example, the operation is called to query the quotas whose instance type is `ecs.g5.2xlarge`. The quotas belong to Elastic Compute Service (ECS) Quotas by Instance Type. The query result includes the name, ID, unit, dimensions, and cycle of each quota.
     *
     * @param request ListProductQuotasRequest
     * @return ListProductQuotasResponse
@@ -3902,7 +4490,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-    * In this example, the operation is called to query the details about an application that is submitted to increase a quota whose ID is `q_i5uzm3` and whose name is Maximum Number of Nodes. This quota belongs to Container Service for Kubernetes (ACK). The query result shows the details about the application. The details include the application ID, application time, requested quota, and application result. In this example, the application ID is `b926571d-cc09-4711-b547-58a615f0****`. The application time is `2021-01-15T09:13:53Z`. The expected quota value is `101`. The application result is `Agree`.
+    * In this example, the operation is called to query the details of an application that is submitted to increase a quota whose ID is `q_i5uzm3` and whose name is Maximum Number of Nodes. This quota belongs to Container Service for Kubernetes (ACK). The query result shows the details of the application. The details include the application ID, application time, requested quota, and application result. In this example, the application ID is `b926571d-cc09-4711-b547-58a615f0****`. The application time is `2021-01-15T09:13:53Z`. The expected quota value is `101`. The application result is `Agree`.
     *
     * @param request ListQuotaApplicationsRequest
     * @param runtime runtime options for this request RuntimeOptions
@@ -3961,7 +4549,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-    * In this example, the operation is called to query the details about an application that is submitted to increase a quota whose ID is `q_i5uzm3` and whose name is Maximum Number of Nodes. This quota belongs to Container Service for Kubernetes (ACK). The query result shows the details about the application. The details include the application ID, application time, requested quota, and application result. In this example, the application ID is `b926571d-cc09-4711-b547-58a615f0****`. The application time is `2021-01-15T09:13:53Z`. The expected quota value is `101`. The application result is `Agree`.
+    * In this example, the operation is called to query the details of an application that is submitted to increase a quota whose ID is `q_i5uzm3` and whose name is Maximum Number of Nodes. This quota belongs to Container Service for Kubernetes (ACK). The query result shows the details of the application. The details include the application ID, application time, requested quota, and application result. In this example, the application ID is `b926571d-cc09-4711-b547-58a615f0****`. The application time is `2021-01-15T09:13:53Z`. The expected quota value is `101`. The application result is `Agree`.
     *
     * @param request ListQuotaApplicationsRequest
     * @return ListQuotaApplicationsResponse
@@ -3971,8 +4559,122 @@ export default class Client extends OpenApi {
     return await this.listQuotaApplicationsWithOptions(request, runtime);
   }
 
+  async listQuotaApplicationsDetailForTemplateWithOptions(request: ListQuotaApplicationsDetailForTemplateRequest, runtime: $Util.RuntimeOptions): Promise<ListQuotaApplicationsDetailForTemplateResponse> {
+    Util.validateModel(request);
+    let body : {[key: string ]: any} = { };
+    if (!Util.isUnset(request.aliyunUid)) {
+      body["AliyunUid"] = request.aliyunUid;
+    }
+
+    if (!Util.isUnset(request.batchQuotaApplicationId)) {
+      body["BatchQuotaApplicationId"] = request.batchQuotaApplicationId;
+    }
+
+    if (!Util.isUnset(request.maxResults)) {
+      body["MaxResults"] = request.maxResults;
+    }
+
+    if (!Util.isUnset(request.nextToken)) {
+      body["NextToken"] = request.nextToken;
+    }
+
+    if (!Util.isUnset(request.productCode)) {
+      body["ProductCode"] = request.productCode;
+    }
+
+    if (!Util.isUnset(request.quotaActionCode)) {
+      body["QuotaActionCode"] = request.quotaActionCode;
+    }
+
+    if (!Util.isUnset(request.quotaCategory)) {
+      body["QuotaCategory"] = request.quotaCategory;
+    }
+
+    if (!Util.isUnset(request.status)) {
+      body["Status"] = request.status;
+    }
+
+    let req = new $OpenApi.OpenApiRequest({
+      body: OpenApiUtil.parseToMap(body),
+    });
+    let params = new $OpenApi.Params({
+      action: "ListQuotaApplicationsDetailForTemplate",
+      version: "2020-05-10",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $tea.cast<ListQuotaApplicationsDetailForTemplateResponse>(await this.callApi(params, req, runtime), new ListQuotaApplicationsDetailForTemplateResponse({}));
+  }
+
+  async listQuotaApplicationsDetailForTemplate(request: ListQuotaApplicationsDetailForTemplateRequest): Promise<ListQuotaApplicationsDetailForTemplateResponse> {
+    let runtime = new $Util.RuntimeOptions({ });
+    return await this.listQuotaApplicationsDetailForTemplateWithOptions(request, runtime);
+  }
+
+  async listQuotaApplicationsForTemplateWithOptions(request: ListQuotaApplicationsForTemplateRequest, runtime: $Util.RuntimeOptions): Promise<ListQuotaApplicationsForTemplateResponse> {
+    Util.validateModel(request);
+    let body : {[key: string ]: any} = { };
+    if (!Util.isUnset(request.applyEndTime)) {
+      body["ApplyEndTime"] = request.applyEndTime;
+    }
+
+    if (!Util.isUnset(request.applyStartTime)) {
+      body["ApplyStartTime"] = request.applyStartTime;
+    }
+
+    if (!Util.isUnset(request.batchQuotaApplicationId)) {
+      body["BatchQuotaApplicationId"] = request.batchQuotaApplicationId;
+    }
+
+    if (!Util.isUnset(request.maxResults)) {
+      body["MaxResults"] = request.maxResults;
+    }
+
+    if (!Util.isUnset(request.nextToken)) {
+      body["NextToken"] = request.nextToken;
+    }
+
+    if (!Util.isUnset(request.productCode)) {
+      body["ProductCode"] = request.productCode;
+    }
+
+    if (!Util.isUnset(request.quotaActionCode)) {
+      body["QuotaActionCode"] = request.quotaActionCode;
+    }
+
+    if (!Util.isUnset(request.quotaCategory)) {
+      body["QuotaCategory"] = request.quotaCategory;
+    }
+
+    let req = new $OpenApi.OpenApiRequest({
+      body: OpenApiUtil.parseToMap(body),
+    });
+    let params = new $OpenApi.Params({
+      action: "ListQuotaApplicationsForTemplate",
+      version: "2020-05-10",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $tea.cast<ListQuotaApplicationsForTemplateResponse>(await this.callApi(params, req, runtime), new ListQuotaApplicationsForTemplateResponse({}));
+  }
+
+  async listQuotaApplicationsForTemplate(request: ListQuotaApplicationsForTemplateRequest): Promise<ListQuotaApplicationsForTemplateResponse> {
+    let runtime = new $Util.RuntimeOptions({ });
+    return await this.listQuotaApplicationsForTemplateWithOptions(request, runtime);
+  }
+
   /**
-    * By default, the status of a quota template is enabled.
+    * By default, the quota template is enabled.
     *
     * @param request ModifyQuotaTemplateServiceStatusRequest
     * @param runtime runtime options for this request RuntimeOptions
@@ -4003,7 +4705,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-    * By default, the status of a quota template is enabled.
+    * By default, the quota template is enabled.
     *
     * @param request ModifyQuotaTemplateServiceStatusRequest
     * @return ModifyQuotaTemplateServiceStatusResponse
@@ -4081,7 +4783,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-    * In this example, the operation is called to modify the information about a quota alert whose ID is `a2efa7fc-832f-47bb-8054-39e28012****` and name is `rules`. The alert threshold is changed from `150` to `160`.
+    * In this example, the operation is called to modify the information about a quota alert whose ID is `a2efa7fc-832f-47bb-8054-39e28012****` and whose name is `rules`. The alert threshold is changed from `150` to `160`.
     *
     * @param request UpdateQuotaAlarmRequest
     * @param runtime runtime options for this request RuntimeOptions
@@ -4132,7 +4834,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-    * In this example, the operation is called to modify the information about a quota alert whose ID is `a2efa7fc-832f-47bb-8054-39e28012****` and name is `rules`. The alert threshold is changed from `150` to `160`.
+    * In this example, the operation is called to modify the information about a quota alert whose ID is `a2efa7fc-832f-47bb-8054-39e28012****` and whose name is `rules`. The alert threshold is changed from `150` to `160`.
     *
     * @param request UpdateQuotaAlarmRequest
     * @return UpdateQuotaAlarmResponse
