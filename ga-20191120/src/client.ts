@@ -5927,6 +5927,99 @@ export class DescribeListenerResponse extends $tea.Model {
   }
 }
 
+export class DescribeLogStoreOfEndpointGroupRequest extends $tea.Model {
+  acceleratorId?: string;
+  endpointGroupId?: string;
+  listenerId?: string;
+  regionId?: string;
+  static names(): { [key: string]: string } {
+    return {
+      acceleratorId: 'AcceleratorId',
+      endpointGroupId: 'EndpointGroupId',
+      listenerId: 'ListenerId',
+      regionId: 'RegionId',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      acceleratorId: 'string',
+      endpointGroupId: 'string',
+      listenerId: 'string',
+      regionId: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class DescribeLogStoreOfEndpointGroupResponseBody extends $tea.Model {
+  acceleratorId?: string;
+  endpointGroupId?: string;
+  listenerId?: string;
+  requestId?: string;
+  slsLogStoreName?: string;
+  slsProjectName?: string;
+  slsRegionId?: string;
+  status?: string;
+  static names(): { [key: string]: string } {
+    return {
+      acceleratorId: 'AcceleratorId',
+      endpointGroupId: 'EndpointGroupId',
+      listenerId: 'ListenerId',
+      requestId: 'RequestId',
+      slsLogStoreName: 'SlsLogStoreName',
+      slsProjectName: 'SlsProjectName',
+      slsRegionId: 'SlsRegionId',
+      status: 'Status',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      acceleratorId: 'string',
+      endpointGroupId: 'string',
+      listenerId: 'string',
+      requestId: 'string',
+      slsLogStoreName: 'string',
+      slsProjectName: 'string',
+      slsRegionId: 'string',
+      status: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class DescribeLogStoreOfEndpointGroupResponse extends $tea.Model {
+  headers: { [key: string]: string };
+  statusCode: number;
+  body: DescribeLogStoreOfEndpointGroupResponseBody;
+  static names(): { [key: string]: string } {
+    return {
+      headers: 'headers',
+      statusCode: 'statusCode',
+      body: 'body',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
+      body: DescribeLogStoreOfEndpointGroupResponseBody,
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
 export class DescribeRegionsRequest extends $tea.Model {
   regionId?: string;
   static names(): { [key: string]: string } {
@@ -13498,6 +13591,7 @@ export class CreateEndpointGroupRequestEndpointConfigurations extends $tea.Model
   enableClientIPPreservation?: boolean;
   enableProxyProtocol?: boolean;
   endpoint?: string;
+  subAddress?: string;
   type?: string;
   weight?: number;
   static names(): { [key: string]: string } {
@@ -13505,6 +13599,7 @@ export class CreateEndpointGroupRequestEndpointConfigurations extends $tea.Model
       enableClientIPPreservation: 'EnableClientIPPreservation',
       enableProxyProtocol: 'EnableProxyProtocol',
       endpoint: 'Endpoint',
+      subAddress: 'SubAddress',
       type: 'Type',
       weight: 'Weight',
     };
@@ -13515,6 +13610,7 @@ export class CreateEndpointGroupRequestEndpointConfigurations extends $tea.Model
       enableClientIPPreservation: 'boolean',
       enableProxyProtocol: 'boolean',
       endpoint: 'string',
+      subAddress: 'string',
       type: 'string',
       weight: 'number',
     };
@@ -13571,11 +13667,13 @@ export class CreateEndpointGroupRequestTag extends $tea.Model {
 
 export class CreateEndpointGroupsRequestEndpointGroupConfigurationsEndpointConfigurations extends $tea.Model {
   endpoint?: string;
+  subAddress?: string;
   type?: string;
   weight?: number;
   static names(): { [key: string]: string } {
     return {
       endpoint: 'Endpoint',
+      subAddress: 'SubAddress',
       type: 'Type',
       weight: 'Weight',
     };
@@ -13584,6 +13682,7 @@ export class CreateEndpointGroupsRequestEndpointGroupConfigurationsEndpointConfi
   static types(): { [key: string]: any } {
     return {
       endpoint: 'string',
+      subAddress: 'string',
       type: 'string',
       weight: 'number',
     };
@@ -14856,6 +14955,7 @@ export class DescribeEndpointGroupResponseBodyEndpointConfigurations extends $te
   endpoint?: string;
   probePort?: number;
   probeProtocol?: string;
+  subAddress?: string;
   type?: string;
   weight?: number;
   static names(): { [key: string]: string } {
@@ -14865,6 +14965,7 @@ export class DescribeEndpointGroupResponseBodyEndpointConfigurations extends $te
       endpoint: 'Endpoint',
       probePort: 'ProbePort',
       probeProtocol: 'ProbeProtocol',
+      subAddress: 'SubAddress',
       type: 'Type',
       weight: 'Weight',
     };
@@ -14877,6 +14978,7 @@ export class DescribeEndpointGroupResponseBodyEndpointConfigurations extends $te
       endpoint: 'string',
       probePort: 'number',
       probeProtocol: 'string',
+      subAddress: 'string',
       type: 'string',
       weight: 'number',
     };
@@ -16984,6 +17086,7 @@ export class ListEndpointGroupsResponseBodyEndpointGroupsEndpointConfigurations 
   endpointId?: string;
   probePort?: number;
   probeProtocol?: string;
+  subAddress?: string;
   type?: string;
   weight?: number;
   static names(): { [key: string]: string } {
@@ -16993,6 +17096,7 @@ export class ListEndpointGroupsResponseBodyEndpointGroupsEndpointConfigurations 
       endpointId: 'EndpointId',
       probePort: 'ProbePort',
       probeProtocol: 'ProbeProtocol',
+      subAddress: 'SubAddress',
       type: 'Type',
       weight: 'Weight',
     };
@@ -17005,6 +17109,7 @@ export class ListEndpointGroupsResponseBodyEndpointGroupsEndpointConfigurations 
       endpointId: 'string',
       probePort: 'number',
       probeProtocol: 'string',
+      subAddress: 'string',
       type: 'string',
       weight: 'number',
     };
@@ -17977,6 +18082,7 @@ export class UpdateEndpointGroupRequestEndpointConfigurations extends $tea.Model
   enableClientIPPreservation?: boolean;
   enableProxyProtocol?: boolean;
   endpoint?: string;
+  subAddress?: string;
   type?: string;
   weight?: number;
   static names(): { [key: string]: string } {
@@ -17984,6 +18090,7 @@ export class UpdateEndpointGroupRequestEndpointConfigurations extends $tea.Model
       enableClientIPPreservation: 'EnableClientIPPreservation',
       enableProxyProtocol: 'EnableProxyProtocol',
       endpoint: 'Endpoint',
+      subAddress: 'SubAddress',
       type: 'Type',
       weight: 'Weight',
     };
@@ -17994,6 +18101,7 @@ export class UpdateEndpointGroupRequestEndpointConfigurations extends $tea.Model
       enableClientIPPreservation: 'boolean',
       enableProxyProtocol: 'boolean',
       endpoint: 'string',
+      subAddress: 'string',
       type: 'string',
       weight: 'number',
     };
@@ -18028,11 +18136,13 @@ export class UpdateEndpointGroupRequestPortOverrides extends $tea.Model {
 
 export class UpdateEndpointGroupsRequestEndpointGroupConfigurationsEndpointConfigurations extends $tea.Model {
   endpoint?: string;
+  subAddress?: string;
   type?: string;
   weight?: number;
   static names(): { [key: string]: string } {
     return {
       endpoint: 'Endpoint',
+      subAddress: 'SubAddress',
       type: 'Type',
       weight: 'Weight',
     };
@@ -18041,6 +18151,7 @@ export class UpdateEndpointGroupsRequestEndpointGroupConfigurationsEndpointConfi
   static types(): { [key: string]: any } {
     return {
       endpoint: 'string',
+      subAddress: 'string',
       type: 'string',
       weight: 'number',
     };
@@ -22585,6 +22696,14 @@ export default class Client extends OpenApi {
     return await this.describeEndpointGroupWithOptions(request, runtime);
   }
 
+  /**
+    * ## Debugging
+    * [OpenAPI Explorer automatically calculates the signature value. For your convenience, we recommend that you call this operation in OpenAPI Explorer. OpenAPI Explorer dynamically generates the sample code of the operation for different SDKs.](https://api.aliyun.com/#product=Ga\\&api=DescribeIpSet\\&type=RPC\\&version=2019-11-20)
+    *
+    * @param request DescribeIpSetRequest
+    * @param runtime runtime options for this request RuntimeOptions
+    * @return DescribeIpSetResponse
+   */
   async describeIpSetWithOptions(request: DescribeIpSetRequest, runtime: $Util.RuntimeOptions): Promise<DescribeIpSetResponse> {
     Util.validateModel(request);
     let query = { };
@@ -22613,6 +22732,13 @@ export default class Client extends OpenApi {
     return $tea.cast<DescribeIpSetResponse>(await this.callApi(params, req, runtime), new DescribeIpSetResponse({}));
   }
 
+  /**
+    * ## Debugging
+    * [OpenAPI Explorer automatically calculates the signature value. For your convenience, we recommend that you call this operation in OpenAPI Explorer. OpenAPI Explorer dynamically generates the sample code of the operation for different SDKs.](https://api.aliyun.com/#product=Ga\\&api=DescribeIpSet\\&type=RPC\\&version=2019-11-20)
+    *
+    * @param request DescribeIpSetRequest
+    * @return DescribeIpSetResponse
+   */
   async describeIpSet(request: DescribeIpSetRequest): Promise<DescribeIpSetResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.describeIpSetWithOptions(request, runtime);
@@ -22662,6 +22788,47 @@ export default class Client extends OpenApi {
   async describeListener(request: DescribeListenerRequest): Promise<DescribeListenerResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.describeListenerWithOptions(request, runtime);
+  }
+
+  async describeLogStoreOfEndpointGroupWithOptions(request: DescribeLogStoreOfEndpointGroupRequest, runtime: $Util.RuntimeOptions): Promise<DescribeLogStoreOfEndpointGroupResponse> {
+    Util.validateModel(request);
+    let query = { };
+    if (!Util.isUnset(request.acceleratorId)) {
+      query["AcceleratorId"] = request.acceleratorId;
+    }
+
+    if (!Util.isUnset(request.endpointGroupId)) {
+      query["EndpointGroupId"] = request.endpointGroupId;
+    }
+
+    if (!Util.isUnset(request.listenerId)) {
+      query["ListenerId"] = request.listenerId;
+    }
+
+    if (!Util.isUnset(request.regionId)) {
+      query["RegionId"] = request.regionId;
+    }
+
+    let req = new $OpenApi.OpenApiRequest({
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApi.Params({
+      action: "DescribeLogStoreOfEndpointGroup",
+      version: "2019-11-20",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $tea.cast<DescribeLogStoreOfEndpointGroupResponse>(await this.callApi(params, req, runtime), new DescribeLogStoreOfEndpointGroupResponse({}));
+  }
+
+  async describeLogStoreOfEndpointGroup(request: DescribeLogStoreOfEndpointGroupRequest): Promise<DescribeLogStoreOfEndpointGroupResponse> {
+    let runtime = new $Util.RuntimeOptions({ });
+    return await this.describeLogStoreOfEndpointGroupWithOptions(request, runtime);
   }
 
   async describeRegionsWithOptions(request: DescribeRegionsRequest, runtime: $Util.RuntimeOptions): Promise<DescribeRegionsResponse> {
@@ -22746,6 +22913,7 @@ export default class Client extends OpenApi {
   }
 
   /**
+    * ## Description
     * *   **DetachLogStoreFromEndpointGroup** is an asynchronous operation. After you send a request, the system returns a request ID, but the operation is still being performed in the system background. You can call the [DescribeEndpointGroup](~~153260~~) operation to query the state of an endpoint group.
     *     *   If the endpoint group is in the **updating** state, the Log Service Logstore is being disassociated from the endpoint group. In this case, you can perform only query operations.
     *     <!---->
@@ -22797,6 +22965,7 @@ export default class Client extends OpenApi {
   }
 
   /**
+    * ## Description
     * *   **DetachLogStoreFromEndpointGroup** is an asynchronous operation. After you send a request, the system returns a request ID, but the operation is still being performed in the system background. You can call the [DescribeEndpointGroup](~~153260~~) operation to query the state of an endpoint group.
     *     *   If the endpoint group is in the **updating** state, the Log Service Logstore is being disassociated from the endpoint group. In this case, you can perform only query operations.
     *     <!---->
@@ -22886,6 +23055,7 @@ export default class Client extends OpenApi {
   }
 
   /**
+    * ## Description
     * *   **DissociateAclsFromListener** is an asynchronous operation. After you send a request, the system returns a request ID, but the operation is still being performed in the system background. You can call the [DescribeListener](~~153254~~) operation to query the state of a listener:
     *     *   If the listener is in the **updating** state, ACLs are being disassociated from the listener. In this case, you can perform only query operations.
     *     *   If the listener is in the **active** state, ACLs are disassociated from the listener.
@@ -22936,6 +23106,7 @@ export default class Client extends OpenApi {
   }
 
   /**
+    * ## Description
     * *   **DissociateAclsFromListener** is an asynchronous operation. After you send a request, the system returns a request ID, but the operation is still being performed in the system background. You can call the [DescribeListener](~~153254~~) operation to query the state of a listener:
     *     *   If the listener is in the **updating** state, ACLs are being disassociated from the listener. In this case, you can perform only query operations.
     *     *   If the listener is in the **active** state, ACLs are disassociated from the listener.
@@ -22950,6 +23121,7 @@ export default class Client extends OpenApi {
   }
 
   /**
+    * ## Description
     * *   **DissociateAdditionalCertificatesFromListener** is an asynchronous operation. After you send a request, the system returns a request ID, but this operation is still being performed in the system background. You can call the [DescribeListener](~~153254~~) operation to query the state of an HTTPS listener.
     *     *   If the listener is in the **updating** state, it indicates that the additional certificate is being dissociated from the listener. In this case, you can perform only query operations.
     *     *   If the listener is in the **active** state, it indicates that the additional certificate is dissociated from the listener.
@@ -23000,6 +23172,7 @@ export default class Client extends OpenApi {
   }
 
   /**
+    * ## Description
     * *   **DissociateAdditionalCertificatesFromListener** is an asynchronous operation. After you send a request, the system returns a request ID, but this operation is still being performed in the system background. You can call the [DescribeListener](~~153254~~) operation to query the state of an HTTPS listener.
     *     *   If the listener is in the **updating** state, it indicates that the additional certificate is being dissociated from the listener. In this case, you can perform only query operations.
     *     *   If the listener is in the **active** state, it indicates that the additional certificate is dissociated from the listener.
@@ -24243,6 +24416,14 @@ export default class Client extends OpenApi {
     return await this.listCustomRoutingEndpointGroupDestinationsWithOptions(request, runtime);
   }
 
+  /**
+    * ## Debugging
+    * [OpenAPI Explorer automatically calculates the signature value. For your convenience, we recommend that you call this operation in OpenAPI Explorer. OpenAPI Explorer dynamically generates the sample code for different SDKs.](https://api.aliyun.com/#product=Ga\\&api=ListCustomRoutingEndpointGroups\\&type=RPC\\&version=2019-11-20)
+    *
+    * @param request ListCustomRoutingEndpointGroupsRequest
+    * @param runtime runtime options for this request RuntimeOptions
+    * @return ListCustomRoutingEndpointGroupsResponse
+   */
   async listCustomRoutingEndpointGroupsWithOptions(request: ListCustomRoutingEndpointGroupsRequest, runtime: $Util.RuntimeOptions): Promise<ListCustomRoutingEndpointGroupsResponse> {
     Util.validateModel(request);
     let query = { };
@@ -24287,6 +24468,13 @@ export default class Client extends OpenApi {
     return $tea.cast<ListCustomRoutingEndpointGroupsResponse>(await this.callApi(params, req, runtime), new ListCustomRoutingEndpointGroupsResponse({}));
   }
 
+  /**
+    * ## Debugging
+    * [OpenAPI Explorer automatically calculates the signature value. For your convenience, we recommend that you call this operation in OpenAPI Explorer. OpenAPI Explorer dynamically generates the sample code for different SDKs.](https://api.aliyun.com/#product=Ga\\&api=ListCustomRoutingEndpointGroups\\&type=RPC\\&version=2019-11-20)
+    *
+    * @param request ListCustomRoutingEndpointGroupsRequest
+    * @return ListCustomRoutingEndpointGroupsResponse
+   */
   async listCustomRoutingEndpointGroups(request: ListCustomRoutingEndpointGroupsRequest): Promise<ListCustomRoutingEndpointGroupsResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.listCustomRoutingEndpointGroupsWithOptions(request, runtime);
@@ -24587,6 +24775,14 @@ export default class Client extends OpenApi {
     return await this.listEndpointGroupIpAddressCidrBlocksWithOptions(request, runtime);
   }
 
+  /**
+    * ## Debugging
+    * [OpenAPI Explorer automatically calculates the signature value. For your convenience, we recommend that you call this operation in OpenAPI Explorer. OpenAPI Explorer dynamically generates the sample code of the operation for different SDKs.](https://api.aliyun.com/#product=Ga\\&api=ListEndpointGroups\\&type=RPC\\&version=2019-11-20)
+    *
+    * @param request ListEndpointGroupsRequest
+    * @param runtime runtime options for this request RuntimeOptions
+    * @return ListEndpointGroupsResponse
+   */
   async listEndpointGroupsWithOptions(request: ListEndpointGroupsRequest, runtime: $Util.RuntimeOptions): Promise<ListEndpointGroupsResponse> {
     Util.validateModel(request);
     let query = { };
@@ -24643,13 +24839,20 @@ export default class Client extends OpenApi {
     return $tea.cast<ListEndpointGroupsResponse>(await this.callApi(params, req, runtime), new ListEndpointGroupsResponse({}));
   }
 
+  /**
+    * ## Debugging
+    * [OpenAPI Explorer automatically calculates the signature value. For your convenience, we recommend that you call this operation in OpenAPI Explorer. OpenAPI Explorer dynamically generates the sample code of the operation for different SDKs.](https://api.aliyun.com/#product=Ga\\&api=ListEndpointGroups\\&type=RPC\\&version=2019-11-20)
+    *
+    * @param request ListEndpointGroupsRequest
+    * @return ListEndpointGroupsResponse
+   */
   async listEndpointGroups(request: ListEndpointGroupsRequest): Promise<ListEndpointGroupsResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.listEndpointGroupsWithOptions(request, runtime);
   }
 
   /**
-    * >  You can call this operation to query only custom forwarding rules. You cannot call this operation to query the default forwarding rule.
+    * >  This operation is used to query only custom forwarding rules, not the default forwarding rule.
     *
     * @param request ListForwardingRulesRequest
     * @param runtime runtime options for this request RuntimeOptions
@@ -24704,7 +24907,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-    * >  You can call this operation to query only custom forwarding rules. You cannot call this operation to query the default forwarding rule.
+    * >  This operation is used to query only custom forwarding rules, not the default forwarding rule.
     *
     * @param request ListForwardingRulesRequest
     * @return ListForwardingRulesResponse
@@ -25609,6 +25812,18 @@ export default class Client extends OpenApi {
     return await this.updateAcceleratorCrossBorderModeWithOptions(request, runtime);
   }
 
+  /**
+    * You can use this operation to enable or disable the cross-border data transmission feature for a GA instance. Before you enable the cross-border data transmission feature, make sure that the following requirements are met:
+    * - **Basic GA instances**:
+    * Cloud Data Transfer (CDT) is activated. When you call the CreateBasicAccelerator operation to create a basic GA instance, set BandwidthBillingType to CDT. Then, the system automatically activates CDT. The data transfer fees are managed by CDT.
+    * If you want to enable the cross-border data transmission feature, make sure that the current account has completed enterprise real-name registration. For more information, see Real-name registration FAQs.
+    * - **Standard GA instances**:
+    * CDT is activated. When you call the CreateAccelerator operation to create a standard GA instance, set BandwidthBillingType to CDT. Then, the system automatically activates CDT. The data transfer fees are managed by CDT.
+    *
+    * @param request UpdateAcceleratorCrossBorderStatusRequest
+    * @param runtime runtime options for this request RuntimeOptions
+    * @return UpdateAcceleratorCrossBorderStatusResponse
+   */
   async updateAcceleratorCrossBorderStatusWithOptions(request: UpdateAcceleratorCrossBorderStatusRequest, runtime: $Util.RuntimeOptions): Promise<UpdateAcceleratorCrossBorderStatusResponse> {
     Util.validateModel(request);
     let query = { };
@@ -25645,6 +25860,17 @@ export default class Client extends OpenApi {
     return $tea.cast<UpdateAcceleratorCrossBorderStatusResponse>(await this.callApi(params, req, runtime), new UpdateAcceleratorCrossBorderStatusResponse({}));
   }
 
+  /**
+    * You can use this operation to enable or disable the cross-border data transmission feature for a GA instance. Before you enable the cross-border data transmission feature, make sure that the following requirements are met:
+    * - **Basic GA instances**:
+    * Cloud Data Transfer (CDT) is activated. When you call the CreateBasicAccelerator operation to create a basic GA instance, set BandwidthBillingType to CDT. Then, the system automatically activates CDT. The data transfer fees are managed by CDT.
+    * If you want to enable the cross-border data transmission feature, make sure that the current account has completed enterprise real-name registration. For more information, see Real-name registration FAQs.
+    * - **Standard GA instances**:
+    * CDT is activated. When you call the CreateAccelerator operation to create a standard GA instance, set BandwidthBillingType to CDT. Then, the system automatically activates CDT. The data transfer fees are managed by CDT.
+    *
+    * @param request UpdateAcceleratorCrossBorderStatusRequest
+    * @return UpdateAcceleratorCrossBorderStatusResponse
+   */
   async updateAcceleratorCrossBorderStatus(request: UpdateAcceleratorCrossBorderStatusRequest): Promise<UpdateAcceleratorCrossBorderStatusResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.updateAcceleratorCrossBorderStatusWithOptions(request, runtime);
@@ -26407,6 +26633,7 @@ export default class Client extends OpenApi {
   }
 
   /**
+    * ## Description
     * *   **UpdateCustomRoutingEndpoints** is an asynchronous operation. After you send a request, the system returns a request ID, but the operation is still being performed in the system background. You can call the [DescribeCustomRoutingEndpointGroup](~~449373~~) operation to query the state of the endpoint groups associated with a custom routing listener to check whether the endpoints in the endpoint groups are modified.
     *     *   If an endpoint group is in the **updating** state, the endpoints in the endpoint group are being modified. In this case, you can perform only query operations.
     *     *   If an endpoint group is in the **active** state, the endpoints in the endpoint group are modified.
@@ -26453,6 +26680,7 @@ export default class Client extends OpenApi {
   }
 
   /**
+    * ## Description
     * *   **UpdateCustomRoutingEndpoints** is an asynchronous operation. After you send a request, the system returns a request ID, but the operation is still being performed in the system background. You can call the [DescribeCustomRoutingEndpointGroup](~~449373~~) operation to query the state of the endpoint groups associated with a custom routing listener to check whether the endpoints in the endpoint groups are modified.
     *     *   If an endpoint group is in the **updating** state, the endpoints in the endpoint group are being modified. In this case, you can perform only query operations.
     *     *   If an endpoint group is in the **active** state, the endpoints in the endpoint group are modified.
@@ -26568,9 +26796,9 @@ export default class Client extends OpenApi {
 
   /**
     * *   **UpdateEndpointGroup** is an asynchronous operation. After you send a request, the system returns a request ID, but the operation is still being performed in the system background. You can call the [DescribeEndpointGroup](~~153260~~) operation to query the state of an endpoint group.
-    *     *   If the endpoint group is in the **updating** state, the configurations of the endpoint group are being modified. In this case, you can perform only query operations.
-    *     *   If the endpoint group is in the **active** state, the configurations of the endpoint group are modified.
-    * *   The **UpdateEndpointGroup** operation cannot be repeatedly called for the same GA instance within a specific period of time.
+    *     *   If the endpoint group is in the **updating** state, it indicates that the configurations of the endpoint group are being modified. In this case, you can perform only query operations.
+    *     *   If the endpoint group is in the **active** state, it indicates that the configurations of the endpoint group are modified.
+    * *   The **UpdateEndpointGroup** operation cannot be repeatedly called for the same Global Accelerator (GA) instance within a specific period of time.
     *
     * @param request UpdateEndpointGroupRequest
     * @param runtime runtime options for this request RuntimeOptions
@@ -26662,9 +26890,9 @@ export default class Client extends OpenApi {
 
   /**
     * *   **UpdateEndpointGroup** is an asynchronous operation. After you send a request, the system returns a request ID, but the operation is still being performed in the system background. You can call the [DescribeEndpointGroup](~~153260~~) operation to query the state of an endpoint group.
-    *     *   If the endpoint group is in the **updating** state, the configurations of the endpoint group are being modified. In this case, you can perform only query operations.
-    *     *   If the endpoint group is in the **active** state, the configurations of the endpoint group are modified.
-    * *   The **UpdateEndpointGroup** operation cannot be repeatedly called for the same GA instance within a specific period of time.
+    *     *   If the endpoint group is in the **updating** state, it indicates that the configurations of the endpoint group are being modified. In this case, you can perform only query operations.
+    *     *   If the endpoint group is in the **active** state, it indicates that the configurations of the endpoint group are modified.
+    * *   The **UpdateEndpointGroup** operation cannot be repeatedly called for the same Global Accelerator (GA) instance within a specific period of time.
     *
     * @param request UpdateEndpointGroupRequest
     * @return UpdateEndpointGroupResponse
@@ -26720,10 +26948,11 @@ export default class Client extends OpenApi {
   }
 
   /**
-    * *   **UpdateEndpointGroups** is an asynchronous operation. After you send a request, the system returns a request ID, but the operation is still being performed in the system background. You can call the [DescribeEndpointGroup](~~153260~~) or [ListEndpointGroups](~~153261~~) operation to query the state of an endpoint group.
-    *     *   If the endpoint group is in the **updating** state, the configuration of the endpoint group is being modified. In this case, you can perform only query operations.
-    *     *   If the endpoint group is in the **active**, the configuration of the endpoint group is modified.
-    * *   The **UpdateEndpointGroups** operation cannot be repeatedly called for the same Global Accelerator (GA) instance within a specific period of time.
+    * ### Description
+    * *   **UpdateEndpointGroups** is an asynchronous operation. After a request is sent, the system returns a request ID and runs the task in the background. You can call the [DescribeEndpointGroup](~~153260~~) or [ListEndpointGroups](~~153261~~) operation to query the status of an endpoint group.
+    *     *   If the endpoint group is in the **updating** state, it indicates that the configuration of the endpoint group is being modified. In this case, you can perform only query operations.
+    *     *   If the endpoint group is in the **active** state, it indicates that the configuration of the endpoint group is modified.
+    * *   The **UpdateEndpointGroups** operation holds an exclusive lock on the Global Accelerator (GA) instance. While the operation is in progress, you cannot call the same operation in the same Alibaba Cloud account.
     *
     * @param request UpdateEndpointGroupsRequest
     * @param runtime runtime options for this request RuntimeOptions
@@ -26770,10 +26999,11 @@ export default class Client extends OpenApi {
   }
 
   /**
-    * *   **UpdateEndpointGroups** is an asynchronous operation. After you send a request, the system returns a request ID, but the operation is still being performed in the system background. You can call the [DescribeEndpointGroup](~~153260~~) or [ListEndpointGroups](~~153261~~) operation to query the state of an endpoint group.
-    *     *   If the endpoint group is in the **updating** state, the configuration of the endpoint group is being modified. In this case, you can perform only query operations.
-    *     *   If the endpoint group is in the **active**, the configuration of the endpoint group is modified.
-    * *   The **UpdateEndpointGroups** operation cannot be repeatedly called for the same Global Accelerator (GA) instance within a specific period of time.
+    * ### Description
+    * *   **UpdateEndpointGroups** is an asynchronous operation. After a request is sent, the system returns a request ID and runs the task in the background. You can call the [DescribeEndpointGroup](~~153260~~) or [ListEndpointGroups](~~153261~~) operation to query the status of an endpoint group.
+    *     *   If the endpoint group is in the **updating** state, it indicates that the configuration of the endpoint group is being modified. In this case, you can perform only query operations.
+    *     *   If the endpoint group is in the **active** state, it indicates that the configuration of the endpoint group is modified.
+    * *   The **UpdateEndpointGroups** operation holds an exclusive lock on the Global Accelerator (GA) instance. While the operation is in progress, you cannot call the same operation in the same Alibaba Cloud account.
     *
     * @param request UpdateEndpointGroupsRequest
     * @return UpdateEndpointGroupsResponse
@@ -27059,6 +27289,17 @@ export default class Client extends OpenApi {
     return await this.updateListenerWithOptions(request, runtime);
   }
 
+  /**
+    * *   This operation is applicable only to **managed** Global Accelerator (GA) instances.
+    * *   After you change the control mode of a GA instance from managed mode to unmanaged mode, you cannot change the mode of the instance to managed mode.
+    * *   After you change the control mode of a GA instance from managed mode to unmanaged mode, you can obtain all operation permissions on the instance.
+    *     **
+    *     **Warning** If you change or delete a configuration of a GA instance whose control mode is changed from managed mode to unmanaged mode, the cloud services that depend on the instance may not work as expected. Proceed with caution.
+    *
+    * @param request UpdateServiceManagedControlRequest
+    * @param runtime runtime options for this request RuntimeOptions
+    * @return UpdateServiceManagedControlResponse
+   */
   async updateServiceManagedControlWithOptions(request: UpdateServiceManagedControlRequest, runtime: $Util.RuntimeOptions): Promise<UpdateServiceManagedControlResponse> {
     Util.validateModel(request);
     let query = { };
@@ -27099,6 +27340,16 @@ export default class Client extends OpenApi {
     return $tea.cast<UpdateServiceManagedControlResponse>(await this.callApi(params, req, runtime), new UpdateServiceManagedControlResponse({}));
   }
 
+  /**
+    * *   This operation is applicable only to **managed** Global Accelerator (GA) instances.
+    * *   After you change the control mode of a GA instance from managed mode to unmanaged mode, you cannot change the mode of the instance to managed mode.
+    * *   After you change the control mode of a GA instance from managed mode to unmanaged mode, you can obtain all operation permissions on the instance.
+    *     **
+    *     **Warning** If you change or delete a configuration of a GA instance whose control mode is changed from managed mode to unmanaged mode, the cloud services that depend on the instance may not work as expected. Proceed with caution.
+    *
+    * @param request UpdateServiceManagedControlRequest
+    * @return UpdateServiceManagedControlResponse
+   */
   async updateServiceManagedControl(request: UpdateServiceManagedControlRequest): Promise<UpdateServiceManagedControlResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.updateServiceManagedControlWithOptions(request, runtime);
