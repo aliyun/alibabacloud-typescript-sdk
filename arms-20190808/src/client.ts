@@ -2609,12 +2609,14 @@ export class CreateOrUpdateAlertRuleRequest extends $tea.Model {
   alertGroup?: number;
   alertId?: number;
   alertName?: string;
+  alertPiplines?: string;
   alertRuleContent?: string;
   alertStatus?: string;
   alertType?: string;
   annotations?: string;
   autoAddNewApplication?: boolean;
   clusterId?: string;
+  dataConfig?: string;
   duration?: number;
   filters?: string;
   labels?: string;
@@ -2623,6 +2625,7 @@ export class CreateOrUpdateAlertRuleRequest extends $tea.Model {
   message?: string;
   metricsKey?: string;
   metricsType?: string;
+  notice?: string;
   notifyStrategy?: string;
   pids?: string;
   promQL?: string;
@@ -2634,12 +2637,14 @@ export class CreateOrUpdateAlertRuleRequest extends $tea.Model {
       alertGroup: 'AlertGroup',
       alertId: 'AlertId',
       alertName: 'AlertName',
+      alertPiplines: 'AlertPiplines',
       alertRuleContent: 'AlertRuleContent',
       alertStatus: 'AlertStatus',
       alertType: 'AlertType',
       annotations: 'Annotations',
       autoAddNewApplication: 'AutoAddNewApplication',
       clusterId: 'ClusterId',
+      dataConfig: 'DataConfig',
       duration: 'Duration',
       filters: 'Filters',
       labels: 'Labels',
@@ -2648,6 +2653,7 @@ export class CreateOrUpdateAlertRuleRequest extends $tea.Model {
       message: 'Message',
       metricsKey: 'MetricsKey',
       metricsType: 'MetricsType',
+      notice: 'Notice',
       notifyStrategy: 'NotifyStrategy',
       pids: 'Pids',
       promQL: 'PromQL',
@@ -2662,12 +2668,14 @@ export class CreateOrUpdateAlertRuleRequest extends $tea.Model {
       alertGroup: 'number',
       alertId: 'number',
       alertName: 'string',
+      alertPiplines: 'string',
       alertRuleContent: 'string',
       alertStatus: 'string',
       alertType: 'string',
       annotations: 'string',
       autoAddNewApplication: 'boolean',
       clusterId: 'string',
+      dataConfig: 'string',
       duration: 'number',
       filters: 'string',
       labels: 'string',
@@ -2676,6 +2684,7 @@ export class CreateOrUpdateAlertRuleRequest extends $tea.Model {
       message: 'string',
       metricsKey: 'string',
       metricsType: 'string',
+      notice: 'string',
       notifyStrategy: 'string',
       pids: 'string',
       promQL: 'string',
@@ -26928,6 +26937,10 @@ export default class Client extends OpenApi {
       body["AlertName"] = request.alertName;
     }
 
+    if (!Util.isUnset(request.alertPiplines)) {
+      body["AlertPiplines"] = request.alertPiplines;
+    }
+
     if (!Util.isUnset(request.alertRuleContent)) {
       body["AlertRuleContent"] = request.alertRuleContent;
     }
@@ -26950,6 +26963,10 @@ export default class Client extends OpenApi {
 
     if (!Util.isUnset(request.clusterId)) {
       body["ClusterId"] = request.clusterId;
+    }
+
+    if (!Util.isUnset(request.dataConfig)) {
+      body["DataConfig"] = request.dataConfig;
     }
 
     if (!Util.isUnset(request.duration)) {
@@ -26982,6 +26999,10 @@ export default class Client extends OpenApi {
 
     if (!Util.isUnset(request.metricsType)) {
       body["MetricsType"] = request.metricsType;
+    }
+
+    if (!Util.isUnset(request.notice)) {
+      body["Notice"] = request.notice;
     }
 
     if (!Util.isUnset(request.notifyStrategy)) {
