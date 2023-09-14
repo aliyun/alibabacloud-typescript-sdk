@@ -1682,6 +1682,7 @@ export default class Client extends OpenApi {
 
   constructor(config: $OpenApi.Config) {
     super(config);
+    this._signatureAlgorithm = "v2";
     this._endpointRule = "regional";
     this._endpointMap = {
       'cn-beijing': "cn-beijing.fnf.aliyuncs.com",
