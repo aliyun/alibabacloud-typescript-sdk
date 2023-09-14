@@ -2430,6 +2430,69 @@ export class DeleteDcdnSubTaskResponse extends $tea.Model {
   }
 }
 
+export class DeleteDcdnUserConfigRequest extends $tea.Model {
+  functionName?: string;
+  static names(): { [key: string]: string } {
+    return {
+      functionName: 'FunctionName',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      functionName: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class DeleteDcdnUserConfigResponseBody extends $tea.Model {
+  requestId?: string;
+  static names(): { [key: string]: string } {
+    return {
+      requestId: 'RequestId',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      requestId: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class DeleteDcdnUserConfigResponse extends $tea.Model {
+  headers: { [key: string]: string };
+  statusCode: number;
+  body: DeleteDcdnUserConfigResponseBody;
+  static names(): { [key: string]: string } {
+    return {
+      headers: 'headers',
+      statusCode: 'statusCode',
+      body: 'body',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
+      body: DeleteDcdnUserConfigResponseBody,
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
 export class DeleteDcdnWafGroupRequest extends $tea.Model {
   id?: number;
   static names(): { [key: string]: string } {
@@ -3347,6 +3410,7 @@ export class DescribeDcdnDdosSpecInfoResponseBody extends $tea.Model {
   bandwidthLimit?: string;
   edition?: string;
   enable?: string;
+  isSpecialPort?: string;
   protectedArea?: string;
   qpsLimit?: string;
   requestId?: string;
@@ -3356,6 +3420,7 @@ export class DescribeDcdnDdosSpecInfoResponseBody extends $tea.Model {
       bandwidthLimit: 'BandwidthLimit',
       edition: 'Edition',
       enable: 'Enable',
+      isSpecialPort: 'IsSpecialPort',
       protectedArea: 'ProtectedArea',
       qpsLimit: 'QpsLimit',
       requestId: 'RequestId',
@@ -3368,6 +3433,7 @@ export class DescribeDcdnDdosSpecInfoResponseBody extends $tea.Model {
       bandwidthLimit: 'string',
       edition: 'string',
       enable: 'string',
+      isSpecialPort: 'string',
       protectedArea: 'string',
       qpsLimit: 'string',
       requestId: 'string',
@@ -23996,6 +24062,35 @@ export default class Client extends OpenApi {
   async deleteDcdnSubTask(): Promise<DeleteDcdnSubTaskResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.deleteDcdnSubTaskWithOptions(runtime);
+  }
+
+  async deleteDcdnUserConfigWithOptions(request: DeleteDcdnUserConfigRequest, runtime: $Util.RuntimeOptions): Promise<DeleteDcdnUserConfigResponse> {
+    Util.validateModel(request);
+    let query = { };
+    if (!Util.isUnset(request.functionName)) {
+      query["FunctionName"] = request.functionName;
+    }
+
+    let req = new $OpenApi.OpenApiRequest({
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApi.Params({
+      action: "DeleteDcdnUserConfig",
+      version: "2018-01-15",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $tea.cast<DeleteDcdnUserConfigResponse>(await this.callApi(params, req, runtime), new DeleteDcdnUserConfigResponse({}));
+  }
+
+  async deleteDcdnUserConfig(request: DeleteDcdnUserConfigRequest): Promise<DeleteDcdnUserConfigResponse> {
+    let runtime = new $Util.RuntimeOptions({ });
+    return await this.deleteDcdnUserConfigWithOptions(request, runtime);
   }
 
   async deleteDcdnWafGroupWithOptions(request: DeleteDcdnWafGroupRequest, runtime: $Util.RuntimeOptions): Promise<DeleteDcdnWafGroupResponse> {
