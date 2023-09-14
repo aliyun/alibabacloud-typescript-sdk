@@ -438,6 +438,151 @@ export class CreatePrivateAccessTagResponse extends $tea.Model {
   }
 }
 
+export class CreateRegistrationPolicyRequest extends $tea.Model {
+  companyLimitCount?: CreateRegistrationPolicyRequestCompanyLimitCount;
+  companyLimitType?: string;
+  description?: string;
+  matchMode?: string;
+  name?: string;
+  personalLimitCount?: CreateRegistrationPolicyRequestPersonalLimitCount;
+  personalLimitType?: string;
+  priority?: number;
+  status?: string;
+  userGroupIds?: string[];
+  whitelist?: string[];
+  static names(): { [key: string]: string } {
+    return {
+      companyLimitCount: 'CompanyLimitCount',
+      companyLimitType: 'CompanyLimitType',
+      description: 'Description',
+      matchMode: 'MatchMode',
+      name: 'Name',
+      personalLimitCount: 'PersonalLimitCount',
+      personalLimitType: 'PersonalLimitType',
+      priority: 'Priority',
+      status: 'Status',
+      userGroupIds: 'UserGroupIds',
+      whitelist: 'Whitelist',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      companyLimitCount: CreateRegistrationPolicyRequestCompanyLimitCount,
+      companyLimitType: 'string',
+      description: 'string',
+      matchMode: 'string',
+      name: 'string',
+      personalLimitCount: CreateRegistrationPolicyRequestPersonalLimitCount,
+      personalLimitType: 'string',
+      priority: 'number',
+      status: 'string',
+      userGroupIds: { 'type': 'array', 'itemType': 'string' },
+      whitelist: { 'type': 'array', 'itemType': 'string' },
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class CreateRegistrationPolicyShrinkRequest extends $tea.Model {
+  companyLimitCountShrink?: string;
+  companyLimitType?: string;
+  description?: string;
+  matchMode?: string;
+  name?: string;
+  personalLimitCountShrink?: string;
+  personalLimitType?: string;
+  priority?: number;
+  status?: string;
+  userGroupIds?: string[];
+  whitelist?: string[];
+  static names(): { [key: string]: string } {
+    return {
+      companyLimitCountShrink: 'CompanyLimitCount',
+      companyLimitType: 'CompanyLimitType',
+      description: 'Description',
+      matchMode: 'MatchMode',
+      name: 'Name',
+      personalLimitCountShrink: 'PersonalLimitCount',
+      personalLimitType: 'PersonalLimitType',
+      priority: 'Priority',
+      status: 'Status',
+      userGroupIds: 'UserGroupIds',
+      whitelist: 'Whitelist',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      companyLimitCountShrink: 'string',
+      companyLimitType: 'string',
+      description: 'string',
+      matchMode: 'string',
+      name: 'string',
+      personalLimitCountShrink: 'string',
+      personalLimitType: 'string',
+      priority: 'number',
+      status: 'string',
+      userGroupIds: { 'type': 'array', 'itemType': 'string' },
+      whitelist: { 'type': 'array', 'itemType': 'string' },
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class CreateRegistrationPolicyResponseBody extends $tea.Model {
+  policy?: CreateRegistrationPolicyResponseBodyPolicy;
+  requestId?: string;
+  static names(): { [key: string]: string } {
+    return {
+      policy: 'Policy',
+      requestId: 'RequestId',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      policy: CreateRegistrationPolicyResponseBodyPolicy,
+      requestId: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class CreateRegistrationPolicyResponse extends $tea.Model {
+  headers: { [key: string]: string };
+  statusCode: number;
+  body: CreateRegistrationPolicyResponseBody;
+  static names(): { [key: string]: string } {
+    return {
+      headers: 'headers',
+      statusCode: 'statusCode',
+      body: 'body',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
+      body: CreateRegistrationPolicyResponseBody,
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
 export class CreateUserGroupRequest extends $tea.Model {
   attributes?: CreateUserGroupRequestAttributes[];
   description?: string;
@@ -754,6 +899,69 @@ export class DeletePrivateAccessTagResponse extends $tea.Model {
       headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
       statusCode: 'number',
       body: DeletePrivateAccessTagResponseBody,
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class DeleteRegistrationPoliciesRequest extends $tea.Model {
+  policyIds?: string[];
+  static names(): { [key: string]: string } {
+    return {
+      policyIds: 'PolicyIds',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      policyIds: { 'type': 'array', 'itemType': 'string' },
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class DeleteRegistrationPoliciesResponseBody extends $tea.Model {
+  requestId?: string;
+  static names(): { [key: string]: string } {
+    return {
+      requestId: 'RequestId',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      requestId: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class DeleteRegistrationPoliciesResponse extends $tea.Model {
+  headers: { [key: string]: string };
+  statusCode: number;
+  body: DeleteRegistrationPoliciesResponseBody;
+  static names(): { [key: string]: string } {
+    return {
+      headers: 'headers',
+      statusCode: 'statusCode',
+      body: 'body',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
+      body: DeleteRegistrationPoliciesResponseBody,
     };
   }
 
@@ -1103,6 +1311,165 @@ export class GetPrivateAccessPolicyResponse extends $tea.Model {
       headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
       statusCode: 'number',
       body: GetPrivateAccessPolicyResponseBody,
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class GetRegistrationPolicyRequest extends $tea.Model {
+  policyId?: string;
+  static names(): { [key: string]: string } {
+    return {
+      policyId: 'PolicyId',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      policyId: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class GetRegistrationPolicyResponseBody extends $tea.Model {
+  createTime?: string;
+  description?: string;
+  limitDetail?: GetRegistrationPolicyResponseBodyLimitDetail[];
+  matchMode?: string;
+  name?: string;
+  policyId?: string;
+  priority?: number;
+  requestId?: string;
+  status?: string;
+  userGroupIds?: string[];
+  whitelist?: string[];
+  static names(): { [key: string]: string } {
+    return {
+      createTime: 'CreateTime',
+      description: 'Description',
+      limitDetail: 'LimitDetail',
+      matchMode: 'MatchMode',
+      name: 'Name',
+      policyId: 'PolicyId',
+      priority: 'Priority',
+      requestId: 'RequestId',
+      status: 'Status',
+      userGroupIds: 'UserGroupIds',
+      whitelist: 'Whitelist',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      createTime: 'string',
+      description: 'string',
+      limitDetail: { 'type': 'array', 'itemType': GetRegistrationPolicyResponseBodyLimitDetail },
+      matchMode: 'string',
+      name: 'string',
+      policyId: 'string',
+      priority: 'number',
+      requestId: 'string',
+      status: 'string',
+      userGroupIds: { 'type': 'array', 'itemType': 'string' },
+      whitelist: { 'type': 'array', 'itemType': 'string' },
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class GetRegistrationPolicyResponse extends $tea.Model {
+  headers: { [key: string]: string };
+  statusCode: number;
+  body: GetRegistrationPolicyResponseBody;
+  static names(): { [key: string]: string } {
+    return {
+      headers: 'headers',
+      statusCode: 'statusCode',
+      body: 'body',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
+      body: GetRegistrationPolicyResponseBody,
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class GetUserDeviceRequest extends $tea.Model {
+  deviceTag?: string;
+  static names(): { [key: string]: string } {
+    return {
+      deviceTag: 'DeviceTag',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      deviceTag: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class GetUserDeviceResponseBody extends $tea.Model {
+  device?: GetUserDeviceResponseBodyDevice;
+  requestId?: string;
+  static names(): { [key: string]: string } {
+    return {
+      device: 'Device',
+      requestId: 'RequestId',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      device: GetUserDeviceResponseBodyDevice,
+      requestId: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class GetUserDeviceResponse extends $tea.Model {
+  headers: { [key: string]: string };
+  statusCode: number;
+  body: GetUserDeviceResponseBody;
+  static names(): { [key: string]: string } {
+    return {
+      headers: 'headers',
+      statusCode: 'statusCode',
+      body: 'body',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
+      body: GetUserDeviceResponseBody,
     };
   }
 
@@ -1528,6 +1895,102 @@ export class ListDynamicRoutesResponse extends $tea.Model {
       headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
       statusCode: 'number',
       body: ListDynamicRoutesResponseBody,
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class ListExcessiveDeviceRegistrationApplicationsRequest extends $tea.Model {
+  applicationIds?: string[];
+  currentPage?: number;
+  department?: string;
+  deviceTag?: string;
+  hostname?: string;
+  mac?: string;
+  pageSize?: number;
+  saseUserId?: string;
+  statuses?: string[];
+  username?: string;
+  static names(): { [key: string]: string } {
+    return {
+      applicationIds: 'ApplicationIds',
+      currentPage: 'CurrentPage',
+      department: 'Department',
+      deviceTag: 'DeviceTag',
+      hostname: 'Hostname',
+      mac: 'Mac',
+      pageSize: 'PageSize',
+      saseUserId: 'SaseUserId',
+      statuses: 'Statuses',
+      username: 'Username',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      applicationIds: { 'type': 'array', 'itemType': 'string' },
+      currentPage: 'number',
+      department: 'string',
+      deviceTag: 'string',
+      hostname: 'string',
+      mac: 'string',
+      pageSize: 'number',
+      saseUserId: 'string',
+      statuses: { 'type': 'array', 'itemType': 'string' },
+      username: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class ListExcessiveDeviceRegistrationApplicationsResponseBody extends $tea.Model {
+  applications?: ListExcessiveDeviceRegistrationApplicationsResponseBodyApplications[];
+  requestId?: string;
+  totalNum?: number;
+  static names(): { [key: string]: string } {
+    return {
+      applications: 'Applications',
+      requestId: 'RequestId',
+      totalNum: 'TotalNum',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      applications: { 'type': 'array', 'itemType': ListExcessiveDeviceRegistrationApplicationsResponseBodyApplications },
+      requestId: 'string',
+      totalNum: 'number',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class ListExcessiveDeviceRegistrationApplicationsResponse extends $tea.Model {
+  headers: { [key: string]: string };
+  statusCode: number;
+  body: ListExcessiveDeviceRegistrationApplicationsResponseBody;
+  static names(): { [key: string]: string } {
+    return {
+      headers: 'headers',
+      statusCode: 'statusCode',
+      body: 'body',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
+      body: ListExcessiveDeviceRegistrationApplicationsResponseBody,
     };
   }
 
@@ -2136,6 +2599,240 @@ export class ListPrivateAccessTagsForDynamicRouteResponse extends $tea.Model {
   }
 }
 
+export class ListRegistrationPoliciesRequest extends $tea.Model {
+  companyLimitType?: string;
+  currentPage?: number;
+  matchMode?: string;
+  name?: string;
+  pageSize?: number;
+  personalLimitType?: string;
+  policyIds?: string[];
+  status?: string;
+  userGroupId?: string;
+  static names(): { [key: string]: string } {
+    return {
+      companyLimitType: 'CompanyLimitType',
+      currentPage: 'CurrentPage',
+      matchMode: 'MatchMode',
+      name: 'Name',
+      pageSize: 'PageSize',
+      personalLimitType: 'PersonalLimitType',
+      policyIds: 'PolicyIds',
+      status: 'Status',
+      userGroupId: 'UserGroupId',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      companyLimitType: 'string',
+      currentPage: 'number',
+      matchMode: 'string',
+      name: 'string',
+      pageSize: 'number',
+      personalLimitType: 'string',
+      policyIds: { 'type': 'array', 'itemType': 'string' },
+      status: 'string',
+      userGroupId: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class ListRegistrationPoliciesResponseBody extends $tea.Model {
+  policies?: ListRegistrationPoliciesResponseBodyPolicies[];
+  requestId?: string;
+  totalNum?: string;
+  static names(): { [key: string]: string } {
+    return {
+      policies: 'Policies',
+      requestId: 'RequestId',
+      totalNum: 'TotalNum',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      policies: { 'type': 'array', 'itemType': ListRegistrationPoliciesResponseBodyPolicies },
+      requestId: 'string',
+      totalNum: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class ListRegistrationPoliciesResponse extends $tea.Model {
+  headers: { [key: string]: string };
+  statusCode: number;
+  body: ListRegistrationPoliciesResponseBody;
+  static names(): { [key: string]: string } {
+    return {
+      headers: 'headers',
+      statusCode: 'statusCode',
+      body: 'body',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
+      body: ListRegistrationPoliciesResponseBody,
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class ListRegistrationPoliciesForUserGroupRequest extends $tea.Model {
+  userGroupIds?: string[];
+  static names(): { [key: string]: string } {
+    return {
+      userGroupIds: 'UserGroupIds',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      userGroupIds: { 'type': 'array', 'itemType': 'string' },
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class ListRegistrationPoliciesForUserGroupResponseBody extends $tea.Model {
+  requestId?: string;
+  userGroups?: ListRegistrationPoliciesForUserGroupResponseBodyUserGroups[];
+  static names(): { [key: string]: string } {
+    return {
+      requestId: 'RequestId',
+      userGroups: 'UserGroups',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      requestId: 'string',
+      userGroups: { 'type': 'array', 'itemType': ListRegistrationPoliciesForUserGroupResponseBodyUserGroups },
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class ListRegistrationPoliciesForUserGroupResponse extends $tea.Model {
+  headers: { [key: string]: string };
+  statusCode: number;
+  body: ListRegistrationPoliciesForUserGroupResponseBody;
+  static names(): { [key: string]: string } {
+    return {
+      headers: 'headers',
+      statusCode: 'statusCode',
+      body: 'body',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
+      body: ListRegistrationPoliciesForUserGroupResponseBody,
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class ListSoftwareForUserDeviceRequest extends $tea.Model {
+  currentPage?: number;
+  deviceTag?: string;
+  pageSize?: number;
+  static names(): { [key: string]: string } {
+    return {
+      currentPage: 'CurrentPage',
+      deviceTag: 'DeviceTag',
+      pageSize: 'PageSize',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      currentPage: 'number',
+      deviceTag: 'string',
+      pageSize: 'number',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class ListSoftwareForUserDeviceResponseBody extends $tea.Model {
+  requestId?: string;
+  software?: ListSoftwareForUserDeviceResponseBodySoftware[];
+  totalNum?: number;
+  static names(): { [key: string]: string } {
+    return {
+      requestId: 'RequestId',
+      software: 'Software',
+      totalNum: 'TotalNum',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      requestId: 'string',
+      software: { 'type': 'array', 'itemType': ListSoftwareForUserDeviceResponseBodySoftware },
+      totalNum: 'number',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class ListSoftwareForUserDeviceResponse extends $tea.Model {
+  headers: { [key: string]: string };
+  statusCode: number;
+  body: ListSoftwareForUserDeviceResponseBody;
+  static names(): { [key: string]: string } {
+    return {
+      headers: 'headers',
+      statusCode: 'statusCode',
+      body: 'body',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
+      body: ListSoftwareForUserDeviceResponseBody,
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
 export class ListTagsForPrivateAccessApplicationRequest extends $tea.Model {
   applicationIds?: string[];
   static names(): { [key: string]: string } {
@@ -2260,6 +2957,123 @@ export class ListTagsForPrivateAccessPolicyResponse extends $tea.Model {
       headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
       statusCode: 'number',
       body: ListTagsForPrivateAccessPolicyResponseBody,
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class ListUserDevicesRequest extends $tea.Model {
+  appStatuses?: string[];
+  currentPage?: number;
+  department?: string;
+  deviceBelong?: string;
+  deviceStatuses?: string[];
+  deviceTags?: string[];
+  deviceTypes?: string[];
+  dlpStatuses?: string[];
+  hostname?: string;
+  iaStatuses?: string[];
+  mac?: string;
+  nacStatuses?: string[];
+  paStatuses?: string[];
+  pageSize?: number;
+  saseUserId?: string;
+  sharingStatus?: boolean;
+  username?: string;
+  static names(): { [key: string]: string } {
+    return {
+      appStatuses: 'AppStatuses',
+      currentPage: 'CurrentPage',
+      department: 'Department',
+      deviceBelong: 'DeviceBelong',
+      deviceStatuses: 'DeviceStatuses',
+      deviceTags: 'DeviceTags',
+      deviceTypes: 'DeviceTypes',
+      dlpStatuses: 'DlpStatuses',
+      hostname: 'Hostname',
+      iaStatuses: 'IaStatuses',
+      mac: 'Mac',
+      nacStatuses: 'NacStatuses',
+      paStatuses: 'PaStatuses',
+      pageSize: 'PageSize',
+      saseUserId: 'SaseUserId',
+      sharingStatus: 'SharingStatus',
+      username: 'Username',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      appStatuses: { 'type': 'array', 'itemType': 'string' },
+      currentPage: 'number',
+      department: 'string',
+      deviceBelong: 'string',
+      deviceStatuses: { 'type': 'array', 'itemType': 'string' },
+      deviceTags: { 'type': 'array', 'itemType': 'string' },
+      deviceTypes: { 'type': 'array', 'itemType': 'string' },
+      dlpStatuses: { 'type': 'array', 'itemType': 'string' },
+      hostname: 'string',
+      iaStatuses: { 'type': 'array', 'itemType': 'string' },
+      mac: 'string',
+      nacStatuses: { 'type': 'array', 'itemType': 'string' },
+      paStatuses: { 'type': 'array', 'itemType': 'string' },
+      pageSize: 'number',
+      saseUserId: 'string',
+      sharingStatus: 'boolean',
+      username: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class ListUserDevicesResponseBody extends $tea.Model {
+  devices?: ListUserDevicesResponseBodyDevices[];
+  requestId?: string;
+  totalNum?: number;
+  static names(): { [key: string]: string } {
+    return {
+      devices: 'Devices',
+      requestId: 'RequestId',
+      totalNum: 'TotalNum',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      devices: { 'type': 'array', 'itemType': ListUserDevicesResponseBodyDevices },
+      requestId: 'string',
+      totalNum: 'number',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class ListUserDevicesResponse extends $tea.Model {
+  headers: { [key: string]: string };
+  statusCode: number;
+  body: ListUserDevicesResponseBody;
+  static names(): { [key: string]: string } {
+    return {
+      headers: 'headers',
+      statusCode: 'statusCode',
+      body: 'body',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
+      body: ListUserDevicesResponseBody,
     };
   }
 
@@ -2418,6 +3232,72 @@ export class ListUserGroupsForPrivateAccessPolicyResponse extends $tea.Model {
   }
 }
 
+export class ListUserGroupsForRegistrationPolicyRequest extends $tea.Model {
+  policyIds?: string[];
+  static names(): { [key: string]: string } {
+    return {
+      policyIds: 'PolicyIds',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      policyIds: { 'type': 'array', 'itemType': 'string' },
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class ListUserGroupsForRegistrationPolicyResponseBody extends $tea.Model {
+  policies?: ListUserGroupsForRegistrationPolicyResponseBodyPolicies[];
+  requestId?: string;
+  static names(): { [key: string]: string } {
+    return {
+      policies: 'Policies',
+      requestId: 'RequestId',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      policies: { 'type': 'array', 'itemType': ListUserGroupsForRegistrationPolicyResponseBodyPolicies },
+      requestId: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class ListUserGroupsForRegistrationPolicyResponse extends $tea.Model {
+  headers: { [key: string]: string };
+  statusCode: number;
+  body: ListUserGroupsForRegistrationPolicyResponseBody;
+  static names(): { [key: string]: string } {
+    return {
+      headers: 'headers',
+      statusCode: 'statusCode',
+      body: 'body',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
+      body: ListUserGroupsForRegistrationPolicyResponseBody,
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
 export class UpdateDynamicRouteRequest extends $tea.Model {
   applicationIds?: string[];
   applicationType?: string;
@@ -2506,6 +3386,75 @@ export class UpdateDynamicRouteResponse extends $tea.Model {
       headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
       statusCode: 'number',
       body: UpdateDynamicRouteResponseBody,
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class UpdateExcessiveDeviceRegistrationApplicationsStatusRequest extends $tea.Model {
+  applicationIds?: string[];
+  status?: string;
+  static names(): { [key: string]: string } {
+    return {
+      applicationIds: 'ApplicationIds',
+      status: 'Status',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      applicationIds: { 'type': 'array', 'itemType': 'string' },
+      status: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class UpdateExcessiveDeviceRegistrationApplicationsStatusResponseBody extends $tea.Model {
+  applications?: UpdateExcessiveDeviceRegistrationApplicationsStatusResponseBodyApplications[];
+  requestId?: string;
+  static names(): { [key: string]: string } {
+    return {
+      applications: 'Applications',
+      requestId: 'RequestId',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      applications: { 'type': 'array', 'itemType': UpdateExcessiveDeviceRegistrationApplicationsStatusResponseBodyApplications },
+      requestId: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class UpdateExcessiveDeviceRegistrationApplicationsStatusResponse extends $tea.Model {
+  headers: { [key: string]: string };
+  statusCode: number;
+  body: UpdateExcessiveDeviceRegistrationApplicationsStatusResponseBody;
+  static names(): { [key: string]: string } {
+    return {
+      headers: 'headers',
+      statusCode: 'statusCode',
+      body: 'body',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
+      body: UpdateExcessiveDeviceRegistrationApplicationsStatusResponseBody,
     };
   }
 
@@ -2694,6 +3643,295 @@ export class UpdatePrivateAccessPolicyResponse extends $tea.Model {
   }
 }
 
+export class UpdateRegistrationPolicyRequest extends $tea.Model {
+  companyLimitCount?: UpdateRegistrationPolicyRequestCompanyLimitCount;
+  companyLimitType?: string;
+  description?: string;
+  matchMode?: string;
+  name?: string;
+  personalLimitCount?: UpdateRegistrationPolicyRequestPersonalLimitCount;
+  personalLimitType?: string;
+  policyId?: string;
+  priority?: number;
+  status?: string;
+  userGroupIds?: string[];
+  whitelist?: string[];
+  static names(): { [key: string]: string } {
+    return {
+      companyLimitCount: 'CompanyLimitCount',
+      companyLimitType: 'CompanyLimitType',
+      description: 'Description',
+      matchMode: 'MatchMode',
+      name: 'Name',
+      personalLimitCount: 'PersonalLimitCount',
+      personalLimitType: 'PersonalLimitType',
+      policyId: 'PolicyId',
+      priority: 'Priority',
+      status: 'Status',
+      userGroupIds: 'UserGroupIds',
+      whitelist: 'Whitelist',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      companyLimitCount: UpdateRegistrationPolicyRequestCompanyLimitCount,
+      companyLimitType: 'string',
+      description: 'string',
+      matchMode: 'string',
+      name: 'string',
+      personalLimitCount: UpdateRegistrationPolicyRequestPersonalLimitCount,
+      personalLimitType: 'string',
+      policyId: 'string',
+      priority: 'number',
+      status: 'string',
+      userGroupIds: { 'type': 'array', 'itemType': 'string' },
+      whitelist: { 'type': 'array', 'itemType': 'string' },
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class UpdateRegistrationPolicyShrinkRequest extends $tea.Model {
+  companyLimitCountShrink?: string;
+  companyLimitType?: string;
+  description?: string;
+  matchMode?: string;
+  name?: string;
+  personalLimitCountShrink?: string;
+  personalLimitType?: string;
+  policyId?: string;
+  priority?: number;
+  status?: string;
+  userGroupIds?: string[];
+  whitelist?: string[];
+  static names(): { [key: string]: string } {
+    return {
+      companyLimitCountShrink: 'CompanyLimitCount',
+      companyLimitType: 'CompanyLimitType',
+      description: 'Description',
+      matchMode: 'MatchMode',
+      name: 'Name',
+      personalLimitCountShrink: 'PersonalLimitCount',
+      personalLimitType: 'PersonalLimitType',
+      policyId: 'PolicyId',
+      priority: 'Priority',
+      status: 'Status',
+      userGroupIds: 'UserGroupIds',
+      whitelist: 'Whitelist',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      companyLimitCountShrink: 'string',
+      companyLimitType: 'string',
+      description: 'string',
+      matchMode: 'string',
+      name: 'string',
+      personalLimitCountShrink: 'string',
+      personalLimitType: 'string',
+      policyId: 'string',
+      priority: 'number',
+      status: 'string',
+      userGroupIds: { 'type': 'array', 'itemType': 'string' },
+      whitelist: { 'type': 'array', 'itemType': 'string' },
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class UpdateRegistrationPolicyResponseBody extends $tea.Model {
+  policy?: UpdateRegistrationPolicyResponseBodyPolicy;
+  requestId?: string;
+  static names(): { [key: string]: string } {
+    return {
+      policy: 'Policy',
+      requestId: 'RequestId',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      policy: UpdateRegistrationPolicyResponseBodyPolicy,
+      requestId: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class UpdateRegistrationPolicyResponse extends $tea.Model {
+  headers: { [key: string]: string };
+  statusCode: number;
+  body: UpdateRegistrationPolicyResponseBody;
+  static names(): { [key: string]: string } {
+    return {
+      headers: 'headers',
+      statusCode: 'statusCode',
+      body: 'body',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
+      body: UpdateRegistrationPolicyResponseBody,
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class UpdateUserDevicesSharingStatusRequest extends $tea.Model {
+  deviceTags?: string[];
+  sharingStatus?: boolean;
+  static names(): { [key: string]: string } {
+    return {
+      deviceTags: 'DeviceTags',
+      sharingStatus: 'SharingStatus',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      deviceTags: { 'type': 'array', 'itemType': 'string' },
+      sharingStatus: 'boolean',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class UpdateUserDevicesSharingStatusResponseBody extends $tea.Model {
+  devices?: UpdateUserDevicesSharingStatusResponseBodyDevices[];
+  requestId?: string;
+  static names(): { [key: string]: string } {
+    return {
+      devices: 'Devices',
+      requestId: 'RequestId',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      devices: { 'type': 'array', 'itemType': UpdateUserDevicesSharingStatusResponseBodyDevices },
+      requestId: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class UpdateUserDevicesSharingStatusResponse extends $tea.Model {
+  headers: { [key: string]: string };
+  statusCode: number;
+  body: UpdateUserDevicesSharingStatusResponseBody;
+  static names(): { [key: string]: string } {
+    return {
+      headers: 'headers',
+      statusCode: 'statusCode',
+      body: 'body',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
+      body: UpdateUserDevicesSharingStatusResponseBody,
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class UpdateUserDevicesStatusRequest extends $tea.Model {
+  deviceAction?: string;
+  deviceTags?: string[];
+  static names(): { [key: string]: string } {
+    return {
+      deviceAction: 'DeviceAction',
+      deviceTags: 'DeviceTags',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      deviceAction: 'string',
+      deviceTags: { 'type': 'array', 'itemType': 'string' },
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class UpdateUserDevicesStatusResponseBody extends $tea.Model {
+  devices?: UpdateUserDevicesStatusResponseBodyDevices[];
+  requestId?: string;
+  static names(): { [key: string]: string } {
+    return {
+      devices: 'Devices',
+      requestId: 'RequestId',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      devices: { 'type': 'array', 'itemType': UpdateUserDevicesStatusResponseBodyDevices },
+      requestId: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class UpdateUserDevicesStatusResponse extends $tea.Model {
+  headers: { [key: string]: string };
+  statusCode: number;
+  body: UpdateUserDevicesStatusResponseBody;
+  static names(): { [key: string]: string } {
+    return {
+      headers: 'headers',
+      statusCode: 'statusCode',
+      body: 'body',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
+      body: UpdateUserDevicesStatusResponseBody,
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
 export class UpdateUserGroupRequest extends $tea.Model {
   attributes?: UpdateUserGroupRequestAttributes[];
   description?: string;
@@ -2808,6 +4046,152 @@ export class CreatePrivateAccessPolicyRequestCustomUserAttributes extends $tea.M
       relation: 'string',
       userGroupType: 'string',
       value: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class CreateRegistrationPolicyRequestCompanyLimitCount extends $tea.Model {
+  all?: number;
+  mobile?: number;
+  PC?: number;
+  static names(): { [key: string]: string } {
+    return {
+      all: 'All',
+      mobile: 'Mobile',
+      PC: 'PC',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      all: 'number',
+      mobile: 'number',
+      PC: 'number',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class CreateRegistrationPolicyRequestPersonalLimitCount extends $tea.Model {
+  all?: number;
+  mobile?: number;
+  PC?: number;
+  static names(): { [key: string]: string } {
+    return {
+      all: 'All',
+      mobile: 'Mobile',
+      PC: 'PC',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      all: 'number',
+      mobile: 'number',
+      PC: 'number',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class CreateRegistrationPolicyResponseBodyPolicyLimitDetailLimitCount extends $tea.Model {
+  all?: number;
+  mobile?: number;
+  PC?: number;
+  static names(): { [key: string]: string } {
+    return {
+      all: 'All',
+      mobile: 'Mobile',
+      PC: 'PC',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      all: 'number',
+      mobile: 'number',
+      PC: 'number',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class CreateRegistrationPolicyResponseBodyPolicyLimitDetail extends $tea.Model {
+  deviceBelong?: string;
+  limitCount?: CreateRegistrationPolicyResponseBodyPolicyLimitDetailLimitCount;
+  limitType?: string;
+  static names(): { [key: string]: string } {
+    return {
+      deviceBelong: 'DeviceBelong',
+      limitCount: 'LimitCount',
+      limitType: 'LimitType',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      deviceBelong: 'string',
+      limitCount: CreateRegistrationPolicyResponseBodyPolicyLimitDetailLimitCount,
+      limitType: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class CreateRegistrationPolicyResponseBodyPolicy extends $tea.Model {
+  createTime?: string;
+  description?: string;
+  limitDetail?: CreateRegistrationPolicyResponseBodyPolicyLimitDetail[];
+  matchMode?: string;
+  name?: string;
+  policyId?: string;
+  priority?: string;
+  status?: string;
+  userGroupIds?: string[];
+  whitelist?: string[];
+  static names(): { [key: string]: string } {
+    return {
+      createTime: 'CreateTime',
+      description: 'Description',
+      limitDetail: 'LimitDetail',
+      matchMode: 'MatchMode',
+      name: 'Name',
+      policyId: 'PolicyId',
+      priority: 'Priority',
+      status: 'Status',
+      userGroupIds: 'UserGroupIds',
+      whitelist: 'Whitelist',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      createTime: 'string',
+      description: 'string',
+      limitDetail: { 'type': 'array', 'itemType': CreateRegistrationPolicyResponseBodyPolicyLimitDetail },
+      matchMode: 'string',
+      name: 'string',
+      policyId: 'string',
+      priority: 'string',
+      status: 'string',
+      userGroupIds: { 'type': 'array', 'itemType': 'string' },
+      whitelist: { 'type': 'array', 'itemType': 'string' },
     };
   }
 
@@ -3042,6 +4426,172 @@ export class GetPrivateAccessPolicyResponseBodyPolicy extends $tea.Model {
       tagIds: { 'type': 'array', 'itemType': 'string' },
       userGroupIds: { 'type': 'array', 'itemType': 'string' },
       userGroupMode: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class GetRegistrationPolicyResponseBodyLimitDetailLimitCount extends $tea.Model {
+  all?: number;
+  mobile?: number;
+  PC?: number;
+  static names(): { [key: string]: string } {
+    return {
+      all: 'All',
+      mobile: 'Mobile',
+      PC: 'PC',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      all: 'number',
+      mobile: 'number',
+      PC: 'number',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class GetRegistrationPolicyResponseBodyLimitDetail extends $tea.Model {
+  deviceBelong?: string;
+  limitCount?: GetRegistrationPolicyResponseBodyLimitDetailLimitCount;
+  limitType?: string;
+  static names(): { [key: string]: string } {
+    return {
+      deviceBelong: 'DeviceBelong',
+      limitCount: 'LimitCount',
+      limitType: 'LimitType',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      deviceBelong: 'string',
+      limitCount: GetRegistrationPolicyResponseBodyLimitDetailLimitCount,
+      limitType: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class GetUserDeviceResponseBodyDeviceHistoryUsers extends $tea.Model {
+  saseUserId?: string;
+  username?: string;
+  static names(): { [key: string]: string } {
+    return {
+      saseUserId: 'SaseUserId',
+      username: 'Username',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      saseUserId: 'string',
+      username: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class GetUserDeviceResponseBodyDevice extends $tea.Model {
+  appStatus?: string;
+  appVersion?: string;
+  CPU?: string;
+  createTime?: string;
+  department?: string;
+  deviceBelong?: string;
+  deviceModel?: string;
+  deviceStatus?: string;
+  deviceTag?: string;
+  deviceType?: string;
+  deviceVersion?: string;
+  disk?: string;
+  dlpStatus?: string;
+  historyUsers?: GetUserDeviceResponseBodyDeviceHistoryUsers[];
+  hostname?: string;
+  iaStatus?: string;
+  innerIP?: string;
+  mac?: string;
+  memory?: string;
+  nacStatus?: string;
+  paStatus?: string;
+  saseUserId?: string;
+  sharingStatus?: boolean;
+  srcIP?: string;
+  updateTime?: string;
+  username?: string;
+  static names(): { [key: string]: string } {
+    return {
+      appStatus: 'AppStatus',
+      appVersion: 'AppVersion',
+      CPU: 'CPU',
+      createTime: 'CreateTime',
+      department: 'Department',
+      deviceBelong: 'DeviceBelong',
+      deviceModel: 'DeviceModel',
+      deviceStatus: 'DeviceStatus',
+      deviceTag: 'DeviceTag',
+      deviceType: 'DeviceType',
+      deviceVersion: 'DeviceVersion',
+      disk: 'Disk',
+      dlpStatus: 'DlpStatus',
+      historyUsers: 'HistoryUsers',
+      hostname: 'Hostname',
+      iaStatus: 'IaStatus',
+      innerIP: 'InnerIP',
+      mac: 'Mac',
+      memory: 'Memory',
+      nacStatus: 'NacStatus',
+      paStatus: 'PaStatus',
+      saseUserId: 'SaseUserId',
+      sharingStatus: 'SharingStatus',
+      srcIP: 'SrcIP',
+      updateTime: 'UpdateTime',
+      username: 'Username',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      appStatus: 'string',
+      appVersion: 'string',
+      CPU: 'string',
+      createTime: 'string',
+      department: 'string',
+      deviceBelong: 'string',
+      deviceModel: 'string',
+      deviceStatus: 'string',
+      deviceTag: 'string',
+      deviceType: 'string',
+      deviceVersion: 'string',
+      disk: 'string',
+      dlpStatus: 'string',
+      historyUsers: { 'type': 'array', 'itemType': GetUserDeviceResponseBodyDeviceHistoryUsers },
+      hostname: 'string',
+      iaStatus: 'string',
+      innerIP: 'string',
+      mac: 'string',
+      memory: 'string',
+      nacStatus: 'string',
+      paStatus: 'string',
+      saseUserId: 'string',
+      sharingStatus: 'boolean',
+      srcIP: 'string',
+      updateTime: 'string',
+      username: 'string',
     };
   }
 
@@ -3436,6 +4986,58 @@ export class ListDynamicRoutesResponseBodyDynamicRoutes extends $tea.Model {
       regionIds: { 'type': 'array', 'itemType': 'string' },
       status: 'string',
       tagIds: { 'type': 'array', 'itemType': 'string' },
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class ListExcessiveDeviceRegistrationApplicationsResponseBodyApplications extends $tea.Model {
+  applicationId?: string;
+  createTime?: string;
+  department?: string;
+  description?: string;
+  deviceTag?: string;
+  deviceType?: string;
+  hostname?: string;
+  isUsed?: boolean;
+  mac?: string;
+  saseUserId?: string;
+  status?: string;
+  username?: string;
+  static names(): { [key: string]: string } {
+    return {
+      applicationId: 'ApplicationId',
+      createTime: 'CreateTime',
+      department: 'Department',
+      description: 'Description',
+      deviceTag: 'DeviceTag',
+      deviceType: 'DeviceType',
+      hostname: 'Hostname',
+      isUsed: 'IsUsed',
+      mac: 'Mac',
+      saseUserId: 'SaseUserId',
+      status: 'Status',
+      username: 'Username',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      applicationId: 'string',
+      createTime: 'string',
+      department: 'string',
+      description: 'string',
+      deviceTag: 'string',
+      deviceType: 'string',
+      hostname: 'string',
+      isUsed: 'boolean',
+      mac: 'string',
+      saseUserId: 'string',
+      status: 'string',
+      username: 'string',
     };
   }
 
@@ -4011,6 +5613,245 @@ export class ListPrivateAccessTagsForDynamicRouteResponseBodyDynamicRoutes exten
   }
 }
 
+export class ListRegistrationPoliciesResponseBodyPoliciesLimitDetailLimitCount extends $tea.Model {
+  all?: number;
+  mobile?: number;
+  PC?: number;
+  static names(): { [key: string]: string } {
+    return {
+      all: 'All',
+      mobile: 'Mobile',
+      PC: 'PC',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      all: 'number',
+      mobile: 'number',
+      PC: 'number',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class ListRegistrationPoliciesResponseBodyPoliciesLimitDetail extends $tea.Model {
+  deviceBelong?: string;
+  limitCount?: ListRegistrationPoliciesResponseBodyPoliciesLimitDetailLimitCount;
+  limitType?: string;
+  static names(): { [key: string]: string } {
+    return {
+      deviceBelong: 'DeviceBelong',
+      limitCount: 'LimitCount',
+      limitType: 'LimitType',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      deviceBelong: 'string',
+      limitCount: ListRegistrationPoliciesResponseBodyPoliciesLimitDetailLimitCount,
+      limitType: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class ListRegistrationPoliciesResponseBodyPolicies extends $tea.Model {
+  createTime?: string;
+  description?: string;
+  limitDetail?: ListRegistrationPoliciesResponseBodyPoliciesLimitDetail[];
+  matchMode?: string;
+  name?: string;
+  policyId?: string;
+  priority?: number;
+  status?: string;
+  userGroupIds?: string[];
+  whitelist?: string[];
+  static names(): { [key: string]: string } {
+    return {
+      createTime: 'CreateTime',
+      description: 'Description',
+      limitDetail: 'LimitDetail',
+      matchMode: 'MatchMode',
+      name: 'Name',
+      policyId: 'PolicyId',
+      priority: 'Priority',
+      status: 'Status',
+      userGroupIds: 'UserGroupIds',
+      whitelist: 'Whitelist',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      createTime: 'string',
+      description: 'string',
+      limitDetail: { 'type': 'array', 'itemType': ListRegistrationPoliciesResponseBodyPoliciesLimitDetail },
+      matchMode: 'string',
+      name: 'string',
+      policyId: 'string',
+      priority: 'number',
+      status: 'string',
+      userGroupIds: { 'type': 'array', 'itemType': 'string' },
+      whitelist: { 'type': 'array', 'itemType': 'string' },
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class ListRegistrationPoliciesForUserGroupResponseBodyUserGroupsPoliciesLimitDetailLimitCount extends $tea.Model {
+  all?: string;
+  mobile?: string;
+  PC?: string;
+  static names(): { [key: string]: string } {
+    return {
+      all: 'All',
+      mobile: 'Mobile',
+      PC: 'PC',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      all: 'string',
+      mobile: 'string',
+      PC: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class ListRegistrationPoliciesForUserGroupResponseBodyUserGroupsPoliciesLimitDetail extends $tea.Model {
+  deviceBelong?: string;
+  limitCount?: ListRegistrationPoliciesForUserGroupResponseBodyUserGroupsPoliciesLimitDetailLimitCount;
+  limitType?: string;
+  static names(): { [key: string]: string } {
+    return {
+      deviceBelong: 'DeviceBelong',
+      limitCount: 'LimitCount',
+      limitType: 'LimitType',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      deviceBelong: 'string',
+      limitCount: ListRegistrationPoliciesForUserGroupResponseBodyUserGroupsPoliciesLimitDetailLimitCount,
+      limitType: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class ListRegistrationPoliciesForUserGroupResponseBodyUserGroupsPolicies extends $tea.Model {
+  createTime?: string;
+  description?: string;
+  limitDetail?: ListRegistrationPoliciesForUserGroupResponseBodyUserGroupsPoliciesLimitDetail[];
+  matchMode?: string;
+  name?: string;
+  policyId?: string;
+  priority?: number;
+  status?: string;
+  whitelist?: string[];
+  static names(): { [key: string]: string } {
+    return {
+      createTime: 'CreateTime',
+      description: 'Description',
+      limitDetail: 'LimitDetail',
+      matchMode: 'MatchMode',
+      name: 'Name',
+      policyId: 'PolicyId',
+      priority: 'Priority',
+      status: 'Status',
+      whitelist: 'Whitelist',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      createTime: 'string',
+      description: 'string',
+      limitDetail: { 'type': 'array', 'itemType': ListRegistrationPoliciesForUserGroupResponseBodyUserGroupsPoliciesLimitDetail },
+      matchMode: 'string',
+      name: 'string',
+      policyId: 'string',
+      priority: 'number',
+      status: 'string',
+      whitelist: { 'type': 'array', 'itemType': 'string' },
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class ListRegistrationPoliciesForUserGroupResponseBodyUserGroups extends $tea.Model {
+  policies?: ListRegistrationPoliciesForUserGroupResponseBodyUserGroupsPolicies[];
+  userGroupId?: string;
+  static names(): { [key: string]: string } {
+    return {
+      policies: 'Policies',
+      userGroupId: 'UserGroupId',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      policies: { 'type': 'array', 'itemType': ListRegistrationPoliciesForUserGroupResponseBodyUserGroupsPolicies },
+      userGroupId: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class ListSoftwareForUserDeviceResponseBodySoftware extends $tea.Model {
+  inc?: string;
+  installTime?: string;
+  name?: string;
+  versions?: string[];
+  static names(): { [key: string]: string } {
+    return {
+      inc: 'Inc',
+      installTime: 'InstallTime',
+      name: 'Name',
+      versions: 'Versions',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      inc: 'string',
+      installTime: 'string',
+      name: 'string',
+      versions: { 'type': 'array', 'itemType': 'string' },
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
 export class ListTagsForPrivateAccessApplicationResponseBodyApplicationsTags extends $tea.Model {
   createTime?: string;
   description?: string;
@@ -4109,6 +5950,97 @@ export class ListTagsForPrivateAccessPolicyResponseBodyPolices extends $tea.Mode
     return {
       policyId: 'string',
       tags: { 'type': 'array', 'itemType': ListTagsForPrivateAccessPolicyResponseBodyPolicesTags },
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class ListUserDevicesResponseBodyDevices extends $tea.Model {
+  appStatus?: string;
+  appVersion?: string;
+  CPU?: string;
+  createTime?: string;
+  department?: string;
+  deviceBelong?: string;
+  deviceModel?: string;
+  deviceStatus?: string;
+  deviceTag?: string;
+  deviceType?: string;
+  deviceVersion?: string;
+  disk?: string;
+  dlpStatus?: string;
+  hostname?: string;
+  iaStatus?: string;
+  innerIP?: string;
+  mac?: string;
+  memory?: string;
+  nacStatus?: string;
+  paStatus?: string;
+  saseUserId?: string;
+  sharingStatus?: boolean;
+  srcIP?: string;
+  updateTime?: string;
+  username?: string;
+  static names(): { [key: string]: string } {
+    return {
+      appStatus: 'AppStatus',
+      appVersion: 'AppVersion',
+      CPU: 'CPU',
+      createTime: 'CreateTime',
+      department: 'Department',
+      deviceBelong: 'DeviceBelong',
+      deviceModel: 'DeviceModel',
+      deviceStatus: 'DeviceStatus',
+      deviceTag: 'DeviceTag',
+      deviceType: 'DeviceType',
+      deviceVersion: 'DeviceVersion',
+      disk: 'Disk',
+      dlpStatus: 'DlpStatus',
+      hostname: 'Hostname',
+      iaStatus: 'IaStatus',
+      innerIP: 'InnerIP',
+      mac: 'Mac',
+      memory: 'Memory',
+      nacStatus: 'NacStatus',
+      paStatus: 'PaStatus',
+      saseUserId: 'SaseUserId',
+      sharingStatus: 'SharingStatus',
+      srcIP: 'SrcIP',
+      updateTime: 'UpdateTime',
+      username: 'Username',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      appStatus: 'string',
+      appVersion: 'string',
+      CPU: 'string',
+      createTime: 'string',
+      department: 'string',
+      deviceBelong: 'string',
+      deviceModel: 'string',
+      deviceStatus: 'string',
+      deviceTag: 'string',
+      deviceType: 'string',
+      deviceVersion: 'string',
+      disk: 'string',
+      dlpStatus: 'string',
+      hostname: 'string',
+      iaStatus: 'string',
+      innerIP: 'string',
+      mac: 'string',
+      memory: 'string',
+      nacStatus: 'string',
+      paStatus: 'string',
+      saseUserId: 'string',
+      sharingStatus: 'boolean',
+      srcIP: 'string',
+      updateTime: 'string',
+      username: 'string',
     };
   }
 
@@ -4257,6 +6189,139 @@ export class ListUserGroupsForPrivateAccessPolicyResponseBodyPolices extends $te
   }
 }
 
+export class ListUserGroupsForRegistrationPolicyResponseBodyPoliciesUserGroupsAttributes extends $tea.Model {
+  idpId?: number;
+  relation?: string;
+  userGroupType?: string;
+  value?: string;
+  static names(): { [key: string]: string } {
+    return {
+      idpId: 'IdpId',
+      relation: 'Relation',
+      userGroupType: 'UserGroupType',
+      value: 'Value',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      idpId: 'number',
+      relation: 'string',
+      userGroupType: 'string',
+      value: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class ListUserGroupsForRegistrationPolicyResponseBodyPoliciesUserGroups extends $tea.Model {
+  attributes?: ListUserGroupsForRegistrationPolicyResponseBodyPoliciesUserGroupsAttributes[];
+  createTime?: string;
+  description?: string;
+  name?: string;
+  userGroupId?: string;
+  static names(): { [key: string]: string } {
+    return {
+      attributes: 'Attributes',
+      createTime: 'CreateTime',
+      description: 'Description',
+      name: 'Name',
+      userGroupId: 'UserGroupId',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      attributes: { 'type': 'array', 'itemType': ListUserGroupsForRegistrationPolicyResponseBodyPoliciesUserGroupsAttributes },
+      createTime: 'string',
+      description: 'string',
+      name: 'string',
+      userGroupId: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class ListUserGroupsForRegistrationPolicyResponseBodyPolicies extends $tea.Model {
+  policyId?: string;
+  userGroups?: ListUserGroupsForRegistrationPolicyResponseBodyPoliciesUserGroups[];
+  static names(): { [key: string]: string } {
+    return {
+      policyId: 'PolicyId',
+      userGroups: 'UserGroups',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      policyId: 'string',
+      userGroups: { 'type': 'array', 'itemType': ListUserGroupsForRegistrationPolicyResponseBodyPoliciesUserGroups },
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class UpdateExcessiveDeviceRegistrationApplicationsStatusResponseBodyApplications extends $tea.Model {
+  applicationId?: string;
+  createTime?: string;
+  department?: string;
+  description?: string;
+  deviceTag?: string;
+  deviceType?: string;
+  hostname?: string;
+  isUsed?: boolean;
+  mac?: string;
+  saseUserId?: string;
+  status?: string;
+  username?: string;
+  static names(): { [key: string]: string } {
+    return {
+      applicationId: 'ApplicationId',
+      createTime: 'CreateTime',
+      department: 'Department',
+      description: 'Description',
+      deviceTag: 'DeviceTag',
+      deviceType: 'DeviceType',
+      hostname: 'Hostname',
+      isUsed: 'IsUsed',
+      mac: 'Mac',
+      saseUserId: 'SaseUserId',
+      status: 'Status',
+      username: 'Username',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      applicationId: 'string',
+      createTime: 'string',
+      department: 'string',
+      description: 'string',
+      deviceTag: 'string',
+      deviceType: 'string',
+      hostname: 'string',
+      isUsed: 'boolean',
+      mac: 'string',
+      saseUserId: 'string',
+      status: 'string',
+      username: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
 export class UpdatePrivateAccessApplicationRequestPortRanges extends $tea.Model {
   begin?: number;
   end?: number;
@@ -4299,6 +6364,334 @@ export class UpdatePrivateAccessPolicyRequestCustomUserAttributes extends $tea.M
       relation: 'string',
       userGroupType: 'string',
       value: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class UpdateRegistrationPolicyRequestCompanyLimitCount extends $tea.Model {
+  all?: number;
+  mobile?: number;
+  PC?: number;
+  static names(): { [key: string]: string } {
+    return {
+      all: 'All',
+      mobile: 'Mobile',
+      PC: 'PC',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      all: 'number',
+      mobile: 'number',
+      PC: 'number',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class UpdateRegistrationPolicyRequestPersonalLimitCount extends $tea.Model {
+  all?: number;
+  mobile?: number;
+  PC?: number;
+  static names(): { [key: string]: string } {
+    return {
+      all: 'All',
+      mobile: 'Mobile',
+      PC: 'PC',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      all: 'number',
+      mobile: 'number',
+      PC: 'number',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class UpdateRegistrationPolicyResponseBodyPolicyLimitDetailLimitCount extends $tea.Model {
+  all?: number;
+  mobile?: number;
+  PC?: number;
+  static names(): { [key: string]: string } {
+    return {
+      all: 'All',
+      mobile: 'Mobile',
+      PC: 'PC',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      all: 'number',
+      mobile: 'number',
+      PC: 'number',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class UpdateRegistrationPolicyResponseBodyPolicyLimitDetail extends $tea.Model {
+  deviceBelong?: string;
+  limitCount?: UpdateRegistrationPolicyResponseBodyPolicyLimitDetailLimitCount;
+  limitType?: string;
+  static names(): { [key: string]: string } {
+    return {
+      deviceBelong: 'DeviceBelong',
+      limitCount: 'LimitCount',
+      limitType: 'LimitType',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      deviceBelong: 'string',
+      limitCount: UpdateRegistrationPolicyResponseBodyPolicyLimitDetailLimitCount,
+      limitType: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class UpdateRegistrationPolicyResponseBodyPolicy extends $tea.Model {
+  createTime?: string;
+  description?: string;
+  limitDetail?: UpdateRegistrationPolicyResponseBodyPolicyLimitDetail[];
+  matchMode?: string;
+  name?: string;
+  policyId?: string;
+  priority?: string;
+  status?: string;
+  userGroupIds?: string[];
+  whitelist?: string[];
+  static names(): { [key: string]: string } {
+    return {
+      createTime: 'CreateTime',
+      description: 'Description',
+      limitDetail: 'LimitDetail',
+      matchMode: 'MatchMode',
+      name: 'Name',
+      policyId: 'PolicyId',
+      priority: 'Priority',
+      status: 'Status',
+      userGroupIds: 'UserGroupIds',
+      whitelist: 'Whitelist',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      createTime: 'string',
+      description: 'string',
+      limitDetail: { 'type': 'array', 'itemType': UpdateRegistrationPolicyResponseBodyPolicyLimitDetail },
+      matchMode: 'string',
+      name: 'string',
+      policyId: 'string',
+      priority: 'string',
+      status: 'string',
+      userGroupIds: { 'type': 'array', 'itemType': 'string' },
+      whitelist: { 'type': 'array', 'itemType': 'string' },
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class UpdateUserDevicesSharingStatusResponseBodyDevices extends $tea.Model {
+  appStatus?: string;
+  appVersion?: string;
+  CPU?: string;
+  createTime?: string;
+  department?: string;
+  deviceBelong?: string;
+  deviceModel?: string;
+  deviceStatus?: string;
+  deviceTag?: string;
+  deviceType?: string;
+  deviceVersion?: string;
+  disk?: string;
+  dlpStatus?: string;
+  hostname?: string;
+  iaStatus?: string;
+  innerIP?: string;
+  mac?: string;
+  memory?: string;
+  nacStatus?: string;
+  paStatus?: string;
+  saseUserId?: string;
+  sharingStatus?: boolean;
+  srcIP?: string;
+  updateTime?: string;
+  username?: string;
+  static names(): { [key: string]: string } {
+    return {
+      appStatus: 'AppStatus',
+      appVersion: 'AppVersion',
+      CPU: 'CPU',
+      createTime: 'CreateTime',
+      department: 'Department',
+      deviceBelong: 'DeviceBelong',
+      deviceModel: 'DeviceModel',
+      deviceStatus: 'DeviceStatus',
+      deviceTag: 'DeviceTag',
+      deviceType: 'DeviceType',
+      deviceVersion: 'DeviceVersion',
+      disk: 'Disk',
+      dlpStatus: 'DlpStatus',
+      hostname: 'Hostname',
+      iaStatus: 'IaStatus',
+      innerIP: 'InnerIP',
+      mac: 'Mac',
+      memory: 'Memory',
+      nacStatus: 'NacStatus',
+      paStatus: 'PaStatus',
+      saseUserId: 'SaseUserId',
+      sharingStatus: 'SharingStatus',
+      srcIP: 'SrcIP',
+      updateTime: 'UpdateTime',
+      username: 'Username',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      appStatus: 'string',
+      appVersion: 'string',
+      CPU: 'string',
+      createTime: 'string',
+      department: 'string',
+      deviceBelong: 'string',
+      deviceModel: 'string',
+      deviceStatus: 'string',
+      deviceTag: 'string',
+      deviceType: 'string',
+      deviceVersion: 'string',
+      disk: 'string',
+      dlpStatus: 'string',
+      hostname: 'string',
+      iaStatus: 'string',
+      innerIP: 'string',
+      mac: 'string',
+      memory: 'string',
+      nacStatus: 'string',
+      paStatus: 'string',
+      saseUserId: 'string',
+      sharingStatus: 'boolean',
+      srcIP: 'string',
+      updateTime: 'string',
+      username: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class UpdateUserDevicesStatusResponseBodyDevices extends $tea.Model {
+  appStatus?: string;
+  appVersion?: string;
+  CPU?: string;
+  createTime?: string;
+  department?: string;
+  deviceBelong?: string;
+  deviceModel?: string;
+  deviceStatus?: string;
+  deviceTag?: string;
+  deviceType?: string;
+  deviceVersion?: string;
+  disk?: string;
+  dlpStatus?: string;
+  hostname?: string;
+  iaStatus?: string;
+  innerIP?: string;
+  mac?: string;
+  memory?: string;
+  nacStatus?: string;
+  paStatus?: string;
+  saseUserId?: string;
+  sharingStatus?: boolean;
+  srcIP?: string;
+  updateTime?: string;
+  username?: string;
+  static names(): { [key: string]: string } {
+    return {
+      appStatus: 'AppStatus',
+      appVersion: 'AppVersion',
+      CPU: 'CPU',
+      createTime: 'CreateTime',
+      department: 'Department',
+      deviceBelong: 'DeviceBelong',
+      deviceModel: 'DeviceModel',
+      deviceStatus: 'DeviceStatus',
+      deviceTag: 'DeviceTag',
+      deviceType: 'DeviceType',
+      deviceVersion: 'DeviceVersion',
+      disk: 'Disk',
+      dlpStatus: 'DlpStatus',
+      hostname: 'Hostname',
+      iaStatus: 'IaStatus',
+      innerIP: 'InnerIP',
+      mac: 'Mac',
+      memory: 'Memory',
+      nacStatus: 'NacStatus',
+      paStatus: 'PaStatus',
+      saseUserId: 'SaseUserId',
+      sharingStatus: 'SharingStatus',
+      srcIP: 'SrcIP',
+      updateTime: 'UpdateTime',
+      username: 'Username',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      appStatus: 'string',
+      appVersion: 'string',
+      CPU: 'string',
+      createTime: 'string',
+      department: 'string',
+      deviceBelong: 'string',
+      deviceModel: 'string',
+      deviceStatus: 'string',
+      deviceTag: 'string',
+      deviceType: 'string',
+      deviceVersion: 'string',
+      disk: 'string',
+      dlpStatus: 'string',
+      hostname: 'string',
+      iaStatus: 'string',
+      innerIP: 'string',
+      mac: 'string',
+      memory: 'string',
+      nacStatus: 'string',
+      paStatus: 'string',
+      saseUserId: 'string',
+      sharingStatus: 'boolean',
+      srcIP: 'string',
+      updateTime: 'string',
+      username: 'string',
     };
   }
 
@@ -4632,6 +7025,90 @@ export default class Client extends OpenApi {
     return await this.createPrivateAccessTagWithOptions(request, runtime);
   }
 
+  async createRegistrationPolicyWithOptions(tmpReq: CreateRegistrationPolicyRequest, runtime: $Util.RuntimeOptions): Promise<CreateRegistrationPolicyResponse> {
+    Util.validateModel(tmpReq);
+    let request = new CreateRegistrationPolicyShrinkRequest({ });
+    OpenApiUtil.convert(tmpReq, request);
+    if (!Util.isUnset(tmpReq.companyLimitCount)) {
+      request.companyLimitCountShrink = OpenApiUtil.arrayToStringWithSpecifiedStyle(tmpReq.companyLimitCount, "CompanyLimitCount", "json");
+    }
+
+    if (!Util.isUnset(tmpReq.personalLimitCount)) {
+      request.personalLimitCountShrink = OpenApiUtil.arrayToStringWithSpecifiedStyle(tmpReq.personalLimitCount, "PersonalLimitCount", "json");
+    }
+
+    let body : {[key: string ]: any} = { };
+    if (!Util.isUnset(request.companyLimitCountShrink)) {
+      body["CompanyLimitCount"] = request.companyLimitCountShrink;
+    }
+
+    if (!Util.isUnset(request.companyLimitType)) {
+      body["CompanyLimitType"] = request.companyLimitType;
+    }
+
+    if (!Util.isUnset(request.description)) {
+      body["Description"] = request.description;
+    }
+
+    if (!Util.isUnset(request.matchMode)) {
+      body["MatchMode"] = request.matchMode;
+    }
+
+    if (!Util.isUnset(request.name)) {
+      body["Name"] = request.name;
+    }
+
+    if (!Util.isUnset(request.personalLimitCountShrink)) {
+      body["PersonalLimitCount"] = request.personalLimitCountShrink;
+    }
+
+    if (!Util.isUnset(request.personalLimitType)) {
+      body["PersonalLimitType"] = request.personalLimitType;
+    }
+
+    if (!Util.isUnset(request.priority)) {
+      body["Priority"] = request.priority;
+    }
+
+    if (!Util.isUnset(request.status)) {
+      body["Status"] = request.status;
+    }
+
+    let bodyFlat : {[key: string ]: any} = { };
+    if (!Util.isUnset(request.userGroupIds)) {
+      bodyFlat["UserGroupIds"] = request.userGroupIds;
+    }
+
+    if (!Util.isUnset(request.whitelist)) {
+      bodyFlat["Whitelist"] = request.whitelist;
+    }
+
+    body = {
+      ...body,
+      ...OpenApiUtil.query(bodyFlat),
+    };
+    let req = new $OpenApi.OpenApiRequest({
+      body: OpenApiUtil.parseToMap(body),
+    });
+    let params = new $OpenApi.Params({
+      action: "CreateRegistrationPolicy",
+      version: "2023-01-20",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $tea.cast<CreateRegistrationPolicyResponse>(await this.callApi(params, req, runtime), new CreateRegistrationPolicyResponse({}));
+  }
+
+  async createRegistrationPolicy(request: CreateRegistrationPolicyRequest): Promise<CreateRegistrationPolicyResponse> {
+    let runtime = new $Util.RuntimeOptions({ });
+    return await this.createRegistrationPolicyWithOptions(request, runtime);
+  }
+
   async createUserGroupWithOptions(request: CreateUserGroupRequest, runtime: $Util.RuntimeOptions): Promise<CreateUserGroupResponse> {
     Util.validateModel(request);
     let body : {[key: string ]: any} = { };
@@ -4790,6 +7267,40 @@ export default class Client extends OpenApi {
     return await this.deletePrivateAccessTagWithOptions(request, runtime);
   }
 
+  async deleteRegistrationPoliciesWithOptions(request: DeleteRegistrationPoliciesRequest, runtime: $Util.RuntimeOptions): Promise<DeleteRegistrationPoliciesResponse> {
+    Util.validateModel(request);
+    let body : {[key: string ]: any} = { };
+    let bodyFlat : {[key: string ]: any} = { };
+    if (!Util.isUnset(request.policyIds)) {
+      bodyFlat["PolicyIds"] = request.policyIds;
+    }
+
+    body = {
+      ...body,
+      ...OpenApiUtil.query(bodyFlat),
+    };
+    let req = new $OpenApi.OpenApiRequest({
+      body: OpenApiUtil.parseToMap(body),
+    });
+    let params = new $OpenApi.Params({
+      action: "DeleteRegistrationPolicies",
+      version: "2023-01-20",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $tea.cast<DeleteRegistrationPoliciesResponse>(await this.callApi(params, req, runtime), new DeleteRegistrationPoliciesResponse({}));
+  }
+
+  async deleteRegistrationPolicies(request: DeleteRegistrationPoliciesRequest): Promise<DeleteRegistrationPoliciesResponse> {
+    let runtime = new $Util.RuntimeOptions({ });
+    return await this.deleteRegistrationPoliciesWithOptions(request, runtime);
+  }
+
   async deleteUserGroupWithOptions(request: DeleteUserGroupRequest, runtime: $Util.RuntimeOptions): Promise<DeleteUserGroupResponse> {
     Util.validateModel(request);
     let body : {[key: string ]: any} = { };
@@ -4931,6 +7442,56 @@ export default class Client extends OpenApi {
   async getPrivateAccessPolicy(request: GetPrivateAccessPolicyRequest): Promise<GetPrivateAccessPolicyResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.getPrivateAccessPolicyWithOptions(request, runtime);
+  }
+
+  async getRegistrationPolicyWithOptions(request: GetRegistrationPolicyRequest, runtime: $Util.RuntimeOptions): Promise<GetRegistrationPolicyResponse> {
+    Util.validateModel(request);
+    let query = OpenApiUtil.query(Util.toMap(request));
+    let req = new $OpenApi.OpenApiRequest({
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApi.Params({
+      action: "GetRegistrationPolicy",
+      version: "2023-01-20",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "GET",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $tea.cast<GetRegistrationPolicyResponse>(await this.callApi(params, req, runtime), new GetRegistrationPolicyResponse({}));
+  }
+
+  async getRegistrationPolicy(request: GetRegistrationPolicyRequest): Promise<GetRegistrationPolicyResponse> {
+    let runtime = new $Util.RuntimeOptions({ });
+    return await this.getRegistrationPolicyWithOptions(request, runtime);
+  }
+
+  async getUserDeviceWithOptions(request: GetUserDeviceRequest, runtime: $Util.RuntimeOptions): Promise<GetUserDeviceResponse> {
+    Util.validateModel(request);
+    let query = OpenApiUtil.query(Util.toMap(request));
+    let req = new $OpenApi.OpenApiRequest({
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApi.Params({
+      action: "GetUserDevice",
+      version: "2023-01-20",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "GET",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $tea.cast<GetUserDeviceResponse>(await this.callApi(params, req, runtime), new GetUserDeviceResponse({}));
+  }
+
+  async getUserDevice(request: GetUserDeviceRequest): Promise<GetUserDeviceResponse> {
+    let runtime = new $Util.RuntimeOptions({ });
+    return await this.getUserDeviceWithOptions(request, runtime);
   }
 
   async getUserGroupWithOptions(request: GetUserGroupRequest, runtime: $Util.RuntimeOptions): Promise<GetUserGroupResponse> {
@@ -5077,6 +7638,31 @@ export default class Client extends OpenApi {
   async listDynamicRoutes(request: ListDynamicRoutesRequest): Promise<ListDynamicRoutesResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.listDynamicRoutesWithOptions(request, runtime);
+  }
+
+  async listExcessiveDeviceRegistrationApplicationsWithOptions(request: ListExcessiveDeviceRegistrationApplicationsRequest, runtime: $Util.RuntimeOptions): Promise<ListExcessiveDeviceRegistrationApplicationsResponse> {
+    Util.validateModel(request);
+    let query = OpenApiUtil.query(Util.toMap(request));
+    let req = new $OpenApi.OpenApiRequest({
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApi.Params({
+      action: "ListExcessiveDeviceRegistrationApplications",
+      version: "2023-01-20",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "GET",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $tea.cast<ListExcessiveDeviceRegistrationApplicationsResponse>(await this.callApi(params, req, runtime), new ListExcessiveDeviceRegistrationApplicationsResponse({}));
+  }
+
+  async listExcessiveDeviceRegistrationApplications(request: ListExcessiveDeviceRegistrationApplicationsRequest): Promise<ListExcessiveDeviceRegistrationApplicationsResponse> {
+    let runtime = new $Util.RuntimeOptions({ });
+    return await this.listExcessiveDeviceRegistrationApplicationsWithOptions(request, runtime);
   }
 
   async listPolicesForPrivateAccessApplicationWithOptions(request: ListPolicesForPrivateAccessApplicationRequest, runtime: $Util.RuntimeOptions): Promise<ListPolicesForPrivateAccessApplicationResponse> {
@@ -5279,6 +7865,81 @@ export default class Client extends OpenApi {
     return await this.listPrivateAccessTagsForDynamicRouteWithOptions(request, runtime);
   }
 
+  async listRegistrationPoliciesWithOptions(request: ListRegistrationPoliciesRequest, runtime: $Util.RuntimeOptions): Promise<ListRegistrationPoliciesResponse> {
+    Util.validateModel(request);
+    let query = OpenApiUtil.query(Util.toMap(request));
+    let req = new $OpenApi.OpenApiRequest({
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApi.Params({
+      action: "ListRegistrationPolicies",
+      version: "2023-01-20",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "GET",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $tea.cast<ListRegistrationPoliciesResponse>(await this.callApi(params, req, runtime), new ListRegistrationPoliciesResponse({}));
+  }
+
+  async listRegistrationPolicies(request: ListRegistrationPoliciesRequest): Promise<ListRegistrationPoliciesResponse> {
+    let runtime = new $Util.RuntimeOptions({ });
+    return await this.listRegistrationPoliciesWithOptions(request, runtime);
+  }
+
+  async listRegistrationPoliciesForUserGroupWithOptions(request: ListRegistrationPoliciesForUserGroupRequest, runtime: $Util.RuntimeOptions): Promise<ListRegistrationPoliciesForUserGroupResponse> {
+    Util.validateModel(request);
+    let query = OpenApiUtil.query(Util.toMap(request));
+    let req = new $OpenApi.OpenApiRequest({
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApi.Params({
+      action: "ListRegistrationPoliciesForUserGroup",
+      version: "2023-01-20",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "GET",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $tea.cast<ListRegistrationPoliciesForUserGroupResponse>(await this.callApi(params, req, runtime), new ListRegistrationPoliciesForUserGroupResponse({}));
+  }
+
+  async listRegistrationPoliciesForUserGroup(request: ListRegistrationPoliciesForUserGroupRequest): Promise<ListRegistrationPoliciesForUserGroupResponse> {
+    let runtime = new $Util.RuntimeOptions({ });
+    return await this.listRegistrationPoliciesForUserGroupWithOptions(request, runtime);
+  }
+
+  async listSoftwareForUserDeviceWithOptions(request: ListSoftwareForUserDeviceRequest, runtime: $Util.RuntimeOptions): Promise<ListSoftwareForUserDeviceResponse> {
+    Util.validateModel(request);
+    let query = OpenApiUtil.query(Util.toMap(request));
+    let req = new $OpenApi.OpenApiRequest({
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApi.Params({
+      action: "ListSoftwareForUserDevice",
+      version: "2023-01-20",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "GET",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $tea.cast<ListSoftwareForUserDeviceResponse>(await this.callApi(params, req, runtime), new ListSoftwareForUserDeviceResponse({}));
+  }
+
+  async listSoftwareForUserDevice(request: ListSoftwareForUserDeviceRequest): Promise<ListSoftwareForUserDeviceResponse> {
+    let runtime = new $Util.RuntimeOptions({ });
+    return await this.listSoftwareForUserDeviceWithOptions(request, runtime);
+  }
+
   async listTagsForPrivateAccessApplicationWithOptions(request: ListTagsForPrivateAccessApplicationRequest, runtime: $Util.RuntimeOptions): Promise<ListTagsForPrivateAccessApplicationResponse> {
     Util.validateModel(request);
     let query = OpenApiUtil.query(Util.toMap(request));
@@ -5329,6 +7990,31 @@ export default class Client extends OpenApi {
     return await this.listTagsForPrivateAccessPolicyWithOptions(request, runtime);
   }
 
+  async listUserDevicesWithOptions(request: ListUserDevicesRequest, runtime: $Util.RuntimeOptions): Promise<ListUserDevicesResponse> {
+    Util.validateModel(request);
+    let query = OpenApiUtil.query(Util.toMap(request));
+    let req = new $OpenApi.OpenApiRequest({
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApi.Params({
+      action: "ListUserDevices",
+      version: "2023-01-20",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "GET",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $tea.cast<ListUserDevicesResponse>(await this.callApi(params, req, runtime), new ListUserDevicesResponse({}));
+  }
+
+  async listUserDevices(request: ListUserDevicesRequest): Promise<ListUserDevicesResponse> {
+    let runtime = new $Util.RuntimeOptions({ });
+    return await this.listUserDevicesWithOptions(request, runtime);
+  }
+
   async listUserGroupsWithOptions(request: ListUserGroupsRequest, runtime: $Util.RuntimeOptions): Promise<ListUserGroupsResponse> {
     Util.validateModel(request);
     let query = OpenApiUtil.query(Util.toMap(request));
@@ -5377,6 +8063,31 @@ export default class Client extends OpenApi {
   async listUserGroupsForPrivateAccessPolicy(request: ListUserGroupsForPrivateAccessPolicyRequest): Promise<ListUserGroupsForPrivateAccessPolicyResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.listUserGroupsForPrivateAccessPolicyWithOptions(request, runtime);
+  }
+
+  async listUserGroupsForRegistrationPolicyWithOptions(request: ListUserGroupsForRegistrationPolicyRequest, runtime: $Util.RuntimeOptions): Promise<ListUserGroupsForRegistrationPolicyResponse> {
+    Util.validateModel(request);
+    let query = OpenApiUtil.query(Util.toMap(request));
+    let req = new $OpenApi.OpenApiRequest({
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApi.Params({
+      action: "ListUserGroupsForRegistrationPolicy",
+      version: "2023-01-20",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "GET",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $tea.cast<ListUserGroupsForRegistrationPolicyResponse>(await this.callApi(params, req, runtime), new ListUserGroupsForRegistrationPolicyResponse({}));
+  }
+
+  async listUserGroupsForRegistrationPolicy(request: ListUserGroupsForRegistrationPolicyRequest): Promise<ListUserGroupsForRegistrationPolicyResponse> {
+    let runtime = new $Util.RuntimeOptions({ });
+    return await this.listUserGroupsForRegistrationPolicyWithOptions(request, runtime);
   }
 
   async updateDynamicRouteWithOptions(request: UpdateDynamicRouteRequest, runtime: $Util.RuntimeOptions): Promise<UpdateDynamicRouteResponse> {
@@ -5455,6 +8166,44 @@ export default class Client extends OpenApi {
   async updateDynamicRoute(request: UpdateDynamicRouteRequest): Promise<UpdateDynamicRouteResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.updateDynamicRouteWithOptions(request, runtime);
+  }
+
+  async updateExcessiveDeviceRegistrationApplicationsStatusWithOptions(request: UpdateExcessiveDeviceRegistrationApplicationsStatusRequest, runtime: $Util.RuntimeOptions): Promise<UpdateExcessiveDeviceRegistrationApplicationsStatusResponse> {
+    Util.validateModel(request);
+    let body : {[key: string ]: any} = { };
+    let bodyFlat : {[key: string ]: any} = { };
+    if (!Util.isUnset(request.applicationIds)) {
+      bodyFlat["ApplicationIds"] = request.applicationIds;
+    }
+
+    if (!Util.isUnset(request.status)) {
+      body["Status"] = request.status;
+    }
+
+    body = {
+      ...body,
+      ...OpenApiUtil.query(bodyFlat),
+    };
+    let req = new $OpenApi.OpenApiRequest({
+      body: OpenApiUtil.parseToMap(body),
+    });
+    let params = new $OpenApi.Params({
+      action: "UpdateExcessiveDeviceRegistrationApplicationsStatus",
+      version: "2023-01-20",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $tea.cast<UpdateExcessiveDeviceRegistrationApplicationsStatusResponse>(await this.callApi(params, req, runtime), new UpdateExcessiveDeviceRegistrationApplicationsStatusResponse({}));
+  }
+
+  async updateExcessiveDeviceRegistrationApplicationsStatus(request: UpdateExcessiveDeviceRegistrationApplicationsStatusRequest): Promise<UpdateExcessiveDeviceRegistrationApplicationsStatusResponse> {
+    let runtime = new $Util.RuntimeOptions({ });
+    return await this.updateExcessiveDeviceRegistrationApplicationsStatusWithOptions(request, runtime);
   }
 
   async updatePrivateAccessApplicationWithOptions(request: UpdatePrivateAccessApplicationRequest, runtime: $Util.RuntimeOptions): Promise<UpdatePrivateAccessApplicationResponse> {
@@ -5595,6 +8344,170 @@ export default class Client extends OpenApi {
   async updatePrivateAccessPolicy(request: UpdatePrivateAccessPolicyRequest): Promise<UpdatePrivateAccessPolicyResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.updatePrivateAccessPolicyWithOptions(request, runtime);
+  }
+
+  async updateRegistrationPolicyWithOptions(tmpReq: UpdateRegistrationPolicyRequest, runtime: $Util.RuntimeOptions): Promise<UpdateRegistrationPolicyResponse> {
+    Util.validateModel(tmpReq);
+    let request = new UpdateRegistrationPolicyShrinkRequest({ });
+    OpenApiUtil.convert(tmpReq, request);
+    if (!Util.isUnset(tmpReq.companyLimitCount)) {
+      request.companyLimitCountShrink = OpenApiUtil.arrayToStringWithSpecifiedStyle(tmpReq.companyLimitCount, "CompanyLimitCount", "json");
+    }
+
+    if (!Util.isUnset(tmpReq.personalLimitCount)) {
+      request.personalLimitCountShrink = OpenApiUtil.arrayToStringWithSpecifiedStyle(tmpReq.personalLimitCount, "PersonalLimitCount", "json");
+    }
+
+    let body : {[key: string ]: any} = { };
+    if (!Util.isUnset(request.companyLimitCountShrink)) {
+      body["CompanyLimitCount"] = request.companyLimitCountShrink;
+    }
+
+    if (!Util.isUnset(request.companyLimitType)) {
+      body["CompanyLimitType"] = request.companyLimitType;
+    }
+
+    if (!Util.isUnset(request.description)) {
+      body["Description"] = request.description;
+    }
+
+    if (!Util.isUnset(request.matchMode)) {
+      body["MatchMode"] = request.matchMode;
+    }
+
+    if (!Util.isUnset(request.name)) {
+      body["Name"] = request.name;
+    }
+
+    if (!Util.isUnset(request.personalLimitCountShrink)) {
+      body["PersonalLimitCount"] = request.personalLimitCountShrink;
+    }
+
+    if (!Util.isUnset(request.personalLimitType)) {
+      body["PersonalLimitType"] = request.personalLimitType;
+    }
+
+    if (!Util.isUnset(request.policyId)) {
+      body["PolicyId"] = request.policyId;
+    }
+
+    if (!Util.isUnset(request.priority)) {
+      body["Priority"] = request.priority;
+    }
+
+    if (!Util.isUnset(request.status)) {
+      body["Status"] = request.status;
+    }
+
+    let bodyFlat : {[key: string ]: any} = { };
+    if (!Util.isUnset(request.userGroupIds)) {
+      bodyFlat["UserGroupIds"] = request.userGroupIds;
+    }
+
+    if (!Util.isUnset(request.whitelist)) {
+      bodyFlat["Whitelist"] = request.whitelist;
+    }
+
+    body = {
+      ...body,
+      ...OpenApiUtil.query(bodyFlat),
+    };
+    let req = new $OpenApi.OpenApiRequest({
+      body: OpenApiUtil.parseToMap(body),
+    });
+    let params = new $OpenApi.Params({
+      action: "UpdateRegistrationPolicy",
+      version: "2023-01-20",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $tea.cast<UpdateRegistrationPolicyResponse>(await this.callApi(params, req, runtime), new UpdateRegistrationPolicyResponse({}));
+  }
+
+  async updateRegistrationPolicy(request: UpdateRegistrationPolicyRequest): Promise<UpdateRegistrationPolicyResponse> {
+    let runtime = new $Util.RuntimeOptions({ });
+    return await this.updateRegistrationPolicyWithOptions(request, runtime);
+  }
+
+  async updateUserDevicesSharingStatusWithOptions(request: UpdateUserDevicesSharingStatusRequest, runtime: $Util.RuntimeOptions): Promise<UpdateUserDevicesSharingStatusResponse> {
+    Util.validateModel(request);
+    let body : {[key: string ]: any} = { };
+    let bodyFlat : {[key: string ]: any} = { };
+    if (!Util.isUnset(request.deviceTags)) {
+      bodyFlat["DeviceTags"] = request.deviceTags;
+    }
+
+    if (!Util.isUnset(request.sharingStatus)) {
+      body["SharingStatus"] = request.sharingStatus;
+    }
+
+    body = {
+      ...body,
+      ...OpenApiUtil.query(bodyFlat),
+    };
+    let req = new $OpenApi.OpenApiRequest({
+      body: OpenApiUtil.parseToMap(body),
+    });
+    let params = new $OpenApi.Params({
+      action: "UpdateUserDevicesSharingStatus",
+      version: "2023-01-20",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $tea.cast<UpdateUserDevicesSharingStatusResponse>(await this.callApi(params, req, runtime), new UpdateUserDevicesSharingStatusResponse({}));
+  }
+
+  async updateUserDevicesSharingStatus(request: UpdateUserDevicesSharingStatusRequest): Promise<UpdateUserDevicesSharingStatusResponse> {
+    let runtime = new $Util.RuntimeOptions({ });
+    return await this.updateUserDevicesSharingStatusWithOptions(request, runtime);
+  }
+
+  async updateUserDevicesStatusWithOptions(request: UpdateUserDevicesStatusRequest, runtime: $Util.RuntimeOptions): Promise<UpdateUserDevicesStatusResponse> {
+    Util.validateModel(request);
+    let body : {[key: string ]: any} = { };
+    if (!Util.isUnset(request.deviceAction)) {
+      body["DeviceAction"] = request.deviceAction;
+    }
+
+    let bodyFlat : {[key: string ]: any} = { };
+    if (!Util.isUnset(request.deviceTags)) {
+      bodyFlat["DeviceTags"] = request.deviceTags;
+    }
+
+    body = {
+      ...body,
+      ...OpenApiUtil.query(bodyFlat),
+    };
+    let req = new $OpenApi.OpenApiRequest({
+      body: OpenApiUtil.parseToMap(body),
+    });
+    let params = new $OpenApi.Params({
+      action: "UpdateUserDevicesStatus",
+      version: "2023-01-20",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $tea.cast<UpdateUserDevicesStatusResponse>(await this.callApi(params, req, runtime), new UpdateUserDevicesStatusResponse({}));
+  }
+
+  async updateUserDevicesStatus(request: UpdateUserDevicesStatusRequest): Promise<UpdateUserDevicesStatusResponse> {
+    let runtime = new $Util.RuntimeOptions({ });
+    return await this.updateUserDevicesStatusWithOptions(request, runtime);
   }
 
   async updateUserGroupWithOptions(request: UpdateUserGroupRequest, runtime: $Util.RuntimeOptions): Promise<UpdateUserGroupResponse> {
