@@ -8,6 +8,90 @@ import OpenApiUtil from '@alicloud/openapi-util';
 import EndpointUtil from '@alicloud/endpoint-util';
 import * as $tea from '@alicloud/tea-typescript';
 
+export class AddChatappPhoneNumberRequest extends $tea.Model {
+  cc?: string;
+  custSpaceId?: string;
+  phoneNumber?: string;
+  preValidateId?: string;
+  verifiedName?: string;
+  static names(): { [key: string]: string } {
+    return {
+      cc: 'Cc',
+      custSpaceId: 'CustSpaceId',
+      phoneNumber: 'PhoneNumber',
+      preValidateId: 'PreValidateId',
+      verifiedName: 'VerifiedName',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      cc: 'string',
+      custSpaceId: 'string',
+      phoneNumber: 'string',
+      preValidateId: 'string',
+      verifiedName: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class AddChatappPhoneNumberResponseBody extends $tea.Model {
+  accessDeniedDetail?: string;
+  code?: string;
+  message?: string;
+  requestId?: string;
+  static names(): { [key: string]: string } {
+    return {
+      accessDeniedDetail: 'AccessDeniedDetail',
+      code: 'Code',
+      message: 'Message',
+      requestId: 'RequestId',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      accessDeniedDetail: 'string',
+      code: 'string',
+      message: 'string',
+      requestId: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class AddChatappPhoneNumberResponse extends $tea.Model {
+  headers: { [key: string]: string };
+  statusCode: number;
+  body: AddChatappPhoneNumberResponseBody;
+  static names(): { [key: string]: string } {
+    return {
+      headers: 'headers',
+      statusCode: 'statusCode',
+      body: 'body',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
+      body: AddChatappPhoneNumberResponseBody,
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
 export class BeeBotAssociateRequest extends $tea.Model {
   chatBotInstanceId?: string;
   custSpaceId?: string;
@@ -598,6 +682,81 @@ export class ChatappMigrationVerifiedResponse extends $tea.Model {
   }
 }
 
+export class ChatappPhoneNumberDeregisterRequest extends $tea.Model {
+  custSpaceId?: string;
+  phoneNumber?: string;
+  static names(): { [key: string]: string } {
+    return {
+      custSpaceId: 'CustSpaceId',
+      phoneNumber: 'PhoneNumber',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      custSpaceId: 'string',
+      phoneNumber: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class ChatappPhoneNumberDeregisterResponseBody extends $tea.Model {
+  accessDeniedDetail?: string;
+  code?: string;
+  message?: string;
+  requestId?: string;
+  static names(): { [key: string]: string } {
+    return {
+      accessDeniedDetail: 'AccessDeniedDetail',
+      code: 'Code',
+      message: 'Message',
+      requestId: 'RequestId',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      accessDeniedDetail: 'string',
+      code: 'string',
+      message: 'string',
+      requestId: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class ChatappPhoneNumberDeregisterResponse extends $tea.Model {
+  headers: { [key: string]: string };
+  statusCode: number;
+  body: ChatappPhoneNumberDeregisterResponseBody;
+  static names(): { [key: string]: string } {
+    return {
+      headers: 'headers',
+      statusCode: 'statusCode',
+      body: 'body',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
+      body: ChatappPhoneNumberDeregisterResponseBody,
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
 export class ChatappPhoneNumberRegisterRequest extends $tea.Model {
   custSpaceId?: string;
   phoneNumber?: string;
@@ -1142,6 +1301,171 @@ export class DeleteChatappTemplateResponse extends $tea.Model {
   }
 }
 
+export class EnableWhatsappROIMetricRequest extends $tea.Model {
+  custSpaceId?: string;
+  isvCode?: string;
+  static names(): { [key: string]: string } {
+    return {
+      custSpaceId: 'CustSpaceId',
+      isvCode: 'IsvCode',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      custSpaceId: 'string',
+      isvCode: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class EnableWhatsappROIMetricResponseBody extends $tea.Model {
+  accessDeniedDetail?: string;
+  code?: string;
+  message?: string;
+  requestId?: string;
+  static names(): { [key: string]: string } {
+    return {
+      accessDeniedDetail: 'AccessDeniedDetail',
+      code: 'Code',
+      message: 'Message',
+      requestId: 'RequestId',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      accessDeniedDetail: 'string',
+      code: 'string',
+      message: 'string',
+      requestId: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class EnableWhatsappROIMetricResponse extends $tea.Model {
+  headers: { [key: string]: string };
+  statusCode: number;
+  body: EnableWhatsappROIMetricResponseBody;
+  static names(): { [key: string]: string } {
+    return {
+      headers: 'headers',
+      statusCode: 'statusCode',
+      body: 'body',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
+      body: EnableWhatsappROIMetricResponseBody,
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class GetChatappPhoneNumberMetricRequest extends $tea.Model {
+  custSpaceId?: string;
+  end?: number;
+  granularity?: string;
+  isvCode?: string;
+  phoneNumber?: string;
+  start?: number;
+  static names(): { [key: string]: string } {
+    return {
+      custSpaceId: 'CustSpaceId',
+      end: 'End',
+      granularity: 'Granularity',
+      isvCode: 'IsvCode',
+      phoneNumber: 'PhoneNumber',
+      start: 'Start',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      custSpaceId: 'string',
+      end: 'number',
+      granularity: 'string',
+      isvCode: 'string',
+      phoneNumber: 'string',
+      start: 'number',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class GetChatappPhoneNumberMetricResponseBody extends $tea.Model {
+  accessDeniedDetail?: string;
+  code?: string;
+  data?: GetChatappPhoneNumberMetricResponseBodyData[];
+  message?: string;
+  requestId?: string;
+  static names(): { [key: string]: string } {
+    return {
+      accessDeniedDetail: 'AccessDeniedDetail',
+      code: 'Code',
+      data: 'Data',
+      message: 'Message',
+      requestId: 'RequestId',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      accessDeniedDetail: 'string',
+      code: 'string',
+      data: { 'type': 'array', 'itemType': GetChatappPhoneNumberMetricResponseBodyData },
+      message: 'string',
+      requestId: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class GetChatappPhoneNumberMetricResponse extends $tea.Model {
+  headers: { [key: string]: string };
+  statusCode: number;
+  body: GetChatappPhoneNumberMetricResponseBody;
+  static names(): { [key: string]: string } {
+    return {
+      headers: 'headers',
+      statusCode: 'statusCode',
+      body: 'body',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
+      body: GetChatappPhoneNumberMetricResponseBody,
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
 export class GetChatappTemplateDetailRequest extends $tea.Model {
   custSpaceId?: string;
   custWabaId?: string;
@@ -1224,6 +1548,102 @@ export class GetChatappTemplateDetailResponse extends $tea.Model {
       headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
       statusCode: 'number',
       body: GetChatappTemplateDetailResponseBody,
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class GetChatappTemplateMetricRequest extends $tea.Model {
+  custSpaceId?: string;
+  end?: number;
+  granularity?: string;
+  isvCode?: string;
+  language?: string;
+  start?: number;
+  templateCode?: string;
+  templateType?: string;
+  static names(): { [key: string]: string } {
+    return {
+      custSpaceId: 'CustSpaceId',
+      end: 'End',
+      granularity: 'Granularity',
+      isvCode: 'IsvCode',
+      language: 'Language',
+      start: 'Start',
+      templateCode: 'TemplateCode',
+      templateType: 'TemplateType',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      custSpaceId: 'string',
+      end: 'number',
+      granularity: 'string',
+      isvCode: 'string',
+      language: 'string',
+      start: 'number',
+      templateCode: 'string',
+      templateType: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class GetChatappTemplateMetricResponseBody extends $tea.Model {
+  accessDeniedDetail?: string;
+  code?: string;
+  data?: GetChatappTemplateMetricResponseBodyData[];
+  message?: string;
+  requestId?: string;
+  static names(): { [key: string]: string } {
+    return {
+      accessDeniedDetail: 'AccessDeniedDetail',
+      code: 'Code',
+      data: 'Data',
+      message: 'Message',
+      requestId: 'RequestId',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      accessDeniedDetail: 'string',
+      code: 'string',
+      data: { 'type': 'array', 'itemType': GetChatappTemplateMetricResponseBodyData },
+      message: 'string',
+      requestId: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class GetChatappTemplateMetricResponse extends $tea.Model {
+  headers: { [key: string]: string };
+  statusCode: number;
+  body: GetChatappTemplateMetricResponseBody;
+  static names(): { [key: string]: string } {
+    return {
+      headers: 'headers',
+      statusCode: 'statusCode',
+      body: 'body',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
+      body: GetChatappTemplateMetricResponseBody,
     };
   }
 
@@ -1622,6 +2042,96 @@ export class GetPreValidatePhoneIdResponse extends $tea.Model {
   }
 }
 
+export class GetWhatsappConnectionCatalogRequest extends $tea.Model {
+  custSpaceId?: string;
+  ownerId?: number;
+  resourceOwnerAccount?: string;
+  resourceOwnerId?: number;
+  wabaId?: string;
+  static names(): { [key: string]: string } {
+    return {
+      custSpaceId: 'CustSpaceId',
+      ownerId: 'OwnerId',
+      resourceOwnerAccount: 'ResourceOwnerAccount',
+      resourceOwnerId: 'ResourceOwnerId',
+      wabaId: 'WabaId',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      custSpaceId: 'string',
+      ownerId: 'number',
+      resourceOwnerAccount: 'string',
+      resourceOwnerId: 'number',
+      wabaId: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class GetWhatsappConnectionCatalogResponseBody extends $tea.Model {
+  accessDeniedDetail?: string;
+  code?: string;
+  message?: string;
+  model?: { [key: string]: any };
+  requestId?: string;
+  success?: boolean;
+  static names(): { [key: string]: string } {
+    return {
+      accessDeniedDetail: 'AccessDeniedDetail',
+      code: 'Code',
+      message: 'Message',
+      model: 'Model',
+      requestId: 'RequestId',
+      success: 'Success',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      accessDeniedDetail: 'string',
+      code: 'string',
+      message: 'string',
+      model: { 'type': 'map', 'keyType': 'string', 'valueType': 'any' },
+      requestId: 'string',
+      success: 'boolean',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class GetWhatsappConnectionCatalogResponse extends $tea.Model {
+  headers: { [key: string]: string };
+  statusCode: number;
+  body: GetWhatsappConnectionCatalogResponseBody;
+  static names(): { [key: string]: string } {
+    return {
+      headers: 'headers',
+      statusCode: 'statusCode',
+      body: 'body',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
+      body: GetWhatsappConnectionCatalogResponseBody,
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
 export class IsvGetAppIdRequest extends $tea.Model {
   type?: string;
   static names(): { [key: string]: string } {
@@ -1828,6 +2338,213 @@ export class ListChatappTemplateResponse extends $tea.Model {
       headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
       statusCode: 'number',
       body: ListChatappTemplateResponseBody,
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class ListProductRequest extends $tea.Model {
+  after?: string;
+  before?: string;
+  catalogId?: string;
+  custSpaceId?: string;
+  fields?: string;
+  limit?: number;
+  ownerId?: number;
+  resourceOwnerAccount?: string;
+  resourceOwnerId?: number;
+  wabaId?: string;
+  static names(): { [key: string]: string } {
+    return {
+      after: 'After',
+      before: 'Before',
+      catalogId: 'CatalogId',
+      custSpaceId: 'CustSpaceId',
+      fields: 'Fields',
+      limit: 'Limit',
+      ownerId: 'OwnerId',
+      resourceOwnerAccount: 'ResourceOwnerAccount',
+      resourceOwnerId: 'ResourceOwnerId',
+      wabaId: 'WabaId',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      after: 'string',
+      before: 'string',
+      catalogId: 'string',
+      custSpaceId: 'string',
+      fields: 'string',
+      limit: 'number',
+      ownerId: 'number',
+      resourceOwnerAccount: 'string',
+      resourceOwnerId: 'number',
+      wabaId: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class ListProductResponseBody extends $tea.Model {
+  accessDeniedDetail?: string;
+  code?: string;
+  message?: string;
+  model?: ListProductResponseBodyModel;
+  requestId?: string;
+  success?: boolean;
+  static names(): { [key: string]: string } {
+    return {
+      accessDeniedDetail: 'AccessDeniedDetail',
+      code: 'Code',
+      message: 'Message',
+      model: 'Model',
+      requestId: 'RequestId',
+      success: 'Success',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      accessDeniedDetail: 'string',
+      code: 'string',
+      message: 'string',
+      model: ListProductResponseBodyModel,
+      requestId: 'string',
+      success: 'boolean',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class ListProductResponse extends $tea.Model {
+  headers: { [key: string]: string };
+  statusCode: number;
+  body: ListProductResponseBody;
+  static names(): { [key: string]: string } {
+    return {
+      headers: 'headers',
+      statusCode: 'statusCode',
+      body: 'body',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
+      body: ListProductResponseBody,
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class ListProductCatalogRequest extends $tea.Model {
+  after?: string;
+  before?: string;
+  businessId?: number;
+  custSpaceId?: string;
+  fields?: string;
+  limit?: number;
+  ownerId?: number;
+  resourceOwnerAccount?: string;
+  resourceOwnerId?: number;
+  static names(): { [key: string]: string } {
+    return {
+      after: 'After',
+      before: 'Before',
+      businessId: 'BusinessId',
+      custSpaceId: 'CustSpaceId',
+      fields: 'Fields',
+      limit: 'Limit',
+      ownerId: 'OwnerId',
+      resourceOwnerAccount: 'ResourceOwnerAccount',
+      resourceOwnerId: 'ResourceOwnerId',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      after: 'string',
+      before: 'string',
+      businessId: 'number',
+      custSpaceId: 'string',
+      fields: 'string',
+      limit: 'number',
+      ownerId: 'number',
+      resourceOwnerAccount: 'string',
+      resourceOwnerId: 'number',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class ListProductCatalogResponseBody extends $tea.Model {
+  accessDeniedDetail?: string;
+  code?: string;
+  message?: string;
+  model?: ListProductCatalogResponseBodyModel;
+  requestId?: string;
+  success?: boolean;
+  static names(): { [key: string]: string } {
+    return {
+      accessDeniedDetail: 'AccessDeniedDetail',
+      code: 'Code',
+      message: 'Message',
+      model: 'Model',
+      requestId: 'RequestId',
+      success: 'Success',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      accessDeniedDetail: 'string',
+      code: 'string',
+      message: 'string',
+      model: ListProductCatalogResponseBodyModel,
+      requestId: 'string',
+      success: 'boolean',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class ListProductCatalogResponse extends $tea.Model {
+  headers: { [key: string]: string };
+  statusCode: number;
+  body: ListProductCatalogResponseBody;
+  static names(): { [key: string]: string } {
+    return {
+      headers: 'headers',
+      statusCode: 'statusCode',
+      body: 'body',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
+      body: ListProductCatalogResponseBody,
     };
   }
 
@@ -3633,6 +4350,40 @@ export class CreateChatappTemplateResponseBodyData extends $tea.Model {
   }
 }
 
+export class GetChatappPhoneNumberMetricResponseBodyData extends $tea.Model {
+  deliveredCount?: number;
+  end?: number;
+  granularity?: string;
+  phoneNumber?: string;
+  sentCount?: number;
+  start?: number;
+  static names(): { [key: string]: string } {
+    return {
+      deliveredCount: 'DeliveredCount',
+      end: 'End',
+      granularity: 'Granularity',
+      phoneNumber: 'PhoneNumber',
+      sentCount: 'SentCount',
+      start: 'Start',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      deliveredCount: 'number',
+      end: 'number',
+      granularity: 'string',
+      phoneNumber: 'string',
+      sentCount: 'number',
+      start: 'number',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
 export class GetChatappTemplateDetailResponseBodyDataComponentsButtonsExtendAttrs extends $tea.Model {
   action?: string;
   intentCode?: string;
@@ -3783,6 +4534,7 @@ export class GetChatappTemplateDetailResponseBodyData extends $tea.Model {
   messageSendTtlSeconds?: number;
   name?: string;
   qualityScore?: string;
+  reason?: string;
   templateCode?: string;
   templateType?: string;
   static names(): { [key: string]: string } {
@@ -3795,6 +4547,7 @@ export class GetChatappTemplateDetailResponseBodyData extends $tea.Model {
       messageSendTtlSeconds: 'MessageSendTtlSeconds',
       name: 'Name',
       qualityScore: 'QualityScore',
+      reason: 'Reason',
       templateCode: 'TemplateCode',
       templateType: 'TemplateType',
     };
@@ -3810,8 +4563,74 @@ export class GetChatappTemplateDetailResponseBodyData extends $tea.Model {
       messageSendTtlSeconds: 'number',
       name: 'string',
       qualityScore: 'string',
+      reason: 'string',
       templateCode: 'string',
       templateType: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class GetChatappTemplateMetricResponseBodyDataCliented extends $tea.Model {
+  buttonContent?: string;
+  count?: number;
+  type?: string;
+  static names(): { [key: string]: string } {
+    return {
+      buttonContent: 'ButtonContent',
+      count: 'Count',
+      type: 'Type',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      buttonContent: 'string',
+      count: 'number',
+      type: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class GetChatappTemplateMetricResponseBodyData extends $tea.Model {
+  cliented?: GetChatappTemplateMetricResponseBodyDataCliented[];
+  deliveredCount?: number;
+  end?: number;
+  language?: string;
+  readCount?: number;
+  sentCount?: number;
+  start?: number;
+  templateCode?: string;
+  static names(): { [key: string]: string } {
+    return {
+      cliented: 'Cliented',
+      deliveredCount: 'DeliveredCount',
+      end: 'End',
+      language: 'Language',
+      readCount: 'ReadCount',
+      sentCount: 'SentCount',
+      start: 'Start',
+      templateCode: 'TemplateCode',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      cliented: { 'type': 'array', 'itemType': GetChatappTemplateMetricResponseBodyDataCliented },
+      deliveredCount: 'number',
+      end: 'number',
+      language: 'string',
+      readCount: 'number',
+      sentCount: 'number',
+      start: 'number',
+      templateCode: 'string',
     };
   }
 
@@ -3952,6 +4771,7 @@ export class ListChatappTemplateResponseBodyListTemplate extends $tea.Model {
   auditStatus?: string;
   category?: string;
   language?: string;
+  reason?: string;
   templateCode?: string;
   templateName?: string;
   templateType?: string;
@@ -3960,6 +4780,7 @@ export class ListChatappTemplateResponseBodyListTemplate extends $tea.Model {
       auditStatus: 'AuditStatus',
       category: 'Category',
       language: 'Language',
+      reason: 'Reason',
       templateCode: 'TemplateCode',
       templateName: 'TemplateName',
       templateType: 'TemplateType',
@@ -3971,9 +4792,136 @@ export class ListChatappTemplateResponseBodyListTemplate extends $tea.Model {
       auditStatus: 'string',
       category: 'string',
       language: 'string',
+      reason: 'string',
       templateCode: 'string',
       templateName: 'string',
       templateType: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class ListProductResponseBodyModelPagingCursors extends $tea.Model {
+  after?: string;
+  before?: string;
+  static names(): { [key: string]: string } {
+    return {
+      after: 'After',
+      before: 'Before',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      after: 'string',
+      before: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class ListProductResponseBodyModelPaging extends $tea.Model {
+  cursors?: ListProductResponseBodyModelPagingCursors;
+  static names(): { [key: string]: string } {
+    return {
+      cursors: 'Cursors',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      cursors: ListProductResponseBodyModelPagingCursors,
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class ListProductResponseBodyModel extends $tea.Model {
+  data?: { [key: string]: any }[];
+  paging?: ListProductResponseBodyModelPaging;
+  static names(): { [key: string]: string } {
+    return {
+      data: 'Data',
+      paging: 'Paging',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      data: { 'type': 'array', 'itemType': { 'type': 'map', 'keyType': 'string', 'valueType': 'any' } },
+      paging: ListProductResponseBodyModelPaging,
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class ListProductCatalogResponseBodyModelPagingCursors extends $tea.Model {
+  after?: string;
+  before?: string;
+  static names(): { [key: string]: string } {
+    return {
+      after: 'After',
+      before: 'Before',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      after: 'string',
+      before: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class ListProductCatalogResponseBodyModelPaging extends $tea.Model {
+  cursors?: ListProductCatalogResponseBodyModelPagingCursors;
+  static names(): { [key: string]: string } {
+    return {
+      cursors: 'Cursors',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      cursors: ListProductCatalogResponseBodyModelPagingCursors,
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class ListProductCatalogResponseBodyModel extends $tea.Model {
+  data?: { [key: string]: any }[];
+  paging?: ListProductCatalogResponseBodyModelPaging;
+  static names(): { [key: string]: string } {
+    return {
+      data: 'Data',
+      paging: 'Paging',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      data: { 'type': 'array', 'itemType': { 'type': 'map', 'keyType': 'string', 'valueType': 'any' } },
+      paging: ListProductCatalogResponseBodyModelPaging,
     };
   }
 
@@ -4421,6 +5369,51 @@ export default class Client extends OpenApi {
     return EndpointUtil.getEndpointRules(productId, regionId, endpointRule, network, suffix);
   }
 
+  async addChatappPhoneNumberWithOptions(request: AddChatappPhoneNumberRequest, runtime: $Util.RuntimeOptions): Promise<AddChatappPhoneNumberResponse> {
+    Util.validateModel(request);
+    let body : {[key: string ]: any} = { };
+    if (!Util.isUnset(request.cc)) {
+      body["Cc"] = request.cc;
+    }
+
+    if (!Util.isUnset(request.custSpaceId)) {
+      body["CustSpaceId"] = request.custSpaceId;
+    }
+
+    if (!Util.isUnset(request.phoneNumber)) {
+      body["PhoneNumber"] = request.phoneNumber;
+    }
+
+    if (!Util.isUnset(request.preValidateId)) {
+      body["PreValidateId"] = request.preValidateId;
+    }
+
+    if (!Util.isUnset(request.verifiedName)) {
+      body["VerifiedName"] = request.verifiedName;
+    }
+
+    let req = new $OpenApi.OpenApiRequest({
+      body: OpenApiUtil.parseToMap(body),
+    });
+    let params = new $OpenApi.Params({
+      action: "AddChatappPhoneNumber",
+      version: "2020-06-06",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $tea.cast<AddChatappPhoneNumberResponse>(await this.callApi(params, req, runtime), new AddChatappPhoneNumberResponse({}));
+  }
+
+  async addChatappPhoneNumber(request: AddChatappPhoneNumberRequest): Promise<AddChatappPhoneNumberResponse> {
+    let runtime = new $Util.RuntimeOptions({ });
+    return await this.addChatappPhoneNumberWithOptions(request, runtime);
+  }
+
   /**
     * You can call this operation up to 100 times per second per account. If the number of calls per second exceeds the limit, throttling is triggered. As a result, your business may be affected. We recommend that you take note of the limit when you call this operation.
     *
@@ -4765,6 +5758,39 @@ export default class Client extends OpenApi {
     return await this.chatappMigrationVerifiedWithOptions(request, runtime);
   }
 
+  async chatappPhoneNumberDeregisterWithOptions(request: ChatappPhoneNumberDeregisterRequest, runtime: $Util.RuntimeOptions): Promise<ChatappPhoneNumberDeregisterResponse> {
+    Util.validateModel(request);
+    let body : {[key: string ]: any} = { };
+    if (!Util.isUnset(request.custSpaceId)) {
+      body["CustSpaceId"] = request.custSpaceId;
+    }
+
+    if (!Util.isUnset(request.phoneNumber)) {
+      body["PhoneNumber"] = request.phoneNumber;
+    }
+
+    let req = new $OpenApi.OpenApiRequest({
+      body: OpenApiUtil.parseToMap(body),
+    });
+    let params = new $OpenApi.Params({
+      action: "ChatappPhoneNumberDeregister",
+      version: "2020-06-06",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $tea.cast<ChatappPhoneNumberDeregisterResponse>(await this.callApi(params, req, runtime), new ChatappPhoneNumberDeregisterResponse({}));
+  }
+
+  async chatappPhoneNumberDeregister(request: ChatappPhoneNumberDeregisterRequest): Promise<ChatappPhoneNumberDeregisterResponse> {
+    let runtime = new $Util.RuntimeOptions({ });
+    return await this.chatappPhoneNumberDeregisterWithOptions(request, runtime);
+  }
+
   /**
     * You can call this operation up to 10 times per second per account. If the number of calls per second exceeds the limit, throttling is triggered. As a result, your business may be affected. We recommend that you take note of the limit when you call this operation.
     *
@@ -5101,8 +6127,91 @@ export default class Client extends OpenApi {
     return await this.deleteChatappTemplateWithOptions(request, runtime);
   }
 
+  async enableWhatsappROIMetricWithOptions(request: EnableWhatsappROIMetricRequest, runtime: $Util.RuntimeOptions): Promise<EnableWhatsappROIMetricResponse> {
+    Util.validateModel(request);
+    let query = { };
+    if (!Util.isUnset(request.custSpaceId)) {
+      query["CustSpaceId"] = request.custSpaceId;
+    }
+
+    if (!Util.isUnset(request.isvCode)) {
+      query["IsvCode"] = request.isvCode;
+    }
+
+    let req = new $OpenApi.OpenApiRequest({
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApi.Params({
+      action: "EnableWhatsappROIMetric",
+      version: "2020-06-06",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $tea.cast<EnableWhatsappROIMetricResponse>(await this.callApi(params, req, runtime), new EnableWhatsappROIMetricResponse({}));
+  }
+
+  async enableWhatsappROIMetric(request: EnableWhatsappROIMetricRequest): Promise<EnableWhatsappROIMetricResponse> {
+    let runtime = new $Util.RuntimeOptions({ });
+    return await this.enableWhatsappROIMetricWithOptions(request, runtime);
+  }
+
+  async getChatappPhoneNumberMetricWithOptions(request: GetChatappPhoneNumberMetricRequest, runtime: $Util.RuntimeOptions): Promise<GetChatappPhoneNumberMetricResponse> {
+    Util.validateModel(request);
+    let query = { };
+    if (!Util.isUnset(request.custSpaceId)) {
+      query["CustSpaceId"] = request.custSpaceId;
+    }
+
+    if (!Util.isUnset(request.end)) {
+      query["End"] = request.end;
+    }
+
+    if (!Util.isUnset(request.granularity)) {
+      query["Granularity"] = request.granularity;
+    }
+
+    if (!Util.isUnset(request.isvCode)) {
+      query["IsvCode"] = request.isvCode;
+    }
+
+    if (!Util.isUnset(request.phoneNumber)) {
+      query["PhoneNumber"] = request.phoneNumber;
+    }
+
+    if (!Util.isUnset(request.start)) {
+      query["Start"] = request.start;
+    }
+
+    let req = new $OpenApi.OpenApiRequest({
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApi.Params({
+      action: "GetChatappPhoneNumberMetric",
+      version: "2020-06-06",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $tea.cast<GetChatappPhoneNumberMetricResponse>(await this.callApi(params, req, runtime), new GetChatappPhoneNumberMetricResponse({}));
+  }
+
+  async getChatappPhoneNumberMetric(request: GetChatappPhoneNumberMetricRequest): Promise<GetChatappPhoneNumberMetricResponse> {
+    let runtime = new $Util.RuntimeOptions({ });
+    return await this.getChatappPhoneNumberMetricWithOptions(request, runtime);
+  }
+
   /**
-    * The type of the file attached in the Viber message template.
+    * ### QPS limit
+    * You can call this API operation up to five times per second per account. If the number of calls per second exceeds the limit, throttling is triggered. As a result, your business may be affected. We recommend that you take note of the limit when you call this operation.
     *
     * @param request GetChatappTemplateDetailRequest
     * @param runtime runtime options for this request RuntimeOptions
@@ -5153,7 +6262,8 @@ export default class Client extends OpenApi {
   }
 
   /**
-    * The type of the file attached in the Viber message template.
+    * ### QPS limit
+    * You can call this API operation up to five times per second per account. If the number of calls per second exceeds the limit, throttling is triggered. As a result, your business may be affected. We recommend that you take note of the limit when you call this operation.
     *
     * @param request GetChatappTemplateDetailRequest
     * @return GetChatappTemplateDetailResponse
@@ -5161,6 +6271,63 @@ export default class Client extends OpenApi {
   async getChatappTemplateDetail(request: GetChatappTemplateDetailRequest): Promise<GetChatappTemplateDetailResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.getChatappTemplateDetailWithOptions(request, runtime);
+  }
+
+  async getChatappTemplateMetricWithOptions(request: GetChatappTemplateMetricRequest, runtime: $Util.RuntimeOptions): Promise<GetChatappTemplateMetricResponse> {
+    Util.validateModel(request);
+    let query = { };
+    if (!Util.isUnset(request.custSpaceId)) {
+      query["CustSpaceId"] = request.custSpaceId;
+    }
+
+    if (!Util.isUnset(request.end)) {
+      query["End"] = request.end;
+    }
+
+    if (!Util.isUnset(request.granularity)) {
+      query["Granularity"] = request.granularity;
+    }
+
+    if (!Util.isUnset(request.isvCode)) {
+      query["IsvCode"] = request.isvCode;
+    }
+
+    if (!Util.isUnset(request.language)) {
+      query["Language"] = request.language;
+    }
+
+    if (!Util.isUnset(request.start)) {
+      query["Start"] = request.start;
+    }
+
+    if (!Util.isUnset(request.templateCode)) {
+      query["TemplateCode"] = request.templateCode;
+    }
+
+    if (!Util.isUnset(request.templateType)) {
+      query["TemplateType"] = request.templateType;
+    }
+
+    let req = new $OpenApi.OpenApiRequest({
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApi.Params({
+      action: "GetChatappTemplateMetric",
+      version: "2020-06-06",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $tea.cast<GetChatappTemplateMetricResponse>(await this.callApi(params, req, runtime), new GetChatappTemplateMetricResponse({}));
+  }
+
+  async getChatappTemplateMetric(request: GetChatappTemplateMetricRequest): Promise<GetChatappTemplateMetricResponse> {
+    let runtime = new $Util.RuntimeOptions({ });
+    return await this.getChatappTemplateMetricWithOptions(request, runtime);
   }
 
   /**
@@ -5392,6 +6559,51 @@ export default class Client extends OpenApi {
     return await this.getPreValidatePhoneIdWithOptions(request, runtime);
   }
 
+  async getWhatsappConnectionCatalogWithOptions(request: GetWhatsappConnectionCatalogRequest, runtime: $Util.RuntimeOptions): Promise<GetWhatsappConnectionCatalogResponse> {
+    Util.validateModel(request);
+    let query = { };
+    if (!Util.isUnset(request.custSpaceId)) {
+      query["CustSpaceId"] = request.custSpaceId;
+    }
+
+    if (!Util.isUnset(request.ownerId)) {
+      query["OwnerId"] = request.ownerId;
+    }
+
+    if (!Util.isUnset(request.resourceOwnerAccount)) {
+      query["ResourceOwnerAccount"] = request.resourceOwnerAccount;
+    }
+
+    if (!Util.isUnset(request.resourceOwnerId)) {
+      query["ResourceOwnerId"] = request.resourceOwnerId;
+    }
+
+    if (!Util.isUnset(request.wabaId)) {
+      query["WabaId"] = request.wabaId;
+    }
+
+    let req = new $OpenApi.OpenApiRequest({
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApi.Params({
+      action: "GetWhatsappConnectionCatalog",
+      version: "2020-06-06",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $tea.cast<GetWhatsappConnectionCatalogResponse>(await this.callApi(params, req, runtime), new GetWhatsappConnectionCatalogResponse({}));
+  }
+
+  async getWhatsappConnectionCatalog(request: GetWhatsappConnectionCatalogRequest): Promise<GetWhatsappConnectionCatalogResponse> {
+    let runtime = new $Util.RuntimeOptions({ });
+    return await this.getWhatsappConnectionCatalogWithOptions(request, runtime);
+  }
+
   /**
     * You can call this operation up to 10 times per second per account. If the number of calls per second exceeds the limit, throttling is triggered. As a result, your business may be affected. We recommend that you take note of the limit when you call this operation.
     *
@@ -5510,6 +6722,132 @@ export default class Client extends OpenApi {
   async listChatappTemplate(request: ListChatappTemplateRequest): Promise<ListChatappTemplateResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.listChatappTemplateWithOptions(request, runtime);
+  }
+
+  async listProductWithOptions(request: ListProductRequest, runtime: $Util.RuntimeOptions): Promise<ListProductResponse> {
+    Util.validateModel(request);
+    let query = { };
+    if (!Util.isUnset(request.after)) {
+      query["After"] = request.after;
+    }
+
+    if (!Util.isUnset(request.before)) {
+      query["Before"] = request.before;
+    }
+
+    if (!Util.isUnset(request.catalogId)) {
+      query["CatalogId"] = request.catalogId;
+    }
+
+    if (!Util.isUnset(request.custSpaceId)) {
+      query["CustSpaceId"] = request.custSpaceId;
+    }
+
+    if (!Util.isUnset(request.fields)) {
+      query["Fields"] = request.fields;
+    }
+
+    if (!Util.isUnset(request.limit)) {
+      query["Limit"] = request.limit;
+    }
+
+    if (!Util.isUnset(request.ownerId)) {
+      query["OwnerId"] = request.ownerId;
+    }
+
+    if (!Util.isUnset(request.resourceOwnerAccount)) {
+      query["ResourceOwnerAccount"] = request.resourceOwnerAccount;
+    }
+
+    if (!Util.isUnset(request.resourceOwnerId)) {
+      query["ResourceOwnerId"] = request.resourceOwnerId;
+    }
+
+    if (!Util.isUnset(request.wabaId)) {
+      query["WabaId"] = request.wabaId;
+    }
+
+    let req = new $OpenApi.OpenApiRequest({
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApi.Params({
+      action: "ListProduct",
+      version: "2020-06-06",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $tea.cast<ListProductResponse>(await this.callApi(params, req, runtime), new ListProductResponse({}));
+  }
+
+  async listProduct(request: ListProductRequest): Promise<ListProductResponse> {
+    let runtime = new $Util.RuntimeOptions({ });
+    return await this.listProductWithOptions(request, runtime);
+  }
+
+  async listProductCatalogWithOptions(request: ListProductCatalogRequest, runtime: $Util.RuntimeOptions): Promise<ListProductCatalogResponse> {
+    Util.validateModel(request);
+    let query = { };
+    if (!Util.isUnset(request.after)) {
+      query["After"] = request.after;
+    }
+
+    if (!Util.isUnset(request.before)) {
+      query["Before"] = request.before;
+    }
+
+    if (!Util.isUnset(request.businessId)) {
+      query["BusinessId"] = request.businessId;
+    }
+
+    if (!Util.isUnset(request.custSpaceId)) {
+      query["CustSpaceId"] = request.custSpaceId;
+    }
+
+    if (!Util.isUnset(request.fields)) {
+      query["Fields"] = request.fields;
+    }
+
+    if (!Util.isUnset(request.limit)) {
+      query["Limit"] = request.limit;
+    }
+
+    if (!Util.isUnset(request.ownerId)) {
+      query["OwnerId"] = request.ownerId;
+    }
+
+    if (!Util.isUnset(request.resourceOwnerAccount)) {
+      query["ResourceOwnerAccount"] = request.resourceOwnerAccount;
+    }
+
+    if (!Util.isUnset(request.resourceOwnerId)) {
+      query["ResourceOwnerId"] = request.resourceOwnerId;
+    }
+
+    let req = new $OpenApi.OpenApiRequest({
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApi.Params({
+      action: "ListProductCatalog",
+      version: "2020-06-06",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $tea.cast<ListProductCatalogResponse>(await this.callApi(params, req, runtime), new ListProductCatalogResponse({}));
+  }
+
+  async listProductCatalog(request: ListProductCatalogRequest): Promise<ListProductCatalogResponse> {
+    let runtime = new $Util.RuntimeOptions({ });
+    return await this.listProductCatalogWithOptions(request, runtime);
   }
 
   /**
