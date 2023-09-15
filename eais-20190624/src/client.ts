@@ -1110,6 +1110,7 @@ export class DeleteEaisEiResponse extends $tea.Model {
 }
 
 export class DescribeEaisRequest extends $tea.Model {
+  clientInstanceId?: string;
   elasticAcceleratedInstanceIds?: string;
   instanceName?: string;
   instanceType?: string;
@@ -1121,6 +1122,7 @@ export class DescribeEaisRequest extends $tea.Model {
   tag?: DescribeEaisRequestTag[];
   static names(): { [key: string]: string } {
     return {
+      clientInstanceId: 'ClientInstanceId',
       elasticAcceleratedInstanceIds: 'ElasticAcceleratedInstanceIds',
       instanceName: 'InstanceName',
       instanceType: 'InstanceType',
@@ -1135,6 +1137,7 @@ export class DescribeEaisRequest extends $tea.Model {
 
   static types(): { [key: string]: any } {
     return {
+      clientInstanceId: 'string',
       elasticAcceleratedInstanceIds: 'string',
       instanceName: 'string',
       instanceType: 'string',
@@ -2678,6 +2681,10 @@ export default class Client extends OpenApi {
   async describeEaisWithOptions(request: DescribeEaisRequest, runtime: $Util.RuntimeOptions): Promise<DescribeEaisResponse> {
     Util.validateModel(request);
     let query = { };
+    if (!Util.isUnset(request.clientInstanceId)) {
+      query["ClientInstanceId"] = request.clientInstanceId;
+    }
+
     if (!Util.isUnset(request.elasticAcceleratedInstanceIds)) {
       query["ElasticAcceleratedInstanceIds"] = request.elasticAcceleratedInstanceIds;
     }
