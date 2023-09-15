@@ -135,8 +135,8 @@ export class LogContent extends $tea.Model {
 }
 
 export class LogGroup extends $tea.Model {
-  logTags?: LogTag;
-  logs?: LogItem;
+  logTags?: LogTag[];
+  logs?: LogItem[];
   source?: string;
   topic?: string;
   static names(): { [key: string]: string } {
@@ -150,8 +150,8 @@ export class LogGroup extends $tea.Model {
 
   static types(): { [key: string]: any } {
     return {
-      logTags: LogTag,
-      logs: LogItem,
+      logTags: { 'type': 'array', 'itemType': LogTag },
+      logs: { 'type': 'array', 'itemType': LogItem },
       source: 'string',
       topic: 'string',
     };
@@ -289,6 +289,191 @@ export class LogtailPipelineConfig extends $tea.Model {
   }
 }
 
+export class MLDataParam extends $tea.Model {
+  annotationdataId?: string;
+  annotations?: { [key: string]: MLDataParamAnnotationsValue };
+  config?: { [key: string]: string };
+  createTime?: number;
+  dataHash?: string;
+  datasetId?: string;
+  lastModifyTime?: number;
+  predictions?: { [key: string]: MLDataParamPredictionsValue };
+  value?: string;
+  valueType?: string;
+  static names(): { [key: string]: string } {
+    return {
+      annotationdataId: 'annotationdataId',
+      annotations: 'annotations',
+      config: 'config',
+      createTime: 'createTime',
+      dataHash: 'dataHash',
+      datasetId: 'datasetId',
+      lastModifyTime: 'lastModifyTime',
+      predictions: 'predictions',
+      value: 'value',
+      valueType: 'valueType',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      annotationdataId: 'string',
+      annotations: { 'type': 'map', 'keyType': 'string', 'valueType': MLDataParamAnnotationsValue },
+      config: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      createTime: 'number',
+      dataHash: 'string',
+      datasetId: 'string',
+      lastModifyTime: 'number',
+      predictions: { 'type': 'map', 'keyType': 'string', 'valueType': MLDataParamPredictionsValue },
+      value: 'string',
+      valueType: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class MLDataSetParam extends $tea.Model {
+  createBy?: string;
+  createTime?: number;
+  dataType?: string;
+  datasetId?: string;
+  description?: string;
+  labelId?: string;
+  lastModifyTime?: number;
+  name?: string;
+  settingType?: string;
+  static names(): { [key: string]: string } {
+    return {
+      createBy: 'createBy',
+      createTime: 'createTime',
+      dataType: 'dataType',
+      datasetId: 'datasetId',
+      description: 'description',
+      labelId: 'labelId',
+      lastModifyTime: 'lastModifyTime',
+      name: 'name',
+      settingType: 'settingType',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      createBy: 'string',
+      createTime: 'number',
+      dataType: 'string',
+      datasetId: 'string',
+      description: 'string',
+      labelId: 'string',
+      lastModifyTime: 'number',
+      name: 'string',
+      settingType: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class MLLabelParam extends $tea.Model {
+  createTime?: number;
+  description?: string;
+  labelId?: string;
+  lastModifyTime?: number;
+  name?: string;
+  settings?: MLLabelParamSettings[];
+  type?: string;
+  static names(): { [key: string]: string } {
+    return {
+      createTime: 'createTime',
+      description: 'description',
+      labelId: 'labelId',
+      lastModifyTime: 'lastModifyTime',
+      name: 'name',
+      settings: 'settings',
+      type: 'type',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      createTime: 'number',
+      description: 'string',
+      labelId: 'string',
+      lastModifyTime: 'number',
+      name: 'string',
+      settings: { 'type': 'array', 'itemType': MLLabelParamSettings },
+      type: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class MLServiceAnalysisParam extends $tea.Model {
+  input?: { [key: string]: string }[];
+  parameter?: { [key: string]: string };
+  static names(): { [key: string]: string } {
+    return {
+      input: 'input',
+      parameter: 'parameter',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      input: { 'type': 'array', 'itemType': { 'type': 'map', 'keyType': 'string', 'valueType': 'string' } },
+      parameter: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class MLServiceParam extends $tea.Model {
+  description?: string;
+  model?: MLServiceParamModel;
+  name?: string;
+  resource?: MLServiceParamResource;
+  serviceType?: string;
+  status?: string;
+  updateTimestamp?: number;
+  static names(): { [key: string]: string } {
+    return {
+      description: 'description',
+      model: 'model',
+      name: 'name',
+      resource: 'resource',
+      serviceType: 'serviceType',
+      status: 'status',
+      updateTimestamp: 'updateTimestamp',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      description: 'string',
+      model: MLServiceParamModel,
+      name: 'string',
+      resource: MLServiceParamResource,
+      serviceType: 'string',
+      status: 'string',
+      updateTimestamp: 'number',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
 export class SavedSearch extends $tea.Model {
   displayName?: string;
   logstore?: string;
@@ -312,6 +497,64 @@ export class SavedSearch extends $tea.Model {
       savedsearchName: 'string',
       searchQuery: 'string',
       topic: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class Ticket extends $tea.Model {
+  callerUid?: number;
+  createDate?: string;
+  expirationTime?: number;
+  expireDate?: string;
+  extra?: string;
+  name?: string;
+  number?: number;
+  policy?: string;
+  ticket?: string;
+  ticketId?: string;
+  unlimitedExpiration?: boolean;
+  unlimitedNumber?: boolean;
+  usedNumber?: number;
+  valid?: boolean;
+  static names(): { [key: string]: string } {
+    return {
+      callerUid: 'callerUid',
+      createDate: 'createDate',
+      expirationTime: 'expirationTime',
+      expireDate: 'expireDate',
+      extra: 'extra',
+      name: 'name',
+      number: 'number',
+      policy: 'policy',
+      ticket: 'ticket',
+      ticketId: 'ticketId',
+      unlimitedExpiration: 'unlimitedExpiration',
+      unlimitedNumber: 'unlimitedNumber',
+      usedNumber: 'usedNumber',
+      valid: 'valid',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      callerUid: 'number',
+      createDate: 'string',
+      expirationTime: 'number',
+      expireDate: 'string',
+      extra: 'string',
+      name: 'string',
+      number: 'number',
+      policy: 'string',
+      ticket: 'string',
+      ticketId: 'string',
+      unlimitedExpiration: 'boolean',
+      unlimitedNumber: 'boolean',
+      usedNumber: 'number',
+      valid: 'boolean',
     };
   }
 
@@ -717,6 +960,56 @@ export class Shard extends $tea.Model {
       inclusiveBeginKey: 'string',
       shardID: 'number',
       status: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class MLDataParamAnnotationsValue extends $tea.Model {
+  annotatedBy?: string;
+  updateTime?: number;
+  results?: string[];
+  static names(): { [key: string]: string } {
+    return {
+      annotatedBy: 'annotatedBy',
+      updateTime: 'updateTime',
+      results: 'results',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      annotatedBy: 'string',
+      updateTime: 'number',
+      results: { 'type': 'array', 'itemType': 'string' },
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class MLDataParamPredictionsValue extends $tea.Model {
+  annotatedBy?: string;
+  updateTime?: number;
+  results?: string[];
+  static names(): { [key: string]: string } {
+    return {
+      annotatedBy: 'annotatedBy',
+      updateTime: 'updateTime',
+      results: 'results',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      annotatedBy: 'string',
+      updateTime: 'number',
+      results: { 'type': 'array', 'itemType': 'string' },
     };
   }
 
@@ -1253,6 +1546,65 @@ export class CreateLoggingResponse extends $tea.Model {
   }
 }
 
+export class CreateLogtailPipelineConfigRequest extends $tea.Model {
+  aggregators?: { [key: string]: any }[];
+  configName?: string;
+  flushers?: { [key: string]: any }[];
+  global?: { [key: string]: any };
+  inputs?: { [key: string]: any }[];
+  logSample?: string;
+  processors?: { [key: string]: any }[];
+  static names(): { [key: string]: string } {
+    return {
+      aggregators: 'aggregators',
+      configName: 'configName',
+      flushers: 'flushers',
+      global: 'global',
+      inputs: 'inputs',
+      logSample: 'logSample',
+      processors: 'processors',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      aggregators: { 'type': 'array', 'itemType': { 'type': 'map', 'keyType': 'string', 'valueType': 'any' } },
+      configName: 'string',
+      flushers: { 'type': 'array', 'itemType': { 'type': 'map', 'keyType': 'string', 'valueType': 'any' } },
+      global: { 'type': 'map', 'keyType': 'string', 'valueType': 'any' },
+      inputs: { 'type': 'array', 'itemType': { 'type': 'map', 'keyType': 'string', 'valueType': 'any' } },
+      logSample: 'string',
+      processors: { 'type': 'array', 'itemType': { 'type': 'map', 'keyType': 'string', 'valueType': 'any' } },
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class CreateLogtailPipelineConfigResponse extends $tea.Model {
+  headers: { [key: string]: string };
+  statusCode: number;
+  static names(): { [key: string]: string } {
+    return {
+      headers: 'headers',
+      statusCode: 'statusCode',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
 export class CreateMachineGroupRequest extends $tea.Model {
   groupAttribute?: CreateMachineGroupRequestGroupAttribute;
   groupName?: string;
@@ -1752,6 +2104,28 @@ export class DeleteLogStoreResponse extends $tea.Model {
 }
 
 export class DeleteLoggingResponse extends $tea.Model {
+  headers: { [key: string]: string };
+  statusCode: number;
+  static names(): { [key: string]: string } {
+    return {
+      headers: 'headers',
+      statusCode: 'statusCode',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class DeleteLogtailPipelineConfigResponse extends $tea.Model {
   headers: { [key: string]: string };
   statusCode: number;
   static names(): { [key: string]: string } {
@@ -2666,6 +3040,31 @@ export class GetLogsV2Response extends $tea.Model {
   }
 }
 
+export class GetLogtailPipelineConfigResponse extends $tea.Model {
+  headers: { [key: string]: string };
+  statusCode: number;
+  body: LogtailPipelineConfig;
+  static names(): { [key: string]: string } {
+    return {
+      headers: 'headers',
+      statusCode: 'statusCode',
+      body: 'body',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
+      body: LogtailPipelineConfig,
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
 export class GetMachineGroupResponse extends $tea.Model {
   headers: { [key: string]: string };
   statusCode: number;
@@ -3292,6 +3691,84 @@ export class ListLogStoresResponse extends $tea.Model {
       headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
       statusCode: 'number',
       body: ListLogStoresResponseBody,
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class ListLogtailPipelineConfigRequest extends $tea.Model {
+  configName?: string;
+  logstore?: string;
+  offset?: number;
+  size?: number;
+  static names(): { [key: string]: string } {
+    return {
+      configName: 'configName',
+      logstore: 'logstore',
+      offset: 'offset',
+      size: 'size',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      configName: 'string',
+      logstore: 'string',
+      offset: 'number',
+      size: 'number',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class ListLogtailPipelineConfigResponseBody extends $tea.Model {
+  configs?: string[];
+  count?: number;
+  total?: number;
+  static names(): { [key: string]: string } {
+    return {
+      configs: 'configs',
+      count: 'count',
+      total: 'total',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      configs: { 'type': 'array', 'itemType': 'string' },
+      count: 'number',
+      total: 'number',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class ListLogtailPipelineConfigResponse extends $tea.Model {
+  headers: { [key: string]: string };
+  statusCode: number;
+  body: ListLogtailPipelineConfigResponseBody;
+  static names(): { [key: string]: string } {
+    return {
+      headers: 'headers',
+      statusCode: 'statusCode',
+      body: 'body',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
+      body: ListLogtailPipelineConfigResponseBody,
     };
   }
 
@@ -4382,6 +4859,65 @@ export class UpdateLoggingResponse extends $tea.Model {
   }
 }
 
+export class UpdateLogtailPipelineConfigRequest extends $tea.Model {
+  aggregators?: { [key: string]: any }[];
+  configName?: string;
+  flushers?: { [key: string]: any }[];
+  global?: { [key: string]: any };
+  inputs?: { [key: string]: any }[];
+  logSample?: string;
+  processors?: { [key: string]: any }[];
+  static names(): { [key: string]: string } {
+    return {
+      aggregators: 'aggregators',
+      configName: 'configName',
+      flushers: 'flushers',
+      global: 'global',
+      inputs: 'inputs',
+      logSample: 'logSample',
+      processors: 'processors',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      aggregators: { 'type': 'array', 'itemType': { 'type': 'map', 'keyType': 'string', 'valueType': 'any' } },
+      configName: 'string',
+      flushers: { 'type': 'array', 'itemType': { 'type': 'map', 'keyType': 'string', 'valueType': 'any' } },
+      global: { 'type': 'map', 'keyType': 'string', 'valueType': 'any' },
+      inputs: { 'type': 'array', 'itemType': { 'type': 'map', 'keyType': 'string', 'valueType': 'any' } },
+      logSample: 'string',
+      processors: { 'type': 'array', 'itemType': { 'type': 'map', 'keyType': 'string', 'valueType': 'any' } },
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class UpdateLogtailPipelineConfigResponse extends $tea.Model {
+  headers: { [key: string]: string };
+  statusCode: number;
+  static names(): { [key: string]: string } {
+    return {
+      headers: 'headers',
+      statusCode: 'statusCode',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
 export class UpdateMachineGroupRequest extends $tea.Model {
   groupAttribute?: UpdateMachineGroupRequestGroupAttribute;
   groupName?: string;
@@ -4778,6 +5314,84 @@ export class LogtailConfigOutputDetail extends $tea.Model {
       endpoint: 'string',
       logstoreName: 'string',
       region: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class MLLabelParamSettings extends $tea.Model {
+  config?: string;
+  mode?: string;
+  type?: string;
+  version?: string;
+  static names(): { [key: string]: string } {
+    return {
+      config: 'config',
+      mode: 'mode',
+      type: 'type',
+      version: 'version',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      config: 'string',
+      mode: 'string',
+      type: 'string',
+      version: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class MLServiceParamModel extends $tea.Model {
+  modelResourceId?: string;
+  modelResourceType?: string;
+  static names(): { [key: string]: string } {
+    return {
+      modelResourceId: 'modelResourceId',
+      modelResourceType: 'modelResourceType',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      modelResourceId: 'string',
+      modelResourceType: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class MLServiceParamResource extends $tea.Model {
+  cpuLimit?: number;
+  gpu?: number;
+  memoryLimit?: number;
+  replica?: number;
+  static names(): { [key: string]: string } {
+    return {
+      cpuLimit: 'cpuLimit',
+      gpu: 'gpu',
+      memoryLimit: 'memoryLimit',
+      replica: 'replica',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      cpuLimit: 'number',
+      gpu: 'number',
+      memoryLimit: 'number',
+      replica: 'number',
     };
   }
 
@@ -6255,6 +6869,64 @@ export default class Client extends OpenApi {
     return await this.createLoggingWithOptions(project, request, headers, runtime);
   }
 
+  async createLogtailPipelineConfigWithOptions(project: string, request: CreateLogtailPipelineConfigRequest, headers: {[key: string ]: string}, runtime: $Util.RuntimeOptions): Promise<CreateLogtailPipelineConfigResponse> {
+    Util.validateModel(request);
+    let hostMap : {[key: string ]: string} = { };
+    hostMap["project"] = project;
+    let body : {[key: string ]: any} = { };
+    if (!Util.isUnset(request.aggregators)) {
+      body["aggregators"] = request.aggregators;
+    }
+
+    if (!Util.isUnset(request.configName)) {
+      body["configName"] = request.configName;
+    }
+
+    if (!Util.isUnset(request.flushers)) {
+      body["flushers"] = request.flushers;
+    }
+
+    if (!Util.isUnset(request.global)) {
+      body["global"] = request.global;
+    }
+
+    if (!Util.isUnset(request.inputs)) {
+      body["inputs"] = request.inputs;
+    }
+
+    if (!Util.isUnset(request.logSample)) {
+      body["logSample"] = request.logSample;
+    }
+
+    if (!Util.isUnset(request.processors)) {
+      body["processors"] = request.processors;
+    }
+
+    let req = new $OpenApi.OpenApiRequest({
+      hostMap: hostMap,
+      headers: headers,
+      body: OpenApiUtil.parseToMap(body),
+    });
+    let params = new $OpenApi.Params({
+      action: "CreateLogtailPipelineConfig",
+      version: "2020-12-30",
+      protocol: "HTTPS",
+      pathname: `/pipelineconfigs`,
+      method: "POST",
+      authType: "AK",
+      style: "ROA",
+      reqBodyType: "json",
+      bodyType: "none",
+    });
+    return $tea.cast<CreateLogtailPipelineConfigResponse>(await this.execute(params, req, runtime), new CreateLogtailPipelineConfigResponse({}));
+  }
+
+  async createLogtailPipelineConfig(project: string, request: CreateLogtailPipelineConfigRequest): Promise<CreateLogtailPipelineConfigResponse> {
+    let runtime = new $Util.RuntimeOptions({ });
+    let headers : {[key: string ]: string} = { };
+    return await this.createLogtailPipelineConfigWithOptions(project, request, headers, runtime);
+  }
+
   async createMachineGroupWithOptions(project: string, request: CreateMachineGroupRequest, headers: {[key: string ]: string}, runtime: $Util.RuntimeOptions): Promise<CreateMachineGroupResponse> {
     Util.validateModel(request);
     let hostMap : {[key: string ]: string} = { };
@@ -6780,6 +7452,33 @@ export default class Client extends OpenApi {
     let runtime = new $Util.RuntimeOptions({ });
     let headers : {[key: string ]: string} = { };
     return await this.deleteLoggingWithOptions(project, headers, runtime);
+  }
+
+  async deleteLogtailPipelineConfigWithOptions(project: string, configName: string, headers: {[key: string ]: string}, runtime: $Util.RuntimeOptions): Promise<DeleteLogtailPipelineConfigResponse> {
+    let hostMap : {[key: string ]: string} = { };
+    hostMap["project"] = project;
+    let req = new $OpenApi.OpenApiRequest({
+      hostMap: hostMap,
+      headers: headers,
+    });
+    let params = new $OpenApi.Params({
+      action: "DeleteLogtailPipelineConfig",
+      version: "2020-12-30",
+      protocol: "HTTPS",
+      pathname: `/pipelineconfigs/${configName}`,
+      method: "DELETE",
+      authType: "AK",
+      style: "ROA",
+      reqBodyType: "json",
+      bodyType: "none",
+    });
+    return $tea.cast<DeleteLogtailPipelineConfigResponse>(await this.execute(params, req, runtime), new DeleteLogtailPipelineConfigResponse({}));
+  }
+
+  async deleteLogtailPipelineConfig(project: string, configName: string): Promise<DeleteLogtailPipelineConfigResponse> {
+    let runtime = new $Util.RuntimeOptions({ });
+    let headers : {[key: string ]: string} = { };
+    return await this.deleteLogtailPipelineConfigWithOptions(project, configName, headers, runtime);
   }
 
   async deleteMachineGroupWithOptions(project: string, machineGroup: string, headers: {[key: string ]: string}, runtime: $Util.RuntimeOptions): Promise<DeleteMachineGroupResponse> {
@@ -7476,6 +8175,33 @@ export default class Client extends OpenApi {
     return await this.getLogsV2WithOptions(project, logstore, request, headers, runtime);
   }
 
+  async getLogtailPipelineConfigWithOptions(project: string, configName: string, headers: {[key: string ]: string}, runtime: $Util.RuntimeOptions): Promise<GetLogtailPipelineConfigResponse> {
+    let hostMap : {[key: string ]: string} = { };
+    hostMap["project"] = project;
+    let req = new $OpenApi.OpenApiRequest({
+      hostMap: hostMap,
+      headers: headers,
+    });
+    let params = new $OpenApi.Params({
+      action: "GetLogtailPipelineConfig",
+      version: "2020-12-30",
+      protocol: "HTTPS",
+      pathname: `/pipelineconfigs/${configName}`,
+      method: "GET",
+      authType: "AK",
+      style: "ROA",
+      reqBodyType: "json",
+      bodyType: "json",
+    });
+    return $tea.cast<GetLogtailPipelineConfigResponse>(await this.execute(params, req, runtime), new GetLogtailPipelineConfigResponse({}));
+  }
+
+  async getLogtailPipelineConfig(project: string, configName: string): Promise<GetLogtailPipelineConfigResponse> {
+    let runtime = new $Util.RuntimeOptions({ });
+    let headers : {[key: string ]: string} = { };
+    return await this.getLogtailPipelineConfigWithOptions(project, configName, headers, runtime);
+  }
+
   async getMachineGroupWithOptions(project: string, machineGroup: string, headers: {[key: string ]: string}, runtime: $Util.RuntimeOptions): Promise<GetMachineGroupResponse> {
     let hostMap : {[key: string ]: string} = { };
     hostMap["project"] = project;
@@ -7915,6 +8641,52 @@ export default class Client extends OpenApi {
     let runtime = new $Util.RuntimeOptions({ });
     let headers : {[key: string ]: string} = { };
     return await this.listLogStoresWithOptions(project, request, headers, runtime);
+  }
+
+  async listLogtailPipelineConfigWithOptions(project: string, request: ListLogtailPipelineConfigRequest, headers: {[key: string ]: string}, runtime: $Util.RuntimeOptions): Promise<ListLogtailPipelineConfigResponse> {
+    Util.validateModel(request);
+    let hostMap : {[key: string ]: string} = { };
+    hostMap["project"] = project;
+    let query : {[key: string ]: any} = { };
+    if (!Util.isUnset(request.configName)) {
+      query["configName"] = request.configName;
+    }
+
+    if (!Util.isUnset(request.logstore)) {
+      query["logstore"] = request.logstore;
+    }
+
+    if (!Util.isUnset(request.offset)) {
+      query["offset"] = request.offset;
+    }
+
+    if (!Util.isUnset(request.size)) {
+      query["size"] = request.size;
+    }
+
+    let req = new $OpenApi.OpenApiRequest({
+      hostMap: hostMap,
+      headers: headers,
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApi.Params({
+      action: "ListLogtailPipelineConfig",
+      version: "2020-12-30",
+      protocol: "HTTPS",
+      pathname: `/pipelineconfigs`,
+      method: "GET",
+      authType: "AK",
+      style: "ROA",
+      reqBodyType: "json",
+      bodyType: "json",
+    });
+    return $tea.cast<ListLogtailPipelineConfigResponse>(await this.execute(params, req, runtime), new ListLogtailPipelineConfigResponse({}));
+  }
+
+  async listLogtailPipelineConfig(project: string, request: ListLogtailPipelineConfigRequest): Promise<ListLogtailPipelineConfigResponse> {
+    let runtime = new $Util.RuntimeOptions({ });
+    let headers : {[key: string ]: string} = { };
+    return await this.listLogtailPipelineConfigWithOptions(project, request, headers, runtime);
   }
 
   async listMachineGroupWithOptions(project: string, request: ListMachineGroupRequest, headers: {[key: string ]: string}, runtime: $Util.RuntimeOptions): Promise<ListMachineGroupResponse> {
@@ -8726,6 +9498,64 @@ export default class Client extends OpenApi {
     let runtime = new $Util.RuntimeOptions({ });
     let headers : {[key: string ]: string} = { };
     return await this.updateLoggingWithOptions(project, request, headers, runtime);
+  }
+
+  async updateLogtailPipelineConfigWithOptions(project: string, configName: string, request: UpdateLogtailPipelineConfigRequest, headers: {[key: string ]: string}, runtime: $Util.RuntimeOptions): Promise<UpdateLogtailPipelineConfigResponse> {
+    Util.validateModel(request);
+    let hostMap : {[key: string ]: string} = { };
+    hostMap["project"] = project;
+    let body : {[key: string ]: any} = { };
+    if (!Util.isUnset(request.aggregators)) {
+      body["aggregators"] = request.aggregators;
+    }
+
+    if (!Util.isUnset(request.configName)) {
+      body["configName"] = request.configName;
+    }
+
+    if (!Util.isUnset(request.flushers)) {
+      body["flushers"] = request.flushers;
+    }
+
+    if (!Util.isUnset(request.global)) {
+      body["global"] = request.global;
+    }
+
+    if (!Util.isUnset(request.inputs)) {
+      body["inputs"] = request.inputs;
+    }
+
+    if (!Util.isUnset(request.logSample)) {
+      body["logSample"] = request.logSample;
+    }
+
+    if (!Util.isUnset(request.processors)) {
+      body["processors"] = request.processors;
+    }
+
+    let req = new $OpenApi.OpenApiRequest({
+      hostMap: hostMap,
+      headers: headers,
+      body: OpenApiUtil.parseToMap(body),
+    });
+    let params = new $OpenApi.Params({
+      action: "UpdateLogtailPipelineConfig",
+      version: "2020-12-30",
+      protocol: "HTTPS",
+      pathname: `/pipelineconfigs/${configName}`,
+      method: "PUT",
+      authType: "AK",
+      style: "ROA",
+      reqBodyType: "json",
+      bodyType: "none",
+    });
+    return $tea.cast<UpdateLogtailPipelineConfigResponse>(await this.execute(params, req, runtime), new UpdateLogtailPipelineConfigResponse({}));
+  }
+
+  async updateLogtailPipelineConfig(project: string, configName: string, request: UpdateLogtailPipelineConfigRequest): Promise<UpdateLogtailPipelineConfigResponse> {
+    let runtime = new $Util.RuntimeOptions({ });
+    let headers : {[key: string ]: string} = { };
+    return await this.updateLogtailPipelineConfigWithOptions(project, configName, request, headers, runtime);
   }
 
   async updateMachineGroupWithOptions(project: string, groupName: string, request: UpdateMachineGroupRequest, headers: {[key: string ]: string}, runtime: $Util.RuntimeOptions): Promise<UpdateMachineGroupResponse> {
