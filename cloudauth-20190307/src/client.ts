@@ -1129,6 +1129,84 @@ export class DetectFaceAttributesResponse extends $tea.Model {
   }
 }
 
+export class Id2MetaVerifyRequest extends $tea.Model {
+  identifyNum?: string;
+  paramType?: string;
+  userName?: string;
+  static names(): { [key: string]: string } {
+    return {
+      identifyNum: 'IdentifyNum',
+      paramType: 'ParamType',
+      userName: 'UserName',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      identifyNum: 'string',
+      paramType: 'string',
+      userName: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class Id2MetaVerifyResponseBody extends $tea.Model {
+  code?: string;
+  message?: string;
+  requestId?: string;
+  resultObject?: Id2MetaVerifyResponseBodyResultObject;
+  static names(): { [key: string]: string } {
+    return {
+      code: 'Code',
+      message: 'Message',
+      requestId: 'RequestId',
+      resultObject: 'ResultObject',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      code: 'string',
+      message: 'string',
+      requestId: 'string',
+      resultObject: Id2MetaVerifyResponseBodyResultObject,
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class Id2MetaVerifyResponse extends $tea.Model {
+  headers: { [key: string]: string };
+  statusCode: number;
+  body: Id2MetaVerifyResponseBody;
+  static names(): { [key: string]: string } {
+    return {
+      headers: 'headers',
+      statusCode: 'statusCode',
+      body: 'body',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
+      body: Id2MetaVerifyResponseBody,
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
 export class InitFaceVerifyRequest extends $tea.Model {
   authId?: string;
   birthday?: string;
@@ -1394,6 +1472,168 @@ export class LivenessFaceVerifyResponse extends $tea.Model {
       headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
       statusCode: 'number',
       body: LivenessFaceVerifyResponseBody,
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class Mobile3MetaDetailVerifyRequest extends $tea.Model {
+  identifyNum?: string;
+  mobile?: string;
+  paramType?: string;
+  userName?: string;
+  static names(): { [key: string]: string } {
+    return {
+      identifyNum: 'IdentifyNum',
+      mobile: 'Mobile',
+      paramType: 'ParamType',
+      userName: 'UserName',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      identifyNum: 'string',
+      mobile: 'string',
+      paramType: 'string',
+      userName: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class Mobile3MetaDetailVerifyResponseBody extends $tea.Model {
+  code?: string;
+  message?: string;
+  requestId?: string;
+  resultObject?: Mobile3MetaDetailVerifyResponseBodyResultObject;
+  static names(): { [key: string]: string } {
+    return {
+      code: 'Code',
+      message: 'Message',
+      requestId: 'RequestId',
+      resultObject: 'ResultObject',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      code: 'string',
+      message: 'string',
+      requestId: 'string',
+      resultObject: Mobile3MetaDetailVerifyResponseBodyResultObject,
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class Mobile3MetaDetailVerifyResponse extends $tea.Model {
+  headers: { [key: string]: string };
+  statusCode: number;
+  body: Mobile3MetaDetailVerifyResponseBody;
+  static names(): { [key: string]: string } {
+    return {
+      headers: 'headers',
+      statusCode: 'statusCode',
+      body: 'body',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
+      body: Mobile3MetaDetailVerifyResponseBody,
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class Mobile3MetaSimpleVerifyRequest extends $tea.Model {
+  identifyNum?: string;
+  mobile?: string;
+  paramType?: string;
+  userName?: string;
+  static names(): { [key: string]: string } {
+    return {
+      identifyNum: 'IdentifyNum',
+      mobile: 'Mobile',
+      paramType: 'ParamType',
+      userName: 'UserName',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      identifyNum: 'string',
+      mobile: 'string',
+      paramType: 'string',
+      userName: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class Mobile3MetaSimpleVerifyResponseBody extends $tea.Model {
+  code?: string;
+  message?: string;
+  requestId?: string;
+  resultObject?: Mobile3MetaSimpleVerifyResponseBodyResultObject;
+  static names(): { [key: string]: string } {
+    return {
+      code: 'Code',
+      message: 'Message',
+      requestId: 'RequestId',
+      resultObject: 'ResultObject',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      code: 'string',
+      message: 'string',
+      requestId: 'string',
+      resultObject: Mobile3MetaSimpleVerifyResponseBodyResultObject,
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class Mobile3MetaSimpleVerifyResponse extends $tea.Model {
+  headers: { [key: string]: string };
+  statusCode: number;
+  body: Mobile3MetaSimpleVerifyResponseBody;
+  static names(): { [key: string]: string } {
+    return {
+      headers: 'headers',
+      statusCode: 'statusCode',
+      body: 'body',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
+      body: Mobile3MetaSimpleVerifyResponseBody,
     };
   }
 
@@ -2097,6 +2337,25 @@ export class DetectFaceAttributesResponseBodyData extends $tea.Model {
   }
 }
 
+export class Id2MetaVerifyResponseBodyResultObject extends $tea.Model {
+  bizCode?: string;
+  static names(): { [key: string]: string } {
+    return {
+      bizCode: 'BizCode',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      bizCode: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
 export class InitFaceVerifyResponseBodyResultObject extends $tea.Model {
   certifyId?: string;
   certifyUrl?: string;
@@ -2139,6 +2398,53 @@ export class LivenessFaceVerifyResponseBodyResultObject extends $tea.Model {
       materialInfo: 'string',
       passed: 'string',
       subCode: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class Mobile3MetaDetailVerifyResponseBodyResultObject extends $tea.Model {
+  bizCode?: string;
+  ispName?: string;
+  subCode?: string;
+  static names(): { [key: string]: string } {
+    return {
+      bizCode: 'BizCode',
+      ispName: 'IspName',
+      subCode: 'SubCode',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      bizCode: 'string',
+      ispName: 'string',
+      subCode: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class Mobile3MetaSimpleVerifyResponseBodyResultObject extends $tea.Model {
+  bizCode?: string;
+  ispName?: string;
+  static names(): { [key: string]: string } {
+    return {
+      bizCode: 'BizCode',
+      ispName: 'IspName',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      bizCode: 'string',
+      ispName: 'string',
     };
   }
 
@@ -2933,6 +3239,43 @@ export default class Client extends OpenApi {
     return await this.detectFaceAttributesWithOptions(request, runtime);
   }
 
+  async id2MetaVerifyWithOptions(request: Id2MetaVerifyRequest, runtime: $Util.RuntimeOptions): Promise<Id2MetaVerifyResponse> {
+    Util.validateModel(request);
+    let query = { };
+    if (!Util.isUnset(request.identifyNum)) {
+      query["IdentifyNum"] = request.identifyNum;
+    }
+
+    if (!Util.isUnset(request.paramType)) {
+      query["ParamType"] = request.paramType;
+    }
+
+    if (!Util.isUnset(request.userName)) {
+      query["UserName"] = request.userName;
+    }
+
+    let req = new $OpenApi.OpenApiRequest({
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApi.Params({
+      action: "Id2MetaVerify",
+      version: "2019-03-07",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $tea.cast<Id2MetaVerifyResponse>(await this.callApi(params, req, runtime), new Id2MetaVerifyResponse({}));
+  }
+
+  async id2MetaVerify(request: Id2MetaVerifyRequest): Promise<Id2MetaVerifyResponse> {
+    let runtime = new $Util.RuntimeOptions({ });
+    return await this.id2MetaVerifyWithOptions(request, runtime);
+  }
+
   async initFaceVerifyWithOptions(request: InitFaceVerifyRequest, runtime: $Util.RuntimeOptions): Promise<InitFaceVerifyResponse> {
     Util.validateModel(request);
     let query = { };
@@ -3165,6 +3508,88 @@ export default class Client extends OpenApi {
   async livenessFaceVerify(request: LivenessFaceVerifyRequest): Promise<LivenessFaceVerifyResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.livenessFaceVerifyWithOptions(request, runtime);
+  }
+
+  async mobile3MetaDetailVerifyWithOptions(request: Mobile3MetaDetailVerifyRequest, runtime: $Util.RuntimeOptions): Promise<Mobile3MetaDetailVerifyResponse> {
+    Util.validateModel(request);
+    let query = { };
+    if (!Util.isUnset(request.identifyNum)) {
+      query["IdentifyNum"] = request.identifyNum;
+    }
+
+    if (!Util.isUnset(request.mobile)) {
+      query["Mobile"] = request.mobile;
+    }
+
+    if (!Util.isUnset(request.paramType)) {
+      query["ParamType"] = request.paramType;
+    }
+
+    if (!Util.isUnset(request.userName)) {
+      query["UserName"] = request.userName;
+    }
+
+    let req = new $OpenApi.OpenApiRequest({
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApi.Params({
+      action: "Mobile3MetaDetailVerify",
+      version: "2019-03-07",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $tea.cast<Mobile3MetaDetailVerifyResponse>(await this.callApi(params, req, runtime), new Mobile3MetaDetailVerifyResponse({}));
+  }
+
+  async mobile3MetaDetailVerify(request: Mobile3MetaDetailVerifyRequest): Promise<Mobile3MetaDetailVerifyResponse> {
+    let runtime = new $Util.RuntimeOptions({ });
+    return await this.mobile3MetaDetailVerifyWithOptions(request, runtime);
+  }
+
+  async mobile3MetaSimpleVerifyWithOptions(request: Mobile3MetaSimpleVerifyRequest, runtime: $Util.RuntimeOptions): Promise<Mobile3MetaSimpleVerifyResponse> {
+    Util.validateModel(request);
+    let query = { };
+    if (!Util.isUnset(request.identifyNum)) {
+      query["IdentifyNum"] = request.identifyNum;
+    }
+
+    if (!Util.isUnset(request.mobile)) {
+      query["Mobile"] = request.mobile;
+    }
+
+    if (!Util.isUnset(request.paramType)) {
+      query["ParamType"] = request.paramType;
+    }
+
+    if (!Util.isUnset(request.userName)) {
+      query["UserName"] = request.userName;
+    }
+
+    let req = new $OpenApi.OpenApiRequest({
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApi.Params({
+      action: "Mobile3MetaSimpleVerify",
+      version: "2019-03-07",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $tea.cast<Mobile3MetaSimpleVerifyResponse>(await this.callApi(params, req, runtime), new Mobile3MetaSimpleVerifyResponse({}));
+  }
+
+  async mobile3MetaSimpleVerify(request: Mobile3MetaSimpleVerifyRequest): Promise<Mobile3MetaSimpleVerifyResponse> {
+    let runtime = new $Util.RuntimeOptions({ });
+    return await this.mobile3MetaSimpleVerifyWithOptions(request, runtime);
   }
 
   async modifyDeviceInfoWithOptions(request: ModifyDeviceInfoRequest, runtime: $Util.RuntimeOptions): Promise<ModifyDeviceInfoResponse> {
