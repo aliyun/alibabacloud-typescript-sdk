@@ -1,6 +1,6 @@
 {
   "name": "@alicloud/vpc20160428",
-  "version": "5.0.2",
+  "version": "5.1.0",
   "description": "",
   "main": "dist/client.js",
   "scripts": {

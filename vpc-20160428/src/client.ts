@@ -12218,6 +12218,84 @@ export class DeleteVSwitchResponse extends $tea.Model {
   }
 }
 
+export class DeleteVSwitchCidrReservationRequest extends $tea.Model {
+  ownerAccount?: string;
+  ownerId?: number;
+  regionId?: string;
+  resourceOwnerAccount?: string;
+  resourceOwnerId?: number;
+  vSwitchCidrReservationId?: string;
+  static names(): { [key: string]: string } {
+    return {
+      ownerAccount: 'OwnerAccount',
+      ownerId: 'OwnerId',
+      regionId: 'RegionId',
+      resourceOwnerAccount: 'ResourceOwnerAccount',
+      resourceOwnerId: 'ResourceOwnerId',
+      vSwitchCidrReservationId: 'VSwitchCidrReservationId',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      ownerAccount: 'string',
+      ownerId: 'number',
+      regionId: 'string',
+      resourceOwnerAccount: 'string',
+      resourceOwnerId: 'number',
+      vSwitchCidrReservationId: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class DeleteVSwitchCidrReservationResponseBody extends $tea.Model {
+  requestId?: string;
+  static names(): { [key: string]: string } {
+    return {
+      requestId: 'RequestId',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      requestId: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class DeleteVSwitchCidrReservationResponse extends $tea.Model {
+  headers: { [key: string]: string };
+  statusCode: number;
+  body: DeleteVSwitchCidrReservationResponseBody;
+  static names(): { [key: string]: string } {
+    return {
+      headers: 'headers',
+      statusCode: 'statusCode',
+      body: 'body',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
+      body: DeleteVSwitchCidrReservationResponseBody,
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
 export class DeleteVbrHaRequest extends $tea.Model {
   clientToken?: string;
   instanceId?: string;
@@ -27709,6 +27787,8 @@ export class ModifyPhysicalConnectionAttributeResponse extends $tea.Model {
 
 export class ModifyRouteEntryRequest extends $tea.Model {
   description?: string;
+  newNextHopId?: string;
+  newNextHopType?: string;
   ownerAccount?: string;
   ownerId?: number;
   regionId?: string;
@@ -27719,6 +27799,8 @@ export class ModifyRouteEntryRequest extends $tea.Model {
   static names(): { [key: string]: string } {
     return {
       description: 'Description',
+      newNextHopId: 'NewNextHopId',
+      newNextHopType: 'NewNextHopType',
       ownerAccount: 'OwnerAccount',
       ownerId: 'OwnerId',
       regionId: 'RegionId',
@@ -27732,6 +27814,8 @@ export class ModifyRouteEntryRequest extends $tea.Model {
   static types(): { [key: string]: any } {
     return {
       description: 'string',
+      newNextHopId: 'string',
+      newNextHopType: 'string',
       ownerAccount: 'string',
       ownerId: 'number',
       regionId: 'string',
@@ -47048,7 +47132,7 @@ export default class Client extends OpenApi {
     * Before you call this operation, take note of the following limits:
     * *   The CIDR block and the IP address pool must belong to the same region.
     * *   The CIDR block and the IP address pool must use the same line type.
-    * *   The **AddPublicIpAddressPoolCidrBlock** operation is asynchronous. After you send the request, the system returns a request ID. However, the operation is still being performed in the system background. You can call the [ListPublicIpAddressPoolCidrBlocks](~~429436~~) operation to query the status of a CIDR block in an IP address pool:
+    * *   **AddPublicIpAddressPoolCidrBlock** is an asynchronous operation. After a request is sent, the system returns a request ID and runs the task in the background. You can call the [ListPublicIpAddressPoolCidrBlocks](~~429436~~) operation to query the status of the task.
     *     *   If the CIDR block is in the **Modifying** state, the CIDR block is being added. In this state, you can only query the CIDR block and cannot perform other operations.
     *     *   If the CIDR block is in the **Created** state, the CIDR block is added.
     * *   You cannot repeatedly call the **AddPublicIpAddressPoolCidrBlock** operation to add a CIDR block to an IP address pool within the specified period of time.
@@ -47121,7 +47205,7 @@ export default class Client extends OpenApi {
     * Before you call this operation, take note of the following limits:
     * *   The CIDR block and the IP address pool must belong to the same region.
     * *   The CIDR block and the IP address pool must use the same line type.
-    * *   The **AddPublicIpAddressPoolCidrBlock** operation is asynchronous. After you send the request, the system returns a request ID. However, the operation is still being performed in the system background. You can call the [ListPublicIpAddressPoolCidrBlocks](~~429436~~) operation to query the status of a CIDR block in an IP address pool:
+    * *   **AddPublicIpAddressPoolCidrBlock** is an asynchronous operation. After a request is sent, the system returns a request ID and runs the task in the background. You can call the [ListPublicIpAddressPoolCidrBlocks](~~429436~~) operation to query the status of the task.
     *     *   If the CIDR block is in the **Modifying** state, the CIDR block is being added. In this state, you can only query the CIDR block and cannot perform other operations.
     *     *   If the CIDR block is in the **Created** state, the CIDR block is added.
     * *   You cannot repeatedly call the **AddPublicIpAddressPoolCidrBlock** operation to add a CIDR block to an IP address pool within the specified period of time.
@@ -48866,8 +48950,9 @@ export default class Client extends OpenApi {
   }
 
   /**
-    * *   After this operation is performed, the maximum bandwidth of the EIP equals that of the EIP bandwidth plan.
-    * *   You cannot repeatedly call the **CancelCommonBandwidthPackageIpBandwidth** operation to remove the maximum bandwidth configured for an EIP within the specified period of time.
+    * Before you call this operation, take note of the following items:
+    * *   After this operation is performed, the maximum bandwidth of the EIP equals that of the Internet Shared Bandwidth instance.
+    * *   You cannot repeatedly call the **CancelCommonBandwidthPackageIpBandwidth** operation within a specific time period.
     *
     * @param request CancelCommonBandwidthPackageIpBandwidthRequest
     * @param runtime runtime options for this request RuntimeOptions
@@ -48922,8 +49007,9 @@ export default class Client extends OpenApi {
   }
 
   /**
-    * *   After this operation is performed, the maximum bandwidth of the EIP equals that of the EIP bandwidth plan.
-    * *   You cannot repeatedly call the **CancelCommonBandwidthPackageIpBandwidth** operation to remove the maximum bandwidth configured for an EIP within the specified period of time.
+    * Before you call this operation, take note of the following items:
+    * *   After this operation is performed, the maximum bandwidth of the EIP equals that of the Internet Shared Bandwidth instance.
+    * *   You cannot repeatedly call the **CancelCommonBandwidthPackageIpBandwidth** operation within a specific time period.
     *
     * @param request CancelCommonBandwidthPackageIpBandwidthRequest
     * @return CancelCommonBandwidthPackageIpBandwidthResponse
@@ -54892,7 +54978,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-    * You cannot repeatedly call the **DeleteCommonBandwidthPackage** operation to delete an EIP bandwidth plan within the specified period of time.
+    * You cannot repeatedly call the **DeleteCommonBandwidthPackage** operation to delete an Internet Shared Bandwidth instance within the specified period of time.
     *
     * @param request DeleteCommonBandwidthPackageRequest
     * @param runtime runtime options for this request RuntimeOptions
@@ -54947,7 +55033,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-    * You cannot repeatedly call the **DeleteCommonBandwidthPackage** operation to delete an EIP bandwidth plan within the specified period of time.
+    * You cannot repeatedly call the **DeleteCommonBandwidthPackage** operation to delete an Internet Shared Bandwidth instance within the specified period of time.
     *
     * @param request DeleteCommonBandwidthPackageRequest
     * @return DeleteCommonBandwidthPackageResponse
@@ -56464,12 +56550,12 @@ export default class Client extends OpenApi {
   }
 
   /**
-    * *   The **DeletePublicIpAddressPoolCidrBlock** operation is asynchronous. After you send the request, the system returns a request ID. However, the operation is still being performed in the system background. You can call the [ListPublicIpAddressPoolCidrBlocks](~~429436~~) operation to query the status of a CIDR block in an IP address pool:
+    * Before you call this operation, take note of the following items:
+    * *   Before you delete a CIDR block, make sure that it is not being used.
+    * *   **DeletePublicIpAddressPoolCidrBlock** is an asynchronous operation. After a request is sent, the system returns a request ID and runs the task in the background. You can call the [ListPublicIpAddressPoolCidrBlocks](~~429436~~) operation to query the status of the task.
     *     *   If the CIDR block is in the **Deleting** state, the CIDR block is being deleted. In this state, you can only query the CIDR block and cannot perform other operations.
     *     *   If you cannot query the CIDR block, the CIDR block is deleted.
     * *   You cannot repeatedly call the **DeletePublicIpAddressPoolCidrBlock** operation to delete a CIDR block within the specified period of time.
-    * ## Prerequisites
-    * Before you delete a CIDR block, make sure that it is not being used.
     *
     * @param request DeletePublicIpAddressPoolCidrBlockRequest
     * @param runtime runtime options for this request RuntimeOptions
@@ -56532,12 +56618,12 @@ export default class Client extends OpenApi {
   }
 
   /**
-    * *   The **DeletePublicIpAddressPoolCidrBlock** operation is asynchronous. After you send the request, the system returns a request ID. However, the operation is still being performed in the system background. You can call the [ListPublicIpAddressPoolCidrBlocks](~~429436~~) operation to query the status of a CIDR block in an IP address pool:
+    * Before you call this operation, take note of the following items:
+    * *   Before you delete a CIDR block, make sure that it is not being used.
+    * *   **DeletePublicIpAddressPoolCidrBlock** is an asynchronous operation. After a request is sent, the system returns a request ID and runs the task in the background. You can call the [ListPublicIpAddressPoolCidrBlocks](~~429436~~) operation to query the status of the task.
     *     *   If the CIDR block is in the **Deleting** state, the CIDR block is being deleted. In this state, you can only query the CIDR block and cannot perform other operations.
     *     *   If you cannot query the CIDR block, the CIDR block is deleted.
     * *   You cannot repeatedly call the **DeletePublicIpAddressPoolCidrBlock** operation to delete a CIDR block within the specified period of time.
-    * ## Prerequisites
-    * Before you delete a CIDR block, make sure that it is not being used.
     *
     * @param request DeletePublicIpAddressPoolCidrBlockRequest
     * @return DeletePublicIpAddressPoolCidrBlockResponse
@@ -57385,6 +57471,55 @@ export default class Client extends OpenApi {
   async deleteVSwitch(request: DeleteVSwitchRequest): Promise<DeleteVSwitchResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.deleteVSwitchWithOptions(request, runtime);
+  }
+
+  async deleteVSwitchCidrReservationWithOptions(request: DeleteVSwitchCidrReservationRequest, runtime: $Util.RuntimeOptions): Promise<DeleteVSwitchCidrReservationResponse> {
+    Util.validateModel(request);
+    let query = { };
+    if (!Util.isUnset(request.ownerAccount)) {
+      query["OwnerAccount"] = request.ownerAccount;
+    }
+
+    if (!Util.isUnset(request.ownerId)) {
+      query["OwnerId"] = request.ownerId;
+    }
+
+    if (!Util.isUnset(request.regionId)) {
+      query["RegionId"] = request.regionId;
+    }
+
+    if (!Util.isUnset(request.resourceOwnerAccount)) {
+      query["ResourceOwnerAccount"] = request.resourceOwnerAccount;
+    }
+
+    if (!Util.isUnset(request.resourceOwnerId)) {
+      query["ResourceOwnerId"] = request.resourceOwnerId;
+    }
+
+    if (!Util.isUnset(request.vSwitchCidrReservationId)) {
+      query["VSwitchCidrReservationId"] = request.vSwitchCidrReservationId;
+    }
+
+    let req = new $OpenApi.OpenApiRequest({
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApi.Params({
+      action: "DeleteVSwitchCidrReservation",
+      version: "2016-04-28",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $tea.cast<DeleteVSwitchCidrReservationResponse>(await this.callApi(params, req, runtime), new DeleteVSwitchCidrReservationResponse({}));
+  }
+
+  async deleteVSwitchCidrReservation(request: DeleteVSwitchCidrReservationRequest): Promise<DeleteVSwitchCidrReservationResponse> {
+    let runtime = new $Util.RuntimeOptions({ });
+    return await this.deleteVSwitchCidrReservationWithOptions(request, runtime);
   }
 
   async deleteVbrHaWithOptions(request: DeleteVbrHaRequest, runtime: $Util.RuntimeOptions): Promise<DeleteVbrHaResponse> {
@@ -68234,6 +68369,14 @@ export default class Client extends OpenApi {
       query["Description"] = request.description;
     }
 
+    if (!Util.isUnset(request.newNextHopId)) {
+      query["NewNextHopId"] = request.newNextHopId;
+    }
+
+    if (!Util.isUnset(request.newNextHopType)) {
+      query["NewNextHopType"] = request.newNextHopType;
+    }
+
     if (!Util.isUnset(request.ownerAccount)) {
       query["OwnerAccount"] = request.ownerAccount;
     }
@@ -70663,7 +70806,7 @@ export default class Client extends OpenApi {
 
   /**
     * *   After you call the **ReleaseEipSegmentAddress** operation, all EIPs in the specified group are released.
-    * *   The **ReleaseEipSegmentAddress** operation is asynchronous. After you send the request, the system returns a request ID. However, the operation is still being performed in the system background. You can call the [DescribeEipSegment](~~156063~~) operation to query the status of a group of contiguous EIPs:
+    * *   **ReleaseEipSegmentAddress** is an asynchronous operation. After a request is sent, the system returns a request ID and runs the task in the background. You can call the [DescribeEipSegment](~~156063~~) operation to query the status of the task.
     *     *   If the group is in the **Releasing** state, EIPs in the group are being released. In this state, you can only query the group and cannot perform other operations.
     *     *   If you cannot query the group of contiguous EIPs, the contiguous EIPs are released.
     * *   You cannot repeatedly call the **ReleaseEipSegmentAddress** operation to release a group of contiguous EIPs within the specified period of time.
@@ -70722,7 +70865,7 @@ export default class Client extends OpenApi {
 
   /**
     * *   After you call the **ReleaseEipSegmentAddress** operation, all EIPs in the specified group are released.
-    * *   The **ReleaseEipSegmentAddress** operation is asynchronous. After you send the request, the system returns a request ID. However, the operation is still being performed in the system background. You can call the [DescribeEipSegment](~~156063~~) operation to query the status of a group of contiguous EIPs:
+    * *   **ReleaseEipSegmentAddress** is an asynchronous operation. After a request is sent, the system returns a request ID and runs the task in the background. You can call the [DescribeEipSegment](~~156063~~) operation to query the status of the task.
     *     *   If the group is in the **Releasing** state, EIPs in the group are being released. In this state, you can only query the group and cannot perform other operations.
     *     *   If you cannot query the group of contiguous EIPs, the contiguous EIPs are released.
     * *   You cannot repeatedly call the **ReleaseEipSegmentAddress** operation to release a group of contiguous EIPs within the specified period of time.
@@ -71816,10 +71959,10 @@ export default class Client extends OpenApi {
   }
 
   /**
-    * *   **UnassociateEipAddress** is an asynchronous operation. After you send a request, the system returns a request ID and runs the task in the background. You can call the [DescribeEipAddresses](~~120193~~) operation to query the status of an EIP:
+    * *   **UnassociateEipAddress** is an asynchronous operation. After a request is sent, the system returns a request ID and runs the task in the background. You can call the [DescribeEipAddresses](~~120193~~) operation to query the status of the task.
     *     *   If the EIP is in the **Unassociating** state, the EIP is being disassociated. In this state, you can only query the EIP and cannot perform other operations.
     *     *   If the EIP is in the **Available** state, the EIP is disassociated.
-    * *   You cannot repeatedly call the **UnassociateEipAddress** operation to disassociate an EIP within the specified period of time.
+    * *   You cannot repeatedly call the **UnassociateEipAddress** operation within the specified period of time.
     *
     * @param request UnassociateEipAddressRequest
     * @param runtime runtime options for this request RuntimeOptions
@@ -71890,10 +72033,10 @@ export default class Client extends OpenApi {
   }
 
   /**
-    * *   **UnassociateEipAddress** is an asynchronous operation. After you send a request, the system returns a request ID and runs the task in the background. You can call the [DescribeEipAddresses](~~120193~~) operation to query the status of an EIP:
+    * *   **UnassociateEipAddress** is an asynchronous operation. After a request is sent, the system returns a request ID and runs the task in the background. You can call the [DescribeEipAddresses](~~120193~~) operation to query the status of the task.
     *     *   If the EIP is in the **Unassociating** state, the EIP is being disassociated. In this state, you can only query the EIP and cannot perform other operations.
     *     *   If the EIP is in the **Available** state, the EIP is disassociated.
-    * *   You cannot repeatedly call the **UnassociateEipAddress** operation to disassociate an EIP within the specified period of time.
+    * *   You cannot repeatedly call the **UnassociateEipAddress** operation within the specified period of time.
     *
     * @param request UnassociateEipAddressRequest
     * @return UnassociateEipAddressResponse
