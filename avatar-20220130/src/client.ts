@@ -114,6 +114,171 @@ export class CancelVideoTaskResponse extends $tea.Model {
   }
 }
 
+export class ClientAuthRequest extends $tea.Model {
+  appId?: string;
+  deviceId?: string;
+  deviceInfo?: string;
+  deviceType?: string;
+  license?: string;
+  tenantId?: number;
+  static names(): { [key: string]: string } {
+    return {
+      appId: 'AppId',
+      deviceId: 'DeviceId',
+      deviceInfo: 'DeviceInfo',
+      deviceType: 'DeviceType',
+      license: 'License',
+      tenantId: 'TenantId',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      appId: 'string',
+      deviceId: 'string',
+      deviceInfo: 'string',
+      deviceType: 'string',
+      license: 'string',
+      tenantId: 'number',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class ClientAuthResponseBody extends $tea.Model {
+  code?: string;
+  message?: string;
+  requestId?: string;
+  success?: boolean;
+  static names(): { [key: string]: string } {
+    return {
+      code: 'Code',
+      message: 'Message',
+      requestId: 'RequestId',
+      success: 'Success',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      code: 'string',
+      message: 'string',
+      requestId: 'string',
+      success: 'boolean',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class ClientAuthResponse extends $tea.Model {
+  headers: { [key: string]: string };
+  statusCode: number;
+  body: ClientAuthResponseBody;
+  static names(): { [key: string]: string } {
+    return {
+      headers: 'headers',
+      statusCode: 'statusCode',
+      body: 'body',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
+      body: ClientAuthResponseBody,
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class ClientStartRequest extends $tea.Model {
+  appId?: string;
+  tenantId?: number;
+  static names(): { [key: string]: string } {
+    return {
+      appId: 'AppId',
+      tenantId: 'TenantId',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      appId: 'string',
+      tenantId: 'number',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class ClientStartResponseBody extends $tea.Model {
+  code?: string;
+  data?: ClientStartResponseBodyData;
+  message?: string;
+  requestId?: string;
+  success?: boolean;
+  static names(): { [key: string]: string } {
+    return {
+      code: 'Code',
+      data: 'Data',
+      message: 'Message',
+      requestId: 'RequestId',
+      success: 'Success',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      code: 'string',
+      data: ClientStartResponseBodyData,
+      message: 'string',
+      requestId: 'string',
+      success: 'boolean',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class ClientStartResponse extends $tea.Model {
+  headers: { [key: string]: string };
+  statusCode: number;
+  body: ClientStartResponseBody;
+  static names(): { [key: string]: string } {
+    return {
+      headers: 'headers',
+      statusCode: 'statusCode',
+      body: 'body',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
+      body: ClientStartResponseBody,
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
 export class CloseTimedResetOperateRequest extends $tea.Model {
   instanceId?: string;
   tenantId?: number;
@@ -1181,6 +1346,87 @@ export class QueryVideoTaskInfoResponse extends $tea.Model {
       headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
       statusCode: 'number',
       body: QueryVideoTaskInfoResponseBody,
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class Render3dAvatarRequest extends $tea.Model {
+  appId?: string;
+  code?: string;
+  tenantId?: number;
+  static names(): { [key: string]: string } {
+    return {
+      appId: 'AppId',
+      code: 'Code',
+      tenantId: 'TenantId',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      appId: 'string',
+      code: 'string',
+      tenantId: 'number',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class Render3dAvatarResponseBody extends $tea.Model {
+  code?: string;
+  data?: Render3dAvatarResponseBodyData;
+  message?: string;
+  requestId?: string;
+  success?: boolean;
+  static names(): { [key: string]: string } {
+    return {
+      code: 'Code',
+      data: 'Data',
+      message: 'Message',
+      requestId: 'RequestId',
+      success: 'Success',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      code: 'string',
+      data: Render3dAvatarResponseBodyData,
+      message: 'string',
+      requestId: 'string',
+      success: 'boolean',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class Render3dAvatarResponse extends $tea.Model {
+  headers: { [key: string]: string };
+  statusCode: number;
+  body: Render3dAvatarResponseBody;
+  static names(): { [key: string]: string } {
+    return {
+      headers: 'headers',
+      statusCode: 'statusCode',
+      body: 'body',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
+      body: Render3dAvatarResponseBody,
     };
   }
 
@@ -2639,6 +2885,25 @@ export class CancelVideoTaskResponseBodyData extends $tea.Model {
   }
 }
 
+export class ClientStartResponseBodyData extends $tea.Model {
+  imToken?: string;
+  static names(): { [key: string]: string } {
+    return {
+      imToken: 'ImToken',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      imToken: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
 export class CloseTimedResetOperateResponseBodyData extends $tea.Model {
   instanceId?: string;
   tenantId?: number;
@@ -3378,6 +3643,25 @@ export class QueryVideoTaskInfoResponseBodyData extends $tea.Model {
       pageNo: 'number',
       pageSize: 'number',
       totalCount: 'number',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class Render3dAvatarResponseBodyData extends $tea.Model {
+  renderData?: string;
+  static names(): { [key: string]: string } {
+    return {
+      renderData: 'RenderData',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      renderData: 'string',
     };
   }
 
@@ -4282,6 +4566,88 @@ export default class Client extends OpenApi {
     return await this.cancelVideoTaskWithOptions(request, runtime);
   }
 
+  async clientAuthWithOptions(request: ClientAuthRequest, runtime: $Util.RuntimeOptions): Promise<ClientAuthResponse> {
+    Util.validateModel(request);
+    let query = { };
+    if (!Util.isUnset(request.appId)) {
+      query["AppId"] = request.appId;
+    }
+
+    if (!Util.isUnset(request.deviceId)) {
+      query["DeviceId"] = request.deviceId;
+    }
+
+    if (!Util.isUnset(request.deviceInfo)) {
+      query["DeviceInfo"] = request.deviceInfo;
+    }
+
+    if (!Util.isUnset(request.deviceType)) {
+      query["DeviceType"] = request.deviceType;
+    }
+
+    if (!Util.isUnset(request.license)) {
+      query["License"] = request.license;
+    }
+
+    if (!Util.isUnset(request.tenantId)) {
+      query["TenantId"] = request.tenantId;
+    }
+
+    let req = new $OpenApi.OpenApiRequest({
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApi.Params({
+      action: "ClientAuth",
+      version: "2022-01-30",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $tea.cast<ClientAuthResponse>(await this.callApi(params, req, runtime), new ClientAuthResponse({}));
+  }
+
+  async clientAuth(request: ClientAuthRequest): Promise<ClientAuthResponse> {
+    let runtime = new $Util.RuntimeOptions({ });
+    return await this.clientAuthWithOptions(request, runtime);
+  }
+
+  async clientStartWithOptions(request: ClientStartRequest, runtime: $Util.RuntimeOptions): Promise<ClientStartResponse> {
+    Util.validateModel(request);
+    let query = { };
+    if (!Util.isUnset(request.appId)) {
+      query["AppId"] = request.appId;
+    }
+
+    if (!Util.isUnset(request.tenantId)) {
+      query["TenantId"] = request.tenantId;
+    }
+
+    let req = new $OpenApi.OpenApiRequest({
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApi.Params({
+      action: "ClientStart",
+      version: "2022-01-30",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $tea.cast<ClientStartResponse>(await this.callApi(params, req, runtime), new ClientStartResponse({}));
+  }
+
+  async clientStart(request: ClientStartRequest): Promise<ClientStartResponse> {
+    let runtime = new $Util.RuntimeOptions({ });
+    return await this.clientStartWithOptions(request, runtime);
+  }
+
   async closeTimedResetOperateWithOptions(request: CloseTimedResetOperateRequest, runtime: $Util.RuntimeOptions): Promise<CloseTimedResetOperateResponse> {
     Util.validateModel(request);
     let query = { };
@@ -4767,6 +5133,43 @@ export default class Client extends OpenApi {
   async queryVideoTaskInfo(request: QueryVideoTaskInfoRequest): Promise<QueryVideoTaskInfoResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.queryVideoTaskInfoWithOptions(request, runtime);
+  }
+
+  async render3dAvatarWithOptions(request: Render3dAvatarRequest, runtime: $Util.RuntimeOptions): Promise<Render3dAvatarResponse> {
+    Util.validateModel(request);
+    let query = { };
+    if (!Util.isUnset(request.appId)) {
+      query["AppId"] = request.appId;
+    }
+
+    if (!Util.isUnset(request.code)) {
+      query["Code"] = request.code;
+    }
+
+    if (!Util.isUnset(request.tenantId)) {
+      query["TenantId"] = request.tenantId;
+    }
+
+    let req = new $OpenApi.OpenApiRequest({
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApi.Params({
+      action: "Render3dAvatar",
+      version: "2022-01-30",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $tea.cast<Render3dAvatarResponse>(await this.callApi(params, req, runtime), new Render3dAvatarResponse({}));
+  }
+
+  async render3dAvatar(request: Render3dAvatarRequest): Promise<Render3dAvatarResponse> {
+    let runtime = new $Util.RuntimeOptions({ });
+    return await this.render3dAvatarWithOptions(request, runtime);
   }
 
   async sendCommandWithOptions(tmpReq: SendCommandRequest, runtime: $Util.RuntimeOptions): Promise<SendCommandResponse> {
