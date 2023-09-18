@@ -29071,6 +29071,7 @@ export class ModifySnapshotAttributeRequest extends $tea.Model {
   ownerId?: number;
   resourceOwnerAccount?: string;
   resourceOwnerId?: number;
+  retentionDays?: number;
   snapshotId?: string;
   snapshotName?: string;
   static names(): { [key: string]: string } {
@@ -29081,6 +29082,7 @@ export class ModifySnapshotAttributeRequest extends $tea.Model {
       ownerId: 'OwnerId',
       resourceOwnerAccount: 'ResourceOwnerAccount',
       resourceOwnerId: 'ResourceOwnerId',
+      retentionDays: 'RetentionDays',
       snapshotId: 'SnapshotId',
       snapshotName: 'SnapshotName',
     };
@@ -29094,6 +29096,7 @@ export class ModifySnapshotAttributeRequest extends $tea.Model {
       ownerId: 'number',
       resourceOwnerAccount: 'string',
       resourceOwnerId: 'number',
+      retentionDays: 'number',
       snapshotId: 'string',
       snapshotName: 'string',
     };
@@ -33137,6 +33140,7 @@ export class StartInstancesResponse extends $tea.Model {
 }
 
 export class StartTerminalSessionRequest extends $tea.Model {
+  commandLine?: string;
   instanceId?: string[];
   ownerAccount?: string;
   ownerId?: number;
@@ -33144,8 +33148,10 @@ export class StartTerminalSessionRequest extends $tea.Model {
   regionId?: string;
   resourceOwnerAccount?: string;
   resourceOwnerId?: number;
+  targetServer?: string;
   static names(): { [key: string]: string } {
     return {
+      commandLine: 'CommandLine',
       instanceId: 'InstanceId',
       ownerAccount: 'OwnerAccount',
       ownerId: 'OwnerId',
@@ -33153,11 +33159,13 @@ export class StartTerminalSessionRequest extends $tea.Model {
       regionId: 'RegionId',
       resourceOwnerAccount: 'ResourceOwnerAccount',
       resourceOwnerId: 'ResourceOwnerId',
+      targetServer: 'TargetServer',
     };
   }
 
   static types(): { [key: string]: any } {
     return {
+      commandLine: 'string',
       instanceId: { 'type': 'array', 'itemType': 'string' },
       ownerAccount: 'string',
       ownerId: 'number',
@@ -33165,6 +33173,7 @@ export class StartTerminalSessionRequest extends $tea.Model {
       regionId: 'string',
       resourceOwnerAccount: 'string',
       resourceOwnerId: 'number',
+      targetServer: 'string',
     };
   }
 
@@ -49506,6 +49515,7 @@ export class DescribeSnapshotGroupsResponseBodySnapshotGroupsSnapshotGroupSnapsh
 }
 
 export class DescribeSnapshotGroupsResponseBodySnapshotGroupsSnapshotGroupSnapshotsSnapshot extends $tea.Model {
+  available?: boolean;
   instantAccess?: boolean;
   instantAccessRetentionDays?: number;
   progress?: string;
@@ -49515,6 +49525,7 @@ export class DescribeSnapshotGroupsResponseBodySnapshotGroupsSnapshotGroupSnapsh
   tags?: DescribeSnapshotGroupsResponseBodySnapshotGroupsSnapshotGroupSnapshotsSnapshotTags;
   static names(): { [key: string]: string } {
     return {
+      available: 'Available',
       instantAccess: 'InstantAccess',
       instantAccessRetentionDays: 'InstantAccessRetentionDays',
       progress: 'Progress',
@@ -49527,6 +49538,7 @@ export class DescribeSnapshotGroupsResponseBodySnapshotGroupsSnapshotGroupSnapsh
 
   static types(): { [key: string]: any } {
     return {
+      available: 'boolean',
       instantAccess: 'boolean',
       instantAccessRetentionDays: 'number',
       progress: 'string',
@@ -49912,6 +49924,7 @@ export class DescribeSnapshotsResponseBodySnapshotsSnapshotTags extends $tea.Mod
 }
 
 export class DescribeSnapshotsResponseBodySnapshotsSnapshot extends $tea.Model {
+  available?: boolean;
   category?: string;
   creationTime?: string;
   description?: string;
@@ -49940,6 +49953,7 @@ export class DescribeSnapshotsResponseBodySnapshotsSnapshot extends $tea.Model {
   usage?: string;
   static names(): { [key: string]: string } {
     return {
+      available: 'Available',
       category: 'Category',
       creationTime: 'CreationTime',
       description: 'Description',
@@ -49971,6 +49985,7 @@ export class DescribeSnapshotsResponseBodySnapshotsSnapshot extends $tea.Model {
 
   static types(): { [key: string]: any } {
     return {
+      available: 'boolean',
       category: 'string',
       creationTime: 'string',
       description: 'string',
@@ -54445,7 +54460,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-    * @deprecated
+    * @deprecated : AssociateEipAddress is deprecated, please use Vpc::2016-04-28::AssociateEipAddress instead.
     *
     * @param request AssociateEipAddressRequest
     * @param runtime runtime options for this request RuntimeOptions
@@ -54505,7 +54520,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-    * @deprecated
+    * @deprecated : AssociateEipAddress is deprecated, please use Vpc::2016-04-28::AssociateEipAddress instead.
     *
     * @param request AssociateEipAddressRequest
     * @return AssociateEipAddressResponse
@@ -56026,9 +56041,9 @@ export default class Client extends OpenApi {
 
   /**
     * When you call this operation, take note of the following items:
-    * *   New snapshots (copies) cannot be used to roll back disks from which the source snapshots (originals) were created.
-    * *   Encrypted snapshots cannot be copied.
-    * *   Local snapshots cannot be copied.
+    * - New snapshots (copies) cannot be used to roll back disks from which the source snapshots (originals) were created.
+    * - Encrypted snapshots cannot be copied.
+    * - Local snapshots cannot be copied.
     *
     * @param request CopySnapshotRequest
     * @param runtime runtime options for this request RuntimeOptions
@@ -56116,9 +56131,9 @@ export default class Client extends OpenApi {
 
   /**
     * When you call this operation, take note of the following items:
-    * *   New snapshots (copies) cannot be used to roll back disks from which the source snapshots (originals) were created.
-    * *   Encrypted snapshots cannot be copied.
-    * *   Local snapshots cannot be copied.
+    * - New snapshots (copies) cannot be used to roll back disks from which the source snapshots (originals) were created.
+    * - Encrypted snapshots cannot be copied.
+    * - Local snapshots cannot be copied.
     *
     * @param request CopySnapshotRequest
     * @return CopySnapshotResponse
@@ -61849,7 +61864,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-    * @deprecated
+    * @deprecated : DeleteNetworkInterfacePermission is deprecated, please use Ecs::2014-05-26::DeleteNetworkInterface instead.
     *
     * @param request DeleteNetworkInterfacePermissionRequest
     * @param runtime runtime options for this request RuntimeOptions
@@ -61909,7 +61924,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-    * @deprecated
+    * @deprecated : DeleteNetworkInterfacePermission is deprecated, please use Ecs::2014-05-26::DeleteNetworkInterface instead.
     *
     * @param request DeleteNetworkInterfacePermissionRequest
     * @return DeleteNetworkInterfacePermissionResponse
@@ -78492,6 +78507,10 @@ export default class Client extends OpenApi {
       query["ResourceOwnerId"] = request.resourceOwnerId;
     }
 
+    if (!Util.isUnset(request.retentionDays)) {
+      query["RetentionDays"] = request.retentionDays;
+    }
+
     if (!Util.isUnset(request.snapshotId)) {
       query["SnapshotId"] = request.snapshotId;
     }
@@ -82243,6 +82262,10 @@ export default class Client extends OpenApi {
   async startTerminalSessionWithOptions(request: StartTerminalSessionRequest, runtime: $Util.RuntimeOptions): Promise<StartTerminalSessionResponse> {
     Util.validateModel(request);
     let query = { };
+    if (!Util.isUnset(request.commandLine)) {
+      query["CommandLine"] = request.commandLine;
+    }
+
     if (!Util.isUnset(request.instanceId)) {
       query["InstanceId"] = request.instanceId;
     }
@@ -82273,6 +82296,10 @@ export default class Client extends OpenApi {
 
     if (!Util.isUnset(request.resourceOwnerId)) {
       query["ResourceOwnerId"] = request.resourceOwnerId;
+    }
+
+    if (!Util.isUnset(request.targetServer)) {
+      query["TargetServer"] = request.targetServer;
     }
 
     let req = new $OpenApi.OpenApiRequest({
