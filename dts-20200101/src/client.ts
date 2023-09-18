@@ -8099,6 +8099,78 @@ export class ModifyDtsJobResponse extends $tea.Model {
   }
 }
 
+export class ModifyDtsJobConfigRequest extends $tea.Model {
+  dtsJobId?: string;
+  ownerId?: string;
+  parameters?: string;
+  regionId?: string;
+  static names(): { [key: string]: string } {
+    return {
+      dtsJobId: 'DtsJobId',
+      ownerId: 'OwnerId',
+      parameters: 'Parameters',
+      regionId: 'RegionId',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      dtsJobId: 'string',
+      ownerId: 'string',
+      parameters: 'string',
+      regionId: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class ModifyDtsJobConfigResponseBody extends $tea.Model {
+  requestId?: string;
+  static names(): { [key: string]: string } {
+    return {
+      requestId: 'RequestId',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      requestId: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class ModifyDtsJobConfigResponse extends $tea.Model {
+  headers: { [key: string]: string };
+  statusCode: number;
+  body: ModifyDtsJobConfigResponseBody;
+  static names(): { [key: string]: string } {
+    return {
+      headers: 'headers',
+      statusCode: 'statusCode',
+      body: 'body',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
+      body: ModifyDtsJobConfigResponseBody,
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
 export class ModifyDtsJobDedicatedClusterRequest extends $tea.Model {
   dedicatedClusterId?: string;
   dtsJobIds?: string;
@@ -24942,6 +25014,47 @@ export default class Client extends OpenApi {
 
     let modifyDtsJobResp = await this.modifyDtsJobWithOptions(modifyDtsJobReq, runtime);
     return modifyDtsJobResp;
+  }
+
+  async modifyDtsJobConfigWithOptions(request: ModifyDtsJobConfigRequest, runtime: $Util.RuntimeOptions): Promise<ModifyDtsJobConfigResponse> {
+    Util.validateModel(request);
+    let query = { };
+    if (!Util.isUnset(request.dtsJobId)) {
+      query["DtsJobId"] = request.dtsJobId;
+    }
+
+    if (!Util.isUnset(request.ownerId)) {
+      query["OwnerId"] = request.ownerId;
+    }
+
+    if (!Util.isUnset(request.parameters)) {
+      query["Parameters"] = request.parameters;
+    }
+
+    if (!Util.isUnset(request.regionId)) {
+      query["RegionId"] = request.regionId;
+    }
+
+    let req = new $OpenApi.OpenApiRequest({
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApi.Params({
+      action: "ModifyDtsJobConfig",
+      version: "2020-01-01",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $tea.cast<ModifyDtsJobConfigResponse>(await this.callApi(params, req, runtime), new ModifyDtsJobConfigResponse({}));
+  }
+
+  async modifyDtsJobConfig(request: ModifyDtsJobConfigRequest): Promise<ModifyDtsJobConfigResponse> {
+    let runtime = new $Util.RuntimeOptions({ });
+    return await this.modifyDtsJobConfigWithOptions(request, runtime);
   }
 
   async modifyDtsJobDedicatedClusterWithOptions(request: ModifyDtsJobDedicatedClusterRequest, runtime: $Util.RuntimeOptions): Promise<ModifyDtsJobDedicatedClusterResponse> {
