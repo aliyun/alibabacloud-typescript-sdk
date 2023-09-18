@@ -6151,8 +6151,8 @@ export class GetApplicationInstanceListRequest extends $tea.Model {
   appId?: string;
   appName?: string;
   namespace?: string;
-  pageNumber?: string;
-  pageSize?: string;
+  pageNumber?: number;
+  pageSize?: number;
   region?: string;
   tag?: string;
   static names(): { [key: string]: string } {
@@ -6174,8 +6174,8 @@ export class GetApplicationInstanceListRequest extends $tea.Model {
       appId: 'string',
       appName: 'string',
       namespace: 'string',
-      pageNumber: 'string',
-      pageSize: 'string',
+      pageNumber: 'number',
+      pageSize: 'number',
       region: 'string',
       tag: 'string',
     };
@@ -6324,99 +6324,6 @@ export class GetApplicationListResponse extends $tea.Model {
       headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
       statusCode: 'number',
       body: GetApplicationListResponseBody,
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class GetApplicationListWithMetircsRequest extends $tea.Model {
-  acceptLanguage?: string;
-  appId?: string;
-  appName?: string;
-  namespace?: string;
-  pageNumber?: number;
-  pageSize?: number;
-  region?: string;
-  source?: string;
-  static names(): { [key: string]: string } {
-    return {
-      acceptLanguage: 'AcceptLanguage',
-      appId: 'AppId',
-      appName: 'AppName',
-      namespace: 'Namespace',
-      pageNumber: 'PageNumber',
-      pageSize: 'PageSize',
-      region: 'Region',
-      source: 'Source',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      acceptLanguage: 'string',
-      appId: 'string',
-      appName: 'string',
-      namespace: 'string',
-      pageNumber: 'number',
-      pageSize: 'number',
-      region: 'string',
-      source: 'string',
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class GetApplicationListWithMetircsResponseBody extends $tea.Model {
-  data?: GetApplicationListWithMetircsResponseBodyData;
-  message?: string;
-  requestId?: string;
-  success?: boolean;
-  static names(): { [key: string]: string } {
-    return {
-      data: 'Data',
-      message: 'Message',
-      requestId: 'RequestId',
-      success: 'Success',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      data: GetApplicationListWithMetircsResponseBodyData,
-      message: 'string',
-      requestId: 'string',
-      success: 'boolean',
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class GetApplicationListWithMetircsResponse extends $tea.Model {
-  headers: { [key: string]: string };
-  statusCode: number;
-  body: GetApplicationListWithMetircsResponseBody;
-  static names(): { [key: string]: string } {
-    return {
-      headers: 'headers',
-      statusCode: 'statusCode',
-      body: 'body',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
-      statusCode: 'number',
-      body: GetApplicationListWithMetircsResponseBody,
     };
   }
 
@@ -22380,166 +22287,6 @@ export class GetApplicationListResponseBodyData extends $tea.Model {
   }
 }
 
-export class GetApplicationListWithMetircsResponseBodyDataResultCurMetrics extends $tea.Model {
-  blockQps?: number;
-  expQps?: number;
-  passQps?: number;
-  qps?: number;
-  rt?: number;
-  thread?: number;
-  timestamp?: number;
-  static names(): { [key: string]: string } {
-    return {
-      blockQps: 'BlockQps',
-      expQps: 'ExpQps',
-      passQps: 'PassQps',
-      qps: 'Qps',
-      rt: 'Rt',
-      thread: 'Thread',
-      timestamp: 'Timestamp',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      blockQps: 'number',
-      expQps: 'number',
-      passQps: 'number',
-      qps: 'number',
-      rt: 'number',
-      thread: 'number',
-      timestamp: 'number',
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class GetApplicationListWithMetircsResponseBodyDataResultCurMetricsFm extends $tea.Model {
-  blockQps?: number;
-  expQps?: number;
-  passQps?: number;
-  qps?: number;
-  rt?: number;
-  thread?: number;
-  timestamp?: number;
-  static names(): { [key: string]: string } {
-    return {
-      blockQps: 'BlockQps',
-      expQps: 'ExpQps',
-      passQps: 'PassQps',
-      qps: 'Qps',
-      rt: 'Rt',
-      thread: 'Thread',
-      timestamp: 'Timestamp',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      blockQps: 'number',
-      expQps: 'number',
-      passQps: 'number',
-      qps: 'number',
-      rt: 'number',
-      thread: 'number',
-      timestamp: 'number',
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class GetApplicationListWithMetircsResponseBodyDataResult extends $tea.Model {
-  appId?: string;
-  appName?: string;
-  appType?: number;
-  curMetrics?: GetApplicationListWithMetircsResponseBodyDataResultCurMetrics[];
-  curMetricsFm?: GetApplicationListWithMetircsResponseBodyDataResultCurMetricsFm;
-  extraInfo?: string;
-  instancesNumber?: number;
-  language?: string;
-  namespace?: string;
-  regionId?: string;
-  source?: string;
-  status?: number;
-  tagCount?: number;
-  tags?: string[];
-  static names(): { [key: string]: string } {
-    return {
-      appId: 'AppId',
-      appName: 'AppName',
-      appType: 'AppType',
-      curMetrics: 'CurMetrics',
-      curMetricsFm: 'CurMetricsFm',
-      extraInfo: 'ExtraInfo',
-      instancesNumber: 'InstancesNumber',
-      language: 'Language',
-      namespace: 'Namespace',
-      regionId: 'RegionId',
-      source: 'Source',
-      status: 'Status',
-      tagCount: 'TagCount',
-      tags: 'Tags',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      appId: 'string',
-      appName: 'string',
-      appType: 'number',
-      curMetrics: { 'type': 'array', 'itemType': GetApplicationListWithMetircsResponseBodyDataResultCurMetrics },
-      curMetricsFm: GetApplicationListWithMetircsResponseBodyDataResultCurMetricsFm,
-      extraInfo: 'string',
-      instancesNumber: 'number',
-      language: 'string',
-      namespace: 'string',
-      regionId: 'string',
-      source: 'string',
-      status: 'number',
-      tagCount: 'number',
-      tags: { 'type': 'array', 'itemType': 'string' },
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class GetApplicationListWithMetircsResponseBodyData extends $tea.Model {
-  pageNumber?: number;
-  pageSize?: number;
-  result?: GetApplicationListWithMetircsResponseBodyDataResult[];
-  totalSize?: number;
-  static names(): { [key: string]: string } {
-    return {
-      pageNumber: 'PageNumber',
-      pageSize: 'PageSize',
-      result: 'Result',
-      totalSize: 'TotalSize',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      pageNumber: 'number',
-      pageSize: 'number',
-      result: { 'type': 'array', 'itemType': GetApplicationListWithMetircsResponseBodyDataResult },
-      totalSize: 'number',
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
 export class GetBlackWhiteListResponseBodyData extends $tea.Model {
   content?: string;
   gatewayId?: number;
@@ -34043,78 +33790,6 @@ export default class Client extends OpenApi {
   async getApplicationList(request: GetApplicationListRequest): Promise<GetApplicationListResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.getApplicationListWithOptions(request, runtime);
-  }
-
-  /**
-    * @deprecated : GetApplicationListWithMetircs is deprecated, please use mse::2019-05-31::GetApplicationList instead.
-    *
-    * @param request GetApplicationListWithMetircsRequest
-    * @param runtime runtime options for this request RuntimeOptions
-    * @return GetApplicationListWithMetircsResponse
-   */
-  // Deprecated
-  async getApplicationListWithMetircsWithOptions(request: GetApplicationListWithMetircsRequest, runtime: $Util.RuntimeOptions): Promise<GetApplicationListWithMetircsResponse> {
-    Util.validateModel(request);
-    let query = { };
-    if (!Util.isUnset(request.acceptLanguage)) {
-      query["AcceptLanguage"] = request.acceptLanguage;
-    }
-
-    if (!Util.isUnset(request.appId)) {
-      query["AppId"] = request.appId;
-    }
-
-    if (!Util.isUnset(request.appName)) {
-      query["AppName"] = request.appName;
-    }
-
-    if (!Util.isUnset(request.namespace)) {
-      query["Namespace"] = request.namespace;
-    }
-
-    if (!Util.isUnset(request.pageNumber)) {
-      query["PageNumber"] = request.pageNumber;
-    }
-
-    if (!Util.isUnset(request.pageSize)) {
-      query["PageSize"] = request.pageSize;
-    }
-
-    if (!Util.isUnset(request.region)) {
-      query["Region"] = request.region;
-    }
-
-    if (!Util.isUnset(request.source)) {
-      query["Source"] = request.source;
-    }
-
-    let req = new $OpenApi.OpenApiRequest({
-      query: OpenApiUtil.query(query),
-    });
-    let params = new $OpenApi.Params({
-      action: "GetApplicationListWithMetircs",
-      version: "2019-05-31",
-      protocol: "HTTPS",
-      pathname: "/",
-      method: "POST",
-      authType: "AK",
-      style: "RPC",
-      reqBodyType: "formData",
-      bodyType: "json",
-    });
-    return $tea.cast<GetApplicationListWithMetircsResponse>(await this.callApi(params, req, runtime), new GetApplicationListWithMetircsResponse({}));
-  }
-
-  /**
-    * @deprecated : GetApplicationListWithMetircs is deprecated, please use mse::2019-05-31::GetApplicationList instead.
-    *
-    * @param request GetApplicationListWithMetircsRequest
-    * @return GetApplicationListWithMetircsResponse
-   */
-  // Deprecated
-  async getApplicationListWithMetircs(request: GetApplicationListWithMetircsRequest): Promise<GetApplicationListWithMetircsResponse> {
-    let runtime = new $Util.RuntimeOptions({ });
-    return await this.getApplicationListWithMetircsWithOptions(request, runtime);
   }
 
   async getBlackWhiteListWithOptions(request: GetBlackWhiteListRequest, runtime: $Util.RuntimeOptions): Promise<GetBlackWhiteListResponse> {
