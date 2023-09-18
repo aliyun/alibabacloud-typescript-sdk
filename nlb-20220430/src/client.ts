@@ -663,6 +663,7 @@ export class CreateServerGroupRequest extends $tea.Model {
   healthCheckConfig?: CreateServerGroupRequestHealthCheckConfig;
   preserveClientIpEnabled?: boolean;
   protocol?: string;
+  quicVersion?: string;
   regionId?: string;
   resourceGroupId?: string;
   scheduler?: string;
@@ -681,6 +682,7 @@ export class CreateServerGroupRequest extends $tea.Model {
       healthCheckConfig: 'HealthCheckConfig',
       preserveClientIpEnabled: 'PreserveClientIpEnabled',
       protocol: 'Protocol',
+      quicVersion: 'QuicVersion',
       regionId: 'RegionId',
       resourceGroupId: 'ResourceGroupId',
       scheduler: 'Scheduler',
@@ -702,6 +704,7 @@ export class CreateServerGroupRequest extends $tea.Model {
       healthCheckConfig: CreateServerGroupRequestHealthCheckConfig,
       preserveClientIpEnabled: 'boolean',
       protocol: 'string',
+      quicVersion: 'string',
       regionId: 'string',
       resourceGroupId: 'string',
       scheduler: 'string',
@@ -3927,6 +3930,7 @@ export class UpdateServerGroupAttributeRequest extends $tea.Model {
   dryRun?: boolean;
   healthCheckConfig?: UpdateServerGroupAttributeRequestHealthCheckConfig;
   preserveClientIpEnabled?: boolean;
+  quicVersion?: string;
   regionId?: string;
   scheduler?: string;
   serverGroupId?: string;
@@ -3939,6 +3943,7 @@ export class UpdateServerGroupAttributeRequest extends $tea.Model {
       dryRun: 'DryRun',
       healthCheckConfig: 'HealthCheckConfig',
       preserveClientIpEnabled: 'PreserveClientIpEnabled',
+      quicVersion: 'QuicVersion',
       regionId: 'RegionId',
       scheduler: 'Scheduler',
       serverGroupId: 'ServerGroupId',
@@ -3954,6 +3959,7 @@ export class UpdateServerGroupAttributeRequest extends $tea.Model {
       dryRun: 'boolean',
       healthCheckConfig: UpdateServerGroupAttributeRequestHealthCheckConfig,
       preserveClientIpEnabled: 'boolean',
+      quicVersion: 'string',
       regionId: 'string',
       scheduler: 'string',
       serverGroupId: 'string',
@@ -5427,6 +5433,7 @@ export class ListServerGroupsResponseBodyServerGroups extends $tea.Model {
   healthCheck?: ListServerGroupsResponseBodyServerGroupsHealthCheck;
   preserveClientIpEnabled?: boolean;
   protocol?: string;
+  quicVersion?: string;
   regionId?: string;
   relatedLoadBalancerIds?: string[];
   resourceGroupId?: string;
@@ -5448,6 +5455,7 @@ export class ListServerGroupsResponseBodyServerGroups extends $tea.Model {
       healthCheck: 'HealthCheck',
       preserveClientIpEnabled: 'PreserveClientIpEnabled',
       protocol: 'Protocol',
+      quicVersion: 'QuicVersion',
       regionId: 'RegionId',
       relatedLoadBalancerIds: 'RelatedLoadBalancerIds',
       resourceGroupId: 'ResourceGroupId',
@@ -5472,6 +5480,7 @@ export class ListServerGroupsResponseBodyServerGroups extends $tea.Model {
       healthCheck: ListServerGroupsResponseBodyServerGroupsHealthCheck,
       preserveClientIpEnabled: 'boolean',
       protocol: 'string',
+      quicVersion: 'string',
       regionId: 'string',
       relatedLoadBalancerIds: { 'type': 'array', 'itemType': 'string' },
       resourceGroupId: 'string',
@@ -6363,6 +6372,10 @@ export default class Client extends OpenApi {
 
     if (!Util.isUnset(request.protocol)) {
       body["Protocol"] = request.protocol;
+    }
+
+    if (!Util.isUnset(request.quicVersion)) {
+      body["QuicVersion"] = request.quicVersion;
     }
 
     if (!Util.isUnset(request.regionId)) {
@@ -8354,6 +8367,10 @@ export default class Client extends OpenApi {
 
     if (!Util.isUnset(request.preserveClientIpEnabled)) {
       body["PreserveClientIpEnabled"] = request.preserveClientIpEnabled;
+    }
+
+    if (!Util.isUnset(request.quicVersion)) {
+      body["QuicVersion"] = request.quicVersion;
     }
 
     if (!Util.isUnset(request.regionId)) {
