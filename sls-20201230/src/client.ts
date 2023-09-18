@@ -4134,13 +4134,13 @@ export class ListLogStoresResponse extends $tea.Model {
 
 export class ListLogtailPipelineConfigRequest extends $tea.Model {
   configName?: string;
-  logstore?: string;
+  logstoreName?: string;
   offset?: number;
   size?: number;
   static names(): { [key: string]: string } {
     return {
       configName: 'configName',
-      logstore: 'logstore',
+      logstoreName: 'logstoreName',
       offset: 'offset',
       size: 'size',
     };
@@ -4149,7 +4149,7 @@ export class ListLogtailPipelineConfigRequest extends $tea.Model {
   static types(): { [key: string]: any } {
     return {
       configName: 'string',
-      logstore: 'string',
+      logstoreName: 'string',
       offset: 'number',
       size: 'number',
     };
@@ -9590,8 +9590,8 @@ export default class Client extends OpenApi {
       query["configName"] = request.configName;
     }
 
-    if (!Util.isUnset(request.logstore)) {
-      query["logstore"] = request.logstore;
+    if (!Util.isUnset(request.logstoreName)) {
+      query["logstoreName"] = request.logstoreName;
     }
 
     if (!Util.isUnset(request.offset)) {
