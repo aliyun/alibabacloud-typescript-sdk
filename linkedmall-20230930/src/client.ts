@@ -145,8 +145,8 @@ export class CooperationShop extends $tea.Model {
   shopId?: string;
   static names(): { [key: string]: string } {
     return {
-      cooperationCompanyId: 'CooperationCompanyId',
-      cooperationShopId: 'CooperationShopId',
+      cooperationCompanyId: 'cooperationCompanyId',
+      cooperationShopId: 'cooperationShopId',
       shopId: 'shopId',
     };
   }
