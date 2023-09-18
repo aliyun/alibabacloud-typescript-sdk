@@ -1600,6 +1600,87 @@ export class QueryAuditResultResponse extends $tea.Model {
   }
 }
 
+export class QueryBenefitGrantResultRequest extends $tea.Model {
+  cloducodeFlowNo?: string;
+  outerCustomerId?: string;
+  static names(): { [key: string]: string } {
+    return {
+      cloducodeFlowNo: 'CloducodeFlowNo',
+      outerCustomerId: 'OuterCustomerId',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      cloducodeFlowNo: 'string',
+      outerCustomerId: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class QueryBenefitGrantResultResponseBody extends $tea.Model {
+  code?: string;
+  debug?: boolean;
+  message?: string;
+  model?: QueryBenefitGrantResultResponseBodyModel;
+  requestId?: string;
+  success?: boolean;
+  static names(): { [key: string]: string } {
+    return {
+      code: 'Code',
+      debug: 'Debug',
+      message: 'Message',
+      model: 'Model',
+      requestId: 'RequestId',
+      success: 'Success',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      code: 'string',
+      debug: 'boolean',
+      message: 'string',
+      model: QueryBenefitGrantResultResponseBodyModel,
+      requestId: 'string',
+      success: 'boolean',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class QueryBenefitGrantResultResponse extends $tea.Model {
+  headers: { [key: string]: string };
+  statusCode: number;
+  body: QueryBenefitGrantResultResponseBody;
+  static names(): { [key: string]: string } {
+    return {
+      headers: 'headers',
+      statusCode: 'statusCode',
+      body: 'body',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
+      body: QueryBenefitGrantResultResponseBody,
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
 export class QueryOrderRequest extends $tea.Model {
   channelId?: string;
   channelTradeId?: string;
@@ -3005,11 +3086,13 @@ export class GetUserFinishedAdResponseBodyResult extends $tea.Model {
 }
 
 export class ListAdvertisingRequestApp extends $tea.Model {
+  appid?: string;
   ext?: { [key: string]: any };
   mediaid?: string;
   sn?: string;
   static names(): { [key: string]: string } {
     return {
+      appid: 'Appid',
       ext: 'Ext',
       mediaid: 'Mediaid',
       sn: 'Sn',
@@ -3018,6 +3101,7 @@ export class ListAdvertisingRequestApp extends $tea.Model {
 
   static types(): { [key: string]: any } {
     return {
+      appid: 'string',
       ext: { 'type': 'map', 'keyType': 'string', 'valueType': 'any' },
       mediaid: 'string',
       sn: 'string',
@@ -3708,6 +3792,40 @@ export class QueryAuditResultResponseBodyRecords extends $tea.Model {
       crid: 'string',
       reason: 'string',
       state: 'number',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class QueryBenefitGrantResultResponseBodyModel extends $tea.Model {
+  amount?: number;
+  cloudcodeFlowNo?: string;
+  outerCustomerId?: string;
+  outerFlowNo?: string;
+  remark?: string;
+  status?: number;
+  static names(): { [key: string]: string } {
+    return {
+      amount: 'Amount',
+      cloudcodeFlowNo: 'CloudcodeFlowNo',
+      outerCustomerId: 'OuterCustomerId',
+      outerFlowNo: 'OuterFlowNo',
+      remark: 'Remark',
+      status: 'Status',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      amount: 'number',
+      cloudcodeFlowNo: 'string',
+      outerCustomerId: 'string',
+      outerFlowNo: 'string',
+      remark: 'string',
+      status: 'number',
     };
   }
 
@@ -5167,6 +5285,39 @@ export default class Client extends OpenApi {
   async queryAuditResult(request: QueryAuditResultRequest): Promise<QueryAuditResultResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.queryAuditResultWithOptions(request, runtime);
+  }
+
+  async queryBenefitGrantResultWithOptions(request: QueryBenefitGrantResultRequest, runtime: $Util.RuntimeOptions): Promise<QueryBenefitGrantResultResponse> {
+    Util.validateModel(request);
+    let body : {[key: string ]: any} = { };
+    if (!Util.isUnset(request.cloducodeFlowNo)) {
+      body["CloducodeFlowNo"] = request.cloducodeFlowNo;
+    }
+
+    if (!Util.isUnset(request.outerCustomerId)) {
+      body["OuterCustomerId"] = request.outerCustomerId;
+    }
+
+    let req = new $OpenApi.OpenApiRequest({
+      body: OpenApiUtil.parseToMap(body),
+    });
+    let params = new $OpenApi.Params({
+      action: "QueryBenefitGrantResult",
+      version: "2022-07-04",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $tea.cast<QueryBenefitGrantResultResponse>(await this.callApi(params, req, runtime), new QueryBenefitGrantResultResponse({}));
+  }
+
+  async queryBenefitGrantResult(request: QueryBenefitGrantResultRequest): Promise<QueryBenefitGrantResultResponse> {
+    let runtime = new $Util.RuntimeOptions({ });
+    return await this.queryBenefitGrantResultWithOptions(request, runtime);
   }
 
   async queryOrderWithOptions(request: QueryOrderRequest, runtime: $Util.RuntimeOptions): Promise<QueryOrderResponse> {
