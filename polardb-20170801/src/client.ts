@@ -6637,6 +6637,7 @@ export class DescribeMetaListRequest extends $tea.Model {
   ownerId?: number;
   pageNumber?: number;
   pageSize?: number;
+  regionCode?: string;
   resourceOwnerAccount?: string;
   resourceOwnerId?: number;
   restoreTime?: string;
@@ -6650,6 +6651,7 @@ export class DescribeMetaListRequest extends $tea.Model {
       ownerId: 'OwnerId',
       pageNumber: 'PageNumber',
       pageSize: 'PageSize',
+      regionCode: 'RegionCode',
       resourceOwnerAccount: 'ResourceOwnerAccount',
       resourceOwnerId: 'ResourceOwnerId',
       restoreTime: 'RestoreTime',
@@ -6666,6 +6668,7 @@ export class DescribeMetaListRequest extends $tea.Model {
       ownerId: 'number',
       pageNumber: 'number',
       pageSize: 'number',
+      regionCode: 'string',
       resourceOwnerAccount: 'string',
       resourceOwnerId: 'number',
       restoreTime: 'string',
@@ -20604,6 +20607,10 @@ export default class Client extends OpenApi {
 
     if (!Util.isUnset(request.pageSize)) {
       query["PageSize"] = request.pageSize;
+    }
+
+    if (!Util.isUnset(request.regionCode)) {
+      query["RegionCode"] = request.regionCode;
     }
 
     if (!Util.isUnset(request.resourceOwnerAccount)) {
