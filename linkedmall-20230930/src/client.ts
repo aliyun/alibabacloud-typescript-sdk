@@ -139,6 +139,31 @@ export class ConfirmDisburseResult extends $tea.Model {
   }
 }
 
+export class CooperationShop extends $tea.Model {
+  cooperationCompanyId?: string;
+  cooperationShopId?: string;
+  shopId?: string;
+  static names(): { [key: string]: string } {
+    return {
+      cooperationCompanyId: 'CooperationCompanyId',
+      cooperationShopId: 'CooperationShopId',
+      shopId: 'shopId',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      cooperationCompanyId: 'string',
+      cooperationShopId: 'string',
+      shopId: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
 export class DeliveryInfo extends $tea.Model {
   displayName?: string;
   id?: string;
@@ -602,9 +627,9 @@ export class OrderLineResult extends $tea.Model {
   orderId?: string;
   orderLineId?: string;
   orderLineStatus?: string;
+  payFee?: number;
   productId?: string;
   productPic?: string;
-  productPrice?: ProductPrice[];
   productTitle?: string;
   skuId?: string;
   skuTitle?: string;
@@ -615,9 +640,9 @@ export class OrderLineResult extends $tea.Model {
       orderId: 'orderId',
       orderLineId: 'orderLineId',
       orderLineStatus: 'orderLineStatus',
+      payFee: 'payFee',
       productId: 'productId',
       productPic: 'productPic',
-      productPrice: 'productPrice',
       productTitle: 'productTitle',
       skuId: 'skuId',
       skuTitle: 'skuTitle',
@@ -631,9 +656,9 @@ export class OrderLineResult extends $tea.Model {
       orderId: 'string',
       orderLineId: 'string',
       orderLineStatus: 'string',
+      payFee: 'number',
       productId: 'string',
       productPic: 'string',
-      productPrice: { 'type': 'array', 'itemType': ProductPrice },
       productTitle: 'string',
       skuId: 'string',
       skuTitle: 'string',
@@ -706,8 +731,8 @@ export class OrderProductResult extends $tea.Model {
   productId?: string;
   productPicUrl?: string;
   productTitle?: string;
+  purchaserId?: string;
   quantity?: number;
-  shopId?: string;
   skuId?: string;
   skuTitle?: string;
   static names(): { [key: string]: string } {
@@ -719,8 +744,8 @@ export class OrderProductResult extends $tea.Model {
       productId: 'productId',
       productPicUrl: 'productPicUrl',
       productTitle: 'productTitle',
+      purchaserId: 'purchaserId',
       quantity: 'quantity',
-      shopId: 'shopId',
       skuId: 'skuId',
       skuTitle: 'skuTitle',
     };
@@ -735,8 +760,8 @@ export class OrderProductResult extends $tea.Model {
       productId: 'string',
       productPicUrl: 'string',
       productTitle: 'string',
+      purchaserId: 'string',
       quantity: 'number',
-      shopId: 'string',
       skuId: 'string',
       skuTitle: 'string',
     };
@@ -749,14 +774,14 @@ export class OrderProductResult extends $tea.Model {
 
 export class OrderRenderProductDTO extends $tea.Model {
   productId?: string;
+  purchaserId?: string;
   quantity?: number;
-  shopId?: string;
   skuId?: string;
   static names(): { [key: string]: string } {
     return {
       productId: 'productId',
+      purchaserId: 'purchaserId',
       quantity: 'quantity',
-      shopId: 'shopId',
       skuId: 'skuId',
     };
   }
@@ -764,8 +789,8 @@ export class OrderRenderProductDTO extends $tea.Model {
   static types(): { [key: string]: any } {
     return {
       productId: 'string',
+      purchaserId: 'string',
       quantity: 'number',
-      shopId: 'string',
       skuId: 'string',
     };
   }
@@ -810,7 +835,7 @@ export class OrderResult extends $tea.Model {
   createDate?: string;
   distributorId?: string;
   logisticsStatus?: string;
-  orderAmount?: string;
+  orderAmount?: number;
   orderId?: string;
   orderLineList?: OrderLineResult[];
   orderStatus?: string;
@@ -833,7 +858,7 @@ export class OrderResult extends $tea.Model {
       createDate: 'string',
       distributorId: 'string',
       logisticsStatus: 'string',
-      orderAmount: 'string',
+      orderAmount: 'number',
       orderId: 'string',
       orderLineList: { 'type': 'array', 'itemType': OrderLineResult },
       orderStatus: 'string',
@@ -928,15 +953,15 @@ export class Product extends $tea.Model {
 export class ProductDTO extends $tea.Model {
   price?: number;
   productId?: string;
+  purchaserId?: string;
   quantity?: number;
-  shopId?: string;
   skuId?: string;
   static names(): { [key: string]: string } {
     return {
       price: 'price',
       productId: 'productId',
+      purchaserId: 'purchaserId',
       quantity: 'quantity',
-      shopId: 'shopId',
       skuId: 'skuId',
     };
   }
@@ -945,8 +970,8 @@ export class ProductDTO extends $tea.Model {
     return {
       price: 'number',
       productId: 'string',
+      purchaserId: 'string',
       quantity: 'number',
-      shopId: 'string',
       skuId: 'string',
     };
   }
@@ -1097,22 +1122,22 @@ export class ProductSaleInfo extends $tea.Model {
 }
 
 export class ProductSaleInfoListQuery extends $tea.Model {
-  distributorShopId?: string;
   divisionCode?: string;
   productIds?: string[];
+  purchaserId?: string;
   static names(): { [key: string]: string } {
     return {
-      distributorShopId: 'distributorShopId',
       divisionCode: 'divisionCode',
       productIds: 'productIds',
+      purchaserId: 'purchaserId',
     };
   }
 
   static types(): { [key: string]: any } {
     return {
-      distributorShopId: 'string',
       divisionCode: 'string',
       productIds: { 'type': 'array', 'itemType': 'string' },
+      purchaserId: 'string',
     };
   }
 
@@ -1420,14 +1445,12 @@ export class RefundOrderCmd extends $tea.Model {
 export class RefundOrderResult extends $tea.Model {
   disputeId?: string;
   disputeStatus?: number;
-  disputeType?: number;
   orderLineId?: string;
   requestId?: string;
   static names(): { [key: string]: string } {
     return {
       disputeId: 'disputeId',
       disputeStatus: 'disputeStatus',
-      disputeType: 'disputeType',
       orderLineId: 'orderLineId',
       requestId: 'requestId',
     };
@@ -1437,7 +1460,6 @@ export class RefundOrderResult extends $tea.Model {
     return {
       disputeId: 'string',
       disputeStatus: 'number',
-      disputeType: 'number',
       orderLineId: 'string',
       requestId: 'string',
     };
@@ -1503,7 +1525,6 @@ export class RefundRenderCmd extends $tea.Model {
 
 export class RefundRenderResult extends $tea.Model {
   bizClaimType?: number;
-  mainOrderRefund?: boolean;
   maxRefundFeeData?: DistributionMaxRefundFee;
   orderLineId?: string;
   refundReasonList?: RefundReason[];
@@ -1511,7 +1532,6 @@ export class RefundRenderResult extends $tea.Model {
   static names(): { [key: string]: string } {
     return {
       bizClaimType: 'bizClaimType',
-      mainOrderRefund: 'mainOrderRefund',
       maxRefundFeeData: 'maxRefundFeeData',
       orderLineId: 'orderLineId',
       refundReasonList: 'refundReasonList',
@@ -1522,7 +1542,6 @@ export class RefundRenderResult extends $tea.Model {
   static types(): { [key: string]: any } {
     return {
       bizClaimType: 'number',
-      mainOrderRefund: 'boolean',
       maxRefundFeeData: DistributionMaxRefundFee,
       orderLineId: 'string',
       refundReasonList: { 'type': 'array', 'itemType': RefundReason },
@@ -1544,7 +1563,6 @@ export class RefundResult extends $tea.Model {
   disputeEndTime?: string;
   disputeId?: string;
   disputeStatus?: number;
-  disputeType?: number;
   orderId?: string;
   orderLineId?: string;
   orderLogisticsStatus?: number;
@@ -1568,7 +1586,6 @@ export class RefundResult extends $tea.Model {
       disputeEndTime: 'disputeEndTime',
       disputeId: 'disputeId',
       disputeStatus: 'disputeStatus',
-      disputeType: 'disputeType',
       orderId: 'orderId',
       orderLineId: 'orderLineId',
       orderLogisticsStatus: 'orderLogisticsStatus',
@@ -1595,7 +1612,6 @@ export class RefundResult extends $tea.Model {
       disputeEndTime: 'string',
       disputeId: 'string',
       disputeStatus: 'number',
-      disputeType: 'number',
       orderId: 'string',
       orderLineId: 'string',
       orderLogisticsStatus: 'number',
@@ -1618,9 +1634,11 @@ export class RefundResult extends $tea.Model {
 }
 
 export class Shop extends $tea.Model {
-  channelSupplierId?: string;
+  cooperationShops?: CooperationShop[];
   distributorId?: string;
   endDate?: string;
+  purchaserId?: string;
+  requestId?: string;
   shopId?: string;
   shopName?: string;
   shopType?: string;
@@ -1628,9 +1646,11 @@ export class Shop extends $tea.Model {
   status?: string;
   static names(): { [key: string]: string } {
     return {
-      channelSupplierId: 'channelSupplierId',
+      cooperationShops: 'cooperationShops',
       distributorId: 'distributorId',
       endDate: 'endDate',
+      purchaserId: 'purchaserId',
+      requestId: 'requestId',
       shopId: 'shopId',
       shopName: 'shopName',
       shopType: 'shopType',
@@ -1641,9 +1661,11 @@ export class Shop extends $tea.Model {
 
   static types(): { [key: string]: any } {
     return {
-      channelSupplierId: 'string',
+      cooperationShops: { 'type': 'array', 'itemType': CooperationShop },
       distributorId: 'string',
       endDate: 'string',
+      purchaserId: 'string',
+      requestId: 'string',
       shopId: 'string',
       shopName: 'string',
       shopType: 'string',
@@ -1658,8 +1680,9 @@ export class Shop extends $tea.Model {
 }
 
 export class ShopPageDataResult extends $tea.Model {
-  channelSupplierId?: string;
+  cooperationShops?: CooperationShop[];
   endDate?: string;
+  purchaserId?: string;
   shopId?: string;
   shopName?: string;
   shopType?: string;
@@ -1667,8 +1690,9 @@ export class ShopPageDataResult extends $tea.Model {
   status?: string;
   static names(): { [key: string]: string } {
     return {
-      channelSupplierId: 'channelSupplierId',
+      cooperationShops: 'cooperationShops',
       endDate: 'endDate',
+      purchaserId: 'purchaserId',
       shopId: 'shopId',
       shopName: 'shopName',
       shopType: 'shopType',
@@ -1679,8 +1703,9 @@ export class ShopPageDataResult extends $tea.Model {
 
   static types(): { [key: string]: any } {
     return {
-      channelSupplierId: 'string',
+      cooperationShops: { 'type': 'array', 'itemType': CooperationShop },
       endDate: 'string',
+      purchaserId: 'string',
       shopId: 'string',
       shopName: 'string',
       shopType: 'string',
@@ -1852,21 +1877,21 @@ export class SkuSaleInfo extends $tea.Model {
 }
 
 export class SkuSaleInfoListQuery extends $tea.Model {
-  distributorShopId?: string;
   divisionCode?: string;
+  purchaserId?: string;
   skuQueryParams?: SkuQueryParam[];
   static names(): { [key: string]: string } {
     return {
-      distributorShopId: 'distributorShopId',
       divisionCode: 'divisionCode',
+      purchaserId: 'purchaserId',
       skuQueryParams: 'skuQueryParams',
     };
   }
 
   static types(): { [key: string]: any } {
     return {
-      distributorShopId: 'string',
       divisionCode: 'string',
+      purchaserId: 'string',
       skuQueryParams: { 'type': 'array', 'itemType': SkuQueryParam },
     };
   }
@@ -2152,100 +2177,6 @@ export class GetOrderResponse extends $tea.Model {
   }
 }
 
-export class GetProductRequest extends $tea.Model {
-  distributorShopId?: string;
-  divisionCode?: string;
-  static names(): { [key: string]: string } {
-    return {
-      distributorShopId: 'distributorShopId',
-      divisionCode: 'divisionCode',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      distributorShopId: 'string',
-      divisionCode: 'string',
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class GetProductResponse extends $tea.Model {
-  headers: { [key: string]: string };
-  statusCode: number;
-  body: Product;
-  static names(): { [key: string]: string } {
-    return {
-      headers: 'headers',
-      statusCode: 'statusCode',
-      body: 'body',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
-      statusCode: 'number',
-      body: Product,
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class GetProductSaleInfoRequest extends $tea.Model {
-  distributorShopId?: string;
-  divisionCode?: string;
-  static names(): { [key: string]: string } {
-    return {
-      distributorShopId: 'distributorShopId',
-      divisionCode: 'divisionCode',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      distributorShopId: 'string',
-      divisionCode: 'string',
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class GetProductSaleInfoResponse extends $tea.Model {
-  headers: { [key: string]: string };
-  statusCode: number;
-  body: ProductSaleInfo;
-  static names(): { [key: string]: string } {
-    return {
-      headers: 'headers',
-      statusCode: 'statusCode',
-      body: 'body',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
-      statusCode: 'number',
-      body: ProductSaleInfo,
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
 export class GetPurchaseOrderStatusResponse extends $tea.Model {
   headers: { [key: string]: string };
   statusCode: number;
@@ -2263,6 +2194,31 @@ export class GetPurchaseOrderStatusResponse extends $tea.Model {
       headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
       statusCode: 'number',
       body: PurchaseOrderStatusResult,
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class GetPurchaserShopResponse extends $tea.Model {
+  headers: { [key: string]: string };
+  statusCode: number;
+  body: Shop;
+  static names(): { [key: string]: string } {
+    return {
+      headers: 'headers',
+      statusCode: 'statusCode',
+      body: 'body',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
+      body: Shop,
     };
   }
 
@@ -2296,10 +2252,32 @@ export class GetRefundOrderResponse extends $tea.Model {
   }
 }
 
-export class GetShopResponse extends $tea.Model {
+export class GetSelectionProductRequest extends $tea.Model {
+  divisionCode?: string;
+  purchaserId?: string;
+  static names(): { [key: string]: string } {
+    return {
+      divisionCode: 'divisionCode',
+      purchaserId: 'purchaserId',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      divisionCode: 'string',
+      purchaserId: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class GetSelectionProductResponse extends $tea.Model {
   headers: { [key: string]: string };
   statusCode: number;
-  body: Shop;
+  body: Product;
   static names(): { [key: string]: string } {
     return {
       headers: 'headers',
@@ -2312,7 +2290,54 @@ export class GetShopResponse extends $tea.Model {
     return {
       headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
       statusCode: 'number',
-      body: Shop,
+      body: Product,
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class GetSelectionProductSaleInfoRequest extends $tea.Model {
+  divisionCode?: string;
+  purchaserId?: string;
+  static names(): { [key: string]: string } {
+    return {
+      divisionCode: 'divisionCode',
+      purchaserId: 'purchaserId',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      divisionCode: 'string',
+      purchaserId: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class GetSelectionProductSaleInfoResponse extends $tea.Model {
+  headers: { [key: string]: string };
+  statusCode: number;
+  body: ProductSaleInfo;
+  static names(): { [key: string]: string } {
+    return {
+      headers: 'headers',
+      statusCode: 'statusCode',
+      body: 'body',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
+      body: ProductSaleInfo,
     };
   }
 
@@ -2346,101 +2371,11 @@ export class ListLogisticsOrdersResponse extends $tea.Model {
   }
 }
 
-export class ListProductGeneralBillsRequest extends $tea.Model {
-  body?: GeneralBillPageQuery;
-  static names(): { [key: string]: string } {
-    return {
-      body: 'body',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      body: GeneralBillPageQuery,
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class ListProductGeneralBillsResponse extends $tea.Model {
-  headers: { [key: string]: string };
-  statusCode: number;
-  body: GeneralBillPageResult;
-  static names(): { [key: string]: string } {
-    return {
-      headers: 'headers',
-      statusCode: 'statusCode',
-      body: 'body',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
-      statusCode: 'number',
-      body: GeneralBillPageResult,
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class ListProductSaleInfosRequest extends $tea.Model {
-  body?: ProductSaleInfoListQuery;
-  static names(): { [key: string]: string } {
-    return {
-      body: 'body',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      body: ProductSaleInfoListQuery,
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class ListProductSaleInfosResponse extends $tea.Model {
-  headers: { [key: string]: string };
-  statusCode: number;
-  body: ProductSaleInfoListResult;
-  static names(): { [key: string]: string } {
-    return {
-      headers: 'headers',
-      statusCode: 'statusCode',
-      body: 'body',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
-      statusCode: 'number',
-      body: ProductSaleInfoListResult,
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class ListProductsRequest extends $tea.Model {
-  distributorShopId?: string;
+export class ListPurchaserShopsRequest extends $tea.Model {
   pageNumber?: number;
   pageSize?: number;
   static names(): { [key: string]: string } {
     return {
-      distributorShopId: 'distributorShopId',
       pageNumber: 'pageNumber',
       pageSize: 'pageSize',
     };
@@ -2448,7 +2383,6 @@ export class ListProductsRequest extends $tea.Model {
 
   static types(): { [key: string]: any } {
     return {
-      distributorShopId: 'string',
       pageNumber: 'number',
       pageSize: 'number',
     };
@@ -2459,69 +2393,7 @@ export class ListProductsRequest extends $tea.Model {
   }
 }
 
-export class ListProductsResponse extends $tea.Model {
-  headers: { [key: string]: string };
-  statusCode: number;
-  body: ProductPageResult;
-  static names(): { [key: string]: string } {
-    return {
-      headers: 'headers',
-      statusCode: 'statusCode',
-      body: 'body',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
-      statusCode: 'number',
-      body: ProductPageResult,
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class ListShopsRequest extends $tea.Model {
-  channelSupplierId?: string;
-  endDate?: string;
-  pageNumber?: number;
-  pageSize?: number;
-  shopId?: string;
-  shopName?: string;
-  startDate?: string;
-  static names(): { [key: string]: string } {
-    return {
-      channelSupplierId: 'channelSupplierId',
-      endDate: 'endDate',
-      pageNumber: 'pageNumber',
-      pageSize: 'pageSize',
-      shopId: 'shopId',
-      shopName: 'shopName',
-      startDate: 'startDate',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      channelSupplierId: 'string',
-      endDate: 'string',
-      pageNumber: 'number',
-      pageSize: 'number',
-      shopId: 'string',
-      shopName: 'string',
-      startDate: 'string',
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class ListShopsResponse extends $tea.Model {
+export class ListPurchaserShopsResponse extends $tea.Model {
   headers: { [key: string]: string };
   statusCode: number;
   body: ShopPageResult;
@@ -2546,7 +2418,101 @@ export class ListShopsResponse extends $tea.Model {
   }
 }
 
-export class ListSkuSaleInfosRequest extends $tea.Model {
+export class ListSelectionProductSaleInfosRequest extends $tea.Model {
+  body?: ProductSaleInfoListQuery;
+  static names(): { [key: string]: string } {
+    return {
+      body: 'body',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      body: ProductSaleInfoListQuery,
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class ListSelectionProductSaleInfosResponse extends $tea.Model {
+  headers: { [key: string]: string };
+  statusCode: number;
+  body: ProductSaleInfoListResult;
+  static names(): { [key: string]: string } {
+    return {
+      headers: 'headers',
+      statusCode: 'statusCode',
+      body: 'body',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
+      body: ProductSaleInfoListResult,
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class ListSelectionProductsRequest extends $tea.Model {
+  pageNumber?: number;
+  pageSize?: number;
+  purchaserId?: string;
+  static names(): { [key: string]: string } {
+    return {
+      pageNumber: 'pageNumber',
+      pageSize: 'pageSize',
+      purchaserId: 'purchaserId',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      pageNumber: 'number',
+      pageSize: 'number',
+      purchaserId: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class ListSelectionProductsResponse extends $tea.Model {
+  headers: { [key: string]: string };
+  statusCode: number;
+  body: ProductPageResult;
+  static names(): { [key: string]: string } {
+    return {
+      headers: 'headers',
+      statusCode: 'statusCode',
+      body: 'body',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
+      body: ProductPageResult,
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class ListSelectionSkuSaleInfosRequest extends $tea.Model {
   body?: SkuSaleInfoListQuery;
   static names(): { [key: string]: string } {
     return {
@@ -2565,7 +2531,7 @@ export class ListSkuSaleInfosRequest extends $tea.Model {
   }
 }
 
-export class ListSkuSaleInfosResponse extends $tea.Model {
+export class ListSelectionSkuSaleInfosResponse extends $tea.Model {
   headers: { [key: string]: string };
   statusCode: number;
   body: SkuSaleInfoListResult;
@@ -2884,7 +2850,7 @@ export default class Client extends OpenApi {
       action: "CancelRefundOrder",
       version: "2023-09-30",
       protocol: "HTTPS",
-      pathname: `/opensaas-s2b/opensaas-s2b-biz-trade/v1/refunds/${OpenApiUtil.getEncodeParam(disputeId)}/commands/cancel`,
+      pathname: `/opensaas-s2b/opensaas-s2b-biz-trade/v2/refunds/${OpenApiUtil.getEncodeParam(disputeId)}/commands/cancel`,
       method: "POST",
       authType: "AK",
       style: "ROA",
@@ -2910,7 +2876,7 @@ export default class Client extends OpenApi {
       action: "ConfirmDisburse",
       version: "2023-09-30",
       protocol: "HTTPS",
-      pathname: `/opensaas-s2b/opensaas-s2b-biz-trade/v1/orders/commands/confirmDisburse`,
+      pathname: `/opensaas-s2b/opensaas-s2b-biz-trade/v2/orders/commands/confirmDisburse`,
       method: "POST",
       authType: "AK",
       style: "ROA",
@@ -2936,7 +2902,7 @@ export default class Client extends OpenApi {
       action: "CreateGoodsShippingNotice",
       version: "2023-09-30",
       protocol: "HTTPS",
-      pathname: `/opensaas-s2b/opensaas-s2b-biz-trade/v1/refunds/command/createGoodsShippingNotice`,
+      pathname: `/opensaas-s2b/opensaas-s2b-biz-trade/v2/refunds/command/createGoodsShippingNotice`,
       method: "POST",
       authType: "AK",
       style: "ROA",
@@ -2962,7 +2928,7 @@ export default class Client extends OpenApi {
       action: "CreatePurchaseOrder",
       version: "2023-09-30",
       protocol: "HTTPS",
-      pathname: `/opensaas-s2b/opensaas-s2b-biz-trade/v1/purchaseOrders`,
+      pathname: `/opensaas-s2b/opensaas-s2b-biz-trade/v2/purchaseOrders`,
       method: "POST",
       authType: "AK",
       style: "ROA",
@@ -2988,7 +2954,7 @@ export default class Client extends OpenApi {
       action: "CreateRefundOrder",
       version: "2023-09-30",
       protocol: "HTTPS",
-      pathname: `/opensaas-s2b/opensaas-s2b-biz-trade/v1/refunds`,
+      pathname: `/opensaas-s2b/opensaas-s2b-biz-trade/v2/refunds`,
       method: "POST",
       authType: "AK",
       style: "ROA",
@@ -3012,7 +2978,7 @@ export default class Client extends OpenApi {
       action: "GetOrder",
       version: "2023-09-30",
       protocol: "HTTPS",
-      pathname: `/opensaas-s2b/opensaas-s2b-biz-trade/v1/orders/${OpenApiUtil.getEncodeParam(orderId)}`,
+      pathname: `/opensaas-s2b/opensaas-s2b-biz-trade/v2/orders/${OpenApiUtil.getEncodeParam(orderId)}`,
       method: "GET",
       authType: "AK",
       style: "ROA",
@@ -3028,76 +2994,6 @@ export default class Client extends OpenApi {
     return await this.getOrderWithOptions(orderId, headers, runtime);
   }
 
-  async getProductWithOptions(productId: string, request: GetProductRequest, headers: {[key: string ]: string}, runtime: $Util.RuntimeOptions): Promise<GetProductResponse> {
-    Util.validateModel(request);
-    let query : {[key: string ]: any} = { };
-    if (!Util.isUnset(request.distributorShopId)) {
-      query["distributorShopId"] = request.distributorShopId;
-    }
-
-    if (!Util.isUnset(request.divisionCode)) {
-      query["divisionCode"] = request.divisionCode;
-    }
-
-    let req = new $OpenApi.OpenApiRequest({
-      headers: headers,
-      query: OpenApiUtil.query(query),
-    });
-    let params = new $OpenApi.Params({
-      action: "GetProduct",
-      version: "2023-09-30",
-      protocol: "HTTPS",
-      pathname: `/opensaas-s2b/opensaas-s2b-biz-trade/v1/products/${OpenApiUtil.getEncodeParam(productId)}`,
-      method: "GET",
-      authType: "AK",
-      style: "ROA",
-      reqBodyType: "json",
-      bodyType: "json",
-    });
-    return $tea.cast<GetProductResponse>(await this.callApi(params, req, runtime), new GetProductResponse({}));
-  }
-
-  async getProduct(productId: string, request: GetProductRequest): Promise<GetProductResponse> {
-    let runtime = new $Util.RuntimeOptions({ });
-    let headers : {[key: string ]: string} = { };
-    return await this.getProductWithOptions(productId, request, headers, runtime);
-  }
-
-  async getProductSaleInfoWithOptions(productId: string, request: GetProductSaleInfoRequest, headers: {[key: string ]: string}, runtime: $Util.RuntimeOptions): Promise<GetProductSaleInfoResponse> {
-    Util.validateModel(request);
-    let query : {[key: string ]: any} = { };
-    if (!Util.isUnset(request.distributorShopId)) {
-      query["distributorShopId"] = request.distributorShopId;
-    }
-
-    if (!Util.isUnset(request.divisionCode)) {
-      query["divisionCode"] = request.divisionCode;
-    }
-
-    let req = new $OpenApi.OpenApiRequest({
-      headers: headers,
-      query: OpenApiUtil.query(query),
-    });
-    let params = new $OpenApi.Params({
-      action: "GetProductSaleInfo",
-      version: "2023-09-30",
-      protocol: "HTTPS",
-      pathname: `/opensaas-s2b/opensaas-s2b-biz-trade/v1/products/${OpenApiUtil.getEncodeParam(productId)}/saleInfo`,
-      method: "GET",
-      authType: "AK",
-      style: "ROA",
-      reqBodyType: "json",
-      bodyType: "json",
-    });
-    return $tea.cast<GetProductSaleInfoResponse>(await this.callApi(params, req, runtime), new GetProductSaleInfoResponse({}));
-  }
-
-  async getProductSaleInfo(productId: string, request: GetProductSaleInfoRequest): Promise<GetProductSaleInfoResponse> {
-    let runtime = new $Util.RuntimeOptions({ });
-    let headers : {[key: string ]: string} = { };
-    return await this.getProductSaleInfoWithOptions(productId, request, headers, runtime);
-  }
-
   async getPurchaseOrderStatusWithOptions(purchaseOrderId: string, headers: {[key: string ]: string}, runtime: $Util.RuntimeOptions): Promise<GetPurchaseOrderStatusResponse> {
     let req = new $OpenApi.OpenApiRequest({
       headers: headers,
@@ -3106,7 +3002,7 @@ export default class Client extends OpenApi {
       action: "GetPurchaseOrderStatus",
       version: "2023-09-30",
       protocol: "HTTPS",
-      pathname: `/opensaas-s2b/opensaas-s2b-biz-trade/v1/purchaseOrders/${OpenApiUtil.getEncodeParam(purchaseOrderId)}/status`,
+      pathname: `/opensaas-s2b/opensaas-s2b-biz-trade/v2/purchaseOrders/${OpenApiUtil.getEncodeParam(purchaseOrderId)}/status`,
       method: "GET",
       authType: "AK",
       style: "ROA",
@@ -3122,6 +3018,30 @@ export default class Client extends OpenApi {
     return await this.getPurchaseOrderStatusWithOptions(purchaseOrderId, headers, runtime);
   }
 
+  async getPurchaserShopWithOptions(purchaserId: string, headers: {[key: string ]: string}, runtime: $Util.RuntimeOptions): Promise<GetPurchaserShopResponse> {
+    let req = new $OpenApi.OpenApiRequest({
+      headers: headers,
+    });
+    let params = new $OpenApi.Params({
+      action: "GetPurchaserShop",
+      version: "2023-09-30",
+      protocol: "HTTPS",
+      pathname: `/opensaas-s2b/opensaas-s2b-biz-trade/v2/purchaserShops/${OpenApiUtil.getEncodeParam(purchaserId)}`,
+      method: "GET",
+      authType: "AK",
+      style: "ROA",
+      reqBodyType: "json",
+      bodyType: "json",
+    });
+    return $tea.cast<GetPurchaserShopResponse>(await this.callApi(params, req, runtime), new GetPurchaserShopResponse({}));
+  }
+
+  async getPurchaserShop(purchaserId: string): Promise<GetPurchaserShopResponse> {
+    let runtime = new $Util.RuntimeOptions({ });
+    let headers : {[key: string ]: string} = { };
+    return await this.getPurchaserShopWithOptions(purchaserId, headers, runtime);
+  }
+
   async getRefundOrderWithOptions(disputeId: string, headers: {[key: string ]: string}, runtime: $Util.RuntimeOptions): Promise<GetRefundOrderResponse> {
     let req = new $OpenApi.OpenApiRequest({
       headers: headers,
@@ -3130,7 +3050,7 @@ export default class Client extends OpenApi {
       action: "GetRefundOrder",
       version: "2023-09-30",
       protocol: "HTTPS",
-      pathname: `/opensaas-s2b/opensaas-s2b-biz-trade/v1/refunds/${OpenApiUtil.getEncodeParam(disputeId)}`,
+      pathname: `/opensaas-s2b/opensaas-s2b-biz-trade/v2/refunds/${OpenApiUtil.getEncodeParam(disputeId)}`,
       method: "GET",
       authType: "AK",
       style: "ROA",
@@ -3146,28 +3066,74 @@ export default class Client extends OpenApi {
     return await this.getRefundOrderWithOptions(disputeId, headers, runtime);
   }
 
-  async getShopWithOptions(shopId: string, headers: {[key: string ]: string}, runtime: $Util.RuntimeOptions): Promise<GetShopResponse> {
+  async getSelectionProductWithOptions(productId: string, request: GetSelectionProductRequest, headers: {[key: string ]: string}, runtime: $Util.RuntimeOptions): Promise<GetSelectionProductResponse> {
+    Util.validateModel(request);
+    let query : {[key: string ]: any} = { };
+    if (!Util.isUnset(request.divisionCode)) {
+      query["divisionCode"] = request.divisionCode;
+    }
+
+    if (!Util.isUnset(request.purchaserId)) {
+      query["purchaserId"] = request.purchaserId;
+    }
+
     let req = new $OpenApi.OpenApiRequest({
       headers: headers,
+      query: OpenApiUtil.query(query),
     });
     let params = new $OpenApi.Params({
-      action: "GetShop",
+      action: "GetSelectionProduct",
       version: "2023-09-30",
       protocol: "HTTPS",
-      pathname: `/opensaas-s2b/opensaas-s2b-biz-trade/v1/shops/${OpenApiUtil.getEncodeParam(shopId)}`,
+      pathname: `/opensaas-s2b/opensaas-s2b-biz-trade/v2/selectionPool/products/${OpenApiUtil.getEncodeParam(productId)}`,
       method: "GET",
       authType: "AK",
       style: "ROA",
       reqBodyType: "json",
       bodyType: "json",
     });
-    return $tea.cast<GetShopResponse>(await this.callApi(params, req, runtime), new GetShopResponse({}));
+    return $tea.cast<GetSelectionProductResponse>(await this.callApi(params, req, runtime), new GetSelectionProductResponse({}));
   }
 
-  async getShop(shopId: string): Promise<GetShopResponse> {
+  async getSelectionProduct(productId: string, request: GetSelectionProductRequest): Promise<GetSelectionProductResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     let headers : {[key: string ]: string} = { };
-    return await this.getShopWithOptions(shopId, headers, runtime);
+    return await this.getSelectionProductWithOptions(productId, request, headers, runtime);
+  }
+
+  async getSelectionProductSaleInfoWithOptions(productId: string, request: GetSelectionProductSaleInfoRequest, headers: {[key: string ]: string}, runtime: $Util.RuntimeOptions): Promise<GetSelectionProductSaleInfoResponse> {
+    Util.validateModel(request);
+    let query : {[key: string ]: any} = { };
+    if (!Util.isUnset(request.divisionCode)) {
+      query["divisionCode"] = request.divisionCode;
+    }
+
+    if (!Util.isUnset(request.purchaserId)) {
+      query["purchaserId"] = request.purchaserId;
+    }
+
+    let req = new $OpenApi.OpenApiRequest({
+      headers: headers,
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApi.Params({
+      action: "GetSelectionProductSaleInfo",
+      version: "2023-09-30",
+      protocol: "HTTPS",
+      pathname: `/opensaas-s2b/opensaas-s2b-biz-trade/v2/selectionPool/products/${OpenApiUtil.getEncodeParam(productId)}/saleInfo`,
+      method: "GET",
+      authType: "AK",
+      style: "ROA",
+      reqBodyType: "json",
+      bodyType: "json",
+    });
+    return $tea.cast<GetSelectionProductSaleInfoResponse>(await this.callApi(params, req, runtime), new GetSelectionProductSaleInfoResponse({}));
+  }
+
+  async getSelectionProductSaleInfo(productId: string, request: GetSelectionProductSaleInfoRequest): Promise<GetSelectionProductSaleInfoResponse> {
+    let runtime = new $Util.RuntimeOptions({ });
+    let headers : {[key: string ]: string} = { };
+    return await this.getSelectionProductSaleInfoWithOptions(productId, request, headers, runtime);
   }
 
   async listLogisticsOrdersWithOptions(orderId: string, headers: {[key: string ]: string}, runtime: $Util.RuntimeOptions): Promise<ListLogisticsOrdersResponse> {
@@ -3178,7 +3144,7 @@ export default class Client extends OpenApi {
       action: "ListLogisticsOrders",
       version: "2023-09-30",
       protocol: "HTTPS",
-      pathname: `/opensaas-s2b/opensaas-s2b-biz-trade/v1/orders/${OpenApiUtil.getEncodeParam(orderId)}/logisticsOrders`,
+      pathname: `/opensaas-s2b/opensaas-s2b-biz-trade/v2/orders/${OpenApiUtil.getEncodeParam(orderId)}/logisticsOrders`,
       method: "GET",
       authType: "AK",
       style: "ROA",
@@ -3194,65 +3160,9 @@ export default class Client extends OpenApi {
     return await this.listLogisticsOrdersWithOptions(orderId, headers, runtime);
   }
 
-  async listProductGeneralBillsWithOptions(request: ListProductGeneralBillsRequest, headers: {[key: string ]: string}, runtime: $Util.RuntimeOptions): Promise<ListProductGeneralBillsResponse> {
-    Util.validateModel(request);
-    let req = new $OpenApi.OpenApiRequest({
-      headers: headers,
-      body: OpenApiUtil.parseToMap(request.body),
-    });
-    let params = new $OpenApi.Params({
-      action: "ListProductGeneralBills",
-      version: "2023-09-30",
-      protocol: "HTTPS",
-      pathname: `/opensaas-s2b/opensaas-s2b-biz-trade/v1/productGeneralBills`,
-      method: "GET",
-      authType: "AK",
-      style: "ROA",
-      reqBodyType: "json",
-      bodyType: "json",
-    });
-    return $tea.cast<ListProductGeneralBillsResponse>(await this.callApi(params, req, runtime), new ListProductGeneralBillsResponse({}));
-  }
-
-  async listProductGeneralBills(request: ListProductGeneralBillsRequest): Promise<ListProductGeneralBillsResponse> {
-    let runtime = new $Util.RuntimeOptions({ });
-    let headers : {[key: string ]: string} = { };
-    return await this.listProductGeneralBillsWithOptions(request, headers, runtime);
-  }
-
-  async listProductSaleInfosWithOptions(request: ListProductSaleInfosRequest, headers: {[key: string ]: string}, runtime: $Util.RuntimeOptions): Promise<ListProductSaleInfosResponse> {
-    Util.validateModel(request);
-    let req = new $OpenApi.OpenApiRequest({
-      headers: headers,
-      body: OpenApiUtil.parseToMap(request.body),
-    });
-    let params = new $OpenApi.Params({
-      action: "ListProductSaleInfos",
-      version: "2023-09-30",
-      protocol: "HTTPS",
-      pathname: `/opensaas-s2b/opensaas-s2b-biz-trade/v1/products/saleInfo/commands/list`,
-      method: "POST",
-      authType: "AK",
-      style: "ROA",
-      reqBodyType: "json",
-      bodyType: "json",
-    });
-    return $tea.cast<ListProductSaleInfosResponse>(await this.callApi(params, req, runtime), new ListProductSaleInfosResponse({}));
-  }
-
-  async listProductSaleInfos(request: ListProductSaleInfosRequest): Promise<ListProductSaleInfosResponse> {
-    let runtime = new $Util.RuntimeOptions({ });
-    let headers : {[key: string ]: string} = { };
-    return await this.listProductSaleInfosWithOptions(request, headers, runtime);
-  }
-
-  async listProductsWithOptions(request: ListProductsRequest, headers: {[key: string ]: string}, runtime: $Util.RuntimeOptions): Promise<ListProductsResponse> {
+  async listPurchaserShopsWithOptions(request: ListPurchaserShopsRequest, headers: {[key: string ]: string}, runtime: $Util.RuntimeOptions): Promise<ListPurchaserShopsResponse> {
     Util.validateModel(request);
     let query : {[key: string ]: any} = { };
-    if (!Util.isUnset(request.distributorShopId)) {
-      query["distributorShopId"] = request.distributorShopId;
-    }
-
     if (!Util.isUnset(request.pageNumber)) {
       query["pageNumber"] = request.pageNumber;
     }
@@ -3266,36 +3176,54 @@ export default class Client extends OpenApi {
       query: OpenApiUtil.query(query),
     });
     let params = new $OpenApi.Params({
-      action: "ListProducts",
+      action: "ListPurchaserShops",
       version: "2023-09-30",
       protocol: "HTTPS",
-      pathname: `/opensaas-s2b/opensaas-s2b-biz-trade/v1/products`,
+      pathname: `/opensaas-s2b/opensaas-s2b-biz-trade/v2/purchaserShops`,
       method: "GET",
       authType: "AK",
       style: "ROA",
       reqBodyType: "json",
       bodyType: "json",
     });
-    return $tea.cast<ListProductsResponse>(await this.callApi(params, req, runtime), new ListProductsResponse({}));
+    return $tea.cast<ListPurchaserShopsResponse>(await this.callApi(params, req, runtime), new ListPurchaserShopsResponse({}));
   }
 
-  async listProducts(request: ListProductsRequest): Promise<ListProductsResponse> {
+  async listPurchaserShops(request: ListPurchaserShopsRequest): Promise<ListPurchaserShopsResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     let headers : {[key: string ]: string} = { };
-    return await this.listProductsWithOptions(request, headers, runtime);
+    return await this.listPurchaserShopsWithOptions(request, headers, runtime);
   }
 
-  async listShopsWithOptions(request: ListShopsRequest, headers: {[key: string ]: string}, runtime: $Util.RuntimeOptions): Promise<ListShopsResponse> {
+  async listSelectionProductSaleInfosWithOptions(request: ListSelectionProductSaleInfosRequest, headers: {[key: string ]: string}, runtime: $Util.RuntimeOptions): Promise<ListSelectionProductSaleInfosResponse> {
+    Util.validateModel(request);
+    let req = new $OpenApi.OpenApiRequest({
+      headers: headers,
+      body: OpenApiUtil.parseToMap(request.body),
+    });
+    let params = new $OpenApi.Params({
+      action: "ListSelectionProductSaleInfos",
+      version: "2023-09-30",
+      protocol: "HTTPS",
+      pathname: `/opensaas-s2b/opensaas-s2b-biz-trade/v2/selectionPool/products/saleInfo/commands/list`,
+      method: "POST",
+      authType: "AK",
+      style: "ROA",
+      reqBodyType: "json",
+      bodyType: "json",
+    });
+    return $tea.cast<ListSelectionProductSaleInfosResponse>(await this.callApi(params, req, runtime), new ListSelectionProductSaleInfosResponse({}));
+  }
+
+  async listSelectionProductSaleInfos(request: ListSelectionProductSaleInfosRequest): Promise<ListSelectionProductSaleInfosResponse> {
+    let runtime = new $Util.RuntimeOptions({ });
+    let headers : {[key: string ]: string} = { };
+    return await this.listSelectionProductSaleInfosWithOptions(request, headers, runtime);
+  }
+
+  async listSelectionProductsWithOptions(request: ListSelectionProductsRequest, headers: {[key: string ]: string}, runtime: $Util.RuntimeOptions): Promise<ListSelectionProductsResponse> {
     Util.validateModel(request);
     let query : {[key: string ]: any} = { };
-    if (!Util.isUnset(request.channelSupplierId)) {
-      query["channelSupplierId"] = request.channelSupplierId;
-    }
-
-    if (!Util.isUnset(request.endDate)) {
-      query["endDate"] = request.endDate;
-    }
-
     if (!Util.isUnset(request.pageNumber)) {
       query["pageNumber"] = request.pageNumber;
     }
@@ -3304,16 +3232,8 @@ export default class Client extends OpenApi {
       query["pageSize"] = request.pageSize;
     }
 
-    if (!Util.isUnset(request.shopId)) {
-      query["shopId"] = request.shopId;
-    }
-
-    if (!Util.isUnset(request.shopName)) {
-      query["shopName"] = request.shopName;
-    }
-
-    if (!Util.isUnset(request.startDate)) {
-      query["startDate"] = request.startDate;
+    if (!Util.isUnset(request.purchaserId)) {
+      query["purchaserId"] = request.purchaserId;
     }
 
     let req = new $OpenApi.OpenApiRequest({
@@ -3321,49 +3241,49 @@ export default class Client extends OpenApi {
       query: OpenApiUtil.query(query),
     });
     let params = new $OpenApi.Params({
-      action: "ListShops",
+      action: "ListSelectionProducts",
       version: "2023-09-30",
       protocol: "HTTPS",
-      pathname: `/opensaas-s2b/opensaas-s2b-biz-trade/v1/shops`,
+      pathname: `/opensaas-s2b/opensaas-s2b-biz-trade/v2/selectionPool/products`,
       method: "GET",
       authType: "AK",
       style: "ROA",
       reqBodyType: "json",
       bodyType: "json",
     });
-    return $tea.cast<ListShopsResponse>(await this.callApi(params, req, runtime), new ListShopsResponse({}));
+    return $tea.cast<ListSelectionProductsResponse>(await this.callApi(params, req, runtime), new ListSelectionProductsResponse({}));
   }
 
-  async listShops(request: ListShopsRequest): Promise<ListShopsResponse> {
+  async listSelectionProducts(request: ListSelectionProductsRequest): Promise<ListSelectionProductsResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     let headers : {[key: string ]: string} = { };
-    return await this.listShopsWithOptions(request, headers, runtime);
+    return await this.listSelectionProductsWithOptions(request, headers, runtime);
   }
 
-  async listSkuSaleInfosWithOptions(request: ListSkuSaleInfosRequest, headers: {[key: string ]: string}, runtime: $Util.RuntimeOptions): Promise<ListSkuSaleInfosResponse> {
+  async listSelectionSkuSaleInfosWithOptions(request: ListSelectionSkuSaleInfosRequest, headers: {[key: string ]: string}, runtime: $Util.RuntimeOptions): Promise<ListSelectionSkuSaleInfosResponse> {
     Util.validateModel(request);
     let req = new $OpenApi.OpenApiRequest({
       headers: headers,
       body: OpenApiUtil.parseToMap(request.body),
     });
     let params = new $OpenApi.Params({
-      action: "ListSkuSaleInfos",
+      action: "ListSelectionSkuSaleInfos",
       version: "2023-09-30",
       protocol: "HTTPS",
-      pathname: `/opensaas-s2b/opensaas-s2b-biz-trade/v1/skus/saleInfo/commands/list`,
+      pathname: `/opensaas-s2b/opensaas-s2b-biz-trade/v2/selectionPool/skus/saleInfo/commands/list`,
       method: "POST",
       authType: "AK",
       style: "ROA",
       reqBodyType: "json",
       bodyType: "json",
     });
-    return $tea.cast<ListSkuSaleInfosResponse>(await this.callApi(params, req, runtime), new ListSkuSaleInfosResponse({}));
+    return $tea.cast<ListSelectionSkuSaleInfosResponse>(await this.callApi(params, req, runtime), new ListSelectionSkuSaleInfosResponse({}));
   }
 
-  async listSkuSaleInfos(request: ListSkuSaleInfosRequest): Promise<ListSkuSaleInfosResponse> {
+  async listSelectionSkuSaleInfos(request: ListSelectionSkuSaleInfosRequest): Promise<ListSelectionSkuSaleInfosResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     let headers : {[key: string ]: string} = { };
-    return await this.listSkuSaleInfosWithOptions(request, headers, runtime);
+    return await this.listSelectionSkuSaleInfosWithOptions(request, headers, runtime);
   }
 
   async queryChildDivisionCodeWithOptions(request: QueryChildDivisionCodeRequest, headers: {[key: string ]: string}, runtime: $Util.RuntimeOptions): Promise<QueryChildDivisionCodeResponse> {
@@ -3376,7 +3296,7 @@ export default class Client extends OpenApi {
       action: "QueryChildDivisionCode",
       version: "2023-09-30",
       protocol: "HTTPS",
-      pathname: `/opensaas-s2b/opensaas-s2b-biz-trade/v1/division/commands/queryChildDivisionCode`,
+      pathname: `/opensaas-s2b/opensaas-s2b-biz-trade/v2/division/commands/queryChildDivisionCode`,
       method: "POST",
       authType: "AK",
       style: "ROA",
@@ -3402,7 +3322,7 @@ export default class Client extends OpenApi {
       action: "QueryOrders",
       version: "2023-09-30",
       protocol: "HTTPS",
-      pathname: `/opensaas-s2b/opensaas-s2b-biz-trade/v1/orders/commands/query`,
+      pathname: `/opensaas-s2b/opensaas-s2b-biz-trade/v2/orders/commands/query`,
       method: "POST",
       authType: "AK",
       style: "ROA",
@@ -3428,7 +3348,7 @@ export default class Client extends OpenApi {
       action: "RenderPurchaseOrder",
       version: "2023-09-30",
       protocol: "HTTPS",
-      pathname: `/opensaas-s2b/opensaas-s2b-biz-trade/v1/purchaseOrders/commands/render`,
+      pathname: `/opensaas-s2b/opensaas-s2b-biz-trade/v2/purchaseOrders/commands/render`,
       method: "POST",
       authType: "AK",
       style: "ROA",
@@ -3454,7 +3374,7 @@ export default class Client extends OpenApi {
       action: "RenderRefundOrder",
       version: "2023-09-30",
       protocol: "HTTPS",
-      pathname: `/opensaas-s2b/opensaas-s2b-biz-trade/v1/refunds/commands/render`,
+      pathname: `/opensaas-s2b/opensaas-s2b-biz-trade/v2/refunds/commands/render`,
       method: "POST",
       authType: "AK",
       style: "ROA",
