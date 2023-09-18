@@ -1811,6 +1811,7 @@ export class DescribeDatabaseInstancesResponse extends $tea.Model {
 }
 
 export class DescribeDatabaseSlowLogRecordsRequest extends $tea.Model {
+  acsProduct?: string;
   databaseInstanceId?: string;
   endTime?: string;
   pageNumber?: number;
@@ -1819,6 +1820,7 @@ export class DescribeDatabaseSlowLogRecordsRequest extends $tea.Model {
   startTime?: string;
   static names(): { [key: string]: string } {
     return {
+      acsProduct: 'AcsProduct',
       databaseInstanceId: 'DatabaseInstanceId',
       endTime: 'EndTime',
       pageNumber: 'PageNumber',
@@ -1830,6 +1832,7 @@ export class DescribeDatabaseSlowLogRecordsRequest extends $tea.Model {
 
   static types(): { [key: string]: any } {
     return {
+      acsProduct: 'string',
       databaseInstanceId: 'string',
       endTime: 'string',
       pageNumber: 'number',
@@ -3466,10 +3469,12 @@ export class ListInstancesResponse extends $tea.Model {
 }
 
 export class ListInstancesTrafficPackagesRequest extends $tea.Model {
+  acsProduct?: string;
   instanceIds?: string;
   regionId?: string;
   static names(): { [key: string]: string } {
     return {
+      acsProduct: 'AcsProduct',
       instanceIds: 'InstanceIds',
       regionId: 'RegionId',
     };
@@ -3477,6 +3482,7 @@ export class ListInstancesTrafficPackagesRequest extends $tea.Model {
 
   static types(): { [key: string]: any } {
     return {
+      acsProduct: 'string',
       instanceIds: 'string',
       regionId: 'string',
     };
@@ -3648,6 +3654,7 @@ export class ListRegionsResponse extends $tea.Model {
 }
 
 export class ListSnapshotsRequest extends $tea.Model {
+  acsProduct?: string;
   diskId?: string;
   instanceId?: string;
   pageNumber?: number;
@@ -3657,6 +3664,7 @@ export class ListSnapshotsRequest extends $tea.Model {
   sourceDiskType?: string;
   static names(): { [key: string]: string } {
     return {
+      acsProduct: 'AcsProduct',
       diskId: 'DiskId',
       instanceId: 'InstanceId',
       pageNumber: 'PageNumber',
@@ -3669,6 +3677,7 @@ export class ListSnapshotsRequest extends $tea.Model {
 
   static types(): { [key: string]: any } {
     return {
+      acsProduct: 'string',
       diskId: 'string',
       instanceId: 'string',
       pageNumber: 'number',
@@ -8186,6 +8195,10 @@ export default class Client extends OpenApi {
   async describeDatabaseSlowLogRecordsWithOptions(request: DescribeDatabaseSlowLogRecordsRequest, runtime: $Util.RuntimeOptions): Promise<DescribeDatabaseSlowLogRecordsResponse> {
     Util.validateModel(request);
     let query = { };
+    if (!Util.isUnset(request.acsProduct)) {
+      query["AcsProduct"] = request.acsProduct;
+    }
+
     if (!Util.isUnset(request.databaseInstanceId)) {
       query["DatabaseInstanceId"] = request.databaseInstanceId;
     }
@@ -9217,6 +9230,10 @@ export default class Client extends OpenApi {
   async listInstancesTrafficPackagesWithOptions(request: ListInstancesTrafficPackagesRequest, runtime: $Util.RuntimeOptions): Promise<ListInstancesTrafficPackagesResponse> {
     Util.validateModel(request);
     let query = { };
+    if (!Util.isUnset(request.acsProduct)) {
+      query["AcsProduct"] = request.acsProduct;
+    }
+
     if (!Util.isUnset(request.instanceIds)) {
       query["InstanceIds"] = request.instanceIds;
     }
@@ -9355,6 +9372,10 @@ export default class Client extends OpenApi {
   async listSnapshotsWithOptions(request: ListSnapshotsRequest, runtime: $Util.RuntimeOptions): Promise<ListSnapshotsResponse> {
     Util.validateModel(request);
     let query = { };
+    if (!Util.isUnset(request.acsProduct)) {
+      query["AcsProduct"] = request.acsProduct;
+    }
+
     if (!Util.isUnset(request.diskId)) {
       query["DiskId"] = request.diskId;
     }
