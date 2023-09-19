@@ -16404,6 +16404,7 @@ export class InvokeThingServiceRequest extends $tea.Model {
   iotId?: string;
   iotInstanceId?: string;
   productKey?: string;
+  qos?: number;
   static names(): { [key: string]: string } {
     return {
       args: 'Args',
@@ -16412,6 +16413,7 @@ export class InvokeThingServiceRequest extends $tea.Model {
       iotId: 'IotId',
       iotInstanceId: 'IotInstanceId',
       productKey: 'ProductKey',
+      qos: 'Qos',
     };
   }
 
@@ -16423,6 +16425,7 @@ export class InvokeThingServiceRequest extends $tea.Model {
       iotId: 'string',
       iotInstanceId: 'string',
       productKey: 'string',
+      qos: 'number',
     };
   }
 
@@ -19368,6 +19371,7 @@ export class PubRequest extends $tea.Model {
   qos?: number;
   responseTopic?: string;
   retained?: boolean;
+  topicAlias?: number;
   topicFullName?: string;
   userProp?: PubRequestUserProp[];
   static names(): { [key: string]: string } {
@@ -19383,6 +19387,7 @@ export class PubRequest extends $tea.Model {
       qos: 'Qos',
       responseTopic: 'ResponseTopic',
       retained: 'Retained',
+      topicAlias: 'TopicAlias',
       topicFullName: 'TopicFullName',
       userProp: 'UserProp',
     };
@@ -19401,6 +19406,7 @@ export class PubRequest extends $tea.Model {
       qos: 'number',
       responseTopic: 'string',
       retained: 'boolean',
+      topicAlias: 'number',
       topicFullName: 'string',
       userProp: { 'type': 'array', 'itemType': PubRequestUserProp },
     };
@@ -26064,6 +26070,84 @@ export class QuerySchedulePeriodListResponse extends $tea.Model {
   }
 }
 
+export class QueryShareProductNameByProductKeyRequest extends $tea.Model {
+  productKey?: string;
+  shareTaskCode?: string;
+  static names(): { [key: string]: string } {
+    return {
+      productKey: 'ProductKey',
+      shareTaskCode: 'ShareTaskCode',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      productKey: 'string',
+      shareTaskCode: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class QueryShareProductNameByProductKeyResponseBody extends $tea.Model {
+  code?: string;
+  data?: QueryShareProductNameByProductKeyResponseBodyData;
+  errorMessage?: string;
+  requestId?: string;
+  success?: boolean;
+  static names(): { [key: string]: string } {
+    return {
+      code: 'Code',
+      data: 'Data',
+      errorMessage: 'ErrorMessage',
+      requestId: 'RequestId',
+      success: 'Success',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      code: 'string',
+      data: QueryShareProductNameByProductKeyResponseBodyData,
+      errorMessage: 'string',
+      requestId: 'string',
+      success: 'boolean',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class QueryShareProductNameByProductKeyResponse extends $tea.Model {
+  headers: { [key: string]: string };
+  statusCode: number;
+  body: QueryShareProductNameByProductKeyResponseBody;
+  static names(): { [key: string]: string } {
+    return {
+      headers: 'headers',
+      statusCode: 'statusCode',
+      body: 'body',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
+      body: QueryShareProductNameByProductKeyResponseBody,
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
 export class QuerySharePromotionActivityAuditResultRequest extends $tea.Model {
   iotInstanceId?: string;
   sharePromotionActivityId?: string;
@@ -30444,6 +30528,7 @@ export class SetDevicePropertyRequest extends $tea.Model {
   iotInstanceId?: string;
   items?: string;
   productKey?: string;
+  qos?: number;
   static names(): { [key: string]: string } {
     return {
       deviceName: 'DeviceName',
@@ -30451,6 +30536,7 @@ export class SetDevicePropertyRequest extends $tea.Model {
       iotInstanceId: 'IotInstanceId',
       items: 'Items',
       productKey: 'ProductKey',
+      qos: 'Qos',
     };
   }
 
@@ -30461,6 +30547,7 @@ export class SetDevicePropertyRequest extends $tea.Model {
       iotInstanceId: 'string',
       items: 'string',
       productKey: 'string',
+      qos: 'number',
     };
   }
 
@@ -45714,6 +45801,25 @@ export class QuerySchedulePeriodListResponseBodyData extends $tea.Model {
   }
 }
 
+export class QueryShareProductNameByProductKeyResponseBodyData extends $tea.Model {
+  productName?: string;
+  static names(): { [key: string]: string } {
+    return {
+      productName: 'ProductName',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      productName: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
 export class QuerySharePromotionActivityAuditResultResponseBodyData extends $tea.Model {
   auditResult?: number;
   static names(): { [key: string]: string } {
@@ -58342,6 +58448,10 @@ export default class Client extends OpenApi {
       query["ProductKey"] = request.productKey;
     }
 
+    if (!Util.isUnset(request.qos)) {
+      query["Qos"] = request.qos;
+    }
+
     let req = new $OpenApi.OpenApiRequest({
       query: OpenApiUtil.query(query),
     });
@@ -60262,6 +60372,10 @@ export default class Client extends OpenApi {
 
     if (!Util.isUnset(request.retained)) {
       query["Retained"] = request.retained;
+    }
+
+    if (!Util.isUnset(request.topicAlias)) {
+      query["TopicAlias"] = request.topicAlias;
     }
 
     if (!Util.isUnset(request.topicFullName)) {
@@ -64569,6 +64683,39 @@ export default class Client extends OpenApi {
     return await this.querySchedulePeriodListWithOptions(request, runtime);
   }
 
+  async queryShareProductNameByProductKeyWithOptions(request: QueryShareProductNameByProductKeyRequest, runtime: $Util.RuntimeOptions): Promise<QueryShareProductNameByProductKeyResponse> {
+    Util.validateModel(request);
+    let body : {[key: string ]: any} = { };
+    if (!Util.isUnset(request.productKey)) {
+      body["ProductKey"] = request.productKey;
+    }
+
+    if (!Util.isUnset(request.shareTaskCode)) {
+      body["ShareTaskCode"] = request.shareTaskCode;
+    }
+
+    let req = new $OpenApi.OpenApiRequest({
+      body: OpenApiUtil.parseToMap(body),
+    });
+    let params = new $OpenApi.Params({
+      action: "QueryShareProductNameByProductKey",
+      version: "2018-01-20",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $tea.cast<QueryShareProductNameByProductKeyResponse>(await this.callApi(params, req, runtime), new QueryShareProductNameByProductKeyResponse({}));
+  }
+
+  async queryShareProductNameByProductKey(request: QueryShareProductNameByProductKeyRequest): Promise<QueryShareProductNameByProductKeyResponse> {
+    let runtime = new $Util.RuntimeOptions({ });
+    return await this.queryShareProductNameByProductKeyWithOptions(request, runtime);
+  }
+
   async querySharePromotionActivityAuditResultWithOptions(request: QuerySharePromotionActivityAuditResultRequest, runtime: $Util.RuntimeOptions): Promise<QuerySharePromotionActivityAuditResultResponse> {
     Util.validateModel(request);
     let body : {[key: string ]: any} = { };
@@ -66115,10 +66262,6 @@ export default class Client extends OpenApi {
       query["ProductKey"] = request.productKey;
     }
 
-    if (!Util.isUnset(request.requestBase64Byte)) {
-      query["RequestBase64Byte"] = request.requestBase64Byte;
-    }
-
     if (!Util.isUnset(request.timeout)) {
       query["Timeout"] = request.timeout;
     }
@@ -66127,8 +66270,14 @@ export default class Client extends OpenApi {
       query["Topic"] = request.topic;
     }
 
+    let body : {[key: string ]: any} = { };
+    if (!Util.isUnset(request.requestBase64Byte)) {
+      body["RequestBase64Byte"] = request.requestBase64Byte;
+    }
+
     let req = new $OpenApi.OpenApiRequest({
       query: OpenApiUtil.query(query),
+      body: OpenApiUtil.parseToMap(body),
     });
     let params = new $OpenApi.Params({
       action: "RRpc",
@@ -67129,6 +67278,10 @@ export default class Client extends OpenApi {
 
     if (!Util.isUnset(request.productKey)) {
       query["ProductKey"] = request.productKey;
+    }
+
+    if (!Util.isUnset(request.qos)) {
+      query["Qos"] = request.qos;
     }
 
     let req = new $OpenApi.OpenApiRequest({
