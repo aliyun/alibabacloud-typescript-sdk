@@ -18348,6 +18348,169 @@ export class UpdateGatewayRouteWafStatusResponse extends $tea.Model {
   }
 }
 
+export class UpdateGatewayServiceCheckRequest extends $tea.Model {
+  acceptLanguage?: string;
+  check?: boolean;
+  expectedStatuses?: number[];
+  gatewayUniqueId?: string;
+  healthyThreshold?: number;
+  httpHost?: string;
+  httpPath?: string;
+  interval?: number;
+  protocol?: string;
+  serviceId?: string;
+  timeout?: number;
+  unhealthyThreshold?: number;
+  static names(): { [key: string]: string } {
+    return {
+      acceptLanguage: 'AcceptLanguage',
+      check: 'Check',
+      expectedStatuses: 'ExpectedStatuses',
+      gatewayUniqueId: 'GatewayUniqueId',
+      healthyThreshold: 'HealthyThreshold',
+      httpHost: 'HttpHost',
+      httpPath: 'HttpPath',
+      interval: 'Interval',
+      protocol: 'Protocol',
+      serviceId: 'ServiceId',
+      timeout: 'Timeout',
+      unhealthyThreshold: 'UnhealthyThreshold',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      acceptLanguage: 'string',
+      check: 'boolean',
+      expectedStatuses: { 'type': 'array', 'itemType': 'number' },
+      gatewayUniqueId: 'string',
+      healthyThreshold: 'number',
+      httpHost: 'string',
+      httpPath: 'string',
+      interval: 'number',
+      protocol: 'string',
+      serviceId: 'string',
+      timeout: 'number',
+      unhealthyThreshold: 'number',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class UpdateGatewayServiceCheckShrinkRequest extends $tea.Model {
+  acceptLanguage?: string;
+  check?: boolean;
+  expectedStatusesShrink?: string;
+  gatewayUniqueId?: string;
+  healthyThreshold?: number;
+  httpHost?: string;
+  httpPath?: string;
+  interval?: number;
+  protocol?: string;
+  serviceId?: string;
+  timeout?: number;
+  unhealthyThreshold?: number;
+  static names(): { [key: string]: string } {
+    return {
+      acceptLanguage: 'AcceptLanguage',
+      check: 'Check',
+      expectedStatusesShrink: 'ExpectedStatuses',
+      gatewayUniqueId: 'GatewayUniqueId',
+      healthyThreshold: 'HealthyThreshold',
+      httpHost: 'HttpHost',
+      httpPath: 'HttpPath',
+      interval: 'Interval',
+      protocol: 'Protocol',
+      serviceId: 'ServiceId',
+      timeout: 'Timeout',
+      unhealthyThreshold: 'UnhealthyThreshold',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      acceptLanguage: 'string',
+      check: 'boolean',
+      expectedStatusesShrink: 'string',
+      gatewayUniqueId: 'string',
+      healthyThreshold: 'number',
+      httpHost: 'string',
+      httpPath: 'string',
+      interval: 'number',
+      protocol: 'string',
+      serviceId: 'string',
+      timeout: 'number',
+      unhealthyThreshold: 'number',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class UpdateGatewayServiceCheckResponseBody extends $tea.Model {
+  code?: number;
+  data?: number;
+  httpStatusCode?: number;
+  message?: string;
+  requestId?: string;
+  success?: boolean;
+  static names(): { [key: string]: string } {
+    return {
+      code: 'Code',
+      data: 'Data',
+      httpStatusCode: 'HttpStatusCode',
+      message: 'Message',
+      requestId: 'RequestId',
+      success: 'Success',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      code: 'number',
+      data: 'number',
+      httpStatusCode: 'number',
+      message: 'string',
+      requestId: 'string',
+      success: 'boolean',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class UpdateGatewayServiceCheckResponse extends $tea.Model {
+  headers: { [key: string]: string };
+  statusCode: number;
+  body: UpdateGatewayServiceCheckResponseBody;
+  static names(): { [key: string]: string } {
+    return {
+      headers: 'headers',
+      statusCode: 'statusCode',
+      body: 'body',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
+      body: UpdateGatewayServiceCheckResponseBody,
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
 export class UpdateGatewayServiceTrafficPolicyRequest extends $tea.Model {
   acceptLanguage?: string;
   gatewayId?: number;
@@ -19932,18 +20095,27 @@ export class GatewayOptionLogConfigDetails extends $tea.Model {
 
 export class GatewayOptionTraceDetails extends $tea.Model {
   sample?: number;
+  serviceId?: number;
+  servicePort?: string;
   traceEnabled?: boolean;
+  traceType?: string;
   static names(): { [key: string]: string } {
     return {
       sample: 'Sample',
+      serviceId: 'ServiceId',
+      servicePort: 'ServicePort',
       traceEnabled: 'TraceEnabled',
+      traceType: 'TraceType',
     };
   }
 
   static types(): { [key: string]: any } {
     return {
       sample: 'number',
+      serviceId: 'number',
+      servicePort: 'string',
       traceEnabled: 'boolean',
+      traceType: 'string',
     };
   }
 
@@ -39702,6 +39874,85 @@ export default class Client extends OpenApi {
   async updateGatewayRouteWafStatus(request: UpdateGatewayRouteWafStatusRequest): Promise<UpdateGatewayRouteWafStatusResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.updateGatewayRouteWafStatusWithOptions(request, runtime);
+  }
+
+  async updateGatewayServiceCheckWithOptions(tmpReq: UpdateGatewayServiceCheckRequest, runtime: $Util.RuntimeOptions): Promise<UpdateGatewayServiceCheckResponse> {
+    Util.validateModel(tmpReq);
+    let request = new UpdateGatewayServiceCheckShrinkRequest({ });
+    OpenApiUtil.convert(tmpReq, request);
+    if (!Util.isUnset(tmpReq.expectedStatuses)) {
+      request.expectedStatusesShrink = OpenApiUtil.arrayToStringWithSpecifiedStyle(tmpReq.expectedStatuses, "ExpectedStatuses", "json");
+    }
+
+    let query = { };
+    if (!Util.isUnset(request.acceptLanguage)) {
+      query["AcceptLanguage"] = request.acceptLanguage;
+    }
+
+    if (!Util.isUnset(request.check)) {
+      query["Check"] = request.check;
+    }
+
+    if (!Util.isUnset(request.expectedStatusesShrink)) {
+      query["ExpectedStatuses"] = request.expectedStatusesShrink;
+    }
+
+    if (!Util.isUnset(request.gatewayUniqueId)) {
+      query["GatewayUniqueId"] = request.gatewayUniqueId;
+    }
+
+    if (!Util.isUnset(request.healthyThreshold)) {
+      query["HealthyThreshold"] = request.healthyThreshold;
+    }
+
+    if (!Util.isUnset(request.httpHost)) {
+      query["HttpHost"] = request.httpHost;
+    }
+
+    if (!Util.isUnset(request.httpPath)) {
+      query["HttpPath"] = request.httpPath;
+    }
+
+    if (!Util.isUnset(request.interval)) {
+      query["Interval"] = request.interval;
+    }
+
+    if (!Util.isUnset(request.protocol)) {
+      query["Protocol"] = request.protocol;
+    }
+
+    if (!Util.isUnset(request.serviceId)) {
+      query["ServiceId"] = request.serviceId;
+    }
+
+    if (!Util.isUnset(request.timeout)) {
+      query["Timeout"] = request.timeout;
+    }
+
+    if (!Util.isUnset(request.unhealthyThreshold)) {
+      query["UnhealthyThreshold"] = request.unhealthyThreshold;
+    }
+
+    let req = new $OpenApi.OpenApiRequest({
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApi.Params({
+      action: "UpdateGatewayServiceCheck",
+      version: "2019-05-31",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $tea.cast<UpdateGatewayServiceCheckResponse>(await this.callApi(params, req, runtime), new UpdateGatewayServiceCheckResponse({}));
+  }
+
+  async updateGatewayServiceCheck(request: UpdateGatewayServiceCheckRequest): Promise<UpdateGatewayServiceCheckResponse> {
+    let runtime = new $Util.RuntimeOptions({ });
+    return await this.updateGatewayServiceCheckWithOptions(request, runtime);
   }
 
   async updateGatewayServiceTrafficPolicyWithOptions(tmpReq: UpdateGatewayServiceTrafficPolicyRequest, runtime: $Util.RuntimeOptions): Promise<UpdateGatewayServiceTrafficPolicyResponse> {
