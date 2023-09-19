@@ -13,6 +13,127 @@ import EndpointUtil from '@alicloud/endpoint-util';
 import { Readable } from 'stream';
 import * as $tea from '@alicloud/tea-typescript';
 
+export class AyncTradeDocumentPackageExtractSmartAppRequest extends $tea.Model {
+  customExtractionRange?: string[];
+  fileName?: string;
+  fileUrl?: string;
+  option?: string;
+  templateName?: string;
+  static names(): { [key: string]: string } {
+    return {
+      customExtractionRange: 'CustomExtractionRange',
+      fileName: 'FileName',
+      fileUrl: 'FileUrl',
+      option: 'Option',
+      templateName: 'TemplateName',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      customExtractionRange: { 'type': 'array', 'itemType': 'string' },
+      fileName: 'string',
+      fileUrl: 'string',
+      option: 'string',
+      templateName: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class AyncTradeDocumentPackageExtractSmartAppShrinkRequest extends $tea.Model {
+  customExtractionRangeShrink?: string;
+  fileName?: string;
+  fileUrl?: string;
+  option?: string;
+  templateName?: string;
+  static names(): { [key: string]: string } {
+    return {
+      customExtractionRangeShrink: 'CustomExtractionRange',
+      fileName: 'FileName',
+      fileUrl: 'FileUrl',
+      option: 'Option',
+      templateName: 'TemplateName',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      customExtractionRangeShrink: 'string',
+      fileName: 'string',
+      fileUrl: 'string',
+      option: 'string',
+      templateName: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class AyncTradeDocumentPackageExtractSmartAppResponseBody extends $tea.Model {
+  completed?: boolean;
+  createTime?: string;
+  data?: any;
+  requestId?: string;
+  status?: string;
+  success?: boolean;
+  static names(): { [key: string]: string } {
+    return {
+      completed: 'Completed',
+      createTime: 'CreateTime',
+      data: 'Data',
+      requestId: 'RequestId',
+      status: 'Status',
+      success: 'Success',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      completed: 'boolean',
+      createTime: 'string',
+      data: 'any',
+      requestId: 'string',
+      status: 'string',
+      success: 'boolean',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class AyncTradeDocumentPackageExtractSmartAppResponse extends $tea.Model {
+  headers: { [key: string]: string };
+  statusCode: number;
+  body: AyncTradeDocumentPackageExtractSmartAppResponseBody;
+  static names(): { [key: string]: string } {
+    return {
+      headers: 'headers',
+      statusCode: 'statusCode',
+      body: 'body',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
+      body: AyncTradeDocumentPackageExtractSmartAppResponseBody,
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
 export class GetDocStructureResultRequest extends $tea.Model {
   id?: string;
   static names(): { [key: string]: string } {
@@ -1027,6 +1148,115 @@ export class SubmitConvertPdfToWordJobResponse extends $tea.Model {
   }
 }
 
+export class SubmitDigitalDocStructureJobRequest extends $tea.Model {
+  fileName?: string;
+  fileNameExtension?: string;
+  fileUrl?: string;
+  static names(): { [key: string]: string } {
+    return {
+      fileName: 'FileName',
+      fileNameExtension: 'FileNameExtension',
+      fileUrl: 'FileUrl',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      fileName: 'string',
+      fileNameExtension: 'string',
+      fileUrl: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class SubmitDigitalDocStructureJobAdvanceRequest extends $tea.Model {
+  fileName?: string;
+  fileNameExtension?: string;
+  fileUrlObject?: Readable;
+  static names(): { [key: string]: string } {
+    return {
+      fileName: 'FileName',
+      fileNameExtension: 'FileNameExtension',
+      fileUrlObject: 'FileUrl',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      fileName: 'string',
+      fileNameExtension: 'string',
+      fileUrlObject: 'Readable',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class SubmitDigitalDocStructureJobResponseBody extends $tea.Model {
+  code?: string;
+  data?: any;
+  id?: string;
+  message?: string;
+  requestId?: string;
+  status?: string;
+  static names(): { [key: string]: string } {
+    return {
+      code: 'Code',
+      data: 'Data',
+      id: 'Id',
+      message: 'Message',
+      requestId: 'RequestId',
+      status: 'Status',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      code: 'string',
+      data: 'any',
+      id: 'string',
+      message: 'string',
+      requestId: 'string',
+      status: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class SubmitDigitalDocStructureJobResponse extends $tea.Model {
+  headers: { [key: string]: string };
+  statusCode: number;
+  body: SubmitDigitalDocStructureJobResponseBody;
+  static names(): { [key: string]: string } {
+    return {
+      headers: 'headers',
+      statusCode: 'statusCode',
+      body: 'body',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
+      body: SubmitDigitalDocStructureJobResponseBody,
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
 export class SubmitDocStructureJobRequest extends $tea.Model {
   fileName?: string;
   fileNameExtension?: string;
@@ -1722,6 +1952,57 @@ export default class Client extends OpenApi {
     return EndpointUtil.getEndpointRules(productId, regionId, endpointRule, network, suffix);
   }
 
+  async ayncTradeDocumentPackageExtractSmartAppWithOptions(tmpReq: AyncTradeDocumentPackageExtractSmartAppRequest, runtime: $Util.RuntimeOptions): Promise<AyncTradeDocumentPackageExtractSmartAppResponse> {
+    Util.validateModel(tmpReq);
+    let request = new AyncTradeDocumentPackageExtractSmartAppShrinkRequest({ });
+    OpenApiUtil.convert(tmpReq, request);
+    if (!Util.isUnset(tmpReq.customExtractionRange)) {
+      request.customExtractionRangeShrink = OpenApiUtil.arrayToStringWithSpecifiedStyle(tmpReq.customExtractionRange, "CustomExtractionRange", "json");
+    }
+
+    let query = { };
+    if (!Util.isUnset(request.customExtractionRangeShrink)) {
+      query["CustomExtractionRange"] = request.customExtractionRangeShrink;
+    }
+
+    if (!Util.isUnset(request.fileName)) {
+      query["FileName"] = request.fileName;
+    }
+
+    if (!Util.isUnset(request.fileUrl)) {
+      query["FileUrl"] = request.fileUrl;
+    }
+
+    if (!Util.isUnset(request.option)) {
+      query["Option"] = request.option;
+    }
+
+    if (!Util.isUnset(request.templateName)) {
+      query["TemplateName"] = request.templateName;
+    }
+
+    let req = new $OpenApi.OpenApiRequest({
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApi.Params({
+      action: "AyncTradeDocumentPackageExtractSmartApp",
+      version: "2022-07-11",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $tea.cast<AyncTradeDocumentPackageExtractSmartAppResponse>(await this.callApi(params, req, runtime), new AyncTradeDocumentPackageExtractSmartAppResponse({}));
+  }
+
+  async ayncTradeDocumentPackageExtractSmartApp(request: AyncTradeDocumentPackageExtractSmartAppRequest): Promise<AyncTradeDocumentPackageExtractSmartAppResponse> {
+    let runtime = new $Util.RuntimeOptions({ });
+    return await this.ayncTradeDocumentPackageExtractSmartAppWithOptions(request, runtime);
+  }
+
   async getDocStructureResultWithOptions(request: GetDocStructureResultRequest, runtime: $Util.RuntimeOptions): Promise<GetDocStructureResultResponse> {
     Util.validateModel(request);
     let query = { };
@@ -2343,6 +2624,117 @@ export default class Client extends OpenApi {
 
     let submitConvertPdfToWordJobResp = await this.submitConvertPdfToWordJobWithOptions(submitConvertPdfToWordJobReq, runtime);
     return submitConvertPdfToWordJobResp;
+  }
+
+  async submitDigitalDocStructureJobWithOptions(request: SubmitDigitalDocStructureJobRequest, runtime: $Util.RuntimeOptions): Promise<SubmitDigitalDocStructureJobResponse> {
+    Util.validateModel(request);
+    let query = { };
+    if (!Util.isUnset(request.fileName)) {
+      query["FileName"] = request.fileName;
+    }
+
+    if (!Util.isUnset(request.fileNameExtension)) {
+      query["FileNameExtension"] = request.fileNameExtension;
+    }
+
+    if (!Util.isUnset(request.fileUrl)) {
+      query["FileUrl"] = request.fileUrl;
+    }
+
+    let req = new $OpenApi.OpenApiRequest({
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApi.Params({
+      action: "SubmitDigitalDocStructureJob",
+      version: "2022-07-11",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $tea.cast<SubmitDigitalDocStructureJobResponse>(await this.callApi(params, req, runtime), new SubmitDigitalDocStructureJobResponse({}));
+  }
+
+  async submitDigitalDocStructureJob(request: SubmitDigitalDocStructureJobRequest): Promise<SubmitDigitalDocStructureJobResponse> {
+    let runtime = new $Util.RuntimeOptions({ });
+    return await this.submitDigitalDocStructureJobWithOptions(request, runtime);
+  }
+
+  async submitDigitalDocStructureJobAdvance(request: SubmitDigitalDocStructureJobAdvanceRequest, runtime: $Util.RuntimeOptions): Promise<SubmitDigitalDocStructureJobResponse> {
+    // Step 0: init client
+    let accessKeyId = await this._credential.getAccessKeyId();
+    let accessKeySecret = await this._credential.getAccessKeySecret();
+    let securityToken = await this._credential.getSecurityToken();
+    let credentialType = this._credential.getType();
+    let openPlatformEndpoint = this._openPlatformEndpoint;
+    if (Util.isUnset(openPlatformEndpoint)) {
+      openPlatformEndpoint = "openplatform.aliyuncs.com";
+    }
+
+    if (Util.isUnset(credentialType)) {
+      credentialType = "access_key";
+    }
+
+    let authConfig = new $OpenApi.Config({
+      accessKeyId: accessKeyId,
+      accessKeySecret: accessKeySecret,
+      securityToken: securityToken,
+      type: credentialType,
+      endpoint: openPlatformEndpoint,
+      protocol: this._protocol,
+      regionId: this._regionId,
+    });
+    let authClient = new OpenPlatform(authConfig);
+    let authRequest = new $OpenPlatform.AuthorizeFileUploadRequest({
+      product: "docmind-api",
+      regionId: this._regionId,
+    });
+    let authResponse = new $OpenPlatform.AuthorizeFileUploadResponse({ });
+    let ossConfig = new $OSS.Config({
+      accessKeySecret: accessKeySecret,
+      type: "access_key",
+      protocol: this._protocol,
+      regionId: this._regionId,
+    });
+    let ossClient : OSS = null;
+    let fileObj = new $FileForm.FileField({ });
+    let ossHeader = new $OSS.PostObjectRequestHeader({ });
+    let uploadRequest = new $OSS.PostObjectRequest({ });
+    let ossRuntime = new $OSSUtil.RuntimeOptions({ });
+    OpenApiUtil.convert(runtime, ossRuntime);
+    let submitDigitalDocStructureJobReq = new SubmitDigitalDocStructureJobRequest({ });
+    OpenApiUtil.convert(request, submitDigitalDocStructureJobReq);
+    if (!Util.isUnset(request.fileUrlObject)) {
+      authResponse = await authClient.authorizeFileUploadWithOptions(authRequest, runtime);
+      ossConfig.accessKeyId = authResponse.body.accessKeyId;
+      ossConfig.endpoint = OpenApiUtil.getEndpoint(authResponse.body.endpoint, authResponse.body.useAccelerate, this._endpointType);
+      ossClient = new OSS(ossConfig);
+      fileObj = new $FileForm.FileField({
+        filename: authResponse.body.objectKey,
+        content: request.fileUrlObject,
+        contentType: "",
+      });
+      ossHeader = new $OSS.PostObjectRequestHeader({
+        accessKeyId: authResponse.body.accessKeyId,
+        policy: authResponse.body.encodedPolicy,
+        signature: authResponse.body.signature,
+        key: authResponse.body.objectKey,
+        file: fileObj,
+        successActionStatus: "201",
+      });
+      uploadRequest = new $OSS.PostObjectRequest({
+        bucketName: authResponse.body.bucket,
+        header: ossHeader,
+      });
+      await ossClient.postObject(uploadRequest, ossRuntime);
+      submitDigitalDocStructureJobReq.fileUrl = `http://${authResponse.body.bucket}.${authResponse.body.endpoint}/${authResponse.body.objectKey}`;
+    }
+
+    let submitDigitalDocStructureJobResp = await this.submitDigitalDocStructureJobWithOptions(submitDigitalDocStructureJobReq, runtime);
+    return submitDigitalDocStructureJobResp;
   }
 
   async submitDocStructureJobWithOptions(request: SubmitDocStructureJobRequest, runtime: $Util.RuntimeOptions): Promise<SubmitDocStructureJobResponse> {
