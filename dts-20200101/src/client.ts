@@ -23,6 +23,8 @@ export class ConfigureDtsJobRequest extends $tea.Model {
   delayNotice?: boolean;
   delayPhone?: string;
   delayRuleTime?: number;
+  destCaCertificateOssUrl?: string;
+  destCaCertificatePassword?: string;
   destinationEndpointDataBaseName?: string;
   destinationEndpointEngineName?: string;
   destinationEndpointIP?: string;
@@ -60,6 +62,8 @@ export class ConfigureDtsJobRequest extends $tea.Model {
   sourceEndpointRole?: string;
   sourceEndpointUserName?: string;
   sourceEndpointVSwitchID?: string;
+  srcCaCertificateOssUrl?: string;
+  srcCaCertificatePassword?: string;
   structureInitialization?: boolean;
   synchronizationDirection?: string;
   static names(): { [key: string]: string } {
@@ -73,6 +77,8 @@ export class ConfigureDtsJobRequest extends $tea.Model {
       delayNotice: 'DelayNotice',
       delayPhone: 'DelayPhone',
       delayRuleTime: 'DelayRuleTime',
+      destCaCertificateOssUrl: 'DestCaCertificateOssUrl',
+      destCaCertificatePassword: 'DestCaCertificatePassword',
       destinationEndpointDataBaseName: 'DestinationEndpointDataBaseName',
       destinationEndpointEngineName: 'DestinationEndpointEngineName',
       destinationEndpointIP: 'DestinationEndpointIP',
@@ -110,6 +116,8 @@ export class ConfigureDtsJobRequest extends $tea.Model {
       sourceEndpointRole: 'SourceEndpointRole',
       sourceEndpointUserName: 'SourceEndpointUserName',
       sourceEndpointVSwitchID: 'SourceEndpointVSwitchID',
+      srcCaCertificateOssUrl: 'SrcCaCertificateOssUrl',
+      srcCaCertificatePassword: 'SrcCaCertificatePassword',
       structureInitialization: 'StructureInitialization',
       synchronizationDirection: 'SynchronizationDirection',
     };
@@ -126,6 +134,8 @@ export class ConfigureDtsJobRequest extends $tea.Model {
       delayNotice: 'boolean',
       delayPhone: 'string',
       delayRuleTime: 'number',
+      destCaCertificateOssUrl: 'string',
+      destCaCertificatePassword: 'string',
       destinationEndpointDataBaseName: 'string',
       destinationEndpointEngineName: 'string',
       destinationEndpointIP: 'string',
@@ -163,6 +173,8 @@ export class ConfigureDtsJobRequest extends $tea.Model {
       sourceEndpointRole: 'string',
       sourceEndpointUserName: 'string',
       sourceEndpointVSwitchID: 'string',
+      srcCaCertificateOssUrl: 'string',
+      srcCaCertificatePassword: 'string',
       structureInitialization: 'boolean',
       synchronizationDirection: 'string',
     };
@@ -183,6 +195,8 @@ export class ConfigureDtsJobAdvanceRequest extends $tea.Model {
   delayNotice?: boolean;
   delayPhone?: string;
   delayRuleTime?: number;
+  destCaCertificateOssUrl?: string;
+  destCaCertificatePassword?: string;
   destinationEndpointDataBaseName?: string;
   destinationEndpointEngineName?: string;
   destinationEndpointIP?: string;
@@ -220,6 +234,8 @@ export class ConfigureDtsJobAdvanceRequest extends $tea.Model {
   sourceEndpointRole?: string;
   sourceEndpointUserName?: string;
   sourceEndpointVSwitchID?: string;
+  srcCaCertificateOssUrl?: string;
+  srcCaCertificatePassword?: string;
   structureInitialization?: boolean;
   synchronizationDirection?: string;
   static names(): { [key: string]: string } {
@@ -233,6 +249,8 @@ export class ConfigureDtsJobAdvanceRequest extends $tea.Model {
       delayNotice: 'DelayNotice',
       delayPhone: 'DelayPhone',
       delayRuleTime: 'DelayRuleTime',
+      destCaCertificateOssUrl: 'DestCaCertificateOssUrl',
+      destCaCertificatePassword: 'DestCaCertificatePassword',
       destinationEndpointDataBaseName: 'DestinationEndpointDataBaseName',
       destinationEndpointEngineName: 'DestinationEndpointEngineName',
       destinationEndpointIP: 'DestinationEndpointIP',
@@ -270,6 +288,8 @@ export class ConfigureDtsJobAdvanceRequest extends $tea.Model {
       sourceEndpointRole: 'SourceEndpointRole',
       sourceEndpointUserName: 'SourceEndpointUserName',
       sourceEndpointVSwitchID: 'SourceEndpointVSwitchID',
+      srcCaCertificateOssUrl: 'SrcCaCertificateOssUrl',
+      srcCaCertificatePassword: 'SrcCaCertificatePassword',
       structureInitialization: 'StructureInitialization',
       synchronizationDirection: 'SynchronizationDirection',
     };
@@ -286,6 +306,8 @@ export class ConfigureDtsJobAdvanceRequest extends $tea.Model {
       delayNotice: 'boolean',
       delayPhone: 'string',
       delayRuleTime: 'number',
+      destCaCertificateOssUrl: 'string',
+      destCaCertificatePassword: 'string',
       destinationEndpointDataBaseName: 'string',
       destinationEndpointEngineName: 'string',
       destinationEndpointIP: 'string',
@@ -323,6 +345,8 @@ export class ConfigureDtsJobAdvanceRequest extends $tea.Model {
       sourceEndpointRole: 'string',
       sourceEndpointUserName: 'string',
       sourceEndpointVSwitchID: 'string',
+      srcCaCertificateOssUrl: 'string',
+      srcCaCertificatePassword: 'string',
       structureInitialization: 'boolean',
       synchronizationDirection: 'string',
     };
@@ -20382,6 +20406,14 @@ export default class Client extends OpenApi {
       query["DelayRuleTime"] = request.delayRuleTime;
     }
 
+    if (!Util.isUnset(request.destCaCertificateOssUrl)) {
+      query["DestCaCertificateOssUrl"] = request.destCaCertificateOssUrl;
+    }
+
+    if (!Util.isUnset(request.destCaCertificatePassword)) {
+      query["DestCaCertificatePassword"] = request.destCaCertificatePassword;
+    }
+
     if (!Util.isUnset(request.destinationEndpointDataBaseName)) {
       query["DestinationEndpointDataBaseName"] = request.destinationEndpointDataBaseName;
     }
@@ -20524,6 +20556,14 @@ export default class Client extends OpenApi {
 
     if (!Util.isUnset(request.sourceEndpointVSwitchID)) {
       query["SourceEndpointVSwitchID"] = request.sourceEndpointVSwitchID;
+    }
+
+    if (!Util.isUnset(request.srcCaCertificateOssUrl)) {
+      query["SrcCaCertificateOssUrl"] = request.srcCaCertificateOssUrl;
+    }
+
+    if (!Util.isUnset(request.srcCaCertificatePassword)) {
+      query["SrcCaCertificatePassword"] = request.srcCaCertificatePassword;
     }
 
     if (!Util.isUnset(request.structureInitialization)) {
