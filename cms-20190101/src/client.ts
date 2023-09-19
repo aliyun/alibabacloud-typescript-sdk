@@ -270,6 +270,46 @@ export class MetricStat extends $tea.Model {
   }
 }
 
+export class MigrationJob extends $tea.Model {
+  createTime?: string;
+  detail?: string;
+  jobStatus?: string;
+  plan?: MigrationJobPlan;
+  ruleNames?: string[];
+  source?: MigrationJobSource[];
+  updateTime?: string;
+  uuid?: string;
+  static names(): { [key: string]: string } {
+    return {
+      createTime: 'CreateTime',
+      detail: 'Detail',
+      jobStatus: 'JobStatus',
+      plan: 'Plan',
+      ruleNames: 'RuleNames',
+      source: 'Source',
+      updateTime: 'UpdateTime',
+      uuid: 'Uuid',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      createTime: 'string',
+      detail: 'string',
+      jobStatus: 'string',
+      plan: MigrationJobPlan,
+      ruleNames: { 'type': 'array', 'itemType': 'string' },
+      source: { 'type': 'array', 'itemType': MigrationJobSource },
+      updateTime: 'string',
+      uuid: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
 export class NotificationStrategy extends $tea.Model {
   createTime?: string;
   description?: string;
@@ -6344,6 +6384,7 @@ export class DescribeEventRuleAttributeResponse extends $tea.Model {
 
 export class DescribeEventRuleListRequest extends $tea.Model {
   groupId?: string;
+  isEnable?: boolean;
   namePrefix?: string;
   pageNumber?: string;
   pageSize?: string;
@@ -6351,6 +6392,7 @@ export class DescribeEventRuleListRequest extends $tea.Model {
   static names(): { [key: string]: string } {
     return {
       groupId: 'GroupId',
+      isEnable: 'IsEnable',
       namePrefix: 'NamePrefix',
       pageNumber: 'PageNumber',
       pageSize: 'PageSize',
@@ -6361,6 +6403,7 @@ export class DescribeEventRuleListRequest extends $tea.Model {
   static types(): { [key: string]: any } {
     return {
       groupId: 'string',
+      isEnable: 'boolean',
       namePrefix: 'string',
       pageNumber: 'string',
       pageSize: 'string',
@@ -15228,6 +15271,506 @@ export class EscalationRuleEscalations extends $tea.Model {
   }
 }
 
+export class MigrationJobPlanContactsChannels extends $tea.Model {
+  level?: number;
+  type?: string;
+  value?: string;
+  static names(): { [key: string]: string } {
+    return {
+      level: 'Level',
+      type: 'Type',
+      value: 'Value',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      level: 'number',
+      type: 'string',
+      value: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class MigrationJobPlanContacts extends $tea.Model {
+  channels?: MigrationJobPlanContactsChannels[];
+  name?: string;
+  static names(): { [key: string]: string } {
+    return {
+      channels: 'Channels',
+      name: 'Name',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      channels: { 'type': 'array', 'itemType': MigrationJobPlanContactsChannels },
+      name: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class MigrationJobPlanEscalationsEscalationsLevelGroups extends $tea.Model {
+  critical?: string[];
+  info?: string[];
+  resolved?: string[];
+  warning?: string[];
+  static names(): { [key: string]: string } {
+    return {
+      critical: 'Critical',
+      info: 'Info',
+      resolved: 'Resolved',
+      warning: 'Warning',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      critical: { 'type': 'array', 'itemType': 'string' },
+      info: { 'type': 'array', 'itemType': 'string' },
+      resolved: { 'type': 'array', 'itemType': 'string' },
+      warning: { 'type': 'array', 'itemType': 'string' },
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class MigrationJobPlanEscalationsEscalations extends $tea.Model {
+  groups?: string[];
+  levelGroups?: MigrationJobPlanEscalationsEscalationsLevelGroups;
+  static names(): { [key: string]: string } {
+    return {
+      groups: 'Groups',
+      levelGroups: 'LevelGroups',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      groups: { 'type': 'array', 'itemType': 'string' },
+      levelGroups: MigrationJobPlanEscalationsEscalationsLevelGroups,
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class MigrationJobPlanEscalations extends $tea.Model {
+  escalations?: MigrationJobPlanEscalationsEscalations[];
+  name?: string;
+  uuid?: string;
+  static names(): { [key: string]: string } {
+    return {
+      escalations: 'Escalations',
+      name: 'Name',
+      uuid: 'Uuid',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      escalations: { 'type': 'array', 'itemType': MigrationJobPlanEscalationsEscalations },
+      name: 'string',
+      uuid: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class MigrationJobPlanGroups extends $tea.Model {
+  contacts?: string[];
+  name?: string;
+  static names(): { [key: string]: string } {
+    return {
+      contacts: 'Contacts',
+      name: 'Name',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      contacts: { 'type': 'array', 'itemType': 'string' },
+      name: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class MigrationJobPlanStrategiesEscalationSetting extends $tea.Model {
+  escalationUuid?: string;
+  static names(): { [key: string]: string } {
+    return {
+      escalationUuid: 'escalationUuid',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      escalationUuid: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class MigrationJobPlanStrategiesPushingSetting extends $tea.Model {
+  targetUuids?: string[];
+  static names(): { [key: string]: string } {
+    return {
+      targetUuids: 'TargetUuids',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      targetUuids: { 'type': 'array', 'itemType': 'string' },
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class MigrationJobPlanStrategies extends $tea.Model {
+  escalationSetting?: MigrationJobPlanStrategiesEscalationSetting;
+  name?: string;
+  pushingSetting?: MigrationJobPlanStrategiesPushingSetting;
+  static names(): { [key: string]: string } {
+    return {
+      escalationSetting: 'EscalationSetting',
+      name: 'Name',
+      pushingSetting: 'PushingSetting',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      escalationSetting: MigrationJobPlanStrategiesEscalationSetting,
+      name: 'string',
+      pushingSetting: MigrationJobPlanStrategiesPushingSetting,
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class MigrationJobPlanSubscriptionsConditions extends $tea.Model {
+  field?: string;
+  op?: string;
+  value?: string;
+  static names(): { [key: string]: string } {
+    return {
+      field: 'Field',
+      op: 'Op',
+      value: 'Value',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      field: 'string',
+      op: 'string',
+      value: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class MigrationJobPlanSubscriptions extends $tea.Model {
+  conditions?: MigrationJobPlanSubscriptionsConditions[];
+  name?: string;
+  strategyUuid?: string;
+  static names(): { [key: string]: string } {
+    return {
+      conditions: 'Conditions',
+      name: 'Name',
+      strategyUuid: 'StrategyUuid',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      conditions: { 'type': 'array', 'itemType': MigrationJobPlanSubscriptionsConditions },
+      name: 'string',
+      strategyUuid: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class MigrationJobPlanTargetsHttpRequestTarget extends $tea.Model {
+  contentType?: string;
+  method?: string;
+  url?: string;
+  static names(): { [key: string]: string } {
+    return {
+      contentType: 'ContentType',
+      method: 'Method',
+      url: 'Url',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      contentType: 'string',
+      method: 'string',
+      url: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class MigrationJobPlanTargets extends $tea.Model {
+  arn?: string;
+  httpRequestTarget?: MigrationJobPlanTargetsHttpRequestTarget;
+  name?: string;
+  type?: string;
+  uuid?: string;
+  static names(): { [key: string]: string } {
+    return {
+      arn: 'Arn',
+      httpRequestTarget: 'HttpRequestTarget',
+      name: 'Name',
+      type: 'Type',
+      uuid: 'Uuid',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      arn: 'string',
+      httpRequestTarget: MigrationJobPlanTargetsHttpRequestTarget,
+      name: 'string',
+      type: 'string',
+      uuid: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class MigrationJobPlan extends $tea.Model {
+  contacts?: MigrationJobPlanContacts[];
+  escalations?: MigrationJobPlanEscalations[];
+  groups?: MigrationJobPlanGroups[];
+  ruleNames?: string[];
+  strategies?: MigrationJobPlanStrategies[];
+  subscriptions?: MigrationJobPlanSubscriptions[];
+  targets?: MigrationJobPlanTargets[];
+  static names(): { [key: string]: string } {
+    return {
+      contacts: 'Contacts',
+      escalations: 'Escalations',
+      groups: 'Groups',
+      ruleNames: 'RuleNames',
+      strategies: 'Strategies',
+      subscriptions: 'Subscriptions',
+      targets: 'Targets',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      contacts: { 'type': 'array', 'itemType': MigrationJobPlanContacts },
+      escalations: { 'type': 'array', 'itemType': MigrationJobPlanEscalations },
+      groups: { 'type': 'array', 'itemType': MigrationJobPlanGroups },
+      ruleNames: { 'type': 'array', 'itemType': 'string' },
+      strategies: { 'type': 'array', 'itemType': MigrationJobPlanStrategies },
+      subscriptions: { 'type': 'array', 'itemType': MigrationJobPlanSubscriptions },
+      targets: { 'type': 'array', 'itemType': MigrationJobPlanTargets },
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class MigrationJobSourceRuleKeywordFilter extends $tea.Model {
+  keywords?: string[];
+  relation?: string;
+  static names(): { [key: string]: string } {
+    return {
+      keywords: 'Keywords',
+      relation: 'Relation',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      keywords: { 'type': 'array', 'itemType': 'string' },
+      relation: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class MigrationJobSourceRulePrimaryFilters extends $tea.Model {
+  field?: string;
+  opType?: string;
+  value?: string;
+  static names(): { [key: string]: string } {
+    return {
+      field: 'Field',
+      opType: 'OpType',
+      value: 'Value',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      field: 'string',
+      opType: 'string',
+      value: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class MigrationJobSourceRule extends $tea.Model {
+  keywordFilter?: MigrationJobSourceRuleKeywordFilter;
+  name?: string;
+  primaryFilters?: MigrationJobSourceRulePrimaryFilters[];
+  static names(): { [key: string]: string } {
+    return {
+      keywordFilter: 'KeywordFilter',
+      name: 'Name',
+      primaryFilters: 'PrimaryFilters',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      keywordFilter: MigrationJobSourceRuleKeywordFilter,
+      name: 'string',
+      primaryFilters: { 'type': 'array', 'itemType': MigrationJobSourceRulePrimaryFilters },
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class MigrationJobSourceTargetsContent extends $tea.Model {
+  group?: string;
+  level?: string;
+  method?: string;
+  region?: string;
+  resourcePath?: string;
+  url?: string;
+  static names(): { [key: string]: string } {
+    return {
+      group: 'Group',
+      level: 'Level',
+      method: 'Method',
+      region: 'Region',
+      resourcePath: 'ResourcePath',
+      url: 'Url',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      group: 'string',
+      level: 'string',
+      method: 'string',
+      region: 'string',
+      resourcePath: 'string',
+      url: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class MigrationJobSourceTargets extends $tea.Model {
+  content?: MigrationJobSourceTargetsContent;
+  type?: string;
+  static names(): { [key: string]: string } {
+    return {
+      content: 'Content',
+      type: 'Type',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      content: MigrationJobSourceTargetsContent,
+      type: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class MigrationJobSource extends $tea.Model {
+  rule?: MigrationJobSourceRule;
+  targets?: MigrationJobSourceTargets[];
+  static names(): { [key: string]: string } {
+    return {
+      rule: 'Rule',
+      targets: 'Targets',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      rule: MigrationJobSourceRule,
+      targets: { 'type': 'array', 'itemType': MigrationJobSourceTargets },
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
 export class NotificationStrategyEscalationSettingCustomChannels extends $tea.Model {
   channelType?: string;
   severities?: string[];
@@ -18543,6 +19086,47 @@ export class DescribeEventRuleAttributeResponseBodyResultEventPatternEventTypeLi
   }
 }
 
+export class DescribeEventRuleAttributeResponseBodyResultEventPatternKeywordFilterObjKeywords extends $tea.Model {
+  keyword?: string[];
+  static names(): { [key: string]: string } {
+    return {
+      keyword: 'keyword',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      keyword: { 'type': 'array', 'itemType': 'string' },
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class DescribeEventRuleAttributeResponseBodyResultEventPatternKeywordFilterObj extends $tea.Model {
+  keywords?: DescribeEventRuleAttributeResponseBodyResultEventPatternKeywordFilterObjKeywords;
+  relation?: string;
+  static names(): { [key: string]: string } {
+    return {
+      keywords: 'Keywords',
+      relation: 'Relation',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      keywords: DescribeEventRuleAttributeResponseBodyResultEventPatternKeywordFilterObjKeywords,
+      relation: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
 export class DescribeEventRuleAttributeResponseBodyResultEventPatternLevelList extends $tea.Model {
   levelList?: string[];
   static names(): { [key: string]: string } {
@@ -18602,16 +19186,20 @@ export class DescribeEventRuleAttributeResponseBodyResultEventPatternStatusList 
 
 export class DescribeEventRuleAttributeResponseBodyResultEventPattern extends $tea.Model {
   eventTypeList?: DescribeEventRuleAttributeResponseBodyResultEventPatternEventTypeList;
+  keywordFilterObj?: DescribeEventRuleAttributeResponseBodyResultEventPatternKeywordFilterObj;
   levelList?: DescribeEventRuleAttributeResponseBodyResultEventPatternLevelList;
   nameList?: DescribeEventRuleAttributeResponseBodyResultEventPatternNameList;
   product?: string;
+  SQLFilter?: string;
   statusList?: DescribeEventRuleAttributeResponseBodyResultEventPatternStatusList;
   static names(): { [key: string]: string } {
     return {
       eventTypeList: 'EventTypeList',
+      keywordFilterObj: 'KeywordFilterObj',
       levelList: 'LevelList',
       nameList: 'NameList',
       product: 'Product',
+      SQLFilter: 'SQLFilter',
       statusList: 'StatusList',
     };
   }
@@ -18619,9 +19207,11 @@ export class DescribeEventRuleAttributeResponseBodyResultEventPattern extends $t
   static types(): { [key: string]: any } {
     return {
       eventTypeList: DescribeEventRuleAttributeResponseBodyResultEventPatternEventTypeList,
+      keywordFilterObj: DescribeEventRuleAttributeResponseBodyResultEventPatternKeywordFilterObj,
       levelList: DescribeEventRuleAttributeResponseBodyResultEventPatternLevelList,
       nameList: DescribeEventRuleAttributeResponseBodyResultEventPatternNameList,
       product: 'string',
+      SQLFilter: 'string',
       statusList: DescribeEventRuleAttributeResponseBodyResultEventPatternStatusList,
     };
   }
@@ -23184,6 +23774,7 @@ export class DescribeSiteMonitorAttributeResponseBodySiteMonitorsOptionJson exte
   trafficHijackElementCount?: number;
   trafficHijackElementWhitelist?: DescribeSiteMonitorAttributeResponseBodySiteMonitorsOptionJsonTrafficHijackElementWhitelist;
   username?: string;
+  waitTimeAfterCompletion?: number;
   static names(): { [key: string]: string } {
     return {
       assertions: 'assertions',
@@ -23228,6 +23819,7 @@ export class DescribeSiteMonitorAttributeResponseBodySiteMonitorsOptionJson exte
       trafficHijackElementCount: 'traffic_hijack_element_count',
       trafficHijackElementWhitelist: 'traffic_hijack_element_whitelist',
       username: 'username',
+      waitTimeAfterCompletion: 'waitTime_after_completion',
     };
   }
 
@@ -23275,6 +23867,7 @@ export class DescribeSiteMonitorAttributeResponseBodySiteMonitorsOptionJson exte
       trafficHijackElementCount: 'number',
       trafficHijackElementWhitelist: DescribeSiteMonitorAttributeResponseBodySiteMonitorsOptionJsonTrafficHijackElementWhitelist,
       username: 'string',
+      waitTimeAfterCompletion: 'number',
     };
   }
 
@@ -26287,9 +26880,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-    * Indicates whether the call was successful. Valid values:
-    * *   true: The call was successful.
-    * *   false: The call failed.
+    * This topic provides an example on how to add a tag to an application group whose ID is `7301****`. In this example, the key of the tag is `key1` and the value of the tag is `value1`.
     *
     * @param request AddTagsRequest
     * @param runtime runtime options for this request RuntimeOptions
@@ -26324,9 +26915,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-    * Indicates whether the call was successful. Valid values:
-    * *   true: The call was successful.
-    * *   false: The call failed.
+    * This topic provides an example on how to add a tag to an application group whose ID is `7301****`. In this example, the key of the tag is `key1` and the value of the tag is `value1`.
     *
     * @param request AddTagsRequest
     * @return AddTagsResponse
@@ -26494,6 +27083,16 @@ export default class Client extends OpenApi {
     return await this.batchCreateIntantSiteMonitorWithOptions(request, runtime);
   }
 
+  /**
+    * ### [](#)Prerequisites
+    * The `Cursor` information is returned by calling the [Cursor](~~2330730~~) operation.
+    * ### [](#)Description
+    * This topic provides an example on how to export the monitoring data of the `cpu_idle` metric for Elastic Compute Service (ECS). The namespace of ECS is `acs_ecs_dashboard`. The `Cursor` information is specified. A maximum of 1,000 data entries can be returned in each response.
+    *
+    * @param tmpReq BatchExportRequest
+    * @param runtime runtime options for this request RuntimeOptions
+    * @return BatchExportResponse
+   */
   async batchExportWithOptions(tmpReq: BatchExportRequest, runtime: $Util.RuntimeOptions): Promise<BatchExportResponse> {
     Util.validateModel(tmpReq);
     let request = new BatchExportShrinkRequest({ });
@@ -26540,6 +27139,15 @@ export default class Client extends OpenApi {
     return $tea.cast<BatchExportResponse>(await this.callApi(params, req, runtime), new BatchExportResponse({}));
   }
 
+  /**
+    * ### [](#)Prerequisites
+    * The `Cursor` information is returned by calling the [Cursor](~~2330730~~) operation.
+    * ### [](#)Description
+    * This topic provides an example on how to export the monitoring data of the `cpu_idle` metric for Elastic Compute Service (ECS). The namespace of ECS is `acs_ecs_dashboard`. The `Cursor` information is specified. A maximum of 1,000 data entries can be returned in each response.
+    *
+    * @param request BatchExportRequest
+    * @return BatchExportResponse
+   */
   async batchExport(request: BatchExportRequest): Promise<BatchExportResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.batchExportWithOptions(request, runtime);
@@ -26902,7 +27510,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-    * The ID of the resource for which alerts are triggered.
+    * This topic provides an example on how to create an availability monitoring task named `task1` in an application group named `123456`. The TaskType parameter of the task is set to `HTTP`. After you start the task, the system sends alerts by using the specified email address and DingTalk chatbot.
     *
     * @param request CreateHostAvailabilityRequest
     * @param runtime runtime options for this request RuntimeOptions
@@ -26965,7 +27573,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-    * The ID of the resource for which alerts are triggered.
+    * This topic provides an example on how to create an availability monitoring task named `task1` in an application group named `123456`. The TaskType parameter of the task is set to `HTTP`. After you start the task, the system sends alerts by using the specified email address and DingTalk chatbot.
     *
     * @param request CreateHostAvailabilityRequest
     * @return CreateHostAvailabilityResponse
@@ -27232,8 +27840,9 @@ export default class Client extends OpenApi {
   }
 
   /**
-    * The name of the metric.
-    * Valid values of N: 1 to 10
+    * ### Background information
+    * *   CloudMonitor blocks alert notifications based on the blacklist policies that take effect. To block alert notifications when the value of a metric that belongs to a cloud service reaches the threshold that you specified, add the metric to a blacklist policy.
+    * *   CloudMonitor allows you to create blacklist policies only based on threshold metrics. You cannot create blacklist policies based on system events. For more information about the cloud services and the thresholds of the metrics that are supported by CloudMonitor, see [Appendix 1: Metrics](~~163515~~).
     *
     * @param request CreateMetricRuleBlackListRequest
     * @param runtime runtime options for this request RuntimeOptions
@@ -27300,8 +27909,9 @@ export default class Client extends OpenApi {
   }
 
   /**
-    * The name of the metric.
-    * Valid values of N: 1 to 10
+    * ### Background information
+    * *   CloudMonitor blocks alert notifications based on the blacklist policies that take effect. To block alert notifications when the value of a metric that belongs to a cloud service reaches the threshold that you specified, add the metric to a blacklist policy.
+    * *   CloudMonitor allows you to create blacklist policies only based on threshold metrics. You cannot create blacklist policies based on system events. For more information about the cloud services and the thresholds of the metrics that are supported by CloudMonitor, see [Appendix 1: Metrics](~~163515~~).
     *
     * @param request CreateMetricRuleBlackListRequest
     * @return CreateMetricRuleBlackListResponse
@@ -27469,8 +28079,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-    * The ID of the region where the resource group resides.
-    * For information about how to obtain the ID of the region where a resource group resides, see [GetResourceGroup](~~158866~~).
+    * This topic provides an example on how to create an application group by using the resource group `CloudMonitor` and the alert contact group `ECS_Group`. The region ID of the resource group is `cn-hangzhou`.
     *
     * @param request CreateMonitorGroupByResourceGroupIdRequest
     * @param runtime runtime options for this request RuntimeOptions
@@ -27521,8 +28130,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-    * The ID of the region where the resource group resides.
-    * For information about how to obtain the ID of the region where a resource group resides, see [GetResourceGroup](~~158866~~).
+    * This topic provides an example on how to create an application group by using the resource group `CloudMonitor` and the alert contact group `ECS_Group`. The region ID of the resource group is `cn-hangzhou`.
     *
     * @param request CreateMonitorGroupByResourceGroupIdRequest
     * @return CreateMonitorGroupByResourceGroupIdResponse
@@ -27672,9 +28280,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-    * Indicates whether the call was successful. Valid values:
-    * *   true: The call was successful.
-    * *   false: The call failed.
+    * This topic provides an example on how to create a site monitoring task named `HanZhou_ECS1`. The URL that is monitored by the task is `https://www.aliyun.com` and the type of the task is `HTTPS`.
     *
     * @param request CreateSiteMonitorRequest
     * @param runtime runtime options for this request RuntimeOptions
@@ -27733,9 +28339,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-    * Indicates whether the call was successful. Valid values:
-    * *   true: The call was successful.
-    * *   false: The call failed.
+    * This topic provides an example on how to create a site monitoring task named `HanZhou_ECS1`. The URL that is monitored by the task is `https://www.aliyun.com` and the type of the task is `HTTPS`.
     *
     * @param request CreateSiteMonitorRequest
     * @return CreateSiteMonitorResponse
@@ -27745,6 +28349,18 @@ export default class Client extends OpenApi {
     return await this.createSiteMonitorWithOptions(request, runtime);
   }
 
+  /**
+    * ### [](#)Prerequisites
+    * Hybrid Cloud Monitoring is activated. For more information, see [Activate Hybrid Cloud Monitoring](~~250773~~).
+    * ### [](#)Background information
+    * You can call this operation to obtain the Cursor information and then call the [BatchExport](~~2329847~~) operation to export the monitoring data.
+    * ### [](#)Description
+    * This topic provides an example on how to define the monitoring data of a specified metric for a specified cloud service. In this example, the namespace of the cloud service is set to `acs_ecs_dashboard`, the metric is set to `cpu_idle`, the start time is set to `1641627000000`, and the end time is set to `1641645000000`. The number of idle CPU cores on your Elastic Compute Service (ECS) instances is measured every 60 seconds from 15:30:00, January 8, 2022 to 20:30:00, January 8, 2022. The `Cursor` information is returned.
+    *
+    * @param tmpReq CursorRequest
+    * @param runtime runtime options for this request RuntimeOptions
+    * @return CursorResponse
+   */
   async cursorWithOptions(tmpReq: CursorRequest, runtime: $Util.RuntimeOptions): Promise<CursorResponse> {
     Util.validateModel(tmpReq);
     let request = new CursorShrinkRequest({ });
@@ -27795,6 +28411,17 @@ export default class Client extends OpenApi {
     return $tea.cast<CursorResponse>(await this.callApi(params, req, runtime), new CursorResponse({}));
   }
 
+  /**
+    * ### [](#)Prerequisites
+    * Hybrid Cloud Monitoring is activated. For more information, see [Activate Hybrid Cloud Monitoring](~~250773~~).
+    * ### [](#)Background information
+    * You can call this operation to obtain the Cursor information and then call the [BatchExport](~~2329847~~) operation to export the monitoring data.
+    * ### [](#)Description
+    * This topic provides an example on how to define the monitoring data of a specified metric for a specified cloud service. In this example, the namespace of the cloud service is set to `acs_ecs_dashboard`, the metric is set to `cpu_idle`, the start time is set to `1641627000000`, and the end time is set to `1641645000000`. The number of idle CPU cores on your Elastic Compute Service (ECS) instances is measured every 60 seconds from 15:30:00, January 8, 2022 to 20:30:00, January 8, 2022. The `Cursor` information is returned.
+    *
+    * @param request CursorRequest
+    * @return CursorResponse
+   */
   async cursor(request: CursorRequest): Promise<CursorResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.cursorWithOptions(request, runtime);
@@ -28157,9 +28784,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-    * Indicates whether the call is successful. Valid values:
-    * *   true: The call is successful.
-    * *   false: The call fails.
+    * This topic provides an example on how to delete a Logstore group named `Logstore_test`. The response shows that the Logstore group is deleted.
     *
     * @param request DeleteHybridMonitorSLSGroupRequest
     * @param runtime runtime options for this request RuntimeOptions
@@ -28190,9 +28815,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-    * Indicates whether the call is successful. Valid values:
-    * *   true: The call is successful.
-    * *   false: The call fails.
+    * This topic provides an example on how to delete a Logstore group named `Logstore_test`. The response shows that the Logstore group is deleted.
     *
     * @param request DeleteHybridMonitorSLSGroupRequest
     * @return DeleteHybridMonitorSLSGroupResponse
@@ -28203,9 +28826,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-    * Indicates whether the call was successful. Valid values:
-    * *   true: The call was successful.
-    * *   false: The call failed.
+    * This topic provides an example on how to delete a metric import task whose ID is `36****`. The returned result indicates that the metric import task is deleted.
     *
     * @param request DeleteHybridMonitorTaskRequest
     * @param runtime runtime options for this request RuntimeOptions
@@ -28244,9 +28865,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-    * Indicates whether the call was successful. Valid values:
-    * *   true: The call was successful.
-    * *   false: The call failed.
+    * This topic provides an example on how to delete a metric import task whose ID is `36****`. The returned result indicates that the metric import task is deleted.
     *
     * @param request DeleteHybridMonitorTaskRequest
     * @return DeleteHybridMonitorTaskResponse
@@ -28862,7 +29481,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-    * The operation that you want to perform. Set the value to DescribeAlertLogHistogram.
+    * This topic provides an example on how to query the number of alert logs for Elastic Compute Service (ECS) based on the `product` dimension.
     *
     * @param request DescribeAlertLogHistogramRequest
     * @param runtime runtime options for this request RuntimeOptions
@@ -28953,7 +29572,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-    * The operation that you want to perform. Set the value to DescribeAlertLogHistogram.
+    * This topic provides an example on how to query the number of alert logs for Elastic Compute Service (ECS) based on the `product` dimension.
     *
     * @param request DescribeAlertLogHistogramRequest
     * @return DescribeAlertLogHistogramResponse
@@ -29506,8 +30125,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-    * The name of the event-triggered alert rule.
-    * For information about how to obtain the name of an event-triggered alert rule, see [DescribeEventRuleList](~~114996~~).
+    * This topic provides an example to show how to query the details of an event-triggered alert rule named `testRule`.
     *
     * @param request DescribeEventRuleAttributeRequest
     * @param runtime runtime options for this request RuntimeOptions
@@ -29542,8 +30160,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-    * The name of the event-triggered alert rule.
-    * For information about how to obtain the name of an event-triggered alert rule, see [DescribeEventRuleList](~~114996~~).
+    * This topic provides an example to show how to query the details of an event-triggered alert rule named `testRule`.
     *
     * @param request DescribeEventRuleAttributeRequest
     * @return DescribeEventRuleAttributeResponse
@@ -29558,6 +30175,10 @@ export default class Client extends OpenApi {
     let query = { };
     if (!Util.isUnset(request.groupId)) {
       query["GroupId"] = request.groupId;
+    }
+
+    if (!Util.isUnset(request.isEnable)) {
+      query["IsEnable"] = request.isEnable;
     }
 
     if (!Util.isUnset(request.namePrefix)) {
@@ -29947,9 +30568,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-    * Indicates whether the call is successful. Valid values:
-    * *   true: The call is successful.
-    * *   false: The call fails.
+    * In this example, all Logstore groups within the current account are queried. The response shows that the current account has two Logstore groups: `Logstore_test` and `Logstore_aliyun`.
     *
     * @param request DescribeHybridMonitorSLSGroupRequest
     * @param runtime runtime options for this request RuntimeOptions
@@ -29992,9 +30611,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-    * Indicates whether the call is successful. Valid values:
-    * *   true: The call is successful.
-    * *   false: The call fails.
+    * In this example, all Logstore groups within the current account are queried. The response shows that the current account has two Logstore groups: `Logstore_test` and `Logstore_aliyun`.
     *
     * @param request DescribeHybridMonitorSLSGroupRequest
     * @return DescribeHybridMonitorSLSGroupResponse
@@ -30005,9 +30622,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-    * Indicates whether the call was successful. Valid values:
-    * *   true: The call was successful.
-    * *   false: The call failed.
+    * This topic provides an example on how to query all metric import tasks that belong to the current Alibaba Cloud account. The returned result indicates that the current account has only one metric import task. The metric import task is named `aliyun_task`.
     *
     * @param request DescribeHybridMonitorTaskListRequest
     * @param runtime runtime options for this request RuntimeOptions
@@ -30070,9 +30685,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-    * Indicates whether the call was successful. Valid values:
-    * *   true: The call was successful.
-    * *   false: The call failed.
+    * This topic provides an example on how to query all metric import tasks that belong to the current Alibaba Cloud account. The returned result indicates that the current account has only one metric import task. The metric import task is named `aliyun_task`.
     *
     * @param request DescribeHybridMonitorTaskListRequest
     * @return DescribeHybridMonitorTaskListResponse
@@ -30229,9 +30842,15 @@ export default class Client extends OpenApi {
   }
 
   /**
-    * The number of entries to return on each page.
-    * Default value: 1000. This value indicates that a maximum of 1,000 entries of monitoring data can be returned on each page.
-    * >  The maximum value of the Length parameter in a request is 1440.
+    * ### [](#)Limits
+    * Each API operation can be called up to 50 times per second. An Alibaba Cloud account and the RAM users within the account share the quota.
+    * ### [](#)Precautions
+    * The storage duration of the monitoring data of each cloud service is related to the `Period` parameter (statistical period). A larger value of the `Period` parameter indicates that the monitoring data is distributed in a larger time range and the storage duration of the monitoring data is longer. The following list describes the specific relationships:
+    * *   If the value of the `Period` parameter is less than 60 seconds, the storage duration is seven days.
+    * *   If the value of the `Period` parameter is 60 seconds, the storage duration is 31 days.
+    * *   If the value of the `Period` parameter is 300 seconds, the storage duration is 91 days.
+    * ### [](#)Description
+    * This topic provides an example on how to query the latest monitoring data of the `CPUUtilization` metric for Elastic Compute Service (ECS). The namespace of ECS is `acs_ecs_dashboard`. The returned result indicates that the monitoring data for the instance `i-abcdefgh12****` of the account `123456789876****` is queried at an interval of 60 seconds. The maximum, minimum, and average values of the metric are 100, 93.1, and 99.52.
     *
     * @param request DescribeMetricLastRequest
     * @param runtime runtime options for this request RuntimeOptions
@@ -30294,9 +30913,15 @@ export default class Client extends OpenApi {
   }
 
   /**
-    * The number of entries to return on each page.
-    * Default value: 1000. This value indicates that a maximum of 1,000 entries of monitoring data can be returned on each page.
-    * >  The maximum value of the Length parameter in a request is 1440.
+    * ### [](#)Limits
+    * Each API operation can be called up to 50 times per second. An Alibaba Cloud account and the RAM users within the account share the quota.
+    * ### [](#)Precautions
+    * The storage duration of the monitoring data of each cloud service is related to the `Period` parameter (statistical period). A larger value of the `Period` parameter indicates that the monitoring data is distributed in a larger time range and the storage duration of the monitoring data is longer. The following list describes the specific relationships:
+    * *   If the value of the `Period` parameter is less than 60 seconds, the storage duration is seven days.
+    * *   If the value of the `Period` parameter is 60 seconds, the storage duration is 31 days.
+    * *   If the value of the `Period` parameter is 300 seconds, the storage duration is 91 days.
+    * ### [](#)Description
+    * This topic provides an example on how to query the latest monitoring data of the `CPUUtilization` metric for Elastic Compute Service (ECS). The namespace of ECS is `acs_ecs_dashboard`. The returned result indicates that the monitoring data for the instance `i-abcdefgh12****` of the account `123456789876****` is queried at an interval of 60 seconds. The maximum, minimum, and average values of the metric are 100, 93.1, and 99.52.
     *
     * @param request DescribeMetricLastRequest
     * @return DescribeMetricLastResponse
@@ -30699,8 +31324,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-    * The HTTP status code.
-    * >  The status code 200 indicates that the call was successful.
+    * This topic provides an example on how to query alert templates. In this example, the following alert templates are returned in the response: `ECS_Template1` and `ECS_Template2`.
     *
     * @param request DescribeMetricRuleTemplateListRequest
     * @param runtime runtime options for this request RuntimeOptions
@@ -30759,8 +31383,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-    * The HTTP status code.
-    * >  The status code 200 indicates that the call was successful.
+    * This topic provides an example on how to query alert templates. In this example, the following alert templates are returned in the response: `ECS_Template1` and `ECS_Template2`.
     *
     * @param request DescribeMetricRuleTemplateListRequest
     * @return DescribeMetricRuleTemplateListResponse
@@ -30771,9 +31394,15 @@ export default class Client extends OpenApi {
   }
 
   /**
-    * The order in which data is sorted. Valid values:
-    * *   True: sorts data in ascending order.
-    * *   False (default value): sorts data in descending order.
+    * ### [](#)Limits
+    * Each API operation can be called up to 10 times per second. An Alibaba Cloud account and the RAM users within the account share the quota.
+    * ### [](#)Precautions
+    * The storage duration of the monitoring data of each cloud service is related to the `Period` parameter (statistical period). A larger value of the `Period` parameter indicates that the monitoring data is distributed in a larger time range and the storage duration of the monitoring data is longer. The following list describes the specific relationships:
+    * *   If the value of the `Period` parameter is less than 60 seconds, the storage duration is seven days.
+    * *   If the value of the `Period` parameter is 60 seconds, the storage duration is 31 days.
+    * *   If the value of the `Period` parameter is 300 seconds, the storage duration is 91 days.
+    * ### [](#)Description
+    * This topic provides an example to show how to query the monitoring data of the `cpu_idle` metric in the last 60 seconds for Elastic Compute Service (ECS). The namespace of ECS is `acs_ecs_dashboard`. The monitoring data is sorted in the descending order based on the `Average` field.
     *
     * @param request DescribeMetricTopRequest
     * @param runtime runtime options for this request RuntimeOptions
@@ -30840,9 +31469,15 @@ export default class Client extends OpenApi {
   }
 
   /**
-    * The order in which data is sorted. Valid values:
-    * *   True: sorts data in ascending order.
-    * *   False (default value): sorts data in descending order.
+    * ### [](#)Limits
+    * Each API operation can be called up to 10 times per second. An Alibaba Cloud account and the RAM users within the account share the quota.
+    * ### [](#)Precautions
+    * The storage duration of the monitoring data of each cloud service is related to the `Period` parameter (statistical period). A larger value of the `Period` parameter indicates that the monitoring data is distributed in a larger time range and the storage duration of the monitoring data is longer. The following list describes the specific relationships:
+    * *   If the value of the `Period` parameter is less than 60 seconds, the storage duration is seven days.
+    * *   If the value of the `Period` parameter is 60 seconds, the storage duration is 31 days.
+    * *   If the value of the `Period` parameter is 300 seconds, the storage duration is 91 days.
+    * ### [](#)Description
+    * This topic provides an example to show how to query the monitoring data of the `cpu_idle` metric in the last 60 seconds for Elastic Compute Service (ECS). The namespace of ECS is `acs_ecs_dashboard`. The monitoring data is sorted in the descending order based on the `Average` field.
     *
     * @param request DescribeMetricTopRequest
     * @return DescribeMetricTopResponse
@@ -31328,12 +31963,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-    * The details of the execution error. Valid values:
-    * *   `Command.ErrorCode.Fail.Downlaod.REGIN_ID`: Failed to obtain the region ID.
-    * *   `Command.ErrorCode.Fail.Downlaod.SYSAK`: Failed to download the .rpm package of System Analyse Kit (SysAK).
-    * *   `Command.ErrorCode.Fail.Downlaod.CMON_FILE`: Failed to download the CMON file.
-    * *   `Command.ErrorCode.Fail.Downlaod.BTF`: Failed to start SysAK because the BTF file is not found.
-    * *   `Command.ErrorCode.Fail.Start.SYSAK`: Failed to start SysAK due to an unknown error.
+    * This topic describes how to query the status of the CloudMonitor agent that is installed on the `i-hp3dunahluwajv6f****` instance. The result indicates that the CloudMonitor agent is in the `running` state.
     *
     * @param request DescribeMonitoringAgentStatusesRequest
     * @param runtime runtime options for this request RuntimeOptions
@@ -31368,12 +31998,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-    * The details of the execution error. Valid values:
-    * *   `Command.ErrorCode.Fail.Downlaod.REGIN_ID`: Failed to obtain the region ID.
-    * *   `Command.ErrorCode.Fail.Downlaod.SYSAK`: Failed to download the .rpm package of System Analyse Kit (SysAK).
-    * *   `Command.ErrorCode.Fail.Downlaod.CMON_FILE`: Failed to download the CMON file.
-    * *   `Command.ErrorCode.Fail.Downlaod.BTF`: Failed to start SysAK because the BTF file is not found.
-    * *   `Command.ErrorCode.Fail.Start.SYSAK`: Failed to start SysAK due to an unknown error.
+    * This topic describes how to query the status of the CloudMonitor agent that is installed on the `i-hp3dunahluwajv6f****` instance. The result indicates that the CloudMonitor agent is in the `running` state.
     *
     * @param request DescribeMonitoringAgentStatusesRequest
     * @return DescribeMonitoringAgentStatusesResponse
@@ -31743,7 +32368,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-    * You can create an instant test task only by using the Alibaba Cloud account that you used to enable Network Analysis and Monitoring. 
+    * You can create an instant test task only by using the Alibaba Cloud account that you used to enable Network Analysis and Monitoring.
     * This topic provides an example to show how to query the logs of an instant test task whose ID is `afa5c3ce-f944-4363-9edb-ce919a29****`.
     *
     * @param request DescribeSiteMonitorLogRequest
@@ -31819,7 +32444,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-    * You can create an instant test task only by using the Alibaba Cloud account that you used to enable Network Analysis and Monitoring. 
+    * You can create an instant test task only by using the Alibaba Cloud account that you used to enable Network Analysis and Monitoring.
     * This topic provides an example to show how to query the logs of an instant test task whose ID is `afa5c3ce-f944-4363-9edb-ce919a29****`.
     *
     * @param request DescribeSiteMonitorLogRequest
@@ -32650,9 +33275,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-    * Indicates whether the call was successful. Valid values:
-    * *   true: The call was successful.
-    * *   false: The call failed.
+    * This topic provides an example on how to change the name of an availability monitoring task named `12345` in an application group named `123456` to `task2`.
     *
     * @param request ModifyHostAvailabilityRequest
     * @param runtime runtime options for this request RuntimeOptions
@@ -32715,9 +33338,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-    * Indicates whether the call was successful. Valid values:
-    * *   true: The call was successful.
-    * *   false: The call failed.
+    * This topic provides an example on how to change the name of an availability monitoring task named `12345` in an application group named `123456` to `task2`.
     *
     * @param request ModifyHostAvailabilityRequest
     * @return ModifyHostAvailabilityResponse
@@ -32880,7 +33501,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-    * The alias of the extended field that specifies the result of basic operations performed on aggregation results.
+    * This topic provides an example on how to change the collection period of a metric import task whose ID is `36****` to `15` seconds. The task is used to monitor the logs that are imported from Log Service. The returned result indicates that the metric is modified.
     *
     * @param request ModifyHybridMonitorTaskRequest
     * @param runtime runtime options for this request RuntimeOptions
@@ -32931,7 +33552,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-    * The alias of the extended field that specifies the result of basic operations performed on aggregation results.
+    * This topic provides an example on how to change the collection period of a metric import task whose ID is `36****` to `15` seconds. The task is used to monitor the logs that are imported from Log Service. The returned result indicates that the metric is modified.
     *
     * @param request ModifyHybridMonitorTaskRequest
     * @return ModifyHybridMonitorTaskResponse
@@ -33832,9 +34453,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-    * Indicates whether the call was successful. Valid values:
-    * *   true: The call was successful.
-    * *   false: The call failed.
+    * This topic provides an example on how to create an alert rule for the `cpu_total` metric of Elastic Compute Service (ECS) in the `17285****` application group. The ID of the alert rule is `123456`. The name of the alert rule is `Rule_test`. The alert level is `Critical`. The statistical method is `Average`. The alert threshold comparator is `GreaterThanOrEqualToThreshold`. The alert threshold is `90`. The number of alert retries is `3`. The returned result shows that the alert rule is created and the alert rule ID is `123456`.
     *
     * @param request PutGroupMetricRuleRequest
     * @param runtime runtime options for this request RuntimeOptions
@@ -33937,9 +34556,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-    * Indicates whether the call was successful. Valid values:
-    * *   true: The call was successful.
-    * *   false: The call failed.
+    * This topic provides an example on how to create an alert rule for the `cpu_total` metric of Elastic Compute Service (ECS) in the `17285****` application group. The ID of the alert rule is `123456`. The name of the alert rule is `Rule_test`. The alert level is `Critical`. The statistical method is `Average`. The alert threshold comparator is `GreaterThanOrEqualToThreshold`. The alert threshold is `90`. The number of alert retries is `3`. The returned result shows that the alert rule is created and the alert rule ID is `123456`.
     *
     * @param request PutGroupMetricRuleRequest
     * @return PutGroupMetricRuleResponse
@@ -33950,9 +34567,12 @@ export default class Client extends OpenApi {
   }
 
   /**
-    * The tag value of the metric.
-    * Valid values of N: 1 to 100.
-    * >  You must specify a key and a value for a tag at the same time.
+    * # [](#)Prerequisites
+    * Hybrid Cloud Monitoring is activated. For more information, see [Activate Hybrid Cloud Monitoring](~~250773~~).
+    * # [](#)Limits
+    * The size of the monitoring data that you import at a time must be less than or equal to 1 MB.
+    * # [](#)Description
+    * This topic provides an example on how to import the monitoring data of the `CPU_Usage` metric to the `default-aliyun` namespace of Hybrid Cloud Monitoring.
     *
     * @param request PutHybridMonitorMetricDataRequest
     * @param runtime runtime options for this request RuntimeOptions
@@ -33987,9 +34607,12 @@ export default class Client extends OpenApi {
   }
 
   /**
-    * The tag value of the metric.
-    * Valid values of N: 1 to 100.
-    * >  You must specify a key and a value for a tag at the same time.
+    * # [](#)Prerequisites
+    * Hybrid Cloud Monitoring is activated. For more information, see [Activate Hybrid Cloud Monitoring](~~250773~~).
+    * # [](#)Limits
+    * The size of the monitoring data that you import at a time must be less than or equal to 1 MB.
+    * # [](#)Description
+    * This topic provides an example on how to import the monitoring data of the `CPU_Usage` metric to the `default-aliyun` namespace of Hybrid Cloud Monitoring.
     *
     * @param request PutHybridMonitorMetricDataRequest
     * @return PutHybridMonitorMetricDataResponse
@@ -34210,8 +34833,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-    * The mute period during which new alerts are not sent even if the trigger conditions are met. Unit: seconds. Default value: 86400.
-    * >  If an alert is not cleared within the mute period, a new alert notification is sent when the mute period ends.
+    * This topic provides an example to show how to create a threshold-triggered alert rule for the `cpu_total` metric of an Elastic Compute Service (ECS) instance whose ID is `i-uf6j91r34rnwawoo****`. The namespace of ECS is `acs_ecs_dashboard`. The alert contact group of the alert rule is `ECS_Group`. The name of the alert rule is `test123`. The ID of the alert rule is `a151cd6023eacee2f0978e03863cc1697c89508****`. The statistical method for Critical-level alerts is `Average`. The comparison operator for Critical-level alerts is `GreaterThanOrEqualToThreshold`. The threshold for Critical-level alerts is `90`. The consecutive number of times for which the metric value meets the trigger condition before a Critical-level alert is triggered is `3`.
     *
     * @param tmpReq PutResourceMetricRuleRequest
     * @param runtime runtime options for this request RuntimeOptions
@@ -34320,8 +34942,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-    * The mute period during which new alerts are not sent even if the trigger conditions are met. Unit: seconds. Default value: 86400.
-    * >  If an alert is not cleared within the mute period, a new alert notification is sent when the mute period ends.
+    * This topic provides an example to show how to create a threshold-triggered alert rule for the `cpu_total` metric of an Elastic Compute Service (ECS) instance whose ID is `i-uf6j91r34rnwawoo****`. The namespace of ECS is `acs_ecs_dashboard`. The alert contact group of the alert rule is `ECS_Group`. The name of the alert rule is `test123`. The ID of the alert rule is `a151cd6023eacee2f0978e03863cc1697c89508****`. The statistical method for Critical-level alerts is `Average`. The comparison operator for Critical-level alerts is `GreaterThanOrEqualToThreshold`. The threshold for Critical-level alerts is `90`. The consecutive number of times for which the metric value meets the trigger condition before a Critical-level alert is triggered is `3`.
     *
     * @param request PutResourceMetricRuleRequest
     * @return PutResourceMetricRuleResponse
