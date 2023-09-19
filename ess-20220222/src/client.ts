@@ -3700,6 +3700,7 @@ export class DescribeScalingGroupsRequest extends $tea.Model {
   scalingGroupIds?: string[];
   scalingGroupName?: string;
   scalingGroupNames?: string[];
+  tags?: DescribeScalingGroupsRequestTags[];
   static names(): { [key: string]: string } {
     return {
       groupType: 'GroupType',
@@ -3714,6 +3715,7 @@ export class DescribeScalingGroupsRequest extends $tea.Model {
       scalingGroupIds: 'ScalingGroupIds',
       scalingGroupName: 'ScalingGroupName',
       scalingGroupNames: 'ScalingGroupNames',
+      tags: 'Tags',
     };
   }
 
@@ -3731,6 +3733,7 @@ export class DescribeScalingGroupsRequest extends $tea.Model {
       scalingGroupIds: { 'type': 'array', 'itemType': 'string' },
       scalingGroupName: 'string',
       scalingGroupNames: { 'type': 'array', 'itemType': 'string' },
+      tags: { 'type': 'array', 'itemType': DescribeScalingGroupsRequestTags },
     };
   }
 
@@ -10599,28 +10602,6 @@ export class DescribeScalingActivitiesResponseBodyScalingActivities extends $tea
   }
 }
 
-export class DescribeScalingConfigurationsResponseBodyScalingConfigurationsPrivatePoolOptions extends $tea.Model {
-  id?: string;
-  matchCriteria?: string;
-  static names(): { [key: string]: string } {
-    return {
-      id: 'Id',
-      matchCriteria: 'MatchCriteria',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      id: 'string',
-      matchCriteria: 'string',
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
 export class DescribeScalingConfigurationsResponseBodyScalingConfigurationsDataDisks extends $tea.Model {
   autoSnapshotPolicyId?: string;
   burstingEnabled?: boolean;
@@ -10780,7 +10761,6 @@ export class DescribeScalingConfigurationsResponseBodyScalingConfigurationsTags 
 }
 
 export class DescribeScalingConfigurationsResponseBodyScalingConfigurations extends $tea.Model {
-  privatePoolOptions?: DescribeScalingConfigurationsResponseBodyScalingConfigurationsPrivatePoolOptions;
   affinity?: string;
   cpu?: number;
   creationTime?: string;
@@ -10812,6 +10792,8 @@ export class DescribeScalingConfigurationsResponseBodyScalingConfigurations exte
   loadBalancerWeight?: number;
   memory?: number;
   passwordInherit?: boolean;
+  privatePoolOptions_id?: string;
+  privatePoolOptions_matchCriteria?: string;
   ramRoleName?: string;
   resourceGroupId?: string;
   scalingConfigurationId?: string;
@@ -10844,7 +10826,6 @@ export class DescribeScalingConfigurationsResponseBodyScalingConfigurations exte
   zoneId?: string;
   static names(): { [key: string]: string } {
     return {
-      privatePoolOptions: 'PrivatePoolOptions',
       affinity: 'Affinity',
       cpu: 'Cpu',
       creationTime: 'CreationTime',
@@ -10876,6 +10857,8 @@ export class DescribeScalingConfigurationsResponseBodyScalingConfigurations exte
       loadBalancerWeight: 'LoadBalancerWeight',
       memory: 'Memory',
       passwordInherit: 'PasswordInherit',
+      privatePoolOptions_id: 'PrivatePoolOptions.Id',
+      privatePoolOptions_matchCriteria: 'PrivatePoolOptions.MatchCriteria',
       ramRoleName: 'RamRoleName',
       resourceGroupId: 'ResourceGroupId',
       scalingConfigurationId: 'ScalingConfigurationId',
@@ -10911,7 +10894,6 @@ export class DescribeScalingConfigurationsResponseBodyScalingConfigurations exte
 
   static types(): { [key: string]: any } {
     return {
-      privatePoolOptions: DescribeScalingConfigurationsResponseBodyScalingConfigurationsPrivatePoolOptions,
       affinity: 'string',
       cpu: 'number',
       creationTime: 'string',
@@ -10943,6 +10925,8 @@ export class DescribeScalingConfigurationsResponseBodyScalingConfigurations exte
       loadBalancerWeight: 'number',
       memory: 'number',
       passwordInherit: 'boolean',
+      privatePoolOptions_id: 'string',
+      privatePoolOptions_matchCriteria: 'string',
       ramRoleName: 'string',
       resourceGroupId: 'string',
       scalingConfigurationId: 'string',
@@ -10973,6 +10957,28 @@ export class DescribeScalingConfigurationsResponseBodyScalingConfigurations exte
       userData: 'string',
       weightedCapacities: { 'type': 'array', 'itemType': 'number' },
       zoneId: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class DescribeScalingGroupsRequestTags extends $tea.Model {
+  key?: string;
+  value?: string;
+  static names(): { [key: string]: string } {
+    return {
+      key: 'Key',
+      value: 'Value',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      key: 'string',
+      value: 'string',
     };
   }
 
@@ -16133,6 +16139,10 @@ export default class Client extends OpenApi {
 
     if (!Util.isUnset(request.scalingGroupNames)) {
       query["ScalingGroupNames"] = request.scalingGroupNames;
+    }
+
+    if (!Util.isUnset(request.tags)) {
+      query["Tags"] = request.tags;
     }
 
     let req = new $OpenApi.OpenApiRequest({
