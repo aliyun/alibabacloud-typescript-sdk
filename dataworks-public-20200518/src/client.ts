@@ -571,6 +571,81 @@ export class ApprovePermissionApplyOrderResponse extends $tea.Model {
   }
 }
 
+export class CallbackExtensionRequest extends $tea.Model {
+  checkMessage?: string;
+  checkResult?: string;
+  extensionCode?: string;
+  messageId?: string;
+  static names(): { [key: string]: string } {
+    return {
+      checkMessage: 'CheckMessage',
+      checkResult: 'CheckResult',
+      extensionCode: 'ExtensionCode',
+      messageId: 'MessageId',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      checkMessage: 'string',
+      checkResult: 'string',
+      extensionCode: 'string',
+      messageId: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class CallbackExtensionResponseBody extends $tea.Model {
+  requestId?: string;
+  success?: string;
+  static names(): { [key: string]: string } {
+    return {
+      requestId: 'RequestId',
+      success: 'Success',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      requestId: 'string',
+      success: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class CallbackExtensionResponse extends $tea.Model {
+  headers: { [key: string]: string };
+  statusCode: number;
+  body: CallbackExtensionResponseBody;
+  static names(): { [key: string]: string } {
+    return {
+      headers: 'headers',
+      statusCode: 'statusCode',
+      body: 'body',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
+      body: CallbackExtensionResponseBody,
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
 export class ChangeResourceManagerResourceGroupRequest extends $tea.Model {
   resourceId?: string;
   resourceManagerResourceGroupId?: string;
@@ -11103,15 +11178,18 @@ export class GetPermissionApplyOrderDetailResponse extends $tea.Model {
 
 export class GetProjectRequest extends $tea.Model {
   projectId?: number;
+  projectIdentifier?: string;
   static names(): { [key: string]: string } {
     return {
       projectId: 'ProjectId',
+      projectIdentifier: 'ProjectIdentifier',
     };
   }
 
   static types(): { [key: string]: any } {
     return {
       projectId: 'number',
+      projectIdentifier: 'string',
     };
   }
 
@@ -25107,6 +25185,7 @@ export class GetFileResponseBodyDataFile extends $tea.Model {
   deletedStatus?: string;
   fileDescription?: string;
   fileFolderId?: string;
+  fileId?: number;
   fileName?: string;
   fileType?: number;
   isMaxCompute?: boolean;
@@ -25131,6 +25210,7 @@ export class GetFileResponseBodyDataFile extends $tea.Model {
       deletedStatus: 'DeletedStatus',
       fileDescription: 'FileDescription',
       fileFolderId: 'FileFolderId',
+      fileId: 'FileId',
       fileName: 'FileName',
       fileType: 'FileType',
       isMaxCompute: 'IsMaxCompute',
@@ -25158,6 +25238,7 @@ export class GetFileResponseBodyDataFile extends $tea.Model {
       deletedStatus: 'string',
       fileDescription: 'string',
       fileFolderId: 'string',
+      fileId: 'number',
       fileName: 'string',
       fileType: 'number',
       isMaxCompute: 'boolean',
@@ -34951,6 +35032,47 @@ export default class Client extends OpenApi {
     return await this.approvePermissionApplyOrderWithOptions(request, runtime);
   }
 
+  async callbackExtensionWithOptions(request: CallbackExtensionRequest, runtime: $Util.RuntimeOptions): Promise<CallbackExtensionResponse> {
+    Util.validateModel(request);
+    let body : {[key: string ]: any} = { };
+    if (!Util.isUnset(request.checkMessage)) {
+      body["CheckMessage"] = request.checkMessage;
+    }
+
+    if (!Util.isUnset(request.checkResult)) {
+      body["CheckResult"] = request.checkResult;
+    }
+
+    if (!Util.isUnset(request.extensionCode)) {
+      body["ExtensionCode"] = request.extensionCode;
+    }
+
+    if (!Util.isUnset(request.messageId)) {
+      body["MessageId"] = request.messageId;
+    }
+
+    let req = new $OpenApi.OpenApiRequest({
+      body: OpenApiUtil.parseToMap(body),
+    });
+    let params = new $OpenApi.Params({
+      action: "CallbackExtension",
+      version: "2020-05-18",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $tea.cast<CallbackExtensionResponse>(await this.callApi(params, req, runtime), new CallbackExtensionResponse({}));
+  }
+
+  async callbackExtension(request: CallbackExtensionRequest): Promise<CallbackExtensionResponse> {
+    let runtime = new $Util.RuntimeOptions({ });
+    return await this.callbackExtensionWithOptions(request, runtime);
+  }
+
   async changeResourceManagerResourceGroupWithOptions(request: ChangeResourceManagerResourceGroupRequest, runtime: $Util.RuntimeOptions): Promise<ChangeResourceManagerResourceGroupResponse> {
     Util.validateModel(request);
     let query = { };
@@ -40668,6 +40790,10 @@ export default class Client extends OpenApi {
     let query = { };
     if (!Util.isUnset(request.projectId)) {
       query["ProjectId"] = request.projectId;
+    }
+
+    if (!Util.isUnset(request.projectIdentifier)) {
+      query["ProjectIdentifier"] = request.projectIdentifier;
     }
 
     let req = new $OpenApi.OpenApiRequest({
