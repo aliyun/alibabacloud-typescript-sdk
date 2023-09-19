@@ -19519,6 +19519,7 @@ export class DescribeSecurityGroupsResponse extends $tea.Model {
 
 export class DescribeSendFileResultsRequest extends $tea.Model {
   instanceId?: string;
+  invocationStatus?: string;
   invokeId?: string;
   name?: string;
   ownerAccount?: string;
@@ -19533,6 +19534,7 @@ export class DescribeSendFileResultsRequest extends $tea.Model {
   static names(): { [key: string]: string } {
     return {
       instanceId: 'InstanceId',
+      invocationStatus: 'InvocationStatus',
       invokeId: 'InvokeId',
       name: 'Name',
       ownerAccount: 'OwnerAccount',
@@ -19550,6 +19552,7 @@ export class DescribeSendFileResultsRequest extends $tea.Model {
   static types(): { [key: string]: any } {
     return {
       instanceId: 'string',
+      invocationStatus: 'string',
       invokeId: 'string',
       name: 'string',
       ownerAccount: 'string',
@@ -70189,6 +70192,10 @@ export default class Client extends OpenApi {
     let query = { };
     if (!Util.isUnset(request.instanceId)) {
       query["InstanceId"] = request.instanceId;
+    }
+
+    if (!Util.isUnset(request.invocationStatus)) {
+      query["InvocationStatus"] = request.invocationStatus;
     }
 
     if (!Util.isUnset(request.invokeId)) {
