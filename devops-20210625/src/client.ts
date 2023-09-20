@@ -23223,6 +23223,7 @@ export class ListServiceConnectionsResponseBodyServiceConnections extends $tea.M
   name?: string;
   ownerAccountId?: number;
   type?: string;
+  uuid?: string;
   static names(): { [key: string]: string } {
     return {
       createTime: 'createTime',
@@ -23230,6 +23231,7 @@ export class ListServiceConnectionsResponseBodyServiceConnections extends $tea.M
       name: 'name',
       ownerAccountId: 'ownerAccountId',
       type: 'type',
+      uuid: 'uuid',
     };
   }
 
@@ -23240,6 +23242,7 @@ export class ListServiceConnectionsResponseBodyServiceConnections extends $tea.M
       name: 'string',
       ownerAccountId: 'number',
       type: 'string',
+      uuid: 'string',
     };
   }
 
