@@ -3916,6 +3916,75 @@ export class ModifyDomainResponse extends $tea.Model {
   }
 }
 
+export class ModifyHybridCloudClusterBypassStatusRequest extends $tea.Model {
+  clusterResourceId?: string;
+  instanceId?: string;
+  ruleStatus?: string;
+  static names(): { [key: string]: string } {
+    return {
+      clusterResourceId: 'ClusterResourceId',
+      instanceId: 'InstanceId',
+      ruleStatus: 'RuleStatus',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      clusterResourceId: 'string',
+      instanceId: 'string',
+      ruleStatus: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class ModifyHybridCloudClusterBypassStatusResponseBody extends $tea.Model {
+  requestId?: string;
+  static names(): { [key: string]: string } {
+    return {
+      requestId: 'RequestId',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      requestId: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class ModifyHybridCloudClusterBypassStatusResponse extends $tea.Model {
+  headers: { [key: string]: string };
+  statusCode: number;
+  body: ModifyHybridCloudClusterBypassStatusResponseBody;
+  static names(): { [key: string]: string } {
+    return {
+      headers: 'headers',
+      statusCode: 'statusCode',
+      body: 'body',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
+      body: ModifyHybridCloudClusterBypassStatusResponseBody,
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
 export class ModifyMajorProtectionBlackIpRequest extends $tea.Model {
   description?: string;
   expiredTime?: number;
@@ -4388,6 +4457,9 @@ export class DescribeDefenseResourcesRequestTag extends $tea.Model {
 }
 
 export class DescribeDefenseResourcesResponseBodyResources extends $tea.Model {
+  acwCookieStatus?: number;
+  acwSecureStatus?: number;
+  acwV3SecureStatus?: number;
   customHeaders?: string[];
   description?: string;
   detail?: { [key: string]: any };
@@ -4402,6 +4474,9 @@ export class DescribeDefenseResourcesResponseBodyResources extends $tea.Model {
   xffStatus?: number;
   static names(): { [key: string]: string } {
     return {
+      acwCookieStatus: 'AcwCookieStatus',
+      acwSecureStatus: 'AcwSecureStatus',
+      acwV3SecureStatus: 'AcwV3SecureStatus',
       customHeaders: 'CustomHeaders',
       description: 'Description',
       detail: 'Detail',
@@ -4419,6 +4494,9 @@ export class DescribeDefenseResourcesResponseBodyResources extends $tea.Model {
 
   static types(): { [key: string]: any } {
     return {
+      acwCookieStatus: 'number',
+      acwSecureStatus: 'number',
+      acwV3SecureStatus: 'number',
       customHeaders: { 'type': 'array', 'itemType': 'string' },
       description: 'string',
       detail: { 'type': 'map', 'keyType': 'string', 'valueType': 'any' },
@@ -4521,6 +4599,7 @@ export class DescribeDefenseRulesResponseBodyRules extends $tea.Model {
 
 export class DescribeDefenseTemplateResponseBodyTemplate extends $tea.Model {
   defenseScene?: string;
+  defenseSubScene?: string;
   description?: string;
   gmtModified?: number;
   templateId?: number;
@@ -4531,6 +4610,7 @@ export class DescribeDefenseTemplateResponseBodyTemplate extends $tea.Model {
   static names(): { [key: string]: string } {
     return {
       defenseScene: 'DefenseScene',
+      defenseSubScene: 'DefenseSubScene',
       description: 'Description',
       gmtModified: 'GmtModified',
       templateId: 'TemplateId',
@@ -4544,6 +4624,7 @@ export class DescribeDefenseTemplateResponseBodyTemplate extends $tea.Model {
   static types(): { [key: string]: any } {
     return {
       defenseScene: 'string',
+      defenseSubScene: 'string',
       description: 'string',
       gmtModified: 'number',
       templateId: 'number',
@@ -4946,8 +5027,11 @@ export class DescribeFlowChartResponseBodyFlowChart extends $tea.Model {
   index?: number;
   maxPv?: number;
   outBytes?: number;
+  ratelimitBlockSum?: number;
+  ratelimitReportSum?: number;
   regionBlockBlocksSum?: number;
   regionBlockReportsSum?: number;
+  robotCount?: number;
   wafBlockSum?: number;
   wafReportSum?: string;
   static names(): { [key: string]: string } {
@@ -4969,8 +5053,11 @@ export class DescribeFlowChartResponseBodyFlowChart extends $tea.Model {
       index: 'Index',
       maxPv: 'MaxPv',
       outBytes: 'OutBytes',
+      ratelimitBlockSum: 'RatelimitBlockSum',
+      ratelimitReportSum: 'RatelimitReportSum',
       regionBlockBlocksSum: 'RegionBlockBlocksSum',
       regionBlockReportsSum: 'RegionBlockReportsSum',
+      robotCount: 'RobotCount',
       wafBlockSum: 'WafBlockSum',
       wafReportSum: 'WafReportSum',
     };
@@ -4995,8 +5082,11 @@ export class DescribeFlowChartResponseBodyFlowChart extends $tea.Model {
       index: 'number',
       maxPv: 'number',
       outBytes: 'number',
+      ratelimitBlockSum: 'number',
+      ratelimitReportSum: 'number',
       regionBlockBlocksSum: 'number',
       regionBlockReportsSum: 'number',
+      robotCount: 'number',
       wafBlockSum: 'number',
       wafReportSum: 'string',
     };
@@ -8392,6 +8482,43 @@ export default class Client extends OpenApi {
   async modifyDomain(request: ModifyDomainRequest): Promise<ModifyDomainResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.modifyDomainWithOptions(request, runtime);
+  }
+
+  async modifyHybridCloudClusterBypassStatusWithOptions(request: ModifyHybridCloudClusterBypassStatusRequest, runtime: $Util.RuntimeOptions): Promise<ModifyHybridCloudClusterBypassStatusResponse> {
+    Util.validateModel(request);
+    let query = { };
+    if (!Util.isUnset(request.clusterResourceId)) {
+      query["ClusterResourceId"] = request.clusterResourceId;
+    }
+
+    if (!Util.isUnset(request.instanceId)) {
+      query["InstanceId"] = request.instanceId;
+    }
+
+    if (!Util.isUnset(request.ruleStatus)) {
+      query["RuleStatus"] = request.ruleStatus;
+    }
+
+    let req = new $OpenApi.OpenApiRequest({
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApi.Params({
+      action: "ModifyHybridCloudClusterBypassStatus",
+      version: "2021-10-01",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $tea.cast<ModifyHybridCloudClusterBypassStatusResponse>(await this.callApi(params, req, runtime), new ModifyHybridCloudClusterBypassStatusResponse({}));
+  }
+
+  async modifyHybridCloudClusterBypassStatus(request: ModifyHybridCloudClusterBypassStatusRequest): Promise<ModifyHybridCloudClusterBypassStatusResponse> {
+    let runtime = new $Util.RuntimeOptions({ });
+    return await this.modifyHybridCloudClusterBypassStatusWithOptions(request, runtime);
   }
 
   async modifyMajorProtectionBlackIpWithOptions(request: ModifyMajorProtectionBlackIpRequest, runtime: $Util.RuntimeOptions): Promise<ModifyMajorProtectionBlackIpResponse> {
