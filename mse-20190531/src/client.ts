@@ -8779,6 +8779,7 @@ export class ImportNacosConfigResponse extends $tea.Model {
 
 export class ImportServicesRequest extends $tea.Model {
   acceptLanguage?: string;
+  fcAlias?: string;
   fcServiceName?: string;
   fcVersion?: string;
   gatewayUniqueId?: string;
@@ -8788,6 +8789,7 @@ export class ImportServicesRequest extends $tea.Model {
   static names(): { [key: string]: string } {
     return {
       acceptLanguage: 'AcceptLanguage',
+      fcAlias: 'FcAlias',
       fcServiceName: 'FcServiceName',
       fcVersion: 'FcVersion',
       gatewayUniqueId: 'GatewayUniqueId',
@@ -8800,6 +8802,7 @@ export class ImportServicesRequest extends $tea.Model {
   static types(): { [key: string]: any } {
     return {
       acceptLanguage: 'string',
+      fcAlias: 'string',
       fcServiceName: 'string',
       fcVersion: 'string',
       gatewayUniqueId: 'string',
@@ -8816,6 +8819,7 @@ export class ImportServicesRequest extends $tea.Model {
 
 export class ImportServicesShrinkRequest extends $tea.Model {
   acceptLanguage?: string;
+  fcAlias?: string;
   fcServiceName?: string;
   fcVersion?: string;
   gatewayUniqueId?: string;
@@ -8825,6 +8829,7 @@ export class ImportServicesShrinkRequest extends $tea.Model {
   static names(): { [key: string]: string } {
     return {
       acceptLanguage: 'AcceptLanguage',
+      fcAlias: 'FcAlias',
       fcServiceName: 'FcServiceName',
       fcVersion: 'FcVersion',
       gatewayUniqueId: 'GatewayUniqueId',
@@ -8837,6 +8842,7 @@ export class ImportServicesShrinkRequest extends $tea.Model {
   static types(): { [key: string]: any } {
     return {
       acceptLanguage: 'string',
+      fcAlias: 'string',
       fcServiceName: 'string',
       fcVersion: 'string',
       gatewayUniqueId: 'string',
@@ -35232,6 +35238,10 @@ export default class Client extends OpenApi {
     let query = { };
     if (!Util.isUnset(request.acceptLanguage)) {
       query["AcceptLanguage"] = request.acceptLanguage;
+    }
+
+    if (!Util.isUnset(request.fcAlias)) {
+      query["FcAlias"] = request.fcAlias;
     }
 
     if (!Util.isUnset(request.fcServiceName)) {
