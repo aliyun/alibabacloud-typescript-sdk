@@ -36,7 +36,7 @@ export class Alert extends $tea.Model {
 export class AndroidPayload extends $tea.Model {
   body?: Body;
   displayType?: string;
-  extra?: { [key: string]: string };
+  extra?: { [key: string]: any };
   static names(): { [key: string]: string } {
     return {
       body: 'body',
@@ -49,7 +49,7 @@ export class AndroidPayload extends $tea.Model {
     return {
       body: Body,
       displayType: 'string',
-      extra: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      extra: { 'type': 'map', 'keyType': 'string', 'valueType': 'any' },
     };
   }
 
@@ -101,7 +101,6 @@ export class Body extends $tea.Model {
   expandImage?: string;
   icon?: string;
   img?: string;
-  largeIcon?: string;
   playLights?: boolean;
   playSound?: boolean;
   playVibrate?: boolean;
@@ -121,7 +120,6 @@ export class Body extends $tea.Model {
       expandImage: 'expandImage',
       icon: 'icon',
       img: 'img',
-      largeIcon: 'largeIcon',
       playLights: 'playLights',
       playSound: 'playSound',
       playVibrate: 'playVibrate',
@@ -144,7 +142,6 @@ export class Body extends $tea.Model {
       expandImage: 'string',
       icon: 'string',
       img: 'string',
-      largeIcon: 'string',
       playLights: 'boolean',
       playSound: 'boolean',
       playVibrate: 'boolean',
