@@ -2373,10 +2373,12 @@ export class DescribeDBInstanceErrorLogResponse extends $tea.Model {
 }
 
 export class DescribeDBInstanceIPArrayListRequest extends $tea.Model {
+  DBInstanceIPArrayName?: string;
   DBInstanceId?: string;
   resourceGroupId?: string;
   static names(): { [key: string]: string } {
     return {
+      DBInstanceIPArrayName: 'DBInstanceIPArrayName',
       DBInstanceId: 'DBInstanceId',
       resourceGroupId: 'ResourceGroupId',
     };
@@ -2384,6 +2386,7 @@ export class DescribeDBInstanceIPArrayListRequest extends $tea.Model {
 
   static types(): { [key: string]: any } {
     return {
+      DBInstanceIPArrayName: 'string',
       DBInstanceId: 'string',
       resourceGroupId: 'string',
     };
@@ -12968,6 +12971,10 @@ export default class Client extends OpenApi {
   async describeDBInstanceIPArrayListWithOptions(request: DescribeDBInstanceIPArrayListRequest, runtime: $Util.RuntimeOptions): Promise<DescribeDBInstanceIPArrayListResponse> {
     Util.validateModel(request);
     let query = { };
+    if (!Util.isUnset(request.DBInstanceIPArrayName)) {
+      query["DBInstanceIPArrayName"] = request.DBInstanceIPArrayName;
+    }
+
     if (!Util.isUnset(request.DBInstanceId)) {
       query["DBInstanceId"] = request.DBInstanceId;
     }
