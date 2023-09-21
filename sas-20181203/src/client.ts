@@ -25132,6 +25132,7 @@ export class ExportSuspEventsResponse extends $tea.Model {
 export class ExportVulRequest extends $tea.Model {
   aliasName?: string;
   attachTypes?: string;
+  cveId?: string;
   dealed?: string;
   groupId?: string;
   lang?: string;
@@ -25144,6 +25145,7 @@ export class ExportVulRequest extends $tea.Model {
     return {
       aliasName: 'AliasName',
       attachTypes: 'AttachTypes',
+      cveId: 'CveId',
       dealed: 'Dealed',
       groupId: 'GroupId',
       lang: 'Lang',
@@ -25159,6 +25161,7 @@ export class ExportVulRequest extends $tea.Model {
     return {
       aliasName: 'string',
       attachTypes: 'string',
+      cveId: 'string',
       dealed: 'string',
       groupId: 'string',
       lang: 'string',
@@ -77934,6 +77937,10 @@ export default class Client extends OpenApi {
 
     if (!Util.isUnset(request.attachTypes)) {
       query["AttachTypes"] = request.attachTypes;
+    }
+
+    if (!Util.isUnset(request.cveId)) {
+      query["CveId"] = request.cveId;
     }
 
     if (!Util.isUnset(request.dealed)) {
