@@ -1235,6 +1235,96 @@ export class ChangeColumnSecLevelResponse extends $tea.Model {
   }
 }
 
+export class ChangeColumnSecurityLevelRequest extends $tea.Model {
+  columnName?: string;
+  dbId?: number;
+  isLogic?: boolean;
+  newSensitivityLevel?: string;
+  schemaName?: string;
+  tableName?: string;
+  tid?: number;
+  static names(): { [key: string]: string } {
+    return {
+      columnName: 'ColumnName',
+      dbId: 'DbId',
+      isLogic: 'IsLogic',
+      newSensitivityLevel: 'NewSensitivityLevel',
+      schemaName: 'SchemaName',
+      tableName: 'TableName',
+      tid: 'Tid',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      columnName: 'string',
+      dbId: 'number',
+      isLogic: 'boolean',
+      newSensitivityLevel: 'string',
+      schemaName: 'string',
+      tableName: 'string',
+      tid: 'number',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class ChangeColumnSecurityLevelResponseBody extends $tea.Model {
+  errorCode?: string;
+  errorMessage?: string;
+  requestId?: string;
+  success?: boolean;
+  static names(): { [key: string]: string } {
+    return {
+      errorCode: 'ErrorCode',
+      errorMessage: 'ErrorMessage',
+      requestId: 'RequestId',
+      success: 'Success',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      errorCode: 'string',
+      errorMessage: 'string',
+      requestId: 'string',
+      success: 'boolean',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class ChangeColumnSecurityLevelResponse extends $tea.Model {
+  headers: { [key: string]: string };
+  statusCode: number;
+  body: ChangeColumnSecurityLevelResponseBody;
+  static names(): { [key: string]: string } {
+    return {
+      headers: 'headers',
+      statusCode: 'statusCode',
+      body: 'body',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
+      body: ChangeColumnSecurityLevelResponseBody,
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
 export class ChangeLhDagOwnerRequest extends $tea.Model {
   dagId?: number;
   ownerUserId?: number;
@@ -2746,6 +2836,124 @@ export class CreateOrderResponse extends $tea.Model {
       headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
       statusCode: 'number',
       body: CreateOrderResponseBody,
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class CreateProcCorrectOrderRequest extends $tea.Model {
+  attachmentKey?: string;
+  comment?: string;
+  param?: CreateProcCorrectOrderRequestParam;
+  relatedUserList?: number[];
+  tid?: number;
+  static names(): { [key: string]: string } {
+    return {
+      attachmentKey: 'AttachmentKey',
+      comment: 'Comment',
+      param: 'Param',
+      relatedUserList: 'RelatedUserList',
+      tid: 'Tid',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      attachmentKey: 'string',
+      comment: 'string',
+      param: CreateProcCorrectOrderRequestParam,
+      relatedUserList: { 'type': 'array', 'itemType': 'number' },
+      tid: 'number',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class CreateProcCorrectOrderShrinkRequest extends $tea.Model {
+  attachmentKey?: string;
+  comment?: string;
+  paramShrink?: string;
+  relatedUserListShrink?: string;
+  tid?: number;
+  static names(): { [key: string]: string } {
+    return {
+      attachmentKey: 'AttachmentKey',
+      comment: 'Comment',
+      paramShrink: 'Param',
+      relatedUserListShrink: 'RelatedUserList',
+      tid: 'Tid',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      attachmentKey: 'string',
+      comment: 'string',
+      paramShrink: 'string',
+      relatedUserListShrink: 'string',
+      tid: 'number',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class CreateProcCorrectOrderResponseBody extends $tea.Model {
+  createOrderResult?: number[];
+  errorCode?: string;
+  errorMessage?: string;
+  requestId?: string;
+  success?: boolean;
+  static names(): { [key: string]: string } {
+    return {
+      createOrderResult: 'CreateOrderResult',
+      errorCode: 'ErrorCode',
+      errorMessage: 'ErrorMessage',
+      requestId: 'RequestId',
+      success: 'Success',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      createOrderResult: { 'type': 'array', 'itemType': 'number' },
+      errorCode: 'string',
+      errorMessage: 'string',
+      requestId: 'string',
+      success: 'boolean',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class CreateProcCorrectOrderResponse extends $tea.Model {
+  headers: { [key: string]: string };
+  statusCode: number;
+  body: CreateProcCorrectOrderResponseBody;
+  static names(): { [key: string]: string } {
+    return {
+      headers: 'headers',
+      statusCode: 'statusCode',
+      body: 'body',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
+      body: CreateProcCorrectOrderResponseBody,
     };
   }
 
@@ -5730,6 +5938,84 @@ export class GetAuthorityTemplateItemResponse extends $tea.Model {
       headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
       statusCode: 'number',
       body: GetAuthorityTemplateItemResponseBody,
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class GetClassificationTemplateRequest extends $tea.Model {
+  instanceId?: number;
+  tid?: number;
+  static names(): { [key: string]: string } {
+    return {
+      instanceId: 'InstanceId',
+      tid: 'Tid',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      instanceId: 'number',
+      tid: 'number',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class GetClassificationTemplateResponseBody extends $tea.Model {
+  classificationResourceTemplateMap?: GetClassificationTemplateResponseBodyClassificationResourceTemplateMap;
+  errorCode?: string;
+  errorMessage?: string;
+  requestId?: string;
+  success?: boolean;
+  static names(): { [key: string]: string } {
+    return {
+      classificationResourceTemplateMap: 'ClassificationResourceTemplateMap',
+      errorCode: 'ErrorCode',
+      errorMessage: 'ErrorMessage',
+      requestId: 'RequestId',
+      success: 'Success',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      classificationResourceTemplateMap: GetClassificationTemplateResponseBodyClassificationResourceTemplateMap,
+      errorCode: 'string',
+      errorMessage: 'string',
+      requestId: 'string',
+      success: 'boolean',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class GetClassificationTemplateResponse extends $tea.Model {
+  headers: { [key: string]: string };
+  statusCode: number;
+  body: GetClassificationTemplateResponseBody;
+  static names(): { [key: string]: string } {
+    return {
+      headers: 'headers',
+      statusCode: 'statusCode',
+      body: 'body',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
+      body: GetClassificationTemplateResponseBody,
     };
   }
 
@@ -13108,6 +13394,87 @@ export class ListSensitiveDataAuditLogResponse extends $tea.Model {
   }
 }
 
+export class ListSensitivityLevelRequest extends $tea.Model {
+  templateId?: number;
+  templateType?: string;
+  tid?: number;
+  static names(): { [key: string]: string } {
+    return {
+      templateId: 'TemplateId',
+      templateType: 'TemplateType',
+      tid: 'Tid',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      templateId: 'number',
+      templateType: 'string',
+      tid: 'number',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class ListSensitivityLevelResponseBody extends $tea.Model {
+  errorCode?: string;
+  errorMessage?: string;
+  requestId?: string;
+  sensitivityLevelList?: ListSensitivityLevelResponseBodySensitivityLevelList[];
+  success?: boolean;
+  static names(): { [key: string]: string } {
+    return {
+      errorCode: 'ErrorCode',
+      errorMessage: 'ErrorMessage',
+      requestId: 'RequestId',
+      sensitivityLevelList: 'SensitivityLevelList',
+      success: 'Success',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      errorCode: 'string',
+      errorMessage: 'string',
+      requestId: 'string',
+      sensitivityLevelList: { 'type': 'array', 'itemType': ListSensitivityLevelResponseBodySensitivityLevelList },
+      success: 'boolean',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class ListSensitivityLevelResponse extends $tea.Model {
+  headers: { [key: string]: string };
+  statusCode: number;
+  body: ListSensitivityLevelResponseBody;
+  static names(): { [key: string]: string } {
+    return {
+      headers: 'headers',
+      statusCode: 'statusCode',
+      body: 'body',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
+      body: ListSensitivityLevelResponseBody,
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
 export class ListStandardGroupsRequest extends $tea.Model {
   tid?: number;
   static names(): { [key: string]: string } {
@@ -19437,6 +19804,62 @@ export class CreateOrderResponseBodyCreateOrderResult extends $tea.Model {
   }
 }
 
+export class CreateProcCorrectOrderRequestParamDbItemList extends $tea.Model {
+  dbId?: number;
+  logic?: boolean;
+  static names(): { [key: string]: string } {
+    return {
+      dbId: 'DbId',
+      logic: 'Logic',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      dbId: 'number',
+      logic: 'boolean',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class CreateProcCorrectOrderRequestParam extends $tea.Model {
+  classify?: string;
+  dbItemList?: CreateProcCorrectOrderRequestParamDbItemList[];
+  execSQL?: string;
+  rollbackAttachmentName?: string;
+  rollbackSQL?: string;
+  rollbackSqlType?: string;
+  static names(): { [key: string]: string } {
+    return {
+      classify: 'Classify',
+      dbItemList: 'DbItemList',
+      execSQL: 'ExecSQL',
+      rollbackAttachmentName: 'RollbackAttachmentName',
+      rollbackSQL: 'RollbackSQL',
+      rollbackSqlType: 'RollbackSqlType',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      classify: 'string',
+      dbItemList: { 'type': 'array', 'itemType': CreateProcCorrectOrderRequestParamDbItemList },
+      execSQL: 'string',
+      rollbackAttachmentName: 'string',
+      rollbackSQL: 'string',
+      rollbackSqlType: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
 export class CreateSQLReviewOrderRequestParam extends $tea.Model {
   attachmentKeyList?: string[];
   dbId?: number;
@@ -20014,6 +20437,34 @@ export class GetAuthorityTemplateItemResponseBodyAuthorityTemplateItemList exten
   static types(): { [key: string]: any } {
     return {
       authorityTemplateItem: { 'type': 'array', 'itemType': GetAuthorityTemplateItemResponseBodyAuthorityTemplateItemListAuthorityTemplateItem },
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class GetClassificationTemplateResponseBodyClassificationResourceTemplateMap extends $tea.Model {
+  resourceId?: number;
+  resourceType?: string;
+  templateId?: number;
+  templateType?: string;
+  static names(): { [key: string]: string } {
+    return {
+      resourceId: 'ResourceId',
+      resourceType: 'ResourceType',
+      templateId: 'TemplateId',
+      templateType: 'TemplateType',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      resourceId: 'number',
+      resourceType: 'string',
+      templateId: 'number',
+      templateType: 'string',
     };
   }
 
@@ -26162,6 +26613,34 @@ export class ListSensitiveDataAuditLogResponseBodySensitiveDataAuditLogList exte
   }
 }
 
+export class ListSensitivityLevelResponseBodySensitivityLevelList extends $tea.Model {
+  isPlain?: boolean;
+  name?: string;
+  templateId?: string;
+  templateType?: string;
+  static names(): { [key: string]: string } {
+    return {
+      isPlain: 'IsPlain',
+      name: 'Name',
+      templateId: 'TemplateId',
+      templateType: 'TemplateType',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      isPlain: 'boolean',
+      name: 'string',
+      templateId: 'string',
+      templateType: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
 export class ListStandardGroupsResponseBodyStandardGroupList extends $tea.Model {
   dbType?: string;
   description?: string;
@@ -28343,6 +28822,59 @@ export default class Client extends OpenApi {
     return await this.changeColumnSecLevelWithOptions(request, runtime);
   }
 
+  async changeColumnSecurityLevelWithOptions(request: ChangeColumnSecurityLevelRequest, runtime: $Util.RuntimeOptions): Promise<ChangeColumnSecurityLevelResponse> {
+    Util.validateModel(request);
+    let query = { };
+    if (!Util.isUnset(request.columnName)) {
+      query["ColumnName"] = request.columnName;
+    }
+
+    if (!Util.isUnset(request.dbId)) {
+      query["DbId"] = request.dbId;
+    }
+
+    if (!Util.isUnset(request.isLogic)) {
+      query["IsLogic"] = request.isLogic;
+    }
+
+    if (!Util.isUnset(request.newSensitivityLevel)) {
+      query["NewSensitivityLevel"] = request.newSensitivityLevel;
+    }
+
+    if (!Util.isUnset(request.schemaName)) {
+      query["SchemaName"] = request.schemaName;
+    }
+
+    if (!Util.isUnset(request.tableName)) {
+      query["TableName"] = request.tableName;
+    }
+
+    if (!Util.isUnset(request.tid)) {
+      query["Tid"] = request.tid;
+    }
+
+    let req = new $OpenApi.OpenApiRequest({
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApi.Params({
+      action: "ChangeColumnSecurityLevel",
+      version: "2018-11-01",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $tea.cast<ChangeColumnSecurityLevelResponse>(await this.callApi(params, req, runtime), new ChangeColumnSecurityLevelResponse({}));
+  }
+
+  async changeColumnSecurityLevel(request: ChangeColumnSecurityLevelRequest): Promise<ChangeColumnSecurityLevelResponse> {
+    let runtime = new $Util.RuntimeOptions({ });
+    return await this.changeColumnSecurityLevelWithOptions(request, runtime);
+  }
+
   /**
     * Usage notes:
     * *   If you call this operation to transfer the ownership of a published task flow, the ownership transfer does not take effect.
@@ -29192,6 +29724,61 @@ export default class Client extends OpenApi {
   async createOrder(request: CreateOrderRequest): Promise<CreateOrderResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.createOrderWithOptions(request, runtime);
+  }
+
+  async createProcCorrectOrderWithOptions(tmpReq: CreateProcCorrectOrderRequest, runtime: $Util.RuntimeOptions): Promise<CreateProcCorrectOrderResponse> {
+    Util.validateModel(tmpReq);
+    let request = new CreateProcCorrectOrderShrinkRequest({ });
+    OpenApiUtil.convert(tmpReq, request);
+    if (!Util.isUnset(tmpReq.param)) {
+      request.paramShrink = OpenApiUtil.arrayToStringWithSpecifiedStyle(tmpReq.param, "Param", "json");
+    }
+
+    if (!Util.isUnset(tmpReq.relatedUserList)) {
+      request.relatedUserListShrink = OpenApiUtil.arrayToStringWithSpecifiedStyle(tmpReq.relatedUserList, "RelatedUserList", "json");
+    }
+
+    let query = { };
+    if (!Util.isUnset(request.attachmentKey)) {
+      query["AttachmentKey"] = request.attachmentKey;
+    }
+
+    if (!Util.isUnset(request.comment)) {
+      query["Comment"] = request.comment;
+    }
+
+    if (!Util.isUnset(request.paramShrink)) {
+      query["Param"] = request.paramShrink;
+    }
+
+    if (!Util.isUnset(request.relatedUserListShrink)) {
+      query["RelatedUserList"] = request.relatedUserListShrink;
+    }
+
+    if (!Util.isUnset(request.tid)) {
+      query["Tid"] = request.tid;
+    }
+
+    let req = new $OpenApi.OpenApiRequest({
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApi.Params({
+      action: "CreateProcCorrectOrder",
+      version: "2018-11-01",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $tea.cast<CreateProcCorrectOrderResponse>(await this.callApi(params, req, runtime), new CreateProcCorrectOrderResponse({}));
+  }
+
+  async createProcCorrectOrder(request: CreateProcCorrectOrderRequest): Promise<CreateProcCorrectOrderResponse> {
+    let runtime = new $Util.RuntimeOptions({ });
+    return await this.createProcCorrectOrderWithOptions(request, runtime);
   }
 
   /**
@@ -30793,6 +31380,39 @@ export default class Client extends OpenApi {
   async getAuthorityTemplateItem(request: GetAuthorityTemplateItemRequest): Promise<GetAuthorityTemplateItemResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.getAuthorityTemplateItemWithOptions(request, runtime);
+  }
+
+  async getClassificationTemplateWithOptions(request: GetClassificationTemplateRequest, runtime: $Util.RuntimeOptions): Promise<GetClassificationTemplateResponse> {
+    Util.validateModel(request);
+    let query = { };
+    if (!Util.isUnset(request.instanceId)) {
+      query["InstanceId"] = request.instanceId;
+    }
+
+    if (!Util.isUnset(request.tid)) {
+      query["Tid"] = request.tid;
+    }
+
+    let req = new $OpenApi.OpenApiRequest({
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApi.Params({
+      action: "GetClassificationTemplate",
+      version: "2018-11-01",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $tea.cast<GetClassificationTemplateResponse>(await this.callApi(params, req, runtime), new GetClassificationTemplateResponse({}));
+  }
+
+  async getClassificationTemplate(request: GetClassificationTemplateRequest): Promise<GetClassificationTemplateResponse> {
+    let runtime = new $Util.RuntimeOptions({ });
+    return await this.getClassificationTemplateWithOptions(request, runtime);
   }
 
   async getDBTaskSQLJobLogWithOptions(request: GetDBTaskSQLJobLogRequest, runtime: $Util.RuntimeOptions): Promise<GetDBTaskSQLJobLogResponse> {
@@ -34437,6 +35057,31 @@ export default class Client extends OpenApi {
   async listSensitiveDataAuditLog(request: ListSensitiveDataAuditLogRequest): Promise<ListSensitiveDataAuditLogResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.listSensitiveDataAuditLogWithOptions(request, runtime);
+  }
+
+  async listSensitivityLevelWithOptions(request: ListSensitivityLevelRequest, runtime: $Util.RuntimeOptions): Promise<ListSensitivityLevelResponse> {
+    Util.validateModel(request);
+    let query = OpenApiUtil.query(Util.toMap(request));
+    let req = new $OpenApi.OpenApiRequest({
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApi.Params({
+      action: "ListSensitivityLevel",
+      version: "2018-11-01",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "GET",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $tea.cast<ListSensitivityLevelResponse>(await this.callApi(params, req, runtime), new ListSensitivityLevelResponse({}));
+  }
+
+  async listSensitivityLevel(request: ListSensitivityLevelRequest): Promise<ListSensitivityLevelResponse> {
+    let runtime = new $Util.RuntimeOptions({ });
+    return await this.listSensitivityLevelWithOptions(request, runtime);
   }
 
   async listStandardGroupsWithOptions(request: ListStandardGroupsRequest, runtime: $Util.RuntimeOptions): Promise<ListStandardGroupsResponse> {
