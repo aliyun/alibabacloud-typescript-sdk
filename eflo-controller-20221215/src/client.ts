@@ -82,8 +82,10 @@ export class CreateClusterRequest extends $tea.Model {
   clusterName?: string;
   clusterType?: string;
   components?: CreateClusterRequestComponents[];
+  hpnZone?: string;
   ignoreFailedNodeTasks?: boolean;
   networks?: CreateClusterRequestNetworks;
+  nimizVSwitches?: string[];
   nodeGroups?: CreateClusterRequestNodeGroups[];
   resourceGroupId?: string;
   tag?: CreateClusterRequestTag[];
@@ -93,8 +95,10 @@ export class CreateClusterRequest extends $tea.Model {
       clusterName: 'ClusterName',
       clusterType: 'ClusterType',
       components: 'Components',
+      hpnZone: 'HpnZone',
       ignoreFailedNodeTasks: 'IgnoreFailedNodeTasks',
       networks: 'Networks',
+      nimizVSwitches: 'NimizVSwitches',
       nodeGroups: 'NodeGroups',
       resourceGroupId: 'ResourceGroupId',
       tag: 'Tag',
@@ -107,8 +111,10 @@ export class CreateClusterRequest extends $tea.Model {
       clusterName: 'string',
       clusterType: 'string',
       components: { 'type': 'array', 'itemType': CreateClusterRequestComponents },
+      hpnZone: 'string',
       ignoreFailedNodeTasks: 'boolean',
       networks: CreateClusterRequestNetworks,
+      nimizVSwitches: { 'type': 'array', 'itemType': 'string' },
       nodeGroups: { 'type': 'array', 'itemType': CreateClusterRequestNodeGroups },
       resourceGroupId: 'string',
       tag: { 'type': 'array', 'itemType': CreateClusterRequestTag },
@@ -125,8 +131,10 @@ export class CreateClusterShrinkRequest extends $tea.Model {
   clusterName?: string;
   clusterType?: string;
   componentsShrink?: string;
+  hpnZone?: string;
   ignoreFailedNodeTasks?: boolean;
   networksShrink?: string;
+  nimizVSwitchesShrink?: string;
   nodeGroupsShrink?: string;
   resourceGroupId?: string;
   tag?: CreateClusterShrinkRequestTag[];
@@ -136,8 +144,10 @@ export class CreateClusterShrinkRequest extends $tea.Model {
       clusterName: 'ClusterName',
       clusterType: 'ClusterType',
       componentsShrink: 'Components',
+      hpnZone: 'HpnZone',
       ignoreFailedNodeTasks: 'IgnoreFailedNodeTasks',
       networksShrink: 'Networks',
+      nimizVSwitchesShrink: 'NimizVSwitches',
       nodeGroupsShrink: 'NodeGroups',
       resourceGroupId: 'ResourceGroupId',
       tag: 'Tag',
@@ -150,8 +160,10 @@ export class CreateClusterShrinkRequest extends $tea.Model {
       clusterName: 'string',
       clusterType: 'string',
       componentsShrink: 'string',
+      hpnZone: 'string',
       ignoreFailedNodeTasks: 'boolean',
       networksShrink: 'string',
+      nimizVSwitchesShrink: 'string',
       nodeGroupsShrink: 'string',
       resourceGroupId: 'string',
       tag: { 'type': 'array', 'itemType': CreateClusterShrinkRequestTag },
@@ -302,6 +314,7 @@ export class DescribeClusterResponseBody extends $tea.Model {
   clusterType?: string;
   components?: DescribeClusterResponseBodyComponents[];
   createTime?: string;
+  hpnZone?: string;
   networks?: DescribeClusterResponseBodyNetworks[];
   nodeCount?: number;
   nodeGroupCount?: number;
@@ -319,6 +332,7 @@ export class DescribeClusterResponseBody extends $tea.Model {
       clusterType: 'ClusterType',
       components: 'Components',
       createTime: 'CreateTime',
+      hpnZone: 'HpnZone',
       networks: 'Networks',
       nodeCount: 'NodeCount',
       nodeGroupCount: 'NodeGroupCount',
@@ -339,6 +353,7 @@ export class DescribeClusterResponseBody extends $tea.Model {
       clusterType: 'string',
       components: { 'type': 'array', 'itemType': DescribeClusterResponseBodyComponents },
       createTime: 'string',
+      hpnZone: 'string',
       networks: { 'type': 'array', 'itemType': DescribeClusterResponseBodyNetworks },
       nodeCount: 'number',
       nodeGroupCount: 'number',
@@ -406,6 +421,7 @@ export class DescribeNodeResponseBody extends $tea.Model {
   createTime?: string;
   expiredTime?: string;
   hostname?: string;
+  hpnZone?: string;
   imageId?: string;
   imageName?: string;
   machineType?: string;
@@ -424,6 +440,7 @@ export class DescribeNodeResponseBody extends $tea.Model {
       createTime: 'CreateTime',
       expiredTime: 'ExpiredTime',
       hostname: 'Hostname',
+      hpnZone: 'HpnZone',
       imageId: 'ImageId',
       imageName: 'ImageName',
       machineType: 'MachineType',
@@ -445,6 +462,7 @@ export class DescribeNodeResponseBody extends $tea.Model {
       createTime: 'string',
       expiredTime: 'string',
       hostname: 'string',
+      hpnZone: 'string',
       imageId: 'string',
       imageName: 'string',
       machineType: 'string',
@@ -974,11 +992,13 @@ export class ListClustersResponse extends $tea.Model {
 }
 
 export class ListFreeNodesRequest extends $tea.Model {
+  hpnZone?: string;
   machineType?: string;
   maxResults?: number;
   nextToken?: string;
   static names(): { [key: string]: string } {
     return {
+      hpnZone: 'HpnZone',
       machineType: 'MachineType',
       maxResults: 'MaxResults',
       nextToken: 'NextToken',
@@ -987,6 +1007,7 @@ export class ListFreeNodesRequest extends $tea.Model {
 
   static types(): { [key: string]: any } {
     return {
+      hpnZone: 'string',
       machineType: 'string',
       maxResults: 'number',
       nextToken: 'string',
@@ -2343,11 +2364,15 @@ export class ExtendClusterRequestNodeGroupsNodes extends $tea.Model {
   hostname?: string;
   loginPassword?: string;
   nodeId?: string;
+  vSwitchId?: string;
+  vpcId?: string;
   static names(): { [key: string]: string } {
     return {
       hostname: 'Hostname',
       loginPassword: 'LoginPassword',
       nodeId: 'NodeId',
+      vSwitchId: 'VSwitchId',
+      vpcId: 'VpcId',
     };
   }
 
@@ -2356,6 +2381,8 @@ export class ExtendClusterRequestNodeGroupsNodes extends $tea.Model {
       hostname: 'string',
       loginPassword: 'string',
       nodeId: 'string',
+      vSwitchId: 'string',
+      vpcId: 'string',
     };
   }
 
@@ -2421,6 +2448,7 @@ export class ListClusterNodesResponseBodyNodes extends $tea.Model {
   createTime?: string;
   expiredTime?: string;
   hostname?: string;
+  hpnZone?: string;
   imageId?: string;
   machineType?: string;
   networks?: ListClusterNodesResponseBodyNodesNetworks[];
@@ -2435,6 +2463,7 @@ export class ListClusterNodesResponseBodyNodes extends $tea.Model {
       createTime: 'CreateTime',
       expiredTime: 'ExpiredTime',
       hostname: 'Hostname',
+      hpnZone: 'HpnZone',
       imageId: 'ImageId',
       machineType: 'MachineType',
       networks: 'Networks',
@@ -2452,6 +2481,7 @@ export class ListClusterNodesResponseBodyNodes extends $tea.Model {
       createTime: 'string',
       expiredTime: 'string',
       hostname: 'string',
+      hpnZone: 'string',
       imageId: 'string',
       machineType: 'string',
       networks: { 'type': 'array', 'itemType': ListClusterNodesResponseBodyNodesNetworks },
@@ -2476,6 +2506,7 @@ export class ListClustersResponseBodyClusters extends $tea.Model {
   clusterType?: string;
   components?: any;
   createTime?: string;
+  hpnZone?: string;
   nodeCount?: number;
   nodeGroupCount?: number;
   operatingState?: string;
@@ -2491,6 +2522,7 @@ export class ListClustersResponseBodyClusters extends $tea.Model {
       clusterType: 'ClusterType',
       components: 'Components',
       createTime: 'CreateTime',
+      hpnZone: 'HpnZone',
       nodeCount: 'NodeCount',
       nodeGroupCount: 'NodeGroupCount',
       operatingState: 'OperatingState',
@@ -2509,6 +2541,7 @@ export class ListClustersResponseBodyClusters extends $tea.Model {
       clusterType: 'string',
       components: 'any',
       createTime: 'string',
+      hpnZone: 'string',
       nodeCount: 'number',
       nodeGroupCount: 'number',
       operatingState: 'string',
@@ -2527,6 +2560,7 @@ export class ListClustersResponseBodyClusters extends $tea.Model {
 export class ListFreeNodesResponseBodyNodes extends $tea.Model {
   createTime?: string;
   expiredTime?: string;
+  hpnZone?: string;
   machineType?: string;
   nodeId?: string;
   sn?: string;
@@ -2535,6 +2569,7 @@ export class ListFreeNodesResponseBodyNodes extends $tea.Model {
     return {
       createTime: 'CreateTime',
       expiredTime: 'ExpiredTime',
+      hpnZone: 'HpnZone',
       machineType: 'MachineType',
       nodeId: 'NodeId',
       sn: 'Sn',
@@ -2546,6 +2581,7 @@ export class ListFreeNodesResponseBodyNodes extends $tea.Model {
     return {
       createTime: 'string',
       expiredTime: 'string',
+      hpnZone: 'string',
       machineType: 'string',
       nodeId: 'string',
       sn: 'string',
@@ -2790,6 +2826,10 @@ export default class Client extends OpenApi {
       request.networksShrink = OpenApiUtil.arrayToStringWithSpecifiedStyle(tmpReq.networks, "Networks", "json");
     }
 
+    if (!Util.isUnset(tmpReq.nimizVSwitches)) {
+      request.nimizVSwitchesShrink = OpenApiUtil.arrayToStringWithSpecifiedStyle(tmpReq.nimizVSwitches, "NimizVSwitches", "json");
+    }
+
     if (!Util.isUnset(tmpReq.nodeGroups)) {
       request.nodeGroupsShrink = OpenApiUtil.arrayToStringWithSpecifiedStyle(tmpReq.nodeGroups, "NodeGroups", "json");
     }
@@ -2816,12 +2856,20 @@ export default class Client extends OpenApi {
       body["Components"] = request.componentsShrink;
     }
 
+    if (!Util.isUnset(request.hpnZone)) {
+      body["HpnZone"] = request.hpnZone;
+    }
+
     if (!Util.isUnset(request.ignoreFailedNodeTasks)) {
       body["IgnoreFailedNodeTasks"] = request.ignoreFailedNodeTasks;
     }
 
     if (!Util.isUnset(request.networksShrink)) {
       body["Networks"] = request.networksShrink;
+    }
+
+    if (!Util.isUnset(request.nimizVSwitchesShrink)) {
+      body["NimizVSwitches"] = request.nimizVSwitchesShrink;
     }
 
     if (!Util.isUnset(request.nodeGroupsShrink)) {
@@ -3169,6 +3217,10 @@ export default class Client extends OpenApi {
   async listFreeNodesWithOptions(request: ListFreeNodesRequest, runtime: $Util.RuntimeOptions): Promise<ListFreeNodesResponse> {
     Util.validateModel(request);
     let body : {[key: string ]: any} = { };
+    if (!Util.isUnset(request.hpnZone)) {
+      body["HpnZone"] = request.hpnZone;
+    }
+
     if (!Util.isUnset(request.machineType)) {
       body["MachineType"] = request.machineType;
     }
