@@ -10124,8 +10124,11 @@ export class ModifyDBClusterSSLResponse extends $tea.Model {
 export class ModifyDBClusterServerlessConfRequest extends $tea.Model {
   allowShutDown?: string;
   DBClusterId?: string;
+  fromTimeService?: boolean;
   ownerAccount?: string;
   ownerId?: number;
+  plannedEndTime?: string;
+  plannedStartTime?: string;
   resourceOwnerAccount?: string;
   resourceOwnerId?: number;
   scaleMax?: string;
@@ -10137,8 +10140,11 @@ export class ModifyDBClusterServerlessConfRequest extends $tea.Model {
     return {
       allowShutDown: 'AllowShutDown',
       DBClusterId: 'DBClusterId',
+      fromTimeService: 'FromTimeService',
       ownerAccount: 'OwnerAccount',
       ownerId: 'OwnerId',
+      plannedEndTime: 'PlannedEndTime',
+      plannedStartTime: 'PlannedStartTime',
       resourceOwnerAccount: 'ResourceOwnerAccount',
       resourceOwnerId: 'ResourceOwnerId',
       scaleMax: 'ScaleMax',
@@ -10153,8 +10159,11 @@ export class ModifyDBClusterServerlessConfRequest extends $tea.Model {
     return {
       allowShutDown: 'string',
       DBClusterId: 'string',
+      fromTimeService: 'boolean',
       ownerAccount: 'string',
       ownerId: 'number',
+      plannedEndTime: 'string',
+      plannedStartTime: 'string',
       resourceOwnerAccount: 'string',
       resourceOwnerId: 'number',
       scaleMax: 'string',
@@ -23080,12 +23089,24 @@ export default class Client extends OpenApi {
       query["DBClusterId"] = request.DBClusterId;
     }
 
+    if (!Util.isUnset(request.fromTimeService)) {
+      query["FromTimeService"] = request.fromTimeService;
+    }
+
     if (!Util.isUnset(request.ownerAccount)) {
       query["OwnerAccount"] = request.ownerAccount;
     }
 
     if (!Util.isUnset(request.ownerId)) {
       query["OwnerId"] = request.ownerId;
+    }
+
+    if (!Util.isUnset(request.plannedEndTime)) {
+      query["PlannedEndTime"] = request.plannedEndTime;
+    }
+
+    if (!Util.isUnset(request.plannedStartTime)) {
+      query["PlannedStartTime"] = request.plannedStartTime;
     }
 
     if (!Util.isUnset(request.resourceOwnerAccount)) {
