@@ -265,6 +265,7 @@ export class CreateServiceRequest extends $tea.Model {
   operationMetadata?: string;
   policyNames?: string;
   regionId?: string;
+  resellable?: boolean;
   resourceGroupId?: string;
   serviceId?: string;
   serviceInfo?: CreateServiceRequestServiceInfo[];
@@ -291,6 +292,7 @@ export class CreateServiceRequest extends $tea.Model {
       operationMetadata: 'OperationMetadata',
       policyNames: 'PolicyNames',
       regionId: 'RegionId',
+      resellable: 'Resellable',
       resourceGroupId: 'ResourceGroupId',
       serviceId: 'ServiceId',
       serviceInfo: 'ServiceInfo',
@@ -320,6 +322,7 @@ export class CreateServiceRequest extends $tea.Model {
       operationMetadata: 'string',
       policyNames: 'string',
       regionId: 'string',
+      resellable: 'boolean',
       resourceGroupId: 'string',
       serviceId: 'string',
       serviceInfo: { 'type': 'array', 'itemType': CreateServiceRequestServiceInfo },
@@ -1066,6 +1069,7 @@ export class GetServiceResponseBody extends $tea.Model {
   publishTime?: string;
   registrationId?: string;
   requestId?: string;
+  resellable?: boolean;
   resourceGroupId?: string;
   serviceDocUrl?: string;
   serviceId?: string;
@@ -1090,6 +1094,7 @@ export class GetServiceResponseBody extends $tea.Model {
   upgradeMetadata?: string;
   version?: string;
   versionName?: string;
+  virtualInternetService?: string;
   static names(): { [key: string]: string } {
     return {
       alarmMetadata: 'AlarmMetadata',
@@ -1114,6 +1119,7 @@ export class GetServiceResponseBody extends $tea.Model {
       publishTime: 'PublishTime',
       registrationId: 'RegistrationId',
       requestId: 'RequestId',
+      resellable: 'Resellable',
       resourceGroupId: 'ResourceGroupId',
       serviceDocUrl: 'ServiceDocUrl',
       serviceId: 'ServiceId',
@@ -1138,6 +1144,7 @@ export class GetServiceResponseBody extends $tea.Model {
       upgradeMetadata: 'UpgradeMetadata',
       version: 'Version',
       versionName: 'VersionName',
+      virtualInternetService: 'VirtualInternetService',
     };
   }
 
@@ -1165,6 +1172,7 @@ export class GetServiceResponseBody extends $tea.Model {
       publishTime: 'string',
       registrationId: 'string',
       requestId: 'string',
+      resellable: 'boolean',
       resourceGroupId: 'string',
       serviceDocUrl: 'string',
       serviceId: 'string',
@@ -1189,6 +1197,7 @@ export class GetServiceResponseBody extends $tea.Model {
       upgradeMetadata: 'string',
       version: 'string',
       versionName: 'string',
+      virtualInternetService: 'string',
     };
   }
 
@@ -2628,6 +2637,7 @@ export class UpdateServiceRequest extends $tea.Model {
   operationMetadata?: string;
   policyNames?: string;
   regionId?: string;
+  resellable?: boolean;
   serviceId?: string;
   serviceInfo?: UpdateServiceRequestServiceInfo[];
   serviceType?: string;
@@ -2649,6 +2659,7 @@ export class UpdateServiceRequest extends $tea.Model {
       operationMetadata: 'OperationMetadata',
       policyNames: 'PolicyNames',
       regionId: 'RegionId',
+      resellable: 'Resellable',
       serviceId: 'ServiceId',
       serviceInfo: 'ServiceInfo',
       serviceType: 'ServiceType',
@@ -2673,6 +2684,7 @@ export class UpdateServiceRequest extends $tea.Model {
       operationMetadata: 'string',
       policyNames: 'string',
       regionId: 'string',
+      resellable: 'boolean',
       serviceId: 'string',
       serviceInfo: { 'type': 'array', 'itemType': UpdateServiceRequestServiceInfo },
       serviceType: 'string',
@@ -3907,21 +3919,41 @@ export class ListServiceUsagesRequestFilter extends $tea.Model {
 
 export class ListServiceUsagesResponseBodyServiceUsagesUserInformation extends $tea.Model {
   company?: string;
+  contactEmail?: string;
+  contactNumber?: string;
+  contactPerson?: string;
+  contactPersonTitle?: string;
   country?: string;
   emailAddress?: string;
   industry?: string;
   name?: string;
+  productBusiness?: string;
+  productDeliveryTypes?: string;
+  productSellTypes?: string;
   source?: string;
+  supplierDesc?: string;
+  supplierName?: string;
+  supplierUrl?: string;
   telephone?: string;
   title?: string;
   static names(): { [key: string]: string } {
     return {
       company: 'Company',
+      contactEmail: 'ContactEmail',
+      contactNumber: 'ContactNumber',
+      contactPerson: 'ContactPerson',
+      contactPersonTitle: 'ContactPersonTitle',
       country: 'Country',
       emailAddress: 'EmailAddress',
       industry: 'Industry',
       name: 'Name',
+      productBusiness: 'ProductBusiness',
+      productDeliveryTypes: 'ProductDeliveryTypes',
+      productSellTypes: 'ProductSellTypes',
       source: 'Source',
+      supplierDesc: 'SupplierDesc',
+      supplierName: 'SupplierName',
+      supplierUrl: 'SupplierUrl',
       telephone: 'Telephone',
       title: 'Title',
     };
@@ -3930,11 +3962,21 @@ export class ListServiceUsagesResponseBodyServiceUsagesUserInformation extends $
   static types(): { [key: string]: any } {
     return {
       company: 'string',
+      contactEmail: 'string',
+      contactNumber: 'string',
+      contactPerson: 'string',
+      contactPersonTitle: 'string',
       country: 'string',
       emailAddress: 'string',
       industry: 'string',
       name: 'string',
+      productBusiness: 'string',
+      productDeliveryTypes: 'string',
+      productSellTypes: 'string',
       source: 'string',
+      supplierDesc: 'string',
+      supplierName: 'string',
+      supplierUrl: 'string',
       telephone: 'string',
       title: 'string',
     };
@@ -4093,6 +4135,7 @@ export class ListServicesResponseBodyServices extends $tea.Model {
   latestResellSourceServiceVersion?: string;
   publishTime?: string;
   relationType?: string;
+  resellApplyStatus?: string;
   resellServiceId?: string;
   resourceGroupId?: string;
   serviceId?: string;
@@ -4112,6 +4155,7 @@ export class ListServicesResponseBodyServices extends $tea.Model {
   updateTime?: string;
   version?: string;
   versionName?: string;
+  virtualInternetService?: string;
   static names(): { [key: string]: string } {
     return {
       approvalType: 'ApprovalType',
@@ -4124,6 +4168,7 @@ export class ListServicesResponseBodyServices extends $tea.Model {
       latestResellSourceServiceVersion: 'LatestResellSourceServiceVersion',
       publishTime: 'PublishTime',
       relationType: 'RelationType',
+      resellApplyStatus: 'ResellApplyStatus',
       resellServiceId: 'ResellServiceId',
       resourceGroupId: 'ResourceGroupId',
       serviceId: 'ServiceId',
@@ -4143,6 +4188,7 @@ export class ListServicesResponseBodyServices extends $tea.Model {
       updateTime: 'UpdateTime',
       version: 'Version',
       versionName: 'VersionName',
+      virtualInternetService: 'VirtualInternetService',
     };
   }
 
@@ -4158,6 +4204,7 @@ export class ListServicesResponseBodyServices extends $tea.Model {
       latestResellSourceServiceVersion: 'string',
       publishTime: 'string',
       relationType: 'string',
+      resellApplyStatus: 'string',
       resellServiceId: 'string',
       resourceGroupId: 'string',
       serviceId: 'string',
@@ -4177,6 +4224,7 @@ export class ListServicesResponseBodyServices extends $tea.Model {
       updateTime: 'string',
       version: 'string',
       versionName: 'string',
+      virtualInternetService: 'string',
     };
   }
 
@@ -4437,6 +4485,10 @@ export default class Client extends OpenApi {
 
     if (!Util.isUnset(request.regionId)) {
       query["RegionId"] = request.regionId;
+    }
+
+    if (!Util.isUnset(request.resellable)) {
+      query["Resellable"] = request.resellable;
     }
 
     if (!Util.isUnset(request.resourceGroupId)) {
@@ -5519,6 +5571,10 @@ export default class Client extends OpenApi {
 
     if (!Util.isUnset(request.regionId)) {
       query["RegionId"] = request.regionId;
+    }
+
+    if (!Util.isUnset(request.resellable)) {
+      query["Resellable"] = request.resellable;
     }
 
     if (!Util.isUnset(request.serviceId)) {
