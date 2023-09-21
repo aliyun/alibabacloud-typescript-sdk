@@ -2076,11 +2076,13 @@ export class ReprotectDiskReplicaGroupRequest extends $tea.Model {
   clientToken?: string;
   regionId?: string;
   replicaGroupId?: string;
+  reverseReplicate?: boolean;
   static names(): { [key: string]: string } {
     return {
       clientToken: 'ClientToken',
       regionId: 'RegionId',
       replicaGroupId: 'ReplicaGroupId',
+      reverseReplicate: 'ReverseReplicate',
     };
   }
 
@@ -2089,6 +2091,7 @@ export class ReprotectDiskReplicaGroupRequest extends $tea.Model {
       clientToken: 'string',
       regionId: 'string',
       replicaGroupId: 'string',
+      reverseReplicate: 'boolean',
     };
   }
 
@@ -2145,11 +2148,13 @@ export class ReprotectDiskReplicaPairRequest extends $tea.Model {
   clientToken?: string;
   regionId?: string;
   replicaPairId?: string;
+  reverseReplicate?: boolean;
   static names(): { [key: string]: string } {
     return {
       clientToken: 'ClientToken',
       regionId: 'RegionId',
       replicaPairId: 'ReplicaPairId',
+      reverseReplicate: 'ReverseReplicate',
     };
   }
 
@@ -2158,6 +2163,7 @@ export class ReprotectDiskReplicaPairRequest extends $tea.Model {
       clientToken: 'string',
       regionId: 'string',
       replicaPairId: 'string',
+      reverseReplicate: 'boolean',
     };
   }
 
@@ -5356,6 +5362,10 @@ export default class Client extends OpenApi {
       query["ReplicaGroupId"] = request.replicaGroupId;
     }
 
+    if (!Util.isUnset(request.reverseReplicate)) {
+      query["ReverseReplicate"] = request.reverseReplicate;
+    }
+
     let req = new $OpenApi.OpenApiRequest({
       query: OpenApiUtil.query(query),
     });
@@ -5404,6 +5414,10 @@ export default class Client extends OpenApi {
 
     if (!Util.isUnset(request.replicaPairId)) {
       query["ReplicaPairId"] = request.replicaPairId;
+    }
+
+    if (!Util.isUnset(request.reverseReplicate)) {
+      query["ReverseReplicate"] = request.reverseReplicate;
     }
 
     let req = new $OpenApi.OpenApiRequest({
