@@ -3153,6 +3153,7 @@ export class SendChatappMassMessageRequest extends $tea.Model {
   fallBackContent?: string;
   fallBackDuration?: number;
   fallBackId?: string;
+  fallBackRule?: string;
   from?: string;
   isvCode?: string;
   label?: string;
@@ -3170,6 +3171,7 @@ export class SendChatappMassMessageRequest extends $tea.Model {
       fallBackContent: 'FallBackContent',
       fallBackDuration: 'FallBackDuration',
       fallBackId: 'FallBackId',
+      fallBackRule: 'FallBackRule',
       from: 'From',
       isvCode: 'IsvCode',
       label: 'Label',
@@ -3190,6 +3192,7 @@ export class SendChatappMassMessageRequest extends $tea.Model {
       fallBackContent: 'string',
       fallBackDuration: 'number',
       fallBackId: 'string',
+      fallBackRule: 'string',
       from: 'string',
       isvCode: 'string',
       label: 'string',
@@ -3214,6 +3217,7 @@ export class SendChatappMassMessageShrinkRequest extends $tea.Model {
   fallBackContent?: string;
   fallBackDuration?: number;
   fallBackId?: string;
+  fallBackRule?: string;
   from?: string;
   isvCode?: string;
   label?: string;
@@ -3231,6 +3235,7 @@ export class SendChatappMassMessageShrinkRequest extends $tea.Model {
       fallBackContent: 'FallBackContent',
       fallBackDuration: 'FallBackDuration',
       fallBackId: 'FallBackId',
+      fallBackRule: 'FallBackRule',
       from: 'From',
       isvCode: 'IsvCode',
       label: 'Label',
@@ -3251,6 +3256,7 @@ export class SendChatappMassMessageShrinkRequest extends $tea.Model {
       fallBackContent: 'string',
       fallBackDuration: 'number',
       fallBackId: 'string',
+      fallBackRule: 'string',
       from: 'string',
       isvCode: 'string',
       label: 'string',
@@ -3333,6 +3339,7 @@ export class SendChatappMessageRequest extends $tea.Model {
   fallBackContent?: string;
   fallBackDuration?: number;
   fallBackId?: string;
+  fallBackRule?: string;
   from?: string;
   isvCode?: string;
   label?: string;
@@ -3358,6 +3365,7 @@ export class SendChatappMessageRequest extends $tea.Model {
       fallBackContent: 'FallBackContent',
       fallBackDuration: 'FallBackDuration',
       fallBackId: 'FallBackId',
+      fallBackRule: 'FallBackRule',
       from: 'From',
       isvCode: 'IsvCode',
       label: 'Label',
@@ -3386,6 +3394,7 @@ export class SendChatappMessageRequest extends $tea.Model {
       fallBackContent: 'string',
       fallBackDuration: 'number',
       fallBackId: 'string',
+      fallBackRule: 'string',
       from: 'string',
       isvCode: 'string',
       label: 'string',
@@ -3418,6 +3427,7 @@ export class SendChatappMessageShrinkRequest extends $tea.Model {
   fallBackContent?: string;
   fallBackDuration?: number;
   fallBackId?: string;
+  fallBackRule?: string;
   from?: string;
   isvCode?: string;
   label?: string;
@@ -3443,6 +3453,7 @@ export class SendChatappMessageShrinkRequest extends $tea.Model {
       fallBackContent: 'FallBackContent',
       fallBackDuration: 'FallBackDuration',
       fallBackId: 'FallBackId',
+      fallBackRule: 'FallBackRule',
       from: 'From',
       isvCode: 'IsvCode',
       label: 'Label',
@@ -3471,6 +3482,7 @@ export class SendChatappMessageShrinkRequest extends $tea.Model {
       fallBackContent: 'string',
       fallBackDuration: 'number',
       fallBackId: 'string',
+      fallBackRule: 'string',
       from: 'string',
       isvCode: 'string',
       label: 'string',
@@ -7239,6 +7251,10 @@ export default class Client extends OpenApi {
       body["FallBackId"] = request.fallBackId;
     }
 
+    if (!Util.isUnset(request.fallBackRule)) {
+      body["FallBackRule"] = request.fallBackRule;
+    }
+
     if (!Util.isUnset(request.from)) {
       body["From"] = request.from;
     }
@@ -7363,6 +7379,10 @@ export default class Client extends OpenApi {
 
     if (!Util.isUnset(request.fallBackId)) {
       body["FallBackId"] = request.fallBackId;
+    }
+
+    if (!Util.isUnset(request.fallBackRule)) {
+      body["FallBackRule"] = request.fallBackRule;
     }
 
     if (!Util.isUnset(request.from)) {
