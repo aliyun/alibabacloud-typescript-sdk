@@ -17930,6 +17930,9 @@ export class CreateTimingSyntheticTaskRequestMonitorConfFileDownload extends $te
   redirection?: number;
   targetUrl?: string;
   transmissionSize?: number;
+  validateKeywords?: string;
+  verifyWay?: number;
+  whiteList?: string;
   static names(): { [key: string]: string } {
     return {
       connectionTimeout: 'ConnectionTimeout',
@@ -17947,6 +17950,9 @@ export class CreateTimingSyntheticTaskRequestMonitorConfFileDownload extends $te
       redirection: 'Redirection',
       targetUrl: 'TargetUrl',
       transmissionSize: 'TransmissionSize',
+      validateKeywords: 'ValidateKeywords',
+      verifyWay: 'VerifyWay',
+      whiteList: 'WhiteList',
     };
   }
 
@@ -17967,6 +17973,9 @@ export class CreateTimingSyntheticTaskRequestMonitorConfFileDownload extends $te
       redirection: 'number',
       targetUrl: 'string',
       transmissionSize: 'number',
+      validateKeywords: 'string',
+      verifyWay: 'number',
+      whiteList: 'string',
     };
   }
 
@@ -18086,32 +18095,83 @@ export class CreateTimingSyntheticTaskRequestMonitorConfNetTCP extends $tea.Mode
   }
 }
 
+export class CreateTimingSyntheticTaskRequestMonitorConfStream extends $tea.Model {
+  customHeaderContent?: { [key: string]: string };
+  playerType?: number;
+  streamAddressType?: number;
+  streamMonitorTimeout?: number;
+  streamType?: number;
+  targetUrl?: string;
+  whiteList?: string;
+  static names(): { [key: string]: string } {
+    return {
+      customHeaderContent: 'CustomHeaderContent',
+      playerType: 'PlayerType',
+      streamAddressType: 'StreamAddressType',
+      streamMonitorTimeout: 'StreamMonitorTimeout',
+      streamType: 'StreamType',
+      targetUrl: 'TargetUrl',
+      whiteList: 'WhiteList',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      customHeaderContent: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      playerType: 'number',
+      streamAddressType: 'number',
+      streamMonitorTimeout: 'number',
+      streamType: 'number',
+      targetUrl: 'string',
+      whiteList: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
 export class CreateTimingSyntheticTaskRequestMonitorConfWebsite extends $tea.Model {
   automaticScrolling?: number;
   customHeader?: number;
   customHeaderContent?: { [key: string]: string };
+  DNSHijackWhitelist?: string;
   disableCache?: number;
   disableCompression?: number;
+  elementBlacklist?: string;
   filterInvalidIP?: number;
+  flowHijackJumpTimes?: number;
+  flowHijackLogo?: string;
   ignoreCertificateError?: number;
   monitorTimeout?: number;
+  pageTamper?: string;
   redirection?: number;
   slowElementThreshold?: number;
   targetUrl?: string;
+  verifyStringBlacklist?: string;
+  verifyStringWhitelist?: string;
   waitCompletionTime?: number;
   static names(): { [key: string]: string } {
     return {
       automaticScrolling: 'AutomaticScrolling',
       customHeader: 'CustomHeader',
       customHeaderContent: 'CustomHeaderContent',
+      DNSHijackWhitelist: 'DNSHijackWhitelist',
       disableCache: 'DisableCache',
       disableCompression: 'DisableCompression',
+      elementBlacklist: 'ElementBlacklist',
       filterInvalidIP: 'FilterInvalidIP',
+      flowHijackJumpTimes: 'FlowHijackJumpTimes',
+      flowHijackLogo: 'FlowHijackLogo',
       ignoreCertificateError: 'IgnoreCertificateError',
       monitorTimeout: 'MonitorTimeout',
+      pageTamper: 'PageTamper',
       redirection: 'Redirection',
       slowElementThreshold: 'SlowElementThreshold',
       targetUrl: 'TargetUrl',
+      verifyStringBlacklist: 'VerifyStringBlacklist',
+      verifyStringWhitelist: 'VerifyStringWhitelist',
       waitCompletionTime: 'WaitCompletionTime',
     };
   }
@@ -18121,14 +18181,21 @@ export class CreateTimingSyntheticTaskRequestMonitorConfWebsite extends $tea.Mod
       automaticScrolling: 'number',
       customHeader: 'number',
       customHeaderContent: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      DNSHijackWhitelist: 'string',
       disableCache: 'number',
       disableCompression: 'number',
+      elementBlacklist: 'string',
       filterInvalidIP: 'number',
+      flowHijackJumpTimes: 'number',
+      flowHijackLogo: 'string',
       ignoreCertificateError: 'number',
       monitorTimeout: 'number',
+      pageTamper: 'string',
       redirection: 'number',
       slowElementThreshold: 'number',
       targetUrl: 'string',
+      verifyStringBlacklist: 'string',
+      verifyStringWhitelist: 'string',
       waitCompletionTime: 'number',
     };
   }
@@ -18144,6 +18211,7 @@ export class CreateTimingSyntheticTaskRequestMonitorConf extends $tea.Model {
   netDNS?: CreateTimingSyntheticTaskRequestMonitorConfNetDNS;
   netICMP?: CreateTimingSyntheticTaskRequestMonitorConfNetICMP;
   netTCP?: CreateTimingSyntheticTaskRequestMonitorConfNetTCP;
+  stream?: CreateTimingSyntheticTaskRequestMonitorConfStream;
   website?: CreateTimingSyntheticTaskRequestMonitorConfWebsite;
   static names(): { [key: string]: string } {
     return {
@@ -18152,6 +18220,7 @@ export class CreateTimingSyntheticTaskRequestMonitorConf extends $tea.Model {
       netDNS: 'NetDNS',
       netICMP: 'NetICMP',
       netTCP: 'NetTCP',
+      stream: 'Stream',
       website: 'Website',
     };
   }
@@ -18163,6 +18232,7 @@ export class CreateTimingSyntheticTaskRequestMonitorConf extends $tea.Model {
       netDNS: CreateTimingSyntheticTaskRequestMonitorConfNetDNS,
       netICMP: CreateTimingSyntheticTaskRequestMonitorConfNetICMP,
       netTCP: CreateTimingSyntheticTaskRequestMonitorConfNetTCP,
+      stream: CreateTimingSyntheticTaskRequestMonitorConfStream,
       website: CreateTimingSyntheticTaskRequestMonitorConfWebsite,
     };
   }
@@ -21125,6 +21195,9 @@ export class GetTimingSyntheticTaskResponseBodyDataMonitorConfFileDownload exten
   redirection?: number;
   targetUrl?: string;
   transmissionSize?: number;
+  validateKeywords?: string;
+  verifyWay?: number;
+  whiteList?: string;
   static names(): { [key: string]: string } {
     return {
       connectionTimeout: 'ConnectionTimeout',
@@ -21142,6 +21215,9 @@ export class GetTimingSyntheticTaskResponseBodyDataMonitorConfFileDownload exten
       redirection: 'Redirection',
       targetUrl: 'TargetUrl',
       transmissionSize: 'TransmissionSize',
+      validateKeywords: 'ValidateKeywords',
+      verifyWay: 'VerifyWay',
+      whiteList: 'WhiteList',
     };
   }
 
@@ -21162,6 +21238,9 @@ export class GetTimingSyntheticTaskResponseBodyDataMonitorConfFileDownload exten
       redirection: 'number',
       targetUrl: 'string',
       transmissionSize: 'number',
+      validateKeywords: 'string',
+      verifyWay: 'number',
+      whiteList: 'string',
     };
   }
 
@@ -21281,32 +21360,83 @@ export class GetTimingSyntheticTaskResponseBodyDataMonitorConfNetTCP extends $te
   }
 }
 
+export class GetTimingSyntheticTaskResponseBodyDataMonitorConfStream extends $tea.Model {
+  customHeaderContent?: { [key: string]: string };
+  playerType?: number;
+  streamAddressType?: number;
+  streamMonitorTimeout?: number;
+  streamType?: number;
+  targetUrl?: string;
+  whiteList?: string;
+  static names(): { [key: string]: string } {
+    return {
+      customHeaderContent: 'CustomHeaderContent',
+      playerType: 'PlayerType',
+      streamAddressType: 'StreamAddressType',
+      streamMonitorTimeout: 'StreamMonitorTimeout',
+      streamType: 'StreamType',
+      targetUrl: 'TargetUrl',
+      whiteList: 'WhiteList',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      customHeaderContent: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      playerType: 'number',
+      streamAddressType: 'number',
+      streamMonitorTimeout: 'number',
+      streamType: 'number',
+      targetUrl: 'string',
+      whiteList: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
 export class GetTimingSyntheticTaskResponseBodyDataMonitorConfWebsite extends $tea.Model {
   automaticScrolling?: number;
   customHeader?: number;
   customHeaderContent?: { [key: string]: string };
+  DNSHijackWhitelist?: string;
   disableCache?: number;
   disableCompression?: number;
+  elementBlacklist?: string;
   filterInvalidIP?: number;
+  flowHijackJumpTimes?: number;
+  flowHijackLogo?: string;
   ignoreCertificateError?: number;
   monitorTimeout?: number;
+  pageTamper?: string;
   redirection?: number;
   slowElementThreshold?: number;
   targetUrl?: string;
+  verifyStringBlacklist?: string;
+  verifyStringWhitelist?: string;
   waitCompletionTime?: number;
   static names(): { [key: string]: string } {
     return {
       automaticScrolling: 'AutomaticScrolling',
       customHeader: 'CustomHeader',
       customHeaderContent: 'CustomHeaderContent',
+      DNSHijackWhitelist: 'DNSHijackWhitelist',
       disableCache: 'DisableCache',
       disableCompression: 'DisableCompression',
+      elementBlacklist: 'ElementBlacklist',
       filterInvalidIP: 'FilterInvalidIP',
+      flowHijackJumpTimes: 'FlowHijackJumpTimes',
+      flowHijackLogo: 'FlowHijackLogo',
       ignoreCertificateError: 'IgnoreCertificateError',
       monitorTimeout: 'MonitorTimeout',
+      pageTamper: 'PageTamper',
       redirection: 'Redirection',
       slowElementThreshold: 'SlowElementThreshold',
       targetUrl: 'TargetUrl',
+      verifyStringBlacklist: 'VerifyStringBlacklist',
+      verifyStringWhitelist: 'VerifyStringWhitelist',
       waitCompletionTime: 'WaitCompletionTime',
     };
   }
@@ -21316,14 +21446,21 @@ export class GetTimingSyntheticTaskResponseBodyDataMonitorConfWebsite extends $t
       automaticScrolling: 'number',
       customHeader: 'number',
       customHeaderContent: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      DNSHijackWhitelist: 'string',
       disableCache: 'number',
       disableCompression: 'number',
+      elementBlacklist: 'string',
       filterInvalidIP: 'number',
+      flowHijackJumpTimes: 'number',
+      flowHijackLogo: 'string',
       ignoreCertificateError: 'number',
       monitorTimeout: 'number',
+      pageTamper: 'string',
       redirection: 'number',
       slowElementThreshold: 'number',
       targetUrl: 'string',
+      verifyStringBlacklist: 'string',
+      verifyStringWhitelist: 'string',
       waitCompletionTime: 'number',
     };
   }
@@ -21339,6 +21476,7 @@ export class GetTimingSyntheticTaskResponseBodyDataMonitorConf extends $tea.Mode
   netDNS?: GetTimingSyntheticTaskResponseBodyDataMonitorConfNetDNS;
   netICMP?: GetTimingSyntheticTaskResponseBodyDataMonitorConfNetICMP;
   netTCP?: GetTimingSyntheticTaskResponseBodyDataMonitorConfNetTCP;
+  stream?: GetTimingSyntheticTaskResponseBodyDataMonitorConfStream;
   website?: GetTimingSyntheticTaskResponseBodyDataMonitorConfWebsite;
   static names(): { [key: string]: string } {
     return {
@@ -21347,6 +21485,7 @@ export class GetTimingSyntheticTaskResponseBodyDataMonitorConf extends $tea.Mode
       netDNS: 'NetDNS',
       netICMP: 'NetICMP',
       netTCP: 'NetTCP',
+      stream: 'Stream',
       website: 'Website',
     };
   }
@@ -21358,6 +21497,7 @@ export class GetTimingSyntheticTaskResponseBodyDataMonitorConf extends $tea.Mode
       netDNS: GetTimingSyntheticTaskResponseBodyDataMonitorConfNetDNS,
       netICMP: GetTimingSyntheticTaskResponseBodyDataMonitorConfNetICMP,
       netTCP: GetTimingSyntheticTaskResponseBodyDataMonitorConfNetTCP,
+      stream: GetTimingSyntheticTaskResponseBodyDataMonitorConfStream,
       website: GetTimingSyntheticTaskResponseBodyDataMonitorConfWebsite,
     };
   }
@@ -25702,6 +25842,9 @@ export class UpdateTimingSyntheticTaskRequestMonitorConfFileDownload extends $te
   redirection?: number;
   targetUrl?: string;
   transmissionSize?: number;
+  validateKeywords?: string;
+  verifyWay?: number;
+  whiteList?: string;
   static names(): { [key: string]: string } {
     return {
       connectionTimeout: 'ConnectionTimeout',
@@ -25719,6 +25862,9 @@ export class UpdateTimingSyntheticTaskRequestMonitorConfFileDownload extends $te
       redirection: 'Redirection',
       targetUrl: 'TargetUrl',
       transmissionSize: 'TransmissionSize',
+      validateKeywords: 'ValidateKeywords',
+      verifyWay: 'VerifyWay',
+      whiteList: 'WhiteList',
     };
   }
 
@@ -25739,6 +25885,9 @@ export class UpdateTimingSyntheticTaskRequestMonitorConfFileDownload extends $te
       redirection: 'number',
       targetUrl: 'string',
       transmissionSize: 'number',
+      validateKeywords: 'string',
+      verifyWay: 'number',
+      whiteList: 'string',
     };
   }
 
@@ -25865,28 +26014,42 @@ export class UpdateTimingSyntheticTaskRequestMonitorConfWebsite extends $tea.Mod
   automaticScrolling?: number;
   customHeader?: number;
   customHeaderContent?: { [key: string]: string };
+  DNSHijackWhitelist?: string;
   disableCache?: number;
   disableCompression?: number;
+  elementBlacklist?: string;
   filterInvalidIP?: number;
+  flowHijackJumpTimes?: number;
+  flowHijackLogo?: string;
   ignoreCertificateError?: number;
   monitorTimeout?: number;
+  pageTamper?: string;
   redirection?: number;
   slowElementThreshold?: number;
   targetUrl?: string;
+  verifyStringBlacklist?: string;
+  verifyStringWhitelist?: string;
   waitCompletionTime?: number;
   static names(): { [key: string]: string } {
     return {
       automaticScrolling: 'AutomaticScrolling',
       customHeader: 'CustomHeader',
       customHeaderContent: 'CustomHeaderContent',
+      DNSHijackWhitelist: 'DNSHijackWhitelist',
       disableCache: 'DisableCache',
       disableCompression: 'DisableCompression',
+      elementBlacklist: 'ElementBlacklist',
       filterInvalidIP: 'FilterInvalidIP',
+      flowHijackJumpTimes: 'FlowHijackJumpTimes',
+      flowHijackLogo: 'FlowHijackLogo',
       ignoreCertificateError: 'IgnoreCertificateError',
       monitorTimeout: 'MonitorTimeout',
+      pageTamper: 'PageTamper',
       redirection: 'Redirection',
       slowElementThreshold: 'SlowElementThreshold',
       targetUrl: 'TargetUrl',
+      verifyStringBlacklist: 'VerifyStringBlacklist',
+      verifyStringWhitelist: 'VerifyStringWhitelist',
       waitCompletionTime: 'WaitCompletionTime',
     };
   }
@@ -25896,14 +26059,21 @@ export class UpdateTimingSyntheticTaskRequestMonitorConfWebsite extends $tea.Mod
       automaticScrolling: 'number',
       customHeader: 'number',
       customHeaderContent: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      DNSHijackWhitelist: 'string',
       disableCache: 'number',
       disableCompression: 'number',
+      elementBlacklist: 'string',
       filterInvalidIP: 'number',
+      flowHijackJumpTimes: 'number',
+      flowHijackLogo: 'string',
       ignoreCertificateError: 'number',
       monitorTimeout: 'number',
+      pageTamper: 'string',
       redirection: 'number',
       slowElementThreshold: 'number',
       targetUrl: 'string',
+      verifyStringBlacklist: 'string',
+      verifyStringWhitelist: 'string',
       waitCompletionTime: 'number',
     };
   }
