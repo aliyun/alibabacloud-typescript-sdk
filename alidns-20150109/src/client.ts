@@ -5179,6 +5179,7 @@ export class DescribeDomainInfoResponseBody extends $tea.Model {
   requestId?: string;
   resourceGroupId?: string;
   slaveDns?: boolean;
+  subDomain?: boolean;
   versionCode?: string;
   versionName?: string;
   static names(): { [key: string]: string } {
@@ -5204,6 +5205,7 @@ export class DescribeDomainInfoResponseBody extends $tea.Model {
       requestId: 'RequestId',
       resourceGroupId: 'ResourceGroupId',
       slaveDns: 'SlaveDns',
+      subDomain: 'SubDomain',
       versionCode: 'VersionCode',
       versionName: 'VersionName',
     };
@@ -5232,6 +5234,7 @@ export class DescribeDomainInfoResponseBody extends $tea.Model {
       requestId: 'string',
       resourceGroupId: 'string',
       slaveDns: 'boolean',
+      subDomain: 'boolean',
       versionCode: 'string',
       versionName: 'string',
     };
@@ -15297,6 +15300,7 @@ export class DescribeDnsProductInstanceResponseBodyDnsServers extends $tea.Model
 }
 
 export class DescribeDnsProductInstancesResponseBodyDnsProductsDnsProduct extends $tea.Model {
+  autoRenewal?: boolean;
   bindCount?: number;
   bindDomainCount?: number;
   bindDomainUsedCount?: number;
@@ -15331,6 +15335,7 @@ export class DescribeDnsProductInstancesResponseBodyDnsProductsDnsProduct extend
   versionName?: string;
   static names(): { [key: string]: string } {
     return {
+      autoRenewal: 'AutoRenewal',
       bindCount: 'BindCount',
       bindDomainCount: 'BindDomainCount',
       bindDomainUsedCount: 'BindDomainUsedCount',
@@ -15368,6 +15373,7 @@ export class DescribeDnsProductInstancesResponseBodyDnsProductsDnsProduct extend
 
   static types(): { [key: string]: any } {
     return {
+      autoRenewal: 'boolean',
       bindCount: 'number',
       bindDomainCount: 'number',
       bindDomainUsedCount: 'number',
@@ -15839,6 +15845,7 @@ export class DescribeDomainNsResponseBodyExpectDnsServers extends $tea.Model {
 }
 
 export class DescribeDomainRecordsResponseBodyDomainRecordsRecord extends $tea.Model {
+  createTimestamp?: number;
   domainName?: string;
   line?: string;
   locked?: boolean;
@@ -15849,10 +15856,12 @@ export class DescribeDomainRecordsResponseBodyDomainRecordsRecord extends $tea.M
   status?: string;
   TTL?: number;
   type?: string;
+  updateTimestamp?: number;
   value?: string;
   weight?: number;
   static names(): { [key: string]: string } {
     return {
+      createTimestamp: 'CreateTimestamp',
       domainName: 'DomainName',
       line: 'Line',
       locked: 'Locked',
@@ -15863,6 +15872,7 @@ export class DescribeDomainRecordsResponseBodyDomainRecordsRecord extends $tea.M
       status: 'Status',
       TTL: 'TTL',
       type: 'Type',
+      updateTimestamp: 'UpdateTimestamp',
       value: 'Value',
       weight: 'Weight',
     };
@@ -15870,6 +15880,7 @@ export class DescribeDomainRecordsResponseBodyDomainRecordsRecord extends $tea.M
 
   static types(): { [key: string]: any } {
     return {
+      createTimestamp: 'number',
       domainName: 'string',
       line: 'string',
       locked: 'boolean',
@@ -15880,6 +15891,7 @@ export class DescribeDomainRecordsResponseBodyDomainRecordsRecord extends $tea.M
       status: 'string',
       TTL: 'number',
       type: 'string',
+      updateTimestamp: 'number',
       value: 'string',
       weight: 'number',
     };
@@ -20843,7 +20855,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-    * The operation that you want to perform. Set the value to **DescribeDnsProductInstances**.
+    * The number of the page to return. Pages start from page **1**. Default value: **1**.
     *
     * @param request DescribeDnsProductInstancesRequest
     * @param runtime runtime options for this request RuntimeOptions
@@ -20902,7 +20914,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-    * The operation that you want to perform. Set the value to **DescribeDnsProductInstances**.
+    * The number of the page to return. Pages start from page **1**. Default value: **1**.
     *
     * @param request DescribeDnsProductInstancesRequest
     * @return DescribeDnsProductInstancesResponse
@@ -21351,6 +21363,13 @@ export default class Client extends OpenApi {
     return await this.describeDomainLogsWithOptions(request, runtime);
   }
 
+  /**
+    * > This operation queries the authoritative servers of a domain name registry to obtain the name servers for a domain name. If the domain name is in an invalid state, such as serverHold or clientHold, an error may be returned.
+    *
+    * @param request DescribeDomainNsRequest
+    * @param runtime runtime options for this request RuntimeOptions
+    * @return DescribeDomainNsResponse
+   */
   async describeDomainNsWithOptions(request: DescribeDomainNsRequest, runtime: $Util.RuntimeOptions): Promise<DescribeDomainNsResponse> {
     Util.validateModel(request);
     let query = { };
@@ -21379,6 +21398,12 @@ export default class Client extends OpenApi {
     return $tea.cast<DescribeDomainNsResponse>(await this.callApi(params, req, runtime), new DescribeDomainNsResponse({}));
   }
 
+  /**
+    * > This operation queries the authoritative servers of a domain name registry to obtain the name servers for a domain name. If the domain name is in an invalid state, such as serverHold or clientHold, an error may be returned.
+    *
+    * @param request DescribeDomainNsRequest
+    * @return DescribeDomainNsResponse
+   */
   async describeDomainNs(request: DescribeDomainNsRequest): Promise<DescribeDomainNsResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.describeDomainNsWithOptions(request, runtime);
