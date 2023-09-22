@@ -16496,6 +16496,7 @@ export class InvokeThingsServiceRequest extends $tea.Model {
   identifier?: string;
   iotInstanceId?: string;
   productKey?: string;
+  qos?: number;
   static names(): { [key: string]: string } {
     return {
       args: 'Args',
@@ -16503,6 +16504,7 @@ export class InvokeThingsServiceRequest extends $tea.Model {
       identifier: 'Identifier',
       iotInstanceId: 'IotInstanceId',
       productKey: 'ProductKey',
+      qos: 'Qos',
     };
   }
 
@@ -16513,6 +16515,7 @@ export class InvokeThingsServiceRequest extends $tea.Model {
       identifier: 'string',
       iotInstanceId: 'string',
       productKey: 'string',
+      qos: 'number',
     };
   }
 
@@ -29952,6 +29955,84 @@ export class ResetConsumerGroupPositionResponse extends $tea.Model {
   }
 }
 
+export class ResetDeviceTimelineRequest extends $tea.Model {
+  deviceName?: string;
+  iotInstanceId?: string;
+  productKey?: string;
+  static names(): { [key: string]: string } {
+    return {
+      deviceName: 'DeviceName',
+      iotInstanceId: 'IotInstanceId',
+      productKey: 'ProductKey',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      deviceName: 'string',
+      iotInstanceId: 'string',
+      productKey: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class ResetDeviceTimelineResponseBody extends $tea.Model {
+  code?: string;
+  errorMessage?: string;
+  requestId?: string;
+  success?: boolean;
+  static names(): { [key: string]: string } {
+    return {
+      code: 'Code',
+      errorMessage: 'ErrorMessage',
+      requestId: 'RequestId',
+      success: 'Success',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      code: 'string',
+      errorMessage: 'string',
+      requestId: 'string',
+      success: 'boolean',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class ResetDeviceTimelineResponse extends $tea.Model {
+  headers: { [key: string]: string };
+  statusCode: number;
+  body: ResetDeviceTimelineResponseBody;
+  static names(): { [key: string]: string } {
+    return {
+      headers: 'headers',
+      statusCode: 'statusCode',
+      body: 'body',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
+      body: ResetDeviceTimelineResponseBody,
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
 export class ResetThingRequest extends $tea.Model {
   deviceName?: string;
   iotId?: string;
@@ -30617,12 +30698,14 @@ export class SetDevicesPropertyRequest extends $tea.Model {
   iotInstanceId?: string;
   items?: string;
   productKey?: string;
+  qos?: number;
   static names(): { [key: string]: string } {
     return {
       deviceName: 'DeviceName',
       iotInstanceId: 'IotInstanceId',
       items: 'Items',
       productKey: 'ProductKey',
+      qos: 'Qos',
     };
   }
 
@@ -30632,6 +30715,7 @@ export class SetDevicesPropertyRequest extends $tea.Model {
       iotInstanceId: 'string',
       items: 'string',
       productKey: 'string',
+      qos: 'number',
     };
   }
 
@@ -58551,6 +58635,10 @@ export default class Client extends OpenApi {
       query["ProductKey"] = request.productKey;
     }
 
+    if (!Util.isUnset(request.qos)) {
+      query["Qos"] = request.qos;
+    }
+
     let req = new $OpenApi.OpenApiRequest({
       query: OpenApiUtil.query(query),
     });
@@ -66856,6 +66944,43 @@ export default class Client extends OpenApi {
     return await this.resetConsumerGroupPositionWithOptions(request, runtime);
   }
 
+  async resetDeviceTimelineWithOptions(request: ResetDeviceTimelineRequest, runtime: $Util.RuntimeOptions): Promise<ResetDeviceTimelineResponse> {
+    Util.validateModel(request);
+    let query = { };
+    if (!Util.isUnset(request.deviceName)) {
+      query["DeviceName"] = request.deviceName;
+    }
+
+    if (!Util.isUnset(request.iotInstanceId)) {
+      query["IotInstanceId"] = request.iotInstanceId;
+    }
+
+    if (!Util.isUnset(request.productKey)) {
+      query["ProductKey"] = request.productKey;
+    }
+
+    let req = new $OpenApi.OpenApiRequest({
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApi.Params({
+      action: "ResetDeviceTimeline",
+      version: "2018-01-20",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $tea.cast<ResetDeviceTimelineResponse>(await this.callApi(params, req, runtime), new ResetDeviceTimelineResponse({}));
+  }
+
+  async resetDeviceTimeline(request: ResetDeviceTimelineRequest): Promise<ResetDeviceTimelineResponse> {
+    let runtime = new $Util.RuntimeOptions({ });
+    return await this.resetDeviceTimelineWithOptions(request, runtime);
+  }
+
   /**
     * *   After you use dynamic registration to obtain the device certificate information of a directly connected device and activate the device, you can call this operation to reset the dynamic registration status of the status to unregistered in the IoT Platform console. Then, you can use dynamic registration again to obtain the device certificate information. The device certificate information includes ProductKey, DeviceName, and DeviceSecret.
     * > This operation is called to reset the dynamic registration status instead of activation status of a device. After you call the operation to reset the dynamic registration status of a device, the status of the device in the IoT Platform console is not reset to inactive.
@@ -67343,6 +67468,10 @@ export default class Client extends OpenApi {
 
     if (!Util.isUnset(request.productKey)) {
       query["ProductKey"] = request.productKey;
+    }
+
+    if (!Util.isUnset(request.qos)) {
+      query["Qos"] = request.qos;
     }
 
     let req = new $OpenApi.OpenApiRequest({
