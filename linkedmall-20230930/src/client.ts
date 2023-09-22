@@ -66,14 +66,14 @@ export class ApplyReason extends $tea.Model {
 
 export class Category extends $tea.Model {
   categoryId?: number;
-  leaf?: boolean;
+  isLeaf?: boolean;
   level?: number;
   name?: string;
   parentId?: number;
   static names(): { [key: string]: string } {
     return {
       categoryId: 'categoryId',
-      leaf: 'leaf',
+      isLeaf: 'isLeaf',
       level: 'level',
       name: 'name',
       parentId: 'parentId',
@@ -83,10 +83,54 @@ export class Category extends $tea.Model {
   static types(): { [key: string]: any } {
     return {
       categoryId: 'number',
-      leaf: 'boolean',
+      isLeaf: 'boolean',
       level: 'number',
       name: 'string',
       parentId: 'number',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class CategoryListQuery extends $tea.Model {
+  categoryIds?: number[];
+  parentCategoryId?: number;
+  static names(): { [key: string]: string } {
+    return {
+      categoryIds: 'categoryIds',
+      parentCategoryId: 'parentCategoryId',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      categoryIds: { 'type': 'array', 'itemType': 'number' },
+      parentCategoryId: 'number',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class CategoryListResult extends $tea.Model {
+  categories?: Category[];
+  requestId?: string;
+  static names(): { [key: string]: string } {
+    return {
+      categories: 'categories',
+      requestId: 'requestId',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      categories: { 'type': 'array', 'itemType': Category },
+      requestId: 'string',
     };
   }
 
@@ -436,7 +480,7 @@ export class Good extends $tea.Model {
 
 export class GoodsShippingNoticeCreateCmd extends $tea.Model {
   cpCode?: string;
-  disputeId?: number;
+  disputeId?: string;
   logisticsNo?: string;
   static names(): { [key: string]: string } {
     return {
@@ -449,7 +493,7 @@ export class GoodsShippingNoticeCreateCmd extends $tea.Model {
   static types(): { [key: string]: any } {
     return {
       cpCode: 'string',
-      disputeId: 'number',
+      disputeId: 'string',
       logisticsNo: 'string',
     };
   }
@@ -1572,6 +1616,7 @@ export class RefundResult extends $tea.Model {
   refunderName?: string;
   refunderTel?: string;
   refunderZipCode?: string;
+  requestId?: string;
   returnGoodLogisticsStatus?: number;
   sellerAgreeMsg?: string;
   sellerRefuseAgreementMessage?: string;
@@ -1595,6 +1640,7 @@ export class RefundResult extends $tea.Model {
       refunderName: 'refunderName',
       refunderTel: 'refunderTel',
       refunderZipCode: 'refunderZipCode',
+      requestId: 'requestId',
       returnGoodLogisticsStatus: 'returnGoodLogisticsStatus',
       sellerAgreeMsg: 'sellerAgreeMsg',
       sellerRefuseAgreementMessage: 'sellerRefuseAgreementMessage',
@@ -1621,6 +1667,7 @@ export class RefundResult extends $tea.Model {
       refunderName: 'string',
       refunderTel: 'string',
       refunderZipCode: 'string',
+      requestId: 'string',
       returnGoodLogisticsStatus: 'number',
       sellerAgreeMsg: 'string',
       sellerRefuseAgreementMessage: 'string',
@@ -2338,6 +2385,50 @@ export class GetSelectionProductSaleInfoResponse extends $tea.Model {
       headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
       statusCode: 'number',
       body: ProductSaleInfo,
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class ListCategoriesRequest extends $tea.Model {
+  body?: CategoryListQuery;
+  static names(): { [key: string]: string } {
+    return {
+      body: 'body',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      body: CategoryListQuery,
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class ListCategoriesResponse extends $tea.Model {
+  headers: { [key: string]: string };
+  statusCode: number;
+  body: CategoryListResult;
+  static names(): { [key: string]: string } {
+    return {
+      headers: 'headers',
+      statusCode: 'statusCode',
+      body: 'body',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
+      body: CategoryListResult,
     };
   }
 
@@ -3134,6 +3225,32 @@ export default class Client extends OpenApi {
     let runtime = new $Util.RuntimeOptions({ });
     let headers : {[key: string ]: string} = { };
     return await this.getSelectionProductSaleInfoWithOptions(productId, request, headers, runtime);
+  }
+
+  async listCategoriesWithOptions(request: ListCategoriesRequest, headers: {[key: string ]: string}, runtime: $Util.RuntimeOptions): Promise<ListCategoriesResponse> {
+    Util.validateModel(request);
+    let req = new $OpenApi.OpenApiRequest({
+      headers: headers,
+      body: OpenApiUtil.parseToMap(request.body),
+    });
+    let params = new $OpenApi.Params({
+      action: "ListCategories",
+      version: "2023-09-30",
+      protocol: "HTTPS",
+      pathname: `/opensaas-s2b/opensaas-s2b-biz-trade/v2/categories/commands/list`,
+      method: "POST",
+      authType: "AK",
+      style: "ROA",
+      reqBodyType: "json",
+      bodyType: "json",
+    });
+    return $tea.cast<ListCategoriesResponse>(await this.callApi(params, req, runtime), new ListCategoriesResponse({}));
+  }
+
+  async listCategories(request: ListCategoriesRequest): Promise<ListCategoriesResponse> {
+    let runtime = new $Util.RuntimeOptions({ });
+    let headers : {[key: string ]: string} = { };
+    return await this.listCategoriesWithOptions(request, headers, runtime);
   }
 
   async listLogisticsOrdersWithOptions(orderId: string, headers: {[key: string ]: string}, runtime: $Util.RuntimeOptions): Promise<ListLogisticsOrdersResponse> {
