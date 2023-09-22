@@ -761,6 +761,255 @@ export class DescribeTransactionsListResponse extends $tea.Model {
   }
 }
 
+export class DescribeWeb3AddressLabelsRequest extends $tea.Model {
+  address?: string;
+  chainShortName?: string;
+  merchantBizId?: string;
+  static names(): { [key: string]: string } {
+    return {
+      address: 'Address',
+      chainShortName: 'ChainShortName',
+      merchantBizId: 'MerchantBizId',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      address: 'string',
+      chainShortName: 'string',
+      merchantBizId: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class DescribeWeb3AddressLabelsResponseBody extends $tea.Model {
+  code?: string;
+  data?: DescribeWeb3AddressLabelsResponseBodyData;
+  httpStatusCode?: number;
+  message?: string;
+  requestId?: string;
+  static names(): { [key: string]: string } {
+    return {
+      code: 'Code',
+      data: 'Data',
+      httpStatusCode: 'HttpStatusCode',
+      message: 'Message',
+      requestId: 'RequestId',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      code: 'string',
+      data: DescribeWeb3AddressLabelsResponseBodyData,
+      httpStatusCode: 'number',
+      message: 'string',
+      requestId: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class DescribeWeb3AddressLabelsResponse extends $tea.Model {
+  headers: { [key: string]: string };
+  statusCode: number;
+  body: DescribeWeb3AddressLabelsResponseBody;
+  static names(): { [key: string]: string } {
+    return {
+      headers: 'headers',
+      statusCode: 'statusCode',
+      body: 'body',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
+      body: DescribeWeb3AddressLabelsResponseBody,
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class DescribeWeb3RiskScoreRequest extends $tea.Model {
+  chainShortName?: string;
+  depth?: number;
+  merchantBizId?: string;
+  objectId?: string;
+  objectType?: string;
+  static names(): { [key: string]: string } {
+    return {
+      chainShortName: 'ChainShortName',
+      depth: 'Depth',
+      merchantBizId: 'MerchantBizId',
+      objectId: 'ObjectId',
+      objectType: 'ObjectType',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      chainShortName: 'string',
+      depth: 'number',
+      merchantBizId: 'string',
+      objectId: 'string',
+      objectType: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class DescribeWeb3RiskScoreResponseBody extends $tea.Model {
+  code?: string;
+  data?: DescribeWeb3RiskScoreResponseBodyData;
+  httpStatusCode?: number;
+  message?: string;
+  requestId?: string;
+  static names(): { [key: string]: string } {
+    return {
+      code: 'Code',
+      data: 'Data',
+      httpStatusCode: 'HttpStatusCode',
+      message: 'Message',
+      requestId: 'RequestId',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      code: 'string',
+      data: DescribeWeb3RiskScoreResponseBodyData,
+      httpStatusCode: 'number',
+      message: 'string',
+      requestId: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class DescribeWeb3RiskScoreResponse extends $tea.Model {
+  headers: { [key: string]: string };
+  statusCode: number;
+  body: DescribeWeb3RiskScoreResponseBody;
+  static names(): { [key: string]: string } {
+    return {
+      headers: 'headers',
+      statusCode: 'statusCode',
+      body: 'body',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
+      body: DescribeWeb3RiskScoreResponseBody,
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class DescribeWeb3TransactionLabelsRequest extends $tea.Model {
+  chainShortName?: string;
+  merchantBizId?: string;
+  transaction?: string;
+  static names(): { [key: string]: string } {
+    return {
+      chainShortName: 'ChainShortName',
+      merchantBizId: 'MerchantBizId',
+      transaction: 'Transaction',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      chainShortName: 'string',
+      merchantBizId: 'string',
+      transaction: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class DescribeWeb3TransactionLabelsResponseBody extends $tea.Model {
+  code?: string;
+  data?: DescribeWeb3TransactionLabelsResponseBodyData;
+  httpStatusCode?: number;
+  message?: string;
+  requestId?: string;
+  static names(): { [key: string]: string } {
+    return {
+      code: 'Code',
+      data: 'Data',
+      httpStatusCode: 'HttpStatusCode',
+      message: 'Message',
+      requestId: 'RequestId',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      code: 'string',
+      data: DescribeWeb3TransactionLabelsResponseBodyData,
+      httpStatusCode: 'number',
+      message: 'string',
+      requestId: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class DescribeWeb3TransactionLabelsResponse extends $tea.Model {
+  headers: { [key: string]: string };
+  statusCode: number;
+  body: DescribeWeb3TransactionLabelsResponseBody;
+  static names(): { [key: string]: string } {
+    return {
+      headers: 'headers',
+      statusCode: 'statusCode',
+      body: 'body',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
+      body: DescribeWeb3TransactionLabelsResponseBody,
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
 export class DocOcrRequest extends $tea.Model {
   docType?: string;
   idFaceQuality?: string;
@@ -1675,6 +1924,335 @@ export class DescribeTransactionsListResponseBodyData extends $tea.Model {
   }
 }
 
+export class DescribeWeb3AddressLabelsResponseBodyData extends $tea.Model {
+  address?: string;
+  balance?: string;
+  balanceSymbol?: string;
+  chainName?: string;
+  chainShortName?: string;
+  contractAddress?: string;
+  createContractAddress?: string;
+  createContractTransactionHash?: string;
+  customRiskAssessment?: string;
+  firstTransactionTime?: string;
+  isProducerAddress?: string;
+  lastTransactionTime?: string;
+  receiveAmount?: string;
+  sendAmount?: string;
+  tag?: string;
+  token?: string;
+  tokenAmount?: number;
+  tokenList?: string;
+  transactionCount?: number;
+  static names(): { [key: string]: string } {
+    return {
+      address: 'Address',
+      balance: 'Balance',
+      balanceSymbol: 'BalanceSymbol',
+      chainName: 'ChainName',
+      chainShortName: 'ChainShortName',
+      contractAddress: 'ContractAddress',
+      createContractAddress: 'CreateContractAddress',
+      createContractTransactionHash: 'CreateContractTransactionHash',
+      customRiskAssessment: 'CustomRiskAssessment',
+      firstTransactionTime: 'FirstTransactionTime',
+      isProducerAddress: 'IsProducerAddress',
+      lastTransactionTime: 'LastTransactionTime',
+      receiveAmount: 'ReceiveAmount',
+      sendAmount: 'SendAmount',
+      tag: 'Tag',
+      token: 'Token',
+      tokenAmount: 'TokenAmount',
+      tokenList: 'TokenList',
+      transactionCount: 'TransactionCount',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      address: 'string',
+      balance: 'string',
+      balanceSymbol: 'string',
+      chainName: 'string',
+      chainShortName: 'string',
+      contractAddress: 'string',
+      createContractAddress: 'string',
+      createContractTransactionHash: 'string',
+      customRiskAssessment: 'string',
+      firstTransactionTime: 'string',
+      isProducerAddress: 'string',
+      lastTransactionTime: 'string',
+      receiveAmount: 'string',
+      sendAmount: 'string',
+      tag: 'string',
+      token: 'string',
+      tokenAmount: 'number',
+      tokenList: 'string',
+      transactionCount: 'number',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class DescribeWeb3RiskScoreResponseBodyDataRiskResults extends $tea.Model {
+  description?: string;
+  severity?: string;
+  type?: string;
+  static names(): { [key: string]: string } {
+    return {
+      description: 'Description',
+      severity: 'Severity',
+      type: 'Type',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      description: 'string',
+      severity: 'string',
+      type: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class DescribeWeb3RiskScoreResponseBodyData extends $tea.Model {
+  riskResults?: DescribeWeb3RiskScoreResponseBodyDataRiskResults[];
+  score?: string;
+  static names(): { [key: string]: string } {
+    return {
+      riskResults: 'RiskResults',
+      score: 'Score',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      riskResults: { 'type': 'array', 'itemType': DescribeWeb3RiskScoreResponseBodyDataRiskResults },
+      score: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class DescribeWeb3TransactionLabelsResponseBodyDataContractDetails extends $tea.Model {
+  amount?: string;
+  from?: string;
+  gasLimit?: number;
+  index?: number;
+  to?: string;
+  static names(): { [key: string]: string } {
+    return {
+      amount: 'Amount',
+      from: 'From',
+      gasLimit: 'GasLimit',
+      index: 'Index',
+      to: 'To',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      amount: 'string',
+      from: 'string',
+      gasLimit: 'number',
+      index: 'number',
+      to: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class DescribeWeb3TransactionLabelsResponseBodyDataInputDetails extends $tea.Model {
+  amount?: number;
+  inputHash?: string;
+  isContract?: string;
+  tag?: string;
+  static names(): { [key: string]: string } {
+    return {
+      amount: 'Amount',
+      inputHash: 'InputHash',
+      isContract: 'IsContract',
+      tag: 'Tag',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      amount: 'number',
+      inputHash: 'string',
+      isContract: 'string',
+      tag: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class DescribeWeb3TransactionLabelsResponseBodyDataOutputDetails extends $tea.Model {
+  amount?: number;
+  inputHash?: string;
+  isContract?: string;
+  tag?: string;
+  static names(): { [key: string]: string } {
+    return {
+      amount: 'Amount',
+      inputHash: 'InputHash',
+      isContract: 'IsContract',
+      tag: 'Tag',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      amount: 'number',
+      inputHash: 'string',
+      isContract: 'string',
+      tag: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class DescribeWeb3TransactionLabelsResponseBodyDataTokenTransferDetails extends $tea.Model {
+  amount?: string;
+  from?: string;
+  index?: number;
+  symbol?: string;
+  to?: string;
+  token?: string;
+  tokenContractAddress?: string;
+  tokenId?: string;
+  static names(): { [key: string]: string } {
+    return {
+      amount: 'Amount',
+      from: 'From',
+      index: 'Index',
+      symbol: 'Symbol',
+      to: 'To',
+      token: 'Token',
+      tokenContractAddress: 'TokenContractAddress',
+      tokenId: 'TokenId',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      amount: 'string',
+      from: 'string',
+      index: 'number',
+      symbol: 'string',
+      to: 'string',
+      token: 'string',
+      tokenContractAddress: 'string',
+      tokenId: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class DescribeWeb3TransactionLabelsResponseBodyData extends $tea.Model {
+  amount?: string;
+  chainName?: string;
+  chainShortName?: string;
+  contractDetails?: DescribeWeb3TransactionLabelsResponseBodyDataContractDetails[];
+  errorLog?: string;
+  gasLimit?: number;
+  gasPrice?: string;
+  gasUsed?: number;
+  height?: number;
+  index?: number;
+  inputData?: string;
+  inputDetails?: DescribeWeb3TransactionLabelsResponseBodyDataInputDetails[];
+  methodId?: string;
+  nonce?: string;
+  outputDetails?: DescribeWeb3TransactionLabelsResponseBodyDataOutputDetails[];
+  state?: number;
+  tokenTransferDetails?: DescribeWeb3TransactionLabelsResponseBodyDataTokenTransferDetails[];
+  transactionSymbol?: string;
+  transactionTime?: string;
+  transactionType?: string;
+  txfee?: string;
+  txid?: string;
+  static names(): { [key: string]: string } {
+    return {
+      amount: 'Amount',
+      chainName: 'ChainName',
+      chainShortName: 'ChainShortName',
+      contractDetails: 'ContractDetails',
+      errorLog: 'ErrorLog',
+      gasLimit: 'GasLimit',
+      gasPrice: 'GasPrice',
+      gasUsed: 'GasUsed',
+      height: 'Height',
+      index: 'Index',
+      inputData: 'InputData',
+      inputDetails: 'InputDetails',
+      methodId: 'MethodId',
+      nonce: 'Nonce',
+      outputDetails: 'OutputDetails',
+      state: 'State',
+      tokenTransferDetails: 'TokenTransferDetails',
+      transactionSymbol: 'TransactionSymbol',
+      transactionTime: 'TransactionTime',
+      transactionType: 'TransactionType',
+      txfee: 'Txfee',
+      txid: 'Txid',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      amount: 'string',
+      chainName: 'string',
+      chainShortName: 'string',
+      contractDetails: { 'type': 'array', 'itemType': DescribeWeb3TransactionLabelsResponseBodyDataContractDetails },
+      errorLog: 'string',
+      gasLimit: 'number',
+      gasPrice: 'string',
+      gasUsed: 'number',
+      height: 'number',
+      index: 'number',
+      inputData: 'string',
+      inputDetails: { 'type': 'array', 'itemType': DescribeWeb3TransactionLabelsResponseBodyDataInputDetails },
+      methodId: 'string',
+      nonce: 'string',
+      outputDetails: { 'type': 'array', 'itemType': DescribeWeb3TransactionLabelsResponseBodyDataOutputDetails },
+      state: 'number',
+      tokenTransferDetails: { 'type': 'array', 'itemType': DescribeWeb3TransactionLabelsResponseBodyDataTokenTransferDetails },
+      transactionSymbol: 'string',
+      transactionTime: 'string',
+      transactionType: 'string',
+      txfee: 'string',
+      txid: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
 export class DocOcrResponseBodyResult extends $tea.Model {
   extIdInfo?: string;
   passed?: string;
@@ -2254,6 +2832,125 @@ export default class Client extends OpenApi {
   async describeTransactionsList(request: DescribeTransactionsListRequest): Promise<DescribeTransactionsListResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.describeTransactionsListWithOptions(request, runtime);
+  }
+
+  async describeWeb3AddressLabelsWithOptions(request: DescribeWeb3AddressLabelsRequest, runtime: $Util.RuntimeOptions): Promise<DescribeWeb3AddressLabelsResponse> {
+    Util.validateModel(request);
+    let query = { };
+    if (!Util.isUnset(request.address)) {
+      query["Address"] = request.address;
+    }
+
+    if (!Util.isUnset(request.chainShortName)) {
+      query["ChainShortName"] = request.chainShortName;
+    }
+
+    if (!Util.isUnset(request.merchantBizId)) {
+      query["MerchantBizId"] = request.merchantBizId;
+    }
+
+    let req = new $OpenApi.OpenApiRequest({
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApi.Params({
+      action: "DescribeWeb3AddressLabels",
+      version: "2022-08-09",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $tea.cast<DescribeWeb3AddressLabelsResponse>(await this.callApi(params, req, runtime), new DescribeWeb3AddressLabelsResponse({}));
+  }
+
+  async describeWeb3AddressLabels(request: DescribeWeb3AddressLabelsRequest): Promise<DescribeWeb3AddressLabelsResponse> {
+    let runtime = new $Util.RuntimeOptions({ });
+    return await this.describeWeb3AddressLabelsWithOptions(request, runtime);
+  }
+
+  async describeWeb3RiskScoreWithOptions(request: DescribeWeb3RiskScoreRequest, runtime: $Util.RuntimeOptions): Promise<DescribeWeb3RiskScoreResponse> {
+    Util.validateModel(request);
+    let query = { };
+    if (!Util.isUnset(request.chainShortName)) {
+      query["ChainShortName"] = request.chainShortName;
+    }
+
+    if (!Util.isUnset(request.depth)) {
+      query["Depth"] = request.depth;
+    }
+
+    if (!Util.isUnset(request.merchantBizId)) {
+      query["MerchantBizId"] = request.merchantBizId;
+    }
+
+    if (!Util.isUnset(request.objectId)) {
+      query["ObjectId"] = request.objectId;
+    }
+
+    if (!Util.isUnset(request.objectType)) {
+      query["ObjectType"] = request.objectType;
+    }
+
+    let req = new $OpenApi.OpenApiRequest({
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApi.Params({
+      action: "DescribeWeb3RiskScore",
+      version: "2022-08-09",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $tea.cast<DescribeWeb3RiskScoreResponse>(await this.callApi(params, req, runtime), new DescribeWeb3RiskScoreResponse({}));
+  }
+
+  async describeWeb3RiskScore(request: DescribeWeb3RiskScoreRequest): Promise<DescribeWeb3RiskScoreResponse> {
+    let runtime = new $Util.RuntimeOptions({ });
+    return await this.describeWeb3RiskScoreWithOptions(request, runtime);
+  }
+
+  async describeWeb3TransactionLabelsWithOptions(request: DescribeWeb3TransactionLabelsRequest, runtime: $Util.RuntimeOptions): Promise<DescribeWeb3TransactionLabelsResponse> {
+    Util.validateModel(request);
+    let query = { };
+    if (!Util.isUnset(request.chainShortName)) {
+      query["ChainShortName"] = request.chainShortName;
+    }
+
+    if (!Util.isUnset(request.merchantBizId)) {
+      query["MerchantBizId"] = request.merchantBizId;
+    }
+
+    if (!Util.isUnset(request.transaction)) {
+      query["Transaction"] = request.transaction;
+    }
+
+    let req = new $OpenApi.OpenApiRequest({
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApi.Params({
+      action: "DescribeWeb3TransactionLabels",
+      version: "2022-08-09",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $tea.cast<DescribeWeb3TransactionLabelsResponse>(await this.callApi(params, req, runtime), new DescribeWeb3TransactionLabelsResponse({}));
+  }
+
+  async describeWeb3TransactionLabels(request: DescribeWeb3TransactionLabelsRequest): Promise<DescribeWeb3TransactionLabelsResponse> {
+    let runtime = new $Util.RuntimeOptions({ });
+    return await this.describeWeb3TransactionLabelsWithOptions(request, runtime);
   }
 
   async docOcrWithOptions(request: DocOcrRequest, runtime: $Util.RuntimeOptions): Promise<DocOcrResponse> {
