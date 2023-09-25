@@ -8,6 +8,285 @@ import OpenApiUtil from '@alicloud/openapi-util';
 import EndpointUtil from '@alicloud/endpoint-util';
 import * as $tea from '@alicloud/tea-typescript';
 
+export class CompanyFourElementsVerificationRequest extends $tea.Model {
+  authCode?: string;
+  epCertName?: string;
+  epCertNo?: string;
+  legalPersonCertName?: string;
+  legalPersonCertNo?: string;
+  ownerId?: number;
+  resourceOwnerAccount?: string;
+  resourceOwnerId?: number;
+  static names(): { [key: string]: string } {
+    return {
+      authCode: 'AuthCode',
+      epCertName: 'EpCertName',
+      epCertNo: 'EpCertNo',
+      legalPersonCertName: 'LegalPersonCertName',
+      legalPersonCertNo: 'LegalPersonCertNo',
+      ownerId: 'OwnerId',
+      resourceOwnerAccount: 'ResourceOwnerAccount',
+      resourceOwnerId: 'ResourceOwnerId',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      authCode: 'string',
+      epCertName: 'string',
+      epCertNo: 'string',
+      legalPersonCertName: 'string',
+      legalPersonCertNo: 'string',
+      ownerId: 'number',
+      resourceOwnerAccount: 'string',
+      resourceOwnerId: 'number',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class CompanyFourElementsVerificationResponseBody extends $tea.Model {
+  accessDeniedDetail?: string;
+  code?: string;
+  data?: CompanyFourElementsVerificationResponseBodyData;
+  message?: string;
+  requestId?: string;
+  static names(): { [key: string]: string } {
+    return {
+      accessDeniedDetail: 'AccessDeniedDetail',
+      code: 'Code',
+      data: 'Data',
+      message: 'Message',
+      requestId: 'RequestId',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      accessDeniedDetail: 'string',
+      code: 'string',
+      data: CompanyFourElementsVerificationResponseBodyData,
+      message: 'string',
+      requestId: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class CompanyFourElementsVerificationResponse extends $tea.Model {
+  headers: { [key: string]: string };
+  statusCode: number;
+  body: CompanyFourElementsVerificationResponseBody;
+  static names(): { [key: string]: string } {
+    return {
+      headers: 'headers',
+      statusCode: 'statusCode',
+      body: 'body',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
+      body: CompanyFourElementsVerificationResponseBody,
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class CompanyThreeElementsVerificationRequest extends $tea.Model {
+  authCode?: string;
+  epCertName?: string;
+  epCertNo?: string;
+  legalPersonCertName?: string;
+  ownerId?: number;
+  resourceOwnerAccount?: string;
+  resourceOwnerId?: number;
+  static names(): { [key: string]: string } {
+    return {
+      authCode: 'AuthCode',
+      epCertName: 'EpCertName',
+      epCertNo: 'EpCertNo',
+      legalPersonCertName: 'LegalPersonCertName',
+      ownerId: 'OwnerId',
+      resourceOwnerAccount: 'ResourceOwnerAccount',
+      resourceOwnerId: 'ResourceOwnerId',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      authCode: 'string',
+      epCertName: 'string',
+      epCertNo: 'string',
+      legalPersonCertName: 'string',
+      ownerId: 'number',
+      resourceOwnerAccount: 'string',
+      resourceOwnerId: 'number',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class CompanyThreeElementsVerificationResponseBody extends $tea.Model {
+  accessDeniedDetail?: string;
+  code?: string;
+  data?: CompanyThreeElementsVerificationResponseBodyData;
+  message?: string;
+  requestId?: string;
+  static names(): { [key: string]: string } {
+    return {
+      accessDeniedDetail: 'AccessDeniedDetail',
+      code: 'Code',
+      data: 'Data',
+      message: 'Message',
+      requestId: 'RequestId',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      accessDeniedDetail: 'string',
+      code: 'string',
+      data: CompanyThreeElementsVerificationResponseBodyData,
+      message: 'string',
+      requestId: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class CompanyThreeElementsVerificationResponse extends $tea.Model {
+  headers: { [key: string]: string };
+  statusCode: number;
+  body: CompanyThreeElementsVerificationResponseBody;
+  static names(): { [key: string]: string } {
+    return {
+      headers: 'headers',
+      statusCode: 'statusCode',
+      body: 'body',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
+      body: CompanyThreeElementsVerificationResponseBody,
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class CompanyTwoElementsVerificationRequest extends $tea.Model {
+  authCode?: string;
+  epCertName?: string;
+  epCertNo?: string;
+  ownerId?: number;
+  resourceOwnerAccount?: string;
+  resourceOwnerId?: number;
+  static names(): { [key: string]: string } {
+    return {
+      authCode: 'AuthCode',
+      epCertName: 'EpCertName',
+      epCertNo: 'EpCertNo',
+      ownerId: 'OwnerId',
+      resourceOwnerAccount: 'ResourceOwnerAccount',
+      resourceOwnerId: 'ResourceOwnerId',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      authCode: 'string',
+      epCertName: 'string',
+      epCertNo: 'string',
+      ownerId: 'number',
+      resourceOwnerAccount: 'string',
+      resourceOwnerId: 'number',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class CompanyTwoElementsVerificationResponseBody extends $tea.Model {
+  accessDeniedDetail?: string;
+  code?: string;
+  data?: CompanyTwoElementsVerificationResponseBodyData;
+  message?: string;
+  requestId?: string;
+  static names(): { [key: string]: string } {
+    return {
+      accessDeniedDetail: 'AccessDeniedDetail',
+      code: 'Code',
+      data: 'Data',
+      message: 'Message',
+      requestId: 'RequestId',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      accessDeniedDetail: 'string',
+      code: 'string',
+      data: CompanyTwoElementsVerificationResponseBodyData,
+      message: 'string',
+      requestId: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class CompanyTwoElementsVerificationResponse extends $tea.Model {
+  headers: { [key: string]: string };
+  statusCode: number;
+  body: CompanyTwoElementsVerificationResponseBody;
+  static names(): { [key: string]: string } {
+    return {
+      headers: 'headers',
+      statusCode: 'statusCode',
+      body: 'body',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
+      body: CompanyTwoElementsVerificationResponseBody,
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
 export class DescribeEmptyNumberRequest extends $tea.Model {
   authCode?: string;
   inputNumber?: string;
@@ -713,6 +992,93 @@ export class InvalidPhoneNumberFilterResponse extends $tea.Model {
   }
 }
 
+export class PhoneNumberConvertServiceRequest extends $tea.Model {
+  authCode?: string;
+  inputNumber?: string;
+  mask?: string;
+  ownerId?: number;
+  resourceOwnerAccount?: string;
+  resourceOwnerId?: number;
+  static names(): { [key: string]: string } {
+    return {
+      authCode: 'AuthCode',
+      inputNumber: 'InputNumber',
+      mask: 'Mask',
+      ownerId: 'OwnerId',
+      resourceOwnerAccount: 'ResourceOwnerAccount',
+      resourceOwnerId: 'ResourceOwnerId',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      authCode: 'string',
+      inputNumber: 'string',
+      mask: 'string',
+      ownerId: 'number',
+      resourceOwnerAccount: 'string',
+      resourceOwnerId: 'number',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class PhoneNumberConvertServiceResponseBody extends $tea.Model {
+  code?: string;
+  data?: PhoneNumberConvertServiceResponseBodyData[];
+  message?: string;
+  requestId?: string;
+  static names(): { [key: string]: string } {
+    return {
+      code: 'Code',
+      data: 'Data',
+      message: 'Message',
+      requestId: 'RequestId',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      code: 'string',
+      data: { 'type': 'array', 'itemType': PhoneNumberConvertServiceResponseBodyData },
+      message: 'string',
+      requestId: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class PhoneNumberConvertServiceResponse extends $tea.Model {
+  headers: { [key: string]: string };
+  statusCode: number;
+  body: PhoneNumberConvertServiceResponseBody;
+  static names(): { [key: string]: string } {
+    return {
+      headers: 'headers',
+      statusCode: 'statusCode',
+      body: 'body',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
+      body: PhoneNumberConvertServiceResponseBody,
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
 export class PhoneNumberEncryptRequest extends $tea.Model {
   authCode?: string;
   inputNumber?: string;
@@ -1322,6 +1688,447 @@ export class PhoneNumberStatusForVoiceResponse extends $tea.Model {
   }
 }
 
+export class QueryAvailableAuthCodeRequest extends $tea.Model {
+  ownerId?: number;
+  resourceOwnerAccount?: string;
+  resourceOwnerId?: number;
+  tagId?: number;
+  static names(): { [key: string]: string } {
+    return {
+      ownerId: 'OwnerId',
+      resourceOwnerAccount: 'ResourceOwnerAccount',
+      resourceOwnerId: 'ResourceOwnerId',
+      tagId: 'TagId',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      ownerId: 'number',
+      resourceOwnerAccount: 'string',
+      resourceOwnerId: 'number',
+      tagId: 'number',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class QueryAvailableAuthCodeResponseBody extends $tea.Model {
+  code?: string;
+  data?: string[];
+  message?: string;
+  requestId?: string;
+  success?: boolean;
+  static names(): { [key: string]: string } {
+    return {
+      code: 'Code',
+      data: 'Data',
+      message: 'Message',
+      requestId: 'RequestId',
+      success: 'Success',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      code: 'string',
+      data: { 'type': 'array', 'itemType': 'string' },
+      message: 'string',
+      requestId: 'string',
+      success: 'boolean',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class QueryAvailableAuthCodeResponse extends $tea.Model {
+  headers: { [key: string]: string };
+  statusCode: number;
+  body: QueryAvailableAuthCodeResponseBody;
+  static names(): { [key: string]: string } {
+    return {
+      headers: 'headers',
+      statusCode: 'statusCode',
+      body: 'body',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
+      body: QueryAvailableAuthCodeResponseBody,
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class QueryTagApplyRuleRequest extends $tea.Model {
+  ownerId?: number;
+  resourceOwnerAccount?: string;
+  resourceOwnerId?: number;
+  tagId?: number;
+  static names(): { [key: string]: string } {
+    return {
+      ownerId: 'OwnerId',
+      resourceOwnerAccount: 'ResourceOwnerAccount',
+      resourceOwnerId: 'ResourceOwnerId',
+      tagId: 'TagId',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      ownerId: 'number',
+      resourceOwnerAccount: 'string',
+      resourceOwnerId: 'number',
+      tagId: 'number',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class QueryTagApplyRuleResponseBody extends $tea.Model {
+  code?: string;
+  data?: QueryTagApplyRuleResponseBodyData;
+  message?: string;
+  requestId?: string;
+  success?: boolean;
+  static names(): { [key: string]: string } {
+    return {
+      code: 'Code',
+      data: 'Data',
+      message: 'Message',
+      requestId: 'RequestId',
+      success: 'Success',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      code: 'string',
+      data: QueryTagApplyRuleResponseBodyData,
+      message: 'string',
+      requestId: 'string',
+      success: 'boolean',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class QueryTagApplyRuleResponse extends $tea.Model {
+  headers: { [key: string]: string };
+  statusCode: number;
+  body: QueryTagApplyRuleResponseBody;
+  static names(): { [key: string]: string } {
+    return {
+      headers: 'headers',
+      statusCode: 'statusCode',
+      body: 'body',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
+      body: QueryTagApplyRuleResponseBody,
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class QueryTagInfoBySelectionRequest extends $tea.Model {
+  industryId?: number;
+  ownerId?: number;
+  resourceOwnerAccount?: string;
+  resourceOwnerId?: number;
+  sceneId?: number;
+  tagId?: number;
+  static names(): { [key: string]: string } {
+    return {
+      industryId: 'IndustryId',
+      ownerId: 'OwnerId',
+      resourceOwnerAccount: 'ResourceOwnerAccount',
+      resourceOwnerId: 'ResourceOwnerId',
+      sceneId: 'SceneId',
+      tagId: 'TagId',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      industryId: 'number',
+      ownerId: 'number',
+      resourceOwnerAccount: 'string',
+      resourceOwnerId: 'number',
+      sceneId: 'number',
+      tagId: 'number',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class QueryTagInfoBySelectionResponseBody extends $tea.Model {
+  code?: string;
+  data?: QueryTagInfoBySelectionResponseBodyData[];
+  message?: string;
+  requestId?: string;
+  success?: boolean;
+  static names(): { [key: string]: string } {
+    return {
+      code: 'Code',
+      data: 'Data',
+      message: 'Message',
+      requestId: 'RequestId',
+      success: 'Success',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      code: 'string',
+      data: { 'type': 'array', 'itemType': QueryTagInfoBySelectionResponseBodyData },
+      message: 'string',
+      requestId: 'string',
+      success: 'boolean',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class QueryTagInfoBySelectionResponse extends $tea.Model {
+  headers: { [key: string]: string };
+  statusCode: number;
+  body: QueryTagInfoBySelectionResponseBody;
+  static names(): { [key: string]: string } {
+    return {
+      headers: 'headers',
+      statusCode: 'statusCode',
+      body: 'body',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
+      body: QueryTagInfoBySelectionResponseBody,
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class QueryTagListPageRequest extends $tea.Model {
+  ownerId?: number;
+  pageNo?: number;
+  pageSize?: number;
+  resourceOwnerAccount?: string;
+  resourceOwnerId?: number;
+  static names(): { [key: string]: string } {
+    return {
+      ownerId: 'OwnerId',
+      pageNo: 'PageNo',
+      pageSize: 'PageSize',
+      resourceOwnerAccount: 'ResourceOwnerAccount',
+      resourceOwnerId: 'ResourceOwnerId',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      ownerId: 'number',
+      pageNo: 'number',
+      pageSize: 'number',
+      resourceOwnerAccount: 'string',
+      resourceOwnerId: 'number',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class QueryTagListPageResponseBody extends $tea.Model {
+  code?: string;
+  data?: QueryTagListPageResponseBodyData;
+  message?: string;
+  requestId?: string;
+  success?: boolean;
+  static names(): { [key: string]: string } {
+    return {
+      code: 'Code',
+      data: 'Data',
+      message: 'Message',
+      requestId: 'RequestId',
+      success: 'Success',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      code: 'string',
+      data: QueryTagListPageResponseBodyData,
+      message: 'string',
+      requestId: 'string',
+      success: 'boolean',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class QueryTagListPageResponse extends $tea.Model {
+  headers: { [key: string]: string };
+  statusCode: number;
+  body: QueryTagListPageResponseBody;
+  static names(): { [key: string]: string } {
+    return {
+      headers: 'headers',
+      statusCode: 'statusCode',
+      body: 'body',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
+      body: QueryTagListPageResponseBody,
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class QueryUsageStatisticsByTagIdRequest extends $tea.Model {
+  beginTime?: string;
+  endTime?: string;
+  ownerId?: number;
+  pageNo?: number;
+  pageSize?: number;
+  resourceOwnerAccount?: string;
+  resourceOwnerId?: number;
+  tagId?: number;
+  static names(): { [key: string]: string } {
+    return {
+      beginTime: 'BeginTime',
+      endTime: 'EndTime',
+      ownerId: 'OwnerId',
+      pageNo: 'PageNo',
+      pageSize: 'PageSize',
+      resourceOwnerAccount: 'ResourceOwnerAccount',
+      resourceOwnerId: 'ResourceOwnerId',
+      tagId: 'TagId',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      beginTime: 'string',
+      endTime: 'string',
+      ownerId: 'number',
+      pageNo: 'number',
+      pageSize: 'number',
+      resourceOwnerAccount: 'string',
+      resourceOwnerId: 'number',
+      tagId: 'number',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class QueryUsageStatisticsByTagIdResponseBody extends $tea.Model {
+  code?: string;
+  data?: QueryUsageStatisticsByTagIdResponseBodyData[];
+  message?: string;
+  requestId?: string;
+  success?: boolean;
+  static names(): { [key: string]: string } {
+    return {
+      code: 'Code',
+      data: 'Data',
+      message: 'Message',
+      requestId: 'RequestId',
+      success: 'Success',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      code: 'string',
+      data: { 'type': 'array', 'itemType': QueryUsageStatisticsByTagIdResponseBodyData },
+      message: 'string',
+      requestId: 'string',
+      success: 'boolean',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class QueryUsageStatisticsByTagIdResponse extends $tea.Model {
+  headers: { [key: string]: string };
+  statusCode: number;
+  body: QueryUsageStatisticsByTagIdResponseBody;
+  static names(): { [key: string]: string } {
+    return {
+      headers: 'headers',
+      statusCode: 'statusCode',
+      body: 'body',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
+      body: QueryUsageStatisticsByTagIdResponseBody,
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
 export class ThreeElementsVerificationRequest extends $tea.Model {
   authCode?: string;
   certCode?: string;
@@ -1497,6 +2304,81 @@ export class TwoElementsVerificationResponse extends $tea.Model {
       headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
       statusCode: 'number',
       body: TwoElementsVerificationResponseBody,
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class CompanyFourElementsVerificationResponseBodyData extends $tea.Model {
+  detailInfo?: { [key: string]: any };
+  reasonCode?: number;
+  verifyResult?: string;
+  static names(): { [key: string]: string } {
+    return {
+      detailInfo: 'DetailInfo',
+      reasonCode: 'ReasonCode',
+      verifyResult: 'VerifyResult',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      detailInfo: { 'type': 'map', 'keyType': 'string', 'valueType': 'any' },
+      reasonCode: 'number',
+      verifyResult: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class CompanyThreeElementsVerificationResponseBodyData extends $tea.Model {
+  detailInfo?: { [key: string]: any };
+  reasonCode?: number;
+  verifyResult?: string;
+  static names(): { [key: string]: string } {
+    return {
+      detailInfo: 'DetailInfo',
+      reasonCode: 'ReasonCode',
+      verifyResult: 'VerifyResult',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      detailInfo: { 'type': 'map', 'keyType': 'string', 'valueType': 'any' },
+      reasonCode: 'number',
+      verifyResult: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class CompanyTwoElementsVerificationResponseBodyData extends $tea.Model {
+  detailInfo?: { [key: string]: any };
+  reasonCode?: string;
+  verifyResult?: string;
+  static names(): { [key: string]: string } {
+    return {
+      detailInfo: 'DetailInfo',
+      reasonCode: 'ReasonCode',
+      verifyResult: 'VerifyResult',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      detailInfo: { 'type': 'map', 'keyType': 'string', 'valueType': 'any' },
+      reasonCode: 'string',
+      verifyResult: 'string',
     };
   }
 
@@ -1730,6 +2612,34 @@ export class InvalidPhoneNumberFilterResponseBodyData extends $tea.Model {
   }
 }
 
+export class PhoneNumberConvertServiceResponseBodyData extends $tea.Model {
+  converResult?: boolean;
+  number?: string;
+  numberMd5?: string;
+  numberSha256?: string;
+  static names(): { [key: string]: string } {
+    return {
+      converResult: 'ConverResult',
+      number: 'Number',
+      numberMd5: 'NumberMd5',
+      numberSha256: 'NumberSha256',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      converResult: 'boolean',
+      number: 'string',
+      numberMd5: 'string',
+      numberSha256: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
 export class PhoneNumberEncryptResponseBodyData extends $tea.Model {
   encryptedNumber?: string;
   expireTime?: string;
@@ -1884,6 +2794,280 @@ export class PhoneNumberStatusForVoiceResponseBodyData extends $tea.Model {
   }
 }
 
+export class QueryTagApplyRuleResponseBodyData extends $tea.Model {
+  applyMaterialDesc?: string;
+  autoAudit?: number;
+  chargingStandardLink?: string;
+  encryptedQuery?: number;
+  needApplyMaterial?: number;
+  slaLink?: string;
+  static names(): { [key: string]: string } {
+    return {
+      applyMaterialDesc: 'ApplyMaterialDesc',
+      autoAudit: 'AutoAudit',
+      chargingStandardLink: 'ChargingStandardLink',
+      encryptedQuery: 'EncryptedQuery',
+      needApplyMaterial: 'NeedApplyMaterial',
+      slaLink: 'SlaLink',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      applyMaterialDesc: 'string',
+      autoAudit: 'number',
+      chargingStandardLink: 'string',
+      encryptedQuery: 'number',
+      needApplyMaterial: 'number',
+      slaLink: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class QueryTagInfoBySelectionResponseBodyDataParamListValueDict extends $tea.Model {
+  code?: string;
+  desc?: string;
+  static names(): { [key: string]: string } {
+    return {
+      code: 'Code',
+      desc: 'Desc',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      code: 'string',
+      desc: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class QueryTagInfoBySelectionResponseBodyDataParamList extends $tea.Model {
+  code?: string;
+  hint?: string;
+  must?: boolean;
+  name?: string;
+  type?: string;
+  valueDict?: QueryTagInfoBySelectionResponseBodyDataParamListValueDict[];
+  static names(): { [key: string]: string } {
+    return {
+      code: 'Code',
+      hint: 'Hint',
+      must: 'Must',
+      name: 'Name',
+      type: 'Type',
+      valueDict: 'ValueDict',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      code: 'string',
+      hint: 'string',
+      must: 'boolean',
+      name: 'string',
+      type: 'string',
+      valueDict: { 'type': 'array', 'itemType': QueryTagInfoBySelectionResponseBodyDataParamListValueDict },
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class QueryTagInfoBySelectionResponseBodyData extends $tea.Model {
+  authCodeList?: string[];
+  demoAddress?: string;
+  docAddress?: string;
+  enumDefinitionAddress?: string;
+  flowName?: string;
+  industryId?: number;
+  industryName?: string;
+  paramList?: QueryTagInfoBySelectionResponseBodyDataParamList[];
+  sceneId?: number;
+  sceneName?: string;
+  tagId?: number;
+  tagName?: string;
+  static names(): { [key: string]: string } {
+    return {
+      authCodeList: 'AuthCodeList',
+      demoAddress: 'DemoAddress',
+      docAddress: 'DocAddress',
+      enumDefinitionAddress: 'EnumDefinitionAddress',
+      flowName: 'FlowName',
+      industryId: 'IndustryId',
+      industryName: 'IndustryName',
+      paramList: 'ParamList',
+      sceneId: 'SceneId',
+      sceneName: 'SceneName',
+      tagId: 'TagId',
+      tagName: 'TagName',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      authCodeList: { 'type': 'array', 'itemType': 'string' },
+      demoAddress: 'string',
+      docAddress: 'string',
+      enumDefinitionAddress: 'string',
+      flowName: 'string',
+      industryId: 'number',
+      industryName: 'string',
+      paramList: { 'type': 'array', 'itemType': QueryTagInfoBySelectionResponseBodyDataParamList },
+      sceneId: 'number',
+      sceneName: 'string',
+      tagId: 'number',
+      tagName: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class QueryTagListPageResponseBodyDataRecords extends $tea.Model {
+  apiName?: string;
+  code?: string;
+  docAddress?: string;
+  id?: number;
+  industryId?: number;
+  industryName?: string;
+  introduction?: string;
+  isOpen?: number;
+  name?: string;
+  saleStatusStr?: string;
+  sceneId?: number;
+  sceneName?: string;
+  static names(): { [key: string]: string } {
+    return {
+      apiName: 'ApiName',
+      code: 'Code',
+      docAddress: 'DocAddress',
+      id: 'Id',
+      industryId: 'IndustryId',
+      industryName: 'IndustryName',
+      introduction: 'Introduction',
+      isOpen: 'IsOpen',
+      name: 'Name',
+      saleStatusStr: 'SaleStatusStr',
+      sceneId: 'SceneId',
+      sceneName: 'SceneName',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      apiName: 'string',
+      code: 'string',
+      docAddress: 'string',
+      id: 'number',
+      industryId: 'number',
+      industryName: 'string',
+      introduction: 'string',
+      isOpen: 'number',
+      name: 'string',
+      saleStatusStr: 'string',
+      sceneId: 'number',
+      sceneName: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class QueryTagListPageResponseBodyData extends $tea.Model {
+  pageNo?: number;
+  pageSize?: number;
+  records?: QueryTagListPageResponseBodyDataRecords[];
+  totalCount?: number;
+  totalPage?: number;
+  static names(): { [key: string]: string } {
+    return {
+      pageNo: 'PageNo',
+      pageSize: 'PageSize',
+      records: 'Records',
+      totalCount: 'TotalCount',
+      totalPage: 'TotalPage',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      pageNo: 'number',
+      pageSize: 'number',
+      records: { 'type': 'array', 'itemType': QueryTagListPageResponseBodyDataRecords },
+      totalCount: 'number',
+      totalPage: 'number',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class QueryUsageStatisticsByTagIdResponseBodyData extends $tea.Model {
+  authorizationCode?: string;
+  failTotal?: number;
+  gmtDateStr?: string;
+  id?: number;
+  industryName?: string;
+  partnerId?: number;
+  sceneName?: string;
+  successTotal?: number;
+  tagId?: number;
+  tagName?: string;
+  total?: number;
+  static names(): { [key: string]: string } {
+    return {
+      authorizationCode: 'AuthorizationCode',
+      failTotal: 'FailTotal',
+      gmtDateStr: 'GmtDateStr',
+      id: 'Id',
+      industryName: 'IndustryName',
+      partnerId: 'PartnerId',
+      sceneName: 'SceneName',
+      successTotal: 'SuccessTotal',
+      tagId: 'TagId',
+      tagName: 'TagName',
+      total: 'Total',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      authorizationCode: 'string',
+      failTotal: 'number',
+      gmtDateStr: 'string',
+      id: 'number',
+      industryName: 'string',
+      partnerId: 'number',
+      sceneName: 'string',
+      successTotal: 'number',
+      tagId: 'number',
+      tagName: 'string',
+      total: 'number',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
 export class ThreeElementsVerificationResponseBodyData extends $tea.Model {
   basicCarrier?: string;
   isConsistent?: number;
@@ -1949,6 +3133,165 @@ export default class Client extends OpenApi {
     }
 
     return EndpointUtil.getEndpointRules(productId, regionId, endpointRule, network, suffix);
+  }
+
+  async companyFourElementsVerificationWithOptions(request: CompanyFourElementsVerificationRequest, runtime: $Util.RuntimeOptions): Promise<CompanyFourElementsVerificationResponse> {
+    Util.validateModel(request);
+    let query = { };
+    if (!Util.isUnset(request.authCode)) {
+      query["AuthCode"] = request.authCode;
+    }
+
+    if (!Util.isUnset(request.epCertName)) {
+      query["EpCertName"] = request.epCertName;
+    }
+
+    if (!Util.isUnset(request.epCertNo)) {
+      query["EpCertNo"] = request.epCertNo;
+    }
+
+    if (!Util.isUnset(request.legalPersonCertName)) {
+      query["LegalPersonCertName"] = request.legalPersonCertName;
+    }
+
+    if (!Util.isUnset(request.legalPersonCertNo)) {
+      query["LegalPersonCertNo"] = request.legalPersonCertNo;
+    }
+
+    if (!Util.isUnset(request.ownerId)) {
+      query["OwnerId"] = request.ownerId;
+    }
+
+    if (!Util.isUnset(request.resourceOwnerAccount)) {
+      query["ResourceOwnerAccount"] = request.resourceOwnerAccount;
+    }
+
+    if (!Util.isUnset(request.resourceOwnerId)) {
+      query["ResourceOwnerId"] = request.resourceOwnerId;
+    }
+
+    let req = new $OpenApi.OpenApiRequest({
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApi.Params({
+      action: "CompanyFourElementsVerification",
+      version: "2020-02-17",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $tea.cast<CompanyFourElementsVerificationResponse>(await this.callApi(params, req, runtime), new CompanyFourElementsVerificationResponse({}));
+  }
+
+  async companyFourElementsVerification(request: CompanyFourElementsVerificationRequest): Promise<CompanyFourElementsVerificationResponse> {
+    let runtime = new $Util.RuntimeOptions({ });
+    return await this.companyFourElementsVerificationWithOptions(request, runtime);
+  }
+
+  async companyThreeElementsVerificationWithOptions(request: CompanyThreeElementsVerificationRequest, runtime: $Util.RuntimeOptions): Promise<CompanyThreeElementsVerificationResponse> {
+    Util.validateModel(request);
+    let query = { };
+    if (!Util.isUnset(request.authCode)) {
+      query["AuthCode"] = request.authCode;
+    }
+
+    if (!Util.isUnset(request.epCertName)) {
+      query["EpCertName"] = request.epCertName;
+    }
+
+    if (!Util.isUnset(request.epCertNo)) {
+      query["EpCertNo"] = request.epCertNo;
+    }
+
+    if (!Util.isUnset(request.legalPersonCertName)) {
+      query["LegalPersonCertName"] = request.legalPersonCertName;
+    }
+
+    if (!Util.isUnset(request.ownerId)) {
+      query["OwnerId"] = request.ownerId;
+    }
+
+    if (!Util.isUnset(request.resourceOwnerAccount)) {
+      query["ResourceOwnerAccount"] = request.resourceOwnerAccount;
+    }
+
+    if (!Util.isUnset(request.resourceOwnerId)) {
+      query["ResourceOwnerId"] = request.resourceOwnerId;
+    }
+
+    let req = new $OpenApi.OpenApiRequest({
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApi.Params({
+      action: "CompanyThreeElementsVerification",
+      version: "2020-02-17",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $tea.cast<CompanyThreeElementsVerificationResponse>(await this.callApi(params, req, runtime), new CompanyThreeElementsVerificationResponse({}));
+  }
+
+  async companyThreeElementsVerification(request: CompanyThreeElementsVerificationRequest): Promise<CompanyThreeElementsVerificationResponse> {
+    let runtime = new $Util.RuntimeOptions({ });
+    return await this.companyThreeElementsVerificationWithOptions(request, runtime);
+  }
+
+  async companyTwoElementsVerificationWithOptions(request: CompanyTwoElementsVerificationRequest, runtime: $Util.RuntimeOptions): Promise<CompanyTwoElementsVerificationResponse> {
+    Util.validateModel(request);
+    let query = { };
+    if (!Util.isUnset(request.authCode)) {
+      query["AuthCode"] = request.authCode;
+    }
+
+    if (!Util.isUnset(request.epCertName)) {
+      query["EpCertName"] = request.epCertName;
+    }
+
+    if (!Util.isUnset(request.epCertNo)) {
+      query["EpCertNo"] = request.epCertNo;
+    }
+
+    if (!Util.isUnset(request.ownerId)) {
+      query["OwnerId"] = request.ownerId;
+    }
+
+    if (!Util.isUnset(request.resourceOwnerAccount)) {
+      query["ResourceOwnerAccount"] = request.resourceOwnerAccount;
+    }
+
+    if (!Util.isUnset(request.resourceOwnerId)) {
+      query["ResourceOwnerId"] = request.resourceOwnerId;
+    }
+
+    let req = new $OpenApi.OpenApiRequest({
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApi.Params({
+      action: "CompanyTwoElementsVerification",
+      version: "2020-02-17",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $tea.cast<CompanyTwoElementsVerificationResponse>(await this.callApi(params, req, runtime), new CompanyTwoElementsVerificationResponse({}));
+  }
+
+  async companyTwoElementsVerification(request: CompanyTwoElementsVerificationRequest): Promise<CompanyTwoElementsVerificationResponse> {
+    let runtime = new $Util.RuntimeOptions({ });
+    return await this.companyTwoElementsVerificationWithOptions(request, runtime);
   }
 
   async describeEmptyNumberWithOptions(request: DescribeEmptyNumberRequest, runtime: $Util.RuntimeOptions): Promise<DescribeEmptyNumberResponse> {
@@ -2355,6 +3698,55 @@ export default class Client extends OpenApi {
     return await this.invalidPhoneNumberFilterWithOptions(request, runtime);
   }
 
+  async phoneNumberConvertServiceWithOptions(request: PhoneNumberConvertServiceRequest, runtime: $Util.RuntimeOptions): Promise<PhoneNumberConvertServiceResponse> {
+    Util.validateModel(request);
+    let query = { };
+    if (!Util.isUnset(request.authCode)) {
+      query["AuthCode"] = request.authCode;
+    }
+
+    if (!Util.isUnset(request.inputNumber)) {
+      query["InputNumber"] = request.inputNumber;
+    }
+
+    if (!Util.isUnset(request.mask)) {
+      query["Mask"] = request.mask;
+    }
+
+    if (!Util.isUnset(request.ownerId)) {
+      query["OwnerId"] = request.ownerId;
+    }
+
+    if (!Util.isUnset(request.resourceOwnerAccount)) {
+      query["ResourceOwnerAccount"] = request.resourceOwnerAccount;
+    }
+
+    if (!Util.isUnset(request.resourceOwnerId)) {
+      query["ResourceOwnerId"] = request.resourceOwnerId;
+    }
+
+    let req = new $OpenApi.OpenApiRequest({
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApi.Params({
+      action: "PhoneNumberConvertService",
+      version: "2020-02-17",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $tea.cast<PhoneNumberConvertServiceResponse>(await this.callApi(params, req, runtime), new PhoneNumberConvertServiceResponse({}));
+  }
+
+  async phoneNumberConvertService(request: PhoneNumberConvertServiceRequest): Promise<PhoneNumberConvertServiceResponse> {
+    let runtime = new $Util.RuntimeOptions({ });
+    return await this.phoneNumberConvertServiceWithOptions(request, runtime);
+  }
+
   async phoneNumberEncryptWithOptions(request: PhoneNumberEncryptRequest, runtime: $Util.RuntimeOptions): Promise<PhoneNumberEncryptResponse> {
     Util.validateModel(request);
     let query = { };
@@ -2696,6 +4088,239 @@ export default class Client extends OpenApi {
   async phoneNumberStatusForVoice(request: PhoneNumberStatusForVoiceRequest): Promise<PhoneNumberStatusForVoiceResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.phoneNumberStatusForVoiceWithOptions(request, runtime);
+  }
+
+  async queryAvailableAuthCodeWithOptions(request: QueryAvailableAuthCodeRequest, runtime: $Util.RuntimeOptions): Promise<QueryAvailableAuthCodeResponse> {
+    Util.validateModel(request);
+    let query = { };
+    if (!Util.isUnset(request.ownerId)) {
+      query["OwnerId"] = request.ownerId;
+    }
+
+    if (!Util.isUnset(request.resourceOwnerAccount)) {
+      query["ResourceOwnerAccount"] = request.resourceOwnerAccount;
+    }
+
+    if (!Util.isUnset(request.resourceOwnerId)) {
+      query["ResourceOwnerId"] = request.resourceOwnerId;
+    }
+
+    if (!Util.isUnset(request.tagId)) {
+      query["TagId"] = request.tagId;
+    }
+
+    let req = new $OpenApi.OpenApiRequest({
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApi.Params({
+      action: "QueryAvailableAuthCode",
+      version: "2020-02-17",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $tea.cast<QueryAvailableAuthCodeResponse>(await this.callApi(params, req, runtime), new QueryAvailableAuthCodeResponse({}));
+  }
+
+  async queryAvailableAuthCode(request: QueryAvailableAuthCodeRequest): Promise<QueryAvailableAuthCodeResponse> {
+    let runtime = new $Util.RuntimeOptions({ });
+    return await this.queryAvailableAuthCodeWithOptions(request, runtime);
+  }
+
+  async queryTagApplyRuleWithOptions(request: QueryTagApplyRuleRequest, runtime: $Util.RuntimeOptions): Promise<QueryTagApplyRuleResponse> {
+    Util.validateModel(request);
+    let query = { };
+    if (!Util.isUnset(request.ownerId)) {
+      query["OwnerId"] = request.ownerId;
+    }
+
+    if (!Util.isUnset(request.resourceOwnerAccount)) {
+      query["ResourceOwnerAccount"] = request.resourceOwnerAccount;
+    }
+
+    if (!Util.isUnset(request.resourceOwnerId)) {
+      query["ResourceOwnerId"] = request.resourceOwnerId;
+    }
+
+    if (!Util.isUnset(request.tagId)) {
+      query["TagId"] = request.tagId;
+    }
+
+    let req = new $OpenApi.OpenApiRequest({
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApi.Params({
+      action: "QueryTagApplyRule",
+      version: "2020-02-17",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $tea.cast<QueryTagApplyRuleResponse>(await this.callApi(params, req, runtime), new QueryTagApplyRuleResponse({}));
+  }
+
+  async queryTagApplyRule(request: QueryTagApplyRuleRequest): Promise<QueryTagApplyRuleResponse> {
+    let runtime = new $Util.RuntimeOptions({ });
+    return await this.queryTagApplyRuleWithOptions(request, runtime);
+  }
+
+  async queryTagInfoBySelectionWithOptions(request: QueryTagInfoBySelectionRequest, runtime: $Util.RuntimeOptions): Promise<QueryTagInfoBySelectionResponse> {
+    Util.validateModel(request);
+    let query = { };
+    if (!Util.isUnset(request.industryId)) {
+      query["IndustryId"] = request.industryId;
+    }
+
+    if (!Util.isUnset(request.ownerId)) {
+      query["OwnerId"] = request.ownerId;
+    }
+
+    if (!Util.isUnset(request.resourceOwnerAccount)) {
+      query["ResourceOwnerAccount"] = request.resourceOwnerAccount;
+    }
+
+    if (!Util.isUnset(request.resourceOwnerId)) {
+      query["ResourceOwnerId"] = request.resourceOwnerId;
+    }
+
+    if (!Util.isUnset(request.sceneId)) {
+      query["SceneId"] = request.sceneId;
+    }
+
+    if (!Util.isUnset(request.tagId)) {
+      query["TagId"] = request.tagId;
+    }
+
+    let req = new $OpenApi.OpenApiRequest({
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApi.Params({
+      action: "QueryTagInfoBySelection",
+      version: "2020-02-17",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $tea.cast<QueryTagInfoBySelectionResponse>(await this.callApi(params, req, runtime), new QueryTagInfoBySelectionResponse({}));
+  }
+
+  async queryTagInfoBySelection(request: QueryTagInfoBySelectionRequest): Promise<QueryTagInfoBySelectionResponse> {
+    let runtime = new $Util.RuntimeOptions({ });
+    return await this.queryTagInfoBySelectionWithOptions(request, runtime);
+  }
+
+  async queryTagListPageWithOptions(request: QueryTagListPageRequest, runtime: $Util.RuntimeOptions): Promise<QueryTagListPageResponse> {
+    Util.validateModel(request);
+    let query = { };
+    if (!Util.isUnset(request.ownerId)) {
+      query["OwnerId"] = request.ownerId;
+    }
+
+    if (!Util.isUnset(request.pageNo)) {
+      query["PageNo"] = request.pageNo;
+    }
+
+    if (!Util.isUnset(request.pageSize)) {
+      query["PageSize"] = request.pageSize;
+    }
+
+    if (!Util.isUnset(request.resourceOwnerAccount)) {
+      query["ResourceOwnerAccount"] = request.resourceOwnerAccount;
+    }
+
+    if (!Util.isUnset(request.resourceOwnerId)) {
+      query["ResourceOwnerId"] = request.resourceOwnerId;
+    }
+
+    let req = new $OpenApi.OpenApiRequest({
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApi.Params({
+      action: "QueryTagListPage",
+      version: "2020-02-17",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $tea.cast<QueryTagListPageResponse>(await this.callApi(params, req, runtime), new QueryTagListPageResponse({}));
+  }
+
+  async queryTagListPage(request: QueryTagListPageRequest): Promise<QueryTagListPageResponse> {
+    let runtime = new $Util.RuntimeOptions({ });
+    return await this.queryTagListPageWithOptions(request, runtime);
+  }
+
+  async queryUsageStatisticsByTagIdWithOptions(request: QueryUsageStatisticsByTagIdRequest, runtime: $Util.RuntimeOptions): Promise<QueryUsageStatisticsByTagIdResponse> {
+    Util.validateModel(request);
+    let query = { };
+    if (!Util.isUnset(request.beginTime)) {
+      query["BeginTime"] = request.beginTime;
+    }
+
+    if (!Util.isUnset(request.endTime)) {
+      query["EndTime"] = request.endTime;
+    }
+
+    if (!Util.isUnset(request.ownerId)) {
+      query["OwnerId"] = request.ownerId;
+    }
+
+    if (!Util.isUnset(request.pageNo)) {
+      query["PageNo"] = request.pageNo;
+    }
+
+    if (!Util.isUnset(request.pageSize)) {
+      query["PageSize"] = request.pageSize;
+    }
+
+    if (!Util.isUnset(request.resourceOwnerAccount)) {
+      query["ResourceOwnerAccount"] = request.resourceOwnerAccount;
+    }
+
+    if (!Util.isUnset(request.resourceOwnerId)) {
+      query["ResourceOwnerId"] = request.resourceOwnerId;
+    }
+
+    if (!Util.isUnset(request.tagId)) {
+      query["TagId"] = request.tagId;
+    }
+
+    let req = new $OpenApi.OpenApiRequest({
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApi.Params({
+      action: "QueryUsageStatisticsByTagId",
+      version: "2020-02-17",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $tea.cast<QueryUsageStatisticsByTagIdResponse>(await this.callApi(params, req, runtime), new QueryUsageStatisticsByTagIdResponse({}));
+  }
+
+  async queryUsageStatisticsByTagId(request: QueryUsageStatisticsByTagIdRequest): Promise<QueryUsageStatisticsByTagIdResponse> {
+    let runtime = new $Util.RuntimeOptions({ });
+    return await this.queryUsageStatisticsByTagIdWithOptions(request, runtime);
   }
 
   async threeElementsVerificationWithOptions(request: ThreeElementsVerificationRequest, runtime: $Util.RuntimeOptions): Promise<ThreeElementsVerificationResponse> {
