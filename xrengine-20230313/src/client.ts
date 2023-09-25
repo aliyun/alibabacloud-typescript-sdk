@@ -3050,6 +3050,81 @@ export class PopSubmitAITryOnJobResponse extends $tea.Model {
   }
 }
 
+export class PopUploadMaterialRequest extends $tea.Model {
+  jwtToken?: string;
+  static names(): { [key: string]: string } {
+    return {
+      jwtToken: 'JwtToken',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      jwtToken: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class PopUploadMaterialResponseBody extends $tea.Model {
+  code?: string;
+  data?: PopUploadMaterialResponseBodyData;
+  message?: string;
+  requestId?: string;
+  success?: boolean;
+  static names(): { [key: string]: string } {
+    return {
+      code: 'Code',
+      data: 'Data',
+      message: 'Message',
+      requestId: 'RequestId',
+      success: 'Success',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      code: 'string',
+      data: PopUploadMaterialResponseBodyData,
+      message: 'string',
+      requestId: 'string',
+      success: 'boolean',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class PopUploadMaterialResponse extends $tea.Model {
+  headers: { [key: string]: string };
+  statusCode: number;
+  body: PopUploadMaterialResponseBody;
+  static names(): { [key: string]: string } {
+    return {
+      headers: 'headers',
+      statusCode: 'statusCode',
+      body: 'body',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
+      body: PopUploadMaterialResponseBody,
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
 export class PopVideoSaveSourceRequest extends $tea.Model {
   jwtToken?: string;
   projectId?: string;
@@ -8673,6 +8748,62 @@ export class PopSubmitAITryOnJobResponseBodyData extends $tea.Model {
   }
 }
 
+export class PopUploadMaterialResponseBodyDataPolicy extends $tea.Model {
+  accessId?: string;
+  dir?: string;
+  expire?: string;
+  host?: string;
+  policy?: string;
+  signature?: string;
+  static names(): { [key: string]: string } {
+    return {
+      accessId: 'AccessId',
+      dir: 'Dir',
+      expire: 'Expire',
+      host: 'Host',
+      policy: 'Policy',
+      signature: 'Signature',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      accessId: 'string',
+      dir: 'string',
+      expire: 'string',
+      host: 'string',
+      policy: 'string',
+      signature: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class PopUploadMaterialResponseBodyData extends $tea.Model {
+  ossKey?: string;
+  policy?: PopUploadMaterialResponseBodyDataPolicy;
+  static names(): { [key: string]: string } {
+    return {
+      ossKey: 'OssKey',
+      policy: 'Policy',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      ossKey: 'string',
+      policy: PopUploadMaterialResponseBodyDataPolicy,
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
 
 export default class Client extends OpenApi {
 
@@ -10117,6 +10248,35 @@ export default class Client extends OpenApi {
   async popSubmitAITryOnJob(request: PopSubmitAITryOnJobRequest): Promise<PopSubmitAITryOnJobResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.popSubmitAITryOnJobWithOptions(request, runtime);
+  }
+
+  async popUploadMaterialWithOptions(request: PopUploadMaterialRequest, runtime: $Util.RuntimeOptions): Promise<PopUploadMaterialResponse> {
+    Util.validateModel(request);
+    let query = { };
+    if (!Util.isUnset(request.jwtToken)) {
+      query["JwtToken"] = request.jwtToken;
+    }
+
+    let req = new $OpenApi.OpenApiRequest({
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApi.Params({
+      action: "PopUploadMaterial",
+      version: "2023-03-13",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $tea.cast<PopUploadMaterialResponse>(await this.callApi(params, req, runtime), new PopUploadMaterialResponse({}));
+  }
+
+  async popUploadMaterial(request: PopUploadMaterialRequest): Promise<PopUploadMaterialResponse> {
+    let runtime = new $Util.RuntimeOptions({ });
+    return await this.popUploadMaterialWithOptions(request, runtime);
   }
 
   async popVideoSaveSourceWithOptions(request: PopVideoSaveSourceRequest, runtime: $Util.RuntimeOptions): Promise<PopVideoSaveSourceResponse> {
