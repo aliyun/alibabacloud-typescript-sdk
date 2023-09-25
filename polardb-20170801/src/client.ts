@@ -4918,21 +4918,27 @@ export class DescribeDBClusterServerlessConfResponseBody extends $tea.Model {
   allowShutDown?: string;
   DBClusterId?: string;
   requestId?: string;
+  scaleApRoNumMax?: string;
+  scaleApRoNumMin?: string;
   scaleMax?: string;
   scaleMin?: string;
   scaleRoNumMax?: string;
   scaleRoNumMin?: string;
   secondsUntilAutoPause?: string;
+  switchs?: string;
   static names(): { [key: string]: string } {
     return {
       allowShutDown: 'AllowShutDown',
       DBClusterId: 'DBClusterId',
       requestId: 'RequestId',
+      scaleApRoNumMax: 'ScaleApRoNumMax',
+      scaleApRoNumMin: 'ScaleApRoNumMin',
       scaleMax: 'ScaleMax',
       scaleMin: 'ScaleMin',
       scaleRoNumMax: 'ScaleRoNumMax',
       scaleRoNumMin: 'ScaleRoNumMin',
       secondsUntilAutoPause: 'SecondsUntilAutoPause',
+      switchs: 'Switchs',
     };
   }
 
@@ -4941,11 +4947,14 @@ export class DescribeDBClusterServerlessConfResponseBody extends $tea.Model {
       allowShutDown: 'string',
       DBClusterId: 'string',
       requestId: 'string',
+      scaleApRoNumMax: 'string',
+      scaleApRoNumMin: 'string',
       scaleMax: 'string',
       scaleMin: 'string',
       scaleRoNumMax: 'string',
       scaleRoNumMin: 'string',
       secondsUntilAutoPause: 'string',
+      switchs: 'string',
     };
   }
 
@@ -8015,6 +8024,84 @@ export class DescribeVSwitchesResponse extends $tea.Model {
   }
 }
 
+export class DisableDBClusterServerlessRequest extends $tea.Model {
+  DBClusterId?: string;
+  ownerAccount?: string;
+  ownerId?: number;
+  resourceOwnerAccount?: string;
+  resourceOwnerId?: number;
+  static names(): { [key: string]: string } {
+    return {
+      DBClusterId: 'DBClusterId',
+      ownerAccount: 'OwnerAccount',
+      ownerId: 'OwnerId',
+      resourceOwnerAccount: 'ResourceOwnerAccount',
+      resourceOwnerId: 'ResourceOwnerId',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      DBClusterId: 'string',
+      ownerAccount: 'string',
+      ownerId: 'number',
+      resourceOwnerAccount: 'string',
+      resourceOwnerId: 'number',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class DisableDBClusterServerlessResponseBody extends $tea.Model {
+  DBClusterId?: string;
+  requestId?: string;
+  static names(): { [key: string]: string } {
+    return {
+      DBClusterId: 'DBClusterId',
+      requestId: 'RequestId',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      DBClusterId: 'string',
+      requestId: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class DisableDBClusterServerlessResponse extends $tea.Model {
+  headers: { [key: string]: string };
+  statusCode: number;
+  body: DisableDBClusterServerlessResponseBody;
+  static names(): { [key: string]: string } {
+    return {
+      headers: 'headers',
+      statusCode: 'statusCode',
+      body: 'body',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
+      body: DisableDBClusterServerlessResponseBody,
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
 export class EnableFirewallRulesRequest extends $tea.Model {
   DBClusterId?: string;
   enable?: boolean;
@@ -10131,6 +10218,8 @@ export class ModifyDBClusterServerlessConfRequest extends $tea.Model {
   plannedStartTime?: string;
   resourceOwnerAccount?: string;
   resourceOwnerId?: number;
+  scaleApRoNumMax?: string;
+  scaleApRoNumMin?: string;
   scaleMax?: string;
   scaleMin?: string;
   scaleRoNumMax?: string;
@@ -10147,6 +10236,8 @@ export class ModifyDBClusterServerlessConfRequest extends $tea.Model {
       plannedStartTime: 'PlannedStartTime',
       resourceOwnerAccount: 'ResourceOwnerAccount',
       resourceOwnerId: 'ResourceOwnerId',
+      scaleApRoNumMax: 'ScaleApRoNumMax',
+      scaleApRoNumMin: 'ScaleApRoNumMin',
       scaleMax: 'ScaleMax',
       scaleMin: 'ScaleMin',
       scaleRoNumMax: 'ScaleRoNumMax',
@@ -10166,6 +10257,8 @@ export class ModifyDBClusterServerlessConfRequest extends $tea.Model {
       plannedStartTime: 'string',
       resourceOwnerAccount: 'string',
       resourceOwnerId: 'number',
+      scaleApRoNumMax: 'string',
+      scaleApRoNumMin: 'string',
       scaleMax: 'string',
       scaleMin: 'string',
       scaleRoNumMax: 'string',
@@ -21512,6 +21605,51 @@ export default class Client extends OpenApi {
     return await this.describeVSwitchesWithOptions(request, runtime);
   }
 
+  async disableDBClusterServerlessWithOptions(request: DisableDBClusterServerlessRequest, runtime: $Util.RuntimeOptions): Promise<DisableDBClusterServerlessResponse> {
+    Util.validateModel(request);
+    let query = { };
+    if (!Util.isUnset(request.DBClusterId)) {
+      query["DBClusterId"] = request.DBClusterId;
+    }
+
+    if (!Util.isUnset(request.ownerAccount)) {
+      query["OwnerAccount"] = request.ownerAccount;
+    }
+
+    if (!Util.isUnset(request.ownerId)) {
+      query["OwnerId"] = request.ownerId;
+    }
+
+    if (!Util.isUnset(request.resourceOwnerAccount)) {
+      query["ResourceOwnerAccount"] = request.resourceOwnerAccount;
+    }
+
+    if (!Util.isUnset(request.resourceOwnerId)) {
+      query["ResourceOwnerId"] = request.resourceOwnerId;
+    }
+
+    let req = new $OpenApi.OpenApiRequest({
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApi.Params({
+      action: "DisableDBClusterServerless",
+      version: "2017-08-01",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $tea.cast<DisableDBClusterServerlessResponse>(await this.callApi(params, req, runtime), new DisableDBClusterServerlessResponse({}));
+  }
+
+  async disableDBClusterServerless(request: DisableDBClusterServerlessRequest): Promise<DisableDBClusterServerlessResponse> {
+    let runtime = new $Util.RuntimeOptions({ });
+    return await this.disableDBClusterServerlessWithOptions(request, runtime);
+  }
+
   async enableFirewallRulesWithOptions(request: EnableFirewallRulesRequest, runtime: $Util.RuntimeOptions): Promise<EnableFirewallRulesResponse> {
     Util.validateModel(request);
     let query = { };
@@ -23115,6 +23253,14 @@ export default class Client extends OpenApi {
 
     if (!Util.isUnset(request.resourceOwnerId)) {
       query["ResourceOwnerId"] = request.resourceOwnerId;
+    }
+
+    if (!Util.isUnset(request.scaleApRoNumMax)) {
+      query["ScaleApRoNumMax"] = request.scaleApRoNumMax;
+    }
+
+    if (!Util.isUnset(request.scaleApRoNumMin)) {
+      query["ScaleApRoNumMin"] = request.scaleApRoNumMin;
     }
 
     if (!Util.isUnset(request.scaleMax)) {
