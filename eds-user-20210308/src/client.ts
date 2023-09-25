@@ -469,6 +469,7 @@ export class DescribeUsersRequest extends $tea.Model {
   endUserIds?: string[];
   excludeEndUserIds?: string[];
   filter?: string;
+  groupId?: string;
   maxResults?: number;
   nextToken?: string;
   orgId?: string;
@@ -477,6 +478,7 @@ export class DescribeUsersRequest extends $tea.Model {
       endUserIds: 'EndUserIds',
       excludeEndUserIds: 'ExcludeEndUserIds',
       filter: 'Filter',
+      groupId: 'GroupId',
       maxResults: 'MaxResults',
       nextToken: 'NextToken',
       orgId: 'OrgId',
@@ -488,6 +490,7 @@ export class DescribeUsersRequest extends $tea.Model {
       endUserIds: { 'type': 'array', 'itemType': 'string' },
       excludeEndUserIds: { 'type': 'array', 'itemType': 'string' },
       filter: 'string',
+      groupId: 'string',
       maxResults: 'number',
       nextToken: 'string',
       orgId: 'string',
@@ -689,6 +692,84 @@ export class FilterUsersResponse extends $tea.Model {
       headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
       statusCode: 'number',
       body: FilterUsersResponseBody,
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class GetManagerInfoByAuthCodeRequest extends $tea.Model {
+  authCode?: string;
+  static names(): { [key: string]: string } {
+    return {
+      authCode: 'AuthCode',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      authCode: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class GetManagerInfoByAuthCodeResponseBody extends $tea.Model {
+  orgId?: string;
+  phone?: string;
+  requestId?: string;
+  teamName?: string;
+  userName?: string;
+  waId?: number;
+  static names(): { [key: string]: string } {
+    return {
+      orgId: 'OrgId',
+      phone: 'Phone',
+      requestId: 'RequestId',
+      teamName: 'TeamName',
+      userName: 'UserName',
+      waId: 'WaId',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      orgId: 'string',
+      phone: 'string',
+      requestId: 'string',
+      teamName: 'string',
+      userName: 'string',
+      waId: 'number',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class GetManagerInfoByAuthCodeResponse extends $tea.Model {
+  headers: { [key: string]: string };
+  statusCode: number;
+  body: GetManagerInfoByAuthCodeResponseBody;
+  static names(): { [key: string]: string } {
+    return {
+      headers: 'headers',
+      statusCode: 'statusCode',
+      body: 'body',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
+      body: GetManagerInfoByAuthCodeResponseBody,
     };
   }
 
@@ -1930,13 +2011,62 @@ export class DescribeMfaDevicesResponseBodyMfaDevices extends $tea.Model {
   }
 }
 
+export class DescribeUsersResponseBodyUsersGroups extends $tea.Model {
+  groupId?: string;
+  groupName?: string;
+  static names(): { [key: string]: string } {
+    return {
+      groupId: 'GroupId',
+      groupName: 'GroupName',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      groupId: 'string',
+      groupName: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class DescribeUsersResponseBodyUsersOrgs extends $tea.Model {
+  orgId?: string;
+  orgName?: string;
+  static names(): { [key: string]: string } {
+    return {
+      orgId: 'OrgId',
+      orgName: 'OrgName',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      orgId: 'string',
+      orgName: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
 export class DescribeUsersResponseBodyUsers extends $tea.Model {
+  address?: string;
+  avatar?: string;
   email?: string;
   endUserId?: string;
+  groups?: DescribeUsersResponseBodyUsersGroups[];
   id?: number;
   isTenantManager?: boolean;
+  jobNumber?: string;
   nickName?: string;
   orgId?: string;
+  orgs?: DescribeUsersResponseBodyUsersOrgs[];
   ownerType?: string;
   phone?: string;
   remark?: string;
@@ -1944,12 +2074,17 @@ export class DescribeUsersResponseBodyUsers extends $tea.Model {
   wyId?: string;
   static names(): { [key: string]: string } {
     return {
+      address: 'Address',
+      avatar: 'Avatar',
       email: 'Email',
       endUserId: 'EndUserId',
+      groups: 'Groups',
       id: 'Id',
       isTenantManager: 'IsTenantManager',
+      jobNumber: 'JobNumber',
       nickName: 'NickName',
       orgId: 'OrgId',
+      orgs: 'Orgs',
       ownerType: 'OwnerType',
       phone: 'Phone',
       remark: 'Remark',
@@ -1960,12 +2095,17 @@ export class DescribeUsersResponseBodyUsers extends $tea.Model {
 
   static types(): { [key: string]: any } {
     return {
+      address: 'string',
+      avatar: 'string',
       email: 'string',
       endUserId: 'string',
+      groups: { 'type': 'array', 'itemType': DescribeUsersResponseBodyUsersGroups },
       id: 'number',
       isTenantManager: 'boolean',
+      jobNumber: 'string',
       nickName: 'string',
       orgId: 'string',
+      orgs: { 'type': 'array', 'itemType': DescribeUsersResponseBodyUsersOrgs },
       ownerType: 'string',
       phone: 'string',
       remark: 'string',
@@ -2943,6 +3083,10 @@ export default class Client extends OpenApi {
       body["ExcludeEndUserIds"] = request.excludeEndUserIds;
     }
 
+    if (!Util.isUnset(request.groupId)) {
+      body["GroupId"] = request.groupId;
+    }
+
     if (!Util.isUnset(request.orgId)) {
       body["OrgId"] = request.orgId;
     }
@@ -3043,6 +3187,35 @@ export default class Client extends OpenApi {
   async filterUsers(request: FilterUsersRequest): Promise<FilterUsersResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.filterUsersWithOptions(request, runtime);
+  }
+
+  async getManagerInfoByAuthCodeWithOptions(request: GetManagerInfoByAuthCodeRequest, runtime: $Util.RuntimeOptions): Promise<GetManagerInfoByAuthCodeResponse> {
+    Util.validateModel(request);
+    let query = { };
+    if (!Util.isUnset(request.authCode)) {
+      query["AuthCode"] = request.authCode;
+    }
+
+    let req = new $OpenApi.OpenApiRequest({
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApi.Params({
+      action: "GetManagerInfoByAuthCode",
+      version: "2021-03-08",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $tea.cast<GetManagerInfoByAuthCodeResponse>(await this.callApi(params, req, runtime), new GetManagerInfoByAuthCodeResponse({}));
+  }
+
+  async getManagerInfoByAuthCode(request: GetManagerInfoByAuthCodeRequest): Promise<GetManagerInfoByAuthCodeResponse> {
+    let runtime = new $Util.RuntimeOptions({ });
+    return await this.getManagerInfoByAuthCodeWithOptions(request, runtime);
   }
 
   async listPropertyWithOptions(runtime: $Util.RuntimeOptions): Promise<ListPropertyResponse> {
