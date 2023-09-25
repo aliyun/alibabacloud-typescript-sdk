@@ -1528,27 +1528,39 @@ export class CreateDBClusterResponse extends $tea.Model {
 }
 
 export class CreateDBResourceGroupRequest extends $tea.Model {
+  clusterMode?: string;
+  clusterSizeResource?: string;
   DBClusterId?: string;
   groupName?: string;
   groupType?: string;
+  maxClusterCount?: number;
   maxComputeResource?: string;
+  minClusterCount?: number;
   minComputeResource?: string;
   static names(): { [key: string]: string } {
     return {
+      clusterMode: 'ClusterMode',
+      clusterSizeResource: 'ClusterSizeResource',
       DBClusterId: 'DBClusterId',
       groupName: 'GroupName',
       groupType: 'GroupType',
+      maxClusterCount: 'MaxClusterCount',
       maxComputeResource: 'MaxComputeResource',
+      minClusterCount: 'MinClusterCount',
       minComputeResource: 'MinComputeResource',
     };
   }
 
   static types(): { [key: string]: any } {
     return {
+      clusterMode: 'string',
+      clusterSizeResource: 'string',
       DBClusterId: 'string',
       groupName: 'string',
       groupType: 'string',
+      maxClusterCount: 'number',
       maxComputeResource: 'string',
+      minClusterCount: 'number',
       minComputeResource: 'string',
     };
   }
@@ -8684,27 +8696,39 @@ export class ModifyDBClusterMaintainTimeResponse extends $tea.Model {
 }
 
 export class ModifyDBResourceGroupRequest extends $tea.Model {
+  clusterMode?: string;
+  clusterSizeResource?: string;
   DBClusterId?: string;
   groupName?: string;
   groupType?: string;
+  maxClusterCount?: number;
   maxComputeResource?: string;
+  minClusterCount?: number;
   minComputeResource?: string;
   static names(): { [key: string]: string } {
     return {
+      clusterMode: 'ClusterMode',
+      clusterSizeResource: 'ClusterSizeResource',
       DBClusterId: 'DBClusterId',
       groupName: 'GroupName',
       groupType: 'GroupType',
+      maxClusterCount: 'MaxClusterCount',
       maxComputeResource: 'MaxComputeResource',
+      minClusterCount: 'MinClusterCount',
       minComputeResource: 'MinComputeResource',
     };
   }
 
   static types(): { [key: string]: any } {
     return {
+      clusterMode: 'string',
+      clusterSizeResource: 'string',
       DBClusterId: 'string',
       groupName: 'string',
       groupType: 'string',
+      maxClusterCount: 'number',
       maxComputeResource: 'string',
+      minClusterCount: 'number',
       minComputeResource: 'string',
     };
   }
@@ -10954,24 +10978,34 @@ export class DescribeDBClustersResponseBodyItems extends $tea.Model {
 }
 
 export class DescribeDBResourceGroupResponseBodyGroupsInfo extends $tea.Model {
+  clusterMode?: string;
+  clusterSizeResource?: string;
   createTime?: string;
   elasticMinComputeResource?: string;
   groupName?: string;
   groupType?: string;
   groupUsers?: string;
+  maxClusterCount?: number;
   maxComputeResource?: string;
+  minClusterCount?: number;
   minComputeResource?: string;
+  runningClusterCount?: number;
   status?: string;
   updateTime?: string;
   static names(): { [key: string]: string } {
     return {
+      clusterMode: 'ClusterMode',
+      clusterSizeResource: 'ClusterSizeResource',
       createTime: 'CreateTime',
       elasticMinComputeResource: 'ElasticMinComputeResource',
       groupName: 'GroupName',
       groupType: 'GroupType',
       groupUsers: 'GroupUsers',
+      maxClusterCount: 'MaxClusterCount',
       maxComputeResource: 'MaxComputeResource',
+      minClusterCount: 'MinClusterCount',
       minComputeResource: 'MinComputeResource',
+      runningClusterCount: 'RunningClusterCount',
       status: 'Status',
       updateTime: 'UpdateTime',
     };
@@ -10979,13 +11013,18 @@ export class DescribeDBResourceGroupResponseBodyGroupsInfo extends $tea.Model {
 
   static types(): { [key: string]: any } {
     return {
+      clusterMode: 'string',
+      clusterSizeResource: 'string',
       createTime: 'string',
       elasticMinComputeResource: 'string',
       groupName: 'string',
       groupType: 'string',
       groupUsers: 'string',
+      maxClusterCount: 'number',
       maxComputeResource: 'string',
+      minClusterCount: 'number',
       minComputeResource: 'string',
+      runningClusterCount: 'number',
       status: 'string',
       updateTime: 'string',
     };
@@ -12851,6 +12890,14 @@ export default class Client extends OpenApi {
   async createDBResourceGroupWithOptions(request: CreateDBResourceGroupRequest, runtime: $Util.RuntimeOptions): Promise<CreateDBResourceGroupResponse> {
     Util.validateModel(request);
     let query = { };
+    if (!Util.isUnset(request.clusterMode)) {
+      query["ClusterMode"] = request.clusterMode;
+    }
+
+    if (!Util.isUnset(request.clusterSizeResource)) {
+      query["ClusterSizeResource"] = request.clusterSizeResource;
+    }
+
     if (!Util.isUnset(request.DBClusterId)) {
       query["DBClusterId"] = request.DBClusterId;
     }
@@ -12863,8 +12910,16 @@ export default class Client extends OpenApi {
       query["GroupType"] = request.groupType;
     }
 
+    if (!Util.isUnset(request.maxClusterCount)) {
+      query["MaxClusterCount"] = request.maxClusterCount;
+    }
+
     if (!Util.isUnset(request.maxComputeResource)) {
       query["MaxComputeResource"] = request.maxComputeResource;
+    }
+
+    if (!Util.isUnset(request.minClusterCount)) {
+      query["MinClusterCount"] = request.minClusterCount;
     }
 
     if (!Util.isUnset(request.minComputeResource)) {
@@ -16645,6 +16700,14 @@ export default class Client extends OpenApi {
   async modifyDBResourceGroupWithOptions(request: ModifyDBResourceGroupRequest, runtime: $Util.RuntimeOptions): Promise<ModifyDBResourceGroupResponse> {
     Util.validateModel(request);
     let query = { };
+    if (!Util.isUnset(request.clusterMode)) {
+      query["ClusterMode"] = request.clusterMode;
+    }
+
+    if (!Util.isUnset(request.clusterSizeResource)) {
+      query["ClusterSizeResource"] = request.clusterSizeResource;
+    }
+
     if (!Util.isUnset(request.DBClusterId)) {
       query["DBClusterId"] = request.DBClusterId;
     }
@@ -16657,8 +16720,16 @@ export default class Client extends OpenApi {
       query["GroupType"] = request.groupType;
     }
 
+    if (!Util.isUnset(request.maxClusterCount)) {
+      query["MaxClusterCount"] = request.maxClusterCount;
+    }
+
     if (!Util.isUnset(request.maxComputeResource)) {
       query["MaxComputeResource"] = request.maxComputeResource;
+    }
+
+    if (!Util.isUnset(request.minClusterCount)) {
+      query["MinClusterCount"] = request.minClusterCount;
     }
 
     if (!Util.isUnset(request.minComputeResource)) {
