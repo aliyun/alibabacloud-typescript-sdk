@@ -1246,6 +1246,278 @@ export class CreateConnectionResponse extends $tea.Model {
   }
 }
 
+export class CreateDIAlarmRuleRequest extends $tea.Model {
+  DIJobId?: number;
+  description?: string;
+  enabled?: boolean;
+  metricType?: string;
+  notificationSettings?: CreateDIAlarmRuleRequestNotificationSettings;
+  triggerConditions?: CreateDIAlarmRuleRequestTriggerConditions[];
+  static names(): { [key: string]: string } {
+    return {
+      DIJobId: 'DIJobId',
+      description: 'Description',
+      enabled: 'Enabled',
+      metricType: 'MetricType',
+      notificationSettings: 'NotificationSettings',
+      triggerConditions: 'TriggerConditions',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      DIJobId: 'number',
+      description: 'string',
+      enabled: 'boolean',
+      metricType: 'string',
+      notificationSettings: CreateDIAlarmRuleRequestNotificationSettings,
+      triggerConditions: { 'type': 'array', 'itemType': CreateDIAlarmRuleRequestTriggerConditions },
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class CreateDIAlarmRuleShrinkRequest extends $tea.Model {
+  DIJobId?: number;
+  description?: string;
+  enabled?: boolean;
+  metricType?: string;
+  notificationSettingsShrink?: string;
+  triggerConditionsShrink?: string;
+  static names(): { [key: string]: string } {
+    return {
+      DIJobId: 'DIJobId',
+      description: 'Description',
+      enabled: 'Enabled',
+      metricType: 'MetricType',
+      notificationSettingsShrink: 'NotificationSettings',
+      triggerConditionsShrink: 'TriggerConditions',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      DIJobId: 'number',
+      description: 'string',
+      enabled: 'boolean',
+      metricType: 'string',
+      notificationSettingsShrink: 'string',
+      triggerConditionsShrink: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class CreateDIAlarmRuleResponseBody extends $tea.Model {
+  DIAlarmRuleId?: number;
+  requestId?: string;
+  static names(): { [key: string]: string } {
+    return {
+      DIAlarmRuleId: 'DIAlarmRuleId',
+      requestId: 'RequestId',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      DIAlarmRuleId: 'number',
+      requestId: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class CreateDIAlarmRuleResponse extends $tea.Model {
+  headers: { [key: string]: string };
+  statusCode: number;
+  body: CreateDIAlarmRuleResponseBody;
+  static names(): { [key: string]: string } {
+    return {
+      headers: 'headers',
+      statusCode: 'statusCode',
+      body: 'body',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
+      body: CreateDIAlarmRuleResponseBody,
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class CreateDIJobRequest extends $tea.Model {
+  description?: string;
+  destinationDataSourceSettings?: CreateDIJobRequestDestinationDataSourceSettings[];
+  destinationDataSourceType?: string;
+  jobName?: string;
+  jobSettings?: CreateDIJobRequestJobSettings;
+  migrationType?: string;
+  projectId?: number;
+  resourceSettings?: CreateDIJobRequestResourceSettings;
+  sourceDataSourceSettings?: CreateDIJobRequestSourceDataSourceSettings[];
+  sourceDataSourceType?: string;
+  systemDebug?: string;
+  tableMappings?: CreateDIJobRequestTableMappings[];
+  transformationRules?: CreateDIJobRequestTransformationRules[];
+  static names(): { [key: string]: string } {
+    return {
+      description: 'Description',
+      destinationDataSourceSettings: 'DestinationDataSourceSettings',
+      destinationDataSourceType: 'DestinationDataSourceType',
+      jobName: 'JobName',
+      jobSettings: 'JobSettings',
+      migrationType: 'MigrationType',
+      projectId: 'ProjectId',
+      resourceSettings: 'ResourceSettings',
+      sourceDataSourceSettings: 'SourceDataSourceSettings',
+      sourceDataSourceType: 'SourceDataSourceType',
+      systemDebug: 'SystemDebug',
+      tableMappings: 'TableMappings',
+      transformationRules: 'TransformationRules',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      description: 'string',
+      destinationDataSourceSettings: { 'type': 'array', 'itemType': CreateDIJobRequestDestinationDataSourceSettings },
+      destinationDataSourceType: 'string',
+      jobName: 'string',
+      jobSettings: CreateDIJobRequestJobSettings,
+      migrationType: 'string',
+      projectId: 'number',
+      resourceSettings: CreateDIJobRequestResourceSettings,
+      sourceDataSourceSettings: { 'type': 'array', 'itemType': CreateDIJobRequestSourceDataSourceSettings },
+      sourceDataSourceType: 'string',
+      systemDebug: 'string',
+      tableMappings: { 'type': 'array', 'itemType': CreateDIJobRequestTableMappings },
+      transformationRules: { 'type': 'array', 'itemType': CreateDIJobRequestTransformationRules },
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class CreateDIJobShrinkRequest extends $tea.Model {
+  description?: string;
+  destinationDataSourceSettingsShrink?: string;
+  destinationDataSourceType?: string;
+  jobName?: string;
+  jobSettingsShrink?: string;
+  migrationType?: string;
+  projectId?: number;
+  resourceSettingsShrink?: string;
+  sourceDataSourceSettingsShrink?: string;
+  sourceDataSourceType?: string;
+  systemDebug?: string;
+  tableMappingsShrink?: string;
+  transformationRulesShrink?: string;
+  static names(): { [key: string]: string } {
+    return {
+      description: 'Description',
+      destinationDataSourceSettingsShrink: 'DestinationDataSourceSettings',
+      destinationDataSourceType: 'DestinationDataSourceType',
+      jobName: 'JobName',
+      jobSettingsShrink: 'JobSettings',
+      migrationType: 'MigrationType',
+      projectId: 'ProjectId',
+      resourceSettingsShrink: 'ResourceSettings',
+      sourceDataSourceSettingsShrink: 'SourceDataSourceSettings',
+      sourceDataSourceType: 'SourceDataSourceType',
+      systemDebug: 'SystemDebug',
+      tableMappingsShrink: 'TableMappings',
+      transformationRulesShrink: 'TransformationRules',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      description: 'string',
+      destinationDataSourceSettingsShrink: 'string',
+      destinationDataSourceType: 'string',
+      jobName: 'string',
+      jobSettingsShrink: 'string',
+      migrationType: 'string',
+      projectId: 'number',
+      resourceSettingsShrink: 'string',
+      sourceDataSourceSettingsShrink: 'string',
+      sourceDataSourceType: 'string',
+      systemDebug: 'string',
+      tableMappingsShrink: 'string',
+      transformationRulesShrink: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class CreateDIJobResponseBody extends $tea.Model {
+  DIJobId?: number;
+  requestId?: string;
+  static names(): { [key: string]: string } {
+    return {
+      DIJobId: 'DIJobId',
+      requestId: 'RequestId',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      DIJobId: 'number',
+      requestId: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class CreateDIJobResponse extends $tea.Model {
+  headers: { [key: string]: string };
+  statusCode: number;
+  body: CreateDIJobResponseBody;
+  static names(): { [key: string]: string } {
+    return {
+      headers: 'headers',
+      statusCode: 'statusCode',
+      body: 'body',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
+      body: CreateDIJobResponseBody,
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
 export class CreateDISyncTaskRequest extends $tea.Model {
   clientToken?: string;
   projectId?: number;
@@ -4215,6 +4487,132 @@ export class DeleteConnectionResponse extends $tea.Model {
   }
 }
 
+export class DeleteDIAlarmRuleRequest extends $tea.Model {
+  DIAlarmRuleId?: number;
+  static names(): { [key: string]: string } {
+    return {
+      DIAlarmRuleId: 'DIAlarmRuleId',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      DIAlarmRuleId: 'number',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class DeleteDIAlarmRuleResponseBody extends $tea.Model {
+  requestId?: string;
+  static names(): { [key: string]: string } {
+    return {
+      requestId: 'RequestId',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      requestId: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class DeleteDIAlarmRuleResponse extends $tea.Model {
+  headers: { [key: string]: string };
+  statusCode: number;
+  body: DeleteDIAlarmRuleResponseBody;
+  static names(): { [key: string]: string } {
+    return {
+      headers: 'headers',
+      statusCode: 'statusCode',
+      body: 'body',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
+      body: DeleteDIAlarmRuleResponseBody,
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class DeleteDIJobRequest extends $tea.Model {
+  DIJobId?: number;
+  static names(): { [key: string]: string } {
+    return {
+      DIJobId: 'DIJobId',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      DIJobId: 'number',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class DeleteDIJobResponseBody extends $tea.Model {
+  requestId?: string;
+  static names(): { [key: string]: string } {
+    return {
+      requestId: 'RequestId',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      requestId: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class DeleteDIJobResponse extends $tea.Model {
+  headers: { [key: string]: string };
+  statusCode: number;
+  body: DeleteDIJobResponseBody;
+  static names(): { [key: string]: string } {
+    return {
+      headers: 'headers',
+      statusCode: 'statusCode',
+      body: 'body',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
+      body: DeleteDIJobResponseBody,
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
 export class DeleteDISyncTaskRequest extends $tea.Model {
   fileId?: number;
   projectId?: number;
@@ -6853,6 +7251,141 @@ export class GetDDLJobStatusResponse extends $tea.Model {
       headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
       statusCode: 'number',
       body: GetDDLJobStatusResponseBody,
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class GetDIAlarmRuleRequest extends $tea.Model {
+  DIAlarmRuleId?: number;
+  static names(): { [key: string]: string } {
+    return {
+      DIAlarmRuleId: 'DIAlarmRuleId',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      DIAlarmRuleId: 'number',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class GetDIAlarmRuleResponseBody extends $tea.Model {
+  DIAlarmRule?: GetDIAlarmRuleResponseBodyDIAlarmRule;
+  requestId?: string;
+  static names(): { [key: string]: string } {
+    return {
+      DIAlarmRule: 'DIAlarmRule',
+      requestId: 'RequestId',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      DIAlarmRule: GetDIAlarmRuleResponseBodyDIAlarmRule,
+      requestId: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class GetDIAlarmRuleResponse extends $tea.Model {
+  headers: { [key: string]: string };
+  statusCode: number;
+  body: GetDIAlarmRuleResponseBody;
+  static names(): { [key: string]: string } {
+    return {
+      headers: 'headers',
+      statusCode: 'statusCode',
+      body: 'body',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
+      body: GetDIAlarmRuleResponseBody,
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class GetDIJobRequest extends $tea.Model {
+  DIJobId?: number;
+  withDetails?: boolean;
+  static names(): { [key: string]: string } {
+    return {
+      DIJobId: 'DIJobId',
+      withDetails: 'WithDetails',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      DIJobId: 'number',
+      withDetails: 'boolean',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class GetDIJobResponseBody extends $tea.Model {
+  data?: GetDIJobResponseBodyData;
+  requestId?: string;
+  static names(): { [key: string]: string } {
+    return {
+      data: 'Data',
+      requestId: 'RequestId',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      data: GetDIJobResponseBodyData,
+      requestId: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class GetDIJobResponse extends $tea.Model {
+  headers: { [key: string]: string };
+  statusCode: number;
+  body: GetDIJobResponseBody;
+  static names(): { [key: string]: string } {
+    return {
+      headers: 'headers',
+      statusCode: 'statusCode',
+      body: 'body',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
+      body: GetDIJobResponseBody,
     };
   }
 
@@ -12692,6 +13225,159 @@ export class ListConnectionsResponse extends $tea.Model {
       headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
       statusCode: 'number',
       body: ListConnectionsResponseBody,
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class ListDIAlarmRulesRequest extends $tea.Model {
+  DIJobId?: number;
+  pageNumber?: number;
+  pageSize?: number;
+  static names(): { [key: string]: string } {
+    return {
+      DIJobId: 'DIJobId',
+      pageNumber: 'PageNumber',
+      pageSize: 'PageSize',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      DIJobId: 'number',
+      pageNumber: 'number',
+      pageSize: 'number',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class ListDIAlarmRulesResponseBody extends $tea.Model {
+  DIAlarmRulePaging?: ListDIAlarmRulesResponseBodyDIAlarmRulePaging;
+  requestId?: string;
+  static names(): { [key: string]: string } {
+    return {
+      DIAlarmRulePaging: 'DIAlarmRulePaging',
+      requestId: 'RequestId',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      DIAlarmRulePaging: ListDIAlarmRulesResponseBodyDIAlarmRulePaging,
+      requestId: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class ListDIAlarmRulesResponse extends $tea.Model {
+  headers: { [key: string]: string };
+  statusCode: number;
+  body: ListDIAlarmRulesResponseBody;
+  static names(): { [key: string]: string } {
+    return {
+      headers: 'headers',
+      statusCode: 'statusCode',
+      body: 'body',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
+      body: ListDIAlarmRulesResponseBody,
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class ListDIJobsRequest extends $tea.Model {
+  destinationDataSourceType?: string;
+  jobName?: string;
+  pageNumber?: number;
+  pageSize?: number;
+  projectId?: number;
+  sourceDataSourceType?: string;
+  static names(): { [key: string]: string } {
+    return {
+      destinationDataSourceType: 'DestinationDataSourceType',
+      jobName: 'JobName',
+      pageNumber: 'PageNumber',
+      pageSize: 'PageSize',
+      projectId: 'ProjectId',
+      sourceDataSourceType: 'SourceDataSourceType',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      destinationDataSourceType: 'string',
+      jobName: 'string',
+      pageNumber: 'number',
+      pageSize: 'number',
+      projectId: 'number',
+      sourceDataSourceType: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class ListDIJobsResponseBody extends $tea.Model {
+  DIJobPaging?: ListDIJobsResponseBodyDIJobPaging;
+  requestId?: string;
+  static names(): { [key: string]: string } {
+    return {
+      DIJobPaging: 'DIJobPaging',
+      requestId: 'RequestId',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      DIJobPaging: ListDIJobsResponseBodyDIJobPaging,
+      requestId: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class ListDIJobsResponse extends $tea.Model {
+  headers: { [key: string]: string };
+  statusCode: number;
+  body: ListDIJobsResponseBody;
+  static names(): { [key: string]: string } {
+    return {
+      headers: 'headers',
+      statusCode: 'statusCode',
+      body: 'body',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
+      body: ListDIJobsResponseBody,
     };
   }
 
@@ -19213,6 +19899,100 @@ export class SetSuccessInstanceResponse extends $tea.Model {
   }
 }
 
+export class StartDIJobRequest extends $tea.Model {
+  DIJobId?: number;
+  forceToRerun?: boolean;
+  realtimeStartSettings?: StartDIJobRequestRealtimeStartSettings;
+  static names(): { [key: string]: string } {
+    return {
+      DIJobId: 'DIJobId',
+      forceToRerun: 'ForceToRerun',
+      realtimeStartSettings: 'RealtimeStartSettings',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      DIJobId: 'number',
+      forceToRerun: 'boolean',
+      realtimeStartSettings: StartDIJobRequestRealtimeStartSettings,
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class StartDIJobShrinkRequest extends $tea.Model {
+  DIJobId?: number;
+  forceToRerun?: boolean;
+  realtimeStartSettingsShrink?: string;
+  static names(): { [key: string]: string } {
+    return {
+      DIJobId: 'DIJobId',
+      forceToRerun: 'ForceToRerun',
+      realtimeStartSettingsShrink: 'RealtimeStartSettings',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      DIJobId: 'number',
+      forceToRerun: 'boolean',
+      realtimeStartSettingsShrink: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class StartDIJobResponseBody extends $tea.Model {
+  requestId?: string;
+  static names(): { [key: string]: string } {
+    return {
+      requestId: 'RequestId',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      requestId: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class StartDIJobResponse extends $tea.Model {
+  headers: { [key: string]: string };
+  statusCode: number;
+  body: StartDIJobResponseBody;
+  static names(): { [key: string]: string } {
+    return {
+      headers: 'headers',
+      statusCode: 'statusCode',
+      body: 'body',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
+      body: StartDIJobResponseBody,
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
 export class StartDISyncInstanceRequest extends $tea.Model {
   fileId?: number;
   projectId?: number;
@@ -19364,6 +20144,69 @@ export class StartMigrationResponse extends $tea.Model {
       headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
       statusCode: 'number',
       body: StartMigrationResponseBody,
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class StopDIJobRequest extends $tea.Model {
+  DIJobId?: number;
+  static names(): { [key: string]: string } {
+    return {
+      DIJobId: 'DIJobId',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      DIJobId: 'number',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class StopDIJobResponseBody extends $tea.Model {
+  requestId?: string;
+  static names(): { [key: string]: string } {
+    return {
+      requestId: 'RequestId',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      requestId: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class StopDIJobResponse extends $tea.Model {
+  headers: { [key: string]: string };
+  statusCode: number;
+  body: StopDIJobResponseBody;
+  static names(): { [key: string]: string } {
+    return {
+      headers: 'headers',
+      statusCode: 'statusCode',
+      body: 'body',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
+      body: StopDIJobResponseBody,
     };
   }
 
@@ -20565,6 +21408,230 @@ export class UpdateConnectionResponse extends $tea.Model {
       headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
       statusCode: 'number',
       body: UpdateConnectionResponseBody,
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class UpdateDIAlarmRuleRequest extends $tea.Model {
+  DIAlarmRuleId?: number;
+  description?: string;
+  enabled?: boolean;
+  metricType?: string;
+  notificationSettings?: UpdateDIAlarmRuleRequestNotificationSettings;
+  triggerConditions?: UpdateDIAlarmRuleRequestTriggerConditions[];
+  static names(): { [key: string]: string } {
+    return {
+      DIAlarmRuleId: 'DIAlarmRuleId',
+      description: 'Description',
+      enabled: 'Enabled',
+      metricType: 'MetricType',
+      notificationSettings: 'NotificationSettings',
+      triggerConditions: 'TriggerConditions',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      DIAlarmRuleId: 'number',
+      description: 'string',
+      enabled: 'boolean',
+      metricType: 'string',
+      notificationSettings: UpdateDIAlarmRuleRequestNotificationSettings,
+      triggerConditions: { 'type': 'array', 'itemType': UpdateDIAlarmRuleRequestTriggerConditions },
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class UpdateDIAlarmRuleShrinkRequest extends $tea.Model {
+  DIAlarmRuleId?: number;
+  description?: string;
+  enabled?: boolean;
+  metricType?: string;
+  notificationSettingsShrink?: string;
+  triggerConditionsShrink?: string;
+  static names(): { [key: string]: string } {
+    return {
+      DIAlarmRuleId: 'DIAlarmRuleId',
+      description: 'Description',
+      enabled: 'Enabled',
+      metricType: 'MetricType',
+      notificationSettingsShrink: 'NotificationSettings',
+      triggerConditionsShrink: 'TriggerConditions',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      DIAlarmRuleId: 'number',
+      description: 'string',
+      enabled: 'boolean',
+      metricType: 'string',
+      notificationSettingsShrink: 'string',
+      triggerConditionsShrink: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class UpdateDIAlarmRuleResponseBody extends $tea.Model {
+  requestId?: string;
+  static names(): { [key: string]: string } {
+    return {
+      requestId: 'RequestId',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      requestId: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class UpdateDIAlarmRuleResponse extends $tea.Model {
+  headers: { [key: string]: string };
+  statusCode: number;
+  body: UpdateDIAlarmRuleResponseBody;
+  static names(): { [key: string]: string } {
+    return {
+      headers: 'headers',
+      statusCode: 'statusCode',
+      body: 'body',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
+      body: UpdateDIAlarmRuleResponseBody,
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class UpdateDIJobRequest extends $tea.Model {
+  DIJobId?: number;
+  description?: string;
+  jobSettings?: UpdateDIJobRequestJobSettings;
+  resourceSettings?: UpdateDIJobRequestResourceSettings;
+  tableMappings?: UpdateDIJobRequestTableMappings[];
+  transformationRules?: UpdateDIJobRequestTransformationRules[];
+  static names(): { [key: string]: string } {
+    return {
+      DIJobId: 'DIJobId',
+      description: 'Description',
+      jobSettings: 'JobSettings',
+      resourceSettings: 'ResourceSettings',
+      tableMappings: 'TableMappings',
+      transformationRules: 'TransformationRules',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      DIJobId: 'number',
+      description: 'string',
+      jobSettings: UpdateDIJobRequestJobSettings,
+      resourceSettings: UpdateDIJobRequestResourceSettings,
+      tableMappings: { 'type': 'array', 'itemType': UpdateDIJobRequestTableMappings },
+      transformationRules: { 'type': 'array', 'itemType': UpdateDIJobRequestTransformationRules },
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class UpdateDIJobShrinkRequest extends $tea.Model {
+  DIJobId?: number;
+  description?: string;
+  jobSettingsShrink?: string;
+  resourceSettingsShrink?: string;
+  tableMappingsShrink?: string;
+  transformationRulesShrink?: string;
+  static names(): { [key: string]: string } {
+    return {
+      DIJobId: 'DIJobId',
+      description: 'Description',
+      jobSettingsShrink: 'JobSettings',
+      resourceSettingsShrink: 'ResourceSettings',
+      tableMappingsShrink: 'TableMappings',
+      transformationRulesShrink: 'TransformationRules',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      DIJobId: 'number',
+      description: 'string',
+      jobSettingsShrink: 'string',
+      resourceSettingsShrink: 'string',
+      tableMappingsShrink: 'string',
+      transformationRulesShrink: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class UpdateDIJobResponseBody extends $tea.Model {
+  requestId?: string;
+  static names(): { [key: string]: string } {
+    return {
+      requestId: 'RequestId',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      requestId: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class UpdateDIJobResponse extends $tea.Model {
+  headers: { [key: string]: string };
+  statusCode: number;
+  body: UpdateDIJobResponseBody;
+  static names(): { [key: string]: string } {
+    return {
+      headers: 'headers',
+      statusCode: 'statusCode',
+      body: 'body',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
+      body: UpdateDIJobResponseBody,
     };
   }
 
@@ -22734,6 +23801,392 @@ export class CreateBaselineRequestOvertimeSettings extends $tea.Model {
   }
 }
 
+export class CreateDIAlarmRuleRequestNotificationSettingsNotificationChannels extends $tea.Model {
+  channels?: string[];
+  severity?: string;
+  static names(): { [key: string]: string } {
+    return {
+      channels: 'Channels',
+      severity: 'Severity',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      channels: { 'type': 'array', 'itemType': 'string' },
+      severity: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class CreateDIAlarmRuleRequestNotificationSettingsNotificationReceivers extends $tea.Model {
+  receiverType?: string;
+  receiverValues?: string[];
+  static names(): { [key: string]: string } {
+    return {
+      receiverType: 'ReceiverType',
+      receiverValues: 'ReceiverValues',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      receiverType: 'string',
+      receiverValues: { 'type': 'array', 'itemType': 'string' },
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class CreateDIAlarmRuleRequestNotificationSettings extends $tea.Model {
+  inhibitionInterval?: number;
+  notificationChannels?: CreateDIAlarmRuleRequestNotificationSettingsNotificationChannels[];
+  notificationReceivers?: CreateDIAlarmRuleRequestNotificationSettingsNotificationReceivers[];
+  static names(): { [key: string]: string } {
+    return {
+      inhibitionInterval: 'InhibitionInterval',
+      notificationChannels: 'NotificationChannels',
+      notificationReceivers: 'NotificationReceivers',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      inhibitionInterval: 'number',
+      notificationChannels: { 'type': 'array', 'itemType': CreateDIAlarmRuleRequestNotificationSettingsNotificationChannels },
+      notificationReceivers: { 'type': 'array', 'itemType': CreateDIAlarmRuleRequestNotificationSettingsNotificationReceivers },
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class CreateDIAlarmRuleRequestTriggerConditions extends $tea.Model {
+  duration?: number;
+  severity?: string;
+  threshold?: number;
+  static names(): { [key: string]: string } {
+    return {
+      duration: 'Duration',
+      severity: 'Severity',
+      threshold: 'Threshold',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      duration: 'number',
+      severity: 'string',
+      threshold: 'number',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class CreateDIJobRequestDestinationDataSourceSettings extends $tea.Model {
+  dataSourceName?: string;
+  dataSourceProperties?: { [key: string]: string };
+  static names(): { [key: string]: string } {
+    return {
+      dataSourceName: 'DataSourceName',
+      dataSourceProperties: 'DataSourceProperties',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      dataSourceName: 'string',
+      dataSourceProperties: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class CreateDIJobRequestJobSettingsColumnDataTypeSettings extends $tea.Model {
+  destinationDataType?: string;
+  sourceDataType?: string;
+  static names(): { [key: string]: string } {
+    return {
+      destinationDataType: 'DestinationDataType',
+      sourceDataType: 'SourceDataType',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      destinationDataType: 'string',
+      sourceDataType: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class CreateDIJobRequestJobSettingsDdlHandlingSettings extends $tea.Model {
+  action?: string;
+  type?: string;
+  static names(): { [key: string]: string } {
+    return {
+      action: 'Action',
+      type: 'Type',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      action: 'string',
+      type: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class CreateDIJobRequestJobSettingsRuntimeSettings extends $tea.Model {
+  name?: string;
+  value?: string;
+  static names(): { [key: string]: string } {
+    return {
+      name: 'Name',
+      value: 'Value',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      name: 'string',
+      value: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class CreateDIJobRequestJobSettings extends $tea.Model {
+  columnDataTypeSettings?: CreateDIJobRequestJobSettingsColumnDataTypeSettings[];
+  ddlHandlingSettings?: CreateDIJobRequestJobSettingsDdlHandlingSettings[];
+  runtimeSettings?: CreateDIJobRequestJobSettingsRuntimeSettings[];
+  static names(): { [key: string]: string } {
+    return {
+      columnDataTypeSettings: 'ColumnDataTypeSettings',
+      ddlHandlingSettings: 'DdlHandlingSettings',
+      runtimeSettings: 'RuntimeSettings',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      columnDataTypeSettings: { 'type': 'array', 'itemType': CreateDIJobRequestJobSettingsColumnDataTypeSettings },
+      ddlHandlingSettings: { 'type': 'array', 'itemType': CreateDIJobRequestJobSettingsDdlHandlingSettings },
+      runtimeSettings: { 'type': 'array', 'itemType': CreateDIJobRequestJobSettingsRuntimeSettings },
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class CreateDIJobRequestResourceSettingsOfflineResourceSettings extends $tea.Model {
+  resourceGroupIdentifier?: string;
+  static names(): { [key: string]: string } {
+    return {
+      resourceGroupIdentifier: 'ResourceGroupIdentifier',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      resourceGroupIdentifier: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class CreateDIJobRequestResourceSettingsRealtimeResourceSettings extends $tea.Model {
+  resourceGroupIdentifier?: string;
+  static names(): { [key: string]: string } {
+    return {
+      resourceGroupIdentifier: 'ResourceGroupIdentifier',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      resourceGroupIdentifier: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class CreateDIJobRequestResourceSettings extends $tea.Model {
+  offlineResourceSettings?: CreateDIJobRequestResourceSettingsOfflineResourceSettings;
+  realtimeResourceSettings?: CreateDIJobRequestResourceSettingsRealtimeResourceSettings;
+  static names(): { [key: string]: string } {
+    return {
+      offlineResourceSettings: 'OfflineResourceSettings',
+      realtimeResourceSettings: 'RealtimeResourceSettings',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      offlineResourceSettings: CreateDIJobRequestResourceSettingsOfflineResourceSettings,
+      realtimeResourceSettings: CreateDIJobRequestResourceSettingsRealtimeResourceSettings,
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class CreateDIJobRequestSourceDataSourceSettings extends $tea.Model {
+  dataSourceName?: string;
+  dataSourceProperties?: { [key: string]: string };
+  static names(): { [key: string]: string } {
+    return {
+      dataSourceName: 'DataSourceName',
+      dataSourceProperties: 'DataSourceProperties',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      dataSourceName: 'string',
+      dataSourceProperties: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class CreateDIJobRequestTableMappingsSourceObjectSelectionRules extends $tea.Model {
+  expression?: string;
+  objectType?: string;
+  static names(): { [key: string]: string } {
+    return {
+      expression: 'Expression',
+      objectType: 'ObjectType',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      expression: 'string',
+      objectType: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class CreateDIJobRequestTableMappingsTransformationRules extends $tea.Model {
+  ruleActionType?: string;
+  ruleName?: string;
+  ruleTargetType?: string;
+  static names(): { [key: string]: string } {
+    return {
+      ruleActionType: 'RuleActionType',
+      ruleName: 'RuleName',
+      ruleTargetType: 'RuleTargetType',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      ruleActionType: 'string',
+      ruleName: 'string',
+      ruleTargetType: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class CreateDIJobRequestTableMappings extends $tea.Model {
+  sourceObjectSelectionRules?: CreateDIJobRequestTableMappingsSourceObjectSelectionRules[];
+  transformationRules?: CreateDIJobRequestTableMappingsTransformationRules[];
+  static names(): { [key: string]: string } {
+    return {
+      sourceObjectSelectionRules: 'SourceObjectSelectionRules',
+      transformationRules: 'TransformationRules',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      sourceObjectSelectionRules: { 'type': 'array', 'itemType': CreateDIJobRequestTableMappingsSourceObjectSelectionRules },
+      transformationRules: { 'type': 'array', 'itemType': CreateDIJobRequestTableMappingsTransformationRules },
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class CreateDIJobRequestTransformationRules extends $tea.Model {
+  ruleActionType?: string;
+  ruleExpression?: string;
+  ruleName?: string;
+  ruleTargetType?: string;
+  static names(): { [key: string]: string } {
+    return {
+      ruleActionType: 'RuleActionType',
+      ruleExpression: 'RuleExpression',
+      ruleName: 'RuleName',
+      ruleTargetType: 'RuleTargetType',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      ruleActionType: 'string',
+      ruleExpression: 'string',
+      ruleName: 'string',
+      ruleTargetType: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
 export class CreateDISyncTaskResponseBodyData extends $tea.Model {
   fileId?: number;
   message?: string;
@@ -23647,6 +25100,523 @@ export class GetDDLJobStatusResponseBodyData extends $tea.Model {
       nextTaskId: 'string',
       status: 'string',
       taskId: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class GetDIAlarmRuleResponseBodyDIAlarmRuleNotificationSettingsNotificationChannels extends $tea.Model {
+  channels?: string[];
+  severity?: string;
+  static names(): { [key: string]: string } {
+    return {
+      channels: 'Channels',
+      severity: 'Severity',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      channels: { 'type': 'array', 'itemType': 'string' },
+      severity: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class GetDIAlarmRuleResponseBodyDIAlarmRuleNotificationSettingsNotificationReceivers extends $tea.Model {
+  receiverType?: string;
+  receiverValues?: string[];
+  static names(): { [key: string]: string } {
+    return {
+      receiverType: 'ReceiverType',
+      receiverValues: 'ReceiverValues',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      receiverType: 'string',
+      receiverValues: { 'type': 'array', 'itemType': 'string' },
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class GetDIAlarmRuleResponseBodyDIAlarmRuleNotificationSettings extends $tea.Model {
+  inhibitionInterval?: number;
+  notificationChannels?: GetDIAlarmRuleResponseBodyDIAlarmRuleNotificationSettingsNotificationChannels[];
+  notificationReceivers?: GetDIAlarmRuleResponseBodyDIAlarmRuleNotificationSettingsNotificationReceivers[];
+  static names(): { [key: string]: string } {
+    return {
+      inhibitionInterval: 'InhibitionInterval',
+      notificationChannels: 'NotificationChannels',
+      notificationReceivers: 'NotificationReceivers',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      inhibitionInterval: 'number',
+      notificationChannels: { 'type': 'array', 'itemType': GetDIAlarmRuleResponseBodyDIAlarmRuleNotificationSettingsNotificationChannels },
+      notificationReceivers: { 'type': 'array', 'itemType': GetDIAlarmRuleResponseBodyDIAlarmRuleNotificationSettingsNotificationReceivers },
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class GetDIAlarmRuleResponseBodyDIAlarmRuleTriggerConditions extends $tea.Model {
+  duration?: number;
+  severity?: string;
+  threshold?: number;
+  static names(): { [key: string]: string } {
+    return {
+      duration: 'Duration',
+      severity: 'Severity',
+      threshold: 'Threshold',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      duration: 'number',
+      severity: 'string',
+      threshold: 'number',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class GetDIAlarmRuleResponseBodyDIAlarmRule extends $tea.Model {
+  createdTime?: number;
+  createdUid?: string;
+  DIAlarmRuleId?: number;
+  DIJobId?: number;
+  description?: string;
+  enabled?: boolean;
+  metricType?: string;
+  notificationSettings?: GetDIAlarmRuleResponseBodyDIAlarmRuleNotificationSettings;
+  triggerConditions?: GetDIAlarmRuleResponseBodyDIAlarmRuleTriggerConditions[];
+  updatedTime?: number;
+  updatedUid?: string;
+  static names(): { [key: string]: string } {
+    return {
+      createdTime: 'CreatedTime',
+      createdUid: 'CreatedUid',
+      DIAlarmRuleId: 'DIAlarmRuleId',
+      DIJobId: 'DIJobId',
+      description: 'Description',
+      enabled: 'Enabled',
+      metricType: 'MetricType',
+      notificationSettings: 'NotificationSettings',
+      triggerConditions: 'TriggerConditions',
+      updatedTime: 'UpdatedTime',
+      updatedUid: 'UpdatedUid',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      createdTime: 'number',
+      createdUid: 'string',
+      DIAlarmRuleId: 'number',
+      DIJobId: 'number',
+      description: 'string',
+      enabled: 'boolean',
+      metricType: 'string',
+      notificationSettings: GetDIAlarmRuleResponseBodyDIAlarmRuleNotificationSettings,
+      triggerConditions: { 'type': 'array', 'itemType': GetDIAlarmRuleResponseBodyDIAlarmRuleTriggerConditions },
+      updatedTime: 'number',
+      updatedUid: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class GetDIJobResponseBodyDataDestinationDataSourceSettings extends $tea.Model {
+  dataSourceName?: string;
+  dataSourceProperties?: { [key: string]: string };
+  static names(): { [key: string]: string } {
+    return {
+      dataSourceName: 'DataSourceName',
+      dataSourceProperties: 'DataSourceProperties',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      dataSourceName: 'string',
+      dataSourceProperties: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class GetDIJobResponseBodyDataJobSettingsColumnDataTypeSettings extends $tea.Model {
+  destinationDataType?: string;
+  sourceDataType?: string;
+  static names(): { [key: string]: string } {
+    return {
+      destinationDataType: 'DestinationDataType',
+      sourceDataType: 'SourceDataType',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      destinationDataType: 'string',
+      sourceDataType: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class GetDIJobResponseBodyDataJobSettingsDdlHandlingSettings extends $tea.Model {
+  action?: string;
+  type?: string;
+  static names(): { [key: string]: string } {
+    return {
+      action: 'Action',
+      type: 'Type',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      action: 'string',
+      type: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class GetDIJobResponseBodyDataJobSettingsRuntimeSettings extends $tea.Model {
+  name?: string;
+  value?: string;
+  static names(): { [key: string]: string } {
+    return {
+      name: 'Name',
+      value: 'Value',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      name: 'string',
+      value: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class GetDIJobResponseBodyDataJobSettings extends $tea.Model {
+  columnDataTypeSettings?: GetDIJobResponseBodyDataJobSettingsColumnDataTypeSettings[];
+  ddlHandlingSettings?: GetDIJobResponseBodyDataJobSettingsDdlHandlingSettings[];
+  runtimeSettings?: GetDIJobResponseBodyDataJobSettingsRuntimeSettings[];
+  static names(): { [key: string]: string } {
+    return {
+      columnDataTypeSettings: 'ColumnDataTypeSettings',
+      ddlHandlingSettings: 'DdlHandlingSettings',
+      runtimeSettings: 'RuntimeSettings',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      columnDataTypeSettings: { 'type': 'array', 'itemType': GetDIJobResponseBodyDataJobSettingsColumnDataTypeSettings },
+      ddlHandlingSettings: { 'type': 'array', 'itemType': GetDIJobResponseBodyDataJobSettingsDdlHandlingSettings },
+      runtimeSettings: { 'type': 'array', 'itemType': GetDIJobResponseBodyDataJobSettingsRuntimeSettings },
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class GetDIJobResponseBodyDataResourceSettingsOfflineResourceSettings extends $tea.Model {
+  resourceGroupIdentifier?: string;
+  static names(): { [key: string]: string } {
+    return {
+      resourceGroupIdentifier: 'ResourceGroupIdentifier',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      resourceGroupIdentifier: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class GetDIJobResponseBodyDataResourceSettingsRealtimeResourceSettings extends $tea.Model {
+  resourceGroupIdentifier?: string;
+  static names(): { [key: string]: string } {
+    return {
+      resourceGroupIdentifier: 'ResourceGroupIdentifier',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      resourceGroupIdentifier: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class GetDIJobResponseBodyDataResourceSettings extends $tea.Model {
+  offlineResourceSettings?: GetDIJobResponseBodyDataResourceSettingsOfflineResourceSettings;
+  realtimeResourceSettings?: GetDIJobResponseBodyDataResourceSettingsRealtimeResourceSettings;
+  static names(): { [key: string]: string } {
+    return {
+      offlineResourceSettings: 'OfflineResourceSettings',
+      realtimeResourceSettings: 'RealtimeResourceSettings',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      offlineResourceSettings: GetDIJobResponseBodyDataResourceSettingsOfflineResourceSettings,
+      realtimeResourceSettings: GetDIJobResponseBodyDataResourceSettingsRealtimeResourceSettings,
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class GetDIJobResponseBodyDataSourceDataSourceSettings extends $tea.Model {
+  dataSourceName?: string;
+  dataSourceProperties?: { [key: string]: string };
+  static names(): { [key: string]: string } {
+    return {
+      dataSourceName: 'DataSourceName',
+      dataSourceProperties: 'DataSourceProperties',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      dataSourceName: 'string',
+      dataSourceProperties: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class GetDIJobResponseBodyDataTableMappingsSourceObjectSelectionRules extends $tea.Model {
+  expression?: string;
+  objectType?: string;
+  static names(): { [key: string]: string } {
+    return {
+      expression: 'Expression',
+      objectType: 'ObjectType',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      expression: 'string',
+      objectType: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class GetDIJobResponseBodyDataTableMappingsTransformationRules extends $tea.Model {
+  ruleActionType?: string;
+  ruleName?: string;
+  ruleTargetType?: string;
+  static names(): { [key: string]: string } {
+    return {
+      ruleActionType: 'RuleActionType',
+      ruleName: 'RuleName',
+      ruleTargetType: 'RuleTargetType',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      ruleActionType: 'string',
+      ruleName: 'string',
+      ruleTargetType: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class GetDIJobResponseBodyDataTableMappings extends $tea.Model {
+  sourceObjectSelectionRules?: GetDIJobResponseBodyDataTableMappingsSourceObjectSelectionRules[];
+  transformationRules?: GetDIJobResponseBodyDataTableMappingsTransformationRules[];
+  static names(): { [key: string]: string } {
+    return {
+      sourceObjectSelectionRules: 'SourceObjectSelectionRules',
+      transformationRules: 'TransformationRules',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      sourceObjectSelectionRules: { 'type': 'array', 'itemType': GetDIJobResponseBodyDataTableMappingsSourceObjectSelectionRules },
+      transformationRules: { 'type': 'array', 'itemType': GetDIJobResponseBodyDataTableMappingsTransformationRules },
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class GetDIJobResponseBodyDataTransformationRules extends $tea.Model {
+  ruleActionType?: string;
+  ruleExpression?: string;
+  ruleName?: string;
+  ruleTargetType?: string;
+  static names(): { [key: string]: string } {
+    return {
+      ruleActionType: 'RuleActionType',
+      ruleExpression: 'RuleExpression',
+      ruleName: 'RuleName',
+      ruleTargetType: 'RuleTargetType',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      ruleActionType: 'string',
+      ruleExpression: 'string',
+      ruleName: 'string',
+      ruleTargetType: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class GetDIJobResponseBodyData extends $tea.Model {
+  createdTime?: number;
+  createdUid?: string;
+  DIJobId?: number;
+  description?: string;
+  destinationDataSourceSettings?: GetDIJobResponseBodyDataDestinationDataSourceSettings[];
+  destinationDataSourceType?: string;
+  errorMessage?: string;
+  jobName?: string;
+  jobSettings?: GetDIJobResponseBodyDataJobSettings;
+  jobStatus?: string;
+  migrationType?: string;
+  projectId?: number;
+  resourceSettings?: GetDIJobResponseBodyDataResourceSettings;
+  runStats?: { [key: string]: string };
+  sourceDataSourceSettings?: GetDIJobResponseBodyDataSourceDataSourceSettings[];
+  sourceDataSourceType?: string;
+  startedTime?: number;
+  startedUid?: string;
+  tableMappings?: GetDIJobResponseBodyDataTableMappings[];
+  transformationRules?: GetDIJobResponseBodyDataTransformationRules[];
+  updatedTime?: number;
+  updatedUid?: string;
+  static names(): { [key: string]: string } {
+    return {
+      createdTime: 'CreatedTime',
+      createdUid: 'CreatedUid',
+      DIJobId: 'DIJobId',
+      description: 'Description',
+      destinationDataSourceSettings: 'DestinationDataSourceSettings',
+      destinationDataSourceType: 'DestinationDataSourceType',
+      errorMessage: 'ErrorMessage',
+      jobName: 'JobName',
+      jobSettings: 'JobSettings',
+      jobStatus: 'JobStatus',
+      migrationType: 'MigrationType',
+      projectId: 'ProjectId',
+      resourceSettings: 'ResourceSettings',
+      runStats: 'RunStats',
+      sourceDataSourceSettings: 'SourceDataSourceSettings',
+      sourceDataSourceType: 'SourceDataSourceType',
+      startedTime: 'StartedTime',
+      startedUid: 'StartedUid',
+      tableMappings: 'TableMappings',
+      transformationRules: 'TransformationRules',
+      updatedTime: 'UpdatedTime',
+      updatedUid: 'UpdatedUid',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      createdTime: 'number',
+      createdUid: 'string',
+      DIJobId: 'number',
+      description: 'string',
+      destinationDataSourceSettings: { 'type': 'array', 'itemType': GetDIJobResponseBodyDataDestinationDataSourceSettings },
+      destinationDataSourceType: 'string',
+      errorMessage: 'string',
+      jobName: 'string',
+      jobSettings: GetDIJobResponseBodyDataJobSettings,
+      jobStatus: 'string',
+      migrationType: 'string',
+      projectId: 'number',
+      resourceSettings: GetDIJobResponseBodyDataResourceSettings,
+      runStats: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      sourceDataSourceSettings: { 'type': 'array', 'itemType': GetDIJobResponseBodyDataSourceDataSourceSettings },
+      sourceDataSourceType: 'string',
+      startedTime: 'number',
+      startedUid: 'string',
+      tableMappings: { 'type': 'array', 'itemType': GetDIJobResponseBodyDataTableMappings },
+      transformationRules: { 'type': 'array', 'itemType': GetDIJobResponseBodyDataTransformationRules },
+      updatedTime: 'number',
+      updatedUid: 'string',
     };
   }
 
@@ -29397,6 +31367,230 @@ export class ListConnectionsResponseBodyData extends $tea.Model {
   }
 }
 
+export class ListDIAlarmRulesResponseBodyDIAlarmRulePagingDIJobAlarmRulesNotificationSettingsNotificationChannels extends $tea.Model {
+  channels?: string[];
+  severity?: string;
+  static names(): { [key: string]: string } {
+    return {
+      channels: 'Channels',
+      severity: 'Severity',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      channels: { 'type': 'array', 'itemType': 'string' },
+      severity: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class ListDIAlarmRulesResponseBodyDIAlarmRulePagingDIJobAlarmRulesNotificationSettingsNotificationReceivers extends $tea.Model {
+  receiverType?: string;
+  receiverValues?: string[];
+  static names(): { [key: string]: string } {
+    return {
+      receiverType: 'ReceiverType',
+      receiverValues: 'ReceiverValues',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      receiverType: 'string',
+      receiverValues: { 'type': 'array', 'itemType': 'string' },
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class ListDIAlarmRulesResponseBodyDIAlarmRulePagingDIJobAlarmRulesNotificationSettings extends $tea.Model {
+  inhibitionInterval?: number;
+  notificationChannels?: ListDIAlarmRulesResponseBodyDIAlarmRulePagingDIJobAlarmRulesNotificationSettingsNotificationChannels[];
+  notificationReceivers?: ListDIAlarmRulesResponseBodyDIAlarmRulePagingDIJobAlarmRulesNotificationSettingsNotificationReceivers[];
+  static names(): { [key: string]: string } {
+    return {
+      inhibitionInterval: 'InhibitionInterval',
+      notificationChannels: 'NotificationChannels',
+      notificationReceivers: 'NotificationReceivers',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      inhibitionInterval: 'number',
+      notificationChannels: { 'type': 'array', 'itemType': ListDIAlarmRulesResponseBodyDIAlarmRulePagingDIJobAlarmRulesNotificationSettingsNotificationChannels },
+      notificationReceivers: { 'type': 'array', 'itemType': ListDIAlarmRulesResponseBodyDIAlarmRulePagingDIJobAlarmRulesNotificationSettingsNotificationReceivers },
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class ListDIAlarmRulesResponseBodyDIAlarmRulePagingDIJobAlarmRulesTriggerConditions extends $tea.Model {
+  duration?: number;
+  severity?: string;
+  threshold?: number;
+  static names(): { [key: string]: string } {
+    return {
+      duration: 'Duration',
+      severity: 'Severity',
+      threshold: 'Threshold',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      duration: 'number',
+      severity: 'string',
+      threshold: 'number',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class ListDIAlarmRulesResponseBodyDIAlarmRulePagingDIJobAlarmRules extends $tea.Model {
+  DIAlarmRuleId?: number;
+  DIJobId?: number;
+  description?: string;
+  enabled?: boolean;
+  metricType?: string;
+  notificationSettings?: ListDIAlarmRulesResponseBodyDIAlarmRulePagingDIJobAlarmRulesNotificationSettings;
+  triggerConditions?: ListDIAlarmRulesResponseBodyDIAlarmRulePagingDIJobAlarmRulesTriggerConditions[];
+  static names(): { [key: string]: string } {
+    return {
+      DIAlarmRuleId: 'DIAlarmRuleId',
+      DIJobId: 'DIJobId',
+      description: 'Description',
+      enabled: 'Enabled',
+      metricType: 'MetricType',
+      notificationSettings: 'NotificationSettings',
+      triggerConditions: 'TriggerConditions',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      DIAlarmRuleId: 'number',
+      DIJobId: 'number',
+      description: 'string',
+      enabled: 'boolean',
+      metricType: 'string',
+      notificationSettings: ListDIAlarmRulesResponseBodyDIAlarmRulePagingDIJobAlarmRulesNotificationSettings,
+      triggerConditions: { 'type': 'array', 'itemType': ListDIAlarmRulesResponseBodyDIAlarmRulePagingDIJobAlarmRulesTriggerConditions },
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class ListDIAlarmRulesResponseBodyDIAlarmRulePaging extends $tea.Model {
+  DIJobAlarmRules?: ListDIAlarmRulesResponseBodyDIAlarmRulePagingDIJobAlarmRules[];
+  pageNumber?: number;
+  pageSize?: number;
+  totalCount?: number;
+  static names(): { [key: string]: string } {
+    return {
+      DIJobAlarmRules: 'DIJobAlarmRules',
+      pageNumber: 'PageNumber',
+      pageSize: 'PageSize',
+      totalCount: 'TotalCount',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      DIJobAlarmRules: { 'type': 'array', 'itemType': ListDIAlarmRulesResponseBodyDIAlarmRulePagingDIJobAlarmRules },
+      pageNumber: 'number',
+      pageSize: 'number',
+      totalCount: 'number',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class ListDIJobsResponseBodyDIJobPagingDIJobs extends $tea.Model {
+  DIJobId?: number;
+  destinationDataSourceType?: string;
+  jobName?: string;
+  jobStatus?: string;
+  migrationType?: string;
+  projectId?: number;
+  sourceDataSourceType?: string;
+  static names(): { [key: string]: string } {
+    return {
+      DIJobId: 'DIJobId',
+      destinationDataSourceType: 'DestinationDataSourceType',
+      jobName: 'JobName',
+      jobStatus: 'JobStatus',
+      migrationType: 'MigrationType',
+      projectId: 'ProjectId',
+      sourceDataSourceType: 'SourceDataSourceType',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      DIJobId: 'number',
+      destinationDataSourceType: 'string',
+      jobName: 'string',
+      jobStatus: 'string',
+      migrationType: 'string',
+      projectId: 'number',
+      sourceDataSourceType: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class ListDIJobsResponseBodyDIJobPaging extends $tea.Model {
+  DIJobs?: ListDIJobsResponseBodyDIJobPagingDIJobs[];
+  pageNumber?: number;
+  pageSize?: number;
+  totalCount?: number;
+  static names(): { [key: string]: string } {
+    return {
+      DIJobs: 'DIJobs',
+      pageNumber: 'PageNumber',
+      pageSize: 'PageSize',
+      totalCount: 'TotalCount',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      DIJobs: { 'type': 'array', 'itemType': ListDIJobsResponseBodyDIJobPagingDIJobs },
+      pageNumber: 'number',
+      pageSize: 'number',
+      totalCount: 'number',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
 export class ListDIProjectConfigResponseBodyData extends $tea.Model {
   config?: string;
   static names(): { [key: string]: string } {
@@ -34195,6 +36389,50 @@ export class SetDataSourceShareResponseBodyData extends $tea.Model {
   }
 }
 
+export class StartDIJobRequestRealtimeStartSettingsFailoverSettings extends $tea.Model {
+  interval?: number;
+  upperLimit?: number;
+  static names(): { [key: string]: string } {
+    return {
+      interval: 'Interval',
+      upperLimit: 'UpperLimit',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      interval: 'number',
+      upperLimit: 'number',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class StartDIJobRequestRealtimeStartSettings extends $tea.Model {
+  failoverSettings?: StartDIJobRequestRealtimeStartSettingsFailoverSettings;
+  startTime?: number;
+  static names(): { [key: string]: string } {
+    return {
+      failoverSettings: 'FailoverSettings',
+      startTime: 'StartTime',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      failoverSettings: StartDIJobRequestRealtimeStartSettingsFailoverSettings,
+      startTime: 'number',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
 export class StartDISyncInstanceResponseBodyData extends $tea.Model {
   message?: string;
   status?: string;
@@ -34593,6 +36831,348 @@ export class UpdateBaselineRequestOvertimeSettings extends $tea.Model {
     return {
       cycle: 'number',
       time: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class UpdateDIAlarmRuleRequestNotificationSettingsNotificationChannels extends $tea.Model {
+  channels?: string[];
+  severity?: string;
+  static names(): { [key: string]: string } {
+    return {
+      channels: 'Channels',
+      severity: 'Severity',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      channels: { 'type': 'array', 'itemType': 'string' },
+      severity: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class UpdateDIAlarmRuleRequestNotificationSettingsNotificationReceivers extends $tea.Model {
+  receiverType?: string;
+  receiverValues?: string[];
+  static names(): { [key: string]: string } {
+    return {
+      receiverType: 'ReceiverType',
+      receiverValues: 'ReceiverValues',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      receiverType: 'string',
+      receiverValues: { 'type': 'array', 'itemType': 'string' },
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class UpdateDIAlarmRuleRequestNotificationSettings extends $tea.Model {
+  inhibitionInterval?: number;
+  notificationChannels?: UpdateDIAlarmRuleRequestNotificationSettingsNotificationChannels[];
+  notificationReceivers?: UpdateDIAlarmRuleRequestNotificationSettingsNotificationReceivers[];
+  static names(): { [key: string]: string } {
+    return {
+      inhibitionInterval: 'InhibitionInterval',
+      notificationChannels: 'NotificationChannels',
+      notificationReceivers: 'NotificationReceivers',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      inhibitionInterval: 'number',
+      notificationChannels: { 'type': 'array', 'itemType': UpdateDIAlarmRuleRequestNotificationSettingsNotificationChannels },
+      notificationReceivers: { 'type': 'array', 'itemType': UpdateDIAlarmRuleRequestNotificationSettingsNotificationReceivers },
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class UpdateDIAlarmRuleRequestTriggerConditions extends $tea.Model {
+  duration?: number;
+  severity?: string;
+  threshold?: number;
+  static names(): { [key: string]: string } {
+    return {
+      duration: 'Duration',
+      severity: 'Severity',
+      threshold: 'Threshold',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      duration: 'number',
+      severity: 'string',
+      threshold: 'number',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class UpdateDIJobRequestJobSettingsColumnDataTypeSettings extends $tea.Model {
+  destinationDataType?: string;
+  sourceDataType?: string;
+  static names(): { [key: string]: string } {
+    return {
+      destinationDataType: 'DestinationDataType',
+      sourceDataType: 'SourceDataType',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      destinationDataType: 'string',
+      sourceDataType: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class UpdateDIJobRequestJobSettingsDdlHandlingSettings extends $tea.Model {
+  action?: string;
+  type?: string;
+  static names(): { [key: string]: string } {
+    return {
+      action: 'Action',
+      type: 'Type',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      action: 'string',
+      type: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class UpdateDIJobRequestJobSettingsRuntimeSettings extends $tea.Model {
+  name?: string;
+  value?: string;
+  static names(): { [key: string]: string } {
+    return {
+      name: 'Name',
+      value: 'Value',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      name: 'string',
+      value: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class UpdateDIJobRequestJobSettings extends $tea.Model {
+  columnDataTypeSettings?: UpdateDIJobRequestJobSettingsColumnDataTypeSettings[];
+  ddlHandlingSettings?: UpdateDIJobRequestJobSettingsDdlHandlingSettings[];
+  runtimeSettings?: UpdateDIJobRequestJobSettingsRuntimeSettings[];
+  static names(): { [key: string]: string } {
+    return {
+      columnDataTypeSettings: 'ColumnDataTypeSettings',
+      ddlHandlingSettings: 'DdlHandlingSettings',
+      runtimeSettings: 'RuntimeSettings',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      columnDataTypeSettings: { 'type': 'array', 'itemType': UpdateDIJobRequestJobSettingsColumnDataTypeSettings },
+      ddlHandlingSettings: { 'type': 'array', 'itemType': UpdateDIJobRequestJobSettingsDdlHandlingSettings },
+      runtimeSettings: { 'type': 'array', 'itemType': UpdateDIJobRequestJobSettingsRuntimeSettings },
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class UpdateDIJobRequestResourceSettingsOfflineResourceSettings extends $tea.Model {
+  resourceGroupIdentifier?: string;
+  static names(): { [key: string]: string } {
+    return {
+      resourceGroupIdentifier: 'ResourceGroupIdentifier',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      resourceGroupIdentifier: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class UpdateDIJobRequestResourceSettingsRealtimeResourceSettings extends $tea.Model {
+  resourceGroupIdentifier?: string;
+  static names(): { [key: string]: string } {
+    return {
+      resourceGroupIdentifier: 'ResourceGroupIdentifier',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      resourceGroupIdentifier: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class UpdateDIJobRequestResourceSettings extends $tea.Model {
+  offlineResourceSettings?: UpdateDIJobRequestResourceSettingsOfflineResourceSettings;
+  realtimeResourceSettings?: UpdateDIJobRequestResourceSettingsRealtimeResourceSettings;
+  static names(): { [key: string]: string } {
+    return {
+      offlineResourceSettings: 'OfflineResourceSettings',
+      realtimeResourceSettings: 'RealtimeResourceSettings',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      offlineResourceSettings: UpdateDIJobRequestResourceSettingsOfflineResourceSettings,
+      realtimeResourceSettings: UpdateDIJobRequestResourceSettingsRealtimeResourceSettings,
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class UpdateDIJobRequestTableMappingsSourceObjectSelectionRules extends $tea.Model {
+  expression?: string;
+  objectType?: string;
+  static names(): { [key: string]: string } {
+    return {
+      expression: 'Expression',
+      objectType: 'ObjectType',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      expression: 'string',
+      objectType: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class UpdateDIJobRequestTableMappingsTransformationRules extends $tea.Model {
+  ruleActionType?: string;
+  ruleName?: string;
+  ruleTargetType?: string;
+  static names(): { [key: string]: string } {
+    return {
+      ruleActionType: 'RuleActionType',
+      ruleName: 'RuleName',
+      ruleTargetType: 'RuleTargetType',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      ruleActionType: 'string',
+      ruleName: 'string',
+      ruleTargetType: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class UpdateDIJobRequestTableMappings extends $tea.Model {
+  sourceObjectSelectionRules?: UpdateDIJobRequestTableMappingsSourceObjectSelectionRules[];
+  transformationRules?: UpdateDIJobRequestTableMappingsTransformationRules[];
+  static names(): { [key: string]: string } {
+    return {
+      sourceObjectSelectionRules: 'SourceObjectSelectionRules',
+      transformationRules: 'TransformationRules',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      sourceObjectSelectionRules: { 'type': 'array', 'itemType': UpdateDIJobRequestTableMappingsSourceObjectSelectionRules },
+      transformationRules: { 'type': 'array', 'itemType': UpdateDIJobRequestTableMappingsTransformationRules },
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class UpdateDIJobRequestTransformationRules extends $tea.Model {
+  ruleActionType?: string;
+  ruleExpression?: string;
+  ruleName?: string;
+  ruleTargetType?: string;
+  static names(): { [key: string]: string } {
+    return {
+      ruleActionType: 'RuleActionType',
+      ruleExpression: 'RuleExpression',
+      ruleName: 'RuleName',
+      ruleTargetType: 'RuleTargetType',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      ruleActionType: 'string',
+      ruleExpression: 'string',
+      ruleName: 'string',
+      ruleTargetType: 'string',
     };
   }
 
@@ -35413,6 +37993,170 @@ export default class Client extends OpenApi {
   async createConnection(request: CreateConnectionRequest): Promise<CreateConnectionResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.createConnectionWithOptions(request, runtime);
+  }
+
+  async createDIAlarmRuleWithOptions(tmpReq: CreateDIAlarmRuleRequest, runtime: $Util.RuntimeOptions): Promise<CreateDIAlarmRuleResponse> {
+    Util.validateModel(tmpReq);
+    let request = new CreateDIAlarmRuleShrinkRequest({ });
+    OpenApiUtil.convert(tmpReq, request);
+    if (!Util.isUnset(tmpReq.notificationSettings)) {
+      request.notificationSettingsShrink = OpenApiUtil.arrayToStringWithSpecifiedStyle(tmpReq.notificationSettings, "NotificationSettings", "json");
+    }
+
+    if (!Util.isUnset(tmpReq.triggerConditions)) {
+      request.triggerConditionsShrink = OpenApiUtil.arrayToStringWithSpecifiedStyle(tmpReq.triggerConditions, "TriggerConditions", "json");
+    }
+
+    let body : {[key: string ]: any} = { };
+    if (!Util.isUnset(request.DIJobId)) {
+      body["DIJobId"] = request.DIJobId;
+    }
+
+    if (!Util.isUnset(request.description)) {
+      body["Description"] = request.description;
+    }
+
+    if (!Util.isUnset(request.enabled)) {
+      body["Enabled"] = request.enabled;
+    }
+
+    if (!Util.isUnset(request.metricType)) {
+      body["MetricType"] = request.metricType;
+    }
+
+    if (!Util.isUnset(request.notificationSettingsShrink)) {
+      body["NotificationSettings"] = request.notificationSettingsShrink;
+    }
+
+    if (!Util.isUnset(request.triggerConditionsShrink)) {
+      body["TriggerConditions"] = request.triggerConditionsShrink;
+    }
+
+    let req = new $OpenApi.OpenApiRequest({
+      body: OpenApiUtil.parseToMap(body),
+    });
+    let params = new $OpenApi.Params({
+      action: "CreateDIAlarmRule",
+      version: "2020-05-18",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $tea.cast<CreateDIAlarmRuleResponse>(await this.callApi(params, req, runtime), new CreateDIAlarmRuleResponse({}));
+  }
+
+  async createDIAlarmRule(request: CreateDIAlarmRuleRequest): Promise<CreateDIAlarmRuleResponse> {
+    let runtime = new $Util.RuntimeOptions({ });
+    return await this.createDIAlarmRuleWithOptions(request, runtime);
+  }
+
+  async createDIJobWithOptions(tmpReq: CreateDIJobRequest, runtime: $Util.RuntimeOptions): Promise<CreateDIJobResponse> {
+    Util.validateModel(tmpReq);
+    let request = new CreateDIJobShrinkRequest({ });
+    OpenApiUtil.convert(tmpReq, request);
+    if (!Util.isUnset(tmpReq.destinationDataSourceSettings)) {
+      request.destinationDataSourceSettingsShrink = OpenApiUtil.arrayToStringWithSpecifiedStyle(tmpReq.destinationDataSourceSettings, "DestinationDataSourceSettings", "json");
+    }
+
+    if (!Util.isUnset(tmpReq.jobSettings)) {
+      request.jobSettingsShrink = OpenApiUtil.arrayToStringWithSpecifiedStyle(tmpReq.jobSettings, "JobSettings", "json");
+    }
+
+    if (!Util.isUnset(tmpReq.resourceSettings)) {
+      request.resourceSettingsShrink = OpenApiUtil.arrayToStringWithSpecifiedStyle(tmpReq.resourceSettings, "ResourceSettings", "json");
+    }
+
+    if (!Util.isUnset(tmpReq.sourceDataSourceSettings)) {
+      request.sourceDataSourceSettingsShrink = OpenApiUtil.arrayToStringWithSpecifiedStyle(tmpReq.sourceDataSourceSettings, "SourceDataSourceSettings", "json");
+    }
+
+    if (!Util.isUnset(tmpReq.tableMappings)) {
+      request.tableMappingsShrink = OpenApiUtil.arrayToStringWithSpecifiedStyle(tmpReq.tableMappings, "TableMappings", "json");
+    }
+
+    if (!Util.isUnset(tmpReq.transformationRules)) {
+      request.transformationRulesShrink = OpenApiUtil.arrayToStringWithSpecifiedStyle(tmpReq.transformationRules, "TransformationRules", "json");
+    }
+
+    let query = { };
+    if (!Util.isUnset(request.systemDebug)) {
+      query["SystemDebug"] = request.systemDebug;
+    }
+
+    let body : {[key: string ]: any} = { };
+    if (!Util.isUnset(request.description)) {
+      body["Description"] = request.description;
+    }
+
+    if (!Util.isUnset(request.destinationDataSourceSettingsShrink)) {
+      body["DestinationDataSourceSettings"] = request.destinationDataSourceSettingsShrink;
+    }
+
+    if (!Util.isUnset(request.destinationDataSourceType)) {
+      body["DestinationDataSourceType"] = request.destinationDataSourceType;
+    }
+
+    if (!Util.isUnset(request.jobName)) {
+      body["JobName"] = request.jobName;
+    }
+
+    if (!Util.isUnset(request.jobSettingsShrink)) {
+      body["JobSettings"] = request.jobSettingsShrink;
+    }
+
+    if (!Util.isUnset(request.migrationType)) {
+      body["MigrationType"] = request.migrationType;
+    }
+
+    if (!Util.isUnset(request.projectId)) {
+      body["ProjectId"] = request.projectId;
+    }
+
+    if (!Util.isUnset(request.resourceSettingsShrink)) {
+      body["ResourceSettings"] = request.resourceSettingsShrink;
+    }
+
+    if (!Util.isUnset(request.sourceDataSourceSettingsShrink)) {
+      body["SourceDataSourceSettings"] = request.sourceDataSourceSettingsShrink;
+    }
+
+    if (!Util.isUnset(request.sourceDataSourceType)) {
+      body["SourceDataSourceType"] = request.sourceDataSourceType;
+    }
+
+    if (!Util.isUnset(request.tableMappingsShrink)) {
+      body["TableMappings"] = request.tableMappingsShrink;
+    }
+
+    if (!Util.isUnset(request.transformationRulesShrink)) {
+      body["TransformationRules"] = request.transformationRulesShrink;
+    }
+
+    let req = new $OpenApi.OpenApiRequest({
+      query: OpenApiUtil.query(query),
+      body: OpenApiUtil.parseToMap(body),
+    });
+    let params = new $OpenApi.Params({
+      action: "CreateDIJob",
+      version: "2020-05-18",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $tea.cast<CreateDIJobResponse>(await this.callApi(params, req, runtime), new CreateDIJobResponse({}));
+  }
+
+  async createDIJob(request: CreateDIJobRequest): Promise<CreateDIJobResponse> {
+    let runtime = new $Util.RuntimeOptions({ });
+    return await this.createDIJobWithOptions(request, runtime);
   }
 
   /**
@@ -37452,6 +40196,64 @@ export default class Client extends OpenApi {
     return await this.deleteConnectionWithOptions(request, runtime);
   }
 
+  async deleteDIAlarmRuleWithOptions(request: DeleteDIAlarmRuleRequest, runtime: $Util.RuntimeOptions): Promise<DeleteDIAlarmRuleResponse> {
+    Util.validateModel(request);
+    let body : {[key: string ]: any} = { };
+    if (!Util.isUnset(request.DIAlarmRuleId)) {
+      body["DIAlarmRuleId"] = request.DIAlarmRuleId;
+    }
+
+    let req = new $OpenApi.OpenApiRequest({
+      body: OpenApiUtil.parseToMap(body),
+    });
+    let params = new $OpenApi.Params({
+      action: "DeleteDIAlarmRule",
+      version: "2020-05-18",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $tea.cast<DeleteDIAlarmRuleResponse>(await this.callApi(params, req, runtime), new DeleteDIAlarmRuleResponse({}));
+  }
+
+  async deleteDIAlarmRule(request: DeleteDIAlarmRuleRequest): Promise<DeleteDIAlarmRuleResponse> {
+    let runtime = new $Util.RuntimeOptions({ });
+    return await this.deleteDIAlarmRuleWithOptions(request, runtime);
+  }
+
+  async deleteDIJobWithOptions(request: DeleteDIJobRequest, runtime: $Util.RuntimeOptions): Promise<DeleteDIJobResponse> {
+    Util.validateModel(request);
+    let body : {[key: string ]: any} = { };
+    if (!Util.isUnset(request.DIJobId)) {
+      body["DIJobId"] = request.DIJobId;
+    }
+
+    let req = new $OpenApi.OpenApiRequest({
+      body: OpenApiUtil.parseToMap(body),
+    });
+    let params = new $OpenApi.Params({
+      action: "DeleteDIJob",
+      version: "2020-05-18",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $tea.cast<DeleteDIJobResponse>(await this.callApi(params, req, runtime), new DeleteDIJobResponse({}));
+  }
+
+  async deleteDIJob(request: DeleteDIJobRequest): Promise<DeleteDIJobResponse> {
+    let runtime = new $Util.RuntimeOptions({ });
+    return await this.deleteDIJobWithOptions(request, runtime);
+  }
+
   async deleteDISyncTaskWithOptions(request: DeleteDISyncTaskRequest, runtime: $Util.RuntimeOptions): Promise<DeleteDISyncTaskResponse> {
     Util.validateModel(request);
     let query = { };
@@ -38670,6 +41472,68 @@ export default class Client extends OpenApi {
   async getDDLJobStatus(request: GetDDLJobStatusRequest): Promise<GetDDLJobStatusResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.getDDLJobStatusWithOptions(request, runtime);
+  }
+
+  async getDIAlarmRuleWithOptions(request: GetDIAlarmRuleRequest, runtime: $Util.RuntimeOptions): Promise<GetDIAlarmRuleResponse> {
+    Util.validateModel(request);
+    let body : {[key: string ]: any} = { };
+    if (!Util.isUnset(request.DIAlarmRuleId)) {
+      body["DIAlarmRuleId"] = request.DIAlarmRuleId;
+    }
+
+    let req = new $OpenApi.OpenApiRequest({
+      body: OpenApiUtil.parseToMap(body),
+    });
+    let params = new $OpenApi.Params({
+      action: "GetDIAlarmRule",
+      version: "2020-05-18",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $tea.cast<GetDIAlarmRuleResponse>(await this.callApi(params, req, runtime), new GetDIAlarmRuleResponse({}));
+  }
+
+  async getDIAlarmRule(request: GetDIAlarmRuleRequest): Promise<GetDIAlarmRuleResponse> {
+    let runtime = new $Util.RuntimeOptions({ });
+    return await this.getDIAlarmRuleWithOptions(request, runtime);
+  }
+
+  async getDIJobWithOptions(request: GetDIJobRequest, runtime: $Util.RuntimeOptions): Promise<GetDIJobResponse> {
+    Util.validateModel(request);
+    let body : {[key: string ]: any} = { };
+    if (!Util.isUnset(request.DIJobId)) {
+      body["DIJobId"] = request.DIJobId;
+    }
+
+    if (!Util.isUnset(request.withDetails)) {
+      body["WithDetails"] = request.withDetails;
+    }
+
+    let req = new $OpenApi.OpenApiRequest({
+      body: OpenApiUtil.parseToMap(body),
+    });
+    let params = new $OpenApi.Params({
+      action: "GetDIJob",
+      version: "2020-05-18",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $tea.cast<GetDIJobResponse>(await this.callApi(params, req, runtime), new GetDIJobResponse({}));
+  }
+
+  async getDIJob(request: GetDIJobRequest): Promise<GetDIJobResponse> {
+    let runtime = new $Util.RuntimeOptions({ });
+    return await this.getDIJobWithOptions(request, runtime);
   }
 
   async getDISyncInstanceInfoWithOptions(request: GetDISyncInstanceInfoRequest, runtime: $Util.RuntimeOptions): Promise<GetDISyncInstanceInfoResponse> {
@@ -41572,6 +44436,92 @@ export default class Client extends OpenApi {
   async listConnections(request: ListConnectionsRequest): Promise<ListConnectionsResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.listConnectionsWithOptions(request, runtime);
+  }
+
+  async listDIAlarmRulesWithOptions(request: ListDIAlarmRulesRequest, runtime: $Util.RuntimeOptions): Promise<ListDIAlarmRulesResponse> {
+    Util.validateModel(request);
+    let body : {[key: string ]: any} = { };
+    if (!Util.isUnset(request.DIJobId)) {
+      body["DIJobId"] = request.DIJobId;
+    }
+
+    if (!Util.isUnset(request.pageNumber)) {
+      body["PageNumber"] = request.pageNumber;
+    }
+
+    if (!Util.isUnset(request.pageSize)) {
+      body["PageSize"] = request.pageSize;
+    }
+
+    let req = new $OpenApi.OpenApiRequest({
+      body: OpenApiUtil.parseToMap(body),
+    });
+    let params = new $OpenApi.Params({
+      action: "ListDIAlarmRules",
+      version: "2020-05-18",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $tea.cast<ListDIAlarmRulesResponse>(await this.callApi(params, req, runtime), new ListDIAlarmRulesResponse({}));
+  }
+
+  async listDIAlarmRules(request: ListDIAlarmRulesRequest): Promise<ListDIAlarmRulesResponse> {
+    let runtime = new $Util.RuntimeOptions({ });
+    return await this.listDIAlarmRulesWithOptions(request, runtime);
+  }
+
+  async listDIJobsWithOptions(request: ListDIJobsRequest, runtime: $Util.RuntimeOptions): Promise<ListDIJobsResponse> {
+    Util.validateModel(request);
+    let body : {[key: string ]: any} = { };
+    if (!Util.isUnset(request.destinationDataSourceType)) {
+      body["DestinationDataSourceType"] = request.destinationDataSourceType;
+    }
+
+    if (!Util.isUnset(request.jobName)) {
+      body["JobName"] = request.jobName;
+    }
+
+    if (!Util.isUnset(request.pageNumber)) {
+      body["PageNumber"] = request.pageNumber;
+    }
+
+    if (!Util.isUnset(request.pageSize)) {
+      body["PageSize"] = request.pageSize;
+    }
+
+    if (!Util.isUnset(request.projectId)) {
+      body["ProjectId"] = request.projectId;
+    }
+
+    if (!Util.isUnset(request.sourceDataSourceType)) {
+      body["SourceDataSourceType"] = request.sourceDataSourceType;
+    }
+
+    let req = new $OpenApi.OpenApiRequest({
+      body: OpenApiUtil.parseToMap(body),
+    });
+    let params = new $OpenApi.Params({
+      action: "ListDIJobs",
+      version: "2020-05-18",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $tea.cast<ListDIJobsResponse>(await this.callApi(params, req, runtime), new ListDIJobsResponse({}));
+  }
+
+  async listDIJobs(request: ListDIJobsRequest): Promise<ListDIJobsResponse> {
+    let runtime = new $Util.RuntimeOptions({ });
+    return await this.listDIJobsWithOptions(request, runtime);
   }
 
   /**
@@ -44994,6 +47944,49 @@ export default class Client extends OpenApi {
     return await this.setSuccessInstanceWithOptions(request, runtime);
   }
 
+  async startDIJobWithOptions(tmpReq: StartDIJobRequest, runtime: $Util.RuntimeOptions): Promise<StartDIJobResponse> {
+    Util.validateModel(tmpReq);
+    let request = new StartDIJobShrinkRequest({ });
+    OpenApiUtil.convert(tmpReq, request);
+    if (!Util.isUnset(tmpReq.realtimeStartSettings)) {
+      request.realtimeStartSettingsShrink = OpenApiUtil.arrayToStringWithSpecifiedStyle(tmpReq.realtimeStartSettings, "RealtimeStartSettings", "json");
+    }
+
+    let body : {[key: string ]: any} = { };
+    if (!Util.isUnset(request.DIJobId)) {
+      body["DIJobId"] = request.DIJobId;
+    }
+
+    if (!Util.isUnset(request.forceToRerun)) {
+      body["ForceToRerun"] = request.forceToRerun;
+    }
+
+    if (!Util.isUnset(request.realtimeStartSettingsShrink)) {
+      body["RealtimeStartSettings"] = request.realtimeStartSettingsShrink;
+    }
+
+    let req = new $OpenApi.OpenApiRequest({
+      body: OpenApiUtil.parseToMap(body),
+    });
+    let params = new $OpenApi.Params({
+      action: "StartDIJob",
+      version: "2020-05-18",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $tea.cast<StartDIJobResponse>(await this.callApi(params, req, runtime), new StartDIJobResponse({}));
+  }
+
+  async startDIJob(request: StartDIJobRequest): Promise<StartDIJobResponse> {
+    let runtime = new $Util.RuntimeOptions({ });
+    return await this.startDIJobWithOptions(request, runtime);
+  }
+
   async startDISyncInstanceWithOptions(request: StartDISyncInstanceRequest, runtime: $Util.RuntimeOptions): Promise<StartDISyncInstanceResponse> {
     Util.validateModel(request);
     let query = { };
@@ -45066,6 +48059,35 @@ export default class Client extends OpenApi {
   async startMigration(request: StartMigrationRequest): Promise<StartMigrationResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.startMigrationWithOptions(request, runtime);
+  }
+
+  async stopDIJobWithOptions(request: StopDIJobRequest, runtime: $Util.RuntimeOptions): Promise<StopDIJobResponse> {
+    Util.validateModel(request);
+    let body : {[key: string ]: any} = { };
+    if (!Util.isUnset(request.DIJobId)) {
+      body["DIJobId"] = request.DIJobId;
+    }
+
+    let req = new $OpenApi.OpenApiRequest({
+      body: OpenApiUtil.parseToMap(body),
+    });
+    let params = new $OpenApi.Params({
+      action: "StopDIJob",
+      version: "2020-05-18",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $tea.cast<StopDIJobResponse>(await this.callApi(params, req, runtime), new StopDIJobResponse({}));
+  }
+
+  async stopDIJob(request: StopDIJobRequest): Promise<StopDIJobResponse> {
+    let runtime = new $Util.RuntimeOptions({ });
+    return await this.stopDIJobWithOptions(request, runtime);
   }
 
   async stopDISyncInstanceWithOptions(request: StopDISyncInstanceRequest, runtime: $Util.RuntimeOptions): Promise<StopDISyncInstanceResponse> {
@@ -45671,6 +48693,132 @@ export default class Client extends OpenApi {
   async updateConnection(request: UpdateConnectionRequest): Promise<UpdateConnectionResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.updateConnectionWithOptions(request, runtime);
+  }
+
+  async updateDIAlarmRuleWithOptions(tmpReq: UpdateDIAlarmRuleRequest, runtime: $Util.RuntimeOptions): Promise<UpdateDIAlarmRuleResponse> {
+    Util.validateModel(tmpReq);
+    let request = new UpdateDIAlarmRuleShrinkRequest({ });
+    OpenApiUtil.convert(tmpReq, request);
+    if (!Util.isUnset(tmpReq.notificationSettings)) {
+      request.notificationSettingsShrink = OpenApiUtil.arrayToStringWithSpecifiedStyle(tmpReq.notificationSettings, "NotificationSettings", "json");
+    }
+
+    if (!Util.isUnset(tmpReq.triggerConditions)) {
+      request.triggerConditionsShrink = OpenApiUtil.arrayToStringWithSpecifiedStyle(tmpReq.triggerConditions, "TriggerConditions", "json");
+    }
+
+    let body : {[key: string ]: any} = { };
+    if (!Util.isUnset(request.DIAlarmRuleId)) {
+      body["DIAlarmRuleId"] = request.DIAlarmRuleId;
+    }
+
+    if (!Util.isUnset(request.description)) {
+      body["Description"] = request.description;
+    }
+
+    if (!Util.isUnset(request.enabled)) {
+      body["Enabled"] = request.enabled;
+    }
+
+    if (!Util.isUnset(request.metricType)) {
+      body["MetricType"] = request.metricType;
+    }
+
+    if (!Util.isUnset(request.notificationSettingsShrink)) {
+      body["NotificationSettings"] = request.notificationSettingsShrink;
+    }
+
+    if (!Util.isUnset(request.triggerConditionsShrink)) {
+      body["TriggerConditions"] = request.triggerConditionsShrink;
+    }
+
+    let req = new $OpenApi.OpenApiRequest({
+      body: OpenApiUtil.parseToMap(body),
+    });
+    let params = new $OpenApi.Params({
+      action: "UpdateDIAlarmRule",
+      version: "2020-05-18",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $tea.cast<UpdateDIAlarmRuleResponse>(await this.callApi(params, req, runtime), new UpdateDIAlarmRuleResponse({}));
+  }
+
+  async updateDIAlarmRule(request: UpdateDIAlarmRuleRequest): Promise<UpdateDIAlarmRuleResponse> {
+    let runtime = new $Util.RuntimeOptions({ });
+    return await this.updateDIAlarmRuleWithOptions(request, runtime);
+  }
+
+  async updateDIJobWithOptions(tmpReq: UpdateDIJobRequest, runtime: $Util.RuntimeOptions): Promise<UpdateDIJobResponse> {
+    Util.validateModel(tmpReq);
+    let request = new UpdateDIJobShrinkRequest({ });
+    OpenApiUtil.convert(tmpReq, request);
+    if (!Util.isUnset(tmpReq.jobSettings)) {
+      request.jobSettingsShrink = OpenApiUtil.arrayToStringWithSpecifiedStyle(tmpReq.jobSettings, "JobSettings", "json");
+    }
+
+    if (!Util.isUnset(tmpReq.resourceSettings)) {
+      request.resourceSettingsShrink = OpenApiUtil.arrayToStringWithSpecifiedStyle(tmpReq.resourceSettings, "ResourceSettings", "json");
+    }
+
+    if (!Util.isUnset(tmpReq.tableMappings)) {
+      request.tableMappingsShrink = OpenApiUtil.arrayToStringWithSpecifiedStyle(tmpReq.tableMappings, "TableMappings", "json");
+    }
+
+    if (!Util.isUnset(tmpReq.transformationRules)) {
+      request.transformationRulesShrink = OpenApiUtil.arrayToStringWithSpecifiedStyle(tmpReq.transformationRules, "TransformationRules", "json");
+    }
+
+    let body : {[key: string ]: any} = { };
+    if (!Util.isUnset(request.DIJobId)) {
+      body["DIJobId"] = request.DIJobId;
+    }
+
+    if (!Util.isUnset(request.description)) {
+      body["Description"] = request.description;
+    }
+
+    if (!Util.isUnset(request.jobSettingsShrink)) {
+      body["JobSettings"] = request.jobSettingsShrink;
+    }
+
+    if (!Util.isUnset(request.resourceSettingsShrink)) {
+      body["ResourceSettings"] = request.resourceSettingsShrink;
+    }
+
+    if (!Util.isUnset(request.tableMappingsShrink)) {
+      body["TableMappings"] = request.tableMappingsShrink;
+    }
+
+    if (!Util.isUnset(request.transformationRulesShrink)) {
+      body["TransformationRules"] = request.transformationRulesShrink;
+    }
+
+    let req = new $OpenApi.OpenApiRequest({
+      body: OpenApiUtil.parseToMap(body),
+    });
+    let params = new $OpenApi.Params({
+      action: "UpdateDIJob",
+      version: "2020-05-18",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $tea.cast<UpdateDIJobResponse>(await this.callApi(params, req, runtime), new UpdateDIJobResponse({}));
+  }
+
+  async updateDIJob(request: UpdateDIJobRequest): Promise<UpdateDIJobResponse> {
+    let runtime = new $Util.RuntimeOptions({ });
+    return await this.updateDIJobWithOptions(request, runtime);
   }
 
   /**
