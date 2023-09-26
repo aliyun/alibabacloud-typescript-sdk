@@ -35021,6 +35021,72 @@ export class ListVulAutoRepairConfigResponse extends $tea.Model {
   }
 }
 
+export class ListVulGlobalConfigRequest extends $tea.Model {
+  configKey?: string;
+  static names(): { [key: string]: string } {
+    return {
+      configKey: 'ConfigKey',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      configKey: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class ListVulGlobalConfigResponseBody extends $tea.Model {
+  requestId?: string;
+  vulGlobalConfigList?: ListVulGlobalConfigResponseBodyVulGlobalConfigList[];
+  static names(): { [key: string]: string } {
+    return {
+      requestId: 'RequestId',
+      vulGlobalConfigList: 'VulGlobalConfigList',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      requestId: 'string',
+      vulGlobalConfigList: { 'type': 'array', 'itemType': ListVulGlobalConfigResponseBodyVulGlobalConfigList },
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class ListVulGlobalConfigResponse extends $tea.Model {
+  headers: { [key: string]: string };
+  statusCode: number;
+  body: ListVulGlobalConfigResponseBody;
+  static names(): { [key: string]: string } {
+    return {
+      headers: 'headers',
+      statusCode: 'statusCode',
+      body: 'body',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
+      body: ListVulGlobalConfigResponseBody,
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
 export class ModifyAccessKeyLeakDealRequest extends $tea.Model {
   id?: number;
   idList?: number[];
@@ -55914,6 +55980,7 @@ export class DescribeVulListResponseBodyVulRecordsExtendContentJson extends $tea
   absolutePath?: string;
   aliasName?: string;
   description?: string;
+  emgProof?: string;
   ip?: string;
   lastTs?: number;
   necessity?: DescribeVulListResponseBodyVulRecordsExtendContentJsonNecessity;
@@ -55923,12 +55990,14 @@ export class DescribeVulListResponseBodyVulRecordsExtendContentJson extends $tea
   rpmEntityList?: DescribeVulListResponseBodyVulRecordsExtendContentJsonRpmEntityList[];
   status?: string;
   tag?: string;
+  target?: string;
   cveList?: string[];
   static names(): { [key: string]: string } {
     return {
       absolutePath: 'AbsolutePath',
       aliasName: 'AliasName',
       description: 'Description',
+      emgProof: 'EmgProof',
       ip: 'Ip',
       lastTs: 'LastTs',
       necessity: 'Necessity',
@@ -55938,6 +56007,7 @@ export class DescribeVulListResponseBodyVulRecordsExtendContentJson extends $tea
       rpmEntityList: 'RpmEntityList',
       status: 'Status',
       tag: 'Tag',
+      target: 'Target',
       cveList: 'cveList',
     };
   }
@@ -55947,6 +56017,7 @@ export class DescribeVulListResponseBodyVulRecordsExtendContentJson extends $tea
       absolutePath: 'string',
       aliasName: 'string',
       description: 'string',
+      emgProof: 'string',
       ip: 'string',
       lastTs: 'number',
       necessity: DescribeVulListResponseBodyVulRecordsExtendContentJsonNecessity,
@@ -55956,6 +56027,7 @@ export class DescribeVulListResponseBodyVulRecordsExtendContentJson extends $tea
       rpmEntityList: { 'type': 'array', 'itemType': DescribeVulListResponseBodyVulRecordsExtendContentJsonRpmEntityList },
       status: 'string',
       tag: 'string',
+      target: 'string',
       cveList: { 'type': 'array', 'itemType': 'string' },
     };
   }
@@ -63639,6 +63711,28 @@ export class ListVulAutoRepairConfigResponseBodyVulAutoRepairConfigList extends 
   }
 }
 
+export class ListVulGlobalConfigResponseBodyVulGlobalConfigList extends $tea.Model {
+  configKey?: string;
+  configValue?: string;
+  static names(): { [key: string]: string } {
+    return {
+      configKey: 'ConfigKey',
+      configValue: 'ConfigValue',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      configKey: 'string',
+      configValue: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
 export class ModifyAssetCleanConfigRequestAssetCleanConfigs extends $tea.Model {
   cleanDays?: number;
   status?: number;
@@ -69472,7 +69566,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-    * You can search for assets by using search conditions, such as the instance ID, instance name, virtual private cloud (VPC) ID, region, and public IP address. You can also configure a logical relationship between multiple search conditions to search for the assets that meet the search conditions.
+    * You can search for an asset by using search conditions, such as the instance ID, instance name, virtual private cloud (VPC) ID, region, and public IP address. You can also configure a logical relationship between multiple search conditions to search for the assets that meet the search conditions.
     *
     * @param request DescribeCloudCenterInstancesRequest
     * @param runtime runtime options for this request RuntimeOptions
@@ -69547,7 +69641,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-    * You can search for assets by using search conditions, such as the instance ID, instance name, virtual private cloud (VPC) ID, region, and public IP address. You can also configure a logical relationship between multiple search conditions to search for the assets that meet the search conditions.
+    * You can search for an asset by using search conditions, such as the instance ID, instance name, virtual private cloud (VPC) ID, region, and public IP address. You can also configure a logical relationship between multiple search conditions to search for the assets that meet the search conditions.
     *
     * @param request DescribeCloudCenterInstancesRequest
     * @return DescribeCloudCenterInstancesResponse
@@ -72690,9 +72784,9 @@ export default class Client extends OpenApi {
   }
 
   /**
-    * You can call the DescribeInstallCodes operation to query the commands that are used to manually install the Security Center agent. The returned results contain the installation verification code and the server information. If you want to manually install the Security Center agent on your server, you can call this operation to query installation commands.
-    * # Limits
-    * You can call this API operation up to 10 times per second per account. If the number of the calls per second exceeds the limit, throttling is triggered. As a result, your business may be affected. We recommend that you take note of the limit when you call this operation.
+    * You can call this operation to query the commands that are used to manually install the Security Center agent on the server. The return result contains the installation verification code and the server information. If you want to manually install the Security Center agent on your server, you can call this operation to query installation commands.
+    * ### QPS limit
+    * You can call this operation up to 10 times per second per account. Requests that exceed this limit are dropped and you will experience service interruptions. We recommend that you take note of this limit when you call this operation.
     *
     * @param request DescribeInstallCodesRequest
     * @param runtime runtime options for this request RuntimeOptions
@@ -72715,9 +72809,9 @@ export default class Client extends OpenApi {
   }
 
   /**
-    * You can call the DescribeInstallCodes operation to query the commands that are used to manually install the Security Center agent. The returned results contain the installation verification code and the server information. If you want to manually install the Security Center agent on your server, you can call this operation to query installation commands.
-    * # Limits
-    * You can call this API operation up to 10 times per second per account. If the number of the calls per second exceeds the limit, throttling is triggered. As a result, your business may be affected. We recommend that you take note of the limit when you call this operation.
+    * You can call this operation to query the commands that are used to manually install the Security Center agent on the server. The return result contains the installation verification code and the server information. If you want to manually install the Security Center agent on your server, you can call this operation to query installation commands.
+    * ### QPS limit
+    * You can call this operation up to 10 times per second per account. Requests that exceed this limit are dropped and you will experience service interruptions. We recommend that you take note of this limit when you call this operation.
     *
     * @return DescribeInstallCodesResponse
    */
@@ -82921,6 +83015,35 @@ export default class Client extends OpenApi {
   async listVulAutoRepairConfig(request: ListVulAutoRepairConfigRequest): Promise<ListVulAutoRepairConfigResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.listVulAutoRepairConfigWithOptions(request, runtime);
+  }
+
+  async listVulGlobalConfigWithOptions(request: ListVulGlobalConfigRequest, runtime: $Util.RuntimeOptions): Promise<ListVulGlobalConfigResponse> {
+    Util.validateModel(request);
+    let query = { };
+    if (!Util.isUnset(request.configKey)) {
+      query["ConfigKey"] = request.configKey;
+    }
+
+    let req = new $OpenApi.OpenApiRequest({
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApi.Params({
+      action: "ListVulGlobalConfig",
+      version: "2018-12-03",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $tea.cast<ListVulGlobalConfigResponse>(await this.callApi(params, req, runtime), new ListVulGlobalConfigResponse({}));
+  }
+
+  async listVulGlobalConfig(request: ListVulGlobalConfigRequest): Promise<ListVulGlobalConfigResponse> {
+    let runtime = new $Util.RuntimeOptions({ });
+    return await this.listVulGlobalConfigWithOptions(request, runtime);
   }
 
   async modifyAccessKeyLeakDealWithOptions(request: ModifyAccessKeyLeakDealRequest, runtime: $Util.RuntimeOptions): Promise<ModifyAccessKeyLeakDealResponse> {
