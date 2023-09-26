@@ -1484,6 +1484,87 @@ export class CreateProtectdBranchResponse extends $tea.Model {
   }
 }
 
+export class CreatePushRuleRequest extends $tea.Model {
+  accessToken?: string;
+  ruleInfos?: CreatePushRuleRequestRuleInfos[];
+  organizationId?: string;
+  static names(): { [key: string]: string } {
+    return {
+      accessToken: 'accessToken',
+      ruleInfos: 'ruleInfos',
+      organizationId: 'organizationId',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      accessToken: 'string',
+      ruleInfos: { 'type': 'array', 'itemType': CreatePushRuleRequestRuleInfos },
+      organizationId: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class CreatePushRuleResponseBody extends $tea.Model {
+  errorCode?: string;
+  errorMessage?: string;
+  requestId?: string;
+  result?: CreatePushRuleResponseBodyResult;
+  success?: boolean;
+  static names(): { [key: string]: string } {
+    return {
+      errorCode: 'errorCode',
+      errorMessage: 'errorMessage',
+      requestId: 'requestId',
+      result: 'result',
+      success: 'success',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      errorCode: 'string',
+      errorMessage: 'string',
+      requestId: 'string',
+      result: CreatePushRuleResponseBodyResult,
+      success: 'boolean',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class CreatePushRuleResponse extends $tea.Model {
+  headers: { [key: string]: string };
+  statusCode: number;
+  body: CreatePushRuleResponseBody;
+  static names(): { [key: string]: string } {
+    return {
+      headers: 'headers',
+      statusCode: 'statusCode',
+      body: 'body',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
+      body: CreatePushRuleResponseBody,
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
 export class CreateRepositoryRequest extends $tea.Model {
   accessToken?: string;
   avatarUrl?: string;
@@ -3872,6 +3953,84 @@ export class DeleteProtectedBranchResponse extends $tea.Model {
   }
 }
 
+export class DeletePushRuleRequest extends $tea.Model {
+  accessToken?: string;
+  organizationId?: string;
+  static names(): { [key: string]: string } {
+    return {
+      accessToken: 'accessToken',
+      organizationId: 'organizationId',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      accessToken: 'string',
+      organizationId: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class DeletePushRuleResponseBody extends $tea.Model {
+  errorCode?: string;
+  errorMessage?: string;
+  requestId?: string;
+  result?: DeletePushRuleResponseBodyResult;
+  success?: string;
+  static names(): { [key: string]: string } {
+    return {
+      errorCode: 'errorCode',
+      errorMessage: 'errorMessage',
+      requestId: 'requestId',
+      result: 'result',
+      success: 'success',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      errorCode: 'string',
+      errorMessage: 'string',
+      requestId: 'string',
+      result: DeletePushRuleResponseBodyResult,
+      success: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class DeletePushRuleResponse extends $tea.Model {
+  headers: { [key: string]: string };
+  statusCode: number;
+  body: DeletePushRuleResponseBody;
+  static names(): { [key: string]: string } {
+    return {
+      headers: 'headers',
+      statusCode: 'statusCode',
+      body: 'body',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
+      body: DeletePushRuleResponseBody,
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
 export class DeleteRepositoryRequest extends $tea.Model {
   accessToken?: string;
   reason?: string;
@@ -5377,6 +5536,84 @@ export class GetFlowTagGroupResponse extends $tea.Model {
   }
 }
 
+export class GetGroupByPathRequest extends $tea.Model {
+  identity?: string;
+  organizationId?: string;
+  static names(): { [key: string]: string } {
+    return {
+      identity: 'identity',
+      organizationId: 'organizationId',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      identity: 'string',
+      organizationId: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class GetGroupByPathResponseBody extends $tea.Model {
+  errorCode?: string;
+  errorMessage?: string;
+  requestId?: string;
+  result?: GetGroupByPathResponseBodyResult;
+  success?: boolean;
+  static names(): { [key: string]: string } {
+    return {
+      errorCode: 'errorCode',
+      errorMessage: 'errorMessage',
+      requestId: 'requestId',
+      result: 'result',
+      success: 'success',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      errorCode: 'string',
+      errorMessage: 'string',
+      requestId: 'string',
+      result: GetGroupByPathResponseBodyResult,
+      success: 'boolean',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class GetGroupByPathResponse extends $tea.Model {
+  headers: { [key: string]: string };
+  statusCode: number;
+  body: GetGroupByPathResponseBody;
+  static names(): { [key: string]: string } {
+    return {
+      headers: 'headers',
+      statusCode: 'statusCode',
+      body: 'body',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
+      body: GetGroupByPathResponseBody,
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
 export class GetGroupDetailRequest extends $tea.Model {
   accessToken?: string;
   groupId?: number;
@@ -6170,6 +6407,84 @@ export class GetProjectMemberResponse extends $tea.Model {
       headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
       statusCode: 'number',
       body: GetProjectMemberResponseBody,
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class GetPushRuleRequest extends $tea.Model {
+  accessToken?: string;
+  organizationId?: string;
+  static names(): { [key: string]: string } {
+    return {
+      accessToken: 'accessToken',
+      organizationId: 'organizationId',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      accessToken: 'string',
+      organizationId: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class GetPushRuleResponseBody extends $tea.Model {
+  errorCode?: string;
+  errorMessage?: string;
+  requestId?: string;
+  result?: GetPushRuleResponseBodyResult;
+  success?: boolean;
+  static names(): { [key: string]: string } {
+    return {
+      errorCode: 'errorCode',
+      errorMessage: 'errorMessage',
+      requestId: 'requestId',
+      result: 'result',
+      success: 'success',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      errorCode: 'string',
+      errorMessage: 'string',
+      requestId: 'string',
+      result: GetPushRuleResponseBodyResult,
+      success: 'boolean',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class GetPushRuleResponse extends $tea.Model {
+  headers: { [key: string]: string };
+  statusCode: number;
+  body: GetPushRuleResponseBody;
+  static names(): { [key: string]: string } {
+    return {
+      headers: 'headers',
+      statusCode: 'statusCode',
+      body: 'body',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
+      body: GetPushRuleResponseBody,
     };
   }
 
@@ -9158,6 +9473,87 @@ export class ListProtectedBranchesResponse extends $tea.Model {
       headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
       statusCode: 'number',
       body: ListProtectedBranchesResponseBody,
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class ListPushRulesRequest extends $tea.Model {
+  accessToken?: string;
+  organizationId?: string;
+  static names(): { [key: string]: string } {
+    return {
+      accessToken: 'accessToken',
+      organizationId: 'organizationId',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      accessToken: 'string',
+      organizationId: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class ListPushRulesResponseBody extends $tea.Model {
+  errorCode?: string;
+  errorMessage?: string;
+  requestId?: string;
+  result?: ListPushRulesResponseBodyResult[];
+  success?: boolean;
+  total?: number;
+  static names(): { [key: string]: string } {
+    return {
+      errorCode: 'errorCode',
+      errorMessage: 'errorMessage',
+      requestId: 'requestId',
+      result: 'result',
+      success: 'success',
+      total: 'total',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      errorCode: 'string',
+      errorMessage: 'string',
+      requestId: 'string',
+      result: { 'type': 'array', 'itemType': ListPushRulesResponseBodyResult },
+      success: 'boolean',
+      total: 'number',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class ListPushRulesResponse extends $tea.Model {
+  headers: { [key: string]: string };
+  statusCode: number;
+  body: ListPushRulesResponseBody;
+  static names(): { [key: string]: string } {
+    return {
+      headers: 'headers',
+      statusCode: 'statusCode',
+      body: 'body',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
+      body: ListPushRulesResponseBody,
     };
   }
 
@@ -14055,6 +14451,87 @@ export class UpdatePushReviewOnOffResponse extends $tea.Model {
   }
 }
 
+export class UpdatePushRuleRequest extends $tea.Model {
+  accessToken?: string;
+  ruleInfos?: UpdatePushRuleRequestRuleInfos[];
+  organizationId?: string;
+  static names(): { [key: string]: string } {
+    return {
+      accessToken: 'accessToken',
+      ruleInfos: 'ruleInfos',
+      organizationId: 'organizationId',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      accessToken: 'string',
+      ruleInfos: { 'type': 'array', 'itemType': UpdatePushRuleRequestRuleInfos },
+      organizationId: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class UpdatePushRuleResponseBody extends $tea.Model {
+  errorCode?: string;
+  errorMessage?: string;
+  requestId?: string;
+  result?: UpdatePushRuleResponseBodyResult;
+  success?: boolean;
+  static names(): { [key: string]: string } {
+    return {
+      errorCode: 'errorCode',
+      errorMessage: 'errorMessage',
+      requestId: 'requestId',
+      result: 'result',
+      success: 'success',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      errorCode: 'string',
+      errorMessage: 'string',
+      requestId: 'string',
+      result: UpdatePushRuleResponseBodyResult,
+      success: 'boolean',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class UpdatePushRuleResponse extends $tea.Model {
+  headers: { [key: string]: string };
+  statusCode: number;
+  body: UpdatePushRuleResponseBody;
+  static names(): { [key: string]: string } {
+    return {
+      headers: 'headers',
+      statusCode: 'statusCode',
+      body: 'body',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
+      body: UpdatePushRuleResponseBody,
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
 export class UpdateRepositoryRequest extends $tea.Model {
   accessToken?: string;
   adminSettingLanguage?: string;
@@ -15891,6 +16368,90 @@ export class CreateProtectdBranchResponseBodyResult extends $tea.Model {
   }
 }
 
+export class CreatePushRuleRequestRuleInfos extends $tea.Model {
+  checkerName?: string;
+  checkerType?: string;
+  extraMessage?: string;
+  fileRuleRegexes?: string[];
+  static names(): { [key: string]: string } {
+    return {
+      checkerName: 'checkerName',
+      checkerType: 'checkerType',
+      extraMessage: 'extraMessage',
+      fileRuleRegexes: 'fileRuleRegexes',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      checkerName: 'string',
+      checkerType: 'string',
+      extraMessage: 'string',
+      fileRuleRegexes: { 'type': 'array', 'itemType': 'string' },
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class CreatePushRuleResponseBodyResultRuleInfos extends $tea.Model {
+  checkerName?: string;
+  checkerType?: string;
+  extraMessage?: string;
+  fileRuleRegexes?: string[];
+  static names(): { [key: string]: string } {
+    return {
+      checkerName: 'checkerName',
+      checkerType: 'checkerType',
+      extraMessage: 'extraMessage',
+      fileRuleRegexes: 'fileRuleRegexes',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      checkerName: 'string',
+      checkerType: 'string',
+      extraMessage: 'string',
+      fileRuleRegexes: { 'type': 'array', 'itemType': 'string' },
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class CreatePushRuleResponseBodyResult extends $tea.Model {
+  gmtCreate?: string;
+  gmtModified?: string;
+  id?: number;
+  ruleInfos?: CreatePushRuleResponseBodyResultRuleInfos[];
+  static names(): { [key: string]: string } {
+    return {
+      gmtCreate: 'gmtCreate',
+      gmtModified: 'gmtModified',
+      id: 'id',
+      ruleInfos: 'ruleInfos',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      gmtCreate: 'string',
+      gmtModified: 'string',
+      id: 'number',
+      ruleInfos: { 'type': 'array', 'itemType': CreatePushRuleResponseBodyResultRuleInfos },
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
 export class CreateRepositoryResponseBodyResultNamespace extends $tea.Model {
   avatar?: string;
   createdAt?: string;
@@ -17131,6 +17692,25 @@ export class DeleteProtectedBranchResponseBodyResult extends $tea.Model {
   }
 }
 
+export class DeletePushRuleResponseBodyResult extends $tea.Model {
+  result?: boolean;
+  static names(): { [key: string]: string } {
+    return {
+      result: 'result',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      result: 'boolean',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
 export class DeleteRepositoryResponseBodyResult extends $tea.Model {
   result?: boolean;
   static names(): { [key: string]: string } {
@@ -17969,6 +18549,55 @@ export class GetFlowTagGroupResponseBodyFlowTagGroup extends $tea.Model {
       id: 'number',
       modiferAccountId: 'string',
       name: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class GetGroupByPathResponseBodyResult extends $tea.Model {
+  avatarUrl?: string;
+  description?: string;
+  id?: number;
+  name?: string;
+  nameWithNamespace?: string;
+  ownerId?: string;
+  parentId?: string;
+  path?: string;
+  pathWithNamespace?: string;
+  visibilityLevel?: number;
+  webUrl?: string;
+  static names(): { [key: string]: string } {
+    return {
+      avatarUrl: 'avatarUrl',
+      description: 'description',
+      id: 'id',
+      name: 'name',
+      nameWithNamespace: 'nameWithNamespace',
+      ownerId: 'ownerId',
+      parentId: 'parentId',
+      path: 'path',
+      pathWithNamespace: 'pathWithNamespace',
+      visibilityLevel: 'visibilityLevel',
+      webUrl: 'webUrl',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      avatarUrl: 'string',
+      description: 'string',
+      id: 'number',
+      name: 'string',
+      nameWithNamespace: 'string',
+      ownerId: 'string',
+      parentId: 'string',
+      path: 'string',
+      pathWithNamespace: 'string',
+      visibilityLevel: 'number',
+      webUrl: 'string',
     };
   }
 
@@ -18982,6 +19611,62 @@ export class GetProjectMemberResponseBodyResult extends $tea.Model {
       avatarUrl: 'string',
       id: 'number',
       name: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class GetPushRuleResponseBodyResultRuleInfos extends $tea.Model {
+  checkerName?: string;
+  checkerType?: string;
+  extraMessage?: string;
+  fileRuleRegexes?: string[];
+  static names(): { [key: string]: string } {
+    return {
+      checkerName: 'checkerName',
+      checkerType: 'checkerType',
+      extraMessage: 'extraMessage',
+      fileRuleRegexes: 'fileRuleRegexes',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      checkerName: 'string',
+      checkerType: 'string',
+      extraMessage: 'string',
+      fileRuleRegexes: { 'type': 'array', 'itemType': 'string' },
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class GetPushRuleResponseBodyResult extends $tea.Model {
+  gmtCreate?: string;
+  gmtModified?: string;
+  id?: number;
+  ruleInfos?: GetPushRuleResponseBodyResultRuleInfos[];
+  static names(): { [key: string]: string } {
+    return {
+      gmtCreate: 'gmtCreate',
+      gmtModified: 'gmtModified',
+      id: 'id',
+      ruleInfos: 'ruleInfos',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      gmtCreate: 'string',
+      gmtModified: 'string',
+      id: 'number',
+      ruleInfos: { 'type': 'array', 'itemType': GetPushRuleResponseBodyResultRuleInfos },
     };
   }
 
@@ -22058,6 +22743,62 @@ export class ListProtectedBranchesResponseBodyResult extends $tea.Model {
       mergeRequestSetting: ListProtectedBranchesResponseBodyResultMergeRequestSetting,
       testSettingDTO: ListProtectedBranchesResponseBodyResultTestSettingDTO,
       updatedAt: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class ListPushRulesResponseBodyResultRuleInfos extends $tea.Model {
+  checkerName?: string;
+  checkerType?: string;
+  extraMessage?: string;
+  fileRuleRegexes?: string[];
+  static names(): { [key: string]: string } {
+    return {
+      checkerName: 'checkerName',
+      checkerType: 'checkerType',
+      extraMessage: 'extraMessage',
+      fileRuleRegexes: 'fileRuleRegexes',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      checkerName: 'string',
+      checkerType: 'string',
+      extraMessage: 'string',
+      fileRuleRegexes: { 'type': 'array', 'itemType': 'string' },
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class ListPushRulesResponseBodyResult extends $tea.Model {
+  gmtCreate?: string;
+  gmtModified?: string;
+  id?: number;
+  ruleInfos?: ListPushRulesResponseBodyResultRuleInfos[];
+  static names(): { [key: string]: string } {
+    return {
+      gmtCreate: 'gmtCreate',
+      gmtModified: 'gmtModified',
+      id: 'id',
+      ruleInfos: 'ruleInfos',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      gmtCreate: 'string',
+      gmtModified: 'string',
+      id: 'number',
+      ruleInfos: { 'type': 'array', 'itemType': ListPushRulesResponseBodyResultRuleInfos },
     };
   }
 
@@ -25247,6 +25988,90 @@ export class UpdatePushReviewOnOffResponseBodyResult extends $tea.Model {
   }
 }
 
+export class UpdatePushRuleRequestRuleInfos extends $tea.Model {
+  checkerName?: string;
+  checkerType?: string;
+  extraMessage?: string;
+  fileRuleRegexes?: string[];
+  static names(): { [key: string]: string } {
+    return {
+      checkerName: 'checkerName',
+      checkerType: 'checkerType',
+      extraMessage: 'extraMessage',
+      fileRuleRegexes: 'fileRuleRegexes',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      checkerName: 'string',
+      checkerType: 'string',
+      extraMessage: 'string',
+      fileRuleRegexes: { 'type': 'array', 'itemType': 'string' },
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class UpdatePushRuleResponseBodyResultRuleInfos extends $tea.Model {
+  checkerName?: string;
+  checkerType?: string;
+  extraMessage?: string;
+  fileRuleRegexes?: string[];
+  static names(): { [key: string]: string } {
+    return {
+      checkerName: 'checkerName',
+      checkerType: 'checkerType',
+      extraMessage: 'extraMessage',
+      fileRuleRegexes: 'fileRuleRegexes',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      checkerName: 'string',
+      checkerType: 'string',
+      extraMessage: 'string',
+      fileRuleRegexes: { 'type': 'array', 'itemType': 'string' },
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class UpdatePushRuleResponseBodyResult extends $tea.Model {
+  gmtCreate?: string;
+  gmtModified?: string;
+  id?: number;
+  ruleInfos?: UpdatePushRuleResponseBodyResultRuleInfos[];
+  static names(): { [key: string]: string } {
+    return {
+      gmtCreate: 'gmtCreate',
+      gmtModified: 'gmtModified',
+      id: 'id',
+      ruleInfos: 'ruleInfos',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      gmtCreate: 'string',
+      gmtModified: 'string',
+      id: 'number',
+      ruleInfos: { 'type': 'array', 'itemType': UpdatePushRuleResponseBodyResultRuleInfos },
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
 export class UpdateRepositoryRequestProjectCloneDownloadMethodList extends $tea.Model {
   allowed?: boolean;
   permissionCode?: string;
@@ -26865,6 +27690,47 @@ export default class Client extends OpenApi {
     return await this.createProtectdBranchWithOptions(repositoryId, request, headers, runtime);
   }
 
+  async createPushRuleWithOptions(repositoryId: string, request: CreatePushRuleRequest, headers: {[key: string ]: string}, runtime: $Util.RuntimeOptions): Promise<CreatePushRuleResponse> {
+    Util.validateModel(request);
+    let query : {[key: string ]: any} = { };
+    if (!Util.isUnset(request.accessToken)) {
+      query["accessToken"] = request.accessToken;
+    }
+
+    if (!Util.isUnset(request.organizationId)) {
+      query["organizationId"] = request.organizationId;
+    }
+
+    let body : {[key: string ]: any} = { };
+    if (!Util.isUnset(request.ruleInfos)) {
+      body["ruleInfos"] = request.ruleInfos;
+    }
+
+    let req = new $OpenApi.OpenApiRequest({
+      headers: headers,
+      query: OpenApiUtil.query(query),
+      body: OpenApiUtil.parseToMap(body),
+    });
+    let params = new $OpenApi.Params({
+      action: "CreatePushRule",
+      version: "2021-06-25",
+      protocol: "HTTPS",
+      pathname: `/api/v4/projects/${OpenApiUtil.getEncodeParam(repositoryId)}/push_rule`,
+      method: "POST",
+      authType: "AK",
+      style: "ROA",
+      reqBodyType: "json",
+      bodyType: "json",
+    });
+    return $tea.cast<CreatePushRuleResponse>(await this.callApi(params, req, runtime), new CreatePushRuleResponse({}));
+  }
+
+  async createPushRule(repositoryId: string, request: CreatePushRuleRequest): Promise<CreatePushRuleResponse> {
+    let runtime = new $Util.RuntimeOptions({ });
+    let headers : {[key: string ]: string} = { };
+    return await this.createPushRuleWithOptions(repositoryId, request, headers, runtime);
+  }
+
   async createRepositoryWithOptions(request: CreateRepositoryRequest, headers: {[key: string ]: string}, runtime: $Util.RuntimeOptions): Promise<CreateRepositoryResponse> {
     Util.validateModel(request);
     let query : {[key: string ]: any} = { };
@@ -28196,6 +29062,41 @@ export default class Client extends OpenApi {
     return await this.deleteProtectedBranchWithOptions(repositoryId, protectedBranchId, request, headers, runtime);
   }
 
+  async deletePushRuleWithOptions(repositoryId: string, pushRuleId: string, request: DeletePushRuleRequest, headers: {[key: string ]: string}, runtime: $Util.RuntimeOptions): Promise<DeletePushRuleResponse> {
+    Util.validateModel(request);
+    let query : {[key: string ]: any} = { };
+    if (!Util.isUnset(request.accessToken)) {
+      query["accessToken"] = request.accessToken;
+    }
+
+    if (!Util.isUnset(request.organizationId)) {
+      query["organizationId"] = request.organizationId;
+    }
+
+    let req = new $OpenApi.OpenApiRequest({
+      headers: headers,
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApi.Params({
+      action: "DeletePushRule",
+      version: "2021-06-25",
+      protocol: "HTTPS",
+      pathname: `/api/v4/projects/${OpenApiUtil.getEncodeParam(repositoryId)}/push_rule/${OpenApiUtil.getEncodeParam(pushRuleId)}`,
+      method: "DELETE",
+      authType: "AK",
+      style: "ROA",
+      reqBodyType: "json",
+      bodyType: "json",
+    });
+    return $tea.cast<DeletePushRuleResponse>(await this.callApi(params, req, runtime), new DeletePushRuleResponse({}));
+  }
+
+  async deletePushRule(repositoryId: string, pushRuleId: string, request: DeletePushRuleRequest): Promise<DeletePushRuleResponse> {
+    let runtime = new $Util.RuntimeOptions({ });
+    let headers : {[key: string ]: string} = { };
+    return await this.deletePushRuleWithOptions(repositoryId, pushRuleId, request, headers, runtime);
+  }
+
   async deleteRepositoryWithOptions(repositoryId: string, request: DeleteRepositoryRequest, headers: {[key: string ]: string}, runtime: $Util.RuntimeOptions): Promise<DeleteRepositoryResponse> {
     Util.validateModel(request);
     let query : {[key: string ]: any} = { };
@@ -28914,6 +29815,41 @@ export default class Client extends OpenApi {
     return await this.getFlowTagGroupWithOptions(organizationId, id, headers, runtime);
   }
 
+  async getGroupByPathWithOptions(request: GetGroupByPathRequest, headers: {[key: string ]: string}, runtime: $Util.RuntimeOptions): Promise<GetGroupByPathResponse> {
+    Util.validateModel(request);
+    let query : {[key: string ]: any} = { };
+    if (!Util.isUnset(request.identity)) {
+      query["identity"] = request.identity;
+    }
+
+    if (!Util.isUnset(request.organizationId)) {
+      query["organizationId"] = request.organizationId;
+    }
+
+    let req = new $OpenApi.OpenApiRequest({
+      headers: headers,
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApi.Params({
+      action: "GetGroupByPath",
+      version: "2021-06-25",
+      protocol: "HTTPS",
+      pathname: `/api/4/groups/find_by_path`,
+      method: "GET",
+      authType: "AK",
+      style: "ROA",
+      reqBodyType: "json",
+      bodyType: "json",
+    });
+    return $tea.cast<GetGroupByPathResponse>(await this.callApi(params, req, runtime), new GetGroupByPathResponse({}));
+  }
+
+  async getGroupByPath(request: GetGroupByPathRequest): Promise<GetGroupByPathResponse> {
+    let runtime = new $Util.RuntimeOptions({ });
+    let headers : {[key: string ]: string} = { };
+    return await this.getGroupByPathWithOptions(request, headers, runtime);
+  }
+
   async getGroupDetailWithOptions(request: GetGroupDetailRequest, headers: {[key: string ]: string}, runtime: $Util.RuntimeOptions): Promise<GetGroupDetailResponse> {
     Util.validateModel(request);
     let query : {[key: string ]: any} = { };
@@ -29262,6 +30198,41 @@ export default class Client extends OpenApi {
     let runtime = new $Util.RuntimeOptions({ });
     let headers : {[key: string ]: string} = { };
     return await this.getProjectMemberWithOptions(repositoryId, aliyunPk, request, headers, runtime);
+  }
+
+  async getPushRuleWithOptions(repositoryId: string, pushRuleId: string, request: GetPushRuleRequest, headers: {[key: string ]: string}, runtime: $Util.RuntimeOptions): Promise<GetPushRuleResponse> {
+    Util.validateModel(request);
+    let query : {[key: string ]: any} = { };
+    if (!Util.isUnset(request.accessToken)) {
+      query["accessToken"] = request.accessToken;
+    }
+
+    if (!Util.isUnset(request.organizationId)) {
+      query["organizationId"] = request.organizationId;
+    }
+
+    let req = new $OpenApi.OpenApiRequest({
+      headers: headers,
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApi.Params({
+      action: "GetPushRule",
+      version: "2021-06-25",
+      protocol: "HTTPS",
+      pathname: `/api/v4/projects/${OpenApiUtil.getEncodeParam(repositoryId)}/push_rule/${OpenApiUtil.getEncodeParam(pushRuleId)}`,
+      method: "GET",
+      authType: "AK",
+      style: "ROA",
+      reqBodyType: "json",
+      bodyType: "json",
+    });
+    return $tea.cast<GetPushRuleResponse>(await this.callApi(params, req, runtime), new GetPushRuleResponse({}));
+  }
+
+  async getPushRule(repositoryId: string, pushRuleId: string, request: GetPushRuleRequest): Promise<GetPushRuleResponse> {
+    let runtime = new $Util.RuntimeOptions({ });
+    let headers : {[key: string ]: string} = { };
+    return await this.getPushRuleWithOptions(repositoryId, pushRuleId, request, headers, runtime);
   }
 
   async getRepositoryWithOptions(request: GetRepositoryRequest, headers: {[key: string ]: string}, runtime: $Util.RuntimeOptions): Promise<GetRepositoryResponse> {
@@ -30701,6 +31672,41 @@ export default class Client extends OpenApi {
     let runtime = new $Util.RuntimeOptions({ });
     let headers : {[key: string ]: string} = { };
     return await this.listProtectedBranchesWithOptions(repositoryId, request, headers, runtime);
+  }
+
+  async listPushRulesWithOptions(repositoryId: string, request: ListPushRulesRequest, headers: {[key: string ]: string}, runtime: $Util.RuntimeOptions): Promise<ListPushRulesResponse> {
+    Util.validateModel(request);
+    let query : {[key: string ]: any} = { };
+    if (!Util.isUnset(request.accessToken)) {
+      query["accessToken"] = request.accessToken;
+    }
+
+    if (!Util.isUnset(request.organizationId)) {
+      query["organizationId"] = request.organizationId;
+    }
+
+    let req = new $OpenApi.OpenApiRequest({
+      headers: headers,
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApi.Params({
+      action: "ListPushRules",
+      version: "2021-06-25",
+      protocol: "HTTPS",
+      pathname: `/api/v4/projects/${OpenApiUtil.getEncodeParam(repositoryId)}/push_rule/push_rules/list`,
+      method: "GET",
+      authType: "AK",
+      style: "ROA",
+      reqBodyType: "json",
+      bodyType: "json",
+    });
+    return $tea.cast<ListPushRulesResponse>(await this.callApi(params, req, runtime), new ListPushRulesResponse({}));
+  }
+
+  async listPushRules(repositoryId: string, request: ListPushRulesRequest): Promise<ListPushRulesResponse> {
+    let runtime = new $Util.RuntimeOptions({ });
+    let headers : {[key: string ]: string} = { };
+    return await this.listPushRulesWithOptions(repositoryId, request, headers, runtime);
   }
 
   async listRepositoriesWithOptions(request: ListRepositoriesRequest, headers: {[key: string ]: string}, runtime: $Util.RuntimeOptions): Promise<ListRepositoriesResponse> {
@@ -33224,6 +34230,47 @@ export default class Client extends OpenApi {
     let runtime = new $Util.RuntimeOptions({ });
     let headers : {[key: string ]: string} = { };
     return await this.updatePushReviewOnOffWithOptions(repositoryId, request, headers, runtime);
+  }
+
+  async updatePushRuleWithOptions(repositoryId: string, pushRuleId: string, request: UpdatePushRuleRequest, headers: {[key: string ]: string}, runtime: $Util.RuntimeOptions): Promise<UpdatePushRuleResponse> {
+    Util.validateModel(request);
+    let query : {[key: string ]: any} = { };
+    if (!Util.isUnset(request.accessToken)) {
+      query["accessToken"] = request.accessToken;
+    }
+
+    if (!Util.isUnset(request.organizationId)) {
+      query["organizationId"] = request.organizationId;
+    }
+
+    let body : {[key: string ]: any} = { };
+    if (!Util.isUnset(request.ruleInfos)) {
+      body["ruleInfos"] = request.ruleInfos;
+    }
+
+    let req = new $OpenApi.OpenApiRequest({
+      headers: headers,
+      query: OpenApiUtil.query(query),
+      body: OpenApiUtil.parseToMap(body),
+    });
+    let params = new $OpenApi.Params({
+      action: "UpdatePushRule",
+      version: "2021-06-25",
+      protocol: "HTTPS",
+      pathname: `/api/v4/projects/${OpenApiUtil.getEncodeParam(repositoryId)}/push_rule/${OpenApiUtil.getEncodeParam(pushRuleId)}`,
+      method: "PUT",
+      authType: "AK",
+      style: "ROA",
+      reqBodyType: "json",
+      bodyType: "json",
+    });
+    return $tea.cast<UpdatePushRuleResponse>(await this.callApi(params, req, runtime), new UpdatePushRuleResponse({}));
+  }
+
+  async updatePushRule(repositoryId: string, pushRuleId: string, request: UpdatePushRuleRequest): Promise<UpdatePushRuleResponse> {
+    let runtime = new $Util.RuntimeOptions({ });
+    let headers : {[key: string ]: string} = { };
+    return await this.updatePushRuleWithOptions(repositoryId, pushRuleId, request, headers, runtime);
   }
 
   async updateRepositoryWithOptions(repositoryId: string, request: UpdateRepositoryRequest, headers: {[key: string ]: string}, runtime: $Util.RuntimeOptions): Promise<UpdateRepositoryResponse> {
