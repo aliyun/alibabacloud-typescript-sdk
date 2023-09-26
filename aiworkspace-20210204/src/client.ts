@@ -2360,15 +2360,18 @@ export class GetImageResponse extends $tea.Model {
 }
 
 export class GetMemberRequest extends $tea.Model {
+  memberId?: string;
   userId?: string;
   static names(): { [key: string]: string } {
     return {
+      memberId: 'MemberId',
       userId: 'UserId',
     };
   }
 
   static types(): { [key: string]: any } {
     return {
+      memberId: 'string',
       userId: 'string',
     };
   }
@@ -6741,6 +6744,10 @@ export default class Client extends OpenApi {
   async getMemberWithOptions(WorkspaceId: string, request: GetMemberRequest, headers: {[key: string ]: string}, runtime: $Util.RuntimeOptions): Promise<GetMemberResponse> {
     Util.validateModel(request);
     let query : {[key: string ]: any} = { };
+    if (!Util.isUnset(request.memberId)) {
+      query["MemberId"] = request.memberId;
+    }
+
     if (!Util.isUnset(request.userId)) {
       query["UserId"] = request.userId;
     }
