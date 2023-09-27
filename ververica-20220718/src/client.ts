@@ -179,6 +179,9 @@ export class BriefResourceSetting extends $tea.Model {
 
 export class Deployment extends $tea.Model {
   artifact?: Artifact;
+  batchResourceSetting?: BatchResourceSetting;
+  creator?: string;
+  creatorName?: string;
   deploymentHasChanged?: boolean;
   deploymentId?: string;
   deploymentTarget?: BriefDeploymentTarget;
@@ -188,11 +191,17 @@ export class Deployment extends $tea.Model {
   flinkConf?: { [key: string]: any };
   jobSummary?: JobSummary;
   logging?: Logging;
+  modifier?: string;
+  modifierName?: string;
   name?: string;
   namespace?: string;
+  streamingResourceSetting?: StreamingResourceSetting;
   static names(): { [key: string]: string } {
     return {
       artifact: 'artifact',
+      batchResourceSetting: 'batchResourceSetting',
+      creator: 'creator',
+      creatorName: 'creatorName',
       deploymentHasChanged: 'deploymentHasChanged',
       deploymentId: 'deploymentId',
       deploymentTarget: 'deploymentTarget',
@@ -202,14 +211,20 @@ export class Deployment extends $tea.Model {
       flinkConf: 'flinkConf',
       jobSummary: 'jobSummary',
       logging: 'logging',
+      modifier: 'modifier',
+      modifierName: 'modifierName',
       name: 'name',
       namespace: 'namespace',
+      streamingResourceSetting: 'streamingResourceSetting',
     };
   }
 
   static types(): { [key: string]: any } {
     return {
       artifact: Artifact,
+      batchResourceSetting: BatchResourceSetting,
+      creator: 'string',
+      creatorName: 'string',
       deploymentHasChanged: 'boolean',
       deploymentId: 'string',
       deploymentTarget: BriefDeploymentTarget,
@@ -219,8 +234,11 @@ export class Deployment extends $tea.Model {
       flinkConf: { 'type': 'map', 'keyType': 'string', 'valueType': 'any' },
       jobSummary: JobSummary,
       logging: Logging,
+      modifier: 'string',
+      modifierName: 'string',
       name: 'string',
       namespace: 'string',
+      streamingResourceSetting: StreamingResourceSetting,
     };
   }
 
@@ -401,6 +419,8 @@ export class JarArtifact extends $tea.Model {
 export class Job extends $tea.Model {
   artifact?: Artifact;
   batchResourceSetting?: BatchResourceSetting;
+  creator?: string;
+  creatorName?: string;
   deploymentId?: string;
   deploymentName?: string;
   endTime?: number;
@@ -410,16 +430,21 @@ export class Job extends $tea.Model {
   jobId?: string;
   logging?: Logging;
   metric?: JobMetric;
+  modifier?: string;
+  modifierName?: string;
   namespace?: string;
   restoreStrategy?: DeploymentRestoreStrategy;
   sessionClusterName?: string;
   startTime?: number;
   status?: JobStatus;
   streamingResourceSetting?: StreamingResourceSetting;
+  userFlinkConf?: { [key: string]: any };
   static names(): { [key: string]: string } {
     return {
       artifact: 'artifact',
       batchResourceSetting: 'batchResourceSetting',
+      creator: 'creator',
+      creatorName: 'creatorName',
       deploymentId: 'deploymentId',
       deploymentName: 'deploymentName',
       endTime: 'endTime',
@@ -429,12 +454,15 @@ export class Job extends $tea.Model {
       jobId: 'jobId',
       logging: 'logging',
       metric: 'metric',
+      modifier: 'modifier',
+      modifierName: 'modifierName',
       namespace: 'namespace',
       restoreStrategy: 'restoreStrategy',
       sessionClusterName: 'sessionClusterName',
       startTime: 'startTime',
       status: 'status',
       streamingResourceSetting: 'streamingResourceSetting',
+      userFlinkConf: 'userFlinkConf',
     };
   }
 
@@ -442,6 +470,8 @@ export class Job extends $tea.Model {
     return {
       artifact: Artifact,
       batchResourceSetting: BatchResourceSetting,
+      creator: 'string',
+      creatorName: 'string',
       deploymentId: 'string',
       deploymentName: 'string',
       endTime: 'number',
@@ -451,12 +481,15 @@ export class Job extends $tea.Model {
       jobId: 'string',
       logging: Logging,
       metric: JobMetric,
+      modifier: 'string',
+      modifierName: 'string',
       namespace: 'string',
       restoreStrategy: DeploymentRestoreStrategy,
       sessionClusterName: 'string',
       startTime: 'number',
       status: JobStatus,
       streamingResourceSetting: StreamingResourceSetting,
+      userFlinkConf: { 'type': 'map', 'keyType': 'string', 'valueType': 'any' },
     };
   }
 
@@ -504,6 +537,28 @@ export class JobMetric extends $tea.Model {
     return {
       totalCpu: 'number',
       totalMemoryByte: 'number',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class JobStartParameters extends $tea.Model {
+  deploymentId?: string;
+  restoreStrategy?: DeploymentRestoreStrategy;
+  static names(): { [key: string]: string } {
+    return {
+      deploymentId: 'deploymentId',
+      restoreStrategy: 'restoreStrategy',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      deploymentId: 'string',
+      restoreStrategy: DeploymentRestoreStrategy,
     };
   }
 
@@ -2203,10 +2258,14 @@ export class ListDeploymentsHeaders extends $tea.Model {
 }
 
 export class ListDeploymentsRequest extends $tea.Model {
+  executionMode?: string;
+  name?: string;
   pageIndex?: number;
   pageSize?: number;
   static names(): { [key: string]: string } {
     return {
+      executionMode: 'executionMode',
+      name: 'name',
       pageIndex: 'pageIndex',
       pageSize: 'pageSize',
     };
@@ -2214,6 +2273,8 @@ export class ListDeploymentsRequest extends $tea.Model {
 
   static types(): { [key: string]: any } {
     return {
+      executionMode: 'string',
+      name: 'string',
       pageIndex: 'number',
       pageSize: 'number',
     };
@@ -2818,6 +2879,106 @@ export class StartJobResponse extends $tea.Model {
   }
 }
 
+export class StartJobWithParamsHeaders extends $tea.Model {
+  commonHeaders?: { [key: string]: string };
+  workspace?: string;
+  static names(): { [key: string]: string } {
+    return {
+      commonHeaders: 'commonHeaders',
+      workspace: 'workspace',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      commonHeaders: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      workspace: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class StartJobWithParamsRequest extends $tea.Model {
+  body?: JobStartParameters;
+  static names(): { [key: string]: string } {
+    return {
+      body: 'body',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      body: JobStartParameters,
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class StartJobWithParamsResponseBody extends $tea.Model {
+  data?: Job;
+  errorCode?: string;
+  errorMessage?: string;
+  httpCode?: number;
+  requestId?: string;
+  success?: boolean;
+  static names(): { [key: string]: string } {
+    return {
+      data: 'data',
+      errorCode: 'errorCode',
+      errorMessage: 'errorMessage',
+      httpCode: 'httpCode',
+      requestId: 'requestId',
+      success: 'success',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      data: Job,
+      errorCode: 'string',
+      errorMessage: 'string',
+      httpCode: 'number',
+      requestId: 'string',
+      success: 'boolean',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class StartJobWithParamsResponse extends $tea.Model {
+  headers: { [key: string]: string };
+  statusCode: number;
+  body: StartJobWithParamsResponseBody;
+  static names(): { [key: string]: string } {
+    return {
+      headers: 'headers',
+      statusCode: 'statusCode',
+      body: 'body',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
+      body: StartJobWithParamsResponseBody,
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
 export class StopJobHeaders extends $tea.Model {
   commonHeaders?: { [key: string]: string };
   workspace?: string;
@@ -3060,12 +3221,6 @@ export default class Client extends OpenApi {
     return EndpointUtil.getEndpointRules(productId, regionId, endpointRule, network, suffix);
   }
 
-  async createDeployment(namespace: string, request: CreateDeploymentRequest): Promise<CreateDeploymentResponse> {
-    let runtime = new $Util.RuntimeOptions({ });
-    let headers = new CreateDeploymentHeaders({ });
-    return await this.createDeploymentWithOptions(namespace, request, headers, runtime);
-  }
-
   async createDeploymentWithOptions(namespace: string, request: CreateDeploymentRequest, headers: CreateDeploymentHeaders, runtime: $Util.RuntimeOptions): Promise<CreateDeploymentResponse> {
     Util.validateModel(request);
     let realHeaders : {[key: string ]: string} = { };
@@ -3079,7 +3234,7 @@ export default class Client extends OpenApi {
 
     let req = new $OpenApi.OpenApiRequest({
       headers: realHeaders,
-      body: OpenApiUtil.parseToMap($tea.toMap(request.body)),
+      body: OpenApiUtil.parseToMap(request.body),
     });
     let params = new $OpenApi.Params({
       action: "CreateDeployment",
@@ -3095,10 +3250,10 @@ export default class Client extends OpenApi {
     return $tea.cast<CreateDeploymentResponse>(await this.callApi(params, req, runtime), new CreateDeploymentResponse({}));
   }
 
-  async createSavepoint(namespace: string, request: CreateSavepointRequest): Promise<CreateSavepointResponse> {
+  async createDeployment(namespace: string, request: CreateDeploymentRequest): Promise<CreateDeploymentResponse> {
     let runtime = new $Util.RuntimeOptions({ });
-    let headers = new CreateSavepointHeaders({ });
-    return await this.createSavepointWithOptions(namespace, request, headers, runtime);
+    let headers = new CreateDeploymentHeaders({ });
+    return await this.createDeploymentWithOptions(namespace, request, headers, runtime);
   }
 
   async createSavepointWithOptions(namespace: string, request: CreateSavepointRequest, headers: CreateSavepointHeaders, runtime: $Util.RuntimeOptions): Promise<CreateSavepointResponse> {
@@ -3143,10 +3298,10 @@ export default class Client extends OpenApi {
     return $tea.cast<CreateSavepointResponse>(await this.callApi(params, req, runtime), new CreateSavepointResponse({}));
   }
 
-  async createVariable(namespace: string, request: CreateVariableRequest): Promise<CreateVariableResponse> {
+  async createSavepoint(namespace: string, request: CreateSavepointRequest): Promise<CreateSavepointResponse> {
     let runtime = new $Util.RuntimeOptions({ });
-    let headers = new CreateVariableHeaders({ });
-    return await this.createVariableWithOptions(namespace, request, headers, runtime);
+    let headers = new CreateSavepointHeaders({ });
+    return await this.createSavepointWithOptions(namespace, request, headers, runtime);
   }
 
   async createVariableWithOptions(namespace: string, request: CreateVariableRequest, headers: CreateVariableHeaders, runtime: $Util.RuntimeOptions): Promise<CreateVariableResponse> {
@@ -3162,7 +3317,7 @@ export default class Client extends OpenApi {
 
     let req = new $OpenApi.OpenApiRequest({
       headers: realHeaders,
-      body: OpenApiUtil.parseToMap($tea.toMap(request.body)),
+      body: OpenApiUtil.parseToMap(request.body),
     });
     let params = new $OpenApi.Params({
       action: "CreateVariable",
@@ -3178,10 +3333,10 @@ export default class Client extends OpenApi {
     return $tea.cast<CreateVariableResponse>(await this.callApi(params, req, runtime), new CreateVariableResponse({}));
   }
 
-  async deleteDeployment(namespace: string, deploymentId: string): Promise<DeleteDeploymentResponse> {
+  async createVariable(namespace: string, request: CreateVariableRequest): Promise<CreateVariableResponse> {
     let runtime = new $Util.RuntimeOptions({ });
-    let headers = new DeleteDeploymentHeaders({ });
-    return await this.deleteDeploymentWithOptions(namespace, deploymentId, headers, runtime);
+    let headers = new CreateVariableHeaders({ });
+    return await this.createVariableWithOptions(namespace, request, headers, runtime);
   }
 
   async deleteDeploymentWithOptions(namespace: string, deploymentId: string, headers: DeleteDeploymentHeaders, runtime: $Util.RuntimeOptions): Promise<DeleteDeploymentResponse> {
@@ -3211,10 +3366,10 @@ export default class Client extends OpenApi {
     return $tea.cast<DeleteDeploymentResponse>(await this.callApi(params, req, runtime), new DeleteDeploymentResponse({}));
   }
 
-  async deleteJob(namespace: string, jobId: string): Promise<DeleteJobResponse> {
+  async deleteDeployment(namespace: string, deploymentId: string): Promise<DeleteDeploymentResponse> {
     let runtime = new $Util.RuntimeOptions({ });
-    let headers = new DeleteJobHeaders({ });
-    return await this.deleteJobWithOptions(namespace, jobId, headers, runtime);
+    let headers = new DeleteDeploymentHeaders({ });
+    return await this.deleteDeploymentWithOptions(namespace, deploymentId, headers, runtime);
   }
 
   async deleteJobWithOptions(namespace: string, jobId: string, headers: DeleteJobHeaders, runtime: $Util.RuntimeOptions): Promise<DeleteJobResponse> {
@@ -3244,10 +3399,10 @@ export default class Client extends OpenApi {
     return $tea.cast<DeleteJobResponse>(await this.callApi(params, req, runtime), new DeleteJobResponse({}));
   }
 
-  async deleteSavepoint(namespace: string, savepointId: string): Promise<DeleteSavepointResponse> {
+  async deleteJob(namespace: string, jobId: string): Promise<DeleteJobResponse> {
     let runtime = new $Util.RuntimeOptions({ });
-    let headers = new DeleteSavepointHeaders({ });
-    return await this.deleteSavepointWithOptions(namespace, savepointId, headers, runtime);
+    let headers = new DeleteJobHeaders({ });
+    return await this.deleteJobWithOptions(namespace, jobId, headers, runtime);
   }
 
   async deleteSavepointWithOptions(namespace: string, savepointId: string, headers: DeleteSavepointHeaders, runtime: $Util.RuntimeOptions): Promise<DeleteSavepointResponse> {
@@ -3277,10 +3432,10 @@ export default class Client extends OpenApi {
     return $tea.cast<DeleteSavepointResponse>(await this.callApi(params, req, runtime), new DeleteSavepointResponse({}));
   }
 
-  async deleteVariable(namespace: string, name: string): Promise<DeleteVariableResponse> {
+  async deleteSavepoint(namespace: string, savepointId: string): Promise<DeleteSavepointResponse> {
     let runtime = new $Util.RuntimeOptions({ });
-    let headers = new DeleteVariableHeaders({ });
-    return await this.deleteVariableWithOptions(namespace, name, headers, runtime);
+    let headers = new DeleteSavepointHeaders({ });
+    return await this.deleteSavepointWithOptions(namespace, savepointId, headers, runtime);
   }
 
   async deleteVariableWithOptions(namespace: string, name: string, headers: DeleteVariableHeaders, runtime: $Util.RuntimeOptions): Promise<DeleteVariableResponse> {
@@ -3310,10 +3465,10 @@ export default class Client extends OpenApi {
     return $tea.cast<DeleteVariableResponse>(await this.callApi(params, req, runtime), new DeleteVariableResponse({}));
   }
 
-  async flinkApiProxy(request: FlinkApiProxyRequest): Promise<FlinkApiProxyResponse> {
+  async deleteVariable(namespace: string, name: string): Promise<DeleteVariableResponse> {
     let runtime = new $Util.RuntimeOptions({ });
-    let headers = new FlinkApiProxyHeaders({ });
-    return await this.flinkApiProxyWithOptions(request, headers, runtime);
+    let headers = new DeleteVariableHeaders({ });
+    return await this.deleteVariableWithOptions(namespace, name, headers, runtime);
   }
 
   async flinkApiProxyWithOptions(request: FlinkApiProxyRequest, headers: FlinkApiProxyHeaders, runtime: $Util.RuntimeOptions): Promise<FlinkApiProxyResponse> {
@@ -3362,10 +3517,10 @@ export default class Client extends OpenApi {
     return $tea.cast<FlinkApiProxyResponse>(await this.callApi(params, req, runtime), new FlinkApiProxyResponse({}));
   }
 
-  async generateResourcePlanWithFlinkConfAsync(namespace: string, deploymentId: string, request: GenerateResourcePlanWithFlinkConfAsyncRequest): Promise<GenerateResourcePlanWithFlinkConfAsyncResponse> {
+  async flinkApiProxy(request: FlinkApiProxyRequest): Promise<FlinkApiProxyResponse> {
     let runtime = new $Util.RuntimeOptions({ });
-    let headers = new GenerateResourcePlanWithFlinkConfAsyncHeaders({ });
-    return await this.generateResourcePlanWithFlinkConfAsyncWithOptions(namespace, deploymentId, request, headers, runtime);
+    let headers = new FlinkApiProxyHeaders({ });
+    return await this.flinkApiProxyWithOptions(request, headers, runtime);
   }
 
   async generateResourcePlanWithFlinkConfAsyncWithOptions(namespace: string, deploymentId: string, request: GenerateResourcePlanWithFlinkConfAsyncRequest, headers: GenerateResourcePlanWithFlinkConfAsyncHeaders, runtime: $Util.RuntimeOptions): Promise<GenerateResourcePlanWithFlinkConfAsyncResponse> {
@@ -3397,10 +3552,10 @@ export default class Client extends OpenApi {
     return $tea.cast<GenerateResourcePlanWithFlinkConfAsyncResponse>(await this.callApi(params, req, runtime), new GenerateResourcePlanWithFlinkConfAsyncResponse({}));
   }
 
-  async getDeployment(namespace: string, deploymentId: string): Promise<GetDeploymentResponse> {
+  async generateResourcePlanWithFlinkConfAsync(namespace: string, deploymentId: string, request: GenerateResourcePlanWithFlinkConfAsyncRequest): Promise<GenerateResourcePlanWithFlinkConfAsyncResponse> {
     let runtime = new $Util.RuntimeOptions({ });
-    let headers = new GetDeploymentHeaders({ });
-    return await this.getDeploymentWithOptions(namespace, deploymentId, headers, runtime);
+    let headers = new GenerateResourcePlanWithFlinkConfAsyncHeaders({ });
+    return await this.generateResourcePlanWithFlinkConfAsyncWithOptions(namespace, deploymentId, request, headers, runtime);
   }
 
   async getDeploymentWithOptions(namespace: string, deploymentId: string, headers: GetDeploymentHeaders, runtime: $Util.RuntimeOptions): Promise<GetDeploymentResponse> {
@@ -3430,10 +3585,10 @@ export default class Client extends OpenApi {
     return $tea.cast<GetDeploymentResponse>(await this.callApi(params, req, runtime), new GetDeploymentResponse({}));
   }
 
-  async getGenerateResourcePlanResult(namespace: string, ticketId: string): Promise<GetGenerateResourcePlanResultResponse> {
+  async getDeployment(namespace: string, deploymentId: string): Promise<GetDeploymentResponse> {
     let runtime = new $Util.RuntimeOptions({ });
-    let headers = new GetGenerateResourcePlanResultHeaders({ });
-    return await this.getGenerateResourcePlanResultWithOptions(namespace, ticketId, headers, runtime);
+    let headers = new GetDeploymentHeaders({ });
+    return await this.getDeploymentWithOptions(namespace, deploymentId, headers, runtime);
   }
 
   async getGenerateResourcePlanResultWithOptions(namespace: string, ticketId: string, headers: GetGenerateResourcePlanResultHeaders, runtime: $Util.RuntimeOptions): Promise<GetGenerateResourcePlanResultResponse> {
@@ -3463,10 +3618,10 @@ export default class Client extends OpenApi {
     return $tea.cast<GetGenerateResourcePlanResultResponse>(await this.callApi(params, req, runtime), new GetGenerateResourcePlanResultResponse({}));
   }
 
-  async getJob(namespace: string, jobId: string): Promise<GetJobResponse> {
+  async getGenerateResourcePlanResult(namespace: string, ticketId: string): Promise<GetGenerateResourcePlanResultResponse> {
     let runtime = new $Util.RuntimeOptions({ });
-    let headers = new GetJobHeaders({ });
-    return await this.getJobWithOptions(namespace, jobId, headers, runtime);
+    let headers = new GetGenerateResourcePlanResultHeaders({ });
+    return await this.getGenerateResourcePlanResultWithOptions(namespace, ticketId, headers, runtime);
   }
 
   async getJobWithOptions(namespace: string, jobId: string, headers: GetJobHeaders, runtime: $Util.RuntimeOptions): Promise<GetJobResponse> {
@@ -3496,10 +3651,10 @@ export default class Client extends OpenApi {
     return $tea.cast<GetJobResponse>(await this.callApi(params, req, runtime), new GetJobResponse({}));
   }
 
-  async getSavepoint(namespace: string, savepointId: string): Promise<GetSavepointResponse> {
+  async getJob(namespace: string, jobId: string): Promise<GetJobResponse> {
     let runtime = new $Util.RuntimeOptions({ });
-    let headers = new GetSavepointHeaders({ });
-    return await this.getSavepointWithOptions(namespace, savepointId, headers, runtime);
+    let headers = new GetJobHeaders({ });
+    return await this.getJobWithOptions(namespace, jobId, headers, runtime);
   }
 
   async getSavepointWithOptions(namespace: string, savepointId: string, headers: GetSavepointHeaders, runtime: $Util.RuntimeOptions): Promise<GetSavepointResponse> {
@@ -3529,10 +3684,10 @@ export default class Client extends OpenApi {
     return $tea.cast<GetSavepointResponse>(await this.callApi(params, req, runtime), new GetSavepointResponse({}));
   }
 
-  async listDeploymentTargets(namespace: string, request: ListDeploymentTargetsRequest): Promise<ListDeploymentTargetsResponse> {
+  async getSavepoint(namespace: string, savepointId: string): Promise<GetSavepointResponse> {
     let runtime = new $Util.RuntimeOptions({ });
-    let headers = new ListDeploymentTargetsHeaders({ });
-    return await this.listDeploymentTargetsWithOptions(namespace, request, headers, runtime);
+    let headers = new GetSavepointHeaders({ });
+    return await this.getSavepointWithOptions(namespace, savepointId, headers, runtime);
   }
 
   async listDeploymentTargetsWithOptions(namespace: string, request: ListDeploymentTargetsRequest, headers: ListDeploymentTargetsHeaders, runtime: $Util.RuntimeOptions): Promise<ListDeploymentTargetsResponse> {
@@ -3573,15 +3728,23 @@ export default class Client extends OpenApi {
     return $tea.cast<ListDeploymentTargetsResponse>(await this.callApi(params, req, runtime), new ListDeploymentTargetsResponse({}));
   }
 
-  async listDeployments(namespace: string, request: ListDeploymentsRequest): Promise<ListDeploymentsResponse> {
+  async listDeploymentTargets(namespace: string, request: ListDeploymentTargetsRequest): Promise<ListDeploymentTargetsResponse> {
     let runtime = new $Util.RuntimeOptions({ });
-    let headers = new ListDeploymentsHeaders({ });
-    return await this.listDeploymentsWithOptions(namespace, request, headers, runtime);
+    let headers = new ListDeploymentTargetsHeaders({ });
+    return await this.listDeploymentTargetsWithOptions(namespace, request, headers, runtime);
   }
 
   async listDeploymentsWithOptions(namespace: string, request: ListDeploymentsRequest, headers: ListDeploymentsHeaders, runtime: $Util.RuntimeOptions): Promise<ListDeploymentsResponse> {
     Util.validateModel(request);
     let query : {[key: string ]: any} = { };
+    if (!Util.isUnset(request.executionMode)) {
+      query["executionMode"] = request.executionMode;
+    }
+
+    if (!Util.isUnset(request.name)) {
+      query["name"] = request.name;
+    }
+
     if (!Util.isUnset(request.pageIndex)) {
       query["pageIndex"] = request.pageIndex;
     }
@@ -3617,10 +3780,10 @@ export default class Client extends OpenApi {
     return $tea.cast<ListDeploymentsResponse>(await this.callApi(params, req, runtime), new ListDeploymentsResponse({}));
   }
 
-  async listEngineVersionMetadata(): Promise<ListEngineVersionMetadataResponse> {
+  async listDeployments(namespace: string, request: ListDeploymentsRequest): Promise<ListDeploymentsResponse> {
     let runtime = new $Util.RuntimeOptions({ });
-    let headers = new ListEngineVersionMetadataHeaders({ });
-    return await this.listEngineVersionMetadataWithOptions(headers, runtime);
+    let headers = new ListDeploymentsHeaders({ });
+    return await this.listDeploymentsWithOptions(namespace, request, headers, runtime);
   }
 
   async listEngineVersionMetadataWithOptions(headers: ListEngineVersionMetadataHeaders, runtime: $Util.RuntimeOptions): Promise<ListEngineVersionMetadataResponse> {
@@ -3650,10 +3813,10 @@ export default class Client extends OpenApi {
     return $tea.cast<ListEngineVersionMetadataResponse>(await this.callApi(params, req, runtime), new ListEngineVersionMetadataResponse({}));
   }
 
-  async listJobs(namespace: string, request: ListJobsRequest): Promise<ListJobsResponse> {
+  async listEngineVersionMetadata(): Promise<ListEngineVersionMetadataResponse> {
     let runtime = new $Util.RuntimeOptions({ });
-    let headers = new ListJobsHeaders({ });
-    return await this.listJobsWithOptions(namespace, request, headers, runtime);
+    let headers = new ListEngineVersionMetadataHeaders({ });
+    return await this.listEngineVersionMetadataWithOptions(headers, runtime);
   }
 
   async listJobsWithOptions(namespace: string, request: ListJobsRequest, headers: ListJobsHeaders, runtime: $Util.RuntimeOptions): Promise<ListJobsResponse> {
@@ -3698,10 +3861,10 @@ export default class Client extends OpenApi {
     return $tea.cast<ListJobsResponse>(await this.callApi(params, req, runtime), new ListJobsResponse({}));
   }
 
-  async listSavepoints(namespace: string, request: ListSavepointsRequest): Promise<ListSavepointsResponse> {
+  async listJobs(namespace: string, request: ListJobsRequest): Promise<ListJobsResponse> {
     let runtime = new $Util.RuntimeOptions({ });
-    let headers = new ListSavepointsHeaders({ });
-    return await this.listSavepointsWithOptions(namespace, request, headers, runtime);
+    let headers = new ListJobsHeaders({ });
+    return await this.listJobsWithOptions(namespace, request, headers, runtime);
   }
 
   async listSavepointsWithOptions(namespace: string, request: ListSavepointsRequest, headers: ListSavepointsHeaders, runtime: $Util.RuntimeOptions): Promise<ListSavepointsResponse> {
@@ -3750,10 +3913,10 @@ export default class Client extends OpenApi {
     return $tea.cast<ListSavepointsResponse>(await this.callApi(params, req, runtime), new ListSavepointsResponse({}));
   }
 
-  async listVariables(namespace: string, request: ListVariablesRequest): Promise<ListVariablesResponse> {
+  async listSavepoints(namespace: string, request: ListSavepointsRequest): Promise<ListSavepointsResponse> {
     let runtime = new $Util.RuntimeOptions({ });
-    let headers = new ListVariablesHeaders({ });
-    return await this.listVariablesWithOptions(namespace, request, headers, runtime);
+    let headers = new ListSavepointsHeaders({ });
+    return await this.listSavepointsWithOptions(namespace, request, headers, runtime);
   }
 
   async listVariablesWithOptions(namespace: string, request: ListVariablesRequest, headers: ListVariablesHeaders, runtime: $Util.RuntimeOptions): Promise<ListVariablesResponse> {
@@ -3794,12 +3957,21 @@ export default class Client extends OpenApi {
     return $tea.cast<ListVariablesResponse>(await this.callApi(params, req, runtime), new ListVariablesResponse({}));
   }
 
-  async startJob(namespace: string, request: StartJobRequest): Promise<StartJobResponse> {
+  async listVariables(namespace: string, request: ListVariablesRequest): Promise<ListVariablesResponse> {
     let runtime = new $Util.RuntimeOptions({ });
-    let headers = new StartJobHeaders({ });
-    return await this.startJobWithOptions(namespace, request, headers, runtime);
+    let headers = new ListVariablesHeaders({ });
+    return await this.listVariablesWithOptions(namespace, request, headers, runtime);
   }
 
+  /**
+    * @deprecated
+    *
+    * @param request StartJobRequest
+    * @param headers StartJobHeaders
+    * @param runtime runtime options for this request RuntimeOptions
+    * @return StartJobResponse
+   */
+  // Deprecated
   async startJobWithOptions(namespace: string, request: StartJobRequest, headers: StartJobHeaders, runtime: $Util.RuntimeOptions): Promise<StartJobResponse> {
     Util.validateModel(request);
     let realHeaders : {[key: string ]: string} = { };
@@ -3813,7 +3985,7 @@ export default class Client extends OpenApi {
 
     let req = new $OpenApi.OpenApiRequest({
       headers: realHeaders,
-      body: OpenApiUtil.parseToMap($tea.toMap(request.body)),
+      body: OpenApiUtil.parseToMap(request.body),
     });
     let params = new $OpenApi.Params({
       action: "StartJob",
@@ -3829,10 +4001,52 @@ export default class Client extends OpenApi {
     return $tea.cast<StartJobResponse>(await this.callApi(params, req, runtime), new StartJobResponse({}));
   }
 
-  async stopJob(namespace: string, jobId: string, request: StopJobRequest): Promise<StopJobResponse> {
+  /**
+    * @deprecated
+    *
+    * @param request StartJobRequest
+    * @return StartJobResponse
+   */
+  // Deprecated
+  async startJob(namespace: string, request: StartJobRequest): Promise<StartJobResponse> {
     let runtime = new $Util.RuntimeOptions({ });
-    let headers = new StopJobHeaders({ });
-    return await this.stopJobWithOptions(namespace, jobId, request, headers, runtime);
+    let headers = new StartJobHeaders({ });
+    return await this.startJobWithOptions(namespace, request, headers, runtime);
+  }
+
+  async startJobWithParamsWithOptions(namespace: string, request: StartJobWithParamsRequest, headers: StartJobWithParamsHeaders, runtime: $Util.RuntimeOptions): Promise<StartJobWithParamsResponse> {
+    Util.validateModel(request);
+    let realHeaders : {[key: string ]: string} = { };
+    if (!Util.isUnset(headers.commonHeaders)) {
+      realHeaders = headers.commonHeaders;
+    }
+
+    if (!Util.isUnset(headers.workspace)) {
+      realHeaders["workspace"] = Util.toJSONString(headers.workspace);
+    }
+
+    let req = new $OpenApi.OpenApiRequest({
+      headers: realHeaders,
+      body: OpenApiUtil.parseToMap(request.body),
+    });
+    let params = new $OpenApi.Params({
+      action: "StartJobWithParams",
+      version: "2022-07-18",
+      protocol: "HTTPS",
+      pathname: `/api/v2/namespaces/${OpenApiUtil.getEncodeParam(namespace)}/jobs%3Astart`,
+      method: "POST",
+      authType: "AK",
+      style: "ROA",
+      reqBodyType: "json",
+      bodyType: "json",
+    });
+    return $tea.cast<StartJobWithParamsResponse>(await this.callApi(params, req, runtime), new StartJobWithParamsResponse({}));
+  }
+
+  async startJobWithParams(namespace: string, request: StartJobWithParamsRequest): Promise<StartJobWithParamsResponse> {
+    let runtime = new $Util.RuntimeOptions({ });
+    let headers = new StartJobWithParamsHeaders({ });
+    return await this.startJobWithParamsWithOptions(namespace, request, headers, runtime);
   }
 
   async stopJobWithOptions(namespace: string, jobId: string, request: StopJobRequest, headers: StopJobHeaders, runtime: $Util.RuntimeOptions): Promise<StopJobResponse> {
@@ -3848,7 +4062,7 @@ export default class Client extends OpenApi {
 
     let req = new $OpenApi.OpenApiRequest({
       headers: realHeaders,
-      body: OpenApiUtil.parseToMap($tea.toMap(request.body)),
+      body: OpenApiUtil.parseToMap(request.body),
     });
     let params = new $OpenApi.Params({
       action: "StopJob",
@@ -3864,10 +4078,10 @@ export default class Client extends OpenApi {
     return $tea.cast<StopJobResponse>(await this.callApi(params, req, runtime), new StopJobResponse({}));
   }
 
-  async updateDeployment(namespace: string, deploymentId: string, request: UpdateDeploymentRequest): Promise<UpdateDeploymentResponse> {
+  async stopJob(namespace: string, jobId: string, request: StopJobRequest): Promise<StopJobResponse> {
     let runtime = new $Util.RuntimeOptions({ });
-    let headers = new UpdateDeploymentHeaders({ });
-    return await this.updateDeploymentWithOptions(namespace, deploymentId, request, headers, runtime);
+    let headers = new StopJobHeaders({ });
+    return await this.stopJobWithOptions(namespace, jobId, request, headers, runtime);
   }
 
   async updateDeploymentWithOptions(namespace: string, deploymentId: string, request: UpdateDeploymentRequest, headers: UpdateDeploymentHeaders, runtime: $Util.RuntimeOptions): Promise<UpdateDeploymentResponse> {
@@ -3883,7 +4097,7 @@ export default class Client extends OpenApi {
 
     let req = new $OpenApi.OpenApiRequest({
       headers: realHeaders,
-      body: OpenApiUtil.parseToMap($tea.toMap(request.body)),
+      body: OpenApiUtil.parseToMap(request.body),
     });
     let params = new $OpenApi.Params({
       action: "UpdateDeployment",
@@ -3897,6 +4111,12 @@ export default class Client extends OpenApi {
       bodyType: "json",
     });
     return $tea.cast<UpdateDeploymentResponse>(await this.callApi(params, req, runtime), new UpdateDeploymentResponse({}));
+  }
+
+  async updateDeployment(namespace: string, deploymentId: string, request: UpdateDeploymentRequest): Promise<UpdateDeploymentResponse> {
+    let runtime = new $Util.RuntimeOptions({ });
+    let headers = new UpdateDeploymentHeaders({ });
+    return await this.updateDeploymentWithOptions(namespace, deploymentId, request, headers, runtime);
   }
 
 }
