@@ -2312,13 +2312,37 @@ export class TwoElementsVerificationResponse extends $tea.Model {
   }
 }
 
+export class CompanyFourElementsVerificationResponseBodyDataDetailInfo extends $tea.Model {
+  enterpriseStatus?: string;
+  openTime?: string;
+  static names(): { [key: string]: string } {
+    return {
+      enterpriseStatus: 'EnterpriseStatus',
+      openTime: 'OpenTime',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      enterpriseStatus: 'string',
+      openTime: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
 export class CompanyFourElementsVerificationResponseBodyData extends $tea.Model {
-  detailInfo?: { [key: string]: any };
+  detailInfo?: CompanyFourElementsVerificationResponseBodyDataDetailInfo;
+  inconsistentData?: string[];
   reasonCode?: number;
   verifyResult?: string;
   static names(): { [key: string]: string } {
     return {
       detailInfo: 'DetailInfo',
+      inconsistentData: 'InconsistentData',
       reasonCode: 'ReasonCode',
       verifyResult: 'VerifyResult',
     };
@@ -2326,9 +2350,32 @@ export class CompanyFourElementsVerificationResponseBodyData extends $tea.Model 
 
   static types(): { [key: string]: any } {
     return {
-      detailInfo: { 'type': 'map', 'keyType': 'string', 'valueType': 'any' },
+      detailInfo: CompanyFourElementsVerificationResponseBodyDataDetailInfo,
+      inconsistentData: { 'type': 'array', 'itemType': 'string' },
       reasonCode: 'number',
       verifyResult: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class CompanyThreeElementsVerificationResponseBodyDataDetailInfo extends $tea.Model {
+  enterpriseStatus?: string;
+  openTime?: string;
+  static names(): { [key: string]: string } {
+    return {
+      enterpriseStatus: 'EnterpriseStatus',
+      openTime: 'OpenTime',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      enterpriseStatus: 'string',
+      openTime: 'string',
     };
   }
 
@@ -2338,12 +2385,14 @@ export class CompanyFourElementsVerificationResponseBodyData extends $tea.Model 
 }
 
 export class CompanyThreeElementsVerificationResponseBodyData extends $tea.Model {
-  detailInfo?: { [key: string]: any };
+  detailInfo?: CompanyThreeElementsVerificationResponseBodyDataDetailInfo;
+  inconsistentData?: string[];
   reasonCode?: number;
   verifyResult?: string;
   static names(): { [key: string]: string } {
     return {
       detailInfo: 'DetailInfo',
+      inconsistentData: 'InconsistentData',
       reasonCode: 'ReasonCode',
       verifyResult: 'VerifyResult',
     };
@@ -2351,7 +2400,8 @@ export class CompanyThreeElementsVerificationResponseBodyData extends $tea.Model
 
   static types(): { [key: string]: any } {
     return {
-      detailInfo: { 'type': 'map', 'keyType': 'string', 'valueType': 'any' },
+      detailInfo: CompanyThreeElementsVerificationResponseBodyDataDetailInfo,
+      inconsistentData: { 'type': 'array', 'itemType': 'string' },
       reasonCode: 'number',
       verifyResult: 'string',
     };
@@ -2362,13 +2412,37 @@ export class CompanyThreeElementsVerificationResponseBodyData extends $tea.Model
   }
 }
 
+export class CompanyTwoElementsVerificationResponseBodyDataDetailInfo extends $tea.Model {
+  enterpriseStatus?: string;
+  openTime?: string;
+  static names(): { [key: string]: string } {
+    return {
+      enterpriseStatus: 'EnterpriseStatus',
+      openTime: 'OpenTime',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      enterpriseStatus: 'string',
+      openTime: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
 export class CompanyTwoElementsVerificationResponseBodyData extends $tea.Model {
-  detailInfo?: { [key: string]: any };
+  detailInfo?: CompanyTwoElementsVerificationResponseBodyDataDetailInfo;
+  inconsistentData?: string[];
   reasonCode?: string;
   verifyResult?: string;
   static names(): { [key: string]: string } {
     return {
       detailInfo: 'DetailInfo',
+      inconsistentData: 'InconsistentData',
       reasonCode: 'ReasonCode',
       verifyResult: 'VerifyResult',
     };
@@ -2376,7 +2450,8 @@ export class CompanyTwoElementsVerificationResponseBodyData extends $tea.Model {
 
   static types(): { [key: string]: any } {
     return {
-      detailInfo: { 'type': 'map', 'keyType': 'string', 'valueType': 'any' },
+      detailInfo: CompanyTwoElementsVerificationResponseBodyDataDetailInfo,
+      inconsistentData: { 'type': 'array', 'itemType': 'string' },
       reasonCode: 'string',
       verifyResult: 'string',
     };
