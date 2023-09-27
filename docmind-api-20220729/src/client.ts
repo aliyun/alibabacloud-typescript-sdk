@@ -1006,11 +1006,13 @@ export class SubmitExportDeclarationSheetExtractJobResponse extends $tea.Model {
 }
 
 export class SubmitGeneralContractExtractJobRequest extends $tea.Model {
+  contractModel?: string;
   fileName?: string;
   fileNameExtension?: string;
   fileUrl?: string;
   static names(): { [key: string]: string } {
     return {
+      contractModel: 'ContractModel',
       fileName: 'FileName',
       fileNameExtension: 'FileNameExtension',
       fileUrl: 'FileUrl',
@@ -1019,6 +1021,7 @@ export class SubmitGeneralContractExtractJobRequest extends $tea.Model {
 
   static types(): { [key: string]: any } {
     return {
+      contractModel: 'string',
       fileName: 'string',
       fileNameExtension: 'string',
       fileUrl: 'string',
@@ -1031,11 +1034,13 @@ export class SubmitGeneralContractExtractJobRequest extends $tea.Model {
 }
 
 export class SubmitGeneralContractExtractJobAdvanceRequest extends $tea.Model {
+  contractModel?: string;
   fileName?: string;
   fileNameExtension?: string;
   fileUrlObject?: Readable;
   static names(): { [key: string]: string } {
     return {
+      contractModel: 'ContractModel',
       fileName: 'FileName',
       fileNameExtension: 'FileNameExtension',
       fileUrlObject: 'FileUrl',
@@ -1044,6 +1049,7 @@ export class SubmitGeneralContractExtractJobAdvanceRequest extends $tea.Model {
 
   static types(): { [key: string]: any } {
     return {
+      contractModel: 'string',
       fileName: 'string',
       fileNameExtension: 'string',
       fileUrlObject: 'Readable',
@@ -3090,6 +3096,10 @@ export default class Client extends OpenApi {
   async submitGeneralContractExtractJobWithOptions(request: SubmitGeneralContractExtractJobRequest, runtime: $Util.RuntimeOptions): Promise<SubmitGeneralContractExtractJobResponse> {
     Util.validateModel(request);
     let query = { };
+    if (!Util.isUnset(request.contractModel)) {
+      query["ContractModel"] = request.contractModel;
+    }
+
     if (!Util.isUnset(request.fileName)) {
       query["FileName"] = request.fileName;
     }
