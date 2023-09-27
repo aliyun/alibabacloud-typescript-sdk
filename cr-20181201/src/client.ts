@@ -305,6 +305,84 @@ export class CreateArtifactBuildRuleResponse extends $tea.Model {
   }
 }
 
+export class CreateBuildRecordByRecordRequest extends $tea.Model {
+  buildRecordId?: string;
+  instanceId?: string;
+  repoId?: string;
+  static names(): { [key: string]: string } {
+    return {
+      buildRecordId: 'BuildRecordId',
+      instanceId: 'InstanceId',
+      repoId: 'RepoId',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      buildRecordId: 'string',
+      instanceId: 'string',
+      repoId: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class CreateBuildRecordByRecordResponseBody extends $tea.Model {
+  buildRecordId?: string;
+  code?: string;
+  isSuccess?: boolean;
+  requestId?: string;
+  static names(): { [key: string]: string } {
+    return {
+      buildRecordId: 'BuildRecordId',
+      code: 'Code',
+      isSuccess: 'IsSuccess',
+      requestId: 'RequestId',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      buildRecordId: 'string',
+      code: 'string',
+      isSuccess: 'boolean',
+      requestId: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class CreateBuildRecordByRecordResponse extends $tea.Model {
+  headers: { [key: string]: string };
+  statusCode: number;
+  body: CreateBuildRecordByRecordResponseBody;
+  static names(): { [key: string]: string } {
+    return {
+      headers: 'headers',
+      statusCode: 'statusCode',
+      body: 'body',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
+      body: CreateBuildRecordByRecordResponseBody,
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
 export class CreateBuildRecordByRuleRequest extends $tea.Model {
   buildRuleId?: string;
   instanceId?: string;
@@ -2649,6 +2727,99 @@ export class DeleteRepositoryResponse extends $tea.Model {
       headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
       statusCode: 'number',
       body: DeleteRepositoryResponseBody,
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class GetArtifactBuildRuleRequest extends $tea.Model {
+  artifactType?: string;
+  buildRuleId?: string;
+  instanceId?: string;
+  scopeId?: string;
+  scopeType?: string;
+  static names(): { [key: string]: string } {
+    return {
+      artifactType: 'ArtifactType',
+      buildRuleId: 'BuildRuleId',
+      instanceId: 'InstanceId',
+      scopeId: 'ScopeId',
+      scopeType: 'ScopeType',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      artifactType: 'string',
+      buildRuleId: 'string',
+      instanceId: 'string',
+      scopeId: 'string',
+      scopeType: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class GetArtifactBuildRuleResponseBody extends $tea.Model {
+  artifactType?: string;
+  buildRuleId?: string;
+  code?: string;
+  isSuccess?: boolean;
+  requestId?: string;
+  scopeId?: string;
+  scopeType?: string;
+  static names(): { [key: string]: string } {
+    return {
+      artifactType: 'ArtifactType',
+      buildRuleId: 'BuildRuleId',
+      code: 'Code',
+      isSuccess: 'IsSuccess',
+      requestId: 'RequestId',
+      scopeId: 'ScopeId',
+      scopeType: 'ScopeType',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      artifactType: 'string',
+      buildRuleId: 'string',
+      code: 'string',
+      isSuccess: 'boolean',
+      requestId: 'string',
+      scopeId: 'string',
+      scopeType: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class GetArtifactBuildRuleResponse extends $tea.Model {
+  headers: { [key: string]: string };
+  statusCode: number;
+  body: GetArtifactBuildRuleResponseBody;
+  static names(): { [key: string]: string } {
+    return {
+      headers: 'headers',
+      statusCode: 'statusCode',
+      body: 'body',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
+      body: GetArtifactBuildRuleResponseBody,
     };
   }
 
@@ -9255,6 +9426,43 @@ export default class Client extends OpenApi {
     return await this.createArtifactBuildRuleWithOptions(request, runtime);
   }
 
+  async createBuildRecordByRecordWithOptions(request: CreateBuildRecordByRecordRequest, runtime: $Util.RuntimeOptions): Promise<CreateBuildRecordByRecordResponse> {
+    Util.validateModel(request);
+    let query = { };
+    if (!Util.isUnset(request.buildRecordId)) {
+      query["BuildRecordId"] = request.buildRecordId;
+    }
+
+    if (!Util.isUnset(request.instanceId)) {
+      query["InstanceId"] = request.instanceId;
+    }
+
+    if (!Util.isUnset(request.repoId)) {
+      query["RepoId"] = request.repoId;
+    }
+
+    let req = new $OpenApi.OpenApiRequest({
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApi.Params({
+      action: "CreateBuildRecordByRecord",
+      version: "2018-12-01",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $tea.cast<CreateBuildRecordByRecordResponse>(await this.callApi(params, req, runtime), new CreateBuildRecordByRecordResponse({}));
+  }
+
+  async createBuildRecordByRecord(request: CreateBuildRecordByRecordRequest): Promise<CreateBuildRecordByRecordResponse> {
+    let runtime = new $Util.RuntimeOptions({ });
+    return await this.createBuildRecordByRecordWithOptions(request, runtime);
+  }
+
   async createBuildRecordByRuleWithOptions(request: CreateBuildRecordByRuleRequest, runtime: $Util.RuntimeOptions): Promise<CreateBuildRecordByRuleResponse> {
     Util.validateModel(request);
     let query = { };
@@ -10582,6 +10790,31 @@ export default class Client extends OpenApi {
   async deleteRepository(request: DeleteRepositoryRequest): Promise<DeleteRepositoryResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.deleteRepositoryWithOptions(request, runtime);
+  }
+
+  async getArtifactBuildRuleWithOptions(request: GetArtifactBuildRuleRequest, runtime: $Util.RuntimeOptions): Promise<GetArtifactBuildRuleResponse> {
+    Util.validateModel(request);
+    let query = OpenApiUtil.query(Util.toMap(request));
+    let req = new $OpenApi.OpenApiRequest({
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApi.Params({
+      action: "GetArtifactBuildRule",
+      version: "2018-12-01",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "GET",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $tea.cast<GetArtifactBuildRuleResponse>(await this.callApi(params, req, runtime), new GetArtifactBuildRuleResponse({}));
+  }
+
+  async getArtifactBuildRule(request: GetArtifactBuildRuleRequest): Promise<GetArtifactBuildRuleResponse> {
+    let runtime = new $Util.RuntimeOptions({ });
+    return await this.getArtifactBuildRuleWithOptions(request, runtime);
   }
 
   async getArtifactBuildTaskWithOptions(request: GetArtifactBuildTaskRequest, runtime: $Util.RuntimeOptions): Promise<GetArtifactBuildTaskResponse> {
