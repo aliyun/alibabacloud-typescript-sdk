@@ -388,10 +388,12 @@ export class Pipeline extends $tea.Model {
 export class PipelineSpec extends $tea.Model {
   context?: Context;
   templateName?: string;
+  templateSpec?: PipelineTemplateSpec;
   static names(): { [key: string]: string } {
     return {
       context: 'context',
       templateName: 'templateName',
+      templateSpec: 'templateSpec',
     };
   }
 
@@ -399,6 +401,7 @@ export class PipelineSpec extends $tea.Model {
     return {
       context: Context,
       templateName: 'string',
+      templateSpec: PipelineTemplateSpec,
     };
   }
 
@@ -853,12 +856,45 @@ export class TaskExec extends $tea.Model {
   }
 }
 
+export class TaskExecError extends $tea.Model {
+  code?: string;
+  extraInfo?: string;
+  message?: string;
+  requestId?: string;
+  title?: string;
+  static names(): { [key: string]: string } {
+    return {
+      code: 'code',
+      extraInfo: 'extraInfo',
+      message: 'message',
+      requestId: 'requestId',
+      title: 'title',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      code: 'string',
+      extraInfo: 'string',
+      message: 'string',
+      requestId: 'string',
+      title: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
 export class TaskInvocation extends $tea.Model {
   instanceID?: string;
   invocationID?: string;
   invocationTarget?: string;
   output?: string;
   requestID?: string;
+  slsLogStore?: string;
+  slsProject?: string;
   status?: string;
   static names(): { [key: string]: string } {
     return {
@@ -867,6 +903,8 @@ export class TaskInvocation extends $tea.Model {
       invocationTarget: 'invocationTarget',
       output: 'output',
       requestID: 'requestID',
+      slsLogStore: 'slsLogStore',
+      slsProject: 'slsProject',
       status: 'status',
     };
   }
@@ -878,6 +916,8 @@ export class TaskInvocation extends $tea.Model {
       invocationTarget: 'string',
       output: 'string',
       requestID: 'string',
+      slsLogStore: 'string',
+      slsProject: 'string',
       status: 'string',
     };
   }
@@ -912,12 +952,14 @@ export class TaskSpec extends $tea.Model {
 export class TaskStatus extends $tea.Model {
   executionDetails?: string[];
   invocations?: TaskInvocation[];
+  latestExecError?: TaskExecError;
   phase?: string;
   statusGeneration?: number;
   static names(): { [key: string]: string } {
     return {
       executionDetails: 'executionDetails',
       invocations: 'invocations',
+      latestExecError: 'latestExecError',
       phase: 'phase',
       statusGeneration: 'statusGeneration',
     };
@@ -927,6 +969,7 @@ export class TaskStatus extends $tea.Model {
     return {
       executionDetails: { 'type': 'array', 'itemType': 'string' },
       invocations: { 'type': 'array', 'itemType': TaskInvocation },
+      latestExecError: TaskExecError,
       phase: 'string',
       statusGeneration: 'number',
     };
