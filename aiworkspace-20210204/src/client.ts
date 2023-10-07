@@ -1610,15 +1610,21 @@ export class DeleteMembersRequest extends $tea.Model {
 }
 
 export class DeleteMembersResponseBody extends $tea.Model {
+  code?: string;
+  message?: string;
   requestId?: string;
   static names(): { [key: string]: string } {
     return {
+      code: 'Code',
+      message: 'Message',
       requestId: 'RequestId',
     };
   }
 
   static types(): { [key: string]: any } {
     return {
+      code: 'string',
+      message: 'string',
       requestId: 'string',
     };
   }
