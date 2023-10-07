@@ -411,15 +411,18 @@ export class PipelineSpec extends $tea.Model {
 }
 
 export class PipelineStatus extends $tea.Model {
+  latestExecError?: TaskExecError;
   phase?: string;
   static names(): { [key: string]: string } {
     return {
+      latestExecError: 'latestExecError',
       phase: 'phase',
     };
   }
 
   static types(): { [key: string]: any } {
     return {
+      latestExecError: TaskExecError,
       phase: 'string',
     };
   }
