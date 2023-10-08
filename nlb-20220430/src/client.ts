@@ -663,7 +663,6 @@ export class CreateServerGroupRequest extends $tea.Model {
   healthCheckConfig?: CreateServerGroupRequestHealthCheckConfig;
   preserveClientIpEnabled?: boolean;
   protocol?: string;
-  quicVersion?: string;
   regionId?: string;
   resourceGroupId?: string;
   scheduler?: string;
@@ -682,7 +681,6 @@ export class CreateServerGroupRequest extends $tea.Model {
       healthCheckConfig: 'HealthCheckConfig',
       preserveClientIpEnabled: 'PreserveClientIpEnabled',
       protocol: 'Protocol',
-      quicVersion: 'QuicVersion',
       regionId: 'RegionId',
       resourceGroupId: 'ResourceGroupId',
       scheduler: 'Scheduler',
@@ -704,7 +702,6 @@ export class CreateServerGroupRequest extends $tea.Model {
       healthCheckConfig: CreateServerGroupRequestHealthCheckConfig,
       preserveClientIpEnabled: 'boolean',
       protocol: 'string',
-      quicVersion: 'string',
       regionId: 'string',
       resourceGroupId: 'string',
       scheduler: 'string',
@@ -3930,7 +3927,6 @@ export class UpdateServerGroupAttributeRequest extends $tea.Model {
   dryRun?: boolean;
   healthCheckConfig?: UpdateServerGroupAttributeRequestHealthCheckConfig;
   preserveClientIpEnabled?: boolean;
-  quicVersion?: string;
   regionId?: string;
   scheduler?: string;
   serverGroupId?: string;
@@ -3943,7 +3939,6 @@ export class UpdateServerGroupAttributeRequest extends $tea.Model {
       dryRun: 'DryRun',
       healthCheckConfig: 'HealthCheckConfig',
       preserveClientIpEnabled: 'PreserveClientIpEnabled',
-      quicVersion: 'QuicVersion',
       regionId: 'RegionId',
       scheduler: 'Scheduler',
       serverGroupId: 'ServerGroupId',
@@ -3959,7 +3954,6 @@ export class UpdateServerGroupAttributeRequest extends $tea.Model {
       dryRun: 'boolean',
       healthCheckConfig: UpdateServerGroupAttributeRequestHealthCheckConfig,
       preserveClientIpEnabled: 'boolean',
-      quicVersion: 'string',
       regionId: 'string',
       scheduler: 'string',
       serverGroupId: 'string',
@@ -5433,7 +5427,6 @@ export class ListServerGroupsResponseBodyServerGroups extends $tea.Model {
   healthCheck?: ListServerGroupsResponseBodyServerGroupsHealthCheck;
   preserveClientIpEnabled?: boolean;
   protocol?: string;
-  quicVersion?: string;
   regionId?: string;
   relatedLoadBalancerIds?: string[];
   resourceGroupId?: string;
@@ -5455,7 +5448,6 @@ export class ListServerGroupsResponseBodyServerGroups extends $tea.Model {
       healthCheck: 'HealthCheck',
       preserveClientIpEnabled: 'PreserveClientIpEnabled',
       protocol: 'Protocol',
-      quicVersion: 'QuicVersion',
       regionId: 'RegionId',
       relatedLoadBalancerIds: 'RelatedLoadBalancerIds',
       resourceGroupId: 'ResourceGroupId',
@@ -5480,7 +5472,6 @@ export class ListServerGroupsResponseBodyServerGroups extends $tea.Model {
       healthCheck: ListServerGroupsResponseBodyServerGroupsHealthCheck,
       preserveClientIpEnabled: 'boolean',
       protocol: 'string',
-      quicVersion: 'string',
       regionId: 'string',
       relatedLoadBalancerIds: { 'type': 'array', 'itemType': 'string' },
       resourceGroupId: 'string',
@@ -5896,6 +5887,15 @@ export default class Client extends OpenApi {
     return await this.addServersToServerGroupWithOptions(request, runtime);
   }
 
+  /**
+    * **AssociateAdditionalCertificatesWithListener** is an asynchronous operation. After a request is sent, the system returns a request ID and runs the task in the background. You can call the [ListListenerCertificates](~~615175~~) operation to query the status of the task:
+    * *   If the listener is in the **Associating** state, the additional certificates are being associated.
+    * *   If the listener is in the **Associated** state, the additional certificates are associated.
+    *
+    * @param request AssociateAdditionalCertificatesWithListenerRequest
+    * @param runtime runtime options for this request RuntimeOptions
+    * @return AssociateAdditionalCertificatesWithListenerResponse
+   */
   async associateAdditionalCertificatesWithListenerWithOptions(request: AssociateAdditionalCertificatesWithListenerRequest, runtime: $Util.RuntimeOptions): Promise<AssociateAdditionalCertificatesWithListenerResponse> {
     Util.validateModel(request);
     let body : {[key: string ]: any} = { };
@@ -5936,6 +5936,14 @@ export default class Client extends OpenApi {
     return $tea.cast<AssociateAdditionalCertificatesWithListenerResponse>(await this.callApi(params, req, runtime), new AssociateAdditionalCertificatesWithListenerResponse({}));
   }
 
+  /**
+    * **AssociateAdditionalCertificatesWithListener** is an asynchronous operation. After a request is sent, the system returns a request ID and runs the task in the background. You can call the [ListListenerCertificates](~~615175~~) operation to query the status of the task:
+    * *   If the listener is in the **Associating** state, the additional certificates are being associated.
+    * *   If the listener is in the **Associated** state, the additional certificates are associated.
+    *
+    * @param request AssociateAdditionalCertificatesWithListenerRequest
+    * @return AssociateAdditionalCertificatesWithListenerResponse
+   */
   async associateAdditionalCertificatesWithListener(request: AssociateAdditionalCertificatesWithListenerRequest): Promise<AssociateAdditionalCertificatesWithListenerResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.associateAdditionalCertificatesWithListenerWithOptions(request, runtime);
@@ -6374,10 +6382,6 @@ export default class Client extends OpenApi {
       body["Protocol"] = request.protocol;
     }
 
-    if (!Util.isUnset(request.quicVersion)) {
-      body["QuicVersion"] = request.quicVersion;
-    }
-
     if (!Util.isUnset(request.regionId)) {
       body["RegionId"] = request.regionId;
     }
@@ -6785,6 +6789,15 @@ export default class Client extends OpenApi {
     return await this.disableLoadBalancerIpv6InternetWithOptions(request, runtime);
   }
 
+  /**
+    * **DisassociateAdditionalCertificatesWithListener** is an asynchronous operation. After a request is sent, the system returns a request ID and runs the task in the background. You can call the [ListListenerCertificates](~~615175~~) operation to query the status of the task:
+    * *   If an additional certificate is in the **Dissociating** state, the additional certificate is being disassociated.
+    * *   If an additional certificate is in the **Dissociated** state, the additional certificate is disassociated.
+    *
+    * @param request DisassociateAdditionalCertificatesWithListenerRequest
+    * @param runtime runtime options for this request RuntimeOptions
+    * @return DisassociateAdditionalCertificatesWithListenerResponse
+   */
   async disassociateAdditionalCertificatesWithListenerWithOptions(request: DisassociateAdditionalCertificatesWithListenerRequest, runtime: $Util.RuntimeOptions): Promise<DisassociateAdditionalCertificatesWithListenerResponse> {
     Util.validateModel(request);
     let body : {[key: string ]: any} = { };
@@ -6825,6 +6838,14 @@ export default class Client extends OpenApi {
     return $tea.cast<DisassociateAdditionalCertificatesWithListenerResponse>(await this.callApi(params, req, runtime), new DisassociateAdditionalCertificatesWithListenerResponse({}));
   }
 
+  /**
+    * **DisassociateAdditionalCertificatesWithListener** is an asynchronous operation. After a request is sent, the system returns a request ID and runs the task in the background. You can call the [ListListenerCertificates](~~615175~~) operation to query the status of the task:
+    * *   If an additional certificate is in the **Dissociating** state, the additional certificate is being disassociated.
+    * *   If an additional certificate is in the **Dissociated** state, the additional certificate is disassociated.
+    *
+    * @param request DisassociateAdditionalCertificatesWithListenerRequest
+    * @return DisassociateAdditionalCertificatesWithListenerResponse
+   */
   async disassociateAdditionalCertificatesWithListener(request: DisassociateAdditionalCertificatesWithListenerRequest): Promise<DisassociateAdditionalCertificatesWithListenerResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.disassociateAdditionalCertificatesWithListenerWithOptions(request, runtime);
@@ -8367,10 +8388,6 @@ export default class Client extends OpenApi {
 
     if (!Util.isUnset(request.preserveClientIpEnabled)) {
       body["PreserveClientIpEnabled"] = request.preserveClientIpEnabled;
-    }
-
-    if (!Util.isUnset(request.quicVersion)) {
-      body["QuicVersion"] = request.quicVersion;
     }
 
     if (!Util.isUnset(request.regionId)) {
