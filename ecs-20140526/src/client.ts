@@ -5414,6 +5414,7 @@ export class CreateNatGatewayResponse extends $tea.Model {
 export class CreateNetworkInterfaceRequest extends $tea.Model {
   businessType?: string;
   clientToken?: string;
+  deleteOnRelease?: boolean;
   description?: string;
   instanceType?: string;
   ipv4Prefix?: string[];
@@ -5444,6 +5445,7 @@ export class CreateNetworkInterfaceRequest extends $tea.Model {
     return {
       businessType: 'BusinessType',
       clientToken: 'ClientToken',
+      deleteOnRelease: 'DeleteOnRelease',
       description: 'Description',
       instanceType: 'InstanceType',
       ipv4Prefix: 'Ipv4Prefix',
@@ -5477,6 +5479,7 @@ export class CreateNetworkInterfaceRequest extends $tea.Model {
     return {
       businessType: 'string',
       clientToken: 'string',
+      deleteOnRelease: 'boolean',
       description: 'string',
       instanceType: 'string',
       ipv4Prefix: { 'type': 'array', 'itemType': 'string' },
@@ -17282,6 +17285,7 @@ export class DescribeNetworkInterfaceAttributeResponseBody extends $tea.Model {
   attachment?: DescribeNetworkInterfaceAttributeResponseBodyAttachment;
   bondInterfaceSpecification?: DescribeNetworkInterfaceAttributeResponseBodyBondInterfaceSpecification;
   creationTime?: string;
+  deleteOnRelease?: boolean;
   description?: string;
   instanceId?: string;
   ipv4PrefixSets?: DescribeNetworkInterfaceAttributeResponseBodyIpv4PrefixSets;
@@ -17314,6 +17318,7 @@ export class DescribeNetworkInterfaceAttributeResponseBody extends $tea.Model {
       attachment: 'Attachment',
       bondInterfaceSpecification: 'BondInterfaceSpecification',
       creationTime: 'CreationTime',
+      deleteOnRelease: 'DeleteOnRelease',
       description: 'Description',
       instanceId: 'InstanceId',
       ipv4PrefixSets: 'Ipv4PrefixSets',
@@ -17349,6 +17354,7 @@ export class DescribeNetworkInterfaceAttributeResponseBody extends $tea.Model {
       attachment: DescribeNetworkInterfaceAttributeResponseBodyAttachment,
       bondInterfaceSpecification: DescribeNetworkInterfaceAttributeResponseBodyBondInterfaceSpecification,
       creationTime: 'string',
+      deleteOnRelease: 'boolean',
       description: 'string',
       instanceId: 'string',
       ipv4PrefixSets: DescribeNetworkInterfaceAttributeResponseBodyIpv4PrefixSets,
@@ -27787,6 +27793,7 @@ export class ModifyManagedInstanceResponse extends $tea.Model {
 }
 
 export class ModifyNetworkInterfaceAttributeRequest extends $tea.Model {
+  deleteOnRelease?: boolean;
   description?: string;
   networkInterfaceId?: string;
   networkInterfaceName?: string;
@@ -27799,6 +27806,7 @@ export class ModifyNetworkInterfaceAttributeRequest extends $tea.Model {
   securityGroupId?: string[];
   static names(): { [key: string]: string } {
     return {
+      deleteOnRelease: 'DeleteOnRelease',
       description: 'Description',
       networkInterfaceId: 'NetworkInterfaceId',
       networkInterfaceName: 'NetworkInterfaceName',
@@ -27814,6 +27822,7 @@ export class ModifyNetworkInterfaceAttributeRequest extends $tea.Model {
 
   static types(): { [key: string]: any } {
     return {
+      deleteOnRelease: 'boolean',
       description: 'string',
       networkInterfaceId: 'string',
       networkInterfaceName: 'string',
@@ -47035,6 +47044,7 @@ export class DescribeNetworkInterfacesResponseBodyNetworkInterfaceSetsNetworkInt
   associatedPublicIp?: DescribeNetworkInterfacesResponseBodyNetworkInterfaceSetsNetworkInterfaceSetAssociatedPublicIp;
   attachment?: DescribeNetworkInterfacesResponseBodyNetworkInterfaceSetsNetworkInterfaceSetAttachment;
   creationTime?: string;
+  deleteOnRelease?: boolean;
   description?: string;
   instanceId?: string;
   ipv4PrefixSets?: DescribeNetworkInterfacesResponseBodyNetworkInterfaceSetsNetworkInterfaceSetIpv4PrefixSets;
@@ -47064,6 +47074,7 @@ export class DescribeNetworkInterfacesResponseBodyNetworkInterfaceSetsNetworkInt
       associatedPublicIp: 'AssociatedPublicIp',
       attachment: 'Attachment',
       creationTime: 'CreationTime',
+      deleteOnRelease: 'DeleteOnRelease',
       description: 'Description',
       instanceId: 'InstanceId',
       ipv4PrefixSets: 'Ipv4PrefixSets',
@@ -47096,6 +47107,7 @@ export class DescribeNetworkInterfacesResponseBodyNetworkInterfaceSetsNetworkInt
       associatedPublicIp: DescribeNetworkInterfacesResponseBodyNetworkInterfaceSetsNetworkInterfaceSetAssociatedPublicIp,
       attachment: DescribeNetworkInterfacesResponseBodyNetworkInterfaceSetsNetworkInterfaceSetAttachment,
       creationTime: 'string',
+      deleteOnRelease: 'boolean',
       description: 'string',
       instanceId: 'string',
       ipv4PrefixSets: DescribeNetworkInterfacesResponseBodyNetworkInterfaceSetsNetworkInterfaceSetIpv4PrefixSets,
@@ -53276,11 +53288,13 @@ export class RunInstancesRequestImageOptions extends $tea.Model {
 }
 
 export class RunInstancesRequestNetworkInterface extends $tea.Model {
+  deleteOnRelease?: boolean;
   description?: string;
   instanceType?: string;
   ipv6Address?: string[];
   ipv6AddressCount?: number;
   networkCardIndex?: number;
+  networkInterfaceId?: string;
   networkInterfaceName?: string;
   networkInterfaceTrafficMode?: string;
   primaryIpAddress?: string;
@@ -53291,11 +53305,13 @@ export class RunInstancesRequestNetworkInterface extends $tea.Model {
   vSwitchId?: string;
   static names(): { [key: string]: string } {
     return {
+      deleteOnRelease: 'DeleteOnRelease',
       description: 'Description',
       instanceType: 'InstanceType',
       ipv6Address: 'Ipv6Address',
       ipv6AddressCount: 'Ipv6AddressCount',
       networkCardIndex: 'NetworkCardIndex',
+      networkInterfaceId: 'NetworkInterfaceId',
       networkInterfaceName: 'NetworkInterfaceName',
       networkInterfaceTrafficMode: 'NetworkInterfaceTrafficMode',
       primaryIpAddress: 'PrimaryIpAddress',
@@ -53309,11 +53325,13 @@ export class RunInstancesRequestNetworkInterface extends $tea.Model {
 
   static types(): { [key: string]: any } {
     return {
+      deleteOnRelease: 'boolean',
       description: 'string',
       instanceType: 'string',
       ipv6Address: { 'type': 'array', 'itemType': 'string' },
       ipv6AddressCount: 'number',
       networkCardIndex: 'number',
+      networkInterfaceId: 'string',
       networkInterfaceName: 'string',
       networkInterfaceTrafficMode: 'string',
       primaryIpAddress: 'string',
@@ -58955,6 +58973,10 @@ export default class Client extends OpenApi {
 
     if (!Util.isUnset(request.clientToken)) {
       query["ClientToken"] = request.clientToken;
+    }
+
+    if (!Util.isUnset(request.deleteOnRelease)) {
+      query["DeleteOnRelease"] = request.deleteOnRelease;
     }
 
     if (!Util.isUnset(request.description)) {
@@ -77316,6 +77338,10 @@ export default class Client extends OpenApi {
   async modifyNetworkInterfaceAttributeWithOptions(request: ModifyNetworkInterfaceAttributeRequest, runtime: $Util.RuntimeOptions): Promise<ModifyNetworkInterfaceAttributeResponse> {
     Util.validateModel(request);
     let query = { };
+    if (!Util.isUnset(request.deleteOnRelease)) {
+      query["DeleteOnRelease"] = request.deleteOnRelease;
+    }
+
     if (!Util.isUnset(request.description)) {
       query["Description"] = request.description;
     }
