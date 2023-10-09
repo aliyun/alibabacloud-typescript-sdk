@@ -2374,6 +2374,7 @@ export class ReleaseInstanceResponse extends $tea.Model {
 
 export class StartInstanceRequest extends $tea.Model {
   config?: string;
+  crossZone?: boolean;
   deployModule?: string;
   instanceId?: string;
   isEipInner?: boolean;
@@ -2395,6 +2396,7 @@ export class StartInstanceRequest extends $tea.Model {
   static names(): { [key: string]: string } {
     return {
       config: 'Config',
+      crossZone: 'CrossZone',
       deployModule: 'DeployModule',
       instanceId: 'InstanceId',
       isEipInner: 'IsEipInner',
@@ -2419,6 +2421,7 @@ export class StartInstanceRequest extends $tea.Model {
   static types(): { [key: string]: any } {
     return {
       config: 'string',
+      crossZone: 'boolean',
       deployModule: 'string',
       instanceId: 'string',
       isEipInner: 'boolean',
@@ -4455,6 +4458,13 @@ export default class Client extends OpenApi {
     return await this.createConsumerGroupWithOptions(request, runtime);
   }
 
+  /**
+    * Before you call this operation, make sure that you understand the billing method and pricing of pay-as-you-go Message Queue for Apache Kafka instances. For more information, see [Billing](~~84737~~).
+    *
+    * @param request CreatePostPayOrderRequest
+    * @param runtime runtime options for this request RuntimeOptions
+    * @return CreatePostPayOrderResponse
+   */
   async createPostPayOrderWithOptions(request: CreatePostPayOrderRequest, runtime: $Util.RuntimeOptions): Promise<CreatePostPayOrderResponse> {
     Util.validateModel(request);
     let query = { };
@@ -4523,15 +4533,20 @@ export default class Client extends OpenApi {
     return $tea.cast<CreatePostPayOrderResponse>(await this.callApi(params, req, runtime), new CreatePostPayOrderResponse({}));
   }
 
+  /**
+    * Before you call this operation, make sure that you understand the billing method and pricing of pay-as-you-go Message Queue for Apache Kafka instances. For more information, see [Billing](~~84737~~).
+    *
+    * @param request CreatePostPayOrderRequest
+    * @return CreatePostPayOrderResponse
+   */
   async createPostPayOrder(request: CreatePostPayOrderRequest): Promise<CreatePostPayOrderResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.createPostPayOrderWithOptions(request, runtime);
   }
 
   /**
-    * The maximum traffic for the instance. We recommend that you do not configure this parameter.
-    * *   You must configure at least one of the **IoMax** and **IoMaxSpec** parameters. If both parameters are configured, the value of the **IoMaxSpec** parameter takes effect. We recommend that you configure only the **IoMaxSpec** parameter.
-    * *   For more information about the valid values, see [Billing](~~84737~~).
+    * *   Before you call this operation, make sure that you understand the billing methods and pricing of subscription ApsaraMQ for Kafka instances. For more information, see [Billing](~~84737~~).
+    * *   If you create an ApsaraMQ for Kafka instance by calling this operation, the subscription duration is one month and the auto-renewal feature is enabled by default. The auto-renewal cycle is also one month. If you want to change the auto-renewal cycle or disable the auto-renewal feature, you can go to the [Renewal](https://renew.console.aliyun.com/#/ecs) page in the Alibaba Cloud Management Console.
     *
     * @param request CreatePrePayOrderRequest
     * @param runtime runtime options for this request RuntimeOptions
@@ -4606,9 +4621,8 @@ export default class Client extends OpenApi {
   }
 
   /**
-    * The maximum traffic for the instance. We recommend that you do not configure this parameter.
-    * *   You must configure at least one of the **IoMax** and **IoMaxSpec** parameters. If both parameters are configured, the value of the **IoMaxSpec** parameter takes effect. We recommend that you configure only the **IoMaxSpec** parameter.
-    * *   For more information about the valid values, see [Billing](~~84737~~).
+    * *   Before you call this operation, make sure that you understand the billing methods and pricing of subscription ApsaraMQ for Kafka instances. For more information, see [Billing](~~84737~~).
+    * *   If you create an ApsaraMQ for Kafka instance by calling this operation, the subscription duration is one month and the auto-renewal feature is enabled by default. The auto-renewal cycle is also one month. If you want to change the auto-renewal cycle or disable the auto-renewal feature, you can go to the [Renewal](https://renew.console.aliyun.com/#/ecs) page in the Alibaba Cloud Management Console.
     *
     * @param request CreatePrePayOrderRequest
     * @return CreatePrePayOrderResponse
@@ -4664,9 +4678,8 @@ export default class Client extends OpenApi {
   }
 
   /**
-    * The description of the topic.
-    * *   The description can contain only letters, digits, hyphens (-), and underscores (\\_).
-    * *   The description must be 3 to 64 characters in length.
+    * *   Each Alibaba Cloud account can call this operation up to once per second.
+    * *   The maximum number of topics that you can create in an instance is determined by the specification of the instance.
     *
     * @param request CreateTopicRequest
     * @param runtime runtime options for this request RuntimeOptions
@@ -4737,9 +4750,8 @@ export default class Client extends OpenApi {
   }
 
   /**
-    * The description of the topic.
-    * *   The description can contain only letters, digits, hyphens (-), and underscores (\\_).
-    * *   The description must be 3 to 64 characters in length.
+    * *   Each Alibaba Cloud account can call this operation up to once per second.
+    * *   The maximum number of topics that you can create in an instance is determined by the specification of the instance.
     *
     * @param request CreateTopicRequest
     * @return CreateTopicResponse
@@ -5493,7 +5505,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-    * The region ID of the instance.
+    * You cannot call this operation to release a subscription Message Queue for Apache Kafka instance.
     *
     * @param request ReleaseInstanceRequest
     * @param runtime runtime options for this request RuntimeOptions
@@ -5532,7 +5544,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-    * The region ID of the instance.
+    * You cannot call this operation to release a subscription Message Queue for Apache Kafka instance.
     *
     * @param request ReleaseInstanceRequest
     * @return ReleaseInstanceResponse
@@ -5542,11 +5554,22 @@ export default class Client extends OpenApi {
     return await this.releaseInstanceWithOptions(request, runtime);
   }
 
+  /**
+    * >  You can call this operation up to twice per second.
+    *
+    * @param request StartInstanceRequest
+    * @param runtime runtime options for this request RuntimeOptions
+    * @return StartInstanceResponse
+   */
   async startInstanceWithOptions(request: StartInstanceRequest, runtime: $Util.RuntimeOptions): Promise<StartInstanceResponse> {
     Util.validateModel(request);
     let query = { };
     if (!Util.isUnset(request.config)) {
       query["Config"] = request.config;
+    }
+
+    if (!Util.isUnset(request.crossZone)) {
+      query["CrossZone"] = request.crossZone;
     }
 
     if (!Util.isUnset(request.deployModule)) {
@@ -5638,6 +5661,12 @@ export default class Client extends OpenApi {
     return $tea.cast<StartInstanceResponse>(await this.callApi(params, req, runtime), new StartInstanceResponse({}));
   }
 
+  /**
+    * >  You can call this operation up to twice per second.
+    *
+    * @param request StartInstanceRequest
+    * @return StartInstanceResponse
+   */
   async startInstance(request: StartInstanceRequest): Promise<StartInstanceResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.startInstanceWithOptions(request, runtime);
@@ -5786,6 +5815,16 @@ export default class Client extends OpenApi {
     return await this.updateAllowedIpWithOptions(request, runtime);
   }
 
+  /**
+    * You can call this operation to reset the consumer offsets of the subscribed topics of a consumer group. You can specify a timestamp or an offset to reset a consumer offset. You can implement the following features by configuring a combination of different parameters:
+    * *   Reset the consumer offsets of one or all subscribed topics of a consumer group to the latest offset. This way, you can consume messages in the topics from the latest offset.
+    * *   Reset the consumer offsets of one or all subscribed topics of a consumer group to a specific point in time. This way, you can consume messages in the topics from the specified point in time.
+    * *   Reset the consumer offset of one subscribed topic of a consumer group to a specific offset in a specific partition. This way, you can consume messages from the specified offset in the specified partition.
+    *
+    * @param tmpReq UpdateConsumerOffsetRequest
+    * @param runtime runtime options for this request RuntimeOptions
+    * @return UpdateConsumerOffsetResponse
+   */
   async updateConsumerOffsetWithOptions(tmpReq: UpdateConsumerOffsetRequest, runtime: $Util.RuntimeOptions): Promise<UpdateConsumerOffsetResponse> {
     Util.validateModel(tmpReq);
     let request = new UpdateConsumerOffsetShrinkRequest({ });
@@ -5840,13 +5879,26 @@ export default class Client extends OpenApi {
     return $tea.cast<UpdateConsumerOffsetResponse>(await this.callApi(params, req, runtime), new UpdateConsumerOffsetResponse({}));
   }
 
+  /**
+    * You can call this operation to reset the consumer offsets of the subscribed topics of a consumer group. You can specify a timestamp or an offset to reset a consumer offset. You can implement the following features by configuring a combination of different parameters:
+    * *   Reset the consumer offsets of one or all subscribed topics of a consumer group to the latest offset. This way, you can consume messages in the topics from the latest offset.
+    * *   Reset the consumer offsets of one or all subscribed topics of a consumer group to a specific point in time. This way, you can consume messages in the topics from the specified point in time.
+    * *   Reset the consumer offset of one subscribed topic of a consumer group to a specific offset in a specific partition. This way, you can consume messages from the specified offset in the specified partition.
+    *
+    * @param request UpdateConsumerOffsetRequest
+    * @return UpdateConsumerOffsetResponse
+   */
   async updateConsumerOffset(request: UpdateConsumerOffsetRequest): Promise<UpdateConsumerOffsetResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.updateConsumerOffsetWithOptions(request, runtime);
   }
 
   /**
-    * The region ID of the instance.
+    * ## **Permissions**
+    * If a RAM user wants to call the **UpdateInstanceConfig** operation, the RAM user must be granted the required permissions. For more information about how to grant permissions, see [RAM policies](~~185815~~).
+    * |API|Action|Resource|
+    * |---|---|---|
+    * |UpdateInstanceConfig|alikafka: UpdateInstance|acs:alikafka:*:*:{instanceId}|
     *
     * @param request UpdateInstanceConfigRequest
     * @param runtime runtime options for this request RuntimeOptions
@@ -5885,7 +5937,11 @@ export default class Client extends OpenApi {
   }
 
   /**
-    * The region ID of the instance.
+    * ## **Permissions**
+    * If a RAM user wants to call the **UpdateInstanceConfig** operation, the RAM user must be granted the required permissions. For more information about how to grant permissions, see [RAM policies](~~185815~~).
+    * |API|Action|Resource|
+    * |---|---|---|
+    * |UpdateInstanceConfig|alikafka: UpdateInstance|acs:alikafka:*:*:{instanceId}|
     *
     * @param request UpdateInstanceConfigRequest
     * @return UpdateInstanceConfigResponse
@@ -6036,9 +6092,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-    * The size of the disk.
-    * *   The disk size that you specify must be greater than or equal to the current disk size of the instance.
-    * *   For more information about the valid values, see [Billing overview](~~84737~~).
+    * Before you call this operation, make sure that you understand the billing method and pricing of subscription Message Queue for Apache Kafka instances. For more information, see [Billing overview](~~84737~~).
     *
     * @param request UpgradePrePayOrderRequest
     * @param runtime runtime options for this request RuntimeOptions
@@ -6105,9 +6159,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-    * The size of the disk.
-    * *   The disk size that you specify must be greater than or equal to the current disk size of the instance.
-    * *   For more information about the valid values, see [Billing overview](~~84737~~).
+    * Before you call this operation, make sure that you understand the billing method and pricing of subscription Message Queue for Apache Kafka instances. For more information, see [Billing overview](~~84737~~).
     *
     * @param request UpgradePrePayOrderRequest
     * @return UpgradePrePayOrderResponse
