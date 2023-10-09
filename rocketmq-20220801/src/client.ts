@@ -194,6 +194,7 @@ export class CreateConsumerGroupResponse extends $tea.Model {
 export class CreateInstanceRequest extends $tea.Model {
   autoRenew?: boolean;
   autoRenewPeriod?: number;
+  commodityCode?: string;
   instanceName?: string;
   networkInfo?: CreateInstanceRequestNetworkInfo;
   paymentType?: string;
@@ -210,6 +211,7 @@ export class CreateInstanceRequest extends $tea.Model {
     return {
       autoRenew: 'autoRenew',
       autoRenewPeriod: 'autoRenewPeriod',
+      commodityCode: 'commodityCode',
       instanceName: 'instanceName',
       networkInfo: 'networkInfo',
       paymentType: 'paymentType',
@@ -229,6 +231,7 @@ export class CreateInstanceRequest extends $tea.Model {
     return {
       autoRenew: 'boolean',
       autoRenewPeriod: 'number',
+      commodityCode: 'string',
       instanceName: 'string',
       networkInfo: CreateInstanceRequestNetworkInfo,
       paymentType: 'string',
@@ -1568,10 +1571,12 @@ export class CreateInstanceRequestNetworkInfoInternetInfo extends $tea.Model {
 }
 
 export class CreateInstanceRequestNetworkInfoVpcInfo extends $tea.Model {
+  securityGroupIds?: string;
   vSwitchId?: string;
   vpcId?: string;
   static names(): { [key: string]: string } {
     return {
+      securityGroupIds: 'securityGroupIds',
       vSwitchId: 'vSwitchId',
       vpcId: 'vpcId',
     };
@@ -1579,6 +1584,7 @@ export class CreateInstanceRequestNetworkInfoVpcInfo extends $tea.Model {
 
   static types(): { [key: string]: any } {
     return {
+      securityGroupIds: 'string',
       vSwitchId: 'string',
       vpcId: 'string',
     };
@@ -1613,12 +1619,16 @@ export class CreateInstanceRequestNetworkInfo extends $tea.Model {
 
 export class CreateInstanceRequestProductInfo extends $tea.Model {
   autoScaling?: boolean;
+  chargeType?: string;
+  intranetSpec?: string;
   messageRetentionTime?: number;
   msgProcessSpec?: string;
   sendReceiveRatio?: number;
   static names(): { [key: string]: string } {
     return {
       autoScaling: 'autoScaling',
+      chargeType: 'chargeType',
+      intranetSpec: 'intranetSpec',
       messageRetentionTime: 'messageRetentionTime',
       msgProcessSpec: 'msgProcessSpec',
       sendReceiveRatio: 'sendReceiveRatio',
@@ -1628,6 +1638,8 @@ export class CreateInstanceRequestProductInfo extends $tea.Model {
   static types(): { [key: string]: any } {
     return {
       autoScaling: 'boolean',
+      chargeType: 'string',
+      intranetSpec: 'string',
       messageRetentionTime: 'number',
       msgProcessSpec: 'string',
       sendReceiveRatio: 'number',
@@ -1870,10 +1882,12 @@ export class GetInstanceResponseBodyDataNetworkInfoInternetInfo extends $tea.Mod
 }
 
 export class GetInstanceResponseBodyDataNetworkInfoVpcInfo extends $tea.Model {
+  securityGroupIds?: string;
   vSwitchId?: string;
   vpcId?: string;
   static names(): { [key: string]: string } {
     return {
+      securityGroupIds: 'securityGroupIds',
       vSwitchId: 'vSwitchId',
       vpcId: 'vpcId',
     };
@@ -1881,6 +1895,7 @@ export class GetInstanceResponseBodyDataNetworkInfoVpcInfo extends $tea.Model {
 
   static types(): { [key: string]: any } {
     return {
+      securityGroupIds: 'string',
       vSwitchId: 'string',
       vpcId: 'string',
     };
@@ -1922,6 +1937,7 @@ export class GetInstanceResponseBodyDataProductInfo extends $tea.Model {
   msgProcessSpec?: string;
   sendReceiveRatio?: number;
   supportAutoScaling?: boolean;
+  traceOn?: boolean;
   static names(): { [key: string]: string } {
     return {
       autoScaling: 'autoScaling',
@@ -1929,6 +1945,7 @@ export class GetInstanceResponseBodyDataProductInfo extends $tea.Model {
       msgProcessSpec: 'msgProcessSpec',
       sendReceiveRatio: 'sendReceiveRatio',
       supportAutoScaling: 'supportAutoScaling',
+      traceOn: 'traceOn',
     };
   }
 
@@ -1939,6 +1956,7 @@ export class GetInstanceResponseBodyDataProductInfo extends $tea.Model {
       msgProcessSpec: 'string',
       sendReceiveRatio: 'number',
       supportAutoScaling: 'boolean',
+      traceOn: 'boolean',
     };
   }
 
@@ -2236,6 +2254,25 @@ export class ListConsumerGroupsResponseBodyData extends $tea.Model {
   }
 }
 
+export class ListInstancesResponseBodyDataListProductInfo extends $tea.Model {
+  traceOn?: boolean;
+  static names(): { [key: string]: string } {
+    return {
+      traceOn: 'traceOn',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      traceOn: 'boolean',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
 export class ListInstancesResponseBodyDataListTags extends $tea.Model {
   key?: string;
   value?: string;
@@ -2266,6 +2303,7 @@ export class ListInstancesResponseBodyDataList extends $tea.Model {
   instanceId?: string;
   instanceName?: string;
   paymentType?: string;
+  productInfo?: ListInstancesResponseBodyDataListProductInfo;
   regionId?: string;
   releaseTime?: string;
   remark?: string;
@@ -2288,6 +2326,7 @@ export class ListInstancesResponseBodyDataList extends $tea.Model {
       instanceId: 'instanceId',
       instanceName: 'instanceName',
       paymentType: 'paymentType',
+      productInfo: 'productInfo',
       regionId: 'regionId',
       releaseTime: 'releaseTime',
       remark: 'remark',
@@ -2313,6 +2352,7 @@ export class ListInstancesResponseBodyDataList extends $tea.Model {
       instanceId: 'string',
       instanceName: 'string',
       paymentType: 'string',
+      productInfo: ListInstancesResponseBodyDataListProductInfo,
       regionId: 'string',
       releaseTime: 'string',
       remark: 'string',
@@ -2497,11 +2537,13 @@ export class UpdateInstanceRequestProductInfo extends $tea.Model {
   autoScaling?: boolean;
   messageRetentionTime?: number;
   sendReceiveRatio?: number;
+  traceOn?: boolean;
   static names(): { [key: string]: string } {
     return {
       autoScaling: 'autoScaling',
       messageRetentionTime: 'messageRetentionTime',
       sendReceiveRatio: 'sendReceiveRatio',
+      traceOn: 'traceOn',
     };
   }
 
@@ -2510,6 +2552,7 @@ export class UpdateInstanceRequestProductInfo extends $tea.Model {
       autoScaling: 'boolean',
       messageRetentionTime: 'number',
       sendReceiveRatio: 'number',
+      traceOn: 'boolean',
     };
   }
 
@@ -2659,6 +2702,10 @@ export default class Client extends OpenApi {
 
     if (!Util.isUnset(request.autoRenewPeriod)) {
       body["autoRenewPeriod"] = request.autoRenewPeriod;
+    }
+
+    if (!Util.isUnset(request.commodityCode)) {
+      body["commodityCode"] = request.commodityCode;
     }
 
     if (!Util.isUnset(request.instanceName)) {
