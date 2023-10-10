@@ -3561,6 +3561,7 @@ export class MergeImageFaceRequest extends $tea.Model {
   mergeInfos?: MergeImageFaceRequestMergeInfos[];
   modelVersion?: string;
   templateId?: string;
+  watermarkType?: string;
   static names(): { [key: string]: string } {
     return {
       addWatermark: 'AddWatermark',
@@ -3568,6 +3569,7 @@ export class MergeImageFaceRequest extends $tea.Model {
       mergeInfos: 'MergeInfos',
       modelVersion: 'ModelVersion',
       templateId: 'TemplateId',
+      watermarkType: 'WatermarkType',
     };
   }
 
@@ -3578,6 +3580,7 @@ export class MergeImageFaceRequest extends $tea.Model {
       mergeInfos: { 'type': 'array', 'itemType': MergeImageFaceRequestMergeInfos },
       modelVersion: 'string',
       templateId: 'string',
+      watermarkType: 'string',
     };
   }
 
@@ -3592,6 +3595,7 @@ export class MergeImageFaceAdvanceRequest extends $tea.Model {
   mergeInfos?: MergeImageFaceAdvanceRequestMergeInfos[];
   modelVersion?: string;
   templateId?: string;
+  watermarkType?: string;
   static names(): { [key: string]: string } {
     return {
       addWatermark: 'AddWatermark',
@@ -3599,6 +3603,7 @@ export class MergeImageFaceAdvanceRequest extends $tea.Model {
       mergeInfos: 'MergeInfos',
       modelVersion: 'ModelVersion',
       templateId: 'TemplateId',
+      watermarkType: 'WatermarkType',
     };
   }
 
@@ -3609,6 +3614,7 @@ export class MergeImageFaceAdvanceRequest extends $tea.Model {
       mergeInfos: { 'type': 'array', 'itemType': MergeImageFaceAdvanceRequestMergeInfos },
       modelVersion: 'string',
       templateId: 'string',
+      watermarkType: 'string',
     };
   }
 
@@ -12111,6 +12117,10 @@ export default class Client extends OpenApi {
 
     if (!Util.isUnset(request.templateId)) {
       body["TemplateId"] = request.templateId;
+    }
+
+    if (!Util.isUnset(request.watermarkType)) {
+      body["WatermarkType"] = request.watermarkType;
     }
 
     let req = new $OpenApi.OpenApiRequest({
