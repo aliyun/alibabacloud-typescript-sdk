@@ -1556,12 +1556,14 @@ export class MergeVideoFaceRequest extends $tea.Model {
   enhance?: boolean;
   referenceURL?: string;
   videoURL?: string;
+  watermarkType?: string;
   static names(): { [key: string]: string } {
     return {
       addWatermark: 'AddWatermark',
       enhance: 'Enhance',
       referenceURL: 'ReferenceURL',
       videoURL: 'VideoURL',
+      watermarkType: 'WatermarkType',
     };
   }
 
@@ -1571,6 +1573,7 @@ export class MergeVideoFaceRequest extends $tea.Model {
       enhance: 'boolean',
       referenceURL: 'string',
       videoURL: 'string',
+      watermarkType: 'string',
     };
   }
 
@@ -1584,12 +1587,14 @@ export class MergeVideoFaceAdvanceRequest extends $tea.Model {
   enhance?: boolean;
   referenceURLObject?: Readable;
   videoURLObject?: Readable;
+  watermarkType?: string;
   static names(): { [key: string]: string } {
     return {
       addWatermark: 'AddWatermark',
       enhance: 'Enhance',
       referenceURLObject: 'ReferenceURL',
       videoURLObject: 'VideoURL',
+      watermarkType: 'WatermarkType',
     };
   }
 
@@ -1599,6 +1604,7 @@ export class MergeVideoFaceAdvanceRequest extends $tea.Model {
       enhance: 'boolean',
       referenceURLObject: 'Readable',
       videoURLObject: 'Readable',
+      watermarkType: 'string',
     };
   }
 
@@ -1663,6 +1669,7 @@ export class MergeVideoModelFaceRequest extends $tea.Model {
   faceImageURL?: string;
   mergeInfos?: MergeVideoModelFaceRequestMergeInfos[];
   templateId?: string;
+  watermarkType?: string;
   static names(): { [key: string]: string } {
     return {
       addWatermark: 'AddWatermark',
@@ -1670,6 +1677,7 @@ export class MergeVideoModelFaceRequest extends $tea.Model {
       faceImageURL: 'FaceImageURL',
       mergeInfos: 'MergeInfos',
       templateId: 'TemplateId',
+      watermarkType: 'WatermarkType',
     };
   }
 
@@ -1680,6 +1688,7 @@ export class MergeVideoModelFaceRequest extends $tea.Model {
       faceImageURL: 'string',
       mergeInfos: { 'type': 'array', 'itemType': MergeVideoModelFaceRequestMergeInfos },
       templateId: 'string',
+      watermarkType: 'string',
     };
   }
 
@@ -1694,6 +1703,7 @@ export class MergeVideoModelFaceAdvanceRequest extends $tea.Model {
   faceImageURLObject?: Readable;
   mergeInfos?: MergeVideoModelFaceAdvanceRequestMergeInfos[];
   templateId?: string;
+  watermarkType?: string;
   static names(): { [key: string]: string } {
     return {
       addWatermark: 'AddWatermark',
@@ -1701,6 +1711,7 @@ export class MergeVideoModelFaceAdvanceRequest extends $tea.Model {
       faceImageURLObject: 'FaceImageURL',
       mergeInfos: 'MergeInfos',
       templateId: 'TemplateId',
+      watermarkType: 'WatermarkType',
     };
   }
 
@@ -1711,6 +1722,7 @@ export class MergeVideoModelFaceAdvanceRequest extends $tea.Model {
       faceImageURLObject: 'Readable',
       mergeInfos: { 'type': 'array', 'itemType': MergeVideoModelFaceAdvanceRequestMergeInfos },
       templateId: 'string',
+      watermarkType: 'string',
     };
   }
 
@@ -4379,6 +4391,10 @@ export default class Client extends OpenApi {
       body["VideoURL"] = request.videoURL;
     }
 
+    if (!Util.isUnset(request.watermarkType)) {
+      body["WatermarkType"] = request.watermarkType;
+    }
+
     let req = new $OpenApi.OpenApiRequest({
       body: OpenApiUtil.parseToMap(body),
     });
@@ -4522,6 +4538,10 @@ export default class Client extends OpenApi {
 
     if (!Util.isUnset(request.templateId)) {
       body["TemplateId"] = request.templateId;
+    }
+
+    if (!Util.isUnset(request.watermarkType)) {
+      body["WatermarkType"] = request.watermarkType;
     }
 
     let req = new $OpenApi.OpenApiRequest({
