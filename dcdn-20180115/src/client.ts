@@ -767,15 +767,18 @@ export class BatchSetDcdnDomainConfigsRequest extends $tea.Model {
 }
 
 export class BatchSetDcdnDomainConfigsResponseBody extends $tea.Model {
+  domainConfigList?: BatchSetDcdnDomainConfigsResponseBodyDomainConfigList;
   requestId?: string;
   static names(): { [key: string]: string } {
     return {
+      domainConfigList: 'DomainConfigList',
       requestId: 'RequestId',
     };
   }
 
   static types(): { [key: string]: any } {
     return {
+      domainConfigList: BatchSetDcdnDomainConfigsResponseBodyDomainConfigList,
       requestId: 'string',
     };
   }
@@ -12438,6 +12441,96 @@ export class DescribeHighlightInfoResponse extends $tea.Model {
   }
 }
 
+export class DescribeKvUsageDataRequest extends $tea.Model {
+  accessType?: string;
+  endTime?: string;
+  field?: string;
+  namespaceId?: string;
+  responseType?: string;
+  splitBy?: string;
+  startTime?: string;
+  static names(): { [key: string]: string } {
+    return {
+      accessType: 'AccessType',
+      endTime: 'EndTime',
+      field: 'Field',
+      namespaceId: 'NamespaceId',
+      responseType: 'ResponseType',
+      splitBy: 'SplitBy',
+      startTime: 'StartTime',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      accessType: 'string',
+      endTime: 'string',
+      field: 'string',
+      namespaceId: 'string',
+      responseType: 'string',
+      splitBy: 'string',
+      startTime: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class DescribeKvUsageDataResponseBody extends $tea.Model {
+  endTime?: string;
+  kvUsageData?: DescribeKvUsageDataResponseBodyKvUsageData[];
+  requestId?: string;
+  startTime?: string;
+  static names(): { [key: string]: string } {
+    return {
+      endTime: 'EndTime',
+      kvUsageData: 'KvUsageData',
+      requestId: 'RequestId',
+      startTime: 'StartTime',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      endTime: 'string',
+      kvUsageData: { 'type': 'array', 'itemType': DescribeKvUsageDataResponseBodyKvUsageData },
+      requestId: 'string',
+      startTime: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class DescribeKvUsageDataResponse extends $tea.Model {
+  headers: { [key: string]: string };
+  statusCode: number;
+  body: DescribeKvUsageDataResponseBody;
+  static names(): { [key: string]: string } {
+    return {
+      headers: 'headers',
+      statusCode: 'statusCode',
+      body: 'body',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
+      body: DescribeKvUsageDataResponseBody,
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
 export class DescribeRDDomainConfigRequest extends $tea.Model {
   domainName?: string;
   functionName?: string;
@@ -16225,6 +16318,50 @@ export class BatchPutDcdnKvRequestKvList extends $tea.Model {
       expirationTtl: 'number',
       key: 'string',
       value: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class BatchSetDcdnDomainConfigsResponseBodyDomainConfigListDomainConfigModel extends $tea.Model {
+  configId?: number;
+  domainName?: string;
+  functionName?: string;
+  static names(): { [key: string]: string } {
+    return {
+      configId: 'ConfigId',
+      domainName: 'DomainName',
+      functionName: 'FunctionName',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      configId: 'number',
+      domainName: 'string',
+      functionName: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class BatchSetDcdnDomainConfigsResponseBodyDomainConfigList extends $tea.Model {
+  domainConfigModel?: BatchSetDcdnDomainConfigsResponseBodyDomainConfigListDomainConfigModel[];
+  static names(): { [key: string]: string } {
+    return {
+      domainConfigModel: 'DomainConfigModel',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      domainConfigModel: { 'type': 'array', 'itemType': BatchSetDcdnDomainConfigsResponseBodyDomainConfigListDomainConfigModel },
     };
   }
 
@@ -21874,6 +22011,34 @@ export class DescribeHighlightInfoResponseBodyDataModule extends $tea.Model {
   }
 }
 
+export class DescribeKvUsageDataResponseBodyKvUsageData extends $tea.Model {
+  acc?: number;
+  accessType?: string;
+  namespaceId?: string;
+  timeStamp?: string;
+  static names(): { [key: string]: string } {
+    return {
+      acc: 'Acc',
+      accessType: 'AccessType',
+      namespaceId: 'NamespaceId',
+      timeStamp: 'TimeStamp',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      acc: 'number',
+      accessType: 'string',
+      namespaceId: 'string',
+      timeStamp: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
 export class DescribeRDDomainConfigResponseBodyDomainConfigsFunctionArgs extends $tea.Model {
   argName?: string;
   argValue?: string;
@@ -24577,12 +24742,14 @@ export default class Client extends OpenApi {
   }
 
   /**
+    * @deprecated : DescribeDcdnCertificateList is deprecated, please use dcdn::2018-01-15::DescribeDcdnCertificateList instead.
     * > You can call this operation up to 30 times per second per account.
     *
     * @param request DescribeDcdnCertificateListRequest
     * @param runtime runtime options for this request RuntimeOptions
     * @return DescribeDcdnCertificateListResponse
    */
+  // Deprecated
   async describeDcdnCertificateListWithOptions(request: DescribeDcdnCertificateListRequest, runtime: $Util.RuntimeOptions): Promise<DescribeDcdnCertificateListResponse> {
     Util.validateModel(request);
     let query = { };
@@ -24616,11 +24783,13 @@ export default class Client extends OpenApi {
   }
 
   /**
+    * @deprecated : DescribeDcdnCertificateList is deprecated, please use dcdn::2018-01-15::DescribeDcdnCertificateList instead.
     * > You can call this operation up to 30 times per second per account.
     *
     * @param request DescribeDcdnCertificateListRequest
     * @return DescribeDcdnCertificateListResponse
    */
+  // Deprecated
   async describeDcdnCertificateList(request: DescribeDcdnCertificateListRequest): Promise<DescribeDcdnCertificateListResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.describeDcdnCertificateListWithOptions(request, runtime);
@@ -30635,6 +30804,59 @@ export default class Client extends OpenApi {
   async describeHighlightInfo(request: DescribeHighlightInfoRequest): Promise<DescribeHighlightInfoResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.describeHighlightInfoWithOptions(request, runtime);
+  }
+
+  async describeKvUsageDataWithOptions(request: DescribeKvUsageDataRequest, runtime: $Util.RuntimeOptions): Promise<DescribeKvUsageDataResponse> {
+    Util.validateModel(request);
+    let query = { };
+    if (!Util.isUnset(request.accessType)) {
+      query["AccessType"] = request.accessType;
+    }
+
+    if (!Util.isUnset(request.endTime)) {
+      query["EndTime"] = request.endTime;
+    }
+
+    if (!Util.isUnset(request.field)) {
+      query["Field"] = request.field;
+    }
+
+    if (!Util.isUnset(request.namespaceId)) {
+      query["NamespaceId"] = request.namespaceId;
+    }
+
+    if (!Util.isUnset(request.responseType)) {
+      query["ResponseType"] = request.responseType;
+    }
+
+    if (!Util.isUnset(request.splitBy)) {
+      query["SplitBy"] = request.splitBy;
+    }
+
+    if (!Util.isUnset(request.startTime)) {
+      query["StartTime"] = request.startTime;
+    }
+
+    let req = new $OpenApi.OpenApiRequest({
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApi.Params({
+      action: "DescribeKvUsageData",
+      version: "2018-01-15",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $tea.cast<DescribeKvUsageDataResponse>(await this.callApi(params, req, runtime), new DescribeKvUsageDataResponse({}));
+  }
+
+  async describeKvUsageData(request: DescribeKvUsageDataRequest): Promise<DescribeKvUsageDataResponse> {
+    let runtime = new $Util.RuntimeOptions({ });
+    return await this.describeKvUsageDataWithOptions(request, runtime);
   }
 
   async describeRDDomainConfigWithOptions(request: DescribeRDDomainConfigRequest, runtime: $Util.RuntimeOptions): Promise<DescribeRDDomainConfigResponse> {
