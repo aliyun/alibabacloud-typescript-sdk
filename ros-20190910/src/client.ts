@@ -932,6 +932,7 @@ export class CreateTemplateScratchRequest extends $tea.Model {
   logicalIdStrategy?: string;
   preferenceParameters?: CreateTemplateScratchRequestPreferenceParameters[];
   regionId?: string;
+  resourceGroupId?: string;
   sourceResourceGroup?: CreateTemplateScratchRequestSourceResourceGroup;
   sourceResources?: CreateTemplateScratchRequestSourceResources[];
   sourceTag?: CreateTemplateScratchRequestSourceTag;
@@ -945,6 +946,7 @@ export class CreateTemplateScratchRequest extends $tea.Model {
       logicalIdStrategy: 'LogicalIdStrategy',
       preferenceParameters: 'PreferenceParameters',
       regionId: 'RegionId',
+      resourceGroupId: 'ResourceGroupId',
       sourceResourceGroup: 'SourceResourceGroup',
       sourceResources: 'SourceResources',
       sourceTag: 'SourceTag',
@@ -961,6 +963,7 @@ export class CreateTemplateScratchRequest extends $tea.Model {
       logicalIdStrategy: 'string',
       preferenceParameters: { 'type': 'array', 'itemType': CreateTemplateScratchRequestPreferenceParameters },
       regionId: 'string',
+      resourceGroupId: 'string',
       sourceResourceGroup: CreateTemplateScratchRequestSourceResourceGroup,
       sourceResources: { 'type': 'array', 'itemType': CreateTemplateScratchRequestSourceResources },
       sourceTag: CreateTemplateScratchRequestSourceTag,
@@ -981,6 +984,7 @@ export class CreateTemplateScratchShrinkRequest extends $tea.Model {
   logicalIdStrategy?: string;
   preferenceParametersShrink?: string;
   regionId?: string;
+  resourceGroupId?: string;
   sourceResourceGroupShrink?: string;
   sourceResourcesShrink?: string;
   sourceTagShrink?: string;
@@ -994,6 +998,7 @@ export class CreateTemplateScratchShrinkRequest extends $tea.Model {
       logicalIdStrategy: 'LogicalIdStrategy',
       preferenceParametersShrink: 'PreferenceParameters',
       regionId: 'RegionId',
+      resourceGroupId: 'ResourceGroupId',
       sourceResourceGroupShrink: 'SourceResourceGroup',
       sourceResourcesShrink: 'SourceResources',
       sourceTagShrink: 'SourceTag',
@@ -1010,6 +1015,7 @@ export class CreateTemplateScratchShrinkRequest extends $tea.Model {
       logicalIdStrategy: 'string',
       preferenceParametersShrink: 'string',
       regionId: 'string',
+      resourceGroupId: 'string',
       sourceResourceGroupShrink: 'string',
       sourceResourcesShrink: 'string',
       sourceTagShrink: 'string',
@@ -5328,6 +5334,7 @@ export class ListTemplateScratchesRequest extends $tea.Model {
   pageNumber?: number;
   pageSize?: number;
   regionId?: string;
+  resourceGroupId?: string;
   status?: string;
   tags?: ListTemplateScratchesRequestTags[];
   templateScratchId?: string;
@@ -5337,6 +5344,7 @@ export class ListTemplateScratchesRequest extends $tea.Model {
       pageNumber: 'PageNumber',
       pageSize: 'PageSize',
       regionId: 'RegionId',
+      resourceGroupId: 'ResourceGroupId',
       status: 'Status',
       tags: 'Tags',
       templateScratchId: 'TemplateScratchId',
@@ -5349,6 +5357,7 @@ export class ListTemplateScratchesRequest extends $tea.Model {
       pageNumber: 'number',
       pageSize: 'number',
       regionId: 'string',
+      resourceGroupId: 'string',
       status: 'string',
       tags: { 'type': 'array', 'itemType': ListTemplateScratchesRequestTags },
       templateScratchId: 'string',
@@ -7064,6 +7073,7 @@ export class UpdateTemplateScratchRequest extends $tea.Model {
   logicalIdStrategy?: string;
   preferenceParameters?: UpdateTemplateScratchRequestPreferenceParameters[];
   regionId?: string;
+  resourceGroupId?: string;
   sourceResourceGroup?: UpdateTemplateScratchRequestSourceResourceGroup;
   sourceResources?: UpdateTemplateScratchRequestSourceResources[];
   sourceTag?: UpdateTemplateScratchRequestSourceTag;
@@ -7076,6 +7086,7 @@ export class UpdateTemplateScratchRequest extends $tea.Model {
       logicalIdStrategy: 'LogicalIdStrategy',
       preferenceParameters: 'PreferenceParameters',
       regionId: 'RegionId',
+      resourceGroupId: 'ResourceGroupId',
       sourceResourceGroup: 'SourceResourceGroup',
       sourceResources: 'SourceResources',
       sourceTag: 'SourceTag',
@@ -7091,6 +7102,7 @@ export class UpdateTemplateScratchRequest extends $tea.Model {
       logicalIdStrategy: 'string',
       preferenceParameters: { 'type': 'array', 'itemType': UpdateTemplateScratchRequestPreferenceParameters },
       regionId: 'string',
+      resourceGroupId: 'string',
       sourceResourceGroup: UpdateTemplateScratchRequestSourceResourceGroup,
       sourceResources: { 'type': 'array', 'itemType': UpdateTemplateScratchRequestSourceResources },
       sourceTag: UpdateTemplateScratchRequestSourceTag,
@@ -7110,6 +7122,7 @@ export class UpdateTemplateScratchShrinkRequest extends $tea.Model {
   logicalIdStrategy?: string;
   preferenceParametersShrink?: string;
   regionId?: string;
+  resourceGroupId?: string;
   sourceResourceGroupShrink?: string;
   sourceResourcesShrink?: string;
   sourceTagShrink?: string;
@@ -7122,6 +7135,7 @@ export class UpdateTemplateScratchShrinkRequest extends $tea.Model {
       logicalIdStrategy: 'LogicalIdStrategy',
       preferenceParametersShrink: 'PreferenceParameters',
       regionId: 'RegionId',
+      resourceGroupId: 'ResourceGroupId',
       sourceResourceGroupShrink: 'SourceResourceGroup',
       sourceResourcesShrink: 'SourceResources',
       sourceTagShrink: 'SourceTag',
@@ -7137,6 +7151,7 @@ export class UpdateTemplateScratchShrinkRequest extends $tea.Model {
       logicalIdStrategy: 'string',
       preferenceParametersShrink: 'string',
       regionId: 'string',
+      resourceGroupId: 'string',
       sourceResourceGroupShrink: 'string',
       sourceResourcesShrink: 'string',
       sourceTagShrink: 'string',
@@ -8121,6 +8136,7 @@ export class GetFeatureDetailsResponseBodyTemplateScratchSupportedResourceTypes 
   sourceResourcesSupported?: boolean;
   sourceSupported?: boolean;
   sourceTagSupported?: boolean;
+  supportedTemplateScratchTypes?: string[];
   static names(): { [key: string]: string } {
     return {
       resourceType: 'ResourceType',
@@ -8128,6 +8144,7 @@ export class GetFeatureDetailsResponseBodyTemplateScratchSupportedResourceTypes 
       sourceResourcesSupported: 'SourceResourcesSupported',
       sourceSupported: 'SourceSupported',
       sourceTagSupported: 'SourceTagSupported',
+      supportedTemplateScratchTypes: 'SupportedTemplateScratchTypes',
     };
   }
 
@@ -8138,6 +8155,7 @@ export class GetFeatureDetailsResponseBodyTemplateScratchSupportedResourceTypes 
       sourceResourcesSupported: 'boolean',
       sourceSupported: 'boolean',
       sourceTagSupported: 'boolean',
+      supportedTemplateScratchTypes: { 'type': 'array', 'itemType': 'string' },
     };
   }
 
@@ -9503,6 +9521,7 @@ export class GetTemplateScratchResponseBodyTemplateScratch extends $tea.Model {
   failedCode?: string;
   logicalIdStrategy?: string;
   preferenceParameters?: GetTemplateScratchResponseBodyTemplateScratchPreferenceParameters[];
+  resourceGroupId?: string;
   sourceResourceGroup?: GetTemplateScratchResponseBodyTemplateScratchSourceResourceGroup;
   sourceResources?: GetTemplateScratchResponseBodyTemplateScratchSourceResources[];
   sourceTag?: GetTemplateScratchResponseBodyTemplateScratchSourceTag;
@@ -9521,6 +9540,7 @@ export class GetTemplateScratchResponseBodyTemplateScratch extends $tea.Model {
       failedCode: 'FailedCode',
       logicalIdStrategy: 'LogicalIdStrategy',
       preferenceParameters: 'PreferenceParameters',
+      resourceGroupId: 'ResourceGroupId',
       sourceResourceGroup: 'SourceResourceGroup',
       sourceResources: 'SourceResources',
       sourceTag: 'SourceTag',
@@ -9542,6 +9562,7 @@ export class GetTemplateScratchResponseBodyTemplateScratch extends $tea.Model {
       failedCode: 'string',
       logicalIdStrategy: 'string',
       preferenceParameters: { 'type': 'array', 'itemType': GetTemplateScratchResponseBodyTemplateScratchPreferenceParameters },
+      resourceGroupId: 'string',
       sourceResourceGroup: GetTemplateScratchResponseBodyTemplateScratchSourceResourceGroup,
       sourceResources: { 'type': 'array', 'itemType': GetTemplateScratchResponseBodyTemplateScratchSourceResources },
       sourceTag: GetTemplateScratchResponseBodyTemplateScratchSourceTag,
@@ -10598,6 +10619,7 @@ export class ListTemplateScratchesResponseBodyTemplateScratches extends $tea.Mod
   failedCode?: string;
   logicalIdStrategy?: string;
   preferenceParameters?: ListTemplateScratchesResponseBodyTemplateScratchesPreferenceParameters[];
+  resourceGroupId?: string;
   sourceResourceGroup?: ListTemplateScratchesResponseBodyTemplateScratchesSourceResourceGroup;
   sourceResources?: ListTemplateScratchesResponseBodyTemplateScratchesSourceResources[];
   sourceTag?: ListTemplateScratchesResponseBodyTemplateScratchesSourceTag;
@@ -10614,6 +10636,7 @@ export class ListTemplateScratchesResponseBodyTemplateScratches extends $tea.Mod
       failedCode: 'FailedCode',
       logicalIdStrategy: 'LogicalIdStrategy',
       preferenceParameters: 'PreferenceParameters',
+      resourceGroupId: 'ResourceGroupId',
       sourceResourceGroup: 'SourceResourceGroup',
       sourceResources: 'SourceResources',
       sourceTag: 'SourceTag',
@@ -10633,6 +10656,7 @@ export class ListTemplateScratchesResponseBodyTemplateScratches extends $tea.Mod
       failedCode: 'string',
       logicalIdStrategy: 'string',
       preferenceParameters: { 'type': 'array', 'itemType': ListTemplateScratchesResponseBodyTemplateScratchesPreferenceParameters },
+      resourceGroupId: 'string',
       sourceResourceGroup: ListTemplateScratchesResponseBodyTemplateScratchesSourceResourceGroup,
       sourceResources: { 'type': 'array', 'itemType': ListTemplateScratchesResponseBodyTemplateScratchesSourceResources },
       sourceTag: ListTemplateScratchesResponseBodyTemplateScratchesSourceTag,
@@ -12240,6 +12264,10 @@ export default class Client extends OpenApi {
       query["RegionId"] = request.regionId;
     }
 
+    if (!Util.isUnset(request.resourceGroupId)) {
+      query["ResourceGroupId"] = request.resourceGroupId;
+    }
+
     if (!Util.isUnset(request.sourceResourceGroupShrink)) {
       query["SourceResourceGroup"] = request.sourceResourceGroupShrink;
     }
@@ -12625,6 +12653,17 @@ export default class Client extends OpenApi {
     return await this.deleteTemplateScratchWithOptions(request, runtime);
   }
 
+  /**
+    * *   If you delete a resource type, you can no longer use the resource type in Resource Orchestration Service (ROS).
+    * *   If you delete a version of a resource type, you can no longer use the version in ROS.
+    * *   If a resource type has only one version, you can delete the version by calling the operation. If a resource type has more than one version, you must manually delete the remaining versions.
+    * *   When a resource type has more than one version, you cannot delete the default version by calling the operation.
+    * *   When a resource type has only one version, you can delete the resource type and the version by calling the operation.
+    *
+    * @param request DeregisterResourceTypeRequest
+    * @param runtime runtime options for this request RuntimeOptions
+    * @return DeregisterResourceTypeResponse
+   */
   async deregisterResourceTypeWithOptions(request: DeregisterResourceTypeRequest, runtime: $Util.RuntimeOptions): Promise<DeregisterResourceTypeResponse> {
     Util.validateModel(request);
     let query = { };
@@ -12653,6 +12692,16 @@ export default class Client extends OpenApi {
     return $tea.cast<DeregisterResourceTypeResponse>(await this.callApi(params, req, runtime), new DeregisterResourceTypeResponse({}));
   }
 
+  /**
+    * *   If you delete a resource type, you can no longer use the resource type in Resource Orchestration Service (ROS).
+    * *   If you delete a version of a resource type, you can no longer use the version in ROS.
+    * *   If a resource type has only one version, you can delete the version by calling the operation. If a resource type has more than one version, you must manually delete the remaining versions.
+    * *   When a resource type has more than one version, you cannot delete the default version by calling the operation.
+    * *   When a resource type has only one version, you can delete the resource type and the version by calling the operation.
+    *
+    * @param request DeregisterResourceTypeRequest
+    * @return DeregisterResourceTypeResponse
+   */
   async deregisterResourceType(request: DeregisterResourceTypeRequest): Promise<DeregisterResourceTypeResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.deregisterResourceTypeWithOptions(request, runtime);
@@ -15033,6 +15082,10 @@ export default class Client extends OpenApi {
       query["RegionId"] = request.regionId;
     }
 
+    if (!Util.isUnset(request.resourceGroupId)) {
+      query["ResourceGroupId"] = request.resourceGroupId;
+    }
+
     if (!Util.isUnset(request.status)) {
       query["Status"] = request.status;
     }
@@ -15327,6 +15380,14 @@ export default class Client extends OpenApi {
     return await this.previewStackWithOptions(request, runtime);
   }
 
+  /**
+    * *   Versions increase from v1.
+    * *   If you create a new resource type, v1 is used as the default version of the resource type. You can call the SetResourceType operation to change the default version of a resource type.
+    *
+    * @param request RegisterResourceTypeRequest
+    * @param runtime runtime options for this request RuntimeOptions
+    * @return RegisterResourceTypeResponse
+   */
   async registerResourceTypeWithOptions(request: RegisterResourceTypeRequest, runtime: $Util.RuntimeOptions): Promise<RegisterResourceTypeResponse> {
     Util.validateModel(request);
     let query = { };
@@ -15373,6 +15434,13 @@ export default class Client extends OpenApi {
     return $tea.cast<RegisterResourceTypeResponse>(await this.callApi(params, req, runtime), new RegisterResourceTypeResponse({}));
   }
 
+  /**
+    * *   Versions increase from v1.
+    * *   If you create a new resource type, v1 is used as the default version of the resource type. You can call the SetResourceType operation to change the default version of a resource type.
+    *
+    * @param request RegisterResourceTypeRequest
+    * @return RegisterResourceTypeResponse
+   */
   async registerResourceType(request: RegisterResourceTypeRequest): Promise<RegisterResourceTypeResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.registerResourceTypeWithOptions(request, runtime);
@@ -16321,6 +16389,10 @@ export default class Client extends OpenApi {
 
     if (!Util.isUnset(request.regionId)) {
       query["RegionId"] = request.regionId;
+    }
+
+    if (!Util.isUnset(request.resourceGroupId)) {
+      query["ResourceGroupId"] = request.resourceGroupId;
     }
 
     if (!Util.isUnset(request.sourceResourceGroupShrink)) {
