@@ -342,114 +342,6 @@ export class AddLogPathResponse extends $tea.Model {
   }
 }
 
-export class AddMockRuleRequest extends $tea.Model {
-  consumerAppsJson?: string;
-  dubboMockItemJson?: string;
-  enable?: boolean;
-  extraJson?: string;
-  mockType?: number;
-  name?: string;
-  namespace?: string;
-  providerAppId?: string;
-  providerAppName?: string;
-  region?: string;
-  scMockItemJson?: string;
-  source?: string;
-  static names(): { [key: string]: string } {
-    return {
-      consumerAppsJson: 'ConsumerAppsJson',
-      dubboMockItemJson: 'DubboMockItemJson',
-      enable: 'Enable',
-      extraJson: 'ExtraJson',
-      mockType: 'MockType',
-      name: 'Name',
-      namespace: 'Namespace',
-      providerAppId: 'ProviderAppId',
-      providerAppName: 'ProviderAppName',
-      region: 'Region',
-      scMockItemJson: 'ScMockItemJson',
-      source: 'Source',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      consumerAppsJson: 'string',
-      dubboMockItemJson: 'string',
-      enable: 'boolean',
-      extraJson: 'string',
-      mockType: 'number',
-      name: 'string',
-      namespace: 'string',
-      providerAppId: 'string',
-      providerAppName: 'string',
-      region: 'string',
-      scMockItemJson: 'string',
-      source: 'string',
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class AddMockRuleResponseBody extends $tea.Model {
-  code?: number;
-  data?: AddMockRuleResponseBodyData;
-  message?: string;
-  requestId?: string;
-  success?: boolean;
-  static names(): { [key: string]: string } {
-    return {
-      code: 'Code',
-      data: 'Data',
-      message: 'Message',
-      requestId: 'RequestId',
-      success: 'Success',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      code: 'number',
-      data: AddMockRuleResponseBodyData,
-      message: 'string',
-      requestId: 'string',
-      success: 'boolean',
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class AddMockRuleResponse extends $tea.Model {
-  headers: { [key: string]: string };
-  statusCode: number;
-  body: AddMockRuleResponseBody;
-  static names(): { [key: string]: string } {
-    return {
-      headers: 'headers',
-      statusCode: 'statusCode',
-      body: 'body',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
-      statusCode: 'number',
-      body: AddMockRuleResponseBody,
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
 export class AuthorizeApplicationRequest extends $tea.Model {
   appIds?: string;
   targetUserId?: string;
@@ -1181,6 +1073,7 @@ export class ConvertK8sResourceResponse extends $tea.Model {
 
 export class CreateApplicationScalingRuleRequest extends $tea.Model {
   appId?: string;
+  scalingBehaviour?: string;
   scalingRuleEnable?: boolean;
   scalingRuleMetric?: string;
   scalingRuleName?: string;
@@ -1190,6 +1083,7 @@ export class CreateApplicationScalingRuleRequest extends $tea.Model {
   static names(): { [key: string]: string } {
     return {
       appId: 'AppId',
+      scalingBehaviour: 'ScalingBehaviour',
       scalingRuleEnable: 'ScalingRuleEnable',
       scalingRuleMetric: 'ScalingRuleMetric',
       scalingRuleName: 'ScalingRuleName',
@@ -1202,6 +1096,7 @@ export class CreateApplicationScalingRuleRequest extends $tea.Model {
   static types(): { [key: string]: any } {
     return {
       appId: 'string',
+      scalingBehaviour: 'string',
       scalingRuleEnable: 'boolean',
       scalingRuleMetric: 'string',
       scalingRuleName: 'string',
@@ -1501,14 +1396,18 @@ export class CreateK8sConfigMapResponse extends $tea.Model {
 }
 
 export class CreateK8sIngressRuleRequest extends $tea.Model {
+  annotations?: string;
   clusterId?: string;
   ingressConf?: { [key: string]: any };
+  labels?: string;
   name?: string;
   namespace?: string;
   static names(): { [key: string]: string } {
     return {
+      annotations: 'Annotations',
       clusterId: 'ClusterId',
       ingressConf: 'IngressConf',
+      labels: 'Labels',
       name: 'Name',
       namespace: 'Namespace',
     };
@@ -1516,8 +1415,10 @@ export class CreateK8sIngressRuleRequest extends $tea.Model {
 
   static types(): { [key: string]: any } {
     return {
+      annotations: 'string',
       clusterId: 'string',
       ingressConf: { 'type': 'map', 'keyType': 'string', 'valueType': 'any' },
+      labels: 'string',
       name: 'string',
       namespace: 'string',
     };
@@ -1667,12 +1568,14 @@ export class CreateK8sSecretResponse extends $tea.Model {
 
 export class CreateK8sServiceRequest extends $tea.Model {
   appId?: string;
+  externalTrafficPolicy?: string;
   name?: string;
   servicePorts?: { [key: string]: any };
   type?: string;
   static names(): { [key: string]: string } {
     return {
       appId: 'AppId',
+      externalTrafficPolicy: 'ExternalTrafficPolicy',
       name: 'Name',
       servicePorts: 'ServicePorts',
       type: 'Type',
@@ -1682,6 +1585,7 @@ export class CreateK8sServiceRequest extends $tea.Model {
   static types(): { [key: string]: any } {
     return {
       appId: 'string',
+      externalTrafficPolicy: 'string',
       name: 'string',
       servicePorts: { 'type': 'map', 'keyType': 'string', 'valueType': 'any' },
       type: 'string',
@@ -2252,15 +2156,18 @@ export class DeleteEcuResponse extends $tea.Model {
 
 export class DeleteK8sApplicationRequest extends $tea.Model {
   appId?: string;
+  force?: boolean;
   static names(): { [key: string]: string } {
     return {
       appId: 'AppId',
+      force: 'Force',
     };
   }
 
   static types(): { [key: string]: any } {
     return {
       appId: 'string',
+      force: 'boolean',
     };
   }
 
@@ -2829,6 +2736,78 @@ export class DeleteServiceGroupResponse extends $tea.Model {
   }
 }
 
+export class DeleteSwimmingLaneRequest extends $tea.Model {
+  laneId?: number;
+  static names(): { [key: string]: string } {
+    return {
+      laneId: 'LaneId',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      laneId: 'number',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class DeleteSwimmingLaneResponseBody extends $tea.Model {
+  code?: number;
+  data?: number;
+  message?: string;
+  requestId?: string;
+  static names(): { [key: string]: string } {
+    return {
+      code: 'Code',
+      data: 'Data',
+      message: 'Message',
+      requestId: 'RequestId',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      code: 'number',
+      data: 'number',
+      message: 'string',
+      requestId: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class DeleteSwimmingLaneResponse extends $tea.Model {
+  headers: { [key: string]: string };
+  statusCode: number;
+  body: DeleteSwimmingLaneResponseBody;
+  static names(): { [key: string]: string } {
+    return {
+      headers: 'headers',
+      statusCode: 'statusCode',
+      body: 'body',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
+      body: DeleteSwimmingLaneResponseBody,
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
 export class DeleteUserDefineRegionRequest extends $tea.Model {
   id?: number;
   regionTag?: string;
@@ -3025,6 +3004,7 @@ export class DeployK8sApplicationRequest extends $tea.Model {
   batchTimeout?: number;
   batchWaitTime?: number;
   buildPackId?: string;
+  canaryRuleId?: string;
   changeOrderDesc?: string;
   command?: string;
   configMountDescs?: string;
@@ -3042,10 +3022,13 @@ export class DeployK8sApplicationRequest extends $tea.Model {
   envFroms?: string;
   envs?: string;
   image?: string;
+  imagePlatforms?: string;
   imageTag?: string;
+  initContainers?: string;
   JDK?: string;
   javaStartUpConfig?: string;
   labels?: string;
+  limitEphemeralStorage?: number;
   liveness?: string;
   localVolume?: string;
   losslessRuleAligned?: boolean;
@@ -3067,13 +3050,18 @@ export class DeployK8sApplicationRequest extends $tea.Model {
   pvcMountDescs?: string;
   readiness?: string;
   replicas?: number;
+  requestsEphemeralStorage?: number;
   runtimeClassName?: string;
+  sidecars?: string;
   slsConfigs?: string;
+  startup?: string;
   storageType?: string;
+  terminateGracePeriod?: number;
   trafficControlStrategy?: string;
   updateStrategy?: string;
   uriEncoding?: string;
   useBodyEncoding?: boolean;
+  userBaseImageUrl?: string;
   volumesStr?: string;
   webContainer?: string;
   webContainerConfig?: string;
@@ -3085,6 +3073,7 @@ export class DeployK8sApplicationRequest extends $tea.Model {
       batchTimeout: 'BatchTimeout',
       batchWaitTime: 'BatchWaitTime',
       buildPackId: 'BuildPackId',
+      canaryRuleId: 'CanaryRuleId',
       changeOrderDesc: 'ChangeOrderDesc',
       command: 'Command',
       configMountDescs: 'ConfigMountDescs',
@@ -3102,10 +3091,13 @@ export class DeployK8sApplicationRequest extends $tea.Model {
       envFroms: 'EnvFroms',
       envs: 'Envs',
       image: 'Image',
+      imagePlatforms: 'ImagePlatforms',
       imageTag: 'ImageTag',
+      initContainers: 'InitContainers',
       JDK: 'JDK',
       javaStartUpConfig: 'JavaStartUpConfig',
       labels: 'Labels',
+      limitEphemeralStorage: 'LimitEphemeralStorage',
       liveness: 'Liveness',
       localVolume: 'LocalVolume',
       losslessRuleAligned: 'LosslessRuleAligned',
@@ -3127,13 +3119,18 @@ export class DeployK8sApplicationRequest extends $tea.Model {
       pvcMountDescs: 'PvcMountDescs',
       readiness: 'Readiness',
       replicas: 'Replicas',
+      requestsEphemeralStorage: 'RequestsEphemeralStorage',
       runtimeClassName: 'RuntimeClassName',
+      sidecars: 'Sidecars',
       slsConfigs: 'SlsConfigs',
+      startup: 'Startup',
       storageType: 'StorageType',
+      terminateGracePeriod: 'TerminateGracePeriod',
       trafficControlStrategy: 'TrafficControlStrategy',
       updateStrategy: 'UpdateStrategy',
       uriEncoding: 'UriEncoding',
       useBodyEncoding: 'UseBodyEncoding',
+      userBaseImageUrl: 'UserBaseImageUrl',
       volumesStr: 'VolumesStr',
       webContainer: 'WebContainer',
       webContainerConfig: 'WebContainerConfig',
@@ -3148,6 +3145,7 @@ export class DeployK8sApplicationRequest extends $tea.Model {
       batchTimeout: 'number',
       batchWaitTime: 'number',
       buildPackId: 'string',
+      canaryRuleId: 'string',
       changeOrderDesc: 'string',
       command: 'string',
       configMountDescs: 'string',
@@ -3165,10 +3163,13 @@ export class DeployK8sApplicationRequest extends $tea.Model {
       envFroms: 'string',
       envs: 'string',
       image: 'string',
+      imagePlatforms: 'string',
       imageTag: 'string',
+      initContainers: 'string',
       JDK: 'string',
       javaStartUpConfig: 'string',
       labels: 'string',
+      limitEphemeralStorage: 'number',
       liveness: 'string',
       localVolume: 'string',
       losslessRuleAligned: 'boolean',
@@ -3190,13 +3191,18 @@ export class DeployK8sApplicationRequest extends $tea.Model {
       pvcMountDescs: 'string',
       readiness: 'string',
       replicas: 'number',
+      requestsEphemeralStorage: 'number',
       runtimeClassName: 'string',
+      sidecars: 'string',
       slsConfigs: 'string',
+      startup: 'string',
       storageType: 'string',
+      terminateGracePeriod: 'number',
       trafficControlStrategy: 'string',
       updateStrategy: 'string',
       uriEncoding: 'string',
       useBodyEncoding: 'boolean',
+      userBaseImageUrl: 'string',
       volumesStr: 'string',
       webContainer: 'string',
       webContainerConfig: 'string',
@@ -3483,81 +3489,6 @@ export class DisableApplicationScalingRuleResponse extends $tea.Model {
   }
 }
 
-export class DisableMockRuleRequest extends $tea.Model {
-  id?: number;
-  static names(): { [key: string]: string } {
-    return {
-      id: 'Id',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      id: 'number',
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class DisableMockRuleResponseBody extends $tea.Model {
-  code?: number;
-  data?: DisableMockRuleResponseBodyData;
-  message?: string;
-  requestId?: string;
-  success?: boolean;
-  static names(): { [key: string]: string } {
-    return {
-      code: 'Code',
-      data: 'Data',
-      message: 'Message',
-      requestId: 'RequestId',
-      success: 'Success',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      code: 'number',
-      data: DisableMockRuleResponseBodyData,
-      message: 'string',
-      requestId: 'string',
-      success: 'boolean',
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class DisableMockRuleResponse extends $tea.Model {
-  headers: { [key: string]: string };
-  statusCode: number;
-  body: DisableMockRuleResponseBody;
-  static names(): { [key: string]: string } {
-    return {
-      headers: 'headers',
-      statusCode: 'statusCode',
-      body: 'body',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
-      statusCode: 'number',
-      body: DisableMockRuleResponseBody,
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
 export class EnableApplicationScalingRuleRequest extends $tea.Model {
   appId?: string;
   scalingRuleName?: string;
@@ -3625,174 +3556,6 @@ export class EnableApplicationScalingRuleResponse extends $tea.Model {
       headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
       statusCode: 'number',
       body: EnableApplicationScalingRuleResponseBody,
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class EnableMockRuleRequest extends $tea.Model {
-  id?: number;
-  static names(): { [key: string]: string } {
-    return {
-      id: 'Id',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      id: 'number',
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class EnableMockRuleResponseBody extends $tea.Model {
-  code?: number;
-  data?: EnableMockRuleResponseBodyData;
-  message?: string;
-  requestId?: string;
-  success?: boolean;
-  static names(): { [key: string]: string } {
-    return {
-      code: 'Code',
-      data: 'Data',
-      message: 'Message',
-      requestId: 'RequestId',
-      success: 'Success',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      code: 'number',
-      data: EnableMockRuleResponseBodyData,
-      message: 'string',
-      requestId: 'string',
-      success: 'boolean',
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class EnableMockRuleResponse extends $tea.Model {
-  headers: { [key: string]: string };
-  statusCode: number;
-  body: EnableMockRuleResponseBody;
-  static names(): { [key: string]: string } {
-    return {
-      headers: 'headers',
-      statusCode: 'statusCode',
-      body: 'body',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
-      statusCode: 'number',
-      body: EnableMockRuleResponseBody,
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class GetAccountMockRuleRequest extends $tea.Model {
-  consumerAppName?: string;
-  mockType?: number;
-  name?: string;
-  namespace?: string;
-  pageNumber?: string;
-  pageSize?: string;
-  providerAppName?: string;
-  region?: string;
-  static names(): { [key: string]: string } {
-    return {
-      consumerAppName: 'ConsumerAppName',
-      mockType: 'MockType',
-      name: 'Name',
-      namespace: 'Namespace',
-      pageNumber: 'PageNumber',
-      pageSize: 'PageSize',
-      providerAppName: 'ProviderAppName',
-      region: 'Region',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      consumerAppName: 'string',
-      mockType: 'number',
-      name: 'string',
-      namespace: 'string',
-      pageNumber: 'string',
-      pageSize: 'string',
-      providerAppName: 'string',
-      region: 'string',
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class GetAccountMockRuleResponseBody extends $tea.Model {
-  code?: string;
-  data?: GetAccountMockRuleResponseBodyData;
-  message?: string;
-  success?: boolean;
-  static names(): { [key: string]: string } {
-    return {
-      code: 'Code',
-      data: 'Data',
-      message: 'Message',
-      success: 'Success',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      code: 'string',
-      data: GetAccountMockRuleResponseBodyData,
-      message: 'string',
-      success: 'boolean',
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class GetAccountMockRuleResponse extends $tea.Model {
-  headers: { [key: string]: string };
-  statusCode: number;
-  body: GetAccountMockRuleResponseBody;
-  static names(): { [key: string]: string } {
-    return {
-      headers: 'headers',
-      statusCode: 'statusCode',
-      body: 'body',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
-      statusCode: 'number',
-      body: GetAccountMockRuleResponseBody,
     };
   }
 
@@ -4311,6 +4074,84 @@ export class GetJvmConfigurationResponse extends $tea.Model {
   }
 }
 
+export class GetK8sAppPrecheckResultRequest extends $tea.Model {
+  appName?: string;
+  clusterId?: string;
+  namespace?: string;
+  static names(): { [key: string]: string } {
+    return {
+      appName: 'AppName',
+      clusterId: 'ClusterId',
+      namespace: 'Namespace',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      appName: 'string',
+      clusterId: 'string',
+      namespace: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class GetK8sAppPrecheckResultResponseBody extends $tea.Model {
+  code?: number;
+  data?: GetK8sAppPrecheckResultResponseBodyData;
+  message?: string;
+  requestId?: string;
+  static names(): { [key: string]: string } {
+    return {
+      code: 'Code',
+      data: 'Data',
+      message: 'Message',
+      requestId: 'RequestId',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      code: 'number',
+      data: GetK8sAppPrecheckResultResponseBodyData,
+      message: 'string',
+      requestId: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class GetK8sAppPrecheckResultResponse extends $tea.Model {
+  headers: { [key: string]: string };
+  statusCode: number;
+  body: GetK8sAppPrecheckResultResponseBody;
+  static names(): { [key: string]: string } {
+    return {
+      headers: 'headers',
+      statusCode: 'statusCode',
+      body: 'body',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
+      body: GetK8sAppPrecheckResultResponseBody,
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
 export class GetK8sApplicationRequest extends $tea.Model {
   appId?: string;
   from?: string;
@@ -4391,12 +4232,14 @@ export class GetK8sClusterRequest extends $tea.Model {
   currentPage?: number;
   pageSize?: number;
   regionTag?: string;
+  subClusterType?: string;
   static names(): { [key: string]: string } {
     return {
       clusterType: 'ClusterType',
       currentPage: 'CurrentPage',
       pageSize: 'PageSize',
       regionTag: 'RegionTag',
+      subClusterType: 'SubClusterType',
     };
   }
 
@@ -4406,6 +4249,7 @@ export class GetK8sClusterRequest extends $tea.Model {
       currentPage: 'number',
       pageSize: 'number',
       regionTag: 'string',
+      subClusterType: 'string',
     };
   }
 
@@ -4531,168 +4375,6 @@ export class GetK8sServicesResponse extends $tea.Model {
       headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
       statusCode: 'number',
       body: GetK8sServicesResponseBody,
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class GetMockRuleByConsumerAppIdRequest extends $tea.Model {
-  consumerAppId?: string;
-  region?: string;
-  static names(): { [key: string]: string } {
-    return {
-      consumerAppId: 'ConsumerAppId',
-      region: 'Region',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      consumerAppId: 'string',
-      region: 'string',
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class GetMockRuleByConsumerAppIdResponseBody extends $tea.Model {
-  code?: string;
-  data?: GetMockRuleByConsumerAppIdResponseBodyData[];
-  httpCode?: string;
-  message?: string;
-  requestId?: string;
-  success?: boolean;
-  static names(): { [key: string]: string } {
-    return {
-      code: 'Code',
-      data: 'Data',
-      httpCode: 'HttpCode',
-      message: 'Message',
-      requestId: 'RequestId',
-      success: 'Success',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      code: 'string',
-      data: { 'type': 'array', 'itemType': GetMockRuleByConsumerAppIdResponseBodyData },
-      httpCode: 'string',
-      message: 'string',
-      requestId: 'string',
-      success: 'boolean',
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class GetMockRuleByConsumerAppIdResponse extends $tea.Model {
-  headers: { [key: string]: string };
-  statusCode: number;
-  body: GetMockRuleByConsumerAppIdResponseBody;
-  static names(): { [key: string]: string } {
-    return {
-      headers: 'headers',
-      statusCode: 'statusCode',
-      body: 'body',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
-      statusCode: 'number',
-      body: GetMockRuleByConsumerAppIdResponseBody,
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class GetMockRuleByProviderAppIdRequest extends $tea.Model {
-  providerAppId?: string;
-  region?: string;
-  static names(): { [key: string]: string } {
-    return {
-      providerAppId: 'ProviderAppId',
-      region: 'Region',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      providerAppId: 'string',
-      region: 'string',
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class GetMockRuleByProviderAppIdResponseBody extends $tea.Model {
-  code?: string;
-  data?: GetMockRuleByProviderAppIdResponseBodyData[];
-  httpCode?: string;
-  message?: string;
-  requestId?: string;
-  success?: boolean;
-  static names(): { [key: string]: string } {
-    return {
-      code: 'Code',
-      data: 'Data',
-      httpCode: 'HttpCode',
-      message: 'Message',
-      requestId: 'RequestId',
-      success: 'Success',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      code: 'string',
-      data: { 'type': 'array', 'itemType': GetMockRuleByProviderAppIdResponseBodyData },
-      httpCode: 'string',
-      message: 'string',
-      requestId: 'string',
-      success: 'boolean',
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class GetMockRuleByProviderAppIdResponse extends $tea.Model {
-  headers: { [key: string]: string };
-  statusCode: number;
-  body: GetMockRuleByProviderAppIdResponseBody;
-  static names(): { [key: string]: string } {
-    return {
-      headers: 'headers',
-      statusCode: 'statusCode',
-      body: 'body',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
-      statusCode: 'number',
-      body: GetMockRuleByProviderAppIdResponseBody,
     };
   }
 
@@ -5995,13 +5677,16 @@ export class InsertDeployGroupResponse extends $tea.Model {
 
 export class InsertK8sApplicationRequest extends $tea.Model {
   annotations?: string;
+  appConfig?: string;
   appName?: string;
+  appTemplateName?: string;
   applicationDescription?: string;
   buildPackId?: string;
   clusterId?: string;
   command?: string;
   commandArgs?: string;
   configMountDescs?: string;
+  containerRegistryId?: string;
   csClusterId?: string;
   customAffinity?: string;
   customTolerations?: string;
@@ -6015,7 +5700,9 @@ export class InsertK8sApplicationRequest extends $tea.Model {
   enableLosslessRule?: boolean;
   envFroms?: string;
   envs?: string;
+  imagePlatforms?: string;
   imageUrl?: string;
+  initContainers?: string;
   internetSlbId?: string;
   internetSlbPort?: number;
   internetSlbProtocol?: string;
@@ -6029,6 +5716,7 @@ export class InsertK8sApplicationRequest extends $tea.Model {
   javaStartUpConfig?: string;
   labels?: string;
   limitCpu?: number;
+  limitEphemeralStorage?: number;
   limitMem?: number;
   limitmCpu?: number;
   liveness?: string;
@@ -6052,27 +5740,38 @@ export class InsertK8sApplicationRequest extends $tea.Model {
   replicas?: number;
   repoId?: string;
   requestsCpu?: number;
+  requestsEphemeralStorage?: number;
   requestsMem?: number;
   requestsmCpu?: number;
   resourceGroupId?: string;
   runtimeClassName?: string;
+  secretName?: string;
+  serviceConfigs?: string;
+  sidecars?: string;
   slsConfigs?: string;
+  startup?: string;
   storageType?: string;
+  terminateGracePeriod?: number;
   timeout?: number;
   uriEncoding?: string;
   useBodyEncoding?: boolean;
+  userBaseImageUrl?: string;
   webContainer?: string;
   webContainerConfig?: string;
+  workloadType?: string;
   static names(): { [key: string]: string } {
     return {
       annotations: 'Annotations',
+      appConfig: 'AppConfig',
       appName: 'AppName',
+      appTemplateName: 'AppTemplateName',
       applicationDescription: 'ApplicationDescription',
       buildPackId: 'BuildPackId',
       clusterId: 'ClusterId',
       command: 'Command',
       commandArgs: 'CommandArgs',
       configMountDescs: 'ConfigMountDescs',
+      containerRegistryId: 'ContainerRegistryId',
       csClusterId: 'CsClusterId',
       customAffinity: 'CustomAffinity',
       customTolerations: 'CustomTolerations',
@@ -6086,7 +5785,9 @@ export class InsertK8sApplicationRequest extends $tea.Model {
       enableLosslessRule: 'EnableLosslessRule',
       envFroms: 'EnvFroms',
       envs: 'Envs',
+      imagePlatforms: 'ImagePlatforms',
       imageUrl: 'ImageUrl',
+      initContainers: 'InitContainers',
       internetSlbId: 'InternetSlbId',
       internetSlbPort: 'InternetSlbPort',
       internetSlbProtocol: 'InternetSlbProtocol',
@@ -6100,6 +5801,7 @@ export class InsertK8sApplicationRequest extends $tea.Model {
       javaStartUpConfig: 'JavaStartUpConfig',
       labels: 'Labels',
       limitCpu: 'LimitCpu',
+      limitEphemeralStorage: 'LimitEphemeralStorage',
       limitMem: 'LimitMem',
       limitmCpu: 'LimitmCpu',
       liveness: 'Liveness',
@@ -6123,30 +5825,41 @@ export class InsertK8sApplicationRequest extends $tea.Model {
       replicas: 'Replicas',
       repoId: 'RepoId',
       requestsCpu: 'RequestsCpu',
+      requestsEphemeralStorage: 'RequestsEphemeralStorage',
       requestsMem: 'RequestsMem',
       requestsmCpu: 'RequestsmCpu',
       resourceGroupId: 'ResourceGroupId',
       runtimeClassName: 'RuntimeClassName',
+      secretName: 'SecretName',
+      serviceConfigs: 'ServiceConfigs',
+      sidecars: 'Sidecars',
       slsConfigs: 'SlsConfigs',
+      startup: 'Startup',
       storageType: 'StorageType',
+      terminateGracePeriod: 'TerminateGracePeriod',
       timeout: 'Timeout',
       uriEncoding: 'UriEncoding',
       useBodyEncoding: 'UseBodyEncoding',
+      userBaseImageUrl: 'UserBaseImageUrl',
       webContainer: 'WebContainer',
       webContainerConfig: 'WebContainerConfig',
+      workloadType: 'WorkloadType',
     };
   }
 
   static types(): { [key: string]: any } {
     return {
       annotations: 'string',
+      appConfig: 'string',
       appName: 'string',
+      appTemplateName: 'string',
       applicationDescription: 'string',
       buildPackId: 'string',
       clusterId: 'string',
       command: 'string',
       commandArgs: 'string',
       configMountDescs: 'string',
+      containerRegistryId: 'string',
       csClusterId: 'string',
       customAffinity: 'string',
       customTolerations: 'string',
@@ -6160,7 +5873,9 @@ export class InsertK8sApplicationRequest extends $tea.Model {
       enableLosslessRule: 'boolean',
       envFroms: 'string',
       envs: 'string',
+      imagePlatforms: 'string',
       imageUrl: 'string',
+      initContainers: 'string',
       internetSlbId: 'string',
       internetSlbPort: 'number',
       internetSlbProtocol: 'string',
@@ -6174,6 +5889,7 @@ export class InsertK8sApplicationRequest extends $tea.Model {
       javaStartUpConfig: 'string',
       labels: 'string',
       limitCpu: 'number',
+      limitEphemeralStorage: 'number',
       limitMem: 'number',
       limitmCpu: 'number',
       liveness: 'string',
@@ -6197,17 +5913,25 @@ export class InsertK8sApplicationRequest extends $tea.Model {
       replicas: 'number',
       repoId: 'string',
       requestsCpu: 'number',
+      requestsEphemeralStorage: 'number',
       requestsMem: 'number',
       requestsmCpu: 'number',
       resourceGroupId: 'string',
       runtimeClassName: 'string',
+      secretName: 'string',
+      serviceConfigs: 'string',
+      sidecars: 'string',
       slsConfigs: 'string',
+      startup: 'string',
       storageType: 'string',
+      terminateGracePeriod: 'number',
       timeout: 'number',
       uriEncoding: 'string',
       useBodyEncoding: 'boolean',
+      userBaseImageUrl: 'string',
       webContainer: 'string',
       webContainerConfig: 'string',
+      workloadType: 'string',
     };
   }
 
@@ -6273,15 +5997,19 @@ export class InsertOrUpdateRegionRequest extends $tea.Model {
   debugEnable?: boolean;
   description?: string;
   id?: number;
+  mseInstanceId?: string;
   regionName?: string;
   regionTag?: string;
+  registryType?: string;
   static names(): { [key: string]: string } {
     return {
       debugEnable: 'DebugEnable',
       description: 'Description',
       id: 'Id',
+      mseInstanceId: 'MseInstanceId',
       regionName: 'RegionName',
       regionTag: 'RegionTag',
+      registryType: 'RegistryType',
     };
   }
 
@@ -6290,8 +6018,10 @@ export class InsertOrUpdateRegionRequest extends $tea.Model {
       debugEnable: 'boolean',
       description: 'string',
       id: 'number',
+      mseInstanceId: 'string',
       regionName: 'string',
       regionTag: 'string',
+      registryType: 'string',
     };
   }
 
@@ -6497,6 +6227,177 @@ export class InsertServiceGroupResponse extends $tea.Model {
   }
 }
 
+export class InsertSwimmingLaneRequest extends $tea.Model {
+  appInfos?: string;
+  enableRules?: boolean;
+  entryRules?: string;
+  groupId?: number;
+  logicalRegionId?: string;
+  name?: string;
+  tag?: string;
+  static names(): { [key: string]: string } {
+    return {
+      appInfos: 'AppInfos',
+      enableRules: 'EnableRules',
+      entryRules: 'EntryRules',
+      groupId: 'GroupId',
+      logicalRegionId: 'LogicalRegionId',
+      name: 'Name',
+      tag: 'Tag',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      appInfos: 'string',
+      enableRules: 'boolean',
+      entryRules: 'string',
+      groupId: 'number',
+      logicalRegionId: 'string',
+      name: 'string',
+      tag: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class InsertSwimmingLaneResponseBody extends $tea.Model {
+  code?: number;
+  data?: InsertSwimmingLaneResponseBodyData;
+  message?: string;
+  requestId?: string;
+  static names(): { [key: string]: string } {
+    return {
+      code: 'Code',
+      data: 'Data',
+      message: 'Message',
+      requestId: 'RequestId',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      code: 'number',
+      data: InsertSwimmingLaneResponseBodyData,
+      message: 'string',
+      requestId: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class InsertSwimmingLaneResponse extends $tea.Model {
+  headers: { [key: string]: string };
+  statusCode: number;
+  body: InsertSwimmingLaneResponseBody;
+  static names(): { [key: string]: string } {
+    return {
+      headers: 'headers',
+      statusCode: 'statusCode',
+      body: 'body',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
+      body: InsertSwimmingLaneResponseBody,
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class InsertSwimmingLaneGroupRequest extends $tea.Model {
+  appIds?: string;
+  entryApp?: string;
+  logicalRegionId?: string;
+  name?: string;
+  static names(): { [key: string]: string } {
+    return {
+      appIds: 'AppIds',
+      entryApp: 'EntryApp',
+      logicalRegionId: 'LogicalRegionId',
+      name: 'Name',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      appIds: 'string',
+      entryApp: 'string',
+      logicalRegionId: 'string',
+      name: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class InsertSwimmingLaneGroupResponseBody extends $tea.Model {
+  code?: number;
+  data?: InsertSwimmingLaneGroupResponseBodyData;
+  message?: string;
+  requestId?: string;
+  static names(): { [key: string]: string } {
+    return {
+      code: 'Code',
+      data: 'Data',
+      message: 'Message',
+      requestId: 'RequestId',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      code: 'number',
+      data: InsertSwimmingLaneGroupResponseBodyData,
+      message: 'string',
+      requestId: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class InsertSwimmingLaneGroupResponse extends $tea.Model {
+  headers: { [key: string]: string };
+  statusCode: number;
+  body: InsertSwimmingLaneGroupResponseBody;
+  static names(): { [key: string]: string } {
+    return {
+      headers: 'headers',
+      statusCode: 'statusCode',
+      body: 'body',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
+      body: InsertSwimmingLaneGroupResponseBody,
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
 export class InstallAgentRequest extends $tea.Model {
   clusterId?: string;
   doAsync?: boolean;
@@ -6629,27 +6530,36 @@ export class ListAliyunRegionResponse extends $tea.Model {
 }
 
 export class ListApplicationRequest extends $tea.Model {
+  appIds?: string;
   appName?: string;
   clusterId?: string;
+  currentPage?: number;
   logicalRegionId?: string;
   logicalRegionIdFilter?: string;
+  pageSize?: number;
   resourceGroupId?: string;
   static names(): { [key: string]: string } {
     return {
+      appIds: 'AppIds',
       appName: 'AppName',
       clusterId: 'ClusterId',
+      currentPage: 'CurrentPage',
       logicalRegionId: 'LogicalRegionId',
       logicalRegionIdFilter: 'LogicalRegionIdFilter',
+      pageSize: 'PageSize',
       resourceGroupId: 'ResourceGroupId',
     };
   }
 
   static types(): { [key: string]: any } {
     return {
+      appIds: 'string',
       appName: 'string',
       clusterId: 'string',
+      currentPage: 'number',
       logicalRegionId: 'string',
       logicalRegionIdFilter: 'string',
+      pageSize: 'number',
       resourceGroupId: 'string',
     };
   }
@@ -8276,81 +8186,6 @@ export class ListRoleResponse extends $tea.Model {
   }
 }
 
-export class ListRootStacksRequest extends $tea.Model {
-  currentPage?: number;
-  pageSize?: number;
-  static names(): { [key: string]: string } {
-    return {
-      currentPage: 'CurrentPage',
-      pageSize: 'PageSize',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      currentPage: 'number',
-      pageSize: 'number',
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class ListRootStacksResponseBody extends $tea.Model {
-  code?: number;
-  data?: ListRootStacksResponseBodyData;
-  message?: string;
-  requestId?: string;
-  static names(): { [key: string]: string } {
-    return {
-      code: 'Code',
-      data: 'Data',
-      message: 'Message',
-      requestId: 'RequestId',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      code: 'number',
-      data: ListRootStacksResponseBodyData,
-      message: 'string',
-      requestId: 'string',
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class ListRootStacksResponse extends $tea.Model {
-  headers: { [key: string]: string };
-  statusCode: number;
-  body: ListRootStacksResponseBody;
-  static names(): { [key: string]: string } {
-    return {
-      headers: 'headers',
-      statusCode: 'statusCode',
-      body: 'body',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
-      statusCode: 'number',
-      body: ListRootStacksResponseBody,
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
 export class ListScaleOutEcuRequest extends $tea.Model {
   appId?: string;
   clusterId?: string;
@@ -8494,6 +8329,31 @@ export class ListServiceGroupsResponse extends $tea.Model {
   }
 }
 
+export class ListSlbRequest extends $tea.Model {
+  addressType?: string;
+  slbType?: string;
+  vpcId?: string;
+  static names(): { [key: string]: string } {
+    return {
+      addressType: 'AddressType',
+      slbType: 'SlbType',
+      vpcId: 'VpcId',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      addressType: 'string',
+      slbType: 'string',
+      vpcId: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
 export class ListSlbResponseBody extends $tea.Model {
   code?: number;
   message?: string;
@@ -8592,6 +8452,153 @@ export class ListSubAccountResponse extends $tea.Model {
       headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
       statusCode: 'number',
       body: ListSubAccountResponseBody,
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class ListSwimmingLaneRequest extends $tea.Model {
+  groupId?: number;
+  static names(): { [key: string]: string } {
+    return {
+      groupId: 'GroupId',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      groupId: 'number',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class ListSwimmingLaneResponseBody extends $tea.Model {
+  code?: number;
+  data?: ListSwimmingLaneResponseBodyData[];
+  message?: string;
+  requestId?: string;
+  static names(): { [key: string]: string } {
+    return {
+      code: 'Code',
+      data: 'Data',
+      message: 'Message',
+      requestId: 'RequestId',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      code: 'number',
+      data: { 'type': 'array', 'itemType': ListSwimmingLaneResponseBodyData },
+      message: 'string',
+      requestId: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class ListSwimmingLaneResponse extends $tea.Model {
+  headers: { [key: string]: string };
+  statusCode: number;
+  body: ListSwimmingLaneResponseBody;
+  static names(): { [key: string]: string } {
+    return {
+      headers: 'headers',
+      statusCode: 'statusCode',
+      body: 'body',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
+      body: ListSwimmingLaneResponseBody,
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class ListSwimmingLaneGroupRequest extends $tea.Model {
+  groupId?: number;
+  logicalRegionId?: string;
+  static names(): { [key: string]: string } {
+    return {
+      groupId: 'GroupId',
+      logicalRegionId: 'LogicalRegionId',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      groupId: 'number',
+      logicalRegionId: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class ListSwimmingLaneGroupResponseBody extends $tea.Model {
+  code?: number;
+  data?: ListSwimmingLaneGroupResponseBodyData[];
+  message?: string;
+  requestId?: string;
+  static names(): { [key: string]: string } {
+    return {
+      code: 'Code',
+      data: 'Data',
+      message: 'Message',
+      requestId: 'RequestId',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      code: 'number',
+      data: { 'type': 'array', 'itemType': ListSwimmingLaneGroupResponseBodyData },
+      message: 'string',
+      requestId: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class ListSwimmingLaneGroupResponse extends $tea.Model {
+  headers: { [key: string]: string };
+  statusCode: number;
+  body: ListSwimmingLaneGroupResponseBody;
+  static names(): { [key: string]: string } {
+    return {
+      headers: 'headers',
+      statusCode: 'statusCode',
+      body: 'body',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
+      body: ListSwimmingLaneGroupResponseBody,
     };
   }
 
@@ -9454,84 +9461,6 @@ export class QuerySlsLogStoreListResponse extends $tea.Model {
       headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
       statusCode: 'number',
       body: QuerySlsLogStoreListResponseBody,
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class RemoveMockRuleRequest extends $tea.Model {
-  id?: number;
-  static names(): { [key: string]: string } {
-    return {
-      id: 'Id',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      id: 'number',
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class RemoveMockRuleResponseBody extends $tea.Model {
-  code?: string;
-  data?: RemoveMockRuleResponseBodyData;
-  httpCode?: string;
-  message?: string;
-  requestId?: string;
-  success?: boolean;
-  static names(): { [key: string]: string } {
-    return {
-      code: 'Code',
-      data: 'Data',
-      httpCode: 'HttpCode',
-      message: 'Message',
-      requestId: 'RequestId',
-      success: 'Success',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      code: 'string',
-      data: RemoveMockRuleResponseBodyData,
-      httpCode: 'string',
-      message: 'string',
-      requestId: 'string',
-      success: 'boolean',
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class RemoveMockRuleResponse extends $tea.Model {
-  headers: { [key: string]: string };
-  statusCode: number;
-  body: RemoveMockRuleResponseBody;
-  static names(): { [key: string]: string } {
-    return {
-      headers: 'headers',
-      statusCode: 'statusCode',
-      body: 'body',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
-      statusCode: 'number',
-      body: RemoveMockRuleResponseBody,
     };
   }
 
@@ -10411,6 +10340,147 @@ export class StartApplicationResponse extends $tea.Model {
       headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
       statusCode: 'number',
       body: StartApplicationResponseBody,
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class StartK8sAppPrecheckRequest extends $tea.Model {
+  annotations?: string;
+  appId?: string;
+  appName?: string;
+  clusterId?: string;
+  componentIds?: string;
+  configMountDescs?: string;
+  emptyDirs?: string;
+  envFroms?: string;
+  envs?: string;
+  imageUrl?: string;
+  javaStartUpConfig?: string;
+  labels?: string;
+  limitEphemeralStorage?: number;
+  limitMem?: number;
+  limitmCpu?: number;
+  localVolume?: string;
+  namespace?: string;
+  packageUrl?: string;
+  pvcMountDescs?: string;
+  regionId?: string;
+  replicas?: number;
+  requestsEphemeralStorage?: number;
+  requestsMem?: number;
+  requestsmCpu?: number;
+  static names(): { [key: string]: string } {
+    return {
+      annotations: 'Annotations',
+      appId: 'AppId',
+      appName: 'AppName',
+      clusterId: 'ClusterId',
+      componentIds: 'ComponentIds',
+      configMountDescs: 'ConfigMountDescs',
+      emptyDirs: 'EmptyDirs',
+      envFroms: 'EnvFroms',
+      envs: 'Envs',
+      imageUrl: 'ImageUrl',
+      javaStartUpConfig: 'JavaStartUpConfig',
+      labels: 'Labels',
+      limitEphemeralStorage: 'LimitEphemeralStorage',
+      limitMem: 'LimitMem',
+      limitmCpu: 'LimitmCpu',
+      localVolume: 'LocalVolume',
+      namespace: 'Namespace',
+      packageUrl: 'PackageUrl',
+      pvcMountDescs: 'PvcMountDescs',
+      regionId: 'RegionId',
+      replicas: 'Replicas',
+      requestsEphemeralStorage: 'RequestsEphemeralStorage',
+      requestsMem: 'RequestsMem',
+      requestsmCpu: 'RequestsmCpu',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      annotations: 'string',
+      appId: 'string',
+      appName: 'string',
+      clusterId: 'string',
+      componentIds: 'string',
+      configMountDescs: 'string',
+      emptyDirs: 'string',
+      envFroms: 'string',
+      envs: 'string',
+      imageUrl: 'string',
+      javaStartUpConfig: 'string',
+      labels: 'string',
+      limitEphemeralStorage: 'number',
+      limitMem: 'number',
+      limitmCpu: 'number',
+      localVolume: 'string',
+      namespace: 'string',
+      packageUrl: 'string',
+      pvcMountDescs: 'string',
+      regionId: 'string',
+      replicas: 'number',
+      requestsEphemeralStorage: 'number',
+      requestsMem: 'number',
+      requestsmCpu: 'number',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class StartK8sAppPrecheckResponseBody extends $tea.Model {
+  code?: number;
+  data?: StartK8sAppPrecheckResponseBodyData;
+  message?: string;
+  requestId?: string;
+  static names(): { [key: string]: string } {
+    return {
+      code: 'Code',
+      data: 'Data',
+      message: 'Message',
+      requestId: 'RequestId',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      code: 'number',
+      data: StartK8sAppPrecheckResponseBodyData,
+      message: 'string',
+      requestId: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class StartK8sAppPrecheckResponse extends $tea.Model {
+  headers: { [key: string]: string };
+  statusCode: number;
+  body: StartK8sAppPrecheckResponseBody;
+  static names(): { [key: string]: string } {
+    return {
+      headers: 'headers',
+      statusCode: 'statusCode',
+      body: 'body',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
+      body: StartK8sAppPrecheckResponseBody,
     };
   }
 
@@ -11357,6 +11427,7 @@ export class UpdateApplicationBaseInfoResponse extends $tea.Model {
 
 export class UpdateApplicationScalingRuleRequest extends $tea.Model {
   appId?: string;
+  scalingBehaviour?: string;
   scalingRuleEnable?: boolean;
   scalingRuleMetric?: string;
   scalingRuleName?: string;
@@ -11366,6 +11437,7 @@ export class UpdateApplicationScalingRuleRequest extends $tea.Model {
   static names(): { [key: string]: string } {
     return {
       appId: 'AppId',
+      scalingBehaviour: 'ScalingBehaviour',
       scalingRuleEnable: 'ScalingRuleEnable',
       scalingRuleMetric: 'ScalingRuleMetric',
       scalingRuleName: 'ScalingRuleName',
@@ -11378,6 +11450,7 @@ export class UpdateApplicationScalingRuleRequest extends $tea.Model {
   static types(): { [key: string]: any } {
     return {
       appId: 'string',
+      scalingBehaviour: 'string',
       scalingRuleEnable: 'boolean',
       scalingRuleMetric: 'string',
       scalingRuleName: 'string',
@@ -12020,6 +12093,8 @@ export class UpdateK8sApplicationConfigRequest extends $tea.Model {
   clusterId?: string;
   cpuLimit?: string;
   cpuRequest?: string;
+  ephemeralStorageLimit?: string;
+  ephemeralStorageRequest?: string;
   mcpuLimit?: string;
   mcpuRequest?: string;
   memoryLimit?: string;
@@ -12031,6 +12106,8 @@ export class UpdateK8sApplicationConfigRequest extends $tea.Model {
       clusterId: 'ClusterId',
       cpuLimit: 'CpuLimit',
       cpuRequest: 'CpuRequest',
+      ephemeralStorageLimit: 'EphemeralStorageLimit',
+      ephemeralStorageRequest: 'EphemeralStorageRequest',
       mcpuLimit: 'McpuLimit',
       mcpuRequest: 'McpuRequest',
       memoryLimit: 'MemoryLimit',
@@ -12045,6 +12122,8 @@ export class UpdateK8sApplicationConfigRequest extends $tea.Model {
       clusterId: 'string',
       cpuLimit: 'string',
       cpuRequest: 'string',
+      ephemeralStorageLimit: 'string',
+      ephemeralStorageRequest: 'string',
       mcpuLimit: 'string',
       mcpuRequest: 'string',
       memoryLimit: 'string',
@@ -12190,14 +12269,18 @@ export class UpdateK8sConfigMapResponse extends $tea.Model {
 }
 
 export class UpdateK8sIngressRuleRequest extends $tea.Model {
+  annotations?: string;
   clusterId?: string;
   ingressConf?: { [key: string]: any };
+  labels?: string;
   name?: string;
   namespace?: string;
   static names(): { [key: string]: string } {
     return {
+      annotations: 'Annotations',
       clusterId: 'ClusterId',
       ingressConf: 'IngressConf',
+      labels: 'Labels',
       name: 'Name',
       namespace: 'Namespace',
     };
@@ -12205,8 +12288,10 @@ export class UpdateK8sIngressRuleRequest extends $tea.Model {
 
   static types(): { [key: string]: any } {
     return {
+      annotations: 'string',
       clusterId: 'string',
       ingressConf: { 'type': 'map', 'keyType': 'string', 'valueType': 'any' },
+      labels: 'string',
       name: 'string',
       namespace: 'string',
     };
@@ -12431,12 +12516,14 @@ export class UpdateK8sSecretResponse extends $tea.Model {
 
 export class UpdateK8sServiceRequest extends $tea.Model {
   appId?: string;
+  externalTrafficPolicy?: string;
   name?: string;
   servicePorts?: { [key: string]: any };
   type?: string;
   static names(): { [key: string]: string } {
     return {
       appId: 'AppId',
+      externalTrafficPolicy: 'ExternalTrafficPolicy',
       name: 'Name',
       servicePorts: 'ServicePorts',
       type: 'Type',
@@ -12446,6 +12533,7 @@ export class UpdateK8sServiceRequest extends $tea.Model {
   static types(): { [key: string]: any } {
     return {
       appId: 'string',
+      externalTrafficPolicy: 'string',
       name: 'string',
       servicePorts: { 'type': 'map', 'keyType': 'string', 'valueType': 'any' },
       type: 'string',
@@ -12612,99 +12700,6 @@ export class UpdateK8sSlbResponse extends $tea.Model {
   }
 }
 
-export class UpdateMockRuleRequest extends $tea.Model {
-  dubboMockItemJson?: string;
-  extraJson?: string;
-  id?: string;
-  name?: string;
-  region?: string;
-  scMockItemJson?: string;
-  static names(): { [key: string]: string } {
-    return {
-      dubboMockItemJson: 'DubboMockItemJson',
-      extraJson: 'ExtraJson',
-      id: 'Id',
-      name: 'Name',
-      region: 'Region',
-      scMockItemJson: 'ScMockItemJson',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      dubboMockItemJson: 'string',
-      extraJson: 'string',
-      id: 'string',
-      name: 'string',
-      region: 'string',
-      scMockItemJson: 'string',
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class UpdateMockRuleResponseBody extends $tea.Model {
-  code?: string;
-  data?: UpdateMockRuleResponseBodyData;
-  httpCode?: string;
-  message?: string;
-  requestId?: string;
-  success?: boolean;
-  static names(): { [key: string]: string } {
-    return {
-      code: 'Code',
-      data: 'Data',
-      httpCode: 'HttpCode',
-      message: 'Message',
-      requestId: 'RequestId',
-      success: 'Success',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      code: 'string',
-      data: UpdateMockRuleResponseBodyData,
-      httpCode: 'string',
-      message: 'string',
-      requestId: 'string',
-      success: 'boolean',
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class UpdateMockRuleResponse extends $tea.Model {
-  headers: { [key: string]: string };
-  statusCode: number;
-  body: UpdateMockRuleResponseBody;
-  static names(): { [key: string]: string } {
-    return {
-      headers: 'headers',
-      statusCode: 'statusCode',
-      body: 'body',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
-      statusCode: 'number',
-      body: UpdateMockRuleResponseBody,
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
 export class UpdateRoleRequest extends $tea.Model {
   actionData?: string;
   roleId?: number;
@@ -12841,6 +12836,171 @@ export class UpdateSlsLogStoreResponse extends $tea.Model {
       headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
       statusCode: 'number',
       body: UpdateSlsLogStoreResponseBody,
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class UpdateSwimmingLaneRequest extends $tea.Model {
+  appInfos?: string;
+  enableRules?: boolean;
+  entryRules?: string;
+  laneId?: number;
+  name?: string;
+  static names(): { [key: string]: string } {
+    return {
+      appInfos: 'AppInfos',
+      enableRules: 'EnableRules',
+      entryRules: 'EntryRules',
+      laneId: 'LaneId',
+      name: 'Name',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      appInfos: 'string',
+      enableRules: 'boolean',
+      entryRules: 'string',
+      laneId: 'number',
+      name: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class UpdateSwimmingLaneResponseBody extends $tea.Model {
+  code?: number;
+  data?: UpdateSwimmingLaneResponseBodyData;
+  message?: string;
+  requestId?: string;
+  static names(): { [key: string]: string } {
+    return {
+      code: 'Code',
+      data: 'Data',
+      message: 'Message',
+      requestId: 'RequestId',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      code: 'number',
+      data: UpdateSwimmingLaneResponseBodyData,
+      message: 'string',
+      requestId: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class UpdateSwimmingLaneResponse extends $tea.Model {
+  headers: { [key: string]: string };
+  statusCode: number;
+  body: UpdateSwimmingLaneResponseBody;
+  static names(): { [key: string]: string } {
+    return {
+      headers: 'headers',
+      statusCode: 'statusCode',
+      body: 'body',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
+      body: UpdateSwimmingLaneResponseBody,
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class UpdateSwimmingLaneGroupRequest extends $tea.Model {
+  appIds?: string;
+  entryApp?: string;
+  groupId?: number;
+  name?: string;
+  static names(): { [key: string]: string } {
+    return {
+      appIds: 'AppIds',
+      entryApp: 'EntryApp',
+      groupId: 'GroupId',
+      name: 'Name',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      appIds: 'string',
+      entryApp: 'string',
+      groupId: 'number',
+      name: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class UpdateSwimmingLaneGroupResponseBody extends $tea.Model {
+  code?: number;
+  data?: UpdateSwimmingLaneGroupResponseBodyData;
+  message?: string;
+  requestId?: string;
+  static names(): { [key: string]: string } {
+    return {
+      code: 'Code',
+      data: 'Data',
+      message: 'Message',
+      requestId: 'RequestId',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      code: 'number',
+      data: UpdateSwimmingLaneGroupResponseBodyData,
+      message: 'string',
+      requestId: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class UpdateSwimmingLaneGroupResponse extends $tea.Model {
+  headers: { [key: string]: string };
+  statusCode: number;
+  body: UpdateSwimmingLaneGroupResponseBody;
+  static names(): { [key: string]: string } {
+    return {
+      headers: 'headers',
+      statusCode: 'statusCode',
+      body: 'body',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
+      body: UpdateSwimmingLaneGroupResponseBody,
     };
   }
 
@@ -13257,61 +13417,6 @@ export class AbortChangeOrderResponseBodyData extends $tea.Model {
   }
 }
 
-export class AddMockRuleResponseBodyData extends $tea.Model {
-  accountId?: string;
-  consumerAppId?: string;
-  consumerAppName?: string;
-  enable?: boolean;
-  extraJson?: string;
-  id?: number;
-  name?: string;
-  namespaceId?: string;
-  providerAppId?: string;
-  providerAppName?: string;
-  region?: string;
-  scMockItemJson?: string;
-  source?: string;
-  static names(): { [key: string]: string } {
-    return {
-      accountId: 'AccountId',
-      consumerAppId: 'ConsumerAppId',
-      consumerAppName: 'ConsumerAppName',
-      enable: 'Enable',
-      extraJson: 'ExtraJson',
-      id: 'Id',
-      name: 'Name',
-      namespaceId: 'NamespaceId',
-      providerAppId: 'ProviderAppId',
-      providerAppName: 'ProviderAppName',
-      region: 'Region',
-      scMockItemJson: 'ScMockItemJson',
-      source: 'Source',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      accountId: 'string',
-      consumerAppId: 'string',
-      consumerAppName: 'string',
-      enable: 'boolean',
-      extraJson: 'string',
-      id: 'number',
-      name: 'string',
-      namespaceId: 'string',
-      providerAppId: 'string',
-      providerAppName: 'string',
-      region: 'string',
-      scMockItemJson: 'string',
-      source: 'string',
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
 export class BindSlbResponseBodyData extends $tea.Model {
   extSlbId?: string;
   extSlbIp?: string;
@@ -13347,6 +13452,128 @@ export class BindSlbResponseBodyData extends $tea.Model {
       slbName: 'string',
       slbPort: 'number',
       VServerGroupId: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class CreateApplicationScalingRuleResponseBodyAppScalingRuleBehaviourScaleDownPolicies extends $tea.Model {
+  periodSeconds?: number;
+  type?: string;
+  value?: string;
+  static names(): { [key: string]: string } {
+    return {
+      periodSeconds: 'PeriodSeconds',
+      type: 'Type',
+      value: 'Value',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      periodSeconds: 'number',
+      type: 'string',
+      value: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class CreateApplicationScalingRuleResponseBodyAppScalingRuleBehaviourScaleDown extends $tea.Model {
+  policies?: CreateApplicationScalingRuleResponseBodyAppScalingRuleBehaviourScaleDownPolicies[];
+  selectPolicy?: string;
+  stabilizationWindowSeconds?: number;
+  static names(): { [key: string]: string } {
+    return {
+      policies: 'Policies',
+      selectPolicy: 'SelectPolicy',
+      stabilizationWindowSeconds: 'StabilizationWindowSeconds',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      policies: { 'type': 'array', 'itemType': CreateApplicationScalingRuleResponseBodyAppScalingRuleBehaviourScaleDownPolicies },
+      selectPolicy: 'string',
+      stabilizationWindowSeconds: 'number',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class CreateApplicationScalingRuleResponseBodyAppScalingRuleBehaviourScaleUpPolicies extends $tea.Model {
+  periodSeconds?: number;
+  type?: string;
+  value?: string;
+  static names(): { [key: string]: string } {
+    return {
+      periodSeconds: 'PeriodSeconds',
+      type: 'Type',
+      value: 'Value',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      periodSeconds: 'number',
+      type: 'string',
+      value: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class CreateApplicationScalingRuleResponseBodyAppScalingRuleBehaviourScaleUp extends $tea.Model {
+  policies?: CreateApplicationScalingRuleResponseBodyAppScalingRuleBehaviourScaleUpPolicies[];
+  selectPolicy?: string;
+  stabilizationWindowSeconds?: number;
+  static names(): { [key: string]: string } {
+    return {
+      policies: 'Policies',
+      selectPolicy: 'SelectPolicy',
+      stabilizationWindowSeconds: 'StabilizationWindowSeconds',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      policies: { 'type': 'array', 'itemType': CreateApplicationScalingRuleResponseBodyAppScalingRuleBehaviourScaleUpPolicies },
+      selectPolicy: 'string',
+      stabilizationWindowSeconds: 'number',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class CreateApplicationScalingRuleResponseBodyAppScalingRuleBehaviour extends $tea.Model {
+  scaleDown?: CreateApplicationScalingRuleResponseBodyAppScalingRuleBehaviourScaleDown;
+  scaleUp?: CreateApplicationScalingRuleResponseBodyAppScalingRuleBehaviourScaleUp;
+  static names(): { [key: string]: string } {
+    return {
+      scaleDown: 'ScaleDown',
+      scaleUp: 'ScaleUp',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      scaleDown: CreateApplicationScalingRuleResponseBodyAppScalingRuleBehaviourScaleDown,
+      scaleUp: CreateApplicationScalingRuleResponseBodyAppScalingRuleBehaviourScaleUp,
     };
   }
 
@@ -13454,6 +13681,7 @@ export class CreateApplicationScalingRuleResponseBodyAppScalingRuleTrigger exten
 
 export class CreateApplicationScalingRuleResponseBodyAppScalingRule extends $tea.Model {
   appId?: string;
+  behaviour?: CreateApplicationScalingRuleResponseBodyAppScalingRuleBehaviour;
   createTime?: number;
   lastDisableTime?: number;
   maxReplicas?: number;
@@ -13467,6 +13695,7 @@ export class CreateApplicationScalingRuleResponseBodyAppScalingRule extends $tea
   static names(): { [key: string]: string } {
     return {
       appId: 'AppId',
+      behaviour: 'Behaviour',
       createTime: 'CreateTime',
       lastDisableTime: 'LastDisableTime',
       maxReplicas: 'MaxReplicas',
@@ -13483,6 +13712,7 @@ export class CreateApplicationScalingRuleResponseBodyAppScalingRule extends $tea
   static types(): { [key: string]: any } {
     return {
       appId: 'string',
+      behaviour: CreateApplicationScalingRuleResponseBodyAppScalingRuleBehaviour,
       createTime: 'number',
       lastDisableTime: 'number',
       maxReplicas: 'number',
@@ -13594,6 +13824,128 @@ export class DescribeAppInstanceListResponseBodyInstanceList extends $tea.Model 
   }
 }
 
+export class DescribeApplicationScalingRulesResponseBodyAppScalingRulesResultBehaviourScaleDownPolicies extends $tea.Model {
+  periodSeconds?: number;
+  type?: string;
+  value?: string;
+  static names(): { [key: string]: string } {
+    return {
+      periodSeconds: 'PeriodSeconds',
+      type: 'Type',
+      value: 'Value',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      periodSeconds: 'number',
+      type: 'string',
+      value: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class DescribeApplicationScalingRulesResponseBodyAppScalingRulesResultBehaviourScaleDown extends $tea.Model {
+  policies?: DescribeApplicationScalingRulesResponseBodyAppScalingRulesResultBehaviourScaleDownPolicies[];
+  selectPolicy?: string;
+  stabilizationWindowSeconds?: number;
+  static names(): { [key: string]: string } {
+    return {
+      policies: 'Policies',
+      selectPolicy: 'SelectPolicy',
+      stabilizationWindowSeconds: 'StabilizationWindowSeconds',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      policies: { 'type': 'array', 'itemType': DescribeApplicationScalingRulesResponseBodyAppScalingRulesResultBehaviourScaleDownPolicies },
+      selectPolicy: 'string',
+      stabilizationWindowSeconds: 'number',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class DescribeApplicationScalingRulesResponseBodyAppScalingRulesResultBehaviourScaleUpPolicies extends $tea.Model {
+  periodSeconds?: number;
+  type?: string;
+  value?: string;
+  static names(): { [key: string]: string } {
+    return {
+      periodSeconds: 'PeriodSeconds',
+      type: 'Type',
+      value: 'Value',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      periodSeconds: 'number',
+      type: 'string',
+      value: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class DescribeApplicationScalingRulesResponseBodyAppScalingRulesResultBehaviourScaleUp extends $tea.Model {
+  policies?: DescribeApplicationScalingRulesResponseBodyAppScalingRulesResultBehaviourScaleUpPolicies[];
+  selectPolicy?: string;
+  stabilizationWindowSeconds?: number;
+  static names(): { [key: string]: string } {
+    return {
+      policies: 'Policies',
+      selectPolicy: 'SelectPolicy',
+      stabilizationWindowSeconds: 'StabilizationWindowSeconds',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      policies: { 'type': 'array', 'itemType': DescribeApplicationScalingRulesResponseBodyAppScalingRulesResultBehaviourScaleUpPolicies },
+      selectPolicy: 'string',
+      stabilizationWindowSeconds: 'number',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class DescribeApplicationScalingRulesResponseBodyAppScalingRulesResultBehaviour extends $tea.Model {
+  scaleDown?: DescribeApplicationScalingRulesResponseBodyAppScalingRulesResultBehaviourScaleDown;
+  scaleUp?: DescribeApplicationScalingRulesResponseBodyAppScalingRulesResultBehaviourScaleUp;
+  static names(): { [key: string]: string } {
+    return {
+      scaleDown: 'ScaleDown',
+      scaleUp: 'ScaleUp',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      scaleDown: DescribeApplicationScalingRulesResponseBodyAppScalingRulesResultBehaviourScaleDown,
+      scaleUp: DescribeApplicationScalingRulesResponseBodyAppScalingRulesResultBehaviourScaleUp,
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
 export class DescribeApplicationScalingRulesResponseBodyAppScalingRulesResultMetricMetrics extends $tea.Model {
   metricTargetAverageUtilization?: number;
   metricType?: string;
@@ -13693,6 +14045,7 @@ export class DescribeApplicationScalingRulesResponseBodyAppScalingRulesResultTri
 
 export class DescribeApplicationScalingRulesResponseBodyAppScalingRulesResult extends $tea.Model {
   appId?: string;
+  behaviour?: DescribeApplicationScalingRulesResponseBodyAppScalingRulesResultBehaviour;
   createTime?: number;
   lastDisableTime?: number;
   maxReplicas?: number;
@@ -13706,6 +14059,7 @@ export class DescribeApplicationScalingRulesResponseBodyAppScalingRulesResult ex
   static names(): { [key: string]: string } {
     return {
       appId: 'AppId',
+      behaviour: 'Behaviour',
       createTime: 'CreateTime',
       lastDisableTime: 'LastDisableTime',
       maxReplicas: 'MaxReplicas',
@@ -13722,6 +14076,7 @@ export class DescribeApplicationScalingRulesResponseBodyAppScalingRulesResult ex
   static types(): { [key: string]: any } {
     return {
       appId: 'string',
+      behaviour: DescribeApplicationScalingRulesResponseBodyAppScalingRulesResultBehaviour,
       createTime: 'number',
       lastDisableTime: 'number',
       maxReplicas: 'number',
@@ -13914,61 +14269,6 @@ export class DisableApplicationScalingRuleResponseBodyAppScalingRule extends $te
   }
 }
 
-export class DisableMockRuleResponseBodyData extends $tea.Model {
-  accountId?: string;
-  consumerAppId?: string;
-  consumerAppName?: string;
-  enable?: boolean;
-  extraJson?: string;
-  id?: number;
-  name?: string;
-  namespaceId?: string;
-  providerAppId?: string;
-  providerAppName?: string;
-  region?: string;
-  scMockItemJson?: string;
-  source?: string;
-  static names(): { [key: string]: string } {
-    return {
-      accountId: 'AccountId',
-      consumerAppId: 'ConsumerAppId',
-      consumerAppName: 'ConsumerAppName',
-      enable: 'Enable',
-      extraJson: 'ExtraJson',
-      id: 'Id',
-      name: 'Name',
-      namespaceId: 'NamespaceId',
-      providerAppId: 'ProviderAppId',
-      providerAppName: 'ProviderAppName',
-      region: 'Region',
-      scMockItemJson: 'ScMockItemJson',
-      source: 'Source',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      accountId: 'string',
-      consumerAppId: 'string',
-      consumerAppName: 'string',
-      enable: 'boolean',
-      extraJson: 'string',
-      id: 'number',
-      name: 'string',
-      namespaceId: 'string',
-      providerAppId: 'string',
-      providerAppName: 'string',
-      region: 'string',
-      scMockItemJson: 'string',
-      source: 'string',
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
 export class EnableApplicationScalingRuleResponseBodyAppScalingRuleMetricMetrics extends $tea.Model {
   metricTargetAverageUtilization?: number;
   metricType?: string;
@@ -14115,226 +14415,9 @@ export class EnableApplicationScalingRuleResponseBodyAppScalingRule extends $tea
   }
 }
 
-export class EnableMockRuleResponseBodyData extends $tea.Model {
-  accountId?: string;
-  consumerAppId?: string;
-  consumerAppName?: string;
-  enable?: boolean;
-  extraJson?: string;
-  id?: number;
-  name?: string;
-  namespaceId?: string;
-  providerAppId?: string;
-  providerAppName?: string;
-  region?: string;
-  scMockItemJson?: string;
-  source?: string;
-  static names(): { [key: string]: string } {
-    return {
-      accountId: 'AccountId',
-      consumerAppId: 'ConsumerAppId',
-      consumerAppName: 'ConsumerAppName',
-      enable: 'Enable',
-      extraJson: 'ExtraJson',
-      id: 'Id',
-      name: 'Name',
-      namespaceId: 'NamespaceId',
-      providerAppId: 'ProviderAppId',
-      providerAppName: 'ProviderAppName',
-      region: 'Region',
-      scMockItemJson: 'ScMockItemJson',
-      source: 'Source',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      accountId: 'string',
-      consumerAppId: 'string',
-      consumerAppName: 'string',
-      enable: 'boolean',
-      extraJson: 'string',
-      id: 'number',
-      name: 'string',
-      namespaceId: 'string',
-      providerAppId: 'string',
-      providerAppName: 'string',
-      region: 'string',
-      scMockItemJson: 'string',
-      source: 'string',
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class GetAccountMockRuleResponseBodyDataResultDubboMockItems extends $tea.Model {
-  exceptionClassName?: string;
-  executeCondition?: string;
-  group?: string;
-  methodName?: string;
-  oper?: string;
-  paramTypes?: string[];
-  serviceName?: string;
-  value?: string;
-  version?: string;
-  static names(): { [key: string]: string } {
-    return {
-      exceptionClassName: 'ExceptionClassName',
-      executeCondition: 'ExecuteCondition',
-      group: 'Group',
-      methodName: 'MethodName',
-      oper: 'Oper',
-      paramTypes: 'ParamTypes',
-      serviceName: 'ServiceName',
-      value: 'Value',
-      version: 'Version',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      exceptionClassName: 'string',
-      executeCondition: 'string',
-      group: 'string',
-      methodName: 'string',
-      oper: 'string',
-      paramTypes: { 'type': 'array', 'itemType': 'string' },
-      serviceName: 'string',
-      value: 'string',
-      version: 'string',
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class GetAccountMockRuleResponseBodyDataResultScMockItems extends $tea.Model {
-  exceptionClassName?: string;
-  executeCondition?: string;
-  method?: string;
-  oper?: string;
-  path?: string;
-  serviceName?: string;
-  value?: string;
-  static names(): { [key: string]: string } {
-    return {
-      exceptionClassName: 'ExceptionClassName',
-      executeCondition: 'ExecuteCondition',
-      method: 'Method',
-      oper: 'Oper',
-      path: 'Path',
-      serviceName: 'ServiceName',
-      value: 'Value',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      exceptionClassName: 'string',
-      executeCondition: 'string',
-      method: 'string',
-      oper: 'string',
-      path: 'string',
-      serviceName: 'string',
-      value: 'string',
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class GetAccountMockRuleResponseBodyDataResult extends $tea.Model {
-  consumerAppId?: string;
-  consumerAppName?: string;
-  dubboMockItems?: GetAccountMockRuleResponseBodyDataResultDubboMockItems[];
-  enable?: boolean;
-  gmtCreate?: string;
-  gmtModified?: string;
-  id?: number;
-  name?: string;
-  providerAppId?: string;
-  providerAppName?: string;
-  region?: string;
-  scMockItems?: GetAccountMockRuleResponseBodyDataResultScMockItems[];
-  status?: number;
-  static names(): { [key: string]: string } {
-    return {
-      consumerAppId: 'ConsumerAppId',
-      consumerAppName: 'ConsumerAppName',
-      dubboMockItems: 'DubboMockItems',
-      enable: 'Enable',
-      gmtCreate: 'GmtCreate',
-      gmtModified: 'GmtModified',
-      id: 'Id',
-      name: 'Name',
-      providerAppId: 'ProviderAppId',
-      providerAppName: 'ProviderAppName',
-      region: 'Region',
-      scMockItems: 'ScMockItems',
-      status: 'Status',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      consumerAppId: 'string',
-      consumerAppName: 'string',
-      dubboMockItems: { 'type': 'array', 'itemType': GetAccountMockRuleResponseBodyDataResultDubboMockItems },
-      enable: 'boolean',
-      gmtCreate: 'string',
-      gmtModified: 'string',
-      id: 'number',
-      name: 'string',
-      providerAppId: 'string',
-      providerAppName: 'string',
-      region: 'string',
-      scMockItems: { 'type': 'array', 'itemType': GetAccountMockRuleResponseBodyDataResultScMockItems },
-      status: 'number',
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class GetAccountMockRuleResponseBodyData extends $tea.Model {
-  pageNumber?: number;
-  pageSize?: number;
-  result?: GetAccountMockRuleResponseBodyDataResult[];
-  totalSize?: number;
-  static names(): { [key: string]: string } {
-    return {
-      pageNumber: 'PageNumber',
-      pageSize: 'PageSize',
-      result: 'Result',
-      totalSize: 'TotalSize',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      pageNumber: 'number',
-      pageSize: 'number',
-      result: { 'type': 'array', 'itemType': GetAccountMockRuleResponseBodyDataResult },
-      totalSize: 'number',
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
 export class GetApplicationResponseBodyApplication extends $tea.Model {
   appId?: string;
+  appPhase?: string;
   applicationType?: string;
   buildPackageId?: number;
   clusterId?: string;
@@ -14344,9 +14427,12 @@ export class GetApplicationResponseBodyApplication extends $tea.Model {
   description?: string;
   dockerize?: boolean;
   email?: string;
+  enablePortCheck?: boolean;
+  enableUrlCheck?: boolean;
   extSlbId?: string;
   extSlbIp?: string;
   extSlbName?: string;
+  haveManageAccess?: string;
   healthCheckUrl?: string;
   instanceCount?: number;
   memory?: number;
@@ -14355,6 +14441,7 @@ export class GetApplicationResponseBodyApplication extends $tea.Model {
   owner?: string;
   port?: number;
   regionId?: string;
+  resourceGroupId?: string;
   runningInstanceCount?: number;
   slbId?: string;
   slbInfo?: string;
@@ -14362,9 +14449,11 @@ export class GetApplicationResponseBodyApplication extends $tea.Model {
   slbName?: string;
   slbPort?: number;
   userId?: string;
+  workloadType?: string;
   static names(): { [key: string]: string } {
     return {
       appId: 'AppId',
+      appPhase: 'AppPhase',
       applicationType: 'ApplicationType',
       buildPackageId: 'BuildPackageId',
       clusterId: 'ClusterId',
@@ -14374,9 +14463,12 @@ export class GetApplicationResponseBodyApplication extends $tea.Model {
       description: 'Description',
       dockerize: 'Dockerize',
       email: 'Email',
+      enablePortCheck: 'EnablePortCheck',
+      enableUrlCheck: 'EnableUrlCheck',
       extSlbId: 'ExtSlbId',
       extSlbIp: 'ExtSlbIp',
       extSlbName: 'ExtSlbName',
+      haveManageAccess: 'HaveManageAccess',
       healthCheckUrl: 'HealthCheckUrl',
       instanceCount: 'InstanceCount',
       memory: 'Memory',
@@ -14385,6 +14477,7 @@ export class GetApplicationResponseBodyApplication extends $tea.Model {
       owner: 'Owner',
       port: 'Port',
       regionId: 'RegionId',
+      resourceGroupId: 'ResourceGroupId',
       runningInstanceCount: 'RunningInstanceCount',
       slbId: 'SlbId',
       slbInfo: 'SlbInfo',
@@ -14392,12 +14485,14 @@ export class GetApplicationResponseBodyApplication extends $tea.Model {
       slbName: 'SlbName',
       slbPort: 'SlbPort',
       userId: 'UserId',
+      workloadType: 'WorkloadType',
     };
   }
 
   static types(): { [key: string]: any } {
     return {
       appId: 'string',
+      appPhase: 'string',
       applicationType: 'string',
       buildPackageId: 'number',
       clusterId: 'string',
@@ -14407,9 +14502,12 @@ export class GetApplicationResponseBodyApplication extends $tea.Model {
       description: 'string',
       dockerize: 'boolean',
       email: 'string',
+      enablePortCheck: 'boolean',
+      enableUrlCheck: 'boolean',
       extSlbId: 'string',
       extSlbIp: 'string',
       extSlbName: 'string',
+      haveManageAccess: 'string',
       healthCheckUrl: 'string',
       instanceCount: 'number',
       memory: 'number',
@@ -14418,6 +14516,7 @@ export class GetApplicationResponseBodyApplication extends $tea.Model {
       owner: 'string',
       port: 'number',
       regionId: 'string',
+      resourceGroupId: 'string',
       runningInstanceCount: 'number',
       slbId: 'string',
       slbInfo: 'string',
@@ -14425,6 +14524,7 @@ export class GetApplicationResponseBodyApplication extends $tea.Model {
       slbName: 'string',
       slbPort: 'number',
       userId: 'string',
+      workloadType: 'string',
     };
   }
 
@@ -14917,6 +15017,7 @@ export class GetClusterResponseBodyCluster extends $tea.Model {
   nodeNum?: number;
   oversoldFactor?: number;
   regionId?: string;
+  subClusterType?: string;
   updateTime?: number;
   vpcId?: string;
   static names(): { [key: string]: string } {
@@ -14937,6 +15038,7 @@ export class GetClusterResponseBodyCluster extends $tea.Model {
       nodeNum: 'NodeNum',
       oversoldFactor: 'OversoldFactor',
       regionId: 'RegionId',
+      subClusterType: 'SubClusterType',
       updateTime: 'UpdateTime',
       vpcId: 'VpcId',
     };
@@ -14960,6 +15062,7 @@ export class GetClusterResponseBodyCluster extends $tea.Model {
       nodeNum: 'number',
       oversoldFactor: 'number',
       regionId: 'string',
+      subClusterType: 'string',
       updateTime: 'number',
       vpcId: 'string',
     };
@@ -15051,6 +15154,59 @@ export class GetJvmConfigurationResponseBodyJvmConfiguration extends $tea.Model 
   }
 }
 
+export class GetK8sAppPrecheckResultResponseBodyDataJobResults extends $tea.Model {
+  interrupted?: boolean;
+  name?: string;
+  pass?: boolean;
+  reason?: string;
+  static names(): { [key: string]: string } {
+    return {
+      interrupted: 'Interrupted',
+      name: 'Name',
+      pass: 'Pass',
+      reason: 'Reason',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      interrupted: 'boolean',
+      name: 'string',
+      pass: 'boolean',
+      reason: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class GetK8sAppPrecheckResultResponseBodyData extends $tea.Model {
+  jobResults?: GetK8sAppPrecheckResultResponseBodyDataJobResults[];
+  reason?: string;
+  status?: string;
+  static names(): { [key: string]: string } {
+    return {
+      jobResults: 'JobResults',
+      reason: 'Reason',
+      status: 'Status',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      jobResults: { 'type': 'array', 'itemType': GetK8sAppPrecheckResultResponseBodyDataJobResults },
+      reason: 'string',
+      status: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
 export class GetK8sApplicationResponseBodyApplcationAppCmdArgs extends $tea.Model {
   cmdArg?: string[];
   static names(): { [key: string]: string } {
@@ -15112,6 +15268,7 @@ export class GetK8sApplicationResponseBodyApplcationAppEnvList extends $tea.Mode
 }
 
 export class GetK8sApplicationResponseBodyApplcationApp extends $tea.Model {
+  annotations?: string;
   appId?: string;
   applicationName?: string;
   applicationType?: string;
@@ -15123,18 +15280,30 @@ export class GetK8sApplicationResponseBodyApplcationApp extends $tea.Model {
   deployType?: string;
   developType?: string;
   edasContainerVersion?: string;
+  enableEmptyPushReject?: boolean;
+  enableLosslessRule?: boolean;
   envList?: GetK8sApplicationResponseBodyApplcationAppEnvList;
   instances?: number;
   instancesBeforeScaling?: number;
   k8sNamespace?: string;
+  labels?: string;
   limitCpuM?: number;
+  limitEphemeralStorage?: string;
   limitMem?: number;
+  losslessRuleAligned?: boolean;
+  losslessRuleDelayTime?: number;
+  losslessRuleFuncType?: number;
+  losslessRuleRelated?: boolean;
+  losslessRuleWarmupTime?: number;
   regionId?: string;
   requestCpuM?: number;
+  requestEphemeralStorage?: string;
   requestMem?: number;
+  slbInfo?: string;
   tomcatVersion?: string;
   static names(): { [key: string]: string } {
     return {
+      annotations: 'Annotations',
       appId: 'AppId',
       applicationName: 'ApplicationName',
       applicationType: 'ApplicationType',
@@ -15146,21 +15315,33 @@ export class GetK8sApplicationResponseBodyApplcationApp extends $tea.Model {
       deployType: 'DeployType',
       developType: 'DevelopType',
       edasContainerVersion: 'EdasContainerVersion',
+      enableEmptyPushReject: 'EnableEmptyPushReject',
+      enableLosslessRule: 'EnableLosslessRule',
       envList: 'EnvList',
       instances: 'Instances',
       instancesBeforeScaling: 'InstancesBeforeScaling',
       k8sNamespace: 'K8sNamespace',
+      labels: 'Labels',
       limitCpuM: 'LimitCpuM',
+      limitEphemeralStorage: 'LimitEphemeralStorage',
       limitMem: 'LimitMem',
+      losslessRuleAligned: 'LosslessRuleAligned',
+      losslessRuleDelayTime: 'LosslessRuleDelayTime',
+      losslessRuleFuncType: 'LosslessRuleFuncType',
+      losslessRuleRelated: 'LosslessRuleRelated',
+      losslessRuleWarmupTime: 'LosslessRuleWarmupTime',
       regionId: 'RegionId',
       requestCpuM: 'RequestCpuM',
+      requestEphemeralStorage: 'RequestEphemeralStorage',
       requestMem: 'RequestMem',
+      slbInfo: 'SlbInfo',
       tomcatVersion: 'TomcatVersion',
     };
   }
 
   static types(): { [key: string]: any } {
     return {
+      annotations: 'string',
       appId: 'string',
       applicationName: 'string',
       applicationType: 'string',
@@ -15172,15 +15353,26 @@ export class GetK8sApplicationResponseBodyApplcationApp extends $tea.Model {
       deployType: 'string',
       developType: 'string',
       edasContainerVersion: 'string',
+      enableEmptyPushReject: 'boolean',
+      enableLosslessRule: 'boolean',
       envList: GetK8sApplicationResponseBodyApplcationAppEnvList,
       instances: 'number',
       instancesBeforeScaling: 'number',
       k8sNamespace: 'string',
+      labels: 'string',
       limitCpuM: 'number',
+      limitEphemeralStorage: 'string',
       limitMem: 'number',
+      losslessRuleAligned: 'boolean',
+      losslessRuleDelayTime: 'number',
+      losslessRuleFuncType: 'number',
+      losslessRuleRelated: 'boolean',
+      losslessRuleWarmupTime: 'number',
       regionId: 'string',
       requestCpuM: 'number',
+      requestEphemeralStorage: 'string',
       requestMem: 'number',
+      slbInfo: 'string',
       tomcatVersion: 'string',
     };
   }
@@ -15208,6 +15400,7 @@ export class GetK8sApplicationResponseBodyApplcationConf extends $tea.Model {
   readiness?: string;
   runtimeClassName?: string;
   tolerations?: string;
+  userBaseImageUrl?: string;
   static names(): { [key: string]: string } {
     return {
       affinity: 'Affinity',
@@ -15227,6 +15420,7 @@ export class GetK8sApplicationResponseBodyApplcationConf extends $tea.Model {
       readiness: 'Readiness',
       runtimeClassName: 'RuntimeClassName',
       tolerations: 'Tolerations',
+      userBaseImageUrl: 'UserBaseImageUrl',
     };
   }
 
@@ -15249,6 +15443,7 @@ export class GetK8sApplicationResponseBodyApplcationConf extends $tea.Model {
       readiness: 'string',
       runtimeClassName: 'string',
       tolerations: 'string',
+      userBaseImageUrl: 'string',
     };
   }
 
@@ -15304,10 +15499,12 @@ export class GetK8sApplicationResponseBodyApplcationDeployGroupsDeployGroupCompo
 export class GetK8sApplicationResponseBodyApplcationDeployGroupsDeployGroup extends $tea.Model {
   components?: GetK8sApplicationResponseBodyApplcationDeployGroupsDeployGroupComponents;
   env?: string;
+  envFrom?: string;
   static names(): { [key: string]: string } {
     return {
       components: 'Components',
       env: 'Env',
+      envFrom: 'EnvFrom',
     };
   }
 
@@ -15315,6 +15512,7 @@ export class GetK8sApplicationResponseBodyApplcationDeployGroupsDeployGroup exte
     return {
       components: GetK8sApplicationResponseBodyApplcationDeployGroupsDeployGroupComponents,
       env: 'string',
+      envFrom: 'string',
     };
   }
 
@@ -15452,6 +15650,7 @@ export class GetK8sClusterResponseBodyClusterPageClusterListCluster extends $tea
   networkMode?: number;
   nodeNum?: number;
   regionId?: string;
+  subClusterType?: string;
   subNetCidr?: string;
   vpcId?: string;
   vswitchId?: string;
@@ -15470,6 +15669,7 @@ export class GetK8sClusterResponseBodyClusterPageClusterListCluster extends $tea
       networkMode: 'NetworkMode',
       nodeNum: 'NodeNum',
       regionId: 'RegionId',
+      subClusterType: 'SubClusterType',
       subNetCidr: 'SubNetCidr',
       vpcId: 'VpcId',
       vswitchId: 'VswitchId',
@@ -15491,6 +15691,7 @@ export class GetK8sClusterResponseBodyClusterPageClusterListCluster extends $tea
       networkMode: 'number',
       nodeNum: 'number',
       regionId: 'string',
+      subClusterType: 'string',
       subNetCidr: 'string',
       vpcId: 'string',
       vswitchId: 'string',
@@ -15605,122 +15806,15 @@ export class GetK8sServicesResponseBodyServices extends $tea.Model {
   }
 }
 
-export class GetMockRuleByConsumerAppIdResponseBodyData extends $tea.Model {
-  accountId?: string;
-  consumerAppId?: string;
-  consumerAppName?: string;
-  enable?: boolean;
-  extraJson?: string;
-  id?: number;
-  name?: string;
-  namespaceId?: string;
-  providerAppId?: string;
-  providerAppName?: string;
-  region?: string;
-  scMockItemJson?: string;
-  source?: string;
-  static names(): { [key: string]: string } {
-    return {
-      accountId: 'AccountId',
-      consumerAppId: 'ConsumerAppId',
-      consumerAppName: 'ConsumerAppName',
-      enable: 'Enable',
-      extraJson: 'ExtraJson',
-      id: 'Id',
-      name: 'Name',
-      namespaceId: 'NamespaceId',
-      providerAppId: 'ProviderAppId',
-      providerAppName: 'ProviderAppName',
-      region: 'Region',
-      scMockItemJson: 'ScMockItemJson',
-      source: 'Source',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      accountId: 'string',
-      consumerAppId: 'string',
-      consumerAppName: 'string',
-      enable: 'boolean',
-      extraJson: 'string',
-      id: 'number',
-      name: 'string',
-      namespaceId: 'string',
-      providerAppId: 'string',
-      providerAppName: 'string',
-      region: 'string',
-      scMockItemJson: 'string',
-      source: 'string',
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class GetMockRuleByProviderAppIdResponseBodyData extends $tea.Model {
-  accountId?: string;
-  consumerAppId?: string;
-  consumerAppName?: string;
-  enable?: boolean;
-  extraJson?: string;
-  id?: number;
-  name?: string;
-  namespaceId?: string;
-  providerAppId?: string;
-  providerAppName?: string;
-  region?: string;
-  scMockItemJson?: string;
-  source?: string;
-  static names(): { [key: string]: string } {
-    return {
-      accountId: 'AccountId',
-      consumerAppId: 'ConsumerAppId',
-      consumerAppName: 'ConsumerAppName',
-      enable: 'Enable',
-      extraJson: 'ExtraJson',
-      id: 'Id',
-      name: 'Name',
-      namespaceId: 'NamespaceId',
-      providerAppId: 'ProviderAppId',
-      providerAppName: 'ProviderAppName',
-      region: 'Region',
-      scMockItemJson: 'ScMockItemJson',
-      source: 'Source',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      accountId: 'string',
-      consumerAppId: 'string',
-      consumerAppName: 'string',
-      enable: 'boolean',
-      extraJson: 'string',
-      id: 'number',
-      name: 'string',
-      namespaceId: 'string',
-      providerAppId: 'string',
-      providerAppName: 'string',
-      region: 'string',
-      scMockItemJson: 'string',
-      source: 'string',
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
 export class GetPackageStorageCredentialResponseBodyCredential extends $tea.Model {
   accessKeyId?: string;
   accessKeySecret?: string;
   bucket?: string;
   expiration?: string;
   keyPrefix?: string;
+  ossInternalEndpoint?: string;
+  ossPublicEndpoint?: string;
+  ossVpcEndpoint?: string;
   regionId?: string;
   securityToken?: string;
   static names(): { [key: string]: string } {
@@ -15730,6 +15824,9 @@ export class GetPackageStorageCredentialResponseBodyCredential extends $tea.Mode
       bucket: 'Bucket',
       expiration: 'Expiration',
       keyPrefix: 'KeyPrefix',
+      ossInternalEndpoint: 'OssInternalEndpoint',
+      ossPublicEndpoint: 'OssPublicEndpoint',
+      ossVpcEndpoint: 'OssVpcEndpoint',
       regionId: 'RegionId',
       securityToken: 'SecurityToken',
     };
@@ -15742,6 +15839,9 @@ export class GetPackageStorageCredentialResponseBodyCredential extends $tea.Mode
       bucket: 'string',
       expiration: 'string',
       keyPrefix: 'string',
+      ossInternalEndpoint: 'string',
+      ossPublicEndpoint: 'string',
+      ossVpcEndpoint: 'string',
       regionId: 'string',
       securityToken: 'string',
     };
@@ -15888,6 +15988,10 @@ export class GetSecureTokenResponseBodySecureToken extends $tea.Model {
   description?: string;
   edasId?: string;
   id?: number;
+  mseInstanceId?: string;
+  mseInternetAddress?: string;
+  mseIntranetAddress?: string;
+  mseRegistryType?: string;
   regionId?: string;
   regionName?: string;
   secretKey?: string;
@@ -15901,6 +16005,10 @@ export class GetSecureTokenResponseBodySecureToken extends $tea.Model {
       description: 'Description',
       edasId: 'EdasId',
       id: 'Id',
+      mseInstanceId: 'MseInstanceId',
+      mseInternetAddress: 'MseInternetAddress',
+      mseIntranetAddress: 'MseIntranetAddress',
+      mseRegistryType: 'MseRegistryType',
       regionId: 'RegionId',
       regionName: 'RegionName',
       secretKey: 'SecretKey',
@@ -15917,6 +16025,10 @@ export class GetSecureTokenResponseBodySecureToken extends $tea.Model {
       description: 'string',
       edasId: 'string',
       id: 'number',
+      mseInstanceId: 'string',
+      mseInternetAddress: 'string',
+      mseIntranetAddress: 'string',
+      mseRegistryType: 'string',
       regionId: 'string',
       regionName: 'string',
       secretKey: 'string',
@@ -16274,12 +16386,14 @@ export class GetServiceMethodPageResponseBodyData extends $tea.Model {
 }
 
 export class GetServiceProvidersPageResponseBodyDataContent extends $tea.Model {
+  iannotations?: string;
   ip?: string;
   port?: string;
   serializeType?: string;
   timeout?: string;
   static names(): { [key: string]: string } {
     return {
+      iannotations: 'Iannotations',
       ip: 'Ip',
       port: 'Port',
       serializeType: 'SerializeType',
@@ -16289,6 +16403,7 @@ export class GetServiceProvidersPageResponseBodyDataContent extends $tea.Model {
 
   static types(): { [key: string]: any } {
     return {
+      iannotations: 'string',
       ip: 'string',
       port: 'string',
       serializeType: 'string',
@@ -16575,6 +16690,168 @@ export class InsertOrUpdateRegionResponseBodyUserDefineRegionEntity extends $tea
   }
 }
 
+export class InsertSwimmingLaneResponseBodyDataSwimmingLaneAppRelationShipList extends $tea.Model {
+  appId?: string;
+  appName?: string;
+  laneId?: number;
+  rules?: string;
+  static names(): { [key: string]: string } {
+    return {
+      appId: 'AppId',
+      appName: 'AppName',
+      laneId: 'LaneId',
+      rules: 'Rules',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      appId: 'string',
+      appName: 'string',
+      laneId: 'number',
+      rules: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class InsertSwimmingLaneResponseBodyData extends $tea.Model {
+  appInfos?: string;
+  entryRule?: string;
+  groupId?: number;
+  id?: number;
+  name?: string;
+  namespaceId?: string;
+  swimmingLaneAppRelationShipList?: InsertSwimmingLaneResponseBodyDataSwimmingLaneAppRelationShipList[];
+  tag?: string;
+  static names(): { [key: string]: string } {
+    return {
+      appInfos: 'AppInfos',
+      entryRule: 'EntryRule',
+      groupId: 'GroupId',
+      id: 'Id',
+      name: 'Name',
+      namespaceId: 'NamespaceId',
+      swimmingLaneAppRelationShipList: 'SwimmingLaneAppRelationShipList',
+      tag: 'Tag',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      appInfos: 'string',
+      entryRule: 'string',
+      groupId: 'number',
+      id: 'number',
+      name: 'string',
+      namespaceId: 'string',
+      swimmingLaneAppRelationShipList: { 'type': 'array', 'itemType': InsertSwimmingLaneResponseBodyDataSwimmingLaneAppRelationShipList },
+      tag: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class InsertSwimmingLaneGroupResponseBodyDataApplicationListApplication extends $tea.Model {
+  appId?: string;
+  appName?: string;
+  static names(): { [key: string]: string } {
+    return {
+      appId: 'AppId',
+      appName: 'AppName',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      appId: 'string',
+      appName: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class InsertSwimmingLaneGroupResponseBodyDataApplicationList extends $tea.Model {
+  application?: InsertSwimmingLaneGroupResponseBodyDataApplicationListApplication[];
+  static names(): { [key: string]: string } {
+    return {
+      application: 'Application',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      application: { 'type': 'array', 'itemType': InsertSwimmingLaneGroupResponseBodyDataApplicationListApplication },
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class InsertSwimmingLaneGroupResponseBodyDataEntryApplication extends $tea.Model {
+  appId?: string;
+  appName?: string;
+  static names(): { [key: string]: string } {
+    return {
+      appId: 'AppId',
+      appName: 'AppName',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      appId: 'string',
+      appName: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class InsertSwimmingLaneGroupResponseBodyData extends $tea.Model {
+  applicationList?: InsertSwimmingLaneGroupResponseBodyDataApplicationList;
+  entryApplication?: InsertSwimmingLaneGroupResponseBodyDataEntryApplication;
+  id?: number;
+  name?: string;
+  namespaceId?: string;
+  static names(): { [key: string]: string } {
+    return {
+      applicationList: 'ApplicationList',
+      entryApplication: 'EntryApplication',
+      id: 'Id',
+      name: 'Name',
+      namespaceId: 'NamespaceId',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      applicationList: InsertSwimmingLaneGroupResponseBodyDataApplicationList,
+      entryApplication: InsertSwimmingLaneGroupResponseBodyDataEntryApplication,
+      id: 'number',
+      name: 'string',
+      namespaceId: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
 export class InstallAgentResponseBodyExecutionResultListExecutionResult extends $tea.Model {
   finishedTime?: string;
   instanceId?: string;
@@ -16672,10 +16949,21 @@ export class ListApplicationResponseBodyApplicationListApplication extends $tea.
   buildPackageId?: number;
   clusterId?: string;
   clusterType?: number;
+  createTime?: number;
+  extSlbIp?: string;
+  extSlbListenerPort?: number;
+  instances?: number;
+  k8sNamespace?: string;
   name?: string;
+  namespaceId?: string;
+  port?: number;
   regionId?: string;
   resourceGroupId?: string;
   runningInstanceCount?: number;
+  slbIp?: string;
+  slbListenerPort?: number;
+  slbPort?: number;
+  state?: string;
   static names(): { [key: string]: string } {
     return {
       appId: 'AppId',
@@ -16683,10 +16971,21 @@ export class ListApplicationResponseBodyApplicationListApplication extends $tea.
       buildPackageId: 'BuildPackageId',
       clusterId: 'ClusterId',
       clusterType: 'ClusterType',
+      createTime: 'CreateTime',
+      extSlbIp: 'ExtSlbIp',
+      extSlbListenerPort: 'ExtSlbListenerPort',
+      instances: 'Instances',
+      k8sNamespace: 'K8sNamespace',
       name: 'Name',
+      namespaceId: 'NamespaceId',
+      port: 'Port',
       regionId: 'RegionId',
       resourceGroupId: 'ResourceGroupId',
       runningInstanceCount: 'RunningInstanceCount',
+      slbIp: 'SlbIp',
+      slbListenerPort: 'SlbListenerPort',
+      slbPort: 'SlbPort',
+      state: 'State',
     };
   }
 
@@ -16697,10 +16996,21 @@ export class ListApplicationResponseBodyApplicationListApplication extends $tea.
       buildPackageId: 'number',
       clusterId: 'string',
       clusterType: 'number',
+      createTime: 'number',
+      extSlbIp: 'string',
+      extSlbListenerPort: 'number',
+      instances: 'number',
+      k8sNamespace: 'string',
       name: 'string',
+      namespaceId: 'string',
+      port: 'number',
       regionId: 'string',
       resourceGroupId: 'string',
       runningInstanceCount: 'number',
+      slbIp: 'string',
+      slbListenerPort: 'number',
+      slbPort: 'number',
+      state: 'string',
     };
   }
 
@@ -17101,6 +17411,7 @@ export class ListClusterMembersResponseBodyClusterMemberPageClusterMemberListClu
   createTime?: number;
   ecsId?: string;
   ecuId?: string;
+  privateIp?: string;
   status?: number;
   updateTime?: number;
   static names(): { [key: string]: string } {
@@ -17110,6 +17421,7 @@ export class ListClusterMembersResponseBodyClusterMemberPageClusterMemberListClu
       createTime: 'CreateTime',
       ecsId: 'EcsId',
       ecuId: 'EcuId',
+      privateIp: 'PrivateIp',
       status: 'Status',
       updateTime: 'UpdateTime',
     };
@@ -17122,6 +17434,7 @@ export class ListClusterMembersResponseBodyClusterMemberPageClusterMemberListClu
       createTime: 'number',
       ecsId: 'string',
       ecuId: 'string',
+      privateIp: 'string',
       status: 'number',
       updateTime: 'number',
     };
@@ -17483,6 +17796,8 @@ export class ListDeployGroupResponseBodyDeployGroupListDeployGroup extends $tea.
   csClusterId?: string;
   deploymentName?: string;
   env?: string;
+  ephemeralStorageLimit?: string;
+  ephemeralStorageRequest?: string;
   groupId?: string;
   groupName?: string;
   groupType?: number;
@@ -17517,6 +17832,8 @@ export class ListDeployGroupResponseBodyDeployGroupListDeployGroup extends $tea.
       csClusterId: 'CsClusterId',
       deploymentName: 'DeploymentName',
       env: 'Env',
+      ephemeralStorageLimit: 'EphemeralStorageLimit',
+      ephemeralStorageRequest: 'EphemeralStorageRequest',
       groupId: 'GroupId',
       groupName: 'GroupName',
       groupType: 'GroupType',
@@ -17554,6 +17871,8 @@ export class ListDeployGroupResponseBodyDeployGroupListDeployGroup extends $tea.
       csClusterId: 'string',
       deploymentName: 'string',
       env: 'string',
+      ephemeralStorageLimit: 'string',
+      ephemeralStorageRequest: 'string',
       groupId: 'string',
       groupName: 'string',
       groupType: 'number',
@@ -17953,14 +18272,18 @@ export class ListK8sIngressRulesResponseBodyDataIngressConfsRulesPaths extends $
   appId?: string;
   appName?: string;
   backend?: ListK8sIngressRulesResponseBodyDataIngressConfsRulesPathsBackend;
+  collectRate?: number;
   path?: string;
+  pathType?: string;
   status?: string;
   static names(): { [key: string]: string } {
     return {
       appId: 'AppId',
       appName: 'AppName',
       backend: 'Backend',
+      collectRate: 'CollectRate',
       path: 'Path',
+      pathType: 'PathType',
       status: 'Status',
     };
   }
@@ -17970,7 +18293,9 @@ export class ListK8sIngressRulesResponseBodyDataIngressConfsRulesPaths extends $
       appId: 'string',
       appName: 'string',
       backend: ListK8sIngressRulesResponseBodyDataIngressConfsRulesPathsBackend,
+      collectRate: 'number',
       path: 'string',
+      pathType: 'string',
       status: 'string',
     };
   }
@@ -18010,23 +18335,35 @@ export class ListK8sIngressRulesResponseBodyDataIngressConfsRules extends $tea.M
 
 export class ListK8sIngressRulesResponseBodyDataIngressConfs extends $tea.Model {
   albId?: string;
+  annotations?: string;
   creationTime?: string;
   dashboardUrl?: string;
   endpoint?: string;
   ingressType?: string;
+  labels?: string;
+  mseGatewayId?: string;
+  mseGatewayName?: string;
   name?: string;
   namespace?: string;
+  officalBasicUrl?: string;
+  officalRequestUrl?: string;
   rules?: ListK8sIngressRulesResponseBodyDataIngressConfsRules[];
   sslRedirect?: boolean;
   static names(): { [key: string]: string } {
     return {
       albId: 'AlbId',
+      annotations: 'Annotations',
       creationTime: 'CreationTime',
       dashboardUrl: 'DashboardUrl',
       endpoint: 'Endpoint',
       ingressType: 'IngressType',
+      labels: 'Labels',
+      mseGatewayId: 'MseGatewayId',
+      mseGatewayName: 'MseGatewayName',
       name: 'Name',
       namespace: 'Namespace',
+      officalBasicUrl: 'OfficalBasicUrl',
+      officalRequestUrl: 'OfficalRequestUrl',
       rules: 'Rules',
       sslRedirect: 'SslRedirect',
     };
@@ -18035,12 +18372,18 @@ export class ListK8sIngressRulesResponseBodyDataIngressConfs extends $tea.Model 
   static types(): { [key: string]: any } {
     return {
       albId: 'string',
+      annotations: 'string',
       creationTime: 'string',
       dashboardUrl: 'string',
       endpoint: 'string',
       ingressType: 'string',
+      labels: 'string',
+      mseGatewayId: 'string',
+      mseGatewayName: 'string',
       name: 'string',
       namespace: 'string',
+      officalBasicUrl: 'string',
+      officalRequestUrl: 'string',
       rules: { 'type': 'array', 'itemType': ListK8sIngressRulesResponseBodyDataIngressConfsRules },
       sslRedirect: 'boolean',
     };
@@ -19025,106 +19368,6 @@ export class ListRoleResponseBodyRoleList extends $tea.Model {
   }
 }
 
-export class ListRootStacksResponseBodyDataResultChildren extends $tea.Model {
-  comment?: string;
-  icon?: string;
-  id?: number;
-  name?: string;
-  static names(): { [key: string]: string } {
-    return {
-      comment: 'Comment',
-      icon: 'Icon',
-      id: 'Id',
-      name: 'Name',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      comment: 'string',
-      icon: 'string',
-      id: 'number',
-      name: 'string',
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class ListRootStacksResponseBodyDataResultRoot extends $tea.Model {
-  id?: number;
-  name?: string;
-  static names(): { [key: string]: string } {
-    return {
-      id: 'Id',
-      name: 'Name',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      id: 'number',
-      name: 'string',
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class ListRootStacksResponseBodyDataResult extends $tea.Model {
-  children?: ListRootStacksResponseBodyDataResultChildren[];
-  root?: ListRootStacksResponseBodyDataResultRoot;
-  static names(): { [key: string]: string } {
-    return {
-      children: 'Children',
-      root: 'Root',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      children: { 'type': 'array', 'itemType': ListRootStacksResponseBodyDataResultChildren },
-      root: ListRootStacksResponseBodyDataResultRoot,
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class ListRootStacksResponseBodyData extends $tea.Model {
-  currentPage?: number;
-  pageSize?: number;
-  result?: ListRootStacksResponseBodyDataResult[];
-  totalSize?: number;
-  static names(): { [key: string]: string } {
-    return {
-      currentPage: 'CurrentPage',
-      pageSize: 'PageSize',
-      result: 'Result',
-      totalSize: 'TotalSize',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      currentPage: 'number',
-      pageSize: 'number',
-      result: { 'type': 'array', 'itemType': ListRootStacksResponseBodyDataResult },
-      totalSize: 'number',
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
 export class ListScaleOutEcuResponseBodyEcuInfoListEcuInfo extends $tea.Model {
   availableCpu?: number;
   availableMem?: number;
@@ -19256,9 +19499,11 @@ export class ListSlbResponseBodySlbListSlbEntity extends $tea.Model {
   groupId?: number;
   networkType?: string;
   regionId?: string;
+  reusable?: boolean;
   slbId?: string;
   slbName?: string;
   slbStatus?: string;
+  tags?: string;
   userId?: string;
   vpcId?: string;
   vswitchId?: string;
@@ -19270,9 +19515,11 @@ export class ListSlbResponseBodySlbListSlbEntity extends $tea.Model {
       groupId: 'GroupId',
       networkType: 'NetworkType',
       regionId: 'RegionId',
+      reusable: 'Reusable',
       slbId: 'SlbId',
       slbName: 'SlbName',
       slbStatus: 'SlbStatus',
+      tags: 'Tags',
       userId: 'UserId',
       vpcId: 'VpcId',
       vswitchId: 'VswitchId',
@@ -19287,9 +19534,11 @@ export class ListSlbResponseBodySlbListSlbEntity extends $tea.Model {
       groupId: 'number',
       networkType: 'string',
       regionId: 'string',
+      reusable: 'boolean',
       slbId: 'string',
       slbName: 'string',
       slbStatus: 'string',
+      tags: 'string',
       userId: 'string',
       vpcId: 'string',
       vswitchId: 'string',
@@ -19379,6 +19628,158 @@ export class ListSubAccountResponseBodySubAccountList extends $tea.Model {
   }
 }
 
+export class ListSwimmingLaneResponseBodyDataSwimmingLaneAppRelationShipList extends $tea.Model {
+  appId?: string;
+  appName?: string;
+  extra?: string;
+  laneId?: number;
+  rules?: string;
+  static names(): { [key: string]: string } {
+    return {
+      appId: 'AppId',
+      appName: 'AppName',
+      extra: 'Extra',
+      laneId: 'LaneId',
+      rules: 'Rules',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      appId: 'string',
+      appName: 'string',
+      extra: 'string',
+      laneId: 'number',
+      rules: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class ListSwimmingLaneResponseBodyData extends $tea.Model {
+  enableRules?: boolean;
+  entryRule?: string;
+  groupId?: number;
+  id?: number;
+  name?: string;
+  namespaceId?: string;
+  scenarioSign?: string;
+  swimmingLaneAppRelationShipList?: ListSwimmingLaneResponseBodyDataSwimmingLaneAppRelationShipList[];
+  tag?: string;
+  static names(): { [key: string]: string } {
+    return {
+      enableRules: 'EnableRules',
+      entryRule: 'EntryRule',
+      groupId: 'GroupId',
+      id: 'Id',
+      name: 'Name',
+      namespaceId: 'NamespaceId',
+      scenarioSign: 'ScenarioSign',
+      swimmingLaneAppRelationShipList: 'SwimmingLaneAppRelationShipList',
+      tag: 'Tag',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      enableRules: 'boolean',
+      entryRule: 'string',
+      groupId: 'number',
+      id: 'number',
+      name: 'string',
+      namespaceId: 'string',
+      scenarioSign: 'string',
+      swimmingLaneAppRelationShipList: { 'type': 'array', 'itemType': ListSwimmingLaneResponseBodyDataSwimmingLaneAppRelationShipList },
+      tag: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class ListSwimmingLaneGroupResponseBodyDataApplicationList extends $tea.Model {
+  appId?: string;
+  appName?: string;
+  static names(): { [key: string]: string } {
+    return {
+      appId: 'AppId',
+      appName: 'AppName',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      appId: 'string',
+      appName: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class ListSwimmingLaneGroupResponseBodyDataEntryApplication extends $tea.Model {
+  appId?: string;
+  appName?: string;
+  source?: string;
+  static names(): { [key: string]: string } {
+    return {
+      appId: 'AppId',
+      appName: 'AppName',
+      source: 'Source',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      appId: 'string',
+      appName: 'string',
+      source: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class ListSwimmingLaneGroupResponseBodyData extends $tea.Model {
+  applicationList?: ListSwimmingLaneGroupResponseBodyDataApplicationList[];
+  entryApplication?: ListSwimmingLaneGroupResponseBodyDataEntryApplication;
+  id?: number;
+  name?: string;
+  namespaceId?: string;
+  static names(): { [key: string]: string } {
+    return {
+      applicationList: 'ApplicationList',
+      entryApplication: 'EntryApplication',
+      id: 'Id',
+      name: 'Name',
+      namespaceId: 'NamespaceId',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      applicationList: { 'type': 'array', 'itemType': ListSwimmingLaneGroupResponseBodyDataApplicationList },
+      entryApplication: ListSwimmingLaneGroupResponseBodyDataEntryApplication,
+      id: 'number',
+      name: 'string',
+      namespaceId: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
 export class ListTagResourcesResponseBodyTagResourcesTagResource extends $tea.Model {
   resourceId?: string;
   resourceType?: string;
@@ -19431,8 +19832,10 @@ export class ListUserDefineRegionResponseBodyUserDefineRegionListUserDefineRegio
   debugEnable?: boolean;
   description?: string;
   id?: number;
+  mseInstanceId?: string;
   regionId?: string;
   regionName?: string;
+  registryType?: string;
   userId?: string;
   static names(): { [key: string]: string } {
     return {
@@ -19440,8 +19843,10 @@ export class ListUserDefineRegionResponseBodyUserDefineRegionListUserDefineRegio
       debugEnable: 'DebugEnable',
       description: 'Description',
       id: 'Id',
+      mseInstanceId: 'MseInstanceId',
       regionId: 'RegionId',
       regionName: 'RegionName',
+      registryType: 'RegistryType',
       userId: 'UserId',
     };
   }
@@ -19452,8 +19857,10 @@ export class ListUserDefineRegionResponseBodyUserDefineRegionListUserDefineRegio
       debugEnable: 'boolean',
       description: 'string',
       id: 'number',
+      mseInstanceId: 'string',
       regionId: 'string',
       regionName: 'string',
+      registryType: 'string',
       userId: 'string',
     };
   }
@@ -20174,61 +20581,6 @@ export class QuerySlsLogStoreListResponseBodyResult extends $tea.Model {
   }
 }
 
-export class RemoveMockRuleResponseBodyData extends $tea.Model {
-  accountId?: string;
-  consumerAppId?: string;
-  consumerAppName?: string;
-  enable?: boolean;
-  extraJson?: string;
-  id?: number;
-  name?: string;
-  namespaceId?: string;
-  providerAppId?: string;
-  providerAppName?: string;
-  region?: string;
-  scMockItemJson?: string;
-  source?: string;
-  static names(): { [key: string]: string } {
-    return {
-      accountId: 'AccountId',
-      consumerAppId: 'ConsumerAppId',
-      consumerAppName: 'ConsumerAppName',
-      enable: 'Enable',
-      extraJson: 'ExtraJson',
-      id: 'Id',
-      name: 'Name',
-      namespaceId: 'NamespaceId',
-      providerAppId: 'ProviderAppId',
-      providerAppName: 'ProviderAppName',
-      region: 'Region',
-      scMockItemJson: 'ScMockItemJson',
-      source: 'Source',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      accountId: 'string',
-      consumerAppId: 'string',
-      consumerAppName: 'string',
-      enable: 'boolean',
-      extraJson: 'string',
-      id: 'number',
-      name: 'string',
-      namespaceId: 'string',
-      providerAppId: 'string',
-      providerAppName: 'string',
-      region: 'string',
-      scMockItemJson: 'string',
-      source: 'string',
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
 export class RollbackChangeOrderResponseBodyData extends $tea.Model {
   changeOrderId?: string;
   static names(): { [key: string]: string } {
@@ -20240,6 +20592,25 @@ export class RollbackChangeOrderResponseBodyData extends $tea.Model {
   static types(): { [key: string]: any } {
     return {
       changeOrderId: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class StartK8sAppPrecheckResponseBodyData extends $tea.Model {
+  jobs?: string[];
+  static names(): { [key: string]: string } {
+    return {
+      jobs: 'Jobs',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      jobs: { 'type': 'array', 'itemType': 'string' },
     };
   }
 
@@ -20331,6 +20702,128 @@ export class UpdateApplicationBaseInfoResponseBodyApplcation extends $tea.Model 
       slbName: 'string',
       slbPort: 'number',
       userId: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class UpdateApplicationScalingRuleResponseBodyAppScalingRuleBehaviourScaleDownPolicies extends $tea.Model {
+  periodSeconds?: number;
+  type?: string;
+  value?: string;
+  static names(): { [key: string]: string } {
+    return {
+      periodSeconds: 'PeriodSeconds',
+      type: 'Type',
+      value: 'Value',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      periodSeconds: 'number',
+      type: 'string',
+      value: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class UpdateApplicationScalingRuleResponseBodyAppScalingRuleBehaviourScaleDown extends $tea.Model {
+  policies?: UpdateApplicationScalingRuleResponseBodyAppScalingRuleBehaviourScaleDownPolicies[];
+  selectPolicy?: string;
+  stabilizationWindowSeconds?: number;
+  static names(): { [key: string]: string } {
+    return {
+      policies: 'Policies',
+      selectPolicy: 'SelectPolicy',
+      stabilizationWindowSeconds: 'StabilizationWindowSeconds',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      policies: { 'type': 'array', 'itemType': UpdateApplicationScalingRuleResponseBodyAppScalingRuleBehaviourScaleDownPolicies },
+      selectPolicy: 'string',
+      stabilizationWindowSeconds: 'number',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class UpdateApplicationScalingRuleResponseBodyAppScalingRuleBehaviourScaleUpPolicies extends $tea.Model {
+  periodSeconds?: number;
+  type?: string;
+  value?: string;
+  static names(): { [key: string]: string } {
+    return {
+      periodSeconds: 'PeriodSeconds',
+      type: 'Type',
+      value: 'Value',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      periodSeconds: 'number',
+      type: 'string',
+      value: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class UpdateApplicationScalingRuleResponseBodyAppScalingRuleBehaviourScaleUp extends $tea.Model {
+  policies?: UpdateApplicationScalingRuleResponseBodyAppScalingRuleBehaviourScaleUpPolicies[];
+  selectPolicy?: string;
+  stabilizationWindowSeconds?: number;
+  static names(): { [key: string]: string } {
+    return {
+      policies: 'Policies',
+      selectPolicy: 'SelectPolicy',
+      stabilizationWindowSeconds: 'StabilizationWindowSeconds',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      policies: { 'type': 'array', 'itemType': UpdateApplicationScalingRuleResponseBodyAppScalingRuleBehaviourScaleUpPolicies },
+      selectPolicy: 'string',
+      stabilizationWindowSeconds: 'number',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class UpdateApplicationScalingRuleResponseBodyAppScalingRuleBehaviour extends $tea.Model {
+  scaleDown?: UpdateApplicationScalingRuleResponseBodyAppScalingRuleBehaviourScaleDown;
+  scaleUp?: UpdateApplicationScalingRuleResponseBodyAppScalingRuleBehaviourScaleUp;
+  static names(): { [key: string]: string } {
+    return {
+      scaleDown: 'ScaleDown',
+      scaleUp: 'ScaleUp',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      scaleDown: UpdateApplicationScalingRuleResponseBodyAppScalingRuleBehaviourScaleDown,
+      scaleUp: UpdateApplicationScalingRuleResponseBodyAppScalingRuleBehaviourScaleUp,
     };
   }
 
@@ -20438,6 +20931,7 @@ export class UpdateApplicationScalingRuleResponseBodyAppScalingRuleTrigger exten
 
 export class UpdateApplicationScalingRuleResponseBodyAppScalingRule extends $tea.Model {
   appId?: string;
+  behaviour?: UpdateApplicationScalingRuleResponseBodyAppScalingRuleBehaviour;
   createTime?: number;
   lastDisableTime?: number;
   maxReplicas?: number;
@@ -20451,6 +20945,7 @@ export class UpdateApplicationScalingRuleResponseBodyAppScalingRule extends $tea
   static names(): { [key: string]: string } {
     return {
       appId: 'AppId',
+      behaviour: 'Behaviour',
       createTime: 'CreateTime',
       lastDisableTime: 'LastDisableTime',
       maxReplicas: 'MaxReplicas',
@@ -20467,6 +20962,7 @@ export class UpdateApplicationScalingRuleResponseBodyAppScalingRule extends $tea
   static types(): { [key: string]: any } {
     return {
       appId: 'string',
+      behaviour: UpdateApplicationScalingRuleResponseBodyAppScalingRuleBehaviour,
       createTime: 'number',
       lastDisableTime: 'number',
       maxReplicas: 'number',
@@ -20569,56 +21065,138 @@ export class UpdateJvmConfigurationResponseBodyJvmConfiguration extends $tea.Mod
   }
 }
 
-export class UpdateMockRuleResponseBodyData extends $tea.Model {
-  accountId?: string;
-  consumerAppId?: string;
-  consumerAppName?: string;
-  dubboMockItemJson?: string;
-  enable?: boolean;
-  extraJson?: string;
-  id?: number;
-  name?: string;
-  namespaceId?: string;
-  providerAppId?: string;
-  providerAppName?: string;
-  region?: string;
-  scMockItemJson?: string;
-  source?: string;
+export class UpdateSwimmingLaneResponseBodyDataSwimmingLaneAppRelationShipList extends $tea.Model {
+  appId?: string;
+  appName?: string;
+  laneId?: number;
+  rules?: string;
   static names(): { [key: string]: string } {
     return {
-      accountId: 'AccountId',
-      consumerAppId: 'ConsumerAppId',
-      consumerAppName: 'ConsumerAppName',
-      dubboMockItemJson: 'DubboMockItemJson',
-      enable: 'Enable',
-      extraJson: 'ExtraJson',
-      id: 'Id',
-      name: 'Name',
-      namespaceId: 'NamespaceId',
-      providerAppId: 'ProviderAppId',
-      providerAppName: 'ProviderAppName',
-      region: 'Region',
-      scMockItemJson: 'ScMockItemJson',
-      source: 'Source',
+      appId: 'AppId',
+      appName: 'AppName',
+      laneId: 'LaneId',
+      rules: 'Rules',
     };
   }
 
   static types(): { [key: string]: any } {
     return {
-      accountId: 'string',
-      consumerAppId: 'string',
-      consumerAppName: 'string',
-      dubboMockItemJson: 'string',
-      enable: 'boolean',
-      extraJson: 'string',
+      appId: 'string',
+      appName: 'string',
+      laneId: 'number',
+      rules: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class UpdateSwimmingLaneResponseBodyData extends $tea.Model {
+  entryRule?: string;
+  groupId?: number;
+  id?: number;
+  name?: string;
+  namespaceId?: string;
+  swimmingLaneAppRelationShipList?: UpdateSwimmingLaneResponseBodyDataSwimmingLaneAppRelationShipList[];
+  tag?: string;
+  static names(): { [key: string]: string } {
+    return {
+      entryRule: 'EntryRule',
+      groupId: 'GroupId',
+      id: 'Id',
+      name: 'Name',
+      namespaceId: 'NamespaceId',
+      swimmingLaneAppRelationShipList: 'SwimmingLaneAppRelationShipList',
+      tag: 'Tag',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      entryRule: 'string',
+      groupId: 'number',
       id: 'number',
       name: 'string',
       namespaceId: 'string',
-      providerAppId: 'string',
-      providerAppName: 'string',
-      region: 'string',
-      scMockItemJson: 'string',
-      source: 'string',
+      swimmingLaneAppRelationShipList: { 'type': 'array', 'itemType': UpdateSwimmingLaneResponseBodyDataSwimmingLaneAppRelationShipList },
+      tag: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class UpdateSwimmingLaneGroupResponseBodyDataApplicationList extends $tea.Model {
+  appId?: string;
+  appName?: string;
+  static names(): { [key: string]: string } {
+    return {
+      appId: 'AppId',
+      appName: 'AppName',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      appId: 'string',
+      appName: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class UpdateSwimmingLaneGroupResponseBodyDataEntryApplication extends $tea.Model {
+  appId?: string;
+  appName?: string;
+  static names(): { [key: string]: string } {
+    return {
+      appId: 'AppId',
+      appName: 'AppName',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      appId: 'string',
+      appName: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class UpdateSwimmingLaneGroupResponseBodyData extends $tea.Model {
+  applicationList?: UpdateSwimmingLaneGroupResponseBodyDataApplicationList[];
+  entryApplication?: UpdateSwimmingLaneGroupResponseBodyDataEntryApplication;
+  id?: number;
+  name?: string;
+  namespaceId?: string;
+  static names(): { [key: string]: string } {
+    return {
+      applicationList: 'ApplicationList',
+      entryApplication: 'EntryApplication',
+      id: 'Id',
+      name: 'Name',
+      namespaceId: 'NamespaceId',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      applicationList: { 'type': 'array', 'itemType': UpdateSwimmingLaneGroupResponseBodyDataApplicationList },
+      entryApplication: UpdateSwimmingLaneGroupResponseBodyDataEntryApplication,
+      id: 'number',
+      name: 'string',
+      namespaceId: 'string',
     };
   }
 
@@ -20694,12 +21272,6 @@ export default class Client extends OpenApi {
     return EndpointUtil.getEndpointRules(productId, regionId, endpointRule, network, suffix);
   }
 
-  async abortAndRollbackChangeOrder(request: AbortAndRollbackChangeOrderRequest): Promise<AbortAndRollbackChangeOrderResponse> {
-    let runtime = new $Util.RuntimeOptions({ });
-    let headers : {[key: string ]: string} = { };
-    return await this.abortAndRollbackChangeOrderWithOptions(request, headers, runtime);
-  }
-
   async abortAndRollbackChangeOrderWithOptions(request: AbortAndRollbackChangeOrderRequest, headers: {[key: string ]: string}, runtime: $Util.RuntimeOptions): Promise<AbortAndRollbackChangeOrderResponse> {
     Util.validateModel(request);
     let query : {[key: string ]: any} = { };
@@ -20725,10 +21297,10 @@ export default class Client extends OpenApi {
     return $tea.cast<AbortAndRollbackChangeOrderResponse>(await this.callApi(params, req, runtime), new AbortAndRollbackChangeOrderResponse({}));
   }
 
-  async abortChangeOrder(request: AbortChangeOrderRequest): Promise<AbortChangeOrderResponse> {
+  async abortAndRollbackChangeOrder(request: AbortAndRollbackChangeOrderRequest): Promise<AbortAndRollbackChangeOrderResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     let headers : {[key: string ]: string} = { };
-    return await this.abortChangeOrderWithOptions(request, headers, runtime);
+    return await this.abortAndRollbackChangeOrderWithOptions(request, headers, runtime);
   }
 
   async abortChangeOrderWithOptions(request: AbortChangeOrderRequest, headers: {[key: string ]: string}, runtime: $Util.RuntimeOptions): Promise<AbortChangeOrderResponse> {
@@ -20756,10 +21328,10 @@ export default class Client extends OpenApi {
     return $tea.cast<AbortChangeOrderResponse>(await this.callApi(params, req, runtime), new AbortChangeOrderResponse({}));
   }
 
-  async addLogPath(request: AddLogPathRequest): Promise<AddLogPathResponse> {
+  async abortChangeOrder(request: AbortChangeOrderRequest): Promise<AbortChangeOrderResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     let headers : {[key: string ]: string} = { };
-    return await this.addLogPathWithOptions(request, headers, runtime);
+    return await this.abortChangeOrderWithOptions(request, headers, runtime);
   }
 
   async addLogPathWithOptions(request: AddLogPathRequest, headers: {[key: string ]: string}, runtime: $Util.RuntimeOptions): Promise<AddLogPathResponse> {
@@ -20791,85 +21363,10 @@ export default class Client extends OpenApi {
     return $tea.cast<AddLogPathResponse>(await this.callApi(params, req, runtime), new AddLogPathResponse({}));
   }
 
-  async addMockRule(request: AddMockRuleRequest): Promise<AddMockRuleResponse> {
+  async addLogPath(request: AddLogPathRequest): Promise<AddLogPathResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     let headers : {[key: string ]: string} = { };
-    return await this.addMockRuleWithOptions(request, headers, runtime);
-  }
-
-  async addMockRuleWithOptions(request: AddMockRuleRequest, headers: {[key: string ]: string}, runtime: $Util.RuntimeOptions): Promise<AddMockRuleResponse> {
-    Util.validateModel(request);
-    let query : {[key: string ]: any} = { };
-    if (!Util.isUnset(request.consumerAppsJson)) {
-      query["ConsumerAppsJson"] = request.consumerAppsJson;
-    }
-
-    if (!Util.isUnset(request.dubboMockItemJson)) {
-      query["DubboMockItemJson"] = request.dubboMockItemJson;
-    }
-
-    if (!Util.isUnset(request.enable)) {
-      query["Enable"] = request.enable;
-    }
-
-    if (!Util.isUnset(request.extraJson)) {
-      query["ExtraJson"] = request.extraJson;
-    }
-
-    if (!Util.isUnset(request.mockType)) {
-      query["MockType"] = request.mockType;
-    }
-
-    if (!Util.isUnset(request.name)) {
-      query["Name"] = request.name;
-    }
-
-    if (!Util.isUnset(request.namespace)) {
-      query["Namespace"] = request.namespace;
-    }
-
-    if (!Util.isUnset(request.providerAppId)) {
-      query["ProviderAppId"] = request.providerAppId;
-    }
-
-    if (!Util.isUnset(request.providerAppName)) {
-      query["ProviderAppName"] = request.providerAppName;
-    }
-
-    if (!Util.isUnset(request.region)) {
-      query["Region"] = request.region;
-    }
-
-    if (!Util.isUnset(request.scMockItemJson)) {
-      query["ScMockItemJson"] = request.scMockItemJson;
-    }
-
-    if (!Util.isUnset(request.source)) {
-      query["Source"] = request.source;
-    }
-
-    let req = new $OpenApi.OpenApiRequest({
-      headers: headers,
-      query: OpenApiUtil.query(query),
-    });
-    let params = new $OpenApi.Params({
-      action: "AddMockRule",
-      version: "2017-08-01",
-      protocol: "HTTPS",
-      pathname: `/pop/sp/api/mock/addMockRule`,
-      method: "POST",
-      authType: "AK",
-      style: "ROA",
-      reqBodyType: "json",
-      bodyType: "json",
-    });
-    return $tea.cast<AddMockRuleResponse>(await this.callApi(params, req, runtime), new AddMockRuleResponse({}));
-  }
-
-  async authorizeApplication(request: AuthorizeApplicationRequest): Promise<AuthorizeApplicationResponse> {
-    let runtime = new $Util.RuntimeOptions({ });
-    let headers : {[key: string ]: string} = { };
-    return await this.authorizeApplicationWithOptions(request, headers, runtime);
+    return await this.addLogPathWithOptions(request, headers, runtime);
   }
 
   async authorizeApplicationWithOptions(request: AuthorizeApplicationRequest, headers: {[key: string ]: string}, runtime: $Util.RuntimeOptions): Promise<AuthorizeApplicationResponse> {
@@ -20901,10 +21398,10 @@ export default class Client extends OpenApi {
     return $tea.cast<AuthorizeApplicationResponse>(await this.callApi(params, req, runtime), new AuthorizeApplicationResponse({}));
   }
 
-  async authorizeResourceGroup(request: AuthorizeResourceGroupRequest): Promise<AuthorizeResourceGroupResponse> {
+  async authorizeApplication(request: AuthorizeApplicationRequest): Promise<AuthorizeApplicationResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     let headers : {[key: string ]: string} = { };
-    return await this.authorizeResourceGroupWithOptions(request, headers, runtime);
+    return await this.authorizeApplicationWithOptions(request, headers, runtime);
   }
 
   async authorizeResourceGroupWithOptions(request: AuthorizeResourceGroupRequest, headers: {[key: string ]: string}, runtime: $Util.RuntimeOptions): Promise<AuthorizeResourceGroupResponse> {
@@ -20936,10 +21433,10 @@ export default class Client extends OpenApi {
     return $tea.cast<AuthorizeResourceGroupResponse>(await this.callApi(params, req, runtime), new AuthorizeResourceGroupResponse({}));
   }
 
-  async authorizeRole(request: AuthorizeRoleRequest): Promise<AuthorizeRoleResponse> {
+  async authorizeResourceGroup(request: AuthorizeResourceGroupRequest): Promise<AuthorizeResourceGroupResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     let headers : {[key: string ]: string} = { };
-    return await this.authorizeRoleWithOptions(request, headers, runtime);
+    return await this.authorizeResourceGroupWithOptions(request, headers, runtime);
   }
 
   async authorizeRoleWithOptions(request: AuthorizeRoleRequest, headers: {[key: string ]: string}, runtime: $Util.RuntimeOptions): Promise<AuthorizeRoleResponse> {
@@ -20971,10 +21468,10 @@ export default class Client extends OpenApi {
     return $tea.cast<AuthorizeRoleResponse>(await this.callApi(params, req, runtime), new AuthorizeRoleResponse({}));
   }
 
-  async bindEcsSlb(request: BindEcsSlbRequest): Promise<BindEcsSlbResponse> {
+  async authorizeRole(request: AuthorizeRoleRequest): Promise<AuthorizeRoleResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     let headers : {[key: string ]: string} = { };
-    return await this.bindEcsSlbWithOptions(request, headers, runtime);
+    return await this.authorizeRoleWithOptions(request, headers, runtime);
   }
 
   async bindEcsSlbWithOptions(request: BindEcsSlbRequest, headers: {[key: string ]: string}, runtime: $Util.RuntimeOptions): Promise<BindEcsSlbResponse> {
@@ -21034,10 +21531,10 @@ export default class Client extends OpenApi {
     return $tea.cast<BindEcsSlbResponse>(await this.callApi(params, req, runtime), new BindEcsSlbResponse({}));
   }
 
-  async bindK8sSlb(request: BindK8sSlbRequest): Promise<BindK8sSlbResponse> {
+  async bindEcsSlb(request: BindEcsSlbRequest): Promise<BindEcsSlbResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     let headers : {[key: string ]: string} = { };
-    return await this.bindK8sSlbWithOptions(request, headers, runtime);
+    return await this.bindEcsSlbWithOptions(request, headers, runtime);
   }
 
   async bindK8sSlbWithOptions(request: BindK8sSlbRequest, headers: {[key: string ]: string}, runtime: $Util.RuntimeOptions): Promise<BindK8sSlbResponse> {
@@ -21101,10 +21598,10 @@ export default class Client extends OpenApi {
     return $tea.cast<BindK8sSlbResponse>(await this.callApi(params, req, runtime), new BindK8sSlbResponse({}));
   }
 
-  async bindSlb(request: BindSlbRequest): Promise<BindSlbResponse> {
+  async bindK8sSlb(request: BindK8sSlbRequest): Promise<BindK8sSlbResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     let headers : {[key: string ]: string} = { };
-    return await this.bindSlbWithOptions(request, headers, runtime);
+    return await this.bindK8sSlbWithOptions(request, headers, runtime);
   }
 
   async bindSlbWithOptions(request: BindSlbRequest, headers: {[key: string ]: string}, runtime: $Util.RuntimeOptions): Promise<BindSlbResponse> {
@@ -21152,10 +21649,10 @@ export default class Client extends OpenApi {
     return $tea.cast<BindSlbResponse>(await this.callApi(params, req, runtime), new BindSlbResponse({}));
   }
 
-  async changeDeployGroup(request: ChangeDeployGroupRequest): Promise<ChangeDeployGroupResponse> {
+  async bindSlb(request: BindSlbRequest): Promise<BindSlbResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     let headers : {[key: string ]: string} = { };
-    return await this.changeDeployGroupWithOptions(request, headers, runtime);
+    return await this.bindSlbWithOptions(request, headers, runtime);
   }
 
   async changeDeployGroupWithOptions(request: ChangeDeployGroupRequest, headers: {[key: string ]: string}, runtime: $Util.RuntimeOptions): Promise<ChangeDeployGroupResponse> {
@@ -21195,10 +21692,10 @@ export default class Client extends OpenApi {
     return $tea.cast<ChangeDeployGroupResponse>(await this.callApi(params, req, runtime), new ChangeDeployGroupResponse({}));
   }
 
-  async continuePipeline(request: ContinuePipelineRequest): Promise<ContinuePipelineResponse> {
+  async changeDeployGroup(request: ChangeDeployGroupRequest): Promise<ChangeDeployGroupResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     let headers : {[key: string ]: string} = { };
-    return await this.continuePipelineWithOptions(request, headers, runtime);
+    return await this.changeDeployGroupWithOptions(request, headers, runtime);
   }
 
   async continuePipelineWithOptions(request: ContinuePipelineRequest, headers: {[key: string ]: string}, runtime: $Util.RuntimeOptions): Promise<ContinuePipelineResponse> {
@@ -21230,10 +21727,10 @@ export default class Client extends OpenApi {
     return $tea.cast<ContinuePipelineResponse>(await this.callApi(params, req, runtime), new ContinuePipelineResponse({}));
   }
 
-  async convertK8sResource(request: ConvertK8sResourceRequest): Promise<ConvertK8sResourceResponse> {
+  async continuePipeline(request: ContinuePipelineRequest): Promise<ContinuePipelineResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     let headers : {[key: string ]: string} = { };
-    return await this.convertK8sResourceWithOptions(request, headers, runtime);
+    return await this.continuePipelineWithOptions(request, headers, runtime);
   }
 
   async convertK8sResourceWithOptions(request: ConvertK8sResourceRequest, headers: {[key: string ]: string}, runtime: $Util.RuntimeOptions): Promise<ConvertK8sResourceResponse> {
@@ -21273,10 +21770,10 @@ export default class Client extends OpenApi {
     return $tea.cast<ConvertK8sResourceResponse>(await this.callApi(params, req, runtime), new ConvertK8sResourceResponse({}));
   }
 
-  async createApplicationScalingRule(request: CreateApplicationScalingRuleRequest): Promise<CreateApplicationScalingRuleResponse> {
+  async convertK8sResource(request: ConvertK8sResourceRequest): Promise<ConvertK8sResourceResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     let headers : {[key: string ]: string} = { };
-    return await this.createApplicationScalingRuleWithOptions(request, headers, runtime);
+    return await this.convertK8sResourceWithOptions(request, headers, runtime);
   }
 
   async createApplicationScalingRuleWithOptions(request: CreateApplicationScalingRuleRequest, headers: {[key: string ]: string}, runtime: $Util.RuntimeOptions): Promise<CreateApplicationScalingRuleResponse> {
@@ -21284,6 +21781,10 @@ export default class Client extends OpenApi {
     let query : {[key: string ]: any} = { };
     if (!Util.isUnset(request.appId)) {
       query["AppId"] = request.appId;
+    }
+
+    if (!Util.isUnset(request.scalingBehaviour)) {
+      query["ScalingBehaviour"] = request.scalingBehaviour;
     }
 
     if (!Util.isUnset(request.scalingRuleEnable)) {
@@ -21328,10 +21829,10 @@ export default class Client extends OpenApi {
     return $tea.cast<CreateApplicationScalingRuleResponse>(await this.callApi(params, req, runtime), new CreateApplicationScalingRuleResponse({}));
   }
 
-  async createConfigTemplate(request: CreateConfigTemplateRequest): Promise<CreateConfigTemplateResponse> {
+  async createApplicationScalingRule(request: CreateApplicationScalingRuleRequest): Promise<CreateApplicationScalingRuleResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     let headers : {[key: string ]: string} = { };
-    return await this.createConfigTemplateWithOptions(request, headers, runtime);
+    return await this.createApplicationScalingRuleWithOptions(request, headers, runtime);
   }
 
   async createConfigTemplateWithOptions(request: CreateConfigTemplateRequest, headers: {[key: string ]: string}, runtime: $Util.RuntimeOptions): Promise<CreateConfigTemplateResponse> {
@@ -21371,12 +21872,21 @@ export default class Client extends OpenApi {
     return $tea.cast<CreateConfigTemplateResponse>(await this.callApi(params, req, runtime), new CreateConfigTemplateResponse({}));
   }
 
-  async createIDCImportCommand(request: CreateIDCImportCommandRequest): Promise<CreateIDCImportCommandResponse> {
+  async createConfigTemplate(request: CreateConfigTemplateRequest): Promise<CreateConfigTemplateResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     let headers : {[key: string ]: string} = { };
-    return await this.createIDCImportCommandWithOptions(request, headers, runtime);
+    return await this.createConfigTemplateWithOptions(request, headers, runtime);
   }
 
+  /**
+    * ## Description
+    * You must call the CreateIDCImportCommand operation first to generate a command used to import hybrid cloud ECS instances to a hybrid cloud ECS cluster. Then, run this command on the instances to import the instances to the cluster.
+    *
+    * @param request CreateIDCImportCommandRequest
+    * @param headers map
+    * @param runtime runtime options for this request RuntimeOptions
+    * @return CreateIDCImportCommandResponse
+   */
   async createIDCImportCommandWithOptions(request: CreateIDCImportCommandRequest, headers: {[key: string ]: string}, runtime: $Util.RuntimeOptions): Promise<CreateIDCImportCommandResponse> {
     Util.validateModel(request);
     let body : {[key: string ]: any} = { };
@@ -21402,10 +21912,17 @@ export default class Client extends OpenApi {
     return $tea.cast<CreateIDCImportCommandResponse>(await this.callApi(params, req, runtime), new CreateIDCImportCommandResponse({}));
   }
 
-  async createK8sConfigMap(request: CreateK8sConfigMapRequest): Promise<CreateK8sConfigMapResponse> {
+  /**
+    * ## Description
+    * You must call the CreateIDCImportCommand operation first to generate a command used to import hybrid cloud ECS instances to a hybrid cloud ECS cluster. Then, run this command on the instances to import the instances to the cluster.
+    *
+    * @param request CreateIDCImportCommandRequest
+    * @return CreateIDCImportCommandResponse
+   */
+  async createIDCImportCommand(request: CreateIDCImportCommandRequest): Promise<CreateIDCImportCommandResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     let headers : {[key: string ]: string} = { };
-    return await this.createK8sConfigMapWithOptions(request, headers, runtime);
+    return await this.createIDCImportCommandWithOptions(request, headers, runtime);
   }
 
   async createK8sConfigMapWithOptions(request: CreateK8sConfigMapRequest, headers: {[key: string ]: string}, runtime: $Util.RuntimeOptions): Promise<CreateK8sConfigMapResponse> {
@@ -21445,21 +21962,29 @@ export default class Client extends OpenApi {
     return $tea.cast<CreateK8sConfigMapResponse>(await this.callApi(params, req, runtime), new CreateK8sConfigMapResponse({}));
   }
 
-  async createK8sIngressRule(request: CreateK8sIngressRuleRequest): Promise<CreateK8sIngressRuleResponse> {
+  async createK8sConfigMap(request: CreateK8sConfigMapRequest): Promise<CreateK8sConfigMapResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     let headers : {[key: string ]: string} = { };
-    return await this.createK8sIngressRuleWithOptions(request, headers, runtime);
+    return await this.createK8sConfigMapWithOptions(request, headers, runtime);
   }
 
   async createK8sIngressRuleWithOptions(request: CreateK8sIngressRuleRequest, headers: {[key: string ]: string}, runtime: $Util.RuntimeOptions): Promise<CreateK8sIngressRuleResponse> {
     Util.validateModel(request);
     let query : {[key: string ]: any} = { };
+    if (!Util.isUnset(request.annotations)) {
+      query["Annotations"] = request.annotations;
+    }
+
     if (!Util.isUnset(request.clusterId)) {
       query["ClusterId"] = request.clusterId;
     }
 
     if (!Util.isUnset(request.ingressConf)) {
       query["IngressConf"] = request.ingressConf;
+    }
+
+    if (!Util.isUnset(request.labels)) {
+      query["Labels"] = request.labels;
     }
 
     if (!Util.isUnset(request.name)) {
@@ -21488,10 +22013,10 @@ export default class Client extends OpenApi {
     return $tea.cast<CreateK8sIngressRuleResponse>(await this.callApi(params, req, runtime), new CreateK8sIngressRuleResponse({}));
   }
 
-  async createK8sSecret(request: CreateK8sSecretRequest): Promise<CreateK8sSecretResponse> {
+  async createK8sIngressRule(request: CreateK8sIngressRuleRequest): Promise<CreateK8sIngressRuleResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     let headers : {[key: string ]: string} = { };
-    return await this.createK8sSecretWithOptions(request, headers, runtime);
+    return await this.createK8sIngressRuleWithOptions(request, headers, runtime);
   }
 
   async createK8sSecretWithOptions(request: CreateK8sSecretRequest, headers: {[key: string ]: string}, runtime: $Util.RuntimeOptions): Promise<CreateK8sSecretResponse> {
@@ -21547,10 +22072,10 @@ export default class Client extends OpenApi {
     return $tea.cast<CreateK8sSecretResponse>(await this.callApi(params, req, runtime), new CreateK8sSecretResponse({}));
   }
 
-  async createK8sService(request: CreateK8sServiceRequest): Promise<CreateK8sServiceResponse> {
+  async createK8sSecret(request: CreateK8sSecretRequest): Promise<CreateK8sSecretResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     let headers : {[key: string ]: string} = { };
-    return await this.createK8sServiceWithOptions(request, headers, runtime);
+    return await this.createK8sSecretWithOptions(request, headers, runtime);
   }
 
   async createK8sServiceWithOptions(request: CreateK8sServiceRequest, headers: {[key: string ]: string}, runtime: $Util.RuntimeOptions): Promise<CreateK8sServiceResponse> {
@@ -21558,6 +22083,10 @@ export default class Client extends OpenApi {
     let query : {[key: string ]: any} = { };
     if (!Util.isUnset(request.appId)) {
       query["AppId"] = request.appId;
+    }
+
+    if (!Util.isUnset(request.externalTrafficPolicy)) {
+      query["ExternalTrafficPolicy"] = request.externalTrafficPolicy;
     }
 
     if (!Util.isUnset(request.name)) {
@@ -21590,10 +22119,10 @@ export default class Client extends OpenApi {
     return $tea.cast<CreateK8sServiceResponse>(await this.callApi(params, req, runtime), new CreateK8sServiceResponse({}));
   }
 
-  async deleteApplication(request: DeleteApplicationRequest): Promise<DeleteApplicationResponse> {
+  async createK8sService(request: CreateK8sServiceRequest): Promise<CreateK8sServiceResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     let headers : {[key: string ]: string} = { };
-    return await this.deleteApplicationWithOptions(request, headers, runtime);
+    return await this.createK8sServiceWithOptions(request, headers, runtime);
   }
 
   async deleteApplicationWithOptions(request: DeleteApplicationRequest, headers: {[key: string ]: string}, runtime: $Util.RuntimeOptions): Promise<DeleteApplicationResponse> {
@@ -21621,10 +22150,10 @@ export default class Client extends OpenApi {
     return $tea.cast<DeleteApplicationResponse>(await this.callApi(params, req, runtime), new DeleteApplicationResponse({}));
   }
 
-  async deleteApplicationScalingRule(request: DeleteApplicationScalingRuleRequest): Promise<DeleteApplicationScalingRuleResponse> {
+  async deleteApplication(request: DeleteApplicationRequest): Promise<DeleteApplicationResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     let headers : {[key: string ]: string} = { };
-    return await this.deleteApplicationScalingRuleWithOptions(request, headers, runtime);
+    return await this.deleteApplicationWithOptions(request, headers, runtime);
   }
 
   async deleteApplicationScalingRuleWithOptions(request: DeleteApplicationScalingRuleRequest, headers: {[key: string ]: string}, runtime: $Util.RuntimeOptions): Promise<DeleteApplicationScalingRuleResponse> {
@@ -21656,10 +22185,10 @@ export default class Client extends OpenApi {
     return $tea.cast<DeleteApplicationScalingRuleResponse>(await this.callApi(params, req, runtime), new DeleteApplicationScalingRuleResponse({}));
   }
 
-  async deleteCluster(request: DeleteClusterRequest): Promise<DeleteClusterResponse> {
+  async deleteApplicationScalingRule(request: DeleteApplicationScalingRuleRequest): Promise<DeleteApplicationScalingRuleResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     let headers : {[key: string ]: string} = { };
-    return await this.deleteClusterWithOptions(request, headers, runtime);
+    return await this.deleteApplicationScalingRuleWithOptions(request, headers, runtime);
   }
 
   async deleteClusterWithOptions(request: DeleteClusterRequest, headers: {[key: string ]: string}, runtime: $Util.RuntimeOptions): Promise<DeleteClusterResponse> {
@@ -21691,10 +22220,10 @@ export default class Client extends OpenApi {
     return $tea.cast<DeleteClusterResponse>(await this.callApi(params, req, runtime), new DeleteClusterResponse({}));
   }
 
-  async deleteClusterMember(request: DeleteClusterMemberRequest): Promise<DeleteClusterMemberResponse> {
+  async deleteCluster(request: DeleteClusterRequest): Promise<DeleteClusterResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     let headers : {[key: string ]: string} = { };
-    return await this.deleteClusterMemberWithOptions(request, headers, runtime);
+    return await this.deleteClusterWithOptions(request, headers, runtime);
   }
 
   async deleteClusterMemberWithOptions(request: DeleteClusterMemberRequest, headers: {[key: string ]: string}, runtime: $Util.RuntimeOptions): Promise<DeleteClusterMemberResponse> {
@@ -21726,10 +22255,10 @@ export default class Client extends OpenApi {
     return $tea.cast<DeleteClusterMemberResponse>(await this.callApi(params, req, runtime), new DeleteClusterMemberResponse({}));
   }
 
-  async deleteConfigTemplate(request: DeleteConfigTemplateRequest): Promise<DeleteConfigTemplateResponse> {
+  async deleteClusterMember(request: DeleteClusterMemberRequest): Promise<DeleteClusterMemberResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     let headers : {[key: string ]: string} = { };
-    return await this.deleteConfigTemplateWithOptions(request, headers, runtime);
+    return await this.deleteClusterMemberWithOptions(request, headers, runtime);
   }
 
   async deleteConfigTemplateWithOptions(request: DeleteConfigTemplateRequest, headers: {[key: string ]: string}, runtime: $Util.RuntimeOptions): Promise<DeleteConfigTemplateResponse> {
@@ -21757,10 +22286,10 @@ export default class Client extends OpenApi {
     return $tea.cast<DeleteConfigTemplateResponse>(await this.callApi(params, req, runtime), new DeleteConfigTemplateResponse({}));
   }
 
-  async deleteDeployGroup(request: DeleteDeployGroupRequest): Promise<DeleteDeployGroupResponse> {
+  async deleteConfigTemplate(request: DeleteConfigTemplateRequest): Promise<DeleteConfigTemplateResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     let headers : {[key: string ]: string} = { };
-    return await this.deleteDeployGroupWithOptions(request, headers, runtime);
+    return await this.deleteConfigTemplateWithOptions(request, headers, runtime);
   }
 
   async deleteDeployGroupWithOptions(request: DeleteDeployGroupRequest, headers: {[key: string ]: string}, runtime: $Util.RuntimeOptions): Promise<DeleteDeployGroupResponse> {
@@ -21792,10 +22321,10 @@ export default class Client extends OpenApi {
     return $tea.cast<DeleteDeployGroupResponse>(await this.callApi(params, req, runtime), new DeleteDeployGroupResponse({}));
   }
 
-  async deleteEcu(request: DeleteEcuRequest): Promise<DeleteEcuResponse> {
+  async deleteDeployGroup(request: DeleteDeployGroupRequest): Promise<DeleteDeployGroupResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     let headers : {[key: string ]: string} = { };
-    return await this.deleteEcuWithOptions(request, headers, runtime);
+    return await this.deleteDeployGroupWithOptions(request, headers, runtime);
   }
 
   async deleteEcuWithOptions(request: DeleteEcuRequest, headers: {[key: string ]: string}, runtime: $Util.RuntimeOptions): Promise<DeleteEcuResponse> {
@@ -21823,10 +22352,10 @@ export default class Client extends OpenApi {
     return $tea.cast<DeleteEcuResponse>(await this.callApi(params, req, runtime), new DeleteEcuResponse({}));
   }
 
-  async deleteK8sApplication(request: DeleteK8sApplicationRequest): Promise<DeleteK8sApplicationResponse> {
+  async deleteEcu(request: DeleteEcuRequest): Promise<DeleteEcuResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     let headers : {[key: string ]: string} = { };
-    return await this.deleteK8sApplicationWithOptions(request, headers, runtime);
+    return await this.deleteEcuWithOptions(request, headers, runtime);
   }
 
   async deleteK8sApplicationWithOptions(request: DeleteK8sApplicationRequest, headers: {[key: string ]: string}, runtime: $Util.RuntimeOptions): Promise<DeleteK8sApplicationResponse> {
@@ -21834,6 +22363,10 @@ export default class Client extends OpenApi {
     let query : {[key: string ]: any} = { };
     if (!Util.isUnset(request.appId)) {
       query["AppId"] = request.appId;
+    }
+
+    if (!Util.isUnset(request.force)) {
+      query["Force"] = request.force;
     }
 
     let req = new $OpenApi.OpenApiRequest({
@@ -21854,10 +22387,10 @@ export default class Client extends OpenApi {
     return $tea.cast<DeleteK8sApplicationResponse>(await this.callApi(params, req, runtime), new DeleteK8sApplicationResponse({}));
   }
 
-  async deleteK8sConfigMap(request: DeleteK8sConfigMapRequest): Promise<DeleteK8sConfigMapResponse> {
+  async deleteK8sApplication(request: DeleteK8sApplicationRequest): Promise<DeleteK8sApplicationResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     let headers : {[key: string ]: string} = { };
-    return await this.deleteK8sConfigMapWithOptions(request, headers, runtime);
+    return await this.deleteK8sApplicationWithOptions(request, headers, runtime);
   }
 
   async deleteK8sConfigMapWithOptions(request: DeleteK8sConfigMapRequest, headers: {[key: string ]: string}, runtime: $Util.RuntimeOptions): Promise<DeleteK8sConfigMapResponse> {
@@ -21893,10 +22426,10 @@ export default class Client extends OpenApi {
     return $tea.cast<DeleteK8sConfigMapResponse>(await this.callApi(params, req, runtime), new DeleteK8sConfigMapResponse({}));
   }
 
-  async deleteK8sIngressRule(request: DeleteK8sIngressRuleRequest): Promise<DeleteK8sIngressRuleResponse> {
+  async deleteK8sConfigMap(request: DeleteK8sConfigMapRequest): Promise<DeleteK8sConfigMapResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     let headers : {[key: string ]: string} = { };
-    return await this.deleteK8sIngressRuleWithOptions(request, headers, runtime);
+    return await this.deleteK8sConfigMapWithOptions(request, headers, runtime);
   }
 
   async deleteK8sIngressRuleWithOptions(request: DeleteK8sIngressRuleRequest, headers: {[key: string ]: string}, runtime: $Util.RuntimeOptions): Promise<DeleteK8sIngressRuleResponse> {
@@ -21932,10 +22465,10 @@ export default class Client extends OpenApi {
     return $tea.cast<DeleteK8sIngressRuleResponse>(await this.callApi(params, req, runtime), new DeleteK8sIngressRuleResponse({}));
   }
 
-  async deleteK8sSecret(request: DeleteK8sSecretRequest): Promise<DeleteK8sSecretResponse> {
+  async deleteK8sIngressRule(request: DeleteK8sIngressRuleRequest): Promise<DeleteK8sIngressRuleResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     let headers : {[key: string ]: string} = { };
-    return await this.deleteK8sSecretWithOptions(request, headers, runtime);
+    return await this.deleteK8sIngressRuleWithOptions(request, headers, runtime);
   }
 
   async deleteK8sSecretWithOptions(request: DeleteK8sSecretRequest, headers: {[key: string ]: string}, runtime: $Util.RuntimeOptions): Promise<DeleteK8sSecretResponse> {
@@ -21971,10 +22504,10 @@ export default class Client extends OpenApi {
     return $tea.cast<DeleteK8sSecretResponse>(await this.callApi(params, req, runtime), new DeleteK8sSecretResponse({}));
   }
 
-  async deleteK8sService(request: DeleteK8sServiceRequest): Promise<DeleteK8sServiceResponse> {
+  async deleteK8sSecret(request: DeleteK8sSecretRequest): Promise<DeleteK8sSecretResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     let headers : {[key: string ]: string} = { };
-    return await this.deleteK8sServiceWithOptions(request, headers, runtime);
+    return await this.deleteK8sSecretWithOptions(request, headers, runtime);
   }
 
   async deleteK8sServiceWithOptions(request: DeleteK8sServiceRequest, headers: {[key: string ]: string}, runtime: $Util.RuntimeOptions): Promise<DeleteK8sServiceResponse> {
@@ -22006,10 +22539,10 @@ export default class Client extends OpenApi {
     return $tea.cast<DeleteK8sServiceResponse>(await this.callApi(params, req, runtime), new DeleteK8sServiceResponse({}));
   }
 
-  async deleteLogPath(request: DeleteLogPathRequest): Promise<DeleteLogPathResponse> {
+  async deleteK8sService(request: DeleteK8sServiceRequest): Promise<DeleteK8sServiceResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     let headers : {[key: string ]: string} = { };
-    return await this.deleteLogPathWithOptions(request, headers, runtime);
+    return await this.deleteK8sServiceWithOptions(request, headers, runtime);
   }
 
   async deleteLogPathWithOptions(request: DeleteLogPathRequest, headers: {[key: string ]: string}, runtime: $Util.RuntimeOptions): Promise<DeleteLogPathResponse> {
@@ -22041,10 +22574,10 @@ export default class Client extends OpenApi {
     return $tea.cast<DeleteLogPathResponse>(await this.callApi(params, req, runtime), new DeleteLogPathResponse({}));
   }
 
-  async deleteRole(request: DeleteRoleRequest): Promise<DeleteRoleResponse> {
+  async deleteLogPath(request: DeleteLogPathRequest): Promise<DeleteLogPathResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     let headers : {[key: string ]: string} = { };
-    return await this.deleteRoleWithOptions(request, headers, runtime);
+    return await this.deleteLogPathWithOptions(request, headers, runtime);
   }
 
   async deleteRoleWithOptions(request: DeleteRoleRequest, headers: {[key: string ]: string}, runtime: $Util.RuntimeOptions): Promise<DeleteRoleResponse> {
@@ -22072,10 +22605,10 @@ export default class Client extends OpenApi {
     return $tea.cast<DeleteRoleResponse>(await this.callApi(params, req, runtime), new DeleteRoleResponse({}));
   }
 
-  async deleteServiceGroup(request: DeleteServiceGroupRequest): Promise<DeleteServiceGroupResponse> {
+  async deleteRole(request: DeleteRoleRequest): Promise<DeleteRoleResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     let headers : {[key: string ]: string} = { };
-    return await this.deleteServiceGroupWithOptions(request, headers, runtime);
+    return await this.deleteRoleWithOptions(request, headers, runtime);
   }
 
   async deleteServiceGroupWithOptions(request: DeleteServiceGroupRequest, headers: {[key: string ]: string}, runtime: $Util.RuntimeOptions): Promise<DeleteServiceGroupResponse> {
@@ -22103,10 +22636,41 @@ export default class Client extends OpenApi {
     return $tea.cast<DeleteServiceGroupResponse>(await this.callApi(params, req, runtime), new DeleteServiceGroupResponse({}));
   }
 
-  async deleteUserDefineRegion(request: DeleteUserDefineRegionRequest): Promise<DeleteUserDefineRegionResponse> {
+  async deleteServiceGroup(request: DeleteServiceGroupRequest): Promise<DeleteServiceGroupResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     let headers : {[key: string ]: string} = { };
-    return await this.deleteUserDefineRegionWithOptions(request, headers, runtime);
+    return await this.deleteServiceGroupWithOptions(request, headers, runtime);
+  }
+
+  async deleteSwimmingLaneWithOptions(request: DeleteSwimmingLaneRequest, headers: {[key: string ]: string}, runtime: $Util.RuntimeOptions): Promise<DeleteSwimmingLaneResponse> {
+    Util.validateModel(request);
+    let query : {[key: string ]: any} = { };
+    if (!Util.isUnset(request.laneId)) {
+      query["LaneId"] = request.laneId;
+    }
+
+    let req = new $OpenApi.OpenApiRequest({
+      headers: headers,
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApi.Params({
+      action: "DeleteSwimmingLane",
+      version: "2017-08-01",
+      protocol: "HTTPS",
+      pathname: `/pop/v5/trafficmgnt/swimming_lanes`,
+      method: "DELETE",
+      authType: "AK",
+      style: "ROA",
+      reqBodyType: "json",
+      bodyType: "json",
+    });
+    return $tea.cast<DeleteSwimmingLaneResponse>(await this.callApi(params, req, runtime), new DeleteSwimmingLaneResponse({}));
+  }
+
+  async deleteSwimmingLane(request: DeleteSwimmingLaneRequest): Promise<DeleteSwimmingLaneResponse> {
+    let runtime = new $Util.RuntimeOptions({ });
+    let headers : {[key: string ]: string} = { };
+    return await this.deleteSwimmingLaneWithOptions(request, headers, runtime);
   }
 
   async deleteUserDefineRegionWithOptions(request: DeleteUserDefineRegionRequest, headers: {[key: string ]: string}, runtime: $Util.RuntimeOptions): Promise<DeleteUserDefineRegionResponse> {
@@ -22138,12 +22702,20 @@ export default class Client extends OpenApi {
     return $tea.cast<DeleteUserDefineRegionResponse>(await this.callApi(params, req, runtime), new DeleteUserDefineRegionResponse({}));
   }
 
-  async deployApplication(request: DeployApplicationRequest): Promise<DeployApplicationResponse> {
+  async deleteUserDefineRegion(request: DeleteUserDefineRegionRequest): Promise<DeleteUserDefineRegionResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     let headers : {[key: string ]: string} = { };
-    return await this.deployApplicationWithOptions(request, headers, runtime);
+    return await this.deleteUserDefineRegionWithOptions(request, headers, runtime);
   }
 
+  /**
+    * > To deploy an application in a Container Service for Kubernetes (ACK) cluster that is imported into Enterprise Distributed Application Service (EDAS), call the DeployK8sApplication operation provided by EDAS. For more information, see [](~~149420~~)DeployK8sApplication.
+    *
+    * @param request DeployApplicationRequest
+    * @param headers map
+    * @param runtime runtime options for this request RuntimeOptions
+    * @return DeployApplicationResponse
+   */
   async deployApplicationWithOptions(request: DeployApplicationRequest, headers: {[key: string ]: string}, runtime: $Util.RuntimeOptions): Promise<DeployApplicationResponse> {
     Util.validateModel(request);
     let query : {[key: string ]: any} = { };
@@ -22225,10 +22797,16 @@ export default class Client extends OpenApi {
     return $tea.cast<DeployApplicationResponse>(await this.callApi(params, req, runtime), new DeployApplicationResponse({}));
   }
 
-  async deployK8sApplication(request: DeployK8sApplicationRequest): Promise<DeployK8sApplicationResponse> {
+  /**
+    * > To deploy an application in a Container Service for Kubernetes (ACK) cluster that is imported into Enterprise Distributed Application Service (EDAS), call the DeployK8sApplication operation provided by EDAS. For more information, see [](~~149420~~)DeployK8sApplication.
+    *
+    * @param request DeployApplicationRequest
+    * @return DeployApplicationResponse
+   */
+  async deployApplication(request: DeployApplicationRequest): Promise<DeployApplicationResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     let headers : {[key: string ]: string} = { };
-    return await this.deployK8sApplicationWithOptions(request, headers, runtime);
+    return await this.deployApplicationWithOptions(request, headers, runtime);
   }
 
   async deployK8sApplicationWithOptions(request: DeployK8sApplicationRequest, headers: {[key: string ]: string}, runtime: $Util.RuntimeOptions): Promise<DeployK8sApplicationResponse> {
@@ -22256,6 +22834,10 @@ export default class Client extends OpenApi {
 
     if (!Util.isUnset(request.buildPackId)) {
       query["BuildPackId"] = request.buildPackId;
+    }
+
+    if (!Util.isUnset(request.canaryRuleId)) {
+      query["CanaryRuleId"] = request.canaryRuleId;
     }
 
     if (!Util.isUnset(request.changeOrderDesc)) {
@@ -22326,8 +22908,16 @@ export default class Client extends OpenApi {
       query["Image"] = request.image;
     }
 
+    if (!Util.isUnset(request.imagePlatforms)) {
+      query["ImagePlatforms"] = request.imagePlatforms;
+    }
+
     if (!Util.isUnset(request.imageTag)) {
       query["ImageTag"] = request.imageTag;
+    }
+
+    if (!Util.isUnset(request.initContainers)) {
+      query["InitContainers"] = request.initContainers;
     }
 
     if (!Util.isUnset(request.JDK)) {
@@ -22340,6 +22930,10 @@ export default class Client extends OpenApi {
 
     if (!Util.isUnset(request.labels)) {
       query["Labels"] = request.labels;
+    }
+
+    if (!Util.isUnset(request.limitEphemeralStorage)) {
+      query["LimitEphemeralStorage"] = request.limitEphemeralStorage;
     }
 
     if (!Util.isUnset(request.liveness)) {
@@ -22426,16 +23020,32 @@ export default class Client extends OpenApi {
       query["Replicas"] = request.replicas;
     }
 
+    if (!Util.isUnset(request.requestsEphemeralStorage)) {
+      query["RequestsEphemeralStorage"] = request.requestsEphemeralStorage;
+    }
+
     if (!Util.isUnset(request.runtimeClassName)) {
       query["RuntimeClassName"] = request.runtimeClassName;
+    }
+
+    if (!Util.isUnset(request.sidecars)) {
+      query["Sidecars"] = request.sidecars;
     }
 
     if (!Util.isUnset(request.slsConfigs)) {
       query["SlsConfigs"] = request.slsConfigs;
     }
 
+    if (!Util.isUnset(request.startup)) {
+      query["Startup"] = request.startup;
+    }
+
     if (!Util.isUnset(request.storageType)) {
       query["StorageType"] = request.storageType;
+    }
+
+    if (!Util.isUnset(request.terminateGracePeriod)) {
+      query["TerminateGracePeriod"] = request.terminateGracePeriod;
     }
 
     if (!Util.isUnset(request.trafficControlStrategy)) {
@@ -22452,6 +23062,10 @@ export default class Client extends OpenApi {
 
     if (!Util.isUnset(request.useBodyEncoding)) {
       query["UseBodyEncoding"] = request.useBodyEncoding;
+    }
+
+    if (!Util.isUnset(request.userBaseImageUrl)) {
+      query["UserBaseImageUrl"] = request.userBaseImageUrl;
     }
 
     if (!Util.isUnset(request.volumesStr)) {
@@ -22484,10 +23098,10 @@ export default class Client extends OpenApi {
     return $tea.cast<DeployK8sApplicationResponse>(await this.callApi(params, req, runtime), new DeployK8sApplicationResponse({}));
   }
 
-  async describeAppInstanceList(request: DescribeAppInstanceListRequest): Promise<DescribeAppInstanceListResponse> {
+  async deployK8sApplication(request: DeployK8sApplicationRequest): Promise<DeployK8sApplicationResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     let headers : {[key: string ]: string} = { };
-    return await this.describeAppInstanceListWithOptions(request, headers, runtime);
+    return await this.deployK8sApplicationWithOptions(request, headers, runtime);
   }
 
   async describeAppInstanceListWithOptions(request: DescribeAppInstanceListRequest, headers: {[key: string ]: string}, runtime: $Util.RuntimeOptions): Promise<DescribeAppInstanceListResponse> {
@@ -22519,10 +23133,10 @@ export default class Client extends OpenApi {
     return $tea.cast<DescribeAppInstanceListResponse>(await this.callApi(params, req, runtime), new DescribeAppInstanceListResponse({}));
   }
 
-  async describeApplicationScalingRules(request: DescribeApplicationScalingRulesRequest): Promise<DescribeApplicationScalingRulesResponse> {
+  async describeAppInstanceList(request: DescribeAppInstanceListRequest): Promise<DescribeAppInstanceListResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     let headers : {[key: string ]: string} = { };
-    return await this.describeApplicationScalingRulesWithOptions(request, headers, runtime);
+    return await this.describeAppInstanceListWithOptions(request, headers, runtime);
   }
 
   async describeApplicationScalingRulesWithOptions(request: DescribeApplicationScalingRulesRequest, headers: {[key: string ]: string}, runtime: $Util.RuntimeOptions): Promise<DescribeApplicationScalingRulesResponse> {
@@ -22550,10 +23164,10 @@ export default class Client extends OpenApi {
     return $tea.cast<DescribeApplicationScalingRulesResponse>(await this.callApi(params, req, runtime), new DescribeApplicationScalingRulesResponse({}));
   }
 
-  async disableApplicationScalingRule(request: DisableApplicationScalingRuleRequest): Promise<DisableApplicationScalingRuleResponse> {
+  async describeApplicationScalingRules(request: DescribeApplicationScalingRulesRequest): Promise<DescribeApplicationScalingRulesResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     let headers : {[key: string ]: string} = { };
-    return await this.disableApplicationScalingRuleWithOptions(request, headers, runtime);
+    return await this.describeApplicationScalingRulesWithOptions(request, headers, runtime);
   }
 
   async disableApplicationScalingRuleWithOptions(request: DisableApplicationScalingRuleRequest, headers: {[key: string ]: string}, runtime: $Util.RuntimeOptions): Promise<DisableApplicationScalingRuleResponse> {
@@ -22585,41 +23199,10 @@ export default class Client extends OpenApi {
     return $tea.cast<DisableApplicationScalingRuleResponse>(await this.callApi(params, req, runtime), new DisableApplicationScalingRuleResponse({}));
   }
 
-  async disableMockRule(request: DisableMockRuleRequest): Promise<DisableMockRuleResponse> {
+  async disableApplicationScalingRule(request: DisableApplicationScalingRuleRequest): Promise<DisableApplicationScalingRuleResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     let headers : {[key: string ]: string} = { };
-    return await this.disableMockRuleWithOptions(request, headers, runtime);
-  }
-
-  async disableMockRuleWithOptions(request: DisableMockRuleRequest, headers: {[key: string ]: string}, runtime: $Util.RuntimeOptions): Promise<DisableMockRuleResponse> {
-    Util.validateModel(request);
-    let query : {[key: string ]: any} = { };
-    if (!Util.isUnset(request.id)) {
-      query["Id"] = request.id;
-    }
-
-    let req = new $OpenApi.OpenApiRequest({
-      headers: headers,
-      query: OpenApiUtil.query(query),
-    });
-    let params = new $OpenApi.Params({
-      action: "DisableMockRule",
-      version: "2017-08-01",
-      protocol: "HTTPS",
-      pathname: `/pop/sp/api/mock/disableMockRule`,
-      method: "POST",
-      authType: "AK",
-      style: "ROA",
-      reqBodyType: "json",
-      bodyType: "json",
-    });
-    return $tea.cast<DisableMockRuleResponse>(await this.callApi(params, req, runtime), new DisableMockRuleResponse({}));
-  }
-
-  async enableApplicationScalingRule(request: EnableApplicationScalingRuleRequest): Promise<EnableApplicationScalingRuleResponse> {
-    let runtime = new $Util.RuntimeOptions({ });
-    let headers : {[key: string ]: string} = { };
-    return await this.enableApplicationScalingRuleWithOptions(request, headers, runtime);
+    return await this.disableApplicationScalingRuleWithOptions(request, headers, runtime);
   }
 
   async enableApplicationScalingRuleWithOptions(request: EnableApplicationScalingRuleRequest, headers: {[key: string ]: string}, runtime: $Util.RuntimeOptions): Promise<EnableApplicationScalingRuleResponse> {
@@ -22651,100 +23234,10 @@ export default class Client extends OpenApi {
     return $tea.cast<EnableApplicationScalingRuleResponse>(await this.callApi(params, req, runtime), new EnableApplicationScalingRuleResponse({}));
   }
 
-  async enableMockRule(request: EnableMockRuleRequest): Promise<EnableMockRuleResponse> {
+  async enableApplicationScalingRule(request: EnableApplicationScalingRuleRequest): Promise<EnableApplicationScalingRuleResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     let headers : {[key: string ]: string} = { };
-    return await this.enableMockRuleWithOptions(request, headers, runtime);
-  }
-
-  async enableMockRuleWithOptions(request: EnableMockRuleRequest, headers: {[key: string ]: string}, runtime: $Util.RuntimeOptions): Promise<EnableMockRuleResponse> {
-    Util.validateModel(request);
-    let query : {[key: string ]: any} = { };
-    if (!Util.isUnset(request.id)) {
-      query["Id"] = request.id;
-    }
-
-    let req = new $OpenApi.OpenApiRequest({
-      headers: headers,
-      query: OpenApiUtil.query(query),
-    });
-    let params = new $OpenApi.Params({
-      action: "EnableMockRule",
-      version: "2017-08-01",
-      protocol: "HTTPS",
-      pathname: `/pop/sp/api/mock/enableMockRule`,
-      method: "POST",
-      authType: "AK",
-      style: "ROA",
-      reqBodyType: "json",
-      bodyType: "json",
-    });
-    return $tea.cast<EnableMockRuleResponse>(await this.callApi(params, req, runtime), new EnableMockRuleResponse({}));
-  }
-
-  async getAccountMockRule(request: GetAccountMockRuleRequest): Promise<GetAccountMockRuleResponse> {
-    let runtime = new $Util.RuntimeOptions({ });
-    let headers : {[key: string ]: string} = { };
-    return await this.getAccountMockRuleWithOptions(request, headers, runtime);
-  }
-
-  async getAccountMockRuleWithOptions(request: GetAccountMockRuleRequest, headers: {[key: string ]: string}, runtime: $Util.RuntimeOptions): Promise<GetAccountMockRuleResponse> {
-    Util.validateModel(request);
-    let query : {[key: string ]: any} = { };
-    if (!Util.isUnset(request.consumerAppName)) {
-      query["ConsumerAppName"] = request.consumerAppName;
-    }
-
-    if (!Util.isUnset(request.mockType)) {
-      query["MockType"] = request.mockType;
-    }
-
-    if (!Util.isUnset(request.name)) {
-      query["Name"] = request.name;
-    }
-
-    if (!Util.isUnset(request.namespace)) {
-      query["Namespace"] = request.namespace;
-    }
-
-    if (!Util.isUnset(request.pageNumber)) {
-      query["PageNumber"] = request.pageNumber;
-    }
-
-    if (!Util.isUnset(request.pageSize)) {
-      query["PageSize"] = request.pageSize;
-    }
-
-    if (!Util.isUnset(request.providerAppName)) {
-      query["ProviderAppName"] = request.providerAppName;
-    }
-
-    if (!Util.isUnset(request.region)) {
-      query["Region"] = request.region;
-    }
-
-    let req = new $OpenApi.OpenApiRequest({
-      headers: headers,
-      query: OpenApiUtil.query(query),
-    });
-    let params = new $OpenApi.Params({
-      action: "GetAccountMockRule",
-      version: "2017-08-01",
-      protocol: "HTTPS",
-      pathname: `/pop/sp/api/mock/getAccountMockRule`,
-      method: "POST",
-      authType: "AK",
-      style: "ROA",
-      reqBodyType: "json",
-      bodyType: "json",
-    });
-    return $tea.cast<GetAccountMockRuleResponse>(await this.callApi(params, req, runtime), new GetAccountMockRuleResponse({}));
-  }
-
-  async getAppDeployment(request: GetAppDeploymentRequest): Promise<GetAppDeploymentResponse> {
-    let runtime = new $Util.RuntimeOptions({ });
-    let headers : {[key: string ]: string} = { };
-    return await this.getAppDeploymentWithOptions(request, headers, runtime);
+    return await this.enableApplicationScalingRuleWithOptions(request, headers, runtime);
   }
 
   async getAppDeploymentWithOptions(request: GetAppDeploymentRequest, headers: {[key: string ]: string}, runtime: $Util.RuntimeOptions): Promise<GetAppDeploymentResponse> {
@@ -22772,10 +23265,10 @@ export default class Client extends OpenApi {
     return $tea.cast<GetAppDeploymentResponse>(await this.callApi(params, req, runtime), new GetAppDeploymentResponse({}));
   }
 
-  async getApplication(request: GetApplicationRequest): Promise<GetApplicationResponse> {
+  async getAppDeployment(request: GetAppDeploymentRequest): Promise<GetAppDeploymentResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     let headers : {[key: string ]: string} = { };
-    return await this.getApplicationWithOptions(request, headers, runtime);
+    return await this.getAppDeploymentWithOptions(request, headers, runtime);
   }
 
   async getApplicationWithOptions(request: GetApplicationRequest, headers: {[key: string ]: string}, runtime: $Util.RuntimeOptions): Promise<GetApplicationResponse> {
@@ -22803,10 +23296,10 @@ export default class Client extends OpenApi {
     return $tea.cast<GetApplicationResponse>(await this.callApi(params, req, runtime), new GetApplicationResponse({}));
   }
 
-  async getChangeOrderInfo(request: GetChangeOrderInfoRequest): Promise<GetChangeOrderInfoResponse> {
+  async getApplication(request: GetApplicationRequest): Promise<GetApplicationResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     let headers : {[key: string ]: string} = { };
-    return await this.getChangeOrderInfoWithOptions(request, headers, runtime);
+    return await this.getApplicationWithOptions(request, headers, runtime);
   }
 
   async getChangeOrderInfoWithOptions(request: GetChangeOrderInfoRequest, headers: {[key: string ]: string}, runtime: $Util.RuntimeOptions): Promise<GetChangeOrderInfoResponse> {
@@ -22834,10 +23327,10 @@ export default class Client extends OpenApi {
     return $tea.cast<GetChangeOrderInfoResponse>(await this.callApi(params, req, runtime), new GetChangeOrderInfoResponse({}));
   }
 
-  async getCluster(request: GetClusterRequest): Promise<GetClusterResponse> {
+  async getChangeOrderInfo(request: GetChangeOrderInfoRequest): Promise<GetChangeOrderInfoResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     let headers : {[key: string ]: string} = { };
-    return await this.getClusterWithOptions(request, headers, runtime);
+    return await this.getChangeOrderInfoWithOptions(request, headers, runtime);
   }
 
   async getClusterWithOptions(request: GetClusterRequest, headers: {[key: string ]: string}, runtime: $Util.RuntimeOptions): Promise<GetClusterResponse> {
@@ -22865,10 +23358,10 @@ export default class Client extends OpenApi {
     return $tea.cast<GetClusterResponse>(await this.callApi(params, req, runtime), new GetClusterResponse({}));
   }
 
-  async getContainerConfiguration(request: GetContainerConfigurationRequest): Promise<GetContainerConfigurationResponse> {
+  async getCluster(request: GetClusterRequest): Promise<GetClusterResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     let headers : {[key: string ]: string} = { };
-    return await this.getContainerConfigurationWithOptions(request, headers, runtime);
+    return await this.getClusterWithOptions(request, headers, runtime);
   }
 
   async getContainerConfigurationWithOptions(request: GetContainerConfigurationRequest, headers: {[key: string ]: string}, runtime: $Util.RuntimeOptions): Promise<GetContainerConfigurationResponse> {
@@ -22900,10 +23393,10 @@ export default class Client extends OpenApi {
     return $tea.cast<GetContainerConfigurationResponse>(await this.callApi(params, req, runtime), new GetContainerConfigurationResponse({}));
   }
 
-  async getJavaStartUpConfig(request: GetJavaStartUpConfigRequest): Promise<GetJavaStartUpConfigResponse> {
+  async getContainerConfiguration(request: GetContainerConfigurationRequest): Promise<GetContainerConfigurationResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     let headers : {[key: string ]: string} = { };
-    return await this.getJavaStartUpConfigWithOptions(request, headers, runtime);
+    return await this.getContainerConfigurationWithOptions(request, headers, runtime);
   }
 
   async getJavaStartUpConfigWithOptions(request: GetJavaStartUpConfigRequest, headers: {[key: string ]: string}, runtime: $Util.RuntimeOptions): Promise<GetJavaStartUpConfigResponse> {
@@ -22931,10 +23424,10 @@ export default class Client extends OpenApi {
     return $tea.cast<GetJavaStartUpConfigResponse>(await this.callApi(params, req, runtime), new GetJavaStartUpConfigResponse({}));
   }
 
-  async getJvmConfiguration(request: GetJvmConfigurationRequest): Promise<GetJvmConfigurationResponse> {
+  async getJavaStartUpConfig(request: GetJavaStartUpConfigRequest): Promise<GetJavaStartUpConfigResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     let headers : {[key: string ]: string} = { };
-    return await this.getJvmConfigurationWithOptions(request, headers, runtime);
+    return await this.getJavaStartUpConfigWithOptions(request, headers, runtime);
   }
 
   async getJvmConfigurationWithOptions(request: GetJvmConfigurationRequest, headers: {[key: string ]: string}, runtime: $Util.RuntimeOptions): Promise<GetJvmConfigurationResponse> {
@@ -22966,10 +23459,49 @@ export default class Client extends OpenApi {
     return $tea.cast<GetJvmConfigurationResponse>(await this.callApi(params, req, runtime), new GetJvmConfigurationResponse({}));
   }
 
-  async getK8sApplication(request: GetK8sApplicationRequest): Promise<GetK8sApplicationResponse> {
+  async getJvmConfiguration(request: GetJvmConfigurationRequest): Promise<GetJvmConfigurationResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     let headers : {[key: string ]: string} = { };
-    return await this.getK8sApplicationWithOptions(request, headers, runtime);
+    return await this.getJvmConfigurationWithOptions(request, headers, runtime);
+  }
+
+  async getK8sAppPrecheckResultWithOptions(request: GetK8sAppPrecheckResultRequest, headers: {[key: string ]: string}, runtime: $Util.RuntimeOptions): Promise<GetK8sAppPrecheckResultResponse> {
+    Util.validateModel(request);
+    let query : {[key: string ]: any} = { };
+    if (!Util.isUnset(request.appName)) {
+      query["AppName"] = request.appName;
+    }
+
+    if (!Util.isUnset(request.clusterId)) {
+      query["ClusterId"] = request.clusterId;
+    }
+
+    if (!Util.isUnset(request.namespace)) {
+      query["Namespace"] = request.namespace;
+    }
+
+    let req = new $OpenApi.OpenApiRequest({
+      headers: headers,
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApi.Params({
+      action: "GetK8sAppPrecheckResult",
+      version: "2017-08-01",
+      protocol: "HTTPS",
+      pathname: `/pop/v5/k8s/app_precheck`,
+      method: "GET",
+      authType: "AK",
+      style: "ROA",
+      reqBodyType: "json",
+      bodyType: "json",
+    });
+    return $tea.cast<GetK8sAppPrecheckResultResponse>(await this.callApi(params, req, runtime), new GetK8sAppPrecheckResultResponse({}));
+  }
+
+  async getK8sAppPrecheckResult(request: GetK8sAppPrecheckResultRequest): Promise<GetK8sAppPrecheckResultResponse> {
+    let runtime = new $Util.RuntimeOptions({ });
+    let headers : {[key: string ]: string} = { };
+    return await this.getK8sAppPrecheckResultWithOptions(request, headers, runtime);
   }
 
   async getK8sApplicationWithOptions(request: GetK8sApplicationRequest, headers: {[key: string ]: string}, runtime: $Util.RuntimeOptions): Promise<GetK8sApplicationResponse> {
@@ -23001,10 +23533,10 @@ export default class Client extends OpenApi {
     return $tea.cast<GetK8sApplicationResponse>(await this.callApi(params, req, runtime), new GetK8sApplicationResponse({}));
   }
 
-  async getK8sCluster(request: GetK8sClusterRequest): Promise<GetK8sClusterResponse> {
+  async getK8sApplication(request: GetK8sApplicationRequest): Promise<GetK8sApplicationResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     let headers : {[key: string ]: string} = { };
-    return await this.getK8sClusterWithOptions(request, headers, runtime);
+    return await this.getK8sApplicationWithOptions(request, headers, runtime);
   }
 
   async getK8sClusterWithOptions(request: GetK8sClusterRequest, headers: {[key: string ]: string}, runtime: $Util.RuntimeOptions): Promise<GetK8sClusterResponse> {
@@ -23026,6 +23558,10 @@ export default class Client extends OpenApi {
       query["RegionTag"] = request.regionTag;
     }
 
+    if (!Util.isUnset(request.subClusterType)) {
+      query["SubClusterType"] = request.subClusterType;
+    }
+
     let req = new $OpenApi.OpenApiRequest({
       headers: headers,
       query: OpenApiUtil.query(query),
@@ -23044,10 +23580,10 @@ export default class Client extends OpenApi {
     return $tea.cast<GetK8sClusterResponse>(await this.callApi(params, req, runtime), new GetK8sClusterResponse({}));
   }
 
-  async getK8sServices(request: GetK8sServicesRequest): Promise<GetK8sServicesResponse> {
+  async getK8sCluster(request: GetK8sClusterRequest): Promise<GetK8sClusterResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     let headers : {[key: string ]: string} = { };
-    return await this.getK8sServicesWithOptions(request, headers, runtime);
+    return await this.getK8sClusterWithOptions(request, headers, runtime);
   }
 
   async getK8sServicesWithOptions(request: GetK8sServicesRequest, headers: {[key: string ]: string}, runtime: $Util.RuntimeOptions): Promise<GetK8sServicesResponse> {
@@ -23075,80 +23611,10 @@ export default class Client extends OpenApi {
     return $tea.cast<GetK8sServicesResponse>(await this.callApi(params, req, runtime), new GetK8sServicesResponse({}));
   }
 
-  async getMockRuleByConsumerAppId(request: GetMockRuleByConsumerAppIdRequest): Promise<GetMockRuleByConsumerAppIdResponse> {
+  async getK8sServices(request: GetK8sServicesRequest): Promise<GetK8sServicesResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     let headers : {[key: string ]: string} = { };
-    return await this.getMockRuleByConsumerAppIdWithOptions(request, headers, runtime);
-  }
-
-  async getMockRuleByConsumerAppIdWithOptions(request: GetMockRuleByConsumerAppIdRequest, headers: {[key: string ]: string}, runtime: $Util.RuntimeOptions): Promise<GetMockRuleByConsumerAppIdResponse> {
-    Util.validateModel(request);
-    let query : {[key: string ]: any} = { };
-    if (!Util.isUnset(request.consumerAppId)) {
-      query["ConsumerAppId"] = request.consumerAppId;
-    }
-
-    if (!Util.isUnset(request.region)) {
-      query["Region"] = request.region;
-    }
-
-    let req = new $OpenApi.OpenApiRequest({
-      headers: headers,
-      query: OpenApiUtil.query(query),
-    });
-    let params = new $OpenApi.Params({
-      action: "GetMockRuleByConsumerAppId",
-      version: "2017-08-01",
-      protocol: "HTTPS",
-      pathname: `/pop/sp/api/mock/getMockRuleByConsumerAppId`,
-      method: "POST",
-      authType: "AK",
-      style: "ROA",
-      reqBodyType: "json",
-      bodyType: "json",
-    });
-    return $tea.cast<GetMockRuleByConsumerAppIdResponse>(await this.callApi(params, req, runtime), new GetMockRuleByConsumerAppIdResponse({}));
-  }
-
-  async getMockRuleByProviderAppId(request: GetMockRuleByProviderAppIdRequest): Promise<GetMockRuleByProviderAppIdResponse> {
-    let runtime = new $Util.RuntimeOptions({ });
-    let headers : {[key: string ]: string} = { };
-    return await this.getMockRuleByProviderAppIdWithOptions(request, headers, runtime);
-  }
-
-  async getMockRuleByProviderAppIdWithOptions(request: GetMockRuleByProviderAppIdRequest, headers: {[key: string ]: string}, runtime: $Util.RuntimeOptions): Promise<GetMockRuleByProviderAppIdResponse> {
-    Util.validateModel(request);
-    let query : {[key: string ]: any} = { };
-    if (!Util.isUnset(request.providerAppId)) {
-      query["ProviderAppId"] = request.providerAppId;
-    }
-
-    if (!Util.isUnset(request.region)) {
-      query["Region"] = request.region;
-    }
-
-    let req = new $OpenApi.OpenApiRequest({
-      headers: headers,
-      query: OpenApiUtil.query(query),
-    });
-    let params = new $OpenApi.Params({
-      action: "GetMockRuleByProviderAppId",
-      version: "2017-08-01",
-      protocol: "HTTPS",
-      pathname: `/pop/sp/api/mock/getMockRuleByProviderAppId`,
-      method: "POST",
-      authType: "AK",
-      style: "ROA",
-      reqBodyType: "json",
-      bodyType: "json",
-    });
-    return $tea.cast<GetMockRuleByProviderAppIdResponse>(await this.callApi(params, req, runtime), new GetMockRuleByProviderAppIdResponse({}));
-  }
-
-  async getPackageStorageCredential(): Promise<GetPackageStorageCredentialResponse> {
-    let runtime = new $Util.RuntimeOptions({ });
-    let headers : {[key: string ]: string} = { };
-    return await this.getPackageStorageCredentialWithOptions(headers, runtime);
+    return await this.getK8sServicesWithOptions(request, headers, runtime);
   }
 
   async getPackageStorageCredentialWithOptions(headers: {[key: string ]: string}, runtime: $Util.RuntimeOptions): Promise<GetPackageStorageCredentialResponse> {
@@ -23169,10 +23635,10 @@ export default class Client extends OpenApi {
     return $tea.cast<GetPackageStorageCredentialResponse>(await this.callApi(params, req, runtime), new GetPackageStorageCredentialResponse({}));
   }
 
-  async getScalingRules(request: GetScalingRulesRequest): Promise<GetScalingRulesResponse> {
+  async getPackageStorageCredential(): Promise<GetPackageStorageCredentialResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     let headers : {[key: string ]: string} = { };
-    return await this.getScalingRulesWithOptions(request, headers, runtime);
+    return await this.getPackageStorageCredentialWithOptions(headers, runtime);
   }
 
   async getScalingRulesWithOptions(request: GetScalingRulesRequest, headers: {[key: string ]: string}, runtime: $Util.RuntimeOptions): Promise<GetScalingRulesResponse> {
@@ -23208,10 +23674,10 @@ export default class Client extends OpenApi {
     return $tea.cast<GetScalingRulesResponse>(await this.callApi(params, req, runtime), new GetScalingRulesResponse({}));
   }
 
-  async getSecureToken(request: GetSecureTokenRequest): Promise<GetSecureTokenResponse> {
+  async getScalingRules(request: GetScalingRulesRequest): Promise<GetScalingRulesResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     let headers : {[key: string ]: string} = { };
-    return await this.getSecureTokenWithOptions(request, headers, runtime);
+    return await this.getScalingRulesWithOptions(request, headers, runtime);
   }
 
   async getSecureTokenWithOptions(request: GetSecureTokenRequest, headers: {[key: string ]: string}, runtime: $Util.RuntimeOptions): Promise<GetSecureTokenResponse> {
@@ -23239,10 +23705,10 @@ export default class Client extends OpenApi {
     return $tea.cast<GetSecureTokenResponse>(await this.callApi(params, req, runtime), new GetSecureTokenResponse({}));
   }
 
-  async getServiceConsumersPage(request: GetServiceConsumersPageRequest): Promise<GetServiceConsumersPageResponse> {
+  async getSecureToken(request: GetSecureTokenRequest): Promise<GetSecureTokenResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     let headers : {[key: string ]: string} = { };
-    return await this.getServiceConsumersPageWithOptions(request, headers, runtime);
+    return await this.getSecureTokenWithOptions(request, headers, runtime);
   }
 
   async getServiceConsumersPageWithOptions(request: GetServiceConsumersPageRequest, headers: {[key: string ]: string}, runtime: $Util.RuntimeOptions): Promise<GetServiceConsumersPageResponse> {
@@ -23322,10 +23788,10 @@ export default class Client extends OpenApi {
     return $tea.cast<GetServiceConsumersPageResponse>(await this.callApi(params, req, runtime), new GetServiceConsumersPageResponse({}));
   }
 
-  async getServiceDetail(request: GetServiceDetailRequest): Promise<GetServiceDetailResponse> {
+  async getServiceConsumersPage(request: GetServiceConsumersPageRequest): Promise<GetServiceConsumersPageResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     let headers : {[key: string ]: string} = { };
-    return await this.getServiceDetailWithOptions(request, headers, runtime);
+    return await this.getServiceConsumersPageWithOptions(request, headers, runtime);
   }
 
   async getServiceDetailWithOptions(request: GetServiceDetailRequest, headers: {[key: string ]: string}, runtime: $Util.RuntimeOptions): Promise<GetServiceDetailResponse> {
@@ -23397,10 +23863,10 @@ export default class Client extends OpenApi {
     return $tea.cast<GetServiceDetailResponse>(await this.callApi(params, req, runtime), new GetServiceDetailResponse({}));
   }
 
-  async getServiceListPage(request: GetServiceListPageRequest): Promise<GetServiceListPageResponse> {
+  async getServiceDetail(request: GetServiceDetailRequest): Promise<GetServiceDetailResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     let headers : {[key: string ]: string} = { };
-    return await this.getServiceListPageWithOptions(request, headers, runtime);
+    return await this.getServiceDetailWithOptions(request, headers, runtime);
   }
 
   async getServiceListPageWithOptions(request: GetServiceListPageRequest, headers: {[key: string ]: string}, runtime: $Util.RuntimeOptions): Promise<GetServiceListPageResponse> {
@@ -23460,10 +23926,10 @@ export default class Client extends OpenApi {
     return $tea.cast<GetServiceListPageResponse>(await this.callApi(params, req, runtime), new GetServiceListPageResponse({}));
   }
 
-  async getServiceMethodPage(request: GetServiceMethodPageRequest): Promise<GetServiceMethodPageResponse> {
+  async getServiceListPage(request: GetServiceListPageRequest): Promise<GetServiceListPageResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     let headers : {[key: string ]: string} = { };
-    return await this.getServiceMethodPageWithOptions(request, headers, runtime);
+    return await this.getServiceListPageWithOptions(request, headers, runtime);
   }
 
   async getServiceMethodPageWithOptions(request: GetServiceMethodPageRequest, headers: {[key: string ]: string}, runtime: $Util.RuntimeOptions): Promise<GetServiceMethodPageResponse> {
@@ -23555,10 +24021,10 @@ export default class Client extends OpenApi {
     return $tea.cast<GetServiceMethodPageResponse>(await this.callApi(params, req, runtime), new GetServiceMethodPageResponse({}));
   }
 
-  async getServiceProvidersPage(request: GetServiceProvidersPageRequest): Promise<GetServiceProvidersPageResponse> {
+  async getServiceMethodPage(request: GetServiceMethodPageRequest): Promise<GetServiceMethodPageResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     let headers : {[key: string ]: string} = { };
-    return await this.getServiceProvidersPageWithOptions(request, headers, runtime);
+    return await this.getServiceMethodPageWithOptions(request, headers, runtime);
   }
 
   async getServiceProvidersPageWithOptions(request: GetServiceProvidersPageRequest, headers: {[key: string ]: string}, runtime: $Util.RuntimeOptions): Promise<GetServiceProvidersPageResponse> {
@@ -23638,12 +24104,20 @@ export default class Client extends OpenApi {
     return $tea.cast<GetServiceProvidersPageResponse>(await this.callApi(params, req, runtime), new GetServiceProvidersPageResponse({}));
   }
 
-  async getWebContainerConfig(request: GetWebContainerConfigRequest): Promise<GetWebContainerConfigResponse> {
+  async getServiceProvidersPage(request: GetServiceProvidersPageRequest): Promise<GetServiceProvidersPageResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     let headers : {[key: string ]: string} = { };
-    return await this.getWebContainerConfigWithOptions(request, headers, runtime);
+    return await this.getServiceProvidersPageWithOptions(request, headers, runtime);
   }
 
+  /**
+    * ***
+    *
+    * @param request GetWebContainerConfigRequest
+    * @param headers map
+    * @param runtime runtime options for this request RuntimeOptions
+    * @return GetWebContainerConfigResponse
+   */
   async getWebContainerConfigWithOptions(request: GetWebContainerConfigRequest, headers: {[key: string ]: string}, runtime: $Util.RuntimeOptions): Promise<GetWebContainerConfigResponse> {
     Util.validateModel(request);
     let query : {[key: string ]: any} = { };
@@ -23669,10 +24143,16 @@ export default class Client extends OpenApi {
     return $tea.cast<GetWebContainerConfigResponse>(await this.callApi(params, req, runtime), new GetWebContainerConfigResponse({}));
   }
 
-  async importK8sCluster(request: ImportK8sClusterRequest): Promise<ImportK8sClusterResponse> {
+  /**
+    * ***
+    *
+    * @param request GetWebContainerConfigRequest
+    * @return GetWebContainerConfigResponse
+   */
+  async getWebContainerConfig(request: GetWebContainerConfigRequest): Promise<GetWebContainerConfigResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     let headers : {[key: string ]: string} = { };
-    return await this.importK8sClusterWithOptions(request, headers, runtime);
+    return await this.getWebContainerConfigWithOptions(request, headers, runtime);
   }
 
   async importK8sClusterWithOptions(request: ImportK8sClusterRequest, headers: {[key: string ]: string}, runtime: $Util.RuntimeOptions): Promise<ImportK8sClusterResponse> {
@@ -23712,12 +24192,20 @@ export default class Client extends OpenApi {
     return $tea.cast<ImportK8sClusterResponse>(await this.callApi(params, req, runtime), new ImportK8sClusterResponse({}));
   }
 
-  async insertApplication(request: InsertApplicationRequest): Promise<InsertApplicationResponse> {
+  async importK8sCluster(request: ImportK8sClusterRequest): Promise<ImportK8sClusterResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     let headers : {[key: string ]: string} = { };
-    return await this.insertApplicationWithOptions(request, headers, runtime);
+    return await this.importK8sClusterWithOptions(request, headers, runtime);
   }
 
+  /**
+    * > To create an application in a Kubernetes cluster, call the InsertK8sApplication operation provided by Enterprise Distributed Application Service (EDAS).
+    *
+    * @param request InsertApplicationRequest
+    * @param headers map
+    * @param runtime runtime options for this request RuntimeOptions
+    * @return InsertApplicationResponse
+   */
   async insertApplicationWithOptions(request: InsertApplicationRequest, headers: {[key: string ]: string}, runtime: $Util.RuntimeOptions): Promise<InsertApplicationResponse> {
     Util.validateModel(request);
     let query : {[key: string ]: any} = { };
@@ -23831,10 +24319,16 @@ export default class Client extends OpenApi {
     return $tea.cast<InsertApplicationResponse>(await this.callApi(params, req, runtime), new InsertApplicationResponse({}));
   }
 
-  async insertCluster(request: InsertClusterRequest): Promise<InsertClusterResponse> {
+  /**
+    * > To create an application in a Kubernetes cluster, call the InsertK8sApplication operation provided by Enterprise Distributed Application Service (EDAS).
+    *
+    * @param request InsertApplicationRequest
+    * @return InsertApplicationResponse
+   */
+  async insertApplication(request: InsertApplicationRequest): Promise<InsertApplicationResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     let headers : {[key: string ]: string} = { };
-    return await this.insertClusterWithOptions(request, headers, runtime);
+    return await this.insertApplicationWithOptions(request, headers, runtime);
   }
 
   async insertClusterWithOptions(request: InsertClusterRequest, headers: {[key: string ]: string}, runtime: $Util.RuntimeOptions): Promise<InsertClusterResponse> {
@@ -23886,12 +24380,22 @@ export default class Client extends OpenApi {
     return $tea.cast<InsertClusterResponse>(await this.callApi(params, req, runtime), new InsertClusterResponse({}));
   }
 
-  async insertClusterMember(request: InsertClusterMemberRequest): Promise<InsertClusterMemberResponse> {
+  async insertCluster(request: InsertClusterRequest): Promise<InsertClusterResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     let headers : {[key: string ]: string} = { };
-    return await this.insertClusterMemberWithOptions(request, headers, runtime);
+    return await this.insertClusterWithOptions(request, headers, runtime);
   }
 
+  /**
+    * ##
+    * If you call this operation to import an ECS instance, the operating system of the ECS instance is reinstalled. After the operating system is reinstalled, all original data of the ECS instance is deleted. In addition, you must set a logon password for the ECS instance. Make sure that no important data exists on the ECS instance that you want to import or data has been backed up for the ECS instance.
+    * > We recommend that you call the InstallAgent operation instead of this operation. For more information, see [InstallAgent](~~127023~~).
+    *
+    * @param request InsertClusterMemberRequest
+    * @param headers map
+    * @param runtime runtime options for this request RuntimeOptions
+    * @return InsertClusterMemberResponse
+   */
   async insertClusterMemberWithOptions(request: InsertClusterMemberRequest, headers: {[key: string ]: string}, runtime: $Util.RuntimeOptions): Promise<InsertClusterMemberResponse> {
     Util.validateModel(request);
     let query : {[key: string ]: any} = { };
@@ -23925,10 +24429,18 @@ export default class Client extends OpenApi {
     return $tea.cast<InsertClusterMemberResponse>(await this.callApi(params, req, runtime), new InsertClusterMemberResponse({}));
   }
 
-  async insertDeployGroup(request: InsertDeployGroupRequest): Promise<InsertDeployGroupResponse> {
+  /**
+    * ##
+    * If you call this operation to import an ECS instance, the operating system of the ECS instance is reinstalled. After the operating system is reinstalled, all original data of the ECS instance is deleted. In addition, you must set a logon password for the ECS instance. Make sure that no important data exists on the ECS instance that you want to import or data has been backed up for the ECS instance.
+    * > We recommend that you call the InstallAgent operation instead of this operation. For more information, see [InstallAgent](~~127023~~).
+    *
+    * @param request InsertClusterMemberRequest
+    * @return InsertClusterMemberResponse
+   */
+  async insertClusterMember(request: InsertClusterMemberRequest): Promise<InsertClusterMemberResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     let headers : {[key: string ]: string} = { };
-    return await this.insertDeployGroupWithOptions(request, headers, runtime);
+    return await this.insertClusterMemberWithOptions(request, headers, runtime);
   }
 
   async insertDeployGroupWithOptions(request: InsertDeployGroupRequest, headers: {[key: string ]: string}, runtime: $Util.RuntimeOptions): Promise<InsertDeployGroupResponse> {
@@ -23964,10 +24476,10 @@ export default class Client extends OpenApi {
     return $tea.cast<InsertDeployGroupResponse>(await this.callApi(params, req, runtime), new InsertDeployGroupResponse({}));
   }
 
-  async insertK8sApplication(request: InsertK8sApplicationRequest): Promise<InsertK8sApplicationResponse> {
+  async insertDeployGroup(request: InsertDeployGroupRequest): Promise<InsertDeployGroupResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     let headers : {[key: string ]: string} = { };
-    return await this.insertK8sApplicationWithOptions(request, headers, runtime);
+    return await this.insertDeployGroupWithOptions(request, headers, runtime);
   }
 
   async insertK8sApplicationWithOptions(request: InsertK8sApplicationRequest, headers: {[key: string ]: string}, runtime: $Util.RuntimeOptions): Promise<InsertK8sApplicationResponse> {
@@ -23977,8 +24489,16 @@ export default class Client extends OpenApi {
       query["Annotations"] = request.annotations;
     }
 
+    if (!Util.isUnset(request.appConfig)) {
+      query["AppConfig"] = request.appConfig;
+    }
+
     if (!Util.isUnset(request.appName)) {
       query["AppName"] = request.appName;
+    }
+
+    if (!Util.isUnset(request.appTemplateName)) {
+      query["AppTemplateName"] = request.appTemplateName;
     }
 
     if (!Util.isUnset(request.applicationDescription)) {
@@ -24003,6 +24523,10 @@ export default class Client extends OpenApi {
 
     if (!Util.isUnset(request.configMountDescs)) {
       query["ConfigMountDescs"] = request.configMountDescs;
+    }
+
+    if (!Util.isUnset(request.containerRegistryId)) {
+      query["ContainerRegistryId"] = request.containerRegistryId;
     }
 
     if (!Util.isUnset(request.csClusterId)) {
@@ -24057,8 +24581,16 @@ export default class Client extends OpenApi {
       query["Envs"] = request.envs;
     }
 
+    if (!Util.isUnset(request.imagePlatforms)) {
+      query["ImagePlatforms"] = request.imagePlatforms;
+    }
+
     if (!Util.isUnset(request.imageUrl)) {
       query["ImageUrl"] = request.imageUrl;
+    }
+
+    if (!Util.isUnset(request.initContainers)) {
+      query["InitContainers"] = request.initContainers;
     }
 
     if (!Util.isUnset(request.internetSlbId)) {
@@ -24111,6 +24643,10 @@ export default class Client extends OpenApi {
 
     if (!Util.isUnset(request.limitCpu)) {
       query["LimitCpu"] = request.limitCpu;
+    }
+
+    if (!Util.isUnset(request.limitEphemeralStorage)) {
+      query["LimitEphemeralStorage"] = request.limitEphemeralStorage;
     }
 
     if (!Util.isUnset(request.limitMem)) {
@@ -24205,6 +24741,10 @@ export default class Client extends OpenApi {
       query["RequestsCpu"] = request.requestsCpu;
     }
 
+    if (!Util.isUnset(request.requestsEphemeralStorage)) {
+      query["RequestsEphemeralStorage"] = request.requestsEphemeralStorage;
+    }
+
     if (!Util.isUnset(request.requestsMem)) {
       query["RequestsMem"] = request.requestsMem;
     }
@@ -24221,12 +24761,32 @@ export default class Client extends OpenApi {
       query["RuntimeClassName"] = request.runtimeClassName;
     }
 
+    if (!Util.isUnset(request.secretName)) {
+      query["SecretName"] = request.secretName;
+    }
+
+    if (!Util.isUnset(request.serviceConfigs)) {
+      query["ServiceConfigs"] = request.serviceConfigs;
+    }
+
+    if (!Util.isUnset(request.sidecars)) {
+      query["Sidecars"] = request.sidecars;
+    }
+
     if (!Util.isUnset(request.slsConfigs)) {
       query["SlsConfigs"] = request.slsConfigs;
     }
 
+    if (!Util.isUnset(request.startup)) {
+      query["Startup"] = request.startup;
+    }
+
     if (!Util.isUnset(request.storageType)) {
       query["StorageType"] = request.storageType;
+    }
+
+    if (!Util.isUnset(request.terminateGracePeriod)) {
+      query["TerminateGracePeriod"] = request.terminateGracePeriod;
     }
 
     if (!Util.isUnset(request.timeout)) {
@@ -24241,12 +24801,20 @@ export default class Client extends OpenApi {
       query["UseBodyEncoding"] = request.useBodyEncoding;
     }
 
+    if (!Util.isUnset(request.userBaseImageUrl)) {
+      query["UserBaseImageUrl"] = request.userBaseImageUrl;
+    }
+
     if (!Util.isUnset(request.webContainer)) {
       query["WebContainer"] = request.webContainer;
     }
 
     if (!Util.isUnset(request.webContainerConfig)) {
       query["WebContainerConfig"] = request.webContainerConfig;
+    }
+
+    if (!Util.isUnset(request.workloadType)) {
+      query["WorkloadType"] = request.workloadType;
     }
 
     let req = new $OpenApi.OpenApiRequest({
@@ -24267,10 +24835,10 @@ export default class Client extends OpenApi {
     return $tea.cast<InsertK8sApplicationResponse>(await this.callApi(params, req, runtime), new InsertK8sApplicationResponse({}));
   }
 
-  async insertOrUpdateRegion(request: InsertOrUpdateRegionRequest): Promise<InsertOrUpdateRegionResponse> {
+  async insertK8sApplication(request: InsertK8sApplicationRequest): Promise<InsertK8sApplicationResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     let headers : {[key: string ]: string} = { };
-    return await this.insertOrUpdateRegionWithOptions(request, headers, runtime);
+    return await this.insertK8sApplicationWithOptions(request, headers, runtime);
   }
 
   async insertOrUpdateRegionWithOptions(request: InsertOrUpdateRegionRequest, headers: {[key: string ]: string}, runtime: $Util.RuntimeOptions): Promise<InsertOrUpdateRegionResponse> {
@@ -24288,12 +24856,20 @@ export default class Client extends OpenApi {
       query["Id"] = request.id;
     }
 
+    if (!Util.isUnset(request.mseInstanceId)) {
+      query["MseInstanceId"] = request.mseInstanceId;
+    }
+
     if (!Util.isUnset(request.regionName)) {
       query["RegionName"] = request.regionName;
     }
 
     if (!Util.isUnset(request.regionTag)) {
       query["RegionTag"] = request.regionTag;
+    }
+
+    if (!Util.isUnset(request.registryType)) {
+      query["RegistryType"] = request.registryType;
     }
 
     let req = new $OpenApi.OpenApiRequest({
@@ -24314,10 +24890,10 @@ export default class Client extends OpenApi {
     return $tea.cast<InsertOrUpdateRegionResponse>(await this.callApi(params, req, runtime), new InsertOrUpdateRegionResponse({}));
   }
 
-  async insertRole(request: InsertRoleRequest): Promise<InsertRoleResponse> {
+  async insertOrUpdateRegion(request: InsertOrUpdateRegionRequest): Promise<InsertOrUpdateRegionResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     let headers : {[key: string ]: string} = { };
-    return await this.insertRoleWithOptions(request, headers, runtime);
+    return await this.insertOrUpdateRegionWithOptions(request, headers, runtime);
   }
 
   async insertRoleWithOptions(request: InsertRoleRequest, headers: {[key: string ]: string}, runtime: $Util.RuntimeOptions): Promise<InsertRoleResponse> {
@@ -24349,10 +24925,10 @@ export default class Client extends OpenApi {
     return $tea.cast<InsertRoleResponse>(await this.callApi(params, req, runtime), new InsertRoleResponse({}));
   }
 
-  async insertServiceGroup(request: InsertServiceGroupRequest): Promise<InsertServiceGroupResponse> {
+  async insertRole(request: InsertRoleRequest): Promise<InsertRoleResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     let headers : {[key: string ]: string} = { };
-    return await this.insertServiceGroupWithOptions(request, headers, runtime);
+    return await this.insertRoleWithOptions(request, headers, runtime);
   }
 
   async insertServiceGroupWithOptions(request: InsertServiceGroupRequest, headers: {[key: string ]: string}, runtime: $Util.RuntimeOptions): Promise<InsertServiceGroupResponse> {
@@ -24380,12 +24956,118 @@ export default class Client extends OpenApi {
     return $tea.cast<InsertServiceGroupResponse>(await this.callApi(params, req, runtime), new InsertServiceGroupResponse({}));
   }
 
-  async installAgent(request: InstallAgentRequest): Promise<InstallAgentResponse> {
+  async insertServiceGroup(request: InsertServiceGroupRequest): Promise<InsertServiceGroupResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     let headers : {[key: string ]: string} = { };
-    return await this.installAgentWithOptions(request, headers, runtime);
+    return await this.insertServiceGroupWithOptions(request, headers, runtime);
   }
 
+  async insertSwimmingLaneWithOptions(request: InsertSwimmingLaneRequest, headers: {[key: string ]: string}, runtime: $Util.RuntimeOptions): Promise<InsertSwimmingLaneResponse> {
+    Util.validateModel(request);
+    let query : {[key: string ]: any} = { };
+    if (!Util.isUnset(request.appInfos)) {
+      query["AppInfos"] = request.appInfos;
+    }
+
+    if (!Util.isUnset(request.enableRules)) {
+      query["EnableRules"] = request.enableRules;
+    }
+
+    if (!Util.isUnset(request.entryRules)) {
+      query["EntryRules"] = request.entryRules;
+    }
+
+    if (!Util.isUnset(request.groupId)) {
+      query["GroupId"] = request.groupId;
+    }
+
+    if (!Util.isUnset(request.logicalRegionId)) {
+      query["LogicalRegionId"] = request.logicalRegionId;
+    }
+
+    if (!Util.isUnset(request.name)) {
+      query["Name"] = request.name;
+    }
+
+    if (!Util.isUnset(request.tag)) {
+      query["Tag"] = request.tag;
+    }
+
+    let req = new $OpenApi.OpenApiRequest({
+      headers: headers,
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApi.Params({
+      action: "InsertSwimmingLane",
+      version: "2017-08-01",
+      protocol: "HTTPS",
+      pathname: `/pop/v5/trafficmgnt/swimming_lanes`,
+      method: "POST",
+      authType: "AK",
+      style: "ROA",
+      reqBodyType: "json",
+      bodyType: "json",
+    });
+    return $tea.cast<InsertSwimmingLaneResponse>(await this.callApi(params, req, runtime), new InsertSwimmingLaneResponse({}));
+  }
+
+  async insertSwimmingLane(request: InsertSwimmingLaneRequest): Promise<InsertSwimmingLaneResponse> {
+    let runtime = new $Util.RuntimeOptions({ });
+    let headers : {[key: string ]: string} = { };
+    return await this.insertSwimmingLaneWithOptions(request, headers, runtime);
+  }
+
+  async insertSwimmingLaneGroupWithOptions(request: InsertSwimmingLaneGroupRequest, headers: {[key: string ]: string}, runtime: $Util.RuntimeOptions): Promise<InsertSwimmingLaneGroupResponse> {
+    Util.validateModel(request);
+    let query : {[key: string ]: any} = { };
+    if (!Util.isUnset(request.appIds)) {
+      query["AppIds"] = request.appIds;
+    }
+
+    if (!Util.isUnset(request.entryApp)) {
+      query["EntryApp"] = request.entryApp;
+    }
+
+    if (!Util.isUnset(request.logicalRegionId)) {
+      query["LogicalRegionId"] = request.logicalRegionId;
+    }
+
+    if (!Util.isUnset(request.name)) {
+      query["Name"] = request.name;
+    }
+
+    let req = new $OpenApi.OpenApiRequest({
+      headers: headers,
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApi.Params({
+      action: "InsertSwimmingLaneGroup",
+      version: "2017-08-01",
+      protocol: "HTTPS",
+      pathname: `/pop/v5/trafficmgnt/swimming_lane_groups`,
+      method: "POST",
+      authType: "AK",
+      style: "ROA",
+      reqBodyType: "json",
+      bodyType: "json",
+    });
+    return $tea.cast<InsertSwimmingLaneGroupResponse>(await this.callApi(params, req, runtime), new InsertSwimmingLaneGroupResponse({}));
+  }
+
+  async insertSwimmingLaneGroup(request: InsertSwimmingLaneGroupRequest): Promise<InsertSwimmingLaneGroupResponse> {
+    let runtime = new $Util.RuntimeOptions({ });
+    let headers : {[key: string ]: string} = { };
+    return await this.insertSwimmingLaneGroupWithOptions(request, headers, runtime);
+  }
+
+  /**
+    * If you call this operation to import an ECS instance into EDAS, the operating system of the ECS instance is not reinstalled. We recommend that you call this operation to import ECS instances into EDAS.
+    *
+    * @param request InstallAgentRequest
+    * @param headers map
+    * @param runtime runtime options for this request RuntimeOptions
+    * @return InstallAgentResponse
+   */
   async installAgentWithOptions(request: InstallAgentRequest, headers: {[key: string ]: string}, runtime: $Util.RuntimeOptions): Promise<InstallAgentResponse> {
     Util.validateModel(request);
     let query : {[key: string ]: any} = { };
@@ -24419,10 +25101,16 @@ export default class Client extends OpenApi {
     return $tea.cast<InstallAgentResponse>(await this.callApi(params, req, runtime), new InstallAgentResponse({}));
   }
 
-  async listAliyunRegion(): Promise<ListAliyunRegionResponse> {
+  /**
+    * If you call this operation to import an ECS instance into EDAS, the operating system of the ECS instance is not reinstalled. We recommend that you call this operation to import ECS instances into EDAS.
+    *
+    * @param request InstallAgentRequest
+    * @return InstallAgentResponse
+   */
+  async installAgent(request: InstallAgentRequest): Promise<InstallAgentResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     let headers : {[key: string ]: string} = { };
-    return await this.listAliyunRegionWithOptions(headers, runtime);
+    return await this.installAgentWithOptions(request, headers, runtime);
   }
 
   async listAliyunRegionWithOptions(headers: {[key: string ]: string}, runtime: $Util.RuntimeOptions): Promise<ListAliyunRegionResponse> {
@@ -24443,15 +25131,19 @@ export default class Client extends OpenApi {
     return $tea.cast<ListAliyunRegionResponse>(await this.callApi(params, req, runtime), new ListAliyunRegionResponse({}));
   }
 
-  async listApplication(request: ListApplicationRequest): Promise<ListApplicationResponse> {
+  async listAliyunRegion(): Promise<ListAliyunRegionResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     let headers : {[key: string ]: string} = { };
-    return await this.listApplicationWithOptions(request, headers, runtime);
+    return await this.listAliyunRegionWithOptions(headers, runtime);
   }
 
   async listApplicationWithOptions(request: ListApplicationRequest, headers: {[key: string ]: string}, runtime: $Util.RuntimeOptions): Promise<ListApplicationResponse> {
     Util.validateModel(request);
     let query : {[key: string ]: any} = { };
+    if (!Util.isUnset(request.appIds)) {
+      query["AppIds"] = request.appIds;
+    }
+
     if (!Util.isUnset(request.appName)) {
       query["AppName"] = request.appName;
     }
@@ -24460,12 +25152,20 @@ export default class Client extends OpenApi {
       query["ClusterId"] = request.clusterId;
     }
 
+    if (!Util.isUnset(request.currentPage)) {
+      query["CurrentPage"] = request.currentPage;
+    }
+
     if (!Util.isUnset(request.logicalRegionId)) {
       query["LogicalRegionId"] = request.logicalRegionId;
     }
 
     if (!Util.isUnset(request.logicalRegionIdFilter)) {
       query["LogicalRegionIdFilter"] = request.logicalRegionIdFilter;
+    }
+
+    if (!Util.isUnset(request.pageSize)) {
+      query["PageSize"] = request.pageSize;
     }
 
     if (!Util.isUnset(request.resourceGroupId)) {
@@ -24490,10 +25190,10 @@ export default class Client extends OpenApi {
     return $tea.cast<ListApplicationResponse>(await this.callApi(params, req, runtime), new ListApplicationResponse({}));
   }
 
-  async listApplicationEcu(request: ListApplicationEcuRequest): Promise<ListApplicationEcuResponse> {
+  async listApplication(request: ListApplicationRequest): Promise<ListApplicationResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     let headers : {[key: string ]: string} = { };
-    return await this.listApplicationEcuWithOptions(request, headers, runtime);
+    return await this.listApplicationWithOptions(request, headers, runtime);
   }
 
   async listApplicationEcuWithOptions(request: ListApplicationEcuRequest, headers: {[key: string ]: string}, runtime: $Util.RuntimeOptions): Promise<ListApplicationEcuResponse> {
@@ -24525,10 +25225,10 @@ export default class Client extends OpenApi {
     return $tea.cast<ListApplicationEcuResponse>(await this.callApi(params, req, runtime), new ListApplicationEcuResponse({}));
   }
 
-  async listAuthority(): Promise<ListAuthorityResponse> {
+  async listApplicationEcu(request: ListApplicationEcuRequest): Promise<ListApplicationEcuResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     let headers : {[key: string ]: string} = { };
-    return await this.listAuthorityWithOptions(headers, runtime);
+    return await this.listApplicationEcuWithOptions(request, headers, runtime);
   }
 
   async listAuthorityWithOptions(headers: {[key: string ]: string}, runtime: $Util.RuntimeOptions): Promise<ListAuthorityResponse> {
@@ -24549,10 +25249,10 @@ export default class Client extends OpenApi {
     return $tea.cast<ListAuthorityResponse>(await this.callApi(params, req, runtime), new ListAuthorityResponse({}));
   }
 
-  async listBuildPack(): Promise<ListBuildPackResponse> {
+  async listAuthority(): Promise<ListAuthorityResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     let headers : {[key: string ]: string} = { };
-    return await this.listBuildPackWithOptions(headers, runtime);
+    return await this.listAuthorityWithOptions(headers, runtime);
   }
 
   async listBuildPackWithOptions(headers: {[key: string ]: string}, runtime: $Util.RuntimeOptions): Promise<ListBuildPackResponse> {
@@ -24573,10 +25273,10 @@ export default class Client extends OpenApi {
     return $tea.cast<ListBuildPackResponse>(await this.callApi(params, req, runtime), new ListBuildPackResponse({}));
   }
 
-  async listCluster(request: ListClusterRequest): Promise<ListClusterResponse> {
+  async listBuildPack(): Promise<ListBuildPackResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     let headers : {[key: string ]: string} = { };
-    return await this.listClusterWithOptions(request, headers, runtime);
+    return await this.listBuildPackWithOptions(headers, runtime);
   }
 
   async listClusterWithOptions(request: ListClusterRequest, headers: {[key: string ]: string}, runtime: $Util.RuntimeOptions): Promise<ListClusterResponse> {
@@ -24608,10 +25308,10 @@ export default class Client extends OpenApi {
     return $tea.cast<ListClusterResponse>(await this.callApi(params, req, runtime), new ListClusterResponse({}));
   }
 
-  async listClusterMembers(request: ListClusterMembersRequest): Promise<ListClusterMembersResponse> {
+  async listCluster(request: ListClusterRequest): Promise<ListClusterResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     let headers : {[key: string ]: string} = { };
-    return await this.listClusterMembersWithOptions(request, headers, runtime);
+    return await this.listClusterWithOptions(request, headers, runtime);
   }
 
   async listClusterMembersWithOptions(request: ListClusterMembersRequest, headers: {[key: string ]: string}, runtime: $Util.RuntimeOptions): Promise<ListClusterMembersResponse> {
@@ -24651,10 +25351,10 @@ export default class Client extends OpenApi {
     return $tea.cast<ListClusterMembersResponse>(await this.callApi(params, req, runtime), new ListClusterMembersResponse({}));
   }
 
-  async listComponents(): Promise<ListComponentsResponse> {
+  async listClusterMembers(request: ListClusterMembersRequest): Promise<ListClusterMembersResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     let headers : {[key: string ]: string} = { };
-    return await this.listComponentsWithOptions(headers, runtime);
+    return await this.listClusterMembersWithOptions(request, headers, runtime);
   }
 
   async listComponentsWithOptions(headers: {[key: string ]: string}, runtime: $Util.RuntimeOptions): Promise<ListComponentsResponse> {
@@ -24675,10 +25375,10 @@ export default class Client extends OpenApi {
     return $tea.cast<ListComponentsResponse>(await this.callApi(params, req, runtime), new ListComponentsResponse({}));
   }
 
-  async listConfigTemplates(request: ListConfigTemplatesRequest): Promise<ListConfigTemplatesResponse> {
+  async listComponents(): Promise<ListComponentsResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     let headers : {[key: string ]: string} = { };
-    return await this.listConfigTemplatesWithOptions(request, headers, runtime);
+    return await this.listComponentsWithOptions(headers, runtime);
   }
 
   async listConfigTemplatesWithOptions(request: ListConfigTemplatesRequest, headers: {[key: string ]: string}, runtime: $Util.RuntimeOptions): Promise<ListConfigTemplatesResponse> {
@@ -24718,10 +25418,10 @@ export default class Client extends OpenApi {
     return $tea.cast<ListConfigTemplatesResponse>(await this.callApi(params, req, runtime), new ListConfigTemplatesResponse({}));
   }
 
-  async listConsumedServices(request: ListConsumedServicesRequest): Promise<ListConsumedServicesResponse> {
+  async listConfigTemplates(request: ListConfigTemplatesRequest): Promise<ListConfigTemplatesResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     let headers : {[key: string ]: string} = { };
-    return await this.listConsumedServicesWithOptions(request, headers, runtime);
+    return await this.listConfigTemplatesWithOptions(request, headers, runtime);
   }
 
   async listConsumedServicesWithOptions(request: ListConsumedServicesRequest, headers: {[key: string ]: string}, runtime: $Util.RuntimeOptions): Promise<ListConsumedServicesResponse> {
@@ -24749,10 +25449,10 @@ export default class Client extends OpenApi {
     return $tea.cast<ListConsumedServicesResponse>(await this.callApi(params, req, runtime), new ListConsumedServicesResponse({}));
   }
 
-  async listConvertableEcu(request: ListConvertableEcuRequest): Promise<ListConvertableEcuResponse> {
+  async listConsumedServices(request: ListConsumedServicesRequest): Promise<ListConsumedServicesResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     let headers : {[key: string ]: string} = { };
-    return await this.listConvertableEcuWithOptions(request, headers, runtime);
+    return await this.listConsumedServicesWithOptions(request, headers, runtime);
   }
 
   async listConvertableEcuWithOptions(request: ListConvertableEcuRequest, headers: {[key: string ]: string}, runtime: $Util.RuntimeOptions): Promise<ListConvertableEcuResponse> {
@@ -24780,10 +25480,10 @@ export default class Client extends OpenApi {
     return $tea.cast<ListConvertableEcuResponse>(await this.callApi(params, req, runtime), new ListConvertableEcuResponse({}));
   }
 
-  async listDeployGroup(request: ListDeployGroupRequest): Promise<ListDeployGroupResponse> {
+  async listConvertableEcu(request: ListConvertableEcuRequest): Promise<ListConvertableEcuResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     let headers : {[key: string ]: string} = { };
-    return await this.listDeployGroupWithOptions(request, headers, runtime);
+    return await this.listConvertableEcuWithOptions(request, headers, runtime);
   }
 
   async listDeployGroupWithOptions(request: ListDeployGroupRequest, headers: {[key: string ]: string}, runtime: $Util.RuntimeOptions): Promise<ListDeployGroupResponse> {
@@ -24811,10 +25511,10 @@ export default class Client extends OpenApi {
     return $tea.cast<ListDeployGroupResponse>(await this.callApi(params, req, runtime), new ListDeployGroupResponse({}));
   }
 
-  async listEcsNotInCluster(request: ListEcsNotInClusterRequest): Promise<ListEcsNotInClusterResponse> {
+  async listDeployGroup(request: ListDeployGroupRequest): Promise<ListDeployGroupResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     let headers : {[key: string ]: string} = { };
-    return await this.listEcsNotInClusterWithOptions(request, headers, runtime);
+    return await this.listDeployGroupWithOptions(request, headers, runtime);
   }
 
   async listEcsNotInClusterWithOptions(request: ListEcsNotInClusterRequest, headers: {[key: string ]: string}, runtime: $Util.RuntimeOptions): Promise<ListEcsNotInClusterResponse> {
@@ -24846,12 +25546,23 @@ export default class Client extends OpenApi {
     return $tea.cast<ListEcsNotInClusterResponse>(await this.callApi(params, req, runtime), new ListEcsNotInClusterResponse({}));
   }
 
-  async listEcuByRegion(request: ListEcuByRegionRequest): Promise<ListEcuByRegionResponse> {
+  async listEcsNotInCluster(request: ListEcsNotInClusterRequest): Promise<ListEcsNotInClusterResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     let headers : {[key: string ]: string} = { };
-    return await this.listEcuByRegionWithOptions(request, headers, runtime);
+    return await this.listEcsNotInClusterWithOptions(request, headers, runtime);
   }
 
+  /**
+    * ## Terms
+    * *   **Namespace**: the logical concept that is used to isolate resources such as clusters, ECS instances, and applications, and microservices published in EDAS. This concept involves the default namespace and custom namespaces. Each region has a default namespace and supports multiple custom namespaces. By default, only the default namespace is available. You do not need to create a custom namespace if you do not want to isolate resources and microservices.
+    * *   **Elastic compute unit (ECU)**: After an ECS instance is imported to a cluster, the instance becomes an ECU.
+    * *   **Elastic compute container (ECC)**: After you deploy an application to an ECU in a cluster, the ECU becomes an ECC.
+    *
+    * @param request ListEcuByRegionRequest
+    * @param headers map
+    * @param runtime runtime options for this request RuntimeOptions
+    * @return ListEcuByRegionResponse
+   */
   async listEcuByRegionWithOptions(request: ListEcuByRegionRequest, headers: {[key: string ]: string}, runtime: $Util.RuntimeOptions): Promise<ListEcuByRegionResponse> {
     Util.validateModel(request);
     let query : {[key: string ]: any} = { };
@@ -24881,10 +25592,19 @@ export default class Client extends OpenApi {
     return $tea.cast<ListEcuByRegionResponse>(await this.callApi(params, req, runtime), new ListEcuByRegionResponse({}));
   }
 
-  async listHistoryDeployVersion(request: ListHistoryDeployVersionRequest): Promise<ListHistoryDeployVersionResponse> {
+  /**
+    * ## Terms
+    * *   **Namespace**: the logical concept that is used to isolate resources such as clusters, ECS instances, and applications, and microservices published in EDAS. This concept involves the default namespace and custom namespaces. Each region has a default namespace and supports multiple custom namespaces. By default, only the default namespace is available. You do not need to create a custom namespace if you do not want to isolate resources and microservices.
+    * *   **Elastic compute unit (ECU)**: After an ECS instance is imported to a cluster, the instance becomes an ECU.
+    * *   **Elastic compute container (ECC)**: After you deploy an application to an ECU in a cluster, the ECU becomes an ECC.
+    *
+    * @param request ListEcuByRegionRequest
+    * @return ListEcuByRegionResponse
+   */
+  async listEcuByRegion(request: ListEcuByRegionRequest): Promise<ListEcuByRegionResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     let headers : {[key: string ]: string} = { };
-    return await this.listHistoryDeployVersionWithOptions(request, headers, runtime);
+    return await this.listEcuByRegionWithOptions(request, headers, runtime);
   }
 
   async listHistoryDeployVersionWithOptions(request: ListHistoryDeployVersionRequest, headers: {[key: string ]: string}, runtime: $Util.RuntimeOptions): Promise<ListHistoryDeployVersionResponse> {
@@ -24912,10 +25632,10 @@ export default class Client extends OpenApi {
     return $tea.cast<ListHistoryDeployVersionResponse>(await this.callApi(params, req, runtime), new ListHistoryDeployVersionResponse({}));
   }
 
-  async listK8sConfigMaps(request: ListK8sConfigMapsRequest): Promise<ListK8sConfigMapsResponse> {
+  async listHistoryDeployVersion(request: ListHistoryDeployVersionRequest): Promise<ListHistoryDeployVersionResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     let headers : {[key: string ]: string} = { };
-    return await this.listK8sConfigMapsWithOptions(request, headers, runtime);
+    return await this.listHistoryDeployVersionWithOptions(request, headers, runtime);
   }
 
   async listK8sConfigMapsWithOptions(request: ListK8sConfigMapsRequest, headers: {[key: string ]: string}, runtime: $Util.RuntimeOptions): Promise<ListK8sConfigMapsResponse> {
@@ -24967,10 +25687,10 @@ export default class Client extends OpenApi {
     return $tea.cast<ListK8sConfigMapsResponse>(await this.callApi(params, req, runtime), new ListK8sConfigMapsResponse({}));
   }
 
-  async listK8sIngressRules(request: ListK8sIngressRulesRequest): Promise<ListK8sIngressRulesResponse> {
+  async listK8sConfigMaps(request: ListK8sConfigMapsRequest): Promise<ListK8sConfigMapsResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     let headers : {[key: string ]: string} = { };
-    return await this.listK8sIngressRulesWithOptions(request, headers, runtime);
+    return await this.listK8sConfigMapsWithOptions(request, headers, runtime);
   }
 
   async listK8sIngressRulesWithOptions(request: ListK8sIngressRulesRequest, headers: {[key: string ]: string}, runtime: $Util.RuntimeOptions): Promise<ListK8sIngressRulesResponse> {
@@ -25010,10 +25730,10 @@ export default class Client extends OpenApi {
     return $tea.cast<ListK8sIngressRulesResponse>(await this.callApi(params, req, runtime), new ListK8sIngressRulesResponse({}));
   }
 
-  async listK8sNamespaces(request: ListK8sNamespacesRequest): Promise<ListK8sNamespacesResponse> {
+  async listK8sIngressRules(request: ListK8sIngressRulesRequest): Promise<ListK8sIngressRulesResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     let headers : {[key: string ]: string} = { };
-    return await this.listK8sNamespacesWithOptions(request, headers, runtime);
+    return await this.listK8sIngressRulesWithOptions(request, headers, runtime);
   }
 
   async listK8sNamespacesWithOptions(request: ListK8sNamespacesRequest, headers: {[key: string ]: string}, runtime: $Util.RuntimeOptions): Promise<ListK8sNamespacesResponse> {
@@ -25041,10 +25761,10 @@ export default class Client extends OpenApi {
     return $tea.cast<ListK8sNamespacesResponse>(await this.callApi(params, req, runtime), new ListK8sNamespacesResponse({}));
   }
 
-  async listK8sSecrets(request: ListK8sSecretsRequest): Promise<ListK8sSecretsResponse> {
+  async listK8sNamespaces(request: ListK8sNamespacesRequest): Promise<ListK8sNamespacesResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     let headers : {[key: string ]: string} = { };
-    return await this.listK8sSecretsWithOptions(request, headers, runtime);
+    return await this.listK8sNamespacesWithOptions(request, headers, runtime);
   }
 
   async listK8sSecretsWithOptions(request: ListK8sSecretsRequest, headers: {[key: string ]: string}, runtime: $Util.RuntimeOptions): Promise<ListK8sSecretsResponse> {
@@ -25096,10 +25816,10 @@ export default class Client extends OpenApi {
     return $tea.cast<ListK8sSecretsResponse>(await this.callApi(params, req, runtime), new ListK8sSecretsResponse({}));
   }
 
-  async listMethods(request: ListMethodsRequest): Promise<ListMethodsResponse> {
+  async listK8sSecrets(request: ListK8sSecretsRequest): Promise<ListK8sSecretsResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     let headers : {[key: string ]: string} = { };
-    return await this.listMethodsWithOptions(request, headers, runtime);
+    return await this.listK8sSecretsWithOptions(request, headers, runtime);
   }
 
   async listMethodsWithOptions(request: ListMethodsRequest, headers: {[key: string ]: string}, runtime: $Util.RuntimeOptions): Promise<ListMethodsResponse> {
@@ -25131,10 +25851,10 @@ export default class Client extends OpenApi {
     return $tea.cast<ListMethodsResponse>(await this.callApi(params, req, runtime), new ListMethodsResponse({}));
   }
 
-  async listPublishedServices(request: ListPublishedServicesRequest): Promise<ListPublishedServicesResponse> {
+  async listMethods(request: ListMethodsRequest): Promise<ListMethodsResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     let headers : {[key: string ]: string} = { };
-    return await this.listPublishedServicesWithOptions(request, headers, runtime);
+    return await this.listMethodsWithOptions(request, headers, runtime);
   }
 
   async listPublishedServicesWithOptions(request: ListPublishedServicesRequest, headers: {[key: string ]: string}, runtime: $Util.RuntimeOptions): Promise<ListPublishedServicesResponse> {
@@ -25162,10 +25882,10 @@ export default class Client extends OpenApi {
     return $tea.cast<ListPublishedServicesResponse>(await this.callApi(params, req, runtime), new ListPublishedServicesResponse({}));
   }
 
-  async listRecentChangeOrder(request: ListRecentChangeOrderRequest): Promise<ListRecentChangeOrderResponse> {
+  async listPublishedServices(request: ListPublishedServicesRequest): Promise<ListPublishedServicesResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     let headers : {[key: string ]: string} = { };
-    return await this.listRecentChangeOrderWithOptions(request, headers, runtime);
+    return await this.listPublishedServicesWithOptions(request, headers, runtime);
   }
 
   async listRecentChangeOrderWithOptions(request: ListRecentChangeOrderRequest, headers: {[key: string ]: string}, runtime: $Util.RuntimeOptions): Promise<ListRecentChangeOrderResponse> {
@@ -25193,10 +25913,10 @@ export default class Client extends OpenApi {
     return $tea.cast<ListRecentChangeOrderResponse>(await this.callApi(params, req, runtime), new ListRecentChangeOrderResponse({}));
   }
 
-  async listResourceGroup(): Promise<ListResourceGroupResponse> {
+  async listRecentChangeOrder(request: ListRecentChangeOrderRequest): Promise<ListRecentChangeOrderResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     let headers : {[key: string ]: string} = { };
-    return await this.listResourceGroupWithOptions(headers, runtime);
+    return await this.listRecentChangeOrderWithOptions(request, headers, runtime);
   }
 
   async listResourceGroupWithOptions(headers: {[key: string ]: string}, runtime: $Util.RuntimeOptions): Promise<ListResourceGroupResponse> {
@@ -25217,10 +25937,10 @@ export default class Client extends OpenApi {
     return $tea.cast<ListResourceGroupResponse>(await this.callApi(params, req, runtime), new ListResourceGroupResponse({}));
   }
 
-  async listRole(): Promise<ListRoleResponse> {
+  async listResourceGroup(): Promise<ListResourceGroupResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     let headers : {[key: string ]: string} = { };
-    return await this.listRoleWithOptions(headers, runtime);
+    return await this.listResourceGroupWithOptions(headers, runtime);
   }
 
   async listRoleWithOptions(headers: {[key: string ]: string}, runtime: $Util.RuntimeOptions): Promise<ListRoleResponse> {
@@ -25241,47 +25961,23 @@ export default class Client extends OpenApi {
     return $tea.cast<ListRoleResponse>(await this.callApi(params, req, runtime), new ListRoleResponse({}));
   }
 
-  async listRootStacks(request: ListRootStacksRequest): Promise<ListRootStacksResponse> {
+  async listRole(): Promise<ListRoleResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     let headers : {[key: string ]: string} = { };
-    return await this.listRootStacksWithOptions(request, headers, runtime);
+    return await this.listRoleWithOptions(headers, runtime);
   }
 
-  async listRootStacksWithOptions(request: ListRootStacksRequest, headers: {[key: string ]: string}, runtime: $Util.RuntimeOptions): Promise<ListRootStacksResponse> {
-    Util.validateModel(request);
-    let query : {[key: string ]: any} = { };
-    if (!Util.isUnset(request.currentPage)) {
-      query["CurrentPage"] = request.currentPage;
-    }
-
-    if (!Util.isUnset(request.pageSize)) {
-      query["PageSize"] = request.pageSize;
-    }
-
-    let req = new $OpenApi.OpenApiRequest({
-      headers: headers,
-      query: OpenApiUtil.query(query),
-    });
-    let params = new $OpenApi.Params({
-      action: "ListRootStacks",
-      version: "2017-08-01",
-      protocol: "HTTPS",
-      pathname: `/pop/v5/s2i/list_root_stack`,
-      method: "GET",
-      authType: "AK",
-      style: "ROA",
-      reqBodyType: "json",
-      bodyType: "json",
-    });
-    return $tea.cast<ListRootStacksResponse>(await this.callApi(params, req, runtime), new ListRootStacksResponse({}));
-  }
-
-  async listScaleOutEcu(request: ListScaleOutEcuRequest): Promise<ListScaleOutEcuResponse> {
-    let runtime = new $Util.RuntimeOptions({ });
-    let headers : {[key: string ]: string} = { };
-    return await this.listScaleOutEcuWithOptions(request, headers, runtime);
-  }
-
+  /**
+    * ## Terms
+    * *   **Namespace**: the logical concept that is used to isolate resources such as clusters, ECS instances, and applications, and microservices published in EDAS. This concept involves the default namespace and custom namespaces. Each region has a default namespace and supports multiple custom namespaces. By default, only the default namespace is available. You do not need to create a custom namespace if you do not want to isolate resources and microservices.
+    * *   **Elastic compute unit (ECU)**: After an ECS instance is imported to a cluster, the instance becomes an ECU.
+    * *   **Elastic compute container (ECC)**: After you deploy an application to an ECU in a cluster, the ECU becomes an ECC.
+    *
+    * @param request ListScaleOutEcuRequest
+    * @param headers map
+    * @param runtime runtime options for this request RuntimeOptions
+    * @return ListScaleOutEcuResponse
+   */
   async listScaleOutEcuWithOptions(request: ListScaleOutEcuRequest, headers: {[key: string ]: string}, runtime: $Util.RuntimeOptions): Promise<ListScaleOutEcuResponse> {
     Util.validateModel(request);
     let query : {[key: string ]: any} = { };
@@ -25331,10 +26027,19 @@ export default class Client extends OpenApi {
     return $tea.cast<ListScaleOutEcuResponse>(await this.callApi(params, req, runtime), new ListScaleOutEcuResponse({}));
   }
 
-  async listServiceGroups(): Promise<ListServiceGroupsResponse> {
+  /**
+    * ## Terms
+    * *   **Namespace**: the logical concept that is used to isolate resources such as clusters, ECS instances, and applications, and microservices published in EDAS. This concept involves the default namespace and custom namespaces. Each region has a default namespace and supports multiple custom namespaces. By default, only the default namespace is available. You do not need to create a custom namespace if you do not want to isolate resources and microservices.
+    * *   **Elastic compute unit (ECU)**: After an ECS instance is imported to a cluster, the instance becomes an ECU.
+    * *   **Elastic compute container (ECC)**: After you deploy an application to an ECU in a cluster, the ECU becomes an ECC.
+    *
+    * @param request ListScaleOutEcuRequest
+    * @return ListScaleOutEcuResponse
+   */
+  async listScaleOutEcu(request: ListScaleOutEcuRequest): Promise<ListScaleOutEcuResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     let headers : {[key: string ]: string} = { };
-    return await this.listServiceGroupsWithOptions(headers, runtime);
+    return await this.listScaleOutEcuWithOptions(request, headers, runtime);
   }
 
   async listServiceGroupsWithOptions(headers: {[key: string ]: string}, runtime: $Util.RuntimeOptions): Promise<ListServiceGroupsResponse> {
@@ -25355,15 +26060,30 @@ export default class Client extends OpenApi {
     return $tea.cast<ListServiceGroupsResponse>(await this.callApi(params, req, runtime), new ListServiceGroupsResponse({}));
   }
 
-  async listSlb(): Promise<ListSlbResponse> {
+  async listServiceGroups(): Promise<ListServiceGroupsResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     let headers : {[key: string ]: string} = { };
-    return await this.listSlbWithOptions(headers, runtime);
+    return await this.listServiceGroupsWithOptions(headers, runtime);
   }
 
-  async listSlbWithOptions(headers: {[key: string ]: string}, runtime: $Util.RuntimeOptions): Promise<ListSlbResponse> {
+  async listSlbWithOptions(request: ListSlbRequest, headers: {[key: string ]: string}, runtime: $Util.RuntimeOptions): Promise<ListSlbResponse> {
+    Util.validateModel(request);
+    let query : {[key: string ]: any} = { };
+    if (!Util.isUnset(request.addressType)) {
+      query["AddressType"] = request.addressType;
+    }
+
+    if (!Util.isUnset(request.slbType)) {
+      query["SlbType"] = request.slbType;
+    }
+
+    if (!Util.isUnset(request.vpcId)) {
+      query["VpcId"] = request.vpcId;
+    }
+
     let req = new $OpenApi.OpenApiRequest({
       headers: headers,
+      query: OpenApiUtil.query(query),
     });
     let params = new $OpenApi.Params({
       action: "ListSlb",
@@ -25379,10 +26099,10 @@ export default class Client extends OpenApi {
     return $tea.cast<ListSlbResponse>(await this.callApi(params, req, runtime), new ListSlbResponse({}));
   }
 
-  async listSubAccount(): Promise<ListSubAccountResponse> {
+  async listSlb(request: ListSlbRequest): Promise<ListSlbResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     let headers : {[key: string ]: string} = { };
-    return await this.listSubAccountWithOptions(headers, runtime);
+    return await this.listSlbWithOptions(request, headers, runtime);
   }
 
   async listSubAccountWithOptions(headers: {[key: string ]: string}, runtime: $Util.RuntimeOptions): Promise<ListSubAccountResponse> {
@@ -25403,10 +26123,76 @@ export default class Client extends OpenApi {
     return $tea.cast<ListSubAccountResponse>(await this.callApi(params, req, runtime), new ListSubAccountResponse({}));
   }
 
-  async listTagResources(request: ListTagResourcesRequest): Promise<ListTagResourcesResponse> {
+  async listSubAccount(): Promise<ListSubAccountResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     let headers : {[key: string ]: string} = { };
-    return await this.listTagResourcesWithOptions(request, headers, runtime);
+    return await this.listSubAccountWithOptions(headers, runtime);
+  }
+
+  async listSwimmingLaneWithOptions(request: ListSwimmingLaneRequest, headers: {[key: string ]: string}, runtime: $Util.RuntimeOptions): Promise<ListSwimmingLaneResponse> {
+    Util.validateModel(request);
+    let query : {[key: string ]: any} = { };
+    if (!Util.isUnset(request.groupId)) {
+      query["GroupId"] = request.groupId;
+    }
+
+    let req = new $OpenApi.OpenApiRequest({
+      headers: headers,
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApi.Params({
+      action: "ListSwimmingLane",
+      version: "2017-08-01",
+      protocol: "HTTPS",
+      pathname: `/pop/v5/trafficmgnt/swimming_lanes`,
+      method: "GET",
+      authType: "AK",
+      style: "ROA",
+      reqBodyType: "json",
+      bodyType: "json",
+    });
+    return $tea.cast<ListSwimmingLaneResponse>(await this.callApi(params, req, runtime), new ListSwimmingLaneResponse({}));
+  }
+
+  async listSwimmingLane(request: ListSwimmingLaneRequest): Promise<ListSwimmingLaneResponse> {
+    let runtime = new $Util.RuntimeOptions({ });
+    let headers : {[key: string ]: string} = { };
+    return await this.listSwimmingLaneWithOptions(request, headers, runtime);
+  }
+
+  async listSwimmingLaneGroupWithOptions(request: ListSwimmingLaneGroupRequest, headers: {[key: string ]: string}, runtime: $Util.RuntimeOptions): Promise<ListSwimmingLaneGroupResponse> {
+    Util.validateModel(request);
+    let query : {[key: string ]: any} = { };
+    if (!Util.isUnset(request.groupId)) {
+      query["GroupId"] = request.groupId;
+    }
+
+    if (!Util.isUnset(request.logicalRegionId)) {
+      query["LogicalRegionId"] = request.logicalRegionId;
+    }
+
+    let req = new $OpenApi.OpenApiRequest({
+      headers: headers,
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApi.Params({
+      action: "ListSwimmingLaneGroup",
+      version: "2017-08-01",
+      protocol: "HTTPS",
+      pathname: `/pop/v5/trafficmgnt/swimming_lane_groups`,
+      method: "GET",
+      authType: "AK",
+      style: "ROA",
+      reqBodyType: "json",
+      bodyType: "json",
+    });
+    return $tea.cast<ListSwimmingLaneGroupResponse>(await this.callApi(params, req, runtime), new ListSwimmingLaneGroupResponse({}));
+  }
+
+  async listSwimmingLaneGroup(request: ListSwimmingLaneGroupRequest): Promise<ListSwimmingLaneGroupResponse> {
+    let runtime = new $Util.RuntimeOptions({ });
+    let headers : {[key: string ]: string} = { };
+    return await this.listSwimmingLaneGroupWithOptions(request, headers, runtime);
   }
 
   async listTagResourcesWithOptions(request: ListTagResourcesRequest, headers: {[key: string ]: string}, runtime: $Util.RuntimeOptions): Promise<ListTagResourcesResponse> {
@@ -25446,10 +26232,10 @@ export default class Client extends OpenApi {
     return $tea.cast<ListTagResourcesResponse>(await this.callApi(params, req, runtime), new ListTagResourcesResponse({}));
   }
 
-  async listUserDefineRegion(request: ListUserDefineRegionRequest): Promise<ListUserDefineRegionResponse> {
+  async listTagResources(request: ListTagResourcesRequest): Promise<ListTagResourcesResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     let headers : {[key: string ]: string} = { };
-    return await this.listUserDefineRegionWithOptions(request, headers, runtime);
+    return await this.listTagResourcesWithOptions(request, headers, runtime);
   }
 
   async listUserDefineRegionWithOptions(request: ListUserDefineRegionRequest, headers: {[key: string ]: string}, runtime: $Util.RuntimeOptions): Promise<ListUserDefineRegionResponse> {
@@ -25477,10 +26263,10 @@ export default class Client extends OpenApi {
     return $tea.cast<ListUserDefineRegionResponse>(await this.callApi(params, req, runtime), new ListUserDefineRegionResponse({}));
   }
 
-  async listVpc(): Promise<ListVpcResponse> {
+  async listUserDefineRegion(request: ListUserDefineRegionRequest): Promise<ListUserDefineRegionResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     let headers : {[key: string ]: string} = { };
-    return await this.listVpcWithOptions(headers, runtime);
+    return await this.listUserDefineRegionWithOptions(request, headers, runtime);
   }
 
   async listVpcWithOptions(headers: {[key: string ]: string}, runtime: $Util.RuntimeOptions): Promise<ListVpcResponse> {
@@ -25501,12 +26287,26 @@ export default class Client extends OpenApi {
     return $tea.cast<ListVpcResponse>(await this.callApi(params, req, runtime), new ListVpcResponse({}));
   }
 
-  async migrateEcu(request: MigrateEcuRequest): Promise<MigrateEcuResponse> {
+  async listVpc(): Promise<ListVpcResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     let headers : {[key: string ]: string} = { };
-    return await this.migrateEcuWithOptions(request, headers, runtime);
+    return await this.listVpcWithOptions(headers, runtime);
   }
 
+  /**
+    * ## Limits
+    * We recommend that you do not call this operation. Instead, we recommend that you call the TransformClusterMember operation. For more information, see [TransformClusterMember](~~71514~~).
+    * When you call this operation to import an Elastic Compute Service (ECS) instance, the operating system of the ECS instance is reinstalled. After the operating system is reinstalled, all data of the ECS instance is deleted. You must set a logon password for the ECS instance. Make sure that no important data exists on or data has been backed up for the ECS instance that you want to import.
+    * ## Terms
+    * *   **Namespace**: the logical concept that is used to isolate resources and microservices in Enterprise Distributed Application Service (EDAS). The resources include clusters, ECS instances, and applications. You can use a default or custom namespace. Each region has a default namespace and supports multiple custom namespaces. By default, only the default namespace is available. You do not need to create a custom namespace if you do not want to isolate resources or microservices.
+    * *   **ECU**: After an ECS instance is imported to a cluster, the instance becomes an ECU.
+    * *   **Elastic compute container (ECC)**: After you deploy an application to an ECU in a cluster, the ECU becomes an ECC.
+    *
+    * @param request MigrateEcuRequest
+    * @param headers map
+    * @param runtime runtime options for this request RuntimeOptions
+    * @return MigrateEcuResponse
+   */
   async migrateEcuWithOptions(request: MigrateEcuRequest, headers: {[key: string ]: string}, runtime: $Util.RuntimeOptions): Promise<MigrateEcuResponse> {
     Util.validateModel(request);
     let query : {[key: string ]: any} = { };
@@ -25536,10 +26336,22 @@ export default class Client extends OpenApi {
     return $tea.cast<MigrateEcuResponse>(await this.callApi(params, req, runtime), new MigrateEcuResponse({}));
   }
 
-  async modifyScalingRule(request: ModifyScalingRuleRequest): Promise<ModifyScalingRuleResponse> {
+  /**
+    * ## Limits
+    * We recommend that you do not call this operation. Instead, we recommend that you call the TransformClusterMember operation. For more information, see [TransformClusterMember](~~71514~~).
+    * When you call this operation to import an Elastic Compute Service (ECS) instance, the operating system of the ECS instance is reinstalled. After the operating system is reinstalled, all data of the ECS instance is deleted. You must set a logon password for the ECS instance. Make sure that no important data exists on or data has been backed up for the ECS instance that you want to import.
+    * ## Terms
+    * *   **Namespace**: the logical concept that is used to isolate resources and microservices in Enterprise Distributed Application Service (EDAS). The resources include clusters, ECS instances, and applications. You can use a default or custom namespace. Each region has a default namespace and supports multiple custom namespaces. By default, only the default namespace is available. You do not need to create a custom namespace if you do not want to isolate resources or microservices.
+    * *   **ECU**: After an ECS instance is imported to a cluster, the instance becomes an ECU.
+    * *   **Elastic compute container (ECC)**: After you deploy an application to an ECU in a cluster, the ECU becomes an ECC.
+    *
+    * @param request MigrateEcuRequest
+    * @return MigrateEcuResponse
+   */
+  async migrateEcu(request: MigrateEcuRequest): Promise<MigrateEcuResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     let headers : {[key: string ]: string} = { };
-    return await this.modifyScalingRuleWithOptions(request, headers, runtime);
+    return await this.migrateEcuWithOptions(request, headers, runtime);
   }
 
   async modifyScalingRuleWithOptions(request: ModifyScalingRuleRequest, headers: {[key: string ]: string}, runtime: $Util.RuntimeOptions): Promise<ModifyScalingRuleResponse> {
@@ -25683,10 +26495,10 @@ export default class Client extends OpenApi {
     return $tea.cast<ModifyScalingRuleResponse>(await this.callApi(params, req, runtime), new ModifyScalingRuleResponse({}));
   }
 
-  async queryApplicationStatus(request: QueryApplicationStatusRequest): Promise<QueryApplicationStatusResponse> {
+  async modifyScalingRule(request: ModifyScalingRuleRequest): Promise<ModifyScalingRuleResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     let headers : {[key: string ]: string} = { };
-    return await this.queryApplicationStatusWithOptions(request, headers, runtime);
+    return await this.modifyScalingRuleWithOptions(request, headers, runtime);
   }
 
   async queryApplicationStatusWithOptions(request: QueryApplicationStatusRequest, headers: {[key: string ]: string}, runtime: $Util.RuntimeOptions): Promise<QueryApplicationStatusResponse> {
@@ -25714,10 +26526,10 @@ export default class Client extends OpenApi {
     return $tea.cast<QueryApplicationStatusResponse>(await this.callApi(params, req, runtime), new QueryApplicationStatusResponse({}));
   }
 
-  async queryEccInfo(request: QueryEccInfoRequest): Promise<QueryEccInfoResponse> {
+  async queryApplicationStatus(request: QueryApplicationStatusRequest): Promise<QueryApplicationStatusResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     let headers : {[key: string ]: string} = { };
-    return await this.queryEccInfoWithOptions(request, headers, runtime);
+    return await this.queryApplicationStatusWithOptions(request, headers, runtime);
   }
 
   async queryEccInfoWithOptions(request: QueryEccInfoRequest, headers: {[key: string ]: string}, runtime: $Util.RuntimeOptions): Promise<QueryEccInfoResponse> {
@@ -25745,10 +26557,10 @@ export default class Client extends OpenApi {
     return $tea.cast<QueryEccInfoResponse>(await this.callApi(params, req, runtime), new QueryEccInfoResponse({}));
   }
 
-  async queryMigrateEcuList(request: QueryMigrateEcuListRequest): Promise<QueryMigrateEcuListResponse> {
+  async queryEccInfo(request: QueryEccInfoRequest): Promise<QueryEccInfoResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     let headers : {[key: string ]: string} = { };
-    return await this.queryMigrateEcuListWithOptions(request, headers, runtime);
+    return await this.queryEccInfoWithOptions(request, headers, runtime);
   }
 
   async queryMigrateEcuListWithOptions(request: QueryMigrateEcuListRequest, headers: {[key: string ]: string}, runtime: $Util.RuntimeOptions): Promise<QueryMigrateEcuListResponse> {
@@ -25776,10 +26588,10 @@ export default class Client extends OpenApi {
     return $tea.cast<QueryMigrateEcuListResponse>(await this.callApi(params, req, runtime), new QueryMigrateEcuListResponse({}));
   }
 
-  async queryMigrateRegionList(request: QueryMigrateRegionListRequest): Promise<QueryMigrateRegionListResponse> {
+  async queryMigrateEcuList(request: QueryMigrateEcuListRequest): Promise<QueryMigrateEcuListResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     let headers : {[key: string ]: string} = { };
-    return await this.queryMigrateRegionListWithOptions(request, headers, runtime);
+    return await this.queryMigrateEcuListWithOptions(request, headers, runtime);
   }
 
   async queryMigrateRegionListWithOptions(request: QueryMigrateRegionListRequest, headers: {[key: string ]: string}, runtime: $Util.RuntimeOptions): Promise<QueryMigrateRegionListResponse> {
@@ -25807,10 +26619,10 @@ export default class Client extends OpenApi {
     return $tea.cast<QueryMigrateRegionListResponse>(await this.callApi(params, req, runtime), new QueryMigrateRegionListResponse({}));
   }
 
-  async queryRegionConfig(): Promise<QueryRegionConfigResponse> {
+  async queryMigrateRegionList(request: QueryMigrateRegionListRequest): Promise<QueryMigrateRegionListResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     let headers : {[key: string ]: string} = { };
-    return await this.queryRegionConfigWithOptions(headers, runtime);
+    return await this.queryMigrateRegionListWithOptions(request, headers, runtime);
   }
 
   async queryRegionConfigWithOptions(headers: {[key: string ]: string}, runtime: $Util.RuntimeOptions): Promise<QueryRegionConfigResponse> {
@@ -25831,10 +26643,10 @@ export default class Client extends OpenApi {
     return $tea.cast<QueryRegionConfigResponse>(await this.callApi(params, req, runtime), new QueryRegionConfigResponse({}));
   }
 
-  async querySlsLogStoreList(request: QuerySlsLogStoreListRequest): Promise<QuerySlsLogStoreListResponse> {
+  async queryRegionConfig(): Promise<QueryRegionConfigResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     let headers : {[key: string ]: string} = { };
-    return await this.querySlsLogStoreListWithOptions(request, headers, runtime);
+    return await this.queryRegionConfigWithOptions(headers, runtime);
   }
 
   async querySlsLogStoreListWithOptions(request: QuerySlsLogStoreListRequest, headers: {[key: string ]: string}, runtime: $Util.RuntimeOptions): Promise<QuerySlsLogStoreListResponse> {
@@ -25874,41 +26686,10 @@ export default class Client extends OpenApi {
     return $tea.cast<QuerySlsLogStoreListResponse>(await this.callApi(params, req, runtime), new QuerySlsLogStoreListResponse({}));
   }
 
-  async removeMockRule(request: RemoveMockRuleRequest): Promise<RemoveMockRuleResponse> {
+  async querySlsLogStoreList(request: QuerySlsLogStoreListRequest): Promise<QuerySlsLogStoreListResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     let headers : {[key: string ]: string} = { };
-    return await this.removeMockRuleWithOptions(request, headers, runtime);
-  }
-
-  async removeMockRuleWithOptions(request: RemoveMockRuleRequest, headers: {[key: string ]: string}, runtime: $Util.RuntimeOptions): Promise<RemoveMockRuleResponse> {
-    Util.validateModel(request);
-    let query : {[key: string ]: any} = { };
-    if (!Util.isUnset(request.id)) {
-      query["Id"] = request.id;
-    }
-
-    let req = new $OpenApi.OpenApiRequest({
-      headers: headers,
-      query: OpenApiUtil.query(query),
-    });
-    let params = new $OpenApi.Params({
-      action: "RemoveMockRule",
-      version: "2017-08-01",
-      protocol: "HTTPS",
-      pathname: `/pop/sp/api/mock/removeMockRule`,
-      method: "POST",
-      authType: "AK",
-      style: "ROA",
-      reqBodyType: "json",
-      bodyType: "json",
-    });
-    return $tea.cast<RemoveMockRuleResponse>(await this.callApi(params, req, runtime), new RemoveMockRuleResponse({}));
-  }
-
-  async resetApplication(request: ResetApplicationRequest): Promise<ResetApplicationResponse> {
-    let runtime = new $Util.RuntimeOptions({ });
-    let headers : {[key: string ]: string} = { };
-    return await this.resetApplicationWithOptions(request, headers, runtime);
+    return await this.querySlsLogStoreListWithOptions(request, headers, runtime);
   }
 
   async resetApplicationWithOptions(request: ResetApplicationRequest, headers: {[key: string ]: string}, runtime: $Util.RuntimeOptions): Promise<ResetApplicationResponse> {
@@ -25940,10 +26721,10 @@ export default class Client extends OpenApi {
     return $tea.cast<ResetApplicationResponse>(await this.callApi(params, req, runtime), new ResetApplicationResponse({}));
   }
 
-  async restartApplication(request: RestartApplicationRequest): Promise<RestartApplicationResponse> {
+  async resetApplication(request: ResetApplicationRequest): Promise<ResetApplicationResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     let headers : {[key: string ]: string} = { };
-    return await this.restartApplicationWithOptions(request, headers, runtime);
+    return await this.resetApplicationWithOptions(request, headers, runtime);
   }
 
   async restartApplicationWithOptions(request: RestartApplicationRequest, headers: {[key: string ]: string}, runtime: $Util.RuntimeOptions): Promise<RestartApplicationResponse> {
@@ -25975,10 +26756,10 @@ export default class Client extends OpenApi {
     return $tea.cast<RestartApplicationResponse>(await this.callApi(params, req, runtime), new RestartApplicationResponse({}));
   }
 
-  async restartK8sApplication(request: RestartK8sApplicationRequest): Promise<RestartK8sApplicationResponse> {
+  async restartApplication(request: RestartApplicationRequest): Promise<RestartApplicationResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     let headers : {[key: string ]: string} = { };
-    return await this.restartK8sApplicationWithOptions(request, headers, runtime);
+    return await this.restartApplicationWithOptions(request, headers, runtime);
   }
 
   async restartK8sApplicationWithOptions(request: RestartK8sApplicationRequest, headers: {[key: string ]: string}, runtime: $Util.RuntimeOptions): Promise<RestartK8sApplicationResponse> {
@@ -26010,10 +26791,10 @@ export default class Client extends OpenApi {
     return $tea.cast<RestartK8sApplicationResponse>(await this.callApi(params, req, runtime), new RestartK8sApplicationResponse({}));
   }
 
-  async retryChangeOrderTask(request: RetryChangeOrderTaskRequest): Promise<RetryChangeOrderTaskResponse> {
+  async restartK8sApplication(request: RestartK8sApplicationRequest): Promise<RestartK8sApplicationResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     let headers : {[key: string ]: string} = { };
-    return await this.retryChangeOrderTaskWithOptions(request, headers, runtime);
+    return await this.restartK8sApplicationWithOptions(request, headers, runtime);
   }
 
   async retryChangeOrderTaskWithOptions(request: RetryChangeOrderTaskRequest, headers: {[key: string ]: string}, runtime: $Util.RuntimeOptions): Promise<RetryChangeOrderTaskResponse> {
@@ -26045,10 +26826,10 @@ export default class Client extends OpenApi {
     return $tea.cast<RetryChangeOrderTaskResponse>(await this.callApi(params, req, runtime), new RetryChangeOrderTaskResponse({}));
   }
 
-  async rollbackApplication(request: RollbackApplicationRequest): Promise<RollbackApplicationResponse> {
+  async retryChangeOrderTask(request: RetryChangeOrderTaskRequest): Promise<RetryChangeOrderTaskResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     let headers : {[key: string ]: string} = { };
-    return await this.rollbackApplicationWithOptions(request, headers, runtime);
+    return await this.retryChangeOrderTaskWithOptions(request, headers, runtime);
   }
 
   async rollbackApplicationWithOptions(request: RollbackApplicationRequest, headers: {[key: string ]: string}, runtime: $Util.RuntimeOptions): Promise<RollbackApplicationResponse> {
@@ -26092,10 +26873,10 @@ export default class Client extends OpenApi {
     return $tea.cast<RollbackApplicationResponse>(await this.callApi(params, req, runtime), new RollbackApplicationResponse({}));
   }
 
-  async rollbackChangeOrder(request: RollbackChangeOrderRequest): Promise<RollbackChangeOrderResponse> {
+  async rollbackApplication(request: RollbackApplicationRequest): Promise<RollbackApplicationResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     let headers : {[key: string ]: string} = { };
-    return await this.rollbackChangeOrderWithOptions(request, headers, runtime);
+    return await this.rollbackApplicationWithOptions(request, headers, runtime);
   }
 
   async rollbackChangeOrderWithOptions(request: RollbackChangeOrderRequest, headers: {[key: string ]: string}, runtime: $Util.RuntimeOptions): Promise<RollbackChangeOrderResponse> {
@@ -26123,10 +26904,10 @@ export default class Client extends OpenApi {
     return $tea.cast<RollbackChangeOrderResponse>(await this.callApi(params, req, runtime), new RollbackChangeOrderResponse({}));
   }
 
-  async scaleInApplication(request: ScaleInApplicationRequest): Promise<ScaleInApplicationResponse> {
+  async rollbackChangeOrder(request: RollbackChangeOrderRequest): Promise<RollbackChangeOrderResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     let headers : {[key: string ]: string} = { };
-    return await this.scaleInApplicationWithOptions(request, headers, runtime);
+    return await this.rollbackChangeOrderWithOptions(request, headers, runtime);
   }
 
   async scaleInApplicationWithOptions(request: ScaleInApplicationRequest, headers: {[key: string ]: string}, runtime: $Util.RuntimeOptions): Promise<ScaleInApplicationResponse> {
@@ -26162,10 +26943,10 @@ export default class Client extends OpenApi {
     return $tea.cast<ScaleInApplicationResponse>(await this.callApi(params, req, runtime), new ScaleInApplicationResponse({}));
   }
 
-  async scaleK8sApplication(request: ScaleK8sApplicationRequest): Promise<ScaleK8sApplicationResponse> {
+  async scaleInApplication(request: ScaleInApplicationRequest): Promise<ScaleInApplicationResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     let headers : {[key: string ]: string} = { };
-    return await this.scaleK8sApplicationWithOptions(request, headers, runtime);
+    return await this.scaleInApplicationWithOptions(request, headers, runtime);
   }
 
   async scaleK8sApplicationWithOptions(request: ScaleK8sApplicationRequest, headers: {[key: string ]: string}, runtime: $Util.RuntimeOptions): Promise<ScaleK8sApplicationResponse> {
@@ -26201,10 +26982,10 @@ export default class Client extends OpenApi {
     return $tea.cast<ScaleK8sApplicationResponse>(await this.callApi(params, req, runtime), new ScaleK8sApplicationResponse({}));
   }
 
-  async scaleOutApplication(request: ScaleOutApplicationRequest): Promise<ScaleOutApplicationResponse> {
+  async scaleK8sApplication(request: ScaleK8sApplicationRequest): Promise<ScaleK8sApplicationResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     let headers : {[key: string ]: string} = { };
-    return await this.scaleOutApplicationWithOptions(request, headers, runtime);
+    return await this.scaleK8sApplicationWithOptions(request, headers, runtime);
   }
 
   async scaleOutApplicationWithOptions(request: ScaleOutApplicationRequest, headers: {[key: string ]: string}, runtime: $Util.RuntimeOptions): Promise<ScaleOutApplicationResponse> {
@@ -26240,12 +27021,21 @@ export default class Client extends OpenApi {
     return $tea.cast<ScaleOutApplicationResponse>(await this.callApi(params, req, runtime), new ScaleOutApplicationResponse({}));
   }
 
-  async scaleoutApplicationWithNewInstances(request: ScaleoutApplicationWithNewInstancesRequest): Promise<ScaleoutApplicationWithNewInstancesResponse> {
+  async scaleOutApplication(request: ScaleOutApplicationRequest): Promise<ScaleOutApplicationResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     let headers : {[key: string ]: string} = { };
-    return await this.scaleoutApplicationWithNewInstancesWithOptions(request, headers, runtime);
+    return await this.scaleOutApplicationWithOptions(request, headers, runtime);
   }
 
+  /**
+    * ## Limits
+    * Assume that the auto scaling feature is configured and enabled for an application. When an auto scale-in is triggered for the application, the ECS instances that are purchased by calling this operation are removed first.
+    *
+    * @param request ScaleoutApplicationWithNewInstancesRequest
+    * @param headers map
+    * @param runtime runtime options for this request RuntimeOptions
+    * @return ScaleoutApplicationWithNewInstancesResponse
+   */
   async scaleoutApplicationWithNewInstancesWithOptions(request: ScaleoutApplicationWithNewInstancesRequest, headers: {[key: string ]: string}, runtime: $Util.RuntimeOptions): Promise<ScaleoutApplicationWithNewInstancesResponse> {
     Util.validateModel(request);
     let query : {[key: string ]: any} = { };
@@ -26319,10 +27109,17 @@ export default class Client extends OpenApi {
     return $tea.cast<ScaleoutApplicationWithNewInstancesResponse>(await this.callApi(params, req, runtime), new ScaleoutApplicationWithNewInstancesResponse({}));
   }
 
-  async startApplication(request: StartApplicationRequest): Promise<StartApplicationResponse> {
+  /**
+    * ## Limits
+    * Assume that the auto scaling feature is configured and enabled for an application. When an auto scale-in is triggered for the application, the ECS instances that are purchased by calling this operation are removed first.
+    *
+    * @param request ScaleoutApplicationWithNewInstancesRequest
+    * @return ScaleoutApplicationWithNewInstancesResponse
+   */
+  async scaleoutApplicationWithNewInstances(request: ScaleoutApplicationWithNewInstancesRequest): Promise<ScaleoutApplicationWithNewInstancesResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     let headers : {[key: string ]: string} = { };
-    return await this.startApplicationWithOptions(request, headers, runtime);
+    return await this.scaleoutApplicationWithNewInstancesWithOptions(request, headers, runtime);
   }
 
   async startApplicationWithOptions(request: StartApplicationRequest, headers: {[key: string ]: string}, runtime: $Util.RuntimeOptions): Promise<StartApplicationResponse> {
@@ -26354,10 +27151,133 @@ export default class Client extends OpenApi {
     return $tea.cast<StartApplicationResponse>(await this.callApi(params, req, runtime), new StartApplicationResponse({}));
   }
 
-  async startK8sApplication(request: StartK8sApplicationRequest): Promise<StartK8sApplicationResponse> {
+  async startApplication(request: StartApplicationRequest): Promise<StartApplicationResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     let headers : {[key: string ]: string} = { };
-    return await this.startK8sApplicationWithOptions(request, headers, runtime);
+    return await this.startApplicationWithOptions(request, headers, runtime);
+  }
+
+  async startK8sAppPrecheckWithOptions(request: StartK8sAppPrecheckRequest, headers: {[key: string ]: string}, runtime: $Util.RuntimeOptions): Promise<StartK8sAppPrecheckResponse> {
+    Util.validateModel(request);
+    let query : {[key: string ]: any} = { };
+    if (!Util.isUnset(request.annotations)) {
+      query["Annotations"] = request.annotations;
+    }
+
+    if (!Util.isUnset(request.appId)) {
+      query["AppId"] = request.appId;
+    }
+
+    if (!Util.isUnset(request.appName)) {
+      query["AppName"] = request.appName;
+    }
+
+    if (!Util.isUnset(request.clusterId)) {
+      query["ClusterId"] = request.clusterId;
+    }
+
+    if (!Util.isUnset(request.componentIds)) {
+      query["ComponentIds"] = request.componentIds;
+    }
+
+    if (!Util.isUnset(request.configMountDescs)) {
+      query["ConfigMountDescs"] = request.configMountDescs;
+    }
+
+    if (!Util.isUnset(request.emptyDirs)) {
+      query["EmptyDirs"] = request.emptyDirs;
+    }
+
+    if (!Util.isUnset(request.envFroms)) {
+      query["EnvFroms"] = request.envFroms;
+    }
+
+    if (!Util.isUnset(request.envs)) {
+      query["Envs"] = request.envs;
+    }
+
+    if (!Util.isUnset(request.imageUrl)) {
+      query["ImageUrl"] = request.imageUrl;
+    }
+
+    if (!Util.isUnset(request.javaStartUpConfig)) {
+      query["JavaStartUpConfig"] = request.javaStartUpConfig;
+    }
+
+    if (!Util.isUnset(request.labels)) {
+      query["Labels"] = request.labels;
+    }
+
+    if (!Util.isUnset(request.limitEphemeralStorage)) {
+      query["LimitEphemeralStorage"] = request.limitEphemeralStorage;
+    }
+
+    if (!Util.isUnset(request.limitMem)) {
+      query["LimitMem"] = request.limitMem;
+    }
+
+    if (!Util.isUnset(request.limitmCpu)) {
+      query["LimitmCpu"] = request.limitmCpu;
+    }
+
+    if (!Util.isUnset(request.localVolume)) {
+      query["LocalVolume"] = request.localVolume;
+    }
+
+    if (!Util.isUnset(request.namespace)) {
+      query["Namespace"] = request.namespace;
+    }
+
+    if (!Util.isUnset(request.packageUrl)) {
+      query["PackageUrl"] = request.packageUrl;
+    }
+
+    if (!Util.isUnset(request.pvcMountDescs)) {
+      query["PvcMountDescs"] = request.pvcMountDescs;
+    }
+
+    if (!Util.isUnset(request.regionId)) {
+      query["RegionId"] = request.regionId;
+    }
+
+    if (!Util.isUnset(request.replicas)) {
+      query["Replicas"] = request.replicas;
+    }
+
+    if (!Util.isUnset(request.requestsEphemeralStorage)) {
+      query["RequestsEphemeralStorage"] = request.requestsEphemeralStorage;
+    }
+
+    if (!Util.isUnset(request.requestsMem)) {
+      query["RequestsMem"] = request.requestsMem;
+    }
+
+    if (!Util.isUnset(request.requestsmCpu)) {
+      query["RequestsmCpu"] = request.requestsmCpu;
+    }
+
+    let req = new $OpenApi.OpenApiRequest({
+      headers: headers,
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApi.Params({
+      action: "StartK8sAppPrecheck",
+      version: "2017-08-01",
+      protocol: "HTTPS",
+      pathname: `/pop/v5/k8s/app_precheck`,
+      method: "POST",
+      authType: "AK",
+      style: "ROA",
+      reqBodyType: "json",
+      bodyType: "json",
+    });
+    return $tea.cast<StartK8sAppPrecheckResponse>(await this.callApi(params, req, runtime), new StartK8sAppPrecheckResponse({}));
+  }
+
+  async startK8sAppPrecheck(request: StartK8sAppPrecheckRequest): Promise<StartK8sAppPrecheckResponse> {
+    let runtime = new $Util.RuntimeOptions({ });
+    let headers : {[key: string ]: string} = { };
+    return await this.startK8sAppPrecheckWithOptions(request, headers, runtime);
   }
 
   async startK8sApplicationWithOptions(request: StartK8sApplicationRequest, headers: {[key: string ]: string}, runtime: $Util.RuntimeOptions): Promise<StartK8sApplicationResponse> {
@@ -26393,10 +27313,10 @@ export default class Client extends OpenApi {
     return $tea.cast<StartK8sApplicationResponse>(await this.callApi(params, req, runtime), new StartK8sApplicationResponse({}));
   }
 
-  async stopApplication(request: StopApplicationRequest): Promise<StopApplicationResponse> {
+  async startK8sApplication(request: StartK8sApplicationRequest): Promise<StartK8sApplicationResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     let headers : {[key: string ]: string} = { };
-    return await this.stopApplicationWithOptions(request, headers, runtime);
+    return await this.startK8sApplicationWithOptions(request, headers, runtime);
   }
 
   async stopApplicationWithOptions(request: StopApplicationRequest, headers: {[key: string ]: string}, runtime: $Util.RuntimeOptions): Promise<StopApplicationResponse> {
@@ -26428,10 +27348,10 @@ export default class Client extends OpenApi {
     return $tea.cast<StopApplicationResponse>(await this.callApi(params, req, runtime), new StopApplicationResponse({}));
   }
 
-  async stopK8sApplication(request: StopK8sApplicationRequest): Promise<StopK8sApplicationResponse> {
+  async stopApplication(request: StopApplicationRequest): Promise<StopApplicationResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     let headers : {[key: string ]: string} = { };
-    return await this.stopK8sApplicationWithOptions(request, headers, runtime);
+    return await this.stopApplicationWithOptions(request, headers, runtime);
   }
 
   async stopK8sApplicationWithOptions(request: StopK8sApplicationRequest, headers: {[key: string ]: string}, runtime: $Util.RuntimeOptions): Promise<StopK8sApplicationResponse> {
@@ -26463,12 +27383,20 @@ export default class Client extends OpenApi {
     return $tea.cast<StopK8sApplicationResponse>(await this.callApi(params, req, runtime), new StopK8sApplicationResponse({}));
   }
 
-  async switchAdvancedMonitoring(request: SwitchAdvancedMonitoringRequest): Promise<SwitchAdvancedMonitoringResponse> {
+  async stopK8sApplication(request: StopK8sApplicationRequest): Promise<StopK8sApplicationResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     let headers : {[key: string ]: string} = { };
-    return await this.switchAdvancedMonitoringWithOptions(request, headers, runtime);
+    return await this.stopK8sApplicationWithOptions(request, headers, runtime);
   }
 
+  /**
+    * To call the SwitchAdvancedMonitoring operation, you must make sure that the version of Enterprise Distributed Application Service (EDAS) SDK for Java or Python is 3.15.2 or later.
+    *
+    * @param request SwitchAdvancedMonitoringRequest
+    * @param headers map
+    * @param runtime runtime options for this request RuntimeOptions
+    * @return SwitchAdvancedMonitoringResponse
+   */
   async switchAdvancedMonitoringWithOptions(request: SwitchAdvancedMonitoringRequest, headers: {[key: string ]: string}, runtime: $Util.RuntimeOptions): Promise<SwitchAdvancedMonitoringResponse> {
     Util.validateModel(request);
     let query : {[key: string ]: any} = { };
@@ -26498,12 +27426,26 @@ export default class Client extends OpenApi {
     return $tea.cast<SwitchAdvancedMonitoringResponse>(await this.callApi(params, req, runtime), new SwitchAdvancedMonitoringResponse({}));
   }
 
-  async synchronizeResource(request: SynchronizeResourceRequest): Promise<SynchronizeResourceResponse> {
+  /**
+    * To call the SwitchAdvancedMonitoring operation, you must make sure that the version of Enterprise Distributed Application Service (EDAS) SDK for Java or Python is 3.15.2 or later.
+    *
+    * @param request SwitchAdvancedMonitoringRequest
+    * @return SwitchAdvancedMonitoringResponse
+   */
+  async switchAdvancedMonitoring(request: SwitchAdvancedMonitoringRequest): Promise<SwitchAdvancedMonitoringResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     let headers : {[key: string ]: string} = { };
-    return await this.synchronizeResourceWithOptions(request, headers, runtime);
+    return await this.switchAdvancedMonitoringWithOptions(request, headers, runtime);
   }
 
+  /**
+    * If you call this operation to synchronize ECS resource information, all instance data is synchronized from ECS. If you have more than 100 ECS instances, we recommend that you do not frequently call this operation.
+    *
+    * @param request SynchronizeResourceRequest
+    * @param headers map
+    * @param runtime runtime options for this request RuntimeOptions
+    * @return SynchronizeResourceResponse
+   */
   async synchronizeResourceWithOptions(request: SynchronizeResourceRequest, headers: {[key: string ]: string}, runtime: $Util.RuntimeOptions): Promise<SynchronizeResourceResponse> {
     Util.validateModel(request);
     let query : {[key: string ]: any} = { };
@@ -26533,10 +27475,16 @@ export default class Client extends OpenApi {
     return $tea.cast<SynchronizeResourceResponse>(await this.callApi(params, req, runtime), new SynchronizeResourceResponse({}));
   }
 
-  async tagResources(request: TagResourcesRequest): Promise<TagResourcesResponse> {
+  /**
+    * If you call this operation to synchronize ECS resource information, all instance data is synchronized from ECS. If you have more than 100 ECS instances, we recommend that you do not frequently call this operation.
+    *
+    * @param request SynchronizeResourceRequest
+    * @return SynchronizeResourceResponse
+   */
+  async synchronizeResource(request: SynchronizeResourceRequest): Promise<SynchronizeResourceResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     let headers : {[key: string ]: string} = { };
-    return await this.tagResourcesWithOptions(request, headers, runtime);
+    return await this.synchronizeResourceWithOptions(request, headers, runtime);
   }
 
   async tagResourcesWithOptions(request: TagResourcesRequest, headers: {[key: string ]: string}, runtime: $Util.RuntimeOptions): Promise<TagResourcesResponse> {
@@ -26576,12 +27524,21 @@ export default class Client extends OpenApi {
     return $tea.cast<TagResourcesResponse>(await this.callApi(params, req, runtime), new TagResourcesResponse({}));
   }
 
-  async transformClusterMember(request: TransformClusterMemberRequest): Promise<TransformClusterMemberResponse> {
+  async tagResources(request: TagResourcesRequest): Promise<TagResourcesResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     let headers : {[key: string ]: string} = { };
-    return await this.transformClusterMemberWithOptions(request, headers, runtime);
+    return await this.tagResourcesWithOptions(request, headers, runtime);
   }
 
+  /**
+    * ## Limits
+    * When you call this operation to import an ECS instance, the operating system of the ECS instance is reinstalled. After the operating system is reinstalled, all data of the ECS instance is deleted. You must set a logon password for the ECS instance. Make sure that no important data exists on or data has been backed up for the ECS instance that you want to import.
+    *
+    * @param request TransformClusterMemberRequest
+    * @param headers map
+    * @param runtime runtime options for this request RuntimeOptions
+    * @return TransformClusterMemberResponse
+   */
   async transformClusterMemberWithOptions(request: TransformClusterMemberRequest, headers: {[key: string ]: string}, runtime: $Util.RuntimeOptions): Promise<TransformClusterMemberResponse> {
     Util.validateModel(request);
     let query : {[key: string ]: any} = { };
@@ -26615,10 +27572,17 @@ export default class Client extends OpenApi {
     return $tea.cast<TransformClusterMemberResponse>(await this.callApi(params, req, runtime), new TransformClusterMemberResponse({}));
   }
 
-  async unbindK8sSlb(request: UnbindK8sSlbRequest): Promise<UnbindK8sSlbResponse> {
+  /**
+    * ## Limits
+    * When you call this operation to import an ECS instance, the operating system of the ECS instance is reinstalled. After the operating system is reinstalled, all data of the ECS instance is deleted. You must set a logon password for the ECS instance. Make sure that no important data exists on or data has been backed up for the ECS instance that you want to import.
+    *
+    * @param request TransformClusterMemberRequest
+    * @return TransformClusterMemberResponse
+   */
+  async transformClusterMember(request: TransformClusterMemberRequest): Promise<TransformClusterMemberResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     let headers : {[key: string ]: string} = { };
-    return await this.unbindK8sSlbWithOptions(request, headers, runtime);
+    return await this.transformClusterMemberWithOptions(request, headers, runtime);
   }
 
   async unbindK8sSlbWithOptions(request: UnbindK8sSlbRequest, headers: {[key: string ]: string}, runtime: $Util.RuntimeOptions): Promise<UnbindK8sSlbResponse> {
@@ -26658,10 +27622,10 @@ export default class Client extends OpenApi {
     return $tea.cast<UnbindK8sSlbResponse>(await this.callApi(params, req, runtime), new UnbindK8sSlbResponse({}));
   }
 
-  async unbindSlb(request: UnbindSlbRequest): Promise<UnbindSlbResponse> {
+  async unbindK8sSlb(request: UnbindK8sSlbRequest): Promise<UnbindK8sSlbResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     let headers : {[key: string ]: string} = { };
-    return await this.unbindSlbWithOptions(request, headers, runtime);
+    return await this.unbindK8sSlbWithOptions(request, headers, runtime);
   }
 
   async unbindSlbWithOptions(request: UnbindSlbRequest, headers: {[key: string ]: string}, runtime: $Util.RuntimeOptions): Promise<UnbindSlbResponse> {
@@ -26701,10 +27665,10 @@ export default class Client extends OpenApi {
     return $tea.cast<UnbindSlbResponse>(await this.callApi(params, req, runtime), new UnbindSlbResponse({}));
   }
 
-  async untagResources(request: UntagResourcesRequest): Promise<UntagResourcesResponse> {
+  async unbindSlb(request: UnbindSlbRequest): Promise<UnbindSlbResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     let headers : {[key: string ]: string} = { };
-    return await this.untagResourcesWithOptions(request, headers, runtime);
+    return await this.unbindSlbWithOptions(request, headers, runtime);
   }
 
   async untagResourcesWithOptions(request: UntagResourcesRequest, headers: {[key: string ]: string}, runtime: $Util.RuntimeOptions): Promise<UntagResourcesResponse> {
@@ -26748,10 +27712,10 @@ export default class Client extends OpenApi {
     return $tea.cast<UntagResourcesResponse>(await this.callApi(params, req, runtime), new UntagResourcesResponse({}));
   }
 
-  async updateAccountInfo(request: UpdateAccountInfoRequest): Promise<UpdateAccountInfoResponse> {
+  async untagResources(request: UntagResourcesRequest): Promise<UntagResourcesResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     let headers : {[key: string ]: string} = { };
-    return await this.updateAccountInfoWithOptions(request, headers, runtime);
+    return await this.untagResourcesWithOptions(request, headers, runtime);
   }
 
   async updateAccountInfoWithOptions(request: UpdateAccountInfoRequest, headers: {[key: string ]: string}, runtime: $Util.RuntimeOptions): Promise<UpdateAccountInfoResponse> {
@@ -26787,10 +27751,10 @@ export default class Client extends OpenApi {
     return $tea.cast<UpdateAccountInfoResponse>(await this.callApi(params, req, runtime), new UpdateAccountInfoResponse({}));
   }
 
-  async updateApplicationBaseInfo(request: UpdateApplicationBaseInfoRequest): Promise<UpdateApplicationBaseInfoResponse> {
+  async updateAccountInfo(request: UpdateAccountInfoRequest): Promise<UpdateAccountInfoResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     let headers : {[key: string ]: string} = { };
-    return await this.updateApplicationBaseInfoWithOptions(request, headers, runtime);
+    return await this.updateAccountInfoWithOptions(request, headers, runtime);
   }
 
   async updateApplicationBaseInfoWithOptions(request: UpdateApplicationBaseInfoRequest, headers: {[key: string ]: string}, runtime: $Util.RuntimeOptions): Promise<UpdateApplicationBaseInfoResponse> {
@@ -26830,10 +27794,10 @@ export default class Client extends OpenApi {
     return $tea.cast<UpdateApplicationBaseInfoResponse>(await this.callApi(params, req, runtime), new UpdateApplicationBaseInfoResponse({}));
   }
 
-  async updateApplicationScalingRule(request: UpdateApplicationScalingRuleRequest): Promise<UpdateApplicationScalingRuleResponse> {
+  async updateApplicationBaseInfo(request: UpdateApplicationBaseInfoRequest): Promise<UpdateApplicationBaseInfoResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     let headers : {[key: string ]: string} = { };
-    return await this.updateApplicationScalingRuleWithOptions(request, headers, runtime);
+    return await this.updateApplicationBaseInfoWithOptions(request, headers, runtime);
   }
 
   async updateApplicationScalingRuleWithOptions(request: UpdateApplicationScalingRuleRequest, headers: {[key: string ]: string}, runtime: $Util.RuntimeOptions): Promise<UpdateApplicationScalingRuleResponse> {
@@ -26841,6 +27805,10 @@ export default class Client extends OpenApi {
     let query : {[key: string ]: any} = { };
     if (!Util.isUnset(request.appId)) {
       query["AppId"] = request.appId;
+    }
+
+    if (!Util.isUnset(request.scalingBehaviour)) {
+      query["ScalingBehaviour"] = request.scalingBehaviour;
     }
 
     if (!Util.isUnset(request.scalingRuleEnable)) {
@@ -26885,10 +27853,10 @@ export default class Client extends OpenApi {
     return $tea.cast<UpdateApplicationScalingRuleResponse>(await this.callApi(params, req, runtime), new UpdateApplicationScalingRuleResponse({}));
   }
 
-  async updateConfigTemplate(request: UpdateConfigTemplateRequest): Promise<UpdateConfigTemplateResponse> {
+  async updateApplicationScalingRule(request: UpdateApplicationScalingRuleRequest): Promise<UpdateApplicationScalingRuleResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     let headers : {[key: string ]: string} = { };
-    return await this.updateConfigTemplateWithOptions(request, headers, runtime);
+    return await this.updateApplicationScalingRuleWithOptions(request, headers, runtime);
   }
 
   async updateConfigTemplateWithOptions(request: UpdateConfigTemplateRequest, headers: {[key: string ]: string}, runtime: $Util.RuntimeOptions): Promise<UpdateConfigTemplateResponse> {
@@ -26932,10 +27900,10 @@ export default class Client extends OpenApi {
     return $tea.cast<UpdateConfigTemplateResponse>(await this.callApi(params, req, runtime), new UpdateConfigTemplateResponse({}));
   }
 
-  async updateContainer(request: UpdateContainerRequest): Promise<UpdateContainerResponse> {
+  async updateConfigTemplate(request: UpdateConfigTemplateRequest): Promise<UpdateConfigTemplateResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     let headers : {[key: string ]: string} = { };
-    return await this.updateContainerWithOptions(request, headers, runtime);
+    return await this.updateConfigTemplateWithOptions(request, headers, runtime);
   }
 
   async updateContainerWithOptions(request: UpdateContainerRequest, headers: {[key: string ]: string}, runtime: $Util.RuntimeOptions): Promise<UpdateContainerResponse> {
@@ -26967,10 +27935,10 @@ export default class Client extends OpenApi {
     return $tea.cast<UpdateContainerResponse>(await this.callApi(params, req, runtime), new UpdateContainerResponse({}));
   }
 
-  async updateContainerConfiguration(request: UpdateContainerConfigurationRequest): Promise<UpdateContainerConfigurationResponse> {
+  async updateContainer(request: UpdateContainerRequest): Promise<UpdateContainerResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     let headers : {[key: string ]: string} = { };
-    return await this.updateContainerConfigurationWithOptions(request, headers, runtime);
+    return await this.updateContainerWithOptions(request, headers, runtime);
   }
 
   async updateContainerConfigurationWithOptions(request: UpdateContainerConfigurationRequest, headers: {[key: string ]: string}, runtime: $Util.RuntimeOptions): Promise<UpdateContainerConfigurationResponse> {
@@ -27022,10 +27990,10 @@ export default class Client extends OpenApi {
     return $tea.cast<UpdateContainerConfigurationResponse>(await this.callApi(params, req, runtime), new UpdateContainerConfigurationResponse({}));
   }
 
-  async updateHealthCheckUrl(request: UpdateHealthCheckUrlRequest): Promise<UpdateHealthCheckUrlResponse> {
+  async updateContainerConfiguration(request: UpdateContainerConfigurationRequest): Promise<UpdateContainerConfigurationResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     let headers : {[key: string ]: string} = { };
-    return await this.updateHealthCheckUrlWithOptions(request, headers, runtime);
+    return await this.updateContainerConfigurationWithOptions(request, headers, runtime);
   }
 
   async updateHealthCheckUrlWithOptions(request: UpdateHealthCheckUrlRequest, headers: {[key: string ]: string}, runtime: $Util.RuntimeOptions): Promise<UpdateHealthCheckUrlResponse> {
@@ -27057,10 +28025,10 @@ export default class Client extends OpenApi {
     return $tea.cast<UpdateHealthCheckUrlResponse>(await this.callApi(params, req, runtime), new UpdateHealthCheckUrlResponse({}));
   }
 
-  async updateHookConfiguration(request: UpdateHookConfigurationRequest): Promise<UpdateHookConfigurationResponse> {
+  async updateHealthCheckUrl(request: UpdateHealthCheckUrlRequest): Promise<UpdateHealthCheckUrlResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     let headers : {[key: string ]: string} = { };
-    return await this.updateHookConfigurationWithOptions(request, headers, runtime);
+    return await this.updateHealthCheckUrlWithOptions(request, headers, runtime);
   }
 
   async updateHookConfigurationWithOptions(request: UpdateHookConfigurationRequest, headers: {[key: string ]: string}, runtime: $Util.RuntimeOptions): Promise<UpdateHookConfigurationResponse> {
@@ -27096,10 +28064,10 @@ export default class Client extends OpenApi {
     return $tea.cast<UpdateHookConfigurationResponse>(await this.callApi(params, req, runtime), new UpdateHookConfigurationResponse({}));
   }
 
-  async updateJvmConfiguration(request: UpdateJvmConfigurationRequest): Promise<UpdateJvmConfigurationResponse> {
+  async updateHookConfiguration(request: UpdateHookConfigurationRequest): Promise<UpdateHookConfigurationResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     let headers : {[key: string ]: string} = { };
-    return await this.updateJvmConfigurationWithOptions(request, headers, runtime);
+    return await this.updateHookConfigurationWithOptions(request, headers, runtime);
   }
 
   async updateJvmConfigurationWithOptions(request: UpdateJvmConfigurationRequest, headers: {[key: string ]: string}, runtime: $Util.RuntimeOptions): Promise<UpdateJvmConfigurationResponse> {
@@ -27147,10 +28115,10 @@ export default class Client extends OpenApi {
     return $tea.cast<UpdateJvmConfigurationResponse>(await this.callApi(params, req, runtime), new UpdateJvmConfigurationResponse({}));
   }
 
-  async updateK8sApplicationBaseInfo(request: UpdateK8sApplicationBaseInfoRequest): Promise<UpdateK8sApplicationBaseInfoResponse> {
+  async updateJvmConfiguration(request: UpdateJvmConfigurationRequest): Promise<UpdateJvmConfigurationResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     let headers : {[key: string ]: string} = { };
-    return await this.updateK8sApplicationBaseInfoWithOptions(request, headers, runtime);
+    return await this.updateJvmConfigurationWithOptions(request, headers, runtime);
   }
 
   async updateK8sApplicationBaseInfoWithOptions(request: UpdateK8sApplicationBaseInfoRequest, headers: {[key: string ]: string}, runtime: $Util.RuntimeOptions): Promise<UpdateK8sApplicationBaseInfoResponse> {
@@ -27194,10 +28162,10 @@ export default class Client extends OpenApi {
     return $tea.cast<UpdateK8sApplicationBaseInfoResponse>(await this.callApi(params, req, runtime), new UpdateK8sApplicationBaseInfoResponse({}));
   }
 
-  async updateK8sApplicationConfig(request: UpdateK8sApplicationConfigRequest): Promise<UpdateK8sApplicationConfigResponse> {
+  async updateK8sApplicationBaseInfo(request: UpdateK8sApplicationBaseInfoRequest): Promise<UpdateK8sApplicationBaseInfoResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     let headers : {[key: string ]: string} = { };
-    return await this.updateK8sApplicationConfigWithOptions(request, headers, runtime);
+    return await this.updateK8sApplicationBaseInfoWithOptions(request, headers, runtime);
   }
 
   async updateK8sApplicationConfigWithOptions(request: UpdateK8sApplicationConfigRequest, headers: {[key: string ]: string}, runtime: $Util.RuntimeOptions): Promise<UpdateK8sApplicationConfigResponse> {
@@ -27217,6 +28185,14 @@ export default class Client extends OpenApi {
 
     if (!Util.isUnset(request.cpuRequest)) {
       query["CpuRequest"] = request.cpuRequest;
+    }
+
+    if (!Util.isUnset(request.ephemeralStorageLimit)) {
+      query["EphemeralStorageLimit"] = request.ephemeralStorageLimit;
+    }
+
+    if (!Util.isUnset(request.ephemeralStorageRequest)) {
+      query["EphemeralStorageRequest"] = request.ephemeralStorageRequest;
     }
 
     if (!Util.isUnset(request.mcpuLimit)) {
@@ -27257,10 +28233,10 @@ export default class Client extends OpenApi {
     return $tea.cast<UpdateK8sApplicationConfigResponse>(await this.callApi(params, req, runtime), new UpdateK8sApplicationConfigResponse({}));
   }
 
-  async updateK8sConfigMap(request: UpdateK8sConfigMapRequest): Promise<UpdateK8sConfigMapResponse> {
+  async updateK8sApplicationConfig(request: UpdateK8sApplicationConfigRequest): Promise<UpdateK8sApplicationConfigResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     let headers : {[key: string ]: string} = { };
-    return await this.updateK8sConfigMapWithOptions(request, headers, runtime);
+    return await this.updateK8sApplicationConfigWithOptions(request, headers, runtime);
   }
 
   async updateK8sConfigMapWithOptions(request: UpdateK8sConfigMapRequest, headers: {[key: string ]: string}, runtime: $Util.RuntimeOptions): Promise<UpdateK8sConfigMapResponse> {
@@ -27300,21 +28276,29 @@ export default class Client extends OpenApi {
     return $tea.cast<UpdateK8sConfigMapResponse>(await this.callApi(params, req, runtime), new UpdateK8sConfigMapResponse({}));
   }
 
-  async updateK8sIngressRule(request: UpdateK8sIngressRuleRequest): Promise<UpdateK8sIngressRuleResponse> {
+  async updateK8sConfigMap(request: UpdateK8sConfigMapRequest): Promise<UpdateK8sConfigMapResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     let headers : {[key: string ]: string} = { };
-    return await this.updateK8sIngressRuleWithOptions(request, headers, runtime);
+    return await this.updateK8sConfigMapWithOptions(request, headers, runtime);
   }
 
   async updateK8sIngressRuleWithOptions(request: UpdateK8sIngressRuleRequest, headers: {[key: string ]: string}, runtime: $Util.RuntimeOptions): Promise<UpdateK8sIngressRuleResponse> {
     Util.validateModel(request);
     let query : {[key: string ]: any} = { };
+    if (!Util.isUnset(request.annotations)) {
+      query["Annotations"] = request.annotations;
+    }
+
     if (!Util.isUnset(request.clusterId)) {
       query["ClusterId"] = request.clusterId;
     }
 
     if (!Util.isUnset(request.ingressConf)) {
       query["IngressConf"] = request.ingressConf;
+    }
+
+    if (!Util.isUnset(request.labels)) {
+      query["Labels"] = request.labels;
     }
 
     if (!Util.isUnset(request.name)) {
@@ -27343,12 +28327,20 @@ export default class Client extends OpenApi {
     return $tea.cast<UpdateK8sIngressRuleResponse>(await this.callApi(params, req, runtime), new UpdateK8sIngressRuleResponse({}));
   }
 
-  async updateK8sResource(request: UpdateK8sResourceRequest): Promise<UpdateK8sResourceResponse> {
+  async updateK8sIngressRule(request: UpdateK8sIngressRuleRequest): Promise<UpdateK8sIngressRuleResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     let headers : {[key: string ]: string} = { };
-    return await this.updateK8sResourceWithOptions(request, headers, runtime);
+    return await this.updateK8sIngressRuleWithOptions(request, headers, runtime);
   }
 
+  /**
+    * > You can update only Deployments.
+    *
+    * @param request UpdateK8sResourceRequest
+    * @param headers map
+    * @param runtime runtime options for this request RuntimeOptions
+    * @return UpdateK8sResourceResponse
+   */
   async updateK8sResourceWithOptions(request: UpdateK8sResourceRequest, headers: {[key: string ]: string}, runtime: $Util.RuntimeOptions): Promise<UpdateK8sResourceResponse> {
     Util.validateModel(request);
     let body : {[key: string ]: any} = { };
@@ -27382,10 +28374,16 @@ export default class Client extends OpenApi {
     return $tea.cast<UpdateK8sResourceResponse>(await this.callApi(params, req, runtime), new UpdateK8sResourceResponse({}));
   }
 
-  async updateK8sSecret(request: UpdateK8sSecretRequest): Promise<UpdateK8sSecretResponse> {
+  /**
+    * > You can update only Deployments.
+    *
+    * @param request UpdateK8sResourceRequest
+    * @return UpdateK8sResourceResponse
+   */
+  async updateK8sResource(request: UpdateK8sResourceRequest): Promise<UpdateK8sResourceResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     let headers : {[key: string ]: string} = { };
-    return await this.updateK8sSecretWithOptions(request, headers, runtime);
+    return await this.updateK8sResourceWithOptions(request, headers, runtime);
   }
 
   async updateK8sSecretWithOptions(request: UpdateK8sSecretRequest, headers: {[key: string ]: string}, runtime: $Util.RuntimeOptions): Promise<UpdateK8sSecretResponse> {
@@ -27441,10 +28439,10 @@ export default class Client extends OpenApi {
     return $tea.cast<UpdateK8sSecretResponse>(await this.callApi(params, req, runtime), new UpdateK8sSecretResponse({}));
   }
 
-  async updateK8sService(request: UpdateK8sServiceRequest): Promise<UpdateK8sServiceResponse> {
+  async updateK8sSecret(request: UpdateK8sSecretRequest): Promise<UpdateK8sSecretResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     let headers : {[key: string ]: string} = { };
-    return await this.updateK8sServiceWithOptions(request, headers, runtime);
+    return await this.updateK8sSecretWithOptions(request, headers, runtime);
   }
 
   async updateK8sServiceWithOptions(request: UpdateK8sServiceRequest, headers: {[key: string ]: string}, runtime: $Util.RuntimeOptions): Promise<UpdateK8sServiceResponse> {
@@ -27452,6 +28450,10 @@ export default class Client extends OpenApi {
     let query : {[key: string ]: any} = { };
     if (!Util.isUnset(request.appId)) {
       query["AppId"] = request.appId;
+    }
+
+    if (!Util.isUnset(request.externalTrafficPolicy)) {
+      query["ExternalTrafficPolicy"] = request.externalTrafficPolicy;
     }
 
     if (!Util.isUnset(request.name)) {
@@ -27484,10 +28486,10 @@ export default class Client extends OpenApi {
     return $tea.cast<UpdateK8sServiceResponse>(await this.callApi(params, req, runtime), new UpdateK8sServiceResponse({}));
   }
 
-  async updateK8sSlb(request: UpdateK8sSlbRequest): Promise<UpdateK8sSlbResponse> {
+  async updateK8sService(request: UpdateK8sServiceRequest): Promise<UpdateK8sServiceResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     let headers : {[key: string ]: string} = { };
-    return await this.updateK8sSlbWithOptions(request, headers, runtime);
+    return await this.updateK8sServiceWithOptions(request, headers, runtime);
   }
 
   async updateK8sSlbWithOptions(request: UpdateK8sSlbRequest, headers: {[key: string ]: string}, runtime: $Util.RuntimeOptions): Promise<UpdateK8sSlbResponse> {
@@ -27555,61 +28557,10 @@ export default class Client extends OpenApi {
     return $tea.cast<UpdateK8sSlbResponse>(await this.callApi(params, req, runtime), new UpdateK8sSlbResponse({}));
   }
 
-  async updateMockRule(request: UpdateMockRuleRequest): Promise<UpdateMockRuleResponse> {
+  async updateK8sSlb(request: UpdateK8sSlbRequest): Promise<UpdateK8sSlbResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     let headers : {[key: string ]: string} = { };
-    return await this.updateMockRuleWithOptions(request, headers, runtime);
-  }
-
-  async updateMockRuleWithOptions(request: UpdateMockRuleRequest, headers: {[key: string ]: string}, runtime: $Util.RuntimeOptions): Promise<UpdateMockRuleResponse> {
-    Util.validateModel(request);
-    let query : {[key: string ]: any} = { };
-    if (!Util.isUnset(request.dubboMockItemJson)) {
-      query["DubboMockItemJson"] = request.dubboMockItemJson;
-    }
-
-    if (!Util.isUnset(request.extraJson)) {
-      query["ExtraJson"] = request.extraJson;
-    }
-
-    if (!Util.isUnset(request.id)) {
-      query["Id"] = request.id;
-    }
-
-    if (!Util.isUnset(request.name)) {
-      query["Name"] = request.name;
-    }
-
-    if (!Util.isUnset(request.region)) {
-      query["Region"] = request.region;
-    }
-
-    if (!Util.isUnset(request.scMockItemJson)) {
-      query["ScMockItemJson"] = request.scMockItemJson;
-    }
-
-    let req = new $OpenApi.OpenApiRequest({
-      headers: headers,
-      query: OpenApiUtil.query(query),
-    });
-    let params = new $OpenApi.Params({
-      action: "UpdateMockRule",
-      version: "2017-08-01",
-      protocol: "HTTPS",
-      pathname: `/pop/sp/api/mock/updateMockRule`,
-      method: "POST",
-      authType: "AK",
-      style: "ROA",
-      reqBodyType: "json",
-      bodyType: "json",
-    });
-    return $tea.cast<UpdateMockRuleResponse>(await this.callApi(params, req, runtime), new UpdateMockRuleResponse({}));
-  }
-
-  async updateRole(request: UpdateRoleRequest): Promise<UpdateRoleResponse> {
-    let runtime = new $Util.RuntimeOptions({ });
-    let headers : {[key: string ]: string} = { };
-    return await this.updateRoleWithOptions(request, headers, runtime);
+    return await this.updateK8sSlbWithOptions(request, headers, runtime);
   }
 
   async updateRoleWithOptions(request: UpdateRoleRequest, headers: {[key: string ]: string}, runtime: $Util.RuntimeOptions): Promise<UpdateRoleResponse> {
@@ -27641,10 +28592,10 @@ export default class Client extends OpenApi {
     return $tea.cast<UpdateRoleResponse>(await this.callApi(params, req, runtime), new UpdateRoleResponse({}));
   }
 
-  async updateSlsLogStore(request: UpdateSlsLogStoreRequest): Promise<UpdateSlsLogStoreResponse> {
+  async updateRole(request: UpdateRoleRequest): Promise<UpdateRoleResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     let headers : {[key: string ]: string} = { };
-    return await this.updateSlsLogStoreWithOptions(request, headers, runtime);
+    return await this.updateRoleWithOptions(request, headers, runtime);
   }
 
   async updateSlsLogStoreWithOptions(request: UpdateSlsLogStoreRequest, headers: {[key: string ]: string}, runtime: $Util.RuntimeOptions): Promise<UpdateSlsLogStoreResponse> {
@@ -27674,6 +28625,102 @@ export default class Client extends OpenApi {
       bodyType: "json",
     });
     return $tea.cast<UpdateSlsLogStoreResponse>(await this.callApi(params, req, runtime), new UpdateSlsLogStoreResponse({}));
+  }
+
+  async updateSlsLogStore(request: UpdateSlsLogStoreRequest): Promise<UpdateSlsLogStoreResponse> {
+    let runtime = new $Util.RuntimeOptions({ });
+    let headers : {[key: string ]: string} = { };
+    return await this.updateSlsLogStoreWithOptions(request, headers, runtime);
+  }
+
+  async updateSwimmingLaneWithOptions(request: UpdateSwimmingLaneRequest, headers: {[key: string ]: string}, runtime: $Util.RuntimeOptions): Promise<UpdateSwimmingLaneResponse> {
+    Util.validateModel(request);
+    let query : {[key: string ]: any} = { };
+    if (!Util.isUnset(request.appInfos)) {
+      query["AppInfos"] = request.appInfos;
+    }
+
+    if (!Util.isUnset(request.enableRules)) {
+      query["EnableRules"] = request.enableRules;
+    }
+
+    if (!Util.isUnset(request.entryRules)) {
+      query["EntryRules"] = request.entryRules;
+    }
+
+    if (!Util.isUnset(request.laneId)) {
+      query["LaneId"] = request.laneId;
+    }
+
+    if (!Util.isUnset(request.name)) {
+      query["Name"] = request.name;
+    }
+
+    let req = new $OpenApi.OpenApiRequest({
+      headers: headers,
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApi.Params({
+      action: "UpdateSwimmingLane",
+      version: "2017-08-01",
+      protocol: "HTTPS",
+      pathname: `/pop/v5/trafficmgnt/swimming_lanes`,
+      method: "PUT",
+      authType: "AK",
+      style: "ROA",
+      reqBodyType: "json",
+      bodyType: "json",
+    });
+    return $tea.cast<UpdateSwimmingLaneResponse>(await this.callApi(params, req, runtime), new UpdateSwimmingLaneResponse({}));
+  }
+
+  async updateSwimmingLane(request: UpdateSwimmingLaneRequest): Promise<UpdateSwimmingLaneResponse> {
+    let runtime = new $Util.RuntimeOptions({ });
+    let headers : {[key: string ]: string} = { };
+    return await this.updateSwimmingLaneWithOptions(request, headers, runtime);
+  }
+
+  async updateSwimmingLaneGroupWithOptions(request: UpdateSwimmingLaneGroupRequest, headers: {[key: string ]: string}, runtime: $Util.RuntimeOptions): Promise<UpdateSwimmingLaneGroupResponse> {
+    Util.validateModel(request);
+    let query : {[key: string ]: any} = { };
+    if (!Util.isUnset(request.appIds)) {
+      query["AppIds"] = request.appIds;
+    }
+
+    if (!Util.isUnset(request.entryApp)) {
+      query["EntryApp"] = request.entryApp;
+    }
+
+    if (!Util.isUnset(request.groupId)) {
+      query["GroupId"] = request.groupId;
+    }
+
+    if (!Util.isUnset(request.name)) {
+      query["Name"] = request.name;
+    }
+
+    let req = new $OpenApi.OpenApiRequest({
+      headers: headers,
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApi.Params({
+      action: "UpdateSwimmingLaneGroup",
+      version: "2017-08-01",
+      protocol: "HTTPS",
+      pathname: `/pop/v5/trafficmgnt/swimming_lane_groups`,
+      method: "PUT",
+      authType: "AK",
+      style: "ROA",
+      reqBodyType: "json",
+      bodyType: "json",
+    });
+    return $tea.cast<UpdateSwimmingLaneGroupResponse>(await this.callApi(params, req, runtime), new UpdateSwimmingLaneGroupResponse({}));
+  }
+
+  async updateSwimmingLaneGroup(request: UpdateSwimmingLaneGroupRequest): Promise<UpdateSwimmingLaneGroupResponse> {
+    let runtime = new $Util.RuntimeOptions({ });
+    let headers : {[key: string ]: string} = { };
+    return await this.updateSwimmingLaneGroupWithOptions(request, headers, runtime);
   }
 
 }
