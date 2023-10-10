@@ -8,6 +8,28 @@ import OpenApiUtil from '@alicloud/openapi-util';
 import EndpointUtil from '@alicloud/endpoint-util';
 import * as $tea from '@alicloud/tea-typescript';
 
+export class GetQeIdentityRequest extends $tea.Model {
+  acsHost?: string;
+  clientVpcId?: string;
+  static names(): { [key: string]: string } {
+    return {
+      acsHost: 'AcsHost',
+      clientVpcId: 'ClientVpcId',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      acsHost: 'string',
+      clientVpcId: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
 export class GetQeIdentityResponse extends $tea.Model {
   headers: { [key: string]: string };
   statusCode: number;
@@ -25,6 +47,28 @@ export class GetQeIdentityResponse extends $tea.Model {
       headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
       statusCode: 'number',
       body: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class GetQveIdentityRequest extends $tea.Model {
+  acsHost?: string;
+  clientVpcId?: string;
+  static names(): { [key: string]: string } {
+    return {
+      acsHost: 'AcsHost',
+      clientVpcId: 'ClientVpcId',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      acsHost: 'string',
+      clientVpcId: 'string',
     };
   }
 
@@ -59,15 +103,21 @@ export class GetQveIdentityResponse extends $tea.Model {
 }
 
 export class GetTcbInfoRequest extends $tea.Model {
+  acsHost?: string;
+  clientVpcId?: string;
   fmspc?: string;
   static names(): { [key: string]: string } {
     return {
+      acsHost: 'AcsHost',
+      clientVpcId: 'ClientVpcId',
       fmspc: 'fmspc',
     };
   }
 
   static types(): { [key: string]: any } {
     return {
+      acsHost: 'string',
+      clientVpcId: 'string',
       fmspc: 'string',
     };
   }
@@ -103,15 +153,21 @@ export class GetTcbInfoResponse extends $tea.Model {
 }
 
 export class PckCrlRequest extends $tea.Model {
+  acsHost?: string;
+  clientVpcId?: string;
   ca?: string;
   static names(): { [key: string]: string } {
     return {
+      acsHost: 'AcsHost',
+      clientVpcId: 'ClientVpcId',
       ca: 'ca',
     };
   }
 
   static types(): { [key: string]: any } {
     return {
+      acsHost: 'string',
+      clientVpcId: 'string',
       ca: 'string',
     };
   }
@@ -146,6 +202,28 @@ export class PckCrlResponse extends $tea.Model {
   }
 }
 
+export class RootCaCrlRequest extends $tea.Model {
+  acsHost?: string;
+  clientVpcId?: string;
+  static names(): { [key: string]: string } {
+    return {
+      acsHost: 'AcsHost',
+      clientVpcId: 'ClientVpcId',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      acsHost: 'string',
+      clientVpcId: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
 export class RootCaCrlResponse extends $tea.Model {
   headers: { [key: string]: string };
   statusCode: number;
@@ -172,6 +250,8 @@ export class RootCaCrlResponse extends $tea.Model {
 }
 
 export class SimplePackagePckCertRequest extends $tea.Model {
+  acsHost?: string;
+  clientVpcId?: string;
   cpusvn?: string;
   encryptedPpid?: string;
   pceid?: string;
@@ -179,6 +259,8 @@ export class SimplePackagePckCertRequest extends $tea.Model {
   qeid?: string;
   static names(): { [key: string]: string } {
     return {
+      acsHost: 'AcsHost',
+      clientVpcId: 'ClientVpcId',
       cpusvn: 'cpusvn',
       encryptedPpid: 'encrypted_ppid',
       pceid: 'pceid',
@@ -189,6 +271,8 @@ export class SimplePackagePckCertRequest extends $tea.Model {
 
   static types(): { [key: string]: any } {
     return {
+      acsHost: 'string',
+      clientVpcId: 'string',
       cpusvn: 'string',
       encryptedPpid: 'string',
       pceid: 'string',
@@ -251,9 +335,20 @@ export default class Client extends OpenApi {
     return EndpointUtil.getEndpointRules(productId, regionId, endpointRule, network, suffix);
   }
 
-  async getQeIdentityWithOptions(headers: {[key: string ]: string}, runtime: $Util.RuntimeOptions): Promise<GetQeIdentityResponse> {
+  async getQeIdentityWithOptions(request: GetQeIdentityRequest, headers: {[key: string ]: string}, runtime: $Util.RuntimeOptions): Promise<GetQeIdentityResponse> {
+    Util.validateModel(request);
+    let query : {[key: string ]: any} = { };
+    if (!Util.isUnset(request.acsHost)) {
+      query["AcsHost"] = request.acsHost;
+    }
+
+    if (!Util.isUnset(request.clientVpcId)) {
+      query["ClientVpcId"] = request.clientVpcId;
+    }
+
     let req = new $OpenApi.OpenApiRequest({
       headers: headers,
+      query: OpenApiUtil.query(query),
     });
     let params = new $OpenApi.Params({
       action: "GetQeIdentity",
@@ -269,15 +364,26 @@ export default class Client extends OpenApi {
     return $tea.cast<GetQeIdentityResponse>(await this.callApi(params, req, runtime), new GetQeIdentityResponse({}));
   }
 
-  async getQeIdentity(): Promise<GetQeIdentityResponse> {
+  async getQeIdentity(request: GetQeIdentityRequest): Promise<GetQeIdentityResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     let headers : {[key: string ]: string} = { };
-    return await this.getQeIdentityWithOptions(headers, runtime);
+    return await this.getQeIdentityWithOptions(request, headers, runtime);
   }
 
-  async getQveIdentityWithOptions(headers: {[key: string ]: string}, runtime: $Util.RuntimeOptions): Promise<GetQveIdentityResponse> {
+  async getQveIdentityWithOptions(request: GetQveIdentityRequest, headers: {[key: string ]: string}, runtime: $Util.RuntimeOptions): Promise<GetQveIdentityResponse> {
+    Util.validateModel(request);
+    let query : {[key: string ]: any} = { };
+    if (!Util.isUnset(request.acsHost)) {
+      query["AcsHost"] = request.acsHost;
+    }
+
+    if (!Util.isUnset(request.clientVpcId)) {
+      query["ClientVpcId"] = request.clientVpcId;
+    }
+
     let req = new $OpenApi.OpenApiRequest({
       headers: headers,
+      query: OpenApiUtil.query(query),
     });
     let params = new $OpenApi.Params({
       action: "GetQveIdentity",
@@ -293,15 +399,23 @@ export default class Client extends OpenApi {
     return $tea.cast<GetQveIdentityResponse>(await this.callApi(params, req, runtime), new GetQveIdentityResponse({}));
   }
 
-  async getQveIdentity(): Promise<GetQveIdentityResponse> {
+  async getQveIdentity(request: GetQveIdentityRequest): Promise<GetQveIdentityResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     let headers : {[key: string ]: string} = { };
-    return await this.getQveIdentityWithOptions(headers, runtime);
+    return await this.getQveIdentityWithOptions(request, headers, runtime);
   }
 
   async getTcbInfoWithOptions(request: GetTcbInfoRequest, headers: {[key: string ]: string}, runtime: $Util.RuntimeOptions): Promise<GetTcbInfoResponse> {
     Util.validateModel(request);
     let query : {[key: string ]: any} = { };
+    if (!Util.isUnset(request.acsHost)) {
+      query["AcsHost"] = request.acsHost;
+    }
+
+    if (!Util.isUnset(request.clientVpcId)) {
+      query["ClientVpcId"] = request.clientVpcId;
+    }
+
     if (!Util.isUnset(request.fmspc)) {
       query["fmspc"] = request.fmspc;
     }
@@ -333,6 +447,14 @@ export default class Client extends OpenApi {
   async pckCrlWithOptions(request: PckCrlRequest, headers: {[key: string ]: string}, runtime: $Util.RuntimeOptions): Promise<PckCrlResponse> {
     Util.validateModel(request);
     let query : {[key: string ]: any} = { };
+    if (!Util.isUnset(request.acsHost)) {
+      query["AcsHost"] = request.acsHost;
+    }
+
+    if (!Util.isUnset(request.clientVpcId)) {
+      query["ClientVpcId"] = request.clientVpcId;
+    }
+
     if (!Util.isUnset(request.ca)) {
       query["ca"] = request.ca;
     }
@@ -361,9 +483,20 @@ export default class Client extends OpenApi {
     return await this.pckCrlWithOptions(request, headers, runtime);
   }
 
-  async rootCaCrlWithOptions(headers: {[key: string ]: string}, runtime: $Util.RuntimeOptions): Promise<RootCaCrlResponse> {
+  async rootCaCrlWithOptions(request: RootCaCrlRequest, headers: {[key: string ]: string}, runtime: $Util.RuntimeOptions): Promise<RootCaCrlResponse> {
+    Util.validateModel(request);
+    let query : {[key: string ]: any} = { };
+    if (!Util.isUnset(request.acsHost)) {
+      query["AcsHost"] = request.acsHost;
+    }
+
+    if (!Util.isUnset(request.clientVpcId)) {
+      query["ClientVpcId"] = request.clientVpcId;
+    }
+
     let req = new $OpenApi.OpenApiRequest({
       headers: headers,
+      query: OpenApiUtil.query(query),
     });
     let params = new $OpenApi.Params({
       action: "RootCaCrl",
@@ -379,15 +512,23 @@ export default class Client extends OpenApi {
     return $tea.cast<RootCaCrlResponse>(await this.callApi(params, req, runtime), new RootCaCrlResponse({}));
   }
 
-  async rootCaCrl(): Promise<RootCaCrlResponse> {
+  async rootCaCrl(request: RootCaCrlRequest): Promise<RootCaCrlResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     let headers : {[key: string ]: string} = { };
-    return await this.rootCaCrlWithOptions(headers, runtime);
+    return await this.rootCaCrlWithOptions(request, headers, runtime);
   }
 
   async simplePackagePckCertWithOptions(request: SimplePackagePckCertRequest, headers: {[key: string ]: string}, runtime: $Util.RuntimeOptions): Promise<SimplePackagePckCertResponse> {
     Util.validateModel(request);
     let query : {[key: string ]: any} = { };
+    if (!Util.isUnset(request.acsHost)) {
+      query["AcsHost"] = request.acsHost;
+    }
+
+    if (!Util.isUnset(request.clientVpcId)) {
+      query["ClientVpcId"] = request.clientVpcId;
+    }
+
     if (!Util.isUnset(request.cpusvn)) {
       query["cpusvn"] = request.cpusvn;
     }
