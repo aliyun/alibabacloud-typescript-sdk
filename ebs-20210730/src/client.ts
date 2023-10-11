@@ -243,6 +243,144 @@ export class ChangeResourceGroupResponse extends $tea.Model {
   }
 }
 
+export class ClearPairDrillRequest extends $tea.Model {
+  drillId?: string;
+  pairId?: string;
+  regionId?: string;
+  static names(): { [key: string]: string } {
+    return {
+      drillId: 'DrillId',
+      pairId: 'PairId',
+      regionId: 'RegionId',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      drillId: 'string',
+      pairId: 'string',
+      regionId: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class ClearPairDrillResponseBody extends $tea.Model {
+  requestId?: string;
+  static names(): { [key: string]: string } {
+    return {
+      requestId: 'RequestId',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      requestId: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class ClearPairDrillResponse extends $tea.Model {
+  headers: { [key: string]: string };
+  statusCode: number;
+  body: ClearPairDrillResponseBody;
+  static names(): { [key: string]: string } {
+    return {
+      headers: 'headers',
+      statusCode: 'statusCode',
+      body: 'body',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
+      body: ClearPairDrillResponseBody,
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class ClearReplicaGroupDrillRequest extends $tea.Model {
+  drillId?: string;
+  groupId?: string;
+  regionId?: string;
+  static names(): { [key: string]: string } {
+    return {
+      drillId: 'DrillId',
+      groupId: 'GroupId',
+      regionId: 'RegionId',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      drillId: 'string',
+      groupId: 'string',
+      regionId: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class ClearReplicaGroupDrillResponseBody extends $tea.Model {
+  requestId?: string;
+  static names(): { [key: string]: string } {
+    return {
+      requestId: 'RequestId',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      requestId: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class ClearReplicaGroupDrillResponse extends $tea.Model {
+  headers: { [key: string]: string };
+  statusCode: number;
+  body: ClearReplicaGroupDrillResponseBody;
+  static names(): { [key: string]: string } {
+    return {
+      headers: 'headers',
+      statusCode: 'statusCode',
+      body: 'body',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
+      body: ClearReplicaGroupDrillResponseBody,
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
 export class CreateDedicatedBlockStorageClusterRequest extends $tea.Model {
   azone?: string;
   capacity?: number;
@@ -1469,6 +1607,102 @@ export class DescribeLensServiceStatusResponse extends $tea.Model {
   }
 }
 
+export class DescribePairDrillsRequest extends $tea.Model {
+  drillId?: string;
+  maxResults?: number;
+  nextToken?: string;
+  pageNumber?: number;
+  pageSize?: number;
+  pairId?: string;
+  regionId?: string;
+  static names(): { [key: string]: string } {
+    return {
+      drillId: 'DrillId',
+      maxResults: 'MaxResults',
+      nextToken: 'NextToken',
+      pageNumber: 'PageNumber',
+      pageSize: 'PageSize',
+      pairId: 'PairId',
+      regionId: 'RegionId',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      drillId: 'string',
+      maxResults: 'number',
+      nextToken: 'string',
+      pageNumber: 'number',
+      pageSize: 'number',
+      pairId: 'string',
+      regionId: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class DescribePairDrillsResponseBody extends $tea.Model {
+  drills?: DescribePairDrillsResponseBodyDrills[];
+  nextToken?: string;
+  pageNumber?: number;
+  pageSize?: number;
+  requestId?: string;
+  totalCount?: number;
+  static names(): { [key: string]: string } {
+    return {
+      drills: 'Drills',
+      nextToken: 'NextToken',
+      pageNumber: 'PageNumber',
+      pageSize: 'PageSize',
+      requestId: 'RequestId',
+      totalCount: 'TotalCount',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      drills: { 'type': 'array', 'itemType': DescribePairDrillsResponseBodyDrills },
+      nextToken: 'string',
+      pageNumber: 'number',
+      pageSize: 'number',
+      requestId: 'string',
+      totalCount: 'number',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class DescribePairDrillsResponse extends $tea.Model {
+  headers: { [key: string]: string };
+  statusCode: number;
+  body: DescribePairDrillsResponseBody;
+  static names(): { [key: string]: string } {
+    return {
+      headers: 'headers',
+      statusCode: 'statusCode',
+      body: 'body',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
+      body: DescribePairDrillsResponseBody,
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
 export class DescribeRegionsRequest extends $tea.Model {
   acceptLanguage?: string;
   regionId?: string;
@@ -1533,6 +1767,102 @@ export class DescribeRegionsResponse extends $tea.Model {
       headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
       statusCode: 'number',
       body: DescribeRegionsResponseBody,
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class DescribeReplicaGroupDrillsRequest extends $tea.Model {
+  drillId?: string;
+  groupId?: string;
+  maxResults?: number;
+  nextToken?: string;
+  pageNumber?: number;
+  pageSize?: number;
+  regionId?: string;
+  static names(): { [key: string]: string } {
+    return {
+      drillId: 'DrillId',
+      groupId: 'GroupId',
+      maxResults: 'MaxResults',
+      nextToken: 'NextToken',
+      pageNumber: 'PageNumber',
+      pageSize: 'PageSize',
+      regionId: 'RegionId',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      drillId: 'string',
+      groupId: 'string',
+      maxResults: 'number',
+      nextToken: 'string',
+      pageNumber: 'number',
+      pageSize: 'number',
+      regionId: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class DescribeReplicaGroupDrillsResponseBody extends $tea.Model {
+  drills?: DescribeReplicaGroupDrillsResponseBodyDrills[];
+  nextToken?: string;
+  pageNumber?: number;
+  pageSize?: number;
+  requestId?: string;
+  totalCount?: number;
+  static names(): { [key: string]: string } {
+    return {
+      drills: 'Drills',
+      nextToken: 'NextToken',
+      pageNumber: 'PageNumber',
+      pageSize: 'PageSize',
+      requestId: 'RequestId',
+      totalCount: 'TotalCount',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      drills: { 'type': 'array', 'itemType': DescribeReplicaGroupDrillsResponseBodyDrills },
+      nextToken: 'string',
+      pageNumber: 'number',
+      pageSize: 'number',
+      requestId: 'string',
+      totalCount: 'number',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class DescribeReplicaGroupDrillsResponse extends $tea.Model {
+  headers: { [key: string]: string };
+  statusCode: number;
+  body: DescribeReplicaGroupDrillsResponseBody;
+  static names(): { [key: string]: string } {
+    return {
+      headers: 'headers',
+      statusCode: 'statusCode',
+      body: 'body',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
+      body: DescribeReplicaGroupDrillsResponseBody,
     };
   }
 
@@ -2440,6 +2770,150 @@ export class StartDiskReplicaPairResponse extends $tea.Model {
       headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
       statusCode: 'number',
       body: StartDiskReplicaPairResponseBody,
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class StartPairDrillRequest extends $tea.Model {
+  clientToken?: string;
+  pairId?: string;
+  regionId?: string;
+  static names(): { [key: string]: string } {
+    return {
+      clientToken: 'ClientToken',
+      pairId: 'PairId',
+      regionId: 'RegionId',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      clientToken: 'string',
+      pairId: 'string',
+      regionId: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class StartPairDrillResponseBody extends $tea.Model {
+  drillId?: string;
+  requestId?: string;
+  static names(): { [key: string]: string } {
+    return {
+      drillId: 'DrillId',
+      requestId: 'RequestId',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      drillId: 'string',
+      requestId: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class StartPairDrillResponse extends $tea.Model {
+  headers: { [key: string]: string };
+  statusCode: number;
+  body: StartPairDrillResponseBody;
+  static names(): { [key: string]: string } {
+    return {
+      headers: 'headers',
+      statusCode: 'statusCode',
+      body: 'body',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
+      body: StartPairDrillResponseBody,
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class StartReplicaGroupDrillRequest extends $tea.Model {
+  clientToken?: string;
+  groupId?: string;
+  regionId?: string;
+  static names(): { [key: string]: string } {
+    return {
+      clientToken: 'ClientToken',
+      groupId: 'GroupId',
+      regionId: 'RegionId',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      clientToken: 'string',
+      groupId: 'string',
+      regionId: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class StartReplicaGroupDrillResponseBody extends $tea.Model {
+  drillId?: string;
+  requestId?: string;
+  static names(): { [key: string]: string } {
+    return {
+      drillId: 'DrillId',
+      requestId: 'RequestId',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      drillId: 'string',
+      requestId: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class StartReplicaGroupDrillResponse extends $tea.Model {
+  headers: { [key: string]: string };
+  statusCode: number;
+  body: StartReplicaGroupDrillResponseBody;
+  static names(): { [key: string]: string } {
+    return {
+      headers: 'headers',
+      statusCode: 'statusCode',
+      body: 'body',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
+      body: StartReplicaGroupDrillResponseBody,
     };
   }
 
@@ -3584,6 +4058,43 @@ export class DescribeDiskReplicaPairsResponseBodyReplicaPairs extends $tea.Model
   }
 }
 
+export class DescribePairDrillsResponseBodyDrills extends $tea.Model {
+  drillDiskId?: string;
+  drillDiskStatus?: string;
+  drillId?: string;
+  recoverPoint?: number;
+  startAt?: number;
+  status?: string;
+  statusMessage?: string;
+  static names(): { [key: string]: string } {
+    return {
+      drillDiskId: 'DrillDiskId',
+      drillDiskStatus: 'DrillDiskStatus',
+      drillId: 'DrillId',
+      recoverPoint: 'RecoverPoint',
+      startAt: 'StartAt',
+      status: 'Status',
+      statusMessage: 'StatusMessage',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      drillDiskId: 'string',
+      drillDiskStatus: 'string',
+      drillId: 'string',
+      recoverPoint: 'number',
+      startAt: 'number',
+      status: 'string',
+      statusMessage: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
 export class DescribeRegionsResponseBodyRegionsZones extends $tea.Model {
   localName?: string;
   resourceTypes?: string[];
@@ -3629,6 +4140,68 @@ export class DescribeRegionsResponseBodyRegions extends $tea.Model {
       regionEndpoint: 'string',
       regionId: 'string',
       zones: { 'type': 'array', 'itemType': DescribeRegionsResponseBodyRegionsZones },
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class DescribeReplicaGroupDrillsResponseBodyDrillsPairsInfo extends $tea.Model {
+  drillDiskId?: string;
+  drillDiskStatus?: string;
+  pairId?: string;
+  static names(): { [key: string]: string } {
+    return {
+      drillDiskId: 'DrillDiskId',
+      drillDiskStatus: 'DrillDiskStatus',
+      pairId: 'PairId',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      drillDiskId: 'string',
+      drillDiskStatus: 'string',
+      pairId: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class DescribeReplicaGroupDrillsResponseBodyDrills extends $tea.Model {
+  drillId?: string;
+  groupId?: string;
+  pairsInfo?: DescribeReplicaGroupDrillsResponseBodyDrillsPairsInfo[];
+  recoverPoint?: number;
+  startAt?: number;
+  status?: string;
+  statusMessage?: string;
+  static names(): { [key: string]: string } {
+    return {
+      drillId: 'DrillId',
+      groupId: 'GroupId',
+      pairsInfo: 'PairsInfo',
+      recoverPoint: 'RecoverPoint',
+      startAt: 'StartAt',
+      status: 'Status',
+      statusMessage: 'StatusMessage',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      drillId: 'string',
+      groupId: 'string',
+      pairsInfo: { 'type': 'array', 'itemType': DescribeReplicaGroupDrillsResponseBodyDrillsPairsInfo },
+      recoverPoint: 'number',
+      startAt: 'number',
+      status: 'string',
+      statusMessage: 'string',
     };
   }
 
@@ -3899,6 +4472,80 @@ export default class Client extends OpenApi {
   async changeResourceGroup(request: ChangeResourceGroupRequest): Promise<ChangeResourceGroupResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.changeResourceGroupWithOptions(request, runtime);
+  }
+
+  async clearPairDrillWithOptions(request: ClearPairDrillRequest, runtime: $Util.RuntimeOptions): Promise<ClearPairDrillResponse> {
+    Util.validateModel(request);
+    let query = { };
+    if (!Util.isUnset(request.drillId)) {
+      query["DrillId"] = request.drillId;
+    }
+
+    if (!Util.isUnset(request.pairId)) {
+      query["PairId"] = request.pairId;
+    }
+
+    if (!Util.isUnset(request.regionId)) {
+      query["RegionId"] = request.regionId;
+    }
+
+    let req = new $OpenApi.OpenApiRequest({
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApi.Params({
+      action: "ClearPairDrill",
+      version: "2021-07-30",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $tea.cast<ClearPairDrillResponse>(await this.callApi(params, req, runtime), new ClearPairDrillResponse({}));
+  }
+
+  async clearPairDrill(request: ClearPairDrillRequest): Promise<ClearPairDrillResponse> {
+    let runtime = new $Util.RuntimeOptions({ });
+    return await this.clearPairDrillWithOptions(request, runtime);
+  }
+
+  async clearReplicaGroupDrillWithOptions(request: ClearReplicaGroupDrillRequest, runtime: $Util.RuntimeOptions): Promise<ClearReplicaGroupDrillResponse> {
+    Util.validateModel(request);
+    let query = { };
+    if (!Util.isUnset(request.drillId)) {
+      query["DrillId"] = request.drillId;
+    }
+
+    if (!Util.isUnset(request.groupId)) {
+      query["GroupId"] = request.groupId;
+    }
+
+    if (!Util.isUnset(request.regionId)) {
+      query["RegionId"] = request.regionId;
+    }
+
+    let req = new $OpenApi.OpenApiRequest({
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApi.Params({
+      action: "ClearReplicaGroupDrill",
+      version: "2021-07-30",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $tea.cast<ClearReplicaGroupDrillResponse>(await this.callApi(params, req, runtime), new ClearReplicaGroupDrillResponse({}));
+  }
+
+  async clearReplicaGroupDrill(request: ClearReplicaGroupDrillRequest): Promise<ClearReplicaGroupDrillResponse> {
+    let runtime = new $Util.RuntimeOptions({ });
+    return await this.clearReplicaGroupDrillWithOptions(request, runtime);
   }
 
   /**
@@ -4887,6 +5534,59 @@ export default class Client extends OpenApi {
     return await this.describeLensServiceStatusWithOptions(runtime);
   }
 
+  async describePairDrillsWithOptions(request: DescribePairDrillsRequest, runtime: $Util.RuntimeOptions): Promise<DescribePairDrillsResponse> {
+    Util.validateModel(request);
+    let query = { };
+    if (!Util.isUnset(request.drillId)) {
+      query["DrillId"] = request.drillId;
+    }
+
+    if (!Util.isUnset(request.maxResults)) {
+      query["MaxResults"] = request.maxResults;
+    }
+
+    if (!Util.isUnset(request.nextToken)) {
+      query["NextToken"] = request.nextToken;
+    }
+
+    if (!Util.isUnset(request.pageNumber)) {
+      query["PageNumber"] = request.pageNumber;
+    }
+
+    if (!Util.isUnset(request.pageSize)) {
+      query["PageSize"] = request.pageSize;
+    }
+
+    if (!Util.isUnset(request.pairId)) {
+      query["PairId"] = request.pairId;
+    }
+
+    if (!Util.isUnset(request.regionId)) {
+      query["RegionId"] = request.regionId;
+    }
+
+    let req = new $OpenApi.OpenApiRequest({
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApi.Params({
+      action: "DescribePairDrills",
+      version: "2021-07-30",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $tea.cast<DescribePairDrillsResponse>(await this.callApi(params, req, runtime), new DescribePairDrillsResponse({}));
+  }
+
+  async describePairDrills(request: DescribePairDrillsRequest): Promise<DescribePairDrillsResponse> {
+    let runtime = new $Util.RuntimeOptions({ });
+    return await this.describePairDrillsWithOptions(request, runtime);
+  }
+
   async describeRegionsWithOptions(request: DescribeRegionsRequest, runtime: $Util.RuntimeOptions): Promise<DescribeRegionsResponse> {
     Util.validateModel(request);
     let query = { };
@@ -4922,6 +5622,59 @@ export default class Client extends OpenApi {
   async describeRegions(request: DescribeRegionsRequest): Promise<DescribeRegionsResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.describeRegionsWithOptions(request, runtime);
+  }
+
+  async describeReplicaGroupDrillsWithOptions(request: DescribeReplicaGroupDrillsRequest, runtime: $Util.RuntimeOptions): Promise<DescribeReplicaGroupDrillsResponse> {
+    Util.validateModel(request);
+    let query = { };
+    if (!Util.isUnset(request.drillId)) {
+      query["DrillId"] = request.drillId;
+    }
+
+    if (!Util.isUnset(request.groupId)) {
+      query["GroupId"] = request.groupId;
+    }
+
+    if (!Util.isUnset(request.maxResults)) {
+      query["MaxResults"] = request.maxResults;
+    }
+
+    if (!Util.isUnset(request.nextToken)) {
+      query["NextToken"] = request.nextToken;
+    }
+
+    if (!Util.isUnset(request.pageNumber)) {
+      query["PageNumber"] = request.pageNumber;
+    }
+
+    if (!Util.isUnset(request.pageSize)) {
+      query["PageSize"] = request.pageSize;
+    }
+
+    if (!Util.isUnset(request.regionId)) {
+      query["RegionId"] = request.regionId;
+    }
+
+    let req = new $OpenApi.OpenApiRequest({
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApi.Params({
+      action: "DescribeReplicaGroupDrills",
+      version: "2021-07-30",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $tea.cast<DescribeReplicaGroupDrillsResponse>(await this.callApi(params, req, runtime), new DescribeReplicaGroupDrillsResponse({}));
+  }
+
+  async describeReplicaGroupDrills(request: DescribeReplicaGroupDrillsRequest): Promise<DescribeReplicaGroupDrillsResponse> {
+    let runtime = new $Util.RuntimeOptions({ });
+    return await this.describeReplicaGroupDrillsWithOptions(request, runtime);
   }
 
   /**
@@ -5610,6 +6363,80 @@ export default class Client extends OpenApi {
   async startDiskReplicaPair(request: StartDiskReplicaPairRequest): Promise<StartDiskReplicaPairResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.startDiskReplicaPairWithOptions(request, runtime);
+  }
+
+  async startPairDrillWithOptions(request: StartPairDrillRequest, runtime: $Util.RuntimeOptions): Promise<StartPairDrillResponse> {
+    Util.validateModel(request);
+    let query = { };
+    if (!Util.isUnset(request.clientToken)) {
+      query["ClientToken"] = request.clientToken;
+    }
+
+    if (!Util.isUnset(request.pairId)) {
+      query["PairId"] = request.pairId;
+    }
+
+    if (!Util.isUnset(request.regionId)) {
+      query["RegionId"] = request.regionId;
+    }
+
+    let req = new $OpenApi.OpenApiRequest({
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApi.Params({
+      action: "StartPairDrill",
+      version: "2021-07-30",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $tea.cast<StartPairDrillResponse>(await this.callApi(params, req, runtime), new StartPairDrillResponse({}));
+  }
+
+  async startPairDrill(request: StartPairDrillRequest): Promise<StartPairDrillResponse> {
+    let runtime = new $Util.RuntimeOptions({ });
+    return await this.startPairDrillWithOptions(request, runtime);
+  }
+
+  async startReplicaGroupDrillWithOptions(request: StartReplicaGroupDrillRequest, runtime: $Util.RuntimeOptions): Promise<StartReplicaGroupDrillResponse> {
+    Util.validateModel(request);
+    let query = { };
+    if (!Util.isUnset(request.clientToken)) {
+      query["ClientToken"] = request.clientToken;
+    }
+
+    if (!Util.isUnset(request.groupId)) {
+      query["GroupId"] = request.groupId;
+    }
+
+    if (!Util.isUnset(request.regionId)) {
+      query["RegionId"] = request.regionId;
+    }
+
+    let req = new $OpenApi.OpenApiRequest({
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApi.Params({
+      action: "StartReplicaGroupDrill",
+      version: "2021-07-30",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $tea.cast<StartReplicaGroupDrillResponse>(await this.callApi(params, req, runtime), new StartReplicaGroupDrillResponse({}));
+  }
+
+  async startReplicaGroupDrill(request: StartReplicaGroupDrillRequest): Promise<StartReplicaGroupDrillResponse> {
+    let runtime = new $Util.RuntimeOptions({ });
+    return await this.startReplicaGroupDrillWithOptions(request, runtime);
   }
 
   /**
