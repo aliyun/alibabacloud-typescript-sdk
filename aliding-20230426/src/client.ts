@@ -9268,8 +9268,9 @@ export class QueryLiveInfoResponseBody extends $tea.Model {
   duration?: number;
   endTime?: number;
   introduction?: string;
-  liveId?: number;
+  liveId?: string;
   livePlayUrl?: string;
+  liveStatus?: number;
   playbackDuration?: number;
   requestId?: string;
   startTime?: number;
@@ -9284,6 +9285,7 @@ export class QueryLiveInfoResponseBody extends $tea.Model {
       introduction: 'introduction',
       liveId: 'liveId',
       livePlayUrl: 'livePlayUrl',
+      liveStatus: 'liveStatus',
       playbackDuration: 'playbackDuration',
       requestId: 'requestId',
       startTime: 'startTime',
@@ -9299,8 +9301,9 @@ export class QueryLiveInfoResponseBody extends $tea.Model {
       duration: 'number',
       endTime: 'number',
       introduction: 'string',
-      liveId: 'number',
+      liveId: 'string',
       livePlayUrl: 'string',
+      liveStatus: 'number',
       playbackDuration: 'number',
       requestId: 'string',
       startTime: 'number',
