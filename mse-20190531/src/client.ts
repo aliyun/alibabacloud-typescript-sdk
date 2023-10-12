@@ -578,7 +578,9 @@ export class AddGatewayRequest extends $tea.Model {
   enableXtrace?: boolean;
   enterpriseSecurityGroup?: boolean;
   internetSlbSpec?: string;
+  mserVersion?: string;
   name?: string;
+  nlbNetworkType?: string;
   region?: string;
   replica?: number;
   requestPars?: string;
@@ -600,7 +602,9 @@ export class AddGatewayRequest extends $tea.Model {
       enableXtrace: 'EnableXtrace',
       enterpriseSecurityGroup: 'EnterpriseSecurityGroup',
       internetSlbSpec: 'InternetSlbSpec',
+      mserVersion: 'MserVersion',
       name: 'Name',
+      nlbNetworkType: 'NlbNetworkType',
       region: 'Region',
       replica: 'Replica',
       requestPars: 'RequestPars',
@@ -625,7 +629,9 @@ export class AddGatewayRequest extends $tea.Model {
       enableXtrace: 'boolean',
       enterpriseSecurityGroup: 'boolean',
       internetSlbSpec: 'string',
+      mserVersion: 'string',
       name: 'string',
+      nlbNetworkType: 'string',
       region: 'string',
       replica: 'number',
       requestPars: 'string',
@@ -654,7 +660,9 @@ export class AddGatewayShrinkRequest extends $tea.Model {
   enableXtrace?: boolean;
   enterpriseSecurityGroup?: boolean;
   internetSlbSpec?: string;
+  mserVersion?: string;
   name?: string;
+  nlbNetworkType?: string;
   region?: string;
   replica?: number;
   requestPars?: string;
@@ -676,7 +684,9 @@ export class AddGatewayShrinkRequest extends $tea.Model {
       enableXtrace: 'EnableXtrace',
       enterpriseSecurityGroup: 'EnterpriseSecurityGroup',
       internetSlbSpec: 'InternetSlbSpec',
+      mserVersion: 'MserVersion',
       name: 'Name',
+      nlbNetworkType: 'NlbNetworkType',
       region: 'Region',
       replica: 'Replica',
       requestPars: 'RequestPars',
@@ -701,7 +711,9 @@ export class AddGatewayShrinkRequest extends $tea.Model {
       enableXtrace: 'boolean',
       enterpriseSecurityGroup: 'boolean',
       internetSlbSpec: 'string',
+      mserVersion: 'string',
       name: 'string',
+      nlbNetworkType: 'string',
       region: 'string',
       replica: 'number',
       requestPars: 'string',
@@ -12754,10 +12766,12 @@ export class ListSecurityGroupRuleResponse extends $tea.Model {
 export class ListServiceSourceRequest extends $tea.Model {
   acceptLanguage?: string;
   gatewayUniqueId?: string;
+  source?: string;
   static names(): { [key: string]: string } {
     return {
       acceptLanguage: 'AcceptLanguage',
       gatewayUniqueId: 'GatewayUniqueId',
+      source: 'Source',
     };
   }
 
@@ -12765,6 +12779,7 @@ export class ListServiceSourceRequest extends $tea.Model {
     return {
       acceptLanguage: 'string',
       gatewayUniqueId: 'string',
+      source: 'string',
     };
   }
 
@@ -16155,12 +16170,16 @@ export class UpdateClusterRequest extends $tea.Model {
   acceptLanguage?: string;
   clusterAliasName?: string;
   instanceId?: string;
+  maintenanceEndTime?: string;
+  maintenanceStartTime?: string;
   requestPars?: string;
   static names(): { [key: string]: string } {
     return {
       acceptLanguage: 'AcceptLanguage',
       clusterAliasName: 'ClusterAliasName',
       instanceId: 'InstanceId',
+      maintenanceEndTime: 'MaintenanceEndTime',
+      maintenanceStartTime: 'MaintenanceStartTime',
       requestPars: 'RequestPars',
     };
   }
@@ -16170,6 +16189,8 @@ export class UpdateClusterRequest extends $tea.Model {
       acceptLanguage: 'string',
       clusterAliasName: 'string',
       instanceId: 'string',
+      maintenanceEndTime: 'string',
+      maintenanceStartTime: 'string',
       requestPars: 'string',
     };
   }
@@ -26140,6 +26161,31 @@ export class ListGatewayResponseBodyDataResultInternetSlb extends $tea.Model {
   }
 }
 
+export class ListGatewayResponseBodyDataResultMaintenancePeriod extends $tea.Model {
+  endTime?: string;
+  startTime?: string;
+  timeZone?: string;
+  static names(): { [key: string]: string } {
+    return {
+      endTime: 'EndTime',
+      startTime: 'StartTime',
+      timeZone: 'TimeZone',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      endTime: 'string',
+      startTime: 'string',
+      timeZone: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
 export class ListGatewayResponseBodyDataResultSlb extends $tea.Model {
   gatewaySlbMode?: string;
   gatewaySlbStatus?: string;
@@ -26202,7 +26248,9 @@ export class ListGatewayResponseBodyDataResult extends $tea.Model {
   instanceId?: string;
   internetSlb?: ListGatewayResponseBodyDataResultInternetSlb[];
   latestVersion?: string;
+  maintenancePeriod?: ListGatewayResponseBodyDataResultMaintenancePeriod;
   mseTag?: string;
+  mseVersion?: string;
   mustUpgrade?: boolean;
   name?: string;
   primaryUser?: string;
@@ -26243,7 +26291,9 @@ export class ListGatewayResponseBodyDataResult extends $tea.Model {
       instanceId: 'InstanceId',
       internetSlb: 'InternetSlb',
       latestVersion: 'LatestVersion',
+      maintenancePeriod: 'MaintenancePeriod',
       mseTag: 'MseTag',
+      mseVersion: 'MseVersion',
       mustUpgrade: 'MustUpgrade',
       name: 'Name',
       primaryUser: 'PrimaryUser',
@@ -26287,7 +26337,9 @@ export class ListGatewayResponseBodyDataResult extends $tea.Model {
       instanceId: 'string',
       internetSlb: { 'type': 'array', 'itemType': ListGatewayResponseBodyDataResultInternetSlb },
       latestVersion: 'string',
+      maintenancePeriod: ListGatewayResponseBodyDataResultMaintenancePeriod,
       mseTag: 'string',
+      mseVersion: 'string',
       mustUpgrade: 'boolean',
       name: 'string',
       primaryUser: 'string',
@@ -27542,6 +27594,7 @@ export class ListGatewaySlbResponseBodyData extends $tea.Model {
   slbId?: string;
   slbIp?: string;
   slbPort?: string;
+  slbType?: string;
   statusDesc?: string;
   type?: string;
   VServerGroupId?: string;
@@ -27562,6 +27615,7 @@ export class ListGatewaySlbResponseBodyData extends $tea.Model {
       slbId: 'SlbId',
       slbIp: 'SlbIp',
       slbPort: 'SlbPort',
+      slbType: 'SlbType',
       statusDesc: 'StatusDesc',
       type: 'Type',
       VServerGroupId: 'VServerGroupId',
@@ -27585,6 +27639,7 @@ export class ListGatewaySlbResponseBodyData extends $tea.Model {
       slbId: 'string',
       slbIp: 'string',
       slbPort: 'string',
+      slbType: 'string',
       statusDesc: 'string',
       type: 'string',
       VServerGroupId: 'string',
@@ -28712,6 +28767,28 @@ export class QueryClusterInfoResponseBodyDataInstanceModels extends $tea.Model {
   }
 }
 
+export class QueryClusterInfoResponseBodyDataMaintenancePeriod extends $tea.Model {
+  endTime?: string;
+  startTime?: string;
+  static names(): { [key: string]: string } {
+    return {
+      endTime: 'EndTime',
+      startTime: 'StartTime',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      endTime: 'string',
+      startTime: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
 export class QueryClusterInfoResponseBodyData extends $tea.Model {
   aclEntryList?: string;
   aclId?: string;
@@ -28742,6 +28819,7 @@ export class QueryClusterInfoResponseBodyData extends $tea.Model {
   intranetAddress?: string;
   intranetDomain?: string;
   intranetPort?: string;
+  maintenancePeriod?: QueryClusterInfoResponseBodyDataMaintenancePeriod;
   memoryCapacity?: number;
   mseVersion?: string;
   netType?: string;
@@ -28784,6 +28862,7 @@ export class QueryClusterInfoResponseBodyData extends $tea.Model {
       intranetAddress: 'IntranetAddress',
       intranetDomain: 'IntranetDomain',
       intranetPort: 'IntranetPort',
+      maintenancePeriod: 'MaintenancePeriod',
       memoryCapacity: 'MemoryCapacity',
       mseVersion: 'MseVersion',
       netType: 'NetType',
@@ -28829,6 +28908,7 @@ export class QueryClusterInfoResponseBodyData extends $tea.Model {
       intranetAddress: 'string',
       intranetDomain: 'string',
       intranetPort: 'string',
+      maintenancePeriod: QueryClusterInfoResponseBodyDataMaintenancePeriod,
       memoryCapacity: 'number',
       mseVersion: 'string',
       netType: 'string',
@@ -30785,8 +30865,16 @@ export default class Client extends OpenApi {
       query["InternetSlbSpec"] = request.internetSlbSpec;
     }
 
+    if (!Util.isUnset(request.mserVersion)) {
+      query["MserVersion"] = request.mserVersion;
+    }
+
     if (!Util.isUnset(request.name)) {
       query["Name"] = request.name;
+    }
+
+    if (!Util.isUnset(request.nlbNetworkType)) {
+      query["NlbNetworkType"] = request.nlbNetworkType;
     }
 
     if (!Util.isUnset(request.region)) {
@@ -33190,7 +33278,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-    * > The operation is not provided in Nacos SDKs. For information about Nacos SDKs, see the [official documentation](https://nacos.io/zh-cn/docs/sdk.html).
+    * >  The current API operation is not provided in Nacos SDK. For more information about the Nacos-SDK API, see the [official documentation](https://nacos.io/zh-cn/docs/sdk.html).
     *
     * @param request DeleteNacosConfigsRequest
     * @param runtime runtime options for this request RuntimeOptions
@@ -33233,7 +33321,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-    * > The operation is not provided in Nacos SDKs. For information about Nacos SDKs, see the [official documentation](https://nacos.io/zh-cn/docs/sdk.html).
+    * >  The current API operation is not provided in Nacos SDK. For more information about the Nacos-SDK API, see the [official documentation](https://nacos.io/zh-cn/docs/sdk.html).
     *
     * @param request DeleteNacosConfigsRequest
     * @return DeleteNacosConfigsResponse
@@ -37122,6 +37210,10 @@ export default class Client extends OpenApi {
       query["GatewayUniqueId"] = request.gatewayUniqueId;
     }
 
+    if (!Util.isUnset(request.source)) {
+      query["Source"] = request.source;
+    }
+
     let req = new $OpenApi.OpenApiRequest({
       query: OpenApiUtil.query(query),
     });
@@ -38764,6 +38856,14 @@ export default class Client extends OpenApi {
       query["InstanceId"] = request.instanceId;
     }
 
+    if (!Util.isUnset(request.maintenanceEndTime)) {
+      query["MaintenanceEndTime"] = request.maintenanceEndTime;
+    }
+
+    if (!Util.isUnset(request.maintenanceStartTime)) {
+      query["MaintenanceStartTime"] = request.maintenanceStartTime;
+    }
+
     if (!Util.isUnset(request.requestPars)) {
       query["RequestPars"] = request.requestPars;
     }
@@ -38791,7 +38891,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-    * You can call this operation to update the number or specifications of nodes in a pay-as-you-go MSE instance. You are charged when you add nodes or upgrade node specifications. For more information, see \\[Pricing] (`~~1806469~~`).
+    * You can call this operation to update the number or specifications of nodes in a pay-as-you-go or subscription MSE instance. You are charged when you add nodes or upgrade node specifications. For more information, see "Pricing" (`~~1806469~~`).
     *
     * @param request UpdateClusterSpecRequest
     * @param runtime runtime options for this request RuntimeOptions
@@ -38842,7 +38942,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-    * You can call this operation to update the number or specifications of nodes in a pay-as-you-go MSE instance. You are charged when you add nodes or upgrade node specifications. For more information, see \\[Pricing] (`~~1806469~~`).
+    * You can call this operation to update the number or specifications of nodes in a pay-as-you-go or subscription MSE instance. You are charged when you add nodes or upgrade node specifications. For more information, see "Pricing" (`~~1806469~~`).
     *
     * @param request UpdateClusterSpecRequest
     * @return UpdateClusterSpecResponse
@@ -40058,7 +40158,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-    * You can call this operation to update the number or specifications of nodes in a pay-as-you-go cloud-native gateway. You are charged when you add nodes or upgrade node specifications. For more information, see [Pricing](~~250950~~).
+    * You can call this operation to update the number of nodes or the specifications of nodes in a pay-as-you-go or subscription cloud-native gateway. If you add nodes or increase the specifications, you will incur fees. For more information, see [Pricing](~~250950~~).
     *
     * @param request UpdateGatewaySpecRequest
     * @param runtime runtime options for this request RuntimeOptions
@@ -40101,7 +40201,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-    * You can call this operation to update the number or specifications of nodes in a pay-as-you-go cloud-native gateway. You are charged when you add nodes or upgrade node specifications. For more information, see [Pricing](~~250950~~).
+    * You can call this operation to update the number of nodes or the specifications of nodes in a pay-as-you-go or subscription cloud-native gateway. If you add nodes or increase the specifications, you will incur fees. For more information, see [Pricing](~~250950~~).
     *
     * @param request UpdateGatewaySpecRequest
     * @return UpdateGatewaySpecResponse
@@ -40342,7 +40442,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-    * > The operation is not provided in Nacos SDKs. For information about Nacos SDKs, see the [official documentation](https://nacos.io/zh-cn/docs/sdk.html).
+    * >  The current API operation is not provided in Nacos SDK. For more information about Nacos SDK, see the [official documentation](https://nacos.io/zh-cn/docs/sdk.html).
     *
     * @param request UpdateNacosConfigRequest
     * @param runtime runtime options for this request RuntimeOptions
@@ -40421,7 +40521,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-    * > The operation is not provided in Nacos SDKs. For information about Nacos SDKs, see the [official documentation](https://nacos.io/zh-cn/docs/sdk.html).
+    * >  The current API operation is not provided in Nacos SDK. For more information about Nacos SDK, see the [official documentation](https://nacos.io/zh-cn/docs/sdk.html).
     *
     * @param request UpdateNacosConfigRequest
     * @return UpdateNacosConfigResponse
