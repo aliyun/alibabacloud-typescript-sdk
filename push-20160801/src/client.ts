@@ -829,6 +829,7 @@ export class PushRequest extends $tea.Model {
   androidBigPictureUrl?: string;
   androidBigTitle?: string;
   androidExtParameters?: string;
+  androidHonorTargetUserType?: number;
   androidHuaweiReceiptId?: string;
   androidHuaweiTargetUserType?: number;
   androidImageUrl?: string;
@@ -854,6 +855,7 @@ export class PushRequest extends $tea.Model {
   androidPopupTitle?: string;
   androidRemind?: boolean;
   androidRenderStyle?: number;
+  androidTargetUserType?: number;
   androidVivoPushMode?: number;
   androidXiaoMiActivity?: string;
   androidXiaoMiNotifyBody?: string;
@@ -901,6 +903,7 @@ export class PushRequest extends $tea.Model {
       androidBigPictureUrl: 'AndroidBigPictureUrl',
       androidBigTitle: 'AndroidBigTitle',
       androidExtParameters: 'AndroidExtParameters',
+      androidHonorTargetUserType: 'AndroidHonorTargetUserType',
       androidHuaweiReceiptId: 'AndroidHuaweiReceiptId',
       androidHuaweiTargetUserType: 'AndroidHuaweiTargetUserType',
       androidImageUrl: 'AndroidImageUrl',
@@ -926,6 +929,7 @@ export class PushRequest extends $tea.Model {
       androidPopupTitle: 'AndroidPopupTitle',
       androidRemind: 'AndroidRemind',
       androidRenderStyle: 'AndroidRenderStyle',
+      androidTargetUserType: 'AndroidTargetUserType',
       androidVivoPushMode: 'AndroidVivoPushMode',
       androidXiaoMiActivity: 'AndroidXiaoMiActivity',
       androidXiaoMiNotifyBody: 'AndroidXiaoMiNotifyBody',
@@ -976,6 +980,7 @@ export class PushRequest extends $tea.Model {
       androidBigPictureUrl: 'string',
       androidBigTitle: 'string',
       androidExtParameters: 'string',
+      androidHonorTargetUserType: 'number',
       androidHuaweiReceiptId: 'string',
       androidHuaweiTargetUserType: 'number',
       androidImageUrl: 'string',
@@ -1001,6 +1006,7 @@ export class PushRequest extends $tea.Model {
       androidPopupTitle: 'string',
       androidRemind: 'boolean',
       androidRenderStyle: 'number',
+      androidTargetUserType: 'number',
       androidVivoPushMode: 'number',
       androidXiaoMiActivity: 'string',
       androidXiaoMiNotifyBody: 'string',
@@ -1100,6 +1106,7 @@ export class PushMessageToAndroidRequest extends $tea.Model {
   appKey?: number;
   body?: string;
   jobKey?: string;
+  storeOffline?: boolean;
   target?: string;
   targetValue?: string;
   title?: string;
@@ -1108,6 +1115,7 @@ export class PushMessageToAndroidRequest extends $tea.Model {
       appKey: 'AppKey',
       body: 'Body',
       jobKey: 'JobKey',
+      storeOffline: 'StoreOffline',
       target: 'Target',
       targetValue: 'TargetValue',
       title: 'Title',
@@ -1119,6 +1127,7 @@ export class PushMessageToAndroidRequest extends $tea.Model {
       appKey: 'number',
       body: 'string',
       jobKey: 'string',
+      storeOffline: 'boolean',
       target: 'string',
       targetValue: 'string',
       title: 'string',
@@ -1181,6 +1190,7 @@ export class PushMessageToiOSRequest extends $tea.Model {
   appKey?: number;
   body?: string;
   jobKey?: string;
+  storeOffline?: boolean;
   target?: string;
   targetValue?: string;
   title?: string;
@@ -1189,6 +1199,7 @@ export class PushMessageToiOSRequest extends $tea.Model {
       appKey: 'AppKey',
       body: 'Body',
       jobKey: 'JobKey',
+      storeOffline: 'StoreOffline',
       target: 'Target',
       targetValue: 'TargetValue',
       title: 'Title',
@@ -1200,6 +1211,7 @@ export class PushMessageToiOSRequest extends $tea.Model {
       appKey: 'number',
       body: 'string',
       jobKey: 'string',
+      storeOffline: 'boolean',
       target: 'string',
       targetValue: 'string',
       title: 'string',
@@ -1263,6 +1275,7 @@ export class PushNoticeToAndroidRequest extends $tea.Model {
   body?: string;
   extParameters?: string;
   jobKey?: string;
+  storeOffline?: boolean;
   target?: string;
   targetValue?: string;
   title?: string;
@@ -1272,6 +1285,7 @@ export class PushNoticeToAndroidRequest extends $tea.Model {
       body: 'Body',
       extParameters: 'ExtParameters',
       jobKey: 'JobKey',
+      storeOffline: 'StoreOffline',
       target: 'Target',
       targetValue: 'TargetValue',
       title: 'Title',
@@ -1284,6 +1298,7 @@ export class PushNoticeToAndroidRequest extends $tea.Model {
       body: 'string',
       extParameters: 'string',
       jobKey: 'string',
+      storeOffline: 'boolean',
       target: 'string',
       targetValue: 'string',
       title: 'string',
@@ -2625,6 +2640,7 @@ export class MassPushRequestPushTask extends $tea.Model {
   androidBigPictureUrl?: string;
   androidBigTitle?: string;
   androidExtParameters?: string;
+  androidHonorTargetUserType?: number;
   androidHuaweiReceiptId?: string;
   androidHuaweiTargetUserType?: number;
   androidImageUrl?: string;
@@ -2650,6 +2666,7 @@ export class MassPushRequestPushTask extends $tea.Model {
   androidPopupTitle?: string;
   androidRemind?: boolean;
   androidRenderStyle?: string;
+  androidTargetUserType?: number;
   androidVivoPushMode?: number;
   androidXiaoMiActivity?: string;
   androidXiaoMiNotifyBody?: string;
@@ -2691,6 +2708,7 @@ export class MassPushRequestPushTask extends $tea.Model {
       androidBigPictureUrl: 'AndroidBigPictureUrl',
       androidBigTitle: 'AndroidBigTitle',
       androidExtParameters: 'AndroidExtParameters',
+      androidHonorTargetUserType: 'AndroidHonorTargetUserType',
       androidHuaweiReceiptId: 'AndroidHuaweiReceiptId',
       androidHuaweiTargetUserType: 'AndroidHuaweiTargetUserType',
       androidImageUrl: 'AndroidImageUrl',
@@ -2716,6 +2734,7 @@ export class MassPushRequestPushTask extends $tea.Model {
       androidPopupTitle: 'AndroidPopupTitle',
       androidRemind: 'AndroidRemind',
       androidRenderStyle: 'AndroidRenderStyle',
+      androidTargetUserType: 'AndroidTargetUserType',
       androidVivoPushMode: 'AndroidVivoPushMode',
       androidXiaoMiActivity: 'AndroidXiaoMiActivity',
       androidXiaoMiNotifyBody: 'AndroidXiaoMiNotifyBody',
@@ -2760,6 +2779,7 @@ export class MassPushRequestPushTask extends $tea.Model {
       androidBigPictureUrl: 'string',
       androidBigTitle: 'string',
       androidExtParameters: 'string',
+      androidHonorTargetUserType: 'number',
       androidHuaweiReceiptId: 'string',
       androidHuaweiTargetUserType: 'number',
       androidImageUrl: 'string',
@@ -2785,6 +2805,7 @@ export class MassPushRequestPushTask extends $tea.Model {
       androidPopupTitle: 'string',
       androidRemind: 'boolean',
       androidRenderStyle: 'string',
+      androidTargetUserType: 'number',
       androidVivoPushMode: 'number',
       androidXiaoMiActivity: 'string',
       androidXiaoMiNotifyBody: 'string',
@@ -2887,10 +2908,12 @@ export class QueryAliasesResponseBodyAliasInfos extends $tea.Model {
 export class QueryDeviceInfoResponseBodyDeviceInfo extends $tea.Model {
   account?: string;
   alias?: string;
+  brand?: string;
   deviceId?: string;
   deviceToken?: string;
   deviceType?: string;
   lastOnlineTime?: string;
+  model?: string;
   online?: boolean;
   phoneNumber?: string;
   pushEnabled?: boolean;
@@ -2899,10 +2922,12 @@ export class QueryDeviceInfoResponseBodyDeviceInfo extends $tea.Model {
     return {
       account: 'Account',
       alias: 'Alias',
+      brand: 'Brand',
       deviceId: 'DeviceId',
       deviceToken: 'DeviceToken',
       deviceType: 'DeviceType',
       lastOnlineTime: 'LastOnlineTime',
+      model: 'Model',
       online: 'Online',
       phoneNumber: 'PhoneNumber',
       pushEnabled: 'PushEnabled',
@@ -2914,10 +2939,12 @@ export class QueryDeviceInfoResponseBodyDeviceInfo extends $tea.Model {
     return {
       account: 'string',
       alias: 'string',
+      brand: 'string',
       deviceId: 'string',
       deviceToken: 'string',
       deviceType: 'string',
       lastOnlineTime: 'string',
+      model: 'string',
       online: 'boolean',
       phoneNumber: 'string',
       pushEnabled: 'boolean',
@@ -3549,7 +3576,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-    * @deprecated
+    * @deprecated : CheckDevice is deprecated, please use Push::2016-08-01::CheckDevices instead.
     *
     * @param request CheckDeviceRequest
     * @param runtime runtime options for this request RuntimeOptions
@@ -3585,7 +3612,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-    * @deprecated
+    * @deprecated : CheckDevice is deprecated, please use Push::2016-08-01::CheckDevices instead.
     *
     * @param request CheckDeviceRequest
     * @return CheckDeviceResponse
@@ -3704,7 +3731,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-    * @deprecated
+    * @deprecated : ListSummaryApps is deprecated, please use Mhub::2017-08-25::ListApps instead.
     *
     * @param request ListSummaryAppsRequest
     * @param runtime runtime options for this request RuntimeOptions
@@ -3728,7 +3755,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-    * @deprecated
+    * @deprecated : ListSummaryApps is deprecated, please use Mhub::2017-08-25::ListApps instead.
     *
     * @return ListSummaryAppsResponse
    */
@@ -3823,6 +3850,10 @@ export default class Client extends OpenApi {
 
     if (!Util.isUnset(request.androidExtParameters)) {
       query["AndroidExtParameters"] = request.androidExtParameters;
+    }
+
+    if (!Util.isUnset(request.androidHonorTargetUserType)) {
+      query["AndroidHonorTargetUserType"] = request.androidHonorTargetUserType;
     }
 
     if (!Util.isUnset(request.androidHuaweiReceiptId)) {
@@ -3923,6 +3954,10 @@ export default class Client extends OpenApi {
 
     if (!Util.isUnset(request.androidRenderStyle)) {
       query["AndroidRenderStyle"] = request.androidRenderStyle;
+    }
+
+    if (!Util.isUnset(request.androidTargetUserType)) {
+      query["AndroidTargetUserType"] = request.androidTargetUserType;
     }
 
     if (!Util.isUnset(request.androidVivoPushMode)) {
@@ -4122,6 +4157,10 @@ export default class Client extends OpenApi {
       query["JobKey"] = request.jobKey;
     }
 
+    if (!Util.isUnset(request.storeOffline)) {
+      query["StoreOffline"] = request.storeOffline;
+    }
+
     if (!Util.isUnset(request.target)) {
       query["Target"] = request.target;
     }
@@ -4169,6 +4208,10 @@ export default class Client extends OpenApi {
 
     if (!Util.isUnset(request.jobKey)) {
       query["JobKey"] = request.jobKey;
+    }
+
+    if (!Util.isUnset(request.storeOffline)) {
+      query["StoreOffline"] = request.storeOffline;
     }
 
     if (!Util.isUnset(request.target)) {
@@ -4222,6 +4265,10 @@ export default class Client extends OpenApi {
 
     if (!Util.isUnset(request.jobKey)) {
       query["JobKey"] = request.jobKey;
+    }
+
+    if (!Util.isUnset(request.storeOffline)) {
+      query["StoreOffline"] = request.storeOffline;
     }
 
     if (!Util.isUnset(request.target)) {
