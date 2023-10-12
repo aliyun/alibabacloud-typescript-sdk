@@ -225,6 +225,7 @@ export class CreateApplicationRequest extends $tea.Model {
   name?: string;
   regionId?: string;
   resourceGroupId?: string;
+  serviceId?: string;
   tags?: { [key: string]: any };
   static names(): { [key: string]: string } {
     return {
@@ -234,6 +235,7 @@ export class CreateApplicationRequest extends $tea.Model {
       name: 'Name',
       regionId: 'RegionId',
       resourceGroupId: 'ResourceGroupId',
+      serviceId: 'ServiceId',
       tags: 'Tags',
     };
   }
@@ -246,6 +248,7 @@ export class CreateApplicationRequest extends $tea.Model {
       name: 'string',
       regionId: 'string',
       resourceGroupId: 'string',
+      serviceId: 'string',
       tags: { 'type': 'map', 'keyType': 'string', 'valueType': 'any' },
     };
   }
@@ -262,6 +265,7 @@ export class CreateApplicationShrinkRequest extends $tea.Model {
   name?: string;
   regionId?: string;
   resourceGroupId?: string;
+  serviceId?: string;
   tagsShrink?: string;
   static names(): { [key: string]: string } {
     return {
@@ -271,6 +275,7 @@ export class CreateApplicationShrinkRequest extends $tea.Model {
       name: 'Name',
       regionId: 'RegionId',
       resourceGroupId: 'ResourceGroupId',
+      serviceId: 'ServiceId',
       tagsShrink: 'Tags',
     };
   }
@@ -283,6 +288,7 @@ export class CreateApplicationShrinkRequest extends $tea.Model {
       name: 'string',
       regionId: 'string',
       resourceGroupId: 'string',
+      serviceId: 'string',
       tagsShrink: 'string',
     };
   }
@@ -8243,6 +8249,7 @@ export class GetApplicationResponseBodyApplication extends $tea.Model {
   description?: string;
   name?: string;
   resourceGroupId?: string;
+  serviceId?: string;
   tags?: { [key: string]: any };
   updateDate?: string;
   static names(): { [key: string]: string } {
@@ -8253,6 +8260,7 @@ export class GetApplicationResponseBodyApplication extends $tea.Model {
       description: 'Description',
       name: 'Name',
       resourceGroupId: 'ResourceGroupId',
+      serviceId: 'ServiceId',
       tags: 'Tags',
       updateDate: 'UpdateDate',
     };
@@ -8266,6 +8274,7 @@ export class GetApplicationResponseBodyApplication extends $tea.Model {
       description: 'string',
       name: 'string',
       resourceGroupId: 'string',
+      serviceId: 'string',
       tags: { 'type': 'map', 'keyType': 'string', 'valueType': 'any' },
       updateDate: 'string',
     };
@@ -11088,6 +11097,10 @@ export default class Client extends OpenApi {
 
     if (!Util.isUnset(request.resourceGroupId)) {
       query["ResourceGroupId"] = request.resourceGroupId;
+    }
+
+    if (!Util.isUnset(request.serviceId)) {
+      query["ServiceId"] = request.serviceId;
     }
 
     if (!Util.isUnset(request.tagsShrink)) {
