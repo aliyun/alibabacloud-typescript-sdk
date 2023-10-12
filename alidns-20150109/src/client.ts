@@ -4222,6 +4222,7 @@ export class DescribeDnsProductInstanceRequest extends $tea.Model {
 }
 
 export class DescribeDnsProductInstanceResponseBody extends $tea.Model {
+  autoRenewal?: boolean;
   bindCount?: number;
   bindDomainCount?: number;
   bindDomainUsedCount?: number;
@@ -4259,6 +4260,7 @@ export class DescribeDnsProductInstanceResponseBody extends $tea.Model {
   versionName?: string;
   static names(): { [key: string]: string } {
     return {
+      autoRenewal: 'AutoRenewal',
       bindCount: 'BindCount',
       bindDomainCount: 'BindDomainCount',
       bindDomainUsedCount: 'BindDomainUsedCount',
@@ -4299,6 +4301,7 @@ export class DescribeDnsProductInstanceResponseBody extends $tea.Model {
 
   static types(): { [key: string]: any } {
     return {
+      autoRenewal: 'boolean',
       bindCount: 'number',
       bindDomainCount: 'number',
       bindDomainUsedCount: 'number',
