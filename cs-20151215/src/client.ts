@@ -9087,6 +9087,31 @@ export class DescribeClusterNodesResponseBodyPage extends $tea.Model {
   }
 }
 
+export class DescribeClusterResourcesResponseBodyDependencies extends $tea.Model {
+  clusterId?: string;
+  resourceType?: string;
+  instanceId?: string;
+  static names(): { [key: string]: string } {
+    return {
+      clusterId: 'cluster_id',
+      resourceType: 'resource_type',
+      instanceId: 'instance_id',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      clusterId: 'string',
+      resourceType: 'string',
+      instanceId: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
 export class DescribeClusterResourcesResponseBody extends $tea.Model {
   clusterId?: string;
   created?: string;
@@ -9095,6 +9120,7 @@ export class DescribeClusterResourcesResponseBody extends $tea.Model {
   resourceType?: string;
   state?: string;
   autoCreate?: number;
+  dependencies?: DescribeClusterResourcesResponseBodyDependencies;
   static names(): { [key: string]: string } {
     return {
       clusterId: 'cluster_id',
@@ -9104,6 +9130,7 @@ export class DescribeClusterResourcesResponseBody extends $tea.Model {
       resourceType: 'resource_type',
       state: 'state',
       autoCreate: 'auto_create',
+      dependencies: 'dependencies',
     };
   }
 
@@ -9116,6 +9143,7 @@ export class DescribeClusterResourcesResponseBody extends $tea.Model {
       resourceType: 'string',
       state: 'string',
       autoCreate: 'number',
+      dependencies: DescribeClusterResourcesResponseBodyDependencies,
     };
   }
 
