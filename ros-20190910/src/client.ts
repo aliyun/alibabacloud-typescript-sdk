@@ -395,6 +395,93 @@ export class CreateChangeSetResponse extends $tea.Model {
   }
 }
 
+export class CreateDiagnosticRequest extends $tea.Model {
+  diagnosticKey?: string;
+  diagnosticType?: string;
+  product?: string;
+  static names(): { [key: string]: string } {
+    return {
+      diagnosticKey: 'DiagnosticKey',
+      diagnosticType: 'DiagnosticType',
+      product: 'Product',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      diagnosticKey: 'string',
+      diagnosticType: 'string',
+      product: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class CreateDiagnosticResponseBody extends $tea.Model {
+  code?: string;
+  diagnosticType?: string;
+  httpStatusCode?: number;
+  message?: string;
+  reportId?: string;
+  requestId?: string;
+  success?: string;
+  static names(): { [key: string]: string } {
+    return {
+      code: 'Code',
+      diagnosticType: 'DiagnosticType',
+      httpStatusCode: 'HttpStatusCode',
+      message: 'Message',
+      reportId: 'ReportId',
+      requestId: 'RequestId',
+      success: 'Success',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      code: 'string',
+      diagnosticType: 'string',
+      httpStatusCode: 'number',
+      message: 'string',
+      reportId: 'string',
+      requestId: 'string',
+      success: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class CreateDiagnosticResponse extends $tea.Model {
+  headers: { [key: string]: string };
+  statusCode: number;
+  body: CreateDiagnosticResponseBody;
+  static names(): { [key: string]: string } {
+    return {
+      headers: 'headers',
+      statusCode: 'statusCode',
+      body: 'body',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
+      body: CreateDiagnosticResponseBody,
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
 export class CreateStackRequest extends $tea.Model {
   clientToken?: string;
   createOption?: string;
@@ -1134,6 +1221,81 @@ export class DeleteChangeSetResponse extends $tea.Model {
       headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
       statusCode: 'number',
       body: DeleteChangeSetResponseBody,
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class DeleteDiagnosticRequest extends $tea.Model {
+  reportId?: string;
+  static names(): { [key: string]: string } {
+    return {
+      reportId: 'ReportId',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      reportId: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class DeleteDiagnosticResponseBody extends $tea.Model {
+  code?: string;
+  httpStatusCode?: number;
+  message?: string;
+  requestId?: string;
+  success?: string;
+  static names(): { [key: string]: string } {
+    return {
+      code: 'Code',
+      httpStatusCode: 'HttpStatusCode',
+      message: 'Message',
+      requestId: 'RequestId',
+      success: 'Success',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      code: 'string',
+      httpStatusCode: 'number',
+      message: 'string',
+      requestId: 'string',
+      success: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class DeleteDiagnosticResponse extends $tea.Model {
+  headers: { [key: string]: string };
+  statusCode: number;
+  body: DeleteDiagnosticResponseBody;
+  static names(): { [key: string]: string } {
+    return {
+      headers: 'headers',
+      statusCode: 'statusCode',
+      body: 'body',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
+      body: DeleteDiagnosticResponseBody,
     };
   }
 
@@ -2294,6 +2456,108 @@ export class GetChangeSetResponse extends $tea.Model {
       headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
       statusCode: 'number',
       body: GetChangeSetResponseBody,
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class GetDiagnosticRequest extends $tea.Model {
+  reportId?: string;
+  static names(): { [key: string]: string } {
+    return {
+      reportId: 'ReportId',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      reportId: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class GetDiagnosticResponseBody extends $tea.Model {
+  code?: string;
+  diagnosticKey?: string;
+  diagnosticProduct?: string;
+  diagnosticResult?: GetDiagnosticResponseBodyDiagnosticResult;
+  diagnosticTime?: string;
+  httpCode?: string;
+  httpStatusCode?: number;
+  message?: string;
+  recommends?: { [key: string]: any };
+  reportId?: string;
+  requestId?: string;
+  status?: string;
+  statusReason?: string;
+  success?: string;
+  static names(): { [key: string]: string } {
+    return {
+      code: 'Code',
+      diagnosticKey: 'DiagnosticKey',
+      diagnosticProduct: 'DiagnosticProduct',
+      diagnosticResult: 'DiagnosticResult',
+      diagnosticTime: 'DiagnosticTime',
+      httpCode: 'HttpCode',
+      httpStatusCode: 'HttpStatusCode',
+      message: 'Message',
+      recommends: 'Recommends',
+      reportId: 'ReportId',
+      requestId: 'RequestId',
+      status: 'Status',
+      statusReason: 'StatusReason',
+      success: 'Success',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      code: 'string',
+      diagnosticKey: 'string',
+      diagnosticProduct: 'string',
+      diagnosticResult: GetDiagnosticResponseBodyDiagnosticResult,
+      diagnosticTime: 'string',
+      httpCode: 'string',
+      httpStatusCode: 'number',
+      message: 'string',
+      recommends: { 'type': 'map', 'keyType': 'string', 'valueType': 'any' },
+      reportId: 'string',
+      requestId: 'string',
+      status: 'string',
+      statusReason: 'string',
+      success: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class GetDiagnosticResponse extends $tea.Model {
+  headers: { [key: string]: string };
+  statusCode: number;
+  body: GetDiagnosticResponseBody;
+  static names(): { [key: string]: string } {
+    return {
+      headers: 'headers',
+      statusCode: 'statusCode',
+      body: 'body',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
+      body: GetDiagnosticResponseBody,
     };
   }
 
@@ -4059,6 +4323,96 @@ export class ListChangeSetsResponse extends $tea.Model {
       headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
       statusCode: 'number',
       body: ListChangeSetsResponseBody,
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class ListDiagnosticsRequest extends $tea.Model {
+  diagnosticKey?: string;
+  diagnosticProduct?: string;
+  maxResults?: string;
+  nextToken?: string;
+  status?: string;
+  static names(): { [key: string]: string } {
+    return {
+      diagnosticKey: 'DiagnosticKey',
+      diagnosticProduct: 'DiagnosticProduct',
+      maxResults: 'MaxResults',
+      nextToken: 'NextToken',
+      status: 'Status',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      diagnosticKey: 'string',
+      diagnosticProduct: 'string',
+      maxResults: 'string',
+      nextToken: 'string',
+      status: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class ListDiagnosticsResponseBody extends $tea.Model {
+  diagnostics?: ListDiagnosticsResponseBodyDiagnostics[];
+  httpStatusCode?: number;
+  message?: string;
+  nextToken?: string;
+  requestId?: string;
+  success?: string;
+  static names(): { [key: string]: string } {
+    return {
+      diagnostics: 'Diagnostics',
+      httpStatusCode: 'HttpStatusCode',
+      message: 'Message',
+      nextToken: 'NextToken',
+      requestId: 'RequestId',
+      success: 'Success',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      diagnostics: { 'type': 'array', 'itemType': ListDiagnosticsResponseBodyDiagnostics },
+      httpStatusCode: 'number',
+      message: 'string',
+      nextToken: 'string',
+      requestId: 'string',
+      success: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class ListDiagnosticsResponse extends $tea.Model {
+  headers: { [key: string]: string };
+  statusCode: number;
+  body: ListDiagnosticsResponseBody;
+  static names(): { [key: string]: string } {
+    return {
+      headers: 'headers',
+      statusCode: 'statusCode',
+      body: 'body',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
+      body: ListDiagnosticsResponseBody,
     };
   }
 
@@ -7985,6 +8339,31 @@ export class GetChangeSetResponseBodyParameters extends $tea.Model {
   }
 }
 
+export class GetDiagnosticResponseBodyDiagnosticResult extends $tea.Model {
+  failedResources?: { [key: string]: any };
+  rosActionMessages?: { [key: string]: any };
+  stackMessages?: { [key: string]: any };
+  static names(): { [key: string]: string } {
+    return {
+      failedResources: 'FailedResources',
+      rosActionMessages: 'RosActionMessages',
+      stackMessages: 'StackMessages',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      failedResources: { 'type': 'map', 'keyType': 'string', 'valueType': 'any' },
+      rosActionMessages: { 'type': 'map', 'keyType': 'string', 'valueType': 'any' },
+      stackMessages: { 'type': 'map', 'keyType': 'string', 'valueType': 'any' },
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
 export class GetFeatureDetailsResponseBodyDriftDetection extends $tea.Model {
   supportedResourceTypes?: string[];
   static names(): { [key: string]: string } {
@@ -9670,6 +10049,37 @@ export class ListChangeSetsResponseBodyChangeSets extends $tea.Model {
       stackName: 'string',
       status: 'string',
       statusReason: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class ListDiagnosticsResponseBodyDiagnostics extends $tea.Model {
+  createTime?: string;
+  diagnosticKey?: string;
+  diagnosticProduct?: string;
+  reportId?: string;
+  status?: string;
+  static names(): { [key: string]: string } {
+    return {
+      createTime: 'CreateTime',
+      diagnosticKey: 'DiagnosticKey',
+      diagnosticProduct: 'DiagnosticProduct',
+      reportId: 'ReportId',
+      status: 'Status',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      createTime: 'string',
+      diagnosticKey: 'string',
+      diagnosticProduct: 'string',
+      reportId: 'string',
+      status: 'string',
     };
   }
 
@@ -11794,6 +12204,43 @@ export default class Client extends OpenApi {
     return await this.createChangeSetWithOptions(request, runtime);
   }
 
+  async createDiagnosticWithOptions(request: CreateDiagnosticRequest, runtime: $Util.RuntimeOptions): Promise<CreateDiagnosticResponse> {
+    Util.validateModel(request);
+    let query = { };
+    if (!Util.isUnset(request.diagnosticKey)) {
+      query["DiagnosticKey"] = request.diagnosticKey;
+    }
+
+    if (!Util.isUnset(request.diagnosticType)) {
+      query["DiagnosticType"] = request.diagnosticType;
+    }
+
+    if (!Util.isUnset(request.product)) {
+      query["Product"] = request.product;
+    }
+
+    let req = new $OpenApi.OpenApiRequest({
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApi.Params({
+      action: "CreateDiagnostic",
+      version: "2019-09-10",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $tea.cast<CreateDiagnosticResponse>(await this.callApi(params, req, runtime), new CreateDiagnosticResponse({}));
+  }
+
+  async createDiagnostic(request: CreateDiagnosticRequest): Promise<CreateDiagnosticResponse> {
+    let runtime = new $Util.RuntimeOptions({ });
+    return await this.createDiagnosticWithOptions(request, runtime);
+  }
+
   /**
     * A stack is a collection of ROS resources that you can manage as a single unit. To create a collection of resources, you can create a stack. For more information about stacks, see [Overview](~~172973~~).\\
     * When you call the operation, take note of the following limits:
@@ -12374,6 +12821,35 @@ export default class Client extends OpenApi {
   async deleteChangeSet(request: DeleteChangeSetRequest): Promise<DeleteChangeSetResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.deleteChangeSetWithOptions(request, runtime);
+  }
+
+  async deleteDiagnosticWithOptions(request: DeleteDiagnosticRequest, runtime: $Util.RuntimeOptions): Promise<DeleteDiagnosticResponse> {
+    Util.validateModel(request);
+    let query = { };
+    if (!Util.isUnset(request.reportId)) {
+      query["ReportId"] = request.reportId;
+    }
+
+    let req = new $OpenApi.OpenApiRequest({
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApi.Params({
+      action: "DeleteDiagnostic",
+      version: "2019-09-10",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $tea.cast<DeleteDiagnosticResponse>(await this.callApi(params, req, runtime), new DeleteDiagnosticResponse({}));
+  }
+
+  async deleteDiagnostic(request: DeleteDiagnosticRequest): Promise<DeleteDiagnosticResponse> {
+    let runtime = new $Util.RuntimeOptions({ });
+    return await this.deleteDiagnosticWithOptions(request, runtime);
   }
 
   async deleteStackWithOptions(request: DeleteStackRequest, runtime: $Util.RuntimeOptions): Promise<DeleteStackResponse> {
@@ -13077,6 +13553,35 @@ export default class Client extends OpenApi {
   async getChangeSet(request: GetChangeSetRequest): Promise<GetChangeSetResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.getChangeSetWithOptions(request, runtime);
+  }
+
+  async getDiagnosticWithOptions(request: GetDiagnosticRequest, runtime: $Util.RuntimeOptions): Promise<GetDiagnosticResponse> {
+    Util.validateModel(request);
+    let query = { };
+    if (!Util.isUnset(request.reportId)) {
+      query["ReportId"] = request.reportId;
+    }
+
+    let req = new $OpenApi.OpenApiRequest({
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApi.Params({
+      action: "GetDiagnostic",
+      version: "2019-09-10",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $tea.cast<GetDiagnosticResponse>(await this.callApi(params, req, runtime), new GetDiagnosticResponse({}));
+  }
+
+  async getDiagnostic(request: GetDiagnosticRequest): Promise<GetDiagnosticResponse> {
+    let runtime = new $Util.RuntimeOptions({ });
+    return await this.getDiagnosticWithOptions(request, runtime);
   }
 
   /**
@@ -14217,6 +14722,51 @@ export default class Client extends OpenApi {
   async listChangeSets(request: ListChangeSetsRequest): Promise<ListChangeSetsResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.listChangeSetsWithOptions(request, runtime);
+  }
+
+  async listDiagnosticsWithOptions(request: ListDiagnosticsRequest, runtime: $Util.RuntimeOptions): Promise<ListDiagnosticsResponse> {
+    Util.validateModel(request);
+    let query = { };
+    if (!Util.isUnset(request.diagnosticKey)) {
+      query["DiagnosticKey"] = request.diagnosticKey;
+    }
+
+    if (!Util.isUnset(request.diagnosticProduct)) {
+      query["DiagnosticProduct"] = request.diagnosticProduct;
+    }
+
+    if (!Util.isUnset(request.maxResults)) {
+      query["MaxResults"] = request.maxResults;
+    }
+
+    if (!Util.isUnset(request.nextToken)) {
+      query["NextToken"] = request.nextToken;
+    }
+
+    if (!Util.isUnset(request.status)) {
+      query["Status"] = request.status;
+    }
+
+    let req = new $OpenApi.OpenApiRequest({
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApi.Params({
+      action: "ListDiagnostics",
+      version: "2019-09-10",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $tea.cast<ListDiagnosticsResponse>(await this.callApi(params, req, runtime), new ListDiagnosticsResponse({}));
+  }
+
+  async listDiagnostics(request: ListDiagnosticsRequest): Promise<ListDiagnosticsResponse> {
+    let runtime = new $Util.RuntimeOptions({ });
+    return await this.listDiagnosticsWithOptions(request, runtime);
   }
 
   async listResourceTypeRegistrationsWithOptions(request: ListResourceTypeRegistrationsRequest, runtime: $Util.RuntimeOptions): Promise<ListResourceTypeRegistrationsResponse> {
