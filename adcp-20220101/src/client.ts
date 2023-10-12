@@ -1585,6 +1585,7 @@ export class UpdateHubClusterFeatureRequest extends $tea.Model {
   clusterId?: string;
   deletionProtection?: boolean;
   enableMesh?: boolean;
+  MSEEnabled?: boolean;
   monitorEnabled?: boolean;
   name?: string;
   priceLimit?: string;
@@ -1604,6 +1605,7 @@ export class UpdateHubClusterFeatureRequest extends $tea.Model {
       clusterId: 'ClusterId',
       deletionProtection: 'DeletionProtection',
       enableMesh: 'EnableMesh',
+      MSEEnabled: 'MSEEnabled',
       monitorEnabled: 'MonitorEnabled',
       name: 'Name',
       priceLimit: 'PriceLimit',
@@ -1626,6 +1628,7 @@ export class UpdateHubClusterFeatureRequest extends $tea.Model {
       clusterId: 'string',
       deletionProtection: 'boolean',
       enableMesh: 'boolean',
+      MSEEnabled: 'boolean',
       monitorEnabled: 'boolean',
       name: 'string',
       priceLimit: 'string',
@@ -1652,6 +1655,7 @@ export class UpdateHubClusterFeatureShrinkRequest extends $tea.Model {
   clusterId?: string;
   deletionProtection?: boolean;
   enableMesh?: boolean;
+  MSEEnabled?: boolean;
   monitorEnabled?: boolean;
   name?: string;
   priceLimit?: string;
@@ -1671,6 +1675,7 @@ export class UpdateHubClusterFeatureShrinkRequest extends $tea.Model {
       clusterId: 'ClusterId',
       deletionProtection: 'DeletionProtection',
       enableMesh: 'EnableMesh',
+      MSEEnabled: 'MSEEnabled',
       monitorEnabled: 'MonitorEnabled',
       name: 'Name',
       priceLimit: 'PriceLimit',
@@ -1693,6 +1698,7 @@ export class UpdateHubClusterFeatureShrinkRequest extends $tea.Model {
       clusterId: 'string',
       deletionProtection: 'boolean',
       enableMesh: 'boolean',
+      MSEEnabled: 'boolean',
       monitorEnabled: 'boolean',
       name: 'string',
       priceLimit: 'string',
@@ -3977,6 +3983,10 @@ export default class Client extends OpenApi {
 
     if (!Util.isUnset(request.enableMesh)) {
       query["EnableMesh"] = request.enableMesh;
+    }
+
+    if (!Util.isUnset(request.MSEEnabled)) {
+      query["MSEEnabled"] = request.MSEEnabled;
     }
 
     if (!Util.isUnset(request.monitorEnabled)) {
