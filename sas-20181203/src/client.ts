@@ -2717,6 +2717,69 @@ export class CreateFileProtectRuleResponse extends $tea.Model {
   }
 }
 
+export class CreateFileUploadLimitRequest extends $tea.Model {
+  limit?: number;
+  static names(): { [key: string]: string } {
+    return {
+      limit: 'Limit',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      limit: 'number',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class CreateFileUploadLimitResponseBody extends $tea.Model {
+  requestId?: string;
+  static names(): { [key: string]: string } {
+    return {
+      requestId: 'RequestId',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      requestId: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class CreateFileUploadLimitResponse extends $tea.Model {
+  headers: { [key: string]: string };
+  statusCode: number;
+  body: CreateFileUploadLimitResponseBody;
+  static names(): { [key: string]: string } {
+    return {
+      headers: 'headers',
+      statusCode: 'statusCode',
+      body: 'body',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
+      body: CreateFileUploadLimitResponseBody,
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
 export class CreateHoneypotRequest extends $tea.Model {
   honeypotImageId?: string;
   honeypotImageName?: string;
@@ -25017,9 +25080,11 @@ export class ExportSuspEventsRequest extends $tea.Model {
   currentPage?: string;
   dealed?: string;
   from?: string;
+  id?: number;
   lang?: string;
   levels?: string;
   name?: string;
+  operateErrorCodeList?: string[];
   pageSize?: string;
   parentEventTypes?: string;
   remark?: string;
@@ -25028,6 +25093,8 @@ export class ExportSuspEventsRequest extends $tea.Model {
   targetType?: string;
   timeEnd?: string;
   timeStart?: string;
+  uniqueInfo?: string;
+  uuid?: string;
   static names(): { [key: string]: string } {
     return {
       assetsTypeList: 'AssetsTypeList',
@@ -25037,9 +25104,11 @@ export class ExportSuspEventsRequest extends $tea.Model {
       currentPage: 'CurrentPage',
       dealed: 'Dealed',
       from: 'From',
+      id: 'Id',
       lang: 'Lang',
       levels: 'Levels',
       name: 'Name',
+      operateErrorCodeList: 'OperateErrorCodeList',
       pageSize: 'PageSize',
       parentEventTypes: 'ParentEventTypes',
       remark: 'Remark',
@@ -25048,6 +25117,8 @@ export class ExportSuspEventsRequest extends $tea.Model {
       targetType: 'TargetType',
       timeEnd: 'TimeEnd',
       timeStart: 'TimeStart',
+      uniqueInfo: 'UniqueInfo',
+      uuid: 'Uuid',
     };
   }
 
@@ -25060,9 +25131,11 @@ export class ExportSuspEventsRequest extends $tea.Model {
       currentPage: 'string',
       dealed: 'string',
       from: 'string',
+      id: 'number',
       lang: 'string',
       levels: 'string',
       name: 'string',
+      operateErrorCodeList: { 'type': 'array', 'itemType': 'string' },
       pageSize: 'string',
       parentEventTypes: 'string',
       remark: 'string',
@@ -25071,6 +25144,8 @@ export class ExportSuspEventsRequest extends $tea.Model {
       targetType: 'string',
       timeEnd: 'string',
       timeStart: 'string',
+      uniqueInfo: 'string',
+      uuid: 'string',
     };
   }
 
@@ -25132,11 +25207,14 @@ export class ExportSuspEventsResponse extends $tea.Model {
 export class ExportVulRequest extends $tea.Model {
   aliasName?: string;
   attachTypes?: string;
+  containerName?: string;
   cveId?: string;
   dealed?: string;
   groupId?: string;
+  imageName?: string;
   lang?: string;
   necessity?: string;
+  path?: string;
   searchTags?: string;
   type?: string;
   uuids?: string;
@@ -25145,11 +25223,14 @@ export class ExportVulRequest extends $tea.Model {
     return {
       aliasName: 'AliasName',
       attachTypes: 'AttachTypes',
+      containerName: 'ContainerName',
       cveId: 'CveId',
       dealed: 'Dealed',
       groupId: 'GroupId',
+      imageName: 'ImageName',
       lang: 'Lang',
       necessity: 'Necessity',
+      path: 'Path',
       searchTags: 'SearchTags',
       type: 'Type',
       uuids: 'Uuids',
@@ -25161,11 +25242,14 @@ export class ExportVulRequest extends $tea.Model {
     return {
       aliasName: 'string',
       attachTypes: 'string',
+      containerName: 'string',
       cveId: 'string',
       dealed: 'string',
       groupId: 'string',
+      imageName: 'string',
       lang: 'string',
       necessity: 'string',
+      path: 'string',
       searchTags: 'string',
       type: 'string',
       uuids: 'string',
@@ -27649,6 +27733,53 @@ export class GetFileProtectRuleResponse extends $tea.Model {
   }
 }
 
+export class GetFileUploadLimitResponseBody extends $tea.Model {
+  data?: GetFileUploadLimitResponseBodyData;
+  requestId?: string;
+  static names(): { [key: string]: string } {
+    return {
+      data: 'Data',
+      requestId: 'RequestId',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      data: GetFileUploadLimitResponseBodyData,
+      requestId: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class GetFileUploadLimitResponse extends $tea.Model {
+  headers: { [key: string]: string };
+  statusCode: number;
+  body: GetFileUploadLimitResponseBody;
+  static names(): { [key: string]: string } {
+    return {
+      headers: 'headers',
+      statusCode: 'statusCode',
+      body: 'body',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
+      body: GetFileUploadLimitResponseBody,
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
 export class GetHoneypotAttackStatisticsRequest extends $tea.Model {
   currentPage?: number;
   endTimeStamp?: number;
@@ -28505,6 +28636,72 @@ export class GetLastOnceTaskInfoResponse extends $tea.Model {
       headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
       statusCode: 'number',
       body: GetLastOnceTaskInfoResponseBody,
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class GetLogMetaRequest extends $tea.Model {
+  logStore?: string;
+  static names(): { [key: string]: string } {
+    return {
+      logStore: 'LogStore',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      logStore: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class GetLogMetaResponseBody extends $tea.Model {
+  logMeta?: GetLogMetaResponseBodyLogMeta;
+  requestId?: string;
+  static names(): { [key: string]: string } {
+    return {
+      logMeta: 'LogMeta',
+      requestId: 'RequestId',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      logMeta: GetLogMetaResponseBodyLogMeta,
+      requestId: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class GetLogMetaResponse extends $tea.Model {
+  headers: { [key: string]: string };
+  statusCode: number;
+  body: GetLogMetaResponseBody;
+  static names(): { [key: string]: string } {
+    return {
+      headers: 'headers',
+      statusCode: 'statusCode',
+      body: 'body',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
+      body: GetLogMetaResponseBody,
     };
   }
 
@@ -43298,6 +43495,69 @@ export class UpdateFileProtectRuleResponse extends $tea.Model {
       headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
       statusCode: 'number',
       body: UpdateFileProtectRuleResponseBody,
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class UpdateFileUploadLimitRequest extends $tea.Model {
+  limit?: number;
+  static names(): { [key: string]: string } {
+    return {
+      limit: 'Limit',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      limit: 'number',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class UpdateFileUploadLimitResponseBody extends $tea.Model {
+  requestId?: string;
+  static names(): { [key: string]: string } {
+    return {
+      requestId: 'RequestId',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      requestId: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class UpdateFileUploadLimitResponse extends $tea.Model {
+  headers: { [key: string]: string };
+  statusCode: number;
+  body: UpdateFileUploadLimitResponseBody;
+  static names(): { [key: string]: string } {
+    return {
+      headers: 'headers',
+      statusCode: 'statusCode',
+      body: 'body',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
+      body: UpdateFileUploadLimitResponseBody,
     };
   }
 
@@ -58653,6 +58913,25 @@ export class GetFileProtectRuleResponseBodyData extends $tea.Model {
   }
 }
 
+export class GetFileUploadLimitResponseBodyData extends $tea.Model {
+  limit?: string;
+  static names(): { [key: string]: string } {
+    return {
+      limit: 'Limit',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      limit: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
 export class GetHoneypotAttackStatisticsResponseBodyDataHoneypotAttackStatistics extends $tea.Model {
   statisticsCount?: number;
   statisticsValue?: string;
@@ -59344,6 +59623,31 @@ export class GetLastOnceTaskInfoResponseBodyTaskInfo extends $tea.Model {
     return {
       progress: 'number',
       result: 'string',
+      status: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class GetLogMetaResponseBodyLogMeta extends $tea.Model {
+  logStore?: string;
+  project?: string;
+  status?: string;
+  static names(): { [key: string]: string } {
+    return {
+      logStore: 'LogStore',
+      project: 'Project',
+      status: 'Status',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      logStore: 'string',
+      project: 'string',
       status: 'string',
     };
   }
@@ -66010,6 +66314,35 @@ export default class Client extends OpenApi {
   async createFileProtectRule(request: CreateFileProtectRuleRequest): Promise<CreateFileProtectRuleResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.createFileProtectRuleWithOptions(request, runtime);
+  }
+
+  async createFileUploadLimitWithOptions(request: CreateFileUploadLimitRequest, runtime: $Util.RuntimeOptions): Promise<CreateFileUploadLimitResponse> {
+    Util.validateModel(request);
+    let query = { };
+    if (!Util.isUnset(request.limit)) {
+      query["Limit"] = request.limit;
+    }
+
+    let req = new $OpenApi.OpenApiRequest({
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApi.Params({
+      action: "CreateFileUploadLimit",
+      version: "2018-12-03",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $tea.cast<CreateFileUploadLimitResponse>(await this.callApi(params, req, runtime), new CreateFileUploadLimitResponse({}));
+  }
+
+  async createFileUploadLimit(request: CreateFileUploadLimitRequest): Promise<CreateFileUploadLimitResponse> {
+    let runtime = new $Util.RuntimeOptions({ });
+    return await this.createFileUploadLimitWithOptions(request, runtime);
   }
 
   async createHoneypotWithOptions(request: CreateHoneypotRequest, runtime: $Util.RuntimeOptions): Promise<CreateHoneypotResponse> {
@@ -77946,6 +78279,10 @@ export default class Client extends OpenApi {
       query["From"] = request.from;
     }
 
+    if (!Util.isUnset(request.id)) {
+      query["Id"] = request.id;
+    }
+
     if (!Util.isUnset(request.lang)) {
       query["Lang"] = request.lang;
     }
@@ -77956,6 +78293,10 @@ export default class Client extends OpenApi {
 
     if (!Util.isUnset(request.name)) {
       query["Name"] = request.name;
+    }
+
+    if (!Util.isUnset(request.operateErrorCodeList)) {
+      query["OperateErrorCodeList"] = request.operateErrorCodeList;
     }
 
     if (!Util.isUnset(request.pageSize)) {
@@ -77988,6 +78329,14 @@ export default class Client extends OpenApi {
 
     if (!Util.isUnset(request.timeStart)) {
       query["TimeStart"] = request.timeStart;
+    }
+
+    if (!Util.isUnset(request.uniqueInfo)) {
+      query["UniqueInfo"] = request.uniqueInfo;
+    }
+
+    if (!Util.isUnset(request.uuid)) {
+      query["Uuid"] = request.uuid;
     }
 
     let req = new $OpenApi.OpenApiRequest({
@@ -78033,6 +78382,10 @@ export default class Client extends OpenApi {
       query["AttachTypes"] = request.attachTypes;
     }
 
+    if (!Util.isUnset(request.containerName)) {
+      query["ContainerName"] = request.containerName;
+    }
+
     if (!Util.isUnset(request.cveId)) {
       query["CveId"] = request.cveId;
     }
@@ -78045,12 +78398,20 @@ export default class Client extends OpenApi {
       query["GroupId"] = request.groupId;
     }
 
+    if (!Util.isUnset(request.imageName)) {
+      query["ImageName"] = request.imageName;
+    }
+
     if (!Util.isUnset(request.lang)) {
       query["Lang"] = request.lang;
     }
 
     if (!Util.isUnset(request.necessity)) {
       query["Necessity"] = request.necessity;
+    }
+
+    if (!Util.isUnset(request.path)) {
+      query["Path"] = request.path;
     }
 
     if (!Util.isUnset(request.searchTags)) {
@@ -79296,6 +79657,27 @@ export default class Client extends OpenApi {
     return await this.getFileProtectRuleWithOptions(request, runtime);
   }
 
+  async getFileUploadLimitWithOptions(runtime: $Util.RuntimeOptions): Promise<GetFileUploadLimitResponse> {
+    let req = new $OpenApi.OpenApiRequest({ });
+    let params = new $OpenApi.Params({
+      action: "GetFileUploadLimit",
+      version: "2018-12-03",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $tea.cast<GetFileUploadLimitResponse>(await this.callApi(params, req, runtime), new GetFileUploadLimitResponse({}));
+  }
+
+  async getFileUploadLimit(): Promise<GetFileUploadLimitResponse> {
+    let runtime = new $Util.RuntimeOptions({ });
+    return await this.getFileUploadLimitWithOptions(runtime);
+  }
+
   async getHoneypotAttackStatisticsWithOptions(request: GetHoneypotAttackStatisticsRequest, runtime: $Util.RuntimeOptions): Promise<GetHoneypotAttackStatisticsResponse> {
     Util.validateModel(request);
     let query = { };
@@ -79681,6 +80063,35 @@ export default class Client extends OpenApi {
   async getLastOnceTaskInfo(request: GetLastOnceTaskInfoRequest): Promise<GetLastOnceTaskInfoResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.getLastOnceTaskInfoWithOptions(request, runtime);
+  }
+
+  async getLogMetaWithOptions(request: GetLogMetaRequest, runtime: $Util.RuntimeOptions): Promise<GetLogMetaResponse> {
+    Util.validateModel(request);
+    let query = { };
+    if (!Util.isUnset(request.logStore)) {
+      query["LogStore"] = request.logStore;
+    }
+
+    let req = new $OpenApi.OpenApiRequest({
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApi.Params({
+      action: "GetLogMeta",
+      version: "2018-12-03",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $tea.cast<GetLogMetaResponse>(await this.callApi(params, req, runtime), new GetLogMetaResponse({}));
+  }
+
+  async getLogMeta(request: GetLogMetaRequest): Promise<GetLogMetaResponse> {
+    let runtime = new $Util.RuntimeOptions({ });
+    return await this.getLogMetaWithOptions(request, runtime);
   }
 
   async getModuleConfigWithOptions(request: GetModuleConfigRequest, runtime: $Util.RuntimeOptions): Promise<GetModuleConfigResponse> {
@@ -87668,6 +88079,35 @@ export default class Client extends OpenApi {
   async updateFileProtectRule(request: UpdateFileProtectRuleRequest): Promise<UpdateFileProtectRuleResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.updateFileProtectRuleWithOptions(request, runtime);
+  }
+
+  async updateFileUploadLimitWithOptions(request: UpdateFileUploadLimitRequest, runtime: $Util.RuntimeOptions): Promise<UpdateFileUploadLimitResponse> {
+    Util.validateModel(request);
+    let query = { };
+    if (!Util.isUnset(request.limit)) {
+      query["Limit"] = request.limit;
+    }
+
+    let req = new $OpenApi.OpenApiRequest({
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApi.Params({
+      action: "UpdateFileUploadLimit",
+      version: "2018-12-03",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $tea.cast<UpdateFileUploadLimitResponse>(await this.callApi(params, req, runtime), new UpdateFileUploadLimitResponse({}));
+  }
+
+  async updateFileUploadLimit(request: UpdateFileUploadLimitRequest): Promise<UpdateFileUploadLimitResponse> {
+    let runtime = new $Util.RuntimeOptions({ });
+    return await this.updateFileUploadLimitWithOptions(request, runtime);
   }
 
   async updateHoneypotWithOptions(request: UpdateHoneypotRequest, runtime: $Util.RuntimeOptions): Promise<UpdateHoneypotResponse> {
