@@ -109,14 +109,20 @@ export class AddControlPolicyRequest extends $tea.Model {
   destination?: string;
   destinationType?: string;
   direction?: string;
+  endTime?: number;
   ipVersion?: string;
   lang?: string;
   newOrder?: string;
   proto?: string;
   release?: string;
+  repeatDays?: number[];
+  repeatEndTime?: string;
+  repeatStartTime?: string;
+  repeatType?: string;
   source?: string;
   sourceIp?: string;
   sourceType?: string;
+  startTime?: number;
   static names(): { [key: string]: string } {
     return {
       aclAction: 'AclAction',
@@ -129,14 +135,20 @@ export class AddControlPolicyRequest extends $tea.Model {
       destination: 'Destination',
       destinationType: 'DestinationType',
       direction: 'Direction',
+      endTime: 'EndTime',
       ipVersion: 'IpVersion',
       lang: 'Lang',
       newOrder: 'NewOrder',
       proto: 'Proto',
       release: 'Release',
+      repeatDays: 'RepeatDays',
+      repeatEndTime: 'RepeatEndTime',
+      repeatStartTime: 'RepeatStartTime',
+      repeatType: 'RepeatType',
       source: 'Source',
       sourceIp: 'SourceIp',
       sourceType: 'SourceType',
+      startTime: 'StartTime',
     };
   }
 
@@ -152,14 +164,20 @@ export class AddControlPolicyRequest extends $tea.Model {
       destination: 'string',
       destinationType: 'string',
       direction: 'string',
+      endTime: 'number',
       ipVersion: 'string',
       lang: 'string',
       newOrder: 'string',
       proto: 'string',
       release: 'string',
+      repeatDays: { 'type': 'array', 'itemType': 'number' },
+      repeatEndTime: 'string',
+      repeatStartTime: 'string',
+      repeatType: 'string',
       source: 'string',
       sourceIp: 'string',
       sourceType: 'string',
+      startTime: 'number',
     };
   }
 
@@ -361,14 +379,20 @@ export class CreateNatFirewallControlPolicyRequest extends $tea.Model {
   destinationType?: string;
   direction?: string;
   domainResolveType?: number;
+  endTime?: number;
   ipVersion?: string;
   lang?: string;
   natGatewayId?: string;
   newOrder?: string;
   proto?: string;
   release?: string;
+  repeatDays?: number[];
+  repeatEndTime?: string;
+  repeatStartTime?: string;
+  repeatType?: string;
   source?: string;
   sourceType?: string;
+  startTime?: number;
   static names(): { [key: string]: string } {
     return {
       aclAction: 'AclAction',
@@ -381,14 +405,20 @@ export class CreateNatFirewallControlPolicyRequest extends $tea.Model {
       destinationType: 'DestinationType',
       direction: 'Direction',
       domainResolveType: 'DomainResolveType',
+      endTime: 'EndTime',
       ipVersion: 'IpVersion',
       lang: 'Lang',
       natGatewayId: 'NatGatewayId',
       newOrder: 'NewOrder',
       proto: 'Proto',
       release: 'Release',
+      repeatDays: 'RepeatDays',
+      repeatEndTime: 'RepeatEndTime',
+      repeatStartTime: 'RepeatStartTime',
+      repeatType: 'RepeatType',
       source: 'Source',
       sourceType: 'SourceType',
+      startTime: 'StartTime',
     };
   }
 
@@ -404,14 +434,20 @@ export class CreateNatFirewallControlPolicyRequest extends $tea.Model {
       destinationType: 'string',
       direction: 'string',
       domainResolveType: 'number',
+      endTime: 'number',
       ipVersion: 'string',
       lang: 'string',
       natGatewayId: 'string',
       newOrder: 'string',
       proto: 'string',
       release: 'string',
+      repeatDays: { 'type': 'array', 'itemType': 'number' },
+      repeatEndTime: 'string',
+      repeatStartTime: 'string',
+      repeatType: 'string',
       source: 'string',
       sourceType: 'string',
+      startTime: 'number',
     };
   }
 
@@ -882,37 +918,51 @@ export class CreateVpcFirewallConfigureResponse extends $tea.Model {
 export class CreateVpcFirewallControlPolicyRequest extends $tea.Model {
   aclAction?: string;
   applicationName?: string;
+  applicationNameList?: string[];
   description?: string;
   destPort?: string;
   destPortGroup?: string;
   destPortType?: string;
   destination?: string;
   destinationType?: string;
+  endTime?: number;
   lang?: string;
   memberUid?: string;
   newOrder?: string;
   proto?: string;
   release?: string;
+  repeatDays?: number[];
+  repeatEndTime?: string;
+  repeatStartTime?: string;
+  repeatType?: string;
   source?: string;
   sourceType?: string;
+  startTime?: number;
   vpcFirewallId?: string;
   static names(): { [key: string]: string } {
     return {
       aclAction: 'AclAction',
       applicationName: 'ApplicationName',
+      applicationNameList: 'ApplicationNameList',
       description: 'Description',
       destPort: 'DestPort',
       destPortGroup: 'DestPortGroup',
       destPortType: 'DestPortType',
       destination: 'Destination',
       destinationType: 'DestinationType',
+      endTime: 'EndTime',
       lang: 'Lang',
       memberUid: 'MemberUid',
       newOrder: 'NewOrder',
       proto: 'Proto',
       release: 'Release',
+      repeatDays: 'RepeatDays',
+      repeatEndTime: 'RepeatEndTime',
+      repeatStartTime: 'RepeatStartTime',
+      repeatType: 'RepeatType',
       source: 'Source',
       sourceType: 'SourceType',
+      startTime: 'StartTime',
       vpcFirewallId: 'VpcFirewallId',
     };
   }
@@ -921,19 +971,26 @@ export class CreateVpcFirewallControlPolicyRequest extends $tea.Model {
     return {
       aclAction: 'string',
       applicationName: 'string',
+      applicationNameList: { 'type': 'array', 'itemType': 'string' },
       description: 'string',
       destPort: 'string',
       destPortGroup: 'string',
       destPortType: 'string',
       destination: 'string',
       destinationType: 'string',
+      endTime: 'number',
       lang: 'string',
       memberUid: 'string',
       newOrder: 'string',
       proto: 'string',
       release: 'string',
+      repeatDays: { 'type': 'array', 'itemType': 'number' },
+      repeatEndTime: 'string',
+      repeatStartTime: 'string',
+      repeatType: 'string',
       source: 'string',
       sourceType: 'string',
+      startTime: 'number',
       vpcFirewallId: 'string',
     };
   }
@@ -1815,6 +1872,7 @@ export class DescribeControlPolicyRequest extends $tea.Model {
   pageSize?: string;
   proto?: string;
   release?: string;
+  repeatType?: string;
   source?: string;
   static names(): { [key: string]: string } {
     return {
@@ -1829,6 +1887,7 @@ export class DescribeControlPolicyRequest extends $tea.Model {
       pageSize: 'PageSize',
       proto: 'Proto',
       release: 'Release',
+      repeatType: 'RepeatType',
       source: 'Source',
     };
   }
@@ -1846,6 +1905,7 @@ export class DescribeControlPolicyRequest extends $tea.Model {
       pageSize: 'string',
       proto: 'string',
       release: 'string',
+      repeatType: 'string',
       source: 'string',
     };
   }
@@ -2157,6 +2217,111 @@ export class DescribeInstanceMembersResponse extends $tea.Model {
   }
 }
 
+export class DescribeInternetOpenIpRequest extends $tea.Model {
+  assetsInstanceId?: string;
+  assetsInstanceName?: string;
+  assetsType?: string;
+  currentPage?: string;
+  endTime?: string;
+  lang?: string;
+  pageSize?: string;
+  port?: string;
+  publicIp?: string;
+  regionNo?: string;
+  riskLevel?: string;
+  serviceName?: string;
+  startTime?: string;
+  static names(): { [key: string]: string } {
+    return {
+      assetsInstanceId: 'AssetsInstanceId',
+      assetsInstanceName: 'AssetsInstanceName',
+      assetsType: 'AssetsType',
+      currentPage: 'CurrentPage',
+      endTime: 'EndTime',
+      lang: 'Lang',
+      pageSize: 'PageSize',
+      port: 'Port',
+      publicIp: 'PublicIp',
+      regionNo: 'RegionNo',
+      riskLevel: 'RiskLevel',
+      serviceName: 'ServiceName',
+      startTime: 'StartTime',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      assetsInstanceId: 'string',
+      assetsInstanceName: 'string',
+      assetsType: 'string',
+      currentPage: 'string',
+      endTime: 'string',
+      lang: 'string',
+      pageSize: 'string',
+      port: 'string',
+      publicIp: 'string',
+      regionNo: 'string',
+      riskLevel: 'string',
+      serviceName: 'string',
+      startTime: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class DescribeInternetOpenIpResponseBody extends $tea.Model {
+  dataList?: DescribeInternetOpenIpResponseBodyDataList[];
+  pageInfo?: DescribeInternetOpenIpResponseBodyPageInfo;
+  requestId?: string;
+  static names(): { [key: string]: string } {
+    return {
+      dataList: 'DataList',
+      pageInfo: 'PageInfo',
+      requestId: 'RequestId',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      dataList: { 'type': 'array', 'itemType': DescribeInternetOpenIpResponseBodyDataList },
+      pageInfo: DescribeInternetOpenIpResponseBodyPageInfo,
+      requestId: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class DescribeInternetOpenIpResponse extends $tea.Model {
+  headers: { [key: string]: string };
+  statusCode: number;
+  body: DescribeInternetOpenIpResponseBody;
+  static names(): { [key: string]: string } {
+    return {
+      headers: 'headers',
+      statusCode: 'statusCode',
+      body: 'body',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
+      body: DescribeInternetOpenIpResponseBody,
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
 export class DescribeInternetTrafficTrendRequest extends $tea.Model {
   direction?: string;
   endTime?: string;
@@ -2421,6 +2586,7 @@ export class DescribeNatFirewallControlPolicyRequest extends $tea.Model {
   pageSize?: string;
   proto?: string;
   release?: string;
+  repeatType?: string;
   source?: string;
   static names(): { [key: string]: string } {
     return {
@@ -2435,6 +2601,7 @@ export class DescribeNatFirewallControlPolicyRequest extends $tea.Model {
       pageSize: 'PageSize',
       proto: 'Proto',
       release: 'Release',
+      repeatType: 'RepeatType',
       source: 'Source',
     };
   }
@@ -2452,6 +2619,7 @@ export class DescribeNatFirewallControlPolicyRequest extends $tea.Model {
       pageSize: 'string',
       proto: 'string',
       release: 'string',
+      repeatType: 'string',
       source: 'string',
     };
   }
@@ -4085,6 +4253,7 @@ export class DescribeVpcFirewallControlPolicyRequest extends $tea.Model {
   pageSize?: string;
   proto?: string;
   release?: string;
+  repeatType?: string;
   source?: string;
   vpcFirewallId?: string;
   static names(): { [key: string]: string } {
@@ -4099,6 +4268,7 @@ export class DescribeVpcFirewallControlPolicyRequest extends $tea.Model {
       pageSize: 'PageSize',
       proto: 'Proto',
       release: 'Release',
+      repeatType: 'RepeatType',
       source: 'Source',
       vpcFirewallId: 'VpcFirewallId',
     };
@@ -4116,6 +4286,7 @@ export class DescribeVpcFirewallControlPolicyRequest extends $tea.Model {
       pageSize: 'string',
       proto: 'string',
       release: 'string',
+      repeatType: 'string',
       source: 'string',
       vpcFirewallId: 'string',
     };
@@ -4737,11 +4908,17 @@ export class ModifyControlPolicyRequest extends $tea.Model {
   destination?: string;
   destinationType?: string;
   direction?: string;
+  endTime?: number;
   lang?: string;
   proto?: string;
   release?: string;
+  repeatDays?: number[];
+  repeatEndTime?: string;
+  repeatStartTime?: string;
+  repeatType?: string;
   source?: string;
   sourceType?: string;
+  startTime?: number;
   static names(): { [key: string]: string } {
     return {
       aclAction: 'AclAction',
@@ -4755,11 +4932,17 @@ export class ModifyControlPolicyRequest extends $tea.Model {
       destination: 'Destination',
       destinationType: 'DestinationType',
       direction: 'Direction',
+      endTime: 'EndTime',
       lang: 'Lang',
       proto: 'Proto',
       release: 'Release',
+      repeatDays: 'RepeatDays',
+      repeatEndTime: 'RepeatEndTime',
+      repeatStartTime: 'RepeatStartTime',
+      repeatType: 'RepeatType',
       source: 'Source',
       sourceType: 'SourceType',
+      startTime: 'StartTime',
     };
   }
 
@@ -4776,11 +4959,17 @@ export class ModifyControlPolicyRequest extends $tea.Model {
       destination: 'string',
       destinationType: 'string',
       direction: 'string',
+      endTime: 'number',
       lang: 'string',
       proto: 'string',
       release: 'string',
+      repeatDays: { 'type': 'array', 'itemType': 'number' },
+      repeatEndTime: 'string',
+      repeatStartTime: 'string',
+      repeatType: 'string',
       source: 'string',
       sourceType: 'string',
+      startTime: 'number',
     };
   }
 
@@ -5147,12 +5336,18 @@ export class ModifyNatFirewallControlPolicyRequest extends $tea.Model {
   destination?: string;
   destinationType?: string;
   domainResolveType?: string;
+  endTime?: number;
   lang?: string;
   natGatewayId?: string;
   proto?: string;
   release?: string;
+  repeatDays?: number[];
+  repeatEndTime?: string;
+  repeatStartTime?: string;
+  repeatType?: string;
   source?: string;
   sourceType?: string;
+  startTime?: number;
   static names(): { [key: string]: string } {
     return {
       aclAction: 'AclAction',
@@ -5165,12 +5360,18 @@ export class ModifyNatFirewallControlPolicyRequest extends $tea.Model {
       destination: 'Destination',
       destinationType: 'DestinationType',
       domainResolveType: 'DomainResolveType',
+      endTime: 'EndTime',
       lang: 'Lang',
       natGatewayId: 'NatGatewayId',
       proto: 'Proto',
       release: 'Release',
+      repeatDays: 'RepeatDays',
+      repeatEndTime: 'RepeatEndTime',
+      repeatStartTime: 'RepeatStartTime',
+      repeatType: 'RepeatType',
       source: 'Source',
       sourceType: 'SourceType',
+      startTime: 'StartTime',
     };
   }
 
@@ -5186,12 +5387,18 @@ export class ModifyNatFirewallControlPolicyRequest extends $tea.Model {
       destination: 'string',
       destinationType: 'string',
       domainResolveType: 'string',
+      endTime: 'number',
       lang: 'string',
       natGatewayId: 'string',
       proto: 'string',
       release: 'string',
+      repeatDays: { 'type': 'array', 'itemType': 'number' },
+      repeatEndTime: 'string',
+      repeatStartTime: 'string',
+      repeatType: 'string',
       source: 'string',
       sourceType: 'string',
+      startTime: 'number',
     };
   }
 
@@ -5870,34 +6077,48 @@ export class ModifyVpcFirewallControlPolicyRequest extends $tea.Model {
   aclAction?: string;
   aclUuid?: string;
   applicationName?: string;
+  applicationNameList?: string[];
   description?: string;
   destPort?: string;
   destPortGroup?: string;
   destPortType?: string;
   destination?: string;
   destinationType?: string;
+  endTime?: number;
   lang?: string;
   proto?: string;
   release?: string;
+  repeatDays?: number[];
+  repeatEndTime?: string;
+  repeatStartTime?: string;
+  repeatType?: string;
   source?: string;
   sourceType?: string;
+  startTime?: number;
   vpcFirewallId?: string;
   static names(): { [key: string]: string } {
     return {
       aclAction: 'AclAction',
       aclUuid: 'AclUuid',
       applicationName: 'ApplicationName',
+      applicationNameList: 'ApplicationNameList',
       description: 'Description',
       destPort: 'DestPort',
       destPortGroup: 'DestPortGroup',
       destPortType: 'DestPortType',
       destination: 'Destination',
       destinationType: 'DestinationType',
+      endTime: 'EndTime',
       lang: 'Lang',
       proto: 'Proto',
       release: 'Release',
+      repeatDays: 'RepeatDays',
+      repeatEndTime: 'RepeatEndTime',
+      repeatStartTime: 'RepeatStartTime',
+      repeatType: 'RepeatType',
       source: 'Source',
       sourceType: 'SourceType',
+      startTime: 'StartTime',
       vpcFirewallId: 'VpcFirewallId',
     };
   }
@@ -5907,17 +6128,24 @@ export class ModifyVpcFirewallControlPolicyRequest extends $tea.Model {
       aclAction: 'string',
       aclUuid: 'string',
       applicationName: 'string',
+      applicationNameList: { 'type': 'array', 'itemType': 'string' },
       description: 'string',
       destPort: 'string',
       destPortGroup: 'string',
       destPortType: 'string',
       destination: 'string',
       destinationType: 'string',
+      endTime: 'number',
       lang: 'string',
       proto: 'string',
       release: 'string',
+      repeatDays: { 'type': 'array', 'itemType': 'number' },
+      repeatEndTime: 'string',
+      repeatStartTime: 'string',
+      repeatType: 'string',
       source: 'string',
       sourceType: 'string',
+      startTime: 'number',
       vpcFirewallId: 'string',
     };
   }
@@ -6810,6 +7038,7 @@ export class DescribeControlPolicyResponseBodyPolicys extends $tea.Model {
   direction?: string;
   dnsResult?: string;
   dnsResultTime?: number;
+  endTime?: number;
   hitLastTime?: number;
   hitTimes?: number;
   ipVersion?: number;
@@ -6817,11 +7046,16 @@ export class DescribeControlPolicyResponseBodyPolicys extends $tea.Model {
   order?: number;
   proto?: string;
   release?: string;
+  repeatDays?: number[];
+  repeatEndTime?: string;
+  repeatStartTime?: string;
+  repeatType?: string;
   source?: string;
   sourceGroupCidrs?: string[];
   sourceGroupType?: string;
   sourceType?: string;
   spreadCnt?: number;
+  startTime?: number;
   static names(): { [key: string]: string } {
     return {
       aclAction: 'AclAction',
@@ -6842,6 +7076,7 @@ export class DescribeControlPolicyResponseBodyPolicys extends $tea.Model {
       direction: 'Direction',
       dnsResult: 'DnsResult',
       dnsResultTime: 'DnsResultTime',
+      endTime: 'EndTime',
       hitLastTime: 'HitLastTime',
       hitTimes: 'HitTimes',
       ipVersion: 'IpVersion',
@@ -6849,11 +7084,16 @@ export class DescribeControlPolicyResponseBodyPolicys extends $tea.Model {
       order: 'Order',
       proto: 'Proto',
       release: 'Release',
+      repeatDays: 'RepeatDays',
+      repeatEndTime: 'RepeatEndTime',
+      repeatStartTime: 'RepeatStartTime',
+      repeatType: 'RepeatType',
       source: 'Source',
       sourceGroupCidrs: 'SourceGroupCidrs',
       sourceGroupType: 'SourceGroupType',
       sourceType: 'SourceType',
       spreadCnt: 'SpreadCnt',
+      startTime: 'StartTime',
     };
   }
 
@@ -6877,6 +7117,7 @@ export class DescribeControlPolicyResponseBodyPolicys extends $tea.Model {
       direction: 'string',
       dnsResult: 'string',
       dnsResultTime: 'number',
+      endTime: 'number',
       hitLastTime: 'number',
       hitTimes: 'number',
       ipVersion: 'number',
@@ -6884,11 +7125,16 @@ export class DescribeControlPolicyResponseBodyPolicys extends $tea.Model {
       order: 'number',
       proto: 'string',
       release: 'string',
+      repeatDays: { 'type': 'array', 'itemType': 'number' },
+      repeatEndTime: 'string',
+      repeatStartTime: 'string',
+      repeatType: 'string',
       source: 'string',
       sourceGroupCidrs: { 'type': 'array', 'itemType': 'string' },
       sourceGroupType: 'string',
       sourceType: 'string',
       spreadCnt: 'number',
+      startTime: 'number',
     };
   }
 
@@ -6978,6 +7224,92 @@ export class DescribeInstanceMembersResponseBodyPageInfo extends $tea.Model {
   }
 }
 
+export class DescribeInternetOpenIpResponseBodyDataList extends $tea.Model {
+  aclRecommendDetail?: string;
+  assetsInstanceId?: string;
+  assetsName?: string;
+  assetsType?: string;
+  detailNum?: number;
+  hasAclRecommend?: boolean;
+  portList?: string[];
+  publicIp?: string;
+  regionNo?: string;
+  riskLevel?: number;
+  riskReason?: string;
+  serviceNameList?: string[];
+  trafficPercent1Day?: string;
+  trafficPercent30Day?: string;
+  trafficPercent7Day?: string;
+  static names(): { [key: string]: string } {
+    return {
+      aclRecommendDetail: 'AclRecommendDetail',
+      assetsInstanceId: 'AssetsInstanceId',
+      assetsName: 'AssetsName',
+      assetsType: 'AssetsType',
+      detailNum: 'DetailNum',
+      hasAclRecommend: 'HasAclRecommend',
+      portList: 'PortList',
+      publicIp: 'PublicIp',
+      regionNo: 'RegionNo',
+      riskLevel: 'RiskLevel',
+      riskReason: 'RiskReason',
+      serviceNameList: 'ServiceNameList',
+      trafficPercent1Day: 'TrafficPercent1Day',
+      trafficPercent30Day: 'TrafficPercent30Day',
+      trafficPercent7Day: 'TrafficPercent7Day',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      aclRecommendDetail: 'string',
+      assetsInstanceId: 'string',
+      assetsName: 'string',
+      assetsType: 'string',
+      detailNum: 'number',
+      hasAclRecommend: 'boolean',
+      portList: { 'type': 'array', 'itemType': 'string' },
+      publicIp: 'string',
+      regionNo: 'string',
+      riskLevel: 'number',
+      riskReason: 'string',
+      serviceNameList: { 'type': 'array', 'itemType': 'string' },
+      trafficPercent1Day: 'string',
+      trafficPercent30Day: 'string',
+      trafficPercent7Day: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class DescribeInternetOpenIpResponseBodyPageInfo extends $tea.Model {
+  currentPage?: number;
+  pageSize?: number;
+  totalCount?: number;
+  static names(): { [key: string]: string } {
+    return {
+      currentPage: 'CurrentPage',
+      pageSize: 'PageSize',
+      totalCount: 'TotalCount',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      currentPage: 'number',
+      pageSize: 'number',
+      totalCount: 'number',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
 export class DescribeInternetTrafficTrendResponseBodyDataList extends $tea.Model {
   inBps?: number;
   inBytes?: number;
@@ -6988,6 +7320,7 @@ export class DescribeInternetTrafficTrendResponseBodyDataList extends $tea.Model
   outPps?: number;
   sessionCount?: number;
   time?: number;
+  totalBps?: number;
   static names(): { [key: string]: string } {
     return {
       inBps: 'InBps',
@@ -6999,6 +7332,7 @@ export class DescribeInternetTrafficTrendResponseBodyDataList extends $tea.Model
       outPps: 'OutPps',
       sessionCount: 'SessionCount',
       time: 'Time',
+      totalBps: 'TotalBps',
     };
   }
 
@@ -7013,6 +7347,7 @@ export class DescribeInternetTrafficTrendResponseBodyDataList extends $tea.Model
       outPps: 'number',
       sessionCount: 'number',
       time: 'number',
+      totalBps: 'number',
     };
   }
 
@@ -7127,6 +7462,7 @@ export class DescribeNatFirewallControlPolicyResponseBodyPolicys extends $tea.Mo
   dnsResult?: string;
   dnsResultTime?: number;
   domainResolveType?: number;
+  endTime?: number;
   hitLastTime?: number;
   hitTimes?: number;
   modifyTime?: number;
@@ -7134,11 +7470,16 @@ export class DescribeNatFirewallControlPolicyResponseBodyPolicys extends $tea.Mo
   order?: number;
   proto?: string;
   release?: string;
+  repeatDays?: number[];
+  repeatEndTime?: string;
+  repeatStartTime?: string;
+  repeatType?: string;
   source?: string;
   sourceGroupCidrs?: string[];
   sourceGroupType?: string;
   sourceType?: string;
   spreadCnt?: string;
+  startTime?: number;
   static names(): { [key: string]: string } {
     return {
       aclAction: 'AclAction',
@@ -7157,6 +7498,7 @@ export class DescribeNatFirewallControlPolicyResponseBodyPolicys extends $tea.Mo
       dnsResult: 'DnsResult',
       dnsResultTime: 'DnsResultTime',
       domainResolveType: 'DomainResolveType',
+      endTime: 'EndTime',
       hitLastTime: 'HitLastTime',
       hitTimes: 'HitTimes',
       modifyTime: 'ModifyTime',
@@ -7164,11 +7506,16 @@ export class DescribeNatFirewallControlPolicyResponseBodyPolicys extends $tea.Mo
       order: 'Order',
       proto: 'Proto',
       release: 'Release',
+      repeatDays: 'RepeatDays',
+      repeatEndTime: 'RepeatEndTime',
+      repeatStartTime: 'RepeatStartTime',
+      repeatType: 'RepeatType',
       source: 'Source',
       sourceGroupCidrs: 'SourceGroupCidrs',
       sourceGroupType: 'SourceGroupType',
       sourceType: 'SourceType',
       spreadCnt: 'SpreadCnt',
+      startTime: 'StartTime',
     };
   }
 
@@ -7190,6 +7537,7 @@ export class DescribeNatFirewallControlPolicyResponseBodyPolicys extends $tea.Mo
       dnsResult: 'string',
       dnsResultTime: 'number',
       domainResolveType: 'number',
+      endTime: 'number',
       hitLastTime: 'number',
       hitTimes: 'number',
       modifyTime: 'number',
@@ -7197,11 +7545,16 @@ export class DescribeNatFirewallControlPolicyResponseBodyPolicys extends $tea.Mo
       order: 'number',
       proto: 'string',
       release: 'string',
+      repeatDays: { 'type': 'array', 'itemType': 'number' },
+      repeatEndTime: 'string',
+      repeatStartTime: 'string',
+      repeatType: 'string',
       source: 'string',
       sourceGroupCidrs: { 'type': 'array', 'itemType': 'string' },
       sourceGroupType: 'string',
       sourceType: 'string',
       spreadCnt: 'string',
+      startTime: 'number',
     };
   }
 
@@ -8042,11 +8395,13 @@ export class DescribeUserIPSWhitelistResponseBodyWhitelists extends $tea.Model {
 export class DescribeVpcFirewallAclGroupListResponseBodyAclGroupList extends $tea.Model {
   aclGroupId?: string;
   aclGroupName?: string;
+  aclRuleCount?: number;
   memberUid?: string;
   static names(): { [key: string]: string } {
     return {
       aclGroupId: 'AclGroupId',
       aclGroupName: 'AclGroupName',
+      aclRuleCount: 'AclRuleCount',
       memberUid: 'MemberUid',
     };
   }
@@ -8055,6 +8410,7 @@ export class DescribeVpcFirewallAclGroupListResponseBodyAclGroupList extends $te
     return {
       aclGroupId: 'string',
       aclGroupName: 'string',
+      aclRuleCount: 'number',
       memberUid: 'string',
     };
   }
@@ -8418,6 +8774,8 @@ export class DescribeVpcFirewallControlPolicyResponseBodyPolicys extends $tea.Mo
   aclUuid?: string;
   applicationId?: string;
   applicationName?: string;
+  applicationNameList?: string[];
+  createTime?: number;
   description?: string;
   destPort?: string;
   destPortGroup?: string;
@@ -8427,21 +8785,32 @@ export class DescribeVpcFirewallControlPolicyResponseBodyPolicys extends $tea.Mo
   destinationGroupCidrs?: string[];
   destinationGroupType?: string;
   destinationType?: string;
+  endTime?: number;
+  hitLastTime?: number;
   hitTimes?: number;
   memberUid?: string;
+  modifyTime?: number;
   order?: number;
   proto?: string;
   release?: string;
+  repeatDays?: number[];
+  repeatEndTime?: string;
+  repeatStartTime?: string;
+  repeatType?: string;
   source?: string;
   sourceGroupCidrs?: string[];
   sourceGroupType?: string;
   sourceType?: string;
+  spreadCnt?: number;
+  startTime?: number;
   static names(): { [key: string]: string } {
     return {
       aclAction: 'AclAction',
       aclUuid: 'AclUuid',
       applicationId: 'ApplicationId',
       applicationName: 'ApplicationName',
+      applicationNameList: 'ApplicationNameList',
+      createTime: 'CreateTime',
       description: 'Description',
       destPort: 'DestPort',
       destPortGroup: 'DestPortGroup',
@@ -8451,15 +8820,24 @@ export class DescribeVpcFirewallControlPolicyResponseBodyPolicys extends $tea.Mo
       destinationGroupCidrs: 'DestinationGroupCidrs',
       destinationGroupType: 'DestinationGroupType',
       destinationType: 'DestinationType',
+      endTime: 'EndTime',
+      hitLastTime: 'HitLastTime',
       hitTimes: 'HitTimes',
       memberUid: 'MemberUid',
+      modifyTime: 'ModifyTime',
       order: 'Order',
       proto: 'Proto',
       release: 'Release',
+      repeatDays: 'RepeatDays',
+      repeatEndTime: 'RepeatEndTime',
+      repeatStartTime: 'RepeatStartTime',
+      repeatType: 'RepeatType',
       source: 'Source',
       sourceGroupCidrs: 'SourceGroupCidrs',
       sourceGroupType: 'SourceGroupType',
       sourceType: 'SourceType',
+      spreadCnt: 'SpreadCnt',
+      startTime: 'StartTime',
     };
   }
 
@@ -8469,6 +8847,8 @@ export class DescribeVpcFirewallControlPolicyResponseBodyPolicys extends $tea.Mo
       aclUuid: 'string',
       applicationId: 'string',
       applicationName: 'string',
+      applicationNameList: { 'type': 'array', 'itemType': 'string' },
+      createTime: 'number',
       description: 'string',
       destPort: 'string',
       destPortGroup: 'string',
@@ -8478,15 +8858,24 @@ export class DescribeVpcFirewallControlPolicyResponseBodyPolicys extends $tea.Mo
       destinationGroupCidrs: { 'type': 'array', 'itemType': 'string' },
       destinationGroupType: 'string',
       destinationType: 'string',
+      endTime: 'number',
+      hitLastTime: 'number',
       hitTimes: 'number',
       memberUid: 'string',
+      modifyTime: 'number',
       order: 'number',
       proto: 'string',
       release: 'string',
+      repeatDays: { 'type': 'array', 'itemType': 'number' },
+      repeatEndTime: 'string',
+      repeatStartTime: 'string',
+      repeatType: 'string',
       source: 'string',
       sourceGroupCidrs: { 'type': 'array', 'itemType': 'string' },
       sourceGroupType: 'string',
       sourceType: 'string',
+      spreadCnt: 'number',
+      startTime: 'number',
     };
   }
 
@@ -9282,6 +9671,10 @@ export default class Client extends OpenApi {
       query["Direction"] = request.direction;
     }
 
+    if (!Util.isUnset(request.endTime)) {
+      query["EndTime"] = request.endTime;
+    }
+
     if (!Util.isUnset(request.ipVersion)) {
       query["IpVersion"] = request.ipVersion;
     }
@@ -9302,6 +9695,22 @@ export default class Client extends OpenApi {
       query["Release"] = request.release;
     }
 
+    if (!Util.isUnset(request.repeatDays)) {
+      query["RepeatDays"] = request.repeatDays;
+    }
+
+    if (!Util.isUnset(request.repeatEndTime)) {
+      query["RepeatEndTime"] = request.repeatEndTime;
+    }
+
+    if (!Util.isUnset(request.repeatStartTime)) {
+      query["RepeatStartTime"] = request.repeatStartTime;
+    }
+
+    if (!Util.isUnset(request.repeatType)) {
+      query["RepeatType"] = request.repeatType;
+    }
+
     if (!Util.isUnset(request.source)) {
       query["Source"] = request.source;
     }
@@ -9312,6 +9721,10 @@ export default class Client extends OpenApi {
 
     if (!Util.isUnset(request.sourceType)) {
       query["SourceType"] = request.sourceType;
+    }
+
+    if (!Util.isUnset(request.startTime)) {
+      query["StartTime"] = request.startTime;
     }
 
     let req = new $OpenApi.OpenApiRequest({
@@ -9454,6 +9867,13 @@ export default class Client extends OpenApi {
     return await this.batchCopyVpcFirewallControlPolicyWithOptions(request, runtime);
   }
 
+  /**
+    * You can use this operation to create an access control policy to allow, deny, or monitor traffic that passes through a NAT firewall.
+    *
+    * @param request CreateNatFirewallControlPolicyRequest
+    * @param runtime runtime options for this request RuntimeOptions
+    * @return CreateNatFirewallControlPolicyResponse
+   */
   async createNatFirewallControlPolicyWithOptions(request: CreateNatFirewallControlPolicyRequest, runtime: $Util.RuntimeOptions): Promise<CreateNatFirewallControlPolicyResponse> {
     Util.validateModel(request);
     let query = { };
@@ -9497,6 +9917,10 @@ export default class Client extends OpenApi {
       query["DomainResolveType"] = request.domainResolveType;
     }
 
+    if (!Util.isUnset(request.endTime)) {
+      query["EndTime"] = request.endTime;
+    }
+
     if (!Util.isUnset(request.ipVersion)) {
       query["IpVersion"] = request.ipVersion;
     }
@@ -9521,12 +9945,32 @@ export default class Client extends OpenApi {
       query["Release"] = request.release;
     }
 
+    if (!Util.isUnset(request.repeatDays)) {
+      query["RepeatDays"] = request.repeatDays;
+    }
+
+    if (!Util.isUnset(request.repeatEndTime)) {
+      query["RepeatEndTime"] = request.repeatEndTime;
+    }
+
+    if (!Util.isUnset(request.repeatStartTime)) {
+      query["RepeatStartTime"] = request.repeatStartTime;
+    }
+
+    if (!Util.isUnset(request.repeatType)) {
+      query["RepeatType"] = request.repeatType;
+    }
+
     if (!Util.isUnset(request.source)) {
       query["Source"] = request.source;
     }
 
     if (!Util.isUnset(request.sourceType)) {
       query["SourceType"] = request.sourceType;
+    }
+
+    if (!Util.isUnset(request.startTime)) {
+      query["StartTime"] = request.startTime;
     }
 
     let req = new $OpenApi.OpenApiRequest({
@@ -9546,6 +9990,12 @@ export default class Client extends OpenApi {
     return $tea.cast<CreateNatFirewallControlPolicyResponse>(await this.callApi(params, req, runtime), new CreateNatFirewallControlPolicyResponse({}));
   }
 
+  /**
+    * You can use this operation to create an access control policy to allow, deny, or monitor traffic that passes through a NAT firewall.
+    *
+    * @param request CreateNatFirewallControlPolicyRequest
+    * @return CreateNatFirewallControlPolicyResponse
+   */
   async createNatFirewallControlPolicy(request: CreateNatFirewallControlPolicyRequest): Promise<CreateNatFirewallControlPolicyResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.createNatFirewallControlPolicyWithOptions(request, runtime);
@@ -9879,6 +10329,10 @@ export default class Client extends OpenApi {
       query["ApplicationName"] = request.applicationName;
     }
 
+    if (!Util.isUnset(request.applicationNameList)) {
+      query["ApplicationNameList"] = request.applicationNameList;
+    }
+
     if (!Util.isUnset(request.description)) {
       query["Description"] = request.description;
     }
@@ -9903,6 +10357,10 @@ export default class Client extends OpenApi {
       query["DestinationType"] = request.destinationType;
     }
 
+    if (!Util.isUnset(request.endTime)) {
+      query["EndTime"] = request.endTime;
+    }
+
     if (!Util.isUnset(request.lang)) {
       query["Lang"] = request.lang;
     }
@@ -9923,12 +10381,32 @@ export default class Client extends OpenApi {
       query["Release"] = request.release;
     }
 
+    if (!Util.isUnset(request.repeatDays)) {
+      query["RepeatDays"] = request.repeatDays;
+    }
+
+    if (!Util.isUnset(request.repeatEndTime)) {
+      query["RepeatEndTime"] = request.repeatEndTime;
+    }
+
+    if (!Util.isUnset(request.repeatStartTime)) {
+      query["RepeatStartTime"] = request.repeatStartTime;
+    }
+
+    if (!Util.isUnset(request.repeatType)) {
+      query["RepeatType"] = request.repeatType;
+    }
+
     if (!Util.isUnset(request.source)) {
       query["Source"] = request.source;
     }
 
     if (!Util.isUnset(request.sourceType)) {
       query["SourceType"] = request.sourceType;
+    }
+
+    if (!Util.isUnset(request.startTime)) {
+      query["StartTime"] = request.startTime;
     }
 
     if (!Util.isUnset(request.vpcFirewallId)) {
@@ -10160,6 +10638,13 @@ export default class Client extends OpenApi {
     return await this.deleteInstanceMembersWithOptions(request, runtime);
   }
 
+  /**
+    * You can use this operation to delete an outbound access control policy that is created for a NAT firewall.
+    *
+    * @param request DeleteNatFirewallControlPolicyRequest
+    * @param runtime runtime options for this request RuntimeOptions
+    * @return DeleteNatFirewallControlPolicyResponse
+   */
   async deleteNatFirewallControlPolicyWithOptions(request: DeleteNatFirewallControlPolicyRequest, runtime: $Util.RuntimeOptions): Promise<DeleteNatFirewallControlPolicyResponse> {
     Util.validateModel(request);
     let query = { };
@@ -10196,6 +10681,12 @@ export default class Client extends OpenApi {
     return $tea.cast<DeleteNatFirewallControlPolicyResponse>(await this.callApi(params, req, runtime), new DeleteNatFirewallControlPolicyResponse({}));
   }
 
+  /**
+    * You can use this operation to delete an outbound access control policy that is created for a NAT firewall.
+    *
+    * @param request DeleteNatFirewallControlPolicyRequest
+    * @return DeleteNatFirewallControlPolicyResponse
+   */
   async deleteNatFirewallControlPolicy(request: DeleteNatFirewallControlPolicyRequest): Promise<DeleteNatFirewallControlPolicyResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.deleteNatFirewallControlPolicyWithOptions(request, runtime);
@@ -10616,6 +11107,10 @@ export default class Client extends OpenApi {
       query["Release"] = request.release;
     }
 
+    if (!Util.isUnset(request.repeatType)) {
+      query["RepeatType"] = request.repeatType;
+    }
+
     if (!Util.isUnset(request.source)) {
       query["Source"] = request.source;
     }
@@ -10684,7 +11179,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-    * You can call the DescribeDomainResolve operation to query the DNS record of a domain name. This operation can retrieve DNS records only from Alibaba Cloud DNS. Before you can call this operation, make sure that your domain name is hosted on Alibaba Cloud DNS.  
+    * You can use this operation to query the DNS record of a domain name. This operation can retrieve DNS records only from Alibaba Cloud DNS. Before you can call this operation, make sure that your domain name is hosted on Alibaba Cloud DNS.
     * ## Limits
     * You can call this operation up to 10 times per second per account. If the number of the calls per second exceeds the limit, throttling is triggered. As a result, your business may be affected. We recommend that you take note of the limit when you call this operation.
     *
@@ -10733,7 +11228,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-    * You can call the DescribeDomainResolve operation to query the DNS record of a domain name. This operation can retrieve DNS records only from Alibaba Cloud DNS. Before you can call this operation, make sure that your domain name is hosted on Alibaba Cloud DNS.  
+    * You can use this operation to query the DNS record of a domain name. This operation can retrieve DNS records only from Alibaba Cloud DNS. Before you can call this operation, make sure that your domain name is hosted on Alibaba Cloud DNS.
     * ## Limits
     * You can call this operation up to 10 times per second per account. If the number of the calls per second exceeds the limit, throttling is triggered. As a result, your business may be affected. We recommend that you take note of the limit when you call this operation.
     *
@@ -10746,7 +11241,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-    * You can call the DescribeInstanceMembers operation to query the information about members in Cloud Firewall.  
+    * You can use this operation to query the information about members in Cloud Firewall.
     * ## Limits
     * You can call this operation up to 10 times per second per account. If the number of the calls per second exceeds the limit, throttling is triggered. As a result, your business may be affected. We recommend that you take note of the limit when you call this operation.
     *
@@ -10795,7 +11290,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-    * You can call the DescribeInstanceMembers operation to query the information about members in Cloud Firewall.  
+    * You can use this operation to query the information about members in Cloud Firewall.
     * ## Limits
     * You can call this operation up to 10 times per second per account. If the number of the calls per second exceeds the limit, throttling is triggered. As a result, your business may be affected. We recommend that you take note of the limit when you call this operation.
     *
@@ -10805,6 +11300,83 @@ export default class Client extends OpenApi {
   async describeInstanceMembers(request: DescribeInstanceMembersRequest): Promise<DescribeInstanceMembersResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.describeInstanceMembersWithOptions(request, runtime);
+  }
+
+  async describeInternetOpenIpWithOptions(request: DescribeInternetOpenIpRequest, runtime: $Util.RuntimeOptions): Promise<DescribeInternetOpenIpResponse> {
+    Util.validateModel(request);
+    let query = { };
+    if (!Util.isUnset(request.assetsInstanceId)) {
+      query["AssetsInstanceId"] = request.assetsInstanceId;
+    }
+
+    if (!Util.isUnset(request.assetsInstanceName)) {
+      query["AssetsInstanceName"] = request.assetsInstanceName;
+    }
+
+    if (!Util.isUnset(request.assetsType)) {
+      query["AssetsType"] = request.assetsType;
+    }
+
+    if (!Util.isUnset(request.currentPage)) {
+      query["CurrentPage"] = request.currentPage;
+    }
+
+    if (!Util.isUnset(request.endTime)) {
+      query["EndTime"] = request.endTime;
+    }
+
+    if (!Util.isUnset(request.lang)) {
+      query["Lang"] = request.lang;
+    }
+
+    if (!Util.isUnset(request.pageSize)) {
+      query["PageSize"] = request.pageSize;
+    }
+
+    if (!Util.isUnset(request.port)) {
+      query["Port"] = request.port;
+    }
+
+    if (!Util.isUnset(request.publicIp)) {
+      query["PublicIp"] = request.publicIp;
+    }
+
+    if (!Util.isUnset(request.regionNo)) {
+      query["RegionNo"] = request.regionNo;
+    }
+
+    if (!Util.isUnset(request.riskLevel)) {
+      query["RiskLevel"] = request.riskLevel;
+    }
+
+    if (!Util.isUnset(request.serviceName)) {
+      query["ServiceName"] = request.serviceName;
+    }
+
+    if (!Util.isUnset(request.startTime)) {
+      query["StartTime"] = request.startTime;
+    }
+
+    let req = new $OpenApi.OpenApiRequest({
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApi.Params({
+      action: "DescribeInternetOpenIp",
+      version: "2017-12-07",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $tea.cast<DescribeInternetOpenIpResponse>(await this.callApi(params, req, runtime), new DescribeInternetOpenIpResponse({}));
+  }
+
+  async describeInternetOpenIp(request: DescribeInternetOpenIpRequest): Promise<DescribeInternetOpenIpResponse> {
+    let runtime = new $Util.RuntimeOptions({ });
+    return await this.describeInternetOpenIpWithOptions(request, runtime);
   }
 
   async describeInternetTrafficTrendWithOptions(request: DescribeInternetTrafficTrendRequest, runtime: $Util.RuntimeOptions): Promise<DescribeInternetTrafficTrendResponse> {
@@ -10961,6 +11533,13 @@ export default class Client extends OpenApi {
     return await this.describeInvadeEventListWithOptions(request, runtime);
   }
 
+  /**
+    * You can use this operation to query the information about all access control policies that are created for NAT firewalls by page.
+    *
+    * @param request DescribeNatFirewallControlPolicyRequest
+    * @param runtime runtime options for this request RuntimeOptions
+    * @return DescribeNatFirewallControlPolicyResponse
+   */
   async describeNatFirewallControlPolicyWithOptions(request: DescribeNatFirewallControlPolicyRequest, runtime: $Util.RuntimeOptions): Promise<DescribeNatFirewallControlPolicyResponse> {
     Util.validateModel(request);
     let query = { };
@@ -11008,6 +11587,10 @@ export default class Client extends OpenApi {
       query["Release"] = request.release;
     }
 
+    if (!Util.isUnset(request.repeatType)) {
+      query["RepeatType"] = request.repeatType;
+    }
+
     if (!Util.isUnset(request.source)) {
       query["Source"] = request.source;
     }
@@ -11029,11 +11612,24 @@ export default class Client extends OpenApi {
     return $tea.cast<DescribeNatFirewallControlPolicyResponse>(await this.callApi(params, req, runtime), new DescribeNatFirewallControlPolicyResponse({}));
   }
 
+  /**
+    * You can use this operation to query the information about all access control policies that are created for NAT firewalls by page.
+    *
+    * @param request DescribeNatFirewallControlPolicyRequest
+    * @return DescribeNatFirewallControlPolicyResponse
+   */
   async describeNatFirewallControlPolicy(request: DescribeNatFirewallControlPolicyRequest): Promise<DescribeNatFirewallControlPolicyResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.describeNatFirewallControlPolicyWithOptions(request, runtime);
   }
 
+  /**
+    * You can use this operation to query the priority range of access control policies that are created for a NAT firewall.
+    *
+    * @param request DescribeNatFirewallPolicyPriorUsedRequest
+    * @param runtime runtime options for this request RuntimeOptions
+    * @return DescribeNatFirewallPolicyPriorUsedResponse
+   */
   async describeNatFirewallPolicyPriorUsedWithOptions(request: DescribeNatFirewallPolicyPriorUsedRequest, runtime: $Util.RuntimeOptions): Promise<DescribeNatFirewallPolicyPriorUsedResponse> {
     Util.validateModel(request);
     let query = { };
@@ -11070,6 +11666,12 @@ export default class Client extends OpenApi {
     return $tea.cast<DescribeNatFirewallPolicyPriorUsedResponse>(await this.callApi(params, req, runtime), new DescribeNatFirewallPolicyPriorUsedResponse({}));
   }
 
+  /**
+    * You can use this operation to query the priority range of access control policies that are created for a NAT firewall.
+    *
+    * @param request DescribeNatFirewallPolicyPriorUsedRequest
+    * @return DescribeNatFirewallPolicyPriorUsedResponse
+   */
   async describeNatFirewallPolicyPriorUsed(request: DescribeNatFirewallPolicyPriorUsedRequest): Promise<DescribeNatFirewallPolicyPriorUsedResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.describeNatFirewallPolicyPriorUsedWithOptions(request, runtime);
@@ -12093,6 +12695,10 @@ export default class Client extends OpenApi {
       query["Release"] = request.release;
     }
 
+    if (!Util.isUnset(request.repeatType)) {
+      query["RepeatType"] = request.repeatType;
+    }
+
     if (!Util.isUnset(request.source)) {
       query["Source"] = request.source;
     }
@@ -12616,6 +13222,10 @@ export default class Client extends OpenApi {
       query["Direction"] = request.direction;
     }
 
+    if (!Util.isUnset(request.endTime)) {
+      query["EndTime"] = request.endTime;
+    }
+
     if (!Util.isUnset(request.lang)) {
       query["Lang"] = request.lang;
     }
@@ -12628,12 +13238,32 @@ export default class Client extends OpenApi {
       query["Release"] = request.release;
     }
 
+    if (!Util.isUnset(request.repeatDays)) {
+      query["RepeatDays"] = request.repeatDays;
+    }
+
+    if (!Util.isUnset(request.repeatEndTime)) {
+      query["RepeatEndTime"] = request.repeatEndTime;
+    }
+
+    if (!Util.isUnset(request.repeatStartTime)) {
+      query["RepeatStartTime"] = request.repeatStartTime;
+    }
+
+    if (!Util.isUnset(request.repeatType)) {
+      query["RepeatType"] = request.repeatType;
+    }
+
     if (!Util.isUnset(request.source)) {
       query["Source"] = request.source;
     }
 
     if (!Util.isUnset(request.sourceType)) {
       query["SourceType"] = request.sourceType;
+    }
+
+    if (!Util.isUnset(request.startTime)) {
+      query["StartTime"] = request.startTime;
     }
 
     let req = new $OpenApi.OpenApiRequest({
@@ -12884,6 +13514,13 @@ export default class Client extends OpenApi {
     return await this.modifyInstanceMemberAttributesWithOptions(request, runtime);
   }
 
+  /**
+    * You can use this operation to modify the configurations of an access control policy. The policy is used to allow, deny, or monitor traffic that reaches a NAT firewall.
+    *
+    * @param request ModifyNatFirewallControlPolicyRequest
+    * @param runtime runtime options for this request RuntimeOptions
+    * @return ModifyNatFirewallControlPolicyResponse
+   */
   async modifyNatFirewallControlPolicyWithOptions(request: ModifyNatFirewallControlPolicyRequest, runtime: $Util.RuntimeOptions): Promise<ModifyNatFirewallControlPolicyResponse> {
     Util.validateModel(request);
     let query = { };
@@ -12927,6 +13564,10 @@ export default class Client extends OpenApi {
       query["DomainResolveType"] = request.domainResolveType;
     }
 
+    if (!Util.isUnset(request.endTime)) {
+      query["EndTime"] = request.endTime;
+    }
+
     if (!Util.isUnset(request.lang)) {
       query["Lang"] = request.lang;
     }
@@ -12943,12 +13584,32 @@ export default class Client extends OpenApi {
       query["Release"] = request.release;
     }
 
+    if (!Util.isUnset(request.repeatDays)) {
+      query["RepeatDays"] = request.repeatDays;
+    }
+
+    if (!Util.isUnset(request.repeatEndTime)) {
+      query["RepeatEndTime"] = request.repeatEndTime;
+    }
+
+    if (!Util.isUnset(request.repeatStartTime)) {
+      query["RepeatStartTime"] = request.repeatStartTime;
+    }
+
+    if (!Util.isUnset(request.repeatType)) {
+      query["RepeatType"] = request.repeatType;
+    }
+
     if (!Util.isUnset(request.source)) {
       query["Source"] = request.source;
     }
 
     if (!Util.isUnset(request.sourceType)) {
       query["SourceType"] = request.sourceType;
+    }
+
+    if (!Util.isUnset(request.startTime)) {
+      query["StartTime"] = request.startTime;
     }
 
     let req = new $OpenApi.OpenApiRequest({
@@ -12968,6 +13629,12 @@ export default class Client extends OpenApi {
     return $tea.cast<ModifyNatFirewallControlPolicyResponse>(await this.callApi(params, req, runtime), new ModifyNatFirewallControlPolicyResponse({}));
   }
 
+  /**
+    * You can use this operation to modify the configurations of an access control policy. The policy is used to allow, deny, or monitor traffic that reaches a NAT firewall.
+    *
+    * @param request ModifyNatFirewallControlPolicyRequest
+    * @return ModifyNatFirewallControlPolicyResponse
+   */
   async modifyNatFirewallControlPolicy(request: ModifyNatFirewallControlPolicyRequest): Promise<ModifyNatFirewallControlPolicyResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.modifyNatFirewallControlPolicyWithOptions(request, runtime);
@@ -13425,6 +14092,10 @@ export default class Client extends OpenApi {
       query["ApplicationName"] = request.applicationName;
     }
 
+    if (!Util.isUnset(request.applicationNameList)) {
+      query["ApplicationNameList"] = request.applicationNameList;
+    }
+
     if (!Util.isUnset(request.description)) {
       query["Description"] = request.description;
     }
@@ -13449,6 +14120,10 @@ export default class Client extends OpenApi {
       query["DestinationType"] = request.destinationType;
     }
 
+    if (!Util.isUnset(request.endTime)) {
+      query["EndTime"] = request.endTime;
+    }
+
     if (!Util.isUnset(request.lang)) {
       query["Lang"] = request.lang;
     }
@@ -13461,12 +14136,32 @@ export default class Client extends OpenApi {
       query["Release"] = request.release;
     }
 
+    if (!Util.isUnset(request.repeatDays)) {
+      query["RepeatDays"] = request.repeatDays;
+    }
+
+    if (!Util.isUnset(request.repeatEndTime)) {
+      query["RepeatEndTime"] = request.repeatEndTime;
+    }
+
+    if (!Util.isUnset(request.repeatStartTime)) {
+      query["RepeatStartTime"] = request.repeatStartTime;
+    }
+
+    if (!Util.isUnset(request.repeatType)) {
+      query["RepeatType"] = request.repeatType;
+    }
+
     if (!Util.isUnset(request.source)) {
       query["Source"] = request.source;
     }
 
     if (!Util.isUnset(request.sourceType)) {
       query["SourceType"] = request.sourceType;
+    }
+
+    if (!Util.isUnset(request.startTime)) {
+      query["StartTime"] = request.startTime;
     }
 
     if (!Util.isUnset(request.vpcFirewallId)) {
@@ -13504,7 +14199,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-    * You can call the ModifyVpcFirewallControlPolicyPosition operation to modify the priority of an access control policy that is created for a VPC firewall in a specific policy group.  
+    * You can use this operation to modify the priority of an access control policy that is created for a VPC firewall in a specific policy group.
     * ## Limits
     * You can call this operation up to 10 times per second per account. If the number of the calls per second exceeds the limit, throttling is triggered. As a result, your business may be affected. We recommend that you take note of the limit when you call this operation.
     *
@@ -13553,7 +14248,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-    * You can call the ModifyVpcFirewallControlPolicyPosition operation to modify the priority of an access control policy that is created for a VPC firewall in a specific policy group.  
+    * You can use this operation to modify the priority of an access control policy that is created for a VPC firewall in a specific policy group.
     * ## Limits
     * You can call this operation up to 10 times per second per account. If the number of the calls per second exceeds the limit, throttling is triggered. As a result, your business may be affected. We recommend that you take note of the limit when you call this operation.
     *
