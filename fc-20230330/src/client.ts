@@ -839,10 +839,12 @@ export class GPUConfig extends $tea.Model {
 }
 
 export class GetResourceTagsOutput extends $tea.Model {
+  resouceType?: string;
   resourceArn?: string;
   tags?: { [key: string]: string };
   static names(): { [key: string]: string } {
     return {
+      resouceType: 'resouceType',
       resourceArn: 'resourceArn',
       tags: 'tags',
     };
@@ -850,6 +852,7 @@ export class GetResourceTagsOutput extends $tea.Model {
 
   static types(): { [key: string]: any } {
     return {
+      resouceType: 'string',
       resourceArn: 'string',
       tags: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
     };
@@ -1665,10 +1668,12 @@ export class RegexRule extends $tea.Model {
 }
 
 export class Resource extends $tea.Model {
+  resouceType?: string;
   resourceArn?: string;
   tags?: { [key: string]: string };
   static names(): { [key: string]: string } {
     return {
+      resouceType: 'resouceType',
       resourceArn: 'resourceArn',
       tags: 'tags',
     };
@@ -1676,6 +1681,7 @@ export class Resource extends $tea.Model {
 
   static types(): { [key: string]: any } {
     return {
+      resouceType: 'string',
       resourceArn: 'string',
       tags: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
     };
@@ -3652,10 +3658,12 @@ export class ListProvisionConfigsResponse extends $tea.Model {
 export class ListTaggedResourcesRequest extends $tea.Model {
   limit?: number;
   nextToken?: string;
+  resourceType?: string;
   static names(): { [key: string]: string } {
     return {
       limit: 'limit',
       nextToken: 'nextToken',
+      resourceType: 'resourceType',
     };
   }
 
@@ -3663,6 +3671,7 @@ export class ListTaggedResourcesRequest extends $tea.Model {
     return {
       limit: 'number',
       nextToken: 'string',
+      resourceType: 'string',
     };
   }
 
@@ -4282,7 +4291,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-    * 创建函数别名
+    * 创建函数别名。
     *
     * @param request CreateAliasRequest
     * @param headers map
@@ -4310,7 +4319,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-    * 创建函数别名
+    * 创建函数别名。
     *
     * @param request CreateAliasRequest
     * @return CreateAliasResponse
@@ -4322,7 +4331,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-    * 创建自定义域名
+    * 创建自定义域名。
     *
     * @param request CreateCustomDomainRequest
     * @param headers map
@@ -4350,7 +4359,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-    * 创建自定义域名
+    * 创建自定义域名。
     *
     * @param request CreateCustomDomainRequest
     * @return CreateCustomDomainResponse
@@ -4362,7 +4371,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-    * 创建函数
+    * 创建函数。
     *
     * @param request CreateFunctionRequest
     * @param headers map
@@ -4390,7 +4399,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-    * 创建函数
+    * 创建函数。
     *
     * @param request CreateFunctionRequest
     * @return CreateFunctionResponse
@@ -4402,7 +4411,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-    * 创建层版本
+    * 创建层版本。
     *
     * @param request CreateLayerVersionRequest
     * @param headers map
@@ -4430,7 +4439,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-    * 创建层版本
+    * 创建层版本。
     *
     * @param request CreateLayerVersionRequest
     * @return CreateLayerVersionResponse
@@ -4442,7 +4451,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-    * 创建函数触发器
+    * 创建函数触发器。
     *
     * @param request CreateTriggerRequest
     * @param headers map
@@ -4470,7 +4479,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-    * 创建函数触发器
+    * 创建函数触发器。
     *
     * @param request CreateTriggerRequest
     * @return CreateTriggerResponse
@@ -4482,7 +4491,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-    * 创建VPC绑定
+    * 创建VPC绑定。
     *
     * @param request CreateVpcBindingRequest
     * @param headers map
@@ -4510,7 +4519,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-    * 创建VPC绑定
+    * 创建VPC绑定。
     *
     * @param request CreateVpcBindingRequest
     * @return CreateVpcBindingResponse
@@ -4522,7 +4531,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-    * 删除函数别名
+    * 删除函数别名。
     *
     * @param headers map
     * @param runtime runtime options for this request RuntimeOptions
@@ -4547,7 +4556,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-    * 删除函数别名
+    * 删除函数别名。
     *
     * @return DeleteAliasResponse
    */
@@ -4558,7 +4567,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-    * 删除函数异步调用配置
+    * 删除函数异步调用配置。
     *
     * @param request DeleteAsyncInvokeConfigRequest
     * @param headers map
@@ -4591,7 +4600,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-    * 删除函数异步调用配置
+    * 删除函数异步调用配置。
     *
     * @param request DeleteAsyncInvokeConfigRequest
     * @return DeleteAsyncInvokeConfigResponse
@@ -4603,7 +4612,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-    * 删除函数并发度配置
+    * 删除函数并发度配置。
     *
     * @param headers map
     * @param runtime runtime options for this request RuntimeOptions
@@ -4628,7 +4637,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-    * 删除函数并发度配置
+    * 删除函数并发度配置。
     *
     * @return DeleteConcurrencyConfigResponse
    */
@@ -4639,7 +4648,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-    * 删除自定义域名
+    * 删除自定义域名。
     *
     * @param headers map
     * @param runtime runtime options for this request RuntimeOptions
@@ -4664,7 +4673,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-    * 删除自定义域名
+    * 删除自定义域名。
     *
     * @return DeleteCustomDomainResponse
    */
@@ -4675,7 +4684,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-    * 删除函数
+    * 删除函数。
     *
     * @param headers map
     * @param runtime runtime options for this request RuntimeOptions
@@ -4700,7 +4709,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-    * 删除函数
+    * 删除函数。
     *
     * @return DeleteFunctionResponse
    */
@@ -4711,7 +4720,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-    * 删除函数版本
+    * 删除函数版本。
     *
     * @param headers map
     * @param runtime runtime options for this request RuntimeOptions
@@ -4736,7 +4745,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-    * 删除函数版本
+    * 删除函数版本。
     *
     * @return DeleteFunctionVersionResponse
    */
@@ -4747,7 +4756,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-    * 删除层版本
+    * 删除层版本。
     *
     * @param headers map
     * @param runtime runtime options for this request RuntimeOptions
@@ -4772,7 +4781,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-    * 删除层版本
+    * 删除层版本。
     *
     * @return DeleteLayerVersionResponse
    */
@@ -4783,7 +4792,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-    * 删除函数预留配置
+    * 删除函数预留配置。
     *
     * @param request DeleteProvisionConfigRequest
     * @param headers map
@@ -4816,7 +4825,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-    * 删除函数预留配置
+    * 删除函数预留配置。
     *
     * @param request DeleteProvisionConfigRequest
     * @return DeleteProvisionConfigResponse
@@ -4828,7 +4837,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-    * 删除函数触发器
+    * 删除函数触发器。
     *
     * @param headers map
     * @param runtime runtime options for this request RuntimeOptions
@@ -4853,7 +4862,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-    * 删除函数触发器
+    * 删除函数触发器。
     *
     * @return DeleteTriggerResponse
    */
@@ -4864,7 +4873,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-    * 删除VPC绑定
+    * 删除VPC绑定。
     *
     * @param headers map
     * @param runtime runtime options for this request RuntimeOptions
@@ -4889,7 +4898,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-    * 删除VPC绑定
+    * 删除VPC绑定。
     *
     * @return DeleteVpcBindingResponse
    */
@@ -4900,7 +4909,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-    * 获取函数别名信息
+    * 获取函数别名信息。
     *
     * @param headers map
     * @param runtime runtime options for this request RuntimeOptions
@@ -4925,7 +4934,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-    * 获取函数别名信息
+    * 获取函数别名信息。
     *
     * @return GetAliasResponse
    */
@@ -4936,7 +4945,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-    * 获取函数异步调用配置
+    * 获取函数异步调用配置。
     *
     * @param request GetAsyncInvokeConfigRequest
     * @param headers map
@@ -4969,7 +4978,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-    * 获取函数异步调用配置
+    * 获取函数异步调用配置。
     *
     * @param request GetAsyncInvokeConfigRequest
     * @return GetAsyncInvokeConfigResponse
@@ -4981,7 +4990,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-    * 获取函数并发度配置
+    * 获取函数并发度配置。
     *
     * @param headers map
     * @param runtime runtime options for this request RuntimeOptions
@@ -5006,7 +5015,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-    * 获取函数并发度配置
+    * 获取函数并发度配置。
     *
     * @return GetConcurrencyConfigResponse
    */
@@ -5017,7 +5026,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-    * 获取自定义域名
+    * 获取自定义域名。
     *
     * @param headers map
     * @param runtime runtime options for this request RuntimeOptions
@@ -5042,7 +5051,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-    * 获取自定义域名
+    * 获取自定义域名。
     *
     * @return GetCustomDomainResponse
    */
@@ -5053,7 +5062,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-    * 获取函数信息
+    * 获取函数信息。
     *
     * @param request GetFunctionRequest
     * @param headers map
@@ -5086,7 +5095,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-    * 获取函数信息
+    * 获取函数信息。
     *
     * @param request GetFunctionRequest
     * @return GetFunctionResponse
@@ -5098,7 +5107,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-    * 获取函数代码
+    * 获取函数代码。
     *
     * @param request GetFunctionCodeRequest
     * @param headers map
@@ -5131,7 +5140,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-    * 获取函数代码
+    * 获取函数代码。
     *
     * @param request GetFunctionCodeRequest
     * @return GetFunctionCodeResponse
@@ -5143,7 +5152,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-    * 获取层版本
+    * 获取层版本。
     *
     * @param headers map
     * @param runtime runtime options for this request RuntimeOptions
@@ -5168,7 +5177,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-    * 获取层版本
+    * 获取层版本。
     *
     * @return GetLayerVersionResponse
    */
@@ -5179,7 +5188,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-    * 根据资源标识获取层版本
+    * 根据资源标识获取层版本。
     *
     * @param headers map
     * @param runtime runtime options for this request RuntimeOptions
@@ -5204,7 +5213,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-    * 根据资源标识获取层版本
+    * 根据资源标识获取层版本。
     *
     * @return GetLayerVersionByArnResponse
    */
@@ -5215,7 +5224,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-    * 获取函数预留配置
+    * 获取函数预留配置。
     *
     * @param request GetProvisionConfigRequest
     * @param headers map
@@ -5248,7 +5257,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-    * 获取函数预留配置
+    * 获取函数预留配置。
     *
     * @param request GetProvisionConfigRequest
     * @return GetProvisionConfigResponse
@@ -5260,7 +5269,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-    * 获取资源标签
+    * 获取资源标签。
     *
     * @param request GetResourceTagsRequest
     * @param headers map
@@ -5293,7 +5302,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-    * 获取资源标签
+    * 获取资源标签。
     *
     * @param request GetResourceTagsRequest
     * @return GetResourceTagsResponse
@@ -5305,7 +5314,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-    * 获取函数触发器
+    * 获取函数触发器。
     *
     * @param headers map
     * @param runtime runtime options for this request RuntimeOptions
@@ -5330,7 +5339,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-    * 获取函数触发器
+    * 获取函数触发器。
     *
     * @return GetTriggerResponse
    */
@@ -5341,7 +5350,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-    * 调用函数
+    * 调用函数。
     *
     * @param request InvokeFunctionRequest
     * @param headers InvokeFunctionHeaders
@@ -5406,7 +5415,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-    * 调用函数
+    * 调用函数。
     *
     * @param request InvokeFunctionRequest
     * @return InvokeFunctionResponse
@@ -5418,7 +5427,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-    * 列出函数别名
+    * 列出函数别名。
     *
     * @param request ListAliasesRequest
     * @param headers map
@@ -5459,7 +5468,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-    * 列出函数别名
+    * 列出函数别名。
     *
     * @param request ListAliasesRequest
     * @return ListAliasesResponse
@@ -5471,7 +5480,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-    * 列出函数异步调用配置
+    * 列出函数异步调用配置。
     *
     * @param request ListAsyncInvokeConfigsRequest
     * @param headers map
@@ -5512,7 +5521,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-    * 列出函数异步调用配置
+    * 列出函数异步调用配置。
     *
     * @param request ListAsyncInvokeConfigsRequest
     * @return ListAsyncInvokeConfigsResponse
@@ -5524,7 +5533,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-    * 列出函数并发度配置
+    * 列出函数并发度配置。
     *
     * @param request ListConcurrencyConfigsRequest
     * @param headers map
@@ -5565,7 +5574,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-    * 列出函数并发度配置
+    * 列出函数并发度配置。
     *
     * @param request ListConcurrencyConfigsRequest
     * @return ListConcurrencyConfigsResponse
@@ -5577,7 +5586,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-    * 列出自定义域名
+    * 列出自定义域名。
     *
     * @param request ListCustomDomainsRequest
     * @param headers map
@@ -5618,7 +5627,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-    * 列出自定义域名
+    * 列出自定义域名。
     *
     * @param request ListCustomDomainsRequest
     * @return ListCustomDomainsResponse
@@ -5630,7 +5639,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-    * 列出函数版本
+    * 列出函数版本。
     *
     * @param request ListFunctionVersionsRequest
     * @param headers map
@@ -5671,7 +5680,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-    * 列出函数版本
+    * 列出函数版本。
     *
     * @param request ListFunctionVersionsRequest
     * @return ListFunctionVersionsResponse
@@ -5683,7 +5692,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-    * 列出函数
+    * 列出函数。
     *
     * @param request ListFunctionsRequest
     * @param headers map
@@ -5724,7 +5733,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-    * 列出函数
+    * 列出函数。
     *
     * @param request ListFunctionsRequest
     * @return ListFunctionsResponse
@@ -5736,7 +5745,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-    * 列出函数实例
+    * 列出函数实例。
     *
     * @param request ListInstancesRequest
     * @param headers map
@@ -5773,7 +5782,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-    * 列出函数实例
+    * 列出函数实例。
     *
     * @param request ListInstancesRequest
     * @return ListInstancesResponse
@@ -5785,7 +5794,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-    * 列出层版本
+    * 列出层版本。
     *
     * @param request ListLayerVersionsRequest
     * @param headers map
@@ -5822,7 +5831,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-    * 列出层版本
+    * 列出层版本。
     *
     * @param request ListLayerVersionsRequest
     * @return ListLayerVersionsResponse
@@ -5834,7 +5843,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-    * 列出层
+    * 列出层。
     *
     * @param request ListLayersRequest
     * @param headers map
@@ -5883,7 +5892,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-    * 列出层
+    * 列出层。
     *
     * @param request ListLayersRequest
     * @return ListLayersResponse
@@ -5895,7 +5904,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-    * 列出函数预留配置
+    * 列出函数预留配置。
     *
     * @param request ListProvisionConfigsRequest
     * @param headers map
@@ -5936,7 +5945,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-    * 列出函数预留配置
+    * 列出函数预留配置。
     *
     * @param request ListProvisionConfigsRequest
     * @return ListProvisionConfigsResponse
@@ -5948,7 +5957,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-    * 列出具有标签的资源
+    * 列出具有标签的资源。
     *
     * @param request ListTaggedResourcesRequest
     * @param headers map
@@ -5964,6 +5973,10 @@ export default class Client extends OpenApi {
 
     if (!Util.isUnset(request.nextToken)) {
       query["nextToken"] = request.nextToken;
+    }
+
+    if (!Util.isUnset(request.resourceType)) {
+      query["resourceType"] = request.resourceType;
     }
 
     let req = new $OpenApi.OpenApiRequest({
@@ -5985,7 +5998,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-    * 列出具有标签的资源
+    * 列出具有标签的资源。
     *
     * @param request ListTaggedResourcesRequest
     * @return ListTaggedResourcesResponse
@@ -5997,7 +6010,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-    * 列出函数触发器
+    * 列出函数触发器。
     *
     * @param request ListTriggersRequest
     * @param headers map
@@ -6038,7 +6051,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-    * 列出函数触发器
+    * 列出函数触发器。
     *
     * @param request ListTriggersRequest
     * @return ListTriggersResponse
@@ -6050,7 +6063,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-    * 列出VPC绑定配置
+    * 列出VPC绑定配置。
     *
     * @param headers map
     * @param runtime runtime options for this request RuntimeOptions
@@ -6075,7 +6088,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-    * 列出VPC绑定配置
+    * 列出VPC绑定配置。
     *
     * @return ListVpcBindingsResponse
    */
@@ -6086,7 +6099,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-    * 发布函数版本
+    * 发布函数版本。
     *
     * @param request PublishFunctionVersionRequest
     * @param headers map
@@ -6114,7 +6127,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-    * 发布函数版本
+    * 发布函数版本。
     *
     * @param request PublishFunctionVersionRequest
     * @return PublishFunctionVersionResponse
@@ -6126,7 +6139,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-    * 设置函数异步调用配置
+    * 设置函数异步调用配置。
     *
     * @param request PutAsyncInvokeConfigRequest
     * @param headers map
@@ -6160,7 +6173,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-    * 设置函数异步调用配置
+    * 设置函数异步调用配置。
     *
     * @param request PutAsyncInvokeConfigRequest
     * @return PutAsyncInvokeConfigResponse
@@ -6172,7 +6185,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-    * 设置函数并发度配置
+    * 设置函数并发度配置。
     *
     * @param request PutConcurrencyConfigRequest
     * @param headers map
@@ -6200,7 +6213,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-    * 设置函数并发度配置
+    * 设置函数并发度配置。
     *
     * @param request PutConcurrencyConfigRequest
     * @return PutConcurrencyConfigResponse
@@ -6212,7 +6225,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-    * 设置层的访问权限
+    * 设置层的访问权限。
     *
     * @param request PutLayerACLRequest
     * @param headers map
@@ -6245,7 +6258,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-    * 设置层的访问权限
+    * 设置层的访问权限。
     *
     * @param request PutLayerACLRequest
     * @return PutLayerACLResponse
@@ -6257,7 +6270,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-    * 设置函数预留配置
+    * 设置函数预留配置。
     *
     * @param request PutProvisionConfigRequest
     * @param headers map
@@ -6291,7 +6304,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-    * 设置函数预留配置
+    * 设置函数预留配置。
     *
     * @param request PutProvisionConfigRequest
     * @return PutProvisionConfigResponse
@@ -6303,7 +6316,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-    * 设置资源标签
+    * 设置资源标签。
     *
     * @param request TagResourceRequest
     * @param headers map
@@ -6331,7 +6344,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-    * 设置资源标签
+    * 设置资源标签。
     *
     * @param request TagResourceRequest
     * @return TagResourceResponse
@@ -6343,7 +6356,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-    * 删除资源标签
+    * 删除资源标签。
     *
     * @param request UntagResourceRequest
     * @param headers map
@@ -6384,7 +6397,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-    * 删除资源标签
+    * 删除资源标签。
     *
     * @param request UntagResourceRequest
     * @return UntagResourceResponse
@@ -6396,7 +6409,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-    * 更新函数别名
+    * 更新函数别名。
     *
     * @param request UpdateAliasRequest
     * @param headers map
@@ -6424,7 +6437,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-    * 更新函数别名
+    * 更新函数别名。
     *
     * @param request UpdateAliasRequest
     * @return UpdateAliasResponse
@@ -6436,7 +6449,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-    * 更新自定义域名
+    * 更新自定义域名。
     *
     * @param request UpdateCustomDomainRequest
     * @param headers map
@@ -6464,7 +6477,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-    * 更新自定义域名
+    * 更新自定义域名。
     *
     * @param request UpdateCustomDomainRequest
     * @return UpdateCustomDomainResponse
@@ -6476,7 +6489,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-    * 更新函数
+    * 更新函数。
     *
     * @param request UpdateFunctionRequest
     * @param headers map
@@ -6504,7 +6517,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-    * 更新函数
+    * 更新函数。
     *
     * @param request UpdateFunctionRequest
     * @return UpdateFunctionResponse
@@ -6516,7 +6529,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-    * 更新函数触发器
+    * 更新函数触发器。
     *
     * @param request UpdateTriggerRequest
     * @param headers map
@@ -6544,7 +6557,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-    * 更新函数触发器
+    * 更新函数触发器。
     *
     * @param request UpdateTriggerRequest
     * @return UpdateTriggerResponse
