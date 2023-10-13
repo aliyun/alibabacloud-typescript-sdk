@@ -755,6 +755,93 @@ export class CreateBackupResponse extends $tea.Model {
   }
 }
 
+export class CreateColdStorageInstanceRequest extends $tea.Model {
+  clientToken?: string;
+  coldStorageInstanceDescription?: string;
+  DBClusterId?: string;
+  ownerAccount?: string;
+  ownerId?: number;
+  resourceGroupId?: string;
+  resourceOwnerAccount?: string;
+  resourceOwnerId?: number;
+  static names(): { [key: string]: string } {
+    return {
+      clientToken: 'ClientToken',
+      coldStorageInstanceDescription: 'ColdStorageInstanceDescription',
+      DBClusterId: 'DBClusterId',
+      ownerAccount: 'OwnerAccount',
+      ownerId: 'OwnerId',
+      resourceGroupId: 'ResourceGroupId',
+      resourceOwnerAccount: 'ResourceOwnerAccount',
+      resourceOwnerId: 'ResourceOwnerId',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      clientToken: 'string',
+      coldStorageInstanceDescription: 'string',
+      DBClusterId: 'string',
+      ownerAccount: 'string',
+      ownerId: 'number',
+      resourceGroupId: 'string',
+      resourceOwnerAccount: 'string',
+      resourceOwnerId: 'number',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class CreateColdStorageInstanceResponseBody extends $tea.Model {
+  coldStorageInstanceId?: string;
+  requestId?: string;
+  static names(): { [key: string]: string } {
+    return {
+      coldStorageInstanceId: 'ColdStorageInstanceId',
+      requestId: 'RequestId',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      coldStorageInstanceId: 'string',
+      requestId: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class CreateColdStorageInstanceResponse extends $tea.Model {
+  headers: { [key: string]: string };
+  statusCode: number;
+  body: CreateColdStorageInstanceResponseBody;
+  static names(): { [key: string]: string } {
+    return {
+      headers: 'headers',
+      statusCode: 'statusCode',
+      body: 'body',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
+      body: CreateColdStorageInstanceResponseBody,
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
 export class CreateDBClusterRequest extends $tea.Model {
   allowShutDown?: string;
   architecture?: string;
@@ -3902,6 +3989,7 @@ export class DescribeDBClusterAttributeResponseBody extends $tea.Model {
   lockMode?: string;
   maintainTime?: string;
   payType?: string;
+  provisionedIops?: string;
   proxyCpuCores?: string;
   proxyServerlessType?: string;
   proxyStandardCpuCores?: string;
@@ -3957,6 +4045,7 @@ export class DescribeDBClusterAttributeResponseBody extends $tea.Model {
       lockMode: 'LockMode',
       maintainTime: 'MaintainTime',
       payType: 'PayType',
+      provisionedIops: 'ProvisionedIops',
       proxyCpuCores: 'ProxyCpuCores',
       proxyServerlessType: 'ProxyServerlessType',
       proxyStandardCpuCores: 'ProxyStandardCpuCores',
@@ -4015,6 +4104,7 @@ export class DescribeDBClusterAttributeResponseBody extends $tea.Model {
       lockMode: 'string',
       maintainTime: 'string',
       payType: 'string',
+      provisionedIops: 'string',
       proxyCpuCores: 'string',
       proxyServerlessType: 'string',
       proxyStandardCpuCores: 'string',
@@ -8094,6 +8184,102 @@ export class DisableDBClusterServerlessResponse extends $tea.Model {
       headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
       statusCode: 'number',
       body: DisableDBClusterServerlessResponseBody,
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class EnableDBClusterServerlessRequest extends $tea.Model {
+  DBClusterId?: string;
+  ownerAccount?: string;
+  ownerId?: number;
+  resourceOwnerAccount?: string;
+  resourceOwnerId?: number;
+  scaleApRoNumMax?: string;
+  scaleApRoNumMin?: string;
+  scaleMax?: string;
+  scaleMin?: string;
+  scaleRoNumMax?: string;
+  scaleRoNumMin?: string;
+  static names(): { [key: string]: string } {
+    return {
+      DBClusterId: 'DBClusterId',
+      ownerAccount: 'OwnerAccount',
+      ownerId: 'OwnerId',
+      resourceOwnerAccount: 'ResourceOwnerAccount',
+      resourceOwnerId: 'ResourceOwnerId',
+      scaleApRoNumMax: 'ScaleApRoNumMax',
+      scaleApRoNumMin: 'ScaleApRoNumMin',
+      scaleMax: 'ScaleMax',
+      scaleMin: 'ScaleMin',
+      scaleRoNumMax: 'ScaleRoNumMax',
+      scaleRoNumMin: 'ScaleRoNumMin',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      DBClusterId: 'string',
+      ownerAccount: 'string',
+      ownerId: 'number',
+      resourceOwnerAccount: 'string',
+      resourceOwnerId: 'number',
+      scaleApRoNumMax: 'string',
+      scaleApRoNumMin: 'string',
+      scaleMax: 'string',
+      scaleMin: 'string',
+      scaleRoNumMax: 'string',
+      scaleRoNumMin: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class EnableDBClusterServerlessResponseBody extends $tea.Model {
+  DBClusterId?: string;
+  requestId?: string;
+  static names(): { [key: string]: string } {
+    return {
+      DBClusterId: 'DBClusterId',
+      requestId: 'RequestId',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      DBClusterId: 'string',
+      requestId: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class EnableDBClusterServerlessResponse extends $tea.Model {
+  headers: { [key: string]: string };
+  statusCode: number;
+  body: EnableDBClusterServerlessResponseBody;
+  static names(): { [key: string]: string } {
+    return {
+      headers: 'headers',
+      statusCode: 'statusCode',
+      body: 'body',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
+      body: EnableDBClusterServerlessResponseBody,
     };
   }
 
@@ -16827,6 +17013,63 @@ export default class Client extends OpenApi {
     return await this.createBackupWithOptions(request, runtime);
   }
 
+  async createColdStorageInstanceWithOptions(request: CreateColdStorageInstanceRequest, runtime: $Util.RuntimeOptions): Promise<CreateColdStorageInstanceResponse> {
+    Util.validateModel(request);
+    let query = { };
+    if (!Util.isUnset(request.clientToken)) {
+      query["ClientToken"] = request.clientToken;
+    }
+
+    if (!Util.isUnset(request.coldStorageInstanceDescription)) {
+      query["ColdStorageInstanceDescription"] = request.coldStorageInstanceDescription;
+    }
+
+    if (!Util.isUnset(request.DBClusterId)) {
+      query["DBClusterId"] = request.DBClusterId;
+    }
+
+    if (!Util.isUnset(request.ownerAccount)) {
+      query["OwnerAccount"] = request.ownerAccount;
+    }
+
+    if (!Util.isUnset(request.ownerId)) {
+      query["OwnerId"] = request.ownerId;
+    }
+
+    if (!Util.isUnset(request.resourceGroupId)) {
+      query["ResourceGroupId"] = request.resourceGroupId;
+    }
+
+    if (!Util.isUnset(request.resourceOwnerAccount)) {
+      query["ResourceOwnerAccount"] = request.resourceOwnerAccount;
+    }
+
+    if (!Util.isUnset(request.resourceOwnerId)) {
+      query["ResourceOwnerId"] = request.resourceOwnerId;
+    }
+
+    let req = new $OpenApi.OpenApiRequest({
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApi.Params({
+      action: "CreateColdStorageInstance",
+      version: "2017-08-01",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $tea.cast<CreateColdStorageInstanceResponse>(await this.callApi(params, req, runtime), new CreateColdStorageInstanceResponse({}));
+  }
+
+  async createColdStorageInstance(request: CreateColdStorageInstanceRequest): Promise<CreateColdStorageInstanceResponse> {
+    let runtime = new $Util.RuntimeOptions({ });
+    return await this.createColdStorageInstanceWithOptions(request, runtime);
+  }
+
   async createDBClusterWithOptions(request: CreateDBClusterRequest, runtime: $Util.RuntimeOptions): Promise<CreateDBClusterResponse> {
     Util.validateModel(request);
     let query = { };
@@ -21648,6 +21891,75 @@ export default class Client extends OpenApi {
   async disableDBClusterServerless(request: DisableDBClusterServerlessRequest): Promise<DisableDBClusterServerlessResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.disableDBClusterServerlessWithOptions(request, runtime);
+  }
+
+  async enableDBClusterServerlessWithOptions(request: EnableDBClusterServerlessRequest, runtime: $Util.RuntimeOptions): Promise<EnableDBClusterServerlessResponse> {
+    Util.validateModel(request);
+    let query = { };
+    if (!Util.isUnset(request.DBClusterId)) {
+      query["DBClusterId"] = request.DBClusterId;
+    }
+
+    if (!Util.isUnset(request.ownerAccount)) {
+      query["OwnerAccount"] = request.ownerAccount;
+    }
+
+    if (!Util.isUnset(request.ownerId)) {
+      query["OwnerId"] = request.ownerId;
+    }
+
+    if (!Util.isUnset(request.resourceOwnerAccount)) {
+      query["ResourceOwnerAccount"] = request.resourceOwnerAccount;
+    }
+
+    if (!Util.isUnset(request.resourceOwnerId)) {
+      query["ResourceOwnerId"] = request.resourceOwnerId;
+    }
+
+    if (!Util.isUnset(request.scaleApRoNumMax)) {
+      query["ScaleApRoNumMax"] = request.scaleApRoNumMax;
+    }
+
+    if (!Util.isUnset(request.scaleApRoNumMin)) {
+      query["ScaleApRoNumMin"] = request.scaleApRoNumMin;
+    }
+
+    if (!Util.isUnset(request.scaleMax)) {
+      query["ScaleMax"] = request.scaleMax;
+    }
+
+    if (!Util.isUnset(request.scaleMin)) {
+      query["ScaleMin"] = request.scaleMin;
+    }
+
+    if (!Util.isUnset(request.scaleRoNumMax)) {
+      query["ScaleRoNumMax"] = request.scaleRoNumMax;
+    }
+
+    if (!Util.isUnset(request.scaleRoNumMin)) {
+      query["ScaleRoNumMin"] = request.scaleRoNumMin;
+    }
+
+    let req = new $OpenApi.OpenApiRequest({
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApi.Params({
+      action: "EnableDBClusterServerless",
+      version: "2017-08-01",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $tea.cast<EnableDBClusterServerlessResponse>(await this.callApi(params, req, runtime), new EnableDBClusterServerlessResponse({}));
+  }
+
+  async enableDBClusterServerless(request: EnableDBClusterServerlessRequest): Promise<EnableDBClusterServerlessResponse> {
+    let runtime = new $Util.RuntimeOptions({ });
+    return await this.enableDBClusterServerlessWithOptions(request, runtime);
   }
 
   async enableFirewallRulesWithOptions(request: EnableFirewallRulesRequest, runtime: $Util.RuntimeOptions): Promise<EnableFirewallRulesResponse> {
