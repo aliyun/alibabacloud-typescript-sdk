@@ -10037,6 +10037,7 @@ export class DescribeDcdnUserDomainsByFuncRequest extends $tea.Model {
   domainName?: string;
   funcFilter?: string;
   funcId?: number;
+  matchType?: string;
   pageNumber?: number;
   pageSize?: number;
   resourceGroupId?: string;
@@ -10045,6 +10046,7 @@ export class DescribeDcdnUserDomainsByFuncRequest extends $tea.Model {
       domainName: 'DomainName',
       funcFilter: 'FuncFilter',
       funcId: 'FuncId',
+      matchType: 'MatchType',
       pageNumber: 'PageNumber',
       pageSize: 'PageSize',
       resourceGroupId: 'ResourceGroupId',
@@ -10056,6 +10058,7 @@ export class DescribeDcdnUserDomainsByFuncRequest extends $tea.Model {
       domainName: 'string',
       funcFilter: 'string',
       funcId: 'number',
+      matchType: 'string',
       pageNumber: 'number',
       pageSize: 'number',
       resourceGroupId: 'string',
@@ -24742,7 +24745,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-    * @deprecated : DescribeDcdnCertificateList is deprecated, please use dcdn::2018-01-15::DescribeDcdnCertificateList instead.
+    * @deprecated : DescribeDcdnCertificateList is deprecated, please use dcdn::2018-01-15::DescribeDcdnSSLCertificateList instead.
     * > You can call this operation up to 30 times per second per account.
     *
     * @param request DescribeDcdnCertificateListRequest
@@ -24783,7 +24786,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-    * @deprecated : DescribeDcdnCertificateList is deprecated, please use dcdn::2018-01-15::DescribeDcdnCertificateList instead.
+    * @deprecated : DescribeDcdnCertificateList is deprecated, please use dcdn::2018-01-15::DescribeDcdnSSLCertificateList instead.
     * > You can call this operation up to 30 times per second per account.
     *
     * @param request DescribeDcdnCertificateListRequest
@@ -29369,6 +29372,10 @@ export default class Client extends OpenApi {
 
     if (!Util.isUnset(request.funcId)) {
       query["FuncId"] = request.funcId;
+    }
+
+    if (!Util.isUnset(request.matchType)) {
+      query["MatchType"] = request.matchType;
     }
 
     if (!Util.isUnset(request.pageNumber)) {
