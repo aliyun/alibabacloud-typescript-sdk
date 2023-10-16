@@ -25208,6 +25208,8 @@ export class ExportVulRequest extends $tea.Model {
   aliasName?: string;
   attachTypes?: string;
   containerName?: string;
+  createTsEnd?: number;
+  createTsStart?: number;
   cveId?: string;
   dealed?: string;
   groupId?: string;
@@ -25224,6 +25226,8 @@ export class ExportVulRequest extends $tea.Model {
       aliasName: 'AliasName',
       attachTypes: 'AttachTypes',
       containerName: 'ContainerName',
+      createTsEnd: 'CreateTsEnd',
+      createTsStart: 'CreateTsStart',
       cveId: 'CveId',
       dealed: 'Dealed',
       groupId: 'GroupId',
@@ -25243,6 +25247,8 @@ export class ExportVulRequest extends $tea.Model {
       aliasName: 'string',
       attachTypes: 'string',
       containerName: 'string',
+      createTsEnd: 'number',
+      createTsStart: 'number',
       cveId: 'string',
       dealed: 'string',
       groupId: 'string',
@@ -78360,6 +78366,14 @@ export default class Client extends OpenApi {
 
     if (!Util.isUnset(request.containerName)) {
       query["ContainerName"] = request.containerName;
+    }
+
+    if (!Util.isUnset(request.createTsEnd)) {
+      query["CreateTsEnd"] = request.createTsEnd;
+    }
+
+    if (!Util.isUnset(request.createTsStart)) {
+      query["CreateTsStart"] = request.createTsStart;
     }
 
     if (!Util.isUnset(request.cveId)) {
