@@ -731,6 +731,75 @@ export class BatchUpdateCdnDomainResponse extends $tea.Model {
   }
 }
 
+export class CdnMigrateRegisterRequest extends $tea.Model {
+  domainName?: string;
+  static names(): { [key: string]: string } {
+    return {
+      domainName: 'DomainName',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      domainName: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class CdnMigrateRegisterResponseBody extends $tea.Model {
+  domainName?: string;
+  requestId?: string;
+  status?: string;
+  static names(): { [key: string]: string } {
+    return {
+      domainName: 'DomainName',
+      requestId: 'RequestId',
+      status: 'Status',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      domainName: 'string',
+      requestId: 'string',
+      status: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class CdnMigrateRegisterResponse extends $tea.Model {
+  headers: { [key: string]: string };
+  statusCode: number;
+  body: CdnMigrateRegisterResponseBody;
+  static names(): { [key: string]: string } {
+    return {
+      headers: 'headers',
+      statusCode: 'statusCode',
+      body: 'body',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
+      body: CdnMigrateRegisterResponseBody,
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
 export class ChangeCdnDomainToDcdnRequest extends $tea.Model {
   domainName?: string;
   operation?: string;
@@ -801,6 +870,156 @@ export class ChangeCdnDomainToDcdnResponse extends $tea.Model {
       headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
       statusCode: 'number',
       body: ChangeCdnDomainToDcdnResponseBody,
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class CheckCdnDomainExistRequest extends $tea.Model {
+  domainName?: string;
+  ownerAccount?: string;
+  ownerId?: number;
+  securityToken?: string;
+  static names(): { [key: string]: string } {
+    return {
+      domainName: 'DomainName',
+      ownerAccount: 'OwnerAccount',
+      ownerId: 'OwnerId',
+      securityToken: 'SecurityToken',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      domainName: 'string',
+      ownerAccount: 'string',
+      ownerId: 'number',
+      securityToken: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class CheckCdnDomainExistResponseBody extends $tea.Model {
+  requestId?: string;
+  status?: string;
+  static names(): { [key: string]: string } {
+    return {
+      requestId: 'RequestId',
+      status: 'Status',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      requestId: 'string',
+      status: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class CheckCdnDomainExistResponse extends $tea.Model {
+  headers: { [key: string]: string };
+  statusCode: number;
+  body: CheckCdnDomainExistResponseBody;
+  static names(): { [key: string]: string } {
+    return {
+      headers: 'headers',
+      statusCode: 'statusCode',
+      body: 'body',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
+      body: CheckCdnDomainExistResponseBody,
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class CheckCdnDomainICPRequest extends $tea.Model {
+  domainName?: string;
+  ownerAccount?: string;
+  ownerId?: number;
+  securityToken?: string;
+  static names(): { [key: string]: string } {
+    return {
+      domainName: 'DomainName',
+      ownerAccount: 'OwnerAccount',
+      ownerId: 'OwnerId',
+      securityToken: 'SecurityToken',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      domainName: 'string',
+      ownerAccount: 'string',
+      ownerId: 'number',
+      securityToken: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class CheckCdnDomainICPResponseBody extends $tea.Model {
+  requestId?: string;
+  status?: string;
+  static names(): { [key: string]: string } {
+    return {
+      requestId: 'RequestId',
+      status: 'Status',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      requestId: 'string',
+      status: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class CheckCdnDomainICPResponse extends $tea.Model {
+  headers: { [key: string]: string };
+  statusCode: number;
+  body: CheckCdnDomainICPResponseBody;
+  static names(): { [key: string]: string } {
+    return {
+      headers: 'headers',
+      statusCode: 'statusCode',
+      body: 'body',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
+      body: CheckCdnDomainICPResponseBody,
     };
   }
 
@@ -2752,6 +2971,84 @@ export class DescribeCdnDomainLogsResponse extends $tea.Model {
   }
 }
 
+export class DescribeCdnDomainLogsExTtlRequest extends $tea.Model {
+  domainName?: string;
+  endTime?: string;
+  pageNumber?: number;
+  pageSize?: number;
+  startTime?: string;
+  static names(): { [key: string]: string } {
+    return {
+      domainName: 'DomainName',
+      endTime: 'EndTime',
+      pageNumber: 'PageNumber',
+      pageSize: 'PageSize',
+      startTime: 'StartTime',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      domainName: 'string',
+      endTime: 'string',
+      pageNumber: 'number',
+      pageSize: 'number',
+      startTime: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class DescribeCdnDomainLogsExTtlResponseBody extends $tea.Model {
+  domainLogDetails?: DescribeCdnDomainLogsExTtlResponseBodyDomainLogDetails;
+  requestId?: string;
+  static names(): { [key: string]: string } {
+    return {
+      domainLogDetails: 'DomainLogDetails',
+      requestId: 'RequestId',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      domainLogDetails: DescribeCdnDomainLogsExTtlResponseBodyDomainLogDetails,
+      requestId: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class DescribeCdnDomainLogsExTtlResponse extends $tea.Model {
+  headers: { [key: string]: string };
+  statusCode: number;
+  body: DescribeCdnDomainLogsExTtlResponseBody;
+  static names(): { [key: string]: string } {
+    return {
+      headers: 'headers',
+      statusCode: 'statusCode',
+      body: 'body',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
+      body: DescribeCdnDomainLogsExTtlResponseBody,
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
 export class DescribeCdnDomainStagingConfigRequest extends $tea.Model {
   domainName?: string;
   functionNames?: string;
@@ -2891,6 +3188,75 @@ export class DescribeCdnHttpsDomainListResponse extends $tea.Model {
       headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
       statusCode: 'number',
       body: DescribeCdnHttpsDomainListResponseBody,
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class DescribeCdnMigrateRegisterStatusRequest extends $tea.Model {
+  domainName?: string;
+  static names(): { [key: string]: string } {
+    return {
+      domainName: 'DomainName',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      domainName: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class DescribeCdnMigrateRegisterStatusResponseBody extends $tea.Model {
+  domainName?: string;
+  requestId?: string;
+  status?: string;
+  static names(): { [key: string]: string } {
+    return {
+      domainName: 'DomainName',
+      requestId: 'RequestId',
+      status: 'Status',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      domainName: 'string',
+      requestId: 'string',
+      status: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class DescribeCdnMigrateRegisterStatusResponse extends $tea.Model {
+  headers: { [key: string]: string };
+  statusCode: number;
+  body: DescribeCdnMigrateRegisterStatusResponseBody;
+  static names(): { [key: string]: string } {
+    return {
+      headers: 'headers',
+      statusCode: 'statusCode',
+      body: 'body',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
+      body: DescribeCdnMigrateRegisterStatusResponseBody,
     };
   }
 
@@ -3431,6 +3797,84 @@ export class DescribeCdnSSLCertificateListResponse extends $tea.Model {
       headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
       statusCode: 'number',
       body: DescribeCdnSSLCertificateListResponseBody,
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class DescribeCdnSecFuncInfoRequest extends $tea.Model {
+  lang?: string;
+  secFuncType?: string;
+  static names(): { [key: string]: string } {
+    return {
+      lang: 'Lang',
+      secFuncType: 'SecFuncType',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      lang: 'string',
+      secFuncType: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class DescribeCdnSecFuncInfoResponseBody extends $tea.Model {
+  content?: DescribeCdnSecFuncInfoResponseBodyContent[];
+  description?: string;
+  httpStatus?: string;
+  requestId?: string;
+  retCode?: string;
+  static names(): { [key: string]: string } {
+    return {
+      content: 'Content',
+      description: 'Description',
+      httpStatus: 'HttpStatus',
+      requestId: 'RequestId',
+      retCode: 'RetCode',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      content: { 'type': 'array', 'itemType': DescribeCdnSecFuncInfoResponseBodyContent },
+      description: 'string',
+      httpStatus: 'string',
+      requestId: 'string',
+      retCode: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class DescribeCdnSecFuncInfoResponse extends $tea.Model {
+  headers: { [key: string]: string };
+  statusCode: number;
+  body: DescribeCdnSecFuncInfoResponseBody;
+  static names(): { [key: string]: string } {
+    return {
+      headers: 'headers',
+      statusCode: 'statusCode',
+      body: 'body',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
+      body: DescribeCdnSecFuncInfoResponseBody,
     };
   }
 
@@ -12794,6 +13238,128 @@ export class DescribeCdnDomainLogsResponseBodyDomainLogDetails extends $tea.Mode
   }
 }
 
+export class DescribeCdnDomainLogsExTtlResponseBodyDomainLogDetailsDomainLogDetailLogInfosLogInfoDetail extends $tea.Model {
+  endTime?: string;
+  logName?: string;
+  logPath?: string;
+  logSize?: number;
+  startTime?: string;
+  static names(): { [key: string]: string } {
+    return {
+      endTime: 'EndTime',
+      logName: 'LogName',
+      logPath: 'LogPath',
+      logSize: 'LogSize',
+      startTime: 'StartTime',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      endTime: 'string',
+      logName: 'string',
+      logPath: 'string',
+      logSize: 'number',
+      startTime: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class DescribeCdnDomainLogsExTtlResponseBodyDomainLogDetailsDomainLogDetailLogInfos extends $tea.Model {
+  logInfoDetail?: DescribeCdnDomainLogsExTtlResponseBodyDomainLogDetailsDomainLogDetailLogInfosLogInfoDetail[];
+  static names(): { [key: string]: string } {
+    return {
+      logInfoDetail: 'LogInfoDetail',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      logInfoDetail: { 'type': 'array', 'itemType': DescribeCdnDomainLogsExTtlResponseBodyDomainLogDetailsDomainLogDetailLogInfosLogInfoDetail },
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class DescribeCdnDomainLogsExTtlResponseBodyDomainLogDetailsDomainLogDetailPageInfos extends $tea.Model {
+  pageIndex?: number;
+  pageSize?: number;
+  total?: number;
+  static names(): { [key: string]: string } {
+    return {
+      pageIndex: 'PageIndex',
+      pageSize: 'PageSize',
+      total: 'Total',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      pageIndex: 'number',
+      pageSize: 'number',
+      total: 'number',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class DescribeCdnDomainLogsExTtlResponseBodyDomainLogDetailsDomainLogDetail extends $tea.Model {
+  domainName?: string;
+  logCount?: number;
+  logInfos?: DescribeCdnDomainLogsExTtlResponseBodyDomainLogDetailsDomainLogDetailLogInfos;
+  pageInfos?: DescribeCdnDomainLogsExTtlResponseBodyDomainLogDetailsDomainLogDetailPageInfos;
+  static names(): { [key: string]: string } {
+    return {
+      domainName: 'DomainName',
+      logCount: 'LogCount',
+      logInfos: 'LogInfos',
+      pageInfos: 'PageInfos',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      domainName: 'string',
+      logCount: 'number',
+      logInfos: DescribeCdnDomainLogsExTtlResponseBodyDomainLogDetailsDomainLogDetailLogInfos,
+      pageInfos: DescribeCdnDomainLogsExTtlResponseBodyDomainLogDetailsDomainLogDetailPageInfos,
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class DescribeCdnDomainLogsExTtlResponseBodyDomainLogDetails extends $tea.Model {
+  domainLogDetail?: DescribeCdnDomainLogsExTtlResponseBodyDomainLogDetailsDomainLogDetail[];
+  static names(): { [key: string]: string } {
+    return {
+      domainLogDetail: 'DomainLogDetail',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      domainLogDetail: { 'type': 'array', 'itemType': DescribeCdnDomainLogsExTtlResponseBodyDomainLogDetailsDomainLogDetail },
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
 export class DescribeCdnDomainStagingConfigResponseBodyDomainConfigsFunctionArgs extends $tea.Model {
   argName?: string;
   argValue?: string;
@@ -13133,6 +13699,28 @@ export class DescribeCdnSSLCertificateListResponseBodyCertificateListModel exten
       count: 'number',
       pageNumber: 'number',
       pageSize: 'number',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class DescribeCdnSecFuncInfoResponseBodyContent extends $tea.Model {
+  label?: string;
+  value?: string;
+  static names(): { [key: string]: string } {
+    return {
+      label: 'Label',
+      value: 'Value',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      label: 'string',
+      value: 'string',
     };
   }
 
@@ -18284,6 +18872,35 @@ export default class Client extends OpenApi {
     return await this.batchUpdateCdnDomainWithOptions(request, runtime);
   }
 
+  async cdnMigrateRegisterWithOptions(request: CdnMigrateRegisterRequest, runtime: $Util.RuntimeOptions): Promise<CdnMigrateRegisterResponse> {
+    Util.validateModel(request);
+    let query = { };
+    if (!Util.isUnset(request.domainName)) {
+      query["DomainName"] = request.domainName;
+    }
+
+    let req = new $OpenApi.OpenApiRequest({
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApi.Params({
+      action: "CdnMigrateRegister",
+      version: "2018-05-10",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $tea.cast<CdnMigrateRegisterResponse>(await this.callApi(params, req, runtime), new CdnMigrateRegisterResponse({}));
+  }
+
+  async cdnMigrateRegister(request: CdnMigrateRegisterRequest): Promise<CdnMigrateRegisterResponse> {
+    let runtime = new $Util.RuntimeOptions({ });
+    return await this.cdnMigrateRegisterWithOptions(request, runtime);
+  }
+
   async changeCdnDomainToDcdnWithOptions(request: ChangeCdnDomainToDcdnRequest, runtime: $Util.RuntimeOptions): Promise<ChangeCdnDomainToDcdnResponse> {
     Util.validateModel(request);
     let query = { };
@@ -18327,6 +18944,88 @@ export default class Client extends OpenApi {
   async changeCdnDomainToDcdn(request: ChangeCdnDomainToDcdnRequest): Promise<ChangeCdnDomainToDcdnResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.changeCdnDomainToDcdnWithOptions(request, runtime);
+  }
+
+  async checkCdnDomainExistWithOptions(request: CheckCdnDomainExistRequest, runtime: $Util.RuntimeOptions): Promise<CheckCdnDomainExistResponse> {
+    Util.validateModel(request);
+    let query = { };
+    if (!Util.isUnset(request.domainName)) {
+      query["DomainName"] = request.domainName;
+    }
+
+    if (!Util.isUnset(request.ownerAccount)) {
+      query["OwnerAccount"] = request.ownerAccount;
+    }
+
+    if (!Util.isUnset(request.ownerId)) {
+      query["OwnerId"] = request.ownerId;
+    }
+
+    if (!Util.isUnset(request.securityToken)) {
+      query["SecurityToken"] = request.securityToken;
+    }
+
+    let req = new $OpenApi.OpenApiRequest({
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApi.Params({
+      action: "CheckCdnDomainExist",
+      version: "2018-05-10",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $tea.cast<CheckCdnDomainExistResponse>(await this.callApi(params, req, runtime), new CheckCdnDomainExistResponse({}));
+  }
+
+  async checkCdnDomainExist(request: CheckCdnDomainExistRequest): Promise<CheckCdnDomainExistResponse> {
+    let runtime = new $Util.RuntimeOptions({ });
+    return await this.checkCdnDomainExistWithOptions(request, runtime);
+  }
+
+  async checkCdnDomainICPWithOptions(request: CheckCdnDomainICPRequest, runtime: $Util.RuntimeOptions): Promise<CheckCdnDomainICPResponse> {
+    Util.validateModel(request);
+    let query = { };
+    if (!Util.isUnset(request.domainName)) {
+      query["DomainName"] = request.domainName;
+    }
+
+    if (!Util.isUnset(request.ownerAccount)) {
+      query["OwnerAccount"] = request.ownerAccount;
+    }
+
+    if (!Util.isUnset(request.ownerId)) {
+      query["OwnerId"] = request.ownerId;
+    }
+
+    if (!Util.isUnset(request.securityToken)) {
+      query["SecurityToken"] = request.securityToken;
+    }
+
+    let req = new $OpenApi.OpenApiRequest({
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApi.Params({
+      action: "CheckCdnDomainICP",
+      version: "2018-05-10",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $tea.cast<CheckCdnDomainICPResponse>(await this.callApi(params, req, runtime), new CheckCdnDomainICPResponse({}));
+  }
+
+  async checkCdnDomainICP(request: CheckCdnDomainICPRequest): Promise<CheckCdnDomainICPResponse> {
+    let runtime = new $Util.RuntimeOptions({ });
+    return await this.checkCdnDomainICPWithOptions(request, runtime);
   }
 
   /**
@@ -19223,12 +19922,14 @@ export default class Client extends OpenApi {
   }
 
   /**
+    * @deprecated : DescribeCdnCertificateList is deprecated, please use Cdn::2018-05-10::DescribeCdnSSLCertificateList instead.
     * > You can call this operation up to 30 times per second per account.
     *
     * @param request DescribeCdnCertificateListRequest
     * @param runtime runtime options for this request RuntimeOptions
     * @return DescribeCdnCertificateListResponse
    */
+  // Deprecated
   async describeCdnCertificateListWithOptions(request: DescribeCdnCertificateListRequest, runtime: $Util.RuntimeOptions): Promise<DescribeCdnCertificateListResponse> {
     Util.validateModel(request);
     let query = { };
@@ -19262,11 +19963,13 @@ export default class Client extends OpenApi {
   }
 
   /**
+    * @deprecated : DescribeCdnCertificateList is deprecated, please use Cdn::2018-05-10::DescribeCdnSSLCertificateList instead.
     * > You can call this operation up to 30 times per second per account.
     *
     * @param request DescribeCdnCertificateListRequest
     * @return DescribeCdnCertificateListResponse
    */
+  // Deprecated
   async describeCdnCertificateList(request: DescribeCdnCertificateListRequest): Promise<DescribeCdnCertificateListResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.describeCdnCertificateListWithOptions(request, runtime);
@@ -19611,6 +20314,51 @@ export default class Client extends OpenApi {
     return await this.describeCdnDomainLogsWithOptions(request, runtime);
   }
 
+  async describeCdnDomainLogsExTtlWithOptions(request: DescribeCdnDomainLogsExTtlRequest, runtime: $Util.RuntimeOptions): Promise<DescribeCdnDomainLogsExTtlResponse> {
+    Util.validateModel(request);
+    let query = { };
+    if (!Util.isUnset(request.domainName)) {
+      query["DomainName"] = request.domainName;
+    }
+
+    if (!Util.isUnset(request.endTime)) {
+      query["EndTime"] = request.endTime;
+    }
+
+    if (!Util.isUnset(request.pageNumber)) {
+      query["PageNumber"] = request.pageNumber;
+    }
+
+    if (!Util.isUnset(request.pageSize)) {
+      query["PageSize"] = request.pageSize;
+    }
+
+    if (!Util.isUnset(request.startTime)) {
+      query["StartTime"] = request.startTime;
+    }
+
+    let req = new $OpenApi.OpenApiRequest({
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApi.Params({
+      action: "DescribeCdnDomainLogsExTtl",
+      version: "2018-05-10",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $tea.cast<DescribeCdnDomainLogsExTtlResponse>(await this.callApi(params, req, runtime), new DescribeCdnDomainLogsExTtlResponse({}));
+  }
+
+  async describeCdnDomainLogsExTtl(request: DescribeCdnDomainLogsExTtlRequest): Promise<DescribeCdnDomainLogsExTtlResponse> {
+    let runtime = new $Util.RuntimeOptions({ });
+    return await this.describeCdnDomainLogsExTtlWithOptions(request, runtime);
+  }
+
   /**
     * > You can call this operation up to 30 times per second per account.
     *
@@ -19705,6 +20453,48 @@ export default class Client extends OpenApi {
   async describeCdnHttpsDomainList(request: DescribeCdnHttpsDomainListRequest): Promise<DescribeCdnHttpsDomainListResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.describeCdnHttpsDomainListWithOptions(request, runtime);
+  }
+
+  /**
+    * >  If a domain name is not transferred from Alibaba Cloud CDN to DCDN after it is registered in the routing center of DCDN, the registration information is retained for only one day.
+    *
+    * @param request DescribeCdnMigrateRegisterStatusRequest
+    * @param runtime runtime options for this request RuntimeOptions
+    * @return DescribeCdnMigrateRegisterStatusResponse
+   */
+  async describeCdnMigrateRegisterStatusWithOptions(request: DescribeCdnMigrateRegisterStatusRequest, runtime: $Util.RuntimeOptions): Promise<DescribeCdnMigrateRegisterStatusResponse> {
+    Util.validateModel(request);
+    let query = { };
+    if (!Util.isUnset(request.domainName)) {
+      query["DomainName"] = request.domainName;
+    }
+
+    let req = new $OpenApi.OpenApiRequest({
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApi.Params({
+      action: "DescribeCdnMigrateRegisterStatus",
+      version: "2018-05-10",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $tea.cast<DescribeCdnMigrateRegisterStatusResponse>(await this.callApi(params, req, runtime), new DescribeCdnMigrateRegisterStatusResponse({}));
+  }
+
+  /**
+    * >  If a domain name is not transferred from Alibaba Cloud CDN to DCDN after it is registered in the routing center of DCDN, the registration information is retained for only one day.
+    *
+    * @param request DescribeCdnMigrateRegisterStatusRequest
+    * @return DescribeCdnMigrateRegisterStatusResponse
+   */
+  async describeCdnMigrateRegisterStatus(request: DescribeCdnMigrateRegisterStatusRequest): Promise<DescribeCdnMigrateRegisterStatusResponse> {
+    let runtime = new $Util.RuntimeOptions({ });
+    return await this.describeCdnMigrateRegisterStatusWithOptions(request, runtime);
   }
 
   async describeCdnOrderCommodityCodeWithOptions(request: DescribeCdnOrderCommodityCodeRequest, runtime: $Util.RuntimeOptions): Promise<DescribeCdnOrderCommodityCodeResponse> {
@@ -20049,6 +20839,39 @@ export default class Client extends OpenApi {
   async describeCdnSSLCertificateList(request: DescribeCdnSSLCertificateListRequest): Promise<DescribeCdnSSLCertificateListResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.describeCdnSSLCertificateListWithOptions(request, runtime);
+  }
+
+  async describeCdnSecFuncInfoWithOptions(request: DescribeCdnSecFuncInfoRequest, runtime: $Util.RuntimeOptions): Promise<DescribeCdnSecFuncInfoResponse> {
+    Util.validateModel(request);
+    let query = { };
+    if (!Util.isUnset(request.lang)) {
+      query["Lang"] = request.lang;
+    }
+
+    if (!Util.isUnset(request.secFuncType)) {
+      query["SecFuncType"] = request.secFuncType;
+    }
+
+    let req = new $OpenApi.OpenApiRequest({
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApi.Params({
+      action: "DescribeCdnSecFuncInfo",
+      version: "2018-05-10",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $tea.cast<DescribeCdnSecFuncInfoResponse>(await this.callApi(params, req, runtime), new DescribeCdnSecFuncInfoResponse({}));
+  }
+
+  async describeCdnSecFuncInfo(request: DescribeCdnSecFuncInfoRequest): Promise<DescribeCdnSecFuncInfoResponse> {
+    let runtime = new $Util.RuntimeOptions({ });
+    return await this.describeCdnSecFuncInfoWithOptions(request, runtime);
   }
 
   /**
