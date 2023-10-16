@@ -2076,6 +2076,174 @@ export class BindPrometheusGrafanaInstanceResponse extends $tea.Model {
   }
 }
 
+export class BlockAlarmNotificationRequest extends $tea.Model {
+  alarmId?: number;
+  handlerId?: number;
+  regionId?: string;
+  timeout?: number;
+  static names(): { [key: string]: string } {
+    return {
+      alarmId: 'AlarmId',
+      handlerId: 'HandlerId',
+      regionId: 'RegionId',
+      timeout: 'Timeout',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      alarmId: 'number',
+      handlerId: 'number',
+      regionId: 'string',
+      timeout: 'number',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class BlockAlarmNotificationResponseBody extends $tea.Model {
+  code?: number;
+  message?: string;
+  requestId?: string;
+  result?: boolean;
+  success?: boolean;
+  static names(): { [key: string]: string } {
+    return {
+      code: 'Code',
+      message: 'Message',
+      requestId: 'RequestId',
+      result: 'Result',
+      success: 'Success',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      code: 'number',
+      message: 'string',
+      requestId: 'string',
+      result: 'boolean',
+      success: 'boolean',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class BlockAlarmNotificationResponse extends $tea.Model {
+  headers: { [key: string]: string };
+  statusCode: number;
+  body: BlockAlarmNotificationResponseBody;
+  static names(): { [key: string]: string } {
+    return {
+      headers: 'headers',
+      statusCode: 'statusCode',
+      body: 'body',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
+      body: BlockAlarmNotificationResponseBody,
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class ChangeAlarmSeverityRequest extends $tea.Model {
+  alarmId?: number;
+  handlerId?: number;
+  regionId?: string;
+  severity?: string;
+  static names(): { [key: string]: string } {
+    return {
+      alarmId: 'AlarmId',
+      handlerId: 'HandlerId',
+      regionId: 'RegionId',
+      severity: 'Severity',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      alarmId: 'number',
+      handlerId: 'number',
+      regionId: 'string',
+      severity: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class ChangeAlarmSeverityResponseBody extends $tea.Model {
+  code?: number;
+  message?: string;
+  requestId?: string;
+  result?: boolean;
+  success?: boolean;
+  static names(): { [key: string]: string } {
+    return {
+      code: 'Code',
+      message: 'Message',
+      requestId: 'RequestId',
+      result: 'Result',
+      success: 'Success',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      code: 'number',
+      message: 'string',
+      requestId: 'string',
+      result: 'boolean',
+      success: 'boolean',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class ChangeAlarmSeverityResponse extends $tea.Model {
+  headers: { [key: string]: string };
+  statusCode: number;
+  body: ChangeAlarmSeverityResponseBody;
+  static names(): { [key: string]: string } {
+    return {
+      headers: 'headers',
+      statusCode: 'statusCode',
+      body: 'body',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
+      body: ChangeAlarmSeverityResponseBody,
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
 export class ChangeResourceGroupRequest extends $tea.Model {
   newResourceGroupId?: string;
   regionId?: string;
@@ -2218,6 +2386,171 @@ export class CheckServiceStatusResponse extends $tea.Model {
       headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
       statusCode: 'number',
       body: CheckServiceStatusResponseBody,
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class ClaimAlarmRequest extends $tea.Model {
+  alarmId?: number;
+  handlerId?: number;
+  regionId?: string;
+  static names(): { [key: string]: string } {
+    return {
+      alarmId: 'AlarmId',
+      handlerId: 'HandlerId',
+      regionId: 'RegionId',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      alarmId: 'number',
+      handlerId: 'number',
+      regionId: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class ClaimAlarmResponseBody extends $tea.Model {
+  code?: number;
+  message?: string;
+  requestId?: string;
+  result?: boolean;
+  success?: boolean;
+  static names(): { [key: string]: string } {
+    return {
+      code: 'Code',
+      message: 'Message',
+      requestId: 'RequestId',
+      result: 'Result',
+      success: 'Success',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      code: 'number',
+      message: 'string',
+      requestId: 'string',
+      result: 'boolean',
+      success: 'boolean',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class ClaimAlarmResponse extends $tea.Model {
+  headers: { [key: string]: string };
+  statusCode: number;
+  body: ClaimAlarmResponseBody;
+  static names(): { [key: string]: string } {
+    return {
+      headers: 'headers',
+      statusCode: 'statusCode',
+      body: 'body',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
+      body: ClaimAlarmResponseBody,
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class CloseAlarmRequest extends $tea.Model {
+  alarmId?: number;
+  handlerId?: number;
+  regionId?: string;
+  solution?: string;
+  static names(): { [key: string]: string } {
+    return {
+      alarmId: 'AlarmId',
+      handlerId: 'HandlerId',
+      regionId: 'RegionId',
+      solution: 'Solution',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      alarmId: 'number',
+      handlerId: 'number',
+      regionId: 'string',
+      solution: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class CloseAlarmResponseBody extends $tea.Model {
+  code?: number;
+  message?: string;
+  requestId?: string;
+  result?: boolean;
+  success?: boolean;
+  static names(): { [key: string]: string } {
+    return {
+      code: 'Code',
+      message: 'Message',
+      requestId: 'RequestId',
+      result: 'Result',
+      success: 'Success',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      code: 'number',
+      message: 'string',
+      requestId: 'string',
+      result: 'boolean',
+      success: 'boolean',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class CloseAlarmResponse extends $tea.Model {
+  headers: { [key: string]: string };
+  statusCode: number;
+  body: CloseAlarmResponseBody;
+  static names(): { [key: string]: string } {
+    return {
+      headers: 'headers',
+      statusCode: 'statusCode',
+      body: 'body',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
+      body: CloseAlarmResponseBody,
     };
   }
 
@@ -2626,6 +2959,7 @@ export class CreateOrUpdateAlertRuleRequest extends $tea.Model {
   metricsKey?: string;
   metricsType?: string;
   notice?: string;
+  notifyMode?: string;
   notifyStrategy?: string;
   pids?: string;
   promQL?: string;
@@ -2654,6 +2988,7 @@ export class CreateOrUpdateAlertRuleRequest extends $tea.Model {
       metricsKey: 'MetricsKey',
       metricsType: 'MetricsType',
       notice: 'Notice',
+      notifyMode: 'NotifyMode',
       notifyStrategy: 'NotifyStrategy',
       pids: 'Pids',
       promQL: 'PromQL',
@@ -2685,6 +3020,7 @@ export class CreateOrUpdateAlertRuleRequest extends $tea.Model {
       metricsKey: 'string',
       metricsType: 'string',
       notice: 'string',
+      notifyMode: 'string',
       notifyStrategy: 'string',
       pids: 'string',
       promQL: 'string',
@@ -24009,6 +24345,7 @@ export class ListTraceAppsResponseBodyTraceApps extends $tea.Model {
   clusterId?: string;
   createTime?: number;
   labels?: string[];
+  language?: string;
   namespace?: string;
   pid?: string;
   regionId?: string;
@@ -24028,6 +24365,7 @@ export class ListTraceAppsResponseBodyTraceApps extends $tea.Model {
       clusterId: 'ClusterId',
       createTime: 'CreateTime',
       labels: 'Labels',
+      language: 'Language',
       namespace: 'Namespace',
       pid: 'Pid',
       regionId: 'RegionId',
@@ -24050,6 +24388,7 @@ export class ListTraceAppsResponseBodyTraceApps extends $tea.Model {
       clusterId: 'string',
       createTime: 'number',
       labels: { 'type': 'array', 'itemType': 'string' },
+      language: 'string',
       namespace: 'string',
       pid: 'string',
       regionId: 'string',
@@ -26779,6 +27118,88 @@ export default class Client extends OpenApi {
     return await this.bindPrometheusGrafanaInstanceWithOptions(request, runtime);
   }
 
+  async blockAlarmNotificationWithOptions(request: BlockAlarmNotificationRequest, runtime: $Util.RuntimeOptions): Promise<BlockAlarmNotificationResponse> {
+    Util.validateModel(request);
+    let query = { };
+    if (!Util.isUnset(request.alarmId)) {
+      query["AlarmId"] = request.alarmId;
+    }
+
+    if (!Util.isUnset(request.handlerId)) {
+      query["HandlerId"] = request.handlerId;
+    }
+
+    if (!Util.isUnset(request.regionId)) {
+      query["RegionId"] = request.regionId;
+    }
+
+    if (!Util.isUnset(request.timeout)) {
+      query["Timeout"] = request.timeout;
+    }
+
+    let req = new $OpenApi.OpenApiRequest({
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApi.Params({
+      action: "BlockAlarmNotification",
+      version: "2019-08-08",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $tea.cast<BlockAlarmNotificationResponse>(await this.callApi(params, req, runtime), new BlockAlarmNotificationResponse({}));
+  }
+
+  async blockAlarmNotification(request: BlockAlarmNotificationRequest): Promise<BlockAlarmNotificationResponse> {
+    let runtime = new $Util.RuntimeOptions({ });
+    return await this.blockAlarmNotificationWithOptions(request, runtime);
+  }
+
+  async changeAlarmSeverityWithOptions(request: ChangeAlarmSeverityRequest, runtime: $Util.RuntimeOptions): Promise<ChangeAlarmSeverityResponse> {
+    Util.validateModel(request);
+    let query = { };
+    if (!Util.isUnset(request.alarmId)) {
+      query["AlarmId"] = request.alarmId;
+    }
+
+    if (!Util.isUnset(request.handlerId)) {
+      query["HandlerId"] = request.handlerId;
+    }
+
+    if (!Util.isUnset(request.regionId)) {
+      query["RegionId"] = request.regionId;
+    }
+
+    if (!Util.isUnset(request.severity)) {
+      query["Severity"] = request.severity;
+    }
+
+    let req = new $OpenApi.OpenApiRequest({
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApi.Params({
+      action: "ChangeAlarmSeverity",
+      version: "2019-08-08",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $tea.cast<ChangeAlarmSeverityResponse>(await this.callApi(params, req, runtime), new ChangeAlarmSeverityResponse({}));
+  }
+
+  async changeAlarmSeverity(request: ChangeAlarmSeverityRequest): Promise<ChangeAlarmSeverityResponse> {
+    let runtime = new $Util.RuntimeOptions({ });
+    return await this.changeAlarmSeverityWithOptions(request, runtime);
+  }
+
   async changeResourceGroupWithOptions(request: ChangeResourceGroupRequest, runtime: $Util.RuntimeOptions): Promise<ChangeResourceGroupResponse> {
     Util.validateModel(request);
     let query = { };
@@ -26851,6 +27272,84 @@ export default class Client extends OpenApi {
   async checkServiceStatus(request: CheckServiceStatusRequest): Promise<CheckServiceStatusResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.checkServiceStatusWithOptions(request, runtime);
+  }
+
+  async claimAlarmWithOptions(request: ClaimAlarmRequest, runtime: $Util.RuntimeOptions): Promise<ClaimAlarmResponse> {
+    Util.validateModel(request);
+    let query = { };
+    if (!Util.isUnset(request.alarmId)) {
+      query["AlarmId"] = request.alarmId;
+    }
+
+    if (!Util.isUnset(request.handlerId)) {
+      query["HandlerId"] = request.handlerId;
+    }
+
+    if (!Util.isUnset(request.regionId)) {
+      query["RegionId"] = request.regionId;
+    }
+
+    let req = new $OpenApi.OpenApiRequest({
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApi.Params({
+      action: "ClaimAlarm",
+      version: "2019-08-08",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $tea.cast<ClaimAlarmResponse>(await this.callApi(params, req, runtime), new ClaimAlarmResponse({}));
+  }
+
+  async claimAlarm(request: ClaimAlarmRequest): Promise<ClaimAlarmResponse> {
+    let runtime = new $Util.RuntimeOptions({ });
+    return await this.claimAlarmWithOptions(request, runtime);
+  }
+
+  async closeAlarmWithOptions(request: CloseAlarmRequest, runtime: $Util.RuntimeOptions): Promise<CloseAlarmResponse> {
+    Util.validateModel(request);
+    let query = { };
+    if (!Util.isUnset(request.alarmId)) {
+      query["AlarmId"] = request.alarmId;
+    }
+
+    if (!Util.isUnset(request.handlerId)) {
+      query["HandlerId"] = request.handlerId;
+    }
+
+    if (!Util.isUnset(request.regionId)) {
+      query["RegionId"] = request.regionId;
+    }
+
+    if (!Util.isUnset(request.solution)) {
+      query["Solution"] = request.solution;
+    }
+
+    let req = new $OpenApi.OpenApiRequest({
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApi.Params({
+      action: "CloseAlarm",
+      version: "2019-08-08",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $tea.cast<CloseAlarmResponse>(await this.callApi(params, req, runtime), new CloseAlarmResponse({}));
+  }
+
+  async closeAlarm(request: CloseAlarmRequest): Promise<CloseAlarmResponse> {
+    let runtime = new $Util.RuntimeOptions({ });
+    return await this.closeAlarmWithOptions(request, runtime);
   }
 
   /**
@@ -27173,6 +27672,10 @@ export default class Client extends OpenApi {
 
     if (!Util.isUnset(request.notice)) {
       body["Notice"] = request.notice;
+    }
+
+    if (!Util.isUnset(request.notifyMode)) {
+      body["NotifyMode"] = request.notifyMode;
     }
 
     if (!Util.isUnset(request.notifyStrategy)) {
