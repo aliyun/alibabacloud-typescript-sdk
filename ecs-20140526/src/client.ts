@@ -5066,10 +5066,12 @@ export class CreateLaunchTemplateRequest extends $tea.Model {
 
 export class CreateLaunchTemplateResponseBody extends $tea.Model {
   launchTemplateId?: string;
+  launchTemplateVersionNumber?: number;
   requestId?: string;
   static names(): { [key: string]: string } {
     return {
       launchTemplateId: 'LaunchTemplateId',
+      launchTemplateVersionNumber: 'LaunchTemplateVersionNumber',
       requestId: 'RequestId',
     };
   }
@@ -5077,6 +5079,7 @@ export class CreateLaunchTemplateResponseBody extends $tea.Model {
   static types(): { [key: string]: any } {
     return {
       launchTemplateId: 'string',
+      launchTemplateVersionNumber: 'number',
       requestId: 'string',
     };
   }
