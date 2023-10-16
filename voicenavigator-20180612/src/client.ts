@@ -12,11 +12,15 @@ export class AssociateChatbotInstanceRequest extends $tea.Model {
   chatbotInstanceId?: string;
   chatbotName?: string;
   instanceId?: string;
+  nluServiceParamsJson?: string;
+  unionSource?: string;
   static names(): { [key: string]: string } {
     return {
       chatbotInstanceId: 'ChatbotInstanceId',
       chatbotName: 'ChatbotName',
       instanceId: 'InstanceId',
+      nluServiceParamsJson: 'NluServiceParamsJson',
+      unionSource: 'UnionSource',
     };
   }
 
@@ -25,6 +29,8 @@ export class AssociateChatbotInstanceRequest extends $tea.Model {
       chatbotInstanceId: 'string',
       chatbotName: 'string',
       instanceId: 'string',
+      nluServiceParamsJson: 'string',
+      unionSource: 'string',
     };
   }
 
@@ -246,12 +252,14 @@ export class BeginDialogueResponse extends $tea.Model {
 }
 
 export class CollectedNumberRequest extends $tea.Model {
+  additionalContext?: string;
   conversationId?: string;
   instanceId?: string;
   instanceOwnerId?: number;
   number?: string;
   static names(): { [key: string]: string } {
     return {
+      additionalContext: 'AdditionalContext',
       conversationId: 'ConversationId',
       instanceId: 'InstanceId',
       instanceOwnerId: 'InstanceOwnerId',
@@ -261,6 +269,7 @@ export class CollectedNumberRequest extends $tea.Model {
 
   static types(): { [key: string]: any } {
     return {
+      additionalContext: 'string',
       conversationId: 'string',
       instanceId: 'string',
       instanceOwnerId: 'number',
@@ -414,11 +423,17 @@ export class CreateInstanceRequest extends $tea.Model {
   concurrency?: number;
   description?: string;
   name?: string;
+  nluServiceParamsJson?: string;
+  unionInstanceId?: string;
+  unionSource?: string;
   static names(): { [key: string]: string } {
     return {
       concurrency: 'Concurrency',
       description: 'Description',
       name: 'Name',
+      nluServiceParamsJson: 'NluServiceParamsJson',
+      unionInstanceId: 'UnionInstanceId',
+      unionSource: 'UnionSource',
     };
   }
 
@@ -427,6 +442,9 @@ export class CreateInstanceRequest extends $tea.Model {
       concurrency: 'number',
       description: 'string',
       name: 'string',
+      nluServiceParamsJson: 'string',
+      unionInstanceId: 'string',
+      unionSource: 'string',
     };
   }
 
@@ -1048,6 +1066,7 @@ export class DescribeInstanceRequest extends $tea.Model {
 }
 
 export class DescribeInstanceResponseBody extends $tea.Model {
+  abilityType?: string;
   applicableOperations?: string[];
   concurrency?: number;
   description?: string;
@@ -1055,10 +1074,14 @@ export class DescribeInstanceResponseBody extends $tea.Model {
   modifyTime?: number;
   modifyUserName?: string;
   name?: string;
+  nluServiceParamsJson?: string;
   requestId?: string;
   status?: string;
+  unionInstanceId?: string;
+  unionSource?: string;
   static names(): { [key: string]: string } {
     return {
+      abilityType: 'AbilityType',
       applicableOperations: 'ApplicableOperations',
       concurrency: 'Concurrency',
       description: 'Description',
@@ -1066,13 +1089,17 @@ export class DescribeInstanceResponseBody extends $tea.Model {
       modifyTime: 'ModifyTime',
       modifyUserName: 'ModifyUserName',
       name: 'Name',
+      nluServiceParamsJson: 'NluServiceParamsJson',
       requestId: 'RequestId',
       status: 'Status',
+      unionInstanceId: 'UnionInstanceId',
+      unionSource: 'UnionSource',
     };
   }
 
   static types(): { [key: string]: any } {
     return {
+      abilityType: 'string',
       applicableOperations: { 'type': 'array', 'itemType': 'string' },
       concurrency: 'number',
       description: 'string',
@@ -1080,8 +1107,11 @@ export class DescribeInstanceResponseBody extends $tea.Model {
       modifyTime: 'number',
       modifyUserName: 'string',
       name: 'string',
+      nluServiceParamsJson: 'string',
       requestId: 'string',
       status: 'string',
+      unionInstanceId: 'string',
+      unionSource: 'string',
     };
   }
 
@@ -1745,6 +1775,7 @@ export class ExportConversationDetailsRequest extends $tea.Model {
   callingNumber?: string;
   instanceId?: string;
   options?: string[];
+  result?: number;
   roundsLeftRange?: number;
   roundsRightRange?: number;
   static names(): { [key: string]: string } {
@@ -1754,6 +1785,7 @@ export class ExportConversationDetailsRequest extends $tea.Model {
       callingNumber: 'CallingNumber',
       instanceId: 'InstanceId',
       options: 'Options',
+      result: 'Result',
       roundsLeftRange: 'RoundsLeftRange',
       roundsRightRange: 'RoundsRightRange',
     };
@@ -1766,6 +1798,7 @@ export class ExportConversationDetailsRequest extends $tea.Model {
       callingNumber: 'string',
       instanceId: 'string',
       options: { 'type': 'array', 'itemType': 'string' },
+      result: 'number',
       roundsLeftRange: 'number',
       roundsRightRange: 'number',
     };
@@ -2203,21 +2236,30 @@ export class GetRealTimeConcurrencyResponse extends $tea.Model {
 
 export class ListChatbotInstancesRequest extends $tea.Model {
   instanceId?: string;
+  nluServiceParamsJson?: string;
+  nluServiceType?: string;
   pageNumber?: number;
   pageSize?: number;
+  unionSource?: string;
   static names(): { [key: string]: string } {
     return {
       instanceId: 'InstanceId',
+      nluServiceParamsJson: 'NluServiceParamsJson',
+      nluServiceType: 'NluServiceType',
       pageNumber: 'PageNumber',
       pageSize: 'PageSize',
+      unionSource: 'UnionSource',
     };
   }
 
   static types(): { [key: string]: any } {
     return {
       instanceId: 'string',
+      nluServiceParamsJson: 'string',
+      nluServiceType: 'string',
       pageNumber: 'number',
       pageSize: 'number',
+      unionSource: 'string',
     };
   }
 
@@ -2538,22 +2580,40 @@ export class ListDownloadTasksResponse extends $tea.Model {
 }
 
 export class ListInstancesRequest extends $tea.Model {
+  instanceIdListJsonString?: string;
+  name?: string;
   nluServiceTypeListJsonString?: string;
+  number?: string;
   pageNumber?: number;
   pageSize?: number;
+  status?: string;
+  unionInstanceId?: string;
+  unionSource?: string;
   static names(): { [key: string]: string } {
     return {
+      instanceIdListJsonString: 'InstanceIdListJsonString',
+      name: 'Name',
       nluServiceTypeListJsonString: 'NluServiceTypeListJsonString',
+      number: 'Number',
       pageNumber: 'PageNumber',
       pageSize: 'PageSize',
+      status: 'Status',
+      unionInstanceId: 'UnionInstanceId',
+      unionSource: 'UnionSource',
     };
   }
 
   static types(): { [key: string]: any } {
     return {
+      instanceIdListJsonString: 'string',
+      name: 'string',
       nluServiceTypeListJsonString: 'string',
+      number: 'string',
       pageNumber: 'number',
       pageSize: 'number',
+      status: 'string',
+      unionInstanceId: 'string',
+      unionSource: 'string',
     };
   }
 
@@ -3773,22 +3833,32 @@ export class ListDownloadTasksResponseBodyDownloadTasks extends $tea.Model {
 export class ListInstancesResponseBodyInstances extends $tea.Model {
   applicableOperations?: string[];
   concurrency?: number;
+  createTime?: number;
   description?: string;
   instanceId?: string;
   modifyTime?: number;
   modifyUserName?: string;
   name?: string;
+  nluServiceParamsJson?: string;
+  numbers?: string[];
   status?: string;
+  unionInstanceId?: string;
+  unionSource?: string;
   static names(): { [key: string]: string } {
     return {
       applicableOperations: 'ApplicableOperations',
       concurrency: 'Concurrency',
+      createTime: 'CreateTime',
       description: 'Description',
       instanceId: 'InstanceId',
       modifyTime: 'ModifyTime',
       modifyUserName: 'ModifyUserName',
       name: 'Name',
+      nluServiceParamsJson: 'NluServiceParamsJson',
+      numbers: 'Numbers',
       status: 'Status',
+      unionInstanceId: 'UnionInstanceId',
+      unionSource: 'UnionSource',
     };
   }
 
@@ -3796,12 +3866,17 @@ export class ListInstancesResponseBodyInstances extends $tea.Model {
     return {
       applicableOperations: { 'type': 'array', 'itemType': 'string' },
       concurrency: 'number',
+      createTime: 'number',
       description: 'string',
       instanceId: 'string',
       modifyTime: 'number',
       modifyUserName: 'string',
       name: 'string',
+      nluServiceParamsJson: 'string',
+      numbers: { 'type': 'array', 'itemType': 'string' },
       status: 'string',
+      unionInstanceId: 'string',
+      unionSource: 'string',
     };
   }
 
@@ -3905,6 +3980,14 @@ export default class Client extends OpenApi {
 
     if (!Util.isUnset(request.instanceId)) {
       query["InstanceId"] = request.instanceId;
+    }
+
+    if (!Util.isUnset(request.nluServiceParamsJson)) {
+      query["NluServiceParamsJson"] = request.nluServiceParamsJson;
+    }
+
+    if (!Util.isUnset(request.unionSource)) {
+      query["UnionSource"] = request.unionSource;
     }
 
     let req = new $OpenApi.OpenApiRequest({
@@ -4026,6 +4109,10 @@ export default class Client extends OpenApi {
   async collectedNumberWithOptions(request: CollectedNumberRequest, runtime: $Util.RuntimeOptions): Promise<CollectedNumberResponse> {
     Util.validateModel(request);
     let query = { };
+    if (!Util.isUnset(request.additionalContext)) {
+      query["AdditionalContext"] = request.additionalContext;
+    }
+
     if (!Util.isUnset(request.conversationId)) {
       query["ConversationId"] = request.conversationId;
     }
@@ -4102,6 +4189,18 @@ export default class Client extends OpenApi {
 
     if (!Util.isUnset(request.name)) {
       query["Name"] = request.name;
+    }
+
+    if (!Util.isUnset(request.nluServiceParamsJson)) {
+      query["NluServiceParamsJson"] = request.nluServiceParamsJson;
+    }
+
+    if (!Util.isUnset(request.unionInstanceId)) {
+      query["UnionInstanceId"] = request.unionInstanceId;
+    }
+
+    if (!Util.isUnset(request.unionSource)) {
+      query["UnionSource"] = request.unionSource;
     }
 
     let req = new $OpenApi.OpenApiRequest({
@@ -4655,6 +4754,10 @@ export default class Client extends OpenApi {
 
     if (!Util.isUnset(request.options)) {
       query["Options"] = request.options;
+    }
+
+    if (!Util.isUnset(request.result)) {
+      query["Result"] = request.result;
     }
 
     if (!Util.isUnset(request.roundsLeftRange)) {
