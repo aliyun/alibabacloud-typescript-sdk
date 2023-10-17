@@ -10593,6 +10593,78 @@ export class DescribeDcdnUserTagsResponse extends $tea.Model {
   }
 }
 
+export class DescribeDcdnUserVipsByDomainRequest extends $tea.Model {
+  available?: string;
+  domainName?: string;
+  static names(): { [key: string]: string } {
+    return {
+      available: 'Available',
+      domainName: 'DomainName',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      available: 'string',
+      domainName: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class DescribeDcdnUserVipsByDomainResponseBody extends $tea.Model {
+  domainName?: string;
+  requestId?: string;
+  vips?: DescribeDcdnUserVipsByDomainResponseBodyVips;
+  static names(): { [key: string]: string } {
+    return {
+      domainName: 'DomainName',
+      requestId: 'RequestId',
+      vips: 'Vips',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      domainName: 'string',
+      requestId: 'string',
+      vips: DescribeDcdnUserVipsByDomainResponseBodyVips,
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class DescribeDcdnUserVipsByDomainResponse extends $tea.Model {
+  headers: { [key: string]: string };
+  statusCode: number;
+  body: DescribeDcdnUserVipsByDomainResponseBody;
+  static names(): { [key: string]: string } {
+    return {
+      headers: 'headers',
+      statusCode: 'statusCode',
+      body: 'body',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
+      body: DescribeDcdnUserVipsByDomainResponseBody,
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
 export class DescribeDcdnVerifyContentRequest extends $tea.Model {
   domainName?: string;
   static names(): { [key: string]: string } {
@@ -14481,12 +14553,14 @@ export class PutDcdnKvNamespaceResponse extends $tea.Model {
 }
 
 export class RefreshDcdnObjectCachesRequest extends $tea.Model {
+  force?: boolean;
   objectPath?: string;
   objectType?: string;
   ownerId?: number;
   securityToken?: string;
   static names(): { [key: string]: string } {
     return {
+      force: 'Force',
       objectPath: 'ObjectPath',
       objectType: 'ObjectType',
       ownerId: 'OwnerId',
@@ -14496,6 +14570,7 @@ export class RefreshDcdnObjectCachesRequest extends $tea.Model {
 
   static types(): { [key: string]: any } {
     return {
+      force: 'boolean',
       objectPath: 'string',
       objectType: 'string',
       ownerId: 'number',
@@ -21029,6 +21104,25 @@ export class DescribeDcdnUserTagsResponseBodyTags extends $tea.Model {
     return {
       key: 'string',
       value: { 'type': 'array', 'itemType': 'string' },
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class DescribeDcdnUserVipsByDomainResponseBodyVips extends $tea.Model {
+  vip?: string[];
+  static names(): { [key: string]: string } {
+    return {
+      vip: 'Vip',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      vip: { 'type': 'array', 'itemType': 'string' },
     };
   }
 
@@ -29711,6 +29805,39 @@ export default class Client extends OpenApi {
     return await this.describeDcdnUserTagsWithOptions(runtime);
   }
 
+  async describeDcdnUserVipsByDomainWithOptions(request: DescribeDcdnUserVipsByDomainRequest, runtime: $Util.RuntimeOptions): Promise<DescribeDcdnUserVipsByDomainResponse> {
+    Util.validateModel(request);
+    let query = { };
+    if (!Util.isUnset(request.available)) {
+      query["Available"] = request.available;
+    }
+
+    if (!Util.isUnset(request.domainName)) {
+      query["DomainName"] = request.domainName;
+    }
+
+    let req = new $OpenApi.OpenApiRequest({
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApi.Params({
+      action: "DescribeDcdnUserVipsByDomain",
+      version: "2018-01-15",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $tea.cast<DescribeDcdnUserVipsByDomainResponse>(await this.callApi(params, req, runtime), new DescribeDcdnUserVipsByDomainResponse({}));
+  }
+
+  async describeDcdnUserVipsByDomain(request: DescribeDcdnUserVipsByDomainRequest): Promise<DescribeDcdnUserVipsByDomainResponse> {
+    let runtime = new $Util.RuntimeOptions({ });
+    return await this.describeDcdnUserVipsByDomainWithOptions(request, runtime);
+  }
+
   /**
     * > You can call this operation up to 100 times per second per account.
     *
@@ -32116,6 +32243,10 @@ export default class Client extends OpenApi {
   async refreshDcdnObjectCachesWithOptions(request: RefreshDcdnObjectCachesRequest, runtime: $Util.RuntimeOptions): Promise<RefreshDcdnObjectCachesResponse> {
     Util.validateModel(request);
     let query = { };
+    if (!Util.isUnset(request.force)) {
+      query["Force"] = request.force;
+    }
+
     if (!Util.isUnset(request.objectPath)) {
       query["ObjectPath"] = request.objectPath;
     }
