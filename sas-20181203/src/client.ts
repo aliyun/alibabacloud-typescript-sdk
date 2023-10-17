@@ -6841,6 +6841,7 @@ export class DescribeAffectedMaliciousFileImagesRequest extends $tea.Model {
   repoNamespace?: string;
   repoRegionId?: string;
   scanRange?: string[];
+  status?: string;
   static names(): { [key: string]: string } {
     return {
       clusterId: 'ClusterId',
@@ -6863,6 +6864,7 @@ export class DescribeAffectedMaliciousFileImagesRequest extends $tea.Model {
       repoNamespace: 'RepoNamespace',
       repoRegionId: 'RepoRegionId',
       scanRange: 'ScanRange',
+      status: 'Status',
     };
   }
 
@@ -6888,6 +6890,7 @@ export class DescribeAffectedMaliciousFileImagesRequest extends $tea.Model {
       repoNamespace: 'string',
       repoRegionId: 'string',
       scanRange: { 'type': 'array', 'itemType': 'string' },
+      status: 'string',
     };
   }
 
@@ -14116,6 +14119,7 @@ export class DescribeImageListBySensitiveFileRequest extends $tea.Model {
   riskLevel?: string;
   scanRange?: string[];
   sensitiveFileKey?: string;
+  status?: string;
   static names(): { [key: string]: string } {
     return {
       currentPage: 'CurrentPage',
@@ -14128,6 +14132,7 @@ export class DescribeImageListBySensitiveFileRequest extends $tea.Model {
       riskLevel: 'RiskLevel',
       scanRange: 'ScanRange',
       sensitiveFileKey: 'SensitiveFileKey',
+      status: 'Status',
     };
   }
 
@@ -14143,6 +14148,7 @@ export class DescribeImageListBySensitiveFileRequest extends $tea.Model {
       riskLevel: 'string',
       scanRange: { 'type': 'array', 'itemType': 'string' },
       sensitiveFileKey: 'string',
+      status: 'string',
     };
   }
 
@@ -14162,6 +14168,7 @@ export class DescribeImageListBySensitiveFileShrinkRequest extends $tea.Model {
   riskLevel?: string;
   scanRangeShrink?: string;
   sensitiveFileKey?: string;
+  status?: string;
   static names(): { [key: string]: string } {
     return {
       currentPage: 'CurrentPage',
@@ -14174,6 +14181,7 @@ export class DescribeImageListBySensitiveFileShrinkRequest extends $tea.Model {
       riskLevel: 'RiskLevel',
       scanRangeShrink: 'ScanRange',
       sensitiveFileKey: 'SensitiveFileKey',
+      status: 'Status',
     };
   }
 
@@ -14189,6 +14197,7 @@ export class DescribeImageListBySensitiveFileShrinkRequest extends $tea.Model {
       riskLevel: 'string',
       scanRangeShrink: 'string',
       sensitiveFileKey: 'string',
+      status: 'string',
     };
   }
 
@@ -49412,6 +49421,7 @@ export class DescribeGroupedMaliciousFilesResponseBodyGroupedMaliciousFileRespon
   imageCount?: number;
   latestScanTimestamp?: number;
   level?: string;
+  maliciousKey?: string;
   maliciousMd5?: string;
   maliciousName?: string;
   status?: number;
@@ -49421,6 +49431,7 @@ export class DescribeGroupedMaliciousFilesResponseBodyGroupedMaliciousFileRespon
       imageCount: 'ImageCount',
       latestScanTimestamp: 'LatestScanTimestamp',
       level: 'Level',
+      maliciousKey: 'MaliciousKey',
       maliciousMd5: 'MaliciousMd5',
       maliciousName: 'MaliciousName',
       status: 'Status',
@@ -49433,6 +49444,7 @@ export class DescribeGroupedMaliciousFilesResponseBodyGroupedMaliciousFileRespon
       imageCount: 'number',
       latestScanTimestamp: 'number',
       level: 'string',
+      maliciousKey: 'string',
       maliciousMd5: 'string',
       maliciousName: 'string',
       status: 'number',
@@ -50385,6 +50397,7 @@ export class DescribeImageListBySensitiveFileResponseBodyImageInfos extends $tea
   repoName?: string;
   repoNamespace?: string;
   riskLevel?: string;
+  status?: string;
   tag?: string;
   uuid?: string;
   static names(): { [key: string]: string } {
@@ -50397,6 +50410,7 @@ export class DescribeImageListBySensitiveFileResponseBodyImageInfos extends $tea
       repoName: 'RepoName',
       repoNamespace: 'RepoNamespace',
       riskLevel: 'RiskLevel',
+      status: 'Status',
       tag: 'Tag',
       uuid: 'Uuid',
     };
@@ -50412,6 +50426,7 @@ export class DescribeImageListBySensitiveFileResponseBodyImageInfos extends $tea
       repoName: 'string',
       repoNamespace: 'string',
       riskLevel: 'string',
+      status: 'string',
       tag: 'string',
       uuid: 'string',
     };
@@ -50837,10 +50852,12 @@ export class DescribeImageSensitiveFileByKeyResponseBodyPageInfo extends $tea.Mo
 
 export class DescribeImageSensitiveFileByKeyResponseBodySensitiveFileList extends $tea.Model {
   advice?: string;
+  description?: string;
   filePath?: string;
   firstScanTime?: number;
   lastScanTime?: number;
   layerDigest?: string;
+  md5?: string;
   promt?: string;
   riskLevel?: string;
   sensitiveFileKey?: string;
@@ -50848,10 +50865,12 @@ export class DescribeImageSensitiveFileByKeyResponseBodySensitiveFileList extend
   static names(): { [key: string]: string } {
     return {
       advice: 'Advice',
+      description: 'Description',
       filePath: 'FilePath',
       firstScanTime: 'FirstScanTime',
       lastScanTime: 'LastScanTime',
       layerDigest: 'LayerDigest',
+      md5: 'Md5',
       promt: 'Promt',
       riskLevel: 'RiskLevel',
       sensitiveFileKey: 'SensitiveFileKey',
@@ -50862,10 +50881,12 @@ export class DescribeImageSensitiveFileByKeyResponseBodySensitiveFileList extend
   static types(): { [key: string]: any } {
     return {
       advice: 'string',
+      description: 'string',
       filePath: 'string',
       firstScanTime: 'number',
       lastScanTime: 'number',
       layerDigest: 'string',
+      md5: 'string',
       promt: 'string',
       riskLevel: 'string',
       sensitiveFileKey: 'string',
@@ -50910,6 +50931,8 @@ export class DescribeImageSensitiveFileListResponseBodyPageInfo extends $tea.Mod
 }
 
 export class DescribeImageSensitiveFileListResponseBodySensitiveFileList extends $tea.Model {
+  classKey?: string;
+  className?: string;
   count?: number;
   firstScanTime?: number;
   lastScanTime?: number;
@@ -50918,6 +50941,8 @@ export class DescribeImageSensitiveFileListResponseBodySensitiveFileList extends
   sensitiveFileName?: string;
   static names(): { [key: string]: string } {
     return {
+      classKey: 'ClassKey',
+      className: 'ClassName',
       count: 'Count',
       firstScanTime: 'FirstScanTime',
       lastScanTime: 'LastScanTime',
@@ -50929,6 +50954,8 @@ export class DescribeImageSensitiveFileListResponseBodySensitiveFileList extends
 
   static types(): { [key: string]: any } {
     return {
+      classKey: 'string',
+      className: 'string',
       count: 'number',
       firstScanTime: 'number',
       lastScanTime: 'number',
@@ -68488,6 +68515,10 @@ export default class Client extends OpenApi {
       query["ScanRange"] = request.scanRange;
     }
 
+    if (!Util.isUnset(request.status)) {
+      query["Status"] = request.status;
+    }
+
     let req = new $OpenApi.OpenApiRequest({
       query: OpenApiUtil.query(query),
     });
@@ -72402,6 +72433,10 @@ export default class Client extends OpenApi {
 
     if (!Util.isUnset(request.sensitiveFileKey)) {
       query["SensitiveFileKey"] = request.sensitiveFileKey;
+    }
+
+    if (!Util.isUnset(request.status)) {
+      query["Status"] = request.status;
     }
 
     let req = new $OpenApi.OpenApiRequest({
