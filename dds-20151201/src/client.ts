@@ -6486,6 +6486,7 @@ export class ModifyDBInstanceMonitorResponse extends $tea.Model {
 }
 
 export class ModifyDBInstanceNetExpireTimeRequest extends $tea.Model {
+  category?: string;
   classicExpendExpiredDays?: number;
   connectionString?: string;
   DBInstanceId?: string;
@@ -6496,6 +6497,7 @@ export class ModifyDBInstanceNetExpireTimeRequest extends $tea.Model {
   securityToken?: string;
   static names(): { [key: string]: string } {
     return {
+      category: 'Category',
       classicExpendExpiredDays: 'ClassicExpendExpiredDays',
       connectionString: 'ConnectionString',
       DBInstanceId: 'DBInstanceId',
@@ -6509,6 +6511,7 @@ export class ModifyDBInstanceNetExpireTimeRequest extends $tea.Model {
 
   static types(): { [key: string]: any } {
     return {
+      category: 'string',
       classicExpendExpiredDays: 'number',
       connectionString: 'string',
       DBInstanceId: 'string',
@@ -10120,6 +10123,7 @@ export class DescribeDBInstanceAttributeResponseBodyDBInstancesDBInstance extend
   storageType?: string;
   syncPercent?: string;
   tags?: DescribeDBInstanceAttributeResponseBodyDBInstancesDBInstanceTags;
+  useClusterBackup?: boolean;
   VPCCloudInstanceIds?: string;
   VPCId?: string;
   vSwitchId?: string;
@@ -10172,6 +10176,7 @@ export class DescribeDBInstanceAttributeResponseBodyDBInstancesDBInstance extend
       storageType: 'StorageType',
       syncPercent: 'SyncPercent',
       tags: 'Tags',
+      useClusterBackup: 'UseClusterBackup',
       VPCCloudInstanceIds: 'VPCCloudInstanceIds',
       VPCId: 'VPCId',
       vSwitchId: 'VSwitchId',
@@ -10227,6 +10232,7 @@ export class DescribeDBInstanceAttributeResponseBodyDBInstancesDBInstance extend
       storageType: 'string',
       syncPercent: 'string',
       tags: DescribeDBInstanceAttributeResponseBodyDBInstancesDBInstanceTags,
+      useClusterBackup: 'boolean',
       VPCCloudInstanceIds: 'string',
       VPCId: 'string',
       vSwitchId: 'string',
@@ -12669,6 +12675,10 @@ export default class Client extends OpenApi {
       query["SourceDBInstance"] = request.sourceDBInstance;
     }
 
+    if (!Util.isUnset(request.sourceDBInstance)) {
+      query["SourceDBInstance"] = request.sourceDBInstance;
+    }
+
     let req = new $OpenApi.OpenApiRequest({
       query: OpenApiUtil.query(query),
     });
@@ -14300,6 +14310,10 @@ export default class Client extends OpenApi {
 
     if (!Util.isUnset(request.securityToken)) {
       query["SecurityToken"] = request.securityToken;
+    }
+
+    if (!Util.isUnset(request.sourceDBInstance)) {
+      query["SourceDBInstance"] = request.sourceDBInstance;
     }
 
     if (!Util.isUnset(request.sourceDBInstance)) {
@@ -17393,6 +17407,10 @@ export default class Client extends OpenApi {
   async modifyDBInstanceNetExpireTimeWithOptions(request: ModifyDBInstanceNetExpireTimeRequest, runtime: $Util.RuntimeOptions): Promise<ModifyDBInstanceNetExpireTimeResponse> {
     Util.validateModel(request);
     let query = { };
+    if (!Util.isUnset(request.category)) {
+      query["Category"] = request.category;
+    }
+
     if (!Util.isUnset(request.classicExpendExpiredDays)) {
       query["ClassicExpendExpiredDays"] = request.classicExpendExpiredDays;
     }
