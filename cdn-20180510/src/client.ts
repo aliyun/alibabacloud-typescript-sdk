@@ -11357,12 +11357,14 @@ export class PushObjectCacheResponse extends $tea.Model {
 }
 
 export class RefreshObjectCachesRequest extends $tea.Model {
+  force?: boolean;
   objectPath?: string;
   objectType?: string;
   ownerId?: number;
   securityToken?: string;
   static names(): { [key: string]: string } {
     return {
+      force: 'Force',
       objectPath: 'ObjectPath',
       objectType: 'ObjectType',
       ownerId: 'OwnerId',
@@ -11372,6 +11374,7 @@ export class RefreshObjectCachesRequest extends $tea.Model {
 
   static types(): { [key: string]: any } {
     return {
+      force: 'boolean',
       objectPath: 'string',
       objectType: 'string',
       ownerId: 'number',
@@ -26081,6 +26084,10 @@ export default class Client extends OpenApi {
   async refreshObjectCachesWithOptions(request: RefreshObjectCachesRequest, runtime: $Util.RuntimeOptions): Promise<RefreshObjectCachesResponse> {
     Util.validateModel(request);
     let query = { };
+    if (!Util.isUnset(request.force)) {
+      query["Force"] = request.force;
+    }
+
     if (!Util.isUnset(request.objectPath)) {
       query["ObjectPath"] = request.objectPath;
     }
