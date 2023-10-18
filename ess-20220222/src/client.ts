@@ -827,6 +827,7 @@ export class CreateEciScalingConfigurationRequest extends $tea.Model {
   ingressBandwidth?: number;
   initContainers?: CreateEciScalingConfigurationRequestInitContainers[];
   instanceFamilyLevel?: string;
+  instanceTypes?: string[];
   ipv6AddressCount?: number;
   loadBalancerWeight?: number;
   memory?: number;
@@ -873,6 +874,7 @@ export class CreateEciScalingConfigurationRequest extends $tea.Model {
       ingressBandwidth: 'IngressBandwidth',
       initContainers: 'InitContainers',
       instanceFamilyLevel: 'InstanceFamilyLevel',
+      instanceTypes: 'InstanceTypes',
       ipv6AddressCount: 'Ipv6AddressCount',
       loadBalancerWeight: 'LoadBalancerWeight',
       memory: 'Memory',
@@ -922,6 +924,7 @@ export class CreateEciScalingConfigurationRequest extends $tea.Model {
       ingressBandwidth: 'number',
       initContainers: { 'type': 'array', 'itemType': CreateEciScalingConfigurationRequestInitContainers },
       instanceFamilyLevel: 'string',
+      instanceTypes: { 'type': 'array', 'itemType': 'string' },
       ipv6AddressCount: 'number',
       loadBalancerWeight: 'number',
       memory: 'number',
@@ -5623,6 +5626,7 @@ export class ModifyEciScalingConfigurationRequest extends $tea.Model {
   ingressBandwidth?: number;
   initContainers?: ModifyEciScalingConfigurationRequestInitContainers[];
   instanceFamilyLevel?: string;
+  instanceTypes?: string[];
   ipv6AddressCount?: number;
   loadBalancerWeight?: number;
   memory?: number;
@@ -5670,6 +5674,7 @@ export class ModifyEciScalingConfigurationRequest extends $tea.Model {
       ingressBandwidth: 'IngressBandwidth',
       initContainers: 'InitContainers',
       instanceFamilyLevel: 'InstanceFamilyLevel',
+      instanceTypes: 'InstanceTypes',
       ipv6AddressCount: 'Ipv6AddressCount',
       loadBalancerWeight: 'LoadBalancerWeight',
       memory: 'Memory',
@@ -5720,6 +5725,7 @@ export class ModifyEciScalingConfigurationRequest extends $tea.Model {
       ingressBandwidth: 'number',
       initContainers: { 'type': 'array', 'itemType': ModifyEciScalingConfigurationRequestInitContainers },
       instanceFamilyLevel: 'string',
+      instanceTypes: { 'type': 'array', 'itemType': 'string' },
       ipv6AddressCount: 'number',
       loadBalancerWeight: 'number',
       memory: 'number',
@@ -6339,6 +6345,7 @@ export class ModifyScalingGroupRequest extends $tea.Model {
   customPolicyARN?: string;
   defaultCooldown?: number;
   desiredCapacity?: number;
+  disableDesiredCapacity?: boolean;
   groupDeletionProtection?: boolean;
   healthCheckType?: string;
   launchTemplateId?: string;
@@ -6370,6 +6377,7 @@ export class ModifyScalingGroupRequest extends $tea.Model {
       customPolicyARN: 'CustomPolicyARN',
       defaultCooldown: 'DefaultCooldown',
       desiredCapacity: 'DesiredCapacity',
+      disableDesiredCapacity: 'DisableDesiredCapacity',
       groupDeletionProtection: 'GroupDeletionProtection',
       healthCheckType: 'HealthCheckType',
       launchTemplateId: 'LaunchTemplateId',
@@ -6404,6 +6412,7 @@ export class ModifyScalingGroupRequest extends $tea.Model {
       customPolicyARN: 'string',
       defaultCooldown: 'number',
       desiredCapacity: 'number',
+      disableDesiredCapacity: 'boolean',
       groupDeletionProtection: 'boolean',
       healthCheckType: 'string',
       launchTemplateId: 'string',
@@ -10257,6 +10266,7 @@ export class DescribeEciScalingConfigurationsResponseBodyScalingConfigurations e
   ingressBandwidth?: number;
   initContainers?: DescribeEciScalingConfigurationsResponseBodyScalingConfigurationsInitContainers[];
   instanceFamilyLevel?: string;
+  instanceTypes?: string[];
   ipv6AddressCount?: number;
   lifecycleState?: string;
   loadBalancerWeight?: number;
@@ -10305,6 +10315,7 @@ export class DescribeEciScalingConfigurationsResponseBodyScalingConfigurations e
       ingressBandwidth: 'IngressBandwidth',
       initContainers: 'InitContainers',
       instanceFamilyLevel: 'InstanceFamilyLevel',
+      instanceTypes: 'InstanceTypes',
       ipv6AddressCount: 'Ipv6AddressCount',
       lifecycleState: 'LifecycleState',
       loadBalancerWeight: 'LoadBalancerWeight',
@@ -10356,6 +10367,7 @@ export class DescribeEciScalingConfigurationsResponseBodyScalingConfigurations e
       ingressBandwidth: 'number',
       initContainers: { 'type': 'array', 'itemType': DescribeEciScalingConfigurationsResponseBodyScalingConfigurationsInitContainers },
       instanceFamilyLevel: 'string',
+      instanceTypes: { 'type': 'array', 'itemType': 'string' },
       ipv6AddressCount: 'number',
       lifecycleState: 'string',
       loadBalancerWeight: 'number',
@@ -11087,6 +11099,28 @@ export class DescribeScalingGroupsResponseBodyScalingGroupsServerGroups extends 
   }
 }
 
+export class DescribeScalingGroupsResponseBodyScalingGroupsTags extends $tea.Model {
+  tagKey?: string;
+  tagValue?: string;
+  static names(): { [key: string]: string } {
+    return {
+      tagKey: 'TagKey',
+      tagValue: 'TagValue',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      tagKey: 'string',
+      tagValue: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
 export class DescribeScalingGroupsResponseBodyScalingGroupsVServerGroupsVServerGroupAttributes extends $tea.Model {
   port?: number;
   VServerGroupId?: string;
@@ -11186,6 +11220,7 @@ export class DescribeScalingGroupsResponseBodyScalingGroups extends $tea.Model {
   stoppedCapacity?: number;
   suspendedProcesses?: string[];
   systemSuspended?: boolean;
+  tags?: DescribeScalingGroupsResponseBodyScalingGroupsTags[];
   totalCapacity?: number;
   totalInstanceCount?: number;
   VServerGroups?: DescribeScalingGroupsResponseBodyScalingGroupsVServerGroups[];
@@ -11245,6 +11280,7 @@ export class DescribeScalingGroupsResponseBodyScalingGroups extends $tea.Model {
       stoppedCapacity: 'StoppedCapacity',
       suspendedProcesses: 'SuspendedProcesses',
       systemSuspended: 'SystemSuspended',
+      tags: 'Tags',
       totalCapacity: 'TotalCapacity',
       totalInstanceCount: 'TotalInstanceCount',
       VServerGroups: 'VServerGroups',
@@ -11307,6 +11343,7 @@ export class DescribeScalingGroupsResponseBodyScalingGroups extends $tea.Model {
       stoppedCapacity: 'number',
       suspendedProcesses: { 'type': 'array', 'itemType': 'string' },
       systemSuspended: 'boolean',
+      tags: { 'type': 'array', 'itemType': DescribeScalingGroupsResponseBodyScalingGroupsTags },
       totalCapacity: 'number',
       totalInstanceCount: 'number',
       VServerGroups: { 'type': 'array', 'itemType': DescribeScalingGroupsResponseBodyScalingGroupsVServerGroups },
@@ -14100,6 +14137,10 @@ export default class Client extends OpenApi {
 
     if (!Util.isUnset(request.instanceFamilyLevel)) {
       query["InstanceFamilyLevel"] = request.instanceFamilyLevel;
+    }
+
+    if (!Util.isUnset(request.instanceTypes)) {
+      query["InstanceTypes"] = request.instanceTypes;
     }
 
     if (!Util.isUnset(request.ipv6AddressCount)) {
@@ -17520,6 +17561,10 @@ export default class Client extends OpenApi {
       query["InstanceFamilyLevel"] = request.instanceFamilyLevel;
     }
 
+    if (!Util.isUnset(request.instanceTypes)) {
+      query["InstanceTypes"] = request.instanceTypes;
+    }
+
     if (!Util.isUnset(request.ipv6AddressCount)) {
       query["Ipv6AddressCount"] = request.ipv6AddressCount;
     }
@@ -18028,6 +18073,10 @@ export default class Client extends OpenApi {
 
     if (!Util.isUnset(request.desiredCapacity)) {
       query["DesiredCapacity"] = request.desiredCapacity;
+    }
+
+    if (!Util.isUnset(request.disableDesiredCapacity)) {
+      query["DisableDesiredCapacity"] = request.disableDesiredCapacity;
     }
 
     if (!Util.isUnset(request.groupDeletionProtection)) {
