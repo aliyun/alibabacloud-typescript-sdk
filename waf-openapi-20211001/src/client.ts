@@ -2772,6 +2772,7 @@ export class DescribeRuleHitsTopResourceResponse extends $tea.Model {
 export class DescribeRuleHitsTopRuleIdRequest extends $tea.Model {
   endTimestamp?: string;
   instanceId?: string;
+  isGroupResource?: string;
   regionId?: string;
   resource?: string;
   resourceManagerResourceGroupId?: string;
@@ -2781,6 +2782,7 @@ export class DescribeRuleHitsTopRuleIdRequest extends $tea.Model {
     return {
       endTimestamp: 'EndTimestamp',
       instanceId: 'InstanceId',
+      isGroupResource: 'IsGroupResource',
       regionId: 'RegionId',
       resource: 'Resource',
       resourceManagerResourceGroupId: 'ResourceManagerResourceGroupId',
@@ -2793,6 +2795,7 @@ export class DescribeRuleHitsTopRuleIdRequest extends $tea.Model {
     return {
       endTimestamp: 'string',
       instanceId: 'string',
+      isGroupResource: 'string',
       regionId: 'string',
       resource: 'string',
       resourceManagerResourceGroupId: 'string',
@@ -7809,6 +7812,10 @@ export default class Client extends OpenApi {
 
     if (!Util.isUnset(request.instanceId)) {
       query["InstanceId"] = request.instanceId;
+    }
+
+    if (!Util.isUnset(request.isGroupResource)) {
+      query["IsGroupResource"] = request.isGroupResource;
     }
 
     if (!Util.isUnset(request.regionId)) {
