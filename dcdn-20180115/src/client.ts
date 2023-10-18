@@ -13567,6 +13567,78 @@ export class GetDcdnKvResponse extends $tea.Model {
   }
 }
 
+export class GetDcdnKvStatusRequest extends $tea.Model {
+  key?: string;
+  namespace?: string;
+  static names(): { [key: string]: string } {
+    return {
+      key: 'Key',
+      namespace: 'Namespace',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      key: 'string',
+      namespace: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class GetDcdnKvStatusResponseBody extends $tea.Model {
+  complete?: boolean;
+  expire?: string;
+  requestId?: string;
+  static names(): { [key: string]: string } {
+    return {
+      complete: 'Complete',
+      expire: 'Expire',
+      requestId: 'RequestId',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      complete: 'boolean',
+      expire: 'string',
+      requestId: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class GetDcdnKvStatusResponse extends $tea.Model {
+  headers: { [key: string]: string };
+  statusCode: number;
+  body: GetDcdnKvStatusResponseBody;
+  static names(): { [key: string]: string } {
+    return {
+      headers: 'headers',
+      statusCode: 'statusCode',
+      body: 'body',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
+      body: GetDcdnKvStatusResponseBody,
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
 export class ListDcdnKvRequest extends $tea.Model {
   namespace?: string;
   pageNumber?: number;
@@ -31571,6 +31643,39 @@ export default class Client extends OpenApi {
   async getDcdnKv(request: GetDcdnKvRequest): Promise<GetDcdnKvResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.getDcdnKvWithOptions(request, runtime);
+  }
+
+  async getDcdnKvStatusWithOptions(request: GetDcdnKvStatusRequest, runtime: $Util.RuntimeOptions): Promise<GetDcdnKvStatusResponse> {
+    Util.validateModel(request);
+    let query = { };
+    if (!Util.isUnset(request.key)) {
+      query["Key"] = request.key;
+    }
+
+    if (!Util.isUnset(request.namespace)) {
+      query["Namespace"] = request.namespace;
+    }
+
+    let req = new $OpenApi.OpenApiRequest({
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApi.Params({
+      action: "GetDcdnKvStatus",
+      version: "2018-01-15",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $tea.cast<GetDcdnKvStatusResponse>(await this.callApi(params, req, runtime), new GetDcdnKvStatusResponse({}));
+  }
+
+  async getDcdnKvStatus(request: GetDcdnKvStatusRequest): Promise<GetDcdnKvStatusResponse> {
+    let runtime = new $Util.RuntimeOptions({ });
+    return await this.getDcdnKvStatusWithOptions(request, runtime);
   }
 
   async listDcdnKvWithOptions(request: ListDcdnKvRequest, runtime: $Util.RuntimeOptions): Promise<ListDcdnKvResponse> {
