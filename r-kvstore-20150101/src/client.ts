@@ -3163,31 +3163,37 @@ export class DescribeEngineVersionRequest extends $tea.Model {
 }
 
 export class DescribeEngineVersionResponseBody extends $tea.Model {
+  DBLatestMinorVersion?: DescribeEngineVersionResponseBodyDBLatestMinorVersion;
   DBVersionRelease?: string;
   enableUpgradeMajorVersion?: boolean;
   enableUpgradeMinorVersion?: boolean;
   engine?: string;
+  isAutoUpgradeOpen?: string;
   isLatestVersion?: boolean;
   isNewSSLMode?: string;
   isRedisCompatibleVersion?: string;
   isSSLEnable?: string;
   majorVersion?: string;
   minorVersion?: string;
+  proxyLatestMinorVersion?: DescribeEngineVersionResponseBodyProxyLatestMinorVersion;
   proxyMinorVersion?: string;
   proxyVersionRelease?: string;
   requestId?: string;
   static names(): { [key: string]: string } {
     return {
+      DBLatestMinorVersion: 'DBLatestMinorVersion',
       DBVersionRelease: 'DBVersionRelease',
       enableUpgradeMajorVersion: 'EnableUpgradeMajorVersion',
       enableUpgradeMinorVersion: 'EnableUpgradeMinorVersion',
       engine: 'Engine',
+      isAutoUpgradeOpen: 'IsAutoUpgradeOpen',
       isLatestVersion: 'IsLatestVersion',
       isNewSSLMode: 'IsNewSSLMode',
       isRedisCompatibleVersion: 'IsRedisCompatibleVersion',
       isSSLEnable: 'IsSSLEnable',
       majorVersion: 'MajorVersion',
       minorVersion: 'MinorVersion',
+      proxyLatestMinorVersion: 'ProxyLatestMinorVersion',
       proxyMinorVersion: 'ProxyMinorVersion',
       proxyVersionRelease: 'ProxyVersionRelease',
       requestId: 'RequestId',
@@ -3196,16 +3202,19 @@ export class DescribeEngineVersionResponseBody extends $tea.Model {
 
   static types(): { [key: string]: any } {
     return {
+      DBLatestMinorVersion: DescribeEngineVersionResponseBodyDBLatestMinorVersion,
       DBVersionRelease: 'string',
       enableUpgradeMajorVersion: 'boolean',
       enableUpgradeMinorVersion: 'boolean',
       engine: 'string',
+      isAutoUpgradeOpen: 'string',
       isLatestVersion: 'boolean',
       isNewSSLMode: 'string',
       isRedisCompatibleVersion: 'string',
       isSSLEnable: 'string',
       majorVersion: 'string',
       minorVersion: 'string',
+      proxyLatestMinorVersion: DescribeEngineVersionResponseBodyProxyLatestMinorVersion,
       proxyMinorVersion: 'string',
       proxyVersionRelease: 'string',
       requestId: 'string',
@@ -6441,6 +6450,96 @@ export class ListTagResourcesResponse extends $tea.Model {
       headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
       statusCode: 'number',
       body: ListTagResourcesResponseBody,
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class LockDBInstanceWriteRequest extends $tea.Model {
+  DBInstanceId?: string;
+  lockReason?: string;
+  ownerAccount?: string;
+  ownerId?: number;
+  resourceOwnerAccount?: string;
+  resourceOwnerId?: number;
+  securityToken?: string;
+  static names(): { [key: string]: string } {
+    return {
+      DBInstanceId: 'DBInstanceId',
+      lockReason: 'LockReason',
+      ownerAccount: 'OwnerAccount',
+      ownerId: 'OwnerId',
+      resourceOwnerAccount: 'ResourceOwnerAccount',
+      resourceOwnerId: 'ResourceOwnerId',
+      securityToken: 'SecurityToken',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      DBInstanceId: 'string',
+      lockReason: 'string',
+      ownerAccount: 'string',
+      ownerId: 'number',
+      resourceOwnerAccount: 'string',
+      resourceOwnerId: 'number',
+      securityToken: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class LockDBInstanceWriteResponseBody extends $tea.Model {
+  DBInstanceName?: string;
+  lockReason?: string;
+  requestId?: string;
+  taskId?: number;
+  static names(): { [key: string]: string } {
+    return {
+      DBInstanceName: 'DBInstanceName',
+      lockReason: 'LockReason',
+      requestId: 'RequestId',
+      taskId: 'TaskId',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      DBInstanceName: 'string',
+      lockReason: 'string',
+      requestId: 'string',
+      taskId: 'number',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class LockDBInstanceWriteResponse extends $tea.Model {
+  headers: { [key: string]: string };
+  statusCode: number;
+  body: LockDBInstanceWriteResponseBody;
+  static names(): { [key: string]: string } {
+    return {
+      headers: 'headers',
+      statusCode: 'statusCode',
+      body: 'body',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
+      body: LockDBInstanceWriteResponseBody,
     };
   }
 
@@ -9779,6 +9878,90 @@ export class TransformToPrePaidResponse extends $tea.Model {
   }
 }
 
+export class UnlockDBInstanceWriteRequest extends $tea.Model {
+  DBInstanceId?: string;
+  ownerAccount?: string;
+  ownerId?: number;
+  resourceOwnerAccount?: string;
+  resourceOwnerId?: number;
+  securityToken?: string;
+  static names(): { [key: string]: string } {
+    return {
+      DBInstanceId: 'DBInstanceId',
+      ownerAccount: 'OwnerAccount',
+      ownerId: 'OwnerId',
+      resourceOwnerAccount: 'ResourceOwnerAccount',
+      resourceOwnerId: 'ResourceOwnerId',
+      securityToken: 'SecurityToken',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      DBInstanceId: 'string',
+      ownerAccount: 'string',
+      ownerId: 'number',
+      resourceOwnerAccount: 'string',
+      resourceOwnerId: 'number',
+      securityToken: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class UnlockDBInstanceWriteResponseBody extends $tea.Model {
+  DBInstanceName?: string;
+  requestId?: string;
+  taskId?: number;
+  static names(): { [key: string]: string } {
+    return {
+      DBInstanceName: 'DBInstanceName',
+      requestId: 'RequestId',
+      taskId: 'TaskId',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      DBInstanceName: 'string',
+      requestId: 'string',
+      taskId: 'number',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class UnlockDBInstanceWriteResponse extends $tea.Model {
+  headers: { [key: string]: string };
+  statusCode: number;
+  body: UnlockDBInstanceWriteResponseBody;
+  static names(): { [key: string]: string } {
+    return {
+      headers: 'headers',
+      statusCode: 'statusCode',
+      body: 'body',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
+      body: UnlockDBInstanceWriteResponseBody,
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
 export class UntagResourcesRequest extends $tea.Model {
   all?: boolean;
   ownerAccount?: string;
@@ -11129,6 +11312,200 @@ export class DescribeEncryptionKeyListResponseBodyKeyIds extends $tea.Model {
   }
 }
 
+export class DescribeEngineVersionResponseBodyDBLatestMinorVersionVersionReleaseReleaseInfoReleaseInfoList extends $tea.Model {
+  createTime?: string;
+  level?: string;
+  releaseNote?: string;
+  releaseNoteEn?: string;
+  releaseVersion?: string;
+  static names(): { [key: string]: string } {
+    return {
+      createTime: 'CreateTime',
+      level: 'Level',
+      releaseNote: 'ReleaseNote',
+      releaseNoteEn: 'ReleaseNoteEn',
+      releaseVersion: 'ReleaseVersion',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      createTime: 'string',
+      level: 'string',
+      releaseNote: 'string',
+      releaseNoteEn: 'string',
+      releaseVersion: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class DescribeEngineVersionResponseBodyDBLatestMinorVersionVersionReleaseReleaseInfo extends $tea.Model {
+  releaseInfoList?: DescribeEngineVersionResponseBodyDBLatestMinorVersionVersionReleaseReleaseInfoReleaseInfoList[];
+  static names(): { [key: string]: string } {
+    return {
+      releaseInfoList: 'ReleaseInfoList',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      releaseInfoList: { 'type': 'array', 'itemType': DescribeEngineVersionResponseBodyDBLatestMinorVersionVersionReleaseReleaseInfoReleaseInfoList },
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class DescribeEngineVersionResponseBodyDBLatestMinorVersionVersionRelease extends $tea.Model {
+  releaseInfo?: DescribeEngineVersionResponseBodyDBLatestMinorVersionVersionReleaseReleaseInfo;
+  versionChangesLevel?: string;
+  static names(): { [key: string]: string } {
+    return {
+      releaseInfo: 'ReleaseInfo',
+      versionChangesLevel: 'VersionChangesLevel',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      releaseInfo: DescribeEngineVersionResponseBodyDBLatestMinorVersionVersionReleaseReleaseInfo,
+      versionChangesLevel: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class DescribeEngineVersionResponseBodyDBLatestMinorVersion extends $tea.Model {
+  level?: string;
+  minorVersion?: string;
+  versionRelease?: DescribeEngineVersionResponseBodyDBLatestMinorVersionVersionRelease;
+  static names(): { [key: string]: string } {
+    return {
+      level: 'Level',
+      minorVersion: 'MinorVersion',
+      versionRelease: 'VersionRelease',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      level: 'string',
+      minorVersion: 'string',
+      versionRelease: DescribeEngineVersionResponseBodyDBLatestMinorVersionVersionRelease,
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class DescribeEngineVersionResponseBodyProxyLatestMinorVersionVersionReleaseReleaseInfoReleaseInfoList extends $tea.Model {
+  createTime?: string;
+  level?: string;
+  releaseNote?: string;
+  releaseNoteEn?: string;
+  releaseVersion?: string;
+  static names(): { [key: string]: string } {
+    return {
+      createTime: 'CreateTime',
+      level: 'Level',
+      releaseNote: 'ReleaseNote',
+      releaseNoteEn: 'ReleaseNoteEn',
+      releaseVersion: 'ReleaseVersion',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      createTime: 'string',
+      level: 'string',
+      releaseNote: 'string',
+      releaseNoteEn: 'string',
+      releaseVersion: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class DescribeEngineVersionResponseBodyProxyLatestMinorVersionVersionReleaseReleaseInfo extends $tea.Model {
+  releaseInfoList?: DescribeEngineVersionResponseBodyProxyLatestMinorVersionVersionReleaseReleaseInfoReleaseInfoList[];
+  static names(): { [key: string]: string } {
+    return {
+      releaseInfoList: 'ReleaseInfoList',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      releaseInfoList: { 'type': 'array', 'itemType': DescribeEngineVersionResponseBodyProxyLatestMinorVersionVersionReleaseReleaseInfoReleaseInfoList },
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class DescribeEngineVersionResponseBodyProxyLatestMinorVersionVersionRelease extends $tea.Model {
+  releaseInfo?: DescribeEngineVersionResponseBodyProxyLatestMinorVersionVersionReleaseReleaseInfo;
+  versionChangesLevel?: string;
+  static names(): { [key: string]: string } {
+    return {
+      releaseInfo: 'ReleaseInfo',
+      versionChangesLevel: 'VersionChangesLevel',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      releaseInfo: DescribeEngineVersionResponseBodyProxyLatestMinorVersionVersionReleaseReleaseInfo,
+      versionChangesLevel: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class DescribeEngineVersionResponseBodyProxyLatestMinorVersion extends $tea.Model {
+  level?: string;
+  minorVersion?: string;
+  versionRelease?: DescribeEngineVersionResponseBodyProxyLatestMinorVersionVersionRelease;
+  static names(): { [key: string]: string } {
+    return {
+      level: 'Level',
+      minorVersion: 'MinorVersion',
+      versionRelease: 'VersionRelease',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      level: 'string',
+      minorVersion: 'string',
+      versionRelease: DescribeEngineVersionResponseBodyProxyLatestMinorVersionVersionRelease,
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
 export class DescribeGlobalDistributeCacheResponseBodyGlobalDistributeCachesSubInstances extends $tea.Model {
   globalInstanceId?: string;
   instanceClass?: string;
@@ -11377,6 +11754,8 @@ export class DescribeInstanceAttributeResponseBodyInstancesDBInstanceAttribute e
   secondaryZoneId?: string;
   securityIPList?: string;
   shardCount?: number;
+  storage?: string;
+  storageType?: string;
   tags?: DescribeInstanceAttributeResponseBodyInstancesDBInstanceAttributeTags;
   vSwitchId?: string;
   vpcAuthMode?: string;
@@ -11429,6 +11808,8 @@ export class DescribeInstanceAttributeResponseBodyInstancesDBInstanceAttribute e
       secondaryZoneId: 'SecondaryZoneId',
       securityIPList: 'SecurityIPList',
       shardCount: 'ShardCount',
+      storage: 'Storage',
+      storageType: 'StorageType',
       tags: 'Tags',
       vSwitchId: 'VSwitchId',
       vpcAuthMode: 'VpcAuthMode',
@@ -11484,6 +11865,8 @@ export class DescribeInstanceAttributeResponseBodyInstancesDBInstanceAttribute e
       secondaryZoneId: 'string',
       securityIPList: 'string',
       shardCount: 'number',
+      storage: 'string',
+      storageType: 'string',
       tags: DescribeInstanceAttributeResponseBodyInstancesDBInstanceAttributeTags,
       vSwitchId: 'string',
       vpcAuthMode: 'string',
@@ -12282,6 +12665,7 @@ export class DescribePriceResponseBodyOrder extends $tea.Model {
   handlingFeeAmount?: string;
   originalAmount?: string;
   ruleIds?: DescribePriceResponseBodyOrderRuleIds;
+  showDiscountInfo?: boolean;
   tradeAmount?: string;
   static names(): { [key: string]: string } {
     return {
@@ -12291,6 +12675,7 @@ export class DescribePriceResponseBodyOrder extends $tea.Model {
       handlingFeeAmount: 'HandlingFeeAmount',
       originalAmount: 'OriginalAmount',
       ruleIds: 'RuleIds',
+      showDiscountInfo: 'ShowDiscountInfo',
       tradeAmount: 'TradeAmount',
     };
   }
@@ -12303,6 +12688,7 @@ export class DescribePriceResponseBodyOrder extends $tea.Model {
       handlingFeeAmount: 'string',
       originalAmount: 'string',
       ruleIds: DescribePriceResponseBodyOrderRuleIds,
+      showDiscountInfo: 'boolean',
       tradeAmount: 'string',
     };
   }
@@ -13011,13 +13397,14 @@ export default class Client extends OpenApi {
     this._endpointMap = {
       'cn-qingdao': "r-kvstore.aliyuncs.com",
       'cn-beijing': "r-kvstore.aliyuncs.com",
+      'cn-wulanchabu': "r-kvstore.aliyuncs.com",
       'cn-hangzhou': "r-kvstore.aliyuncs.com",
       'cn-shanghai': "r-kvstore.aliyuncs.com",
       'cn-shenzhen': "r-kvstore.aliyuncs.com",
       'cn-heyuan': "r-kvstore.aliyuncs.com",
+      'cn-guangzhou': "r-kvstore.aliyuncs.com",
+      'cn-hongkong': "r-kvstore.aliyuncs.com",
       'ap-southeast-1': "r-kvstore.aliyuncs.com",
-      'us-west-1': "r-kvstore.aliyuncs.com",
-      'us-east-1': "r-kvstore.aliyuncs.com",
       'cn-hangzhou-finance': "r-kvstore.aliyuncs.com",
       'cn-shanghai-finance-1': "r-kvstore.aliyuncs.com",
       'cn-shenzhen-finance-1': "r-kvstore.aliyuncs.com",
@@ -13037,7 +13424,6 @@ export default class Client extends OpenApi {
       'cn-hangzhou-internal-test-3': "r-kvstore.aliyuncs.com",
       'cn-hangzhou-test-306': "r-kvstore.aliyuncs.com",
       'cn-hongkong-finance-pop': "r-kvstore.aliyuncs.com",
-      'cn-huhehaote-nebula-1': "r-kvstore.aliyuncs.com",
       'cn-qingdao-nebula': "r-kvstore.aliyuncs.com",
       'cn-shanghai-et15-b01': "r-kvstore.aliyuncs.com",
       'cn-shanghai-et2-b01': "r-kvstore.aliyuncs.com",
@@ -13047,8 +13433,8 @@ export default class Client extends OpenApi {
       'cn-shenzhen-st4-d01': "r-kvstore.aliyuncs.com",
       'cn-shenzhen-su18-b01': "r-kvstore.aliyuncs.com",
       'cn-wuhan': "r-kvstore.aliyuncs.com",
-      'cn-wulanchabu': "r-kvstore.aliyuncs.com",
       'cn-yushanfang': "r-kvstore.aliyuncs.com",
+      'cn-zhangbei': "r-kvstore.aliyuncs.com",
       'cn-zhangbei-na61-b01': "r-kvstore.aliyuncs.com",
       'cn-zhangjiakou-na62-a01': "r-kvstore.aliyuncs.com",
       'cn-zhengzhou-nebula-1': "r-kvstore.aliyuncs.com",
@@ -14056,9 +14442,8 @@ export default class Client extends OpenApi {
   /**
     * For more information about instance selection, see [Select an ApsaraDB for Redis instance](~~223808~~).
     * Before you call this operation, make sure that you are familiar with the billing methods and [pricing](~~54532~~) of ApsaraDB for Redis.
-    * > 
-    * *   For more information about how to create an ApsaraDB for Redis Enhanced Edition (Tair) instance that uses cloud disks in the ApsaraDB for Redis console, see [Create an ApsaraDB for Redis instance](~~443863~~).
-    * *   To create an instance of another edition or series such as a Community Edition instance or Tair [DRAM-based instance](~~126164~~) that uses local disks, call [CreateInstance](~~60873~~).
+    * > *   For more information about how to create an ApsaraDB for Redis Enhanced Edition (Tair) instance that uses cloud disks in the ApsaraDB for Redis console, see [Create an ApsaraDB for Redis instance](~~443863~~).
+    * >*   To create an instance of another edition or series such as a Community Edition instance or Tair [DRAM-based instance](~~126164~~) that uses local disks, call [CreateInstance](~~60873~~).
     *
     * @param request CreateTairInstanceRequest
     * @param runtime runtime options for this request RuntimeOptions
@@ -14243,9 +14628,8 @@ export default class Client extends OpenApi {
   /**
     * For more information about instance selection, see [Select an ApsaraDB for Redis instance](~~223808~~).
     * Before you call this operation, make sure that you are familiar with the billing methods and [pricing](~~54532~~) of ApsaraDB for Redis.
-    * > 
-    * *   For more information about how to create an ApsaraDB for Redis Enhanced Edition (Tair) instance that uses cloud disks in the ApsaraDB for Redis console, see [Create an ApsaraDB for Redis instance](~~443863~~).
-    * *   To create an instance of another edition or series such as a Community Edition instance or Tair [DRAM-based instance](~~126164~~) that uses local disks, call [CreateInstance](~~60873~~).
+    * > *   For more information about how to create an ApsaraDB for Redis Enhanced Edition (Tair) instance that uses cloud disks in the ApsaraDB for Redis console, see [Create an ApsaraDB for Redis instance](~~443863~~).
+    * >*   To create an instance of another edition or series such as a Community Edition instance or Tair [DRAM-based instance](~~126164~~) that uses local disks, call [CreateInstance](~~60873~~).
     *
     * @param request CreateTairInstanceRequest
     * @return CreateTairInstanceResponse
@@ -18045,8 +18429,63 @@ export default class Client extends OpenApi {
     return await this.listTagResourcesWithOptions(request, runtime);
   }
 
+  async lockDBInstanceWriteWithOptions(request: LockDBInstanceWriteRequest, runtime: $Util.RuntimeOptions): Promise<LockDBInstanceWriteResponse> {
+    Util.validateModel(request);
+    let query = { };
+    if (!Util.isUnset(request.DBInstanceId)) {
+      query["DBInstanceId"] = request.DBInstanceId;
+    }
+
+    if (!Util.isUnset(request.lockReason)) {
+      query["LockReason"] = request.lockReason;
+    }
+
+    if (!Util.isUnset(request.ownerAccount)) {
+      query["OwnerAccount"] = request.ownerAccount;
+    }
+
+    if (!Util.isUnset(request.ownerId)) {
+      query["OwnerId"] = request.ownerId;
+    }
+
+    if (!Util.isUnset(request.resourceOwnerAccount)) {
+      query["ResourceOwnerAccount"] = request.resourceOwnerAccount;
+    }
+
+    if (!Util.isUnset(request.resourceOwnerId)) {
+      query["ResourceOwnerId"] = request.resourceOwnerId;
+    }
+
+    if (!Util.isUnset(request.securityToken)) {
+      query["SecurityToken"] = request.securityToken;
+    }
+
+    let req = new $OpenApi.OpenApiRequest({
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApi.Params({
+      action: "LockDBInstanceWrite",
+      version: "2015-01-01",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $tea.cast<LockDBInstanceWriteResponse>(await this.callApi(params, req, runtime), new LockDBInstanceWriteResponse({}));
+  }
+
+  async lockDBInstanceWrite(request: LockDBInstanceWriteRequest): Promise<LockDBInstanceWriteResponse> {
+    let runtime = new $Util.RuntimeOptions({ });
+    return await this.lockDBInstanceWriteWithOptions(request, runtime);
+  }
+
   /**
-    * The ID of the request.
+    * For more information about how to migrate an instance across zones in the ApsaraDB for Redis console, see [Migrate an instance across zones](~~106272~~).
+    * > *   If the network type of an ApsaraDB for Redis instance is switched from classic network to Virtual Private Cloud (VPC), and the endpoint of the classic network is retained, you can migrate the instance across zones only after the classic network endpoint is released upon expiration.
+    * > *   After the data is migrated, the endpoint of an instance remains unchanged. However, the virtual IP address (VIP) is changed. We recommend that you use the endpoint instead of the VIP to connect to the instance.
     *
     * @param request MigrateToOtherZoneRequest
     * @param runtime runtime options for this request RuntimeOptions
@@ -18113,7 +18552,9 @@ export default class Client extends OpenApi {
   }
 
   /**
-    * The ID of the request.
+    * For more information about how to migrate an instance across zones in the ApsaraDB for Redis console, see [Migrate an instance across zones](~~106272~~).
+    * > *   If the network type of an ApsaraDB for Redis instance is switched from classic network to Virtual Private Cloud (VPC), and the endpoint of the classic network is retained, you can migrate the instance across zones only after the classic network endpoint is released upon expiration.
+    * > *   After the data is migrated, the endpoint of an instance remains unchanged. However, the virtual IP address (VIP) is changed. We recommend that you use the endpoint instead of the VIP to connect to the instance.
     *
     * @param request MigrateToOtherZoneRequest
     * @return MigrateToOtherZoneResponse
@@ -20782,6 +21223,55 @@ export default class Client extends OpenApi {
   async transformToPrePaid(request: TransformToPrePaidRequest): Promise<TransformToPrePaidResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.transformToPrePaidWithOptions(request, runtime);
+  }
+
+  async unlockDBInstanceWriteWithOptions(request: UnlockDBInstanceWriteRequest, runtime: $Util.RuntimeOptions): Promise<UnlockDBInstanceWriteResponse> {
+    Util.validateModel(request);
+    let query = { };
+    if (!Util.isUnset(request.DBInstanceId)) {
+      query["DBInstanceId"] = request.DBInstanceId;
+    }
+
+    if (!Util.isUnset(request.ownerAccount)) {
+      query["OwnerAccount"] = request.ownerAccount;
+    }
+
+    if (!Util.isUnset(request.ownerId)) {
+      query["OwnerId"] = request.ownerId;
+    }
+
+    if (!Util.isUnset(request.resourceOwnerAccount)) {
+      query["ResourceOwnerAccount"] = request.resourceOwnerAccount;
+    }
+
+    if (!Util.isUnset(request.resourceOwnerId)) {
+      query["ResourceOwnerId"] = request.resourceOwnerId;
+    }
+
+    if (!Util.isUnset(request.securityToken)) {
+      query["SecurityToken"] = request.securityToken;
+    }
+
+    let req = new $OpenApi.OpenApiRequest({
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApi.Params({
+      action: "UnlockDBInstanceWrite",
+      version: "2015-01-01",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $tea.cast<UnlockDBInstanceWriteResponse>(await this.callApi(params, req, runtime), new UnlockDBInstanceWriteResponse({}));
+  }
+
+  async unlockDBInstanceWrite(request: UnlockDBInstanceWriteRequest): Promise<UnlockDBInstanceWriteResponse> {
+    let runtime = new $Util.RuntimeOptions({ });
+    return await this.unlockDBInstanceWriteWithOptions(request, runtime);
   }
 
   /**
