@@ -4913,6 +4913,7 @@ export class CreateKeyPairResponse extends $tea.Model {
 export class CreateLaunchTemplateRequest extends $tea.Model {
   systemDisk?: CreateLaunchTemplateRequestSystemDisk;
   autoReleaseTime?: string;
+  creditSpecification?: string;
   dataDisk?: CreateLaunchTemplateRequestDataDisk[];
   deletionProtection?: boolean;
   deploymentSetId?: string;
@@ -4961,6 +4962,7 @@ export class CreateLaunchTemplateRequest extends $tea.Model {
     return {
       systemDisk: 'SystemDisk',
       autoReleaseTime: 'AutoReleaseTime',
+      creditSpecification: 'CreditSpecification',
       dataDisk: 'DataDisk',
       deletionProtection: 'DeletionProtection',
       deploymentSetId: 'DeploymentSetId',
@@ -5012,6 +5014,7 @@ export class CreateLaunchTemplateRequest extends $tea.Model {
     return {
       systemDisk: CreateLaunchTemplateRequestSystemDisk,
       autoReleaseTime: 'string',
+      creditSpecification: 'string',
       dataDisk: { 'type': 'array', 'itemType': CreateLaunchTemplateRequestDataDisk },
       deletionProtection: 'boolean',
       deploymentSetId: 'string',
@@ -5117,6 +5120,7 @@ export class CreateLaunchTemplateResponse extends $tea.Model {
 export class CreateLaunchTemplateVersionRequest extends $tea.Model {
   systemDisk?: CreateLaunchTemplateVersionRequestSystemDisk;
   autoReleaseTime?: string;
+  creditSpecification?: string;
   dataDisk?: CreateLaunchTemplateVersionRequestDataDisk[];
   deletionProtection?: boolean;
   deploymentSetId?: string;
@@ -5164,6 +5168,7 @@ export class CreateLaunchTemplateVersionRequest extends $tea.Model {
     return {
       systemDisk: 'SystemDisk',
       autoReleaseTime: 'AutoReleaseTime',
+      creditSpecification: 'CreditSpecification',
       dataDisk: 'DataDisk',
       deletionProtection: 'DeletionProtection',
       deploymentSetId: 'DeploymentSetId',
@@ -5214,6 +5219,7 @@ export class CreateLaunchTemplateVersionRequest extends $tea.Model {
     return {
       systemDisk: CreateLaunchTemplateVersionRequestSystemDisk,
       autoReleaseTime: 'string',
+      creditSpecification: 'string',
       dataDisk: { 'type': 'array', 'itemType': CreateLaunchTemplateVersionRequestDataDisk },
       deletionProtection: 'boolean',
       deploymentSetId: 'string',
@@ -45728,6 +45734,7 @@ export class DescribeLaunchTemplateVersionsResponseBodyLaunchTemplateVersionSets
 export class DescribeLaunchTemplateVersionsResponseBodyLaunchTemplateVersionSetsLaunchTemplateVersionSetLaunchTemplateData extends $tea.Model {
   systemDisk?: DescribeLaunchTemplateVersionsResponseBodyLaunchTemplateVersionSetsLaunchTemplateVersionSetLaunchTemplateDataSystemDisk;
   autoReleaseTime?: string;
+  creditSpecification?: string;
   dataDisks?: DescribeLaunchTemplateVersionsResponseBodyLaunchTemplateVersionSetsLaunchTemplateVersionSetLaunchTemplateDataDataDisks;
   deletionProtection?: boolean;
   deploymentSetId?: string;
@@ -45767,6 +45774,7 @@ export class DescribeLaunchTemplateVersionsResponseBodyLaunchTemplateVersionSets
     return {
       systemDisk: 'SystemDisk',
       autoReleaseTime: 'AutoReleaseTime',
+      creditSpecification: 'CreditSpecification',
       dataDisks: 'DataDisks',
       deletionProtection: 'DeletionProtection',
       deploymentSetId: 'DeploymentSetId',
@@ -45809,6 +45817,7 @@ export class DescribeLaunchTemplateVersionsResponseBodyLaunchTemplateVersionSets
     return {
       systemDisk: DescribeLaunchTemplateVersionsResponseBodyLaunchTemplateVersionSetsLaunchTemplateVersionSetLaunchTemplateDataSystemDisk,
       autoReleaseTime: 'string',
+      creditSpecification: 'string',
       dataDisks: DescribeLaunchTemplateVersionsResponseBodyLaunchTemplateVersionSetsLaunchTemplateVersionSetLaunchTemplateDataDataDisks,
       deletionProtection: 'boolean',
       deploymentSetId: 'string',
@@ -58432,6 +58441,10 @@ export default class Client extends OpenApi {
       query["AutoReleaseTime"] = request.autoReleaseTime;
     }
 
+    if (!Util.isUnset(request.creditSpecification)) {
+      query["CreditSpecification"] = request.creditSpecification;
+    }
+
     if (!Util.isUnset(request.dataDisk)) {
       query["DataDisk"] = request.dataDisk;
     }
@@ -58662,6 +58675,10 @@ export default class Client extends OpenApi {
     let query = { };
     if (!Util.isUnset(request.autoReleaseTime)) {
       query["AutoReleaseTime"] = request.autoReleaseTime;
+    }
+
+    if (!Util.isUnset(request.creditSpecification)) {
+      query["CreditSpecification"] = request.creditSpecification;
     }
 
     if (!Util.isUnset(request.dataDisk)) {
