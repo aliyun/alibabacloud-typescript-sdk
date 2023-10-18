@@ -4303,6 +4303,7 @@ export class DetachDBInstancesResponse extends $tea.Model {
 }
 
 export class DetachInstancesRequest extends $tea.Model {
+  clientToken?: string;
   decreaseDesiredCapacity?: boolean;
   detachOption?: string;
   instanceIds?: string[];
@@ -4314,6 +4315,7 @@ export class DetachInstancesRequest extends $tea.Model {
   scalingGroupId?: string;
   static names(): { [key: string]: string } {
     return {
+      clientToken: 'ClientToken',
       decreaseDesiredCapacity: 'DecreaseDesiredCapacity',
       detachOption: 'DetachOption',
       instanceIds: 'InstanceIds',
@@ -4328,6 +4330,7 @@ export class DetachInstancesRequest extends $tea.Model {
 
   static types(): { [key: string]: any } {
     return {
+      clientToken: 'string',
       decreaseDesiredCapacity: 'boolean',
       detachOption: 'string',
       instanceIds: { 'type': 'array', 'itemType': 'string' },
@@ -6893,6 +6896,7 @@ export class RecordLifecycleActionHeartbeatResponse extends $tea.Model {
 }
 
 export class RemoveInstancesRequest extends $tea.Model {
+  clientToken?: string;
   decreaseDesiredCapacity?: boolean;
   instanceIds?: string[];
   ownerAccount?: string;
@@ -6904,6 +6908,7 @@ export class RemoveInstancesRequest extends $tea.Model {
   scalingGroupId?: string;
   static names(): { [key: string]: string } {
     return {
+      clientToken: 'ClientToken',
       decreaseDesiredCapacity: 'DecreaseDesiredCapacity',
       instanceIds: 'InstanceIds',
       ownerAccount: 'OwnerAccount',
@@ -6918,6 +6923,7 @@ export class RemoveInstancesRequest extends $tea.Model {
 
   static types(): { [key: string]: any } {
     return {
+      clientToken: 'string',
       decreaseDesiredCapacity: 'boolean',
       instanceIds: { 'type': 'array', 'itemType': 'string' },
       ownerAccount: 'string',
@@ -16561,6 +16567,10 @@ export default class Client extends OpenApi {
   async detachInstancesWithOptions(request: DetachInstancesRequest, runtime: $Util.RuntimeOptions): Promise<DetachInstancesResponse> {
     Util.validateModel(request);
     let query = { };
+    if (!Util.isUnset(request.clientToken)) {
+      query["ClientToken"] = request.clientToken;
+    }
+
     if (!Util.isUnset(request.decreaseDesiredCapacity)) {
       query["DecreaseDesiredCapacity"] = request.decreaseDesiredCapacity;
     }
@@ -18508,6 +18518,10 @@ export default class Client extends OpenApi {
   async removeInstancesWithOptions(request: RemoveInstancesRequest, runtime: $Util.RuntimeOptions): Promise<RemoveInstancesResponse> {
     Util.validateModel(request);
     let query = { };
+    if (!Util.isUnset(request.clientToken)) {
+      query["ClientToken"] = request.clientToken;
+    }
+
     if (!Util.isUnset(request.decreaseDesiredCapacity)) {
       query["DecreaseDesiredCapacity"] = request.decreaseDesiredCapacity;
     }
