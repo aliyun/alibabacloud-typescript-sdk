@@ -515,7 +515,9 @@ export class CreateTrFirewallV2Request extends $tea.Model {
   regionNo?: string;
   routeMode?: string;
   trAttachmentMasterCidr?: string;
+  trAttachmentMasterZone?: string;
   trAttachmentSlaveCidr?: string;
+  trAttachmentSlaveZone?: string;
   transitRouterId?: string;
   static names(): { [key: string]: string } {
     return {
@@ -530,7 +532,9 @@ export class CreateTrFirewallV2Request extends $tea.Model {
       regionNo: 'RegionNo',
       routeMode: 'RouteMode',
       trAttachmentMasterCidr: 'TrAttachmentMasterCidr',
+      trAttachmentMasterZone: 'TrAttachmentMasterZone',
       trAttachmentSlaveCidr: 'TrAttachmentSlaveCidr',
+      trAttachmentSlaveZone: 'TrAttachmentSlaveZone',
       transitRouterId: 'TransitRouterId',
     };
   }
@@ -548,7 +552,9 @@ export class CreateTrFirewallV2Request extends $tea.Model {
       regionNo: 'string',
       routeMode: 'string',
       trAttachmentMasterCidr: 'string',
+      trAttachmentMasterZone: 'string',
       trAttachmentSlaveCidr: 'string',
+      trAttachmentSlaveZone: 'string',
       transitRouterId: 'string',
     };
   }
@@ -1657,6 +1663,96 @@ export class DeleteVpcFirewallControlPolicyResponse extends $tea.Model {
       headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
       statusCode: 'number',
       body: DeleteVpcFirewallControlPolicyResponseBody,
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class DescribeACLProtectTrendRequest extends $tea.Model {
+  endTime?: string;
+  lang?: string;
+  sourceIp?: string;
+  startTime?: string;
+  static names(): { [key: string]: string } {
+    return {
+      endTime: 'EndTime',
+      lang: 'Lang',
+      sourceIp: 'SourceIp',
+      startTime: 'StartTime',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      endTime: 'string',
+      lang: 'string',
+      sourceIp: 'string',
+      startTime: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class DescribeACLProtectTrendResponseBody extends $tea.Model {
+  inProtectCnt?: number;
+  interVPCProtectCnt?: number;
+  interval?: number;
+  outProtectCnt?: number;
+  requestId?: string;
+  totalProtectCnt?: number;
+  trendList?: DescribeACLProtectTrendResponseBodyTrendList[];
+  static names(): { [key: string]: string } {
+    return {
+      inProtectCnt: 'InProtectCnt',
+      interVPCProtectCnt: 'InterVPCProtectCnt',
+      interval: 'Interval',
+      outProtectCnt: 'OutProtectCnt',
+      requestId: 'RequestId',
+      totalProtectCnt: 'TotalProtectCnt',
+      trendList: 'TrendList',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      inProtectCnt: 'number',
+      interVPCProtectCnt: 'number',
+      interval: 'number',
+      outProtectCnt: 'number',
+      requestId: 'string',
+      totalProtectCnt: 'number',
+      trendList: { 'type': 'array', 'itemType': DescribeACLProtectTrendResponseBodyTrendList },
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class DescribeACLProtectTrendResponse extends $tea.Model {
+  headers: { [key: string]: string };
+  statusCode: number;
+  body: DescribeACLProtectTrendResponseBody;
+  static names(): { [key: string]: string } {
+    return {
+      headers: 'headers',
+      statusCode: 'statusCode',
+      body: 'body',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
+      body: DescribeACLProtectTrendResponseBody,
     };
   }
 
@@ -6872,6 +6968,28 @@ export class CreateTrFirewallV2RoutePolicyRequestSrcCandidateList extends $tea.M
   }
 }
 
+export class DescribeACLProtectTrendResponseBodyTrendList extends $tea.Model {
+  protectCnt?: number;
+  time?: number;
+  static names(): { [key: string]: string } {
+    return {
+      protectCnt: 'ProtectCnt',
+      time: 'Time',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      protectCnt: 'number',
+      time: 'number',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
 export class DescribeAddressBookResponseBodyAclsTagList extends $tea.Model {
   tagKey?: string;
   tagValue?: string;
@@ -10048,8 +10166,16 @@ export default class Client extends OpenApi {
       query["TrAttachmentMasterCidr"] = request.trAttachmentMasterCidr;
     }
 
+    if (!Util.isUnset(request.trAttachmentMasterZone)) {
+      query["TrAttachmentMasterZone"] = request.trAttachmentMasterZone;
+    }
+
     if (!Util.isUnset(request.trAttachmentSlaveCidr)) {
       query["TrAttachmentSlaveCidr"] = request.trAttachmentSlaveCidr;
+    }
+
+    if (!Util.isUnset(request.trAttachmentSlaveZone)) {
+      query["TrAttachmentSlaveZone"] = request.trAttachmentSlaveZone;
     }
 
     if (!Util.isUnset(request.transitRouterId)) {
@@ -10885,6 +11011,51 @@ export default class Client extends OpenApi {
   async deleteVpcFirewallControlPolicy(request: DeleteVpcFirewallControlPolicyRequest): Promise<DeleteVpcFirewallControlPolicyResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.deleteVpcFirewallControlPolicyWithOptions(request, runtime);
+  }
+
+  async describeACLProtectTrendWithOptions(request: DescribeACLProtectTrendRequest, runtime: $Util.RuntimeOptions): Promise<DescribeACLProtectTrendResponse> {
+    Util.validateModel(request);
+    let query = { };
+    if (!Util.isUnset(request.endTime)) {
+      query["EndTime"] = request.endTime;
+    }
+
+    if (!Util.isUnset(request.lang)) {
+      query["Lang"] = request.lang;
+    }
+
+    if (!Util.isUnset(request.lang)) {
+      query["Lang"] = request.lang;
+    }
+
+    if (!Util.isUnset(request.sourceIp)) {
+      query["SourceIp"] = request.sourceIp;
+    }
+
+    if (!Util.isUnset(request.startTime)) {
+      query["StartTime"] = request.startTime;
+    }
+
+    let req = new $OpenApi.OpenApiRequest({
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApi.Params({
+      action: "DescribeACLProtectTrend",
+      version: "2017-12-07",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $tea.cast<DescribeACLProtectTrendResponse>(await this.callApi(params, req, runtime), new DescribeACLProtectTrendResponse({}));
+  }
+
+  async describeACLProtectTrend(request: DescribeACLProtectTrendRequest): Promise<DescribeACLProtectTrendResponse> {
+    let runtime = new $Util.RuntimeOptions({ });
+    return await this.describeACLProtectTrendWithOptions(request, runtime);
   }
 
   /**
