@@ -34,19 +34,25 @@ export class Addon extends $tea.Model {
 }
 
 export class DataDisk extends $tea.Model {
+  autoFormat?: boolean;
   autoSnapshotPolicyId?: string;
   burstingEnabled?: boolean;
   category?: string;
   encrypted?: string;
+  fileSystem?: string;
+  mountTarget?: string;
   performanceLevel?: string;
   provisionedIops?: number;
   size?: number;
   static names(): { [key: string]: string } {
     return {
+      autoFormat: 'auto_format',
       autoSnapshotPolicyId: 'auto_snapshot_policy_id',
       burstingEnabled: 'bursting_enabled',
       category: 'category',
       encrypted: 'encrypted',
+      fileSystem: 'file_system',
+      mountTarget: 'mount_target',
       performanceLevel: 'performance_level',
       provisionedIops: 'provisioned_iops',
       size: 'size',
@@ -55,10 +61,13 @@ export class DataDisk extends $tea.Model {
 
   static types(): { [key: string]: any } {
     return {
+      autoFormat: 'boolean',
       autoSnapshotPolicyId: 'string',
       burstingEnabled: 'boolean',
       category: 'string',
       encrypted: 'string',
+      fileSystem: 'string',
+      mountTarget: 'string',
       performanceLevel: 'string',
       provisionedIops: 'number',
       size: 'number',
@@ -5002,6 +5011,7 @@ export class ModifyClusterRequest extends $tea.Model {
   instanceDeletionProtection?: boolean;
   maintenanceWindow?: MaintenanceWindow;
   resourceGroupId?: string;
+  systemEventsLogging?: ModifyClusterRequestSystemEventsLogging;
   static names(): { [key: string]: string } {
     return {
       accessControlList: 'access_control_list',
@@ -5015,6 +5025,7 @@ export class ModifyClusterRequest extends $tea.Model {
       instanceDeletionProtection: 'instance_deletion_protection',
       maintenanceWindow: 'maintenance_window',
       resourceGroupId: 'resource_group_id',
+      systemEventsLogging: 'system_events_logging',
     };
   }
 
@@ -5031,6 +5042,7 @@ export class ModifyClusterRequest extends $tea.Model {
       instanceDeletionProtection: 'boolean',
       maintenanceWindow: MaintenanceWindow,
       resourceGroupId: 'string',
+      systemEventsLogging: ModifyClusterRequestSystemEventsLogging,
     };
   }
 
@@ -7603,6 +7615,66 @@ export class CreateClusterNodePoolRequestKubernetesConfig extends $tea.Model {
   }
 }
 
+export class CreateClusterNodePoolRequestManagementAutoRepairPolicy extends $tea.Model {
+  restartNode?: boolean;
+  static names(): { [key: string]: string } {
+    return {
+      restartNode: 'restart_node',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      restartNode: 'boolean',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class CreateClusterNodePoolRequestManagementAutoUpgradePolicy extends $tea.Model {
+  autoUpgradeKubelet?: boolean;
+  static names(): { [key: string]: string } {
+    return {
+      autoUpgradeKubelet: 'auto_upgrade_kubelet',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      autoUpgradeKubelet: 'boolean',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class CreateClusterNodePoolRequestManagementAutoVulFixPolicy extends $tea.Model {
+  restartNode?: boolean;
+  vulLevel?: string;
+  static names(): { [key: string]: string } {
+    return {
+      restartNode: 'restart_node',
+      vulLevel: 'vul_level',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      restartNode: 'boolean',
+      vulLevel: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
 export class CreateClusterNodePoolRequestManagementUpgradeConfig extends $tea.Model {
   autoUpgrade?: boolean;
   maxUnavailable?: number;
@@ -7633,11 +7705,21 @@ export class CreateClusterNodePoolRequestManagementUpgradeConfig extends $tea.Mo
 
 export class CreateClusterNodePoolRequestManagement extends $tea.Model {
   autoRepair?: boolean;
+  autoRepairPolicy?: CreateClusterNodePoolRequestManagementAutoRepairPolicy;
+  autoUpgrade?: boolean;
+  autoUpgradePolicy?: CreateClusterNodePoolRequestManagementAutoUpgradePolicy;
+  autoVulFix?: boolean;
+  autoVulFixPolicy?: CreateClusterNodePoolRequestManagementAutoVulFixPolicy;
   enable?: boolean;
   upgradeConfig?: CreateClusterNodePoolRequestManagementUpgradeConfig;
   static names(): { [key: string]: string } {
     return {
       autoRepair: 'auto_repair',
+      autoRepairPolicy: 'auto_repair_policy',
+      autoUpgrade: 'auto_upgrade',
+      autoUpgradePolicy: 'auto_upgrade_policy',
+      autoVulFix: 'auto_vul_fix',
+      autoVulFixPolicy: 'auto_vul_fix_policy',
       enable: 'enable',
       upgradeConfig: 'upgrade_config',
     };
@@ -7646,6 +7728,11 @@ export class CreateClusterNodePoolRequestManagement extends $tea.Model {
   static types(): { [key: string]: any } {
     return {
       autoRepair: 'boolean',
+      autoRepairPolicy: CreateClusterNodePoolRequestManagementAutoRepairPolicy,
+      autoUpgrade: 'boolean',
+      autoUpgradePolicy: CreateClusterNodePoolRequestManagementAutoUpgradePolicy,
+      autoVulFix: 'boolean',
+      autoVulFixPolicy: CreateClusterNodePoolRequestManagementAutoVulFixPolicy,
       enable: 'boolean',
       upgradeConfig: CreateClusterNodePoolRequestManagementUpgradeConfig,
     };
@@ -8157,6 +8244,66 @@ export class DescribeClusterNodePoolDetailResponseBodyKubernetesConfig extends $
   }
 }
 
+export class DescribeClusterNodePoolDetailResponseBodyManagementAutoRepairPolicy extends $tea.Model {
+  restartNode?: boolean;
+  static names(): { [key: string]: string } {
+    return {
+      restartNode: 'restart_node',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      restartNode: 'boolean',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class DescribeClusterNodePoolDetailResponseBodyManagementAutoUpgradePolicy extends $tea.Model {
+  autoUpgradeKubelet?: boolean;
+  static names(): { [key: string]: string } {
+    return {
+      autoUpgradeKubelet: 'auto_upgrade_kubelet',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      autoUpgradeKubelet: 'boolean',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class DescribeClusterNodePoolDetailResponseBodyManagementAutoVulFixPolicy extends $tea.Model {
+  restartNode?: boolean;
+  vulLevel?: string;
+  static names(): { [key: string]: string } {
+    return {
+      restartNode: 'restart_node',
+      vulLevel: 'vul_level',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      restartNode: 'boolean',
+      vulLevel: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
 export class DescribeClusterNodePoolDetailResponseBodyManagementUpgradeConfig extends $tea.Model {
   autoUpgrade?: boolean;
   maxUnavailable?: number;
@@ -8187,11 +8334,21 @@ export class DescribeClusterNodePoolDetailResponseBodyManagementUpgradeConfig ex
 
 export class DescribeClusterNodePoolDetailResponseBodyManagement extends $tea.Model {
   autoRepair?: boolean;
+  autoRepairPolicy?: DescribeClusterNodePoolDetailResponseBodyManagementAutoRepairPolicy;
+  autoUpgrade?: boolean;
+  autoUpgradePolicy?: DescribeClusterNodePoolDetailResponseBodyManagementAutoUpgradePolicy;
+  autoVulFix?: boolean;
+  autoVulFixPolicy?: DescribeClusterNodePoolDetailResponseBodyManagementAutoVulFixPolicy;
   enable?: boolean;
   upgradeConfig?: DescribeClusterNodePoolDetailResponseBodyManagementUpgradeConfig;
   static names(): { [key: string]: string } {
     return {
       autoRepair: 'auto_repair',
+      autoRepairPolicy: 'auto_repair_policy',
+      autoUpgrade: 'auto_upgrade',
+      autoUpgradePolicy: 'auto_upgrade_policy',
+      autoVulFix: 'auto_vul_fix',
+      autoVulFixPolicy: 'auto_vul_fix_policy',
       enable: 'enable',
       upgradeConfig: 'upgrade_config',
     };
@@ -8200,6 +8357,11 @@ export class DescribeClusterNodePoolDetailResponseBodyManagement extends $tea.Mo
   static types(): { [key: string]: any } {
     return {
       autoRepair: 'boolean',
+      autoRepairPolicy: DescribeClusterNodePoolDetailResponseBodyManagementAutoRepairPolicy,
+      autoUpgrade: 'boolean',
+      autoUpgradePolicy: DescribeClusterNodePoolDetailResponseBodyManagementAutoUpgradePolicy,
+      autoVulFix: 'boolean',
+      autoVulFixPolicy: DescribeClusterNodePoolDetailResponseBodyManagementAutoVulFixPolicy,
       enable: 'boolean',
       upgradeConfig: DescribeClusterNodePoolDetailResponseBodyManagementUpgradeConfig,
     };
@@ -8601,6 +8763,66 @@ export class DescribeClusterNodePoolsResponseBodyNodepoolsKubernetesConfig exten
   }
 }
 
+export class DescribeClusterNodePoolsResponseBodyNodepoolsManagementAutoRepairPolicy extends $tea.Model {
+  restartNode?: boolean;
+  static names(): { [key: string]: string } {
+    return {
+      restartNode: 'restart_node',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      restartNode: 'boolean',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class DescribeClusterNodePoolsResponseBodyNodepoolsManagementAutoUpgradePolicy extends $tea.Model {
+  autoUpgradeKubelet?: boolean;
+  static names(): { [key: string]: string } {
+    return {
+      autoUpgradeKubelet: 'auto_upgrade_kubelet',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      autoUpgradeKubelet: 'boolean',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class DescribeClusterNodePoolsResponseBodyNodepoolsManagementAutoVulFixPolicy extends $tea.Model {
+  restartNode?: boolean;
+  vulLevel?: string;
+  static names(): { [key: string]: string } {
+    return {
+      restartNode: 'restart_node',
+      vulLevel: 'vul_level',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      restartNode: 'boolean',
+      vulLevel: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
 export class DescribeClusterNodePoolsResponseBodyNodepoolsManagementUpgradeConfig extends $tea.Model {
   autoUpgrade?: boolean;
   maxUnavailable?: number;
@@ -8631,11 +8853,21 @@ export class DescribeClusterNodePoolsResponseBodyNodepoolsManagementUpgradeConfi
 
 export class DescribeClusterNodePoolsResponseBodyNodepoolsManagement extends $tea.Model {
   autoRepair?: boolean;
+  autoRepairPolicy?: DescribeClusterNodePoolsResponseBodyNodepoolsManagementAutoRepairPolicy;
+  autoUpgrade?: boolean;
+  autoUpgradePolicy?: DescribeClusterNodePoolsResponseBodyNodepoolsManagementAutoUpgradePolicy;
+  autoVulFix?: boolean;
+  autoVulFixPolicy?: DescribeClusterNodePoolsResponseBodyNodepoolsManagementAutoVulFixPolicy;
   enable?: boolean;
   upgradeConfig?: DescribeClusterNodePoolsResponseBodyNodepoolsManagementUpgradeConfig;
   static names(): { [key: string]: string } {
     return {
       autoRepair: 'auto_repair',
+      autoRepairPolicy: 'auto_repair_policy',
+      autoUpgrade: 'auto_upgrade',
+      autoUpgradePolicy: 'auto_upgrade_policy',
+      autoVulFix: 'auto_vul_fix',
+      autoVulFixPolicy: 'auto_vul_fix_policy',
       enable: 'enable',
       upgradeConfig: 'upgrade_config',
     };
@@ -8644,6 +8876,11 @@ export class DescribeClusterNodePoolsResponseBodyNodepoolsManagement extends $te
   static types(): { [key: string]: any } {
     return {
       autoRepair: 'boolean',
+      autoRepairPolicy: DescribeClusterNodePoolsResponseBodyNodepoolsManagementAutoRepairPolicy,
+      autoUpgrade: 'boolean',
+      autoUpgradePolicy: DescribeClusterNodePoolsResponseBodyNodepoolsManagementAutoUpgradePolicy,
+      autoVulFix: 'boolean',
+      autoVulFixPolicy: DescribeClusterNodePoolsResponseBodyNodepoolsManagementAutoVulFixPolicy,
       enable: 'boolean',
       upgradeConfig: DescribeClusterNodePoolsResponseBodyNodepoolsManagementUpgradeConfig,
     };
@@ -10715,6 +10952,28 @@ export class ListTagResourcesResponseBodyTagResources extends $tea.Model {
   }
 }
 
+export class ModifyClusterRequestSystemEventsLogging extends $tea.Model {
+  enabled?: boolean;
+  loggingProject?: string;
+  static names(): { [key: string]: string } {
+    return {
+      enabled: 'enabled',
+      loggingProject: 'logging_project',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      enabled: 'boolean',
+      loggingProject: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
 export class ModifyClusterConfigurationRequestCustomizeConfigConfigs extends $tea.Model {
   key?: string;
   value?: string;
@@ -10833,6 +11092,66 @@ export class ModifyClusterNodePoolRequestKubernetesConfig extends $tea.Model {
   }
 }
 
+export class ModifyClusterNodePoolRequestManagementAutoRepairPolicy extends $tea.Model {
+  restartNode?: boolean;
+  static names(): { [key: string]: string } {
+    return {
+      restartNode: 'restart_node',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      restartNode: 'boolean',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class ModifyClusterNodePoolRequestManagementAutoUpgradePolicy extends $tea.Model {
+  autoUpgradeKubelet?: boolean;
+  static names(): { [key: string]: string } {
+    return {
+      autoUpgradeKubelet: 'auto_upgrade_kubelet',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      autoUpgradeKubelet: 'boolean',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class ModifyClusterNodePoolRequestManagementAutoVulFixPolicy extends $tea.Model {
+  restartNode?: boolean;
+  vulLevel?: string;
+  static names(): { [key: string]: string } {
+    return {
+      restartNode: 'restart_node',
+      vulLevel: 'vul_level',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      restartNode: 'boolean',
+      vulLevel: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
 export class ModifyClusterNodePoolRequestManagementUpgradeConfig extends $tea.Model {
   autoUpgrade?: boolean;
   maxUnavailable?: number;
@@ -10863,11 +11182,21 @@ export class ModifyClusterNodePoolRequestManagementUpgradeConfig extends $tea.Mo
 
 export class ModifyClusterNodePoolRequestManagement extends $tea.Model {
   autoRepair?: boolean;
+  autoRepairPolicy?: ModifyClusterNodePoolRequestManagementAutoRepairPolicy;
+  autoUpgrade?: boolean;
+  autoUpgradePolicy?: ModifyClusterNodePoolRequestManagementAutoUpgradePolicy;
+  autoVulFix?: boolean;
+  autoVulFixPolicy?: ModifyClusterNodePoolRequestManagementAutoVulFixPolicy;
   enable?: boolean;
   upgradeConfig?: ModifyClusterNodePoolRequestManagementUpgradeConfig;
   static names(): { [key: string]: string } {
     return {
       autoRepair: 'auto_repair',
+      autoRepairPolicy: 'auto_repair_policy',
+      autoUpgrade: 'auto_upgrade',
+      autoUpgradePolicy: 'auto_upgrade_policy',
+      autoVulFix: 'auto_vul_fix',
+      autoVulFixPolicy: 'auto_vul_fix_policy',
       enable: 'enable',
       upgradeConfig: 'upgrade_config',
     };
@@ -10876,6 +11205,11 @@ export class ModifyClusterNodePoolRequestManagement extends $tea.Model {
   static types(): { [key: string]: any } {
     return {
       autoRepair: 'boolean',
+      autoRepairPolicy: ModifyClusterNodePoolRequestManagementAutoRepairPolicy,
+      autoUpgrade: 'boolean',
+      autoUpgradePolicy: ModifyClusterNodePoolRequestManagementAutoUpgradePolicy,
+      autoVulFix: 'boolean',
+      autoVulFixPolicy: ModifyClusterNodePoolRequestManagementAutoVulFixPolicy,
       enable: 'boolean',
       upgradeConfig: ModifyClusterNodePoolRequestManagementUpgradeConfig,
     };
@@ -14391,6 +14725,10 @@ export default class Client extends OpenApi {
       body["resource_group_id"] = request.resourceGroupId;
     }
 
+    if (!Util.isUnset(request.systemEventsLogging)) {
+      body["system_events_logging"] = request.systemEventsLogging;
+    }
+
     let req = new $OpenApi.OpenApiRequest({
       headers: headers,
       body: OpenApiUtil.parseToMap(body),
@@ -14791,6 +15129,11 @@ export default class Client extends OpenApi {
 
   /**
     * @deprecated
+    * ****
+    * *   When you remove a node, the pods that run on the node are migrated to other nodes. This may cause service interruptions. We recommend that you remove nodes during off-peak hours.
+    * *   Unknown errors may occur when you remove nodes. Before you remove nodes, back up the data on the nodes.
+    * *   Nodes remain in the Unschedulable state when they are being removed.
+    * *   You can remove only worker nodes. You cannot remove master nodes.
     *
     * @param request RemoveClusterNodesRequest
     * @param headers map
@@ -14833,6 +15176,11 @@ export default class Client extends OpenApi {
 
   /**
     * @deprecated
+    * ****
+    * *   When you remove a node, the pods that run on the node are migrated to other nodes. This may cause service interruptions. We recommend that you remove nodes during off-peak hours.
+    * *   Unknown errors may occur when you remove nodes. Before you remove nodes, back up the data on the nodes.
+    * *   Nodes remain in the Unschedulable state when they are being removed.
+    * *   You can remove only worker nodes. You cannot remove master nodes.
     *
     * @param request RemoveClusterNodesRequest
     * @return RemoveClusterNodesResponse
