@@ -14,8 +14,8 @@ export class CreateClientCertificateRequest extends $tea.Model {
   beforeTime?: number;
   commonName?: string;
   country?: string;
-  csr?: string;
   days?: number;
+  enableCrl?: number;
   immediately?: number;
   locality?: string;
   months?: number;
@@ -33,8 +33,8 @@ export class CreateClientCertificateRequest extends $tea.Model {
       beforeTime: 'BeforeTime',
       commonName: 'CommonName',
       country: 'Country',
-      csr: 'Csr',
       days: 'Days',
+      enableCrl: 'EnableCrl',
       immediately: 'Immediately',
       locality: 'Locality',
       months: 'Months',
@@ -55,8 +55,8 @@ export class CreateClientCertificateRequest extends $tea.Model {
       beforeTime: 'number',
       commonName: 'string',
       country: 'string',
-      csr: 'string',
       days: 'number',
+      enableCrl: 'number',
       immediately: 'number',
       locality: 'string',
       months: 'number',
@@ -138,8 +138,8 @@ export class CreateClientCertificateWithCsrRequest extends $tea.Model {
   commonName?: string;
   country?: string;
   csr?: string;
-  csr1?: string;
   days?: number;
+  enableCrl?: number;
   immediately?: number;
   locality?: string;
   months?: number;
@@ -158,8 +158,8 @@ export class CreateClientCertificateWithCsrRequest extends $tea.Model {
       commonName: 'CommonName',
       country: 'Country',
       csr: 'Csr',
-      csr1: 'Csr1',
       days: 'Days',
+      enableCrl: 'EnableCrl',
       immediately: 'Immediately',
       locality: 'Locality',
       months: 'Months',
@@ -181,8 +181,8 @@ export class CreateClientCertificateWithCsrRequest extends $tea.Model {
       commonName: 'string',
       country: 'string',
       csr: 'string',
-      csr1: 'string',
       days: 'number',
+      enableCrl: 'number',
       immediately: 'number',
       locality: 'string',
       months: 'number',
@@ -260,6 +260,7 @@ export class CreateClientCertificateWithCsrResponse extends $tea.Model {
 export class CreateCustomCertificateRequest extends $tea.Model {
   apiPassthrough?: CreateCustomCertificateRequestApiPassthrough;
   csr?: string;
+  enableCrl?: number;
   immediately?: number;
   parentIdentifier?: string;
   validity?: string;
@@ -267,6 +268,7 @@ export class CreateCustomCertificateRequest extends $tea.Model {
     return {
       apiPassthrough: 'ApiPassthrough',
       csr: 'Csr',
+      enableCrl: 'EnableCrl',
       immediately: 'Immediately',
       parentIdentifier: 'ParentIdentifier',
       validity: 'Validity',
@@ -277,6 +279,7 @@ export class CreateCustomCertificateRequest extends $tea.Model {
     return {
       apiPassthrough: CreateCustomCertificateRequestApiPassthrough,
       csr: 'string',
+      enableCrl: 'number',
       immediately: 'number',
       parentIdentifier: 'string',
       validity: 'string',
@@ -506,9 +509,9 @@ export class CreateServerCertificateRequest extends $tea.Model {
   beforeTime?: number;
   commonName?: string;
   country?: string;
-  csr?: string;
   days?: number;
   domain?: string;
+  enableCrl?: number;
   immediately?: number;
   locality?: string;
   months?: number;
@@ -524,9 +527,9 @@ export class CreateServerCertificateRequest extends $tea.Model {
       beforeTime: 'BeforeTime',
       commonName: 'CommonName',
       country: 'Country',
-      csr: 'Csr',
       days: 'Days',
       domain: 'Domain',
+      enableCrl: 'EnableCrl',
       immediately: 'Immediately',
       locality: 'Locality',
       months: 'Months',
@@ -545,9 +548,9 @@ export class CreateServerCertificateRequest extends $tea.Model {
       beforeTime: 'number',
       commonName: 'string',
       country: 'string',
-      csr: 'string',
       days: 'number',
       domain: 'string',
+      enableCrl: 'number',
       immediately: 'number',
       locality: 'string',
       months: 'number',
@@ -627,9 +630,9 @@ export class CreateServerCertificateWithCsrRequest extends $tea.Model {
   commonName?: string;
   country?: string;
   csr?: string;
-  csr1?: string;
   days?: number;
   domain?: string;
+  enableCrl?: number;
   immediately?: number;
   locality?: string;
   months?: number;
@@ -646,9 +649,9 @@ export class CreateServerCertificateWithCsrRequest extends $tea.Model {
       commonName: 'CommonName',
       country: 'Country',
       csr: 'Csr',
-      csr1: 'Csr1',
       days: 'Days',
       domain: 'Domain',
+      enableCrl: 'EnableCrl',
       immediately: 'Immediately',
       locality: 'Locality',
       months: 'Months',
@@ -668,9 +671,9 @@ export class CreateServerCertificateWithCsrRequest extends $tea.Model {
       commonName: 'string',
       country: 'string',
       csr: 'string',
-      csr1: 'string',
       days: 'number',
       domain: 'string',
+      enableCrl: 'number',
       immediately: 'number',
       locality: 'string',
       months: 'number',
@@ -747,6 +750,8 @@ export class CreateSubCACertificateRequest extends $tea.Model {
   algorithm?: string;
   commonName?: string;
   countryCode?: string;
+  crlDay?: number;
+  enableCrl?: boolean;
   extendedKeyUsages?: string[];
   locality?: string;
   organization?: string;
@@ -760,6 +765,8 @@ export class CreateSubCACertificateRequest extends $tea.Model {
       algorithm: 'Algorithm',
       commonName: 'CommonName',
       countryCode: 'CountryCode',
+      crlDay: 'CrlDay',
+      enableCrl: 'EnableCrl',
       extendedKeyUsages: 'ExtendedKeyUsages',
       locality: 'Locality',
       organization: 'Organization',
@@ -776,6 +783,8 @@ export class CreateSubCACertificateRequest extends $tea.Model {
       algorithm: 'string',
       commonName: 'string',
       countryCode: 'string',
+      crlDay: 'number',
+      enableCrl: 'boolean',
       extendedKeyUsages: { 'type': 'array', 'itemType': 'string' },
       locality: 'string',
       organization: 'string',
@@ -1026,10 +1035,12 @@ export class DescribeCACertificateCountResponse extends $tea.Model {
 
 export class DescribeCACertificateListRequest extends $tea.Model {
   currentPage?: number;
+  identifier?: string;
   showSize?: number;
   static names(): { [key: string]: string } {
     return {
       currentPage: 'CurrentPage',
+      identifier: 'Identifier',
       showSize: 'ShowSize',
     };
   }
@@ -1037,6 +1048,7 @@ export class DescribeCACertificateListRequest extends $tea.Model {
   static types(): { [key: string]: any } {
     return {
       currentPage: 'number',
+      identifier: 'string',
       showSize: 'number',
     };
   }
@@ -1307,15 +1319,18 @@ export class DescribeClientCertificateStatusResponse extends $tea.Model {
 }
 
 export class GetCAInstanceStatusRequest extends $tea.Model {
+  identifier?: string;
   instanceId?: string;
   static names(): { [key: string]: string } {
     return {
+      identifier: 'Identifier',
       instanceId: 'InstanceId',
     };
   }
 
   static types(): { [key: string]: any } {
     return {
+      identifier: 'string',
       instanceId: 'string',
     };
   }
@@ -1374,10 +1389,12 @@ export class GetCAInstanceStatusResponse extends $tea.Model {
 
 export class ListClientCertificateRequest extends $tea.Model {
   currentPage?: number;
+  identifier?: string;
   showSize?: number;
   static names(): { [key: string]: string } {
     return {
       currentPage: 'CurrentPage',
+      identifier: 'Identifier',
       showSize: 'ShowSize',
     };
   }
@@ -1385,6 +1402,7 @@ export class ListClientCertificateRequest extends $tea.Model {
   static types(): { [key: string]: any } {
     return {
       currentPage: 'number',
+      identifier: 'string',
       showSize: 'number',
     };
   }
@@ -1663,11 +1681,13 @@ export class CreateCustomCertificateRequestApiPassthroughExtensionsSubjectAltern
 }
 
 export class CreateCustomCertificateRequestApiPassthroughExtensions extends $tea.Model {
+  criticals?: string[];
   extendedKeyUsages?: string[];
   keyUsage?: CreateCustomCertificateRequestApiPassthroughExtensionsKeyUsage;
   subjectAlternativeNames?: CreateCustomCertificateRequestApiPassthroughExtensionsSubjectAlternativeNames[];
   static names(): { [key: string]: string } {
     return {
+      criticals: 'Criticals',
       extendedKeyUsages: 'ExtendedKeyUsages',
       keyUsage: 'KeyUsage',
       subjectAlternativeNames: 'SubjectAlternativeNames',
@@ -1676,6 +1696,7 @@ export class CreateCustomCertificateRequestApiPassthroughExtensions extends $tea
 
   static types(): { [key: string]: any } {
     return {
+      criticals: { 'type': 'array', 'itemType': 'string' },
       extendedKeyUsages: { 'type': 'array', 'itemType': 'string' },
       keyUsage: CreateCustomCertificateRequestApiPassthroughExtensionsKeyUsage,
       subjectAlternativeNames: { 'type': 'array', 'itemType': CreateCustomCertificateRequestApiPassthroughExtensionsSubjectAlternativeNames },
@@ -1687,9 +1708,32 @@ export class CreateCustomCertificateRequestApiPassthroughExtensions extends $tea
   }
 }
 
+export class CreateCustomCertificateRequestApiPassthroughSubjectCustomAttributes extends $tea.Model {
+  objectIdentifier?: string;
+  value?: string;
+  static names(): { [key: string]: string } {
+    return {
+      objectIdentifier: 'ObjectIdentifier',
+      value: 'Value',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      objectIdentifier: 'string',
+      value: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
 export class CreateCustomCertificateRequestApiPassthroughSubject extends $tea.Model {
   commonName?: string;
   country?: string;
+  customAttributes?: CreateCustomCertificateRequestApiPassthroughSubjectCustomAttributes[];
   locality?: string;
   organization?: string;
   organizationUnit?: string;
@@ -1698,6 +1742,7 @@ export class CreateCustomCertificateRequestApiPassthroughSubject extends $tea.Mo
     return {
       commonName: 'CommonName',
       country: 'Country',
+      customAttributes: 'CustomAttributes',
       locality: 'Locality',
       organization: 'Organization',
       organizationUnit: 'OrganizationUnit',
@@ -1709,6 +1754,7 @@ export class CreateCustomCertificateRequestApiPassthroughSubject extends $tea.Mo
     return {
       commonName: 'string',
       country: 'string',
+      customAttributes: { 'type': 'array', 'itemType': CreateCustomCertificateRequestApiPassthroughSubjectCustomAttributes },
       locality: 'string',
       organization: 'string',
       organizationUnit: 'string',
@@ -1723,10 +1769,12 @@ export class CreateCustomCertificateRequestApiPassthroughSubject extends $tea.Mo
 
 export class CreateCustomCertificateRequestApiPassthrough extends $tea.Model {
   extensions?: CreateCustomCertificateRequestApiPassthroughExtensions;
+  serialNumber?: string;
   subject?: CreateCustomCertificateRequestApiPassthroughSubject;
   static names(): { [key: string]: string } {
     return {
       extensions: 'Extensions',
+      serialNumber: 'SerialNumber',
       subject: 'Subject',
     };
   }
@@ -1734,6 +1782,7 @@ export class CreateCustomCertificateRequestApiPassthrough extends $tea.Model {
   static types(): { [key: string]: any } {
     return {
       extensions: CreateCustomCertificateRequestApiPassthroughExtensions,
+      serialNumber: 'string',
       subject: CreateCustomCertificateRequestApiPassthroughSubject,
     };
   }
@@ -1747,6 +1796,9 @@ export class DescribeCACertificateResponseBodyCertificate extends $tea.Model {
   afterDate?: number;
   algorithm?: string;
   beforeDate?: number;
+  certIssuedCount?: number;
+  certRemainingCount?: number;
+  certTotalCount?: number;
   certificateType?: string;
   commonName?: string;
   countryCode?: string;
@@ -1772,6 +1824,9 @@ export class DescribeCACertificateResponseBodyCertificate extends $tea.Model {
       afterDate: 'AfterDate',
       algorithm: 'Algorithm',
       beforeDate: 'BeforeDate',
+      certIssuedCount: 'CertIssuedCount',
+      certRemainingCount: 'CertRemainingCount',
+      certTotalCount: 'CertTotalCount',
       certificateType: 'CertificateType',
       commonName: 'CommonName',
       countryCode: 'CountryCode',
@@ -1800,6 +1855,9 @@ export class DescribeCACertificateResponseBodyCertificate extends $tea.Model {
       afterDate: 'number',
       algorithm: 'string',
       beforeDate: 'number',
+      certIssuedCount: 'number',
+      certRemainingCount: 'number',
+      certTotalCount: 'number',
       certificateType: 'string',
       commonName: 'string',
       countryCode: 'string',
@@ -2230,7 +2288,6 @@ export default class Client extends OpenApi {
     this._endpointMap = {
       'cn-hangzhou': "cas.aliyuncs.com",
       'ap-northeast-2-pop': "cas.aliyuncs.com",
-      'ap-southeast-1': "cas.aliyuncs.com",
       'ap-southeast-3': "cas.aliyuncs.com",
       'ap-southeast-5': "cas.aliyuncs.com",
       'cn-beijing': "cas.aliyuncs.com",
@@ -2252,6 +2309,7 @@ export default class Client extends OpenApi {
       'cn-hongkong': "cas.aliyuncs.com",
       'cn-hongkong-finance-pop': "cas.aliyuncs.com",
       'cn-huhehaote': "cas.aliyuncs.com",
+      'cn-huhehaote-nebula-1': "cas.aliyuncs.com",
       'cn-north-2-gov-1': "cas.aliyuncs.com",
       'cn-qingdao': "cas.aliyuncs.com",
       'cn-qingdao-nebula': "cas.aliyuncs.com",
@@ -2267,7 +2325,9 @@ export default class Client extends OpenApi {
       'cn-shenzhen-st4-d01': "cas.aliyuncs.com",
       'cn-shenzhen-su18-b01': "cas.aliyuncs.com",
       'cn-wuhan': "cas.aliyuncs.com",
+      'cn-wulanchabu': "cas.aliyuncs.com",
       'cn-yushanfang': "cas.aliyuncs.com",
+      'cn-zhangbei': "cas.aliyuncs.com",
       'cn-zhangbei-na61-b01': "cas.aliyuncs.com",
       'cn-zhangjiakou': "cas.aliyuncs.com",
       'cn-zhangjiakou-na62-a01': "cas.aliyuncs.com",
@@ -2327,12 +2387,12 @@ export default class Client extends OpenApi {
       query["Country"] = request.country;
     }
 
-    if (!Util.isUnset(request.csr)) {
-      query["Csr"] = request.csr;
-    }
-
     if (!Util.isUnset(request.days)) {
       query["Days"] = request.days;
+    }
+
+    if (!Util.isUnset(request.enableCrl)) {
+      query["EnableCrl"] = request.enableCrl;
     }
 
     if (!Util.isUnset(request.immediately)) {
@@ -2406,9 +2466,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-    * Before you call this operation, make sure that you have created a root certificate authority (CA) certificate by calling the [CreateRootCACertificate](~~328093~~) operation and an intermediate CA certificate by calling the [CreateSubCACertificate](~~328094~~) operation. Only intermediate CA certificates can be used to issue client certificates.
-    * ## Limits
-    * You can call this operation up to 10 times per second per account. If the number of the calls per second exceeds the limit, throttling is triggered. As a result, your business may be affected. We recommend that you take note of the limit when you call this operation.
+    * The content of the CSR file. You can generate a CSR file by using the OpenSSL tool or Keytool. For more information, see [How do I create a CSR file?](~~42218~~) You can also create a CSR file in the Certificate Management Service console. For more information, see [Create a CSR](~~313297~~).
     *
     * @param request CreateClientCertificateWithCsrRequest
     * @param runtime runtime options for this request RuntimeOptions
@@ -2441,12 +2499,12 @@ export default class Client extends OpenApi {
       query["Csr"] = request.csr;
     }
 
-    if (!Util.isUnset(request.csr1)) {
-      query["Csr1"] = request.csr1;
-    }
-
     if (!Util.isUnset(request.days)) {
       query["Days"] = request.days;
+    }
+
+    if (!Util.isUnset(request.enableCrl)) {
+      query["EnableCrl"] = request.enableCrl;
     }
 
     if (!Util.isUnset(request.immediately)) {
@@ -2507,9 +2565,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-    * Before you call this operation, make sure that you have created a root certificate authority (CA) certificate by calling the [CreateRootCACertificate](~~328093~~) operation and an intermediate CA certificate by calling the [CreateSubCACertificate](~~328094~~) operation. Only intermediate CA certificates can be used to issue client certificates.
-    * ## Limits
-    * You can call this operation up to 10 times per second per account. If the number of the calls per second exceeds the limit, throttling is triggered. As a result, your business may be affected. We recommend that you take note of the limit when you call this operation.
+    * The content of the CSR file. You can generate a CSR file by using the OpenSSL tool or Keytool. For more information, see [How do I create a CSR file?](~~42218~~) You can also create a CSR file in the Certificate Management Service console. For more information, see [Create a CSR](~~313297~~).
     *
     * @param request CreateClientCertificateWithCsrRequest
     * @return CreateClientCertificateWithCsrResponse
@@ -2519,6 +2575,27 @@ export default class Client extends OpenApi {
     return await this.createClientCertificateWithCsrWithOptions(request, runtime);
   }
 
+  /**
+    * By default, the name of the entity is obtained from the certificate signing request (CSR) of the certificate that you want to issue. If you specify a different name for the entity, the name of the entity in the CSR becomes invalid. The specified name is used to issue the certificate.
+    * You must specify the key usage and extended key usage based on the certificate type. The following list describes common certificate types:
+    * *   Server certificate
+    * Key usage: digitalSignature or keyEncipherment
+    * Extended key usage: serverAuth
+    * *   Client certificate
+    * Key usage: digitalSignature or keyEncipherment
+    * Extended key usage: clientAuth
+    * *   Mutual Transport Layer Security (TLS) authentication certificate
+    * Key usage: digitalSignature or keyEncipherment
+    * Extended key usage: serverAuth or clientAuth
+    * *   Email certificate
+    * Key usage: digitalSignature or contentCommitment
+    * Extended key usage: emailProtection
+    * Note: Compliant certificate authorities (CAs) are managed by third-party authorities. This operation is not supported for compliant CAs.
+    *
+    * @param request CreateCustomCertificateRequest
+    * @param runtime runtime options for this request RuntimeOptions
+    * @return CreateCustomCertificateResponse
+   */
   async createCustomCertificateWithOptions(request: CreateCustomCertificateRequest, runtime: $Util.RuntimeOptions): Promise<CreateCustomCertificateResponse> {
     Util.validateModel(request);
     let query = { };
@@ -2528,6 +2605,10 @@ export default class Client extends OpenApi {
 
     if (!Util.isUnset(request.csr)) {
       query["Csr"] = request.csr;
+    }
+
+    if (!Util.isUnset(request.enableCrl)) {
+      query["EnableCrl"] = request.enableCrl;
     }
 
     if (!Util.isUnset(request.immediately)) {
@@ -2559,21 +2640,31 @@ export default class Client extends OpenApi {
     return $tea.cast<CreateCustomCertificateResponse>(await this.callApi(params, req, runtime), new CreateCustomCertificateResponse({}));
   }
 
+  /**
+    * By default, the name of the entity is obtained from the certificate signing request (CSR) of the certificate that you want to issue. If you specify a different name for the entity, the name of the entity in the CSR becomes invalid. The specified name is used to issue the certificate.
+    * You must specify the key usage and extended key usage based on the certificate type. The following list describes common certificate types:
+    * *   Server certificate
+    * Key usage: digitalSignature or keyEncipherment
+    * Extended key usage: serverAuth
+    * *   Client certificate
+    * Key usage: digitalSignature or keyEncipherment
+    * Extended key usage: clientAuth
+    * *   Mutual Transport Layer Security (TLS) authentication certificate
+    * Key usage: digitalSignature or keyEncipherment
+    * Extended key usage: serverAuth or clientAuth
+    * *   Email certificate
+    * Key usage: digitalSignature or contentCommitment
+    * Extended key usage: emailProtection
+    * Note: Compliant certificate authorities (CAs) are managed by third-party authorities. This operation is not supported for compliant CAs.
+    *
+    * @param request CreateCustomCertificateRequest
+    * @return CreateCustomCertificateResponse
+   */
   async createCustomCertificate(request: CreateCustomCertificateRequest): Promise<CreateCustomCertificateResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.createCustomCertificateWithOptions(request, runtime);
   }
 
-  /**
-    * After a client certificate or a server certificate is revoked, the client or the server on which the certificate is installed cannot establish HTTPS connections with other devices.
-    * After a client certificate or a server certificate is revoked, you can call the [DeleteClientCertificate](~~330880~~) operation to permanently delete the certificate.
-    * ## Limits
-    * You can call this operation up to 10 times per second per account. If the number of the calls per second exceeds the limit, throttling is triggered. As a result, your business may be affected. We recommend that you take note of the limit when you call this operation.
-    *
-    * @param request CreateRevokeClientCertificateRequest
-    * @param runtime runtime options for this request RuntimeOptions
-    * @return CreateRevokeClientCertificateResponse
-   */
   async createRevokeClientCertificateWithOptions(request: CreateRevokeClientCertificateRequest, runtime: $Util.RuntimeOptions): Promise<CreateRevokeClientCertificateResponse> {
     Util.validateModel(request);
     let query = { };
@@ -2598,25 +2689,13 @@ export default class Client extends OpenApi {
     return $tea.cast<CreateRevokeClientCertificateResponse>(await this.callApi(params, req, runtime), new CreateRevokeClientCertificateResponse({}));
   }
 
-  /**
-    * After a client certificate or a server certificate is revoked, the client or the server on which the certificate is installed cannot establish HTTPS connections with other devices.
-    * After a client certificate or a server certificate is revoked, you can call the [DeleteClientCertificate](~~330880~~) operation to permanently delete the certificate.
-    * ## Limits
-    * You can call this operation up to 10 times per second per account. If the number of the calls per second exceeds the limit, throttling is triggered. As a result, your business may be affected. We recommend that you take note of the limit when you call this operation.
-    *
-    * @param request CreateRevokeClientCertificateRequest
-    * @return CreateRevokeClientCertificateResponse
-   */
   async createRevokeClientCertificate(request: CreateRevokeClientCertificateRequest): Promise<CreateRevokeClientCertificateResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.createRevokeClientCertificateWithOptions(request, runtime);
   }
 
   /**
-    * You can call the CreateRootCACertificate operation to create a self-signed root CA certificate. A root CA certificate is the trust anchor in a chain of trust for private certificates that are used within an enterprise. You must create a root CA certificate before you can use the root CA certificate to issue intermediate CA certificates. Then, you can use the intermediate CA certificates to issue client certificates and server certificates.
-    * Before you call this operation, make sure that you have purchased a private root CA instance by using the [Certificate Management Service console](https://yundun.console.aliyun.com/?p=cas#/pca/rootlist). For more information, see [Create a private CA](~~208553~~).
-    * ## Limits
-    * You can call this operation up to 10 times per second per account. If the number of the calls per second exceeds the limit, throttling is triggered. As a result, your business may be affected. We recommend that you take note of the limit when you call this operation.
+    * The root CA certificate in the PEM format.
     *
     * @param request CreateRootCACertificateRequest
     * @param runtime runtime options for this request RuntimeOptions
@@ -2675,10 +2754,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-    * You can call the CreateRootCACertificate operation to create a self-signed root CA certificate. A root CA certificate is the trust anchor in a chain of trust for private certificates that are used within an enterprise. You must create a root CA certificate before you can use the root CA certificate to issue intermediate CA certificates. Then, you can use the intermediate CA certificates to issue client certificates and server certificates.
-    * Before you call this operation, make sure that you have purchased a private root CA instance by using the [Certificate Management Service console](https://yundun.console.aliyun.com/?p=cas#/pca/rootlist). For more information, see [Create a private CA](~~208553~~).
-    * ## Limits
-    * You can call this operation up to 10 times per second per account. If the number of the calls per second exceeds the limit, throttling is triggered. As a result, your business may be affected. We recommend that you take note of the limit when you call this operation.
+    * The root CA certificate in the PEM format.
     *
     * @param request CreateRootCACertificateRequest
     * @return CreateRootCACertificateResponse
@@ -2689,9 +2765,8 @@ export default class Client extends OpenApi {
   }
 
   /**
-    * Before you call this operation, make sure that you have created a root certificate authority (CA) certificate by calling the [CreateRootCACertificate](~~328093~~) operation and an intermediate CA certificate by calling the [CreateSubCACertificate](~~328094~~) operation. Only intermediate CA certificates can be used to issue server certificates.
-    * ## Limits
-    * You can call this operation up to 10 times per second per account. If the number of the calls per second exceeds the limit, throttling is triggered. As a result, your business may be affected. We recommend that you take note of the limit when you call this operation.
+    * The additional domain names and additional IP addresses of the server certificate. After you add additional domain names and additional IP addresses to a certificate, you can apply the certificate to the domain names and IP addresses.
+    * Separate multiple domain names and multiple IP addresses with commas (,).
     *
     * @param request CreateServerCertificateRequest
     * @param runtime runtime options for this request RuntimeOptions
@@ -2720,16 +2795,16 @@ export default class Client extends OpenApi {
       query["Country"] = request.country;
     }
 
-    if (!Util.isUnset(request.csr)) {
-      query["Csr"] = request.csr;
-    }
-
     if (!Util.isUnset(request.days)) {
       query["Days"] = request.days;
     }
 
     if (!Util.isUnset(request.domain)) {
       query["Domain"] = request.domain;
+    }
+
+    if (!Util.isUnset(request.enableCrl)) {
+      query["EnableCrl"] = request.enableCrl;
     }
 
     if (!Util.isUnset(request.immediately)) {
@@ -2782,9 +2857,8 @@ export default class Client extends OpenApi {
   }
 
   /**
-    * Before you call this operation, make sure that you have created a root certificate authority (CA) certificate by calling the [CreateRootCACertificate](~~328093~~) operation and an intermediate CA certificate by calling the [CreateSubCACertificate](~~328094~~) operation. Only intermediate CA certificates can be used to issue server certificates.
-    * ## Limits
-    * You can call this operation up to 10 times per second per account. If the number of the calls per second exceeds the limit, throttling is triggered. As a result, your business may be affected. We recommend that you take note of the limit when you call this operation.
+    * The additional domain names and additional IP addresses of the server certificate. After you add additional domain names and additional IP addresses to a certificate, you can apply the certificate to the domain names and IP addresses.
+    * Separate multiple domain names and multiple IP addresses with commas (,).
     *
     * @param request CreateServerCertificateRequest
     * @return CreateServerCertificateResponse
@@ -2795,9 +2869,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-    * Before you call this operation, make sure that you have created a root certificate authority (CA) certificate by calling the [CreateRootCACertificate](~~328093~~) operation and an intermediate CA certificate by calling the [CreateSubCACertificate](~~328094~~) operation. Only intermediate CA certificates can be used to issue server certificates.
-    * ## Limits
-    * You can call this operation up to 10 times per second per account. If the number of the calls per second exceeds the limit, throttling is triggered. As a result, your business may be affected. We recommend that you take note of the limit when you call this operation.
+    * The content of the CSR file. You can generate a CSR file by using the OpenSSL tool or Keytool. For more information, see [How do I create a CSR file?](~~42218~~) You can also create a CSR file in the Certificate Management Service console. For more information, see [Create a CSR](~~313297~~).
     *
     * @param request CreateServerCertificateWithCsrRequest
     * @param runtime runtime options for this request RuntimeOptions
@@ -2830,16 +2902,16 @@ export default class Client extends OpenApi {
       query["Csr"] = request.csr;
     }
 
-    if (!Util.isUnset(request.csr1)) {
-      query["Csr1"] = request.csr1;
-    }
-
     if (!Util.isUnset(request.days)) {
       query["Days"] = request.days;
     }
 
     if (!Util.isUnset(request.domain)) {
       query["Domain"] = request.domain;
+    }
+
+    if (!Util.isUnset(request.enableCrl)) {
+      query["EnableCrl"] = request.enableCrl;
     }
 
     if (!Util.isUnset(request.immediately)) {
@@ -2892,9 +2964,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-    * Before you call this operation, make sure that you have created a root certificate authority (CA) certificate by calling the [CreateRootCACertificate](~~328093~~) operation and an intermediate CA certificate by calling the [CreateSubCACertificate](~~328094~~) operation. Only intermediate CA certificates can be used to issue server certificates.
-    * ## Limits
-    * You can call this operation up to 10 times per second per account. If the number of the calls per second exceeds the limit, throttling is triggered. As a result, your business may be affected. We recommend that you take note of the limit when you call this operation.
+    * The content of the CSR file. You can generate a CSR file by using the OpenSSL tool or Keytool. For more information, see [How do I create a CSR file?](~~42218~~) You can also create a CSR file in the Certificate Management Service console. For more information, see [Create a CSR](~~313297~~).
     *
     * @param request CreateServerCertificateWithCsrRequest
     * @return CreateServerCertificateWithCsrResponse
@@ -2905,8 +2975,8 @@ export default class Client extends OpenApi {
   }
 
   /**
-    * You can call the CreateSubCACertificate operation to issue an intermediate CA certificate by using an existing root CA certificate. Intermediate CA certificates can be used to issue client certificates and server certificates.
-    * Before you call this operation, make sure that you have created a root CA certificate by calling the [CreateRootCACertificate](~~328093~~) operation.
+    * You can call this operation to issue an intermediate certificate authority (CA) certificate by using an existing root CA certificate. Intermediate CA certificates can be used to issue client certificates and server certificates.
+    * Before you call this operation, make sure that you have issued a root CA certificate by calling the [CreateRootCACertificate](~~465962~~) operation.
     * ## Limits
     * You can call this operation up to 10 times per second per account. If the number of the calls per second exceeds the limit, throttling is triggered. As a result, your business may be affected. We recommend that you take note of the limit when you call this operation.
     *
@@ -2927,6 +2997,14 @@ export default class Client extends OpenApi {
 
     if (!Util.isUnset(request.countryCode)) {
       query["CountryCode"] = request.countryCode;
+    }
+
+    if (!Util.isUnset(request.crlDay)) {
+      query["CrlDay"] = request.crlDay;
+    }
+
+    if (!Util.isUnset(request.enableCrl)) {
+      query["EnableCrl"] = request.enableCrl;
     }
 
     if (!Util.isUnset(request.extendedKeyUsages)) {
@@ -2979,8 +3057,8 @@ export default class Client extends OpenApi {
   }
 
   /**
-    * You can call the CreateSubCACertificate operation to issue an intermediate CA certificate by using an existing root CA certificate. Intermediate CA certificates can be used to issue client certificates and server certificates.
-    * Before you call this operation, make sure that you have created a root CA certificate by calling the [CreateRootCACertificate](~~328093~~) operation.
+    * You can call this operation to issue an intermediate certificate authority (CA) certificate by using an existing root CA certificate. Intermediate CA certificates can be used to issue client certificates and server certificates.
+    * Before you call this operation, make sure that you have issued a root CA certificate by calling the [CreateRootCACertificate](~~465962~~) operation.
     * ## Limits
     * You can call this operation up to 10 times per second per account. If the number of the calls per second exceeds the limit, throttling is triggered. As a result, your business may be affected. We recommend that you take note of the limit when you call this operation.
     *
@@ -2992,15 +3070,6 @@ export default class Client extends OpenApi {
     return await this.createSubCACertificateWithOptions(request, runtime);
   }
 
-  /**
-    * Before you call this operation, you must call the [CreateRevokeClientCertificate](~~330876~~) operation to revoke a client certificate or a server certificate.
-    * ## Limits
-    * You can call this operation up to 10 times per second per account. If the number of the calls per second exceeds the limit, throttling is triggered. As a result, your business may be affected. We recommend that you take note of the limit when you call this operation.
-    *
-    * @param request DeleteClientCertificateRequest
-    * @param runtime runtime options for this request RuntimeOptions
-    * @return DeleteClientCertificateResponse
-   */
   async deleteClientCertificateWithOptions(request: DeleteClientCertificateRequest, runtime: $Util.RuntimeOptions): Promise<DeleteClientCertificateResponse> {
     Util.validateModel(request);
     let query = { };
@@ -3025,14 +3094,6 @@ export default class Client extends OpenApi {
     return $tea.cast<DeleteClientCertificateResponse>(await this.callApi(params, req, runtime), new DeleteClientCertificateResponse({}));
   }
 
-  /**
-    * Before you call this operation, you must call the [CreateRevokeClientCertificate](~~330876~~) operation to revoke a client certificate or a server certificate.
-    * ## Limits
-    * You can call this operation up to 10 times per second per account. If the number of the calls per second exceeds the limit, throttling is triggered. As a result, your business may be affected. We recommend that you take note of the limit when you call this operation.
-    *
-    * @param request DeleteClientCertificateRequest
-    * @return DeleteClientCertificateResponse
-   */
   async deleteClientCertificate(request: DeleteClientCertificateRequest): Promise<DeleteClientCertificateResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.deleteClientCertificateWithOptions(request, runtime);
@@ -3086,15 +3147,6 @@ export default class Client extends OpenApi {
     return await this.describeCACertificateWithOptions(request, runtime);
   }
 
-  /**
-    * You can call the DescribeCACertificateCount operation to query the number of created CA certificates, which includes root CA certificates and intermediate CA certificates.
-    * ## Limits
-    * You can call this operation up to 10 times per second per account. If the number of the calls per second exceeds the limit, throttling is triggered. As a result, your business may be affected. We recommend that you take note of the limit when you call this operation.
-    *
-    * @param request DescribeCACertificateCountRequest
-    * @param runtime runtime options for this request RuntimeOptions
-    * @return DescribeCACertificateCountResponse
-   */
   async describeCACertificateCountWithOptions(runtime: $Util.RuntimeOptions): Promise<DescribeCACertificateCountResponse> {
     let req = new $OpenApi.OpenApiRequest({ });
     let params = new $OpenApi.Params({
@@ -3111,13 +3163,6 @@ export default class Client extends OpenApi {
     return $tea.cast<DescribeCACertificateCountResponse>(await this.callApi(params, req, runtime), new DescribeCACertificateCountResponse({}));
   }
 
-  /**
-    * You can call the DescribeCACertificateCount operation to query the number of created CA certificates, which includes root CA certificates and intermediate CA certificates.
-    * ## Limits
-    * You can call this operation up to 10 times per second per account. If the number of the calls per second exceeds the limit, throttling is triggered. As a result, your business may be affected. We recommend that you take note of the limit when you call this operation.
-    *
-    * @return DescribeCACertificateCountResponse
-   */
   async describeCACertificateCount(): Promise<DescribeCACertificateCountResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.describeCACertificateCountWithOptions(runtime);
@@ -3137,6 +3182,10 @@ export default class Client extends OpenApi {
     let query = { };
     if (!Util.isUnset(request.currentPage)) {
       query["CurrentPage"] = request.currentPage;
+    }
+
+    if (!Util.isUnset(request.identifier)) {
+      query["Identifier"] = request.identifier;
     }
 
     if (!Util.isUnset(request.showSize)) {
@@ -3178,7 +3227,7 @@ export default class Client extends OpenApi {
     * You can call the DescribeCertificatePrivateKey operation to obtain the encrypted private key of a client certificate or a server certificate. The certificate is issued based on a system-generated certificate signing request (CSR). Before you call this operation, make sure that you have issued a client certificate or a server certificate by calling the following operation:
     * *   [CreateClientCertificate](~~330873~~)
     * *   [CreateServerCertificate](~~330877~~)
-    * To ensure the security of private key transmission, the DescribeCertificatePrivateKey operation encrypts the private key by using the private key password that you specify and returns the encrypted private key. The private key password is an string that is used to encrypt the private key. After you obtain the encrypted private key of the certificate, you can use the following methods to decrypt the private key:
+    * To ensure the security of private key transmission, the DescribeCertificatePrivateKey operation encrypts the private key by using the private key password that you specify and returns the encrypted private key. The private key password is a string that is used to encrypt the private key. After you obtain the encrypted private key of the certificate, you can use the following methods to decrypt the private key:
     * *   If the encryption algorithm of the certificate is RSA, you must run the `openssl rsa -in <Encrypted private key file> -passin pass:<Private key password> -out <Decrypted private key file>` command in the computer on which [OpenSSL](https://www.openssl.org/source/) or [BabaSSL](https://github.com/BabaSSL/BabaSSL) is installed.
     * *   If the encryption algorithm of the certificate is ECC, you must run the `openssl ec -in <Encrypted private key file> -passin pass:<Private key password> -out <Decrypted private key file>` command in the computer on which [OpenSSL](https://www.openssl.org/source/) or [BabaSSL](https://github.com/BabaSSL/BabaSSL) is installed.
     * *   If the encryption algorithm of the certificate is SM2, you must run the `openssl ec -in <Encrypted private key file> -passin pass:<Private key password> -out <Decrypted private key file>` command in the computer on which [BabaSSL](https://github.com/BabaSSL/BabaSSL) is installed.
@@ -3223,7 +3272,7 @@ export default class Client extends OpenApi {
     * You can call the DescribeCertificatePrivateKey operation to obtain the encrypted private key of a client certificate or a server certificate. The certificate is issued based on a system-generated certificate signing request (CSR). Before you call this operation, make sure that you have issued a client certificate or a server certificate by calling the following operation:
     * *   [CreateClientCertificate](~~330873~~)
     * *   [CreateServerCertificate](~~330877~~)
-    * To ensure the security of private key transmission, the DescribeCertificatePrivateKey operation encrypts the private key by using the private key password that you specify and returns the encrypted private key. The private key password is an string that is used to encrypt the private key. After you obtain the encrypted private key of the certificate, you can use the following methods to decrypt the private key:
+    * To ensure the security of private key transmission, the DescribeCertificatePrivateKey operation encrypts the private key by using the private key password that you specify and returns the encrypted private key. The private key password is a string that is used to encrypt the private key. After you obtain the encrypted private key of the certificate, you can use the following methods to decrypt the private key:
     * *   If the encryption algorithm of the certificate is RSA, you must run the `openssl rsa -in <Encrypted private key file> -passin pass:<Private key password> -out <Decrypted private key file>` command in the computer on which [OpenSSL](https://www.openssl.org/source/) or [BabaSSL](https://github.com/BabaSSL/BabaSSL) is installed.
     * *   If the encryption algorithm of the certificate is ECC, you must run the `openssl ec -in <Encrypted private key file> -passin pass:<Private key password> -out <Decrypted private key file>` command in the computer on which [OpenSSL](https://www.openssl.org/source/) or [BabaSSL](https://github.com/BabaSSL/BabaSSL) is installed.
     * *   If the encryption algorithm of the certificate is SM2, you must run the `openssl ec -in <Encrypted private key file> -passin pass:<Private key password> -out <Decrypted private key file>` command in the computer on which [BabaSSL](https://github.com/BabaSSL/BabaSSL) is installed.
@@ -3240,16 +3289,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-    * You can call the DescribeClientCertificate operation to query the details about a client certificate or a server certificate by using the unique identifier of the certificate. The details include the serial number, user information, content, and status of each certificate.
-    * Before you call this operation, make sure that you have created a client certificate or a server certificate.
-    * For more information about how to call an operation to create a client certificate, see the following topics:
-    * *   [CreateClientCertificate](~~330873~~)
-    * *   [CreateClientCertificateWithCsr](~~330875~~)
-    * For more information about how to call an operation to create a server certificate, see the following topics:
-    * *   [CreateServerCertificate](~~330877~~)
-    * *   [CreateServerCertificateWithCsr](~~330878~~)
-    * ## Limits
-    * You can call this operation up to 10 times per second per account. If the number of the calls per second exceeds the limit, throttling is triggered. As a result, your business may be affected. We recommend that you take note of the limit when you call this operation.
+    * The name of the organization. The organization is associated with the intermediate certificate from which the certificate is issued.
     *
     * @param request DescribeClientCertificateRequest
     * @param runtime runtime options for this request RuntimeOptions
@@ -3280,16 +3320,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-    * You can call the DescribeClientCertificate operation to query the details about a client certificate or a server certificate by using the unique identifier of the certificate. The details include the serial number, user information, content, and status of each certificate.
-    * Before you call this operation, make sure that you have created a client certificate or a server certificate.
-    * For more information about how to call an operation to create a client certificate, see the following topics:
-    * *   [CreateClientCertificate](~~330873~~)
-    * *   [CreateClientCertificateWithCsr](~~330875~~)
-    * For more information about how to call an operation to create a server certificate, see the following topics:
-    * *   [CreateServerCertificate](~~330877~~)
-    * *   [CreateServerCertificateWithCsr](~~330878~~)
-    * ## Limits
-    * You can call this operation up to 10 times per second per account. If the number of the calls per second exceeds the limit, throttling is triggered. As a result, your business may be affected. We recommend that you take note of the limit when you call this operation.
+    * The name of the organization. The organization is associated with the intermediate certificate from which the certificate is issued.
     *
     * @param request DescribeClientCertificateRequest
     * @return DescribeClientCertificateResponse
@@ -3299,15 +3330,6 @@ export default class Client extends OpenApi {
     return await this.describeClientCertificateWithOptions(request, runtime);
   }
 
-  /**
-    * You can call the DescribeClientCertificateStatus operation to query the status information about multiple client certificates or server certificates at a time by using the unique identifiers of the certificates. For example, you can check whether a certificate is revoked.
-    * ## Limits
-    * You can call this operation up to 10 times per second per account. If the number of the calls per second exceeds the limit, throttling is triggered. As a result, your business may be affected. We recommend that you take note of the limit when you call this operation.
-    *
-    * @param request DescribeClientCertificateStatusRequest
-    * @param runtime runtime options for this request RuntimeOptions
-    * @return DescribeClientCertificateStatusResponse
-   */
   async describeClientCertificateStatusWithOptions(request: DescribeClientCertificateStatusRequest, runtime: $Util.RuntimeOptions): Promise<DescribeClientCertificateStatusResponse> {
     Util.validateModel(request);
     let query = { };
@@ -3332,24 +3354,14 @@ export default class Client extends OpenApi {
     return $tea.cast<DescribeClientCertificateStatusResponse>(await this.callApi(params, req, runtime), new DescribeClientCertificateStatusResponse({}));
   }
 
-  /**
-    * You can call the DescribeClientCertificateStatus operation to query the status information about multiple client certificates or server certificates at a time by using the unique identifiers of the certificates. For example, you can check whether a certificate is revoked.
-    * ## Limits
-    * You can call this operation up to 10 times per second per account. If the number of the calls per second exceeds the limit, throttling is triggered. As a result, your business may be affected. We recommend that you take note of the limit when you call this operation.
-    *
-    * @param request DescribeClientCertificateStatusRequest
-    * @return DescribeClientCertificateStatusResponse
-   */
   async describeClientCertificateStatus(request: DescribeClientCertificateStatusRequest): Promise<DescribeClientCertificateStatusResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.describeClientCertificateStatusWithOptions(request, runtime);
   }
 
   /**
-    * You can call the GetCAInstanceStatus operation to query the status information about a private CA instance by using the ID of the instance. The instance is purchased by using the Certificate Management Service console. The status information includes the status of the private CA instance, the number of certificates that can be issued by using the private CA instance, and the number of issued certificates.
-    * Before you call this operation, make sure that you have purchased a private CA by using the [Certificate Management Service console](https://yundun.console.aliyun.com/?p=cas#/pca/rootlist). For more information, see [Create a private CA](~~208553~~).
-    * ## Limits
-    * You can call this operation up to 10 times per second per account. If the number of the calls per second exceeds the limit, throttling is triggered. As a result, your business may be affected. We recommend that you take note of the limit when you call this operation.
+    * The unique identifier of the private CA certificate.
+    * >  This parameter is returned only when the value of the **Status** parameter is **USED** or **REVOKE**. The value USED indicates that the private CA instance is enabled, and the value REVOKE indicates that the instance is revoked.
     *
     * @param request GetCAInstanceStatusRequest
     * @param runtime runtime options for this request RuntimeOptions
@@ -3358,6 +3370,10 @@ export default class Client extends OpenApi {
   async getCAInstanceStatusWithOptions(request: GetCAInstanceStatusRequest, runtime: $Util.RuntimeOptions): Promise<GetCAInstanceStatusResponse> {
     Util.validateModel(request);
     let query = { };
+    if (!Util.isUnset(request.identifier)) {
+      query["Identifier"] = request.identifier;
+    }
+
     if (!Util.isUnset(request.instanceId)) {
       query["InstanceId"] = request.instanceId;
     }
@@ -3380,10 +3396,8 @@ export default class Client extends OpenApi {
   }
 
   /**
-    * You can call the GetCAInstanceStatus operation to query the status information about a private CA instance by using the ID of the instance. The instance is purchased by using the Certificate Management Service console. The status information includes the status of the private CA instance, the number of certificates that can be issued by using the private CA instance, and the number of issued certificates.
-    * Before you call this operation, make sure that you have purchased a private CA by using the [Certificate Management Service console](https://yundun.console.aliyun.com/?p=cas#/pca/rootlist). For more information, see [Create a private CA](~~208553~~).
-    * ## Limits
-    * You can call this operation up to 10 times per second per account. If the number of the calls per second exceeds the limit, throttling is triggered. As a result, your business may be affected. We recommend that you take note of the limit when you call this operation.
+    * The unique identifier of the private CA certificate.
+    * >  This parameter is returned only when the value of the **Status** parameter is **USED** or **REVOKE**. The value USED indicates that the private CA instance is enabled, and the value REVOKE indicates that the instance is revoked.
     *
     * @param request GetCAInstanceStatusRequest
     * @return GetCAInstanceStatusResponse
@@ -3407,6 +3421,10 @@ export default class Client extends OpenApi {
     let query = { };
     if (!Util.isUnset(request.currentPage)) {
       query["CurrentPage"] = request.currentPage;
+    }
+
+    if (!Util.isUnset(request.identifier)) {
+      query["Identifier"] = request.identifier;
     }
 
     if (!Util.isUnset(request.showSize)) {
@@ -3444,9 +3462,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-    * You can call the ListRevokeCertificate operation to perform a paged query of the details about all revoked client certificates and server certificates. The details include the unique identifier, serial number, and revocation date of each certificate.
-    * ## Limits
-    * You can call this operation up to 10 times per second per account. If the number of the calls per second exceeds the limit, throttling is triggered. As a result, your business may be affected. We recommend that you take note of the limit when you call this operation.
+    * The total number of revoked client certificates and server certificates that are returned.
     *
     * @param request ListRevokeCertificateRequest
     * @param runtime runtime options for this request RuntimeOptions
@@ -3481,9 +3497,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-    * You can call the ListRevokeCertificate operation to perform a paged query of the details about all revoked client certificates and server certificates. The details include the unique identifier, serial number, and revocation date of each certificate.
-    * ## Limits
-    * You can call this operation up to 10 times per second per account. If the number of the calls per second exceeds the limit, throttling is triggered. As a result, your business may be affected. We recommend that you take note of the limit when you call this operation.
+    * The total number of revoked client certificates and server certificates that are returned.
     *
     * @param request ListRevokeCertificateRequest
     * @return ListRevokeCertificateResponse
@@ -3493,16 +3507,6 @@ export default class Client extends OpenApi {
     return await this.listRevokeCertificateWithOptions(request, runtime);
   }
 
-  /**
-    * After a CA certificate is created, the CA certificate is in the ISSUE state by default. You can call the UpdateCACertificateStatus operation to change the status of a CA certificate from ISSUE to REVOKE. If a CA certificate is in the ISSUE state, the CA certificate can be used to issue certificates. If a CA certificate is in the REVOKE state, the CA certificate cannot be used to issue certificates, and the certificates that are issued from the CA certificate become invalid.
-    * Before you call this operation, make sure that you have created a root CA by calling the [CreateRootCACertificate](~~328093~~) operation or an intermediate CA certificate by calling the [CreateSubCACertificate](~~328094~~) operation.
-    * ## Limits
-    * You can call this operation up to 10 times per second per account. If the number of the calls per second exceeds the limit, throttling is triggered. As a result, your business may be affected. We recommend that you take note of the limit when you call this operation.
-    *
-    * @param request UpdateCACertificateStatusRequest
-    * @param runtime runtime options for this request RuntimeOptions
-    * @return UpdateCACertificateStatusResponse
-   */
   async updateCACertificateStatusWithOptions(request: UpdateCACertificateStatusRequest, runtime: $Util.RuntimeOptions): Promise<UpdateCACertificateStatusResponse> {
     Util.validateModel(request);
     let query = { };
@@ -3531,15 +3535,6 @@ export default class Client extends OpenApi {
     return $tea.cast<UpdateCACertificateStatusResponse>(await this.callApi(params, req, runtime), new UpdateCACertificateStatusResponse({}));
   }
 
-  /**
-    * After a CA certificate is created, the CA certificate is in the ISSUE state by default. You can call the UpdateCACertificateStatus operation to change the status of a CA certificate from ISSUE to REVOKE. If a CA certificate is in the ISSUE state, the CA certificate can be used to issue certificates. If a CA certificate is in the REVOKE state, the CA certificate cannot be used to issue certificates, and the certificates that are issued from the CA certificate become invalid.
-    * Before you call this operation, make sure that you have created a root CA by calling the [CreateRootCACertificate](~~328093~~) operation or an intermediate CA certificate by calling the [CreateSubCACertificate](~~328094~~) operation.
-    * ## Limits
-    * You can call this operation up to 10 times per second per account. If the number of the calls per second exceeds the limit, throttling is triggered. As a result, your business may be affected. We recommend that you take note of the limit when you call this operation.
-    *
-    * @param request UpdateCACertificateStatusRequest
-    * @return UpdateCACertificateStatusResponse
-   */
   async updateCACertificateStatus(request: UpdateCACertificateStatusRequest): Promise<UpdateCACertificateStatusResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.updateCACertificateStatusWithOptions(request, runtime);
