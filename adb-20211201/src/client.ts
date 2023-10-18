@@ -10557,6 +10557,7 @@ export class DescribeDBClusterAttributeResponseBodyItemsDBCluster extends $tea.M
   resourceGroupId?: string;
   storageResource?: string;
   storageResourceTotal?: string;
+  supportedFeatures?: { [key: string]: string };
   tags?: DescribeDBClusterAttributeResponseBodyItemsDBClusterTags;
   userENIStatus?: boolean;
   VPCId?: string;
@@ -10590,6 +10591,7 @@ export class DescribeDBClusterAttributeResponseBodyItemsDBCluster extends $tea.M
       resourceGroupId: 'ResourceGroupId',
       storageResource: 'StorageResource',
       storageResourceTotal: 'StorageResourceTotal',
+      supportedFeatures: 'SupportedFeatures',
       tags: 'Tags',
       userENIStatus: 'UserENIStatus',
       VPCId: 'VPCId',
@@ -10626,6 +10628,7 @@ export class DescribeDBClusterAttributeResponseBodyItemsDBCluster extends $tea.M
       resourceGroupId: 'string',
       storageResource: 'string',
       storageResourceTotal: 'string',
+      supportedFeatures: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
       tags: DescribeDBClusterAttributeResponseBodyItemsDBClusterTags,
       userENIStatus: 'boolean',
       VPCId: 'string',
