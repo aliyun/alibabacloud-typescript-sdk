@@ -16,6 +16,7 @@ export class CreateInstanceRequest extends $tea.Model {
   cpu?: number;
   duration?: number;
   gatewayCount?: number;
+  initialDatabases?: string;
   instanceName?: string;
   instanceType?: string;
   leaderInstanceId?: string;
@@ -35,6 +36,7 @@ export class CreateInstanceRequest extends $tea.Model {
       cpu: 'cpu',
       duration: 'duration',
       gatewayCount: 'gatewayCount',
+      initialDatabases: 'initialDatabases',
       instanceName: 'instanceName',
       instanceType: 'instanceType',
       leaderInstanceId: 'leaderInstanceId',
@@ -57,6 +59,7 @@ export class CreateInstanceRequest extends $tea.Model {
       cpu: 'number',
       duration: 'number',
       gatewayCount: 'number',
+      initialDatabases: 'string',
       instanceName: 'string',
       instanceType: 'string',
       leaderInstanceId: 'string',
@@ -1334,6 +1337,10 @@ export default class Client extends OpenApi {
 
     if (!Util.isUnset(request.gatewayCount)) {
       body["gatewayCount"] = request.gatewayCount;
+    }
+
+    if (!Util.isUnset(request.initialDatabases)) {
+      body["initialDatabases"] = request.initialDatabases;
     }
 
     if (!Util.isUnset(request.instanceName)) {
