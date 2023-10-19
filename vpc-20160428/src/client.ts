@@ -3627,6 +3627,7 @@ export class CreateCustomerGatewayRequest extends $tea.Model {
   ownerAccount?: string;
   ownerId?: number;
   regionId?: string;
+  resourceGroupId?: string;
   resourceOwnerAccount?: string;
   resourceOwnerId?: number;
   tags?: CreateCustomerGatewayRequestTags[];
@@ -3641,6 +3642,7 @@ export class CreateCustomerGatewayRequest extends $tea.Model {
       ownerAccount: 'OwnerAccount',
       ownerId: 'OwnerId',
       regionId: 'RegionId',
+      resourceGroupId: 'ResourceGroupId',
       resourceOwnerAccount: 'ResourceOwnerAccount',
       resourceOwnerId: 'ResourceOwnerId',
       tags: 'Tags',
@@ -3658,6 +3660,7 @@ export class CreateCustomerGatewayRequest extends $tea.Model {
       ownerAccount: 'string',
       ownerId: 'number',
       regionId: 'string',
+      resourceGroupId: 'string',
       resourceOwnerAccount: 'string',
       resourceOwnerId: 'number',
       tags: { 'type': 'array', 'itemType': CreateCustomerGatewayRequestTags },
@@ -8402,6 +8405,7 @@ export class CreateVpnAttachmentRequest extends $tea.Model {
   regionId?: string;
   remoteCaCert?: string;
   remoteSubnet?: string;
+  resourceGroupId?: string;
   resourceOwnerAccount?: string;
   resourceOwnerId?: number;
   tags?: CreateVpnAttachmentRequestTags[];
@@ -8424,6 +8428,7 @@ export class CreateVpnAttachmentRequest extends $tea.Model {
       regionId: 'RegionId',
       remoteCaCert: 'RemoteCaCert',
       remoteSubnet: 'RemoteSubnet',
+      resourceGroupId: 'ResourceGroupId',
       resourceOwnerAccount: 'ResourceOwnerAccount',
       resourceOwnerId: 'ResourceOwnerId',
       tags: 'Tags',
@@ -8449,6 +8454,7 @@ export class CreateVpnAttachmentRequest extends $tea.Model {
       regionId: 'string',
       remoteCaCert: 'string',
       remoteSubnet: 'string',
+      resourceGroupId: 'string',
       resourceOwnerAccount: 'string',
       resourceOwnerId: 'number',
       tags: { 'type': 'array', 'itemType': CreateVpnAttachmentRequestTags },
@@ -8674,6 +8680,7 @@ export class CreateVpnGatewayRequest extends $tea.Model {
   ownerId?: number;
   period?: number;
   regionId?: string;
+  resourceGroupId?: string;
   resourceOwnerAccount?: string;
   resourceOwnerId?: number;
   sslConnections?: number;
@@ -8695,6 +8702,7 @@ export class CreateVpnGatewayRequest extends $tea.Model {
       ownerId: 'OwnerId',
       period: 'Period',
       regionId: 'RegionId',
+      resourceGroupId: 'ResourceGroupId',
       resourceOwnerAccount: 'ResourceOwnerAccount',
       resourceOwnerId: 'ResourceOwnerId',
       sslConnections: 'SslConnections',
@@ -8719,6 +8727,7 @@ export class CreateVpnGatewayRequest extends $tea.Model {
       ownerId: 'number',
       period: 'number',
       regionId: 'string',
+      resourceGroupId: 'string',
       resourceOwnerAccount: 'string',
       resourceOwnerId: 'number',
       sslConnections: 'number',
@@ -13902,6 +13911,7 @@ export class DescribeCustomerGatewayResponseBody extends $tea.Model {
   ipAddress?: string;
   name?: string;
   requestId?: string;
+  resourceGroupId?: string;
   tags?: DescribeCustomerGatewayResponseBodyTags;
   static names(): { [key: string]: string } {
     return {
@@ -13913,6 +13923,7 @@ export class DescribeCustomerGatewayResponseBody extends $tea.Model {
       ipAddress: 'IpAddress',
       name: 'Name',
       requestId: 'RequestId',
+      resourceGroupId: 'ResourceGroupId',
       tags: 'Tags',
     };
   }
@@ -13927,6 +13938,7 @@ export class DescribeCustomerGatewayResponseBody extends $tea.Model {
       ipAddress: 'string',
       name: 'string',
       requestId: 'string',
+      resourceGroupId: 'string',
       tags: DescribeCustomerGatewayResponseBodyTags,
     };
   }
@@ -13968,6 +13980,7 @@ export class DescribeCustomerGatewaysRequest extends $tea.Model {
   pageNumber?: number;
   pageSize?: number;
   regionId?: string;
+  resourceGroupId?: string;
   resourceOwnerAccount?: string;
   resourceOwnerId?: number;
   tag?: DescribeCustomerGatewaysRequestTag[];
@@ -13979,6 +13992,7 @@ export class DescribeCustomerGatewaysRequest extends $tea.Model {
       pageNumber: 'PageNumber',
       pageSize: 'PageSize',
       regionId: 'RegionId',
+      resourceGroupId: 'ResourceGroupId',
       resourceOwnerAccount: 'ResourceOwnerAccount',
       resourceOwnerId: 'ResourceOwnerId',
       tag: 'Tag',
@@ -13993,6 +14007,7 @@ export class DescribeCustomerGatewaysRequest extends $tea.Model {
       pageNumber: 'number',
       pageSize: 'number',
       regionId: 'string',
+      resourceGroupId: 'string',
       resourceOwnerAccount: 'string',
       resourceOwnerId: 'number',
       tag: { 'type': 'array', 'itemType': DescribeCustomerGatewaysRequestTag },
@@ -17740,6 +17755,7 @@ export class DescribeSslVpnClientCertResponseBody extends $tea.Model {
   name?: string;
   regionId?: string;
   requestId?: string;
+  resourceGroupId?: string;
   sslVpnClientCertId?: string;
   sslVpnServerId?: string;
   status?: string;
@@ -17754,6 +17770,7 @@ export class DescribeSslVpnClientCertResponseBody extends $tea.Model {
       name: 'Name',
       regionId: 'RegionId',
       requestId: 'RequestId',
+      resourceGroupId: 'ResourceGroupId',
       sslVpnClientCertId: 'SslVpnClientCertId',
       sslVpnServerId: 'SslVpnServerId',
       status: 'Status',
@@ -17771,6 +17788,7 @@ export class DescribeSslVpnClientCertResponseBody extends $tea.Model {
       name: 'string',
       regionId: 'string',
       requestId: 'string',
+      resourceGroupId: 'string',
       sslVpnClientCertId: 'string',
       sslVpnServerId: 'string',
       status: 'string',
@@ -17814,6 +17832,7 @@ export class DescribeSslVpnClientCertsRequest extends $tea.Model {
   pageNumber?: number;
   pageSize?: number;
   regionId?: string;
+  resourceGroupId?: string;
   resourceOwnerAccount?: string;
   resourceOwnerId?: number;
   sslVpnClientCertId?: string;
@@ -17826,6 +17845,7 @@ export class DescribeSslVpnClientCertsRequest extends $tea.Model {
       pageNumber: 'PageNumber',
       pageSize: 'PageSize',
       regionId: 'RegionId',
+      resourceGroupId: 'ResourceGroupId',
       resourceOwnerAccount: 'ResourceOwnerAccount',
       resourceOwnerId: 'ResourceOwnerId',
       sslVpnClientCertId: 'SslVpnClientCertId',
@@ -17841,6 +17861,7 @@ export class DescribeSslVpnClientCertsRequest extends $tea.Model {
       pageNumber: 'number',
       pageSize: 'number',
       regionId: 'string',
+      resourceGroupId: 'string',
       resourceOwnerAccount: 'string',
       resourceOwnerId: 'number',
       sslVpnClientCertId: 'string',
@@ -18018,6 +18039,7 @@ export class DescribeSslVpnServersRequest extends $tea.Model {
   pageNumber?: number;
   pageSize?: number;
   regionId?: string;
+  resourceGroupId?: string;
   resourceOwnerAccount?: string;
   resourceOwnerId?: number;
   sslVpnServerId?: string;
@@ -18030,6 +18052,7 @@ export class DescribeSslVpnServersRequest extends $tea.Model {
       pageNumber: 'PageNumber',
       pageSize: 'PageSize',
       regionId: 'RegionId',
+      resourceGroupId: 'ResourceGroupId',
       resourceOwnerAccount: 'ResourceOwnerAccount',
       resourceOwnerId: 'ResourceOwnerId',
       sslVpnServerId: 'SslVpnServerId',
@@ -18045,6 +18068,7 @@ export class DescribeSslVpnServersRequest extends $tea.Model {
       pageNumber: 'number',
       pageSize: 'number',
       regionId: 'string',
+      resourceGroupId: 'string',
       resourceOwnerAccount: 'string',
       resourceOwnerId: 'number',
       sslVpnServerId: 'string',
@@ -19588,6 +19612,7 @@ export class DescribeVpnConnectionResponseBody extends $tea.Model {
   remoteCaCertificate?: string;
   remoteSubnet?: string;
   requestId?: string;
+  resourceGroupId?: string;
   spec?: string;
   state?: string;
   status?: string;
@@ -19620,6 +19645,7 @@ export class DescribeVpnConnectionResponseBody extends $tea.Model {
       remoteCaCertificate: 'RemoteCaCertificate',
       remoteSubnet: 'RemoteSubnet',
       requestId: 'RequestId',
+      resourceGroupId: 'ResourceGroupId',
       spec: 'Spec',
       state: 'State',
       status: 'Status',
@@ -19655,6 +19681,7 @@ export class DescribeVpnConnectionResponseBody extends $tea.Model {
       remoteCaCertificate: 'string',
       remoteSubnet: 'string',
       requestId: 'string',
+      resourceGroupId: 'string',
       spec: 'string',
       state: 'string',
       status: 'string',
@@ -19818,6 +19845,7 @@ export class DescribeVpnConnectionsRequest extends $tea.Model {
   pageNumber?: number;
   pageSize?: number;
   regionId?: string;
+  resourceGroupId?: string;
   resourceOwnerAccount?: string;
   resourceOwnerId?: number;
   tag?: DescribeVpnConnectionsRequestTag[];
@@ -19831,6 +19859,7 @@ export class DescribeVpnConnectionsRequest extends $tea.Model {
       pageNumber: 'PageNumber',
       pageSize: 'PageSize',
       regionId: 'RegionId',
+      resourceGroupId: 'ResourceGroupId',
       resourceOwnerAccount: 'ResourceOwnerAccount',
       resourceOwnerId: 'ResourceOwnerId',
       tag: 'Tag',
@@ -19847,6 +19876,7 @@ export class DescribeVpnConnectionsRequest extends $tea.Model {
       pageNumber: 'number',
       pageSize: 'number',
       regionId: 'string',
+      resourceGroupId: 'string',
       resourceOwnerAccount: 'string',
       resourceOwnerId: 'number',
       tag: { 'type': 'array', 'itemType': DescribeVpnConnectionsRequestTag },
@@ -20065,6 +20095,7 @@ export class DescribeVpnGatewayResponseBody extends $tea.Model {
   networkType?: string;
   requestId?: string;
   reservationData?: DescribeVpnGatewayResponseBodyReservationData;
+  resourceGroupId?: string;
   spec?: string;
   sslMaxConnections?: number;
   sslVpn?: string;
@@ -20093,6 +20124,7 @@ export class DescribeVpnGatewayResponseBody extends $tea.Model {
       networkType: 'NetworkType',
       requestId: 'RequestId',
       reservationData: 'ReservationData',
+      resourceGroupId: 'ResourceGroupId',
       spec: 'Spec',
       sslMaxConnections: 'SslMaxConnections',
       sslVpn: 'SslVpn',
@@ -20124,6 +20156,7 @@ export class DescribeVpnGatewayResponseBody extends $tea.Model {
       networkType: 'string',
       requestId: 'string',
       reservationData: DescribeVpnGatewayResponseBodyReservationData,
+      resourceGroupId: 'string',
       spec: 'string',
       sslMaxConnections: 'number',
       sslVpn: 'string',
@@ -20176,6 +20209,7 @@ export class DescribeVpnGatewaysRequest extends $tea.Model {
   pageNumber?: number;
   pageSize?: number;
   regionId?: string;
+  resourceGroupId?: string;
   resourceOwnerAccount?: string;
   resourceOwnerId?: number;
   status?: string;
@@ -20191,6 +20225,7 @@ export class DescribeVpnGatewaysRequest extends $tea.Model {
       pageNumber: 'PageNumber',
       pageSize: 'PageSize',
       regionId: 'RegionId',
+      resourceGroupId: 'ResourceGroupId',
       resourceOwnerAccount: 'ResourceOwnerAccount',
       resourceOwnerId: 'ResourceOwnerId',
       status: 'Status',
@@ -20209,6 +20244,7 @@ export class DescribeVpnGatewaysRequest extends $tea.Model {
       pageNumber: 'number',
       pageSize: 'number',
       regionId: 'string',
+      resourceGroupId: 'string',
       resourceOwnerAccount: 'string',
       resourceOwnerId: 'number',
       status: 'string',
@@ -23549,6 +23585,7 @@ export class ListIpsecServersRequest extends $tea.Model {
   maxResults?: number;
   nextToken?: string;
   regionId?: string;
+  resourceGroupId?: string;
   vpnGatewayId?: string;
   static names(): { [key: string]: string } {
     return {
@@ -23557,6 +23594,7 @@ export class ListIpsecServersRequest extends $tea.Model {
       maxResults: 'MaxResults',
       nextToken: 'NextToken',
       regionId: 'RegionId',
+      resourceGroupId: 'ResourceGroupId',
       vpnGatewayId: 'VpnGatewayId',
     };
   }
@@ -23568,6 +23606,7 @@ export class ListIpsecServersRequest extends $tea.Model {
       maxResults: 'number',
       nextToken: 'string',
       regionId: 'string',
+      resourceGroupId: 'string',
       vpnGatewayId: 'string',
     };
   }
@@ -25597,6 +25636,7 @@ export class ModifyCustomerGatewayAttributeResponseBody extends $tea.Model {
   ipAddress?: string;
   name?: string;
   requestId?: string;
+  resourceGroupId?: string;
   static names(): { [key: string]: string } {
     return {
       createTime: 'CreateTime',
@@ -25605,6 +25645,7 @@ export class ModifyCustomerGatewayAttributeResponseBody extends $tea.Model {
       ipAddress: 'IpAddress',
       name: 'Name',
       requestId: 'RequestId',
+      resourceGroupId: 'ResourceGroupId',
     };
   }
 
@@ -25616,6 +25657,7 @@ export class ModifyCustomerGatewayAttributeResponseBody extends $tea.Model {
       ipAddress: 'string',
       name: 'string',
       requestId: 'string',
+      resourceGroupId: 'string',
     };
   }
 
@@ -28357,6 +28399,7 @@ export class ModifySslVpnServerResponseBody extends $tea.Model {
   proto?: string;
   regionId?: string;
   requestId?: string;
+  resourceGroupId?: string;
   sslVpnServerId?: string;
   vpnGatewayId?: string;
   static names(): { [key: string]: string } {
@@ -28376,6 +28419,7 @@ export class ModifySslVpnServerResponseBody extends $tea.Model {
       proto: 'Proto',
       regionId: 'RegionId',
       requestId: 'RequestId',
+      resourceGroupId: 'ResourceGroupId',
       sslVpnServerId: 'SslVpnServerId',
       vpnGatewayId: 'VpnGatewayId',
     };
@@ -28398,6 +28442,7 @@ export class ModifySslVpnServerResponseBody extends $tea.Model {
       proto: 'string',
       regionId: 'string',
       requestId: 'string',
+      resourceGroupId: 'string',
       sslVpnServerId: 'string',
       vpnGatewayId: 'string',
     };
@@ -29245,6 +29290,7 @@ export class ModifyVpnAttachmentAttributeResponseBody extends $tea.Model {
   networkType?: string;
   remoteSubnet?: string;
   requestId?: string;
+  resourceGroupId?: string;
   spec?: string;
   status?: string;
   vcoHealthCheck?: ModifyVpnAttachmentAttributeResponseBodyVcoHealthCheck;
@@ -29268,6 +29314,7 @@ export class ModifyVpnAttachmentAttributeResponseBody extends $tea.Model {
       networkType: 'NetworkType',
       remoteSubnet: 'RemoteSubnet',
       requestId: 'RequestId',
+      resourceGroupId: 'ResourceGroupId',
       spec: 'Spec',
       status: 'Status',
       vcoHealthCheck: 'VcoHealthCheck',
@@ -29294,6 +29341,7 @@ export class ModifyVpnAttachmentAttributeResponseBody extends $tea.Model {
       networkType: 'string',
       remoteSubnet: 'string',
       requestId: 'string',
+      resourceGroupId: 'string',
       spec: 'string',
       status: 'string',
       vcoHealthCheck: ModifyVpnAttachmentAttributeResponseBodyVcoHealthCheck,
@@ -29426,6 +29474,7 @@ export class ModifyVpnConnectionAttributeResponseBody extends $tea.Model {
   name?: string;
   remoteSubnet?: string;
   requestId?: string;
+  resourceGroupId?: string;
   tunnelOptionsSpecification?: ModifyVpnConnectionAttributeResponseBodyTunnelOptionsSpecification;
   vcoHealthCheck?: ModifyVpnConnectionAttributeResponseBodyVcoHealthCheck;
   vpnBgpConfig?: ModifyVpnConnectionAttributeResponseBodyVpnBgpConfig;
@@ -29446,6 +29495,7 @@ export class ModifyVpnConnectionAttributeResponseBody extends $tea.Model {
       name: 'Name',
       remoteSubnet: 'RemoteSubnet',
       requestId: 'RequestId',
+      resourceGroupId: 'ResourceGroupId',
       tunnelOptionsSpecification: 'TunnelOptionsSpecification',
       vcoHealthCheck: 'VcoHealthCheck',
       vpnBgpConfig: 'VpnBgpConfig',
@@ -29469,6 +29519,7 @@ export class ModifyVpnConnectionAttributeResponseBody extends $tea.Model {
       name: 'string',
       remoteSubnet: 'string',
       requestId: 'string',
+      resourceGroupId: 'string',
       tunnelOptionsSpecification: ModifyVpnConnectionAttributeResponseBodyTunnelOptionsSpecification,
       vcoHealthCheck: ModifyVpnConnectionAttributeResponseBodyVcoHealthCheck,
       vpnBgpConfig: ModifyVpnConnectionAttributeResponseBodyVpnBgpConfig,
@@ -29566,6 +29617,7 @@ export class ModifyVpnGatewayAttributeResponseBody extends $tea.Model {
   intranetIp?: string;
   name?: string;
   requestId?: string;
+  resourceGroupId?: string;
   spec?: string;
   sslVpnInternetIp?: string;
   status?: string;
@@ -29586,6 +29638,7 @@ export class ModifyVpnGatewayAttributeResponseBody extends $tea.Model {
       intranetIp: 'IntranetIp',
       name: 'Name',
       requestId: 'RequestId',
+      resourceGroupId: 'ResourceGroupId',
       spec: 'Spec',
       sslVpnInternetIp: 'SslVpnInternetIp',
       status: 'Status',
@@ -29609,6 +29662,7 @@ export class ModifyVpnGatewayAttributeResponseBody extends $tea.Model {
       intranetIp: 'string',
       name: 'string',
       requestId: 'string',
+      resourceGroupId: 'string',
       spec: 'string',
       sslVpnInternetIp: 'string',
       status: 'string',
@@ -36272,6 +36326,7 @@ export class DescribeCustomerGatewaysResponseBodyCustomerGatewaysCustomerGateway
   description?: string;
   ipAddress?: string;
   name?: string;
+  resourceGroupId?: string;
   tags?: DescribeCustomerGatewaysResponseBodyCustomerGatewaysCustomerGatewayTags;
   static names(): { [key: string]: string } {
     return {
@@ -36282,6 +36337,7 @@ export class DescribeCustomerGatewaysResponseBodyCustomerGatewaysCustomerGateway
       description: 'Description',
       ipAddress: 'IpAddress',
       name: 'Name',
+      resourceGroupId: 'ResourceGroupId',
       tags: 'Tags',
     };
   }
@@ -36295,6 +36351,7 @@ export class DescribeCustomerGatewaysResponseBodyCustomerGatewaysCustomerGateway
       description: 'string',
       ipAddress: 'string',
       name: 'string',
+      resourceGroupId: 'string',
       tags: DescribeCustomerGatewaysResponseBodyCustomerGatewaysCustomerGatewayTags,
     };
   }
@@ -40263,6 +40320,7 @@ export class DescribeSslVpnClientCertsResponseBodySslVpnClientCertKeysSslVpnClie
   endTime?: number;
   name?: string;
   regionId?: string;
+  resourceGroupId?: string;
   sslVpnClientCertId?: string;
   sslVpnServerId?: string;
   status?: string;
@@ -40272,6 +40330,7 @@ export class DescribeSslVpnClientCertsResponseBodySslVpnClientCertKeysSslVpnClie
       endTime: 'EndTime',
       name: 'Name',
       regionId: 'RegionId',
+      resourceGroupId: 'ResourceGroupId',
       sslVpnClientCertId: 'SslVpnClientCertId',
       sslVpnServerId: 'SslVpnServerId',
       status: 'Status',
@@ -40284,6 +40343,7 @@ export class DescribeSslVpnClientCertsResponseBodySslVpnClientCertKeysSslVpnClie
       endTime: 'number',
       name: 'string',
       regionId: 'string',
+      resourceGroupId: 'string',
       sslVpnClientCertId: 'string',
       sslVpnServerId: 'string',
       status: 'string',
@@ -40370,6 +40430,7 @@ export class DescribeSslVpnServersResponseBodySslVpnServersSslVpnServer extends 
   port?: number;
   proto?: string;
   regionId?: string;
+  resourceGroupId?: string;
   sslVpnServerId?: string;
   vpnGatewayId?: string;
   static names(): { [key: string]: string } {
@@ -40389,6 +40450,7 @@ export class DescribeSslVpnServersResponseBodySslVpnServersSslVpnServer extends 
       port: 'Port',
       proto: 'Proto',
       regionId: 'RegionId',
+      resourceGroupId: 'ResourceGroupId',
       sslVpnServerId: 'SslVpnServerId',
       vpnGatewayId: 'VpnGatewayId',
     };
@@ -40411,6 +40473,7 @@ export class DescribeSslVpnServersResponseBodySslVpnServersSslVpnServer extends 
       port: 'number',
       proto: 'string',
       regionId: 'string',
+      resourceGroupId: 'string',
       sslVpnServerId: 'string',
       vpnGatewayId: 'string',
     };
@@ -42777,6 +42840,7 @@ export class DescribeVpnConnectionsResponseBodyVpnConnectionsVpnConnection exten
   networkType?: string;
   remoteCaCertificate?: string;
   remoteSubnet?: string;
+  resourceGroupId?: string;
   spec?: string;
   state?: string;
   status?: string;
@@ -42807,6 +42871,7 @@ export class DescribeVpnConnectionsResponseBodyVpnConnectionsVpnConnection exten
       networkType: 'NetworkType',
       remoteCaCertificate: 'RemoteCaCertificate',
       remoteSubnet: 'RemoteSubnet',
+      resourceGroupId: 'ResourceGroupId',
       spec: 'Spec',
       state: 'State',
       status: 'Status',
@@ -42840,6 +42905,7 @@ export class DescribeVpnConnectionsResponseBodyVpnConnectionsVpnConnection exten
       networkType: 'string',
       remoteCaCertificate: 'string',
       remoteSubnet: 'string',
+      resourceGroupId: 'string',
       spec: 'string',
       state: 'string',
       status: 'string',
@@ -43105,6 +43171,7 @@ export class DescribeVpnGatewaysResponseBodyVpnGatewaysVpnGateway extends $tea.M
   name?: string;
   networkType?: string;
   reservationData?: DescribeVpnGatewaysResponseBodyVpnGatewaysVpnGatewayReservationData;
+  resourceGroupId?: string;
   spec?: string;
   sslMaxConnections?: number;
   sslVpn?: string;
@@ -43132,6 +43199,7 @@ export class DescribeVpnGatewaysResponseBodyVpnGatewaysVpnGateway extends $tea.M
       name: 'Name',
       networkType: 'NetworkType',
       reservationData: 'ReservationData',
+      resourceGroupId: 'ResourceGroupId',
       spec: 'Spec',
       sslMaxConnections: 'SslMaxConnections',
       sslVpn: 'SslVpn',
@@ -43162,6 +43230,7 @@ export class DescribeVpnGatewaysResponseBodyVpnGatewaysVpnGateway extends $tea.M
       name: 'string',
       networkType: 'string',
       reservationData: DescribeVpnGatewaysResponseBodyVpnGatewaysVpnGatewayReservationData,
+      resourceGroupId: 'string',
       spec: 'string',
       sslMaxConnections: 'number',
       sslVpn: 'string',
@@ -44423,6 +44492,7 @@ export class ListIpsecServersResponseBodyIpsecServers extends $tea.Model {
   psk?: string;
   pskEnabled?: boolean;
   regionId?: string;
+  resourceGroupId?: string;
   vpnGatewayId?: string;
   static names(): { [key: string]: string } {
     return {
@@ -44442,6 +44512,7 @@ export class ListIpsecServersResponseBodyIpsecServers extends $tea.Model {
       psk: 'Psk',
       pskEnabled: 'PskEnabled',
       regionId: 'RegionId',
+      resourceGroupId: 'ResourceGroupId',
       vpnGatewayId: 'VpnGatewayId',
     };
   }
@@ -44464,6 +44535,7 @@ export class ListIpsecServersResponseBodyIpsecServers extends $tea.Model {
       psk: 'string',
       pskEnabled: 'boolean',
       regionId: 'string',
+      resourceGroupId: 'string',
       vpnGatewayId: 'string',
     };
   }
@@ -46144,6 +46216,7 @@ export class ModifyVpnConnectionAttributeRequestTunnelOptionsSpecification exten
   enableDpd?: boolean;
   enableNatTraversal?: boolean;
   remoteCaCertificate?: string;
+  role?: string;
   tunnelBgpConfig?: ModifyVpnConnectionAttributeRequestTunnelOptionsSpecificationTunnelBgpConfig;
   tunnelId?: string;
   tunnelIkeConfig?: ModifyVpnConnectionAttributeRequestTunnelOptionsSpecificationTunnelIkeConfig;
@@ -46153,6 +46226,7 @@ export class ModifyVpnConnectionAttributeRequestTunnelOptionsSpecification exten
       enableDpd: 'EnableDpd',
       enableNatTraversal: 'EnableNatTraversal',
       remoteCaCertificate: 'RemoteCaCertificate',
+      role: 'Role',
       tunnelBgpConfig: 'TunnelBgpConfig',
       tunnelId: 'TunnelId',
       tunnelIkeConfig: 'TunnelIkeConfig',
@@ -46165,6 +46239,7 @@ export class ModifyVpnConnectionAttributeRequestTunnelOptionsSpecification exten
       enableDpd: 'boolean',
       enableNatTraversal: 'boolean',
       remoteCaCertificate: 'string',
+      role: 'string',
       tunnelBgpConfig: ModifyVpnConnectionAttributeRequestTunnelOptionsSpecificationTunnelBgpConfig,
       tunnelId: 'string',
       tunnelIkeConfig: ModifyVpnConnectionAttributeRequestTunnelOptionsSpecificationTunnelIkeConfig,
@@ -47015,11 +47090,11 @@ export default class Client extends OpenApi {
   /**
     * *   When you call this operation to associate EIPs with an Internet Shared Bandwidth instance, make sure that the EIPs meet the following requirements:
     *     *   The EIPs use the pay-as-you-go billing method.
-    *     *   The EIPs and the Internet Shared Bandwidth instance belong to the same region.
+    *     *   The EIP and the Internet Shared Bandwidth instance belong to the same region.
     *     *   The line type of the EIPs is the same as that of the Internet Shared Bandwidth instance.
-    * *   **AddCommonBandwidthPackageIps** is an asynchronous operation. After a request is sent, the system returns a request ID and runs the task in the background. You can call the [DescribeCommonBandwidthPackages](~~120309~~) operation to query the status of the task.
-    *     *   If the Internet Shared Bandwidth instance is in the **BINDING** state, the EIPs are being associated with the Internet Shared Bandwidth instance. In this state, you can only query the Internet Shared Bandwidth instance and cannot perform other operations.
-    *     *   If the Internet Shared Bandwidth instance is in the **BINDED** state, the EIPs are associated with the Internet Shared Bandwidth instance.
+    * *   **AddCommonBandwidthPackageIps** is an asynchronous operation. After a request is sent, the system returns a request ID and runs the task in the background. You can call the [DescribeCommonBandwidthPackages](~~DescribeCommonBandwidthPackages~~) operation to query the status of the task.
+    *     *   If the Internet Shared Bandwidth instance is in the **BINDING** state, the EIP is being associated with the Internet Shared Bandwidth instance. In this state, you can only query the Internet Shared Bandwidth instance and cannot perform other operations.
+    *     *   If the Internet Shared Bandwidth instance is in the **BINDED** state, the EIP is associated with the Internet Shared Bandwidth instance.
     *
     * @param request AddCommonBandwidthPackageIpsRequest
     * @param runtime runtime options for this request RuntimeOptions
@@ -47084,11 +47159,11 @@ export default class Client extends OpenApi {
   /**
     * *   When you call this operation to associate EIPs with an Internet Shared Bandwidth instance, make sure that the EIPs meet the following requirements:
     *     *   The EIPs use the pay-as-you-go billing method.
-    *     *   The EIPs and the Internet Shared Bandwidth instance belong to the same region.
+    *     *   The EIP and the Internet Shared Bandwidth instance belong to the same region.
     *     *   The line type of the EIPs is the same as that of the Internet Shared Bandwidth instance.
-    * *   **AddCommonBandwidthPackageIps** is an asynchronous operation. After a request is sent, the system returns a request ID and runs the task in the background. You can call the [DescribeCommonBandwidthPackages](~~120309~~) operation to query the status of the task.
-    *     *   If the Internet Shared Bandwidth instance is in the **BINDING** state, the EIPs are being associated with the Internet Shared Bandwidth instance. In this state, you can only query the Internet Shared Bandwidth instance and cannot perform other operations.
-    *     *   If the Internet Shared Bandwidth instance is in the **BINDED** state, the EIPs are associated with the Internet Shared Bandwidth instance.
+    * *   **AddCommonBandwidthPackageIps** is an asynchronous operation. After a request is sent, the system returns a request ID and runs the task in the background. You can call the [DescribeCommonBandwidthPackages](~~DescribeCommonBandwidthPackages~~) operation to query the status of the task.
+    *     *   If the Internet Shared Bandwidth instance is in the **BINDING** state, the EIP is being associated with the Internet Shared Bandwidth instance. In this state, you can only query the Internet Shared Bandwidth instance and cannot perform other operations.
+    *     *   If the Internet Shared Bandwidth instance is in the **BINDED** state, the EIP is associated with the Internet Shared Bandwidth instance.
     *
     * @param request AddCommonBandwidthPackageIpsRequest
     * @return AddCommonBandwidthPackageIpsResponse
@@ -49891,6 +49966,10 @@ export default class Client extends OpenApi {
 
     if (!Util.isUnset(request.regionId)) {
       query["RegionId"] = request.regionId;
+    }
+
+    if (!Util.isUnset(request.resourceGroupId)) {
+      query["ResourceGroupId"] = request.resourceGroupId;
     }
 
     if (!Util.isUnset(request.resourceOwnerAccount)) {
@@ -54260,6 +54339,10 @@ export default class Client extends OpenApi {
       query["RemoteSubnet"] = request.remoteSubnet;
     }
 
+    if (!Util.isUnset(request.resourceGroupId)) {
+      query["ResourceGroupId"] = request.resourceGroupId;
+    }
+
     if (!Util.isUnset(request.resourceOwnerAccount)) {
       query["ResourceOwnerAccount"] = request.resourceOwnerAccount;
     }
@@ -54518,6 +54601,10 @@ export default class Client extends OpenApi {
 
     if (!Util.isUnset(request.regionId)) {
       query["RegionId"] = request.regionId;
+    }
+
+    if (!Util.isUnset(request.resourceGroupId)) {
+      query["ResourceGroupId"] = request.resourceGroupId;
     }
 
     if (!Util.isUnset(request.resourceOwnerAccount)) {
@@ -58884,6 +58971,10 @@ export default class Client extends OpenApi {
       query["RegionId"] = request.regionId;
     }
 
+    if (!Util.isUnset(request.resourceGroupId)) {
+      query["ResourceGroupId"] = request.resourceGroupId;
+    }
+
     if (!Util.isUnset(request.resourceOwnerAccount)) {
       query["ResourceOwnerAccount"] = request.resourceOwnerAccount;
     }
@@ -61524,6 +61615,10 @@ export default class Client extends OpenApi {
       query["RegionId"] = request.regionId;
     }
 
+    if (!Util.isUnset(request.resourceGroupId)) {
+      query["ResourceGroupId"] = request.resourceGroupId;
+    }
+
     if (!Util.isUnset(request.resourceOwnerAccount)) {
       query["ResourceOwnerAccount"] = request.resourceOwnerAccount;
     }
@@ -61659,6 +61754,10 @@ export default class Client extends OpenApi {
 
     if (!Util.isUnset(request.regionId)) {
       query["RegionId"] = request.regionId;
+    }
+
+    if (!Util.isUnset(request.resourceGroupId)) {
+      query["ResourceGroupId"] = request.resourceGroupId;
     }
 
     if (!Util.isUnset(request.resourceOwnerAccount)) {
@@ -62712,6 +62811,10 @@ export default class Client extends OpenApi {
       query["RegionId"] = request.regionId;
     }
 
+    if (!Util.isUnset(request.resourceGroupId)) {
+      query["ResourceGroupId"] = request.resourceGroupId;
+    }
+
     if (!Util.isUnset(request.resourceOwnerAccount)) {
       query["ResourceOwnerAccount"] = request.resourceOwnerAccount;
     }
@@ -62893,6 +62996,10 @@ export default class Client extends OpenApi {
 
     if (!Util.isUnset(request.regionId)) {
       query["RegionId"] = request.regionId;
+    }
+
+    if (!Util.isUnset(request.resourceGroupId)) {
+      query["ResourceGroupId"] = request.resourceGroupId;
     }
 
     if (!Util.isUnset(request.resourceOwnerAccount)) {
@@ -65087,6 +65194,10 @@ export default class Client extends OpenApi {
 
     if (!Util.isUnset(request.regionId)) {
       query["RegionId"] = request.regionId;
+    }
+
+    if (!Util.isUnset(request.resourceGroupId)) {
+      query["ResourceGroupId"] = request.resourceGroupId;
     }
 
     if (!Util.isUnset(request.vpnGatewayId)) {
