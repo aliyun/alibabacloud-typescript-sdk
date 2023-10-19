@@ -1808,6 +1808,81 @@ export class GetChatappVerifyCodeResponse extends $tea.Model {
   }
 }
 
+export class GetCommerceSettingRequest extends $tea.Model {
+  custSpaceId?: string;
+  phoneNumber?: string;
+  static names(): { [key: string]: string } {
+    return {
+      custSpaceId: 'CustSpaceId',
+      phoneNumber: 'PhoneNumber',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      custSpaceId: 'string',
+      phoneNumber: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class GetCommerceSettingResponseBody extends $tea.Model {
+  code?: string;
+  data?: GetCommerceSettingResponseBodyData;
+  message?: string;
+  requestId?: string;
+  static names(): { [key: string]: string } {
+    return {
+      code: 'Code',
+      data: 'Data',
+      message: 'Message',
+      requestId: 'RequestId',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      code: 'string',
+      data: GetCommerceSettingResponseBodyData,
+      message: 'string',
+      requestId: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class GetCommerceSettingResponse extends $tea.Model {
+  headers: { [key: string]: string };
+  statusCode: number;
+  body: GetCommerceSettingResponseBody;
+  static names(): { [key: string]: string } {
+    return {
+      headers: 'headers',
+      statusCode: 'statusCode',
+      body: 'body',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
+      body: GetCommerceSettingResponseBody,
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
 export class GetMigrationVerifyCodeRequest extends $tea.Model {
   custSpaceId?: string;
   locale?: string;
@@ -3730,6 +3805,84 @@ export class UpdateAccountWebhookResponse extends $tea.Model {
   }
 }
 
+export class UpdateCommerceSettingRequest extends $tea.Model {
+  cartEnable?: boolean;
+  catalogVisible?: boolean;
+  custSpaceId?: string;
+  phoneNumber?: string;
+  static names(): { [key: string]: string } {
+    return {
+      cartEnable: 'CartEnable',
+      catalogVisible: 'CatalogVisible',
+      custSpaceId: 'CustSpaceId',
+      phoneNumber: 'PhoneNumber',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      cartEnable: 'boolean',
+      catalogVisible: 'boolean',
+      custSpaceId: 'string',
+      phoneNumber: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class UpdateCommerceSettingResponseBody extends $tea.Model {
+  code?: string;
+  message?: string;
+  requestId?: string;
+  static names(): { [key: string]: string } {
+    return {
+      code: 'Code',
+      message: 'Message',
+      requestId: 'RequestId',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      code: 'string',
+      message: 'string',
+      requestId: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class UpdateCommerceSettingResponse extends $tea.Model {
+  headers: { [key: string]: string };
+  statusCode: number;
+  body: UpdateCommerceSettingResponseBody;
+  static names(): { [key: string]: string } {
+    return {
+      headers: 'headers',
+      statusCode: 'statusCode',
+      body: 'body',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
+      body: UpdateCommerceSettingResponseBody,
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
 export class UpdatePhoneWebhookRequest extends $tea.Model {
   custSpaceId?: string;
   httpFlag?: string;
@@ -4247,6 +4400,7 @@ export class CreateChatappMigrationInitiateResponseBodyData extends $tea.Model {
 
 export class CreateChatappTemplateRequestComponentsButtons extends $tea.Model {
   autofillText?: string;
+  couponCode?: string;
   isOptOut?: boolean;
   packageName?: string;
   phoneNumber?: string;
@@ -4258,6 +4412,7 @@ export class CreateChatappTemplateRequestComponentsButtons extends $tea.Model {
   static names(): { [key: string]: string } {
     return {
       autofillText: 'AutofillText',
+      couponCode: 'CouponCode',
       isOptOut: 'IsOptOut',
       packageName: 'PackageName',
       phoneNumber: 'PhoneNumber',
@@ -4272,6 +4427,7 @@ export class CreateChatappTemplateRequestComponentsButtons extends $tea.Model {
   static types(): { [key: string]: any } {
     return {
       autofillText: 'string',
+      couponCode: 'string',
       isOptOut: 'boolean',
       packageName: 'string',
       phoneNumber: 'string',
@@ -4288,15 +4444,98 @@ export class CreateChatappTemplateRequestComponentsButtons extends $tea.Model {
   }
 }
 
+export class CreateChatappTemplateRequestComponentsCardsCardComponentsButtons extends $tea.Model {
+  phoneNumber?: string;
+  text?: string;
+  type?: string;
+  url?: string;
+  urlType?: string;
+  static names(): { [key: string]: string } {
+    return {
+      phoneNumber: 'PhoneNumber',
+      text: 'Text',
+      type: 'Type',
+      url: 'Url',
+      urlType: 'UrlType',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      phoneNumber: 'string',
+      text: 'string',
+      type: 'string',
+      url: 'string',
+      urlType: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class CreateChatappTemplateRequestComponentsCardsCardComponents extends $tea.Model {
+  buttons?: CreateChatappTemplateRequestComponentsCardsCardComponentsButtons[];
+  format?: string;
+  text?: string;
+  type?: string;
+  url?: string;
+  static names(): { [key: string]: string } {
+    return {
+      buttons: 'Buttons',
+      format: 'Format',
+      text: 'Text',
+      type: 'Type',
+      url: 'Url',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      buttons: { 'type': 'array', 'itemType': CreateChatappTemplateRequestComponentsCardsCardComponentsButtons },
+      format: 'string',
+      text: 'string',
+      type: 'string',
+      url: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class CreateChatappTemplateRequestComponentsCards extends $tea.Model {
+  cardComponents?: CreateChatappTemplateRequestComponentsCardsCardComponents[];
+  static names(): { [key: string]: string } {
+    return {
+      cardComponents: 'CardComponents',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      cardComponents: { 'type': 'array', 'itemType': CreateChatappTemplateRequestComponentsCardsCardComponents },
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
 export class CreateChatappTemplateRequestComponents extends $tea.Model {
   addSecretRecommendation?: boolean;
   buttons?: CreateChatappTemplateRequestComponentsButtons[];
   caption?: string;
+  cards?: CreateChatappTemplateRequestComponentsCards[];
   codeExpirationMinutes?: number;
   duration?: number;
   fileName?: string;
   fileType?: string;
   format?: string;
+  hasExpiration?: boolean;
   text?: string;
   thumbUrl?: string;
   type?: string;
@@ -4306,11 +4545,13 @@ export class CreateChatappTemplateRequestComponents extends $tea.Model {
       addSecretRecommendation: 'AddSecretRecommendation',
       buttons: 'Buttons',
       caption: 'Caption',
+      cards: 'Cards',
       codeExpirationMinutes: 'CodeExpirationMinutes',
       duration: 'Duration',
       fileName: 'FileName',
       fileType: 'FileType',
       format: 'Format',
+      hasExpiration: 'HasExpiration',
       text: 'Text',
       thumbUrl: 'ThumbUrl',
       type: 'Type',
@@ -4323,11 +4564,13 @@ export class CreateChatappTemplateRequestComponents extends $tea.Model {
       addSecretRecommendation: 'boolean',
       buttons: { 'type': 'array', 'itemType': CreateChatappTemplateRequestComponentsButtons },
       caption: 'string',
+      cards: { 'type': 'array', 'itemType': CreateChatappTemplateRequestComponentsCards },
       codeExpirationMinutes: 'number',
       duration: 'number',
       fileName: 'string',
       fileType: 'string',
       format: 'string',
+      hasExpiration: 'boolean',
       text: 'string',
       thumbUrl: 'string',
       type: 'string',
@@ -4429,6 +4672,7 @@ export class GetChatappTemplateDetailResponseBodyDataComponentsButtonsExtendAttr
 
 export class GetChatappTemplateDetailResponseBodyDataComponentsButtons extends $tea.Model {
   autofillText?: string;
+  couponCode?: string;
   extendAttrs?: GetChatappTemplateDetailResponseBodyDataComponentsButtonsExtendAttrs;
   isOptOut?: boolean;
   packageName?: string;
@@ -4441,6 +4685,7 @@ export class GetChatappTemplateDetailResponseBodyDataComponentsButtons extends $
   static names(): { [key: string]: string } {
     return {
       autofillText: 'AutofillText',
+      couponCode: 'CouponCode',
       extendAttrs: 'ExtendAttrs',
       isOptOut: 'IsOptOut',
       packageName: 'PackageName',
@@ -4456,6 +4701,7 @@ export class GetChatappTemplateDetailResponseBodyDataComponentsButtons extends $
   static types(): { [key: string]: any } {
     return {
       autofillText: 'string',
+      couponCode: 'string',
       extendAttrs: GetChatappTemplateDetailResponseBodyDataComponentsButtonsExtendAttrs,
       isOptOut: 'boolean',
       packageName: 'string',
@@ -4473,10 +4719,92 @@ export class GetChatappTemplateDetailResponseBodyDataComponentsButtons extends $
   }
 }
 
+export class GetChatappTemplateDetailResponseBodyDataComponentsCardsCardComponentsButtons extends $tea.Model {
+  phoneNumber?: string;
+  text?: string;
+  type?: string;
+  url?: string;
+  urlType?: string;
+  static names(): { [key: string]: string } {
+    return {
+      phoneNumber: 'PhoneNumber',
+      text: 'Text',
+      type: 'Type',
+      url: 'Url',
+      urlType: 'UrlType',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      phoneNumber: 'string',
+      text: 'string',
+      type: 'string',
+      url: 'string',
+      urlType: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class GetChatappTemplateDetailResponseBodyDataComponentsCardsCardComponents extends $tea.Model {
+  buttons?: GetChatappTemplateDetailResponseBodyDataComponentsCardsCardComponentsButtons[];
+  format?: string;
+  text?: string;
+  type?: string;
+  url?: string;
+  static names(): { [key: string]: string } {
+    return {
+      buttons: 'Buttons',
+      format: 'Format',
+      text: 'Text',
+      type: 'Type',
+      url: 'Url',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      buttons: { 'type': 'array', 'itemType': GetChatappTemplateDetailResponseBodyDataComponentsCardsCardComponentsButtons },
+      format: 'string',
+      text: 'string',
+      type: 'string',
+      url: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class GetChatappTemplateDetailResponseBodyDataComponentsCards extends $tea.Model {
+  cardComponents?: GetChatappTemplateDetailResponseBodyDataComponentsCardsCardComponents[];
+  static names(): { [key: string]: string } {
+    return {
+      cardComponents: 'CardComponents',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      cardComponents: { 'type': 'array', 'itemType': GetChatappTemplateDetailResponseBodyDataComponentsCardsCardComponents },
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
 export class GetChatappTemplateDetailResponseBodyDataComponents extends $tea.Model {
   addSecretRecommendation?: boolean;
   buttons?: GetChatappTemplateDetailResponseBodyDataComponentsButtons[];
   caption?: string;
+  cards?: GetChatappTemplateDetailResponseBodyDataComponentsCards[];
   codeExpirationMinutes?: number;
   duration?: number;
   fileName?: string;
@@ -4486,15 +4814,18 @@ export class GetChatappTemplateDetailResponseBodyDataComponents extends $tea.Mod
   locationAddress?: string;
   locationName?: string;
   longitude?: string;
+  offerExpirationTimeMs?: string;
   text?: string;
   thumbUrl?: string;
   type?: string;
   url?: string;
+  hasExpiration?: boolean;
   static names(): { [key: string]: string } {
     return {
       addSecretRecommendation: 'AddSecretRecommendation',
       buttons: 'Buttons',
       caption: 'Caption',
+      cards: 'Cards',
       codeExpirationMinutes: 'CodeExpirationMinutes',
       duration: 'Duration',
       fileName: 'FileName',
@@ -4504,10 +4835,12 @@ export class GetChatappTemplateDetailResponseBodyDataComponents extends $tea.Mod
       locationAddress: 'LocationAddress',
       locationName: 'LocationName',
       longitude: 'Longitude',
+      offerExpirationTimeMs: 'OfferExpirationTimeMs',
       text: 'Text',
       thumbUrl: 'ThumbUrl',
       type: 'Type',
       url: 'Url',
+      hasExpiration: 'hasExpiration',
     };
   }
 
@@ -4516,6 +4849,7 @@ export class GetChatappTemplateDetailResponseBodyDataComponents extends $tea.Mod
       addSecretRecommendation: 'boolean',
       buttons: { 'type': 'array', 'itemType': GetChatappTemplateDetailResponseBodyDataComponentsButtons },
       caption: 'string',
+      cards: { 'type': 'array', 'itemType': GetChatappTemplateDetailResponseBodyDataComponentsCards },
       codeExpirationMinutes: 'number',
       duration: 'number',
       fileName: 'string',
@@ -4525,10 +4859,12 @@ export class GetChatappTemplateDetailResponseBodyDataComponents extends $tea.Mod
       locationAddress: 'string',
       locationName: 'string',
       longitude: 'string',
+      offerExpirationTimeMs: 'string',
       text: 'string',
       thumbUrl: 'string',
       type: 'string',
       url: 'string',
+      hasExpiration: 'boolean',
     };
   }
 
@@ -4680,6 +5016,28 @@ export class GetChatappUploadAuthorizationResponseBodyData extends $tea.Model {
       endPoint: 'string',
       expire: 'number',
       securityToken: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class GetCommerceSettingResponseBodyData extends $tea.Model {
+  cartEnable?: boolean;
+  catalogVisible?: boolean;
+  static names(): { [key: string]: string } {
+    return {
+      cartEnable: 'CartEnable',
+      catalogVisible: 'CatalogVisible',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      cartEnable: 'boolean',
+      catalogVisible: 'boolean',
     };
   }
 
@@ -4944,6 +5302,7 @@ export class ListProductCatalogResponseBodyModel extends $tea.Model {
 
 export class ModifyChatappTemplateRequestComponentsButtons extends $tea.Model {
   autofillText?: string;
+  couponCode?: string;
   isOptOut?: boolean;
   packageName?: string;
   phoneNumber?: string;
@@ -4955,6 +5314,7 @@ export class ModifyChatappTemplateRequestComponentsButtons extends $tea.Model {
   static names(): { [key: string]: string } {
     return {
       autofillText: 'AutofillText',
+      couponCode: 'CouponCode',
       isOptOut: 'IsOptOut',
       packageName: 'PackageName',
       phoneNumber: 'PhoneNumber',
@@ -4969,6 +5329,7 @@ export class ModifyChatappTemplateRequestComponentsButtons extends $tea.Model {
   static types(): { [key: string]: any } {
     return {
       autofillText: 'string',
+      couponCode: 'string',
       isOptOut: 'boolean',
       packageName: 'string',
       phoneNumber: 'string',
@@ -4985,15 +5346,98 @@ export class ModifyChatappTemplateRequestComponentsButtons extends $tea.Model {
   }
 }
 
+export class ModifyChatappTemplateRequestComponentsCardsCardComponentsButtons extends $tea.Model {
+  phoneNumber?: string;
+  text?: string;
+  type?: string;
+  url?: string;
+  urlType?: string;
+  static names(): { [key: string]: string } {
+    return {
+      phoneNumber: 'PhoneNumber',
+      text: 'Text',
+      type: 'Type',
+      url: 'Url',
+      urlType: 'UrlType',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      phoneNumber: 'string',
+      text: 'string',
+      type: 'string',
+      url: 'string',
+      urlType: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class ModifyChatappTemplateRequestComponentsCardsCardComponents extends $tea.Model {
+  buttons?: ModifyChatappTemplateRequestComponentsCardsCardComponentsButtons[];
+  format?: string;
+  text?: string;
+  type?: string;
+  url?: string;
+  static names(): { [key: string]: string } {
+    return {
+      buttons: 'Buttons',
+      format: 'Format',
+      text: 'Text',
+      type: 'Type',
+      url: 'Url',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      buttons: { 'type': 'array', 'itemType': ModifyChatappTemplateRequestComponentsCardsCardComponentsButtons },
+      format: 'string',
+      text: 'string',
+      type: 'string',
+      url: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class ModifyChatappTemplateRequestComponentsCards extends $tea.Model {
+  cardComponents?: ModifyChatappTemplateRequestComponentsCardsCardComponents[];
+  static names(): { [key: string]: string } {
+    return {
+      cardComponents: 'CardComponents',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      cardComponents: { 'type': 'array', 'itemType': ModifyChatappTemplateRequestComponentsCardsCardComponents },
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
 export class ModifyChatappTemplateRequestComponents extends $tea.Model {
   addSecretRecommendation?: boolean;
   buttons?: ModifyChatappTemplateRequestComponentsButtons[];
   caption?: string;
+  cards?: ModifyChatappTemplateRequestComponentsCards[];
   codeExpirationMinutes?: number;
   duration?: number;
   fileName?: string;
   fileType?: string;
   format?: string;
+  hasExpiration?: boolean;
   text?: string;
   thumbUrl?: string;
   type?: string;
@@ -5003,11 +5447,13 @@ export class ModifyChatappTemplateRequestComponents extends $tea.Model {
       addSecretRecommendation: 'AddSecretRecommendation',
       buttons: 'Buttons',
       caption: 'Caption',
+      cards: 'Cards',
       codeExpirationMinutes: 'CodeExpirationMinutes',
       duration: 'Duration',
       fileName: 'FileName',
       fileType: 'FileType',
       format: 'Format',
+      hasExpiration: 'HasExpiration',
       text: 'Text',
       thumbUrl: 'ThumbUrl',
       type: 'Type',
@@ -5020,11 +5466,13 @@ export class ModifyChatappTemplateRequestComponents extends $tea.Model {
       addSecretRecommendation: 'boolean',
       buttons: { 'type': 'array', 'itemType': ModifyChatappTemplateRequestComponentsButtons },
       caption: 'string',
+      cards: { 'type': 'array', 'itemType': ModifyChatappTemplateRequestComponentsCards },
       codeExpirationMinutes: 'number',
       duration: 'number',
       fileName: 'string',
       fileType: 'string',
       format: 'string',
+      hasExpiration: 'boolean',
       text: 'string',
       thumbUrl: 'string',
       type: 'string',
@@ -6438,6 +6886,39 @@ export default class Client extends OpenApi {
     return await this.getChatappVerifyCodeWithOptions(request, runtime);
   }
 
+  async getCommerceSettingWithOptions(request: GetCommerceSettingRequest, runtime: $Util.RuntimeOptions): Promise<GetCommerceSettingResponse> {
+    Util.validateModel(request);
+    let query = { };
+    if (!Util.isUnset(request.custSpaceId)) {
+      query["CustSpaceId"] = request.custSpaceId;
+    }
+
+    if (!Util.isUnset(request.phoneNumber)) {
+      query["PhoneNumber"] = request.phoneNumber;
+    }
+
+    let req = new $OpenApi.OpenApiRequest({
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApi.Params({
+      action: "GetCommerceSetting",
+      version: "2020-06-06",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $tea.cast<GetCommerceSettingResponse>(await this.callApi(params, req, runtime), new GetCommerceSettingResponse({}));
+  }
+
+  async getCommerceSetting(request: GetCommerceSettingRequest): Promise<GetCommerceSettingResponse> {
+    let runtime = new $Util.RuntimeOptions({ });
+    return await this.getCommerceSettingWithOptions(request, runtime);
+  }
+
   /**
     * The ID of the phone number.
     *
@@ -6571,6 +7052,13 @@ export default class Client extends OpenApi {
     return await this.getPreValidatePhoneIdWithOptions(request, runtime);
   }
 
+  /**
+    * You can call this operation up to 10 times per second per account. If the number of calls per second exceeds the limit, throttling is triggered. As a result, your business may be affected. We recommend that you take note of the limit when you call this operation.
+    *
+    * @param request GetWhatsappConnectionCatalogRequest
+    * @param runtime runtime options for this request RuntimeOptions
+    * @return GetWhatsappConnectionCatalogResponse
+   */
   async getWhatsappConnectionCatalogWithOptions(request: GetWhatsappConnectionCatalogRequest, runtime: $Util.RuntimeOptions): Promise<GetWhatsappConnectionCatalogResponse> {
     Util.validateModel(request);
     let query = { };
@@ -6611,6 +7099,12 @@ export default class Client extends OpenApi {
     return $tea.cast<GetWhatsappConnectionCatalogResponse>(await this.callApi(params, req, runtime), new GetWhatsappConnectionCatalogResponse({}));
   }
 
+  /**
+    * You can call this operation up to 10 times per second per account. If the number of calls per second exceeds the limit, throttling is triggered. As a result, your business may be affected. We recommend that you take note of the limit when you call this operation.
+    *
+    * @param request GetWhatsappConnectionCatalogRequest
+    * @return GetWhatsappConnectionCatalogResponse
+   */
   async getWhatsappConnectionCatalog(request: GetWhatsappConnectionCatalogRequest): Promise<GetWhatsappConnectionCatalogResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.getWhatsappConnectionCatalogWithOptions(request, runtime);
@@ -6736,6 +7230,13 @@ export default class Client extends OpenApi {
     return await this.listChatappTemplateWithOptions(request, runtime);
   }
 
+  /**
+    * You can call this operation up to 10 times per second per account. If the number of calls per second exceeds the limit, throttling is triggered. As a result, your business may be affected. We recommend that you take note of the limit when you call this operation.
+    *
+    * @param request ListProductRequest
+    * @param runtime runtime options for this request RuntimeOptions
+    * @return ListProductResponse
+   */
   async listProductWithOptions(request: ListProductRequest, runtime: $Util.RuntimeOptions): Promise<ListProductResponse> {
     Util.validateModel(request);
     let query = { };
@@ -6796,11 +7297,24 @@ export default class Client extends OpenApi {
     return $tea.cast<ListProductResponse>(await this.callApi(params, req, runtime), new ListProductResponse({}));
   }
 
+  /**
+    * You can call this operation up to 10 times per second per account. If the number of calls per second exceeds the limit, throttling is triggered. As a result, your business may be affected. We recommend that you take note of the limit when you call this operation.
+    *
+    * @param request ListProductRequest
+    * @return ListProductResponse
+   */
   async listProduct(request: ListProductRequest): Promise<ListProductResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.listProductWithOptions(request, runtime);
   }
 
+  /**
+    * You can call this operation up to 10 times per second per account. If the number of calls per second exceeds the limit, throttling is triggered. As a result, your business may be affected. We recommend that you take note of the limit when you call this operation.
+    *
+    * @param request ListProductCatalogRequest
+    * @param runtime runtime options for this request RuntimeOptions
+    * @return ListProductCatalogResponse
+   */
   async listProductCatalogWithOptions(request: ListProductCatalogRequest, runtime: $Util.RuntimeOptions): Promise<ListProductCatalogResponse> {
     Util.validateModel(request);
     let query = { };
@@ -6857,6 +7371,12 @@ export default class Client extends OpenApi {
     return $tea.cast<ListProductCatalogResponse>(await this.callApi(params, req, runtime), new ListProductCatalogResponse({}));
   }
 
+  /**
+    * You can call this operation up to 10 times per second per account. If the number of calls per second exceeds the limit, throttling is triggered. As a result, your business may be affected. We recommend that you take note of the limit when you call this operation.
+    *
+    * @param request ListProductCatalogRequest
+    * @return ListProductCatalogResponse
+   */
   async listProductCatalog(request: ListProductCatalogRequest): Promise<ListProductCatalogResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.listProductCatalogWithOptions(request, runtime);
@@ -7588,6 +8108,47 @@ export default class Client extends OpenApi {
   async updateAccountWebhook(request: UpdateAccountWebhookRequest): Promise<UpdateAccountWebhookResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.updateAccountWebhookWithOptions(request, runtime);
+  }
+
+  async updateCommerceSettingWithOptions(request: UpdateCommerceSettingRequest, runtime: $Util.RuntimeOptions): Promise<UpdateCommerceSettingResponse> {
+    Util.validateModel(request);
+    let query = { };
+    if (!Util.isUnset(request.cartEnable)) {
+      query["CartEnable"] = request.cartEnable;
+    }
+
+    if (!Util.isUnset(request.catalogVisible)) {
+      query["CatalogVisible"] = request.catalogVisible;
+    }
+
+    if (!Util.isUnset(request.custSpaceId)) {
+      query["CustSpaceId"] = request.custSpaceId;
+    }
+
+    if (!Util.isUnset(request.phoneNumber)) {
+      query["PhoneNumber"] = request.phoneNumber;
+    }
+
+    let req = new $OpenApi.OpenApiRequest({
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApi.Params({
+      action: "UpdateCommerceSetting",
+      version: "2020-06-06",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $tea.cast<UpdateCommerceSettingResponse>(await this.callApi(params, req, runtime), new UpdateCommerceSettingResponse({}));
+  }
+
+  async updateCommerceSetting(request: UpdateCommerceSettingRequest): Promise<UpdateCommerceSettingResponse> {
+    let runtime = new $Util.RuntimeOptions({ });
+    return await this.updateCommerceSettingWithOptions(request, runtime);
   }
 
   /**
