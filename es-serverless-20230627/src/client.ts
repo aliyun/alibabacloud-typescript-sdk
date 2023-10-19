@@ -14,8 +14,10 @@ export class CreateAppRequest extends $tea.Model {
   chargeType?: string;
   description?: string;
   network?: CreateAppRequestNetwork[];
+  quotaInfo?: CreateAppRequestQuotaInfo;
   regionId?: string;
   version?: string;
+  dryRun?: boolean;
   static names(): { [key: string]: string } {
     return {
       appName: 'appName',
@@ -23,8 +25,10 @@ export class CreateAppRequest extends $tea.Model {
       chargeType: 'chargeType',
       description: 'description',
       network: 'network',
+      quotaInfo: 'quotaInfo',
       regionId: 'regionId',
       version: 'version',
+      dryRun: 'dryRun',
     };
   }
 
@@ -35,8 +39,10 @@ export class CreateAppRequest extends $tea.Model {
       chargeType: 'string',
       description: 'string',
       network: { 'type': 'array', 'itemType': CreateAppRequestNetwork },
+      quotaInfo: CreateAppRequestQuotaInfo,
       regionId: 'string',
       version: 'string',
+      dryRun: 'boolean',
     };
   }
 
@@ -580,6 +586,31 @@ export class CreateAppRequestNetwork extends $tea.Model {
   }
 }
 
+export class CreateAppRequestQuotaInfo extends $tea.Model {
+  appType?: string;
+  cu?: number;
+  storage?: number;
+  static names(): { [key: string]: string } {
+    return {
+      appType: 'appType',
+      cu: 'cu',
+      storage: 'storage',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      appType: 'string',
+      cu: 'number',
+      storage: 'number',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
 export class CreateAppResponseBodyResult extends $tea.Model {
   instaneId?: string;
   static names(): { [key: string]: string } {
@@ -951,6 +982,11 @@ export default class Client extends OpenApi {
 
   async createAppWithOptions(request: CreateAppRequest, headers: {[key: string ]: string}, runtime: $Util.RuntimeOptions): Promise<CreateAppResponse> {
     Util.validateModel(request);
+    let query : {[key: string ]: any} = { };
+    if (!Util.isUnset(request.dryRun)) {
+      query["dryRun"] = request.dryRun;
+    }
+
     let body : {[key: string ]: any} = { };
     if (!Util.isUnset(request.appName)) {
       body["appName"] = request.appName;
@@ -972,6 +1008,10 @@ export default class Client extends OpenApi {
       body["network"] = request.network;
     }
 
+    if (!Util.isUnset(request.quotaInfo)) {
+      body["quotaInfo"] = request.quotaInfo;
+    }
+
     if (!Util.isUnset(request.regionId)) {
       body["regionId"] = request.regionId;
     }
@@ -982,6 +1022,7 @@ export default class Client extends OpenApi {
 
     let req = new $OpenApi.OpenApiRequest({
       headers: headers,
+      query: OpenApiUtil.query(query),
       body: OpenApiUtil.parseToMap(body),
     });
     let params = new $OpenApi.Params({
