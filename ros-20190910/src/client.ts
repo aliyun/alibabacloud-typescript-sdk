@@ -8039,10 +8039,12 @@ export class CreateTemplateScratchRequestSourceResourceGroup extends $tea.Model 
 }
 
 export class CreateTemplateScratchRequestSourceResources extends $tea.Model {
+  regionId?: string;
   resourceId?: string;
   resourceType?: string;
   static names(): { [key: string]: string } {
     return {
+      regionId: 'RegionId',
       resourceId: 'ResourceId',
       resourceType: 'ResourceType',
     };
@@ -8050,6 +8052,7 @@ export class CreateTemplateScratchRequestSourceResources extends $tea.Model {
 
   static types(): { [key: string]: any } {
     return {
+      regionId: 'string',
       resourceId: 'string',
       resourceType: 'string',
     };
@@ -15347,10 +15350,8 @@ export default class Client extends OpenApi {
   }
 
   /**
-    * Specifies whether to return nested stacks. Default value: false. Valid values:
-    * *   true
-    * *   false
-    * > If the ParentStackId parameter is specified, you must set the ShowNestedStack parameter to true.
+    * ###
+    * This topic provides an example on how to query a list of stacks. In this example, the stacks that are deployed in the China (Hangzhou) region are queried.
     *
     * @param request ListStacksRequest
     * @param runtime runtime options for this request RuntimeOptions
@@ -15429,10 +15430,8 @@ export default class Client extends OpenApi {
   }
 
   /**
-    * Specifies whether to return nested stacks. Default value: false. Valid values:
-    * *   true
-    * *   false
-    * > If the ParentStackId parameter is specified, you must set the ShowNestedStack parameter to true.
+    * ###
+    * This topic provides an example on how to query a list of stacks. In this example, the stacks that are deployed in the China (Hangzhou) region are queried.
     *
     * @param request ListStacksRequest
     * @return ListStacksResponse
