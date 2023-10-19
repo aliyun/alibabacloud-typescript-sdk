@@ -8292,6 +8292,137 @@ export class PushHotelMessageResponse extends $tea.Model {
   }
 }
 
+export class PushVoiceBoxCommandsHeaders extends $tea.Model {
+  commonHeaders?: { [key: string]: string };
+  xAcsAligenieAccessToken?: string;
+  authorization?: string;
+  static names(): { [key: string]: string } {
+    return {
+      commonHeaders: 'commonHeaders',
+      xAcsAligenieAccessToken: 'x-acs-aligenie-access-token',
+      authorization: 'Authorization',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      commonHeaders: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      xAcsAligenieAccessToken: 'string',
+      authorization: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class PushVoiceBoxCommandsRequest extends $tea.Model {
+  commands?: PushVoiceBoxCommandsRequestCommands[];
+  hotelId?: string;
+  roomNo?: string;
+  static names(): { [key: string]: string } {
+    return {
+      commands: 'Commands',
+      hotelId: 'HotelId',
+      roomNo: 'RoomNo',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      commands: { 'type': 'array', 'itemType': PushVoiceBoxCommandsRequestCommands },
+      hotelId: 'string',
+      roomNo: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class PushVoiceBoxCommandsShrinkRequest extends $tea.Model {
+  commandsShrink?: string;
+  hotelId?: string;
+  roomNo?: string;
+  static names(): { [key: string]: string } {
+    return {
+      commandsShrink: 'Commands',
+      hotelId: 'HotelId',
+      roomNo: 'RoomNo',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      commandsShrink: 'string',
+      hotelId: 'string',
+      roomNo: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class PushVoiceBoxCommandsResponseBody extends $tea.Model {
+  code?: number;
+  message?: string;
+  requestId?: string;
+  result?: boolean;
+  statusCode?: number;
+  static names(): { [key: string]: string } {
+    return {
+      code: 'Code',
+      message: 'Message',
+      requestId: 'RequestId',
+      result: 'Result',
+      statusCode: 'StatusCode',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      code: 'number',
+      message: 'string',
+      requestId: 'string',
+      result: 'boolean',
+      statusCode: 'number',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class PushVoiceBoxCommandsResponse extends $tea.Model {
+  headers: { [key: string]: string };
+  statusCode: number;
+  body: PushVoiceBoxCommandsResponseBody;
+  static names(): { [key: string]: string } {
+    return {
+      headers: 'headers',
+      statusCode: 'statusCode',
+      body: 'body',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
+      body: PushVoiceBoxCommandsResponseBody,
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
 export class PushWelcomeHeaders extends $tea.Model {
   commonHeaders?: { [key: string]: string };
   xAcsAligenieAccessToken?: string;
@@ -14388,6 +14519,31 @@ export class PushHotelMessageRequestPushHotelMessageReq extends $tea.Model {
   }
 }
 
+export class PushVoiceBoxCommandsRequestCommands extends $tea.Model {
+  commandDomain?: string;
+  commandName?: string;
+  payload?: string;
+  static names(): { [key: string]: string } {
+    return {
+      commandDomain: 'CommandDomain',
+      commandName: 'CommandName',
+      payload: 'Payload',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      commandDomain: 'string',
+      commandName: 'string',
+      payload: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
 export class QueryDeviceStatusRequestPayloadLocationDevices extends $tea.Model {
   deviceNumber?: string;
   deviceType?: string;
@@ -19210,6 +19366,64 @@ export default class Client extends OpenApi {
     let runtime = new $Util.RuntimeOptions({ });
     let headers = new PushHotelMessageHeaders({ });
     return await this.pushHotelMessageWithOptions(request, headers, runtime);
+  }
+
+  async pushVoiceBoxCommandsWithOptions(tmpReq: PushVoiceBoxCommandsRequest, headers: PushVoiceBoxCommandsHeaders, runtime: $Util.RuntimeOptions): Promise<PushVoiceBoxCommandsResponse> {
+    Util.validateModel(tmpReq);
+    let request = new PushVoiceBoxCommandsShrinkRequest({ });
+    OpenApiUtil.convert(tmpReq, request);
+    if (!Util.isUnset(tmpReq.commands)) {
+      request.commandsShrink = OpenApiUtil.arrayToStringWithSpecifiedStyle(tmpReq.commands, "Commands", "json");
+    }
+
+    let body : {[key: string ]: any} = { };
+    if (!Util.isUnset(request.commandsShrink)) {
+      body["Commands"] = request.commandsShrink;
+    }
+
+    if (!Util.isUnset(request.hotelId)) {
+      body["HotelId"] = request.hotelId;
+    }
+
+    if (!Util.isUnset(request.roomNo)) {
+      body["RoomNo"] = request.roomNo;
+    }
+
+    let realHeaders : {[key: string ]: string} = { };
+    if (!Util.isUnset(headers.commonHeaders)) {
+      realHeaders = headers.commonHeaders;
+    }
+
+    if (!Util.isUnset(headers.xAcsAligenieAccessToken)) {
+      realHeaders["x-acs-aligenie-access-token"] = Util.toJSONString(headers.xAcsAligenieAccessToken);
+    }
+
+    if (!Util.isUnset(headers.authorization)) {
+      realHeaders["Authorization"] = Util.toJSONString(headers.authorization);
+    }
+
+    let req = new $OpenApi.OpenApiRequest({
+      headers: realHeaders,
+      body: OpenApiUtil.parseToMap(body),
+    });
+    let params = new $OpenApi.Params({
+      action: "PushVoiceBoxCommands",
+      version: "ip_1.0",
+      protocol: "HTTPS",
+      pathname: `/v1.0/ip/pushVoiceBoxCommands`,
+      method: "POST",
+      authType: "AK",
+      style: "ROA",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $tea.cast<PushVoiceBoxCommandsResponse>(await this.callApi(params, req, runtime), new PushVoiceBoxCommandsResponse({}));
+  }
+
+  async pushVoiceBoxCommands(request: PushVoiceBoxCommandsRequest): Promise<PushVoiceBoxCommandsResponse> {
+    let runtime = new $Util.RuntimeOptions({ });
+    let headers = new PushVoiceBoxCommandsHeaders({ });
+    return await this.pushVoiceBoxCommandsWithOptions(request, headers, runtime);
   }
 
   async pushWelcomeWithOptions(request: PushWelcomeRequest, headers: PushWelcomeHeaders, runtime: $Util.RuntimeOptions): Promise<PushWelcomeResponse> {
