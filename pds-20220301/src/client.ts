@@ -300,6 +300,178 @@ export class AudioPreviewPlayInfo extends $tea.Model {
   }
 }
 
+export class AuthenticationInfo extends $tea.Model {
+  authenticationDisplayName?: string;
+  authenticationType?: string;
+  extra?: string;
+  identity?: string;
+  static names(): { [key: string]: string } {
+    return {
+      authenticationDisplayName: 'authentication_display_name',
+      authenticationType: 'authentication_type',
+      extra: 'extra',
+      identity: 'identity',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      authenticationDisplayName: 'string',
+      authenticationType: 'string',
+      extra: 'string',
+      identity: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class BaseAssignmentResponse extends $tea.Model {
+  associatedRoleTagId?: string;
+  createdAt?: string;
+  creator?: string;
+  disinheritSubGroup?: boolean;
+  domainId?: string;
+  identity?: Identity;
+  manageResourceId?: string;
+  manageResourceType?: string;
+  roleId?: string;
+  updatedAt?: string;
+  static names(): { [key: string]: string } {
+    return {
+      associatedRoleTagId: 'associated_role_tag_id',
+      createdAt: 'created_at',
+      creator: 'creator',
+      disinheritSubGroup: 'disinherit_sub_group',
+      domainId: 'domain_id',
+      identity: 'identity',
+      manageResourceId: 'manage_resource_id',
+      manageResourceType: 'manage_resource_type',
+      roleId: 'role_id',
+      updatedAt: 'updated_at',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      associatedRoleTagId: 'string',
+      createdAt: 'string',
+      creator: 'string',
+      disinheritSubGroup: 'boolean',
+      domainId: 'string',
+      identity: Identity,
+      manageResourceId: 'string',
+      manageResourceType: 'string',
+      roleId: 'string',
+      updatedAt: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class BaseDomainResponse extends $tea.Model {
+  createdAt?: string;
+  description?: string;
+  domainId?: string;
+  domainName?: string;
+  initDriveEnable?: boolean;
+  initDriveSize?: number;
+  parentDomainId?: string;
+  publishedAppAccessStrategy?: AppAccessStrategy;
+  shareLinkEnabled?: boolean;
+  sizeQuota?: number;
+  sizeQuotaUsed?: number;
+  status?: number;
+  updatedAt?: string;
+  usedSize?: number;
+  static names(): { [key: string]: string } {
+    return {
+      createdAt: 'created_at',
+      description: 'description',
+      domainId: 'domain_id',
+      domainName: 'domain_name',
+      initDriveEnable: 'init_drive_enable',
+      initDriveSize: 'init_drive_size',
+      parentDomainId: 'parent_domain_id',
+      publishedAppAccessStrategy: 'published_app_access_strategy',
+      shareLinkEnabled: 'share_link_enabled',
+      sizeQuota: 'size_quota',
+      sizeQuotaUsed: 'size_quota_used',
+      status: 'status',
+      updatedAt: 'updated_at',
+      usedSize: 'used_size',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      createdAt: 'string',
+      description: 'string',
+      domainId: 'string',
+      domainName: 'string',
+      initDriveEnable: 'boolean',
+      initDriveSize: 'number',
+      parentDomainId: 'string',
+      publishedAppAccessStrategy: AppAccessStrategy,
+      shareLinkEnabled: 'boolean',
+      sizeQuota: 'number',
+      sizeQuotaUsed: 'number',
+      status: 'number',
+      updatedAt: 'string',
+      usedSize: 'number',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class BaseRoleMemberResponse extends $tea.Model {
+  assignmentList?: BaseAssignmentResponse[];
+  createdAt?: string;
+  creator?: string;
+  domainId?: string;
+  identity?: Identity;
+  identityName?: string;
+  isAdmin?: boolean;
+  subdomainId?: string;
+  static names(): { [key: string]: string } {
+    return {
+      assignmentList: 'assignment_list',
+      createdAt: 'created_at',
+      creator: 'creator',
+      domainId: 'domain_id',
+      identity: 'identity',
+      identityName: 'identity_name',
+      isAdmin: 'is_admin',
+      subdomainId: 'subdomain_id',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      assignmentList: { 'type': 'array', 'itemType': BaseAssignmentResponse },
+      createdAt: 'string',
+      creator: 'string',
+      domainId: 'string',
+      identity: Identity,
+      identityName: 'string',
+      isAdmin: 'boolean',
+      subdomainId: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
 export class BenefitPkgDeliveryInfo extends $tea.Model {
   amount?: number;
   createdAt?: string;
@@ -457,6 +629,351 @@ export class CsiCondition extends $tea.Model {
   static types(): { [key: string]: any } {
     return {
       fileDataPunish: Condition,
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class CssCreateOrderParam extends $tea.Model {
+  agentId?: string;
+  autoPay?: boolean;
+  autoUseCoupon?: boolean;
+  bid?: string;
+  buyerId?: number;
+  certificate?: string;
+  childId?: number;
+  cilentIp?: string;
+  commodities?: CssInstanceCommodity[];
+  createrNick?: string;
+  cssAuthRequestParam?: any;
+  fromApp?: string;
+  language?: string;
+  marketType?: number;
+  memo?: string;
+  orderOrigin?: string;
+  orderParams?: { [key: string]: string };
+  payerId?: number;
+  planGroupId?: number;
+  planId?: number;
+  planInstanceId?: string;
+  promotionCode?: string;
+  promotionInputParam?: any;
+  requestId?: string;
+  skipChannel?: boolean;
+  token?: string;
+  transientAccess?: any;
+  umidToken?: string;
+  userId?: number;
+  static names(): { [key: string]: string } {
+    return {
+      agentId: 'agentId',
+      autoPay: 'autoPay',
+      autoUseCoupon: 'autoUseCoupon',
+      bid: 'bid',
+      buyerId: 'buyerId',
+      certificate: 'certificate',
+      childId: 'childId',
+      cilentIp: 'cilentIp',
+      commodities: 'commodities',
+      createrNick: 'createrNick',
+      cssAuthRequestParam: 'cssAuthRequestParam',
+      fromApp: 'fromApp',
+      language: 'language',
+      marketType: 'marketType',
+      memo: 'memo',
+      orderOrigin: 'orderOrigin',
+      orderParams: 'orderParams',
+      payerId: 'payerId',
+      planGroupId: 'planGroupId',
+      planId: 'planId',
+      planInstanceId: 'planInstanceId',
+      promotionCode: 'promotionCode',
+      promotionInputParam: 'promotionInputParam',
+      requestId: 'requestId',
+      skipChannel: 'skipChannel',
+      token: 'token',
+      transientAccess: 'transientAccess',
+      umidToken: 'umidToken',
+      userId: 'userId',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      agentId: 'string',
+      autoPay: 'boolean',
+      autoUseCoupon: 'boolean',
+      bid: 'string',
+      buyerId: 'number',
+      certificate: 'string',
+      childId: 'number',
+      cilentIp: 'string',
+      commodities: { 'type': 'array', 'itemType': CssInstanceCommodity },
+      createrNick: 'string',
+      cssAuthRequestParam: 'any',
+      fromApp: 'string',
+      language: 'string',
+      marketType: 'number',
+      memo: 'string',
+      orderOrigin: 'string',
+      orderParams: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      payerId: 'number',
+      planGroupId: 'number',
+      planId: 'number',
+      planInstanceId: 'string',
+      promotionCode: 'string',
+      promotionInputParam: 'any',
+      requestId: 'string',
+      skipChannel: 'boolean',
+      token: 'string',
+      transientAccess: 'any',
+      umidToken: 'string',
+      userId: 'number',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class CssInstanceCommodity extends $tea.Model {
+  activityId?: number;
+  aliyunProduceCode?: string;
+  chargeType?: string;
+  commodityCode?: string;
+  components?: CssInstanceComponent[];
+  duration?: number;
+  instanceId?: string;
+  isFree?: boolean;
+  isPrePayPostCharge?: boolean;
+  isRenewChange?: boolean;
+  isSyncToSubscription?: boolean;
+  orderParams?: { [key: string]: string };
+  orderType?: string;
+  planItemId?: number;
+  pricingCycle?: string;
+  quantity?: number;
+  redeemNoList?: string[];
+  redeemOrderType?: string;
+  refundSpecCode?: string;
+  specCode?: string;
+  specUpgradeOriginSpecCodes?: string[];
+  specifyStartDate?: number;
+  upgradeInquireFinancialValue?: boolean;
+  static names(): { [key: string]: string } {
+    return {
+      activityId: 'activityId',
+      aliyunProduceCode: 'aliyunProduceCode',
+      chargeType: 'chargeType',
+      commodityCode: 'commodityCode',
+      components: 'components',
+      duration: 'duration',
+      instanceId: 'instanceId',
+      isFree: 'isFree',
+      isPrePayPostCharge: 'isPrePayPostCharge',
+      isRenewChange: 'isRenewChange',
+      isSyncToSubscription: 'isSyncToSubscription',
+      orderParams: 'orderParams',
+      orderType: 'orderType',
+      planItemId: 'planItemId',
+      pricingCycle: 'pricingCycle',
+      quantity: 'quantity',
+      redeemNoList: 'redeemNoList',
+      redeemOrderType: 'redeemOrderType',
+      refundSpecCode: 'refundSpecCode',
+      specCode: 'specCode',
+      specUpgradeOriginSpecCodes: 'specUpgradeOriginSpecCodes',
+      specifyStartDate: 'specifyStartDate',
+      upgradeInquireFinancialValue: 'upgradeInquireFinancialValue',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      activityId: 'number',
+      aliyunProduceCode: 'string',
+      chargeType: 'string',
+      commodityCode: 'string',
+      components: { 'type': 'array', 'itemType': CssInstanceComponent },
+      duration: 'number',
+      instanceId: 'string',
+      isFree: 'boolean',
+      isPrePayPostCharge: 'boolean',
+      isRenewChange: 'boolean',
+      isSyncToSubscription: 'boolean',
+      orderParams: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      orderType: 'string',
+      planItemId: 'number',
+      pricingCycle: 'string',
+      quantity: 'number',
+      redeemNoList: { 'type': 'array', 'itemType': 'string' },
+      redeemOrderType: 'string',
+      refundSpecCode: 'string',
+      specCode: 'string',
+      specUpgradeOriginSpecCodes: { 'type': 'array', 'itemType': 'string' },
+      specifyStartDate: 'number',
+      upgradeInquireFinancialValue: 'boolean',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class CssInstanceComponent extends $tea.Model {
+  componentCode?: string;
+  componentName?: string;
+  globalKey?: string;
+  instanceProperty?: CssInstanceProperty[];
+  moduleAttrStatus?: number;
+  tag?: string;
+  static names(): { [key: string]: string } {
+    return {
+      componentCode: 'componentCode',
+      componentName: 'componentName',
+      globalKey: 'globalKey',
+      instanceProperty: 'instanceProperty',
+      moduleAttrStatus: 'moduleAttrStatus',
+      tag: 'tag',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      componentCode: 'string',
+      componentName: 'string',
+      globalKey: 'string',
+      instanceProperty: { 'type': 'array', 'itemType': CssInstanceProperty },
+      moduleAttrStatus: 'number',
+      tag: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class CssInstanceProperty extends $tea.Model {
+  code?: string;
+  globalKey?: string;
+  name?: string;
+  unit?: string;
+  value?: string;
+  static names(): { [key: string]: string } {
+    return {
+      code: 'code',
+      globalKey: 'globalKey',
+      name: 'name',
+      unit: 'unit',
+      value: 'value',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      code: 'string',
+      globalKey: 'string',
+      name: 'string',
+      unit: 'string',
+      value: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class CssProduce extends $tea.Model {
+  bid?: string;
+  buyerId?: number;
+  childId?: number;
+  fromApp?: string;
+  orderId?: number;
+  payerId?: number;
+  purchases?: CssPurchase[];
+  requestId?: string;
+  skipChannel?: boolean;
+  token?: string;
+  userId?: number;
+  static names(): { [key: string]: string } {
+    return {
+      bid: 'bid',
+      buyerId: 'buyerId',
+      childId: 'childId',
+      fromApp: 'fromApp',
+      orderId: 'orderId',
+      payerId: 'payerId',
+      purchases: 'purchases',
+      requestId: 'requestId',
+      skipChannel: 'skipChannel',
+      token: 'token',
+      userId: 'userId',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      bid: 'string',
+      buyerId: 'number',
+      childId: 'number',
+      fromApp: 'string',
+      orderId: 'number',
+      payerId: 'number',
+      purchases: { 'type': 'array', 'itemType': CssPurchase },
+      requestId: 'string',
+      skipChannel: 'boolean',
+      token: 'string',
+      userId: 'number',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class CssPurchase extends $tea.Model {
+  chargeType?: string;
+  commodityCode?: string;
+  endDate?: number;
+  gmtCreate?: number;
+  instanceComponents?: CssInstanceComponent[];
+  instanceId?: string;
+  orderType?: string;
+  purchaseParams?: { [key: string]: string };
+  startDate?: number;
+  static names(): { [key: string]: string } {
+    return {
+      chargeType: 'chargeType',
+      commodityCode: 'commodityCode',
+      endDate: 'endDate',
+      gmtCreate: 'gmtCreate',
+      instanceComponents: 'instanceComponents',
+      instanceId: 'instanceId',
+      orderType: 'orderType',
+      purchaseParams: 'purchaseParams',
+      startDate: 'startDate',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      chargeType: 'string',
+      commodityCode: 'string',
+      endDate: 'number',
+      gmtCreate: 'number',
+      instanceComponents: { 'type': 'array', 'itemType': CssInstanceComponent },
+      instanceId: 'string',
+      orderType: 'string',
+      purchaseParams: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      startDate: 'number',
     };
   }
 
@@ -702,6 +1219,7 @@ export class File extends $tea.Model {
   updatedAt?: string;
   uploadId?: string;
   userTags?: { [key: string]: string };
+  videoMediaMetadata?: VideoMediaMetadata;
   static names(): { [key: string]: string } {
     return {
       category: 'category',
@@ -734,6 +1252,7 @@ export class File extends $tea.Model {
       updatedAt: 'updated_at',
       uploadId: 'upload_id',
       userTags: 'user_tags',
+      videoMediaMetadata: 'video_media_metadata',
     };
   }
 
@@ -769,6 +1288,7 @@ export class File extends $tea.Model {
       updatedAt: 'string',
       uploadId: 'string',
       userTags: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      videoMediaMetadata: VideoMediaMetadata,
     };
   }
 
@@ -1330,6 +1850,52 @@ export class LocationDateCluster extends $tea.Model {
   }
 }
 
+export class Membership extends $tea.Model {
+  createdAt?: number;
+  creator?: string;
+  description?: string;
+  domainId?: string;
+  groupId?: string;
+  memberRole?: string;
+  memberType?: string;
+  subGroupId?: string;
+  updatedAt?: number;
+  userId?: string;
+  static names(): { [key: string]: string } {
+    return {
+      createdAt: 'created_at',
+      creator: 'creator',
+      description: 'description',
+      domainId: 'domain_id',
+      groupId: 'group_id',
+      memberRole: 'member_role',
+      memberType: 'member_type',
+      subGroupId: 'sub_group_id',
+      updatedAt: 'updated_at',
+      userId: 'user_id',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      createdAt: 'number',
+      creator: 'string',
+      description: 'string',
+      domainId: 'string',
+      groupId: 'string',
+      memberRole: 'string',
+      memberType: 'string',
+      subGroupId: 'string',
+      updatedAt: 'number',
+      userId: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
 export class NameCheckResult extends $tea.Model {
   existFileId?: string;
   existFileType?: string;
@@ -1344,6 +1910,55 @@ export class NameCheckResult extends $tea.Model {
     return {
       existFileId: 'string',
       existFileType: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class Permission extends $tea.Model {
+  actionList?: PermissionActionList[];
+  collection?: string;
+  condition?: PermissionCondition;
+  createdAt?: number;
+  effect?: string;
+  identityId?: string;
+  identityType?: string;
+  resource?: string;
+  resourceType?: string;
+  updatedAt?: number;
+  userTags?: string[];
+  static names(): { [key: string]: string } {
+    return {
+      actionList: 'action_list',
+      collection: 'collection',
+      condition: 'condition',
+      createdAt: 'created_at',
+      effect: 'effect',
+      identityId: 'identity_id',
+      identityType: 'identity_type',
+      resource: 'resource',
+      resourceType: 'resource_type',
+      updatedAt: 'updated_at',
+      userTags: 'user_tags',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      actionList: { 'type': 'array', 'itemType': PermissionActionList },
+      collection: 'string',
+      condition: PermissionCondition,
+      createdAt: 'number',
+      effect: 'string',
+      identityId: 'string',
+      identityType: 'string',
+      resource: 'string',
+      resourceType: 'string',
+      updatedAt: 'number',
+      userTags: { 'type': 'array', 'itemType': 'string' },
     };
   }
 
@@ -1372,6 +1987,74 @@ export class PermissionCondition extends $tea.Model {
       ipNotEquals: PermissionConditionIpNotEquals,
       stringLike: PermissionConditionStringLike,
       stringNotLike: PermissionConditionStringNotLike,
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class PunishRule extends $tea.Model {
+  actionCode?: string;
+  endsAt?: string;
+  impermanent?: boolean;
+  startsAt?: string;
+  static names(): { [key: string]: string } {
+    return {
+      actionCode: 'action_code',
+      endsAt: 'ends_at',
+      impermanent: 'impermanent',
+      startsAt: 'starts_at',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      actionCode: 'string',
+      endsAt: 'string',
+      impermanent: 'boolean',
+      startsAt: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class RefundNoticeParam extends $tea.Model {
+  aliuid?: number;
+  aliyunProduceCode?: string;
+  commodityCode?: string;
+  instanceId?: string;
+  newExpireTime?: any;
+  orderIds?: number[];
+  refundParamMap?: { [key: string]: string };
+  refundType?: string;
+  static names(): { [key: string]: string } {
+    return {
+      aliuid: 'aliuid',
+      aliyunProduceCode: 'aliyunProduceCode',
+      commodityCode: 'commodityCode',
+      instanceId: 'instanceId',
+      newExpireTime: 'newExpireTime',
+      orderIds: 'orderIds',
+      refundParamMap: 'refundParamMap',
+      refundType: 'refundType',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      aliuid: 'number',
+      aliyunProduceCode: 'string',
+      commodityCode: 'string',
+      instanceId: 'string',
+      newExpireTime: 'any',
+      orderIds: { 'type': 'array', 'itemType': 'number' },
+      refundParamMap: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      refundType: 'string',
     };
   }
 
@@ -1451,6 +2134,49 @@ export class Revision extends $tea.Model {
       thumbnail: 'string',
       updatedAt: 'string',
       url: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class Role extends $tea.Model {
+  createdAt?: number;
+  creator?: string;
+  description?: string;
+  manageResourceType?: string;
+  name?: string;
+  permissions?: Permission[];
+  roleId?: string;
+  status?: string;
+  updatedAt?: number;
+  static names(): { [key: string]: string } {
+    return {
+      createdAt: 'created_at',
+      creator: 'creator',
+      description: 'description',
+      manageResourceType: 'manage_resource_type',
+      name: 'name',
+      permissions: 'permissions',
+      roleId: 'role_id',
+      status: 'status',
+      updatedAt: 'updated_at',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      createdAt: 'number',
+      creator: 'string',
+      description: 'string',
+      manageResourceType: 'string',
+      name: 'string',
+      permissions: { 'type': 'array', 'itemType': Permission },
+      roleId: 'string',
+      status: 'string',
+      updatedAt: 'number',
     };
   }
 
@@ -2009,20 +2735,79 @@ export class UserTag extends $tea.Model {
   }
 }
 
-export class VideoMediaMetadata extends $tea.Model {
+export class VideoMediaAudioStream extends $tea.Model {
+  bitRate?: string;
+  codeName?: string;
   duration?: string;
-  takenAt?: string;
   static names(): { [key: string]: string } {
     return {
+      bitRate: 'bit_rate',
+      codeName: 'code_name',
       duration: 'duration',
-      takenAt: 'taken_at',
     };
   }
 
   static types(): { [key: string]: any } {
     return {
+      bitRate: 'string',
+      codeName: 'string',
       duration: 'string',
-      takenAt: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class VideoMediaMetadata extends $tea.Model {
+  height?: number;
+  videoMediaAudioStream?: VideoMediaAudioStream[];
+  videoMediaVideoStream?: VideoMediaVideoStream[];
+  width?: number;
+  static names(): { [key: string]: string } {
+    return {
+      height: 'height',
+      videoMediaAudioStream: 'video_media_audio_stream',
+      videoMediaVideoStream: 'video_media_video_stream',
+      width: 'width',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      height: 'number',
+      videoMediaAudioStream: { 'type': 'array', 'itemType': VideoMediaAudioStream },
+      videoMediaVideoStream: { 'type': 'array', 'itemType': VideoMediaVideoStream },
+      width: 'number',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class VideoMediaVideoStream extends $tea.Model {
+  bitrate?: string;
+  codeName?: string;
+  duration?: string;
+  frameCount?: string;
+  static names(): { [key: string]: string } {
+    return {
+      bitrate: 'bitrate',
+      codeName: 'code_name',
+      duration: 'duration',
+      frameCount: 'frame_count',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      bitrate: 'string',
+      codeName: 'string',
+      duration: 'string',
+      frameCount: 'string',
     };
   }
 
@@ -2231,6 +3016,34 @@ export class ViewFile extends $tea.Model {
       updatedAt: 'string',
       uploadId: 'string',
       viewId: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class WatermarkConfig extends $tea.Model {
+  displayAccessUserName?: boolean;
+  displayShareLinkCreatorName?: boolean;
+  enableDocPreview?: boolean;
+  enableOnPreview?: boolean;
+  static names(): { [key: string]: string } {
+    return {
+      displayAccessUserName: 'display_access_user_name',
+      displayShareLinkCreatorName: 'display_shareLink_creator_name',
+      enableDocPreview: 'enable_doc_preview',
+      enableOnPreview: 'enable_on_preview',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      displayAccessUserName: 'boolean',
+      displayShareLinkCreatorName: 'boolean',
+      enableDocPreview: 'boolean',
+      enableOnPreview: 'boolean',
     };
   }
 
@@ -3359,6 +4172,99 @@ export class CreateIdentityToBenefitPkgMappingResponse extends $tea.Model {
   }
 }
 
+export class CreateOrderRequest extends $tea.Model {
+  autoPay?: boolean;
+  autoRenew?: boolean;
+  code?: string;
+  instanceId?: string;
+  orderType?: string;
+  package?: string;
+  period?: number;
+  periodUnit?: string;
+  totalSize?: number;
+  userCount?: number;
+  static names(): { [key: string]: string } {
+    return {
+      autoPay: 'auto_pay',
+      autoRenew: 'auto_renew',
+      code: 'code',
+      instanceId: 'instance_id',
+      orderType: 'order_type',
+      package: 'package',
+      period: 'period',
+      periodUnit: 'period_unit',
+      totalSize: 'total_size',
+      userCount: 'user_count',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      autoPay: 'boolean',
+      autoRenew: 'boolean',
+      code: 'string',
+      instanceId: 'string',
+      orderType: 'string',
+      package: 'string',
+      period: 'number',
+      periodUnit: 'string',
+      totalSize: 'number',
+      userCount: 'number',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class CreateOrderResponseBody extends $tea.Model {
+  instanceId?: string;
+  orderId?: string;
+  static names(): { [key: string]: string } {
+    return {
+      instanceId: 'instance_id',
+      orderId: 'order_id',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      instanceId: 'string',
+      orderId: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class CreateOrderResponse extends $tea.Model {
+  headers: { [key: string]: string };
+  statusCode: number;
+  body: CreateOrderResponseBody;
+  static names(): { [key: string]: string } {
+    return {
+      headers: 'headers',
+      statusCode: 'statusCode',
+      body: 'body',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
+      body: CreateOrderResponseBody,
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
 export class CreateShareLinkRequest extends $tea.Model {
   description?: string;
   disableDownload?: boolean;
@@ -3610,7 +4516,7 @@ export class CreateUserRequest extends $tea.Model {
   phone?: string;
   role?: string;
   status?: string;
-  userData?: string;
+  userData?: { [key: string]: any };
   userId?: string;
   userName?: string;
   static names(): { [key: string]: string } {
@@ -3639,7 +4545,7 @@ export class CreateUserRequest extends $tea.Model {
       phone: 'string',
       role: 'string',
       status: 'string',
-      userData: 'string',
+      userData: { 'type': 'map', 'keyType': 'string', 'valueType': 'any' },
       userId: 'string',
       userName: 'string',
     };
@@ -3663,7 +4569,7 @@ export class CreateUserResponseBody extends $tea.Model {
   role?: string;
   status?: string;
   updatedAt?: number;
-  userData?: { [key: string]: string };
+  userData?: { [key: string]: any };
   userId?: string;
   userName?: string;
   static names(): { [key: string]: string } {
@@ -3700,7 +4606,7 @@ export class CreateUserResponseBody extends $tea.Model {
       role: 'string',
       status: 'string',
       updatedAt: 'number',
-      userData: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      userData: { 'type': 'map', 'keyType': 'string', 'valueType': 'any' },
       userId: 'string',
       userName: 'string',
     };
@@ -4880,6 +5786,7 @@ export class GetFileRequest extends $tea.Model {
   fields?: string;
   fileId?: string;
   shareId?: string;
+  thumbnailProcesses?: { [key: string]: ImageProcess };
   urlExpireSec?: number;
   static names(): { [key: string]: string } {
     return {
@@ -4887,6 +5794,7 @@ export class GetFileRequest extends $tea.Model {
       fields: 'fields',
       fileId: 'file_id',
       shareId: 'share_id',
+      thumbnailProcesses: 'thumbnail_processes',
       urlExpireSec: 'url_expire_sec',
     };
   }
@@ -4897,6 +5805,7 @@ export class GetFileRequest extends $tea.Model {
       fields: 'string',
       fileId: 'string',
       shareId: 'string',
+      thumbnailProcesses: { 'type': 'map', 'keyType': 'string', 'valueType': ImageProcess },
       urlExpireSec: 'number',
     };
   }
@@ -7564,6 +8473,96 @@ export class MoveFileResponse extends $tea.Model {
   }
 }
 
+export class QueryOrderPriceRequest extends $tea.Model {
+  code?: string;
+  instanceId?: string;
+  orderType?: string;
+  package?: string;
+  period?: number;
+  periodUnit?: string;
+  totalSize?: number;
+  userCount?: number;
+  static names(): { [key: string]: string } {
+    return {
+      code: 'code',
+      instanceId: 'instance_id',
+      orderType: 'order_type',
+      package: 'package',
+      period: 'period',
+      periodUnit: 'period_unit',
+      totalSize: 'total_size',
+      userCount: 'user_count',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      code: 'string',
+      instanceId: 'string',
+      orderType: 'string',
+      package: 'string',
+      period: 'number',
+      periodUnit: 'string',
+      totalSize: 'number',
+      userCount: 'number',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class QueryOrderPriceResponseBody extends $tea.Model {
+  discountPrice?: number;
+  originalPrice?: number;
+  tradePrice?: number;
+  static names(): { [key: string]: string } {
+    return {
+      discountPrice: 'discount_price',
+      originalPrice: 'original_price',
+      tradePrice: 'trade_price',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      discountPrice: 'number',
+      originalPrice: 'number',
+      tradePrice: 'number',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class QueryOrderPriceResponse extends $tea.Model {
+  headers: { [key: string]: string };
+  statusCode: number;
+  body: QueryOrderPriceResponseBody;
+  static names(): { [key: string]: string } {
+    return {
+      headers: 'headers',
+      statusCode: 'statusCode',
+      body: 'body',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
+      body: QueryOrderPriceResponseBody,
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
 export class RemoveFaceGroupFileRequest extends $tea.Model {
   driveId?: string;
   faceGroupId?: string;
@@ -8012,12 +9011,14 @@ export class SearchAddressGroupsResponse extends $tea.Model {
 }
 
 export class SearchDomainsRequest extends $tea.Model {
+  instanceId?: string;
   limit?: number;
   marker?: string;
   name?: string;
   orderBy?: string;
   static names(): { [key: string]: string } {
     return {
+      instanceId: 'instance_id',
       limit: 'limit',
       marker: 'marker',
       name: 'name',
@@ -8027,6 +9028,7 @@ export class SearchDomainsRequest extends $tea.Model {
 
   static types(): { [key: string]: any } {
     return {
+      instanceId: 'string',
       limit: 'number',
       marker: 'string',
       name: 'string',
@@ -8166,6 +9168,7 @@ export class SearchDriveResponse extends $tea.Model {
 
 export class SearchFileRequest extends $tea.Model {
   driveId?: string;
+  fields?: string;
   limit?: number;
   marker?: string;
   orderBy?: string;
@@ -8174,6 +9177,7 @@ export class SearchFileRequest extends $tea.Model {
   static names(): { [key: string]: string } {
     return {
       driveId: 'drive_id',
+      fields: 'fields',
       limit: 'limit',
       marker: 'marker',
       orderBy: 'order_by',
@@ -8185,6 +9189,7 @@ export class SearchFileRequest extends $tea.Model {
   static types(): { [key: string]: any } {
     return {
       driveId: 'string',
+      fields: 'string',
       limit: 'number',
       marker: 'string',
       orderBy: 'string',
@@ -9612,6 +10617,25 @@ export class InvestigationInfoVideoDetail extends $tea.Model {
   }
 }
 
+export class PermissionActionList extends $tea.Model {
+  action?: string;
+  static names(): { [key: string]: string } {
+    return {
+      action: 'action',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      action: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
 export class PermissionConditionIpEquals extends $tea.Model {
   clientIp?: string[];
   static names(): { [key: string]: string } {
@@ -9957,12 +10981,36 @@ export class CreateCustomizedStoryRequestStoryFiles extends $tea.Model {
   }
 }
 
+export class CreateFileRequestPartInfoListParallelSha1Ctx extends $tea.Model {
+  h?: number[];
+  partOffset?: number;
+  static names(): { [key: string]: string } {
+    return {
+      h: 'h',
+      partOffset: 'part_offset',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      h: { 'type': 'array', 'itemType': 'number' },
+      partOffset: 'number',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
 export class CreateFileRequestPartInfoList extends $tea.Model {
   contentMd5?: string;
+  parallelSha1Ctx?: CreateFileRequestPartInfoListParallelSha1Ctx;
   partNumber?: number;
   static names(): { [key: string]: string } {
     return {
       contentMd5: 'content_md5',
+      parallelSha1Ctx: 'parallel_sha1_ctx',
       partNumber: 'part_number',
     };
   }
@@ -9970,6 +11018,7 @@ export class CreateFileRequestPartInfoList extends $tea.Model {
   static types(): { [key: string]: any } {
     return {
       contentMd5: 'string',
+      parallelSha1Ctx: CreateFileRequestPartInfoListParallelSha1Ctx,
       partNumber: 'number',
     };
   }
@@ -11119,6 +12168,73 @@ export default class Client extends OpenApi {
     return await this.createIdentityToBenefitPkgMappingWithOptions(request, headers, runtime);
   }
 
+  async createOrderWithOptions(request: CreateOrderRequest, headers: {[key: string ]: string}, runtime: $Util.RuntimeOptions): Promise<CreateOrderResponse> {
+    Util.validateModel(request);
+    let body : {[key: string ]: any} = { };
+    if (!Util.isUnset(request.autoPay)) {
+      body["auto_pay"] = request.autoPay;
+    }
+
+    if (!Util.isUnset(request.autoRenew)) {
+      body["auto_renew"] = request.autoRenew;
+    }
+
+    if (!Util.isUnset(request.code)) {
+      body["code"] = request.code;
+    }
+
+    if (!Util.isUnset(request.instanceId)) {
+      body["instance_id"] = request.instanceId;
+    }
+
+    if (!Util.isUnset(request.orderType)) {
+      body["order_type"] = request.orderType;
+    }
+
+    if (!Util.isUnset(request.package)) {
+      body["package"] = request.package;
+    }
+
+    if (!Util.isUnset(request.period)) {
+      body["period"] = request.period;
+    }
+
+    if (!Util.isUnset(request.periodUnit)) {
+      body["period_unit"] = request.periodUnit;
+    }
+
+    if (!Util.isUnset(request.totalSize)) {
+      body["total_size"] = request.totalSize;
+    }
+
+    if (!Util.isUnset(request.userCount)) {
+      body["user_count"] = request.userCount;
+    }
+
+    let req = new $OpenApi.OpenApiRequest({
+      headers: headers,
+      body: OpenApiUtil.parseToMap(body),
+    });
+    let params = new $OpenApi.Params({
+      action: "CreateOrder",
+      version: "2022-03-01",
+      protocol: "HTTPS",
+      pathname: `/v2/domain/create_order`,
+      method: "POST",
+      authType: "AK",
+      style: "ROA",
+      reqBodyType: "json",
+      bodyType: "json",
+    });
+    return $tea.cast<CreateOrderResponse>(await this.execute(params, req, runtime), new CreateOrderResponse({}));
+  }
+
+  async createOrder(request: CreateOrderRequest): Promise<CreateOrderResponse> {
+    let runtime = new $Util.RuntimeOptions({ });
+    let headers : {[key: string ]: string} = { };
+    return await this.createOrderWithOptions(request, headers, runtime);
+  }
+
   async createShareLinkWithOptions(request: CreateShareLinkRequest, headers: {[key: string ]: string}, runtime: $Util.RuntimeOptions): Promise<CreateShareLinkResponse> {
     Util.validateModel(request);
     let body : {[key: string ]: any} = { };
@@ -12120,6 +13236,10 @@ export default class Client extends OpenApi {
 
     if (!Util.isUnset(request.shareId)) {
       body["share_id"] = request.shareId;
+    }
+
+    if (!Util.isUnset(request.thumbnailProcesses)) {
+      body["thumbnail_processes"] = request.thumbnailProcesses;
     }
 
     if (!Util.isUnset(request.urlExpireSec)) {
@@ -13709,6 +14829,65 @@ export default class Client extends OpenApi {
     return await this.moveFileWithOptions(request, headers, runtime);
   }
 
+  async queryOrderPriceWithOptions(request: QueryOrderPriceRequest, headers: {[key: string ]: string}, runtime: $Util.RuntimeOptions): Promise<QueryOrderPriceResponse> {
+    Util.validateModel(request);
+    let body : {[key: string ]: any} = { };
+    if (!Util.isUnset(request.code)) {
+      body["code"] = request.code;
+    }
+
+    if (!Util.isUnset(request.instanceId)) {
+      body["instance_id"] = request.instanceId;
+    }
+
+    if (!Util.isUnset(request.orderType)) {
+      body["order_type"] = request.orderType;
+    }
+
+    if (!Util.isUnset(request.package)) {
+      body["package"] = request.package;
+    }
+
+    if (!Util.isUnset(request.period)) {
+      body["period"] = request.period;
+    }
+
+    if (!Util.isUnset(request.periodUnit)) {
+      body["period_unit"] = request.periodUnit;
+    }
+
+    if (!Util.isUnset(request.totalSize)) {
+      body["total_size"] = request.totalSize;
+    }
+
+    if (!Util.isUnset(request.userCount)) {
+      body["user_count"] = request.userCount;
+    }
+
+    let req = new $OpenApi.OpenApiRequest({
+      headers: headers,
+      body: OpenApiUtil.parseToMap(body),
+    });
+    let params = new $OpenApi.Params({
+      action: "QueryOrderPrice",
+      version: "2022-03-01",
+      protocol: "HTTPS",
+      pathname: `/v2/domain/query_order_price`,
+      method: "POST",
+      authType: "AK",
+      style: "ROA",
+      reqBodyType: "json",
+      bodyType: "json",
+    });
+    return $tea.cast<QueryOrderPriceResponse>(await this.execute(params, req, runtime), new QueryOrderPriceResponse({}));
+  }
+
+  async queryOrderPrice(request: QueryOrderPriceRequest): Promise<QueryOrderPriceResponse> {
+    let runtime = new $Util.RuntimeOptions({ });
+    let headers : {[key: string ]: string} = { };
+    return await this.queryOrderPriceWithOptions(request, headers, runtime);
+  }
+
   async removeFaceGroupFileWithOptions(request: RemoveFaceGroupFileRequest, headers: {[key: string ]: string}, runtime: $Util.RuntimeOptions): Promise<RemoveFaceGroupFileResponse> {
     Util.validateModel(request);
     let body : {[key: string ]: any} = { };
@@ -14001,6 +15180,10 @@ export default class Client extends OpenApi {
   async searchDomainsWithOptions(request: SearchDomainsRequest, headers: {[key: string ]: string}, runtime: $Util.RuntimeOptions): Promise<SearchDomainsResponse> {
     Util.validateModel(request);
     let body : {[key: string ]: any} = { };
+    if (!Util.isUnset(request.instanceId)) {
+      body["instance_id"] = request.instanceId;
+    }
+
     if (!Util.isUnset(request.limit)) {
       body["limit"] = request.limit;
     }
@@ -14093,6 +15276,10 @@ export default class Client extends OpenApi {
     let body : {[key: string ]: any} = { };
     if (!Util.isUnset(request.driveId)) {
       body["drive_id"] = request.driveId;
+    }
+
+    if (!Util.isUnset(request.fields)) {
+      body["fields"] = request.fields;
     }
 
     if (!Util.isUnset(request.limit)) {
