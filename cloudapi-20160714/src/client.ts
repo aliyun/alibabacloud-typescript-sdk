@@ -299,6 +299,75 @@ export class AddTrafficSpecialControlResponse extends $tea.Model {
   }
 }
 
+export class AttachApiProductRequest extends $tea.Model {
+  apiProductId?: string;
+  apis?: AttachApiProductRequestApis[];
+  securityToken?: string;
+  static names(): { [key: string]: string } {
+    return {
+      apiProductId: 'ApiProductId',
+      apis: 'Apis',
+      securityToken: 'SecurityToken',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      apiProductId: 'string',
+      apis: { 'type': 'array', 'itemType': AttachApiProductRequestApis },
+      securityToken: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class AttachApiProductResponseBody extends $tea.Model {
+  requestId?: string;
+  static names(): { [key: string]: string } {
+    return {
+      requestId: 'RequestId',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      requestId: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class AttachApiProductResponse extends $tea.Model {
+  headers: { [key: string]: string };
+  statusCode: number;
+  body: AttachApiProductResponseBody;
+  static names(): { [key: string]: string } {
+    return {
+      headers: 'headers',
+      statusCode: 'statusCode',
+      body: 'body',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
+      body: AttachApiProductResponseBody,
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
 export class AttachPluginRequest extends $tea.Model {
   apiId?: string;
   apiIds?: string;
@@ -2325,6 +2394,72 @@ export class DeleteApiGroupResponse extends $tea.Model {
       headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
       statusCode: 'number',
       body: DeleteApiGroupResponseBody,
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class DeleteApiProductRequest extends $tea.Model {
+  apiProductId?: string;
+  securityToken?: string;
+  static names(): { [key: string]: string } {
+    return {
+      apiProductId: 'ApiProductId',
+      securityToken: 'SecurityToken',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      apiProductId: 'string',
+      securityToken: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class DeleteApiProductResponseBody extends $tea.Model {
+  requestId?: string;
+  static names(): { [key: string]: string } {
+    return {
+      requestId: 'RequestId',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      requestId: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class DeleteApiProductResponse extends $tea.Model {
+  headers: { [key: string]: string };
+  statusCode: number;
+  body: DeleteApiProductResponseBody;
+  static names(): { [key: string]: string } {
+    return {
+      headers: 'headers',
+      statusCode: 'statusCode',
+      body: 'body',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
+      body: DeleteApiProductResponseBody,
     };
   }
 
@@ -4955,6 +5090,174 @@ export class DescribeApiMarketAttributesResponse extends $tea.Model {
   }
 }
 
+export class DescribeApiProductApisRequest extends $tea.Model {
+  apiProductId?: string;
+  pageNumber?: number;
+  pageSize?: number;
+  securityToken?: string;
+  static names(): { [key: string]: string } {
+    return {
+      apiProductId: 'ApiProductId',
+      pageNumber: 'PageNumber',
+      pageSize: 'PageSize',
+      securityToken: 'SecurityToken',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      apiProductId: 'string',
+      pageNumber: 'number',
+      pageSize: 'number',
+      securityToken: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class DescribeApiProductApisResponseBody extends $tea.Model {
+  apiInfoList?: DescribeApiProductApisResponseBodyApiInfoList;
+  pageNumber?: number;
+  pageSize?: number;
+  requestId?: string;
+  totalCount?: number;
+  static names(): { [key: string]: string } {
+    return {
+      apiInfoList: 'ApiInfoList',
+      pageNumber: 'PageNumber',
+      pageSize: 'PageSize',
+      requestId: 'RequestId',
+      totalCount: 'TotalCount',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      apiInfoList: DescribeApiProductApisResponseBodyApiInfoList,
+      pageNumber: 'number',
+      pageSize: 'number',
+      requestId: 'string',
+      totalCount: 'number',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class DescribeApiProductApisResponse extends $tea.Model {
+  headers: { [key: string]: string };
+  statusCode: number;
+  body: DescribeApiProductApisResponseBody;
+  static names(): { [key: string]: string } {
+    return {
+      headers: 'headers',
+      statusCode: 'statusCode',
+      body: 'body',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
+      body: DescribeApiProductApisResponseBody,
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class DescribeApiProductsByAppRequest extends $tea.Model {
+  appId?: number;
+  pageNumber?: number;
+  pageSize?: number;
+  securityToken?: string;
+  static names(): { [key: string]: string } {
+    return {
+      appId: 'AppId',
+      pageNumber: 'PageNumber',
+      pageSize: 'PageSize',
+      securityToken: 'SecurityToken',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      appId: 'number',
+      pageNumber: 'number',
+      pageSize: 'number',
+      securityToken: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class DescribeApiProductsByAppResponseBody extends $tea.Model {
+  apiProductInfoList?: DescribeApiProductsByAppResponseBodyApiProductInfoList;
+  pageNumber?: number;
+  pageSize?: number;
+  requestId?: string;
+  totalCount?: number;
+  static names(): { [key: string]: string } {
+    return {
+      apiProductInfoList: 'ApiProductInfoList',
+      pageNumber: 'PageNumber',
+      pageSize: 'PageSize',
+      requestId: 'RequestId',
+      totalCount: 'TotalCount',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      apiProductInfoList: DescribeApiProductsByAppResponseBodyApiProductInfoList,
+      pageNumber: 'number',
+      pageSize: 'number',
+      requestId: 'string',
+      totalCount: 'number',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class DescribeApiProductsByAppResponse extends $tea.Model {
+  headers: { [key: string]: string };
+  statusCode: number;
+  body: DescribeApiProductsByAppResponseBody;
+  static names(): { [key: string]: string } {
+    return {
+      headers: 'headers',
+      statusCode: 'statusCode',
+      body: 'body',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
+      body: DescribeApiProductsByAppResponseBody,
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
 export class DescribeApiQpsDataRequest extends $tea.Model {
   apiId?: string;
   endTime?: string;
@@ -5855,6 +6158,105 @@ export class DescribeApisByTrafficControlResponse extends $tea.Model {
   }
 }
 
+export class DescribeApisWithStageNameIntegratedByAppRequest extends $tea.Model {
+  apiName?: string;
+  apiUid?: string;
+  appId?: number;
+  description?: string;
+  method?: string;
+  pageNumber?: number;
+  pageSize?: number;
+  path?: string;
+  securityToken?: string;
+  static names(): { [key: string]: string } {
+    return {
+      apiName: 'ApiName',
+      apiUid: 'ApiUid',
+      appId: 'AppId',
+      description: 'Description',
+      method: 'Method',
+      pageNumber: 'PageNumber',
+      pageSize: 'PageSize',
+      path: 'Path',
+      securityToken: 'SecurityToken',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      apiName: 'string',
+      apiUid: 'string',
+      appId: 'number',
+      description: 'string',
+      method: 'string',
+      pageNumber: 'number',
+      pageSize: 'number',
+      path: 'string',
+      securityToken: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class DescribeApisWithStageNameIntegratedByAppResponseBody extends $tea.Model {
+  appApiRelationInfos?: DescribeApisWithStageNameIntegratedByAppResponseBodyAppApiRelationInfos;
+  pageNumber?: number;
+  pageSize?: number;
+  requestId?: string;
+  totalCount?: number;
+  static names(): { [key: string]: string } {
+    return {
+      appApiRelationInfos: 'AppApiRelationInfos',
+      pageNumber: 'PageNumber',
+      pageSize: 'PageSize',
+      requestId: 'RequestId',
+      totalCount: 'TotalCount',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      appApiRelationInfos: DescribeApisWithStageNameIntegratedByAppResponseBodyAppApiRelationInfos,
+      pageNumber: 'number',
+      pageSize: 'number',
+      requestId: 'string',
+      totalCount: 'number',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class DescribeApisWithStageNameIntegratedByAppResponse extends $tea.Model {
+  headers: { [key: string]: string };
+  statusCode: number;
+  body: DescribeApisWithStageNameIntegratedByAppResponseBody;
+  static names(): { [key: string]: string } {
+    return {
+      headers: 'headers',
+      statusCode: 'statusCode',
+      body: 'body',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
+      body: DescribeApisWithStageNameIntegratedByAppResponseBody,
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
 export class DescribeAppRequest extends $tea.Model {
   appId?: number;
   securityToken?: string;
@@ -6207,6 +6609,93 @@ export class DescribeAppsResponse extends $tea.Model {
       headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
       statusCode: 'number',
       body: DescribeAppsResponseBody,
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class DescribeAppsByApiProductRequest extends $tea.Model {
+  apiProductId?: string;
+  appName?: string;
+  pageNumber?: number;
+  pageSize?: number;
+  securityToken?: string;
+  static names(): { [key: string]: string } {
+    return {
+      apiProductId: 'ApiProductId',
+      appName: 'AppName',
+      pageNumber: 'PageNumber',
+      pageSize: 'PageSize',
+      securityToken: 'SecurityToken',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      apiProductId: 'string',
+      appName: 'string',
+      pageNumber: 'number',
+      pageSize: 'number',
+      securityToken: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class DescribeAppsByApiProductResponseBody extends $tea.Model {
+  authorizedApps?: DescribeAppsByApiProductResponseBodyAuthorizedApps;
+  pageNumber?: number;
+  pageSize?: number;
+  requestId?: string;
+  totalCount?: number;
+  static names(): { [key: string]: string } {
+    return {
+      authorizedApps: 'AuthorizedApps',
+      pageNumber: 'PageNumber',
+      pageSize: 'PageSize',
+      requestId: 'RequestId',
+      totalCount: 'TotalCount',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      authorizedApps: DescribeAppsByApiProductResponseBodyAuthorizedApps,
+      pageNumber: 'number',
+      pageSize: 'number',
+      requestId: 'string',
+      totalCount: 'number',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class DescribeAppsByApiProductResponse extends $tea.Model {
+  headers: { [key: string]: string };
+  statusCode: number;
+  body: DescribeAppsByApiProductResponseBody;
+  static names(): { [key: string]: string } {
+    return {
+      headers: 'headers',
+      statusCode: 'statusCode',
+      body: 'body',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
+      body: DescribeAppsByApiProductResponseBody,
     };
   }
 
@@ -10286,6 +10775,75 @@ export class DescribeZonesResponse extends $tea.Model {
   }
 }
 
+export class DetachApiProductRequest extends $tea.Model {
+  apiProductId?: string;
+  apis?: DetachApiProductRequestApis[];
+  securityToken?: string;
+  static names(): { [key: string]: string } {
+    return {
+      apiProductId: 'ApiProductId',
+      apis: 'Apis',
+      securityToken: 'SecurityToken',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      apiProductId: 'string',
+      apis: { 'type': 'array', 'itemType': DetachApiProductRequestApis },
+      securityToken: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class DetachApiProductResponseBody extends $tea.Model {
+  requestId?: string;
+  static names(): { [key: string]: string } {
+    return {
+      requestId: 'RequestId',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      requestId: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class DetachApiProductResponse extends $tea.Model {
+  headers: { [key: string]: string };
+  statusCode: number;
+  body: DetachApiProductResponseBody;
+  static names(): { [key: string]: string } {
+    return {
+      headers: 'headers',
+      statusCode: 'statusCode',
+      body: 'body',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
+      body: DetachApiProductResponseBody,
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
 export class DetachPluginRequest extends $tea.Model {
   apiId?: string;
   groupId?: string;
@@ -11911,6 +12469,75 @@ export class ModifyInstanceSpecResponse extends $tea.Model {
   }
 }
 
+export class ModifyIntranetDomainPolicyRequest extends $tea.Model {
+  groupId?: string;
+  securityToken?: string;
+  vpcIntranetEnable?: boolean;
+  static names(): { [key: string]: string } {
+    return {
+      groupId: 'GroupId',
+      securityToken: 'SecurityToken',
+      vpcIntranetEnable: 'VpcIntranetEnable',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      groupId: 'string',
+      securityToken: 'string',
+      vpcIntranetEnable: 'boolean',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class ModifyIntranetDomainPolicyResponseBody extends $tea.Model {
+  requestId?: string;
+  static names(): { [key: string]: string } {
+    return {
+      requestId: 'RequestId',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      requestId: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class ModifyIntranetDomainPolicyResponse extends $tea.Model {
+  headers: { [key: string]: string };
+  statusCode: number;
+  body: ModifyIntranetDomainPolicyResponseBody;
+  static names(): { [key: string]: string } {
+    return {
+      headers: 'headers',
+      statusCode: 'statusCode',
+      body: 'body',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
+      body: ModifyIntranetDomainPolicyResponseBody,
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
 export class ModifyIpControlRequest extends $tea.Model {
   description?: string;
   ipControlId?: string;
@@ -12784,6 +13411,100 @@ export class RemoveAccessControlListEntryResponse extends $tea.Model {
       headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
       statusCode: 'number',
       body: RemoveAccessControlListEntryResponseBody,
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class RemoveApiProductsAuthoritiesRequest extends $tea.Model {
+  apiProductIds?: string[];
+  appId?: number;
+  securityToken?: string;
+  static names(): { [key: string]: string } {
+    return {
+      apiProductIds: 'ApiProductIds',
+      appId: 'AppId',
+      securityToken: 'SecurityToken',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      apiProductIds: { 'type': 'array', 'itemType': 'string' },
+      appId: 'number',
+      securityToken: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class RemoveApiProductsAuthoritiesShrinkRequest extends $tea.Model {
+  apiProductIdsShrink?: string;
+  appId?: number;
+  securityToken?: string;
+  static names(): { [key: string]: string } {
+    return {
+      apiProductIdsShrink: 'ApiProductIds',
+      appId: 'AppId',
+      securityToken: 'SecurityToken',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      apiProductIdsShrink: 'string',
+      appId: 'number',
+      securityToken: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class RemoveApiProductsAuthoritiesResponseBody extends $tea.Model {
+  requestId?: string;
+  static names(): { [key: string]: string } {
+    return {
+      requestId: 'RequestId',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      requestId: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class RemoveApiProductsAuthoritiesResponse extends $tea.Model {
+  headers: { [key: string]: string };
+  statusCode: number;
+  body: RemoveApiProductsAuthoritiesResponseBody;
+  static names(): { [key: string]: string } {
+    return {
+      headers: 'headers',
+      statusCode: 'statusCode',
+      body: 'body',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
+      body: RemoveApiProductsAuthoritiesResponseBody,
     };
   }
 
@@ -13813,6 +14534,106 @@ export class SetAccessControlListAttributeResponse extends $tea.Model {
       headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
       statusCode: 'number',
       body: SetAccessControlListAttributeResponseBody,
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class SetApiProductsAuthoritiesRequest extends $tea.Model {
+  apiProductIds?: string[];
+  appId?: number;
+  description?: string;
+  securityToken?: string;
+  static names(): { [key: string]: string } {
+    return {
+      apiProductIds: 'ApiProductIds',
+      appId: 'AppId',
+      description: 'Description',
+      securityToken: 'SecurityToken',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      apiProductIds: { 'type': 'array', 'itemType': 'string' },
+      appId: 'number',
+      description: 'string',
+      securityToken: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class SetApiProductsAuthoritiesShrinkRequest extends $tea.Model {
+  apiProductIdsShrink?: string;
+  appId?: number;
+  description?: string;
+  securityToken?: string;
+  static names(): { [key: string]: string } {
+    return {
+      apiProductIdsShrink: 'ApiProductIds',
+      appId: 'AppId',
+      description: 'Description',
+      securityToken: 'SecurityToken',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      apiProductIdsShrink: 'string',
+      appId: 'number',
+      description: 'string',
+      securityToken: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class SetApiProductsAuthoritiesResponseBody extends $tea.Model {
+  requestId?: string;
+  static names(): { [key: string]: string } {
+    return {
+      requestId: 'RequestId',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      requestId: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class SetApiProductsAuthoritiesResponse extends $tea.Model {
+  headers: { [key: string]: string };
+  statusCode: number;
+  body: SetApiProductsAuthoritiesResponseBody;
+  static names(): { [key: string]: string } {
+    return {
+      headers: 'headers',
+      statusCode: 'statusCode',
+      body: 'body',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
+      body: SetApiProductsAuthoritiesResponseBody,
     };
   }
 
@@ -14980,6 +15801,28 @@ export class ValidateVpcConnectivityResponse extends $tea.Model {
       headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
       statusCode: 'number',
       body: ValidateVpcConnectivityResponseBody,
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class AttachApiProductRequestApis extends $tea.Model {
+  apiId?: string;
+  stageName?: string;
+  static names(): { [key: string]: string } {
+    return {
+      apiId: 'ApiId',
+      stageName: 'StageName',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      apiId: 'string',
+      stageName: 'string',
     };
   }
 
@@ -17518,6 +18361,106 @@ export class DescribeApiLatencyDataResponseBodyCallLatencys extends $tea.Model {
   }
 }
 
+export class DescribeApiProductApisResponseBodyApiInfoListApiInfo extends $tea.Model {
+  apiId?: string;
+  apiName?: string;
+  description?: string;
+  groupId?: string;
+  groupName?: string;
+  method?: string;
+  path?: string;
+  regionId?: string;
+  stageName?: string;
+  static names(): { [key: string]: string } {
+    return {
+      apiId: 'ApiId',
+      apiName: 'ApiName',
+      description: 'Description',
+      groupId: 'GroupId',
+      groupName: 'GroupName',
+      method: 'Method',
+      path: 'Path',
+      regionId: 'RegionId',
+      stageName: 'StageName',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      apiId: 'string',
+      apiName: 'string',
+      description: 'string',
+      groupId: 'string',
+      groupName: 'string',
+      method: 'string',
+      path: 'string',
+      regionId: 'string',
+      stageName: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class DescribeApiProductApisResponseBodyApiInfoList extends $tea.Model {
+  apiInfo?: DescribeApiProductApisResponseBodyApiInfoListApiInfo[];
+  static names(): { [key: string]: string } {
+    return {
+      apiInfo: 'ApiInfo',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      apiInfo: { 'type': 'array', 'itemType': DescribeApiProductApisResponseBodyApiInfoListApiInfo },
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class DescribeApiProductsByAppResponseBodyApiProductInfoListApiProductInfo extends $tea.Model {
+  apiProductId?: string;
+  static names(): { [key: string]: string } {
+    return {
+      apiProductId: 'ApiProductId',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      apiProductId: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class DescribeApiProductsByAppResponseBodyApiProductInfoList extends $tea.Model {
+  apiProductInfo?: DescribeApiProductsByAppResponseBodyApiProductInfoListApiProductInfo[];
+  static names(): { [key: string]: string } {
+    return {
+      apiProductInfo: 'ApiProductInfo',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      apiProductInfo: { 'type': 'array', 'itemType': DescribeApiProductsByAppResponseBodyApiProductInfoListApiProductInfo },
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
 export class DescribeApiQpsDataResponseBodyCallFailsMonitorItem extends $tea.Model {
   itemTime?: string;
   itemValue?: string;
@@ -18279,6 +19222,77 @@ export class DescribeApisByTrafficControlResponseBodyApiInfos extends $tea.Model
   }
 }
 
+export class DescribeApisWithStageNameIntegratedByAppResponseBodyAppApiRelationInfosAppApiRelationInfo extends $tea.Model {
+  apiId?: string;
+  apiName?: string;
+  authorizationSource?: string;
+  createdTime?: string;
+  description?: string;
+  groupId?: string;
+  groupName?: string;
+  method?: string;
+  operator?: string;
+  path?: string;
+  regionId?: string;
+  stageNameAndAuth?: { [key: string]: string };
+  static names(): { [key: string]: string } {
+    return {
+      apiId: 'ApiId',
+      apiName: 'ApiName',
+      authorizationSource: 'AuthorizationSource',
+      createdTime: 'CreatedTime',
+      description: 'Description',
+      groupId: 'GroupId',
+      groupName: 'GroupName',
+      method: 'Method',
+      operator: 'Operator',
+      path: 'Path',
+      regionId: 'RegionId',
+      stageNameAndAuth: 'StageNameAndAuth',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      apiId: 'string',
+      apiName: 'string',
+      authorizationSource: 'string',
+      createdTime: 'string',
+      description: 'string',
+      groupId: 'string',
+      groupName: 'string',
+      method: 'string',
+      operator: 'string',
+      path: 'string',
+      regionId: 'string',
+      stageNameAndAuth: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class DescribeApisWithStageNameIntegratedByAppResponseBodyAppApiRelationInfos extends $tea.Model {
+  appApiRelationInfo?: DescribeApisWithStageNameIntegratedByAppResponseBodyAppApiRelationInfosAppApiRelationInfo[];
+  static names(): { [key: string]: string } {
+    return {
+      appApiRelationInfo: 'AppApiRelationInfo',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      appApiRelationInfo: { 'type': 'array', 'itemType': DescribeApisWithStageNameIntegratedByAppResponseBodyAppApiRelationInfosAppApiRelationInfo },
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
 export class DescribeAppAttributesRequestTag extends $tea.Model {
   key?: string;
   value?: string;
@@ -18456,6 +19470,59 @@ export class DescribeAppsResponseBodyApps extends $tea.Model {
   static types(): { [key: string]: any } {
     return {
       appItem: { 'type': 'array', 'itemType': DescribeAppsResponseBodyAppsAppItem },
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class DescribeAppsByApiProductResponseBodyAuthorizedAppsAuthorizedApp extends $tea.Model {
+  appId?: number;
+  appName?: string;
+  authValidTime?: string;
+  authorizedTime?: string;
+  description?: string;
+  extend?: string;
+  static names(): { [key: string]: string } {
+    return {
+      appId: 'AppId',
+      appName: 'AppName',
+      authValidTime: 'AuthValidTime',
+      authorizedTime: 'AuthorizedTime',
+      description: 'Description',
+      extend: 'Extend',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      appId: 'number',
+      appName: 'string',
+      authValidTime: 'string',
+      authorizedTime: 'string',
+      description: 'string',
+      extend: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class DescribeAppsByApiProductResponseBodyAuthorizedApps extends $tea.Model {
+  authorizedApp?: DescribeAppsByApiProductResponseBodyAuthorizedAppsAuthorizedApp[];
+  static names(): { [key: string]: string } {
+    return {
+      authorizedApp: 'AuthorizedApp',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      authorizedApp: { 'type': 'array', 'itemType': DescribeAppsByApiProductResponseBodyAuthorizedAppsAuthorizedApp },
     };
   }
 
@@ -18841,6 +19908,7 @@ export class DescribeBackendInfoResponseBodyBackendInfoBackendModelsBackendConfi
   mockConfig?: DescribeBackendInfoResponseBodyBackendInfoBackendModelsBackendConfigMockConfig;
   ossConfig?: DescribeBackendInfoResponseBodyBackendInfoBackendModelsBackendConfigOssConfig;
   serviceAddress?: string;
+  serviceTimeout?: number;
   type?: string;
   vpcConfig?: DescribeBackendInfoResponseBodyBackendInfoBackendModelsBackendConfigVpcConfig;
   static names(): { [key: string]: string } {
@@ -18852,6 +19920,7 @@ export class DescribeBackendInfoResponseBodyBackendInfoBackendModelsBackendConfi
       mockConfig: 'MockConfig',
       ossConfig: 'OssConfig',
       serviceAddress: 'ServiceAddress',
+      serviceTimeout: 'ServiceTimeout',
       type: 'Type',
       vpcConfig: 'VpcConfig',
     };
@@ -18866,6 +19935,7 @@ export class DescribeBackendInfoResponseBodyBackendInfoBackendModelsBackendConfi
       mockConfig: DescribeBackendInfoResponseBodyBackendInfoBackendModelsBackendConfigMockConfig,
       ossConfig: DescribeBackendInfoResponseBodyBackendInfoBackendModelsBackendConfigOssConfig,
       serviceAddress: 'string',
+      serviceTimeout: 'number',
       type: 'string',
       vpcConfig: DescribeBackendInfoResponseBodyBackendInfoBackendModelsBackendConfigVpcConfig,
     };
@@ -22124,6 +23194,28 @@ export class DescribeZonesResponseBodyZones extends $tea.Model {
   }
 }
 
+export class DetachApiProductRequestApis extends $tea.Model {
+  apiId?: string;
+  stageName?: string;
+  static names(): { [key: string]: string } {
+    return {
+      apiId: 'ApiId',
+      stageName: 'StageName',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      apiId: 'string',
+      stageName: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
 export class DryRunSwaggerResponseBodyFailedApiImportSwaggerFailed extends $tea.Model {
   errorMsg?: string;
   httpMethod?: string;
@@ -23128,6 +24220,15 @@ export default class Client extends OpenApi {
     return EndpointUtil.getEndpointRules(productId, regionId, endpointRule, network, suffix);
   }
 
+  /**
+    * *   This operation is intended for API providers and is the opposite of DeployApi.
+    * *   An API can be unpublished from a specified runtime environment in under 5 seconds.
+    * *   An unpublished API cannot be called in the specified runtime environment.
+    *
+    * @param request AbolishApiRequest
+    * @param runtime runtime options for this request RuntimeOptions
+    * @return AbolishApiResponse
+   */
   async abolishApiWithOptions(request: AbolishApiRequest, runtime: $Util.RuntimeOptions): Promise<AbolishApiResponse> {
     Util.validateModel(request);
     let query = { };
@@ -23164,6 +24265,14 @@ export default class Client extends OpenApi {
     return $tea.cast<AbolishApiResponse>(await this.callApi(params, req, runtime), new AbolishApiResponse({}));
   }
 
+  /**
+    * *   This operation is intended for API providers and is the opposite of DeployApi.
+    * *   An API can be unpublished from a specified runtime environment in under 5 seconds.
+    * *   An unpublished API cannot be called in the specified runtime environment.
+    *
+    * @param request AbolishApiRequest
+    * @return AbolishApiResponse
+   */
   async abolishApi(request: AbolishApiRequest): Promise<AbolishApiResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.abolishApiWithOptions(request, runtime);
@@ -23207,12 +24316,10 @@ export default class Client extends OpenApi {
   }
 
   /**
-    * The restriction policy on app IDs for a specific policy. You can restrict app IDs only for whitelists. The IpControlType values of whitelists are ALLOW.
-    * *   You can add only one app ID restriction policy at a time.
-    * *   If this parameter is empty, no restriction is imposed on the app IDs.
-    * *   If this parameter is not empty, there is restriction not only on IP addresses, but also on apps.
-    * *   Please note that if this parameter is not empty and the security authentication method of the API is No Authentication, all API calls are restricted.
-    * *   If this parameter is not empty for a blacklist, API Gateway automatically skips this parameter and sets only restriction on IP addresses. The IpControlType value of a blacklist is REFUSE.
+    * When you call this operation, note that:
+    * *   This operation is intended for API providers.
+    * *   An added policy immediately takes effect on all APIs that are bound to the access control list (ACL).
+    * *   A maximum of 100 policies can be added to an ACL.
     *
     * @param request AddIpControlPolicyItemRequest
     * @param runtime runtime options for this request RuntimeOptions
@@ -23255,12 +24362,10 @@ export default class Client extends OpenApi {
   }
 
   /**
-    * The restriction policy on app IDs for a specific policy. You can restrict app IDs only for whitelists. The IpControlType values of whitelists are ALLOW.
-    * *   You can add only one app ID restriction policy at a time.
-    * *   If this parameter is empty, no restriction is imposed on the app IDs.
-    * *   If this parameter is not empty, there is restriction not only on IP addresses, but also on apps.
-    * *   Please note that if this parameter is not empty and the security authentication method of the API is No Authentication, all API calls are restricted.
-    * *   If this parameter is not empty for a blacklist, API Gateway automatically skips this parameter and sets only restriction on IP addresses. The IpControlType value of a blacklist is REFUSE.
+    * When you call this operation, note that:
+    * *   This operation is intended for API providers.
+    * *   An added policy immediately takes effect on all APIs that are bound to the access control list (ACL).
+    * *   A maximum of 100 policies can be added to an ACL.
     *
     * @param request AddIpControlPolicyItemRequest
     * @return AddIpControlPolicyItemResponse
@@ -23271,9 +24376,9 @@ export default class Client extends OpenApi {
   }
 
   /**
-    * The type of the special throttling policy. Valid values:
-    * *   **APP**
-    * *   **USER**
+    * *   This API is intended for API providers.
+    * *   If the input SpecialKey already exists, the previous configuration is overwritten. Use caution when calling this operation.
+    * *   Special throttling policies must be added to an existing throttling policy, and can take effect on all the APIs to which the throttling policy is bound.
     *
     * @param request AddTrafficSpecialControlRequest
     * @param runtime runtime options for this request RuntimeOptions
@@ -23320,9 +24425,9 @@ export default class Client extends OpenApi {
   }
 
   /**
-    * The type of the special throttling policy. Valid values:
-    * *   **APP**
-    * *   **USER**
+    * *   This API is intended for API providers.
+    * *   If the input SpecialKey already exists, the previous configuration is overwritten. Use caution when calling this operation.
+    * *   Special throttling policies must be added to an existing throttling policy, and can take effect on all the APIs to which the throttling policy is bound.
     *
     * @param request AddTrafficSpecialControlRequest
     * @return AddTrafficSpecialControlResponse
@@ -23332,6 +24437,53 @@ export default class Client extends OpenApi {
     return await this.addTrafficSpecialControlWithOptions(request, runtime);
   }
 
+  async attachApiProductWithOptions(request: AttachApiProductRequest, runtime: $Util.RuntimeOptions): Promise<AttachApiProductResponse> {
+    Util.validateModel(request);
+    let query = { };
+    if (!Util.isUnset(request.apiProductId)) {
+      query["ApiProductId"] = request.apiProductId;
+    }
+
+    if (!Util.isUnset(request.apis)) {
+      query["Apis"] = request.apis;
+    }
+
+    if (!Util.isUnset(request.securityToken)) {
+      query["SecurityToken"] = request.securityToken;
+    }
+
+    let req = new $OpenApi.OpenApiRequest({
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApi.Params({
+      action: "AttachApiProduct",
+      version: "2016-07-14",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $tea.cast<AttachApiProductResponse>(await this.callApi(params, req, runtime), new AttachApiProductResponse({}));
+  }
+
+  async attachApiProduct(request: AttachApiProductRequest): Promise<AttachApiProductResponse> {
+    let runtime = new $Util.RuntimeOptions({ });
+    return await this.attachApiProductWithOptions(request, runtime);
+  }
+
+  /**
+    * *   This operation is intended for API providers.
+    * *   You can only bind plug-ins to published APIs.
+    * *   The plug-in takes effect immediately after it is bound to an API.
+    * *   If you bind a different plug-in to an API, this plug-in takes effect immediately.
+    *
+    * @param request AttachPluginRequest
+    * @param runtime runtime options for this request RuntimeOptions
+    * @return AttachPluginResponse
+   */
   async attachPluginWithOptions(request: AttachPluginRequest, runtime: $Util.RuntimeOptions): Promise<AttachPluginResponse> {
     Util.validateModel(request);
     let query = { };
@@ -23376,6 +24528,15 @@ export default class Client extends OpenApi {
     return $tea.cast<AttachPluginResponse>(await this.callApi(params, req, runtime), new AttachPluginResponse({}));
   }
 
+  /**
+    * *   This operation is intended for API providers.
+    * *   You can only bind plug-ins to published APIs.
+    * *   The plug-in takes effect immediately after it is bound to an API.
+    * *   If you bind a different plug-in to an API, this plug-in takes effect immediately.
+    *
+    * @param request AttachPluginRequest
+    * @return AttachPluginResponse
+   */
   async attachPlugin(request: AttachPluginRequest): Promise<AttachPluginResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.attachPluginWithOptions(request, runtime);
@@ -23695,6 +24856,13 @@ export default class Client extends OpenApi {
     return await this.createApiGroupWithOptions(request, runtime);
   }
 
+  /**
+    * *   This operation is intended for API providers.
+    *
+    * @param request CreateApiStageVariableRequest
+    * @param runtime runtime options for this request RuntimeOptions
+    * @return CreateApiStageVariableResponse
+   */
   async createApiStageVariableWithOptions(request: CreateApiStageVariableRequest, runtime: $Util.RuntimeOptions): Promise<CreateApiStageVariableResponse> {
     Util.validateModel(request);
     let query = { };
@@ -23743,11 +24911,29 @@ export default class Client extends OpenApi {
     return $tea.cast<CreateApiStageVariableResponse>(await this.callApi(params, req, runtime), new CreateApiStageVariableResponse({}));
   }
 
+  /**
+    * *   This operation is intended for API providers.
+    *
+    * @param request CreateApiStageVariableRequest
+    * @return CreateApiStageVariableResponse
+   */
   async createApiStageVariable(request: CreateApiStageVariableRequest): Promise<CreateApiStageVariableResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.createApiStageVariableWithOptions(request, runtime);
   }
 
+  /**
+    * *   This operation is intended for API callers.
+    * *   Each application has a key-value pair which is used for identity verification when you call an API.
+    * *   An application must be authorized to call an API.
+    * *   Each application has only one key-value pair, which can be reset if the pair is leaked.
+    * *   A maximum of 1,000 applications can be created for each Alibaba Cloud account.
+    * *   You can call this operation up to 50 times per second per account.
+    *
+    * @param request CreateAppRequest
+    * @param runtime runtime options for this request RuntimeOptions
+    * @return CreateAppResponse
+   */
   async createAppWithOptions(request: CreateAppRequest, runtime: $Util.RuntimeOptions): Promise<CreateAppResponse> {
     Util.validateModel(request);
     let query = { };
@@ -23800,6 +24986,17 @@ export default class Client extends OpenApi {
     return $tea.cast<CreateAppResponse>(await this.callApi(params, req, runtime), new CreateAppResponse({}));
   }
 
+  /**
+    * *   This operation is intended for API callers.
+    * *   Each application has a key-value pair which is used for identity verification when you call an API.
+    * *   An application must be authorized to call an API.
+    * *   Each application has only one key-value pair, which can be reset if the pair is leaked.
+    * *   A maximum of 1,000 applications can be created for each Alibaba Cloud account.
+    * *   You can call this operation up to 50 times per second per account.
+    *
+    * @param request CreateAppRequest
+    * @return CreateAppResponse
+   */
   async createApp(request: CreateAppRequest): Promise<CreateAppResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.createAppWithOptions(request, runtime);
@@ -24095,6 +25292,16 @@ export default class Client extends OpenApi {
     return await this.createIntranetDomainWithOptions(request, runtime);
   }
 
+  /**
+    * *   This operation is intended for API providers.
+    * *   An ACL must be bound to an API to take effect. After an ACL is bound to an API, the ACL takes effect on the API immediately.
+    * *   You can add policies to an ACL when you create the ACL.
+    * *   If an ACL does not have any policy, the ACL is ineffective.
+    *
+    * @param request CreateIpControlRequest
+    * @param runtime runtime options for this request RuntimeOptions
+    * @return CreateIpControlResponse
+   */
   async createIpControlWithOptions(request: CreateIpControlRequest, runtime: $Util.RuntimeOptions): Promise<CreateIpControlResponse> {
     Util.validateModel(request);
     let query = { };
@@ -24135,6 +25342,15 @@ export default class Client extends OpenApi {
     return $tea.cast<CreateIpControlResponse>(await this.callApi(params, req, runtime), new CreateIpControlResponse({}));
   }
 
+  /**
+    * *   This operation is intended for API providers.
+    * *   An ACL must be bound to an API to take effect. After an ACL is bound to an API, the ACL takes effect on the API immediately.
+    * *   You can add policies to an ACL when you create the ACL.
+    * *   If an ACL does not have any policy, the ACL is ineffective.
+    *
+    * @param request CreateIpControlRequest
+    * @return CreateIpControlResponse
+   */
   async createIpControl(request: CreateIpControlRequest): Promise<CreateIpControlResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.createIpControlWithOptions(request, runtime);
@@ -24278,6 +25494,16 @@ export default class Client extends OpenApi {
     return await this.createMonitorGroupWithOptions(request, runtime);
   }
 
+  /**
+    * *   This operation is intended for API providers.
+    * *   The number of plug-ins of the same type that each user can create is limited. Different limits apply to different plug-in types.
+    * *   The plug-in definitions for advanced features are restricted.
+    * *   Plug-ins must be bound to APIs to take effect. After a plug-in is bound, it takes effect on that API immediately.
+    *
+    * @param request CreatePluginRequest
+    * @param runtime runtime options for this request RuntimeOptions
+    * @return CreatePluginResponse
+   */
   async createPluginWithOptions(request: CreatePluginRequest, runtime: $Util.RuntimeOptions): Promise<CreatePluginResponse> {
     Util.validateModel(request);
     let query = { };
@@ -24322,13 +25548,25 @@ export default class Client extends OpenApi {
     return $tea.cast<CreatePluginResponse>(await this.callApi(params, req, runtime), new CreatePluginResponse({}));
   }
 
+  /**
+    * *   This operation is intended for API providers.
+    * *   The number of plug-ins of the same type that each user can create is limited. Different limits apply to different plug-in types.
+    * *   The plug-in definitions for advanced features are restricted.
+    * *   Plug-ins must be bound to APIs to take effect. After a plug-in is bound, it takes effect on that API immediately.
+    *
+    * @param request CreatePluginRequest
+    * @return CreatePluginResponse
+   */
   async createPlugin(request: CreatePluginRequest): Promise<CreatePluginResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.createPluginWithOptions(request, runtime);
   }
 
   /**
-    * The Key value of the key. The value must be 6 to 20 characters in length and can contain letters, digits, and underscores (\\_). It must start with a letter.
+    * *   This API is intended for API providers.
+    * *   The API operation only creates a key policy. You must call the binding operation to bind the key to an API.
+    * *   After the key is bound to the API, requests sent from API Gateway to the backend service contain signature strings. You can specify whether your backend service verifies these signature strings.
+    * *   The QPS limit on this operation is 50 per user.
     *
     * @param request CreateSignatureRequest
     * @param runtime runtime options for this request RuntimeOptions
@@ -24371,7 +25609,10 @@ export default class Client extends OpenApi {
   }
 
   /**
-    * The Key value of the key. The value must be 6 to 20 characters in length and can contain letters, digits, and underscores (\\_). It must start with a letter.
+    * *   This API is intended for API providers.
+    * *   The API operation only creates a key policy. You must call the binding operation to bind the key to an API.
+    * *   After the key is bound to the API, requests sent from API Gateway to the backend service contain signature strings. You can specify whether your backend service verifies these signature strings.
+    * *   The QPS limit on this operation is 50 per user.
     *
     * @param request CreateSignatureRequest
     * @return CreateSignatureResponse
@@ -24382,7 +25623,9 @@ export default class Client extends OpenApi {
   }
 
   /**
-    * ThrottlingTest
+    * *   This API is intended for API providers.
+    * *   Throttling policies must be bound to APIs to take effect. After a policy is bound to an API, it goes into effect on that API immediately.
+    * *   The QPS limit on this operation is 50 per user.
     *
     * @param request CreateTrafficControlRequest
     * @param runtime runtime options for this request RuntimeOptions
@@ -24437,7 +25680,9 @@ export default class Client extends OpenApi {
   }
 
   /**
-    * ThrottlingTest
+    * *   This API is intended for API providers.
+    * *   Throttling policies must be bound to APIs to take effect. After a policy is bound to an API, it goes into effect on that API immediately.
+    * *   The QPS limit on this operation is 50 per user.
     *
     * @param request CreateTrafficControlRequest
     * @return CreateTrafficControlResponse
@@ -24481,7 +25726,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-    * The ID of the request.
+    * *   This API is intended for API providers.
     *
     * @param request DeleteAllTrafficSpecialControlRequest
     * @param runtime runtime options for this request RuntimeOptions
@@ -24516,7 +25761,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-    * The ID of the request.
+    * *   This API is intended for API providers.
     *
     * @param request DeleteAllTrafficSpecialControlRequest
     * @return DeleteAllTrafficSpecialControlResponse
@@ -24526,6 +25771,15 @@ export default class Client extends OpenApi {
     return await this.deleteAllTrafficSpecialControlWithOptions(request, runtime);
   }
 
+  /**
+    * *   This operation is intended for API providers and cannot be undone after it is complete.
+    * *   An API that is running in the runtime environment must be unpublished before you can delete the API.****
+    * *   The QPS limit on this operation is 50 per user.
+    *
+    * @param request DeleteApiRequest
+    * @param runtime runtime options for this request RuntimeOptions
+    * @return DeleteApiResponse
+   */
   async deleteApiWithOptions(request: DeleteApiRequest, runtime: $Util.RuntimeOptions): Promise<DeleteApiResponse> {
     Util.validateModel(request);
     let query = { };
@@ -24558,11 +25812,30 @@ export default class Client extends OpenApi {
     return $tea.cast<DeleteApiResponse>(await this.callApi(params, req, runtime), new DeleteApiResponse({}));
   }
 
+  /**
+    * *   This operation is intended for API providers and cannot be undone after it is complete.
+    * *   An API that is running in the runtime environment must be unpublished before you can delete the API.****
+    * *   The QPS limit on this operation is 50 per user.
+    *
+    * @param request DeleteApiRequest
+    * @return DeleteApiResponse
+   */
   async deleteApi(request: DeleteApiRequest): Promise<DeleteApiResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.deleteApiWithOptions(request, runtime);
   }
 
+  /**
+    * *   This operation is intended for API providers.
+    * *   An API group that contains APIs cannot be deleted. To delete the API group, you must first delete its APIs.
+    * *   After an API group is deleted, the second-level domain name bound to the API group is automatically invalidated.
+    * *   If the specified API group does not exist, a success response is returned.
+    * *   The QPS limit on this operation is 50 per user.
+    *
+    * @param request DeleteApiGroupRequest
+    * @param runtime runtime options for this request RuntimeOptions
+    * @return DeleteApiGroupResponse
+   */
   async deleteApiGroupWithOptions(request: DeleteApiGroupRequest, runtime: $Util.RuntimeOptions): Promise<DeleteApiGroupResponse> {
     Util.validateModel(request);
     let query = { };
@@ -24595,11 +25868,61 @@ export default class Client extends OpenApi {
     return $tea.cast<DeleteApiGroupResponse>(await this.callApi(params, req, runtime), new DeleteApiGroupResponse({}));
   }
 
+  /**
+    * *   This operation is intended for API providers.
+    * *   An API group that contains APIs cannot be deleted. To delete the API group, you must first delete its APIs.
+    * *   After an API group is deleted, the second-level domain name bound to the API group is automatically invalidated.
+    * *   If the specified API group does not exist, a success response is returned.
+    * *   The QPS limit on this operation is 50 per user.
+    *
+    * @param request DeleteApiGroupRequest
+    * @return DeleteApiGroupResponse
+   */
   async deleteApiGroup(request: DeleteApiGroupRequest): Promise<DeleteApiGroupResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.deleteApiGroupWithOptions(request, runtime);
   }
 
+  async deleteApiProductWithOptions(request: DeleteApiProductRequest, runtime: $Util.RuntimeOptions): Promise<DeleteApiProductResponse> {
+    Util.validateModel(request);
+    let query = { };
+    if (!Util.isUnset(request.apiProductId)) {
+      query["ApiProductId"] = request.apiProductId;
+    }
+
+    if (!Util.isUnset(request.securityToken)) {
+      query["SecurityToken"] = request.securityToken;
+    }
+
+    let req = new $OpenApi.OpenApiRequest({
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApi.Params({
+      action: "DeleteApiProduct",
+      version: "2016-07-14",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $tea.cast<DeleteApiProductResponse>(await this.callApi(params, req, runtime), new DeleteApiProductResponse({}));
+  }
+
+  async deleteApiProduct(request: DeleteApiProductRequest): Promise<DeleteApiProductResponse> {
+    let runtime = new $Util.RuntimeOptions({ });
+    return await this.deleteApiProductWithOptions(request, runtime);
+  }
+
+  /**
+    * *   This operation is intended for API providers.
+    *
+    * @param request DeleteApiStageVariableRequest
+    * @param runtime runtime options for this request RuntimeOptions
+    * @return DeleteApiStageVariableResponse
+   */
   async deleteApiStageVariableWithOptions(request: DeleteApiStageVariableRequest, runtime: $Util.RuntimeOptions): Promise<DeleteApiStageVariableResponse> {
     Util.validateModel(request);
     let query = { };
@@ -24636,11 +25959,26 @@ export default class Client extends OpenApi {
     return $tea.cast<DeleteApiStageVariableResponse>(await this.callApi(params, req, runtime), new DeleteApiStageVariableResponse({}));
   }
 
+  /**
+    * *   This operation is intended for API providers.
+    *
+    * @param request DeleteApiStageVariableRequest
+    * @return DeleteApiStageVariableResponse
+   */
   async deleteApiStageVariable(request: DeleteApiStageVariableRequest): Promise<DeleteApiStageVariableResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.deleteApiStageVariableWithOptions(request, runtime);
   }
 
+  /**
+    * *   This operation is intended for API callers.
+    * *   After an application is deleted, the application and its API authorization cannot be restored.
+    * *   You can call this operation up to 50 times per second per account.
+    *
+    * @param request DeleteAppRequest
+    * @param runtime runtime options for this request RuntimeOptions
+    * @return DeleteAppResponse
+   */
   async deleteAppWithOptions(request: DeleteAppRequest, runtime: $Util.RuntimeOptions): Promise<DeleteAppResponse> {
     Util.validateModel(request);
     let query = { };
@@ -24673,6 +26011,14 @@ export default class Client extends OpenApi {
     return $tea.cast<DeleteAppResponse>(await this.callApi(params, req, runtime), new DeleteAppResponse({}));
   }
 
+  /**
+    * *   This operation is intended for API callers.
+    * *   After an application is deleted, the application and its API authorization cannot be restored.
+    * *   You can call this operation up to 50 times per second per account.
+    *
+    * @param request DeleteAppRequest
+    * @return DeleteAppResponse
+   */
   async deleteApp(request: DeleteAppRequest): Promise<DeleteAppResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.deleteAppWithOptions(request, runtime);
@@ -24823,7 +26169,9 @@ export default class Client extends OpenApi {
   }
 
   /**
-    * The custom domain name.
+    * *   This operation is intended for API providers.
+    * *   If the specified domain name does not exist, a successful response will still appear.
+    * *   Unbinding a domain name from an API group will affect access to the APIs in the group. Exercise caution when using this operation.
     *
     * @param request DeleteDomainRequest
     * @param runtime runtime options for this request RuntimeOptions
@@ -24862,7 +26210,9 @@ export default class Client extends OpenApi {
   }
 
   /**
-    * The custom domain name.
+    * *   This operation is intended for API providers.
+    * *   If the specified domain name does not exist, a successful response will still appear.
+    * *   Unbinding a domain name from an API group will affect access to the APIs in the group. Exercise caution when using this operation.
     *
     * @param request DeleteDomainRequest
     * @return DeleteDomainResponse
@@ -24947,7 +26297,9 @@ export default class Client extends OpenApi {
   }
 
   /**
-    * The ID of the request.
+    * *   This operation is intended for API providers.
+    * *   If the ACL is bound to an API, you must unbind the ACL from the API before you can delete the ACL. Otherwise, an error is returned.
+    * *   If you call this operation on an ACL that does not exist, a success message is returned.
     *
     * @param request DeleteIpControlRequest
     * @param runtime runtime options for this request RuntimeOptions
@@ -24982,7 +26334,9 @@ export default class Client extends OpenApi {
   }
 
   /**
-    * The ID of the request.
+    * *   This operation is intended for API providers.
+    * *   If the ACL is bound to an API, you must unbind the ACL from the API before you can delete the ACL. Otherwise, an error is returned.
+    * *   If you call this operation on an ACL that does not exist, a success message is returned.
     *
     * @param request DeleteIpControlRequest
     * @return DeleteIpControlResponse
@@ -25095,6 +26449,14 @@ export default class Client extends OpenApi {
     return await this.deleteMonitorGroupWithOptions(request, runtime);
   }
 
+  /**
+    * *   This operation is intended for API providers.
+    * *   You must first unbind the plug-in from the API. Otherwise, an error is reported when you delete the plug-in.
+    *
+    * @param request DeletePluginRequest
+    * @param runtime runtime options for this request RuntimeOptions
+    * @return DeletePluginResponse
+   */
   async deletePluginWithOptions(request: DeletePluginRequest, runtime: $Util.RuntimeOptions): Promise<DeletePluginResponse> {
     Util.validateModel(request);
     let query = { };
@@ -25127,13 +26489,23 @@ export default class Client extends OpenApi {
     return $tea.cast<DeletePluginResponse>(await this.callApi(params, req, runtime), new DeletePluginResponse({}));
   }
 
+  /**
+    * *   This operation is intended for API providers.
+    * *   You must first unbind the plug-in from the API. Otherwise, an error is reported when you delete the plug-in.
+    *
+    * @param request DeletePluginRequest
+    * @return DeletePluginResponse
+   */
   async deletePlugin(request: DeletePluginRequest): Promise<DeletePluginResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.deletePluginWithOptions(request, runtime);
   }
 
   /**
-    * The ID of the request.
+    * *   This API is intended for API providers.
+    * *   This API operation deletes an existing backend signature key.
+    * *   You cannot delete a key that is bound to an API. To delete the key, you must unbind it first.
+    * *   The QPS limit on this operation is 50 per user.
     *
     * @param request DeleteSignatureRequest
     * @param runtime runtime options for this request RuntimeOptions
@@ -25168,7 +26540,10 @@ export default class Client extends OpenApi {
   }
 
   /**
-    * The ID of the request.
+    * *   This API is intended for API providers.
+    * *   This API operation deletes an existing backend signature key.
+    * *   You cannot delete a key that is bound to an API. To delete the key, you must unbind it first.
+    * *   The QPS limit on this operation is 50 per user.
     *
     * @param request DeleteSignatureRequest
     * @return DeleteSignatureResponse
@@ -25178,6 +26553,15 @@ export default class Client extends OpenApi {
     return await this.deleteSignatureWithOptions(request, runtime);
   }
 
+  /**
+    * *   This API is intended for API providers.
+    * *   If the throttling policy you want to delete is bound to APIs, you need to unbind the policy first. Otherwise, an error is reported when you delete the policy.
+    * *   The QPS limit on this operation is 50 per user.
+    *
+    * @param request DeleteTrafficControlRequest
+    * @param runtime runtime options for this request RuntimeOptions
+    * @return DeleteTrafficControlResponse
+   */
   async deleteTrafficControlWithOptions(request: DeleteTrafficControlRequest, runtime: $Util.RuntimeOptions): Promise<DeleteTrafficControlResponse> {
     Util.validateModel(request);
     let query = { };
@@ -25206,15 +26590,22 @@ export default class Client extends OpenApi {
     return $tea.cast<DeleteTrafficControlResponse>(await this.callApi(params, req, runtime), new DeleteTrafficControlResponse({}));
   }
 
+  /**
+    * *   This API is intended for API providers.
+    * *   If the throttling policy you want to delete is bound to APIs, you need to unbind the policy first. Otherwise, an error is reported when you delete the policy.
+    * *   The QPS limit on this operation is 50 per user.
+    *
+    * @param request DeleteTrafficControlRequest
+    * @return DeleteTrafficControlResponse
+   */
   async deleteTrafficControl(request: DeleteTrafficControlRequest): Promise<DeleteTrafficControlResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.deleteTrafficControlWithOptions(request, runtime);
   }
 
   /**
-    * The type of the special throttling policy. Valid values:
-    * *   **APP**
-    * *   **USER**
+    * *   This API is intended for API providers.
+    * *   You can obtain the input parameters required in this operation by calling other APIs.
     *
     * @param request DeleteTrafficSpecialControlRequest
     * @param runtime runtime options for this request RuntimeOptions
@@ -25257,9 +26648,8 @@ export default class Client extends OpenApi {
   }
 
   /**
-    * The type of the special throttling policy. Valid values:
-    * *   **APP**
-    * *   **USER**
+    * *   This API is intended for API providers.
+    * *   You can obtain the input parameters required in this operation by calling other APIs.
     *
     * @param request DeleteTrafficSpecialControlRequest
     * @return DeleteTrafficSpecialControlResponse
@@ -25270,7 +26660,9 @@ export default class Client extends OpenApi {
   }
 
   /**
-    * The ID of the API.
+    * *   This operation is intended for API providers. Only the API that you have defined and published to a runtime environment can be called.
+    * *   An API is published to a cluster in under 5 seconds.
+    * *   The QPS limit on this operation is 50 per user.
     *
     * @param request DeployApiRequest
     * @param runtime runtime options for this request RuntimeOptions
@@ -25317,7 +26709,9 @@ export default class Client extends OpenApi {
   }
 
   /**
-    * The ID of the API.
+    * *   This operation is intended for API providers. Only the API that you have defined and published to a runtime environment can be called.
+    * *   An API is published to a cluster in under 5 seconds.
+    * *   The QPS limit on this operation is 50 per user.
     *
     * @param request DeployApiRequest
     * @return DeployApiResponse
@@ -25488,6 +26882,16 @@ export default class Client extends OpenApi {
     return await this.describeApiWithOptions(request, runtime);
   }
 
+  /**
+    * *   For API callers, the specified API must be a public or authorized private API that has been published to a runtime environment.****************
+    * *   When you call this operation as an API caller, the service information, parameter definitions, and other details of the API you specify are returned.
+    * *   When you call this operation as an API provider, the definition of the specified API running in the specified runtime environment is returned. The returned definition takes effect in the runtime environment, and may be different from the definition of the API you modify.
+    * *   Before you call this operation as an API provider, ensure that the API to be queried is a public one or that your application has been authorized to call the API, because authentication on API callers is required.
+    *
+    * @param request DescribeApiDocRequest
+    * @param runtime runtime options for this request RuntimeOptions
+    * @return DescribeApiDocResponse
+   */
   async describeApiDocWithOptions(request: DescribeApiDocRequest, runtime: $Util.RuntimeOptions): Promise<DescribeApiDocResponse> {
     Util.validateModel(request);
     let query = { };
@@ -25524,6 +26928,15 @@ export default class Client extends OpenApi {
     return $tea.cast<DescribeApiDocResponse>(await this.callApi(params, req, runtime), new DescribeApiDocResponse({}));
   }
 
+  /**
+    * *   For API callers, the specified API must be a public or authorized private API that has been published to a runtime environment.****************
+    * *   When you call this operation as an API caller, the service information, parameter definitions, and other details of the API you specify are returned.
+    * *   When you call this operation as an API provider, the definition of the specified API running in the specified runtime environment is returned. The returned definition takes effect in the runtime environment, and may be different from the definition of the API you modify.
+    * *   Before you call this operation as an API provider, ensure that the API to be queried is a public one or that your application has been authorized to call the API, because authentication on API callers is required.
+    *
+    * @param request DescribeApiDocRequest
+    * @return DescribeApiDocResponse
+   */
   async describeApiDoc(request: DescribeApiDocRequest): Promise<DescribeApiDocResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.describeApiDocWithOptions(request, runtime);
@@ -25612,6 +27025,13 @@ export default class Client extends OpenApi {
     return await this.describeApiGroupVpcWhitelistWithOptions(request, runtime);
   }
 
+  /**
+    * *   This operation is intended for API providers.
+    *
+    * @param request DescribeApiGroupsRequest
+    * @param runtime runtime options for this request RuntimeOptions
+    * @return DescribeApiGroupsResponse
+   */
   async describeApiGroupsWithOptions(request: DescribeApiGroupsRequest, runtime: $Util.RuntimeOptions): Promise<DescribeApiGroupsResponse> {
     Util.validateModel(request);
     let query = { };
@@ -25668,15 +27088,20 @@ export default class Client extends OpenApi {
     return $tea.cast<DescribeApiGroupsResponse>(await this.callApi(params, req, runtime), new DescribeApiGroupsResponse({}));
   }
 
+  /**
+    * *   This operation is intended for API providers.
+    *
+    * @param request DescribeApiGroupsRequest
+    * @return DescribeApiGroupsResponse
+   */
   async describeApiGroups(request: DescribeApiGroupsRequest): Promise<DescribeApiGroupsResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.describeApiGroupsWithOptions(request, runtime);
   }
 
   /**
-    * The name of the runtime environment. Valid values:
-    * *   **RELEASE**
-    * *   **TEST: the test environment**
+    * *   This operation is intended for API providers. Only APIs that have been published have historical version records.
+    * *   This operation allows you to obtain the historical versions of an API. This operation is always called by other operations.
     *
     * @param request DescribeApiHistoriesRequest
     * @param runtime runtime options for this request RuntimeOptions
@@ -25731,9 +27156,8 @@ export default class Client extends OpenApi {
   }
 
   /**
-    * The name of the runtime environment. Valid values:
-    * *   **RELEASE**
-    * *   **TEST: the test environment**
+    * *   This operation is intended for API providers. Only APIs that have been published have historical version records.
+    * *   This operation allows you to obtain the historical versions of an API. This operation is always called by other operations.
     *
     * @param request DescribeApiHistoriesRequest
     * @return DescribeApiHistoriesResponse
@@ -25744,9 +27168,9 @@ export default class Client extends OpenApi {
   }
 
   /**
-    * You can call this operation to query the definition of a specified published version of an API.
-    * *   This operation is intended for API providers.
-    * *   Each time an API is published, API Gateway records the publishing details, such as the time and the API definition. You can use the version number obtained from other API operations to query the details of an API definition that is published on a specific occasion.
+    * Queries the details of a specified historical version of a specified API definition.
+    * *   This API is intended for API providers.
+    * *   API Gateway records the time and definition of an API every time the API is published. You can use the version number obtained from other operations to query definition details at a certain publication.
     *
     * @param request DescribeApiHistoryRequest
     * @param runtime runtime options for this request RuntimeOptions
@@ -25793,9 +27217,9 @@ export default class Client extends OpenApi {
   }
 
   /**
-    * You can call this operation to query the definition of a specified published version of an API.
-    * *   This operation is intended for API providers.
-    * *   Each time an API is published, API Gateway records the publishing details, such as the time and the API definition. You can use the version number obtained from other API operations to query the details of an API definition that is published on a specific occasion.
+    * Queries the details of a specified historical version of a specified API definition.
+    * *   This API is intended for API providers.
+    * *   API Gateway records the time and definition of an API every time the API is published. You can use the version number obtained from other operations to query definition details at a certain publication.
     *
     * @param request DescribeApiHistoryRequest
     * @return DescribeApiHistoryResponse
@@ -25806,7 +27230,9 @@ export default class Client extends OpenApi {
   }
 
   /**
-    * The ID of the API group.
+    * *   This operation is intended for API callers.
+    * *   If an optional parameter is not specified, all results are returned on separate pages.
+    * ·
     *
     * @param request DescribeApiIpControlsRequest
     * @param runtime runtime options for this request RuntimeOptions
@@ -25857,7 +27283,9 @@ export default class Client extends OpenApi {
   }
 
   /**
-    * The ID of the API group.
+    * *   This operation is intended for API callers.
+    * *   If an optional parameter is not specified, all results are returned on separate pages.
+    * ·
     *
     * @param request DescribeApiIpControlsRequest
     * @return DescribeApiIpControlsResponse
@@ -25867,6 +27295,15 @@ export default class Client extends OpenApi {
     return await this.describeApiIpControlsWithOptions(request, runtime);
   }
 
+  /**
+    * You can call this operation to query the latency metrics in milliseconds for a specified API.
+    * *   This API is intended for API providers.
+    * *   Only statistics for API calls made in the release environment are collected by default.
+    *
+    * @param request DescribeApiLatencyDataRequest
+    * @param runtime runtime options for this request RuntimeOptions
+    * @return DescribeApiLatencyDataResponse
+   */
   async describeApiLatencyDataWithOptions(request: DescribeApiLatencyDataRequest, runtime: $Util.RuntimeOptions): Promise<DescribeApiLatencyDataResponse> {
     Util.validateModel(request);
     let query = { };
@@ -25911,6 +27348,14 @@ export default class Client extends OpenApi {
     return $tea.cast<DescribeApiLatencyDataResponse>(await this.callApi(params, req, runtime), new DescribeApiLatencyDataResponse({}));
   }
 
+  /**
+    * You can call this operation to query the latency metrics in milliseconds for a specified API.
+    * *   This API is intended for API providers.
+    * *   Only statistics for API calls made in the release environment are collected by default.
+    *
+    * @param request DescribeApiLatencyDataRequest
+    * @return DescribeApiLatencyDataResponse
+   */
   async describeApiLatencyData(request: DescribeApiLatencyDataRequest): Promise<DescribeApiLatencyDataResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.describeApiLatencyDataWithOptions(request, runtime);
@@ -25953,6 +27398,96 @@ export default class Client extends OpenApi {
     return await this.describeApiMarketAttributesWithOptions(request, runtime);
   }
 
+  async describeApiProductApisWithOptions(request: DescribeApiProductApisRequest, runtime: $Util.RuntimeOptions): Promise<DescribeApiProductApisResponse> {
+    Util.validateModel(request);
+    let query = { };
+    if (!Util.isUnset(request.apiProductId)) {
+      query["ApiProductId"] = request.apiProductId;
+    }
+
+    if (!Util.isUnset(request.pageNumber)) {
+      query["PageNumber"] = request.pageNumber;
+    }
+
+    if (!Util.isUnset(request.pageSize)) {
+      query["PageSize"] = request.pageSize;
+    }
+
+    if (!Util.isUnset(request.securityToken)) {
+      query["SecurityToken"] = request.securityToken;
+    }
+
+    let req = new $OpenApi.OpenApiRequest({
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApi.Params({
+      action: "DescribeApiProductApis",
+      version: "2016-07-14",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $tea.cast<DescribeApiProductApisResponse>(await this.callApi(params, req, runtime), new DescribeApiProductApisResponse({}));
+  }
+
+  async describeApiProductApis(request: DescribeApiProductApisRequest): Promise<DescribeApiProductApisResponse> {
+    let runtime = new $Util.RuntimeOptions({ });
+    return await this.describeApiProductApisWithOptions(request, runtime);
+  }
+
+  async describeApiProductsByAppWithOptions(request: DescribeApiProductsByAppRequest, runtime: $Util.RuntimeOptions): Promise<DescribeApiProductsByAppResponse> {
+    Util.validateModel(request);
+    let query = { };
+    if (!Util.isUnset(request.appId)) {
+      query["AppId"] = request.appId;
+    }
+
+    if (!Util.isUnset(request.pageNumber)) {
+      query["PageNumber"] = request.pageNumber;
+    }
+
+    if (!Util.isUnset(request.pageSize)) {
+      query["PageSize"] = request.pageSize;
+    }
+
+    if (!Util.isUnset(request.securityToken)) {
+      query["SecurityToken"] = request.securityToken;
+    }
+
+    let req = new $OpenApi.OpenApiRequest({
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApi.Params({
+      action: "DescribeApiProductsByApp",
+      version: "2016-07-14",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $tea.cast<DescribeApiProductsByAppResponse>(await this.callApi(params, req, runtime), new DescribeApiProductsByAppResponse({}));
+  }
+
+  async describeApiProductsByApp(request: DescribeApiProductsByAppRequest): Promise<DescribeApiProductsByAppResponse> {
+    let runtime = new $Util.RuntimeOptions({ });
+    return await this.describeApiProductsByAppWithOptions(request, runtime);
+  }
+
+  /**
+    * *   This API is intended for API providers.
+    * *   Only statistics for API calls made in the release environment are collected by default.
+    *
+    * @param request DescribeApiQpsDataRequest
+    * @param runtime runtime options for this request RuntimeOptions
+    * @return DescribeApiQpsDataResponse
+   */
   async describeApiQpsDataWithOptions(request: DescribeApiQpsDataRequest, runtime: $Util.RuntimeOptions): Promise<DescribeApiQpsDataResponse> {
     Util.validateModel(request);
     let query = { };
@@ -25997,15 +27532,21 @@ export default class Client extends OpenApi {
     return $tea.cast<DescribeApiQpsDataResponse>(await this.callApi(params, req, runtime), new DescribeApiQpsDataResponse({}));
   }
 
+  /**
+    * *   This API is intended for API providers.
+    * *   Only statistics for API calls made in the release environment are collected by default.
+    *
+    * @param request DescribeApiQpsDataRequest
+    * @return DescribeApiQpsDataResponse
+   */
   async describeApiQpsData(request: DescribeApiQpsDataRequest): Promise<DescribeApiQpsDataResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.describeApiQpsDataWithOptions(request, runtime);
   }
 
   /**
-    * The runtime environment. Valid values:
-    * *   **RELEASE**
-    * *   **TEST**
+    * *   This API is intended for API providers.
+    * *   The ApiIds parameter is optional. If this parameter is not specified, all results in the specified environment of an API group are returned.
     *
     * @param request DescribeApiSignaturesRequest
     * @param runtime runtime options for this request RuntimeOptions
@@ -26056,9 +27597,8 @@ export default class Client extends OpenApi {
   }
 
   /**
-    * The runtime environment. Valid values:
-    * *   **RELEASE**
-    * *   **TEST**
+    * *   This API is intended for API providers.
+    * *   The ApiIds parameter is optional. If this parameter is not specified, all results in the specified environment of an API group are returned.
     *
     * @param request DescribeApiSignaturesRequest
     * @return DescribeApiSignaturesResponse
@@ -26069,9 +27609,8 @@ export default class Client extends OpenApi {
   }
 
   /**
-    * The runtime environment of the API. Valid values:
-    * *   **RELEASE**
-    * *   **TEST**: the test environment
+    * *   This API is intended for API providers.
+    * *   The ApiIds parameter is optional. If this parameter is not specified, all results in the specified environment of an API group are returned.
     *
     * @param request DescribeApiTrafficControlsRequest
     * @param runtime runtime options for this request RuntimeOptions
@@ -26122,9 +27661,8 @@ export default class Client extends OpenApi {
   }
 
   /**
-    * The runtime environment of the API. Valid values:
-    * *   **RELEASE**
-    * *   **TEST**: the test environment
+    * *   This API is intended for API providers.
+    * *   The ApiIds parameter is optional. If this parameter is not specified, all results in the specified environment of an API group are returned.
     *
     * @param request DescribeApiTrafficControlsRequest
     * @return DescribeApiTrafficControlsResponse
@@ -26134,6 +27672,14 @@ export default class Client extends OpenApi {
     return await this.describeApiTrafficControlsWithOptions(request, runtime);
   }
 
+  /**
+    * *   This API is intended for API providers.
+    * *   Only statistics for API calls made in the release environment are collected by default.
+    *
+    * @param request DescribeApiTrafficDataRequest
+    * @param runtime runtime options for this request RuntimeOptions
+    * @return DescribeApiTrafficDataResponse
+   */
   async describeApiTrafficDataWithOptions(request: DescribeApiTrafficDataRequest, runtime: $Util.RuntimeOptions): Promise<DescribeApiTrafficDataResponse> {
     Util.validateModel(request);
     let query = { };
@@ -26178,6 +27724,13 @@ export default class Client extends OpenApi {
     return $tea.cast<DescribeApiTrafficDataResponse>(await this.callApi(params, req, runtime), new DescribeApiTrafficDataResponse({}));
   }
 
+  /**
+    * *   This API is intended for API providers.
+    * *   Only statistics for API calls made in the release environment are collected by default.
+    *
+    * @param request DescribeApiTrafficDataRequest
+    * @return DescribeApiTrafficDataResponse
+   */
   async describeApiTrafficData(request: DescribeApiTrafficDataRequest): Promise<DescribeApiTrafficDataResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.describeApiTrafficDataWithOptions(request, runtime);
@@ -26388,7 +27941,8 @@ export default class Client extends OpenApi {
   }
 
   /**
-    * The number of entries to return on each page. Maximum value: 100. Default value: 10.
+    * *   This operation is intended for API callers.
+    * *   You can specify PageNumber to obtain the result on the specified page.
     *
     * @param request DescribeApisByIpControlRequest
     * @param runtime runtime options for this request RuntimeOptions
@@ -26431,7 +27985,8 @@ export default class Client extends OpenApi {
   }
 
   /**
-    * The number of entries to return on each page. Maximum value: 100. Default value: 10.
+    * *   This operation is intended for API callers.
+    * *   You can specify PageNumber to obtain the result on the specified page.
     *
     * @param request DescribeApisByIpControlRequest
     * @return DescribeApisByIpControlResponse
@@ -26442,7 +27997,8 @@ export default class Client extends OpenApi {
   }
 
   /**
-    * The ID of the signature key.
+    * *   This API is intended for API providers.
+    * *   The results are returned on separate pages. You can specify PageNumber to obtain the result on the specified page.
     *
     * @param request DescribeApisBySignatureRequest
     * @param runtime runtime options for this request RuntimeOptions
@@ -26485,7 +28041,8 @@ export default class Client extends OpenApi {
   }
 
   /**
-    * The ID of the signature key.
+    * *   This API is intended for API providers.
+    * *   The results are returned on separate pages. You can specify PageNumber to obtain the result on the specified page.
     *
     * @param request DescribeApisBySignatureRequest
     * @return DescribeApisBySignatureResponse
@@ -26496,7 +28053,8 @@ export default class Client extends OpenApi {
   }
 
   /**
-    * The number of entries to return on each page. Maximum value: 100. Default value: 10.
+    * *   This API is intended for API providers.
+    * *   You can specify PageNumber to obtain the result on the specified page.
     *
     * @param request DescribeApisByTrafficControlRequest
     * @param runtime runtime options for this request RuntimeOptions
@@ -26539,7 +28097,8 @@ export default class Client extends OpenApi {
   }
 
   /**
-    * The number of entries to return on each page. Maximum value: 100. Default value: 10.
+    * *   This API is intended for API providers.
+    * *   You can specify PageNumber to obtain the result on the specified page.
     *
     * @param request DescribeApisByTrafficControlRequest
     * @return DescribeApisByTrafficControlResponse
@@ -26547,6 +28106,67 @@ export default class Client extends OpenApi {
   async describeApisByTrafficControl(request: DescribeApisByTrafficControlRequest): Promise<DescribeApisByTrafficControlResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.describeApisByTrafficControlWithOptions(request, runtime);
+  }
+
+  async describeApisWithStageNameIntegratedByAppWithOptions(request: DescribeApisWithStageNameIntegratedByAppRequest, runtime: $Util.RuntimeOptions): Promise<DescribeApisWithStageNameIntegratedByAppResponse> {
+    Util.validateModel(request);
+    let query = { };
+    if (!Util.isUnset(request.apiName)) {
+      query["ApiName"] = request.apiName;
+    }
+
+    if (!Util.isUnset(request.apiUid)) {
+      query["ApiUid"] = request.apiUid;
+    }
+
+    if (!Util.isUnset(request.appId)) {
+      query["AppId"] = request.appId;
+    }
+
+    if (!Util.isUnset(request.description)) {
+      query["Description"] = request.description;
+    }
+
+    if (!Util.isUnset(request.method)) {
+      query["Method"] = request.method;
+    }
+
+    if (!Util.isUnset(request.pageNumber)) {
+      query["PageNumber"] = request.pageNumber;
+    }
+
+    if (!Util.isUnset(request.pageSize)) {
+      query["PageSize"] = request.pageSize;
+    }
+
+    if (!Util.isUnset(request.path)) {
+      query["Path"] = request.path;
+    }
+
+    if (!Util.isUnset(request.securityToken)) {
+      query["SecurityToken"] = request.securityToken;
+    }
+
+    let req = new $OpenApi.OpenApiRequest({
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApi.Params({
+      action: "DescribeApisWithStageNameIntegratedByApp",
+      version: "2016-07-14",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $tea.cast<DescribeApisWithStageNameIntegratedByAppResponse>(await this.callApi(params, req, runtime), new DescribeApisWithStageNameIntegratedByAppResponse({}));
+  }
+
+  async describeApisWithStageNameIntegratedByApp(request: DescribeApisWithStageNameIntegratedByAppRequest): Promise<DescribeApisWithStageNameIntegratedByAppResponse> {
+    let runtime = new $Util.RuntimeOptions({ });
+    return await this.describeApisWithStageNameIntegratedByAppWithOptions(request, runtime);
   }
 
   async describeAppWithOptions(request: DescribeAppRequest, runtime: $Util.RuntimeOptions): Promise<DescribeAppResponse> {
@@ -26582,6 +28202,14 @@ export default class Client extends OpenApi {
     return await this.describeAppWithOptions(request, runtime);
   }
 
+  /**
+    * *   This operation is intended for API callers.
+    * *   AppId is optional.
+    *
+    * @param request DescribeAppAttributesRequest
+    * @param runtime runtime options for this request RuntimeOptions
+    * @return DescribeAppAttributesResponse
+   */
   async describeAppAttributesWithOptions(request: DescribeAppAttributesRequest, runtime: $Util.RuntimeOptions): Promise<DescribeAppAttributesResponse> {
     Util.validateModel(request);
     let query = { };
@@ -26646,6 +28274,13 @@ export default class Client extends OpenApi {
     return $tea.cast<DescribeAppAttributesResponse>(await this.callApi(params, req, runtime), new DescribeAppAttributesResponse({}));
   }
 
+  /**
+    * *   This operation is intended for API callers.
+    * *   AppId is optional.
+    *
+    * @param request DescribeAppAttributesRequest
+    * @return DescribeAppAttributesResponse
+   */
   async describeAppAttributes(request: DescribeAppAttributesRequest): Promise<DescribeAppAttributesResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.describeAppAttributesWithOptions(request, runtime);
@@ -26689,7 +28324,9 @@ export default class Client extends OpenApi {
   }
 
   /**
-    * The ID of the app.
+    * *   This API is intended for API providers.
+    * *   API providers can use the app IDs or their Apsara Stack tenant accounts to query app information.
+    * *   Each provider can call this operation for a maximum of 200 times every day in a region.
     *
     * @param request DescribeAppsRequest
     * @param runtime runtime options for this request RuntimeOptions
@@ -26736,7 +28373,9 @@ export default class Client extends OpenApi {
   }
 
   /**
-    * The ID of the app.
+    * *   This API is intended for API providers.
+    * *   API providers can use the app IDs or their Apsara Stack tenant accounts to query app information.
+    * *   Each provider can call this operation for a maximum of 200 times every day in a region.
     *
     * @param request DescribeAppsRequest
     * @return DescribeAppsResponse
@@ -26746,8 +28385,54 @@ export default class Client extends OpenApi {
     return await this.describeAppsWithOptions(request, runtime);
   }
 
+  async describeAppsByApiProductWithOptions(request: DescribeAppsByApiProductRequest, runtime: $Util.RuntimeOptions): Promise<DescribeAppsByApiProductResponse> {
+    Util.validateModel(request);
+    let query = { };
+    if (!Util.isUnset(request.apiProductId)) {
+      query["ApiProductId"] = request.apiProductId;
+    }
+
+    if (!Util.isUnset(request.appName)) {
+      query["AppName"] = request.appName;
+    }
+
+    if (!Util.isUnset(request.pageNumber)) {
+      query["PageNumber"] = request.pageNumber;
+    }
+
+    if (!Util.isUnset(request.pageSize)) {
+      query["PageSize"] = request.pageSize;
+    }
+
+    if (!Util.isUnset(request.securityToken)) {
+      query["SecurityToken"] = request.securityToken;
+    }
+
+    let req = new $OpenApi.OpenApiRequest({
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApi.Params({
+      action: "DescribeAppsByApiProduct",
+      version: "2016-07-14",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $tea.cast<DescribeAppsByApiProductResponse>(await this.callApi(params, req, runtime), new DescribeAppsByApiProductResponse({}));
+  }
+
+  async describeAppsByApiProduct(request: DescribeAppsByApiProductRequest): Promise<DescribeAppsByApiProductResponse> {
+    let runtime = new $Util.RuntimeOptions({ });
+    return await this.describeAppsByApiProductWithOptions(request, runtime);
+  }
+
   /**
-    * The number of the page to return. Pages start from page 1. Default value: 1.
+    * *   This operation is intended for API callers.
+    * *   The specified application can call all APIs included in the responses.
     *
     * @param request DescribeAuthorizedApisRequest
     * @param runtime runtime options for this request RuntimeOptions
@@ -26790,7 +28475,8 @@ export default class Client extends OpenApi {
   }
 
   /**
-    * The number of the page to return. Pages start from page 1. Default value: 1.
+    * *   This operation is intended for API callers.
+    * *   The specified application can call all APIs included in the responses.
     *
     * @param request DescribeAuthorizedApisRequest
     * @return DescribeAuthorizedApisResponse
@@ -26800,6 +28486,14 @@ export default class Client extends OpenApi {
     return await this.describeAuthorizedApisWithOptions(request, runtime);
   }
 
+  /**
+    * *   This operation is intended for API providers.
+    * *   All applications included in the responses have access to the specified API.
+    *
+    * @param request DescribeAuthorizedAppsRequest
+    * @param runtime runtime options for this request RuntimeOptions
+    * @return DescribeAuthorizedAppsResponse
+   */
   async describeAuthorizedAppsWithOptions(request: DescribeAuthorizedAppsRequest, runtime: $Util.RuntimeOptions): Promise<DescribeAuthorizedAppsResponse> {
     Util.validateModel(request);
     let query = { };
@@ -26856,6 +28550,13 @@ export default class Client extends OpenApi {
     return $tea.cast<DescribeAuthorizedAppsResponse>(await this.callApi(params, req, runtime), new DescribeAuthorizedAppsResponse({}));
   }
 
+  /**
+    * *   This operation is intended for API providers.
+    * *   All applications included in the responses have access to the specified API.
+    *
+    * @param request DescribeAuthorizedAppsRequest
+    * @return DescribeAuthorizedAppsResponse
+   */
   async describeAuthorizedApps(request: DescribeAuthorizedAppsRequest): Promise<DescribeAuthorizedAppsResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.describeAuthorizedAppsWithOptions(request, runtime);
@@ -27173,6 +28874,13 @@ export default class Client extends OpenApi {
     return await this.describeDeployedApiWithOptions(request, runtime);
   }
 
+  /**
+    * *   This API is intended for API providers.
+    *
+    * @param request DescribeDeployedApisRequest
+    * @param runtime runtime options for this request RuntimeOptions
+    * @return DescribeDeployedApisResponse
+   */
   async describeDeployedApisWithOptions(request: DescribeDeployedApisRequest, runtime: $Util.RuntimeOptions): Promise<DescribeDeployedApisResponse> {
     Util.validateModel(request);
     let query = { };
@@ -27237,18 +28945,17 @@ export default class Client extends OpenApi {
     return $tea.cast<DescribeDeployedApisResponse>(await this.callApi(params, req, runtime), new DescribeDeployedApisResponse({}));
   }
 
+  /**
+    * *   This API is intended for API providers.
+    *
+    * @param request DescribeDeployedApisRequest
+    * @return DescribeDeployedApisResponse
+   */
   async describeDeployedApis(request: DescribeDeployedApisRequest): Promise<DescribeDeployedApisResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.describeDeployedApisWithOptions(request, runtime);
   }
 
-  /**
-    * The ID of the API group to which the domain name is bound. This ID is generated by the system and globally unique.
-    *
-    * @param request DescribeDomainRequest
-    * @param runtime runtime options for this request RuntimeOptions
-    * @return DescribeDomainResponse
-   */
   async describeDomainWithOptions(request: DescribeDomainRequest, runtime: $Util.RuntimeOptions): Promise<DescribeDomainResponse> {
     Util.validateModel(request);
     let query = { };
@@ -27281,12 +28988,6 @@ export default class Client extends OpenApi {
     return $tea.cast<DescribeDomainResponse>(await this.callApi(params, req, runtime), new DescribeDomainResponse({}));
   }
 
-  /**
-    * The ID of the API group to which the domain name is bound. This ID is generated by the system and globally unique.
-    *
-    * @param request DescribeDomainRequest
-    * @return DescribeDomainResponse
-   */
   async describeDomain(request: DescribeDomainRequest): Promise<DescribeDomainResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.describeDomainWithOptions(request, runtime);
@@ -27873,6 +29574,14 @@ export default class Client extends OpenApi {
     return await this.describeInstancesWithOptions(request, runtime);
   }
 
+  /**
+    * *   This operation is intended for API providers.
+    * *   You can filter the query results by policy ID.
+    *
+    * @param request DescribeIpControlPolicyItemsRequest
+    * @param runtime runtime options for this request RuntimeOptions
+    * @return DescribeIpControlPolicyItemsResponse
+   */
   async describeIpControlPolicyItemsWithOptions(request: DescribeIpControlPolicyItemsRequest, runtime: $Util.RuntimeOptions): Promise<DescribeIpControlPolicyItemsResponse> {
     Util.validateModel(request);
     let query = { };
@@ -27913,6 +29622,13 @@ export default class Client extends OpenApi {
     return $tea.cast<DescribeIpControlPolicyItemsResponse>(await this.callApi(params, req, runtime), new DescribeIpControlPolicyItemsResponse({}));
   }
 
+  /**
+    * *   This operation is intended for API providers.
+    * *   You can filter the query results by policy ID.
+    *
+    * @param request DescribeIpControlPolicyItemsRequest
+    * @return DescribeIpControlPolicyItemsResponse
+   */
   async describeIpControlPolicyItems(request: DescribeIpControlPolicyItemsRequest): Promise<DescribeIpControlPolicyItemsResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.describeIpControlPolicyItemsWithOptions(request, runtime);
@@ -27920,9 +29636,9 @@ export default class Client extends OpenApi {
 
   /**
     * *   This operation is intended for API providers.
-    * *   This operation is used to query the ACLs in a region. Region is a system parameter.
+    * *   This operation is used to query the ACLs in a Region. Region is a system parameter.
     * *   You can filter the query results by ACL ID, name, or type.
-    * *   This operation cannot be used to query specific policies. If you want to query specific policies, call the [DescribeIpControlPolicyItems](~~65532~~) operation.
+    * *   This operation cannot be used to query specific policies. If you want to query specific policies, use the DescribeIpControlPolicyItems operation.
     *
     * @param request DescribeIpControlsRequest
     * @param runtime runtime options for this request RuntimeOptions
@@ -27974,9 +29690,9 @@ export default class Client extends OpenApi {
 
   /**
     * *   This operation is intended for API providers.
-    * *   This operation is used to query the ACLs in a region. Region is a system parameter.
+    * *   This operation is used to query the ACLs in a Region. Region is a system parameter.
     * *   You can filter the query results by ACL ID, name, or type.
-    * *   This operation cannot be used to query specific policies. If you want to query specific policies, call the [DescribeIpControlPolicyItems](~~65532~~) operation.
+    * *   This operation cannot be used to query specific policies. If you want to query specific policies, use the DescribeIpControlPolicyItems operation.
     *
     * @param request DescribeIpControlsRequest
     * @return DescribeIpControlsResponse
@@ -28053,7 +29769,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-    * The name of the model.
+    * *   Fuzzy queries are supported.
     *
     * @param request DescribeModelsRequest
     * @param runtime runtime options for this request RuntimeOptions
@@ -28100,7 +29816,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-    * The name of the model.
+    * *   Fuzzy queries are supported.
     *
     * @param request DescribeModelsRequest
     * @return DescribeModelsResponse
@@ -28245,6 +29961,16 @@ export default class Client extends OpenApi {
     return await this.describePluginTemplatesWithOptions(request, runtime);
   }
 
+  /**
+    * *   This operation supports pagination.
+    * *   This operation allows you to query plug-ins by business type.
+    * *   This operation allows you to query plug-ins by ID.
+    * *   This operation allows you to query plug-ins by name.
+    *
+    * @param request DescribePluginsRequest
+    * @param runtime runtime options for this request RuntimeOptions
+    * @return DescribePluginsResponse
+   */
   async describePluginsWithOptions(request: DescribePluginsRequest, runtime: $Util.RuntimeOptions): Promise<DescribePluginsResponse> {
     Util.validateModel(request);
     let query = { };
@@ -28293,6 +30019,15 @@ export default class Client extends OpenApi {
     return $tea.cast<DescribePluginsResponse>(await this.callApi(params, req, runtime), new DescribePluginsResponse({}));
   }
 
+  /**
+    * *   This operation supports pagination.
+    * *   This operation allows you to query plug-ins by business type.
+    * *   This operation allows you to query plug-ins by ID.
+    * *   This operation allows you to query plug-ins by name.
+    *
+    * @param request DescribePluginsRequest
+    * @return DescribePluginsResponse
+   */
   async describePlugins(request: DescribePluginsRequest): Promise<DescribePluginsResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.describePluginsWithOptions(request, runtime);
@@ -28489,6 +30224,14 @@ export default class Client extends OpenApi {
     return await this.describePurchasedApisWithOptions(request, runtime);
   }
 
+  /**
+    * This operation queries regions in which API Gateway is available.
+    * *   This operation is intended for API providers and callers.
+    *
+    * @param request DescribeRegionsRequest
+    * @param runtime runtime options for this request RuntimeOptions
+    * @return DescribeRegionsResponse
+   */
   async describeRegionsWithOptions(request: DescribeRegionsRequest, runtime: $Util.RuntimeOptions): Promise<DescribeRegionsResponse> {
     Util.validateModel(request);
     let query = { };
@@ -28517,13 +30260,21 @@ export default class Client extends OpenApi {
     return $tea.cast<DescribeRegionsResponse>(await this.callApi(params, req, runtime), new DescribeRegionsResponse({}));
   }
 
+  /**
+    * This operation queries regions in which API Gateway is available.
+    * *   This operation is intended for API providers and callers.
+    *
+    * @param request DescribeRegionsRequest
+    * @return DescribeRegionsResponse
+   */
   async describeRegions(request: DescribeRegionsRequest): Promise<DescribeRegionsResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.describeRegionsWithOptions(request, runtime);
   }
 
   /**
-    * The IDs of the keys to query.
+    * *   This API is intended for API providers.
+    * *   This operation is used to query the backend signature keys in a Region. Region is a system parameter.
     *
     * @param request DescribeSignaturesRequest
     * @param runtime runtime options for this request RuntimeOptions
@@ -28570,7 +30321,8 @@ export default class Client extends OpenApi {
   }
 
   /**
-    * The IDs of the keys to query.
+    * *   This API is intended for API providers.
+    * *   This operation is used to query the backend signature keys in a Region. Region is a system parameter.
     *
     * @param request DescribeSignaturesRequest
     * @return DescribeSignaturesResponse
@@ -28581,7 +30333,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-    * The ID of the group to which the API belongs.
+    * *   This API is intended for API providers.
     *
     * @param request DescribeSignaturesByApiRequest
     * @param runtime runtime options for this request RuntimeOptions
@@ -28624,7 +30376,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-    * The ID of the group to which the API belongs.
+    * *   This API is intended for API providers.
     *
     * @param request DescribeSignaturesByApiRequest
     * @return DescribeSignaturesByApiResponse
@@ -28664,7 +30416,8 @@ export default class Client extends OpenApi {
   }
 
   /**
-    * The returned information about system parameters. It is an array that consists of SystemParam data.
+    * *   This API is intended for API callers.
+    * *   The response of this API contains the system parameters that are optional in API definitions.
     *
     * @param request DescribeSystemParametersRequest
     * @param runtime runtime options for this request RuntimeOptions
@@ -28695,7 +30448,8 @@ export default class Client extends OpenApi {
   }
 
   /**
-    * The returned information about system parameters. It is an array that consists of SystemParam data.
+    * *   This API is intended for API callers.
+    * *   The response of this API contains the system parameters that are optional in API definitions.
     *
     * @param request DescribeSystemParametersRequest
     * @return DescribeSystemParametersResponse
@@ -28706,7 +30460,9 @@ export default class Client extends OpenApi {
   }
 
   /**
-    * The specified group ID. This parameter must be specified together with ApiId and StageName.
+    * *   This API is intended for API providers.
+    * *   This API can be used to query all existing throttling policies (including special throttling policies) and their details.
+    * *   You can specify query conditions. For example, you can query the throttling policies bound to a specified API or in a specified environment.
     *
     * @param request DescribeTrafficControlsRequest
     * @param runtime runtime options for this request RuntimeOptions
@@ -28765,7 +30521,9 @@ export default class Client extends OpenApi {
   }
 
   /**
-    * The specified group ID. This parameter must be specified together with ApiId and StageName.
+    * *   This API is intended for API providers.
+    * *   This API can be used to query all existing throttling policies (including special throttling policies) and their details.
+    * *   You can specify query conditions. For example, you can query the throttling policies bound to a specified API or in a specified environment.
     *
     * @param request DescribeTrafficControlsRequest
     * @return DescribeTrafficControlsResponse
@@ -28776,7 +30534,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-    * The ID of the API.
+    * *   This API is intended for API providers.
     *
     * @param request DescribeTrafficControlsByApiRequest
     * @param runtime runtime options for this request RuntimeOptions
@@ -28819,7 +30577,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-    * The ID of the API.
+    * *   This API is intended for API providers.
     *
     * @param request DescribeTrafficControlsByApiRequest
     * @return DescribeTrafficControlsByApiResponse
@@ -28983,6 +30741,43 @@ export default class Client extends OpenApi {
   async describeZones(request: DescribeZonesRequest): Promise<DescribeZonesResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.describeZonesWithOptions(request, runtime);
+  }
+
+  async detachApiProductWithOptions(request: DetachApiProductRequest, runtime: $Util.RuntimeOptions): Promise<DetachApiProductResponse> {
+    Util.validateModel(request);
+    let query = { };
+    if (!Util.isUnset(request.apiProductId)) {
+      query["ApiProductId"] = request.apiProductId;
+    }
+
+    if (!Util.isUnset(request.apis)) {
+      query["Apis"] = request.apis;
+    }
+
+    if (!Util.isUnset(request.securityToken)) {
+      query["SecurityToken"] = request.securityToken;
+    }
+
+    let req = new $OpenApi.OpenApiRequest({
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApi.Params({
+      action: "DetachApiProduct",
+      version: "2016-07-14",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $tea.cast<DetachApiProductResponse>(await this.callApi(params, req, runtime), new DetachApiProductResponse({}));
+  }
+
+  async detachApiProduct(request: DetachApiProductRequest): Promise<DetachApiProductResponse> {
+    let runtime = new $Util.RuntimeOptions({ });
+    return await this.detachApiProductWithOptions(request, runtime);
   }
 
   async detachPluginWithOptions(request: DetachPluginRequest, runtime: $Util.RuntimeOptions): Promise<DetachPluginResponse> {
@@ -29241,7 +31036,8 @@ export default class Client extends OpenApi {
   }
 
   /**
-    * 0009db9c828549768a200320714b8930
+    * *   Alibaba Cloud supports extensions based on Swagger 2.0.
+    * *   Alibaba Cloud supports Swagger configuration files in JSON and YAML formats.
     *
     * @param tmpReq ImportSwaggerRequest
     * @param runtime runtime options for this request RuntimeOptions
@@ -29304,7 +31100,8 @@ export default class Client extends OpenApi {
   }
 
   /**
-    * 0009db9c828549768a200320714b8930
+    * *   Alibaba Cloud supports extensions based on Swagger 2.0.
+    * *   Alibaba Cloud supports Swagger configuration files in JSON and YAML formats.
     *
     * @param request ImportSwaggerRequest
     * @return ImportSwaggerResponse
@@ -29314,6 +31111,21 @@ export default class Client extends OpenApi {
     return await this.importSwaggerWithOptions(request, runtime);
   }
 
+  /**
+    * *   The Tag.N.Key and Tag.N.Value parameters constitute a key-value pair.
+    * *   ResourceId.N must meet all the key-value pairs that are entered. If you enter multiple key-value pairs, resources that contain the specified key-value pairs are returned.
+    * *   This operation is used to query resource tags based on conditions. If no relationship matches the conditions, an empty list is returned.
+    * *   You can query both user tags and visible system tags.
+    * *   In addition to the required parameters, you can also specify ResourceId.N to query the visible resource tags of a specified resource in a region.
+    * *   You can also specify Tag.N.Key to query the visible keys of a specified key in a region.
+    * *   At least one of ResourceId.N, Tag.N.Key, and Tag.N.Value exists.
+    * *   You can query tags of the same type or different types in a single operation.
+    * *   You can query all your user tags and visible system tags.
+    *
+    * @param request ListTagResourcesRequest
+    * @param runtime runtime options for this request RuntimeOptions
+    * @return ListTagResourcesResponse
+   */
   async listTagResourcesWithOptions(request: ListTagResourcesRequest, runtime: $Util.RuntimeOptions): Promise<ListTagResourcesResponse> {
     Util.validateModel(request);
     let query = { };
@@ -29350,13 +31162,31 @@ export default class Client extends OpenApi {
     return $tea.cast<ListTagResourcesResponse>(await this.callApi(params, req, runtime), new ListTagResourcesResponse({}));
   }
 
+  /**
+    * *   The Tag.N.Key and Tag.N.Value parameters constitute a key-value pair.
+    * *   ResourceId.N must meet all the key-value pairs that are entered. If you enter multiple key-value pairs, resources that contain the specified key-value pairs are returned.
+    * *   This operation is used to query resource tags based on conditions. If no relationship matches the conditions, an empty list is returned.
+    * *   You can query both user tags and visible system tags.
+    * *   In addition to the required parameters, you can also specify ResourceId.N to query the visible resource tags of a specified resource in a region.
+    * *   You can also specify Tag.N.Key to query the visible keys of a specified key in a region.
+    * *   At least one of ResourceId.N, Tag.N.Key, and Tag.N.Value exists.
+    * *   You can query tags of the same type or different types in a single operation.
+    * *   You can query all your user tags and visible system tags.
+    *
+    * @param request ListTagResourcesRequest
+    * @return ListTagResourcesResponse
+   */
   async listTagResources(request: ListTagResourcesRequest): Promise<ListTagResourcesResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.listTagResourcesWithOptions(request, runtime);
   }
 
   /**
-    * 58928
+    * **This operation is intended for API providers.**
+    * *   This API operation requires a full update. Updates of partial parameters are not supported.
+    * *   When you modify an API name, make sure that the name of each API within the same group is unique.
+    * *   When you modify the request path, make sure that each request path within the same group is unique.
+    * *   The QPS limit on this operation is 50 per user.
     *
     * @param request ModifyApiRequest
     * @param runtime runtime options for this request RuntimeOptions
@@ -29495,7 +31325,11 @@ export default class Client extends OpenApi {
   }
 
   /**
-    * 58928
+    * **This operation is intended for API providers.**
+    * *   This API operation requires a full update. Updates of partial parameters are not supported.
+    * *   When you modify an API name, make sure that the name of each API within the same group is unique.
+    * *   When you modify the request path, make sure that each request path within the same group is unique.
+    * *   The QPS limit on this operation is 50 per user.
     *
     * @param request ModifyApiRequest
     * @return ModifyApiResponse
@@ -29674,6 +31508,14 @@ export default class Client extends OpenApi {
     return await this.modifyApiConfigurationWithOptions(request, runtime);
   }
 
+  /**
+    * *   This operation is intended for API providers.
+    * *   The QPS limit on this operation is 50 per user.
+    *
+    * @param request ModifyApiGroupRequest
+    * @param runtime runtime options for this request RuntimeOptions
+    * @return ModifyApiGroupResponse
+   */
   async modifyApiGroupWithOptions(request: ModifyApiGroupRequest, runtime: $Util.RuntimeOptions): Promise<ModifyApiGroupResponse> {
     Util.validateModel(request);
     let query = { };
@@ -29750,6 +31592,13 @@ export default class Client extends OpenApi {
     return $tea.cast<ModifyApiGroupResponse>(await this.callApi(params, req, runtime), new ModifyApiGroupResponse({}));
   }
 
+  /**
+    * *   This operation is intended for API providers.
+    * *   The QPS limit on this operation is 50 per user.
+    *
+    * @param request ModifyApiGroupRequest
+    * @return ModifyApiGroupResponse
+   */
   async modifyApiGroup(request: ModifyApiGroupRequest): Promise<ModifyApiGroupResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.modifyApiGroupWithOptions(request, runtime);
@@ -29792,6 +31641,15 @@ export default class Client extends OpenApi {
     return await this.modifyApiGroupVpcWhitelistWithOptions(request, runtime);
   }
 
+  /**
+    * *   This operation is intended for API callers.
+    * *   **AppName** or **Description** can be modified. If these parameters are not specified, no modifications are made and the operation will directly return a success response.
+    * *   You can call this operation up to 50 times per second per account.
+    *
+    * @param request ModifyAppRequest
+    * @param runtime runtime options for this request RuntimeOptions
+    * @return ModifyAppResponse
+   */
   async modifyAppWithOptions(request: ModifyAppRequest, runtime: $Util.RuntimeOptions): Promise<ModifyAppResponse> {
     Util.validateModel(request);
     let query = { };
@@ -29836,6 +31694,14 @@ export default class Client extends OpenApi {
     return $tea.cast<ModifyAppResponse>(await this.callApi(params, req, runtime), new ModifyAppResponse({}));
   }
 
+  /**
+    * *   This operation is intended for API callers.
+    * *   **AppName** or **Description** can be modified. If these parameters are not specified, no modifications are made and the operation will directly return a success response.
+    * *   You can call this operation up to 50 times per second per account.
+    *
+    * @param request ModifyAppRequest
+    * @return ModifyAppResponse
+   */
   async modifyApp(request: ModifyAppRequest): Promise<ModifyAppResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.modifyAppWithOptions(request, runtime);
@@ -30070,8 +31936,46 @@ export default class Client extends OpenApi {
     return await this.modifyInstanceSpecWithOptions(request, runtime);
   }
 
+  async modifyIntranetDomainPolicyWithOptions(request: ModifyIntranetDomainPolicyRequest, runtime: $Util.RuntimeOptions): Promise<ModifyIntranetDomainPolicyResponse> {
+    Util.validateModel(request);
+    let query = { };
+    if (!Util.isUnset(request.groupId)) {
+      query["GroupId"] = request.groupId;
+    }
+
+    if (!Util.isUnset(request.securityToken)) {
+      query["SecurityToken"] = request.securityToken;
+    }
+
+    if (!Util.isUnset(request.vpcIntranetEnable)) {
+      query["VpcIntranetEnable"] = request.vpcIntranetEnable;
+    }
+
+    let req = new $OpenApi.OpenApiRequest({
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApi.Params({
+      action: "ModifyIntranetDomainPolicy",
+      version: "2016-07-14",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $tea.cast<ModifyIntranetDomainPolicyResponse>(await this.callApi(params, req, runtime), new ModifyIntranetDomainPolicyResponse({}));
+  }
+
+  async modifyIntranetDomainPolicy(request: ModifyIntranetDomainPolicyRequest): Promise<ModifyIntranetDomainPolicyResponse> {
+    let runtime = new $Util.RuntimeOptions({ });
+    return await this.modifyIntranetDomainPolicyWithOptions(request, runtime);
+  }
+
   /**
-    * The name of the ACL. The name must be 4 to 50 characters in length, and can contain letters, digits, and underscores (\\_). The name cannot start with an underscore (\\_).
+    * *   This operation is intended for API providers.
+    * *   This operation allows you to modify only the name and description of an ACL. You cannot modify the type of the ACL.
     *
     * @param request ModifyIpControlRequest
     * @param runtime runtime options for this request RuntimeOptions
@@ -30114,7 +32018,8 @@ export default class Client extends OpenApi {
   }
 
   /**
-    * The name of the ACL. The name must be 4 to 50 characters in length, and can contain letters, digits, and underscores (\\_). The name cannot start with an underscore (\\_).
+    * *   This operation is intended for API providers.
+    * *   This operation allows you to modify only the name and description of an ACL. You cannot modify the type of the ACL.
     *
     * @param request ModifyIpControlRequest
     * @return ModifyIpControlResponse
@@ -30125,7 +32030,9 @@ export default class Client extends OpenApi {
   }
 
   /**
-    * The ID of the policy.
+    * *   This operation is intended for API providers.
+    * *   The modification immediately takes effect on all the APIs that are bound to the policy.
+    * *   This operation causes a full modification of the content of a policy.
     *
     * @param request ModifyIpControlPolicyItemRequest
     * @param runtime runtime options for this request RuntimeOptions
@@ -30172,7 +32079,9 @@ export default class Client extends OpenApi {
   }
 
   /**
-    * The ID of the policy.
+    * *   This operation is intended for API providers.
+    * *   The modification immediately takes effect on all the APIs that are bound to the policy.
+    * *   This operation causes a full modification of the content of a policy.
     *
     * @param request ModifyIpControlPolicyItemRequest
     * @return ModifyIpControlPolicyItemResponse
@@ -30268,6 +32177,14 @@ export default class Client extends OpenApi {
     return await this.modifyModelWithOptions(request, runtime);
   }
 
+  /**
+    * *   This operation is intended for API providers.
+    * *   The name of the plug-in must be unique.
+    *
+    * @param request ModifyPluginRequest
+    * @param runtime runtime options for this request RuntimeOptions
+    * @return ModifyPluginResponse
+   */
   async modifyPluginWithOptions(request: ModifyPluginRequest, runtime: $Util.RuntimeOptions): Promise<ModifyPluginResponse> {
     Util.validateModel(request);
     let query = { };
@@ -30312,13 +32229,23 @@ export default class Client extends OpenApi {
     return $tea.cast<ModifyPluginResponse>(await this.callApi(params, req, runtime), new ModifyPluginResponse({}));
   }
 
+  /**
+    * *   This operation is intended for API providers.
+    * *   The name of the plug-in must be unique.
+    *
+    * @param request ModifyPluginRequest
+    * @return ModifyPluginResponse
+   */
   async modifyPlugin(request: ModifyPluginRequest): Promise<ModifyPluginResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.modifyPluginWithOptions(request, runtime);
   }
 
   /**
-    * The new name of the key. The name must be 4 to 50 characters in length and can contain letters, digits, and underscores (\\_). It must start with a letter.
+    * *   This API is intended for API providers.
+    * *   This API operation modifies the name, Key value, and Secret value of an existing signature key.
+    * *   Note that the modification takes effect immediately. If the key has been bound to an API, you must adjust the backend signature verification based on the new key accordingly.
+    * *   The QPS limit on this operation is 50 per user.
     *
     * @param request ModifySignatureRequest
     * @param runtime runtime options for this request RuntimeOptions
@@ -30365,7 +32292,10 @@ export default class Client extends OpenApi {
   }
 
   /**
-    * The new name of the key. The name must be 4 to 50 characters in length and can contain letters, digits, and underscores (\\_). It must start with a letter.
+    * *   This API is intended for API providers.
+    * *   This API operation modifies the name, Key value, and Secret value of an existing signature key.
+    * *   Note that the modification takes effect immediately. If the key has been bound to an API, you must adjust the backend signature verification based on the new key accordingly.
+    * *   The QPS limit on this operation is 50 per user.
     *
     * @param request ModifySignatureRequest
     * @return ModifySignatureResponse
@@ -30376,7 +32306,9 @@ export default class Client extends OpenApi {
   }
 
   /**
-    * The throttling policy name. The name must be 4 to 50 characters in length and can contain letters, digits, and underscores (\\_). It cannot start with an underscore.
+    * *   This API is intended for API providers.
+    * *   The modifications take effect on the bound APIs instantly.
+    * *   The QPS limit on this operation is 50 per user.
     *
     * @param request ModifyTrafficControlRequest
     * @param runtime runtime options for this request RuntimeOptions
@@ -30435,7 +32367,9 @@ export default class Client extends OpenApi {
   }
 
   /**
-    * The throttling policy name. The name must be 4 to 50 characters in length and can contain letters, digits, and underscores (\\_). It cannot start with an underscore.
+    * *   This API is intended for API providers.
+    * *   The modifications take effect on the bound APIs instantly.
+    * *   The QPS limit on this operation is 50 per user.
     *
     * @param request ModifyTrafficControlRequest
     * @return ModifyTrafficControlResponse
@@ -30561,7 +32495,10 @@ export default class Client extends OpenApi {
   }
 
   /**
-    * The ID of the API group to which the domain name is bound. This ID is generated by the system and globally unique.
+    * *   This operation is intended for API providers.
+    * *   You must solve the problem that is mentioned in the domain name exception prompt before you can reactivate the domain name.
+    * *   A typical reason why a custom domain name becomes abnormal is that the domain name does not have an ICP filing or the domain name is included in a blacklist by the administration. When a custom domain name is abnormal, users cannot use it to access APIs.
+    * *   You can call this operation to reactivate the domain name to resume normal access.
     *
     * @param request ReactivateDomainRequest
     * @param runtime runtime options for this request RuntimeOptions
@@ -30600,7 +32537,10 @@ export default class Client extends OpenApi {
   }
 
   /**
-    * The ID of the API group to which the domain name is bound. This ID is generated by the system and globally unique.
+    * *   This operation is intended for API providers.
+    * *   You must solve the problem that is mentioned in the domain name exception prompt before you can reactivate the domain name.
+    * *   A typical reason why a custom domain name becomes abnormal is that the domain name does not have an ICP filing or the domain name is included in a blacklist by the administration. When a custom domain name is abnormal, users cannot use it to access APIs.
+    * *   You can call this operation to reactivate the domain name to resume normal access.
     *
     * @param request ReactivateDomainRequest
     * @return ReactivateDomainResponse
@@ -30647,8 +32587,52 @@ export default class Client extends OpenApi {
     return await this.removeAccessControlListEntryWithOptions(request, runtime);
   }
 
+  async removeApiProductsAuthoritiesWithOptions(tmpReq: RemoveApiProductsAuthoritiesRequest, runtime: $Util.RuntimeOptions): Promise<RemoveApiProductsAuthoritiesResponse> {
+    Util.validateModel(tmpReq);
+    let request = new RemoveApiProductsAuthoritiesShrinkRequest({ });
+    OpenApiUtil.convert(tmpReq, request);
+    if (!Util.isUnset(tmpReq.apiProductIds)) {
+      request.apiProductIdsShrink = OpenApiUtil.arrayToStringWithSpecifiedStyle(tmpReq.apiProductIds, "ApiProductIds", "simple");
+    }
+
+    let query = { };
+    if (!Util.isUnset(request.apiProductIdsShrink)) {
+      query["ApiProductIds"] = request.apiProductIdsShrink;
+    }
+
+    if (!Util.isUnset(request.appId)) {
+      query["AppId"] = request.appId;
+    }
+
+    if (!Util.isUnset(request.securityToken)) {
+      query["SecurityToken"] = request.securityToken;
+    }
+
+    let req = new $OpenApi.OpenApiRequest({
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApi.Params({
+      action: "RemoveApiProductsAuthorities",
+      version: "2016-07-14",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $tea.cast<RemoveApiProductsAuthoritiesResponse>(await this.callApi(params, req, runtime), new RemoveApiProductsAuthoritiesResponse({}));
+  }
+
+  async removeApiProductsAuthorities(request: RemoveApiProductsAuthoritiesRequest): Promise<RemoveApiProductsAuthoritiesResponse> {
+    let runtime = new $Util.RuntimeOptions({ });
+    return await this.removeApiProductsAuthoritiesWithOptions(request, runtime);
+  }
+
   /**
-    * The ID of the app. The ID is generated by the system and globally unique.
+    * *   This operation is intended for API providers and callers.
+    * *   Before you revoke access permissions, check by whom the permissions were granted. API providers can only revoke permissions granted by a Provider, and API callers can only revoke permissions granted by a Consumer.
     *
     * @param request RemoveApisAuthoritiesRequest
     * @param runtime runtime options for this request RuntimeOptions
@@ -30699,7 +32683,8 @@ export default class Client extends OpenApi {
   }
 
   /**
-    * The ID of the app. The ID is generated by the system and globally unique.
+    * *   This operation is intended for API providers and callers.
+    * *   Before you revoke access permissions, check by whom the permissions were granted. API providers can only revoke permissions granted by a Provider, and API callers can only revoke permissions granted by a Consumer.
     *
     * @param request RemoveApisAuthoritiesRequest
     * @return RemoveApisAuthoritiesResponse
@@ -30710,7 +32695,8 @@ export default class Client extends OpenApi {
   }
 
   /**
-    * The ID of the API. This ID is generated by the system and globally unique.
+    * *   This operation is intended for API providers and callers.
+    * *   Before you revoke access permissions, check by whom the permissions were granted. API providers can only revoke permissions granted by a Provider, and API callers can only revoke permissions granted by a Consumer.
     *
     * @param request RemoveAppsAuthoritiesRequest
     * @param runtime runtime options for this request RuntimeOptions
@@ -30757,7 +32743,8 @@ export default class Client extends OpenApi {
   }
 
   /**
-    * The ID of the API. This ID is generated by the system and globally unique.
+    * *   This operation is intended for API providers and callers.
+    * *   Before you revoke access permissions, check by whom the permissions were granted. API providers can only revoke permissions granted by a Provider, and API callers can only revoke permissions granted by a Consumer.
     *
     * @param request RemoveAppsAuthoritiesRequest
     * @return RemoveAppsAuthoritiesResponse
@@ -30768,7 +32755,8 @@ export default class Client extends OpenApi {
   }
 
   /**
-    * The ID of the API group containing the API to be managed.
+    * *   This operation is intended for API callers.
+    * *   The unbinding takes effect immediately. After the API is unbound from the ACL, the corresponding environment does not have any IP address access control in place for the API.
     *
     * @param request RemoveIpControlApisRequest
     * @param runtime runtime options for this request RuntimeOptions
@@ -30815,7 +32803,8 @@ export default class Client extends OpenApi {
   }
 
   /**
-    * The ID of the API group containing the API to be managed.
+    * *   This operation is intended for API callers.
+    * *   The unbinding takes effect immediately. After the API is unbound from the ACL, the corresponding environment does not have any IP address access control in place for the API.
     *
     * @param request RemoveIpControlApisRequest
     * @return RemoveIpControlApisResponse
@@ -30826,7 +32815,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-    * The ID of a policy. Separate multiple IDs with semicolons (;). A maximum of 100 IDs can be entered.
+    * *   This operation is intended for API providers.
     *
     * @param request RemoveIpControlPolicyItemRequest
     * @param runtime runtime options for this request RuntimeOptions
@@ -30865,7 +32854,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-    * The ID of a policy. Separate multiple IDs with semicolons (;). A maximum of 100 IDs can be entered.
+    * *   This operation is intended for API providers.
     *
     * @param request RemoveIpControlPolicyItemRequest
     * @return RemoveIpControlPolicyItemResponse
@@ -30876,7 +32865,8 @@ export default class Client extends OpenApi {
   }
 
   /**
-    * The ID of the signature key.
+    * *   This API is intended for API providers.
+    * *   The operation takes effect immediately. The request sent from API Gateway to the backend service does not contain the signature string. The corresponding verification step can be removed from the backend.
     *
     * @param request RemoveSignatureApisRequest
     * @param runtime runtime options for this request RuntimeOptions
@@ -30923,7 +32913,8 @@ export default class Client extends OpenApi {
   }
 
   /**
-    * The ID of the signature key.
+    * *   This API is intended for API providers.
+    * *   The operation takes effect immediately. The request sent from API Gateway to the backend service does not contain the signature string. The corresponding verification step can be removed from the backend.
     *
     * @param request RemoveSignatureApisRequest
     * @return RemoveSignatureApisResponse
@@ -30934,7 +32925,8 @@ export default class Client extends OpenApi {
   }
 
   /**
-    * The ID of the API group containing the APIs from which you want to unbind a specified throttling policy.
+    * *   This API is intended for API providers.
+    * *   This API allows you to unbind a specified throttling policy from up to 100 APIs at a time.
     *
     * @param request RemoveTrafficControlApisRequest
     * @param runtime runtime options for this request RuntimeOptions
@@ -30981,7 +32973,8 @@ export default class Client extends OpenApi {
   }
 
   /**
-    * The ID of the API group containing the APIs from which you want to unbind a specified throttling policy.
+    * *   This API is intended for API providers.
+    * *   This API allows you to unbind a specified throttling policy from up to 100 APIs at a time.
     *
     * @param request RemoveTrafficControlApisRequest
     * @return RemoveTrafficControlApisResponse
@@ -30991,6 +32984,15 @@ export default class Client extends OpenApi {
     return await this.removeTrafficControlApisWithOptions(request, runtime);
   }
 
+  /**
+    * *   This API is intended for API providers.
+    * *   Revokes the permissions of API Gateway to access your VPC instance.
+    * >  Deleting an authorization affects the associated API. Before you delete the authorization, make sure that it is not used by the API.
+    *
+    * @param request RemoveVpcAccessRequest
+    * @param runtime runtime options for this request RuntimeOptions
+    * @return RemoveVpcAccessResponse
+   */
   async removeVpcAccessWithOptions(request: RemoveVpcAccessRequest, runtime: $Util.RuntimeOptions): Promise<RemoveVpcAccessResponse> {
     Util.validateModel(request);
     let query = { };
@@ -31031,6 +33033,14 @@ export default class Client extends OpenApi {
     return $tea.cast<RemoveVpcAccessResponse>(await this.callApi(params, req, runtime), new RemoveVpcAccessResponse({}));
   }
 
+  /**
+    * *   This API is intended for API providers.
+    * *   Revokes the permissions of API Gateway to access your VPC instance.
+    * >  Deleting an authorization affects the associated API. Before you delete the authorization, make sure that it is not used by the API.
+    *
+    * @param request RemoveVpcAccessRequest
+    * @return RemoveVpcAccessResponse
+   */
   async removeVpcAccess(request: RemoveVpcAccessRequest): Promise<RemoveVpcAccessResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.removeVpcAccessWithOptions(request, runtime);
@@ -31081,13 +33091,6 @@ export default class Client extends OpenApi {
     return await this.removeVpcAccessAndAbolishApisWithOptions(request, runtime);
   }
 
-  /**
-    * The new AppCode takes effect about 2 seconds after you call this operation.
-    *
-    * @param request ResetAppCodeRequest
-    * @param runtime runtime options for this request RuntimeOptions
-    * @return ResetAppCodeResponse
-   */
   async resetAppCodeWithOptions(request: ResetAppCodeRequest, runtime: $Util.RuntimeOptions): Promise<ResetAppCodeResponse> {
     Util.validateModel(request);
     let query = { };
@@ -31120,12 +33123,6 @@ export default class Client extends OpenApi {
     return $tea.cast<ResetAppCodeResponse>(await this.callApi(params, req, runtime), new ResetAppCodeResponse({}));
   }
 
-  /**
-    * The new AppCode takes effect about 2 seconds after you call this operation.
-    *
-    * @param request ResetAppCodeRequest
-    * @return ResetAppCodeResponse
-   */
   async resetAppCode(request: ResetAppCodeRequest): Promise<ResetAppCodeResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.resetAppCodeWithOptions(request, runtime);
@@ -31337,8 +33334,57 @@ export default class Client extends OpenApi {
     return await this.setAccessControlListAttributeWithOptions(request, runtime);
   }
 
+  async setApiProductsAuthoritiesWithOptions(tmpReq: SetApiProductsAuthoritiesRequest, runtime: $Util.RuntimeOptions): Promise<SetApiProductsAuthoritiesResponse> {
+    Util.validateModel(tmpReq);
+    let request = new SetApiProductsAuthoritiesShrinkRequest({ });
+    OpenApiUtil.convert(tmpReq, request);
+    if (!Util.isUnset(tmpReq.apiProductIds)) {
+      request.apiProductIdsShrink = OpenApiUtil.arrayToStringWithSpecifiedStyle(tmpReq.apiProductIds, "ApiProductIds", "simple");
+    }
+
+    let query = { };
+    if (!Util.isUnset(request.apiProductIdsShrink)) {
+      query["ApiProductIds"] = request.apiProductIdsShrink;
+    }
+
+    if (!Util.isUnset(request.appId)) {
+      query["AppId"] = request.appId;
+    }
+
+    if (!Util.isUnset(request.description)) {
+      query["Description"] = request.description;
+    }
+
+    if (!Util.isUnset(request.securityToken)) {
+      query["SecurityToken"] = request.securityToken;
+    }
+
+    let req = new $OpenApi.OpenApiRequest({
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApi.Params({
+      action: "SetApiProductsAuthorities",
+      version: "2016-07-14",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $tea.cast<SetApiProductsAuthoritiesResponse>(await this.callApi(params, req, runtime), new SetApiProductsAuthoritiesResponse({}));
+  }
+
+  async setApiProductsAuthorities(request: SetApiProductsAuthoritiesRequest): Promise<SetApiProductsAuthoritiesResponse> {
+    let runtime = new $Util.RuntimeOptions({ });
+    return await this.setApiProductsAuthoritiesWithOptions(request, runtime);
+  }
+
   /**
-    * The ID of the app. This ID is generated by the system and globally unique.
+    * *   This operation is intended for API providers and callers.
+    * *   API providers can authorize any apps to call their APIs.
+    * *   API callers can authorize their own apps to call the APIs that they have purchased.
     *
     * @param request SetApisAuthoritiesRequest
     * @param runtime runtime options for this request RuntimeOptions
@@ -31393,7 +33439,9 @@ export default class Client extends OpenApi {
   }
 
   /**
-    * The ID of the app. This ID is generated by the system and globally unique.
+    * *   This operation is intended for API providers and callers.
+    * *   API providers can authorize any apps to call their APIs.
+    * *   API callers can authorize their own apps to call the APIs that they have purchased.
     *
     * @param request SetApisAuthoritiesRequest
     * @return SetApisAuthoritiesResponse
@@ -31404,7 +33452,9 @@ export default class Client extends OpenApi {
   }
 
   /**
-    * The ID of the API. This ID is generated by the system and globally unique.
+    * *   This operation is intended for API providers and callers.
+    * *   API providers can authorize any apps to call their APIs.
+    * *   API callers can authorize their own apps to call the APIs that they have purchased.
     *
     * @param request SetAppsAuthoritiesRequest
     * @param runtime runtime options for this request RuntimeOptions
@@ -31459,7 +33509,9 @@ export default class Client extends OpenApi {
   }
 
   /**
-    * The ID of the API. This ID is generated by the system and globally unique.
+    * *   This operation is intended for API providers and callers.
+    * *   API providers can authorize any apps to call their APIs.
+    * *   API callers can authorize their own apps to call the APIs that they have purchased.
     *
     * @param request SetAppsAuthoritiesRequest
     * @return SetAppsAuthoritiesResponse
@@ -31519,7 +33571,9 @@ export default class Client extends OpenApi {
   }
 
   /**
-    * 382271
+    * *   This operation is intended for API providers.
+    * *   The SSL certificate must match the custom domain name.
+    * *   After the SSL certificate is bound, HTTPS-based API services become available.
     *
     * @param request SetDomainCertificateRequest
     * @param runtime runtime options for this request RuntimeOptions
@@ -31578,7 +33632,9 @@ export default class Client extends OpenApi {
   }
 
   /**
-    * 382271
+    * *   This operation is intended for API providers.
+    * *   The SSL certificate must match the custom domain name.
+    * *   After the SSL certificate is bound, HTTPS-based API services become available.
     *
     * @param request SetDomainCertificateRequest
     * @return SetDomainCertificateResponse
@@ -31671,7 +33727,8 @@ export default class Client extends OpenApi {
   }
 
   /**
-    * The ID of the API group.
+    * *   This operation is intended for API callers.
+    * *   A maximum of 100 APIs can be bound at a time.
     *
     * @param request SetIpControlApisRequest
     * @param runtime runtime options for this request RuntimeOptions
@@ -31718,7 +33775,8 @@ export default class Client extends OpenApi {
   }
 
   /**
-    * The ID of the API group.
+    * *   This operation is intended for API callers.
+    * *   A maximum of 100 APIs can be bound at a time.
     *
     * @param request SetIpControlApisRequest
     * @return SetIpControlApisResponse
@@ -31729,7 +33787,8 @@ export default class Client extends OpenApi {
   }
 
   /**
-    * The ID of the signature key.
+    * *   This API is intended for API providers.
+    * *   This operation allows you to bind a signature key to an API. You can bind signature keys for up to 100 APIs at a time.
     *
     * @param request SetSignatureApisRequest
     * @param runtime runtime options for this request RuntimeOptions
@@ -31776,7 +33835,8 @@ export default class Client extends OpenApi {
   }
 
   /**
-    * The ID of the signature key.
+    * *   This API is intended for API providers.
+    * *   This operation allows you to bind a signature key to an API. You can bind signature keys for up to 100 APIs at a time.
     *
     * @param request SetSignatureApisRequest
     * @return SetSignatureApisResponse
@@ -31787,7 +33847,8 @@ export default class Client extends OpenApi {
   }
 
   /**
-    * The ID of the API group containing the APIs to which you want to bind a specified throttling policy.
+    * *   This API is intended for API providers.
+    * *   This API allows you to bind a specific throttling policy to up to 100 APIs at a time.
     *
     * @param request SetTrafficControlApisRequest
     * @param runtime runtime options for this request RuntimeOptions
@@ -31834,7 +33895,8 @@ export default class Client extends OpenApi {
   }
 
   /**
-    * The ID of the API group containing the APIs to which you want to bind a specified throttling policy.
+    * *   This API is intended for API providers.
+    * *   This API allows you to bind a specific throttling policy to up to 100 APIs at a time.
     *
     * @param request SetTrafficControlApisRequest
     * @return SetTrafficControlApisResponse
@@ -31939,7 +34001,11 @@ export default class Client extends OpenApi {
   }
 
   /**
-    * The ID of the API.
+    * *   This API is intended for API providers.
+    * *   The historical version can be obtained by calling the **DescribeHistoryApis** operation.
+    * *   Only APIs that have been published more than once have historical versions.
+    * *   This operation can only be performed on running APIs. Exercise caution when you perform this operation because the operation cannot be undone. The operation takes up to 5 seconds.
+    * *   The switch operation is essentially a publish operation. A reason for this operation must be provided.
     *
     * @param request SwitchApiRequest
     * @param runtime runtime options for this request RuntimeOptions
@@ -31990,7 +34056,11 @@ export default class Client extends OpenApi {
   }
 
   /**
-    * The ID of the API.
+    * *   This API is intended for API providers.
+    * *   The historical version can be obtained by calling the **DescribeHistoryApis** operation.
+    * *   Only APIs that have been published more than once have historical versions.
+    * *   This operation can only be performed on running APIs. Exercise caution when you perform this operation because the operation cannot be undone. The operation takes up to 5 seconds.
+    * *   The switch operation is essentially a publish operation. A reason for this operation must be provided.
     *
     * @param request SwitchApiRequest
     * @return SwitchApiResponse
@@ -32001,8 +34071,11 @@ export default class Client extends OpenApi {
   }
 
   /**
-    * The key of tag N.
-    * Valid values of N: `1 to 20.`
+    * *   All tags (key-value pairs) are applied to all resources of a specified ResourceId, with each resource specified as ResourceId.N.
+    * *   Tag.N is a resource tag consisting of a key-value pair: Tag.N.Key and Tag.N.Value.
+    * *   If you call this operation to tag multiple resources simultaneously, either all or none of the resources will be tagged.
+    * *   If you specify Tag.1.Value in addition to required parameters, you must also specify Tag.1.Key. Otherwise, an InvalidParameter.TagKey error is reported. A tag that has a value must have the corresponding key, but the key can be an empty string.
+    * *   If a tag with the same key has been bound to a resource, the new tag will overwrite the existing one.
     *
     * @param request TagResourcesRequest
     * @param runtime runtime options for this request RuntimeOptions
@@ -32045,8 +34118,11 @@ export default class Client extends OpenApi {
   }
 
   /**
-    * The key of tag N.
-    * Valid values of N: `1 to 20.`
+    * *   All tags (key-value pairs) are applied to all resources of a specified ResourceId, with each resource specified as ResourceId.N.
+    * *   Tag.N is a resource tag consisting of a key-value pair: Tag.N.Key and Tag.N.Value.
+    * *   If you call this operation to tag multiple resources simultaneously, either all or none of the resources will be tagged.
+    * *   If you specify Tag.1.Value in addition to required parameters, you must also specify Tag.1.Key. Otherwise, an InvalidParameter.TagKey error is reported. A tag that has a value must have the corresponding key, but the key can be an empty string.
+    * *   If a tag with the same key has been bound to a resource, the new tag will overwrite the existing one.
     *
     * @param request TagResourcesRequest
     * @return TagResourcesResponse
@@ -32057,9 +34133,11 @@ export default class Client extends OpenApi {
   }
 
   /**
-    * Specifies whether to delete all tags. This parameter is valid only when the **TagKey.N**parameter is not specified. Default value: false. Valid values:
-    * *   **true**
-    * *   **false**
+    * *   If you call this operation to untag multiple resources simultaneously, either all or none of the resources will be untagged.
+    * *   If you specify resource IDs without specifying tag keys and set the All parameter to true, all tags bound to the specified resources will be deleted. If a resource does not have any tags, the request is not processed but a success is returned.
+    * *   If you specify resource IDs without specifying tag keys and set the All parameter to false, the request is not processed but a success is returned.
+    * *   When tag keys are specified, the All parameter is invalid.
+    * *   When multiple resources and key-value pairs are specified, the specified tags bound to the resources are deleted.
     *
     * @param request UntagResourcesRequest
     * @param runtime runtime options for this request RuntimeOptions
@@ -32106,9 +34184,11 @@ export default class Client extends OpenApi {
   }
 
   /**
-    * Specifies whether to delete all tags. This parameter is valid only when the **TagKey.N**parameter is not specified. Default value: false. Valid values:
-    * *   **true**
-    * *   **false**
+    * *   If you call this operation to untag multiple resources simultaneously, either all or none of the resources will be untagged.
+    * *   If you specify resource IDs without specifying tag keys and set the All parameter to true, all tags bound to the specified resources will be deleted. If a resource does not have any tags, the request is not processed but a success is returned.
+    * *   If you specify resource IDs without specifying tag keys and set the All parameter to false, the request is not processed but a success is returned.
+    * *   When tag keys are specified, the All parameter is invalid.
+    * *   When multiple resources and key-value pairs are specified, the specified tags bound to the resources are deleted.
     *
     * @param request UntagResourcesRequest
     * @return UntagResourcesResponse
