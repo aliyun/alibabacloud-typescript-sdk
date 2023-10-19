@@ -16360,6 +16360,7 @@ export class UpdateConfigRequest extends $tea.Model {
   configAuthEnabled?: boolean;
   configSecretEnabled?: boolean;
   configType?: string;
+  consoleUIEnabled?: boolean;
   eurekaSupported?: boolean;
   extendedTypesEnable?: string;
   initLimit?: string;
@@ -16387,6 +16388,7 @@ export class UpdateConfigRequest extends $tea.Model {
       configAuthEnabled: 'ConfigAuthEnabled',
       configSecretEnabled: 'ConfigSecretEnabled',
       configType: 'ConfigType',
+      consoleUIEnabled: 'ConsoleUIEnabled',
       eurekaSupported: 'EurekaSupported',
       extendedTypesEnable: 'ExtendedTypesEnable',
       initLimit: 'InitLimit',
@@ -16417,6 +16419,7 @@ export class UpdateConfigRequest extends $tea.Model {
       configAuthEnabled: 'boolean',
       configSecretEnabled: 'boolean',
       configType: 'string',
+      consoleUIEnabled: 'boolean',
       eurekaSupported: 'boolean',
       extendedTypesEnable: 'string',
       initLimit: 'string',
@@ -25626,6 +25629,28 @@ export class ListClustersRequestTag extends $tea.Model {
   }
 }
 
+export class ListClustersResponseBodyDataMaintenancePeriod extends $tea.Model {
+  endTime?: string;
+  startTime?: string;
+  static names(): { [key: string]: string } {
+    return {
+      endTime: 'EndTime',
+      startTime: 'StartTime',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      endTime: 'string',
+      startTime: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
 export class ListClustersResponseBodyData extends $tea.Model {
   appVersion?: string;
   canUpdate?: boolean;
@@ -25642,6 +25667,7 @@ export class ListClustersResponseBodyData extends $tea.Model {
   internetDomain?: string;
   intranetAddress?: string;
   intranetDomain?: string;
+  maintenancePeriod?: ListClustersResponseBodyDataMaintenancePeriod;
   mseVersion?: string;
   resourceGroupId?: string;
   tags?: { [key: string]: any };
@@ -25664,6 +25690,7 @@ export class ListClustersResponseBodyData extends $tea.Model {
       internetDomain: 'InternetDomain',
       intranetAddress: 'IntranetAddress',
       intranetDomain: 'IntranetDomain',
+      maintenancePeriod: 'MaintenancePeriod',
       mseVersion: 'MseVersion',
       resourceGroupId: 'ResourceGroupId',
       tags: 'Tags',
@@ -25689,6 +25716,7 @@ export class ListClustersResponseBodyData extends $tea.Model {
       internetDomain: 'string',
       intranetAddress: 'string',
       intranetDomain: 'string',
+      maintenancePeriod: ListClustersResponseBodyDataMaintenancePeriod,
       mseVersion: 'string',
       resourceGroupId: 'string',
       tags: { 'type': 'map', 'keyType': 'string', 'valueType': 'any' },
@@ -28981,6 +29009,7 @@ export class QueryConfigResponseBodyData extends $tea.Model {
   configContentLimit?: number;
   configSecretEnabled?: boolean;
   configSecretSupported?: boolean;
+  consoleUIEnabled?: boolean;
   eurekaSupported?: boolean;
   extendedTypesEnable?: boolean;
   initLimit?: string;
@@ -29013,6 +29042,7 @@ export class QueryConfigResponseBodyData extends $tea.Model {
       configContentLimit: 'ConfigContentLimit',
       configSecretEnabled: 'ConfigSecretEnabled',
       configSecretSupported: 'ConfigSecretSupported',
+      consoleUIEnabled: 'ConsoleUIEnabled',
       eurekaSupported: 'EurekaSupported',
       extendedTypesEnable: 'ExtendedTypesEnable',
       initLimit: 'InitLimit',
@@ -29048,6 +29078,7 @@ export class QueryConfigResponseBodyData extends $tea.Model {
       configContentLimit: 'number',
       configSecretEnabled: 'boolean',
       configSecretSupported: 'boolean',
+      consoleUIEnabled: 'boolean',
       eurekaSupported: 'boolean',
       extendedTypesEnable: 'boolean',
       initLimit: 'string',
@@ -38981,6 +39012,10 @@ export default class Client extends OpenApi {
 
     if (!Util.isUnset(request.configType)) {
       query["ConfigType"] = request.configType;
+    }
+
+    if (!Util.isUnset(request.consoleUIEnabled)) {
+      query["ConsoleUIEnabled"] = request.consoleUIEnabled;
     }
 
     if (!Util.isUnset(request.eurekaSupported)) {
