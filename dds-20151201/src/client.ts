@@ -3016,18 +3016,27 @@ export class DescribeDBInstanceTDEInfoRequest extends $tea.Model {
 }
 
 export class DescribeDBInstanceTDEInfoResponseBody extends $tea.Model {
+  encryptionKey?: string;
+  encryptorName?: string;
   requestId?: string;
+  roleARN?: string;
   TDEStatus?: string;
   static names(): { [key: string]: string } {
     return {
+      encryptionKey: 'EncryptionKey',
+      encryptorName: 'EncryptorName',
       requestId: 'RequestId',
+      roleARN: 'RoleARN',
       TDEStatus: 'TDEStatus',
     };
   }
 
   static types(): { [key: string]: any } {
     return {
+      encryptionKey: 'string',
+      encryptorName: 'string',
       requestId: 'string',
+      roleARN: 'string',
       TDEStatus: 'string',
     };
   }
