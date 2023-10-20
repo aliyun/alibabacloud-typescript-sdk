@@ -1471,6 +1471,8 @@ export class FraudResultCallBackResponse extends $tea.Model {
 
 export class InitializeRequest extends $tea.Model {
   authorize?: string;
+  callbackToken?: string;
+  callbackUrl?: string;
   crop?: string;
   docScanMode?: string;
   docType?: string;
@@ -1494,6 +1496,8 @@ export class InitializeRequest extends $tea.Model {
   static names(): { [key: string]: string } {
     return {
       authorize: 'Authorize',
+      callbackToken: 'CallbackToken',
+      callbackUrl: 'CallbackUrl',
       crop: 'Crop',
       docScanMode: 'DocScanMode',
       docType: 'DocType',
@@ -1520,6 +1524,8 @@ export class InitializeRequest extends $tea.Model {
   static types(): { [key: string]: any } {
     return {
       authorize: 'string',
+      callbackToken: 'string',
+      callbackUrl: 'string',
       crop: 'string',
       docScanMode: 'string',
       docType: 'string',
@@ -3235,6 +3241,14 @@ export default class Client extends OpenApi {
     let query = { };
     if (!Util.isUnset(request.authorize)) {
       query["Authorize"] = request.authorize;
+    }
+
+    if (!Util.isUnset(request.callbackToken)) {
+      query["CallbackToken"] = request.callbackToken;
+    }
+
+    if (!Util.isUnset(request.callbackUrl)) {
+      query["CallbackUrl"] = request.callbackUrl;
     }
 
     if (!Util.isUnset(request.crop)) {
