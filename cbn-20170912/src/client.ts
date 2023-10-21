@@ -19492,7 +19492,6 @@ export default class Client extends OpenApi {
   }
 
   /**
-    * # Prerequisites
     * After you add an aggregate route to a route table of an Enterprise Edition transit router, the Enterprise Edition transit router advertises its routes only to route tables of virtual private clouds (VPCs) that are associated with a route table of the Enterprise Edition transit router and have route synchronization enabled.
     * Perform the following operations before you create an aggregate route. Otherwise, the Enterprise Edition transit router does not advertise routes to VPC route tables:
     * *   Associated forwarding is enabled between the VPCs and the Enterprise Edition transit router. For more information, see [AssociateTransitRouterAttachmentWithRouteTable](~~261242~~).
@@ -19567,7 +19566,6 @@ export default class Client extends OpenApi {
   }
 
   /**
-    * # Prerequisites
     * After you add an aggregate route to a route table of an Enterprise Edition transit router, the Enterprise Edition transit router advertises its routes only to route tables of virtual private clouds (VPCs) that are associated with a route table of the Enterprise Edition transit router and have route synchronization enabled.
     * Perform the following operations before you create an aggregate route. Otherwise, the Enterprise Edition transit router does not advertise routes to VPC route tables:
     * *   Associated forwarding is enabled between the VPCs and the Enterprise Edition transit router. For more information, see [AssociateTransitRouterAttachmentWithRouteTable](~~261242~~).
@@ -21526,9 +21524,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-    * The client token that is used to ensure the idempotence of the request.
-    * You can use the client to generate the value, but you must make sure that it is unique among different requests. ClientToken can contain only ASCII characters.
-    * >  If you do not set this parameter, ClientToken is set to the value of RequestId. The value of RequestId for each API request may be different.
+    * If IP addresses within the CIDR block have been allocated to network instances, the CIDR block cannot be deleted.
     *
     * @param request DeleteTransitRouterCidrRequest
     * @param runtime runtime options for this request RuntimeOptions
@@ -21591,9 +21587,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-    * The client token that is used to ensure the idempotence of the request.
-    * You can use the client to generate the value, but you must make sure that it is unique among different requests. ClientToken can contain only ASCII characters.
-    * >  If you do not set this parameter, ClientToken is set to the value of RequestId. The value of RequestId for each API request may be different.
+    * If IP addresses within the CIDR block have been allocated to network instances, the CIDR block cannot be deleted.
     *
     * @param request DeleteTransitRouterCidrRequest
     * @return DeleteTransitRouterCidrResponse
@@ -23710,6 +23704,13 @@ export default class Client extends OpenApi {
     return await this.describeRouteServicesInCenWithOptions(request, runtime);
   }
 
+  /**
+    * You can set the **TransitRouteTableId** and **TransitRouteTableAggregationCidr** parameters to specify the aggregate routes that you want to query. If you set only the **TransitRouteTableId** parameter, all aggregate routes in the specified route table are queried.
+    *
+    * @param request DescribeTransitRouteTableAggregationRequest
+    * @param runtime runtime options for this request RuntimeOptions
+    * @return DescribeTransitRouteTableAggregationResponse
+   */
   async describeTransitRouteTableAggregationWithOptions(request: DescribeTransitRouteTableAggregationRequest, runtime: $Util.RuntimeOptions): Promise<DescribeTransitRouteTableAggregationResponse> {
     Util.validateModel(request);
     let query = { };
@@ -23766,6 +23767,12 @@ export default class Client extends OpenApi {
     return $tea.cast<DescribeTransitRouteTableAggregationResponse>(await this.callApi(params, req, runtime), new DescribeTransitRouteTableAggregationResponse({}));
   }
 
+  /**
+    * You can set the **TransitRouteTableId** and **TransitRouteTableAggregationCidr** parameters to specify the aggregate routes that you want to query. If you set only the **TransitRouteTableId** parameter, all aggregate routes in the specified route table are queried.
+    *
+    * @param request DescribeTransitRouteTableAggregationRequest
+    * @return DescribeTransitRouteTableAggregationResponse
+   */
   async describeTransitRouteTableAggregation(request: DescribeTransitRouteTableAggregationRequest): Promise<DescribeTransitRouteTableAggregationResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.describeTransitRouteTableAggregationWithOptions(request, runtime);
@@ -23960,7 +23967,9 @@ export default class Client extends OpenApi {
   }
 
   /**
-    * The ID of the route table of the Enterprise Edition transit router.
+    * **DisableTransitRouterRouteTablePropagation** is an synchronous operation. After you send a request, the system returns a **request ID** and runs the task in the background. You can call the **ListTransitRouterRouteTablePropagations** operation to query the status of a route learning correlation.
+    * *   If a route learning correlation is in the **Disabling** state, the route learning correlation is being deleted. You can query the route learning correlation but cannot perform other operations.
+    * *   If a route learning correlation cannot be found, the route learning correlation is deleted.
     *
     * @param request DisableTransitRouterRouteTablePropagationRequest
     * @param runtime runtime options for this request RuntimeOptions
@@ -24019,7 +24028,9 @@ export default class Client extends OpenApi {
   }
 
   /**
-    * The ID of the route table of the Enterprise Edition transit router.
+    * **DisableTransitRouterRouteTablePropagation** is an synchronous operation. After you send a request, the system returns a **request ID** and runs the task in the background. You can call the **ListTransitRouterRouteTablePropagations** operation to query the status of a route learning correlation.
+    * *   If a route learning correlation is in the **Disabling** state, the route learning correlation is being deleted. You can query the route learning correlation but cannot perform other operations.
+    * *   If a route learning correlation cannot be found, the route learning correlation is deleted.
     *
     * @param request DisableTransitRouterRouteTablePropagationRequest
     * @return DisableTransitRouterRouteTablePropagationResponse
@@ -24980,7 +24991,13 @@ export default class Client extends OpenApi {
   }
 
   /**
-    * A list of primary zones.
+    * *   You can call the **ListTransitRouterAvailableResource** operation to query the zones that support Enterprise Edition transit routers in a specified region.
+    *     *   If you do not set **SupportMulticast** to **true**, general-purpose zones that support Enterprise Edition transit routers are queried.
+    *     *   If you set **SupportMulticast** to **true**, zones in which Enterprise Edition transit routers support multicast are queried.
+    * *   On May 31, 2022, VPC-connected Enterprise Edition transit routers were optimized. Optimized Enterprise Edition transit routers do not require you to specify the primary and secondary zones when you connect VPCs to the Enterprise Edition transit routers. You can specify one or more zones.
+    *     *   If your Enterprise Edition transit router has not been optimized, you must specify the primary and secondary zones when you connect a VPC to your Enterprise Edition transit router. After you call **ListTransitRouterAvailableResource**, you can call **MasterZones** and **SlaveZones** to query the primary and secondary zones.
+    *     *   If your Enterprise Edition transit router has been optimized, you can specify a zone as needed when you connect a VPC to your Enterprise Edition transit router. After you call **ListTransitRouterAvailableResource**, you can call **AvailableZones** to query the zones.
+    * For more information about the optimization, see [Announcement: Optimization on VPC-connected Enterprise Edition transit routers](~~434191~~).
     *
     * @param request ListTransitRouterAvailableResourceRequest
     * @param runtime runtime options for this request RuntimeOptions
@@ -25031,7 +25048,13 @@ export default class Client extends OpenApi {
   }
 
   /**
-    * A list of primary zones.
+    * *   You can call the **ListTransitRouterAvailableResource** operation to query the zones that support Enterprise Edition transit routers in a specified region.
+    *     *   If you do not set **SupportMulticast** to **true**, general-purpose zones that support Enterprise Edition transit routers are queried.
+    *     *   If you set **SupportMulticast** to **true**, zones in which Enterprise Edition transit routers support multicast are queried.
+    * *   On May 31, 2022, VPC-connected Enterprise Edition transit routers were optimized. Optimized Enterprise Edition transit routers do not require you to specify the primary and secondary zones when you connect VPCs to the Enterprise Edition transit routers. You can specify one or more zones.
+    *     *   If your Enterprise Edition transit router has not been optimized, you must specify the primary and secondary zones when you connect a VPC to your Enterprise Edition transit router. After you call **ListTransitRouterAvailableResource**, you can call **MasterZones** and **SlaveZones** to query the primary and secondary zones.
+    *     *   If your Enterprise Edition transit router has been optimized, you can specify a zone as needed when you connect a VPC to your Enterprise Edition transit router. After you call **ListTransitRouterAvailableResource**, you can call **AvailableZones** to query the zones.
+    * For more information about the optimization, see [Announcement: Optimization on VPC-connected Enterprise Edition transit routers](~~434191~~).
     *
     * @param request ListTransitRouterAvailableResourceRequest
     * @return ListTransitRouterAvailableResourceResponse
@@ -28423,7 +28446,9 @@ export default class Client extends OpenApi {
   }
 
   /**
-    * The ID of the transit router.
+    * **UpdateTransitRouter** is an asynchronous operation. After a request is sent, the system returns a **request ID** and runs the task in the background. You can call the **ListTransitRouters** operation to query the status of a transit router.
+    * *   If a transit router is in the **Modifying** state, the configuration of the transit router is being modified. You can query the transit router but cannot perform other operations.
+    * *   If a transit router is in the **Active** state, the configuration of the transit router is modified.
     *
     * @param request UpdateTransitRouterRequest
     * @param runtime runtime options for this request RuntimeOptions
@@ -28490,7 +28515,9 @@ export default class Client extends OpenApi {
   }
 
   /**
-    * The ID of the transit router.
+    * **UpdateTransitRouter** is an asynchronous operation. After a request is sent, the system returns a **request ID** and runs the task in the background. You can call the **ListTransitRouters** operation to query the status of a transit router.
+    * *   If a transit router is in the **Modifying** state, the configuration of the transit router is being modified. You can query the transit router but cannot perform other operations.
+    * *   If a transit router is in the **Active** state, the configuration of the transit router is modified.
     *
     * @param request UpdateTransitRouterRequest
     * @return UpdateTransitRouterResponse
@@ -28721,7 +28748,9 @@ export default class Client extends OpenApi {
   }
 
   /**
-    * The ID of the request.
+    * **UpdateTransitRouterVbrAttachmentAttribute** is an asynchronous operation. After a request is sent, the system returns a **request ID** and runs the task in the background. You can call the **ListTransitRouterVbrAttachments** operation to query the status of a VBR connection.
+    * *   If a VBR connection is in the **Modifying** state, the VBR connection is being modified. You can query the VBR connection but cannot perform other operations.
+    * *   If the VBR connection is in the **Attached** state, the VBR connection is modified.
     *
     * @param request UpdateTransitRouterVbrAttachmentAttributeRequest
     * @param runtime runtime options for this request RuntimeOptions
@@ -28788,7 +28817,9 @@ export default class Client extends OpenApi {
   }
 
   /**
-    * The ID of the request.
+    * **UpdateTransitRouterVbrAttachmentAttribute** is an asynchronous operation. After a request is sent, the system returns a **request ID** and runs the task in the background. You can call the **ListTransitRouterVbrAttachments** operation to query the status of a VBR connection.
+    * *   If a VBR connection is in the **Modifying** state, the VBR connection is being modified. You can query the VBR connection but cannot perform other operations.
+    * *   If the VBR connection is in the **Attached** state, the VBR connection is modified.
     *
     * @param request UpdateTransitRouterVbrAttachmentAttributeRequest
     * @return UpdateTransitRouterVbrAttachmentAttributeResponse
