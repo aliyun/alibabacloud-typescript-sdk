@@ -1919,14 +1919,18 @@ export class DeleteWorkspaceResponse extends $tea.Model {
 
 export class DeleteWorkspaceResourceRequest extends $tea.Model {
   groupName?: string;
+  labels?: string;
   option?: string;
   productType?: string;
+  resourceIds?: string;
   resourceType?: string;
   static names(): { [key: string]: string } {
     return {
       groupName: 'GroupName',
+      labels: 'Labels',
       option: 'Option',
       productType: 'ProductType',
+      resourceIds: 'ResourceIds',
       resourceType: 'ResourceType',
     };
   }
@@ -1934,8 +1938,10 @@ export class DeleteWorkspaceResourceRequest extends $tea.Model {
   static types(): { [key: string]: any } {
     return {
       groupName: 'string',
+      labels: 'string',
       option: 'string',
       productType: 'string',
+      resourceIds: 'string',
       resourceType: 'string',
     };
   }
@@ -3731,24 +3737,30 @@ export class ListQuotasResponse extends $tea.Model {
 
 export class ListResourcesRequest extends $tea.Model {
   groupName?: string;
+  labels?: string;
   option?: string;
   pageNumber?: number;
   pageSize?: number;
   productTypes?: string;
+  quotaIds?: string;
   resourceName?: string;
   resourceTypes?: string;
   verbose?: boolean;
+  verboseFields?: string;
   workspaceId?: string;
   static names(): { [key: string]: string } {
     return {
       groupName: 'GroupName',
+      labels: 'Labels',
       option: 'Option',
       pageNumber: 'PageNumber',
       pageSize: 'PageSize',
       productTypes: 'ProductTypes',
+      quotaIds: 'QuotaIds',
       resourceName: 'ResourceName',
       resourceTypes: 'ResourceTypes',
       verbose: 'Verbose',
+      verboseFields: 'VerboseFields',
       workspaceId: 'WorkspaceId',
     };
   }
@@ -3756,13 +3768,16 @@ export class ListResourcesRequest extends $tea.Model {
   static types(): { [key: string]: any } {
     return {
       groupName: 'string',
+      labels: 'string',
       option: 'string',
       pageNumber: 'number',
       pageSize: 'number',
       productTypes: 'string',
+      quotaIds: 'string',
       resourceName: 'string',
       resourceTypes: 'string',
       verbose: 'boolean',
+      verboseFields: 'string',
       workspaceId: 'string',
     };
   }
@@ -4728,14 +4743,20 @@ export class UpdateWorkspaceResponse extends $tea.Model {
 export class UpdateWorkspaceResourceRequest extends $tea.Model {
   groupName?: string;
   isDefault?: boolean;
+  labels?: UpdateWorkspaceResourceRequestLabels[];
   productType?: string;
+  resourceIds?: string[];
   resourceType?: string;
+  spec?: { [key: string]: any };
   static names(): { [key: string]: string } {
     return {
       groupName: 'GroupName',
       isDefault: 'IsDefault',
+      labels: 'Labels',
       productType: 'ProductType',
+      resourceIds: 'ResourceIds',
       resourceType: 'ResourceType',
+      spec: 'Spec',
     };
   }
 
@@ -4743,8 +4764,11 @@ export class UpdateWorkspaceResourceRequest extends $tea.Model {
     return {
       groupName: 'string',
       isDefault: 'boolean',
+      labels: { 'type': 'array', 'itemType': UpdateWorkspaceResourceRequestLabels },
       productType: 'string',
+      resourceIds: { 'type': 'array', 'itemType': 'string' },
       resourceType: 'string',
+      spec: { 'type': 'map', 'keyType': 'string', 'valueType': 'any' },
     };
   }
 
@@ -4953,6 +4977,28 @@ export class CreateProductOrdersRequestProducts extends $tea.Model {
   }
 }
 
+export class CreateWorkspaceResourceRequestResourcesLabels extends $tea.Model {
+  key?: string;
+  value?: string;
+  static names(): { [key: string]: string } {
+    return {
+      key: 'Key',
+      value: 'Value',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      key: 'string',
+      value: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
 export class CreateWorkspaceResourceRequestResourcesQuotas extends $tea.Model {
   id?: string;
   static names(): { [key: string]: string } {
@@ -4976,6 +5022,7 @@ export class CreateWorkspaceResourceRequestResources extends $tea.Model {
   envType?: string;
   groupName?: string;
   isDefault?: boolean;
+  labels?: CreateWorkspaceResourceRequestResourcesLabels[];
   name?: string;
   productType?: string;
   quotas?: CreateWorkspaceResourceRequestResourcesQuotas[];
@@ -4987,6 +5034,7 @@ export class CreateWorkspaceResourceRequestResources extends $tea.Model {
       envType: 'EnvType',
       groupName: 'GroupName',
       isDefault: 'IsDefault',
+      labels: 'Labels',
       name: 'Name',
       productType: 'ProductType',
       quotas: 'Quotas',
@@ -5001,6 +5049,7 @@ export class CreateWorkspaceResourceRequestResources extends $tea.Model {
       envType: 'string',
       groupName: 'string',
       isDefault: 'boolean',
+      labels: { 'type': 'array', 'itemType': CreateWorkspaceResourceRequestResourcesLabels },
       name: 'string',
       productType: 'string',
       quotas: { 'type': 'array', 'itemType': CreateWorkspaceResourceRequestResourcesQuotas },
@@ -5492,6 +5541,28 @@ export class ListResourcesResponseBodyResourcesExecutor extends $tea.Model {
   }
 }
 
+export class ListResourcesResponseBodyResourcesLabels extends $tea.Model {
+  key?: string;
+  value?: string;
+  static names(): { [key: string]: string } {
+    return {
+      key: 'Key',
+      value: 'Value',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      key: 'string',
+      value: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
 export class ListResourcesResponseBodyResourcesQuotasSpecs extends $tea.Model {
   name?: string;
   value?: string;
@@ -5562,6 +5633,7 @@ export class ListResourcesResponseBodyResources extends $tea.Model {
   groupName?: string;
   id?: string;
   isDefault?: boolean;
+  labels?: ListResourcesResponseBodyResourcesLabels[];
   name?: string;
   productType?: string;
   quotas?: ListResourcesResponseBodyResourcesQuotas[];
@@ -5577,6 +5649,7 @@ export class ListResourcesResponseBodyResources extends $tea.Model {
       groupName: 'GroupName',
       id: 'Id',
       isDefault: 'IsDefault',
+      labels: 'Labels',
       name: 'Name',
       productType: 'ProductType',
       quotas: 'Quotas',
@@ -5595,6 +5668,7 @@ export class ListResourcesResponseBodyResources extends $tea.Model {
       groupName: 'string',
       id: 'string',
       isDefault: 'boolean',
+      labels: { 'type': 'array', 'itemType': ListResourcesResponseBodyResourcesLabels },
       name: 'string',
       productType: 'string',
       quotas: { 'type': 'array', 'itemType': ListResourcesResponseBodyResourcesQuotas },
@@ -5672,6 +5746,28 @@ export class ListWorkspacesResponseBodyWorkspaces extends $tea.Model {
       status: 'string',
       workspaceId: 'string',
       workspaceName: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class UpdateWorkspaceResourceRequestLabels extends $tea.Model {
+  key?: string;
+  value?: string;
+  static names(): { [key: string]: string } {
+    return {
+      key: 'Key',
+      value: 'Value',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      key: 'string',
+      value: 'string',
     };
   }
 
@@ -6601,12 +6697,20 @@ export default class Client extends OpenApi {
       query["GroupName"] = request.groupName;
     }
 
+    if (!Util.isUnset(request.labels)) {
+      query["Labels"] = request.labels;
+    }
+
     if (!Util.isUnset(request.option)) {
       query["Option"] = request.option;
     }
 
     if (!Util.isUnset(request.productType)) {
       query["ProductType"] = request.productType;
+    }
+
+    if (!Util.isUnset(request.resourceIds)) {
+      query["ResourceIds"] = request.resourceIds;
     }
 
     if (!Util.isUnset(request.resourceType)) {
@@ -7462,6 +7566,10 @@ export default class Client extends OpenApi {
       query["GroupName"] = request.groupName;
     }
 
+    if (!Util.isUnset(request.labels)) {
+      query["Labels"] = request.labels;
+    }
+
     if (!Util.isUnset(request.option)) {
       query["Option"] = request.option;
     }
@@ -7478,6 +7586,10 @@ export default class Client extends OpenApi {
       query["ProductTypes"] = request.productTypes;
     }
 
+    if (!Util.isUnset(request.quotaIds)) {
+      query["QuotaIds"] = request.quotaIds;
+    }
+
     if (!Util.isUnset(request.resourceName)) {
       query["ResourceName"] = request.resourceName;
     }
@@ -7488,6 +7600,10 @@ export default class Client extends OpenApi {
 
     if (!Util.isUnset(request.verbose)) {
       query["Verbose"] = request.verbose;
+    }
+
+    if (!Util.isUnset(request.verboseFields)) {
+      query["VerboseFields"] = request.verboseFields;
     }
 
     if (!Util.isUnset(request.workspaceId)) {
@@ -8065,12 +8181,24 @@ export default class Client extends OpenApi {
       body["IsDefault"] = request.isDefault;
     }
 
+    if (!Util.isUnset(request.labels)) {
+      body["Labels"] = request.labels;
+    }
+
     if (!Util.isUnset(request.productType)) {
       body["ProductType"] = request.productType;
     }
 
+    if (!Util.isUnset(request.resourceIds)) {
+      body["ResourceIds"] = request.resourceIds;
+    }
+
     if (!Util.isUnset(request.resourceType)) {
       body["ResourceType"] = request.resourceType;
+    }
+
+    if (!Util.isUnset(request.spec)) {
+      body["Spec"] = request.spec;
     }
 
     let req = new $OpenApi.OpenApiRequest({
