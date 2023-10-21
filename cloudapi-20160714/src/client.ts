@@ -14545,12 +14545,14 @@ export class SetAccessControlListAttributeResponse extends $tea.Model {
 export class SetApiProductsAuthoritiesRequest extends $tea.Model {
   apiProductIds?: string[];
   appId?: number;
+  authValidTime?: string;
   description?: string;
   securityToken?: string;
   static names(): { [key: string]: string } {
     return {
       apiProductIds: 'ApiProductIds',
       appId: 'AppId',
+      authValidTime: 'AuthValidTime',
       description: 'Description',
       securityToken: 'SecurityToken',
     };
@@ -14560,6 +14562,7 @@ export class SetApiProductsAuthoritiesRequest extends $tea.Model {
     return {
       apiProductIds: { 'type': 'array', 'itemType': 'string' },
       appId: 'number',
+      authValidTime: 'string',
       description: 'string',
       securityToken: 'string',
     };
@@ -14573,12 +14576,14 @@ export class SetApiProductsAuthoritiesRequest extends $tea.Model {
 export class SetApiProductsAuthoritiesShrinkRequest extends $tea.Model {
   apiProductIdsShrink?: string;
   appId?: number;
+  authValidTime?: string;
   description?: string;
   securityToken?: string;
   static names(): { [key: string]: string } {
     return {
       apiProductIdsShrink: 'ApiProductIds',
       appId: 'AppId',
+      authValidTime: 'AuthValidTime',
       description: 'Description',
       securityToken: 'SecurityToken',
     };
@@ -14588,6 +14593,7 @@ export class SetApiProductsAuthoritiesShrinkRequest extends $tea.Model {
     return {
       apiProductIdsShrink: 'string',
       appId: 'number',
+      authValidTime: 'string',
       description: 'string',
       securityToken: 'string',
     };
@@ -33349,6 +33355,10 @@ export default class Client extends OpenApi {
 
     if (!Util.isUnset(request.appId)) {
       query["AppId"] = request.appId;
+    }
+
+    if (!Util.isUnset(request.authValidTime)) {
+      query["AuthValidTime"] = request.authValidTime;
     }
 
     if (!Util.isUnset(request.description)) {
