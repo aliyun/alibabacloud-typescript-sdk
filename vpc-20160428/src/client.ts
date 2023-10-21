@@ -1983,6 +1983,7 @@ export class AssociateRouteTableWithGatewayRequest extends $tea.Model {
   clientToken?: string;
   dryRun?: boolean;
   gatewayId?: string;
+  gatewayType?: string;
   ownerAccount?: string;
   ownerId?: number;
   regionId?: string;
@@ -1994,6 +1995,7 @@ export class AssociateRouteTableWithGatewayRequest extends $tea.Model {
       clientToken: 'ClientToken',
       dryRun: 'DryRun',
       gatewayId: 'GatewayId',
+      gatewayType: 'GatewayType',
       ownerAccount: 'OwnerAccount',
       ownerId: 'OwnerId',
       regionId: 'RegionId',
@@ -2008,6 +2010,7 @@ export class AssociateRouteTableWithGatewayRequest extends $tea.Model {
       clientToken: 'string',
       dryRun: 'boolean',
       gatewayId: 'string',
+      gatewayType: 'string',
       ownerAccount: 'string',
       ownerId: 'number',
       regionId: 'string',
@@ -15718,8 +15721,10 @@ export class DescribeIpv6AddressesRequest extends $tea.Model {
   pageNumber?: number;
   pageSize?: number;
   regionId?: string;
+  resourceGroupId?: string;
   resourceOwnerAccount?: string;
   resourceOwnerId?: number;
+  tag?: DescribeIpv6AddressesRequestTag[];
   vSwitchId?: string;
   vpcId?: string;
   static names(): { [key: string]: string } {
@@ -15737,8 +15742,10 @@ export class DescribeIpv6AddressesRequest extends $tea.Model {
       pageNumber: 'PageNumber',
       pageSize: 'PageSize',
       regionId: 'RegionId',
+      resourceGroupId: 'ResourceGroupId',
       resourceOwnerAccount: 'ResourceOwnerAccount',
       resourceOwnerId: 'ResourceOwnerId',
+      tag: 'Tag',
       vSwitchId: 'VSwitchId',
       vpcId: 'VpcId',
     };
@@ -15759,8 +15766,10 @@ export class DescribeIpv6AddressesRequest extends $tea.Model {
       pageNumber: 'number',
       pageSize: 'number',
       regionId: 'string',
+      resourceGroupId: 'string',
       resourceOwnerAccount: 'string',
       resourceOwnerId: 'number',
+      tag: { 'type': 'array', 'itemType': DescribeIpv6AddressesRequestTag },
       vSwitchId: 'string',
       vpcId: 'string',
     };
@@ -15974,6 +15983,7 @@ export class DescribeIpv6GatewayAttributeResponseBody extends $tea.Model {
   creationTime?: string;
   description?: string;
   expiredTime?: string;
+  gatewayRouteTableId?: string;
   instanceChargeType?: string;
   ipv6GatewayId?: string;
   name?: string;
@@ -15989,6 +15999,7 @@ export class DescribeIpv6GatewayAttributeResponseBody extends $tea.Model {
       creationTime: 'CreationTime',
       description: 'Description',
       expiredTime: 'ExpiredTime',
+      gatewayRouteTableId: 'GatewayRouteTableId',
       instanceChargeType: 'InstanceChargeType',
       ipv6GatewayId: 'Ipv6GatewayId',
       name: 'Name',
@@ -16007,6 +16018,7 @@ export class DescribeIpv6GatewayAttributeResponseBody extends $tea.Model {
       creationTime: 'string',
       description: 'string',
       expiredTime: 'string',
+      gatewayRouteTableId: 'string',
       instanceChargeType: 'string',
       ipv6GatewayId: 'string',
       name: 'string',
@@ -21027,6 +21039,7 @@ export class DissociateRouteTableFromGatewayRequest extends $tea.Model {
   clientToken?: string;
   dryRun?: boolean;
   gatewayId?: string;
+  gatewayType?: string;
   ownerAccount?: string;
   ownerId?: number;
   regionId?: string;
@@ -21038,6 +21051,7 @@ export class DissociateRouteTableFromGatewayRequest extends $tea.Model {
       clientToken: 'ClientToken',
       dryRun: 'DryRun',
       gatewayId: 'GatewayId',
+      gatewayType: 'GatewayType',
       ownerAccount: 'OwnerAccount',
       ownerId: 'OwnerId',
       regionId: 'RegionId',
@@ -21052,6 +21066,7 @@ export class DissociateRouteTableFromGatewayRequest extends $tea.Model {
       clientToken: 'string',
       dryRun: 'boolean',
       gatewayId: 'string',
+      gatewayType: 'string',
       ownerAccount: 'string',
       ownerId: 'number',
       regionId: 'string',
@@ -32951,6 +32966,7 @@ export class UpdateGatewayRouteTableEntryAttributeRequest extends $tea.Model {
   description?: string;
   destinationCidrBlock?: string;
   dryRun?: boolean;
+  gatewayRouteTableId?: string;
   IPv4GatewayRouteTableId?: string;
   name?: string;
   nextHopId?: string;
@@ -32966,6 +32982,7 @@ export class UpdateGatewayRouteTableEntryAttributeRequest extends $tea.Model {
       description: 'Description',
       destinationCidrBlock: 'DestinationCidrBlock',
       dryRun: 'DryRun',
+      gatewayRouteTableId: 'GatewayRouteTableId',
       IPv4GatewayRouteTableId: 'IPv4GatewayRouteTableId',
       name: 'Name',
       nextHopId: 'NextHopId',
@@ -32984,6 +33001,7 @@ export class UpdateGatewayRouteTableEntryAttributeRequest extends $tea.Model {
       description: 'string',
       destinationCidrBlock: 'string',
       dryRun: 'boolean',
+      gatewayRouteTableId: 'string',
       IPv4GatewayRouteTableId: 'string',
       name: 'string',
       nextHopId: 'string',
@@ -37806,6 +37824,28 @@ export class DescribeIPv6TranslatorsResponseBodyIpv6Translators extends $tea.Mod
   }
 }
 
+export class DescribeIpv6AddressesRequestTag extends $tea.Model {
+  key?: string;
+  value?: string;
+  static names(): { [key: string]: string } {
+    return {
+      key: 'Key',
+      value: 'Value',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      key: 'string',
+      value: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
 export class DescribeIpv6AddressesResponseBodyIpv6AddressesIpv6AddressIpv6InternetBandwidth extends $tea.Model {
   bandwidth?: number;
   businessStatus?: string;
@@ -37852,11 +37892,53 @@ export class DescribeIpv6AddressesResponseBodyIpv6AddressesIpv6AddressIpv6Intern
   }
 }
 
+export class DescribeIpv6AddressesResponseBodyIpv6AddressesIpv6AddressTagsTag extends $tea.Model {
+  key?: string;
+  value?: string;
+  static names(): { [key: string]: string } {
+    return {
+      key: 'Key',
+      value: 'Value',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      key: 'string',
+      value: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class DescribeIpv6AddressesResponseBodyIpv6AddressesIpv6AddressTags extends $tea.Model {
+  tag?: DescribeIpv6AddressesResponseBodyIpv6AddressesIpv6AddressTagsTag[];
+  static names(): { [key: string]: string } {
+    return {
+      tag: 'Tag',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      tag: { 'type': 'array', 'itemType': DescribeIpv6AddressesResponseBodyIpv6AddressesIpv6AddressTagsTag },
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
 export class DescribeIpv6AddressesResponseBodyIpv6AddressesIpv6Address extends $tea.Model {
   allocationTime?: string;
   associatedInstanceId?: string;
   associatedInstanceType?: string;
   ipv6Address?: string;
+  ipv6AddressDescription?: string;
   ipv6AddressId?: string;
   ipv6AddressName?: string;
   ipv6GatewayId?: string;
@@ -37864,7 +37946,9 @@ export class DescribeIpv6AddressesResponseBodyIpv6AddressesIpv6Address extends $
   ipv6Isp?: string;
   networkType?: string;
   realBandwidth?: number;
+  resourceGroupId?: string;
   status?: string;
+  tags?: DescribeIpv6AddressesResponseBodyIpv6AddressesIpv6AddressTags;
   vSwitchId?: string;
   vpcId?: string;
   static names(): { [key: string]: string } {
@@ -37873,6 +37957,7 @@ export class DescribeIpv6AddressesResponseBodyIpv6AddressesIpv6Address extends $
       associatedInstanceId: 'AssociatedInstanceId',
       associatedInstanceType: 'AssociatedInstanceType',
       ipv6Address: 'Ipv6Address',
+      ipv6AddressDescription: 'Ipv6AddressDescription',
       ipv6AddressId: 'Ipv6AddressId',
       ipv6AddressName: 'Ipv6AddressName',
       ipv6GatewayId: 'Ipv6GatewayId',
@@ -37880,7 +37965,9 @@ export class DescribeIpv6AddressesResponseBodyIpv6AddressesIpv6Address extends $
       ipv6Isp: 'Ipv6Isp',
       networkType: 'NetworkType',
       realBandwidth: 'RealBandwidth',
+      resourceGroupId: 'ResourceGroupId',
       status: 'Status',
+      tags: 'Tags',
       vSwitchId: 'VSwitchId',
       vpcId: 'VpcId',
     };
@@ -37892,6 +37979,7 @@ export class DescribeIpv6AddressesResponseBodyIpv6AddressesIpv6Address extends $
       associatedInstanceId: 'string',
       associatedInstanceType: 'string',
       ipv6Address: 'string',
+      ipv6AddressDescription: 'string',
       ipv6AddressId: 'string',
       ipv6AddressName: 'string',
       ipv6GatewayId: 'string',
@@ -37899,7 +37987,9 @@ export class DescribeIpv6AddressesResponseBodyIpv6AddressesIpv6Address extends $
       ipv6Isp: 'string',
       networkType: 'string',
       realBandwidth: 'number',
+      resourceGroupId: 'string',
       status: 'string',
+      tags: DescribeIpv6AddressesResponseBodyIpv6AddressesIpv6AddressTags,
       vSwitchId: 'string',
       vpcId: 'string',
     };
@@ -46811,7 +46901,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-    * After you call this operation, the router interface enters the **Activating** state. After the router interface is activated, it enters the **Active** state.
+    * 、After you call this operation, the router interface enters the **Activating** state. After the router interface is activated, it enters the **Active** state.
     * >  You cannot activate a router interface that has overdue payments.
     *
     * @param request ActivateRouterInterfaceRequest
@@ -46859,7 +46949,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-    * After you call this operation, the router interface enters the **Activating** state. After the router interface is activated, it enters the **Active** state.
+    * 、After you call this operation, the router interface enters the **Activating** state. After the router interface is activated, it enters the **Active** state.
     * >  You cannot activate a router interface that has overdue payments.
     *
     * @param request ActivateRouterInterfaceRequest
@@ -48582,6 +48672,10 @@ export default class Client extends OpenApi {
       query["GatewayId"] = request.gatewayId;
     }
 
+    if (!Util.isUnset(request.gatewayType)) {
+      query["GatewayType"] = request.gatewayType;
+    }
+
     if (!Util.isUnset(request.ownerAccount)) {
       query["OwnerAccount"] = request.ownerAccount;
     }
@@ -50190,6 +50284,15 @@ export default class Client extends OpenApi {
     return await this.createDefaultVpcWithOptions(request, runtime);
   }
 
+  /**
+    * *   **CreateDhcpOptionsSet** is an asynchronous operation. After a request is sent, the system returns a request ID and runs the task in the background. You can call [GetDhcpOptionsSet](~~448820~~) to query the status of the task.
+    *     *   If the vSwitch is in the **Pending** state, the DHCP options set is being configured.
+    *     *   If the vSwitch is in the **Available** state, the DHCP options set is available.
+    *
+    * @param request CreateDhcpOptionsSetRequest
+    * @param runtime runtime options for this request RuntimeOptions
+    * @return CreateDhcpOptionsSetResponse
+   */
   async createDhcpOptionsSetWithOptions(request: CreateDhcpOptionsSetRequest, runtime: $Util.RuntimeOptions): Promise<CreateDhcpOptionsSetResponse> {
     Util.validateModel(request);
     let query = { };
@@ -50270,6 +50373,14 @@ export default class Client extends OpenApi {
     return $tea.cast<CreateDhcpOptionsSetResponse>(await this.callApi(params, req, runtime), new CreateDhcpOptionsSetResponse({}));
   }
 
+  /**
+    * *   **CreateDhcpOptionsSet** is an asynchronous operation. After a request is sent, the system returns a request ID and runs the task in the background. You can call [GetDhcpOptionsSet](~~448820~~) to query the status of the task.
+    *     *   If the vSwitch is in the **Pending** state, the DHCP options set is being configured.
+    *     *   If the vSwitch is in the **Available** state, the DHCP options set is available.
+    *
+    * @param request CreateDhcpOptionsSetRequest
+    * @return CreateDhcpOptionsSetResponse
+   */
   async createDhcpOptionsSet(request: CreateDhcpOptionsSetRequest): Promise<CreateDhcpOptionsSetResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.createDhcpOptionsSetWithOptions(request, runtime);
@@ -56801,11 +56912,11 @@ export default class Client extends OpenApi {
 
   /**
     * When you call this operation, take note of the following items:
-    * *   You can delete only route entries that are in the **Available** state.
-    * *   You cannot delete a route entry of a virtual private cloud (VPC) in which a vSwitch or another route entry is being created or deleted.
-    * *   **DeleteRouteEntries** is an asynchronous operation. After you call this operation, the system returns a request ID and runs the task in the background. You can call the [DescribeRouteEntryList](~~138148~~) operation to query the status of a route entry.
-    *     *   If the route entry is in the **Deleting** state, the route entry is being deleted.
-    *     *   If you cannot query the route entry, the route entry is deleted.
+    * *   You can delete only routes that are in the **Available** state.
+    * *   You cannot delete a route of a virtual private cloud (VPC) in which a vSwitch or another route is being created or deleted.
+    * *   **DeleteRouteEntries** is an asynchronous operation. After a request is sent, the system returns a request ID and runs the task in the background. You can call the [DescribeRouteEntryList](~~138148~~) operation to query the status of the task.
+    *     *   If the route is in the **Deleting** state, the route is being deleted.
+    *     *   If you cannot query the route, the route is deleted.
     * *   You cannot repeatedly call **DeleteRouteEntries** within a specific period of time.
     *
     * @param request DeleteRouteEntriesRequest
@@ -56862,11 +56973,11 @@ export default class Client extends OpenApi {
 
   /**
     * When you call this operation, take note of the following items:
-    * *   You can delete only route entries that are in the **Available** state.
-    * *   You cannot delete a route entry of a virtual private cloud (VPC) in which a vSwitch or another route entry is being created or deleted.
-    * *   **DeleteRouteEntries** is an asynchronous operation. After you call this operation, the system returns a request ID and runs the task in the background. You can call the [DescribeRouteEntryList](~~138148~~) operation to query the status of a route entry.
-    *     *   If the route entry is in the **Deleting** state, the route entry is being deleted.
-    *     *   If you cannot query the route entry, the route entry is deleted.
+    * *   You can delete only routes that are in the **Available** state.
+    * *   You cannot delete a route of a virtual private cloud (VPC) in which a vSwitch or another route is being created or deleted.
+    * *   **DeleteRouteEntries** is an asynchronous operation. After a request is sent, the system returns a request ID and runs the task in the background. You can call the [DescribeRouteEntryList](~~138148~~) operation to query the status of the task.
+    *     *   If the route is in the **Deleting** state, the route is being deleted.
+    *     *   If you cannot query the route, the route is deleted.
     * *   You cannot repeatedly call **DeleteRouteEntries** within a specific period of time.
     *
     * @param request DeleteRouteEntriesRequest
@@ -57568,7 +57679,7 @@ export default class Client extends OpenApi {
     * *   Before you delete a vSwitch, you must first release or remove all virtual private cloud (VPC) resources, including vSwitches, instances, router interfaces, and high-availability virtual IP addresses (HAVIPs).
     * *   You can delete only vSwitches that are in the **Available** state.
     * *   You cannot delete a vSwitch from a VPC where a vSwitch or a route is being created or deleted.
-    * *   **DeleteVSwitch** is an asynchronous operation. After you send a request, the system returns a request ID and runs the task in the background. You can call the [DescribeVSwitchAttributes](~~94567~~) operation to query the status of a vSwitch:
+    * *   **DeleteVSwitch** is an asynchronous operation. After a request is sent, the system returns a request ID and runs the task in the background. You can call the [DescribeVSwitchAttributes](~~94567~~) operation to query the status of the task:
     *     *   If the vSwitch is in the **Pending** state, the vSwitch is being deleted.
     *     *   If you cannot query the vSwitch, the vSwitch is deleted.
     * *   You cannot repeatedly call the **DeleteVSwitch** operation to delete a vSwitch within the specified period of time.
@@ -57626,7 +57737,7 @@ export default class Client extends OpenApi {
     * *   Before you delete a vSwitch, you must first release or remove all virtual private cloud (VPC) resources, including vSwitches, instances, router interfaces, and high-availability virtual IP addresses (HAVIPs).
     * *   You can delete only vSwitches that are in the **Available** state.
     * *   You cannot delete a vSwitch from a VPC where a vSwitch or a route is being created or deleted.
-    * *   **DeleteVSwitch** is an asynchronous operation. After you send a request, the system returns a request ID and runs the task in the background. You can call the [DescribeVSwitchAttributes](~~94567~~) operation to query the status of a vSwitch:
+    * *   **DeleteVSwitch** is an asynchronous operation. After a request is sent, the system returns a request ID and runs the task in the background. You can call the [DescribeVSwitchAttributes](~~94567~~) operation to query the status of the task:
     *     *   If the vSwitch is in the **Pending** state, the vSwitch is being deleted.
     *     *   If you cannot query the vSwitch, the vSwitch is deleted.
     * *   You cannot repeatedly call the **DeleteVSwitch** operation to delete a vSwitch within the specified period of time.
@@ -60259,12 +60370,20 @@ export default class Client extends OpenApi {
       query["RegionId"] = request.regionId;
     }
 
+    if (!Util.isUnset(request.resourceGroupId)) {
+      query["ResourceGroupId"] = request.resourceGroupId;
+    }
+
     if (!Util.isUnset(request.resourceOwnerAccount)) {
       query["ResourceOwnerAccount"] = request.resourceOwnerAccount;
     }
 
     if (!Util.isUnset(request.resourceOwnerId)) {
       query["ResourceOwnerId"] = request.resourceOwnerId;
+    }
+
+    if (!Util.isUnset(request.tag)) {
+      query["Tag"] = request.tag;
     }
 
     if (!Util.isUnset(request.vSwitchId)) {
@@ -63541,6 +63660,10 @@ export default class Client extends OpenApi {
 
     if (!Util.isUnset(request.gatewayId)) {
       query["GatewayId"] = request.gatewayId;
+    }
+
+    if (!Util.isUnset(request.gatewayType)) {
+      query["GatewayType"] = request.gatewayType;
     }
 
     if (!Util.isUnset(request.ownerAccount)) {
@@ -72761,6 +72884,10 @@ export default class Client extends OpenApi {
 
     if (!Util.isUnset(request.dryRun)) {
       query["DryRun"] = request.dryRun;
+    }
+
+    if (!Util.isUnset(request.gatewayRouteTableId)) {
+      query["GatewayRouteTableId"] = request.gatewayRouteTableId;
     }
 
     if (!Util.isUnset(request.IPv4GatewayRouteTableId)) {
