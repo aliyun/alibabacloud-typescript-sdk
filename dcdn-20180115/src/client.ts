@@ -7260,6 +7260,72 @@ export class DescribeDcdnDomainWebsocketTrafficDataResponse extends $tea.Model {
   }
 }
 
+export class DescribeDcdnDomainsBySourceRequest extends $tea.Model {
+  sources?: string;
+  static names(): { [key: string]: string } {
+    return {
+      sources: 'Sources',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      sources: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class DescribeDcdnDomainsBySourceResponseBody extends $tea.Model {
+  domainInfo?: DescribeDcdnDomainsBySourceResponseBodyDomainInfo[];
+  requestId?: string;
+  static names(): { [key: string]: string } {
+    return {
+      domainInfo: 'DomainInfo',
+      requestId: 'RequestId',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      domainInfo: { 'type': 'array', 'itemType': DescribeDcdnDomainsBySourceResponseBodyDomainInfo },
+      requestId: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class DescribeDcdnDomainsBySourceResponse extends $tea.Model {
+  headers: { [key: string]: string };
+  statusCode: number;
+  body: DescribeDcdnDomainsBySourceResponseBody;
+  static names(): { [key: string]: string } {
+    return {
+      headers: 'headers',
+      statusCode: 'statusCode',
+      body: 'body',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
+      body: DescribeDcdnDomainsBySourceResponseBody,
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
 export class DescribeDcdnErUsageDataRequest extends $tea.Model {
   endTime?: string;
   routineID?: string;
@@ -19449,6 +19515,62 @@ export class DescribeDcdnDomainWebsocketTrafficDataResponseBodyTrafficDataPerInt
   }
 }
 
+export class DescribeDcdnDomainsBySourceResponseBodyDomainInfoDomainList extends $tea.Model {
+  createTime?: string;
+  domainCname?: string;
+  domainName?: string;
+  domainType?: string;
+  status?: string;
+  updateTime?: string;
+  static names(): { [key: string]: string } {
+    return {
+      createTime: 'CreateTime',
+      domainCname: 'DomainCname',
+      domainName: 'DomainName',
+      domainType: 'DomainType',
+      status: 'Status',
+      updateTime: 'UpdateTime',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      createTime: 'string',
+      domainCname: 'string',
+      domainName: 'string',
+      domainType: 'string',
+      status: 'string',
+      updateTime: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class DescribeDcdnDomainsBySourceResponseBodyDomainInfo extends $tea.Model {
+  domainList?: DescribeDcdnDomainsBySourceResponseBodyDomainInfoDomainList[];
+  source?: string;
+  static names(): { [key: string]: string } {
+    return {
+      domainList: 'DomainList',
+      source: 'Source',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      domainList: { 'type': 'array', 'itemType': DescribeDcdnDomainsBySourceResponseBodyDomainInfoDomainList },
+      source: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
 export class DescribeDcdnErUsageDataResponseBodyErAccDataErAccItem extends $tea.Model {
   erAcc?: number;
   routine?: string;
@@ -27796,6 +27918,35 @@ export default class Client extends OpenApi {
   async describeDcdnDomainWebsocketTrafficData(request: DescribeDcdnDomainWebsocketTrafficDataRequest): Promise<DescribeDcdnDomainWebsocketTrafficDataResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.describeDcdnDomainWebsocketTrafficDataWithOptions(request, runtime);
+  }
+
+  async describeDcdnDomainsBySourceWithOptions(request: DescribeDcdnDomainsBySourceRequest, runtime: $Util.RuntimeOptions): Promise<DescribeDcdnDomainsBySourceResponse> {
+    Util.validateModel(request);
+    let query = { };
+    if (!Util.isUnset(request.sources)) {
+      query["Sources"] = request.sources;
+    }
+
+    let req = new $OpenApi.OpenApiRequest({
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApi.Params({
+      action: "DescribeDcdnDomainsBySource",
+      version: "2018-01-15",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $tea.cast<DescribeDcdnDomainsBySourceResponse>(await this.callApi(params, req, runtime), new DescribeDcdnDomainsBySourceResponse({}));
+  }
+
+  async describeDcdnDomainsBySource(request: DescribeDcdnDomainsBySourceRequest): Promise<DescribeDcdnDomainsBySourceResponse> {
+    let runtime = new $Util.RuntimeOptions({ });
+    return await this.describeDcdnDomainsBySourceWithOptions(request, runtime);
   }
 
   /**
