@@ -553,6 +553,7 @@ export class Cluster extends $tea.Model {
   resourceGroupId?: string;
   securityMode?: string;
   stateChangeReason?: ClusterStateChangeReason;
+  status?: string;
   subscriptionConfig?: SubscriptionConfig;
   tags?: Tag[];
   static names(): { [key: string]: string } {
@@ -574,6 +575,7 @@ export class Cluster extends $tea.Model {
       resourceGroupId: 'ResourceGroupId',
       securityMode: 'SecurityMode',
       stateChangeReason: 'StateChangeReason',
+      status: 'Status',
       subscriptionConfig: 'SubscriptionConfig',
       tags: 'Tags',
     };
@@ -598,6 +600,7 @@ export class Cluster extends $tea.Model {
       resourceGroupId: 'string',
       securityMode: 'string',
       stateChangeReason: ClusterStateChangeReason,
+      status: 'string',
       subscriptionConfig: SubscriptionConfig,
       tags: { 'type': 'array', 'itemType': Tag },
     };
@@ -681,6 +684,7 @@ export class ClusterSummary extends $tea.Model {
   releaseVersion?: string;
   resourceGroupId?: string;
   stateChangeReason?: ClusterStateChangeReason;
+  status?: string;
   tags?: Tag[];
   static names(): { [key: string]: string } {
     return {
@@ -697,6 +701,7 @@ export class ClusterSummary extends $tea.Model {
       releaseVersion: 'ReleaseVersion',
       resourceGroupId: 'ResourceGroupId',
       stateChangeReason: 'StateChangeReason',
+      status: 'Status',
       tags: 'Tags',
     };
   }
@@ -716,6 +721,7 @@ export class ClusterSummary extends $tea.Model {
       releaseVersion: 'string',
       resourceGroupId: 'string',
       stateChangeReason: ClusterStateChangeReason,
+      status: 'string',
       tags: { 'type': 'array', 'itemType': Tag },
     };
   }
@@ -24223,13 +24229,6 @@ export default class Client extends OpenApi {
     return await this.decreaseNodesWithOptions(request, runtime);
   }
 
-  /**
-    * 删除集群。
-    *
-    * @param request DeleteClusterRequest
-    * @param runtime runtime options for this request RuntimeOptions
-    * @return DeleteClusterResponse
-   */
   async deleteClusterWithOptions(request: DeleteClusterRequest, runtime: $Util.RuntimeOptions): Promise<DeleteClusterResponse> {
     Util.validateModel(request);
     let query = { };
@@ -24258,12 +24257,6 @@ export default class Client extends OpenApi {
     return $tea.cast<DeleteClusterResponse>(await this.callApi(params, req, runtime), new DeleteClusterResponse({}));
   }
 
-  /**
-    * 删除集群。
-    *
-    * @param request DeleteClusterRequest
-    * @return DeleteClusterResponse
-   */
   async deleteCluster(request: DeleteClusterRequest): Promise<DeleteClusterResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.deleteClusterWithOptions(request, runtime);
@@ -26863,6 +26856,13 @@ export default class Client extends OpenApi {
     return await this.removeAutoScalingPolicyWithOptions(request, runtime);
   }
 
+  /**
+    * 执行应用操作。
+    *
+    * @param request RunApplicationActionRequest
+    * @param runtime runtime options for this request RuntimeOptions
+    * @return RunApplicationActionResponse
+   */
   async runApplicationActionWithOptions(request: RunApplicationActionRequest, runtime: $Util.RuntimeOptions): Promise<RunApplicationActionResponse> {
     Util.validateModel(request);
     let query = { };
@@ -26919,18 +26919,17 @@ export default class Client extends OpenApi {
     return $tea.cast<RunApplicationActionResponse>(await this.callApi(params, req, runtime), new RunApplicationActionResponse({}));
   }
 
+  /**
+    * 执行应用操作。
+    *
+    * @param request RunApplicationActionRequest
+    * @return RunApplicationActionResponse
+   */
   async runApplicationAction(request: RunApplicationActionRequest): Promise<RunApplicationActionResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.runApplicationActionWithOptions(request, runtime);
   }
 
-  /**
-    * 给资源打标签。
-    *
-    * @param request TagResourcesRequest
-    * @param runtime runtime options for this request RuntimeOptions
-    * @return TagResourcesResponse
-   */
   async tagResourcesWithOptions(request: TagResourcesRequest, runtime: $Util.RuntimeOptions): Promise<TagResourcesResponse> {
     Util.validateModel(request);
     let query = { };
@@ -26967,12 +26966,6 @@ export default class Client extends OpenApi {
     return $tea.cast<TagResourcesResponse>(await this.callApi(params, req, runtime), new TagResourcesResponse({}));
   }
 
-  /**
-    * 给资源打标签。
-    *
-    * @param request TagResourcesRequest
-    * @return TagResourcesResponse
-   */
   async tagResources(request: TagResourcesRequest): Promise<TagResourcesResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.tagResourcesWithOptions(request, runtime);
