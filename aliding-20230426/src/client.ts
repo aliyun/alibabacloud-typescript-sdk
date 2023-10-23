@@ -56,11 +56,15 @@ export class AddAttendeeRequest extends $tea.Model {
   attendeesToAdd?: AddAttendeeRequestAttendeesToAdd[];
   calendarId?: string;
   eventId?: string;
+  chatNotification?: boolean;
+  pushNotification?: boolean;
   static names(): { [key: string]: string } {
     return {
       attendeesToAdd: 'AttendeesToAdd',
       calendarId: 'CalendarId',
       eventId: 'EventId',
+      chatNotification: 'chatNotification',
+      pushNotification: 'pushNotification',
     };
   }
 
@@ -69,6 +73,8 @@ export class AddAttendeeRequest extends $tea.Model {
       attendeesToAdd: { 'type': 'array', 'itemType': AddAttendeeRequestAttendeesToAdd },
       calendarId: 'string',
       eventId: 'string',
+      chatNotification: 'boolean',
+      pushNotification: 'boolean',
     };
   }
 
@@ -81,11 +87,15 @@ export class AddAttendeeShrinkRequest extends $tea.Model {
   attendeesToAddShrink?: string;
   calendarId?: string;
   eventId?: string;
+  chatNotification?: boolean;
+  pushNotification?: boolean;
   static names(): { [key: string]: string } {
     return {
       attendeesToAddShrink: 'AttendeesToAdd',
       calendarId: 'CalendarId',
       eventId: 'EventId',
+      chatNotification: 'chatNotification',
+      pushNotification: 'pushNotification',
     };
   }
 
@@ -94,6 +104,8 @@ export class AddAttendeeShrinkRequest extends $tea.Model {
       attendeesToAddShrink: 'string',
       calendarId: 'string',
       eventId: 'string',
+      chatNotification: 'boolean',
+      pushNotification: 'boolean',
     };
   }
 
@@ -4052,10 +4064,12 @@ export class DeleteEventShrinkHeaders extends $tea.Model {
 export class DeleteEventRequest extends $tea.Model {
   calendarId?: string;
   eventId?: string;
+  pushNotification?: boolean;
   static names(): { [key: string]: string } {
     return {
       calendarId: 'CalendarId',
       eventId: 'EventId',
+      pushNotification: 'pushNotification',
     };
   }
 
@@ -4063,6 +4077,7 @@ export class DeleteEventRequest extends $tea.Model {
     return {
       calendarId: 'string',
       eventId: 'string',
+      pushNotification: 'boolean',
     };
   }
 
@@ -25934,6 +25949,14 @@ export default class Client extends OpenApi {
       body["EventId"] = request.eventId;
     }
 
+    if (!Util.isUnset(request.chatNotification)) {
+      body["chatNotification"] = request.chatNotification;
+    }
+
+    if (!Util.isUnset(request.pushNotification)) {
+      body["pushNotification"] = request.pushNotification;
+    }
+
     let realHeaders : {[key: string ]: string} = { };
     if (!Util.isUnset(headers.commonHeaders)) {
       realHeaders = headers.commonHeaders;
@@ -27768,6 +27791,10 @@ export default class Client extends OpenApi {
 
     if (!Util.isUnset(request.eventId)) {
       body["EventId"] = request.eventId;
+    }
+
+    if (!Util.isUnset(request.pushNotification)) {
+      body["pushNotification"] = request.pushNotification;
     }
 
     let realHeaders : {[key: string ]: string} = { };
