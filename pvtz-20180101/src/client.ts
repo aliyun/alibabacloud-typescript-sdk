@@ -243,6 +243,7 @@ export class AddUserVpcAuthorizationResponse extends $tea.Model {
 }
 
 export class AddZoneRequest extends $tea.Model {
+  clientToken?: string;
   lang?: string;
   proxyPattern?: string;
   resourceGroupId?: string;
@@ -251,6 +252,7 @@ export class AddZoneRequest extends $tea.Model {
   zoneType?: string;
   static names(): { [key: string]: string } {
     return {
+      clientToken: 'ClientToken',
       lang: 'Lang',
       proxyPattern: 'ProxyPattern',
       resourceGroupId: 'ResourceGroupId',
@@ -262,6 +264,7 @@ export class AddZoneRequest extends $tea.Model {
 
   static types(): { [key: string]: any } {
     return {
+      clientToken: 'string',
       lang: 'string',
       proxyPattern: 'string',
       resourceGroupId: 'string',
@@ -330,7 +333,9 @@ export class AddZoneResponse extends $tea.Model {
 }
 
 export class AddZoneRecordRequest extends $tea.Model {
+  clientToken?: string;
   lang?: string;
+  line?: string;
   priority?: number;
   remark?: string;
   rr?: string;
@@ -338,10 +343,13 @@ export class AddZoneRecordRequest extends $tea.Model {
   type?: string;
   userClientIp?: string;
   value?: string;
+  weight?: number;
   zoneId?: string;
   static names(): { [key: string]: string } {
     return {
+      clientToken: 'ClientToken',
       lang: 'Lang',
+      line: 'Line',
       priority: 'Priority',
       remark: 'Remark',
       rr: 'Rr',
@@ -349,13 +357,16 @@ export class AddZoneRecordRequest extends $tea.Model {
       type: 'Type',
       userClientIp: 'UserClientIp',
       value: 'Value',
+      weight: 'Weight',
       zoneId: 'ZoneId',
     };
   }
 
   static types(): { [key: string]: any } {
     return {
+      clientToken: 'string',
       lang: 'string',
+      line: 'string',
       priority: 'number',
       remark: 'string',
       rr: 'string',
@@ -363,6 +374,7 @@ export class AddZoneRecordRequest extends $tea.Model {
       type: 'string',
       userClientIp: 'string',
       value: 'string',
+      weight: 'number',
       zoneId: 'string',
     };
   }
@@ -492,12 +504,14 @@ export class BindResolverRuleVpcResponse extends $tea.Model {
 }
 
 export class BindZoneVpcRequest extends $tea.Model {
+  clientToken?: string;
   lang?: string;
   userClientIp?: string;
   vpcs?: BindZoneVpcRequestVpcs[];
   zoneId?: string;
   static names(): { [key: string]: string } {
     return {
+      clientToken: 'ClientToken',
       lang: 'Lang',
       userClientIp: 'UserClientIp',
       vpcs: 'Vpcs',
@@ -507,6 +521,7 @@ export class BindZoneVpcRequest extends $tea.Model {
 
   static types(): { [key: string]: any } {
     return {
+      clientToken: 'string',
       lang: 'string',
       userClientIp: 'string',
       vpcs: { 'type': 'array', 'itemType': BindZoneVpcRequestVpcs },
@@ -837,11 +852,13 @@ export class DeleteUserVpcAuthorizationResponse extends $tea.Model {
 }
 
 export class DeleteZoneRequest extends $tea.Model {
+  clientToken?: string;
   lang?: string;
   userClientIp?: string;
   zoneId?: string;
   static names(): { [key: string]: string } {
     return {
+      clientToken: 'ClientToken',
       lang: 'Lang',
       userClientIp: 'UserClientIp',
       zoneId: 'ZoneId',
@@ -850,6 +867,7 @@ export class DeleteZoneRequest extends $tea.Model {
 
   static types(): { [key: string]: any } {
     return {
+      clientToken: 'string',
       lang: 'string',
       userClientIp: 'string',
       zoneId: 'string',
@@ -909,11 +927,13 @@ export class DeleteZoneResponse extends $tea.Model {
 }
 
 export class DeleteZoneRecordRequest extends $tea.Model {
+  clientToken?: string;
   lang?: string;
   recordId?: number;
   userClientIp?: string;
   static names(): { [key: string]: string } {
     return {
+      clientToken: 'ClientToken',
       lang: 'Lang',
       recordId: 'RecordId',
       userClientIp: 'UserClientIp',
@@ -922,6 +942,7 @@ export class DeleteZoneRecordRequest extends $tea.Model {
 
   static types(): { [key: string]: any } {
     return {
+      clientToken: 'string',
       lang: 'string',
       recordId: 'number',
       userClientIp: 'string',
@@ -1086,6 +1107,7 @@ export class DescribeRegionsRequest extends $tea.Model {
   acceptLanguage?: string;
   authorizedUserId?: number;
   lang?: string;
+  scene?: string;
   userClientIp?: string;
   vpcType?: string;
   static names(): { [key: string]: string } {
@@ -1093,6 +1115,7 @@ export class DescribeRegionsRequest extends $tea.Model {
       acceptLanguage: 'AcceptLanguage',
       authorizedUserId: 'AuthorizedUserId',
       lang: 'Lang',
+      scene: 'Scene',
       userClientIp: 'UserClientIp',
       vpcType: 'VpcType',
     };
@@ -1103,6 +1126,7 @@ export class DescribeRegionsRequest extends $tea.Model {
       acceptLanguage: 'string',
       authorizedUserId: 'number',
       lang: 'string',
+      scene: 'string',
       userClientIp: 'string',
       vpcType: 'string',
     };
@@ -2062,6 +2086,10 @@ export class DescribeZoneInfoResponseBody extends $tea.Model {
   bindVpcs?: DescribeZoneInfoResponseBodyBindVpcs;
   createTime?: string;
   createTimestamp?: number;
+  creator?: string;
+  creatorType?: string;
+  dnsGroup?: string;
+  dnsGroupChanging?: boolean;
   isPtr?: boolean;
   proxyPattern?: string;
   recordCount?: number;
@@ -2080,6 +2108,10 @@ export class DescribeZoneInfoResponseBody extends $tea.Model {
       bindVpcs: 'BindVpcs',
       createTime: 'CreateTime',
       createTimestamp: 'CreateTimestamp',
+      creator: 'Creator',
+      creatorType: 'CreatorType',
+      dnsGroup: 'DnsGroup',
+      dnsGroupChanging: 'DnsGroupChanging',
       isPtr: 'IsPtr',
       proxyPattern: 'ProxyPattern',
       recordCount: 'RecordCount',
@@ -2101,6 +2133,10 @@ export class DescribeZoneInfoResponseBody extends $tea.Model {
       bindVpcs: DescribeZoneInfoResponseBodyBindVpcs,
       createTime: 'string',
       createTimestamp: 'number',
+      creator: 'string',
+      creatorType: 'string',
+      dnsGroup: 'string',
+      dnsGroupChanging: 'boolean',
       isPtr: 'boolean',
       proxyPattern: 'string',
       recordCount: 'number',
@@ -2508,11 +2544,13 @@ export class ListTagResourcesResponse extends $tea.Model {
 }
 
 export class MoveResourceGroupRequest extends $tea.Model {
+  clientToken?: string;
   lang?: string;
   newResourceGroupId?: string;
   resourceId?: string;
   static names(): { [key: string]: string } {
     return {
+      clientToken: 'ClientToken',
       lang: 'Lang',
       newResourceGroupId: 'NewResourceGroupId',
       resourceId: 'ResourceId',
@@ -2521,6 +2559,7 @@ export class MoveResourceGroupRequest extends $tea.Model {
 
   static types(): { [key: string]: any } {
     return {
+      clientToken: 'string',
       lang: 'string',
       newResourceGroupId: 'string',
       resourceId: 'string',
@@ -2577,12 +2616,14 @@ export class MoveResourceGroupResponse extends $tea.Model {
 }
 
 export class SetProxyPatternRequest extends $tea.Model {
+  clientToken?: string;
   lang?: string;
   proxyPattern?: string;
   userClientIp?: string;
   zoneId?: string;
   static names(): { [key: string]: string } {
     return {
+      clientToken: 'ClientToken',
       lang: 'Lang',
       proxyPattern: 'ProxyPattern',
       userClientIp: 'UserClientIp',
@@ -2592,6 +2633,7 @@ export class SetProxyPatternRequest extends $tea.Model {
 
   static types(): { [key: string]: any } {
     return {
+      clientToken: 'string',
       lang: 'string',
       proxyPattern: 'string',
       userClientIp: 'string',
@@ -2652,12 +2694,14 @@ export class SetProxyPatternResponse extends $tea.Model {
 }
 
 export class SetZoneRecordStatusRequest extends $tea.Model {
+  clientToken?: string;
   lang?: string;
   recordId?: number;
   status?: string;
   userClientIp?: string;
   static names(): { [key: string]: string } {
     return {
+      clientToken: 'ClientToken',
       lang: 'Lang',
       recordId: 'RecordId',
       status: 'Status',
@@ -2667,6 +2711,7 @@ export class SetZoneRecordStatusRequest extends $tea.Model {
 
   static types(): { [key: string]: any } {
     return {
+      clientToken: 'string',
       lang: 'string',
       recordId: 'number',
       status: 'string',
@@ -2880,11 +2925,13 @@ export class UntagResourcesResponse extends $tea.Model {
 }
 
 export class UpdateRecordRemarkRequest extends $tea.Model {
+  clientToken?: string;
   lang?: string;
   recordId?: number;
   remark?: string;
   static names(): { [key: string]: string } {
     return {
+      clientToken: 'ClientToken',
       lang: 'Lang',
       recordId: 'RecordId',
       remark: 'Remark',
@@ -2893,6 +2940,7 @@ export class UpdateRecordRemarkRequest extends $tea.Model {
 
   static types(): { [key: string]: any } {
     return {
+      clientToken: 'string',
       lang: 'string',
       recordId: 'number',
       remark: 'string',
@@ -3171,7 +3219,9 @@ export class UpdateSyncEcsHostTaskResponse extends $tea.Model {
 }
 
 export class UpdateZoneRecordRequest extends $tea.Model {
+  clientToken?: string;
   lang?: string;
+  line?: string;
   priority?: number;
   recordId?: number;
   rr?: string;
@@ -3179,9 +3229,12 @@ export class UpdateZoneRecordRequest extends $tea.Model {
   type?: string;
   userClientIp?: string;
   value?: string;
+  weight?: number;
   static names(): { [key: string]: string } {
     return {
+      clientToken: 'ClientToken',
       lang: 'Lang',
+      line: 'Line',
       priority: 'Priority',
       recordId: 'RecordId',
       rr: 'Rr',
@@ -3189,12 +3242,15 @@ export class UpdateZoneRecordRequest extends $tea.Model {
       type: 'Type',
       userClientIp: 'UserClientIp',
       value: 'Value',
+      weight: 'Weight',
     };
   }
 
   static types(): { [key: string]: any } {
     return {
+      clientToken: 'string',
       lang: 'string',
+      line: 'string',
       priority: 'number',
       recordId: 'number',
       rr: 'string',
@@ -3202,6 +3258,7 @@ export class UpdateZoneRecordRequest extends $tea.Model {
       type: 'string',
       userClientIp: 'string',
       value: 'string',
+      weight: 'number',
     };
   }
 
@@ -3258,12 +3315,14 @@ export class UpdateZoneRecordResponse extends $tea.Model {
 }
 
 export class UpdateZoneRemarkRequest extends $tea.Model {
+  clientToken?: string;
   lang?: string;
   remark?: string;
   userClientIp?: string;
   zoneId?: string;
   static names(): { [key: string]: string } {
     return {
+      clientToken: 'ClientToken',
       lang: 'Lang',
       remark: 'Remark',
       userClientIp: 'UserClientIp',
@@ -3273,6 +3332,7 @@ export class UpdateZoneRemarkRequest extends $tea.Model {
 
   static types(): { [key: string]: any } {
     return {
+      clientToken: 'string',
       lang: 'string',
       remark: 'string',
       userClientIp: 'string',
@@ -3434,6 +3494,9 @@ export class BindZoneVpcRequestVpcs extends $tea.Model {
 
 export class DescribeChangeLogsResponseBodyChangeLogsChangeLog extends $tea.Model {
   content?: string;
+  creatorId?: string;
+  creatorSubType?: string;
+  creatorType?: string;
   entityId?: string;
   entityName?: string;
   id?: number;
@@ -3445,6 +3508,9 @@ export class DescribeChangeLogsResponseBodyChangeLogsChangeLog extends $tea.Mode
   static names(): { [key: string]: string } {
     return {
       content: 'Content',
+      creatorId: 'CreatorId',
+      creatorSubType: 'CreatorSubType',
+      creatorType: 'CreatorType',
       entityId: 'EntityId',
       entityName: 'EntityName',
       id: 'Id',
@@ -3459,6 +3525,9 @@ export class DescribeChangeLogsResponseBodyChangeLogsChangeLog extends $tea.Mode
   static types(): { [key: string]: any } {
     return {
       content: 'string',
+      creatorId: 'string',
+      creatorSubType: 'string',
+      creatorType: 'string',
       entityId: 'string',
       entityName: 'string',
       id: 'number',
@@ -3724,6 +3793,7 @@ export class DescribeResolverRuleResponseBodyBindVpcs extends $tea.Model {
   vpcId?: string;
   vpcName?: string;
   vpcType?: string;
+  vpcUserId?: string;
   static names(): { [key: string]: string } {
     return {
       regionId: 'RegionId',
@@ -3731,6 +3801,7 @@ export class DescribeResolverRuleResponseBodyBindVpcs extends $tea.Model {
       vpcId: 'VpcId',
       vpcName: 'VpcName',
       vpcType: 'VpcType',
+      vpcUserId: 'VpcUserId',
     };
   }
 
@@ -3741,6 +3812,7 @@ export class DescribeResolverRuleResponseBodyBindVpcs extends $tea.Model {
       vpcId: 'string',
       vpcName: 'string',
       vpcType: 'string',
+      vpcUserId: 'string',
     };
   }
 
@@ -3777,6 +3849,7 @@ export class DescribeResolverRulesResponseBodyRulesBindVpcs extends $tea.Model {
   vpcId?: string;
   vpcName?: string;
   vpcType?: string;
+  vpcUserId?: string;
   static names(): { [key: string]: string } {
     return {
       regionId: 'RegionId',
@@ -3784,6 +3857,7 @@ export class DescribeResolverRulesResponseBodyRulesBindVpcs extends $tea.Model {
       vpcId: 'VpcId',
       vpcName: 'VpcName',
       vpcType: 'VpcType',
+      vpcUserId: 'VpcUserId',
     };
   }
 
@@ -3794,6 +3868,7 @@ export class DescribeResolverRulesResponseBodyRulesBindVpcs extends $tea.Model {
       vpcId: 'string',
       vpcName: 'string',
       vpcType: 'string',
+      vpcUserId: 'string',
     };
   }
 
@@ -4078,11 +4153,15 @@ export class DescribeUserVpcAuthorizationsResponseBodyUsers extends $tea.Model {
   authType?: string;
   authorizedAliyunId?: string;
   authorizedUserId?: number;
+  createTime?: string;
+  createTimestamp?: number;
   static names(): { [key: string]: string } {
     return {
       authType: 'AuthType',
       authorizedAliyunId: 'AuthorizedAliyunId',
       authorizedUserId: 'AuthorizedUserId',
+      createTime: 'CreateTime',
+      createTimestamp: 'CreateTimestamp',
     };
   }
 
@@ -4091,6 +4170,8 @@ export class DescribeUserVpcAuthorizationsResponseBodyUsers extends $tea.Model {
       authType: 'string',
       authorizedAliyunId: 'string',
       authorizedUserId: 'number',
+      createTime: 'string',
+      createTimestamp: 'number',
     };
   }
 
@@ -4153,6 +4234,9 @@ export class DescribeZoneInfoResponseBodyBindVpcs extends $tea.Model {
 }
 
 export class DescribeZoneRecordsResponseBodyRecordsRecord extends $tea.Model {
+  createTime?: string;
+  createTimestamp?: number;
+  line?: string;
   priority?: number;
   recordId?: number;
   remark?: string;
@@ -4160,9 +4244,16 @@ export class DescribeZoneRecordsResponseBodyRecordsRecord extends $tea.Model {
   status?: string;
   ttl?: number;
   type?: string;
+  updateTime?: string;
+  updateTimestamp?: number;
   value?: string;
+  weight?: number;
+  zoneId?: string;
   static names(): { [key: string]: string } {
     return {
+      createTime: 'CreateTime',
+      createTimestamp: 'CreateTimestamp',
+      line: 'Line',
       priority: 'Priority',
       recordId: 'RecordId',
       remark: 'Remark',
@@ -4170,12 +4261,19 @@ export class DescribeZoneRecordsResponseBodyRecordsRecord extends $tea.Model {
       status: 'Status',
       ttl: 'Ttl',
       type: 'Type',
+      updateTime: 'UpdateTime',
+      updateTimestamp: 'UpdateTimestamp',
       value: 'Value',
+      weight: 'Weight',
+      zoneId: 'ZoneId',
     };
   }
 
   static types(): { [key: string]: any } {
     return {
+      createTime: 'string',
+      createTimestamp: 'number',
+      line: 'string',
       priority: 'number',
       recordId: 'number',
       remark: 'string',
@@ -4183,7 +4281,11 @@ export class DescribeZoneRecordsResponseBodyRecordsRecord extends $tea.Model {
       status: 'string',
       ttl: 'number',
       type: 'string',
+      updateTime: 'string',
+      updateTimestamp: 'number',
       value: 'string',
+      weight: 'number',
+      zoneId: 'string',
     };
   }
 
@@ -4264,6 +4366,10 @@ export class DescribeZoneVpcTreeResponseBodyZonesZoneVpcs extends $tea.Model {
 export class DescribeZoneVpcTreeResponseBodyZonesZone extends $tea.Model {
   createTime?: string;
   createTimestamp?: number;
+  creator?: string;
+  creatorType?: string;
+  dnsGroup?: string;
+  dnsGroupChanging?: boolean;
   isPtr?: boolean;
   recordCount?: number;
   remark?: string;
@@ -4278,6 +4384,10 @@ export class DescribeZoneVpcTreeResponseBodyZonesZone extends $tea.Model {
     return {
       createTime: 'CreateTime',
       createTimestamp: 'CreateTimestamp',
+      creator: 'Creator',
+      creatorType: 'CreatorType',
+      dnsGroup: 'DnsGroup',
+      dnsGroupChanging: 'DnsGroupChanging',
       isPtr: 'IsPtr',
       recordCount: 'RecordCount',
       remark: 'Remark',
@@ -4295,6 +4405,10 @@ export class DescribeZoneVpcTreeResponseBodyZonesZone extends $tea.Model {
     return {
       createTime: 'string',
       createTimestamp: 'number',
+      creator: 'string',
+      creatorType: 'string',
+      dnsGroup: 'string',
+      dnsGroupChanging: 'boolean',
       isPtr: 'boolean',
       recordCount: 'number',
       remark: 'string',
@@ -4398,6 +4512,10 @@ export class DescribeZonesResponseBodyZonesZoneResourceTags extends $tea.Model {
 export class DescribeZonesResponseBodyZonesZone extends $tea.Model {
   createTime?: string;
   createTimestamp?: number;
+  creator?: string;
+  creatorSubType?: string;
+  dnsGroup?: string;
+  dnsGroupChanging?: boolean;
   isPtr?: boolean;
   proxyPattern?: string;
   recordCount?: number;
@@ -4414,6 +4532,10 @@ export class DescribeZonesResponseBodyZonesZone extends $tea.Model {
     return {
       createTime: 'CreateTime',
       createTimestamp: 'CreateTimestamp',
+      creator: 'Creator',
+      creatorSubType: 'CreatorSubType',
+      dnsGroup: 'DnsGroup',
+      dnsGroupChanging: 'DnsGroupChanging',
       isPtr: 'IsPtr',
       proxyPattern: 'ProxyPattern',
       recordCount: 'RecordCount',
@@ -4433,6 +4555,10 @@ export class DescribeZonesResponseBodyZonesZone extends $tea.Model {
     return {
       createTime: 'string',
       createTimestamp: 'number',
+      creator: 'string',
+      creatorSubType: 'string',
+      dnsGroup: 'string',
+      dnsGroupChanging: 'boolean',
       isPtr: 'boolean',
       proxyPattern: 'string',
       recordCount: 'number',
@@ -4781,6 +4907,10 @@ export default class Client extends OpenApi {
   async addZoneWithOptions(request: AddZoneRequest, runtime: $Util.RuntimeOptions): Promise<AddZoneResponse> {
     Util.validateModel(request);
     let query = { };
+    if (!Util.isUnset(request.clientToken)) {
+      query["ClientToken"] = request.clientToken;
+    }
+
     if (!Util.isUnset(request.lang)) {
       query["Lang"] = request.lang;
     }
@@ -4830,8 +4960,16 @@ export default class Client extends OpenApi {
   async addZoneRecordWithOptions(request: AddZoneRecordRequest, runtime: $Util.RuntimeOptions): Promise<AddZoneRecordResponse> {
     Util.validateModel(request);
     let query = { };
+    if (!Util.isUnset(request.clientToken)) {
+      query["ClientToken"] = request.clientToken;
+    }
+
     if (!Util.isUnset(request.lang)) {
       query["Lang"] = request.lang;
+    }
+
+    if (!Util.isUnset(request.line)) {
+      query["Line"] = request.line;
     }
 
     if (!Util.isUnset(request.priority)) {
@@ -4860,6 +4998,10 @@ export default class Client extends OpenApi {
 
     if (!Util.isUnset(request.value)) {
       query["Value"] = request.value;
+    }
+
+    if (!Util.isUnset(request.weight)) {
+      query["Weight"] = request.weight;
     }
 
     if (!Util.isUnset(request.zoneId)) {
@@ -4928,6 +5070,10 @@ export default class Client extends OpenApi {
   async bindZoneVpcWithOptions(request: BindZoneVpcRequest, runtime: $Util.RuntimeOptions): Promise<BindZoneVpcResponse> {
     Util.validateModel(request);
     let query = { };
+    if (!Util.isUnset(request.clientToken)) {
+      query["ClientToken"] = request.clientToken;
+    }
+
     if (!Util.isUnset(request.lang)) {
       query["Lang"] = request.lang;
     }
@@ -5105,6 +5251,10 @@ export default class Client extends OpenApi {
   async deleteZoneWithOptions(request: DeleteZoneRequest, runtime: $Util.RuntimeOptions): Promise<DeleteZoneResponse> {
     Util.validateModel(request);
     let query = { };
+    if (!Util.isUnset(request.clientToken)) {
+      query["ClientToken"] = request.clientToken;
+    }
+
     if (!Util.isUnset(request.lang)) {
       query["Lang"] = request.lang;
     }
@@ -5142,6 +5292,10 @@ export default class Client extends OpenApi {
   async deleteZoneRecordWithOptions(request: DeleteZoneRecordRequest, runtime: $Util.RuntimeOptions): Promise<DeleteZoneRecordResponse> {
     Util.validateModel(request);
     let query = { };
+    if (!Util.isUnset(request.clientToken)) {
+      query["ClientToken"] = request.clientToken;
+    }
+
     if (!Util.isUnset(request.lang)) {
       query["Lang"] = request.lang;
     }
@@ -5250,6 +5404,10 @@ export default class Client extends OpenApi {
 
     if (!Util.isUnset(request.lang)) {
       query["Lang"] = request.lang;
+    }
+
+    if (!Util.isUnset(request.scene)) {
+      query["Scene"] = request.scene;
     }
 
     if (!Util.isUnset(request.userClientIp)) {
@@ -5928,6 +6086,10 @@ export default class Client extends OpenApi {
   async moveResourceGroupWithOptions(request: MoveResourceGroupRequest, runtime: $Util.RuntimeOptions): Promise<MoveResourceGroupResponse> {
     Util.validateModel(request);
     let query = { };
+    if (!Util.isUnset(request.clientToken)) {
+      query["ClientToken"] = request.clientToken;
+    }
+
     if (!Util.isUnset(request.lang)) {
       query["Lang"] = request.lang;
     }
@@ -5965,6 +6127,10 @@ export default class Client extends OpenApi {
   async setProxyPatternWithOptions(request: SetProxyPatternRequest, runtime: $Util.RuntimeOptions): Promise<SetProxyPatternResponse> {
     Util.validateModel(request);
     let query = { };
+    if (!Util.isUnset(request.clientToken)) {
+      query["ClientToken"] = request.clientToken;
+    }
+
     if (!Util.isUnset(request.lang)) {
       query["Lang"] = request.lang;
     }
@@ -6006,6 +6172,10 @@ export default class Client extends OpenApi {
   async setZoneRecordStatusWithOptions(request: SetZoneRecordStatusRequest, runtime: $Util.RuntimeOptions): Promise<SetZoneRecordStatusResponse> {
     Util.validateModel(request);
     let query = { };
+    if (!Util.isUnset(request.clientToken)) {
+      query["ClientToken"] = request.clientToken;
+    }
+
     if (!Util.isUnset(request.lang)) {
       query["Lang"] = request.lang;
     }
@@ -6137,6 +6307,10 @@ export default class Client extends OpenApi {
   async updateRecordRemarkWithOptions(request: UpdateRecordRemarkRequest, runtime: $Util.RuntimeOptions): Promise<UpdateRecordRemarkResponse> {
     Util.validateModel(request);
     let query = { };
+    if (!Util.isUnset(request.clientToken)) {
+      query["ClientToken"] = request.clientToken;
+    }
+
     if (!Util.isUnset(request.lang)) {
       query["Lang"] = request.lang;
     }
@@ -6297,8 +6471,16 @@ export default class Client extends OpenApi {
   async updateZoneRecordWithOptions(request: UpdateZoneRecordRequest, runtime: $Util.RuntimeOptions): Promise<UpdateZoneRecordResponse> {
     Util.validateModel(request);
     let query = { };
+    if (!Util.isUnset(request.clientToken)) {
+      query["ClientToken"] = request.clientToken;
+    }
+
     if (!Util.isUnset(request.lang)) {
       query["Lang"] = request.lang;
+    }
+
+    if (!Util.isUnset(request.line)) {
+      query["Line"] = request.line;
     }
 
     if (!Util.isUnset(request.priority)) {
@@ -6329,6 +6511,10 @@ export default class Client extends OpenApi {
       query["Value"] = request.value;
     }
 
+    if (!Util.isUnset(request.weight)) {
+      query["Weight"] = request.weight;
+    }
+
     let req = new $OpenApi.OpenApiRequest({
       query: OpenApiUtil.query(query),
     });
@@ -6354,6 +6540,10 @@ export default class Client extends OpenApi {
   async updateZoneRemarkWithOptions(request: UpdateZoneRemarkRequest, runtime: $Util.RuntimeOptions): Promise<UpdateZoneRemarkResponse> {
     Util.validateModel(request);
     let query = { };
+    if (!Util.isUnset(request.clientToken)) {
+      query["ClientToken"] = request.clientToken;
+    }
+
     if (!Util.isUnset(request.lang)) {
       query["Lang"] = request.lang;
     }
