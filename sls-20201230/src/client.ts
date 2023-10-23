@@ -937,6 +937,28 @@ export class Project extends $tea.Model {
   }
 }
 
+export class ServiceStatus extends $tea.Model {
+  enabled?: boolean;
+  status?: string;
+  static names(): { [key: string]: string } {
+    return {
+      enabled: 'enabled',
+      status: 'status',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      enabled: 'boolean',
+      status: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
 export class Shard extends $tea.Model {
   createTime?: number;
   exclusiveEndKey?: string;
@@ -2034,6 +2056,72 @@ export class CreateSavedSearchResponse extends $tea.Model {
   }
 }
 
+export class CreateTicketRequest extends $tea.Model {
+  playAccessKeyId?: string;
+  playAccessKeySecret?: string;
+  static names(): { [key: string]: string } {
+    return {
+      playAccessKeyId: 'playAccessKeyId',
+      playAccessKeySecret: 'playAccessKeySecret',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      playAccessKeyId: 'string',
+      playAccessKeySecret: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class CreateTicketResponseBody extends $tea.Model {
+  ticket?: string;
+  static names(): { [key: string]: string } {
+    return {
+      ticket: 'ticket',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      ticket: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class CreateTicketResponse extends $tea.Model {
+  headers: { [key: string]: string };
+  statusCode: number;
+  body: CreateTicketResponseBody;
+  static names(): { [key: string]: string } {
+    return {
+      headers: 'headers',
+      statusCode: 'statusCode',
+      body: 'body',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
+      body: CreateTicketResponseBody,
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
 export class DeleteAnnotationDataResponse extends $tea.Model {
   headers: { [key: string]: string };
   statusCode: number;
@@ -2092,6 +2180,72 @@ export class DeleteAnnotationLabelResponse extends $tea.Model {
     return {
       headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
       statusCode: 'number',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class DeleteCollectionPolicyRequest extends $tea.Model {
+  dataCode?: string;
+  productCode?: string;
+  static names(): { [key: string]: string } {
+    return {
+      dataCode: 'dataCode',
+      productCode: 'productCode',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      dataCode: 'string',
+      productCode: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class DeleteCollectionPolicyResponseBody extends $tea.Model {
+  message?: string;
+  static names(): { [key: string]: string } {
+    return {
+      message: 'message',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      message: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class DeleteCollectionPolicyResponse extends $tea.Model {
+  headers: { [key: string]: string };
+  statusCode: number;
+  body: DeleteCollectionPolicyResponseBody;
+  static names(): { [key: string]: string } {
+    return {
+      headers: 'headers',
+      statusCode: 'statusCode',
+      body: 'body',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
+      body: DeleteCollectionPolicyResponseBody,
     };
   }
 
@@ -2621,6 +2775,72 @@ export class GetCheckPointResponse extends $tea.Model {
   }
 }
 
+export class GetCollectionPolicyRequest extends $tea.Model {
+  dataCode?: string;
+  productCode?: string;
+  static names(): { [key: string]: string } {
+    return {
+      dataCode: 'dataCode',
+      productCode: 'productCode',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      dataCode: 'string',
+      productCode: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class GetCollectionPolicyResponseBody extends $tea.Model {
+  collectionPolicy?: GetCollectionPolicyResponseBodyCollectionPolicy;
+  static names(): { [key: string]: string } {
+    return {
+      collectionPolicy: 'collectionPolicy',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      collectionPolicy: GetCollectionPolicyResponseBodyCollectionPolicy,
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class GetCollectionPolicyResponse extends $tea.Model {
+  headers: { [key: string]: string };
+  statusCode: number;
+  body: GetCollectionPolicyResponseBody;
+  static names(): { [key: string]: string } {
+    return {
+      headers: 'headers',
+      statusCode: 'statusCode',
+      body: 'body',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
+      body: GetCollectionPolicyResponseBody,
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
 export class GetConfigResponse extends $tea.Model {
   headers: { [key: string]: string };
   statusCode: number;
@@ -3050,6 +3270,50 @@ export class GetLogStoreResponse extends $tea.Model {
       headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
       statusCode: 'number',
       body: Logstore,
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class GetLogStoreMeteringModeResponseBody extends $tea.Model {
+  meteringMode?: string;
+  static names(): { [key: string]: string } {
+    return {
+      meteringMode: 'meteringMode',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      meteringMode: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class GetLogStoreMeteringModeResponse extends $tea.Model {
+  headers: { [key: string]: string };
+  statusCode: number;
+  body: GetLogStoreMeteringModeResponseBody;
+  static names(): { [key: string]: string } {
+    return {
+      headers: 'headers',
+      statusCode: 'statusCode',
+      body: 'body',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
+      body: GetLogStoreMeteringModeResponseBody,
     };
   }
 
@@ -3721,6 +3985,130 @@ export class ListAnnotationLabelsResponse extends $tea.Model {
       headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
       statusCode: 'number',
       body: ListAnnotationLabelsResponseBody,
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class ListCollectionPoliciesRequest extends $tea.Model {
+  attribute?: ListCollectionPoliciesRequestAttribute;
+  dataCode?: string;
+  instanceId?: string;
+  pageNum?: number;
+  pageSize?: number;
+  policyName?: string;
+  productCode?: string;
+  static names(): { [key: string]: string } {
+    return {
+      attribute: 'attribute',
+      dataCode: 'dataCode',
+      instanceId: 'instanceId',
+      pageNum: 'pageNum',
+      pageSize: 'pageSize',
+      policyName: 'policyName',
+      productCode: 'productCode',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      attribute: ListCollectionPoliciesRequestAttribute,
+      dataCode: 'string',
+      instanceId: 'string',
+      pageNum: 'number',
+      pageSize: 'number',
+      policyName: 'string',
+      productCode: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class ListCollectionPoliciesShrinkRequest extends $tea.Model {
+  attributeShrink?: string;
+  dataCode?: string;
+  instanceId?: string;
+  pageNum?: number;
+  pageSize?: number;
+  policyName?: string;
+  productCode?: string;
+  static names(): { [key: string]: string } {
+    return {
+      attributeShrink: 'attribute',
+      dataCode: 'dataCode',
+      instanceId: 'instanceId',
+      pageNum: 'pageNum',
+      pageSize: 'pageSize',
+      policyName: 'policyName',
+      productCode: 'productCode',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      attributeShrink: 'string',
+      dataCode: 'string',
+      instanceId: 'string',
+      pageNum: 'number',
+      pageSize: 'number',
+      policyName: 'string',
+      productCode: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class ListCollectionPoliciesResponseBody extends $tea.Model {
+  currentCount?: number;
+  data?: ListCollectionPoliciesResponseBodyData[];
+  totalCount?: number;
+  static names(): { [key: string]: string } {
+    return {
+      currentCount: 'currentCount',
+      data: 'data',
+      totalCount: 'totalCount',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      currentCount: 'number',
+      data: { 'type': 'array', 'itemType': ListCollectionPoliciesResponseBodyData },
+      totalCount: 'number',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class ListCollectionPoliciesResponse extends $tea.Model {
+  headers: { [key: string]: string };
+  statusCode: number;
+  body: ListCollectionPoliciesResponseBody;
+  static names(): { [key: string]: string } {
+    return {
+      headers: 'headers',
+      statusCode: 'statusCode',
+      body: 'body',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
+      body: ListCollectionPoliciesResponseBody,
     };
   }
 
@@ -5446,6 +5834,47 @@ export class UpdateLogStoreResponse extends $tea.Model {
   }
 }
 
+export class UpdateLogStoreMeteringModeRequest extends $tea.Model {
+  meteringMode?: string;
+  static names(): { [key: string]: string } {
+    return {
+      meteringMode: 'meteringMode',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      meteringMode: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class UpdateLogStoreMeteringModeResponse extends $tea.Model {
+  headers: { [key: string]: string };
+  statusCode: number;
+  static names(): { [key: string]: string } {
+    return {
+      headers: 'headers',
+      statusCode: 'statusCode',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
 export class UpdateLoggingRequest extends $tea.Model {
   loggingDetails?: UpdateLoggingRequestLoggingDetails[];
   loggingProject?: string;
@@ -5920,6 +6349,90 @@ export class UpdateSavedSearchResponse extends $tea.Model {
     return {
       headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
       statusCode: 'number',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class UpsertCollectionPolicyRequest extends $tea.Model {
+  attribute?: UpsertCollectionPolicyRequestAttribute;
+  centralizeConfig?: UpsertCollectionPolicyRequestCentralizeConfig;
+  centralizeEnabled?: boolean;
+  dataCode?: string;
+  enabled?: boolean;
+  policyConfig?: UpsertCollectionPolicyRequestPolicyConfig;
+  policyName?: string;
+  productCode?: string;
+  static names(): { [key: string]: string } {
+    return {
+      attribute: 'attribute',
+      centralizeConfig: 'centralizeConfig',
+      centralizeEnabled: 'centralizeEnabled',
+      dataCode: 'dataCode',
+      enabled: 'enabled',
+      policyConfig: 'policyConfig',
+      policyName: 'policyName',
+      productCode: 'productCode',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      attribute: UpsertCollectionPolicyRequestAttribute,
+      centralizeConfig: UpsertCollectionPolicyRequestCentralizeConfig,
+      centralizeEnabled: 'boolean',
+      dataCode: 'string',
+      enabled: 'boolean',
+      policyConfig: UpsertCollectionPolicyRequestPolicyConfig,
+      policyName: 'string',
+      productCode: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class UpsertCollectionPolicyResponseBody extends $tea.Model {
+  message?: string;
+  static names(): { [key: string]: string } {
+    return {
+      message: 'message',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      message: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class UpsertCollectionPolicyResponse extends $tea.Model {
+  headers: { [key: string]: string };
+  statusCode: number;
+  body: UpsertCollectionPolicyResponseBody;
+  static names(): { [key: string]: string } {
+    return {
+      headers: 'headers',
+      statusCode: 'statusCode',
+      body: 'body',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
+      body: UpsertCollectionPolicyResponseBody,
     };
   }
 
@@ -6528,6 +7041,124 @@ export class GetCheckPointResponseBody extends $tea.Model {
   }
 }
 
+export class GetCollectionPolicyResponseBodyCollectionPolicyAttribute extends $tea.Model {
+  app?: string;
+  policyGroup?: string;
+  static names(): { [key: string]: string } {
+    return {
+      app: 'app',
+      policyGroup: 'policyGroup',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      app: 'string',
+      policyGroup: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class GetCollectionPolicyResponseBodyCollectionPolicyCentralizeConfig extends $tea.Model {
+  destLogstore?: string;
+  destProject?: string;
+  destRegion?: string;
+  destTTL?: number;
+  static names(): { [key: string]: string } {
+    return {
+      destLogstore: 'destLogstore',
+      destProject: 'destProject',
+      destRegion: 'destRegion',
+      destTTL: 'destTTL',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      destLogstore: 'string',
+      destProject: 'string',
+      destRegion: 'string',
+      destTTL: 'number',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class GetCollectionPolicyResponseBodyCollectionPolicyPolicyConfig extends $tea.Model {
+  instanceIds?: string[];
+  regions?: string[];
+  resourceMode?: string;
+  resourceTags?: { [key: string]: any };
+  static names(): { [key: string]: string } {
+    return {
+      instanceIds: 'instanceIds',
+      regions: 'regions',
+      resourceMode: 'resourceMode',
+      resourceTags: 'resourceTags',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      instanceIds: { 'type': 'array', 'itemType': 'string' },
+      regions: { 'type': 'array', 'itemType': 'string' },
+      resourceMode: 'string',
+      resourceTags: { 'type': 'map', 'keyType': 'string', 'valueType': 'any' },
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class GetCollectionPolicyResponseBodyCollectionPolicy extends $tea.Model {
+  attribute?: GetCollectionPolicyResponseBodyCollectionPolicyAttribute;
+  centralizeConfig?: GetCollectionPolicyResponseBodyCollectionPolicyCentralizeConfig;
+  centralizeEnabled?: boolean;
+  dataCode?: string;
+  enabled?: string;
+  policyConfig?: GetCollectionPolicyResponseBodyCollectionPolicyPolicyConfig;
+  policyName?: string;
+  productCode?: string;
+  static names(): { [key: string]: string } {
+    return {
+      attribute: 'attribute',
+      centralizeConfig: 'centralizeConfig',
+      centralizeEnabled: 'centralizeEnabled',
+      dataCode: 'dataCode',
+      enabled: 'enabled',
+      policyConfig: 'policyConfig',
+      policyName: 'policyName',
+      productCode: 'productCode',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      attribute: GetCollectionPolicyResponseBodyCollectionPolicyAttribute,
+      centralizeConfig: GetCollectionPolicyResponseBodyCollectionPolicyCentralizeConfig,
+      centralizeEnabled: 'boolean',
+      dataCode: 'string',
+      enabled: 'string',
+      policyConfig: GetCollectionPolicyResponseBodyCollectionPolicyPolicyConfig,
+      policyName: 'string',
+      productCode: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
 export class GetHistogramsResponseBody extends $tea.Model {
   from?: number;
   to?: number;
@@ -6696,6 +7327,146 @@ export class GetShipperStatusResponseBodyTasks extends $tea.Model {
       taskLastDataReceiveTime: 'number',
       taskMessage: 'string',
       taskStatus: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class ListCollectionPoliciesRequestAttribute extends $tea.Model {
+  app?: string;
+  policyGroup?: string;
+  static names(): { [key: string]: string } {
+    return {
+      app: 'app',
+      policyGroup: 'policyGroup',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      app: 'string',
+      policyGroup: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class ListCollectionPoliciesResponseBodyDataAttribute extends $tea.Model {
+  app?: string;
+  policyGroup?: string;
+  static names(): { [key: string]: string } {
+    return {
+      app: 'app',
+      policyGroup: 'policyGroup',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      app: 'string',
+      policyGroup: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class ListCollectionPoliciesResponseBodyDataCentralizeConfig extends $tea.Model {
+  destLogstore?: string;
+  destProject?: string;
+  destRegion?: string;
+  destTTL?: number;
+  static names(): { [key: string]: string } {
+    return {
+      destLogstore: 'destLogstore',
+      destProject: 'destProject',
+      destRegion: 'destRegion',
+      destTTL: 'destTTL',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      destLogstore: 'string',
+      destProject: 'string',
+      destRegion: 'string',
+      destTTL: 'number',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class ListCollectionPoliciesResponseBodyDataPolicyConfig extends $tea.Model {
+  instanceIds?: string[];
+  regions?: string[];
+  resourceMode?: string;
+  resourceTags?: { [key: string]: any };
+  static names(): { [key: string]: string } {
+    return {
+      instanceIds: 'instanceIds',
+      regions: 'regions',
+      resourceMode: 'resourceMode',
+      resourceTags: 'resourceTags',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      instanceIds: { 'type': 'array', 'itemType': 'string' },
+      regions: { 'type': 'array', 'itemType': 'string' },
+      resourceMode: 'string',
+      resourceTags: { 'type': 'map', 'keyType': 'string', 'valueType': 'any' },
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class ListCollectionPoliciesResponseBodyData extends $tea.Model {
+  attribute?: ListCollectionPoliciesResponseBodyDataAttribute;
+  centralizeConfig?: ListCollectionPoliciesResponseBodyDataCentralizeConfig;
+  centralizeEnabled?: boolean;
+  dataCode?: string;
+  enabled?: boolean;
+  policyConfig?: ListCollectionPoliciesResponseBodyDataPolicyConfig;
+  policyName?: string;
+  productCode?: string;
+  static names(): { [key: string]: string } {
+    return {
+      attribute: 'attribute',
+      centralizeConfig: 'centralizeConfig',
+      centralizeEnabled: 'centralizeEnabled',
+      dataCode: 'dataCode',
+      enabled: 'enabled',
+      policyConfig: 'policyConfig',
+      policyName: 'policyName',
+      productCode: 'productCode',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      attribute: ListCollectionPoliciesResponseBodyDataAttribute,
+      centralizeConfig: ListCollectionPoliciesResponseBodyDataCentralizeConfig,
+      centralizeEnabled: 'boolean',
+      dataCode: 'string',
+      enabled: 'boolean',
+      policyConfig: ListCollectionPoliciesResponseBodyDataPolicyConfig,
+      policyName: 'string',
+      productCode: 'string',
     };
   }
 
@@ -7072,6 +7843,84 @@ export class UpdateRdsExternalStoreRequestParameter extends $tea.Model {
       table: 'string',
       username: 'string',
       vpcId: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class UpsertCollectionPolicyRequestAttribute extends $tea.Model {
+  app?: string;
+  policyGroup?: string;
+  static names(): { [key: string]: string } {
+    return {
+      app: 'app',
+      policyGroup: 'policyGroup',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      app: 'string',
+      policyGroup: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class UpsertCollectionPolicyRequestCentralizeConfig extends $tea.Model {
+  destLogstore?: string;
+  destProject?: string;
+  destRegion?: string;
+  destTTL?: number;
+  static names(): { [key: string]: string } {
+    return {
+      destLogstore: 'destLogstore',
+      destProject: 'destProject',
+      destRegion: 'destRegion',
+      destTTL: 'destTTL',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      destLogstore: 'string',
+      destProject: 'string',
+      destRegion: 'string',
+      destTTL: 'number',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class UpsertCollectionPolicyRequestPolicyConfig extends $tea.Model {
+  instanceIds?: string[];
+  regions?: string[];
+  resourceMode?: string;
+  resourceTags?: { [key: string]: any };
+  static names(): { [key: string]: string } {
+    return {
+      instanceIds: 'instanceIds',
+      regions: 'regions',
+      resourceMode: 'resourceMode',
+      resourceTags: 'resourceTags',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      instanceIds: { 'type': 'array', 'itemType': 'string' },
+      regions: { 'type': 'array', 'itemType': 'string' },
+      resourceMode: 'string',
+      resourceTags: { 'type': 'map', 'keyType': 'string', 'valueType': 'any' },
     };
   }
 
@@ -7927,6 +8776,41 @@ export default class Client extends OpenApi {
     return await this.createSavedSearchWithOptions(project, request, headers, runtime);
   }
 
+  async createTicketWithOptions(request: CreateTicketRequest, headers: {[key: string ]: string}, runtime: $Util.RuntimeOptions): Promise<CreateTicketResponse> {
+    Util.validateModel(request);
+    let body : {[key: string ]: any} = { };
+    if (!Util.isUnset(request.playAccessKeyId)) {
+      body["playAccessKeyId"] = request.playAccessKeyId;
+    }
+
+    if (!Util.isUnset(request.playAccessKeySecret)) {
+      body["playAccessKeySecret"] = request.playAccessKeySecret;
+    }
+
+    let req = new $OpenApi.OpenApiRequest({
+      headers: headers,
+      body: OpenApiUtil.parseToMap(body),
+    });
+    let params = new $OpenApi.Params({
+      action: "CreateTicket",
+      version: "2020-12-30",
+      protocol: "HTTPS",
+      pathname: `/tickets`,
+      method: "POST",
+      authType: "AK",
+      style: "ROA",
+      reqBodyType: "json",
+      bodyType: "json",
+    });
+    return $tea.cast<CreateTicketResponse>(await this.execute(params, req, runtime), new CreateTicketResponse({}));
+  }
+
+  async createTicket(request: CreateTicketRequest): Promise<CreateTicketResponse> {
+    let runtime = new $Util.RuntimeOptions({ });
+    let headers : {[key: string ]: string} = { };
+    return await this.createTicketWithOptions(request, headers, runtime);
+  }
+
   async deleteAnnotationDataWithOptions(datasetId: string, annotationdataId: string, headers: {[key: string ]: string}, runtime: $Util.RuntimeOptions): Promise<DeleteAnnotationDataResponse> {
     let req = new $OpenApi.OpenApiRequest({
       headers: headers,
@@ -7997,6 +8881,41 @@ export default class Client extends OpenApi {
     let runtime = new $Util.RuntimeOptions({ });
     let headers : {[key: string ]: string} = { };
     return await this.deleteAnnotationLabelWithOptions(labelId, headers, runtime);
+  }
+
+  async deleteCollectionPolicyWithOptions(policyName: string, request: DeleteCollectionPolicyRequest, headers: {[key: string ]: string}, runtime: $Util.RuntimeOptions): Promise<DeleteCollectionPolicyResponse> {
+    Util.validateModel(request);
+    let query : {[key: string ]: any} = { };
+    if (!Util.isUnset(request.dataCode)) {
+      query["dataCode"] = request.dataCode;
+    }
+
+    if (!Util.isUnset(request.productCode)) {
+      query["productCode"] = request.productCode;
+    }
+
+    let req = new $OpenApi.OpenApiRequest({
+      headers: headers,
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApi.Params({
+      action: "DeleteCollectionPolicy",
+      version: "2020-12-30",
+      protocol: "HTTPS",
+      pathname: `/collectionpolicy/${policyName}`,
+      method: "DELETE",
+      authType: "AK",
+      style: "ROA",
+      reqBodyType: "json",
+      bodyType: "json",
+    });
+    return $tea.cast<DeleteCollectionPolicyResponse>(await this.execute(params, req, runtime), new DeleteCollectionPolicyResponse({}));
+  }
+
+  async deleteCollectionPolicy(policyName: string, request: DeleteCollectionPolicyRequest): Promise<DeleteCollectionPolicyResponse> {
+    let runtime = new $Util.RuntimeOptions({ });
+    let headers : {[key: string ]: string} = { };
+    return await this.deleteCollectionPolicyWithOptions(policyName, request, headers, runtime);
   }
 
   async deleteConfigWithOptions(project: string, configName: string, headers: {[key: string ]: string}, runtime: $Util.RuntimeOptions): Promise<DeleteConfigResponse> {
@@ -8537,6 +9456,41 @@ export default class Client extends OpenApi {
     return await this.getCheckPointWithOptions(project, logstore, consumerGroup, request, headers, runtime);
   }
 
+  async getCollectionPolicyWithOptions(policyName: string, request: GetCollectionPolicyRequest, headers: {[key: string ]: string}, runtime: $Util.RuntimeOptions): Promise<GetCollectionPolicyResponse> {
+    Util.validateModel(request);
+    let query : {[key: string ]: any} = { };
+    if (!Util.isUnset(request.dataCode)) {
+      query["dataCode"] = request.dataCode;
+    }
+
+    if (!Util.isUnset(request.productCode)) {
+      query["productCode"] = request.productCode;
+    }
+
+    let req = new $OpenApi.OpenApiRequest({
+      headers: headers,
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApi.Params({
+      action: "GetCollectionPolicy",
+      version: "2020-12-30",
+      protocol: "HTTPS",
+      pathname: `/collectionpolicy/${policyName}`,
+      method: "GET",
+      authType: "AK",
+      style: "ROA",
+      reqBodyType: "json",
+      bodyType: "json",
+    });
+    return $tea.cast<GetCollectionPolicyResponse>(await this.execute(params, req, runtime), new GetCollectionPolicyResponse({}));
+  }
+
+  async getCollectionPolicy(policyName: string, request: GetCollectionPolicyRequest): Promise<GetCollectionPolicyResponse> {
+    let runtime = new $Util.RuntimeOptions({ });
+    let headers : {[key: string ]: string} = { };
+    return await this.getCollectionPolicyWithOptions(policyName, request, headers, runtime);
+  }
+
   async getConfigWithOptions(project: string, configName: string, headers: {[key: string ]: string}, runtime: $Util.RuntimeOptions): Promise<GetConfigResponse> {
     let hostMap : {[key: string ]: string} = { };
     hostMap["project"] = project;
@@ -8834,6 +9788,33 @@ export default class Client extends OpenApi {
     let runtime = new $Util.RuntimeOptions({ });
     let headers : {[key: string ]: string} = { };
     return await this.getLogStoreWithOptions(project, logstore, headers, runtime);
+  }
+
+  async getLogStoreMeteringModeWithOptions(project: string, logstore: string, headers: {[key: string ]: string}, runtime: $Util.RuntimeOptions): Promise<GetLogStoreMeteringModeResponse> {
+    let hostMap : {[key: string ]: string} = { };
+    hostMap["project"] = project;
+    let req = new $OpenApi.OpenApiRequest({
+      hostMap: hostMap,
+      headers: headers,
+    });
+    let params = new $OpenApi.Params({
+      action: "GetLogStoreMeteringMode",
+      version: "2020-12-30",
+      protocol: "HTTPS",
+      pathname: `/logstores/${logstore}/meteringmode`,
+      method: "GET",
+      authType: "AK",
+      style: "ROA",
+      reqBodyType: "json",
+      bodyType: "json",
+    });
+    return $tea.cast<GetLogStoreMeteringModeResponse>(await this.execute(params, req, runtime), new GetLogStoreMeteringModeResponse({}));
+  }
+
+  async getLogStoreMeteringMode(project: string, logstore: string): Promise<GetLogStoreMeteringModeResponse> {
+    let runtime = new $Util.RuntimeOptions({ });
+    let headers : {[key: string ]: string} = { };
+    return await this.getLogStoreMeteringModeWithOptions(project, logstore, headers, runtime);
   }
 
   async getLoggingWithOptions(project: string, headers: {[key: string ]: string}, runtime: $Util.RuntimeOptions): Promise<GetLoggingResponse> {
@@ -9334,6 +10315,67 @@ export default class Client extends OpenApi {
     let runtime = new $Util.RuntimeOptions({ });
     let headers : {[key: string ]: string} = { };
     return await this.listAnnotationLabelsWithOptions(request, headers, runtime);
+  }
+
+  async listCollectionPoliciesWithOptions(tmpReq: ListCollectionPoliciesRequest, headers: {[key: string ]: string}, runtime: $Util.RuntimeOptions): Promise<ListCollectionPoliciesResponse> {
+    Util.validateModel(tmpReq);
+    let request = new ListCollectionPoliciesShrinkRequest({ });
+    OpenApiUtil.convert(tmpReq, request);
+    if (!Util.isUnset(tmpReq.attribute)) {
+      request.attributeShrink = OpenApiUtil.arrayToStringWithSpecifiedStyle(tmpReq.attribute, "attribute", "json");
+    }
+
+    let query : {[key: string ]: any} = { };
+    if (!Util.isUnset(request.attributeShrink)) {
+      query["attribute"] = request.attributeShrink;
+    }
+
+    if (!Util.isUnset(request.dataCode)) {
+      query["dataCode"] = request.dataCode;
+    }
+
+    if (!Util.isUnset(request.instanceId)) {
+      query["instanceId"] = request.instanceId;
+    }
+
+    if (!Util.isUnset(request.pageNum)) {
+      query["pageNum"] = request.pageNum;
+    }
+
+    if (!Util.isUnset(request.pageSize)) {
+      query["pageSize"] = request.pageSize;
+    }
+
+    if (!Util.isUnset(request.policyName)) {
+      query["policyName"] = request.policyName;
+    }
+
+    if (!Util.isUnset(request.productCode)) {
+      query["productCode"] = request.productCode;
+    }
+
+    let req = new $OpenApi.OpenApiRequest({
+      headers: headers,
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApi.Params({
+      action: "ListCollectionPolicies",
+      version: "2020-12-30",
+      protocol: "HTTPS",
+      pathname: `/collectionpolicy`,
+      method: "GET",
+      authType: "AK",
+      style: "ROA",
+      reqBodyType: "json",
+      bodyType: "json",
+    });
+    return $tea.cast<ListCollectionPoliciesResponse>(await this.execute(params, req, runtime), new ListCollectionPoliciesResponse({}));
+  }
+
+  async listCollectionPolicies(request: ListCollectionPoliciesRequest): Promise<ListCollectionPoliciesResponse> {
+    let runtime = new $Util.RuntimeOptions({ });
+    let headers : {[key: string ]: string} = { };
+    return await this.listCollectionPoliciesWithOptions(request, headers, runtime);
   }
 
   async listConfigWithOptions(project: string, request: ListConfigRequest, headers: {[key: string ]: string}, runtime: $Util.RuntimeOptions): Promise<ListConfigResponse> {
@@ -10213,7 +11255,7 @@ export default class Client extends OpenApi {
       authType: "AK",
       style: "ROA",
       reqBodyType: "json",
-      bodyType: "json",
+      bodyType: "none",
     });
     return $tea.cast<UntagResourcesResponse>(await this.execute(params, req, runtime), new UntagResourcesResponse({}));
   }
@@ -10523,6 +11565,40 @@ export default class Client extends OpenApi {
     let runtime = new $Util.RuntimeOptions({ });
     let headers : {[key: string ]: string} = { };
     return await this.updateLogStoreWithOptions(project, logstore, request, headers, runtime);
+  }
+
+  async updateLogStoreMeteringModeWithOptions(project: string, logstore: string, request: UpdateLogStoreMeteringModeRequest, headers: {[key: string ]: string}, runtime: $Util.RuntimeOptions): Promise<UpdateLogStoreMeteringModeResponse> {
+    Util.validateModel(request);
+    let hostMap : {[key: string ]: string} = { };
+    hostMap["project"] = project;
+    let body : {[key: string ]: any} = { };
+    if (!Util.isUnset(request.meteringMode)) {
+      body["meteringMode"] = request.meteringMode;
+    }
+
+    let req = new $OpenApi.OpenApiRequest({
+      hostMap: hostMap,
+      headers: headers,
+      body: OpenApiUtil.parseToMap(body),
+    });
+    let params = new $OpenApi.Params({
+      action: "UpdateLogStoreMeteringMode",
+      version: "2020-12-30",
+      protocol: "HTTPS",
+      pathname: `/logstores/${logstore}/meteringmode`,
+      method: "PUT",
+      authType: "AK",
+      style: "ROA",
+      reqBodyType: "json",
+      bodyType: "none",
+    });
+    return $tea.cast<UpdateLogStoreMeteringModeResponse>(await this.execute(params, req, runtime), new UpdateLogStoreMeteringModeResponse({}));
+  }
+
+  async updateLogStoreMeteringMode(project: string, logstore: string, request: UpdateLogStoreMeteringModeRequest): Promise<UpdateLogStoreMeteringModeResponse> {
+    let runtime = new $Util.RuntimeOptions({ });
+    let headers : {[key: string ]: string} = { };
+    return await this.updateLogStoreMeteringModeWithOptions(project, logstore, request, headers, runtime);
   }
 
   async updateLoggingWithOptions(project: string, request: UpdateLoggingRequest, headers: {[key: string ]: string}, runtime: $Util.RuntimeOptions): Promise<UpdateLoggingResponse> {
@@ -10956,6 +12032,65 @@ export default class Client extends OpenApi {
     let runtime = new $Util.RuntimeOptions({ });
     let headers : {[key: string ]: string} = { };
     return await this.updateSavedSearchWithOptions(project, savedsearchName, request, headers, runtime);
+  }
+
+  async upsertCollectionPolicyWithOptions(request: UpsertCollectionPolicyRequest, headers: {[key: string ]: string}, runtime: $Util.RuntimeOptions): Promise<UpsertCollectionPolicyResponse> {
+    Util.validateModel(request);
+    let body : {[key: string ]: any} = { };
+    if (!Util.isUnset(request.attribute)) {
+      body["attribute"] = request.attribute;
+    }
+
+    if (!Util.isUnset(request.centralizeConfig)) {
+      body["centralizeConfig"] = request.centralizeConfig;
+    }
+
+    if (!Util.isUnset(request.centralizeEnabled)) {
+      body["centralizeEnabled"] = request.centralizeEnabled;
+    }
+
+    if (!Util.isUnset(request.dataCode)) {
+      body["dataCode"] = request.dataCode;
+    }
+
+    if (!Util.isUnset(request.enabled)) {
+      body["enabled"] = request.enabled;
+    }
+
+    if (!Util.isUnset(request.policyConfig)) {
+      body["policyConfig"] = request.policyConfig;
+    }
+
+    if (!Util.isUnset(request.policyName)) {
+      body["policyName"] = request.policyName;
+    }
+
+    if (!Util.isUnset(request.productCode)) {
+      body["productCode"] = request.productCode;
+    }
+
+    let req = new $OpenApi.OpenApiRequest({
+      headers: headers,
+      body: OpenApiUtil.parseToMap(body),
+    });
+    let params = new $OpenApi.Params({
+      action: "UpsertCollectionPolicy",
+      version: "2020-12-30",
+      protocol: "HTTPS",
+      pathname: `/collectionpolicy`,
+      method: "POST",
+      authType: "AK",
+      style: "ROA",
+      reqBodyType: "json",
+      bodyType: "json",
+    });
+    return $tea.cast<UpsertCollectionPolicyResponse>(await this.execute(params, req, runtime), new UpsertCollectionPolicyResponse({}));
+  }
+
+  async upsertCollectionPolicy(request: UpsertCollectionPolicyRequest): Promise<UpsertCollectionPolicyResponse> {
+    let runtime = new $Util.RuntimeOptions({ });
+    let headers : {[key: string ]: string} = { };
+    return await this.upsertCollectionPolicyWithOptions(request, headers, runtime);
   }
 
 }
