@@ -3083,8 +3083,10 @@ export class DescribeDBClusterPerformanceRequest extends $tea.Model {
   key?: string;
   ownerAccount?: string;
   ownerId?: number;
+  regionId?: string;
   resourceOwnerAccount?: string;
   resourceOwnerId?: number;
+  resourcePools?: string;
   startTime?: string;
   static names(): { [key: string]: string } {
     return {
@@ -3093,8 +3095,10 @@ export class DescribeDBClusterPerformanceRequest extends $tea.Model {
       key: 'Key',
       ownerAccount: 'OwnerAccount',
       ownerId: 'OwnerId',
+      regionId: 'RegionId',
       resourceOwnerAccount: 'ResourceOwnerAccount',
       resourceOwnerId: 'ResourceOwnerId',
+      resourcePools: 'ResourcePools',
       startTime: 'StartTime',
     };
   }
@@ -3106,8 +3110,10 @@ export class DescribeDBClusterPerformanceRequest extends $tea.Model {
       key: 'string',
       ownerAccount: 'string',
       ownerId: 'number',
+      regionId: 'string',
       resourceOwnerAccount: 'string',
       resourceOwnerId: 'number',
+      resourcePools: 'string',
       startTime: 'string',
     };
   }
@@ -5124,87 +5130,6 @@ export class DescribeRegionsResponse extends $tea.Model {
       headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
       statusCode: 'number',
       body: DescribeRegionsResponseBody,
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class DescribeSQLPatternAttributeRequest extends $tea.Model {
-  DBClusterId?: string;
-  endTime?: string;
-  lang?: string;
-  patternId?: number;
-  regionId?: string;
-  startTime?: string;
-  static names(): { [key: string]: string } {
-    return {
-      DBClusterId: 'DBClusterId',
-      endTime: 'EndTime',
-      lang: 'Lang',
-      patternId: 'PatternId',
-      regionId: 'RegionId',
-      startTime: 'StartTime',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      DBClusterId: 'string',
-      endTime: 'string',
-      lang: 'string',
-      patternId: 'number',
-      regionId: 'string',
-      startTime: 'string',
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class DescribeSQLPatternAttributeResponseBody extends $tea.Model {
-  patternDetail?: DescribeSQLPatternAttributeResponseBodyPatternDetail;
-  requestId?: string;
-  static names(): { [key: string]: string } {
-    return {
-      patternDetail: 'PatternDetail',
-      requestId: 'RequestId',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      patternDetail: DescribeSQLPatternAttributeResponseBodyPatternDetail,
-      requestId: 'string',
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class DescribeSQLPatternAttributeResponse extends $tea.Model {
-  headers: { [key: string]: string };
-  statusCode: number;
-  body: DescribeSQLPatternAttributeResponseBody;
-  static names(): { [key: string]: string } {
-    return {
-      headers: 'headers',
-      statusCode: 'statusCode',
-      body: 'body',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
-      statusCode: 'number',
-      body: DescribeSQLPatternAttributeResponseBody,
     };
   }
 
@@ -10385,10 +10310,12 @@ export class DescribeDBClusterNetInfoResponseBodyItems extends $tea.Model {
 
 export class DescribeDBClusterPerformanceResponseBodyPerformancesSeries extends $tea.Model {
   name?: string;
+  tags?: string;
   values?: string[];
   static names(): { [key: string]: string } {
     return {
       name: 'Name',
+      tags: 'Tags',
       values: 'Values',
     };
   }
@@ -10396,6 +10323,7 @@ export class DescribeDBClusterPerformanceResponseBodyPerformancesSeries extends 
   static types(): { [key: string]: any } {
     return {
       name: 'string',
+      tags: 'string',
       values: { 'type': 'array', 'itemType': 'string' },
     };
   }
@@ -11511,37 +11439,6 @@ export class DescribeRegionsResponseBodyRegions extends $tea.Model {
   static types(): { [key: string]: any } {
     return {
       region: { 'type': 'array', 'itemType': DescribeRegionsResponseBodyRegionsRegion },
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class DescribeSQLPatternAttributeResponseBodyPatternDetail extends $tea.Model {
-  averageMemory?: string;
-  averageQueryTime?: string;
-  queryCount?: number;
-  SQLPattern?: string;
-  totalQueryTime?: string;
-  static names(): { [key: string]: string } {
-    return {
-      averageMemory: 'AverageMemory',
-      averageQueryTime: 'AverageQueryTime',
-      queryCount: 'QueryCount',
-      SQLPattern: 'SQLPattern',
-      totalQueryTime: 'TotalQueryTime',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      averageMemory: 'string',
-      averageQueryTime: 'string',
-      queryCount: 'number',
-      SQLPattern: 'string',
-      totalQueryTime: 'string',
     };
   }
 
@@ -14661,12 +14558,20 @@ export default class Client extends OpenApi {
       query["OwnerId"] = request.ownerId;
     }
 
+    if (!Util.isUnset(request.regionId)) {
+      query["RegionId"] = request.regionId;
+    }
+
     if (!Util.isUnset(request.resourceOwnerAccount)) {
       query["ResourceOwnerAccount"] = request.resourceOwnerAccount;
     }
 
     if (!Util.isUnset(request.resourceOwnerId)) {
       query["ResourceOwnerId"] = request.resourceOwnerId;
+    }
+
+    if (!Util.isUnset(request.resourcePools)) {
+      query["ResourcePools"] = request.resourcePools;
     }
 
     if (!Util.isUnset(request.startTime)) {
@@ -15946,55 +15851,6 @@ export default class Client extends OpenApi {
   async describeRegions(request: DescribeRegionsRequest): Promise<DescribeRegionsResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.describeRegionsWithOptions(request, runtime);
-  }
-
-  async describeSQLPatternAttributeWithOptions(request: DescribeSQLPatternAttributeRequest, runtime: $Util.RuntimeOptions): Promise<DescribeSQLPatternAttributeResponse> {
-    Util.validateModel(request);
-    let query = { };
-    if (!Util.isUnset(request.DBClusterId)) {
-      query["DBClusterId"] = request.DBClusterId;
-    }
-
-    if (!Util.isUnset(request.endTime)) {
-      query["EndTime"] = request.endTime;
-    }
-
-    if (!Util.isUnset(request.lang)) {
-      query["Lang"] = request.lang;
-    }
-
-    if (!Util.isUnset(request.patternId)) {
-      query["PatternId"] = request.patternId;
-    }
-
-    if (!Util.isUnset(request.regionId)) {
-      query["RegionId"] = request.regionId;
-    }
-
-    if (!Util.isUnset(request.startTime)) {
-      query["StartTime"] = request.startTime;
-    }
-
-    let req = new $OpenApi.OpenApiRequest({
-      query: OpenApiUtil.query(query),
-    });
-    let params = new $OpenApi.Params({
-      action: "DescribeSQLPatternAttribute",
-      version: "2019-03-15",
-      protocol: "HTTPS",
-      pathname: "/",
-      method: "POST",
-      authType: "AK",
-      style: "RPC",
-      reqBodyType: "formData",
-      bodyType: "json",
-    });
-    return $tea.cast<DescribeSQLPatternAttributeResponse>(await this.callApi(params, req, runtime), new DescribeSQLPatternAttributeResponse({}));
-  }
-
-  async describeSQLPatternAttribute(request: DescribeSQLPatternAttributeRequest): Promise<DescribeSQLPatternAttributeResponse> {
-    let runtime = new $Util.RuntimeOptions({ });
-    return await this.describeSQLPatternAttributeWithOptions(request, runtime);
   }
 
   async describeSQLPatternsWithOptions(request: DescribeSQLPatternsRequest, runtime: $Util.RuntimeOptions): Promise<DescribeSQLPatternsResponse> {
