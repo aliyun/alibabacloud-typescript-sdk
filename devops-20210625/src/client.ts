@@ -18398,10 +18398,12 @@ export class GetCustomFieldOptionResponseBodyFileds extends $tea.Model {
 
 export class GetFileBlobsResponseBodyResult extends $tea.Model {
   content?: string;
+  size?: number;
   totalLines?: number;
   static names(): { [key: string]: string } {
     return {
       content: 'content',
+      size: 'size',
       totalLines: 'totalLines',
     };
   }
@@ -18409,6 +18411,7 @@ export class GetFileBlobsResponseBodyResult extends $tea.Model {
   static types(): { [key: string]: any } {
     return {
       content: 'string',
+      size: 'number',
       totalLines: 'number',
     };
   }
