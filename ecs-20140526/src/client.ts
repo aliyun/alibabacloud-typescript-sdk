@@ -2635,6 +2635,7 @@ export class CreateActivationRequest extends $tea.Model {
   ownerAccount?: string;
   ownerId?: number;
   regionId?: string;
+  resourceGroupId?: string;
   resourceOwnerAccount?: string;
   resourceOwnerId?: number;
   tag?: CreateActivationRequestTag[];
@@ -2648,6 +2649,7 @@ export class CreateActivationRequest extends $tea.Model {
       ownerAccount: 'OwnerAccount',
       ownerId: 'OwnerId',
       regionId: 'RegionId',
+      resourceGroupId: 'ResourceGroupId',
       resourceOwnerAccount: 'ResourceOwnerAccount',
       resourceOwnerId: 'ResourceOwnerId',
       tag: 'Tag',
@@ -2664,6 +2666,7 @@ export class CreateActivationRequest extends $tea.Model {
       ownerAccount: 'string',
       ownerId: 'number',
       regionId: 'string',
+      resourceGroupId: 'string',
       resourceOwnerAccount: 'string',
       resourceOwnerId: 'number',
       tag: { 'type': 'array', 'itemType': CreateActivationRequestTag },
@@ -3116,6 +3119,7 @@ export class CreateCommandRequest extends $tea.Model {
   ownerAccount?: string;
   ownerId?: number;
   regionId?: string;
+  resourceGroupId?: string;
   resourceOwnerAccount?: string;
   resourceOwnerId?: number;
   tag?: CreateCommandRequestTag[];
@@ -3132,6 +3136,7 @@ export class CreateCommandRequest extends $tea.Model {
       ownerAccount: 'OwnerAccount',
       ownerId: 'OwnerId',
       regionId: 'RegionId',
+      resourceGroupId: 'ResourceGroupId',
       resourceOwnerAccount: 'ResourceOwnerAccount',
       resourceOwnerId: 'ResourceOwnerId',
       tag: 'Tag',
@@ -3151,6 +3156,7 @@ export class CreateCommandRequest extends $tea.Model {
       ownerAccount: 'string',
       ownerId: 'number',
       regionId: 'string',
+      resourceGroupId: 'string',
       resourceOwnerAccount: 'string',
       resourceOwnerId: 'number',
       tag: { 'type': 'array', 'itemType': CreateCommandRequestTag },
@@ -10168,6 +10174,7 @@ export class DescribeActivationsRequest extends $tea.Model {
   pageNumber?: number;
   pageSize?: number;
   regionId?: string;
+  resourceGroupId?: string;
   resourceOwnerAccount?: string;
   resourceOwnerId?: number;
   tag?: DescribeActivationsRequestTag[];
@@ -10180,6 +10187,7 @@ export class DescribeActivationsRequest extends $tea.Model {
       pageNumber: 'PageNumber',
       pageSize: 'PageSize',
       regionId: 'RegionId',
+      resourceGroupId: 'ResourceGroupId',
       resourceOwnerAccount: 'ResourceOwnerAccount',
       resourceOwnerId: 'ResourceOwnerId',
       tag: 'Tag',
@@ -10195,6 +10203,7 @@ export class DescribeActivationsRequest extends $tea.Model {
       pageNumber: 'number',
       pageSize: 'number',
       regionId: 'string',
+      resourceGroupId: 'string',
       resourceOwnerAccount: 'string',
       resourceOwnerId: 'number',
       tag: { 'type': 'array', 'itemType': DescribeActivationsRequestTag },
@@ -11480,6 +11489,7 @@ export class DescribeCommandsRequest extends $tea.Model {
   pageSize?: number;
   provider?: string;
   regionId?: string;
+  resourceGroupId?: string;
   resourceOwnerAccount?: string;
   resourceOwnerId?: number;
   tag?: DescribeCommandsRequestTag[];
@@ -11497,6 +11507,7 @@ export class DescribeCommandsRequest extends $tea.Model {
       pageSize: 'PageSize',
       provider: 'Provider',
       regionId: 'RegionId',
+      resourceGroupId: 'ResourceGroupId',
       resourceOwnerAccount: 'ResourceOwnerAccount',
       resourceOwnerId: 'ResourceOwnerId',
       tag: 'Tag',
@@ -11517,6 +11528,7 @@ export class DescribeCommandsRequest extends $tea.Model {
       pageSize: 'number',
       provider: 'string',
       regionId: 'string',
+      resourceGroupId: 'string',
       resourceOwnerAccount: 'string',
       resourceOwnerId: 'number',
       tag: { 'type': 'array', 'itemType': DescribeCommandsRequestTag },
@@ -36882,6 +36894,7 @@ export class DescribeActivationsResponseBodyActivationList extends $tea.Model {
   instanceName?: string;
   ipAddressRange?: string;
   registeredCount?: number;
+  resourceGroupId?: string;
   tags?: DescribeActivationsResponseBodyActivationListTags[];
   timeToLiveInHours?: number;
   static names(): { [key: string]: string } {
@@ -36895,6 +36908,7 @@ export class DescribeActivationsResponseBodyActivationList extends $tea.Model {
       instanceName: 'InstanceName',
       ipAddressRange: 'IpAddressRange',
       registeredCount: 'RegisteredCount',
+      resourceGroupId: 'ResourceGroupId',
       tags: 'Tags',
       timeToLiveInHours: 'TimeToLiveInHours',
     };
@@ -36911,6 +36925,7 @@ export class DescribeActivationsResponseBodyActivationList extends $tea.Model {
       instanceName: 'string',
       ipAddressRange: 'string',
       registeredCount: 'number',
+      resourceGroupId: 'string',
       tags: { 'type': 'array', 'itemType': DescribeActivationsResponseBodyActivationListTags },
       timeToLiveInHours: 'number',
     };
@@ -38332,6 +38347,7 @@ export class DescribeCommandsResponseBodyCommandsCommand extends $tea.Model {
   parameterDefinitions?: DescribeCommandsResponseBodyCommandsCommandParameterDefinitions;
   parameterNames?: DescribeCommandsResponseBodyCommandsCommandParameterNames;
   provider?: string;
+  resourceGroupId?: string;
   tags?: DescribeCommandsResponseBodyCommandsCommandTags;
   timeout?: number;
   type?: string;
@@ -38351,6 +38367,7 @@ export class DescribeCommandsResponseBodyCommandsCommand extends $tea.Model {
       parameterDefinitions: 'ParameterDefinitions',
       parameterNames: 'ParameterNames',
       provider: 'Provider',
+      resourceGroupId: 'ResourceGroupId',
       tags: 'Tags',
       timeout: 'Timeout',
       type: 'Type',
@@ -38373,6 +38390,7 @@ export class DescribeCommandsResponseBodyCommandsCommand extends $tea.Model {
       parameterDefinitions: DescribeCommandsResponseBodyCommandsCommandParameterDefinitions,
       parameterNames: DescribeCommandsResponseBodyCommandsCommandParameterNames,
       provider: 'string',
+      resourceGroupId: 'string',
       tags: DescribeCommandsResponseBodyCommandsCommandTags,
       timeout: 'number',
       type: 'string',
@@ -56230,6 +56248,10 @@ export default class Client extends OpenApi {
       query["RegionId"] = request.regionId;
     }
 
+    if (!Util.isUnset(request.resourceGroupId)) {
+      query["ResourceGroupId"] = request.resourceGroupId;
+    }
+
     if (!Util.isUnset(request.resourceOwnerAccount)) {
       query["ResourceOwnerAccount"] = request.resourceOwnerAccount;
     }
@@ -56720,6 +56742,10 @@ export default class Client extends OpenApi {
 
     if (!Util.isUnset(request.regionId)) {
       query["RegionId"] = request.regionId;
+    }
+
+    if (!Util.isUnset(request.resourceGroupId)) {
+      query["ResourceGroupId"] = request.resourceGroupId;
     }
 
     if (!Util.isUnset(request.resourceOwnerAccount)) {
@@ -62931,6 +62957,10 @@ export default class Client extends OpenApi {
       query["RegionId"] = request.regionId;
     }
 
+    if (!Util.isUnset(request.resourceGroupId)) {
+      query["ResourceGroupId"] = request.resourceGroupId;
+    }
+
     if (!Util.isUnset(request.resourceOwnerAccount)) {
       query["ResourceOwnerAccount"] = request.resourceOwnerAccount;
     }
@@ -63893,6 +63923,10 @@ export default class Client extends OpenApi {
 
     if (!Util.isUnset(request.regionId)) {
       query["RegionId"] = request.regionId;
+    }
+
+    if (!Util.isUnset(request.resourceGroupId)) {
+      query["ResourceGroupId"] = request.resourceGroupId;
     }
 
     if (!Util.isUnset(request.resourceOwnerAccount)) {
