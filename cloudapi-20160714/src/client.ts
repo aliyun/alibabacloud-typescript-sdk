@@ -7799,6 +7799,84 @@ export class DescribeDomainResponse extends $tea.Model {
   }
 }
 
+export class DescribeGroupLatencyRequest extends $tea.Model {
+  endTime?: string;
+  groupId?: string;
+  securityToken?: string;
+  stageName?: string;
+  startTime?: string;
+  static names(): { [key: string]: string } {
+    return {
+      endTime: 'EndTime',
+      groupId: 'GroupId',
+      securityToken: 'SecurityToken',
+      stageName: 'StageName',
+      startTime: 'StartTime',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      endTime: 'string',
+      groupId: 'string',
+      securityToken: 'string',
+      stageName: 'string',
+      startTime: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class DescribeGroupLatencyResponseBody extends $tea.Model {
+  latencyPacket?: DescribeGroupLatencyResponseBodyLatencyPacket;
+  requestId?: string;
+  static names(): { [key: string]: string } {
+    return {
+      latencyPacket: 'LatencyPacket',
+      requestId: 'RequestId',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      latencyPacket: DescribeGroupLatencyResponseBodyLatencyPacket,
+      requestId: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class DescribeGroupLatencyResponse extends $tea.Model {
+  headers: { [key: string]: string };
+  statusCode: number;
+  body: DescribeGroupLatencyResponseBody;
+  static names(): { [key: string]: string } {
+    return {
+      headers: 'headers',
+      statusCode: 'statusCode',
+      body: 'body',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
+      body: DescribeGroupLatencyResponseBody,
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
 export class DescribeGroupQpsRequest extends $tea.Model {
   endTime?: string;
   groupId?: string;
@@ -7869,6 +7947,84 @@ export class DescribeGroupQpsResponse extends $tea.Model {
       headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
       statusCode: 'number',
       body: DescribeGroupQpsResponseBody,
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class DescribeGroupTrafficRequest extends $tea.Model {
+  endTime?: string;
+  groupId?: string;
+  securityToken?: string;
+  stageName?: string;
+  startTime?: string;
+  static names(): { [key: string]: string } {
+    return {
+      endTime: 'EndTime',
+      groupId: 'GroupId',
+      securityToken: 'SecurityToken',
+      stageName: 'StageName',
+      startTime: 'StartTime',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      endTime: 'string',
+      groupId: 'string',
+      securityToken: 'string',
+      stageName: 'string',
+      startTime: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class DescribeGroupTrafficResponseBody extends $tea.Model {
+  requestId?: string;
+  trafficPerSecond?: DescribeGroupTrafficResponseBodyTrafficPerSecond;
+  static names(): { [key: string]: string } {
+    return {
+      requestId: 'RequestId',
+      trafficPerSecond: 'TrafficPerSecond',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      requestId: 'string',
+      trafficPerSecond: DescribeGroupTrafficResponseBodyTrafficPerSecond,
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class DescribeGroupTrafficResponse extends $tea.Model {
+  headers: { [key: string]: string };
+  statusCode: number;
+  body: DescribeGroupTrafficResponseBody;
+  static names(): { [key: string]: string } {
+    return {
+      headers: 'headers',
+      statusCode: 'statusCode',
+      body: 'body',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
+      body: DescribeGroupTrafficResponseBody,
     };
   }
 
@@ -20998,6 +21154,50 @@ export class DescribeDeployedApisResponseBodyDeployedApis extends $tea.Model {
   }
 }
 
+export class DescribeGroupLatencyResponseBodyLatencyPacketMonitorItem extends $tea.Model {
+  item?: string;
+  itemTime?: string;
+  itemValue?: string;
+  static names(): { [key: string]: string } {
+    return {
+      item: 'Item',
+      itemTime: 'ItemTime',
+      itemValue: 'ItemValue',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      item: 'string',
+      itemTime: 'string',
+      itemValue: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class DescribeGroupLatencyResponseBodyLatencyPacket extends $tea.Model {
+  monitorItem?: DescribeGroupLatencyResponseBodyLatencyPacketMonitorItem[];
+  static names(): { [key: string]: string } {
+    return {
+      monitorItem: 'MonitorItem',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      monitorItem: { 'type': 'array', 'itemType': DescribeGroupLatencyResponseBodyLatencyPacketMonitorItem },
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
 export class DescribeGroupQpsResponseBodyGroupQpsMonitorItem extends $tea.Model {
   itemTime?: string;
   itemValue?: string;
@@ -21031,6 +21231,50 @@ export class DescribeGroupQpsResponseBodyGroupQps extends $tea.Model {
   static types(): { [key: string]: any } {
     return {
       monitorItem: { 'type': 'array', 'itemType': DescribeGroupQpsResponseBodyGroupQpsMonitorItem },
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class DescribeGroupTrafficResponseBodyTrafficPerSecondMonitorItem extends $tea.Model {
+  item?: string;
+  itemTime?: string;
+  itemValue?: string;
+  static names(): { [key: string]: string } {
+    return {
+      item: 'Item',
+      itemTime: 'ItemTime',
+      itemValue: 'ItemValue',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      item: 'string',
+      itemTime: 'string',
+      itemValue: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class DescribeGroupTrafficResponseBodyTrafficPerSecond extends $tea.Model {
+  monitorItem?: DescribeGroupTrafficResponseBodyTrafficPerSecondMonitorItem[];
+  static names(): { [key: string]: string } {
+    return {
+      monitorItem: 'MonitorItem',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      monitorItem: { 'type': 'array', 'itemType': DescribeGroupTrafficResponseBodyTrafficPerSecondMonitorItem },
     };
   }
 
@@ -28999,6 +29243,51 @@ export default class Client extends OpenApi {
     return await this.describeDomainWithOptions(request, runtime);
   }
 
+  async describeGroupLatencyWithOptions(request: DescribeGroupLatencyRequest, runtime: $Util.RuntimeOptions): Promise<DescribeGroupLatencyResponse> {
+    Util.validateModel(request);
+    let query = { };
+    if (!Util.isUnset(request.endTime)) {
+      query["EndTime"] = request.endTime;
+    }
+
+    if (!Util.isUnset(request.groupId)) {
+      query["GroupId"] = request.groupId;
+    }
+
+    if (!Util.isUnset(request.securityToken)) {
+      query["SecurityToken"] = request.securityToken;
+    }
+
+    if (!Util.isUnset(request.stageName)) {
+      query["StageName"] = request.stageName;
+    }
+
+    if (!Util.isUnset(request.startTime)) {
+      query["StartTime"] = request.startTime;
+    }
+
+    let req = new $OpenApi.OpenApiRequest({
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApi.Params({
+      action: "DescribeGroupLatency",
+      version: "2016-07-14",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $tea.cast<DescribeGroupLatencyResponse>(await this.callApi(params, req, runtime), new DescribeGroupLatencyResponse({}));
+  }
+
+  async describeGroupLatency(request: DescribeGroupLatencyRequest): Promise<DescribeGroupLatencyResponse> {
+    let runtime = new $Util.RuntimeOptions({ });
+    return await this.describeGroupLatencyWithOptions(request, runtime);
+  }
+
   async describeGroupQpsWithOptions(request: DescribeGroupQpsRequest, runtime: $Util.RuntimeOptions): Promise<DescribeGroupQpsResponse> {
     Util.validateModel(request);
     let query = { };
@@ -29042,6 +29331,51 @@ export default class Client extends OpenApi {
   async describeGroupQps(request: DescribeGroupQpsRequest): Promise<DescribeGroupQpsResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.describeGroupQpsWithOptions(request, runtime);
+  }
+
+  async describeGroupTrafficWithOptions(request: DescribeGroupTrafficRequest, runtime: $Util.RuntimeOptions): Promise<DescribeGroupTrafficResponse> {
+    Util.validateModel(request);
+    let query = { };
+    if (!Util.isUnset(request.endTime)) {
+      query["EndTime"] = request.endTime;
+    }
+
+    if (!Util.isUnset(request.groupId)) {
+      query["GroupId"] = request.groupId;
+    }
+
+    if (!Util.isUnset(request.securityToken)) {
+      query["SecurityToken"] = request.securityToken;
+    }
+
+    if (!Util.isUnset(request.stageName)) {
+      query["StageName"] = request.stageName;
+    }
+
+    if (!Util.isUnset(request.startTime)) {
+      query["StartTime"] = request.startTime;
+    }
+
+    let req = new $OpenApi.OpenApiRequest({
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApi.Params({
+      action: "DescribeGroupTraffic",
+      version: "2016-07-14",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $tea.cast<DescribeGroupTrafficResponse>(await this.callApi(params, req, runtime), new DescribeGroupTrafficResponse({}));
+  }
+
+  async describeGroupTraffic(request: DescribeGroupTrafficRequest): Promise<DescribeGroupTrafficResponse> {
+    let runtime = new $Util.RuntimeOptions({ });
+    return await this.describeGroupTrafficWithOptions(request, runtime);
   }
 
   async describeHistoryApisWithOptions(request: DescribeHistoryApisRequest, runtime: $Util.RuntimeOptions): Promise<DescribeHistoryApisResponse> {
