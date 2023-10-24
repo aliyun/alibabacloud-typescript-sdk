@@ -854,6 +854,87 @@ export class GetQuotaPlanResponse extends $tea.Model {
   }
 }
 
+export class GetQuotaScheduleRequest extends $tea.Model {
+  displayTimezone?: string;
+  region?: string;
+  tenantId?: string;
+  static names(): { [key: string]: string } {
+    return {
+      displayTimezone: 'displayTimezone',
+      region: 'region',
+      tenantId: 'tenantId',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      displayTimezone: 'string',
+      region: 'string',
+      tenantId: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class GetQuotaScheduleResponseBody extends $tea.Model {
+  data?: GetQuotaScheduleResponseBodyData[];
+  errorCode?: string;
+  errorMsg?: string;
+  httpCode?: number;
+  requestId?: string;
+  static names(): { [key: string]: string } {
+    return {
+      data: 'data',
+      errorCode: 'errorCode',
+      errorMsg: 'errorMsg',
+      httpCode: 'httpCode',
+      requestId: 'requestId',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      data: { 'type': 'array', 'itemType': GetQuotaScheduleResponseBodyData },
+      errorCode: 'string',
+      errorMsg: 'string',
+      httpCode: 'number',
+      requestId: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class GetQuotaScheduleResponse extends $tea.Model {
+  headers: { [key: string]: string };
+  statusCode: number;
+  body: GetQuotaScheduleResponseBody;
+  static names(): { [key: string]: string } {
+    return {
+      headers: 'headers',
+      statusCode: 'statusCode',
+      body: 'body',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
+      body: GetQuotaScheduleResponseBody,
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
 export class GetRoleAclResponseBody extends $tea.Model {
   data?: GetRoleAclResponseBodyData;
   requestId?: string;
@@ -2605,6 +2686,53 @@ export class GetProjectResponseBodyDataPropertiesEncryption extends $tea.Model {
   }
 }
 
+export class GetProjectResponseBodyDataPropertiesStorageTierInfoStorageTierSize extends $tea.Model {
+  longTermSize?: number;
+  lowFrequencySize?: number;
+  standardSize?: number;
+  static names(): { [key: string]: string } {
+    return {
+      longTermSize: 'longTermSize',
+      lowFrequencySize: 'lowFrequencySize',
+      standardSize: 'standardSize',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      longTermSize: 'number',
+      lowFrequencySize: 'number',
+      standardSize: 'number',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class GetProjectResponseBodyDataPropertiesStorageTierInfo extends $tea.Model {
+  projectBackupSize?: number;
+  storageTierSize?: GetProjectResponseBodyDataPropertiesStorageTierInfoStorageTierSize;
+  static names(): { [key: string]: string } {
+    return {
+      projectBackupSize: 'projectBackupSize',
+      storageTierSize: 'storageTierSize',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      projectBackupSize: 'number',
+      storageTierSize: GetProjectResponseBodyDataPropertiesStorageTierInfoStorageTierSize,
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
 export class GetProjectResponseBodyDataPropertiesTableLifecycle extends $tea.Model {
   type?: string;
   value?: string;
@@ -2629,12 +2757,12 @@ export class GetProjectResponseBodyDataPropertiesTableLifecycle extends $tea.Mod
 
 export class GetProjectResponseBodyDataProperties extends $tea.Model {
   allowFullScan?: boolean;
-  elderTunnelQuota?: string;
   enableDecimal2?: boolean;
   enableTunnelQuotaRoute?: boolean;
   encryption?: GetProjectResponseBodyDataPropertiesEncryption;
   retentionDays?: number;
   sqlMeteringMax?: string;
+  storageTierInfo?: GetProjectResponseBodyDataPropertiesStorageTierInfo;
   tableLifecycle?: GetProjectResponseBodyDataPropertiesTableLifecycle;
   timezone?: string;
   tunnelQuota?: string;
@@ -2642,12 +2770,12 @@ export class GetProjectResponseBodyDataProperties extends $tea.Model {
   static names(): { [key: string]: string } {
     return {
       allowFullScan: 'allowFullScan',
-      elderTunnelQuota: 'elderTunnelQuota',
       enableDecimal2: 'enableDecimal2',
       enableTunnelQuotaRoute: 'enableTunnelQuotaRoute',
       encryption: 'encryption',
       retentionDays: 'retentionDays',
       sqlMeteringMax: 'sqlMeteringMax',
+      storageTierInfo: 'storageTierInfo',
       tableLifecycle: 'tableLifecycle',
       timezone: 'timezone',
       tunnelQuota: 'tunnelQuota',
@@ -2658,12 +2786,12 @@ export class GetProjectResponseBodyDataProperties extends $tea.Model {
   static types(): { [key: string]: any } {
     return {
       allowFullScan: 'boolean',
-      elderTunnelQuota: 'string',
       enableDecimal2: 'boolean',
       enableTunnelQuotaRoute: 'boolean',
       encryption: GetProjectResponseBodyDataPropertiesEncryption,
       retentionDays: 'number',
       sqlMeteringMax: 'string',
+      storageTierInfo: GetProjectResponseBodyDataPropertiesStorageTierInfo,
       tableLifecycle: GetProjectResponseBodyDataPropertiesTableLifecycle,
       timezone: 'string',
       tunnelQuota: 'string',
@@ -3013,7 +3141,6 @@ export class GetQuotaResponseBodyDataSubQuotaInfoList extends $tea.Model {
   cluster?: string;
   createTime?: number;
   creatorId?: string;
-  groupName?: string;
   id?: string;
   name?: string;
   nickName?: string;
@@ -3033,7 +3160,6 @@ export class GetQuotaResponseBodyDataSubQuotaInfoList extends $tea.Model {
       cluster: 'cluster',
       createTime: 'createTime',
       creatorId: 'creatorId',
-      groupName: 'groupName',
       id: 'id',
       name: 'name',
       nickName: 'nickName',
@@ -3056,7 +3182,6 @@ export class GetQuotaResponseBodyDataSubQuotaInfoList extends $tea.Model {
       cluster: 'string',
       createTime: 'number',
       creatorId: 'string',
-      groupName: 'string',
       id: 'string',
       name: 'string',
       nickName: 'string',
@@ -3083,7 +3208,6 @@ export class GetQuotaResponseBodyData extends $tea.Model {
   cluster?: string;
   createTime?: number;
   creatorId?: string;
-  groupName?: string;
   id?: string;
   name?: string;
   nickName?: string;
@@ -3104,7 +3228,6 @@ export class GetQuotaResponseBodyData extends $tea.Model {
       cluster: 'cluster',
       createTime: 'createTime',
       creatorId: 'creatorId',
-      groupName: 'groupName',
       id: 'id',
       name: 'name',
       nickName: 'nickName',
@@ -3128,7 +3251,6 @@ export class GetQuotaResponseBodyData extends $tea.Model {
       cluster: 'string',
       createTime: 'number',
       creatorId: 'string',
-      groupName: 'string',
       id: 'string',
       name: 'string',
       nickName: 'string',
@@ -3639,6 +3761,62 @@ export class GetQuotaPlanResponseBodyData extends $tea.Model {
       createTime: 'string',
       name: 'string',
       quota: GetQuotaPlanResponseBodyDataQuota,
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class GetQuotaScheduleResponseBodyDataCondition extends $tea.Model {
+  after?: string;
+  at?: string;
+  static names(): { [key: string]: string } {
+    return {
+      after: 'after',
+      at: 'at',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      after: 'string',
+      at: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class GetQuotaScheduleResponseBodyData extends $tea.Model {
+  condition?: GetQuotaScheduleResponseBodyDataCondition;
+  id?: string;
+  operator?: string;
+  plan?: string;
+  timezone?: string;
+  type?: string;
+  static names(): { [key: string]: string } {
+    return {
+      condition: 'condition',
+      id: 'id',
+      operator: 'operator',
+      plan: 'plan',
+      timezone: 'timezone',
+      type: 'type',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      condition: GetQuotaScheduleResponseBodyDataCondition,
+      id: 'string',
+      operator: 'string',
+      plan: 'string',
+      timezone: 'string',
+      type: 'string',
     };
   }
 
@@ -4168,7 +4346,6 @@ export class ListProjectsResponseBodyDataProjectsPropertiesTableLifecycle extend
 
 export class ListProjectsResponseBodyDataProjectsProperties extends $tea.Model {
   allowFullScan?: boolean;
-  elderTunnelQuota?: string;
   enableDecimal2?: boolean;
   enableTunnelQuotaRoute?: boolean;
   encryption?: ListProjectsResponseBodyDataProjectsPropertiesEncryption;
@@ -4181,7 +4358,6 @@ export class ListProjectsResponseBodyDataProjectsProperties extends $tea.Model {
   static names(): { [key: string]: string } {
     return {
       allowFullScan: 'allowFullScan',
-      elderTunnelQuota: 'elderTunnelQuota',
       enableDecimal2: 'enableDecimal2',
       enableTunnelQuotaRoute: 'enableTunnelQuotaRoute',
       encryption: 'encryption',
@@ -4197,7 +4373,6 @@ export class ListProjectsResponseBodyDataProjectsProperties extends $tea.Model {
   static types(): { [key: string]: any } {
     return {
       allowFullScan: 'boolean',
-      elderTunnelQuota: 'string',
       enableDecimal2: 'boolean',
       enableTunnelQuotaRoute: 'boolean',
       encryption: ListProjectsResponseBodyDataProjectsPropertiesEncryption,
@@ -4577,7 +4752,6 @@ export class ListQuotasResponseBodyDataQuotaInfoListSubQuotaInfoList extends $te
   cluster?: string;
   createTime?: number;
   creatorId?: string;
-  groupName?: string;
   id?: string;
   name?: string;
   nickName?: string;
@@ -4597,7 +4771,6 @@ export class ListQuotasResponseBodyDataQuotaInfoListSubQuotaInfoList extends $te
       cluster: 'cluster',
       createTime: 'createTime',
       creatorId: 'creatorId',
-      groupName: 'groupName',
       id: 'id',
       name: 'name',
       nickName: 'nickName',
@@ -4620,7 +4793,6 @@ export class ListQuotasResponseBodyDataQuotaInfoListSubQuotaInfoList extends $te
       cluster: 'string',
       createTime: 'number',
       creatorId: 'string',
-      groupName: 'string',
       id: 'string',
       name: 'string',
       nickName: 'string',
@@ -4648,7 +4820,6 @@ export class ListQuotasResponseBodyDataQuotaInfoList extends $tea.Model {
   cluster?: string;
   createTime?: number;
   creatorId?: string;
-  groupName?: string;
   id?: string;
   name?: string;
   nickName?: string;
@@ -4670,7 +4841,6 @@ export class ListQuotasResponseBodyDataQuotaInfoList extends $tea.Model {
       cluster: 'cluster',
       createTime: 'createTime',
       creatorId: 'creatorId',
-      groupName: 'groupName',
       id: 'id',
       name: 'name',
       nickName: 'nickName',
@@ -4695,7 +4865,6 @@ export class ListQuotasResponseBodyDataQuotaInfoList extends $tea.Model {
       cluster: 'string',
       createTime: 'number',
       creatorId: 'string',
-      groupName: 'string',
       id: 'string',
       name: 'string',
       nickName: 'string',
@@ -4947,7 +5116,6 @@ export class ListQuotasResponseBodyQuotaInfoListSubQuotaInfoList extends $tea.Mo
   cluster?: string;
   createTime?: number;
   creatorId?: string;
-  groupName?: string;
   id?: string;
   name?: string;
   nickName?: string;
@@ -4967,7 +5135,6 @@ export class ListQuotasResponseBodyQuotaInfoListSubQuotaInfoList extends $tea.Mo
       cluster: 'cluster',
       createTime: 'createTime',
       creatorId: 'creatorId',
-      groupName: 'groupName',
       id: 'id',
       name: 'name',
       nickName: 'nickName',
@@ -4990,7 +5157,6 @@ export class ListQuotasResponseBodyQuotaInfoListSubQuotaInfoList extends $tea.Mo
       cluster: 'string',
       createTime: 'number',
       creatorId: 'string',
-      groupName: 'string',
       id: 'string',
       name: 'string',
       nickName: 'string',
@@ -5018,7 +5184,6 @@ export class ListQuotasResponseBodyQuotaInfoList extends $tea.Model {
   cluster?: string;
   createTime?: number;
   creatorId?: string;
-  groupName?: string;
   id?: string;
   name?: string;
   nickName?: string;
@@ -5040,7 +5205,6 @@ export class ListQuotasResponseBodyQuotaInfoList extends $tea.Model {
       cluster: 'cluster',
       createTime: 'createTime',
       creatorId: 'creatorId',
-      groupName: 'groupName',
       id: 'id',
       name: 'name',
       nickName: 'nickName',
@@ -5065,7 +5229,6 @@ export class ListQuotasResponseBodyQuotaInfoList extends $tea.Model {
       cluster: 'string',
       createTime: 'number',
       creatorId: 'string',
-      groupName: 'string',
       id: 'string',
       name: 'string',
       nickName: 'string',
@@ -6267,6 +6430,45 @@ export default class Client extends OpenApi {
     let runtime = new $Util.RuntimeOptions({ });
     let headers : {[key: string ]: string} = { };
     return await this.getQuotaPlanWithOptions(nickname, planName, request, headers, runtime);
+  }
+
+  async getQuotaScheduleWithOptions(nickname: string, request: GetQuotaScheduleRequest, headers: {[key: string ]: string}, runtime: $Util.RuntimeOptions): Promise<GetQuotaScheduleResponse> {
+    Util.validateModel(request);
+    let query : {[key: string ]: any} = { };
+    if (!Util.isUnset(request.displayTimezone)) {
+      query["displayTimezone"] = request.displayTimezone;
+    }
+
+    if (!Util.isUnset(request.region)) {
+      query["region"] = request.region;
+    }
+
+    if (!Util.isUnset(request.tenantId)) {
+      query["tenantId"] = request.tenantId;
+    }
+
+    let req = new $OpenApi.OpenApiRequest({
+      headers: headers,
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApi.Params({
+      action: "GetQuotaSchedule",
+      version: "2022-01-04",
+      protocol: "HTTPS",
+      pathname: `/api/v1/quotas/${OpenApiUtil.getEncodeParam(nickname)}/schedule`,
+      method: "GET",
+      authType: "AK",
+      style: "ROA",
+      reqBodyType: "json",
+      bodyType: "json",
+    });
+    return $tea.cast<GetQuotaScheduleResponse>(await this.callApi(params, req, runtime), new GetQuotaScheduleResponse({}));
+  }
+
+  async getQuotaSchedule(nickname: string, request: GetQuotaScheduleRequest): Promise<GetQuotaScheduleResponse> {
+    let runtime = new $Util.RuntimeOptions({ });
+    let headers : {[key: string ]: string} = { };
+    return await this.getQuotaScheduleWithOptions(nickname, request, headers, runtime);
   }
 
   async getRoleAclWithOptions(projectName: string, roleName: string, headers: {[key: string ]: string}, runtime: $Util.RuntimeOptions): Promise<GetRoleAclResponse> {
