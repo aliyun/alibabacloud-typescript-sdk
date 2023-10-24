@@ -348,6 +348,96 @@ export class AddClientUserDefineRuleResponse extends $tea.Model {
   }
 }
 
+export class AddImageEventOperationRequest extends $tea.Model {
+  conditions?: string;
+  eventKey?: string;
+  eventName?: string;
+  eventType?: string;
+  operationCode?: string;
+  scenarios?: string;
+  static names(): { [key: string]: string } {
+    return {
+      conditions: 'Conditions',
+      eventKey: 'EventKey',
+      eventName: 'EventName',
+      eventType: 'EventType',
+      operationCode: 'OperationCode',
+      scenarios: 'Scenarios',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      conditions: 'string',
+      eventKey: 'string',
+      eventName: 'string',
+      eventType: 'string',
+      operationCode: 'string',
+      scenarios: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class AddImageEventOperationResponseBody extends $tea.Model {
+  code?: string;
+  data?: AddImageEventOperationResponseBodyData;
+  message?: string;
+  requestId?: string;
+  success?: boolean;
+  static names(): { [key: string]: string } {
+    return {
+      code: 'Code',
+      data: 'Data',
+      message: 'Message',
+      requestId: 'RequestId',
+      success: 'Success',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      code: 'string',
+      data: AddImageEventOperationResponseBodyData,
+      message: 'string',
+      requestId: 'string',
+      success: 'boolean',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class AddImageEventOperationResponse extends $tea.Model {
+  headers: { [key: string]: string };
+  statusCode: number;
+  body: AddImageEventOperationResponseBody;
+  static names(): { [key: string]: string } {
+    return {
+      headers: 'headers',
+      statusCode: 'statusCode',
+      body: 'body',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
+      body: AddImageEventOperationResponseBody,
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
 export class AddImageVulWhiteListRequest extends $tea.Model {
   lang?: string;
   reason?: string;
@@ -5513,6 +5603,81 @@ export class DeleteHoneypotProbeBindResponse extends $tea.Model {
       headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
       statusCode: 'number',
       body: DeleteHoneypotProbeBindResponseBody,
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class DeleteImageEventOperationRequest extends $tea.Model {
+  id?: number;
+  static names(): { [key: string]: string } {
+    return {
+      id: 'Id',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      id: 'number',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class DeleteImageEventOperationResponseBody extends $tea.Model {
+  code?: string;
+  data?: DeleteImageEventOperationResponseBodyData;
+  message?: string;
+  requestId?: string;
+  success?: boolean;
+  static names(): { [key: string]: string } {
+    return {
+      code: 'Code',
+      data: 'Data',
+      message: 'Message',
+      requestId: 'RequestId',
+      success: 'Success',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      code: 'string',
+      data: DeleteImageEventOperationResponseBodyData,
+      message: 'string',
+      requestId: 'string',
+      success: 'boolean',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class DeleteImageEventOperationResponse extends $tea.Model {
+  headers: { [key: string]: string };
+  statusCode: number;
+  body: DeleteImageEventOperationResponseBody;
+  static names(): { [key: string]: string } {
+    return {
+      headers: 'headers',
+      statusCode: 'statusCode',
+      body: 'body',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
+      body: DeleteImageEventOperationResponseBody,
     };
   }
 
@@ -13621,6 +13786,177 @@ export class DescribeImageCriteriaResponse extends $tea.Model {
       headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
       statusCode: 'number',
       body: DescribeImageCriteriaResponseBody,
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class DescribeImageEventOperationConditionRequest extends $tea.Model {
+  eventType?: string;
+  lang?: string;
+  static names(): { [key: string]: string } {
+    return {
+      eventType: 'EventType',
+      lang: 'Lang',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      eventType: 'string',
+      lang: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class DescribeImageEventOperationConditionResponseBody extends $tea.Model {
+  code?: string;
+  data?: DescribeImageEventOperationConditionResponseBodyData;
+  message?: string;
+  requestId?: string;
+  success?: boolean;
+  static names(): { [key: string]: string } {
+    return {
+      code: 'Code',
+      data: 'Data',
+      message: 'Message',
+      requestId: 'RequestId',
+      success: 'Success',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      code: 'string',
+      data: DescribeImageEventOperationConditionResponseBodyData,
+      message: 'string',
+      requestId: 'string',
+      success: 'boolean',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class DescribeImageEventOperationConditionResponse extends $tea.Model {
+  headers: { [key: string]: string };
+  statusCode: number;
+  body: DescribeImageEventOperationConditionResponseBody;
+  static names(): { [key: string]: string } {
+    return {
+      headers: 'headers',
+      statusCode: 'statusCode',
+      body: 'body',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
+      body: DescribeImageEventOperationConditionResponseBody,
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class DescribeImageEventOperationPageRequest extends $tea.Model {
+  currentPage?: number;
+  eventKey?: string;
+  eventName?: string;
+  eventType?: string;
+  id?: number;
+  lang?: string;
+  pageSize?: number;
+  static names(): { [key: string]: string } {
+    return {
+      currentPage: 'CurrentPage',
+      eventKey: 'EventKey',
+      eventName: 'EventName',
+      eventType: 'EventType',
+      id: 'Id',
+      lang: 'Lang',
+      pageSize: 'PageSize',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      currentPage: 'number',
+      eventKey: 'string',
+      eventName: 'string',
+      eventType: 'string',
+      id: 'number',
+      lang: 'string',
+      pageSize: 'number',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class DescribeImageEventOperationPageResponseBody extends $tea.Model {
+  code?: string;
+  data?: DescribeImageEventOperationPageResponseBodyData;
+  message?: string;
+  requestId?: string;
+  success?: boolean;
+  static names(): { [key: string]: string } {
+    return {
+      code: 'Code',
+      data: 'Data',
+      message: 'Message',
+      requestId: 'RequestId',
+      success: 'Success',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      code: 'string',
+      data: DescribeImageEventOperationPageResponseBodyData,
+      message: 'string',
+      requestId: 'string',
+      success: 'boolean',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class DescribeImageEventOperationPageResponse extends $tea.Model {
+  headers: { [key: string]: string };
+  statusCode: number;
+  body: DescribeImageEventOperationPageResponseBody;
+  static names(): { [key: string]: string } {
+    return {
+      headers: 'headers',
+      statusCode: 'statusCode',
+      body: 'body',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
+      body: DescribeImageEventOperationPageResponseBody,
     };
   }
 
@@ -27384,6 +27720,84 @@ export class GetCommonSwitchConfigResponse extends $tea.Model {
   }
 }
 
+export class GetContainerDefenseRuleDetailRequest extends $tea.Model {
+  ruleId?: number;
+  static names(): { [key: string]: string } {
+    return {
+      ruleId: 'RuleId',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      ruleId: 'number',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class GetContainerDefenseRuleDetailResponseBody extends $tea.Model {
+  code?: string;
+  data?: GetContainerDefenseRuleDetailResponseBodyData;
+  httpStatusCode?: number;
+  message?: string;
+  requestId?: string;
+  success?: boolean;
+  static names(): { [key: string]: string } {
+    return {
+      code: 'Code',
+      data: 'Data',
+      httpStatusCode: 'HttpStatusCode',
+      message: 'Message',
+      requestId: 'RequestId',
+      success: 'Success',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      code: 'string',
+      data: GetContainerDefenseRuleDetailResponseBodyData,
+      httpStatusCode: 'number',
+      message: 'string',
+      requestId: 'string',
+      success: 'boolean',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class GetContainerDefenseRuleDetailResponse extends $tea.Model {
+  headers: { [key: string]: string };
+  statusCode: number;
+  body: GetContainerDefenseRuleDetailResponseBody;
+  static names(): { [key: string]: string } {
+    return {
+      headers: 'headers',
+      statusCode: 'statusCode',
+      body: 'body',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
+      body: GetContainerDefenseRuleDetailResponseBody,
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
 export class GetFileDetectApiInvokeInfoResponseBody extends $tea.Model {
   data?: GetFileDetectApiInvokeInfoResponseBodyData;
   requestId?: string;
@@ -28300,6 +28714,84 @@ export class GetHoneypotStatisticsResponse extends $tea.Model {
       headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
       statusCode: 'number',
       body: GetHoneypotStatisticsResponseBody,
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class GetImageEventOperationRequest extends $tea.Model {
+  id?: number;
+  lang?: string;
+  static names(): { [key: string]: string } {
+    return {
+      id: 'Id',
+      lang: 'Lang',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      id: 'number',
+      lang: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class GetImageEventOperationResponseBody extends $tea.Model {
+  code?: string;
+  data?: GetImageEventOperationResponseBodyData;
+  message?: string;
+  requestId?: string;
+  success?: boolean;
+  static names(): { [key: string]: string } {
+    return {
+      code: 'Code',
+      data: 'Data',
+      message: 'Message',
+      requestId: 'RequestId',
+      success: 'Success',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      code: 'string',
+      data: GetImageEventOperationResponseBodyData,
+      message: 'string',
+      requestId: 'string',
+      success: 'boolean',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class GetImageEventOperationResponse extends $tea.Model {
+  headers: { [key: string]: string };
+  statusCode: number;
+  body: GetImageEventOperationResponseBody;
+  static names(): { [key: string]: string } {
+    return {
+      headers: 'headers',
+      statusCode: 'statusCode',
+      body: 'body',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
+      body: GetImageEventOperationResponseBody,
     };
   }
 
@@ -29506,6 +29998,81 @@ export class GetSecurityScoreRuleResponse extends $tea.Model {
       headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
       statusCode: 'number',
       body: GetSecurityScoreRuleResponseBody,
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class GetSensitiveDefineRuleConfigRequest extends $tea.Model {
+  lang?: string;
+  static names(): { [key: string]: string } {
+    return {
+      lang: 'Lang',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      lang: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class GetSensitiveDefineRuleConfigResponseBody extends $tea.Model {
+  code?: string;
+  data?: GetSensitiveDefineRuleConfigResponseBodyData;
+  message?: string;
+  requestId?: string;
+  success?: boolean;
+  static names(): { [key: string]: string } {
+    return {
+      code: 'Code',
+      data: 'Data',
+      message: 'Message',
+      requestId: 'RequestId',
+      success: 'Success',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      code: 'string',
+      data: GetSensitiveDefineRuleConfigResponseBodyData,
+      message: 'string',
+      requestId: 'string',
+      success: 'boolean',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class GetSensitiveDefineRuleConfigResponse extends $tea.Model {
+  headers: { [key: string]: string };
+  statusCode: number;
+  body: GetSensitiveDefineRuleConfigResponseBody;
+  static names(): { [key: string]: string } {
+    return {
+      headers: 'headers',
+      statusCode: 'statusCode',
+      body: 'body',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
+      body: GetSensitiveDefineRuleConfigResponseBody,
     };
   }
 
@@ -32571,6 +33138,102 @@ export class ListClusterInterceptionConfigResponse extends $tea.Model {
       headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
       statusCode: 'number',
       body: ListClusterInterceptionConfigResponseBody,
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class ListContainerDefenseRuleRequest extends $tea.Model {
+  conditions?: ListContainerDefenseRuleRequestConditions[];
+  currentPage?: number;
+  isDefaultRule?: number;
+  lang?: string;
+  pageSize?: number;
+  ruleType?: number;
+  static names(): { [key: string]: string } {
+    return {
+      conditions: 'Conditions',
+      currentPage: 'CurrentPage',
+      isDefaultRule: 'IsDefaultRule',
+      lang: 'Lang',
+      pageSize: 'PageSize',
+      ruleType: 'RuleType',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      conditions: { 'type': 'array', 'itemType': ListContainerDefenseRuleRequestConditions },
+      currentPage: 'number',
+      isDefaultRule: 'number',
+      lang: 'string',
+      pageSize: 'number',
+      ruleType: 'number',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class ListContainerDefenseRuleResponseBody extends $tea.Model {
+  code?: string;
+  httpStatusCode?: number;
+  list?: ListContainerDefenseRuleResponseBodyList[];
+  message?: string;
+  pageInfo?: ListContainerDefenseRuleResponseBodyPageInfo;
+  requestId?: string;
+  success?: boolean;
+  static names(): { [key: string]: string } {
+    return {
+      code: 'Code',
+      httpStatusCode: 'HttpStatusCode',
+      list: 'List',
+      message: 'Message',
+      pageInfo: 'PageInfo',
+      requestId: 'RequestId',
+      success: 'Success',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      code: 'string',
+      httpStatusCode: 'number',
+      list: { 'type': 'array', 'itemType': ListContainerDefenseRuleResponseBodyList },
+      message: 'string',
+      pageInfo: ListContainerDefenseRuleResponseBodyPageInfo,
+      requestId: 'string',
+      success: 'boolean',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class ListContainerDefenseRuleResponse extends $tea.Model {
+  headers: { [key: string]: string };
+  statusCode: number;
+  body: ListContainerDefenseRuleResponseBody;
+  static names(): { [key: string]: string } {
+    return {
+      headers: 'headers',
+      statusCode: 'statusCode',
+      body: 'body',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
+      body: ListContainerDefenseRuleResponseBody,
     };
   }
 
@@ -42364,6 +43027,87 @@ export class SetClusterInterceptionConfigResponse extends $tea.Model {
   }
 }
 
+export class SetImageSensitiveFileStatusRequest extends $tea.Model {
+  imageUuids?: string;
+  sensitiveFileKey?: string;
+  status?: number;
+  static names(): { [key: string]: string } {
+    return {
+      imageUuids: 'ImageUuids',
+      sensitiveFileKey: 'SensitiveFileKey',
+      status: 'Status',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      imageUuids: 'string',
+      sensitiveFileKey: 'string',
+      status: 'number',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class SetImageSensitiveFileStatusResponseBody extends $tea.Model {
+  code?: string;
+  data?: SetImageSensitiveFileStatusResponseBodyData;
+  message?: string;
+  requestId?: string;
+  success?: boolean;
+  static names(): { [key: string]: string } {
+    return {
+      code: 'Code',
+      data: 'Data',
+      message: 'Message',
+      requestId: 'RequestId',
+      success: 'Success',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      code: 'string',
+      data: SetImageSensitiveFileStatusResponseBodyData,
+      message: 'string',
+      requestId: 'string',
+      success: 'boolean',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class SetImageSensitiveFileStatusResponse extends $tea.Model {
+  headers: { [key: string]: string };
+  statusCode: number;
+  body: SetImageSensitiveFileStatusResponseBody;
+  static names(): { [key: string]: string } {
+    return {
+      headers: 'headers',
+      statusCode: 'statusCode',
+      body: 'body',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
+      body: SetImageSensitiveFileStatusResponseBody,
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
 export class SetRegistryScanDayNumRequest extends $tea.Model {
   scanDayNum?: number;
   static names(): { [key: string]: string } {
@@ -42419,6 +43163,81 @@ export class SetRegistryScanDayNumResponse extends $tea.Model {
       headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
       statusCode: 'number',
       body: SetRegistryScanDayNumResponseBody,
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class SetSensitiveDefineRuleConfigRequest extends $tea.Model {
+  config?: string;
+  static names(): { [key: string]: string } {
+    return {
+      config: 'Config',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      config: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class SetSensitiveDefineRuleConfigResponseBody extends $tea.Model {
+  code?: string;
+  data?: SetSensitiveDefineRuleConfigResponseBodyData;
+  message?: string;
+  requestId?: string;
+  success?: boolean;
+  static names(): { [key: string]: string } {
+    return {
+      code: 'Code',
+      data: 'Data',
+      message: 'Message',
+      requestId: 'RequestId',
+      success: 'Success',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      code: 'string',
+      data: SetSensitiveDefineRuleConfigResponseBodyData,
+      message: 'string',
+      requestId: 'string',
+      success: 'boolean',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class SetSensitiveDefineRuleConfigResponse extends $tea.Model {
+  headers: { [key: string]: string };
+  statusCode: number;
+  body: SetSensitiveDefineRuleConfigResponseBody;
+  static names(): { [key: string]: string } {
+    return {
+      headers: 'headers',
+      statusCode: 'statusCode',
+      body: 'body',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
+      body: SetSensitiveDefineRuleConfigResponseBody,
     };
   }
 
@@ -44037,6 +44856,84 @@ export class UpdateHoneypotProbeBindResponse extends $tea.Model {
   }
 }
 
+export class UpdateImageEventOperationRequest extends $tea.Model {
+  id?: number;
+  scenarios?: string;
+  static names(): { [key: string]: string } {
+    return {
+      id: 'Id',
+      scenarios: 'Scenarios',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      id: 'number',
+      scenarios: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class UpdateImageEventOperationResponseBody extends $tea.Model {
+  code?: string;
+  data?: UpdateImageEventOperationResponseBodyData;
+  message?: string;
+  requestId?: string;
+  success?: boolean;
+  static names(): { [key: string]: string } {
+    return {
+      code: 'Code',
+      data: 'Data',
+      message: 'Message',
+      requestId: 'RequestId',
+      success: 'Success',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      code: 'string',
+      data: UpdateImageEventOperationResponseBodyData,
+      message: 'string',
+      requestId: 'string',
+      success: 'boolean',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class UpdateImageEventOperationResponse extends $tea.Model {
+  headers: { [key: string]: string };
+  statusCode: number;
+  body: UpdateImageEventOperationResponseBody;
+  static names(): { [key: string]: string } {
+    return {
+      headers: 'headers',
+      statusCode: 'statusCode',
+      body: 'body',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
+      body: UpdateImageEventOperationResponseBody,
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
 export class UpdateImageVulWhitelistTargetRequest extends $tea.Model {
   id?: number;
   lang?: string;
@@ -44589,6 +45486,43 @@ export class AddClientUserDefineRuleResponseBodyUserDefineRuleAddResult extends 
       id: 'number',
       platform: 'string',
       switchId: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class AddImageEventOperationResponseBodyData extends $tea.Model {
+  conditions?: string;
+  eventKey?: string;
+  eventName?: string;
+  eventType?: string;
+  id?: number;
+  operationCode?: string;
+  scenarios?: string;
+  static names(): { [key: string]: string } {
+    return {
+      conditions: 'Conditions',
+      eventKey: 'EventKey',
+      eventName: 'EventName',
+      eventType: 'EventType',
+      id: 'Id',
+      operationCode: 'OperationCode',
+      scenarios: 'Scenarios',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      conditions: 'string',
+      eventKey: 'string',
+      eventName: 'string',
+      eventType: 'string',
+      id: 'number',
+      operationCode: 'string',
+      scenarios: 'string',
     };
   }
 
@@ -45556,6 +46490,25 @@ export class CreateVulAutoRepairConfigRequestVulAutoRepairConfigList extends $te
     return {
       aliasName: 'string',
       name: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class DeleteImageEventOperationResponseBodyData extends $tea.Model {
+  id?: number;
+  static names(): { [key: string]: string } {
+    return {
+      id: 'Id',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      id: 'number',
     };
   }
 
@@ -49966,6 +50919,165 @@ export class DescribeImageCriteriaResponseBodyCriteriaList extends $tea.Model {
   }
 }
 
+export class DescribeImageEventOperationConditionResponseBodyDataOperationsConditions extends $tea.Model {
+  conditionKey?: string;
+  conditionName?: string;
+  supportedMisType?: string[];
+  static names(): { [key: string]: string } {
+    return {
+      conditionKey: 'ConditionKey',
+      conditionName: 'ConditionName',
+      supportedMisType: 'SupportedMisType',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      conditionKey: 'string',
+      conditionName: 'string',
+      supportedMisType: { 'type': 'array', 'itemType': 'string' },
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class DescribeImageEventOperationConditionResponseBodyDataOperations extends $tea.Model {
+  conditions?: DescribeImageEventOperationConditionResponseBodyDataOperationsConditions[];
+  operationCode?: string;
+  operationName?: string;
+  static names(): { [key: string]: string } {
+    return {
+      conditions: 'Conditions',
+      operationCode: 'OperationCode',
+      operationName: 'OperationName',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      conditions: { 'type': 'array', 'itemType': DescribeImageEventOperationConditionResponseBodyDataOperationsConditions },
+      operationCode: 'string',
+      operationName: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class DescribeImageEventOperationConditionResponseBodyData extends $tea.Model {
+  eventType?: string;
+  operations?: DescribeImageEventOperationConditionResponseBodyDataOperations[];
+  scenarios?: string[];
+  static names(): { [key: string]: string } {
+    return {
+      eventType: 'EventType',
+      operations: 'Operations',
+      scenarios: 'Scenarios',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      eventType: 'string',
+      operations: { 'type': 'array', 'itemType': DescribeImageEventOperationConditionResponseBodyDataOperations },
+      scenarios: { 'type': 'array', 'itemType': 'string' },
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class DescribeImageEventOperationPageResponseBodyDataList extends $tea.Model {
+  conditions?: string;
+  eventKey?: string;
+  eventName?: string;
+  eventType?: string;
+  id?: number;
+  operationCode?: string;
+  scenarios?: string;
+  static names(): { [key: string]: string } {
+    return {
+      conditions: 'Conditions',
+      eventKey: 'EventKey',
+      eventName: 'EventName',
+      eventType: 'EventType',
+      id: 'Id',
+      operationCode: 'OperationCode',
+      scenarios: 'Scenarios',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      conditions: 'string',
+      eventKey: 'string',
+      eventName: 'string',
+      eventType: 'string',
+      id: 'number',
+      operationCode: 'string',
+      scenarios: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class DescribeImageEventOperationPageResponseBodyDataPageInfo extends $tea.Model {
+  currentPage?: number;
+  pageSize?: number;
+  totalCount?: number;
+  static names(): { [key: string]: string } {
+    return {
+      currentPage: 'CurrentPage',
+      pageSize: 'PageSize',
+      totalCount: 'TotalCount',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      currentPage: 'number',
+      pageSize: 'number',
+      totalCount: 'number',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class DescribeImageEventOperationPageResponseBodyData extends $tea.Model {
+  list?: DescribeImageEventOperationPageResponseBodyDataList[];
+  pageInfo?: DescribeImageEventOperationPageResponseBodyDataPageInfo;
+  static names(): { [key: string]: string } {
+    return {
+      list: 'List',
+      pageInfo: 'PageInfo',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      list: { 'type': 'array', 'itemType': DescribeImageEventOperationPageResponseBodyDataList },
+      pageInfo: DescribeImageEventOperationPageResponseBodyDataPageInfo,
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
 export class DescribeImageFixCycleConfigResponseBodyData extends $tea.Model {
   imageFixCycle?: number;
   imageFixSwitch?: string;
@@ -52437,6 +53549,7 @@ export class DescribePropertyScaDetailResponseBodyPropertys extends $tea.Model {
   name?: string;
   path?: string;
   pid?: string;
+  podName?: string;
   port?: string;
   ppid?: string;
   processStarted?: number;
@@ -52467,6 +53580,7 @@ export class DescribePropertyScaDetailResponseBodyPropertys extends $tea.Model {
       name: 'Name',
       path: 'Path',
       pid: 'Pid',
+      podName: 'PodName',
       port: 'Port',
       ppid: 'Ppid',
       processStarted: 'ProcessStarted',
@@ -52500,6 +53614,7 @@ export class DescribePropertyScaDetailResponseBodyPropertys extends $tea.Model {
       name: 'string',
       path: 'string',
       pid: 'string',
+      podName: 'string',
       port: 'string',
       ppid: 'string',
       processStarted: 'number',
@@ -56043,6 +57158,7 @@ export class DescribeVulDetailsResponseBodyCves extends $tea.Model {
   complexity?: string;
   content?: string;
   cveId?: string;
+  cveLink?: string;
   cvssScore?: string;
   cvssVector?: string;
   instanceName?: string;
@@ -56070,6 +57186,7 @@ export class DescribeVulDetailsResponseBodyCves extends $tea.Model {
       complexity: 'Complexity',
       content: 'Content',
       cveId: 'CveId',
+      cveLink: 'CveLink',
       cvssScore: 'CvssScore',
       cvssVector: 'CvssVector',
       instanceName: 'InstanceName',
@@ -56100,6 +57217,7 @@ export class DescribeVulDetailsResponseBodyCves extends $tea.Model {
       complexity: 'string',
       content: 'string',
       cveId: 'string',
+      cveLink: 'string',
       cvssScore: 'string',
       cvssVector: 'string',
       instanceName: 'string',
@@ -58734,6 +59852,105 @@ export class GetCommonSwitchConfigResponseBodyData extends $tea.Model {
   }
 }
 
+export class GetContainerDefenseRuleDetailResponseBodyDataScope extends $tea.Model {
+  allNamespace?: number;
+  clusterId?: string;
+  namespaces?: string[];
+  static names(): { [key: string]: string } {
+    return {
+      allNamespace: 'AllNamespace',
+      clusterId: 'ClusterId',
+      namespaces: 'Namespaces',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      allNamespace: 'number',
+      clusterId: 'string',
+      namespaces: { 'type': 'array', 'itemType': 'string' },
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class GetContainerDefenseRuleDetailResponseBodyDataWhitelist extends $tea.Model {
+  hash?: string[];
+  image?: string[];
+  path?: string[];
+  static names(): { [key: string]: string } {
+    return {
+      hash: 'Hash',
+      image: 'Image',
+      path: 'Path',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      hash: { 'type': 'array', 'itemType': 'string' },
+      image: { 'type': 'array', 'itemType': 'string' },
+      path: { 'type': 'array', 'itemType': 'string' },
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class GetContainerDefenseRuleDetailResponseBodyData extends $tea.Model {
+  aliUid?: number;
+  description?: string;
+  eventName?: string;
+  eventType?: string;
+  id?: number;
+  ruleAction?: number;
+  ruleName?: string;
+  ruleSwitch?: number;
+  ruleType?: string;
+  scope?: GetContainerDefenseRuleDetailResponseBodyDataScope[];
+  whitelist?: GetContainerDefenseRuleDetailResponseBodyDataWhitelist;
+  static names(): { [key: string]: string } {
+    return {
+      aliUid: 'AliUid',
+      description: 'Description',
+      eventName: 'EventName',
+      eventType: 'EventType',
+      id: 'Id',
+      ruleAction: 'RuleAction',
+      ruleName: 'RuleName',
+      ruleSwitch: 'RuleSwitch',
+      ruleType: 'RuleType',
+      scope: 'Scope',
+      whitelist: 'Whitelist',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      aliUid: 'number',
+      description: 'string',
+      eventName: 'string',
+      eventType: 'string',
+      id: 'number',
+      ruleAction: 'number',
+      ruleName: 'string',
+      ruleSwitch: 'number',
+      ruleType: 'string',
+      scope: { 'type': 'array', 'itemType': GetContainerDefenseRuleDetailResponseBodyDataScope },
+      whitelist: GetContainerDefenseRuleDetailResponseBodyDataWhitelist,
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
 export class GetFileDetectApiInvokeInfoResponseBodyData extends $tea.Model {
   authCount?: number;
   expire?: number;
@@ -59409,6 +60626,43 @@ export class GetHoneypotStatisticsResponseBodyData extends $tea.Model {
   }
 }
 
+export class GetImageEventOperationResponseBodyData extends $tea.Model {
+  conditions?: string;
+  eventKey?: string;
+  eventName?: string;
+  eventType?: string;
+  id?: number;
+  operationCode?: string;
+  scenarios?: string;
+  static names(): { [key: string]: string } {
+    return {
+      conditions: 'Conditions',
+      eventKey: 'EventKey',
+      eventName: 'EventName',
+      eventType: 'EventType',
+      id: 'Id',
+      operationCode: 'OperationCode',
+      scenarios: 'Scenarios',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      conditions: 'string',
+      eventKey: 'string',
+      eventName: 'string',
+      eventType: 'string',
+      id: 'number',
+      operationCode: 'string',
+      scenarios: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
 export class GetImageScanNumInPeriodResponseBodyImageScanData extends $tea.Model {
   imageScanCount?: number;
   static names(): { [key: string]: string } {
@@ -60004,6 +61258,84 @@ export class GetSecurityScoreRuleResponseBodySecurityScoreRuleList extends $tea.
       score: 'number',
       securityScoreItemList: { 'type': 'array', 'itemType': GetSecurityScoreRuleResponseBodySecurityScoreRuleListSecurityScoreItemList },
       title: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class GetSensitiveDefineRuleConfigResponseBodyDataRuleTreeRuleList extends $tea.Model {
+  ruleKey?: string;
+  ruleName?: string;
+  selected?: boolean;
+  static names(): { [key: string]: string } {
+    return {
+      ruleKey: 'RuleKey',
+      ruleName: 'RuleName',
+      selected: 'Selected',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      ruleKey: 'string',
+      ruleName: 'string',
+      selected: 'boolean',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class GetSensitiveDefineRuleConfigResponseBodyDataRuleTree extends $tea.Model {
+  classKey?: string;
+  className?: string;
+  ruleList?: GetSensitiveDefineRuleConfigResponseBodyDataRuleTreeRuleList[];
+  static names(): { [key: string]: string } {
+    return {
+      classKey: 'ClassKey',
+      className: 'ClassName',
+      ruleList: 'RuleList',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      classKey: 'string',
+      className: 'string',
+      ruleList: { 'type': 'array', 'itemType': GetSensitiveDefineRuleConfigResponseBodyDataRuleTreeRuleList },
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class GetSensitiveDefineRuleConfigResponseBodyData extends $tea.Model {
+  id?: number;
+  ruleCount?: number;
+  ruleTree?: GetSensitiveDefineRuleConfigResponseBodyDataRuleTree[];
+  selectedCount?: number;
+  static names(): { [key: string]: string } {
+    return {
+      id: 'Id',
+      ruleCount: 'RuleCount',
+      ruleTree: 'RuleTree',
+      selectedCount: 'SelectedCount',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      id: 'number',
+      ruleCount: 'number',
+      ruleTree: { 'type': 'array', 'itemType': GetSensitiveDefineRuleConfigResponseBodyDataRuleTree },
+      selectedCount: 'number',
     };
   }
 
@@ -61916,6 +63248,102 @@ export class ListClusterInterceptionConfigResponseBodyPageInfo extends $tea.Mode
     return {
       count: 'number',
       currrentPage: 'number',
+      pageSize: 'number',
+      totalCount: 'number',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class ListContainerDefenseRuleRequestConditions extends $tea.Model {
+  type?: string;
+  value?: string;
+  static names(): { [key: string]: string } {
+    return {
+      type: 'Type',
+      value: 'Value',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      type: 'string',
+      value: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class ListContainerDefenseRuleResponseBodyList extends $tea.Model {
+  clusterCount?: number;
+  clusterIdList?: string;
+  description?: string;
+  ruleAction?: number;
+  ruleId?: number;
+  ruleName?: string;
+  ruleSwitch?: number;
+  ruleType?: number;
+  static names(): { [key: string]: string } {
+    return {
+      clusterCount: 'ClusterCount',
+      clusterIdList: 'ClusterIdList',
+      description: 'Description',
+      ruleAction: 'RuleAction',
+      ruleId: 'RuleId',
+      ruleName: 'RuleName',
+      ruleSwitch: 'RuleSwitch',
+      ruleType: 'RuleType',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      clusterCount: 'number',
+      clusterIdList: 'string',
+      description: 'string',
+      ruleAction: 'number',
+      ruleId: 'number',
+      ruleName: 'string',
+      ruleSwitch: 'number',
+      ruleType: 'number',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class ListContainerDefenseRuleResponseBodyPageInfo extends $tea.Model {
+  count?: number;
+  currentPage?: number;
+  lastRowKey?: string;
+  nextToken?: string;
+  pageSize?: number;
+  totalCount?: number;
+  static names(): { [key: string]: string } {
+    return {
+      count: 'Count',
+      currentPage: 'CurrentPage',
+      lastRowKey: 'LastRowKey',
+      nextToken: 'NextToken',
+      pageSize: 'PageSize',
+      totalCount: 'TotalCount',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      count: 'number',
+      currentPage: 'number',
+      lastRowKey: 'string',
+      nextToken: 'string',
       pageSize: 'number',
       totalCount: 'number',
     };
@@ -64556,6 +65984,44 @@ export class QueryGroupedSecurityEventMarkMissListResponseBodyPageInfo extends $
   }
 }
 
+export class SetImageSensitiveFileStatusResponseBodyData extends $tea.Model {
+  id?: number;
+  static names(): { [key: string]: string } {
+    return {
+      id: 'Id',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      id: 'number',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class SetSensitiveDefineRuleConfigResponseBodyData extends $tea.Model {
+  id?: number;
+  static names(): { [key: string]: string } {
+    return {
+      id: 'Id',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      id: 'number',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
 export class StopHoneypotResponseBodyData extends $tea.Model {
   controlNodeName?: string;
   honeypotId?: string;
@@ -64681,6 +66147,25 @@ export class UpdateHoneypotProbeBindRequestBindPortList extends $tea.Model {
       proto: 'string',
       startPort: 'number',
       targetPort: 'number',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class UpdateImageEventOperationResponseBodyData extends $tea.Model {
+  id?: number;
+  static names(): { [key: string]: string } {
+    return {
+      id: 'Id',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      id: 'number',
     };
   }
 
@@ -64982,6 +66467,55 @@ export default class Client extends OpenApi {
   async addClientUserDefineRule(request: AddClientUserDefineRuleRequest): Promise<AddClientUserDefineRuleResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.addClientUserDefineRuleWithOptions(request, runtime);
+  }
+
+  async addImageEventOperationWithOptions(request: AddImageEventOperationRequest, runtime: $Util.RuntimeOptions): Promise<AddImageEventOperationResponse> {
+    Util.validateModel(request);
+    let query = { };
+    if (!Util.isUnset(request.conditions)) {
+      query["Conditions"] = request.conditions;
+    }
+
+    if (!Util.isUnset(request.eventKey)) {
+      query["EventKey"] = request.eventKey;
+    }
+
+    if (!Util.isUnset(request.eventName)) {
+      query["EventName"] = request.eventName;
+    }
+
+    if (!Util.isUnset(request.eventType)) {
+      query["EventType"] = request.eventType;
+    }
+
+    if (!Util.isUnset(request.operationCode)) {
+      query["OperationCode"] = request.operationCode;
+    }
+
+    if (!Util.isUnset(request.scenarios)) {
+      query["Scenarios"] = request.scenarios;
+    }
+
+    let req = new $OpenApi.OpenApiRequest({
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApi.Params({
+      action: "AddImageEventOperation",
+      version: "2018-12-03",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $tea.cast<AddImageEventOperationResponse>(await this.callApi(params, req, runtime), new AddImageEventOperationResponse({}));
+  }
+
+  async addImageEventOperation(request: AddImageEventOperationRequest): Promise<AddImageEventOperationResponse> {
+    let runtime = new $Util.RuntimeOptions({ });
+    return await this.addImageEventOperationWithOptions(request, runtime);
   }
 
   async addImageVulWhiteListWithOptions(request: AddImageVulWhiteListRequest, runtime: $Util.RuntimeOptions): Promise<AddImageVulWhiteListResponse> {
@@ -67831,6 +69365,35 @@ export default class Client extends OpenApi {
   async deleteHoneypotProbeBind(request: DeleteHoneypotProbeBindRequest): Promise<DeleteHoneypotProbeBindResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.deleteHoneypotProbeBindWithOptions(request, runtime);
+  }
+
+  async deleteImageEventOperationWithOptions(request: DeleteImageEventOperationRequest, runtime: $Util.RuntimeOptions): Promise<DeleteImageEventOperationResponse> {
+    Util.validateModel(request);
+    let query = { };
+    if (!Util.isUnset(request.id)) {
+      query["Id"] = request.id;
+    }
+
+    let req = new $OpenApi.OpenApiRequest({
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApi.Params({
+      action: "DeleteImageEventOperation",
+      version: "2018-12-03",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $tea.cast<DeleteImageEventOperationResponse>(await this.callApi(params, req, runtime), new DeleteImageEventOperationResponse({}));
+  }
+
+  async deleteImageEventOperation(request: DeleteImageEventOperationRequest): Promise<DeleteImageEventOperationResponse> {
+    let runtime = new $Util.RuntimeOptions({ });
+    return await this.deleteImageEventOperationWithOptions(request, runtime);
   }
 
   async deleteImageVulWhitelistWithOptions(request: DeleteImageVulWhitelistRequest, runtime: $Util.RuntimeOptions): Promise<DeleteImageVulWhitelistResponse> {
@@ -72102,6 +73665,92 @@ export default class Client extends OpenApi {
   async describeImageCriteria(request: DescribeImageCriteriaRequest): Promise<DescribeImageCriteriaResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.describeImageCriteriaWithOptions(request, runtime);
+  }
+
+  async describeImageEventOperationConditionWithOptions(request: DescribeImageEventOperationConditionRequest, runtime: $Util.RuntimeOptions): Promise<DescribeImageEventOperationConditionResponse> {
+    Util.validateModel(request);
+    let query = { };
+    if (!Util.isUnset(request.eventType)) {
+      query["EventType"] = request.eventType;
+    }
+
+    if (!Util.isUnset(request.lang)) {
+      query["Lang"] = request.lang;
+    }
+
+    let req = new $OpenApi.OpenApiRequest({
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApi.Params({
+      action: "DescribeImageEventOperationCondition",
+      version: "2018-12-03",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $tea.cast<DescribeImageEventOperationConditionResponse>(await this.callApi(params, req, runtime), new DescribeImageEventOperationConditionResponse({}));
+  }
+
+  async describeImageEventOperationCondition(request: DescribeImageEventOperationConditionRequest): Promise<DescribeImageEventOperationConditionResponse> {
+    let runtime = new $Util.RuntimeOptions({ });
+    return await this.describeImageEventOperationConditionWithOptions(request, runtime);
+  }
+
+  async describeImageEventOperationPageWithOptions(request: DescribeImageEventOperationPageRequest, runtime: $Util.RuntimeOptions): Promise<DescribeImageEventOperationPageResponse> {
+    Util.validateModel(request);
+    let query = { };
+    if (!Util.isUnset(request.currentPage)) {
+      query["CurrentPage"] = request.currentPage;
+    }
+
+    if (!Util.isUnset(request.eventKey)) {
+      query["EventKey"] = request.eventKey;
+    }
+
+    if (!Util.isUnset(request.eventName)) {
+      query["EventName"] = request.eventName;
+    }
+
+    if (!Util.isUnset(request.eventType)) {
+      query["EventType"] = request.eventType;
+    }
+
+    if (!Util.isUnset(request.id)) {
+      query["Id"] = request.id;
+    }
+
+    if (!Util.isUnset(request.lang)) {
+      query["Lang"] = request.lang;
+    }
+
+    if (!Util.isUnset(request.pageSize)) {
+      query["PageSize"] = request.pageSize;
+    }
+
+    let req = new $OpenApi.OpenApiRequest({
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApi.Params({
+      action: "DescribeImageEventOperationPage",
+      version: "2018-12-03",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $tea.cast<DescribeImageEventOperationPageResponse>(await this.callApi(params, req, runtime), new DescribeImageEventOperationPageResponse({}));
+  }
+
+  async describeImageEventOperationPage(request: DescribeImageEventOperationPageRequest): Promise<DescribeImageEventOperationPageResponse> {
+    let runtime = new $Util.RuntimeOptions({ });
+    return await this.describeImageEventOperationPageWithOptions(request, runtime);
   }
 
   async describeImageFixCycleConfigWithOptions(runtime: $Util.RuntimeOptions): Promise<DescribeImageFixCycleConfigResponse> {
@@ -79503,6 +81152,35 @@ export default class Client extends OpenApi {
     return await this.getCommonSwitchConfigWithOptions(request, runtime);
   }
 
+  async getContainerDefenseRuleDetailWithOptions(request: GetContainerDefenseRuleDetailRequest, runtime: $Util.RuntimeOptions): Promise<GetContainerDefenseRuleDetailResponse> {
+    Util.validateModel(request);
+    let query = { };
+    if (!Util.isUnset(request.ruleId)) {
+      query["RuleId"] = request.ruleId;
+    }
+
+    let req = new $OpenApi.OpenApiRequest({
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApi.Params({
+      action: "GetContainerDefenseRuleDetail",
+      version: "2018-12-03",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $tea.cast<GetContainerDefenseRuleDetailResponse>(await this.callApi(params, req, runtime), new GetContainerDefenseRuleDetailResponse({}));
+  }
+
+  async getContainerDefenseRuleDetail(request: GetContainerDefenseRuleDetailRequest): Promise<GetContainerDefenseRuleDetailResponse> {
+    let runtime = new $Util.RuntimeOptions({ });
+    return await this.getContainerDefenseRuleDetailWithOptions(request, runtime);
+  }
+
   async getFileDetectApiInvokeInfoWithOptions(runtime: $Util.RuntimeOptions): Promise<GetFileDetectApiInvokeInfoResponse> {
     let req = new $OpenApi.OpenApiRequest({ });
     let params = new $OpenApi.Params({
@@ -79931,6 +81609,39 @@ export default class Client extends OpenApi {
   async getHoneypotStatistics(request: GetHoneypotStatisticsRequest): Promise<GetHoneypotStatisticsResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.getHoneypotStatisticsWithOptions(request, runtime);
+  }
+
+  async getImageEventOperationWithOptions(request: GetImageEventOperationRequest, runtime: $Util.RuntimeOptions): Promise<GetImageEventOperationResponse> {
+    Util.validateModel(request);
+    let query = { };
+    if (!Util.isUnset(request.id)) {
+      query["Id"] = request.id;
+    }
+
+    if (!Util.isUnset(request.lang)) {
+      query["Lang"] = request.lang;
+    }
+
+    let req = new $OpenApi.OpenApiRequest({
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApi.Params({
+      action: "GetImageEventOperation",
+      version: "2018-12-03",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $tea.cast<GetImageEventOperationResponse>(await this.callApi(params, req, runtime), new GetImageEventOperationResponse({}));
+  }
+
+  async getImageEventOperation(request: GetImageEventOperationRequest): Promise<GetImageEventOperationResponse> {
+    let runtime = new $Util.RuntimeOptions({ });
+    return await this.getImageEventOperationWithOptions(request, runtime);
   }
 
   async getImageScanNumInPeriodWithOptions(request: GetImageScanNumInPeriodRequest, runtime: $Util.RuntimeOptions): Promise<GetImageScanNumInPeriodResponse> {
@@ -80464,6 +82175,35 @@ export default class Client extends OpenApi {
   async getSecurityScoreRule(request: GetSecurityScoreRuleRequest): Promise<GetSecurityScoreRuleResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.getSecurityScoreRuleWithOptions(request, runtime);
+  }
+
+  async getSensitiveDefineRuleConfigWithOptions(request: GetSensitiveDefineRuleConfigRequest, runtime: $Util.RuntimeOptions): Promise<GetSensitiveDefineRuleConfigResponse> {
+    Util.validateModel(request);
+    let query = { };
+    if (!Util.isUnset(request.lang)) {
+      query["Lang"] = request.lang;
+    }
+
+    let req = new $OpenApi.OpenApiRequest({
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApi.Params({
+      action: "GetSensitiveDefineRuleConfig",
+      version: "2018-12-03",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $tea.cast<GetSensitiveDefineRuleConfigResponse>(await this.callApi(params, req, runtime), new GetSensitiveDefineRuleConfigResponse({}));
+  }
+
+  async getSensitiveDefineRuleConfig(request: GetSensitiveDefineRuleConfigRequest): Promise<GetSensitiveDefineRuleConfigResponse> {
+    let runtime = new $Util.RuntimeOptions({ });
+    return await this.getSensitiveDefineRuleConfigWithOptions(request, runtime);
   }
 
   async getServiceTrailWithOptions(request: GetServiceTrailRequest, runtime: $Util.RuntimeOptions): Promise<GetServiceTrailResponse> {
@@ -82149,6 +83889,55 @@ export default class Client extends OpenApi {
   async listClusterInterceptionConfig(request: ListClusterInterceptionConfigRequest): Promise<ListClusterInterceptionConfigResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.listClusterInterceptionConfigWithOptions(request, runtime);
+  }
+
+  async listContainerDefenseRuleWithOptions(request: ListContainerDefenseRuleRequest, runtime: $Util.RuntimeOptions): Promise<ListContainerDefenseRuleResponse> {
+    Util.validateModel(request);
+    let query = { };
+    if (!Util.isUnset(request.conditions)) {
+      query["Conditions"] = request.conditions;
+    }
+
+    if (!Util.isUnset(request.currentPage)) {
+      query["CurrentPage"] = request.currentPage;
+    }
+
+    if (!Util.isUnset(request.isDefaultRule)) {
+      query["IsDefaultRule"] = request.isDefaultRule;
+    }
+
+    if (!Util.isUnset(request.lang)) {
+      query["Lang"] = request.lang;
+    }
+
+    if (!Util.isUnset(request.pageSize)) {
+      query["PageSize"] = request.pageSize;
+    }
+
+    if (!Util.isUnset(request.ruleType)) {
+      query["RuleType"] = request.ruleType;
+    }
+
+    let req = new $OpenApi.OpenApiRequest({
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApi.Params({
+      action: "ListContainerDefenseRule",
+      version: "2018-12-03",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $tea.cast<ListContainerDefenseRuleResponse>(await this.callApi(params, req, runtime), new ListContainerDefenseRuleResponse({}));
+  }
+
+  async listContainerDefenseRule(request: ListContainerDefenseRuleRequest): Promise<ListContainerDefenseRuleResponse> {
+    let runtime = new $Util.RuntimeOptions({ });
+    return await this.listContainerDefenseRuleWithOptions(request, runtime);
   }
 
   async listCriteriaStrategyWithOptions(request: ListCriteriaStrategyRequest, runtime: $Util.RuntimeOptions): Promise<ListCriteriaStrategyResponse> {
@@ -87493,6 +89282,43 @@ export default class Client extends OpenApi {
     return await this.setClusterInterceptionConfigWithOptions(request, runtime);
   }
 
+  async setImageSensitiveFileStatusWithOptions(request: SetImageSensitiveFileStatusRequest, runtime: $Util.RuntimeOptions): Promise<SetImageSensitiveFileStatusResponse> {
+    Util.validateModel(request);
+    let query = { };
+    if (!Util.isUnset(request.imageUuids)) {
+      query["ImageUuids"] = request.imageUuids;
+    }
+
+    if (!Util.isUnset(request.sensitiveFileKey)) {
+      query["SensitiveFileKey"] = request.sensitiveFileKey;
+    }
+
+    if (!Util.isUnset(request.status)) {
+      query["Status"] = request.status;
+    }
+
+    let req = new $OpenApi.OpenApiRequest({
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApi.Params({
+      action: "SetImageSensitiveFileStatus",
+      version: "2018-12-03",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $tea.cast<SetImageSensitiveFileStatusResponse>(await this.callApi(params, req, runtime), new SetImageSensitiveFileStatusResponse({}));
+  }
+
+  async setImageSensitiveFileStatus(request: SetImageSensitiveFileStatusRequest): Promise<SetImageSensitiveFileStatusResponse> {
+    let runtime = new $Util.RuntimeOptions({ });
+    return await this.setImageSensitiveFileStatusWithOptions(request, runtime);
+  }
+
   async setRegistryScanDayNumWithOptions(request: SetRegistryScanDayNumRequest, runtime: $Util.RuntimeOptions): Promise<SetRegistryScanDayNumResponse> {
     Util.validateModel(request);
     let query = { };
@@ -87520,6 +89346,35 @@ export default class Client extends OpenApi {
   async setRegistryScanDayNum(request: SetRegistryScanDayNumRequest): Promise<SetRegistryScanDayNumResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.setRegistryScanDayNumWithOptions(request, runtime);
+  }
+
+  async setSensitiveDefineRuleConfigWithOptions(request: SetSensitiveDefineRuleConfigRequest, runtime: $Util.RuntimeOptions): Promise<SetSensitiveDefineRuleConfigResponse> {
+    Util.validateModel(request);
+    let query = { };
+    if (!Util.isUnset(request.config)) {
+      query["Config"] = request.config;
+    }
+
+    let req = new $OpenApi.OpenApiRequest({
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApi.Params({
+      action: "SetSensitiveDefineRuleConfig",
+      version: "2018-12-03",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $tea.cast<SetSensitiveDefineRuleConfigResponse>(await this.callApi(params, req, runtime), new SetSensitiveDefineRuleConfigResponse({}));
+  }
+
+  async setSensitiveDefineRuleConfig(request: SetSensitiveDefineRuleConfigRequest): Promise<SetSensitiveDefineRuleConfigResponse> {
+    let runtime = new $Util.RuntimeOptions({ });
+    return await this.setSensitiveDefineRuleConfigWithOptions(request, runtime);
   }
 
   /**
@@ -88382,6 +90237,39 @@ export default class Client extends OpenApi {
   async updateHoneypotProbeBind(request: UpdateHoneypotProbeBindRequest): Promise<UpdateHoneypotProbeBindResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.updateHoneypotProbeBindWithOptions(request, runtime);
+  }
+
+  async updateImageEventOperationWithOptions(request: UpdateImageEventOperationRequest, runtime: $Util.RuntimeOptions): Promise<UpdateImageEventOperationResponse> {
+    Util.validateModel(request);
+    let query = { };
+    if (!Util.isUnset(request.id)) {
+      query["Id"] = request.id;
+    }
+
+    if (!Util.isUnset(request.scenarios)) {
+      query["Scenarios"] = request.scenarios;
+    }
+
+    let req = new $OpenApi.OpenApiRequest({
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApi.Params({
+      action: "UpdateImageEventOperation",
+      version: "2018-12-03",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $tea.cast<UpdateImageEventOperationResponse>(await this.callApi(params, req, runtime), new UpdateImageEventOperationResponse({}));
+  }
+
+  async updateImageEventOperation(request: UpdateImageEventOperationRequest): Promise<UpdateImageEventOperationResponse> {
+    let runtime = new $Util.RuntimeOptions({ });
+    return await this.updateImageEventOperationWithOptions(request, runtime);
   }
 
   async updateImageVulWhitelistTargetWithOptions(request: UpdateImageVulWhitelistTargetRequest, runtime: $Util.RuntimeOptions): Promise<UpdateImageVulWhitelistTargetResponse> {
