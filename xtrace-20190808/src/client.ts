@@ -63,10 +63,12 @@ export class GetTagKeyResponseBody extends $tea.Model {
 
 export class GetTagKeyResponse extends $tea.Model {
   headers: { [key: string]: string };
+  statusCode: number;
   body: GetTagKeyResponseBody;
   static names(): { [key: string]: string } {
     return {
       headers: 'headers',
+      statusCode: 'statusCode',
       body: 'body',
     };
   }
@@ -74,6 +76,7 @@ export class GetTagKeyResponse extends $tea.Model {
   static types(): { [key: string]: any } {
     return {
       headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
       body: GetTagKeyResponseBody,
     };
   }
@@ -141,10 +144,12 @@ export class GetTagValResponseBody extends $tea.Model {
 
 export class GetTagValResponse extends $tea.Model {
   headers: { [key: string]: string };
+  statusCode: number;
   body: GetTagValResponseBody;
   static names(): { [key: string]: string } {
     return {
       headers: 'headers',
+      statusCode: 'statusCode',
       body: 'body',
     };
   }
@@ -152,6 +157,7 @@ export class GetTagValResponse extends $tea.Model {
   static types(): { [key: string]: any } {
     return {
       headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
       body: GetTagValResponseBody,
     };
   }
@@ -210,10 +216,12 @@ export class GetTraceResponseBody extends $tea.Model {
 
 export class GetTraceResponse extends $tea.Model {
   headers: { [key: string]: string };
+  statusCode: number;
   body: GetTraceResponseBody;
   static names(): { [key: string]: string } {
     return {
       headers: 'headers',
+      statusCode: 'statusCode',
       body: 'body',
     };
   }
@@ -221,6 +229,7 @@ export class GetTraceResponse extends $tea.Model {
   static types(): { [key: string]: any } {
     return {
       headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
       body: GetTraceResponseBody,
     };
   }
@@ -282,10 +291,12 @@ export class ListIpOrHostsResponseBody extends $tea.Model {
 
 export class ListIpOrHostsResponse extends $tea.Model {
   headers: { [key: string]: string };
+  statusCode: number;
   body: ListIpOrHostsResponseBody;
   static names(): { [key: string]: string } {
     return {
       headers: 'headers',
+      statusCode: 'statusCode',
       body: 'body',
     };
   }
@@ -293,6 +304,7 @@ export class ListIpOrHostsResponse extends $tea.Model {
   static types(): { [key: string]: any } {
     return {
       headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
       body: ListIpOrHostsResponseBody,
     };
   }
@@ -348,10 +360,12 @@ export class ListServicesResponseBody extends $tea.Model {
 
 export class ListServicesResponse extends $tea.Model {
   headers: { [key: string]: string };
+  statusCode: number;
   body: ListServicesResponseBody;
   static names(): { [key: string]: string } {
     return {
       headers: 'headers',
+      statusCode: 'statusCode',
       body: 'body',
     };
   }
@@ -359,6 +373,7 @@ export class ListServicesResponse extends $tea.Model {
   static types(): { [key: string]: any } {
     return {
       headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
       body: ListServicesResponseBody,
     };
   }
@@ -420,10 +435,12 @@ export class ListSpanNamesResponseBody extends $tea.Model {
 
 export class ListSpanNamesResponse extends $tea.Model {
   headers: { [key: string]: string };
+  statusCode: number;
   body: ListSpanNamesResponseBody;
   static names(): { [key: string]: string } {
     return {
       headers: 'headers',
+      statusCode: 'statusCode',
       body: 'body',
     };
   }
@@ -431,7 +448,74 @@ export class ListSpanNamesResponse extends $tea.Model {
   static types(): { [key: string]: any } {
     return {
       headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
       body: ListSpanNamesResponseBody,
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class OpenXtraceServiceRequest extends $tea.Model {
+  regionId?: string;
+  static names(): { [key: string]: string } {
+    return {
+      regionId: 'RegionId',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      regionId: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class OpenXtraceServiceResponseBody extends $tea.Model {
+  orderId?: string;
+  requestId?: string;
+  static names(): { [key: string]: string } {
+    return {
+      orderId: 'OrderId',
+      requestId: 'RequestId',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      orderId: 'string',
+      requestId: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class OpenXtraceServiceResponse extends $tea.Model {
+  headers: { [key: string]: string };
+  statusCode: number;
+  body: OpenXtraceServiceResponseBody;
+  static names(): { [key: string]: string } {
+    return {
+      headers: 'headers',
+      statusCode: 'statusCode',
+      body: 'body',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
+      body: OpenXtraceServiceResponseBody,
     };
   }
 
@@ -513,10 +597,12 @@ export class QueryMetricResponseBody extends $tea.Model {
 
 export class QueryMetricResponse extends $tea.Model {
   headers: { [key: string]: string };
+  statusCode: number;
   body: QueryMetricResponseBody;
   static names(): { [key: string]: string } {
     return {
       headers: 'headers',
+      statusCode: 'statusCode',
       body: 'body',
     };
   }
@@ -524,6 +610,7 @@ export class QueryMetricResponse extends $tea.Model {
   static types(): { [key: string]: any } {
     return {
       headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
       body: QueryMetricResponseBody,
     };
   }
@@ -609,10 +696,12 @@ export class SearchTracesResponseBody extends $tea.Model {
 
 export class SearchTracesResponse extends $tea.Model {
   headers: { [key: string]: string };
+  statusCode: number;
   body: SearchTracesResponseBody;
   static names(): { [key: string]: string } {
     return {
       headers: 'headers',
+      statusCode: 'statusCode',
       body: 'body',
     };
   }
@@ -620,6 +709,7 @@ export class SearchTracesResponse extends $tea.Model {
   static types(): { [key: string]: any } {
     return {
       headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
       body: SearchTracesResponseBody,
     };
   }
@@ -1341,6 +1431,35 @@ export default class Client extends OpenApi {
   async listSpanNames(request: ListSpanNamesRequest): Promise<ListSpanNamesResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.listSpanNamesWithOptions(request, runtime);
+  }
+
+  async openXtraceServiceWithOptions(request: OpenXtraceServiceRequest, runtime: $Util.RuntimeOptions): Promise<OpenXtraceServiceResponse> {
+    Util.validateModel(request);
+    let query = { };
+    if (!Util.isUnset(request.regionId)) {
+      query["RegionId"] = request.regionId;
+    }
+
+    let req = new $OpenApi.OpenApiRequest({
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApi.Params({
+      action: "OpenXtraceService",
+      version: "2019-08-08",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $tea.cast<OpenXtraceServiceResponse>(await this.callApi(params, req, runtime), new OpenXtraceServiceResponse({}));
+  }
+
+  async openXtraceService(request: OpenXtraceServiceRequest): Promise<OpenXtraceServiceResponse> {
+    let runtime = new $Util.RuntimeOptions({ });
+    return await this.openXtraceServiceWithOptions(request, runtime);
   }
 
   async queryMetricWithOptions(request: QueryMetricRequest, runtime: $Util.RuntimeOptions): Promise<QueryMetricResponse> {
